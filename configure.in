@@ -230,7 +230,7 @@ define([XE_PREPEND],
  if test "$extra_verbose" = "yes"; then echo "    Prepending \"[$1]\" to \$[$2]"; fi])
 
 dnl XE_DIE(message)
-define([XE_DIE], [{ echo $1 >&2; exit 1; }])
+define([XE_DIE], [{ echo "Error:" $1 >&2; exit 1; }])
 
 dnl XE_STRIP_4TH_COMPONENT(var)
 dnl Changes i986-pc-linux-gnu to i986-pc-linux, as God (not RMS) intended.
@@ -2483,7 +2483,7 @@ if test "$with_msw" != "no"; then
     with_file_coding=yes
     use_minimal_tagbits=yes
     use_indexed_lrecord_implementation=yes
-    XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o)
+    XE_ADD_OBJS(console-msw.o device-msw.o event-msw.o frame-msw.o objects-msw.o select-msw.o redisplay-msw.o glyphs-msw.o gui-msw.o)
   fi
 fi
 
@@ -2922,7 +2922,6 @@ test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar.o)
 test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar.o)
 test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog.o)
 test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar.o)
-test "$all_widgets" != "no no no no" && XE_ADD_OBJS(gui.o)
 
 if test "$with_x11" = "yes"; then
   test "$with_menubars"   != "no"      && XE_ADD_OBJS(menubar-x.o)
@@ -3485,45 +3484,48 @@ dnl Do we need event-unixoid.o ?
 test "$with_x11" = "yes" -o "$with_tty" = "yes" && XE_ADD_OBJS(event-unixoid.o)
 
 dnl Database support
-dnl <mdiers@logware.de>
 dnl We do not necessarily have to have libdb/lib(g)dbm for DB/(G)DBM support.
 dnl On FreeBSD, both DB and DBM are part of libc.
-dnl Note that unless support for DB/(G)DBM is explicitly disabled, we always
-dnl want to check for libdb/lib(g)dbm. Also note that libc will not be
-dnl checked if we have the libraries.
-dnl If support for DB/(G)DBM is requested, but we neither have libdb/lib(g)dbm,
-dnl nor does libc implement it, we are a bit lost :)
+dnl By default, we check for DBM support in libgdbm, then libc, then libdbm.
 
-AC_CHECKING(for database support)
+test "$with_database_gnudbm $with_database_dbm $with_database_berkdb" \
+  != "no no no" && AC_CHECKING(for database support)
 
+dnl Check for ndbm.h, required for either kind of DBM support.
+if test "$with_database_gnudbm $with_database_dbm" != "no no"; then
+  AC_CHECK_HEADER(ndbm.h, [:], [
+    test "$with_database_gnudbm" = "yes" -o \
+         "$with_database_dbm"    = "yes" && \
+      XE_DIE("Required DBM support cannot be provided.")
+    with_database_gnudbm=no with_database_dbm=no])
+fi
+
+dnl Check for DBM support in libgdbm.
 if test "$with_database_gnudbm" != "no"; then
-  AC_CHECK_HEADERS(ndbm.h, have_ndbm_h=yes)
-  if test "$have_ndbm_h" = "yes"; then
-    AC_CHECK_LIB(gdbm, dbm_open, with_database_gnudbm=yes have_libgdbm=yes)
-  fi
-  if test "$with_database_gnudbm" != "yes"; then
-    AC_CHECK_FUNC(dbm_open, with_database_gnudbm=yes)
-      fi
-  if test "$with_database_gnudbm" = "yes"; then
-    AC_DEFINE(HAVE_DBM)
-    test "$have_libgdbm" = "yes" && XE_PREPEND(-lgdbm, LIBS)
-    with_database_dbm=no
-  else with_database_gnudbm=no
-  fi
+  AC_CHECK_LIB(gdbm, dbm_open, [
+   with_database_gnudbm=yes with_database_dbm=no libdbm=-lgdbm], [
+   if test "$with_database_gnudbm" = "yes"; then
+     XE_DIE("Required GNU DBM support cannot be provided.")
+   fi
+   with_database_gnudbm=no])
 fi
 
+dnl Check for DBM support in libc and libdbm.
 if test "$with_database_dbm" != "no"; then
-  AC_CHECK_FUNC(dbm_open, with_database_dbm=yes need_libdbm=no)
-  if test "$need_libdbm" != "no"; then
-    AC_CHECK_LIB(dbm, dbm_open, with_database_dbm=yes need_libdbm=yes)
-  fi
-  if test "$with_database_dbm" = "yes"; then
-    AC_DEFINE(HAVE_DBM)
-    test "$need_libdbm" = "yes" && XE_PREPEND(-ldbm, LIBS)
-  else with_database_dbm=no
-  fi
+  AC_CHECK_FUNC(dbm_open, [with_database_dbm=yes libdbm=], [
+    AC_CHECK_LIB(dbm, dbm_open, [with_database_dbm=yes libdbm=-ldbm], [
+      test "$with_database_dbm" = "yes" && \
+        XE_DIE("Required DBM support cannot be provided.")
+      with_database_dbm=no])])
 fi
 
+dnl Tell make about the DBM support we detected.
+test -n "$libdbm" && XE_PREPEND("$libdbm", LIBS)
+test "$with_database_gnudbm" = "yes" -o \
+     "$with_database_dbm"    = "yes" && \
+  AC_DEFINE(HAVE_DBM)
+
+dnl Check for Berkeley DB.
 if test "$with_database_berkdb" != "no"; then
   AC_MSG_CHECKING(for Berkeley db.h)
   for path in "db/db.h" "db.h"; do

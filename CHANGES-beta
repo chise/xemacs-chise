@@ -1,4 +1,20 @@
 							-*- indented-text -*-
+to 21.2 beta7 "Ares"
+-- mswindows modeline crash fix from Jonathan Harris
+-- picon glyph fix from Gunnar Evermann
+-- widgets-in-buffers and subwindow support from Andy Piper
+-- movemail pop support under mswindows from Fabrice Popineau
+-- ldap fixes from Oscar Figueiredo
+-- fns cleanup from Hrvoje Niksic
+-- menubar fixes from Didier Verna
+-- mswindows accelerator fix from Jonathan Harris
+-- dired mule fix from Didier Verna
+-- sound doc cleanup from Charles Waldman
+-- new display table functionality from Hrvoje Niksic
+-- minor cleanups
+-- package fixes from Jan Vroonhof
+-- subwindow support fixes from Martin Buchholz
+
 to 21.2 beta6 "Apollo"
 -- mswindows compile fixes from Martin Buchholz, Andy Piper, Greg
    Klanderman and Adrian Aichner
