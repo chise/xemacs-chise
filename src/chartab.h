@@ -31,6 +31,10 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
+#ifdef HAVE_DATABASE
+#include "database.h"
+#endif
+
 EXFUN (Fmake_char, 3);
 EXFUN (Fdecode_char, 3);
 
@@ -161,6 +165,7 @@ struct Lisp_Char_Table
 #ifdef UTF2000
   Lisp_Object table;
   Lisp_Object default_value;
+  Lisp_Object name;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
@@ -216,6 +221,9 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 #define XCHAR_TABLE_TYPE(ct) CHAR_TABLE_TYPE (XCHAR_TABLE (ct))
 
 #ifdef UTF2000
+
+#define CHAR_TABLE_NAME(ct) ((ct)->name)
+#define XCHAR_TABLE_NAME(ct) CHAR_TABLE_NAME (XCHAR_TABLE (ct))
 
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
@@ -314,24 +322,6 @@ extern Lisp_Object Vall_syntax_tables;
 
 #ifdef UTF2000
 
-INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
-INLINE_HEADER Lisp_Object
-get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
-{
-  Lisp_Object val = get_byte_table (get_byte_table
-				    (get_byte_table
-				     (get_byte_table
-				      (cit->table,
-				       (unsigned char)(ch >> 24)),
-				      (unsigned char) (ch >> 16)),
-				     (unsigned char)  (ch >> 8)),
-				    (unsigned char)    ch);
-  if (UNBOUNDP (val))
-    return cit->default_value;
-  else
-    return val;
-}
-
 INLINE_HEADER void
 put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value);
 INLINE_HEADER void
@@ -348,6 +338,52 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
   table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+}
+
+INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
+INLINE_HEADER Lisp_Object
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
+{
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (cit->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+  if (EQ (val, Qunloaded))
+    {
+      Lisp_Object attribute = CHAR_TABLE_NAME (cit);
+
+      if (!NILP (attribute))
+	{
+	  Lisp_Object db;
+	  Lisp_Object db_dir = Vdata_directory;
+	  Lisp_Object db_file;
+
+	  if (NILP (db_dir))
+	    db_dir = build_string ("../etc");
+	  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+	  db_file = Fexpand_file_name (attribute, db_dir);
+	  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+	  if (!NILP (db))
+	    {
+	      val = Fget_database (Fchar_to_string (make_char (ch)),
+				   db, Qunbound);
+	      if (!UNBOUNDP (val))
+		val = Fread (val);
+	      else
+		val = Qunbound;
+	      put_char_id_table_0 (cit, ch, val);
+	      Fclose_database (db);
+	    }
+	}
+    }
+  if (UNBOUNDP (val))
+    return cit->default_value;
+  else
+    return val;
 }
 
 void
