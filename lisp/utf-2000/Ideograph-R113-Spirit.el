@@ -3808,11 +3808,12 @@
     (=ucs		. #x9834)	; 頴
     (->subsumptive
      ((<-vulgar
-       ((=ucs		    . #x7A4E)	; 穎
+       ((=jis-x0208	    . #x314F)	; &GT-32559;
+	(=ks-x1001	    . #x6744)	; &I-K0-6744;
 	(=daikanwa	    . 25267)	; &I-M-25267;
 	))
       (<-vulgar*sources
-       seiji-tsuu daikanwa)
+       zhengzi-tong daikanwa)
       (=daikanwa	  . 24824)	; &M-24824;
       )
      ((=cns11643-3	  . #x5228)	; &C3-5228;
