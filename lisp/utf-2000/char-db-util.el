@@ -115,7 +115,8 @@
 
 (defun insert-char-data (char)
   (let ((data (char-attribute-alist char))
-	cell ret has-long-ccs-name rest)
+	cell ret has-long-ccs-name rest
+	radical strokes)
     (when data
       (save-restriction
 	(narrow-to-region (point)(point))
@@ -240,13 +241,34 @@
 			  (mapconcat (function prin1-to-string) cell " ")))
 	  (setq data (del-alist 'morohashi-daikanwa data))
 	  )
+	(setq radical nil)
 	(when (setq cell (assq 'ideographic-radical data))
-	  (setq cell (cdr cell))
+	  (setq radical (cdr cell))
 	  (insert (format "(ideographic-radical . %S)\t; %c
     "
-			  cell
-			  (aref ideographic-radicals cell)))
+			  radical
+			  (aref ideographic-radicals radical)))
 	  (setq data (del-alist 'ideographic-radical data))
+	  )
+	(when (setq cell (assq 'kangxi-radical data))
+	  (setq cell (cdr cell))
+	  (unless (eq cell radical)
+	    (insert (format "(kangxi-radical . %S)\t; %c
+    "
+			    cell
+			    (aref ideographic-radicals cell)))
+	    (setq radical cell))
+	  (setq data (del-alist 'kangxi-radical data))
+	  )
+	(when (setq cell (assq 'japanese-radical data))
+	  (setq cell (cdr cell))
+	  (unless (eq cell radical)
+	    (insert (format "(japanese-radical . %S)\t; %c
+    "
+			    cell
+			    (aref ideographic-radicals cell)))
+	    (setq radical cell))
+	  (setq data (del-alist 'japanese-radical data))
 	  )
 	(when (setq cell (assq 'cns-radical data))
 	  (setq cell (cdr cell))
@@ -256,20 +278,31 @@
 			  (aref ideographic-radicals cell)))
 	  (setq data (del-alist 'cns-radical data))
 	  )
+	(setq strokes nil)
 	(cond
 	 ((setq cell (assq 'ideographic-strokes data))
-	  (setq cell (cdr cell))
+	  (setq strokes (cdr cell))
 	  (insert (format "(ideographic-strokes . %S)
     "
-			  cell))
+			  strokes))
 	  (setq data (del-alist 'ideographic-strokes data))
+	  (when (setq cell (assq 'japanese-strokes data))
+	    (setq cell (cdr cell))
+	    (unless (eq cell strokes)
+	      (insert (format "(japanese-strokes\t . %S)
+    "
+			      cell))
+	      (setq strokes cell))
+	    (setq data (del-alist 'japanese-strokes data))
+	    )
 	  (when (setq cell (assq 'total-strokes data))
 	    (setq cell (cdr cell))
 	    (insert (format "(total-strokes\t . %S)
     "
 			    cell))
 	    (setq data (del-alist 'total-strokes data))
-	    ))
+	    )
+	  )
 	 ((setq cell (assq 'total-strokes data))
 	  (setq cell (cdr cell))
 	  (insert (format "(total-strokes\t. %S)
