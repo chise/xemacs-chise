@@ -197,8 +197,10 @@ static int detect_coding_big5 (struct detection_state *st,
 			       const Extbyte *src, size_t n);
 static void decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 				unsigned_char_dynarr *dst, size_t n);
-static void encode_coding_big5 (Lstream *encoding, const Bufbyte *src,
-				unsigned_char_dynarr *dst, size_t n);
+void char_encode_big5 (struct encoding_stream *str, Emchar c,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
+void char_finish_big5 (struct encoding_stream *str,
+		       unsigned_char_dynarr *dst, unsigned int *flags);
 
 static int detect_coding_ucs4 (struct detection_state *st,
 			       const Extbyte *src, size_t n);
@@ -2901,6 +2903,10 @@ reset_encoding_stream (struct encoding_stream *str)
       str->encode_char = &char_encode_shift_jis;
       str->finish = &char_finish_shift_jis;
       break;
+    case CODESYS_BIG5:
+      str->encode_char = &char_encode_big5;
+      str->finish = &char_finish_big5;
+      break;
     default:
       break;
     }
@@ -3016,9 +3022,6 @@ mule_encode (Lstream *encoding, const Bufbyte *src,
       encode_coding_no_conversion (encoding, src, dst, n);
       break;
 #ifdef MULE
-    case CODESYS_BIG5:
-      encode_coding_big5 (encoding, src, dst, n);
-      break;
     case CODESYS_CCL:
       str->ccl.last_block = str->flags & CODING_STATE_END;
       /* When applying ccl program to stream, MUST NOT set NULL
@@ -3619,66 +3622,71 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 
 /* Convert internally-formatted data to Big5. */
 
-static void
-encode_coding_big5 (Lstream *encoding, const Bufbyte *src,
-		    unsigned_char_dynarr *dst, size_t n)
+void
+char_encode_big5 (struct encoding_stream *str, Emchar ch,
+		  unsigned_char_dynarr *dst, unsigned int *flags)
 {
-#ifndef UTF2000
-  unsigned char c;
-  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
 
-  while (n--)
+  if (ch == '\n')
     {
-      c = *src++;
-      if (c == '\n')
-	{
-	  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
-	    Dynarr_add (dst, '\r');
-	  if (eol_type != EOL_CR)
-	    Dynarr_add (dst, '\n');
-	}
-      else if (BYTE_ASCII_P (c))
-	{
-	  /* ASCII. */
-	  Dynarr_add (dst, c);
-	}
-      else if (BUFBYTE_LEADING_BYTE_P (c))
-	{
-	  if (c == LEADING_BYTE_CHINESE_BIG5_1 ||
-	      c == LEADING_BYTE_CHINESE_BIG5_2)
-	    {
-	      /* A recognized leading byte. */
-	      ch = c;
-	      continue; /* not done with this character. */
-	    }
-	  /* otherwise just ignore this character. */
-	}
-      else if (ch == LEADING_BYTE_CHINESE_BIG5_1 ||
-	       ch == LEADING_BYTE_CHINESE_BIG5_2)
-	{
-	  /* Previous char was a recognized leading byte. */
-	  ch = (ch << 8) | c;
-	  continue; /* not done with this character. */
-	}
-      else if (ch)
-	{
-	  /* Encountering second byte of a Big5 character. */
-	  unsigned char b1, b2;
+      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+	Dynarr_add (dst, '\r');
+      if (eol_type != EOL_CR)
+	Dynarr_add (dst, ch);
+    }
+  else
+    {
+#ifdef UTF2000
+      int code_point;
 
-	  ENCODE_BIG5 (ch >> 8, ch & 0xFF, c, b1, b2);
+      if ((code_point = charset_code_point (Vcharset_ascii, ch)) >= 0)
+	Dynarr_add (dst, code_point);
+      else if ((code_point
+		= charset_code_point (Vcharset_chinese_big5, ch)) >= 0)
+	{
+	  Dynarr_add (dst, code_point >> 8);
+	  Dynarr_add (dst, code_point & 0xFF);
+	}
+      else if ((code_point
+		= charset_code_point (Vcharset_chinese_big5_1, ch)) >= 0)
+	{
+	  unsigned int I
+	    = ((code_point >> 8) - 33) * (0xFF - 0xA1)
+	    + ((code_point & 0xFF) - 33);
+	  unsigned char b1 = I / BIG5_SAME_ROW + 0xA1;
+	  unsigned char b2 = I % BIG5_SAME_ROW;
+
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
 	  Dynarr_add (dst, b1);
 	  Dynarr_add (dst, b2);
 	}
+      else if ((code_point
+		= charset_code_point (Vcharset_chinese_big5_2, ch)) >= 0)
+	{
+	  unsigned int I
+	    = ((code_point >> 8) - 33) * (0xFF - 0xA1)
+	    + ((code_point & 0xFF) - 33);
+	  unsigned char b1, b2;
 
-      ch = 0;
-    }
-
-  str->flags = flags;
-  str->ch    = ch;
+	  I += BIG5_SAME_ROW * (0xC9 - 0xA1);
+	  b1 = I / BIG5_SAME_ROW + 0xA1;
+	  b2 = I % BIG5_SAME_ROW;
+	  b2 += b2 < 0x3F ? 0x40 : 0x62;
+	  Dynarr_add (dst, b1);
+	  Dynarr_add (dst, b2);
+	}
+      else
+	Dynarr_add (dst, '?');
+#else
 #endif
+    }
+}
+
+void
+char_finish_big5 (struct encoding_stream *str, unsigned_char_dynarr *dst,
+		  unsigned int *flags)
+{
 }
 
 
