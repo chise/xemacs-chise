@@ -1,3 +1,11 @@
+2003-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* ad-hoc-cdp.el: Rename `chinese-big5-pua' to `=big5-pua'.
+
+2003-02-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el: Rename `chinese-big5-pua' to `=big5-pua'.
+
 2003-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R191-Fight.el, Ideograph-R149-Speech.el,
