@@ -1,3 +1,21 @@
+2004-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el: Use `->subsumptive' for some
+	character definitions.
+	(U+5EFE): Define as an abstract character.
+	(J0-5730): Separate U+5EFE; use `<-denotational' for U+5EFE.
+	(C6-2174): Unify U-0002F890; use `<-denotational' for U+5EFE.
+	(M-09590): Map to U-0002232E.
+	(M-09602): Unify U-00022339.
+	(M-09615): Unify U-00022347.
+	(M-09616): Unify U-00022348.
+	(M-09623): Unify U-00022351.
+	(M-09624): Map to U-00022353.
+	(U+5F09): Unify CB04455.
+
+	* Ideograph-R051-Dry.el: Add some mappings to Daikanwa numbers.
+	(U-000221A6): New character.
+
 2004-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R008-Lid.el (U-00020179): Use `->subsumptive';
