@@ -23,6 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file Mule-ized (more like Mule-verified) by Ben Wing, 7-8-00. */
+
 #include <config.h>
 #include "lisp.h"
 

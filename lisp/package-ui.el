@@ -521,17 +521,6 @@ Designed to be called interactively (from a keypress)."
 	  (error "No package under cursor!")))
       )))
 
-;;; "Why is there no standard function to do this?"
-(defun pui-popup-context-sensitive (event)
-  (interactive "e")
-  (save-excursion
-    (set-buffer (event-buffer event))
-    (goto-char (event-point event))
-    (popup-menu pui-menu event)
-    ;; I agree with dired.el - this is seriously bogus.
-    (while (popup-menu-up-p)
-      (dispatch-event (next-event)))))
-
 (defvar pui-menu
   '("Packages"
     ["Toggle install " pui-toggle-package-key :active (pui-current-package) :suffix (format "`%s'" (or (pui-current-package) "..."))]
@@ -547,6 +536,16 @@ Designed to be called interactively (from a keypress)."
     ["Help" pui-help t]
     ["Quit" pui-quit t]))
 
+;;; "Why is there no standard function to do this?"
+(defun pui-popup-context-sensitive (event)
+  (interactive "e")
+  (save-excursion
+    (set-buffer (event-buffer event))
+    (goto-char (event-point event))
+    (popup-menu pui-menu event)
+    ;; I agree with dired.el - this is seriously bogus.
+    (while (popup-up-p)
+      (dispatch-event (next-event)))))
 
 (defun list-packages-mode ()
     "Symbols in the leftmost column:

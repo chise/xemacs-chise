@@ -81,25 +81,47 @@
 	"fill"
 	"auto-save"		; Added for 20.4
 	"movemail"              ; Added for 21.2
-	(when-feature windows-nt "winnt")
+	(when-feature windows-nt "win32-native")
 	(when-feature lisp-float-type "float-sup")
 	"itimer"		; for vars auto-save-timeout and
 				; auto-gc-threshold
 	"itimer-autosave"
 	"printer"
+
+	;;;;;;;;;;;;;;;;;; GUI support
+	(when-feature window-system "gui")
+	(when-feature window-system "mouse")
+	(when-feature window-system "mode-motion")
 	(when-feature toolbar "toolbar")
 	(when-feature scrollbar "scrollbar")
 	(when-feature menubar "menubar")
 	(when-feature dialog "dialog")
-	(when-feature mule "mule-charset")
+	(when-feature gutter "gutter")
+	(when-feature dragdrop-api "dragdrop")
+	"select"
+
+	;;;;;;;;;;;;;;;;;; Content for GUI's
+	;; There used to be window-system inserted in the when-feature,
+	;; but IMHO your configure script should turn off the menubar,
+	;; toolbar, etc. features when there is no window system.  We
+	;; should just be able to assume that, if (featurep 'menubar),
+	;; the menubar should work and if items are added, they can be
+	;; seen clearly and usefully.
+	(when-feature (and (not infodock) menubar) "menubar-items")
+	(when-feature (and gutter) "gutter-items")
+	(when-feature (and (not infodock) toolbar) "toolbar-items")
+	(when-feature (and (not infodock) dialog) "dialog-items")
+
+	;;;;;;;;;;;;;;;;;; Coding-system support
 	(when-feature file-coding "coding")
-	(when-feature mule "mule-coding")
-;; Handle I/O of files with extended characters.
 	(when-feature file-coding "code-files")
-;; Handle process with encoding/decoding non-ascii coding-system.
 	(when-feature file-coding "code-process")
+
+	;;;;;;;;;;;;;;;;;; MULE support
+	(when-feature mule "mule-charset")
+	(when-feature mule "mule-coding")
+	;; All files after this can have extended characters in them.
 	(when-feature mule "mule-help")
-;; Load the remaining basic files.
 	(when-feature mule "mule-category")
 	(when-feature mule "mule-ccl")
 	(when-feature mule "mule-misc")
@@ -158,17 +180,13 @@
 ;; Moved to sunpro-load.el - the default only for Sun.
 ;;(pureload "mime-setup")
 ;;; mule-load.el ends here
-	(when-feature (and gutter window-system) "gutter")
-	(when-feature window-system "gui")
-	(when-feature window-system "mode-motion")
-	(when-feature window-system "mouse")
-	"select"
-	(when-feature dragdrop-api "dragdrop")
-;; preload the X code, for faster startup.
-	(when-feature (and (not infodock)
-			   (or x mswindows) menubar) "menubar-items")
+
+;; preload InfoDock stuff.  should almost certainly not be here if
+;; id-menus is not here.  infodock needs to figure out a clever way to
+;; advise this stuff or we need to export a clean way for infodock or
+;; others to control this programmatically.
 	(when-feature (and infodock (or x mswindows) menubar) "id-menus")
-	(when-feature (and gutter window-system) "gutter-items")
+;; preload the X code.
 	(when-feature x "x-faces")
 	(when-feature x "x-iso8859-1")
 	(when-feature x "x-mouse")
@@ -176,8 +194,6 @@
 	(when-feature (and x scrollbar) "x-scrollbar")
 	(when-feature x "x-misc")
 	(when-feature x "x-init")
-	(when-feature (and (not infodock)
-			   window-system toolbar) "toolbar-items")
 	(when-feature x "x-win-xfree86")
 	(when-feature x "x-win-sun")
 ;; preload the mswindows code.

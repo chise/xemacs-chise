@@ -418,7 +418,6 @@ WARNING: the event object returned may be a reused one; see the function
 */
        (type, plist))
 {
-  Lisp_Object tail, keyword, value;
   Lisp_Object event = Qnil;
   Lisp_Event *e;
   EMACS_INT coord_x = 0, coord_y = 0;
@@ -449,7 +448,7 @@ WARNING: the event object returned may be a reused one; see the function
          (e.g. CHANNEL), which we don't want in empty events.  */
       e->event_type = empty_event;
       if (!NILP (plist))
-	error ("Cannot set properties of empty event");
+	syntax_error ("Cannot set properties of empty event", plist);
       UNGCPRO;
       return event;
     }
@@ -472,7 +471,7 @@ WARNING: the event object returned may be a reused one; see the function
   else
     {
       /* Not allowed: Qprocess, Qtimeout, Qmagic, Qeval, Qmagic_eval.  */
-      signal_simple_error ("Invalid event type", type);
+      invalid_argument ("Invalid event type", type);
     }
 
   EVENT_CHANNEL (e) = Qnil;
@@ -480,164 +479,169 @@ WARNING: the event object returned may be a reused one; see the function
   plist = Fcopy_sequence (plist);
   Fcanonicalize_plist (plist, Qnil);
 
-#define WRONG_EVENT_TYPE_FOR_PROPERTY(type, prop)			\
-  error_with_frob (prop, "Invalid property for %s event",		\
-		   string_data (symbol_name (XSYMBOL (type))))
+#define WRONG_EVENT_TYPE_FOR_PROPERTY(event_type, prop) \
+  syntax_error_2 ("Invalid property for event type", prop, event_type)
 
-  EXTERNAL_PROPERTY_LIST_LOOP (tail, keyword, value, plist)
-    {
-      if (EQ (keyword, Qchannel))
-	{
-	  if (e->event_type == key_press_event)
-	    {
-	      if (!CONSOLEP (value))
-		value = wrong_type_argument (Qconsolep, value);
-	    }
-	  else
-	    {
-	      if (!FRAMEP (value))
-		value = wrong_type_argument (Qframep, value);
-	    }
-	  EVENT_CHANNEL (e) = value;
-	}
-      else if (EQ (keyword, Qkey))
-	{
-	  switch (e->event_type)
-	    {
-	    case key_press_event:
-	      if (!SYMBOLP (value) && !CHARP (value))
-		signal_simple_error ("Invalid event key", value);
-	      e->event.key.keysym = value;
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qbutton))
-	{
-	  CHECK_NATNUM (value);
-	  check_int_range (XINT (value), 0, 7);
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (keyword, value, plist)
+      {
+	if (EQ (keyword, Qchannel))
+	  {
+	    if (e->event_type == key_press_event)
+	      {
+		if (!CONSOLEP (value))
+		  value = wrong_type_argument (Qconsolep, value);
+	      }
+	    else
+	      {
+		if (!FRAMEP (value))
+		  value = wrong_type_argument (Qframep, value);
+	      }
+	    EVENT_CHANNEL (e) = value;
+	  }
+	else if (EQ (keyword, Qkey))
+	  {
+	    switch (e->event_type)
+	      {
+	      case key_press_event:
+		if (!SYMBOLP (value) && !CHARP (value))
+		  syntax_error ("Invalid event key", value);
+		e->event.key.keysym = value;
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qbutton))
+	  {
+	    CHECK_NATNUM (value);
+	    check_int_range (XINT (value), 0, 7);
 
-	  switch (e->event_type)
-	    {
-	    case button_press_event:
-	    case button_release_event:
-	      e->event.button.button = XINT (value);
-	      break;
-	    case misc_user_event:
-	      e->event.misc.button = XINT (value);
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qmodifiers))
-	{
-	  int modifiers = 0;
-	  Lisp_Object sym;
+	    switch (e->event_type)
+	      {
+	      case button_press_event:
+	      case button_release_event:
+		e->event.button.button = XINT (value);
+		break;
+	      case misc_user_event:
+		e->event.misc.button = XINT (value);
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qmodifiers))
+	  {
+	    int modifiers = 0;
 
-	  EXTERNAL_LIST_LOOP_2 (sym, value)
-	    {
-	      if      (EQ (sym, Qcontrol)) modifiers |= XEMACS_MOD_CONTROL;
-	      else if (EQ (sym, Qmeta))    modifiers |= XEMACS_MOD_META;
-	      else if (EQ (sym, Qsuper))   modifiers |= XEMACS_MOD_SUPER;
-	      else if (EQ (sym, Qhyper))   modifiers |= XEMACS_MOD_HYPER;
-	      else if (EQ (sym, Qalt))     modifiers |= XEMACS_MOD_ALT;
-	      else if (EQ (sym, Qsymbol))  modifiers |= XEMACS_MOD_ALT;
-	      else if (EQ (sym, Qshift))   modifiers |= XEMACS_MOD_SHIFT;
-	      else
-		signal_simple_error ("Invalid key modifier", sym);
-	    }
+	    EXTERNAL_LIST_LOOP_2 (sym, value)
+	      {
+		if      (EQ (sym, Qcontrol)) modifiers |= XEMACS_MOD_CONTROL;
+		else if (EQ (sym, Qmeta))    modifiers |= XEMACS_MOD_META;
+		else if (EQ (sym, Qsuper))   modifiers |= XEMACS_MOD_SUPER;
+		else if (EQ (sym, Qhyper))   modifiers |= XEMACS_MOD_HYPER;
+		else if (EQ (sym, Qalt))     modifiers |= XEMACS_MOD_ALT;
+		else if (EQ (sym, Qsymbol))  modifiers |= XEMACS_MOD_ALT;
+		else if (EQ (sym, Qshift))   modifiers |= XEMACS_MOD_SHIFT;
+		else if (EQ (sym, Qbutton1))   modifiers |= XEMACS_MOD_BUTTON1;
+		else if (EQ (sym, Qbutton2))   modifiers |= XEMACS_MOD_BUTTON2;
+		else if (EQ (sym, Qbutton3))   modifiers |= XEMACS_MOD_BUTTON3;
+		else if (EQ (sym, Qbutton4))   modifiers |= XEMACS_MOD_BUTTON4;
+		else if (EQ (sym, Qbutton5))   modifiers |= XEMACS_MOD_BUTTON5;
+		else
+		  syntax_error ("Invalid key modifier", sym);
+	      }
 
-	  switch (e->event_type)
-	    {
-	    case key_press_event:
-	      e->event.key.modifiers = modifiers;
-	      break;
-	    case button_press_event:
-	    case button_release_event:
-	      e->event.button.modifiers = modifiers;
-	      break;
-	    case pointer_motion_event:
-	      e->event.motion.modifiers = modifiers;
-	      break;
-	    case misc_user_event:
-	      e->event.misc.modifiers = modifiers;
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qx))
-	{
-	  switch (e->event_type)
-	    {
-	    case pointer_motion_event:
-	    case button_press_event:
-	    case button_release_event:
-	    case misc_user_event:
-	      /* Allow negative values, so we can specify toolbar
-		 positions.  */
-	      CHECK_INT (value);
-	      coord_x = XINT (value);
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qy))
-	{
-	  switch (e->event_type)
-	    {
-	    case pointer_motion_event:
-	    case button_press_event:
-	    case button_release_event:
-	    case misc_user_event:
-	      /* Allow negative values; see above. */
-	      CHECK_INT (value);
-	      coord_y = XINT (value);
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qtimestamp))
-	{
-	  CHECK_NATNUM (value);
-	  e->timestamp = XINT (value);
-	}
-      else if (EQ (keyword, Qfunction))
-	{
-	  switch (e->event_type)
-	    {
-	    case misc_user_event:
-	      e->event.eval.function = value;
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else if (EQ (keyword, Qobject))
-	{
-	  switch (e->event_type)
-	    {
-	    case misc_user_event:
-	      e->event.eval.object = value;
-	      break;
-	    default:
-	      WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
-	      break;
-	    }
-	}
-      else
-	signal_simple_error_2 ("Invalid property", keyword, value);
-    }
+	    switch (e->event_type)
+	      {
+	      case key_press_event:
+		e->event.key.modifiers = modifiers;
+		break;
+	      case button_press_event:
+	      case button_release_event:
+		e->event.button.modifiers = modifiers;
+		break;
+	      case pointer_motion_event:
+		e->event.motion.modifiers = modifiers;
+		break;
+	      case misc_user_event:
+		e->event.misc.modifiers = modifiers;
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qx))
+	  {
+	    switch (e->event_type)
+	      {
+	      case pointer_motion_event:
+	      case button_press_event:
+	      case button_release_event:
+	      case misc_user_event:
+		/* Allow negative values, so we can specify toolbar
+		   positions.  */
+		CHECK_INT (value);
+		coord_x = XINT (value);
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qy))
+	  {
+	    switch (e->event_type)
+	      {
+	      case pointer_motion_event:
+	      case button_press_event:
+	      case button_release_event:
+	      case misc_user_event:
+		/* Allow negative values; see above. */
+		CHECK_INT (value);
+		coord_y = XINT (value);
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qtimestamp))
+	  {
+	    CHECK_NATNUM (value);
+	    e->timestamp = XINT (value);
+	  }
+	else if (EQ (keyword, Qfunction))
+	  {
+	    switch (e->event_type)
+	      {
+	      case misc_user_event:
+		e->event.eval.function = value;
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else if (EQ (keyword, Qobject))
+	  {
+	    switch (e->event_type)
+	      {
+	      case misc_user_event:
+		e->event.eval.object = value;
+		break;
+	      default:
+		WRONG_EVENT_TYPE_FOR_PROPERTY (type, keyword);
+		break;
+	      }
+	  }
+	else
+	  syntax_error_2 ("Invalid property", keyword, value);
+      }
+  }
 
   /* Insert the channel, if missing. */
   if (NILP (EVENT_CHANNEL (e)))
@@ -680,19 +684,25 @@ WARNING: the event object returned may be a reused one; see the function
     {
     case key_press_event:
       if (UNBOUNDP (e->event.key.keysym))
-	error ("A key must be specified to make a keypress event");
+	syntax_error ("A key must be specified to make a keypress event",
+		      plist);
       break;
     case button_press_event:
       if (!e->event.button.button)
-	error ("A button must be specified to make a button-press event");
+	syntax_error
+	  ("A button must be specified to make a button-press event",
+	   plist);
       break;
     case button_release_event:
       if (!e->event.button.button)
-	error ("A button must be specified to make a button-release event");
+	syntax_error
+	  ("A button must be specified to make a button-release event",
+	   plist);
       break;
     case misc_user_event:
       if (NILP (e->event.misc.function))
-	error ("A function must be specified to make a misc-user event");
+	syntax_error ("A function must be specified to make a misc-user event",
+		      plist);
       break;
     default:
       break;
@@ -1278,6 +1288,7 @@ format_event_object (char *buf, Lisp_Event *event, int brief)
     case dead_event:		strcpy (buf, "DEAD-EVENT"); return;
     default:
       abort ();
+      return;
     }
 #define modprint1(x)  do { strcpy (buf, (x)); buf += sizeof (x)-1; } while (0)
 #define modprint(x,y) do { if (brief) modprint1 (y); else modprint1 (x); } while (0)
@@ -1441,6 +1452,10 @@ empty		The event has been allocated but not assigned.
 
 DEFUN ("event-timestamp", Fevent_timestamp, 1, 1, 0, /*
 Return the timestamp of the event object EVENT.
+Timestamps are measured in milliseconds since the start of the window system.
+They are NOT related to any current time measurement.
+They should be compared with `event-timestamp<'.
+See also `current-event-timestamp'.
 */
        (event))
 {
@@ -1450,6 +1465,28 @@ Return the timestamp of the event object EVENT.
    */
   return make_int (((1L << (VALBITS - 1)) - 1) &
 		      XEVENT (event)->timestamp);
+}
+
+#define TIMESTAMP_HALFSPACE (1L << (VALBITS - 2))
+
+DEFUN ("event-timestamp<", Fevent_timestamp_lessp, 2, 2, 0, /*
+Return true if timestamp TIME1 is earlier than timestamp TIME2.
+This correctly handles timestamp wrap.
+See also `event-timestamp' and `current-event-timestamp'.
+*/
+       (time1, time2))
+{
+  EMACS_INT t1, t2;
+
+  CHECK_NATNUM (time1);
+  CHECK_NATNUM (time2);
+  t1 = XINT (time1);
+  t2 = XINT (time2);
+
+  if (t1 < t2)
+    return t2 - t1 < TIMESTAMP_HALFSPACE ? Qt : Qnil;
+  else
+    return t1 - t2 < TIMESTAMP_HALFSPACE ? Qnil : Qt;
 }
 
 #define CHECK_EVENT_TYPE(e,t1,sym) do {		\
@@ -1509,9 +1546,9 @@ Return the button-number of the given button-press or button-release event.
 }
 
 DEFUN ("event-modifier-bits", Fevent_modifier_bits, 1, 1, 0, /*
-Return a number representing the modifier keys which were down
+Return a number representing the modifier keys and buttons which were down
 when the given mouse or keyboard event was produced.
-See also the function event-modifiers.
+See also the function `event-modifiers'.
 */
        (event))
 {
@@ -1535,21 +1572,67 @@ See also the function event-modifiers.
 }
 
 DEFUN ("event-modifiers", Fevent_modifiers, 1, 1, 0, /*
-Return a list of symbols, the names of the modifier keys
+Return a list of symbols, the names of the modifier keys and buttons
 which were down when the given mouse or keyboard event was produced.
-See also the function event-modifier-bits.
+See also the function `event-modifier-bits'.
+
+The possible symbols in the list are
+
+`shift':     The Shift key.  Will not appear, in general, on key events
+             where the keysym is an ASCII character, because using Shift
+             on such a character converts it into another character rather
+             than actually just adding a Shift modifier.
+
+`control':   The Control key.
+
+`meta':      The Meta key.  On PC's and PC-style keyboards, this is generally
+             labelled \"Alt\"; Meta is a holdover from early Lisp Machines and
+             such, propagated through the X Window System.  On Sun keyboards,
+             this key is labelled with a diamond.
+
+`alt':       The \"Alt\" key.  Alt is in quotes because this does not refer
+             to what it obviously should refer to, namely the Alt key on PC
+             keyboards.  Instead, it refers to the key labelled Alt on Sun
+             keyboards, and to no key at all on PC keyboards.
+
+`super':     The Super key.  Most keyboards don't have any such key, but
+             under X Windows using `xmodmap' you can assign any key (such as
+             an underused right-shift, right-control, or right-alt key) to
+             this key modifier.  No support currently exists under MS Windows
+             for generating these modifiers.
+
+`hyper':     The Hyper key.  Works just like the Super key.
+
+`button1':   The mouse buttons.  This means that the specified button was held
+`button2':   down at the time the event occurred.  NOTE: For button-press
+`button3':   events, the button that was just pressed down does NOT appear in
+`button4':   the modifiers.
+`button5':
+
+Button modifiers are currently ignored when defining and looking up key and
+mouse strokes in keymaps.  This could be changed, which would allow a user to
+create button-chord actions, use a button as a key modifier and do other
+clever things.
 */
        (event))
 {
   int mod = XINT (Fevent_modifier_bits (event));
   Lisp_Object result = Qnil;
+  struct gcpro gcpro1;
+
+  GCPRO1 (result);
   if (mod & XEMACS_MOD_SHIFT)   result = Fcons (Qshift, result);
   if (mod & XEMACS_MOD_ALT)	result = Fcons (Qalt, result);
   if (mod & XEMACS_MOD_HYPER)   result = Fcons (Qhyper, result);
   if (mod & XEMACS_MOD_SUPER)   result = Fcons (Qsuper, result);
   if (mod & XEMACS_MOD_META)    result = Fcons (Qmeta, result);
   if (mod & XEMACS_MOD_CONTROL) result = Fcons (Qcontrol, result);
-  return result;
+  if (mod & XEMACS_MOD_BUTTON1) result = Fcons (Qbutton1, result);
+  if (mod & XEMACS_MOD_BUTTON2) result = Fcons (Qbutton2, result);
+  if (mod & XEMACS_MOD_BUTTON3) result = Fcons (Qbutton3, result);
+  if (mod & XEMACS_MOD_BUTTON4) result = Fcons (Qbutton4, result);
+  if (mod & XEMACS_MOD_BUTTON5) result = Fcons (Qbutton5, result);
+  RETURN_UNGCPRO (Fnreverse (result));
 }
 
 static int
@@ -1584,7 +1667,7 @@ event_x_y_pixel_internal (Lisp_Object event, int *x, int *y, int relative)
       w = find_window_by_pixel_pos (*x, *y, f->root_window);
 
       if (!w)
-	return 1;	/* #### What should really happen here. */
+	return 1;	/* #### What should really happen here? */
 
       *x -= w->pixel_left;
       *y -= w->pixel_top;
@@ -2191,6 +2274,7 @@ syms_of_events (void)
   DEFSUBR (Fevent_properties);
 
   DEFSUBR (Fevent_timestamp);
+  DEFSUBR (Fevent_timestamp_lessp);
   DEFSUBR (Fevent_key);
   DEFSUBR (Fevent_button);
   DEFSUBR (Fevent_modifier_bits);

@@ -134,7 +134,7 @@ get_device_compdc (struct device *d)
 static void init_image_instance_geometry (Lisp_Image_Instance *ii)
 {
   struct device *d = DOMAIN_XDEVICE (ii->domain);
-  
+
   if (/* #### Scaleable && */ DEVICE_MSPRINTER_P (d))
     {
       HDC printer_dc = DEVICE_MSPRINTER_HCDC (d);
@@ -154,7 +154,7 @@ static void init_image_instance_geometry (Lisp_Image_Instance *ii)
 	IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (ii);
       IMAGE_INSTANCE_PIXMAP_HEIGHT (ii) =
 	IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (ii);
-    }      
+    }
 }
 
 #define BPLINE(width) ((int)(~3UL & (unsigned long)((width) +3)))
@@ -686,7 +686,7 @@ mswindows_create_resized_mask (Lisp_Image_Instance* ii,
 }
 
 #if 0 /* Currently unused */
-/* #### Warining: This function is not correct anymore with
+/* #### Warning: This function is not correct anymore with
    resizable printer bitmaps.  If you uncomment it, clean it. --kkm */
 int
 mswindows_resize_dibitmap_instance (Lisp_Image_Instance* ii,
@@ -1019,7 +1019,8 @@ bmp_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-bmp_normalize (Lisp_Object inst, Lisp_Object console_type)
+bmp_normalize (Lisp_Object inst, Lisp_Object console_type,
+	       Lisp_Object dest_mask)
 {
   return simple_image_type_normalize (inst, console_type, Qbmp);
 }
@@ -1086,7 +1087,8 @@ mswindows_resource_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-mswindows_resource_normalize (Lisp_Object inst, Lisp_Object console_type)
+mswindows_resource_normalize (Lisp_Object inst, Lisp_Object console_type,
+			      Lisp_Object dest_mask)
 {
   /* This function can call lisp */
   Lisp_Object file = Qnil;
@@ -1315,12 +1317,32 @@ mswindows_resource_instantiate (Lisp_Object image_instance, Lisp_Object instanti
     signal_simple_error ("Invalid resource identifier", resource_id);
 
   /* load the image */
-  if (!(himage = LoadImage (hinst, resid, type, 0, 0,
-			    LR_CREATEDIBSECTION | LR_DEFAULTSIZE |
-			    LR_SHARED |
-			    (!NILP (file) ? LR_LOADFROMFILE : 0))))
+  if (xLoadImageA) /* not in NT 3.5 */
     {
-      signal_simple_error ("Cannot load image", instantiator);
+      if (!(himage = xLoadImageA (hinst, resid, type, 0, 0,
+				  LR_CREATEDIBSECTION | LR_DEFAULTSIZE |
+				  LR_SHARED |
+				  (!NILP (file) ? LR_LOADFROMFILE : 0))))
+	signal_simple_error ("Cannot load image", instantiator);
+    }
+  else
+    {
+      /* Is this correct?  I don't really care. */
+      switch (type)
+	{
+	case IMAGE_BITMAP:
+	  himage = LoadBitmap (hinst, resid);
+	  break;
+	case IMAGE_CURSOR:
+	  himage = LoadCursor (hinst, resid);
+	  break;
+	case IMAGE_ICON:
+	  himage = LoadIcon (hinst, resid);
+	  break;
+	}
+
+      if (!himage)
+	signal_simple_error ("Cannot load image", instantiator);
     }
 
   if (hinst)
@@ -2143,11 +2165,13 @@ mswindows_widget_hfont (Lisp_Image_Instance *p,
 static HDWP
 begin_defer_window_pos (struct frame *f)
 {
+#ifdef DEFER_WINDOW_POS
   if (FRAME_MSWINDOWS_DATA (f)->hdwp == 0)
     FRAME_MSWINDOWS_DATA (f)->hdwp = BeginDeferWindowPos (10);
+#endif
   return FRAME_MSWINDOWS_DATA (f)->hdwp;
 }
-  
+
 /* unmap the image if it is a widget. This is used by redisplay via
    redisplay_unmap_subwindows */
 static void
@@ -2155,6 +2179,7 @@ mswindows_unmap_subwindow (Lisp_Image_Instance *p)
 {
   if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
     {
+#ifdef DEFER_WINDOW_POS
       struct frame *f = XFRAME (IMAGE_INSTANCE_FRAME (p));
       HDWP hdwp = begin_defer_window_pos (f);
       HDWP new_hdwp;
@@ -2175,6 +2200,13 @@ mswindows_unmap_subwindow (Lisp_Image_Instance *p)
       else
 	hdwp = new_hdwp;
       FRAME_MSWINDOWS_DATA (f)->hdwp = hdwp;
+#else
+      SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+		    NULL,
+		    0, 0, 0, 0,
+		    SWP_HIDEWINDOW | SWP_NOACTIVATE |
+		    SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER );
+#endif
       if (GetFocus() == WIDGET_INSTANCE_MSWINDOWS_HANDLE (p))
 	SetFocus (GetParent (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
     }
@@ -2186,9 +2218,11 @@ static void
 mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 			 struct display_glyph_area* dga)
 {
+#ifdef DEFER_WINDOW_POS
   struct frame *f = XFRAME (IMAGE_INSTANCE_FRAME (p));
   HDWP hdwp = begin_defer_window_pos (f);
   HDWP new_hdwp;
+#endif
   /* move the window before mapping it ... */
   SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
 		NULL,
@@ -2202,24 +2236,36 @@ mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 		SWP_NOZORDER | SWP_NOSIZE
 		| SWP_NOCOPYBITS | SWP_NOSENDCHANGING);
   /* ... now map it - we are not allowed to move it at the same time. */
-  new_hdwp = DeferWindowPos (hdwp, IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
-			     NULL,
-			     0, 0, 0, 0,
-			     SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
-			     | SWP_SHOWWINDOW
-			     /* | SWP_NOCOPYBITS */
-			     /* Setting this flag causes the call to
-				DeferWindowPos to fail with
-				"Invalid parameter".  I don't understand
-				why we bother to try and set this
-				anyway. -- ben */
-			     /* | SWP_NOSENDCHANGING */
-			     | SWP_NOACTIVATE);
-  if (!new_hdwp)
-    mswindows_output_last_error ("mapping");
-  else
-    hdwp = new_hdwp;
-  FRAME_MSWINDOWS_DATA (f)->hdwp = hdwp;
+  if (!IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (p))
+    {
+#ifdef DEFER_WINDOW_POS
+      new_hdwp = DeferWindowPos
+	(hdwp,
+	 IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+	 NULL, 0, 0, 0, 0,
+	 SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
+	 | SWP_SHOWWINDOW
+	 /* | SWP_NOCOPYBITS */
+	 /* Setting this flag causes the call to
+	    DeferWindowPos to fail with
+	    "Invalid parameter".  I don't understand
+	    why we bother to try and set this
+	    anyway. -- ben */
+	 /* | SWP_NOSENDCHANGING */
+	 | SWP_NOACTIVATE);
+      if (!new_hdwp)
+	mswindows_output_last_error ("mapping");
+      else
+	hdwp = new_hdwp;
+      FRAME_MSWINDOWS_DATA (f)->hdwp = hdwp;
+#else
+      SetWindowPos (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p),
+		    NULL,
+		    0, 0, 0, 0,
+		    SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
+		    | SWP_SHOWWINDOW | SWP_NOCOPYBITS | SWP_NOACTIVATE);
+#endif
+    }
 }
 
 /* resize the subwindow instance */
@@ -2237,7 +2283,7 @@ mswindows_resize_subwindow (Lisp_Image_Instance* ii, int w, int h)
 
 /* Simply resize the window here. */
 static void
-mswindows_update_subwindow (Lisp_Image_Instance *p)
+mswindows_redisplay_subwindow (Lisp_Image_Instance *p)
 {
   mswindows_resize_subwindow (p,
 			      IMAGE_INSTANCE_WIDTH (p),
@@ -2247,7 +2293,7 @@ mswindows_update_subwindow (Lisp_Image_Instance *p)
 /* when you click on a widget you may activate another widget this
    needs to be checked and all appropriate widgets updated */
 static void
-mswindows_update_widget (Lisp_Image_Instance *p)
+mswindows_redisplay_widget (Lisp_Image_Instance *p)
 {
   /* Possibly update the face font and colors. */
   if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (p))
@@ -2265,7 +2311,7 @@ mswindows_update_widget (Lisp_Image_Instance *p)
   /* Possibly update the dimensions. */
   if (IMAGE_INSTANCE_SIZE_CHANGED (p))
     {
-      mswindows_resize_subwindow (p, 
+      mswindows_resize_subwindow (p,
 				  IMAGE_INSTANCE_WIDTH (p),
 				  IMAGE_INSTANCE_HEIGHT (p));
     }
@@ -2282,7 +2328,7 @@ mswindows_update_widget (Lisp_Image_Instance *p)
     }
 }
 
-/* register widgets into our hastable so that we can cope with the
+/* register widgets into our hashtable so that we can cope with the
    callbacks. The hashtable is weak so deregistration is handled
    automatically */
 static int
@@ -2512,6 +2558,11 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     SendMessage (wnd, WM_SETFONT,
 		 (WPARAM) mswindows_widget_hfont (ii, domain),
 		 MAKELPARAM (TRUE, 0));
+#if 0
+  /* #### doesn't work.  need to investigate more closely. */
+  if (IMAGE_INSTANCE_WANTS_INITIAL_FOCUS (ii))
+    SetFocus (wnd);
+#endif
 }
 
 /* Instantiate a native layout widget. */
@@ -2524,15 +2575,15 @@ mswindows_native_layout_instantiate (Lisp_Object image_instance,
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
-				pointer_bg, dest_mask, domain, "STATIC", 
+				pointer_bg, dest_mask, domain, "STATIC",
 				/* Approximation to styles available with
 				   an XEmacs layout. */
-				EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
-				    Qetched_in) ||
-				EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
-				    Qetched_out) ||
-				GLYPHP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
-				? SS_ETCHEDFRAME : SS_SUNKEN,
+				(EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
+				     Qetched_in) ||
+				 EQ (IMAGE_INSTANCE_LAYOUT_BORDER (ii),
+				     Qetched_out) ||
+				 GLYPHP (IMAGE_INSTANCE_LAYOUT_BORDER (ii))
+				 ? SS_ETCHEDFRAME : SS_SUNKEN) | DS_CONTROL,
 				0);
 }
 
@@ -2611,7 +2662,7 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
 /* Update the state of a button. */
 static void
-mswindows_button_update (Lisp_Object image_instance)
+mswindows_button_redisplay (Lisp_Object image_instance)
 {
   /* This function can GC if IN_REDISPLAY is false. */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
@@ -2645,6 +2696,7 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
 {
   HWND wnd;
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+  Lisp_Object val;
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
 				pointer_bg, dest_mask, domain, PROGRESS_CLASS,
 				WS_BORDER | PBS_SMOOTH, WS_EX_CLIENTEDGE);
@@ -2666,6 +2718,10 @@ mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object in
 			    (XIMAGE_INSTANCE_WIDGET_FACE (ii),
 			     XIMAGE_INSTANCE_FRAME (ii))))));
 #endif
+  val = XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEMS (ii))->value;
+  CHECK_INT (val);
+  SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+	       PBM_SETPOS, (WPARAM)XINT (val), 0);
 }
 
 /* instantiate a tree view widget */
@@ -2755,12 +2811,47 @@ mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instant
     }
 }
 
-/* instantiate a tab control */
-static TC_ITEM* add_tab_item (Lisp_Object image_instance,
-			     HWND wnd, Lisp_Object item,
-			     Lisp_Object domain, int i)
+/* Set the properties of a tree view. */
+static void
+mswindows_tree_view_redisplay (Lisp_Object image_instance)
 {
-  TC_ITEM tvitem, *ret;
+  /* This function can GC if IN_REDISPLAY is false. */
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
+    {
+      HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
+      Lisp_Object rest;
+      HTREEITEM parent;
+      /* Delete previous items. */
+      SendMessage (wnd, TVM_DELETEITEM, 0, (LPARAM)TVI_ROOT);
+      /* define a root */
+      parent = add_tree_item (image_instance, wnd, NULL,
+			      XCAR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)),
+			      TRUE, IMAGE_INSTANCE_DOMAIN (ii));
+
+      /* recursively add items to the tree view */
+      /* add items to the tab */
+      LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+	{
+	  if (LISTP (XCAR (rest)))
+	    add_tree_item_list (image_instance, wnd, parent, XCAR (rest),
+				IMAGE_INSTANCE_DOMAIN (ii));
+	  else
+	    add_tree_item (image_instance, wnd, parent, XCAR (rest), FALSE,
+			   IMAGE_INSTANCE_DOMAIN (ii));
+	}
+    }
+}
+
+/* instantiate a tab control */
+static int
+add_tab_item (Lisp_Object image_instance,
+	      HWND wnd, Lisp_Object item,
+	      Lisp_Object domain, int i)
+{
+  TC_ITEM tvitem;
+  int ret = 0;
 
   tvitem.mask = TCIF_TEXT;
 
@@ -2783,8 +2874,8 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
 
   tvitem.cchTextMax = strlen (tvitem.pszText);
 
-  if ((ret = (TC_ITEM*)SendMessage (wnd, TCM_INSERTITEM,
-				    i, (LPARAM)&tvitem)) < 0)
+  if ((ret = SendMessage (wnd, TCM_INSERTITEM,
+			  i, (LPARAM)&tvitem)) < 0)
     signal_simple_error ("error adding tab entry", item);
 
   return ret;
@@ -2820,7 +2911,8 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
   /* add items to the tab */
   LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
     {
-      add_tab_item (image_instance, wnd, XCAR (rest), domain, i);
+      int idx = add_tab_item (image_instance, wnd, XCAR (rest), domain, i);
+      assert (idx == i);
       if (gui_item_selected_p (XCAR (rest)))
 	selected = i;
       i++;
@@ -2828,32 +2920,78 @@ mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object insta
   SendMessage (wnd, TCM_SETCURSEL, selected, 0);
 }
 
-/* set the properties of a tab control */
+/* Set the properties of a tab control. */
 static void
-mswindows_tab_control_update (Lisp_Object image_instance)
+mswindows_tab_control_redisplay (Lisp_Object image_instance)
 {
   /* This function can GC if IN_REDISPLAY is false. */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-
-  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
+#ifdef DEBUG_WIDGET_OUTPUT
+  stderr_out ("tab control %p redisplayed\n", IMAGE_INSTANCE_SUBWINDOW_ID (ii));
+#endif
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii)
+      ||
+      IMAGE_INSTANCE_WIDGET_ACTION_OCCURRED (ii))
     {
       HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
       int i = 0, selected = 0;
       Lisp_Object rest;
 
-      /* delete the pre-existing items */
-      SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
+      assert (!NILP (IMAGE_INSTANCE_WIDGET_ITEMS (ii)));
 
-      /* add items to the tab */
-      LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+      /* If only the order has changed then simply select the first
+	 one. This stops horrendous rebuilding of the tabs each time
+	 you click on one. */
+      if (tab_control_order_only_changed (image_instance))
 	{
-	  add_tab_item (image_instance, wnd, XCAR (rest),
-			IMAGE_INSTANCE_FRAME (ii), i);
-	  if (gui_item_selected_p (XCAR (rest)))
-	    selected = i;
-	  i++;
+	  Lisp_Object selected =
+	    gui_item_list_find_selected
+	    (NILP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)) ?
+	     XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)) :
+	     XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
+
+	  LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
+	    {
+	      if (gui_item_equal_sans_selected (XCAR (rest), selected, 0))
+		{
+		  Lisp_Object old_selected = gui_item_list_find_selected
+		    (XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)));
+
+		  /* Pick up the new selected item. */
+		  XGUI_ITEM (old_selected)->selected =
+		    XGUI_ITEM (XCAR (rest))->selected;
+		  XGUI_ITEM (XCAR (rest))->selected =
+		    XGUI_ITEM (selected)->selected;
+		  /* We're not actually changing the items. */
+		  IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 0;
+		  IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = Qnil;
+
+		  SendMessage (wnd, TCM_SETCURSEL, i, 0);
+#ifdef DEBUG_WIDGET_OUTPUT
+		  stderr_out ("tab control %p selected item %d\n",
+			  IMAGE_INSTANCE_SUBWINDOW_ID (ii), i);
+#endif
+		  break;
+		}
+	      i++;
+	    }
 	}
-      SendMessage (wnd, TCM_SETCURSEL, selected, 0);
+      else
+	{
+	  /* delete the pre-existing items */
+	  SendMessage (wnd, TCM_DELETEALLITEMS, 0, 0);
+
+	  /* add items to the tab */
+	  LIST_LOOP (rest, XCDR (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
+	    {
+	      add_tab_item (image_instance, wnd, XCAR (rest),
+			    IMAGE_INSTANCE_FRAME (ii), i);
+	      if (gui_item_selected_p (XCAR (rest)))
+		selected = i;
+	      i++;
+	    }
+	  SendMessage (wnd, TCM_SETCURSEL, selected, 0);
+	}
     }
 }
 
@@ -2888,8 +3026,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HWND wnd;
   Lisp_Object rest;
-  Lisp_Object data = Fplist_get (find_keyword_in_vector (instantiator, Q_properties),
-				 Q_items, Qnil);
+  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
   int len, height;
 
   /* Maybe ought to generalise this more but it may be very windows
@@ -2903,7 +3040,7 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
 
   /* We now have everything right apart from the height. */
   default_face_font_info (domain, 0, 0, &height, 0, 0);
-  GET_LIST_LENGTH (data, len);
+  GET_LIST_LENGTH (items, len);
 
   height = (height + WIDGET_BORDER_HEIGHT * 2 ) * len;
   IMAGE_INSTANCE_HEIGHT (ii) = height;
@@ -2919,12 +3056,14 @@ mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instant
   image_instance_layout (image_instance,
 			 IMAGE_UNSPECIFIED_GEOMETRY,
 			 IMAGE_UNSPECIFIED_GEOMETRY,
+			 IMAGE_UNCHANGED_GEOMETRY,
+			 IMAGE_UNCHANGED_GEOMETRY,
 			 domain);
 
   wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
   /* add items to the combo box */
   SendMessage (wnd, CB_RESETCONTENT, 0, 0);
-  LIST_LOOP (rest, Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii), Q_items, Qnil))
+  LIST_LOOP (rest, items)
     {
       Extbyte* lparam;
       TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (rest),
@@ -2988,12 +3127,12 @@ mswindows_combo_box_property (Lisp_Object image_instance, Lisp_Object prop)
   return Qunbound;
 }
 
-/* set the properties of a progres guage */
+/* set the properties of a progress gauge */
 static void
-mswindows_progress_gauge_update (Lisp_Object image_instance)
+mswindows_progress_gauge_redisplay (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  
+
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
       Lisp_Object val;
@@ -3001,10 +3140,10 @@ mswindows_progress_gauge_update (Lisp_Object image_instance)
       assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
 #endif
       val = XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value;
-#ifdef DEBUG_WIDGET_OUTPUT     
-      printf ("progress gauge displayed value on %p updated to %ld\n",
-	      WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
-	      XINT(val));
+#ifdef DEBUG_WIDGET_OUTPUT
+      stderr_out ("progress gauge displayed value on %p updated to %ld\n",
+		  WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
+		  XINT(val));
 #endif
       CHECK_INT (val);
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii),
@@ -3054,9 +3193,9 @@ console_type_create_glyphs_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, finalize_image_instance);
   CONSOLE_HAS_METHOD (mswindows, unmap_subwindow);
   CONSOLE_HAS_METHOD (mswindows, map_subwindow);
-  CONSOLE_HAS_METHOD (mswindows, update_subwindow);
+  CONSOLE_HAS_METHOD (mswindows, redisplay_subwindow);
   CONSOLE_HAS_METHOD (mswindows, resize_subwindow);
-  CONSOLE_HAS_METHOD (mswindows, update_widget);
+  CONSOLE_HAS_METHOD (mswindows, redisplay_widget);
   CONSOLE_HAS_METHOD (mswindows, image_instance_equal);
   CONSOLE_HAS_METHOD (mswindows, image_instance_hash);
   CONSOLE_HAS_METHOD (mswindows, init_image_instance_from_eimage);
@@ -3118,7 +3257,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, button, update);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, button, redisplay);
   /* edit-field widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, edit_field);
   IIFORMAT_HAS_DEVMETHOD (mswindows, edit_field, instantiate);
@@ -3137,16 +3276,16 @@ image_instantiator_format_create_glyphs_mswindows (void)
   IIFORMAT_HAS_DEVMETHOD (mswindows, scrollbar, instantiate);
   /* progress gauge */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, progress_gauge);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, update);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, redisplay);
   IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, instantiate);
   /* tree view widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tree_view);
-  /*  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);*/
   IIFORMAT_HAS_DEVMETHOD (mswindows, tree_view, instantiate);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tree_view, redisplay);
   /* tab control widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, tab_control);
   IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, instantiate);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, update);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, redisplay);
 #endif
   /* windows bitmap format */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");

@@ -24,13 +24,13 @@ Boston, MA 02111-1307, USA.  */
  * exist in your home directory, containing individual mail messages in
  * separate files in the standard gosling emacs mail reader format.
  *
- * Program takes one argument: an output file.  THis file will contain
+ * Program takes one argument: an output file.  This file will contain
  * all the messages in Messages directory, in berkeley mail format.
  * If no output file is mentioned, messages are put in ~/OMAIL.
  *
  * In order to get rmail to read the messages, the resulting file must
  * be mv'ed to ~/mbox, and then have rmail invoked on them.
- * 
+ *
  * Author: Larry Kolodney, 1985
  */
 
@@ -106,7 +106,7 @@ main (int argc, char *argv[])
      fclose (cff);
     }
   fclose (mddf);
-  fclose (mfilef);    
+  fclose (mfilef);
   return 0;
 }
 

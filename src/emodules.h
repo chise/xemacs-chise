@@ -60,7 +60,7 @@ extern Lisp_Object Vemacs_minor_version;
  * second is the name of the module, and the third is the module version.
  * If the module name is NULL, we will always reload the .so. If it is not
  * NULL, we check to make sure we haven't loaded it before. If the version
- * is specified, we check to make sure we didnt load the module of the
+ * is specified, we check to make sure we didn't load the module of the
  * specified version before. We also use these as checks when we open the
  * module to make sure we have the right module.
  */
@@ -69,7 +69,7 @@ extern void emodules_load (const char *module, const char *name, const char *ver
 /*
  * Because subrs and symbols added by a dynamic module are not part of
  * the make-docfile process, we need a clean way to get the variables
- * and functions documented. Since people dont like the idea of making
+ * and functions documented. Since people don't like the idea of making
  * shared modules use different versions of DEFSUBR() and DEFVAR_LISP()
  * and friends, we need these two functions to insert the documentation
  * into the right place. These functions will be called by the module

@@ -297,23 +297,22 @@ Mail readers known by default are vm, gnus, rmail, mh, pine, elm,
     (require 'gdbsrc)
     (call-interactively 'gdbsrc)))
 
-(defvar compile-command)
-(defvar toolbar-compile-already-run nil)
-
 (defun toolbar-compile ()
   "Run compile without having to touch the keyboard."
   (interactive)
+  (declare (special compile-command toolbar-compile-already-run))
   (require 'compile)
-  (if toolbar-compile-already-run
+  (if (boundp 'toolbar-compile-already-run)
       (compile compile-command)
     (setq toolbar-compile-already-run t)
     (if (should-use-dialog-box-p)
-       (popup-dialog-box
-        `(,(concat "Compile:\n        " compile-command)
-          ["Compile" (compile compile-command) t]
-          ["Edit command" compile t]
-          nil
-          ["Cancel" (message "Quit") t]))
+       (make-dialog-box 'question
+			:question (concat "Compile:\n        " compile-command)
+			:buttons
+			'(["Compile" (compile compile-command) t]
+			  ["Edit command" compile t]
+			  nil
+			  ["Cancel" (message "Quit") t]))
       (compile compile-command))))
 
 ;;

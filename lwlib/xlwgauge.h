@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   July 8, 1997
  */
 
@@ -89,7 +89,7 @@ Boston, MA 02111-1307, USA.  */
  +++ Labels is an array of nul-terminated strings to be used as labels.
      If this field is NULL but nlabels is > 0, then numeric labels will be
      provided.  NOTE: the labels are not copied to any internal memory; they
-     must be stored in static memory provided by the appliction.
+     must be stored in static memory provided by the application.
  ++++ AutoScale allows the gauge to set its own value limits.  Default is
       False unless upper & lower limits are both 0.
 
@@ -102,7 +102,7 @@ Boston, MA 02111-1307, USA.  */
 	{
 	  *(Cardinal *)rval = value ;
 	}
-	
+
 */
 
 /*

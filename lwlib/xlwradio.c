@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   June 30, 1997
  *
  *
@@ -120,7 +120,7 @@ static XtActionsRec actionsList[] =
 
 RadioClassRec radioClassRec = {
   {
-    (WidgetClass) SuperClass,		/* superclass		*/	
+    (WidgetClass) SuperClass,		/* superclass		*/
     "Radio",				/* class_name		*/
     sizeof(RadioRec),			/* size			*/
     RadioClassInit,			/* class_initialize	*/
@@ -154,7 +154,7 @@ RadioClassRec radioClassRec = {
     NULL				/* extension		*/
   },  /* CoreClass fields initialization */
   {
-    XtInheritChangeSensitive		/* change_sensitive	*/ 
+    XtInheritChangeSensitive		/* change_sensitive	*/
   },  /* SimpleClass fields initialization */
 #ifdef	_ThreeDP_h
   {
@@ -241,7 +241,7 @@ RadioInit (Widget   request,
 /*	Function Name: RadioDestroy
  *	Description: Destroy Callback for radio widget.
  *	Arguments: w - the radio widget that is being destroyed.
- *                 junk, grabage - not used.
+ *                 junk, garbage - not used.
  *	Returns: none.
  */
 
@@ -374,8 +374,8 @@ RadioSetValues (Widget   current,
     {
       RadioSize(newrw, &newrw->core.width, &newrw->core.height) ;
     }
-    
-    /* The label set values routine can resize the widget. We need to 
+
+    /* The label set values routine can resize the widget. We need to
      * recalculate if this is true.
      */
     if (newrw->label.label_x != oldrw->label.label_x)
@@ -423,7 +423,7 @@ RadioQueryGeometry (Widget w,
  * border.
  */
 
-static void 
+static void
 DrawHighlight (Widget w,
 	       GC gc)
 {
@@ -473,7 +473,7 @@ RadioUnhighlight (Widget   w,
 
 
 /* ARGSUSED */
-void 
+void
 RadioSet (Widget   w,
 	  XEvent   *event,
 	  String   *params,     /* unused */
@@ -492,7 +492,7 @@ RadioSet (Widget   w,
 
 
 /* ARGSUSED */
-void 
+void
 RadioUnset (Widget   w,
 	    XEvent   *event,
 	    String   *params,     /* unused */

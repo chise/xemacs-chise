@@ -1210,7 +1210,8 @@ Obsolete."
       (set yank-pointer-name
 	   (setq yank-pointer
 		 (mod (+ (or yank-pointer 0)
-			 (if advance -1 1))
+			 ;; XEmacs change
+			 (if advance -1 (if yank-pointer 1 0)))
 		      length)))
       (setq isearch-string (nth yank-pointer ring)
 	    isearch-message (mapconcat 'isearch-text-char-description

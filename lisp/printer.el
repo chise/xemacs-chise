@@ -60,10 +60,11 @@
   "Generic printing support."
   :group 'wp)
 
-(defcustom printer-name nil ; "Okidata OL610e/PS PostScript"
+(defcustom printer-name nil
   "*Name of printer to print to.
 If nil, use default.
-Under MS Windows, this can have the form `\\\\STOLI\\HP-345-PS'."
+Under Windows, use `mswindows-printer-list' to get names of installed
+printers."
   :type 'string
   :group 'printing)
 
@@ -151,8 +152,6 @@ Under Unix, `lpr' is normally used to spool out a no-frills version of the
 buffer, or the `ps-print' package is used to pretty-print the buffer to a
 PostScript printer.  Under MS Windows, the built-in printing support is used."
   (cond ((valid-specifier-tag-p 'msprinter)
-	 (or (stringp printer-name)
-	     (error "Please set `printer-name'"))
 	 (let (d f)
 	   (setq buf (decode-buffer buf))
 	   (unwind-protect

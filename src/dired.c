@@ -146,7 +146,7 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 	      memcpy (statbuf_tail, dp->d_name, len);
 	      statbuf_tail[len] = 0;
 
-	      if (stat (statbuf, &st) == 0
+	      if (xemacs_stat (statbuf, &st) == 0
 		  && (st.st_mode & S_IFMT) == S_IFDIR)
 		dir_p = 1;
 
@@ -260,9 +260,9 @@ file_name_completion_stat (Lisp_Object directory, DIRENTRY *dp,
      in case it is a directory.  */
   value = lstat (fullname, st_addr);
   if (S_ISLNK (st_addr->st_mode))
-    stat (fullname, st_addr);
+    xemacs_stat (fullname, st_addr);
 #else
-  value = stat (fullname, st_addr);
+  value = xemacs_stat (fullname, st_addr);
 #endif
   return value;
 }
@@ -507,7 +507,8 @@ file_name_completion (Lisp_Object file, Lisp_Object directory, int all_flag,
 
 
 
-/* The *pwent() functions do not exist on NT */
+/* The *pwent() functions do not exist on NT.  #### The NT equivalent
+   is NetUserEnum(), and rewriting to use it is not hard.*/
 #ifndef  WIN32_NATIVE
 
 static Lisp_Object user_name_completion (Lisp_Object user,
@@ -843,7 +844,7 @@ If file does not exist, returns nil.
   {
     struct stat sdir;
 
-    if (!NILP (directory) && stat ((char *) XSTRING_DATA (directory), &sdir) == 0)
+    if (!NILP (directory) && xemacs_stat ((char *) XSTRING_DATA (directory), &sdir) == 0)
       values[9] = (sdir.st_gid != s.st_gid) ? Qt : Qnil;
     else                        /* if we can't tell, assume worst */
       values[9] = Qt;

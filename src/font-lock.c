@@ -368,8 +368,8 @@ setup_context_cache (struct buffer *buf, Bufpos pt)
       /* OK, fine. */
       return;
 #if 0
-    /* This appears to cause huge slowdowns in files like
-       emacsfns.h, which have no top-level forms.
+    /* This appears to cause huge slowdowns in files which have no
+       top-level forms.
 
        In any case, it's not really necessary that we know for
        sure the top-level form we're in; if we're in a form

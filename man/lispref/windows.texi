@@ -1041,7 +1041,7 @@ position of point in that buffer.
 
 @defun window-point window
 This function returns the current position of point in @var{window}.
-For a nonselected window, this is the value point would have (in that
+For a non-selected window, this is the value point would have (in that
 window's buffer) if that window were selected.
 
 When @var{window} is the selected window and its buffer is also the

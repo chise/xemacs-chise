@@ -889,7 +889,7 @@ main (int argc, char *argv[])
       {
 	perror(progname);
 	fprintf(stderr,"%s: unable to select\n",progname);
-	exit(1);
+	return 1;
       } /* if */
 
 #ifdef UNIX_DOMAIN_SOCKETS
@@ -905,9 +905,7 @@ main (int argc, char *argv[])
     if (FD_ISSET(fileno(stdin), &rmask))      /* from stdin (gnu process) */
       handle_response();
 #endif /* NOT SYSV_IPC */
-  } /* while */
-
-  return 0;
+  } /* while (1) */
 } /* main */
 
 #endif /* SYSV_IPC || UNIX_DOMAIN_SOCKETS || INTERNET_DOMAIN_SOCKETS */

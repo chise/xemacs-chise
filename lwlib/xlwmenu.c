@@ -51,7 +51,7 @@ Boston, MA 02111-1307, USA.  */
 #include <dmalloc.h>
 #endif
 
-/* simple, naieve integer maximum */
+/* simple, naive integer maximum */
 #ifndef max
 #define max(a,b) ((a)>(b)?(a):(b))
 #endif
@@ -88,6 +88,8 @@ xlwMenuResources[] =
   {XtNfont,  XtCFont, XtRFontStruct, sizeof(XFontStruct *),
      offset(menu.font), XtRString, (XtPointer) "XtDefaultFont"},
 # ifdef USE_XFONTSET
+  /* #### Consider using the same method as for Motif; see the comment in
+     XlwMenuInitialize(). */
   {XtNfontSet,  XtCFontSet, XtRFontSet, sizeof(XFontSet),
      offset(menu.font_set), XtRString, (XtPointer) "XtDefaultFontSet"},
 # endif
@@ -688,7 +690,7 @@ resource_widget_value (XlwMenuWidget mw, widget_value *val)
 
 /* Unused */
 #if 0
-/* These two routines should be a seperate file..djw */
+/* These two routines should be a separate file..djw */
 static char *
 xlw_create_localized_string (Widget w,
 			     char *name,
@@ -1519,7 +1521,7 @@ menu_item_type (widget_value *val)
   else
     return TEXT_TYPE;
 #else
-  else 
+  else
     abort();
   return UNSPECIFIED_TYPE; /* Not reached */
 #endif
@@ -2491,7 +2493,7 @@ remap_menubar (XlwMenuWidget mw)
 
   mw->menu.old_depth = new_depth;
 
-  /* refresh the last seletion */
+  /* refresh the last selection */
   selection_position.x = 0;
   selection_position.y = 0;
   display_menu (mw, last_same, new_selection == old_selection,
@@ -3017,10 +3019,12 @@ XlwMenuInitialize (Widget request, Widget new, ArgList args,
 				 gray_width, gray_height, 1, 0, 1);
 
 #ifdef NEED_MOTIF
+  /* #### Even if it's a kludge!!!, we should consider doing the same for
+     X Font Sets. */
   /* The menu.font_list slot came from the *fontList resource (Motif standard.)
      The menu.font_list_2 slot came from the *font resource, for backward
      compatibility with older versions of this code, and consistency with the
-     rest of emacs.  If both font and fontList are specified, we use font.
+     rest of emacs.  If both font and fontList are specified, we use fontList.
      If only one is specified, we use that.  If neither are specified, we
      use the "fallback" value.  What a kludge!!!
 

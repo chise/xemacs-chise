@@ -139,9 +139,7 @@ symbol_to_x_atom (struct device *d, Lisp_Object sym, int only_if_exists)
 
   {
     const char *nameext;
-    TO_EXTERNAL_FORMAT (LISP_STRING, Fsymbol_name (sym),
-			C_STRING_ALLOCA, nameext,
-			Qctext);
+    LISP_STRING_TO_EXTERNAL (Fsymbol_name (sym), nameext, Qctext);
     return XInternAtom (display, nameext, only_if_exists ? True : False);
   }
 }
@@ -228,7 +226,7 @@ x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value,
      That assumed equivalence of time_t and Time, which is not
      necessarily the case (e.g. under OSF on the Alphas, where
      Time is a 64-bit quantity and time_t is a 32-bit quantity).
-     
+
      Opaque pointers are the clean way to go here.
   */
   selection_time = make_opaque (&thyme, sizeof (thyme));
@@ -378,7 +376,7 @@ motif_clipboard_cb (Widget widget, int *data_id, int *private_id, int *reason)
 
 	/* Whichever lazy git wrote this originally just called abort()
 	   when anything didn't go their way... */
-	
+
 	/* Try some other text types */
 	if (NILP (selection))
 	  selection = select_convert_out (QCLIPBOARD, QSTRING, Qnil);
@@ -386,7 +384,7 @@ motif_clipboard_cb (Widget widget, int *data_id, int *private_id, int *reason)
 	  selection = select_convert_out (QCLIPBOARD, QTEXT, Qnil);
 	if (NILP (selection))
 	  selection = select_convert_out (QCLIPBOARD, QCOMPOUND_TEXT, Qnil);
-	
+
 	if (CONSP (selection) && SYMBOLP (XCAR (selection))
 	    && (EQ (XCAR (selection), QSTRING)
 		|| EQ (XCAR (selection), QTEXT)
@@ -400,8 +398,8 @@ motif_clipboard_cb (Widget widget, int *data_id, int *private_id, int *reason)
 	if (!STRINGP (selection))
 	  signal_error (Qselection_conversion_error,
 			build_string ("couldn't convert selection to string"));
-			       
-	
+
+
 	XmClipboardCopyByName (dpy, window, *data_id,
 			       (char *) XSTRING_DATA (selection),
 			       XSTRING_LENGTH (selection) + 1,
@@ -600,7 +598,7 @@ x_handle_selection_request (XSelectionRequestEvent *event)
     }
 
   local_selection_time = * (Time *) XOPAQUE_DATA (temp_obj);
-  
+
   if (event->time != CurrentTime &&
       local_selection_time > event->time)
     {
@@ -632,14 +630,14 @@ x_handle_selection_request (XSelectionRequestEvent *event)
     Atom type;
     lisp_data_to_selection_data (d, converted_selection,
 				 &data, &type, &size, &format);
-    
+
     x_reply_selection_request (event, format, data, size, type);
     successful_p = Qt;
     /* Tell x_selection_request_lisp_error() it's cool. */
     event->type = 0;
     xfree (data);
   }
-  
+
   unbind_to (count, Qnil);
 
  DONE_LABEL:
@@ -682,7 +680,7 @@ x_handle_selection_clear (XSelectionClearEvent *event)
   /* We don't own the selection, so that's fine. */
   if (NILP (local_selection_time_lisp))
     return;
-  
+
   local_selection_time = * (Time *) XOPAQUE_DATA (local_selection_time_lisp);
 
   /* This SelectionClear is for a selection that we no longer own, so we can
@@ -692,7 +690,7 @@ x_handle_selection_clear (XSelectionClearEvent *event)
   if (changed_owner_time != CurrentTime &&
       local_selection_time > changed_owner_time)
     return;
-  
+
   handle_selection_clear (selection_symbol);
 }
 

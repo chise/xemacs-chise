@@ -873,23 +873,31 @@ If there is no such live buffer, return nil."
 (defun insert-file-contents-literally (filename &optional visit beg end replace)
   "Like `insert-file-contents', q.v., but only reads in the file.
 A buffer may be modified in several ways after reading into the buffer due
-to advanced Emacs features, such as file-name-handlers, format decoding,
-find-file-hooks, etc.
+to advanced Emacs features, such as format decoding, character code
+conversion,find-file-hooks, automatic uncompression, etc.
+
   This function ensures that none of these modifications will take place."
-  (let ((file-name-handler-alist nil)
-	(format-alist nil)
-	(after-insert-file-functions nil)
-	(find-buffer-file-type-function
-	 (if (fboundp 'find-buffer-file-type)
-	     (symbol-function 'find-buffer-file-type)
-	   nil)))
-    (unwind-protect
-	(progn
-	  (fset 'find-buffer-file-type (lambda (filename) t))
-	  (insert-file-contents filename visit beg end replace))
-      (if find-buffer-file-type-function
-	  (fset 'find-buffer-file-type find-buffer-file-type-function)
-	(fmakunbound 'find-buffer-file-type)))))
+  (let ((wrap-func (find-file-name-handler filename
+					   'insert-file-contents-literally)))
+    (if wrap-func 
+	(funcall wrap-func 'insert-file-contents-literally filename
+		 visit beg end replace)
+      (let ((file-name-handler-alist nil)
+	    (format-alist nil)
+	    (after-insert-file-functions nil)
+	    (coding-system-for-read 'binary)
+	    (coding-system-for-write 'binary)
+	    (find-buffer-file-type-function
+	     (if (fboundp 'find-buffer-file-type)
+		 (symbol-function 'find-buffer-file-type)
+	       nil)))
+	(unwind-protect
+	    (progn
+	      (fset 'find-buffer-file-type (lambda (filename) t))
+	      (insert-file-contents filename visit beg end replace))
+	  (if find-buffer-file-type-function
+	      (fset 'find-buffer-file-type find-buffer-file-type-function)
+	    (fmakunbound 'find-buffer-file-type)))))))
 
 (defun find-file-noselect (filename &optional nowarn rawfile)
   "Read file FILENAME into a buffer and return the buffer.
@@ -1170,6 +1178,7 @@ run `normal-mode' explicitly."
     ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
     ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
     ("/\\.\\(?:[kz]shenv\\|xsession\\)\\'" . sh-mode)
+    ("\\.m?spec$" .sh-mode)
     ;; The following come after the ChangeLog pattern for the sake of
     ;; ChangeLog.1, etc. and after the .scm.[0-9] pattern too.
     ("\\.[12345678]\\'" . nroff-mode)

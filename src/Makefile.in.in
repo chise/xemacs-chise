@@ -124,7 +124,7 @@ lwlib_deps = $(lwlib_libs)
 $(lwlib_libs) :
 	cd ../lwlib && $(RECURSIVE_MAKE)
 
-x_objs=balloon_help.o balloon-x.o console-x.o device-x.o event-Xt.o frame-x.o\
+x_objs=console-x.o device-x.o event-Xt.o frame-x.o\
  glyphs-x.o objects-x.o redisplay-x.o select-x.o xgccache.o
 
 #ifdef AIX4
@@ -134,12 +134,12 @@ LIBI18N = -li18n
 X11_libs = $(LIBI18N)
 #endif /* HAVE_X_WINDOWS */
 
-#if defined (HEAP_IN_DATA) && !defined(PDUMP)
-sheap_obj=sheap.o
+#if defined (HEAP_IN_DATA) && !defined (PDUMP)
+sheap_objs=sheap.o
 #endif
 
-#if defined(MINGW) || defined(CYGWIN)
-res_obj=xemacs_res.o
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+win32_objs=win32.o xemacs_res.o
 #endif
 
 ## -Demacs is needed to make some files produce the correct version
@@ -193,9 +193,9 @@ objs=\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
  print.o process.o profile.o\
  rangetab.o redisplay.o redisplay-output.o regex.o\
- search.o select.o $(sheap_obj) signal.o sound.o\
+ search.o select.o $(sheap_objs) signal.o sound.o\
  specifier.o strftime.o symbols.o syntax.o sysdep.o\
- undo.o $(x_objs) widget.o window.o $(res_obj)
+ undo.o $(x_objs) widget.o window.o $(win32_objs)
 
 obj_rtl = $(objs:.o=.c.rtl)
 
@@ -346,7 +346,7 @@ ${DUMP_TARGET}: ${EXE_TARGET} ${libsrc}DOC $(mo_file) ${other_files} update-elc.
 		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
 		$(RM) SATISFIED; exit 0; fi; \
 	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi; \
-	@$(RM) $@; \
+	$(RM) $@; \
 	$(RECURSIVE_MAKE) $@;
 #else
 	@$(RM) $@
@@ -513,7 +513,7 @@ PURIFY_FLAGS =\
  -search-mmaps=yes\
 #endif
  -chain-length=32 -ignore-signals=SIGPOLL -threads=yes\
- -cache-dir=./purecache -always-use-cache-dir=yes
+ -cache-dir=${srcdir}/purecache -always-use-cache-dir=yes
 
 PURIFY_LIBS  = -lpthread
 puremacs: $(temacs_deps)
@@ -554,6 +554,10 @@ TransientEmacsShell.o : ${srcdir}/EmacsShell-sub.c TopLevelEmacsShell.o config.h
 TransientEmacsShell.c.rtl : ${srcdir}/EmacsShell-sub.c TopLevelEmacsShell.o config.h xintrinsicp.h EmacsShellP.h
 	$(CC) -dr -c $(cflags) -DDEFINE_TRANSIENT_EMACS_SHELL ${srcdir}/EmacsShell-sub.c
 	mv EmacsShell-sub.c.rtl TransientEmacsShell.c.rtl
+
+## The above rules are subject to a race condition if using a parallel make.
+TransientEmacsShell.o : TopLevelEmacsShell.o
+TransientEmacsShell.c.rtl : TopLevelEmacsShell.c.rtl
 
 ## Position-independent code for shared library creation
 #if USE_GCC
@@ -703,7 +707,7 @@ xemacs_res.o: ${srcdir}/../nt/xemacs.rc
 
 .PHONY: mostlyclean clean distclean realclean versionclean extraclean
 mostlyclean:
-	$(RM) temacs puremacs quantmacs prefix-args *.o *.i  \
+	$(RM) temacs puremacs quantmacs *.o *.i  \
 	  core temacs.exe sheap-adjust.h
 clean: mostlyclean versionclean
 	$(RM) libextcli* update-elc.stamp
@@ -714,7 +718,7 @@ distclean: clean
 	  GNUmakefile Makefile Makefile.in TAGS ${PROGNAME}.*
 realclean: distclean
 versionclean:
-	$(RM) ${PROGNAME} ${PROGNAME}.exe ${libsrc}DOC
+	$(RM) ${EXE_TARGET} ${DUMP_TARGET} ${libsrc}DOC
 extraclean: realclean
 	$(RM) *~ \#* m/*~ m/\#* s/*~ s/\#*
 

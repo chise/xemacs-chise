@@ -85,6 +85,10 @@ Boston, MA 02111-1307, USA.  */
 #include "gui-x.h"
 #endif
 
+#ifdef HAVE_MS_WINDOWS
+#include "console-msw.h"
+#endif
+
 #ifdef FILE_CODING
 #include "file-coding.h"
 #endif

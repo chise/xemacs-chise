@@ -4840,6 +4840,10 @@ add_regex (regexp_pattern, ignore_case, lang)
   patbuf->buffer = NULL;
   patbuf->allocated = 0;
 
+#if 0 /* useful when debugging windows quoting convention problems */
+  printf ("Compiling regex pattern: %s\n", regexp_pattern);
+#endif
+
   err = re_compile_pattern (regexp_pattern, strlen (regexp_pattern), patbuf);
   if (err != NULL)
     {

@@ -2393,67 +2393,86 @@ With argument 0, interchanges line point is in with line mark is in."
 		       (forward-line arg)))
 		  arg))
 
-(eval-when-compile
-  ;; avoid byte-compiler warnings...
-  (defvar start1)
-  (defvar start2)
-  (defvar end1)
-  (defvar end2))
+(defun transpose-line-up (arg)
+  "Move current line one line up, leaving point at beginning of that line.
+This can be run repeatedly to move to current line up a number of lines."
+  (interactive "*p")
+  ;; Move forward over a line,
+  ;; but create a newline if none exists yet.
+  (end-of-line)
+  (if (eobp)
+      (newline)
+    (forward-char 1))
+  (transpose-lines (- arg))
+  (forward-line -1))
 
-; start[12] and end[12] used in transpose-subr-1 below
+(defun transpose-line-down (arg)
+  "Move current line one line down, leaving point at beginning of that line.
+This can be run repeatedly to move to current line down a number of lines."
+  (interactive "*p")
+  ;; Move forward over a line,
+  ;; but create a newline if none exists yet.
+  (end-of-line)
+  (if (eobp)
+      (newline)
+    (forward-char 1))
+  (transpose-lines arg)
+  (forward-line -1))
+
 (defun transpose-subr (mover arg)
   (let (start1 end1 start2 end2)
-    (if (= arg 0)
-	(progn
-	  (save-excursion
-	    (funcall mover 1)
-	    (setq end2 (point))
-	    (funcall mover -1)
-	    (setq start2 (point))
-	    (goto-char (mark t)) ; XEmacs
-	    (funcall mover 1)
-	    (setq end1 (point))
-	    (funcall mover -1)
-	    (setq start1 (point))
-	    (transpose-subr-1))
-	  (exchange-point-and-mark t))) ; XEmacs
-    (while (> arg 0)
-      (funcall mover -1)
-      (setq start1 (point))
-      (funcall mover 1)
-      (setq end1 (point))
-      (funcall mover 1)
-      (setq end2 (point))
-      (funcall mover -1)
-      (setq start2 (point))
-      (transpose-subr-1)
-      (goto-char end2)
-      (setq arg (1- arg)))
-    (while (< arg 0)
-      (funcall mover -1)
-      (setq start2 (point))
-      (funcall mover -1)
-      (setq start1 (point))
-      (funcall mover 1)
-      (setq end1 (point))
-      (funcall mover 1)
-      (setq end2 (point))
-      (transpose-subr-1)
-      (setq arg (1+ arg)))))
+    ;; XEmacs -- use flet instead of defining a separate function and
+    ;; relying on dynamic scope!!!
+    (flet ((transpose-subr-1 ()
+	     (if (> (min end1 end2) (max start1 start2))
+		 (error "Don't have two things to transpose"))
+	     (let ((word1 (buffer-substring start1 end1))
+		   (word2 (buffer-substring start2 end2)))
+	       (delete-region start2 end2)
+	       (goto-char start2)
+	       (insert word1)
+	       (goto-char (if (< start1 start2) start1
+			    (+ start1 (- (length word1) (length word2)))))
+	       (delete-char (length word1))
+	       (insert word2))))
+      (if (= arg 0)
+	  (progn
+	    (save-excursion
+	      (funcall mover 1)
+	      (setq end2 (point))
+	      (funcall mover -1)
+	      (setq start2 (point))
+	      (goto-char (mark t)) ; XEmacs
+	      (funcall mover 1)
+	      (setq end1 (point))
+	      (funcall mover -1)
+	      (setq start1 (point))
+	      (transpose-subr-1))
+	    (exchange-point-and-mark t))) ; XEmacs
+      (while (> arg 0)
+	(funcall mover -1)
+	(setq start1 (point))
+	(funcall mover 1)
+	(setq end1 (point))
+	(funcall mover 1)
+	(setq end2 (point))
+	(funcall mover -1)
+	(setq start2 (point))
+	(transpose-subr-1)
+	(goto-char end2)
+	(setq arg (1- arg)))
+      (while (< arg 0)
+	(funcall mover -1)
+	(setq start2 (point))
+	(funcall mover -1)
+	(setq start1 (point))
+	(funcall mover 1)
+	(setq end1 (point))
+	(funcall mover 1)
+	(setq end2 (point))
+	(transpose-subr-1)
+	(setq arg (1+ arg))))))
 
-; start[12] and end[12] used free
-(defun transpose-subr-1 ()
-  (if (> (min end1 end2) (max start1 start2))
-      (error "Don't have two things to transpose"))
-  (let ((word1 (buffer-substring start1 end1))
-	(word2 (buffer-substring start2 end2)))
-    (delete-region start2 end2)
-    (goto-char start2)
-    (insert word1)
-    (goto-char (if (< start1 start2) start1
-		 (+ start1 (- (length word1) (length word2)))))
-    (delete-char (length word1))
-    (insert word2)))
 
 (defcustom comment-column 32
   "*Column to indent right-margin comments to.
@@ -3373,7 +3392,6 @@ when it is off screen."
 ;Turned off because it makes dbx bomb out.
 (setq blink-paren-function 'blink-matching-open)
 
-(eval-when-compile (defvar myhelp))	; suppress compiler warning
 
 ;; XEmacs: Some functions moved to cmdloop.el:
 ;; keyboard-quit
@@ -3557,8 +3575,6 @@ it were the arg to `interactive' (which see) to interactively read the value."
    (let* ((var (read-variable "Set variable: "))
 	  ;; #### - yucky code replication here.  This should use something
 	  ;; from help.el or hyper-apropos.el
-	  (minibuffer-help-form
-	   '(funcall myhelp))
 	  (myhelp
 	   #'(lambda ()
 	      (with-output-to-temp-buffer "*Help*"
@@ -3573,7 +3589,9 @@ it were the arg to `interactive' (which see) to interactively read the value."
 		(save-excursion
 		  (set-buffer standard-output)
 		  (help-mode))
-		nil))))
+		nil)))
+	  (minibuffer-help-form
+	   '(funcall myhelp)))
      (list var
 	   (let ((prop (get var 'variable-interactive)))
 	     (if prop
@@ -4359,17 +4377,10 @@ The C code calls this periodically, right before redisplay."
       (setq warning-marker (make-marker))
       (set-marker warning-marker 1 buffer))
     (if temp-buffer-show-function
-        (let ((show-buffer (get-buffer-create "*Warnings-Show*")))
-          (save-excursion
-            (set-buffer show-buffer)
-            (setq buffer-read-only nil)
-            (erase-buffer))
-          (save-excursion
-            (set-buffer buffer)
-            (copy-to-buffer show-buffer
-                            (marker-position warning-marker)
-                            (point-max)))
-          (funcall temp-buffer-show-function show-buffer))
+        (progn
+          (funcall temp-buffer-show-function buffer)
+	  (mapc #'(lambda (win) (set-window-start win warning-marker))
+		(windows-of-buffer buffer nil t)))
       (set-window-start (display-buffer buffer) warning-marker))
     (set-marker warning-marker (point-max buffer) buffer)))
 
@@ -4383,5 +4394,10 @@ The C code calls this periodically, right before redisplay."
   (cond ((featurep 'infodock) "InfoDock")
 	((featurep 'xemacs) "XEmacs")
 	(t "Emacs")))
+
+(defun debug-print (format &rest args)
+  "Send a string to the debugging output.
+The string is formatted using (apply #'format FORMAT ARGS)."
+  (princ (apply #'format format args) 'external-debugging-output))
 	  
 ;;; simple.el ends here

@@ -51,7 +51,8 @@ Boston, MA 02111-1307, USA.  */
    sony_news                    NEWS-OS (works at least for 4.1C)
    UMAX
    UMAX4_3
-   WIN32_NATIVE			No-op for Windows95/NT.
+   WIN32_NATIVE			No-op for Windows9x/NT.
+   CYGWIN			No-op for Cygwin.
    __linux__			Linux: assumes /proc filesystem mounted.
    				Support from Michael K. Johnson.
    __NetBSD__			NetBSD: assumes /kern filesystem mounted.
@@ -70,27 +71,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "lisp.h"
 #include "sysfile.h" /* for encapsulated open, close, read, write */
-
-#ifndef WIN32_NATIVE
-#ifndef CYGWIN
-
-#include <sys/types.h>
-
-/* Both the Emacs and non-Emacs sections want this.  Some
-   configuration files' definitions for the LOAD_AVE_CVT macro (like
-   sparc.h's) use macros like FSCALE, defined here.  */
-#ifdef unix
-#include <sys/param.h>
-#endif
-
-
-/* Exclude all the code except the test program at the end
-   if the system has its own `getloadavg' function.
-
-   The declaration of `errno' is needed by the test program
-   as well as the function itself, so it comes first.  */
-
-#include <errno.h>
 
 #ifndef HAVE_GETLOADAVG
 
@@ -457,11 +437,6 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/pstat.h>
 #endif /* HAVE_SYS_PSTAT_H (on HPUX) */
 
-#if defined(HAVE_FCNTL_H) || defined(_POSIX_VERSION)
-#include <fcntl.h>
-#else
-#include <sys/file.h>
-#endif
 
 /* Avoid static vars inside a function since in HPUX they dump as pure.  */
 
@@ -505,6 +480,8 @@ static kvm_t *kd;
    into the first NELEM elements of LOADAVG.
    Return the number written (never more than 3, but may be less than NELEM),
    or -1 if an error occurred.  */
+
+int getloadavg (double loadavg[], int nelem);
 
 int
 getloadavg (double loadavg[], int nelem)
@@ -773,7 +750,7 @@ getloadavg (double loadavg[], int nelem)
        : (load_ave.tl_avenrun.l[0] / (double) load_ave.tl_lscale));
 #endif	/* OSF_MIPS */
 
-#if !defined (LDAV_DONE) && defined (WIN32_NATIVE)
+#if !defined (LDAV_DONE) && (defined (WIN32_NATIVE) || defined (CYGWIN))
 #define LDAV_DONE
 
   /* A faithful emulation is going to have to be saved for a rainy day.  */
@@ -781,7 +758,7 @@ getloadavg (double loadavg[], int nelem)
     {
       loadavg[elem] = 0.0;
     }
-#endif  /* WIN32_NATIVE */
+#endif  /* WIN32_NATIVE or CYGWIN */
 
 #if !defined (LDAV_DONE) && defined (OSF_ALPHA)
 #define LDAV_DONE
@@ -954,22 +931,3 @@ main (int argc, char **argv)
   exit (0);
 }
 #endif /* TEST */
-
-#else
-
-/* Emulate getloadavg.  */
-int
-getloadavg (double loadavg[], int nelem)
-{
-  int i;
-
-  /* A faithful emulation is going to have to be saved for a rainy day.  */
-  for (i = 0; i < nelem; i++) 
-    {
-      loadavg[i] = 0.0;
-    }
-  return i;
-}
-
-#endif /*__GNUWIN32__*/
-#endif /* WIN32_NATIVE */

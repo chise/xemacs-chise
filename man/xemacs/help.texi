@@ -441,7 +441,7 @@ full details on the complete absence of warranty for XEmacs.  @kbd{C-h
 n} (@code{view-emacs-news}) displays the file @file{xemacs/etc/NEWS},
 which contains documentation on XEmacs changes arranged chronologically.
 @kbd{C-h F} (@code{xemacs-local-faq}) displays local version of the
-XEmacs frequentliy-answered-questions-list.  @kbd{C-h t}
+XEmacs frequently-answered-questions-list.  @kbd{C-h t}
 (@code{help-with-tutorial}) displays the learn-by-doing XEmacs
 tutorial. @kbd{C-h C-c} (@code{describe-copying}) displays the file
 @file{xemacs/etc/COPYING}, which tells you the conditions you must obey

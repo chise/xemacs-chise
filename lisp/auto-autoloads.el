@@ -559,12 +559,6 @@ and then returning foo." nil 'macro)
 
 ;;;***
 
-;;;### (autoloads (batch-remove-old-elc) "cleantree" "lisp/cleantree.el")
-
-(autoload 'batch-remove-old-elc "cleantree" nil nil nil)
-
-;;;***
-
 ;;;### (autoloads (config-value config-value-hash-table) "config" "lisp/config.el")
 
 (autoload 'config-value-hash-table "config" "\
@@ -765,7 +759,7 @@ FACE.  Nil otherwise." nil nil)
 
 (autoload 'custom-reset-faces "cus-face" "\
 Reset the value of the face to values previously defined.
-Assosiate this setting with the 'user' theme.
+Associate this setting with the 'user' theme.
 
 ARGS is defined as for `custom-theme-reset-faces'" nil nil)
 
@@ -952,7 +946,11 @@ This function pops (and moves to) the tag at the top of this stack." t nil)
 
 ;;;***
 
-;;;### (autoloads (finder-by-keyword) "finder" "lisp/finder.el")
+;;;### (autoloads (finder-by-keyword finder-commentary) "finder" "lisp/finder.el")
+
+(autoload 'finder-commentary "finder" "\
+Display FILE's commentary section.
+FILE should be in a form suitable for passing to `locate-library'." t nil)
 
 (autoload 'finder-by-keyword "finder" "\
 Find packages matching a given keyword." t nil)
@@ -1273,7 +1271,7 @@ Interactively set the variable on the current line." t nil)
 
 ;;;***
 
-;;;### (autoloads (Info-elisp-ref Info-emacs-key Info-goto-emacs-key-command-node Info-goto-emacs-command-node Info-emacs-command Info-search Info-visit-file Info-goto-node Info-batch-rebuild-dir Info-query info) "info" "lisp/info.el")
+;;;### (autoloads (Info-elisp-ref Info-emacs-key Info-goto-emacs-key-command-node Info-goto-emacs-command-node Info-emacs-command Info-search Info-visit-file Info-goto-node Info-batch-rebuild-dir Info-find-node Info-query info) "info" "lisp/info.el")
 
 (defvar Info-directory-list nil "\
 List of directories to search for Info documentation files.
@@ -1299,6 +1297,13 @@ to read a file name from the minibuffer." t nil)
 
 (autoload 'Info-query "info" "\
 Enter Info, the documentation browser.  Prompt for name of Info file." t nil)
+
+(autoload 'Info-find-node "info" "\
+Go to an info node specified as separate FILENAME and NODENAME.
+Look for a plausible filename, or if not found then look for URL's and
+dispatch to the appropriate fn.  NO-GOING-BACK is non-nil if
+recovering from an error in this function; it says do not attempt
+further (recursive) error recovery.  TRYFILE is ??" nil nil)
 
 (autoload 'Info-batch-rebuild-dir "info" "\
 (Re)build info `dir' files in the directories remaining on the command line.
@@ -1891,7 +1896,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(defun* x-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from x-font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
+(defun* x-font-menu-font-data (face dcache) (defvar x-font-regexp) (defvar x-font-regexp-foundry-and-family) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from x-font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 

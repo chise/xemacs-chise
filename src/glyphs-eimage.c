@@ -119,7 +119,8 @@ jpeg_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-jpeg_normalize (Lisp_Object inst, Lisp_Object console_type)
+jpeg_normalize (Lisp_Object inst, Lisp_Object console_type,
+		Lisp_Object dest_mask)
 {
   return simple_image_type_normalize (inst, console_type, Qjpeg);
 }
@@ -515,7 +516,8 @@ gif_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-gif_normalize (Lisp_Object inst, Lisp_Object console_type)
+gif_normalize (Lisp_Object inst, Lisp_Object console_type,
+	       Lisp_Object dest_mask)
 {
   return simple_image_type_normalize (inst, console_type, Qgif);
 }
@@ -757,7 +759,8 @@ png_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-png_normalize (Lisp_Object inst, Lisp_Object console_type)
+png_normalize (Lisp_Object inst, Lisp_Object console_type,
+	       Lisp_Object dest_mask)
 {
   return simple_image_type_normalize (inst, console_type, Qpng);
 }
@@ -1043,7 +1046,8 @@ tiff_validate (Lisp_Object instantiator)
 }
 
 static Lisp_Object
-tiff_normalize (Lisp_Object inst, Lisp_Object console_type)
+tiff_normalize (Lisp_Object inst, Lisp_Object console_type,
+		Lisp_Object dest_mask)
 {
   return simple_image_type_normalize (inst, console_type, Qtiff);
 }
@@ -1255,7 +1259,7 @@ tiff_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
     mem_struct.len = len;
     mem_struct.index = 0;
 
-    unwind.tiff = TIFFClientOpen ("memfile", "r", &mem_struct,
+    unwind.tiff = TIFFClientOpen ("memfile", "r", (thandle_t) &mem_struct,
 				  (TIFFReadWriteProc)tiff_memory_read,
 				  (TIFFReadWriteProc)tiff_memory_write,
 				  tiff_memory_seek, tiff_memory_close, tiff_memory_size,

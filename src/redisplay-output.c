@@ -233,7 +233,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
     return 0;
   /* Only check dirtiness if we know something has changed. */
   else if (crb->type == RUNE_DGLYPH &&
-	   (XGLYPH_DIRTYP (crb->object.dglyph.glyph) || 
+	   (XGLYPH_DIRTYP (crb->object.dglyph.glyph) ||
 	    crb->findex != drb->findex))
     {
       /* We need some way of telling redisplay_output_layout () that the
@@ -255,19 +255,19 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	return 0;
       ii = XIMAGE_INSTANCE (image);
 
-      if (TEXT_IMAGE_INSTANCEP (image) && 
-	  (crb->findex != drb->findex || 
+      if (TEXT_IMAGE_INSTANCEP (image) &&
+	  (crb->findex != drb->findex ||
 	   WINDOW_FACE_CACHEL_DIRTY (w, drb->findex)))
 	return 0;
 
-      /* It is quite common of the two glyphs to be EQ since in many
+      /* It is quite common for the two glyphs to be EQ since in many
 	 cases they will actually be the same object. This does not
 	 mean, however, that nothing has changed. We therefore need to
 	 check the current hash of the glyph against the last recorded
 	 display hash and the pending display items. See
 	 update_subwindow (). */
       if (image_instance_changed (image) ||
-	  crb->findex != drb->findex || 
+	  crb->findex != drb->findex ||
 	  WINDOW_FACE_CACHEL_DIRTY (w, drb->findex))
 	{
 	  /* We now now we are going to re-output the glyph, but since
@@ -275,7 +275,7 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
 	     changes, send a hint to the output routines that they can
 	     take some short cuts. This is most useful for
 	     layouts. This flag should get reset by the output
-	     routines. 
+	     routines.
 
 	     #### It is possible for us to get here when the
 	     face_cachel is dirty. I do not know what the implications
@@ -1169,17 +1169,16 @@ static void redisplay_unmap_subwindows (struct frame* f, int x, int y, int width
   LIST_LOOP (rest, XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f)))
     {
       Lisp_Image_Instance *ii = XIMAGE_INSTANCE (XCAR (rest));
-
       if (IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii)
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_X (ii)
-	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) > x 
-	  && 
+	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) > x
+	  &&
 	  IMAGE_INSTANCE_DISPLAY_X (ii) < x + width
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_Y (ii)
-	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) > y 
-	  && 
+	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) > y
+	  &&
 	  IMAGE_INSTANCE_DISPLAY_Y (ii) < y + height
 	  &&
 	  !EQ (XCAR (rest), ignored_window))
@@ -1236,7 +1235,7 @@ redisplay_output_subwindow (struct window *w,
   /* The first thing we are going to do is update the display
      characteristics of the subwindow. This also clears the dirty
      flags as a side effect. */
-  update_subwindow (image_instance);
+  redisplay_subwindow (image_instance);
 
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
@@ -1296,27 +1295,25 @@ redisplay_output_subwindow (struct window *w,
  issues lwlib has to grapple with. We really need to know what has
  actually changed and make a layout decision based on that. We also
  really need to know what has changed so that we can only make the
- neccessary changes in update_subwindow.  This has all now been
+ necessary changes in update_subwindow.  This has all now been
  implemented, Viva la revolution!
  ****************************************************************************/
 void
-redisplay_output_layout (struct window *w,
+redisplay_output_layout (Lisp_Object domain,
 			 Lisp_Object image_instance,
 			 struct display_box* db, struct display_glyph_area* dga,
 			 face_index findex, int cursor_start, int cursor_width,
 			 int cursor_height)
 {
   Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
-  Lisp_Object window, rest;
+  Lisp_Object rest, window = DOMAIN_WINDOW (domain);
   Emchar_dynarr *buf = Dynarr_new (Emchar);
-  struct frame *f = XFRAME (w->frame);
-  struct device *d = XDEVICE (f->device);
+  struct window *w = XWINDOW (window);
+  struct device *d = DOMAIN_XDEVICE (domain);
   int layout_height, layout_width;
 
-  XSETWINDOW (window, w);
-
-  layout_height = glyph_height (image_instance, window);
-  layout_width = glyph_width (image_instance, window);
+  layout_height = glyph_height (image_instance, domain);
+  layout_width = glyph_width (image_instance, domain);
 
   dga->height = layout_height;
   dga->width = layout_width;
@@ -1389,7 +1386,8 @@ redisplay_output_layout (struct window *w,
   /* Flip through the widgets in the layout displaying as necessary */
   LIST_LOOP (rest, IMAGE_INSTANCE_LAYOUT_CHILDREN (p))
     {
-      Lisp_Object child = XCAR (rest);
+      Lisp_Object child = glyph_image_instance (XCAR (rest), image_instance,
+						ERROR_ME_NOT, 1);
 
       struct display_box cdb;
       /* For losing HP-UX */
@@ -1407,10 +1405,10 @@ redisplay_output_layout (struct window *w,
 	  struct display_glyph_area cdga;
 	  cdga.xoffset  = IMAGE_INSTANCE_XOFFSET (childii) - dga->xoffset;
 	  cdga.yoffset = IMAGE_INSTANCE_YOFFSET (childii) - dga->yoffset;
-	  cdga.width = glyph_width (child, window);
-	  cdga.height = glyph_height (child, window);
+	  cdga.width = glyph_width (child, image_instance);
+	  cdga.height = glyph_height (child, image_instance);
 
-	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) = 
+	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) =
 	    IMAGE_INSTANCE_OPTIMIZE_OUTPUT (p);
 
 	  /* Although normalization is done by the output routines
@@ -1462,9 +1460,9 @@ redisplay_output_layout (struct window *w,
 			xzero (dl);
 			/* Munge boxes into display lines. */
 			dl.ypos = (cdb.ypos - cdga.yoffset)
-			  + glyph_ascent (child, window);
-			dl.ascent = glyph_ascent (child, window);
-			dl.descent = glyph_descent (child, window);
+			  + glyph_ascent (child, image_instance);
+			dl.ascent = glyph_ascent (child, image_instance);
+			dl.descent = glyph_descent (child, image_instance);
 			dl.top_clip = cdga.yoffset;
 			dl.clip = (dl.ypos + dl.descent) - (cdb.ypos + cdb.height);
 			/* output_string doesn't understand offsets in
@@ -1491,7 +1489,7 @@ redisplay_output_layout (struct window *w,
 		case IMAGE_WIDGET:
 		  if (EQ (IMAGE_INSTANCE_WIDGET_TYPE (childii), Qlayout))
 		    {
-		      redisplay_output_layout (w, child, &cdb, &cdga, findex,
+		      redisplay_output_layout (image_instance, child, &cdb, &cdga, findex,
 					       0, 0, 0);
 		      break;
 		    }
@@ -1514,10 +1512,10 @@ redisplay_output_layout (struct window *w,
 	  IMAGE_INSTANCE_OPTIMIZE_OUTPUT (childii) = 0;
 	}
     }
-  
+
   /* Update any display properties. I'm not sure whether this actually
      does anything for layouts except clear the changed flags. */
-  update_subwindow (image_instance);
+  redisplay_subwindow (image_instance);
 
   Dynarr_free (buf);
 }
@@ -1559,7 +1557,7 @@ redisplay_output_pixmap (struct window *w,
     {
       redisplay_clear_clipped_region (window, findex,
 				      db, dga,
-				      (int)IMAGE_INSTANCE_PIXMAP_MASK (p),
+				      (IMAGE_INSTANCE_PIXMAP_MASK (p) != 0),
 				      Qnil);
 
       /* This shrinks the display box to exactly enclose the glyph
@@ -1681,7 +1679,7 @@ redisplay_clear_region (Lisp_Object locale, face_index findex, int x, int y,
  redisplay_clear_clipped_region
 
  Clear the area in the dest display_box not covered by the src
- display_glyph_area using the given face. This is a common occurance
+ display_glyph_area using the given face. This is a common occurrence
  for images shorter than the display line. Clipping can be played
  around with by altering these. glyphsrc should be normalized.
  ****************************************************************************/

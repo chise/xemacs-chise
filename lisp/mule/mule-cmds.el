@@ -97,7 +97,7 @@ They means `lf', `crlf', and `cr' respectively."
       (let ((base (coding-system-base coding-system)))
         (if (not eol-type)
             base
-          (if (= eol-type orig-eol-type)
+          (if (eq eol-type orig-eol-type)
               coding-system
             (setq orig-eol-type (coding-system-eol-type base))
             (if (null orig-eol-type)
@@ -996,7 +996,7 @@ at point in the current buffer.
 But, if this flag is non-nil, it displays them in echo area instead.")
 
 (defvar input-method-exit-on-invalid-key nil
-  "This flag controls the behaviour of an input method on invalid key input.
+  "This flag controls the behavior of an input method on invalid key input.
 Usually, when a user types a key which doesn't start any character
 handled by the input method, the key is handled by turning off the
 input method temporarily.  After that key, the input method is re-enabled.

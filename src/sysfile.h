@@ -51,6 +51,8 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/stat.h>
 
 #ifndef WIN32_NATIVE
+/* Some configuration files' definitions for the LOAD_AVE_CVT macro
+   (like sparc.h's) use macros like FSCALE, defined here. */
 #include <sys/param.h>
 #endif
 
@@ -439,24 +441,13 @@ int sys_fstat (int fd, struct stat *buf);
 #endif
 #if defined (ENCAPSULATE_FSTAT) && !defined (DONT_ENCAPSULATE)
 # undef fstat
-/* Need to use arguments to avoid messing with struct stat */
-# define fstat(fd, buf) sys_fstat (fd, buf)
+# define fstat sys_fstat
 #endif
 #if !defined (ENCAPSULATE_FSTAT) && defined (DONT_ENCAPSULATE)
 # define sys_fstat fstat
 #endif
 
-#ifdef ENCAPSULATE_STAT
-int sys_stat (const char *path, struct stat *buf);
-#endif
-#if defined (ENCAPSULATE_STAT) && !defined (DONT_ENCAPSULATE)
-# undef stat
-/* Need to use arguments to avoid messing with struct stat */
-# define stat(path, buf) sys_stat (path, buf)
-#endif
-#if !defined (ENCAPSULATE_STAT) && defined (DONT_ENCAPSULATE)
-# define sys_stat stat
-#endif
+int xemacs_stat (const char *path, struct stat *buf);
 
 /* encapsulations: file-manipulation calls */
 

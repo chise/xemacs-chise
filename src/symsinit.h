@@ -67,6 +67,7 @@ void syms_of_device_tty (void);
 void syms_of_device_mswindows (void);
 void syms_of_device_x (void);
 void syms_of_device (void);
+void syms_of_dialog_mswindows (void);
 void syms_of_dialog_x (void);
 void syms_of_dialog (void);
 void syms_of_dired (void);
@@ -154,6 +155,7 @@ void syms_of_select_x (void);
 void syms_of_eldap (void);
 void syms_of_postgresql (void);
 void syms_of_gpmevent (void);
+void syms_of_win32 (void);
 
 /* Initialize the console types (dump-time but for reinit_). */
 
@@ -449,5 +451,6 @@ void init_ntproc (void); /* #### delete me, please! */
 void init_xemacs_process (void);
 void init_redisplay (void);
 void init_sunpro (void);
+void init_win32 (void);
 
 #endif /* INCLUDED_symsinit_h_ */

@@ -1,6 +1,6 @@
 #   Makefile for Microsoft NMAKE
 #   Copyright (C) 1995 Board of Trustees, University of Illinois.
-#   Copyright (C) 1995, 1996 Ben Wing.
+#   Copyright (C) 1995, 1996, 2000 Ben Wing.
 #   Copyright (C) 1995 Sun Microsystems, Inc.
 #   Copyright (C) 1998 Free Software Foundation, Inc.
 #
@@ -300,7 +300,7 @@ DEPEND=0
 # #### here, it doesn't seem to matter if we double ^'s!
 # results are the same with all single ^ and all double ^^!
 # see comment below.
-! if [perl -p -e "s/^\x23ifdef (.+)/!if defined($$1)/; s/^\x23e/!e/;" \
+! if [perl -p -e "s/^\x23if defined(.+)/!if defined$$1/; s/^\x23e/!e/;" \
 	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
 	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
 	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
@@ -630,7 +630,6 @@ DOC=$(LIB_SRC)\DOC
 DOC_SRC1=\
  $(SRC)\abbrev.c \
  $(SRC)\alloc.c \
- $(SRC)\alloca.c \
  $(SRC)\blocktype.c \
  $(SRC)\buffer.c \
  $(SRC)\bytecode.c \
@@ -668,6 +667,7 @@ DOC_SRC3=\
  $(SRC)\font-lock.c \
  $(SRC)\frame.c \
  $(SRC)\general.c \
+ $(SRC)\getloadavg.c \
  $(SRC)\glyphs.c \
  $(SRC)\glyphs-eimage.c \
  $(SRC)\glyphs-widget.c \
@@ -717,6 +717,7 @@ DOC_SRC5=\
  $(SRC)\tparam.c \
  $(SRC)\undo.c \
  $(SRC)\window.c \
+ $(SRC)\win32.c \
  $(SRC)\widget.c
 
 !if $(HAVE_X_WINDOWS)
@@ -917,7 +918,6 @@ TEMACS_OBJS= \
 	$(TEMACS_DUMP_OBJS)\
 	$(OUTDIR)\abbrev.obj \
 	$(OUTDIR)\alloc.obj \
-	$(OUTDIR)\alloca.obj \
 	$(OUTDIR)\blocktype.obj \
 	$(OUTDIR)\buffer.obj \
 	$(OUTDIR)\bytecode.obj \
@@ -953,6 +953,7 @@ TEMACS_OBJS= \
 	$(OUTDIR)\font-lock.obj \
 	$(OUTDIR)\frame.obj \
 	$(OUTDIR)\general.obj \
+	$(OUTDIR)\getloadavg.obj \
 	$(OUTDIR)\glyphs.obj \
 	$(OUTDIR)\glyphs-eimage.obj \
 	$(OUTDIR)\glyphs-widget.obj \
@@ -999,7 +1000,8 @@ TEMACS_OBJS= \
 	$(OUTDIR)\tparam.obj \
 	$(OUTDIR)\undo.obj \
 	$(OUTDIR)\widget.obj \
-	$(OUTDIR)\window.obj
+	$(OUTDIR)\window.obj \
+	$(OUTDIR)\win32.obj
 
 # Rules
 
@@ -1290,11 +1292,11 @@ makeinfo-test:
 if exist "$(MAKEINFO)" goto test_done
 @$(XEMACS_BATCH) -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
 @if not errorlevel 1 goto suggest_makeinfo
-@echo XEmacs `info' cannot be built!
-@echo Install XEmacs package `texinfo' (see README.packages).
+@echo XEmacs 'info' cannot be built!
+@echo Install XEmacs package 'texinfo' (see README.packages).
 :suggest_makeinfo
 @echo Consider specifying path to makeinfo program: MAKEINFO=path
-@echo as this will build info docs faster than XEmacs using `texinfo'.
+@echo as this will build info docs faster than XEmacs using 'texinfo'.
 @if errorlevel 1 exit 1
 :test_done
 <<NOKEEP
@@ -1346,7 +1348,7 @@ $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 	cd $(TEMACS_DIR)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	-1 $(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\loadup.el dump
+	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\loadup.el dump
 !if $(USE_PORTABLE_DUMPER)
 	rc -d INCLUDE_DUMP -Fo $(OUTDIR)\xemacs.res $(NT)\xemacs.rc
 	link.exe @<<
@@ -1364,7 +1366,7 @@ $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 # use this rule to build the complete system
 all:	installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
 	$(LIB_SRC_TOOLS) $(TEMACS) update-elc $(DOC) $(PROGNAME) \
-	update-auto-and-custom info
+	update-elc-2 update-auto-and-custom info
 
 temacs: $(LASTFILE) $(TEMACS)
 
@@ -1392,43 +1394,42 @@ install:	all
 	@$(DEL) "$(PACKAGE_PREFIX)\xemacs-packages\PlaceHolder"
 	@$(DEL) PlaceHolder
 
-distclean:
-	$(DEL) *.bak
-	$(DEL) *.orig
-	$(DEL) *.rej
-	$(DEL) *.tmp
+mostlyclean:
 	$(DEL) $(XEMACS)\Installation
-	cd $(OUTDIR)
-	$(DEL) *.lib
-	$(DEL) *.obj
-	$(DEL) *.pdb
-	$(DEL) *.res
-	$(DEL) *.sbr
-	cd $(XEMACS)\$(TEMACS_DIR)
-	$(DEL) config.h
-	$(DEL) paths.h
-	$(DEL) Emacs.ad.h
-	$(DEL) *.bak
-	$(DEL) *.orig
-	$(DEL) *.rej
-	$(DEL) *.exe
-	$(DEL) *.map
-	$(DEL) *.bsc
-	$(DEL) *.pdb
-	cd $(LIB_SRC)
-	$(DEL) DOC
-	$(DEL) *.bak
-	$(DEL) *.orig
-	$(DEL) *.rej
-	$(DEL) *.exe
-	$(DEL) *.obj
-	$(DEL) *.pdb
-	$(DEL) *.res
-	$(DEL) $(CONFIG_VALUES)
-	cd $(LISP)
-	$(DEL) /s /q *.bak *.elc *.orig *.rej
-	cd $(INFODIR)
-	$(DEL) *.info*
+	$(DEL) $(OUTDIR)\*.lib $(OUTDIR)\*.obj $(OUTDIR)\*.pdb
+	$(DEL) $(OUTDIR)\*.res $(OUTDIR)\*.sbr
+	$(DEL) $(SRC)\*.exe $(SRC)\*.map $(SRC)\*.bsc $(SRC)\*.pdb
+	$(DEL) $(LIB_SRC)\*.exe $(LIB_SRC)\*.obj $(LIB_SRC)\*.pdb
+	$(DEL) $(LIB_SRC)\*.res
+
+clean: mostlyclean versionclean
+	$(DEL) $(XEMACS)\TAGS
+
+nicenclean: clean
+	$(DEL) $(NT)\*.bak $(NT)\*.orig $(NT)\*.rej $(NT)\*.tmp
+	$(DEL) $(LIB_SRC)\*.bak $(LIB_SRC)\*.orig $(LIB_SRC)\*.rej
+	$(DEL) $(LIB_SRC)\*.tmp
+	$(DEL) $(SRC)\*.bak $(SRC)\*.orig $(SRC)\*.rej $(SRC)\*.tmp
+	$(DEL) /s $(LISP)\*.bak $(LISP)\*.orig $(LISP)\*.rej $(LISP)\*.tmp
+
+## This is used in making a distribution.
+## Do not use it on development directories!
+distclean: nicenclean
+	$(DEL) $(SRC)\config.h $(SRC)\paths.h $(SRC)\Emacs.ad.h
+	$(DEL) $(LIB_SRC)\$(CONFIG_VALUES)
+	$(DEL) $(INFODIR)\*.info*
+	$(DEL) /s /q $(LISP)\*.elc
+
+realclean: distclean
+
+versionclean:
+	$(DEL) $(SRC)\xemacs.exe $(LIB_SRC)\DOC
+
+#not sure about those wildcards.  DOS wildcards are stupid compared to Unix,
+#and could end up deleting *everything* instead of just backup files or
+#whatever.
+#extraclean: realclean
+#	$(DEL) *~ *.*~ #* m\*~ m\#* s\*~ s\#*
 
 depend:
 	cd $(SRC)
@@ -1545,16 +1546,23 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 	@type $(XEMACS)\Installation
 	@echo --------------------------------------------------------------------
 
-# Update auto-autoloads.el and custom-load.el similar to what
-# XEmacs.rules does for xemacs-packages.
+# Update out-of-date .elcs, other than needed for dumping.
+update-elc-2:
+	$(XEMACS_BATCH) -l update-elc-2.el -f batch-update-elc-2 $(LISP)
+
+# Update auto-autoloads.el and custom-load.el, similar to what
+# XEmacs.rules does for xemacs-packages.  This used to delete
+# auto-autoloads.el first, but that's a bad idea, because it forces
+# rebuilding from scratch, which is time-consuming; and the autoload
+# code is specifically written to do in-place updating.  However, if
+# your auto-autoload file is messed up and you want it rebuilt from
+# scratch, delete it from the command line and then nmake with this
+# target.
 update-auto-and-custom:
-#       Don't delete this, because it forces rebuilding from scratch,
-#       which is time-consuming; and the autoload code is specifically
-#       written to do in-place updating.
-#	@$(DEL) $(LISP)\auto-autoloads.el
 #       Combine into one invocation to avoid repeated startup penalty.
-	$(XEMACS_BATCH) -l autoload -f batch-update-one-directory $(LISP) -f batch-byte-compile-one-file $(LISP)\auto-autoloads.el -l cus-dep -f Custom-make-dependencies $(LISP)
+	$(XEMACS_BATCH) -l autoload -f batch-update-one-directory $(LISP) -f batch-byte-compile-one-file $(LISP)\auto-autoloads.el -l cus-dep -f Custom-make-one-dependency $(LISP) -f batch-byte-compile-one-file $(LISP)\custom-load.el
 	@$(DEL) $(LISP)\auto-autoloads.el~
+	@$(DEL) $(LISP)\custom-load.el~
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

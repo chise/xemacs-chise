@@ -52,15 +52,6 @@ NOTE-END */
 
 /* #define CANNOT_DUMP */
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-
-/* #define VIRT_ADDR_VARIES */
-
 /* XEmacs: Richard Cognot <cognot@ensg.u-nancy.fr> says we need this for
    HPUX; but eeide@asylum.cs.utah.edu (Eric Eide) says it loses on BSD. */
 #ifndef BSD

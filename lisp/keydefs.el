@@ -272,6 +272,10 @@ Keymap for characters following C-c.")
 (define-key global-map "\M-\C-t" 'transpose-sexps)
 (define-key global-map "\C-x\C-t" 'transpose-lines)
 
+;; XEmacs: much more reasonable and useful key definitions.
+(define-key global-map '(control T) 'transpose-line-down)
+(define-key global-map '(meta T) 'transpose-line-up)
+
 (define-key global-map "\M-;" 'indent-for-comment)
 (define-key global-map "\M-j" 'indent-new-comment-line)
 (define-key global-map "\M-\C-j" 'indent-new-comment-line)

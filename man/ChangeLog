@@ -1,3 +1,61 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/processes.texi (Signals to Processes): Many corrections.
+
+2000-09-20  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/startup.texi (Startup Paths): Minor fixes.
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* *: Spelling mega-patch
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi (Low-Level Modules):
+	Correct the list of source files.
+
+2000-08-24  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* emodules.texi (Introduction): Trivial typo fix.
+
+2000-08-24  Martin Buchholz  <martin@xemacs.org>
+
+	* emodules.texi (Initialization Mode): Spell-Check.
+
+2000-08-24  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/databases.texi (Connecting to a Database):
+	s/berkeley_db/berkeley-db/.  Too much C programming.
+
+2000-08-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/custom.texi (Menubar Resources): Document FontSet resource.
+
+2000-07-30  Ben Wing  <ben@xemacs.org>
+
+	* xemacs\search.texi (Regexp Search):
+	* xemacs\search.texi (Regexps):
+	Synch up with updated docs below (describing non-greedy
+	operators and such).
+
+2000-07-30  Ben Wing  <ben@xemacs.org>
+
+	* lispref\searching.texi (Syntax of Regexps):
+	Document ??, which we've supported since 20.4.
+
+2000-07-31  Sandra Wambold  <wambold@cygnus.com>
+
+	* xemacs-faq.texi: Minor updates in first two sections
+
+2000-07-27  Andy Piper  <andy@xemacs.org>
+
+	* lispref/hash-tables.texi: add new hash table type.
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.
@@ -846,7 +904,7 @@
 	* info.texi: Fixed @setfilename and a typo.
 	* standards.texi: Added NEXT to @node Preface. See ALL.
 	* texinfo.texi: Fixed section names, quoted usage of @TeX{},
-	changed some occurences of `:' to `colon'.
+	changed some occurrences of `:' to `colon'.
 	* xemacs-faq.texi: See ALL.
 	* internals/internals.texi: See ALL.
 	* lispref/back.texi: Fixed @setfilename.

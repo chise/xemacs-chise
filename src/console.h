@@ -120,6 +120,8 @@ struct console_methods
   void (*focus_on_frame_method) (struct frame *);
   void (*raise_frame_method) (struct frame *);
   void (*lower_frame_method) (struct frame *);
+  void (*enable_frame_method) (struct frame *);
+  void (*disable_frame_method) (struct frame *);
   int (*get_mouse_position_method) (struct device *d, Lisp_Object *frame,
 				    int *x, int *y);
   void (*set_mouse_position_method) (struct window *w, int x, int y);
@@ -234,8 +236,8 @@ struct console_methods
   void (*map_subwindow_method) (Lisp_Image_Instance *, int x, int y,
 				struct display_glyph_area* dga);
   void (*resize_subwindow_method) (Lisp_Image_Instance *, int w, int h);
-  void (*update_subwindow_method) (Lisp_Image_Instance *);
-  void (*update_widget_method) (Lisp_Image_Instance *);
+  void (*redisplay_subwindow_method) (Lisp_Image_Instance *);
+  void (*redisplay_widget_method) (Lisp_Image_Instance *);
   int (*image_instance_equal_method) (Lisp_Image_Instance *,
 				      Lisp_Image_Instance *,
 				      int depth);
@@ -294,7 +296,9 @@ struct console_methods
 
 #ifdef HAVE_DIALOGS
   /* dialog methods */
-  void (*popup_dialog_box_method) (struct frame *, Lisp_Object dbox_desc);
+  Lisp_Object (*make_dialog_box_internal_method) (struct frame *,
+						  Lisp_Object type,
+						  Lisp_Object keys);
 #endif
 };
 

@@ -461,6 +461,199 @@ menu item called \"Item\" under the \"Foo\" submenu of \"Menu\"."
   (enable-menu-item-1 path t nil))
 
 
+
+;;;;;;; popup menus
+
+(defvar global-popup-menu nil
+  "The global popup menu.  This is present in all modes.
+See the function `popup-menu' for a description of menu syntax.")
+
+(defvar mode-popup-menu nil
+  "The mode-specific popup menu.  Automatically buffer local.
+This is appended to the default items in `global-popup-menu'.
+See the function `popup-menu' for a description of menu syntax.")
+(make-variable-buffer-local 'mode-popup-menu)
+
+(defvar activate-popup-menu-hook nil
+  "Function or functions run before a mode-specific popup menu is made visible.
+These functions are called with no arguments, and should interrogate and
+modify the value of `global-popup-menu' or `mode-popup-menu' as desired.
+Note: this hook is only run if you use `popup-mode-menu' for activating the
+global and mode-specific commands; if you have your own binding for button3,
+this hook won't be run.")
+
+(defvar last-popup-menu-event nil
+  "The mouse event that invoked the last popup menu.
+NOTE: This is EXPERIMENTAL and may change at any time.")
+
+(defun popup-mode-menu (&optional event)
+  "Pop up a menu of global and mode-specific commands.
+The menu is computed by combining `global-popup-menu' and `mode-popup-menu'
+with any items derived from the `context-menu' property of the extent where the
+button was clicked."
+  (interactive "_e")
+  (setq last-popup-menu-event
+	(or (and event (button-event-p event) event)
+	    (let* ((mouse-pos (mouse-position))
+		   (win (car mouse-pos))
+		   (x (cadr mouse-pos))
+		   (y (cddr mouse-pos))
+		   (edges (window-pixel-edges win))
+		   (winx (first edges))
+		   (winy (second edges))
+		   (x (+ x winx))
+		   (y (+ y winy)))
+	      (make-event 'button-press
+			  `(button 3 x ,x y ,y channel ,(window-frame win)
+				   timestamp ,(current-event-timestamp
+					       (cdfw-console win)))))))
+  (run-hooks 'activate-popup-menu-hook)
+  (let* ((context-window (and event (event-window event)))
+	 (context-point (and event (event-point event)))
+	 (context-extents (and context-window
+			       context-point
+			       (extents-at context-point
+					   (window-buffer context-window)
+					   'context-menu)))
+	 (context-menu-items
+	  (apply 'append (mapcar #'(lambda (extent)
+				     (extent-property extent 'context-menu))
+				 context-extents))))
+    (popup-menu
+     (cond ((and global-popup-menu mode-popup-menu)
+	    ;; Merge global-popup-menu and mode-popup-menu
+	    (check-menu-syntax mode-popup-menu)
+	    (let* ((title (car mode-popup-menu))
+		   (items (cdr mode-popup-menu))
+		   mode-filters)
+	      ;; Strip keywords from local menu for attaching them at the top
+	      (while (and items
+			  (keywordp (car items)))
+		;; Push both keyword and its argument.
+		(push (pop items) mode-filters)
+		(push (pop items) mode-filters))
+	      (setq mode-filters (nreverse mode-filters))
+	      ;; If mode-filters contains a keyword already present in
+	      ;; `global-popup-menu', you will probably lose.
+	      (append (list (car global-popup-menu))
+		      mode-filters
+		      (cdr global-popup-menu)
+		      '("---" "---")
+		      (if popup-menu-titles (list title))
+		      (if popup-menu-titles '("---" "---"))
+		      items
+		      context-menu-items)))
+	   (t
+	    (append
+	     (or mode-popup-menu
+		 global-popup-menu
+		 (error "No menu defined in this buffer"))
+	     context-menu-items))))
+
+    (while (popup-up-p)
+      (dispatch-event (next-event)))
+
+    ))
+  
+(defun popup-buffer-menu (event)
+  "Pop up a copy of the Buffers menu (from the menubar) where the mouse is clicked."
+  (interactive "e")
+  (let ((window (and (event-over-text-area-p event) (event-window event)))
+	(bmenu nil))
+    (or window
+	(error "Pointer must be in a normal window"))
+    (select-window window)
+    (if current-menubar
+	(setq bmenu (assoc "%_Buffers" current-menubar)))
+    (if (null bmenu)
+	(setq bmenu (assoc "%_Buffers" default-menubar)))
+    (if (null bmenu)
+	(error "Can't find the Buffers menu"))
+    (popup-menu bmenu)))
+
+(defun popup-menubar-menu (event)
+  "Pop up a copy of menu that also appears in the menubar."
+  (interactive "e")
+  (let ((window (and (event-over-text-area-p event) (event-window event)))
+	popup-menubar)
+    (or window
+	(error "Pointer must be in a normal window"))
+    (select-window window)
+    (and current-menubar (run-hooks 'activate-menubar-hook))
+    ;; #### Instead of having to copy this just to safely get rid of
+    ;; any nil what we should really do is fix up the internal menubar
+    ;; code to just ignore nil if generating a popup menu
+    (setq popup-menubar (delete nil (copy-sequence (or current-menubar
+						       default-menubar))))
+    (popup-menu (cons "%_Menubar Menu" popup-menubar))
+    ))
+
+(defun menu-call-at-event (form &optional event default-behavior-fallback)
+  "Call FORM while temporarily setting point to the position in EVENT.
+NOTE: This is EXPERIMENTAL and may change at any time.
+
+FORM is called the way forms in menu specs are: i.e. if a symbol, it's called
+with `call-interactively', otherwise with `eval'.  EVENT defaults to
+`last-popup-menu-event', making this function especially useful in popup
+menus.  The buffer and point are set temporarily within a `save-excursion'.
+If EVENT is not a mouse event, or was not over a buffer, nothing
+happens unless DEFAULT-BEHAVIOR-FALLBACK is non-nil, in which case the
+FORM is called normally."
+  (or event (setq event last-popup-menu-event))
+  (let ((buf (event-buffer event))
+	(p (event-closest-point event)))
+    (cond ((and buf p (> p 0))
+	   (save-excursion
+	     (set-buffer buf)
+	     (goto-char p)
+	     (if (symbolp form)
+		 (call-interactively form)
+	       (eval form))))
+	  (default-behavior-fallback
+	    (if (symbolp form)
+		(call-interactively form)
+	      (eval form))))))
+
+(global-set-key 'button3 'popup-mode-menu)
+;; shift button3 and shift button2 are reserved for Hyperbole
+(global-set-key '(meta control button3) 'popup-buffer-menu)
+;; The following command is way too dangerous with Custom.
+;; (global-set-key '(meta shift button3) 'popup-menubar-menu)
+
+;; Here's a test of the cool new menu features (from Stig).
+
+;;(setq mode-popup-menu
+;;      '("Test Popup Menu"
+;;        :filter cdr
+;;        ["this item won't appear because of the menu filter" ding t]
+;;        "--:singleLine"
+;;        "singleLine"
+;;        "--:doubleLine"
+;;        "doubleLine"
+;;        "--:singleDashedLine"
+;;        "singleDashedLine"
+;;        "--:doubleDashedLine"
+;;        "doubleDashedLine"
+;;        "--:noLine"
+;;        "noLine"
+;;        "--:shadowEtchedIn"
+;;        "shadowEtchedIn"
+;;        "--:shadowEtchedOut"
+;;        "shadowEtchedOut"
+;;        "--:shadowDoubleEtchedIn"
+;;        "shadowDoubleEtchedIn"
+;;        "--:shadowDoubleEtchedOut"
+;;        "shadowDoubleEtchedOut"
+;;        "--:shadowEtchedInDash"
+;;        "shadowEtchedInDash"
+;;        "--:shadowEtchedOutDash"
+;;        "shadowEtchedOutDash"
+;;        "--:shadowDoubleEtchedInDash"
+;;        "shadowDoubleEtchedInDash"
+;;        "--:shadowDoubleEtchedOutDash"
+;;        "shadowDoubleEtchedOutDash"
+;;        ))
+
 (defun get-popup-menu-response (menu-desc &optional event)
   "Pop up the given menu and wait for a response.
 This blocks until the response is received, and returns the misc-user

@@ -22,6 +22,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with:  Not in FSF. */
 
+/* This file Mule-ized (more like Mule-verified) by Ben Wing, 7-10-00. */
+
 #ifndef INCLUDED_objects_x_h_
 #define INCLUDED_objects_x_h_
 
@@ -43,10 +45,8 @@ struct x_color_instance_data
 #define COLOR_INSTANCE_X_COLOR(c) (X_COLOR_INSTANCE_DATA (c)->color)
 #define COLOR_INSTANCE_X_DEALLOC(c) (X_COLOR_INSTANCE_DATA (c)->dealloc_on_gc)
 
-int allocate_nearest_color (Display *display, Colormap screen_colormap, Visual *visual,
-			    XColor *color_def);
-int x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
-			   Bytecount len, Error_behavior errb);
+int allocate_nearest_color (Display *display, Colormap screen_colormap,
+			    Visual *visual, XColor *color_def);
 
 /*****************************************************************************
  Font-Instance

@@ -1228,9 +1228,7 @@
   ;; fetch and return the offset for the current opcode.
   ;; return NIL if this opcode has no offset
   ;; OP, PTR and BYTES are used and set dynamically
-  (defvar op)
-  (defvar ptr)
-  (defvar bytes)
+  (declare (special op ptr bytes))
   (cond ((< op byte-nth)
 	 (let ((tem (logand op 7)))
 	   (setq op (logand op 248))
@@ -1464,9 +1462,10 @@
 
 (defun byte-optimize-lapcode (lap &optional for-effect)
   "Simple peephole optimizer.  LAP is both modified and returned."
-  (let (lap0 ;; off0 unused
-	lap1 ;; off1
-	lap2 ;; off2
+  (let (lap0
+	lap1
+	lap2
+	variable-frequency
 	(keep-going 'first-time)
 	(add-depth 0)
 	rest tmp tmp2 tmp3
@@ -1912,28 +1911,29 @@
     ;; Rebuild byte-compile-constants / byte-compile-variables.
     ;; Simple optimizations that would inhibit other optimizations if they
     ;; were done in the optimizing loop, and optimizations which there is no
-    ;;  need to do more than once.
+    ;; need to do more than once.
     (setq byte-compile-constants nil
-	  byte-compile-variables nil)
+	  byte-compile-variables nil
+	  variable-frequency (make-hash-table :test 'eq))
     (setq rest lap)
     (while rest
       (setq lap0 (car rest)
 	    lap1 (nth 1 rest))
-      (if (memq (car lap0) byte-constref-ops)
-	  (if (eq (cdr lap0) 'byte-constant)
-	      (or (memq (cdr lap0) byte-compile-variables)
-		  (setq byte-compile-variables (cons (cdr lap0)
-						     byte-compile-variables)))
-	    (or (memq (cdr lap0) byte-compile-constants)
-		(setq byte-compile-constants (cons (cdr lap0)
-						   byte-compile-constants)))))
+      (case (car lap0)
+	((byte-varref byte-varset byte-varbind)
+	 (incf (gethash (cdr lap0) variable-frequency 0))
+	 (unless (memq (cdr lap0) byte-compile-variables)
+	   (push (cdr lap0) byte-compile-variables)))
+	((byte-constant)
+	 (unless (memq (cdr lap0) byte-compile-constants)
+	   (push (cdr lap0) byte-compile-constants))))
       (cond (;;
-	     ;; const-C varset-X const-C  -->  const-C dup varset-X
+	     ;; const-C varset-X  const-C  -->  const-C dup varset-X
 	     ;; const-C varbind-X const-C  -->  const-C dup varbind-X
 	     ;;
 	     (and (eq (car lap0) 'byte-constant)
 		  (eq (car (nth 2 rest)) 'byte-constant)
-		  (eq (cdr lap0) (car (nth 2 rest)))
+		  (eq (cdr lap0) (cdr (nth 2 rest)))
 		  (memq (car lap1) '(byte-varbind byte-varset)))
 	     (byte-compile-log-lap "  %s %s %s\t-->\t%s dup %s"
 				   lap0 lap1 lap0 lap0 lap1)
@@ -1969,6 +1969,21 @@
 	     (setcdr lap1 (+ (cdr lap1) (cdr lap0))))
 	    )
       (setq rest (cdr rest)))
+    ;; Since the first 6 entries of the compiled-function constants
+    ;; vector are most efficient for varref/set/bind ops, we sort by
+    ;; reference count.  This generates maximally space efficient and
+    ;; pretty time-efficient byte-code.  See `byte-compile-constants-vector'.
+    (setq byte-compile-variables
+	  (sort byte-compile-variables
+		#'(lambda (v1 v2)
+		    (< (gethash v1 variable-frequency)
+		       (gethash v2 variable-frequency)))))
+    ;; Another hack - put the most used variable in position 6, for
+    ;; better locality of reference with adjoining constants.
+    (let ((tail (last byte-compile-variables 6)))
+      (setq byte-compile-variables
+	    (append (nbutlast byte-compile-variables 6)
+		    (nreverse tail))))
     (setq byte-compile-maxdepth (+ byte-compile-maxdepth add-depth)))
   lap)
 

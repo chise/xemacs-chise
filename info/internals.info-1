@@ -1069,7 +1069,7 @@ function by setting its name as the value of the Lisp variable
 
    When the Lisp initialization code is done, the C code enters the
 event loop, and stays there for the duration of the XEmacs process.
-The code for the event loop is contained in `keyboard.c', and is called
+The code for the event loop is contained in `cmdloop.c', and is called
 `Fcommand_loop_1()'.  Note that this event loop could very well be
 written in Lisp, and in fact a Lisp version exists; but apparently,
 doing this makes XEmacs run noticeably slower.

@@ -60,15 +60,6 @@ Boston, MA 02111-1307, USA.  */
 /* In AIX, you allocate a pty by opening /dev/ptc to get the master side.
    To get the name of the slave side, you just ttyname() the master side.  */
 
-#define PTY_ITERATION for (c = 0; !c ; c++)
-#define PTY_NAME_SPRINTF strcpy (pty_name, "/dev/ptc");
-#define PTY_TTY_NAME_SPRINTF strcpy (pty_name, ttyname (fd));
-
-/* XEmacs change: #### is this crap necessary? */
-#ifndef NOT_C_CODE
-#include <termios.h>
-#endif
-
 /*
  *	Define HAVE_PTYS if the system supports pty devices.
  */

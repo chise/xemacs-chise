@@ -776,7 +776,7 @@ File: info.info,  Node: Emacs Info Variables,  Prev: Checking,  Up: Advanced Inf
 Emacs Info-mode Variables
 =========================
 
-   The following variables may modify the behaviour of Info-mode in
+   The following variables may modify the behavior of Info-mode in
 Emacs; you may wish to set one or several of these variables
 interactively, or in your `~/.emacs' init file.  *Note Examining and
 Setting Variables: (xemacs)Examining.
@@ -835,6 +835,6 @@ Node: Cross-refs29271
 Node: Tags29973
 Node: Checking31275
 Node: Emacs Info Variables32228
-Node: Creating an Info File33218
+Node: Creating an Info File33217
 
 End Tag Table

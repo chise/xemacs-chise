@@ -185,6 +185,8 @@ or if you change your font path, you can call this to re-initialize the menus."
 ;; get the truename and use the possibly suboptimal data from that.
 ;;;###autoload
 (defun* x-font-menu-font-data (face dcache)
+  (defvar x-font-regexp)
+  (defvar x-font-regexp-foundry-and-family)
   (let* ((case-fold-search t)
 	 (domain (if font-menu-this-frame-only-p
 				  (selected-frame)

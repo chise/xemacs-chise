@@ -576,7 +576,6 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
   HDC hdc = get_frame_dc (f, 1);
   HDC hcompdc = get_frame_compdc (f);
   HGDIOBJ old=NULL;
-  COLORREF bgcolor = GetBkColor (hdc);
   const int real_x = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_WIDTH (p);
   const int real_y = IMAGE_INSTANCE_MSWINDOWS_BITMAP_REAL_HEIGHT (p);
   const int surface_x = IMAGE_INSTANCE_PIXMAP_WIDTH (p);
@@ -585,15 +584,30 @@ mswindows_output_dibitmap (struct frame *f, Lisp_Image_Instance *p,
   /* first blit the mask */
   if (IMAGE_INSTANCE_MSWINDOWS_MASK (p))
     {
-      RGBQUAD col;
-      col.rgbBlue = GetBValue (bgcolor);
-      col.rgbRed = GetRValue (bgcolor);
-      col.rgbGreen = GetGValue (bgcolor);
-      col.rgbReserved = 0;
+      RGBQUAD bg;
+      COLORREF bgcolor;
 
       old = SelectObject (hcompdc, IMAGE_INSTANCE_MSWINDOWS_MASK (p));
       
-      SetDIBColorTable (hcompdc, 1, 1, &col);
+      if (IMAGE_INSTANCE_TYPE (p) == IMAGE_MONO_PIXMAP)
+       {
+         COLORREF fgcolor;
+         RGBQUAD fg;
+
+         fgcolor = GetTextColor (hdc);
+         fg.rgbBlue = GetBValue (fgcolor);
+         fg.rgbRed = GetRValue (fgcolor);
+         fg.rgbGreen = GetGValue (fgcolor);
+         fg.rgbReserved = 0;
+         SetDIBColorTable (hcompdc, 0, 1, &fg);
+       }
+
+      bgcolor = GetBkColor (hdc);
+      bg.rgbBlue = GetBValue (bgcolor);
+      bg.rgbRed = GetRValue (bgcolor);
+      bg.rgbGreen = GetGValue (bgcolor);
+      bg.rgbReserved = 0;
+      SetDIBColorTable (hcompdc, 1, 1, &bg);
 
       StretchBlt (hdc, 
 		  db->xpos, db->ypos,
@@ -974,6 +988,7 @@ mswindows_frame_output_begin (struct frame *f)
 static void
 mswindows_frame_output_end (struct frame *f)
 {
+#ifdef DEFER_WINDOW_POS
   HDWP hdwp = FRAME_MSWINDOWS_DATA (f)->hdwp;
 
   if (hdwp != 0)
@@ -981,7 +996,7 @@ mswindows_frame_output_end (struct frame *f)
       EndDeferWindowPos (hdwp);
       FRAME_MSWINDOWS_DATA (f)->hdwp = 0;
     }
-
+#endif
   GdiFlush();
 }
 
@@ -1176,7 +1191,7 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 		      if (EQ (XIMAGE_INSTANCE_WIDGET_TYPE (instance),
 			      Qlayout))
 			{
-			  redisplay_output_layout (w, instance, &dbox, &dga, findex,
+			  redisplay_output_layout (window, instance, &dbox, &dga, findex,
 						   cursor_start, cursor_width,
 						   cursor_height);
 			  if (rb->cursor_type == CURSOR_ON)

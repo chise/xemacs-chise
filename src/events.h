@@ -130,10 +130,9 @@ Boston, MA 02111-1307, USA.  */
  event_stream layer to translate to this format.
 
  NOTE: #### All timestamps should be measured as milliseconds since XEmacs
-       started.  Currently many or most events have a 0 as their
-       timestamp value, and for other timestamps, they are raw server
-       timestamps. (The X protocol doesn't provide any easy way of
-       translating between server time and real process time; yuck.)
+       started.  Currently they are raw server timestamps. (The X protocol
+       doesn't provide any easy way of translating between server time and
+       real process time; yuck.)
 
  Every event type has the following structures:
 
@@ -176,6 +175,7 @@ Boston, MA 02111-1307, USA.  */
 			If this is an integer, it will be in the printing
 			ASCII range: >32 and <127.
     modifiers		Bucky-bits on that key: control, meta, etc.
+                        Also includes buttons.
 			For many keys, Shift is not a bit; that is implicit
 			in the keyboard layout.
 
@@ -183,12 +183,12 @@ Boston, MA 02111-1307, USA.  */
  button_release_event
     button		What button went down or up.
     modifiers		Bucky-bits on that button: shift, control, meta, etc.
+                        Also includes other buttons (not the one pressed).
     x, y		Where it was at the button-state-change (in pixels).
 
  pointer_motion_event
     x, y		Where it was after it moved (in pixels).
     modifiers		Bucky-bits down when the motion was detected.
-			(Possibly not all window systems will provide this?)
 
  process_event
     process		the XEmacs "process" object in question
@@ -336,6 +336,7 @@ struct event_stream
 				 int /* flags */);
   USID (*delete_stream_pair_cb) (Lisp_Object /* instream */,
 				 Lisp_Object /* outstream */);
+  int (*current_event_timestamp_cb) (struct console *);
 };
 
 /* Flags for create_stream_pair_cb() FLAGS parameter */

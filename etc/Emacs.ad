@@ -17,9 +17,6 @@
 ! 
 ! See the NEWS file (C-h n) or XEmacs manual (C-h i) for a description of
 ! the various resources and the syntax for setting them.
-! 
-! Energize users: note that this is not the same app-defaults file that is
-! used with the Energize-specific version of XEmacs.
 
 
 ! Colors and backgrounds.
@@ -188,6 +185,14 @@
 ! Note that the menubar resources do not use the `face' syntax, since they
 ! are X toolkit widgets and thus outside the domain of XEmacs proper.
 ! 
+! When X Font Sets are enabled with ./configure --with-xfs (eg, for
+! multilingual menubars and XIM), some .font resources (those specific to
+! the Lucid widget set) are ignored in favor of .fontSet resources.  This
+! example shows how to add fonts for Japanese menubars:
+!
+! *menubar*FontSet:	-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*, \
+!			-*-*-*-*-*-*-*-120-*-jisx0208.1983-0
+!
 *menubar*Font: 			-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
 *popup*Font:			-*-helvetica-bold-r-*-*-*-120-*-*-*-*-iso8859-*
 

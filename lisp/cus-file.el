@@ -47,10 +47,10 @@ explicitly load that file for the settings to take effect.")
 (defun make-custom-file-name (init-file &optional force-new)
   "Construct the default custom file name from the init file name.
 If FORCE-NEW is non-nil, force post-migration location."
-  (let* ((init-file (or init-file user-init-file))
-	 (init-file-directory (file-name-directory init-file)))
+  (let ((init-file (or init-file user-init-file)))
     (if (or force-new
-	    (string= init-file-directory
+	    (not init-file)
+	    (string= (file-name-directory init-file)
 		     (expand-file-name
 		      (file-name-as-directory user-init-directory))))
 	(expand-file-name custom-file-base user-init-directory)

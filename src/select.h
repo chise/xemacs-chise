@@ -30,8 +30,8 @@ extern Lisp_Object QPRIMARY, QSECONDARY, QSTRING, QINTEGER, QCLIPBOARD,
 
 /* Windows clipboard formats */
 extern Lisp_Object QCF_TEXT, QCF_BITMAP, QCF_METAFILEPICT, QCF_SYLK, QCF_DIF,
-  QCF_TIFF, QCF_OEMTEXT, QCF_DIB, QCF_PALETTE, QCF_PENDATA, QCF_RIFF,
-  QCF_WAVE, QCF_UNICODETEXT, QCF_ENHMETAFILE, QCF_HDROP, QCF_LOCALE,
+  QCF_TIFF, QCF_OEMTEXT, QCF_DIB, QCF_DIBV5, QCF_PALETTE, QCF_PENDATA,
+  QCF_RIFF, QCF_WAVE, QCF_UNICODETEXT, QCF_ENHMETAFILE, QCF_HDROP, QCF_LOCALE,
   QCF_OWNERDISPLAY, QCF_DSPTEXT, QCF_DSPBITMAP, QCF_DSPMETAFILEPICT,
   QCF_DSPENHMETAFILE;
 
@@ -48,6 +48,9 @@ Lisp_Object select_convert_in (Lisp_Object selection,
 Lisp_Object select_convert_out (Lisp_Object selection,
 				Lisp_Object type,
 				Lisp_Object value);
+Lisp_Object select_coerce (Lisp_Object selection,
+			   Lisp_Object type,
+			   Lisp_Object value);
 
 /* Notifications */
 void handle_selection_clear (Lisp_Object selection_symbol);

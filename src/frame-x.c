@@ -23,6 +23,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Substantially rewritten for XEmacs.  */
 
+/* 7-8-00 !!#### This file needs definite Mule review. */
+
 #include <config.h>
 #include "lisp.h"
 
@@ -114,7 +116,7 @@ x_any_window_to_frame (struct device *d, Window wdesc)
 
   /* We used to map over all frames here and then map over all widgets
      belonging to that frame. However it turns out that this was very fragile
-     as it requires our display stuctures to be in sync _and_ that the
+     as it requires our display structures to be in sync _and_ that the
      loop is told about every new widget somebody adds. Therefore we
      now let Xt find it for us (which does a bottom-up search which
      could even be faster) */
@@ -662,9 +664,7 @@ x_set_frame_text_value (struct frame *f, Bufbyte *value,
       {
         const char * tmp;
         encoding = DEVICE_XATOM_COMPOUND_TEXT (XDEVICE (FRAME_DEVICE (f)));
-	TO_EXTERNAL_FORMAT (C_STRING, value,
-			    C_STRING_ALLOCA, tmp,
-			    Qctext);
+	C_STRING_TO_EXTERNAL (value, tmp, Qctext);
         new_XtValue = (String) tmp;
         break;
       }
@@ -766,9 +766,7 @@ x_set_frame_properties (struct frame *f, Lisp_Object plist)
 	  if (XSTRING_LENGTH (prop) == 0)
 	    continue;
 
-	  TO_EXTERNAL_FORMAT (LISP_STRING, prop,
-			      C_STRING_ALLOCA, extprop,
-			      Qctext);
+	  LISP_STRING_TO_EXTERNAL (prop, extprop, Qctext);
 	  if (STRINGP (val))
 	    {
 	      const Extbyte *extval;
@@ -1876,9 +1874,7 @@ x_create_widgets (struct frame *f, Lisp_Object lisp_window_id,
 #endif
 
   if (STRINGP (f->name))
-    TO_EXTERNAL_FORMAT (LISP_STRING, f->name,
-			C_STRING_ALLOCA, name,
-			Qctext);
+    LISP_STRING_TO_EXTERNAL (f->name, name, Qctext);
   else
     name = "emacs";
 
@@ -2490,6 +2486,18 @@ x_lower_frame (struct frame *f)
     }
 }
 
+static void
+x_enable_frame (struct frame *f)
+{
+  XtSetSensitive (FRAME_X_SHELL_WIDGET (f), True);
+}
+
+static void
+x_disable_frame (struct frame *f)
+{
+  XtSetSensitive (FRAME_X_SHELL_WIDGET (f), False);
+}
+
 /* Change from withdrawn state to mapped state. */
 static void
 x_make_frame_visible (struct frame *f)
@@ -2793,6 +2801,8 @@ console_type_create_frame_x (void)
   CONSOLE_HAS_METHOD (x, set_mouse_position);
   CONSOLE_HAS_METHOD (x, raise_frame);
   CONSOLE_HAS_METHOD (x, lower_frame);
+  CONSOLE_HAS_METHOD (x, enable_frame);
+  CONSOLE_HAS_METHOD (x, disable_frame);
   CONSOLE_HAS_METHOD (x, make_frame_visible);
   CONSOLE_HAS_METHOD (x, make_frame_invisible);
   CONSOLE_HAS_METHOD (x, iconify_frame);

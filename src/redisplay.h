@@ -272,7 +272,7 @@ typedef struct
   to the things that are being displayed, and the context,
   e.g. buffers and windows. According to Chuck this is so that we can
   get speed, which seems fine to me, however this usage is extended
-  too far down the redispay routines IMO. At some level there should
+  too far down the redisplay routines IMO. At some level there should
   be functions that know how to display strings with extents and
   faces, regardless of buffer etc. After all the window system does
   not care. <andy@xemacs.org> */
@@ -751,7 +751,7 @@ int compute_line_start_cache_dynarr_usage (line_start_cache_dynarr *dyn,
 int get_next_display_block (layout_bounds bounds,
 			    display_block_dynarr *dba, int start_pos,
 			    int *next_start);
-void redisplay_output_layout (struct window *w,
+void redisplay_output_layout (Lisp_Object domain,
 			      Lisp_Object image_instance,
 			      struct display_box* db, struct display_glyph_area* dga,
 			      face_index findex, int cursor_start, int cursor_width,

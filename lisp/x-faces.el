@@ -203,7 +203,7 @@ If it fails, it returns nil."
   "Given an X font specification, this attempts to make a `bold-italic' font.
 If it fails, it returns nil."
   ;; This is haired up to avoid loading the "intermediate" fonts.
-  (if *try-oblique-before-italic-fonts*
+  (if try-oblique-before-italic-fonts
       (or (try-font-name
 	   (x-frob-font-slant (x-frob-font-weight font "bold") "o") device)
 	  (try-font-name

@@ -246,54 +246,33 @@ Boston, MA 02111-1307, USA.  */
 /*       Manipulate a terminal's current (foreground) process group     */
 /* -------------------------------------------------------------------- */
 
-/* EMACS_HAVE_TTY_PGRP is true if we can get and set the tty's current
-   controlling process group.
+/* EMACS_GET_TTY_PGRP(int FD, pid_t *PGID) sets *PGID to the terminal
+   FD's current foreground process group.  Return -1 if there is an error.
 
-   EMACS_GET_TTY_PGRP(int FD, int *PGID) sets *PGID the terminal FD's
-   current process group.  Return -1 if there is an error.
+   EMACS_SET_TTY_PGRP(int FD, pid_t *PGID) sets the terminal FD's current
+   foreground process group to *PGID.  Return -1 if there is an error.
 
-   EMACS_SET_TTY_PGRP(int FD, int *PGID) sets the terminal FD's
-   current process group to *PGID.  Return -1 if there is an error.  */
+   We prefer using the ioctl (BSD) interface instead of its Posix
+   replacement tgetpgrp/tcsetpgrp since that is documented as being
+   restricted to processes sharing the same controlling tty. */
 
-/* HPUX tty process group stuff doesn't work, says the anonymous voice
-   from the past.  */
-/* But HPUX people say it does, so I've removed it.  --ben */
-# ifdef TIOCGPGRP
-#  define EMACS_HAVE_TTY_PGRP
-# else
-#  ifdef HAVE_TERMIOS
-#   define EMACS_HAVE_TTY_PGRP
-#  endif
-# endif
+#if defined (TIOCGPGRP)
 
-#ifdef EMACS_HAVE_TTY_PGRP
+#define EMACS_GET_TTY_PROCESS_GROUP(fd, pgid) ioctl (fd, TIOCGPGRP, pgid)
+#define EMACS_SET_TTY_PROCESS_GROUP(fd, pgid) ioctl (fd, TIOCSPGRP, pgid)
 
-#if defined (HAVE_TERMIOS) && ! defined (BSD_TERMIOS)
+#elif defined (HAVE_TCGETPGRP)
 
-/* Resist the urge to insert needless extra parentheses. */
-#define EMACS_GET_TTY_PGRP(fd, pgid) (*(pgid) = tcgetpgrp (fd))
-#define EMACS_SET_TTY_PGRP(fd, pgid) tcsetpgrp (fd, *(pgid))
+#define EMACS_GET_TTY_PROCESS_GROUP(fd, pgid) (*(pgid) = tcgetpgrp (fd))
+#define EMACS_SET_TTY_PROCESS_GROUP(fd, pgid) tcsetpgrp (fd, *(pgid))
 
-#elif defined (TIOCSPGRP)
-
-#define EMACS_GET_TTY_PGRP(fd, pgid) (ioctl ((fd), TIOCGPGRP, (pgid)))
-#define EMACS_SET_TTY_PGRP(fd, pgid) (ioctl ((fd), TIOCSPGRP, (pgid)))
-
-#endif
-
-#endif /* EMACS_HAVE_TTY_PGRP */
-
-#ifndef EMACS_GET_TTY_PGRP
+#else
 
 /* Just ignore this for now and hope for the best */
-#define EMACS_GET_TTY_PGRP(fd, pgid) 0
-#define EMACS_SET_TTY_PGRP(fd, pgif) 0
+#define EMACS_GET_TTY_PROCESS_GROUP(fd, pgid) 0
+#define EMACS_SET_TTY_PROCESS_GROUP(fd, pgif) 0
 
 #endif
-
-/* XEmacs interim backward-compatibility */
-#define EMACS_GET_TTY_PROCESS_GROUP EMACS_GET_TTY_PGRP
-#define EMACS_SET_TTY_PROCESS_GROUP EMACS_SET_TTY_PGRP
 
 /* EMACS_GETPGRP (arg) returns the process group of the terminal.  */
 

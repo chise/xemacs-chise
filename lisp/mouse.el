@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1988, 1992-4, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Tinker Systems
-;; Copyright (C) 1995, 1996 Ben Wing.
+;; Copyright (C) 1995, 1996, 2000 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: mouse, dumped
@@ -30,6 +30,15 @@
 
 ;; This file is dumped with XEmacs (when window system support is compiled in).
 
+;;; Authorship:
+
+;; Probably originally derived from FSF 19 pre-release.
+;; much hacked upon by Jamie Zawinski and crew, pre-1994.
+;;   (only mouse-motion stuff currently remains from that era)
+;; all mouse-track stuff completely rewritten by Ben Wing, 1995-1996.
+;; mouse-eval-sexp and *-inside-extent-p from Stig, 1995.
+;; vertical divider code c. 1998 from ?.
+
 ;;; Code:
 
 (provide 'mouse)
@@ -39,16 +48,7 @@
 (global-set-key '(control button1) 'mouse-track-insert)
 (global-set-key '(control shift button1) 'mouse-track-delete-and-insert)
 (global-set-key '(meta button1) 'mouse-track-do-rectangle)
-
-;; drops are now handled in dragdrop.el (ograf@fga.de)
-
-;; enable drag regions (ograf@fga.de)
-;; if button2 is dragged from within a region, this becomes a drop
-;;
-;; this must be changed to the new api
-(if (featurep '(or offix cde mswindows))
-    (global-set-key 'button2 'mouse-drag-or-yank)
-  (global-set-key 'button2 'mouse-yank))
+(global-set-key 'button2 'mouse-track)
 
 (defgroup mouse nil
   "Window system-independent mouse support."
@@ -185,7 +185,6 @@ location."
 (defun click-inside-extent-p (click extent)
   "Return non-nil if the button event is within the primary selection-extent.
 Return nil otherwise."
-  ;; stig@hackvan.com
   (let ((ewin (event-window click))
 	(epnt (event-point click)))
     (and ewin
@@ -206,7 +205,6 @@ Return nil otherwise."
   "Return t if point is within the bounds of the primary selection extent.
 Return t is point is at the end position of the extent.
 Return nil otherwise."
-  ;; stig@hackvan.com
   (and extent
        (eq (current-buffer)
 	   (extent-object extent))
@@ -214,35 +212,27 @@ Return nil otherwise."
        (>= (extent-end-position extent) (point))))
 
 (defun point-inside-selection-p ()
-  ;; by Stig@hackvan.com
   (or (point-inside-extent-p primary-selection-extent)
       (point-inside-extent-p zmacs-region-extent)))
 
-(defun mouse-drag-or-yank (event)
-  "Either drag or paste the current selection.
-If the variable `mouse-yank-at-point' is non-nil,
-move the cursor to the location of the click before pasting.
-This functions has to be improved.  Currently it is just a (working) test."
-  ;; by Oliver Graf <ograf@fga.de>
-  (interactive "e")
-  (if (click-inside-extent-p event zmacs-region-extent)
-      ;; okay, this is a drag
-      (cond ((featurep 'offix)
-	     (offix-start-drag-region 
-	      event
-	      (extent-start-position zmacs-region-extent)
-	      (extent-end-position zmacs-region-extent)))
-	    ((featurep 'cde)
-	     ;; should also work with CDE
-	     (cde-start-drag-region event
-				    (extent-start-position zmacs-region-extent)
-				    (extent-end-position zmacs-region-extent)))
-	    (t (error "No offix or CDE support compiled in")))
-    ;; no drag, call region-funct
-    (and (not mouse-yank-at-point)
-	 (mouse-set-point event))
-    (funcall mouse-yank-function))
-  )
+(defun mouse-begin-drag-n-drop (event)
+  "Begin a drag-n-drop operation.
+EVENT should be the button event that initiated the drag.
+Returns whether a drag was begun."
+  ;; #### barely implemented.
+  (when (click-inside-selection-p event)
+    (cond ((featurep 'offix)
+	   (offix-start-drag-region 
+	    event
+	    (extent-start-position zmacs-region-extent)
+	    (extent-end-position zmacs-region-extent))
+	   t)
+	  ((featurep 'cde)
+	   ;; should also work with CDE
+	   (cde-start-drag-region event
+				  (extent-start-position zmacs-region-extent)
+				  (extent-end-position zmacs-region-extent))
+	   t))))
 
 (defun mouse-eval-sexp (click force-window)
   "Evaluate the sexp under the mouse.  Usually, this is the last sexp before
@@ -257,7 +247,6 @@ click, but to the current window and the current position of point.  Thus,
 you can use `mouse-eval-sexp' to interactively test code that acts upon a
 buffer...something you cannot do with the standard `eval-last-sexp' function.
 It's also fantastic for debugging regular expressions."
-  ;; by Stig@hackvan.com
   (interactive "e\nP")
   (let (exp val result-str)
     (setq exp (save-window-excursion
@@ -503,6 +492,36 @@ A value of nil disables the timeout feature."
   :type '(choice integer (const :tag "Disabled" nil))
   :group 'mouse)
 
+(defcustom mouse-track-activate-strokes '(button1-double-click button2-click)
+  "List of mouse strokes that can cause \"activation\" of the text extent
+under the mouse.  The exact meaning of \"activation\" is dependent on the
+text clicked on and the mode of the buffer, but typically entails actions
+such as following a hyperlink or selecting an entry in a completion buffer.
+
+Possible list entries are
+
+button1-click
+button1-double-click
+button1-triple-click
+button1-down
+button2-click
+button2-double-click
+button2-triple-click
+button2-down
+
+As a general rule, you should not use the \"-down\" values, because this
+makes it impossible to have other simultaneous actions, such as selection."
+  :type '(set
+	  button1-click
+	  button1-double-click
+	  button1-triple-click
+	  button1-down
+	  button2-click
+	  button2-double-click
+	  button2-triple-click
+	  button2-down)
+  :group 'mouse)
+
 (defvar mouse-track-x-threshold '(face-width 'default)
   "Minimum number of pixels in the X direction for a drag to be initiated.
 If the mouse is moved more than either the X or Y threshold while the
@@ -538,6 +557,15 @@ produce a number.")
 	    (add-timeout (/ mouse-track-scroll-delay 1000.0)
 			 'mouse-track-scroll-undefined
 			 (copy-event event)))))
+
+(defun mouse-track-do-activate (event)
+  "Execute the activate function under EVENT, if any.
+Return true if the function was activated."
+  (let ((ex (extent-at-event event 'activate-function)))
+    (when ex
+      (funcall (extent-property ex 'activate-function)
+	       event ex)
+      t)))
 
 (defun mouse-track-run-hook (hook event &rest args)
   ;; ugh, can't use run-hook-with-args-until-success because we have
@@ -585,9 +613,9 @@ produce a number.")
 )
 
 (defun mouse-track (event)
-  "Make a selection with the mouse.  This should be bound to a mouse button.
-The behavior of XEmacs during mouse selection is customizable using various
-hooks and variables: see `mouse-track-click-hook', `mouse-track-drag-hook',
+  "Generalized mouse-button handler.  This should be bound to a mouse button.
+The behavior of this function is customizable using various hooks and
+variables: see `mouse-track-click-hook', `mouse-track-drag-hook',
 `mouse-track-drag-up-hook', `mouse-track-down-hook', `mouse-track-up-hook',
 `mouse-track-cleanup-hook', `mouse-track-multi-click-time',
 `mouse-track-scroll-delay', `mouse-track-x-threshold', and
@@ -1110,9 +1138,26 @@ at the initial click position."
 		   (disown-selection)))))
       (setq default-mouse-track-down-event nil))))
 
+;; return t if the button or motion event involved the specified button.
+(defun default-mouse-track-event-is-with-button (event n)
+  (cond ((button-event-p event)
+	 (= n (event-button event)))
+	((motion-event-p event)
+	 (memq (cdr
+		(assq n '((1 . button1) (2 . button2) (3 . button3)
+			  (4 . button4) (5 . button5))))
+	       (event-modifiers event)))))
+
 (defun default-mouse-track-down-hook (event click-count)
-  (setq default-mouse-track-down-event (copy-event event))
-  nil)
+  (cond ((default-mouse-track-event-is-with-button event 1)
+	 (if (and (memq 'button1-down mouse-track-activate-strokes)
+		  (mouse-track-do-activate event))
+	     t
+	   (setq default-mouse-track-down-event (copy-event event))
+	   nil))
+	((default-mouse-track-event-is-with-button event 2)
+	 (and (memq 'button2-down mouse-track-activate-strokes)
+	      (mouse-track-do-activate event)))))
 
 (defun default-mouse-track-cleanup-extents-hook ()
   (remove-hook 'pre-command-hook 'default-mouse-track-cleanup-extents-hook)
@@ -1133,7 +1178,8 @@ at the initial click position."
       (if (consp extent)		; rectangle-p
 	  (mapcar func extent)
 	(if extent
-	    (funcall func extent))))))
+	    (funcall func extent)))))
+  t)
 
 (defun default-mouse-track-cleanup-extent ()
   (let ((dead-func
@@ -1153,13 +1199,16 @@ at the initial click position."
 	  (setq default-mouse-track-extent nil)))))
 
 (defun default-mouse-track-drag-hook (event click-count was-timeout)
-  (default-mouse-track-deal-with-down-event click-count)
-  (default-mouse-track-set-point event default-mouse-track-window)
-  (default-mouse-track-cleanup-extent)
-  (default-mouse-track-next-move default-mouse-track-min-anchor
-    default-mouse-track-max-anchor
-    default-mouse-track-extent)
-  t)
+  (cond ((default-mouse-track-event-is-with-button event 1)
+	 (default-mouse-track-deal-with-down-event click-count)
+	 (default-mouse-track-set-point event default-mouse-track-window)
+	 (default-mouse-track-cleanup-extent)
+	 (default-mouse-track-next-move default-mouse-track-min-anchor
+	   default-mouse-track-max-anchor
+	   default-mouse-track-extent)
+	 t)
+	((default-mouse-track-event-is-with-button event 2)
+	 (mouse-begin-drag-n-drop event))))
 
 (defun default-mouse-track-return-dragged-selection (event)
   (default-mouse-track-cleanup-extent)
@@ -1210,15 +1259,45 @@ at the initial click position."
     result))
 
 (defun default-mouse-track-drag-up-hook (event click-count)
-  (let ((result (default-mouse-track-return-dragged-selection event)))
-    (if result
-	(default-mouse-track-maybe-own-selection result 'PRIMARY)))
-  t)
+  (when (default-mouse-track-event-is-with-button event 1)
+    (let ((result (default-mouse-track-return-dragged-selection event)))
+      (if result
+	  (default-mouse-track-maybe-own-selection result 'PRIMARY)))
+    t))
 
 (defun default-mouse-track-click-hook (event click-count)
-  (default-mouse-track-drag-hook event click-count nil)
-  (default-mouse-track-drag-up-hook event click-count)
-  t)
+  (cond ((default-mouse-track-event-is-with-button event 1)
+	 (if (and
+	      (or (and (= click-count 1)
+		       (memq 'button1-click
+			     mouse-track-activate-strokes))
+		  (and (= click-count 2)
+		       (memq 'button1-double-click
+			     mouse-track-activate-strokes))
+		  (and (= click-count 3)
+		       (memq 'button1-triple-click
+			     mouse-track-activate-strokes)))
+	      (mouse-track-do-activate event))
+	     t
+	   (default-mouse-track-drag-hook event click-count nil)
+	   (default-mouse-track-drag-up-hook event click-count)
+	   t))
+	((default-mouse-track-event-is-with-button event 2)
+	 (if (and
+	      (or (and (= click-count 1)
+		       (memq 'button2-click
+			     mouse-track-activate-strokes))
+		  (and (= click-count 2)
+		       (memq 'button2-double-click
+			     mouse-track-activate-strokes))
+		  (and (= click-count 3)
+		       (memq 'button2-triple-click
+			     mouse-track-activate-strokes)))
+	      (mouse-track-do-activate event))
+	     t
+	   (mouse-yank event)
+	   t))))
+
 
 (add-hook 'mouse-track-down-hook 'default-mouse-track-down-hook)
 (add-hook 'mouse-track-drag-hook 'default-mouse-track-drag-hook)
@@ -1471,7 +1550,7 @@ and `mode-motion-hook'."
 ;;
 (defun drag-window-divider (event)
   "Handle resizing windows by dragging window dividers.
-This is an intenal function, normally bound to button1 event in
+This is an internal function, normally bound to button1 event in
 window-divider-map. You would not call it, but you may bind it to
 other mouse buttons."
   (interactive "e")

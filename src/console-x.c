@@ -20,6 +20,8 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Not in FSF. */
 
+/* This file Mule-ized by Ben Wing, 7-10-00. */
+
 /* Authorship:
 
    Ben Wing: January 1996, for 19.14.
@@ -29,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 
 #include "console-x.h"
+#include "buffer.h"
 #include "process.h" /* canonicalize_host_name */
 #include "redisplay.h" /* for display_arg */
 
@@ -44,7 +47,7 @@ static void
 split_up_display_spec (Lisp_Object display, int *hostname_length,
 		       int *display_length, int *screen_length)
 {
-  char *dotptr;
+  Bufbyte *dotptr;
 
   dotptr = strrchr ((char *) XSTRING_DATA (display), ':');
   if (!dotptr)
@@ -54,12 +57,11 @@ split_up_display_spec (Lisp_Object display, int *hostname_length,
     }
   else
     {
-      *hostname_length = dotptr - (char *) XSTRING_DATA (display);
+      *hostname_length = dotptr - XSTRING_DATA (display);
 
-      dotptr = strchr (dotptr, '.');
+      dotptr = strchr ((char *) dotptr, '.');
       if (dotptr)
-	*display_length = (dotptr - (char *) XSTRING_DATA (display)
-			   - *hostname_length);
+	*display_length = (dotptr - XSTRING_DATA (display) - *hostname_length);
       else
 	*display_length = XSTRING_LENGTH (display) - *hostname_length;
     }
@@ -102,7 +104,7 @@ x_device_to_console_connection (Lisp_Object connection, Error_behavior errb)
 static Lisp_Object
 get_display_arg_connection (void)
 {
-  const char *disp_name;
+  const Extbyte *disp_name;
 
   /* If the user didn't explicitly specify a display to use when
      they called make-x-device, then we first check to see if a
@@ -114,7 +116,7 @@ get_display_arg_connection (void)
     {
       int elt;
       int argc;
-      char **argv;
+      Extbyte **argv;
       Lisp_Object conn;
 
       make_argc_argv (Vx_initial_argv_list, &argc, &argv);
@@ -127,7 +129,8 @@ get_display_arg_connection (void)
 	      if (elt + 1 == argc)
 		{
 		  suppress_early_error_handler_backtrace = 1;
-		  error ("-display specified with no arg");
+		  type_error (Qinvalid_argument,
+			      "-display specified with no arg");
 		}
 	      else
 		{
@@ -140,12 +143,12 @@ get_display_arg_connection (void)
       /* assert: display_arg is only set if we found the display
 	 arg earlier so we can't fail to find it now. */
       assert (disp_name != NULL);
-      conn = build_ext_string (disp_name, Qctext);
+      conn = build_ext_string (disp_name, Qcommand_argument_encoding);
       free_argc_argv (argv);
       return conn;
     }
   else
-    return build_ext_string (XDisplayName (0), Qctext);
+    return build_ext_string (XDisplayName (0), Qx_display_name_encoding);
 }
 
 /* "semi-canonicalize" means convert to a nicer form for printing, but
@@ -181,8 +184,7 @@ x_semi_canonicalize_console_connection (Lisp_Object connection,
   /* Check for a couple of standard special cases */
   if (string_byte (XSTRING (connection), 0) == ':')
     connection = concat2 (build_string ("localhost"), connection);
-  else if (!strncmp ((const char *) XSTRING_DATA (connection),
-		     "unix:", 5))
+  else if (!strncmp (XSTRING_DATA (connection), "unix:", 5))
     connection = concat2 (build_string ("localhost:"),
 			  Fsubstring (connection, make_int (5), Qnil));
 
@@ -260,7 +262,7 @@ x_canonicalize_device_connection (Lisp_Object connection, Error_behavior errb)
   split_up_display_spec (connection, &hostname_length, &display_length,
 			 &screen_length);
 
-  screen_str = build_string ((const char *) XSTRING_DATA (connection)
+  screen_str = build_string (XSTRING_DATA (connection)
 			     + hostname_length + display_length);
   connection = x_canonicalize_console_connection (connection, errb);
 

@@ -61,11 +61,20 @@ Boston, MA 02111-1307, USA.  */
 #  endif
 # endif
 
+# if CYGWIN_VERSION_DLL_MAJOR < 20
+
 void cygwin32_win32_to_posix_path_list (const char*, char*);
 int cygwin32_win32_to_posix_path_list_buf_size (const char*);
 void cygwin32_posix_to_win32_path_list (const char*, char*);
 int cygwin32_posix_to_win32_path_list_buf_size (const char*);
-# if CYGWIN_VERSION_DLL_MAJOR < 20
+
+#define cygwin_win32_to_posix_path_list cygwin32_win32_to_posix_path_list
+#define cygwin_win32_to_posix_path_list_buf_size \
+  cygwin32_win32_to_posix_path_list_buf_size
+#define cygwin_posix_to_win32_path_list cygwin32_posix_to_win32_path_list
+#define cygwin_posix_to_win32_path_list_buf_size \
+  cygwin32_posix_to_win32_path_list_buf_size
+
 struct timeval;
 struct timezone;
 struct itimerval;
@@ -89,12 +98,22 @@ int utimes (char *file, struct timeval *tvp);
 int srandom (unsigned seed);
 long random (void);
 
+# else /* not CYGWIN_VERSION_DLL_MAJOR < 20 */
+
+void cygwin_win32_to_posix_path_list (const char*, char*);
+int cygwin_win32_to_posix_path_list_buf_size (const char*);
+void cygwin_posix_to_win32_path_list (const char*, char*);
+int cygwin_posix_to_win32_path_list_buf_size (const char*);
+
 # endif /* CYGWIN_VERSION_DLL_MAJOR < 20 */
 
 # if CYGWIN_VERSION_DLL_MAJOR <= 20
 char *getpass (const char *prompt);
 double logb (double);
 # endif /* CYGWIN_VERSION_DLL_MAJOR <= 20 */
+
+/* Still left out of 1.1! */
+double	logb (double);
 
 #endif
 
@@ -131,18 +150,8 @@ double logb (double);
 
 #undef MAIL_USE_SYSTEM_LOCK
 
-/* Define NO_ARG_ARRAY if you cannot take the address of the first of a
- * group of arguments and treat it as an array of the arguments.  */
-
-#define NO_ARG_ARRAY
-
-/* Data type of load average, as read out of kmem.  */
-
-#define LOAD_AVE_TYPE long
-
-/* Convert that into an integer that is 100 for a load average of 1.0  */
-
-#define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / FSCALE)
+/* Do not define LOAD_AVE_TYPE or LOAD_AVE_CVT
+   since there is no load average available. */
 
 /* Define VIRT_ADDR_VARIES if the virtual addresses of
    pure and impure space as loaded can vary, and even their
@@ -203,44 +212,8 @@ double logb (double);
 #define SYSTEM_PURESIZE_EXTRA 15000
 
 #define CYGWIN_CONV_PATH(src, dst) \
-dst = alloca (cygwin32_win32_to_posix_path_list_buf_size(src)); \
-cygwin32_win32_to_posix_path_list(src, dst)
+dst = alloca (cygwin_win32_to_posix_path_list_buf_size(src)); \
+cygwin_win32_to_posix_path_list(src, dst)
 #define CYGWIN_WIN32_PATH(src, dst) \
-dst = alloca (cygwin32_posix_to_win32_path_list_buf_size(src)); \
-cygwin32_posix_to_win32_path_list(src, dst)
-
-/*
- * stolen from usg.
- */
-#define HAVE_PTYS
-#define FIRST_PTY_LETTER 'z'
-
-/* Pseudo-terminal support under SVR4 only loops to deal with errors. */
-
-#define PTY_ITERATION for (i = 0, c = 0; i < 1; i++)
-
-/* This sets the name of the master side of the PTY. */
-
-#define PTY_NAME_SPRINTF strcpy (pty_name, "/dev/ptmx");
-
-/* This sets the name of the slave side of the PTY.  On SysVr4,
-   grantpt(3) forks a subprocess, so keep sigchld_handler() from
-   intercepting that death.  If any child but grantpt's should die
-   within, it should be caught after EMACS_UNBLOCK_SIGNAL. */
-
-#define PTY_OPEN \
-   fd = open (pty_name, O_RDWR | O_NONBLOCK | OPEN_BINARY, 0)
-
-#define PTY_TTY_NAME_SPRINTF				\
-  {							\
-    extern char* ptsname(int);				\
-    char *ptyname;					\
-							\
-    if (!(ptyname = ptsname (fd)))			\
-      { close (fd); return -1; }			\
-    strncpy (pty_name, ptyname, sizeof (pty_name));	\
-    pty_name[sizeof (pty_name) - 1] = 0;		\
-  }
-
-/* ============================================================ */
-
+dst = alloca (cygwin_posix_to_win32_path_list_buf_size(src)); \
+cygwin_posix_to_win32_path_list(src, dst)

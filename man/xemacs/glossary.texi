@@ -261,7 +261,7 @@ echo area, accompanied by a beep.
 keyboards lacking a @key{META} key.  Unlike the @key{META} key (which,
 like the @key{SHIFT} key, is held down while another character is
 typed), the @key{ESC} key is pressed and released, and applies to the
-next character typed. 
+next character typed.
 
 @item Fill Prefix
 The fill prefix is a string that Emacs enters at the beginning
@@ -621,7 +621,7 @@ Emacs, you have to save it.  @xref{Saving}.
 
 @item Scrolling
 Scrolling means shifting the text in the Emacs window to make a
-different part ot the buffer visible.  @xref{Display,Scrolling}.
+different part of the buffer visible.  @xref{Display,Scrolling}.
 
 @item Searching
 Searching means moving point to the next occurrence of a specified
@@ -682,7 +682,7 @@ definitions in one or more other files.  @xref{Tags}.
 A termscript file contains a record of all characters Emacs sent to
 the terminal.  It is used for tracking down bugs in Emacs redisplay.
 Emacs does not make a termscript file unless explicitly instructed to do
-so. 
+so.
 @xref{Bugs}.
 
 @item Text
@@ -749,7 +749,7 @@ display the contents of one buffer (q.v.@:) at any time.
 @xref{Windows}, for commands to control the use of windows. Note that if
 you are running Emacs under X, terminology can be confusing: Each Emacs
 frame occupies a separate X window and can, in turn, be divided into
-different subwindows. 
+different subwindows.
 
 @item Word Abbrev
 Synonymous with `abbrev'.

@@ -73,7 +73,7 @@ modules have been loaded as dynamic shared objects by examining the
 return value of the function `list-modules'.
 
 It is possible, although unwise, to unload modules using `unload-module'.
-The prefered mechanism for unloading or reloading modules is to quit
+The preferred mechanism for unloading or reloading modules is to quit
 XEmacs, and then reload those new or changed modules that are required.
 
 Messages informing you of the progress of the load are displayed unless
@@ -114,7 +114,7 @@ Unload a module previously loaded with load-module.
 As with load-module, this function requires at least the module FILE, and
 optionally the module NAME and VERSION to unload.  It may not be possible
 for the module to be unloaded from memory, as there may be Lisp objects
-refering to variables inside the module code.  However, once you have
+referring to variables inside the module code.  However, once you have
 requested a module to be unloaded, it will be unloaded from memory as
 soon as the last reference to symbols within the module is destroyed.
 */
@@ -209,7 +209,7 @@ find_make_module (const char *mod, const char *name, const char *ver, int mof)
     return fs; /* First free slot */
 
   /*
-   * We only get here if we havent found a free slot and the module was
+   * We only get here if we haven't found a free slot and the module was
    * not previously loaded.
    */
   if (modules == (emodules_list *)0)
@@ -278,7 +278,7 @@ module_load_unwind (Lisp_Object upto)
  * Do the actual grunt-work of loading in a module. We first try and
  * dlopen() the module. If that fails, we have an error and we bail
  * out immediately. If the dlopen() succeeds, we need to check for the
- * existance of certain special symbols.
+ * existence of certain special symbols.
  *
  * All modules will have complete access to the variables and functions
  * defined within XEmacs itself.  It is up to the module to declare any
@@ -288,17 +288,17 @@ module_load_unwind (Lisp_Object upto)
  *
  * We need to be very careful with how we load modules. If we encounter an
  * error along the way, we need to back out completely to the point at
- * which the user started. Since we can be called resursively, we need to
+ * which the user started. Since we can be called recursively, we need to
  * take care with marking modules as loaded. When we first start loading
  * modules, we set the counter to zero. As we enter the function each time,
- * we incremement the counter, and before we leave we decrement it. When
+ * we increment the counter, and before we leave we decrement it. When
  * we get back down to 0, we know we are at the end of the chain and we
  * can mark all the modules in the list as loaded.
  *
  * When we signal an error, we need to be sure to unwind all modules loaded
  * thus far (but only for this module chain). It is assumed that if any
  * modules in a chain fail, then they all do. This is logical, considering
- * that the only time we recurse is when we have dependant modules. So in
+ * that the only time we recurse is when we have dependent modules. So in
  * the error handler we take great care to close off the module chain before
  * we call "error" and let the Fmodule_load unwind_protect() function handle
  * the cleaning up.
@@ -386,7 +386,7 @@ emodules_load(const char *module, const char *modname, const char *modver)
   strcat (symname, mname);
   modload = (void (*)(void))dll_function (dlhandle, symname);
   /*
-   * modload is optional. If the module doesnt require other modules it can
+   * modload is optional. If the module doesn't require other modules it can
    * be left out.
    */
 
@@ -418,7 +418,7 @@ emodules_load(const char *module, const char *modname, const char *modver)
    * Attempt to make a new slot for this module. If this really is the
    * first time we are loading this module, the used member will be 0.
    * If that is non-zero, we know that we have a previously loaded module
-   * of the same name and version, and we dont need to go any further.
+   * of the same name and version, and we don't need to go any further.
    */
   mpx = find_make_module (soname, mname, mver, 0);
   mp = &modules[mpx];
@@ -543,7 +543,7 @@ Emacs dynamic loading mechanism version, as a string.
 
 This string is in the form XX.YY.ppp, where XX is the major version
 number, YY is the minor version number, and ppp is the patch level.
-This variable can be used to distinquish between different versions of
+This variable can be used to distinguish between different versions of
 the dynamic loading technology used in Emacs, if required.  It is not
 a given that this value will be the same as the Emacs version number.
 */ );
@@ -564,7 +564,7 @@ called by a Lisp function.
 Each element is a string (directory name) or nil (try default directory).
 
 Note that elements of this list *may not* begin with "~", so you must
-call `expland-file-name' on them before adding them to this list.
+call `expand-file-name' on them before adding them to this list.
 
 Initialized based on EMACSMODULEPATH environment variable, if any, otherwise
 to default specified the file `paths.h' when XEmacs was built.  If there
@@ -573,8 +573,8 @@ value for this variable by looking around in the file-system near the
 directory in which the XEmacs executable resides.
 
 Due to the nature of dynamic modules, the path names should almost always
-refer to architecture-dependant directories.  It is unwise to attempt to
-store dynamic modules in a hetrogenous environment.  Some environments
+refer to architecture-dependent directories.  It is unwise to attempt to
+store dynamic modules in a heterogenous environment.  Some environments
 are similar enough to each other that XEmacs will be unable to determine
 the correctness of a dynamic module, which can have unpredictable results
 when a dynamic module is loaded.

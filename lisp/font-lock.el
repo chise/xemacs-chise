@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1992-1995, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
-;; Copyright (C) 1996 Ben Wing.
+;; Copyright (C) 1996, 2000 Ben Wing.
 
 ;; Author: Jamie Zawinski <jwz@jwz.org>, for the LISPM Preservation Society.
 ;; Minimally merged with FSF 19.34 by Barry Warsaw <bwarsaw@python.org>
@@ -893,9 +893,10 @@ See the variable `font-lock-keywords' for customization."
 		 ((or (null maximum-size) (<= (buffer-size) maximum-size))
 		  (font-lock-fontify-buffer))
 		 (font-lock-verbose
-		  (lprogress-display 'font-lock
-			     "Fontifying %s... buffer too big." 'abort
-			     (buffer-name)))))
+		  (progress-feedback-with-label
+		   'font-lock
+		   "Fontifying %s... buffer too big." 'abort
+		   (buffer-name)))))
 	  (font-lock-fontified
 	   (setq font-lock-fontified nil)
 	   (font-lock-unfontify-region (point-min) (point-max))
@@ -1060,8 +1061,8 @@ This can take a while for large buffers."
 	    (font-lock-mode 0)))
       (set (make-local-variable 'font-lock-fontified) t)
       (when (and aborted font-lock-verbose)
-	(lprogress-display 'font-lock "Fontifying %s... aborted."
-			   'abort (buffer-name))))
+	(progress-feedback-with-label 'font-lock "Fontifying %s... aborted."
+				      'abort (buffer-name))))
     (run-hooks 'font-lock-after-fontify-buffer-hook)))
 
 (defun font-lock-default-unfontify-buffer ()
@@ -1100,7 +1101,8 @@ This can take a while for large buffers."
 (defun font-lock-default-unfontify-region (beg end &optional maybe-loudly)
   (when (and maybe-loudly font-lock-verbose
 	     (>= (- end beg) font-lock-message-threshold))
-    (lprogress-display 'font-lock "Fontifying %s..." 0 (buffer-name)))
+    (progress-feedback-with-label 'font-lock "Fontifying %s..." 0
+				  (buffer-name)))
   (let ((modified (buffer-modified-p))
 	(buffer-undo-list t) (inhibit-read-only t)
 	buffer-file-name buffer-file-truename)
@@ -1347,8 +1349,9 @@ START should be at the beginning of a line."
       nil
     (when (and font-lock-verbose
 	       (>= (- end start) font-lock-message-threshold))
-      (lprogress-display 'font-lock "Fontifying %s... (syntactically)" 5
-		 (buffer-name)))
+      (progress-feedback-with-label 'font-lock
+				    "Fontifying %s... (syntactically)" 5
+				    (buffer-name)))
     (font-lock-unfontify-region start end loudly)
     (goto-char start)
     (if (> end (point-max)) (setq end (point-max)))
@@ -1560,8 +1563,9 @@ START should be at the beginning of a line."
 		(+ (/ (* (- (point) start) 95) (* (- end start) nkeywords))
 		   (/ (* iter 95) nkeywords) 5))
 	  (when (and loudly (> progress old-progress))
-	    (lprogress-display 'font-lock "Fontifying %s... (regexps)"
-			       progress bufname))
+	    (progress-feedback-with-label 'font-lock
+					  "Fontifying %s... (regexps)"
+					  progress bufname))
 	  (setq old-progress progress)
 	  ;; Apply each highlight to this instance of `matcher', which may be
 	  ;; specific highlights or more keywords anchored to `matcher'.
@@ -1578,7 +1582,9 @@ START should be at the beginning of a line."
 	    (setq highlights (cdr highlights))))
 	(setq iter (1+ iter))
 	(setq keywords (cdr keywords))))
-    (if loudly (lprogress-display 'font-lock "Fontifying %s... " 100 (buffer-name)))))
+    (if loudly
+	(progress-feedback-with-label 'font-lock "Fontifying %s... " 100
+				      (buffer-name)))))
 
 
 ;; Various functions.
@@ -1881,30 +1887,39 @@ START should be at the beginning of a line."
     ;;
     ;; Control structures.  ELisp and CLisp combined.
     ;;
-    ;;(regexp-opt
-    ;;  '("cond" "if" "while" "let" "let*" "prog" "progn" "prog1"
-    ;;    "prog2" "progv" "catch" "throw" "save-restriction"
-    ;;    "save-excursion" "save-window-excursion"
-    ;;    "save-current-buffer" "with-current-buffer"
-    ;;    "with-temp-file" "with-temp-buffer" "with-output-to-string"
-    ;;    "with-string-as-buffer-contents"
-    ;;    "save-selected-window" "save-match-data" "unwind-protect"
-    ;;    "condition-case" "track-mouse" "autoload"
-    ;;    "eval-after-load" "eval-and-compile" "eval-when-compile"
-    ;;    "when" "unless" "do" "dolist" "dotimes" "flet" "labels"
-    ;;    "lambda" "return" "return-from"))
     (cons
      (concat
       "(\\("
-      "autoload\\|c\\(atch\\|ond\\(ition-case\\)?\\)\\|do\\(list\\|"
-      "times\\)?\\|eval-\\(a\\(fter-load\\|nd-compile\\)\\|when-compile\\)\\|"
-      "flet\\|if\\|l\\(a\\(bels\\|mbda\\)\\|et\\*?\\)\\|"
-      "prog[nv12\\*]?\\|return\\(-from\\)?\\|save-\\(current-buffer\\|"
-      "excursion\\|match-data\\|restriction\\|selected-window\\|"
-      "window-excursion\\)\\|t\\(hrow\\|rack-mouse\\)\\|un\\(less\\|"
-      "wind-protect\\)\\|w\\(h\\(en\\|ile\\)\\|ith-\\(current-buffer\\|"
-      "output-to-string\\|string-as-buffer-contents\\|temp-\\(buffer\\|"
-      "file\\)\\)\\)"
+      ;; beginning of generated stuff
+      ;; to regenerate, use the regexp-opt below, then delete the outermost
+      ;; grouping, then use the macro below to break up the string.
+      ;; (regexp-opt
+      ;;   '("cond" "if" "while" "let" "let*" "prog" "progn" "prog1"
+      ;;     "prog2" "progv" "catch" "throw" "save-restriction"
+      ;;     "save-excursion" "save-window-excursion"
+      ;;     "save-current-buffer" "with-current-buffer"
+      ;;     "save-selected-window" "with-selected-window"
+      ;;     "save-selected-frame" "with-selected-frame"
+      ;;     "with-temp-file" "with-temp-buffer" "with-output-to-string"
+      ;;     "with-string-as-buffer-contents"
+      ;;     "save-match-data" "unwind-protect" "call-with-condition-handler"
+      ;;     "condition-case" "track-mouse" "autoload"
+      ;;     "eval-after-load" "eval-and-compile" "eval-when-compile"
+      ;;     "when" "unless" "do" "dolist" "dotimes" "flet" "labels"
+      ;;     "lambda" "block" "return" "return-from" "loop") t)
+      ;; (setq last-kbd-macro
+      ;;   (read-kbd-macro "\" C-7 C-1 <right> C-r \\\\| 3*<right> \" RET"))
+      "autoload\\|block\\|c\\(?:a\\(?:ll-with-condition-handler\\|tch\\)\\|"
+      "ond\\(?:ition-case\\)?\\)\\|do\\(?:list\\|times\\)?\\|"
+      "eval-\\(?:a\\(?:fter-load\\|nd-compile\\)\\|when-compile\\)\\|flet\\|"
+      "if\\|l\\(?:a\\(?:bels\\|mbda\\)\\|et\\*?\\|oop\\)\\|prog[12nv]?\\|"
+      "return\\(?:-from\\)?\\|save-\\(?:current-buffer\\|excursion\\|"
+      "match-data\\|restriction\\|selected-\\(?:frame\\|window\\)\\|"
+      "window-excursion\\)\\|t\\(?:hrow\\|rack-mouse\\)\\|un\\(?:less\\|"
+      "wind-protect\\)\\|w\\(?:h\\(?:en\\|ile\\)\\|ith-\\(?:current-buffer\\|"
+      "output-to-string\\|s\\(?:elected-\\(?:frame\\|window\\)\\|"
+      "tring-as-buffer-contents\\)\\|temp-\\(?:buffer\\|file\\)\\)\\)"
+      ;; end of generated stuff
       "\\)\\>") 1)
     ;;
     ;; Feature symbols as references.
@@ -2336,19 +2351,19 @@ This adds highlighting of Java documentation tags, such as @see.")
          "\\|long\\|short\\|void\\)\\>")
   "Regexp which should match a primitive type.")
 
-(let ((capital-letter "A-Z\300-\326\330-\337")
-      (letter "a-zA-Z_$\300-\326\330-\366\370-\377")
-      (digit  "0-9"))
 (defvar java-font-lock-identifier-regexp
-  (concat "\\<\\([" letter "][" letter digit "]*\\)\\>")
+  (let ((letter "a-zA-Z_$\300-\326\330-\366\370-\377")
+	(digit  "0-9"))
+    (concat "\\<\\([" letter "][" letter digit "]*\\)\\>"))
   "Regexp which should match all Java identifiers.")
 
 (defvar java-font-lock-class-name-regexp
-  (concat "\\<\\([" capital-letter "][" letter digit "]*\\)\\>")
+  (let ((capital-letter "A-Z\300-\326\330-\337")
+	(letter "a-zA-Z_$\300-\326\330-\366\370-\377")
+	(digit  "0-9"))
+    (concat "\\<\\([" capital-letter "][" letter digit "]*\\)\\>"))
   "Regexp which should match a class or an interface name.
 The name is assumed to begin with a capital letter.")
-)
-
 
 (let ((java-modifier-regexp
        (concat "\\<\\(abstract\\|const\\|final\\|native\\|"

@@ -1,6 +1,6 @@
 /* "intern" and friends -- moved here from lread.c and data.c
    Copyright (C) 1985-1989, 1992-1994 Free Software Foundation, Inc.
-   Copyright (C) 1995 Ben Wing.
+   Copyright (C) 1995, 2000 Ben Wing.
 
 This file is part of XEmacs.
 
@@ -449,11 +449,15 @@ OBARRAY defaults to the value of `obarray'.
 */
        (function, obarray))
 {
+  struct gcpro gcpro1;
+
   if (NILP (obarray))
     obarray = Vobarray;
   obarray = check_obarray (obarray);
 
+  GCPRO1 (obarray);
   map_obarray (obarray, mapatoms_1, &function);
+  UNGCPRO;
   return Qnil;
 }
 
@@ -495,14 +499,17 @@ Return list of symbols found.
        (regexp, predicate))
 {
   struct appropos_mapper_closure closure;
+  struct gcpro gcpro1;
 
   CHECK_STRING (regexp);
 
   closure.regexp = regexp;
   closure.predicate = predicate;
   closure.accumulation = Qnil;
+  GCPRO1 (closure.accumulation);
   map_obarray (Vobarray, apropos_mapper, &closure);
   closure.accumulation = Fsort (closure.accumulation, Qstring_lessp);
+  UNGCPRO;
   return closure.accumulation;
 }
 
@@ -1137,8 +1144,6 @@ set_default_buffer_slot_variable (Lisp_Object sym,
 
   if (mask > 0)		/* Not always per-buffer */
     {
-      Lisp_Object elt;
-
       /* Set value in each buffer which hasn't shadowed the default */
       LIST_LOOP_2 (elt, Vbuffer_alist)
 	{
@@ -1179,8 +1184,6 @@ set_default_console_slot_variable (Lisp_Object sym,
 
   if (mask > 0)		/* Not always per-console */
     {
-      Lisp_Object console;
-
       /* Set value in each console which hasn't shadowed the default */
       LIST_LOOP_2 (console, Vconsole_list)
 	{
@@ -3206,8 +3209,61 @@ reinit_symbols_once_early (void)
 #ifndef Qnull_pointer
   /* C guarantees that Qnull_pointer will be initialized to all 0 bits,
      so the following is actually a no-op.  */
-  XSETOBJ (Qnull_pointer, (enum Lisp_Type) 0, 0);
+  XSETOBJ (Qnull_pointer, 0);
 #endif
+}
+
+static void
+defsymbol_massage_name_1 (Lisp_Object *location, const char *name, int dump_p,
+			  int multiword_predicate_p)
+{
+  char temp[500];
+  int len = strlen (name) - 1;
+  int i;
+
+  if (multiword_predicate_p)
+    assert (len + 1 < sizeof (temp));
+  else
+    assert (len < sizeof (temp));
+  strcpy (temp, name + 1); /* Remove initial Q */
+  if (multiword_predicate_p)
+    {
+      strcpy (temp + len - 1, "_p");
+      len++;
+    }
+  for (i = 0; i < len; i++)
+    if (temp[i] == '_')
+      temp[i] = '-';
+  *location = Fintern (make_string ((const Bufbyte *) temp, len), Qnil);
+  if (dump_p)
+    staticpro (location);
+  else
+    staticpro_nodump (location);
+}
+
+void
+defsymbol_massage_name_nodump (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 0, 0);
+}
+
+void
+defsymbol_massage_name (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 1, 0);
+}
+
+void
+defsymbol_massage_multiword_predicate_nodump (Lisp_Object *location,
+					      const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 0, 1);
+}
+
+void
+defsymbol_massage_multiword_predicate (Lisp_Object *location, const char *name)
+{
+  defsymbol_massage_name_1 (location, name, 1, 1);
 }
 
 void
@@ -3232,6 +3288,20 @@ void
 defkeyword (Lisp_Object *location, const char *name)
 {
   defsymbol (location, name);
+  Fset (*location, *location);
+}
+
+void
+defkeyword_massage_name (Lisp_Object *location, const char *name)
+{
+  char temp[500];
+  int len = strlen (name);
+
+  assert (len < sizeof (temp));
+  strcpy (temp, name);
+  temp[1] = ':'; /* it's an underscore in the C variable */
+
+  defsymbol_massage_name (location, temp);
   Fset (*location, *location);
 }
 
@@ -3270,16 +3340,16 @@ check_sane_subr (Lisp_Subr *subr, Lisp_Object sym)
  * Once we have copied everything across, we re-use the original static
  * structure to store a pointer to the newly allocated one. This will be
  * used in emodules.c by emodules_doc_subr() to find a pointer to the
- * allocated object so that we can set its doc string propperly.
+ * allocated object so that we can set its doc string properly.
  *
- * NOTE: We dont actually use the DOC pointer here any more, but we did
+ * NOTE: We don't actually use the DOC pointer here any more, but we did
  * in an earlier implementation of module support. There is no harm in
  * setting it here in case we ever need it in future implementations.
  * subr->doc will point to the new subr structure that was allocated.
- * Code can then get this value from the statis subr structure and use
+ * Code can then get this value from the static subr structure and use
  * it if required.
  *
- * FIXME: Should newsubr be staticpro()'ed? I dont think so but I need
+ * FIXME: Should newsubr be staticpro()'ed? I don't think so but I need
  * a guru to check.
  */
 #define check_module_subr()						\
@@ -3322,12 +3392,15 @@ defsubr_macro (Lisp_Subr *subr)
   XSYMBOL (sym)->function = Fcons (Qmacro, fun);
 }
 
-void
-deferror (Lisp_Object *symbol, const char *name, const char *messuhhj,
-	  Lisp_Object inherits_from)
+static void
+deferror_1 (Lisp_Object *symbol, const char *name, const char *messuhhj,
+	    Lisp_Object inherits_from, int massage_p)
 {
   Lisp_Object conds;
-  defsymbol (symbol, name);
+  if (massage_p)
+    defsymbol_massage_name (symbol, name);
+  else
+    defsymbol (symbol, name);
 
   assert (SYMBOLP (inherits_from));
   conds = Fget (inherits_from, Qerror_conditions, Qnil);
@@ -3339,47 +3412,79 @@ deferror (Lisp_Object *symbol, const char *name, const char *messuhhj,
 }
 
 void
+deferror (Lisp_Object *symbol, const char *name, const char *messuhhj,
+	  Lisp_Object inherits_from)
+{
+  deferror_1 (symbol, name, messuhhj, inherits_from, 0);
+}
+
+void
+deferror_massage_name (Lisp_Object *symbol, const char *name,
+		       const char *messuhhj, Lisp_Object inherits_from)
+{
+  deferror_1 (symbol, name, messuhhj, inherits_from, 1);
+}
+
+void
+deferror_massage_name_and_message (Lisp_Object *symbol, const char *name,
+				   Lisp_Object inherits_from)
+{
+  char temp[500];
+  int i;
+  int len = strlen (name) - 1;
+
+  assert (len < sizeof (temp));
+  strcpy (temp, name + 1); /* Remove initial Q */
+  temp[0] = toupper (temp[0]);
+  for (i = 0; i < len; i++)
+    if (temp[i] == '_')
+      temp[i] = ' ';
+
+  deferror_1 (symbol, name, temp, inherits_from, 1);
+}
+
+void
 syms_of_symbols (void)
 {
-  defsymbol (&Qvariable_documentation, "variable-documentation");
-  defsymbol (&Qvariable_domain, "variable-domain");	/* I18N3 */
-  defsymbol (&Qad_advice_info, "ad-advice-info");
-  defsymbol (&Qad_activate, "ad-activate");
+  DEFSYMBOL (Qvariable_documentation);
+  DEFSYMBOL (Qvariable_domain);	/* I18N3 */
+  DEFSYMBOL (Qad_advice_info);
+  DEFSYMBOL (Qad_activate);
 
-  defsymbol (&Qget_value, "get-value");
-  defsymbol (&Qset_value, "set-value");
-  defsymbol (&Qbound_predicate, "bound-predicate");
-  defsymbol (&Qmake_unbound, "make-unbound");
-  defsymbol (&Qlocal_predicate, "local-predicate");
-  defsymbol (&Qmake_local, "make-local");
+  DEFSYMBOL (Qget_value);
+  DEFSYMBOL (Qset_value);
+  DEFSYMBOL (Qbound_predicate);
+  DEFSYMBOL (Qmake_unbound);
+  DEFSYMBOL (Qlocal_predicate);
+  DEFSYMBOL (Qmake_local);
 
-  defsymbol (&Qboundp, "boundp");
-  defsymbol (&Qglobally_boundp, "globally-boundp");
-  defsymbol (&Qmakunbound, "makunbound");
-  defsymbol (&Qsymbol_value, "symbol-value");
-  defsymbol (&Qset, "set");
-  defsymbol (&Qsetq_default, "setq-default");
-  defsymbol (&Qdefault_boundp, "default-boundp");
-  defsymbol (&Qdefault_value, "default-value");
-  defsymbol (&Qset_default, "set-default");
-  defsymbol (&Qmake_variable_buffer_local, "make-variable-buffer-local");
-  defsymbol (&Qmake_local_variable, "make-local-variable");
-  defsymbol (&Qkill_local_variable, "kill-local-variable");
-  defsymbol (&Qkill_console_local_variable, "kill-console-local-variable");
-  defsymbol (&Qsymbol_value_in_buffer, "symbol-value-in-buffer");
-  defsymbol (&Qsymbol_value_in_console, "symbol-value-in-console");
-  defsymbol (&Qlocal_variable_p, "local-variable-p");
+  DEFSYMBOL (Qboundp);
+  DEFSYMBOL (Qglobally_boundp);
+  DEFSYMBOL (Qmakunbound);
+  DEFSYMBOL (Qsymbol_value);
+  DEFSYMBOL (Qset);
+  DEFSYMBOL (Qsetq_default);
+  DEFSYMBOL (Qdefault_boundp);
+  DEFSYMBOL (Qdefault_value);
+  DEFSYMBOL (Qset_default);
+  DEFSYMBOL (Qmake_variable_buffer_local);
+  DEFSYMBOL (Qmake_local_variable);
+  DEFSYMBOL (Qkill_local_variable);
+  DEFSYMBOL (Qkill_console_local_variable);
+  DEFSYMBOL (Qsymbol_value_in_buffer);
+  DEFSYMBOL (Qsymbol_value_in_console);
+  DEFSYMBOL (Qlocal_variable_p);
 
-  defsymbol (&Qconst_integer, "const-integer");
-  defsymbol (&Qconst_boolean, "const-boolean");
-  defsymbol (&Qconst_object, "const-object");
-  defsymbol (&Qconst_specifier, "const-specifier");
-  defsymbol (&Qdefault_buffer, "default-buffer");
-  defsymbol (&Qcurrent_buffer, "current-buffer");
-  defsymbol (&Qconst_current_buffer, "const-current-buffer");
-  defsymbol (&Qdefault_console, "default-console");
-  defsymbol (&Qselected_console, "selected-console");
-  defsymbol (&Qconst_selected_console, "const-selected-console");
+  DEFSYMBOL (Qconst_integer);
+  DEFSYMBOL (Qconst_boolean);
+  DEFSYMBOL (Qconst_object);
+  DEFSYMBOL (Qconst_specifier);
+  DEFSYMBOL (Qdefault_buffer);
+  DEFSYMBOL (Qcurrent_buffer);
+  DEFSYMBOL (Qconst_current_buffer);
+  DEFSYMBOL (Qdefault_console);
+  DEFSYMBOL (Qselected_console);
+  DEFSYMBOL (Qconst_selected_console);
 
   DEFSUBR (Fintern);
   DEFSUBR (Fintern_soft);
@@ -3438,7 +3543,7 @@ defvar_magic (const char *symbol_name, const struct symbol_value_forward *magic)
     sym = Fintern (make_string_nocopy ((const Bufbyte *) symbol_name,
 				       strlen (symbol_name)), Qnil);
 
-  XSETOBJ (XSYMBOL (sym)->value, Lisp_Type_Record, magic);
+  XSETOBJ (XSYMBOL (sym)->value, magic);
 }
 
 void

@@ -1,3 +1,91 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-08-29  Robert Pluim  <rpluim@bigfoot.com>
+
+	*  etc/NEWS: fix reference to progress-feedback-use-echo-area
+
+2000-09-27  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Big signal/process handling overhaul.
+	Autoconfiscate lots of functions and headers:
+	getpt _getpt grantpt unlockpt ptsname killpg tcgetpgrp
+	openpty pty.h libutil.h sys/stropts.h sys/strtio.h isastream
+
+2000-09-20  Martin Buchholz  <martin@xemacs.org>
+
+	* etc/xemacs.1: Spelling fixes.  Remove stuff that doesn't belong.
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* *: Spelling mega-patch
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Remove strcasecmp.
+
+	* etc/Emacs.ad: Remove Energize from comments.
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Add -Kalloca to $c_switch_system when using
+	Unixware native compiler (if necessary).
+
+2000-09-15  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Prevent spurious "No" in configure output when not
+	using gcc.  Oh, and it's "no", not "No".  Oh, and it's "yes", not "Yes".
+
+2000-09-14  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Save 2 sed process invocations per Makefile.
+
+2000-08-22  SL Baur  <steve@turbolinux.co.jp>
+
+	* configure.in (after_morecore_hook_exists): Don't add /usr/shlib
+	to link path if compiling on Alpha/Linux.
+
+2000-09-01  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile.in.in (depend): cd to the correct directory.
+
+2000-08-31  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: with_widgets is incompatible with X11 R4.
+
+	* configure.in: Make Balloon Help conditional on finding shape.h
+
+2000-08-02  Stephen J. Turnbull <stephen@xemacs.org>
+
+	* etc/Emacs.ad: Document usage of FontSet resource for menubar.
+
+2000-08-09  Vin Shelton  <acs@xemacs.org>
+
+	* configure.in: Check for UNIX98 PTYs.  Patch from Florian Weimer
+	<Florian.Weimer@RUS.Uni-Stuttgart.DE>.
+
+2000-07-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* configure.usage: Remove lockdir document.
+
+2000-07-31  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in:
+	Make knowledge of machine and opsys optional.
+	Make existence of s&m files optional.
+	Rely on configure alone if s&m files not found.
+
+	* configure.in:
+	Use only configure-time tests to detect getloadavg().
+	Don't check for kstat.h if we have getloadavg().
+	Check for sys/loadavg.h if we have getloadavg().
+
+2000-07-15  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in (configure):
+	all-elcs target now uses update-elc-2.el not update-elc.sh
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.

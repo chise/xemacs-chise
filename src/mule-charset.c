@@ -690,7 +690,6 @@ character set.  Recognized properties are:
   int type;
   Lisp_Object registry = Qnil;
   Lisp_Object charset;
-  Lisp_Object rest, keyword, value;
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
 
@@ -702,85 +701,87 @@ character set.  Recognized properties are:
   if (!NILP (charset))
     signal_simple_error ("Cannot redefine existing charset", name);
 
-  EXTERNAL_PROPERTY_LIST_LOOP (rest, keyword, value, props)
-    {
-      if (EQ (keyword, Qshort_name))
-	{
-	  CHECK_STRING (value);
-	  short_name = value;
-	}
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (keyword, value, props)
+      {
+	if (EQ (keyword, Qshort_name))
+	  {
+	    CHECK_STRING (value);
+	    short_name = value;
+	  }
 
-      if (EQ (keyword, Qlong_name))
-	{
-	  CHECK_STRING (value);
-	  long_name = value;
-	}
+	if (EQ (keyword, Qlong_name))
+	  {
+	    CHECK_STRING (value);
+	    long_name = value;
+	  }
 
-      else if (EQ (keyword, Qdimension))
-	{
-	  CHECK_INT (value);
-	  dimension = XINT (value);
-	  if (dimension < 1 || dimension > 2)
-	    signal_simple_error ("Invalid value for 'dimension", value);
-	}
+	else if (EQ (keyword, Qdimension))
+	  {
+	    CHECK_INT (value);
+	    dimension = XINT (value);
+	    if (dimension < 1 || dimension > 2)
+	      signal_simple_error ("Invalid value for 'dimension", value);
+	  }
 
-      else if (EQ (keyword, Qchars))
-	{
-	  CHECK_INT (value);
-	  chars = XINT (value);
-	  if (chars != 94 && chars != 96)
-	    signal_simple_error ("Invalid value for 'chars", value);
-	}
+	else if (EQ (keyword, Qchars))
+	  {
+	    CHECK_INT (value);
+	    chars = XINT (value);
+	    if (chars != 94 && chars != 96)
+	      signal_simple_error ("Invalid value for 'chars", value);
+	  }
 
-      else if (EQ (keyword, Qcolumns))
-	{
-	  CHECK_INT (value);
-	  columns = XINT (value);
-	  if (columns != 1 && columns != 2)
-	    signal_simple_error ("Invalid value for 'columns", value);
-	}
+	else if (EQ (keyword, Qcolumns))
+	  {
+	    CHECK_INT (value);
+	    columns = XINT (value);
+	    if (columns != 1 && columns != 2)
+	      signal_simple_error ("Invalid value for 'columns", value);
+	  }
 
-      else if (EQ (keyword, Qgraphic))
-	{
-	  CHECK_INT (value);
-	  graphic = XINT (value);
-	  if (graphic < 0 || graphic > 1)
-	    signal_simple_error ("Invalid value for 'graphic", value);
-	}
+	else if (EQ (keyword, Qgraphic))
+	  {
+	    CHECK_INT (value);
+	    graphic = XINT (value);
+	    if (graphic < 0 || graphic > 1)
+	      signal_simple_error ("Invalid value for 'graphic", value);
+	  }
 
-      else if (EQ (keyword, Qregistry))
-	{
-	  CHECK_STRING (value);
-	  registry = value;
-	}
+	else if (EQ (keyword, Qregistry))
+	  {
+	    CHECK_STRING (value);
+	    registry = value;
+	  }
 
-      else if (EQ (keyword, Qdirection))
-	{
-	  if (EQ (value, Ql2r))
-	    direction = CHARSET_LEFT_TO_RIGHT;
-	  else if (EQ (value, Qr2l))
-	    direction = CHARSET_RIGHT_TO_LEFT;
-	  else
-	    signal_simple_error ("Invalid value for 'direction", value);
-	}
+	else if (EQ (keyword, Qdirection))
+	  {
+	    if (EQ (value, Ql2r))
+	      direction = CHARSET_LEFT_TO_RIGHT;
+	    else if (EQ (value, Qr2l))
+	      direction = CHARSET_RIGHT_TO_LEFT;
+	    else
+	      signal_simple_error ("Invalid value for 'direction", value);
+	  }
 
-      else if (EQ (keyword, Qfinal))
-	{
-	  CHECK_CHAR_COERCE_INT (value);
-	  final = XCHAR (value);
-	  if (final < '0' || final > '~')
-	    signal_simple_error ("Invalid value for 'final", value);
-	}
+	else if (EQ (keyword, Qfinal))
+	  {
+	    CHECK_CHAR_COERCE_INT (value);
+	    final = XCHAR (value);
+	    if (final < '0' || final > '~')
+	      signal_simple_error ("Invalid value for 'final", value);
+	  }
 
-      else if (EQ (keyword, Qccl_program))
-	{
-	  CHECK_VECTOR (value);
-	  ccl_program = value;
-	}
+	else if (EQ (keyword, Qccl_program))
+	  {
+	    CHECK_VECTOR (value);
+	    ccl_program = value;
+	  }
 
-      else
-	signal_simple_error ("Unrecognized property", keyword);
-    }
+	else
+	  signal_simple_error ("Unrecognized property", keyword);
+      }
+  }
 
   if (!final)
     error ("'final must be specified");
@@ -1090,7 +1091,7 @@ character s with caron.
 
   CHECK_INT (arg1);
   /* It is useful (and safe, according to Olivier Galibert) to strip
-     the 8th bit off ARG1 and ARG2 becaue it allows programmers to
+     the 8th bit off ARG1 and ARG2 because it allows programmers to
      write (make-char 'latin-iso8859-2 CODE) where code is the actual
      Latin 2 code of the character.  */
   a1 = XINT (arg1) & 0x7f;

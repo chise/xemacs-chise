@@ -139,13 +139,4 @@ Lisp_Object canonicalize_host_name (Lisp_Object host);
 
 #endif /* emacs */
 
-#ifdef HAVE_GETPT
-#define PTY_ITERATION
-#define PTY_OPEN \
-    if ((fd = getpt()) < 0 || grantpt (fd) < 0 || unlockpt (fd) < 0) \
-      return -1;
-#define PTY_NAME_SPRINTF
-#define PTY_TTY_NAME_SPRINTF strcpy (pty_name, ptsname (fd));
-#endif
-
 #endif /* INCLUDED_process_h_ */

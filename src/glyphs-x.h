@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "xintrinsic.h"
 #include "../lwlib/lwlib.h"
+#include "../lwlib/lwlib-utils.h"
 
 /****************************************************************************
  *                         Image-Instance Object                            *

@@ -68,12 +68,12 @@
  *		Note. under this mechanism, any data item that undergoes
  *		relocation and is then further modified during the execution of
  *		the image before dynodump(3x) is called will lose the
- *		modification that occured during the applications execution.
+ *		modification that occurred during the applications execution.
  *
  * N.B. The above commentary is not quite correct in the flags have been hardwired
  *      to RTLD_SAVREL.
  */
-#pragma ident	"@(#) $Id: dynodump.c,v 1.6 1998/03/31 20:10:55 steve Exp $ - SMI"
+#pragma ident	"@(#) $Id: dynodump.c,v 1.6.2.2 2000/09/20 02:39:17 martinb Exp $ - SMI"
 
 #define __EXTENSIONS__ 1
 
@@ -301,7 +301,7 @@ dynodump(const char * file)
      * If we had a .heap section, then its size is part of the program
      * headers notion of data size.  Because we're only going to output one
      * heap section (ignoring the one in the running binary) we need to
-     * subract the size of that which we're ignoring.
+     * subtract the size of that which we're ignoring.
      */
     if (heap_cache) {
 	edata = S_ROUND((data_phdr->p_vaddr

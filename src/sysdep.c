@@ -111,10 +111,6 @@ Boston, MA 02111-1307, USA.  */
 #endif /* TIOCGWINSZ or ISC4_0 */
 #endif /* USG */
 
-#ifdef HAVE_SYS_STROPTS_H
-#include <sys/stropts.h>
-#endif /* HAVE_SYS_STROPTS_H */
-
 /* LPASS8 is new in 4.3, and makes cbreak mode provide all 8 bits.  */
 #ifndef LPASS8
 #define LPASS8 0
@@ -777,6 +773,11 @@ get_pty_max_bytes (int fd)
 #if defined (HAVE_FPATHCONF) && defined (_PC_MAX_CANON)
   {
     int max_canon = fpathconf (fd, _PC_MAX_CANON);
+#ifdef __hpux__
+    /* HP-UX 10.20 fpathconf returns 768, but this results in
+       truncated input lines, while 255 works. */
+    if (max_canon > 255) max_canon = 255;
+#endif
     return (max_canon < 0 ? SAFE_MAX_CANON :
 	    max_canon > SAFE_MAX_CANON ? max_canon - MAX_CANON_SLACK :
 	    max_canon);
@@ -883,7 +884,7 @@ set_window_size (int fd, int height, int width)
 void
 setup_pty (int fd)
 {
-  /* I'm told that TOICREMOTE does not mean control chars
+  /* I'm told that TIOCREMOTE does not mean control chars
      "can't be sent" but rather that they don't have
      input-editing or signaling effects.
      That should be good, because we have other ways
@@ -1227,8 +1228,8 @@ unrequest_sigio (void)
 
 #ifdef SIGIO_REQUIRES_SEPARATE_PROCESS_GROUP
 
-static int inherited_pgroup;
-static int inherited_tty_pgroup;
+static pid_t inherited_pgroup;
+static pid_t inherited_tty_pgroup;
 
 #endif
 
@@ -1246,7 +1247,7 @@ munge_tty_process_group (void)
       CONSOLE_LIVE_P (XCONSOLE (Vcontrolling_terminal)))
     {
       int fd = open ("/dev/tty", O_RDWR, 0);
-      int me = getpid ();
+      pid_t me = getpid ();
       EMACS_BLOCK_SIGNAL (SIGTTOU);
       EMACS_SET_TTY_PROCESS_GROUP (fd, &me);
       EMACS_UNBLOCK_SIGNAL (SIGTTOU);
@@ -2170,7 +2171,7 @@ start_of_text (void)
 /*
  *	Return the address of the start of the data segment prior to
  *	doing an unexec.  After unexec the return value is undefined.
- *	See crt0.c for further information and definition of data_start.
+ *	See ecrt0.c for further information and definition of data_start.
  *
  *	Apparently, on BSD systems this is etext at startup.  On
  *	USG systems (swapping) this is highly mmu dependent and
@@ -3119,9 +3120,8 @@ sys_fstat (int fd, struct stat *buf)
 }
 #endif /* ENCAPSULATE_FSTAT */
 
-#ifdef ENCAPSULATE_STAT
 int
-sys_stat (const char *path, struct stat *buf)
+xemacs_stat (const char *path, struct stat *buf)
 {
   PATHNAME_CONVERT_OUT (path);
 #ifdef WIN32_NATIVE
@@ -3130,7 +3130,6 @@ sys_stat (const char *path, struct stat *buf)
   return stat (path, buf);
 #endif
 }
-#endif /* ENCAPSULATE_STAT */
 
 /****************** file-manipulation calls *****************/
 
@@ -3871,7 +3870,7 @@ mkdir (const char *dpath, int dmode)
   int cpid, status, fd;
   struct stat statbuf;
 
-  if (stat (dpath, &statbuf) == 0)
+  if (stat (dpath, &statbuf) == 0) /* we do want stat() here */
     {
       errno = EEXIST;		/* Stat worked, so it already exists */
       return -1;
@@ -3930,7 +3929,7 @@ rmdir (const char *dpath)
   int cpid, status, fd;
   struct stat statbuf;
 
-  if (stat (dpath, &statbuf) != 0)
+  if (stat (dpath, &statbuf) != 0) /* we do want stat() here */
     {
       /* Stat just set errno.  We don't have to */
       return -1;
@@ -3999,59 +3998,3 @@ dlclose (void)
 }
 
 #endif /* USE_DL_STUBS */
-
-
-
-#ifndef HAVE_STRCASECMP
-/*
- * From BSD
- */
-static unsigned char charmap[] = {
-        '\000', '\001', '\002', '\003', '\004', '\005', '\006', '\007',
-        '\010', '\011', '\012', '\013', '\014', '\015', '\016', '\017',
-        '\020', '\021', '\022', '\023', '\024', '\025', '\026', '\027',
-        '\030', '\031', '\032', '\033', '\034', '\035', '\036', '\037',
-        '\040', '\041', '\042', '\043', '\044', '\045', '\046', '\047',
-        '\050', '\051', '\052', '\053', '\054', '\055', '\056', '\057',
-        '\060', '\061', '\062', '\063', '\064', '\065', '\066', '\067',
-        '\070', '\071', '\072', '\073', '\074', '\075', '\076', '\077',
-        '\100', '\141', '\142', '\143', '\144', '\145', '\146', '\147',
-        '\150', '\151', '\152', '\153', '\154', '\155', '\156', '\157',
-        '\160', '\161', '\162', '\163', '\164', '\165', '\166', '\167',
-        '\170', '\171', '\172', '\133', '\134', '\135', '\136', '\137',
-        '\140', '\141', '\142', '\143', '\144', '\145', '\146', '\147',
-        '\150', '\151', '\152', '\153', '\154', '\155', '\156', '\157',
-        '\160', '\161', '\162', '\163', '\164', '\165', '\166', '\167',
-        '\170', '\171', '\172', '\173', '\174', '\175', '\176', '\177',
-        '\200', '\201', '\202', '\203', '\204', '\205', '\206', '\207',
-        '\210', '\211', '\212', '\213', '\214', '\215', '\216', '\217',
-        '\220', '\221', '\222', '\223', '\224', '\225', '\226', '\227',
-        '\230', '\231', '\232', '\233', '\234', '\235', '\236', '\237',
-        '\240', '\241', '\242', '\243', '\244', '\245', '\246', '\247',
-        '\250', '\251', '\252', '\253', '\254', '\255', '\256', '\257',
-        '\260', '\261', '\262', '\263', '\264', '\265', '\266', '\267',
-        '\270', '\271', '\272', '\273', '\274', '\275', '\276', '\277',
-        '\300', '\301', '\302', '\303', '\304', '\305', '\306', '\307',
-        '\310', '\311', '\312', '\313', '\314', '\315', '\316', '\317',
-        '\320', '\321', '\322', '\323', '\324', '\325', '\326', '\327',
-        '\330', '\331', '\332', '\333', '\334', '\335', '\336', '\337',
-        '\340', '\341', '\342', '\343', '\344', '\345', '\346', '\347',
-        '\350', '\351', '\352', '\353', '\354', '\355', '\356', '\357',
-        '\360', '\361', '\362', '\363', '\364', '\365', '\366', '\367',
-        '\370', '\371', '\372', '\373', '\374', '\375', '\376', '\377',
-};
-
-int
-strcasecmp (char *s1, char *s2)
-{
-  unsigned char *cm = charmap;
-  unsigned char *us1 = (unsigned char *) s1;
-  unsigned char *us2 = (unsigned char *)s2;
-
-  while (cm[*us1] == cm[*us2++])
-    if (*us1++ == '\0')
-      return (0);
-
-  return (cm[*us1] - cm[*--us2]);
-}
-#endif /* !HAVE_STRCASECMP */

@@ -463,8 +463,11 @@ keymap_lookup_directly (Lisp_Object keymap,
 {
   Lisp_Keymap *k;
 
-  if ((modifiers & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_META | XEMACS_MOD_SUPER | XEMACS_MOD_HYPER
-                     | XEMACS_MOD_ALT | XEMACS_MOD_SHIFT)) != 0)
+  modifiers &= ~(XEMACS_MOD_BUTTON1 | XEMACS_MOD_BUTTON2 | XEMACS_MOD_BUTTON3
+		 | XEMACS_MOD_BUTTON4 | XEMACS_MOD_BUTTON5);
+  if ((modifiers & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_META | XEMACS_MOD_SUPER
+		     | XEMACS_MOD_HYPER | XEMACS_MOD_ALT | XEMACS_MOD_SHIFT))
+      != 0)
     abort ();
 
   k = XKEYMAP (keymap);
@@ -641,6 +644,8 @@ keymap_store (Lisp_Object keymap, const struct key_data *key,
   int modifiers = key->modifiers;
   Lisp_Keymap *k = XKEYMAP (keymap);
 
+  modifiers &= ~(XEMACS_MOD_BUTTON1 | XEMACS_MOD_BUTTON2 | XEMACS_MOD_BUTTON3
+		 | XEMACS_MOD_BUTTON4 | XEMACS_MOD_BUTTON5);
   assert ((modifiers & ~(XEMACS_MOD_CONTROL | XEMACS_MOD_META
 			 | XEMACS_MOD_SUPER | XEMACS_MOD_HYPER
 			 | XEMACS_MOD_ALT | XEMACS_MOD_SHIFT)) == 0);
@@ -1702,7 +1707,10 @@ ensure_meta_prefix_char_keymapp (Lisp_Object keys, int indx,
 	XVECTOR_DATA (new_keys) [i] = XVECTOR_DATA (keys) [i];
     }
   else
-    abort ();
+    {
+      new_keys = Qnil;
+      abort ();
+    }
 
   if (EQ (keys, new_keys))
     error_with_frob (mpc_binding,
@@ -4123,12 +4131,18 @@ describe_map (Lisp_Object keymap, Lisp_Object elt_prefix,
 	  if (!NILP (elt_prefix))
 	    buffer_insert_lisp_string (buf, elt_prefix);
 
-	  if (modifiers & XEMACS_MOD_META)    buffer_insert_c_string (buf, "M-");
-	  if (modifiers & XEMACS_MOD_CONTROL) buffer_insert_c_string (buf, "C-");
-	  if (modifiers & XEMACS_MOD_SUPER)   buffer_insert_c_string (buf, "S-");
-	  if (modifiers & XEMACS_MOD_HYPER)   buffer_insert_c_string (buf, "H-");
-	  if (modifiers & XEMACS_MOD_ALT)     buffer_insert_c_string (buf, "Alt-");
-	  if (modifiers & XEMACS_MOD_SHIFT)   buffer_insert_c_string (buf, "Sh-");
+	  if (modifiers & XEMACS_MOD_META)
+	    buffer_insert_c_string (buf, "M-");
+	  if (modifiers & XEMACS_MOD_CONTROL)
+	    buffer_insert_c_string (buf, "C-");
+	  if (modifiers & XEMACS_MOD_SUPER)
+	    buffer_insert_c_string (buf, "S-");
+	  if (modifiers & XEMACS_MOD_HYPER)
+	    buffer_insert_c_string (buf, "H-");
+	  if (modifiers & XEMACS_MOD_ALT)
+	    buffer_insert_c_string (buf, "Alt-");
+	  if (modifiers & XEMACS_MOD_SHIFT)
+	    buffer_insert_c_string (buf, "Sh-");
 	  if (SYMBOLP (keysym))
 	    {
 	      Lisp_Object code = Fget (keysym, Vcharacter_set_property, Qnil);

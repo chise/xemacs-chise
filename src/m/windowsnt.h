@@ -25,28 +25,10 @@ Boston, MA 02111-1307, USA.  */
    operating system this machine is likely to run.
    USUAL-OPSYS="<name of system .h file here, without the s- or .h>"  */
 
-/* Define NO_ARG_ARRAY if you cannot take the address of the first of a
- * group of arguments and treat it as an array of the arguments.  */
-
-#define NO_ARG_ARRAY
-
 /* Now define a symbol for the cpu type, if your compiler
    does not define it automatically:
    Ones defined so far include vax, m68000, ns16000, pyramid,
    orion, tahoe, APOLLO and many others */
-
-/* Use type int rather than a union, to represent Lisp_Object */
-/* This is desirable for most machines.  */
-
-#define NO_UNION_TYPE
-
-/* Data type of load average, as read out of kmem.  */
-
-#define LOAD_AVE_TYPE long
-
-/* Convert that into an integer that is 100 for a load average of 1.0  */
-
-#define LOAD_AVE_CVT(x) (int) (((double) (x)) * 100.0 / FSCALE)
 
 /* Define CANNOT_DUMP on machines where unexec does not work.
    Then the function dump-emacs will not be defined
@@ -57,19 +39,12 @@ Boston, MA 02111-1307, USA.  */
 #define	CANNOT_UNEXEC	1
  */
 
+/* Do not define LOAD_AVE_TYPE or LOAD_AVE_CVT
+   since there is no load average available. */
+
 /* Start and end of text and data.  */
 #define DATA_END 	get_data_end ()
 #define DATA_START 	get_data_start ()
-
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-
-/* Text does precede data space, but this is never a safe assumption.  */
-#define VIRT_ADDR_VARIES
 
 /* Define C_ALLOCA if this machine does not support a true alloca
    and the one written in C should be used instead.

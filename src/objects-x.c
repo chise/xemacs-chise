@@ -2,7 +2,7 @@
    Copyright (C) 1993, 1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Board of Trustees, University of Illinois.
    Copyright (C) 1995 Tinker Systems.
-   Copyright (C) 1995, 1996 Ben Wing.
+   Copyright (C) 1995, 1996, 2000 Ben Wing.
    Copyright (C) 1995 Sun Microsystems, Inc.
 
 This file is part of XEmacs.
@@ -25,6 +25,8 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 /* Authors: Jamie Zawinski, Chuck Thompson, Ben Wing */
+
+/* This file Mule-ized by Ben Wing, 7-10-00. */
 
 #include <config.h>
 #include "lisp.h"
@@ -51,7 +53,7 @@ int x_handle_non_fully_specified_fonts;
    match - tries the next nearest...
 
    Return value is 1 for normal success, 2 for nearest color success,
-   3 for Non-deallocable sucess. */
+   3 for Non-deallocable success. */
 int
 allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 		        XColor *color_def)
@@ -135,7 +137,8 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 		bl = color_def->blue << (bbits - 8);
 	      else
 		bl = color_def->blue >> (8 - bbits);
-	      color_def->pixel = (rd << rshift) | (gr << gshift) | (bl << bshift);
+	      color_def->pixel = (rd << rshift) | (gr << gshift) | (bl <<
+								    bshift);
 	      status = 3;
 	    }
 	}
@@ -162,14 +165,14 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 	  int x;
 
 	  if( cells == NULL )
-	      {
-		  cells = alloca_array (XColor, no_cells);
-		  for (x = 0; x < no_cells; x++)
-		      cells[x].pixel = x;
+	    {
+	      cells = alloca_array (XColor, no_cells);
+	      for (x = 0; x < no_cells; x++)
+		cells[x].pixel = x;
 
-		  /* read the current colormap */
-		  XQueryColors (display, colormap, cells, no_cells);
-	      }
+	      /* read the current colormap */
+	      XQueryColors (display, colormap, cells, no_cells);
+	    }
 
 	  nearest = 0;
 	  /* I'm assuming CSE so I'm not going to condense this. */
@@ -177,20 +180,24 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 			    * ((color_def->red >> 8) - (cells[0].red >> 8)))
 			   +
 			   (((color_def->green >> 8) - (cells[0].green >> 8))
-			    * ((color_def->green >> 8) - (cells[0].green >> 8)))
+			    * ((color_def->green >> 8) - (cells[0].green >>
+							  8)))
 			   +
 			   (((color_def->blue >> 8) - (cells[0].blue >> 8))
-			    * ((color_def->blue >> 8) - (cells[0].blue >> 8))));
+			    * ((color_def->blue >> 8) - (cells[0].blue >>
+							 8))));
 	  for (x = 1; x < no_cells; x++)
 	    {
 	      trial_delta = ((((color_def->red >> 8) - (cells[x].red >> 8))
 			      * ((color_def->red >> 8) - (cells[x].red >> 8)))
 			     +
 			     (((color_def->green >> 8) - (cells[x].green >> 8))
-			      * ((color_def->green >> 8) - (cells[x].green >> 8)))
+			      * ((color_def->green >> 8) - (cells[x].green >>
+							    8)))
 			     +
 			     (((color_def->blue >> 8) - (cells[x].blue >> 8))
-			      * ((color_def->blue >> 8) - (cells[x].blue >> 8))));
+			      * ((color_def->blue >> 8) - (cells[x].blue >>
+							   8))));
 
 	      /* less? Ignore cells marked as previously failing */
 	      if( (trial_delta < nearest_delta) &&
@@ -204,22 +211,22 @@ allocate_nearest_color (Display *display, Colormap colormap, Visual *visual,
 	  color_def->green = cells[nearest].green;
 	  color_def->blue = cells[nearest].blue;
 	  if (XAllocColor (display, colormap, color_def) != 0)
-	      status = 2;
+	    status = 2;
 	  else
-	      /* LSK: Either the colour map has changed since
-	       * we read it, or the colour is allocated
-	       * read/write... Mark this cmap entry so it's
-	       * ignored in the next iteration.
-	       */
-	      cells[nearest].pixel = ULONG_MAX;
+	    /* LSK: Either the colour map has changed since
+	     * we read it, or the colour is allocated
+	     * read/write... Mark this cmap entry so it's
+	     * ignored in the next iteration.
+	     */
+	    cells[nearest].pixel = ULONG_MAX;
 	}
     }
   return status;
 }
 
-int
-x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
-		       Bytecount len, Error_behavior errb)
+static int
+x_parse_nearest_color (struct device *d, XColor *color, Lisp_Object name,
+		       Error_behavior errb)
 {
   Display *dpy   = DEVICE_X_DISPLAY  (d);
   Colormap cmap  = DEVICE_X_COLORMAP (d);
@@ -229,24 +236,20 @@ x_parse_nearest_color (struct device *d, XColor *color, Bufbyte *name,
   xzero (*color);
   {
     const Extbyte *extname;
-    Extcount extnamelen;
 
-    TO_EXTERNAL_FORMAT (DATA, (name, len),
-			ALLOCA, (extname, extnamelen),
-			Qbinary);
-    result = XParseColor (dpy, cmap, (char *) extname, color);
+    LISP_STRING_TO_EXTERNAL (name, extname, Qx_color_name_encoding);
+    result = XParseColor (dpy, cmap, extname, color);
   }
   if (!result)
     {
-      maybe_signal_simple_error ("Unrecognized color", make_string (name, len),
-				 Qcolor, errb);
+      maybe_signal_simple_error ("Unrecognized color", name, Qcolor, errb);
       return 0;
     }
   result = allocate_nearest_color (dpy, cmap, visual, color);
   if (!result)
     {
-      maybe_signal_simple_error ("Couldn't allocate color",
-				 make_string (name, len), Qcolor, errb);
+      maybe_signal_simple_error ("Couldn't allocate color", name, Qcolor,
+				 errb);
       return 0;
     }
 
@@ -260,10 +263,7 @@ x_initialize_color_instance (Lisp_Color_Instance *c, Lisp_Object name,
   XColor color;
   int result;
 
-  result = x_parse_nearest_color (XDEVICE (device), &color,
-				  XSTRING_DATA   (name),
-				  XSTRING_LENGTH (name),
-				  errb);
+  result = x_parse_nearest_color (XDEVICE (device), &color, name, errb);
 
   if (!result)
     return 0;
@@ -284,7 +284,7 @@ x_print_color_instance (Lisp_Color_Instance *c,
 			Lisp_Object printcharfun,
 			int escapeflag)
 {
-  char buf[100];
+  Bufbyte buf[100];
   XColor color = COLOR_INSTANCE_X_COLOR (c);
   sprintf (buf, " %ld=(%X,%X,%X)",
 	   color.pixel, color.red, color.green, color.blue);
@@ -300,7 +300,8 @@ x_finalize_color_instance (Lisp_Color_Instance *c)
 	{
 	  if (COLOR_INSTANCE_X_DEALLOC (c))
 	    {
-	      XFreeColors (DEVICE_X_DISPLAY (XDEVICE (c->device)), DEVICE_X_COLORMAP (XDEVICE (c->device)),
+	      XFreeColors (DEVICE_X_DISPLAY (XDEVICE (c->device)),
+			   DEVICE_X_COLORMAP (XDEVICE (c->device)),
 			   &COLOR_INSTANCE_X_COLOR (c).pixel, 1, 0);
 	    }
 	}
@@ -348,10 +349,9 @@ x_valid_color_name_p (struct device *d, Lisp_Object color)
   XColor c;
   Display *dpy = DEVICE_X_DISPLAY (d);
   Colormap cmap = DEVICE_X_COLORMAP (d);
+  const Extbyte *extname;
 
-  const char *extname;
-
-  TO_EXTERNAL_FORMAT (LISP_STRING, color, C_STRING_ALLOCA, extname, Qctext);
+  LISP_STRING_TO_EXTERNAL (color, extname, Qx_color_name_encoding);
 
   return XParseColor (dpy, cmap, extname, &c);
 }
@@ -367,9 +367,9 @@ x_initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 {
   Display *dpy = DEVICE_X_DISPLAY (XDEVICE (device));
   XFontStruct *xf;
-  const char *extname;
+  const Extbyte *extname;
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, f->name, C_STRING_ALLOCA, extname, Qctext);
+  LISP_STRING_TO_EXTERNAL (f->name, extname, Qx_font_name_encoding);
   xf = XLoadQueryFont (dpy, extname);
 
   if (!xf)
@@ -466,7 +466,7 @@ x_print_font_instance (Lisp_Font_Instance *f,
 		       Lisp_Object printcharfun,
 		       int escapeflag)
 {
-  char buf[200];
+  Bufbyte buf[200];
   sprintf (buf, " 0x%lx", (unsigned long) FONT_INSTANCE_X_FONT (f)->fid);
   write_c_string (buf, printcharfun);
 }
@@ -503,12 +503,12 @@ x_finalize_font_instance (Lisp_Font_Instance *f)
    "bitstream" fonts even if the bitstream fonts are earlier in the path, and
    also picking 100dpi adobe fonts over 75dpi adobe fonts even though the
    75dpi are in the path earlier) but sometimes appears to be doing something
-   else entirely (for example, removing the bitsream fonts from the path will
+   else entirely (for example, removing the bitstream fonts from the path will
    cause the 75dpi adobe fonts to be used instead of the 100dpi, even though
    their relative positions in the path (and their names!) have not changed).
 
    The documentation for XSetFontPath() seems to indicate that the order of
-   entries in the font path means something, but it's pretty noncommital about
+   entries in the font path means something, but it's pretty noncommittal about
    it, and the spirit of the law is apparently not being obeyed...
 
    All the fonts I've seen have a property named `FONT' which contains the
@@ -570,14 +570,14 @@ x_finalize_font_instance (Lisp_Font_Instance *f)
    that the various servers are actually doing, please let me know!  -- jwz. */
 
 static int
-valid_x_font_name_p (Display *dpy, char *name)
+valid_x_font_name_p (Display *dpy, Extbyte *name)
 {
   /* Maybe this should be implemented by calling XLoadFont and trapping
      the error.  That would be a lot of work, and wasteful as hell, but
      might be more correct.
    */
   int nnames = 0;
-  char **names = 0;
+  SExtbyte **names = 0;
   if (! name)
     return 0;
   names = XListFonts (dpy, name, 1, &nnames);
@@ -586,11 +586,11 @@ valid_x_font_name_p (Display *dpy, char *name)
   return (nnames != 0);
 }
 
-static char *
+static Extbyte *
 truename_via_FONT_prop (Display *dpy, XFontStruct *font)
 {
   unsigned long value = 0;
-  char *result = 0;
+  Extbyte *result = 0;
   if (XGetFontProperty (font, XA_FONT, &value))
     result = XGetAtomName (dpy, value);
   /* result is now 0, or the string value of the FONT property. */
@@ -606,19 +606,19 @@ truename_via_FONT_prop (Display *dpy, XFontStruct *font)
   return result;	/* this must be freed by caller if non-0 */
 }
 
-static char *
+static Extbyte *
 truename_via_random_props (Display *dpy, XFontStruct *font)
 {
   struct device *d = get_device_from_display (dpy);
   unsigned long value = 0;
-  char *foundry, *family, *weight, *slant, *setwidth, *add_style;
+  Extbyte *foundry, *family, *weight, *slant, *setwidth, *add_style;
   unsigned long pixel, point, res_x, res_y;
-  char *spacing;
+  Extbyte *spacing;
   unsigned long avg_width;
-  char *registry, *encoding;
-  char composed_name [2048];
+  Extbyte *registry, *encoding;
+  Extbyte composed_name [2048];
   int ok = 0;
-  char *result;
+  Extbyte *result;
 
 #define get_string(atom,var)				\
   if (XGetFontProperty (font, (atom), &value))		\
@@ -661,7 +661,7 @@ truename_via_random_props (Display *dpy, XFontStruct *font)
   if (ok)
     {
       int L = strlen (composed_name) + 1;
-      result = (char *) xmalloc (L);
+      result = (Extbyte *) xmalloc (L);
       strncpy (result, composed_name, L);
     }
   else
@@ -683,11 +683,11 @@ truename_via_random_props (Display *dpy, XFontStruct *font)
 /* Unbounded, for sufficiently small values of infinity... */
 #define MAX_FONT_COUNT 5000
 
-static char *
-truename_via_XListFonts (Display *dpy, char *font_name)
+static Extbyte *
+truename_via_XListFonts (Display *dpy, Extbyte *font_name)
 {
-  char *result = 0;
-  char **names;
+  Extbyte *result = 0;
+  SExtbyte **names;
   int count = 0;
 
 #ifndef XOPENFONT_SORTS
@@ -699,6 +699,7 @@ truename_via_XListFonts (Display *dpy, char *font_name)
   /* But the world I live in is much more perverse. */
   names = XListFonts (dpy, font_name, MAX_FONT_COUNT, &count);
   while (count--)
+    /* !!#### Not Mule-friendly */
     /* If names[count] is lexicographically less than result, use it.
        (#### Should we be comparing case-insensitively?) */
     if (result == 0 || (strcmp (result, names [count]) < 0))
@@ -714,11 +715,11 @@ truename_via_XListFonts (Display *dpy, char *font_name)
 }
 
 static Lisp_Object
-x_font_truename (Display *dpy, char *name, XFontStruct *font)
+x_font_truename (Display *dpy, Extbyte *name, XFontStruct *font)
 {
-  char *truename_FONT = 0;
-  char *truename_random = 0;
-  char *truename = 0;
+  Extbyte *truename_FONT = 0;
+  Extbyte *truename_random = 0;
+  Extbyte *truename = 0;
 
   /* The search order is:
      - if FONT property exists, and is a valid name, return it.
@@ -763,7 +764,7 @@ x_font_truename (Display *dpy, char *name, XFontStruct *font)
 
   if (truename)
     {
-      Lisp_Object result = build_string (truename);
+      Lisp_Object result = build_ext_string (truename, Qx_font_name_encoding);
       XFree (truename);
       return result;
     }
@@ -779,10 +780,12 @@ x_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
   if (NILP (FONT_INSTANCE_X_TRUENAME (f)))
     {
       Display *dpy = DEVICE_X_DISPLAY (d);
-      char *name = (char *) XSTRING_DATA (f->name);
       {
+	Extbyte *nameext;
+
+	LISP_STRING_TO_EXTERNAL (f->name, nameext, Qx_font_name_encoding);
 	FONT_INSTANCE_X_TRUENAME (f) =
-	  x_font_truename (dpy, name, FONT_INSTANCE_X_FONT (f));
+	  x_font_truename (dpy, nameext, FONT_INSTANCE_X_FONT (f));
       }
       if (NILP (FONT_INSTANCE_X_TRUENAME (f)))
 	{
@@ -790,7 +793,7 @@ x_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
 	  XSETFONT_INSTANCE (font_instance, f);
 
 	  maybe_signal_simple_error ("Couldn't determine font truename",
-				   font_instance, Qfont, errb);
+				     font_instance, Qfont, errb);
 	  /* Ok, just this once, return the font name as the truename.
 	     (This is only used by Fequal() right now.) */
 	  return f->name;
@@ -812,11 +815,14 @@ x_font_instance_properties (Lisp_Font_Instance *f)
   props = FONT_INSTANCE_X_FONT (f)->properties;
   for (i = FONT_INSTANCE_X_FONT (f)->n_properties - 1; i >= 0; i--)
     {
-      char *name_str = 0;
-      char *val_str = 0;
       Lisp_Object name, value;
       Atom atom = props [i].name;
-      name_str = XGetAtomName (dpy, atom);
+      Bufbyte *name_str = 0;
+      Extbyte *namestrext = XGetAtomName (dpy, atom);
+
+      if (namestrext)
+	EXTERNAL_TO_C_STRING (namestrext, name_str, Qx_atom_name_encoding);
+
       name = (name_str ? intern (name_str) : Qnil);
       if (name_str &&
 	  (atom == XA_FONT ||
@@ -841,12 +847,14 @@ x_font_instance_properties (Lisp_Font_Instance *f)
 	   !strcmp (name_str, "RELATIVE_WEIGHT") ||
 	   !strcmp (name_str, "STYLE")))
 	{
-	  val_str = XGetAtomName (dpy, props [i].card32);
-	  value = (val_str ? build_string (val_str) : Qnil);
+	  Extbyte *val_str = XGetAtomName (dpy, props [i].card32);
+
+	  value = (val_str ? build_ext_string (val_str, Qx_atom_name_encoding)
+		   : Qnil);
 	}
       else
 	value = make_int (props [i].card32);
-      if (name_str) XFree (name_str);
+      if (namestrext) XFree (namestrext);
       result = Fcons (Fcons (name, value), result);
     }
   return result;
@@ -855,19 +863,18 @@ x_font_instance_properties (Lisp_Font_Instance *f)
 static Lisp_Object
 x_list_fonts (Lisp_Object pattern, Lisp_Object device)
 {
-  char **names;
+  SExtbyte **names;
   int count = 0;
   Lisp_Object result = Qnil;
-  const char *patternext;
+  const Extbyte *patternext;
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, pattern,
-		      C_STRING_ALLOCA, patternext,
-		      Qbinary);
+  LISP_STRING_TO_EXTERNAL (pattern, patternext, Qx_font_name_encoding);
 
   names = XListFonts (DEVICE_X_DISPLAY (XDEVICE (device)),
 		      patternext, MAX_FONT_COUNT, &count);
   while (count--)
-    result = Fcons (build_ext_string (names [count], Qbinary), result);
+    result = Fcons (build_ext_string (names[count], Qx_font_name_encoding),
+		    result);
   if (names)
     XFreeFontNames (names);
   return result;
@@ -929,28 +936,24 @@ x_font_spec_matches_charset (struct device *d, Lisp_Object charset,
 static Lisp_Object
 x_find_charset_font (Lisp_Object device, Lisp_Object font, Lisp_Object charset)
 {
-  char **names;
+  SExtbyte **names;
   int count = 0;
   Lisp_Object result = Qnil;
-  const char *patternext;
+  const Extbyte *patternext;
   int i;
 
-  TO_EXTERNAL_FORMAT (LISP_STRING, font,
-		      C_STRING_ALLOCA, patternext,
-		      Qbinary);
+  LISP_STRING_TO_EXTERNAL (font, patternext, Qx_font_name_encoding);
 
   names = XListFonts (DEVICE_X_DISPLAY (XDEVICE (device)),
 		      patternext, MAX_FONT_COUNT, &count);
   /* #### This code seems awfully bogus -- mrb */
   for (i = 0; i < count; i ++)
     {
-      const char *intname;
+      const Bufbyte *intname;
 
-      TO_INTERNAL_FORMAT (C_STRING, names[i],
-			  C_STRING_ALLOCA, intname,
-			  Qbinary);
+      EXTERNAL_TO_C_STRING (names[i], intname, Qx_font_name_encoding);
       if (x_font_spec_matches_charset (XDEVICE (device), charset,
-				       (Bufbyte *) intname, Qnil, 0, -1))
+				       intname, Qnil, 0, -1))
 	{
 	  result = build_string (intname);
 	  break;

@@ -41,8 +41,8 @@ Lisp_Object QPRIMARY, QSECONDARY, QSTRING, QINTEGER, QCLIPBOARD, QTIMESTAMP,
 
 /* Windows clipboard formats */
 Lisp_Object QCF_TEXT, QCF_BITMAP, QCF_METAFILEPICT, QCF_SYLK, QCF_DIF,
-  QCF_TIFF, QCF_OEMTEXT, QCF_DIB, QCF_PALETTE, QCF_PENDATA, QCF_RIFF,
-  QCF_WAVE, QCF_UNICODETEXT, QCF_ENHMETAFILE, QCF_HDROP, QCF_LOCALE,
+  QCF_TIFF, QCF_OEMTEXT, QCF_DIB, QCF_DIBV5, QCF_PALETTE, QCF_PENDATA,
+  QCF_RIFF, QCF_WAVE, QCF_UNICODETEXT, QCF_ENHMETAFILE, QCF_HDROP, QCF_LOCALE,
   QCF_OWNERDISPLAY, QCF_DSPTEXT, QCF_DSPBITMAP, QCF_DSPMETAFILEPICT,
   QCF_DSPENHMETAFILE;
 
@@ -53,7 +53,7 @@ Lisp_Object Qreplace_all, Qreplace_existing;
 Lisp_Object Qselection_conversion_error;
 
 /* A couple of Lisp functions */
-Lisp_Object Qselect_convert_in, Qselect_convert_out;
+Lisp_Object Qselect_convert_in, Qselect_convert_out, Qselect_coerce;
 
 /* These are alists whose CARs are selection-types (whose names are the same
    as the names of X Atoms or Windows clipboard formats) and whose CDRs are
@@ -63,6 +63,7 @@ Lisp_Object Qselect_convert_in, Qselect_convert_out;
  */
 Lisp_Object Vselection_converter_out_alist;
 Lisp_Object Vselection_converter_in_alist;
+Lisp_Object Vselection_coercion_alist;
 Lisp_Object Vselection_appender_alist;
 Lisp_Object Vselection_buffer_killed_alist;
 Lisp_Object Vselection_coercible_types;
@@ -167,7 +168,7 @@ anything that the functions on selection-converter-out-alist know about.
   if (NILP (data_type))
     data_type = QSTRING;
 #endif
-  
+
   /* Examine the how-to-add argument */
   if (EQ (how_to_add, Qreplace_all) || NILP (how_to_add))
     {
@@ -202,7 +203,7 @@ anything that the functions on selection-converter-out-alist know about.
       if (!NILP (value_list))
 	prev_real_value = assq_no_quit (data_type, value_list);
     }
-  
+
   /* Append values if necessary */
   if (!NILP (value_list) && (EQ (how_to_add, Qappend) || EQ (how_to_add, Qt)))
     {
@@ -220,7 +221,7 @@ anything that the functions on selection-converter-out-alist know about.
 		error ("cannot append selections of supplied types.");
 
 	      function = XCDR (function);
-	      
+
 	      selection_value = call4 (function,
 				       selection_name,
 				       data_type,
@@ -237,25 +238,25 @@ anything that the functions on selection-converter-out-alist know about.
       selection_data = Fcons (data_type, selection_value);
       value_list = Fcons (selection_data, value_list);
     }
-    
+
   if (!NILP (prev_real_value))
     {
       Lisp_Object rest; /* We know it isn't the CAR, so it's easy. */
-      
+
       /* Delete the old type entry from the list */
       for (rest = value_list; !NILP (rest); rest = Fcdr (rest))
 	if (EQ (prev_real_value, Fcar (XCDR (rest))))
 	  {
 	    XCDR (rest) = Fcdr (XCDR (rest));
 	    break;
-	  }     
+	  }
     }
   else
     {
       value_list = Fcons (Fcons (data_type, selection_value),
 			  value_list);
     }
-  
+
   /* Complete the local cache update; note that we destructively
      modify the current list entry if there is one */
   if (NILP (prev_value))
@@ -268,10 +269,10 @@ anything that the functions on selection-converter-out-alist know about.
       selection_data = prev_value;
       Fsetcar (XCDR (selection_data), value_list);
     }
-  
+
   GCPRO1 (selection_data);
 
-  /* have to do device specific stuff last so that methods can access the 
+  /* have to do device specific stuff last so that methods can access the
      selection_alist */
   if (HAS_DEVMETH_P (XDEVICE (device), own_selection))
     selection_time = DEVMETH (XDEVICE (device), own_selection,
@@ -371,12 +372,12 @@ so it should be taken as a minimal estimate of what is available.
       else if (SYMBOLP (value) && NILP (type))
 	types = Fcons (QATOM, types);
     }
-  
+
   UNGCPRO;
 
   return types;
 }
-       
+
 /* remove a selection from our local copy
  */
 void
@@ -433,7 +434,7 @@ If we own the named selection, then disown it (make there be no selection).
 
   MAYBE_DEVMETH (XDEVICE (device), disown_selection,
 		 (selection_name, selection_time));
-  
+
   handle_selection_clear (selection_name);
 
   return Qt;
@@ -506,9 +507,9 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
        (selection_symbol, target_type, device))
 {
   /* This function can GC */
-  Lisp_Object val = Qnil, element = Qnil;
-  struct gcpro gcpro1, gcpro2, gcpro3;
-  GCPRO3 (target_type, val, element);
+  Lisp_Object val = Qnil;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (target_type, val);
   CHECK_SYMBOL (selection_symbol);
 
   if (NILP (device))
@@ -521,7 +522,7 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
   if (NILP (target_type))
     target_type = QSTRING;
 #endif
-  
+
 #if 0 /* #### MULTIPLE doesn't work yet and probably never will */
   if (CONSP (target_type) &&
       XCAR (target_type) == QMULTIPLE)
@@ -539,8 +540,15 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
 
   val = get_local_selection (selection_symbol, target_type);
 
-  if (NILP (val) && (HAS_DEVMETH_P (XDEVICE (device), get_foreign_selection)))
+  if (!NILP (val))
     {
+      /* If we get something from the local cache, we may need to convert
+         it slightly - to do this, we call select-coerce */
+      val = call3 (Qselect_coerce, selection_symbol, target_type, val);
+    }
+  else if (HAS_DEVMETH_P (XDEVICE (device), get_foreign_selection))
+    {
+      /* Nothing in the local cache; try the window system */
       val = DEVMETH (XDEVICE (device), get_foreign_selection,
 		     (selection_symbol, target_type));
     }
@@ -548,7 +556,7 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
   if (NILP (val))
     {
       /* Still nothing. Try coercion. */
-      
+
       /* Try looking in selection-coercible-types to see if any of
 	 them are present for this selection. We try them *in order*;
 	 the first for which a conversion succeeds gets returned. */
@@ -559,32 +567,22 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
 	  if (NILP (val))
 	    continue;
 
-	  /* #### Probably should have a Qselection_coercion_alist and a
-	          select-coerce function. */
-	  val = call3 (Qselect_convert_out,
-		       selection_symbol, target_type, val);
+	  val = call3 (Qselect_coerce, selection_symbol, target_type, val);
 
 	  if (!NILP (val))
 	    break;
 	}
     }
 
-  if (NILP (val))
-    {
-      UNGCPRO;
-      
-      return Qnil;
-    }
-  
   /* Used to call clean_local_selection here... but that really belonged
      in Lisp (so the equivalent is now built-in to the INTEGER conversion
      function select-convert-from-integer) - ajh */
-  
+
   UNGCPRO;
   return val;
 }
 
-/* These two are convenient interfaces to the lisp code in select.el;
+/* These are convenient interfaces to the lisp code in select.el;
    this way we can rename them easily rather than having to hunt everywhere.
    Also, this gives us access to get_local_selection so that convert_out
    can retrieve the internal selection value automatically if passed a
@@ -598,6 +596,14 @@ select_convert_in (Lisp_Object selection,
 }
 
 Lisp_Object
+select_coerce (Lisp_Object selection,
+	       Lisp_Object type,
+	       Lisp_Object value)
+{
+  return call3 (Qselect_coerce, selection, type, value);
+}
+
+Lisp_Object
 select_convert_out (Lisp_Object selection,
 		    Lisp_Object type,
 		    Lisp_Object value)
@@ -607,40 +613,30 @@ select_convert_out (Lisp_Object selection,
 
   if (NILP (value))
     {
-      Lisp_Object element = Qnil, ret;
-      struct gcpro gcpro1;
-      GCPRO1 (element);
-
-      {
-	/* Try looking in selection-coercible-types to see if any of
+      /* Try looking in selection-coercible-types to see if any of
 	 them are present for this selection. We try them *in order*;
 	 the first for which a conversion succeeds gets returned. */
-	EXTERNAL_LIST_LOOP_2 (element, Vselection_coercible_types)
-	  {
-	    value = get_local_selection (selection, element);
+      EXTERNAL_LIST_LOOP_2 (element, Vselection_coercible_types)
+	{
+	  Lisp_Object ret;
 
-	    if (NILP (value))
-	      continue;
-	  
-	    ret = call3 (Qselect_convert_out, selection, type, value);
+	  value = get_local_selection (selection, element);
 
-	    if (!NILP (ret))
-	      {
-		UNGCPRO;
-	      
-		return ret;
-	      }
-	  }
-      }
-      
-      UNGCPRO;
-      
+	  if (NILP (value))
+	    continue;
+
+	  ret = call3 (Qselect_convert_out, selection, type, value);
+
+	  if (!NILP (ret))
+	    return ret;
+	}
+
       return Qnil;
     }
 
   return call3 (Qselect_convert_out, selection, type, value);
 }
-		     
+
 
 /* Gets called from kill-buffer; this lets us dispose of buffer-dependent
    selections (or alternatively make them independent of the buffer) when
@@ -650,7 +646,7 @@ select_notify_buffer_kill (Lisp_Object buffer)
 {
   Lisp_Object rest;
   struct gcpro gcpro1, gcpro2, gcpro3;
-  
+
   /* For each element of Vselection_alist */
   for (rest = Vselection_alist;
        !NILP (rest);)
@@ -658,7 +654,7 @@ select_notify_buffer_kill (Lisp_Object buffer)
       Lisp_Object selection, values, prev = Qnil;
 
       selection = XCAR (rest);
-      
+
       for (values = XCAR (XCDR (selection));
 	   !NILP (values);
 	   values = XCDR (values))
@@ -680,18 +676,18 @@ select_notify_buffer_kill (Lisp_Object buffer)
 		 own-selection from with the buffer-killed handler, then
 		 causes a GC. Just as a note, *don't do this*. */
 	      GCPRO3 (rest, values, value);
-	      
+
 	      newval = call4 (handler_fn, XCAR (selection), XCAR (value),
 			      XCDR (value), buffer);
 
 	      UNGCPRO;
-	      
+
 	      /* Set or delete the value (by destructively modifying
 		 the list). */
 	      if (!NILP (newval))
 		{
 		  Fsetcdr (value, newval);
-		  
+
 		  prev = values;
 		}
 	      else
@@ -730,17 +726,18 @@ syms_of_select (void)
 {
   DEFSUBR (Fown_selection_internal);
   DEFSUBR (Fget_selection_internal);
-  DEFSUBR (Fselection_exists_p);
   DEFSUBR (Fget_selection_timestamp);
+  DEFSUBR (Fselection_exists_p);
   DEFSUBR (Fdisown_selection_internal);
   DEFSUBR (Fselection_owner_p);
   DEFSUBR (Favailable_selection_types);
   DEFSUBR (Fregister_selection_data_type);
   DEFSUBR (Fselection_data_type_name);
-  
+
   /* Lisp Functions */
   defsymbol (&Qselect_convert_in, "select-convert-in");
   defsymbol (&Qselect_convert_out, "select-convert-out");
+  defsymbol (&Qselect_coerce, "select-coerce");
 
   /* X Atoms */
   defsymbol (&QPRIMARY, "PRIMARY");
@@ -769,6 +766,7 @@ syms_of_select (void)
   defsymbol (&QCF_TIFF, "CF_TIFF");
   defsymbol (&QCF_OEMTEXT, "CF_OEMTEXT");
   defsymbol (&QCF_DIB, "CF_DIB");
+  defsymbol (&QCF_DIBV5, "CF_DIBV5");
   defsymbol (&QCF_PALETTE, "CF_PALETTE");
   defsymbol (&QCF_PENDATA, "CF_PENDATA");
   defsymbol (&QCF_RIFF, "CF_RIFF");
@@ -786,10 +784,8 @@ syms_of_select (void)
   /* Selection strategies */
   defsymbol (&Qreplace_all, "replace-all");
   defsymbol (&Qreplace_existing, "replace-existing");
-  
-  deferror (&Qselection_conversion_error,
-	    "selection-conversion-error",
-	    "selection-conversion error", Qio_error);
+
+  DEFERROR_STANDARD (Qselection_conversion_error, Qio_error);
 }
 
 void
@@ -802,7 +798,7 @@ vars_of_select (void)
 An alist associating selection-types (such as STRING and TIMESTAMP) with
 functions.  This is an alias for `selection-converter-out-alist', and should
 be considered obsolete.  Use the new name instead. */ );
-									      
+
   DEFVAR_LISP ("selection-converter-out-alist",
 	       &Vselection_converter_out_alist /*
 An alist associating selection-types (such as STRING and TIMESTAMP) with
@@ -867,6 +863,21 @@ value, or nil to indicate that the conversion was not possible.
 See also `selection-converter-out-alist'. */ );
   Vselection_converter_in_alist = Qnil;
 
+  DEFVAR_LISP ("selection-coercion-alist",
+	       &Vselection_coercion_alist /*
+An alist associating selection-types (such as STRING and TIMESTAMP) with
+functions.  These functions will be called with three args; the name
+of the selection (typically PRIMARY, SECONDARY or CLIPBOARD); the type
+from which the selection should be converted, and the selection value.
+The value passed will be *exactly the same value* that was given to
+`own-selection'; it should be converted into something suitable for
+return to a program calling `get-selection' with the appropriate
+parameters.
+
+See also `selection-converter-in-alist' and
+`selection-converter-out-alist'. */);
+  Vselection_coercion_alist = Qnil;
+
   DEFVAR_LISP ("selection-appender-alist",
 	       &Vselection_appender_alist /*
 An alist associating selection-types (such as STRING and TIMESTAMP) with
@@ -876,7 +887,7 @@ of the selection; and two selection values.  The functions are expected to
 return a value representing the catenation of the two values, or nil to
 indicate that this was not possible. */ );
   Vselection_appender_alist = Qnil;
-  
+
   DEFVAR_LISP ("selection-buffer-killed-alist",
 	       &Vselection_buffer_killed_alist /*
 An alist associating selection-types (such as STRING and TIMESTAMP) with
@@ -894,7 +905,7 @@ A list of selection types that are coercible---that is, types that may be
 automatically converted to another type. Selection values with types in this
 list may be subject to conversion attempts to other types. */ );
   Vselection_coercible_types = Qnil;
-  
+
   DEFVAR_LISP ("lost-selection-hooks", &Vlost_selection_hooks /*
 A function or functions to be called after we have been notified
 that we have lost the selection.  The function(s) will be called with one

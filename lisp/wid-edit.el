@@ -1986,8 +1986,8 @@ If END is omitted, it defaults to the length of LIST."
 
 (defun widget-url-link-action (widget &optional event)
   "Open the url specified by WIDGET."
-  (if (boundp 'browse-url-browser-function)
-      (funcall browse-url-browser-function (widget-value widget))
+  (if (fboundp 'browse-url)
+      (browse-url (widget-value widget))
     (error "Cannot follow URLs in this XEmacs")))
 
 ;;; The `function-link' Widget.

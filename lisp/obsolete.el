@@ -219,8 +219,8 @@ set Info-directory-list.")
 
 (defun add-menu (menu-path menu-name menu-items &optional before)
   "See the function `add-submenu'."
-  (or menu-name (error (gettext "must specify a menu name")))
-  (or menu-items (error (gettext "must specify some menu items")))
+  (or menu-name (error "must specify a menu name"))
+  (or menu-items (error "must specify some menu items"))
   (add-submenu menu-path (cons menu-name menu-items) before))
 ;; Can't make this obsolete.  easymenu depends on it.
 (make-compatible 'add-menu 'add-submenu)

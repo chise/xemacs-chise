@@ -338,13 +338,30 @@ uintptr_t bss_end = 0;
 /* Number of bytes of writable memory we can expect to be able to get */
 unsigned int lim_data;
 
+/* WARNING!
+
+   Some LISP-visible command-line options are set by XEmacs _before_ the
+   data is dumped in building a --pdump XEmacs, but used _after_ it is
+   restored in normal operation.  Thus the restored values overwrite the
+   values XEmacs is getting at run-time.  Such variables must be saved
+   before loading the dumpfile, and restored afterward.
+
+   This is done immediately before and after pdump_load() in main_1().
+   See that function for the current list of protected variables.
+
+   Note that if the variable is never DEFVAR'd, saving/restoring is not
+   needed.
+*/
+
 /* Nonzero means running XEmacs without interactive terminal.  */
 
 int noninteractive;
 
 /* Value of Lisp variable `noninteractive'.
    Normally same as C variable `noninteractive'
-   but nothing terrible happens if user sets this one.  */
+   but nothing terrible happens if user sets this one.
+
+   Shadowed from the pdumper by `noninteractive'. */
 
 int noninteractive1;
 
@@ -368,7 +385,7 @@ int nodumpfile;
 int debug_paths;
 
 /* Save argv and argc.  */
-static char **initial_argv;
+static Extbyte **initial_argv;
 static int initial_argc;
 
 static void sort_args (int argc, char **argv);
@@ -591,7 +608,7 @@ mswindows_handle_hardware_exceptions (DWORD code)
   */
 
   __except (EXCEPTION_EXECUTE_HANDLER) {}
-  
+
 
   /* pretend we didn't handle this, so that the debugger is invoked and/or
      the normal GPF box appears. */
@@ -623,7 +640,7 @@ memory_warning_signal (int sig)
 /* Code for dealing with Lisp access to the Unix command line */
 
 static Lisp_Object
-make_arg_list_1 (int argc, char **argv, int skip_args)
+make_arg_list_1 (int argc, Extbyte **argv, int skip_args)
 {
   Lisp_Object result = Qnil;
   REGISTER int i;
@@ -636,17 +653,26 @@ make_arg_list_1 (int argc, char **argv, int skip_args)
 	  if (i == 0)
 	    {
 	      /* Do not trust to what crt0 has stuffed into argv[0] */
-	      char full_exe_path [MAX_PATH];
+	      char full_exe_path[MAX_PATH];
+	      Lisp_Object fullpath;
+
 	      GetModuleFileName (NULL, full_exe_path, MAX_PATH);
-	      result = Fcons (build_ext_string (full_exe_path, Qfile_name),
-			      result);
+	      fullpath = build_ext_string (full_exe_path, Qmswindows_tstr);
+	      result = Fcons (fullpath, result);
 #if defined(HAVE_SHLIB)
-	      (void)dll_init(full_exe_path);
+	      {
+		Extbyte *fullpathext;
+
+		LISP_STRING_TO_EXTERNAL (fullpath, fullpathext,
+				  Qdll_filename_encoding);
+		(void) dll_init (fullpathext);
+	      }
 #endif
 	    }
 	  else
 #endif
-	    result = Fcons (build_ext_string (argv [i], Qfile_name),
+	    result = Fcons (build_ext_string (argv[i],
+					      Qcommand_argument_encoding),
 			    result);
 	}
     }
@@ -654,7 +680,7 @@ make_arg_list_1 (int argc, char **argv, int skip_args)
 }
 
 Lisp_Object
-make_arg_list (int argc, char **argv)
+make_arg_list (int argc, Extbyte **argv)
 {
   return make_arg_list_1 (argc, argv, 0);
 }
@@ -662,21 +688,19 @@ make_arg_list (int argc, char **argv)
 /* Calling functions are also responsible for calling free_argc_argv
    when they are done with the generated list. */
 void
-make_argc_argv (Lisp_Object argv_list, int *argc, char ***argv)
+make_argc_argv (Lisp_Object argv_list, int *argc, Extbyte ***argv)
 {
   Lisp_Object next;
   int n = XINT (Flength (argv_list));
   REGISTER int i;
-  *argv = (char**) xmalloc ((n+1) * sizeof (char*));
+  *argv = (Extbyte**) xmalloc ((n+1) * sizeof (Extbyte*));
 
   for (i = 0, next = argv_list; i < n; i++, next = XCDR (next))
     {
-      const char *temp;
+      const Extbyte *temp;
       CHECK_STRING (XCAR (next));
 
-      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (next),
-			  C_STRING_ALLOCA, temp,
-			  Qnative);
+      LISP_STRING_TO_EXTERNAL (XCAR (next), temp, Qcommand_argument_encoding);
       (*argv) [i] = xstrdup (temp);
     }
   (*argv) [n] = 0;
@@ -684,7 +708,7 @@ make_argc_argv (Lisp_Object argv_list, int *argc, char ***argv)
 }
 
 void
-free_argc_argv (char **argv)
+free_argc_argv (Extbyte **argv)
 {
   int elt = 0;
 
@@ -697,7 +721,7 @@ free_argc_argv (char **argv)
 }
 
 static void
-init_cmdargs (int argc, char **argv, int skip_args)
+init_cmdargs (int argc, Extbyte **argv, int skip_args)
 {
   initial_argv = argv;
   initial_argc = argc;
@@ -1113,7 +1137,44 @@ main_1 (int argc, char **argv, char **envp, int restart)
     initialized = 0;
     purify_flag = 1;
   } else {
+
+    /* Keep command options from getting stomped.
+
+       Some LISP-visible options are changed by XEmacs _after_ the data is
+       dumped in building a --pdump XEmacs, but _before_ it is restored in
+       normal operation.  Thus the restored values overwrite the values
+       XEmacs is getting at run-time.  Such variables must be saved here,
+       and restored after loading the dumped data.
+
+       Boy, this is ugly, but how else to do it?
+    */
+
+    /* noninteractive1 is protected by noninteractive, which is not
+       LISP-visible */
+    int inhibit_early_packages_save = inhibit_early_packages;
+    int inhibit_autoloads_save      = inhibit_autoloads;
+    int debug_paths_save            = debug_paths;
+#ifdef INHIBIT_SITE_LISP
+    int inhibit_site_lisp_save      = inhibit_site_lisp;
+#endif
+#ifdef INHIBIT_SITE_MODULES
+    int inhibit_site_modules_save   = inhibit_site_modules;
+#endif
+
     initialized = pdump_load (argv[0]);
+
+    /* Now unstomp everything */
+    noninteractive1        = noninteractive;
+    inhibit_early_packages = inhibit_early_packages_save;
+    inhibit_autoloads      = inhibit_autoloads_save;
+    debug_paths            = debug_paths_save;
+#ifdef INHIBIT_SITE_LISP
+    inhibit_site_lisp      = inhibit_site_lisp_save;
+#endif
+#ifdef INHIBIT_SITE_MODULES
+    inhibit_site_modules   = inhibit_site_modules_save;
+#endif
+
     if (initialized)
       run_temacs_argc = -1;
     else
@@ -1139,7 +1200,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       init_symbols_once_early ();
 
       /* Declare the basic symbols pertaining to errors,
-	 So that deferror() can be called. */
+	 So that DEFERROR*() can be called. */
       init_errors_once_early ();
 
       /* Make sure that opaque pointers can be created. */
@@ -1148,13 +1209,13 @@ main_1 (int argc, char **argv, char **envp, int restart)
       /* Now declare all the symbols and define all the Lisp primitives.
 
 	 The *only* thing that the syms_of_*() functions are allowed to do
-	 is call one of the following three functions:
+	 is call one of the following:
 
 	 INIT_LRECORD_IMPLEMENTATION()
-	 defsymbol()
+	 defsymbol(), DEFSYMBOL(), or DEFSYMBOL_MULTIWORD_PREDICATE()
 	 defsubr() (i.e. DEFSUBR)
-	 deferror()
-	 defkeyword()
+	 deferror(), DEFERROR(), or DEFERROR_STANDARD()
+	 defkeyword() or DEFKEYWORD()
 
 	 Order does not matter in these functions.
 	 */
@@ -1265,7 +1326,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_X_WINDOWS
+#ifdef HAVE_BALLOON_HELP
       syms_of_balloon_x ();
+#endif
       syms_of_device_x ();
 #ifdef HAVE_DIALOGS
       syms_of_dialog_x ();
@@ -1290,6 +1353,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MS_WINDOWS
       syms_of_console_mswindows ();
       syms_of_device_mswindows ();
+      syms_of_dialog_mswindows ();
       syms_of_frame_mswindows ();
       syms_of_objects_mswindows ();
       syms_of_select_mswindows ();
@@ -1301,13 +1365,16 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_SCROLLBARS
       syms_of_scrollbar_mswindows ();
 #endif
+#endif	/* HAVE_MS_WINDOWS */
 #ifdef HAVE_MSW_C_DIRED
       syms_of_dired_mswindows ();
 #endif
 #ifdef WIN32_NATIVE
       syms_of_ntproc ();
 #endif
-#endif	/* HAVE_MS_WINDOWS */
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+      syms_of_win32 ();
+#endif
 
 #ifdef MULE
       syms_of_mule ();
@@ -1687,7 +1754,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_X_WINDOWS
+#ifdef HAVE_BALLOON_HELP
       vars_of_balloon_x ();
+#endif
       vars_of_device_x ();
 #ifdef HAVE_DIALOGS
       vars_of_dialog_x ();
@@ -2047,7 +2116,8 @@ main_1 (int argc, char **argv, char **envp, int restart)
 			   first because many of the functions below
 			   call egetenv() to get environment variables. */
   init_lread ();	/* Set up the Lisp reader. */
-  init_cmdargs (argc, argv, skip_args);	/* Create list Vcommand_line_args */
+  init_cmdargs (argc, (Extbyte **) argv,
+		skip_args);	/* Create list Vcommand_line_args */
   init_buffer ();	/* Set default directory of *scratch* buffer */
 
 #ifdef WIN32_NATIVE
@@ -2063,6 +2133,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
   init_xemacs_process (); /* set up for calling subprocesses */
 #ifdef SUNPRO
   init_sunpro (); /* Set up Sunpro usage tracking */
+#endif
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+  init_win32 ();
 #endif
 #if defined (HAVE_NATIVE_SOUND) && defined (hp9000s800)
   init_hpplay ();
@@ -2663,10 +2736,12 @@ all of which are called before XEmacs is actually killed.
   UNGCPRO;
 
 #ifdef HAVE_MS_WINDOWS
-  /* If we displayed a message on the console and we're exiting due to
-     init error, then we must allow the user to see this message. */
-  if (mswindows_message_outputted && INTP (arg) && XINT (arg) != 0)
-    Fmswindows_message_box (build_string ("Initialization error"),
+  /* If we displayed a message on the console, then we must allow the
+     user to see this message.  This may be unnecessary, but can't hurt,
+     and we can't necessarily check arg; e.g. xemacs --help kills with
+     argument 0. */
+  if (mswindows_message_outputted)
+    Fmswindows_message_box (build_string ("Messages outputted.  XEmacs is exiting."),
 			    Qnil, Qnil);
 #endif
 
@@ -2890,14 +2965,10 @@ and announce itself normally when it is run.
     char *intoname_ext;
     char *symname_ext;
 
-    TO_EXTERNAL_FORMAT (LISP_STRING, intoname,
-			C_STRING_ALLOCA, intoname_ext,
-			Qfile_name);
+    LISP_STRING_TO_EXTERNAL (intoname, intoname_ext, Qfile_name);
 
     if (STRINGP (symname))
-      TO_EXTERNAL_FORMAT (LISP_STRING, symname,
-			  C_STRING_ALLOCA, symname_ext,
-			  Qfile_name);
+      LISP_STRING_TO_EXTERNAL (symname, symname_ext, Qfile_name);
     else
       symname_ext = 0;
 
@@ -3103,7 +3174,7 @@ assert_failed (const char *file, int line, const char *expr)
       assert_failed_file = file;
       assert_failed_line = line;
       assert_failed_expr = expr;
- 
+
       if (!initialized)
 	fprintf (stderr,
 		 "Fatal error: assertion failed, file %s, line %d, %s\n",
@@ -3303,6 +3374,11 @@ Codename of this version of Emacs (a string).
 #endif
   Vxemacs_codename = build_string (XEMACS_CODENAME);
 
+  /* Lisp variables which contain command line flags.
+
+     The portable dumper stomps on these; they must be saved and restored
+     if they are processed before the call to pdump_load() in main_1().
+  */
   DEFVAR_BOOL ("noninteractive", &noninteractive1 /*
 Non-nil means XEmacs is running without interactive terminal.
 */ );
@@ -3638,7 +3714,7 @@ The configured initial path for info documentation.
 #if defined(__sgi) && !defined(PDUMP)
 /* This is so tremendously ugly I'd puke. But then, it works.
  * The target is to override the static constructor from the
- * libiflPNG.so library which is maskerading as libz, and
+ * libiflPNG.so library which is masquerading as libz, and
  * cores on us when re-started from the dumped executable.
  * This will have to go for 21.1  -- OG.
  */

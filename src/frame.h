@@ -142,6 +142,9 @@ Value : Emacs meaning                           :f-v-p : X meaning
 
   /* one-bit flags: */
 
+  /* Is focusing onto this frame disabled? (Modal dialog boxes) */
+  unsigned int disabled :1;
+
   /* Are we finished initializing? */
   unsigned int init_finished :1;
 
@@ -242,6 +245,7 @@ extern Lisp_Object Vmouse_motion_handler;
 DECLARE_LRECORD (frame, struct frame);
 #define XFRAME(x) XRECORD (x, frame, struct frame)
 #define XSETFRAME(x, p) XSETRECORD (x, p, frame)
+#define wrap_frame(p) wrap_object (p)
 #define FRAMEP(x) RECORDP (x, frame)
 #define CHECK_FRAME(x) CHECK_RECORD (x, frame)
 #define CONCHECK_FRAME(x) CONCHECK_RECORD (x, frame)
@@ -770,8 +774,8 @@ extern int frame_changed;
 void update_frame_title (struct frame *f);
 Lisp_Object next_frame (Lisp_Object f, Lisp_Object frametype,
 			Lisp_Object console);
-Lisp_Object prev_frame (Lisp_Object f, Lisp_Object frametype,
-			Lisp_Object console);
+Lisp_Object previous_frame (Lisp_Object f, Lisp_Object frametype,
+			    Lisp_Object console);
 void pixel_to_char_size (struct frame *f, int pixel_width, int pixel_height,
 			 int *char_width, int *char_height);
 void char_to_pixel_size (struct frame *f, int char_width, int char_height,
@@ -807,8 +811,7 @@ void delete_frame_internal (struct frame *f, int force,
 void io_error_delete_frame (Lisp_Object frame);
 Lisp_Object find_some_frame (int (*predicate) (Lisp_Object, void *),
 			     void *closure);
-int device_matches_console_spec (Lisp_Object frame, Lisp_Object device,
-				 Lisp_Object console);
+int device_matches_console_spec (Lisp_Object device, Lisp_Object console);
 Lisp_Object frame_first_window (struct frame *f);
 int show_gc_cursor (struct frame *f, Lisp_Object cursor);
 void set_frame_selected_window (struct frame *f, Lisp_Object window);

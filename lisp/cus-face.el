@@ -309,7 +309,7 @@ FACE.  Nil otherwise."
 (defun custom-theme-reset-faces (theme &rest args)
   (custom-check-theme theme)
   "Reset the value of the face to values previously defined.
-Assosiate this setting with THEME.
+Associate this setting with THEME.
 
 ARGS is a list of lists of the form
 
@@ -324,7 +324,7 @@ This means reset face to its value in to-theme."
 ;;;###autoload
 (defun custom-reset-faces (&rest args)
   "Reset the value of the face to values previously defined.
-Assosiate this setting with the 'user' theme.
+Associate this setting with the 'user' theme.
 
 ARGS is defined as for `custom-theme-reset-faces'"
   (apply #'custom-theme-reset-faces 'user args))

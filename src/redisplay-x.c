@@ -458,12 +458,12 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 					       cursor_start, cursor_width,
 					       cursor_height, 0);
 		      break;
-		      
+
 		    case IMAGE_WIDGET:
 		      if (EQ (XIMAGE_INSTANCE_WIDGET_TYPE (instance),
 			      Qlayout))
 			{
-			  redisplay_output_layout (w, instance, &dbox, &dga, findex,
+			  redisplay_output_layout (window, instance, &dbox, &dga, findex,
 						   cursor_start, cursor_width,
 						   cursor_height);
 			  break;
@@ -473,17 +473,17 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 						  cursor_start, cursor_width,
 						  cursor_height);
 		      break;
-		      
+
 		    case IMAGE_NOTHING:
 		      /* nothing is as nothing does */
 		      break;
-		      
+
 		    case IMAGE_TEXT:
 		    case IMAGE_POINTER:
 		    default:
 		      abort ();
 		    }
-		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT 
+		  IMAGE_INSTANCE_OPTIMIZE_OUTPUT
 		    (XIMAGE_INSTANCE (instance)) = 0;
 		}
 
@@ -2000,7 +2000,7 @@ x_flash (struct device *d)
 		      w->pixel_width, flash_height);
     }
   else
-    /* If it is short, flash it all.  */ 
+    /* If it is short, flash it all.  */
     XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
 		    w->pixel_width, w->pixel_height);
 
@@ -2033,7 +2033,7 @@ x_flash (struct device *d)
 		      w->pixel_width, flash_height);
     }
   else
-    /* If it is short, flash it all.  */ 
+    /* If it is short, flash it all.  */
     XFillRectangle (dpy, win, gc, w->pixel_left, w->pixel_top,
 		    w->pixel_width, w->pixel_height);
 

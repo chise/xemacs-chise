@@ -120,9 +120,7 @@ Windows the sound file must be in WAV format.
     {
       char *fileext;
 
-      TO_EXTERNAL_FORMAT (LISP_STRING, file,
-			  C_STRING_ALLOCA, fileext,
-			  Qfile_name);
+      LISP_STRING_TO_EXTERNAL (file, fileext, Qfile_name);
       /* #### NAS code should allow specification of a device. */
       if (nas_play_sound_file (fileext, vol))
 	return Qnil;
@@ -135,9 +133,7 @@ Windows the sound file must be in WAV format.
       char *fileext;
       int result;
 
-      TO_EXTERNAL_FORMAT (LISP_STRING, file,
-			  C_STRING_ALLOCA, fileext,
-			  Qfile_name);
+      LISP_STRING_TO_EXTERNAL (file, fileext, Qfile_name);
 
       /* #### ESD uses alarm(). But why should we also stop SIGIO? */
       stop_interrupts ();
@@ -153,9 +149,7 @@ Windows the sound file must be in WAV format.
     {
       const char *fileext;
 
-      TO_EXTERNAL_FORMAT (LISP_STRING, file,
-			  C_STRING_ALLOCA, fileext,
-			  Qfile_name);
+      LISP_STRING_TO_EXTERNAL (file, fileext, Qfile_name);
       /* The sound code doesn't like getting SIGIO interrupts.
 	 Unix sucks! */
       stop_interrupts ();
@@ -652,7 +646,7 @@ of sounds.  Otherwise, sounds are always played synchronously.
   DEFVAR_LISP ("native-sound-only-on-console", &Vnative_sound_only_on_console /*
 Non-nil value means play sounds only if XEmacs is running
 on the system console.
-Nil means always always play sounds, even if running on a non-console tty
+Nil means always play sounds, even if running on a non-console tty
 or a secondary X display.
 
 This variable only applies to native sound support.

@@ -71,16 +71,6 @@ Boston, MA 02111-1307, USA.  */
 
 #undef CANNOT_DUMP
 
-/* Define VIRT_ADDR_VARIES if the virtual addresses of
-   pure and impure space as loaded can vary, and even their
-   relative order cannot be relied on.
-
-   Otherwise Emacs assumes that text space precedes data space,
-   numerically.  */
-
-#undef VIRT_ADDR_VARIES
-
-
 /* this brings in alloca() if we're using cc */
 #ifdef USG
 #define NO_REMAP 
@@ -88,7 +78,6 @@ Boston, MA 02111-1307, USA.  */
 #endif /* USG */
 
 #ifdef WIN32_NATIVE
-#define VIRT_ADDR_VARIES
 #define DATA_END 	get_data_end ()
 #define DATA_START 	get_data_start ()
 #define HAVE_ALLOCA

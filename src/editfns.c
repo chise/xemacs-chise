@@ -600,6 +600,12 @@ If BUFFER is nil, the current buffer is assumed.
   return make_char (BUF_FETCH_CHAR (b, n));
 }
 
+#if !defined(WINDOWSNT) && !defined(MSDOS)
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <limits.h>
+#endif
 
 DEFUN ("temp-directory", Ftemp_directory, 0, 0, 0, /*
 Return the pathname to the directory to use for temporary files.
@@ -619,7 +625,47 @@ On Unix it is obtained from TMPDIR, with /tmp as the default
 #else /* WIN32_NATIVE */
  tmpdir = getenv ("TMPDIR");
  if (!tmpdir)
+    {
+      struct stat st;
+      int myuid = getuid();
+      static char path[5 /* strlen ("/tmp/") */ + 1 + _POSIX_PATH_MAX];
+
+      strcpy (path, "/tmp/");
+      strncat (path, user_login_name (NULL), _POSIX_PATH_MAX);
+      if (lstat(path, &st) < 0 && errno == ENOENT)
+	{
+	  mkdir(path, 0700);	/* ignore retval -- checked next anyway. */
+	}
+      if (lstat(path, &st) == 0 && st.st_uid == myuid && S_ISDIR(st.st_mode))
+	{
+	  tmpdir = path;
+	}
+      else
+	{
+	  strcpy(path, getenv("HOME")); strncat(path, "/tmp/", _POSIX_PATH_MAX);
+	  if (stat(path, &st) < 0 && errno == ENOENT)
+	    {
+	      int fd;
+	      char warnpath[1+_POSIX_PATH_MAX];
+	      mkdir(path, 0700);	/* ignore retvals */
+	      strcpy(warnpath, path);
+	      strncat(warnpath, ".created_by_xemacs", _POSIX_PATH_MAX);
+	      if ((fd = open(warnpath, O_WRONLY|O_CREAT, 0644)) > 0)
+		{
+		  write(fd, "XEmacs created this directory because /tmp/<yourname> was unavailable -- \nPlease check !\n", 89);
+		  close(fd);
+		}
+	    }
+	  if (stat(path, &st) == 0 && S_ISDIR(st.st_mode))
+	    {
+	      tmpdir = path;
+	    }
+	  else
+	    {
    tmpdir = "/tmp";
+	    }
+	}
+    }
 #endif
 
   return build_ext_string (tmpdir, Qfile_name);
@@ -1220,17 +1266,19 @@ and from `file-attributes'.
        (specified_time))
 {
   time_t value;
-  char buf[30];
-  char *tem;
+  char *the_ctime;
+  size_t len;
 
   if (! lisp_to_time (specified_time, &value))
     value = -1;
-  tem = (char *) ctime (&value);
+  the_ctime = ctime (&value);
 
-  strncpy (buf, tem, 24);
-  buf[24] = 0;
+  /* ctime is documented as always returning a "\n\0"-terminated
+     26-byte American time string, but let's be careful anyways. */
+  for (len = 0; the_ctime[len] != '\n' && the_ctime[len] != '\0'; len++)
+    ;
 
-  return build_ext_string (buf, Qbinary);
+  return make_ext_string ((Extbyte *) the_ctime, len, Qbinary);
 }
 
 #define TM_YEAR_ORIGIN 1900
@@ -2513,6 +2561,8 @@ zmacs-activate-region. Setting this to true lets a command be non-intrusive.
 See the variable `zmacs-regions'.
 
 The same effect can be achieved using the `_' interactive specification.
+
+`zmacs-region-stays' is reset to nil before each command is executed.
 */ );
   zmacs_region_stays = 0;
 

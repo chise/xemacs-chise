@@ -1218,7 +1218,7 @@ name as the value of the Lisp variable @code{top-level}.
 
   When the Lisp initialization code is done, the C code enters the event
 loop, and stays there for the duration of the XEmacs process.  The code
-for the event loop is contained in @file{keyboard.c}, and is called
+for the event loop is contained in @file{cmdloop.c}, and is called
 @code{Fcommand_loop_1()}.  Note that this event loop could very well be
 written in Lisp, and in fact a Lisp version exists; but apparently,
 doing this makes XEmacs run noticeably slower.
@@ -2910,7 +2910,7 @@ chosen by @file{configure}.
 
 
 @example
-crt0.c
+ecrt0.c
 lastfile.c
 pre-crt0.c
 @end example
@@ -3045,14 +3045,6 @@ provided by the @samp{--error-check-*} configuration options.
 
 
 @example
-prefix-args.c
-@end example
-
-This is actually the source for a small, self-contained program
-used during building.
-
-
-@example
 universe.h
 @end example
 
@@ -3064,7 +3056,6 @@ This is not currently used.
 @section Basic Lisp Modules
 
 @example
-emacsfns.h
 lisp-disunion.h
 lisp-union.h
 lisp.h
@@ -3410,8 +3401,12 @@ Most of this could be implemented in Lisp.
 
 @example
 event-Xt.c
+event-msw.c
 event-stream.c
 event-tty.c
+events-mod.h
+gpmevent.c
+gpmevent.h
 events.c
 events.h
 @end example
@@ -3466,10 +3461,10 @@ relevant keymaps.)
 
 
 @example
-keyboard.c
+cmdloop.c
 @end example
 
-@file{keyboard.c} contains functions that implement the actual editor
+@file{cmdloop.c} contains functions that implement the actual editor
 command loop---i.e. the event loop that cyclically retrieves and
 dispatches events.  This code is also rather tricky, just like
 @file{event-stream.c}.
@@ -3507,13 +3502,31 @@ code is loaded).
 @section Modules for the Basic Displayable Lisp Objects
 
 @example
-device-ns.h
-device-stream.c
-device-stream.h
+console-msw.c
+console-msw.h
+console-stream.c
+console-stream.h
+console-tty.c
+console-tty.h
+console-x.c
+console-x.h
+console.c
+console.h
+@end example
+
+These modules implement the @dfn{console} Lisp object type.  A console
+contains multiple display devices, but only one keyboard and mouse.
+Most of the time, a console will contain exactly one device.
+
+Consoles are the top of a lisp object inclusion hierarchy.  Consoles
+contain devices, which contain frames, which contain windows.
+
+
+
+@example
+device-msw.c
 device-tty.c
-device-tty.h
 device-x.c
-device-x.h
 device.c
 device.h
 @end example
@@ -3534,10 +3547,9 @@ subtypes (X, TTY, NeXTstep, Microsoft Windows, etc.) as devices do.
 
 
 @example
-frame-ns.h
+frame-msw.c
 frame-tty.c
 frame-x.c
-frame-x.h
 frame.c
 frame.h
 @end example
@@ -3589,7 +3601,10 @@ faces.h
 
 @example
 bitmaps.h
-glyphs-ns.h
+glyphs-eimage.c
+glyphs-msw.c
+glyphs-msw.h
+glyphs-widget.c
 glyphs-x.c
 glyphs-x.h
 glyphs.c
@@ -3599,7 +3614,8 @@ glyphs.h
 
 
 @example
-objects-ns.h
+objects-msw.c
+objects-msw.h
 objects-tty.c
 objects-tty.h
 objects-x.c
@@ -3611,13 +3627,18 @@ objects.h
 
 
 @example
+menubar-msw.c
+menubar-msw.h
 menubar-x.c
 menubar.c
+menubar.h
 @end example
 
 
 
 @example
+scrollbar-msw.c
+scrollbar-msw.h
 scrollbar-x.c
 scrollbar-x.h
 scrollbar.c
@@ -3627,6 +3648,7 @@ scrollbar.h
 
 
 @example
+toolbar-msw.c
 toolbar-x.c
 toolbar.c
 toolbar.h
@@ -3653,6 +3675,7 @@ gifalloc.c
 @end example
 
 These modules decode GIF-format image files, for use with glyphs.
+These files were removed due to Unisys patent infringement concerns.
 
 
 
@@ -3661,6 +3684,7 @@ These modules decode GIF-format image files, for use with glyphs.
 
 @example
 redisplay-output.c
+redisplay-msw.c
 redisplay-tty.c
 redisplay-x.c
 redisplay.c
@@ -3755,7 +3779,7 @@ streams and C++ I/O streams.
 Similar to other subsystems in XEmacs, lstreams are separated into
 generic functions and a set of methods for the different types of
 lstreams.  @file{lstream.c} provides implementations of many different
-types of streams; others are provided, e.g., in @file{mule-coding.c}.
+types of streams; others are provided, e.g., in @file{file-coding.c}.
 
 
 
@@ -4220,16 +4244,6 @@ AIX prior to 4.1.
 
 
 
-@example
-msdos.c
-msdos.h
-@end example
-
-These modules are used for MS-DOS support, which does not work in
-XEmacs.
-
-
-
 @node Modules for Interfacing with X Windows, Modules for Internationalization, Modules for Interfacing with the Operating System, A Summary of the Various XEmacs Modules
 @section Modules for Interfacing with X Windows
 
@@ -4297,7 +4311,10 @@ needs to be rewritten.
 
 
 @example
-xselect.c
+select-msw.c
+select-x.c
+select.c
+select.h
 @end example
 
 @cindex selections
@@ -4380,8 +4397,8 @@ mule-canna.c
 mule-ccl.c
 mule-charset.c
 mule-charset.h
-mule-coding.c
-mule-coding.h
+file-coding.c
+file-coding.h
 mule-mcpath.c
 mule-mcpath.h
 mule-wnnfns.c
@@ -4393,13 +4410,13 @@ actually provides a general interface for all sorts of languages, not
 just Asian languages (although they are generally the most complicated
 to support).  This code is still in beta.
 
-@file{mule-charset.*} and @file{mule-coding.*} provide the heart of the
+@file{mule-charset.*} and @file{file-coding.*} provide the heart of the
 XEmacs MULE support.  @file{mule-charset.*} implements the @dfn{charset}
 Lisp object type, which encapsulates a character set (an ordered one- or
 two-dimensional set of characters, such as US ASCII or JISX0208 Japanese
 Kanji).
 
-@file{mule-coding.*} implements the @dfn{coding-system} Lisp object
+@file{file-coding.*} implements the @dfn{coding-system} Lisp object
 type, which encapsulates a method of converting between different
 encodings.  An encoding is a representation of a stream of characters,
 possibly from multiple character sets, using a stream of bytes or words,
@@ -5354,6 +5371,15 @@ included by @file{inline.c}.
 @code{FOOBARP()}, etc. macros in a @file{.h} (or occasionally @file{.c})
 file.  To create one of these, copy an existing model and modify as
 necessary.
+
+  @strong{Please note:} If you define an lrecord in an external
+dynamically-loaded module, you must use @code{DECLARE_EXTERNAL_LRECORD},
+@code{DEFINE_EXTERNAL_LRECORD_IMPLEMENTATION}, and
+@code{DEFINE_EXTERNAL_LRECORD_SEQUENCE_IMPLEMENTATION} instead of the
+non-EXTERNAL forms. These macros will dynamically add new type numbers
+to the global enum that records them, whereas the non-EXTERNAL forms
+assume that the programmer has already inserted the correct type numbers
+into the enum's code at compile-time.
 
   The various methods in the lrecord implementation structure are:
 
@@ -8748,7 +8774,7 @@ from its corresponding widget_instance by walking the widget_instance
 tree recursively.
 
 This has desirable properties such as lw_modify_all_widgets which is
-called from glyphs-x.c and updates all the properties of a widget
+called from @file{glyphs-x.c} and updates all the properties of a widget
 without having to know what the widget is or what toolkit it is from.
 Unfortunately this also has hairy properties such as making the lwlib
 code quite complex. And of course lwlib has to know at some level what

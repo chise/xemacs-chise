@@ -94,7 +94,7 @@ Lisp_Object;
   xset_var->gu.type = Lisp_Type_Char;	\
   xset_var->gu.val = xset_value;	\
 } while (0)
-# define XSETOBJ(var, vartype, value) do {	\
+# define XSETOBJ(var, value) do {		\
   EMACS_UINT xset_value = (EMACS_UINT) (value);	\
   (var).ui = xset_value;			\
 } while (0)
@@ -105,7 +105,7 @@ INLINE_HEADER Lisp_Object
 make_int (EMACS_INT val)
 {
   Lisp_Object obj;
-  XSETINT(obj, val);
+  XSETINT (obj, val);
   return obj;
 }
 
@@ -114,7 +114,16 @@ INLINE_HEADER Lisp_Object
 make_char (Emchar val)
 {
   Lisp_Object obj;
-  XSETCHAR(obj, val);
+  XSETCHAR (obj, val);
+  return obj;
+}
+
+INLINE_HEADER Lisp_Object wrap_object (void *ptr);
+INLINE_HEADER Lisp_Object
+wrap_object (void *ptr)
+{
+  Lisp_Object obj;
+  XSETOBJ (obj, ptr);
   return obj;
 }
 

@@ -801,7 +801,7 @@ as a set of built-in Lisp function in C) by a flexible and
 customizable Common Lisp like one (implemented entirely in Emacs
 Lisp). During reading of Emacs Lisp source files, it is about 40%
 slower than the built-in reader, but there is no difference in
-loading byte compiled files - they dont contain any syntactic sugar
+loading byte compiled files - they don't contain any syntactic sugar
 and are loaded with the built in subroutine `load'.
 
 ** ediff        - Compare and merge files with graphical difference display

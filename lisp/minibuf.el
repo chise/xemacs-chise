@@ -52,7 +52,7 @@
 
 (defcustom minibuffer-history-uniquify t
   "*Non-nil means when adding an item to a minibuffer history, remove
-previous occurances of the same item from the history list first,
+previous occurrences of the same item from the history list first,
 rather than just consing the new element onto the front of the list."
   :type 'boolean
   :group 'minibuffer)
@@ -1329,6 +1329,15 @@ If N is negative, find the previous or Nth previous match."
 	    current-minibuffer-point (point)))
     (let ((narg (- minibuffer-history-position n))
 	  (minimum (if minibuffer-default -1 0)))
+      ;; a weird special case here; when in repeat-complex-command, we're
+      ;; trying to edit the top command, and minibuffer-history-position
+      ;; points to 1, the next-to-top command.  in this case, the top
+      ;; command in the history is suppressed in favor of the one being
+      ;; edited, and there is no more command below it, except maybe the
+      ;; default.
+      (if (and (zerop narg) (eq minibuffer-history-position
+				initial-minibuffer-history-position))
+	  (setq minimum (1+ minimum)))
       (cond ((< narg minimum)
 	     (error (if minibuffer-default
 			"No following item in %s"
@@ -1342,7 +1351,7 @@ If N is negative, find the previous or Nth previous match."
 	  (progn
 	    (insert current-minibuffer-contents)
 	    (goto-char current-minibuffer-point))
-	(let ((elt (if (>= narg 0)
+	(let ((elt (if (> narg 0)
 		       (nth (1- minibuffer-history-position)
 			    (symbol-value minibuffer-history-variable))
 		     minibuffer-default)))
@@ -1660,9 +1669,29 @@ If DEFAULT-VALUE is non-nil, return that if user enters an empty
 				 must-match initial-contents
 				 completer)
   (if (should-use-dialog-box-p)
-      ;; this calls read-file-name-2
-      (mouse-read-file-name-1 history prompt dir default must-match
-			      initial-contents completer)
+      (condition-case nil
+	  (let ((file
+		 (apply #'make-dialog-box
+			'file `(:title ,(capitalize-string-as-title
+					 ;; Kludge: Delete ": " off the end.
+					 (replace-in-string prompt ": $" ""))
+				       ,@(and dir (list :initial-directory
+							dir))
+				       :file-must-exist ,must-match
+				       ,@(and initial-contents
+					      (list :initial-filename
+						    initial-contents))))))
+	    ;; hack -- until we implement reading a directory properly,
+	    ;; allow a file as indicating the directory it's in
+	    (if (and (eq completer 'read-directory-name-internal)
+		     (not (file-directory-p file)))
+		(file-name-directory file)
+	      file))
+	(unimplemented
+	 ;; this calls read-file-name-2
+	 (mouse-read-file-name-1 history prompt dir default must-match
+				 initial-contents completer)
+	 ))
     (add-one-shot-hook
      'minibuffer-setup-hook
      (lambda ()
@@ -1946,13 +1975,8 @@ whether it is a file(/result) or a directory (/result/)."
   ;; a specifier would be nice.
   (set (make-local-variable 'frame-title-format)
        (capitalize-string-as-title
-	;; Delete ": " off the end.  There must be an easier way!
-	(let ((end-pos (length prompt)))
-	  (if (and (> end-pos 0) (eq (aref prompt (1- end-pos)) ? ))
-	      (setq end-pos (1- end-pos)))
-	  (if (and (> end-pos 0) (eq (aref prompt (1- end-pos)) ?:))
-	      (setq end-pos (1- end-pos)))
-	  (substring prompt 0 end-pos))))
+	;; Kludge: Delete ": " off the end.
+	(replace-in-string prompt ": $" "")))
   ;; ensure that killing the frame works right,
   ;; instead of leaving us in the minibuffer.
   (add-local-hook 'delete-frame-hook

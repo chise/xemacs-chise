@@ -668,7 +668,7 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 
 	    if (POINTER_TYPE_P (XTYPE (*pobj))
 		&& ! EQ (*pobj, Qnull_pointer))
-	      XSETOBJ (*pobj, XTYPE (*pobj), (char *) XPNTR (*pobj) + delta);
+	      XSETOBJ (*pobj, (char *) XPNTR (*pobj) + delta);
 
 	    break;
 	  }
@@ -686,7 +686,7 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 
 		if (POINTER_TYPE_P (XTYPE (*pobj))
 		    && ! EQ (*pobj, Qnull_pointer))
-		  XSETOBJ (*pobj, XTYPE (*pobj), (char *) XPNTR (*pobj) + delta);
+		  XSETOBJ (*pobj, (char *) XPNTR (*pobj) + delta);
 	      }
 	    break;
 	  }
@@ -1023,7 +1023,7 @@ static int pdump_load_finish (void)
     {
       Lisp_Object obj = PDUMP_READ (p, Lisp_Object);
       if (POINTER_TYPE_P (XTYPE (obj)))
-	XSETOBJ (obj, XTYPE (obj), (char *) XPNTR (obj) + delta);
+	XSETOBJ (obj, (char *) XPNTR (obj) + delta);
       *staticvec[i] = obj;
     }
 
@@ -1081,7 +1081,7 @@ static int pdump_load_finish (void)
       Lisp_Object  obj = PDUMP_READ (p, Lisp_Object);
 
       if (POINTER_TYPE_P (XTYPE (obj)))
-	XSETOBJ (obj, XTYPE (obj), (char *) XPNTR (obj) + delta);
+	XSETOBJ (obj, (char *) XPNTR (obj) + delta);
 
       *var = obj;
     }
@@ -1103,9 +1103,6 @@ static int pdump_load_finish (void)
 	  p += sizeof (Lisp_Object) * rt.count;
     }
 
-  /* Put back noninteractive1 to its real value */
-  noninteractive1 = noninteractive;
-
   return 1;
 }
 
@@ -1121,11 +1118,11 @@ static void pdump_file_unmap(void)
 static int pdump_file_get(const char *path)
 {
 
-  pdump_hFile = CreateFile (path, 
+  pdump_hFile = CreateFile (path,
 		            GENERIC_READ + GENERIC_WRITE,  /* Required for copy on write */
 			    0,		            /* Not shared */
 			    NULL,		    /* Not inheritable */
-			    OPEN_EXISTING, 
+			    OPEN_EXISTING,
 			    FILE_ATTRIBUTE_NORMAL,
 			    NULL);		    /* No template file */
   if (pdump_hFile == INVALID_HANDLE_VALUE)
@@ -1263,7 +1260,7 @@ static int pdump_file_try(char *exe_path)
 	    return 1;
 	  pdump_free();
 	}
-      
+
       sprintf (w, "-%08x.dmp", dump_id);
       if (pdump_file_get (exe_path))
 	{
@@ -1271,7 +1268,7 @@ static int pdump_file_try(char *exe_path)
 	    return 1;
 	  pdump_free();
 	}
-      
+
       sprintf (w, ".dmp");
       if (pdump_file_get (exe_path))
 	{
@@ -1279,10 +1276,10 @@ static int pdump_file_try(char *exe_path)
 	    return 1;
 	  pdump_free();
 	}
-      
+
       do
 	w--;
-      while (w>exe_path && !IS_DIRECTORY_SEP (*w) && (*w != '-') && (*w != '.'));	
+      while (w>exe_path && !IS_DIRECTORY_SEP (*w) && (*w != '-') && (*w != '.'));
     }
   while (w>exe_path && !IS_DIRECTORY_SEP (*w));
   return 0;
@@ -1292,7 +1289,7 @@ int pdump_load(const char *argv0)
 {
   char exe_path[PATH_MAX];
 #ifdef WIN32_NATIVE
-  GetModuleFileName (NULL, exe_path, PATH_MAX);  
+  GetModuleFileName (NULL, exe_path, PATH_MAX);
 #else /* !WIN32_NATIVE */
   char *w;
   const char *dir, *p;
@@ -1306,7 +1303,7 @@ int pdump_load(const char *argv0)
 
   p = dir + strlen(dir);
   while (p != dir && !IS_ANY_SEP (p[-1])) p--;
-  
+
   if (p != dir)
     {
       /* invocation-name includes a directory component -- presumably it
@@ -1337,12 +1334,12 @@ int pdump_load(const char *argv0)
 	      *w++ = '/';
 	    }
 	  strcpy(w, name);
-	  
+
 	  /* ### #$%$#^$^@%$^#%@$ ! */
 #ifdef access
 #undef access
 #endif
-	  
+
 	  if (!access (exe_path, X_OK))
 	    break;
 	  if (!*p)
@@ -1351,7 +1348,7 @@ int pdump_load(const char *argv0)
 	      sprintf (exe_path, "./%s", name);
 	      break;
 	    }
-	  path = p+1;	    
+	  path = p+1;
 	}
     }
 #endif /* WIN32_NATIVE */

@@ -1,4 +1,4 @@
-.TH XEMACS 1 "1998 January 13"
+.TH XEMACS 1 "2000-09-20"
 .UC 4
 .SH NAME
 xemacs \- Emacs: The Next Generation
@@ -151,7 +151,7 @@ Load no extra files at startup.  Equivalent to the combination of
 ,
 .B \-no-site-file
 , and
-.B \-no-packages
+.B \-no-early-packages
 \.
 .TP
 .BI \-u " user, " \-user " user"
@@ -197,16 +197,13 @@ Exit
 (useful with
 .BR \-batch ).
 .PP
-.SM Using XEmacs with X
+.SM Using XEmacs with X Windows
 .PP
 .I XEmacs
 has been tailored to work well with the X window system.
 If you run
 .I XEmacs
-from under X windows, it will create its own X window to
-display in.  You will probably want to start the editor
-as a background process
-so that you can continue using your original window.
+from under X windows, it will create its own X window to display in.
 .PP
 .I XEmacs
 can be started with the following standard X options:
@@ -223,9 +220,11 @@ for a 24bit TrueColor visual) See
 for more information.
 .TP
 .B -privateColormap
-Require XEmacs to create and use a private colormap for display.  This will keep
-XEmacs from taking colors from the default colormap and keeping them from other
-clients.
+Require XEmacs to create and use a private colormap for display.  This
+will keep XEmacs from taking colors from the default colormap and
+keeping them from other clients, at the cost of causing annoying
+flicker when the focus changes.  Use this option only if your X server
+does not support 24 bit visuals.
 .TP
 .BI \-geometry " ##x##+##+##"
 Specify the geometry of the initial window.  The ##'s represent a number;
@@ -318,7 +317,7 @@ this option.
 .BI \-xrm " argument"
 This allows you to set an arbitrary resource on the command line.
 .I argument
-should be a resource specification, as might as in your
+should be a resource specification, as might be found in your
 .I \.Xresources
 or
 .I \.Xdefaults
@@ -439,7 +438,7 @@ If set to
 .IR on ,
 the window will be displayed in reverse video.  Consider
 explicitly setting the foreground and background colors instead
-of using this resources.
+of using this resource.
 .TP
 .B borderWidth (\fPclass\fB BorderWidth)
 Sets the window's border width in pixels.
@@ -462,7 +461,7 @@ Sets the default visual
 will try to use (as described above).
 .TP
 .B privateColormap (\fPclass\fB PrivateColormap)
-If set, 
+If set,
 .I XEmacs
 will default to using a private colormap.
 .TP
@@ -511,7 +510,7 @@ means no horizontal scrollbars.
 Sets the position of vertical and horizontal scrollbars.   Should be one
 of the strings "top-left", "bottom-left", "top-right", or "bottom-right".
 The default is "bottom-right" for the Motif and Lucid scrollbars and
-"buttom-left" for the Athena scrollbars.
+"bottom-left" for the Athena scrollbars.
 .TP
 .B topToolBarHeight (\fPclass\fB TopToolBarHeight)
 Sets the height of the top toolbar, in pixels.  0 means no top toolbar.
@@ -642,9 +641,6 @@ is included in a convenient tree structured form.
 
 /usr/local/lib/xemacs-$VERSION/info - the Info files may be here instead.
 
-/usr/local/lib/xemacs-$VERSION/src - C source files and object files.
-(May not be present.)
-
 /usr/local/lib/xemacs-$VERSION/lisp/* - Lisp source files and compiled files
 that define most editing commands.  The files are contained in subdirectories,
 categorized by function or individual package.  Some are preloaded;
@@ -661,19 +657,7 @@ contains the documentation strings for the Lisp primitives and
 preloaded Lisp functions of \fIXEmacs\fP.
 They are stored here to reduce the size of \fIXEmacs\fP proper.
 
-.br
-/usr/local/lib/xemacs-$VERSION/etc/SERVICE - lists people offering
-various services to assist users of \fIXEmacs\fP,
-including education, troubleshooting, porting and customization.
-
-/usr/local/lib/xemacs/lock - holds lock files that are made for all
-files being modified in
-.IR XEmacs ,
-to prevent simultaneous modification of one file by two users.
-
 /usr/local/lib/xemacs/site-lisp - locally-provided Lisp files.
-
-/usr/lib/X11/rgb.txt - list of valid X color names.
 .PP
 .SH BUGS AND HELP
 There is a newsgroup, comp.emacs.xemacs, for reporting

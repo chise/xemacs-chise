@@ -218,77 +218,73 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
   int  ldap_sizelimit = 0;
   int  err;
 
-  Lisp_Object list, keyword, value;
-
   CHECK_STRING (host);
 
-  EXTERNAL_PROPERTY_LIST_LOOP (list, keyword, value, plist)
-    {
-      /* TCP Port */
-      if (EQ (keyword, Qport))
-        {
-          CHECK_INT (value);
-          ldap_port = XINT (value);
-        }
-      /* Authentication method */
-      if (EQ (keyword, Qauth))
-        {
-          if (EQ (value, Qsimple))
-            ldap_auth = LDAP_AUTH_SIMPLE;
+  {
+    EXTERNAL_PROPERTY_LIST_LOOP_3 (keyword, value, plist)
+      {
+	/* TCP Port */
+	if (EQ (keyword, Qport))
+	  {
+	    CHECK_INT (value);
+	    ldap_port = XINT (value);
+	  }
+	/* Authentication method */
+	if (EQ (keyword, Qauth))
+	  {
+	    if (EQ (value, Qsimple))
+	      ldap_auth = LDAP_AUTH_SIMPLE;
 #ifdef LDAP_AUTH_KRBV41
-          else if (EQ (value, Qkrbv41))
-            ldap_auth = LDAP_AUTH_KRBV41;
+	    else if (EQ (value, Qkrbv41))
+	      ldap_auth = LDAP_AUTH_KRBV41;
 #endif
 #ifdef LDAP_AUTH_KRBV42
-          else if (EQ (value, Qkrbv42))
-            ldap_auth = LDAP_AUTH_KRBV42;
+	    else if (EQ (value, Qkrbv42))
+	      ldap_auth = LDAP_AUTH_KRBV42;
 #endif
-          else
-            signal_simple_error ("Invalid authentication method", value);
-        }
-      /* Bind DN */
-      else if (EQ (keyword, Qbinddn))
-        {
-          CHECK_STRING (value);
-	  TO_EXTERNAL_FORMAT (LISP_STRING, value,
-			      C_STRING_ALLOCA, ldap_binddn,
-			      Qnative);
-        }
-      /* Password */
-      else if (EQ (keyword, Qpasswd))
-        {
-          CHECK_STRING (value);
-	  TO_EXTERNAL_FORMAT (LISP_STRING, value,
-			      C_STRING_ALLOCA, ldap_passwd,
-			      Qnative);
-        }
-      /* Deref */
-      else if (EQ (keyword, Qderef))
-        {
-          if (EQ (value, Qnever))
-            ldap_deref = LDAP_DEREF_NEVER;
-          else if (EQ (value, Qsearch))
-            ldap_deref = LDAP_DEREF_SEARCHING;
-          else if (EQ (value, Qfind))
-            ldap_deref = LDAP_DEREF_FINDING;
-          else if (EQ (value, Qalways))
-            ldap_deref = LDAP_DEREF_ALWAYS;
-          else
-            signal_simple_error ("Invalid deref value", value);
-        }
-      /* Timelimit */
-      else if (EQ (keyword, Qtimelimit))
-        {
-          CHECK_INT (value);
-          ldap_timelimit = XINT (value);
-        }
-      /* Sizelimit */
-      else if (EQ (keyword, Qsizelimit))
-        {
-          CHECK_INT (value);
-          ldap_sizelimit = XINT (value);
-        }
-    }
+	    else
+	      signal_simple_error ("Invalid authentication method", value);
+	  }
+	/* Bind DN */
+	else if (EQ (keyword, Qbinddn))
+	  {
+	    CHECK_STRING (value);
+	    LISP_STRING_TO_EXTERNAL (value, ldap_binddn, Qnative);
+	  }
+	/* Password */
+	else if (EQ (keyword, Qpasswd))
+	  {
+	    CHECK_STRING (value);
+	    LISP_STRING_TO_EXTERNAL (value, ldap_passwd, Qnative);
+	  }
+	/* Deref */
+	else if (EQ (keyword, Qderef))
+	  {
+	    if (EQ (value, Qnever))
+	      ldap_deref = LDAP_DEREF_NEVER;
+	    else if (EQ (value, Qsearch))
+	      ldap_deref = LDAP_DEREF_SEARCHING;
+	    else if (EQ (value, Qfind))
+	      ldap_deref = LDAP_DEREF_FINDING;
+	    else if (EQ (value, Qalways))
+	      ldap_deref = LDAP_DEREF_ALWAYS;
+	    else
+	      signal_simple_error ("Invalid deref value", value);
+	  }
+	/* Timelimit */
+	else if (EQ (keyword, Qtimelimit))
+	  {
+	    CHECK_INT (value);
+	    ldap_timelimit = XINT (value);
+	  }
+	/* Sizelimit */
+	else if (EQ (keyword, Qsizelimit))
+	  {
+	    CHECK_INT (value);
+	    ldap_sizelimit = XINT (value);
+	  }
+      }
+  }
 
   if (ldap_port == 0)
     {
@@ -297,7 +293,7 @@ the LDAP library XEmacs was compiled with: `simple', `krbv41' and `krbv42'.
 
   /* Connect to the server and bind */
   slow_down_interrupts ();
-  ld = ldap_open ((char *)XSTRING_DATA (host), ldap_port);
+  ld = ldap_open ((char *) XSTRING_DATA (host), ldap_port);
   speed_up_interrupts ();
 
   if (ld == NULL )
@@ -477,9 +473,7 @@ entry according to the value of WITHDN.
 	{
 	  Lisp_Object current = XCAR (attrs);
 	  CHECK_STRING (current);
-	  TO_EXTERNAL_FORMAT (LISP_STRING, current,
-			      C_STRING_ALLOCA, ldap_attributes[i],
-			      Qnative);
+	  LISP_STRING_TO_EXTERNAL (current, ldap_attributes[i], Qnative);
 	  ++i;
 	}
       ldap_attributes[i] = NULL;
@@ -638,9 +632,7 @@ containing attribute/value string pairs.
       CHECK_CONS (current);
       CHECK_STRING (XCAR (current));
       ldap_mods_ptrs[i] = &(ldap_mods[i]);
-      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (current),
-			  C_STRING_ALLOCA, ldap_mods[i].mod_type,
-			  Qnative);
+      LISP_STRING_TO_EXTERNAL (XCAR (current), ldap_mods[i].mod_type, Qnative);
       ldap_mods[i].mod_op = LDAP_MOD_ADD | LDAP_MOD_BVALUES;
       values = XCDR (current);
       if (CONSP (values))
@@ -746,9 +738,7 @@ or `replace'. ATTR is the LDAP attribute type to modify.
         signal_simple_error ("Invalid LDAP modification type", mod_op);
       current = XCDR (current);
       CHECK_STRING (XCAR (current));
-      TO_EXTERNAL_FORMAT (LISP_STRING, XCAR (current),
-			  C_STRING_ALLOCA, ldap_mods[i].mod_type,
-			  Qnative);
+      LISP_STRING_TO_EXTERNAL (XCAR (current), ldap_mods[i].mod_type, Qnative);
       values = XCDR (current);
       len = XINT (Flength (values));
       bervals = alloca_array (struct berval, len);

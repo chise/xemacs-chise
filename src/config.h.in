@@ -73,13 +73,13 @@ char *alloca ();
 #undef INFODOCK_MINOR_VERSION
 #undef INFODOCK_BUILD_VERSION
 
-/* Make all functions from all IEEE Stds 1003.[123] available. */
+/* Make functions from IEEE Stds 1003.[123] available. */
 #undef _POSIX_C_SOURCE
 
-/* Make all functions from Unix98 available. */
+/* Make some functions from Unix98 available. */
 #undef _XOPEN_SOURCE
 
-/* Make extensions from Unix98 available. */
+/* Make "extensions" from Unix98 available. */
 #undef _XOPEN_SOURCE_EXTENDED
 
 /* Make all functions available on AIX.  See AC_AIX. */
@@ -181,6 +181,8 @@ char *alloca ();
 
 #undef HAVE_XCONVERTCASE
 
+#undef HAVE_BALLOON_HELP
+
 /* Where do we find bitmaps? */
 #undef BITMAPDIR
 
@@ -210,7 +212,6 @@ char *alloca ();
 #undef HAVE_MACH_MACH_H
 #undef HAVE_SYS_PARAM_H
 #undef HAVE_SYS_PSTAT_H
-#undef HAVE_SYS_STROPTS_H
 #undef HAVE_SYS_TIME_H
 #undef HAVE_SYS_TIMEB_H
 #undef HAVE_SYS_UN_H
@@ -225,7 +226,6 @@ char *alloca ();
 #undef TIME_WITH_SYS_TIME
 #undef WORDS_BIGENDIAN
 #undef HAVE_VFORK_H
-#undef HAVE_KSTAT_H
 #undef vfork
 
 #undef HAVE_LONG_FILE_NAMES
@@ -242,7 +242,6 @@ char *alloca ();
 #undef HAVE_SHLIB
 #undef HAVE_DLFCN_H
 
-#undef HAVE_LIBKSTAT
 #undef HAVE_LIBINTL
 #undef HAVE_LIBDNET
 #undef HAVE_LIBRESOLV
@@ -260,6 +259,13 @@ char *alloca ();
 #undef TM_IN_SYS_TIME
 #undef HAVE_TM_ZONE
 #undef HAVE_TZNAME
+
+/* For `getloadavg' provided by system */
+#undef HAVE_GETLOADAVG
+#undef HAVE_SYS_LOADAVG_H
+/* For implementing `getloadavg' ourselves */
+#undef HAVE_LIBKSTAT
+#undef HAVE_KSTAT_H
 
 /* Is `h_errno' declared by <netdb.h>? */
 #undef HAVE_H_ERRNO
@@ -292,7 +298,6 @@ char *alloca ();
 #undef HAVE_GETTIMEOFDAY
 #undef HAVE_GETWD
 #undef HAVE_GETCWD
-#undef HAVE_GETPT
 #undef HAVE_LOGB
 #undef HAVE_LRAND48
 #undef HAVE_MATHERR
@@ -316,7 +321,6 @@ char *alloca ();
 #undef HAVE_SIGSETJMP
 #undef HAVE_SNPRINTF
 #undef HAVE_STPCPY
-#undef HAVE_STRCASECMP
 #undef HAVE_STRERROR
 #undef HAVE_TZSET
 #undef HAVE_ULIMIT
@@ -324,6 +328,22 @@ char *alloca ();
 #undef HAVE_UTIMES
 #undef HAVE_WAITPID
 #undef HAVE_VSNPRINTF
+
+/* PTY support functions */
+#undef HAVE_GETPT	/* glibc's easy pty allocation function */
+#undef HAVE__GETPT	/*   SGI's easy pty allocation function */
+#undef HAVE_OPENPTY	/*   BSD's easy pty allocation function */
+#undef HAVE_GRANTPT	/* Unix98 */
+#undef HAVE_UNLOCKPT	/* Unix98 */
+#undef HAVE_PTSNAME	/* Unix98 */
+#undef HAVE_KILLPG	/* BSD */
+#undef HAVE_TCGETPGRP	/* Posix 1 */
+#undef HAVE_ISASTREAM	/* SysV streams */
+#undef HAVE_PTY_H	/* Linux, Tru64 openpty */
+#undef HAVE_LIBUTIL_H	/* BSD openpty */
+#undef HAVE_SYS_STROPTS_H /* SysV streams */
+#undef HAVE_SYS_STRTIO_H  /* SysV streams TIOCSIGNAL */
+
 #undef HAVE_SOCKETS
 #undef HAVE_SOCKADDR_SUN_LEN
 #undef HAVE_MULTICAST
@@ -571,31 +591,28 @@ char *alloca ();
    definitions isn't right with 64-bit systems.  */
 #undef USE_UNION_TYPE
 
-/* The configuration script defines opsysfile to be the name of the
-   s/...h file that describes the system type you are using.
-   The file is chosen based on the configuration name you give.
-
-   See the file ../etc/MACHINES for a list of systems and the
-   configuration names to use for them.
-
-   See s/template.h for documentation on writing s/...h files. */
+/* The configuration script may define `opsysfile' to be the name of
+   the s/...h file that describes your operating system.
+   The file name is chosen based on the configuration name. */
 
 #if defined (__cplusplus) && !defined (NOT_C_CODE)
 extern "C" {
 #endif
+
 #undef config_opsysfile
+#ifdef config_opsysfile
 #include config_opsysfile
+#endif
 
-/* The configuration script defines machfile to be the name of the
-   m/...h file that describes the machine you are using.  The file is
-   chosen based on the configuration name you give.
+/* The configuration script may define `machfile' to be the name of
+   the m/...h file that describes the machine you are using.
+   The file name is chosen based on the configuration name. */
 
-   See the file ../etc/MACHINES for a list of machines and the
-   configuration names to use for them.
-
-   See m/template.h for documentation on writing m/...h files. */
 #undef config_machfile
+#ifdef config_machfile
 #include config_machfile
+#endif
+
 #if defined (__cplusplus) && !defined (NOT_C_CODE)
 }
 #endif

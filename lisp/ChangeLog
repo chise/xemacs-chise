@@ -1,3 +1,642 @@
+2000-10-04  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.36 is released.
+
+2000-09-22  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-lapcode): Add an optimizer pass.
+	Optimize the compiled-function-constants vector by byte-code
+	reference counts.
+
+2000-09-25  Robert Pluim  <rpluim@bigfoot.com>
+
+	* build-report.el (build-report-delete-regexp): quote value in
+	defcustom
+
+2000-09-24  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* build-report.el (build-report): Don't bind srcdir which we don't
+	use in `multiple-value-bind' to avoid the only byte-compiler
+	warning.
+
+2000-09-23  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* build-report.el: Requires cl and custom now.
+	build-report-version is determined by XEmacs version -- remove
+	build-report-version*.
+	* build-report.el (build-report-version): Removed.
+	* build-report.el (build-report-installation-version-regexp): New.
+	* build-report.el (build-report-version-file-regexp): New.
+	* build-report.el (build-report-installation-srcdir-regexp): New.
+	* build-report.el (build-report-destination): Offer
+	xemacs-build-reports and xemacs-beta.
+	* build-report.el (build-report-keep-regexp): Adjusted.
+	* build-report.el (build-report-delete-regexp): Adjusted.
+	* build-report.el (build-report-make-output-dir): New.
+	* build-report.el (build-report-installation-file): Replace use of
+	`concat' with `expand-file-name'.
+	* build-report.el (build-report-make-output-file): Removed.
+	* build-report.el (build-report-make-output-files): New.
+	* build-report.el (build-report-subject): Identify as
+	user-variable with "*...".
+	* build-report.el (build-report-prompts): Ditto.
+	* build-report.el (build-report-version-file): New.
+	* build-report.el (build-report-file-encoding): Identify as
+	user-variable with "*...".
+	* build-report.el (build-report-make-output-get): New.
+	* build-report.el (build-report-insert-header): Report
+	emacs-version and system-configuration instead of
+	build-report-version.
+	* build-report.el (build-report-insert-make-output): Add file
+	argument.
+	* build-report.el (build-report-insert-installation-file):
+	Re-indent.
+	* build-report.el (build-report-keep): Change docstring,
+	re-indent.
+	* build-report.el (build-report-delete): Ditto.
+	* build-report.el (build-report-installation-data): New.
+	* build-report.el (build-report-version-file-data): New.
+
+2000-09-20  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-lapcode):
+	Fix the optimization of using the first 5 elements of the
+	constants vector for variables.
+	(byte-optimize-lapcode): Fix another ancient broken optimization.
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* *: Spelling mega-patch
+
+2000-09-19  Martin Buchholz  <martin@xemacs.org>
+
+	* easymenu.el: doc fixes.
+	(easy-menu-do-define): Use backquote.
+	(easy-menu-change): 
+	(easy-menu-add): 
+	`when' seems much clearer than `if' here.
+	(easy-menu-remove):
+	(easy-menu-add-item): 
+	(easy-menu-item-present-p): 
+	(easy-menu-remove-item): 
+	Wrap using (when (featurep 'menubar) ...)
+
+2000-09-16  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecomp.el (displaying-byte-compile-warnings):
+	Revert Ben's change to this function below so that the compile log
+	is displayed properly for users of the "popper" package.
+
+2000-09-12  Martin Buchholz  <martin@xemacs.org>
+
+	* window.el (save-selected-window): Use backquote.
+
+	* bytecomp.el (byte-compile-file-form-defvar-or-defconst): 
+	Renamed from `byte-compile-file-form-defvar'.
+	* bytecomp.el (byte-compile-defvar-or-defconst):
+	Only cons onto current-load-list in top-level forms.
+	Else this leaks a cons cell every time a defun is called.
+	Renamed from `byte-compile-defvar', for clarity.
+	Warn when docstring of defvar is not a string.
+	Use consistent error messages.
+	Better comments.
+
+2000-09-11  Martin Buchholz  <martin@xemacs.org>
+
+	* simple.el (set-variable):
+	Remove unneeded defvar by rearranging order of let* forms.
+
+	* mule/mule-ccl.el (ccl-get-next-code):
+	* menubar-items.el (bookmark-menu-filter): 
+	(language-environment-menu-filter): 
+	(tutorials-menu-filter): 
+	* toolbar-items.el (toolbar-compile):
+	* byte-optimize.el (disassemble-offset):
+	Use (declare (special ...)) instead of `defvar'.
+
+	* cl-macs.el (cl-do-proclaim):
+	Fix (declare (special ...)) warning suppression syntax.
+
+2000-07-22  Golubev I. N. <gin@mo.msk.ru>
+
+	* info.el (Info-tag-table-marker):
+	(Info-tag-table-buffer):
+	(Info-find-file-node):
+	(Info-read-subfile):
+	(Info-build-node-completions):
+	(Info-search):
+	(Info-mode):
+	Multiple info buffer support.
+
+2000-08-28  Oscar Figueiredo  <oscar@cpe.fr>
+
+	* ldap.el (ldap-decode-entry): New defun
+	(ldap-search-entries): Use it in order to decode DN-prefixed
+	entries properly
+
+2000-08-23  Daniel Pittman <daniel@danann.net>
+
+	* mule/mule-cmds.el (coding-system-change-eol-conversion):
+	Use `eq', not `=', to compare symbols.
+
+2000-07-30  Ben Wing  <ben@xemacs.org>
+
+	* bytecomp.el (byte-compile-report-error):
+	* bytecomp.el (displaying-byte-compile-warnings):
+	if stack-trace-on-error is set, send out a backtrace when
+	an error is encountered that stops byte compilation.  this
+	should make it much much easier to track down those curious
+	problems.  also undo the kludge of using a separate "*Show*"
+	buffer for display when there's a temp-buffer-show-function;
+	we can avoid this by just being a little smarter.
+	
+	* dialog-items.el:
+	* dialog-items.el (search-dialog-regexp): New.
+	* dialog-items.el (search-dialog-callback):
+	* dialog-items.el (make-search-dialog):
+	add a regexp option to the dialog and clean up a bit.
+	
+	* dialog.el:
+	* dialog.el (yes-or-no-p-dialog-box):
+	* dialog.el (get-dialog-box-response):
+	* dialog.el (make-dialog-box):
+	* dialog.el (dialog-box-finish): New.
+	* dialog.el (dialog-box-cancel): New.
+	* dialog.el (internal-make-dialog-box-exit): New.
+	implement [properly!] the :modal property of the new dialog box
+	interface.  this is the first time xemacs has ever had *proper*
+	modal dialog boxes, giving the standard window-system feedback.
+	(e.g. under windows, clicking on a disabled frame causes a beep
+	and makes the dialog box flash three times.)
+	
+	* dragdrop.el: header keyword frobbing.
+	
+	* dumped-lisp.el (preloaded-file-list):
+	renamed winnt.el to win32-native.el.
+	
+	* faces.el (face-property):
+	* faces.el (set-face-property):
+	* faces.el (frob-face-property):
+	* faces.el (frob-face-font-2):
+	* faces.el (make-face-bold):
+	* faces.el (make-face-italic):
+	* faces.el (make-face-bold-italic):
+	* faces.el (make-face-unbold):
+	* faces.el (make-face-unitalic):
+	* faces.el (make-face-smaller):
+	* faces.el (make-face-larger):
+	clean up the implementation of these so that window-system-specific
+	methods are called only on objects belonging to that window system.
+	previously, you could have [e.g.] mswindows-make-face-bold called
+	on font object of device type `stream', which is not good and
+	explains the subtle errors Adrian was getting when byte-compiling
+	something that required 'term. (Adrian, now you can use stack-trace-
+	on-error to find the exact place where things are going wrong instead
+	of having to laboriously binary-search your way through.)
+	
+	* finder.el (finder-known-keywords):
+	cleaned up -- properly sorted, clarified the meanings of many of
+	the keywords, and added a few -- mswin, gui, content, build, www,
+	user, services.  the last two try to distinguish between a package
+	that's used directly by the user, and a package that provides
+	support services to other packages.
+	
+	* font-lock.el (lisp-font-lock-keywords-2):
+	update list of lisp control structures to include everything,
+	including new ones i introduced.
+	
+	* gutter.el: header keyword frobbing.
+	
+	* isearch-mode.el (isearch-ring-adjust1): M-p to recall the most
+	recent isearch element was not doing so!  you got the second-most-
+	recent instead.
+
+	* lisp-mode.el (construct-lisp-mode-menu):
+	more menubar cleanups.
+	* lisp-mode.el (with-selected-window):
+	make it indent properly.
+	
+	* menubar-items.el (default-menubar): lots of menubar cleanups.
+	rearranged the options menu the most, e.g. splitting up the
+	Keyboard/Mouse menu into a new Editing menu and combining the
+	separate Scrollbar/Gutter/Toolbar submenus into Display.
+	Got rid of General, moved items to Editing or new Troubleshooting.
+	Moved Packages to Tools; doesn't seem to belong under Options.
+	Added stuff to the Cmds menu, e.g. Change Case.
+
+	NB please don't complain about these periodic menubar changes.
+	Anything like this is necessarily incremental in its construction
+	-- By constant use you gradually become more and more aware of
+	better and better ways to group menu items.  When we eventually
+	move the options menu to a property sheet, the existing structure
+	will probably be preserved fairly well.
+	
+	* minibuf.el (next-history-element): fix problems with pressing
+	down arrow in repeat-complex-command.
+
+	* modeline.el:
+	* modeline.el (modeline-3d-p): New.
+	added custom variable for controlling the 3d modeline.  the
+	corresponding Options item has been present for a long time,
+	but commented out with "fix me!" comments.  it's fixed now.
+	
+	* obsolete.el (add-menu):
+	remove bogus gettexts.
+	
+	* process.el (shell-quote-argument):
+	handle this correctly under Windows native with COMMAND.COM/CMD.EXE.
+	For bash under Windows native, see below.
+	
+	* simple.el:
+	* simple.el (display-warning-buffer):
+	Fixed the handling of warning display to eliminate the annoying
+	*Show* buffer, like was done for byte-compiler output above.
+	
+	* simple.el (debug-print): New.
+	Simple function for sending debug messages to the console and/or
+	other debug places.
+
+	* subr.el (replace-in-string):
+	Rewrite this function to avoid N^2 behavior with large strings --
+	catastrophic with the new Windows selection code! (Apparently the
+	author of this function didn't realize there was a fun
+	replace-match that could make his life much easier, because we
+	duplicated the entire logic.  The new version is smaller, easier
+	to understand, much more robust, and has extended features --
+	those of replace-match.)
+	
+	* window.el:
+	* window.el (with-selected-window): New.
+	An obvious complement to the existing `with-selected-frame' and
+	`with-current-buffer'.
+
+	* win32-native.el: Renamed from winnt.el.
+	Added a great deal of stuff for properly handling process quoting,
+	somewhat modeled on Kirill's original model (which i later threw
+	away).  We should now finally have correctly working process arg
+	quoting/dequoting so that the final app gets exactly what we
+	intended.  Because the mechanism is in Lisp, it's easily
+	extendible. (For those running bash and running the native
+	version, I tried hard to do what I thought was correct.  But more
+	thought is needed, and ideally the volunteer work of people with
+	these configurations that they generally run on.)
+	
+	* x-font-menu.el (x-font-menu-font-data):
+	Put in defvar's to fix byte-compiler warnings.
+
+2000-08-01 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.el (selection-coercion-alist): Initialise.
+	* select.el (select-coerce-to-text): New.
+	* select.el (select-coerce): New.
+	New functions to perform type and value coercion.
+
+	* select.el (select-buffer-killed-default): Keep data if it was
+	on the clipboard.
+
+2000-08-02  Martin Buchholz  <martin@xemacs.org>
+
+	* menubar-items.el (default-menubar): Fix typo.
+	(default-menubar): `lambda' was mispelled as `lamda'.
+
+2000-07-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* window.el (shrink-window-if-larger-than-buffer): Remove
+	edge checking code.
+
+2000-07-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* paths.el (gnus-local-domain): Removed.
+	(gnus-local-organization): Ditto.
+	(gnus-startup-file): Ditto.
+
+2000-07-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* files.el (auto-mode-alist): Add .spec for RPM.
+
+2000-07-31  Andy Piper  <andy@xemacs.org>
+	
+	* gutter-items.el (update-tab-in-gutter): deprecate :properties.
+
+2000-07-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* dragdrop.el (experimental-dragdrop-drop-url-default): Use function
+	browse-url.
+	* help.el (xemacs-www-page): Ditto.
+	(xemacs-www-faq): Ditto.
+	* menubar-items.el (default-menubar): Ditto.
+
+	* wid-edit.el (widget-url-link-action): Ditto.
+	From: Kenichi OKADA <okada@opaopa.org>.
+
+2000-07-31  Martin Buchholz  <martin@xemacs.org>
+
+	* finder.el (finder-commentary): Add autoload cookie.
+
+2000-07-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* files.el (insert-file-contents-literally): Fix second let
+	binding for `coding-system-for-read' to `coding-system-for-write'
+	as suggested by Dan Holmsand <dan@innehallsbolaget.com>.
+
+1999-06-15  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* files.el (insert-file-contents-literally): Use binary coding
+	system (from Morioka san).
+	(insert-file-contents-literally): Make file-name-handler method.
+
+2000-07-26  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-macs.el (get-selection): Add defsetf.
+
+2000-07-25  Steve Youngs  <youngs_s@ozlinx.com.au>
+
+	* x-init.el (x-activate-region-as-selection): replace obsolete
+	function x-own-selection with own-selection.
+	(ow-find): replace obsolete functions x-get-selection and
+	x-get-clipboard with get-selection and get-clipboard.
+	(init-post-x-win): replace obsolete function x-disown-selection
+	with disown-selection.
+
+2000-07-20  Mike Sperber  <mike@xemacs.org>
+
+	* startup.el (load-user-init-file): Only try to load init file if
+	it exists.
+
+2000-07-10  Andy Piper  <andy@xemacs.org>
+
+	* dialog-items.el: sync with Ben's patch.
+	
+	* gutter-items.el (buffers-tab-switch-to-buffer): remove now-bogus
+	comment.
+	(progress-text-glyph): deleted.
+	(progress-layout-glyph): make completely minimal.
+	(progress-gauge-glyph): ditto.
+	(progress-display-style): fix to handle dynamic instantiator
+	changes.
+	(progress-text-instantiator): new.
+	(progress-layout-instantiator): new.
+	(progress-gauge-instantiator): new.
+	(set-progress-display-instantiator): renamed and changed from
+	set-progress-display-style.
+	(progress-abort-glyph): use instantiator not glyph.
+	(append-progress-display): use set-progress-display-instantiator
+	and set-glyph-image.
+	(abort-progress-display): ditto.
+	(raw-append-progress-display): ditto.
+
+2000-07-20  Ben Wing  <ben@xemacs.org>
+
+	* code-files.el: Move Mule-specific code to mule-coding.el.
+
+2000-07-15  Ben Wing  <ben@xemacs.org>
+
+        * autoload.el:
+        Fixed comments.
+
+        * cmdloop.el:
+        * cmdloop.el (yes-or-no-p):
+        * cmdloop.el (y-or-n-p):
+        Make these functions use should-use-dialog-box-p and not be
+        overridden in dialog.el.
+
+        * cus-dep.el:
+        * cus-dep.el (Custom-make-dependencies): Removed.
+        * cus-dep.el (Custom-make-dependencies-1): New.
+        * cus-dep.el (Custom-make-one-dependency): New.
+        New entry point for use in Makefiles, to avoid excessive
+        invocations.
+
+        * cus-edit.el (custom-variable-reset-saved):
+        * cus-edit.el (custom-variable-reset-standard):
+        * cus-edit.el (custom-save-resets):
+        Fix bytecompiler warnings.
+
+        * dialog.el:
+        * dialog.el (yes-or-no-p-dialog-box):
+        * dialog.el (yes-or-no-p-maybe-dialog-box): Removed.
+        * dialog.el (y-or-n-p-maybe-dialog-box): Removed.
+        * dialog.el (get-dialog-box-response):
+        * dialog.el (message-or-box):
+        * dialog.el (make-dialog-box):
+        * dialog.el (popup-dialog-box): New.
+        Avoid yes-or-no-p bogosities.
+        Create a general function `make-dialog-box' to encapsulate all
+        dialog box methods; easily extendible.  popup-dialog-box now obsolete.
+
+        * dumped-lisp.el (preloaded-file-list):
+        Add dialog-items.  Clean up.  Group files by types.
+
+        * easymenu.el (easy-menu-add):
+        * easymenu.el (easy-menu-remove):
+        Account for accelerators.
+
+        * extents.el:
+        * extents.el (extent-list): New args, like in map-extents.
+        * extents.el (extent-at-event): New.
+        * extents.el (extents-at-event): New.
+
+        * font-lock.el:
+        * font-lock.el (font-lock-mode):
+        * font-lock.el (font-lock-default-fontify-buffer):
+        * font-lock.el (font-lock-default-unfontify-region):
+        * font-lock.el (font-lock-fontify-syntactically-region):
+        * font-lock.el (font-lock-fontify-keywords-region):
+        Use new progress-feedback names.
+
+        * font-lock.el (java-font-lock-identifier-regexp):
+        * font-lock.el (java-font-lock-class-name-regexp):
+        Fix bytecompiler warnings.
+
+        * gutter-items.el:
+        * gutter-items.el (progress-display-use-echo-area): Removed.
+        * gutter-items.el (progress-feedback-use-echo-area): New.
+        * gutter-items.el (progress-display-popup-period): Removed.
+        * gutter-items.el (progress-feedback-popup-period): New.
+        * gutter-items.el (set-progress-display-style): Removed.
+        * gutter-items.el (set-progress-feedback-style): New.
+        * gutter-items.el (progress-display-style): Removed.
+        * gutter-items.el (progress-feedback-style): New.
+        * gutter-items.el (progress-stack):
+        * gutter-items.el (progress-displayed-p): Removed.
+        * gutter-items.el (progress-feedbacked-p): New.
+        * gutter-items.el (clear-progress-display): Removed.
+        * gutter-items.el (clear-progress-feedback): New.
+        * gutter-items.el (progress-display-clear-when-idle): Removed.
+        * gutter-items.el (progress-feedback-clear-when-idle): New.
+        * gutter-items.el (remove-progress-display): Removed.
+        * gutter-items.el (remove-progress-feedback): New.
+        * gutter-items.el (progress-display-dispatch-non-command-events): Removed.
+        * gutter-items.el (progress-feedback-dispatch-non-command-events): New.
+        * gutter-items.el (append-progress-display): Removed.
+        * gutter-items.el (append-progress-feedback): New.
+        * gutter-items.el (abort-progress-display): Removed.
+        * gutter-items.el (abort-progress-feedback): New.
+        * gutter-items.el (raw-append-progress-display): Removed.
+        * gutter-items.el (raw-append-progress-feedback): New.
+        * gutter-items.el (display-progress-display): Removed.
+        * gutter-items.el (display-progress-feedback): New.
+        * gutter-items.el (current-progress-display): Removed.
+        * gutter-items.el (current-progress-feedback): New.
+        * gutter-items.el (current-progress-display-label): Removed.
+        * gutter-items.el (current-progress-feedback-label): New.
+        * gutter-items.el (progress-display): Removed.
+        * gutter-items.el (progress-feedback): New.
+        Replace "progress-display" with "progress-feedback" globally.
+
+        * gutter-items.el (lprogress-display): Removed.
+        * gutter-items.el (progress-feedback-with-label): New.
+        Rename lprogress-display ==> progress-feedback-with-label.
+
+        * gutter-items.el (search-dialog-direction): Removed.
+        * gutter-items.el (search-dialog-text): Removed.
+        * gutter-items.el (search-dialog-callback): Removed.
+        * gutter-items.el (make-search-dialog): Removed.
+        Move to dialog-items.el.
+
+        * help.el:
+        * help.el (help-mode-quit):
+        * help.el (mode-for-help): New.
+        * help.el (help-sticky-window): New.
+        * help.el (help-window-config): New.
+        * help.el (with-displaying-help-buffer):
+        * help.el (function-at-event): New.
+        * help.el (help-symbol-regexp): New.
+        * help.el (help-symbol-run-function-1): New.
+        * help.el (help-symbol-run-function): New.
+        * help.el (help-symbol-function-context-menu): New.
+        * help.el (help-symbol-variable-context-menu): New.
+        * help.el (help-symbol-function-and-variable-context-menu): New.
+        * help.el (frob-help-extents): New.
+        * help.el (describe-function-1):
+        * help.el (variable-at-point):
+        * help.el (variable-at-event): New.
+        * help.el (describe-variable):
+        Major overhaul.  
+        - Make functions and variables be mousable.  
+        - Middle button hyperlinks.  
+        - New context-menu entries.
+
+        * keydefs.el:
+        * keydefs.el (global-map): 
+        New key bindings to move lines up and down.
+
+        * lisp-mode.el:
+        * lisp-mode.el (construct-lisp-mode-menu): New.
+        * lisp-mode.el (emacs-lisp-mode-popup-menu):
+        * lisp-mode.el (lisp-interaction-mode-menubar-menu):
+        * lisp-mode.el (emacs-lisp-mode-menubar-menu):
+        * lisp-mode.el (lisp-indent-function): Indent "flet" entries better.
+        Make popup and menubar menus be different.  Popup menu uses
+        clicked location and automatically assumes symbol under the mouse
+        for various commands.
+
+        * menubar-items.el:
+        * menubar-items.el (bookmark-menu-filter): Add accelerators.
+        * menubar-items.el (buffers-menu-omit-chars-list): Include 'd'.
+
+        * menubar-items.el (global-popup-menu): Removed.
+        * menubar-items.el (mode-popup-menu): Removed.
+        * menubar-items.el (activate-popup-menu-hook): Removed.
+        * menubar-items.el (popup-mode-menu): Removed.
+        * menubar-items.el (popup-buffer-menu): Removed.
+        * menubar-items.el (popup-menubar-menu): Removed.
+        Move to menubar.el.
+        
+        * menubar.el:
+        * menubar.el (global-popup-menu): New.
+        * menubar.el (mode-popup-menu): New.
+        * menubar.el (activate-popup-menu-hook): New.
+        * menubar.el (last-popup-menu-event): New.
+        * menubar.el (popup-mode-menu): New.
+        * menubar.el (popup-buffer-menu): New.
+        * menubar.el (popup-menubar-menu): New.
+        * menubar.el (menu-call-at-event): New.
+        Move non-content functions here.  Add support for context menu
+        items on extents.
+
+        * minibuf.el (minibuffer-history-uniquify): 
+        Typo fix.
+
+        * minibuf.el (read-file-name-1): 
+        Call new file dialog box if it exists.
+
+        * minibuf.el (mouse-rfn-setup-vars):
+        Clean up "chop" action.
+
+        * mouse.el:
+        * mouse.el (button2): Now bound to mouse-track.
+        * mouse.el (click-inside-extent-p):
+        * mouse.el (point-inside-extent-p):
+        * mouse.el (point-inside-selection-p):
+        * mouse.el (mouse-drag-or-yank): Removed.
+        * mouse.el (mouse-begin-drag-n-drop): New.
+        * mouse.el (mouse-eval-sexp):
+        * mouse.el (mouse-track-activate-strokes): New.
+        * mouse.el (mouse-track-do-activate): New.
+        * mouse.el (mouse-track):
+        * mouse.el (default-mouse-track-event-is-with-button): New.
+        * mouse.el (default-mouse-track-cleanup-hook):
+        * mouse.el (default-mouse-track-drag-hook):
+        * mouse.el (default-mouse-track-drag-up-hook):
+        * mouse.el (default-mouse-track-click-hook):
+        Merge drag-n-drop into mouse-track.
+        Add general "activate" support to replace specific button2 kludges.
+        Use "button modifier" support in mouse-track.
+
+        * package-get.el (package-get-dependencies): Fix bytecompiler warnings.
+
+        * package-ui.el:
+        * package-ui.el (pui-menu):
+        * package-ui.el (pui-popup-context-sensitive): Removed.
+        Fix bytecompiler warnings.
+        Clean up popup code a bit.
+
+        * select.el (get-selection-no-error): Fix bytecompiler warnings.
+
+        * simple.el:
+        * simple.el (transpose-lines):
+        * simple.el (transpose-line-up): New.
+        * simple.el (transpose-line-down): New.
+        * simple.el (transpose-subr):
+        * simple.el (transpose-subr-1): Removed.
+        Clean up, add functions to move lines up and down.
+
+        * startup.el (mail-host-address):
+        * startup.el (user-mail-address):
+        Customize.
+
+        * subr.el:
+        * subr.el (set-symbol-value-in-buffer): New.
+        * subr.el (error):
+        * subr.el (check-argument-type):
+        * subr.el (defined-error-p): New.
+        Add structured error support.
+
+        * toolbar-items.el (toolbar-compile):
+        Use new make-dialog-box.
+
+        * update-elc.el:
+
+        * userlock.el (ask-user-about-lock-dbox):
+        * userlock.el (ask-user-about-supersession-threat-dbox):
+        * userlock.el (ask-user-about-lock):
+        * userlock.el (ask-user-about-supersession-threat):
+        Use new make-dialog-box.
+        Add safety checks; use should use-dialog-box-p.
+
+        * window-xemacs.el:
+        * window-xemacs.el (__buffer-dedicated-frame):
+        * window-xemacs.el (buffer-dedicated-frame): New.
+        * window-xemacs.el (set-buffer-dedicated-frame): New.
+        Move dedicated-frame stuff into lisp.
+
+2000-07-18  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* printer.el (generic-print-region): Do not require that
+	`printer-name' be set.
+	(printer-name): Commentary clarification.
+
 2000-07-19  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.35 is released.
@@ -620,7 +1259,7 @@
 
 2000-04-14  Andy Piper  <andy@xemacs.org>
 
-	* gutter-items.el (make-search-dialog): avoid unneccessary futzing
+	* gutter-items.el (make-search-dialog): avoid unnecessary futzing
 	by using the new widget-callback-current-channel.
 	(search-dialog-callback): ditto.
 
@@ -2994,7 +3633,7 @@
 	(select-safe-coding-system): New function.
 	(set-language-info): New optional args DESCRIBE-MAP and SETUP-MAP.
 	(set-language-info-alist): New optionla arg PARENTS.  Call
-	set-language-info with apropriate DESCRIBE-MAP and SETUP-MAP args.
+	set-language-info with appropriate DESCRIBE-MAP and SETUP-MAP args.
 	(set-language-environment-coding-systems): New function.
 
 	* mule/chinese.el: Remove setting up of
@@ -4837,7 +5476,7 @@
 	  Added interactive function `package-get-delete-package', for
 	  use by users for deleting a package.
 
-	  Also modified to not require the prescence of efs.
+	  Also modified to not require the presence of efs.
 
 1998-09-22  Hrvoje Niksic  <hniksic@srce.hr>
 
@@ -5265,7 +5904,7 @@
 
 	* find-paths.el (paths-emacs-root-p):
 	  Relaxed emacs-root checking of an in-place installation to
-	  also accomodate the flat layout used on MS Windows.
+	  also accommodate the flat layout used on MS Windows.
 
 1998-06-29  John Jones  <jj@asu.edu>
 
@@ -5648,7 +6287,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 	* faces.el: move definition of xpm-color-symbols from x-faces.el
 	to faces. Predicate x-get-resource on the presence of x.
 
-	* msw-faces.el: set 3d-object face rather than modeline. Specifiy
+	* msw-faces.el: set 3d-object face rather than modeline. Specify
 	faces as specfier defaults.
 
 	* package-get.el: don't use package-admin-add-single-file-package.
@@ -6947,7 +7586,7 @@ Sun Mar 29 1998  Andy Piper  <andyp@parallax.co.uk>
 
 1998-03-27  Kyle Jones  <kyle_jones@wonderworks.com>
 
-	* faces.el: Separated face intializations based on
+	* faces.el: Separated face initializations based on
 	  device classes into device type specific (tag set,
 	  instantiator) pairs.
 
@@ -7384,7 +8023,7 @@ Tue Feb 17 12:50:37 1998  Andy Piper  <andyp@parallax.co.uk>
 1998-02-21  Greg Klanderman  <greg@alphatech.com>
 
 	* (with-displaying-help-buffer): there is no need to kill the buffer
-	if it exists, becasuse with-output-to-temp-buffer will clear it.
+	if it exists, because with-output-to-temp-buffer will clear it.
 	further, killing the buffer violates the rule that
 	temp-buffer-show-function, if set, has the full responsibility of
 	showing the temp buffer.  killing the buffer fucks with the window

@@ -218,14 +218,14 @@ EXFUN (Fread_from_string, 3);
 
 
 static DOESNT_RETURN
-syntax_error (const char *string)
+read_syntax_error (const char *string)
 {
   signal_error (Qinvalid_read_syntax,
 		list1 (build_translated_string (string)));
 }
 
 static Lisp_Object
-continuable_syntax_error (const char *string)
+continuable_read_syntax_error (const char *string)
 {
   return Fsignal (Qinvalid_read_syntax,
 		  list1 (build_translated_string (string)));
@@ -623,7 +623,7 @@ encoding detection or end-of-line detection.
 	      int result;
 	      /* temporarily hack the 'c' off the end of the filename */
 	      foundstr[foundlen - 1] = '\0';
-	      result = stat (foundstr, &s2);
+	      result = xemacs_stat (foundstr, &s2);
 	      if (result >= 0 &&
 		  (unsigned) s1.st_mtime < (unsigned) s2.st_mtime)
               {
@@ -1014,7 +1014,7 @@ locate_file_in_directory_mapper (char *fn, void *arg)
   struct stat st;
 
   /* Ignore file if it's a directory.  */
-  if (stat (fn, &st) >= 0
+  if (xemacs_stat (fn, &st) >= 0
       && (st.st_mode & S_IFMT) != S_IFDIR)
     {
       /* Check that we can access or open it.  */
@@ -1230,7 +1230,7 @@ locate_file (Lisp_Object path, Lisp_Object str, Lisp_Object suffixes,
       int found = 0;
 
       /* If this path element is relative, we have to look by hand. */
-      if (NILP (Ffile_name_absolute_p (pathel)))
+      if (NILP (pathel) || NILP (Ffile_name_absolute_p (pathel)))
 	{
 	  val = locate_file_in_directory (pathel, str, suffixes, storeptr,
 					  mode);
@@ -2120,17 +2120,17 @@ read_structure (Lisp_Object readcharfun)
 
   GCPRO2 (orig_list, already_seen);
   if (c != '(')
-    RETURN_UNGCPRO (continuable_syntax_error ("#s not followed by paren"));
+    RETURN_UNGCPRO (continuable_read_syntax_error ("#s not followed by paren"));
   list = read_list (readcharfun, ')', 0, 0);
   orig_list = list;
   {
     int len = XINT (Flength (list));
     if (len == 0)
-      RETURN_UNGCPRO (continuable_syntax_error
+      RETURN_UNGCPRO (continuable_read_syntax_error
 		      ("structure type not specified"));
     if (!(len & 1))
       RETURN_UNGCPRO
-	(continuable_syntax_error
+	(continuable_read_syntax_error
 	 ("structures must have alternating keyword/value pairs"));
   }
 
@@ -2767,9 +2767,9 @@ sequence_reader (Lisp_Object readcharfun,
 	unreadchar (readcharfun, ch);
 #ifdef FEATUREP_SYNTAX
       if (ch == ']')
-	syntax_error ("\"]\" in a list");
+	read_syntax_error ("\"]\" in a list");
       else if (ch == ')')
-	syntax_error ("\")\" in a vector");
+	read_syntax_error ("\")\" in a vector");
 #endif
       state = ((conser) (readcharfun, state, len));
     }
@@ -2809,15 +2809,15 @@ read_list_conser (Lisp_Object readcharfun, void *state, Charcount len)
 	  goto done;
 	}
       else if (ch == ']')
-	syntax_error ("']' in a list");
+	read_syntax_error ("']' in a list");
       else if (ch == ')')
-	syntax_error ("')' in a vector");
+	read_syntax_error ("')' in a vector");
       else
 #endif
       if (ch != '.')
 	signal_simple_error ("BUG! Internal reader error", elt);
       else if (!s->allow_dotted_lists)
-	syntax_error ("\".\" in a vector");
+	read_syntax_error ("\".\" in a vector");
       else
 	{
 	  if (!NILP (s->tail))
@@ -2835,7 +2835,7 @@ read_list_conser (Lisp_Object readcharfun, void *state, Charcount len)
 		  goto done;
 		}
 	    }
-	  syntax_error (". in wrong context");
+	  read_syntax_error (". in wrong context");
 	}
     }
 
@@ -3030,7 +3030,7 @@ read_compiled_function (Lisp_Object readcharfun, Emchar terminator)
   len = XINT (Flength (stuff));
   if (len < COMPILED_STACK_DEPTH + 1 || len > COMPILED_DOMAIN + 1)
     return
-      continuable_syntax_error ("#[...] used with wrong number of elements");
+      continuable_read_syntax_error ("#[...] used with wrong number of elements");
 
   for (iii = 0; CONSP (stuff); iii++)
     {

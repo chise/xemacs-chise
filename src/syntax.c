@@ -74,6 +74,9 @@ int no_quit_in_re_search;
    and the like. */
 struct buffer *regex_emacs_buffer;
 
+/* Tell the regex routines whether buffer is used or not. */
+int regex_emacs_buffer_p;
+
 Lisp_Object Vstandard_syntax_table;
 
 Lisp_Object Vsyntax_designator_chars_string;

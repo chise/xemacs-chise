@@ -110,7 +110,7 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   /* Pick up relevant properties */
   initially_unmapped = Fplist_get (props, Qinitially_unmapped, Qnil);
   name = Fplist_get (props, Qname, Qnil);
-  
+
   popup = Fplist_get (props, Qpopup, Qnil);
   if (EQ (popup, Qt))
     popup = Fselected_frame (Qnil);
@@ -136,23 +136,23 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 
   FRAME_MSWINDOWS_TARGET_RECT (f)->left = NILP (left) ? -1 : abs (XINT (left));
   FRAME_MSWINDOWS_TARGET_RECT (f)->top = NILP (top) ? -1 : abs (XINT (top));
-  FRAME_MSWINDOWS_TARGET_RECT (f)->width = NILP (width) ? -1 : 
+  FRAME_MSWINDOWS_TARGET_RECT (f)->width = NILP (width) ? -1 :
     abs (XINT (width));
-  FRAME_MSWINDOWS_TARGET_RECT (f)->height = NILP (height) ? -1 : 
+  FRAME_MSWINDOWS_TARGET_RECT (f)->height = NILP (height) ? -1 :
     abs (XINT (height));
-      
+
   /* Misc frame stuff */
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
-  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = 
+  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) =
     make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 #endif
   /* hashtable of instantiated glyphs on the frame. */
-  FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f) = 
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f) =
     make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
-  FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f) = 
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f) =
     make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
-  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f) = 
+  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f) =
     make_lisp_hash_table (50, HASH_TABLE_VALUE_WEAK, HASH_TABLE_EQUAL);
   /* Will initialize these in WM_SIZE handler. We cannot do it now,
      because we do not know what is CW_USEDEFAULT height and width */
@@ -188,6 +188,7 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
       rect_default.top = rect.top + POPUP_OFFSET;
       char_to_real_pixel_size (f, POPUP_WIDTH, POPUP_HEIGHT,
 			       &rect_default.width, &rect_default.height);
+      FRAME_MSWINDOWS_POPUP (f) = 1;
     }
 
   AdjustWindowRectEx(&rect, style, ADJR_MENUFLAG, exstyle);
@@ -199,8 +200,8 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   hwnd = CreateWindowEx (exstyle,
 			 XEMACS_CLASS,
 			 STRINGP(f->name) ? XSTRING_DATA(f->name) :
-			 (STRINGP(name) ? 
-			  (const Extbyte*)XSTRING_DATA(name) : 
+			 (STRINGP(name) ?
+			  (const Extbyte*)XSTRING_DATA(name) :
 			  (const Extbyte*)XEMACS_CLASS),
 			 style,
 			 rect_default.left, rect_default.top,
@@ -210,13 +211,19 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   Vmswindows_frame_being_created = Qnil;
 
   if (hwnd == NULL)
-    error ("System call to create frame failed");
-			   
+    invalid_operation ("System call to create frame failed",
+		       STRINGP (f->name) ? f->name :
+		       STRINGP (name) ? name :
+		       Qunbound);
+
   FRAME_MSWINDOWS_HANDLE(f) = hwnd;
 
   SetWindowLong (hwnd, XWL_FRAMEOBJ, (LONG)LISP_TO_VOID(frame_obj));
   FRAME_MSWINDOWS_DC(f) = GetDC (hwnd);
   SetTextAlign (FRAME_MSWINDOWS_DC(f), TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
+
+  if (FRAME_MSWINDOWS_POPUP (f))
+    mswindows_register_popup_frame (frame_obj);
 }
 
 static void
@@ -228,7 +235,7 @@ mswindows_init_frame_2 (struct frame *f, Lisp_Object props)
          since we don't have X resources. This may change if we look
          at the registry. Even so these values can get overridden
          later.*/
-      XEMACS_RECT_WH dest = { -1, -1, DEFAULT_FRAME_WIDTH, 
+      XEMACS_RECT_WH dest = { -1, -1, DEFAULT_FRAME_WIDTH,
 			      DEFAULT_FRAME_HEIGHT };
       mswindows_size_frame_internal (f, &dest);
     }
@@ -240,7 +247,7 @@ mswindows_init_frame_3 (struct frame *f)
 {
   /* Don't do this earlier or we get a WM_PAINT before the frame is ready.
    * The SW_x parameter in the first call that an app makes to ShowWindow is
-   * ignored, and the parameter specified in the caller's STARTUPINFO is 
+   * ignored, and the parameter specified in the caller's STARTUPINFO is
    * substituted instead. That parameter is SW_HIDE if we were started by
    * runemacs, so call this twice. #### runemacs is evil */
   ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_SHOWNORMAL);
@@ -254,7 +261,7 @@ mswindows_after_init_frame (struct frame *f, int first_on_device,
 		            int first_on_console)
 {
   /* Windows, unlike X, is very synchronous. After the initial
-     frame is created, it will never be displayed, except for 
+     frame is created, it will never be displayed, except for
      hollow border, unless we start pumping messages. Load progress
      messages show in the bottom of the hollow frame, which is ugly.
      We redisplay the initial frame here, so modeline and root window
@@ -287,6 +294,9 @@ mswindows_delete_frame (struct frame *f)
 {
   if (f->frame_data)
     {
+      Lisp_Object frame;
+      XSETFRAME (frame, f);
+      mswindows_unregister_popup_frame (frame);
       ReleaseDC(FRAME_MSWINDOWS_HANDLE(f), FRAME_MSWINDOWS_DC(f));
       DestroyWindow(FRAME_MSWINDOWS_HANDLE(f));
       xfree (f->frame_data);
@@ -310,7 +320,7 @@ mswindows_set_frame_size (struct frame *f, int width, int height)
   if (IsIconic (FRAME_MSWINDOWS_HANDLE(f)) || IsZoomed (FRAME_MSWINDOWS_HANDLE(f)))
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_RESTORE);
 
-  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL, 
+  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL,
 		0, 0, rect.right-rect.left, rect.bottom-rect.top,
 		SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOSENDCHANGING | SWP_NOMOVE);
 }
@@ -318,13 +328,13 @@ mswindows_set_frame_size (struct frame *f, int width, int height)
 static void
 mswindows_set_frame_position (struct frame *f, int xoff, int yoff)
 {
-  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL, 
+  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL,
 		xoff, yoff, 0, 0,
 		SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOSENDCHANGING | SWP_NOSIZE);
 }
 
 static void
-mswindows_make_frame_visible (struct frame *f) 
+mswindows_make_frame_visible (struct frame *f)
 {
   if (!FRAME_VISIBLE_P(f))
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_RESTORE);
@@ -335,7 +345,7 @@ mswindows_make_frame_visible (struct frame *f)
 }
 
 static void
-mswindows_make_frame_invisible (struct frame *f) 
+mswindows_make_frame_invisible (struct frame *f)
 {
   if (!FRAME_VISIBLE_P(f))
     return;
@@ -361,7 +371,7 @@ mswindows_frame_totally_visible_p (struct frame *f)
   UnionRect(&rc_temp, &rc_me, &rc_other);
   if (!EqualRect (&rc_temp, &rc_other))
     return 0;
-  
+
   /* Then see if any window above us obscures us */
   while ((hwnd = GetWindow (hwnd, GW_HWNDPREV)) != NULL)
     if (IsWindowVisible (hwnd))
@@ -404,11 +414,11 @@ mswindows_set_frame_icon (struct frame *f)
     {
       if (!XIMAGE_INSTANCE_MSWINDOWS_ICON (f->icon))
 	{
-	  mswindows_initialize_image_instance_icon (XIMAGE_INSTANCE (f->icon), 
+	  mswindows_initialize_image_instance_icon (XIMAGE_INSTANCE (f->icon),
 						    FALSE);
 	}
-      
-      SetClassLong (FRAME_MSWINDOWS_HANDLE (f), GCL_HICON, 
+
+      SetClassLong (FRAME_MSWINDOWS_HANDLE (f), GCL_HICON,
 		    (LONG) XIMAGE_INSTANCE_MSWINDOWS_ICON (f->icon));
     }
 }
@@ -494,7 +504,19 @@ mswindows_lower_frame (struct frame *f)
 }
 
 static void
-mswindows_set_title_from_bufbyte (struct frame *f, Bufbyte *title) 
+mswindows_enable_frame (struct frame *f)
+{
+  EnableWindow (FRAME_MSWINDOWS_HANDLE (f), TRUE);
+}
+
+static void
+mswindows_disable_frame (struct frame *f)
+{
+  EnableWindow (FRAME_MSWINDOWS_HANDLE (f), FALSE);
+}
+
+static void
+mswindows_set_title_from_bufbyte (struct frame *f, Bufbyte *title)
 {
   unsigned int new_checksum = hash_string (title, strlen (title));
   if (new_checksum != FRAME_MSWINDOWS_TITLE_CHECKSUM(f))
@@ -565,7 +587,7 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
 	      if (STRINGP (val))
 		{
 		  Lisp_Object frm, font_spec;
-		  
+
 		  XSETFRAME (frm, f);
 		  font_spec = Fget (Fget_face (Qdefault), Qfont, Qnil);
 
@@ -602,9 +624,9 @@ mswindows_set_frame_properties (struct frame *f, Lisp_Object plist)
 
   /* Now we've extracted the properties, apply them.
      Do not apply geometric properties during frame creation. This
-     is excessive anyways, and this loses becuase WM_SIZE has not
+     is excessive anyways, and this loses because WM_SIZE has not
      been sent yet, so frame width and height fields are not initialized.
-     
+
      unfortunately WM_SIZE loses as well since the resize is only
      applied once and the first time WM_SIZE is applied not everything
      is initialised in the frame (toolbars for instance). enabling
@@ -628,7 +650,7 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
   int size_p = (dest->width >=0 || dest->height >=0);
   int move_p = (dest->top >=0 || dest->left >=0);
   char_to_real_pixel_size (f, dest->width, dest->height, &pixel_width, &pixel_height);
-  
+
   if (dest->width < 0)
     pixel_width = FRAME_PIXWIDTH (f);
   if (dest->height < 0)
@@ -639,7 +661,7 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
     dest->left = rect.left;
   if (dest->top < 0)
     dest->top = rect.top;
-  
+
   rect.left = rect.top = 0;
   rect.right = pixel_width;
   rect.bottom = pixel_height;
@@ -690,11 +712,11 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
       move_p=1;
     }
 
-  if (IsIconic (FRAME_MSWINDOWS_HANDLE(f)) 
+  if (IsIconic (FRAME_MSWINDOWS_HANDLE(f))
       || IsZoomed (FRAME_MSWINDOWS_HANDLE(f)))
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_RESTORE);
 
-  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL, 
+  SetWindowPos (FRAME_MSWINDOWS_HANDLE(f), NULL,
 		dest->left, dest->top, pixel_width, pixel_height,
 		SWP_NOACTIVATE | SWP_NOZORDER | SWP_NOSENDCHANGING
 		| (size_p ? 0 : SWP_NOSIZE)
@@ -734,7 +756,7 @@ mswindows_frame_size_fixed_p (struct frame *f)
 /*---------------------------------------------------------------------*/
 
 /*
- * With some drvier/os combination (I discovered this with HP drviers
+ * With some driver/os combination (I discovered this with HP drivers
  * under W2K), DC geometry is reset upon StartDoc and EndPage
  * calls. This is called every time one of these calls is made.
  */
@@ -763,8 +785,8 @@ error_frame_unsizable (struct frame *f)
 {
   Lisp_Object frame;
   XSETFRAME (frame, f);
-  signal_simple_error ("Cannot resize frame (margins)"
-		       " after print job has started.", frame);
+  invalid_change ("Cannot resize frame (margins) after print job has started.",
+		  frame);
 }
 
 static void
@@ -780,8 +802,8 @@ msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
   /* Make sure this is the only frame on device. Windows printer can
      handle only one job at a time. */
   if (!NILP (DEVICE_FRAME_LIST (XDEVICE (FRAME_DEVICE (f)))))
-    error ("Only one frame (print job) at a time is allowed on "
-	   "this printer device.");
+    invalid_operation ("Only one frame (print job) at a time is allowed on "
+		       "this printer device", FRAME_DEVICE (f));
 
   f->frame_data = xnew_and_zero (struct msprinter_frame);
 
@@ -812,16 +834,16 @@ msprinter_init_frame_3 (struct frame *f)
   frame_left = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
 			FRAME_MSPRINTER_LEFT_MARGIN(f), 1440)
 		- GetDeviceCaps (hdc, PHYSICALOFFSETX));
-  
+
   if (FRAME_MSPRINTER_CHARWIDTH(f) > 0)
     {
       char_to_real_pixel_size (f, FRAME_MSPRINTER_CHARWIDTH(f), 0,
 			       &frame_width, NULL);
-      FRAME_MSPRINTER_RIGHT_MARGIN(f) = 
+      FRAME_MSPRINTER_RIGHT_MARGIN(f) =
 	MulDiv (GetDeviceCaps (hdc, PHYSICALWIDTH)
 		- (frame_left + frame_width), 1440,
 		GetDeviceCaps (hdc, LOGPIXELSX));
-    }		
+    }
   else
     frame_width = (GetDeviceCaps (hdc, PHYSICALWIDTH)
 		   - frame_left
@@ -837,11 +859,11 @@ msprinter_init_frame_3 (struct frame *f)
       char_to_real_pixel_size (f, 0, FRAME_MSPRINTER_CHARHEIGHT(f),
 			       NULL, &frame_height);
 
-      FRAME_MSPRINTER_BOTTOM_MARGIN(f) = 
+      FRAME_MSPRINTER_BOTTOM_MARGIN(f) =
 	MulDiv (GetDeviceCaps (hdc, PHYSICALHEIGHT)
 		- (frame_top + frame_height), 1440,
 		GetDeviceCaps (hdc, LOGPIXELSY));
-    }		
+    }
   else
     frame_height = (GetDeviceCaps (hdc, PHYSICALHEIGHT)
 		    - frame_top
@@ -850,13 +872,16 @@ msprinter_init_frame_3 (struct frame *f)
 
   /* Geometry sanity checks */
   if (!frame_pixsize_valid_p (f, frame_width, frame_height))
-    error ("Area inside print margins has shrunk to naught.");
+    invalid_operation ("Area inside print margins has shrunk to naught",
+		       STRINGP (f->name) ? f->name : Qunbound);
 
   if (frame_left < 0
       || frame_top < 0
       || frame_left + frame_width > GetDeviceCaps (hdc, HORZRES)
       || frame_top + frame_height > GetDeviceCaps (hdc, VERTRES))
-    error ("Print area is ouside of the printer's hardware printable area.");
+    invalid_operation ("Print area is ouside of the printer's "
+		       "hardware printable area",
+		       STRINGP (f->name) ? f->name : Qunbound);
 
   /* Apply XEmacs frame geometry and layout windows */
   {
@@ -880,7 +905,8 @@ msprinter_init_frame_3 (struct frame *f)
   di.fwType = 0;
 
   if (StartDoc (hdc, &di) <= 0)
-    error ("Cannot start print job");
+    invalid_operation ("Cannot start print job",
+		       STRINGP (f->name) ? f->name : Qunbound);
 
   apply_dc_geometry (f);
 
@@ -1031,7 +1057,7 @@ console_type_create_frame_mswindows (void)
 {
   /* Display frames */
   CONSOLE_HAS_METHOD (mswindows, init_frame_1);
-  CONSOLE_HAS_METHOD (mswindows, init_frame_2); 
+  CONSOLE_HAS_METHOD (mswindows, init_frame_2);
   CONSOLE_HAS_METHOD (mswindows, init_frame_3);
   CONSOLE_HAS_METHOD (mswindows, after_init_frame);
   CONSOLE_HAS_METHOD (mswindows, mark_frame);
@@ -1041,6 +1067,8 @@ console_type_create_frame_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, set_mouse_position);
   CONSOLE_HAS_METHOD (mswindows, raise_frame);
   CONSOLE_HAS_METHOD (mswindows, lower_frame);
+  CONSOLE_HAS_METHOD (mswindows, enable_frame);
+  CONSOLE_HAS_METHOD (mswindows, disable_frame);
   CONSOLE_HAS_METHOD (mswindows, make_frame_visible);
   CONSOLE_HAS_METHOD (mswindows, make_frame_invisible);
   CONSOLE_HAS_METHOD (mswindows, iconify_frame);
@@ -1055,8 +1083,8 @@ console_type_create_frame_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, frame_visible_p);
   CONSOLE_HAS_METHOD (mswindows, frame_totally_visible_p);
   CONSOLE_HAS_METHOD (mswindows, frame_iconified_p);
-  CONSOLE_HAS_METHOD (mswindows, set_frame_pointer); 
-  CONSOLE_HAS_METHOD (mswindows, set_frame_icon); 
+  CONSOLE_HAS_METHOD (mswindows, set_frame_pointer);
+  CONSOLE_HAS_METHOD (mswindows, set_frame_icon);
   CONSOLE_HAS_METHOD (mswindows, get_frame_parent);
   CONSOLE_HAS_METHOD (mswindows, update_frame_external_traits);
   CONSOLE_HAS_METHOD (mswindows, frame_size_fixed_p);
@@ -1093,11 +1121,11 @@ vars_of_frame_mswindows (void)
 
   DEFVAR_LISP ("mswindows-use-system-frame-size-defaults", &Vmswindows_use_system_frame_size_defaults /*
 Controls whether to use system or XEmacs defaults for frame size.
-If nil then reasonable defaults are used for intial frame sizes. If t
+If nil then reasonable defaults are used for initial frame sizes. If t
 then the system will choose default sizes for the frame.
 */ );
   Vmswindows_use_system_frame_size_defaults = Qnil;
-  
+
   DEFVAR_LISP ("default-mswindows-frame-plist", &Vdefault_mswindows_frame_plist /*
 Plist of default frame-creation properties for mswindows frames.
 These override what is specified in `default-frame-plist', but are
@@ -1155,7 +1183,7 @@ set at any time, except as otherwise noted):
   top-margin			typographical unit of measurement,
   right-margin                  equal to 1/1440 of an inch, or 1/20 of a
   bottom-margin			point, and roughly equal to 7/400 of a
-				millimeter. If not specifified, each margin
+				millimeter. If not specified, each margin
 				defaults to one inch (25.4 mm).
 
      MARGINS NOTE. right-margin and bottom-margin are overridden by

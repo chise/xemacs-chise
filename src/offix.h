@@ -19,8 +19,8 @@ License along with this library; if not, write to the Free Software
 Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
-#ifndef INCLUDED_offix_h_
-#define INCLUDED_offix_h_
+#ifndef __DragAndDropH__
+#define __DragAndDropH__ 1L
 
 /* The standard DND types are defined here */
 #include "offix-types.h"
@@ -63,7 +63,6 @@ DndChangeCursor(int Type,
 		int width,int height,
 		char *image,char *mask,
 		int hot_x,int hot_y);
-
-#endif /* INCLUDED_offix_h_ */
+#endif
 
 

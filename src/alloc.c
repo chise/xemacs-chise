@@ -159,16 +159,6 @@ Lisp_Object Vgc_pointer_glyph;
 static const char gc_default_message[] = "Garbage collecting";
 Lisp_Object Qgarbage_collecting;
 
-#ifndef VIRT_ADDR_VARIES
-extern
-#endif /* VIRT_ADDR_VARIES */
- EMACS_INT malloc_sbrk_used;
-
-#ifndef VIRT_ADDR_VARIES
-extern
-#endif /* VIRT_ADDR_VARIES */
- EMACS_INT malloc_sbrk_unused;
-
 /* Non-zero means we're in the process of doing the dump */
 int purify_flag;
 
@@ -1451,7 +1441,6 @@ This is terrible behavior which is retained for compatibility with old
   /* Check for valid formal parameter list now, to allow us to use
      SPECBIND_FAST_UNSAFE() later in funcall_compiled_function(). */
   {
-    Lisp_Object symbol, tail;
     EXTERNAL_LIST_LOOP_3 (symbol, arglist, tail)
       {
 	CHECK_SYMBOL (symbol);
@@ -2296,8 +2285,7 @@ allocate_managed_lcrecord (Lisp_Object lcrecord_list)
     {
       Lisp_Object val;
 
-      XSETOBJ (val, Lisp_Type_Record,
-	       alloc_lcrecord (list->size, list->implementation));
+      XSETOBJ (val, alloc_lcrecord (list->size, list->implementation));
       return val;
     }
 }
@@ -2349,9 +2337,8 @@ Does not copy symbols.
 /* All the built-in lisp object types are enumerated in `enum lrecord_type'.
    Additional ones may be defined by a module (none yet).  We leave some
    room in `lrecord_implementations_table' for such new lisp object types. */
-#define MODULE_DEFINABLE_TYPE_COUNT 32
-const struct lrecord_implementation *lrecord_implementations_table[lrecord_type_count + MODULE_DEFINABLE_TYPE_COUNT];
-
+const struct lrecord_implementation *lrecord_implementations_table[(unsigned int)lrecord_type_last_built_in_type + MODULE_DEFINABLE_TYPE_COUNT];
+unsigned int lrecord_type_count = (unsigned int)lrecord_type_last_built_in_type;
 /* Object marker functions are in the lrecord_implementation structure.
    But copying them to a parallel array is much more cache-friendly.
    This hack speeds up (garbage-collect) by about 5%. */
@@ -3922,10 +3909,6 @@ reinit_alloc_once_early (void)
 #else
   gc_cons_threshold = 15000; /* debugging */
 #endif
-#ifdef VIRT_ADDR_VARIES
-  malloc_sbrk_unused = 1<<22;	/* A large number */
-  malloc_sbrk_used = 100000;	/* as reasonable as any number */
-#endif /* VIRT_ADDR_VARIES */
   lrecord_uid_counter = 259;
   debug_string_purity = 0;
   gcprolist = 0;
@@ -3974,9 +3957,9 @@ reinit_alloc (void)
 void
 syms_of_alloc (void)
 {
-  defsymbol (&Qpre_gc_hook, "pre-gc-hook");
-  defsymbol (&Qpost_gc_hook, "post-gc-hook");
-  defsymbol (&Qgarbage_collecting, "garbage-collecting");
+  DEFSYMBOL (Qpre_gc_hook);
+  DEFSYMBOL (Qpost_gc_hook);
+  DEFSYMBOL (Qgarbage_collecting);
 
   DEFSUBR (Fcons);
   DEFSUBR (Flist);
@@ -4019,16 +4002,6 @@ See also `consing-since-gc'.
   DEFVAR_INT ("pure-bytes-used", &pure_bytes_used /*
 Number of bytes of sharable Lisp data allocated so far.
 */ );
-
-#if 0
-  DEFVAR_INT ("data-bytes-used", &malloc_sbrk_used /*
-Number of bytes of unshared memory allocated in this session.
-*/ );
-
-  DEFVAR_INT ("data-bytes-free", &malloc_sbrk_unused /*
-Number of bytes of unshared memory remaining available in this session.
-*/ );
-#endif
 
 #ifdef DEBUG_XEMACS
   DEFVAR_INT ("debug-allocation", &debug_allocation /*

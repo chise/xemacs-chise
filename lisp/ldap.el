@@ -5,7 +5,7 @@
 ;; Author: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Maintainer: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Created: Jan 1998
-;; Version: $Revision: 1.7.2.7 $
+;; Version: $Revision: 1.7.2.8 $
 ;; Keywords: help comm
 
 ;; This file is part of XEmacs
@@ -444,7 +444,19 @@ and the corresponding decoder is then retrieved from
     (if decoder
 	(cons name (mapcar decoder values))
       attr)))
-    
+
+(defun ldap-decode-entry (entry)
+  "Decode the attributes of ENTRY according to LDAP rules."
+  (let (dn decoded)
+    (setq dn (car entry))
+    (if (stringp dn)
+	(setq entry (cdr entry))
+      (setq dn nil))
+    (setq decoded (mapcar 'ldap-decode-attribute entry))
+    (if dn
+	(cons dn decoded)
+      decoded)))
+
 (defun ldap-search (arg1 &rest args)
   "Perform an LDAP search."  
       (apply (if (ldapp arg1)
@@ -490,10 +502,7 @@ entry according to the value of WITHDN."
     (ldap-close ldap)
     (if ldap-ignore-attribute-codings
 	result
-      (mapcar (function 
-	       (lambda (record)
-		 (mapcar 'ldap-decode-attribute record)))
-	      result))))
+      (mapcar 'ldap-decode-entry result))))
 
 (defun ldap-add-entries (entries &optional host binddn passwd)
   "Add entries to an LDAP directory.

@@ -29,9 +29,6 @@ Boston, MA 02111-1307, USA.  */
 #undef SYSTEM_TYPE
 #define SYSTEM_TYPE "gnu"
 
-/* XXX should getloadavg be in libc?  Should we have a libutil?
-#define HAVE_GETLOADAVG */
-
 #define LIBS_DEBUG
 
 /* XXX emacs should not expect TAB3 to be defined.  */

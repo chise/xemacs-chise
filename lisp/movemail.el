@@ -41,7 +41,7 @@
     (if stuff
 	(intern stuff)
       configure-mail-lock-method))
-  "mail spool locking method used by thios instance of XEmacs.
+  "mail spool locking method used by this instance of XEmacs.
 This must be one of the symbols in MAIL-LOCK-METHODS.")
 
 (defun move-mail-spool (from to &optional buffer pop-password)

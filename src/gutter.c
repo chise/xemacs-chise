@@ -183,7 +183,7 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
     case TOP_GUTTER:
       *x = FRAME_LEFT_BORDER_END (f);
       *y = FRAME_TOP_BORDER_END (f);
-      *width = FRAME_RIGHT_BORDER_START (f) 
+      *width = FRAME_RIGHT_BORDER_START (f)
 	- FRAME_LEFT_BORDER_END (f);
       *height = FRAME_TOP_GUTTER_BOUNDS (f);
       break;
@@ -191,7 +191,7 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
     case BOTTOM_GUTTER:
       *x = FRAME_LEFT_BORDER_END (f);
       *y = WINDOW_BOTTOM (bot);
-      *width = FRAME_RIGHT_BORDER_START (f) 
+      *width = FRAME_RIGHT_BORDER_START (f)
 	- FRAME_LEFT_BORDER_END (f);
       *height = FRAME_BOTTOM_GUTTER_BOUNDS (f);
       break;
@@ -203,7 +203,7 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
       *height = WINDOW_BOTTOM (bot)
 	- (FRAME_TOP_BORDER_END (f) + FRAME_TOP_GUTTER_BOUNDS (f));
       break;
-      
+
     case RIGHT_GUTTER:
       *x = FRAME_RIGHT_BORDER_START (f)
 	- FRAME_RIGHT_GUTTER_BOUNDS (f);
@@ -220,20 +220,20 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
 
 /* Convert the gutter specifier into something we can actually
    display. */
-static Lisp_Object construct_window_gutter_spec (struct window* w, 
+static Lisp_Object construct_window_gutter_spec (struct window* w,
 						 enum gutter_pos pos)
 {
   Lisp_Object rest, *args;
   int nargs = 0;
   Lisp_Object gutter = RAW_WINDOW_GUTTER (w, pos);
-  
+
   if (STRINGP (gutter) || NILP (gutter))
     return gutter;
 
   GET_LIST_LENGTH (gutter, nargs);
   args = alloca_array (Lisp_Object, nargs >> 1);
   nargs = 0;
-  
+
   for (rest = gutter; !NILP (rest); rest = XCDR (XCDR (rest)))
     {
       /* We only put things in the real gutter that are declared to be
@@ -245,7 +245,7 @@ static Lisp_Object construct_window_gutter_spec (struct window* w,
 	  args [nargs++] = XCAR (XCDR (rest));
 	}
     }
-  
+
   return Fconcat (nargs, args);
 }
 
@@ -284,7 +284,7 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
   /* generate some display lines */
   generate_displayable_area (w, WINDOW_GUTTER (w, pos),
 			     x + border_width, y + border_width,
-			     width - 2 * border_width, 
+			     width - 2 * border_width,
 			     height - 2 * border_width, ddla, 0, findex);
 
   /* We only output the gutter if we think something of significance
@@ -299,7 +299,7 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
       (f->extents_changed && w->gutter_extent_modiff[pos]))
     {
 #ifdef DEBUG_GUTTERS
-      printf ("gutter redisplay triggered by %s\n", force ? "force" : 
+      printf ("gutter redisplay triggered by %s\n", force ? "force" :
 	      f->faces_changed ? "f->faces_changed" :
 	      f->frame_changed ? "f->frame_changed" :
 	      f->gutter_changed ? "f->gutter_changed" :
@@ -317,13 +317,13 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
 	{
 	  output_display_line (w, cdla, ddla, line, -1, -1);
 	}
-      
+
       /* If the number of display lines has shrunk, adjust. */
       if (cdla_len > Dynarr_length (ddla))
 	{
 	  Dynarr_length (cdla) = Dynarr_length (ddla);
 	}
-      
+
       /* grab coordinates of last line and blank after it. */
       if (Dynarr_length (ddla) > 0)
 	{
@@ -360,7 +360,7 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
       /* bevel the gutter area if so desired */
       if (border_width != 0)
 	{
-	  MAYBE_DEVMETH (d, bevel_area, 
+	  MAYBE_DEVMETH (d, bevel_area,
 			 (w, findex, x, y, width, height, border_width,
 			  EDGE_ALL, EDGE_BEVEL_OUT));
 	}
@@ -378,7 +378,7 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
   w->gutter_extent_modiff [pos] = 0;
 }
 
-/* Sizing gutters is a pain so we try and help the user by detemining
+/* Sizing gutters is a pain so we try and help the user by determining
    what height will accommodate all lines. This is useless on left and
    right gutters as we always have a maximal number of lines. */
 static Lisp_Object
@@ -472,7 +472,7 @@ mark_gutters (struct frame* f)
 
 /* This is called by extent_changed_for_redisplay, so that redisplay
    knows exactly what extents have changed. */
-void 
+void
 gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
 					   Bufpos start, Bufpos end)
 {
@@ -487,7 +487,7 @@ gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
       enum gutter_pos pos;
       Lisp_Object window = FRAME_LAST_NONMINIBUF_WINDOW (f);
       struct window* w = XWINDOW (window);
-      
+
       GUTTER_POS_LOOP (pos)
 	{
 	  if (EQ (WINDOW_GUTTER (w, pos), obj))
@@ -547,7 +547,7 @@ update_frame_gutters (struct frame *f)
       f->extents_changed)
     {
       enum gutter_pos pos;
-      
+
       /* We don't actually care about these when outputting the gutter
          so locally disable them. */
       int local_clip_changed = f->clip_changed;
@@ -686,7 +686,7 @@ See `default-gutter-position'.
 			      list1 (Fcons (Qnil, Qzero)));
       set_specifier_fallback (Vgutter_border_width[new],
 			      Vdefault_gutter_border_width);
-      /* We don't realy want the left and right gutters to default to
+      /* We don't really want the left and right gutters to default to
          visible. */
       set_specifier_fallback (Vgutter_visible_p[cur],
 			      cur == TOP_GUTTER || cur == BOTTOM_GUTTER ?
@@ -700,7 +700,7 @@ See `default-gutter-position'.
     }
 
   run_hook (Qdefault_gutter_position_changed_hook);
-  
+
   return position;
 }
 
@@ -769,7 +769,7 @@ gutter_validate (Lisp_Object instantiator)
 {
   if (NILP (instantiator))
     return;
-  
+
   /* Must be a string or a plist. */
   if (!STRINGP (instantiator) && NILP (Fvalid_plist_p (instantiator)))
       signal_simple_error ("Gutter spec must be string, plist or nil", instantiator);
@@ -777,7 +777,7 @@ gutter_validate (Lisp_Object instantiator)
   if (!STRINGP (instantiator))
     {
       Lisp_Object rest;
-      
+
       for (rest = instantiator; !NILP (rest); rest = XCDR (XCDR (rest)))
 	{
 	  if (!SYMBOLP (XCAR (rest))
@@ -816,7 +816,7 @@ gutter_specs_changed (Lisp_Object specifier, struct window *w,
 {
   w->real_gutter[pos] = construct_window_gutter_spec (w, pos);
   w->real_gutter_size[pos] = w->gutter_size[pos];
-  
+
   if (EQ (w->real_gutter_size[pos], Qautodetect)
       && !NILP (w->gutter_visible_p[pos]))
     {
@@ -877,7 +877,7 @@ gutter_geometry_changed_in_window (Lisp_Object specifier, struct window *w,
 	  w->real_gutter_size [pos] = calculate_gutter_size (w, pos);
 	}
     }
-  
+
   MARK_GUTTER_CHANGED;
   MARK_MODELINE_CHANGED;
   MARK_WINDOWS_CHANGED (w);
@@ -946,7 +946,7 @@ gutter_visible_validate (Lisp_Object instantiator)
     return;
 
   if (!NILP (instantiator) && !EQ (instantiator, Qt) && !CONSP (instantiator))
-    signal_simple_error ("Gutter visibility must be a boolean or list of symbols", 
+    signal_simple_error ("Gutter visibility must be a boolean or list of symbols",
 			 instantiator);
 
   if (CONSP (instantiator))
@@ -956,7 +956,7 @@ gutter_visible_validate (Lisp_Object instantiator)
       EXTERNAL_LIST_LOOP (rest, instantiator)
 	{
 	  if (!SYMBOLP (XCAR (rest)))
-	      signal_simple_error ("Gutter visibility must be a boolean or list of symbols", 
+	      signal_simple_error ("Gutter visibility must be a boolean or list of symbols",
 				   instantiator);
 	}
     }
@@ -994,7 +994,7 @@ Ensure that all gutters are correctly showing their gutter specifier.
 	  /* Sequence is quite important here. We not only want to
 	   redisplay the gutter area but we also want to flush any
 	   frame size changes out so that the gutter redisplay happens
-	   in a kosha environment. 
+	   in a kosha environment.
 
 	   This is not only so that things look right but so that
 	   glyph redisplay optimization kicks in, by default display
@@ -1019,7 +1019,7 @@ Ensure that all gutters are correctly showing their gutter specifier.
 
 	  MAYBE_DEVMETH (d, frame_output_end, (f));
       }
-      
+
       d->gutter_changed = 0;
     }
 
@@ -1346,7 +1346,7 @@ See `default-gutter-height' for more information.
 #endif
 #ifdef HAVE_MS_WINDOWS
   fb = Fcons (Fcons (list1 (Qmsprinter), Qzero), fb);
-  fb = Fcons (Fcons (list1 (Qmswindows), 
+  fb = Fcons (Fcons (list1 (Qmswindows),
 		     make_int (DEFAULT_GUTTER_WIDTH)), fb);
 #endif
   if (!NILP (fb))

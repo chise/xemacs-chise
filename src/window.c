@@ -82,7 +82,7 @@ Lisp_Object Vvertical_divider_shadow_thickness;
 /* Divider surface width (not counting 3-d borders) */
 Lisp_Object Vvertical_divider_line_width;
 
-/* Spacing between outer egde of divider border and window edge */
+/* Spacing between outer edge of divider border and window edge */
 Lisp_Object Vvertical_divider_spacing;
 
 /* How much to scroll by per-line. */
@@ -283,7 +283,7 @@ allocate_window (void)
   p->line_start_cache = Dynarr_new (line_start_cache);
   p->subwindow_instance_cache = make_lisp_hash_table (30,
 						      HASH_TABLE_KEY_VALUE_WEAK,
-						      HASH_TABLE_EQUAL);
+						      HASH_TABLE_EQ);
   p->line_cache_last_updated = Qzero;
   INIT_DISP_VARIABLE (last_point_x, 0);
   INIT_DISP_VARIABLE (last_point_y, 0);
@@ -1020,7 +1020,7 @@ window_top_window_gutter_height (struct window *w)
 {
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
-  
+
 #ifdef HAVE_SCROLLBARS
   if (!NILP (w->scrollbar_on_top_p))
     return window_scrollbar_height (w);
@@ -1328,7 +1328,7 @@ currently displayed in a window.
 
 The names are somewhat confusing; here's a table to help out:
 
-                    width                         height               
+                    width                         height
 -------------------------------------------------------------------------
 w/o gutters
   (rows/columns)    window-width                  window-text-area-height
@@ -1510,7 +1510,7 @@ Return the number of columns by which WINDOW is scrolled from left margin.
 }
 
 DEFUN ("modeline-hscroll", Fmodeline_hscroll, 0, 1, 0, /*
-Return the horizontal scrolling ammount of WINDOW's modeline.
+Return the horizontal scrolling amount of WINDOW's modeline.
 If the window has no modeline, return nil.
 */
        (window))
@@ -1522,7 +1522,7 @@ If the window has no modeline, return nil.
 }
 
 DEFUN ("set-modeline-hscroll", Fset_modeline_hscroll, 2, 2, 0, /*
-Set the horizontal scrolling ammount of WINDOW's modeline to NCOL.
+Set the horizontal scrolling amount of WINDOW's modeline to NCOL.
 If NCOL is negative, it will silently be forced to 0.
 If the window has no modeline, return nil. Otherwise, return the actual
 value that was set.
@@ -1603,9 +1603,12 @@ The frame toolbars, menubars and gutters are considered to be outside of this ar
        (window))
 {
   struct window *w = decode_window (window);
+  struct frame *f = XFRAME (w->frame);
 
-  int left = w->pixel_left;
-  int top  = w->pixel_top;
+  int left =
+    w->pixel_left - FRAME_LEFT_BORDER_END (f) - FRAME_LEFT_GUTTER_BOUNDS (f);
+  int top =
+    w->pixel_top - FRAME_TOP_BORDER_END (f) - FRAME_TOP_GUTTER_BOUNDS (f);
 
   return list4 (make_int (left),
 		make_int (top),
@@ -1636,7 +1639,7 @@ top left corner of the window.
 
 DEFUN ("window-point", Fwindow_point, 0, 1, 0, /*
 Return current value of point in WINDOW.
-For a nonselected window, this is the value point would have
+For a non-selected window, this is the value point would have
 if that window were selected.
 
 Note that, when WINDOW is the selected window and its buffer
@@ -1871,30 +1874,12 @@ replace_window (Lisp_Object old, Lisp_Object replacement)
   ERROR_CHECK_SUBWINDOW_CACHE (p);
 }
 
-static int
-window_unmap_subwindows_cache_mapper (Lisp_Object key, Lisp_Object value,
-				      void *flag_closure)
-{
-  /* value can be nil; we cache failures as well as successes */
-  if (!NILP (value))
-    {
-      struct frame* f = XFRAME (XIMAGE_INSTANCE_FRAME (value));
-      unmap_subwindow (value);
-      /* In case GC doesn't catch up fast enough, remove from the frame
-	 cache also. Otherwise code that checks the sanity of the instance
-	 will fail. */
-      XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f))
-	= delq_no_quit (value, XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f)));
-    }
-  return 0;
-}
-
 static void
 window_unmap_subwindows (struct window* w)
 {
   assert (!NILP (w->subwindow_instance_cache));
-  elisp_maphash (window_unmap_subwindows_cache_mapper,
-		 w->subwindow_instance_cache, 0);
+  elisp_maphash (unmap_subwindow_instance_cache_mapper,
+		 w->subwindow_instance_cache, (void*)1);
 }
 
 /* we're deleting W; set the structure of W to indicate this. */
@@ -2125,7 +2110,7 @@ will automatically call `save-buffers-kill-emacs'.)
 
 
 DEFUN ("next-window", Fnext_window, 0, 4, 0, /*
-Return next window after WINDOW in canonical ordering of windows.
+Return the next window after WINDOW in the canonical ordering of windows.
 If omitted, WINDOW defaults to the selected window.
 
 Optional second arg MINIBUF t means count the minibuffer window even
@@ -2146,7 +2131,7 @@ ALL-FRAMES = 0 means include windows on all visible and iconified frames.
 If ALL-FRAMES is a frame, restrict search to windows on that frame.
 Anything else means restrict to WINDOW's frame.
 
-Optional fourth argument CONSOLE controls which consoles or devices the
+Optional fourth arg CONSOLE controls which consoles or devices the
 returned window may be on.  If CONSOLE is a console, return windows only
 on that console.  If CONSOLE is a device, return windows only on that
 device.  If CONSOLE is a console type, return windows only on consoles
@@ -2177,8 +2162,9 @@ windows, eventually ending up back at the window you started with.
     minibuf = (minibuf_level ? minibuf_window : Qlambda);
   else if (! EQ (minibuf, Qt))
     minibuf = Qlambda;
-  /* Now minibuf can be t => count all minibuffer windows,
-     lambda => count none of them,
+  /* Now `minibuf' is one of:
+     t      => count all minibuffer windows
+     lambda => count none of them
      or a specific minibuffer window (the active one) to count.  */
 
   /* all_frames == nil doesn't specify which frames to include.  */
@@ -2199,11 +2185,12 @@ windows, eventually ending up back at the window you started with.
     return frame_first_window (XFRAME (all_frames));
   else if (! EQ (all_frames, Qt))
     all_frames = Qnil;
-  /* Now all_frames is t meaning search all frames,
-     nil meaning search just current frame,
-     visible meaning search just visible frames,
-     0 meaning search visible and iconified frames,
-     or a window, meaning search the frame that window belongs to.  */
+  /* Now `all_frames' is one of:
+     t        => search all frames
+     nil      => search just the current frame
+     visible  => search just visible frames
+     0        => search visible and iconified frames
+     a window => search the frame that window belongs to.  */
 
   /* Do this loop at least once, to get the next window, and perhaps
      again, if we hit the minibuffer and that is not acceptable.  */
@@ -2222,10 +2209,9 @@ windows, eventually ending up back at the window you started with.
 
 	    if (! NILP (all_frames))
 	      {
-		Lisp_Object tem1;
-
-		tem1 = tem;
+		Lisp_Object tem1 = tem;
 		tem = next_frame (tem, all_frames, console);
+
 		/* In the case where the minibuffer is active,
 		   and we include its frame as well as the selected one,
 		   next_frame may get stuck in that frame.
@@ -2252,7 +2238,6 @@ windows, eventually ending up back at the window you started with.
 	  else break;
 	}
     }
-  /* "acceptable" is the correct spelling. */
   /* Which windows are acceptable?
      Exit the loop and accept this window if
      this isn't a minibuffer window,
@@ -2268,7 +2253,7 @@ windows, eventually ending up back at the window you started with.
 }
 
 DEFUN ("previous-window", Fprevious_window, 0, 4, 0, /*
-Return the window preceding WINDOW in canonical ordering of windows.
+Return the window preceding WINDOW in the canonical ordering of windows.
 If omitted, WINDOW defaults to the selected window.
 
 Optional second arg MINIBUF t means count the minibuffer window even
@@ -2280,16 +2265,16 @@ Several frames may share a single minibuffer; if the minibuffer
 counts, all windows on all frames that share that minibuffer count
 too.  Therefore, `previous-window' can be used to iterate through
 the set of windows even when the minibuffer is on another frame.  If
-the minibuffer does not count, only windows from WINDOW's frame count
+the minibuffer does not count, only windows from WINDOW's frame count.
 
-If optional third arg ALL-FRAMES t means include windows on all frames.
+Optional third arg ALL-FRAMES t means include windows on all frames.
 ALL-FRAMES nil or omitted means cycle within the frames as specified
 above.  ALL-FRAMES = `visible' means include windows on all visible frames.
 ALL-FRAMES = 0 means include windows on all visible and iconified frames.
 If ALL-FRAMES is a frame, restrict search to windows on that frame.
 Anything else means restrict to WINDOW's frame.
 
-Optional fourth argument CONSOLE controls which consoles or devices the
+Optional fourth arg CONSOLE controls which consoles or devices the
 returned window may be on.  If CONSOLE is a console, return windows only
 on that console.  If CONSOLE is a device, return windows only on that
 device.  If CONSOLE is a console type, return windows only on consoles
@@ -2320,8 +2305,9 @@ windows, eventually ending up back at the window you started with.
     minibuf = (minibuf_level ? minibuf_window : Qlambda);
   else if (! EQ (minibuf, Qt))
     minibuf = Qlambda;
-  /* Now minibuf can be t => count all minibuffer windows,
-     lambda => count none of them,
+  /* Now `minibuf' is one of:
+     t      => count all minibuffer windows
+     lambda => count none of them
      or a specific minibuffer window (the active one) to count.  */
 
   /* all_frames == nil doesn't specify which frames to include.
@@ -2343,11 +2329,12 @@ windows, eventually ending up back at the window you started with.
     return frame_first_window (XFRAME (all_frames));
   else if (! EQ (all_frames, Qt))
     all_frames = Qnil;
-  /* Now all_frames is t meaning search all frames,
-     nil meaning search just current frame,
-     visible meaning search just visible frames,
-     0 meaning search visible and iconified frames,
-     or a window, meaning search the frame that window belongs to.  */
+  /* Now `all_frames' is one of:
+     t        => search all frames
+     nil      => search just the current frame
+     visible  => search just visible frames
+     0        => search visible and iconified frames
+     a window => search the frame that window belongs to.  */
 
   /* Do this loop at least once, to get the next window, and perhaps
      again, if we hit the minibuffer and that is not acceptable.  */
@@ -2365,7 +2352,7 @@ windows, eventually ending up back at the window you started with.
 	    tem = WINDOW_FRAME (XWINDOW (window));
 
 	    if (! NILP (all_frames))
-	      /* It's actually important that we use prev_frame here,
+	      /* It's actually important that we use previous_frame here,
 		 rather than next_frame.  All the windows acceptable
 		 according to the given parameters should form a ring;
 		 Fnext_window and Fprevious_window should go back and
@@ -2375,10 +2362,8 @@ windows, eventually ending up back at the window you started with.
 		 window_loop assumes that these `ring' requirement are
 		 met.  */
 	      {
-		Lisp_Object tem1;
-
-		tem1 = tem;
-		tem = prev_frame (tem, all_frames, console);
+		Lisp_Object tem1 = tem;
+		tem = previous_frame (tem, all_frames, console);
 		/* In the case where the minibuffer is active,
 		   and we include its frame as well as the selected one,
 		   next_frame may get stuck in that frame.
@@ -2564,20 +2549,19 @@ window_loop (enum window_loop type,
   int lose_lose = 0;
   Lisp_Object devcons, concons;
 
-  /* FRAME_ARG is Qlambda to stick to one frame,
-     Qvisible to consider all visible frames,
-     or Qt otherwise.  */
-
   /* If we're only looping through windows on a particular frame,
      FRAME points to that frame.  If we're looping through windows
      on all frames, FRAME is 0.  */
-
   if (FRAMEP (frames))
     frame = XFRAME (frames);
   else if (NILP (frames))
     frame = selected_frame ();
   else
     frame = 0;
+
+  /* FRAME_ARG is Qlambda to stick to one frame,
+     Qvisible to consider all visible frames,
+     or Qt otherwise.  */
   if (frame)
     frame_arg = Qlambda;
   else if (ZEROP (frames))
@@ -2598,7 +2582,10 @@ window_loop (enum window_loop type,
       if (NILP (the_frame))
 	continue;
 
-      if (!device_matches_console_spec (the_frame, device, console))
+      if (!device_matches_console_spec (device,
+					NILP (console) ?
+					FRAME_CONSOLE (XFRAME (the_frame)) :
+					console))
 	continue;
 
       /* Pick a window to start with.  */
@@ -2624,7 +2611,7 @@ window_loop (enum window_loop type,
 
 	  /* Pick the next window now, since some operations will delete
 	     the current window.  */
-	  next_window = Fnext_window (w, mini ? Qt : Qnil, frame_arg, Qt);
+	  next_window = Fnext_window (w, mini ? Qt : Qnil, frame_arg, device);
 
 	  /* #### Still needed ?? */
 	  /* Given the outstanding quality of the rest of this code,
@@ -3302,7 +3289,7 @@ DEFUN ("set-window-buffer", Fset_window_buffer, 2, 3, 0, /*
 Make WINDOW display BUFFER as its contents.
 BUFFER can be a buffer or buffer name.
 
-With non-nil optional argument `norecord', do not modify the
+With non-nil optional argument NORECORD, do not modify the
 global or per-frame buffer ordering.
 */
        (window, buffer, norecord))
@@ -3377,7 +3364,7 @@ Select WINDOW.  Most editing will apply to WINDOW's buffer.
 The main editor command loop selects the buffer of the selected window
 before each command.
 
-With non-nil optional argument `norecord', do not modify the
+With non-nil optional argument NORECORD, do not modify the
 global or per-frame buffer ordering.
 */
        (window, norecord))
@@ -3391,7 +3378,7 @@ global or per-frame buffer ordering.
   /* we have already caught dead-window errors */
   if (!NILP (w->hchild) || !NILP (w->vchild))
     error ("Trying to select non-leaf window");
-  
+
   w->use_time = make_int (++window_select_count);
 
   if (EQ (window, old_selected_window))
@@ -3517,10 +3504,10 @@ make_dummy_parent (Lisp_Object window)
   p->line_start_cache = Dynarr_new (line_start_cache);
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
-  p->subwindow_instance_cache = 
+  p->subwindow_instance_cache =
     make_lisp_hash_table (30,
 			  HASH_TABLE_KEY_VALUE_WEAK,
-			  HASH_TABLE_EQUAL);
+			  HASH_TABLE_EQ);
 
   /* Put new into window structure in place of window */
   replace_window (window, new);
@@ -3544,7 +3531,7 @@ make_dummy_parent (Lisp_Object window)
 DEFUN ("split-window", Fsplit_window, 0, 3, "", /*
 Split WINDOW, putting SIZE lines in the first of the pair.
 WINDOW defaults to selected one and SIZE to half its size.
-If optional third arg HOR-FLAG is non-nil, split side by side
+If optional third arg HORFLAG is non-nil, split side by side
 and put SIZE columns in the first of the pair.
 */
        (window, chsize, horflag))
@@ -5215,23 +5202,32 @@ by `current-window-configuration' (which see).
       record_unwind_protect (free_window_configuration, old_window_config);
 
       mark_windows_in_use (f, 1);
+#ifdef BROKEN_SUBWINDOW_REDISPLAY
+      /* Force subwindows to be remapped. This is overkill but saves
+	us having to rely on the redisplay code to unmap any extant
+	subwindows.
 
-      /* Force subwindows to be reinstantiated. They are all going
-         anyway and if we don't do this GC may not happen between now
-         and the next time we check their integrity. */
+	#### It does cause some extra flashing though which we could
+	possibly avoid. So consider trying to get redisplay to work
+	correctly.
+
+	Removing the instances from the frame cache is wrong because
+	an instance is only put in the frame cache when it is
+	instantiated. So if we do this there is a chance that stuff
+	will never get put back in the frame cache. */
       reset_frame_subwindow_instance_cache (f);
-
+#endif
 #if 0
       /* JV: This is bogus,
 	 First of all, the units are inconsistent. The frame sizes are measured
 	 in characters but the window sizes are stored in pixels. So if a
 	 font size change happened between saving and restoring, the
 	 frame "sizes" maybe equal but the windows still should be
-	 resized. This is tickled alot by the new "character size
-	 stays constant" policy in 21.0. It leads to very wierd
+	 resized. This is tickled a lot by the new "character size
+	 stays constant" policy in 21.0. It leads to very weird
 	 glitches (and possibly crashes when asserts are tickled).
 
-	 Just changing the units doens't help because changing the
+	 Just changing the units doesn't help because changing the
 	 toolbar configuration can also change the pixel positions.
 	 Luckily there is a much simpler way of doing this, see below.
        */
@@ -5363,18 +5359,28 @@ by `current-window-configuration' (which see).
 	  w->hscroll = p->hscroll;
 	  w->modeline_hscroll = p->modeline_hscroll;
 	  w->line_cache_last_updated = Qzero;
-	  /* The subwindow instance cache isn't preserved across
-	     window configurations, and in fact doing so would be
-	     wrong. We just reset to zero and then redisplay will fill
-	     it up as needed. */
-	  w->subwindow_instance_cache =
-	    make_lisp_hash_table (30,
-				  HASH_TABLE_KEY_VALUE_WEAK,
-				  HASH_TABLE_EQUAL);
+	  /* When we restore a window's configuration, the identity of
+	     the window hasn't actually changed - so there is no
+	     reason why we shouldn't preserve the instance cache for
+	     it - unless it was originally deleted. This will often
+	     buy us something as we will not have to re-instantiate
+	     all the instances. This is because this is an instance
+	     cache - not a display cache. Preserving the display cache
+	     would definitely be wrong.
+
+	     We specifically want to do this for tabs, since for some
+	     reason finding a file will cause the configuration to be
+	     set. */
+	  if (NILP (w->subwindow_instance_cache))
+	    w->subwindow_instance_cache =
+	      make_lisp_hash_table (30,
+				    HASH_TABLE_KEY_VALUE_WEAK,
+				    HASH_TABLE_EQ);
 	  SET_LAST_MODIFIED (w, 1);
 	  SET_LAST_FACECHANGE (w);
 	  w->config_mark = 0;
 
+	  /* #### Consider making the instance cache a winslot. */
 #define WINDOW_SLOT(slot, compare) w->slot = p->slot
 #include "winslots.h"
 
@@ -5751,7 +5757,7 @@ its value is -not- saved.
   config->frame_height = FRAME_HEIGHT (f); */
   /* When using `push-window-configuration', often the minibuffer ends
      up as the selected window because functions run as the result of
-     user interaction e.g. hyper-apropros. It seems to me the sensible
+     user interaction e.g. hyper-apropos. It seems to me the sensible
      thing to do is not record the minibuffer here. */
   if (FRAME_MINIBUF_ONLY_P (f) || minibuf_level)
     config->current_window = FRAME_SELECTED_WINDOW (f);
@@ -5868,7 +5874,7 @@ a non-nil result to be returned.
     }
   else
     {
-      /* optimised case */
+      /* optimized case */
       dl = Dynarr_atp (dla, y);
       db = get_display_block_from_line (dl, TEXT);
 
@@ -6073,6 +6079,7 @@ The function is called with one argument, the buffer to be displayed.
 Used by `with-output-to-temp-buffer'.
 If this function is used, then it must do the entire job of showing
 the buffer; `temp-buffer-show-hook' is not run unless this function runs it.
+\(`temp-buffer-show-hook' is obsolete.  Do not use in new code.)
 */ );
   Vtemp_buffer_show_function = Qnil;
 

@@ -76,7 +76,7 @@ Boston, MA 02111-1307, USA.  */
 typedef EMACS_INT Lisp_Object;
 
 #define Lisp_Type_Int_Bit (Lisp_Type_Int_Even & Lisp_Type_Int_Odd)
-#define make_obj(vartype, x) ((Lisp_Object) (x))
+#define wrap_object(ptr) ((Lisp_Object) (ptr))
 #define make_int(x) ((Lisp_Object) (((x) << INT_GCBITS) | Lisp_Type_Int_Bit))
 #define make_char(x) ((Lisp_Object) (((x) << GCBITS) | Lisp_Type_Char))
 #define VALMASK (((1UL << VALBITS) - 1UL) << GCTYPEBITS)
@@ -94,9 +94,9 @@ typedef EMACS_INT Lisp_Object;
 #define Qzero make_int (0)
 #define Qnull_pointer ((Lisp_Object) 0)
 #define EQ(x,y) ((x) == (y))
-#define XSETINT(var,  value) ((void) ((var) = make_int (value)))
+#define XSETINT(var, value) ((void) ((var) = make_int (value)))
 #define XSETCHAR(var, value) ((void) ((var) = make_char (value)))
-#define XSETOBJ(var, vartype, value) ((void) ((var) = make_obj (vartype, value)))
+#define XSETOBJ(var, value) ((void) ((var) = wrap_object (value)))
 
 /* Convert between a (void *) and a Lisp_Object, as when the
    Lisp_Object is passed to a toolkit callback function */

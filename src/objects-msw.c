@@ -49,7 +49,7 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "insdel.h"
 
-typedef struct colormap_t 
+typedef struct colormap_t
 {
   const char *name;
   COLORREF colorref;
@@ -58,10 +58,10 @@ typedef struct colormap_t
 /* Colors from X11R6 "XConsortium: rgb.txt,v 10.41 94/02/20 18:39:36 rws Exp" */
 /* MSWindows tends to round up the numbers in it's palette, ie where X uses
  * 127, MSWindows uses 128. Colors commented as "Adjusted" are tweaked to
- * match the Windows standard palette to increase the likelyhood of
+ * match the Windows standard palette to increase the likelihood of
  * mswindows_color_to_string() finding a named match.
  */
-static const colormap_t mswindows_X_color_map[] = 
+static const colormap_t mswindows_X_color_map[] =
 {
   {"white"		, PALETTERGB (255, 255, 255) },
   {"black"		, PALETTERGB (0, 0, 0) },
@@ -727,14 +727,14 @@ static const colormap_t mswindows_X_color_map[] =
 };
 
 
-typedef struct fontmap_t 
+typedef struct fontmap_t
 {
   const char *name;
   int value;
 } fontmap_t;
 
 /* Default weight first, preferred names listed before synonyms */
-static const fontmap_t fontweight_map[] = 
+static const fontmap_t fontweight_map[] =
 {
   {"Regular"		, FW_REGULAR},	/* The standard font weight */
   {"Thin"		, FW_THIN},
@@ -752,9 +752,9 @@ static const fontmap_t fontweight_map[] =
   {"Black"		, FW_BLACK}
 };
 
-/* Default charset first, no synonyms allowed because these names are 
+/* Default charset first, no synonyms allowed because these names are
  * matched against the names reported by win32 by match_font() */
-static const fontmap_t charset_map[] = 
+static const fontmap_t charset_map[] =
 {
   {"Western"		, ANSI_CHARSET},
   {"Symbol"		, SYMBOL_CHARSET},
@@ -784,7 +784,7 @@ static const fontmap_t charset_map[] =
 /************************************************************************/
 
 static int
-hexval (char c) 
+hexval (char c)
 {
   /* assumes ASCII and isxdigit(c) */
   if (c >= 'a')
@@ -805,7 +805,7 @@ mswindows_string_to_color(const char *name)
       /* numeric names look like "#RRGGBB", "#RRRGGGBBB" or "#RRRRGGGGBBBB"
 	 or "rgb:rrrr/gggg/bbbb" */
       unsigned int r, g, b;
-  
+
       for (i=1; i<strlen(name); i++)
 	{
 	  if (!isxdigit ((int)name[i]))
@@ -854,7 +854,7 @@ mswindows_string_to_color(const char *name)
 	    }
 	  return (PALETTERGB (r, g, b));
 	}
-      else 
+      else
 	return (COLORREF) -1;
     }
   else if (*name)	/* Can't be an empty string */
@@ -961,7 +961,70 @@ struct font_enum_t
 };
 
 static int CALLBACK
-font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
+old_font_enum_callback_2 (ENUMLOGFONT FAR *lpelfe, NEWTEXTMETRIC FAR *lpntme,
+			  int FontType, struct font_enum_t *font_enum)
+{
+  char fontname[MSW_FONTSIZE];
+  Lisp_Object fontname_lispstr;
+  int i;
+
+  /*
+   * The enumerated font weights are not to be trusted because:
+   *  a) lpelfe->elfStyle is only filled in for TrueType fonts.
+   *  b) Not all Bold and Italic styles of all fonts (including some Vector,
+   *     Truetype and Raster fonts) are enumerated.
+   * I guess that fonts for which Bold and Italic styles are generated
+   * 'on-the-fly' are not enumerated. It would be overly restrictive to
+   * disallow Bold And Italic weights for these fonts, so we just leave
+   * weights unspecified. This means that we have to weed out duplicates of
+   * those fonts that do get enumerated with different weights.
+   */
+  if (FontType == 0 /*vector*/ || FontType == TRUETYPE_FONTTYPE)
+    /* Scalable, so leave pointsize blank */
+    sprintf (fontname, "%s::::", lpelfe->elfLogFont.lfFaceName);
+  else
+    /* Formula for pointsize->height from LOGFONT docs in Platform SDK */
+    sprintf (fontname, "%s::%d::", lpelfe->elfLogFont.lfFaceName,
+	     MulDiv (lpntme->tmHeight - lpntme->tmInternalLeading,
+	             72, GetDeviceCaps (font_enum->hdc, LOGPIXELSY)));
+
+  /*
+   * The enumerated font character set strings are not to be trusted because
+   * lpelfe->elfScript is returned in the host language and not in English.
+   * We can't know a priori the translations of "Western", "Central European"
+   * etc into the host language, so we must use English. The same argument
+   * applies to the font weight string when matching fonts.
+   */
+  for (i=0; i<countof (charset_map); i++)
+    if (lpelfe->elfLogFont.lfCharSet == charset_map[i].value)
+      {
+	strcat (fontname, charset_map[i].name);
+	break;
+      }
+  if (i==countof (charset_map))
+    strcpy (fontname, charset_map[0].name);
+
+  /* Add the font name to the list if not already there */
+  fontname_lispstr = build_string (fontname);
+  if (NILP (memq_no_quit (fontname_lispstr, font_enum->list)))
+    font_enum->list = Fcons (fontname_lispstr, font_enum->list);
+
+  return 1;
+}
+
+static int CALLBACK
+old_font_enum_callback_1 (ENUMLOGFONT FAR *lpelfe, NEWTEXTMETRIC FAR *lpntme,
+			  int FontType, struct font_enum_t *font_enum)
+{
+  /* This function gets called once per facename per character set.
+   * We call a second callback to enumerate the fonts in each facename */
+  return EnumFontFamilies (font_enum->hdc, lpelfe->elfLogFont.lfFaceName,
+			   (FONTENUMPROC) old_font_enum_callback_2,
+			   (LPARAM) font_enum);
+}
+
+static int CALLBACK
+font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme,
 		      int FontType, struct font_enum_t *font_enum)
 {
   char fontname[MSW_FONTSIZE];
@@ -971,7 +1034,7 @@ font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme,
   /*
    * The enumerated font weights are not to be trusted because:
    *  a) lpelfe->elfStyle is only filled in for TrueType fonts.
-   *  b) Not all Bold and Italic styles of all fonts (inluding some Vector,
+   *  b) Not all Bold and Italic styles of all fonts (including some Vector,
    *     Truetype and Raster fonts) are enumerated.
    * I guess that fonts for which Bold and Italic styles are generated
    * 'on-the-fly' are not enumerated. It would be overly restrictive to
@@ -1013,14 +1076,14 @@ font_enum_callback_2 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme,
 }
 
 static int CALLBACK
-font_enum_callback_1 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme, 
+font_enum_callback_1 (ENUMLOGFONTEX *lpelfe, NEWTEXTMETRICEX *lpntme,
 		      int FontType, struct font_enum_t *font_enum)
 {
   /* This function gets called once per facename per character set.
    * We call a second callback to enumerate the fonts in each facename */
-  return EnumFontFamiliesEx (font_enum->hdc, &lpelfe->elfLogFont,
-			     (FONTENUMPROC) font_enum_callback_2,
-			     (LPARAM) font_enum, 0);
+  return xEnumFontFamiliesExA (font_enum->hdc, &lpelfe->elfLogFont,
+			       (FONTENUMPROC) font_enum_callback_2,
+			       (LPARAM) font_enum, 0);
 }
 
 /*
@@ -1040,8 +1103,13 @@ mswindows_enumerate_fonts (HDC hdc)
   logfont.lfPitchAndFamily = DEFAULT_PITCH;
   font_enum.hdc = hdc;
   font_enum.list = Qnil;
-  EnumFontFamiliesEx (hdc, &logfont, (FONTENUMPROC) font_enum_callback_1,
-		      (LPARAM) (&font_enum), 0);
+  if (xEnumFontFamiliesExA)
+    xEnumFontFamiliesExA (hdc, &logfont, (FONTENUMPROC) font_enum_callback_1,
+			  (LPARAM) (&font_enum), 0);
+  else /* NT 3.5x */
+    EnumFontFamilies (hdc, 0, (FONTENUMPROC) old_font_enum_callback_1,
+		      (LPARAM) (&font_enum));
+
   return font_enum.list;
 }
 
@@ -1189,7 +1257,7 @@ static void
 mswindows_finalize_font_instance (Lisp_Font_Instance *f);
 
 /*
- * This is a work horse for both mswindows_initialize_font_instanc and
+ * This is a work horse for both mswindows_initialize_font_instance and
  * msprinter_initialize_font_instance.
  */
 static int
@@ -1263,7 +1331,7 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 
   for (i=0; i<countof (fontweight_map); i++)
     if (!stricmp (weight, fontweight_map[i].name))
-      {	
+      {
 	logfont.lfWeight = fontweight_map[i].value;
 	break;
       }
@@ -1366,7 +1434,7 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
     effects[0] = '\0';
 
   /* Charset */
-  /* charset can be specified even if earlier fields havn't been */
+  /* charset can be specified even if earlier fields haven't been */
   if (fields < 5)
     {
       if ((c=strchr (extname, ':')) && (c=strchr (c+1, ':')) &&
@@ -1438,7 +1506,7 @@ initialize_font_instance (Lisp_Font_Instance *f, Lisp_Object name,
 
   f->data = xnew_and_zero (struct mswindows_font_instance_data);
   FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f,0,0) = hfont;
-  
+
   /* Some underlined fonts have the descent of one pixel more than their
      non-underlined counterparts. Font variants though are assumed to have
      identical metrics. So get the font metrics from the underlined variant
@@ -1518,7 +1586,7 @@ mswindows_print_font_instance (Lisp_Font_Instance *f,
 			       int escapeflag)
 {
   char buf[10];
-  sprintf (buf, " 0x%lx", 
+  sprintf (buf, " 0x%lx",
 	   (unsigned long)FONT_INSTANCE_MSWINDOWS_HFONT_VARIANT (f,0,0));
   write_c_string (buf, printcharfun);
 }
@@ -1583,7 +1651,7 @@ mswindows_font_instance_truename (Lisp_Font_Instance *f, Error_behavior errb)
       break;
     default:;
     }
-  
+
   return build_ext_string (extname, Qnative);
 }
 
@@ -1597,7 +1665,7 @@ mswindows_font_spec_matches_charset (struct device *d, Lisp_Object charset,
   /* #### Implement me */
   if (UNBOUNDP (charset))
     return 1;
-  
+
   return 1;
 }
 
@@ -1661,7 +1729,7 @@ console_type_create_objects_mswindows (void)
 /*  CONSOLE_HAS_METHOD (mswindows, mark_font_instance); */
   CONSOLE_HAS_METHOD (mswindows, print_font_instance);
   CONSOLE_HAS_METHOD (mswindows, finalize_font_instance);
-  CONSOLE_HAS_METHOD (mswindows, font_instance_truename); 
+  CONSOLE_HAS_METHOD (mswindows, font_instance_truename);
   CONSOLE_HAS_METHOD (mswindows, list_fonts);
 #ifdef MULE
   CONSOLE_HAS_METHOD (mswindows, font_spec_matches_charset);
@@ -1684,7 +1752,7 @@ console_type_create_objects_mswindows (void)
 /*  CONSOLE_INHERITS_METHOD (msprinter, mswindows, mark_font_instance); */
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, print_font_instance);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, finalize_font_instance);
-  CONSOLE_INHERITS_METHOD (msprinter, mswindows, font_instance_truename); 
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, font_instance_truename);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, list_fonts);
 #ifdef MULE
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, font_spec_matches_charset);

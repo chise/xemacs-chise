@@ -1,8 +1,9 @@
 ;;; update-elc.el --- Bytecompile out-of-date dumped files
 
 ;; Copyright (C) 1997 Free Software Foundation, Inc.
-;; Copyright (C) 1996 Unknown
+;; Copyright (C) 1996 Sun Microsystems, Inc.
 
+;; Author: Ben Wing <ben@xemacs.org>, Steven L Baur <steve@xemacs.org>
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: internal
 
@@ -38,6 +39,8 @@
 
 ;; (the idea here is that you can bootstrap if your .ELC files
 ;; are missing or badly out-of-date)
+
+;; See also update-elc-2.el
 
 ;;; Code:
 

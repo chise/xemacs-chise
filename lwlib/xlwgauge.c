@@ -1,4 +1,4 @@
-/* Gauge Widget for XEmacs. 
+/* Gauge Widget for XEmacs.
    Copyright (C) 1999 Edward A. Falk
 
 This file is part of XEmacs.
@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
  *
  * Author: Edward A. Falk
  *         falk@falconer.vip.best.com
- *  
+ *
  * Date:   July 9, 1997
  *
  * Note: for fun and demonstration purposes, I have added selection
@@ -160,7 +160,7 @@ static	XtActionsRec	actionsList[] =
 
 GaugeClassRec gaugeClassRec = {
   {
-/* core_class fields */	
+/* core_class fields */
     /* superclass	  	*/	(WidgetClass) &labelClassRec,
     /* class_name	  	*/	"Gauge",
     /* widget_size	  	*/	sizeof(GaugeRec),
@@ -334,7 +334,7 @@ GaugeResize (Widget w)
 	  }
 	  else
 	  {
-	    gw->gauge.margin0 = 
+	    gw->gauge.margin0 =
 	    gw->gauge.margin1 = lh / 2 ;
 	    size += lwm + vmargin ;
 	  }
@@ -404,7 +404,7 @@ register Window	win = XtWindow(w) ;
 	}
 
 	/* if the gauge is selected, signify by drawing the background
-	 * in a constrasting color.
+	 * in a contrasting color.
 	 */
 
 	if( gw->gauge.selected )
@@ -540,7 +540,7 @@ GaugeSetValues (Widget   old,
 	  else
 	    GaugeResize(new) ;
 	}
-	
+
 	if( gw->gauge.update != oldgw->gauge.update )
 	  {
 	    if( gw->gauge.update > 0 )
@@ -674,7 +674,7 @@ GaugeConvert (Widget	w,
 	  return True ;
 	}
 
-	else 
+	else
 #endif
 	  if( *target == XA_INTEGER )
 	{
@@ -685,10 +685,10 @@ GaugeConvert (Widget	w,
 	  return True ;
 	}
 
-	else if( *target == XA_STRING 
+	else if( *target == XA_STRING
 #ifdef HAVE_XMU
-		 || 
-		 *target == XA_TEXT(XtDisplay(w)) 
+		 ||
+		 *target == XA_TEXT(XtDisplay(w))
 #endif
 		 )
 	{
@@ -707,7 +707,7 @@ GaugeConvert (Widget	w,
 	  if( XmuConvertStandardSelection(w, req->time, selection, target,
 	  	type, (XPointer *) value, length, format) )
 	    return True ;
-	  else 
+	  else
 #endif
 	    {
 	    printf(
@@ -787,12 +787,12 @@ GaugeGetSelCB (Widget    w,
 	  XawGaugeSetValue(w, *iptr) ;
 	}
 
-	else if( *type == XA_STRING  
+	else if( *type == XA_STRING
 #ifdef HAVE_XMU
 		 ||
-		 *type == XA_TEXT(dpy) 
+		 *type == XA_TEXT(dpy)
 #endif
-		 ) 
+		 )
 	  {
 	  cptr = (char *)value ;
 	  XawGaugeSetValue(w, atoi(cptr)) ;

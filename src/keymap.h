@@ -39,6 +39,7 @@ EXFUN (Fmake_keymap, 1);
 EXFUN (Fwhere_is_internal, 5);
 
 extern Lisp_Object Qalt, Qcontrol, Qhyper, Qmeta, Qshift, Qsuper;
+extern Lisp_Object Qbutton1, Qbutton2, Qbutton3, Qbutton4, Qbutton5;
 extern Lisp_Object Vmeta_prefix_char;
 
 Lisp_Object get_keymap (Lisp_Object object, int errorp, int autoload);

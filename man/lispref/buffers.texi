@@ -46,7 +46,7 @@ not be displayed in any windows.
 
   Buffers in Emacs editing are objects that have distinct names and hold
 text that can be edited.  Buffers appear to Lisp programs as a special
-data type.  You can think of the contents of a buffer as an extendable
+data type.  You can think of the contents of a buffer as an extendible
 string; insertions and deletions may occur in any part of the buffer.
 @xref{Text}.
 
