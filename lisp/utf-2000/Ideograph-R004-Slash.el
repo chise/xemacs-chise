@@ -240,13 +240,20 @@
     (mojikyo		. 000117)	; ý €€µ
     ))
 (define-char
-  '((ideographic-radical . 4)	; â¼ƒ
-    (ideographic-strokes . 1)
+  '((name		. "cjk radical person for top")
+    (ideographic-	(:radical	4 ; â¼ƒ
+			 :strokes	1)
+			(:radical	1 ; â¼€
+			 :strokes	1)
+			(:radical	9 ; â¼ˆ
+			 :strokes	0))
     (total-strokes	 . 2)
-    (->identical
-     ((ideograph-gt	  . 00008)	; ý¡€€€ˆ
-      ))
+    (ideograph-cdp	. -63)
     (japanese-jisx0213-2	. #x2121)	; ø»¤€
+    (ideograph-gt-pj-9		. #x4D4A)	; ý¡€€€ˆ
+    (chinese-big5-cdp		. #x8B4A)	; ý¢€ˆ­Š
+    (ideograph-gt		. 00008)	; ý¡€€€ˆ
+    (mojikyo			. 070276)	; ý €‘Š„
     (ucs			. #x20089)	; ð ‚‰
     ))
 (define-char
