@@ -985,6 +985,13 @@ mswindows_frame_output_end (struct frame *f)
   GdiFlush();
 }
 
+/* Printer version is more lightweight. */
+static void
+msprinter_frame_output_end (struct frame *f)
+{
+  GdiFlush();
+}
+
 static int
 mswindows_flash (struct device *d)
 {
@@ -1377,6 +1384,7 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, output_pixmap);
 
   /* redisplay methods - printer */
+  CONSOLE_HAS_METHOD (msprinter, frame_output_end);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, text_width);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_display_block);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, divider_height);
@@ -1385,7 +1393,6 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_region);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_frame);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, frame_output_begin);
-  CONSOLE_INHERITS_METHOD (msprinter, mswindows, frame_output_end);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, bevel_area);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_string);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_pixmap);

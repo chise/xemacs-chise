@@ -92,7 +92,6 @@ TODO (in rough order of priority):
 */
 #if (EMACS_MAJOR_VERSION == 21) && (EMACS_MINOR_VERSION < 2)
 #define RUNNING_XEMACS_21_1 1
-#define POSTGRES_INCLUDE(file) <file>
 #endif
 
 /* #define POSTGRES_LO_IMPORT_IS_VOID 1 */
@@ -100,16 +99,12 @@ TODO (in rough order of priority):
 #include "lisp.h"
 #include "sysdep.h"
 #include "buffer.h"
-
-#include POSTGRES_INCLUDE (libpq-fe.h)
 #include "postgresql.h"
 
 #ifdef RUNNING_XEMACS_21_1 /* handle interface changes */
-#define I_HATE_CONST CONST
 #define PG_OS_CODING FORMAT_FILENAME
 #define TO_EXTERNAL_FORMAT(a,from,b,to,c) GET_C_STRING_EXT_DATA_ALLOCA(from,FORMAT_FILENAME,to)
 #else
-#define I_HATE_CONST const
 #ifdef MULE
 #define PG_OS_CODING Fget_coding_system(Vpg_coding_system)
 #else
@@ -396,7 +391,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("pgresult", pgresult,
 
 /* notices */
 static void
-xemacs_notice_processor (void *arg, I_HATE_CONST char *msg)
+xemacs_notice_processor (void *arg, const char *msg)
 {
   warn_when_safe (Qpostgresql, Qnotice, "%s", msg);
 }
@@ -725,7 +720,7 @@ Reset connection to the backend asynchronously.
 }
 
 DEFUN ("pq-reset-poll", Fpq_reset_poll, 1, 1, 0, /*
-Poll an asynchronous reset for completion
+Poll an asynchronous reset for completion.
 */
 	(conn))
 {
@@ -846,12 +841,12 @@ pq::backend-pid   Process ID of backend process
     return build_ext_string (PQoptions(P), PG_OS_CODING);
   else if (EQ (field, Qpqstatus))
     {
-      ExecStatusType est;
+      ConnStatusType cst;
       /* PQstatus Returns the status of the connection. The status can be
 	 CONNECTION_OK or CONNECTION_BAD.
 	 ConnStatusType PQstatus(PGconn *conn)
       */
-      switch ((est = PQstatus (P)))
+      switch ((cst = PQstatus (P)))
 	{
 	case CONNECTION_OK: return Qpg_connection_ok;
 	case CONNECTION_BAD: return Qpg_connection_bad;
@@ -864,7 +859,7 @@ pq::backend-pid   Process ID of backend process
 #endif /* HAVE_POSTGRESQLV7 */
 	default:
 	  /* they've added a new field we don't know about */
-	  error ("Help!  Unknown exec status code %08x from backend!", est);
+	  error ("Help!  Unknown connection status code %08x from backend!", cst);
 	}
     }
   else if (EQ (field, Qpqerrormessage))
@@ -1257,7 +1252,7 @@ Returns the command status string from the SQL command that generated the result
 }
 
 DEFUN ("pq-cmd-tuples", Fpq_cmd_tuples, 1, 1, 0, /*
-Returns the number of rows affected by the SQL command
+Returns the number of rows affected by the SQL command.
 */
 	(result))
 {
@@ -1309,7 +1304,7 @@ Needs to be called only on a connected database connection.
 }
 
 DEFUN ("pq-is-nonblocking", Fpq_is_nonblocking, 1, 1, 0, /*
-Return the blocking status of the database connection
+Return the blocking status of the database connection.
 */
        (conn))
 {
@@ -1323,7 +1318,7 @@ Return the blocking status of the database connection
 }
 
 DEFUN ("pq-flush", Fpq_flush, 1, 1, 0, /*
-Force the write buffer to be written (or at least try)
+Force the write buffer to be written (or at least try).
 */
        (conn))
 {
@@ -1543,7 +1538,7 @@ The returned string is *not* null-terminated.
   if (ret == -1) return Qt; /* done! */
   else if (!ret) return Qnil; /* no data yet */
   else return Fcons (make_int (ret),
-		     make_ext_string (buffer, ret, PG_OS_CODING));
+		     make_ext_string ((Extbyte *) buffer, ret, PG_OS_CODING));
 }
 
 DEFUN ("pq-put-nbytes", Fpq_put_nbytes, 2, 2, 0, /*

@@ -1,4 +1,4 @@
-/*
+/* -*- coding: iso-2022-jp -*-
    Copyright (C) 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
 

@@ -78,7 +78,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include <limits.h>
 
 #include "buffer.h"
 #include "commands.h"
@@ -126,7 +125,7 @@ static HMENU top_level_menu;
    of not hitting an error, maxlen should be >= 2*len + 3. */
 
 Bytecount
-msw_translate_menu_or_dialog_item (Bufbyte *item, Bytecount len,
+mswindows_translate_menu_or_dialog_item (Bufbyte *item, Bytecount len,
 				   Bytecount maxlen, Emchar *accel,
 				   Lisp_Object error_name)
 {
@@ -209,7 +208,7 @@ displayable_menu_item (Lisp_Object gui_item, int bar_p, Emchar *accel)
   /* Left flush part of the string */
   ll = gui_item_display_flush_left (gui_item, buf, MAX_MENUITEM_LENGTH);
 
-  ll = msw_translate_menu_or_dialog_item ((Bufbyte *) buf, ll,
+  ll = mswindows_translate_menu_or_dialog_item ((Bufbyte *) buf, ll,
 					  MAX_MENUITEM_LENGTH, accel,
 					  XGUI_ITEM (gui_item)->name);
 
@@ -668,7 +667,7 @@ menu_cleanup (struct frame *f)
 }
 
 int
-msw_char_is_accelerator (struct frame *f, Emchar ch)
+mswindows_char_is_accelerator (struct frame *f, Emchar ch)
 {
   Lisp_Object hash = FRAME_MSWINDOWS_MENU_HASH_TABLE (f);
 

@@ -25,6 +25,138 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-13  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: --with-menubars=yes should not be an error.
+
+	* configure.in: "compiling in support for Athena" message was
+	sometimes lying.
+
+2000-07-12  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Rewrite xmkmf symbol detection to avoid
+	redefinition of symbols we've already defined.
+	Also, handle xmkmf symbols with values other than 1.
+
+2000-07-12  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	Make sure Unix98 socklen_t is defined.
+	Use ANSI C mode `-std1' with DEC C instead of `-std'.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: 
+	Replace SMART_INCLUDE with a dumber, but more reliable method.
+2000-07-10  Martin Buchholz  <martin@xemacs.org>
+
+	* modules/zlib/Makefile: 
+	* modules/sample/Makefile: 
+	* modules/ldap/Makefile: 
+	* modules/base64/Makefile: 
+	* Makefile.in.in: 
+	rm -f ==> $(RM)
+	define SHELL=/bin/sh
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: PostgreSQL rewrite.
+	- Don't look for postgreSQL in /usr/local.
+	- Simplify detection code.
+	- Don't use SMART_INCLUDE.
+	- Don't autodetect if --with-postgresql=no.
+
+2000-07-08  Ben Wing  <ben@xemacs.org>
+
+	* configure.usage: addl doc for graphics libs, with-msw.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: sh builtin `test' uses `=', not `=='.
+
+2000-07-08  Ben Wing  <ben@xemacs.org>
+
+	* configure.in: add -lcomdlg32 for cygwin.
+	
+2000-07-05  Craig Lanning  <lanning@scra.org>
+
+	* aclocal.m4 (can_build_shared):
+	First pass at module support for cygwin and mingw.
+	
+	* configure:
+	* configure (xe_check_libs):
+	* configure (acfindx):
+	* configure (ac_x_includes):
+	* configure (ac_x_libraries):
+	* configure (ac_cv_lib_dnet_dnet_ntoa):
+	* configure (xe_msg_checking):
+	* configure (xe_runpath_dir):
+	* configure (xetest):
+	* configure (ac_err):
+	* configure (ac_safe):
+	* configure (with_xmu):
+	* configure (bitmapdir):
+	* configure (with_xauth):
+	* configure (libs_xauth):
+	* configure (with_cde):
+	* configure (with_ldap):
+	* configure (with_ldap_krbdes):
+	* configure (save_c_switch_site):
+	* configure (with_postgresql):
+	* configure (with_xface):
+	* configure (with_jpeg):
+	* configure (with_png):
+	* configure (with_tiff):
+	* configure (athena_lib):
+	* configure (have_motif):
+	* configure (all_widgets):
+	* configure (with_xim):
+	* configure (with_xfs):
+	* configure (with_wnn):
+	* configure (with_canna):
+	* configure (extra_objs):
+	* configure (ac_cv_c_inline):
+	* configure (have_esd_config):
+	* configure (c_switch_site):
+	* configure (with_ncurses):
+	* configure (with_gpm):
+	* configure (xealias):
+	* configure (xehost_os):
+	* configure (can_build_shared):
+	* configure (xcldf):
+	* configure (LTLD):
+	* configure (ld_dynamic_link_flags):
+	* configure (Mail):
+	* configure.in:
+	* configure.in (after_morecore_hook_exists):
+	* configure.in (xetest):
+	* configure.in (emacs_cv_localtime_cache):
+	* configure.in (Mail):
+        * configure.in:
+	Clean up configure support for cygwin and mingw.
+
+2000-06-27 Darryl Okahata <darrylo@soco.agilent.com>
+
+	* PROBLEMS: Document broken native audio for recent patches and
+	  releases of HP-UX.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in (install-arch-dep):
+	WINDOWSNT -> WIN32_NATIVE.
+	__CYGWIN32__ -> CYGWIN.
+
+2000-06-01  Andreas Jaeger  <aj@suse.de>
+
+	* configure.in: Recognize s390.
+
+	* config.guess: New version from GNU config archive.
+	* config.sub: Likewise.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

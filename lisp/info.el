@@ -592,6 +592,7 @@ to read a file name from the minibuffer."
 	  (bury-buffer (find-file-noselect (car f))))
       (setq f (cdr f)))))
 
+;;;###autoload
 (defun Info-find-node (filename &optional nodename no-going-back tryfile line)
   "Go to an info node specified as separate FILENAME and NODENAME.
 Look for a plausible filename, or if not found then look for URL's and

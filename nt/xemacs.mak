@@ -297,6 +297,9 @@ DEPEND=0
 ! if [if not exist $(OUTDIR)\nul mkdir "$(OUTDIR)"]
 ! endif
 # generate an nmake-readable version of depend
+# #### here, it doesn't seem to matter if we double ^'s!
+# results are the same with all single ^ and all double ^^!
+# see comment below.
 ! if [perl -p -e "s/^\x23ifdef (.+)/!if defined($$1)/; s/^\x23e/!e/;" \
 	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
 	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
@@ -455,7 +458,7 @@ INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(LWLIB_SRCDIR)
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
 	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
 	$(DUMPER_DEFINES) $(MALLOC_DEFINES) $(QUICK_DEFINES) \
-	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
+	-DWIN32_LEAN_AND_MEAN -DWIN32_NATIVE -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
 #------------------------------------------------------------------------------
@@ -481,7 +484,7 @@ $(SRC)\paths.h:	paths.h
 
 # lib-src programs
 
-LIB_SRC_DEFINES = -DHAVE_CONFIG_H -DWIN32 -DWINDOWSNT
+LIB_SRC_DEFINES = -DHAVE_CONFIG_H -DWIN32_NATIVE
 
 #
 # Creating config.values to be used by config.el
@@ -546,18 +549,6 @@ LIB_SRC_TOOLS = \
 
 # Shorthand target
 minitar: $(LIB_SRC)/minitar.exe
-
-#------------------------------------------------------------------------------
-
-# runxemacs proglet
-
-RUNEMACS = $(SRC)\runxemacs.exe
-
-$(RUNEMACS): $(LIB_SRC)\run.c $(LIB_SRC)\run.res
-	$(CCV) -I$(LIB_SRC) $(CFLAGS) -Fe$@ -Fo$(LIB_SRC) -Fd$(LIB_SRC)\ $** kernel32.lib user32.lib -link -incremental:no
-
-$(LIB_SRC)\run.res: $(LIB_SRC)\run.rc
-	rc -I$(LIB_SRC) -Fo$@ $**
 
 #------------------------------------------------------------------------------
 
@@ -824,12 +815,12 @@ TEMACS=$(TEMACS_DIR)\temacs.exe
 TEMACS_BROWSE=$(TEMACS_DIR)\temacs.bsc
 TEMACS_SRC=$(SRC)
 TEMACS_LIBS=$(LASTFILE) $(LWLIB) $(X_LIBS) $(MSW_LIBS) \
- oldnames.lib kernel32.lib user32.lib gdi32.lib advapi32.lib \
+ oldnames.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib advapi32.lib \
  shell32.lib wsock32.lib winmm.lib winspool.lib ole32.lib uuid.lib $(LIBC_LIB)
 TEMACS_LFLAGS=-nologo $(LIBRARIES) $(DEBUG_FLAGS) -base:0x1000000\
  -stack:0x800000 $(TEMACS_ENTRYPOINT) -subsystem:windows\
  -pdb:$(TEMACS_DIR)\temacs.pdb -map:$(TEMACS_DIR)\temacs.map \
- -heap:0x00100000 -nodefaultlib -incremental:no
+ -heap:0x00100000 -nodefaultlib -incremental:no setargv.obj
 TEMACS_CPP_FLAGS=-c \
  $(CFLAGS) $(INCLUDES) $(DEFINES) $(DEBUG_DEFINES) \
  -DEMACS_MAJOR_VERSION=$(emacs_major_version) \
@@ -1104,8 +1095,10 @@ tags:
 	cd $(XEMACS)
 	$(DEL) TAGS
 	set PATH=lib-src;%PATH%
-# argh!!! we need two ^^'s to get one ^, but only before a backslash.
-# i have no idea why.  probably some obscure nmake quoting convention.
+# we need to double ^, but only before backslash!  Doubling it elsewhere
+# causes problems.  I don't understand this -- CMD.EXE uses ^ as a quoting
+# convention of sorts, but appears to leave it alone inside of double quotes,
+# even before \.  Could this be nmake interference?
 	etags -a -r "/[ 	]*DEF\(VAR\|INE\)_[A-Z_]+[ 	]*([ 	]*\"\([^^\"]+\)\"/\2/" src\*.c src\*.h lwlib\*.c lwlib\*.h lib-src\*.c lib-src\*.h
 	etags -a -l none -r "/^(def\(var\|un\|alias\|const\|macro\|subst\|struct\|face\|group\|custom\|ine-\(function\|compiler-macro\|[a-z-]+alias\)\)[ 	]+'?\([^ 	]+\)/\3/" $(tagslisp)\*.el
 
@@ -1370,7 +1363,7 @@ $(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 
 # use this rule to build the complete system
 all:	installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
-	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) $(PROGNAME) \
+	$(LIB_SRC_TOOLS) $(TEMACS) update-elc $(DOC) $(PROGNAME) \
 	update-auto-and-custom info
 
 temacs: $(LASTFILE) $(TEMACS)
@@ -1387,7 +1380,6 @@ install:	all
 	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(CONFIG_VALUES) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@copy $(SRC)\xemacs.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
-	@copy $(RUNEMACS) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@xcopy /e /q $(XEMACS)\etc  "$(INSTALL_DIR)\etc\"
 	@xcopy /e /q $(XEMACS)\info "$(INSTALL_DIR)\info\"
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"

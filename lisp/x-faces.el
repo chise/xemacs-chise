@@ -492,11 +492,13 @@ Otherwise, it returns the next larger version of this font that is defined."
 	     (or (null locale) (eq locale 'global)))
 	(progn
 	  (or fn (setq fn (x-get-resource
-			   "font" "Font" 'string locale)))
+			   "font" "Font" 'string locale nil 'warn)))
 	  (or fg (setq fg (x-get-resource
-			   "foreground" "Foreground" 'string locale)))
+			   "foreground" "Foreground" 'string locale nil
+			   'warn)))
 	  (or bg (setq bg (x-get-resource
-			   "background" "Background" 'string locale)))))
+			   "background" "Background" 'string locale nil
+			   'warn)))))
     ;;
     ;; "*cursorColor: foo" is equivalent to setting the background of the
     ;; text-cursor face.
@@ -504,7 +506,8 @@ Otherwise, it returns the next larger version of this font that is defined."
     (if (and (eq (face-name face) 'text-cursor)
 	     (or (null locale) (eq locale 'global)))
 	(setq bg (or (x-get-resource
-		      "cursorColor" "CursorColor" 'string locale) bg)))
+		      "cursorColor" "CursorColor" 'string locale nil 'warn)
+		     bg)))
     ;; #### should issue warnings?  I think this should be
     ;; done when the instancing actually happens, but I'm not
     ;; sure how it should actually be dealt with.
@@ -735,7 +738,8 @@ Otherwise, it returns the next larger version of this font that is defined."
   ;; If reverseVideo was specified, swap the foreground and background
   ;; of the default and modeline faces.
   ;;
-  (cond ((car (x-get-resource "reverseVideo" "ReverseVideo" 'boolean frame))
+  (cond ((car (x-get-resource "reverseVideo" "ReverseVideo" 'boolean frame
+			      nil 'warn))
 	 ;; First make sure the modeline has fg and bg, inherited from the
 	 ;; current default face - for the case where only one is specified,
 	 ;; so that invert-face doesn't do something weird.

@@ -101,6 +101,9 @@ if test "$XEGCC" = yes; then
     # like `-m68040'.
     dll_cflags='-m68020 -resident32 -malways-restore-a4'
     ;;
+  *cygwin* | *mingw* )
+    # PIC is the default
+    ;;
   *)
     dll_cflags='-fPIC'
     ;;

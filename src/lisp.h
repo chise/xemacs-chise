@@ -41,6 +41,7 @@ Boston, MA 02111-1307, USA.  */
 #include <stdarg.h>
 #include <stddef.h>		/* offsetof */
 #include <sys/types.h>
+#include <limits.h>
 
 /* ---- Dynamic arrays ---- */
 
@@ -220,7 +221,7 @@ void xfree (void *);
 #ifdef USE_ASSERTIONS
 /* Highly dubious kludge */
 /*   (thanks, Jamie, I feel better now -- ben) */
-DECLARE_DOESNT_RETURN (assert_failed (const char *, int, const char *));
+void assert_failed (const char *, int, const char *);
 # define abort() (assert_failed (__FILE__, __LINE__, "abort()"))
 # define assert(x) ((x) ? (void) 0 : assert_failed (__FILE__, __LINE__, #x))
 #else
@@ -944,7 +945,7 @@ Bytecount charcount_to_bytecount (const Bufbyte *ptr, Charcount len);
 #define string_byte_addr(s, i) (&((s)->data[i]))
 #define set_string_length(s, len) ((void) ((s)->size = (len)))
 #define set_string_data(s, ptr) ((void) ((s)->data = (ptr)))
-#define set_string_byte(s, i, c) ((void) ((s)->data[i] = (c)))
+#define set_string_byte(s, i, b) ((void) ((s)->data[i] = (b)))
 
 void resize_string (Lisp_String *s, Bytecount pos, Bytecount delta);
 
@@ -966,7 +967,7 @@ void set_string_char (Lisp_String *s, Charcount i, Emchar c);
 # define string_char_length(s) string_length (s)
 # define string_char(s, i) ((Emchar) string_byte (s, i))
 # define string_char_addr(s, i) string_byte_addr (s, i)
-# define set_string_char(s, i, c) set_string_byte (s, i, c)
+# define set_string_char(s, i, c) set_string_byte (s, i, (Bufbyte)c)
 
 #endif /* not MULE */
 
@@ -1179,7 +1180,7 @@ XCHAR (Lisp_Object obj)
 
 #else
 
-#define XCHAR(x) XCHARVAL (x)
+#define XCHAR(x) ((Emchar)XCHARVAL (x))
 
 #endif
 
@@ -1388,7 +1389,10 @@ enum weak_list_type
   /* element disappears if it's a cons and its car is unmarked. */
   WEAK_LIST_KEY_ASSOC,
   /* element disappears if it's a cons and its cdr is unmarked. */
-  WEAK_LIST_VALUE_ASSOC
+  WEAK_LIST_VALUE_ASSOC,
+  /* element disappears if it's a cons and neither its car nor
+     its cdr is marked. */
+  WEAK_LIST_FULL_ASSOC
 };
 
 struct weak_list
@@ -1612,7 +1616,7 @@ void signal_quit (void);
 #define HASH9(a,b,c,d,e,f,g,h,i) (GOOD_HASH * HASH8 (a,b,c,d,e,f,g,h) + (i))
 
 #define LISP_HASH(obj) ((unsigned long) LISP_TO_VOID (obj))
-unsigned long string_hash (const void *xv);
+unsigned long string_hash (const char *xv);
 unsigned long memory_hash (const void *xv, size_t size);
 unsigned long internal_hash (Lisp_Object obj, int depth);
 unsigned long internal_array_hash (Lisp_Object *arr, int size, int depth);
@@ -2063,6 +2067,7 @@ void stuff_buffered_input (Lisp_Object);
 
 /* Defined in console-msw.c */
 EXFUN (Fmswindows_message_box, 3);
+extern int mswindows_message_outputted;
 
 /* Defined in data.c */
 DECLARE_DOESNT_RETURN (c_write_error (Lisp_Object));
@@ -2800,7 +2805,7 @@ EXFUN (Fwiden, 1);
 
 extern Lisp_Object Q_style, Qabort, Qactually_requested;
 extern Lisp_Object Qactivate_menubar_hook;
-extern Lisp_Object Qafter, Qall, Qand;
+extern Lisp_Object Qafter, Qall, Qand, Qappend;
 extern Lisp_Object Qarith_error, Qarrayp, Qassoc, Qat, Qautodetect, Qautoload;
 extern Lisp_Object Qbackground, Qbackground_pixmap, Qbad_variable, Qbefore;
 extern Lisp_Object Qbeginning_of_buffer, Qbig5, Qbinary;
@@ -2815,8 +2820,8 @@ extern Lisp_Object Qcenter, Qcircular_list, Qcircular_property_list;
 extern Lisp_Object Qcoding_system_error;
 extern Lisp_Object Qcolor, Qcolor_pixmap_image_instance_p;
 extern Lisp_Object Qcolumns, Qcommand, Qcommandp, Qcompletion_ignore_case;
-extern Lisp_Object Qconsole, Qconsole_live_p, Qconst_specifier, Qcr, Qcritical;
-extern Lisp_Object Qcrlf, Qctext, Qcurrent_menubar, Qctext, Qcursor;
+extern Lisp_Object Qconsole, Qconsole_live_p, Qconst_specifier, Qcopies, Qcr;
+extern Lisp_Object Qcritical, Qcrlf, Qctext, Qcurrent_menubar, Qctext, Qcursor;
 extern Lisp_Object Qcyclic_variable_indirection, Qdata, Qdead, Qdecode;
 extern Lisp_Object Qdefault, Qdefun, Qdelete, Qdelq, Qdevice, Qdevice_live_p;
 extern Lisp_Object Qdialog;
@@ -2830,7 +2835,8 @@ extern Lisp_Object Qexternal_debugging_output, Qface, Qfeaturep;
 extern Lisp_Object Qfile_name, Qfile_error;
 extern Lisp_Object Qfont, Qforce_g0_on_output, Qforce_g1_on_output;
 extern Lisp_Object Qforce_g2_on_output, Qforce_g3_on_output, Qforeground;
-extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfuncall, Qfunction;
+extern Lisp_Object Qformat, Qframe, Qframe_live_p, Qfrom_page, Qfull_assoc;
+extern Lisp_Object Qfuncall, Qfunction;
 extern Lisp_Object Qgap_overhead, Qgeneric, Qgeometry, Qglobal, Qheight;
 extern Lisp_Object Qhelp, Qhighlight, Qhorizontal, Qicon;
 extern Lisp_Object Qicon_glyph_p, Qid, Qidentity, Qignore, Qimage, Qinfo;
@@ -2876,10 +2882,10 @@ extern Lisp_Object Qsignal, Qsimple, Qsingularity_error, Qsize, Qspace;
 extern Lisp_Object Qspecifier, Qstandard_input, Qstandard_output, Qstart_open;
 extern Lisp_Object Qstream, Qstring, Qstring_lessp, Qsubwindow;
 extern Lisp_Object Qsubwindow_image_instance_p;
-extern Lisp_Object Qsymbol, Qsyntax, Qt, Qterminal, Qtest, Qtext;
-extern Lisp_Object Qtext_image_instance_p, Qthis_command, Qtimeout, Qtimestamp;
-extern Lisp_Object Qtoolbar, Qtop, Qtop_margin, Qtop_level;
-extern Lisp_Object Qtrue_list_p, Qtty, Qtype;
+extern Lisp_Object Qsymbol, Qsyntax, Qt, Qterminal, Qtest;
+extern Lisp_Object Qtext, Qtext_image_instance_p, Qthis_command, Qtimeout;
+extern Lisp_Object Qtimestamp, Qtoolbar, Qtop, Qtop_margin, Qtop_level;
+extern Lisp_Object Qto_page, Qtrue_list_p, Qtty, Qtype;
 extern Lisp_Object Qunbound, Qundecided, Qundefined, Qunderflow_error;
 extern Lisp_Object Qunderline, Qunimplemented, Quser_files_and_directories;
 extern Lisp_Object Qvalue_assoc, Qvalues;

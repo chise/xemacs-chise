@@ -26,19 +26,13 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_nt_h_
 #define INCLUDED_nt_h_
 
+#include "syswindows.h"
+
 #ifdef DEBUG_XEMACS
 #define DebPrint(stuff) _DebPrint stuff
 #else
 #define DebPrint(stuff)
 #endif
-
-#define R_OK 4
-#define W_OK 2
-#ifdef X_OK
-#undef X_OK
-#endif
-#define X_OK 1
-#define F_OK 0
 
 /* ------------------------------------------------------------------------- */
 
@@ -144,5 +138,13 @@ void mswindows_executable_type (const char * filename, int * is_dos_app,
 
 /* In process-nt.c */
 extern int compare_env (const void *strp1, const void *strp2);
+
+void mswindows_set_errno (unsigned long win32_error);
+void mswindows_set_last_errno (void);
+
+void wait_for_termination (HANDLE pid);
+
+int mswindows_fstat (int handle, struct stat *buffer);
+int mswindows_stat (const char * path, struct stat * buf);
 
 #endif /* INCLUDED_nt_h_ */

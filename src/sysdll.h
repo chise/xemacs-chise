@@ -26,9 +26,9 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 extern "C" {
 #endif
 
-#if defined(WIN32)
+#if defined(WIN32_NATIVE)
 #define DLLEXPORT __declspec(dllexport)
-#elif defined(_WINDOWS)
+#elif defined(WIN16)
 #define DLLEXPORT FAR PASCAL _EXPORT
 #else
 #define DLLEXPORT

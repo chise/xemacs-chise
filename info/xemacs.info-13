@@ -96,10 +96,12 @@ XEmacs and Installing Packages
 have some or all of the packages on a local disk, such as a CDROM.  If
 you want to install from a local disk, you must first tell XEmacs where
 to find the package binaries.  This is done by adding a line like the
-following to your `.emacs' file:
+following to your init file:
 
      (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
                                     package-get-remote))
+
+   *Note Init File::.
 
    Here, you'd change `/my/path/to/package/binaries' to be the path to
 your local package binaries.  Next, restart XEmacs, and you're ready to
@@ -580,9 +582,9 @@ specified file.  The text stored in the file looks like the output of
 and reads the specified file, defining abbrevs according to its
 contents.  `M-x quietly-read-abbrev-file' is the same but does not
 display a message in the echo area; it is actually useful primarily in
-the `.emacs' file.  If you give an empty argument to either of these
-functions, the file name Emacs uses is the value of the variable
-`abbrev-file-name', which is by default `"~/.abbrev_defs"'.
+the init file.  *Note Init File::. If you give an empty argument to
+either of these functions, the file name Emacs uses is the value of the
+variable `abbrev-file-name', which is by default `"~/.abbrev_defs"'.
 
    Emacs offers to save abbrevs automatically if you have changed any of
 them, whenever it offers to save all files (for `C-x s' or `C-x C-c').
@@ -1062,7 +1064,7 @@ use the command `M-x merge-mail-aliases'.  The `rebuild-mail-aliases'
 command is similar, but deletes existing aliases first.
 
    If you want multiple addresses separated by a string other than `,'
-(a comma), then set the variable `mail-alias-seperator-string' to it.
+(a comma), then set the variable `mail-alias-separator-string' to it.
 This has to be a comma bracketed by whitespace if you want any kind  of
 reasonable behavior.
 

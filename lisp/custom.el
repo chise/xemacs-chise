@@ -38,10 +38,10 @@
 ;;; Code:
 
 (eval-when-compile
-  (load "cl-macs"))
+  (load "cl-macs" nil t))
 
-(if (not (fboundp 'defun*))
-    (autoload 'defun* "cl-macs"))
+(autoload 'custom-declare-face "cus-face")
+(autoload 'defun* "cl-macs")
 
 (require 'widget)
 

@@ -215,6 +215,7 @@ enum lrecord_type
   lrecord_type_ldap,
   lrecord_type_pgconn,
   lrecord_type_pgresult,
+  lrecord_type_devmode,
   lrecord_type_count /* must be last */
 };
 

@@ -24,15 +24,6 @@ Boston, MA 02111-1307, USA.
 /* Adapted for XEmacs by David Hobley <david@spook-le0.cia.com.au> */
 /* Synced with FSF Emacs 19.34.6 by Marc Paquette <marcpa@cam.org> */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <io.h>
-#include <fcntl.h>
-#include <signal.h>
-
-/* must include CRT headers *before* config.h */
-/* #### I don't believe it - martin */
 #include <config.h>
 #undef signal
 #undef wait
@@ -41,7 +32,6 @@ Boston, MA 02111-1307, USA.
 #undef kill
 
 #include <windows.h>
-#include <sys/socket.h>
 #ifdef HAVE_A_OUT_H
 #include <a.out.h>
 #endif
@@ -111,7 +101,7 @@ void _DebPrint (const char *fmt, ...)
 #endif
 }
 
-/* sys_signal moved to nt.c. It's now called msw_signal... */
+/* sys_signal moved to nt.c. It's now called mswindows_signal... */
 
 /* Defined in <process.h> which conflicts with the local copy */
 #define _P_NOWAIT 1
@@ -791,7 +781,7 @@ find_child_console (HWND hwnd, child_process * cp)
 
       GetClassName (hwnd, window_class, sizeof (window_class));
       if (strcmp (window_class,
-		  msw_windows9x_p()
+		  mswindows_windows9x_p()
 		  ? "tty"
 		  : "ConsoleWindowClass") == 0)
 	{
@@ -884,7 +874,7 @@ sys_kill (int pid, int sig)
       if (NILP (Vwin32_start_process_share_console) && cp && cp->hwnd)
 	{
 #if 1
-	  if (msw_windows9x_p())
+	  if (mswindows_windows9x_p())
 	    {
 /*
    Another possibility is to try terminating the VDM out-right by
@@ -1037,12 +1027,6 @@ set_process_dir (const char * dir)
 
 /* Some miscellaneous functions that are Windows specific, but not GUI
    specific (ie. are applicable in terminal or batch mode as well).  */
-
-/* lifted from fileio.c  */
-#define CORRECT_DIR_SEPS(s) \
-  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
-       else unixtodos_filename (s); \
-  } while (0)
 
 DEFUN ("win32-short-file-name", Fwin32_short_file_name, 1, 1, "", /*
   Return the short file name version (8.3) of the full path of FILENAME.

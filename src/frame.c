@@ -268,7 +268,9 @@ setup_frame_without_minibuffer (struct frame *f, Lisp_Object mini_window)
 	      FRAME_CONSOLE (XFRAME (XWINDOW (mini_window)->frame))))
     error ("frame and minibuffer must be on the same console");
 
-  if (NILP (mini_window))
+  /* Do not create a default minibuffer frame on printer devices.  */
+  if (NILP (mini_window)
+      && DEVICE_DISPLAY_P (XDEVICE (FRAME_DEVICE (f))))
     {
       struct console *con = XCONSOLE (FRAME_CONSOLE (f));
       /* Use default-minibuffer-frame if possible.  */
@@ -283,8 +285,13 @@ setup_frame_without_minibuffer (struct frame *f, Lisp_Object mini_window)
     }
 
   /* Install the chosen minibuffer window, with proper buffer.  */
-  store_minibuf_frame_prop (f, mini_window);
-  Fset_window_buffer (mini_window, Vminibuffer_zero, Qt);
+  if (!NILP (mini_window))
+    {
+      store_minibuf_frame_prop (f, mini_window);
+      Fset_window_buffer (mini_window, Vminibuffer_zero, Qt);
+    }
+  else
+    f->minibuffer_window = Qnil;
 }
 
 /* Make a frame containing only a minibuffer window.  */
@@ -3409,7 +3416,7 @@ This is the same format as `modeline-format' with the exception that
 */ );
 /* #### I would change this unilaterally but for the wrath of the Kyles
 of the world. */
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   Vframe_title_format = build_string ("%b - XEmacs");
 #else
   Vframe_title_format = build_string ("%S: %b");

@@ -199,7 +199,7 @@ and returns the file found (if any). (In fact, @code{load} uses this
 function to search through @code{load-path}.) It searches for
 @var{filename} through @var{path-list}, expanded by one of the optional
 @var{suffixes} (string of suffixes separated by @samp{:}s), checking for
-access @var{mode} (0|1|2|4 = exists|executable|writeable|readable),
+access @var{mode} (0|1|2|4 = exists|executable|writable|readable),
 default readable.
 
 @code{locate-file} keeps hash tables of the directories it searches

@@ -159,15 +159,17 @@ PostScript printer.  Under MS Windows, the built-in printing support is used."
 	       (progn
 		 (setq d (make-device 'msprinter printer-name))
 		 (setq f (make-frame
-			  '(name "Test!"
-				 menubar-visible-p nil
-				 has-modeline-p nil
-				 default-toolbar-visible-p nil
-				 default-gutter-visible-p nil
-				 minibuffer none
-				 modeline-shadow-thickness 0
-				 vertical-scrollbar-visible-p nil
-				 horizontal-scrollbar-visible-p nil)
+			  (list* 'name (concat (substitute ?_ ?. 
+							   (buffer-name buf))
+					       " - XEmacs")
+				 '(menubar-visible-p nil
+				   has-modeline-p nil
+				   default-toolbar-visible-p nil
+				   default-gutter-visible-p nil
+				   minibuffer none
+				   modeline-shadow-thickness 0
+				   vertical-scrollbar-visible-p nil
+				   horizontal-scrollbar-visible-p nil))
 			  d))
 		 (let* ((w (frame-root-window f))
 			(vertdpi (cdr (device-system-metric d 'device-dpi)))

@@ -580,25 +580,55 @@ This is normally set via `font-lock-defaults'.")
 
 ;; #### barf gag retch.  Horrid FSF lossage that we need to
 ;; keep around for compatibility with font-lock-keywords that
-;; forget to properly quote their faces.
+;; forget to properly quote their faces.  I tried just let-binding
+;; them when we eval the face expression, but that failes because
+;; some	files actually use the variables directly in their init code
+;; without quoting them. --ben
 (defvar font-lock-comment-face 'font-lock-comment-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-doc-string-face 'font-lock-doc-string-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-string-face 'font-lock-string-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-keyword-face 'font-lock-keyword-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-function-name-face 'font-lock-function-name-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-variable-name-face 'font-lock-variable-name-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-type-face 'font-lock-type-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-reference-face 'font-lock-reference-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 (defvar font-lock-preprocessor-face 'font-lock-preprocessor-face
-  "Don't even think of using this.")
+  "This variable should not be set.
+It is present only for horrid FSF compatibility reasons.
+The corresponding face should be set using `edit-faces' or the
+`set-face-*' functions.")
 
 (defconst font-lock-face-list
   '(font-lock-comment-face
@@ -1177,10 +1207,12 @@ buffer modifications are performed or a buffer is reverted.")
 ;;			(if (or change-was-deletion (bobp)
 ;;				(= (preceding-char) ?\n))
 ;;			    (buffer-syntactic-context-flush-cache))
-			(if (and (= beg (point-min))
-				 (= end (point-max)))
-			    (font-lock-fontify-buffer)
-			  (font-lock-fontify-region beg end)))
+			;; #### This creates some unnecessary progress gauges.
+;;			(if (and (= beg (point-min))
+;;				 (= end (point-max)))
+;;			    (font-lock-fontify-buffer)
+;;			  (font-lock-fontify-region beg end)))
+			(font-lock-fontify-region beg end))
 		    font-lock-range-table)))))))
      font-lock-pending-extent-table)))
 
@@ -2490,7 +2522,7 @@ The name is assumed to begin with a capital letter.")
 	 (list
 
 	  ;; Javadoc tags
-	  '("@\\(author\\|exception\\|throws\\|deprecated\\|param\\|return\\|see\\|since\\|version\\)\\s "
+	  '("@\\(author\\|deprecated\\|exception\\|throws\\|param\\|return\\|see\\|since\\|version\\|serial\\|serialData\\|serialField\\)\\s "
 	    0 font-lock-keyword-face t)
 
 	  ;; Doc tag - Parameter identifiers

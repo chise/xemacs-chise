@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/04/26 07:18:27 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/07/08 09:14:11 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -1011,7 +1011,7 @@ enable it, add to your @file{Emacs} file entries like this:
 @example
 Emacs*XlwMenu.resourceLabels:                   True
 Emacs*XlwMenu.file.labelString:                 Fichier
-Emacs*XlwMenu.openInOtherWindow.labelString:    In anderem Fenster offnen
+Emacs*XlwMenu.openInOtherWindow.labelString: 	In anderem Fenster oeffnen
 @end example
 
 The name of the resource is derived from the non-localized entry by
@@ -6210,8 +6210,10 @@ Unix box, redirected to the server running on your PC).
 @node Q6.1.2, Q6.1.3, Q6.1.1, MS Windows
 @unnumberedsubsec Q6.1.2: What compiler do I need to compile XEmacs?
 
-You need Visual C++ 4.2 or 5.0, with the exception of the Cygwin port,
-which uses Gcc.
+You need Visual C++ 4.2, 5.0, or 6.0, with the exception of the Cygwin
+port, which uses Gcc.  There is also a MINGW32 port of XEmacs (using
+Gcc, but using native libraries rather than the Cygwin libraries).  ####
+More information about this should be provided.
 
 
 @node Q6.1.3, Q6.1.4, Q6.1.2, MS Windows
@@ -6241,8 +6243,8 @@ make sure HOME is set. This controls where you @file{.emacs} file comes
 from;
 
 @item
-CYGWIN32 needs to be set to tty for process support
-work. e.g. CYGWIN32=tty;
+CYGWIN needs to be set to tty for process support work. e.g. CYGWIN=tty;
+(use CYGWIN32=tty under b19 and older.)
 
 @item
 picking up some other grep or other unix like tools can kill configure;
@@ -6266,16 +6268,56 @@ You can find the Cygwin tools and compiler at:
 @uref{http://sourceware.cygnus.com/cygwin/}
 
 You will need version b19 or later.
+The latest current version is 1.1.1.
+Other common versions you will see are b20.1.
 
-You will also need the X libraries.  There are libraries at
+Another location, one of the mirror sites of the site just mentioned,
+is usually a last faster:
+
+@uref{ftp://ftp.freesoftware.com/pub/sourceware/cygwin/}
+
+You can obtain the latest version (currently 1.1.1) from the
+@samp{latest/} subdirectory of either of the above two just-mentioned
+URL's.
+
+@strong{WARNING: The version of GCC supplied under @samp{latest/}, as of
+June 6th, 2000, does not appear to work.  It generates loads of spurious
+preprocessor warnings and errors, which makes it impossible to compile
+XEmacs with it.}
+
+You will also need the X libraries.  You can get them on the XEmacs FTP
+site at
+
+@uref{ftp://ftp.xemacs.org/pub/xemacs/aux/cygwin/}
+
+You will find b19 and b20 versions of the X libraries, plus b19 and b20
+versions of stuff that should go into @samp{/usr/local/}, donated by
+Andy Piper.  This includes pre-built versions of various graphics libraries,
+such as PNG, JPEG, TIFF, and XPM. (Remember, GIF support is built-in to
+XEmacs.)
+
+(X libraries for v1 and beyond of Cygwin can be found on the Cygwin site
+itself -- look in the @samp{xfree/} subdirectory.)
+
+@emph{NOTE:} There are two versions of the XPM library provided in
+Andy's packets.  Once is for building with X support, and the other for
+building without.  The X version should work if you're building with
+both X and Windows support.  The two files are called @file{libXpm-X.a}
+and @file{libXpm-noX.a} respectively, and you must symlink the
+appropriate one to @file{libXpm.a}. @strong{CAREFUL:} By default, the
+non-X version is symlinked in.  If you then configure XEmacs with X,
+you won't run into problems until you start compiling @file{events.c},
+at which point you'll get strange and decidedly non-obvious errors.
+
+Please see @uref{http://www.xemacs.freeserve.co.uk/} (Andy Piper's home
+page) for more information.
+
+BTW There are also libraries at
 @iftex
 @*
 @end iftex
 @uref{http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/}, but
-these are not b19 compatible.  You can get b19 X11R6.3 binaries, as
-well as pre-built ncurses and graphic libraries, from:
-
-@uref{ftp://ftp.parallax.co.uk/pub/andyp/}.
+these are not b19 compatible, and may in fact be native-compiled.
 
 
 @node Q6.2.1, Q6.2.2, Q6.1.6, MS Windows
@@ -6456,12 +6498,19 @@ memory addresses that can conflict with those needed by the dumped XEmacs
 executable. In this instance XEmacs will fail to start without any
 explanation. Note that this is extremely machine specific.
 
-Work is being done on fixes for 21.1.* that will make more intelligent
-guesses about which memory addresses will be free and so this should
-cure the problem for most people.
+21.1.10 includes a fix for this that makes more intelligent guesses
+about which memory addresses will be free, and this should cure the
+problem for most people.  Unfortunately, no binary is yet available for
+this version.  Check back periodically at
+
+@uref{ftp://ftp.xemacs.org/pub/xemacs/binaries/}.
 
 21.2 implements "portable dumping" which will eliminate the problem
-altogether.
+altogether.  You might have better luck with the 21.2 beta binary,
+available at
+
+@uref{ftp://ftp.xemacs.org/pub/xemacs/beta/binaries/}.
+
 
 @node Current Events,  , MS Windows, Top
 @unnumbered 7 What the Future Holds

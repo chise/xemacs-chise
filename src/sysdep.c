@@ -31,9 +31,8 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 
-#ifdef WINDOWSNT
-#include <direct.h>
-#ifdef __MINGW32__
+#ifdef WIN32_NATIVE
+#ifdef MINGW
 #include <mingw32/process.h>
 #else
 /* <process.h> should not conflict with "process.h", as per ANSI definition.
@@ -45,12 +44,10 @@ Boston, MA 02111-1307, USA.  */
    which will conflict with the macro defined in lisp.h
 */
 #include <../include/process.h>
-#endif /* __MINGW32__ */
-#endif /* WINDOWSNT */
+#endif /* MINGW */
+#endif /* WIN32_NATIVE */
 
 #include "lisp.h"
-
-#include <stdlib.h>
 
 /* ------------------------------- */
 /*          basic includes         */
@@ -81,16 +78,20 @@ Boston, MA 02111-1307, USA.  */
 #include "syswait.h"
 #include "sysdir.h"
 #include "systime.h"
-#if defined(WINDOWSNT) || defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
 #include "syssignal.h"
 #endif
-#ifndef WINDOWSNT
+
+#include "sysproc.h"
+
+#ifndef WIN32_NATIVE
 #include <sys/times.h>
 #endif
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include <sys/utime.h>
 #include "ntheap.h"
+#include "nt.h"
 #endif
 
 /* ------------------------------- */
@@ -233,7 +234,7 @@ wait_without_blocking (void)
 #endif /* NO_SUBPROCESSES */
 
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 void wait_for_termination (HANDLE pHandle)
 #else
 void wait_for_termination (int pid)
@@ -347,7 +348,7 @@ void wait_for_termination (int pid)
 
      Since implementations may add their own error indicators on top,
      we ignore it by default.  */
-#elif defined (WINDOWSNT)
+#elif defined (WIN32_NATIVE)
   int ret = 0, status = 0;
   if (pHandle == NULL)
     {
@@ -421,7 +422,7 @@ void wait_for_termination (int pid)
 	   Try defining BROKEN_WAIT_FOR_SIGNAL. */
 	EMACS_WAIT_FOR_SIGNAL (SIGCHLD);
     }
-#else /* not HAVE_WAITPID and not WINDOWSNT and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
+#else /* not HAVE_WAITPID and not WIN32_NATIVE and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
   /* This approach is kind of cheesy but is guaranteed(?!) to work
      for all systems. */
   while (1)
@@ -459,7 +460,7 @@ flush_pending_output (int channel)
 #endif
 }
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 /*  Set up the terminal at the other end of a pseudo-terminal that
     we will be controlling an inferior through.
     It should not echo or do line-editing, since that is done
@@ -570,7 +571,7 @@ child_setup_tty (int out)
   }
 #endif /* RTU */
 }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #endif /* not NO_SUBPROCESSES */
 
@@ -611,7 +612,7 @@ restore_signal_handlers (struct save_signal *saved_handlers)
     }
 }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 
 pid_t
 sys_getpid (void)
@@ -619,13 +620,13 @@ sys_getpid (void)
   return abs (getpid ());
 }
 
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 /* Fork a subshell.  */
 static void
 sys_subshell (void)
 {
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
   int pid;
 #endif
   struct save_signal saved_handlers[5];
@@ -665,13 +666,13 @@ sys_subshell (void)
   str[len] = 0;
  xyzzy:
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
   pid = fork ();
 
   if (pid == -1)
     error ("Can't spawn subshell");
   if (pid == 0)
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
   {
       char *sh = 0;
 
@@ -684,7 +685,7 @@ sys_subshell (void)
     if (str)
       sys_chdir (str);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 
     /* Waits for process completion */
     if (_spawnlp (_P_WAIT, sh, sh, NULL) != 0)
@@ -714,7 +715,7 @@ sys_subshell (void)
   wait_for_termination (pid);
   restore_signal_handlers (saved_handlers);
 
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 
 }
 
@@ -961,7 +962,7 @@ init_baud_rate (struct device *d)
   assert (DEVICE_TTY_P (d));
   {
     int input_fd = CONSOLE_TTY_DATA (con)->infd;
-#if defined (WINDOWSNT)
+#if defined (WIN32_NATIVE)
     DEVICE_TTY_DATA (d)->ospeed = 15;
 #elif defined (HAVE_TERMIOS)
     struct termios sg;
@@ -1387,7 +1388,7 @@ disconnect_controlling_terminal (void)
 /* It's wrong to encase these into #ifdef HAVE_TTY because we need
    them for child TTY processes.  */
 /* However, this does break NT support while we don't do child TTY processes */
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 
 /* Set *TC to the parameters associated with the terminal FD.
    Return zero if all's well, or -1 if we ran into an error we
@@ -1406,7 +1407,7 @@ emacs_get_tty (int fd, struct emacs_tty *settings)
   if (ioctl (fd, TCGETA, &settings->main) < 0)
     return -1;
 
-#elif !defined (WINDOWSNT)
+#elif !defined (WIN32_NATIVE)
   /* I give up - I hope you have the BSD ioctls.  */
   if (ioctl (fd, TIOCGETP, &settings->main) < 0)
     return -1;
@@ -1480,7 +1481,7 @@ emacs_set_tty (int fd, struct emacs_tty *settings, int flushp)
   if (ioctl (fd, flushp ? TCSETAF : TCSETAW, &settings->main) < 0)
     return -1;
 
-#elif !defined (WINDOWSNT)
+#elif !defined (WIN32_NATIVE)
   /* I give up - I hope you have the BSD ioctls.  */
   if (ioctl (fd, (flushp) ? TIOCSETP : TIOCSETN, &settings->main) < 0)
     return -1;
@@ -1503,7 +1504,7 @@ emacs_set_tty (int fd, struct emacs_tty *settings, int flushp)
   return 0;
 }
 
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 /* ------------------------------------------------------ */
 /*                 Initializing a device                  */
@@ -1663,14 +1664,14 @@ tty_init_sys_modes_on_device (struct device *d)
   tty.main.c_iflag &= ~BRKINT;
 #endif /* AIX */
 #else /* if not HAVE_TERMIO */
-#if !defined (WINDOWSNT)
+#if !defined (WIN32_NATIVE)
   con->tty_erase_char = make_char (tty.main.sg_erase);
   tty.main.sg_flags &= ~(ECHO | CRMOD | XTABS);
   if (TTY_FLAGS (con).meta_key)
     tty.main.sg_flags |= ANYP;
   /* #### should we be using RAW mode here? */
   tty.main.sg_flags |= /* interrupt_input ? RAW : */ CBREAK;
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 #endif /* not HAVE_TERMIO */
 
   /* If going to use CBREAK mode, we must request C-g to interrupt
@@ -2153,24 +2154,15 @@ hft_reset (struct console *con)
 
 #if !defined(HAVE_TEXT_START) && !defined(PDUMP)
 
-#ifdef __cplusplus
-  extern "C" int _start (void);
-#else
-  extern int _start (void);
-#endif
+EXTERN_C int _start (void);
 
 char *
 start_of_text (void)
 {
 #ifdef TEXT_START
-  return ((char *) TEXT_START);
+  return (char *) TEXT_START;
 #else
-#ifdef GOULD
-  extern csrt ();
-  return ((char *) csrt);
-#else /* not GOULD */
-  return ((char *) _start);
-#endif /* GOULD */
+  return (char *) _start;
 #endif /* TEXT_START */
 }
 #endif /* !defined(HAVE_TEXT_START) && !defined(PDUMP) */
@@ -2201,7 +2193,7 @@ start_of_text (void)
  *
  */
 
-#if defined(ORDINARY_LINK) && !defined(__MINGW32__)
+#if defined(ORDINARY_LINK) && !defined(MINGW)
 extern char **environ;
 #endif
 
@@ -2279,15 +2271,10 @@ end_of_data (void)
 
 extern Lisp_Object Vsystem_name;
 
-#ifdef HAVE_SOCKETS
-# include <sys/socket.h>
-# include <netdb.h>
-#endif /* HAVE_SOCKETS */
-
 void
 init_system_name (void)
 {
-#if defined (WINDOWSNT)
+#if defined (WIN32_NATIVE)
   char hostname [MAX_COMPUTERNAME_LENGTH + 1];
   size_t size = sizeof (hostname);
   GetComputerName (hostname, &size);
@@ -2525,7 +2512,7 @@ strerror (int errnum)
 
 #endif /* ! HAVE_STRERROR */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 
 struct errentry {
   unsigned long oscode;  /* Win32 error */
@@ -2622,7 +2609,7 @@ mswindows_set_last_errno (void)
   mswindows_set_errno (GetLastError ());
 }
 
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 
 /************************************************************************/
@@ -2665,7 +2652,7 @@ sys_open (const char *path, int oflag, ...)
 
   PATHNAME_CONVERT_OUT (path);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Make all handles non-inheritable */
   oflag |= _O_NOINHERIT;
 #endif
@@ -2705,7 +2692,7 @@ interruptible_open (const char *path, int oflag, int mode)
 
   PATHNAME_CONVERT_OUT (nonreloc);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Make all handles non-inheritable */
   oflag |= _O_NOINHERIT;
 #endif
@@ -2819,7 +2806,7 @@ FILE *
 sys_fopen (const char *path, const char *type)
 {
   PATHNAME_CONVERT_OUT (path);
-#if defined (WINDOWSNT)
+#if defined (WIN32_NATIVE)
   {
     int fd;
     int oflag;
@@ -2972,7 +2959,7 @@ int
 sys_mkdir (const char *path, mode_t mode)
 {
   PATHNAME_CONVERT_OUT (path);
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   return mkdir (path);
 #else
   return mkdir (path, mode);
@@ -3120,25 +3107,30 @@ sys_readlink (const char *path, char *buf, size_t bufsiz)
 }
 #endif /* ENCAPSULATE_READLINK */
 
-
 #ifdef ENCAPSULATE_FSTAT
 int
 sys_fstat (int fd, struct stat *buf)
 {
+#ifdef WIN32_NATIVE
+  return mswindows_fstat (fd, buf);
+#else
   return fstat (fd, buf);
+#endif
 }
 #endif /* ENCAPSULATE_FSTAT */
-
 
 #ifdef ENCAPSULATE_STAT
 int
 sys_stat (const char *path, struct stat *buf)
 {
   PATHNAME_CONVERT_OUT (path);
+#ifdef WIN32_NATIVE
+  return mswindows_stat (path, buf);
+#else
   return stat (path, buf);
+#endif
 }
 #endif /* ENCAPSULATE_STAT */
-
 
 /****************** file-manipulation calls *****************/
 
@@ -3179,14 +3171,14 @@ sys_rename (const char *old, const char *new)
 {
   PATHNAME_CONVERT_OUT (old);
   PATHNAME_CONVERT_OUT (new);
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Windows rename fails if NEW exists */
   if (rename (old, new) == 0)
     return 0;
   if (errno != EEXIST)
     return -1;
   unlink (new);
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
   return rename (old, new);
 }
 #endif /* ENCAPSULATE_RENAME */
@@ -3401,7 +3393,7 @@ static int process_times_available;
 static int
 get_process_times_1 (long *user_ticks, long *system_ticks)
 {
-#if defined (_SC_CLK_TCK) || defined (CLK_TCK) && !defined(WINDOWSNT)
+#if defined (_SC_CLK_TCK) || defined (CLK_TCK) && !defined(WIN32_NATIVE)
   /* We have the POSIX times() function available. */
   struct tms tttt;
   times (&tttt);
@@ -3543,7 +3535,7 @@ get_random (void)
 
 #if !defined (SYS_SIGLIST_DECLARED) && !defined (HAVE_SYS_SIGLIST)
 
-#if defined(WINDOWSNT) || defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
 const char *sys_siglist[] =
   {
     "bum signal!!",

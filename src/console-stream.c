@@ -69,7 +69,9 @@ stream_init_console (struct console *con, Lisp_Object params)
     {
       CHECK_STRING (tty);
       stream_con->in = stream_con->out = stream_con->err =
-	fopen ((char *) XSTRING_DATA (tty), "r+");
+	/* #### We don't currently do coding-system translation on
+	   this descriptor. */
+	fopen ((char *) XSTRING_DATA (tty), READ_PLUS_TEXT);
       if (!stream_con->in)
 	error ("Unable to open tty %s", XSTRING_DATA (tty));
     }

@@ -69,13 +69,13 @@ Boston, MA 02111-1307, USA.  */
 #ifdef HAVE_MSG_SELECT
 #include "sysfile.h"
 #include "console-tty.h"
-#elif defined(__CYGWIN32__)
+#elif defined(CYGWIN)
 typedef unsigned int SOCKET;
 #endif
 #include <io.h>
 #include <errno.h>
 
-#if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+#if !(defined(CYGWIN) || defined(MINGW))
 # include <shlobj.h>	/* For IShellLink */
 #endif
 
@@ -471,7 +471,7 @@ init_slurp_stream (void)
 #define NTPIPE_SHOVE_STREAM_DATA(stream) \
   LSTREAM_TYPE_DATA (stream, ntpipe_shove)
 
-#define MAX_SHOVE_BUFFER_SIZE 128
+#define MAX_SHOVE_BUFFER_SIZE 512
 
 struct ntpipe_shove_stream
 {
@@ -505,15 +505,18 @@ shove_thread (LPVOID vparam)
       InterlockedIncrement (&s->idle_p);
       WaitForSingleObject (s->hev_thread, INFINITE);
 
-      if (s->die_p)
-	break;
-
-      /* Write passed buffer */
-      if (!WriteFile (s->hpipe, s->buffer, s->size, &bytes_written, NULL)
-	  || bytes_written != s->size)
+      /* Write passed buffer if any */
+      if (s->size > 0)
 	{
-	  s->error_p = TRUE;
-	  InterlockedIncrement (&s->die_p);
+         if (!WriteFile (s->hpipe, s->buffer, s->size, &bytes_written, NULL)
+             || bytes_written != s->size)
+           {
+             s->error_p = TRUE;
+             InterlockedIncrement (&s->die_p);
+           }
+         /* Set size to zero so we won't write it again if the closer sets
+            die_p and kicks us */
+         s->size = 0;
 	}
 
       if (s->die_p)
@@ -542,6 +545,15 @@ make_ntpipe_output_stream (HANDLE hpipe, LPARAM param)
 			     CREATE_SUSPENDED, &thread_id_unused);
   if (s->hthread == NULL)
     {
+      Lstream_delete (lstr);
+      return Qnil;
+    }
+
+  /* Set the priority of the thread higher so we don't end up waiting
+     on it to send things. */
+  if (!SetThreadPriority (s->hthread, THREAD_PRIORITY_HIGHEST))
+    {
+      CloseHandle (s->hthread);
       Lstream_delete (lstr);
       return Qnil;
     }
@@ -586,6 +598,9 @@ ntpipe_shove_writer (Lstream *stream, const unsigned char *data, size_t size)
   /* Start output */
   InterlockedDecrement (&s->idle_p);
   SetEvent (s->hev_thread);
+  /* Give it a chance to run -- this dramatically improves performance
+     of things like crypt. */
+  (void) SwitchToThread ();
   return size;
 }
 
@@ -604,14 +619,18 @@ ntpipe_shove_closer (Lstream *stream)
   /* Force thread stop */
   InterlockedIncrement (&s->die_p);
 
-  /* Close pipe handle, possibly breaking it */
-  CloseHandle (s->hpipe);
-
-  /* Thread will end upon unblocking */
+  /* Thread will end upon unblocking.  If it's already unblocked this will
+     do nothing, but the thread won't look at die_p until it's written any
+     pending output. */
   SetEvent (s->hev_thread);
 
   /* Wait while thread terminates */
   WaitForSingleObject (s->hthread, INFINITE);
+
+  /* Close pipe handle, possibly breaking it */
+  CloseHandle (s->hpipe);
+
+  /* Close the thread handle */
   CloseHandle (s->hthread);
 
   /* Destroy the event */
@@ -1251,14 +1270,20 @@ mswindows_drain_windows_queue (void)
 
   while (PeekMessage (&msg, NULL, 0, 0, PM_REMOVE))
     {
-      /* We have to translate messages that are not sent to the main
-         window. This is so that key presses work ok in things like
-         edit fields. However, we *musn't* translate message for the
-         main window as this is handled in the wnd proc.
+      /* We have to translate messages that are not sent to an XEmacs
+         frame. This is so that key presses work ok in things like
+         edit fields. However, we *musn't* translate message for XEmacs
+         frames as this is handled in the wnd proc.
          We also have to avoid generating paint magic events for windows
 	 that aren't XEmacs frames */
-      if (GetWindowLong (msg.hwnd, GWL_STYLE) & (WS_CHILD|WS_POPUP))
+      /* GetClassName will truncate a longer class name. By adding one
+	 extra character, we are forcing textual comparison to fail
+	 if the name is longer than XEMACS_CLASS */
+      char class_name_buf [sizeof (XEMACS_CLASS) + 2] = "";
+      GetClassName (msg.hwnd, class_name_buf, sizeof (class_name_buf) - 1);
+      if (stricmp (class_name_buf, XEMACS_CLASS) != 0)
 	{
+	  /* Not an XEmacs frame */
 	  TranslateMessage (&msg);
 	}
       else if (msg.message == WM_PAINT)
@@ -1270,8 +1295,8 @@ mswindows_drain_windows_queue (void)
 	  assert (msg.wParam == 0);
 
 	  /* Queue a magic event for handling when safe */
-	  msframe = FRAME_MSWINDOWS_DATA (
-					  XFRAME (mswindows_find_frame (msg.hwnd)));
+	  msframe =
+	    FRAME_MSWINDOWS_DATA (XFRAME (mswindows_find_frame (msg.hwnd)));
 	  if (!msframe->paint_pending)
 	    {
 	      msframe->paint_pending = 1;
@@ -1600,7 +1625,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  if (*end)
 	    return DDE_FNOTPROCESSED;
 
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
 	  filename = alloca (cygwin32_win32_to_posix_path_list_buf_size (cmd) + 5);
 	  strcpy (filename, "file:");
 	  cygwin32_win32_to_posix_path_list (cmd, filename+5);
@@ -1755,7 +1780,7 @@ mswindows_handle_sticky_modifiers (WPARAM wParam, LPARAM lParam,
 	 This means that we need to distinguish between an
 	 auto-repeated key and a key pressed and released a bunch
 	 of times. */
-      else if (downp && !keyp ||
+      else if ((downp && !keyp) ||
 	       (downp && keyp && last_downkey &&
 		(wParam != last_downkey ||
 		 /* the "previous key state" bit indicates autorepeat */
@@ -1810,24 +1835,24 @@ do {						\
     }						\
 } while (0)
 
-      if (wParam == VK_CONTROL && (lParam & 0x1000000)
+      if ((wParam == VK_CONTROL && (lParam & 0x1000000))
 	  || wParam == VK_RCONTROL)
 	FROB (XEMSW_RCONTROL);
-      if (wParam == VK_CONTROL && !(lParam & 0x1000000)
+      if ((wParam == VK_CONTROL && !(lParam & 0x1000000))
 	  || wParam == VK_LCONTROL)
 	FROB (XEMSW_LCONTROL);
 
-      if (wParam == VK_SHIFT && (lParam & 0x1000000)
+      if ((wParam == VK_SHIFT && (lParam & 0x1000000))
 	  || wParam == VK_RSHIFT)
 	FROB (XEMSW_RSHIFT);
-      if (wParam == VK_SHIFT && !(lParam & 0x1000000)
+      if ((wParam == VK_SHIFT && !(lParam & 0x1000000))
 	  || wParam == VK_LSHIFT)
 	FROB (XEMSW_LSHIFT);
 
-      if (wParam == VK_MENU && (lParam & 0x1000000)
+      if ((wParam == VK_MENU && (lParam & 0x1000000))
 	  || wParam == VK_RMENU)
 	FROB (XEMSW_RMENU);
-      if (wParam == VK_MENU && !(lParam & 0x1000000)
+      if ((wParam == VK_MENU && !(lParam & 0x1000000))
 	  || wParam == VK_LMENU)
 	FROB (XEMSW_LMENU);
     }
@@ -1889,6 +1914,8 @@ clear_sticky_modifiers (void)
 
 #ifdef DEBUG_XEMACS
 
+#if 0
+
 static void
 output_modifier_keyboard_state (void)
 {
@@ -1918,6 +1945,8 @@ output_modifier_keyboard_state (void)
 	      keymap[VK_RSHIFT] & 0x80 ? 1 : 0,
 	      keymap[VK_RSHIFT] & 0x1 ? 1 : 0);
 }
+
+#endif
 
 /* try to debug the stuck-alt-key problem.
 
@@ -1971,7 +2000,7 @@ output_alt_keyboard_state (void)
  * The windows procedure for the window class XEMACS_CLASS
  */
 LRESULT WINAPI
-mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
+mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 {
   /* Note: Remember to initialize emacs_event and event before use.
      This code calls code that can GC. You must GCPRO before calling such code. */
@@ -1983,13 +2012,16 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
   struct mswindows_frame* msframe;
 
   assert (!GetWindowLong (hwnd, GWL_USERDATA));
-  switch (message)
+  switch (message_)
     {
     case WM_DESTROYCLIPBOARD:
       /* We own the clipboard and someone else wants it.  Delete our
 	 cached copy of the clipboard contents so we'll ask for it from
-	 Windows again when someone does a paste. */
-      handle_selection_clear(QCLIPBOARD);
+	 Windows again when someone does a paste, and destroy any memory
+         objects we hold on the clipboard that are not in the list of types
+         that Windows will delete itself. */
+      mswindows_destroy_selection (QCLIPBOARD);
+      handle_selection_clear (QCLIPBOARD);
       break;
 
     case WM_ERASEBKGND:
@@ -2016,7 +2048,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	if (mswindows_debug_events)
 	  {
 	    stderr_out ("%s wparam=%d lparam=%d\n",
-			message == WM_KEYUP ? "WM_KEYUP" : "WM_SYSKEYUP",
+			message_ == WM_KEYUP ? "WM_KEYUP" : "WM_SYSKEYUP",
 			wParam, (int)lParam);
 	    output_alt_keyboard_state ();
 	  }	    
@@ -2037,7 +2069,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  }
 
 	if (should_set_keymap)
-	  //	    && (message != WM_SYSKEYUP
+	  //	    && (message_ != WM_SYSKEYUP
 	  //	|| NILP (Vmenu_accelerator_enabled)))
 	  SetKeyboardState (keymap);
 
@@ -2073,7 +2105,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	if (mswindows_debug_events)
 	  {
 	    stderr_out ("%s wparam=%d lparam=%d\n",
-			message == WM_KEYDOWN ? "WM_KEYDOWN" : "WM_SYSKEYDOWN",
+			message_ == WM_KEYDOWN ? "WM_KEYDOWN" : "WM_SYSKEYDOWN",
 			wParam, (int)lParam);
 	    output_alt_keyboard_state ();
 	  }	    
@@ -2087,7 +2119,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    GetKeyboardState (keymap_sticky);
 	    if (keymap_sticky[VK_MENU] & 0x80)
 	      {
-		message = WM_SYSKEYDOWN;
+		message_ = WM_SYSKEYDOWN;
 		/* We have to set the "context bit" so that the
 		   TranslateMessage() call below that generates the
 		   SYSCHAR message does its thing; see the documentation
@@ -2118,7 +2150,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    int got_accelerator = 0;
 	  
 	    msg.hwnd = hwnd;
-	    msg.message = message;
+	    msg.message = message_;
 	    msg.wParam = wParam;
 	    msg.lParam = lParam;
 	    msg.time = GetMessageTime();
@@ -2139,7 +2171,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	      }
 
 	    if (!NILP (Vmenu_accelerator_enabled) &&
-		!(mods & XEMACS_MOD_SHIFT) && message == WM_SYSKEYDOWN)
+		!(mods & XEMACS_MOD_SHIFT) && message_ == WM_SYSKEYDOWN)
 	      potential_accelerator = 1;
 
 	    /* Remove shift modifier from an ascii character */
@@ -2186,7 +2218,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 		    ++mswindows_quit_chars_count;
 		  }
 		else if (potential_accelerator && !got_accelerator &&
-			 msw_char_is_accelerator (frame, ch))
+			 mswindows_char_is_accelerator (frame, ch))
 		  {
 		    got_accelerator = 1;
 		    break;
@@ -2218,7 +2250,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
       /* Real middle mouse button has nothing to do with emulated one:
 	 if one wants to exercise fingers playing chords on the mouse,
 	 he is allowed to do that! */
-      mswindows_enqueue_mouse_button_event (hwnd, message,
+      mswindows_enqueue_mouse_button_event (hwnd, message_,
 					    MAKEPOINTS (lParam), GetMessageTime());
       break;
 
@@ -2533,21 +2565,31 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_DISPLAYCHANGE:
       {
 	struct device *d;
+	DWORD message_tick = GetMessageTime ();
 
 	fobj = mswindows_find_frame (hwnd);
 	frame = XFRAME (fobj);
 	d = XDEVICE (FRAME_DEVICE (frame));
 
-	DEVICE_MSWINDOWS_HORZRES(d) = LOWORD (lParam);
-	DEVICE_MSWINDOWS_VERTRES(d) = HIWORD (lParam);
-	DEVICE_MSWINDOWS_BITSPIXEL(d) = wParam;
-	break;
+	/* Do this only once per message. XEmacs can receive this message
+	   through as many frames as it currently has open. Message time
+	   will be the same for all these messages. Despite extreme
+	   efficiency, the code below has about one in 4 billion
+	   probability that the HDC is not recreated, provided that
+	   XEmacs is running sufficiently longer than 52 days. */
+	if (DEVICE_MSWINDOWS_UPDATE_TICK(d) != message_tick)
+	  {
+	    DEVICE_MSWINDOWS_UPDATE_TICK(d) = message_tick;
+	    DeleteDC (DEVICE_MSWINDOWS_HCDC(d));
+	    DEVICE_MSWINDOWS_HCDC(d) = CreateCompatibleDC (NULL);
+	  }
       }
+      break;
 
       /* Misc magic events which only require that the frame be identified */
     case WM_SETFOCUS:
     case WM_KILLFOCUS:
-      mswindows_enqueue_magic_event (hwnd, message);
+      mswindows_enqueue_magic_event (hwnd, message_);
       break;
 
     case WM_WINDOWPOSCHANGING:
@@ -2696,7 +2738,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  break;
 #endif
 
-	return DefWindowProc (hwnd, message, wParam, lParam);
+	return DefWindowProc (hwnd, message_, wParam, lParam);
 	/* Bite me - a spurious command. This used to not be able to
 	   happen but with the introduction of widgets its now
 	   possible. */
@@ -2796,7 +2838,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	    DragQueryFile ((HANDLE) wParam, i, fname, len+1);
 
 	    /* May be a shell link aka "shortcut" - replace fname if so */
-#if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+#if !(defined(CYGWIN) || defined(MINGW))
 	    /* cygwin doesn't define this COM stuff */
 	    if (!stricmp (fname + strlen (fname) - 4, ".LNK"))
 	      {
@@ -2833,7 +2875,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	      }
 #endif
 
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
 	    filename = xmalloc (cygwin32_win32_to_posix_path_list_buf_size (fname) + 5);
 	    strcpy (filename, "file:");
 	    cygwin32_win32_to_posix_path_list (fname, filename+5);
@@ -2858,7 +2900,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
     defproc:
     default:
-      return DefWindowProc (hwnd, message, wParam, lParam);
+      return DefWindowProc (hwnd, message_, wParam, lParam);
     }
   return (0);
 }

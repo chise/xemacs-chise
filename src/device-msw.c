@@ -40,7 +40,11 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "sysdep.h"
 
-#if !(defined (__CYGWIN32__) || defined(__MINGW32__))
+/* #### Andy, these includes might break cygwin compilation - kkm*/
+#include <commdlg.h>
+#include <winspool.h>
+
+#if !(defined (CYGWIN) || defined(MINGW))
 # include <objbase.h>	/* For CoInitialize */
 #endif
 
@@ -62,7 +66,10 @@ Lisp_Object Vmswindows_downcase_file_names;
 Lisp_Object Vmswindows_get_true_file_attributes;
 
 Lisp_Object Qinit_pre_mswindows_win, Qinit_post_mswindows_win;
+Lisp_Object Qdevmodep;
 
+static Lisp_Object allocate_devmode (DEVMODE* src_devmode, int do_copy,
+				     char* src_name, struct device *d);
 
 /************************************************************************/
 /*                               helpers                                */
@@ -99,7 +106,6 @@ build_devicecaps_cons (HDC hdc, int index1, int index2)
 		index2 < 0 ? Qnil : make_int (GetDeviceCaps (hdc, index2)));
 }
 
-
 
 /************************************************************************/
 /*                          display methods                             */
@@ -119,20 +125,9 @@ mswindows_init_device (struct device *d, Lisp_Object props)
   d->device_data = xnew_and_zero (struct mswindows_device);
   hdc = CreateCompatibleDC (NULL);
   assert (hdc!=NULL);
-  DEVICE_MSWINDOWS_LOGPIXELSX(d) =  GetDeviceCaps(hdc, LOGPIXELSX);
-  DEVICE_MSWINDOWS_LOGPIXELSY(d) =  GetDeviceCaps(hdc, LOGPIXELSY);
-  DEVICE_MSWINDOWS_PLANES(d) = GetDeviceCaps(hdc, PLANES);
-  /* #### SIZEPALETTE only valid if RC_PALETTE bit set in RASTERCAPS,
-     what should we return for a non-palette-based device? */
-  DEVICE_MSWINDOWS_CELLS(d) = GetDeviceCaps(hdc, SIZEPALETTE);
-  DEVICE_MSWINDOWS_HORZRES(d) = GetDeviceCaps(hdc, HORZRES);
-  DEVICE_MSWINDOWS_VERTRES(d) = GetDeviceCaps(hdc, VERTRES);
-  DEVICE_MSWINDOWS_HORZSIZE(d) = GetDeviceCaps(hdc, HORZSIZE);
-  DEVICE_MSWINDOWS_VERTSIZE(d) = GetDeviceCaps(hdc, VERTSIZE);
-  DEVICE_MSWINDOWS_BITSPIXEL(d) = GetDeviceCaps(hdc, BITSPIXEL);
-  DEVICE_MSWINDOWS_FONTLIST (d) = mswindows_enumerate_fonts (hdc);
-  
   DEVICE_MSWINDOWS_HCDC(d) = hdc;
+  DEVICE_MSWINDOWS_FONTLIST (d) = mswindows_enumerate_fonts (hdc);
+  DEVICE_MSWINDOWS_UPDATE_TICK (d) = GetTickCount ();
 
   /* Register the main window class */
   wc.cbSize = sizeof (WNDCLASSEX);
@@ -176,7 +171,7 @@ mswindows_finish_init_device (struct device *d, Lisp_Object props)
   /* Initialize DDE management library and our related globals. We execute a
    * dde Open("file") by simulating a drop, so this depends on dnd support. */
 #ifdef HAVE_DRAGNDROP
-# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+# if !(defined(CYGWIN) || defined(MINGW))
   CoInitialize (NULL);
 # endif
 
@@ -206,17 +201,17 @@ mswindows_delete_device (struct device *d)
   DdeFreeStringHandle (mswindows_dde_mlid, mswindows_dde_service);
   DdeUninitialize (mswindows_dde_mlid);
 
-# if !(defined(__CYGWIN32__) || defined(__MINGW32__))
+# if !(defined(CYGWIN) || defined(MINGW))
   CoUninitialize ();
 # endif
 #endif
 
   DeleteDC (DEVICE_MSWINDOWS_HCDC(d));
-  free (d->device_data);
+  xfree (d->device_data);
 }
 
 void
-msw_get_workspace_coords (RECT *rc)
+mswindows_get_workspace_coords (RECT *rc)
 {
   SystemParametersInfo (SPI_GETWORKAREA, 0, rc, 0);
 }
@@ -231,28 +226,32 @@ static Lisp_Object
 mswindows_device_system_metrics (struct device *d,
 				 enum device_metrics m)
 {
+  const HDC hdc = DEVICE_MSWINDOWS_HCDC(d);
+
   switch (m)
     {
     case DM_size_device:
-      return Fcons (make_int (DEVICE_MSWINDOWS_HORZRES(d)),
-		    make_int (DEVICE_MSWINDOWS_VERTRES(d)));
+      return Fcons (make_int (GetDeviceCaps (hdc, HORZRES)),
+		    make_int (GetDeviceCaps (hdc, VERTRES)));
       break;
     case DM_device_dpi:
-      return Fcons (make_int (DEVICE_MSWINDOWS_LOGPIXELSX(d)),
-		    make_int (DEVICE_MSWINDOWS_LOGPIXELSY(d)));
+      return Fcons (make_int (GetDeviceCaps (hdc, LOGPIXELSX)),
+		    make_int (GetDeviceCaps (hdc, LOGPIXELSY)));
       break;
     case DM_size_device_mm:
-      return Fcons (make_int (DEVICE_MSWINDOWS_HORZSIZE(d)),
-		    make_int (DEVICE_MSWINDOWS_VERTSIZE(d)));
+      return Fcons (make_int (GetDeviceCaps (hdc, HORZSIZE)),
+		    make_int (GetDeviceCaps (hdc, VERTSIZE)));
       break;
     case DM_num_bit_planes:
       /* this is what X means by bitplanes therefore we ought to be
          consistent. num planes is always 1 under mswindows and
          therefore useless */
-      return make_int (DEVICE_MSWINDOWS_BITSPIXEL(d));
+      return make_int (GetDeviceCaps (hdc, BITSPIXEL));
       break;
     case DM_num_color_cells:
-      return make_int (DEVICE_MSWINDOWS_CELLS(d));
+      /* #### SIZEPALETTE only valid if RC_PALETTE bit set in RASTERCAPS,
+         what should we return for a non-palette-based device? */
+      return make_int (GetDeviceCaps (hdc, SIZEPALETTE));
       break;
 
       /*** Colors ***/
@@ -291,7 +290,7 @@ mswindows_device_system_metrics (struct device *d,
     case DM_size_workspace:
       {
 	RECT rc;
-	msw_get_workspace_coords (&rc);
+	mswindows_get_workspace_coords (&rc);
 	return Fcons (make_int (rc.right - rc.left),
 		      make_int (rc.bottom - rc.top));
       }
@@ -299,7 +298,7 @@ mswindows_device_system_metrics (struct device *d,
     case DM_offset_workspace:
       {
 	RECT rc;
-	msw_get_workspace_coords (&rc);
+	mswindows_get_workspace_coords (&rc);
 	return Fcons (make_int (rc.left), make_int (rc.top));
       }
 
@@ -335,7 +334,7 @@ mswindows_device_implementation_flags (void)
 
 
 /************************************************************************/
-/*                          printer methods                             */
+/*                          printer helpers                             */
 /************************************************************************/
 
 static void
@@ -344,58 +343,119 @@ signal_open_printer_error (struct device *d)
   signal_simple_error ("Failed to open printer", DEVICE_CONNECTION (d));
 }
 
-static void
-msprinter_init_device (struct device *d, Lisp_Object props)
+
+/* Helper function */
+static int
+msprinter_init_device_internal (struct device *d, char* printer_name)
 {
-  char* printer_name;
-
-  DEVICE_INFD (d) = DEVICE_OUTFD (d) = -1;
-
-  CHECK_STRING (DEVICE_CONNECTION (d));
-
-  TO_EXTERNAL_FORMAT (LISP_STRING, DEVICE_CONNECTION (d),
-		      C_STRING_ALLOCA, printer_name,
-		      Qctext);
-
-  d->device_data = xnew_and_zero (struct msprinter_device);
-
   DEVICE_MSPRINTER_NAME(d) = xstrdup (printer_name);
 
   if (!OpenPrinter (printer_name, &DEVICE_MSPRINTER_HPRINTER (d), NULL))
     {
       DEVICE_MSPRINTER_HPRINTER (d) = NULL;
-      signal_open_printer_error (d);
+      return 0;
     }
 
   DEVICE_MSPRINTER_HDC (d) = CreateDC ("WINSPOOL", printer_name,
 				       NULL, NULL);
   if (DEVICE_MSPRINTER_HDC (d) == NULL)
-    signal_open_printer_error (d);
+    return 0;
 
   DEVICE_MSPRINTER_HCDC(d) =
     CreateCompatibleDC (DEVICE_MSPRINTER_HDC (d));
 
-  /* Determinie DEVMODE size and store the default DEVMODE */
-  DEVICE_MSPRINTER_DEVMODE_SIZE(d) =
-    DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
-			printer_name, NULL, NULL, 0);
-  if (DEVICE_MSPRINTER_DEVMODE_SIZE(d) <= 0)
-    signal_open_printer_error (d);
+  DEVICE_CLASS (d) = (GetDeviceCaps (DEVICE_MSPRINTER_HDC (d), BITSPIXEL)
+		      * GetDeviceCaps (DEVICE_MSPRINTER_HDC (d), PLANES)
+		      > 1) ? Qcolor : Qmono;
+  return 1;
+}
 
-  DEVICE_MSPRINTER_DEVMODE(d) =
-    (DEVMODE*) xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
-  DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
-		      printer_name, DEVICE_MSPRINTER_DEVMODE(d),
-		      NULL, DM_OUT_BUFFER);
+static void
+msprinter_delete_device_internal (struct device *d)
+{
+  if (DEVICE_MSPRINTER_HPRINTER (d))
+    ClosePrinter (DEVICE_MSPRINTER_HPRINTER (d));
+  if (DEVICE_MSPRINTER_HDC (d))
+    DeleteDC (DEVICE_MSPRINTER_HDC (d));
+  if (DEVICE_MSPRINTER_HCDC (d))
+    DeleteDC (DEVICE_MSPRINTER_HCDC (d));
+  if (DEVICE_MSPRINTER_NAME (d))
+    xfree (DEVICE_MSPRINTER_NAME (d));
+
+  DEVICE_MSPRINTER_FONTLIST (d) = Qnil;
+}
+
+static int msprinter_reinit_device (struct device *d, char* devname)
+{
+  msprinter_delete_device_internal (d);
+  return msprinter_init_device_internal (d, devname);
+}
+
+
+/************************************************************************/
+/*                          printer methods                             */
+/************************************************************************/
+
+static void
+msprinter_init_device (struct device *d, Lisp_Object props)
+{
+  char* printer_name;
+  DEVMODE *pdm;
+  size_t dm_size;
+
+  d->device_data = xnew_and_zero (struct msprinter_device);
+
+  DEVICE_INFD (d) = DEVICE_OUTFD (d) = -1;
+  DEVICE_MSPRINTER_DEVMODE(d) = Qnil;
 
   /* We do not use printer fon list as we do with the display
      device. Rather, we allow GDI to pick the closest match to the
      display font. */
   DEVICE_MSPRINTER_FONTLIST (d) = Qnil;
 
-  DEVICE_CLASS (d) = (GetDeviceCaps (DEVICE_MSPRINTER_HDC (d), BITSPIXEL)
-		      * GetDeviceCaps (DEVICE_MSPRINTER_HDC (d), PLANES)
-		      > 1) ? Qcolor : Qmono;
+  CHECK_STRING (DEVICE_CONNECTION (d));
+
+  TO_EXTERNAL_FORMAT (LISP_STRING, DEVICE_CONNECTION (d),
+		      C_STRING_ALLOCA, printer_name,
+		      Qmswindows_tstr);
+
+  if (!msprinter_init_device_internal (d, printer_name))
+    signal_open_printer_error (d);
+    
+  /* Determinie DEVMODE size and store the default DEVMODE */
+  dm_size = DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
+				printer_name, NULL, NULL, 0);
+  if (dm_size <= 0)
+    signal_open_printer_error (d);
+
+  pdm = (DEVMODE*) xmalloc (dm_size);
+  DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
+		      printer_name, pdm,
+		      NULL, DM_OUT_BUFFER);
+
+  assert (DEVMODE_SIZE (pdm) <= dm_size);
+
+  DEVICE_MSPRINTER_DEVMODE(d) = 
+    allocate_devmode (pdm, 0, printer_name, d);
+
+}
+
+static void
+msprinter_delete_device (struct device *d)
+{
+  if (d->device_data)
+    {
+      msprinter_delete_device_internal (d);
+
+      /* Disassociate the selected devmode with the device */
+      if (!NILP (DEVICE_MSPRINTER_DEVMODE (d)))
+	{
+	  XDEVMODE (DEVICE_MSPRINTER_DEVMODE (d))->device = Qnil;
+	  DEVICE_MSPRINTER_DEVMODE (d) = Qnil;
+	}
+
+      xfree (d->device_data);
+    }
 }
 
 static Lisp_Object
@@ -434,31 +494,10 @@ msprinter_device_system_metrics (struct device *d,
 }
 
 static void
-msprinter_delete_device (struct device *d)
-{
-  if (d->device_data)
-    {
-      if (DEVICE_MSPRINTER_HPRINTER (d))
-	ClosePrinter (DEVICE_MSPRINTER_HPRINTER (d));
-      if (DEVICE_MSPRINTER_HDC (d))
-	DeleteDC (DEVICE_MSPRINTER_HDC (d));
-      if (DEVICE_MSPRINTER_HCDC (d))
-	DeleteDC (DEVICE_MSPRINTER_HCDC (d));
-      if (DEVICE_MSPRINTER_NAME (d))
-	free (DEVICE_MSPRINTER_NAME (d));
-      if (DEVICE_MSPRINTER_DEVMODE (d))
-	free (DEVICE_MSPRINTER_DEVMODE (d));
-      if (DEVICE_MSPRINTER_DEVMODE_MIRROR (d))
-	free (DEVICE_MSPRINTER_DEVMODE_MIRROR (d));
-
-      free (d->device_data);
-    }
-}
-
-static void
 msprinter_mark_device (struct device *d)
 {
   mark_object (DEVICE_MSPRINTER_FONTLIST (d));
+  mark_object (DEVICE_MSPRINTER_DEVMODE (d));
 }
 
 static unsigned int
@@ -469,60 +508,644 @@ msprinter_device_implementation_flags (void)
 	  | XDEVIMPF_NO_AUTO_REDISPLAY
 	  | XDEVIMPF_FRAMELESS_OK );
 }
-
 
 /************************************************************************/
-/*                      printer external functions                      */
+/*                      printer Lisp subroutines                        */
 /************************************************************************/
 
-/* 
- * Return a copy of default DEVMODE. The copy returned is in
- * a static buffer which will be overwritten by next call.
- */
-DEVMODE*
-msprinter_get_devmode_copy (struct device *d)
+static void
+global_free_2_maybe (HGLOBAL hg1, HGLOBAL hg2)
 {
-  assert (DEVICE_MSPRINTER_P (d));
-
-  if (DEVICE_MSPRINTER_DEVMODE_MIRROR(d) == NULL)
-    DEVICE_MSPRINTER_DEVMODE_MIRROR(d) = 
-      (DEVMODE*) xmalloc (DEVICE_MSPRINTER_DEVMODE_SIZE(d));
-
-  memcpy (DEVICE_MSPRINTER_DEVMODE_MIRROR(d),
-	  DEVICE_MSPRINTER_DEVMODE(d),
-	  DEVICE_MSPRINTER_DEVMODE_SIZE(d));
-
-  return DEVICE_MSPRINTER_DEVMODE_MIRROR(d);
+  if (hg1 != NULL)
+    GlobalFree (hg1);
+  if (hg2 != NULL)
+    GlobalFree (hg2);
 }
 
-/*
- * Apply settings from the DEVMODE. The settings are considered
- * incremental to the default DEVMODE, so that changes in the
- * passed structure supercede parameters of the printer.
- *
- * The passed structure is overwritten by the fuction call;
- * complete printer settings are returned.
- */
-void
-msprinter_apply_devmode (struct device *d, DEVMODE *devmode)
+static HGLOBAL
+devmode_to_hglobal (Lisp_Devmode *ldm)
 {
-  assert (DEVICE_MSPRINTER_P (d));
+  HGLOBAL hg = GlobalAlloc (GHND, XDEVMODE_SIZE (ldm));
+  memcpy (GlobalLock (hg), ldm->devmode, XDEVMODE_SIZE (ldm));
+  GlobalUnlock (hg);
+  return hg;
+}
 
+/* Returns 0 if the printer has been deleted due to a fatal I/O error,
+   1 otherwise. */
+static int
+sync_printer_with_devmode (struct device* d, DEVMODE* devmode_in,
+			   DEVMODE* devmode_out, char* devname)
+{
+  /* Change connection if the device changed */
+  if (devname != NULL
+      && stricmp (devname, DEVICE_MSPRINTER_NAME(d)) != 0)
+    {
+      Lisp_Object new_connection = build_ext_string (devname, Qmswindows_tstr);
+      struct gcpro gcpro1;
+
+      GCPRO1 (new_connection);
+      DEVICE_CONNECTION (d) = Qnil;
+      if (!NILP (Ffind_device (new_connection, Qmsprinter)))
+	{
+	  /* We are in trouble - second msprinter for the same device.
+	     Nothing wrong on the Windows side, just forge a unique
+	     connection name. Use the memory address of d as a unique
+	     suffix. */
+	  char* new_connext = alloca (strlen (devname + 11));
+	  sprintf (new_connext, "%s:%X", devname, d->header.uid);
+	  new_connection = build_ext_string (devname, Qmswindows_tstr);
+	}
+      DEVICE_CONNECTION (d) = new_connection;
+      UNGCPRO;
+
+      /* Reinitialize printer. The device can pop off in process */
+      if (!msprinter_reinit_device (d, devname))
+	{
+	  /* Kaboom! */
+	  delete_device_internal (d, 1, 0, 1);
+	  return 0;
+	}
+    }
+
+  /* Apply the new devmode to the printer */
   DocumentProperties (NULL,
 		      DEVICE_MSPRINTER_HPRINTER(d),
 		      DEVICE_MSPRINTER_NAME(d),
-		      devmode, devmode,
+		      devmode_out, devmode_in,
 		      DM_IN_BUFFER | DM_OUT_BUFFER);
 
-  /* #### ResetDC fails sometimes, Bill only know s why.
+  /* #### ResetDC fails sometimes, Bill only knows why.
      The solution below looks more like a workaround to me,
      although it might be fine. --kkm */
-  if (ResetDC (DEVICE_MSPRINTER_HDC (d), devmode) == NULL)
+  if (ResetDC (DEVICE_MSPRINTER_HDC (d), devmode_out) == NULL)
     {
       DeleteDC (DEVICE_MSPRINTER_HDC (d));
       DEVICE_MSPRINTER_HDC (d) =
-	CreateDC ("WINSPOOL", DEVICE_MSPRINTER_NAME(d), NULL, devmode);
+	CreateDC ("WINSPOOL", DEVICE_MSPRINTER_NAME(d), NULL, devmode_out);
     }
+ 
+  return 1;
+}
+
+static void
+handle_devmode_changes (Lisp_Devmode *ldm, HGLOBAL hDevNames, HGLOBAL hDevMode)
+{
+  DEVNAMES* devnames = (DEVNAMES*) GlobalLock (hDevNames);
+  char *new_name = devnames ? (char*)devnames + devnames->wDeviceOffset : NULL;
+  DEVMODE* devmode = (DEVMODE*) GlobalLock (hDevMode);
+
+  /* Size and name may have changed */
+  ldm->devmode = xrealloc (ldm->devmode, DEVMODE_SIZE (devmode));
+  if (new_name)
+    {
+      if (ldm->printer_name)
+	xfree (ldm->printer_name);
+      ldm->printer_name = xstrdup (new_name);
+    }
+
+  if (!NILP (ldm->device))
+    {
+      /* Apply the new devmode to the printer and get a compete one back */
+      struct device *d = XDEVICE (ldm->device);
+      if (!sync_printer_with_devmode (d, devmode, ldm->devmode, new_name))
+	{
+	  global_free_2_maybe (hDevNames, hDevMode);
+	  error ("Printer device initialization I/O error, device deleted.");
+	}
+    }
+  else
+    {
+      /* Just copy the devmode structure */
+      memcpy (ldm->devmode, devmode, DEVMODE_SIZE (devmode));
+    }
+}
+
+static void
+ensure_not_printing (struct device *d)
+{
+  if (!NILP (DEVICE_FRAME_LIST (d)))
+  {
+    Lisp_Object device;
+    XSETDEVICE (device, d);
+    signal_simple_error ("Cannot change settings while print job is active",
+			 device);
+  }
+}
+
+static Lisp_Devmode *
+decode_devmode (Lisp_Object dev)
+{
+  if (DEVMODEP (dev))
+    return XDEVMODE (dev);
+  else
+    {
+      struct device* d = decode_device (dev);
+      Lisp_Object device;
+      XSETDEVICE (device, d);
+      CHECK_MSPRINTER_DEVICE (device);
+      ensure_not_printing (d);
+      return XDEVMODE (DEVICE_MSPRINTER_DEVMODE (d));
+    }
+}
+
+/*
+ * DEV can be either a printer or devmode
+ * PRINT_P is non-zero for the Print dialog, zero for the
+ *         Page Setup dialog
+ */
+static Lisp_Object
+print_dialog_worker (Lisp_Object dev, int print_p)
+{
+  Lisp_Devmode *ldm = decode_devmode (dev);
+  PRINTDLG pd;
+
+  memset (&pd, 0, sizeof (pd));
+  pd.lStructSize = sizeof (pd);
+  pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
+  pd.hDevMode = devmode_to_hglobal (ldm);
+  pd.Flags = (PD_NOSELECTION | PD_USEDEVMODECOPIESANDCOLLATE
+	      | (print_p ? 0 : PD_PRINTSETUP));
+  pd.nMinPage = 0;
+  pd.nMaxPage = 0xFFFF;
+
+  if (!PrintDlg (&pd))
+    {
+      global_free_2_maybe (pd.hDevNames, pd.hDevMode);
+      return Qnil;
+    }
+
+  handle_devmode_changes (ldm, pd.hDevNames, pd.hDevMode);
+
+  /* Finally, build the resulting plist */
+  {
+    Lisp_Object result = Qnil;
+    struct gcpro gcpro1;
+    GCPRO1 (result);
+
+    /* Do consing in reverse order.
+       Number of copies */
+    if (print_p)
+      result = Fcons (Qcopies, Fcons (make_int (pd.nCopies), result));
+
+    /* Page range */
+    if (print_p && (pd.Flags & PD_PAGENUMS))
+      {
+	result = Fcons (Qto_page, Fcons (make_int (pd.nToPage), result));
+	result = Fcons (Qfrom_page, Fcons (make_int (pd.nFromPage), result));
+      }
+
+    /* Device name */
+    result = Fcons (Qname,
+		    Fcons (build_ext_string (ldm->printer_name,
+					     Qmswindows_tstr),
+			   result));
+    UNGCPRO;
+
+    global_free_2_maybe (pd.hDevNames, pd.hDevMode);
+    return result;
+  }
+}
+
+DEFUN ("msprinter-print-setup-dialog", Fmsprinter_print_setup_dialog, 1, 1, 0, /*
+Invoke Windows standard Printer Setup dialog.
+This dialog is usually invoked when the user selects the Printer Setup
+command.
+
+DEVICE must be either an 'msprinter device, or a printer settings
+object. The function brings up the Printer Setup dialog, where the user
+can select a different printer and/or change printer options.
+Connection name can change as a result of selecting a different printer
+device.  If a printer is specified, then changes are stored into the
+settings object currently selected into that printer.  If a settings
+object is supplied, then changes are recorded into it, and, it it is
+selected into a printer, then changes are propagated to that printer
+too.
+
+Return value is nil if the user has canceled the dialog.  Otherwise, it
+is a new plist, with the following properties:
+  name       Printer device name, even if unchanged by the user.
+
+The printer device is destroyed and an error is signaled if new printer
+is selected by the user, but cannot be initialized.
+
+See also `msprinter-print-dialog' and `msprinter-page-setup-dialog'.
+*/
+	(device))
+{
+  return print_dialog_worker (device, 0);
+}
+
+DEFUN ("msprinter-print-dialog", Fmsprinter_print_dialog, 1, 1, 0, /*
+Invoke Windows standard Print dialog.
+This dialog is usually invoked when the user selects the Print command.
+After the user presses OK, the program should start actual printout.
+
+DEVICE must be either an 'msprinter device, or a printer settings
+object. The function brings up the Print dialog, where the user can
+select a different printer and/or change printer options. Connection
+name can change as a result of selecting a different printer device.  If
+a printer is specified, then changes are stored into the settings object
+currently selected into that printer.  If a settings object is supplied,
+then changes are recorded into it, and, it it is selected into a
+printer, then changes are propagated to that printer 
+too.
+
+Return value is nil if the user has canceled the dialog.  Otherwise, it
+is a new plist, with the following properties:
+  name       Printer device name, even if unchanged by the user.
+  from-page  First page to print, 1-based. If not specified by the user,
+             then this value is not included in the plist.
+  to-page    Last page to print, inclusive, 1-based. If not specified by
+             the user, then this value is not included in the plist.
+  copies     Number of copies to print.  Always returned.
+
+The DEVICE is destroyed and an error is signaled in case of
+initialization problem with the new printer.
+
+See also `msprinter-setup-print-dialog' and
+`msprinter-page-setup-dialog'.
+*/
+	(device))
+{
+  return print_dialog_worker (device, 1);
+}
+
+
+static int
+plist_get_margin (Lisp_Object plist, Lisp_Object prop)
+{
+  Lisp_Object val = Fplist_get (plist, prop, make_int (1440));
+  if (!INTP (val))
+    signal_simple_error ("Margin value must be an integer", val);
+
+  return MulDiv (XINT (val), 100, 144);
+}
+
+static Lisp_Object
+plist_set_margin (Lisp_Object plist, Lisp_Object prop, int margin, int mm_p)
+{
+  Lisp_Object val = make_int (MulDiv (margin, 144, mm_p ? 2450 : 100));
+  return Fcons (prop, Fcons (val, plist));
+}
+
+DEFUN ("msprinter-page-setup-dialog", Fmsprinter_page_setup_dialog, 1, 2, 0, /*
+Invoke Windows standard Page Setup dialog.
+This dialog is usually invoked in response to Page Setup command, and
+used to chose such parameters as page orientation, print margins etc.
+Note that this dialog contains the "Printer" button, which invokes
+Printer Setup dialog (see `msprinter-print-setup-dialog') so that the
+user can update the printer options or even select a different printer
+as well.
+
+DEVICE must be either an 'msprinter device, or a printer settings
+object. The function brings up the Page Setup dialog, where the user
+can select a different printer and/or change printer options.
+Connection name can change as a result of selecting a different printer
+device.  If a printer is specified, then changes are stored into the
+settings object currently selected into that printer.  If a settings
+object is supplied, then changes are recorded into it, and, it it is
+selected into a printer, then changes are propagated to that printer
+too.
+
+PLIST is a plist of job properties;
+see `default-msprinter-frame-plist' for the complete list.  The plist
+is used to initialize the dialog.
+
+Return value is nil if the user has canceled the dialog.  Otherwise,
+it is a new plist, containing the new list of properties.
+
+The DEVICE is destroyed and an error is signaled in case of
+initialization problem with the new printer.
+
+See also `msprinter-print-setup-dialog' and `msprinter-print-dialog'.
+*/
+       (device, plist))
+{
+  Lisp_Devmode *ldm = decode_devmode (device);
+  PAGESETUPDLG pd;
+
+  memset (&pd, 0, sizeof (pd));
+  pd.lStructSize = sizeof (pd);
+  pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
+  pd.Flags = PSD_MARGINS;
+  pd.rtMargin.left   = plist_get_margin (plist, Qleft_margin);
+  pd.rtMargin.top    = plist_get_margin (plist, Qtop_margin);
+  pd.rtMargin.right  = plist_get_margin (plist, Qright_margin);
+  pd.rtMargin.bottom = plist_get_margin (plist, Qbottom_margin);
+  pd.hDevMode = devmode_to_hglobal (ldm);
+
+  if (!PageSetupDlg (&pd))
+    {
+      global_free_2_maybe (pd.hDevNames, pd.hDevMode);
+      return Qnil;
+    }
+
+  if (pd.hDevMode)
+    handle_devmode_changes (ldm, pd.hDevNames, pd.hDevMode);
+
+  /* Finally, build the resulting plist */
+  {
+    Lisp_Object result = Qnil;
+    int mm_p = pd.Flags & PSD_INHUNDREDTHSOFMILLIMETERS;
+    result = plist_set_margin (result, Qbottom_margin, pd.rtMargin.bottom, mm_p);
+    result = plist_set_margin (result, Qright_margin, pd.rtMargin.right, mm_p);
+    result = plist_set_margin (result, Qtop_margin, pd.rtMargin.top, mm_p);
+    result = plist_set_margin (result, Qleft_margin, pd.rtMargin.left, mm_p);
+    return result;
+  }
+}
+
+DEFUN ("msprinter-get-settings", Fmsprinter_get_settings, 1, 1, 0, /*
+Return the settings object currently used by DEVICE.
+The object returned is not a copy, but rather a pointer to the
+original one. Use `msprinter-settings-copy' to create a copy of it.
+*/
+	(device))
+{
+  struct device *d = decode_device (device);
+  XSETDEVICE (device, d);
+  CHECK_MSPRINTER_DEVICE (device);
+  return DEVICE_MSPRINTER_DEVMODE (d);
+}
+
+DEFUN ("msprinter-select-settings", Fmsprinter_select_settings, 2, 2, 0, /*
+Select SETTINGS object into a DEVICE.
+The settings from the settings object are immediately applied to the
+printer, possibly changing even the target printer itself, and all
+future changes are applied synchronously to the printer device and the
+selected printer object, until a different settings object is selected
+into the same printer.
+
+A settings object can be selected to no more than one printer at a time.
+
+If the supplied settings object is not specialized, it is specialized
+for the printer immediately upon selection. The object can be
+despecialized after it is unselected by calling the function
+`msprinter-settings-despecialize'. 
+
+Return value is the previously selected settings object.
+*/
+	(device, settings))
+{
+  Lisp_Devmode *ldm;
+  struct device *d = decode_device (device);
+
+  struct gcpro gcpro1;
+  GCPRO1 (settings);
+
+  XSETDEVICE (device, d);
+  CHECK_MSPRINTER_DEVICE (device);
+  CHECK_DEVMODE (settings);
+  ldm = XDEVMODE (settings);
+
+  if (!NILP (ldm->device))
+    signal_simple_error ("The object is currently selected into a device",
+			 settings);
+
+  /* If the object being selected is de-specialized, then its
+     size is perhaps not enough to receive the new devmode. We can ask
+     for printer's devmode size here, because despecialized settings
+     cannot force switching to a different printer, as they supply no
+     printer name at all. */
+  if (ldm->printer_name == NULL)
+    {
+      size_t dm_size =
+	DocumentProperties (NULL, DEVICE_MSPRINTER_HPRINTER(d),
+			    DEVICE_MSPRINTER_NAME(d), NULL, NULL, 0);
+      if (dm_size <= 0)
+	signal_simple_error ("Unable to specialize settings, printer error",
+			     device);
+
+      assert (XDEVMODE_SIZE (ldm) <= dm_size);
+      ldm->devmode = xrealloc (ldm->devmode, dm_size);
+    }
+
+  /* If we bail out on signal here, no damage is done, except that
+     the stirage for the DEVMODE structure might be reallocated to
+     hold a larger one - not a big deal */
+  if (!sync_printer_with_devmode (d, ldm->devmode, ldm->devmode,
+				  ldm->printer_name))
+    error ("Printer device initialization I/O error, device deleted.");
+
+  if (ldm->printer_name == NULL)
+    ldm->printer_name = xstrdup (DEVICE_MSPRINTER_NAME(d));
+
+  {
+    Lisp_Object old_mode = DEVICE_MSPRINTER_DEVMODE (d);
+    ldm->device = device;
+    XDEVMODE (old_mode)->device = Qnil;
+    DEVICE_MSPRINTER_DEVMODE (d) = settings;
+    UNGCPRO;
+    return old_mode;
+  }
+}
+
+DEFUN ("msprinter-apply-settings", Fmsprinter_apply_settings, 2, 2, 0, /*
+Apply settings from a SETTINGS object to a 'msprinter DEVICE.
+The settings from the settings object are immediately applied to the
+printer, possibly changing even the target printer itself. The SETTING
+object is not modified, unlike `msprinter-select-settings', and the
+supplied object is not changed.  The changes are immediately recorded
+into the settings object which is currently selected into the printer
+device.
+
+Return value is the currently selected settings object.
+*/
+	(device, settings))
+{
+  Lisp_Devmode *ldm_current, *ldm_new;
+  struct device *d = decode_device (device);
+
+  struct gcpro gcpro1;
+  GCPRO1 (settings);
+
+  XSETDEVICE (device, d);
+  CHECK_MSPRINTER_DEVICE (device);
+  CHECK_DEVMODE (settings);
+  ldm_new = XDEVMODE (settings);
+  ldm_current = XDEVMODE (DEVICE_MSPRINTER_DEVMODE (d));
+
+  /* If the supplied devmode is not specialized, then the current
+     devmode size will always be sufficient, as the printer does
+     not change.  If it is specialized, we must reallocate the cuttent
+     devmode storage to match with the supplied one, as it has the right
+     size for the new printer, if it is going to change.  The correct
+     way is to use the largest of the two though, to keep the old
+     contents unchanged in case of preliminary exit.
+  */
+  if (ldm_new->printer_name)
+    ldm_current->devmode =
+      (DEVMODE*) xrealloc (ldm_current->devmode,
+			   max (XDEVMODE_SIZE (ldm_new),
+				XDEVMODE_SIZE (ldm_current)));
+
+  if (!sync_printer_with_devmode (d, ldm_new->devmode,
+				  ldm_current->devmode,
+				  ldm_new->printer_name))
+    error ("Printer device initialization I/O error, device deleted.");
+  
+  if (ldm_new->printer_name != NULL)
+    {
+      xfree (ldm_current->printer_name);
+      ldm_current->printer_name = xstrdup (ldm_new->printer_name);
+    }
+
+  return DEVICE_MSPRINTER_DEVMODE (d);
+}
+
+/************************************************************************/
+/*                                devmode                               */
+/************************************************************************/
+
+static void
+print_devmode (Lisp_Object obj, Lisp_Object printcharfun,
+	       int escapeflag)
+{
+  char buf[100];
+  Lisp_Devmode *dm = XDEVMODE (obj);
+  if (print_readably)
+    error ("printing unreadable object #<msprinter-settings 0x%x>",
+           dm->header.uid);
+  write_c_string ("#<msprinter-settings", printcharfun);
+  if (dm->printer_name)
+    {
+      write_c_string (" for \"", printcharfun);
+      write_c_string (dm->printer_name, printcharfun);
+      write_c_string ("\"", printcharfun);
+    }
+  if (!NILP (dm->device))
+    {
+      write_c_string (" (currently on ", printcharfun);
+      print_internal (dm->device, printcharfun, 0);
+      write_c_string (")", printcharfun);
+    }
+  sprintf (buf, " 0x%x>", dm->header.uid);
+  write_c_string (buf, printcharfun);
+}
+
+static void
+finalize_devmode (void *header, int for_disksave)
+{
+  Lisp_Devmode *dm = (Lisp_Devmode *) header;
+
+  if (for_disksave)
+    {
+      Lisp_Object devmode;
+      XSETDEVMODE (devmode, dm);
+      signal_simple_error (
+        "Cannot dump XEmacs containing an msprinter-settings object",
+	devmode);
+    }
+
+  assert (NILP (dm->device));
+
+  if (dm->printer_name)
+    xfree (dm->printer_name);
+}
+
+static int
+equal_devmode (Lisp_Object obj1, Lisp_Object obj2, int depth)
+{
+  Lisp_Devmode *dm1 = XDEVMODE (obj1);
+  Lisp_Devmode *dm2 = XDEVMODE (obj2);
+
+  if ((dm1->devmode != NULL) != (dm1->devmode != NULL))
+    return 0;
+  if (dm1->devmode == NULL)
+    return 1;
+  if (memcmp (dm1->devmode, dm2->devmode, XDEVMODE_SIZE (dm1)) != 0)
+    return 0;
+  if (dm1->printer_name == NULL || dm2->printer_name == NULL)
+    return 1;
+  return stricmp (dm1->printer_name, dm2->printer_name) == 0;
+}
+
+static unsigned long
+hash_devmode (Lisp_Object obj, int depth)
+{
+  Lisp_Devmode *dm = XDEVMODE (obj);
+
+  return HASH3 (XDEVMODE_SIZE (dm),
+		dm->devmode ? memory_hash (dm->devmode, XDEVMODE_SIZE (dm))
+		: 0,
+		dm->printer_name ? string_hash (dm->printer_name) : 0);
+}
+
+DEFINE_LRECORD_IMPLEMENTATION ("msprinter-settings", devmode,
+			       0/*mark*/, print_devmode, finalize_devmode,
+			       equal_devmode, hash_devmode, 0/*description*/,
+			       Lisp_Devmode);
+static Lisp_Object
+allocate_devmode (DEVMODE* src_devmode, int do_copy,
+		  char* src_name, struct device *d)
+{
+  Lisp_Devmode *dm;
+  Lisp_Object ob;
+
+  dm = alloc_lcrecord_type (Lisp_Devmode, &lrecord_devmode);
+
+  if (d)
+    XSETDEVICE (dm->device, d);
+  else
+    dm->device = Qnil;
+
+  dm->printer_name = src_name ? xstrdup (src_name) : NULL;
+
+  if (src_devmode != NULL && do_copy)
+    {
+      dm->devmode = (DEVMODE*) xmalloc (DEVMODE_SIZE (src_devmode));
+      memcpy (dm->devmode, src_devmode, DEVMODE_SIZE (src_devmode));
+    }
+  else
+    {
+      dm->devmode = src_devmode;
+    }
+
+  XSETDEVMODE (ob, dm);
+  return ob;
+}
+
+DEFUN ("msprinter-settings-copy", Fmsprinter_settings_copy, 1, 1, 0, /*
+Create and returns an exact copy of a printer settings object.
+*/
+       (settings))
+{
+  Lisp_Devmode *dm;
+
+  CHECK_DEVMODE (settings);
+  dm = XDEVMODE (settings);
+
+  return allocate_devmode (dm->devmode, 1, dm->printer_name, NULL);
+}
+
+DEFUN ("msprinter-settings-despecialize", Fmsprinter_settings_despecialize, 1, 1, 0, /*
+Erase printer-specific settings from a printer settings object.
+*/
+       (settings))
+{
+  Lisp_Devmode *ldm;
+  DEVMODE *dm;
+
+  CHECK_DEVMODE (settings);
+  ldm = XDEVMODE (settings);
+
+  if (!NILP (ldm->device))
+    signal_simple_error ("The object is currently selected into a device",
+			 settings);
+
+  dm = ldm->devmode;
+
+  /* #### TODO. Either remove references to device specific bins,
+     paper sizes etc, or signal an error of they are present. */
+
+  dm->dmDriverExtra = 0;
+  dm->dmDeviceName[0] = '\0';
+
+  if (ldm->printer_name)
+    xfree (ldm->printer_name);
+
+  return Qnil;
 }
 
 
@@ -533,6 +1156,17 @@ msprinter_apply_devmode (struct device *d, DEVMODE *devmode)
 void
 syms_of_device_mswindows (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (devmode);
+
+  DEFSUBR (Fmsprinter_print_setup_dialog);
+  DEFSUBR (Fmsprinter_print_dialog);
+  DEFSUBR (Fmsprinter_page_setup_dialog);
+  DEFSUBR (Fmsprinter_get_settings);
+  DEFSUBR (Fmsprinter_select_settings);
+  DEFSUBR (Fmsprinter_apply_settings);
+  DEFSUBR (Fmsprinter_settings_copy);
+  DEFSUBR (Fmsprinter_settings_despecialize);
+
   defsymbol (&Qinit_pre_mswindows_win, "init-pre-mswindows-win");
   defsymbol (&Qinit_post_mswindows_win, "init-post-mswindows-win");
 }

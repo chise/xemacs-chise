@@ -615,7 +615,7 @@ Quoting
 Read-only Buffer
      A read-only buffer is one whose text you are not allowed to change.
      Normally Emacs makes buffers read-only when they contain text which
-     has a special significance to Emacs, such asDired buffers.
+     has a special significance to Emacs, such as Dired buffers.
      Visiting a file that is write-protected also makes a read-only
      buffer.  *Note Buffers::.
 

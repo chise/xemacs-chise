@@ -206,8 +206,8 @@ version 18.59 released October 31, 1992.
 #include TT_C_H_FILE
 #endif
 
-#if defined (WINDOWSNT)
-#include <windows.h>
+#if defined (WIN32_NATIVE)
+#include "nt.h"
 #endif
 
 /* For PATH_EXEC */
@@ -526,7 +526,9 @@ mswindows_handle_hardware_exceptions (DWORD code)
     return EXCEPTION_CONTINUE_SEARCH;
 
   /* I don't know if this filter is still wrapped in the outer __try, but
-     it doesn't hurt to have another one. --ben */
+     it doesn't hurt to have another one. --ben
+     And it lets us control more exactly what we really want to do in such
+     a situation. */
   __try
     {
       fatal_error_in_progress++;
@@ -558,7 +560,38 @@ mswindows_handle_hardware_exceptions (DWORD code)
     }
   /* VC++ documentation says that
      GetExceptionCode() cannot be called inside the filter itself. */
-  __except (mswindows_handle_hardware_exceptions (GetExceptionCode ())) {}
+
+  /*  __except (mswindows_handle_hardware_exceptions (GetExceptionCode ())) {}
+
+     The line above is original.  Unfortunately, when an error is tripped
+     inside of the handler (e.g. during Fbacktrace()), and the handler for
+     the handler is invoked, it correctly notices that something is amiss
+     and it should just return -- but it returns EXCEPTION_CONTINUE_SEARCH,
+     which causes the debugger to be invoked debugging the handler code in
+     this function -- and WITH THE STACK UNWOUND so that you see main()
+     calling mswindows_handle_hardware_exceptions(), calling Fbacktrace(),
+     and a crash a couple of frames in -- AND NO SIGN OF THE ORIGINAL CRASH!
+
+     There's some real weirdness going on in the stack handling -- unlike
+     in Unix, where further crashes just keep adding to the stack, it seems
+     that under the structured-exception-handling, the stack can actually
+     bounce back and forth between the full stack at the location of the
+     exception and the unwound stack at the place where the __try clause was
+     established.  I don't completely understand it.  What I do know is that
+     returning EXCEPTION_EXECUTE_HANDLER on nested crash has the effect of
+     aborting execution of the handler and going back to the outer filter
+     function, which returns EXCEPTION_CONTINUE_SEARCH and everything is
+     hunky-dorey -- your debugger sees a crash at the right location with
+     the right stack.
+
+     I'm leaving in the trickier Unix-like code in the handler; someone who
+     understands better than me how the stack works in these handlers could
+     fix it up more.  As it is, it works pretty well, so I'm not likely to
+     touch it more. --ben
+  */
+
+  __except (EXCEPTION_EXECUTE_HANDLER) {}
+  
 
   /* pretend we didn't handle this, so that the debugger is invoked and/or
      the normal GPF box appears. */
@@ -599,7 +632,7 @@ make_arg_list_1 (int argc, char **argv, int skip_args)
     {
       if (i == 0 || i > skip_args)
 	{
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  if (i == 0)
 	    {
 	      /* Do not trust to what crt0 has stuffed into argv[0] */
@@ -695,15 +728,6 @@ Return the directory name in which the Emacs executable was located.
 				   can't deal with this.  It's a potential
 				   bug that needs to be looked at. */
 # undef RUN_TIME_REMAP
-#endif
-
-#if defined (MULE) && defined (MSDOS) && defined (EMX)
-/* Setup all of files be input/output'ed with binary translation mode. */
-asm ("	.text");
-asm ("L_setbinmode:");
-asm ("	movl	$1, __fmode_bin");
-asm ("	ret");
-asm ("	.stabs	\"___CTOR_LIST__\", 23, 0, 0, L_setbinmode");
 #endif
 
 /* Test whether the next argument in ARGV matches SSTR or a prefix of
@@ -827,7 +851,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
   sort_args (argc, argv);
 
-#if (defined (MSDOS) && defined (EMX)) || defined (WIN32) || defined (_SCO_DS)
+#if defined (WIN32_NATIVE) || defined (_SCO_DS)
   environ = envp;
 #endif
 
@@ -859,15 +883,6 @@ main_1 (int argc, char **argv, char **envp, int restart)
     /* Arrange to get warning messages as memory fills up.  */
     memory_warnings (0, malloc_warning);
 #endif	/* not SYSTEM_MALLOC */
-
-#ifdef MSDOS
-  /* We do all file input/output as binary files.  When we need to translate
-     newlines, we do that manually.  */
-  _fmode = O_BINARY;
-  (stdin) ->_flag &= ~_IOTEXT;
-  (stdout)->_flag &= ~_IOTEXT;
-  (stderr)->_flag &= ~_IOTEXT;
-#endif /* MSDOS */
 
 #ifdef SET_EMACS_PRIORITY
   if (emacs_priority != 0)
@@ -1289,7 +1304,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MSW_C_DIRED
       syms_of_dired_mswindows ();
 #endif
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       syms_of_ntproc ();
 #endif
 #endif	/* HAVE_MS_WINDOWS */
@@ -1342,7 +1357,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_GPM
-	  syms_of_gpmevent ();
+      syms_of_gpmevent ();
 #endif
 
 #ifdef HAVE_POSTGRESQL
@@ -1629,7 +1644,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_SHLIB
       vars_of_module ();
 #endif
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       vars_of_nt ();
       vars_of_ntproc ();
 #endif
@@ -1747,7 +1762,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #endif
 
 #ifdef HAVE_GPM
-	  vars_of_gpmevent ();
+      vars_of_gpmevent ();
 #endif
 
       /* Now initialize any specifier variables.  We do this later
@@ -2017,7 +2032,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
   init_initial_directory();		/* get the directory to use for the
 					   "*scratch*" buffer, etc. */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /*
    * For Win32, call init_environment() now, so that environment/registry
    * variables will be properly entered into Vprocess_environment.
@@ -2032,16 +2047,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 			   first because many of the functions below
 			   call egetenv() to get environment variables. */
   init_lread ();	/* Set up the Lisp reader. */
-#ifdef MSDOS
-  /* Call early 'cause init_environment needs it.  */
-  init_dosfns ();
-  /* Set defaults for several environment variables.  */
-  init_environment (argc, argv, skip_args);
-#endif
   init_cmdargs (argc, argv, skip_args);	/* Create list Vcommand_line_args */
   init_buffer ();	/* Set default directory of *scratch* buffer */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   init_ntproc();
 #endif
 
@@ -2097,7 +2106,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
     Vinvocation_directory = Ffile_name_directory (Vinvocation_directory);
   }
 
-#if defined(HAVE_SHLIB) && !defined(WINDOWSNT)
+#if defined(HAVE_SHLIB) && !defined(WIN32_NATIVE)
   /* This is Unix only.  MS Windows NT has a library call that does
      The Right Thing on that system.  Rumor has it, this must be
      called for GNU dld in temacs and xemacs.  */
@@ -2531,7 +2540,7 @@ main (int argc, char **argv, char **envp)
 
 	 06/20/96 robertl@dgii.com */
       {
-	extern char *_environ;
+	extern char **_environ;
 	if ((unsigned) environ == 0)
 	  environ=_environ;
       }
@@ -2639,7 +2648,7 @@ all of which are called before XEmacs is actually killed.
 	 be too dangerous), and if we get a crash somewhere within
 	 this loop, we'll still autosave and won't try this again. */
 
-      LIST_LOOP_DELETING(concons, nextcons, Vconsole_list)
+      LIST_LOOP_DELETING (concons, nextcons, Vconsole_list)
 	{
 	  /* There is very little point in deleting the stream console.
 	     It uses stdio, which should flush any buffered output and
@@ -2652,6 +2661,14 @@ all of which are called before XEmacs is actually killed.
     }
 
   UNGCPRO;
+
+#ifdef HAVE_MS_WINDOWS
+  /* If we displayed a message on the console and we're exiting due to
+     init error, then we must allow the user to see this message. */
+  if (mswindows_message_outputted && INTP (arg) && XINT (arg) != 0)
+    Fmswindows_message_box (build_string ("Initialization error"),
+			    Qnil, Qnil);
+#endif
 
   shut_down_emacs (0, STRINGP (arg) ? arg : Qnil, 0);
 
@@ -2869,18 +2886,6 @@ and announce itself normally when it is run.
 
   UNGCPRO;
 
-#if defined (MSDOS) && defined (EMX)
-  {
-    int fd = open ((char *) XSTRING_DATA (intoname),
-                   O_WRONLY|O_CREAT|O_TRUNC, S_IREAD|S_IWRITE);
-    if (!fd) {
-      error ("Failure operating on %s", XSTRING_DATA (intoname));
-    } else {
-      _core (fd);
-      close (fd);
-    }
-  }
-#else /* not MSDOS and EMX */
   {
     char *intoname_ext;
     char *symname_ext;
@@ -2917,7 +2922,6 @@ and announce itself normally when it is run.
 #endif
 #endif /* not PDUMP */
   }
-#endif /* not MSDOS and EMX */
 
   purify_flag = opurify;
 
@@ -3056,7 +3060,7 @@ static const char *assert_failed_expr;
 
 #undef abort	/* avoid infinite #define loop... */
 
-#if defined (WINDOWSNT) && defined (DEBUG_XEMACS)
+#if defined (WIN32_NATIVE) && defined (DEBUG_XEMACS)
 #define enter_debugger() DebugBreak ()
 #else
 #define enter_debugger()

@@ -91,9 +91,10 @@ enum image_instance_geometry
   IMAGE_GEOMETRY,
   IMAGE_DESIRED_GEOMETRY,
   IMAGE_MIN_GEOMETRY,
-  IMAGE_MAX_GEOMETRY,
-  IMAGE_UNSPECIFIED_GEOMETRY = ~0
+  IMAGE_MAX_GEOMETRY
 };
+
+#define IMAGE_UNSPECIFIED_GEOMETRY -1
 
 #define WIDGET_BORDER_HEIGHT 4
 #define WIDGET_BORDER_WIDTH 4
@@ -168,15 +169,14 @@ struct image_instantiator_methods
    instance. Actual geometry is stored in the appropriate slots in the
    image instance. */
   void (*query_geometry_method) (Lisp_Object image_instance,
-				 unsigned int* width, unsigned int* height,
+				 int* width, int* height,
 				 enum image_instance_geometry disp,
 				 Lisp_Object domain);
 
   /* Layout the instance and its children bounded by the provided
      dimensions. Returns success or failure. */
   int (*layout_method) (Lisp_Object image_instance,
-			unsigned int width, unsigned int height,
-			Lisp_Object domain);
+			int width, int height, Lisp_Object domain);
 };
 
 /***** Calling an image-instantiator method *****/
@@ -359,14 +359,14 @@ void widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			 int dest_mask, Lisp_Object domain);
 void image_instance_query_geometry (Lisp_Object image_instance,
-				    unsigned int* width, unsigned int* height,
+				    int* width, int* height,
 				    enum image_instance_geometry disp,
 				    Lisp_Object domain);
 void image_instance_layout (Lisp_Object image_instance,
-			    unsigned int width, unsigned int height,
+			    int width, int height,
 			    Lisp_Object domain);
 int layout_layout (Lisp_Object image_instance,
-		   unsigned int width, unsigned int height,
+		   int width, int height,
 		   Lisp_Object domain);
 int invalidate_glyph_geometry_maybe (Lisp_Object glyph_or_ii, struct window* w);
 
@@ -530,7 +530,7 @@ struct Lisp_Image_Instance
   Lisp_Object parent;
   enum image_instance_type type;
   unsigned int x_offset, y_offset;	/* for layout purposes */
-  unsigned int width, height, margin_width;
+  int width, height, margin_width;
   unsigned long display_hash; /* Hash value representing the structure
 				 of the image_instance when it was
 				 last displayed. */
@@ -980,8 +980,8 @@ Lisp_Object allocate_glyph (enum glyph_type type,
 						  Lisp_Object property,
 						  Lisp_Object locale));
 void query_string_geometry ( Lisp_Object string, Lisp_Object face,
-			     unsigned int* width, unsigned int* height,
-			     unsigned int* descent, Lisp_Object domain);
+			     int* width, int* height, int* descent, 
+			     Lisp_Object domain);
 Lisp_Object query_string_font (Lisp_Object string,
 			       Lisp_Object face, Lisp_Object domain);
 Lisp_Object add_glyph_animated_timeout (EMACS_INT tickms, Lisp_Object device);

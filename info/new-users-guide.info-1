@@ -900,7 +900,7 @@ given in parenthesis. You can also invoke these commands by typing `M-x
      Move the cursor forward one word (`forward-word').
 
 `M-b'
-     Move the cursor backword one word (`backward-word').
+     Move the cursor backward one word (`backward-word').
 
 `M-<'
      Move the cursor to the top of the buffer (`beginning-of-buffer').

@@ -681,7 +681,7 @@ Help Summary
 
 `C-h a REGEXP <RET>'
      Display a list of functions and variables whose names match REGEXP
-     (`heper-apropos').
+     (`hyper-apropos').
 
 `C-h A REGEXP'
      Show all commands whose names contain matches for REGEXP
@@ -852,7 +852,7 @@ Apropos
      Show only symbols that are names of commands (`command-apropos').
 
 `M-x apropos REGEXP'
-     Show all symbols whose names comtain matches for REGEXP.
+     Show all symbols whose names contain matches for REGEXP.
 
    A more sophisticated sort of question to ask is, "What are the
 commands for working with files?"  To ask this question, type `C-h a

@@ -492,8 +492,7 @@ Customization
                      By changing them, you can "redefine keys".
 * Syntax::          The syntax table controls how words and expressions
                      are parsed.
-* Init File::       How to write common customizations in the `.emacs'
-                     file.
+* Init File::       How to write common customizations in the init file.
 * Audible Bell::    Changing how XEmacs sounds the bell.
 * Faces::           Changing the fonts and colors of a region of text.
 * X Resources::	    X resources controlling various aspects of the
@@ -527,7 +526,7 @@ The Syntax Table
 * Entry: Syntax Entry.    What the syntax table records for each character.
 * Change: Syntax Change.  How to change the information.
 
-The Init File, `~/.emacs'
+The Init File
 
 * Init Syntax::     Syntax of constants in Emacs Lisp.
 * Init Examples::   How to do some things with an init file.

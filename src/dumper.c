@@ -22,6 +22,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+
 #include "dump-id.h"
 #include "specifier.h"
 #include "alloc.h"
@@ -30,10 +31,8 @@ Boston, MA 02111-1307, USA.  */
 #include "console-stream.h"
 #include "dumper.h"
 
-#ifdef WINDOWSNT
-#define WINDOWS_LEAN_AND_MEAN
-#include <windows.h>
-#define PATH_MAX MAXPATHLEN
+#ifdef WIN32_NATIVE
+#include "nt.h"
 #else
 #ifdef HAVE_MMAP
 #include <sys/mman.h>
@@ -107,7 +106,7 @@ typedef struct
 char *pdump_start, *pdump_end;
 static size_t pdump_length;
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 // Handle for the dump file
 HANDLE pdump_hFile = INVALID_HANDLE_VALUE;
 // Handle for the file mapping object for the dump file
@@ -1110,7 +1109,7 @@ static int pdump_load_finish (void)
   return 1;
 }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 /* Free the mapped file if we decide we don't want it after all */
 static void pdump_file_unmap(void)
 {
@@ -1198,7 +1197,7 @@ static int pdump_resource_get (void)
   return 1;
 }
 
-#else /* !WINDOWSNT */
+#else /* !WIN32_NATIVE */
 
 static void *pdump_mallocadr;
 
@@ -1247,7 +1246,7 @@ static int pdump_file_get(const char *path)
   close (pdump_fd);
   return 1;
 }
-#endif /* !WINDOWSNT */
+#endif /* !WIN32_NATIVE */
 
 
 static int pdump_file_try(char *exe_path)
@@ -1292,9 +1291,9 @@ static int pdump_file_try(char *exe_path)
 int pdump_load(const char *argv0)
 {
   char exe_path[PATH_MAX];
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   GetModuleFileName (NULL, exe_path, PATH_MAX);  
-#else /* !WINDOWSNT */
+#else /* !WIN32_NATIVE */
   char *w;
   const char *dir, *p;
 
@@ -1355,7 +1354,7 @@ int pdump_load(const char *argv0)
 	  path = p+1;	    
 	}
     }
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
   if (pdump_file_try (exe_path))
     {
@@ -1363,7 +1362,7 @@ int pdump_load(const char *argv0)
       return 1;
     }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   if (pdump_resource_get ())
     {
       if (pdump_load_check ())

@@ -1883,8 +1883,7 @@ uppercase letters and `search-caps-disable-folding' is t."
   ;; buffer.
   (mapc #'delete-extent isearch-highlight-extents)
   (setq isearch-highlight-extents nil)
-  (setq isearch-highlight-all-start nil
-	isearch-window-end nil
+  (setq isearch-window-end nil
 	isearch-highlight-last-string nil))
 
 (defun isearch-highlight-all-update ()

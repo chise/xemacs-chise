@@ -33,14 +33,8 @@ Boston, MA 02111-1307, USA.  */
 
 #define	EXPENSIVE 2000
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-extern char *tgoto (const char *cm, int hpos, int vpos);
-extern void tputs (const char *, int, void (*)(int));
-#ifdef __cplusplus
-}
-#endif
+EXTERN_C char *tgoto (const char *cm, int hpos, int vpos);
+EXTERN_C int tputs (const char *, int, void (*)(int));
 
 static void cmgoto_for_real (struct console *c, int row, int col);
 

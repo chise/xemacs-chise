@@ -94,13 +94,13 @@
 time_t mktime ();
 #endif
 
-#if defined(WINDOWSNT) || defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
 #include <time.h>
 #else
 #if defined(HAVE_TZNAME)
 extern char *tzname[2];
 #endif
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #ifdef emacs
 #define strftime emacs_strftime
@@ -233,6 +233,7 @@ mon_week (const struct tm *tm)
 }
 
 #if !defined(HAVE_TM_ZONE) && !defined(HAVE_TZNAME)
+char *zone_name (const struct tm *tp);
 char *
 zone_name (const struct tm *tp)
 {

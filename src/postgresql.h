@@ -10,10 +10,12 @@ Please send patches to this file to me first before submitting them to
 xemacs-patches.
 */
 
-#ifndef XEMACS_POSTGRESQL_H__
-#define XEMACS_POSTGRESQL_H__ 1
+#ifndef INCLUDED_postgresql_h_
+#define INCLUDED_postgresql_h_ 1
 
-#define BLCKSZ 8192 /* size of a default Postres disk block */
+#include LIBPQ_FE_H_FILE /* main PostgreSQL header file */
+
+#define BLCKSZ 8192 /* size of a default Postgres disk block */
 /*
   This file contains the GCC bug workaround code for the private
   LRECORD types.
@@ -57,4 +59,4 @@ DECLARE_LRECORD (pgresult, Lisp_PGresult);
 #define CHECK_PGRESULT(x) CHECK_RECORD (x, pgresult)
 #define CONCHECK_PGRESULT(x) CONCHECK_RECORD (x, pgresult)
 
-#endif /* XEMACS_POSTGRESQL_H__ */
+#endif /* INCLUDED_postgresql_h_ */

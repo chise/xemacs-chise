@@ -789,15 +789,16 @@ The default is to autodetect all sound support."])
 	dnl Has the user specified the toolkit(s) to use for GUI elements?
 	"with_menubars"   | \
 	"with_scrollbars" | \
-	"with_dialogs" | \
+	"with_dialogs"    | \
 	"with_widgets" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
 	    m | mo | mot | moti | motif )		val=motif  ;;
 	    a | at | ath | athe | athen | athena )	val=athena ;;
-	    n | no | non | none )			val=no ;;
+	    n | no | non | none )			val=no     ;;
+	    y | ye | yes )				val=yes    ;;
 	    * ) USAGE_ERROR(["The \`--$optname' option must have one of these values:
-  \`lucid', \`motif', \`athena', or \`no'."]) ;;
+  \`lucid', \`motif', \`athena', \`yes', or \`no'."]) ;;
 	  esac
 	  eval "$opt=\"$val\""
 	;;
@@ -1094,6 +1095,7 @@ case "$canonical" in
   clipper-*        ) machine=clipper ;;
   arm*             ) machine=arm ;;
   ns32k-*          ) machine=ns32000 ;;
+  s390-*           ) machine=s390 ;;
 esac
 
 dnl Straightforward OS determination
@@ -1655,37 +1657,7 @@ dnl --------------------------------------------------------------------
 
 AC_AIX dnl Defines _ALL_SOURCE on AIX.
 
-dnl Determine which SMART_INCLUDE macro will work for this system
-cat > $srcdir/conffoo.h <<EOF
-#define CONFFOO 1
-EOF
-AC_MSG_CHECKING(for a working inclusion macro)
-AC_TRY_COMPILE(,[
-#define SMART_INCLUDE(path,file) <path/file>
-#define CONFFOO_H_PATH $srcdir
-#define CONFFOO_INCLUDE(file) SMART_INCLUDE (CONFFOO_H_PATH,file)
-#include CONFFOO_INCLUDE(conffoo.h)
-], [ AC_MSG_RESULT(direct); AC_DEFINE(SMART_INCLUDE_INDIRECTIONS,0) ],
-AC_TRY_COMPILE(,[
-#define GLUE_INCLUDE(path,file)  <##path##/##file##>
-#define SMART_INCLUDE(path,file) GLUE_INCLUDE(path,file)
-#define CONFFOO_H_PATH $srcdir
-#define CONFFOO_INCLUDE(file) SMART_INCLUDE(CONFFOO_H_PATH,file)
-#include CONFFOO_INCLUDE(conffoo.h)
-], [ AC_MSG_RESULT(simple); AC_DEFINE(SMART_INCLUDE_INDIRECTIONS,1) ],
-AC_TRY_COMPILE(,[
-#define GLUE_INCLUDE_2(path,file)  <##path##/##file##>
-#define GLUE_INCLUDE_1(path,file) GLUE_INCLUDE_2(path,file)
-#define SMART_INCLUDE(path,file) GLUE_INCLUDE_1(path,file)
-#define CONFFOO_H_PATH $srcdir
-#define CONFFOO_INCLUDE(file) SMART_INCLUDE (CONFFOO_H_PATH,file)
-#include CONFFOO_INCLUDE(conffoo.h)
-], [ AC_MSG_RESULT(double); AC_DEFINE(SMART_INCLUDE_INDIRECTIONS,2) ],
-  AC_MSG_ERROR([Cannot define a proper SMART_INCLUDE macro. Please report.]))))
-rm -f $srcdir/conffoo.h
-
-
-dnl We want feature macros defined here and in config.h.in, so that
+dnl We want feature macros defined here *and* in config.h.in, so that
 dnl the compilation environment at configure time and compile time agree.
 
 AC_MSG_CHECKING(for GNU libc)
@@ -1861,7 +1833,7 @@ if test "$pdump" = "yes"; then
   start_files=
   libs_standard=
   unexec=
-  lib_gcc=	
+  lib_gcc=
 fi
 
 dnl For debugging...
@@ -1883,8 +1855,8 @@ dnl Non-ordinary link usually requires -lc
 test "$ordinary_link" = "no" -a -z "$libs_standard" && libs_standard="-lc"
 
 dnl Compiler-specific hacks
-dnl DEC C requires -std
-test "$__DECC" = "yes" && XE_APPEND(-std, c_switch_site)
+dnl DEC C `-std1' means ANSI C mode
+test "$__DECC" = "yes" && XE_APPEND(-std1, c_switch_site)
 
 dnl Calculalate value of CFLAGS:
 dnl Use either command line flag, environment var, or autodetection
@@ -2380,6 +2352,19 @@ AC_TYPE_MODE_T
 AC_TYPE_OFF_T
 AC_CHECK_TYPE(ssize_t, int)
 
+dnl check for Unix98 socklen_t
+AC_MSG_CHECKING(for socklen_t)
+AC_TRY_COMPILE([#include <sys/socket.h>
+socklen_t x;
+],[],[AC_MSG_RESULT(yes)],[
+AC_TRY_COMPILE([#include <sys/socket.h>
+int accept (int, struct sockaddr *, size_t *);
+],[],[
+AC_MSG_RESULT(size_t)
+AC_DEFINE(socklen_t,size_t)], [
+AC_MSG_RESULT(int)
+AC_DEFINE(socklen_t,int)])])
+
 AC_MSG_CHECKING(for struct timeval)
 AC_TRY_COMPILE([#ifdef TIME_WITH_SYS_TIME
 #include <sys/time.h>
@@ -2443,9 +2428,18 @@ dnl The mail_use_xxx variables are set according to the s&m headers.
 test -z "$mail_locking" -a "$mail_use_flock" = "yes" && mail_locking=flock
 test -z "$mail_locking" -a "$mail_use_lockf" = "yes" && mail_locking=lockf
 test -z "$mail_locking" -a "$mail_use_locking" = "yes" && mail_locking=locking
+if   test -z "$mail_locking"; then
+  case "$opsys" in cygwin* | mingw*)
+    mail_locking=pop ;;
+  esac
+fi
+
 if   test "$mail_locking" = "lockf"; then AC_DEFINE(MAIL_LOCK_LOCKF)
 elif test "$mail_locking" = "flock"; then AC_DEFINE(MAIL_LOCK_FLOCK)
 elif test "$mail_locking" = "locking"; then AC_DEFINE(MAIL_LOCK_LOCKING)
+elif test "$mail_locking" = "pop"; then
+  with_pop=yes
+  mail_locking=
 else mail_locking="dot-locking"; AC_DEFINE(MAIL_LOCK_DOT)
 fi
 test "$mail_locking" = "lockf" -a "$ac_cv_func_lockf" != "yes" && \
@@ -2623,10 +2617,19 @@ EOF
     cd ..
     rm -fr conftestdir
     for word in $xmkmf_defines; do
-      case "$word" in
-	-D*=* ) ;;
-	-D* ) word=`echo '' $word | sed -e 's:^ *-D::'`
-	      AC_DEFINE_UNQUOTED($word) ;;
+      case "$word" in -D* )
+	sym=`echo '' $word | sed -e 's:^ *-D::' -e 's:=.*::'`
+	case "$word" in
+	  -D*=* ) val=`echo '' $word | sed -e 's:^.*=::'` ;;
+	  *     ) val=1 ;;
+	esac
+dnl Avoid re-AC_DEFINE-ing xmkmf symbols we've already defined above.
+	if grep "^#define $sym " confdefs.h >/dev/null; then :; else
+	  if test "$val" = "1"
+	    then AC_DEFINE_UNQUOTED($sym)
+	    else AC_DEFINE_UNQUOTED($sym,$val)
+	  fi
+	fi  ;;
       esac
     done
   fi
@@ -2714,7 +2717,7 @@ if test "$with_msw" != "no"; then
   if test "$with_msw" = "yes"; then
     AC_DEFINE(HAVE_MS_WINDOWS)
     install_pp="$blddir/lib-src/installexe.sh"
-    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomctl32 -lwinspool, libs_system)
+    XE_APPEND(-lshell32 -lgdi32 -luser32 -lcomdlg32 -lcomctl32 -lwinspool, libs_system)
     test "$with_dragndrop" != no && XE_APPEND(msw, dragndrop_proto)
     if test "$window_system" != x11; then
  	window_system=msw
@@ -2947,67 +2950,35 @@ if test "$with_ldap" = "yes"; then
 fi
 
 dnl Autodetect PostgreSQL
-dnl The default installation location (non-Linux) is /usr/local/pgsql;
-dnl  a different prefix can be selected at build/install time.  If PostgreSQL
-dnl  is installed into a different prefix, that prefix must be specified in
-dnl  in the --site-prefixes flag.
-dnl The default RPM-based Linux installation location is /usr.
-AC_CHECKING(for PostgreSQL)
-postgres_h_path=""
-postgres_includes_found=no
-save_c_switch_site="$c_switch_site"
-
-dnl First, test standard location and site prefixes only:
+dnl On many Linux systems, PostgreSQL is packaged to be installed in /usr;
+dnl in this case, configure will easily detect it there.
+dnl
+dnl If PostgreSQL is installed into a different prefix,
+dnl (such as the default /usr/local/pgsql when building from source),
+dnl that prefix must be specified using the --site-prefixes flag.
 if test "$with_postgresql" != "no"; then
-	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
-fi
+  AC_CHECKING(for PostgreSQL)
 
-dnl Otherwise, test different known headers locations on linux:
-if test "$postgres_includes_found" = "no" -a "$with_postgresql" != "no" -a \
-	-d "/usr/local/pgsql/include"; then
-	c_switch_site="$c_switch_site -I/usr/local/pgsql/include"
-	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
-	if test "$postgres_includes_found" != "yes"; then
-		postgres_h_path="/usr/local/pgsql/include"
-	fi
-	c_switch_site="$save_c_switch_site"
-fi
-if test "$postgres_includes_found" = "no" -a "$with_postgresql" != "no" -a \
-	-d "/usr/include/pgsql"; then
-	c_switch_site="$c_switch_site -I/usr/include/pgsql"
-	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
-	if test "$postgres_includes_found" = "yes"; then
-		postgres_h_path="pgsql"
-	fi
-		c_switch_site="$save_c_switch_site"
-	fi
-if test "$postgres_includes_found" = "no" -a "$with_postgresql" != "no" -a \
-	-d "/usr/include/postgresql"; then
-	c_switch_site="$c_switch_site -I/usr/include/postgresql"
-	AC_CHECK_HEADER(libpq-fe.h,postgres_includes_found=yes)
-	if test "$postgres_includes_found" = "yes"; then
-		postgres_h_path="postgresql"
-fi
-	c_switch_site="$save_c_switch_site"
-fi
+dnl Look for these standard header file locations, known to be used on Linux
+  for header_dir in "" "pgsql/" "postgresql/"; do
+    AC_CHECK_HEADER(${header_dir}libpq-fe.h,
+                    libpq_fe_h_file=${header_dir}libpq-fe.h; break)
+  done
 
-dnl Finally, check if we can link with libpq:
-if test "$postgres_includes_found" = "yes"; then
-	AC_CHECK_LIB(pq,PQconnectdb,with_postgresql=yes,with_postgresql=no)
-fi
-if test "$with_postgresql" = "yes"; then
-	AC_CHECK_LIB(pq,PQconnectStart,with_postgresqlv7=yes,with_postgresqlv7=no)
-fi
-if test "$with_postgresql" = "yes"; then
-	if test -n "$postgres_h_path"; then
-		AC_DEFINE_UNQUOTED(POSTGRES_H_PATH, $postgres_h_path)
-	fi
-	AC_DEFINE(HAVE_POSTGRESQL)
-	if test "$with_postgresqlv7" = "yes"; then
-		AC_DEFINE(HAVE_POSTGRESQLV7)
-	fi
-	XE_PREPEND(-lpq, LIBS)
-	XE_ADD_OBJS(postgresql.o)
+  test -n "$libpq_fe_h_file" && { AC_CHECK_LIB(pq,PQconnectdb,have_libpq=yes) }
+
+  if test -n "$libpq_fe_h_file" -a "$have_libpq" = "yes"; then
+    with_postgresql=yes
+    AC_DEFINE(HAVE_POSTGRESQL)
+    AC_CHECK_LIB(pq,PQconnectStart, [
+                 with_postgresqlv7=yes;
+                 AC_DEFINE(HAVE_POSTGRESQLV7)])
+    AC_DEFINE_UNQUOTED(LIBPQ_FE_H_FILE, "$libpq_fe_h_file")
+    XE_PREPEND(-lpq, LIBS)
+    XE_ADD_OBJS(postgresql.o)
+  elif test "$with_postgresql" = "yes"; then
+    XE_DIE("Required PostgreSQL support cannot be provided.  Check --site-prefixes.")
+  fi
 fi
 
 dnl ----------------------
@@ -3308,12 +3279,24 @@ case "$all_widgets" in
     dnl Add the Athena widget library we located earlier
     XE_PREPEND(-l$athena_lib, libs_x)
 
-    dnl Export the path for lwlib, used to build and include the headers
-    dnl from the right place later on.
-    AC_DEFINE_UNQUOTED(ATHENA_H_PATH, $athena_h_path)
+    dnl Tell lwlib where to find the Athena header files.
+    dnl Many people have tried to create a `smart' way of doing this,
+    dnl but all have failed.  Before changing the following ugly definitions,
+    dnl consult the veterans of many a battle.
+    AC_DEFINE_UNQUOTED(ATHENA_Scrollbar_h_,"$athena_h_path/Scrollbar.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Dialog_h_,"$athena_h_path/Dialog.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Form_h_,"$athena_h_path/Form.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Command_h_,"$athena_h_path/Command.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Label_h_,"$athena_h_path/Label.h")
+    AC_DEFINE_UNQUOTED(ATHENA_LabelP_h_,"$athena_h_path/LabelP.h")
+    AC_DEFINE_UNQUOTED(ATHENA_Toggle_h_,"$athena_h_path/Toggle.h")
+    AC_DEFINE_UNQUOTED(ATHENA_ToggleP_h_,"$athena_h_path/ToggleP.h")
+    AC_DEFINE_UNQUOTED(ATHENA_AsciiText_h_,"$athena_h_path/AsciiText.h")
+    AC_DEFINE_UNQUOTED(ATHENA_XawInit_h_,"$athena_h_path/XawInit.h")
 
     AC_DEFINE(LWLIB_USES_ATHENA)
     AC_DEFINE(NEED_ATHENA)
+    need_athena="yes"
 
     if test "$athena_3d" = "yes"; then
       AC_DEFINE(HAVE_ATHENA_3D)
@@ -3833,6 +3816,14 @@ if test "$with_native_sound" != "no"; then
     done
   fi
 
+  dnl Win32 Native uses native sound
+  if test -z "$sound_found"; then
+    if test "$with_msw" = "yes"; then
+    sound_found=yes
+    native_sound_lib=
+    fi
+  fi
+
   test "$sound_found" = "yes" && with_native_sound=yes
 fi
 
@@ -4080,20 +4071,25 @@ dnl autodetect dll support
 if test "$with_modules" != "no"; then
   AC_CHECKING(for module support)
 
-  dnl Find headers and libraries
-  AC_CHECK_HEADER(dlfcn.h, [
-    AC_CHECK_LIB(dl, dlopen, [ have_dl=yes libdl=dl], [
-    AC_CHECK_LIB(c,  dlopen, [ have_dl=yes ])])])
-  if test -n "$have_dl"; then
-    AC_DEFINE(HAVE_DLOPEN)
+  dnl Check for MS-Windows
+  if test "$with_msw" = "yes"; then
+    have_dl=yes;
   else
-    AC_CHECK_LIB(dld, shl_load, [
-      libdl=dld have_dl=yes;
-      AC_DEFINE(HAVE_SHL_LOAD)], [
-    AC_CHECK_LIB(dld, dld_init, [
-      libdl=dld have_dl=yes;
-      AC_DEFINE(HAVE_DLD_INIT)])])
-  fi
+    dnl Find headers and libraries
+    AC_CHECK_HEADER(dlfcn.h, [
+      AC_CHECK_LIB(dl, dlopen, [ have_dl=yes libdl=dl], [
+      AC_CHECK_LIB(c,  dlopen, [ have_dl=yes ])])])
+    if test -n "$have_dl"; then
+      AC_DEFINE(HAVE_DLOPEN)
+    else
+      AC_CHECK_LIB(dld, shl_load, [
+        libdl=dld have_dl=yes;
+        AC_DEFINE(HAVE_SHL_LOAD)], [
+        AC_CHECK_LIB(dld, dld_init, [
+        libdl=dld have_dl=yes;
+        AC_DEFINE(HAVE_DLD_INIT)])])
+    fi
+  fi dnl end !MS-Windows
 
   if test -n "$have_dl"; then
     dnl XE_SHLIB_STUFF (in aclocal.m4) defines $can_build_shared
@@ -4550,7 +4546,7 @@ if test "$with_x11" = "yes"; then
     echo "    - Handling WM_COMMAND properly."
   fi
 fi
-if test "$have_xaw" = "yes"; then
+if test "$need_athena" = "yes"; then
   echo "  Compiling in support for the Athena widget set:"
   echo "    - Athena headers location:                    $athena_h_path"
   echo "    - Athena library to link:                     $athena_lib"
@@ -4643,12 +4639,8 @@ test "$with_database_gdbm"   = yes && echo "  Compiling in support for GNU DBM."
 test "$with_ldap" = yes && echo "  Compiling in support for LDAP."
 if test "$with_postgresql" = yes; then
   echo "  Compiling in support for PostgreSQL."
-  if test "$with_postgresqlv7" = yes; then
-    echo "    - Using PostgreSQL V7 bindings."
-  fi
-  if test -n "$postgres_h_path"; then
-    echo "    - PostgreSQL headers location:  $postgres_h_path"
-  fi
+  echo "    - Using PostgreSQL header file:  $libpq_fe_h_file"
+  test "$with_postgresqlv7" = yes && echo "    - Using PostgreSQL V7 bindings."
 fi
 
 echo "
@@ -4673,7 +4665,7 @@ Mail:"
 test "$with_pop" = yes && echo "  Compiling in support for POP mail retrieval."
 test "$with_kerberos" = yes && echo "  Compiling in support for Kerberos POP authentication."
 test "$with_hesiod" = yes && echo "  Compiling in support for Hesiod POP server access."
-echo "  Compiling in support for \"$mail_locking\" mail spool file locking method."
+test -n "$mail_locking" && echo "  Compiling in support for \"$mail_locking\" mail spool file locking method."
 
 echo "
 Other Features:"

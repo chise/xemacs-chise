@@ -770,7 +770,7 @@ ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
     {
       CHECK_CHAR_COERCE_INT (newval);
       if (idx >= XSTRING_CHAR_LENGTH (array)) goto range_error;
-      set_string_char (XSTRING (array), idx, (unsigned char) XCHAR (newval));
+      set_string_char (XSTRING (array), idx, XCHAR (newval));
       bump_string_modiff (array);
     }
   else
@@ -1744,6 +1744,23 @@ finish_marking_weak_lists (void)
 		}
 	      break;
 
+	    case WEAK_LIST_FULL_ASSOC:
+	      if (!CONSP (elem))
+		{
+		  /* just leave bogus elements there */
+		  need_to_mark_cons = 1;
+		  need_to_mark_elem = 1;
+		}
+	      else if (marked_p (XCAR (elem)) ||
+		       marked_p (XCDR (elem)))
+		{
+		  need_to_mark_cons = 1;
+		  /* We still need to mark elem and XCAR (elem);
+		     marking elem does both */
+		  need_to_mark_elem = 1;
+		}
+	      break;
+
 	    default:
 	      abort ();
 	    }
@@ -1884,6 +1901,7 @@ decode_weak_list_type (Lisp_Object symbol)
   if (EQ (symbol, Qold_assoc))	 return WEAK_LIST_ASSOC;  /* EBOLA ALERT! */
   if (EQ (symbol, Qkey_assoc))	 return WEAK_LIST_KEY_ASSOC;
   if (EQ (symbol, Qvalue_assoc)) return WEAK_LIST_VALUE_ASSOC;
+  if (EQ (symbol, Qfull_assoc))  return WEAK_LIST_FULL_ASSOC;
 
   signal_simple_error ("Invalid weak list type", symbol);
   return WEAK_LIST_SIMPLE; /* not reached */
@@ -1898,6 +1916,7 @@ encode_weak_list_type (enum weak_list_type type)
     case WEAK_LIST_ASSOC:       return Qassoc;
     case WEAK_LIST_KEY_ASSOC:   return Qkey_assoc;
     case WEAK_LIST_VALUE_ASSOC: return Qvalue_assoc;
+    case WEAK_LIST_FULL_ASSOC:  return Qfull_assoc;
     default:
       abort ();
     }
@@ -1936,6 +1955,8 @@ to `simple'.  Recognized types are
 		and the car is not pointed to.
 `value-assoc'	Objects in the list disappear if they are conses
 		and the cdr is not pointed to.
+`full-assoc'	Objects in the list disappear if they are conses
+		and neither the car nor the cdr is pointed to.
 */
        (type))
 {

@@ -209,33 +209,7 @@ pointer looks like an int) but not on all machines.
 int need_coff_header = 1;
 #include <coff-encap/a.out.encap.h> /* The location might be a poor assumption */
 #else
-#ifdef MSDOS
-#if __DJGPP__ > 1
-#include <fcntl.h>  /* for O_RDONLY, O_RDWR */
-#endif
-#include <coff.h>
-#define filehdr external_filehdr
-#define scnhdr external_scnhdr
-#define syment external_syment
-#define auxent external_auxent
-#define n_numaux e_numaux
-#define n_type e_type
-struct aouthdr
-{
-  unsigned short	magic;	/* type of file				*/
-  unsigned short	vstamp;	/* version stamp			*/
-  unsigned long		tsize;	/* text size in bytes, padded to FW bdry*/
-  unsigned long		dsize;	/* initialized data "  "		*/
-  unsigned long		bsize;	/* uninitialized data "   "		*/
-  unsigned long		entry;	/* entry pt.				*/
-  unsigned long	 	text_start;/* base of text used for this file */
-  unsigned long	 	data_start;/* base of data used for this file */
-};
-
-
-#else /* not MSDOS */
 #include <a.out.h>
-#endif /* not MSDOS */
 #endif /* not COFF_ENCAPSULATE */
 
 /* Define getpagesize if the system does not.
@@ -911,14 +885,6 @@ copy_text_and_data (int new, int a_out)
 
 #else /* COFF, but not USG_SHARED_LIBRARIES */
 
-#ifdef MSDOS
-#if __DJGPP__ >= 2
-  /* Dump the original table of exception handlers, not the one
-     where our exception hooks are registered.  */
-  __djgpp_exception_toggle ();
-#endif
-#endif
-
   lseek (new, (long) text_scnptr, 0);
   ptr = (char *) f_ohdr.text_start;
 #ifdef HEADER_INCL_IN_TEXT
@@ -932,13 +898,6 @@ copy_text_and_data (int new, int a_out)
   ptr = (char *) f_ohdr.data_start;
   end = ptr + f_ohdr.dsize;
   write_segment (new, ptr, end);
-
-#ifdef MSDOS
-#if __DJGPP__ >= 2
-  /* Restore our exception hooks.  */
-  __djgpp_exception_toggle ();
-#endif
-#endif
 
 #endif /* USG_SHARED_LIBRARIES */
 
@@ -1221,11 +1180,7 @@ adjust_lnnoptrs (writedesc, readdesc, new_name)
   if (!lnnoptr || !f_hdr.f_symptr)
     return 0;
 
-#ifdef MSDOS
-  if ((new = writedesc) < 0)
-#else
   if ((new = open (new_name, O_RDWR)) < 0)
-#endif
     {
       PERROR (new_name);
       return -1;
@@ -1247,9 +1202,7 @@ adjust_lnnoptrs (writedesc, readdesc, new_name)
 	    }
 	}
     }
-#ifndef MSDOS
   close (new);
-#endif
   return 0;
 }
 

@@ -4,20 +4,22 @@
 
 #if __STDC__ || defined(STDC_HEADERS)
 #include <stdlib.h>
+#ifdef HAVE_UNISTD_H
 #include <unistd.h>
+#endif
 #endif
 
 #include <stdio.h>
 #include <sys/types.h>
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #undef sleep
 #define sleep(t) Sleep ((t) * 1000)
 #define getppid() (0)
 #undef HAVE_SYS_TIME_H
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #ifdef TIME_WITH_SYS_TIME
 #include <sys/time.h>

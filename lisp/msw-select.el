@@ -38,7 +38,7 @@ replacing the active selection if there is one."
   (interactive "*")
   (setq last-command nil)
   (setq this-command 'yank) ; so that yank-pop works.
-  (let ((clip (mswindows-get-clipboard)) (s (mark-marker)) (e (point-marker)))
+  (let ((clip (get-clipboard)) (s (mark-marker)) (e (point-marker)))
     (or clip (error "there is no text on the clipboard"))
     (if s
 	(if mouse-track-rectangle-p

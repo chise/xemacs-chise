@@ -25,8 +25,6 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 /* Sync'ed with Emacs 19.34.6 by Marc Paquette <marcpa@cam.org> */
 
 #include <config.h>
-
-#undef signal
 #define getwd _getwd
 #include "lisp.h"
 #undef getwd
@@ -35,22 +33,12 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include "syssignal.h"
 #include "sysproc.h"
 #include "sysfile.h"
-
-#include <ctype.h>
-#include <direct.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <io.h>
-#include <pwd.h>
-#include <signal.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "syspwd.h"
+#include "sysdir.h"
 
 #include "syswindows.h"
 
 #include "nt.h"
-#include <sys/dir.h>
 #include "ntheap.h"
 
 
@@ -1075,16 +1063,22 @@ opendir (const char *filename)
   return dirp;
 }
 
-void
+int
 closedir (DIR *dirp)
 {
+  BOOL retval;
+
   /* If we have a find-handle open, close it.  */
   if (dir_find_handle != INVALID_HANDLE_VALUE)
     {
-      FindClose (dir_find_handle);
+      retval = FindClose (dir_find_handle);
       dir_find_handle = INVALID_HANDLE_VALUE;
     }
   xfree (dirp);
+  if (retval)
+    return 0;
+  else
+    return -1;
 }
 
 struct direct *
@@ -1236,7 +1230,7 @@ convert_time (FILETIME ft)
 }
 #else
 
-#if defined(__MINGW32__) && CYGWIN_VERSION_DLL_MAJOR <= 21
+#if defined(MINGW) && CYGWIN_VERSION_DLL_MAJOR <= 21
 #define LowPart u.LowPart
 #define HighPart u.HighPart
 #endif
@@ -1310,7 +1304,7 @@ convert_time (FILETIME uft)
   return ret;
 }
 #endif
-#if defined(__MINGW32__) && CYGWIN_VERSION_DLL_MAJOR <= 21
+#if defined(MINGW) && CYGWIN_VERSION_DLL_MAJOR <= 21
 #undef LowPart
 #undef HighPart
 #endif
@@ -1391,22 +1385,16 @@ generate_inode_val (const char * name)
 
 #endif
 
-/* stat has been fixed since MSVC 5.0.
-   Oh, and do not encapsulater stat for non-MS compilers, too */
-/* #### popineau@ese-metz.fr says they still might be broken.
-   Oh well... Let's add that `1 ||' condition.... --kkm */
 /* #### aichner@ecf.teradyne.com reported that with the library
    provided stat/fstat, (file-exist "d:\\tmp\\") =>> nil,
    (file-exist "d:\\tmp") =>> t, when d:\tmp exists. Whenever
    we opt to use non-encapsulated stat(), this should serve as
    a compatibility test. --kkm */
 
-#if 1 || defined(_MSC_VER) && _MSC_VER < 1100
-
 /* Since stat is encapsulated on Windows NT, we need to encapsulate
    the equally broken fstat as well. */
-int _cdecl
-fstat (int handle, struct stat *buffer)
+int
+mswindows_fstat (int handle, struct stat *buffer)
 {
   int ret;
   BY_HANDLE_FILE_INFORMATION lpFileInfo;
@@ -1441,7 +1429,7 @@ fstat (int handle, struct stat *buffer)
    replace it with our own.  This also allows us to calculate consistent
    inode values without hacks in the main Emacs code. */
 int
-stat (const char * path, struct stat * buf)
+mswindows_stat (const char * path, struct stat * buf)
 {
   char * name;
   WIN32_FIND_DATA wfd;
@@ -1627,7 +1615,6 @@ stat (const char * path, struct stat * buf)
 
   return 0;
 }
-#endif /* defined(_MSC_VER) && _MSC_VER < 1100 */
 
 /* From callproc.c  */
 extern Lisp_Object Vbinary_process_input;
@@ -1801,7 +1788,7 @@ unsigned signal_block_mask = 0;
 /* Signal pending mask: bit set to 1 means sig is pending */
 unsigned signal_pending_mask = 0;
 
-msw_sighandler msw_sigset (int nsig, msw_sighandler handler)
+mswindows_sighandler mswindows_sigset (int nsig, mswindows_sighandler handler)
 {
   /* We delegate some signals to the system function */
   if (nsig == SIGFPE || nsig == SIGABRT || nsig == SIGINT)
@@ -1815,13 +1802,13 @@ msw_sighandler msw_sigset (int nsig, msw_sighandler handler)
 
   /* Store handler ptr */
   {
-    msw_sighandler old_handler = signal_handlers[nsig];
+    mswindows_sighandler old_handler = signal_handlers[nsig];
     signal_handlers[nsig] = handler;
     return old_handler;
   }
 }
   
-int msw_sighold (int nsig)
+int mswindows_sighold (int nsig)
 {
   if (nsig < 0 || nsig > SIG_MAX)
     return errno = EINVAL;
@@ -1830,7 +1817,7 @@ int msw_sighold (int nsig)
   return 0;
 }
 
-int msw_sigrelse (int nsig)
+int mswindows_sigrelse (int nsig)
 {
   if (nsig < 0 || nsig > SIG_MAX)
     return errno = EINVAL;
@@ -1838,12 +1825,12 @@ int msw_sigrelse (int nsig)
   signal_block_mask &= ~sigmask(nsig);
 
   if (signal_pending_mask & sigmask(nsig))
-    msw_raise (nsig);
+    mswindows_raise (nsig);
 
   return 0;
 }
 
-int msw_sigpause (int nsig)
+int mswindows_sigpause (int nsig)
 {
   /* This is currently not called, because the only
      call to sigpause inside XEmacs is with SIGCHLD
@@ -1854,7 +1841,7 @@ int msw_sigpause (int nsig)
   return 0;
 }
 
-int msw_raise (int nsig)
+int mswindows_raise (int nsig)
 {
   /* We delegate some raises to the system routine */
   if (nsig == SIGFPE || nsig == SIGABRT || nsig == SIGINT)
@@ -1920,7 +1907,7 @@ static void CALLBACK timer_proc (UINT uID, UINT uMsg, DWORD dwUser,
 				 DWORD dw1, DWORD dw2)
 {
   /* Just raise a signal indicated by dwUser parameter */
-  msw_raise (dwUser);
+  mswindows_raise (dwUser);
 }
 
 /* Divide time in ms specified by IT by DENOM. Return 1 ms
@@ -2072,13 +2059,13 @@ open_output_file (file_data *p_file, const char *filename, unsigned long size)
   return TRUE;
 }
 
-#if 1 /* !defined(__MINGW32__) */
+#if 1 /* !defined(MINGW) */
 /* Return pointer to section header for section containing the given
    relative virtual address. */
 static IMAGE_SECTION_HEADER *
 rva_to_section (DWORD rva, IMAGE_NT_HEADERS * nt_header)
 {
-  /* Synched with FSF 20.6.  We added MINGW32 stuff. */
+  /* Synched with FSF 20.6.  We added MINGW stuff. */
   PIMAGE_SECTION_HEADER section;
   int i;
 
@@ -2107,7 +2094,7 @@ void
 mswindows_executable_type (const char * filename, int * is_dos_app,
 			   int * is_cygnus_app)
 {
-  /* Synched with FSF 20.6.  We added MINGW32 stuff and casts. */
+  /* Synched with FSF 20.6.  We added MINGW stuff and casts. */
   file_data executable;
   char * p;
 
@@ -2143,7 +2130,7 @@ mswindows_executable_type (const char * filename, int * is_dos_app,
 	 start with a DOS program stub.  Note that 16-bit Windows
 	 executables use the OS/2 1.x format. */
 
-#if 0 /* defined( __MINGW32__ ) */
+#if 0 /* defined( MINGW ) */
       /* mingw32 doesn't have enough headers to detect cygwin
 	 apps, just do what we can. */
       FILHDR * exe_header;

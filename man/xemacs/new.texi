@@ -13,21 +13,23 @@ XEmacs.
 XEmacs has a new vi emulation mode called evi mode.  To
 start evi mode in Emacs, type the command @kbd{M-x evi}.  If you want
 Emacs to automatically put you in evi-mode all the time, include this
-line in your @file{.emacs} file:
+line in your init file:
 @example
 (setq term-setup-hook 'evi)
 @end example
 @xref{evi Mode} for a brief discussion.
+@xref{Init File}.
 @end ignore
 
 @item 
 XEmacs has a new vi emulation mode called ``viper'' mode.  To start
 viper mode in XEmacs, type the command @kbd{M-x viper-mode}.  If you
 want XEmacs to automatically put you in viper-mode all the time, include
-this line in your @file{.emacs} file:
+this line in your init file:
 @example
 (viper-mode)
 @end example
+@xref{Init File}.
 
 @item
 Earlier versions of Emacs only allowed keybindings to ASCII character
@@ -267,7 +269,9 @@ commands are invoked only when you are in XEmacs:
        ))
 @end example
 
-Of particular interest for use in @file{.emacs} files are:
+Alternatively, use @file{.xemacs/init.el} for an init file.  @xref{Init File}.
+
+Of particular interest for use in  files are:
 
 @itemize @bullet
 @findex add-menu

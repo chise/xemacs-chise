@@ -82,6 +82,9 @@ if (lseek(a_out, 0, SEEK_CUR) != a) \
   exit(-1); \
 }
 
+void
+unexec (char *out_name, char *in_name, void *start_data, 
+	void * d1, void * d2);
 /* Dump out .data and .bss sections into a new executable.  */
 void unexec (char *out_name, char *in_name, void *start_data, 
 	     void * d1,	void * d2)

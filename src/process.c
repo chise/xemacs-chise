@@ -107,6 +107,7 @@ struct hash_table *usid_to_process;
 Lisp_Object Vprocess_list;
 
 extern Lisp_Object Vlisp_EXEC_SUFFIXES;
+Lisp_Object Vnull_device;
 
 
 
@@ -2074,6 +2075,22 @@ nil means don't delete them until `list-processes' is run.
 */ );
 
   delete_exited_processes = 1;
+
+  DEFVAR_CONST_LISP ("null-device", &Vnull_device /*
+Name of the null device, which differs from system to system.
+The null device is a filename that acts as a sink for arbitrary amounts of
+data, which is discarded, or as a source for a zero-length file.
+It is available on all the systems that we currently support, but with
+different names (typically either `/dev/null' or `nul').
+
+Note that there is also a /dev/zero on most modern Unix versions (including
+Cygwin), which acts like /dev/null when used as a sink, but as a source
+it sends a non-ending stream of zero bytes.  It's used most often along
+with memory-mapping.  We don't provide a Lisp variable for this because
+the operations needing this are lower level than what ELisp programs
+typically do, and in any case no equivalent exists under native MS Windows.
+*/ );
+  Vnull_device = build_string (NULL_DEVICE);
 
   DEFVAR_LISP ("process-connection-type", &Vprocess_connection_type /*
 Control type of device used to communicate with subprocesses.

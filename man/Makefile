@@ -22,6 +22,7 @@
 SHELL    = /bin/sh
 MAKEINFO = makeinfo
 TEXI2DVI = texi2dvi
+RM = rm -f
 
 .SUFFIXES:
 .SUFFIXES: .info .texi .dvi
@@ -290,11 +291,11 @@ dvi : $(dvi_files)
 
 .PHONY: mostlyclean clean distclean realclean extraclean
 mostlyclean:
-	rm -f *.toc *.aux *.log *.op *.cp *.cps *.fn *.fns
-	rm -f *.ky *.kys *.pg *.pgs *.tp *.tps *.vr *.vrs
+	$(RM) *.toc *.aux *.log *.op *.cp *.cps *.fn *.fns
+	$(RM) *.ky *.kys *.pg *.pgs *.tp *.tps *.vr *.vrs
 clean: mostlyclean
-	rm -f core *.dvi
+	$(RM) core *.dvi
 distclean: clean
 realclean: distclean
 extraclean: distclean
-	rm -f *~ \#* */*~ */\#*
+	$(RM) *~ \#* */*~ */\#*

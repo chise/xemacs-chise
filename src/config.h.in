@@ -43,33 +43,6 @@ char *alloca ();
 #endif
 #endif /* C code */
 
-
-/* Use SMART_INCLUDE to generate #include statements with variable paths.
-
-   #### WARNING: NEVER EVER PUT A SPACE BETWEEN THE ARGUMENTS OF THE
-   `SMART_INCLUDE' MACRO: when the simple (direct version) is defined, you
-   would end up with a space in your header filename.
-
-   Since the effect of macro expansion in #include statements is underspecified
-   in the C standard, and rarely used in source code, different compilers need
-   different implementations of SMART_INCLUDE (e.g. gcc 2.5.8 and AIX xlc).
-*/
-#undef SMART_INCLUDE_INDIRECTIONS
-
-#if SMART_INCLUDE_INDIRECTIONS == 0
-# define SMART_INCLUDE(path,file) <path/file>
-#elif SMART_INCLUDE_INDIRECTIONS == 1
-# define GLUE_INCLUDE(path,file) <##path##/##file##>
-# define SMART_INCLUDE(path,file) GLUE_INCLUDE(path,file)
-#elif SMART_INCLUDE_INDIRECTIONS == 2
-# define GLUE_INCLUDE_2(path,file) <##path##/##file##>
-# define GLUE_INCLUDE_1(path,file) GLUE_INCLUDE_2(path,file)
-# define SMART_INCLUDE(path,file) GLUE_INCLUDE_1(path,file)
-#else
-# error SMART_INCLUDE_INDIRECTIONS was not properly defined by configure
-#endif
-
-
 /* Use this to add code in a structured way to FSF-maintained source
    files so as to make it obvious where XEmacs changes are. */
 #define XEMACS 1
@@ -420,16 +393,10 @@ char *alloca ();
 /* Does the library define ldap_parse_result () ? */
 #undef HAVE_LDAP_PARSE_RESULT
 
-/* Do we wish to link against the PostgreSQL RDBMS run-time library?
- */
+/* Do we have PostgreSQL RDBMS support? */
 #undef HAVE_POSTGRESQL
 #undef HAVE_POSTGRESQLV7
-#undef POSTGRES_H_PATH
-#if defined POSTGRES_H_PATH
-# define POSTGRES_INCLUDE(file) SMART_INCLUDE (POSTGRES_H_PATH,file)
-#else
-# define POSTGRES_INCLUDE(file) <file>
-#endif
+#undef LIBPQ_FE_H_FILE /* main PostgreSQL header file */
 
 /* Do you have the Xauth library present?  This will add some extra
    functionality to gnuserv. */
@@ -603,6 +570,7 @@ char *alloca ();
 #undef off_t
 #undef uid_t
 #undef gid_t
+#undef socklen_t
 
 /* If defined, use unions instead of ints.  A few systems (DEC Alpha)
    seem to require this, probably because something with the int
@@ -803,10 +771,6 @@ on various systems. */
 #  define CANNA_PURESIZE 0
 #endif /* not CANNA */
 
-#if (defined (MSDOS) && defined (FEPCTRL)) || (defined (WIN32) && defined (USE_IME))
-#define HAVE_FEP
-#endif
-
 #if defined (HAVE_SOCKS) && !defined (DO_NOT_SOCKSIFY)
 #define accept Raccept
 #define bind Rbind
@@ -845,13 +809,20 @@ on various systems. */
 # define INLINE_HEADER inline extern
 #endif
 
-#if defined (__cplusplus) && !defined (NOT_C_CODE)
+#ifndef NOT_C_CODE /* Actually means C or C++ */
+# if defined (__cplusplus)
 /* Avoid C++ keywords used as ordinary C identifiers */
-#define class c_class
-#define new   c_new
-#define this  c_this
-#define catch c_catch
-#endif /* C++ */
+#  define class c_class
+#  define new   c_new
+#  define this  c_this
+#  define catch c_catch
+#  define not   c_not
+
+#  define EXTERN_C extern "C"
+# else /* C code */
+#  define EXTERN_C extern
+# endif
+#endif /* C or C++ */
 
 /* Strictly speaking, only int or unsigned int are valid types in a
    bitfield.  In practice, we would like to use enums as bitfields.

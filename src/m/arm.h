@@ -87,12 +87,7 @@ Boston, MA 02111-1307, USA.  */
 #define TEXT_START 0
 #endif /* USG */
 
-
-#ifdef MSDOS
-#define NO_REMAP
-#endif
-
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #define VIRT_ADDR_VARIES
 #define DATA_END 	get_data_end ()
 #define DATA_START 	get_data_start ()

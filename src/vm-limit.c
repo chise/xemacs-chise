@@ -57,6 +57,7 @@ check_memory_limits (void)
   POINTER cp;
   unsigned long five_percent;
   unsigned long data_size;
+  void (*save_warn_fun) (const char *);
 
   if (lim_data == 0)
     get_lim_data ();
@@ -67,36 +68,43 @@ check_memory_limits (void)
   data_size = (char *) cp - (char *) data_space_start;
 
   if (warn_function)
-    switch (warnlevel)
-      {
-      case 0:
-	if (data_size > five_percent * 15)
-	  {
-	    warnlevel++;
-	    (*warn_function) ("Warning: past 75% of memory limit");
-	  }
-	break;
+    {
+      /* temporarily reset the warn_function to 0 or we will get infinite
+	 looping. */
+      save_warn_fun = warn_function;
+      warn_function = 0;
+      switch (warnlevel)
+	{
+	case 0:
+	  if (data_size > five_percent * 15)
+	    {
+	      warnlevel++;
+	      (*warn_function) ("Warning: past 75% of memory limit");
+	    }
+	  break;
 
-      case 1:
-	if (data_size > five_percent * 17)
-	  {
-	    warnlevel++;
-	    (*warn_function) ("Warning: past 85% of memory limit");
-	  }
-	break;
+	case 1:
+	  if (data_size > five_percent * 17)
+	    {
+	      warnlevel++;
+	      (*warn_function) ("Warning: past 85% of memory limit");
+	    }
+	  break;
 
-      case 2:
-	if (data_size > five_percent * 19)
-	  {
-	    warnlevel++;
-	    (*warn_function) ("Warning: past 95% of memory limit");
-	  }
-	break;
+	case 2:
+	  if (data_size > five_percent * 19)
+	    {
+	      warnlevel++;
+	      (*warn_function) ("Warning: past 95% of memory limit");
+	    }
+	  break;
 
-      default:
-	(*warn_function) ("Warning: past acceptable memory limits");
-	break;
-      }
+	default:
+	  (*warn_function) ("Warning: past acceptable memory limits");
+	  break;
+	}
+      warn_function = save_warn_fun;
+    }
 
   /* If we go down below 70% full, issue another 75% warning
      when we go up again.  */

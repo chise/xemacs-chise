@@ -149,7 +149,7 @@ main (int argc, char *argv[])
   prog_argc = argc;
   prog_argv = argv;
 
-#if defined(MSDOS) || defined(WINDOWSNT)
+#if defined(WIN32_NATIVE)
   tmp = strrchr (argv[0], '\\');
   if (tmp != (char *)0)
     tmp++;

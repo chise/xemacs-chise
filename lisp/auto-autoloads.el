@@ -1,6 +1,80 @@
 ;;; DO NOT MODIFY THIS FILE
 (if (featurep 'lisp-autoloads) (error "Already loaded"))
 
+;;;### (autoloads nil "abbrev" "lisp/abbrev.el")
+
+;;;***
+
+;;;### (autoloads (about-xemacs) "about" "lisp/about.el")
+
+(autoload 'about-xemacs "about" "\
+Describe the True Editor and its minions." t nil)
+
+;;;***
+
+;;;### (autoloads (set-modified-alist modify-alist remove-alist set-alist del-alist put-alist vassoc) "alist" "lisp/alist.el")
+
+(autoload 'vassoc "alist" "\
+Search VALIST for a vector whose first element is equal to KEY.
+See also `assoc'." nil nil)
+
+(autoload 'put-alist "alist" "\
+Modify ALIST to set VALUE to ITEM.
+If there is a pair whose car is ITEM, replace its cdr by VALUE.
+If there is not such pair, create new pair (ITEM . VALUE) and
+return new alist whose car is the new pair and cdr is ALIST.
+[tomo's ELIS like function]" nil nil)
+
+(autoload 'del-alist "alist" "\
+If there is a pair whose key is ITEM, delete it from ALIST.
+[tomo's ELIS emulating function]" nil nil)
+
+(autoload 'set-alist "alist" "\
+Modify a alist indicated by SYMBOL to set VALUE to ITEM." nil nil)
+
+(autoload 'remove-alist "alist" "\
+Remove ITEM from the alist indicated by SYMBOL." nil nil)
+
+(autoload 'modify-alist "alist" "\
+Modify alist DEFAULT into alist MODIFIER." nil nil)
+
+(autoload 'set-modified-alist "alist" "\
+Modify a value of a symbol SYM into alist MODIFIER.
+The symbol SYM should be alist. If it is not bound,
+its value regard as nil." nil nil)
+
+;;;***
+
+;;;### (autoloads (apropos-documentation apropos-value apropos apropos-command) "apropos" "lisp/apropos.el")
+
+(fset 'command-apropos 'apropos-command)
+
+(autoload 'apropos-command "apropos" "\
+Shows commands (interactively callable functions) that match REGEXP.
+With optional prefix ARG or if `apropos-do-all' is non-nil, also show
+variables." t nil)
+
+(autoload 'apropos "apropos" "\
+Show all bound symbols whose names match REGEXP.
+With optional prefix ARG or if `apropos-do-all' is non-nil, also show unbound
+symbols and key bindings, which is a little more time-consuming.
+Returns list of symbols and documentation found." t nil)
+
+(autoload 'apropos-value "apropos" "\
+Show all symbols whose value's printed image matches REGEXP.
+With optional prefix ARG or if `apropos-do-all' is non-nil, also looks
+at the function and at the names and values of properties.
+Returns list of symbols and values found." t nil)
+
+(autoload 'apropos-documentation "apropos" "\
+Show symbols whose documentation contain matches for REGEXP.
+With optional prefix ARG or if `apropos-do-all' is non-nil, also use
+documentation that is not stored in the documentation file and show key
+bindings.
+Returns list of symbols and documentation found." t nil)
+
+;;;***
+
 ;;;### (autoloads (batch-update-one-directory batch-update-directory batch-update-autoloads update-autoloads-from-directory update-autoloads-here update-file-autoloads generate-file-autoloads) "autoload" "lisp/autoload.el")
 
 (autoload 'generate-file-autoloads "autoload" "\
@@ -43,6 +117,30 @@ be used only with -batch." nil nil)
 Update the autoloads for a single directory on the command line.
 Runs `update-file-autoloads' on each file in the given directory, and must
 be used only with -batch." nil nil)
+
+;;;***
+
+;;;### (autoloads nil "buff-menu" "lisp/buff-menu.el")
+
+(defvar list-buffers-directory nil)
+
+(make-variable-buffer-local 'list-buffers-directory)
+
+;;;***
+
+;;;### (autoloads (build-report) "build-report" "lisp/build-report.el")
+
+(autoload 'build-report "build-report" "\
+Initializes a fresh mail composition buffer using `compose-mail'
+with the contents of XEmacs Installation file and excerpts from XEmacs
+make output and errors and leaves point at the beginning of the mail text.
+ See also
+`compose-mail', `mail-user-agent',
+`build-report-destination',
+`build-report-keep-regexp',
+`build-report-delete-regexp',
+`build-report-make-output-file' and
+`build-report-installation-file'." t nil)
 
 ;;;***
 
@@ -135,6 +233,610 @@ Same as `batch-byte-recompile-directory' but without recursion." nil nil)
 Runs `byte-recompile-directory' on the dirs remaining on the command line.
 Must be used only with `-batch', and kills Emacs on completion.
 For example, invoke `xemacs -batch -f batch-byte-recompile-directory .'." nil nil)
+
+;;;***
+
+;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-file-errors ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* cl-compile-time-init) "cl-macs" "lisp/cl-macs.el")
+
+(autoload 'cl-compile-time-init "cl-macs" nil nil nil)
+
+(autoload 'defun* "cl-macs" "\
+(defun* NAME ARGLIST [DOCSTRING] BODY...): define NAME as a function.
+Like normal `defun', except ARGLIST allows full Common Lisp conventions,
+and BODY is implicitly surrounded by (block NAME ...)." nil 'macro)
+
+(autoload 'defmacro* "cl-macs" "\
+(defmacro* NAME ARGLIST [DOCSTRING] BODY...): define NAME as a macro.
+Like normal `defmacro', except ARGLIST allows full Common Lisp conventions,
+and BODY is implicitly surrounded by (block NAME ...)." nil 'macro)
+
+(autoload 'function* "cl-macs" "\
+(function* SYMBOL-OR-LAMBDA): introduce a function.
+Like normal `function', except that if argument is a lambda form, its
+ARGLIST allows full Common Lisp conventions." nil 'macro)
+
+(autoload 'destructuring-bind "cl-macs" nil nil 'macro)
+
+(autoload 'eval-when "cl-macs" "\
+(eval-when (WHEN...) BODY...): control when BODY is evaluated.
+If `compile' is in WHEN, BODY is evaluated when compiled at top-level.
+If `load' is in WHEN, BODY is evaluated when loaded after top-level compile.
+If `eval' is in WHEN, BODY is evaluated when interpreted or at non-top-level." nil 'macro)
+
+(autoload 'load-time-value "cl-macs" "\
+Like `progn', but evaluates the body at load time.
+The result of the body appears to the compiler as a quoted constant." nil 'macro)
+
+(autoload 'case "cl-macs" "\
+(case EXPR CLAUSES...): evals EXPR, chooses from CLAUSES on that value.
+Each clause looks like (KEYLIST BODY...).  EXPR is evaluated and compared
+against each key in each KEYLIST; the corresponding BODY is evaluated.
+If no clause succeeds, case returns nil.  A single atom may be used in
+place of a KEYLIST of one atom.  A KEYLIST of `t' or `otherwise' is
+allowed only in the final clause, and matches if no other keys match.
+Key values are compared by `eql'." nil 'macro)
+
+(autoload 'ecase "cl-macs" "\
+(ecase EXPR CLAUSES...): like `case', but error if no case fits.
+`otherwise'-clauses are not allowed." nil 'macro)
+
+(autoload 'typecase "cl-macs" "\
+(typecase EXPR CLAUSES...): evals EXPR, chooses from CLAUSES on that value.
+Each clause looks like (TYPE BODY...).  EXPR is evaluated and, if it
+satisfies TYPE, the corresponding BODY is evaluated.  If no clause succeeds,
+typecase returns nil.  A TYPE of `t' or `otherwise' is allowed only in the
+final clause, and matches if no other keys match." nil 'macro)
+
+(autoload 'etypecase "cl-macs" "\
+(etypecase EXPR CLAUSES...): like `typecase', but error if no case fits.
+`otherwise'-clauses are not allowed." nil 'macro)
+
+(autoload 'block "cl-macs" "\
+(block NAME BODY...): define a lexically-scoped block named NAME.
+NAME may be any symbol.  Code inside the BODY forms can call `return-from'
+to jump prematurely out of the block.  This differs from `catch' and `throw'
+in two respects:  First, the NAME is an unevaluated symbol rather than a
+quoted symbol or other form; and second, NAME is lexically rather than
+dynamically scoped:  Only references to it within BODY will work.  These
+references may appear inside macro expansions, but not inside functions
+called from BODY." nil 'macro)
+
+(autoload 'return "cl-macs" "\
+(return [RESULT]): return from the block named nil.
+This is equivalent to `(return-from nil RESULT)'." nil 'macro)
+
+(autoload 'return-from "cl-macs" "\
+(return-from NAME [RESULT]): return from the block named NAME.
+This jumps out to the innermost enclosing `(block NAME ...)' form,
+returning RESULT from that form (or nil if RESULT is omitted).
+This is compatible with Common Lisp, but note that `defun' and
+`defmacro' do not create implicit blocks as they do in Common Lisp." nil 'macro)
+
+(autoload 'loop "cl-macs" "\
+(loop CLAUSE...): The Common Lisp `loop' macro.
+Valid clauses are:
+  for VAR from/upfrom/downfrom NUM to/upto/downto/above/below NUM by NUM,
+  for VAR in LIST by FUNC, for VAR on LIST by FUNC, for VAR = INIT then EXPR,
+  for VAR across ARRAY, repeat NUM, with VAR = INIT, while COND, until COND,
+  always COND, never COND, thereis COND, collect EXPR into VAR,
+  append EXPR into VAR, nconc EXPR into VAR, sum EXPR into VAR,
+  count EXPR into VAR, maximize EXPR into VAR, minimize EXPR into VAR,
+  if COND CLAUSE [and CLAUSE]... else CLAUSE [and CLAUSE...],
+  unless COND CLAUSE [and CLAUSE]... else CLAUSE [and CLAUSE...],
+  do EXPRS..., initially EXPRS..., finally EXPRS..., return EXPR,
+  finally return EXPR, named NAME." nil 'macro)
+
+(autoload 'do "cl-macs" "\
+The Common Lisp `do' loop.
+Format is: (do ((VAR INIT [STEP])...) (END-TEST [RESULT...]) BODY...)" nil 'macro)
+
+(autoload 'do* "cl-macs" "\
+The Common Lisp `do*' loop.
+Format is: (do* ((VAR INIT [STEP])...) (END-TEST [RESULT...]) BODY...)" nil 'macro)
+
+(autoload 'dolist "cl-macs" "\
+(dolist (VAR LIST [RESULT]) BODY...): loop over a list.
+Evaluate BODY with VAR bound to each `car' from LIST, in turn.
+Then evaluate RESULT to get return value, default nil." nil 'macro)
+
+(autoload 'dotimes "cl-macs" "\
+(dotimes (VAR COUNT [RESULT]) BODY...): loop a certain number of times.
+Evaluate BODY with VAR bound to successive integers from 0, inclusive,
+to COUNT, exclusive.  Then evaluate RESULT to get return value, default
+nil." nil 'macro)
+
+(autoload 'do-symbols "cl-macs" "\
+(dosymbols (VAR [OBARRAY [RESULT]]) BODY...): loop over all symbols.
+Evaluate BODY with VAR bound to each interned symbol, or to each symbol
+from OBARRAY." nil 'macro)
+
+(autoload 'do-all-symbols "cl-macs" nil nil 'macro)
+
+(autoload 'psetq "cl-macs" "\
+(psetq SYM VAL SYM VAL ...): set SYMs to the values VALs in parallel.
+This is like `setq', except that all VAL forms are evaluated (in order)
+before assigning any symbols SYM to the corresponding values." nil 'macro)
+
+(autoload 'progv "cl-macs" "\
+(progv SYMBOLS VALUES BODY...): bind SYMBOLS to VALUES dynamically in BODY.
+The forms SYMBOLS and VALUES are evaluated, and must evaluate to lists.
+Each SYMBOL in the first list is bound to the corresponding VALUE in the
+second list (or made unbound if VALUES is shorter than SYMBOLS); then the
+BODY forms are executed and their result is returned.  This is much like
+a `let' form, except that the list of symbols can be computed at run-time." nil 'macro)
+
+(autoload 'flet "cl-macs" "\
+(flet ((FUNC ARGLIST BODY...) ...) FORM...): make temporary function defns.
+This is an analogue of `let' that operates on the function cell of FUNC
+rather than its value cell.  The FORMs are evaluated with the specified
+function definitions in place, then the definitions are undone (the FUNCs
+go back to their previous definitions, or lack thereof)." nil 'macro)
+
+(autoload 'labels "cl-macs" "\
+(labels ((FUNC ARGLIST BODY...) ...) FORM...): make temporary func bindings.
+This is like `flet', except the bindings are lexical instead of dynamic.
+Unlike `flet', this macro is fully compliant with the Common Lisp standard." nil 'macro)
+
+(autoload 'macrolet "cl-macs" "\
+(macrolet ((NAME ARGLIST BODY...) ...) FORM...): make temporary macro defns.
+This is like `flet', but for macros instead of functions." nil 'macro)
+
+(autoload 'symbol-macrolet "cl-macs" "\
+(symbol-macrolet ((NAME EXPANSION) ...) FORM...): make symbol macro defns.
+Within the body FORMs, references to the variable NAME will be replaced
+by EXPANSION, and (setq NAME ...) will act like (setf EXPANSION ...)." nil 'macro)
+
+(autoload 'lexical-let "cl-macs" "\
+(lexical-let BINDINGS BODY...): like `let', but lexically scoped.
+The main visible difference is that lambdas inside BODY will create
+lexical closures as in Common Lisp." nil 'macro)
+
+(autoload 'lexical-let* "cl-macs" "\
+(lexical-let* BINDINGS BODY...): like `let*', but lexically scoped.
+The main visible difference is that lambdas inside BODY will create
+lexical closures as in Common Lisp." nil 'macro)
+
+(autoload 'multiple-value-bind "cl-macs" "\
+(multiple-value-bind (SYM SYM...) FORM BODY): collect multiple return values.
+FORM must return a list; the BODY is then executed with the first N elements
+of this list bound (`let'-style) to each of the symbols SYM in turn.  This
+is analogous to the Common Lisp `multiple-value-bind' macro, using lists to
+simulate true multiple return values.  For compatibility, (values A B C) is
+a synonym for (list A B C)." nil 'macro)
+
+(autoload 'multiple-value-setq "cl-macs" "\
+(multiple-value-setq (SYM SYM...) FORM): collect multiple return values.
+FORM must return a list; the first N elements of this list are stored in
+each of the symbols SYM in turn.  This is analogous to the Common Lisp
+`multiple-value-setq' macro, using lists to simulate true multiple return
+values.  For compatibility, (values A B C) is a synonym for (list A B C)." nil 'macro)
+
+(autoload 'locally "cl-macs" nil nil 'macro)
+
+(autoload 'the "cl-macs" nil nil 'macro)
+
+(autoload 'declare "cl-macs" nil nil 'macro)
+
+(autoload 'define-setf-method "cl-macs" "\
+(define-setf-method NAME ARGLIST BODY...): define a `setf' method.
+This method shows how to handle `setf's to places of the form (NAME ARGS...).
+The argument forms ARGS are bound according to ARGLIST, as if NAME were
+going to be expanded as a macro, then the BODY forms are executed and must
+return a list of five elements: a temporary-variables list, a value-forms
+list, a store-variables list (of length one), a store-form, and an access-
+form.  See `defsetf' for a simpler way to define most setf-methods." nil 'macro)
+
+(autoload 'defsetf "cl-macs" "\
+(defsetf NAME FUNC): define a `setf' method.
+This macro is an easy-to-use substitute for `define-setf-method' that works
+well for simple place forms.  In the simple `defsetf' form, `setf's of
+the form (setf (NAME ARGS...) VAL) are transformed to function or macro
+calls of the form (FUNC ARGS... VAL).  Example: (defsetf aref aset).
+Alternate form: (defsetf NAME ARGLIST (STORE) BODY...).
+Here, the above `setf' call is expanded by binding the argument forms ARGS
+according to ARGLIST, binding the value form VAL to STORE, then executing
+BODY, which must return a Lisp form that does the necessary `setf' operation.
+Actually, ARGLIST and STORE may be bound to temporary variables which are
+introduced automatically to preserve proper execution order of the arguments.
+Example: (defsetf nth (n x) (v) (list 'setcar (list 'nthcdr n x) v))." nil 'macro)
+
+(autoload 'get-setf-method "cl-macs" "\
+Return a list of five values describing the setf-method for PLACE.
+PLACE may be any Lisp form which can appear as the PLACE argument to
+a macro like `setf' or `incf'." nil nil)
+
+(autoload 'setf "cl-macs" "\
+(setf PLACE VAL PLACE VAL ...): set each PLACE to the value of its VAL.
+This is a generalized version of `setq'; the PLACEs may be symbolic
+references such as (car x) or (aref x i), as well as plain symbols.
+For example, (setf (cadar x) y) is equivalent to (setcar (cdar x) y).
+The return value is the last VAL in the list." nil 'macro)
+
+(autoload 'psetf "cl-macs" "\
+(psetf PLACE VAL PLACE VAL ...): set PLACEs to the values VALs in parallel.
+This is like `setf', except that all VAL forms are evaluated (in order)
+before assigning any PLACEs to the corresponding values." nil 'macro)
+
+(autoload 'cl-do-pop "cl-macs" nil nil nil)
+
+(autoload 'remf "cl-macs" "\
+(remf PLACE TAG): remove TAG from property list PLACE.
+PLACE may be a symbol, or any generalized variable allowed by `setf'.
+The form returns true if TAG was found and removed, nil otherwise." nil 'macro)
+
+(autoload 'shiftf "cl-macs" "\
+(shiftf PLACE PLACE... VAL): shift left among PLACEs.
+Example: (shiftf A B C) sets A to B, B to C, and returns the old A.
+Each PLACE may be a symbol, or any generalized variable allowed by `setf'." nil 'macro)
+
+(autoload 'rotatef "cl-macs" "\
+(rotatef PLACE...): rotate left among PLACEs.
+Example: (rotatef A B C) sets A to B, B to C, and C to A.  It returns nil.
+Each PLACE may be a symbol, or any generalized variable allowed by `setf'." nil 'macro)
+
+(autoload 'letf "cl-macs" "\
+(letf ((PLACE VALUE) ...) BODY...): temporarily bind to PLACEs.
+This is the analogue of `let', but with generalized variables (in the
+sense of `setf') for the PLACEs.  Each PLACE is set to the corresponding
+VALUE, then the BODY forms are executed.  On exit, either normally or
+because of a `throw' or error, the PLACEs are set back to their original
+values.  Note that this macro is *not* available in Common Lisp.
+As a special case, if `(PLACE)' is used instead of `(PLACE VALUE)',
+the PLACE is not modified before executing BODY." nil 'macro)
+
+(autoload 'letf* "cl-macs" "\
+(letf* ((PLACE VALUE) ...) BODY...): temporarily bind to PLACEs.
+This is the analogue of `let*', but with generalized variables (in the
+sense of `setf') for the PLACEs.  Each PLACE is set to the corresponding
+VALUE, then the BODY forms are executed.  On exit, either normally or
+because of a `throw' or error, the PLACEs are set back to their original
+values.  Note that this macro is *not* available in Common Lisp.
+As a special case, if `(PLACE)' is used instead of `(PLACE VALUE)',
+the PLACE is not modified before executing BODY." nil 'macro)
+
+(autoload 'callf "cl-macs" "\
+(callf FUNC PLACE ARGS...): set PLACE to (FUNC PLACE ARGS...).
+FUNC should be an unquoted function name.  PLACE may be a symbol,
+or any generalized variable allowed by `setf'." nil 'macro)
+
+(autoload 'callf2 "cl-macs" "\
+(callf2 FUNC ARG1 PLACE ARGS...): set PLACE to (FUNC ARG1 PLACE ARGS...).
+Like `callf', but PLACE is the second argument of FUNC, not the first." nil 'macro)
+
+(autoload 'define-modify-macro "cl-macs" "\
+(define-modify-macro NAME ARGLIST FUNC): define a `setf'-like modify macro.
+If NAME is called, it combines its PLACE argument with the other arguments
+from ARGLIST using FUNC: (define-modify-macro incf (&optional (n 1)) +)" nil 'macro)
+
+(autoload 'defstruct "cl-macs" "\
+(defstruct (NAME OPTIONS...) (SLOT SLOT-OPTS...)...): define a struct type.
+This macro defines a new Lisp data type called NAME, which contains data
+stored in SLOTs.  This defines a `make-NAME' constructor, a `copy-NAME'
+copier, a `NAME-p' predicate, and setf-able `NAME-SLOT' accessors." nil 'macro)
+
+(autoload 'cl-struct-setf-expander "cl-macs" nil nil nil)
+
+(autoload 'deftype "cl-macs" "\
+(deftype NAME ARGLIST BODY...): define NAME as a new data type.
+The type name can then be used in `typecase', `check-type', etc." nil 'macro)
+
+(autoload 'typep "cl-macs" "\
+Check that OBJECT is of type TYPE.
+TYPE is a Common Lisp-style type specifier." nil nil)
+
+(autoload 'check-type "cl-macs" "\
+Verify that FORM is of type TYPE; signal an error if not.
+STRING is an optional description of the desired type." nil 'macro)
+
+(autoload 'assert "cl-macs" "\
+Verify that FORM returns non-nil; signal an error if not.
+Second arg SHOW-ARGS means to include arguments of FORM in message.
+Other args STRING and ARGS... are arguments to be passed to `error'.
+They are not evaluated unless the assertion fails.  If STRING is
+omitted, a default message listing FORM itself is used." nil 'macro)
+
+(autoload 'ignore-errors "cl-macs" "\
+Execute FORMS; if an error occurs, return nil.
+Otherwise, return result of last FORM." nil 'macro)
+
+(autoload 'ignore-file-errors "cl-macs" "\
+Execute FORMS; if an error of type `file-error' occurs, return nil.
+Otherwise, return result of last FORM." nil 'macro)
+
+(autoload 'define-compiler-macro "cl-macs" "\
+(define-compiler-macro FUNC ARGLIST BODY...): Define a compiler-only macro.
+This is like `defmacro', but macro expansion occurs only if the call to
+FUNC is compiled (i.e., not interpreted).  Compiler macros should be used
+for optimizing the way calls to FUNC are compiled; the form returned by
+BODY should do the same thing as a call to the normal function called
+FUNC, though possibly more efficiently.  Note that, like regular macros,
+compiler macros are expanded repeatedly until no further expansions are
+possible.  Unlike regular macros, BODY can decide to \"punt\" and leave the
+original function call alone by declaring an initial `&whole foo' parameter
+and then returning foo." nil 'macro)
+
+(autoload 'compiler-macroexpand "cl-macs" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (batch-remove-old-elc) "cleantree" "lisp/cleantree.el")
+
+(autoload 'batch-remove-old-elc "cleantree" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (config-value config-value-hash-table) "config" "lisp/config.el")
+
+(autoload 'config-value-hash-table "config" "\
+Return hash table of configuration parameters and their values." nil nil)
+
+(autoload 'config-value "config" "\
+Return the value of the configuration parameter CONFIG_SYMBOL." nil nil)
+
+;;;***
+
+;;;### (autoloads (Custom-make-dependencies) "cus-dep" "lisp/cus-dep.el")
+
+(autoload 'Custom-make-dependencies "cus-dep" "\
+Extract custom dependencies from .el files in SUBDIRS.
+SUBDIRS is a list of directories.  If it is nil, the command-line
+arguments are used.  If it is a string, only that directory is
+processed.  This function is especially useful in batch mode.
+
+Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS" t nil)
+
+;;;***
+
+;;;### (autoloads (custom-migrate-custom-file customize-menu-create custom-menu-create custom-save-all customize-save-customized customize-browse custom-buffer-create-other-window custom-buffer-create customize-apropos-groups customize-apropos-faces customize-apropos-options customize-apropos customize-saved customize-customized customize-face-other-window customize-face customize-option-other-window customize-changed-options customize-variable customize-other-window customize customize-save-variable customize-set-variable customize-set-value) "cus-edit" "lisp/cus-edit.el")
+
+(autoload 'customize-set-value "cus-edit" "\
+Set VARIABLE to VALUE.  VALUE is a Lisp object.
+
+If VARIABLE has a `variable-interactive' property, that is used as if
+it were the arg to `interactive' (which see) to interactively read the value.
+
+If VARIABLE has a `custom-type' property, it must be a widget and the
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
+
+(autoload 'customize-set-variable "cus-edit" "\
+Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
+
+If VARIABLE has a `custom-set' property, that is used for setting
+VARIABLE, otherwise `set-default' is used.
+
+The `customized-value' property of the VARIABLE will be set to a list
+with a quoted VALUE as its sole list member.
+
+If VARIABLE has a `variable-interactive' property, that is used as if
+it were the arg to `interactive' (which see) to interactively read the value.
+
+If VARIABLE has a `custom-type' property, it must be a widget and the
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
+
+(autoload 'customize-save-variable "cus-edit" "\
+Set the default for VARIABLE to VALUE, and save it for future sessions.
+If VARIABLE has a `custom-set' property, that is used for setting
+VARIABLE, otherwise `set-default' is used.
+
+The `customized-value' property of the VARIABLE will be set to a list
+with a quoted VALUE as its sole list member.
+
+If VARIABLE has a `variable-interactive' property, that is used as if
+it were the arg to `interactive' (which see) to interactively read the value.
+
+If VARIABLE has a `custom-type' property, it must be a widget and the
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
+
+(autoload 'customize "cus-edit" "\
+Select a customization buffer which you can use to set user options.
+User options are structured into \"groups\".
+The default group is `Emacs'." t nil)
+
+(defalias 'customize-group 'customize)
+
+(autoload 'customize-other-window "cus-edit" "\
+Customize SYMBOL, which must be a customization group." t nil)
+
+(defalias 'customize-group-other-window 'customize-other-window)
+
+(defalias 'customize-option 'customize-variable)
+
+(autoload 'customize-variable "cus-edit" "\
+Customize SYMBOL, which must be a user option variable." t nil)
+
+(autoload 'customize-changed-options "cus-edit" "\
+Customize all user option variables whose default values changed recently.
+This means, in other words, variables defined with a `:version' keyword." t nil)
+
+(defalias 'customize-variable-other-window 'customize-option-other-window)
+
+(autoload 'customize-option-other-window "cus-edit" "\
+Customize SYMBOL, which must be a user option variable.
+Show the buffer in another window, but don't select it." t nil)
+
+(autoload 'customize-face "cus-edit" "\
+Customize SYMBOL, which should be a face name or nil.
+If SYMBOL is nil, customize all faces." t nil)
+
+(autoload 'customize-face-other-window "cus-edit" "\
+Show customization buffer for FACE in other window." t nil)
+
+(autoload 'customize-customized "cus-edit" "\
+Customize all user options set since the last save in this session." t nil)
+
+(autoload 'customize-saved "cus-edit" "\
+Customize all already saved user options." t nil)
+
+(autoload 'customize-apropos "cus-edit" "\
+Customize all user options matching REGEXP.
+If ALL is `options', include only options.
+If ALL is `faces', include only faces.
+If ALL is `groups', include only groups.
+If ALL is t (interactively, with prefix arg), include options which are not
+user-settable, as well as faces and groups." t nil)
+
+(autoload 'customize-apropos-options "cus-edit" "\
+Customize all user options matching REGEXP.
+With prefix arg, include options which are not user-settable." t nil)
+
+(autoload 'customize-apropos-faces "cus-edit" "\
+Customize all user faces matching REGEXP." t nil)
+
+(autoload 'customize-apropos-groups "cus-edit" "\
+Customize all user groups matching REGEXP." t nil)
+
+(autoload 'custom-buffer-create "cus-edit" "\
+Create a buffer containing OPTIONS.
+Optional NAME is the name of the buffer.
+OPTIONS should be an alist of the form ((SYMBOL WIDGET)...), where
+SYMBOL is a customization option, and WIDGET is a widget for editing
+that option." nil nil)
+
+(autoload 'custom-buffer-create-other-window "cus-edit" "\
+Create a buffer containing OPTIONS.
+Optional NAME is the name of the buffer.
+OPTIONS should be an alist of the form ((SYMBOL WIDGET)...), where
+SYMBOL is a customization option, and WIDGET is a widget for editing
+that option." nil nil)
+
+(autoload 'customize-browse "cus-edit" "\
+Create a tree browser for the customize hierarchy." t nil)
+
+(autoload 'customize-save-customized "cus-edit" "\
+Save all user options which have been set in this session." t nil)
+
+(autoload 'custom-save-all "cus-edit" "\
+Save all customizations in `custom-file'." nil nil)
+
+(autoload 'custom-menu-create "cus-edit" "\
+Create menu for customization group SYMBOL.
+The menu is in a format applicable to `easy-menu-define'." nil nil)
+
+(autoload 'customize-menu-create "cus-edit" "\
+Return a customize menu for customization group SYMBOL.
+If optional NAME is given, use that as the name of the menu.
+Otherwise the menu will be named `Customize'.
+The format is suitable for use with `easy-menu-define'." nil nil)
+
+(autoload 'custom-migrate-custom-file "cus-edit" "\
+Migrate custom file from home directory." nil nil)
+
+;;;***
+
+;;;### (autoloads (custom-reset-faces custom-theme-reset-faces custom-theme-face-value custom-theme-set-faces custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp/cus-face.el")
+
+(autoload 'custom-declare-face "cus-face" "\
+Like `defface', but FACE is evaluated as a normal argument." nil nil)
+
+(autoload 'custom-set-face-update-spec "cus-face" "\
+Customize the FACE for display types matching DISPLAY, merging
+  in the new items from PLIST" nil nil)
+
+(autoload 'custom-set-faces "cus-face" "\
+Initialize faces according to user preferences.
+This asociates the setting with the USER theme.
+The arguments should be a list where each entry has the form:
+
+  (FACE SPEC [NOW [COMMENT]])
+
+SPEC will be stored as the saved value for FACE.  If NOW is present
+and non-nil, FACE will also be created according to SPEC.
+COMMENT is a string comment about FACE.
+
+See `defface' for the format of SPEC." nil nil)
+
+(autoload 'custom-theme-set-faces "cus-face" "\
+Initialize faces according to settings specified by args.
+Records the settings as belonging to THEME.
+
+See `custom-set-faces' for a description of the arguments ARGS." nil nil)
+
+(autoload 'custom-theme-face-value "cus-face" "\
+Return spec of FACE in THEME if the THEME modifies the
+FACE.  Nil otherwise." nil nil)
+
+(autoload 'custom-theme-reset-faces "cus-face" nil nil nil)
+
+(autoload 'custom-reset-faces "cus-face" "\
+Reset the value of the face to values previously defined.
+Assosiate this setting with the 'user' theme.
+
+ARGS is defined as for `custom-theme-reset-faces'" nil nil)
+
+;;;***
+
+;;;### (autoloads (make-custom-file-name) "cus-file" "lisp/cus-file.el")
+
+(defconst custom-file-base "custom.el" "\
+Base of file name for storing customization information.")
+
+(defvar custom-file nil "\
+File used for storing customization information.
+If you change this from the default you need to
+explicitly load that file for the settings to take effect.")
+
+(autoload 'make-custom-file-name "cus-file" "\
+Construct the default custom file name from the init file name.
+If FORCE-NEW is non-nil, force post-migration location." nil nil)
+
+;;;***
+
+;;;### (autoloads (disassemble) "disass" "lisp/disass.el")
+
+(autoload 'disassemble "disass" "\
+Print disassembled code for OBJECT in (optional) BUFFER.
+OBJECT can be a symbol defined as a function, or a function itself
+\(a lambda expression or a compiled-function object).
+If OBJECT is not already compiled, we compile it, but do not
+redefine OBJECT if it is a symbol." t nil)
+
+;;;***
+
+;;;### (autoloads (standard-display-european standard-display-underline standard-display-graphic standard-display-g1 standard-display-ascii standard-display-default standard-display-8bit make-display-table describe-current-display-table) "disp-table" "lisp/disp-table.el")
+
+(autoload 'describe-current-display-table "disp-table" "\
+Describe the display table in use in the selected window and buffer." t nil)
+
+(autoload 'make-display-table "disp-table" "\
+Return a new, empty display table." nil nil)
+
+(autoload 'standard-display-8bit "disp-table" "\
+Display characters in the range L to H literally." nil nil)
+
+(autoload 'standard-display-default "disp-table" "\
+Display characters in the range L to H using the default notation." nil nil)
+
+(autoload 'standard-display-ascii "disp-table" "\
+Display character C using printable string S." nil nil)
+
+(autoload 'standard-display-g1 "disp-table" "\
+Display character C as character SC in the g1 character set.
+This function assumes that your terminal uses the SO/SI characters;
+it is meaningless for an X frame." nil nil)
+
+(autoload 'standard-display-graphic "disp-table" "\
+Display character C as character GC in graphics character set.
+This function assumes VT100-compatible escapes; it is meaningless for an
+X frame." nil nil)
+
+(autoload 'standard-display-underline "disp-table" "\
+Display character C as character UC plus underlining." nil nil)
+
+(autoload 'standard-display-european "disp-table" "\
+Toggle display of European characters encoded with ISO 8859.
+When enabled, characters in the range of 160 to 255 display not
+as octal escapes, but as accented characters.
+With prefix argument, enable European character display iff arg is positive." t nil)
+
+;;;***
+
+;;;### (autoloads nil "easymenu" "lisp/easymenu.el")
 
 ;;;***
 
@@ -276,95 +978,123 @@ Find packages matching a given keyword." t nil)
 (defcustom font-lock-maximum-size (* 250 1024) "*If non-nil, the maximum size for buffers for fontifying.\nOnly buffers less than this can be fontified when Font Lock mode is turned on.\nIf nil, means size is irrelevant.\nIf a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),\nwhere MAJOR-MODE is a symbol or t (meaning the default).  For example:\n ((c++-mode . 256000) (c-mode . 256000) (rmail-mode . 1048576))\nmeans that the maximum size is 250K for buffers in `c++-mode' or `c-mode', one\nmegabyte for buffers in `rmail-mode', and size is irrelevant otherwise." :type '(choice (const :tag "none" nil) (integer :tag "size") (repeat :menu-tag "mode specific" :tag "mode specific" :value ((t)) (cons :tag "Instance" (radio :tag "Mode" (const :tag "all" t) (symbol :tag "name")) (radio :tag "Size" (const :tag "none" nil) (integer :tag "size"))))) :group 'font-lock)
 
 (defvar font-lock-keywords nil "\
-A list of the keywords to highlight.
-Each element should be of the form:
+A list defining the keywords for `font-lock-mode' to highlight.
 
- MATCHER
- (MATCHER . MATCH)
- (MATCHER . FACENAME)
- (MATCHER . HIGHLIGHT)
- (MATCHER HIGHLIGHT ...)
- (eval . FORM)
+ FONT-LOCK-KEYWORDS := List of FONT-LOCK-FORM's.
 
-where HIGHLIGHT should be either MATCH-HIGHLIGHT or MATCH-ANCHORED.
+ FONT-LOCK-FORM     :== MATCHER
+                      | (MATCHER . MATCH)
+                      | (MATCHER . FACE-FORM)
+                      | (MATCHER . HIGHLIGHT)
+                      | (MATCHER HIGHLIGHT ...)
+                      | (eval . FORM)
 
-FORM is an expression, whose value should be a keyword element,
-evaluated when the keyword is (first) used in a buffer.  This feature
-can be used to provide a keyword that can only be generated when Font
-Lock mode is actually turned on.
+ MATCHER            :== A string containing a regexp.
+                      | A variable containing a regexp to search for.
+                      | A function to call to make the search.
+                        It is called with one arg, the limit of the search,
+                        and should leave MATCH results in the XEmacs global
+                        match data.
+
+ MATCH              :== An integer match subexpression number from MATCHER.
+
+ FACE-FORM           :== The symbol naming a defined face.
+                      | Expression whos value is the face name to use.  If you
+                        want FACE-FORM to be a symbol that evaluates to a face,
+                        use a form like \"(progn sym)\".
+
+ HIGHLIGHT          :== MATCH-HIGHLIGHT
+                      | MATCH-ANCHORED
+
+ FORM               :== Expression returning a FONT-LOCK-FORM, evaluated when
+                        the FONT-LOCK-FORM is first used in a buffer.  This
+                        feature can be used to provide a FONT-LOCK-FORM that
+                        can only be generated when Font Lock mode is actually
+                        turned on.
+
+ MATCH-HIGHLIGHT    :== (MATCH FACE-FORM OVERRIDE LAXMATCH)
+
+ OVERRIDE           :== t        - overwrite existing fontification
+                      | 'keep    - only parts not already fontified are
+                                   highlighted.
+                      | 'prepend - merge faces, this fontification has
+                                   precedence over existing
+                      | 'append  - merge faces, existing fontification has
+                                   precedence over
+                                   this face.
+
+ LAXMATCH           :== If non-nil, no error is signalled if there is no MATCH
+                        in MATCHER.
+
+ MATCH-ANCHORED     :== (ANCHOR-MATCHER PRE-MATCH-FORM \\
+                                          POST-MATCH-FORM MATCH-HIGHLIGHT ...)
+
+ ANCHOR-MATCHER     :== Like a MATCHER, except that the limit of the search
+                        defaults to the end of the line after PRE-MATCH-FORM
+                        is evaluated.  However, if PRE-MATCH-FORM returns a
+                        position greater than the end of the line, that
+                        position is used as the limit of the search.  It is
+                        generally a bad idea to return a position greater than
+                        the end of the line, i.e., cause the ANCHOR-MATCHER
+                        search to span lines.
+
+ PRE-MATCH-FORM     :== Evaluated before the ANCHOR-MATCHER is used, therefore
+                        can be used to initialize before, ANCHOR-MATCHER is
+                        used.  Typically, PRE-MATCH-FORM is used to move to
+                        some position relative to the original MATCHER, before
+                        starting with the ANCHOR-MATCHER.
+
+ POST-MATCH-FORM    :== Like PRE-MATCH-FORM, but used to clean up after the
+                        ANCHOR-MATCHER.  It might be used to move, before
+                        resuming with MATCH-ANCHORED's parent's MATCHER.
+
+For example, an element of the first form highlights (if not already highlighted):
+
+  \"\\\\<foo\\\\>\"                    Discrete occurrences of \"foo\" in the value
+                                 of the variable `font-lock-keyword-face'.
+
+  (\"fu\\\\(bar\\\\)\" . 1)            Substring \"bar\" within all occurrences of
+                                 \"fubar\" in the value of
+                                 `font-lock-keyword-face'.
+
+  (\"fubar\" . fubar-face)         Occurrences of \"fubar\" in the value of
+                                 `fubar-face'.
+
+  (\"foo\\\\|bar\" 0 foo-bar-face t) Occurrences of either \"foo\" or \"bar\" in the
+                                 value of `foo-bar-face', even if already
+                                 highlighted.
+
+  (fubar-match 1 fubar-face)     The first subexpression within all
+                                 occurrences of whatever the function
+                                 `fubar-match' finds and matches in the value
+                                 of `fubar-face'.
+
+  (\"\\\\<anchor\\\\>\" (0 anchor-face) (\"\\\\<item\\\\>\" nil nil (0 item-face)))
+   -------------- ---------------  ------------ --- --- -------------
+       |            |               |            |   |          |
+   MATCHER          |         ANCHOR-MATCHER     |   +------+ MATCH-HIGHLIGHT
+             MATCH-HIGHLIGHT                 PRE-MATCH-FORM |
+                                                           POST-MATCH-FORM
+
+  Discrete occurrences of \"anchor\" in the value of `anchor-face', and
+  subsequent discrete occurrences of \"item\" (on the same line) in the value
+  of `item-face'.  (Here PRE-MATCH-FORM and POST-MATCH-FORM are nil.
+  Therefore \"item\" is initially searched for starting from the end of the
+  match of \"anchor\", and searching for subsequent instance of \"anchor\"
+  resumes from where searching for \"item\" concluded.)
 
 For highlighting single items, typically only MATCH-HIGHLIGHT is required.
-However, if an item or (typically) items is to be highlighted following the
-instance of another item (the anchor) then MATCH-ANCHORED may be required.
-
-MATCH-HIGHLIGHT should be of the form:
-
- (MATCH FACENAME OVERRIDE LAXMATCH)
-
-Where MATCHER can be either the regexp to search for, a variable
-containing the regexp to search for, or the function to call to make
-the search (called with one argument, the limit of the search).  MATCH
-is the subexpression of MATCHER to be highlighted.  FACENAME is either
-a symbol naming a face, or an expression whose value is the face name
-to use.  If you want FACENAME to be a symbol that evaluates to a face,
-use a form like \"(progn sym)\".
-
-OVERRIDE and LAXMATCH are flags.  If OVERRIDE is t, existing fontification may
-be overwritten.  If `keep', only parts not already fontified are highlighted.
-If `prepend' or `append', existing fontification is merged with the new, in
-which the new or existing fontification, respectively, takes precedence.
-If LAXMATCH is non-nil, no error is signalled if there is no MATCH in MATCHER.
-
-For example, an element of the form highlights (if not already highlighted):
-
- \"\\\\\\=<foo\\\\\\=>\"		Discrete occurrences of \"foo\" in the value of the
-			variable `font-lock-keyword-face'.
- (\"fu\\\\(bar\\\\)\" . 1)	Substring \"bar\" within all occurrences of \"fubar\" in
-			the value of `font-lock-keyword-face'.
- (\"fubar\" . fubar-face)	Occurrences of \"fubar\" in the value of `fubar-face'.
- (\"foo\\\\|bar\" 0 foo-bar-face t)
-			Occurrences of either \"foo\" or \"bar\" in the value
-			of `foo-bar-face', even if already highlighted.
-
-MATCH-ANCHORED should be of the form:
-
- (MATCHER PRE-MATCH-FORM POST-MATCH-FORM MATCH-HIGHLIGHT ...)
-
-Where MATCHER is as for MATCH-HIGHLIGHT with one exception; see below.
-PRE-MATCH-FORM and POST-MATCH-FORM are evaluated before the first, and after
-the last, instance MATCH-ANCHORED's MATCHER is used.  Therefore they can be
-used to initialize before, and cleanup after, MATCHER is used.  Typically,
-PRE-MATCH-FORM is used to move to some position relative to the original
-MATCHER, before starting with MATCH-ANCHORED's MATCHER.  POST-MATCH-FORM might
-be used to move, before resuming with MATCH-ANCHORED's parent's MATCHER.
-
-For example, an element of the form highlights (if not already highlighted):
-
- (\"\\\\\\=<anchor\\\\\\=>\" (0 anchor-face) (\"\\\\\\=<item\\\\\\=>\" nil nil (0 item-face)))
-
- Discrete occurrences of \"anchor\" in the value of `anchor-face', and subsequent
- discrete occurrences of \"item\" (on the same line) in the value of `item-face'.
- (Here PRE-MATCH-FORM and POST-MATCH-FORM are nil.  Therefore \"item\" is
- initially searched for starting from the end of the match of \"anchor\", and
- searching for subsequent instance of \"anchor\" resumes from where searching
- for \"item\" concluded.)
-
-The above-mentioned exception is as follows.  The limit of the MATCHER search
-defaults to the end of the line after PRE-MATCH-FORM is evaluated.
-However, if PRE-MATCH-FORM returns a position greater than the position after
-PRE-MATCH-FORM is evaluated, that position is used as the limit of the search.
-It is generally a bad idea to return a position greater than the end of the
-line, i.e., cause the MATCHER search to span lines.
-
-Note that the MATCH-ANCHORED feature is experimental; in the future, we may
-replace it with other ways of providing this functionality.
+However, if an item or (typically) several items are to be highlighted
+following the instance of another item (the anchor) then MATCH-ANCHORED may be
+required.
 
 These regular expressions should not match text which spans lines.  While
-\\[font-lock-fontify-buffer] handles multi-line patterns correctly, updating
-when you edit the buffer does not, since it considers text one line at a time.
+\\[font-lock-fontify-buffer] handles multi-line patterns correctly, updating when you
+edit the buffer does not, since it considers text one line at a time.
 
-Be very careful composing regexps for this list;
-the wrong pattern can dramatically slow things down!")
+Be very careful composing regexps for this list; the wrong pattern can
+dramatically slow things down!
+")
 
 (make-variable-buffer-local 'font-lock-keywords)
 
@@ -424,6 +1154,50 @@ This can take a while for large buffers." t nil)
 (autoload 'font-lock-set-defaults-1 "font-lock" nil nil nil)
 
 (add-minor-mode 'font-lock-mode " Font")
+
+;;;***
+
+;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp/font-menu.el")
+
+(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
+
+(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
+
+(fset 'install-font-menus 'reset-device-font-menus)
+
+(autoload 'reset-device-font-menus "font-menu" "\
+Generates the `Font', `Size', and `Weight' submenus for the Options menu.
+This is run the first time that a font-menu is needed for each device.
+If you don't like the lazy invocation of this function, you can add it to
+`create-device-hook' and that will make the font menus respond more quickly
+when they are selected for the first time.  If you add fonts to your system, 
+or if you change your font path, you can call this to re-initialize the menus." nil nil)
+
+(autoload 'font-menu-family-constructor "font-menu" nil nil nil)
+
+(autoload 'font-menu-size-constructor "font-menu" nil nil nil)
+
+(autoload 'font-menu-weight-constructor "font-menu" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp/font.el")
+
+(autoload 'font-create-object "font" nil nil nil)
+
+(autoload 'font-default-font-for-device "font" nil nil nil)
+
+(autoload 'font-default-object-for-device "font" nil nil nil)
+
+(autoload 'font-default-family-for-device "font" nil nil nil)
+
+(autoload 'font-default-registry-for-device "font" nil nil nil)
+
+(autoload 'font-default-encoding-for-device "font" nil nil nil)
+
+(autoload 'font-default-size-for-device "font" nil nil nil)
+
+(autoload 'x-font-build-cache "font" nil nil nil)
 
 ;;;***
 
@@ -1130,719 +1904,6 @@ or if you change your font path, you can call this to re-initialize the menus." 
 ;;;### (autoloads (x-win-init-xfree86) "x-win-xfree86" "lisp/x-win-xfree86.el")
 
 (autoload 'x-win-init-xfree86 "x-win-xfree86" nil nil nil)
-
-;;;***
-
-;;;### (autoloads nil "abbrev" "lisp\\abbrev.el")
-
-;;;***
-
-;;;### (autoloads (about-xemacs) "about" "lisp\\about.el")
-
-(autoload 'about-xemacs "about" "\
-Describe the True Editor and its minions." t nil)
-
-;;;***
-
-;;;### (autoloads (set-modified-alist modify-alist remove-alist set-alist del-alist put-alist vassoc) "alist" "lisp\\alist.el")
-
-(autoload 'vassoc "alist" "\
-Search VALIST for a vector whose first element is equal to KEY.
-See also `assoc'." nil nil)
-
-(autoload 'put-alist "alist" "\
-Modify ALIST to set VALUE to ITEM.
-If there is a pair whose car is ITEM, replace its cdr by VALUE.
-If there is not such pair, create new pair (ITEM . VALUE) and
-return new alist whose car is the new pair and cdr is ALIST.
-[tomo's ELIS like function]" nil nil)
-
-(autoload 'del-alist "alist" "\
-If there is a pair whose key is ITEM, delete it from ALIST.
-[tomo's ELIS emulating function]" nil nil)
-
-(autoload 'set-alist "alist" "\
-Modify a alist indicated by SYMBOL to set VALUE to ITEM." nil nil)
-
-(autoload 'remove-alist "alist" "\
-Remove ITEM from the alist indicated by SYMBOL." nil nil)
-
-(autoload 'modify-alist "alist" "\
-Modify alist DEFAULT into alist MODIFIER." nil nil)
-
-(autoload 'set-modified-alist "alist" "\
-Modify a value of a symbol SYM into alist MODIFIER.
-The symbol SYM should be alist. If it is not bound,
-its value regard as nil." nil nil)
-
-;;;***
-
-;;;### (autoloads (apropos-documentation apropos-value apropos apropos-command) "apropos" "lisp\\apropos.el")
-
-(fset 'command-apropos 'apropos-command)
-
-(autoload 'apropos-command "apropos" "\
-Shows commands (interactively callable functions) that match REGEXP.
-With optional prefix ARG or if `apropos-do-all' is non-nil, also show
-variables." t nil)
-
-(autoload 'apropos "apropos" "\
-Show all bound symbols whose names match REGEXP.
-With optional prefix ARG or if `apropos-do-all' is non-nil, also show unbound
-symbols and key bindings, which is a little more time-consuming.
-Returns list of symbols and documentation found." t nil)
-
-(autoload 'apropos-value "apropos" "\
-Show all symbols whose value's printed image matches REGEXP.
-With optional prefix ARG or if `apropos-do-all' is non-nil, also looks
-at the function and at the names and values of properties.
-Returns list of symbols and values found." t nil)
-
-(autoload 'apropos-documentation "apropos" "\
-Show symbols whose documentation contain matches for REGEXP.
-With optional prefix ARG or if `apropos-do-all' is non-nil, also use
-documentation that is not stored in the documentation file and show key
-bindings.
-Returns list of symbols and documentation found." t nil)
-
-;;;***
-
-;;;### (autoloads nil "buff-menu" "lisp\\buff-menu.el")
-
-(defvar list-buffers-directory nil)
-
-(make-variable-buffer-local 'list-buffers-directory)
-
-;;;***
-
-;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-file-errors ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* cl-compile-time-init) "cl-macs" "lisp\\cl-macs.el")
-
-(autoload 'cl-compile-time-init "cl-macs" nil nil nil)
-
-(autoload 'defun* "cl-macs" "\
-(defun* NAME ARGLIST [DOCSTRING] BODY...): define NAME as a function.
-Like normal `defun', except ARGLIST allows full Common Lisp conventions,
-and BODY is implicitly surrounded by (block NAME ...)." nil 'macro)
-
-(autoload 'defmacro* "cl-macs" "\
-(defmacro* NAME ARGLIST [DOCSTRING] BODY...): define NAME as a macro.
-Like normal `defmacro', except ARGLIST allows full Common Lisp conventions,
-and BODY is implicitly surrounded by (block NAME ...)." nil 'macro)
-
-(autoload 'function* "cl-macs" "\
-(function* SYMBOL-OR-LAMBDA): introduce a function.
-Like normal `function', except that if argument is a lambda form, its
-ARGLIST allows full Common Lisp conventions." nil 'macro)
-
-(autoload 'destructuring-bind "cl-macs" nil nil 'macro)
-
-(autoload 'eval-when "cl-macs" "\
-(eval-when (WHEN...) BODY...): control when BODY is evaluated.
-If `compile' is in WHEN, BODY is evaluated when compiled at top-level.
-If `load' is in WHEN, BODY is evaluated when loaded after top-level compile.
-If `eval' is in WHEN, BODY is evaluated when interpreted or at non-top-level." nil 'macro)
-
-(autoload 'load-time-value "cl-macs" "\
-Like `progn', but evaluates the body at load time.
-The result of the body appears to the compiler as a quoted constant." nil 'macro)
-
-(autoload 'case "cl-macs" "\
-(case EXPR CLAUSES...): evals EXPR, chooses from CLAUSES on that value.
-Each clause looks like (KEYLIST BODY...).  EXPR is evaluated and compared
-against each key in each KEYLIST; the corresponding BODY is evaluated.
-If no clause succeeds, case returns nil.  A single atom may be used in
-place of a KEYLIST of one atom.  A KEYLIST of `t' or `otherwise' is
-allowed only in the final clause, and matches if no other keys match.
-Key values are compared by `eql'." nil 'macro)
-
-(autoload 'ecase "cl-macs" "\
-(ecase EXPR CLAUSES...): like `case', but error if no case fits.
-`otherwise'-clauses are not allowed." nil 'macro)
-
-(autoload 'typecase "cl-macs" "\
-(typecase EXPR CLAUSES...): evals EXPR, chooses from CLAUSES on that value.
-Each clause looks like (TYPE BODY...).  EXPR is evaluated and, if it
-satisfies TYPE, the corresponding BODY is evaluated.  If no clause succeeds,
-typecase returns nil.  A TYPE of `t' or `otherwise' is allowed only in the
-final clause, and matches if no other keys match." nil 'macro)
-
-(autoload 'etypecase "cl-macs" "\
-(etypecase EXPR CLAUSES...): like `typecase', but error if no case fits.
-`otherwise'-clauses are not allowed." nil 'macro)
-
-(autoload 'block "cl-macs" "\
-(block NAME BODY...): define a lexically-scoped block named NAME.
-NAME may be any symbol.  Code inside the BODY forms can call `return-from'
-to jump prematurely out of the block.  This differs from `catch' and `throw'
-in two respects:  First, the NAME is an unevaluated symbol rather than a
-quoted symbol or other form; and second, NAME is lexically rather than
-dynamically scoped:  Only references to it within BODY will work.  These
-references may appear inside macro expansions, but not inside functions
-called from BODY." nil 'macro)
-
-(autoload 'return "cl-macs" "\
-(return [RESULT]): return from the block named nil.
-This is equivalent to `(return-from nil RESULT)'." nil 'macro)
-
-(autoload 'return-from "cl-macs" "\
-(return-from NAME [RESULT]): return from the block named NAME.
-This jumps out to the innermost enclosing `(block NAME ...)' form,
-returning RESULT from that form (or nil if RESULT is omitted).
-This is compatible with Common Lisp, but note that `defun' and
-`defmacro' do not create implicit blocks as they do in Common Lisp." nil 'macro)
-
-(autoload 'loop "cl-macs" "\
-(loop CLAUSE...): The Common Lisp `loop' macro.
-Valid clauses are:
-  for VAR from/upfrom/downfrom NUM to/upto/downto/above/below NUM by NUM,
-  for VAR in LIST by FUNC, for VAR on LIST by FUNC, for VAR = INIT then EXPR,
-  for VAR across ARRAY, repeat NUM, with VAR = INIT, while COND, until COND,
-  always COND, never COND, thereis COND, collect EXPR into VAR,
-  append EXPR into VAR, nconc EXPR into VAR, sum EXPR into VAR,
-  count EXPR into VAR, maximize EXPR into VAR, minimize EXPR into VAR,
-  if COND CLAUSE [and CLAUSE]... else CLAUSE [and CLAUSE...],
-  unless COND CLAUSE [and CLAUSE]... else CLAUSE [and CLAUSE...],
-  do EXPRS..., initially EXPRS..., finally EXPRS..., return EXPR,
-  finally return EXPR, named NAME." nil 'macro)
-
-(autoload 'do "cl-macs" "\
-The Common Lisp `do' loop.
-Format is: (do ((VAR INIT [STEP])...) (END-TEST [RESULT...]) BODY...)" nil 'macro)
-
-(autoload 'do* "cl-macs" "\
-The Common Lisp `do*' loop.
-Format is: (do* ((VAR INIT [STEP])...) (END-TEST [RESULT...]) BODY...)" nil 'macro)
-
-(autoload 'dolist "cl-macs" "\
-(dolist (VAR LIST [RESULT]) BODY...): loop over a list.
-Evaluate BODY with VAR bound to each `car' from LIST, in turn.
-Then evaluate RESULT to get return value, default nil." nil 'macro)
-
-(autoload 'dotimes "cl-macs" "\
-(dotimes (VAR COUNT [RESULT]) BODY...): loop a certain number of times.
-Evaluate BODY with VAR bound to successive integers from 0, inclusive,
-to COUNT, exclusive.  Then evaluate RESULT to get return value, default
-nil." nil 'macro)
-
-(autoload 'do-symbols "cl-macs" "\
-(dosymbols (VAR [OBARRAY [RESULT]]) BODY...): loop over all symbols.
-Evaluate BODY with VAR bound to each interned symbol, or to each symbol
-from OBARRAY." nil 'macro)
-
-(autoload 'do-all-symbols "cl-macs" nil nil 'macro)
-
-(autoload 'psetq "cl-macs" "\
-(psetq SYM VAL SYM VAL ...): set SYMs to the values VALs in parallel.
-This is like `setq', except that all VAL forms are evaluated (in order)
-before assigning any symbols SYM to the corresponding values." nil 'macro)
-
-(autoload 'progv "cl-macs" "\
-(progv SYMBOLS VALUES BODY...): bind SYMBOLS to VALUES dynamically in BODY.
-The forms SYMBOLS and VALUES are evaluated, and must evaluate to lists.
-Each SYMBOL in the first list is bound to the corresponding VALUE in the
-second list (or made unbound if VALUES is shorter than SYMBOLS); then the
-BODY forms are executed and their result is returned.  This is much like
-a `let' form, except that the list of symbols can be computed at run-time." nil 'macro)
-
-(autoload 'flet "cl-macs" "\
-(flet ((FUNC ARGLIST BODY...) ...) FORM...): make temporary function defns.
-This is an analogue of `let' that operates on the function cell of FUNC
-rather than its value cell.  The FORMs are evaluated with the specified
-function definitions in place, then the definitions are undone (the FUNCs
-go back to their previous definitions, or lack thereof)." nil 'macro)
-
-(autoload 'labels "cl-macs" "\
-(labels ((FUNC ARGLIST BODY...) ...) FORM...): make temporary func bindings.
-This is like `flet', except the bindings are lexical instead of dynamic.
-Unlike `flet', this macro is fully compliant with the Common Lisp standard." nil 'macro)
-
-(autoload 'macrolet "cl-macs" "\
-(macrolet ((NAME ARGLIST BODY...) ...) FORM...): make temporary macro defns.
-This is like `flet', but for macros instead of functions." nil 'macro)
-
-(autoload 'symbol-macrolet "cl-macs" "\
-(symbol-macrolet ((NAME EXPANSION) ...) FORM...): make symbol macro defns.
-Within the body FORMs, references to the variable NAME will be replaced
-by EXPANSION, and (setq NAME ...) will act like (setf EXPANSION ...)." nil 'macro)
-
-(autoload 'lexical-let "cl-macs" "\
-(lexical-let BINDINGS BODY...): like `let', but lexically scoped.
-The main visible difference is that lambdas inside BODY will create
-lexical closures as in Common Lisp." nil 'macro)
-
-(autoload 'lexical-let* "cl-macs" "\
-(lexical-let* BINDINGS BODY...): like `let*', but lexically scoped.
-The main visible difference is that lambdas inside BODY will create
-lexical closures as in Common Lisp." nil 'macro)
-
-(autoload 'multiple-value-bind "cl-macs" "\
-(multiple-value-bind (SYM SYM...) FORM BODY): collect multiple return values.
-FORM must return a list; the BODY is then executed with the first N elements
-of this list bound (`let'-style) to each of the symbols SYM in turn.  This
-is analogous to the Common Lisp `multiple-value-bind' macro, using lists to
-simulate true multiple return values.  For compatibility, (values A B C) is
-a synonym for (list A B C)." nil 'macro)
-
-(autoload 'multiple-value-setq "cl-macs" "\
-(multiple-value-setq (SYM SYM...) FORM): collect multiple return values.
-FORM must return a list; the first N elements of this list are stored in
-each of the symbols SYM in turn.  This is analogous to the Common Lisp
-`multiple-value-setq' macro, using lists to simulate true multiple return
-values.  For compatibility, (values A B C) is a synonym for (list A B C)." nil 'macro)
-
-(autoload 'locally "cl-macs" nil nil 'macro)
-
-(autoload 'the "cl-macs" nil nil 'macro)
-
-(autoload 'declare "cl-macs" nil nil 'macro)
-
-(autoload 'define-setf-method "cl-macs" "\
-(define-setf-method NAME ARGLIST BODY...): define a `setf' method.
-This method shows how to handle `setf's to places of the form (NAME ARGS...).
-The argument forms ARGS are bound according to ARGLIST, as if NAME were
-going to be expanded as a macro, then the BODY forms are executed and must
-return a list of five elements: a temporary-variables list, a value-forms
-list, a store-variables list (of length one), a store-form, and an access-
-form.  See `defsetf' for a simpler way to define most setf-methods." nil 'macro)
-
-(autoload 'defsetf "cl-macs" "\
-(defsetf NAME FUNC): define a `setf' method.
-This macro is an easy-to-use substitute for `define-setf-method' that works
-well for simple place forms.  In the simple `defsetf' form, `setf's of
-the form (setf (NAME ARGS...) VAL) are transformed to function or macro
-calls of the form (FUNC ARGS... VAL).  Example: (defsetf aref aset).
-Alternate form: (defsetf NAME ARGLIST (STORE) BODY...).
-Here, the above `setf' call is expanded by binding the argument forms ARGS
-according to ARGLIST, binding the value form VAL to STORE, then executing
-BODY, which must return a Lisp form that does the necessary `setf' operation.
-Actually, ARGLIST and STORE may be bound to temporary variables which are
-introduced automatically to preserve proper execution order of the arguments.
-Example: (defsetf nth (n x) (v) (list 'setcar (list 'nthcdr n x) v))." nil 'macro)
-
-(autoload 'get-setf-method "cl-macs" "\
-Return a list of five values describing the setf-method for PLACE.
-PLACE may be any Lisp form which can appear as the PLACE argument to
-a macro like `setf' or `incf'." nil nil)
-
-(autoload 'setf "cl-macs" "\
-(setf PLACE VAL PLACE VAL ...): set each PLACE to the value of its VAL.
-This is a generalized version of `setq'; the PLACEs may be symbolic
-references such as (car x) or (aref x i), as well as plain symbols.
-For example, (setf (cadar x) y) is equivalent to (setcar (cdar x) y).
-The return value is the last VAL in the list." nil 'macro)
-
-(autoload 'psetf "cl-macs" "\
-(psetf PLACE VAL PLACE VAL ...): set PLACEs to the values VALs in parallel.
-This is like `setf', except that all VAL forms are evaluated (in order)
-before assigning any PLACEs to the corresponding values." nil 'macro)
-
-(autoload 'cl-do-pop "cl-macs" nil nil nil)
-
-(autoload 'remf "cl-macs" "\
-(remf PLACE TAG): remove TAG from property list PLACE.
-PLACE may be a symbol, or any generalized variable allowed by `setf'.
-The form returns true if TAG was found and removed, nil otherwise." nil 'macro)
-
-(autoload 'shiftf "cl-macs" "\
-(shiftf PLACE PLACE... VAL): shift left among PLACEs.
-Example: (shiftf A B C) sets A to B, B to C, and returns the old A.
-Each PLACE may be a symbol, or any generalized variable allowed by `setf'." nil 'macro)
-
-(autoload 'rotatef "cl-macs" "\
-(rotatef PLACE...): rotate left among PLACEs.
-Example: (rotatef A B C) sets A to B, B to C, and C to A.  It returns nil.
-Each PLACE may be a symbol, or any generalized variable allowed by `setf'." nil 'macro)
-
-(autoload 'letf "cl-macs" "\
-(letf ((PLACE VALUE) ...) BODY...): temporarily bind to PLACEs.
-This is the analogue of `let', but with generalized variables (in the
-sense of `setf') for the PLACEs.  Each PLACE is set to the corresponding
-VALUE, then the BODY forms are executed.  On exit, either normally or
-because of a `throw' or error, the PLACEs are set back to their original
-values.  Note that this macro is *not* available in Common Lisp.
-As a special case, if `(PLACE)' is used instead of `(PLACE VALUE)',
-the PLACE is not modified before executing BODY." nil 'macro)
-
-(autoload 'letf* "cl-macs" "\
-(letf* ((PLACE VALUE) ...) BODY...): temporarily bind to PLACEs.
-This is the analogue of `let*', but with generalized variables (in the
-sense of `setf') for the PLACEs.  Each PLACE is set to the corresponding
-VALUE, then the BODY forms are executed.  On exit, either normally or
-because of a `throw' or error, the PLACEs are set back to their original
-values.  Note that this macro is *not* available in Common Lisp.
-As a special case, if `(PLACE)' is used instead of `(PLACE VALUE)',
-the PLACE is not modified before executing BODY." nil 'macro)
-
-(autoload 'callf "cl-macs" "\
-(callf FUNC PLACE ARGS...): set PLACE to (FUNC PLACE ARGS...).
-FUNC should be an unquoted function name.  PLACE may be a symbol,
-or any generalized variable allowed by `setf'." nil 'macro)
-
-(autoload 'callf2 "cl-macs" "\
-(callf2 FUNC ARG1 PLACE ARGS...): set PLACE to (FUNC ARG1 PLACE ARGS...).
-Like `callf', but PLACE is the second argument of FUNC, not the first." nil 'macro)
-
-(autoload 'define-modify-macro "cl-macs" "\
-(define-modify-macro NAME ARGLIST FUNC): define a `setf'-like modify macro.
-If NAME is called, it combines its PLACE argument with the other arguments
-from ARGLIST using FUNC: (define-modify-macro incf (&optional (n 1)) +)" nil 'macro)
-
-(autoload 'defstruct "cl-macs" "\
-(defstruct (NAME OPTIONS...) (SLOT SLOT-OPTS...)...): define a struct type.
-This macro defines a new Lisp data type called NAME, which contains data
-stored in SLOTs.  This defines a `make-NAME' constructor, a `copy-NAME'
-copier, a `NAME-p' predicate, and setf-able `NAME-SLOT' accessors." nil 'macro)
-
-(autoload 'cl-struct-setf-expander "cl-macs" nil nil nil)
-
-(autoload 'deftype "cl-macs" "\
-(deftype NAME ARGLIST BODY...): define NAME as a new data type.
-The type name can then be used in `typecase', `check-type', etc." nil 'macro)
-
-(autoload 'typep "cl-macs" "\
-Check that OBJECT is of type TYPE.
-TYPE is a Common Lisp-style type specifier." nil nil)
-
-(autoload 'check-type "cl-macs" "\
-Verify that FORM is of type TYPE; signal an error if not.
-STRING is an optional description of the desired type." nil 'macro)
-
-(autoload 'assert "cl-macs" "\
-Verify that FORM returns non-nil; signal an error if not.
-Second arg SHOW-ARGS means to include arguments of FORM in message.
-Other args STRING and ARGS... are arguments to be passed to `error'.
-They are not evaluated unless the assertion fails.  If STRING is
-omitted, a default message listing FORM itself is used." nil 'macro)
-
-(autoload 'ignore-errors "cl-macs" "\
-Execute FORMS; if an error occurs, return nil.
-Otherwise, return result of last FORM." nil 'macro)
-
-(autoload 'ignore-file-errors "cl-macs" "\
-Execute FORMS; if an error of type `file-error' occurs, return nil.
-Otherwise, return result of last FORM." nil 'macro)
-
-(autoload 'define-compiler-macro "cl-macs" "\
-(define-compiler-macro FUNC ARGLIST BODY...): Define a compiler-only macro.
-This is like `defmacro', but macro expansion occurs only if the call to
-FUNC is compiled (i.e., not interpreted).  Compiler macros should be used
-for optimizing the way calls to FUNC are compiled; the form returned by
-BODY should do the same thing as a call to the normal function called
-FUNC, though possibly more efficiently.  Note that, like regular macros,
-compiler macros are expanded repeatedly until no further expansions are
-possible.  Unlike regular macros, BODY can decide to \"punt\" and leave the
-original function call alone by declaring an initial `&whole foo' parameter
-and then returning foo." nil 'macro)
-
-(autoload 'compiler-macroexpand "cl-macs" nil nil nil)
-
-;;;***
-
-;;;### (autoloads (batch-remove-old-elc) "cleantree" "lisp\\cleantree.el")
-
-(autoload 'batch-remove-old-elc "cleantree" nil nil nil)
-
-;;;***
-
-;;;### (autoloads (config-value config-value-hash-table) "config" "lisp\\config.el")
-
-(autoload 'config-value-hash-table "config" "\
-Return hash table of configuration parameters and their values." nil nil)
-
-(autoload 'config-value "config" "\
-Return the value of the configuration parameter CONFIG_SYMBOL." nil nil)
-
-;;;***
-
-;;;### (autoloads (Custom-make-dependencies) "cus-dep" "lisp\\cus-dep.el")
-
-(autoload 'Custom-make-dependencies "cus-dep" "\
-Extract custom dependencies from .el files in SUBDIRS.
-SUBDIRS is a list of directories.  If it is nil, the command-line
-arguments are used.  If it is a string, only that directory is
-processed.  This function is especially useful in batch mode.
-
-Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS" t nil)
-
-;;;***
-
-;;;### (autoloads (customize-menu-create custom-menu-create custom-save-all customize-save-customized customize-browse custom-buffer-create-other-window custom-buffer-create customize-apropos-groups customize-apropos-faces customize-apropos-options customize-apropos customize-saved customize-customized customize-face-other-window customize-face customize-option-other-window customize-changed-options customize-variable customize-other-window customize customize-save-variable customize-set-variable customize-set-value) "cus-edit" "lisp\\cus-edit.el")
-
-(autoload 'customize-set-value "cus-edit" "\
-Set VARIABLE to VALUE.  VALUE is a Lisp object.
-
-If VARIABLE has a `variable-interactive' property, that is used as if
-it were the arg to `interactive' (which see) to interactively read the value.
-
-If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value.
-
-If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
-
-(autoload 'customize-set-variable "cus-edit" "\
-Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
-
-If VARIABLE has a `custom-set' property, that is used for setting
-VARIABLE, otherwise `set-default' is used.
-
-The `customized-value' property of the VARIABLE will be set to a list
-with a quoted VALUE as its sole list member.
-
-If VARIABLE has a `variable-interactive' property, that is used as if
-it were the arg to `interactive' (which see) to interactively read the value.
-
-If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value.
-
-If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
-
-(autoload 'customize-save-variable "cus-edit" "\
-Set the default for VARIABLE to VALUE, and save it for future sessions.
-If VARIABLE has a `custom-set' property, that is used for setting
-VARIABLE, otherwise `set-default' is used.
-
-The `customized-value' property of the VARIABLE will be set to a list
-with a quoted VALUE as its sole list member.
-
-If VARIABLE has a `variable-interactive' property, that is used as if
-it were the arg to `interactive' (which see) to interactively read the value.
-
-If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value.
-
-If given a prefix (or a COMMENT argument), also prompt for a comment." t nil)
-
-(autoload 'customize "cus-edit" "\
-Select a customization buffer which you can use to set user options.
-User options are structured into \"groups\".
-The default group is `Emacs'." t nil)
-
-(defalias 'customize-group 'customize)
-
-(autoload 'customize-other-window "cus-edit" "\
-Customize SYMBOL, which must be a customization group." t nil)
-
-(defalias 'customize-group-other-window 'customize-other-window)
-
-(defalias 'customize-option 'customize-variable)
-
-(autoload 'customize-variable "cus-edit" "\
-Customize SYMBOL, which must be a user option variable." t nil)
-
-(autoload 'customize-changed-options "cus-edit" "\
-Customize all user option variables whose default values changed recently.
-This means, in other words, variables defined with a `:version' keyword." t nil)
-
-(defalias 'customize-variable-other-window 'customize-option-other-window)
-
-(autoload 'customize-option-other-window "cus-edit" "\
-Customize SYMBOL, which must be a user option variable.
-Show the buffer in another window, but don't select it." t nil)
-
-(autoload 'customize-face "cus-edit" "\
-Customize SYMBOL, which should be a face name or nil.
-If SYMBOL is nil, customize all faces." t nil)
-
-(autoload 'customize-face-other-window "cus-edit" "\
-Show customization buffer for FACE in other window." t nil)
-
-(autoload 'customize-customized "cus-edit" "\
-Customize all user options set since the last save in this session." t nil)
-
-(autoload 'customize-saved "cus-edit" "\
-Customize all already saved user options." t nil)
-
-(autoload 'customize-apropos "cus-edit" "\
-Customize all user options matching REGEXP.
-If ALL is `options', include only options.
-If ALL is `faces', include only faces.
-If ALL is `groups', include only groups.
-If ALL is t (interactively, with prefix arg), include options which are not
-user-settable, as well as faces and groups." t nil)
-
-(autoload 'customize-apropos-options "cus-edit" "\
-Customize all user options matching REGEXP.
-With prefix arg, include options which are not user-settable." t nil)
-
-(autoload 'customize-apropos-faces "cus-edit" "\
-Customize all user faces matching REGEXP." t nil)
-
-(autoload 'customize-apropos-groups "cus-edit" "\
-Customize all user groups matching REGEXP." t nil)
-
-(autoload 'custom-buffer-create "cus-edit" "\
-Create a buffer containing OPTIONS.
-Optional NAME is the name of the buffer.
-OPTIONS should be an alist of the form ((SYMBOL WIDGET)...), where
-SYMBOL is a customization option, and WIDGET is a widget for editing
-that option." nil nil)
-
-(autoload 'custom-buffer-create-other-window "cus-edit" "\
-Create a buffer containing OPTIONS.
-Optional NAME is the name of the buffer.
-OPTIONS should be an alist of the form ((SYMBOL WIDGET)...), where
-SYMBOL is a customization option, and WIDGET is a widget for editing
-that option." nil nil)
-
-(autoload 'customize-browse "cus-edit" "\
-Create a tree browser for the customize hierarchy." t nil)
-
-(defcustom custom-file "~/.emacs" "File used for storing customization information.\nIf you change this from the default \"~/.emacs\" you need to\nexplicitly load that file for the settings to take effect." :type 'file :group 'customize)
-
-(autoload 'customize-save-customized "cus-edit" "\
-Save all user options which have been set in this session." t nil)
-
-(autoload 'custom-save-all "cus-edit" "\
-Save all customizations in `custom-file'." nil nil)
-
-(autoload 'custom-menu-create "cus-edit" "\
-Create menu for customization group SYMBOL.
-The menu is in a format applicable to `easy-menu-define'." nil nil)
-
-(autoload 'customize-menu-create "cus-edit" "\
-Return a customize menu for customization group SYMBOL.
-If optional NAME is given, use that as the name of the menu.
-Otherwise the menu will be named `Customize'.
-The format is suitable for use with `easy-menu-define'." nil nil)
-
-;;;***
-
-;;;### (autoloads (custom-reset-faces custom-theme-reset-faces custom-theme-face-value custom-theme-set-faces custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp\\cus-face.el")
-
-(autoload 'custom-declare-face "cus-face" "\
-Like `defface', but FACE is evaluated as a normal argument." nil nil)
-
-(autoload 'custom-set-face-update-spec "cus-face" "\
-Customize the FACE for display types matching DISPLAY, merging
-  in the new items from PLIST" nil nil)
-
-(autoload 'custom-set-faces "cus-face" "\
-Initialize faces according to user preferences.
-This asociates the setting with the USER theme.
-The arguments should be a list where each entry has the form:
-
-  (FACE SPEC [NOW [COMMENT]])
-
-SPEC will be stored as the saved value for FACE.  If NOW is present
-and non-nil, FACE will also be created according to SPEC.
-COMMENT is a string comment about FACE.
-
-See `defface' for the format of SPEC." nil nil)
-
-(autoload 'custom-theme-set-faces "cus-face" "\
-Initialize faces according to settings specified by args.
-Records the settings as belonging to THEME.
-
-See `custom-set-faces' for a description of the arguments ARGS." nil nil)
-
-(autoload 'custom-theme-face-value "cus-face" "\
-Return spec of FACE in THEME if the THEME modifies the
-FACE.  Nil otherwise." nil nil)
-
-(autoload 'custom-theme-reset-faces "cus-face" nil nil nil)
-
-(autoload 'custom-reset-faces "cus-face" "\
-Reset the value of the face to values previously defined.
-Assosiate this setting with the 'user' theme.
-
-ARGS is defined as for `custom-theme-reset-faces'" nil nil)
-
-;;;***
-
-;;;### (autoloads (disassemble) "disass" "lisp\\disass.el")
-
-(autoload 'disassemble "disass" "\
-Print disassembled code for OBJECT in (optional) BUFFER.
-OBJECT can be a symbol defined as a function, or a function itself
-\(a lambda expression or a compiled-function object).
-If OBJECT is not already compiled, we compile it, but do not
-redefine OBJECT if it is a symbol." t nil)
-
-;;;***
-
-;;;### (autoloads (standard-display-european standard-display-underline standard-display-graphic standard-display-g1 standard-display-ascii standard-display-default standard-display-8bit make-display-table describe-current-display-table) "disp-table" "lisp\\disp-table.el")
-
-(autoload 'describe-current-display-table "disp-table" "\
-Describe the display table in use in the selected window and buffer." t nil)
-
-(autoload 'make-display-table "disp-table" "\
-Return a new, empty display table." nil nil)
-
-(autoload 'standard-display-8bit "disp-table" "\
-Display characters in the range L to H literally." nil nil)
-
-(autoload 'standard-display-default "disp-table" "\
-Display characters in the range L to H using the default notation." nil nil)
-
-(autoload 'standard-display-ascii "disp-table" "\
-Display character C using printable string S." nil nil)
-
-(autoload 'standard-display-g1 "disp-table" "\
-Display character C as character SC in the g1 character set.
-This function assumes that your terminal uses the SO/SI characters;
-it is meaningless for an X frame." nil nil)
-
-(autoload 'standard-display-graphic "disp-table" "\
-Display character C as character GC in graphics character set.
-This function assumes VT100-compatible escapes; it is meaningless for an
-X frame." nil nil)
-
-(autoload 'standard-display-underline "disp-table" "\
-Display character C as character UC plus underlining." nil nil)
-
-(autoload 'standard-display-european "disp-table" "\
-Toggle display of European characters encoded with ISO 8859.
-When enabled, characters in the range of 160 to 255 display not
-as octal escapes, but as accented characters.
-With prefix argument, enable European character display iff arg is positive." t nil)
-
-;;;***
-
-;;;### (autoloads nil "easymenu" "lisp\\easymenu.el")
-
-;;;***
-
-;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp\\font-menu.el")
-
-(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
-
-(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
-
-(fset 'install-font-menus 'reset-device-font-menus)
-
-(autoload 'reset-device-font-menus "font-menu" "\
-Generates the `Font', `Size', and `Weight' submenus for the Options menu.
-This is run the first time that a font-menu is needed for each device.
-If you don't like the lazy invocation of this function, you can add it to
-`create-device-hook' and that will make the font menus respond more quickly
-when they are selected for the first time.  If you add fonts to your system, 
-or if you change your font path, you can call this to re-initialize the menus." nil nil)
-
-(autoload 'font-menu-family-constructor "font-menu" nil nil nil)
-
-(autoload 'font-menu-size-constructor "font-menu" nil nil nil)
-
-(autoload 'font-menu-weight-constructor "font-menu" nil nil nil)
-
-;;;***
-
-;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp\\font.el")
-
-(autoload 'font-create-object "font" nil nil nil)
-
-(autoload 'font-default-font-for-device "font" nil nil nil)
-
-(autoload 'font-default-object-for-device "font" nil nil nil)
-
-(autoload 'font-default-family-for-device "font" nil nil nil)
-
-(autoload 'font-default-registry-for-device "font" nil nil nil)
-
-(autoload 'font-default-encoding-for-device "font" nil nil nil)
-
-(autoload 'font-default-size-for-device "font" nil nil nil)
-
-(autoload 'x-font-build-cache "font" nil nil nil)
 
 ;;;***
 

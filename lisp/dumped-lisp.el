@@ -50,6 +50,7 @@
 ;; After fixing, eos/loaddefs-eos and loaddefs appear identical?!!
 ;; So just make loaddefs-eos go away...
 ;;(pureload (if (featurep 'sparcworks) "eos/loaddefs-eos" "loaddefs"))
+	"cus-file"
 	"startup"		; For initialization of
 				;  `emacs-user-extension-dir'
 	"misc"

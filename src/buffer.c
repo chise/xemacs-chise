@@ -84,6 +84,7 @@ Boston, MA 02111-1307, USA.  */
 #ifdef REGION_CACHE_NEEDS_WORK
 #include "region-cache.h"
 #endif
+#include "select.h"     /* for select_notify_buffer_kill */
 #include "specifier.h"
 #include "syntax.h"
 #include "sysdep.h"	/* for getwd */
@@ -1220,15 +1221,13 @@ with `delete-process'.
 
       /* Then run the hooks.  */
       run_hook (Qkill_buffer_hook);
-#ifdef HAVE_X_WINDOWS
-      /* If an X selection was in this buffer, disown it.
-	 We could have done this by simply adding this function to the
-	 kill-buffer-hook, but the user might mess that up.
-	 */
-      if (EQ (Vwindow_system, Qx))
-	call0 (intern ("xselect-kill-buffer-hook"));
-      /* #### generalize me! */
-#endif /* HAVE_X_WINDOWS */
+
+      /* Inform the selection code that a buffer just got killed.
+	 We do this in C because (a) it's faster, and (b) it needs
+         to access data internal to select.c that can't be seen from
+         Lisp (so the Lisp code would just call into C anyway. */
+      select_notify_buffer_kill (buf);
+      
       unbind_to (speccount, Qnil);
       UNGCPRO;
       b = XBUFFER (buf);        /* Hypothetical relocating GC. */
@@ -1480,20 +1479,6 @@ set_buffer_internal (struct buffer *b)
   old_buf = current_buffer;
   current_buffer = b;
   invalidate_current_column ();   /* invalidate indentation cache */
-
-#ifdef HAVE_FEP
-  if (!noninteractive && initialized)
-    {
-      extern Lisp_Object Ffep_force_on (), Ffep_force_off (), Ffep_get_mode ();
-
-      old_buf->fep_mode = Ffep_get_mode ();
-
-      if (!NILP (current_buffer->fep_mode))
-	Ffep_force_on ();
-      else
-	Ffep_force_off ();
-  }
-#endif /* HAVE_FEP */
 
   if (old_buf)
     {
@@ -3130,6 +3115,7 @@ handled:
   }
 }
 
+#ifndef WIN32_NATIVE
 /* Is PWD another name for `.' ? */
 static int
 directory_is_current_directory (Extbyte *pwd)
@@ -3149,23 +3135,29 @@ directory_is_current_directory (Extbyte *pwd)
 	  && dotstat.st_dev == pwdstat.st_dev
 	  && pwd_internal_len < MAXPATHLEN);
 }
+#endif
 
 void
 init_initial_directory (void)
 {
   /* This function can GC */
 
+#ifndef WIN32_NATIVE
   Extbyte *pwd;
+#endif
 
   initial_directory[0] = 0;
 
   /* If PWD is accurate, use it instead of calling getcwd.  This is faster
      when PWD is right, and may avoid a fatal error.  */
+#ifndef WIN32_NATIVE
   if ((pwd = (Extbyte *) getenv ("PWD")) != NULL
       && directory_is_current_directory (pwd))
     strcpy (initial_directory, (char *) pwd);
-  else if (getcwd (initial_directory, MAXPATHLEN) == NULL)
-    fatal ("`getcwd' failed: %s\n", strerror (errno));
+  else
+#endif
+    if (getcwd (initial_directory, MAXPATHLEN) == NULL)
+      fatal ("`getcwd' failed: %s\n", strerror (errno));
 
   /* Make sure pwd is DIRECTORY_SEP-terminated.
      Maybe this should really use some standard subroutine
@@ -3180,16 +3172,8 @@ init_initial_directory (void)
       }
   }
 
-  /* XEmacs change: store buffer's default directory
-     using preferred (i.e. as defined at compile-time)
-     directory separator. --marcpa */
-#ifdef DOS_NT
-#define CORRECT_DIR_SEPS(s) \
-  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
-       else unixtodos_filename (s); \
-  } while (0)
-
-  CORRECT_DIR_SEPS(initial_directory);
+#ifdef CORRECT_DIR_SEPS
+  CORRECT_DIR_SEPS (initial_directory);
 #endif
 }
 

@@ -1201,7 +1201,7 @@ these facilities call the `load' function to do the work.
      function to search through `load-path'.) It searches for FILENAME
      through PATH-LIST, expanded by one of the optional SUFFIXES
      (string of suffixes separated by `:'s), checking for access MODE
-     (0|1|2|4 = exists|executable|writeable|readable), default readable.
+     (0|1|2|4 = exists|executable|writable|readable), default readable.
 
      `locate-file' keeps hash tables of the directories it searches
      through, in order to speed things up.  It tries valiantly to not

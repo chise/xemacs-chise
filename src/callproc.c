@@ -41,19 +41,19 @@ Boston, MA 02111-1307, USA.  */
 #include "syssignal.h" /* Always include before systty.h */
 #include "systty.h"
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #define _P_NOWAIT 1	/* from process.h */
 #include "nt.h"
 #endif
 
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 /* When we are starting external processes we need to know whether they
    take binary input (no conversion) or text input (\n is converted to
    \r\n).  Similarly for output: if newlines are written as \r\n then it's
    text process output, otherwise it's binary.  */
 Lisp_Object Vbinary_process_input;
 Lisp_Object Vbinary_process_output;
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 
 Lisp_Object Vshell_file_name;
 
@@ -74,7 +74,7 @@ const char *synch_process_death;
 int synch_process_retcode;
 
 /* Clean up when exiting Fcall_process_internal.
-   On MSDOS, delete the temporary file on any kind of termination.
+   On Windows, delete the temporary file on any kind of termination.
    On Unix, kill the process and any children on termination by signal.  */
 
 /* Nonzero if this is termination due to exit.  */
@@ -113,7 +113,7 @@ call_process_cleanup (Lisp_Object fdpid)
     /* #### "c-G" -- need non-consing Single-key-description */
     message ("Waiting for process to die...(type C-g again to kill it instantly)");
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
     {
       HANDLE pHandle = OpenProcess (PROCESS_ALL_ACCESS, 0, pid);
       if (pHandle == NULL)
@@ -180,7 +180,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
   Lisp_Object infile, buffer, current_dir, display, path;
   int fd[2];
   int filefd;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   HANDLE pHandle;
 #endif
   int pid;
@@ -349,13 +349,13 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
     else if (STRINGP (error_file))
       {
 	fd_error = open ((const char *) XSTRING_DATA (error_file),
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 			 O_WRONLY | O_TRUNC | O_CREAT | O_TEXT,
 			 S_IREAD | S_IWRITE
-#else  /* not DOS_NT */
+#else  /* not WIN32_NATIVE */
 			 O_WRONLY | O_TRUNC | O_CREAT | OPEN_BINARY,
 			 CREAT_MODE
-#endif /* not DOS_NT */
+#endif /* not WIN32_NATIVE */
 			 );
       }
 
@@ -369,7 +369,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
       }
 
     fork_error = Qnil;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
     pid = child_setup (filefd, fd1, fd_error, new_argv,
                        (char *) XSTRING_DATA (current_dir));
     if (!INTP (buffer))
@@ -389,7 +389,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
     /* Close STDERR into the parent process.  We no longer need it. */
     if (fd_error >= 0)
       close (fd_error);
-#else  /* not WINDOWSNT */
+#else  /* not WIN32_NATIVE */
     pid = fork ();
 
     if (pid == 0)
@@ -410,7 +410,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
     if (fd_error >= 0)
       close (fd_error);
 
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 
     environ = save_environ;
 
@@ -424,7 +424,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
   if (!NILP (fork_error))
     signal_error (Qfile_error, fork_error);
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
   if (pid < 0)
     {
       if (fd[0] >= 0)
@@ -502,7 +502,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	  break;
 
 #if 0
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
        /* Until we pull out of MULE things like
 	  make_decoding_input_stream(), we do the following which is
 	  less elegant. --marcpa */
@@ -542,7 +542,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
     QUIT;
     /* Wait for it to terminate, unless it already has.  */
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
     wait_for_termination (pHandle);
 #else
     wait_for_termination (pid);
@@ -602,7 +602,7 @@ relocate_fd (int fd, int min)
    a decent error from within the child, this should be verified as an
    executable directory by the parent.  */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 int
 #else
 void
@@ -612,21 +612,38 @@ child_setup (int in, int out, int err, char **new_argv,
 {
   char **env;
   char *pwd;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   int cpid;
   HANDLE handles[4];
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #ifdef SET_EMACS_PRIORITY
   if (emacs_priority != 0)
     nice (- emacs_priority);
 #endif
 
-#if !defined (NO_SUBPROCESSES) && !defined (WINDOWSNT)
+  /* Under Windows, we are not in a child process at all, so we should
+     not close handles inherited from the parent -- we are the parent
+     and doing so will screw up all manner of things!  Similarly, most
+     of the rest of the cleanup done in this function is not done
+     under Windows.
+
+     #### This entire child_setup() function is an utter and complete
+     piece of shit.  I would rewrite it, at the very least splitting
+     out the Windows and non-Windows stuff into two completely
+     different functions; but instead I'm trying to make it go away
+     entirely, using the Lisp definition in process.el.  What's left
+     is to fix up the routines in event-msw.c (and in event-Xt.c and
+     event-tty.c) to allow for stream devices to be handled correctly.
+     There isn't much to do, in fact, and I'll fix it shortly.  That
+     way, the Lisp definition can be used non-interactively too. */
+#if !defined (NO_SUBPROCESSES) && !defined (WIN32_NATIVE)
   /* Close Emacs's descriptors that this process should not have.  */
   close_process_descs ();
 #endif /* not NO_SUBPROCESSES */
+#ifndef WIN32_NATIVE
   close_load_descs ();
+#endif
 
   /* Note that use of alloca is always safe here.  It's obvious for systems
      that do not have true vfork or that have true (stack) alloca.
@@ -721,10 +738,10 @@ child_setup (int in, int out, int err, char **new_argv,
     *new_env = 0;
   }
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   prepare_standard_handles (in, out, err, handles);
   set_process_dir (current_dir);
-#else  /* not WINDOWSNT */
+#else  /* not WIN32_NATIVE */
   /* Make sure that in, out, and err are not actually already in
      descriptors zero, one, or two; this could happen if Emacs is
      started with its standard in, out, or error closed, as might
@@ -755,13 +772,13 @@ child_setup (int in, int out, int err, char **new_argv,
     for (fd=3; fd<=64; fd++)
       close (fd);
   }
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 
 #ifdef vipc
   something missing here;
 #endif /* vipc */
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Spawn the child.  (See ntproc.c:Spawnve).  */
   cpid = spawnve (_P_NOWAIT, new_argv[0], (const char* const*)new_argv,
 		  (const char* const*)env);
@@ -770,7 +787,7 @@ child_setup (int in, int out, int err, char **new_argv,
     report_file_error ("Spawning child process", Qnil);
   reset_standard_handles (in, out, err, handles);
   return cpid;
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
   /* execvp does not accept an environment arg so the only way
      to pass this environment is to set environ.  Our caller
      is responsible for restoring the ambient value of environ.  */
@@ -779,7 +796,7 @@ child_setup (int in, int out, int err, char **new_argv,
 
   stdout_out ("Can't exec program %s\n", new_argv[0]);
   _exit (1);
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 }
 
 static int
@@ -797,12 +814,12 @@ getenv_internal (const Bufbyte *var,
       if (STRINGP (entry)
 	  && XSTRING_LENGTH (entry) > varlen
 	  && XSTRING_BYTE (entry, varlen) == '='
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  /* NT environment variables are case insensitive.  */
 	  && ! memicmp (XSTRING_DATA (entry), var, varlen)
-#else  /* not WINDOWSNT */
+#else  /* not WIN32_NATIVE */
 	  && ! memcmp (XSTRING_DATA (entry), var, varlen)
-#endif /* not WINDOWSNT */
+#endif /* not WIN32_NATIVE */
 	  )
 	{
 	  *value    = XSTRING_DATA   (entry) + (varlen + 1);
@@ -875,10 +892,10 @@ init_callproc (void)
 
   {
     /* Initialize shell-file-name from environment variables or best guess. */
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
     const char *shell = egetenv ("COMSPEC");
     if (!shell) shell = "\\WINNT\\system32\\cmd.exe";
-#else /* not WINDOWSNT */
+#else /* not WIN32_NATIVE */
     const char *shell = egetenv ("SHELL");
     if (!shell) shell = "/bin/sh";
 #endif
@@ -914,7 +931,7 @@ void
 vars_of_callproc (void)
 {
   /* This function can GC */
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   DEFVAR_LISP ("binary-process-input", &Vbinary_process_input /*
 *If non-nil then new subprocesses are assumed to take binary input.
 */ );
@@ -924,7 +941,7 @@ vars_of_callproc (void)
 *If non-nil then new subprocesses are assumed to produce binary output.
 */ );
   Vbinary_process_output = Qnil;
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 
   DEFVAR_LISP ("shell-file-name", &Vshell_file_name /*
 *File name to load inferior shells from.

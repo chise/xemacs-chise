@@ -36,10 +36,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "lisp.h"
 
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-#include <errno.h>
+#include "sysfile.h"
 
 #include "buffer.h"
 #include "bytecode.h"
@@ -992,7 +989,11 @@ are copied to the new string.
       return result;
     }
   else
-    abort (); /* unreachable, since Flength (sequence) did not get an error */
+    {
+      abort (); /* unreachable, since Flength (sequence) did not get
+                   an error */
+      return Qnil;
+    }
 }
 
 

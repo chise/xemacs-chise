@@ -2554,6 +2554,956 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-19  Martin Buchholz  <martin@xemacs.org>
+
+	* select-x.c (x_handle_selection_request): 
+	Text selected in xemacs and pasted into xterm failed to appear.
+	Spelling fixes and cosmetic changes.
+
+2000-07-18  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* event-msw.c (mswindows_drain_windows_queue): Correctly check for
+	XEmacs frame (fix for doubling chars in dialog boxes).
+
+2000-07-17 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.c (select_convert_in, select_convert_out):
+	Don't call intern() every time.
+
+	* select.c (Qselect_convert_in, Qselect_convert_out): New.
+	* select.c (vars_of_select): Initialise them.
+
+2000-07-18 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.c (selection-coercible-types): New.
+
+	* select.c (own-selection-internal):
+	* select.c (get-selection-internal):
+	MULE bug fix - these should default to COMPOUND_TEXT and not
+	STRING for MULE. I think.
+
+	* select.c (select_convert_out): Use selection-coercible-types
+	to find types that we can attempt to perform coercions on.
+
+2000-07-18  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-wnnfns.c:
+	* mule-canna.c:
+	Add coding: cookie to identify encoding.
+
+	* mule-canna.c (CANNA_mode_keys): make static.
+	Use proper prototypes, even for functions of no arguments.
+	Remove external prototype for Fding().
+
+	* symsinit.h: Add missing prototype for reinit_vars_of_mule_wnn.
+
+	* select.c (syms_of_select): Add missing DEFSUBR.
+
+2000-07-18 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.c (get_selection_internal, own_selection_internal):
+	Make the type default to STRING, rather than placing a nil type
+	into Vselection_alist.
+
+2000-07-17 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* gpmevent.c (tty_selection_exists_p):
+	* gpmevent.c (tty_own_selection):
+	Updated parameter lists.
+
+2000-07-15 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.h (selection-alist): Removed declaration.
+
+	* select.h (get_local_selection):
+	* select.c (get_local_selection):
+	Made static.
+
+	* select.h (convert_selection): Removed declaration.
+	* select.c (convert_selection): Removed.
+	This function belongs in Lisp.
+
+	* select.h (select_convert_in): Declare.
+	* select.h (select_convert_out): Declare.
+	* select.c (select_convert_in): New.
+	* select.c (select_convert_out): New.
+	New conversion functions for other files to call.
+
+	* select.h (select_notify_buffer_kill): Declare.
+	* select.c (select_notify_buffer_kill): New.
+	New functions that get called from kill-buffer.
+
+	* buffer.c (kill-buffer): Call select_notify_buffer_kill, rather than
+	X-specific lisp code.
+
+	* select.h: Declare some of the lisp-visible functions for
+	external use.
+
+	* select.c (clean_local_selection_data): Removed. This was
+	a disgusting function, and previously should have been in
+	select-x.c in any case. The functionality is now provided
+	in select-convert-from-integer (select.el).
+
+	* select.c (available-selection-types): Fixed stupidity where
+	INTEGER and ATOM got added twice. Also add STRING when we see an
+	extent.
+
+	* select.c (get-selection-internal): Removed symbol stripping. No
+	longer causes conversion when data comes from the internal cache.
+
+	* select.c (syms_of_select): Added new functions.
+
+	* select-x.c (motif_clipboard_cb): Use select_convert_out. Rewrote
+	error checking - previously this called abort!
+	
+	* select-x.c (x_own_selection): Changed comment.
+	
+	* select-x.c (x_handle_selection_request): Use select_convert_out.
+	Don't mess with selection-alist; it's an internal variable of select.c.
+	
+	* select-x.c (x_get_foreign_selection): Use select_convert_in.
+	
+	* select-x.c (x_handle_selection_clear): Use get-selection-timestamp,
+	rather than messing with selection-alist.
+	
+	* select-msw.c (mswindows_get_foreign_selection):
+	Use TO_INTERNAL_FORMAT rather than hacking.
+
+2000-07-14  Martin Buchholz  <martin@xemacs.org>
+
+	* process-unix.c (unix_open_multicast_group):
+	(unix_open_multicast_group): Remove useless casts.
+
+2000-07-13  Martin Buchholz  <martin@xemacs.org>
+
+	* sound.c (Fplay_sound): Fix `unused variable' warning.
+
+	* emacs.c (main): Use correct type for _environ on SCO5.
+
+2000-07-12 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* console.h (own_selection_method):
+	* console.h (selection_exists_p_method):
+	* console.h (available_selection_types_method): New.
+	* console.h (register_selection_data_type_method): New.
+	* console.h (selection_data_type_name): New.
+	
+	* console-msw.h (mswindows_destroy_selection): Declare it.  New
+	function & alist to track GlobalAlloc()'d handles that need
+	releasing when the clipboard data gets replaced or emptied.
+
+	* event-msw.c (mswindows_wnd_proc): Call it.
+
+	* lisp.h, general.c (Qappend): New symbol representing a
+	`how-to-add' mode.
+	
+	* select.c (own-selection-internal):
+	* select.c (selection-exists-p):
+	* select.c (available-selection-types): New.
+	* select.c (register-selection-data-type): New.
+	* select.c (selection-data-type-name): New.  New functions to deal
+	with device-specific selection data formats.
+	* select.c (selection-converter-out-alist): Renamed.
+	* select.c (selection-converter-in-alist): New.
+	* select.c (selection-appender-alist): New.  Added new alists.
+	* select.c (syms_of_select, vars_of_select): Added new symbols &
+	variables.
+	* select.c (get_local_selection): Split.
+	* select.c: Removed spurious type checking - selections may now be
+	of any type, not just strings.
+	* select.c (own-selection-internal):
+
+	* select.h, select.c (convert_selection): New. Created
+	convert_selection() function based on get_local_selection().
+	* select.h, select.c (QCF_*): New symbols representing mswindows
+	clipboard formats.
+	* select.h, select.c (Qreplace_all, Qreplace_existing): New
+	symbols representing `how-to-add' modes.
+
+	* select-msw.c (x_sym_p): New.
+	* select-msw.c (symbol_to_ms_cf): New.
+	* select-msw.c (ms_cf_to_symbol): New. New functions to deal with
+	symbols & clipboard formats. Can also handle string names.
+	* select-msw.c (mswindows_own_selection):
+	* select-msw.c (mswindows_selection_exists_p):
+	Added `data-type' parameter. Use it.
+	* select-msw.c (mswindows_available_selection_types): New.
+	* select-msw.c (mswindows_register_selection_data_type): New.
+	* select-msw.c (mswindows_selection_data_type_name): New.
+	* select-msw.c (mswindows_own_selection):
+	* select-msw.c (mswindows_get_foreign_selection):
+	* select-msw.c (mswindows_selection_exists_p):	Rewrote.
+	* select-msw.c (console_create_select_mswindows): Added new methods.
+	* select-msw.c (mswindows_destroy_selection): New.
+	* select-msw.c (Vhandle_alist): New list.
+	* select-msw.c (mswindows_own_selection):
+
+	* select-x.c (x_own_selection):
+	* select-x.c (x_selection_exists_p):
+	* select-x.c: Added some comments about maybe using new
+	functionality.
+	* select-x.c (x_own_selection):
+
+	* specifier.c: Remove definition of Qappend (now in general.c)
+	* specifier.c (syms_of_specifier): Remove Qappend.
+
+2000-07-12  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in: Add socklen_t.
+
+	* s/decosf4-0.h: No special compiler flags needed or desired.
+	In particular, undefine _BSD for DEC OSF 4.0.
+
+2000-07-07  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* redisplay-msw.c (msprinter_frame_output_end): Added.
+	(console_type_create_redisplay_mswindows): Referred the above.
+
+	* frame.c (setup_frame_without_minibuffer): Do not create a
+	default minibuffer frame on a printer device.
+
+	* frame-msw.c (apply_dc_geometry): Added.
+	(msprinter_start_page): 
+	(msprinter_init_frame_3): 
+	(msprinter_eject_page): Use it.
+
+	* console-msw.h (struct msprinter_frame): Added pix_left and top,
+	and removed residual duplex and orientation properties.
+
+2000-07-11  Martin Buchholz  <martin@xemacs.org>
+
+	* eval.c (function_argcount): Work around a DEC CC compiler bug.
+
+	* unexalpha.c: Remove system prototypes from C sources!
+
+2000-07-09  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* eval.c: Remove references to M-x edit-options in DEFUNs for
+	`defvar' and `defconst'.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in: Remove SMART_INCLUDE hackery.
+	
+	PostgreSQL hacking:
+	* config.h.in: Don't use SMART_INCLUDE.
+
+	* postgresql.h: Include libpq-fe.h here.  Fix typo.
+	* inline.c: Simply #include "postgresql.h"
+	* postgresql.c:
+	- Don't use SMART_INCLUDE
+	- Use simply "const".
+	- Use standard doc string conventions.
+	- Use correct type for result of PQstatus.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-x.c (x_xface_instantiate): Fix C++ compilation warnings.
+
+	C++ compilation changes.
+	* config.h.in (EXTERN_C): Define.
+	* config.h.in (not): This is also a C++ keyword.
+	* unexalpha.c (DEFAULT_ENTRY_ADDRESS): Enable C++ compilation.
+	* cm.c: Use EXTERN_C.
+	* redisplay-tty.c: Use EXTERN_C.
+	* sysdep.c: Use EXTERN_C.  Remove Gould support.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* general.c: Remove duplicate definition for Qfunction.
+
+2000-07-08  Ben Wing  <ben@xemacs.org>
+
+	* device-msw.c (msprinter_init_device):
+	* device-msw.c (sync_printer_with_devmode):
+	* device-msw.c (handle_devmode_changes):
+	* device-msw.c (print_dialog_worker):
+	* device-msw.c (Fmsprinter_apply_settings):
+	* device-msw.c (hash_devmode):
+	* device-msw.c (Fmsprinter_settings_despecialize):
+	use Qmswindows_tstr, not Qctext.
+	
+	* vm-limit.c (check_memory_limits):
+	avoid infinite loop printing warning messages.
+
+2000-07-05  Craig Lanning  <lanning@scra.org>
+
+        * Makefile.in.in: Add support for including the Windows resources
+        when building with the cygwin and mingw targets.
+
+        * buffer.c: from Dan Holmsand, on Windows $PWD is most likely either
+        not set or not correct.
+        (directory_is_current_directory): Don't compile for WIN32_NATIVE.
+        (init_initial_directory): Don't try to use $PWD on the
+        WIN32_NATIVE target.
+
+        * s\cygwin32.h:
+	[[Add -mwindows to eliminate console window.]] not required --ben
+        (HAVE_NATIVE_SOUND): removed; now handled by configure.
+        (MAIL_USE_POP): removed; now handled by configure.
+
+        * s\mingw32.h: [[Add -mwindows to eliminate console window.]] not in
+	C_SWITCH_SYSTEM or it will affect lib-src progs. --ben
+        (HAVE_NATIVE_SOUND): removed; now handled by configure.
+        (MAIL_USE_POP): removed; now handled by configure.
+        (ENCAPSULATE_STAT): from Dan Holmsand, added.
+        (ENCAPSULATE_FSTAT): from Dan Holmsand, added.
+        (DIRECTORY_SEP): from Dan Holmsand, use lisp variable instead of
+        constant string.
+        (HAVE_TIMEVAL): from Dan Holmsand, added; struct timeval is picked
+        up from <winsock.h> via systime.h.
+        (HAVE_GETPAGESIZE): from Dan Holmsand, added.
+        (getpagesize): from Dan Holmsand, added.
+        Added #endif which was left dangling by Ben's mega patch; added
+        comment to help prevent this in the future.
+
+        * sysdll.c: added #include <windows.h> for WIN32_NATIVE case.
+
+2000-07-05  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* console-msw.h (struct mswindows_device): Removed unnecessary
+	cached device geometry values.
+	Added update_tick and an accessor macro.
+	(Lisp_Devmode): Added lrecord declaration. 
+	(struct msprinter_device): Contain devmode as a Lisp object.
+	Added mswindows_get_selected_frame_hwnd();
+
+	* console.h (struct console_methods): Indentation nitpicking.
+
+	* device-msw.c (mswindows_init_device): Do not initialize geometry
+	cache. Initialize update tick.
+	(mswindows_device_system_metrics): Ask the device for its geometry.
+	(global_free_2_maybe): 
+	(devmode_to_hglobal): 
+	(handle_printer_changes): 
+	(ensure_not_printing): 
+	(print_dialog_worker): 
+	(Fmsprinter_print_setup_dialog): 
+	(Fmsprinter_print_dialog): 
+	(plist_get_margin): 
+	(plist_set_margin): 
+	(Fmsprinter_page_setup_dialog): Added functions.
+	(sync_printer_with_devmode): 
+	(handle_devmode_changes): 
+	(Fmsprinter_get_settings): 
+	(Fmsprinter_select_settings): 
+	(Fmsprinter_apply_settings):
+	(allocate_devmode): 
+	(Fmsprinter_settings_copy): 
+	(Fmsprinter_settings_despecialize): 
+	(print_devmode): 
+	(finalize_devmode): 
+	(equal_devmode): 
+	(hash_devmode): Added functions
+	(syms_of_device_mswindows): Init devmode lrecord class.
+
+	* device.h: Added an exfun for find-device.
+
+	* event-msw.c (mswindows_wnd_proc): Do not update the cached
+	geometry; although, recreate the device compatible DC.
+
+	* frame-msw.c (mswindows_get_selected_frame_hwnd): Added.
+	(msprinter_init_frame_3):
+	(msprinter_frame_property): 
+	(msprinter_internal_frame_property_p):
+	(msprinter_frame_properties): 
+	(msprinter_set_frame_properties): Removed 'orientation and 'duplex
+	print job properties (will move to device settings).
+
+	* lisp.h: Added symbols.
+
+	* general.c (syms_of_general): Declared them.
+
+	* hash.c (string_hash): Added.
+
+	* lrecord.h (lrecord_type): Added devmode lrecord type.
+
+2000-07-02  Mike Sperber <mike@xemacs.org>
+
+	* s/freebsd.h (INTERRUPTIBLE_OPEN): open *is* interruptible on
+	FreeBSD 4.0.
+
+2000-06-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* doprnt.c (emacs_doprnt_1): Fix problem with %0XXd for a negative
+	integer.
+
+2000-06-07  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* data.c (Fstring_to_number): Don't recognize floating point if
+	base is not 10.
+
+2000-06-22  Martin Buchholz  <martin@xemacs.org>
+
+	* glyphs-widget.c (tab_control_query_geometry):
+	(widget_query_geometry):
+	(button_query_geometry):
+	* glyphs.c (text_query_geometry):
+	Enforce type correctness.
+
+2000-06-18  Martin Buchholz  <martin@xemacs.org>
+
+	* s/decosf4-0.h (_etext): Use portable _etext instead of etext.
+	* s/decosf4-0.h (_edata): Use portable _edata instead of edata.
+
+2000-06-17  Martin Buchholz  <martin@xemacs.org>
+
+	* s/decosf4-0.h: Never #include "/usr/include/FOO.h" because this
+	conflicts with gcc's fixincluded version of FOO.h.
+
+	* glyphs.h (image_instance_geometry): Remove trailing `,'
+
+2000-06-08  Mike Alexander  <mta@arbortext.com>
+
+        (MAX_SHOVE_BUFFER_SIZE): Change to 512 to match stream buffer size
+        (shove_thread): Don't write the same output twice
+        (make_ntpipe_output_stream): Increase priority of shove thread
+        (ntpipe_shove_writer): Call SwitchToThread to give shove thread a
+        chance to run
+        (ntpipe_shove_closer): Don't delete the pipe until we're done with
+        it.
+
+2000-06-12  Ben Wing  <ben@xemacs.org>
+
+	* s\mingw32.h (sigset):
+	* s\windowsnt.h (sigset):
+	rename msw_ to mswindows_ for consistency with general convention.
+
+2000-06-12  Ben Wing  <ben@xemacs.org>
+
+	* console-msw.c:
+	* console-msw.c (mswindows_get_console_hwnd):
+	* console-msw.c (mswindows_ensure_console_allocated):
+	* console-msw.c (mswindows_hide_console):
+	* console-msw.c (mswindows_show_console):
+	* console-msw.c (mswindows_ensure_console_buffered):
+	* console-msw.c (mswindows_output_console_string):
+	* console-msw.c (mswindows_windows9x_p):
+	* console-msw.h:
+	* device-msw.c (mswindows_get_workspace_coords):
+	* device-msw.c (mswindows_device_system_metrics):
+	* dialog-msw.c (mswindows_popup_dialog_box):
+	* event-msw.c (mswindows_wnd_proc):
+	* frame-msw.c (mswindows_size_frame_internal):
+	* menubar-msw.c (mswindows_translate_menu_or_dialog_item):
+	* menubar-msw.c (displayable_menu_item):
+	* menubar-msw.c (mswindows_char_is_accelerator):
+	* nt.c:
+	* nt.c (mswindows_sigset):
+	* nt.c (mswindows_sigrelse):
+	* nt.c (mswindows_sigpause):
+	* nt.c (mswindows_raise):
+	* nt.c (timer_proc):
+	* ntproc.c:
+	* ntproc.c (find_child_console):
+	* ntproc.c (sys_kill):
+	* print.c:
+	* print.c (std_handle_out_external):
+	* process-nt.c (find_child_console):
+	* process-nt.c (send_signal_the_95_way):
+	* process-nt.c (ensure_console_window_exists):
+	* process-nt.c (nt_create_process):
+	* syssignal.h:
+	rename msw_ to mswindows_ for consistency with general convention.
+
+	* emacs.c:
+	* dumper.c:
+	include nt.h, not syswindows.h.
+
+	* nt.c (mswindows_fstat):
+	* nt.c (mswindows_stat):
+	prefix mswindows_ instead of attempting to directly override the
+	library functions.  fix declarations.
+	
+	* nt.h:
+	include syswindows.h.  move some sysdep.h stuff here.
+	
+	* ntheap.h:
+	include syswindows.h, not <windows.h>.
+
+	* ntplay.c:
+	clean up headers.
+	
+	* sysdep.c:
+	clean up headers.
+	
+	* sysdep.c (sys_fstat):
+	* sysdep.c (sys_stat):
+	call mswindows versions when appropriate.
+	
+	* sysdep.h:
+	move mswin decls to nt.h.
+	
+	* syswindows.h:
+	add long comment describing appropriate use of the various windows
+	headers.
+
+2000-06-11  Ben Wing  <ben@xemacs.org>
+
+	* device-x.c: Correct doc string for sixth arg of x-get-resource.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in (release):
+	Correction to make sure xemacs.exe always dumped when correct.
+	
+	* alloca.c:
+	* balloon_help.c:
+	[[[[3]]]]: Conditionalize on actual problem, not WINDOWSNT.
+	
+	* buffer.c (set_buffer_internal):
+	[[[[2]]]]: Remove HAVE_FEP code.
+
+	* buffer.c (init_initial_directory):
+	[3].
+	
+	* bytecode.c:
+	[[[[4]]]]: limits.h standardly included in lisp.h; remove from
+	individual files.
+	
+	* callproc.c:
+	* callproc.c (call_process_cleanup):
+	* callproc.c (Fold_call_process_internal):
+	* callproc.c (child_setup):
+	* callproc.c (getenv_internal):
+	* callproc.c (init_callproc):
+	* callproc.c (vars_of_callproc):
+	[[[[1]]]]: WINDOWSNT -> WIN32_NATIVE.
+	__CYGWIN32__ -> CYGWIN.
+	DOS_NT -> WIN32_NATIVE.
+	Remove MSDOS support/references, converting to WIN32_NATIVE
+	  where correct.
+	__MINGW32__ -> MINGW.
+	Fix windows.h includes.
+	Remove bogus HAVE_NTGUI.
+
+	* config.h.in:
+	[2].
+	
+	* console-msw.c:
+	mswindows_message_outputted added for use in allowing startup
+	errors on the console to be seen.
+	
+	* console-msw.c (msw_ensure_console_allocated):
+	* console-msw.c (msw_output_console_string):
+	* console-msw.c (DHEADER):
+	* console-msw.c (DOPAQUE_DATA):
+	* console-msw.c (DEVENT):
+	* console-msw.c (DCONS):
+	* console-msw.c (DCONSCDR):
+	* console-msw.c (DSTRING):
+	* console-msw.c (DVECTOR):
+	* console-msw.c (DSYMBOL):
+	* console-msw.c (DSYMNAME):
+	Fix warnings.
+	
+	* console-stream.c (stream_init_console):
+	Fix text/binary problems.
+	
+	* device-msw.c:
+	* device-msw.c (mswindows_finish_init_device):
+	* device-msw.c (mswindows_delete_device):
+	[1].
+	
+	* device.c (handle_asynch_device_change):
+	[3].
+	
+	* dgif_lib.c:
+	* dgif_lib.c (DGifOpenFileName):
+	* dgif_lib.c (DGifOpenFileHandle):
+	* dgif_lib.c (DGifGetLine):
+	* dgif_lib.c (DGifGetPixel):
+	Added config.h/lisp.h, fix up includes.
+	[1].
+	
+	* dired-msw.c:
+	[4].
+	
+	* dired.c:
+	* dired.c (file_name_completion):
+	* dired.c (Ffile_attributes):
+	* dired.c (syms_of_dired):
+	[1].
+	
+	* dumper.c:
+	* dumper.c (pdump_file_unmap):
+	* dumper.c (pdump_load):
+	[1].
+	
+	* editfns.c:
+	* editfns.c (Ftemp_directory):
+	* editfns.c (user_login_name):
+	* editfns.c (Fuser_real_login_name):
+	* editfns.c (get_home_directory):
+	[1].
+	
+	* elhash.c (finish_marking_weak_hash_tables):
+	[[[[5]]]]: Fix GCC warnings.
+	
+	* emacs.c:
+	* emacs.c (mswindows_handle_hardware_exceptions):
+	* emacs.c (make_arg_list_1):
+	* emacs.c (main_1):
+	* emacs.c (Fkill_emacs):
+	* emacs.c (Fdump_emacs):
+	[1].
+	Fix problems with nested crashes, add long comment.
+	
+	* event-Xt.c (init_event_Xt_late):
+	[1].
+	
+	* event-msw.c:
+	* event-msw.c (mswindows_dde_callback):
+	* event-msw.c (mswindows_handle_sticky_modifiers):
+	* event-msw.c (mswindows_wnd_proc):
+	[1].
+	[5].
+	
+	* events.c (character_to_event):
+	[1].
+	
+	* fileio.c:
+	* fileio.c (Ffile_name_directory):
+	* fileio.c (Ffile_name_nondirectory):
+	* fileio.c (directory_file_name):
+	* fileio.c (Fexpand_file_name):
+	* fileio.c (Fsubstitute_in_file_name):
+	* fileio.c (Ffile_name_absolute_p):
+	* fileio.c (check_executable):
+	* fileio.c (Ffile_readable_p):
+	* fileio.c (Ffile_accessible_directory_p):
+	* fileio.c (Ffile_modes):
+	* fileio.c (Funix_sync):
+	* fileio.c (vars_of_fileio):
+	[1]. [4].
+
+	[[[[7]]]]: Move CORRECT_DIR_SEPS to s\windowsnt.h.
+	
+	Expand getdefdir defn.
+	Fix bogus rename() comment.
+
+	[[[[6]]]]: Fix Windows includes w.r.t. removed nt\inc.  Attempt
+	to use standard XEmacs include files, e.g. sysfile.h, rather
+	than system-specific includes.
+	
+	* fns.c:
+	* fns.c (Fsubseq):
+	[5]. [6].
+	
+	* frame.c (vars_of_frame):
+	[1].
+	
+	* getloadavg.c:
+	* getloadavg.c (getloadavg):
+	[1]. [6].
+	#ifdef XEMACS not defined on Cygwin.  Remove this; no need for it.
+	(We don't use it elsewhere in the code; just add a comment.)
+	
+	* gif_io.c:
+	[6].
+	Add config.h.
+	
+	* glyphs-msw.c:
+	* glyphs-msw.c (mswindows_resource_instantiate):
+	[1].
+	
+	* glyphs-x.c (x_native_layout_instantiate):
+	[5].
+	
+	* gui-msw.c (Fmswindows_shell_execute):
+	[1].
+	
+	* insdel.c:
+	[4].
+	
+	* lisp.h:
+	[4]. [5].
+	
+	* lread.c (locate_file_in_directory_mapper):
+	[1].
+	
+	* lstream.c:
+	[4].
+	
+	* mem-limits.h:
+	* mem-limits.h (get_lim_data):
+	[1].
+	
+	* menubar-msw.c:
+	[4].
+	
+	* ndir.h:
+	[1].
+	
+	* nt.c:
+	* nt.c (getwd):
+	* nt.c (closedir):
+	* nt.c (rva_to_section):
+	* nt.c (mswindows_executable_type):
+	[1]. [6].
+	Fix closedir() defn.
+	
+	* nt.h:
+	[[[[8]]]]: *_OK defs moved to sysfile.h.
+	
+	* ntproc.c:
+	[6]. [7].
+	
+	* objects-x.c:
+	[4].
+	
+	* print.c:
+	* print.c (std_handle_out_external):
+	[1]. [4].
+	
+	* process-nt.c:
+	* process-nt.c (nt_create_process):
+	[6].
+	try to fix process quoting somewhat.
+	
+	* process-unix.c (unix_create_process):
+	[1].
+	
+	* process.c:
+	* process.c (vars_of_process):
+	Add Vnull_device.
+	
+	* process.h:
+	[1].
+	
+	* realpath.c:
+	* realpath.c (xrealpath):
+	[1].
+	
+	* redisplay-tty.c (init_tty_for_redisplay):
+	[3].
+	
+	* redisplay.c:
+	[4]. [6].
+	
+	* scrollbar-msw.c:
+	[4].
+	
+	* sheap.c:
+	* sheap.c (more_static_core):
+	* sheap.c (report_sheap_usage):
+	[5]. [6].
+	
+	* signal.c:
+	* signal.c (alarm_signal):
+	[1]. [6]. 
+	
+	* sound.c:
+	[6].
+	
+	* strftime.c:
+	* strftime.c (zone_name):
+	[1]. [5].
+	
+	* symsinit.h (init_sunpro):
+	[1].
+	
+	* syscommctrl.h:
+	commctrl.h not in Cygwin b20.1.
+	
+	* sysdep.c:
+	* sysdep.c (endif):
+	* sysdep.c (sys_subshell):
+	* sysdep.c (init_baud_rate):
+	* sysdep.c (emacs_get_tty):
+	* sysdep.c (emacs_set_tty):
+	* sysdep.c (tty_init_sys_modes_on_device):
+	* sysdep.c (init_system_name):
+	* sysdep.c (sys_open):
+	* sysdep.c (interruptible_open):
+	* sysdep.c (sys_fopen):
+	* sysdep.c (sys_mkdir):
+	* sysdep.c (sys_rename):
+	* sysdep.c (get_process_times_1):
+	[1]. [6].
+	
+	* sysdep.h:
+	[1].
+	
+	* sysdir.h:
+	* sysdir.h (DIRENTRY_NONEMPTY):
+	[1]. [6].
+	
+	* sysdll.c (dll_init):
+	* sysdll.h:
+	[1].
+		
+	* sysfile.h:
+	[1]. [6]. [8].
+	added text/binary defs.
+	
+	* sysfloat.h:
+	[1].
+	
+	* sysproc.h:
+	* sysproc.h (EDESTADDRREQ):
+	* sysproc.h (poll_fds_for_input):
+	[1]. [6].
+	
+	* syspwd.h:
+	[6].
+	
+	* syssignal.h:
+	[1].
+	
+	* systime.h:
+	[1]. [6].
+	
+	* systty.h:
+	[1].
+	
+	* syswindows.h:
+	[1].
+	Always define WIN32_LEAN_AND_MEAN.
+	
+	* unexcw.c (unexec):
+	[5].
+	
+	* unexec.c:
+	* unexec.c (copy_text_and_data):
+	* unexec.c (adjust_lnnoptrs):
+	[1].
+	
+	* unexnt.c:
+	* unexnt.c (_start):
+	[1].
+	
+2000-06-07  Ben Wing  <ben@xemacs.org>
+
+	* mule-mcpath.c, mule-mcpath.h: Removed.  Old, crufty code that
+	was used only as a model.  We've long since extracted any useful
+	logic or code out of this. (I just did an exhaustive search.)
+
+	* s\msdos.h: Removed.
+
+	* s\windows95.h: Removed.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* s\cygwin32.h:
+	[1]. [5].
+	Don't use extern with fun defs.
+	
+	* s\mingw32.h:
+	[1]. [7].
+	Remove nt\inc include.
+	Remove getdisk, getdefdir. (The former is unused, the latter
+	expanded in fileio.h.)
+	
+	* s\windowsnt.h:
+	* s\windowsnt.h (WIN32_NATIVE):
+	* s\windowsnt.h (HAVE_STRCASECMP):
+	[1]. [7].
+	Add long comment about preprocessor changes.
+	Remove getdisk, getdefdir. (The former is unused, the latter
+	expanded in fileio.h.)
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* m\arm.h:
+	* m\delta.h:
+	* m\intel386.h:
+	* m\sequent.h:
+	* m\template.h:
+	* m\windowsnt.h:
+	[1].
+	Remove bogus/unused NO_SOCK_SIGIO.
+	
+2000-06-08  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* lisp.h (set_string_char): Call set_string_byte with a Bufbyte,
+	not an Emchar.
+
+2000-06-04  Mike Sperber <mike@xemacs.org>
+
+	* casetab.c (set_case_table): For `set-standard-case-table',
+	actually deposit the new case tables where the rest of XEmacs can
+	see them.
+
+2000-06-05  Yoshiki Hayashi <yoshiki@xemacs.org>
+
+	* data.c (Faset): Don't cast XCHAR() to unsigned char.
+
+2000-06-05  Ben Wing  <ben@xemacs.org>
+
+	* callproc.c (child_setup): Don't do close_load_descs() under
+	MS Windows.  Put in a comment explaining why.
+
+2000-05-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* process-nt.c: Reverting patch "Fixing nt_create_process for MKS
+	Toolkit shell" which breaks `kill-compilation' on Windows NT
+	native, retaining STDERR handling improvements.
+
+2000-06-01  Andreas Jaeger  <aj@suse.de>
+
+	* s/s390.h: Support for S390, based on a patch by Martin
+	Schwidefsky <schwidefsky@de.ibm.com>.
+
+2000-05-30  Andy Piper  <andy@xemacs.org>
+
+	* window.c (allocate_window): 
+	(make_dummy_parent): 
+	(Fset_window_configuration): use new hashtable type.
+
+	* glyphs.h (IMAGE_UNSPECIFIED_GEOMETRY): 
+	(struct image_instantiator_methods): 
+	(struct Lisp_Image_Instance): make instance geometry signed.
+
+	* glyphs.c (instantiate_image_instantiator): 
+	(image_instance_query_geometry): 
+	(image_instance_layout): 
+	(image_instance_layout): 
+	(query_string_geometry): 
+	(text_query_geometry): 
+	(image_instantiate): 
+	(image_instantiate): 
+	(cache_subwindow_instance_in_frame_maybe): 
+	(subwindow_query_geometry): make instance geometry signed.
+
+	* glyphs-widget.c (widget_query_geometry): 
+	(widget_layout): 
+	(button_query_geometry): 
+	(tree_view_query_geometry): 
+	(tab_control_query_geometry): 
+	(layout_query_geometry): 
+	(layout_layout): 
+	(native_layout_layout): make instance geometry signed.
+
+2000-05-29  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add Qfull_assoc symbol and WEAK_LIST_FULL_ASSOC
+	constant.
+
+	* general.c (syms_of_general): Add Qfull_assoc symbol.
+
+	* data.c (finish_marking_weak_lists): Mark full-assoc lists
+	correctly.
+	(decode_weak_list_type): Decode full-assoc type.
+	(encode_weak_list_type): Encode full-assoc type.
+	(Fmake_weak_list): Update doc string.
+
+2000-05-30  Andy Piper  <andy@xemacs.org>
+
+	* elhash.h (hash_table_weakness): new KEY_VALUE weak hashtable.
+
+	* elhash.c (print_hash_table): new KEY_VALUE weak hashtable.
+	(decode_hash_table_weakness): ditto.
+	(Fhash_table_weakness): ditto.
+	(Fhash_table_type): ditto.
+	(finish_marking_weak_hash_tables): ditto.
+	(hash_table_weakness_validate): ditto.
+	(syms_of_elhash): ditto.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

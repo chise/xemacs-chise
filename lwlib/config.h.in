@@ -29,12 +29,18 @@ Boston, MA 02111-1307, USA.  */
 #undef NEED_ATHENA
 #undef NEED_LUCID
 
-/* The path to the Athena widgets - the usual value is `X11/Xaw' */
-#undef ATHENA_H_PATH
-#ifdef ATHENA_H_PATH
-# define ATHENA_INCLUDE(file) SMART_INCLUDE (ATHENA_H_PATH,file)
-#else
-# define ATHENA_INCLUDE(file) <file>
-#endif
+/* The exact path to the Athena header files depends on which `flavor'
+   of Athena is being used - hence configure defines them for us. */
+
+#undef ATHENA_Scrollbar_h_
+#undef ATHENA_Dialog_h_
+#undef ATHENA_Form_h_
+#undef ATHENA_Command_h_
+#undef ATHENA_Label_h_
+#undef ATHENA_LabelP_h_
+#undef ATHENA_Toggle_h_
+#undef ATHENA_ToggleP_h_
+#undef ATHENA_AsciiText_h_
+#undef ATHENA_XawInit_h_
 
 #endif /* _LWLIB_CONFIG_H_ */

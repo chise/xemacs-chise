@@ -794,8 +794,8 @@ examine the buffer that was being edited at the time of the error, and
 you can switch buffers, visit files, and perform any other editing
 operations.  However, the debugger is a recursive editing level (*note
 Recursive Edit::); it is a good idea to return to the backtrace buffer
-and explictly exit the debugger when you don't want to use it any more.
-Exiting the debugger kills the backtrace buffer.
+and explicitly exit the debugger when you don't want to use it any
+more.  Exiting the debugger kills the backtrace buffer.
 
    The contents of the backtrace buffer show you the functions that are
 executing and the arguments that were given to them.  It also allows you

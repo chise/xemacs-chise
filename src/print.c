@@ -38,11 +38,10 @@ Boston, MA 02111-1307, USA.  */
 #include "insdel.h"
 #include "lstream.h"
 #include "sysfile.h"
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include "console-msw.h"
 #endif
 
-#include <limits.h>
 #include <float.h>
 /* Define if not in float.h */
 #ifndef DBL_DIG
@@ -106,7 +105,7 @@ FILE *termscript;	/* Stdio stream being used for copy of all output.  */
 
 int stdout_needs_newline;
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 static int no_useful_stderr;
 #endif
 
@@ -120,19 +119,19 @@ std_handle_out_external (FILE *stream, Lisp_Object lstream,
 {
   if (stream)
     {
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
       if (!no_useful_stderr)
 	no_useful_stderr = GetStdHandle (STD_ERROR_HANDLE) == 0 ? 1 : -1;
 
       /* we typically have no useful stdout/stderr under windows if we're
 	 being invoked graphically. */
       if (!noninteractive || no_useful_stderr > 0)
-	msw_output_console_string (extptr, extlen);
+	mswindows_output_console_string (extptr, extlen);
       else
 #endif
 	{
 	  fwrite (extptr, 1, extlen, stream);
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	  /* Q122442 says that pipes are "treated as files, not as
 	     devices", and that this is a feature. Before I found that
 	     article, I thought it was a bug. Thanks MS, I feel much
@@ -170,7 +169,7 @@ std_handle_out_external (FILE *stream, Lisp_Object lstream,
    called from fatal_error_signal().
 
    2) (to be really correct) make a new lstream that outputs using
-   msw_output_console_string().  */
+   mswindows_output_console_string().  */
 
 static int
 std_handle_out_va (FILE *stream, const char *fmt, va_list args)
@@ -934,10 +933,8 @@ float_to_string (char *buf, double data)
 }
 #endif /* LISP_FLOAT_TYPE */
 
-/* Print NUMBER to BUFFER.  The digits are first written in reverse
-   order (the least significant digit first), and are then reversed.
-   This is equivalent to sprintf(buffer, "%ld", number), only much
-   faster.
+/* Print NUMBER to BUFFER.  This is equivalent to sprintf(buffer,
+   "%ld", number), only much faster.
 
    BUFFER should accept 24 bytes.  This should suffice for the longest
    numbers on 64-bit machines, including the `-' sign and the trailing
@@ -1559,7 +1556,7 @@ This function can be used as the STREAM argument of Fprint() or the like.
 
 Under MS Windows, this writes output to the console window (which is
 created, if necessary), unless XEmacs is being run noninteractively
-(i.e. using the `-batch' argument).
+\(i.e. using the `-batch' argument).
 
 If you have opened a termscript file (using `open-termscript'), then
 the output also will be logged to this file.

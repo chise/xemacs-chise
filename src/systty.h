@@ -94,9 +94,9 @@ Boston, MA 02111-1307, USA.  */
 #  include <fcntl.h>
 # endif
 
-#elif defined (DOS_NT)
+#elif defined (WIN32_NATIVE)
 
-/*****             (3) The MSDOS/NT way              *****/
+/*****             (3) The WIN32_NATIVE way              *****/
 
 /* Nothing doing */
 
@@ -124,7 +124,7 @@ Boston, MA 02111-1307, USA.  */
 /* Generally useful to include this file: */
 
 /* But Sun OS has broken include files and doesn't want it included */
-#if !defined (DOS_NT) && !defined (WIN32) && !defined (SUNOS4)
+#if !defined (WIN32_NATIVE) && !defined (SUNOS4)
 # include <sys/ioctl.h>
 #endif
 /* UNIPLUS systems may have FIONREAD.  */
@@ -333,7 +333,7 @@ Boston, MA 02111-1307, USA.  */
    No big loss -- it just means that ^Z won't work right
    if we're run from sh. */
 #  define EMACS_SET_PROCESS_GROUP(pg)
-#elif defined(__MINGW32__)
+#elif defined(MINGW)
 #  define EMACS_SEPARATE_PROCESS_GROUP()
 #else
 /* Under NeXTstep, a process group of 0 is not the same as specifying
@@ -384,11 +384,11 @@ struct emacs_tty {
 #ifdef HAVE_TERMIO
   struct termio main;
 #else /* !HAVE_TERMIO */
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   int main;
-#else  /* not DOS_NT */
+#else  /* not WIN32_NATIVE */
   struct sgttyb main;
-#endif /* not DOS_NT */
+#endif /* not WIN32_NATIVE */
 #endif /* !HAVE_TERMIO */
 #endif /* !HAVE_TCATTR */
 
@@ -428,11 +428,11 @@ int emacs_set_tty (int fd, struct emacs_tty *settings, int flushp);
 #define EMACS_TTY_TABS_OK(p) (((p)->main.c_oflag & TABDLY) != TAB3)
 
 #else /* neither HAVE_TERMIO nor HAVE_TERMIOS */
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 #define EMACS_TTY_TABS_OK(p) 0
-#else /* not DOS_NT */
+#else /* not WIN32_NATIVE */
 #define EMACS_TTY_TABS_OK(p) (((p)->main.sg_flags & XTABS) != XTABS)
-#endif /* not DOS_NT */
+#endif /* not WIN32_NATIVE */
 
 #endif /* not def HAVE_TERMIO */
 #endif /* not def HAVE_TERMIOS */

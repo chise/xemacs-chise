@@ -375,7 +375,7 @@ update_widget (Lisp_Object widget)
    provided then use the widget text to calculate sizes. */
 static void 
 widget_query_geometry (Lisp_Object image_instance, 
-		       unsigned int* width, unsigned int* height,
+		       int* width, int* height,
 		       enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
@@ -410,7 +410,7 @@ widget_query_geometry (Lisp_Object image_instance,
 						   domain));
 	  else 
 	    {
-	      unsigned int w, h;
+	      int w, h;
 	      
 	      /* Then if we are allowed to resize the widget, make the
 		 size the same as the text dimensions. */
@@ -442,7 +442,7 @@ widget_query_geometry (Lisp_Object image_instance,
 
 static int 
 widget_layout (Lisp_Object image_instance, 
-	       unsigned int width, unsigned int height, Lisp_Object domain)
+	       int width, int height, Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
@@ -698,11 +698,11 @@ widget_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
    depending on the type of button. */
 static void
 button_query_geometry (Lisp_Object image_instance, 
-		       unsigned int* width, unsigned int* height,
+		       int* width, int* height,
 		       enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  unsigned int w, h;
+  int w, h;
   query_string_geometry (IMAGE_INSTANCE_WIDGET_TEXT (ii),
 			 IMAGE_INSTANCE_WIDGET_FACE (ii),
 			 &w, &h, 0, domain);
@@ -724,7 +724,7 @@ button_query_geometry (Lisp_Object image_instance,
 /* tree-view geometry - get the height right */
 static void
 tree_view_query_geometry (Lisp_Object image_instance, 
-			  unsigned int* width, unsigned int* height,
+			  int* width, int* height,
 			  enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
@@ -751,7 +751,7 @@ tree_view_query_geometry (Lisp_Object image_instance,
    items and text therin in the tab control. */
 static void
 tab_control_query_geometry (Lisp_Object image_instance, 
-			    unsigned int* width, unsigned int* height,
+			    int* width, int* height,
 			    enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
@@ -761,7 +761,7 @@ tab_control_query_geometry (Lisp_Object image_instance,
 
   LIST_LOOP (rest, items)
     {
-      unsigned int h, w;
+      int h, w;
 
       query_string_geometry (XGUI_ITEM (XCAR (rest))->name,
 			     IMAGE_INSTANCE_WIDGET_FACE (ii),
@@ -995,14 +995,14 @@ layout_post_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 /* Query the geometry of a layout widget. We assume that we can only
    get here if the size is not already fixed. */
 static void
-layout_query_geometry (Lisp_Object image_instance, unsigned int* width,
-		       unsigned int* height, enum image_instance_geometry disp,
+layout_query_geometry (Lisp_Object image_instance, int* width,
+		       int* height, enum image_instance_geometry disp,
 		       Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object items = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii), rest;
   int maxph = 0, maxpw = 0, nitems = 0, ph_adjust = 0;
-  unsigned int gheight, gwidth;
+  int gheight, gwidth;
 
   /* If we are not initialized then we won't have any children. */
   if (!IMAGE_INSTANCE_INITIALIZED (ii))
@@ -1082,14 +1082,14 @@ layout_query_geometry (Lisp_Object image_instance, unsigned int* width,
 
 int
 layout_layout (Lisp_Object image_instance, 
-	       unsigned int width, unsigned int height, Lisp_Object domain)
+	       int width, int height, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object rest;
   Lisp_Object items = IMAGE_INSTANCE_LAYOUT_CHILDREN (ii);
   int x, y, maxph = 0, maxpw = 0, nitems = 0,
     horiz_spacing, vert_spacing, ph_adjust = 0;
-  unsigned int gheight, gwidth;
+  int gheight, gwidth;
 
   /* If we are not initialized then we won't have any children. */
   if (!IMAGE_INSTANCE_INITIALIZED (ii))
@@ -1215,7 +1215,7 @@ layout_layout (Lisp_Object image_instance,
 /* Layout subwindows if they are real subwindows. */
 static int
 native_layout_layout (Lisp_Object image_instance,
-		      unsigned int width, unsigned int height,
+		      int width, int height,
 		      Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);

@@ -1761,7 +1761,8 @@ in that frame; otherwise change each frame."
 			(and 
 			 (featurep 'x)
 			 (x-get-resource "backgroundToolBarColor"
-					 "BackgroundToolBarColor" 'string))
+					 "BackgroundToolBarColor" 'string
+					 nil nil 'warn))
 
 			(face-background 'toolbar))))
 	   (purecopy '("foregroundToolBarColor"
@@ -1769,7 +1770,8 @@ in that frame; otherwise change each frame."
 			(and 
 			 (featurep 'x)
 			 (x-get-resource "foregroundToolBarColor"
-					 "ForegroundToolBarColor" 'string))
+					 "ForegroundToolBarColor" 'string
+					 nil nil 'warn))
 			(face-foreground 'toolbar))))
 	   )))
 

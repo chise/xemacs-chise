@@ -33,21 +33,21 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/Shell.h>
 
 #ifdef LWLIB_SCROLLBARS_ATHENA
-#include ATHENA_INCLUDE(Scrollbar.h)
+#include ATHENA_Scrollbar_h_
 #endif
 #ifdef LWLIB_DIALOGS_ATHENA
-#include ATHENA_INCLUDE(Dialog.h)
-#include ATHENA_INCLUDE(Form.h)
-#include ATHENA_INCLUDE(Command.h)
-#include ATHENA_INCLUDE(Label.h)
+#include ATHENA_Dialog_h_
+#include ATHENA_Form_h_
+#include ATHENA_Command_h_
+#include ATHENA_Label_h_
 #endif
 #ifdef LWLIB_WIDGETS_ATHENA
-#include ATHENA_INCLUDE(Toggle.h)
+#include ATHENA_Toggle_h_
 #include "xlwradio.h"
 #include "xlwcheckbox.h"
 #include "xlwgauge.h"
 #ifndef NEED_MOTIF
-#include ATHENA_INCLUDE(AsciiText.h)
+#include ATHENA_AsciiText_h_
 #endif
 #endif
 #include <X11/Xatom.h>
@@ -230,7 +230,7 @@ xaw_update_one_value (widget_instance *instance, Widget widget,
       Arg al [2];
       String buf = 0;
       XtSetArg (al [0], XtNstring, &buf);
-      XtGetValues (widget, al, 2);
+      XtGetValues (widget, al, 1);
 
       if (val->value)
 	{
@@ -791,6 +791,8 @@ xaw_create_label (Widget parent, widget_value* val)
   /* Do it again for arguments that have no effect until the widget is realized. */
   ac = 0;
   lw_add_value_args_to_args (val, al, &ac);
+  if (ac > 20)
+    abort (); /* #### need assert macro in lwlib */
   XtSetValues (label, al, ac);
 
   return label;

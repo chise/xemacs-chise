@@ -1,4 +1,4 @@
-/* CANNA interface
+/* CANNA interface -*- coding: euc-jp -*-
 
    Copyright (C) 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
@@ -190,6 +190,7 @@ static int IRCP_context;
 
 static Lisp_Object storeResults (unsigned char *, int, jrKanjiStatus *);
 static Lisp_Object kanjiYomiList (int, int);
+static Lisp_Object CANNA_mode_keys (void);
 
 #ifdef CANNA_MULE
 static void m2c (unsigned char *, int, unsigned char *);
@@ -326,10 +327,9 @@ No separator will be used otherwise.
 }
 
 /* For whatever reason, calling Fding directly from libCanna loses */
-static void call_Fding()
+static void
+call_Fding (void)
 {
-  extern Lisp_Object Fding();
-
   Fding (Qnil, Qnil, Qnil);
 }
 
@@ -421,8 +421,7 @@ If nil is specified for each arg, the default value will be used.
     }
   else
     {
-      extern void (*jrBeepFunc)();
-      Lisp_Object CANNA_mode_keys ();
+      extern void (*jrBeepFunc) (void);
 
       jrBeepFunc = call_Fding;
 
@@ -535,7 +534,7 @@ Change Japanese pre-edit mode.
   return val;
 }
 
-Lisp_Object
+static Lisp_Object
 CANNA_mode_keys (void)
 {
 #define CANNAWORKBUFSIZE 32

@@ -750,6 +750,8 @@ FUNC is not added if it already appears on the list stored in HOOK."
 (defun cl-hack-byte-compiler ()
   (if (and (not cl-hacked-flag) (fboundp 'byte-compile-file-form))
       (progn
+	(when (not (fboundp 'cl-compile-time-init))
+	  (load "cl-macs" nil t))
 	(cl-compile-time-init)   ; in cl-macs.el
 	(setq cl-hacked-flag t))))
 

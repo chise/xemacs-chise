@@ -200,11 +200,10 @@ x_atom_to_symbol (struct device *d, Atom atom)
 
 
 /* Do protocol to assert ourself as a selection owner.
-   Update the Vselection_alist so that we can reply to later requests for
-   our selection.
  */
 static Lisp_Object
-x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value)
+x_own_selection (Lisp_Object selection_name, Lisp_Object selection_value,
+		 Lisp_Object how_to_add, Lisp_Object selection_type)
 {
   struct device *d = decode_x_device (Qnil);
   Display *display = DEVICE_X_DISPLAY (d);
@@ -252,7 +251,7 @@ hack_motif_clipboard_selection (Atom selection_atom,
 				Lisp_Object selection_value,
 				Time thyme,
 				Display *display,
-                                                Window selecting_window)
+				Window selecting_window)
      /*				Bool owned_p)*/
 {
   struct device *d = get_device_from_display (display);
@@ -375,10 +374,34 @@ motif_clipboard_cb (Widget widget, int *data_id, int *private_id, int *reason)
       {
 	Display *dpy = XtDisplay (widget);
 	Window window = (Window) *private_id;
-	Lisp_Object selection = assq_no_quit (QCLIPBOARD, Vselection_alist);
-	if (NILP (selection)) abort ();
-	selection = XCDR (selection);
-	if (!STRINGP (selection)) abort ();
+	Lisp_Object selection = select_convert_out (QCLIPBOARD, Qnil, Qnil);
+
+	/* Whichever lazy git wrote this originally just called abort()
+	   when anything didn't go their way... */
+	
+	/* Try some other text types */
+	if (NILP (selection))
+	  selection = select_convert_out (QCLIPBOARD, QSTRING, Qnil);
+	if (NILP (selection))
+	  selection = select_convert_out (QCLIPBOARD, QTEXT, Qnil);
+	if (NILP (selection))
+	  selection = select_convert_out (QCLIPBOARD, QCOMPOUND_TEXT, Qnil);
+	
+	if (CONSP (selection) && SYMBOLP (XCAR (selection))
+	    && (EQ (XCAR (selection), QSTRING)
+		|| EQ (XCAR (selection), QTEXT)
+		|| EQ (XCAR (selection), QCOMPOUND_TEXT)))
+	  selection = XCDR (selection);
+
+	if (NILP (selection))
+	  signal_error (Qselection_conversion_error,
+			build_string ("no selection"));
+
+	if (!STRINGP (selection))
+	  signal_error (Qselection_conversion_error,
+			build_string ("couldn't convert selection to string"));
+			       
+	
 	XmClipboardCopyByName (dpy, window, *data_id,
 			       (char *) XSTRING_DATA (selection),
 			       XSTRING_LENGTH (selection) + 1,
@@ -546,8 +569,8 @@ void
 x_handle_selection_request (XSelectionRequestEvent *event)
 {
   /* This function can GC */
-  struct gcpro gcpro1, gcpro2, gcpro3;
-  Lisp_Object local_selection_data = Qnil;
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object temp_obj;
   Lisp_Object selection_symbol;
   Lisp_Object target_symbol = Qnil;
   Lisp_Object converted_selection = Qnil;
@@ -556,33 +579,28 @@ x_handle_selection_request (XSelectionRequestEvent *event)
   int count;
   struct device *d = get_device_from_display (event->display);
 
-  GCPRO3 (local_selection_data, converted_selection, target_symbol);
+  GCPRO2 (converted_selection, target_symbol);
 
   selection_symbol = x_atom_to_symbol (d, event->selection);
+  target_symbol = x_atom_to_symbol (d, event->target);
 
-  local_selection_data = assq_no_quit (selection_symbol, Vselection_alist);
-
-#if 0
-  /* This list isn't user-visible, so it can't "go bad." */
-  assert (CONSP (local_selection_data));
-  assert (CONSP (XCDR (local_selection_data)));
-  assert (CONSP (XCDR (XCDR (local_selection_data))));
-  assert (NILP  (XCDR (XCDR (XCDR (local_selection_data)))));
-  assert (CONSP (XCAR (XCDR (XCDR (local_selection_data)))));
-  assert (INTP  (XCAR (XCAR (XCDR (XCDR (local_selection_data))))));
-  assert (INTP  (XCDR (XCAR (XCDR (XCDR (local_selection_data))))));
+#if 0 /* #### MULTIPLE doesn't work yet */
+  if (EQ (target_symbol, QMULTIPLE))
+    target_symbol = fetch_multiple_target (event);
 #endif
 
-  if (NILP (local_selection_data))
+  temp_obj = Fget_selection_timestamp (selection_symbol);
+
+  if (NILP (temp_obj))
     {
-      /* Someone asked for the selection, but we don't have it any more. */
+      /* We don't appear to have the selection. */
       x_decline_selection_request (event);
+
       goto DONE_LABEL;
     }
 
-  local_selection_time =
-    * (Time *) XOPAQUE_DATA (XCAR (XCDR (XCDR (local_selection_data))));
-
+  local_selection_time = * (Time *) XOPAQUE_DATA (temp_obj);
+  
   if (event->time != CurrentTime &&
       local_selection_time > event->time)
     {
@@ -592,35 +610,36 @@ x_handle_selection_request (XSelectionRequestEvent *event)
       goto DONE_LABEL;
     }
 
+  converted_selection = select_convert_out (selection_symbol,
+					    target_symbol, Qnil);
+
+  /* #### Is this the right thing to do? I'm no X expert. -- ajh */
+  if (NILP (converted_selection))
+    {
+      /* We don't appear to have a selection in that data type. */
+      x_decline_selection_request (event);
+      goto DONE_LABEL;
+    }
+
   count = specpdl_depth ();
   record_unwind_protect (x_selection_request_lisp_error,
 			 make_opaque_ptr (event));
-  target_symbol = x_atom_to_symbol (d, event->target);
 
-#if 0 /* #### MULTIPLE doesn't work yet */
-  if (EQ (target_symbol, QMULTIPLE))
-    target_symbol = fetch_multiple_target (event);
-#endif
-
-  /* Convert lisp objects back into binary data */
-
-  converted_selection =
-    get_local_selection (selection_symbol, target_symbol);
-
-  if (! NILP (converted_selection))
-    {
-      unsigned char *data;
-      unsigned int size;
-      int format;
-      Atom type;
-      lisp_data_to_selection_data (d, converted_selection,
-				   &data, &type, &size, &format);
-
-      x_reply_selection_request (event, format, data, size, type);
-      successful_p = Qt;
-      /* Tell x_selection_request_lisp_error() it's cool. */      event->type = 0;
-      xfree (data);
-    }
+  {
+    unsigned char *data;
+    unsigned int size;
+    int format;
+    Atom type;
+    lisp_data_to_selection_data (d, converted_selection,
+				 &data, &type, &size, &format);
+    
+    x_reply_selection_request (event, format, data, size, type);
+    successful_p = Qt;
+    /* Tell x_selection_request_lisp_error() it's cool. */
+    event->type = 0;
+    xfree (data);
+  }
+  
   unbind_to (count, Qnil);
 
  DONE_LABEL:
@@ -629,17 +648,15 @@ x_handle_selection_request (XSelectionRequestEvent *event)
 
   /* Let random lisp code notice that the selection has been asked for. */
   {
-    Lisp_Object rest;
     Lisp_Object val = Vx_sent_selection_hooks;
     if (!UNBOUNDP (val) && !NILP (val))
       {
+	Lisp_Object rest;
 	if (CONSP (val) && !EQ (XCAR (val), Qlambda))
 	  for (rest = val; !NILP (rest); rest = Fcdr (rest))
-	    call3 (Fcar(rest), selection_symbol, target_symbol,
-		   successful_p);
+	    call3 (Fcar (rest), selection_symbol, target_symbol, successful_p);
 	else
-	  call3 (val, selection_symbol, target_symbol,
-		 successful_p);
+	  call3 (val, selection_symbol, target_symbol, successful_p);
       }
   }
 }
@@ -655,18 +672,18 @@ x_handle_selection_clear (XSelectionClearEvent *event)
   Atom selection = event->selection;
   Time changed_owner_time = event->time;
 
-  Lisp_Object selection_symbol, local_selection_data;
+  Lisp_Object selection_symbol, local_selection_time_lisp;
   Time local_selection_time;
 
   selection_symbol = x_atom_to_symbol (d, selection);
 
-  local_selection_data = assq_no_quit (selection_symbol, Vselection_alist);
+  local_selection_time_lisp = Fget_selection_timestamp (selection_symbol);
 
-  /* Well, we already believe that we don't own it, so that's just fine. */
-  if (NILP (local_selection_data)) return;
-
-  local_selection_time =
-    * (Time *) XOPAQUE_DATA (XCAR (XCDR (XCDR (local_selection_data))));
+  /* We don't own the selection, so that's fine. */
+  if (NILP (local_selection_time_lisp))
+    return;
+  
+  local_selection_time = * (Time *) XOPAQUE_DATA (local_selection_time_lisp);
 
   /* This SelectionClear is for a selection that we no longer own, so we can
      disregard it.  (That is, we have reasserted the selection since this
@@ -920,10 +937,14 @@ x_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type)
   unbind_to (speccount, Qnil);
 
   /* otherwise, the selection is waiting for us on the requested property. */
-  return
-    x_get_window_property_as_lisp_data (display, requestor_window,
-					target_property, target_type,
-					selection_atom);
+
+  return select_convert_in (selection_symbol,
+			    target_type,
+			    x_get_window_property_as_lisp_data(display,
+							       requestor_window,
+							       target_property,
+							       target_type,
+							       selection_atom));
 }
 
 
@@ -1123,6 +1144,9 @@ x_get_window_property_as_lisp_data (Display *display,
   return val;
 }
 
+/* #### These are going to move into Lisp code(!) with the aid of
+        some new functions I'm working on - ajh */
+
 /* These functions convert from the selection data read from the server into
    something that we can use from elisp, and vice versa.
 
@@ -1467,7 +1491,8 @@ x_disown_selection (Lisp_Object selection, Lisp_Object timeval)
 }
 
 static Lisp_Object
-x_selection_exists_p (Lisp_Object selection)
+x_selection_exists_p (Lisp_Object selection,
+		      Lisp_Object selection_type)
 {
   struct device *d = decode_x_device (Qnil);
   Display *dpy = DEVICE_X_DISPLAY (d);
@@ -1776,5 +1801,7 @@ Xatoms_of_select_x (struct device *d)
   DEVICE_XATOM_NULL          (d) = XInternAtom (D, "NULL",          False);
   DEVICE_XATOM_ATOM_PAIR     (d) = XInternAtom (D, "ATOM_PAIR",     False);
   DEVICE_XATOM_COMPOUND_TEXT (d) = XInternAtom (D, "COMPOUND_TEXT", False);
+
+  /* #### I don't like the looks of this... what is it for? - ajh */
   DEVICE_XATOM_EMACS_TMP     (d) = XInternAtom (D, "_EMACS_TMP_",   False);
 }

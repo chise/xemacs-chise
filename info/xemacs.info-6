@@ -308,7 +308,7 @@ character, <DEL>, <ESC>, or another control character that is special
 within searches (`C-q', `C-w', `C-r', `C-s', or `C-y').
 
    Sometimes you search for `FOO' and find it, but were actually
-looking for a different occurance of it.  To move to the next occurrence
+looking for a different occurence of it.  To move to the next occurrence
 of the search string, type another `C-s'.  Do this as often as
 necessary.  If you overshoot, you can cancel some `C-s' characters with
 <DEL>.

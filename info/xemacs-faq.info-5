@@ -877,8 +877,10 @@ File: xemacs-faq.info,  Node: Q6.1.2,  Next: Q6.1.3,  Prev: Q6.1.1,  Up: MS Wind
 Q6.1.2: What compiler do I need to compile XEmacs?
 --------------------------------------------------
 
-   You need Visual C++ 4.2 or 5.0, with the exception of the Cygwin
-port, which uses Gcc.
+   You need Visual C++ 4.2, 5.0, or 6.0, with the exception of the
+Cygwin port, which uses Gcc.  There is also a MINGW32 port of XEmacs
+(using Gcc, but using native libraries rather than the Cygwin
+libraries).  #### More information about this should be provided.
 
 
 File: xemacs-faq.info,  Node: Q6.1.3,  Next: Q6.1.4,  Prev: Q6.1.2,  Up: MS Windows
@@ -911,8 +913,8 @@ Some problems to watch out for:
    * make sure HOME is set. This controls where you `.emacs' file comes
      from;
 
-   * CYGWIN32 needs to be set to tty for process support work. e.g.
-     CYGWIN32=tty;
+   * CYGWIN needs to be set to tty for process support work. e.g.
+     CYGWIN=tty; (use CYGWIN32=tty under b19 and older.)
 
    * picking up some other grep or other unix like tools can kill
      configure;
@@ -935,14 +937,52 @@ Q6.1.6: What do I need for Cygwin?
 
    `http://sourceware.cygnus.com/cygwin/'
 
-   You will need version b19 or later.
+   You will need version b19 or later.  The latest current version is
+1.1.1.  Other common versions you will see are b20.1.
 
-   You will also need the X libraries.  There are libraries at
+   Another location, one of the mirror sites of the site just mentioned,
+is usually a last faster:
+
+   `ftp://ftp.freesoftware.com/pub/sourceware/cygwin/'
+
+   You can obtain the latest version (currently 1.1.1) from the
+`latest/' subdirectory of either of the above two just-mentioned URL's.
+
+   *WARNING: The version of GCC supplied under `latest/', as of June
+6th, 2000, does not appear to work.  It generates loads of spurious
+preprocessor warnings and errors, which makes it impossible to compile
+XEmacs with it.*
+
+   You will also need the X libraries.  You can get them on the XEmacs
+FTP site at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/aux/cygwin/'
+
+   You will find b19 and b20 versions of the X libraries, plus b19 and
+b20 versions of stuff that should go into `/usr/local/', donated by
+Andy Piper.  This includes pre-built versions of various graphics
+libraries, such as PNG, JPEG, TIFF, and XPM. (Remember, GIF support is
+built-in to XEmacs.)
+
+   (X libraries for v1 and beyond of Cygwin can be found on the Cygwin
+site itself - look in the `xfree/' subdirectory.)
+
+   _NOTE:_ There are two versions of the XPM library provided in Andy's
+packets.  Once is for building with X support, and the other for
+building without.  The X version should work if you're building with
+both X and Windows support.  The two files are called `libXpm-X.a' and
+`libXpm-noX.a' respectively, and you must symlink the appropriate one
+to `libXpm.a'. *CAREFUL:* By default, the non-X version is symlinked
+in.  If you then configure XEmacs with X, you won't run into problems
+until you start compiling `events.c', at which point you'll get strange
+and decidedly non-obvious errors.
+
+   Please see `http://www.xemacs.freeserve.co.uk/' (Andy Piper's home
+page) for more information.
+
+   BTW There are also libraries at
 `http://dao.gsfc.nasa.gov/software/grads/win32/X11R6.3/', but these are
-not b19 compatible.  You can get b19 X11R6.3 binaries, as well as
-pre-built ncurses and graphic libraries, from:
-
-   `ftp://ftp.parallax.co.uk/pub/andyp/'.
+not b19 compatible, and may in fact be native-compiled.
 
 
 File: xemacs-faq.info,  Node: Q6.2.1,  Next: Q6.2.2,  Prev: Q6.1.6,  Up: MS Windows
@@ -1114,12 +1154,18 @@ memory addresses that can conflict with those needed by the dumped
 XEmacs executable. In this instance XEmacs will fail to start without
 any explanation. Note that this is extremely machine specific.
 
-   Work is being done on fixes for 21.1.* that will make more
-intelligent guesses about which memory addresses will be free and so
-this should cure the problem for most people.
+   21.1.10 includes a fix for this that makes more intelligent guesses
+about which memory addresses will be free, and this should cure the
+problem for most people.  Unfortunately, no binary is yet available for
+this version.  Check back periodically at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/binaries/'.
 
    21.2 implements "portable dumping" which will eliminate the problem
-altogether.
+altogether.  You might have better luck with the 21.2 beta binary,
+available at
+
+   `ftp://ftp.xemacs.org/pub/xemacs/beta/binaries/'.
 
 
 File: xemacs-faq.info,  Node: Current Events,  Prev: MS Windows,  Up: Top

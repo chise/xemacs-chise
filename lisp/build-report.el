@@ -151,6 +151,7 @@ available."
     (defalias 'mime-edit-insert-binary-file
       'mime-editor/insert-binary-file)))
 
+;;;###autoload
 (defun build-report (&rest args)
   "Initializes a fresh mail composition buffer using `compose-mail'
 with the contents of XEmacs Installation file and excerpts from XEmacs

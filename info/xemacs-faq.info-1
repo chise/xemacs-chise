@@ -926,7 +926,7 @@ it, add to your `Emacs' file entries like this:
 
      Emacs*XlwMenu.resourceLabels:                   True
      Emacs*XlwMenu.file.labelString:                 Fichier
-     Emacs*XlwMenu.openInOtherWindow.labelString:    In anderem Fenster offnen
+     Emacs*XlwMenu.openInOtherWindow.labelString: 	In anderem Fenster oeffnen
 
    The name of the resource is derived from the non-localized entry by
 removing punctuation and capitalizing as above.

@@ -152,10 +152,6 @@ NOTE-END */
 #endif /* USG */
 #endif /* not XENIX */
 
-#ifdef MSDOS
-#define NO_REMAP
-#endif
-
 #ifdef linux
 /* libc-linux/sysdeps/linux/i386/ulimit.c says that due to shared library, */
 /* we cannot get the maximum address for brk */

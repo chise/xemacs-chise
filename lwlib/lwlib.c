@@ -508,7 +508,7 @@ safe_strcmp (const char *s1, const char *s2)
   return (s1 && s2) ? strcmp (s1, s2) : s1 ? False : !!s2;
 }
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 static change_type
 max (change_type i1, change_type i2)
 {

@@ -37,12 +37,10 @@ Boston, MA 02111-1307, USA.  */
 #include "redisplay.h"
 #include "sysdep.h"
 
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
+#include "sysfile.h"
 
 #ifdef HAVE_NATIVE_SOUND
-# include <netdb.h>
+# include "sysproc.h"
 # include "nativesound.h"
 #endif
 
@@ -279,7 +277,7 @@ See the variable `sound-alist'.
   /* variable `sound' is anything that can be a cdr in sound-alist */
   Lisp_Object new_volume, pitch, duration, data;
   int loop_count = 0;
-  int vol, pit, dur, succes;
+  int vol, pit, dur;
   struct device *d = decode_device (device);
 
   /* NOTE!  You'd better not signal an error in here. */
@@ -335,6 +333,7 @@ See the variable `sound-alist'.
     {
       Extbyte *soundext;
       Extcount soundextlen;
+      int succes;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound, ALLOCA, (soundext, soundextlen),
 			  Qbinary);
@@ -355,6 +354,7 @@ See the variable `sound-alist'.
     {
       const Extbyte *soundext;
       Extcount soundextlen;
+      int succes;
 
       TO_EXTERNAL_FORMAT (LISP_STRING, sound,
 			  ALLOCA, (soundext, soundextlen),

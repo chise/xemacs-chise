@@ -192,7 +192,7 @@ environment variable when you start XEmacs.  If the file name does not
 specify a directory, the directories in the list @code{exec-path} are
 searched; this list is initialized based on the @code{PATH} environment
 variable when you start XEmacs.  You can override either or both of these
-default initializations in your @file{.emacs} file.@refill
+default initializations in your init file. @xref{Init File}.@refill
 
   When you use @kbd{M-!} and @kbd{M-|}, XEmacs has to wait until the
 shell command completes.  You can quit with @kbd{C-g}; that terminates
@@ -740,7 +740,7 @@ To start Viper, put the command
 (viper-mode)
 @end example
 
-in your @file{.emacs} file.
+in your init file.  @xref{Init File}.
 
 Viper comes with a separate manual that is provided standard
 with the XEmacs distribution.

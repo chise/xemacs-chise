@@ -96,7 +96,7 @@ gutter-size specifiers.
 
 Valid gutter-size instantiators are either integers or the special
 symbol @code{autodetect}. If a gutter-size is set to @code{autodetect}
-them the size of the gutter will be adjusted to just accomodate the
+them the size of the gutter will be adjusted to just accommodate the
 gutters contents. @code{autodetect} only works for top and bottom
 gutters.
 @end defun
@@ -117,7 +117,7 @@ always gutter-visible specifiers.
 
 Valid gutter-visible instantiators are t, nil or a list of symbols.  If
 a gutter-visible instantiator is set to a list of symbols, and the
-correspondong gutter specification is a property-list strings, then
+corresponding gutter specification is a property-list strings, then
 elements of the gutter specification will only be visible if the
 corresponding symbol occurs in the gutter-visible instantiator.
 @end defun

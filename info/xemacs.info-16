@@ -30,6 +30,35 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Term Mode,  Next: Paging in Term,  Prev: Terminal emulator,  Up: Shell
+
+Term Mode
+---------
+
+   Term uses Term mode, which has two input modes: In line mode, Term
+basically acts like Shell mode.  *Note Shell Mode::.  In Char mode,
+each character is sent directly to the inferior subshell, except for
+the Term escape character, normally `C-c'.
+
+   To switch between line and char mode, use these commands:
+     findex term-char-mode
+
+`C-c C-k'
+     Switch to line mode.  Do nothing if already in line mode.
+
+`C-c C-j'
+     Switch to char mode.  Do nothing if already in char mode.
+
+   The following commands are only available in Char mode:
+`C-c C-c'
+     Send a literal <C-c> to the sub-shell.
+
+`C-c C-x'
+     A prefix command to conveniently access the global <C-x> commands.
+     For example, `C-c C-x o' invokes the global binding of `C-x o',
+     which is normally `other-window'.
+
+
 File: xemacs.info,  Node: Paging in Term,  Prev: Term Mode,  Up: Shell
 
 Paging in the terminal emulator
@@ -303,7 +332,7 @@ Viper (a vi emulator)
 
           (viper-mode)
 
-     in your `.emacs' file.
+     in your init file.  *Note Init File::.
 
      Viper comes with a separate manual that is provided standard with
      the XEmacs distribution.
@@ -342,9 +371,8 @@ you do them in.  They are completely lost when you kill the Emacs job,
 and have no effect on other Emacs jobs you may run at the same time or
 later.  The only way an Emacs job can affect anything outside of it is
 by writing a file; in particular, the only way to make a customization
-`permanent' is to put something in your `.emacs' file or other
-appropriate file to do the customization in each session.  *Note Init
-File::.
+`permanent' is to put something in your init file or other appropriate
+file to do the customization in each session.  *Note Init File::.
 
 * Menu:
 
@@ -359,8 +387,7 @@ File::.
                      By changing them, you can "redefine keys".
 * Syntax::          The syntax table controls how words and expressions
                      are parsed.
-* Init File::       How to write common customizations in the `.emacs'
-                     file.
+* Init File::       How to write common customizations in the init file.
 * Audible Bell::    Changing how Emacs sounds the bell.
 * Faces::           Changing the fonts and colors of a region of text.
 * Frame Components::  Controlling the presence and positions of the
@@ -682,9 +709,10 @@ insert a newline in an editable field, use `C-o' or `C-q C-j',
 
    Setting the option changes its value in the current Emacs session;
 "saving" the value changes it for future sessions as well.  This works
-by writing code into your `~/.emacs' file so as to set the option
-variable again each time you start Emacs.  To save the option, invoke
-`[State]' and select the `Save for Future Sessions' operation.
+by writing code into your init file so as to set the option variable
+again each time you start Emacs.  *Note Init File::.  To save the
+option, invoke `[State]' and select the `Save for Future Sessions'
+operation.
 
    You can also restore the option to its standard value by invoking
 `[State]' and selecting the `Reset' operation.  There are actually
@@ -1013,9 +1041,9 @@ long file that contains no page markers and has no local variables list.
 list.  That is inappropriate.  Whether you use Auto Fill mode or not is
 a matter of personal taste, not a matter of the contents of particular
 files.  If you want to use Auto Fill, set up major mode hooks with your
-`.emacs' file to turn it on (when appropriate) for you alone (*note
-Init File::).  Don't try to use a local variable list that would impose
-your taste on everyone working with the file.
+file file to turn it on (when appropriate) for you alone (*note Init
+File::).  Don't try to use a local variable list that would impose your
+taste on everyone working with the file.
 
    XEmacs allows you to specify local variables in the first line of a
 file, in addition to specifying them in the `Local Variables' section
@@ -1142,38 +1170,4 @@ can add to the end of its definition by typing `C-u C-x ('.  This is
 equivalent to plain `C-x (' followed by retyping the whole definition
 so far.  As a consequence it re-executes the macro as previously
 defined.
-
-
-File: xemacs.info,  Node: Save Kbd Macro,  Next: Kbd Macro Query,  Prev: Basic Kbd Macro,  Up: Keyboard Macros
-
-Naming and Saving Keyboard Macros
----------------------------------
-
-   To save a keyboard macro for longer than until you define the next
-one, you must give it a name using `M-x name-last-kbd-macro'.  This
-reads a name as an argument using the minibuffer and defines that name
-to execute the macro.  The macro name is a Lisp symbol, and defining it
-in this way makes it a valid command name for calling with `M-x' or for
-binding a key to with `global-set-key' (*note Keymaps::).  If you
-specify a name that has a prior definition other than another keyboard
-macro, Emacs prints an error message and nothing is changed.
-
-   Once a macro has a command name, you can save its definition in a
-file.  You can then use it in another editing session.  First visit the
-file you want to save the definition in.  Then use the command:
-
-     M-x insert-kbd-macro <RET> MACRONAME <RET>
-
-This inserts some Lisp code that, when executed later, will define the
-same macro with the same definition it has now.  You need not
-understand Lisp code to do this, because `insert-kbd-macro' writes the
-Lisp code for you.  Then save the file.  You can load the file with
-`load-file' (*note Lisp Libraries::).  If the file you save in is your
-initialization file `~/.emacs' (*note Init File::), then the macro will
-be defined each time you run Emacs.
-
-   If you give `insert-kbd-macro' a prefix argument, it creates
-additional Lisp code to record the keys (if any) that you have bound to
-the keyboard macro, so that the macro is reassigned the same keys when
-you load the file.
 

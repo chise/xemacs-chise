@@ -131,6 +131,7 @@ NOTE-END */
  * config.h (or elsewhere) to decide when (not) to use SIGIO.
  */
 
+/* Note: This definition not used under XEmacs */
 #define NO_SOCK_SIGIO
 
 /* Define how to search all pty names.

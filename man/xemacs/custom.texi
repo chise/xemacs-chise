@@ -7,12 +7,12 @@
 behavior of Emacs in minor ways.
 
   All kinds of customization affect only the particular Emacs job that you
-do them in.  They are completely lost when you kill the Emacs job, and have
-no effect on other Emacs jobs you may run at the same time or later.  The
-only way an Emacs job can affect anything outside of it is by writing a
-file; in particular, the only way to make a customization `permanent' is to
-put something in your @file{.emacs} file or other appropriate file to do the
-customization in each session.  @xref{Init File}.
+do them in.  They are completely lost when you kill the Emacs job, and
+have no effect on other Emacs jobs you may run at the same time or
+later.  The only way an Emacs job can affect anything outside of it is
+by writing a file; in particular, the only way to make a customization
+`permanent' is to put something in your init file or other appropriate
+file to do the customization in each session.  @xref{Init File}.
 
 @menu
 * Minor Modes::     Each minor mode is one feature you can turn on
@@ -26,8 +26,7 @@ customization in each session.  @xref{Init File}.
                      By changing them, you can "redefine keys".
 * Syntax::          The syntax table controls how words and expressions
                      are parsed.
-* Init File::       How to write common customizations in the @file{.emacs} 
-                     file.
+* Init File::       How to write common customizations in the init file.
 * Audible Bell::    Changing how Emacs sounds the bell.
 * Faces::           Changing the fonts and colors of a region of text.
 * Frame Components::  Controlling the presence and positions of the
@@ -387,10 +386,10 @@ C-j},
 @cindex saving option value
   Setting the option changes its value in the current Emacs session;
 @dfn{saving} the value changes it for future sessions as well.  This
-works by writing code into your @file{~/.emacs} file so as to set the
-option variable again each time you start Emacs.  To save the option,
-invoke @samp{[State]} and select the @samp{Save for Future Sessions}
-operation.
+works by writing code into your init file so as to set the option
+variable again each time you start Emacs.  @xref{Init File}.  To save
+the option, invoke @samp{[State]} and select the @samp{Save for Future
+Sessions} operation.
 
   You can also restore the option to its standard value by invoking
 @samp{[State]} and selecting the @samp{Reset} operation.  There are
@@ -750,7 +749,7 @@ long file that contains no page markers and has no local variables list.
 list.  That is inappropriate.  Whether you use Auto Fill mode or not is
 a matter of personal taste, not a matter of the contents of particular
 files.  If you want to use Auto Fill, set up major mode hooks with your
-@file{.emacs} file to turn it on (when appropriate) for you alone
+file file to turn it on (when appropriate) for you alone
 (@pxref{Init File}).  Don't try to use a local variable list that would
 impose your taste on everyone working with the file.
 
@@ -912,7 +911,7 @@ macro with the same definition it has now.  You need not understand Lisp
 code to do this, because @code{insert-kbd-macro} writes the Lisp code for you.
 Then save the file.  You can load the file with @code{load-file}
 (@pxref{Lisp Libraries}).  If the file you save in is your initialization file
-@file{~/.emacs} (@pxref{Init File}), then the macro will be defined each
+(@pxref{Init File}), then the macro will be defined each
 time you run Emacs.
 
   If you give @code{insert-kbd-macro} a prefix argument, it creates
@@ -1155,7 +1154,7 @@ redefines @kbd{C-x 4 $} to run the (fictitious) command
 @findex define-key
 @findex substitute-key-definition
   The most general way to modify a keymap is the function
-@code{define-key}, used in Lisp code (such as your @file{.emacs} file).
+@code{define-key}, used in Lisp code (such as your init file).
 @code{define-key} takes three arguments: the keymap, the key to modify
 in it, and the new definition.  @xref{Init File}, for an example.
 @code{substitute-key-definition} is used similarly; it takes three
@@ -1327,12 +1326,14 @@ beginning users from executing it by accident and being confused.
 
   The direct mechanism for disabling a command is to have a non-@code{nil}
 @code{disabled} property on the Lisp symbol for the command.  These
-properties are normally set by the user's @file{.emacs} file with
+properties are normally set by the user's init file with
 Lisp expressions such as:
 
 @example
 (put 'delete-region 'disabled t)
 @end example
+
+@xref{Init File}.
 
   If the value of the @code{disabled} property is a string, that string
 is included in the message printed when the command is used:
@@ -1344,9 +1345,9 @@ is included in the message printed when the command is used:
 
 @findex disable-command
 @findex enable-command
-  You can disable a command either by editing the @file{.emacs} file
+  You can disable a command either by editing the init file
 directly or with the command @kbd{M-x disable-command}, which edits the
-@file{.emacs} file for you.  @xref{Init File}.
+init file for you.  @xref{Init File}.
 
   When you attempt to invoke a disabled command interactively in Emacs,
 a window is displayed containing the command's name, its
@@ -1355,7 +1356,7 @@ Emacs asks for input saying whether to execute the command as requested,
 enable it and execute, or cancel it.  If you decide to enable the
 command, you are asked whether to do this permanently or just for the
 current session.  Enabling permanently works by automatically editing
-your @file{.emacs} file.  You can use @kbd{M-x enable-command} at any
+your init file.  You can use @kbd{M-x enable-command} at any
 time to enable any command permanently.
 
   Whether a command is disabled is independent of what key is used to
@@ -1532,22 +1533,23 @@ character includes both the string you have to pass to
 and some English to explain that string if necessary.
 
 @node Init File
-@section The Init File, .emacs
+@section The Init File
 @cindex init file
 @cindex Emacs initialization file
 @cindex key rebinding, permanent
 @cindex rebinding keys, permanently
 
-  When you start Emacs, it normally loads the file @file{.emacs} in your
-home directory.  This file, if it exists, should contain Lisp code.  It
-is called your initialization file or @dfn{init file}.  Use the command
-line switch @samp{-q} to tell Emacs whether to load an
-init file (@pxref{Entering Emacs}).  Use the command line switch
-@samp{-user-init-file} (@pxref{Command Switches}) to tell Emacs to load
-a different file instead of @file{~/.emacs}.
+  When you start Emacs, it normally loads either @file{.xemacs/init.el}
+or the file @file{.emacs} (whichever comes first) in your home directory.
+This file, if it exists, should contain Lisp code.  It is called your
+initialization file or @dfn{init file}.  Use the command line switch
+@samp{-q} to tell Emacs whether to load an init file (@pxref{Entering
+Emacs}).  Use the command line switch @samp{-user-init-file}
+(@pxref{Command Switches}) to tell Emacs to load a different file
+instead of @file{~/.xemacs/init.el}/@file{~/.emacs}.
 
-When the @file{.emacs} file is read, the variable @code{user-init-file}
-says which init file was loaded.
+When the init file is read, the variable @code{user-init-file} says
+which init file was loaded.
 
   At some sites there is a @dfn{default init file}, which is the
 library named @file{default.el}, found via the standard search path for
@@ -1557,10 +1559,8 @@ loaded whenever you start Emacs.  But your init file, if any, is loaded
 first; if it sets @code{inhibit-default-init} non-@code{nil}, then
 @file{default} is not loaded.
 
-  If you have a large amount of code in your @file{.emacs} file, you
-should move it into another file named @file{@var{something}.el},
-byte-compile it (@pxref{Lisp Libraries}), and load that file from your
-@file{.emacs} file using @code{load}.
+  If you have a large amount of code in your init file, you should
+byte-compile it to @file{~/.xemacs/init.elc} or @file{~/.emacs.elc}.
 
 @menu
 * Init Syntax::     Syntax of constants in Emacs Lisp.
@@ -1571,7 +1571,7 @@ byte-compile it (@pxref{Lisp Libraries}), and load that file from your
 @node Init Syntax
 @subsection Init File Syntax
 
-  The @file{.emacs} file contains one or more Lisp function call
+  The init file contains one or more Lisp function call
 expressions.  Each consists of a function name followed by
 arguments, all surrounded by parentheses.  For example, @code{(setq
 fill-column 60)} represents a call to the function @code{setq} which is
@@ -1579,7 +1579,7 @@ used to set the variable @code{fill-column} (@pxref{Filling}) to 60.
 
   The second argument to @code{setq} is an expression for the new value
 of the variable.  This can be a constant, a variable, or a function call
-expression.  In @file{.emacs}, constants are used most of the time.
+expression.  In the init file, constants are used most of the time.
 They can be:
 
 @table @asis
@@ -1813,16 +1813,16 @@ the library @file{term/aaa}.  The code in the library can use
 
 @vindex term-file-prefix
   The library's name is constructed by concatenating the value of the
-variable @code{term-file-prefix} and the terminal type.  Your @file{.emacs}
+variable @code{term-file-prefix} and the terminal type.  Your init
 file can prevent the loading of the terminal-specific library by setting
-@code{term-file-prefix} to @code{nil}.
+@code{term-file-prefix} to @code{nil}.  @xref{Init File}.
 
 @vindex term-setup-hook
   The value of the variable @code{term-setup-hook}, if not @code{nil}, is
 called as a function of no arguments at the end of Emacs initialization,
-after both your @file{.emacs} file and any terminal-specific library have
-been read.  You can set the value in the @file{.emacs} file to override
-part of any of the terminal-specific libraries and to define
+after both your init file and any terminal-specific library have been
+read.  @xref{Init File}.  You can set the value in the init file to
+override part of any of the terminal-specific libraries and to define
 initializations for terminals that do not have a library.@refill
 
 @node Audible Bell

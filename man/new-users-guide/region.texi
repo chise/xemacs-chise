@@ -217,7 +217,7 @@ Copy region into specified buffer, deleting that buffer's old
 contents. This command will also prompt you for a buffer name.
 @item M-x insert-buffer
 Insert contents of specified buffer into current buffer at point. This
-command will prompt you for a buffername which you want to be copied
+command will prompt you for a buffer name which you want to be copied
 into the current buffer at the location of the cursor.
 @item M-x append-to-file
 This command will prompt you for a filename and append the region to

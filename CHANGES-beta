@@ -1,3 +1,23 @@
+to 21.2.35 "Nike"
+-- You now again build XEmacs in a directory containing a predefined
+   CPP symbol -- Martin Buchholz
+-- Minor fixes for Postgres integration -- Martin Buchholz
+-- Many fixes for DEC OSF 4.0 -- Martin Buchholz
+-- More C++ compilation support (for quality control) -- Martin Buchholz
+-- XEmacs can now be built with XFree86 4.0 -- Martin Buchholz
+-- Fix lots of byte-compiler warnings -- Martin Buchholz
+-- Many documentation fixes -- Adrian Aichner
+-- support for S390 has been added -- Andreas Jaeger, Martin Schwidefsky
+-- clean up Windows includes/defines -- Ben Wing
+-- numerous configure/GCC-warning fixes -- Martin Buchholz
+-- generalize selection support to arbitrary types -- Alastair Houghton
+-- MS Windows printer improvements -- Kirill Katsnelson
+-- MinGW fixes -- Craig Lanning
+-- NT process fixes -- Mixe Alexander, Adrian Aichner
+-- new key-value weak hashtable type -- Andy Piper/Olivier Galibert
+-- migrate .emacs to .xemacs/init.el -- Mike Sperber
+-- new file compat.el for cleaner compatibility functions -- Ben Wing
+
 to 21.2.34 "Molpe"
 -- Lots of changes to GUI, Windows, font-lock code, Ben Wing
 -- Lots of changes to GUI, Windows code, Andy Piper

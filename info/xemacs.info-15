@@ -61,14 +61,14 @@ Customizing the Calendar
    If you set the variable `view-diary-entries-initially' to `t',
 calling up the calendar automatically displays the diary entries for
 the current date as well.  The diary dates appear only if the current
-date is visible.  If you add both of the following lines to your
-`.emacs' file:
+date is visible.  If you add both of the following lines to your init
+file:
 
      (setq view-diary-entries-initially t)
      (calendar)
 
 this displays both the calendar and diary windows whenever you start
-Emacs.
+Emacs.  *Note Init File::.
 
    Similarly, if you set the variable
 `view-calendar-holidays-initially' to `t', entering the calendar
@@ -207,9 +207,11 @@ a string.
 
    For example, suppose you want to add Bastille Day, celebrated in
 France on July 14.  You can do this by adding the following line to
-your `.emacs' file:
+your init file:
 
      (setq other-holidays '((holiday-fixed 7 14 "Bastille Day")))
+
+   *Note Init File::.
 
 The holiday form `(holiday-fixed 7 14 "Bastille Day")' specifies the
 fourteenth day of the seventh month (July).
@@ -603,9 +605,11 @@ such days to be shown in the fancy diary buffer, set the variable
 
    If you use the fancy diary display, you can use the normal hook
 `list-diary-entries-hook' to sort each day's diary entries by their
-time of day.  Add this line to your `.emacs' file:
+time of day.  Add this line to your init file:
 
      (add-hook 'list-diary-entries-hook 'sort-diary-entries t)
+
+   *Note Init File::.
 
 For each day, this sorts diary entries that begin with a recognizable
 time of day according to their times.  Diary entries without times come
@@ -978,7 +982,7 @@ variable when you start XEmacs.  If the file name does not specify a
 directory, the directories in the list `exec-path' are searched; this
 list is initialized based on the `PATH' environment variable when you
 start XEmacs.  You can override either or both of these default
-initializations in your `.emacs' file.
+initializations in your init file. *Note Init File::.
 
    When you use `M-!' and `M-|', XEmacs has to wait until the shell
 command completes.  You can quit with `C-g'; that terminates the shell
@@ -1174,33 +1178,4 @@ as for Shell mode.
 examining your input.  Instead, if you use a programmable shell, you
 can have it tell Term what the current directory is.  This is done
 automatically by bash for version 1.15 and later.
-
-
-File: xemacs.info,  Node: Term Mode,  Next: Paging in Term,  Prev: Terminal emulator,  Up: Shell
-
-Term Mode
----------
-
-   Term uses Term mode, which has two input modes: In line mode, Term
-basically acts like Shell mode.  *Note Shell Mode::.  In Char mode,
-each character is sent directly to the inferior subshell, except for
-the Term escape character, normally `C-c'.
-
-   To switch between line and char mode, use these commands:
-     findex term-char-mode
-
-`C-c C-k'
-     Switch to line mode.  Do nothing if already in line mode.
-
-`C-c C-j'
-     Switch to char mode.  Do nothing if already in char mode.
-
-   The following commands are only available in Char mode:
-`C-c C-c'
-     Send a literal <C-c> to the sub-shell.
-
-`C-c C-x'
-     A prefix command to conveniently access the global <C-x> commands.
-     For example, `C-c C-x o' invokes the global binding of `C-x o',
-     which is normally `other-window'.
 

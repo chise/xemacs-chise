@@ -1458,6 +1458,60 @@ configures the X server.
     add mod2 = Mode_switch
     EOF
 
+
+*** XEmacs dumps core at startup when native audio is used.  Native
+audio does not work with recent versions of HP-UX.
+
+Under HP-UX 10.20 and later (e.g., HP-UX 11.XX), with native audio
+enabled, the dumped XEmacs binary ("xemacs") core dumps at startup if
+recent versions of the libAlib.sl audio shared library is used.  Note
+that "temacs" will run, but "xemacs" will dump core.  This, of course,
+causes the XEmacs build to fail.  If GNU malloc is enabled, a stack
+trace will show XEmacs to have crashed in the "first" call to malloc().
+
+This bug currently exists in all versions of XEmacs, when the undump
+mechanism is used.  It is not known if using the experimental portable
+dumper will allow native audio to work.
+
+**** Cause:
+
+Recent versions of the HP-UX 10.20 (and later) audio shared library (in
+/opt/audio/lib), pulls in the libdce shared library, which pulls in a
+thread (libcma) library.  This prevents the HP-UX undump() routine (in
+unexhp9k800.c) from properly working.  What's happening is that some
+initialization routines are being called in the libcma library, *BEFORE*
+main() is called, and these initialization routines are calling
+malloc().  Unfortunately, in order for the undumper to work, XEmacs must
+adjust (move upwards) the sbrk() value *BEFORE* the first call to
+malloc(); if malloc() is called before XEmacs has properly adjusted sbrk
+(which is what is happening), dumped memory that is being used by
+XEmacs, is improperly re-allocated for use by malloc() and the dumped
+memory is corrupted.  This causes XEmacs to die an horrible death.
+
+It is believed that versions of the audio library past December 1998
+will trigger this problem.  Under HP-UX 10.20, you probably have to
+install audio library patches to encounter this.  It's probable that
+recent "fresh, out-of-the-box" HP-UX 11.XX workstations also have this
+problem.  For HP-UX 10.20, it's believed that audio patch PHSS_17121 (or
+a superceeding one, like PHSS_17554, PHSS_17971, PHSS_18777, PHSS_21481,
+or PHSS_21662, etc.) will trigger this.
+
+To check if your audio library will cause problems for XEmacs, run
+"chatr /opt/audio/lib/libAlib.sl".  If "libdce" appears in the displayed
+shared library list, XEmacs will probably encounter problems if audio is
+enabled.
+
+**** Workaround:
+
+Don't enable native audio.  Re-run configure without native audio
+support.
+
+If your site supports it, try using NAS (Network Audio Support).
+
+Try using the experimental portable dumper.  It may work, or it may
+not.
+
+
 *** `Pid xxx killed due to text modification or page I/O error'
 
 On HP-UX, you can get that error when the Emacs executable is on an NFS
