@@ -5,11 +5,11 @@
     (bidi-category	. "WS")
     (mirrored		. nil)
     (->decomposition	wide #x0020)
-    (japanese-jisx0208-1978	#x21 #x21)	; $(@!!(B
-    (chinese-gb2312		#x21 #x21)	; $(A!!(B
-    (japanese-jisx0208		#x21 #x21)	; $(B!!(B
-    (korean-ksc5601		#x21 #x21)	; $(C!!(B
-    (chinese-cns11643-1		#x21 #x21)	; $(G!!(B
+    (japanese-jisx0208-1978	#x21 #x21)	; ø»¼€
+    (chinese-gb2312		#x21 #x21)	; ø»„†„
+    (japanese-jisx0208		#x21 #x21)	; ø»†ˆ
+    (korean-ksc5601		#x21 #x21)	; ø»ˆšŒ
+    (chinese-cns11643-1		#x21 #x21)	; ø»‘‚œ
     ))
 (define-char
   '((name		. "IDEOGRAPHIC COMMA")
@@ -17,11 +17,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x22)	; $(@!"(B
-    (chinese-gb2312		#x21 #x22)	; $(A!"(B
-    (japanese-jisx0208		#x21 #x22)	; $(B!"(B
-    (korean-ksc5601		#x21 #x22)	; $(C!"(B
-    (chinese-cns11643-1		#x21 #x23)	; $(G!#(B
+    (japanese-jisx0208-1978	#x21 #x22)	; ø»¼
+    (chinese-gb2312		#x21 #x22)	; ø»„†…
+    (japanese-jisx0208		#x21 #x22)	; ø»†‰
+    (korean-ksc5601		#x21 #x22)	; ø»ˆš
+    (chinese-cns11643-1		#x21 #x23)	; ø»‘‚ž
     ))
 (define-char
   '((name		. "IDEOGRAPHIC FULL STOP")
@@ -29,11 +29,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x23)	; $(@!#(B
-    (chinese-gb2312		#x21 #x23)	; $(A!#(B
-    (japanese-jisx0208		#x21 #x23)	; $(B!#(B
-    (korean-ksc5601		#x21 #x23)	; $(C!#(B
-    (chinese-cns11643-1		#x21 #x24)	; $(G!$(B
+    (japanese-jisx0208-1978	#x21 #x23)	; ø»¼‚
+    (chinese-gb2312		#x21 #x23)	; ø»„††
+    (japanese-jisx0208		#x21 #x23)	; ø»†Š
+    (korean-ksc5601		#x21 #x23)	; ø»ˆšŽ
+    (chinese-cns11643-1		#x21 #x24)	; ø»‘‚Ÿ
     ))
 (define-char
   '((name		. "DITTO MARK")
@@ -41,11 +41,11 @@
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x37)	; $(@!7(B
-    (chinese-gb2312		#x21 #x28)	; $(A!((B
-    (japanese-jisx0208		#x21 #x37)	; $(B!7(B
-    (korean-ksc5601		#x21 #x28)	; $(C!((B
-    (chinese-cns11643-1		#x21 #x71)	; $(G!q(B
+    (japanese-jisx0208-1978	#x21 #x37)	; ø»¼–
+    (chinese-gb2312		#x21 #x28)	; ø»„†‹
+    (japanese-jisx0208		#x21 #x37)	; ø»†ž
+    (korean-ksc5601		#x21 #x28)	; ø»ˆš“
+    (chinese-cns11643-1		#x21 #x71)	; ø»‘ƒ¬
     ))
 (define-char
   '((name		. "JAPANESE INDUSTRIAL STANDARD SYMBOL")
@@ -60,9 +60,14 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x39)	; $(@!9(B
-    (chinese-gb2312		#x21 #x29)	; $(A!)(B
-    (japanese-jisx0208		#x21 #x39)	; $(B!9(B
+    (morohashi-daikanwa	97)
+    (ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (japanese-jisx0208-1978	#x21 #x39)	; ø»¼˜
+    (chinese-gb2312		#x21 #x29)	; ø»„†Œ
+    (japanese-jisx0208		#x21 #x39)	; ø»† 
+    (ideograph-daikanwa		#x00 #x61)	; ø¹¡
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
@@ -70,8 +75,8 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x3A)	; $(@!:(B
-    (japanese-jisx0208		#x21 #x3A)	; $(B!:(B
+    (japanese-jisx0208-1978	#x21 #x3A)	; ø»¼™
+    (japanese-jisx0208		#x21 #x3A)	; ø»†¡
     ))
 (define-char
   '((name		. "IDEOGRAPHIC NUMBER ZERO")
@@ -80,8 +85,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 0)
-    (japanese-jisx0208-1978	#x21 #x3B)	; $(@!;(B
-    (japanese-jisx0208		#x21 #x3B)	; $(B!;(B
+    (japanese-jisx0208-1978	#x21 #x3B)	; ø»¼š
+    (japanese-jisx0208		#x21 #x3B)	; ø»†¢
     ))
 (define-char
   '((name		. "LEFT ANGLE BRACKET")
@@ -89,11 +94,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x52)	; $(@!R(B
-    (chinese-gb2312		#x21 #x34)	; $(A!4(B
-    (japanese-jisx0208		#x21 #x52)	; $(B!R(B
-    (korean-ksc5601		#x21 #x34)	; $(C!4(B
-    (chinese-cns11643-1		#x21 #x52)	; $(G!R(B
+    (japanese-jisx0208-1978	#x21 #x52)	; ø»¼±
+    (chinese-gb2312		#x21 #x34)	; ø»„†—
+    (japanese-jisx0208		#x21 #x52)	; ø»†¹
+    (korean-ksc5601		#x21 #x34)	; ø»ˆšŸ
+    (chinese-cns11643-1		#x21 #x52)	; ø»‘ƒ
     ))
 (define-char
   '((name		. "RIGHT ANGLE BRACKET")
@@ -101,11 +106,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x53)	; $(@!S(B
-    (chinese-gb2312		#x21 #x35)	; $(A!5(B
-    (japanese-jisx0208		#x21 #x53)	; $(B!S(B
-    (korean-ksc5601		#x21 #x35)	; $(C!5(B
-    (chinese-cns11643-1		#x21 #x53)	; $(G!S(B
+    (japanese-jisx0208-1978	#x21 #x53)	; ø»¼²
+    (chinese-gb2312		#x21 #x35)	; ø»„†˜
+    (japanese-jisx0208		#x21 #x53)	; ø»†º
+    (korean-ksc5601		#x21 #x35)	; ø»ˆš 
+    (chinese-cns11643-1		#x21 #x53)	; ø»‘ƒŽ
     ))
 (define-char
   '((name		. "LEFT DOUBLE ANGLE BRACKET")
@@ -113,11 +118,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x54)	; $(@!T(B
-    (chinese-gb2312		#x21 #x36)	; $(A!6(B
-    (japanese-jisx0208		#x21 #x54)	; $(B!T(B
-    (korean-ksc5601		#x21 #x36)	; $(C!6(B
-    (chinese-cns11643-1		#x21 #x4E)	; $(G!N(B
+    (japanese-jisx0208-1978	#x21 #x54)	; ø»¼³
+    (chinese-gb2312		#x21 #x36)	; ø»„†™
+    (japanese-jisx0208		#x21 #x54)	; ø»†»
+    (korean-ksc5601		#x21 #x36)	; ø»ˆš¡
+    (chinese-cns11643-1		#x21 #x4E)	; ø»‘ƒ‰
     ))
 (define-char
   '((name		. "RIGHT DOUBLE ANGLE BRACKET")
@@ -125,11 +130,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x55)	; $(@!U(B
-    (chinese-gb2312		#x21 #x37)	; $(A!7(B
-    (japanese-jisx0208		#x21 #x55)	; $(B!U(B
-    (korean-ksc5601		#x21 #x37)	; $(C!7(B
-    (chinese-cns11643-1		#x21 #x4F)	; $(G!O(B
+    (japanese-jisx0208-1978	#x21 #x55)	; ø»¼´
+    (chinese-gb2312		#x21 #x37)	; ø»„†š
+    (japanese-jisx0208		#x21 #x55)	; ø»†¼
+    (korean-ksc5601		#x21 #x37)	; ø»ˆš¢
+    (chinese-cns11643-1		#x21 #x4F)	; ø»‘ƒŠ
     ))
 (define-char
   '((name		. "LEFT CORNER BRACKET")
@@ -137,11 +142,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x56)	; $(@!V(B
-    (chinese-gb2312		#x21 #x38)	; $(A!8(B
-    (japanese-jisx0208		#x21 #x56)	; $(B!V(B
-    (korean-ksc5601		#x21 #x38)	; $(C!8(B
-    (chinese-cns11643-1		#x21 #x56)	; $(G!V(B
+    (japanese-jisx0208-1978	#x21 #x56)	; ø»¼µ
+    (chinese-gb2312		#x21 #x38)	; ø»„†›
+    (japanese-jisx0208		#x21 #x56)	; ø»†½
+    (korean-ksc5601		#x21 #x38)	; ø»ˆš£
+    (chinese-cns11643-1		#x21 #x56)	; ø»‘ƒ‘
     ))
 (define-char
   '((name		. "RIGHT CORNER BRACKET")
@@ -149,11 +154,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x57)	; $(@!W(B
-    (chinese-gb2312		#x21 #x39)	; $(A!9(B
-    (japanese-jisx0208		#x21 #x57)	; $(B!W(B
-    (korean-ksc5601		#x21 #x39)	; $(C!9(B
-    (chinese-cns11643-1		#x21 #x57)	; $(G!W(B
+    (japanese-jisx0208-1978	#x21 #x57)	; ø»¼¶
+    (chinese-gb2312		#x21 #x39)	; ø»„†œ
+    (japanese-jisx0208		#x21 #x57)	; ø»†¾
+    (korean-ksc5601		#x21 #x39)	; ø»ˆš¤
+    (chinese-cns11643-1		#x21 #x57)	; ø»‘ƒ’
     ))
 (define-char
   '((name		. "LEFT WHITE CORNER BRACKET")
@@ -161,11 +166,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x58)	; $(@!X(B
-    (chinese-gb2312		#x21 #x3A)	; $(A!:(B
-    (japanese-jisx0208		#x21 #x58)	; $(B!X(B
-    (korean-ksc5601		#x21 #x3A)	; $(C!:(B
-    (chinese-cns11643-1		#x21 #x5A)	; $(G!Z(B
+    (japanese-jisx0208-1978	#x21 #x58)	; ø»¼·
+    (chinese-gb2312		#x21 #x3A)	; ø»„†
+    (japanese-jisx0208		#x21 #x58)	; ø»†¿
+    (korean-ksc5601		#x21 #x3A)	; ø»ˆš¥
+    (chinese-cns11643-1		#x21 #x5A)	; ø»‘ƒ•
     ))
 (define-char
   '((name		. "RIGHT WHITE CORNER BRACKET")
@@ -173,11 +178,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x59)	; $(@!Y(B
-    (chinese-gb2312		#x21 #x3B)	; $(A!;(B
-    (japanese-jisx0208		#x21 #x59)	; $(B!Y(B
-    (korean-ksc5601		#x21 #x3B)	; $(C!;(B
-    (chinese-cns11643-1		#x21 #x5B)	; $(G![(B
+    (japanese-jisx0208-1978	#x21 #x59)	; ø»¼¸
+    (chinese-gb2312		#x21 #x3B)	; ø»„†ž
+    (japanese-jisx0208		#x21 #x59)	; ø»†‘€
+    (korean-ksc5601		#x21 #x3B)	; ø»ˆš¦
+    (chinese-cns11643-1		#x21 #x5B)	; ø»‘ƒ–
     ))
 (define-char
   '((name		. "LEFT BLACK LENTICULAR BRACKET")
@@ -185,11 +190,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x5A)	; $(@!Z(B
-    (chinese-gb2312		#x21 #x3E)	; $(A!>(B
-    (japanese-jisx0208		#x21 #x5A)	; $(B!Z(B
-    (korean-ksc5601		#x21 #x3C)	; $(C!<(B
-    (chinese-cns11643-1		#x21 #x4A)	; $(G!J(B
+    (japanese-jisx0208-1978	#x21 #x5A)	; ø»¼¹
+    (chinese-gb2312		#x21 #x3E)	; ø»„†¡
+    (japanese-jisx0208		#x21 #x5A)	; ø»†‘
+    (korean-ksc5601		#x21 #x3C)	; ø»ˆš§
+    (chinese-cns11643-1		#x21 #x4A)	; ø»‘ƒ…
     ))
 (define-char
   '((name		. "RIGHT BLACK LENTICULAR BRACKET")
@@ -197,11 +202,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x5B)	; $(@![(B
-    (chinese-gb2312		#x21 #x3F)	; $(A!?(B
-    (japanese-jisx0208		#x21 #x5B)	; $(B![(B
-    (korean-ksc5601		#x21 #x3D)	; $(C!=(B
-    (chinese-cns11643-1		#x21 #x4B)	; $(G!K(B
+    (japanese-jisx0208-1978	#x21 #x5B)	; ø»¼º
+    (chinese-gb2312		#x21 #x3F)	; ø»„†¢
+    (japanese-jisx0208		#x21 #x5B)	; ø»†‘‚
+    (korean-ksc5601		#x21 #x3D)	; ø»ˆš¨
+    (chinese-cns11643-1		#x21 #x4B)	; ø»‘ƒ†
     ))
 (define-char
   '((name		. "POSTAL MARK")
@@ -209,9 +214,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x29)	; $(@")(B
-    (japanese-jisx0208		#x22 #x29)	; $(B")(B
-    (chinese-cns11643-1		#x22 #x65)	; $(G"e(B
+    (japanese-jisx0208-1978	#x22 #x29)	; ø»½¦
+    (japanese-jisx0208		#x22 #x29)	; ø»†‘®
+    (chinese-cns11643-1		#x22 #x65)	; ø»‘„¾
     ))
 (define-char
   '((name		. "GETA MARK")
@@ -219,10 +224,10 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x22 #x2E)	; $(@".(B
-    (chinese-gb2312		#x21 #x7E)	; $(A!~(B
-    (japanese-jisx0208		#x22 #x2E)	; $(B".(B
-    (korean-ksc5601		#x21 #x6B)	; $(C!k(B
+    (japanese-jisx0208-1978	#x22 #x2E)	; ø»½«
+    (chinese-gb2312		#x21 #x7E)	; ø»„‡¡
+    (japanese-jisx0208		#x22 #x2E)	; ø»†‘³
+    (korean-ksc5601		#x21 #x6B)	; ø»ˆ›–
     ))
 (define-char
   '((name		. "LEFT TORTOISE SHELL BRACKET")
@@ -230,11 +235,11 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x4C)	; $(@!L(B
-    (chinese-gb2312		#x21 #x32)	; $(A!2(B
-    (japanese-jisx0208		#x21 #x4C)	; $(B!L(B
-    (korean-ksc5601		#x21 #x32)	; $(C!2(B
-    (chinese-cns11643-1		#x21 #x46)	; $(G!F(B
+    (japanese-jisx0208-1978	#x21 #x4C)	; ø»¼«
+    (chinese-gb2312		#x21 #x32)	; ø»„†•
+    (japanese-jisx0208		#x21 #x4C)	; ø»†³
+    (korean-ksc5601		#x21 #x32)	; ø»ˆš
+    (chinese-cns11643-1		#x21 #x46)	; ø»‘ƒ
     ))
 (define-char
   '((name		. "RIGHT TORTOISE SHELL BRACKET")
@@ -242,11 +247,11 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208-1978	#x21 #x4D)	; $(@!M(B
-    (chinese-gb2312		#x21 #x33)	; $(A!3(B
-    (japanese-jisx0208		#x21 #x4D)	; $(B!M(B
-    (korean-ksc5601		#x21 #x33)	; $(C!3(B
-    (chinese-cns11643-1		#x21 #x47)	; $(G!G(B
+    (japanese-jisx0208-1978	#x21 #x4D)	; ø»¼¬
+    (chinese-gb2312		#x21 #x33)	; ø»„†–
+    (japanese-jisx0208		#x21 #x4D)	; ø»†´
+    (korean-ksc5601		#x21 #x33)	; ø»ˆšž
+    (chinese-cns11643-1		#x21 #x47)	; ø»‘ƒ‚
     ))
 (define-char
   '((name		. "LEFT WHITE LENTICULAR BRACKET")
@@ -254,7 +259,8 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x3C)	; $(A!<(B
+    (chinese-gb2312		#x21 #x3C)	; ø»„†Ÿ
+    (japanese-jisx0213-1	#x22 #x5A)	; ã€–
     ))
 (define-char
   '((name		. "RIGHT WHITE LENTICULAR BRACKET")
@@ -262,7 +268,8 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312	#x21 #x3D)	; $(A!=(B
+    (chinese-gb2312		#x21 #x3D)	; ø»„† 
+    (japanese-jisx0213-1	#x22 #x5B)	; ã€—
     ))
 (define-char
   '((name		. "LEFT WHITE TORTOISE SHELL BRACKET")
@@ -270,6 +277,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x58)	; ã€˜
     ))
 (define-char
   '((name		. "RIGHT WHITE TORTOISE SHELL BRACKET")
@@ -277,6 +285,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
+    (japanese-jisx0213-1	#x22 #x59)	; ã€™
     ))
 (define-char
   '((name		. "LEFT WHITE SQUARE BRACKET")
@@ -298,9 +307,9 @@
     (general-category	punctuation dash) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208-1978	#x21 #x41)	; $(@!A(B
-    (japanese-jisx0208		#x21 #x41)	; $(B!A(B
-    (chinese-cns11643-1		#x22 #x44)	; $(G"D(B
+    (japanese-jisx0208-1978	#x21 #x41)	; ø»¼ 
+    (japanese-jisx0208		#x21 #x41)	; ø»†¨
+    (chinese-cns11643-1		#x22 #x44)	; ø»‘„
     ))
 (define-char
   '((name		. "REVERSED DOUBLE PRIME QUOTATION MARK")
@@ -308,7 +317,8 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x68)	; $(G!h(B
+    (chinese-cns11643-1		#x21 #x68)	; ø»‘ƒ£
+    (japanese-jisx0213-1	#x2D #x60)	; ã€
     ))
 (define-char
   '((name		. "DOUBLE PRIME QUOTATION MARK")
@@ -316,7 +326,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x69)	; $(G!i(B
+    (chinese-cns11643-1 #x21 #x69)	; ø»‘ƒ¤
     ))
 (define-char
   '((name		. "LOW DOUBLE PRIME QUOTATION MARK")
@@ -324,6 +334,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2D #x61)	; ã€Ÿ
     ))
 (define-char
   '((name		. "POSTAL MARK FACE")
@@ -331,6 +342,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x26 #x66)	; ã€ 
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL ONE")
@@ -339,7 +351,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 1)
-    (chinese-cns11643-1 #x24 #x35)	; $(G$5(B
+    (chinese-cns11643-1 #x24 #x35)	; ø»‘‡Š
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL TWO")
@@ -348,7 +360,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 2)
-    (chinese-cns11643-1 #x24 #x36)	; $(G$6(B
+    (chinese-cns11643-1 #x24 #x36)	; ø»‘‡‹
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL THREE")
@@ -357,7 +369,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 3)
-    (chinese-cns11643-1 #x24 #x37)	; $(G$7(B
+    (chinese-cns11643-1 #x24 #x37)	; ø»‘‡Œ
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL FOUR")
@@ -366,7 +378,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 4)
-    (chinese-cns11643-1 #x24 #x38)	; $(G$8(B
+    (chinese-cns11643-1 #x24 #x38)	; ø»‘‡
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL FIVE")
@@ -375,7 +387,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 5)
-    (chinese-cns11643-1 #x24 #x39)	; $(G$9(B
+    (chinese-cns11643-1 #x24 #x39)	; ø»‘‡Ž
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL SIX")
@@ -384,7 +396,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 6)
-    (chinese-cns11643-1 #x24 #x3A)	; $(G$:(B
+    (chinese-cns11643-1 #x24 #x3A)	; ø»‘‡
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL SEVEN")
@@ -393,7 +405,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 7)
-    (chinese-cns11643-1 #x24 #x3B)	; $(G$;(B
+    (chinese-cns11643-1 #x24 #x3B)	; ø»‘‡
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL EIGHT")
@@ -402,7 +414,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 8)
-    (chinese-cns11643-1 #x24 #x3C)	; $(G$<(B
+    (chinese-cns11643-1 #x24 #x3C)	; ø»‘‡‘
     ))
 (define-char
   '((name		. "HANGZHOU NUMERAL NINE")
@@ -411,7 +423,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 9)
-    (chinese-cns11643-1 #x24 #x3D)	; $(G$=(B
+    (chinese-cns11643-1 #x24 #x3D)	; ø»‘‡’
     ))
 (define-char
   '((name		. "IDEOGRAPHIC LEVEL TONE MARK")
@@ -482,6 +494,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x33)	; ã€³
     ))
 (define-char
   '((name . "VERTICAL KANA REPEAT WITH VOICED SOUND MARK UPPER HALF")
@@ -489,6 +502,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x34)	; ã€´
     ))
 (define-char
   '((name		. "VERTICAL KANA REPEAT MARK LOWER HALF")
@@ -496,6 +510,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x35)	; ã€µ
     ))
 (define-char
   '((name		. "CIRCLED POSTAL MARK")

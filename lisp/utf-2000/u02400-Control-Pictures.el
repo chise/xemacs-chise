@@ -4,7 +4,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x21)	; $(GB!(B
+    (chinese-cns11643-1 #x42 #x21)	; ¯ªë≤∫
     ))
 (define-char
   '((name		. "SYMBOL FOR START OF HEADING")
@@ -12,7 +12,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x22)	; $(GB"(B
+    (chinese-cns11643-1 #x42 #x22)	; ¯ªë≤ª
     ))
 (define-char
   '((name		. "SYMBOL FOR START OF TEXT")
@@ -20,7 +20,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x23)	; $(GB#(B
+    (chinese-cns11643-1 #x42 #x23)	; ¯ªë≤º
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TEXT")
@@ -28,7 +28,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x24)	; $(GB$(B
+    (chinese-cns11643-1 #x42 #x24)	; ¯ªë≤Ω
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TRANSMISSION")
@@ -36,7 +36,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x25)	; $(GB%(B
+    (chinese-cns11643-1 #x42 #x25)	; ¯ªë≤æ
     ))
 (define-char
   '((name		. "SYMBOL FOR ENQUIRY")
@@ -44,7 +44,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x26)	; $(GB&(B
+    (chinese-cns11643-1 #x42 #x26)	; ¯ªë≤ø
     ))
 (define-char
   '((name		. "SYMBOL FOR ACKNOWLEDGE")
@@ -52,7 +52,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x27)	; $(GB'(B
+    (chinese-cns11643-1 #x42 #x27)	; ¯ªë≥Ä
     ))
 (define-char
   '((name		. "SYMBOL FOR BELL")
@@ -60,7 +60,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x28)	; $(GB((B
+    (chinese-cns11643-1 #x42 #x28)	; ¯ªë≥Å
     ))
 (define-char
   '((name		. "SYMBOL FOR BACKSPACE")
@@ -68,7 +68,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x29)	; $(GB)(B
+    (chinese-cns11643-1 #x42 #x29)	; ¯ªë≥Ç
     ))
 (define-char
   '((name		. "SYMBOL FOR HORIZONTAL TABULATION")
@@ -76,7 +76,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2A)	; $(GB*(B
+    (chinese-cns11643-1 #x42 #x2A)	; ¯ªë≥É
     ))
 (define-char
   '((name		. "SYMBOL FOR LINE FEED")
@@ -84,7 +84,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2B)	; $(GB+(B
+    (chinese-cns11643-1 #x42 #x2B)	; ¯ªë≥Ñ
     ))
 (define-char
   '((name		. "SYMBOL FOR VERTICAL TABULATION")
@@ -92,7 +92,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2C)	; $(GB,(B
+    (chinese-cns11643-1 #x42 #x2C)	; ¯ªë≥Ö
     ))
 (define-char
   '((name		. "SYMBOL FOR FORM FEED")
@@ -100,7 +100,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2D)	; $(GB-(B
+    (chinese-cns11643-1 #x42 #x2D)	; ¯ªë≥Ü
     ))
 (define-char
   '((name		. "SYMBOL FOR CARRIAGE RETURN")
@@ -108,7 +108,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2E)	; $(GB.(B
+    (chinese-cns11643-1 #x42 #x2E)	; ¯ªë≥á
     ))
 (define-char
   '((name		. "SYMBOL FOR SHIFT OUT")
@@ -116,7 +116,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x2F)	; $(GB/(B
+    (chinese-cns11643-1 #x42 #x2F)	; ¯ªë≥à
     ))
 (define-char
   '((name		. "SYMBOL FOR SHIFT IN")
@@ -124,7 +124,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x30)	; $(GB0(B
+    (chinese-cns11643-1 #x42 #x30)	; ¯ªë≥â
     ))
 (define-char
   '((name		. "SYMBOL FOR DATA LINK ESCAPE")
@@ -132,7 +132,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x31)	; $(GB1(B
+    (chinese-cns11643-1 #x42 #x31)	; ¯ªë≥ä
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL ONE")
@@ -140,7 +140,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x32)	; $(GB2(B
+    (chinese-cns11643-1 #x42 #x32)	; ¯ªë≥ã
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL TWO")
@@ -148,7 +148,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x33)	; $(GB3(B
+    (chinese-cns11643-1 #x42 #x33)	; ¯ªë≥å
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL THREE")
@@ -156,7 +156,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x34)	; $(GB4(B
+    (chinese-cns11643-1 #x42 #x34)	; ¯ªë≥ç
     ))
 (define-char
   '((name		. "SYMBOL FOR DEVICE CONTROL FOUR")
@@ -164,7 +164,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x35)	; $(GB5(B
+    (chinese-cns11643-1 #x42 #x35)	; ¯ªë≥é
     ))
 (define-char
   '((name		. "SYMBOL FOR NEGATIVE ACKNOWLEDGE")
@@ -172,7 +172,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x36)	; $(GB6(B
+    (chinese-cns11643-1 #x42 #x36)	; ¯ªë≥è
     ))
 (define-char
   '((name		. "SYMBOL FOR SYNCHRONOUS IDLE")
@@ -180,7 +180,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x37)	; $(GB7(B
+    (chinese-cns11643-1 #x42 #x37)	; ¯ªë≥ê
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF TRANSMISSION BLOCK")
@@ -188,7 +188,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x38)	; $(GB8(B
+    (chinese-cns11643-1 #x42 #x38)	; ¯ªë≥ë
     ))
 (define-char
   '((name		. "SYMBOL FOR CANCEL")
@@ -196,7 +196,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x39)	; $(GB9(B
+    (chinese-cns11643-1 #x42 #x39)	; ¯ªë≥í
     ))
 (define-char
   '((name		. "SYMBOL FOR END OF MEDIUM")
@@ -204,7 +204,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3A)	; $(GB:(B
+    (chinese-cns11643-1 #x42 #x3A)	; ¯ªë≥ì
     ))
 (define-char
   '((name		. "SYMBOL FOR SUBSTITUTE")
@@ -212,7 +212,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3B)	; $(GB;(B
+    (chinese-cns11643-1 #x42 #x3B)	; ¯ªë≥î
     ))
 (define-char
   '((name		. "SYMBOL FOR ESCAPE")
@@ -220,7 +220,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3C)	; $(GB<(B
+    (chinese-cns11643-1 #x42 #x3C)	; ¯ªë≥ï
     ))
 (define-char
   '((name		. "SYMBOL FOR FILE SEPARATOR")
@@ -228,7 +228,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3D)	; $(GB=(B
+    (chinese-cns11643-1 #x42 #x3D)	; ¯ªë≥ñ
     ))
 (define-char
   '((name		. "SYMBOL FOR GROUP SEPARATOR")
@@ -236,7 +236,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3E)	; $(GB>(B
+    (chinese-cns11643-1 #x42 #x3E)	; ¯ªë≥ó
     ))
 (define-char
   '((name		. "SYMBOL FOR RECORD SEPARATOR")
@@ -244,7 +244,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x3F)	; $(GB?(B
+    (chinese-cns11643-1 #x42 #x3F)	; ¯ªë≥ò
     ))
 (define-char
   '((name		. "SYMBOL FOR UNIT SEPARATOR")
@@ -252,7 +252,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x40)	; $(GB@(B
+    (chinese-cns11643-1 #x42 #x40)	; ¯ªë≥ô
     ))
 (define-char
   '((name		. "SYMBOL FOR SPACE")
@@ -267,7 +267,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x42 #x41)	; $(GBA(B
+    (chinese-cns11643-1 #x42 #x41)	; ¯ªë≥ö
     ))
 (define-char
   '((name		. "BLANK SYMBOL")
@@ -282,6 +282,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x27 #x7D)	; ‚ê£
     ))
 (define-char
   '((name		. "SYMBOL FOR NEWLINE")

@@ -39,6 +39,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x48)	; âŒ…
     ))
 (define-char
   '((name		. "PERSPECTIVE")
@@ -46,6 +47,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x22 #x49)	; âŒ†
     ))
 (define-char
   '((name		. "WAVY LINE")
@@ -130,9 +132,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312	#x21 #x50)	; $(A!P(B
-    (japanese-jisx0208	#x22 #x5E)	; $(B"^(B
-    (korean-ksc5601	#x21 #x52)	; $(C!R(B
+    (chinese-gb2312	#x21 #x50)	; ø»„†³
+    (japanese-jisx0208	#x22 #x5E)	; ø»†’£
+    (korean-ksc5601	#x21 #x52)	; ø»ˆš½
     ))
 (define-char
   '((name		. "SEGMENT")
@@ -175,6 +177,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x27 #x7C)	; âŒ˜
     ))
 (define-char
   '((name		. "TURNED NOT SIGN")

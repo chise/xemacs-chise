@@ -595,6 +595,7 @@
     (mirrored		. nil)
     (->decomposition	#x004D #x0301)
     (->lowercase	#x1E3F)
+    (japanese-jisx0213-1	#x28 #x72)	; á¸¾
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH ACUTE")
@@ -605,6 +606,7 @@
     (->decomposition	#x006D #x0301)
     (->uppercase	#x1E3E)
     (->titlecase	#x1E3E)
+    (japanese-jisx0213-1	#x28 #x73)	; á¸¿
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER M WITH DOT ABOVE")
@@ -1481,8 +1483,8 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0323)
     (->lowercase	#x1EA1)
-    (latin-viscii-upper #xD5)	; -2Õ-A
-    (latin-viscii	#x80)	; -2Õ-A
+    (latin-viscii-upper #xD5)	; áº 
+    (latin-viscii	#x80)	; áº 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH DOT BELOW")
@@ -1493,8 +1495,8 @@
     (->decomposition	#x0061 #x0323)
     (->uppercase	#x1EA0)
     (->titlecase	#x1EA0)
-    (latin-viscii-lower #xD5)	; -1Õ-A
-    (latin-viscii	#xD5)	; -1Õ-A
+    (latin-viscii-lower #xD5)	; áº¡
+    (latin-viscii	#xD5)	; áº¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH HOOK ABOVE")
@@ -1504,8 +1506,8 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0309)
     (->lowercase	#x1EA3)
-    (latin-viscii-upper #xE4)	; -2ä-A
-    (latin-viscii	#xC4)	; -2ä-A
+    (latin-viscii-upper #xE4)	; áº¢
+    (latin-viscii	#xC4)	; áº¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH HOOK ABOVE")
@@ -1516,8 +1518,8 @@
     (->decomposition	#x0061 #x0309)
     (->uppercase	#x1EA2)
     (->titlecase	#x1EA2)
-    (latin-viscii-lower #xE4)	; -1ä-A
-    (latin-viscii	#xE4)	; -1ä-A
+    (latin-viscii-lower #xE4)	; áº£
+    (latin-viscii	#xE4)	; áº£
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE")
@@ -1527,8 +1529,8 @@
     (mirrored		. nil)
     (->decomposition	#x00C2 #x0301)
     (->lowercase	#x1EA5)
-    (latin-viscii-upper #xA4)	; -2¤-A
-    (latin-viscii	#x84)	; -2¤-A
+    (latin-viscii-upper #xA4)	; áº¤
+    (latin-viscii	#x84)	; áº¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CIRCUMFLEX AND ACUTE")
@@ -1539,8 +1541,8 @@
     (->decomposition	#x00E2 #x0301)
     (->uppercase	#x1EA4)
     (->titlecase	#x1EA4)
-    (latin-viscii-lower #xA4)	; -1¤-A
-    (latin-viscii	#xA4)	; -1¤-A
+    (latin-viscii-lower #xA4)	; áº¥
+    (latin-viscii	#xA4)	; áº¥
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE")
@@ -1550,8 +1552,8 @@
     (mirrored		. nil)
     (->decomposition	#x00C2 #x0300)
     (->lowercase	#x1EA7)
-    (latin-viscii-upper #xA5)	; -2¥-A
-    (latin-viscii	#x85)	; -2¥-A
+    (latin-viscii-upper #xA5)	; áº¦
+    (latin-viscii	#x85)	; áº¦
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CIRCUMFLEX AND GRAVE")
@@ -1562,8 +1564,8 @@
     (->decomposition	#x00E2 #x0300)
     (->uppercase	#x1EA6)
     (->titlecase	#x1EA6)
-    (latin-viscii-lower #xA5)	; -1¥-A
-    (latin-viscii	#xA5)	; -1¥-A
+    (latin-viscii-lower #xA5)	; áº§
+    (latin-viscii	#xA5)	; áº§
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -1573,8 +1575,8 @@
     (mirrored		. nil)
     (->decomposition	#x00C2 #x0309)
     (->lowercase	#x1EA9)
-    (latin-viscii-upper #xA6)	; -2¦-A
-    (latin-viscii	#x86)	; -2¦-A
+    (latin-viscii-upper #xA6)	; áº¨
+    (latin-viscii	#x86)	; áº¨
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -1585,8 +1587,8 @@
     (->decomposition	#x00E2 #x0309)
     (->uppercase	#x1EA8)
     (->titlecase	#x1EA8)
-    (latin-viscii-lower #xA6)	; -1¦-A
-    (latin-viscii	#xA6)	; -1¦-A
+    (latin-viscii-lower #xA6)	; áº©
+    (latin-viscii	#xA6)	; áº©
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND TILDE")
@@ -1596,8 +1598,8 @@
     (mirrored		. nil)
     (->decomposition	#x00C2 #x0303)
     (->lowercase	#x1EAB)
-    (latin-viscii-upper #xE7)	; -2ç-A
-    (latin-viscii	#x06)	; -2ç-A
+    (latin-viscii-upper #xE7)	; áºª
+    (latin-viscii	#x06)	; áºª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CIRCUMFLEX AND TILDE")
@@ -1608,8 +1610,8 @@
     (->decomposition	#x00E2 #x0303)
     (->uppercase	#x1EAA)
     (->titlecase	#x1EAA)
-    (latin-viscii-lower #xE7)	; -1ç-A
-    (latin-viscii	#xE7)	; -1ç-A
+    (latin-viscii-lower #xE7)	; áº«
+    (latin-viscii	#xE7)	; áº«
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
@@ -1619,8 +1621,8 @@
     (mirrored		. nil)
     (->decomposition	#x1EA0 #x0302)
     (->lowercase	#x1EAD)
-    (latin-viscii-upper #xA7)	; -2§-A
-    (latin-viscii	#x87)	; -2§-A
+    (latin-viscii-upper #xA7)	; áº¬
+    (latin-viscii	#x87)	; áº¬
     ))
 (define-char
   '((name . "LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW")
@@ -1631,8 +1633,8 @@
     (->decomposition	#x1EA1 #x0302)
     (->uppercase	#x1EAC)
     (->titlecase	#x1EAC)
-    (latin-viscii-lower #xA7)	; -1§-A
-    (latin-viscii	#xA7)	; -1§-A
+    (latin-viscii-lower #xA7)	; áº­
+    (latin-viscii	#xA7)	; áº­
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND ACUTE")
@@ -1642,8 +1644,8 @@
     (mirrored		. nil)
     (->decomposition	#x0102 #x0301)
     (->lowercase	#x1EAF)
-    (latin-viscii-upper #xA1)	; -2¡-A
-    (latin-viscii	#x81)	; -2¡-A
+    (latin-viscii-upper #xA1)	; áº®
+    (latin-viscii	#x81)	; áº®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND ACUTE")
@@ -1654,8 +1656,8 @@
     (->decomposition	#x0103 #x0301)
     (->uppercase	#x1EAE)
     (->titlecase	#x1EAE)
-    (latin-viscii-lower #xA1)	; -1¡-A
-    (latin-viscii	#xA1)	; -1¡-A
+    (latin-viscii-lower #xA1)	; áº¯
+    (latin-viscii	#xA1)	; áº¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND GRAVE")
@@ -1665,8 +1667,8 @@
     (mirrored		. nil)
     (->decomposition	#x0102 #x0300)
     (->lowercase	#x1EB1)
-    (latin-viscii-upper #xA2)	; -2¢-A
-    (latin-viscii	#x82)	; -2¢-A
+    (latin-viscii-upper #xA2)	; áº°
+    (latin-viscii	#x82)	; áº°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND GRAVE")
@@ -1677,8 +1679,8 @@
     (->decomposition	#x0103 #x0300)
     (->uppercase	#x1EB0)
     (->titlecase	#x1EB0)
-    (latin-viscii-lower #xA2)	; -1¢-A
-    (latin-viscii	#xA2)	; -1¢-A
+    (latin-viscii-lower #xA2)	; áº±
+    (latin-viscii	#xA2)	; áº±
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH BREVE AND HOOK ABOVE")
@@ -1688,8 +1690,8 @@
     (mirrored		. nil)
     (->decomposition	#x0102 #x0309)
     (->lowercase	#x1EB3)
-    (latin-viscii-upper #xC6)	; -2Æ-A
-    (latin-viscii	#x02)	; -2Æ-A
+    (latin-viscii-upper #xC6)	; áº²
+    (latin-viscii	#x02)	; áº²
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND HOOK ABOVE")
@@ -1700,8 +1702,8 @@
     (->decomposition	#x0103 #x0309)
     (->uppercase	#x1EB2)
     (->titlecase	#x1EB2)
-    (latin-viscii-lower #xC6)	; -1Æ-A
-    (latin-viscii	#xC6)	; -1Æ-A
+    (latin-viscii-lower #xC6)	; áº³
+    (latin-viscii	#xC6)	; áº³
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND TILDE")
@@ -1711,8 +1713,8 @@
     (mirrored		. nil)
     (->decomposition	#x0102 #x0303)
     (->lowercase	#x1EB5)
-    (latin-viscii-upper #xC7)	; -2Ç-A
-    (latin-viscii	#x05)	; -2Ç-A
+    (latin-viscii-upper #xC7)	; áº´
+    (latin-viscii	#x05)	; áº´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND TILDE")
@@ -1723,8 +1725,8 @@
     (->decomposition	#x0103 #x0303)
     (->uppercase	#x1EB4)
     (->titlecase	#x1EB4)
-    (latin-viscii-lower #xC7)	; -1Ç-A
-    (latin-viscii	#xC7)	; -1Ç-A
+    (latin-viscii-lower #xC7)	; áºµ
+    (latin-viscii	#xC7)	; áºµ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW")
@@ -1734,8 +1736,8 @@
     (mirrored		. nil)
     (->decomposition	#x1EA0 #x0306)
     (->lowercase	#x1EB7)
-    (latin-viscii-upper #xA3)	; -2£-A
-    (latin-viscii	#x83)	; -2£-A
+    (latin-viscii-upper #xA3)	; áº¶
+    (latin-viscii	#x83)	; áº¶
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH BREVE AND DOT BELOW")
@@ -1746,8 +1748,8 @@
     (->decomposition	#x1EA1 #x0306)
     (->uppercase	#x1EB6)
     (->titlecase	#x1EB6)
-    (latin-viscii-lower #xA3)	; -1£-A
-    (latin-viscii	#xA3)	; -1£-A
+    (latin-viscii-lower #xA3)	; áº·
+    (latin-viscii	#xA3)	; áº·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH DOT BELOW")
@@ -1757,8 +1759,8 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0323)
     (->lowercase	#x1EB9)
-    (latin-viscii-upper #xA9)	; -2©-A
-    (latin-viscii	#x89)	; -2©-A
+    (latin-viscii-upper #xA9)	; áº¸
+    (latin-viscii	#x89)	; áº¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH DOT BELOW")
@@ -1769,8 +1771,8 @@
     (->decomposition	#x0065 #x0323)
     (->uppercase	#x1EB8)
     (->titlecase	#x1EB8)
-    (latin-viscii-lower #xA9)	; -1©-A
-    (latin-viscii	#xA9)	; -1©-A
+    (latin-viscii-lower #xA9)	; áº¹
+    (latin-viscii	#xA9)	; áº¹
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH HOOK ABOVE")
@@ -1780,8 +1782,8 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0309)
     (->lowercase	#x1EBB)
-    (latin-viscii-upper #xEB)	; -2ë-A
-    (latin-viscii	#xCB)	; -2ë-A
+    (latin-viscii-upper #xEB)	; áºº
+    (latin-viscii	#xCB)	; áºº
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH HOOK ABOVE")
@@ -1792,8 +1794,8 @@
     (->decomposition	#x0065 #x0309)
     (->uppercase	#x1EBA)
     (->titlecase	#x1EBA)
-    (latin-viscii-lower #xEB)	; -1ë-A
-    (latin-viscii	#xEB)	; -1ë-A
+    (latin-viscii-lower #xEB)	; áº»
+    (latin-viscii	#xEB)	; áº»
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH TILDE")
@@ -1803,8 +1805,8 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0303)
     (->lowercase	#x1EBD)
-    (latin-viscii-upper #xA8)	; -2¨-A
-    (latin-viscii	#x88)	; -2¨-A
+    (latin-viscii-upper #xA8)	; áº¼
+    (latin-viscii	#x88)	; áº¼
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH TILDE")
@@ -1815,8 +1817,8 @@
     (->decomposition	#x0065 #x0303)
     (->uppercase	#x1EBC)
     (->titlecase	#x1EBC)
-    (latin-viscii-lower #xA8)	; -1¨-A
-    (latin-viscii	#xA8)	; -1¨-A
+    (latin-viscii-lower #xA8)	; áº½
+    (latin-viscii	#xA8)	; áº½
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND ACUTE")
@@ -1826,8 +1828,8 @@
     (mirrored		. nil)
     (->decomposition	#x00CA #x0301)
     (->lowercase	#x1EBF)
-    (latin-viscii-upper #xAA)	; -2ª-A
-    (latin-viscii	#x8A)	; -2ª-A
+    (latin-viscii-upper #xAA)	; áº¾
+    (latin-viscii	#x8A)	; áº¾
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE")
@@ -1838,8 +1840,8 @@
     (->decomposition	#x00EA #x0301)
     (->uppercase	#x1EBE)
     (->titlecase	#x1EBE)
-    (latin-viscii-lower #xAA)	; -1ª-A
-    (latin-viscii	#xAA)	; -1ª-A
+    (latin-viscii-lower #xAA)	; áº¿
+    (latin-viscii	#xAA)	; áº¿
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND GRAVE")
@@ -1849,8 +1851,8 @@
     (mirrored		. nil)
     (->decomposition	#x00CA #x0300)
     (->lowercase	#x1EC1)
-    (latin-viscii-upper #xAB)	; -2«-A
-    (latin-viscii	#x8B)	; -2«-A
+    (latin-viscii-upper #xAB)	; á»€
+    (latin-viscii	#x8B)	; á»€
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE")
@@ -1861,8 +1863,8 @@
     (->decomposition	#x00EA #x0300)
     (->uppercase	#x1EC0)
     (->titlecase	#x1EC0)
-    (latin-viscii-lower #xAB)	; -1«-A
-    (latin-viscii	#xAB)	; -1«-A
+    (latin-viscii-lower #xAB)	; á»
+    (latin-viscii	#xAB)	; á»
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -1872,8 +1874,8 @@
     (mirrored		. nil)
     (->decomposition	#x00CA #x0309)
     (->lowercase	#x1EC3)
-    (latin-viscii-upper #xAC)	; -2¬-A
-    (latin-viscii	#x8C)	; -2¬-A
+    (latin-viscii-upper #xAC)	; á»‚
+    (latin-viscii	#x8C)	; á»‚
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -1884,8 +1886,8 @@
     (->decomposition	#x00EA #x0309)
     (->uppercase	#x1EC2)
     (->titlecase	#x1EC2)
-    (latin-viscii-lower #xAC)	; -1¬-A
-    (latin-viscii	#xAC)	; -1¬-A
+    (latin-viscii-lower #xAC)	; á»ƒ
+    (latin-viscii	#xAC)	; á»ƒ
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND TILDE")
@@ -1895,8 +1897,8 @@
     (mirrored		. nil)
     (->decomposition	#x00CA #x0303)
     (->lowercase	#x1EC5)
-    (latin-viscii-upper #xAD)	; -2­-A
-    (latin-viscii	#x8D)	; -2­-A
+    (latin-viscii-upper #xAD)	; á»„
+    (latin-viscii	#x8D)	; á»„
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER E WITH CIRCUMFLEX AND TILDE")
@@ -1907,8 +1909,8 @@
     (->decomposition	#x00EA #x0303)
     (->uppercase	#x1EC4)
     (->titlecase	#x1EC4)
-    (latin-viscii-lower #xAD)	; -1­-A
-    (latin-viscii	#xAD)	; -1­-A
+    (latin-viscii-lower #xAD)	; á»…
+    (latin-viscii	#xAD)	; á»…
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
@@ -1918,8 +1920,8 @@
     (mirrored		. nil)
     (->decomposition	#x1EB8 #x0302)
     (->lowercase	#x1EC7)
-    (latin-viscii-upper #xAE)	; -2®-A
-    (latin-viscii	#x8E)	; -2®-A
+    (latin-viscii-upper #xAE)	; á»†
+    (latin-viscii	#x8E)	; á»†
     ))
 (define-char
   '((name . "LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW")
@@ -1930,8 +1932,8 @@
     (->decomposition	#x1EB9 #x0302)
     (->uppercase	#x1EC6)
     (->titlecase	#x1EC6)
-    (latin-viscii-lower #xAE)	; -1®-A
-    (latin-viscii	#xAE)	; -1®-A
+    (latin-viscii-lower #xAE)	; á»‡
+    (latin-viscii	#xAE)	; á»‡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH HOOK ABOVE")
@@ -1941,8 +1943,8 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0309)
     (->lowercase	#x1EC9)
-    (latin-viscii-upper #xEF)	; -2ï-A
-    (latin-viscii	#x9B)	; -2ï-A
+    (latin-viscii-upper #xEF)	; á»ˆ
+    (latin-viscii	#x9B)	; á»ˆ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH HOOK ABOVE")
@@ -1953,8 +1955,8 @@
     (->decomposition	#x0069 #x0309)
     (->uppercase	#x1EC8)
     (->titlecase	#x1EC8)
-    (latin-viscii-lower #xEF)	; -1ï-A
-    (latin-viscii	#xEF)	; -1ï-A
+    (latin-viscii-lower #xEF)	; á»‰
+    (latin-viscii	#xEF)	; á»‰
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH DOT BELOW")
@@ -1964,8 +1966,8 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0323)
     (->lowercase	#x1ECB)
-    (latin-viscii-upper #xB8)	; -2¸-A
-    (latin-viscii	#x98)	; -2¸-A
+    (latin-viscii-upper #xB8)	; á»Š
+    (latin-viscii	#x98)	; á»Š
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH DOT BELOW")
@@ -1976,8 +1978,8 @@
     (->decomposition	#x0069 #x0323)
     (->uppercase	#x1ECA)
     (->titlecase	#x1ECA)
-    (latin-viscii-lower #xB8)	; -1¸-A
-    (latin-viscii	#xB8)	; -1¸-A
+    (latin-viscii-lower #xB8)	; á»‹
+    (latin-viscii	#xB8)	; á»‹
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH DOT BELOW")
@@ -1987,8 +1989,8 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x0323)
     (->lowercase	#x1ECD)
-    (latin-viscii-upper #xF7)	; -2÷-A
-    (latin-viscii	#x9A)	; -2÷-A
+    (latin-viscii-upper #xF7)	; á»Œ
+    (latin-viscii	#x9A)	; á»Œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH DOT BELOW")
@@ -1999,8 +2001,8 @@
     (->decomposition	#x006F #x0323)
     (->uppercase	#x1ECC)
     (->titlecase	#x1ECC)
-    (latin-viscii-lower #xF7)	; -1÷-A
-    (latin-viscii	#xF7)	; -1÷-A
+    (latin-viscii-lower #xF7)	; á»
+    (latin-viscii	#xF7)	; á»
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HOOK ABOVE")
@@ -2010,8 +2012,8 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x0309)
     (->lowercase	#x1ECF)
-    (latin-viscii-upper #xF6)	; -2ö-A
-    (latin-viscii	#x99)	; -2ö-A
+    (latin-viscii-upper #xF6)	; á»Ž
+    (latin-viscii	#x99)	; á»Ž
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HOOK ABOVE")
@@ -2022,8 +2024,8 @@
     (->decomposition	#x006F #x0309)
     (->uppercase	#x1ECE)
     (->titlecase	#x1ECE)
-    (latin-viscii-lower #xF6)	; -1ö-A
-    (latin-viscii	#xF6)	; -1ö-A
+    (latin-viscii-lower #xF6)	; á»
+    (latin-viscii	#xF6)	; á»
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND ACUTE")
@@ -2033,8 +2035,8 @@
     (mirrored		. nil)
     (->decomposition	#x00D4 #x0301)
     (->lowercase	#x1ED1)
-    (latin-viscii-upper #xAF)	; -2¯-A
-    (latin-viscii	#x8F)	; -2¯-A
+    (latin-viscii-upper #xAF)	; á»
+    (latin-viscii	#x8F)	; á»
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CIRCUMFLEX AND ACUTE")
@@ -2045,8 +2047,8 @@
     (->decomposition	#x00F4 #x0301)
     (->uppercase	#x1ED0)
     (->titlecase	#x1ED0)
-    (latin-viscii-lower #xAF)	; -1¯-A
-    (latin-viscii	#xAF)	; -1¯-A
+    (latin-viscii-lower #xAF)	; á»‘
+    (latin-viscii	#xAF)	; á»‘
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND GRAVE")
@@ -2056,8 +2058,8 @@
     (mirrored		. nil)
     (->decomposition	#x00D4 #x0300)
     (->lowercase	#x1ED3)
-    (latin-viscii-upper #xB0)	; -2°-A
-    (latin-viscii	#x90)	; -2°-A
+    (latin-viscii-upper #xB0)	; á»’
+    (latin-viscii	#x90)	; á»’
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CIRCUMFLEX AND GRAVE")
@@ -2068,8 +2070,8 @@
     (->decomposition	#x00F4 #x0300)
     (->uppercase	#x1ED2)
     (->titlecase	#x1ED2)
-    (latin-viscii-lower #xB0)	; -1°-A
-    (latin-viscii	#xB0)	; -1°-A
+    (latin-viscii-lower #xB0)	; á»“
+    (latin-viscii	#xB0)	; á»“
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2079,8 +2081,8 @@
     (mirrored		. nil)
     (->decomposition	#x00D4 #x0309)
     (->lowercase	#x1ED5)
-    (latin-viscii-upper #xB1)	; -2±-A
-    (latin-viscii	#x91)	; -2±-A
+    (latin-viscii-upper #xB1)	; á»”
+    (latin-viscii	#x91)	; á»”
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND HOOK ABOVE")
@@ -2091,8 +2093,8 @@
     (->decomposition	#x00F4 #x0309)
     (->uppercase	#x1ED4)
     (->titlecase	#x1ED4)
-    (latin-viscii-lower #xB1)	; -1±-A
-    (latin-viscii	#xB1)	; -1±-A
+    (latin-viscii-lower #xB1)	; á»•
+    (latin-viscii	#xB1)	; á»•
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND TILDE")
@@ -2102,8 +2104,8 @@
     (mirrored		. nil)
     (->decomposition	#x00D4 #x0303)
     (->lowercase	#x1ED7)
-    (latin-viscii-upper #xB2)	; -2²-A
-    (latin-viscii	#x92)	; -2²-A
+    (latin-viscii-upper #xB2)	; á»–
+    (latin-viscii	#x92)	; á»–
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CIRCUMFLEX AND TILDE")
@@ -2114,8 +2116,8 @@
     (->decomposition	#x00F4 #x0303)
     (->uppercase	#x1ED6)
     (->titlecase	#x1ED6)
-    (latin-viscii-lower #xB2)	; -1²-A
-    (latin-viscii	#xB2)	; -1²-A
+    (latin-viscii-lower #xB2)	; á»—
+    (latin-viscii	#xB2)	; á»—
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
@@ -2125,8 +2127,8 @@
     (mirrored		. nil)
     (->decomposition	#x1ECC #x0302)
     (->lowercase	#x1ED9)
-    (latin-viscii-upper #xB5)	; -2µ-A
-    (latin-viscii	#x93)	; -2µ-A
+    (latin-viscii-upper #xB5)	; á»˜
+    (latin-viscii	#x93)	; á»˜
     ))
 (define-char
   '((name . "LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW")
@@ -2137,8 +2139,8 @@
     (->decomposition	#x1ECD #x0302)
     (->uppercase	#x1ED8)
     (->titlecase	#x1ED8)
-    (latin-viscii-lower #xB5)	; -1µ-A
-    (latin-viscii	#xB5)	; -1µ-A
+    (latin-viscii-lower #xB5)	; á»™
+    (latin-viscii	#xB5)	; á»™
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND ACUTE")
@@ -2148,8 +2150,8 @@
     (mirrored		. nil)
     (->decomposition	#x01A0 #x0301)
     (->lowercase	#x1EDB)
-    (latin-viscii-upper #xBE)	; -2¾-A
-    (latin-viscii	#x95)	; -2¾-A
+    (latin-viscii-upper #xBE)	; á»š
+    (latin-viscii	#x95)	; á»š
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND ACUTE")
@@ -2160,8 +2162,8 @@
     (->decomposition	#x01A1 #x0301)
     (->uppercase	#x1EDA)
     (->titlecase	#x1EDA)
-    (latin-viscii-lower #xBE)	; -1¾-A
-    (latin-viscii	#xBE)	; -1¾-A
+    (latin-viscii-lower #xBE)	; á»›
+    (latin-viscii	#xBE)	; á»›
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND GRAVE")
@@ -2171,8 +2173,8 @@
     (mirrored		. nil)
     (->decomposition	#x01A0 #x0300)
     (->lowercase	#x1EDD)
-    (latin-viscii-upper #xB6)	; -2¶-A
-    (latin-viscii	#x96)	; -2¶-A
+    (latin-viscii-upper #xB6)	; á»œ
+    (latin-viscii	#x96)	; á»œ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND GRAVE")
@@ -2183,8 +2185,8 @@
     (->decomposition	#x01A1 #x0300)
     (->uppercase	#x1EDC)
     (->titlecase	#x1EDC)
-    (latin-viscii-lower #xB6)	; -1¶-A
-    (latin-viscii	#xB6)	; -1¶-A
+    (latin-viscii-lower #xB6)	; á»
+    (latin-viscii	#xB6)	; á»
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE")
@@ -2194,8 +2196,8 @@
     (mirrored		. nil)
     (->decomposition	#x01A0 #x0309)
     (->lowercase	#x1EDF)
-    (latin-viscii-upper #xB7)	; -2·-A
-    (latin-viscii	#x97)	; -2·-A
+    (latin-viscii-upper #xB7)	; á»ž
+    (latin-viscii	#x97)	; á»ž
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE")
@@ -2206,8 +2208,8 @@
     (->decomposition	#x01A1 #x0309)
     (->uppercase	#x1EDE)
     (->titlecase	#x1EDE)
-    (latin-viscii-lower #xB7)	; -1·-A
-    (latin-viscii	#xB7)	; -1·-A
+    (latin-viscii-lower #xB7)	; á»Ÿ
+    (latin-viscii	#xB7)	; á»Ÿ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND TILDE")
@@ -2217,8 +2219,8 @@
     (mirrored		. nil)
     (->decomposition	#x01A0 #x0303)
     (->lowercase	#x1EE1)
-    (latin-viscii-upper #xDE)	; -2Þ-A
-    (latin-viscii	#xB3)	; -2Þ-A
+    (latin-viscii-upper #xDE)	; á» 
+    (latin-viscii	#xB3)	; á» 
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND TILDE")
@@ -2229,8 +2231,8 @@
     (->decomposition	#x01A1 #x0303)
     (->uppercase	#x1EE0)
     (->titlecase	#x1EE0)
-    (latin-viscii-lower #xDE)	; -1Þ-A
-    (latin-viscii	#xDE)	; -1Þ-A
+    (latin-viscii-lower #xDE)	; á»¡
+    (latin-viscii	#xDE)	; á»¡
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW")
@@ -2240,8 +2242,8 @@
     (mirrored		. nil)
     (->decomposition	#x01A0 #x0323)
     (->lowercase	#x1EE3)
-    (latin-viscii-upper #xFE)	; -2þ-A
-    (latin-viscii	#x94)	; -2þ-A
+    (latin-viscii-upper #xFE)	; á»¢
+    (latin-viscii	#x94)	; á»¢
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN AND DOT BELOW")
@@ -2252,8 +2254,8 @@
     (->decomposition	#x01A1 #x0323)
     (->uppercase	#x1EE2)
     (->titlecase	#x1EE2)
-    (latin-viscii-lower #xFE)	; -1þ-A
-    (latin-viscii	#xFE)	; -1þ-A
+    (latin-viscii-lower #xFE)	; á»£
+    (latin-viscii	#xFE)	; á»£
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH DOT BELOW")
@@ -2263,8 +2265,8 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0323)
     (->lowercase	#x1EE5)
-    (latin-viscii-upper #xF8)	; -2ø-A
-    (latin-viscii	#x9E)	; -2ø-A
+    (latin-viscii-upper #xF8)	; á»¤
+    (latin-viscii	#x9E)	; á»¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH DOT BELOW")
@@ -2275,8 +2277,8 @@
     (->decomposition	#x0075 #x0323)
     (->uppercase	#x1EE4)
     (->titlecase	#x1EE4)
-    (latin-viscii-lower #xF8)	; -1ø-A
-    (latin-viscii	#xF8)	; -1ø-A
+    (latin-viscii-lower #xF8)	; á»¥
+    (latin-viscii	#xF8)	; á»¥
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HOOK ABOVE")
@@ -2286,8 +2288,8 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0309)
     (->lowercase	#x1EE7)
-    (latin-viscii-upper #xFC)	; -2ü-A
-    (latin-viscii	#x9C)	; -2ü-A
+    (latin-viscii-upper #xFC)	; á»¦
+    (latin-viscii	#x9C)	; á»¦
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HOOK ABOVE")
@@ -2298,8 +2300,8 @@
     (->decomposition	#x0075 #x0309)
     (->uppercase	#x1EE6)
     (->titlecase	#x1EE6)
-    (latin-viscii-lower #xFC)	; -1ü-A
-    (latin-viscii	#xFC)	; -1ü-A
+    (latin-viscii-lower #xFC)	; á»§
+    (latin-viscii	#xFC)	; á»§
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND ACUTE")
@@ -2309,8 +2311,8 @@
     (mirrored		. nil)
     (->decomposition	#x01AF #x0301)
     (->lowercase	#x1EE9)
-    (latin-viscii-upper #xD1)	; -2Ñ-A
-    (latin-viscii	#xBA)	; -2Ñ-A
+    (latin-viscii-upper #xD1)	; á»¨
+    (latin-viscii	#xBA)	; á»¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND ACUTE")
@@ -2321,8 +2323,8 @@
     (->decomposition	#x01B0 #x0301)
     (->uppercase	#x1EE8)
     (->titlecase	#x1EE8)
-    (latin-viscii-lower #xD1)	; -1Ñ-A
-    (latin-viscii	#xD1)	; -1Ñ-A
+    (latin-viscii-lower #xD1)	; á»©
+    (latin-viscii	#xD1)	; á»©
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND GRAVE")
@@ -2332,8 +2334,8 @@
     (mirrored		. nil)
     (->decomposition	#x01AF #x0300)
     (->lowercase	#x1EEB)
-    (latin-viscii-upper #xD7)	; -2×-A
-    (latin-viscii	#xBB)	; -2×-A
+    (latin-viscii-upper #xD7)	; á»ª
+    (latin-viscii	#xBB)	; á»ª
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND GRAVE")
@@ -2344,8 +2346,8 @@
     (->decomposition	#x01B0 #x0300)
     (->uppercase	#x1EEA)
     (->titlecase	#x1EEA)
-    (latin-viscii-lower #xD7)	; -1×-A
-    (latin-viscii	#xD7)	; -1×-A
+    (latin-viscii-lower #xD7)	; á»«
+    (latin-viscii	#xD7)	; á»«
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE")
@@ -2355,8 +2357,8 @@
     (mirrored		. nil)
     (->decomposition	#x01AF #x0309)
     (->lowercase	#x1EED)
-    (latin-viscii-upper #xD8)	; -2Ø-A
-    (latin-viscii	#xBC)	; -2Ø-A
+    (latin-viscii-upper #xD8)	; á»¬
+    (latin-viscii	#xBC)	; á»¬
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE")
@@ -2367,8 +2369,8 @@
     (->decomposition	#x01B0 #x0309)
     (->uppercase	#x1EEC)
     (->titlecase	#x1EEC)
-    (latin-viscii-lower #xD8)	; -1Ø-A
-    (latin-viscii	#xD8)	; -1Ø-A
+    (latin-viscii-lower #xD8)	; á»­
+    (latin-viscii	#xD8)	; á»­
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND TILDE")
@@ -2378,8 +2380,8 @@
     (mirrored		. nil)
     (->decomposition	#x01AF #x0303)
     (->lowercase	#x1EEF)
-    (latin-viscii-upper #xE6)	; -2æ-A
-    (latin-viscii	#xFF)	; -2æ-A
+    (latin-viscii-upper #xE6)	; á»®
+    (latin-viscii	#xFF)	; á»®
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND TILDE")
@@ -2390,8 +2392,8 @@
     (->decomposition	#x01B0 #x0303)
     (->uppercase	#x1EEE)
     (->titlecase	#x1EEE)
-    (latin-viscii-lower #xE6)	; -1æ-A
-    (latin-viscii	#xE6)	; -1æ-A
+    (latin-viscii-lower #xE6)	; á»¯
+    (latin-viscii	#xE6)	; á»¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW")
@@ -2401,8 +2403,8 @@
     (mirrored		. nil)
     (->decomposition	#x01AF #x0323)
     (->lowercase	#x1EF1)
-    (latin-viscii-upper #xF1)	; -2ñ-A
-    (latin-viscii	#xB9)	; -2ñ-A
+    (latin-viscii-upper #xF1)	; á»°
+    (latin-viscii	#xB9)	; á»°
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN AND DOT BELOW")
@@ -2413,8 +2415,8 @@
     (->decomposition	#x01B0 #x0323)
     (->uppercase	#x1EF0)
     (->titlecase	#x1EF0)
-    (latin-viscii-lower #xF1)	; -1ñ-A
-    (latin-viscii	#xF1)	; -1ñ-A
+    (latin-viscii-lower #xF1)	; á»±
+    (latin-viscii	#xF1)	; á»±
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH GRAVE")
@@ -2424,8 +2426,8 @@
     (mirrored		. nil)
     (->decomposition	#x0059 #x0300)
     (->lowercase	#x1EF3)
-    (latin-viscii-upper #xCF)	; -2Ï-A
-    (latin-viscii	#x9F)	; -2Ï-A
+    (latin-viscii-upper #xCF)	; á»²
+    (latin-viscii	#x9F)	; á»²
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH GRAVE")
@@ -2436,8 +2438,8 @@
     (->decomposition	#x0079 #x0300)
     (->uppercase	#x1EF2)
     (->titlecase	#x1EF2)
-    (latin-viscii-lower #xCF)	; -1Ï-A
-    (latin-viscii	#xCF)	; -1Ï-A
+    (latin-viscii-lower #xCF)	; á»³
+    (latin-viscii	#xCF)	; á»³
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH DOT BELOW")
@@ -2447,8 +2449,8 @@
     (mirrored		. nil)
     (->decomposition	#x0059 #x0323)
     (->lowercase	#x1EF5)
-    (latin-viscii-upper #xDC)	; -2Ü-A
-    (latin-viscii	#x1E)	; -2Ü-A
+    (latin-viscii-upper #xDC)	; á»´
+    (latin-viscii	#x1E)	; á»´
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH DOT BELOW")
@@ -2459,8 +2461,8 @@
     (->decomposition	#x0079 #x0323)
     (->uppercase	#x1EF4)
     (->titlecase	#x1EF4)
-    (latin-viscii-lower #xDC)	; -1Ü-A
-    (latin-viscii	#xDC)	; -1Ü-A
+    (latin-viscii-lower #xDC)	; á»µ
+    (latin-viscii	#xDC)	; á»µ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH HOOK ABOVE")
@@ -2470,8 +2472,8 @@
     (mirrored		. nil)
     (->decomposition	#x0059 #x0309)
     (->lowercase	#x1EF7)
-    (latin-viscii-upper #xD6)	; -2Ö-A
-    (latin-viscii	#x14)	; -2Ö-A
+    (latin-viscii-upper #xD6)	; á»¶
+    (latin-viscii	#x14)	; á»¶
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH HOOK ABOVE")
@@ -2482,8 +2484,8 @@
     (->decomposition	#x0079 #x0309)
     (->uppercase	#x1EF6)
     (->titlecase	#x1EF6)
-    (latin-viscii-lower #xD6)	; -1Ö-A
-    (latin-viscii	#xD6)	; -1Ö-A
+    (latin-viscii-lower #xD6)	; á»·
+    (latin-viscii	#xD6)	; á»·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER Y WITH TILDE")
@@ -2493,8 +2495,8 @@
     (mirrored		. nil)
     (->decomposition	#x0059 #x0303)
     (->lowercase	#x1EF9)
-    (latin-viscii-upper #xDB)	; -2Û-A
-    (latin-viscii	#x19)	; -2Û-A
+    (latin-viscii-upper #xDB)	; á»¸
+    (latin-viscii	#x19)	; á»¸
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Y WITH TILDE")
@@ -2505,6 +2507,6 @@
     (->decomposition	#x0079 #x0303)
     (->uppercase	#x1EF8)
     (->titlecase	#x1EF8)
-    (latin-viscii-lower #xDB)	; -1Û-A
-    (latin-viscii	#xDB)	; -1Û-A
+    (latin-viscii-lower #xDB)	; á»¹
+    (latin-viscii	#xDB)	; á»¹
     ))

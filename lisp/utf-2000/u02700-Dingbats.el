@@ -109,6 +109,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x27 #x7B)	; ✓
     ))
 (define-char
   '((name		. "HEAVY CHECK MARK")
@@ -326,7 +327,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1 #x21 #x6E)	; $(G!n(B
+    (chinese-cns11643-1 #x21 #x6E)	; �����
     ))
 (define-char
   '((name		. "EIGHT POINTED BLACK STAR")
@@ -537,6 +538,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2D #x7D)	; ❖
     ))
 (define-char
   '((name		. "LIGHT VERTICAL BAR")
@@ -644,6 +646,7 @@
     (mirrored		. nil)
     (digit-value	. 1)
     (numeric-value	. 1)
+    (japanese-jisx0213-1	#x2C #x21)	; ❶
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT TWO")
@@ -653,6 +656,7 @@
     (mirrored		. nil)
     (digit-value	. 2)
     (numeric-value	. 2)
+    (japanese-jisx0213-1	#x2C #x22)	; ❷
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT THREE")
@@ -662,6 +666,7 @@
     (mirrored		. nil)
     (digit-value	. 3)
     (numeric-value	. 3)
+    (japanese-jisx0213-1	#x2C #x23)	; ❸
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT FOUR")
@@ -671,6 +676,7 @@
     (mirrored		. nil)
     (digit-value	. 4)
     (numeric-value	. 4)
+    (japanese-jisx0213-1	#x2C #x24)	; ❹
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT FIVE")
@@ -680,6 +686,7 @@
     (mirrored		. nil)
     (digit-value	. 5)
     (numeric-value	. 5)
+    (japanese-jisx0213-1	#x2C #x25)	; ❺
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT SIX")
@@ -689,6 +696,7 @@
     (mirrored		. nil)
     (digit-value	. 6)
     (numeric-value	. 6)
+    (japanese-jisx0213-1	#x2C #x26)	; ❻
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT SEVEN")
@@ -698,6 +706,7 @@
     (mirrored		. nil)
     (digit-value	. 7)
     (numeric-value	. 7)
+    (japanese-jisx0213-1	#x2C #x27)	; ❼
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT EIGHT")
@@ -707,6 +716,7 @@
     (mirrored		. nil)
     (digit-value	. 8)
     (numeric-value	. 8)
+    (japanese-jisx0213-1	#x2C #x28)	; ❽
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT NINE")
@@ -716,6 +726,7 @@
     (mirrored		. nil)
     (digit-value	. 9)
     (numeric-value	. 9)
+    (japanese-jisx0213-1	#x2C #x29)	; ❾
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED NUMBER TEN")
@@ -724,6 +735,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (numeric-value	. 10)
+    (japanese-jisx0213-1	#x2C #x2A)	; ❿
     ))
 (define-char
   '((name		. "DINGBAT CIRCLED SANS-SERIF DIGIT ONE")

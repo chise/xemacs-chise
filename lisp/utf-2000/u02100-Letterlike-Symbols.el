@@ -29,11 +29,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
-    (japanese-jisx0208-1978	#x21 #x6E)	; $(@!n(B
-    (chinese-gb2312		#x21 #x66)	; $(A!f(B
-    (japanese-jisx0208		#x21 #x6E)	; $(B!n(B
-    (korean-ksc5601		#x21 #x49)	; $(C!I(B
-    (chinese-cns11643-1		#x22 #x6A)	; $(G"j(B
+    (japanese-jisx0208-1978	#x21 #x6E)	; ø»½
+    (chinese-gb2312		#x21 #x66)	; ø»„‡‰
+    (japanese-jisx0208		#x21 #x6E)	; ø»†‘•
+    (korean-ksc5601		#x21 #x49)	; ø»ˆš´
+    (chinese-cns11643-1		#x22 #x6A)	; ø»‘…ƒ
     ))
 (define-char
   '((name		. "CENTRE LINE SYMBOL")
@@ -49,7 +49,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
-    (chinese-cns11643-1 #x22 #x22)	; $(G""(B
+    (chinese-cns11643-1 #x22 #x22)	; ø»‘ƒ»
     ))
 (define-char
   '((name		. "CADA UNA")
@@ -81,8 +81,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
-    (korean-ksc5601	#x22 #x35)	; $(C"5(B
-    (chinese-cns11643-1 #x22 #x6B)	; $(G"k(B
+    (korean-ksc5601	#x22 #x35)	; ø»ˆ›¾
+    (chinese-cns11643-1 #x22 #x6B)	; ø»‘…„
     ))
 (define-char
   '((name		. "SCRIPT SMALL G")
@@ -131,6 +131,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0127)
+    (japanese-jisx0213-1	#x23 #x5D)	; â„
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
@@ -163,7 +164,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006C)
-    (korean-ksc5601	#x27 #x24)	; $(C'$(B
+    (korean-ksc5601		#x27 #x24)	; ø»ˆ£ƒ
+    (japanese-jisx0213-1	#x23 #x5F)	; â„“
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -187,9 +189,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
-    (chinese-gb2312	#x21 #x6D)	; $(A!m(B
-    (korean-ksc5601	#x22 #x60)	; $(C"`(B
-    (japanese-jisx0212	#x22 #x71)	; $(D"q(B
+    (chinese-gb2312		#x21 #x6D)	; ø»„‡
+    (korean-ksc5601		#x22 #x60)	; ø»ˆœ©
+    (japanese-jisx0212		#x22 #x71)	; ø»Š¦¾
+    (japanese-jisx0213-1	#x2D #x62)	; â„–
     ))
 (define-char
   '((name		. "HALFWIDTH NUMERO SIGN")
@@ -198,7 +201,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	narrow #x2116)
-    (cyrillic-iso8859-5 #xF0)	; -Lð-A
+    (cyrillic-iso8859-5 #xF0)	; Ñ
     ))
 (define-char
   '((name		. "SOUND RECORDING COPYRIGHT")
@@ -283,7 +286,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
-    (korean-ksc5601	#x22 #x65)	; $(C"e(B
+    (korean-ksc5601		#x22 #x65)	; ø»ˆœ®
+    (japanese-jisx0213-1	#x2D #x64)	; â„¡
     ))
 (define-char
   '((name		. "TRADE MARK SIGN")
@@ -292,8 +296,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
-    (korean-ksc5601	#x22 #x62)	; $(C"b(B
-    (japanese-jisx0212	#x22 #x6F)	; $(D"o(B
+    (korean-ksc5601	#x22 #x62)	; ø»ˆœ«
+    (japanese-jisx0212	#x22 #x6F)	; ø»Š¦¼
     ))
 (define-char
   '((name		. "VERSICLE")
@@ -325,7 +329,7 @@
     (mirrored		. nil)
     (->decomposition	#x03A9)
     (->lowercase	#x03C9)
-    (korean-ksc5601	#x27 #x59)	; $(C'Y(B
+    (korean-ksc5601	#x27 #x59)	; ø»ˆ£¸
     ))
 (define-char
   '((name		. "INVERTED OHM SIGN")
@@ -333,6 +337,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x23 #x60)	; â„§
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
@@ -366,8 +371,8 @@
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (->lowercase	#x00E5)
-    (japanese-jisx0208	#x22 #x72)	; $(B"r(B
-    (korean-ksc5601	#x21 #x4A)	; $(C!J(B
+    (japanese-jisx0208	#x22 #x72)	; ø»†’·
+    (korean-ksc5601	#x21 #x4A)	; ø»ˆšµ
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")
@@ -446,6 +451,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
+    (japanese-jisx0213-1	#x23 #x5C)	; â„µ
     ))
 (define-char
   '((name		. "BET SYMBOL")

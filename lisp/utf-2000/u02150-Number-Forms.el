@@ -6,7 +6,8 @@
     (mirrored		. nil)
     (numeric-value	. 1/3)
     (->decomposition	fraction #x0031 #x2044 #x0033)
-    (korean-ksc5601	#x28 #x77)	; $(C(w(B
+    (korean-ksc5601		#x28 #x77)	; ø»ˆ¥´
+    (japanese-jisx0213-1	#x27 #x78)	; â…“
     ))
 (define-char
   '((name		. "VULGAR FRACTION TWO THIRDS")
@@ -16,7 +17,8 @@
     (mirrored		. nil)
     (numeric-value	. 2/3)
     (->decomposition	fraction #x0032 #x2044 #x0033)
-    (korean-ksc5601	#x28 #x78)	; $(C(x(B
+    (korean-ksc5601		#x28 #x78)	; ø»ˆ¥µ
+    (japanese-jisx0213-1	#x27 #x79)	; â…”
     ))
 (define-char
   '((name		. "VULGAR FRACTION ONE FIFTH")
@@ -26,6 +28,7 @@
     (mirrored		. nil)
     (numeric-value	. 1/5)
     (->decomposition	fraction #x0031 #x2044 #x0035)
+    (japanese-jisx0213-1	#x27 #x7A)	; â…•
     ))
 (define-char
   '((name		. "VULGAR FRACTION TWO FIFTHS")
@@ -80,7 +83,7 @@
     (mirrored		. nil)
     (numeric-value	. 1/8)
     (->decomposition	fraction #x0031 #x2044 #x0038)
-    (korean-ksc5601	#x28 #x7B)	; $(C({(B
+    (korean-ksc5601	#x28 #x7B)	; ø»ˆ¥¸
     ))
 (define-char
   '((name		. "VULGAR FRACTION THREE EIGHTHS")
@@ -90,7 +93,7 @@
     (mirrored		. nil)
     (numeric-value	. 3/8)
     (->decomposition	fraction #x0033 #x2044 #x0038)
-    (korean-ksc5601	#x28 #x7C)	; $(C(|(B
+    (korean-ksc5601	#x28 #x7C)	; ø»ˆ¥¹
     ))
 (define-char
   '((name		. "VULGAR FRACTION FIVE EIGHTHS")
@@ -100,7 +103,7 @@
     (mirrored		. nil)
     (numeric-value	. 5/8)
     (->decomposition	fraction #x0035 #x2044 #x0038)
-    (korean-ksc5601	#x28 #x7D)	; $(C(}(B
+    (korean-ksc5601	#x28 #x7D)	; ø»ˆ¥º
     ))
 (define-char
   '((name		. "VULGAR FRACTION SEVEN EIGHTHS")
@@ -110,7 +113,7 @@
     (mirrored		. nil)
     (numeric-value	. 7/8)
     (->decomposition	fraction #x0037 #x2044 #x0038)
-    (korean-ksc5601	#x28 #x7E)	; $(C(~(B
+    (korean-ksc5601	#x28 #x7E)	; ø»ˆ¥»
     ))
 (define-char
   '((name		. "FRACTION NUMERATOR ONE")
@@ -130,9 +133,10 @@
     (numeric-value	. 1)
     (->decomposition	compat #x0049)
     (->lowercase	#x2170)
-    (chinese-gb2312	#x22 #x71)	; $(A"q(B
-    (korean-ksc5601	#x25 #x30)	; $(C%0(B
-    (chinese-cns11643-1 #x24 #x2B)	; $(G$+(B
+    (chinese-gb2312		#x22 #x71)	; ø»„ˆ²
+    (korean-ksc5601		#x25 #x30)	; ø»ˆ “
+    (chinese-cns11643-1		#x24 #x2B)	; ø»‘‡€
+    (japanese-jisx0213-1	#x2D #x35)	; â… 
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWO")
@@ -143,9 +147,10 @@
     (numeric-value	. 2)
     (->decomposition	compat #x0049 #x0049)
     (->lowercase	#x2171)
-    (chinese-gb2312	#x22 #x72)	; $(A"r(B
-    (korean-ksc5601	#x25 #x31)	; $(C%1(B
-    (chinese-cns11643-1 #x24 #x2C)	; $(G$,(B
+    (chinese-gb2312		#x22 #x72)	; ø»„ˆ³
+    (korean-ksc5601		#x25 #x31)	; ø»ˆ ”
+    (chinese-cns11643-1		#x24 #x2C)	; ø»‘‡
+    (japanese-jisx0213-1	#x2D #x36)	; â…¡
     ))
 (define-char
   '((name		. "ROMAN NUMERAL THREE")
@@ -156,9 +161,10 @@
     (numeric-value	. 3)
     (->decomposition	compat #x0049 #x0049 #x0049)
     (->lowercase	#x2172)
-    (chinese-gb2312	#x22 #x73)	; $(A"s(B
-    (korean-ksc5601	#x25 #x32)	; $(C%2(B
-    (chinese-cns11643-1 #x24 #x2D)	; $(G$-(B
+    (chinese-gb2312		#x22 #x73)	; ø»„ˆ´
+    (korean-ksc5601		#x25 #x32)	; ø»ˆ •
+    (chinese-cns11643-1		#x24 #x2D)	; ø»‘‡‚
+    (japanese-jisx0213-1	#x2D #x37)	; â…¢
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FOUR")
@@ -169,9 +175,10 @@
     (numeric-value	. 4)
     (->decomposition	compat #x0049 #x0056)
     (->lowercase	#x2173)
-    (chinese-gb2312	#x22 #x74)	; $(A"t(B
-    (korean-ksc5601	#x25 #x33)	; $(C%3(B
-    (chinese-cns11643-1 #x24 #x2E)	; $(G$.(B
+    (chinese-gb2312		#x22 #x74)	; ø»„ˆµ
+    (korean-ksc5601		#x25 #x33)	; ø»ˆ –
+    (chinese-cns11643-1		#x24 #x2E)	; ø»‘‡ƒ
+    (japanese-jisx0213-1	#x2D #x38)	; â…£
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIVE")
@@ -182,9 +189,10 @@
     (numeric-value	. 5)
     (->decomposition	compat #x0056)
     (->lowercase	#x2174)
-    (chinese-gb2312	#x22 #x75)	; $(A"u(B
-    (korean-ksc5601	#x25 #x34)	; $(C%4(B
-    (chinese-cns11643-1 #x24 #x2F)	; $(G$/(B
+    (chinese-gb2312		#x22 #x75)	; ø»„ˆ¶
+    (korean-ksc5601		#x25 #x34)	; ø»ˆ —
+    (chinese-cns11643-1		#x24 #x2F)	; ø»‘‡„
+    (japanese-jisx0213-1	#x2D #x39)	; â…¤
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SIX")
@@ -195,9 +203,10 @@
     (numeric-value	. 6)
     (->decomposition	compat #x0056 #x0049)
     (->lowercase	#x2175)
-    (chinese-gb2312	#x22 #x76)	; $(A"v(B
-    (korean-ksc5601	#x25 #x35)	; $(C%5(B
-    (chinese-cns11643-1 #x24 #x30)	; $(G$0(B
+    (chinese-gb2312		#x22 #x76)	; ø»„ˆ·
+    (korean-ksc5601		#x25 #x35)	; ø»ˆ ˜
+    (chinese-cns11643-1		#x24 #x30)	; ø»‘‡…
+    (japanese-jisx0213-1	#x2D #x3A)	; â…¥
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SEVEN")
@@ -208,9 +217,10 @@
     (numeric-value	. 7)
     (->decomposition	compat #x0056 #x0049 #x0049)
     (->lowercase	#x2176)
-    (chinese-gb2312	#x22 #x77)	; $(A"w(B
-    (korean-ksc5601	#x25 #x36)	; $(C%6(B
-    (chinese-cns11643-1 #x24 #x31)	; $(G$1(B
+    (chinese-gb2312		#x22 #x77)	; ø»„ˆ¸
+    (korean-ksc5601		#x25 #x36)	; ø»ˆ ™
+    (chinese-cns11643-1		#x24 #x31)	; ø»‘‡†
+    (japanese-jisx0213-1	#x2D #x3B)	; â…¦
     ))
 (define-char
   '((name		. "ROMAN NUMERAL EIGHT")
@@ -221,9 +231,10 @@
     (numeric-value	. 8)
     (->decomposition	compat #x0056 #x0049 #x0049 #x0049)
     (->lowercase	#x2177)
-    (chinese-gb2312	#x22 #x78)	; $(A"x(B
-    (korean-ksc5601	#x25 #x37)	; $(C%7(B
-    (chinese-cns11643-1 #x24 #x32)	; $(G$2(B
+    (chinese-gb2312		#x22 #x78)	; ø»„ˆ¹
+    (korean-ksc5601		#x25 #x37)	; ø»ˆ š
+    (chinese-cns11643-1		#x24 #x32)	; ø»‘‡‡
+    (japanese-jisx0213-1	#x2D #x3C)	; â…§
     ))
 (define-char
   '((name		. "ROMAN NUMERAL NINE")
@@ -234,9 +245,10 @@
     (numeric-value	. 9)
     (->decomposition	compat #x0049 #x0058)
     (->lowercase	#x2178)
-    (chinese-gb2312	#x22 #x79)	; $(A"y(B
-    (korean-ksc5601	#x25 #x38)	; $(C%8(B
-    (chinese-cns11643-1 #x24 #x33)	; $(G$3(B
+    (chinese-gb2312		#x22 #x79)	; ø»„ˆº
+    (korean-ksc5601		#x25 #x38)	; ø»ˆ ›
+    (chinese-cns11643-1		#x24 #x33)	; ø»‘‡ˆ
+    (japanese-jisx0213-1	#x2D #x3D)	; â…¨
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TEN")
@@ -247,9 +259,10 @@
     (numeric-value	. 10)
     (->decomposition	compat #x0058)
     (->lowercase	#x2179)
-    (chinese-gb2312	#x22 #x7A)	; $(A"z(B
-    (korean-ksc5601	#x25 #x39)	; $(C%9(B
-    (chinese-cns11643-1 #x24 #x34)	; $(G$4(B
+    (chinese-gb2312		#x22 #x7A)	; ø»„ˆ»
+    (korean-ksc5601		#x25 #x39)	; ø»ˆ œ
+    (chinese-cns11643-1		#x24 #x34)	; ø»‘‡‰
+    (japanese-jisx0213-1	#x2D #x3E)	; â…©
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ELEVEN")
@@ -260,7 +273,8 @@
     (numeric-value	. 11)
     (->decomposition	compat #x0058 #x0049)
     (->lowercase	#x217A)
-    (chinese-gb2312	#x22 #x7B)	; $(A"{(B
+    (chinese-gb2312		#x22 #x7B)	; ø»„ˆ¼
+    (japanese-jisx0213-1	#x2D #x3F)	; â…ª
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWELVE")
@@ -271,7 +285,8 @@
     (numeric-value	. 12)
     (->decomposition	compat #x0058 #x0049 #x0049)
     (->lowercase	#x217B)
-    (chinese-gb2312	#x22 #x7C)	; $(A"|(B
+    (chinese-gb2312		#x22 #x7C)	; ø»„ˆ½
+    (japanese-jisx0213-1	#x2D #x57)	; â…«
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIFTY")
@@ -323,8 +338,9 @@
     (->decomposition	compat #x0069)
     (->uppercase	#x2160)
     (->titlecase	#x2160)
-    (korean-ksc5601	#x25 #x21)	; $(C%!(B
-    (chinese-cns11643-1 #x26 #x35)	; $(G&5(B
+    (korean-ksc5601		#x25 #x21)	; ø»ˆ „
+    (chinese-cns11643-1		#x26 #x35)	; ø»‘Š†
+    (japanese-jisx0213-1	#x2C #x35)	; â…°
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWO")
@@ -336,8 +352,9 @@
     (->decomposition	compat #x0069 #x0069)
     (->uppercase	#x2161)
     (->titlecase	#x2161)
-    (korean-ksc5601	#x25 #x22)	; $(C%"(B
-    (chinese-cns11643-1 #x26 #x36)	; $(G&6(B
+    (korean-ksc5601		#x25 #x22)	; ø»ˆ …
+    (chinese-cns11643-1		#x26 #x36)	; ø»‘Š‡
+    (japanese-jisx0213-1	#x2C #x36)	; â…±
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL THREE")
@@ -349,8 +366,9 @@
     (->decomposition	compat #x0069 #x0069 #x0069)
     (->uppercase	#x2162)
     (->titlecase	#x2162)
-    (korean-ksc5601	#x25 #x23)	; $(C%#(B
-    (chinese-cns11643-1 #x26 #x37)	; $(G&7(B
+    (korean-ksc5601		#x25 #x23)	; ø»ˆ †
+    (chinese-cns11643-1		#x26 #x37)	; ø»‘Šˆ
+    (japanese-jisx0213-1	#x2C #x37)	; â…²
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FOUR")
@@ -362,8 +380,9 @@
     (->decomposition	compat #x0069 #x0076)
     (->uppercase	#x2163)
     (->titlecase	#x2163)
-    (korean-ksc5601	#x25 #x24)	; $(C%$(B
-    (chinese-cns11643-1 #x26 #x38)	; $(G&8(B
+    (korean-ksc5601		#x25 #x24)	; ø»ˆ ‡
+    (chinese-cns11643-1		#x26 #x38)	; ø»‘Š‰
+    (japanese-jisx0213-1	#x2C #x38)	; â…³
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIVE")
@@ -375,8 +394,9 @@
     (->decomposition	compat #x0076)
     (->uppercase	#x2164)
     (->titlecase	#x2164)
-    (korean-ksc5601	#x25 #x25)	; $(C%%(B
-    (chinese-cns11643-1 #x26 #x39)	; $(G&9(B
+    (korean-ksc5601		#x25 #x25)	; ø»ˆ ˆ
+    (chinese-cns11643-1		#x26 #x39)	; ø»‘ŠŠ
+    (japanese-jisx0213-1	#x2C #x39)	; â…´
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SIX")
@@ -388,8 +408,9 @@
     (->decomposition	compat #x0076 #x0069)
     (->uppercase	#x2165)
     (->titlecase	#x2165)
-    (korean-ksc5601	#x25 #x26)	; $(C%&(B
-    (chinese-cns11643-1 #x26 #x3A)	; $(G&:(B
+    (korean-ksc5601		#x25 #x26)	; ø»ˆ ‰
+    (chinese-cns11643-1		#x26 #x3A)	; ø»‘Š‹
+    (japanese-jisx0213-1	#x2C #x3A)	; â…µ
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SEVEN")
@@ -401,8 +422,9 @@
     (->decomposition	compat #x0076 #x0069 #x0069)
     (->uppercase	#x2166)
     (->titlecase	#x2166)
-    (korean-ksc5601	#x25 #x27)	; $(C%'(B
-    (chinese-cns11643-1 #x26 #x3B)	; $(G&;(B
+    (korean-ksc5601		#x25 #x27)	; ø»ˆ Š
+    (chinese-cns11643-1		#x26 #x3B)	; ø»‘ŠŒ
+    (japanese-jisx0213-1	#x2C #x3B)	; â…¶
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL EIGHT")
@@ -414,8 +436,9 @@
     (->decomposition	compat #x0076 #x0069 #x0069 #x0069)
     (->uppercase	#x2167)
     (->titlecase	#x2167)
-    (korean-ksc5601	#x25 #x28)	; $(C%((B
-    (chinese-cns11643-1 #x26 #x3C)	; $(G&<(B
+    (korean-ksc5601		#x25 #x28)	; ø»ˆ ‹
+    (chinese-cns11643-1		#x26 #x3C)	; ø»‘Š
+    (japanese-jisx0213-1	#x2C #x3C)	; â…·
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL NINE")
@@ -427,8 +450,9 @@
     (->decomposition	compat #x0069 #x0078)
     (->uppercase	#x2168)
     (->titlecase	#x2168)
-    (korean-ksc5601	#x25 #x29)	; $(C%)(B
-    (chinese-cns11643-1 #x26 #x3D)	; $(G&=(B
+    (korean-ksc5601		#x25 #x29)	; ø»ˆ Œ
+    (chinese-cns11643-1		#x26 #x3D)	; ø»‘ŠŽ
+    (japanese-jisx0213-1	#x2C #x3D)	; â…¸
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TEN")
@@ -440,8 +464,9 @@
     (->decomposition	compat #x0078)
     (->uppercase	#x2169)
     (->titlecase	#x2169)
-    (korean-ksc5601	#x25 #x2A)	; $(C%*(B
-    (chinese-cns11643-1 #x26 #x3E)	; $(G&>(B
+    (korean-ksc5601		#x25 #x2A)	; ø»ˆ 
+    (chinese-cns11643-1		#x26 #x3E)	; ø»‘Š
+    (japanese-jisx0213-1	#x2C #x3E)	; â…¹
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ELEVEN")
@@ -453,6 +478,7 @@
     (->decomposition	compat #x0078 #x0069)
     (->uppercase	#x216A)
     (->titlecase	#x216A)
+    (japanese-jisx0213-1	#x2C #x3F)	; â…º
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWELVE")
@@ -464,6 +490,7 @@
     (->decomposition	compat #x0078 #x0069 #x0069)
     (->uppercase	#x216B)
     (->titlecase	#x216B)
+    (japanese-jisx0213-1	#x2C #x40)	; â…»
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIFTY")
