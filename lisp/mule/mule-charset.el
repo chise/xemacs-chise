@@ -279,7 +279,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0208
 	  japanese-jisx0208-1990
 	  japanese-jisx0212
-	  korean-ksc5601
+	  ucs-sip
 	  japanese-jisx0213-1
 	  japanese-jisx0213-2
 	  japanese-jisx0208-1978
@@ -287,15 +287,17 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-1
 	  chinese-cns11643-2
 	  chinese-cns11643-3
-	  chinese-cns11643-4
+          chinese-cns11643-4
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
+	  korean-ksc5601
+	  ideograph-daikanwa-2
 	  ideograph-daikanwa
 	  china3-jef
+	  ideograph-cbeta
 	  chinese-big5-cdp
-	  chinese-big5
-          ;; chinese-gb12345
+	  ;; chinese-gb12345
 	  chinese-isoir165
 	  katakana-jisx0201
 	  hebrew-iso8859-8
@@ -332,8 +334,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-9
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
-	  ideograph-cbeta
 	  mojikyo
+	  chinese-big5
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
 ;;; 	  mojikyo-pj-3
