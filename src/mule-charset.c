@@ -2365,9 +2365,10 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 }
 
 #ifdef HAVE_LIBCHISE
-Lisp_Object save_charset_properties (Lisp_Object charset);
-Lisp_Object
-save_charset_properties (Lisp_Object charset)
+DEFUN ("save-charset-properties", Fsave_charset_properties, 1, 1, 0, /*
+Save properties of CHARSET.
+*/
+       (charset))
 {
   struct Lisp_Charset *cs;
   CHISE_Property property;
@@ -2380,7 +2381,7 @@ save_charset_properties (Lisp_Object charset)
   if ( open_chise_data_source_maybe () )
     return -1;
 
-  if (SYMBOLP (charset))
+  if ( SYMBOLP (charset) )
     {
       property = chise_ds_get_property (default_chise_data_source,
 					"true-name");
@@ -2393,6 +2394,12 @@ save_charset_properties (Lisp_Object charset)
     }
   charset = XCHARSET_NAME (ccs);
   feature_name = XSTRING_DATA (Fsymbol_name (charset));
+
+  property = chise_ds_get_property (default_chise_data_source, "type");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, "CCS");
+  chise_property_sync (property);
 
   property = chise_ds_get_property (default_chise_data_source, "chars");
   chise_feature_set_property_value
@@ -2409,6 +2416,33 @@ save_charset_properties (Lisp_Object charset)
 					       (CHARSET_DIMENSION (cs)),
 					       Qnil)));
   chise_property_sync (property);
+
+  if ( CHARSET_FINAL (cs) != 0 )
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"final-byte");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (make_int
+						   (CHARSET_FINAL (cs)),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+
+  if ( !NILP (CHARSET_MOTHER (cs)) )
+    {
+      Lisp_Object mother = CHARSET_MOTHER (cs);
+
+      if ( CHARSETP (mother) )
+	mother = XCHARSET_NAME (mother);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (mother, Qnil)));
+      chise_property_sync (property);
+    }
   return Qnil;
 }
 #endif /* HAVE_LIBCHISE */
@@ -2754,6 +2788,9 @@ syms_of_mule_charset (void)
 #ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
   DEFSUBR (Freset_charset_mapping_table);
+#ifdef HAVE_LIBCHISE
+  DEFSUBR (Fsave_charset_properties);
+#endif /* HAVE_LIBCHISE */
 #endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
