@@ -553,8 +553,6 @@ void *alloca ();
 
 #undef CHAR_IS_UCS4
 
-#undef HAVE_GGC
-
 /* Define this if you want file coding support */
 #undef FILE_CODING
 
