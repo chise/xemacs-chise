@@ -1,3 +1,10 @@
+2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (U+98EE): Unify J90-5D3B.
+
+	* Ideograph-R131-Minister.el (JX2-7556): Unify U-000268DD; delete
+	relation with U+81E3.
+
 2001-10-08  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
 	* char-db-util.el (char-db-insert-char-spec): Don't add
