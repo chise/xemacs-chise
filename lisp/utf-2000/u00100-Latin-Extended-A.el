@@ -5,7 +5,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0304)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter a with macron")
+     ((name . "fullwidth latin capital letter a with macron")
       (japanese-jisx0212	  . #x2A27)	; ø»Š±¤
       (japanese-jisx0213-1	  . #x2975)	; ø»¢ €
       ))
@@ -24,7 +24,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0100)
     (->lowercase
-     ((name . "fullwidth latin small letter a with macron")))
+     ((name		  . "fullwidth latin small letter a with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH MACRON")
       (ucs		  . #x0100)	; Ä€
@@ -59,7 +60,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0101)
     (->uppercase
-     ((name . "fullwidth latin capital letter a with macron")))
+     ((name . "fullwidth latin capital letter a with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH MACRON")
       (ucs		  . #x0101)	; Ä
@@ -75,7 +77,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0306)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter a with breve")
+     ((name . "fullwidth latin capital letter a with breve")
       (japanese-jisx0212	  . #x2A25)	; ø»Š±¢
       (japanese-jisx0213-1	  . #x2A3A)	; ø»¢ £
       ))
@@ -83,11 +85,11 @@
      ((name		  . "LATIN SMALL LETTER A WITH BREVE")
       (ucs		  . #x0103)	; Äƒ
       ))
-    (latin-iso8859-2		. #xC3)	; øº’¶ƒ
-    (latin-tcvn5712		. #xA1)	; øº“™¡
-    (latin-viscii-upper		. #xE5)	; øº’ž¥
-    (latin-viscii		. #xC5)	; øº’ž¥
-    (ucs			. #x0102)	; Ä‚
+    (latin-iso8859-2	. #xC3)	; øº’¶ƒ
+    (latin-tcvn5712	. #xA1)	; øº“™¡
+    (latin-viscii-upper . #xE5)	; øº’ž¥
+    (latin-viscii	. #xC5)	; øº’ž¥
+    (ucs		. #x0102)	; Ä‚
     ))
 (define-char
   '((name		. "fullwidth latin capital letter a with breve")
@@ -97,7 +99,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0102)
     (->lowercase
-     ((name . "fullwidth latin small letter a with breve")))
+     ((name		  . "fullwidth latin small letter a with breve")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH BREVE")
       (ucs		  . #x0102)	; Ä‚
@@ -120,11 +123,11 @@
      ((name		  . "LATIN CAPITAL LETTER A WITH BREVE")
       (ucs		  . #x0102)	; Ä‚
       ))
-    (latin-iso8859-2		. #xE3)	; øº’¶£
-    (latin-tcvn5712		. #xA8)	; øº“™¨
-    (latin-viscii-lower		. #xE5)	; øº’…
-    (latin-viscii		. #xE5)	; øº’…
-    (ucs			. #x0103)	; Äƒ
+    (latin-iso8859-2	. #xE3)	; øº’¶£
+    (latin-tcvn5712	. #xA8)	; øº“™¨
+    (latin-viscii-lower . #xE5)	; øº’…
+    (latin-viscii	. #xE5)	; øº’…
+    (ucs		. #x0103)	; Äƒ
     ))
 (define-char
   '((name		. "fullwidth latin small letter a with breve")
@@ -134,7 +137,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0103)
     (->uppercase
-     ((name . "fullwidth latin capital letter a with breve")))
+     ((name . "fullwidth latin capital letter a with breve")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH BREVE")
       (ucs		  . #x0103)	; Äƒ
@@ -149,7 +153,7 @@
     (mirrored		. nil)
     (->decomposition	#x0041 #x0328)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter a with ogonek")
+     ((name . "fullwidth latin capital letter a with ogonek")
       (japanese-jisx0212	  . #x2A28)	; ø»Š±¥
       (japanese-jisx0213-1	  . #x2A21)	; ø»¢ Š
       ))
@@ -169,7 +173,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0104)
     (->lowercase
-     ((name . "fullwidth latin small letter a with ogonek")))
+     ((name		  . "fullwidth latin small letter a with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER A WITH OGONEK")
       (ucs		  . #x0104)	; Ä„
@@ -204,7 +209,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0105)
     (->uppercase
-     ((name . "fullwidth latin capital letter a with ogonek")))
+     ((name . "fullwidth latin capital letter a with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER A WITH OGONEK")
       (ucs		  . #x0105)	; Ä…
@@ -219,7 +225,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter c with acute")
+     ((name . "fullwidth latin capital letter c with acute")
       (japanese-jisx0212	  . #x2A2B)	; ø»Š±¨
       (japanese-jisx0213-1	  . #x2A3C)	; ø»¢ ¥
       ))
@@ -238,7 +244,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0106)
     (->lowercase
-     ((name . "fullwidth latin small letter c with acute")))
+     ((name		  . "fullwidth latin small letter c with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH ACUTE")
       (ucs		  . #x0106)	; Ä†
@@ -272,7 +279,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0107)
     (->uppercase
-     ((name . "fullwidth latin capital letter c with acute")))
+     ((name . "fullwidth latin capital letter c with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH ACUTE")
       (ucs		  . #x0107)	; Ä‡
@@ -306,7 +314,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0108)
     (->lowercase
-     ((name . "fullwidth latin small letter c with circumflex")))
+     ((name . "fullwidth latin small letter c with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH CIRCUMFLEX")
       (ucs		  . #x0108)	; Äˆ
@@ -321,7 +330,7 @@
     (mirrored		. nil)
     (->decomposition	#x0063 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter c with circumflex")
+     ((name . "fullwidth latin small letter c with circumflex")
       (japanese-jisx0212	  . #x2B2C)	; ø»Š³‡
       (japanese-jisx0213-1	  . #x2A5F)	; ø»¢¡ˆ
       ))
@@ -333,14 +342,15 @@
     (ucs		. #x0109)	; Ä‰
     ))
 (define-char
-  '((name		. "fullwidth latin small letter c with circumflex")
+  '((name . "fullwidth latin small letter c with circumflex")
     (=>ucs		. #x0109)	; Ä‰
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0109)
     (->uppercase
-     ((name . "fullwidth latin capital letter c with circumflex")))
+     ((name . "fullwidth latin capital letter c with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH CIRCUMFLEX")
       (ucs		  . #x0109)	; Ä‰
@@ -355,7 +365,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x0307)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter c with dot above")
+     ((name . "fullwidth latin capital letter c with dot above")
       (japanese-jisx0212  . #x2A2F)	; ø»Š±¬
       ))
     (->lowercase
@@ -366,14 +376,15 @@
     (ucs		. #x010A)	; ÄŠ
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter c with dot above")
+  '((name . "fullwidth latin capital letter c with dot above")
     (=>ucs		. #x010A)	; ÄŠ
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x010A)
     (->lowercase
-     ((name . "fullwidth latin small letter c with dot above")))
+     ((name . "fullwidth latin small letter c with dot above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH DOT ABOVE")
       (ucs		  . #x010A)	; ÄŠ
@@ -387,7 +398,7 @@
     (mirrored		. nil)
     (->decomposition	#x0063 #x0307)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter c with dot above")
+     ((name . "fullwidth latin small letter c with dot above")
       (japanese-jisx0212  . #x2B2F)	; ø»Š³Š
       ))
     (->uppercase
@@ -398,14 +409,15 @@
     (ucs		. #x010B)	; Ä‹
     ))
 (define-char
-  '((name		. "fullwidth latin small letter c with dot above")
+  '((name . "fullwidth latin small letter c with dot above")
     (=>ucs		. #x010B)	; Ä‹
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x010B)
     (->uppercase
-     ((name . "fullwidth latin capital letter c with dot above")))
+     ((name . "fullwidth latin capital letter c with dot above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH DOT ABOVE")
       (ucs		  . #x010B)	; Ä‹
@@ -419,7 +431,7 @@
     (mirrored		. nil)
     (->decomposition	#x0043 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter c with caron")
+     ((name . "fullwidth latin capital letter c with caron")
       (japanese-jisx0212	  . #x2A2D)	; ø»Š±ª
       (japanese-jisx0213-1	  . #x2A3D)	; ø»¢ ¦
       ))
@@ -439,7 +451,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x010C)
     (->lowercase
-     ((name . "fullwidth latin capital letter c with caron")))
+     ((name . "fullwidth latin capital letter c with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER C WITH CARON")
       (ucs		  . #x010C)	; ÄŒ
@@ -474,7 +487,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x010D)
     (->uppercase
-     ((name . "fullwidth latin small letter c with caron")))
+     ((name		  . "fullwidth latin small letter c with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER C WITH CARON")
       (ucs		  . #x010D)	; Ä
@@ -489,7 +503,7 @@
     (mirrored		. nil)
     (->decomposition	#x0044 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter d with caron")
+     ((name . "fullwidth latin capital letter d with caron")
       (japanese-jisx0212	  . #x2A30)	; ø»Š±­
       (japanese-jisx0213-1	  . #x2A40)	; ø»¢ ©
       ))
@@ -508,7 +522,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x010E)
     (->lowercase
-     ((name . "fullwidth latin small letter d with caron")))
+     ((name		  . "fullwidth latin small letter d with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER D WITH CARON")
       (ucs		  . #x010E)	; ÄŽ
@@ -542,7 +557,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x010F)
     (->uppercase
-     ((name . "fullwidth latin capital letter d with caron")))
+     ((name . "fullwidth latin capital letter d with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER D WITH CARON")
       (ucs		  . #x010F)	; Ä
@@ -556,19 +572,19 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")
       (japanese-jisx0212  . #x2922)	; ø»Š°
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER D WITH STROKE")
       (ucs		  . #x0111)	; Ä‘
       ))
-    (latin-iso8859-2		. #xD0)	; øº’¶
-    (latin-iso8859-4		. #xD0)	; øº’¹
-    (latin-tcvn5712		. #xA7)	; øº“™§
-    (latin-viscii-upper		. #xF0)	; øº’ž°
-    (latin-viscii		. #xD0)	; øº’ž°
-    (ucs			. #x0110)	; Ä
+    (latin-iso8859-2	. #xD0)	; øº’¶
+    (latin-iso8859-4	. #xD0)	; øº’¹
+    (latin-tcvn5712	. #xA7)	; øº“™§
+    (latin-viscii-upper . #xF0)	; øº’ž°
+    (latin-viscii	. #xD0)	; øº’ž°
+    (ucs		. #x0110)	; Ä
     ))
 (define-char
   '((name		. "FULLWIDTH LATIN CAPITAL LETTER D WITH STROKE")
@@ -578,7 +594,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0110)
     (->lowercase
-     ((name . "FULLWIDTH LATIN SMALL LETTER D WITH STROKE")))
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER D WITH STROKE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER D WITH STROKE")
       (ucs		  . #x0110)	; Ä
@@ -594,12 +611,12 @@
      ((name		  . "LATIN CAPITAL LETTER D WITH STROKE")
       (ucs		  . #x0110)	; Ä
       ))
-    (latin-iso8859-2		. #xF0)	; øº’¶°
-    (latin-iso8859-4		. #xF0)	; øº’¹°
-    (latin-tcvn5712		. #xAE)	; øº“™®
-    (latin-viscii-lower		. #xF0)	; øº’
-    (latin-viscii		. #xF0)	; øº’
-    (ucs			. #x0111)	; Ä‘
+    (latin-iso8859-2	. #xF0)	; øº’¶°
+    (latin-iso8859-4	. #xF0)	; øº’¹°
+    (latin-tcvn5712	. #xAE)	; øº“™®
+    (latin-viscii-lower . #xF0)	; øº’
+    (latin-viscii	. #xF0)	; øº’
+    (ucs		. #x0111)	; Ä‘
     ))
 (define-char
   '((name		. "fullwidth latin small letter d with stroke")
@@ -608,7 +625,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name . "fullwidth latin capital letter d with stroke")))
+     ((name . "fullwidth latin capital letter d with stroke")
+      ))
     (korean-ksc5601		. #x2922)	; ø»ˆ¥½
     (japanese-jisx0212		. #x2942)	; ø»Š°¡
     (japanese-jisx0213-1	. #x2A50)	; ø»¢ ¹
@@ -620,7 +638,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0304)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter e with macron")
+     ((name . "fullwidth latin capital letter e with macron")
       (japanese-jisx0212	  . #x2A37)	; ø»Š±´
       (japanese-jisx0213-1	  . #x2978)	; ø»¢ ƒ
       ))
@@ -639,7 +657,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0112)
     (->lowercase
-     ((name . "fullwidth latin small letter e with macron")))
+     ((name		  . "fullwidth latin small letter e with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH MACRON")
       (ucs		  . #x0112)	; Ä’
@@ -674,7 +693,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0113)
     (->uppercase
-     ((name . "fullwidth latin capital letter e with macron")))
+     ((name . "fullwidth latin capital letter e with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH MACRON")
       (ucs		  . #x0113)	; Ä“
@@ -714,7 +734,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0307)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
       (japanese-jisx0212  . #x2A36)	; ø»Š±³
       ))
     (->lowercase
@@ -725,14 +745,15 @@
     (ucs		. #x0116)	; Ä–
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
     (=>ucs		. #x0116)	; Ä–
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0116)
     (->lowercase
-     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH DOT ABOVE")
       (ucs		  . #x0116)	; Ä–
@@ -746,7 +767,7 @@
     (mirrored		. nil)
     (->decomposition	#x0065 #x0307)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
+     ((name . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
       (japanese-jisx0212  . #x2B36)	; ø»Š³‘
       ))
     (->uppercase
@@ -757,14 +778,15 @@
     (ucs		. #x0117)	; Ä—
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
+  '((name . "FULLWIDTH LATIN SMALL LETTER E WITH DOT ABOVE")
     (=>ucs		. #x0117)	; Ä—
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0117)
     (->uppercase
-     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER E WITH DOT ABOVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH DOT ABOVE")
       (ucs		  . #x0117)	; Ä—
@@ -778,7 +800,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x0328)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter e with ogonek")
+     ((name . "fullwidth latin capital letter e with ogonek")
       (japanese-jisx0212	  . #x2A38)	; ø»Š±µ
       (japanese-jisx0213-1	  . #x2A3E)	; ø»¢ §
       ))
@@ -798,7 +820,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0118)
     (->lowercase
-     ((name . "fullwidth latin small letter e with ogonek")))
+     ((name		  . "fullwidth latin small letter e with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH OGONEK")
       (ucs		  . #x0118)	; Ä˜
@@ -833,7 +856,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0119)
     (->uppercase
-     ((name . "fullwidth latin capital letter e with ogonek")))
+     ((name . "fullwidth latin capital letter e with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH OGONEK")
       (ucs		  . #x0119)	; Ä™
@@ -848,7 +872,7 @@
     (mirrored		. nil)
     (->decomposition	#x0045 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter e with caron")
+     ((name . "fullwidth latin capital letter e with caron")
       (japanese-jisx0212	  . #x2A35)	; ø»Š±²
       (japanese-jisx0213-1	  . #x2A3F)	; ø»¢ ¨
       ))
@@ -867,7 +891,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x011A)
     (->lowercase
-     ((name . "fullwidth latin small letter e with caron")))
+     ((name		  . "fullwidth latin small letter e with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER E WITH CARON")
       (ucs		  . #x011A)	; Äš
@@ -902,7 +927,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x011B)
     (->uppercase
-     ((name . "fullwidth latin capital letter e with caron")))
+     ((name . "fullwidth latin capital letter e with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER E WITH CARON")
       (ucs		  . #x011B)	; Ä›
@@ -937,7 +963,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x011C)
     (->lowercase
-     ((name . "fullwidth latin small letter g with circumflex")))
+     ((name . "fullwidth latin small letter g with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH CIRCUMFLEX")
       (ucs		  . #x011C)	; Äœ
@@ -952,7 +979,7 @@
     (mirrored		. nil)
     (->decomposition	#x0067 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter g with circumflex")
+     ((name . "fullwidth latin small letter g with circumflex")
       (japanese-jisx0212	  . #x2B3A)	; ø»Š³•
       (japanese-jisx0213-1	  . #x2A60)	; ø»¢¡‰
       ))
@@ -964,14 +991,15 @@
     (ucs		. #x011D)	; Ä
     ))
 (define-char
-  '((name		. "fullwidth latin small letter g with circumflex")
+  '((name . "fullwidth latin small letter g with circumflex")
     (=>ucs		. #x011D)	; Ä
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x011D)
     (->uppercase
-     ((name . "fullwidth latin small letter g with circumflex")))
+     ((name . "fullwidth latin small letter g with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH CIRCUMFLEX")
       (ucs		  . #x011D)	; Ä
@@ -986,7 +1014,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0306)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")
       (japanese-jisx0212  . #x2A3B)	; ø»Š±¸
       ))
     (->lowercase
@@ -1005,7 +1033,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x011E)
     (->lowercase
-     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")))
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER G WITH BREVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH BREVE")
       (ucs		  . #x011E)	; Äž
@@ -1038,7 +1067,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x011F)
     (->uppercase
-     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH BREVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH BREVE")
       (ucs		  . #x011F)	; ÄŸ
@@ -1052,7 +1082,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0307)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
       (japanese-jisx0212  . #x2A3D)	; ø»Š±º
       ))
     (->lowercase
@@ -1063,14 +1093,15 @@
     (ucs		. #x0120)	; Ä 
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
     (=>ucs		. #x0120)	; Ä 
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0120)
     (->lowercase
-     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH DOT ABOVE")
       (ucs		  . #x0120)	; Ä 
@@ -1084,7 +1115,7 @@
     (mirrored		. nil)
     (->decomposition	#x0067 #x0307)
     (->fullwidth
-     ((name		  . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
+     ((name . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
       (japanese-jisx0212  . #x2B3D)	; ø»Š³˜
       ))
     (->uppercase
@@ -1095,14 +1126,15 @@
     (ucs		. #x0121)	; Ä¡
     ))
 (define-char
-  '((name		. "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
+  '((name . "FULLWIDTH LATIN SMALL LETTER G WITH DOT ABOVE")
     (=>ucs		. #x0121)	; Ä¡
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0121)
     (->uppercase
-     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH DOT ABOVE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER G WITH DOT ABOVE")
       (ucs		  . #x0121)	; Ä¡
@@ -1116,7 +1148,7 @@
     (mirrored		. nil)
     (->decomposition	#x0047 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter g with cedilla")
+     ((name . "fullwidth latin capital letter g with cedilla")
       (japanese-jisx0212  . #x2A3C)	; ø»Š±¹
       ))
     (->lowercase
@@ -1127,14 +1159,15 @@
     (ucs		. #x0122)	; Ä¢
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter g with cedilla")
+  '((name . "fullwidth latin capital letter g with cedilla")
     (=>ucs		. #x0122)	; Ä¢
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0122)
     (->lowercase
-     ((name . "fullwidth latin small letter g with cedilla")))
+     ((name . "fullwidth latin small letter g with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER G WITH CEDILLA")
       (ucs		  . #x0122)	; Ä¢
@@ -1180,7 +1213,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0124)
     (->lowercase
-     ((name . "fullwidth latin small letter h with circumflex")))
+     ((name . "fullwidth latin small letter h with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER H WITH CIRCUMFLEX")
       (ucs		  . #x0124)	; Ä¤
@@ -1195,7 +1229,7 @@
     (mirrored		. nil)
     (->decomposition	#x0068 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter h with circumflex")
+     ((name . "fullwidth latin small letter h with circumflex")
       (japanese-jisx0212	  . #x2B3E)	; ø»Š³™
       (japanese-jisx0213-1	  . #x2A61)	; ø»¢¡Š
       ))
@@ -1207,14 +1241,15 @@
     (ucs		. #x0125)	; Ä¥
     ))
 (define-char
-  '((name		. "fullwidth latin small letter h with circumflex")
+  '((name . "fullwidth latin small letter h with circumflex")
     (=>ucs		. #x0125)	; Ä¥
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0125)
     (->uppercase
-     ((name . "fullwidth latin capital letter h with circumflex")))
+     ((name . "fullwidth latin capital letter h with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER H WITH CIRCUMFLEX")
       (ucs		  . #x0125)	; Ä¥
@@ -1228,7 +1263,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter h with stroke")
+     ((name . "fullwidth latin capital letter h with stroke")
       (korean-ksc5601	  . #x2824)	; ø»ˆ¤¡
       (japanese-jisx0212  . #x2924)	; ø»Š°ƒ
       ))
@@ -1247,7 +1282,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0126)
     (->lowercase
-     ((name . "fullwidth latin small letter h with stroke")))
+     ((name		  . "fullwidth latin small letter h with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER H WITH STROKE")
       (ucs		  . #x0126)	; Ä¦
@@ -1281,7 +1317,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0127)
     (->uppercase
-     ((name . "fullwidth latin capital letter h with stroke")))
+     ((name . "fullwidth latin capital letter h with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER H WITH STROKE")
       (ucs		  . #x0127)	; Ä§
@@ -1297,17 +1334,17 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0303)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter i with tilde")
+     ((name . "fullwidth latin capital letter i with tilde")
       (japanese-jisx0212  . #x2A47)	; ø»Š²„
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER I WITH TILDE")
       (ucs		  . #x0129)	; Ä©
       ))
-    (latin-iso8859-4		. #xA5)	; øº’¸¥
-    (latin-viscii-upper		. #xEE)	; øº’ž®
-    (latin-viscii		. #xCE)	; øº’ž®
-    (ucs			. #x0128)	; Ä¨
+    (latin-iso8859-4	. #xA5)	; øº’¸¥
+    (latin-viscii-upper . #xEE)	; øº’ž®
+    (latin-viscii	. #xCE)	; øº’ž®
+    (ucs		. #x0128)	; Ä¨
     ))
 (define-char
   '((name		. "fullwidth latin capital letter i with tilde")
@@ -1317,7 +1354,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0128)
     (->lowercase
-     ((name . "fullwidth latin small letter i with tilde")))
+     ((name		  . "fullwidth latin small letter i with tilde")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH TILDE")
       (ucs		  . #x0128)	; Ä¨
@@ -1338,11 +1376,11 @@
      ((name		  . "LATIN CAPITAL LETTER I WITH TILDE")
       (ucs		  . #x0128)	; Ä¨
       ))
-    (latin-iso8859-4		. #xB5)	; øº’¸µ
-    (latin-tcvn5712		. #xDC)	; øº“šœ
-    (latin-viscii-lower		. #xEE)	; øº’Ž
-    (latin-viscii		. #xEE)	; øº’Ž
-    (ucs			. #x0129)	; Ä©
+    (latin-iso8859-4	. #xB5)	; øº’¸µ
+    (latin-tcvn5712	. #xDC)	; øº“šœ
+    (latin-viscii-lower . #xEE)	; øº’Ž
+    (latin-viscii	. #xEE)	; øº’Ž
+    (ucs		. #x0129)	; Ä©
     ))
 (define-char
   '((name		. "fullwidth latin small letter i with tilde")
@@ -1352,7 +1390,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0129)
     (->uppercase
-     ((name . "fullwidth latin capital letter i with tilde")))
+     ((name . "fullwidth latin capital letter i with tilde")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH TILDE")
       (ucs		  . #x0129)	; Ä©
@@ -1366,7 +1405,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0304)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter i with macron")
+     ((name . "fullwidth latin capital letter i with macron")
       (japanese-jisx0212	  . #x2A45)	; ø»Š²‚
       (japanese-jisx0213-1	  . #x2976)	; ø»¢ 
       ))
@@ -1385,7 +1424,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x012A)
     (->lowercase
-     ((name . "fullwidth latin small letter i with macron")))
+     ((name		  . "fullwidth latin small letter i with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH MACRON")
       (ucs		  . #x012A)	; Äª
@@ -1420,7 +1460,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x012B)
     (->uppercase
-     ((name . "fullwidth latin capital letter i with macron")))
+     ((name . "fullwidth latin capital letter i with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH MACRON")
       (ucs		  . #x012B)	; Ä«
@@ -1460,7 +1501,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0328)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter i with ogonek")
+     ((name . "fullwidth latin capital letter i with ogonek")
       (japanese-jisx0212  . #x2A46)	; ø»Š²ƒ
       ))
     (->lowercase
@@ -1478,7 +1519,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x012E)
     (->lowercase
-     ((name . "fullwidth latin small letter i with ogonek")))
+     ((name		  . "fullwidth latin small letter i with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH OGONEK")
       (ucs		  . #x012E)	; Ä®
@@ -1510,7 +1552,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x012F)
     (->uppercase
-     ((name . "fullwidth latin capital letter i with ogonek")))
+     ((name . "fullwidth latin capital letter i with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER I WITH OGONEK")
       (ucs		  . #x012F)	; Ä¯
@@ -1524,7 +1567,7 @@
     (mirrored		. nil)
     (->decomposition	#x0049 #x0307)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter i with dot above")
+     ((name . "fullwidth latin capital letter i with dot above")
       (japanese-jisx0212  . #x2A44)	; ø»Š²
       ))
     (->lowercase
@@ -1536,14 +1579,15 @@
     (ucs		. #x0130)	; Ä°
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter i with dot above")
+  '((name . "fullwidth latin capital letter i with dot above")
     (=>ucs		. #x0130)	; Ä°
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0130)
     (->lowercase
-     ((name . "fullwidth latin small letter i with dot above")))
+     ((name . "fullwidth latin small letter i with dot above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER I WITH DOT ABOVE")
       (ucs		  . #x0130)	; Ä°
@@ -1570,7 +1614,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name . "fullwidth latin capital letter dotless i")))
+     ((name		  . "fullwidth latin capital letter dotless i")
+      ))
     (korean-ksc5601	. #x2925)	; ø»ˆ¦€
     (japanese-jisx0212	. #x2945)	; ø»Š°¤
     ))
@@ -1649,7 +1694,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0134)
     (->lowercase
-     ((name . "fullwidth latin small letter j with circumflex")))
+     ((name . "fullwidth latin small letter j with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER J WITH CIRCUMFLEX")
       (ucs		  . #x0134)	; Ä´
@@ -1664,7 +1710,7 @@
     (mirrored		. nil)
     (->decomposition	#x006A #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter j with circumflex")
+     ((name . "fullwidth latin small letter j with circumflex")
       (japanese-jisx0212	  . #x2B48)	; ø»Š³£
       (japanese-jisx0213-1	  . #x2A62)	; ø»¢¡‹
       ))
@@ -1676,14 +1722,15 @@
     (ucs		. #x0135)	; Äµ
     ))
 (define-char
-  '((name		. "fullwidth latin small letter j with circumflex")
+  '((name . "fullwidth latin small letter j with circumflex")
     (=>ucs		. #x0135)	; Äµ
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0135)
     (->uppercase
-     ((name . "fullwidth latin capital letter j with circumflex")))
+     ((name . "fullwidth latin capital letter j with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER J WITH CIRCUMFLEX")
       (ucs		  . #x0135)	; Äµ
@@ -1698,7 +1745,7 @@
     (mirrored		. nil)
     (->decomposition	#x004B #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter k with cedilla")
+     ((name . "fullwidth latin capital letter k with cedilla")
       (japanese-jisx0212  . #x2A49)	; ø»Š²†
       ))
     (->lowercase
@@ -1709,14 +1756,15 @@
     (ucs		. #x0136)	; Ä¶
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter k with cedilla")
+  '((name . "fullwidth latin capital letter k with cedilla")
     (=>ucs		. #x0136)	; Ä¶
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0136)
     (->lowercase
-     ((name . "fullwidth latin small letter k with cedilla")))
+     ((name . "fullwidth latin small letter k with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER K WITH CEDILLA")
       (ucs		  . #x0136)	; Ä¶
@@ -1730,7 +1778,7 @@
     (mirrored		. nil)
     (->decomposition	#x006B #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter k with cedilla")
+     ((name . "fullwidth latin small letter k with cedilla")
       (japanese-jisx0212  . #x2B49)	; ø»Š³¤
       ))
     (->uppercase
@@ -1748,7 +1796,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0137)
     (->uppercase
-     ((name . "fullwidth latin capital letter k with cedilla")))
+     ((name . "fullwidth latin capital letter k with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER K WITH CEDILLA")
       (ucs		  . #x0137)	; Ä·
@@ -1791,7 +1840,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter l with acute")
+     ((name . "fullwidth latin capital letter l with acute")
       (japanese-jisx0212	  . #x2A4A)	; ø»Š²‡
       (japanese-jisx0213-1	  . #x2A3B)	; ø»¢ ¤
       ))
@@ -1810,7 +1859,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0139)
     (->lowercase
-     ((name . "fullwidth latin small letter l with acute")))
+     ((name		  . "fullwidth latin small letter l with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L WITH ACUTE")
       (ucs		  . #x0139)	; Ä¹
@@ -1844,7 +1894,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x013A)
     (->uppercase
-     ((name . "fullwidth latin capital letter l with acute")))
+     ((name . "fullwidth latin capital letter l with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L WITH ACUTE")
       (ucs		  . #x013A)	; Äº
@@ -1859,7 +1910,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter l with cedilla")
+     ((name . "fullwidth latin capital letter l with cedilla")
       (japanese-jisx0212  . #x2A4C)	; ø»Š²‰
       ))
     (->lowercase
@@ -1870,14 +1921,15 @@
     (ucs		. #x013B)	; Ä»
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter l with cedilla")
+  '((name . "fullwidth latin capital letter l with cedilla")
     (=>ucs		. #x013B)	; Ä»
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x013B)
     (->lowercase
-     ((name . "fullwidth latin capital letter l with cedilla")))
+     ((name . "fullwidth latin capital letter l with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L WITH CEDILLA")
       (ucs		  . #x013B)	; Ä»
@@ -1891,7 +1943,7 @@
     (mirrored		. nil)
     (->decomposition	#x006C #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter l with cedilla")
+     ((name . "fullwidth latin small letter l with cedilla")
       (japanese-jisx0212  . #x2B4C)	; ø»Š³§
       ))
     (->uppercase
@@ -1909,7 +1961,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x013C)
     (->uppercase
-     ((name . "fullwidth latin capital letter l with cedilla")))
+     ((name . "fullwidth latin capital letter l with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L WITH CEDILLA")
       (ucs		  . #x013C)	; Ä¼
@@ -1923,7 +1976,7 @@
     (mirrored		. nil)
     (->decomposition	#x004C #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter l with caron")
+     ((name . "fullwidth latin capital letter l with caron")
       (japanese-jisx0212	  . #x2A4B)	; ø»Š²ˆ
       (japanese-jisx0213-1	  . #x2A24)	; ø»¢ 
       ))
@@ -1942,7 +1995,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x013D)
     (->lowercase
-     ((name . "fullwidth latin small letter l with caron")))
+     ((name		  . "fullwidth latin small letter l with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L WITH CARON")
       (ucs		  . #x013D)	; Ä½
@@ -1976,7 +2030,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x013E)
     (->uppercase
-     ((name . "fullwidth latin capital letter l with caron")))
+     ((name . "fullwidth latin capital letter l with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L WITH CARON")
       (ucs		  . #x013E)	; Ä¾
@@ -2009,7 +2064,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x013F)
     (->lowercase
-     ((name . "fullwidth latin small letter l with middle dot")))
+     ((name . "fullwidth latin small letter l with middle dot")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L WITH MIDDLE DOT")
       (ucs		  . #x013F)	; Ä¿
@@ -2024,7 +2080,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x006C #x00B7)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter l with middle dot")
+     ((name . "fullwidth latin small letter l with middle dot")
       (korean-ksc5601	  . #x2928)	; ø»ˆ¦ƒ
       (japanese-jisx0212  . #x2949)	; ø»Š°¨
       ))
@@ -2035,14 +2091,15 @@
     (ucs		. #x0140)	; Å€
     ))
 (define-char
-  '((name		. "fullwidth latin small letter l with middle dot")
+  '((name . "fullwidth latin small letter l with middle dot")
     (=>ucs		. #x0140)	; Å€
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0140)
     (->uppercase
-     ((name . "fullwidth latin capital letter l with middle dot")))
+     ((name . "fullwidth latin capital letter l with middle dot")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L WITH MIDDLE DOT")
       (ucs		  . #x0140)	; Å€
@@ -2056,7 +2113,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter l with stroke")
+     ((name . "fullwidth latin capital letter l with stroke")
       (korean-ksc5601		  . #x2829)	; ø»ˆ¤¦
       (japanese-jisx0212	  . #x2928)	; ø»Š°‡
       (japanese-jisx0213-1	  . #x2A23)	; ø»¢ Œ
@@ -2076,7 +2133,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0141)
     (->lowercase
-     ((name . "fullwidth latin small letter l with stroke")))
+     ((name		  . "fullwidth latin small letter l with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER L WITH STROKE")
       (ucs		  . #x0141)	; Å
@@ -2111,7 +2169,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0142)
     (->uppercase
-     ((name . "fullwidth latin capital letter l with stroke")))
+     ((name . "fullwidth latin capital letter l with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER L WITH STROKE")
       (ucs		  . #x0142)	; Å‚
@@ -2127,7 +2186,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter n with acute")
+     ((name . "fullwidth latin capital letter n with acute")
       (japanese-jisx0212	  . #x2A4D)	; ø»Š²Š
       (japanese-jisx0213-1	  . #x2A41)	; ø»¢ ª
       ))
@@ -2146,7 +2205,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0143)
     (->lowercase
-     ((name . "fullwidth latin small letter n with acute")))
+     ((name		  . "fullwidth latin small letter n with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH ACUTE")
       (ucs		  . #x0143)	; Åƒ
@@ -2180,7 +2240,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0144)
     (->uppercase
-     ((name . "fullwidth latin capital letter n with acute")))
+     ((name . "fullwidth latin capital letter n with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH ACUTE")
       (ucs		  . #x0144)	; Å„
@@ -2195,7 +2256,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter n with cedilla")
+     ((name . "fullwidth latin capital letter n with cedilla")
       (japanese-jisx0212  . #x2A4F)	; ø»Š²Œ
       ))
     (->lowercase
@@ -2206,14 +2267,15 @@
     (ucs		. #x0145)	; Å…
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter n with cedilla")
+  '((name . "fullwidth latin capital letter n with cedilla")
     (=>ucs		. #x0145)	; Å…
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0145)
     (->lowercase
-     ((name . "fullwidth latin small letter n with cedilla")))
+     ((name . "fullwidth latin small letter n with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH CEDILLA")
       (ucs		  . #x0145)	; Å…
@@ -2227,7 +2289,7 @@
     (mirrored		. nil)
     (->decomposition	#x006E #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter n with cedilla")
+     ((name . "fullwidth latin small letter n with cedilla")
       (japanese-jisx0212  . #x2B4F)	; ø»Š³ª
       ))
     (->uppercase
@@ -2245,7 +2307,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0146)
     (->uppercase
-     ((name . "fullwidth latin capital letter n with cedilla")))
+     ((name . "fullwidth latin capital letter n with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH CEDILLA")
       (ucs		  . #x0146)	; Å†
@@ -2259,7 +2322,7 @@
     (mirrored		. nil)
     (->decomposition	#x004E #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter n with caron")
+     ((name . "fullwidth latin capital letter n with caron")
       (japanese-jisx0212	  . #x2A4E)	; ø»Š²‹
       (japanese-jisx0213-1	  . #x2A42)	; ø»¢ «
       ))
@@ -2278,7 +2341,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0147)
     (->lowercase
-     ((name . "fullwidth latin small letter n with caron")))
+     ((name		  . "fullwidth latin small letter n with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER N WITH CARON")
       (ucs		  . #x0147)	; Å‡
@@ -2312,7 +2376,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0148)
     (->uppercase
-     ((name . "fullwidth latin capital letter n with caron")))
+     ((name . "fullwidth latin capital letter n with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH CARON")
       (ucs		  . #x0148)	; Åˆ
@@ -2341,7 +2406,7 @@
     (mirrored		. nil)
     (->decomposition	wide #x0149)
     (<-fullwidth
-     ((name		  . "LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
+     ((name . "LATIN SMALL LETTER N PRECEDED BY APOSTROPHE")
       (ucs		  . #x0149)	; Å‰
       ))
     (korean-ksc5601	. #x2930)	; ø»ˆ¦‹
@@ -2374,7 +2439,8 @@
     (iso-10646-comment	. "Sami")
     (->decomposition	wide #x014A)
     (->lowercase
-     ((name . "FULLWIDTH LATIN SMALL LETTER ENG")))
+     ((name		  . "FULLWIDTH LATIN SMALL LETTER ENG")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER ENG")
       (ucs		  . #x014A)	; ÅŠ
@@ -2411,7 +2477,8 @@
     (iso-10646-comment	. "Sami")
     (->decomposition	wide #x014B)
     (->uppercase
-     ((name . "fullwidth latin capital letter eng")))
+     ((name		  . "fullwidth latin capital letter eng")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER ENG")
       (ucs		  . #x014B)	; Å‹
@@ -2427,7 +2494,7 @@
     (mirrored		. nil)
     (->decomposition	#x004F #x0304)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter o with macron")
+     ((name . "fullwidth latin capital letter o with macron")
       (japanese-jisx0212	  . #x2A57)	; ø»Š²”
       (japanese-jisx0213-1	  . #x2979)	; ø»¢ „
       ))
@@ -2446,7 +2513,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x014C)
     (->lowercase
-     ((name . "fullwidth latin small letter o with macron")))
+     ((name		  . "fullwidth latin small letter o with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH MACRON")
       (ucs		  . #x014C)	; ÅŒ
@@ -2481,7 +2549,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x014D)
     (->uppercase
-     ((name . "fullwidth latin capital letter o with macron")))
+     ((name . "fullwidth latin capital letter o with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH MACRON")
       (ucs		  . #x014D)	; Å
@@ -2540,7 +2609,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0150)
     (->lowercase
-     ((name . "fullwidth latin small letter o with double acute")))
+     ((name . "fullwidth latin small letter o with double acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER O WITH DOUBLE ACUTE")
       (ucs		  . #x0150)	; Å
@@ -2574,7 +2644,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0151)
     (->uppercase
-     ((name . "fullwidth latin capital letter o with double acute")))
+     ((name . "fullwidth latin capital letter o with double acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER O WITH DOUBLE ACUTE")
       (ucs		  . #x0151)	; Å‘
@@ -2622,7 +2693,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0153)
     (->uppercase
-     ((name . "fullwidth latin capital ligature oe")))
+     ((name		  . "fullwidth latin capital ligature oe")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LIGATURE OE")
       (ucs		  . #x0153)	; Å“
@@ -2638,7 +2710,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter r with acute")
+     ((name . "fullwidth latin capital letter r with acute")
       (japanese-jisx0212	  . #x2A59)	; ø»Š²–
       (japanese-jisx0213-1	  . #x2A39)	; ø»¢ ¢
       ))
@@ -2657,7 +2729,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0154)
     (->lowercase
-     ((name . "fullwidth latin small letter r with acute")))
+     ((name		  . "fullwidth latin small letter r with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER R WITH ACUTE")
       (ucs		  . #x0154)	; Å”
@@ -2691,7 +2764,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0155)
     (->uppercase
-     ((name . "fullwidth latin capital letter r with acute")))
+     ((name . "fullwidth latin capital letter r with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER R WITH ACUTE")
       (ucs		  . #x0155)	; Å•
@@ -2706,7 +2780,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter r with cedilla")
+     ((name . "fullwidth latin capital letter r with cedilla")
       (japanese-jisx0212  . #x2A5B)	; ø»Š²˜
       ))
     (->lowercase
@@ -2717,14 +2791,15 @@
     (ucs		. #x0156)	; Å–
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter r with cedilla")
+  '((name . "fullwidth latin capital letter r with cedilla")
     (=>ucs		. #x0156)	; Å–
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0156)
     (->lowercase
-     ((name . "fullwidth latin small letter r with cedilla")))
+     ((name . "fullwidth latin small letter r with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER R WITH CEDILLA")
       (ucs		  . #x0156)	; Å–
@@ -2738,7 +2813,7 @@
     (mirrored		. nil)
     (->decomposition	#x0072 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter r with cedilla")
+     ((name . "fullwidth latin small letter r with cedilla")
       (japanese-jisx0212  . #x2B5B)	; ø»Š³¶
       ))
     (->uppercase
@@ -2756,7 +2831,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0157)
     (->uppercase
-     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER R WITH CEDILLA")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER R WITH CEDILLA")
       (ucs		  . #x0157)	; Å—
@@ -2770,7 +2846,7 @@
     (mirrored		. nil)
     (->decomposition	#x0052 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter r with caron")
+     ((name . "fullwidth latin capital letter r with caron")
       (japanese-jisx0212	  . #x2A5A)	; ø»Š²—
       (japanese-jisx0213-1	  . #x2A44)	; ø»¢ ­
       ))
@@ -2789,7 +2865,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0158)
     (->lowercase
-     ((name . "fullwidth latin small letter r with caron")))
+     ((name		  . "fullwidth latin small letter r with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER R WITH CARON")
       (ucs		  . #x0158)	; Å˜
@@ -2823,7 +2900,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0159)
     (->uppercase
-     ((name . "fullwidth latin capital letter r with caron")))
+     ((name . "fullwidth latin capital letter r with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER R WITH CARON")
       (ucs		  . #x0159)	; Å™
@@ -2838,7 +2916,7 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter s with acute")
+     ((name . "fullwidth latin capital letter s with acute")
       (japanese-jisx0212	  . #x2A5C)	; ø»Š²™
       (japanese-jisx0213-1	  . #x2A25)	; ø»¢ Ž
       ))
@@ -2857,7 +2935,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x015A)
     (->lowercase
-     ((name . "fullwidth latin small letter s with acute")))
+     ((name		  . "fullwidth latin small letter s with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER S WITH ACUTE")
       (ucs		  . #x015A)	; Åš
@@ -2891,7 +2970,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x015B)
     (->uppercase
-     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER S WITH ACUTE")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER S WITH ACUTE")
       (ucs		  . #x015B)	; Å›
@@ -2924,7 +3004,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x015C)
     (->lowercase
-     ((name . "fullwidth latin small letter s with circumflex")))
+     ((name . "fullwidth latin small letter s with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER S WITH CIRCUMFLEX")
       (ucs		  . #x015C)	; Åœ
@@ -2939,7 +3020,7 @@
     (mirrored		. nil)
     (->decomposition	#x0073 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter s with circumflex")
+     ((name . "fullwidth latin small letter s with circumflex")
       (japanese-jisx0212	  . #x2B5D)	; ø»Š³¸
       (japanese-jisx0213-1	  . #x2A63)	; ø»¢¡Œ
       ))
@@ -2951,14 +3032,15 @@
     (ucs		. #x015D)	; Å
     ))
 (define-char
-  '((name		. "fullwidth latin small letter s with circumflex")
+  '((name . "fullwidth latin small letter s with circumflex")
     (=>ucs		. #x015D)	; Å
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x015D)
     (->uppercase
-     ((name . "fullwidth latin capital letter s with circumflex")))
+     ((name . "fullwidth latin capital letter s with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER S WITH CIRCUMFLEX")
       (ucs		  . #x015D)	; Å
@@ -2973,7 +3055,7 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter s with cedilla")
+     ((name . "fullwidth latin capital letter s with cedilla")
       (japanese-jisx0212	  . #x2A5F)	; ø»Š²œ
       (japanese-jisx0213-1	  . #x2A27)	; ø»¢ 
       ))
@@ -2987,14 +3069,15 @@
     (ucs		. #x015E)	; Åž
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter s with cedilla")
+  '((name . "fullwidth latin capital letter s with cedilla")
     (=>ucs		. #x015E)	; Åž
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x015E)
     (->lowercase
-     ((name . "fullwidth latin small letter s with cedilla")))
+     ((name . "fullwidth latin small letter s with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER S WITH CEDILLA")
       (ucs		  . #x015E)	; Åž
@@ -3009,7 +3092,7 @@
     (mirrored		. nil)
     (->decomposition	#x0073 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter s with cedilla")
+     ((name . "fullwidth latin small letter s with cedilla")
       (japanese-jisx0212	  . #x2B5F)	; ø»Š³º
       (japanese-jisx0213-1	  . #x2A33)	; ø»¢ œ
       ))
@@ -3030,7 +3113,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x015F)
     (->uppercase
-     ((name . "fullwidth latin capital letter s with cedilla")))
+     ((name . "fullwidth latin capital letter s with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER S WITH CEDILLA")
       (ucs		  . #x015F)	; ÅŸ
@@ -3045,7 +3129,7 @@
     (mirrored		. nil)
     (->decomposition	#x0053 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter s with caron")
+     ((name . "fullwidth latin capital letter s with caron")
       (japanese-jisx0212	  . #x2A5E)	; ø»Š²›
       (japanese-jisx0213-1	  . #x2A26)	; ø»¢ 
       ))
@@ -3065,7 +3149,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0160)
     (->lowercase
-     ((name . "fullwidth latin small letter s with caron")))
+     ((name		  . "fullwidth latin small letter s with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER S WITH CARON")
       (ucs		  . #x0160)	; Å 
@@ -3100,7 +3185,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0161)
     (->uppercase
-     ((name . "fullwidth latin capital letter s with caron")))
+     ((name . "fullwidth latin capital letter s with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER S WITH CARON")
       (ucs		  . #x0161)	; Å¡
@@ -3115,7 +3201,7 @@
     (mirrored		. nil)
     (->decomposition	#x0054 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter t with cedilla")
+     ((name . "fullwidth latin capital letter t with cedilla")
       (japanese-jisx0212	  . #x2A61)	; ø»Š²ž
       (japanese-jisx0213-1	  . #x2A47)	; ø»¢ °
       ))
@@ -3127,14 +3213,15 @@
     (ucs		. #x0162)	; Å¢
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter t with cedilla")
+  '((name . "fullwidth latin capital letter t with cedilla")
     (=>ucs		. #x0162)	; Å¢
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0162)
     (->lowercase
-     ((name . "fullwidth latin small letter t with cedilla")))
+     ((name . "fullwidth latin small letter t with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER T WITH CEDILLA")
       (ucs		  . #x0162)	; Å¢
@@ -3149,7 +3236,7 @@
     (mirrored		. nil)
     (->decomposition	#x0074 #x0327)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter t with cedilla")
+     ((name . "fullwidth latin small letter t with cedilla")
       (japanese-jisx0212	  . #x2B61)	; ø»Š³¼
       (japanese-jisx0213-1	  . #x2A57)	; ø»¢¡€
       ))
@@ -3168,7 +3255,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0163)
     (->uppercase
-     ((name . "fullwidth latin capital letter t with cedilla")))
+     ((name . "fullwidth latin capital letter t with cedilla")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER T WITH CEDILLA")
       (ucs		  . #x0163)	; Å£
@@ -3183,7 +3271,7 @@
     (mirrored		. nil)
     (->decomposition	#x0054 #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter t with caron")
+     ((name . "fullwidth latin capital letter t with caron")
       (japanese-jisx0212	  . #x2A60)	; ø»Š²
       (japanese-jisx0213-1	  . #x2A28)	; ø»¢ ‘
       ))
@@ -3202,7 +3290,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0164)
     (->lowercase
-     ((name . "fullwidth latin capital letter t with caron")))
+     ((name . "fullwidth latin capital letter t with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER T WITH CARON")
       (ucs		  . #x0164)	; Å¤
@@ -3236,7 +3325,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0165)
     (->uppercase
-     ((name . "fullwidth latin capital letter t with caron")))
+     ((name . "fullwidth latin capital letter t with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER T WITH CARON")
       (ucs		  . #x0165)	; Å¥
@@ -3250,7 +3340,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter t with stroke")
+     ((name . "fullwidth latin capital letter t with stroke")
       (korean-ksc5601	  . #x282E)	; ø»ˆ¤«
       (japanese-jisx0212  . #x292F)	; ø»Š°Ž
       ))
@@ -3269,7 +3359,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0166)
     (->lowercase
-     ((name . "fullwidth latin small letter t with stroke")))
+     ((name		  . "fullwidth latin small letter t with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER T WITH STROKE")
       (ucs		  . #x0166)	; Å¦
@@ -3302,7 +3393,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0167)
     (->uppercase
-     ((name . "fullwidth latin capital letter t with stroke")))
+     ((name . "fullwidth latin capital letter t with stroke")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER T WITH STROKE")
       (ucs		  . #x0167)	; Å§
@@ -3317,17 +3409,17 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0303)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter u with tilde")
+     ((name . "fullwidth latin capital letter u with tilde")
       (japanese-jisx0212  . #x2A6C)	; ø»Š²©
       ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER U WITH TILDE")
       (ucs		  . #x0169)	; Å©
       ))
-    (latin-iso8859-4		. #xDD)	; øº’¹
-    (latin-viscii-upper		. #xFB)	; øº’ž»
-    (latin-viscii		. #x9D)	; øº’ž»
-    (ucs			. #x0168)	; Å¨
+    (latin-iso8859-4	. #xDD)	; øº’¹
+    (latin-viscii-upper . #xFB)	; øº’ž»
+    (latin-viscii	. #x9D)	; øº’ž»
+    (ucs		. #x0168)	; Å¨
     ))
 (define-char
   '((name		. "fullwidth latin capital letter u with tilde")
@@ -3337,7 +3429,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0168)
     (->lowercase
-     ((name . "fullwidth latin capital letter u with tilde")))
+     ((name . "fullwidth latin capital letter u with tilde")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH TILDE")
       (ucs		  . #x0168)	; Å¨
@@ -3358,11 +3451,11 @@
      ((name		  . "LATIN CAPITAL LETTER U WITH TILDE")
       (ucs		  . #x0168)	; Å¨
       ))
-    (latin-iso8859-4		. #xFD)	; øº’¹½
-    (latin-tcvn5712		. #xF2)	; øº“š²
-    (latin-viscii-lower		. #xFB)	; øº’›
-    (latin-viscii		. #xFB)	; øº’›
-    (ucs			. #x0169)	; Å©
+    (latin-iso8859-4	. #xFD)	; øº’¹½
+    (latin-tcvn5712	. #xF2)	; øº“š²
+    (latin-viscii-lower . #xFB)	; øº’›
+    (latin-viscii	. #xFB)	; øº’›
+    (ucs		. #x0169)	; Å©
     ))
 (define-char
   '((name		. "fullwidth latin small letter u with tilde")
@@ -3372,7 +3465,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0169)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with tilde")))
+     ((name . "fullwidth latin capital letter u with tilde")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH TILDE")
       (ucs		  . #x0169)	; Å©
@@ -3386,7 +3480,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0304)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter u with macron")
+     ((name . "fullwidth latin capital letter u with macron")
       (japanese-jisx0212  . #x2A69)	; ø»Š²¦
       ))
     (->lowercase
@@ -3404,7 +3498,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x016A)
     (->lowercase
-     ((name . "fullwidth latin small letter u with macron")))
+     ((name		  . "fullwidth latin small letter u with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH MACRON")
       (ucs		  . #x016A)	; Åª
@@ -3439,7 +3534,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x016B)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with macron")))
+     ((name . "fullwidth latin capital letter u with macron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH MACRON")
       (ucs		  . #x016B)	; Å«
@@ -3455,7 +3551,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0306)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter u with breve")
+     ((name . "fullwidth latin capital letter u with breve")
       (japanese-jisx0212	  . #x2A66)	; ø»Š²£
       (japanese-jisx0213-1	  . #x2A5E)	; ø»¢¡‡
       ))
@@ -3474,7 +3570,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x016C)
     (->lowercase
-     ((name . "fullwidth latin small letter u with breve")))
+     ((name		  . "fullwidth latin small letter u with breve")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH BREVE")
       (ucs		  . #x016C)	; Å¬
@@ -3508,7 +3605,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x016D)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with breve")))
+     ((name . "fullwidth latin capital letter u with breve")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH BREVE")
       (ucs		  . #x016D)	; Å­
@@ -3542,7 +3640,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x016E)
     (->lowercase
-     ((name . "fullwidth latin small letter u with ring above")))
+     ((name . "fullwidth latin small letter u with ring above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH RING ABOVE")
       (ucs		  . #x016E)	; Å®
@@ -3557,7 +3656,7 @@
     (mirrored		. nil)
     (->decomposition	#x0075 #x030A)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter u with ring above")
+     ((name . "fullwidth latin small letter u with ring above")
       (japanese-jisx0212	  . #x2B6B)	; ø»Š´†
       (japanese-jisx0213-1	  . #x2A55)	; ø»¢ ¾
       ))
@@ -3569,14 +3668,15 @@
     (ucs		. #x016F)	; Å¯
     ))
 (define-char
-  '((name		. "fullwidth latin small letter u with ring above")
+  '((name . "fullwidth latin small letter u with ring above")
     (=>ucs		. #x016F)	; Å¯
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x016F)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with ring above")))
+     ((name . "fullwidth latin capital letter u with ring above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH RING ABOVE")
       (ucs		  . #x016F)	; Å¯
@@ -3610,7 +3710,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0170)
     (->lowercase
-     ((name . "fullwidth latin small letter u with double acute")))
+     ((name . "fullwidth latin small letter u with double acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH DOUBLE ACUTE")
       (ucs		  . #x0170)	; Å°
@@ -3644,7 +3745,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0171)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with double acute")))
+     ((name . "fullwidth latin capital letter u with double acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH DOUBLE ACUTE")
       (ucs		  . #x0171)	; Å±
@@ -3659,7 +3761,7 @@
     (mirrored		. nil)
     (->decomposition	#x0055 #x0328)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter u with ogonek")
+     ((name . "fullwidth latin capital letter u with ogonek")
       (japanese-jisx0212  . #x2A6A)	; ø»Š²§
       ))
     (->lowercase
@@ -3677,7 +3779,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0172)
     (->lowercase
-     ((name . "fullwidth latin small letter u with ogonek")))
+     ((name		  . "fullwidth latin small letter u with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH OGONEK")
       (ucs		  . #x0172)	; Å²
@@ -3709,7 +3812,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0173)
     (->uppercase
-     ((name . "fullwidth latin capital letter u with ogonek")))
+     ((name . "fullwidth latin capital letter u with ogonek")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER U WITH OGONEK")
       (ucs		  . #x0173)	; Å³
@@ -3740,7 +3844,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0174)
     (->lowercase
-     ((name . "fullwidth latin small letter w with circumflex")))
+     ((name . "fullwidth latin small letter w with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER W WITH CIRCUMFLEX")
       (ucs		  . #x0174)	; Å´
@@ -3754,7 +3859,7 @@
     (mirrored		. nil)
     (->decomposition	#x0077 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter w with circumflex")
+     ((name . "fullwidth latin small letter w with circumflex")
       (japanese-jisx0212  . #x2B71)	; ø»Š´Œ
       ))
     (->uppercase
@@ -3764,14 +3869,15 @@
     (ucs		. #x0175)	; Åµ
     ))
 (define-char
-  '((name		. "fullwidth latin small letter w with circumflex")
+  '((name . "fullwidth latin small letter w with circumflex")
     (=>ucs		. #x0175)	; Åµ
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0175)
     (->uppercase
-     ((name . "fullwidth latin capital letter w with circumflex")))
+     ((name . "fullwidth latin capital letter w with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER W WITH CIRCUMFLEX")
       (ucs		  . #x0175)	; Åµ
@@ -3802,7 +3908,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0176)
     (->lowercase
-     ((name . "fullwidth latin small letter y with circumflex")))
+     ((name . "fullwidth latin small letter y with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Y WITH CIRCUMFLEX")
       (ucs		  . #x0176)	; Å¶
@@ -3816,7 +3923,7 @@
     (mirrored		. nil)
     (->decomposition	#x0079 #x0302)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter y with circumflex")
+     ((name . "fullwidth latin small letter y with circumflex")
       (japanese-jisx0212  . #x2B74)	; ø»Š´
       ))
     (->uppercase
@@ -3826,14 +3933,15 @@
     (ucs		. #x0177)	; Å·
     ))
 (define-char
-  '((name		. "fullwidth latin small letter y with circumflex")
+  '((name . "fullwidth latin small letter y with circumflex")
     (=>ucs		. #x0177)	; Å·
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0177)
     (->uppercase
-     ((name . "fullwidth latin capital letter y with circumflex")))
+     ((name . "fullwidth latin capital letter y with circumflex")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Y WITH CIRCUMFLEX")
       (ucs		  . #x0177)	; Å·
@@ -3847,7 +3955,7 @@
     (mirrored		. nil)
     (->decomposition	#x0059 #x0308)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter y with diaeresis")
+     ((name . "fullwidth latin capital letter y with diaeresis")
       (japanese-jisx0212  . #x2A73)	; ø»Š²°
       ))
     (->lowercase
@@ -3857,14 +3965,15 @@
     (ucs		. #x0178)	; Å¸
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter y with diaeresis")
+  '((name . "fullwidth latin capital letter y with diaeresis")
     (=>ucs		. #x0178)	; Å¸
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0178)
     (->lowercase
-     ((name . "fullwidth latin small letter y with diaeresis")))
+     ((name . "fullwidth latin small letter y with diaeresis")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Y WITH DIAERESIS")
       (ucs		  . #x0178)	; Å¸
@@ -3878,7 +3987,7 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x0301)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter z with acute")
+     ((name . "fullwidth latin capital letter z with acute")
       (japanese-jisx0212	  . #x2A75)	; ø»Š²²
       (japanese-jisx0213-1	  . #x2A29)	; ø»¢ ’
       ))
@@ -3897,7 +4006,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0179)
     (->lowercase
-     ((name . "fullwidth latin small letter z with acute")))
+     ((name		  . "fullwidth latin small letter z with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Z WITH ACUTE")
       (ucs		  . #x0179)	; Å¹
@@ -3931,7 +4041,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x017A)
     (->uppercase
-     ((name . "fullwidth latin capital letter z with acute")))
+     ((name . "fullwidth latin capital letter z with acute")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Z WITH ACUTE")
       (ucs		  . #x017A)	; Åº
@@ -3946,7 +4057,7 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x0307)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter z with dot above")
+     ((name . "fullwidth latin capital letter z with dot above")
       (japanese-jisx0212	  . #x2A77)	; ø»Š²´
       (japanese-jisx0213-1	  . #x2A2B)	; ø»¢ ”
       ))
@@ -3959,14 +4070,15 @@
     (ucs		. #x017B)	; Å»
     ))
 (define-char
-  '((name		. "fullwidth latin capital letter z with dot above")
+  '((name . "fullwidth latin capital letter z with dot above")
     (=>ucs		. #x017B)	; Å»
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x017B)
     (->lowercase
-     ((name . "fullwidth latin small letter z with dot above")))
+     ((name . "fullwidth latin small letter z with dot above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Z WITH DOT ABOVE")
       (ucs		  . #x017B)	; Å»
@@ -3981,7 +4093,7 @@
     (mirrored		. nil)
     (->decomposition	#x007A #x0307)
     (->fullwidth
-     ((name		  . "fullwidth latin small letter z with dot above")
+     ((name . "fullwidth latin small letter z with dot above")
       (japanese-jisx0212	  . #x2B77)	; ø»Š´’
       (japanese-jisx0213-1	  . #x2A38)	; ø»¢ ¡
       ))
@@ -3994,14 +4106,15 @@
     (ucs		. #x017C)	; Å¼
     ))
 (define-char
-  '((name		. "fullwidth latin small letter z with dot above")
+  '((name . "fullwidth latin small letter z with dot above")
     (=>ucs		. #x017C)	; Å¼
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x017C)
     (->uppercase
-     ((name . "fullwidth latin capital letter z with dot above")))
+     ((name . "fullwidth latin capital letter z with dot above")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Z WITH DOT ABOVE")
       (ucs		  . #x017C)	; Å¼
@@ -4016,7 +4129,7 @@
     (mirrored		. nil)
     (->decomposition	#x005A #x030C)
     (->fullwidth
-     ((name		  . "fullwidth latin capital letter z with caron")
+     ((name . "fullwidth latin capital letter z with caron")
       (japanese-jisx0212	  . #x2A76)	; ø»Š²³
       (japanese-jisx0213-1	  . #x2A2A)	; ø»¢ “
       ))
@@ -4036,7 +4149,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x017D)
     (->lowercase
-     ((name . "fullwidth latin small letter z with caron")))
+     ((name		  . "fullwidth latin small letter z with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER Z WITH CARON")
       (ucs		  . #x017D)	; Å½
@@ -4071,7 +4185,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x017E)
     (->uppercase
-     ((name . "fullwidth latin capital letter z with caron")))
+     ((name . "fullwidth latin capital letter z with caron")
+      ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER Z WITH CARON")
       (ucs		  . #x017E)	; Å¾
