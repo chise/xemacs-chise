@@ -1,5 +1,12 @@
 2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R170-Mound.el (JSP-666E): Unify JC3-68DA; use
+	`=ucs@jis/1990' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R085-Water.el: Use `=ucs@jis/2000' instead of
+	`=ucs@jis-2000'.
+	(U+6FF9): Use `->subsumptive'.
+
 	* Ideograph-R188-Bone.el (JSP-695C): Use `=ucs@jis' instead of
 	`=ucs@jis-1990'.
 
