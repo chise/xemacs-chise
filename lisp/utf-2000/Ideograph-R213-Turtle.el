@@ -25,7 +25,7 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (total-strokes	 . 16)
-    (chinese-cns11643-1 . #x733F)	; ø»’»–
+    (=cns11643-1	. #x733F)	; ø»’»–
     ))
 (define-char
   '((=>ucs		. #x9F9C)	; é¾œ

@@ -17,7 +17,7 @@
     (total-strokes	 . 10)
     (=gb2312		. #x582A)	; ø»…–¿
     (=iso-ir165		. #x582A)	; ø»¿
-    (chinese-cns11643-1 . #x586F)	; ø»’”œ
+    (=cns11643-1	. #x586F)	; ø»’”œ
     (=ucs		. #x9B32)	; é¬²
     ))
 (define-char

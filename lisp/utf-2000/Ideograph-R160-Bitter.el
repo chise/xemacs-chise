@@ -7,7 +7,7 @@
     (=jis-x0208		. #x3F49)	; ø½Š¢¨
     (=ks-x1001		. #x6374)	; ø»‰¼›
     (=iso-ir165		. #x5041)	; ø»³¶
-    (chinese-cns11643-1 . #x4B50)	; ø»’€·
+    (=cns11643-1	. #x4B50)	; ø»’€·
     (=gt-pj-1		. #x3F49)	; è¾›
     (ideograph-daikanwa . 38630)	; ø¸‰›¦
     (=gt-k		. 02584)	; ý¡„€¨˜
@@ -161,7 +161,7 @@
     (total-strokes	 . 12)
     (=gb2312		. #x393C)	; ø»„©¯
     (=iso-ir165		. #x393C)	; ø»‘¿
-    (chinese-cns11643-1 . #x624B)	; ø»’¢¤
+    (=cns11643-1	. #x624B)	; ø»’¢¤
     (=ucs		. #x8F9C)	; è¾œ
     ))
 (define-char
@@ -250,7 +250,7 @@
     (total-strokes	 . 13)
     (=gb2312		. #x3159)	; ø»„žœ
     (=iso-ir165		. #x3159)	; ø»†¬
-    (chinese-cns11643-1 . #x6728)	; ø»’©—
+    (=cns11643-1	. #x6728)	; ø»’©—
     (=ucs		. #x8F9F)	; è¾Ÿ
     ))
 (define-char
@@ -305,7 +305,7 @@
     (total-strokes	 . 14)
     (=gb2312		. #x4031)	; ø»„³¶
     (=iso-ir165		. #x4031)	; ø»œ†
-    (chinese-cns11643-1 . #x6B3E)	; ø»’¯¥
+    (=cns11643-1	. #x6B3E)	; ø»’¯¥
     (=ucs		. #x8FA3)	; è¾£
     ))
 (define-char
@@ -410,7 +410,7 @@
     (total-strokes	 . 16)
     (=ks-x1001		. #x777D)	; ø»Š™¼
     (=jis-x0212		. #x6132)	; ø»Œ‚¡
-    (chinese-cns11643-1 . #x7256)	; ø»’º
+    (=cns11643-1	. #x7256)	; ø»’º
     (=jis-x0213-1-2000	. #x7C52)	; ø»¤™—
     (ideograph-daikanwa . 38655)	; ø¸‰›¿
     (=ucs@jis		. #x8FA6)	; ø»Š™¼
@@ -465,7 +465,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (chinese-cns11643-1 . #x7255)	; ø»’ºŽ
+    (=cns11643-1	. #x7255)	; ø»’ºŽ
     ))
 (define-char
   '((=>ucs		. #x8FA8)	; è¾¨
@@ -648,7 +648,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
-    (chinese-cns11643-1 . #x7930)	; ø»“ƒ»
+    (=cns11643-1	. #x7930)	; ø»“ƒ»
     (=gb12345		. #x3447)	; è¾­
     (=ucs		. #x8FAD)	; è¾­
     ))
@@ -719,7 +719,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
-    (chinese-cns11643-1 . #x7B33)	; ø»“†º
+    (=cns11643-1	. #x7B33)	; ø»“†º
     (=gb12345		. #x3167)	; è¾¯
     (=ucs		. #x8FAF)	; è¾¯
     ))

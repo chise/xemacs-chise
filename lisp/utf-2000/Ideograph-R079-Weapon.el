@@ -119,7 +119,7 @@
     (total-strokes	 . 9)
     (=gb2312		. #x364E)	; ø»„¥§
     (=iso-ir165		. #x364E)	; ø»·
-    (chinese-cns11643-1 . #x5174)	; ø»’Š
+    (=cns11643-1	. #x5174)	; ø»’Š
     (=ucs		. #x6BB5)	; æ®µ
     ))
 (define-char
@@ -225,7 +225,7 @@
     (total-strokes	 . 10)
     (=gb2312		. #x5273)	; ø»…”
     (=iso-ir165		. #x5273)	; ø»·¤
-    (chinese-cns11643-1 . #x5633)	; ø»’¤
+    (=cns11643-1	. #x5633)	; ø»’¤
     (=ucs		. #x6BB7)	; æ®·
     ))
 (define-char
@@ -440,7 +440,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-1 . #x5B44)	; ø»’˜‹
+    (=cns11643-1	. #x5B44)	; ø»’˜‹
     (=ucs@cns		. #x6BBA)	; ø»’˜‹
     ))
 (define-char
@@ -574,7 +574,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (chinese-cns11643-1 . #x6026)	; ø»’Ÿƒ
+    (=cns11643-1	. #x6026)	; ø»’Ÿƒ
     (=big5		. #xB4DF)	; ý¢€‹“Ÿ
     (=ucs		. #x6BBC)	; æ®¼
     ))
@@ -695,7 +695,7 @@
     (total-strokes	 . 13)
     (=gb2312		. #x356E)	; ø»„¤©
     (=iso-ir165		. #x356E)	; ø»Œ¹
-    (chinese-cns11643-1 . #x645B)	; ø»’¥°
+    (=cns11643-1	. #x645B)	; ø»’¥°
     (=big5		. #xB7B5)	; ý¢€‹žµ
     (=ucs		. #x6BBF)	; æ®¿
     ))
@@ -727,7 +727,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=jis-x0208		. #x544C)	; ø½‹¡
-    (chinese-cns11643-1 . #x645A)	; ø»’¥¯
+    (=cns11643-1	. #x645A)	; ø»’¥¯
     (=gt-pj-1		. #x544C)	; æ¯€
     (=big5		. #xB7B4)	; ý¢€‹ž´
     (ideograph-daikanwa . 16654)	; ø¸„„Ž
@@ -984,7 +984,7 @@
     (total-strokes	 . 15)
     (=gb2312		. #x5263)	; ø»…„
     (=iso-ir165		. #x5263)	; ø»·”
-    (chinese-cns11643-1 . #x6D47)	; ø»’²ª
+    (=cns11643-1	. #x6D47)	; ø»’²ª
     (=ucs		. #x6BC5)	; æ¯…
     ))
 (define-char
@@ -1013,7 +1013,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-1 . #x6D48)	; ø»’²«
+    (=cns11643-1	. #x6D48)	; ø»’²«
     ))
 (define-char
   '((ideographic-radical . 79)	; â½Ž

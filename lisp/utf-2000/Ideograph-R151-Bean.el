@@ -7,7 +7,7 @@
     (=jis-x0208		. #x4626)	; ø½Š¬—
     (=ks-x1001		. #x5467)	; ø»‰¦Œ
     (=iso-ir165		. #x3639)	; ø»¢
-    (chinese-cns11643-1 . #x4B48)	; ø»’€¯
+    (=cns11643-1	. #x4B48)	; ø»’€¯
     (=gt-pj-1		. #x4626)	; è±†
     (ideograph-daikanwa . 36245)	; ø¸ˆ¶•
     (=gt-k		. 02619)	; ý¡„€¨»
@@ -55,7 +55,7 @@
     (shinjigen-2	. 7802)
     (=jis-x0208		. #x6C31)	; ø½‹¤–
     (=ks-x1001		. #x5142)	; ø»‰¡
-    (chinese-cns11643-1 . #x583F)	; ø»’“¬
+    (=cns11643-1	. #x583F)	; ø»’“¬
     (=gb12345		. #x4671)	; è±ˆ
     (=gt-pj-1		. #x6C31)	; è±ˆ
     (ideograph-daikanwa . 36249)	; ø¸ˆ¶™
@@ -98,7 +98,7 @@
     (=gb2312		. #x7479)	; ø»†–
     (=jis-x0212		. #x5E68)	; ø»‹¾½
     (=iso-ir165		. #x7479)	; ø»Ž©¦
-    (chinese-cns11643-1 . #x5D47)	; ø»’›Š
+    (=cns11643-1	. #x5D47)	; ø»’›Š
     (=jis-x0213-1-2000	. #x7C36)	; ø»¤˜»
     (ideograph-daikanwa . 36253)	; ø¸ˆ¶
     (=ucs		. #x8C49)	; è±‰
@@ -273,7 +273,7 @@
     (=jis-x0208		. #x6C32)	; ø½‹¤—
     (=ks-x1001		. #x6855)	; ø»Šƒ’
     (=iso-ir165		. #x4D63)	; ø»¯¾
-    (chinese-cns11643-1 . #x6F27)	; ø»’µ†
+    (=cns11643-1	. #x6F27)	; ø»’µ†
     (ideograph-daikanwa . 36273)	; ø¸ˆ¶±
     (=ucs		. #x8C4C)	; è±Œ
     ))
@@ -345,7 +345,7 @@
     (total-strokes	 . 15)
     (shinjigen-2	. 7811)
     (=jis-x0208		. #x6C33)	; ø½‹¤˜
-    (chinese-cns11643-1 . #x6F28)	; ø»’µ‡
+    (=cns11643-1	. #x6F28)	; ø»’µ‡
     (ideograph-daikanwa . 36280)	; ø¸ˆ¶¸
     (=ucs		. #x8C4E)	; è±Ž
     ))
@@ -587,7 +587,7 @@
     (total-strokes	 . 18)
     (shinjigen-2	. 7808)
     (=jis-x0208		. #x6C34)	; ø½‹¤™
-    (chinese-cns11643-1 . #x7742)	; ø»“‘
+    (=cns11643-1	. #x7742)	; ø»“‘
     (=gb12345		. #x3761)	; è±
     (ideograph-daikanwa . 36304)	; ø¸ˆ·
     (=ucs		. #x8C50)	; è±
@@ -889,7 +889,7 @@
     (ideographic-strokes . 21)
     (total-strokes	 . 28)
     (=jis-x0212		. #x5E6D)	; ø»‹¿‚
-    (chinese-cns11643-1 . #x7D43)	; ø»“Š†
+    (=cns11643-1	. #x7D43)	; ø»“Š†
     (=jis-x0213-2-2000	. #x787E)	; ø»¦ž
     (ideograph-daikanwa . 36332)	; ø¸ˆ·¬
     (=ucs		. #x8C54)	; è±”

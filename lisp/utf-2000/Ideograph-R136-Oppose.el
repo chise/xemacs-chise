@@ -18,7 +18,7 @@
     (total-strokes	 . 6)
     (shinjigen-1	. 6636)
     (shinjigen-2	. 6636)
-    (chinese-cns11643-1 . #x4860)	; ø»‘¼­
+    (=cns11643-1	. #x4860)	; ø»‘¼­
     ))
 (define-char
   '((=>ucs		. #x821B)	; èˆ›
@@ -43,7 +43,7 @@
     (ideographic-radical . 136)	; â¾‡
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (chinese-cns11643-1 . #x6155)	; ø»’¡
+    (=cns11643-1	. #x6155)	; ø»’¡
     ))
 (define-char
   '((=>ucs		. #x821C)	; èˆœ
@@ -109,7 +109,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (shinjigen-1	. 6640)
-    (chinese-cns11643-1 . #x6A5A)	; ø»’®£
+    (=cns11643-1	. #x6A5A)	; ø»’®£
     ))
 (define-char
   '((=>ucs		. #x821E)	; èˆž
@@ -170,9 +170,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; â¿±
 	)
-       ((chinese-cns11643-1 . #x4E63)	; ø»’…¤
+       ((=cns11643-1	    . #x4E63)	; ø»’…¤
 	)
-       ((chinese-cns11643-1 . #x4860)	; ø»‘¼­
+       ((=cns11643-1	    . #x4860)	; ø»‘¼­
 	))
       )
      ((=ucs		  . #x4E5A)	; ä¹š

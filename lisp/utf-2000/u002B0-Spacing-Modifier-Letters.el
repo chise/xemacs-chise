@@ -179,7 +179,11 @@
     (iso-10646-comment	. "Mandarin Chinese third tone")
     (->fullwidth
      ((name		  . "fullwidth caron")
-      (chinese-cns11643-1 . #x256F)	; ø»‘‰¢
+      (=gb2312		  . #x2126)	; ø»„†‰
+      (=ks-x1001	  . #x2227)	; ø»ˆ›°
+      (=jis-x0212	  . #x2230)	; ø»Š¥½
+      (=cns11643-1	  . #x256F)	; ø»‘‰¢
+      (=jis-x0213-1-2000  . #x2A31)	; ø»¢ š
       ))
     (latin-iso8859-2	. #xB7)	; øº’µ·
     (latin-iso8859-4	. #xB7)	; øº’¸·
@@ -200,7 +204,7 @@
     (=gb2312		. #x2126)	; ø»„†‰
     (=ks-x1001		. #x2227)	; ø»ˆ›°
     (=jis-x0212		. #x2230)	; ø»Š¥½
-    (chinese-cns11643-1 . #x256F)	; ø»‘‰¢
+    (=cns11643-1	. #x256F)	; ø»‘‰¢
     (=jis-x0213-1-2000	. #x2A31)	; ø»¢ š
     (=big5		. #xA3BE)	; ý¢€ŠŽ¾
     (=jef-china3	. #x81AB)	; øºˆ†«
@@ -241,7 +245,6 @@
     (->fullwidth
      ((name		  . "fullwidth modifier letter macron")
       (=gb2312		  . #x2125)	; ø»„†ˆ
-      (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
       ))
     (=ucs		. #x02C9)	; Ë‰
     ))
@@ -258,7 +261,7 @@
       (=ucs		  . #x02C9)	; Ë‰
       ))
     (=gb2312		. #x2125)	; ø»„†ˆ
-    (chinese-cns11643-1 . #x256D)	; ø»‘‰ 
+    (=cns11643-1	. #x256D)	; ø»‘‰ 
     (=big5		. #xA3BC)	; ý¢€ŠŽ¼
     ))
 (define-char
@@ -269,7 +272,8 @@
     (iso-10646-comment	. "Mandarin Chinese second tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter acute accent")
-      (chinese-cns11643-1 . #x256E)	; ø»‘‰¡
+      (=cns11643-1	  . #x256E)	; ø»‘‰¡
+      (=big5		  . #xA3BD)	; ý¢€ŠŽ½
       ))
     (=ucs		. #x02CA)	; ËŠ
     ))
@@ -285,7 +289,7 @@
      ((name		  . "MODIFIER LETTER ACUTE ACCENT")
       (=ucs		  . #x02CA)	; ËŠ
       ))
-    (chinese-cns11643-1 . #x256E)	; ø»‘‰¡
+    (=cns11643-1	. #x256E)	; ø»‘‰¡
     (=big5		. #xA3BD)	; ý¢€ŠŽ½
     ))
 (define-char
@@ -296,7 +300,8 @@
     (iso-10646-comment	. "Mandarin Chinese fourth tone")
     (->fullwidth
      ((name		  . "fullwidth modifier letter grave accent")
-      (chinese-cns11643-1 . #x2570)	; ø»‘‰£
+      (=cns11643-1	  . #x2570)	; ø»‘‰£
+      (=big5		  . #xA3BF)	; ý¢€ŠŽ¿
       ))
     (=ucs		. #x02CB)	; Ë‹
     ))
@@ -312,7 +317,7 @@
      ((name		  . "MODIFIER LETTER GRAVE ACCENT")
       (=ucs		  . #x02CB)	; Ë‹
       ))
-    (chinese-cns11643-1 . #x2570)	; ø»‘‰£
+    (=cns11643-1	. #x2570)	; ø»‘‰£
     (=big5		. #xA3BF)	; ý¢€ŠŽ¿
     ))
 (define-char
@@ -498,7 +503,10 @@
     (->decomposition	compat #x0020 #x0307)
     (->fullwidth
      ((name		  . "fullwidth dot above")
-      (chinese-cns11643-1 . #x256C)	; ø»‘‰Ÿ
+      (=ks-x1001	  . #x222B)	; ø»ˆ›´
+      (=jis-x0212	  . #x2232)	; ø»Š¥¿
+      (=cns11643-1	  . #x256C)	; ø»‘‰Ÿ
+      (=jis-x0213-1-2000  . #x2A58)	; ø»¢¡
       ))
     (latin-iso8859-2	. #xFF)	; øº’¶¿
     (latin-iso8859-3	. #xFF)	; øº’¸Ÿ
@@ -519,7 +527,7 @@
       ))
     (=ks-x1001		. #x222B)	; ø»ˆ›´
     (=jis-x0212		. #x2232)	; ø»Š¥¿
-    (chinese-cns11643-1 . #x256C)	; ø»‘‰Ÿ
+    (=cns11643-1	. #x256C)	; ø»‘‰Ÿ
     (=jis-x0213-1-2000	. #x2A58)	; ø»¢¡
     (=big5		. #xA3BB)	; ý¢€ŠŽ»
     (=jef-china3	. #x81A9)	; øºˆ†©

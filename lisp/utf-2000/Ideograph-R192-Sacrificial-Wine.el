@@ -177,5 +177,5 @@
     (ideographic-radical . 192)	; â¾¿
     (ideographic-strokes . 19)
     (total-strokes	 . 29)
-    (chinese-cns11643-1 . #x7D48)	; ø»“Š‹
+    (=cns11643-1	. #x7D48)	; ø»“Š‹
     ))

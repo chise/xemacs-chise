@@ -6,7 +6,7 @@
     (=gb2312		. #x217B)	; ø»„‡ž
     (=jis-x0208		. #x222B)	; ø½‰·¤
     (=ks-x1001		. #x2167)	; ø»ˆ›’
-    (chinese-cns11643-1 . #x2258)	; ø»‘„±
+    (=cns11643-1	. #x2258)	; ø»‘„±
     (=big5		. #xA1F6)	; ý¢€Š‡¶
     (=jef-china3	. #x7BCE)	; øº‡¯Ž
     (=ucs		. #x2190)	; â†
@@ -19,7 +19,7 @@
     (=gb2312		. #x217C)	; ø»„‡Ÿ
     (=jis-x0208		. #x222C)	; ø½‰·¥
     (=ks-x1001		. #x2168)	; ø»ˆ›“
-    (chinese-cns11643-1 . #x2255)	; ø»‘„®
+    (=cns11643-1	. #x2255)	; ø»‘„®
     (=big5		. #xA1F4)	; ý¢€Š‡´
     (=jef-china3	. #x7BCF)	; øº‡¯
     (=ucs		. #x2191)	; â†‘
@@ -32,7 +32,7 @@
     (=gb2312		. #x217A)	; ø»„‡
     (=jis-x0208		. #x222A)	; ø½‰·£
     (=ks-x1001		. #x2166)	; ø»ˆ›‘
-    (chinese-cns11643-1 . #x2257)	; ø»‘„°
+    (=cns11643-1	. #x2257)	; ø»‘„°
     (=big5		. #xA1F7)	; ý¢€Š‡·
     (=jef-china3	. #x7BCD)	; øº‡¯
     (=ucs		. #x2192)	; â†’
@@ -45,7 +45,7 @@
     (=gb2312		. #x217D)	; ø»„‡ 
     (=jis-x0208		. #x222D)	; ø½‰·¦
     (=ks-x1001		. #x2169)	; ø»ˆ›”
-    (chinese-cns11643-1 . #x2256)	; ø»‘„¯
+    (=cns11643-1	. #x2256)	; ø»‘„¯
     (=big5		. #xA1F5)	; ý¢€Š‡µ
     (=jef-china3	. #x7BD0)	; øº‡¯
     (=ucs		. #x2193)	; â†“
@@ -73,7 +73,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ks-x1001		. #x2258)	; ø»ˆœ¡
-    (chinese-cns11643-1 . #x2259)	; ø»‘„²
+    (=cns11643-1	. #x2259)	; ø»‘„²
     (=jis-x0213-1-2000	. #x2327)	; ø»¢•¾
     (=big5		. #xA1F8)	; ý¢€Š‡¸
     (=ucs		. #x2196)	; â†–
@@ -84,7 +84,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ks-x1001		. #x2256)	; ø»ˆœŸ
-    (chinese-cns11643-1 . #x225A)	; ø»‘„³
+    (=cns11643-1	. #x225A)	; ø»‘„³
     (=jis-x0213-1-2000	. #x2325)	; ø»¢•¼
     (=big5		. #xA1F9)	; ý¢€Š‡¹
     (=ucs		. #x2197)	; â†—
@@ -95,7 +95,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ks-x1001		. #x2259)	; ø»ˆœ¢
-    (chinese-cns11643-1 . #x225C)	; ø»‘„µ
+    (=cns11643-1	. #x225C)	; ø»‘„µ
     (=jis-x0213-1-2000	. #x2326)	; ø»¢•½
     (=big5		. #xA1FB)	; ý¢€Š‡»
     (=ucs		. #x2198)	; â†˜
@@ -106,7 +106,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ks-x1001		. #x2257)	; ø»ˆœ 
-    (chinese-cns11643-1 . #x225B)	; ø»‘„´
+    (=cns11643-1	. #x225B)	; ø»‘„´
     (=jis-x0213-1-2000	. #x2328)	; ø»¢•¿
     (=big5		. #xA1FA)	; ý¢€Š‡º
     (=ucs		. #x2199)	; â†™

@@ -27,7 +27,7 @@
       ))
     (ideograph-cdp	. 31451)
     (shinjigen-1	. 6629)
-    (chinese-cns11643-1 . #x485F)	; ø»‘¼¬
+    (=cns11643-1	. #x485F)	; ø»‘¼¬
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -47,7 +47,7 @@
     (=jis-x0208		. #x6752)	; ø½‹¡
     (=ks-x1001		. #x5E6C)	; ø»‰´½
     (=iso-ir165		. #x4961)	; ø»ª„
-    (chinese-cns11643-1 . #x4F3C)	; ø»’†›
+    (=cns11643-1	. #x4F3C)	; ø»’†›
     (=gt-pj-1		. #x6752)	; èˆ
     (=big5		. #xAAD9)	; ý¢€Š«™
     (ideograph-daikanwa . 30278)	; ø¸‡™†
@@ -157,11 +157,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-cns11643-1 . #x485F)	; ø»‘¼¬
+     ((=cns11643-1	  . #x485F)	; ø»‘¼¬
       )
      ((=ucs		  . #x6C0F)	; æ°
       ))
-    (chinese-cns11643-1 . #x576B)	; ø»’’º
+    (=cns11643-1	. #x576B)	; ø»’’º
     ))
 (define-char
   '((=>ucs		. #x269C9)	; ð¦§‰
@@ -313,7 +313,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-cns11643-1 . #x485F)	; ø»‘¼¬
+     ((=cns11643-1	  . #x485F)	; ø»‘¼¬
       )
      ((=ucs		  . #x5189)	; å†‰
       ))
@@ -401,7 +401,7 @@
     (=jis-x0208		. #x5030)	; ø½Š»
     (=ks-x1001		. #x6022)	; ø»‰¶¯
     (=iso-ir165		. #x4A66)	; ø»«§
-    (chinese-cns11643-1 . #x6154)	; ø»’¡
+    (=cns11643-1	. #x6154)	; ø»’¡
     (=gt-pj-1		. #x5030)	; èˆ’
     (=big5		. #xB5CE)	; ý¢€‹—Ž
     (ideograph-daikanwa . 30300)	; ø¸‡™œ
@@ -534,7 +534,7 @@
 		 (=ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-cns11643-1 . #x485F)	; ø»‘¼¬
+     ((=cns11643-1	  . #x485F)	; ø»‘¼¬
       )
      ((=ucs		  . #x5FDD)	; å¿
       ))
@@ -549,7 +549,7 @@
     (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
-    (chinese-cns11643-1 . #x6A59)	; ø»’®¢
+    (=cns11643-1	. #x6A59)	; ø»’®¢
     ))
 (define-char
   '((=>ucs		. #x269E1)	; ð¦§¡
@@ -577,7 +577,7 @@
 		 (=ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-cns11643-1 . #x485F)	; ø»‘¼¬
+     ((=cns11643-1	  . #x485F)	; ø»‘¼¬
       )
      ((=ucs		  . #x708E)	; ç‚Ž
       ))

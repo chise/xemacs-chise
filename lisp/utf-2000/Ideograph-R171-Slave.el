@@ -115,7 +115,7 @@
     (ideographic-radical . 171)	; â¾ª
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
-    (chinese-cns11643-1 . #x7622)	; ø»’¿“
+    (=cns11643-1	. #x7622)	; ø»’¿“
     ))
 (define-char
   '((ideographic-radical . 171)	; â¾ª
