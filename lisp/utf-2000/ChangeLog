@@ -1,3 +1,21 @@
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5EB6): Changed to abstract
+	character.
+	(U-0002F88D): Add `<-denotational' for U+5EB6; add `=>ucs*' for
+	U+5EB6.
+
+	* Ideograph-R031-Enclosure.el (U+570E): Add S1-1333; add
+	`<-vulgar' for U+5713.
+	(U+5713): Add S1-1332.
+
+	* Ideograph-R027-Cliff.el (U+3553): New character.
+
 2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+54E1): Add S1-1080.
