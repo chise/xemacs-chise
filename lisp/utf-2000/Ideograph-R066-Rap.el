@@ -3325,7 +3325,7 @@
     (mojikyo		. 050211)	; ý €Œ£
     ))
 (define-char
-  '((=>ucs-jis		. #x6577)	; æ•·
+  '((=>ucs-jis		. #x6577)	; ø½Š±ª
     (morohashi-daikanwa	13359 1 0)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 11)

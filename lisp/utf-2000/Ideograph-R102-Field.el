@@ -2772,7 +2772,7 @@
     (ucs-jis		. #x7589)	; ø½‹”¤
     ))
 (define-char
-  '((=>ucs-jis		. #x7589)	; ç–‰
+  '((=>ucs-jis		. #x7589)	; ø½‹”¤
     (morohashi-daikanwa	21982 0 2)
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 16)

@@ -160,7 +160,7 @@
     (ucs-jis		. #x7A81)	; ø½Š¬¾
     ))
 (define-char
-  '((=>ucs-jis		. #x7A81)	; çª
+  '((=>ucs-jis		. #x7A81)	; ø½Š¬¾
     (morohashi-daikanwa	25424 0 0)
     (ideographic-radical . 116)	; â½³
     (ideographic-strokes . 3)
