@@ -335,6 +335,7 @@
     (korean-ksc5601		. #x7D44)	; ø»Š¡·
     (chinese-cns11643-1		. #x6370)	; ø»’¤§
     (japanese-jisx0208-1990	. #x5743)	; ø½‹…²
+    (chinese-gb12345		. #x783D)	; å½™
     (ideograph-daikanwa		. 09936)	; ø¸‚›
     (ucs			. #x5F59)	; å½™
     ))
