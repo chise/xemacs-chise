@@ -32,8 +32,12 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_BUFFER_H_
 #define _XEMACS_BUFFER_H_
 
+#ifdef CHAR_IS_UCS4
+#include "character.h"
+#else
 #ifdef MULE
 #include "mule-charset.h"
+#endif
 #endif
 
 /************************************************************************/

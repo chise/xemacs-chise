@@ -265,7 +265,11 @@ void Lstream_set_character_mode (Lstream *str);
 #ifdef MULE
 
 #ifndef BYTE_ASCII_P
+#ifdef CHAR_IS_UCS4
+#include "character.h"
+#else
 #include "mule-charset.h"
+#endif
 #endif
 
 INLINE Emchar Lstream_get_emchar (Lstream *stream);
