@@ -1,3 +1,53 @@
+1999-09-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_shift_jis): Use
+	`XCHARSET_TO_BYTE1_TABLE' for `Vcharset_latin_jisx0201' instead of
+	`ucs_to_latin_jisx0201'.
+
+	* mule-charset.c (ucs_to_latin_jisx0201): Deleted.
+	(ucs_to_latin_iso8859_2): Deleted.
+	(ucs_to_latin_iso8859_3): Deleted.
+	(ucs_to_latin_iso8859_4): Deleted.
+	(ucs_to_latin_iso8859_9): Deleted.
+	(ucs_to_latin_viscii_lower): Deleted.
+	(ucs_to_latin_viscii_upper): Deleted.
+	(ucs_to_latin_tcvn5712): Deleted.
+	(make_charset): Add new argument `decoding_table'; set up
+	`CHARSET_DECODING_TABLE(cs)' in UTF-2000; set up
+	`CHARSET_TO_BYTE1_TABLE(cs)' for 94-set and 96-set if
+	`decoding_table' is defined in UTF-2000.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise; delete `GENERATE_94_SET'
+	and `GENERATE_96_SET'.
+
+	* char-ucs.h (latin_jisx0201_to_ucs): Deleted.
+	(ucs_to_latin_jisx0201): Deleted.
+	(latin_iso8859_2_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_2): Deleted.
+	(latin_iso8859_3_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_3): Deleted.
+	(latin_iso8859_4_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_4): Deleted.
+	(latin_iso8859_9_to_ucs): Deleted.
+	(ucs_to_latin_iso8859_9): Deleted.
+	(latin_viscii_lower_to_ucs): Deleted.
+	(ucs_to_latin_viscii_lower): Deleted.
+	(latin_viscii_upper_to_ucs): Deleted.
+	(ucs_to_latin_viscii_upper): Deleted.
+	(struct Lisp_Charset): Renamed `encoding_table' to
+	`to_byte1_table'; add `to_byte2_table'.
+	(CHARSET_DECODING_TABLE): New macro.
+	(CHARSET_TO_BYTE1_TABLE): New macro.
+	(CHARSET_TO_BYTE2_TABLE): New macro.
+	(XCHARSET_DECODING_TABLE): New macro.
+	(XCHARSET_TO_BYTE1_TABLE): New macro.
+	(XCHARSET_TO_BYTE2_TABLE): New macro.
+	(MAKE_CHAR): Use `XCHARSET_DECODING_TABLE'; don't use `*_to_ucs'
+	tables.
+	(breakup_char_1): Use `XCHARSET_TO_BYTE1_TABLE' if it is defined;
+	don't use `ucs_to_*' tables.
+
 1999-09-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* text-coding.c (Fmake_coding_system): Don't set up
