@@ -295,19 +295,29 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 3207)
-    (ideograph-daikanwa . 13469)	; ø¸ƒ’
+    (japanese-jisx0208-1978	. #x4865)	; ø»‚¶–
+    (japanese-jisx0208		. #x4865)	; ø»‡Šž
+    (ideograph-daikanwa		. 13469)	; ø¸ƒ’
     ))
 (define-char
-  '((morohashi-daikanwa	13469 0 0)
+  '((=>ucs		. #x6590)	; æ–
+    (morohashi-daikanwa	13469 0 0)
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 3207)
-    (chinese-gb2312		. #x6C33)	; ø»…´ 
-    (chinese-isoir165		. #x6C33)	; ø»Žœ°
     (chinese-cns11643-1		. #x5F59)	; ø»’ž˜
     (japanese-jisx0208-1990	. #x4865)	; ø½Š°’
-    (ucs			. #x6590)	; æ–
+    ))
+(define-char
+  '((morohashi-daikanwa	13469 0 1)
+    (ideographic-radical . 67)	; â½‚
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (shinjigen-2	. 3207)
+    (chinese-gb2312	. #x6C33)	; ø»…´ 
+    (chinese-isoir165	. #x6C33)	; ø»Žœ°
+    (ucs		. #x6590)	; æ–
     ))
 (define-char
   '((ideographic-radical . 67)	; â½‚
