@@ -24,6 +24,10 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_CHARACTER_H
 #define _XEMACS_CHARACTER_H
 
+#ifndef CHAR_IS_UCS4
+#include "mule-charset.h"
+#else
+
 /************************************************************************/
 /*                    Definition of leading bytes                       */
 /************************************************************************/
@@ -609,4 +613,5 @@ int copy_internal_to_external (CONST Bufbyte *internal, Bytecount len,
 Bytecount copy_external_to_internal (CONST unsigned char *external,
 				     int len, Bufbyte *internal);
 
+#endif /* CHAR_IS_UCS4 */
 #endif /* _XEMACS_CHARACTER_H */
