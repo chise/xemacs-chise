@@ -400,6 +400,14 @@
     (ucs		. #x20509)	; ð ”‰
     ))
 (define-char
+  '((=>ucs		. #x20509)	; ð ”‰
+    (morohashi-daikanwa	48931 0 0)
+    (ideographic-radical . 12)	; â¼‹
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (japanese-jisx0213-2	. #x2327)	; ø»¤ ‚
+    ))
+(define-char
   '((ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
