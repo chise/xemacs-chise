@@ -32,7 +32,7 @@
 (defun char-ideographic-radical (char &optional radical)
   (let (ret)
     (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
+	  (dolist (domain '(ucs daikanwa cns))
 	    (if (and (setq ret (get-char-attribute
 				char
 				(intern
@@ -88,22 +88,20 @@
 (defun char-ideographic-strokes (char &optional radical)
   (let (ret)
     (or (catch 'tag
-	  (dolist (domain char-db-feature-domains)
-	    (if (and (setq ret (or (get-char-attribute
-				    char
-				    (intern
-				     (format "%s@%s"
-					     'ideographic-radical domain)))
-				   (get-char-attribute
-				    char 'ideographic-radical)))
-		     (or (eq ret radical)
-			 (null radical))
-		     (setq ret (get-char-attribute
+	  (dolist (domain '(ucs daikanwa cns))
+	    (if (and (setq ret (get-char-attribute
 				char
 				(intern
 				 (format "%s@%s"
-					 'ideographic-strokes domain)))))
-		(throw 'tag ret))))
+					 'ideographic-radical domain))))
+		     (or (eq ret radical)
+			 (null radical)))
+		(throw 'tag
+		       (get-char-attribute
+			char
+			(intern
+			 (format "%s@%s"
+				 'ideographic-strokes domain)))))))
 	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
@@ -129,7 +127,7 @@
 (defun update-ideograph-radical-table ()
   (interactive)
   (let (ret radical script)
-    (dolist (domain char-db-feature-domains)
+    (dolist (domain '(ucs daikanwa cns))
       (map-char-attribute
        (lambda (char radical)
 	 (when (and radical

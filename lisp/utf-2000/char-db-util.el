@@ -3,22 +3,22 @@
 ;; Copyright (C) 1998,1999,2000,2001,2002,2003 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
+;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
-;; This file is part of XEmacs CHISE.
+;; This file is part of XEmacs UTF-2000.
 
-;; XEmacs CHISE is free software; you can redistribute it and/or
+;; XEmacs UTF-2000 is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation; either version 2, or (at
 ;; your option) any later version.
 
-;; XEmacs CHISE is distributed in the hope that it will be useful,
+;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs CHISE; see the file COPYING.  If not, write to
+;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -68,9 +68,6 @@
       (aset v i (decode-char '=ucs (+ #x2EFF i)))
       (setq i (1+ i)))
     v))
-
-(defvar char-db-feature-domains
-  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b misc unknown))
 
 (defvar char-db-ignored-attributes nil)
 
@@ -610,17 +607,8 @@
       )
     (setq radical nil
 	  strokes nil)
-    (when (and (memq 'ideographic-radical attributes)
-	       (setq value (get-char-attribute char 'ideographic-radical)))
-      (setq radical value)
-      (insert (format "(ideographic-radical . %S)\t; %c%s"
-		      radical
-		      (aref ideographic-radicals radical)
-		      line-breaking))
-      (setq attributes (delq 'ideographic-radical attributes))
-      )
     (let (key)
-      (dolist (domain char-db-feature-domains)
+      (dolist (domain '(ucs daikanwa cns))
 	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
@@ -642,29 +630,27 @@
 			  line-breaking))
 	  (setq attributes (delq key attributes))
 	  )
-	(setq key (intern (format "%s@%s" 'total-strokes domain)))
+	(setq key (intern (format "%s@%s*sources"
+				  'ideographic-radical domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
-	  (insert (format "(%s       . %S)%s"
-			  key
-			  value
-			  line-breaking))
+	  (insert (format "(%s%s" key line-breaking))
+	  (dolist (cell value)
+	    (insert (format " %s" cell)))
+	  (insert ")")
+	  (insert line-breaking)
 	  (setq attributes (delq key attributes))
 	  )
-	(dolist (feature '(ideographic-radical
-			   ideographic-strokes
-			   total-strokes))
-	  (setq key (intern (format "%s@%s*sources" feature domain)))
-	  (when (and (memq key attributes)
-		     (setq value (get-char-attribute char key)))
-	    (insert (format "(%s%s" key line-breaking))
-	    (dolist (cell value)
-	      (insert (format " %s" cell)))
-	    (insert ")")
-	    (insert line-breaking)
-	    (setq attributes (delq key attributes))
-	    ))
 	))
+    (when (and (memq 'ideographic-radical attributes)
+	       (setq value (get-char-attribute char 'ideographic-radical)))
+      (setq radical value)
+      (insert (format "(ideographic-radical . %S)\t; %c%s"
+		      radical
+		      (aref ideographic-radicals radical)
+		      line-breaking))
+      (setq attributes (delq 'ideographic-radical attributes))
+      )
     (when (and (memq 'ideographic-strokes attributes)
 	       (setq value (get-char-attribute char 'ideographic-strokes)))
       (setq strokes value)
@@ -847,8 +833,8 @@
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
     (unless readable
-      (when (memq '->ucs-unified attributes)
-	(setq attributes (delq '->ucs-unified attributes))
+      (when (memq '->ucs-variants attributes)
+	(setq attributes (delq '->ucs-variants attributes))
 	)
       (when (memq 'composition attributes)
 	(setq attributes (delq 'composition attributes))
@@ -1056,7 +1042,7 @@
     ))
 
 (defun insert-char-data-with-variant (char &optional printable
-					   no-ucs-unified
+					   no-ucs-variant
 					   script excluded-script)
   (insert-char-data char printable)
   (let ((variants (or (char-variants char)
@@ -1073,7 +1059,7 @@
 	       (or (null excluded-script)
 		   (null (setq vs (get-char-attribute variant 'script)))
 		   (not (memq excluded-script vs))))
-	  (or (and no-ucs-unified (get-char-attribute variant '=ucs))
+	  (or (and no-ucs-variant (get-char-attribute variant '=ucs))
 	      (insert-char-data variant printable)))
       (setq variants (cdr variants))
       )))
@@ -1084,7 +1070,7 @@
     (while (<= code max)
       (setq char (decode-char '=ucs code))
       (if (encode-char char '=ucs 'defined-only)
-	  (insert-char-data-with-variant char nil 'no-ucs-unified
+	  (insert-char-data-with-variant char nil 'no-ucs-variant
 					 script excluded-script))
       (setq code (1+ code)))))
 
