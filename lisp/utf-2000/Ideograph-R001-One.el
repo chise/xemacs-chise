@@ -516,8 +516,7 @@
       )
      ((=big5-cdp	  . #x8BBF)	; ý¢€ˆ®¿
       )
-     ((ideograph-gt-pj-k1 . #x3034)	; ý¡„€€‚
-      (=gt-k		  . 00002)	; ý¡„€€‚
+     ((=gt-k		  . 00002)	; ý¡„€€‚
       ))
     (chinese-big5	. #xC94F)	; ý¢€Œ¥
     (ucs-big5		. #x4E0E)	; ý¢€Œ¥
@@ -990,6 +989,7 @@
      ((ucs		  . #x4E00)	; ä¸€
       )
      ((ideograph-daikanwa . 00114)	; ø¸€²
+      (=gt		  . 00154)	; ý¡€€‚š
       )
      ((ucs		  . #x4EBA)	; äºº
       ))
