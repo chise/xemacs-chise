@@ -1255,7 +1255,7 @@ If it matches, mode MODE is selected.")
 
 (defvar binary-file-regexps
   (purecopy
-   '("\\.\\(?:bz2\\|elc\\|g\\(if\\|z\\)\\|jp\\(eg\\|g\\)\\|png\\|t\\(ar\\|gz\\|iff\\)\\|[Zo]\\)\\'"))
+   '("\\.\\(?:bz2\\|elc\\|g\\(if\\|z\\)\\|jp\\(eg\\|g\\)\\|png\\|PNG\\|t\\(ar\\|gz\\|iff\\)\\|[Zo]\\)\\'"))
   "List of regexps of filenames containing binary (non-text) data.")
 
 ;   (eval-when-compile
