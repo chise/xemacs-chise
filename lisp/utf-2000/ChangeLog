@@ -1,3 +1,13 @@
+2000-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03000-CJK-Symbols-and-Punctuation.el (IDEOGRAPHIC ITERATION
+	MARK): Separate M-00097.
+
+	* Ideograph-R003-Dot.el (U+4E37): Fixed.
+	(M-00097): Separate <IDEOGRAPHIC ITERATION MARK>.
+	(U+4E3A): Delete `non-morohashi'.
+	(U+4E3E): Likewise.
+
 2000-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u02000-General-Punctuation.el (OVERLINE): Delete
