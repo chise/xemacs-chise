@@ -1,9 +1,55 @@
+2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el (M-43089): Separate C1-7D36.
+	(JSP-675C): Separate G1-7735 and U+97C9; unify JX1-7D72 and
+	JU+97C9.
+
+	* Ideograph-R145-Clothes.el (U+891C): Separate JSP-5C5F.
+	(JSP-5C5F): Unify JX1-7B6E and JU+891C.
+
+	* Ideograph-R195-Fish.el (U+9B79): Unify JX1-7E41.
+
+2003-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (JX1-7654): Use `=ucs-jis-2000' instead
+	of `ucs-jis'.
+	(JSP-4879): Unify JX1-7735.
+	(U+6FF9): Fix strokes.
+	(JX1-7739): New character.
+
+2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
+
+2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R120-Silk.el: Add some missing `total-strokes'.
+	(U+7E28): Separate JSP-5448.
+	(JSP-5448): Unify JX1-7A2F.
+
+	* Ideograph-R115-Grain.el (U+7A5D): Separate JSP-5148 and
+	JC3-5DBF.
+	(JSP-5148): Unify JX1-794F.
+
 2003-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (JSP-5344): Unify JX1-7977.
+
+	* Ideograph-R086-Fire.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
 
 	* Ideograph-R057-Bow.el (U+5F45): Separate JSP-3C74 and JC3-4CF6.
 	(JSP-3C74): Unify JX1-743A.
 
+	* Ideograph-R061-Heart.el (U+61BC): Unify JX1-745F.
+
 	* Ideograph-R015-Ice.el (M-01721): Separate B-E8F9.
+
+	* Ideograph-R075-Tree.el: Add some missing code points of JIS X
+	0213:2000 plain 1.
+
+	* Ideograph-R073-Say.el (U+66FA): Unify JX1-754C.
 
 2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
