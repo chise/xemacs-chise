@@ -30,13 +30,12 @@
     (sound@ja/on/go	"mAu")
     (sound@ja/on/kan	"bAu")
     (=ucs		. #x4EA1)	; 亡
+    (=big5		. #xA460)	; &I-B-A460;
     (->subsumptive
      ((shinjigen-1	  . 90)
-      (=big5		  . #xA460)	; &M-00287;
-      (=gt-k		  . 00202)	; &I-GT-K00202;
+      (=gt-k		  . 00202)	; &M-00287;
       (=gt-pj-k1	  . #x3343)	; &M-00287; [19-35]
       (=daikanwa	  . 00287)	; &I-M-00287;
-      (=ucs@big5	  . #x4EA1)	; &M-00287;
       )
      ((shinjigen-1	  . 89)
       (shinjigen-2	  . 89)
