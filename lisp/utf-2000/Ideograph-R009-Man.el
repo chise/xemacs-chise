@@ -782,7 +782,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (->identical
-     ((=cns11643-6	  . #x2150)	; &M-01512; [01-48]
+     ((=cns11643-6	  . #x2150)	; &GT-01982; [01-48]
       (=daikanwa	  . 01512)	; &I-M-01512;
       ))
     (<-denotational
