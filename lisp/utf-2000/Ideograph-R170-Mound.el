@@ -4270,7 +4270,8 @@
     (->subsumptive
      ((=jis-x0212	  . #x666E)	; &M-41885; [70-78]
       (=daikanwa	  . 41885)	; &I-M-41885;
-      (=ucs@jis-1990	  . #x96AE)	; &M-41885;
+      (=jef-china3	  . #x68DA)	; &I-JC3-68DA;
+      (=ucs@jis		  . #x96AE)	; &M-41885;
       )
      ((=cns11643-2	  . #x6041)	; &C2-6041; [64-33]
       (=ucs@unicode	  . #x96AE)	; &C2-6041;

@@ -9490,7 +9490,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=jis-x0212		. #x4A2F)	; &JSP-4A2F; [42-15]
-    (=ucs@jis-1990	. #x71B3)	; &JSP-4A2F;
+    (=ucs@jis/1990	. #x71B3)	; &JSP-4A2F;
     ))
 (define-char
   '((=>ucs		. #x71B3)	; 熳

@@ -3819,11 +3819,12 @@
     (total-strokes	 . 16)
     (=ucs		. #x7A48)	; 穈
     (->subsumptive
-     ((=jis-x0212	  . #x5142)	; &M-25257; [49-34]
-      (=daikanwa	  . 25257)	; &I-M-25257;
-      (=ucs@jis-1990	  . #x7A48)	; &M-25257;
-      )
      ((=big5		  . #xEAB0)	; &B-EAB0;
+      (->subsumptive
+       ((=jis-x0212	    . #x5142)	; &M-25257; [49-34]
+	(=daikanwa	    . 25257)	; &I-M-25257;
+	(=ucs@jis	    . #x7A48)	; &M-25257;
+	))
       )
      ((=cns11643-2	  . #x587A)	; &C2-587A; [56-90]
       )

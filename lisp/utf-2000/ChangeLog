@@ -1,3 +1,62 @@
+2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (JSP-5142): Moved into B-EAB0.
+
+2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+913C): Use `->subsumptive'.
+	(JSP-6251): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R159-Cart.el (U+8F2C): Use `->subsumptive'.
+	(JSP-6075): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+	(U+8F41): Use `->subsumptive'.
+	(JSP-607E): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R157-Foot.el (U+8E95): Use `->subsumptive'.
+	(JSP-6046): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R140-Grass.el (U+8362): Use `->subsumptive'.
+	(JX1-7A6D): Use `=ucs@jis' instead of `=ucs@jis-2000'.
+	(U+842F): Use `->subsumptive'.
+	(JSP-584D): Use `=ucs@jis' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R170-Mound.el (JSP-666E): Unify JC3-68DA; use
+	`=ucs@jis/1990' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R085-Water.el: Use `=ucs@jis/2000' instead of
+	`=ucs@jis-2000'.
+	(U+6FF9): Use `->subsumptive'.
+
+	* Ideograph-R188-Bone.el (JSP-695C): Use `=ucs@jis' instead of
+	`=ucs@jis-1990'.
+
+	* Ideograph-R118-Bamboo.el (JX1-795A): Use `=ucs@jis' instead of
+	`=ucs@jis-2000'.
+
+	* Ideograph-R116-Cave.el (JSP-5157): Use `=ucs@jis' instead of
+	`=ucs@jis-1990'.
+
+	* Ideograph-R064-Hand.el (JSP-3F3C): Use `=ucs@jis' instead of
+	`=ucs@jis-1990' and `=ucs@jis-2000'.
+
+2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Use `=ucs@jis/{1990|2000}'
+	instead of `=ucs@jis-{1990|2000}'.
+
+2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el, Ideograph-R086-Fire.el: Use
+	`=ucs@jis/1990' instead of `=ucs@jis-1990'.
+
+	* Ideograph-R072-Sun.el: Use `=ucs@jis/{1990|2000}' instead of
+	`=ucs@jis-{1990|2000}'.
+
+	* Ideograph-R059-Bristle.el: Use `=ucs@JP' instead of `=ucs@jp'.
+
+	* Ideograph-R046-Mountain.el: Use `=ucs@jis/2000' instead of
+	`=ucs@jis-2000'.
+
 2004-09-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R037-Big.el: Use `=daikanwa@rev{1|2}' instead of

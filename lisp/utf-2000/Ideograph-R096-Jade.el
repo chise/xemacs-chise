@@ -2188,7 +2188,7 @@
     (total-strokes	 . 11)
     (=jis-x0212		. #x4B7B)	; &M-20994; [43-91]
     (=daikanwa		. 20994)	; &I-M-20994;
-    (=ucs@jis-1990	. #x73F9)	; &M-20994;
+    (=ucs@jis/1990	. #x73F9)	; &M-20994;
     ))
 (define-char
   '((morohashi-daikanwa	20994 0 1)

@@ -299,7 +299,7 @@
 
   (make-charset '=big5-pua
 		"Big5 with private used area"
-		`(long-name	"Big5-PUA"
+		'(long-name	"Big5-PUA"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -310,7 +310,7 @@
   (define-charset-alias 'chinese-big5-pua '=big5-pua)
   (make-charset '=big5-eten
 		"Big5 ETEN"
-		`(long-name	"Big5-ETEN"
+		'(long-name	"Big5-ETEN"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -323,7 +323,7 @@
   (define-charset-alias 'chinese-big5-eten '=big5-eten)
   (make-charset 'chinese-big5-eten-a
 		"Big5 ETEN (#xF9D6 .. #xF9FE)"
-		`(long-name	"Big5-ETEN-a"
+		'(long-name	"Big5-ETEN-a"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -335,7 +335,7 @@
 		  registry	"Big5\\.ETEN"))
   (make-charset 'chinese-big5-eten-b
 		"Big5 ETEN (#xC6A1 .. #xC8FE)"
-		`(long-name	"Big5-ETEN-b"
+		'(long-name	"Big5-ETEN-b"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -385,7 +385,7 @@
 
   (make-charset '=jef-china3
 		"JEF + CHINA3 private characters"
-		`(long-name	"JEF + CHINA3"
+		'(long-name	"JEF + CHINA3"
 		  chars		256
 		  dimension	2
 		  columns	2
@@ -413,7 +413,7 @@
 
   (make-charset '=ucs@iso
 		"ISO/IEC 10646 for its representative glyphs"
-		`(long-name	"UCS for ISO"
+		'(long-name	"UCS for ISO"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -422,7 +422,7 @@
 		  mother	=ucs))
   (make-charset '=ucs@unicode
 		"Unicode for its representative glyphs"
-		`(long-name	"UCS for Unicode"
+		'(long-name	"UCS for Unicode"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -431,7 +431,7 @@
 		  mother	=ucs@iso))
   (make-charset '=ucs@gb
 		"ISO/IEC 10646 for GB"
-		`(long-name	"UCS for GB"
+		'(long-name	"UCS for GB"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -441,7 +441,7 @@
   (define-charset-alias 'ucs-gb '=ucs@gb)
   (make-charset '=ucs@cns
 		"ISO/IEC 10646 for CNS 11643"
-		`(long-name	"UCS for CNS"
+		'(long-name	"UCS for CNS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -451,7 +451,7 @@
   (define-charset-alias 'ucs-cns '=ucs@cns)
   (make-charset '=ucs@jis
 		"ISO/IEC 10646 for JIS X0208/0212/0213"
-		`(long-name	"UCS for JIS"
+		'(long-name	"UCS for JIS"
 		  chars		256
 		  dimension	3
 		  columns	2
@@ -459,35 +459,38 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
-  (make-charset '=ucs@jis-1990
+  (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
-		`(long-name	"UCS for JIS:1990"
+		'(long-name	"UCS for JIS:1990"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
-  (make-charset '=ucs@jis-2000
+  (define-charset-alias '=ucs@jis-1990 '=ucs@jis/1990)
+  (define-charset-alias '=ucs-jis-1990 '=ucs@jis/1990)
+  (make-charset '=ucs@jis/2000
 		"ISO/IEC 10646 for JIS X 0213:2000"
-		`(long-name	"UCS for JIS:2000"
+		'(long-name	"UCS for JIS:2000"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
-  (make-charset '=ucs@jp
+  (define-charset-alias '=ucs@jis-2000 '=ucs@jis/2000)
+  (define-charset-alias '=ucs-jis-2000 '=ucs@jis/2000)
+  (make-charset '=ucs@JP
 		"UCS for common glyphs used in Japan"
-		`(long-name	"UCS for Japan"
+		'(long-name	"UCS for Japan"
 		  chars		256
 		  dimension	3
 		  columns	2
 		  graphic	2
 		  direction	l2r
-		  mother	=ucs@jis-2000))
+		  mother	=ucs@jis/2000))
+  (define-charset-alias '=ucs@jp '=ucs@JP)
   (make-charset '=ucs@ks
 		"ISO/IEC 10646 for Korean Standards"
 		`(long-name	"UCS for KS"

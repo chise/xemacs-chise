@@ -1,3 +1,12 @@
+2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@jis/1990): Renamed from `=ucs@jis-1990';
+	define `=ucs@jis-1990' as an alias for `=ucs@jis/1990'.
+	(=ucs@jis/2000): Renamed from `=ucs@jis-2000'; define
+	`=ucs@jis-2000' as an alias for `=ucs@jis/2000'.
+	(=ucs@JP): Renamed from `=ucs@jp'; define `=ucs@jp' as an alias
+	for `=ucs@JP'.
+
 2004-09-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (=daikanwa@rev1): Renamed from

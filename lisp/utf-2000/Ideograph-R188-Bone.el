@@ -732,7 +732,7 @@
      ((total-strokes	   . 15)
       (=jis-x0212	  . #x695C)	; &M-45151; [73-60]
       (=daikanwa	  . 45151)	; &I-M-45151;
-      (=ucs@jis-1990	  . #x9AB5)	; &M-45151;
+      (=ucs@jis		  . #x9AB5)	; &M-45151;
       )
      ((total-strokes	   . 15)
       (=cns11643-3	  . #x4F77)	; &C3-4F77; [47-87]
