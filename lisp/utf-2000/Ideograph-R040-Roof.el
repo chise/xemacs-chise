@@ -3481,7 +3481,8 @@
      ((sources		  bos=A015412-00003)
       (=ruimoku-v6	  . #xE009)	; øº€‰
       )
-     ((=ucs@iso		  . #x21A5C)	; ó°€˜
+     ((=hanziku-12	  . #xECD1)	; ý¢ƒŽ³‘
+      (=ucs@iso		  . #x21A5C)	; ý¢ƒŽ³‘
       ))
     ))
 (define-char
