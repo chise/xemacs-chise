@@ -1,5 +1,10 @@
 2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.14 (Kawachi-Katakami).
+
+2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* text-coding.c (char_encode_shift_jis): Modify for
 	`charset_code_point'.
 	(char_encode_iso2022): Likewise.
