@@ -1,5 +1,15 @@
 2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R031-Enclosure.el (MH-0077): New character.
+	(MH-0078): New character.
+	(U-000211C5): Relate to MH-0078; add strokes.
+
+	* Ideograph-R030-Mouth.el (MH-0067): New character.
+	(H1-D4D5): Relate to MH-0067; add strokes; separate U-00020CFD.
+	(U-00020CFD): Relate to MH-0067; add strokes; separate H1-D4D5.
+
+2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R104-Sickness.el: Add some missing `=ucs@jis'
 	features.
 
