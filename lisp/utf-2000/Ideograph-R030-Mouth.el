@@ -360,6 +360,7 @@
       (=gt-k		  . 01061)	; &I-GT-K01061;
       (=gt-pj-2		  . #x4D4F)	; &I-GT-04101; [45-47]
       (=daikanwa	  . 03243)	; &I-M-03243;
+      (=ucs@jis		  . #x3563)	; &GT-04101;
       )
      ((=cns11643-4	  . #x216B)	; &C4-216B; [01-75]
       )
@@ -2867,6 +2868,7 @@
       (=jis-x0213-2-2000  . #x2367)	; &M-03361; [03-71]
       (=daikanwa	  . 03361)	; &I-M-03361;
       (=cbeta		  . 00055)	; &I-CB00055;
+      (=ucs@jis		  . #x356E)	; &M-03361;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
