@@ -39,27 +39,32 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 1)
+  '((ideographic-radical@ucs . 2)	; ⼁
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa=00069 gt ucs)
+    (ideographic-radical@cns . 25)	; ⼘
+    (ideographic-strokes@cns . 0)
+    (ideographic-radical@cns*sources
+     daikanwa=02775 cns11643)
     (total-strokes	 . 2)
-    (->same
-     ((=cns11643-6	  . #x212C)	; &M-02775; [01-12]
-      (=daikanwa	  . 02775)	; &I-M-02775;
-      ))
-    (->same*sources
-     daikanwa)
     (<-ancient
      ((=ucs		  . #x535C)	; 卜
       (=daikanwa	  . 02774)	; &I-M-02774;
       ))
     (<-ancient*sources
-     daikanwa)
+     shuowen daikanwa)
     (hanyu-dazidian	1 28 4)
     (=ucs		. #x20061)	; 𠁡
+    (=cns11643-6	. #x212C)	; &I-C6-212C; [01-12]
     (=big5-cdp		. #x87B1)	; &I-CDP-87B1;
     (=gt		. 00103)	; &I-GT-00103;
     (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
-    (=daikanwa		. 00069)	; &I-M-00069;
+    (->subsumptive
+     ((=daikanwa	  . 00069)	; &M-00069;
+      )
+     ((=daikanwa	  . 02775)	; &M-02775;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
