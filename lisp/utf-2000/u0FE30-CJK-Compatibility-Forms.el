@@ -5,7 +5,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2025)
     (chinese-cns11643-1 . #x212B)	; ø»‘‚¦
-    (chinese-big5	. #xA14A)	; øºŸ›Š
+    (chinese-big5	. #xA14A)	; ý¢€Š…Š
     (ucs		. #xFE30)	; ï¸°
     ))
 (define-char
@@ -15,7 +15,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x2014)
     (chinese-cns11643-1 . #x2136)	; ø»‘‚±
-    (chinese-big5	. #xA157)	; øºŸ›—
+    (chinese-big5	. #xA157)	; ý¢€Š…—
     (ucs		. #xFE31)	; ï¸±
     ))
 (define-char
@@ -33,7 +33,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
-    (chinese-big5	. #xA159)	; øºŸ›™
+    (chinese-big5	. #xA159)	; ý¢€Š…™
     (ucs		. #xFE33)	; ï¸³
     ))
 (define-char
@@ -51,7 +51,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x213C)	; ø»‘‚·
-    (chinese-big5	. #xA15B)	; øºŸ››
+    (chinese-big5	. #xA15B)	; ý¢€Š…›
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS")
@@ -60,7 +60,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x0028)
     (chinese-cns11643-1 . #x2140)	; ø»‘‚»
-    (chinese-big5	. #xA15F)	; øºŸ›Ÿ
+    (chinese-big5	. #xA15F)	; ý¢€Š…Ÿ
     (ucs		. #xFE35)	; ï¸µ
     ))
 (define-char
@@ -70,7 +70,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x0029)
     (chinese-cns11643-1 . #x2141)	; ø»‘‚¼
-    (chinese-big5	. #xA160)	; øºŸ› 
+    (chinese-big5	. #xA160)	; ý¢€Š… 
     (ucs		. #xFE36)	; ï¸¶
     ))
 (define-char
@@ -80,7 +80,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x007B)
     (chinese-cns11643-1 . #x2144)	; ø»‘‚¿
-    (chinese-big5	. #xA163)	; øºŸ›£
+    (chinese-big5	. #xA163)	; ý¢€Š…£
     (ucs		. #xFE37)	; ï¸·
     ))
 (define-char
@@ -90,7 +90,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x007D)
     (chinese-cns11643-1 . #x2145)	; ø»‘ƒ€
-    (chinese-big5	. #xA164)	; øºŸ›¤
+    (chinese-big5	. #xA164)	; ý¢€Š…¤
     (ucs		. #xFE38)	; ï¸¸
     ))
 (define-char
@@ -100,7 +100,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3014)
     (chinese-cns11643-1 . #x2148)	; ø»‘ƒƒ
-    (chinese-big5	. #xA167)	; øºŸ›§
+    (chinese-big5	. #xA167)	; ý¢€Š…§
     (ucs		. #xFE39)	; ï¸¹
     ))
 (define-char
@@ -110,7 +110,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3015)
     (chinese-cns11643-1 . #x2149)	; ø»‘ƒ„
-    (chinese-big5	. #xA168)	; øºŸ›¨
+    (chinese-big5	. #xA168)	; ý¢€Š…¨
     (ucs		. #xFE3A)	; ï¸º
     ))
 (define-char
@@ -120,7 +120,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3010)
     (chinese-cns11643-1 . #x214C)	; ø»‘ƒ‡
-    (chinese-big5	. #xA16B)	; øºŸ›«
+    (chinese-big5	. #xA16B)	; ý¢€Š…«
     (ucs		. #xFE3B)	; ï¸»
     ))
 (define-char
@@ -130,7 +130,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3011)
     (chinese-cns11643-1 . #x214D)	; ø»‘ƒˆ
-    (chinese-big5	. #xA16C)	; øºŸ›¬
+    (chinese-big5	. #xA16C)	; ý¢€Š…¬
     (ucs		. #xFE3C)	; ï¸¼
     ))
 (define-char
@@ -140,7 +140,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300A)
     (chinese-cns11643-1 . #x2150)	; ø»‘ƒ‹
-    (chinese-big5	. #xA16F)	; øºŸ›¯
+    (chinese-big5	. #xA16F)	; ý¢€Š…¯
     (ucs		. #xFE3D)	; ï¸½
     ))
 (define-char
@@ -150,7 +150,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300B)
     (chinese-cns11643-1 . #x2151)	; ø»‘ƒŒ
-    (chinese-big5	. #xA170)	; øºŸ›°
+    (chinese-big5	. #xA170)	; ý¢€Š…°
     (ucs		. #xFE3E)	; ï¸¾
     ))
 (define-char
@@ -160,7 +160,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3008)
     (chinese-cns11643-1 . #x2154)	; ø»‘ƒ
-    (chinese-big5	. #xA173)	; øºŸ›³
+    (chinese-big5	. #xA173)	; ý¢€Š…³
     (ucs		. #xFE3F)	; ï¸¿
     ))
 (define-char
@@ -170,7 +170,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x3009)
     (chinese-cns11643-1 . #x2155)	; ø»‘ƒ
-    (chinese-big5	. #xA174)	; øºŸ›´
+    (chinese-big5	. #xA174)	; ý¢€Š…´
     (ucs		. #xFE40)	; ï¹€
     ))
 (define-char
@@ -180,7 +180,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300C)
     (chinese-cns11643-1 . #x2158)	; ø»‘ƒ“
-    (chinese-big5	. #xA177)	; øºŸ›·
+    (chinese-big5	. #xA177)	; ý¢€Š…·
     (ucs		. #xFE41)	; ï¹
     ))
 (define-char
@@ -190,7 +190,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300D)
     (chinese-cns11643-1 . #x2159)	; ø»‘ƒ”
-    (chinese-big5	. #xA178)	; øºŸ›¸
+    (chinese-big5	. #xA178)	; ý¢€Š…¸
     (ucs		. #xFE42)	; ï¹‚
     ))
 (define-char
@@ -200,7 +200,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300E)
     (chinese-cns11643-1 . #x215C)	; ø»‘ƒ—
-    (chinese-big5	. #xA17B)	; øºŸ›»
+    (chinese-big5	. #xA17B)	; ý¢€Š…»
     (ucs		. #xFE43)	; ï¹ƒ
     ))
 (define-char
@@ -210,7 +210,7 @@
     (mirrored		. nil)
     (->decomposition	vertical #x300F)
     (chinese-cns11643-1 . #x215D)	; ø»‘ƒ˜
-    (chinese-big5	. #xA17C)	; øºŸ›¼
+    (chinese-big5	. #xA17C)	; ý¢€Š…¼
     (ucs		. #xFE44)	; ï¹„
     ))
 (define-char
@@ -220,7 +220,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x2227)	; ø»‘„€
-    (chinese-big5	. #xA1C6)	; øºŸœ¤
+    (chinese-big5	. #xA1C6)	; ý¢€Š‡†
     (ucs		. #xFE49)	; ï¹‰
     ))
 (define-char
@@ -230,7 +230,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x2228)	; ø»‘„
-    (chinese-big5	. #xA1C7)	; øºŸœ¥
+    (chinese-big5	. #xA1C7)	; ý¢€Š‡‡
     (ucs		. #xFE4A)	; ï¹Š
     ))
 (define-char
@@ -240,7 +240,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x222B)	; ø»‘„„
-    (chinese-big5	. #xA1CA)	; øºŸœ¨
+    (chinese-big5	. #xA1CA)	; ý¢€Š‡Š
     (ucs		. #xFE4B)	; ï¹‹
     ))
 (define-char
@@ -250,7 +250,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x203E)
     (chinese-cns11643-1 . #x222C)	; ø»‘„…
-    (chinese-big5	. #xA1CB)	; øºŸœ©
+    (chinese-big5	. #xA1CB)	; ý¢€Š‡‹
     (ucs		. #xFE4C)	; ï¹Œ
     ))
 (define-char
@@ -260,7 +260,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (chinese-cns11643-1 . #x2229)	; ø»‘„‚
-    (chinese-big5	. #xA1C8)	; øºŸœ¦
+    (chinese-big5	. #xA1C8)	; ý¢€Š‡ˆ
     (ucs		. #xFE4D)	; ï¹
     ))
 (define-char
@@ -270,7 +270,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x005F)
     (chinese-cns11643-1 . #x222A)	; ø»‘„ƒ
-    (chinese-big5	. #xA1C9)	; øºŸœ§
+    (chinese-big5	. #xA1C9)	; ý¢€Š‡‰
     (ucs		. #xFE4E)	; ï¹Ž
     ))
 (define-char
@@ -288,5 +288,5 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x213D)	; ø»‘‚¸
-    (chinese-big5	. #xA15C)	; øºŸ›œ
+    (chinese-big5	. #xA15C)	; ý¢€Š…œ
     ))
