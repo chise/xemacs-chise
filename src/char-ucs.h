@@ -543,95 +543,9 @@ put_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code,
     }
 }
 
-INLINE_HEADER void
+void
 decoding_table_put_char (Lisp_Object ccs,
 			 int code_point, Lisp_Object character);
-INLINE_HEADER void
-decoding_table_put_char (Lisp_Object ccs,
-			 int code_point, Lisp_Object character)
-{
-#if 1
-  Lisp_Object table1 = XCHARSET_DECODING_TABLE (ccs);
-  int dim = XCHARSET_DIMENSION (ccs);
-
-  if (dim == 1)
-    XCHARSET_DECODING_TABLE (ccs)
-      = put_ccs_octet_table (table1, ccs, code_point, character);
-  else if (dim == 2)
-    {
-      Lisp_Object table2
-	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 8));
-
-      table2 = put_ccs_octet_table (table2, ccs,
-				    (unsigned char)code_point, character);
-      XCHARSET_DECODING_TABLE (ccs)
-	= put_ccs_octet_table (table1, ccs,
-			       (unsigned char)(code_point >> 8), table2);
-    }
-  else if (dim == 3)
-    {
-      Lisp_Object table2
-	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 16));
-      Lisp_Object table3
-	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >>  8));
-
-      table3 = put_ccs_octet_table (table3, ccs,
-				    (unsigned char)code_point, character);
-      table2 = put_ccs_octet_table (table2, ccs,
-				    (unsigned char)(code_point >> 8), table3);
-      XCHARSET_DECODING_TABLE (ccs)
-	= put_ccs_octet_table (table1, ccs,
-			       (unsigned char)(code_point >> 16), table2);
-    }
-  else /* if (dim == 4) */
-    {
-      Lisp_Object table2
-	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 24));
-      Lisp_Object table3
-	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >> 16));
-      Lisp_Object table4
-	= get_ccs_octet_table (table3, ccs, (unsigned char)(code_point >>  8));
-
-      table4 = put_ccs_octet_table (table4, ccs,
-				    (unsigned char)code_point, character);
-      table3 = put_ccs_octet_table (table3, ccs,
-				    (unsigned char)(code_point >>  8), table4);
-      table2 = put_ccs_octet_table (table2, ccs,
-				    (unsigned char)(code_point >> 16), table3);
-      XCHARSET_DECODING_TABLE (ccs)
-	= put_ccs_octet_table (table1, ccs,
-			       (unsigned char)(code_point >> 24), table2);
-    }
-#else
-  Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-  int dim = XCHARSET_DIMENSION (ccs);
-  int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
-  int i = -1;
-  Lisp_Object nv;
-  int ccs_len = XVECTOR_LENGTH (v);
-
-  while (dim > 0)
-    {
-      dim--;
-      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
-      nv = XVECTOR_DATA(v)[i];
-      if (dim > 0)
-	{
-	  if (!VECTORP (nv))
-	    {
-	      if (EQ (nv, character))
-		return;
-	      else
-		nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
-	    }
-	  v = nv;
-	}
-      else
-	break;
-    }
-  XVECTOR_DATA(v)[i] = character;
-#endif
-}
 
 INLINE_HEADER void
 decoding_table_remove_char (Lisp_Object ccs, int code_point);
@@ -677,6 +591,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 
 extern Lisp_Object Vcharacter_attribute_table;
 
+int encode_char_2 (Emchar ch, Lisp_Object* charset);
 int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
 int charset_code_point (Lisp_Object charset, Emchar ch, int defined_only);
 int range_charset_code_point (Lisp_Object charset, Emchar ch);
@@ -737,56 +652,6 @@ encode_char_2_search_children (Emchar ch, Lisp_Object* charset)
 	return code_point;
     }
   return -1;
-}
-
-INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
-INLINE_HEADER int
-encode_char_2 (Emchar ch, Lisp_Object* charset)
-{
-  Lisp_Object charsets = Vdefault_coded_charset_priority_list;
-  int code_point;
-
-  while (!NILP (charsets))
-    {
-      *charset = Ffind_charset (Fcar (charsets));
-      if ( !NILP (*charset)
-	   && (XCHARSET_DIMENSION (*charset) <= 2) )
-	{
-	  code_point = charset_code_point (*charset, ch, 0);
-	  if (code_point >= 0)
-	    return code_point;
-
-	  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
-	       NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
-	    {
-	      code_point = encode_char_2_search_children (ch, charset);
-	      if (code_point >= 0)
-		return code_point;
-	    }
-	}
-      charsets = Fcdr (charsets);	      
-    }
-  
-  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
-       !NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
-    {
-      charsets = Vdefault_coded_charset_priority_list;
-      while (!NILP (charsets))
-	{
-	  *charset = Ffind_charset (Fcar (charsets));
-	  if ( !NILP (*charset)
-	       && (XCHARSET_DIMENSION (*charset) <= 2) )
-	    {
-	      code_point = encode_char_2_search_children (ch, charset);
-	      if (code_point >= 0)
-		return code_point;
-	    }
-	  charsets = Fcdr (charsets);	      
-	}
-    }
-
-  /* otherwise --- maybe for bootstrap */
-  return encode_builtin_char_1 (ch, charset);
 }
 
 #define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
