@@ -1,3 +1,96 @@
+2001-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el:
+	- Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge Big5-CDP code points.
+	- CJK Ext-B code points.
+	(U+515F): Don't use CDP's special operator in
+	`ideographic-structure'.
+	(U+5162): Likewise.
+
+	* Ideograph-R008-Lid.el (CB-04846): Relate to U+342B.
+	(U+342C): Add `ideographic-structure'.
+	(BC-8C50): Likewise.
+	(U+4EAF): Likewise.
+	(M-00311): Likewise.
+	(BC-8BA7): New character.
+	(BC-8AE6): Add `ideographic-structure'; unify U-00029ACF.
+
+	* Ideograph-R002-Line.el (U+4E2A): Add `ideographic-structure';
+	unify BC-8A4B.
+
+2001-10-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (BC-8DD9): Use BC-89CD instead of B-89CD
+	in `ideographic-structure'.
+
+	* Ideograph-R001-One.el (BC-8BBF): New character.
+	(C2-212E): Use U-00020087 instead of BC-8B5F in
+	`ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (C*-****): Merge CJK Ext-B code points.
+	- Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
+2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R003-Dot.el (M-00100): Add `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U-00023D92): Use BC-89CD instead of
+	B-89CD in `ideographic-structure'.
+
+2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (BC-8C6B): Moved to
+	Ideograph-R030-Mouth.el.
+
+	* Ideograph-R076-Lack.el, Ideograph-R074-Moon.el,
+	Ideograph-R073-Say.el, Ideograph-R071-Not.el,
+	Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R067-Script.el, Ideograph-R066-Rap.el: Merge KS X 1001
+	code points.
+
+	* Ideograph-R040-Roof.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge KS X 1001 code points.
+
+2001-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el:
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.	
+	(M-00291): Use M-19721 instead of U+7236 in
+	`ideographic-structure'.
+	(M-00292): Add `ideographic-structure'.
+	(CB-04846): Add `ideographic-structure'; unify BC-8C5E.
+	(U+4EA9): Add `ideographic-structure'.
+	(M-00300): Add `ideographic-structure'; unify BC-8BE5.
+	(C4-2534): Add `ideographic-structure'.
+	(U+4EAF): Unify BC-8AA5.
+	(K0-5322): Add `ideographic-structure'.
+
+	* Ideograph-R007-Two.el:
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+
+	* Ideograph-R005-Second.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	(C*-****): Merge CJK Ext-B code points.
+	- Delete Big5 code points if Big5-CDP code points are defined.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
 2001-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-coded-charset-priority-list): New
