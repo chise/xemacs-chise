@@ -141,7 +141,7 @@
 		     (setq value (cdr value)))
 		   (insert-char-attributes ret
 					   readable
-					   al cal))
+					   (or al 'none) cal))
 	       (insert (prin1-to-string value)))
 	     (insert ")")
 	     (insert line-breaking))
@@ -191,7 +191,8 @@
 				    column)
   (setq attributes
 	(if attributes
-	    (copy-sequence attributes)
+	    (if (consp attributes)
+		(copy-sequence attributes))
 	  (sort (char-attribute-list) #'char-attribute-name<)))
   (setq ccs-attributes
 	(if ccs-attributes
