@@ -1,9 +1,37 @@
+2004-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R068-Dipper.el (U+3AB7): Add
+	`ideographic-{radical|strokes}' in derived characters.
+
+2004-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (U+7958): Use `->subsumptive'.
+	(JSP-5056): Unify CB08290.
+	(JC3-5CD1): Unify H6-EDE8.
+
+	* Ideograph-R061-Heart.el (U+5FCD): Define as an abstract
+	character.
+	(B-A7D4): Use `->subsumptive'; use `<-denotational' for U+5FCD.
+	(J0-4726): Use `<-denotational' for U+5FCD.
+
+	* Ideograph-R035-Go-Slowly.el (U-0002156B): Use `->subsumptive'.
+	(U-00021569): Likewise.
+
+	* Ideograph-R030-Mouth.el (GT-K01160): Add `<-original' U+5B50.
+	(GT-K01881): Likewise.
+	(U+5453): Compact `ideographic-structure'.
+
 2004-08-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R063-Door.el (C3-2628): Add `->mistakable' for
 	M-11712; unify GT-14762 and GT-K02657.
 	(J0-4C61): Add S{1|2}-2795.
 	(U+623E): Use `->subsumptive'.
+
+	* Ideograph-R162-Walk.el (U+8FC5): Define as an abstract
+	character.
+	(M-38727): Use `->subsumptive'; use `<-denotational' for U+8FC5.
+	(J0-3F57): Use `->subsumptive'; use `<-denotational' for U+8FC5.
 
 	* Ideograph-R075-Tree.el (U+6753): Use `->subsumptive'.
 	(K0-7875): Unify GT-18401 and GT-K02566.
