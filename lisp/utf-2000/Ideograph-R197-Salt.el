@@ -199,8 +199,10 @@
 (define-char
   '((ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 8)
-    (japanese-jisx0208	. #x3834)	; ø»†²
-    (ucs		. #x9E78)	; é¹¸
+    (total-strokes	 . 19)
+    (japanese-jisx0208		. #x3834)	; ø»†²
+    (japanese-jisx0208-1990	. #x3834)	; ø½Š˜
+    (ucs			. #x9E78)	; é¹¸
     ))
 (define-char
   '((ideographic-radical . 197)	; â¿„
