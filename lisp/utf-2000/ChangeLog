@@ -1,3 +1,18 @@
+2003-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
+	Ideograph-R120-Silk.el, Ideograph-R116-Cave.el,
+	Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el,
+	Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
+	Ideograph-R043-Lame.el, Ideograph-R040-Roof.el,
+	Ideograph-R038-Woman.el, Ideograph-R009-Man.el: Add some missing
+	`ucs@jis' features corresponding with JIS X 0212 code points.
+
+2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' features into some JIS X
+	0208:1990 code points.
+
 2003-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+651A): Fix strokes.
