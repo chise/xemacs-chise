@@ -1,5 +1,10 @@
 1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R022-Right-Open-Box.el: Merge
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R021-Spoon.el (M02574): Separate C1-4621.
 	(M02576): Separate C6-2630.
 	(M02579): Separate C5-234A.
