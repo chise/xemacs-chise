@@ -455,12 +455,14 @@
 	))))
 
 (defun decode-builtin-char (charset code-point)
-  (if (and (not (eq charset 'ideograph-daikanwa))
-	   (or (memq charset '(ascii latin-viscii-upper
-				     latin-viscii-lower
-				     arabic-iso8859-6
-				     japanese-jisx0213-1
-				     japanese-jisx0213-2))
+  (setq charset (get-charset charset))
+  (if (and (not (eq (charset-name charset) 'ideograph-daikanwa))
+	   (or (memq (charset-name charset)
+		     '(ascii latin-viscii-upper
+			     latin-viscii-lower
+			     arabic-iso8859-6
+			     japanese-jisx0213-1
+			     japanese-jisx0213-2))
 	       (= (char-int (charset-iso-final-char charset)) 0)))
       (decode-char charset code-point)
     (let ((table (charset-mapping-table charset)))
@@ -527,9 +529,10 @@
       )))
 
 (defun write-char-range-data-to-file (min max file)
-  (with-temp-buffer
-    (insert-char-range-data min max)
-    (write-region (point-min)(point-max) file)))
+  (let ((coding-system-for-write 'utf-8))
+    (with-temp-buffer
+      (insert-char-range-data min max)
+      (write-region (point-min)(point-max) file))))
 
 (defvar what-character-original-window-configuration)
 
