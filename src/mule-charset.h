@@ -602,11 +602,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 /*                        Dealing with characters                       */
 /************************************************************************/
 
-/* Is this character represented by more than one byte in a string? */
-
-#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
-
-#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
+#define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 /* The bit fields of character are divided into 3 parts:
    FIELD1(5bits):FIELD2(7bits):FIELD3(7bits) */
