@@ -50,14 +50,14 @@
     3  3  3  3  3  3  3  3  3  3
     3  4  4  4  3  4  4  4  4  4
     4  4  4  4  4  4  4  4  4  4
-    4  4  4  4  4  4  4  4  4  4
+    4  4  4  4  4  3  4  4  4  4
     4  4  4  4  4  5  5  5  5  5
     ;; 100
     5  5  5  5  5  5  5  5  5  5
     5  5  5  5  5  5  5  5  6  6
     6  6  6  6  6  6  6  6  6  6
     6  6  6  6  6  6  6  6  6  6
-    6  6  6  6  6  6  6  7  7  7
+    4  6  6  6  6  6  6  7  7  7
     7  7  7  7  7  7  7  7  7  7
     7  7  4  3  7  7  7  8  8  8
     8  8  8  8  8  8  9  9  9  9
@@ -137,6 +137,17 @@
     (setq i 0)
     (while (< i 50101)
       (setq char (decode-char 'ideograph-daikanwa i))
+      (if (and (setq radical (char-ideographic-radical char))
+	       (not
+		(memq char
+		      (setq ret
+			    (aref ideograph-radical-chars-vector radical)))))
+	  (aset ideograph-radical-chars-vector radical
+		(cons char ret)))
+      (setq i (1+ i)))
+    (setq i 0)
+    (while (< i (* 94 60 22))
+      (setq char (decode-char 'mojikyo i))
       (if (and (setq radical (char-ideographic-radical char))
 	       (not
 		(memq char
