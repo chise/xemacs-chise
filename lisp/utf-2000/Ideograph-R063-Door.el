@@ -72,6 +72,13 @@
   '((ideographic-radical . 63)	; â¼¾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (original-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((shinjigen-1	   . 848)
+	       (ideograph-daikanwa . 02847)	; ø¸€¬Ÿ
+	       ))
+      ))
+    (shinjigen-1	. 849)
     (chinese-cns11643-3 . #x2629)	; ø»•ž‚
     (ideograph-daikanwa . 11708)	; ø¸‚¶¼
     (ucs		. #x623C)	; æˆ¼
