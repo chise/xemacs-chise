@@ -1,3 +1,8 @@
+2002-02-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R085-Water.el (M-49217): Unify U+6E12.
+	(M-18060): Unify U+6EE3.
+
 2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R075-Tree.el (M-49176): Unify U+699D.
