@@ -524,6 +524,11 @@ A char-table for characters which invoke auto-filling.
 Such characters have value t in this table.
 */);
   Vauto_fill_chars = Fmake_char_table (Qgeneric);
+#ifdef UTF2000
+  put_char_id_table_0 (XCHAR_TABLE (Vauto_fill_chars), ' ', Qt);
+  put_char_id_table_0 (XCHAR_TABLE (Vauto_fill_chars), '\n', Qt);
+#else
   XCHAR_TABLE (Vauto_fill_chars)->ascii[' '] = Qt;
   XCHAR_TABLE (Vauto_fill_chars)->ascii['\n'] = Qt;
+#endif
 }
