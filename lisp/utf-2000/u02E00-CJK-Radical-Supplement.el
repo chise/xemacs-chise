@@ -38,6 +38,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5	. #x8D43)	; ⺄
+    (chinese-big5-cdp	. #x8D43)	; ⺄
     (ucs		. #x2E84)	; ⺄
     ))
 (define-char
