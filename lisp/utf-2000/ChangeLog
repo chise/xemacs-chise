@@ -1,3 +1,17 @@
+2004-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R180-Sound.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+2004-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R179-Leek.el (C5-442E): Unify U-00029401.
+	(C5-5252): Unify U-00029403.
+	(M-43257): Map to U-0002940C; use `->subsumptive' to integrate
+	C5-7173.
+	(C5-7173): Map to U-0002940C; use `->subsumptive' to integrate
+	M-43257.
+
 2004-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R180-Sound.el, Ideograph-R178-Tanned-Leather.el: Use
