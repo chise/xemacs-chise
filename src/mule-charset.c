@@ -176,6 +176,93 @@ decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
   return 0;
 }
 
+void
+decoding_table_put_char (Lisp_Object ccs,
+			 int code_point, Lisp_Object character)
+{
+#if 1
+  Lisp_Object table1 = XCHARSET_DECODING_TABLE (ccs);
+  int dim = XCHARSET_DIMENSION (ccs);
+
+  if (dim == 1)
+    XCHARSET_DECODING_TABLE (ccs)
+      = put_ccs_octet_table (table1, ccs, code_point, character);
+  else if (dim == 2)
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 8));
+
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)code_point, character);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 8), table2);
+    }
+  else if (dim == 3)
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 16));
+      Lisp_Object table3
+	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >>  8));
+
+      table3 = put_ccs_octet_table (table3, ccs,
+				    (unsigned char)code_point, character);
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)(code_point >> 8), table3);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 16), table2);
+    }
+  else /* if (dim == 4) */
+    {
+      Lisp_Object table2
+	= get_ccs_octet_table (table1, ccs, (unsigned char)(code_point >> 24));
+      Lisp_Object table3
+	= get_ccs_octet_table (table2, ccs, (unsigned char)(code_point >> 16));
+      Lisp_Object table4
+	= get_ccs_octet_table (table3, ccs, (unsigned char)(code_point >>  8));
+
+      table4 = put_ccs_octet_table (table4, ccs,
+				    (unsigned char)code_point, character);
+      table3 = put_ccs_octet_table (table3, ccs,
+				    (unsigned char)(code_point >>  8), table4);
+      table2 = put_ccs_octet_table (table2, ccs,
+				    (unsigned char)(code_point >> 16), table3);
+      XCHARSET_DECODING_TABLE (ccs)
+	= put_ccs_octet_table (table1, ccs,
+			       (unsigned char)(code_point >> 24), table2);
+    }
+#else
+  Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
+  int dim = XCHARSET_DIMENSION (ccs);
+  int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
+  int i = -1;
+  Lisp_Object nv;
+  int ccs_len = XVECTOR_LENGTH (v);
+
+  while (dim > 0)
+    {
+      dim--;
+      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
+      nv = XVECTOR_DATA(v)[i];
+      if (dim > 0)
+	{
+	  if (!VECTORP (nv))
+	    {
+	      if (EQ (nv, character))
+		return;
+	      else
+		nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+	    }
+	  v = nv;
+	}
+      else
+	break;
+    }
+  XVECTOR_DATA(v)[i] = character;
+#endif
+}
+
 Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
@@ -1223,6 +1310,55 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
 }
 
 int
+encode_char_2 (Emchar ch, Lisp_Object* charset)
+{
+  Lisp_Object charsets = Vdefault_coded_charset_priority_list;
+  int code_point;
+
+  while (!NILP (charsets))
+    {
+      *charset = Ffind_charset (Fcar (charsets));
+      if ( !NILP (*charset)
+	   && (XCHARSET_DIMENSION (*charset) <= 2) )
+	{
+	  code_point = charset_code_point (*charset, ch, 0);
+	  if (code_point >= 0)
+	    return code_point;
+
+	  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
+	       NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
+	    {
+	      code_point = encode_char_2_search_children (ch, charset);
+	      if (code_point >= 0)
+		return code_point;
+	    }
+	}
+      charsets = Fcdr (charsets);	      
+    }
+  
+  if ( !NILP (Vdisplay_coded_charset_priority_use_inheritance) &&
+       !NILP (Vdisplay_coded_charset_priority_use_hierarchy_order) )
+    {
+      charsets = Vdefault_coded_charset_priority_list;
+      while (!NILP (charsets))
+	{
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if ( !NILP (*charset)
+	       && (XCHARSET_DIMENSION (*charset) <= 2) )
+	    {
+	      code_point = encode_char_2_search_children (ch, charset);
+	      if (code_point >= 0)
+		return code_point;
+	    }
+	  charsets = Fcdr (charsets);	      
+	}
+    }
+
+  /* otherwise --- maybe for bootstrap */
+  return encode_builtin_char_1 (ch, charset);
+}
+
+int
 encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 {
   if (c <= MAX_CHAR_BASIC_LATIN)
@@ -1344,6 +1480,8 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 }
 
 Lisp_Object Vdefault_coded_charset_priority_list;
+Lisp_Object Vdisplay_coded_charset_priority_use_inheritance;
+Lisp_Object Vdisplay_coded_charset_priority_use_hierarchy_order;
 #endif
 
 
@@ -2928,10 +3066,10 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_jisx0201,		"latin-jisx0201");
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
-  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208-1978");
+  defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208@1978");
   defsymbol (&Qmap_gb2312,		"=gb2312");
   defsymbol (&Qmap_gb12345,		"=gb12345");
-  defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
+  defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208@1983");
   defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
   defsymbol (&Qmap_jis_x0212,		"=jis-x0212");
   defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
@@ -2950,7 +3088,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
   defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
-  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208-1990");
+  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208@1990");
   defsymbol (&Qmap_big5,		"=big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
@@ -3009,6 +3147,16 @@ Leading-code of private TYPE9N charset of column-width 1.
 	       &Vdefault_coded_charset_priority_list /*
 Default order of preferred coded-character-sets.
 */ );
+  Vdisplay_coded_charset_priority_use_inheritance = Qt;
+  DEFVAR_LISP ("display-coded-charset-priority-use-inheritance",
+	       &Vdisplay_coded_charset_priority_use_inheritance /*
+If non-nil, use character inheritance.
+*/ );
+  Vdisplay_coded_charset_priority_use_hierarchy_order = Qt;
+  DEFVAR_LISP ("display-coded-charset-priority-use-hierarchy-order",
+	       &Vdisplay_coded_charset_priority_use_hierarchy_order /*
+If non-nil, prefer nearest character in hierarchy order.
+*/ );
 #endif
 }
 
@@ -3049,7 +3197,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS-BMP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 0 (BMP)"),
 		  build_string
-		  ("\\(ISO10646.*-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
+		  ("\\(ISO10646\\(\\.[0-9]+\\)?-[01]\\|UCS00-0\\|UNICODE[23]?-0\\)"),
 		  Qnil, 0, 0xFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_smp);
   Vcharset_ucs_smp =

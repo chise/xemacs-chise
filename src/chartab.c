@@ -1235,15 +1235,16 @@ Return variants of CHARACTER.
 */
        (character))
 {
-  Lisp_Object ret;
-
   CHECK_CHAR (character);
-  ret = Fchar_feature (character, Q_ucs_unified, Qnil,
-		       Qnil, Qnil);
-  if (CONSP (ret))
-    return Fcopy_list (ret);
-  else
-    return Qnil;
+  return
+    nconc2
+    (Fcopy_list (Fget_char_attribute (character, Q_subsumptive, Qnil)),
+     (nconc2
+      (Fcopy_list (Fget_char_attribute (character, Q_denotational, Qnil)),
+       (nconc2
+	(Fcopy_list (Fget_char_attribute (character, Q_identical, Qnil)),
+	 Fcopy_list (Fchar_feature (character, Q_ucs_unified, Qnil,
+				    Qnil, Qnil)))))));
 }
 
 #endif
@@ -3508,9 +3509,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_component) ||
 	    EQ (attribute, Q_component_of) ||
 	    !NILP (Fstring_match
-		   (build_string ("^\\(<-\\|->\\)\\(simplified"
-				  "\\|same\\|vulgar\\|wrong"
-				  "\\|original\\|ancient"
+		   (build_string ("^\\(<-\\|->\\)\\("
+				  "fullwidth\\|halfwidth"
+				  "\\|simplified\\|vulgar\\|wrong"
+				  "\\|same\\|original\\|ancient"
 				  "\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )

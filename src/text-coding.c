@@ -3246,6 +3246,8 @@ decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
     }
 }
 
+EXFUN (Fregexp_quote, 1);
+
 void decode_add_er_char (struct decoding_stream *str, Emchar character,
 			 unsigned_char_dynarr* dst);
 void
@@ -3267,7 +3269,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
     {
       Lisp_Object string = make_string (str->er_buf,
 					str->er_counter);
-      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+      Lisp_Object rest;
       Lisp_Object cell;
       Lisp_Object ret;
       Lisp_Object pat;
@@ -3275,7 +3277,8 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
       Lisp_Object char_type;
       int base;
 
-      while (!NILP (rest))
+      for ( rest = Vcoded_charset_entity_reference_alist;
+	    !NILP (rest); rest = Fcdr (rest) )
 	{		      
 	  cell = Fcar (rest);
 	  ccs = Fcar (cell);
@@ -3337,7 +3340,6 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	      DECODE_ADD_UCS_CHAR (chr, dst);
 	      goto decoded;
 	    }
-	  rest = Fcdr (rest);
 	}
       if (!NILP (Fstring_match (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
 				string, Qnil, Qnil)))

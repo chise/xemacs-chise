@@ -1,3 +1,67 @@
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_put_char): Moved to mule-charset.c;
+	changed to normal function.
+	(encode_char_2): Likewise.
+
+	* mule-charset.c (decoding_table_put_char): Copied from
+	char-ucs.h; changed to normal function.
+	(encode_char_2): Likewise.
+
+2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (Vdisplay_coded_charset_priority_use_inheritance):
+	New extern.
+	(Vdisplay_coded_charset_priority_use_hierarchy_order): Likewise.
+	(encode_char_2_search_children): New inline function.
+	(encode_char_2): Refer
+	`Vdisplay_coded_charset_priority_use_{inheritance|hierarchy_order}'
+	and use `encode_char_2_search_children'.
+
+2004-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c
+	(Vdisplay_coded_charset_priority_use_inheritance): New variable.
+	(Vdisplay_coded_charset_priority_use_hierarchy_order): Likewise.
+	(vars_of_mule_charset): Add new variable
+	`display-coded-charset-priority-use-inheritance' and
+	`display-coded-charset-priority-use-hierarchy-order'.
+
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (Q_subsumptive): New extern.
+	(Q_denotational): Likewise.
+	(encode_char_2): Search children specified by `->subsumptive' and
+	`->denotational'.
+
+2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Modify the
+	X-registry of `ucs-bmp'.
+
+2004-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char-variants): Refer `->subsumptive',
+	`->denotational' and `->identical' as same as `->ucs-unified'.
+
+2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}{fullwidth|halfwidth}[^*]*' to characters and put reverse
+	links.
+
+2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c: Add EXFUN for `Fregexp_quote'.
+	(decode_add_er_char): Fix problem about infinite loop when a CCS
+	specified in `coded-charset-entity-reference-alist' is not
+	existed.
+
+2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Rename
+	`=jis-x0208-{1978|1983|1990}' to `=jis-x0208@{1978|1983|1990}'.
+
 2004-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* fns.c (simplify_char_spec): Don't allocate new character-object
