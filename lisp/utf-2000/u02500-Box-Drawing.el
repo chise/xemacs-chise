@@ -794,8 +794,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2344)	; ø»‘…»
-    (chinese-big5	. #xF9F9)	; øº£‹
+    (chinese-big5	. #xA2A4)	; øºŸžŸ
     (ucs		. #x2550)	; â•
+    ))
+(define-char
+  '((=>ucs		. #x2550)	; â•
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-big5	. #xF9F9)	; øº£‹
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOUBLE VERTICAL")
@@ -1034,6 +1041,14 @@
     (ucs		. #x256D)	; â•­
     ))
 (define-char
+  '((name		. "box drawings double light arc down and right")
+    (=>ucs		. #x256D)	; â•­
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-big5	. #xF9FA)	; øº£Œ
+    ))
+(define-char
   '((name		. "BOX DRAWINGS LIGHT ARC DOWN AND LEFT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -1041,6 +1056,14 @@
     (chinese-cns11643-1 . #x2341)	; ø»‘…¸
     (chinese-big5	. #xA2A1)	; øºŸžœ
     (ucs		. #x256E)	; â•®
+    ))
+(define-char
+  '((name		. "box drawings double light arc down and left")
+    (=>ucs		. #x256E)	; â•®
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-big5	. #xF9FB)	; øº£
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND LEFT")
@@ -1052,6 +1075,14 @@
     (ucs		. #x256F)	; â•¯
     ))
 (define-char
+  '((name		. "box drawings double light arc up and left")
+    (=>ucs		. #x256F)	; â•¯
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-big5	. #xF9FD)	; øº£
+    ))
+(define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND RIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
@@ -1059,6 +1090,14 @@
     (chinese-cns11643-1 . #x2342)	; ø»‘…¹
     (chinese-big5	. #xA2A2)	; øºŸž
     (ucs		. #x2570)	; â•°
+    ))
+(define-char
+  '((name		. "box drawings double light arc up and right")
+    (=>ucs		. #x2570)	; â•°
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (chinese-big5	. #xF9FC)	; øº£Ž
     ))
 (define-char
   '((name . "BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT")
