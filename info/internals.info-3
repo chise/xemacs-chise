@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -660,9 +660,9 @@ structure itself is defined elsewhere) should be placed into the
 typedefs section as necessary.
 
    `lrecord.h' contains the basic structures and macros that implement
-all record-type Lisp objects - i.e. all objects whose type is a field
-in their C structure, which includes all objects except the few most
-basic ones.
+all record-type Lisp objects--i.e. all objects whose type is a field in
+their C structure, which includes all objects except the few most basic
+ones.
 
    `lisp.h' contains prototypes for most of the exported functions in
 the various modules.  Lisp primitives defined using `DEFUN' that need
@@ -691,7 +691,7 @@ particular types of objects using a standardized interface of
 type-specific methods.  This scheme is a fundamental principle of
 object-oriented programming and is heavily used throughout XEmacs.  The
 great advantage of this is that it allows for a clean separation of
-functionality into different modules - new classes of Lisp objects, new
+functionality into different modules--new classes of Lisp objects, new
 event interfaces, new device types, new stream interfaces, etc. can be
 added transparently without affecting code anywhere else in XEmacs.
 Because the different subsystems are divided into general and specific
@@ -764,7 +764,7 @@ equivalent object.)
    `symbols.c' implements the handling of symbols, obarrays, and
 retrieving the values of symbols.  Much of the code is devoted to
 handling the special "symbol-value-magic" objects that define special
-types of variables - this includes buffer-local variables, variable
+types of variables--this includes buffer-local variables, variable
 aliases, variables that forward into C variables, etc.  This module is
 initialized extremely early (right after `alloc.c'), because it is here
 that the basic symbols `t' and `nil' are created, and those symbols are
@@ -990,7 +990,7 @@ relevant keymaps.)
      keyboard.c
 
    `keyboard.c' contains functions that implement the actual editor
-command loop - i.e. the event loop that cyclically retrieves and
+command loop--i.e. the event loop that cyclically retrieves and
 dispatches events.  This code is also rather tricky, just like
 `event-stream.c'.
 
@@ -1115,7 +1115,7 @@ Modules for other Display-Related Lisp Objects
 
      font-lock.c
 
-   This file provides C support for syntax highlighting - i.e.
+   This file provides C support for syntax highlighting--i.e.
 highlighting different syntactic constructs of a source file in
 different colors, for easy reading.  The C support is provided so that
 this is fast.

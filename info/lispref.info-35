@@ -159,6 +159,20 @@ the following functions.
      If the value of the property is not a specifier, it will
      automatically be converted into a `generic' specifier.
 
+ - Function: remove-face-property face property &optional local tag-set
+          exact-p
+     This function removes a property of a FACE.
+
+     For built-in properties, this is analogous to `remove-specifier'.
+     For more information, *Note Other Specification Functions::.
+
+     When PROPERTY is not a built-in property, this function will just
+     remove its value if LOCALE is `nil' or `all'.  However, if LOCALE
+     is other than that, this function will attempt to remove VALUE as
+     the instantiator for the given LOCALE with `remove-specifier'.  If
+     the value of the property is not a specifier, it will be converted
+     into a `generic' specifier automatically.
+
  - Function: face-property face property &optional locale
      This function returns FACE's value of the given PROPERTY.
 

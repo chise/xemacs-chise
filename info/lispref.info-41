@@ -50,6 +50,27 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
+
+Level 3 Basics
+--------------
+
+   XEmacs now provides alpha-level functionality for I18N Level 3.
+This means that everything necessary for full messaging is available,
+but not every file has been converted.
+
+   The two message files which have been created are `src/emacs.po' and
+`lisp/packages/mh-e.po'.  Both files need to be converted using
+`msgfmt', and the resulting `.mo' files placed in some locale's
+`LC_MESSAGES' directory.  The test "translations" in these files are
+the original messages prefixed by `TRNSLT_'.
+
+   The domain for a variable is stored on the variable's property list
+under the property name VARIABLE-DOMAIN.  The function
+`documentation-property' uses this information when translating a
+variable's documentation.
+
+
 File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: Level 3 Basics,  Up: I18N Level 3
 
 Level 3 Primitives
@@ -225,15 +246,15 @@ will be the same.
    In some cases, the differences will be significant enough that it is
 actually possible to identify two or more distinct shapes that both
 represent the same character.  For example, the lowercase letters `a'
-and `g' each have two distinct possible shapes - the `a' can optionally
+and `g' each have two distinct possible shapes--the `a' can optionally
 have a curved tail projecting off the top, and the `g' can be formed
 either of two loops, or of one loop and a tail hanging off the bottom.
 Such distinct possible shapes of a character are called "glyphs".  The
 important characteristic of two glyphs making up the same character is
 that the choice between one or the other is purely stylistic and has no
 linguistic effect on a word (this is the reason why a capital `A' and
-lowercase `a' are different characters rather than different glyphs -
-e.g.  `Aspen' is a city while `aspen' is a kind of tree).
+lowercase `a' are different characters rather than different
+glyphs--e.g.  `Aspen' is a city while `aspen' is a kind of tree).
 
    Note that "character" and "glyph" are used differently here than
 elsewhere in XEmacs.
@@ -255,7 +276,7 @@ puts uppercase letters before lowercase letters, numbers before
 letters, etc.  Note that for many of the Asian character sets, there is
 no natural ordering of the characters.  The actual orderings are based
 on one or more salient characteristic, of which there are many to
-choose from - e.g. number of strokes, common radicals, phonetic
+choose from--e.g. number of strokes, common radicals, phonetic
 ordering, etc.
 
    The set of numbers assigned to any particular character are called
@@ -286,11 +307,11 @@ directly. (This is the case with ASCII, and as a result, most people do
 not understand the difference between a character set and an encoding.)
 This is not possible, however, if more than one character set is to be
 used in the encoding.  For example, printed Japanese text typically
-requires characters from multiple character sets - ASCII, JISX0208, and
+requires characters from multiple character sets--ASCII, JISX0208, and
 JISX0212, to be specific.  Each of these is indexed using one or more
 position codes in the range 33 through 126, so the position codes could
 not be used directly or there would be no way to tell which character
-was meant.  Different Japanese encodings handle this differently - JIS
+was meant.  Different Japanese encodings handle this differently--JIS
 uses special escape characters to denote different character sets; EUC
 sets the high bit of the position codes for JISX0208 and JISX0212, and
 puts a special extra byte before each JISX0212 character; etc. (JIS,
@@ -553,7 +574,7 @@ properties of a charset.
      (in TTY mode) of CHARSET.
 
  - Function: charset-direction charset
-     This function returns the display direction of CHARSET - either
+     This function returns the display direction of CHARSET--either
      `l2r' or `r2l'.
 
  - Function: charset-final charset
@@ -732,10 +753,10 @@ designate (or assign) any charset to one of these registers.
 into 4 areas: C0, GL, C1, and GR.  GL and GR are the areas into which a
 register of charset can be invoked into.
 
-     	C0: 0x00 - 0x1F
-     	GL: 0x20 - 0x7F
-     	C1: 0x80 - 0x9F
-     	GR: 0xA0 - 0xFF
+             C0: 0x00 - 0x1F
+             GL: 0x20 - 0x7F
+             C1: 0x80 - 0x9F
+             GR: 0xA0 - 0xFF
 
    Usually, in the initial state, G0 is invoked into GL, and G1 is
 invoked into GR.
@@ -745,34 +766,34 @@ invoked into GR.
 
    Charset designation is done by escape sequences of the form:
 
-     	ESC [I] I F
+             ESC [I] I F
 
    where I is an intermediate character in the range 0x20 - 0x2F, and F
 is the final character identifying this charset.
 
    The meaning of intermediate characters are:
 
-     	$ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
-     	( [0x28]: designate to G0 a 94-charset whose final byte is F.
-     	) [0x29]: designate to G1 a 94-charset whose final byte is F.
-     	* [0x2A]: designate to G2 a 94-charset whose final byte is F.
-     	+ [0x2B]: designate to G3 a 94-charset whose final byte is F.
-     	- [0x2D]: designate to G1 a 96-charset whose final byte is F.
-     	. [0x2E]: designate to G2 a 96-charset whose final byte is F.
-     	/ [0x2F]: designate to G3 a 96-charset whose final byte is F.
+             $ [0x24]: indicate charset of dimension 2 (94x94 or 96x96).
+             ( [0x28]: designate to G0 a 94-charset whose final byte is F.
+             ) [0x29]: designate to G1 a 94-charset whose final byte is F.
+             * [0x2A]: designate to G2 a 94-charset whose final byte is F.
+             + [0x2B]: designate to G3 a 94-charset whose final byte is F.
+             - [0x2D]: designate to G1 a 96-charset whose final byte is F.
+             . [0x2E]: designate to G2 a 96-charset whose final byte is F.
+             / [0x2F]: designate to G3 a 96-charset whose final byte is F.
 
    The following rule is not allowed in ISO 2022 but can be used in
 Mule.
 
-     	, [0x2C]: designate to G0 a 96-charset whose final byte is F.
+             , [0x2C]: designate to G0 a 96-charset whose final byte is F.
 
    Here are examples of designations:
 
-     	ESC ( B :              designate to G0 ASCII
-     	ESC - A :              designate to G1 Latin-1
-     	ESC $ ( A or ESC $ A : designate to G0 GB2312
-     	ESC $ ( B or ESC $ B : designate to G0 JISX0208
-     	ESC $ ) C :            designate to G1 KSC5601
+             ESC ( B :              designate to G0 ASCII
+             ESC - A :              designate to G1 Latin-1
+             ESC $ ( A or ESC $ A : designate to G0 GB2312
+             ESC $ ( B or ESC $ B : designate to G0 JISX0208
+             ESC $ ) C :            designate to G1 KSC5601
 
    To use a charset designated to G2 or G3, and to use a charset
 designated to G1 in a 7-bit environment, you must explicitly invoke G1,
@@ -781,18 +802,18 @@ G2, or G3 into GL.  There are two types of invocation, Locking Shift
 
    Locking Shift is done as follows:
 
-     	LS0 or SI (0x0F): invoke G0 into GL
-     	LS1 or SO (0x0E): invoke G1 into GL
-     	LS2:  invoke G2 into GL
-     	LS3:  invoke G3 into GL
-     	LS1R: invoke G1 into GR
-     	LS2R: invoke G2 into GR
-     	LS3R: invoke G3 into GR
+             LS0 or SI (0x0F): invoke G0 into GL
+             LS1 or SO (0x0E): invoke G1 into GL
+             LS2:  invoke G2 into GL
+             LS3:  invoke G3 into GL
+             LS1R: invoke G1 into GR
+             LS2R: invoke G2 into GR
+             LS3R: invoke G3 into GR
 
    Single Shift is done as follows:
 
-     	SS2 or ESC N: invoke G2 into GL
-     	SS3 or ESC O: invoke G3 into GL
+             SS2 or ESC N: invoke G2 into GL
+             SS3 or ESC O: invoke G3 into GL
 
    (#### Ben says: I think the above is slightly incorrect.  It appears
 that SS2 invokes G2 into GR and SS3 invokes G3 into GR, whereas ESC N
@@ -831,45 +852,45 @@ EUC (Extended UNIX Code); all of these are variants of ISO 2022.
    Here are several examples:
 
      junet -- Coding system used in JUNET.
-     	1. G0 <- ASCII, G1..3 <- never used
-     	2. Yes.
-     	3. Yes.
-     	4. Yes.
-     	5. 7-bit environment
-     	6. No.
-     	7. Use ASCII
-     	8. Use JISX0208-1983
+             1. G0 <- ASCII, G1..3 <- never used
+             2. Yes.
+             3. Yes.
+             4. Yes.
+             5. 7-bit environment
+             6. No.
+             7. Use ASCII
+             8. Use JISX0208-1983
      
      ctext -- Compound Text
-     	1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used
-     	2. No.
-     	3. No.
-     	4. Yes.
-     	5. 8-bit environment
-     	6. No.
-     	7. Use ASCII
-     	8. Use JISX0208-1983
+             1. G0 <- ASCII, G1 <- Latin-1, G2,3 <- never used
+             2. No.
+             3. No.
+             4. Yes.
+             5. 8-bit environment
+             6. No.
+             7. Use ASCII
+             8. Use JISX0208-1983
      
      euc-china -- Chinese EUC.  Although many people call this
      as "GB encoding", the name may cause misunderstanding.
-     	1. G0 <- ASCII, G1 <- GB2312, G2,3 <- never used
-     	2. No.
-     	3. Yes.
-     	4. Yes.
-     	5. 8-bit environment
-     	6. No.
-     	7. Use ASCII
-     	8. Use JISX0208-1983
+             1. G0 <- ASCII, G1 <- GB2312, G2,3 <- never used
+             2. No.
+             3. Yes.
+             4. Yes.
+             5. 8-bit environment
+             6. No.
+             7. Use ASCII
+             8. Use JISX0208-1983
      
      korean-mail -- Coding system used in Korean network.
-     	1. G0 <- ASCII, G1 <- KSC5601, G2,3 <- never used
-     	2. No.
-     	3. Yes.
-     	4. Yes.
-     	5. 7-bit environment
-     	6. Yes.
-     	7. No.
-     	8. No.
+             1. G0 <- ASCII, G1 <- KSC5601, G2,3 <- never used
+             2. No.
+             3. Yes.
+             4. Yes.
+             5. 7-bit environment
+             6. Yes.
+             7. No.
+             8. No.
 
    Mule creates all these coding systems by default.
 
@@ -888,7 +909,7 @@ same format when it is written out to a file or process.
 
    For example, many ISO-2022-compliant coding systems (such as Compound
 Text, which is used for inter-client data under the X Window System) use
-escape sequences to switch between different charsets - Japanese Kanji,
+escape sequences to switch between different charsets--Japanese Kanji,
 for example, is invoked with `ESC $ ( B'; ASCII is invoked with `ESC (
 B'; and Cyrillic is invoked with `ESC - L'.  See `make-coding-system'
 for more information.
@@ -1185,40 +1206,4 @@ Encoding and Decoding Text
      characters into stuff such as `^[$B!<!+^[(B' if you use the JIS
      encoding.  The length of the encoded text is returned.  BUFFER
      defaults to the current buffer if unspecified.
-
-
-File: lispref.info,  Node: Detection of Textual Encoding,  Next: Big5 and Shift-JIS Functions,  Prev: Encoding and Decoding Text,  Up: Coding Systems
-
-Detection of Textual Encoding
------------------------------
-
- - Function: coding-category-list
-     This function returns a list of all recognized coding categories.
-
- - Function: set-coding-priority-list list
-     This function changes the priority order of the coding categories.
-     LIST should be a list of coding categories, in descending order of
-     priority.  Unspecified coding categories will be lower in priority
-     than all specified ones, in the same relative order they were in
-     previously.
-
- - Function: coding-priority-list
-     This function returns a list of coding categories in descending
-     order of priority.
-
- - Function: set-coding-category-system coding-category coding-system
-     This function changes the coding system associated with a coding
-     category.
-
- - Function: coding-category-system coding-category
-     This function returns the coding system associated with a coding
-     category.
-
- - Function: detect-coding-region start end &optional buffer
-     This function detects coding system of the text in the region
-     between START and END.  Returned value is a list of possible coding
-     systems ordered by priority.  If only ASCII characters are found,
-     it returns `autodetect' or one of its subsidiary coding systems
-     according to a detected end-of-line type.  Optional arg BUFFER
-     defaults to the current buffer.
 

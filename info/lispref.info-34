@@ -688,9 +688,9 @@ domains.  First, let's retrieve the specifier:
          =>   ((#<buffer "device.c"> (nil . "forest green"))
                       (#<window on "Makefile" 0x8a2b> (nil . "hot pink"))
                       (#<x-frame "emacs" 0x4ac> (nil . "puke orange")
-     					   (nil . "moccasin"))
+                                                (nil . "moccasin"))
                       (#<x-frame "VM" 0x4ac> (nil . "magenta"))
-     		 (global ((tty) . "cyan") (nil . "white"))
+                      (global ((tty) . "cyan") (nil . "white"))
                      )
 
    Then, say we want to determine what the background color of the
@@ -712,7 +712,7 @@ or could be displayed in many different frames on different devices.
    The result is arrived at like this:
 
   1. First, we look for a specification matching the buffer displayed
-     in the window, i.e. `*scratch'.  There are none, so we proceed.
+     in the window, i.e. `*scratch*'.  There are none, so we proceed.
 
   2. Then, we look for a specification matching the window itself.
      Again, there are none.

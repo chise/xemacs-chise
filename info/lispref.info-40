@@ -250,9 +250,9 @@ generalize well, and they are covered specially here.
 
 * Menu:
 
-* X Selections::		Transferring text to and from other X clients.
-* X Server::			Information about the X server connected to
-				  a particular device.
+* X Selections::                Transferring text to and from other X clients.
+* X Server::                    Information about the X server connected to
+                                  a particular device.
 * X Miscellaneous::             Other X-specific functions and variables.
 
 
@@ -317,9 +317,9 @@ the X server XEmacs is using.
 
 * Menu:
 
-* Resources::			Getting resource values from the server.
-* Server Data::			Getting info about the X server.
-* Grabs::			Restricting access to the server by other apps.
+* Resources::                   Getting resource values from the server.
+* Server Data::                 Getting info about the X server.
+* Grabs::                       Restricting access to the server by other apps.
 
 
 File: lispref.info,  Node: Resources,  Next: Server Data,  Up: X Server
@@ -382,8 +382,8 @@ Resources
           is an interface to a C call something like
 
                    `XrmGetResource (db, "xemacs.buffer.BUFFER-NAME.foreground",
-               			"Emacs.EmacsLocaleType.EmacsBuffer.Foreground",
-               			"String");'
+                                       "Emacs.EmacsLocaleType.EmacsBuffer.Foreground",
+                                       "String");'
 
        2. If LOCALE is a frame, a call
 
@@ -392,8 +392,8 @@ Resources
           is an interface to a C call something like
 
                    `XrmGetResource (db, "xemacs.frame.FRAME-NAME.foreground",
-               			"Emacs.EmacsLocaleType.EmacsFrame.Foreground",
-               			"String");'
+                                       "Emacs.EmacsLocaleType.EmacsFrame.Foreground",
+                                       "String");'
 
        3. If LOCALE is a device, a call
 
@@ -402,8 +402,8 @@ Resources
           is an interface to a C call something like
 
                    `XrmGetResource (db, "xemacs.device.DEVICE-NAME.foreground",
-               			"Emacs.EmacsLocaleType.EmacsDevice.Foreground",
-               			"String");'
+                                       "Emacs.EmacsLocaleType.EmacsDevice.Foreground",
+                                       "String");'
 
        4. If LOCALE is the symbol `global', a call
 
@@ -412,8 +412,8 @@ Resources
           is an interface to a C call something like
 
                    `XrmGetResource (db, "xemacs.foreground",
-               			"Emacs.Foreground",
-               			"String");'
+                                       "Emacs.Foreground",
+                                       "String");'
 
      Note that for `global', no prefix is added other than that of the
      application itself; thus, you can use this locale to retrieve
@@ -481,7 +481,7 @@ Restricting Access to the Server by Other Apps
  - Function: x-grab-keyboard &optional device
      This function grabs the keyboard on the given device (defaulting
      to the selected one).  So long as the keyboard is grabbed, all
-     keyboard events will be delivered to XEmacs - it is not possible
+     keyboard events will be delivered to XEmacs--it is not possible
      for other X clients to eavesdrop on them.  Ungrab the keyboard
      with `x-ungrab-keyboard' (use an `unwind-protect').  Returns `t'
      if the grab was successful; `nil' otherwise.
@@ -692,7 +692,7 @@ Elisp Interface for Sending Messages
      Send a reply to this message.  The second argument can be `reply',
      `reject' or `fail'; the default is `reply'.  Before sending a
      reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
-     should have been filled in - see `set-tooltalk-message-attribute'.
+     should have been filled in--see `set-tooltalk-message-attribute'.
 
 
  - Function: get-tooltalk-message-attribute msg attribute &optional argn
@@ -1238,25 +1238,4 @@ I18N Level 3
 * Dynamic Messaging::
 * Domain Specification::
 * Documentation String Extraction::
-
-
-File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
-
-Level 3 Basics
---------------
-
-   XEmacs now provides alpha-level functionality for I18N Level 3.
-This means that everything necessary for full messaging is available,
-but not every file has been converted.
-
-   The two message files which have been created are `src/emacs.po' and
-`lisp/packages/mh-e.po'.  Both files need to be converted using
-`msgfmt', and the resulting `.mo' files placed in some locale's
-`LC_MESSAGES' directory.  The test "translations" in these files are
-the original messages prefixed by `TRNSLT_'.
-
-   The domain for a variable is stored on the variable's property list
-under the property name VARIABLE-DOMAIN.  The function
-`documentation-property' uses this information when translating a
-variable's documentation.
 

@@ -3,8 +3,98 @@ xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q5.1.3,  Next: Q5.1.4,  Prev: Q5.1.2,  Up: Miscellaneous
+
+Q5.1.3: Could you explain `read-kbd-macro' in more detail?
+----------------------------------------------------------
+
+   The `read-kbd-macro' function returns the internal Emacs
+representation of a human-readable string (which is its argument).
+Thus:
+
+     (read-kbd-macro "C-c C-a")
+     => [(control ?c) (control ?a)]
+     
+     (read-kbd-macro "C-c C-. <up>")
+     => [(control ?c) (control ?.) up]
+
+   In GNU Emacs the same forms will be evaluated to what GNU Emacs
+understands internally--the sequences `"\C-x\C-c"' and `[3 67108910
+up]', respectively.
+
+   The exact "human-readable" syntax is defined in the docstring of
+`edmacro-mode'.  I'll repeat it here, for completeness.
+
+     Format of keyboard macros during editing:
+
+     Text is divided into "words" separated by whitespace.  Except for
+     the words described below, the characters of each word go directly
+     as characters of the macro.  The whitespace that separates words is
+     ignored.  Whitespace in the macro must be written explicitly, as in
+     `foo <SPC> bar <RET>'.
+
+        * The special words `RET', `SPC', `TAB', `DEL', `LFD', `ESC',
+          and `NUL' represent special control characters.  The words
+          must be written in uppercase.
+
+        * A word in angle brackets, e.g., `<return>', `<down>', or
+          `<f1>', represents a function key.  (Note that in the standard
+          configuration, the function key `<return>' and the control key
+          <RET> are synonymous.)  You can use angle brackets on the
+          words <RET>, <SPC>, etc., but they are not required there.
+
+        * Keys can be written by their ASCII code, using a backslash
+          followed by up to six octal digits.  This is the only way to
+          represent keys with codes above \377.
+
+        * One or more prefixes `M-' (meta), `C-' (control), `S-'
+          (shift), `A-' (alt), `H-' (hyper), and `s-' (super) may
+          precede a character or key notation.  For function keys, the
+          prefixes may go inside or outside of the brackets: `C-<down>'
+          == `<C-down>'.  The prefixes may be written in any order:
+          `M-C-x' == `C-M-x'.
+
+          Prefixes are not allowed on multi-key words, e.g., `C-abc',
+          except that the Meta prefix is allowed on a sequence of
+          digits and optional minus sign: `M--123' == `M-- M-1 M-2 M-3'.
+
+        * The `^' notation for control characters also works: `^M' ==
+          `C-m'.
+
+        * Double angle brackets enclose command names: `<<next-line>>'
+          is shorthand for `M-x next-line <RET>'.
+
+        * Finally, `REM' or `;;' causes the rest of the line to be
+          ignored as a comment.
+
+     Any word may be prefixed by a multiplier in the form of a decimal
+     number and `*': `3*<right>' == `<right> <right> <right>', and
+     `10*foo' == `foofoofoofoofoofoofoofoofoofoo'.
+
+     Multiple text keys can normally be strung together to form a word,
+     but you may need to add whitespace if the word would look like one
+     of the above notations: `; ; ;' is a keyboard macro with three
+     semicolons, but `;;;' is a comment.  Likewise, `\ 1 2 3' is four
+     keys but `\123' is a single key written in octal, and `< right >'
+     is seven keys but `<right>' is a single function key.  When in
+     doubt, use whitespace.
+
+
+File: xemacs-faq.info,  Node: Q5.1.4,  Next: Q5.1.5,  Prev: Q5.1.3,  Up: Miscellaneous
+
+Q5.1.4: What is the performance hit of `let'?
+---------------------------------------------
+
+   In most cases, not noticeable.  Besides, there's no avoiding
+`let'--you have to bind your local variables, after all.  Some pose a
+question whether to nest `let's, or use one `let' per function.  I
+think because of clarity and maintenance (and possible future
+implementation), `let'-s should be used (nested) in a way to provide
+the clearest code.
 
 
 File: xemacs-faq.info,  Node: Q5.1.5,  Next: Q5.1.6,  Prev: Q5.1.4,  Up: Miscellaneous
@@ -24,7 +114,7 @@ Q5.1.5: What is the recommended use of `setq'?
      user-variable temporarily, use `let':
 
           (let ((case-fold-search nil))
-            ...					; code with searches that must be case-sensitive
+            ...                                   ; code with searches that must be case-sensitive
             ...)
 
      You will notice the user-variables by their docstrings beginning
@@ -83,7 +173,7 @@ garbage-collected.  For example, the code doing:
 unbound.  The correct thing is to do it like this:
 
      (defun my-function (whatever)
-       (let (a)				; default initialization is to nil
+       (let (a)                              ; default initialization is to nil
          ... build a large list ...
          ... and exit, unbinding `a' in the process  ...)
 
@@ -94,11 +184,11 @@ Emacs to garbage-collect the objects which `a' used to reference.
 `defvar'ing them first, because the byte-compiler issues warnings.  The
 reason for the warning is the following:
 
-     (defun flurgoze nil)			; ok, global internal variable
+     (defun flurgoze nil)                    ; ok, global internal variable
      ...
      
-     (setq flurghoze t)			; ops!  a typo, but semantically correct.
-     					; however, the byte-compiler warns.
+     (setq flurghoze t)                      ; ops!  a typo, but semantically correct.
+                                             ; however, the byte-compiler warns.
      
      While compiling toplevel forms:
      ** assignment to free variable flurghoze
@@ -233,7 +323,7 @@ Q5.2.1: How do I turn off the sound?
      (setq bell-volume 0)
      (setq sound-alist nil)
 
-   That will make your XEmacs totally silent - even the default ding
+   That will make your XEmacs totally silent--even the default ding
 sound (TTY beep on TTY-s) will be gone.
 
    Starting with XEmacs-20.2 you can also change these with Customize.
@@ -334,7 +424,7 @@ alive again.
 expressions.  It was fixed in 19.13.  For earlier versions of XEmacs,
 have a look at your `.emacs' file.  You will probably have a line like:
 
-     (add-hook 'postscript-mode-hook	'turn-on-font-lock)
+     (add-hook 'postscript-mode-hook 'turn-on-font-lock)
 
    Take it out, restart XEmacs, and it won't try to fontify your
 postscript files anymore.
@@ -558,8 +648,8 @@ Q5.3.11: How do I add new Info directories?
    You use something like:
 
      (setq Info-directory-list (cons
-     			   (expand-file-name "~/info")
-     			   Info-default-directory-list))
+                                (expand-file-name "~/info")
+                                Info-default-directory-list))
 
    David Masterson <davidm@prism.kla.com> writes:
 
@@ -642,28 +732,28 @@ Windows port of XEmacs.
 
 
 General Info
-* Q6.0.1::	What is the status of the XEmacs port to Windows?
-* Q6.0.2::	What flavors of MS Windows are supported?
+* Q6.0.1::      What is the status of the XEmacs port to Windows?
+* Q6.0.2::      What flavors of MS Windows are supported?
 * Q6.0.3::      Where are the XEmacs on MS Windows binaries?
-* Q6.0.4::	Does XEmacs on MS Windows require an X server to run?
+* Q6.0.4::      Does XEmacs on MS Windows require an X server to run?
 
 Building XEmacs on MS Windows
-* Q6.1.1::	I decided to run with X.  Where do I get an X server?
-* Q6.1.2::	What compiler do I need to compile XEmacs?
-* Q6.1.3::	How do I compile for the native port?
-* Q6.1.4::	How do I compile for the X port?
-* Q6.1.5::	How do I compile for Cygnus' Cygwin?
-* Q6.1.6::	What do I need for Cygwin?
+* Q6.1.1::      I decided to run with X.  Where do I get an X server?
+* Q6.1.2::      What compiler do I need to compile XEmacs?
+* Q6.1.3::      How do I compile for the native port?
+* Q6.1.4::      How do I compile for the X port?
+* Q6.1.5::      How do I compile for Cygnus' Cygwin?
+* Q6.1.6::      What do I need for Cygwin?
 
 Customization and User Interface
-* Q6.2.1::	How will the port cope with differences in the Windows user interface?
-* Q6.2.2::	How do I change fonts in XEmacs on MS Windows?
-* Q6.2.3::	Where do I put my `.emacs' file?
+* Q6.2.1::      How will the port cope with differences in the Windows user interface?
+* Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
+* Q6.2.3::      Where do I put my `.emacs' file?
 
 Miscellaneous
-* Q6.3.1::	Will XEmacs rename all the win32-* symbols to w32-*?
-* Q6.3.2::	What are the differences between the various MS Windows emacsen?
-* Q6.3.3::	What is the porting team doing at the moment?
+* Q6.3.1::      Will XEmacs rename all the win32-* symbols to w32-*?
+* Q6.3.2::      What are the differences between the various MS Windows emacsen?
+* Q6.3.3::      What is the porting team doing at the moment?
 
 
 File: xemacs-faq.info,  Node: Q6.0.1,  Next: Q6.0.2,  Prev: MS Windows,  Up: MS Windows
@@ -717,7 +807,7 @@ Q6.0.4: Does XEmacs on MS Windows require an X server to run?
    Long answer: XEmacs can be built in several ways in the MS Windows
 environment, some of them requiring an X server and some not.
 
-   One is what we call the "X" port - it requires X libraries to build
+   One is what we call the "X" port--it requires X libraries to build
 and an X server to run.  Internally it uses the Xt event loop and makes
 use of X toolkits.  Its look is quite un-Windowsy, but it works
 reliably and supports all of the graphical features of Unix XEmacs.
@@ -735,7 +825,7 @@ advantage of Cygnus emulation library under Win32, which enables it to
 reuse much of the Unix XEmacs code base, such as processes and network
 support, or internal select() mechanisms.
 
-   Cygwin port supports all display types - TTY, X & MS gui, and can be
+   Cygwin port supports all display types--TTY, X & MS gui, and can be
 built with support for all three.  If you build with ms gui support
 then the Cygwin version uses the majority of the msw code, which is
 mostly related to display.  If you want to build with X support you
@@ -879,8 +969,8 @@ File: xemacs-faq.info,  Node: Q6.2.2,  Next: Q6.2.3,  Prev: Q6.2.1,  Up: MS Wind
 Q6.2.2: How do I change fonts in XEmacs on MS Windows?
 ------------------------------------------------------
 
-   You can change font manually, but not from the menubar, yet. For
-example:
+   In 21.2.*, use the font menu.  In 21.1.*, you can change font
+manually. For example:
 
          (set-face-font 'default "Lucida Console:Regular:10")
          (set-face-font 'modeline "MS Sans Serif:Regular:10")
@@ -1055,7 +1145,7 @@ increased MIME support, and many, many synches with GNU Emacs 20.
    The XEmacs/Mule support has been only seriously tested in a Japanese
 locale, and no doubt many problems still remain.  The support for
 ISO-Latin-1 and Japanese is fairly strong.  MULE support comes at a
-price - about a 30% slowdown from 19.16.  We're making progress on
+price--about a 30% slowdown from 19.16.  We're making progress on
 improving performance and XEmacs 20.3 compiled without Mule (which is
 the default) is definitely faster than XEmacs 19.16.
 

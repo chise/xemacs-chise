@@ -812,7 +812,7 @@ you can install packages from a local disk or CDROM.
 the packages available at the time of the XEmacs release.  Packages are
 also listed on the `Options' menu under:
 
-     	Options->Customize->Emacs->Packages
+             Options->Customize->Emacs->Packages
 
    However, don't select any of these menu picks unless you actually
 want to install the given package (and have properly configured your
@@ -822,7 +822,7 @@ system to do so).
 they are installed, using the visual package browser and installer.
 You can access it via the menus:
 
-     	Options->Manage Packages->List & Install
+             Options->Manage Packages->List & Install
 
    Or, you can get to it via the keyboard:
 
@@ -861,7 +861,7 @@ go (advanced users can just re-evaluate the sexp).
    If you are installing from a temporary, one-time directory, you can
 also add these directory names to `package-get-remote' using:
 
-     	M-x pui-add-install-directory
+             M-x pui-add-install-directory
 
    Note, however, that any directories added using this function are not
 saved; this information will be lost when you quit XEmacs.
@@ -875,9 +875,9 @@ to this list. See `package-get-remote'.
    The easiest way to install a package is to use the visual package
 browser and installer, using the menu pick:
 
-     	Options->Manage Packages->List & Install
+             Options->Manage Packages->List & Install
    or
-     	Options->Manage Packages->Using Custom->Select-> ...
+             Options->Manage Packages->Using Custom->Select-> ...
 
    You can also access it using the keyboard:
 
@@ -946,13 +946,13 @@ Other package installation interfaces
    For an alternative package interface, you can select packages from
 the customize menus, under:
 
-     	Options->Customize->Emacs->Packages-> ...
+             Options->Customize->Emacs->Packages-> ...
    or
-     	Options->Manage Packages->Using Custom->Select-> ...
+             Options->Manage Packages->Using Custom->Select-> ...
 
    Set their state to on, and then do:
 
-     	Options->Manage Packages->Using Custom->Update Packages
+             Options->Manage Packages->Using Custom->Update Packages
 
    This will automatically retrieve the packages you have selected from
 the XEmacs ftp site or your local disk, and install them into XEmacs.
@@ -1008,14 +1008,14 @@ it's best to exit XEmacs before upgrading an existing package.
      tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
      users will typically do this using the commands:
 
-          	gunzip < package.tar.gz | tar xvf -
+                  gunzip < package.tar.gz | tar xvf -
 
      Above, replace `package.tar.gz' with the filename of the package
      that you downloaded in step 1.
 
      Of course, if you use GNU `tar', you could also use:
 
-          	tar xvzf package.tar.gz
+                  tar xvzf package.tar.gz
 
   5. That's it.  Quit and restart XEmacs to get it to recognize any new
      or changed packages.

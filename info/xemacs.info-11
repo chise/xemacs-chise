@@ -680,11 +680,11 @@ strings, they are evaluated and must return an appropriate string.
    For example:
 
        (setq tag-table-alist
-     	'(("/usr/src/public/perl/" . "/usr/src/public/perl/perl-3.0/")
-     	  ("\\.el$" . "/usr/local/emacs/src/")
-     	  ("/jbw/gnu/" . "/usr15/degree/stud/jbw/gnu/")
-     	  ("" . "/usr/local/emacs/src/")
-     	  ))
+             '(("/usr/src/public/perl/" . "/usr/src/public/perl/perl-3.0/")
+               ("\\.el$" . "/usr/local/emacs/src/")
+               ("/jbw/gnu/" . "/usr15/degree/stud/jbw/gnu/")
+               ("" . "/usr/local/emacs/src/")
+               ))
 
    The example defines the tags table alist in the following way:
 

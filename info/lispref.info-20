@@ -122,10 +122,10 @@ item is used to activate that item.
 
 * Menu:
 
-* Creating Menu Accelerators::	How to add accelerator keys to a menu.
-* Keyboard Menu Traversal::	How to use and modify the keys which are used
-				to traverse the menu structure.
-* Menu Accelerator Functions::	Functions for working with menu accelerators.
+* Creating Menu Accelerators::  How to add accelerator keys to a menu.
+* Keyboard Menu Traversal::     How to use and modify the keys which are used
+                                to traverse the menu structure.
+* Menu Accelerator Functions::  Functions for working with menu accelerators.
 
 
 File: lispref.info,  Node: Creating Menu Accelerators,  Next: Keyboard Menu Traversal,  Up: Menu Accelerators
@@ -143,9 +143,9 @@ which is the canonical way of indicating an accelerator key to a user.
    For example, the command
 
      (add-submenu nil '("%_Test"
-     		   ["One" (insert "1") :accelerator ?1 :active t]
-     		   ["%_Two" (insert "2")]
-     		   ["%_3" (insert "3")]))
+                        ["One" (insert "1") :accelerator ?1 :active t]
+                        ["%_Two" (insert "2")]
+                        ["%_3" (insert "3")]))
 
    will add a new menu to the top level menubar.  The new menu can be
 reached by pressing "t" while the top level menubar is active.  When
@@ -237,9 +237,9 @@ Menu Accelerator Functions
      (setq menu-accelerator-modifiers '(meta control))
      (setq menu-accelerator-enabled 'menu-force)
      (add-submenu nil '("%_Test"
-     		   ["One" (insert "1") :accelerator ?1 :active t]
-     		   ["%_Two" (insert "2")]
-     		   ["%_3" (insert "3")]))
+                        ["One" (insert "1") :accelerator ?1 :active t]
+                        ["%_Two" (insert "2")]
+                        ["%_3" (insert "3")]))
 
    will add the menu "Test" to the top level menubar.  Pressing C-x
 followed by C-M-T will activate the menubar and display the "Test"
@@ -318,15 +318,15 @@ that all following buttons should be flushright instead of flushleft.
 
    The syntax, more precisely:
 
-        form		:=  <something to pass to `eval'>
-        command	:=  <a symbol or string, to pass to `call-interactively'>
-        callback 	:=  command | form
-        active-p	:=  <t, nil, or a form to evaluate to decide whether this
-     		    button should be selectable>
-        name		:=  <string>
-        partition	:=  'nil'
-        button	:=  '['  name callback active-p ']'
-        dialog	:=  '(' name [ button ]+ [ partition [ button ]+ ] ')'
+        form         :=  <something to pass to `eval'>
+        command      :=  <a symbol or string, to pass to `call-interactively'>
+        callback     :=  command | form
+        active-p     :=  <t, nil, or a form to evaluate to decide whether this
+                         button should be selectable>
+        name         :=  <string>
+        partition    :=  'nil'
+        button       :=  '['  name callback active-p ']'
+        dialog       :=  '(' name [ button ]+ [ partition [ button ]+ ] ')'
 
 
 File: lispref.info,  Node: Dialog Box Functions,  Prev: Dialog Box Format,  Up: Dialog Boxes
@@ -361,7 +361,7 @@ Toolbar Intro
 =============
 
    A "toolbar" is a bar of icons displayed along one edge of a frame.
-You can view a toolbar as a series of menu shortcuts - the most common
+You can view a toolbar as a series of menu shortcuts--the most common
 menu options can be accessed with a single click rather than a series
 of clicks and/or drags to select the option from a menu.  Consistent
 with this, a help string (called the "help-echo") describing what an
@@ -659,7 +659,7 @@ set the left toolbar width to 0 for a particular buffer (or if that
 buffer does not specify a left toolbar or has a nil value specified for
 `left-toolbar-visible-p'), you will find that, when that buffer is
 displayed in the selected window, the window will have a width of 86 or
-87 characters - the frame is sized for a 68-pixel left toolbar but the
+87 characters--the frame is sized for a 68-pixel left toolbar but the
 selected window specifies that the left toolbar is not visible, so it is
 expanded to take up the slack.
 

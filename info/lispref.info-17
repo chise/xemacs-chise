@@ -859,8 +859,8 @@ working with ASCII strings and with keymaps.
      This function converts a numeric ASCII value to an event structure,
      replete with modifier bits.  CH is the character to convert, and
      EVENT is the event object to fill in.  This function contains
-     knowledge about what the codes "mean" - for example, the number 9
-     is converted to the character <Tab>, not the distinct character
+     knowledge about what the codes "mean"--for example, the number 9 is
+     converted to the character <Tab>, not the distinct character
      <Control-I>.
 
      Note that CH does not have to be a numeric value, but can be a
@@ -1020,13 +1020,13 @@ and the window system.
      `dispatch-event') and discarded.  This function is provided as a
      convenience; it is equivalent to the Lisp code
 
-          	(while (progn
-          		 (next-event event)
-          	         (not (or (key-press-event-p event)
-          	                  (button-press-event-p event)
-          	                  (button-release-event-p event)
-          	                  (menu-event-p event))))
-          	   (dispatch-event event))
+                  (while (progn
+                           (next-event event)
+                           (not (or (key-press-event-p event)
+                                    (button-press-event-p event)
+                                    (button-release-event-p event)
+                                    (menu-event-p event))))
+                     (dispatch-event event))
 
      Here is what happens if you call `next-command-event' and then
      press the right-arrow function key:

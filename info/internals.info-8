@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -141,7 +141,7 @@ a high probability that this is sufficient to always provide the needed
 information.  The second thing we can do is be smart about invalidating
 the cache.
 
-   TODO - Be smart about invalidating the cache.  Potential places:
+   TODO--Be smart about invalidating the cache.  Potential places:
 
    * Insertions at end-of-line which don't cause line-wraps do not
      alter the starting positions of any display lines.  These types of
@@ -287,7 +287,7 @@ Format of the Extent Info
    An extent-info structure consists of a list of the buffer or string's
 extents and a "stack of extents" that lists all of the extents over a
 particular position.  The stack-of-extents info is used for
-optimization purposes - it basically caches some info that might be
+optimization purposes--it basically caches some info that might be
 expensive to compute.  Certain otherwise hard computations are easy
 given the stack of extents over a particular position, and if the stack
 of extents over a nearby position is known (because it was calculated
@@ -473,7 +473,7 @@ within a run (extents that abut the run don't count).
 
    An extent fragment is a structure that holds data about the run that
 contains a particular buffer position (if the buffer position is at the
-junction of two runs, the run after the position is used) - the
+junction of two runs, the run after the position is used)--the
 beginning and end of the run, a list of all of the extents in that run,
 the "merged face" that results from merging all of the faces
 corresponding to those extents, the begin and end glyphs at the
@@ -529,7 +529,7 @@ widget-glyphs are cached on a window basis.
    Any action on a glyph first consults the cache before actually
 instantiating a widget.
 
-Widget-Glyphs in the MS-WIndows Environment
+Widget-Glyphs in the MS-Windows Environment
 ===========================================
 
    To Do

@@ -2581,6 +2581,7 @@ Index
 * remassq:                               Association Lists.
 * remhash:                               Working With Hash Tables.
 * remove-database:                       Working With a Database.
+* remove-face-property:                  Face Properties.
 * remove-glyph-property:                 Glyph Properties.
 * remove-hook:                           Hooks.
 * remove-range-table:                    Working With Range Tables.

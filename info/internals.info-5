@@ -3,7 +3,7 @@ internals/internals.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* Internals: (internals).	XEmacs Internals Manual.
+* Internals: (internals).       XEmacs Internals Manual.
 END-INFO-DIR-ENTRY
 
    Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
@@ -913,8 +913,8 @@ big to fit into a string-chars block.  Such strings, called "big
 strings", are all `malloc()'ed as their own block. (#### Although it
 would make more sense for the threshold for big strings to be somewhat
 lower, e.g. 1/2 or 1/4 the size of a string-chars block.  It seems that
-this was indeed the case formerly - indeed, the threshold was set at
-1/8 - but Mly forgot about this when rewriting things for 19.8.)
+this was indeed the case formerly--indeed, the threshold was set at
+1/8--but Mly forgot about this when rewriting things for 19.8.)
 
    Note also that the string data in string-chars blocks is padded as
 necessary so that proper alignment constraints on the `struct
@@ -999,7 +999,7 @@ of this, etc.
 provides an abstract layer on top of the system-dependent nature of the
 most basic events that are received.  Part of the complex nature of the
 XEmacs event collection process involves converting from the
-operating-system events into the proper Emacs events - there may not be
+operating-system events into the proper Emacs events--there may not be
 a one-to-one correspondence.
 
    Emacs events are documented in `events.h'; I'll discuss them later.

@@ -3,8 +3,33 @@ xemacs-faq.texi.
 
 INFO-DIR-SECTION XEmacs Editor
 START-INFO-DIR-ENTRY
-* FAQ: (xemacs-faq).		XEmacs FAQ.
+* FAQ: (xemacs-faq).            XEmacs FAQ.
 END-INFO-DIR-ENTRY
+
+
+File: xemacs-faq.info,  Node: Q3.0.4,  Next: Q3.0.5,  Prev: Q3.0.3,  Up: Customization
+
+Q3.0.4: How can I add directories to the `load-path'?
+-----------------------------------------------------
+
+   Here are two ways to do that, one that puts your directories at the
+front of the load-path, the other at the end:
+
+     ;;; Add things at the beginning of the load-path, do not add
+     ;;; duplicate directories:
+     (pushnew "bar" load-path :test 'equal)
+     
+     (pushnew "foo" load-path :test 'equal)
+     
+     ;;; Add things at the end, unconditionally
+     (setq load-path (nconc load-path '("foo" "bar")))
+
+   keith (k.p.) hanlan <keithh@nortel.ca> writes:
+
+     To add directories using Unix shell metacharacters use
+     `expand-file-name' like this:
+
+          (push (expand-file-name "~keithh/.emacsdir") load-path)
 
 
 File: xemacs-faq.info,  Node: Q3.0.5,  Next: Q3.0.6,  Prev: Q3.0.4,  Up: Customization
@@ -80,14 +105,14 @@ Q3.0.8: How do I get a single minibuffer frame?
      (setq default-minibuffer-frame
            (make-frame
             '(minibuffer only
-     		    width 86
-     		    height 1
-     		    menubar-visible-p nil
-     		    default-toolbar-visible-p nil
-     		    name "minibuffer"
-     		    top -2
-     		    left -2
-     		    has-modeline-p nil)))
+                         width 86
+                         height 1
+                         menubar-visible-p nil
+                         default-toolbar-visible-p nil
+                         name "minibuffer"
+                         top -2
+                         left -2
+                         has-modeline-p nil)))
      (frame-notice-user-settings)
 
    *Please note:* The single minibuffer frame may not be to everyone's
@@ -186,7 +211,7 @@ directory/name of the current buffer file and not just the name.
 
      (setq frame-title-format
            '("%S: " (buffer-file-name "%f"
-     				 (dired-directory dired-directory "%b"))))
+                                      (dired-directory dired-directory "%b"))))
 
    That is, use the file name, or the dired-directory, or the buffer
 name.
@@ -270,24 +295,24 @@ instead of from my `.Xdefaults'?
      (set-face-background 'default      "bisque") ; frame background
      (set-face-foreground 'default      "black") ; normal text
      (set-face-background 'zmacs-region "red") ; When selecting w/
-     					; mouse
+                                             ; mouse
      (set-face-foreground 'zmacs-region "yellow")
      (set-face-font       'default      "*courier-bold-r*120-100-100*")
      (set-face-background 'highlight    "blue") ; Ie when selecting
-     					; buffers
+                                             ; buffers
      (set-face-foreground 'highlight    "yellow")
      (set-face-background 'modeline     "blue") ; Line at bottom
-     					; of buffer
+                                             ; of buffer
      (set-face-foreground 'modeline     "white")
      (set-face-font       'modeline     "*bold-r-normal*140-100-100*")
      (set-face-background 'isearch      "yellow") ; When highlighting
-     					; while searching
+                                             ; while searching
      (set-face-foreground 'isearch      "red")
      (setq x-pointer-foreground-color   "black") ; Adds to bg color,
-     					; so keep black
+                                             ; so keep black
      (setq x-pointer-background-color   "blue") ; This is color
-     					; you really
-     					; want ptr/crsr
+                                             ; you really
+                                             ; want ptr/crsr
 
 
 File: xemacs-faq.info,  Node: Q3.2.2,  Next: Q3.2.3,  Prev: Q3.2.1,  Up: Customization
@@ -455,7 +480,7 @@ this code to your `.emacs' to turn it off:
 mode:
 
      (add-hook 'TeX-mode-hook
-     	  '(lambda () (setq fume-display-in-modeline-p nil)))
+               '(lambda () (setq fume-display-in-modeline-p nil)))
 
    David Hughes <dhughes@origin-at.co.uk> writes:
 
@@ -568,8 +593,8 @@ bound to keys.
 
      (global-set-key [(control ?.)]
        (lambda () (interactive) (scroll-up 1)))
-     (global-set-key [(control ?		;)]
-     			  (lambda () (interactive) (scroll-up -1)))
+     (global-set-key [(control ?;)]
+       (lambda () (interactive) (scroll-up -1)))
 
    This is fine if you only need a few functions within the lambda body.
 If you're doing more it's cleaner to define a separate function as in
@@ -605,7 +630,7 @@ and Wayne Newberry <wayne@zen.cac.stratus.com>) to `.emacs':
        (scroll-down 1))
      
      (global-set-key [(control ?.)] 'scroll-up-one-line) ; C-.
-     (global-set-key [(control ?		;)] 'scroll-down-one-line) ; C-;
+     (global-set-key [(control ?;)] 'scroll-down-one-line) ; C-;
 
    The key point is that you can only bind simple functions to keys; you
 can not bind a key to a function that you're also passing arguments to.
@@ -715,7 +740,7 @@ etc.
 
      Generally, the simplest way is to define a key as Multi_key with
      xmodmap, e.g.
-          	xmodmap -e 'keycode 0xff20 = Multi_key'
+                  xmodmap -e 'keycode 0xff20 = Multi_key'
 
      You will need to pick an appropriate keycode. Use xev to find out
      the keycodes for each key.
@@ -724,17 +749,17 @@ etc.
      automatically define the right `Windows' key as Multi_key'.]
 
      Once you have Multi_key defined, you can use e.g.
-          	Multi a '	=> á
-          	Multi e "	=> ë
-          	Multi c ,	=> ç
+                  Multi a '       => á
+                  Multi e "       => ë
+                  Multi c ,       => ç
 
      etc.
 
      Also, recent versions of XFree86 define various AltGr-<key>
      combinations as dead keys, i.e.
-          	AltGr [		=> dead_diaeresis
-          	AltGr ]		=> dead_tilde
-          	AltGr ;		=> dead_acute
+                  AltGr [         => dead_diaeresis
+                  AltGr ]         => dead_tilde
+                  AltGr ;         => dead_acute
      etc.
 
      Running `xmodmap -pk' will list all of the defined keysyms.
@@ -849,7 +874,7 @@ customize <RET> display <RET>'.
 
    You can use a color to make it stand out better:
 
-     Emacs*cursorColor:	Red
+     Emacs*cursorColor:      Red
 
 
 File: xemacs-faq.info,  Node: Q3.6.2,  Next: Q3.6.3,  Prev: Q3.6.1,  Up: Customization
@@ -1302,18 +1327,18 @@ feature) off like this:
        (interactive "_P")
        (let ((zmacs-region-stays t))
          (if (interactive-p)
-     	(condition-case nil
-     	    ad-do-it
-     	  (end-of-buffer (goto-char (point-max))))
+             (condition-case nil
+                 ad-do-it
+               (end-of-buffer (goto-char (point-max))))
            ad-do-it)))
      
      (defadvice scroll-down (around scroll-down freeze)
        (interactive "_P")
        (let ((zmacs-region-stays t))
          (if (interactive-p)
-     	(condition-case nil
-     	    ad-do-it
-     	  (beginning-of-buffer (goto-char (point-min))))
+             (condition-case nil
+                 ad-do-it
+               (beginning-of-buffer (goto-char (point-min))))
            ad-do-it)))
 
    Thanks to T. V. Raman <raman@adobe.com> for assistance in deriving
@@ -1395,46 +1420,4 @@ Q4.0.1: How do I set up VM to retrieve mail from a remote site using POP?
                             "netcom23.netcom.com:110:pass:wing:MYPASS"))
 
    Of course substitute your actual password for MYPASS.
-
-
-File: xemacs-faq.info,  Node: Q4.0.2,  Next: Q4.0.3,  Prev: Q4.0.1,  Up: Subsystems
-
-Q4.0.2: How do I get VM to filter mail for me?
-----------------------------------------------
-
-   One possibility is to use procmail to split your mail before it gets
-to VM.  I prefer this personally, since there are many strange and
-wonderful things one can do with procmail.  Procmail may be found at
-`ftp://ftp.informatik.rwth-aachen.de/pub/packages/procmail/'.
-
-   Also see the Mail Filtering FAQ at:
-`ftp://rtfm.mit.edu/pub/usenet/news.answers/mail/filtering-faq'.
-
-
-File: xemacs-faq.info,  Node: Q4.0.3,  Next: Q4.0.4,  Prev: Q4.0.2,  Up: Subsystems
-
-Q4.0.3: How can I get VM to automatically check for new mail?
--------------------------------------------------------------
-
-   John Turner <turner@lanl.gov> writes:
-
-     Use the following:
-
-          (setq vm-auto-get-new-mail 60)
-
-
-File: xemacs-faq.info,  Node: Q4.0.4,  Next: Q4.0.5,  Prev: Q4.0.3,  Up: Subsystems
-
-Q4.0.4: [This question intentionally left blank]
-------------------------------------------------
-
-   Obsolete question, left blank to avoid renumbering.
-
-
-File: xemacs-faq.info,  Node: Q4.0.5,  Next: Q4.0.6,  Prev: Q4.0.4,  Up: Subsystems
-
-Q4.0.5: How do I get my outgoing mail archived?
------------------------------------------------
-
-     (setq mail-archive-file-name "~/outbox")
 

@@ -413,7 +413,7 @@ Consoles and Devices
    A "console" is an object representing a single input connection to
 XEmacs, such as an X display or a TTY connection.  It is possible for
 XEmacs to have frames on multiple consoles at once (even on
-heterogeneous types - you can simultaneously have a frame on an X
+heterogeneous types--you can simultaneously have a frame on an X
 display and a TTY connection).  Normally, there is only one console in
 existence.
 

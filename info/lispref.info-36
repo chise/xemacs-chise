@@ -79,18 +79,18 @@ should appear, are represented using strings or vectors.)
 
    Image instantiators come in many formats: `xbm', `xpm', `gif',
 `jpeg', etc.  This describes the format of the data describing the
-image.  The resulting image instances also come in many types -
-`mono-pixmap', `color-pixmap', `text', `pointer', etc.  This refers to
-the behavior of the image and the sorts of places it can appear. (For
-example, a color-pixmap image has fixed colors specified for it, while
-a mono-pixmap image comes in two unspecified shades "foreground" and
-"background" that are determined from the face of the glyph or
-surrounding text; a text image appears as a string of text and has an
-unspecified foreground, background, and font; a pointer image behaves
-like a mono-pixmap image but can only be used as a mouse pointer
-[mono-pixmap images cannot be used as mouse pointers]; etc.) It is
-important to keep the distinction between image instantiator format and
-image instance type in mind.  Typically, a given image instantiator
+image.  The resulting image instances also come in many
+types--`mono-pixmap', `color-pixmap', `text', `pointer', etc.  This
+refers to the behavior of the image and the sorts of places it can
+appear. (For example, a color-pixmap image has fixed colors specified
+for it, while a mono-pixmap image comes in two unspecified shades
+"foreground" and "background" that are determined from the face of the
+glyph or surrounding text; a text image appears as a string of text and
+has an unspecified foreground, background, and font; a pointer image
+behaves like a mono-pixmap image but can only be used as a mouse
+pointer [mono-pixmap images cannot be used as mouse pointers]; etc.) It
+is important to keep the distinction between image instantiator format
+and image instance type in mind.  Typically, a given image instantiator
 format can result in many different image instance types (for example,
 `xpm' can be instanced as `color-pixmap', `mono-pixmap', or `pointer';
 whereas `cursor-font' can be instanced only as `pointer'), and a
