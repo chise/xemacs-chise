@@ -625,7 +625,7 @@ ALIST is an alist of KEY and INFO values.  See the documentation of
 	`(add-menu-button
 	  '("Mule" "Set Language Environment")
 	  (vector ,lang-env
-		  '(setup-specified-language-environment ,lang-env)
+		  '(set-language-environment ,lang-env)
 		  t))))
 
     (while alist
