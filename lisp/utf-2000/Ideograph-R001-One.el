@@ -733,6 +733,7 @@
     (hanyu-dazidian-char . 5)
     (chinese-gb2312	. #x5728)	; ø»…•Ÿ
     (chinese-isoir165	. #x5728)	; ø»½¯
+    (china3-jef		. #x81D9)	; øºˆ‡™
     (chinese-big5-cdp	. #x89F9)	; ý¢€ˆ§¹
     (ucs		. #x4E13)	; ä¸“
     ))
