@@ -6006,7 +6006,7 @@
     (ideograph-daikanwa . 19188)	; ø¸„«´
     (=big5-cdp		. #xB54E)	; ý¢€‹•Ž
     (=jef-china3	. #x58A7)	; øº…¢§
-    (ucs-ks		. #x716E)	; ï©ˆ
+    (=ucs@ks		. #x716E)	; ï©ˆ
     (=ucs		. #xFA48)	; ï©ˆ
     ))
 (define-char

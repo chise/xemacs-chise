@@ -1938,7 +1938,7 @@
     (ideograph-daikanwa . 07798)	; ø¸¹¶
     (=big5-cdp		. #xBC68)	; ý¢€‹±¨
     (=jef-china3	. #x4AE0)	; øº„« 
-    (ucs-ks		. #x5C64)	; ï¨»
+    (=ucs@ks		. #x5C64)	; ï¨»
     (=ucs		. #xFA3B)	; ï¨»
     ))
 (define-char

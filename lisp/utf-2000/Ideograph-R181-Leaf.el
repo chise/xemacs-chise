@@ -2039,7 +2039,7 @@
     (korean-ksc5601		. #x5E3A)	; ø»‰´‹
     (=jis-x0213-1-2000		. #x7D7B)	; ø»¤›ž
     (ideograph-daikanwa		. 43519)	; ø¸Š§¿
-    (ucs-ks			. #x983B)	; ï©ª
+    (=ucs@ks			. #x983B)	; ï©ª
     (=ucs			. #xFA6A)	; ï©ª
     ))
 (define-char

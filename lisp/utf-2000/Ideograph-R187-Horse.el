@@ -3290,7 +3290,7 @@
     (korean-ksc5601	. #x4B76)	; ø»‰™
     (ideograph-daikanwa . 44894)	; ø¸Š½ž
     (=ucs@jis		. #x9A2B)	; ø½‹¬•
-    (ucs-ks		. #x9A2B)	; ø½‹¬•
+    (=ucs@ks		. #x9A2B)	; ø½‹¬•
     ))
 (define-char
   '((morohashi-daikanwa	44894 0 0)

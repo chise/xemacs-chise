@@ -3726,7 +3726,7 @@
     (=gt-k		. 02740)	; ý¡„€ª´
     (=ucs@gb		. #x5448)	; ð¯ ¾
     (=ucs@jis		. #x5448)	; ð¯ ¾
-    (ucs-ks		. #x5448)	; ð¯ ¾
+    (=ucs@ks		. #x5448)	; ð¯ ¾
     (=ucs		. #x2F83E)	; ð¯ ¾
     ))
 (define-char

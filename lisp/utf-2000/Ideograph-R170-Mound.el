@@ -1886,7 +1886,7 @@
     (=gt-pj-1		. #x4E4D)	; ø½Š¸®
     (=gt-k		. 07898)	; ý¡„»š
     (=ucs@jis		. #x9675)	; ø½Š¸®
-    (ucs-ks		. #x9675)	; ø½Š¸®
+    (=ucs@ks		. #x9675)	; ø½Š¸®
     ))
 (define-char
   '((morohashi-daikanwa	41704 0 2)

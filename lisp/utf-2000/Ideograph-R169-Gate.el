@@ -1872,7 +1872,7 @@
     (=jis-x0208		. #x6F65)	; ø½‹©¤
     (korean-ksc5601	. #x6722)	; ø»Š
     (=ucs@jis		. #x95BB)	; ø½‹©¤
-    (ucs-ks		. #x95BB)	; ø½‹©¤
+    (=ucs@ks		. #x95BB)	; ø½‹©¤
     ))
 (define-char
   '((morohashi-daikanwa	41379 0 1)

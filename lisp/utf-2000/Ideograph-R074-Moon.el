@@ -452,7 +452,7 @@
     (ideograph-daikanwa . 14364)	; ø¸ƒ œ
     (=jef-china3	. #x52AD)	; øº…Š­
     (=ucs@jis		. #xF929)	; ø»‰§Š
-    (ucs-ks		. #x6717)	; ø»‰§Š
+    (=ucs@ks		. #x6717)	; ø»‰§Š
     ))
 (define-char
   '((=>ucs		. #x2F8D8)	; ð¯£˜

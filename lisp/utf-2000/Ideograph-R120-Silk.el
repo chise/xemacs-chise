@@ -9464,7 +9464,7 @@
     (=jis-x0213-1-2000	. #x7A2E)	; ø»¤•·
     (ideograph-daikanwa . 27689)	; ø¸†°©
     (=jef-china3	. #x5FC8)	; øº…¿ˆ
-    (ucs-ks		. #x7DF4)	; ï©—
+    (=ucs@ks		. #x7DF4)	; ï©—
     (=ucs		. #xFA57)	; ï©—
     ))
 (define-char
@@ -12892,7 +12892,7 @@
     (=jis-x0213-1-2000	. #x7A33)	; ø»¤•¼
     (ideograph-daikanwa . 27849)	; ø¸†³‰
     (=ucs@cns		. #x7E41)	; ï©™
-    (ucs-ks		. #x7E41)	; ï©™
+    (=ucs@ks		. #x7E41)	; ï©™
     (=ucs		. #xFA59)	; ï©™
     ))
 (define-char

@@ -6371,7 +6371,7 @@
     (chinese-big5	. #xAC79)	; ý¢€Š±¹
     (=gt-k		. 06556)	; ý¡„¦œ
     (=ucs@jis		. #x6D41)	; ø½Š¸
-    (ucs-ks		. #x6D41)	; ø½Š¸
+    (=ucs@ks		. #x6D41)	; ø½Š¸
     (ucs-big5		. #x6D41)	; ø½Š¸
     ))
 (define-char
@@ -9284,7 +9284,7 @@
     (=jis-x0213-1-2000		. #x7677)	; ø»¤‘ˆ
     (ideograph-daikanwa		. 17758)	; ø¸„•ž
     (=big5-cdp			. #xB25A)	; ý¢€‹‰š
-    (ucs-ks			. #x6E1A)	; ï©†
+    (=ucs@ks			. #x6E1A)	; ï©†
     (=ucs			. #xFA46)	; ï©†
     ))
 (define-char

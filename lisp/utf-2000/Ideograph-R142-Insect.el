@@ -3242,7 +3242,7 @@
     (ideograph-daikanwa . 33143)	; ø¸ˆ…·
     (=gt-k		. 11182)	; ý¡„‚®®
     (=ucs@jis		. #x871C)	; ø½Šµ
-    (ucs-ks		. #x871C)	; ø½Šµ
+    (=ucs@ks		. #x871C)	; ø½Šµ
     ))
 (define-char
   '((morohashi-daikanwa	33143 0 0)

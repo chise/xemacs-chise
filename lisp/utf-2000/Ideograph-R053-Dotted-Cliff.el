@@ -2987,7 +2987,7 @@
     (=jis-x0213-1-2000	. #x742E)	; ø»¤ƒ
     (ideograph-daikanwa . 09437)	; ø¸‚“
     (=ucs@jis		. #xF928)	; ø»‰§‰
-    (ucs-ks		. #x5ECA)	; ø»‰§‰
+    (=ucs@ks		. #x5ECA)	; ø»‰§‰
     ))
 (define-char
   '((=>ucs		. #x2F88E)	; ð¯¢Ž
