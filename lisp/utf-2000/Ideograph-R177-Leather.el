@@ -1262,6 +1262,7 @@
     (=jis-x0212		. #x6745)	; &M-42845; [71-37]
     (=jis-x0213-2-2000	. #x7C24)	; &I-JX2-7C24; [92-04]
     (=daikanwa		. 42845)	; &I-M-42845;
+    (=ucs@jis		. #x9796)	; &M-42845;
     ))
 (define-char
   '((ideographic-radical . 177)	; ⾰
