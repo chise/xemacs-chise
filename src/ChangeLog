@@ -1,3 +1,10 @@
+2000-07-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (byte_table_same_value_p): Use `internal_equal'
+	instead of `EQ'.
+	(put_byte_table): Likewise.
+	(char_id_table_equal): Use `get_byte_table' [new implementation].
+
 2000-07-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c: Include <limits.h> in UTF-2000.
