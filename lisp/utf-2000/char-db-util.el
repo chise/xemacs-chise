@@ -174,7 +174,7 @@
     hebrew-iso8859-8
     latin-viscii
     ethiopic-ucs
-    ideograph-gt
+    =gt
     =big5-cdp
     =gt-k
     ideograph-daikanwa-2
