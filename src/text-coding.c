@@ -3985,6 +3985,13 @@ char_encode_big5 (struct encoding_stream *str, Emchar ch,
 	  Dynarr_add (dst, b1);
 	  Dynarr_add (dst, b2);
 	}
+      else if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys))
+	{
+	  char buf[18];
+
+	  char_encode_as_entity_reference (ch, buf);
+	  Dynarr_add_many (dst, buf, strlen (buf));
+	}
       else
 	Dynarr_add (dst, '?');
 #else
