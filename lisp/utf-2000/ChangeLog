@@ -1923,7 +1923,7 @@
 	* char-db-util.el (char-db-coded-charset-priority-list): Eliminate
 	Mule-private coded-charsets and ideograph-gt-pj-* from initial
 	value; add `ideograph-gt' into initial value.
-	(char-db-insert-char-spec): Modify to avoid enmity char-spec.
+	(char-db-insert-char-spec): Modify to avoid empty char-spec.
 
 2001-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
