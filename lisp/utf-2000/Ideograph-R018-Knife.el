@@ -351,11 +351,11 @@
     (total-strokes	 . 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		    . #x2FF0)	; â¿°
+      (ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs		    . #x5200)	; åˆ€
+     ((ucs		  . #x5200)	; åˆ€
       )
-     ((ucs		    . #x5200)	; åˆ€
+     ((ucs		  . #x5200)	; åˆ€
       ))
     (chinese-cns11643-4 . #x2141)	; ø»—¡ˆ
     (ideograph-daikanwa . 01862)	; ø¸€†
@@ -2360,7 +2360,7 @@
       )
      ((ucs		  . #x53BB)	; åŽ»
       )
-     ((ucs		. #x5204)	; åˆ„
+     ((ucs		  . #x5204)	; åˆ„
       ))
     (ideograph-cbeta	. 03567)	; ø¸ ·¯
     ))
@@ -2970,7 +2970,7 @@
       )
      ((ucs		  . #x5E76)	; å¹¶
       )
-     ((ucs		. #x5204)	; åˆ„
+     ((ucs		  . #x5204)	; åˆ„
       ))
     (chinese-cns11643-3 . #x2B43)	; ø»•¥²
     (ideograph-daikanwa . 02024)	; ø¸€Ÿ¨

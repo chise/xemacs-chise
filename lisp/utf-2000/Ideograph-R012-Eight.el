@@ -972,9 +972,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs			. #x771E)	; çœž
+     ((ucs		  . #x771E)	; çœž
       )
-     ((ucs			. #x771E)	; çœž
+     ((ucs		  . #x771E)	; çœž
       ))
     (chinese-cns11643-7 . #x4D3E)	; ø»ž¿¹
     (ideograph-daikanwa . 01505)	; ø¸€—¡
