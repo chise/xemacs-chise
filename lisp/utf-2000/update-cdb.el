@@ -83,6 +83,8 @@
 	     (expand-file-name "system-char-id"
 			       system-char-database-directory)
 	     nil nil t t))
+    (dolist (ccs (charset-list))
+      (reset-charset-mapping-table ccs))
     )))
  (t
   (load "dumped-chars.el")
