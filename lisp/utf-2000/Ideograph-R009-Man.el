@@ -10948,7 +10948,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x77E3)	; &UU+77E3;
+       ((=ucs@unicode	    . #x77E3)	; &GT-30619;
 	))
       (shinjigen-1	  . 257)
       (shinjigen-2	  . 257)
