@@ -1,5 +1,13 @@
 2004-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R036-Evening.el (J0-546D): Unify U+68A6 instead of
+	using `->same' for M-14871; use `<-vulgar-ideograph*sources'
+	instead of char-ref in `<-vulgar-ideograph'; use `->subsumptive'
+	for M-05784 and M-14871.
+
+	* Ideograph-R016-Table.el (U+51E2): Unify C3-212F; use
+	`->subsumptive' for M-00123 and M-01740.
+
 	* Ideograph-R004-Slash.el (C3-212F): Unify U+51E2 instead of using
 	`->same' for M-01740; use `->subsumptive' for M-00123 and M-01740;
 	use `<-vulgar-ideograph*sources' instead of char-ref in
