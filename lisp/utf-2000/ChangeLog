@@ -1,3 +1,25 @@
+2001-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (C4-4E3A): Fix `morohashi-daikanwa'
+	property; relate to M-39652.
+
+	* Ideograph-R159-Cart.el (M-38396): Fix `ideographic-strokes';
+	don't unify with U+8EFF; separate C3-4F35.
+	(C4-412C): Fix `morohashi-daikanwa' property; relate to M-49755.
+	(U+8F0C): Unify J83-6D52.
+	(M-38395): Separate C5-515D.
+
+2001-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el:
+	- Add hundreds of relations between CNS and Morohashi.
+	- Fix some bugs.
+
+	* Ideograph-R187-Horse.el (M-45089): New character.
+	(C3-6237): Delete relation to M-45095.
+	(M-45092): Separate C5-7C23.
+	(M-45095): Separate C7-657A.
+
 2001-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R208-Rat.el: Resorted; add some missing Morohashi's
