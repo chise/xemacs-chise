@@ -1,5 +1,24 @@
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R007-Two.el (U-00020134): Add `->identical' for
+	C6-307C.
+
+	* Ideograph-R058-Snout.el: Add some mappings into CJK Ext-B code
+	points.
+	(C6-246E): Unify U-00022450; use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'.
+
+	* Ideograph-R057-Bow.el: Add some mappings into CJK Ext-B code
+	points.
+	(M-09695): Fix `ideographic-strokes'; separate C5-2147; unify
+	H1-AEC6 and U-00022399; add `ideographic-structure'.
+	(C5-2147): Fix `ideographic-strokes'; map to U-00022399.
+	(C6-2177): Unify H1-AEA7 and U-0002239D; add
+	`ideographic-structure'.
+	(C6-307C): Add `->identical' for U-00020134; map to U-00020134.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R055-Two-Hands.el: Add some mappings into CJK Ext-B
 	code points.
 	(C6-2467): Add `->identical' for U-00020020; add
