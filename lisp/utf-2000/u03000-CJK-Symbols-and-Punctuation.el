@@ -9,7 +9,7 @@
     (japanese-jisx0208		. #x2121)	; ø»†ˆ
     (korean-ksc5601		. #x2121)	; ø»ˆšŒ
     (chinese-cns11643-1		. #x2121)	; ø»‘‚œ
-    (japanese-jisx0208-1990	. #x2121)	; ã€€
+    (japanese-jisx0208-1990	. #x2121)	; ø½‰µ¼
     (ucs			. #x3000)	; ã€€
     ))
 (define-char
@@ -22,7 +22,7 @@
     (japanese-jisx0208		. #x2122)	; ø»†‰
     (korean-ksc5601		. #x2122)	; ø»ˆš
     (chinese-cns11643-1		. #x2123)	; ø»‘‚ž
-    (japanese-jisx0208-1990	. #x2122)	; ã€
+    (japanese-jisx0208-1990	. #x2122)	; ø½‰µ½
     (ucs			. #x3001)	; ã€
     ))
 (define-char
@@ -35,7 +35,7 @@
     (japanese-jisx0208		. #x2123)	; ø»†Š
     (korean-ksc5601		. #x2123)	; ø»ˆšŽ
     (chinese-cns11643-1		. #x2124)	; ø»‘‚Ÿ
-    (japanese-jisx0208-1990	. #x2123)	; ã€‚
+    (japanese-jisx0208-1990	. #x2123)	; ø½‰µ¾
     (ucs			. #x3002)	; ã€‚
     ))
 (define-char
@@ -48,7 +48,7 @@
     (japanese-jisx0208		. #x2137)	; ø»†ž
     (korean-ksc5601		. #x2128)	; ø»ˆš“
     (chinese-cns11643-1		. #x2171)	; ø»‘ƒ¬
-    (japanese-jisx0208-1990	. #x2137)	; ã€ƒ
+    (japanese-jisx0208-1990	. #x2137)	; ø½‰¶’
     (ucs			. #x3003)	; ã€ƒ
     ))
 (define-char
@@ -60,20 +60,25 @@
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ITERATION MARK")
+    (script		Ideographic symbol)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (morohashi-daikanwa	97)
-    (ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 2)
-    (total-strokes	 . 3)
     (japanese-jisx0208-1978	. #x2139)	; ø»¼˜
     (chinese-gb2312		. #x2129)	; ø»„†Œ
     (japanese-jisx0208		. #x2139)	; ø»† 
     (chinese-isoir165		. #x2129)	; ø»Œ®œ
-    (japanese-jisx0208-1990	. #x2139)	; ã€…
-    (ideograph-daikanwa		. 00097)	; ø¸€¡
+    (japanese-jisx0208-1990	. #x2139)	; ø½‰¶”
     (ucs			. #x3005)	; ã€…
+    ))
+(define-char
+  '((script		Ideograph)
+    (->ucs		. #x3005)	; ã€…
+    (ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (ideograph-daikanwa . 00097)	; ø¸€¡
     ))
 (define-char
   '((name		. "IDEOGRAPHIC CLOSING MARK")
@@ -82,7 +87,7 @@
     (mirrored		. nil)
     (japanese-jisx0208-1978	. #x213A)	; ø»¼™
     (japanese-jisx0208		. #x213A)	; ø»†¡
-    (japanese-jisx0208-1990	. #x213A)	; ã€†
+    (japanese-jisx0208-1990	. #x213A)	; ø½‰¶•
     (ucs			. #x3006)	; ã€†
     ))
 (define-char
@@ -93,7 +98,7 @@
     (numeric-value	. 0)
     (japanese-jisx0208-1978	. #x213B)	; ø»¼š
     (japanese-jisx0208		. #x213B)	; ø»†¢
-    (japanese-jisx0208-1990	. #x213B)	; ã€‡
+    (japanese-jisx0208-1990	. #x213B)	; ø½‰¶–
     (ucs			. #x3007)	; ã€‡
     ))
 (define-char
@@ -106,7 +111,7 @@
     (japanese-jisx0208		. #x2152)	; ø»†¹
     (korean-ksc5601		. #x2134)	; ø»ˆšŸ
     (chinese-cns11643-1		. #x2152)	; ø»‘ƒ
-    (japanese-jisx0208-1990	. #x2152)	; ã€ˆ
+    (japanese-jisx0208-1990	. #x2152)	; ø½‰¶­
     (ucs			. #x3008)	; ã€ˆ
     ))
 (define-char
@@ -119,7 +124,7 @@
     (japanese-jisx0208		. #x2153)	; ø»†º
     (korean-ksc5601		. #x2135)	; ø»ˆš 
     (chinese-cns11643-1		. #x2153)	; ø»‘ƒŽ
-    (japanese-jisx0208-1990	. #x2153)	; ã€‰
+    (japanese-jisx0208-1990	. #x2153)	; ø½‰¶®
     (ucs			. #x3009)	; ã€‰
     ))
 (define-char
@@ -132,7 +137,7 @@
     (japanese-jisx0208		. #x2154)	; ø»†»
     (korean-ksc5601		. #x2136)	; ø»ˆš¡
     (chinese-cns11643-1		. #x214E)	; ø»‘ƒ‰
-    (japanese-jisx0208-1990	. #x2154)	; ã€Š
+    (japanese-jisx0208-1990	. #x2154)	; ø½‰¶¯
     (ucs			. #x300A)	; ã€Š
     ))
 (define-char
@@ -145,7 +150,7 @@
     (japanese-jisx0208		. #x2155)	; ø»†¼
     (korean-ksc5601		. #x2137)	; ø»ˆš¢
     (chinese-cns11643-1		. #x214F)	; ø»‘ƒŠ
-    (japanese-jisx0208-1990	. #x2155)	; ã€‹
+    (japanese-jisx0208-1990	. #x2155)	; ø½‰¶°
     (ucs			. #x300B)	; ã€‹
     ))
 (define-char
@@ -158,7 +163,7 @@
     (japanese-jisx0208		. #x2156)	; ø»†½
     (korean-ksc5601		. #x2138)	; ø»ˆš£
     (chinese-cns11643-1		. #x2156)	; ø»‘ƒ‘
-    (japanese-jisx0208-1990	. #x2156)	; ã€Œ
+    (japanese-jisx0208-1990	. #x2156)	; ø½‰¶±
     (ucs			. #x300C)	; ã€Œ
     ))
 (define-char
@@ -171,7 +176,7 @@
     (japanese-jisx0208		. #x2157)	; ø»†¾
     (korean-ksc5601		. #x2139)	; ø»ˆš¤
     (chinese-cns11643-1		. #x2157)	; ø»‘ƒ’
-    (japanese-jisx0208-1990	. #x2157)	; ã€
+    (japanese-jisx0208-1990	. #x2157)	; ø½‰¶²
     (ucs			. #x300D)	; ã€
     ))
 (define-char
@@ -184,7 +189,7 @@
     (japanese-jisx0208		. #x2158)	; ø»†¿
     (korean-ksc5601		. #x213A)	; ø»ˆš¥
     (chinese-cns11643-1		. #x215A)	; ø»‘ƒ•
-    (japanese-jisx0208-1990	. #x2158)	; ã€Ž
+    (japanese-jisx0208-1990	. #x2158)	; ø½‰¶³
     (ucs			. #x300E)	; ã€Ž
     ))
 (define-char
@@ -197,7 +202,7 @@
     (japanese-jisx0208		. #x2159)	; ø»†‘€
     (korean-ksc5601		. #x213B)	; ø»ˆš¦
     (chinese-cns11643-1		. #x215B)	; ø»‘ƒ–
-    (japanese-jisx0208-1990	. #x2159)	; ã€
+    (japanese-jisx0208-1990	. #x2159)	; ø½‰¶´
     (ucs			. #x300F)	; ã€
     ))
 (define-char
@@ -210,7 +215,7 @@
     (japanese-jisx0208		. #x215A)	; ø»†‘
     (korean-ksc5601		. #x213C)	; ø»ˆš§
     (chinese-cns11643-1		. #x214A)	; ø»‘ƒ…
-    (japanese-jisx0208-1990	. #x215A)	; ã€
+    (japanese-jisx0208-1990	. #x215A)	; ø½‰¶µ
     (ucs			. #x3010)	; ã€
     ))
 (define-char
@@ -223,7 +228,7 @@
     (japanese-jisx0208		. #x215B)	; ø»†‘‚
     (korean-ksc5601		. #x213D)	; ø»ˆš¨
     (chinese-cns11643-1		. #x214B)	; ø»‘ƒ†
-    (japanese-jisx0208-1990	. #x215B)	; ã€‘
+    (japanese-jisx0208-1990	. #x215B)	; ø½‰¶¶
     (ucs			. #x3011)	; ã€‘
     ))
 (define-char
@@ -234,7 +239,7 @@
     (japanese-jisx0208-1978	. #x2229)	; ø»½¦
     (japanese-jisx0208		. #x2229)	; ø»†‘®
     (chinese-cns11643-1		. #x2265)	; ø»‘„¾
-    (japanese-jisx0208-1990	. #x2229)	; ã€’
+    (japanese-jisx0208-1990	. #x2229)	; ø½‰·¢
     (ucs			. #x3012)	; ã€’
     ))
 (define-char
@@ -246,7 +251,7 @@
     (chinese-gb2312		. #x217E)	; ø»„‡¡
     (japanese-jisx0208		. #x222E)	; ø»†‘³
     (korean-ksc5601		. #x216B)	; ø»ˆ›–
-    (japanese-jisx0208-1990	. #x222E)	; ã€“
+    (japanese-jisx0208-1990	. #x222E)	; ø½‰·§
     (ucs			. #x3013)	; ã€“
     ))
 (define-char
@@ -259,7 +264,7 @@
     (japanese-jisx0208		. #x214C)	; ø»†³
     (korean-ksc5601		. #x2132)	; ø»ˆš
     (chinese-cns11643-1		. #x2146)	; ø»‘ƒ
-    (japanese-jisx0208-1990	. #x214C)	; ã€”
+    (japanese-jisx0208-1990	. #x214C)	; ø½‰¶§
     (ucs			. #x3014)	; ã€”
     ))
 (define-char
@@ -272,7 +277,7 @@
     (japanese-jisx0208		. #x214D)	; ø»†´
     (korean-ksc5601		. #x2133)	; ø»ˆšž
     (chinese-cns11643-1		. #x2147)	; ø»‘ƒ‚
-    (japanese-jisx0208-1990	. #x214D)	; ã€•
+    (japanese-jisx0208-1990	. #x214D)	; ø½‰¶¨
     (ucs			. #x3015)	; ã€•
     ))
 (define-char
@@ -281,7 +286,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (chinese-gb2312		. #x213C)	; ø»„†Ÿ
-    (japanese-jisx0213-1	. #x225A)	; ã€–
+    (japanese-jisx0213-1	. #x225A)	; ø»¢•“
     (ucs			. #x3016)	; ã€–
     ))
 (define-char
@@ -290,7 +295,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (chinese-gb2312		. #x213D)	; ø»„† 
-    (japanese-jisx0213-1	. #x225B)	; ã€—
+    (japanese-jisx0213-1	. #x225B)	; ø»¢•”
     (ucs			. #x3017)	; ã€—
     ))
 (define-char
@@ -298,7 +303,7 @@
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2258)	; ã€˜
+    (japanese-jisx0213-1	. #x2258)	; ø»¢•‘
     (ucs			. #x3018)	; ã€˜
     ))
 (define-char
@@ -306,7 +311,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2259)	; ã€™
+    (japanese-jisx0213-1	. #x2259)	; ø»¢•’
     (ucs			. #x3019)	; ã€™
     ))
 (define-char
@@ -331,7 +336,7 @@
     (japanese-jisx0208-1978	. #x2141)	; ø»¼ 
     (japanese-jisx0208		. #x2141)	; ø»†¨
     (chinese-cns11643-1		. #x2244)	; ø»‘„
-    (japanese-jisx0208-1990	. #x2141)	; ã€œ
+    (japanese-jisx0208-1990	. #x2141)	; ø½‰¶œ
     (ucs			. #x301C)	; ã€œ
     ))
 (define-char
@@ -340,7 +345,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (chinese-cns11643-1		. #x2168)	; ø»‘ƒ£
-    (japanese-jisx0213-1	. #x2D60)	; ã€
+    (japanese-jisx0213-1	. #x2D60)	; ø»¢¥£
     (ucs			. #x301D)	; ã€
     ))
 (define-char
@@ -356,7 +361,7 @@
     (general-category	punctuation close) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2D61)	; ã€Ÿ
+    (japanese-jisx0213-1	. #x2D61)	; ø»¢¥¤
     (ucs			. #x301F)	; ã€Ÿ
     ))
 (define-char
@@ -364,7 +369,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2666)	; ã€ 
+    (japanese-jisx0213-1	. #x2666)	; ø»¢›—
     (ucs			. #x3020)	; ã€ 
     ))
 (define-char
@@ -516,7 +521,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2233)	; ã€³
+    (japanese-jisx0213-1	. #x2233)	; ø»¢”¬
     (ucs			. #x3033)	; ã€³
     ))
 (define-char
@@ -524,7 +529,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2234)	; ã€´
+    (japanese-jisx0213-1	. #x2234)	; ø»¢”­
     (ucs			. #x3034)	; ã€´
     ))
 (define-char
@@ -532,7 +537,7 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2235)	; ã€µ
+    (japanese-jisx0213-1	. #x2235)	; ø»¢”®
     (ucs			. #x3035)	; ã€µ
     ))
 (define-char
