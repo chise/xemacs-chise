@@ -2740,7 +2740,7 @@
       (=jef-china3	  . #x70C9)	; øº‡ƒ‰
       (=ucs@jis		  . #x67A6)	; ø»‡¥¸
       )
-     ((=ucs@unicode	  . #x67A6)	; ó°€˜
+     ((=ucs@unicode	  . #x67A6)	; ó°€›
       ))
     ))
 (define-char
@@ -7672,13 +7672,15 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (->same
-     ((=daikanwa	  . 05784)	; ø¸š˜
+     ((=jis-x0208	  . #x546D)	; ø½‹‚‚
+      (=cns11643-3	  . #x3478)	; ø»•³µ
+      (=daikanwa	  . 05784)	; ø¸š˜
       ))
     (<-vulgar-ideograph
-     (:sources	(jii morohashi-daikanwa)
-      :char	((=daikanwa	     . 05802)	; ø¸šª
-		 )
+     ((=daikanwa	  . 05802)	; ø¸šª
       ))
+    (<-vulgar-ideograph*sources
+     zihui daikanwa)
     (hanyu-dazidian	2 863 18)
     (=ucs		. #x68A6)	; æ¢¦
     (=gb2312		. #x434E)	; ø»„¸­
