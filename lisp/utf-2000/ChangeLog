@@ -1,5 +1,14 @@
 2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R135-Tongue.el (M-30285): Relate to U+654C; separate
+	C4-2D44; delete `cns-radical'.
+	(U+654C): Moved to Ideograph-R066-Rap.el.
+
+	* Ideograph-R066-Rap.el (U+654C): Moved from
+	Ideograph-R135-Tongue.el; unify C4-2D44.
+
+2001-06-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R130-Meat.el (M-29548): Relate to U+8158.
 	(C6-435A): Likewise.
 	(EGB-7C55): Unify M052398; relate to M-29548.
