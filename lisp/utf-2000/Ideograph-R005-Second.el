@@ -338,7 +338,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (<-simplified@CN
-     ((=gb12345		  . #x4F67)	; &C1-6254;
+     ((=gb12345		  . #x4F67)	; 鄉
       ))
     (hanyu-dazidian	1 51 5)
     (=ucs		. #x4E61)	; 乡
