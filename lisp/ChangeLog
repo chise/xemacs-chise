@@ -1,5 +1,9 @@
 2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* utf-2000/Ideograph-R197-Salt.el: Reformatted.
+
+2000-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* dumped-lisp.el (preloaded-file-list): Don't add "mojikyo".
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
@@ -472,7 +476,7 @@
 
 2000-02-16  MORIOKA Tomohiko  <tomo@m17n.org>
 
-	* utf-2000/Ideograph-R027-Cliff.el: Reformated.
+	* utf-2000/Ideograph-R027-Cliff.el: Reformatted.
 
 	* utf-2000/Ideograph-R167-Gold.el (M40310): Separate U+925B,
 	C1-6745 and J90-3174.
