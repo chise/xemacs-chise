@@ -9970,6 +9970,7 @@
     (->same-ideograph
      ((japanese-jisx0208-1978	  . #x6733)	; ø»ƒ£†
       (japanese-jisx0208	  . #x6733)	; ø»‡·Ž
+      (japanese-jisx0208-1990	  . #x6733)	; ø½‹‚
       ))
     (ucs		. #x81A4)	; è†¤
     ))
