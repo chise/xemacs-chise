@@ -727,7 +727,8 @@
 	       (setq value (get-char-attribute char name)))
 	  (insert
 	   (format
-	    (cond ((memq name '(ideograph-daikanwa ideograph-gt))
+	    (cond ((memq name '(ideograph-daikanwa ideograph-gt
+						   ideograph-cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
 		     "(%-18s . %05d)\t; %c%s"))
