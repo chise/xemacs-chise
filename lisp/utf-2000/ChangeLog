@@ -1,4 +1,27 @@
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R196-Bird.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+2004-01-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el, Ideograph-R203-Black.el,
+	Ideograph-R201-Yellow.el, Ideograph-R199-Wheat.el,
+	Ideograph-R191-Fight.el, Ideograph-R190-Hair.el,
+	Ideograph-R188-Bone.el, Ideograph-R187-Horse.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Delete code for
+	`=>ucs-{gb|cns|jis|ks|big5}' and `->ucs'; add code for `=>daikanwa';
+	add code for `->unified'.
+
 2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el, Ideograph-R174-Blue.el,
+	Ideograph-R172-Short-Tailed-Bird.el: Add some
+	`<-simplified@JP/Jouyou' features.
 
 	* update-cdb.el: Generate "../lisp/utf-2000/cid-conf.el" when
 	char-DB generating stage, and load it when dumping stage.
@@ -54,6 +77,8 @@
 	`<-simplified@JP/Jouyou' features.
 
 2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-daikanwa): Refer `=>daikanwa'.
 
 	* Ideograph-R132-Self.el, Ideograph-R040-Roof.el,
 	Ideograph-R085-Water.el: Add some `<-simplified@JP/Jouyou'
