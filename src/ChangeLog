@@ -1,5 +1,19 @@
 1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* character.h:
+	- Move definitions about UCS-2000 (UCS-4) to char-ucs.h.
+	- Include char-1byte.h, char-lb.h or char-ucs.h.
+
+	* mb-utf-8.h (CHAR_ASCII_P): Moved to char-ucs.h.
+
+	* buffer.h: Include character unconditionally.
+	(valid_char_p): Moved to char-*.h.
+	(non_ascii_valid_char_p): Moved to char-lb.h.
+
+	* char-1byte.h, char-lb.h, char-ucs.h: New files.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-ccl.c (ccl_driver): Don't define `CCL_WriteMultibyteChar2'
 	in UTF-2000 because it is not ported yet and not to use
 	`FIELD2_TO_OFFICIAL_LEADING_BYTE', `MIN_LEADING_BYTE_OFFICIAL_2',
