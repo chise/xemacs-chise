@@ -1,11 +1,11 @@
 2003-03-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* mule-charset.el (default-coded-charset-priority-list): Refer
-	`=jis-x0208-1990' instead of `japanese-jisx0208-1990'; refer
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Refer `=jis-x0208-1990' instead of `japanese-jisx0208-1990'; refer
 	`=gt-pj-*' instead of `ideograph-gt-pj-*'; refer `=hanziku-*'
 	instead of `ideograph-hanziku-*'.
 
-	* mule-conf.el: `ucs' is renamed to `=ucs'.
+	* mule/mule-conf.el: `ucs' is renamed to `=ucs'.
 	(ucs): New alias for `=ucs' when `utf-2000' is provided.
 
 2003-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
