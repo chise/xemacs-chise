@@ -1,7 +1,7 @@
 1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
-	* mule/mule-charset.el
-	(default-coded-charset-priority-list-for-font): Setup in UTF-2000.
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`latin-viscii'; prefer it for characters used in Vietnamese.
 
 	* utf-2000/ccs-viscii.el: Add mapping-table for `latin-viscii'.
 

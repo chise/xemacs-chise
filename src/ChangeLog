@@ -1,7 +1,9 @@
 1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
-	* redisplay-x.c (separate_textual_runs): Use
-	`default-coded-charset-priority-list-for-font' if it is not nil.
+	* mule-charset.c (complex_vars_of_mule_charset): Add font
+	registory of `ucs-bmp'.
+
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* text-coding.c (char_encode_iso2022): Ignore non-ISO-2022
 	coded-charsets in `default-coded-charset-priority-list' when
@@ -10,13 +12,10 @@
 	* mule-charset.c (Vcharset_latin_viscii): New variable.
 	(Qlatin_viscii): New variable.
 	(make_charset): Don't use `decoding_table'.
-	(Vdefault_coded_charset_priority_list_for_font): New variable.
 	(Fmake_charset): Regard graphic = 2 as 256^n-set; setup
 	byte_offset.
 	(Fset_charset_mapping_table): New implementation.
 	(syms_of_mule_charset): Add new symbol `latin-viscii'.
-	(vars_of_mule_charset): Add new variable
-	`default-coded-charset-priority-list-for-font'.
 	(complex_vars_of_mule_charset): Set `graphic' attribute of charset
 	`ucs-bmp' and `latin_viscii' to 2; change font registry of charset
 	`latin-viscii-lower' to "MULEVISCII-LOWER"; change font registry
@@ -31,7 +30,6 @@
 	(CHARSET_TYPE_256): New macro.
 	(CHARSET_TYPE_256X256): Change to 7 from 5.
 	(MAKE_CHAR): Use `XCHARSET_BYTE_OFFSET(charset)'.
-	(Vdefault_coded_charset_priority_list_for_font): New variable.
 
 1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
