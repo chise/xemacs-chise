@@ -1,3 +1,41 @@
+2002-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (G0-3947): Fix `total-strokes'.
+	(JX2-7D2C): Unify U-00029A72.
+	(M045231): Add mapping for U-00029A72.
+	(C5-6A7C): Add mapping for U-00029A72.
+
+	* Ideograph-R169-Gate.el, Ideograph-R142-Insect.el,
+	Ideograph-R119-Rice.el, Ideograph-R104-Sickness.el,
+	Ideograph-R196-Bird.el, Ideograph-R195-Fish.el: Add missing
+	mappings between JIS X 0213 and UCS.
+
+	* Ideograph-R181-Leaf.el (JX2-7C38): Unify U-00029490.
+
+	* Ideograph-R160-Bitter.el: Add missing mappings between JIS X
+	0213 and UCS.
+
+	* Ideograph-R158-Body.el (JX1-7C49): Unify U-00028277; add
+	`total-strokes'.
+
+	* Ideograph-R149-Speech.el, Ideograph-R145-Clothes.el,
+	Ideograph-R140-Grass.el: Add missing mappings between JIS X 0213
+	and UCS.
+
+	* Ideograph-R118-Bamboo.el (JX2-7340): Unify U-00025AF1.
+	(C4-2E74): Separate U-00025AF1; relate to M-25874.
+
+	* Ideograph-R116-Cave.el (JX2-7332): Add `total-strokes'; add
+	mapping to U-000259D4.
+	(U-000259D4): Relate to M-25603.
+
+	* Ideograph-R112-Stone.el (M-24546): Unify U+791D.
+	(C2-6629): Add mapping to U+791D.
+
+	* Ideograph-R093-Cow.el (JX2-7039): Add `total-strokes'; add
+	mapping to U-000246A5.
+	(U-000246A5): New character.
+
 2002-07-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R137-Boat.el (JX2-7573): Unify U-00026AB7.
