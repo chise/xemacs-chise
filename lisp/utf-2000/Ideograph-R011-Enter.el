@@ -322,6 +322,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=ucs		. #x5168)	; 全
+    ))
+(define-char
+  '((ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (<-denotational
+     ((=ucs		  . #x5168)	; 全
+      ))
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -349,28 +357,38 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x5165)	; 入
+       ((=gb2312	    . #x486B)	; &C1-442B; [40-75]
+	(=cns11643-1	    . #x442B)	; &I-C1-442B; [36-11]
 	)
        ((=ucs		    . #x738B)	; 王
 	))
       (=cns11643-1	  . #x4740)	; &C1-4740; [39-32]
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name*		    . "ideographic component person as roof")
-	(=big5-cdp	    . #x8B5D)	; &GT-00458;
-	)
-       ((=ucs		    . #x738B)	; 王
-	))
-      (=jis-x0208	  . #x4134)	; &GT-00565; [33-20]
-      (=gb2312		  . #x482B)	; &I-G0-482B; [40-11]
-      (=gt		  . 00565)	; &I-GT-00565;
-      (=gt-k		  . 01658)	; &I-GT-K01658;
-      (=gt-pj-1		  . #x4134)	; &I-GT-00565; [33-20]
-      (=ucs@unicode	  . #x5168)	; &GT-00565;
       ))
+    ))
+(define-char
+  '((=>ucs*		. #x5168)	; 全
+    (ideographic-radical . 11)	; ⼊
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (<-denotational
+     ((=ucs		  . #x5168)	; 全
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
+      )
+     ((name*		  . "ideographic component person as roof")
+      (=big5-cdp	  . #x8B5D)	; &GT-00458;
+      )
+     ((=ucs		  . #x738B)	; 王
+      ))
+    (=ucs		. #xFA72)	; 全
+    (=jis-x0208		. #x4134)	; &I-J90-4134; [33-20]
+    (=gb2312		. #x482B)	; &I-G0-482B; [40-11]
+    (=gt		. 00565)	; &I-GT-00565;
+    (=gt-k		. 01658)	; &I-GT-K01658;
+    (=gt-pj-1		. #x4134)	; &I-GT-00565; [33-20]
+    (=ucs@unicode	. #x5168)	; 全
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
