@@ -144,7 +144,9 @@
      daikanwa=01775 cns11643)
     (total-strokes	 . 8)
     (<-ancient
-     ((=daikanwa	  . 09208)	; &I-M-09208;
+     ((=jis-x0208	  . #x3476)	; &M-09208; [20-86]
+      (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
+      (=daikanwa	  . 09208)	; &I-M-09208;
       ))
     (<-ancient*sources
      yupian jiyun daikanwa)
