@@ -1,3 +1,38 @@
+2003-09-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.14 is released
+
+2003-07-31  René Kyllingstad  <listmailxemacs@kyllingstad.com>
+
+	* lispref/display.texi (Invisible Text):
+          mention line-move-ignore-invisible.
+	* lispref/extents.texi (Extent Properties):
+          end-glyph will still be displayed when invisible is set.
+	* lispref/extents.texi (Extents and Events):
+          only begin-glyph is highlighted.
+
+2003-08-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q1.3.8): Fix typo, note errorneous recognition.
+
+2003-08-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/packaging.texi (Creating Packages):
+	* xemacs/packages.texi (Creating Packages):
+	Style guideline for package-info.in description.
+
+2003-06-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q3.2.2): Fix typo.
+
+2003-06-17  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs-faq.texi: Sync up with latest version from 21.5.
+
+2003-04-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Q6.4.3): New: auxiliary programs for Windows.
+
 2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.4.13 is released

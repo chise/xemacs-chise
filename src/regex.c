@@ -5546,40 +5546,64 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 	matchwordbound:
 	  {
 	    /* XEmacs change */
-	    int result;
-	    if (AT_STRINGS_BEG (d) || AT_STRINGS_END (d))
-	      result = 1;
+	    /* Straightforward and (I hope) correct implementation.
+	       Probably should be optimized by arranging to compute
+	       pos only once. */
+	    /* emch1 is the character before d, syn1 is the syntax of
+	       emch1, emch2 is the character at d, and syn2 is the
+	       syntax of emch2. */
+	    Emchar emch1, emch2;
+	    int syn1, syn2;
+	    re_char *d_before, *d_after;
+	    int result,
+		at_beg = AT_STRINGS_BEG (d),
+		at_end = AT_STRINGS_END (d);
+#ifdef emacs
+	    int xpos;
+#endif
+
+	    if (at_beg && at_end)
+	      {
+		result = 0;
+	      }
 	    else
 	      {
-		re_char *d_before = POS_BEFORE_GAP_UNSAFE (d);
-		re_char *d_after = POS_AFTER_GAP_UNSAFE (d);
-
-		/* emch1 is the character before d, syn1 is the syntax of emch1,
-		   emch2 is the character at d, and syn2 is the syntax of emch2. */
-		Emchar emch1, emch2;
-		int syn1, syn2;
+		if (!at_beg)
+		  {
+		    d_before = POS_BEFORE_GAP_UNSAFE (d);
+		    DEC_CHARPTR (d_before);
+		    emch1 = charptr_emchar (d_before);
 #ifdef emacs
-		int pos_before;
+		    xpos = SYNTAX_CACHE_BYTE_TO_CHAR (PTR_TO_OFFSET (d)) - 1;
+		    UPDATE_SYNTAX_CACHE (xpos);
 #endif
-
-		DEC_CHARPTR (d_before);
-		emch1 = charptr_emchar (d_before);
-		emch2 = charptr_emchar (d_after);
-
+		    syn1 = SYNTAX_FROM_CACHE
+		             (XCHAR_TABLE (regex_emacs_buffer
+					   ->mirror_syntax_table),
+			      emch1);
+		  }
+		if (!at_end)
+		  {
+		    d_after = POS_AFTER_GAP_UNSAFE (d);
+		    emch2 = charptr_emchar (d_after);
 #ifdef emacs
-		pos_before = SYNTAX_CACHE_BYTE_TO_CHAR (PTR_TO_OFFSET (d)) - 1;
-		UPDATE_SYNTAX_CACHE (pos_before);
+		    xpos = SYNTAX_CACHE_BYTE_TO_CHAR (PTR_TO_OFFSET (d));
+		    UPDATE_SYNTAX_CACHE_FORWARD (xpos + 1);
 #endif
-		syn1 = SYNTAX_FROM_CACHE (XCHAR_TABLE (regex_emacs_buffer->mirror_syntax_table),
-					  emch1);
-#ifdef emacs
-		UPDATE_SYNTAX_CACHE_FORWARD (pos_before + 1);
-#endif
-		syn2 = SYNTAX_FROM_CACHE (XCHAR_TABLE (regex_emacs_buffer->mirror_syntax_table),
-					  emch2);
+		    syn2 = SYNTAX_FROM_CACHE
+			     (XCHAR_TABLE (regex_emacs_buffer
+					   ->mirror_syntax_table),
+			      emch2);
+		  }
 
-		result = ((syn1 == Sword) != (syn2 == Sword));
+		if (at_beg)
+		  result = (syn2 == Sword);
+		else if (at_end)
+		  result = (syn1 == Sword);
+		else
+		  result = ((syn1 == Sword) != (syn2 == Sword));
 	      }
+
 	    if (result == should_succeed)
 	      break;
 	    goto fail;

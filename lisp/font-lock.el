@@ -1982,7 +1982,7 @@ Each keyword has the form (MATCHER HIGHLIGHT ...).  See `font-lock-keywords'."
 		  "\\)\\)\\>"
 		  ;; Any whitespace and declared object.
 		  "[ \t'\(]*"
-		  "\\([^ \t\n\)]+\\)?")
+		  "\\([^ \t\n\(\)]+\\)?")
 	  '(1 font-lock-keyword-face)
 	  '(8 (cond ((match-beginning 3) 'font-lock-variable-name-face)
 		    ((match-beginning 6) 'font-lock-type-face)
@@ -2710,32 +2710,34 @@ The name is assumed to begin with a capital letter.")
 ;; the cursor to fontify more identifiers.
 (defun font-lock-match-java-declarations (limit)
   "Match and skip over variable definitions."
-  (if (looking-at "\\s *\\(\\[\\s *\\]\\s *\\)*")
-      (goto-char (match-end 0)))
-  (and
-   (looking-at java-font-lock-identifier-regexp)
-   (save-match-data
-     (not (string-match java-font-lock-type-regexp
-			(buffer-substring (match-beginning 1)
-					  (match-end 1)))))
-   (save-match-data
-     (save-excursion
-       (goto-char (match-beginning 1))
-       (not (looking-at
-	     (concat java-font-lock-class-name-regexp
-		     "\\s *\\(\\[\\s *\\]\\s *\\)*\\<")))))
-   (save-match-data
-     (condition-case nil
-	 (save-restriction
-	   (narrow-to-region (point-min) limit)
-	   (goto-char (match-end 0))
-	   ;; Note: Both `scan-sexps' and the second goto-char can
-	   ;; generate an error which is caught by the
-	   ;; `condition-case' expression.
-	   (while (not (looking-at "\\s *\\(\\(,\\)\\|;\\|$\\)"))
-	     (goto-char (or (scan-sexps (point) 1) (point-max))))
-	   (goto-char (match-end 2)))   ; non-nil
-       (error t)))))
+  (save-restriction
+    (narrow-to-region (point-min) limit)
+
+    (if (looking-at "\\s *\\(\\[\\s *\\]\\s *\\)*")
+	(goto-char (match-end 0)))
+    (and
+     (looking-at java-font-lock-identifier-regexp)
+     (save-match-data
+       (not (string-match java-font-lock-type-regexp
+			  (buffer-substring (match-beginning 1)
+					    (match-end 1)))))
+     (save-match-data
+       (save-excursion
+	 (goto-char (match-beginning 1))
+	 (not (looking-at
+	       (concat java-font-lock-class-name-regexp
+		       "\\s *\\(\\[\\s *\\]\\s *\\)*\\<")))))
+     (save-match-data
+       (condition-case nil
+	   (progn
+	     (goto-char (match-end 0))
+	     ;; Note: Both `scan-sexps' and the second goto-char can
+	     ;; generate an error which is caught by the
+	     ;; `condition-case' expression.
+	     (while (not (looking-at "\\s *\\(\\(,\\)\\|;\\|$\\)"))
+	       (goto-char (or (scan-sexps (point) 1) (point-max))))
+	     (goto-char (match-end 2)))   ; non-nil
+	 (error t))))))
 
 
 (defvar tex-font-lock-keywords

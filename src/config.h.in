@@ -143,6 +143,9 @@ void *alloca ();
 /* Use a debugging malloc? -- experimental */
 #undef USE_DEBUG_MALLOC
 
+/* Use malloc for regex failure stack? */
+#undef REGEX_MALLOC
+
 /* Compile in TTY support? */
 #undef HAVE_TTY
 
@@ -262,6 +265,7 @@ void *alloca ();
 #undef HAVE_SHL_LOAD
 #undef HAVE_DLD_INIT
 #undef HAVE_SHLIB
+#undef HAVE_DYLD
 #undef DLSYM_NEEDS_UNDERSCORE
 
 #undef HAVE_LIBINTL

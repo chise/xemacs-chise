@@ -701,8 +701,9 @@ and defaults to 0755.
       status = dbase->open (dbase, filename, NULL,
                             real_subtype, accessmask, modemask);
 #else /* DB_VERSION >= 4.1 */
+      /* DB_AUTO_COMMIT requires transaction support, don't try it */
       status = dbase->open (dbase, NULL, filename, NULL, real_subtype,
-			    accessmask | DB_AUTO_COMMIT, modemask);
+			    accessmask, modemask);
 #endif /* DB_VERSION < 4.1 */
       if (status)
         {

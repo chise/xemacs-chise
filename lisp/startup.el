@@ -1152,7 +1152,7 @@ Copyright (C) 1995-2001 Ben Wing\n"))
      ((key about-xemacs) ": see who's developing XEmacs\n"))
 
     ((face (blue bold underline) "\nUseful stuff:\n\n")
-     "Things that you should know rather quickly...\n\n"
+     "Things that you should learn rather quickly...\n\n"
      ((key find-file) ": visit a file\n")
      ((key save-buffer) ": save changes\n")
      ((key advertised-undo) ": undo changes\n")

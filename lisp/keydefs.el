@@ -651,13 +651,13 @@ Keymap for characters following C-c.")
 (define-key global-map 'kp-8		'self-insert-command)
 (define-key global-map 'kp-9		'self-insert-command)
 
-(define-key global-map 'select		'function-key-error)
-(define-key global-map 'print		'function-key-error)
+;(define-key global-map 'select		'function-key-error)
+;(define-key global-map 'print		'function-key-error)
 (define-key global-map 'execute		'execute-extended-command)
-(define-key global-map 'clearline	'function-key-error)
+;(define-key global-map 'clearline	'function-key-error)
 (define-key global-map 'insertline	'open-line)
 (define-key global-map 'deleteline	'kill-line)
-(define-key global-map 'insertchar	'function-key-error)
+;(define-key global-map 'insertchar	'function-key-error)
 (define-key global-map 'deletechar	'delete-char)
 
 ;;; keydefs.el ends here

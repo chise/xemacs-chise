@@ -2,7 +2,7 @@
 
 This file describes various problems that have been encountered
 in compiling, installing and running XEmacs.  It has been updated for
-XEmacs 21.4.
+XEmacs 21.5.
 
 This file is rather large, but we have tried to sort the entries by
 their respective relevance for XEmacs, but may have not succeeded
@@ -17,7 +17,7 @@ Use `C-c C-f' to move to the next equal level of outline, and
 `C-c C-b' to move to previous equal level.  `C-h m' will give more
 info about the Outline mode.
 
-Also, try finding the things you need using one of the search commands
+Also, Try finding the things you need using one of the search commands
 XEmacs provides (e.g. `C-s').
 
 General advice:
@@ -40,10 +40,11 @@ General advice:
 ===============================
 
 ** General
+
     Much general information is in INSTALL.  If it's covered in
     INSTALL, we don't repeat it here.
 
-*** How does I configure to get the buffer tabs/progress bars?
+*** How do I configure to get the buffer tabs/progress bars?
 
 These features depend on support for "native widgets".  Use the
 --with-widgets option to configure.  Configuration of widgets is
@@ -58,60 +59,6 @@ Typical of Linux systems with package managers.  To link with a shared
 library, you only need the shared library.  To compile objects that
 link with it, you need the headers---and distros don't provide them with
 the libraries.  You need the additional "development" package, too.
-
-If you have installed it yourself in a non-system location, you may also
-need to specify --site-includes, --site-libraries, or --site-prefixes.
-Note that many packages, especially X11, expect to find includes in a
-subdirectory.  Eg, XEmacs #includes <X11/xpm.h>, not <xpm.h>.  See INSTALL.
-
-*** Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
-without also using `-fno-schedule-insns'.
-
-gcc will generate incorrect code otherwise, typically resulting in
-crashes in the function skip-syntax-backward.
-
-*** egcs-1.1
-
-There have been reports of egcs-1.1 not compiling XEmacs correctly on
-Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.
-
-*** Don't use -O2 or -O3 with Cygwin 1.0, CodeFusion-99070 or gcc 2.7.2 on x86
-without also using `-fno-strength-reduce'.
-
-gcc will generate incorrect code otherwise.  This bug is present in at
-least 2.6.x and 2.7.[0-2].  This bug has been fixed in GCC 2.7.2.1 and
-later.  This bug is O/S independent, but is limited to x86 architectures.
-
-This problem is known to be fixed in egcs (or pgcc) 1.0 or later.
-
-Unfortunately, later releases of Cygnus-released compilers (not the
-Net-released ones) have a bug with the same `problem signature'.
-
-If you're lucky, you'll get an error while compiling that looks like:
-
-event-stream.c:3189: internal error--unrecognizable insn:
-(insn 256 14 15 (set (reg/v:SI 24)
-        (minus:SI (reg/v:SI 25)
-            (const_int 2))) -1 (insn_list 11 (nil))
-    (nil))
-    0       0 [main]
-
-If you're unlucky, your code will simply execute incorrectly.
-
-*** Don't use gcc-2.95.2 with -mcpu=ultrasparc on Solaris 2.6.
-
-gcc will assume a 64-bit operating system, even though you've
-merely told it to assume a 64-bit instruction set.
-
-*** Don't use -O2 with gcc 2.7.2 under Intel architectures without also
-using `-fno-caller-saves'.
-
-gcc will generate incorrect code otherwise.  This bug is still
-present in gcc 2.7.2.3.  There have been no reports to indicate the
-bug is present in egcs 1.0 (or pgcc 1.0) or later.  This bug is O/S
-independent, but limited to x86 architectures.
-
-This problem is known to be fixed in egcs (or pgcc) 1.0 or later.
 
 *** When using gcc, you get the error message "undefined symbol __fixunsdfsi".
 When using gcc, you get the error message "undefined symbol __main".
@@ -167,6 +114,41 @@ characters, you can fix them by running:
 
 This will rebuild all the needed .elc files.
 
+** Intel Architecture General
+
+*** Don't use -O2 or -O3 with Cygwin 1.0, CodeFusion-99070 or gcc 2.7.2 on x86
+without also using `-fno-strength-reduce'.
+
+gcc will generate incorrect code otherwise.  This bug is present in at
+least 2.6.x and 2.7.[0-2].  This bug has been fixed in GCC 2.7.2.1 and
+later.  This bug is O/S independent, but is limited to x86 architectures.
+
+This problem is known to be fixed in egcs (or pgcc) 1.0 or later.
+
+Unfortunately, later releases of Cygnus-released compilers (not the
+Net-released ones) have a bug with the same `problem signature'.
+
+If you're lucky, you'll get an error while compiling that looks like:
+
+event-stream.c:3189: internal error--unrecognizable insn:
+(insn 256 14 15 (set (reg/v:SI 24)
+        (minus:SI (reg/v:SI 25)
+            (const_int 2))) -1 (insn_list 11 (nil))
+    (nil))
+    0       0 [main]
+
+If you're unlucky, your code will simply execute incorrectly.
+
+*** Don't use -O2 with gcc 2.7.2 under Intel architectures without also
+using `-fno-caller-saves'.
+
+gcc will generate incorrect code otherwise.  This bug is still
+present in gcc 2.7.2.3.  There have been no reports to indicate the
+bug is present in egcs 1.0 (or pgcc 1.0) or later.  This bug is O/S
+independent, but limited to x86 architectures.
+
+This problem is known to be fixed in egcs (or pgcc) 1.0 or later.
+
 *** `compress' and `uncompress' not found and XFree86
 
 XFree86 installs a very old version of libz.a by default ahead of where
@@ -175,7 +157,167 @@ when attempting to link against libMagick.  The fix is to remove the old
 libz.a in the X11 binary directory.
 
 
+** Motif
+
+Motif is the X11 version of the Gnus torture test: if there's a way to
+crash, Motif will find it.  With the open source release of Motif, it
+seems like a good idea to collect all Motif-related issues in one
+place.
+
+You should also look in your OS's section, as it may not be Motif's
+fault.
+
+*** XEmacs visibly repaints itty-bitty rectangles very slowly.
+
+This should only be visible on a slow X connection (ISDN, maybe T1).
+
+At least some versions of Motif apparently do not implement
+XtExposeCompressMaximal properly, so it is disabled.  If you wish to
+experiment, you can remove the #ifdef LWLIB_NEEDS_MOTIF at line 238
+(or so) of src/EmacsFrame.c, leaving only the line
+
+    /* compress_exposure	*/	XtExposeCompressMaximal | XtExposeNoRegion,
+
+and recompile.  This enables exposure compression, giving a 10:1 or
+better speedup for some users.  However, on some Motif platforms (Red
+Hat Linux 9.0 and Solaris 2.8, at least), this causes XEmacs to hang
+while displaying the progress bar (eg, in font-lock).  A workaround
+for that problem is to setq `progress-feedback-use-echo-area' to `t'.
+
+*** XEmacs crashes on exit (#1).
+
+The backtrace is something like:
+
+    (gdb) where
+    #0  0xfeb9a480 in _libc_kill () from /usr/lib/libc.so.1
+    #1  0x000b0388 in fatal_error_signal ()
+    #2  <signal handler called>
+    #3  YowIter (ht=0xb, id=0x0, v=0x74682074, client=0x47e3c0)
+        at ImageCache.c:1159
+    #4  0xff26cc5c in _LTHashTableForEachItem (ht=0x4725e8,
+        iter=0xff26dda0 <YowIter>, ClientData=0x47e3c0) at Hash.c:671
+    #5  0xff2a4664 in destroy (w=0x496550) at Screen.c:352
+    #6  0xfef92118 in Phase2Destroy () from /usr/openwin/lib/libXt.so.4
+    #7  0xfef91940 in Recursive () from /usr/openwin/lib/libXt.so.4
+    #8  0xfef91e44 in XtPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+    #9  0xfef91ae8 in _XtDoPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+    #10 0xfef918cc in XtDestroyWidget () from /usr/openwin/lib/libXt.so.4
+    #11 0xfef91438 in CloseDisplay () from /usr/openwin/lib/libXt.so.4
+    #12 0xfef91394 in XtCloseDisplay () from /usr/openwin/lib/libXt.so.4
+    #13 0x0025b8b0 in x_delete_device ()
+    #14 0x000940b0 in delete_device_internal ()
+    #15 0x000806a0 in delete_console_internal ()
+
+This is known to happen with Lesstif version 0.93.36.  Similar
+backtraces have also been observed on HP/UX and Solaris.  There is a
+patch for Lesstif.  (This is not a solution; it just stops the crash.
+It may or may not be harmless, but "it works for the author".)
+
+Note that this backtrace looks a lot like the one in the next item.
+However, this one is invulnerable to the Solaris patches mentioned there.
+
+Frank McIngvale <frankm@hiwaay.net> says:
+
+    Ok, 0.93.34 works, and I tracked down the crash to a section
+    marked "experimental" in 0.93.36. Patch attached, "works for me".
+
+diff -u -r lesstif-0.93.36/lib/Xm/ImageCache.c lesstif-0.93.36-mod/lib/Xm/ImageCache.c
+--- lesstif-0.93.36/lib/Xm/ImageCache.c	2002-08-05 14:53:24.000000000 -0500
++++ lesstif-0.93.36-mod/lib/Xm/ImageCache.c	2002-11-11 11:13:12.000000000 -0600
+@@ -1166,5 +1166,4 @@
+ 	DEBUGOUT(_LtDebug0(__FILE__, NULL, "_LtImageCacheScreenDestroy (XmGetPixmapByDepth) %p\n",
+ 		s));
+ 
+-	(void) _LTHashTableForEachItem(PixmapCache, YowIter, (XtPointer)s);
+ }
+
+*** XEmacs crashes on exit (#2)
+
+Especially frequent with multiple frames.  Crashes that produce C
+backtraces like this:
+
+#0  0xfec9a118 in _libc_kill () from /usr/lib/libc.so.1
+#1  0x77f48 in fatal_error_signal (sig=11)
+    at /codes/rpluim/xemacs-21.4/src/emacs.c:539
+#2  <signal handler called>
+#3  0xfee929f4 in XFindContext () from /usr/openwin/lib/libX11.so.4
+#4  0xfee92930 in XFindContext () from /usr/openwin/lib/libX11.so.4
+#5  0xff297e54 in DisplayDestroy () from /usr/dt/lib/libXm.so.4
+#6  0xfefbece0 in XtCallCallbackList () from /usr/openwin/lib/libXt.so.4
+#7  0xfefc486c in XtPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+#8  0xfefc45d0 in _XtDoPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+#9  0xfefc43b4 in XtDestroyWidget () from /usr/openwin/lib/libXt.so.4
+#10 0x15cf9c in x_delete_device (d=0x523f00)
+
+are caused by buggy Motif libraries.  Installing the following patches
+has been reported to solve the problem on Solaris 2.7:
+
+107081-40 107656-07
+
+For information (although they have not been confirmed to work), the
+equivalent patches for Solaris 2.8 are:
+
+108940-33 108652-25
+
+*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running.
+    (also appears on AIX as reported in comp.emacs.xemacs)
+
+Marcus Thiessel <marcus@xemacs.org>
+
+  Unfortunately, XEmacs releases prior to 21.0 don't work with
+  Motif2.1. It will compile but you will get excessive X11 errors like
+
+  xemacs: X Error of failed request:  BadGC (invalid GC parameter)
+
+  and finally XEmacs gets killed. A workaround is to use the
+  Motif1.2_R6 libraries. You can the following line to your call to
+  configure:
+
+     --x-libraries="/usr/lib/Motif1.2_R6 -L/usr/lib/X11R6"
+
+  Make sure /usr/lib/Motif1.2_R6/libXm.sl is a link to
+  /usr/lib/Motif1.2_R6/libXm.3.
+
+*** On HP-UX 11.0: Object "" does not have windowed ancestor
+
+Marcus Thiessel <marcus@xemacs.org>
+
+  XEmacs dies without core file and reports:
+
+    Error: Object "" does not have windowed ancestor.
+
+  This is a bug. Please apply the patch PHSS_19964 (check if
+  superseded). The other alternative is to link with Motif1.2_R6 (see
+  previous item).
+
+*** Motif dialog boxes lose on Irix.
+
+Larry Auton <lda@control.att.com> writes:
+Beware of not specifying
+
+	--with-dialogs=athena
+
+if it builds with the motif dialogs [boom!] you're a dead man.
+
+
 ** AIX
+*** IBM compiler fails: "The character # is not a valid C source character."
+
+Most recently observed in 21.5.9, due to USE_KKCC ifdefs (they just
+happen to tickle the implementation).
+
+Valdis Kletnieks says:
+
+  The problem is that IBM defines a *MACRO* called 'memcpy', and we
+  have stuck a #ifdef/#endif inside the macro call.  As a workaround,
+  try adding '-U__STR__' to your CFLAGS - this will cause string.h to
+  not do a #define for strcpy() to __strcpy() - it uses this for
+  automatic inlining support.
+
+  (For the record, the same issue affects a number of other functions
+  defined in string.h - basically anything the compiler knows how to
+  inline.)
+
 *** On AIX 4.3, you must specify --with-dialogs=athena with configure
 
 *** The libXt shipped with AIX 4.3 up to 4.3.2 is broken.  This causes
@@ -221,32 +363,16 @@ Valdis.Kletnieks@vt.edu writes:
 
 
 ** SunOS/Solaris
-*** Crashes when using Motif libraries, especially with multiple frames.
+*** Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
+without also using `-fno-schedule-insns'.
 
-Crashes that produce C-backtraces like this:
+gcc will generate incorrect code otherwise, typically resulting in
+crashes in the function skip-syntax-backward.
 
-#0  0xfec9a118 in _libc_kill () from /usr/lib/libc.so.1
-#1  0x77f48 in fatal_error_signal (sig=11)
-    at /codes/rpluim/xemacs-21.4/src/emacs.c:539
-#2  <signal handler called>
-#3  0xfee929f4 in XFindContext () from /usr/openwin/lib/libX11.so.4
-#4  0xfee92930 in XFindContext () from /usr/openwin/lib/libX11.so.4
-#5  0xff297e54 in DisplayDestroy () from /usr/dt/lib/libXm.so.4
-#6  0xfefbece0 in XtCallCallbackList () from /usr/openwin/lib/libXt.so.4
-#7  0xfefc486c in XtPhase2Destroy () from /usr/openwin/lib/libXt.so.4
-#8  0xfefc45d0 in _XtDoPhase2Destroy () from /usr/openwin/lib/libXt.so.4
-#9  0xfefc43b4 in XtDestroyWidget () from /usr/openwin/lib/libXt.so.4
-#10 0x15cf9c in x_delete_device (d=0x523f00)
+*** Don't use gcc-2.95.2 with -mcpu=ultrasparc on Solaris 2.6.
 
-are caused by buggy Motif libraries.  Installing the following patches
-has been reported to solve the problem on Solaris 2.7:
-
-107081-40 107656-07
-
-For information (although they have not been confirmed to work), the
-equivalent patches for Solaris 2.8 are:
-
-108940-33 108652-25
+gcc will assume a 64-bit operating system, even though you've
+merely told it to assume a 64-bit instruction set.
 
 *** Dumping error when using GNU binutils / GNU ld on a Sun.
 
@@ -272,10 +398,6 @@ normally held in /usr/ccs/bin.  This can be done by one of:
   (Note: The trailing '/' there is significant.)
 
 - uninstalling GNU ld.
-
-- configuring XEmacs with these environment settings (suggested by
-  Goran Koruga <goran.koruga@hermes.si>):
-  LD=/usr/ccs/bin/ld AS=/usr/ccs/bin/as configure
 
 The Solaris2 FAQ claims:
 
@@ -372,6 +494,14 @@ The solution is to install Patch-ID# 100267-03 from Sun.
   broken.  Use the ones in /usr/openwin/{include,lib} instead.
 
 ** Linux
+
+See also Intel Architecture General, above.
+
+*** egcs-1.1 on Alpha Linux
+
+There have been reports of egcs-1.1 not compiling XEmacs correctly on
+Alpha Linux.  There have also been reports that egcs-1.0.3a is O.K.
+
 *** Under Linux, you get "too many arguments to function `getpgrp'".
 
 You have probably installed LessTiff under `/usr/local' and `libXm.so'
@@ -394,6 +524,46 @@ This is a Linux problem where you've compiled the XEmacs binary on a libc
 an earlier version.  The solution is to upgrade your old library.
 
 ** IRIX
+
+*** More coredumping in Irix (6.5 known to be vulnerable)
+
+No fix is known yet.  Here's the best information we have:
+
+Valdis Kletnieks <Valdis.Kletnieks@vt.edu> writes:
+
+  Were xemacs and [any 3rd party, locally-compiled] libraries [you use]
+  all compiled with the same ABI ( -o32, -n32, -64) and
+  mips2/mips3/mips4 flags, and are they appropriate for the machine in
+  question?  I know the IP30 implies an Octane, so it should be an R10K
+  chipset and above such nonsense, but I've seen the most astoundingly
+  bizzare crashes when somebody managed to compile with -mips4 and get
+  it to run on an R4400 or R5K system. ;)
+
+  Also, since you're using gcc, try re-running fixincludes and *then*
+  rebuilding xemacs and [any] libraries - mismatched headers can do that
+  sort of thing to you with little or no clue what's wrong (often you
+  get screwed when one routine does an malloc(sizeof(foo_struct)) and
+  passes the result to something that things foo_struct is a bit bigger,
+  trashing memory....
+
+Here's typical crash backtrace.  With --pdump, this occurs usually at
+startup under X windows and xemacs -nw at least starts, while without
+--pdump a similar crash is observed during build.
+
+#0  0x0fa460b8 in kill () at regcomp.c:637
+637     regcomp.c: No such file or directory.
+        in regcomp.c
+(gdb) where
+#0  0x0fa460b8 in kill () at regcomp.c:637
+#1  0x10087f34 in fatal_error_signal ()
+(gdb) quit
+
+This is confusing because there is no such file in the XEmacs
+distribution.  This is seen on (at least) the following configurations:
+
+uname -a: IRIX64 oct202 6.5 01091821 IP30
+XEmacs 21.4.9 "Informed Management" configured for `mips-sgi-irix6.5'.
+XEmacs 21.5-b9 "brussels sprouts"  configured for `mips-sgi-irix6.5'.
 
 *** On Irix 6.5, the MIPSpro compiler gets an internal compiler error
 
@@ -516,37 +686,6 @@ Marcus Thiessel <marcus@xemacs.org>
   This might be a sed problem. For your own safety make sure to use
   GNU sed while dumping XEmacs.
 
-*** On HP-UX 11.0 XEmacs causes excessive X11 errors when running.
-    (also appears on AIX as reported in comp.emacs.xemacs)
-
-Marcus Thiessel <marcus@xemacs.org>
-
-  Unfortunately, XEmacs releases prior to 21.0 don't work with
-  Motif2.1. It will compile but you will get excessive X11 errors like
-
-  xemacs: X Error of failed request:  BadGC (invalid GC parameter)
-
-  and finally XEmacs gets killed. A workaround is to use the
-  Motif1.2_R6 libraries. You can the following line to your call to
-  configure:
-
-     --x-libraries="/usr/lib/Motif1.2_R6 -L/usr/lib/X11R6"
-
-  Make sure /usr/lib/Motif1.2_R6/libXm.sl is a link to
-  /usr/lib/Motif1.2_R6/libXm.3.
-
-*** On HP-UX 11.0: Object "" does not have windowed ancestor
-
-Marcus Thiessel <marcus@xemacs.org>
-
-  XEmacs dies without core file and reports:
-
-    Error: Object "" does not have windowed ancestor.
-
-  This is a bug. Please apply the patch PHSS_19964 (check if
-  superseded). The other alternative is to link with Motif1.2_R6 (see
-  previous item).
-
 
 ** SCO OpenServer
 *** Native cc on SCO OpenServer 5 is now OK.  Icc may still throw you
@@ -616,7 +755,43 @@ to take advantage of the keyboard map in emacskeys.sco.
 Note: Much of the above entry is probably not valid for XEmacs 21.0
 and later.
 
+** Windows
+
+*** XEmacs complains "No such file or directory, diff"
+
+or "ispell" or other commands that seem related to whatever you just
+tried to do.
+
+There are a large number of common (in the sense that "everyone has
+these, really") Unix utilities that are not provided with XEmacs.  The
+GNU Project's implementations are available for Windows in the the
+Cygwin distribution (http://www.cygwin.com/), which also provides a
+complete Unix emulation environment (and thus makes ports of Unix
+utilities nearly trivial).  Another implementation is that from MinGW
+(http://www.mingw.org/msys.shtml).
+
+*** Weird crashes in pdump load or shortly after pdump load.
+
+This can happen with incremental linking.  Check if you have set
+SUPPORT_EDIT_AND_CONTINUE to non-zero in config.inc, which must allow
+incremental linking to be enabled (otherwise it's disabled).  Either turn
+this off, execute `nmake -f xemacs.mak clean', or manually remove
+`temacs.exe' and `xemacs.exe'.
+
 ** Cygwin
+
+See also Intel Architecture General, above.
+
+*** Signal 11 when building or running a dumped XEmacs.
+
+This appears to happen when using the traditional dumping mechanism and
+the system malloc.  Andy Piper writes:
+
+  Traditional dumping on Cygwin relies on using gmalloc (there are specific
+  hacks in our version of gmalloc to support this), I suspect using sysmalloc
+  is the problem.
+
+Try configuring with pdump or without system malloc.
 
 *** In general use etc/check_cygwin_setup.sh to trap environment problems.
 
@@ -627,10 +802,12 @@ correctly if you are using ash instead of bash (see below).
 *** Syntax errors running configure scripts, make failing with exit code 127
     in inexplicable situations, etc.
 
-This may be because you are using the default cygwin shell.  The
-default cygwin shell (/bin/sh.exe) is ash which appears to work in
-most circumstances but has some weird failure modes.  You need to
-replace the symlink with bash.exe.
+[[ This may be because you are using the default Cygwin shell, under old
+versions of Cygwin.  The default Cygwin shell (/bin/sh.exe) is ash, which
+appears to work in most circumstances but has some weird failure modes.
+You may need to replace the symlink with bash.exe. ]] This doesn't appear
+to affect Cygwin any longer, and /bin/sh.exe is no longer a symlink in
+any case.
 
 *** Lots of compile errors, esp. on lines containing macro definitions
     terminated by backslashes.
@@ -645,107 +822,63 @@ registry.
 
 *** Errors from make like /c:not found.
 
-make sure you set the environment variable MAKE_MODE to UNIX in your
+Make sure you set the environment variable MAKE_MODE to UNIX in your
 .bashrc, Control Panel (Windows 2000/NT), or AUTOEXEC.BAT (Windows
 98/95).
 
-*** X11 not detected.
-
-This is usually because xmkmf is not in your path or because you are
-using the default cygwin shell. The default cygwin shell (/bin/sh.exe)
-is ash which appears to work in most circumstances but has some weird
-failure modes. I recommend replacing sh.exe with bash.exe, this will
-mean configure is slower but more reliable.
-
-*** Subprocesses do not work.
-
-You do not have "tty" in your CYGWIN environment variable. This must
-be set in your autoexec.bat (win95) or the system properties (winnt)
-as it must be read before the cygwin DLL initializes.
-
-*** ^G does not work on hung subprocesses.
-
-This is a known problem. It can be remedied with cygwin b20 or greater
-by defining BROKEN_SIGIO in src/s/cygwin32.h, however this currently
-leads to instability in XEmacs.
-
 *** The info files will not build.
 
-makeinfo that ships with cygwin (all versions) is a noop. You need to
-obtain makeinfo from somewhere or build it yourself.
+makeinfo that ships with old versions of Cygwin doesn't work.
+Upgrade to the latest Cygwin version.
 
-*** I have no graphics.
+*** XEmacs hangs while attempting to rebuild the .elc files.
 
-You need to obtain the various graphics libraries.  Pre-built versions
-of these and the X libraries are located on the XEmacs website in
-ftp://ftp.xemacs.org/pub/aux/cygwin/.
+Check to make sure you're not configuring with rel-alloc.  The relocating
+allocator does not currently work under Cygwin due to bugs in Cygwin's
+mmap().
 
-*** There are no images in the toolbar buttons.
+*** Trying to build with X, but X11 not detected.
 
-You need version 4.71 of commctrl.dll which does not ship with windows
-95. You can get this by installing IE 4.0 or downloading it from the
-microsoft website.
+This is usually because xmkmf is not in your path or because you are
+using the default Cygwin shell. (See above.)
 
 
 * Problems with running XEmacs
 ==============================
 ** General
 
-*** XEmacs crashes mysteriously.
+*** XEmacs consistently crashes in a particular strange place.
 
-Check whether XEmacs was configured --use-union-type.  Many compilers
-are known to treat union types incompatibly with proper functioning of
-the Lisp_Object type.  (Whether this is a compiler bug or nonstandard-
-conforming code in XEmacs is a moot point.)  Especially with
---with-mule, --pdump, and/or non-null --error-checking, this is known
-to produce an unreliable build with many versions of MS VC++ and GCC,
-and similar problems are likely to occur with other compilers.
+One known case is on Red Hat Linux, compiled with GCC, attempting to
+render PNG images.  The problem is that XEmacs code is not compliant
+with ANSI rules about aliasing.  Adding -fno-strict-aliasing to CFLAGS
+may help (or the equivalent for your compiler).  (Some versions of
+XEmacs may already do this automatically, but if you specify CFLAGS or
+--cflags yourself, you will have to add this flag by hand.)
 
-Symptoms are similar to garbage collection and other "wild pointer"
-bugs, ie, stack-smashing and other hard-to-debug crashes in unrelated
-code.  Try reconfiguring and building without --use-union-type.
+If you diagnose this bug for some other symptoms or systems, please
+let us know (if you can send mail from the affected system, use M-x
+report-xemacs-bug) so we can update this entry.
 
---use-union-type _is_ useful to get improved _static_ type checking of
-Lisp objects.  It is theoretically possible that it might help with
-aliasing bugs under optimization and improve runtime stability, but in
-practice exactly the opposite seems to be true.  If you don't work on
-XEmacs C code directly, then avoid --use-union-type entirely for now.
+*** Changes made to .el files do not take effect.
 
-*** XEmacs crashes mysteriously in regexp-intensive applications (eg, Gnus)
+You may have forgotten to recompile them into .elc files.  Then the
+old .elc files will be loaded, and your changes will not be seen.  To
+fix this, do `M-x byte-recompile-directory' and specify the directory
+that contains the Lisp files.
 
-The regexp implementation used in XEmacs uses alloca by default for
-efficiency.  alloca provides no reliable way to check for out of
-memory (in this case, stack).  Normally not a problem, except for
-systems with very small default stack allocations, and applications
-that use multi-line regular expressions (ie, explicitly including ?\n)
-in moderately large files (> 100kB or so).
+Note that you will get a warning when loading a .elc file that is
+older than the corresponding .el file.
 
-You may get relief by increasing the amount of stack space allocated
-to your XEmacs process (a system-dependent operation, ask your
-administrator or local experts for help), or by recompiling the regexp
-module regex.c with REGEX_MALLOC defined, relinking, and redumping.
+*** VM appears to hang in large folders.
 
-*** At startup I get a warning on stderr about missing charsets:
+This is normal (trust us) when upgrading to VM-6.22 from earlier
+versions.  Let VM finish what it is doing and all will be well.
 
-    Warning: Missing charsets in String to FontSet conversion
+*** Starting with 21.4.x, killing text is absurdly slow.
 
-You need to specify appropriate charsets for your locale (usually the
-value of the LANG environment variable) in .Xresources.  See
-etc/Emacs.ad for the relevant resources (mostly menubar fonts and
-fontsets).  Do not edit this file, it's purely informative.
-
-If you have no satisfactory fonts for iso-8859-1, XEmacs will crash.
-
-It looks like XFree86 4.x (the usual server on Linux and *BSD) has
-some braindamage where .UTF-8 locales will always generate this
-message, because the XFree86 (font)server doesn't know that UTF-8 will
-use the ISO10646-1 font registry (or a Cmap or something).
-
-If you are not using a .UTF-8 locale and see this warning for a
-character set not listed in the default in Emacs.ad, please let
-xemacs-beta@xemacs.org know about it, so we can add fonts to the
-appropriate fontsets and stifle this warning.  (Unfortunately it's
-buried in Xlib, so we can't easily get rid of it otherwise.)
+See FAQ Q3.10.6.  Should be available on the web near
+http://www.xemacs.org/faq/xemacs-faq.html#SEC160.
 
 *** Whenever I try to retrieve a remote file, I have problems.
 
@@ -767,11 +900,7 @@ One program known to set TMPDIR and manifest this problem is exmh.
 You can defeat the use of TMPDIR by unsetting USE_TMPDIR at the top of
 gnuserv.h at build time.
 
-*** C-z just refreshes the screen instead of suspending Emacs.
-
-You are probably using a shell that doesn't support job control, even
-though the system itself is capable of it.  Try using a different
-shell.
+** General Unix
 
 *** You type Control-H (Backspace) expecting to delete characters.
 
@@ -793,6 +922,28 @@ bind another key.  An example of the latter is the following code,
 which moves help to Meta-? (ESC ?):
 
     (global-set-key "\M-?" 'help-command)
+
+*** At startup I get a warning on stderr about missing charsets:
+ 
+    Warning: Missing charsets in String to FontSet conversion
+ 
+You need to specify appropriate charsets for your locale (usually the
+value of the LANG environment variable) in .Xresources.  See
+etc/Emacs.ad for the relevant resources (mostly menubar fonts and
+fontsets).  Do not edit this file, it's purely informative.
+
+If you have no satisfactory fonts for iso-8859-1, XEmacs will crash.
+
+It looks like XFree86 4.x (the usual server on Linux and *BSD) has
+some braindamage where .UTF-8 locales will always generate this
+message, because the XFree86 (font)server doesn't know that UTF-8 will
+use the ISO10646-1 font registry (or a Cmap or something).
+
+If you are not using a .UTF-8 locale and see this warning for a
+character set not listed in the default in Emacs.ad, please let
+xemacs-beta@xemacs.org know about it, so we can add fonts to the
+appropriate fontsets and stifle this warning.  (Unfortunately it's
+buried in Xlib, so we can't easily get rid of it otherwise.)
 
 *** Mail agents (VM, Gnus, rmail) cannot get new mail
 
@@ -823,21 +974,6 @@ installed copy of movemail is usually in the directory
 /usr/local/lib/emacs/VERSION/TARGET.  You must change the group and
 mode of the installed copy; changing the group and mode of the build
 directory copy is ineffective.
-
-*** VM appears to hang in large folders.
-
-This is normal (trust us) when upgrading to VM-6.22 from earlier
-versions.  Let VM finish what it is doing and all will be well.
-
-*** Changes made to .el files do not take effect.
-
-You may have forgotten to recompile them into .elc files.  Then the
-old .elc files will be loaded, and your changes will not be seen.  To
-fix this, do `M-x byte-recompile-directory' and specify the directory
-that contains the Lisp files.
-
-Note that you will get a warning when loading a .elc file that is
-older than the corresponding .el file.
 
 *** Things which should be bold or italic (such as the initial
 copyright notice) are not.
@@ -897,7 +1033,7 @@ directory.  Try using that one.
 *** My X resources used to work, and now some of them are being ignored.
 
 Check the resources in .../etc/Emacs.ad (which is the same as the file
-sample.Xdefaults).  Perhaps some of the default resources built in to
+sample.Xresources).  Perhaps some of the default resources built in to
 emacs are now overriding your existing resources.  Copy and edit the
 resources in Emacs.ad as necessary.
 
@@ -1108,7 +1244,7 @@ Some compilers have trouble with gmalloc.c and ralloc.c; try recompiling
 without optimization.  If that doesn't work, try recompiling with
 SYSTEM_MALLOC defined, and/or with REL_ALLOC undefined.
 
-*** A position you specified in .Xdefaults is ignored, using twm.
+*** A position you specified in .Xresources is ignored, using twm.
 
 twm normally ignores "program-specified" positions.
 You can tell it to obey them with this command in your `.twmrc' file:
@@ -1242,7 +1378,7 @@ happen in a non-login shell.
 
 *** The popup menu appears at the bottom/right of my screen.
 
-You probably have something like the following in your ~/.Xdefaults
+You probably have something like the following in your ~/.Xresources
 
 	Emacs.geometry:		81x56--9--1
 
@@ -1250,6 +1386,27 @@ Use the following instead
 
 	Emacs*EmacsFrame.geometry:		81x56--9--1
 
+*** When I try to use the PostgreSQL functions, I get a message about
+undefined symbols.
+
+The only known case in which this happens is if you are using gcc, you
+configured with --error-checking=all and --with-modules, and you
+compiled with no optimization.  If you encounter this problem in any
+other situation, please inform xemacs-beta@xemacs.org.
+
+This problem stems from a gcc bug.  With no optimization, functions
+declared `extern inline' sometimes are not completely compiled away.  An
+undefined symbol with the function's name is put into the resulting
+object file.  In this case, when the postgresql module is loaded, the
+linker is unable to resolve that symbol, so the module load fails.  The
+workaround is to recompile the module with optimization turned on.  Any
+optimization level, including -Os, appears to work.
+
+*** C-z just refreshes the screen instead of suspending Emacs.
+
+You are probably using a shell that doesn't support job control, even
+though the system itself is capable of it.  Try using a different
+shell.
 
 ** MacOS/X, Darwin
 *** XEmacs crashes on MacOS within font-lock, or when dealing
@@ -1268,7 +1425,7 @@ Workarounds:
 ** AIX
 *** Your Delete key sends a Backspace to the terminal, using an AIXterm.
 
-The solution is to include in your .Xdefaults the lines:
+The solution is to include in your .Xresources the lines:
 
    *aixterm.Translations: #override <Key>BackSpace: string(0x7f)
    aixterm*ttyModes: erase ^?
@@ -1467,106 +1624,24 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
-*** XEmacs crashes on exit.
-
-This is known to happen with Lesstif version 0.93.36.  It is
-apparently due to breakage in Lesstif.  There is a patch for Lesstif.
-
-Frank McIngvale <frankm@hiwaay.net> says:
-
-    Ok, 0.93.34 works, and I tracked down the crash to a section
-    marked "experimental" in 0.93.36. Patch attached, "works for me".
-
-diff -u -r lesstif-0.93.36/lib/Xm/ImageCache.c lesstif-0.93.36-mod/lib/Xm/ImageCache.c
---- lesstif-0.93.36/lib/Xm/ImageCache.c	2002-08-05 14:53:24.000000000 -0500
-+++ lesstif-0.93.36-mod/lib/Xm/ImageCache.c	2002-11-11 11:13:12.000000000 -0600
-@@ -1166,5 +1166,4 @@
- 	DEBUGOUT(_LtDebug0(__FILE__, NULL, "_LtImageCacheScreenDestroy (XmGetPixmapByDepth) %p\n",
- 		s));
- 
--	(void) _LTHashTableForEachItem(PixmapCache, YowIter, (XtPointer)s);
- }
-
-
 *** XEmacs crashes on startup, in make-frame.
 
 Typically the Lisp backtrace includes
 
    make-frame(nil #<x-device on ":0.0" 0x2558>)
 
-somewhere near the top.  One problem is due to an improvement in GNU
+somewhere near the top.  The problem is due to an improvement in GNU
 ld that sorts the ELF reloc sections in the executable, giving
 dramatic speedups in startup for large executables.  It also confuses
 the traditional unexec code in XEmacs, leading to the core dump.  The
-solution is to use either the `--ldflags="-z nocombreloc" or the
-"--pdump" option to configure.  "--pdump" is recommended.
+solution is to use the --pdump or --ldflags='-z nocombreloc' options
+to configure.  Recent 21.4 and 12.5 autodetect this in configure.
 
-Recent 21.4 and 21.5 versions of XEmacs autodetect this feature of ld
-in configure.  Unfortunately, Red Hat and SuSE (at least) distributed
-prerelease versions of ld (numbered around 2.11.90.x.y, nicknamed
-"Hannibal Lecter" at XEmacs.ORG) where autodetection fails but the
-feature is enabled by default.  The recommended procedure is to
-upgrade to binutils >= 2.12 and rerun configure.  Otherwise you must
-apply the flags by hand.
-
-Andrew Jaffe reported a problem on Red Hat 7.3 with identical
-symptoms, except that ld was already being invoked with -z
-nocombreloc.  Switching dialogs and widgets from Motif to Athena
-eliminated the problem.  Both LessTif and OpenMotif were installed,
-and a bad interaction is suspected.  This problem has not yet been
-fully analyzed.
-
-*** Debian
-**** XEmacs warns "Symbol `toggleClassRec' has different size in shared
-     object, consider re-linking / Symbol `labelClassRec' has different
-     size in shared object, consider re-linking / Warning: Representation
-     size 4 must match superclass's to override value"
-
-Sometimes this results in segfaults when using the tab control widget
-or a progress bar widget.
-
-Some versions of Debian install 3D versions of the Athena widget
-library as /usr/X11R6/lib/libXaw.so.  We have not yet solved the
-problem of identifying the actual library in use in ./configure, so it
-is possible for XEmacs to be compiled with reference to headers for
-"flat" Xaw but find a "3D" Xaw when loading.
-
-The straightforward solution is to rebuild XEmacs with additional
-configure options: --with-widgets=athena --with-athena=3d.
-
-There are several 3D Athena widget sets available; to see which ones
-are supported by XEmacs, use ./configure --usage.
-
-*** Mandrake
-
-The Mandrake Linux distribution is attempting to comprehensively
-update the user interface, and make it consistent across
-applications.  This is very difficult, and will occasionally cause
-conflicts with applications like Emacs with their own long-established
-interfaces.  Known issues specific to Mandrake or especially common:
-
-Some versions of XEmacs (21.1.9 is known) distributed with Mandrake
-were patched to make the Meta and Alt keysyms synonymous.  These
-normally work as expected in the Mandrake environment.  However,
-custom-built XEmacsen (including all 21.2 betas) will "inexplicably"
-not respect the "Alt-invokes-Meta-commands" convention.  See "I want
-XEmacs to use the Alt key" below.
-
-The color-gcc wrapper (see below) is in common use on the Mandrake
-platform.
-
-*** XEmacs configured with ESD crashes with a segmentation violation
-
-This often occurs when a progress bar pops up.
-
-The problem is that the ESD sound daemon manipulates interrupts in a
-way that disagrees with XEmacs.  The currently available workaround is
-not very satisfactory: remove ESD support.  Rebuild after
-reconfiguring with the option --with-sound=none[,native][,nas]
-
-The funny syntax (requiring the initial "none") is for backward
-compatibility, and may change.  Native sound and NAS do not cause the
-problem, so they may be added to the option to get some sound support.
+Red Hat and SuSE (at least) distributed a prerelease version of ld
+(versions around 2.11.90.x.y) where autodetection is impossible.  The
+recommended procedure is to upgrade to binutils >= 2.12 and rerun
+configure.  Otherwise you must apply the flags by hand.  --pdump is
+recommended.
 
 *** I want XEmacs to use the Alt key, not the XXX key, for Meta commands
 
@@ -1658,9 +1733,10 @@ file is not necessary with this approach.
 A newer problem is due to XEmacs changing to use the modern
 getaddrinfo() interface from the older gethostbyname() interface.  The
 solution above is insufficient, because getaddrinfo() by default tries
-to get IPv6 information for localhost (including the local X server).
-This always involves a dns lookup to get the CNAME, and the strategies
-above don't work.  It then falls back to IPv4 behavior.
+to get IPv6 information for localhost.  This always involves a dns
+lookup to get the CNAME, and the strategies above don't work.  It then
+falls back to IPv4 behavior.  This is good[tm] according the people at
+WIDE who know about IPv6.
 
 ***** Robust network case
 
@@ -1676,20 +1752,26 @@ IPv4 behavior.  Explicitly setting DISPLAY=127.0.0.1:0.0 (or whatever
 is appropriate) works in most cases.
 
 If you cannot or do not want to do that, you can hard code IPv4
-behavior in src/process-unix.c.  Add `--with-ipv6-cname=no" to your
-configure options and rebuild XEmacs.
+behavior in src/process-unix.c.  This is bad[tm], on your own head be
+it.  Use the configure option `--with-ipv6-cname=no'.
 
-*** XEmacs disappears after several sound events in succession
+*** Mandrake
 
-If esd is not running (e.g. you unchecked the run esd checkbox in the
-GNOME Configuration tool), every sound event will cause the esound
-client library to signal SIGUSR1.  It is not that difficult (hold down
-PgUp or PgDn, for example) to cause XEmacs to generate additional
-SIGUSR1 signals before the first handler has a chance to reset, so the
-second SIGUSR1 causes the default behavior of ending the process.
+The Mandrake Linux distribution is attempting to comprehensively
+update the user interface, and make it consistent across
+applications.  This is very difficult, and will occasionally cause
+conflicts with applications like Emacs with their own long-established
+interfaces.  Known issues specific to Mandrake or especially common:
 
-The solution is either to build XEmacs with -sound=native,noesd or to make sure
-that esd is in fact running. 
+Some versions of XEmacs (21.1.9 is known) distributed with Mandrake
+were patched to make the Meta and Alt keysyms synonymous.  These
+normally work as expected in the Mandrake environment.  However,
+custom-built XEmacsen (including all 21.2 betas) will "inexplicably"
+not respect the "Alt-invokes-Meta-commands" convention.  See "I want
+XEmacs to use the Alt key" below.
+
+The color-gcc wrapper (see below) is in common use on the Mandrake
+platform.
 
 *** You get crashes in a non-C locale with Linux GNU Libc 2.0.
 
@@ -1714,7 +1796,7 @@ character doesn't appear--you get a solid box instead.
 One user on a Linux system reported that this problem went away with
 installation of a new X server.  The failing server was XFree86 3.1.1.
 XFree86 3.1.2 works.
- 
+
 ** IRIX
 *** On Irix, I don't see the toolbar icons and I'm getting lots of
 entries in the warnings buffer.
@@ -1729,15 +1811,6 @@ latest version of Xpm somewhere and then use the --site-includes and
 The program mkpts (which may be in `/usr/adm' or `/usr/sbin') needs to
 be set-UID to root, or non-root programs like Emacs will not be able
 to allocate ptys reliably.
-
-*** Motif dialog boxes lose on Irix.
-
-Larry Auton <lda@control.att.com> writes:
-Beware of not specifying
-
-	--with-dialogs=athena
-
-if it builds with the motif dialogs [boom!] you're a dead man.
 
 *** Beware of the default image & graphics library on Irix
 
@@ -1947,14 +2020,126 @@ GCC.
 
 
 ** Windows
-*** In general, the Windows code is less mature than the Unix code.
+*** Conflicts with FSF NTEmacs
 
-The Windows code base is still changing quickly.  If you are
-experiencing problems, try the latest beta version to see if the
-problem still exists.  Also ask on xemacs-nt@xemacs.org.
+Depending on how it is installed, FSF NTEmacs may setup various EMACS*
+variables in your environment.  The presence of these variables may
+cause XEmacs to fail at startup, cause you to see corrupted
+doc-strings, or cause other random problems.
+
+You should remove these variables from your environment.  These
+variables are not required to run FSF NTEmacs if you start it by
+running emacs.bat.
+
+*** XEmacs can't find my init file
+
+XEmacs looks for your init in your "home" directory -- either in
+`~/.xemacs/init.el' or `~/.emacs'.  XEmacs decides that your "home"
+directory is, in order of preference:
+	
+- The value of the HOME environment variable, if the variable exists.
+- The value of the registry entry SOFTWARE\XEmacs\XEmacs\HOME,
+  if it exists.
+- The value of the HOMEDRIVE and HOMEPATH environment variables, if
+  these variables both exist.
+- C:\.
+
+To determine what XEmacs thinks your home directory is, try opening
+a file in the `~' directory, and you should see its expansion in the
+modeline.  If this doesn't work, type ESC : (user-home-directory).
+
+*** XEmacs can't find any packages
+
+XEmacs looks for your packages in subdirectories of a directory which
+is set at compile-time (see `config.inc'), and whose default is
+`C:\Program Files\XEmacs'.  XEmacs also looks in `~/.xemacs', where
+`~' refers to your home directory (see previous entry).  The variable
+`configure-package-path' holds the actual path that was compiled into
+your copy of XEmacs.
+
+The compile-time default location can be overridden by the EMACSPACKAGEPATH
+environment variable or by the SOFTWARE\XEmacs\XEmacs\EMACSPACKAGEPATH
+registry entry.  You should check that these variables, if they exist,
+point to the actual location of your package tree.
+
+*** XEmacs doesn't die when shutting down Windows 95 or 98
+
+When shutting down Windows 95 or 98 you may see a dialog that says
+  "xemacs / You must quit this program before you quit Windows".
+It is safe to
+  "Click OK to quit the program and Windows",
+but you won't be offered a chance to save any modified XEmacs buffers.
+
+*** Key bindings
+
+The C-z, C-x, C-c, and C-v keystrokes have traditional uses in both
+emacs and Windows programs. XEmacs binds these keys to their
+traditional emacs uses, and provides Windows 3.x style bindings for
+the Cut, Copy and Paste functions.
+
+	Function	XEmacs binding
+	--------	--------------
+	Undo		C-_
+	Cut		Sh-Del
+ 	Copy		C-Insert
+	Paste		Sh-Insert
+
+You can rebind keys to make XEmacs more Windows-compatible; for
+example, to bind C-z to undo:
+
+       (global-set-key [(control z)] 'undo)
+
+Rebindind C-x and C-c is trickier because by default these are prefix
+keys in XEmacs. See the "Key Bindings" node in the XEmacs manual.
+
+*** Behavior of selected regions
+
+Use the pending-del package to enable the standard Windows behavior of
+self-inserting deletes region.
+
+*** Limitations on the use of the AltGr key.
+
+In some locale and OS combinations you can't generate M-AltGr-key or
+C-M-AltGr-key sequences at all.
+
+To generate C-AltGr-key or C-M-AltGr-key sequences you must use the
+right-hand Control key and you must press it *after* AltGr.
+
+These limitations arise from fundamental problems in the way that the
+win32 API reports AltGr key events. There isn't anything that XEmacs
+can do to work round these problems that it isn't already doing.
+
+You may want to create alternative bindings if any of the standard
+XEmacs bindings require you to use some combination of Control or Meta
+and AltGr.
+
+*** Limited support for subprocesses under Windows 9x
+
+Attempting to use call-process to run a 16bit program gives a
+"Spawning child process: Exec format error". For example shell-command
+fails under Windows 95 and 98 if you use command.com or any other
+16bit program as your shell.
+
+XEmacs may incorrectly quote your call-process command if it contains
+double quotes, backslashes or spaces.
+
+start-process and functions that rely on it are supported under Windows 95,
+98 and NT. However, starting a 16bit program that requires keyboard input
+may cause XEmacs to hang or crash under Windows 95 and 98, and will leave
+the orphaned 16bit program consuming all available CPU time.
+
+Sending signals to subprocesses started by call-process or by
+start-process fails with a "Cannot send signal to process" error under
+Windows 95 and 98. As a side effect of this, quitting XEmacs while it
+is still running subprocesses causes it to crash under Windows 95 and
+98.
 
 
 ** Cygwin
+*** Signal 11 when building or running a dumped XEmacs.
+
+See the section on Cygwin above, under building.
+
 *** XEmacs fails to start because cygXpm-noX4.dll was not found.
 
 Andy Piper <andy@xemacs.org> sez:
@@ -1964,7 +2149,7 @@ Andy Piper <andy@xemacs.org> sez:
     cygwin setup again and select this package.
 
 *** Subprocesses do not work.
- 
+
 You do not have "tty" in your CYGWIN environment variable.  This must
 be set in your autoexec.bat (win95) or the system properties (winnt)
 as it must be read before the cygwin DLL initializes.
@@ -1986,7 +2171,7 @@ AUTOEXEC.BAT (Windows 98/95).
 You need version 4.71 of commctrl.dll which does not ship with windows
 95. You can get this by installing IE 4.0 or downloading it from the
 microsoft website.
- 
+
 
 * Compatibility problems (with Emacs 18, GNU Emacs, or previous XEmacs/lemacs)
 ==============================================================================

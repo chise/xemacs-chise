@@ -1,3 +1,53 @@
+2003-09-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.14 is released
+
+2003-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* config.h.in (REGEX_MALLOC): Make it configure'able.
+
+2003-08-14  Andrew Begel  <abegel@CS.Berkeley.EDU>
+
+	* config.h.in: Add HAVE_DYLD to indicate Darwin/MacOSX dynamic
+	linking.
+	* sysdll.c (dll_init):
+	* sysdll.c (dll_open):
+	* sysdll.c (dll_close):
+	* sysdll.c (dll_function):
+	* sysdll.c (dll_variable):
+	* sysdll.c (dll_error):
+	Add support for loading bundles using Darwin/MacOSX
+	native API.
+
+2003-08-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* process.c (start-process-internal): Document coding systems.
+
+2003-07-30  Jerry James  <james@xemacs.org>
+
+	* sysdll.c: configure sets HAVE_DLD_INIT, not HAVE_INIT_DLD.
+
+2003-07-31  René Kyllingstad  <listmailxemacs@kyllingstad.com>
+
+	* event-msw.c (mswindows_enqueue_mouse_button_event):
+	* event-msw.c (mswindows_wnd_proc):
+          enqueue button event when scrollwheel event isn't handled by 
+          mswindows_handle_mousewheel_event, such as when the scrollbars
+          are not showing.
+
+2003-07-29  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* EmacsFrame.c (emacsFrameClassRec): Motif groks not XtCompress*.
+
+2003-03-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* database.c (Fopen_database): Don't use DB_AUTO_COMMIT.
+
+2003-03-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* regex.c (re_match_2_internal): Fix matching degenerate word
+	boundaries.
+
 2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.4.13 is released

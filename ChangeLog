@@ -1,3 +1,63 @@
+2003-09-03  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.14 is released
+
+2003-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (line 3593): Default widgets OFF for Athena/Motif.
+
+2003-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (regex_malloc):  New option.
+	configure.usage (--use-regex-malloc):  Document it.
+
+2003-08-14  Andrew Begel  <abegel@CS.Berkeley.EDU>
+
+	* configure.in: Add code to detect Darwin/MacOSX dynamic linking
+	API.
+
+2003-08-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.usage (GUI component): Improve lucid option doc.
+
+2003-08-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (CFLAGS): Add -fno-strict-aliasing for GCC.
+	* PROBLEMS (Running): Strict aliasing crashes.
+
+2003-08-04  Norbert Koch  <viteno@xemacs.org>
+            Stephen J. Turnbull <stephen@xemacs.org>
+
+        * PACKAGES: Sync with package-tree contents.  Style conformance.
+
+2003-07-03  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/README.HYPERBOLE: 
+	* etc/README.OO-BROWSER:
+	Update.
+
+2003-05-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/sample.Xdefaults (menubar and popup fonts): Use X Font Sets.
+
+2003-07-29  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Motif): Explain why Motif loses XtExposeCompressMaximal.
+
+	* configure.in (Installation): Bitch bitterly about Motif.
+
+2003-06-17  Vin Shelton  <acs@xemacs.org>
+
+	* PROBLEMS: Sync up with latest version from 21.5
+
+2003-04-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Windows): New: auxiliary programs for Windows.
+
+2003-05-24  Norbert Koch  <viteno@xemacs.org>
+
+	* etc/package-index.LATEST.pgp: Official package release.
+
 2003-05-25  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.4.13 is released
