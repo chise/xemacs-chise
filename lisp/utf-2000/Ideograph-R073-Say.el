@@ -262,12 +262,12 @@
     ))
 (define-char
   '((morohashi-daikanwa	2392 0 1)
-    (ideographic-	(:radical	19 ; ⼒
-			 :strokes	9
-			 :sources	(morohashi-daikanwa ucs))
-			(:radical	73 ; ⽈
-			 :strokes	7
-			 :sources	(cns-11643)))
+    (ideographic-radical@ucs . 19)	; ⼒
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 73)	; ⽈
+    (ideographic-strokes@cns . 7)
     (total-strokes	 . 11)
     (hanyu-dazidian	2 1512 12)
     (ideographic-structure
