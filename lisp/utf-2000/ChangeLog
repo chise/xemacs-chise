@@ -1,3 +1,20 @@
+2004-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002F819): Separate H1-B9A2 and
+	UU+4ECC.
+
+	* Ideograph-R096-Jade.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R091-Slice.el (U+724C): Use `->subsumptive'; use
+	`=jis-x0208@{1978|1983|1990}' instead of
+	`=jis-x0208-{1978|1983|1990}'.
+
 2004-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* read-maps.el (mapping-table-read-file): Prefer =ucs@DOMAIN to
