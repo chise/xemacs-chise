@@ -731,7 +731,7 @@
     (ucs			. #x02A1)	; ʡ
     ))
 (define-char
-  '((name		. "LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE")
+  '((name . "LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
