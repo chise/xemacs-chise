@@ -1,5 +1,15 @@
 2004-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R122-Net.el: Use `->subsumptive' for some character
+	definitions.
+	(U+5188): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+	(U+7F53): Use `=>daikanwa' instead of `morohashi-daikanwa'; use
+	`<-unknown' instead of `comment'.
+	(U+4359): Define as an abstract character.
+	(M-28274): New character.
+	(C4-3F75): Use `<-denotational' for U+4359.
+
 	* Ideograph-R087-Claw.el (U-00024514): Use `->subsumptive'; use
 	`->ancient' instead of `->ancient-ideograph'.
 	(U-00024515): Use `->subsumptive'.
