@@ -1577,7 +1577,9 @@
     (total-strokes	 . 22)
     (=jis-x0212		. #x3A46)	; ø»‹‰£
     (=jis-x0213-2-2000	. #x257B)	; ø»¤¤’
+    (=big5		. #xC570)	; ý¢€Œ•°
     (=daikanwa		. 07051)	; ø¸®‹
+    (=jef-china3	. #x49F7)	; øº„§·
     (=ucs@jis		. #x5B7F)	; ø»‹‰£
     ))
 (define-char
@@ -1587,7 +1589,6 @@
     (total-strokes	 . 22)
     (=cns11643-1	. #x7B5C)	; ø»“‡£
     (=gb12345		. #x424F)	; å­¿
-    (=big5		. #xC570)	; ý¢€Œ•°
     (=ucs		. #x5B7F)	; å­¿
     ))
 (define-char

@@ -1570,7 +1570,8 @@
     (=ucs		. #x20499)	; ð ’™
     ))
 (define-char
-  '((ideographic-radical . 10)	; â¼‰
+  '((morohashi-daikanwa	ho 33)
+    (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 273 14)
@@ -2026,7 +2027,26 @@
     (=ucs		. #x204BE)	; ð ’¾
     ))
 (define-char
-  '((ideographic-radical . 10)	; â¼‰
+  '((=>ucs		. #x204BF)	; ð ’¿
+    (morohashi-daikanwa	ho 34)
+    (ideographic-radical . 10)	; â¼‰
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x5149)	; å…‰
+      )
+     ((=jis-x0213-2-2000  . #x2424)	; ø»¤¡
+      (=daikanwa	  . 03804)	; ø¸€»œ
+      ))
+    (=gt-pj-11		. #x4665)	; ý¡€€œª
+    (=gt		. 01834)	; ý¡€€œª
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 34 0)
+    (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 275 9)
@@ -2274,7 +2294,8 @@
     (=ucs		. #x5164)	; å…¤
     ))
 (define-char
-  '((ideographic-radical . 10)	; â¼‰
+  '((morohashi-daikanwa	ho 35)
+    (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 21)
     (total-strokes	 . 23)
     (hanyu-dazidian	1 275 15)

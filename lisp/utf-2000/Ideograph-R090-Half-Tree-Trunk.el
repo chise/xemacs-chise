@@ -196,6 +196,7 @@
     (=iso-ir165		. #x7B28)	; ø»Ž²§
     (=big5		. #xCFB7)	; ý¢€Œ¾·
     (=daikanwa		. 19767)	; ø¸„´·
+    (=jef-china3	. #x92AC)	; øº‰Š¬
     (=ucs		. #x7241)	; ç‰
     ))
 (define-char

@@ -18880,6 +18880,7 @@
     (=jis-x0213-2-2000	. #x6F3C)	; ø»¦¿
     (=daikanwa		. 18434)	; ø¸„ ‚
     (=cbeta		. 01897)	; ø¸ ©
+    (=jef-china3	. #x8EAA)	; øºˆºª
     (=ucs@jis		. #x6FBE)	; ø»‰£½
     ))
 (define-char
@@ -20336,6 +20337,7 @@
     (total-strokes	 . 17)
     (=daikanwa		. 18527)	; ø¸„¡Ÿ
     (=cbeta		. 03650)	; ø¸ ¹‚
+    (=jef-china3	. #x57B7)	; øº…ž·
     ))
 (define-char
   '((morohashi-daikanwa	18527 0 1)
@@ -22964,6 +22966,7 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
     (=cns11643-5	. #x703E)	; ø»›Ÿ‹
+    (=jef-china3	. #x57BF)	; øº…ž¿
     ))
 (define-char
   '((morohashi-daikanwa	18743 0 1)

@@ -1894,9 +1894,13 @@
     (=gt		. 00087)	; ý¡€€—
     ))
 (define-char
-  '((ideographic-radical . 1)	; â¼€
+  '((=>ucs		. #x2233D)	; ð¢Œ½
+    (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (->identical
+     ((=daikanwa	  . 09608)	; ø¸‚–ˆ
+      ))
     (=gt-pj-2		. #x304C)	; ý¡€€“
     (=daikanwa		. 00060)	; ø¸€€¼
     (=jef-china3	. #x8EF3)	; øºˆ»³

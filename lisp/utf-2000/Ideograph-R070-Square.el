@@ -84,6 +84,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=daikanwa		. 13627)	; ø¸ƒ”»
+    (=jef-china3	. #x50EA)	; øº…ƒª
     ))
 (define-char
   '((morohashi-daikanwa	13627 0 0)

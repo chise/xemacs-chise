@@ -322,8 +322,14 @@
   '((ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=cns11643-3	. #x2B7B)	; ø»•¦ª
     (=ucs		. #x3C54)	; ã±”
+    ))
+(define-char
+  '((=>ucs		. #x3C54)	; ã±”
+    (ideographic-radical . 36)	; â¼£
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (=cns11643-3	. #x2B7B)	; ø»•¦ª
     ))
 (define-char
   '((ideographic-radical . 36)	; â¼£

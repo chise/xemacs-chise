@@ -157,10 +157,16 @@
   '((ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (=jis-x0208		. #x572F)	; ø½‹…ž
     (=cns11643-3	. #x2869)	; ø»•¡¾
     (=gt-pj-1		. #x572F)	; å»¸
     (=ucs		. #x5EF8)	; å»¸
+    ))
+(define-char
+  '((=>ucs		. #x5EF8)	; å»¸
+    (ideographic-radical . 54)	; â¼µ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=jis-x0208		. #x572F)	; ø½‹…ž
     ))
 (define-char
   '((ideographic-radical . 54)	; â¼µ
