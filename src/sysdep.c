@@ -234,8 +234,11 @@ wait_without_blocking (void)
 #endif /* NO_SUBPROCESSES */
 
 
-void
-wait_for_termination (int pid)
+#ifdef WINDOWSNT
+void wait_for_termination (HANDLE pHandle)
+#else
+void wait_for_termination (int pid)
+#endif
 {
   /* #### With the new improved SIGCHLD handling stuff, there is much
      less danger of race conditions and some of the comments below
@@ -345,6 +348,49 @@ wait_for_termination (int pid)
 
      Since implementations may add their own error indicators on top,
      we ignore it by default.  */
+#elif defined (WINDOWSNT)
+  int ret = 0, status = 0;
+  if (pHandle == NULL)
+    {
+      warn_when_safe (Qprocess, Qwarning, "Cannot wait for unknown process to terminate");
+      return;
+    }
+  do
+    {
+      QUIT;
+      ret = WaitForSingleObject(pHandle, 100);
+    }
+  while (ret == WAIT_TIMEOUT);
+  if (ret == WAIT_FAILED)
+    {
+      warn_when_safe (Qprocess, Qwarning, "waiting for process failed");
+    }
+  if (ret == WAIT_ABANDONED)
+    {
+      warn_when_safe (Qprocess, Qwarning,
+		      "process to wait for has been abandoned");
+    }
+  if (ret == WAIT_OBJECT_0)
+    {
+      ret = GetExitCodeProcess(pHandle, &status);
+      if (ret)
+	{
+	  synch_process_alive = 0;
+	  synch_process_retcode = status;
+	}
+      else
+	{
+	  /* GetExitCodeProcess() didn't return a valid exit status,
+	     nothing to do.  APA */
+	  warn_when_safe (Qprocess, Qwarning,
+			  "failure to obtain process exit value");
+	}
+    }
+  if (pHandle != NULL && !CloseHandle(pHandle)) 
+    {
+      warn_when_safe (Qprocess, Qwarning,
+		      "failure to close unknown process");
+    }
 #elif defined (EMACS_BLOCK_SIGNAL) && !defined (BROKEN_WAIT_FOR_SIGNAL) && defined (SIGCHLD)
   while (1)
     {
@@ -376,7 +422,7 @@ wait_for_termination (int pid)
 	   Try defining BROKEN_WAIT_FOR_SIGNAL. */
 	EMACS_WAIT_FOR_SIGNAL (SIGCHLD);
     }
-#else /* not HAVE_WAITPID and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
+#else /* not HAVE_WAITPID and not WINDOWSNT and (not EMACS_BLOCK_SIGNAL or BROKEN_WAIT_FOR_SIGNAL) */
   /* This approach is kind of cheesy but is guaranteed(?!) to work
      for all systems. */
   while (1)
@@ -578,7 +624,11 @@ sys_getpid (void)
 static void
 sys_subshell (void)
 {
+#ifdef WINDOWSNT
+  HANDLE pid;
+#else
   int pid;
+#endif
   struct save_signal saved_handlers[5];
   Lisp_Object dir;
   unsigned char *str = 0;
@@ -617,7 +667,7 @@ sys_subshell (void)
  xyzzy:
 
 #ifdef WINDOWSNT
-  pid = -1;
+  pid = NULL;
 #else /* not WINDOWSNT */
 
   pid = fork ();
@@ -651,7 +701,7 @@ sys_subshell (void)
 #ifdef WINDOWSNT
       /* Waits for process completion */
       pid = _spawnlp (_P_WAIT, sh, sh, NULL);
-      if (pid == -1)
+      if (pid == NULL)
         write (1, "Can't execute subshell", 22);
 
 #else   /* not WINDOWSNT */
@@ -3036,6 +3086,15 @@ sys_readlink (CONST char *path, char *buf, size_t bufsiz)
   return readlink (path, buf, bufsiz);
 }
 #endif /* ENCAPSULATE_READLINK */
+
+
+#ifdef ENCAPSULATE_FSTAT
+int
+sys_fstat (int fd, struct stat *buf)
+{
+  return fstat (fd, buf);
+}
+#endif /* ENCAPSULATE_FSTAT */
 
 
 #ifdef ENCAPSULATE_STAT

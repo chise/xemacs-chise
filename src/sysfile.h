@@ -380,6 +380,18 @@ int sys_readlink (CONST char *path, char *buf, size_t bufsiz);
 # define sys_readlink readlink
 #endif
 
+#ifdef ENCAPSULATE_FSTAT
+int sys_fstat (int fd, struct stat *buf);
+#endif
+#if defined (ENCAPSULATE_FSTAT) && !defined (DONT_ENCAPSULATE)
+# undef fstat
+/* Need to use arguments to avoid messing with struct stat */
+# define fstat(fd, buf) sys_fstat (fd, buf)
+#endif
+#if !defined (ENCAPSULATE_FSTAT) && defined (DONT_ENCAPSULATE)
+# define sys_fstat fstat
+#endif
+
 #ifdef ENCAPSULATE_STAT
 int sys_stat (CONST char *path, struct stat *buf);
 #endif

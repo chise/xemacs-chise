@@ -611,7 +611,11 @@ This is normally set via `font-lock-defaults'.")
   '((((class color) (background dark)) (:foreground "light coral"))
     (((class color) (background light)) (:foreground "green4"))
     (t (:bold t)))
-  "Font Lock mode face used to highlight documentation strings."
+  "Font Lock mode face used to highlight documentation strings.
+This is currently supported only in Lisp-like modes, which are those
+with \"lisp\" or \"scheme\" in their name.  You can explicitly make
+a mode Lisp-like by putting a non-nil `font-lock-lisp-like' property
+on the major mode's symbol."
   :group 'font-lock-faces)
 
 (defface font-lock-keyword-face

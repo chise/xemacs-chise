@@ -445,16 +445,8 @@ create_child (CONST char *exe, char *cmdline, char *env,
   cp->procinfo.hThread=NULL;
   cp->procinfo.hProcess=NULL;
 
-  /* Hack for Windows 95, which assigns large (ie negative) pids */
-  if (cp->pid < 0)
-    cp->pid = -cp->pid;
-
   /* pid must fit in a Lisp_Int */
-#ifdef USE_UNION_TYPE
-  cp->pid = (cp->pid & ((1U << VALBITS) - 1));
-#else
-  cp->pid = (cp->pid & VALMASK);
-#endif
+
 
   *pPid = cp->pid;
   

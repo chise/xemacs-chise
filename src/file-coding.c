@@ -571,8 +571,7 @@ add_coding_system_to_list_mapper (Lisp_Object key, Lisp_Object value,
     (struct coding_system_list_closure *) coding_system_list_closure;
   Lisp_Object *coding_system_list = cscl->coding_system_list;
 
-  *coding_system_list = Fcons (XCODING_SYSTEM (value)->name,
-			       *coding_system_list);
+  *coding_system_list = Fcons (key, *coding_system_list);
   return 0;
 }
 

@@ -18,7 +18,7 @@
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
  
- /* Synched up with: Tabs.c 1.23 */
+ /* Synched up with: Tabs.c 1.25 */
  
  /*
  * Tabs.c - Index Tabs composite widget
@@ -568,7 +568,11 @@ TabsResize(Widget w)
 			  cw-bw*2,ch-bw*2, bw) ;
 	    }
 	  if( XtIsRealized(w) )
-	    XClearWindow(XtDisplay((Widget)tw), XtWindow((Widget)tw)) ;
+	    {
+	      XClearWindow(XtDisplay((Widget)tw), XtWindow((Widget)tw)) ;
+	      tw->tabs.needs_layout = False ;
+	      XtClass(tw)->core_class.expose((Widget)tw,NULL,None) ;
+	    }
 	}
 
 	tw->tabs.needs_layout = False ;
@@ -629,7 +633,8 @@ TabsSetValues(Widget current, Widget request, Widget new,
 	/* TODO: if any color changes, need to recompute GCs and redraw */
 
 	if( tw->core.background_pixel != curtw->core.background_pixel ||
-	    tw->core.background_pixmap != curtw->core.background_pixmap )
+	    tw->core.background_pixmap != curtw->core.background_pixmap ||
+	    tw->tabs.font != curtw->tabs.font )
 	  if( XtIsRealized(new) )
 	  {
 	    TabsFreeGCs(tw) ;
@@ -644,7 +649,8 @@ TabsSetValues(Widget current, Widget request, Widget new,
 	 * Window system will handle the redraws.
 	 */
 
-	if( tw->tabs.topWidget != curtw->tabs.topWidget ) {
+	if( tw->tabs.topWidget != curtw->tabs.topWidget ) 
+	{
 	  if( XtIsRealized(tw->tabs.topWidget) )
 	  {
 	    Widget		w = tw->tabs.topWidget ;
@@ -661,9 +667,9 @@ TabsSetValues(Widget current, Widget request, Widget new,
 
 	    needRedraw = True ;
 	  }
-	  }
 	  else
 	    tw->tabs.needs_layout = True ;
+	}
 
 	return needRedraw ;
 }
@@ -827,7 +833,8 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 #ifdef	COMMENT
 	  MaxChild(tw, &cw, &ch) ;
 #endif	/* COMMENT */
-	  PreferredSize2(tw, tw->tabs.max_cw,tw->tabs.max_ch, &wid, &hgt) ;
+	  PreferredSize2(tw,
+	  	cw=tw->tabs.max_cw, ch=tw->tabs.max_ch, &wid, &hgt) ;
 
 	  /* Ask to be resized to accommodate. */
 
@@ -1082,9 +1089,9 @@ TabsPage(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	switch( params[0][0] ) {
 	  case 'u':		/* up */
 	  case 'U':
-	    if( idx == 0 )
-	      idx = nc ;
-	    newtop = tw->composite.children[idx-1] ;
+	    if( --idx < 0 )
+	      idx = nc-1 ;
+	    newtop = tw->composite.children[idx] ;
 	    break ;
 
 	  case 'd':		/* down */
@@ -1096,6 +1103,7 @@ TabsPage(Widget w, XEvent *event, String *params, Cardinal *num_params)
 
 	  case 'h':
 	  case 'H':
+	  default:
 	      newtop = tw->composite.children[0] ;
 	      break ;
 
@@ -1141,6 +1149,7 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 
 	else
 	{
+	  /* find index of currently highlit child */
 	  for(idx=0, childP=tw->composite.children; idx < nc; ++idx, ++childP )
 	    if( tw->tabs.hilight == *childP )
 	      break ;
@@ -1148,9 +1157,9 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	  switch( params[0][0] ) {
 	    case 'u':		/* up */
 	    case 'U':
-	      if( idx == 0 )
-		idx = nc ;
-	      newhl = tw->composite.children[idx-1] ;
+	      if( --idx < 0 )
+		idx = nc-1 ;
+	      newhl = tw->composite.children[idx] ;
 	      break ;
 
 	    case 'd':		/* down */
@@ -1168,6 +1177,10 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	    case 'e':
 	    case 'E':
 		newhl = tw->composite.children[nc-1] ;
+		break ;
+
+	    default:
+		newhl = tw->tabs.hilight ;
 		break ;
 	  }
 	}

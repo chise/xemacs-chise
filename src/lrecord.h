@@ -237,7 +237,7 @@ extern int gc_in_progress;
 
     XD_LO_LINK
   Link in a linked list of objects of the same type.
-  
+
     XD_OPAQUE_PTR
   Pointer to undumpable data.  Must be NULL when dumping.
 
