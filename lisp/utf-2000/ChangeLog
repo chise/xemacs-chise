@@ -1,3 +1,51 @@
+2001-09-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R021-Spoon.el: Add `ideographic-structure'.
+
+	* Ideograph-R019-Power.el: Add `ideographic-structure'.
+	(M-02392): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R178-Tanned-Leather.el, Ideograph-R177-Leather.el:
+	Merge GB 12345 code points.
+
+2001-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el:
+	- Merge Big5 code points.
+	- Add `ideographic-structure'.
+
+2001-09-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el:
+	- Merge GB 12345 code points.
+	- Add `ideographic-structure'.
+	- Use `=>ucs' instead of `->ucs'.
+	(U+5DFF): Fix `ideographic-strokes'.
+	(U+5E00): Likewise.
+	(U+5E01): Likewise.
+
+2001-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R192-Sacrificial-Wine.el (U+9B31): Unify G1-5374.
+
+2001-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el: Merge GB 12345 code points.
+
+2001-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el, Ideograph-R182-Wind.el,
+	Ideograph-R181-Leaf.el: Merge GB 12345 code points.
+
+	* Ideograph-R176-Face.el (U+9768): Unify G1-584C.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Merge GB 12345 code points.
+
+	* Ideograph-R171-Slave.el (U+96B8): Unify G1-4125.
+
+	* Ideograph-R170-Mound.el: Merge GB 12345 code points.
+
 2001-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R020-Wrap.el: Add `ideographic-structure'.
@@ -10,8 +58,19 @@
 	* Ideograph-R183-Fly.el (U+98DB): Unify G1-3749.
 
 	* Ideograph-R180-Sound.el, Ideograph-R173-Rain.el,
-	Ideograph-R167-Gold.el, Ideograph-R140-Grass.el: Merge GB 12345
-	code points.
+	Ideograph-R140-Grass.el: Merge GB 12345 code points.
+
+2001-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F4DA): Separate Big5-CDP-8B40.
+	(U+F4EA): Separate Big5-CDP-8B50.
+	(U+F4F1): Separate Big5-CDP-8B57.
+	(U+F529): Separate Big5-CDP-8BB1.
+	(U+F54F): Separate Big5-CDP-8BD7.
+	(U+F566): Separate Big5-CDP-8BEE.
+	(U+F56A): Separate Big5-CDP-8BF2.
+	(U+F5AC): Separate Big5-CDP-8C75.
+	(U+F63A): Separate Big5-CDP-8D66.
 
 2001-09-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
