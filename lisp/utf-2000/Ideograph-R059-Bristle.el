@@ -273,6 +273,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 09992)	; ø¸‚œˆ
+    (mojikyo		. 009992)	; ý €‚œˆ
     ))
 (define-char
   '((morohashi-daikanwa	9992 0 2)
@@ -286,30 +287,44 @@
     (chinese-isoir165		. #x324A)	; ø»‡»
     (chinese-cns11643-1		. #x5A33)	; ø»’–œ
     (japanese-jisx0208-1990	. #x3A4C)	; ø½Š›•
+    (mojikyo			. 054127)	; ý €¯
     (ucs			. #x5F69)	; å½©
     ))
 (define-char
-  '((ideographic-radical . 59)	; â¼º
+  '((->ucs		. #x5F6A)	; å½ª
+    (ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 8)
-    (cns-radical	 . 141)	; â¾Œ
     (total-strokes	 . 11)
     (shinjigen-2	. 2320)
     (japanese-jisx0208-1978	. #x4937)	; ø»‚·†
-    (chinese-gb2312		. #x316B)	; ø»„ž®
     (japanese-jisx0208		. #x4937)	; ø»‡‹Ž
     (korean-ksc5601		. #x7873)	; ø»Š›
-    (chinese-isoir165		. #x316B)	; ø»†¾
-    (chinese-cns11643-1		. #x5D29)	; ø»’š¬
     (japanese-jisx0208-1990	. #x4937)	; ø½Š±‚
     (ideograph-daikanwa		. 09993)	; ø¸‚œ‰
-    (ucs			. #x5F6A)	; å½ª
+    (mojikyo			. 009993)	; ý €‚œ‰
+    ))
+(define-char
+  '((morohashi-daikanwa	9993 0 2)
+    (ideographic-radical . 59)	; â¼º
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (chinese-gb2312	. #x316B)	; ø»„ž®
+    (chinese-isoir165	. #x316B)	; ø»†¾
+    (mojikyo		. 057577)	; ý €Žƒ©
+    (ucs		. #x5F6A)	; å½ª
     ))
 (define-char
   '((ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (ideograph=
+     ((sources		  morohashi-daikanwa)
+      (char . ((ideograph-daikanwa . 09993)	; ø¸‚œ‰
+	       ))
+      ))
     (chinese-cns11643-6 . #x3F5B)	; ø»œ¡®
     (ideograph-daikanwa . 09994)	; ø¸‚œŠ
+    (mojikyo		. 009994)	; ý €‚œŠ
     ))
 (define-char
   '((ideographic-radical . 59)	; â¼º
@@ -334,7 +349,7 @@
     (korean-ksc5601		. #x7041)	; ø»ŠŽ®
     (chinese-cns11643-1		. #x5A34)	; ø»’–
     (japanese-jisx0208-1990	. #x4426)	; ø½Š©›
-    (mojikyo			. 050168)	; ø¸Œ¸
+    (mojikyo			. 050168)	; ý €Œ¸
     (ucs			. #x5F6B)	; å½«
     ))
 (define-char
