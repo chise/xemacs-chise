@@ -1,5 +1,14 @@
 2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* mule-charset.c (Q94x94x60): New variable.
+	(charset_code_point): Support conversion `94x94x60'.
+	(Fmake_charset): Likewise.
+	(syms_of_mule_charset): Add new symbol `94x94x60'.
+
+	* char-ucs.h (CONVERSION_94x94x60): New macro.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* mule-charset.c (charset_code_point): Unify code about
 	`code-offset'.
 
