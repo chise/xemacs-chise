@@ -4792,15 +4792,33 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       reg = -1;
       for (i = 0; i < 4; i++)
 	{
+	  Lisp_Object code_point;
+
 	  if ((CHARSETP (charset = str->iso2022.charset[i])
-	       && (byte1 = charset_get_byte1 (charset, ch))) ||
+	       && !EQ (code_point = charset_code_point (charset, ch), Qnil))
+	      ||
 	      (CHARSETP
 	       (charset
 		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
-	       && (byte1 = charset_get_byte1 (charset, ch))))
+	       && !EQ (code_point = charset_code_point (charset, ch), Qnil)))
 	    {
+	      Lisp_Object ret = Fcar (code_point);
+
+	      if (INTP (ret))
+		{
+		  byte1 = XINT (ret);
+		  ret = Fcar (Fcdr (code_point));
+		  if (INTP (ret))
+		    byte2 = XINT (ret);
+		  else
+		    byte2 = 0;
+		}
+	      else
+		{
+		  byte1 = 0;
+		  byte2 = 0;
+		}
 	      reg = i;
-	      byte2 = charset_get_byte2 (charset, ch);
 	      break;
 	    }
 	}
