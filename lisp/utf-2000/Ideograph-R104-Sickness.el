@@ -4993,12 +4993,12 @@
     (ucs		. #x7659)	; ç™™
     ))
 (define-char
-  '((morohashi-daikanwa 22561 0 1)
+  '((=>ucs		. #x7659)	; ç™™
+    (morohashi-daikanwa	22561 0 1)
     (ideographic-radical . 104)	; â½§
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
     (chinese-cns11643-2 . #x6239)	; ø»”¬–
-    (=>ucs		. #x7659)	; ç™™
     ))
 (define-char
   '((ideographic-radical . 104)	; â½§
