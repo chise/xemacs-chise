@@ -62,10 +62,7 @@
       )
      ((chinese-big5-cdp	  . #x8B45)	; 
       )
-     ((chinese-big5-cdp	  . #x8DF4)	; 
-      )
-     ((chinese-big5-cdp	  . #x8B41)	; 丶
-      (ucs		  . #x4E36)	; 丶
+     ((chinese-big5-cdp	  . #x8971)	; 
       ))
     (shinjigen-1	. 540)
     (shinjigen-2	. 540)
