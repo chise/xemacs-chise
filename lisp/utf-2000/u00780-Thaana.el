@@ -1,343 +1,343 @@
 (define-char
   '((name		. "THAANA LETTER HAA")
-    (ucs		. #x0780)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0780)	; ހ
     ))
 (define-char
   '((name		. "THAANA LETTER SHAVIYANI")
-    (ucs		. #x0781)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0781)	; ށ
     ))
 (define-char
   '((name		. "THAANA LETTER NOONU")
-    (ucs		. #x0782)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0782)	; ނ
     ))
 (define-char
   '((name		. "THAANA LETTER RAA")
-    (ucs		. #x0783)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0783)	; ރ
     ))
 (define-char
   '((name		. "THAANA LETTER BAA")
-    (ucs		. #x0784)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0784)	; ބ
     ))
 (define-char
   '((name		. "THAANA LETTER LHAVIYANI")
-    (ucs		. #x0785)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0785)	; ޅ
     ))
 (define-char
   '((name		. "THAANA LETTER KAAFU")
-    (ucs		. #x0786)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0786)	; ކ
     ))
 (define-char
   '((name		. "THAANA LETTER ALIFU")
-    (ucs		. #x0787)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0787)	; އ
     ))
 (define-char
   '((name		. "THAANA LETTER VAAVU")
-    (ucs		. #x0788)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0788)	; ވ
     ))
 (define-char
   '((name		. "THAANA LETTER MEEMU")
-    (ucs		. #x0789)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0789)	; މ
     ))
 (define-char
   '((name		. "THAANA LETTER FAAFU")
-    (ucs		. #x078A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078A)	; ފ
     ))
 (define-char
   '((name		. "THAANA LETTER DHAALU")
-    (ucs		. #x078B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078B)	; ދ
     ))
 (define-char
   '((name		. "THAANA LETTER THAA")
-    (ucs		. #x078C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078C)	; ތ
     ))
 (define-char
   '((name		. "THAANA LETTER LAAMU")
-    (ucs		. #x078D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078D)	; ލ
     ))
 (define-char
   '((name		. "THAANA LETTER GAAFU")
-    (ucs		. #x078E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078E)	; ގ
     ))
 (define-char
   '((name		. "THAANA LETTER GNAVIYANI")
-    (ucs		. #x078F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x078F)	; ޏ
     ))
 (define-char
   '((name		. "THAANA LETTER SEENU")
-    (ucs		. #x0790)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0790)	; ސ
     ))
 (define-char
   '((name		. "THAANA LETTER DAVIYANI")
-    (ucs		. #x0791)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0791)	; ޑ
     ))
 (define-char
   '((name		. "THAANA LETTER ZAVIYANI")
-    (ucs		. #x0792)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0792)	; ޒ
     ))
 (define-char
   '((name		. "THAANA LETTER TAVIYANI")
-    (ucs		. #x0793)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0793)	; ޓ
     ))
 (define-char
   '((name		. "THAANA LETTER YAA")
-    (ucs		. #x0794)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0794)	; ޔ
     ))
 (define-char
   '((name		. "THAANA LETTER PAVIYANI")
-    (ucs		. #x0795)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0795)	; ޕ
     ))
 (define-char
   '((name		. "THAANA LETTER JAVIYANI")
-    (ucs		. #x0796)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0796)	; ޖ
     ))
 (define-char
   '((name		. "THAANA LETTER CHAVIYANI")
-    (ucs		. #x0797)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0797)	; ޗ
     ))
 (define-char
   '((name		. "THAANA LETTER TTAA")
-    (ucs		. #x0798)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0798)	; ޘ
     ))
 (define-char
   '((name		. "THAANA LETTER HHAA")
-    (ucs		. #x0799)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x0799)	; ޙ
     ))
 (define-char
   '((name		. "THAANA LETTER KHAA")
-    (ucs		. #x079A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079A)	; ޚ
     ))
 (define-char
   '((name		. "THAANA LETTER THAALU")
-    (ucs		. #x079B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079B)	; ޛ
     ))
 (define-char
   '((name		. "THAANA LETTER ZAA")
-    (ucs		. #x079C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079C)	; ޜ
     ))
 (define-char
   '((name		. "THAANA LETTER SHEENU")
-    (ucs		. #x079D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079D)	; ޝ
     ))
 (define-char
   '((name		. "THAANA LETTER SAADHU")
-    (ucs		. #x079E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079E)	; ޞ
     ))
 (define-char
   '((name		. "THAANA LETTER DAADHU")
-    (ucs		. #x079F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x079F)	; ޟ
     ))
 (define-char
   '((name		. "THAANA LETTER TO")
-    (ucs		. #x07A0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A0)	; ޠ
     ))
 (define-char
   '((name		. "THAANA LETTER ZO")
-    (ucs		. #x07A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A1)	; ޡ
     ))
 (define-char
   '((name		. "THAANA LETTER AINU")
-    (ucs		. #x07A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A2)	; ޢ
     ))
 (define-char
   '((name		. "THAANA LETTER GHAINU")
-    (ucs		. #x07A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A3)	; ޣ
     ))
 (define-char
   '((name		. "THAANA LETTER QAAFU")
-    (ucs		. #x07A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A4)	; ޤ
     ))
 (define-char
   '((name		. "THAANA LETTER WAAVU")
-    (ucs		. #x07A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
+    (ucs		. #x07A5)	; ޥ
     ))
 (define-char
   '((name		. "THAANA ABAFILI")
-    (ucs		. #x07A6)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07A6)	; ަ
     ))
 (define-char
   '((name		. "THAANA AABAAFILI")
-    (ucs		. #x07A7)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07A7)	; ާ
     ))
 (define-char
   '((name		. "THAANA IBIFILI")
-    (ucs		. #x07A8)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07A8)	; ި
     ))
 (define-char
   '((name		. "THAANA EEBEEFILI")
-    (ucs		. #x07A9)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07A9)	; ީ
     ))
 (define-char
   '((name		. "THAANA UBUFILI")
-    (ucs		. #x07AA)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AA)	; ު
     ))
 (define-char
   '((name		. "THAANA OOBOOFILI")
-    (ucs		. #x07AB)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AB)	; ޫ
     ))
 (define-char
   '((name		. "THAANA EBEFILI")
-    (ucs		. #x07AC)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AC)	; ެ
     ))
 (define-char
   '((name		. "THAANA EYBEYFILI")
-    (ucs		. #x07AD)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AD)	; ޭ
     ))
 (define-char
   '((name		. "THAANA OBOFILI")
-    (ucs		. #x07AE)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AE)	; ޮ
     ))
 (define-char
   '((name		. "THAANA OABOAFILI")
-    (ucs		. #x07AF)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07AF)	; ޯ
     ))
 (define-char
   '((name		. "THAANA SUKUN")
-    (ucs		. #x07B0)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (ucs		. #x07B0)	; ް
     ))
