@@ -74,6 +74,10 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-simplified@CN
+     ((=ucs		  . #x500B)	; 個
+      (=gb12345		  . #x3876)	; 個
+      ))
     (hanyu-dazidian	1 103 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -209,6 +213,10 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (<-simplified@CN
+     ((=ucs		  . #x8C50)	; 豐
+      (=gb12345		  . #x3761)	; 豐
+      ))
     (shinjigen-1	. 35)
     (shinjigen-2	. 35)
     (=ucs		. #x4E30)	; 丰
@@ -516,6 +524,10 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 8)
     (total-strokes	 . 9)
+    (<-simplified@CN
+     ((=ucs		  . #x81E8)	; 臨
+      (=gb12345		  . #x4159)	; 臨
+      ))
     (hanyu-dazidian	1 30 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
