@@ -1343,9 +1343,8 @@ selection_data_to_lisp_data (struct device *d,
 			    type == DEVICE_XATOM_COMPOUND_TEXT (d)
 			    ? FORMAT_CTEXT : FORMAT_BINARY);
 
-  /* Convert a single atom to a Lisp Symbol.  Convert a set of atoms to
-     a vector of symbols.
-   */
+  /* Convert a single atom to a Lisp Symbol.
+     Convert a set of atoms to a vector of symbols. */
   else if (type == XA_ATOM)
     {
       if (size == sizeof (Atom))
