@@ -1,3 +1,22 @@
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Vcharset_chinese_big5_cdp): Deleted.
+	(Qchinese_big5_cdp): Deleted.
+	(syms_of_mule_charset): Delete symbol `chinese-big5-cdp'.
+	(complex_vars_of_mule_charset): Delete coded-charset
+	`chinese-big5-cdp'.
+
+	* char-ucs.h (CHARSET_ID_OFFSET): Deleted.
+	(LEADING_BYTE_*): Use `MIN_LEADING_BYTE + n' instead of
+	`CHARSET_ID_OFFSET - n' for private CCS.
+	(LEADING_BYTE_CHINESE_BIG5_CDP): Deleted.
+	(MIN_LEADING_BYTE_PRIVATE): Use `(MIN_LEADING_BYTE + 97)' instead
+	of `MIN_LEADING_BYTE'.
+	(MAX_LEADING_BYTE_PRIVATE): Use `-1' instead of
+	`(CHARSET_ID_OFFSET - 97)'.
+	(MIN_CHAR_BIG5_CDP): Deleted.
+	(MAX_CHAR_BIG5_CDP): Deleted.
+
 2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule.c (vars_of_mule): Update `utf-2000-version' to 0.19.
