@@ -112,8 +112,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -220,7 +220,18 @@
   '((ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "[= R004:M00129.0]")
+    (->same-ideograph
+     ((ideographic-radical . 4)	; ⼃
+      (ideograph-daikanwa . 00129)	; �����
+      ))
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; ⿻
+      )
+     ((ucs		  . #x52F9)	; 勹
+      )
+     ((ucs		  . #x4E42)	; 乂
+      ))
     (shinjigen-1	. 769)
     (shinjigen-2	. 769)
     (japanese-jisx0208-1978	. #x4C68)	; �����
@@ -234,8 +245,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -255,8 +266,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -276,8 +287,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -307,8 +318,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -454,8 +465,8 @@
     (hanyu-dazidian-page . 257)
     (hanyu-dazidian-char . 2)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -515,8 +526,8 @@
     (hanyu-dazidian-page . 258)
     (hanyu-dazidian-char . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -711,8 +722,8 @@
     (hanyu-dazidian-page . 258)
     (hanyu-dazidian-char . 13)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -733,8 +744,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -831,8 +842,8 @@
     (hanyu-dazidian-page . 259)
     (hanyu-dazidian-char . 11)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -995,8 +1006,8 @@
     (hanyu-dazidian-page . 260)
     (hanyu-dazidian-char . 5)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
@@ -1289,8 +1300,8 @@
     (kangxi-strokes	 . 13)
     (total-strokes	 . 16)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
-      (ucs		  . #x2FF4)	; ⿴
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; ⿹
       )
      ((ucs		  . #x52F9)	; 勹
       )
