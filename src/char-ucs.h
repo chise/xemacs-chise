@@ -29,15 +29,23 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
-typedef struct
-{
-  unsigned char *base;
-  size_t  offset;
-  size_t  size;
-} Emchar_to_byte_table;
+DECLARE_LRECORD (char_byte_table, struct Lisp_Char_Byte_Table);
+#define XCHAR_BYTE_TABLE(x) \
+  XRECORD (x, char_byte_table, struct Lisp_Char_Byte_Table)
+#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
+#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
+#define GC_CHAR_BYTE_TABLE_P(x) GC_RECORDP (x, char_byte_table)
+/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
+   char table entries should never escape to Lisp */
 
-unsigned char
-get_byte_from_character_table (Emchar ch, Emchar_to_byte_table* table);
+struct Lisp_Char_Byte_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object property[256];
+};
+
+Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
 
 
 extern Lisp_Object Vcharset_ucs_bmp;
@@ -221,8 +229,7 @@ struct Lisp_Charset
   Lisp_Object decoding_table;
 
   /* Character->byte mapping table */
-  Emchar_to_byte_table* to_byte1_table;
-  Emchar_to_byte_table* to_byte2_table;
+  Lisp_Object encoding_table;
 
   /* Range of character code */
   Emchar ucs_min, ucs_max;
@@ -270,8 +277,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
-#define CHARSET_TO_BYTE1_TABLE(cs) ((cs)->to_byte1_table)
-#define CHARSET_TO_BYTE2_TABLE(cs) ((cs)->to_byte2_table)
+#define CHARSET_ENCODING_TABLE(cs) ((cs)->encoding_table)
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
@@ -295,8 +301,7 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
-#define XCHARSET_TO_BYTE1_TABLE(cs) CHARSET_TO_BYTE1_TABLE(XCHARSET(cs))
-#define XCHARSET_TO_BYTE2_TABLE(cs) CHARSET_TO_BYTE2_TABLE(XCHARSET(cs))
+#define XCHARSET_ENCODING_TABLE(cs) CHARSET_ENCODING_TABLE(XCHARSET(cs))
 #define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
 #define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
