@@ -37,7 +37,7 @@
 (cond
  ((featurep 'chise)
   (defvar system-char-database-directory
-    (expand-file-name "char-db"
+    (expand-file-name "chise-db"
 		      (or exec-directory
 			  "../lib-src/")))
 
@@ -76,13 +76,15 @@
       (save-charset-mapping-table ccs))
     )
    (t
-    (mapcar (lambda (file)
-	      (mount-char-attribute-table
-	       (intern (file-name-char-attribute-name file))))
-	    (directory-files
-	     (expand-file-name "system-char-id"
-			       system-char-database-directory)
-	     nil nil t t))
+    (if (>= (function-min-args 'char-attribute-list) 1)
+	(char-attribute-list 'rehash)
+      (mapcar (lambda (file)
+		(mount-char-attribute-table
+		 (intern (file-name-char-attribute-name file))))
+	      (directory-files
+	       (expand-file-name "system-char-id"
+				 system-char-database-directory)
+	       nil nil t t)))
     (dolist (ccs (charset-list))
       (reset-charset-mapping-table ccs))
     )))
