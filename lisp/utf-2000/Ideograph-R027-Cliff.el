@@ -2425,7 +2425,8 @@
       )
      ((ucs		  . #x5382)	; åŽ‚
       )
-     ((chinese-cns11643-1 . #x5F63)	; ø»’ž¢
+     ((chinese-cns11643-1	  . #x5F63)	; ø»’ž¢
+      (japanese-jisx0213-1	  . #x7540)	; ø»¤Ž³
       ))
     (chinese-cns11643-2 . #x492D)	; ø»”‡œ
     (chinese-big5	. #xE146)	; ý¢€Ž…†
