@@ -375,10 +375,14 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 		val = Fread (val);
 	      else
 		val = Qunbound;
-	      put_char_id_table_0 (cit, ch, val);
 	      Fclose_database (db);
 	    }
+	  else
+	    val = Qunbound;
 	}
+      else
+	val = Qunbound;
+      put_char_id_table_0 (cit, ch, val);
     }
   if (UNBOUNDP (val))
     return cit->default_value;
