@@ -181,45 +181,43 @@
 		  max-code	#xFEFE
 		  registry	"Big5\\.ETEN"))
   (define-charset-alias 'chinese-big5-eten '=big5-eten)
-  (make-charset
-   'chinese-big5-eten-a
-   "Big5-ETEN-a"
-   `(long-name "Big5 ETEN (#xF9D6 .. #xF9FE)"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother chinese-big5
-	       min-code #xF9D6 max-code #xF9FE
-	       registry "Big5\\.ETEN"))
-  (make-charset
-   'chinese-big5-eten-b
-   "Big5-ETEN-b"
-   `(long-name "Big5 ETEN (#xC6A1 .. #xC8FE)"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       mother chinese-big5
-	       min-code #xC6A1 max-code #xC8FE
-	       registry "Big5\\.ETEN"))
-  (make-charset
-   'chinese-big5-cdp
-   "Big5-CDP"
-   `(long-name "Big5 with CDP extension"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry "big5\\.cdp-0"
-	       ;; min-code ,(lsh #x6200 16)
-	       ;; max-code ,(+ (lsh #x6200 16) #xFFFF)
-	       ;; code-offset ,(lsh #x6200 16)
-	       mother chinese-big5
-	       min-code #x8140 max-code #x8DFE))
+  (make-charset 'chinese-big5-eten-a
+		"Big5-ETEN-a"
+		`(long-name	"Big5 ETEN (#xF9D6 .. #xF9FE)"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#xF9D6
+		  max-code	#xF9FE
+		  registry	"Big5\\.ETEN"))
+  (make-charset 'chinese-big5-eten-b
+		"Big5-ETEN-b"
+		`(long-name	"Big5 ETEN (#xC6A1 .. #xC8FE)"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	chinese-big5
+		  min-code	#xC6A1
+		  max-code	#xC8FE
+		  registry	"Big5\\.ETEN"))
+  (make-charset '=big5-cdp
+		"Big5-CDP"
+		`(long-name	"Big5 with CDP extension"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"big5\\.cdp-0"
+		  mother	chinese-big5
+		  min-code	#x8140
+		  max-code	#x8DFE))
+  (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
   (make-charset
    'ideograph-gt-k
    "GT parts"

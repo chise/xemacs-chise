@@ -1,5 +1,10 @@
 2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* mule/mule-conf.el (=big5-cdp): Renamed from `chinese-big5-cdp'.
+	(chinese-big5-cdp): Changed to an alias for `=big5-cdp'.
+
+2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* mule/mule-conf.el (=big5-eten): Renamed from
 	`chinese-big5-eten'.
 	(chinese-big5-eten): Changed to an alias for `=big5-eten'.
