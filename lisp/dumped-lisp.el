@@ -120,6 +120,9 @@
 	;; Provide basic commands to set coding systems to user
 	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
+	(when-feature mule "mule-conf")
+	(when-feature mule "arabic")
+	(when-feature utf-2000 "update-cdb")
 	(when-feature mule "mule-charset")
 	(when-feature mule "mule-coding")
 	;; All files after this can have extended characters in them.
@@ -148,7 +151,6 @@
 ;; Now load files to set up all the different languages/environments
 ;; that Mule knows about.
 
-	(when-feature mule "arabic")
 	(when-feature mule "chinese")
 	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
@@ -163,6 +165,7 @@
 	(when-feature mule "thai-xtis-chars")
 	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
+	(when-feature (and mule (not utf-2000)) "viet-ccl")
 	(when-feature mule "vietnamese")
 
 	;; Specialized language support
@@ -251,6 +254,8 @@
 ;;	(when-feature sparcworks "sun-eos-debugger")
 ;;	(when-feature sparcworks "sun-eos-debugger-extra")
 ;;	(when-feature sparcworks "sun-eos-menubar")
+        ;; (when-feature utf-2000 "make-cdbs")
+	(when-feature chise "close-cdb")
 	"loadhist"		; Must be dumped before loaddefs is loaded
 	"loaddefs"		; <=== autoloads get loaded here
 ))

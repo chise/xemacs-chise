@@ -1,6 +1,7 @@
 /* String search routines for XEmacs.
    Copyright (C) 1985, 1986, 1987, 1992-1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -785,7 +786,11 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
   int negate = 0;
   REGISTER int i;
 #ifndef emacs
+#ifdef UTF2000
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 #endif
   Bufpos limit;
 
@@ -1285,7 +1290,11 @@ search_buffer (struct buffer *buf, Lisp_Object string, Bufpos bufpos,
 	    {
 	      /* Keep track of which character set row
 		 contains the characters that need translation.  */
+#ifdef UTF2000
+	      int charset_base_code = c >> 6;
+#else
 	      int charset_base_code = c & ~CHAR_FIELD3_MASK;
+#endif
 	      if (charset_base == -1)
 		charset_base = charset_base_code;
 	      else if (charset_base != charset_base_code)
@@ -1584,7 +1593,11 @@ boyer_moore (struct buffer *buf, Bufbyte *base_pat, Bytecount len,
 	      while (!BUFBYTE_FIRST_BYTE_P (*charstart))
 		charstart--;
 	      untranslated = charptr_emchar (charstart);
+#ifdef UTF2000
+	      if (charset_base == (untranslated >> 6))
+#else
 	      if (charset_base == (untranslated & ~CHAR_FIELD3_MASK))
+#endif
 		{
 		  ch = TRANSLATE (trt, untranslated);
 		  if (!BUFBYTE_FIRST_BYTE_P (*ptr))
@@ -1934,7 +1947,11 @@ wordify (Lisp_Object buffer, Lisp_Object string)
   Charcount i, len;
   EMACS_INT punct_count = 0, word_count = 0;
   struct buffer *buf = decode_buffer (buffer, 0);
+#ifdef UTF2000
+  Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   CHECK_STRING (string);
   len = XSTRING_CHAR_LENGTH (string);
@@ -2305,7 +2322,11 @@ match since only regular expressions have distinguished subexpressions.
       buf = XBUFFER (buffer);
     }
 
+#ifdef UTF2000
+  syntax_table = XCHAR_TABLE (buf->syntax_table);
+#else
   syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   case_action = nochange;	/* We tried an initialization */
 				/* but some C compilers blew it */
