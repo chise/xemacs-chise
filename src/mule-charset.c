@@ -2696,8 +2696,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
-		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI,
-		  MIN_CHAR_THAI, 32, Qnil, CONVERSION_96);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 96, 1,
