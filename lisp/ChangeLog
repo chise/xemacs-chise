@@ -1,3 +1,9 @@
+2003-02-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=hanziku-*): Renamed from
+	`ideograph-hanziku-*'.
+	(ideograph-hanziku-*): Changed to an alias for `=hanziku-*'.
+
 2003-02-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (ideograph-daikanwa): New coded-charsets when
