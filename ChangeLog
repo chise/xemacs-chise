@@ -1,3 +1,7 @@
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
+
 1999-06-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* configure.in: --prefix and --exec-prefix are now only compiled
