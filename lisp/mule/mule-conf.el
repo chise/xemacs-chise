@@ -97,4 +97,23 @@
   (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
   )
 
+;; JIS X 0213:2000
+(make-charset
+ 'japanese-jisx0213-1
+ "JIS X 0213:2000 Plain 1"
+ '(registry "jisx0213-1"
+   dimension 2
+   chars 94
+   final ?O
+   graphic 0))
+
+(make-charset
+ 'japanese-jisx0213-2
+ "JIS X 0213:2000 Plain 2"
+ '(registry "jisx0213-2"
+   dimension 2
+   chars 94
+   final ?P
+   graphic 0))
+
 ;;; mule-conf.el ends here
