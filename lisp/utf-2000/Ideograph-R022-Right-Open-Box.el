@@ -58,40 +58,41 @@
   '((ideographic-radical . 22)	; ⼕
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 82 6)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-      (=ucs		  . #x2FF7)	; ⿷
-      )
-     ((=ucs		  . #x531A)	; 匚
-      )
-     ((=ucs		  . #x4E5F)	; 也
-      ))
-    (shinjigen-1	. 787)
-    (shinjigen-2	. 787)
     (=ucs		. #x531C)	; 匜
-    (=jis-x0212		. #x3426)	; &I-JSP-3426; [20-06]
-    (=iso-ir165		. #x7A28)	; &I-EGB-7A28; [90-08]
-    (=jis-x0213-1-2000	. #x2E6D)	; &I-JX1-2E6D; [14-77]
-    (=big5		. #xC96C)	; &I-B-C96C;
-    (=daikanwa		. 02598)	; &I-M-02598;
-    (=jef-china3	. #x45B1)	; &I-JC3-45B1;
-    ))
-(define-char
-  '((=>ucs		. #x531C)	; 匜
-    (morohashi-daikanwa	2598 0 0)
-    (ideographic-radical . 22)	; ⼕
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-      (=ucs		  . #x2FF7)	; ⿷
+    (->subsumptive
+     ((hanyu-dazidian	  1 82 6)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=ucs		    . #x531A)	; 匚
+	)
+       ((=jis-x0208	    . #x4C69)	; &GT-00231; [44-73]
+	(=gb2312	    . #x5232)	; &I-G0-5232; [50-18]
+	(=ks-x1001	    . #x6525)	; &I-K0-6525; [69-05]
+	(=daikanwa	    . 00171)	; &I-M-00171;
+	))
+      (shinjigen-1	  . 787)
+      (shinjigen-2	  . 787)
+      (=jis-x0212	  . #x3426)	; &M-02598; [20-06]
+      (=iso-ir165	  . #x7A28)	; &I-EGB-7A28; [90-08]
+      (=jis-x0213-1-2000  . #x2E6D)	; &I-JX1-2E6D; [14-77]
+      (=big5		  . #xC96C)	; &I-B-C96C;
+      (=daikanwa	  . 02598)	; &I-M-02598;
+      (=jef-china3	  . #x45B1)	; &I-JC3-45B1;
+      (=ucs@unicode	  . #x531C)	; &M-02598;
       )
-     ((=ucs		  . #x531A)	; 匚
-      )
-     ((=cns11643-1	  . #x443E)	; &C1-443E; [36-30]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+	(=ucs		    . #x2FF7)	; ⿷
+	)
+       ((=ucs		    . #x531A)	; 匚
+	)
+       ((=cns11643-1	    . #x443E)	; &C1-443E; [36-30]
+	))
+      (=cns11643-2	  . #x214D)	; &C2-214D; [01-45]
+      (=ucs@cns		  . #x531C)	; &C2-214D;
       ))
-    (=cns11643-2	. #x214D)	; &C2-214D; [01-45]
     ))
 (define-char
   '((ideographic-radical . 22)	; ⼕
