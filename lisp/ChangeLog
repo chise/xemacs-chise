@@ -1,12 +1,25 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-cns11643-*'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02100-Letterlike-Symbols.el", "u02150-Number-Forms.el" and
+	"u02190-Arrows.el" in UTF-2000.
+
+	* utf-2000/u02100-Letterlike-Symbols.el,
+	utf-2000/u02150-Number-Forms.el, utf-2000/u02190-Arrows.el: New
+	files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`korean-ksc5601'.
 
 	* dumped-lisp.el (preloaded-file-list): Add
 	"u02000-General-Punctuation.el", "u02070-Superscripts.el",
 	"u02080-Subscripts.el", "u020A0-Currency-Symbols.el" and
-	"u020D0-Combining-Diacritical-Marks-for-Symbols.el".
+	"u020D0-Combining-Diacritical-Marks-for-Symbols.el" in UTF-2000.
 
 	* utf-2000/u02000-General-Punctuation.el,
 	utf-2000/u02070-Superscripts.el, utf-2000/u02080-Subscripts.el,
