@@ -9576,7 +9576,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x90A3)	; &UU+90A3;
+       ((=ucs@unicode	    . #x90A3)	; &GT-52927;
 	))
       (=cns11643-3	  . #x2B30)	; &CB04175; [11-16]
       (=hanziku-1	  . #xC3A5)	; &I-HZK01-C3A5;
@@ -14612,7 +14612,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x91C7)	; &UU+91C7;
+       ((=ucs@unicode	    . #x91C7)	; &GT-53946;
 	))
       (=ucs@unicode	  . #x5038)	; &UU+5038;
       )
