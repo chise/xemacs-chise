@@ -109,6 +109,8 @@
 (define-char
   '((ideographic-radical . 80)	; ⽏
     (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (chinese-gb12345	. #x7C40)	; 乸
     (ucs		. #x4E78)	; 乸
     ))
 (define-char
