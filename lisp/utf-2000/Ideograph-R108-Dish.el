@@ -302,6 +302,7 @@
     (total-strokes	 . 10)
     (=jis-x0212		. #x4E4B)	; ø»‹§€
     (=cns11643-2	. #x312F)	; ø»“¤Ž
+    (=jis-x0213-2-2000	. #x7176)	; ø»¦“µ
     (=daikanwa		. 22965)	; ø¸…¦µ
     (=jef-china3	. #x92BA)	; øº‰Šº
     (=ucs		. #x76C9)	; ç›‰
@@ -1268,6 +1269,7 @@
     (total-strokes	 . 17)
     (=jis-x0212		. #x4E53)	; ø»‹§ˆ
     (=cns11643-4	. #x572D)	; ø»˜°ˆ
+    (=jis-x0213-2-2000	. #x7178)	; ø»¦“·
     (=daikanwa		. 23058)	; ø¸…¨’
     (=ucs		. #x76E8)	; ç›¨
     ))
