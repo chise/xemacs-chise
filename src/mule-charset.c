@@ -71,6 +71,18 @@ Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_chinese_big5;
+Lisp_Object Vcharset_ideograph_gt;
+Lisp_Object Vcharset_ideograph_gt_pj_1;
+Lisp_Object Vcharset_ideograph_gt_pj_2;
+Lisp_Object Vcharset_ideograph_gt_pj_3;
+Lisp_Object Vcharset_ideograph_gt_pj_4;
+Lisp_Object Vcharset_ideograph_gt_pj_5;
+Lisp_Object Vcharset_ideograph_gt_pj_6;
+Lisp_Object Vcharset_ideograph_gt_pj_7;
+Lisp_Object Vcharset_ideograph_gt_pj_8;
+Lisp_Object Vcharset_ideograph_gt_pj_9;
+Lisp_Object Vcharset_ideograph_gt_pj_10;
+Lisp_Object Vcharset_ideograph_gt_pj_11;
 Lisp_Object Vcharset_ideograph_daikanwa;
 Lisp_Object Vcharset_mojikyo;
 Lisp_Object Vcharset_mojikyo_2022_1;
@@ -1589,6 +1601,18 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qchinese_big5,
+  Qideograph_gt,
+  Qideograph_gt_pj_1,
+  Qideograph_gt_pj_2,
+  Qideograph_gt_pj_3,
+  Qideograph_gt_pj_4,
+  Qideograph_gt_pj_5,
+  Qideograph_gt_pj_6,
+  Qideograph_gt_pj_7,
+  Qideograph_gt_pj_8,
+  Qideograph_gt_pj_9,
+  Qideograph_gt_pj_10,
+  Qideograph_gt_pj_11,
   Qmojikyo,
   Qmojikyo_2022_1,
   Qmojikyo_pj_1,
@@ -3527,6 +3551,18 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qideograph_gt,		"ideograph-gt");
+  defsymbol (&Qideograph_gt_pj_1,	"ideograph-gt-pj-1");
+  defsymbol (&Qideograph_gt_pj_2,	"ideograph-gt-pj-2");
+  defsymbol (&Qideograph_gt_pj_3,	"ideograph-gt-pj-3");
+  defsymbol (&Qideograph_gt_pj_4,	"ideograph-gt-pj-4");
+  defsymbol (&Qideograph_gt_pj_5,	"ideograph-gt-pj-5");
+  defsymbol (&Qideograph_gt_pj_6,	"ideograph-gt-pj-6");
+  defsymbol (&Qideograph_gt_pj_7,	"ideograph-gt-pj-7");
+  defsymbol (&Qideograph_gt_pj_8,	"ideograph-gt-pj-8");
+  defsymbol (&Qideograph_gt_pj_9,	"ideograph-gt-pj-9");
+  defsymbol (&Qideograph_gt_pj_10,	"ideograph-gt-pj-10");
+  defsymbol (&Qideograph_gt_pj_11,	"ideograph-gt-pj-11");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qmojikyo,			"mojikyo");
@@ -3932,6 +3968,38 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5 Chinese traditional"),
 		  build_string ("big5"),
 		  Qnil, 0, 0, 0, 0);
+  staticpro (&Vcharset_ideograph_gt);
+  Vcharset_ideograph_gt =
+    make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("GT"),
+		  build_string ("GT"),
+		  build_string ("GT"),
+		  build_string (""),
+		  Qnil, MIN_CHAR_GT, MAX_CHAR_GT, 0, 0);
+#define DEF_GT_PJ(n)							\
+  staticpro (&Vcharset_ideograph_gt_pj_##n);				\
+  Vcharset_ideograph_gt_pj_##n =					\
+    make_charset (LEADING_BYTE_GT_PJ_##n, Qideograph_gt_pj_##n, 94, 2,	\
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,			\
+		  build_string ("GT-PJ-"#n),			   	\
+		  build_string ("GT (pseudo JIS encoding) part "#n),	\
+		  build_string ("GT 2000 (pseudo JIS encoding) part "#n), \
+		  build_string						\
+		  ("\\(GT2000PJ-"#n "\\|jisx0208\\.GT2000-"#n "\\)$"),	\
+		  Qnil, 0, 0, 0, 33);
+  DEF_GT_PJ (1);
+  DEF_GT_PJ (2);
+  DEF_GT_PJ (3);
+  DEF_GT_PJ (4);
+  DEF_GT_PJ (5);
+  DEF_GT_PJ (6);
+  DEF_GT_PJ (7);
+  DEF_GT_PJ (8);
+  DEF_GT_PJ (9);
+  DEF_GT_PJ (10);
+  DEF_GT_PJ (11);
+
   staticpro (&Vcharset_ideograph_daikanwa);
   Vcharset_ideograph_daikanwa =
     make_charset (LEADING_BYTE_DAIKANWA, Qideograph_daikanwa, 256, 2,
