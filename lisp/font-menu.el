@@ -405,7 +405,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 (defun font-menu-change-face (face
 			      from-family from-weight from-size
 			      to-family   to-weight   to-size)
-  (or (symbolp face) (setq face (wrong-type-argument 'symbolp face)))
+  (check-type face symbol)
   (let* ((dcache (device-fonts-cache))
 	 (font-data (font-menu-font-data face dcache))
 	 (face-family (aref font-data 1))

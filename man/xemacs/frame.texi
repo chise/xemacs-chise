@@ -45,12 +45,12 @@ If you are running XEmacs under a graphical windowing system, a
 menu bar at the top of the frame makes shortcuts to several of the
 commands available (@pxref{Pull-down Menus}).
 @item
-If you are running XEmacs under a graphical windowing system, a
+Under a graphical windowing system, a
 toolbar at the top of the frame, just under the menu bar if it exists,
 provides ``one-touch'' shortcuts to several commands.  (Not yet
 documented.)
 @item
-If you are running XEmacs under a graphical windowing system, a
+Under a graphical windowing system, a
 gutter at the top (under the toolbar) and/or bottom of the frame
 provides advanced GUI facilities like tab controls for rapid switching
 among related windows and progress bars for time-consuming operations
@@ -80,9 +80,12 @@ visible in all XEmacs windows containing that buffer.
 @menu
 * Point::	        The place in the text where editing commands operate.  
 * Echo Area::           Short messages appear at the bottom of the frame.  
-* Mode Line::	        Interpreting the mode line.  
+* Mode Line::	        Interpreting the mode line.
+* GUI Components::      Menubar, toolbars, gutters.
 * XEmacs under X::      Some information on using XEmacs under the X 
                         Window System. 
+* XEmacs under MS Windows:: Some information on using XEmacs under
+                        Microsoft Windows.
 @end menu
 
 @node Point, Echo Area, Frame, Frame
@@ -169,7 +172,7 @@ appears after the prompt.  You can always get out of the minibuffer by
 typing @kbd{C-g}.  @xref{Minibuffer}.
 @end itemize
 
-@node Mode Line, XEmacs under X, Echo Area, Frame
+@node Mode Line, GUI Components, Echo Area, Frame
 @comment  node-name,  next,  previous,  up
 @section The Mode Line
 @cindex mode line
@@ -272,7 +275,187 @@ the terminal supports it); @code{nil} means no inverse video.  The
 default is @code{t}.  For X frames, simply set the foreground and
 background colors appropriately.
   
-@node XEmacs under X, , Mode Line, Frame
+@node GUI Components, XEmacs under X, Mode Line, Frame
+@comment  node-name,  next,  previous,  up
+@section GUI Components
+
+When executed in a graphical windowing environment such as the X Window
+System or Microsoft Windows, XEmacs displays several graphical user
+interface components such as scrollbars, menubars, toolbars, and
+gutters.  By default there is a vertical scrollbar at the right of each
+frame, and at the top of the frame there is a menubar, a toolbar, and a
+gutter, in that order.  Gutters can contain any of several widgets, but
+the default configuration puts a set of "notebook tabs" which you can
+use as a shortcut for selecting any of several related buffers in a
+given frame.  Operating the GUI components is "obvious":  click on the
+menubar to pull down a menu, on a button in the toolbar to invoke a
+function, and on a tab in the gutter to switch buffers.
+
+@menu
+* Menubar Basics::      How XEmacs uses the menubar.
+* Scrollbar Basics::    How XEmacs uses scrollbars.
+* Toolbar Basics::      How XEmacs uses toolbars.
+* Gutter Basics::       How XEmacs uses gutters.
+* Inhibiting::          What if you don't like GUI?
+* Customizing::         Position, orientation, and appearance of GUI objects.
+@end menu
+
+@node Menubar Basics, Scrollbar Basics, , GUI Components
+@comment  node-name,  next,  previous,  up
+@section The XEmacs Menubar
+
+The XEmacs menubar is intended to be conformant to the usual conventions
+for menubars, although conformance is not yet perfect.  The menu at the
+extreme right is the @samp{Help} menu, which should always be
+available.  It provides access to all the XEmacs help facilities
+available through @kbd{C-h}, as well as samples of various configuration
+files like @samp{~/.Xdefaults} and @samp{~/.emacs}.  At the extreme left
+is the @samp{Files} menu, which provides the usual file reading,
+writing, and printing operations, as well as operations like revert
+buffer from most recent save.  The next menu from the left is the
+@samp{Edit} menu, which provides the @samp{Undo} operation as well as
+cutting and pasting, searching, and keyboard macro definition and
+execution.
+
+@c #### w3.el and VM should get cross-references here.
+XEmacs provides a very dynamic environment, and the Lisp language makes
+for highly flexible applications.  The menubar reflects this: many menus
+(eg, the @samp{Buffers} menu, @pxref{Buffers Menu}) contain items
+determined by the current state of XEmacs, and most major modes and many
+minor modes add items to menus and even whole menus to the menubar.  In
+fact, some applications like w3.el and VM provide so many menus that
+they define a whole new menubar and add a button that allows convenient
+switching between the ``XEmacs menubar'' and the ``application
+menubar''.  Such applications normally bind themselves to a particular
+frame, and this switching only takes place on frames where such an
+application is active (ie, the current window of the frame is displaying
+a buffer in the appropriate major mode).
+
+Other menus which are typically available are the @samp{Options},
+@samp{Tools}, @samp{Buffers}, @samp{Apps}, and @samp{Mule} menus.  For
+detailed descriptions of these menus, @ref{Pull-down Menus}.  (In 21.2
+XEmacsen, the @samp{Mule} menu will be moved under @samp{Options}.)
+
+@node Scrollbar Basics, Toolbar Basics, Menubar Basics, GUI Components
+@comment  node-name,  next,  previous,  up
+@section XEmacs Scrollbars
+
+XEmacs scrollbars provide the usual interface.  Arrow buttons at either
+end allow for line by line scrolling, including autorepeat.  Clicking in
+the scrollbar itself provides scrolling by windowsfull, depending on
+which side of the slider is clicked.  The slider itself may be dragged
+for smooth scrolling.
+
+The position of the slider corresponds to the position of the window in
+the buffer.  In particular, the length of the slider is proportional to
+the fraction of the buffer which appears in the window.
+
+The presence of the scrollbars is under control of the application or
+may be customized by the user.  By default a vertical scrollbar is
+present in all windows (except the minibuffer), and there is no
+horizontal scrollbar.
+
+@node Toolbar Basics, Gutter Basics, Scrollbar Basics, GUI Components
+@comment  node-name,  next,  previous,  up
+@section XEmacs Toolbars
+
+XEmacs has a default toolbar which provides shortcuts for some of the
+commonly used operations (such as opening files) and applications (such
+as the Info manual reader).  Operations which require arguments will pop
+up dialogs to get them.
+
+The position of the default toolbar can be customized.  Also, several
+toolbars may be present simultaneously (in different positions).  VM,
+for example, provides an application toolbar which shortcuts for
+mail-specific operations like sending, saving, and deleting messages.
+
+@node Gutter Basics, Inhibiting, Toolbar Basics, GUI Components
+@comment  node-name,  next,  previous,  up
+@section XEmacs Gutters
+
+Gutters are the most flexible of the GUI components described in this
+section.  In theory, the other GUI components could be implemented by
+customizing a gutter, but in practice the other components were
+introduced earlier and have their own special implementations.  Gutters
+tend to be more transient than the other components.  Buffer tabs, for
+example, change every time the selected buffer in the frame changes.
+And for progress gauges a gutter to contain the gauge is typically
+created on the fly when needed, then destroyed when the operation whose
+staus is being displayed is completed.
+
+Buffer tabs, having somewhat complex behavior, deserve a closer look.
+By default, a row of buffer tabs is displayed at the top of every frame.
+(The tabs could be placed in the bottom gutter, but would be oriented
+the same way and look rather odd.  The horizontal orientation makes
+putting them in a side gutter utterly impractical.)  The buffer
+displayed in the current window of a frame can be changed to a specific
+buffer by clicking [mouse-1] on the corresponding tab in the gutter.
+
+Each tab contains the name of its buffer.  The tab for the current
+buffer in each frame is displayed in raised relief.  The list of buffers
+chosen for display in the buffer tab row is derived by filtering the
+buffer list (like the @code{Buffers} menu).  The list starts out with
+all existing buffers, with more recently selected buffers coming earlier
+in the list.
+
+Then "uninteresting" buffers, like internal XEmacs buffers, the
+@code{*Message Log*} buffer, and so on are deleted from the list.  Next,
+the frame's selected buffer is determined.  Buffers with a different
+major mode from the selected buffer are removed from the list.  Finally,
+if the list is too long, the least recently used buffers are deleted
+from the list.  By default up to 6 most recently used buffers with the
+same mode are displayed on tabs in the gutter.
+
+@node Inhibiting, Customizing, Gutter Basics, GUI Components
+@comment  node-name,  next,  previous,  up
+@section Inhibiting Display of GUI Components
+
+Use of GUI facilities is a personal thing.  Almost everyone agrees that
+drawing via keyboard-based "turtle graphics" is acceptable to hardly
+anyone if a mouse is available, but conversely emulating a keyboard with
+a screenful of buttons is a painful experience.  But between those
+extremes the complete novice will require a fair amount of time before
+toolbars and menus become dispensable, but many an "Ancien Haquer" sees
+them as a complete waste of precious frame space that could be filled
+with text.
+
+Display of all of the GUI components created by XEmacs can be inhibited
+through the use of Customize.  Customize can be accessed through
+@samp{Options | Customize} in the menu bar, or via @kbd{M-x customize}.
+Then navigate through the Customize tree to @samp{Emacs | Environment}.
+Scrollbar and toolbar visibility is controlled via the @samp{Display}
+group, options @samp{Scrollbars visible} and  @samp{Toolbar visible}
+respectively.  Gutter visibility is controlled by group @samp{Gutter},
+option @samp{Visible}.
+
+Or they can be controlled directly by @kbd{M-x customize-variable}, by
+changing the values of the variables @code{menubar-visible-p},
+@code{scrollbars-visible-p}, @code{toolbar-visible-p}, or
+@code{gutter-buffers-tab-visible-p} respectively.  (The strange form of
+the last variable is due to the fact that gutters are often used to
+display transient widgets like progress gauges, which you probably don't
+want to inhibit.  It is more likely that you want to inhibit the default
+display of the buffers tab widget, which is what that variable controls.
+This interface is subject to change depending on developer experience
+and user feedback.)
+
+Control of frame configuration can controlled automatically according to
+various parameters such as buffer or frame because these are
+@dfn{specifiers} @ref{Specifiers, , , lispref}.  Using these features
+requires programming in Lisp; Customize is not yet that sophisticated.
+Also, components that appear in various positions and orientations can
+have display suppressed according to position.  @kbd{C-h a visible-p}
+gives a list of variables which can be customized.  E.g., to control the
+visibility of specifically the left-side toolbar only, customize
+@code{left-toolbar-visible-p}.
+
+@node Customizing, , Inhibiting, GUI Components
+@comment  node-name,  next,  previous,  up
+@section Changing the Position, Orientation, and Appearance of GUI Components
+
+  #### Not documented yet.
+
+@node XEmacs under X, XEmacs under MS Windows, GUI Components, Frame
 @section Using XEmacs Under the X Window System
 @comment  node-name,  next,  previous,  up
 
@@ -355,3 +538,15 @@ the name of the current frame (a frame's name is distinct from its
 title; the name is used for resource lookup, among other things, and the
 title is simply what appears above the window.)
 @end itemize
+
+@node XEmacs under MS Windows, , XEmacs under X, Frame
+@section Using XEmacs Under Microsoft Windows
+@comment  node-name,  next,  previous,  up
+
+Use of XEmacs under MS Windows is not separately documented here, but
+most operations available under the X Window System are also available
+with MS Windows.
+
+Where possible, native MS Windows GUI components and capabilities are
+used in XEmacs.
+

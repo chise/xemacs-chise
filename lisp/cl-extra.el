@@ -76,8 +76,8 @@ TYPE is a Common Lisp type specifier."
 	((eq type 'array) (if (arrayp x) x (vconcat x)))
 	((and (eq type 'character) (stringp x) (= (length x) 1)) (aref x 0))
 	((and (eq type 'character) (symbolp x)) (coerce (symbol-name x) type))
-	((and (eq type 'character) (numberp x) (char-or-char-int-p x)
-	      (int-char x)))
+	((and (eq type 'character) (char-int-p x)) (int-char x))
+	((and (eq type 'integer) (characterp x)) (char-int x))
 	((eq type 'float) (float x))
 	((eq type 'bit-vector) (if (bit-vector-p x) x
 				 (apply 'bit-vector (append x nil))))

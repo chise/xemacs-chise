@@ -137,7 +137,7 @@ struct rune
 
   union				/* Information specific to the type of rune */
   {
-    /* #### GLyps are are. Is it really necessary to waste 8 bytes on every
+    /* #### GLyphs are rare. Is it really necessary to waste 8 bytes on every
        rune for that?! */
     /* DGLYPH */
     struct

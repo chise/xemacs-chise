@@ -1542,7 +1542,7 @@ key_desc_list_to_event (Lisp_Object list, Lisp_Object event,
 int
 event_matches_key_specifier_p (Lisp_Event *event, Lisp_Object key_specifier)
 {
-  Lisp_Object event2;
+  Lisp_Object event2 = Qnil;
   int retval;
   struct gcpro gcpro1;
 

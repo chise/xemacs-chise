@@ -36,6 +36,9 @@ Boston, MA 02111-1307, USA.  */
 #include "mule-charset.h"
 #endif
 
+#include "casetab.h"
+#include "chartab.h"
+
 /************************************************************************/
 /*                                                                      */
 /*                    definition of Lisp buffer object                  */
@@ -1686,54 +1689,33 @@ int map_over_sharing_buffers (struct buffer *buf,
    already guaranteed that the character values are all in the range
    0 - 255.  Bad lossage will happen otherwise. */
 
-# define MAKE_TRT_TABLE() Fmake_string (make_int (256), make_char (0))
-# define TRT_TABLE_AS_STRING(table) XSTRING_DATA (table)
-# define TRT_TABLE_CHAR_1(table, ch) \
-  string_char (XSTRING (table), (Charcount) ch)
-# define SET_TRT_TABLE_CHAR_1(table, ch1, ch2) \
-  set_string_char (XSTRING (table), (Charcount) ch1, ch2)
-
-#ifdef MULE
-# define MAKE_MIRROR_TRT_TABLE() make_opaque (OPAQUE_CLEAR, 256)
-# define MIRROR_TRT_TABLE_AS_STRING(table) ((Bufbyte *) XOPAQUE_DATA (table))
-# define MIRROR_TRT_TABLE_CHAR_1(table, ch) \
-  ((Emchar) (MIRROR_TRT_TABLE_AS_STRING (table)[ch]))
-# define SET_MIRROR_TRT_TABLE_CHAR_1(table, ch1, ch2) \
-  (MIRROR_TRT_TABLE_AS_STRING (table)[ch1] = (Bufbyte) (ch2))
-#endif
-
-# define IN_TRT_TABLE_DOMAIN(c) (((EMACS_UINT) (c)) <= 255)
-
-#ifdef MULE
-#define MIRROR_DOWNCASE_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_downcase_table)
-#define MIRROR_UPCASE_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_upcase_table)
-#define MIRROR_CANON_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_case_canon_table)
-#define MIRROR_EQV_TABLE_AS_STRING(buf) \
-  MIRROR_TRT_TABLE_AS_STRING (buf->mirror_case_eqv_table)
-#else
-#define MIRROR_DOWNCASE_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->downcase_table)
-#define MIRROR_UPCASE_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->upcase_table)
-#define MIRROR_CANON_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->case_canon_table)
-#define MIRROR_EQV_TABLE_AS_STRING(buf) \
-  TRT_TABLE_AS_STRING (buf->case_eqv_table)
-#endif
+#define MAKE_TRT_TABLE() Fmake_char_table (Qgeneric)
+INLINE_HEADER Emchar TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar c);
+INLINE_HEADER Emchar
+TRT_TABLE_CHAR_1 (Lisp_Object table, Emchar ch)
+{
+  Lisp_Object TRT_char;
+  TRT_char = get_char_table (ch, XCHAR_TABLE (table));
+  if (NILP (TRT_char))
+    return ch;
+  else
+    return XCHAR (TRT_char);
+}
+#define SET_TRT_TABLE_CHAR_1(table, ch1, ch2)	\
+  Fput_char_table (make_char (ch1), make_char (ch2), table);
 
 INLINE_HEADER Emchar TRT_TABLE_OF (Lisp_Object trt, Emchar c);
 INLINE_HEADER Emchar
 TRT_TABLE_OF (Lisp_Object trt, Emchar c)
 {
-  return IN_TRT_TABLE_DOMAIN (c) ? TRT_TABLE_CHAR_1 (trt, c) : c;
+  return TRT_TABLE_CHAR_1 (trt, c);
 }
 
 /* Macros used below. */
-#define DOWNCASE_TABLE_OF(buf, c) TRT_TABLE_OF (buf->downcase_table, c)
-#define UPCASE_TABLE_OF(buf, c) TRT_TABLE_OF (buf->upcase_table, c)
+#define DOWNCASE_TABLE_OF(buf, c)	\
+  TRT_TABLE_OF (XCASE_TABLE_DOWNCASE (buf->case_table), c)
+#define UPCASE_TABLE_OF(buf, c)		\
+  TRT_TABLE_OF (XCASE_TABLE_UPCASE (buf->case_table), c)
 
 /* 1 if CH is upper case.  */
 

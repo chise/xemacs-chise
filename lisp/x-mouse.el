@@ -101,39 +101,41 @@ to the cut buffer."
       nil
     (set-glyph-image text-pointer-glyph
 	  (or (x-get-resource "textPointer" "Cursor" 'string device nil 'warn)
-	      "xterm"))
+	      [cursor-font :data "xterm"]))
     (set-glyph-image selection-pointer-glyph
 	  (or (x-get-resource "selectionPointer" "Cursor" 'string device
 			      nil 'warn)
-	      "top_left_arrow"))
+	      [cursor-font :data "top_left_arrow"]))
     (set-glyph-image nontext-pointer-glyph
 	  (or (x-get-resource "spacePointer" "Cursor" 'string device nil 'warn)
-	      "xterm")) ; was "crosshair"
+	      [cursor-font :data "xterm"])) ; was "crosshair"
     (set-glyph-image modeline-pointer-glyph
 	  (or (x-get-resource "modeLinePointer" "Cursor" 'string device
 			      nil 'warn)
 ;;	      "fleur"))
-	      "sb_v_double_arrow"))
+	      [cursor-font :data "sb_v_double_arrow"]))
     (set-glyph-image gc-pointer-glyph
 	  (or (x-get-resource "gcPointer" "Cursor" 'string device nil 'warn)
-	      "watch"))
+	      [cursor-font :data "watch"]))
     (when (featurep 'scrollbar)
       (set-glyph-image
        scrollbar-pointer-glyph
        (or (x-get-resource "scrollbarPointer" "Cursor" 'string device
 			   nil 'warn)
-	   "top_left_arrow")))
+	   ;; bizarrely if we don't specify the specific locale (x) this
+	   ;; gets instantiated on the stream device. Bad puppy.
+	   [cursor-font :data "top_left_arrow"]) 'global '(default x)))
     (set-glyph-image busy-pointer-glyph
 	  (or (x-get-resource "busyPointer" "Cursor" 'string device nil 'warn)
-	      "watch"))
+	      [cursor-font :data "watch"]))
     (set-glyph-image toolbar-pointer-glyph
 	  (or (x-get-resource "toolBarPointer" "Cursor" 'string device
 			      nil 'warn)
-	      "left_ptr"))
+	      [cursor-font :data "left_ptr"]))
     (set-glyph-image divider-pointer-glyph
 	  (or (x-get-resource "dividerPointer" "Cursor" 'string device
 			      nil 'warn)
-	      "sb_h_double_arrow"))
+	      [cursor-font :data "sb_h_double_arrow"]))
     (let ((fg
 	   (x-get-resource "pointerColor" "Foreground" 'string device
 			   nil 'warn)))

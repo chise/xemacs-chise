@@ -167,9 +167,9 @@ The @dfn{echo area} is used for displaying messages made with the
 @code{message} primitive, and for echoing keystrokes.  It is not the
 same as the minibuffer, despite the fact that the minibuffer appears
 (when active) in the same place on the screen as the echo area.  The
-@cite{XEmacs Reference Manual} specifies the rules for resolving conflicts
+@cite{XEmacs Lisp Reference Manual} specifies the rules for resolving conflicts
 between the echo area and the minibuffer for use of that screen space
-(@pxref{Minibuffer,, The Minibuffer, emacs, The XEmacs Reference Manual}).
+(@pxref{Minibuffer,, The Minibuffer, xemacs, The XEmacs Lisp Reference Manual}).
 Error messages appear in the echo area; see @ref{Errors}.
 
 You can write output in the echo area by using the Lisp printing

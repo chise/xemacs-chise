@@ -1023,7 +1023,8 @@ If unspecified in a particular domain, `nontext-pointer-glyph' is used.")
 				 [jpeg :data nil] 2)))
        ,@(if (featurep 'png) '(("\\.png\\'" [png :file nil] 2)))
        ,@(if (featurep 'png) '(("\\`\211PNG" [png :data nil] 2)))
-       ("" [autodetect :data nil] 2))))
+       ("" [string :data nil] 2)
+       ("" [nothing]))))
   ;; #### this should really be formatted-string, not string but we
   ;; don't have it implemented yet
   ;;

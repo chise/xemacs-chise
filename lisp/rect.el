@@ -201,7 +201,7 @@ deleted."
     (goto-char start)
     (while (search-forward "\t" end t)
       (let ((width (- (current-column)
-		      (save-excursion (forward-char -1)
+		      (save-excursion (backward-char 1)
 				      (current-column)))))
 	(setq line (concat (substring line 0 (- (point) end 1))
 			   (spaces-string width)

@@ -94,7 +94,7 @@ information to read the documentation from the appropriate file; this is
 transparent to the user.
 
   For information on the uses of documentation strings, see @ref{Help, ,
-Help, emacs, The XEmacs Reference Manual}.
+Help, xemacs, The XEmacs Reference Manual}.
 
 @c Wordy to prevent overfull hbox.  --rjc 15mar92
   The @file{emacs/lib-src} directory contains two utilities that you can
@@ -456,7 +456,7 @@ XEmacs buffers are usually displayed).
   XEmacs provides a variety of on-line help functions, all accessible to
 the user as subcommands of the prefix @kbd{C-h}, or on some keyboards,
 @kbd{help}.  For more information about them, see @ref{Help, , Help,
-emacs, The XEmacs Reference Manual}.  Here we describe some
+emacs, The XEmacs Lisp Reference Manual}.  Here we describe some
 program-level interfaces to the same information.
 
 @deffn Command apropos regexp &optional do-all predicate

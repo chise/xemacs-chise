@@ -40,6 +40,7 @@ Boston, MA 02111-1307, USA.  */
 #include "glyphs.h"
 #include "redisplay.h"
 #include "faces.h"
+#include "gutter.h"
 
 static int compare_runes (struct window *w, struct rune *crb,
 			  struct rune *drb);
@@ -1263,7 +1264,12 @@ redisplay_output_subwindow (struct window *w,
   sdga.height = IMAGE_INSTANCE_HEIGHT (p);
   sdga.width = IMAGE_INSTANCE_WIDTH (p);
 
-  if (redisplay_display_boxes_in_window_p (w, db, &sdga) < 0)
+  if (redisplay_display_boxes_in_window_p (w, db, &sdga) == 0
+      ||
+      /* We only want to do full subwindow display for windows that
+	 are completely in the gutter, otherwise we must clip to be
+	 safe. */
+      display_boxes_in_gutter_p (XFRAME (w->frame), db, &sdga) <= 0)
     {
       map_subwindow (image_instance, db->xpos, db->ypos, dga);
     }
@@ -1822,9 +1828,9 @@ redisplay_normalize_display_box (struct display_box* dest,
 /*****************************************************************************
  redisplay_display_boxes_in_window_p
 
- Determine whether the require display_glyph_area is completely inside
- the window. 0 means the display_box is not in the window. 1 means the
- display_box and the display_glyph_area are in the window. -1 means
+ Determine whether the required display_glyph_area is completely inside
+ the window. -1 means the display_box is not in the window. 1 means the
+ display_box and the display_glyph_area are in the window. 0 means
  the display_box is in the window but the display_glyph_area is not.
  ****************************************************************************/
 static int
@@ -1840,8 +1846,8 @@ redisplay_display_boxes_in_window_p (struct window* w,
   if (db->xpos < left || db->ypos < top
       || db->xpos + db->width > right
       || db->ypos + db->height > bottom)
-    /* We are not displaying in a window at all */
-    return 0;
+      /* We are not displaying in a window at all */
+      return -1;
 
   if (db->xpos + dga->xoffset >= left
       &&
@@ -1852,7 +1858,7 @@ redisplay_display_boxes_in_window_p (struct window* w,
       db->ypos + dga->yoffset + dga->height <= bottom)
     return 1;
 
-  return -1;
+  return 0;
 }
 
 /*****************************************************************************

@@ -443,27 +443,38 @@ scan_words (struct buffer *buf, Bufpos from, int count)
   return from;
 }
 
-DEFUN ("forward-word", Fforward_word, 1, 2, "_p", /*
+DEFUN ("forward-word", Fforward_word, 0, 2, "_p", /*
 Move point forward COUNT words (backward if COUNT is negative).
-Normally returns t.
-If an edge of the buffer is reached, point is left there
-and nil is returned.
+Normally t is returned, but if an edge of the buffer is reached,
+point is left there and nil is returned.
 
-Optional argument BUFFER defaults to the current buffer.
+COUNT defaults to 1, and BUFFER defaults to the current buffer.
 */
        (count, buffer))
 {
   Bufpos val;
   struct buffer *buf = decode_buffer (buffer, 0);
-  CHECK_INT (count);
+  EMACS_INT n;
 
-  if (!(val = scan_words (buf, BUF_PT (buf), XINT (count))))
+  if (NILP (count))
+    n = 1;
+  else
     {
-      BUF_SET_PT (buf, XINT (count) > 0 ? BUF_ZV (buf) : BUF_BEGV (buf));
+      CHECK_INT (count);
+      n = XINT (count);
+    }
+
+  val = scan_words (buf, BUF_PT (buf), n);
+  if (val)
+    {
+      BUF_SET_PT (buf, val);
+      return Qt;
+    }
+  else
+    {
+      BUF_SET_PT (buf, n > 0 ? BUF_ZV (buf) : BUF_BEGV (buf));
       return Qnil;
     }
-  BUF_SET_PT (buf, val);
-  return Qt;
 }
 
 static void scan_sexps_forward (struct buffer *buf,
@@ -648,14 +659,14 @@ find_end_of_comment (struct buffer *buf, Bufpos from, Bufpos stop, int mask)
    ever complains about this function not working properly, take a look
    at those changes.  --ben */
 
-DEFUN ("forward-comment", Fforward_comment, 1, 2, 0, /*
+DEFUN ("forward-comment", Fforward_comment, 0, 2, 0, /*
 Move forward across up to COUNT comments, or backwards if COUNT is negative.
 Stop scanning if we find something other than a comment or whitespace.
 Set point to where scanning stops.
 If COUNT comments are found as expected, with nothing except whitespace
 between them, return t; otherwise return nil.
 Point is set in either case.
-Optional argument BUFFER defaults to the current buffer.
+COUNT defaults to 1, and BUFFER defaults to the current buffer.
 */
        (count, buffer))
 {
@@ -667,8 +678,13 @@ Optional argument BUFFER defaults to the current buffer.
   struct buffer *buf = decode_buffer (buffer, 0);
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
 
-  CHECK_INT (count);
-  n = XINT (count);
+  if (NILP (count))
+    n = 1;
+  else
+    {
+      CHECK_INT (count);
+      n = XINT (count);
+    }
 
   from = BUF_PT (buf);
 

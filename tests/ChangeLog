@@ -1,3 +1,35 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-12-01  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/test-harness.el (test-harness-from-buffer): Throw away
+	all warnings, even those not influenced by byte-compiler-warnings.
+
+2000-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el:
+	Test byte-compiler arithmetic optimizations.
+
+2000-11-27  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/case-tests.el: Add more tests.
+
+2000-11-24  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/regexp-tests.el: New file.
+
+2000-11-22  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el: 
+	Add 64-bit-correctness format tests.
+	Don't quote the first arg to Check-Error.
+
+2000-11-14  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/case-tests.el: New file.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.

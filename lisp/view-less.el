@@ -289,7 +289,7 @@ turned into (+)."
     (while (= (following-char) ?\C-h)
       (delete-char 1))
     (while (search-forward "\C-h" nil t)
-      (forward-char -2)
+      (backward-char 2)
       (cond ((looking-at "_\C-h\\|\\(.\\)\C-h\\1\\||\C-h\\^")
 	     (delete-char 2))
 	    ((looking-at ".\C-h_\\|\\^\C-h|")

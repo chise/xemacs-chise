@@ -470,7 +470,7 @@ Use \\[edit-tab-stops] to edit them interactively."
 		(let ((tabend (* (/ (current-column) tab-width) tab-width)))
 		  (while (and (> (current-column) tabend)
 			      (eq (char-before (point)) ?\ ))
-		    (forward-char -1))
+		    (backward-char 1))
 		  (delete-region (point) before))))))))
 
 ;(define-key global-map "\t" 'indent-for-tab-command)

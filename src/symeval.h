@@ -375,4 +375,6 @@ void defvar_magic (const char *symbol_name, const struct symbol_value_forward *m
 #define DEFVAR_BOOL_MAGIC(lname, c_location, magicfun) \
 	DEFVAR_SYMVAL_FWD_INT (lname, c_location, SYMVAL_BOOLEAN_FORWARD, magicfun)
 
+void flush_all_buffer_local_cache (void);
+
 #endif /* INCLUDED_symeval_h_ */

@@ -320,6 +320,7 @@ lock_file (Lisp_Object fn)
     return;
 
   XSETBUFFER (old_current_buffer, current_buffer);
+  subject_buf = Qnil;
   GCPRO3 (fn, subject_buf, old_current_buffer);
   orig_fn = fn;
   fn = Fexpand_file_name (fn, Qnil);

@@ -68,7 +68,7 @@ define such variables for their internal use; we don't list them here.
 @pxref{Usual Display}
 
 @item comment-column
-@pxref{Comments,,, emacs, The XEmacs User's Manual}
+@pxref{Comments,,, xemacs, The XEmacs User's Manual}
 
 @item default-directory
 @pxref{System Environment}
@@ -80,7 +80,7 @@ define such variables for their internal use; we don't list them here.
 @pxref{Auto Filling}
 
 @item goal-column
-@pxref{Moving Point,,, emacs, The XEmacs User's Manual}
+@pxref{Moving Point,,, xemacs, The XEmacs User's Manual}
 
 @item left-margin
 @pxref{Indentation}

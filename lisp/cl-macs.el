@@ -1434,13 +1434,15 @@ values.  For compatibility, (values A B C) is a synonym for (list A B C)."
 
 	((eq (car-safe spec) 'optimize)
 	 (let ((speed (assq (nth 1 (assq 'speed (cdr spec)))
-			    '((0 nil) (1 t) (2 t) (3 t))))
+			    '((0 . nil) (1 . t) (2 . t) (3 . t))))
 	       (safety (assq (nth 1 (assq 'safety (cdr spec)))
-			     '((0 t) (1 t) (2 t) (3 nil)))))
-	   (if speed (setq cl-optimize-speed (car speed)
-			   byte-optimize (nth 1 speed)))
-	   (if safety (setq cl-optimize-safety (car safety)
-			    byte-compile-delete-errors (nth 1 safety)))))
+			     '((0 . t) (1 . t) (2 . t) (3 . nil)))))
+	   (when speed
+	     (setq cl-optimize-speed (car speed)
+		   byte-optimize (cdr speed)))
+	   (when safety
+	     (setq cl-optimize-safety (car safety)
+		   byte-compile-delete-errors (cdr safety)))))
 
 	((and (eq (car-safe spec) 'warn) (boundp 'byte-compile-warnings))
 	 (if (eq byte-compile-warnings t)
@@ -2440,18 +2442,26 @@ TYPE is a Common Lisp-style type specifier."
   (eval (cl-make-type-test 'object type)))
 
 ;;;###autoload
-(defmacro check-type (form type &optional string)
-  "Verify that FORM is of type TYPE; signal an error if not.
+(defmacro check-type (place type &optional string)
+  "Verify that PLACE is of type TYPE; signal a continuable error if not.
 STRING is an optional description of the desired type."
-  (and (or (not (cl-compiling-file))
-	   (< cl-optimize-speed 3) (= cl-optimize-safety 3))
-       (let* ((temp (if (cl-simple-expr-p form 3) form (gensym)))
-	      (body (list 'or (cl-make-type-test temp type)
-			  (list 'signal '(quote wrong-type-argument)
-				(list 'list (or string (list 'quote type))
-				      temp (list 'quote form))))))
-	 (if (eq temp form) (list 'progn body nil)
-	   (list 'let (list (list temp form)) body nil)))))
+  (when (or (not (cl-compiling-file))
+	    (< cl-optimize-speed 3)
+	    (= cl-optimize-safety 3))
+    (let* ((temp (if (cl-simple-expr-p place 3) place (gensym)))
+	   (test (cl-make-type-test temp type))
+	   (signal-error `(signal 'wrong-type-argument
+				  ,(list 'list (or string (list 'quote type))
+					 temp (list 'quote place))))
+	   (body
+	    (condition-case nil
+		`(while (not ,test)
+		   ,(macroexpand `(setf ,place ,signal-error)))
+	      (error
+	       `(if ,test (progn ,signal-error nil))))))
+      (if (eq temp place)
+	  body
+	`(let ((,temp ,place)) ,body)))))
 
 ;;;###autoload
 (defmacro assert (form &optional show-args string &rest args)
@@ -2750,6 +2760,8 @@ surrounded by (block NAME ...)."
    (fifth 'nth 4 x) (sixth 'nth 5 x) (seventh 'nth 6 x)
    (eighth 'nth 7 x) (ninth 'nth 8 x) (tenth 'nth 9 x)
    (rest 'cdr x) (endp 'null x) (plusp '> x 0) (minusp '< x 0)
+   (oddp  'eq (list 'logand x 1) 1)
+   (evenp 'eq (list 'logand x 1) 0)
    (caar car car) (cadr car cdr) (cdar cdr car) (cddr cdr cdr)
    (caaar car caar) (caadr car cadr) (cadar car cdar)
    (caddr car cddr) (cdaar cdr caar) (cdadr cdr cadr)
@@ -2764,7 +2776,6 @@ surrounded by (block NAME ...)."
 (proclaim '(inline floatp-safe acons map concatenate notany notevery
 ;; XEmacs change
 		   cl-set-elt revappend nreconc
-		   plusp minusp oddp evenp
 		   ))
 
 ;;; Things that are side-effect-free.  Moved to byte-optimize.el

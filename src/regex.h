@@ -23,6 +23,12 @@
 #ifndef INCLUDED_regex_h_
 #define INCLUDED_regex_h_
 
+#ifdef emacs
+#define RE_TRANSLATE_TYPE Lisp_Object
+#else
+#define RE_TRANSLATE_TYPE char *
+#endif /* emacs */
+
 /* POSIX says that <sys/types.h> must be included (by the caller) before
    <regex.h>.  */
 
@@ -329,7 +335,7 @@ struct re_pattern_buffer
            comparing them, or zero for no translation.  The translation
            is applied to a pattern when it is compiled and to a string
            when it is matched.  */
-  char *translate;
+  RE_TRANSLATE_TYPE translate;
 
 	/* Number of subexpressions found by the compiler.  */
   size_t re_nsub;

@@ -193,28 +193,27 @@ In an interactive call, @var{count} is the numeric prefix argument.
   These functions for parsing words use the syntax table to decide
 whether a given character is part of a word.  @xref{Syntax Tables}.
 
-@deffn Command forward-word count &optional buffer
+@deffn Command forward-word &optional count buffer
 This function moves point forward @var{count} words (or backward if
 @var{count} is negative).  Normally it returns @code{t}.  If this motion
 encounters the beginning or end of the buffer, or the limits of the
 accessible portion when narrowing is in effect, point stops there and
-the value is @code{nil}.  @var{buffer} defaults to the current buffer if
-omitted.
+the value is @code{nil}.  
+
+@var{count} defaults to @code{1} and @var{buffer} defaults to the
+current buffer.
 
 In an interactive call, @var{count} is set to the numeric prefix
 argument.
 @end deffn
 
-@deffn Command backward-word count &optional buffer
+@deffn Command backward-word &optional count buffer
 This function is just like @code{forward-word}, except that it moves
 backward until encountering the front of a word, rather than forward.
 @var{buffer} defaults to the current buffer if omitted.
 
 In an interactive call, @var{count} is set to the numeric prefix
 argument.
-
-This function is rarely used in programs, as it is more efficient to
-call @code{forward-word} with a negative argument.
 @end deffn
 
 @defvar words-include-escapes
@@ -612,7 +611,7 @@ expressions (also called @dfn{sexps} in connection with moving across
 them in XEmacs).  The syntax table controls how these functions interpret
 various characters; see @ref{Syntax Tables}.  @xref{Parsing
 Expressions}, for lower-level primitives for scanning sexps or parts of
-sexps.  For user-level commands, see @ref{Lists and Sexps,,, emacs, XEmacs
+sexps.  For user-level commands, see @ref{Lists and Sexps,,, xemacs, XEmacs
 Reference Manual}.
 
 @deffn Command forward-list &optional arg

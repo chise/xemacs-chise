@@ -935,18 +935,19 @@ float_to_string (char *buf, double data)
 }
 #endif /* LISP_FLOAT_TYPE */
 
-/* Print NUMBER to BUFFER.  This is equivalent to sprintf(buffer,
-   "%ld", number), only much faster.
+/* Print NUMBER to BUFFER.
+   This is equivalent to sprintf (buffer, "%ld", number), only much faster.
 
    BUFFER should accept 24 bytes.  This should suffice for the longest
    numbers on 64-bit machines, including the `-' sign and the trailing
-   \0.  */
-void
+   '\0'.  Returns a pointer to the trailing '\0'. */
+char *
 long_to_string (char *buffer, long number)
 {
 #if (SIZEOF_LONG != 4) && (SIZEOF_LONG != 8)
   /* Huh? */
   sprintf (buffer, "%ld", number);
+  return buffer + strlen (buffer);
 #else /* (SIZEOF_LONG == 4) || (SIZEOF_LONG == 8) */
   char *p = buffer;
   int force = 0;
@@ -984,6 +985,7 @@ long_to_string (char *buffer, long number)
 #undef FROB
   *p++ = number + '0';
   *p = '\0';
+  return p;
 #endif /* (SIZEOF_LONG == 4) || (SIZEOF_LONG == 8) */
 }
 
@@ -1420,6 +1422,7 @@ print_symbol (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	      write_char_internal ("#", printcharfun);
 	      print_internal (XCDR (tem), printcharfun, escapeflag);
 	      write_char_internal ("#", printcharfun);
+	      UNGCPRO;
 	      return;
 	    }
 	  else

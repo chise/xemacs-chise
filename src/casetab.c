@@ -30,29 +30,83 @@ Boston, MA 02111-1307, USA.  */
 
 /* Modified for Mule by Ben Wing. */
 
-/* #### We do not currently deal properly with translating non-ASCII
-   (including Latin-1!) characters under Mule.  Getting this right is
-   *hard*, way fucking hard.  So we at least preserve consistency by
-   sanitizing all the case tables to remove translations that would
-   get us into trouble and possibly result in inconsistent internal
-   text, which would likely lead to crashes. */
+/* Case table consists of four char-table.  Those are for downcase,
+   upcase, canonical and equivalent respectively.
+
+   It's entry is like this:
+
+   downcase:	a -> a, A -> a.
+   upcase:	a -> A, A -> a.  (The latter is for NOCASEP.)
+   canon:	a -> a, A -> a.
+   eqv:		a -> A, A -> a.
+*/
 
 #include <config.h>
 #include "lisp.h"
 #include "buffer.h"
 #include "opaque.h"
+#include "chartab.h"
+#include "casetab.h"
 
-Lisp_Object Qcase_tablep;
-Lisp_Object Vascii_downcase_table, Vascii_upcase_table;
-Lisp_Object Vascii_canon_table, Vascii_eqv_table;
-#ifdef MULE
-Lisp_Object Vmirror_ascii_downcase_table, Vmirror_ascii_upcase_table;
-Lisp_Object Vmirror_ascii_canon_table, Vmirror_ascii_eqv_table;
-#endif
+Lisp_Object Qcase_tablep, Qdowncase, Qupcase;
+Lisp_Object Vstandard_case_table;
 
 static void compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse);
+Lisp_Object case_table_char (Lisp_Object ch, Lisp_Object table);
 
-#define STRING256_P(obj) (STRINGP (obj) && XSTRING_CHAR_LENGTH (obj) == 256)
+#define STRING256_P(obj) ((STRINGP (obj) && XSTRING_CHAR_LENGTH (obj) == 256))
+
+static Lisp_Object
+mark_case_table (Lisp_Object obj)
+{
+  Lisp_Case_Table *ct = XCASE_TABLE (obj);
+
+  mark_object (CASE_TABLE_DOWNCASE (ct));
+  mark_object (CASE_TABLE_UPCASE (ct));
+  mark_object (CASE_TABLE_CANON (ct));
+  mark_object (CASE_TABLE_EQV (ct));
+  return Qnil;
+}
+
+static void
+print_case_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
+{
+  Lisp_Case_Table *ct = XCASE_TABLE (obj);
+  char buf[200];
+  if (print_readably)
+    error ("printing unreadable object #<case-table 0x%x", ct->header.uid);
+  write_c_string ("#<case-table ", printcharfun);
+  sprintf (buf, "0x%x>", ct->header.uid);
+  write_c_string (buf, printcharfun);
+}
+
+static const struct lrecord_description case_table_description [] = {
+  { XD_LISP_OBJECT, offsetof (Lisp_Case_Table, downcase_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Case_Table, upcase_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Case_Table, case_canon_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Case_Table, case_eqv_table) },
+  { XD_END }
+};
+
+DEFINE_LRECORD_IMPLEMENTATION ("case-table", case_table,
+			      mark_case_table, print_case_table, 0,
+			      0, 0, case_table_description, Lisp_Case_Table);
+
+static Lisp_Object
+allocate_case_table (void)
+{
+  Lisp_Object val;
+  Lisp_Case_Table *ct =
+    alloc_lcrecord_type (Lisp_Case_Table, &lrecord_case_table);
+
+  SET_CASE_TABLE_DOWNCASE (ct, Qnil);
+  SET_CASE_TABLE_UPCASE (ct, Qnil);
+  SET_CASE_TABLE_CANON (ct, Qnil);
+  SET_CASE_TABLE_EQV (ct, Qnil);
+
+  XSETCASE_TABLE (val, ct);
+  return val;
+}
 
 DEFUN ("case-table-p", Fcase_table_p, 1, 1, 0, /*
 Return t if OBJECT is a case table.
@@ -60,26 +114,149 @@ See `set-case-table' for more information on these data structures.
 */
        (object))
 {
-  Lisp_Object down, up, canon, eqv;
-  if (!CONSP (object)) return Qnil; down  = XCAR (object); object = XCDR (object);
-  if (!CONSP (object)) return Qnil; up    = XCAR (object); object = XCDR (object);
-  if (!CONSP (object)) return Qnil; canon = XCAR (object); object = XCDR (object);
-  if (!CONSP (object)) return Qnil; eqv   = XCAR (object);
+  if (CASE_TABLEP (object))
+    return Qt;
+  else
+    {
+      Lisp_Object down, up, canon, eqv;
+      if (!CONSP (object))
+	return Qnil;
+      down = XCAR (object); object = XCDR (object);
+      if (!CONSP (object))
+	return Qnil;
+      up = XCAR (object); object = XCDR (object);
+      if (!CONSP (object))
+	return Qnil;
+      canon = XCAR (object); object = XCDR (object);
+      if (!CONSP (object))
+	return Qnil;
+      eqv = XCAR (object);
 
-  return (STRING256_P (down)
-	  && (NILP (up) || STRING256_P (up))
-	  && ((NILP (canon) && NILP (eqv))
-	      || (STRING256_P (canon)
-                  && (NILP (eqv) || STRING256_P (eqv))))
-	  ? Qt : Qnil);
+      return ((STRING256_P (down)
+	       && (NILP (up) || STRING256_P (up))
+	       && ((NILP (canon) && NILP (eqv))
+		   || STRING256_P (canon))
+	       && (NILP (eqv) || STRING256_P (eqv)))
+	      ? Qt : Qnil);
+
+    }
 }
 
 static Lisp_Object
 check_case_table (Lisp_Object object)
 {
+  /* This function can GC */
   while (NILP (Fcase_table_p (object)))
     object = wrong_type_argument (Qcase_tablep, object);
   return object;
+}
+
+Lisp_Object
+case_table_char (Lisp_Object ch, Lisp_Object table)
+{
+  Lisp_Object ct_char;
+  ct_char = get_char_table (XCHAR (ch), XCHAR_TABLE (table));
+  if (NILP (ct_char))
+    return ch;
+  else
+    return ct_char;
+}
+
+DEFUN ("get-case-table", Fget_case_table, 3, 3, 0, /*
+Return CHAR-CASE version of CHARACTER in CASE-TABLE.
+
+CHAR-CASE is either downcase or upcase.
+*/
+       (char_case, character, case_table))
+{
+  CHECK_CHAR (character);
+  CHECK_CASE_TABLE (case_table);
+  if (EQ (char_case, Qdowncase))
+    return case_table_char (character, XCASE_TABLE_DOWNCASE (case_table));
+  else if (EQ (char_case, Qupcase))
+    return case_table_char (character, XCASE_TABLE_UPCASE (case_table));
+  else
+    signal_simple_error ("Char case must be downcase or upcase", char_case);
+
+  return Qnil; /* Not reached. */
+}
+
+DEFUN ("put-case-table", Fput_case_table, 4, 4, 0, /*
+Set CHAR-CASE version of CHARACTER to be VALUE in CASE-TABLE.
+
+CHAR-CASE is either downcase or upcase.
+See also `put-case-table-pair'.
+*/
+       (char_case, character, value, case_table))
+{
+  CHECK_CHAR (character);
+  CHECK_CHAR (value);
+
+  if (EQ (char_case, Qdowncase))
+    {
+      Fput_char_table (character, value, XCASE_TABLE_DOWNCASE (case_table));
+      /* This one is not at all intuitive.  */
+      Fput_char_table (character, value, XCASE_TABLE_UPCASE (case_table));
+      Fput_char_table (character, value, XCASE_TABLE_CANON (case_table));
+      Fput_char_table (value, value, XCASE_TABLE_CANON (case_table));
+      Fput_char_table (value, character, XCASE_TABLE_EQV (case_table));
+      Fput_char_table (character, value, XCASE_TABLE_EQV (case_table));
+    }
+  else if (EQ (char_case, Qupcase))
+    {
+      Fput_char_table (character, value, XCASE_TABLE_UPCASE (case_table));
+      Fput_char_table (character, character, XCASE_TABLE_DOWNCASE (case_table));
+      Fput_char_table (character, character, XCASE_TABLE_CANON (case_table));
+      Fput_char_table (value, character, XCASE_TABLE_CANON (case_table));
+      Fput_char_table (value, character, XCASE_TABLE_EQV (case_table));
+      Fput_char_table (character, value, XCASE_TABLE_EQV (case_table));
+    }
+  else
+    signal_simple_error ("Char case must be downcase or upcase", char_case);
+
+  return Qnil;
+}
+
+DEFUN ("put-case-table-pair", Fput_case_table_pair, 3, 3, 0, /*
+Make UC and LC a pair of inter-case-converting letters in CASE-TABLE.
+UC is an uppercase character and LC is a downcase character.
+*/
+       (uc, lc, case_table))
+{
+  CHECK_CHAR (uc);
+  CHECK_CHAR (lc);
+  CHECK_CASE_TABLE (case_table);
+
+  Fput_char_table (lc, lc, XCASE_TABLE_DOWNCASE (case_table));
+  Fput_char_table (uc, lc, XCASE_TABLE_UPCASE (case_table));
+  Fput_char_table (uc, lc, XCASE_TABLE_DOWNCASE (case_table));
+  Fput_char_table (lc, uc, XCASE_TABLE_UPCASE (case_table));
+
+  Fput_char_table (lc, lc, XCASE_TABLE_CANON (case_table));
+  Fput_char_table (uc, lc, XCASE_TABLE_CANON (case_table));
+  Fput_char_table (uc, lc, XCASE_TABLE_EQV (case_table));
+  Fput_char_table (lc, uc, XCASE_TABLE_EQV (case_table));
+  return Qnil;
+}
+
+DEFUN ("copy-case-table", Fcopy_case_table, 1, 1, 0, /*
+Return a new case table which is a copy of CASE-TABLE
+*/
+       (case_table))
+{
+  Lisp_Object new_obj;
+  CHECK_CASE_TABLE (case_table);
+
+  new_obj = allocate_case_table ();
+  XSET_CASE_TABLE_DOWNCASE
+    (new_obj, Fcopy_char_table (XCASE_TABLE_DOWNCASE (case_table)));
+  XSET_CASE_TABLE_UPCASE
+    (new_obj, Fcopy_char_table (XCASE_TABLE_UPCASE (case_table)));
+  XSET_CASE_TABLE_CANON
+    (new_obj, Fcopy_char_table (XCASE_TABLE_CANON (case_table)));
+  XSET_CASE_TABLE_EQV
+    (new_obj, Fcopy_char_table (XCASE_TABLE_EQV (case_table)));
+  return new_obj;
 }
 
 DEFUN ("current-case-table", Fcurrent_case_table, 0, 1, 0, /*
@@ -89,10 +266,7 @@ Return the case table of BUFFER, which defaults to the current buffer.
 {
   struct buffer *buf = decode_buffer (buffer, 0);
 
-  return list4 (buf->downcase_table,
-		buf->upcase_table,
-		buf->case_canon_table,
-		buf->case_eqv_table);
+  return buf->case_table;
 }
 
 DEFUN ("standard-case-table", Fstandard_case_table, 0, 0, 0, /*
@@ -101,19 +275,17 @@ This is the one used for new buffers.
 */
        ())
 {
-  return list4 (Vascii_downcase_table,
-		Vascii_upcase_table,
-		Vascii_canon_table,
-		Vascii_eqv_table);
+  return Vstandard_case_table;
 }
 
 static Lisp_Object set_case_table (Lisp_Object table, int standard);
 
-
 DEFUN ("set-case-table", Fset_case_table, 1, 1, 0, /*
 Select CASE-TABLE as the new case table for the current buffer.
-A case table is a list (DOWNCASE UPCASE CANONICALIZE EQUIVALENCES)
+A case table is a case-table object or list
+ (DOWNCASE UPCASE CANONICALIZE EQUIVALENCES)
  where each element is either nil or a string of length 256.
+The latter is provided for backward-compatibility.
 DOWNCASE maps each character to its lower-case equivalent.
 UPCASE maps each character to its upper-case equivalent;
  if lower and upper case characters are in 1-1 correspondence,
@@ -126,14 +298,11 @@ EQUIVALENCES is a map that cyclicly permutes each equivalence class
  (of characters with the same canonical equivalent); it may be nil,
  in which case it is deduced from CANONICALIZE.
 
-BUG: Under XEmacs/Mule, translations to or from non-ASCII characters
- (this includes chars in the range 128 - 255) are ignored by
- the string/buffer-searching routines.  Thus, `case-fold-search'
- will not correctly conflate a-umlaut and A-umlaut even if the
- case tables call for this.
+See also `get-case-table', `put-case-table' and `put-case-table-pair'.
 */
        (case_table))
 {
+  /* This function can GC */
   return set_case_table (case_table, 0);
 }
 
@@ -143,116 +312,107 @@ See `set-case-table' for more info on case tables.
 */
        (case_table))
 {
+  /* This function can GC */
   return set_case_table (case_table, 1);
 }
-
-#ifdef MULE
-
-static Lisp_Object
-make_mirror_trt_table (Lisp_Object table)
-{
-  Lisp_Object new_table;
-
-  if (!STRING256_P (table))
-    {
-#ifdef DEBUG_XEMACS
-      /* This should be caught farther up. */
-      abort ();
-#else
-      signal_simple_error ("Invalid translate table", table);
-#endif
-    }
-
-  new_table = MAKE_MIRROR_TRT_TABLE ();
-  {
-    int i;
-
-    for (i = 0; i < 256; i++)
-      {
-	Emchar newval = string_char (XSTRING (table), i);
-	if ((i >= 128 && newval != i)
-	    || (i < 128 && newval >= 128))
-	  {
-	    newval = (Emchar) i;
-	  }
-	SET_MIRROR_TRT_TABLE_CHAR_1 (new_table, i, newval);
-      }
-  }
-  return new_table;
-}
-
-#endif /* MULE */
 
 static Lisp_Object
 set_case_table (Lisp_Object table, int standard)
 {
-  Lisp_Object down, up, canon, eqv, tail = table;
+  /* This function can GC */
   struct buffer *buf =
     standard ? XBUFFER(Vbuffer_defaults) : current_buffer;
 
   check_case_table (table);
 
-  down  = XCAR (tail); tail = XCDR (tail);
-  up    = XCAR (tail); tail = XCDR (tail);
-  canon = XCAR (tail); tail = XCDR (tail);
-  eqv   = XCAR (tail);
-
-  if (NILP (up))
+  if (CASE_TABLEP (table))
     {
-      up = MAKE_TRT_TABLE ();
-      compute_trt_inverse (down, up);
+      if (standard)
+	Vstandard_case_table = table;
+
+      buf->case_table = table;
     }
-
-  if (NILP (canon))
+  else
     {
-      REGISTER Charcount i;
+      /* For backward compatibility. */
+      Lisp_Object down, up, canon, eqv, tail = table;
+      Lisp_Object temp;
+      int i;
 
-      canon = MAKE_TRT_TABLE ();
+      down = XCAR (tail); tail = XCDR (tail);
+      up = XCAR (tail); tail = XCDR (tail);
+      canon = XCAR (tail); tail = XCDR (tail);
+      eqv = XCAR (tail);
 
-      /* Set up the CANON vector; for each character,
-	 this sequence of upcasing and downcasing ought to
-	 get the "preferred" lowercase equivalent.  */
+      temp = down;
+      down = MAKE_TRT_TABLE ();
       for (i = 0; i < 256; i++)
-	SET_TRT_TABLE_CHAR_1 (canon, i,
-			      TRT_TABLE_CHAR_1
-			      (down,
-			       TRT_TABLE_CHAR_1
-			       (up,
-				TRT_TABLE_CHAR_1 (down, i))));
+	SET_TRT_TABLE_CHAR_1 (down, i, string_char (XSTRING (temp), i));
+
+      if (NILP (up))
+	{
+	  up = MAKE_TRT_TABLE ();
+	  compute_trt_inverse (down, up);
+	}
+      else
+	{
+	  temp = up;
+	  up = MAKE_TRT_TABLE ();
+	  for (i = 0; i < 256; i++)
+	    SET_TRT_TABLE_CHAR_1 (up, i, string_char (XSTRING (temp), i));
+	}
+      if (NILP (canon))
+	{
+	  canon = MAKE_TRT_TABLE ();
+
+	  /* Set up the CANON table; for each character,
+	     this sequence of upcasing and downcasing ought to
+	     get the "preferred" lowercase equivalent.  */
+	  for (i = 0; i < 256; i++)
+	    SET_TRT_TABLE_CHAR_1 (canon, i,
+				  TRT_TABLE_CHAR_1
+				  (down,
+				   TRT_TABLE_CHAR_1
+				   (up,
+				    TRT_TABLE_CHAR_1 (down, i))));
+	}
+      else
+	{
+	  temp = canon;
+	  canon = MAKE_TRT_TABLE ();
+	  for (i = 0; i < 256; i++)
+	    SET_TRT_TABLE_CHAR_1 (canon, i, string_char (XSTRING (temp), i));
+	}
+
+      if (NILP (eqv))
+	{
+	  eqv = MAKE_TRT_TABLE ();
+	  compute_trt_inverse (canon, eqv);
+	}
+      else
+	{
+	  temp = eqv;
+	  eqv = MAKE_TRT_TABLE ();
+	  for (i = 0; i < 256; i++)
+	    SET_TRT_TABLE_CHAR_1 (eqv, i, string_char (XSTRING (temp), i));
+	}
+
+      if (standard)
+	{
+	  XSET_CASE_TABLE_DOWNCASE (Vstandard_case_table, down);
+	  XSET_CASE_TABLE_UPCASE (Vstandard_case_table, up);
+	  XSET_CASE_TABLE_CANON (Vstandard_case_table, canon);
+	  XSET_CASE_TABLE_EQV (Vstandard_case_table, eqv);
+	}
+
+      buf->case_table = allocate_case_table ();
+      XSET_CASE_TABLE_DOWNCASE (buf->case_table, down);
+      XSET_CASE_TABLE_UPCASE (buf->case_table, up);
+      XSET_CASE_TABLE_CANON (buf->case_table, canon);
+      XSET_CASE_TABLE_EQV (buf->case_table, eqv);
     }
 
-  if (NILP (eqv))
-    {
-      eqv = MAKE_TRT_TABLE ();
-
-      compute_trt_inverse (canon, eqv);
-    }
-
-  if (standard)
-    {
-      Vascii_downcase_table = down;
-      Vascii_upcase_table = up;
-      Vascii_canon_table = canon;
-      Vascii_eqv_table = eqv;
-#ifdef MULE
-      Vmirror_ascii_downcase_table = make_mirror_trt_table (down);
-      Vmirror_ascii_upcase_table = make_mirror_trt_table (up);
-      Vmirror_ascii_canon_table = make_mirror_trt_table (canon);
-      Vmirror_ascii_eqv_table = make_mirror_trt_table (eqv);
-#endif
-    }
-  buf->downcase_table = down;
-  buf->upcase_table = up;
-  buf->case_canon_table = canon;
-  buf->case_eqv_table = eqv;
-#ifdef MULE
-  buf->mirror_downcase_table = make_mirror_trt_table (down);
-  buf->mirror_upcase_table = make_mirror_trt_table (up);
-  buf->mirror_case_canon_table = make_mirror_trt_table (canon);
-  buf->mirror_case_eqv_table = make_mirror_trt_table (eqv);
-#endif
-
-  return table;
+  return buf->case_table;
 }
 
 /* Given a translate table TRT, store the inverse mapping into INVERSE.
@@ -285,11 +445,19 @@ compute_trt_inverse (Lisp_Object trt, Lisp_Object inverse)
 void
 syms_of_casetab (void)
 {
+  INIT_LRECORD_IMPLEMENTATION (case_table);
+
   defsymbol (&Qcase_tablep, "case-table-p");
+  defsymbol (&Qdowncase, "downcase");
+  defsymbol (&Qupcase, "upcase");
 
   DEFSUBR (Fcase_table_p);
+  DEFSUBR (Fget_case_table);
+  DEFSUBR (Fput_case_table);
+  DEFSUBR (Fput_case_table_pair);
   DEFSUBR (Fcurrent_case_table);
   DEFSUBR (Fstandard_case_table);
+  DEFSUBR (Fcopy_case_table);
   DEFSUBR (Fset_case_table);
   DEFSUBR (Fset_standard_case_table);
 }
@@ -300,21 +468,13 @@ complex_vars_of_casetab (void)
   REGISTER Emchar i;
   Lisp_Object tem;
 
-  staticpro (&Vascii_downcase_table);
-  staticpro (&Vascii_upcase_table);
-  staticpro (&Vascii_canon_table);
-  staticpro (&Vascii_eqv_table);
+  staticpro (&Vstandard_case_table);
 
-#ifdef MULE
-  staticpro (&Vmirror_ascii_downcase_table);
-  staticpro (&Vmirror_ascii_upcase_table);
-  staticpro (&Vmirror_ascii_canon_table);
-  staticpro (&Vmirror_ascii_eqv_table);
-#endif
+  Vstandard_case_table = allocate_case_table ();
 
   tem = MAKE_TRT_TABLE ();
-  Vascii_downcase_table = tem;
-  Vascii_canon_table = tem;
+  XSET_CASE_TABLE_DOWNCASE (Vstandard_case_table, tem);
+  XSET_CASE_TABLE_CANON (Vstandard_case_table, tem);
 
   /* Under Mule, can't do set_string_char() until Vcharset_control_1
      and Vcharset_ascii are initialized. */
@@ -325,15 +485,9 @@ complex_vars_of_casetab (void)
       SET_TRT_TABLE_CHAR_1 (tem, i, lowered);
     }
 
-#ifdef MULE
-  tem = make_mirror_trt_table (tem);
-  Vmirror_ascii_downcase_table = tem;
-  Vmirror_ascii_canon_table = tem;
-#endif
-
   tem = MAKE_TRT_TABLE ();
-  Vascii_upcase_table = tem;
-  Vascii_eqv_table = tem;
+  XSET_CASE_TABLE_UPCASE (Vstandard_case_table, tem);
+  XSET_CASE_TABLE_EQV (Vstandard_case_table, tem);
 
   for (i = 0; i < 256; i++)
     {
@@ -342,10 +496,4 @@ complex_vars_of_casetab (void)
 
       SET_TRT_TABLE_CHAR_1 (tem, i, flipped);
     }
-
-#ifdef MULE
-  tem = make_mirror_trt_table (tem);
-  Vmirror_ascii_upcase_table = tem;
-  Vmirror_ascii_eqv_table = tem;
-#endif
 }

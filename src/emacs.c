@@ -342,15 +342,19 @@ unsigned int lim_data;
 
    Some LISP-visible command-line options are set by XEmacs _before_ the
    data is dumped in building a --pdump XEmacs, but used _after_ it is
-   restored in normal operation.  Thus the restored values overwrite the
-   values XEmacs is getting at run-time.  Such variables must be saved
+   restored in normal operation.  Thus the dump-time values overwrite the
+   values XEmacs is getting at runtime.  Such variables must be saved
    before loading the dumpfile, and restored afterward.
 
-   This is done immediately before and after pdump_load() in main_1().
-   See that function for the current list of protected variables.
+   Therefore these variables may not be initialized in vars_of_emacs().
 
-   Note that if the variable is never DEFVAR'd, saving/restoring is not
-   needed.
+   The save/restore is done immediately before and after pdump_load() in
+   main_1().  See that function for the current list of protected variables.
+
+   Note that saving/restoring is only necessary for a few variables that are
+     o command line arguments effective at runtime (as opposed to dump-time),
+     o parsed before pdump_load, and
+     o exported to Lisp via a DEFVAR.
 */
 
 /* Nonzero means running XEmacs without interactive terminal.  */
@@ -821,7 +825,22 @@ argmatch (char **argv, int argc, char *sstr, char *lstr,
 #define main_1 STACK_TRACE_EYE_CATCHER
 
 /* This function is not static, so that the compiler is less likely to
-   inline it, which would make it not show up in stack traces.  */
+   inline it, which would make it not show up in stack traces.
+
+   The restart argument is a flag that indicates that main_1 is now
+   being called for the second time in this invocation of xemacs; this can
+   only happen in an xemacs that is not loaded with dumped data (temacs
+   with the conventional dumper or xemacs -nd with the pdumper).   See
+   Frun_emacs_from_temacs().
+
+   restart interacts with initialized as follows (per Olivier Galibert):
+
+     It's perverted.
+
+     initialized==0 => temacs
+     initialized!=0 && restart!=0 => run-temacs
+     initialized!=0 && restart==0 => xemacs/post pdump_load()
+*/
 DECLARE_DOESNT_RETURN (main_1 (int, char **, char **, int));
 DOESNT_RETURN
 main_1 (int argc, char **argv, char **envp, int restart)
@@ -930,7 +949,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef PDUMP
       printf ("%08x\n", dump_id);
 #else
-      printf ("*ERROR**\n");
+      printf ("Portable dumper not configured; -sd just forces exit.\n");
 #endif
       exit (0);
     }
@@ -1149,17 +1168,13 @@ main_1 (int argc, char **argv, char **envp, int restart)
        Boy, this is ugly, but how else to do it?
     */
 
-    /* noninteractive1 is protected by noninteractive, which is not
-       LISP-visible */
+    /* noninteractive1 is saved in noninteractive, which isn't LISP-visible */
     int inhibit_early_packages_save = inhibit_early_packages;
     int inhibit_autoloads_save      = inhibit_autoloads;
     int debug_paths_save            = debug_paths;
-#ifdef INHIBIT_SITE_LISP
-    int inhibit_site_lisp_save      = inhibit_site_lisp;
-#endif
-#ifdef INHIBIT_SITE_MODULES
+    /* #### Give inhibit-site-lisp a command switch?  If so, uncomment: */
+    /* int inhibit_site_lisp_save      = inhibit_site_lisp; */
     int inhibit_site_modules_save   = inhibit_site_modules;
-#endif
 
     initialized = pdump_load (argv[0]);
 
@@ -1168,12 +1183,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
     inhibit_early_packages = inhibit_early_packages_save;
     inhibit_autoloads      = inhibit_autoloads_save;
     debug_paths            = debug_paths_save;
-#ifdef INHIBIT_SITE_LISP
-    inhibit_site_lisp      = inhibit_site_lisp_save;
-#endif
-#ifdef INHIBIT_SITE_MODULES
+    /* #### Give inhibit-site-lisp a command switch?  If so, uncomment: */
+    /* inhibit_site_lisp      = inhibit_site_lisp_save; */
     inhibit_site_modules   = inhibit_site_modules_save;
-#endif
 
     if (initialized)
       run_temacs_argc = -1;
@@ -1625,6 +1637,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 make_opaque_ptr()
 
 	 perhaps a few others.
+
+         NB:  Initialization or assignment should not be done here to certain
+           variables settable from the command line.  See the comment above
+           the call to pdump_load() in main_1().  This caveat should only
+           apply to vars_of_emacs().
        */
 
       /* Now allow Fprovide() statements to be made. */
@@ -1969,7 +1986,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       }
 #endif
 #ifdef PDUMP
-    } else if (!restart) {
+    } else if (!restart) {	      /* after successful pdump_load() */
       reinit_alloc_once_early ();
       reinit_symbols_once_early ();
       reinit_opaque_once_early ();
@@ -2085,12 +2102,17 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
   if (initialized)
     {
-      /* Stuff that needs to be reset at run time.  Order below should
-	 not matter. */
+      /* Stuff that should not be done at dump time, including stuff that
+         needs to be reset at run time.  Order below should not matter.
+
+         Many initializations taken from the environment should go here. */
       reinit_alloc ();
       reinit_eval ();
 #ifdef MULE_REGEXP
       reinit_mule_category ();
+#endif
+#ifdef HAVE_POSTGRESQL
+      init_postgresql_from_environment();
 #endif
     }
 
@@ -3721,8 +3743,9 @@ The configured initial path for info documentation.
  * cores on us when re-started from the dumped executable.
  * This will have to go for 21.1  -- OG.
  */
-void __sti__iflPNGFile_c___(void);
-void __sti__iflPNGFile_c___()
+void __sti__iflPNGFile_c___ (void);
+void
+__sti__iflPNGFile_c___ (void)
 {
 }
 

@@ -3,7 +3,7 @@
 @setfilename ../info/info.info
 @settitle Info
 @comment %**end of header
-@comment $Id: info.texi,v 1.4.2.5 2000/09/13 10:57:18 martinb Exp $
+@comment $Id: info.texi,v 1.4.2.6 2000/11/29 08:27:28 stephent Exp $
 
 @dircategory Texinfo documentation system
 @direntry
@@ -886,10 +886,10 @@ function @code{Info-directory} is called.
 @xref{Top,, Overview of Texinfo, texinfo, Texinfo}, to learn how to
 write a Texinfo file.
 
-@xref{Creating an Info File,,, texinfo, Texinfo}, to learn how to create
-an Info file from a Texinfo file.
+@xref{Create an Info File, , Creating an Info File, texinfo, Texinfo},
+to learn how to create an Info file from a Texinfo file.
 
-@xref{Installing an Info File,,, texinfo, Texinfo}, to learn how to
-install an Info file after you have created one.
+@xref{Install an Info File, , Installing an Info File, texinfo, Texinfo},
+to learn how to install an Info file after you have created one.
 
 @bye

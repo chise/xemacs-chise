@@ -188,6 +188,7 @@ enum lrecord_type
   lrecord_type_pgresult,
   lrecord_type_devmode,
   lrecord_type_mswindows_dialog_id,
+  lrecord_type_case_table,
   lrecord_type_last_built_in_type /* must be last */
 };
 
@@ -328,10 +329,6 @@ extern int gc_in_progress;
   An array of Lisp objects or pointers to lrecords.
   The third element is the count.
 
-    XD_LO_RESET_NIL
-  Lisp objects which will be reset to Qnil when dumping.  Useful for cleaning
-  up caches.
-
     XD_LO_LINK
   Link in a linked list of objects of the same type.
 
@@ -386,7 +383,6 @@ extern int gc_in_progress;
 enum lrecord_description_type {
   XD_LISP_OBJECT_ARRAY,
   XD_LISP_OBJECT,
-  XD_LO_RESET_NIL,
   XD_LO_LINK,
   XD_OPAQUE_PTR,
   XD_STRUCT_PTR,

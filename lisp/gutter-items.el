@@ -325,30 +325,33 @@ redefining the function `format-buffers-menu-line'."
 (defun update-tab-in-gutter (frame &optional force-selection)
   "Update the tab control in the gutter area."
     ;; dedicated frames don't get tabs
-  (unless (window-dedicated-p (frame-selected-window frame))
+  (unless (or (window-dedicated-p (frame-selected-window frame))
+	      (frame-property frame 'popup))
     (when (specifier-instance default-gutter-visible-p frame)
       (unless (and gutter-buffers-tab
 		   (eq (default-gutter-position)
 		       gutter-buffers-tab-orientation))
 	(add-tab-to-gutter))
       (when (valid-image-instantiator-format-p 'tab-control frame)
-	(set-glyph-image
-	 gutter-buffers-tab
-	 (vector 'tab-control :descriptor "Buffers" :face buffers-tab-face
-		 :orientation gutter-buffers-tab-orientation
-		 (if (or (eq gutter-buffers-tab-orientation 'top)
-			 (eq gutter-buffers-tab-orientation 'bottom))
-		     :pixel-width :pixel-height)
-		 (if (or (eq gutter-buffers-tab-orientation 'top)
-			 (eq gutter-buffers-tab-orientation 'bottom))
-		     '(gutter-pixel-width) '(gutter-pixel-height))
-		 :items (buffers-tab-items nil frame force-selection))
-	 frame)
-	;; set-glyph-image will not make the gutter dirty
-	(set-specifier-dirty-flag 
-	 (eval (intern (concat 
-			(symbol-name gutter-buffers-tab-orientation) 
-			"-gutter"))))))))
+	(let ((items (buffers-tab-items nil frame force-selection)))
+	  (when items
+	    (set-glyph-image
+	     gutter-buffers-tab
+	     (vector 'tab-control :descriptor "Buffers" :face buffers-tab-face
+		     :orientation gutter-buffers-tab-orientation
+		     (if (or (eq gutter-buffers-tab-orientation 'top)
+			     (eq gutter-buffers-tab-orientation 'bottom))
+			 :pixel-width :pixel-height)
+		     (if (or (eq gutter-buffers-tab-orientation 'top)
+			     (eq gutter-buffers-tab-orientation 'bottom))
+			 '(gutter-pixel-width) '(gutter-pixel-height)) 
+		     :items items)
+	     frame)
+	    ;; set-glyph-image will not make the gutter dirty
+	    (set-specifier-dirty-flag 
+	     (eval (intern (concat 
+			    (symbol-name gutter-buffers-tab-orientation) 
+			    "-gutter"))))))))))
 
 ;; A myriad of different update hooks all doing slightly different things
 (add-one-shot-hook 

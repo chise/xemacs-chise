@@ -305,7 +305,7 @@ Leave one space or none, according to the context."
   (save-excursion
     (delete-horizontal-space)
     (if (or (looking-at "^\\|\\s)")
-	    (save-excursion (forward-char -1)
+	    (save-excursion (backward-char 1)
 			    (looking-at "$\\|\\s(\\|\\s'")))
 	nil
       (insert ?\ ))))
@@ -422,11 +422,11 @@ and KILLP is t if a prefix arg was specified."
       (while (and (> count 0) (not (bobp)))
 	(if (eq (char-before (point)) ?\t) ; XEmacs
 	    (let ((col (current-column)))
-	      (forward-char -1)
+	      (backward-char 1)
 	      (setq col (- col (current-column)))
 	      (insert-char ?\ col)
 	      (delete-char 1)))
-	(forward-char -1)
+	(backward-char 1)
 	(setq count (1- count)))))
   (delete-backward-char arg killp)
   ;; XEmacs: In overwrite mode, back over columns while clearing them out,
@@ -440,11 +440,11 @@ If nil, the DEL key will erase one character backwards."
   :type 'boolean
   :group 'editing-basics)
 
-(defcustom backward-delete-function 'backward-delete-char
+(defcustom backward-delete-function 'delete-backward-char
   "*Function called to delete backwards on a delete keypress.
 If `delete-key-deletes-forward' is nil, `backward-or-forward-delete-char'
 calls this function to erase one character backwards.  Default value
-is 'backward-delete-char, with 'backward-delete-char-untabify being a
+is `delete-backward-char', with `backward-delete-char-untabify' being a
 popular alternate setting."
   :type 'function
   :group 'editing-basics)
@@ -2346,7 +2346,7 @@ With prefix arg ARG, effect is to take character before point
 and drag it forward past ARG other characters (backward if ARG negative).
 If no argument and at end of line, the previous two chars are exchanged."
   (interactive "*P")
-  (and (null arg) (eolp) (forward-char -1))
+  (and (null arg) (eolp) (backward-char 1))
   (transpose-subr 'forward-char (prefix-numeric-value arg)))
 
 ;;; A very old implementation of transpose-chars from the old days ...
@@ -2356,7 +2356,7 @@ With prefix arg ARG, effect is to take character before point
 and drag it forward past ARG other characters (backward if ARG negative).
 If no argument and not at start of line, the previous two chars are exchanged."
   (interactive "*P")
-  (and (null arg) (not (bolp)) (forward-char -1))
+  (and (null arg) (not (bolp)) (backward-char 1))
   (transpose-subr 'forward-char (prefix-numeric-value arg)))
 
 
@@ -2731,31 +2731,32 @@ not end the comment.  Blank lines do not get comments."
  	  (forward-char 1)))))
 
 
-;; XEmacs - extra parameter
-(defun backward-word (arg &optional buffer)
-  "Move backward until encountering the end of a word.
-With argument, do this that many times.
-In programs, it is faster to call `forward-word' with negative arg."
-  (interactive "_p") ; XEmacs
-  (forward-word (- arg) buffer))
+(defun backward-word (&optional count buffer)
+  "Move point backward COUNT words (forward if COUNT is negative).
+Normally t is returned, but if an edge of the buffer is reached,
+point is left there and nil is returned.
 
-(defun mark-word (arg)
-  "Set mark arg words away from point."
+COUNT defaults to 1, and BUFFER defaults to the current buffer."
+  (interactive "_p")
+  (forward-word (- (or count 1)) buffer))
+
+(defun mark-word (&optional count)
+  "Mark the text from point until encountering the end of a word.
+With optional argument COUNT, mark COUNT words."
   (interactive "p")
-  (mark-something 'mark-word 'forward-word arg))
+  (mark-something 'mark-word 'forward-word count))
 
-;; XEmacs modified
-(defun kill-word (arg)
+(defun kill-word (&optional count)
   "Kill characters forward until encountering the end of a word.
-With argument, do this that many times."
+With optional argument COUNT, do this that many times."
   (interactive "*p")
-  (kill-region (point) (save-excursion (forward-word arg) (point))))
+  (kill-region (point) (save-excursion (forward-word count) (point))))
 
-(defun backward-kill-word (arg)
+(defun backward-kill-word (&optional count)
   "Kill characters backward until encountering the end of a word.
 With argument, do this that many times."
-  (interactive "*p") ; XEmacs
-  (kill-word (- arg)))
+  (interactive "*p")
+  (kill-word (- (or count 1))))
 
 (defun current-word (&optional strict)
   "Return the word point is on (or a nearby word) as a string.
@@ -2852,7 +2853,7 @@ indicating whether soft newlines should be inserted.")
 				(and (not (bobp))
 				     (not bounce)
 				     sentence-end-double-space
-				     (save-excursion (forward-char -1)
+				     (save-excursion (backward-char 1)
 						     (and (looking-at "\\. ")
 							  (not (looking-at "\\.  "))))))
 		       (setq first nil)
@@ -2977,7 +2978,7 @@ indicating whether soft newlines should be inserted.")
 ;			      (and (not (bobp))
 ;				   (not bounce)
 ;				   sentence-end-double-space
-;				   (save-excursion (forward-char -1)
+;				   (save-excursion (backward-char 1)
 ;						   (and (looking-at "\\. ")
 ;							(not (looking-at "\\.  "))))))
 ;		     (setq first nil)
@@ -3143,7 +3144,7 @@ unless optional argument SOFT is non-nil."
 	    (and comment-end (not (equal comment-end ""))
   ;	       (if (not comment-multi-line)
 		     (progn
-		       (forward-char -1)
+		       (backward-char 1)
 		       (insert comment-end)
 		       (forward-char 1))
   ;		 (setq comment-column (+ comment-column (length comment-start))
@@ -3153,7 +3154,7 @@ unless optional argument SOFT is non-nil."
 	    (if (not (eolp))
 		(setq comment-end ""))
 	    (insert ?\n)
-	    (forward-char -1)
+	    (backward-char 1)
 	    (indent-for-comment)
 	    (save-excursion
 	      ;; Make sure we delete the newline inserted above.
@@ -3318,7 +3319,7 @@ when it is off screen."
        ;; Verify an even number of quoting characters precede the close.
        (= 1 (logand 1 (- (point)
 			 (save-excursion
-			   (forward-char -1)
+			   (backward-char 1)
 			   (skip-syntax-backward "/\\")
 			   (point)))))
        (let* ((oldpos (point))

@@ -445,8 +445,9 @@ static const struct lrecord_description charset_description[] = {
 DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
                                mark_charset, print_charset, 0, 0, 0, charset_description,
 			       Lisp_Charset);
-/* Make a new charset. */
 
+/* Make a new charset. */
+/* #### SJT Should generic properties be allowed? */
 static Lisp_Object
 make_charset (int id, Lisp_Object name, unsigned char rep_bytes,
 	      unsigned char type, unsigned char columns, unsigned char graphic,
@@ -617,6 +618,7 @@ Return the name of charset CHARSET.
   return XCHARSET_NAME (Fget_charset (charset));
 }
 
+/* #### SJT Should generic properties be allowed? */
 DEFUN ("make-charset", Fmake_charset, 3, 3, 0, /*
 Define a new character set.
 This function is for use with Mule support.
@@ -961,7 +963,7 @@ Return dimension of CHARSET.
 }
 
 DEFUN ("charset-property", Fcharset_property, 2, 2, 0, /*
-Return property PROP of CHARSET.
+Return property PROP of CHARSET, a charset object or symbol naming a charset.
 Recognized properties are those listed in `make-charset', as well as
 'name and 'doc-string.
 */
@@ -989,10 +991,8 @@ Recognized properties are those listed in `make-charset', as well as
   if (EQ (prop, Qreverse_direction_charset))
     {
       Lisp_Object obj = CHARSET_REVERSE_DIRECTION_CHARSET (cs);
-      if (NILP (obj))
-	return Qnil;
-      else
-	return XCHARSET_NAME (obj);
+      /* #### Is this translation OK?  If so, error checking sufficient? */
+      return CHARSETP (obj) ? XCHARSET_NAME (obj) : obj;
     }
   signal_simple_error ("Unrecognized charset property name", prop);
   return Qnil; /* not reached */

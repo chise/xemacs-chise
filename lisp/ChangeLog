@@ -1,3 +1,191 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-12-04  Didier Verna  <didier@xemacs.org>
+
+	* mouse.el (default-mouse-track-set-point-in-window): remove
+	spurious '+' operation detected by Martin.
+
+
+2000-12-01  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-extra.el (coerce):
+	Implement char to integer coercion.
+	Remove extraneous (numberp) test.
+
+	* byte-optimize.el (byte-compile-splice-in-already-compiled-code):
+	Perform lapcode inlining if the value of `byte-optimize' is 'byte.
+	(byte-optimize-predicate):
+	Warn if evaluating constant expression signals an error.
+	(byte-optimize-form): Small simplification.
+
+	* cl-macs.el (cl-do-proclaim): small efficiency improvement.
+
+2000-11-30  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el:
+	(byte-optimize-minus):
+	(byte-optimize-plus):
+	(byte-optimize-mult):
+	(byte-optimize-quo):
+	Use (car (last x)) instead of (last x) to get last elt!
+	Use `byte-optimize-predicate' to optimize `%'.
+	Move optimizations for special numeric args to bytecomp.el.
+	* bytecomp.el (byte-compile-associative): Remove.
+	(byte-compile-max): New.
+	(byte-compile-min): New.
+	Properly handle erroneous calls: (max) (min).
+	(byte-compile-plus): New.
+	(byte-compile-minus):
+	It's easiest to handle 0, +1 and -1 args here.
+	(byte-compile-mult): New.
+	It's easiest to handle 1, -1 and 2 args here.
+	(byte-compile-quo):
+	It's easiest to handle 0, +1 and -1 args here.
+	Issue byte-compiler warning when dividing by zero.
+
+	Byte-compiler arithmetic improvements.
+	Better optimize these expressions in the obvious way:
+	(+ x y 1)   -->  varref x varref y add add1
+	(+ x y -1)  -->  varref x varref y add sub1
+	(- x y 0)   -->  (- x y)
+	(- 0 x y)   -->  (- (- x) y)
+	(% 42 19)   --> compile-time constant
+	(/ 42 19)   --> compile-time constant
+	(* (foo) 2) --> foo call dup plus
+
+	Optimize away arithmetic operations (+ x) (* x) (/ x 1)
+	unless (declaim (optimize (safety 3)))
+	or (setq byte-compile-delete-errors nil).
+
+2000-11-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* paragraphs.el (paragraph-separate, forward-sentence):  Clarify
+	docstrings.
+
+2000-11-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* startup.el (command-line-do-help):  Add documentation of
+	portable dumper switches.
+
+2000-11-22  Andy Piper  <andy@xemacs.org>
+
+	* x-mouse.el (x-init-pointer-shape): use cursor-font explicitly.
+
+	* glyphs.el (init-glyphs): don't use autodetect for strings.
+
+2000-11-28  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-char-before):
+	(byte-optimize-backward-char):
+	(byte-optimize-backward-word):
+	Fix incorrect optimizations for these sorts of expressions:
+	(let ((x nil)) (backward-char x))
+
+2000-11-21  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el:
+	* byte-optimize.el (byte-optimize-backward-char): New.
+	* byte-optimize.el (byte-optimize-backward-word): New.
+	Make backward-word and backward-char as efficient as forward versions.
+
+	* bytecomp.el (byte-compile-no-args-with-one-extra):
+	* bytecomp.el (byte-compile-one-arg-with-one-extra):
+	* bytecomp.el (byte-compile-two-args-with-one-extra):
+	* bytecomp.el (byte-compile-zero-or-one-arg-with-one-extra):
+	* bytecomp.el (byte-compile-one-or-two-args-with-one-extra):
+	* bytecomp.el (byte-compile-two-or-three-args-with-one-extra):
+	Check if extra arg is constant nil, and if so, use byte-coded call.
+
+	* simple.el (backward-word):
+	* simple.el (mark-word):
+	* simple.el (kill-word):
+	* simple.el (backward-kill-word):
+	Make COUNT argument optional, for consistency with forward-char et al.
+
+	* abbrev.el (abbrev-string-to-be-defined):
+	* abbrev.el (inverse-abbrev-string-to-be-defined):
+	* abbrev.el (inverse-add-abbrev):
+	* abbrev.el (expand-region-abbrevs):
+	* buff-menu.el (Buffer-menu-execute):
+	* indent.el (move-to-left-margin):
+	* indent.el (indent-relative):
+	* indent.el (move-to-tab-stop):
+	* info.el (Info-reannotate-node):
+	* lisp-mode.el (lisp-indent-line):
+	* lisp.el (end-of-defun):
+	* lisp.el (move-past-close-and-reindent):
+	* misc.el (copy-from-above-command):
+	* mouse.el (default-mouse-track-scroll-and-set-point):
+	* page.el (forward-page):
+	* paragraphs.el (forward-paragraph):
+	* paragraphs.el (end-of-paragraph-text):
+	* picture.el (picture-forward-column):
+	* picture.el (picture-self-insert):
+	* rect.el (extract-rectangle-line):
+	* simple.el (newline):
+	* simple.el (fixup-whitespace):
+	* simple.el (backward-delete-char-untabify):
+	* simple.el (transpose-chars):
+	* simple.el (transpose-preceding-chars):
+	* simple.el (do-auto-fill):
+	* simple.el (indent-new-comment-line):
+	* simple.el (blink-matching-open):
+	* view-less.el (cleanup-backspaces):
+	* wid-edit.el (widget-transpose-chars):
+	* term/bg-mouse.el (bg-insert-moused-sexp):
+	Use more readable (backward-FOO n) instead of (forward-FOO -n).
+
+	* info.el (Info-fontify-node):
+	* simple.el (backward-delete-function):
+	Use canonical delete-backward-char instead of backward-delete-char.
+
+2000-11-20  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): don't barf if there are
+	no buffers.
+
+2000-11-20  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (update-tab-in-gutter): don't give popup frames
+	buffer tabs.
+
+2000-11-18  Martin Buchholz  <martin@xemacs.org>
+
+	* cl-macs.el: Correctly optimize plusp minusp oddp evenp.
+	(proclaim inline...) was shadowing compiler-macros.
+
+2000-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecomp.el (byte-compile-eval): New.
+	(byte-compile-initial-macro-environment): Use byte-compile-eval.
+	Keeps this promise made in Lispref:
+	"If a file being compiled contains a `defmacro' form, the macro is
+	defined temporarily for the rest of the compilation of that file."
+
+2000-11-09  Martin Buchholz  <martin@xemacs.org>
+
+	* cl.el (floatp-safe):
+	(plusp):
+	(minusp):
+	(oddp):
+	(evenp):
+	(cl-abs):
+	Use a better parameter name than `x'.
+
+	* cl-macs.el (check-type): Make continuable.  Change documentation
+	to require PLACE, but accept any form for compatibility.
+
+	* abbrev.el (define-abbrev): Use check-type.
+	* font-menu.el (font-menu-change-face): Use check-type.
+	* menubar.el (relabel-menu-item): Use check-type.
+	* itimer.el: Fix typo.
+
+2000-11-10  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* info.el (Info-extract-menu-node-name): Comma is a delimiter.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.
@@ -15,9 +203,9 @@
 	* mule/mule-misc.el
 	(coding-keymap): New keymap. Define coding system keyboard
 	commands on file-coding builds too.
-	(coding-system-change-eol-conversion): 
-	(universal-coding-system-argument): 
-	(set-default-coding-systems): 
+	(coding-system-change-eol-conversion):
+	(universal-coding-system-argument):
+	(set-default-coding-systems):
 	(prefer-coding-system): Moved from mule-cmds.el
 	(set-buffer-process-coding-system): Moved from mule-misc.el
 

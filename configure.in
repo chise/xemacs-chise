@@ -2337,6 +2337,7 @@ AC_PROG_YACC
 dnl checks for header files
 AC_CHECK_HEADERS(dnl
   a.out.h dnl
+  elf.h dnl
   cygwin/version.h dnl
   fcntl.h dnl
   inttypes.h dnl
@@ -2957,8 +2958,8 @@ fi
 
 dnl Autodetect Drag'n'Drop support
 dnl always included if CDE, Offix, or MSWindows are defined
-AC_MSG_CHECKING(if drag and drop API is needed)
 if test "$with_dragndrop" != "no" ; then
+  AC_MSG_CHECKING(if drag and drop API is needed)
   if test -n "$dragndrop_proto" ; then
     with_dragndrop=yes
     AC_MSG_RESULT([yes (${dragndrop_proto} )])

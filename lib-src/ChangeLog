@@ -1,3 +1,11 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-11-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* Makefile.in.in: Define emacs iff it's necessary.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.

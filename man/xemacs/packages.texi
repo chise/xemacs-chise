@@ -626,7 +626,7 @@ Another interface over patch.
 CVS frontend.
 
 @item prog-modes
-Miscellaneous single-file lisp files for various programming languages.
+Miscellaneous Lisp libraries for various programming languages.
 
 @item scheme
 Front-end support for Inferior Scheme.
@@ -635,11 +635,10 @@ Front-end support for Inferior Scheme.
 Support for editing shell scripts.
 
 @item vc
-Version Control for Free systems.
+Version control for free systems.
 
 @item vc-cc
-Version Control for ClearCase.  This package must be installed prior
-to building XEmacs [broken as of XEmacs 20.5-beta19].
+Version control for ClearCase.
 
 @item vhdl
 Support for VHDL.

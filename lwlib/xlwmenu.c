@@ -2325,7 +2325,7 @@ make_windows_if_needed (XlwMenuWidget mw, int n)
   int start_at;
   XSetWindowAttributes xswa;
   Widget p;
-  int mask;
+  unsigned long mask;
   int depth;
   Visual *visual;
   window_state *windows;
@@ -3004,10 +3004,6 @@ XlwMenuInitialize (Widget request, Widget new, ArgList args,
 {
   /* Get the GCs and the widget size */
   XlwMenuWidget mw = (XlwMenuWidget)new;
-
-  XSetWindowAttributes xswa;
-  int mask;
-
   Window window = RootWindowOfScreen (DefaultScreenOfDisplay (XtDisplay (mw)));
   Display *display = XtDisplay (mw);
 
@@ -3043,10 +3039,6 @@ XlwMenuInitialize (Widget request, Widget new, ArgList args,
   make_drawing_gcs     (mw);
   make_shadow_gcs      (mw);
   extract_font_extents (mw);
-
-  xswa.background_pixel = mw->core.background_pixel;
-  xswa.border_pixel     = mw->core.border_pixel;
-  mask = CWBackPixel | CWBorderPixel;
 
   mw->menu.popped_up              = False;
   mw->menu.pointer_grabbed        = False;
@@ -3085,7 +3077,7 @@ XlwMenuRealize (Widget w, Mask *valueMask, XSetWindowAttributes *attributes)
 {
   XlwMenuWidget mw = (XlwMenuWidget)w;
   XSetWindowAttributes xswa;
-  int mask;
+  unsigned long mask;
 
   (*xlwMenuWidgetClass->core_class.superclass->core_class.realize)
     (w, valueMask, attributes);

@@ -201,7 +201,7 @@ Sexp is inserted into the buffer at point (where the text cursor is)."
       (indent-according-to-mode))
      ;; In Lisp assume double-quote is closing; in Text assume opening.
      ;; Why?  Because it does the right thing most often.
-     ((save-excursion (forward-char -1)
+     ((save-excursion (backward-char 1)
 		      (and (not (looking-at "\\s\""))
 			   (looking-at "[`'\"\\]\\|\\s(")))
       nil)

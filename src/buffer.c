@@ -70,6 +70,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include "buffer.h"
 #include "chartab.h"
+#include "casetab.h"
 #include "commands.h"
 #include "elhash.h"
 #include "extents.h"
@@ -697,28 +698,6 @@ reset_buffer_local_variables (struct buffer *b, int first_time)
   }
 #include "bufslots.h"
 #undef MARKED_SLOT
-#if 0
-#define STRING256_P(obj) \
-  (STRINGP (obj) && XSTRING_CHAR_LENGTH (obj) == 256)
-  /* If the standard case table has been altered and invalidated,
-     fix up its insides first.  */
-  if (!(STRING256_P(Vascii_upcase_table) &&
-	STRING256_P(Vascii_canon_table) &&
-	STRING256_P(Vascii_eqv_table)))
-    {
-      Fset_standard_case_table (Vascii_downcase_table);
-    }
-  b->downcase_table = Vascii_downcase_table;
-  b->upcase_table = Vascii_upcase_table;
-  b->case_canon_table = Vascii_canon_table;
-  b->case_eqv_table = Vascii_eqv_table;
-#ifdef MULE
-  b->mirror_downcase_table = Vmirror_ascii_downcase_table;
-  b->mirror_upcase_table = Vmirror_ascii_upcase_table;
-  b->mirror_case_canon_table = Vmirror_ascii_canon_table;
-  b->mirror_case_eqv_table = Vmirror_ascii_eqv_table;
-#endif
-#endif
 }
 
 
@@ -2227,7 +2206,11 @@ doesn't work with hard links (nothing does).
 
 See also the variable `find-file-use-truenames'.
 */ );
+#if defined(CYGWIN) || defined(WIN32_NATIVE)
+  find_file_compare_truenames = 1;
+#else
   find_file_compare_truenames = 0;
+#endif
 
   DEFVAR_BOOL ("find-file-use-truenames", &find_file_use_truenames /*
 If this is true, then a buffer's visited file-name will always be
@@ -2427,16 +2410,8 @@ common_init_complex_vars_of_buffer (void)
   defs->mode_name = QSFundamental;
   defs->abbrev_table = Qnil;    /* real default setup by Lisp code */
 
-  defs->downcase_table	 = Vascii_downcase_table;
-  defs->upcase_table	 = Vascii_upcase_table;
-  defs->case_canon_table = Vascii_canon_table;
-  defs->case_eqv_table	 = Vascii_eqv_table;
+  defs->case_table = Vstandard_case_table;
 #ifdef MULE
-  defs->mirror_downcase_table	= Vmirror_ascii_downcase_table;
-  defs->mirror_upcase_table	= Vmirror_ascii_upcase_table;
-  defs->mirror_case_canon_table = Vmirror_ascii_canon_table;
-  defs->mirror_case_eqv_table	= Vmirror_ascii_eqv_table;
-
   defs->category_table = Vstandard_category_table;
 #endif /* MULE */
   defs->syntax_table = Vstandard_syntax_table;
@@ -2499,10 +2474,7 @@ common_init_complex_vars_of_buffer (void)
     buffer_local_flags.generated_modeline_string = always_local_no_default;
 
     buffer_local_flags.keymap		= resettable;
-    buffer_local_flags.downcase_table	= resettable;
-    buffer_local_flags.upcase_table	= resettable;
-    buffer_local_flags.case_canon_table = resettable;
-    buffer_local_flags.case_eqv_table	= resettable;
+    buffer_local_flags.case_table	= resettable;
     buffer_local_flags.syntax_table	= resettable;
 #ifdef MULE
     buffer_local_flags.category_table	= resettable;

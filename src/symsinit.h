@@ -428,6 +428,7 @@ void complex_vars_of_keymap (void);
 
 void reinit_alloc (void);
 void reinit_eval (void);
+void init_postgresql_from_environment (void);
 
 /* Late initialization -- stuff pertaining only to interactive usage,
    I/O, or Lisp reading. (Dump-time and run-time.) */

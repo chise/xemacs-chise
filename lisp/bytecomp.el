@@ -443,13 +443,32 @@ on the specbind stack.  The cdr of each cell is an integer bitmask.")
 
 (defvar byte-compiler-error-flag)
 
+;;; A form of eval that includes the currently defined macro definitions.
+;;; This helps implement the promise made in the Lispref:
+;;;
+;;; "If a file being compiled contains a `defmacro' form, the macro is
+;;; defined temporarily for the rest of the compilation of that file."
+(defun byte-compile-eval (form)
+  (let ((save-macro-environment nil))
+    (unwind-protect
+	(loop for (sym . def) in byte-compile-macro-environment do
+	  (push
+	   (if (fboundp sym) (cons sym (symbol-function sym)) sym)
+	   save-macro-environment)
+	  (fset sym (cons 'macro def))
+	  finally return (eval form))
+      (dolist (elt save-macro-environment)
+	(if (symbolp elt)
+	    (fmakunbound elt)
+	  (fset (car elt) (cdr elt)))))))
+
 (defconst byte-compile-initial-macro-environment
   '((byte-compiler-options . (lambda (&rest forms)
 			       (apply 'byte-compiler-options-handler forms)))
     (eval-when-compile . (lambda (&rest body)
-			   (list 'quote (eval (cons 'progn body)))))
+			   (list 'quote (byte-compile-eval (cons 'progn body)))))
     (eval-and-compile . (lambda (&rest body)
-			  (eval (cons 'progn body))
+			  (byte-compile-eval (cons 'progn body))
 			  (cons 'progn body))))
   "The default macro-environment passed to macroexpand by the compiler.
 Placing a macro here will cause a macro to have different semantics when
@@ -2725,8 +2744,8 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 
 (defmacro byte-defop-compiler (function &optional compile-handler)
   ;; add a compiler-form for FUNCTION.
-  ;; If function is a symbol, then the variable "byte-SYMBOL" must name
-  ;; the opcode to be used.  If function is a list, the first element
+  ;; If FUNCTION is a symbol, then the variable "byte-SYMBOL" must name
+  ;; the opcode to be used.  If is a list, the first element
   ;; is the function and the second element is the bytecode-symbol.
   ;; COMPILE-HANDLER is the function to use to compile this byte-op, or
   ;; may be the abbreviations 0, 1, 2, 3, 0-1, 1-2, 2-3, 0+1, 1+1, 2+1,
@@ -2916,11 +2935,6 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (byte-defop-compiler-rmsfun member	2)
 (byte-defop-compiler-rmsfun assq	2)
 
-(byte-defop-compiler max		byte-compile-associative)
-(byte-defop-compiler min		byte-compile-associative)
-(byte-defop-compiler (+ byte-plus)	byte-compile-associative)
-(byte-defop-compiler (* byte-mult)	byte-compile-associative)
-
 ;;####(byte-defop-compiler move-to-column	1)
 (byte-defop-compiler-1 interactive byte-compile-noop)
 (byte-defop-compiler-1 domain byte-compile-domain)
@@ -2999,40 +3013,52 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (defun byte-compile-no-args-with-one-extra (form)
   (case (length (cdr form))
     (0 (byte-compile-no-args form))
-    (1 (byte-compile-normal-call form))
+    (1 (if (eq nil (nth 1 form))
+	   (byte-compile-no-args (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "0-1"))))
 
 (defun byte-compile-one-arg-with-one-extra (form)
   (case (length (cdr form))
     (1 (byte-compile-one-arg form))
-    (2 (byte-compile-normal-call form))
+    (2 (if (eq nil (nth 2 form))
+	   (byte-compile-one-arg (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "1-2"))))
 
 (defun byte-compile-two-args-with-one-extra (form)
   (case (length (cdr form))
     (2 (byte-compile-two-args form))
-    (3 (byte-compile-normal-call form))
+    (3 (if (eq nil (nth 3 form))
+	   (byte-compile-two-args (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "2-3"))))
 
 (defun byte-compile-zero-or-one-arg-with-one-extra (form)
   (case (length (cdr form))
     (0 (byte-compile-one-arg (append form '(nil))))
     (1 (byte-compile-one-arg form))
-    (2 (byte-compile-normal-call form))
+    (2 (if (eq nil (nth 2 form))
+	   (byte-compile-one-arg (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "0-2"))))
 
 (defun byte-compile-one-or-two-args-with-one-extra (form)
   (case (length (cdr form))
     (1 (byte-compile-two-args (append form '(nil))))
     (2 (byte-compile-two-args form))
-    (3 (byte-compile-normal-call form))
+    (3 (if (eq nil (nth 3 form))
+	   (byte-compile-two-args (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "1-3"))))
 
 (defun byte-compile-two-or-three-args-with-one-extra (form)
   (case (length (cdr form))
     (2 (byte-compile-three-args (append form '(nil))))
     (3 (byte-compile-three-args form))
-    (4 (byte-compile-normal-call form))
+    (4 (if (eq nil (nth 4 form))
+	   (byte-compile-three-args (butlast form))
+	 (byte-compile-normal-call form)))
     (t (byte-compile-subr-wrong-args form "2-4"))))
 
 (defun byte-compile-no-args-with-two-extra (form)
@@ -3064,33 +3090,31 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (defun byte-compile-discard ()
   (byte-compile-out 'byte-discard 0))
 
-;; Compile a function that accepts one or more args and is right-associative.
-;; We do it by left-associativity so that the operations
-;; are done in the same order as in interpreted code.
-;(defun byte-compile-associative (form)
-;  (if (cdr form)
-;      (let ((opcode (get (car form) 'byte-opcode))
-;	    (args (copy-sequence (cdr form))))
-;	(byte-compile-form (car args))
-;	(setq args (cdr args))
-;	(while args
-;	  (byte-compile-form (car args))
-;	  (byte-compile-out opcode 0)
-;	  (setq args (cdr args))))
-;    (byte-compile-constant (eval form))))
-
-;; Compile a function that accepts one or more args and is right-associative.
-;; We do it by left-associativity so that the operations
-;; are done in the same order as in interpreted code.
-(defun byte-compile-associative (form)
-  (let ((args (cdr form))
-	(opcode (get (car form) 'byte-opcode)))
+(defun byte-compile-max (form)
+  (let ((args (cdr form)))
     (case (length args)
-      (0 (byte-compile-constant (eval form)))
+      (0 (byte-compile-subr-wrong-args form "1 or more"))
+      (1 (byte-compile-form (car args))
+	 (when (not byte-compile-delete-errors)
+	   (byte-compile-out 'byte-dup 0)
+	   (byte-compile-out 'byte-max 0)))
       (t (byte-compile-form (car args))
-	 (dolist (arg (cdr args))
-	   (byte-compile-form arg)
-	   (byte-compile-out opcode 0))))))
+	 (dolist (elt (cdr args))
+	   (byte-compile-form elt)
+	   (byte-compile-out 'byte-max 0))))))
+
+(defun byte-compile-min (form)
+  (let ((args (cdr form)))
+    (case (length args)
+      (0 (byte-compile-subr-wrong-args form "1 or more"))
+      (1 (byte-compile-form (car args))
+	 (when (not byte-compile-delete-errors)
+	   (byte-compile-out 'byte-dup 0)
+	   (byte-compile-out 'byte-min 0)))
+      (t (byte-compile-form (car args))
+	 (dolist (elt (cdr args))
+	   (byte-compile-form elt)
+	   (byte-compile-out 'byte-min 0))))))
 
 
 ;; more complicated compiler macros
@@ -3100,8 +3124,12 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 (byte-defop-compiler fset)
 (byte-defop-compiler insert)
 (byte-defop-compiler-1 function byte-compile-function-form)
-(byte-defop-compiler-1 - byte-compile-minus)
-(byte-defop-compiler (/ byte-quo) byte-compile-quo)
+(byte-defop-compiler max)
+(byte-defop-compiler min)
+(byte-defop-compiler (+ byte-plus)	byte-compile-plus)
+(byte-defop-compiler-1 -		byte-compile-minus)
+(byte-defop-compiler (* byte-mult)	byte-compile-mult)
+(byte-defop-compiler (/ byte-quo)	byte-compile-quo)
 (byte-defop-compiler nconc)
 (byte-defop-compiler-1 beginning-of-line)
 
@@ -3176,6 +3204,23 @@ If FORM is a lambda or a macro, byte-compile it as a function."
       (byte-compile-out 'byte-concatN nargs))
      ((byte-compile-normal-call form)))))
 
+(defun byte-compile-plus (form)
+  (let ((args (cdr form)))
+    (case (length args)
+      (0 (byte-compile-constant 0))
+      (1 (byte-compile-plus (append form '(0))))
+      (t (byte-compile-form (car args))
+	 (dolist (elt (cdr args))
+	   (case elt
+	     (0  (when (not byte-compile-delete-errors)
+		   (byte-compile-constant 0)
+		   (byte-compile-out 'byte-plus 0)))
+	     (+1 (byte-compile-out 'byte-add1 0))
+	     (-1 (byte-compile-out 'byte-sub1 0))
+	     (t
+	      (byte-compile-form elt)
+	      (byte-compile-out 'byte-plus 0))))))))
+
 (defun byte-compile-minus (form)
   (let ((args (cdr form)))
     (case (length args)
@@ -3184,8 +3229,33 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 	 (byte-compile-out 'byte-negate 0))
       (t (byte-compile-form (car args))
 	 (dolist (elt (cdr args))
-	   (byte-compile-form elt)
-	   (byte-compile-out 'byte-diff 0))))))
+	   (case elt
+	     (0  (when (not byte-compile-delete-errors)
+		   (byte-compile-constant 0)
+		   (byte-compile-out 'byte-diff 0)))
+	     (+1 (byte-compile-out 'byte-sub1 0))
+	     (-1 (byte-compile-out 'byte-add1 0))
+	     (t
+	      (byte-compile-form elt)
+	      (byte-compile-out 'byte-diff 0))))))))
+
+(defun byte-compile-mult (form)
+  (let ((args (cdr form)))
+    (case (length args)
+      (0 (byte-compile-constant 1))
+      (1 (byte-compile-mult (append form '(1))))
+      (t (byte-compile-form (car args))
+	 (dolist (elt (cdr args))
+	   (case elt
+	     (1  (when (not byte-compile-delete-errors)
+		   (byte-compile-constant 1)
+		   (byte-compile-out 'byte-mult 0)))
+	     (-1 (byte-compile-out 'byte-negate 0))
+	     (2  (byte-compile-out 'byte-dup 0)
+		 (byte-compile-out 'byte-plus 0))
+	     (t
+	      (byte-compile-form elt)
+	      (byte-compile-out 'byte-mult 0))))))))
 
 (defun byte-compile-quo (form)
   (let ((args (cdr form)))
@@ -3196,8 +3266,16 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 	 (byte-compile-out 'byte-quo 0))
       (t (byte-compile-form (car args))
 	 (dolist (elt (cdr args))
-	   (byte-compile-form elt)
-	   (byte-compile-out 'byte-quo 0))))))
+	   (case elt
+	     (+1 (when (not byte-compile-delete-errors)
+		   (byte-compile-constant 1)
+		   (byte-compile-out 'byte-quo 0)))
+	     (-1 (byte-compile-out 'byte-negate 0))
+	     (t
+	      (when (and (numberp elt) (= elt 0))
+		(byte-compile-warn "Attempt to divide by zero: %s" form))
+	      (byte-compile-form elt)
+	      (byte-compile-out 'byte-quo 0))))))))
 
 (defun byte-compile-nconc (form)
   (let ((args (cdr form)))

@@ -11,7 +11,7 @@ XEmacs under the X window system, you can also use a number of
 standard Xt command line arguments. Command line arguments are not usually
 needed for editing with Emacs; new users can skip this section.
 
-Many editors are designed to be started afresh each time you want to
+  Many editors are designed to be started afresh each time you want to
 edit.  You start the editor to edit one file; then exit the editor.  The
 next time you want to edit either another file or the same one, you
 start the editor again.  Under these circumstances, it makes sense to use a
@@ -28,9 +28,14 @@ command line arguments for specifying a file when Emacs is started are seldom
 needed.
 
   Emacs accepts command-line arguments that specify files to visit,
-functions to call, and other activities and operating modes.  If you are
-running XEmacs under the X window system, a number of standard
-Xt command line arguments are available as well. 
+functions to call, and other activities and operating modes.  If you
+are running XEmacs under the X window system, a number of standard Xt
+command line arguments are available, as well as a few X parameters
+that are XEmacs-specific.
+
+  Options with long names with a single initial hyphen are also
+recognized with the GNU double initial hyphen syntax.  (The reverse
+is not true.)
 
 The following subsections list:
 @itemize @bullet
@@ -78,7 +83,8 @@ Insert the contents of @var{file} into the current buffer.  This is like
 what @kbd{M-x insert-buffer} does; @xref{Misc File Ops}.
 
 @item -kill
-Exit from Emacs without asking for confirmation.
+Exit from Emacs without asking for confirmation.  Always the last
+argument processed, no matter where it appears in the command line.
 
 @item -version
 @itemx -V
@@ -99,7 +105,19 @@ command line.  If more than one of them appears, they must appear in the
 order in which they appear in this table.
 
 @table @samp
-@item -t @var{file}
+@item --show-dump-id
+@itemx -sd
+Print the ID for the new portable dumper's dump file on the terminal and
+exit.  (Prints an error message and exits if XEmacs was not configured
+@samp{--pdump}.)
+
+@item --no-dump-file
+@itemx -nd
+Don't load the dump file.  Roughly equivalent to old temacs.  (Ignored if
+XEmacs was not configured @samp{--pdump}.)
+
+@item --terminal @var{file}
+@itemx -t @var{file}
 Use @var{file} instead of the terminal for input and output.  This
 implies the @samp{-nw} option, documented below.
 
@@ -121,7 +139,8 @@ causes Emacs to kill itself after all command switches have been
 processed.  In addition, auto-saving is not done except in buffers for
 which it has been explicitly requested.
 
-@item -nw
+@item --no-windows
+@itemx -nw
 Start up XEmacs in TTY mode (using the TTY XEmacs was started from),
 rather than trying to connect to an X display.  Note that this happens
 automatically if the @samp{DISPLAY} environment variable is not set.
@@ -167,7 +186,7 @@ and the various user-specific initialization files.
 @itemx -u @var{user}
 Equivalent to @samp{-user-init-file ~@var{user}/.xemacs/init.el
 -user-init-directory ~@var{user}/.xemacs}, or @samp{-user-init-file
-~@var{user}/.emacs -user-init-directory ~@var{user}/.xemacs}.  whichever
+~@var{user}/.emacs -user-init-directory ~@var{user}/.xemacs}, whichever
 init file comes first.  @xref{Init File}.
 
 @end table

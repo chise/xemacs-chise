@@ -1,3 +1,307 @@
+2000-12-05  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.38 is released.
+
+2000-12-05  Martin Buchholz  <martin@xemacs.org>
+
+	* symsinit.h: Add init_postgresql_from_environment.
+
+2000-12-04  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* regex.c: Convert to clean C.
+
+2000-12-05  Dan Holmsand  <dan@eyebee.com>
+
+	* realpath.c:
+	Don't #include sysfile.h. Revert to duplicating PATH_MAX
+	initialization.
+	(sys_readlink): renamed to system_readlink to avoid conflict with
+	the other sys_readlink.
+
+2000-12-04  Hiroaki Abe  <h-abe@pc.highway.ne.jp>
+
+	* dumper.c (pdump_file_get): Correct uses of pdump_fd.
+
+2000-12-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* postgresql.c (init_postgresql_from_environment): new function.
+	(vars_of_postgresql): Move code initializing Lisp variables out and
+	into init_postgresql_from_environment.
+	emacs.c (main_1): Call init_postgresql_from_environment if and only
+	if running a dumped XEmacs.
+
+2000-08-31  Dan Holmsand  <dan@eyebee.com>
+
+	* buffer.c: Make find-file-compare-truenames default to true on
+	windows.
+
+	* realpath.c (win32_abs_start): 
+	(cygwin_readlink):
+	(win32_readlink): New functions.
+	(xrealpath): Return really real filenames on windows.
+
+	* fileio.c (Ffile_truename): Make file-truename work on windows.
+
+2000-11-29  Didier Verna  <didier@xemacs.org>
+
+	* faces.c (MAYBE_UNFROB_BACKGROUND_PIXMAP): new macro.
+	* faces.c (update_face_cachel_data): use it.
+	* faces.c (add_face_cachel): use it. Complete background pixmap
+	frobbing in face cache if `update_face_cachel_data' has not done so.
+
+2000-11-29  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* search.c (string_match_1): Don't set last_thing_searched
+	when search failed.
+
+2000-11-27  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c: Include casetab.h
+	(common_init_complex_vars_of_buffer): Use new case-table object.
+	* buffer.h: Include casetab.h
+	* buffer.h (MAKE_TRT_TABLE): Use generic char-table.
+	(DOWNCASE_TABLE_OF): Ditto.
+	* bufslots.h: Remove char-tables and add case-table.
+	* casetab.c: Include casetab.h
+	(CASE_TABLE_P): Removed.
+	(mark_case_table): New function.
+	(allocate_case_table): New function.
+	(Fcase_table_p): Use new case-table.
+	(case_table_char): New function.
+	(Fget_case_table): Ditto.
+	(Fput_case_table): Ditto.
+	(Fput_case_table_pair): Ditto.
+	(Fcopy_case_table): Ditto.
+	(Fcurrent_case_table): Return case-table.
+	(Fstandard_case_table): Return case-table.
+	(Fset_case_table): Fix doc-string.
+	(set_case_table): Use case-table
+	(syms_of_casetab): DEFSUBR new functions.
+	(complex_vars_of_casetab): Set up standard case-table.
+	* casetab.h: New file.
+	* editfns.c: Include casetab.h
+	(Fcompare_buffer_substrings): Use case-table.
+	* inline.c: Include casetab.h
+	* lisp.h: Remove bogus extern.
+	* lrecord.h (lrecord_type): Add lrecord_type_case_table.
+	* search.c: Include casetab.h
+	(TRANSLATE_ASCII): Removed.
+	(TRANSLATE): Unconditionally translate character.
+	(looking_at_1): Use case-table.
+	(string_match_1): Ditto.
+	(fast_string_match): Ditto.
+	(search_command): Ditto.
+	(search_buffer): Separate boyer_moore.  Check whether
+	boyer_moore is poosible.
+	(simple_search): New function.
+	(boyer_moore): Separated from search_buffer. Translate char.
+
+2000-11-24  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* regex.c (RE_TR_ASCII): Removed.
+	(RE_TRANSLATE): Unconditionally use TRT_TABLE.
+	(PATFETCH): Call PATFETCH_RAW.
+	(PATFETCH_RAW): Fetch Emchar.
+	(PATUNFETCH): Decrement charptr.
+	(GET_BUFFER_SPACE): Rename b to buf_end.
+	(BUF_PUSH): Ditto.
+	(BUF_PUSH_2): Ditto.
+	(BUF_PUSH_3): Ditto.
+	(EXTEND_BUFFER): Ditto.
+	(SET_LIST_BIT): Ditto.
+	(regex_compile): Ditto.  Translate non ASCII char.
+	(compile_range): Ditto.
+	(re_search_2): Ditto.
+	(re_match_2_internal): Compare Emchar.
+	(bcmp_translate): Ditto.
+
+2000-11-29  Stephen J. Turnbull  <turnbull@xemacs.org>
+
+	* lisp.h (basic char/int typedefs):  comment improvement.
+
+2000-11-24  Stephen J. Turnbull  <turnbull@xemacs.org>
+
+	* emacs.c (main_1):  unconditional pdump unstomping; don't save and
+	unstomp inhibit_site_lisp.  Improve comments.
+
+2000-11-22  Stephen J. Turnbull  <turnbull@xemacs.org>
+
+	* mule-charset.c (Fcharset_property):  improve type checking, comments.
+
+2000-11-28  Andy Piper  <andy@xemacs.org>
+
+	* redisplay-output.c (redisplay_output_subwindow): make sure we do
+	clipped display for windows in the gutter also.
+	(redisplay_display_boxes_in_window_p): change semantics of return
+	codes to be more intuitive.
+
+	* gutter.h: declare display_boxes_in_gutter_p.
+
+	* gutter.c (display_boxes_in_gutter_p): new function for
+	redisplay.
+
+2000-11-22  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (image_instantiator_format_create_glyphs_x): change
+	autodetect domain.
+
+2000-11-21  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* callproc.c (Fold_call_process_internal):
+	* gpm.c (Freceive_gpm_event):
+	(tty_get_foreign_selection): Might be just warning supression.
+	* fileio.c (Fwrite_region_internal):
+	(Fset_visited_file_modtime):
+	* keymap.c (event_matches_key_specifier_p):
+	Initialize GCPROed variable.
+
+	* menubar-x.c (command_builder_find_menu_accelerator):
+	Initialize before use.
+
+2000-11-23  Andy Piper  <andy@xemacs.org>
+
+	* unexcw.c (unexec): make the resulting executable executable.
+
+2000-11-21  Martin Buchholz  <martin@xemacs.org>
+
+	* doc.c (get_doc_string):
+	Use size_t, not int, for result of XSTRING_LENGTH.
+
+	* cmds.c (Fdelete_char):
+	* cmds.c (Fpoint_at_eol):
+	* cmds.c (Fself_insert_command):
+	Use EMACS_INT, not int, for result of XINT.
+	Someday, someone will want to insert more than 2**31 identical characters.
+
+	* cmds.c (Fdelete_char):
+	* cmds.c (Fdelete_backward_char):
+	* syntax.c (Fforward_word):
+	* syntax.c (Fforward_comment):
+	Make COUNT argument optional, for consistency with forward-char et al.
+
+2000-11-22  Martin Buchholz  <martin@xemacs.org>
+
+	* lisp.h:
+	* print.c (long_to_string):
+	Return a useful value: the pointer at end of data written.
+
+	* doprnt.c:
+	Use `static const char * const' for constant strings.
+	(union printf_arg): Delete `i', `ui' members.
+	(get_doprnt_args):
+	(emacs_doprnt_1):
+	Fix LP64 platform bug: (format "%d" most-positive-fixnum) ==> "-1"
+	Do all printf-ing via the `l' specifier.
+	Use EMACS_INT instead of int.
+	Optimize.
+
+2000-11-20  Didier Verna  <didier@xemacs.org>
+
+	* faces.c (update_face_cachel_data): don't frob the background
+	pixmap when the window is being created. The face is needed but
+	does not exist yet.
+
+2000-11-20  Andy Piper  <andy@xemacs.org>
+
+	* unexcw.c (copy_executable_and_dump_data_section): Only do bss
+	messing with a debug environment.
+
+2000-11-20  Martin Buchholz  <martin@xemacs.org>
+
+	* emacs.c (__sti__iflPNGFile_c___): Pedantically correct prototype.
+
+2000-11-20  Martin Buchholz  <martin@xemacs.org>
+
+	* casetab.c (Fcase_table_p): Fix compile error and crash.
+
+2000-11-18  Philip Aston  <philipa@mail.com>
+
+	* s/cygwin32.h: Cygwin has SVR4-like pty support.
+
+2000-11-18  Martin Buchholz  <martin@xemacs.org>
+
+	* fileio.c (Fexpand_file_name): GCPRO bug!  Protect `handler'.
+	* filelock.c (lock_file): GCPRO bug! Initialize all GCPROed vars!
+
+2000-11-17  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h.in: Define HAVE_ELF_H if elf.h exists.
+	* unexelf.c: Use HAVE_ELF_H.
+	* unexelfsgi.c: Fix bug with dumped xemacs stdout/stderr not working.
+	I copied FSF Emacs 20.7 unexelf.c to unexelfsgi.c and ANSIfied it.
+	Max Matveev <makc@sgi.com> removed non-SGI-relevant parts and tested.
+	Greg Harrington <greg_harrington@hotmail.com> provided a machine
+	for testing.
+	So this is an unexelfsgi.c from a different line of development.
+
+2000-11-16  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* regex.c (RE_TR_ASCII): New function.
+	(RE_TRANSLATE): Call it.
+
+2000-11-16  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.h (TRT_TABLE_OF): Remove assert.
+	(IN_TRT_TABLE_DOMAIN): Removed.
+
+2000-11-16  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* free-hook.c (log_gcpro):
+	(show_gcprohist): Add support for GCPRO5.
+
+2000-11-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* emacs.c (main_1): Improve -sd error message when --pdump=no.
+
+2000-11-16  Olivier Galibert  <galibert@xemacs.org>
+
+	* symeval.h: Declare flush_all_buffer_local_cache.
+
+	* symbols.c: Change XD_LO_RESET_NIL into XD_LISP_OBJECTs.
+	(flush_buffer_local_cache): Added.
+	(flush_all_buffer_local_cache): Added.
+
+	* lrecord.h: Remove unused XD_LO_RESET_NIL.
+
+	* dumper.c (pdump_register_sub): Remove unused XD_LO_RESET_NIL.
+	(pdump_dump_data): Ditto.
+	(pdump_reloc_one): Ditto.
+	(pdump): Remove unused pdump_qnil.  Flush buffer local caches
+	before dumping.
+
+
+2000-11-14  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* buffer.c: Remove if 0'ed entry.
+	* buffer.h: Rewrite TRT to use char-table.
+	* bufslots.h: Remove mirror tables.
+	* casetab.c: Remove mirror tables.
+	(CASE_TABLE_P): New macro.
+	(Fcase_table_p): Element of a case table is string or char-table.
+	(make_mirror_trt_table): Removed.
+	(set_case_table): Setup char-table from strings for backward
+	compatibility.
+	* dired.c (Fdirectory_files):
+	* dired-msw.c: (mswindows_get_files):
+	* lisp.h: Change prototype of re_pattern_buffer.
+	* regex.c: (RE_TRANSLATE): New macro.
+	(TRANSLATE_P): Ditto.
+	Change translate to type RE_TRANSLATE_TYPE.
+	* regex.h: Define RE_TRANSLATE_TYPE
+	* search.c (TRANSLATE): New macro.
+	(TRANSLATE_ASCII): New macro.
+	Translate table is changed to Lisp_Object.
+	(signal_failure): Inhibit return.
+
+2000-11-14  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* device-msw.c:
+	* eldap.c:
+	* event-Xt.c:
+	* event-stream.c:
+	* print.c:
+	Do UNGCPRO before return.
+
 2000-11-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.37 is released.
@@ -40,7 +344,7 @@
 	(recompute_one_cached_specifier_in_window): always recompute if
 	flag set.
 	(recompute_one_cached_specifier_in_frame): ditto.
-	
+
 	* specifier.h (struct specifier_caching): add recompute flag.
 
 2000-10-24  Andy Piper  <andy@xemacs.org>
@@ -95,9 +399,9 @@
 	* minibuf.c (Fall_completions):
 	Delete old non-functional code for FSF fourth argument.
 
-	* frame.c (frame_matches_frame_spec): 
+	* frame.c (frame_matches_frame_spec):
 	Renamed from `frame_matches_frametype'.  Update all callers.
-	(device_matches_device_spec): 
+	(device_matches_device_spec):
 	Renamed from 'device_matches_console_spec'.  Update all callers.
 
 	* doc.c (Fsubstitute_command_keys):
@@ -106,7 +410,7 @@
 	* casetab.c (check_case_table): Simpler code.
 
 	* window.c (Freplace_buffer_in_windows):
-	Give this the same WHICH-FRAMES and WHICH-DEVICES parameters 
+	Give this the same WHICH-FRAMES and WHICH-DEVICES parameters
 	(and similar implementation) as Fdelete_windows_on.
 	Update all callers.
 
@@ -491,15 +795,15 @@
 
 	* sgiplay.c (play_internal): C++ compilability.
 	* alloc.c (SWEEP_FIXED_TYPE_BLOCK): Remove unused var `SFTB_prev'.
-	* callproc.c (Fold_call_process_internal): 
+	* callproc.c (Fold_call_process_internal):
 	Remove unused vars `env', `first'.
-	* scrollbar.c (update_scrollbar_instance): 
+	* scrollbar.c (update_scrollbar_instance):
 	#### unused var `current_window'.
 	* redisplay-tty.c: Put currently unused vars insert_mode_on,
 	etc. within #ifdef NOT_YET.
 	* emacs.c: #### unused vars `initial_argc', `initial_argv'.
 	* dialog-x.c (dbox_descriptor_to_widget_value): ### unused var `title'.
-	* specifier.c (specifier_instance): 
+	* specifier.c (specifier_instance):
 	#### unused var `tag'.
 	Use WINDOW_BUFFER, FRAME_DEVICE instead of their expansion.
 
@@ -577,9 +881,9 @@
 2000-10-17  Martin Buchholz  <martin@xemacs.org>
 
 	* miscplay.c (sndcnv8S_2mono):
-	(sndcnv2monounsigned): 
-	(sndcnvULaw_2linear): 
-	(sndcnv16swap): 
+	(sndcnv2monounsigned):
+	(sndcnvULaw_2linear):
+	(sndcnv16swap):
 	Remove implementation-defined behavior.
 
 2000-10-12  Martin Buchholz  <martin@xemacs.org>
@@ -658,8 +962,8 @@
 	(BYTE_ASCII_P): Use bit ops for char-signedness safety.
 	(BYTE_C0_P): Use bit ops for char-signedness safety.
 	(BYTE_C1_P): Use bit ops for char-signedness safety.
-	(CHARSET_BY_LEADING_BYTE): 
-	(CHARSET_BY_ATTRIBUTES): 
+	(CHARSET_BY_LEADING_BYTE):
+	(CHARSET_BY_ATTRIBUTES):
 	Always use inline function.
 	Use type_checking_assert.
 	Hide chlook.
@@ -668,7 +972,7 @@
 	Modify to work with both ASCII and non-ASCII characters.
 	Improve docs and variable names.
 	Replace over-clever fall-through switch with a simple loop.
-	(Lstream_get_emchar_1): 
+	(Lstream_get_emchar_1):
 	Replace over-clever fall-through switch with a simple loop.
 
 	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
@@ -749,8 +1053,8 @@
 	* s/decosf1-3.h: Remove #include of stropts.h
 	* s/ptx.h: Remove #include of stropts.h
 	* s/usg5-4.h: Remove #include of stropts.h
-	* sysproc.h: 
-	* config.h.in: 
+	* sysproc.h:
+	* config.h.in:
 	Use stropts.h, not sys/stropts.h.
 	Use strtio.h, not sys/strtio.h.
 
@@ -937,12 +1241,12 @@
 	called_from_delete_device bogus arg, and hence, remove this
 	function.  Just use other_visible_frames().
 
-	* window.c (Fnext_window): 
+	* window.c (Fnext_window):
 	Prettify docstring.
 	Since next_frame() is guaranteed to return a frame, remove check
 	for nil inserted in previous patch.
-	(Fprevious_window): 
-	Prettify docstring.  
+	(Fprevious_window):
+	Prettify docstring.
 	Make code look more like Fnext_window.
 	(window_loop):
 	Respect the `console' arg when iterating through windows.
@@ -1007,7 +1311,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	Warning fix.
 	Avoid buffer overrun on very long file name.
 
-	* input-method-xlib.c (XIM_init_device): 
+	* input-method-xlib.c (XIM_init_device):
 	6th parameter of XRegisterIMInstantiateCallback has different
 	pointer types on different OSes, so simply cast to (void *).
 
@@ -1018,7 +1322,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	Simply return NULL for compatibility with dlopen.
 	* sysdll.c: Conform to XEmacs coding standards.
 
-	* sysdep.c (get_pty_max_bytes): 
+	* sysdep.c (get_pty_max_bytes):
 	Support pty input lines longer than 512 bytes on HP-UX 10.20.
 
 2000-08-31  Martin Buchholz  <martin@xemacs.org>
@@ -1122,7 +1426,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* data.c (indirect_function):
 	Rename ERRORP to non-misleading VOID_FUNCTION_ERRORP.
 
-	* eval.c (function_argcount): 
+	* eval.c (function_argcount):
 	Use original function when signaling errors.
 
 2000-08-18  Andy Piper  <andy@xemacs.org>
@@ -1199,7 +1503,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	of the code).  remove duplicate header includes.
 
 	* s\cygwin32.h, s\mingw32.h: remove stray NO_ARG_ARRAY.
-	
+
 	* s\cygwin32.h, s\mingw32.h, m\windowsnt.h:
 	don't define LOAD_AVE_TYPE/LOAD_AVE_CVT because we have no
 	useful load average.
@@ -1224,7 +1528,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* Makefile.in.in (release):
 	Remove stray @.
-	
+
 	* buffer.c (directory_is_current_directory):
 	* dired-msw.c (mswindows_get_files):
 	* dired.c:
@@ -1236,18 +1540,18 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	(e.g. SCO).
 
 	* callproc.c (egetenv): GC docs.
-	
+
 	* console-msw.h:
 	* console-msw.h (struct mswindows_dialog_id):
 	* lrecord.h (lrecord_type):
 	New object for use with MSW dialogs.
-	
+
 	* console.h (struct console_methods):
 	New enable/disable frame methods, for proper modal dialogs.
-	
+
 	* device-msw.c (msprinter_default_printer): Fix to follow
 	proper Mule conventions.
-	
+
 	* device-msw.c:
 	* device-msw.c (signal_open_printer_error):
 	* device-msw.c (msprinter_init_device):
@@ -1264,7 +1568,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* extents.c (Fextents_at):
 	* extents.c (symbol_to_glyph_layout):
 	[[[[2]]]] Use structured errors.
-	
+
 	* dialog-msw.c:
 	* dialog-msw.c (mswindows_is_dialog_msg):
 	* dialog-msw.c (mark_mswindows_dialog_id):
@@ -1273,7 +1577,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* dialog-msw.c (syms_of_dialog_mswindows):
 	Define new object to clean up marking; use it as a dialog identifier.
 	Call new delete-dialog-box-hook.
-	
+
 	* dialog-x.c (dbox_selection_callback):
 	* dialog-x.c (dbox_descriptor_to_widget_value):
 	* dialog-x.c (x_make_dialog_box_internal):
@@ -1284,17 +1588,17 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* dialog.c (syms_of_dialog):
 	* dialog.c (vars_of_dialog):
 	Define new delete-dialog-box-hook, for use w/modal dialog boxes.
-	
+
 	* eval.c:
 	* eval.c (signal_call_debugger):
 	when noninteractive, output stack traces on the console instead
 	of in a (never-seen) buffer.
-	
+
 	* eval.c (signal_type_error):
 	* eval.c (invalid_argument_2):
 	* lisp.h:
 	new funs for use w/structured errors.
-	
+
 	* event-Xt.c:
 	* event-Xt.c (x_to_emacs_keysym):
 	* event-Xt.c (describe_event):
@@ -1305,10 +1609,10 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-msw.c (vars_of_event_mswindows):
 	rename {x,mswindows}-debug-events to debug-{}-events for
 	consistency with other debug-foo variables.
-	
+
 	* event-stream.c:
 	document next-event more clearly.
-	
+
 	* fileio.c (Ffile_name_directory):
 	* fileio.c (Ffile_name_nondirectory):
 	* fileio.c (Funhandled_file_name_directory):
@@ -1333,7 +1637,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* fileio.c (auto_save_1):
 	(1). (2).
 	fix up gcpro's.
-	
+
 	* frame-msw.c:
 	* frame-msw.c (mswindows_init_frame_1):
 	* frame-msw.c (mswindows_enable_frame):
@@ -1343,24 +1647,24 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* frame-msw.c (console_type_create_frame_mswindows):
 	(2).
 	implement new enable/disable frame methods.
-	
+
 	* frame-x.c:
 	* frame-x.c (x_enable_frame):
 	* frame-x.c (console_type_create_frame_x):
 	implement new enable/disable frame methods.
-	
+
 	* frame.c:
 	* frame.c (Fdisable_frame):
 	* frame.c (syms_of_frame):
 	* frame.h (struct frame):
 	implement new enable/disable frame methods/functions.
-	
+
 	* general-slots.h:
 	add initial-focus.
-	
+
 	* glyphs-msw.c (mswindows_widget_instantiate):
 	comment that initial-focus should be implemented.
-	
+
 	* glyphs-widget.c:
 	* glyphs-widget.c (check_valid_instantiator):
 	* glyphs-widget.c (check_valid_orientation):
@@ -1383,7 +1687,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	(2).
 	support (unimplemented) keyword initial-focus.
 	reindent long macros.
-	
+
 	* glyphs-x.c (x_redisplay_widget):
 	* glyphs-x.c (x_button_instantiate):
 	* glyphs-x.c (x_button_redisplay):
@@ -1401,40 +1705,40 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
 	add new flag to gui-parsing routines to indicate whether
 	accelerator specs should be supported.
-	
+
 	* glyphs.c (syms_of_glyphs): use DEFSYMBOL.
-	
+
 	* glyphs.h (struct Lisp_Image_Instance):
 	* glyphs.h (IMAGE_INSTANCE_WANTS_INITIAL_FOCUS):
 	add initial-focus flag.
-	
+
 	* gui.c:
 	* gui.c (syms_of_gui):
 	* gui.c (vars_of_gui):
 	clean up menu-no-selection-hook.
-	
+
 	* gui.h:
 	support delete-dialog-box-hook.
-	
+
 	* lread.c (Fload_internal):
 	* lread.c (locate_file_in_directory_mapper):
 	(1).
-	
+
 	* lrecord.h:
 	* lrecord.h (struct toolbar_button):
 	* lrecord.h (syms_of_toolbar):
 	document how to create a new object.
-	
+
 	* menubar-msw.c (mswindows_char_is_accelerator):
 	may be called on frames w/o menus.
 
 	* menubar.c (vars_of_menubar):
 	clean up :filter docs.
-	
+
 	* nt.c (readdir):
 	* ntproc.c:
 	(1).
-	
+
 	* process-nt.c:
 	* process-nt.c (validate_signal_number):
 	* process-nt.c (signal_cannot_launch):
@@ -1445,7 +1749,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* process-nt.c (syms_of_process_nt):
 	(2).
 	delete quote-handling.  call new lisp code that does it better.
-	
+
 	* process-unix.c (connect_to_file_descriptor):
 	* process-unix.c (allocate_pty):
 	* process-unix.c (unix_send_process):
@@ -1453,11 +1757,11 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* process-unix.c (unix_open_network_stream):
 	* process-unix.c (unix_open_multicast_group):
 	(1). (2).
-	
+
 	* process.c:
 	* process.c (Fstart_process_internal):
 	(2).  need to canonicalize process path even if absolute.
-	
+
 	* select-msw.c (symbol_to_ms_cf):
 	* select-msw.c (ms_cf_to_symbol):
 	* select-msw.c (cf_is_autofreed):
@@ -1466,35 +1770,35 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* select.c (syms_of_select):
 	* select.h:
 	support dibv5, fix bugs. (from Mike Alexander)
-	
+
 	* select.c (Fget_selection_internal):
 	* select.c (select_convert_out):
-	
+
 	* sysdep.c:
 	* sysdep.c (xemacs_stat):
 	renamed.
-	
+
 	* sysdep.c (mkdir):
 	* sysdep.c (rmdir):
 	but keep original stat() here because we provide encapsulation
 	around these funs.
-	
+
 	* sysfile.h:
 	* sysfile.h (fstat):
 	remove stat garbage.
-	
+
 	* syswindows.h:
 	fix X/MSW conflict.
 	don't include tchar.h.  it's inappropriate because it makes
 	compile-time distinctions when we want runtime distinctions.
 	(we provide our own tchar replacements)
-	
+
 	* toolbar.c:
 	use default object printer for toolbar-button.
-	
+
 	* unexcw.c:
 	make sure we don't encapsulate.
-	
+
 	* window.c (vars_of_window):
 	emphasize that temp-buffer-show-hook is obsolete.
 
@@ -1503,16 +1807,16 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* glyphs.c (image_instance_hash): HASH2 wants EMACS_INT args.
 	(Fimage_instance_subwindow_id): make_int wants EMACS_INT arg.
 
-	* events.c (Fevent_timestamp_lessp): 
+	* events.c (Fevent_timestamp_lessp):
 	Not 64-bit clean.  Use EMACS_INT, not int.
 
 2000-06-05  Andrew Begel <abegel@cs.berkeley.edu>
 
 	* lrecord.h (lrecord_types): Changed lrecord_type_count to an
 	unsigned int and changed the last enum to
-	lrecord_type_last_built_in_type. 
+	lrecord_type_last_built_in_type.
 	(lrecord_implementations_table): changed prototype to know how
-	long the array is supposed to be. 
+	long the array is supposed to be.
 	(lrecord_type_count): new unsigned int to keep track of the
 	current number of lisp lrecord types.
 	(DEFINE_EXTERNAL_LRECORD):
@@ -1544,14 +1848,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-08-03  Martin Buchholz  <martin@xemacs.org>
 
-	* callproc.c (Fcall_process_internal): 
-	(Fcall_process_internal): 
+	* callproc.c (Fcall_process_internal):
+	(Fcall_process_internal):
 	* process-unix.c (unix_create_process):
 	Save and restore the value of errno, so that error messages are accurate.
 
 2000-08-01  Martin Buchholz  <martin@xemacs.org>
 
-	* elhash.c (print_hash_table): 
+	* elhash.c (print_hash_table):
 	Fix printing of hash tables to also use `key-and-value' instead of `t'.
 	Prettify docstrings and indentation.
 
@@ -1605,7 +1909,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* config.h.in:
 	Make existence of s&m files optional.
-	
+
 	* s/bsd386.h: Remove HAVE_GETLOADAVG.
 	* s/freebsd.h: Remove HAVE_GETLOADAVG.
 	* s/gnu.h: Remove HAVE_GETLOADAVG.
@@ -1685,7 +1989,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* window.c (Fset_window_configuration): add comment.
 
-	* redisplay-output.c (compare_runes): 
+	* redisplay-output.c (compare_runes):
 	(redisplay_output_subwindow): redisplay rather than update subwindow.
 	(redisplay_output_layout): ditto.
 
@@ -1835,7 +2139,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* *.[ch] (XSETOBJ): remove unused middle argument.
 	lisp-disunion.h: correct wrap_object() to one argument.
-	
+
 2000-07-15  Ben Wing  <ben@xemacs.org>
 
         * s/cygwin32.h:
@@ -1851,7 +2155,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* Makefile.in.in (sheap_objs):
 	* Makefile.in.in (objs):
 	added win32.o, cosmetic cleanups.
-	
+
         * alloc.c (Fmake_byte_code):
         [[[1]]]: Changes for new LIST_LOOP, EXTERNAL_LIST_LOOP,
         etc. macros which declare their own args now.
@@ -2485,8 +2789,8 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	(msprinter_canonicalize_device_connection): Added.
 
 	* device-msw.c (msprinter_default_printer):
-	(Fmswingows_get_default_printer): 
-	(signal_enum_priner_error): 
+	(Fmswingows_get_default_printer):
+	(signal_enum_priner_error):
 	(Fmswingows_printer_list): Added.
 
 2000-07-19  Martin Buchholz <martin@xemacs.org>
@@ -2495,7 +2799,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-07-19  Martin Buchholz  <martin@xemacs.org>
 
-	* select-x.c (x_handle_selection_request): 
+	* select-x.c (x_handle_selection_request):
 	Text selected in xemacs and pasted into xterm failed to appear.
 	Spelling fixes and cosmetic changes.
 
@@ -2594,17 +2898,17 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* select-x.c (motif_clipboard_cb): Use select_convert_out. Rewrote
 	error checking - previously this called abort!
-	
+
 	* select-x.c (x_own_selection): Changed comment.
-	
+
 	* select-x.c (x_handle_selection_request): Use select_convert_out.
 	Don't mess with selection-alist; it's an internal variable of select.c.
-	
+
 	* select-x.c (x_get_foreign_selection): Use select_convert_in.
-	
+
 	* select-x.c (x_handle_selection_clear): Use get-selection-timestamp,
 	rather than messing with selection-alist.
-	
+
 	* select-msw.c (mswindows_get_foreign_selection):
 	Use TO_INTERNAL_FORMAT rather than hacking.
 
@@ -2626,7 +2930,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console.h (available_selection_types_method): New.
 	* console.h (register_selection_data_type_method): New.
 	* console.h (selection_data_type_name): New.
-	
+
 	* console-msw.h (mswindows_destroy_selection): Declare it.  New
 	function & alist to track GlobalAlloc()'d handles that need
 	releasing when the clipboard data gets replaced or emptied.
@@ -2635,7 +2939,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* lisp.h, general.c (Qappend): New symbol representing a
 	`how-to-add' mode.
-	
+
 	* select.c (own-selection-internal):
 	* select.c (selection-exists-p):
 	* select.c (available-selection-types): New.
@@ -2702,8 +3006,8 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	default minibuffer frame on a printer device.
 
 	* frame-msw.c (apply_dc_geometry): Added.
-	(msprinter_start_page): 
-	(msprinter_init_frame_3): 
+	(msprinter_start_page):
+	(msprinter_init_frame_3):
 	(msprinter_eject_page): Use it.
 
 	* console-msw.h (struct msprinter_frame): Added pix_left and top,
@@ -2723,7 +3027,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 2000-07-09  Martin Buchholz  <martin@xemacs.org>
 
 	* config.h.in: Remove SMART_INCLUDE hackery.
-	
+
 	PostgreSQL hacking:
 	* config.h.in: Don't use SMART_INCLUDE.
 
@@ -2761,7 +3065,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* device-msw.c (hash_devmode):
 	* device-msw.c (Fmsprinter_settings_despecialize):
 	use Qmswindows_tstr, not Qctext.
-	
+
 	* vm-limit.c (check_memory_limits):
 	avoid infinite loop printing warning messages.
 
@@ -2803,7 +3107,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console-msw.h (struct mswindows_device): Removed unnecessary
 	cached device geometry values.
 	Added update_tick and an accessor macro.
-	(Lisp_Devmode): Added lrecord declaration. 
+	(Lisp_Devmode): Added lrecord declaration.
 	(struct msprinter_device): Contain devmode as a Lisp object.
 	Added mswindows_get_selected_frame_hwnd();
 
@@ -2812,27 +3116,27 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* device-msw.c (mswindows_init_device): Do not initialize geometry
 	cache. Initialize update tick.
 	(mswindows_device_system_metrics): Ask the device for its geometry.
-	(global_free_2_maybe): 
-	(devmode_to_hglobal): 
-	(handle_printer_changes): 
-	(ensure_not_printing): 
-	(print_dialog_worker): 
-	(Fmsprinter_print_setup_dialog): 
-	(Fmsprinter_print_dialog): 
-	(plist_get_margin): 
-	(plist_set_margin): 
+	(global_free_2_maybe):
+	(devmode_to_hglobal):
+	(handle_printer_changes):
+	(ensure_not_printing):
+	(print_dialog_worker):
+	(Fmsprinter_print_setup_dialog):
+	(Fmsprinter_print_dialog):
+	(plist_get_margin):
+	(plist_set_margin):
 	(Fmsprinter_page_setup_dialog): Added functions.
-	(sync_printer_with_devmode): 
-	(handle_devmode_changes): 
-	(Fmsprinter_get_settings): 
-	(Fmsprinter_select_settings): 
+	(sync_printer_with_devmode):
+	(handle_devmode_changes):
+	(Fmsprinter_get_settings):
+	(Fmsprinter_select_settings):
 	(Fmsprinter_apply_settings):
-	(allocate_devmode): 
-	(Fmsprinter_settings_copy): 
-	(Fmsprinter_settings_despecialize): 
-	(print_devmode): 
-	(finalize_devmode): 
-	(equal_devmode): 
+	(allocate_devmode):
+	(Fmsprinter_settings_copy):
+	(Fmsprinter_settings_despecialize):
+	(print_devmode):
+	(finalize_devmode):
+	(equal_devmode):
 	(hash_devmode): Added functions
 	(syms_of_device_mswindows): Init devmode lrecord class.
 
@@ -2843,9 +3147,9 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* frame-msw.c (mswindows_get_selected_frame_hwnd): Added.
 	(msprinter_init_frame_3):
-	(msprinter_frame_property): 
+	(msprinter_frame_property):
 	(msprinter_internal_frame_property_p):
-	(msprinter_frame_properties): 
+	(msprinter_frame_properties):
 	(msprinter_set_frame_properties): Removed 'orientation and 'duplex
 	print job properties (will move to device settings).
 
@@ -2953,26 +3257,26 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* nt.c (mswindows_stat):
 	prefix mswindows_ instead of attempting to directly override the
 	library functions.  fix declarations.
-	
+
 	* nt.h:
 	include syswindows.h.  move some sysdep.h stuff here.
-	
+
 	* ntheap.h:
 	include syswindows.h, not <windows.h>.
 
 	* ntplay.c:
 	clean up headers.
-	
+
 	* sysdep.c:
 	clean up headers.
-	
+
 	* sysdep.c (sys_fstat):
 	* sysdep.c (sys_stat):
 	call mswindows versions when appropriate.
-	
+
 	* sysdep.h:
 	move mswin decls to nt.h.
-	
+
 	* syswindows.h:
 	add long comment describing appropriate use of the various windows
 	headers.
@@ -2985,21 +3289,21 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* Makefile.in.in (release):
 	Correction to make sure xemacs.exe always dumped when correct.
-	
+
 	* alloca.c:
 	* balloon_help.c:
 	[[[[3]]]]: Conditionalize on actual problem, not WINDOWSNT.
-	
+
 	* buffer.c (set_buffer_internal):
 	[[[[2]]]]: Remove HAVE_FEP code.
 
 	* buffer.c (init_initial_directory):
 	[3].
-	
+
 	* bytecode.c:
 	[[[[4]]]]: limits.h standardly included in lisp.h; remove from
 	individual files.
-	
+
 	* callproc.c:
 	* callproc.c (call_process_cleanup):
 	* callproc.c (Fold_call_process_internal):
@@ -3018,11 +3322,11 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* config.h.in:
 	[2].
-	
+
 	* console-msw.c:
 	mswindows_message_outputted added for use in allowing startup
 	errors on the console to be seen.
-	
+
 	* console-msw.c (msw_ensure_console_allocated):
 	* console-msw.c (msw_output_console_string):
 	* console-msw.c (DHEADER):
@@ -3035,18 +3339,18 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console-msw.c (DSYMBOL):
 	* console-msw.c (DSYMNAME):
 	Fix warnings.
-	
+
 	* console-stream.c (stream_init_console):
 	Fix text/binary problems.
-	
+
 	* device-msw.c:
 	* device-msw.c (mswindows_finish_init_device):
 	* device-msw.c (mswindows_delete_device):
 	[1].
-	
+
 	* device.c (handle_asynch_device_change):
 	[3].
-	
+
 	* dgif_lib.c:
 	* dgif_lib.c (DGifOpenFileName):
 	* dgif_lib.c (DGifOpenFileHandle):
@@ -3054,31 +3358,31 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* dgif_lib.c (DGifGetPixel):
 	Added config.h/lisp.h, fix up includes.
 	[1].
-	
+
 	* dired-msw.c:
 	[4].
-	
+
 	* dired.c:
 	* dired.c (file_name_completion):
 	* dired.c (Ffile_attributes):
 	* dired.c (syms_of_dired):
 	[1].
-	
+
 	* dumper.c:
 	* dumper.c (pdump_file_unmap):
 	* dumper.c (pdump_load):
 	[1].
-	
+
 	* editfns.c:
 	* editfns.c (Ftemp_directory):
 	* editfns.c (user_login_name):
 	* editfns.c (Fuser_real_login_name):
 	* editfns.c (get_home_directory):
 	[1].
-	
+
 	* elhash.c (finish_marking_weak_hash_tables):
 	[[[[5]]]]: Fix GCC warnings.
-	
+
 	* emacs.c:
 	* emacs.c (mswindows_handle_hardware_exceptions):
 	* emacs.c (make_arg_list_1):
@@ -3087,20 +3391,20 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* emacs.c (Fdump_emacs):
 	[1].
 	Fix problems with nested crashes, add long comment.
-	
+
 	* event-Xt.c (init_event_Xt_late):
 	[1].
-	
+
 	* event-msw.c:
 	* event-msw.c (mswindows_dde_callback):
 	* event-msw.c (mswindows_handle_sticky_modifiers):
 	* event-msw.c (mswindows_wnd_proc):
 	[1].
 	[5].
-	
+
 	* events.c (character_to_event):
 	[1].
-	
+
 	* fileio.c:
 	* fileio.c (Ffile_name_directory):
 	* fileio.c (Ffile_name_nondirectory):
@@ -3117,63 +3421,63 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	[1]. [4].
 
 	[[[[7]]]]: Move CORRECT_DIR_SEPS to s\windowsnt.h.
-	
+
 	Expand getdefdir defn.
 	Fix bogus rename() comment.
 
 	[[[[6]]]]: Fix Windows includes w.r.t. removed nt\inc.  Attempt
 	to use standard XEmacs include files, e.g. sysfile.h, rather
 	than system-specific includes.
-	
+
 	* fns.c:
 	* fns.c (Fsubseq):
 	[5]. [6].
-	
+
 	* frame.c (vars_of_frame):
 	[1].
-	
+
 	* getloadavg.c:
 	* getloadavg.c (getloadavg):
 	[1]. [6].
 	#ifdef XEMACS not defined on Cygwin.  Remove this; no need for it.
 	(We don't use it elsewhere in the code; just add a comment.)
-	
+
 	* gif_io.c:
 	[6].
 	Add config.h.
-	
+
 	* glyphs-msw.c:
 	* glyphs-msw.c (mswindows_resource_instantiate):
 	[1].
-	
+
 	* glyphs-x.c (x_native_layout_instantiate):
 	[5].
-	
+
 	* gui-msw.c (Fmswindows_shell_execute):
 	[1].
-	
+
 	* insdel.c:
 	[4].
-	
+
 	* lisp.h:
 	[4]. [5].
-	
+
 	* lread.c (locate_file_in_directory_mapper):
 	[1].
-	
+
 	* lstream.c:
 	[4].
-	
+
 	* mem-limits.h:
 	* mem-limits.h (get_lim_data):
 	[1].
-	
+
 	* menubar-msw.c:
 	[4].
-	
+
 	* ndir.h:
 	[1].
-	
+
 	* nt.c:
 	* nt.c (getwd):
 	* nt.c (closedir):
@@ -3181,70 +3485,70 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* nt.c (mswindows_executable_type):
 	[1]. [6].
 	Fix closedir() defn.
-	
+
 	* nt.h:
 	[[[[8]]]]: *_OK defs moved to sysfile.h.
-	
+
 	* ntproc.c:
 	[6]. [7].
-	
+
 	* objects-x.c:
 	[4].
-	
+
 	* print.c:
 	* print.c (std_handle_out_external):
 	[1]. [4].
-	
+
 	* process-nt.c:
 	* process-nt.c (nt_create_process):
 	[6].
 	try to fix process quoting somewhat.
-	
+
 	* process-unix.c (unix_create_process):
 	[1].
-	
+
 	* process.c:
 	* process.c (vars_of_process):
 	Add Vnull_device.
-	
+
 	* process.h:
 	[1].
-	
+
 	* realpath.c:
 	* realpath.c (xrealpath):
 	[1].
-	
+
 	* redisplay-tty.c (init_tty_for_redisplay):
 	[3].
-	
+
 	* redisplay.c:
 	[4]. [6].
-	
+
 	* scrollbar-msw.c:
 	[4].
-	
+
 	* sheap.c:
 	* sheap.c (more_static_core):
 	* sheap.c (report_sheap_usage):
 	[5]. [6].
-	
+
 	* signal.c:
 	* signal.c (alarm_signal):
-	[1]. [6]. 
-	
+	[1]. [6].
+
 	* sound.c:
 	[6].
-	
+
 	* strftime.c:
 	* strftime.c (zone_name):
 	[1]. [5].
-	
+
 	* symsinit.h (init_sunpro):
 	[1].
-	
+
 	* syscommctrl.h:
 	commctrl.h not in Cygwin b20.1.
-	
+
 	* sysdep.c:
 	* sysdep.c (endif):
 	* sysdep.c (sys_subshell):
@@ -3260,58 +3564,58 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* sysdep.c (sys_rename):
 	* sysdep.c (get_process_times_1):
 	[1]. [6].
-	
+
 	* sysdep.h:
 	[1].
-	
+
 	* sysdir.h:
 	* sysdir.h (DIRENTRY_NONEMPTY):
 	[1]. [6].
-	
+
 	* sysdll.c (dll_init):
 	* sysdll.h:
 	[1].
-		
+
 	* sysfile.h:
 	[1]. [6]. [8].
 	added text/binary defs.
-	
+
 	* sysfloat.h:
 	[1].
-	
+
 	* sysproc.h:
 	* sysproc.h (EDESTADDRREQ):
 	* sysproc.h (poll_fds_for_input):
 	[1]. [6].
-	
+
 	* syspwd.h:
 	[6].
-	
+
 	* syssignal.h:
 	[1].
-	
+
 	* systime.h:
 	[1]. [6].
-	
+
 	* systty.h:
 	[1].
-	
+
 	* syswindows.h:
 	[1].
 	Always define WIN32_LEAN_AND_MEAN.
-	
+
 	* unexcw.c (unexec):
 	[5].
-	
+
 	* unexec.c:
 	* unexec.c (copy_text_and_data):
 	* unexec.c (adjust_lnnoptrs):
 	[1].
-	
+
 	* unexnt.c:
 	* unexnt.c (_start):
 	[1].
-	
+
 2000-06-07  Ben Wing  <ben@xemacs.org>
 
 	* mule-mcpath.c, mule-mcpath.h: Removed.  Old, crufty code that
@@ -3327,13 +3631,13 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* s\cygwin32.h:
 	[1]. [5].
 	Don't use extern with fun defs.
-	
+
 	* s\mingw32.h:
 	[1]. [7].
 	Remove nt\inc include.
 	Remove getdisk, getdefdir. (The former is unused, the latter
 	expanded in fileio.h.)
-	
+
 	* s\windowsnt.h:
 	* s\windowsnt.h (WIN32_NATIVE):
 	* s\windowsnt.h (HAVE_STRCASECMP):
@@ -3352,7 +3656,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* m\windowsnt.h:
 	[1].
 	Remove bogus/unused NO_SOCK_SIGIO.
-	
+
 2000-06-08  Hrvoje Niksic  <hniksic@iskon.hr>
 
 	* lisp.h (set_string_char): Call set_string_byte with a Bufbyte,
@@ -3386,32 +3690,32 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-05-30  Andy Piper  <andy@xemacs.org>
 
-	* window.c (allocate_window): 
-	(make_dummy_parent): 
+	* window.c (allocate_window):
+	(make_dummy_parent):
 	(Fset_window_configuration): use new hashtable type.
 
-	* glyphs.h (IMAGE_UNSPECIFIED_GEOMETRY): 
-	(struct image_instantiator_methods): 
+	* glyphs.h (IMAGE_UNSPECIFIED_GEOMETRY):
+	(struct image_instantiator_methods):
 	(struct Lisp_Image_Instance): make instance geometry signed.
 
-	* glyphs.c (instantiate_image_instantiator): 
-	(image_instance_query_geometry): 
-	(image_instance_layout): 
-	(image_instance_layout): 
-	(query_string_geometry): 
-	(text_query_geometry): 
-	(image_instantiate): 
-	(image_instantiate): 
-	(cache_subwindow_instance_in_frame_maybe): 
+	* glyphs.c (instantiate_image_instantiator):
+	(image_instance_query_geometry):
+	(image_instance_layout):
+	(image_instance_layout):
+	(query_string_geometry):
+	(text_query_geometry):
+	(image_instantiate):
+	(image_instantiate):
+	(cache_subwindow_instance_in_frame_maybe):
 	(subwindow_query_geometry): make instance geometry signed.
 
-	* glyphs-widget.c (widget_query_geometry): 
-	(widget_layout): 
-	(button_query_geometry): 
-	(tree_view_query_geometry): 
-	(tab_control_query_geometry): 
-	(layout_query_geometry): 
-	(layout_layout): 
+	* glyphs-widget.c (widget_query_geometry):
+	(widget_layout):
+	(button_query_geometry):
+	(tree_view_query_geometry):
+	(tab_control_query_geometry):
+	(layout_query_geometry):
+	(layout_layout):
 	(native_layout_layout): make instance geometry signed.
 
 2000-05-29  Olivier Galibert  <galibert@pobox.com>
@@ -3512,7 +3816,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-Xt.c:
 	* event-Xt.c (vars_of_event_Xt):
 	move modifier-keys-are-sticky to event-stream.c.
-	
+
 	* event-msw.c:
 	* event-msw.c (mswindows_enqueue_mouse_button_event):
 	* event-msw.c (key_needs_default_processing_p):
@@ -3526,14 +3830,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-msw.c (mswindows_modifier_state):
 	* event-msw.c (emacs_mswindows_handle_magic_event):
 	implement sticky modifiers.
-	
+
 	* event-stream.c:
 	* event-stream.c (vars_of_event_stream):
 	move modifier-keys-are-sticky here.
 
 	* lisp.h:
 	add CHECK_FUNCTION.
-	
+
 	* rangetab.c:
 	implement map-range-table.
 
@@ -3564,16 +3868,16 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* buffer.c (dfc_convert_to/from_internal_format):
 	* buffer.c (reinit_vars_of_buffer):
 	Fix conversion functions to allow reentrancy.
-	
+
 	* console-msw.c:
 	* console-msw.c (mswindows_output_last_error):
 	New fun, generally useful -- output a human-readable
 	version of GetLastError() on the console.
-	
+
 	* console-msw.h:
 	* console-msw.h (struct mswindows_frame):
 	Changes for DeferWindowPos.  Declare mswindows_output_last_error().
-	
+
 	* console-stream.c (stream_output_begin):
 	* console-stream.c (stream_output_end):
 	* console-stream.c (stream_output_vertical_divider):
@@ -3581,10 +3885,10 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console-stream.c (stream_flash):
 	* console-stream.c (console_type_create_stream):
 	Delete blank stream methods, not needed.
-	
+
 	* console.h (struct console_methods):
 	Split begin/end methods into window and frame.
-	
+
 	* event-msw.c:
 	* event-msw.c (mswindows_handle_paint):
 	* event-msw.c (output_alt_keyboard_state):
@@ -3592,32 +3896,32 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-msw.c (vars_of_event_mswindows):
 	Comment about problems with ignored-expose.
 	Define mswindows-debug-events; not really implemented.
-	
+
 	* frame-msw.c (mswindows_init_frame_1):
 	random cleanups.
-	
+
 	* glyphs-msw.c:
 	* glyphs-msw.c (begin_defer_window_pos):
 	* glyphs-msw.c (mswindows_unmap_subwindow):
 	* glyphs-msw.c (mswindows_map_subwindow):
 	* glyphs-msw.c (mswindows_resize_subwindow):
 	Use DeferWindowPos to reduce flashing when mapping/unmapping.
-	
+
 	* glyphs.c (make_image_instance_1):
 	Fix crash.
-	
+
 	* gutter.c (Fredisplay_gutter_area):
 	Use new begin/end methods.
-	
+
 	* lisp.h (Dynarr_new2):
 	New creation fun.
-	
+
 	* redisplay-msw.c:
 	* redisplay-msw.c (mswindows_frame_output_begin):
 	* redisplay-msw.c (mswindows_frame_output_end):
 	* redisplay-msw.c (console_type_create_redisplay_mswindows):
 	New begin/end methods -- handle DeferWindowPos.
-	
+
 	* redisplay-output.c (redisplay_move_cursor):
 	* redisplay-output.c (redraw_cursor_in_window):
 	* redisplay-output.c (redisplay_update_line):
@@ -3656,13 +3960,13 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* emacs.c (shut_down_emacs):
 	* emacs.c (assert_failed):
 	various improvements in fatal error handling.
-	
+
 	* eval.c:
 	move preparing_for_armageddon to emacs.c.
-	
+
 	* lisp.h:
 	declare fatal_error_in_progress.
-	
+
 	* print.c:
 	* print.c (std_handle_out_external):
 	* print.c (std_handle_out_va):
@@ -3670,18 +3974,18 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* print.c (stdout_out):
 	use console under mswin when no standard output.
 	don't do code conversion during fatal error.
-	
+
 	* scrollbar.c (Fscrollbar_page_up):
 	* scrollbar.c (Fscrollbar_page_down):
 	fix missing else.  reindent.
 
 2000-05-11  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	Emergency fix.	
-	
-	* glyphs.h (GLYPH_CACHEL_DESCENT): 
-	(GLYPH_CACHEL_DESCENT): 
-	(GLYPH_CACHEL_DESCENT): 
+	Emergency fix.
+
+	* glyphs.h (GLYPH_CACHEL_DESCENT):
+	(GLYPH_CACHEL_DESCENT):
+	(GLYPH_CACHEL_DESCENT):
 	* glyphs.h (GLYPH_CACHEL_ASCENT): Match parameters to variables
 	used in case these are inline functions.
 	Use more absurd values to error check.
@@ -3701,15 +4005,15 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	Define new fun `mswindows-message-box'.
 	#### I will merge this into `popup-dialog-box'; just give me
 	a bit of time.
-	
+
 	* general.c:
 	* general.c (syms_of_general):
 	Some new symbols used in `mswindows-message-box'.
-	
+
 	* glyphs.c:
 	* glyphs.c (Fset_image_instance_property):
 	put warning in this fun.
-	
+
 	* glyphs.h:
 	* glyphs.h (GLYPH_CACHEL_WIDTH):
 	* glyphs.h (GLYPH_CACHEL_ASCENT):
@@ -3718,7 +4022,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	define error-checking versions to try to catch a bug i've seen --
 	redisplay gets in an infinite loop because the glyph width of the
 	continuation glyph is 65535.
-	
+
 	* lisp.h:
 	Extern message-box stuff.
 
@@ -3727,7 +4031,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* window.c (Fset_window_configuration):
 	Use EQUAL not EQ for subwindow caches to make them work a bit
 	better. (Something is still very broken.)
-	
+
 
 2000-05-11  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
@@ -3750,14 +4054,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* buffer.c (complex_vars_of_buffer):
 	update modeline-format doc.
-	
+
 	* device.h:
 	comment about how DFW_DEVICE should be merged with DOMAIN_DEVICE.
-	
+
 	* emacs.c:
 	timeline of all released versions of Emacs, for use in creating
 	authorship comments and in synching up.
-	
+
 	* glyphs-widget.c (image_instantiator_buttons):
 	* glyphs-widget.c (image_instantiator_edit_fields):
 	* glyphs-widget.c (image_instantiator_combo_box):
@@ -3769,7 +4073,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* glyphs-widget.c (image_instantiator_layout):
 	* glyphs-widget.c (image_instantiator_native_layout):
 	rename decode_domain method to governing_domain.
-	
+
 	* glyphs.c:
 	* glyphs.c (Fvalid_image_instantiator_format_p): doc update.
 	* glyphs.c (add_entry_to_device_ii_format_list):
@@ -3805,12 +4109,12 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* glyphs.c (specifier_vars_of_glyphs): totally rewrite the doc string
 	for current-display-table. (Apparently Hrjove implemented in 1998 a
 	design I wrote up in 1996, but didn't update the doc string.)
-	
+
 	* glyphs.h: clean up a doc string.
 	* glyphs.h (governing_domain):
 	* glyphs.h (struct image_instantiator_methods):
 	changes for governing_domain stuff.
-	
+
 	* gutter.c:
 	* gutter.c (Fgutter_specifier_p):
 	* gutter.c (Fgutter_size_specifier_p):
@@ -3820,16 +4124,16 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* objects.c (Ffont_specifier_p):
 	* objects.c (Fface_boolean_specifier_p):
 	doc strings moved to make-*-specifier.
-	
+
 	* redisplay.c (add_disp_table_entry_runes_1):
 	* redisplay.c (generate_fstring_runes):
 	* redisplay.c (screen):
 	add random comments and doc strings.
-	
+
 	* specifier.c:
 	* specifier.c (Fmake_specifier):
 	major overhaul of this doc string.
-	
+
 	* specifier.c (Fvalid_specifier_domain_p):
 	comment about the bogosity of image instances being domains.
 	* specifier.c (decode_domain):
@@ -3840,7 +4144,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	move doc string to make-generic-specifier.
 	* specifier.c (VALID_SINGLE_DISPTABLE_INSTANTIATOR_P):
 	rebackslashify.
-	
+
 	* specifier.h:
 	* specifier.h (DOMAIN_FRAME):
 	* specifier.h (DOMAIN_LIVE_P):
@@ -3848,11 +4152,11 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	rebackslashify.
 	add comments about problems with these macros.
 	prototype for decode_domain.
-	
+
 	* toolbar.c:
 	* toolbar.c (Ftoolbar_specifier_p):
 	move doc string to `make-toolbar-specifier'.
-	
+
 	* window.c (window_unmap_subwindows_cache_mapper):
 	*************************************************************
 	allow for nil.  THIS SHOULD FIX A REAL CRASH THAT MANY PEOPLE
@@ -3887,8 +4191,8 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 2000-05-08  Jan Vroonhof  <jan@xemacs.org>
 
 	Patch by Bill Perry.
-	
-	* scrollbar.c (Fscrollbar_page_up): Conditionalize on type of call 
+
+	* scrollbar.c (Fscrollbar_page_up): Conditionalize on type of call
 	back data instead of #ifdef.
 	(Fscrollbar_page_down): ditto.
 
@@ -3896,7 +4200,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* buffer.h:
 	Kludge for defining Qmswindows_tstr.
-	
+
 	* nt.c:
 	* nt.c (open_input_file):
 	* nt.c (open_output_file):
@@ -3906,11 +4210,11 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	which is bad because they are used by process-nt.c, and unexnt
 	won't be around when portable dumping).  Synched the above routines
 	with FSF 20.6.
-	
+
 	* nt.h:
 	Removed ifdef'd out bogus code.
 	Fixed some prototypes.
-	
+
 	* nt.h (file_data):
 	* nt.h (OFFSET_TO_RVA):
 	* nt.h (RVA_TO_OFFSET):
@@ -3918,7 +4222,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	Moved the memory-mapped-file structures, macros and prototypes
 	here, to parallel nt.c.  ntheap.h should really be removed
 	entirely, and it's a non-portable-dumper specific file.
-	
+
 	* ntheap.h (round_to_next):
 	Moved the memory-mapped-file structures, macros and prototypes
 	to nt.h.
@@ -3944,14 +4248,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	changes).  Eliminate our old `nt-quote-process-args' mechanism.
 	Synch up nt_create_process with FSF 20.6 sys_spawnve.
 	Move compare_env here from ntproc.c.
-	
+
 	* process.c (Fprocess_send_region):
 	Takes an optional fourth argument, BUFFER, which should fix some
 	problems with call-process.
-	
+
 	* syscommctrl.h:
 	Move ICC_BAR_CLASSES here from syswindows.h, to avoid a warning.
-	
+
 	* syswindows.h:
 	Move ICC_BAR_CLASSES to syscommctrl.h.
 	Add preliminary macros for MSWindows/Mule.  More to come.
@@ -4064,7 +4368,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	(XIMAGE_INSTANCE_DISPLAY_X):
 	(XIMAGE_INSTANCE_DISPLAY_Y):
 	(XIMAGE_INSTANCE_DISPLAY_WIDTH):
-	(XIMAGE_INSTANCE_DISPLAY_HEIGHT): new accessors.  
+	(XIMAGE_INSTANCE_DISPLAY_HEIGHT): new accessors.
 	remove subwindow_cachel structure and function references.
 	(image_instance_type_to_mask): inline from glyphs.c
 
@@ -4113,7 +4417,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* ntplay.c: use new syswindows.h and syscommctrl.h header.
 	* nt.c: ditto.
 	* console-msw.h: ditto.
-	
+
 	* redisplay-tty.c (tty_output_display_block): remove layout references.
 
 	* glyphs-msw.c (mswindows_widget_instantiate): use the domain
@@ -4149,7 +4453,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	(struct Lisp_Image_Instance): ditto. Add initialized flag.
 	(IMAGE_INSTANCE_INITIALIZED): new accessor.
 	(XIMAGE_INSTANCE_INITIALIZED): ditto.
-	
+
 2000-04-25  Andy Piper  <andy@xemacs.org>
 
 	* glyphs-widget.c (image_instantiator_buttons):
@@ -4352,27 +4656,27 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console-msw.h (FRAME_MSWINDOWS_WIDGET_HASH_TABLE1):
 	there are now three hash tables for callbacks.
 	mswindows_enqueue_dispatch_event is no longer static.
-	
+
 	* dialog-x.c (maybe_run_dbox_text_callback):
 	* dialog-x.c (dbox_descriptor_to_widget_value):
 	switch to new cons3 form for callbacks.
-	
+
 	* glyphs-msw.c (mswindows_register_gui_item):
 	* glyphs-msw.c (mswindows_widget_instantiate):
 	* glyphs-msw.c (add_tree_item):
 	* glyphs-msw.c (add_tab_item):
 	new image instance parameter, so it can be passed to callback-ex.
 	respect :callback-ex as well as :callback.
-	
+
 	* glyphs-widget.c (VALID_GUI_KEYWORDS):
 	add :callback-ex.
-	
+
 	* glyphs.c (print_image_instance):
 	prettify, e.g. now prints widget type.
-	
+
 	* gui-x.h:
 	certain funs have new image instance parameter.
-	
+
 	* gui.c:
 	* gui.c (get_gui_callback):
 	* gui.c (gui_item_add_keyval_pair):
@@ -4385,14 +4689,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* gui.c (syms_of_gui):
 	recognize callback-ex in a number of places.
 	also, fix the annoying "can't get out of yes-no dialog" bug.
-	
+
 	* gui.h:
 	* gui.h (struct Lisp_Gui_Item):
 	recognize callback-ex in a number of places.
 
 	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
 	new parameter in button_item_to_widget_value.
-	
+
 	* glyphs-x.c (x_update_widget):
 	* glyphs-x.c (x_button_instantiate):
 	* glyphs-x.c (x_button_update):
@@ -4402,16 +4706,16 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* glyphs-x.c (x_tab_control_instantiate):
 	* glyphs-x.c (x_label_instantiate):
 	new image instance parameter in various places.
-	
+
 	* event-Xt.c:
 	* event-Xt.c (enqueue_Xt_dispatch_event):
 	this fun gets exported.
-	
+
 	* gui-msw.c:
 	* gui-msw.c (mswindows_handle_gui_wm_command):
 	handle both :callback and :callback-ex, and generate our own
 	event because it's one of the callback-ex arguments.
-	
+
 	* gui-x.c:
 	* gui-x.c (popup_selection_callback):
 	handle both :callback and :callback-ex, and generate our own
@@ -4424,7 +4728,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* fns.c (Freplace_list):
 	fix small typo in doc string.
-	
+
 	* lisp.h:
 	declare enqueue_Xt_dispatch_event.
 
@@ -4434,18 +4738,18 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* buffer.c (Frecord_buffer):
 	* buffer.c (syms_of_buffer):
 	delete record-buffer-hook.
-	
+
 	* fns.c:
 	* fns.c (Freplace_list):
 	* fns.c (syms_of_fns):
 	new primitive replace-list.
-	
+
 	* frameslots.h:
 	slot for old buffer-alist.
-	
+
 	* lisp.h:
 	exfun replace-list.
-	
+
 	* redisplay.c:
 	* redisplay.c (redisplay_frame):
 	* redisplay.c (syms_of_redisplay):
@@ -4490,10 +4794,10 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-04-20  Martin Buchholz  <martin@xemacs.org>
 
-	* filelock.c (fill_in_lock_file_name): 
+	* filelock.c (fill_in_lock_file_name):
 	ANSIfy.
 	Check for IS_ANY_SEP instead of '/'.
-	(lock_file_1): 
+	(lock_file_1):
 	Avoid generating gratuitous garbage.  Call user_login_name() directly.
 	Never check errno without first seeing that system call failed.
 	(unlock_file): Add GCPRO.
@@ -4502,14 +4806,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-04-19  Martin Buchholz  <martin@xemacs.org>
 
-	* sysdep.c (get_pty_max_bytes): 
+	* sysdep.c (get_pty_max_bytes):
 	Fix hangs on DEC OSF 4.0 when (process-send-string) sends
 	strings longer than 252 bytes.
 
 	* md5.c: Unconditionally include ANSI header <limits.h>
 
-	* glyphs-x.c (convert_EImage_to_XImage): 
-	* lisp-union.h (union Lisp_Object): 
+	* glyphs-x.c (convert_EImage_to_XImage):
+	* lisp-union.h (union Lisp_Object):
 	Use consistently the syntax #ifdef FEATURE, not #if FEATURE.
 
 2000-04-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
@@ -4582,7 +4886,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	geometry.
 	(mswindows_create_resized_bitmap): Ditto.
 	(mswindows_create_resized_mask): Ditto.
-	
+
 	* redisplay-msw.c (mswindows_output_dibitmap): Stretch real mask
 	and bitmap to their surface size.
 
@@ -4615,7 +4919,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 2000-04-06  Colin Rafferty  <colin@xemacs.org>
 
 	* lisp.h (FLEXIBLE_ARRAY_STRUCT_SIZEOF): Created.
-	
+
 	* fns.c (size_bit_vector):
 	* alloc.c (size_vector):
 	(make_vector_internal):
@@ -4716,7 +5020,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	Note: Some of these were committed by accident as part of other
 	patches.
-	
+
 	* regex.c (regex_compile): Avoid compiler warnings.
 
 	* ntproc.c (sys_spawnve): Avoid compiler warnings.
@@ -4766,7 +5070,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	new error code. Break compilation until finished.
 	(play_sound_data): error code.
 
-	* nativesound.h (play_sound_file): 
+	* nativesound.h (play_sound_file):
 	  (play_sound_data): Prototype in new header.
 
 2000-03-31  Andy Piper  <andy@xemacs.org>
@@ -4777,7 +5081,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-03-03  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* scrollbar-x.c (x_update_vertical_scrollbar_callback): 
+	* scrollbar-x.c (x_update_vertical_scrollbar_callback):
 	(x_update_horizontal_scrollbar_callback): Return if no mirror was
 	found. Scrollbar event probably belonged to some old config.
 

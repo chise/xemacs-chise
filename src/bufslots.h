@@ -121,33 +121,13 @@ Boston, MA 02111-1307, USA.  */
     /* Function to call when insert space past fill column.  */
     MARKED_SLOT (auto_fill_function);
 
-    /* Case table for case-conversion in this buffer.
-       This char-table maps each char into its lower-case version.  */
-    MARKED_SLOT (downcase_table);
+    /* Case table for case-conversion in this buffer. */
+    MARKED_SLOT (case_table);
+    /* It contais following char-tables: */
+    /* Char-table maps each char into its lower-case version.  */
     /* Char-table mapping each char to its upper-case version.  */
-    MARKED_SLOT (upcase_table);
-
     /* Char-table for conversion for case-folding search.  */
-    MARKED_SLOT (case_canon_table);
     /* Char-table of equivalences for case-folding search.  */
-    MARKED_SLOT (case_eqv_table);
-
-#ifdef MULE
-    /* #### The purpose of these bogos is to deal with the fact that
-       the Boyer-Moore and regex searching routines don't know how to
-       deal with translating multi-byte characters.  Fixing this is hard,
-       so instead we maintain these mirror tables that have all incorrect
-       mappings (see casetab.c) sanitized out of them.  If we don't do
-       this, we may get weird and unpredictable results in the presence
-       of extended chars and extended mappings, and it could even lead
-       to a crash.
-
-       #### Eventually we should deal with this properly. */
-    MARKED_SLOT (mirror_downcase_table);
-    MARKED_SLOT (mirror_upcase_table);
-    MARKED_SLOT (mirror_case_canon_table);
-    MARKED_SLOT (mirror_case_eqv_table);
-#endif
 
     /* #### This ought to be a specifier: */
     /* Non-nil means do not display continuation lines.  */

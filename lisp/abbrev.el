@@ -88,15 +88,9 @@ of the form (ABBREVNAME EXPANSION HOOK USECOUNT)."
   "Define an abbrev in TABLE named NAME, to expand to EXPANSION or call HOOK.
 NAME and EXPANSION are strings.  Hook is a function or `nil'.
 To undefine an abbrev, define it with an expansion of `nil'."
-  (unless (or (null expansion) (stringp expansion))
-    (setq expansion (wrong-type-argument 'stringp expansion)))
-
-  (unless (or (null count) (integerp count))
-    (setq count (wrong-type-argument 'fixnump count)))
-
-  (unless (vectorp table)
-    (setq table (wrong-type-argument 'vectorp table)))
-
+  (check-type expansion (or null string))
+  (check-type count (or null integer))
+  (check-type table vector)
   (let* ((sym (intern name table))
          (oexp (and (boundp sym) (symbol-value sym)))
          (ohook (and (fboundp sym) (symbol-function sym))))
@@ -426,7 +420,7 @@ ARG is the argument to `add-global-abbrev' or `add-mode-abbrev'."
        (buffer-substring
 	(point)
 	(if (= arg 0) (mark)
-	  (save-excursion (forward-word (- arg)) (point))))))
+	  (save-excursion (backward-word arg) (point))))))
 
 (defun add-mode-abbrev (arg)
   "Define mode-specific abbrev for last word(s) before point.
@@ -484,7 +478,7 @@ the user declines to confirm redefining an existing abbrev."
 ARG is the argument to `inverse-add-global-abbrev' or
 `inverse-add-mode-abbrev'."
   (save-excursion
-    (forward-word (- arg))
+    (backward-word arg)
     (buffer-substring (point) (progn (forward-word 1) (point)))))
 
 (defun inverse-add-mode-abbrev (arg)
@@ -511,7 +505,7 @@ Expands the abbreviation after defining it."
 (defun inverse-add-abbrev (table type arg)
   (let (name nameloc exp)
     (save-excursion
-     (forward-word (- arg))
+     (backward-word arg)
      (setq name (buffer-substring (point) (progn (forward-word 1)
 					       (setq nameloc (point))))))
     (set-text-properties 0 (length name) nil name)
@@ -554,7 +548,7 @@ If called from a Lisp program, arguments are START END &optional NOQUERY."
 	(if (abbrev-expansion
 	     (setq string
 		   (buffer-substring
-		    (save-excursion (forward-word -1) (point))
+		    (save-excursion (backward-word) (point))
 		    pnt)))
 	    (if (or noquery (y-or-n-p (format "Expand `%s'? " string)))
 		(expand-abbrev)))))))

@@ -196,7 +196,7 @@ This function does not move point.
        (count, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 1);
-  int n;
+  EMACS_INT n;
 
   if (NILP (count))
     n = 1;
@@ -224,7 +224,7 @@ If BUFFER is nil, the current buffer is assumed.
   return Qnil;
 }
 
-DEFUN ("delete-char", Fdelete_char, 1, 2, "*p\nP", /*
+DEFUN ("delete-char", Fdelete_char, 0, 2, "*p\nP", /*
 Delete the following COUNT characters (previous, with negative COUNT).
 Optional second arg KILLP non-nil means kill instead (save in kill ring).
 Interactively, COUNT is the prefix arg, and KILLP is set if
@@ -235,10 +235,15 @@ COUNT was explicitly specified.
   /* This function can GC */
   Bufpos pos;
   struct buffer *buf = current_buffer;
-  int n;
+  EMACS_INT n;
 
-  CHECK_INT (count);
-  n = XINT (count);
+  if (NILP (count))
+    n = 1;
+  else
+    {
+      CHECK_INT (count);
+      n = XINT (count);
+    }
 
   pos = BUF_PT (buf) + n;
   if (NILP (killp))
@@ -265,7 +270,7 @@ COUNT was explicitly specified.
   return Qnil;
 }
 
-DEFUN ("delete-backward-char", Fdelete_backward_char, 1, 2, "*p\nP", /*
+DEFUN ("delete-backward-char", Fdelete_backward_char, 0, 2, "*p\nP", /*
 Delete the previous COUNT characters (following, with negative COUNT).
 Optional second arg KILLP non-nil means kill instead (save in kill ring).
 Interactively, COUNT is the prefix arg, and KILLP is set if
@@ -274,8 +279,17 @@ COUNT was explicitly specified.
        (count, killp))
 {
   /* This function can GC */
-  CHECK_INT (count);
-  return Fdelete_char (make_int (- XINT (count)), killp);
+  EMACS_INT n;
+
+  if (NILP (count))
+    n = 1;
+  else
+    {
+      CHECK_INT (count);
+      n = XINT (count);
+    }
+
+  return Fdelete_char (make_int (- n), killp);
 }
 
 static void internal_self_insert (Emchar ch, int noautofill);
@@ -290,7 +304,7 @@ If a prefix arg COUNT is specified, the character is inserted COUNT times.
   /* This function can GC */
   Emchar ch;
   Lisp_Object c;
-  int n;
+  EMACS_INT n;
 
   CHECK_NATNUM (count);
   n = XINT (count);

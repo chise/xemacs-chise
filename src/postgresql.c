@@ -1698,8 +1698,6 @@ syms_of_postgresql(void)
 void
 vars_of_postgresql(void)
 {
-  char *p;
-
   Fprovide (Qpostgresql);
 #ifdef HAVE_POSTGRESQLV7
   Fprovide (intern ("postgresqlv7"));
@@ -1711,6 +1709,97 @@ Default Postgres client coding system.
 */ );
 #endif
 
+  DEFVAR_LISP ("pg:host", &VXPGHOST /*
+Default PostgreSQL server name.
+If not set, the server running on the local host is used.  The
+initial value is set from the PGHOST environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:user", &VXPGUSER /*
+Default PostgreSQL user name.
+This value is used when connecting to a database for authentication.
+The initial value is set from the PGUSER environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:options", &VXPGOPTIONS /*
+Default PostgreSQL user name.
+This value is used when connecting to a database for authentication.
+The initial value is set from the PGUSER environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:port", &VXPGPORT /*
+Default port to connect to PostgreSQL backend.
+This value is used when connecting to a database.
+The initial value is set from the PGPORT environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:tty", &VXPGTTY /*
+Default debugging TTY.
+There is no useful setting of this variable in the XEmacs Lisp API.
+The initial value is set from the PGTTY environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:database", &VXPGDATABASE /*
+Default database to connect to.
+The initial value is set from the PGDATABASE environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:realm", &VXPGREALM /*
+Default kerberos realm to use for authentication.
+The initial value is set from the PGREALM environment variable.
+*/ );
+
+#ifdef MULE
+  /* It's not clear whether this is any use.  My intent is to
+     autodetect the coding system from the database. */
+  DEFVAR_LISP ("pg:client-encoding", &VXPGCLIENTENCODING /*
+Default client encoding to use.
+The initial value is set from the PGCLIENTENCODING environment variable.
+*/ );
+#endif
+
+#if !defined(HAVE_POSTGRESQLV7)
+  DEFVAR_LISP ("pg:authtype", &VXPGAUTHTYPE /*
+Default authentication to use.
+The initial value is set from the PGAUTHTYPE environment variable.
+
+WARNING:  This variable has gone away in versions of PostgreSQL newer
+than 6.5.
+*/ );
+#endif
+
+  DEFVAR_LISP ("pg:geqo", &VXPGGEQO /*
+Genetic Query Optimizer options.
+The initial value is set from the PGGEQO environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:cost-index", &VXPGCOSTINDEX /*
+Default cost index options.
+The initial value is set from the PGCOSTINDEX environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:cost-heap", &VXPGCOSTHEAP /*
+Default cost heap options.
+The initial value is set from the PGCOSTHEAP environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:tz", &VXPGTZ /*
+Default timezone to use.
+The initial value is set from the PGTZ environment variable.
+*/ );
+
+  DEFVAR_LISP ("pg:date-style", &VXPGDATESTYLE /*
+Default date style to use.
+The initial value is set from the PGDATESTYLE environment variable.
+*/ );
+}
+
+/* These initializations should not be done at dump-time. */
+void
+init_postgresql_from_environment(void)
+{
+  char *p;
+
   if ((p = getenv ("PGHOST")))
     {
       VXPGHOST = build_ext_string (p, PG_OS_CODING);
@@ -1719,11 +1808,6 @@ Default Postgres client coding system.
     {
       VXPGHOST = Qnil;
     }
-  DEFVAR_LISP ("pg:host", &VXPGHOST /*
-Default PostgreSQL server name.
-If not set, the server running on the local host is used.  The
-initial value is set from the PGHOST environment variable.
-*/ );
 
   if ((p = getenv ("PGUSER")))
     {
@@ -1733,11 +1817,6 @@ initial value is set from the PGHOST environment variable.
     {
       VXPGUSER = Qnil;
     }
-  DEFVAR_LISP ("pg:user", &VXPGUSER /*
-Default PostgreSQL user name.
-This value is used when connecting to a database for authentication.
-The initial value is set from the PGUSER environment variable.
-*/ );
 
   if ((p = getenv ("PGOPTIONS")))
     {
@@ -1747,11 +1826,6 @@ The initial value is set from the PGUSER environment variable.
     {
       VXPGOPTIONS = Qnil;
     }
-  DEFVAR_LISP ("pg:options", &VXPGOPTIONS /*
-Default PostgreSQL user name.
-This value is used when connecting to a database for authentication.
-The initial value is set from the PGUSER environment variable.
-*/ );
 
   if ((p = getenv ("PGPORT")))
     {
@@ -1761,11 +1835,6 @@ The initial value is set from the PGUSER environment variable.
     {
       VXPGPORT = Qnil;
     }
-  DEFVAR_LISP ("pg:port", &VXPGPORT /*
-Default port to connect to PostgreSQL backend.
-This value is used when connecting to a database.
-The initial value is set from the PGPORT environment variable.
-*/ );
 
   if ((p = getenv ("PGTTY")))
     {
@@ -1775,11 +1844,6 @@ The initial value is set from the PGPORT environment variable.
     {
       VXPGTTY = Qnil;
     }
-  DEFVAR_LISP ("pg:tty", &VXPGTTY /*
-Default debugging TTY.
-There is no useful setting of this variable in the XEmacs Lisp API.
-The initial value is set from the PGTTY environment variable.
-*/ );
 
   if ((p = getenv ("PGDATABASE")))
     {
@@ -1789,10 +1853,6 @@ The initial value is set from the PGTTY environment variable.
     {
       VXPGDATABASE = Qnil;
     }
-  DEFVAR_LISP ("pg:database", &VXPGDATABASE /*
-Default database to connect to.
-The initial value is set from the PGDATABASE environment variable.
-*/ );
 
   if ((p = getenv ("PGREALM")))
     {
@@ -1802,10 +1862,6 @@ The initial value is set from the PGDATABASE environment variable.
     {
       VXPGREALM = Qnil;
     }
-  DEFVAR_LISP ("pg:realm", &VXPGREALM /*
-Default kerberos realm to use for authentication.
-The initial value is set from the PGREALM environment variable.
-*/ );
 
 #ifdef MULE
   /* It's not clear whether this is any use.  My intent is to
@@ -1818,10 +1874,6 @@ The initial value is set from the PGREALM environment variable.
     {
       VXPGCLIENTENCODING = Qnil;
     }
-  DEFVAR_LISP ("pg:client-encoding", &VXPGCLIENTENCODING /*
-Default client encoding to use.
-The initial value is set from the PGCLIENTENCODING environment variable.
-*/ );
 #endif
 
 #if !defined(HAVE_POSTGRESQLV7)
@@ -1833,13 +1885,6 @@ The initial value is set from the PGCLIENTENCODING environment variable.
     {
       VXPGAUTHTYPE = Qnil;
     }
-  DEFVAR_LISP ("pg:authtype", &VXPGAUTHTYPE /*
-Default authentication to use.
-The initial value is set from the PGAUTHTYPE environment variable.
-
-WARNING:  This variable has gone away in versions of PostgreSQL newer
-than 6.5.
-*/ );
 #endif
 
   if ((p = getenv ("PGGEQO")))
@@ -1850,10 +1895,6 @@ than 6.5.
     {
       VXPGGEQO = Qnil;
     }
-  DEFVAR_LISP ("pg:geqo", &VXPGGEQO /*
-Genetic Query Optimizer options.
-The initial value is set from the PGGEQO environment variable.
-*/ );
 
   if ((p = getenv ("PGCOSTINDEX")))
     {
@@ -1863,10 +1904,6 @@ The initial value is set from the PGGEQO environment variable.
     {
       VXPGCOSTINDEX = Qnil;
     }
-  DEFVAR_LISP ("pg:cost-index", &VXPGCOSTINDEX /*
-Default cost index options.
-The initial value is set from the PGCOSTINDEX environment variable.
-*/ );
 
   if ((p = getenv ("PGCOSTHEAP")))
     {
@@ -1876,10 +1913,6 @@ The initial value is set from the PGCOSTINDEX environment variable.
     {
       VXPGCOSTHEAP = Qnil;
     }
-  DEFVAR_LISP ("pg:cost-heap", &VXPGCOSTHEAP /*
-Default cost heap options.
-The initial value is set from the PGCOSTHEAP environment variable.
-*/ );
 
   if ((p = getenv ("PGTZ")))
     {
@@ -1889,10 +1922,6 @@ The initial value is set from the PGCOSTHEAP environment variable.
     {
       VXPGTZ = Qnil;
     }
-  DEFVAR_LISP ("pg:tz", &VXPGTZ /*
-Default timezone to use.
-The initial value is set from the PGTZ environment variable.
-*/ );
 
   if ((p = getenv ("PGDATESTYLE")))
     {
@@ -1902,8 +1931,5 @@ The initial value is set from the PGTZ environment variable.
     {
       VXPGDATESTYLE = Qnil;
     }
-  DEFVAR_LISP ("pg:date-style", &VXPGDATESTYLE /*
-Default date style to use.
-The initial value is set from the PGDATESTYLE environment variable.
-*/ );
 }
+

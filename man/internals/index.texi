@@ -19,7 +19,7 @@
 
 @c pindex is used for .el files and Unix programs
 
-@node Index,  , Interface to X Windows, Top
+@node Index,  , Interface to the X Window System, Top
 @unnumbered Index
 
 @ignore
