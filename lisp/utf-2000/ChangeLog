@@ -1,3 +1,30 @@
+2004-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4F82): Use `->subsumptive'; compaction
+	`ideographic-structure'.
+	(U+4F83): Use `->subsumptive'.
+	(U-000203D8): Delete incomplete `ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U-000200E4): Use `->subsumptive';
+	delete `ideographic-structure'.
+	(U-000200E5): Use `->subsumptive'.
+	(U+4E6A): Likewise.
+
+2004-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (M-03081): Moved into U-00021FEE; use
+	`->subsumptive' to integrate with C6-237E.
+	(U-00021FEE): Copied from Ideograph-R047-River.el; use
+	`->subsumptive'.
+
+2004-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R044-Corpse.el (U-00021C61): Use `->subsumptive'.
+	(U-000221C0): Unify H3-DFB2.
+
+	* Ideograph-R042-Small.el (U-000221D4): Use `->subsumptive'.
+	(C4-5626): Unify H2-C46D.
+
 2004-06-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FE30-CJK-Compatibility-Forms.el,
