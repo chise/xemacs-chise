@@ -3102,9 +3102,6 @@ the entire table.
   return slarg.retval;
 }
 
-EXFUN (Fmake_char, 3);
-EXFUN (Fdecode_char, 2);
-
 DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
 Store character's ATTRIBUTES.
 */
@@ -3131,7 +3128,7 @@ Store character's ATTRIBUTES.
 	      if (CONSP (cell))
 		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
 	      else
-		character = Fdecode_char (ccs, cell);
+		character = Fdecode_char (ccs, cell, Qnil);
 	      if (!NILP (character))
 		goto setup_attributes;
 	    }
@@ -3190,7 +3187,7 @@ Retrieve the character of the given ATTRIBUTES.
 	  if (CONSP (cell))
 	    return Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
 	  else
-	    return Fdecode_char (ccs, cell);
+	    return Fdecode_char (ccs, cell, Qnil);
 	}
       rest = Fcdr (rest);
     }
