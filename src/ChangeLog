@@ -1,5 +1,15 @@
 1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c: Move setting for `leading-code-private-11' from
+	`syms_of_mule_charset' to `vars_of_mule_charset'.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.h (CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE'
+	and `NUM_LEADING_BYTES' in assert.
+
+1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* character.h (charset_by_leading_byte): Use `NUM_LEADING_BYTES'
 	instead of 128.
 	(CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE' and

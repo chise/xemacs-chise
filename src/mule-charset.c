@@ -1409,12 +1409,6 @@ syms_of_mule_charset (void)
 Version number of UTF-2000.
 */ );
 #endif
-
-  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
-  DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
-Leading-code of private TYPE9N charset of column-width 1.
-*/ );
-  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
 }
 
 void
@@ -1434,6 +1428,12 @@ vars_of_mule_charset (void)
 
   next_allocated_1_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_1;
   next_allocated_2_byte_leading_byte = MIN_LEADING_BYTE_PRIVATE_2;
+
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
+  DEFVAR_INT ("leading-code-private-11", &leading_code_private_11 /*
+Leading-code of private TYPE9N charset of column-width 1.
+*/ );
+  leading_code_private_11 = PRE_LEADING_BYTE_PRIVATE_1;
 }
 
 void
