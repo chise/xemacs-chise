@@ -452,9 +452,17 @@
     (ucs			. #x2011B)	; ð „›
     ))
 (define-char
-  '((ideographic-radical . 6)	; â¼…
-    (ideographic-strokes . 15)
+  '((ideographic-	(:radical	2 ; â¼
+			 :strokes	15
+			 :sources	(cns-11643))
+			(:radical	6 ; â¼…
+			 :strokes	15
+			 :sources	(morohashi-daikanwa ucs)))
     (total-strokes	 . 16)
-    (ideograph-daikanwa . 00246)	; ø¸€ƒ¶
-    (mojikyo		. 000246)	; ý €€ƒ¶
+    (hanyu-dazidian	1 360 8)
+    (chinese-cns11643-7		. #x2C3C)	; ø»ž™
+    (ideograph-daikanwa		. 00246)	; ø¸€ƒ¶
+    (ideograph-hanziku-1	. #xF043)	; ý¢€Ÿƒ
+    (mojikyo			. 000246)	; ý €€ƒ¶
+    (ucs			. #x2011D)	; ð „
     ))
