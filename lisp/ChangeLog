@@ -1,8 +1,5 @@
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* utf-2000/char-db-util.el (char-attribute-name<): Modify for new
-	charset-id allocation method for private coded-charsets.
-
 	* mule/mule-conf.el (chinese-big5-eten): New coded-charset in
 	UTF-2000.
 	(chinese-big5-cdp): Likewise.
