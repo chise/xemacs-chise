@@ -1,5 +1,17 @@
 2005-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el (M-03049): Map to U-00020AC3.
+	(U-00020AC3): Use `->subsumptive'.
+	(M-03050): Map to U-00020AC4.
+	(U-00020AC4): Use `->subsumptive'.
+	(U+9F8E): Add `ideographic-radical@ucs*sources'.
+	(M-48819): Add `ideographic-{radical|strokes}'.
+	(UU+9F8E): Likewise.
+	(C3-5755): Likewise.
+
+	* Ideograph-R013-Down-Box.el (U-0002F8D4): Use `daikanwa' instead
+	of `daikanwa=14301' in `ideographic-radical@ucs*sources'.
+
 	* Ideograph-R020-Wrap.el (U+52FB): Use `->subsumptive'; add
 	`<-denotational' for B-A4C3.
 	(B-A4C3): Changed to an abstract character.
@@ -9,6 +21,14 @@
 
 	* Ideograph-R018-Knife.el: Use `->subsumptive' or
 	`{<-|->}denotational' for some character definitions.
+
+	* Ideograph-R014-Cover.el (J0-3A47): Add S2-925.
+	(U-0002059F): Use `->subsumptive'; don't use `->identical' for
+	C5-4E77; use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'.
+	(U+51AA): Use `->denotational'.
 
 	* Ideograph-R002-Line.el (U-00023D92): Use `->subsumptive'; use
 	`ideographic-{radical|strokes}@cns' and `total-strokes@cns'
