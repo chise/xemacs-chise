@@ -228,9 +228,11 @@
     (ideographic-radical . 200)	; â¿‡
     (ideographic-strokes . 7)
     (total-strokes	 . 18)
-    (japanese-jisx0208	. #x4B7B)	; ø»‡Ž
-    (mojikyo		. 050607)	; ý €Œ–¯
-    (ucs		. #x9EBF)	; éº¿
+    (japanese-jisx0208-1978	. #x4B7B)	; ø»‚»†
+    (japanese-jisx0208		. #x4B7B)	; ø»‡Ž
+    (japanese-jisx0208-1990	. #x4B7B)	; ø½Šµ‚
+    (mojikyo			. 050607)	; ý €Œ–¯
+    (ucs			. #x9EBF)	; éº¿
     ))
 (define-char
   '((ideographic-radical . 200)	; â¿‡
