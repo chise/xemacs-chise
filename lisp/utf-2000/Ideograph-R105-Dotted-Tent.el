@@ -31,18 +31,26 @@
     (ucs		. #x7677)	; ç™·
     ))
 (define-char
-  '((ideographic-radical . 105)	; â½¨
+  '((=>ucs		. #x7678)	; ç™¸
+    (ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (shinjigen-2	. 5192)
     (japanese-jisx0208-1978	. #x6223)	; ø»ƒ› 
-    (chinese-gb2312		. #x396F)	; ø»„ª¢
     (japanese-jisx0208		. #x6223)	; ø»‡¯¨
-    (chinese-isoir165		. #x396F)	; ø»’²
-    (chinese-cns11643-1		. #x5254)	; ø»’‹
+    (korean-ksc5601		. #x4D24)	; ø»‰š·
     (japanese-jisx0208-1990	. #x6223)	; ø½‹•œ
     (ideograph-daikanwa		. 22660)	; ø¸…¢„
-    (ucs			. #x7678)	; ç™¸
+    ))
+(define-char
+  '((morohashi-daikanwa	22660 0 0)
+    (ideographic-radical . 105)	; â½¨
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (chinese-gb2312	. #x396F)	; ø»„ª¢
+    (chinese-isoir165	. #x396F)	; ø»’²
+    (chinese-cns11643-1 . #x5254)	; ø»’‹
+    (ucs		. #x7678)	; ç™¸
     ))
 (define-char
   '((ideographic-radical . 105)	; â½¨
@@ -112,6 +120,7 @@
     (japanese-jisx0208-1978	. #x4550)	; ø»‚±§
     (chinese-gb2312		. #x3547)	; ø»„¤‚
     (japanese-jisx0208		. #x4550)	; ø»‡…¯
+    (korean-ksc5601		. #x5474)	; ø»‰¦™
     (chinese-isoir165		. #x3547)	; ø»Œ’
     (chinese-cns11643-1		. #x6074)	; ø»’ ‘
     (japanese-jisx0208-1990	. #x4550)	; ø½Š«£
@@ -119,17 +128,25 @@
     (ucs			. #x767B)	; ç™»
     ))
 (define-char
-  '((ideographic-radical . 105)	; â½¨
+  '((=>ucs		. #x767C)	; ç™¼
+    (ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (shinjigen-2	. 5194)
     (japanese-jisx0208-1978	. #x6224)	; ø»ƒ›¡
     (japanese-jisx0208		. #x6224)	; ø»‡¯©
+    (korean-ksc5601		. #x5B21)	; ø»‰¯˜
     (chinese-cns11643-1		. #x6075)	; ø»’ ’
     (japanese-jisx0208-1990	. #x6224)	; ø½‹•
-    (chinese-gb12345		. #x3722)	; ç™¼
     (ideograph-daikanwa		. 22669)	; ø¸…¢
-    (ucs			. #x767C)	; ç™¼
+    ))
+(define-char
+  '((morohashi-daikanwa	22669 0 0)
+    (ideographic-radical . 105)	; â½¨
+    (ideographic-strokes . 7)
+    (total-strokes	 . 12)
+    (chinese-gb12345	. #x3722)	; ç™¼
+    (ucs		. #x767C)	; ç™¼
     ))
 (define-char
   '((ideographic-radical . 105)	; â½¨
