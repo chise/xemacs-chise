@@ -1,3 +1,42 @@
+2003-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R071-Not.el: Reformatted.
+	(M-13717): Separate C2-213E.
+
+	* Ideograph-R066-Rap.el (M-13226): Separate B-B1CE.
+	(U-00022FC5): Complete `ideographic-structure'.
+
+	* Ideograph-R046-Mountain.el: Reformatted.
+	(M-08121): Separate U+37CF.
+
+	* Ideograph-R040-Roof.el (M-07239): Add S1-0557.
+	(J0-3428): Add S1-0556.
+
+	* Ideograph-R030-Mouth.el: Reformatted.
+	(M-03709): Unify B-ADF0; separate JC3-45FE.
+	(U+5510): Separate B-ADF0; unify JC3-45FE.
+	(M-03756): Separate C1-5949.
+	(M-03780): Unify B-D473; separate JC3-46E0.
+	(U+553C): Separate B-D473 and C2-3376; separate JC3-46E0.
+	(C3-3A42): Add `ideographic-structure'.
+	(JC3-46EB): Likewise.
+	(U+55BB): Separate B-B3EB.
+	(C1-5E51): Add `ideographic-structure'.
+	(U-00020DD1): Modify `ideographic-structure'.
+	(M-04247): Likewise; separate JC3-46FD.
+	(U+5630): Unify JC3-46FD.
+	(M-04329): Add `ideographic-structure'.
+	(C5-4C45): Unify U-000203E7.
+	(H1-D44F): New character; relate to M-04329.
+	(U-00020FEE): New character.
+	(M-04392): Separate C2-564D and U+566D.
+	(CB02743): Fix `ideographic-strokes' and `total-strokes'; add
+	mapping for U-00020FEE.
+
+2003-01-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R011-Enter.el (H1-C3C3): Separate U+516A.
+
 2003-01-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R099-Sweet.el: Reformatted.
@@ -7,6 +46,10 @@
 	(M-14302): Separate C2-3C4C, JX2-2E37, B-D9A9 and U+6701.
 
 2003-01-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R022-Right-Open-Box.el: Reformatted.
+	(M-02629): Modify `ideographic-structure'.
+	(K0-5D63): Likewise.
 
 	* Ideograph-R008-Lid.el: Reformatted.
 	(U-0002015F): Modify `ideographic-structure'.
