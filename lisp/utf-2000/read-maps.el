@@ -128,9 +128,17 @@
 		      code)
 	    (put-char-attribute chr ccs code))
 	  (when (and ucs-code
-		     (not (eq (or (encode-char chr ucs-ccs 'defined-only)
-				  (char-feature chr '=>ucs))
-			      ucs-code)))
+		     (not
+		      (eq (or (encode-char chr ucs-ccs 'defined-only)
+			      (if (memq ucs-ccs '(ucs-jis
+						  =ucs-jis-1990
+						  =ucs-jis-2000
+						  ;; ucs-big5
+						  ))
+				  (encode-char chr '=ucs@jis/fw
+					       'defined-only)
+				(char-feature chr '=>ucs)))
+			  ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
 		     (not (eq (or (encode-char chr '=ucs 'defined-only)
