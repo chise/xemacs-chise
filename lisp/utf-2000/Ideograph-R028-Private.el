@@ -55,8 +55,20 @@
   '((ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (ideograph-daikanwa . 03060)	; ø¸€¯´
-    (ucs		. #x20AD5)	; ð «•
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 51)
+    (hanyu-dazidian-char . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+      (ucs		  . #x2FFA)	; â¿º
+      )
+     ((ucs		  . #x4E59)	; ä¹™
+      )
+     ((ucs		  . #x53B6)	; åŽ¶
+      ))
+    (ideograph-daikanwa		. 03060)	; ø¸€¯´
+    (ideograph-hanziku-1	. #xAEA5)	; ý¢€šº¥
+    (ucs			. #x20AD5)	; ð «•
     ))
 (define-char
   '((=>ucs		. #x20AD5)	; ð «•
