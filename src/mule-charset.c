@@ -68,6 +68,7 @@ Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_smp;
 Lisp_Object Vcharset_ucs_sip;
+Lisp_Object Vcharset_ucs_gb;
 Lisp_Object Vcharset_ucs_cns;
 Lisp_Object Vcharset_ucs_jis;
 Lisp_Object Vcharset_ucs_ks;
@@ -78,7 +79,6 @@ Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_jis_x0208;
 Lisp_Object Vcharset_chinese_big5;
-/* Lisp_Object Vcharset_chinese_big5_cdp; */
 Lisp_Object Vcharset_ideograph_hanziku_1;
 Lisp_Object Vcharset_ideograph_hanziku_2;
 Lisp_Object Vcharset_ideograph_hanziku_3;
@@ -91,7 +91,6 @@ Lisp_Object Vcharset_ideograph_hanziku_9;
 Lisp_Object Vcharset_ideograph_hanziku_10;
 Lisp_Object Vcharset_ideograph_hanziku_11;
 Lisp_Object Vcharset_ideograph_hanziku_12;
-Lisp_Object Vcharset_china3_jef;
 Lisp_Object Vcharset_ideograph_cbeta;
 Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
@@ -340,6 +339,7 @@ Lisp_Object Qascii,
   Qucs_bmp,
   Qucs_smp,
   Qucs_sip,
+  Qucs_gb,
   Qucs_cns,
   Qucs_jis,
   Qucs_ks,
@@ -365,7 +365,6 @@ Lisp_Object Qascii,
   Qideograph_hanziku_10,
   Qideograph_hanziku_11,
   Qideograph_hanziku_12,
-  Qchina3_jef,
   Qideograph_cbeta,
   Qideograph_daikanwa_2,
   Qideograph_daikanwa,
@@ -2451,6 +2450,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_smp,			"ucs-smp");
   defsymbol (&Qucs_sip,			"ucs-sip");
+  defsymbol (&Qucs_gb,			"ucs-gb");
   defsymbol (&Qucs_cns,			"ucs-cns");
   defsymbol (&Qucs_jis,			"ucs-jis");
   defsymbol (&Qucs_ks,			"ucs-ks");
@@ -2490,7 +2490,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_hanziku_10,	"ideograph-hanziku-10");
   defsymbol (&Qideograph_hanziku_11,	"ideograph-hanziku-11");
   defsymbol (&Qideograph_hanziku_12,	"ideograph-hanziku-12");
-  defsymbol (&Qchina3_jef,		"china3-jef");
   defsymbol (&Qideograph_cbeta,		"ideograph-cbeta");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
@@ -2602,6 +2601,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("\\(ISO10646.*-2\\|UCS00-2\\)"),
 		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP,
 		  MIN_CHAR_SIP, 0, Qnil, CONVERSION_IDENTICAL);
+  staticpro (&Vcharset_ucs_gb);
+  Vcharset_ucs_gb =
+    make_charset (LEADING_BYTE_UCS_GB, Qucs_gb, 256, 3,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS for GB"),
+		  build_string ("UCS for GB"),
+		  build_string ("ISO/IEC 10646 for GB"),
+		  build_string (""),
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_cns);
   Vcharset_ucs_cns =
     make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 3,
@@ -2982,16 +2990,6 @@ complex_vars_of_mule_charset (void)
   DEF_HANZIKU (10);
   DEF_HANZIKU (11);
   DEF_HANZIKU (12);
-  staticpro (&Vcharset_china3_jef);
-  Vcharset_china3_jef =
-    make_charset (LEADING_BYTE_CHINA3_JEF, Qchina3_jef, 256, 2,
-		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
-		  build_string ("JC3"),
-		  build_string ("JEF + CHINA3"),
-		  build_string ("JEF + CHINA3 private characters"),
-		  build_string ("china3jef-0"),
-		  Qnil, MIN_CHAR_CHINA3_JEF, MAX_CHAR_CHINA3_JEF,
-		  MIN_CHAR_CHINA3_JEF, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ideograph_cbeta);
   Vcharset_ideograph_cbeta =
     make_charset (LEADING_BYTE_CBETA, Qideograph_cbeta, 256, 2,
