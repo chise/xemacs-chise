@@ -406,10 +406,6 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     }
 }
 
-extern Charset_ID    latin_a_char_to_charset[128];
-extern unsigned char latin_a_char_to_byte1[128];
-extern unsigned char latin_a_char_to_byte2[128];
-
 unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
 unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 
@@ -420,7 +416,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c < 0x100)
+  if (c < 0x17F)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -458,21 +454,6 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *charset = Vcharset_ucs_bmp;
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
-	}
-    }
-  else if (c <= 0x17f)
-    {
-      *charset
-	= CHARSET_BY_LEADING_BYTE (latin_a_char_to_charset[c - 0x100]);
-      if (XCHARSET_TO_BYTE1_TABLE (*charset) != NULL)
-	{
-	  *c1 = charset_get_byte1 (*charset, c);
-	  *c2 = charset_get_byte2 (*charset, c);
-	}
-      else
-	{
-	  *c1 = latin_a_char_to_byte1[c - 0x100];
-	  *c2 = latin_a_char_to_byte2[c - 0x100];
 	}
     }
   else if (c < MIN_CHAR_GREEK)
