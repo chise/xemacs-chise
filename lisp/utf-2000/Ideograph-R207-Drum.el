@@ -26,7 +26,7 @@
   '((ideographic-radical . 207)	; â¿Ž
     (ideographic-strokes . 1)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x647A)	; ø»˜£
+    (=cns11643-6	. #x647A)	; ø»˜£
     (ideograph-daikanwa . 48332)	; ø¸‹³Œ
     ))
 (define-char

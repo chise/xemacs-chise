@@ -38,7 +38,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x2127)	; ø»›´¶
+    (=cns11643-6	. #x2127)	; ø»›´¶
     (ideograph-daikanwa . 00248)	; ø¸€ƒ¸
     (=hanziku-1		. #xA4A3)	; ý¢€š’£
     (=ucs		. #x2011E)	; ð „ž
@@ -48,7 +48,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (hanyu-dazidian	1 2 3)
-    (chinese-cns11643-6 . #x2128)	; ø»›´·
+    (=cns11643-6	. #x2128)	; ø»›´·
     (ideograph-daikanwa . 00249)	; ø¸€ƒ¹
     (=big5-cdp		. #x8A76)	; ý¢€ˆ©¶
     (=ucs		. #x2011F)	; ð „Ÿ
@@ -57,7 +57,7 @@
   '((ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (chinese-cns11643-6 . #x2129)	; ø»›´¸
+    (=cns11643-6	. #x2129)	; ø»›´¸
     (ideograph-daikanwa . 00250)	; ø¸€ƒº
     (=ucs		. #x20120)	; ð „ 
     ))
@@ -296,7 +296,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x214A)	; ø»›µ™
+    (=cns11643-6	. #x214A)	; ø»›µ™
     (ideograph-daikanwa . 00260)	; ø¸€„„
     (=hanziku-1		. #xA6AB)	; ý¢€šš«
     (=ucs		. #x20121)	; ð „¡
@@ -352,7 +352,7 @@
   '((ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (chinese-cns11643-6 . #x2565)	; ø»›»¬
+    (=cns11643-6	. #x2565)	; ø»›»¬
     (ideograph-daikanwa . 00263)	; ø¸€„‡
     (=ucs		. #x20122)	; ð „¢
     ))
@@ -369,7 +369,7 @@
       )
      ((=big5-cdp	  . #x87EC)	; ý¢€ˆŸ¬
       ))
-    (chinese-cns11643-6 . #x2348)	; ø»›¸“
+    (=cns11643-6	. #x2348)	; ø»›¸“
     (ideograph-daikanwa . 00264)	; ø¸€„ˆ
     (=hanziku-1		. #xA7EE)	; ý¢€šŸ®
     (=ucs		. #x20123)	; ð „£
@@ -412,7 +412,7 @@
       )
      ((=ucs		  . #x4E8C)	; äºŒ
       ))
-    (chinese-cns11643-6 . #x2349)	; ø»›¸”
+    (=cns11643-6	. #x2349)	; ø»›¸”
     (ideograph-daikanwa . 00266)	; ø¸€„Š
     (=hanziku-1		. #xA7ED)	; ý¢€šŸ­
     (=ucs		. #x20124)	; ð „¤
@@ -494,7 +494,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x2568)	; ø»›»¯
+    (=cns11643-6	. #x2568)	; ø»›»¯
     (ideograph-daikanwa . 00269)	; ø¸€„
     (=hanziku-1		. #xA873)	; ý¢€š¡³
     (=ucs		. #x20128)	; ð „¨
@@ -512,7 +512,7 @@
       )
      ((=ucs		  . #x65E7)	; æ—§
       ))
-    (chinese-cns11643-6 . #x2567)	; ø»›»®
+    (=cns11643-6	. #x2567)	; ø»›»®
     (ideograph-daikanwa . 00270)	; ø¸€„Ž
     (=hanziku-1		. #xA7F7)	; ý¢€šŸ·
     (=ucs		. #x20025)	; ð €¥
@@ -540,7 +540,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x2566)	; ø»›»­
+    (=cns11643-6	. #x2566)	; ø»›»­
     (ideograph-daikanwa . 00271)	; ø¸€„
     (=hanziku-1		. #xA86F)	; ý¢€š¡¯
     ))
@@ -644,7 +644,7 @@
     (ideographic-radical . 7)	; â¼†
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (chinese-cns11643-6 . #x352C)	; ø»œ’“
+    (=cns11643-6	. #x352C)	; ø»œ’“
     (=ucs		. #x20137)	; ð „·
     ))
 (define-char
@@ -703,7 +703,7 @@
        ((=ucs		    . #x706B)	; ç«
 	))
       ))
-    (chinese-cns11643-6 . #x2E50)	; ø»œˆ¥
+    (=cns11643-6	. #x2E50)	; ø»œˆ¥
     (ideograph-daikanwa . 00280)	; ø¸€„˜
     (=hanziku-1		. #xA952)	; ý¢€š¥’
     (=ucs		. #x20130)	; ð „°
@@ -724,7 +724,7 @@
 			(:radical	7 ; â¼†
 			 :strokes	7))
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x307C)	; ø»œŒ
+    (=cns11643-6	. #x307C)	; ø»œŒ
     (ideograph-daikanwa . 09782)	; ø¸‚˜¶
     (=hanziku-1		. #xF5B0)	; ý¢€Ÿ–°
     (=ucs		. #x20134)	; ð „´
@@ -744,7 +744,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-6 . #x352D)	; ø»œ’”
+    (=cns11643-6	. #x352D)	; ø»œ’”
     (ideograph-daikanwa . 00282)	; ø¸€„š
     (=hanziku-1		. #xA971)	; ý¢€š¥±
     (=ucs		. #x20135)	; ð „µ
@@ -757,7 +757,7 @@
     (->identical
      ((=ucs		  . #x20AFC)	; ð «¼
       ))
-    (chinese-cns11643-6 . #x352E)	; ø»œ’•
+    (=cns11643-6	. #x352E)	; ø»œ’•
     (ideograph-daikanwa . 00283)	; ø¸€„›
     ))
 (define-char
@@ -780,7 +780,7 @@
        ((=ucs		    . #x6535)	; æ”µ
 	))
       ))
-    (chinese-cns11643-6 . #x3D21)	; ø»œ¸
+    (=cns11643-6	. #x3D21)	; ø»œ¸
     (ideograph-daikanwa . 00284)	; ø¸€„œ
     (=hanziku-1		. #xA977)	; ý¢€š¥·
     (=ucs		. #x20139)	; ð „¹

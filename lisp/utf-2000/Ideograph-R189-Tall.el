@@ -179,14 +179,14 @@
   '((ideographic-radical . 189)	; â¾¼
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x645A)	; ø»˜ƒ
+    (=cns11643-6	. #x645A)	; ø»˜ƒ
     (ideograph-daikanwa . 45322)	; ø¸‹„Š
     ))
 (define-char
   '((ideographic-radical . 189)	; â¾¼
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
-    (chinese-cns11643-6 . #x6459)	; ø»˜‚
+    (=cns11643-6	. #x6459)	; ø»˜‚
     (ideograph-daikanwa . 45323)	; ø¸‹„‹
     ))
 (define-char

@@ -49,7 +49,7 @@
     (shinjigen-1	. 541)
     (shinjigen-2	. 541)
     (=ks-x1001		. #x544F)	; ø»‰¥´
-    (chinese-cns11643-6 . #x223C)	; ø»›¶©
+    (=cns11643-6	. #x223C)	; ø»›¶©
     (=big5		. #xA556)	; ý¢€Š•–
     (ideograph-daikanwa . 01610)	; ø¸€™Š
     (=jef-china3	. #x43F5)	; øº„µ
@@ -225,7 +225,7 @@
       ))
     (hanyu-dazidian	1 295 6)
     (shinjigen-1	. 543)
-    (chinese-cns11643-6 . #x235C)	; ø»›¸§
+    (=cns11643-6	. #x235C)	; ø»›¸§
     (ideograph-daikanwa . 01614)	; ø¸€™Ž
     (=hanziku-1		. #xE2D9)	; ý¢€ž‹™
     (=ucs		. #x205B1)	; ð –±
@@ -579,7 +579,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 296 4)
-    (chinese-cns11643-6 . #x2624)	; ø»›¼‰
+    (=cns11643-6	. #x2624)	; ø»›¼‰
     (ideograph-daikanwa . 01627)	; ø¸€™›
     (=hanziku-1		. #xE2F7)	; ý¢€ž‹·
     (=ucs		. #x205B8)	; ð –¸
@@ -709,7 +709,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 297 12)
-    (chinese-cns11643-6 . #x2958)	; ø»œ—
+    (=cns11643-6	. #x2958)	; ø»œ—
     (ideograph-daikanwa . 01636)	; ø¸€™¤
     (=hanziku-1		. #xE360)	; ý¢€ž 
     (=ucs		. #x205C4)	; ð —„
@@ -744,7 +744,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (hanyu-dazidian	1 297 8)
-    (chinese-cns11643-6 . #x2959)	; ø»œ˜
+    (=cns11643-6	. #x2959)	; ø»œ˜
     (ideograph-daikanwa . 01638)	; ø¸€™¦
     (=hanziku-1		. #xE35C)	; ý¢€žœ
     (=ucs		. #x205C5)	; ð —…
@@ -959,7 +959,7 @@
     (ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x2E6F)	; ø»œ‰„
+    (=cns11643-6	. #x2E6F)	; ø»œ‰„
     (=ucs		. #x205CE)	; ð —Ž
     ))
 (define-char
@@ -993,7 +993,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 297 21)
-    (chinese-cns11643-6 . #x2E6E)	; ø»œ‰ƒ
+    (=cns11643-6	. #x2E6E)	; ø»œ‰ƒ
     (ideograph-daikanwa . 01655)	; ø¸€™·
     (=hanziku-1		. #xE369)	; ý¢€ž©
     (=ucs		. #x205D7)	; ð ——
@@ -1370,7 +1370,7 @@
      ((=ucs		  . #x51AB)	; å†«
       )
      ((=ks-x1001	  . #x7132)	; ø»Š½
-      (chinese-cns11643-6 . #x2A3C)	; ø»œ‚™
+      (=cns11643-6	  . #x2A3C)	; ø»œ‚™
       (ideograph-daikanwa . 03441)	; ø¸€µ±
       ))
     (shinjigen-1	. 553)
@@ -1512,7 +1512,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 298 5)
-    (chinese-cns11643-6 . #x3545)	; ø»œ’¬
+    (=cns11643-6	. #x3545)	; ø»œ’¬
     (ideograph-daikanwa . 01672)	; ø¸€šˆ
     (=hanziku-1		. #xE379)	; ý¢€ž¹
     (=ucs		. #x205DC)	; ð —œ
@@ -1539,7 +1539,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (hanyu-dazidian	1 299 13)
-    (chinese-cns11643-6 . #x3546)	; ø»œ’­
+    (=cns11643-6	. #x3546)	; ø»œ’­
     (ideograph-daikanwa . 01674)	; ø¸€šŠ
     (=hanziku-1		. #xE3C3)	; ý¢€žƒ
     (=ucs		. #x205E2)	; ð —¢
@@ -1606,7 +1606,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 299 15)
-    (chinese-cns11643-6 . #x3D3F)	; ø»œž–
+    (=cns11643-6	. #x3D3F)	; ø»œž–
     (ideograph-daikanwa . 01677)	; ø¸€š
     (=hanziku-1		. #xE3C5)	; ý¢€ž…
     (=cbeta		. 02712)	; ø¸ ª˜
@@ -1635,7 +1635,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 299 20)
-    (chinese-cns11643-6 . #x3D40)	; ø»œž—
+    (=cns11643-6	. #x3D40)	; ø»œž—
     (ideograph-daikanwa . 01679)	; ø¸€š
     (=hanziku-1		. #xE3CA)	; ý¢€žŠ
     (=ucs		. #x205E7)	; ð —§
@@ -1736,7 +1736,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (hanyu-dazidian	1 300 2)
-    (chinese-cns11643-6 . #x4662)	; ø»œ¬‡
+    (=cns11643-6	. #x4662)	; ø»œ¬‡
     (ideograph-daikanwa . 01685)	; ø¸€š•
     (=hanziku-1		. #xE3D8)	; ý¢€ž˜
     (=ucs		. #x205F1)	; ð —±
@@ -2088,7 +2088,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 300 18)
-    (chinese-cns11643-6 . #x5067)	; ø»œº¸
+    (=cns11643-6	. #x5067)	; ø»œº¸
     (=hanziku-1		. #xE3E8)	; ý¢€ž¨
     (=ucs		. #x20600)	; ð ˜€
     ))
@@ -2170,7 +2170,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 301 3)
-    (chinese-cns11643-6 . #x5A7D)	; ø»‰º
+    (=cns11643-6	. #x5A7D)	; ø»‰º
     (=hanziku-1		. #xE3F9)	; ý¢€ž¹
     (=ucs		. #x20604)	; ð ˜„
     ))

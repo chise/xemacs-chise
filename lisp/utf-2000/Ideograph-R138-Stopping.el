@@ -66,7 +66,7 @@
     (ideographic-radical . 138)	; â¾‰
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (chinese-cns11643-6 . #x3438)	; ø»œ‘
+    (=cns11643-6	. #x3438)	; ø»œ‘
     ))
 (define-char
   '((morohashi-daikanwa	30598 0 1)
