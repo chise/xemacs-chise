@@ -568,48 +568,47 @@
     (=cns11643-6	. #x3C49)	; &C6-3C49; [28-41]
     ))
 (define-char
-  '((=>ucs		. #x8FC5)	; 迅
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=daikanwa		. 38727)	; &M-38727;
-    (=jef-china3	. #x67A8)	; &I-JC3-67A8;
-    ))
-(define-char
-  '((=>ucs		. #x8FC5)	; 迅
-    (morohashi-daikanwa	38727 0 0)
-    (ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=big5		. #xA8B3)	; &B-A8B3;
-    ))
-(define-char
-  '((=>ucs		. #x8FC5)	; 迅
-    (morohashi-daikanwa	38727 0 1)
-    (ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ks-x1001		. #x6376)	; &K0-6376; [67-86]
-    ))
-(define-char
-  '((morohashi-daikanwa	38727 1)
-    (ideographic-radical . 162)	; ⾡
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
     (=ucs		. #x8FC5)	; 迅
-    (=jis-x0208		. #x3F57)	; &I-J90-3F57; [31-55]
-    (=gb2312		. #x5138)	; &I-G0-5138; [49-24]
-    (=gt		. 51671)	; &I-GT-51671;
-    (=gt-k		. 01649)	; &I-GT-K01649;
-    (=gt-pj-1		. #x3F57)	; &I-GT-51671; [31-55]
+    (=big5		. #xA8B3)	; &I-B-A8B3;
     ))
 (define-char
-  '((=>ucs		. #x8FC5)	; 迅
-    (morohashi-daikanwa	38727 1 1)
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-1	. #x4B54)	; &C1-4B54; [43-52]
+    (<-denotational
+     ((=ucs		  . #x8FC5)	; 迅
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 38727)	; &M-38727;
+      (=jef-china3	  . #x67A8)	; &I-JC3-67A8;
+      )
+     ((=gt-k		  . 02586)	; &GT-K02586;
+      (=gt-pj-k1	  . #x712F)	; &GT-K02586; [81-15]
+      )
+     ((=ks-x1001	  . #x6376)	; &K0-6376; [67-86]
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 3)
+    (<-denotational
+     ((=ucs		  . #x8FC5)	; 迅
+      ))
+    (->subsumptive
+     ((morohashi-daikanwa	38727 1)
+      (total-strokes	   . 6)
+      (=jis-x0208	  . #x3F57)	; &GT-51671; [31-55]
+      (=gb2312		  . #x5138)	; &I-G0-5138; [49-24]
+      (=gt		  . 51671)	; &I-GT-51671;
+      (=gt-k		  . 01649)	; &I-GT-K01649;
+      (=gt-pj-1		  . #x3F57)	; &I-GT-51671; [31-55]
+      (=ucs@unicode	  . #x8FC5)	; &GT-51671;
+      )
+     ((total-strokes	   . 7)
+      (=cns11643-1	  . #x4B54)	; &C1-4B54; [43-52]
+      ))
     ))
 (define-char
   '((=>ucs		. #x8FC6)	; 迆
