@@ -22,8 +22,10 @@
     (total-strokes	 . 2)
     (hanyu-dazidian	1 310 10)
     (=cns11643-4	. #x212B)	; ø»— ²
+    (=gt-pj-k1		. #x3570)	; ã”¾
     (=daikanwa		. 02837)	; ø¸€¬•
     (=big5-cdp		. #x8BE6)	; ý¢€ˆ¯¦
+    (=gt-k		. 00101)	; ý¡„€¥
     (=ucs		. #x353E)	; ã”¾
     ))
 (define-char

@@ -126,11 +126,20 @@
     (=cns11643-5	. #x2126)	; ø»™ª±
     (=gt-pj-2		. #x3077)	; ý¡€€‚œ
     (=daikanwa		. 00112)	; ø¸€°
-    (=big5-cdp		. #x8B5F)	; ý¢€ˆ­Ÿ
     (=gt-k		. 00104)	; ý¡„€¨
     (=gt		. 00156)	; ý¡€€‚œ
     (mojikyo		. 000112)	; ý €€°
     (=ucs		. #x20087)	; ð ‚‡
+    ))
+(define-char
+  '((=>ucs		. #x20087)	; ð ‚‡
+    (morohashi-daikanwa	112 0 0)
+    (ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (=gt-pj-k1		. #x3152)	; ý¢€ˆ­Ÿ
+    (=big5-cdp		. #x8B5F)	; ý¢€ˆ­Ÿ
+    (=gt-k		. 00105)	; ý¡„€©
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ

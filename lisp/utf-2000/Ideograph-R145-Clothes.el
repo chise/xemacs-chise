@@ -878,6 +878,15 @@
     (=ucs		. #x8881)	; è¢
     ))
 (define-char
+  '((=>ucs		. #x8881)	; è¢
+    (morohashi-daikanwa	34152 0 2)
+    (ideographic-radical . 145)	; â¾
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (=gt-pj-k1		. #x3B5A)	; ý¡„§²
+    (=gt-k		. 06642)	; ý¡„§²
+    ))
+(define-char
   '((=>ucs		. #x27625)	; ð§˜¥
     (ideographic-radical . 145)	; â¾
     (ideographic-strokes . 4)

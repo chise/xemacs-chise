@@ -6,9 +6,12 @@
     (=jis-x0208-1978	. #x4963)	; ø»‚·²
     (=jis-x0208-1983	. #x4963)	; ø»‡‹º
     (=ks-x1001		. #x5D2B)	; ø»‰²ž
+    (=gt-pj-4		. #x6271)	; ý¡€†‹¸
     (=big5		. #xA4F7)	; ý¢€Š“·
     (=daikanwa		. 19721)	; ø¸„´‰
+    (=gt-k		. 00483)	; ý¡„€‡£
     (=jef-china3	. #x58B2)	; øº…¢²
+    (=gt		. 25336)	; ý¡€†‹¸
     ))
 (define-char
   '((morohashi-daikanwa	19721 0 0)

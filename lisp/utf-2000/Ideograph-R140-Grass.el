@@ -23,9 +23,12 @@
       ))
     (=cns11643-4	. #x2153)	; ø»—¡š
     (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
+    (=gt-pj-6		. #x4664)	; ý¡€‰«›
     (=daikanwa		. 30639)	; ø¸‡ž¯
     (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
+    (=gt-k		. 00671)	; ý¡„€ŠŸ
     (=ucs@cns		. #x8279)	; ï©ž
+    (=gt		. 39643)	; ý¡€‰«›
     (=ucs		. #xFA5E)	; ï©ž
     ))
 (define-char

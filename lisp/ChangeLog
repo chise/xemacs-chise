@@ -1,3 +1,9 @@
+2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `=big5-cdp', `chinese-big5-eten-a', `chinese-big5-eten-b'
+	and `chinese-big5' to `=gt-pj-*'.
+
 2003-05-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=daikanwa): Renamed from

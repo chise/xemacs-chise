@@ -32,10 +32,13 @@
     (shinjigen-2	. 763)
     (=ks-x1001		. #x6D43)	; ø»ŠŠ–
     (=cns11643-4	. #x212F)	; ø»— ¶
+    (=gt-pj-2		. #x4634)	; ý¡€€²ƒ
     (=daikanwa		. 02494)	; ø¸€¦¾
     (=big5-cdp		. #xA463)	; ý¢€Š‘£
+    (=gt-k		. 00184)	; ý¡„€‚¸
     (=jef-china3	. #x45A1)	; øº„–¡
     (=ucs@ks		. #x52FA)	; ð¯ ¨
+    (=gt		. 03203)	; ý¡€€²ƒ
     (=ucs		. #x2F828)	; ð¯ ¨
     ))
 (define-char

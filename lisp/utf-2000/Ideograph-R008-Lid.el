@@ -5,7 +5,10 @@
     (hanyu-dazidian	1 279 4)
     (=gb2312		. #x596F)	; ø»…™¢
     (=iso-ir165		. #x596F)	; ø»Ž²
+    (=gt-pj-2		. #x3247)	; ý¡€€…·
     (=daikanwa		. 00286)	; ø¸€„ž
+    (=gt-k		. 00074)	; ý¡„€Š
+    (=gt		. 00375)	; ý¡€€…·
     (=ucs		. #x4EA0)	; äº 
     ))
 (define-char
@@ -27,8 +30,10 @@
     (ideographic-radical . 8)	; â¼‡
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (=gt-pj-k1		. #x3343)	; ý¢€Š‘ 
     (=big5		. #xA460)	; ý¢€Š‘ 
     (=daikanwa		. 00287)	; ø¸€„Ÿ
+    (=gt-k		. 00202)	; ý¡„€ƒŠ
     (mojikyo		. 000287)	; ý €€„Ÿ
     ))
 (define-char

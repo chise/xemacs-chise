@@ -1,3 +1,133 @@
+2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R072-Sun.el (GT-K03318): New character.
+	(GT-K03616): New character.
+
+	* u02E00-CJK-Radical-Supplement.el (GT-K01701): New character.
+	(BC-8958): Unify GT-K00417.
+
+	* Ideograph-R145-Clothes.el (GT-K06642): New character.
+
+	* Ideograph-R130-Meat.el (BC-8958): Unify GT-K00417.
+
+	* Ideograph-R024-Ten.el (BC-8BF8): New character.
+
+2003-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R045-Sprout.el (JX1-4F62): Unify GT-K00269; unify
+	U+FA3C instead of U+5C6E; unify GU+5C6E, CU+5C6E and BU+5C6E.
+	(U+5C6E): Separate all; add `->identical' for U+FA3C.
+	(U-0002F878): Don't use char-ref format in `->synonyms'; add
+	`->synonyms*sources' instead; use `->mistakable' and
+	`->mistakable*sources' for M-07825 instead of `comment'.
+
+	* Ideograph-R037-Big.el (J0-4537): Unify B-A4D1.
+	(U+5929): Separate B-A4D1; unify GT-K00468.
+
+	* Ideograph-R029-Again.el (J0-3A35): Unify B-A465.
+	(U+53C9): Separate B-A465; unify GT-K00254 and GT-03946.
+	(GT-K00255): New character.
+	(U+53CD): Unify GT-K00476.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2E84): Unify GT-K00008.
+	(GT-K00007): New character.
+	(U+2E86): Add `<-radical' for U+5182; separate BC-8BF2.
+	(BC-8BF2): Unify GT-K00143.
+	(U+2E87): Unify GT-K00086 and GT-02284.
+	(U+2E88): Unify GT-K00091.
+	(U+2E8A): Unify GT-K00062.
+	(U+2E9C): Unify GT-K00565.
+	(U+2EAE): Add `<-ideographic-component-forms' for U+7AF9; unify
+	GT-K02267.
+	(U+2ECD): Unify GT-K00580 and GT-51643.
+
+	* Ideograph-R162-Walk.el (U+2ECD): Unify GT-K00580 and GT-51643.
+
+	* Ideograph-R140-Grass.el (U+FA5E): Unify GT-K00671 and GT-39643.
+
+	* Ideograph-R088-Father.el (M-19721): Unify GT-K00483 and
+	GT-25336.
+
+	* Ideograph-R067-Script.el (M-13450): Unify GT-K00489.
+	(GT-K00488): New character.
+
+	* Ideograph-R026-Seal.el (U+353E): Unify GT-K00101.
+
+	* Ideograph-R024-Ten.el (U+5342): Unify GT-K00250 and GT-03454.
+	(GT-K00252): New character.
+	(GT-K00251): New character.
+
+	* Ideograph-R020-Wrap.el (U-0002F828): Unify GT-K00184 and
+	GT-03203.
+
+	* Ideograph-R018-Knife.el (U+5202): Unify GT-K00110 and GT-02405.
+	(M-01848): Unify GT-K00215 and GT-02406.
+	(M-01853): Unify GT-K00485 and GT-02420.
+
+	* Ideograph-R013-Down-Box.el (U+5183): Unify GT-K00548 and
+	GT-01984.
+
+	* Ideograph-R012-Eight.el (M-01452): Unify GT-K00431 and GT-01892.
+
+	* Ideograph-R008-Lid.el (U+4EA0): Unify GT-K00074 and GT-00375.
+	(B-A460): Unify GT-K00202.
+
+	* Ideograph-R004-Slash.el (U-00020087): Separate BC-8B5F.
+	(BC-8B5F): Unify GT-K00105.
+
+	* Ideograph-R009-Man.el (J0-4750): Modify `ideographic-structure';
+	separate B-ADD6.
+	(U+4FF3): Delete `hanyu-dazidian-{vol|page|char}'.
+
+2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (M-03803): Modify
+	`ideographic-structure'.
+	(J0-3E26): Likewise.
+	(C1-5938): Add `ideographic-structure'.
+	(J0-5341): Separate G0-6034, C1-5E3D and U+557B.
+	(J0-5346): Separate G0-4C64, C1-5E40 and U+557C.
+	(J0-533D): Separate G0-3F26, C1-5E3E and U+5580.
+	(C1-6C38): Add `ideographic-structure'.
+	(U+5618): Modify `ideographic-structure'; separate C3-4633.
+	(J0-5366): Separate C1-7346, G1-5F4C and U+5680.
+	(M-04446): Separate C2-5C55 and U+5681.
+	(C2-5C53): Separate U+5682.
+
+	* Ideograph-R029-Again.el (J0-3C68): Modify
+	`ideographic-structure'.
+	(U+53D6): Likewise; delete `hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R019-Power.el (J0-5227): Modify
+	`ideographic-structure'.
+
+2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R124-Feather.el (J90-6647): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R033-Scholar.el: Reformatted.
+
+	* Ideograph-R015-Ice.el (M-01669): Modify `ideographic-structure'.
+	(C1-5445): Likewise.
+	(J0-4E3F): Separate G0-4168 and U+51CC; modify
+	`ideographic-structure'.
+
+2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R002-Line.el (U+4E2C): Unify BC-89B1.
+
+2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (U+4F50): Unify GT-00633 instead of
+	GT-00634.
+	(U+4F5C): Unify GT-00634.
+
+2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+58CC): Separate J0-3E6D.
+	(J0-3E6D): Unify GT-06976.
+
 2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R164-Wine.el, Ideograph-R160-Bitter.el: Add some GT

@@ -11482,9 +11482,18 @@
   '((ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=jis-x0208		. #x3E6D)	; ø½Š¡®
-    (mojikyo		. 054173)	; ý €Ž
     (=ucs		. #x58CC)	; å£Œ
+    ))
+(define-char
+  '((=>ucs		. #x58CC)	; å£Œ
+    (ideographic-radical . 32)	; â¼Ÿ
+    (ideographic-strokes . 13)
+    (total-strokes	 . 16)
+    (=jis-x0208		. #x3E6D)	; ø½Š¡®
+    (=gt-pj-1		. #x3E6D)	; ý¡€­€
+    (=ucs@jis		. #x58CC)	; ø½Š¡®
+    (=gt		. 06976)	; ý¡€­€
+    (mojikyo		. 054173)	; ý €Ž
     ))
 (define-char
   '((ideographic-radical . 32)	; â¼Ÿ

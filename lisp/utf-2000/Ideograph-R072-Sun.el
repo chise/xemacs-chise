@@ -416,6 +416,28 @@
     (=ucs		. #x65F8)	; æ—¸
     ))
 (define-char
+  '((=>ucs		. #x81FD)	; è‡½
+    (ideographic-radical . 72)	; â½‡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (<-simplified-ideograph
+     ((=daikanwa	  . 30177)	; ø¸‡—¡
+      ))
+    (=gt-pj-k1		. #x357D)	; ý¡„€³¶
+    (=gt-k		. 03318)	; ý¡„€³¶
+    ))
+(define-char
+  '((=>ucs		. #x81FD)	; è‡½
+    (ideographic-radical . 72)	; â½‡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (<-simplified-ideograph
+     ((=daikanwa	  . 30177)	; ø¸‡—¡
+      ))
+    (=gt-pj-k1		. #x5E44)	; ý¡„€¸ 
+    (=gt-k		. 03616)	; ý¡„€¸ 
+    ))
+(define-char
   '((ideographic-radical . 72)	; â½‡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
