@@ -610,6 +610,10 @@ on various systems. */
 
 /* 'expression' : signed/unsigned mismatch */
 #pragma warning ( disable : 4018 )
+/* unnamed type definition in parentheses
+  (Martin added a pedantically correct definition of ALIGNOF, which
+  generates temporary anonymous structures, and MSVC complains) */
+#pragma warning ( disable : 4116 )
 
 #endif /* compiler understands #pragma warning*/
 

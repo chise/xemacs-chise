@@ -267,7 +267,11 @@ void assert_failed (const char *, int, const char *);
 
 /* EMACS_INT is the underlying integral type into which a Lisp_Object must fit.
    In particular, it must be large enough to contain a pointer.
-   config.h can override this, e.g. to use `long long' for bigger lisp ints. */
+   config.h can override this, e.g. to use `long long' for bigger lisp ints.
+
+   #### In point of fact, it would NOT be a good idea for config.h to mess
+   with EMACS_INT.  A lot of code makes the basic assumption that EMACS_INT
+   is the size of a pointer. */
 
 #ifndef SIZEOF_EMACS_INT
 # define SIZEOF_EMACS_INT SIZEOF_VOID_P
@@ -354,7 +358,7 @@ typedef UChar UChar_ASCII;
 typedef int Emchar;
 
 /* Different ways of referring to a position in a buffer.  We use
-   the typedefs in preference to 'int' to make it clearer what
+   the typedefs in preference to 'EMACS_INT' to make it clearer what
    sort of position is being used.  See extents.c for a description
    of the different positions.  We put them here instead of in
    buffer.h (where they rightfully belong) to avoid syntax errors
@@ -3254,6 +3258,7 @@ extern Lisp_Object Qvariable_documentation, Qvariable_domain;
 extern Lisp_Object Qvoid_function, Qvoid_variable;
 extern Lisp_Object Qwindow_live_p, Qwrong_number_of_arguments;
 extern Lisp_Object Qwrong_type_argument, Qyes_or_no_p;
+extern Lisp_Object Qgtk;
 
 #define SYMBOL(fou) extern Lisp_Object fou
 #define SYMBOL_KEYWORD(la_cle_est_fou) extern Lisp_Object la_cle_est_fou

@@ -226,7 +226,8 @@ which will not be used as accelerators."
 
      ("%_View"
       ["%_New Frame" make-frame]
-      ["Frame on Other Displa%_y..." make-frame-on-display]
+      ["Frame on Other Displa%_y..." make-frame-on-display
+       :active (fboundp 'make-frame-on-display)]
       ["%_Delete Frame" delete-frame
        :active (not (eq (next-frame (selected-frame) 'nomini 'window-system)
 			(selected-frame)))]
@@ -703,16 +704,10 @@ which will not be used as accelerators."
 	:style toggle
 	:selected (and (boundp 'pending-delete-mode) pending-delete-mode)
 	:active (boundp 'pending-delete-mode)]
-       ("`%_kill-line' Behavior..."
-	["Kill %_Whole Line"
-	 (customize-set-variable 'kill-whole-line 'always)
-	 :style radio :selected (eq kill-whole-line 'always)]
-	["Kill to %_End of Line"
-	 (customize-set-variable 'kill-whole-line nil)
-	 :style radio :selected (eq kill-whole-line nil)]
-	["Kill Whole Line at %_Beg, Otherwise to End"
-	 (customize-set-variable 'kill-whole-line t)
-	 :style radio :selected (eq kill-whole-line t)])
+       ["`%_kill-line' Kills Whole Line at %_Beg"
+	 (customize-set-variable 'kill-whole-line (not kill-whole-line))
+	 :style toggle
+	 :selected kill-whole-line]
        ["Size for %_Block-Movement Commands..."
 	(customize-set-variable 'block-movement-size
 				(read-number "Block Movement Size: "
@@ -723,6 +718,17 @@ which will not be used as accelerators."
 	  (customize-set-variable 'viper-mode viper-mode))
 	:style toggle :selected (and (boundp 'viper-mode) viper-mode)
 	:active (fboundp 'toggle-viper-mode)]
+       "----"
+       ["S%_hifted Motion Keys Select Region"
+	 (customize-set-variable 'shifted-motion-keys-select-region
+				 (not shifted-motion-keys-select-region))
+	 :style toggle
+	 :selected shifted-motion-keys-select-region]
+       ["%_After Shifted Motion, Unshifted Motion Keys Deselect"
+	 (customize-set-variable 'unshifted-motion-keys-deselect-region
+				 (not unshifted-motion-keys-deselect-region))
+	 :style toggle
+	 :selected unshifted-motion-keys-deselect-region]
        "----"
        ["%_Set Key..." global-set-key]
        ["%_Unset Key..." global-unset-key]
@@ -1435,13 +1441,18 @@ which will not be used as accelerators."
       ("%_Tutorials"
        :filter tutorials-menu-filter)
       ("%_Samples"
-       ["Sample .%_emacs"
-	(find-file (locate-data-file "sample.emacs"))
-	:active (locate-data-file "sample.emacs")]
+       ["Sample %_init.el"
+	(find-file (locate-data-file "sample.init.el"))
+	:active (locate-data-file "sample.init.el")]
+       ["Sample .%_gtkrc"
+	(find-file (locate-data-file "sample.gtkrc"))
+	:included (featurep 'gtk)
+	:active (locate-data-file "sample.gtkrc")]
        ["Sample .%_Xdefaults"
 	(find-file (locate-data-file "sample.Xdefaults"))
+	:included (featurep 'x)
 	:active (locate-data-file "sample.Xdefaults")]
-       ["Sample e%_nriched"
+       ["Sample %_enriched"
 	(find-file (locate-data-file "enriched.doc"))
 	:active (locate-data-file "enriched.doc")])
       ("%_Commands & Keys"

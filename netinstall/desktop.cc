@@ -110,7 +110,11 @@ find_xemacs_exe_path ()
 static char* 
 find_xemacs_exe_name ()
 {
-  if (xemacs_package->type == TY_CYGWIN)
+  /* Hack to support older versions. */
+  if (strncmp (xemacs_package->info[xemacs_package->trust].version,
+	       "21.1", 4) == 0)
+    return strdup ("runemacs.exe");
+  else if (xemacs_package->type == TY_CYGWIN)
     return backslash (concat ("xemacs-",
 			      xemacs_package->info[xemacs_package->trust].version, 
 			      ".exe", 0));
@@ -420,11 +424,7 @@ do_desktop (HINSTANCE h)
   if (xemacs_package != 0 && xemacs_package->type != TY_GENERIC)
     {
       batname = concat (find_xemacs_exe_path (), "\\",
-#if 0
 			find_xemacs_exe_name (), 
-#else
-			"runemacs.exe",
-#endif
 			0);
       root_desktop = check_desktop ("XEmacs", batname);
       root_menu = check_startmenu ("XEmacs", batname);

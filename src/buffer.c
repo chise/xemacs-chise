@@ -1926,7 +1926,7 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
 
       while (1)
         {
-          ssize_t size_in_bytes;
+          Lstream_data_count size_in_bytes;
 	  char tempbuf[1024]; /* some random amount */
 
 	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));
@@ -2074,7 +2074,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 
       while (1)
         {
-          ssize_t size_in_bytes;
+          Lstream_data_count size_in_bytes;
 	  char tempbuf[1024]; /* some random amount */
 
 	  size_in_bytes = Lstream_read (reader, tempbuf, sizeof (tempbuf));

@@ -1114,6 +1114,13 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	display_use = "x";
 
 #endif /* HAVE_X_WINDOWS */
+#ifdef HAVE_GTK
+      {
+	char *dpy = getenv ("DISPLAY");
+	if (dpy && dpy[0])
+	  display_use = "gtk";
+      }
+#endif
 #ifdef HAVE_MS_WINDOWS
       if (strcmp(display_use, "x") != 0)
 	display_use = "mswindows";
@@ -1264,6 +1271,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_X_WINDOWS
       syms_of_event_Xt ();
 #endif
+#ifdef HAVE_GTK
+      syms_of_event_gtk ();
+#endif
 #ifdef HAVE_DRAGNDROP
       syms_of_dragdrop ();
 #endif
@@ -1338,6 +1348,26 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_device_tty ();
       syms_of_objects_tty ();
 #endif
+
+#ifdef HAVE_GTK
+      syms_of_device_gtk ();
+      syms_of_frame_gtk ();
+      syms_of_glyphs_gtk ();
+      syms_of_objects_gtk ();
+      syms_of_ui_gtk ();
+      syms_of_select_gtk ();
+#ifdef HAVE_DIALOGS
+      syms_of_dialog_gtk ();
+#endif
+#ifdef HAVE_MENUBARS
+      syms_of_menubar_gtk ();
+#endif
+      syms_of_select_gtk ();
+      
+#if defined (HAVE_MENUBARS) || defined(HAVE_SCROLLBARS) || defined(HAVE_DIALOGS) || defined(HAVE_TOOLBARS)
+      syms_of_gui_gtk ();
+#endif
+#endif /* HAVE_GTK */
 
 #ifdef HAVE_X_WINDOWS
 #ifdef HAVE_BALLOON_HELP
@@ -1471,6 +1501,28 @@ main_1 (int argc, char **argv, char **envp, int restart)
       console_type_create_redisplay_tty ();
 #endif
 
+#ifdef HAVE_GTK
+      console_type_create_gtk ();
+      console_type_create_select_gtk ();
+      console_type_create_device_gtk ();
+      console_type_create_frame_gtk ();
+      console_type_create_objects_gtk ();
+      console_type_create_glyphs_gtk ();
+      console_type_create_redisplay_gtk ();
+#ifdef HAVE_MENUBARS
+      console_type_create_menubar_gtk ();
+#endif
+#ifdef HAVE_SCROLLBARS
+      console_type_create_scrollbar_gtk ();
+#endif
+#ifdef HAVE_TOOLBARS
+      console_type_create_toolbar_gtk ();
+#endif
+#ifdef HAVE_DIALOGS
+      console_type_create_dialog_gtk ();
+#endif
+#endif /* HAVE_GTK */
+
 #ifdef HAVE_X_WINDOWS
       console_type_create_x ();
       console_type_create_device_x ();
@@ -1573,6 +1625,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MS_WINDOWS
       image_instantiator_format_create_glyphs_mswindows ();
 #endif /* HAVE_MSWINDOWS_WINDOWS */
+#ifdef HAVE_GTK
+      image_instantiator_format_create_glyphs_gtk ();
+#endif
 
       /* Now initialize the lstream types and associated symbols.
 	 Other than the first function below, the functions may
@@ -1775,6 +1830,28 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_objects_tty ();
 #endif
 
+#ifdef HAVE_GTK
+      vars_of_device_gtk ();
+#ifdef HAVE_DIALOGS
+      vars_of_dialog_gtk ();
+#endif
+      vars_of_event_gtk ();
+      vars_of_frame_gtk ();
+      vars_of_glyphs_gtk ();
+      vars_of_ui_gtk ();
+#ifdef HAVE_MENUBARS
+      vars_of_menubar_gtk ();
+#endif
+      vars_of_objects_gtk ();
+      vars_of_select_gtk ();
+#ifdef HAVE_SCROLLBARS
+      vars_of_scrollbar_gtk ();
+#endif
+#if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
+      vars_of_gui_gtk ();
+#endif
+#endif /* HAVE_GTK */
+
 #ifdef HAVE_X_WINDOWS
 #ifdef HAVE_BALLOON_HELP
       vars_of_balloon_x ();
@@ -1797,6 +1874,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_gui_x ();
 #endif
 #endif /* HAVE_X_WINDOWS */
+
 
 #ifdef HAVE_MS_WINDOWS
       vars_of_device_mswindows ();
@@ -1918,6 +1996,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       /* These rely on the glyphs just created in the previous function,
 	 and call Fadd_spec_to_specifier(), which relies on various
 	 variables initialized above. */
+#ifdef HAVE_GTK
+      complex_vars_of_glyphs_gtk ();
+#endif
 #ifdef HAVE_X_WINDOWS
       complex_vars_of_glyphs_x ();
 #endif
@@ -2004,6 +2085,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_MS_WINDOWS
       reinit_console_type_create_mswindows ();
 #endif
+#ifdef HAVE_GTK
+      reinit_console_type_create_gtk ();
+#endif
 
       reinit_specifier_type_create ();
       reinit_specifier_type_create_image ();
@@ -2044,6 +2128,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_X_WINDOWS
       reinit_vars_of_event_Xt ();
 #endif
+#ifdef HAVE_GTK
+      reinit_vars_of_event_gtk ();
+#endif
 #if defined(HAVE_TTY) && (defined (DEBUG_TTY_EVENT_STREAM) || !defined (HAVE_X_WINDOWS))
       reinit_vars_of_event_tty ();
 #endif
@@ -2072,6 +2159,10 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef HAVE_MS_WINDOWS
       reinit_vars_of_frame_mswindows ();
+#endif
+
+#ifdef HAVE_GTK
+      reinit_vars_of_menubar_gtk ();
 #endif
 
 #ifdef HAVE_X_WINDOWS

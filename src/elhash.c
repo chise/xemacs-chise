@@ -440,7 +440,7 @@ make_standard_lisp_hash_table (enum hash_table_test test,
 			       double rehash_threshold,
 			       enum hash_table_weakness weakness)
 {
-  hash_table_hash_function_t hash_function = 0;
+  hash_table_hash_function_t hash_function =  0;
   hash_table_test_function_t test_function = 0;
 
   switch (test)

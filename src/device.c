@@ -549,6 +549,9 @@ have no effect.
      device-independence violations occur in faces.el. */
   int first_x_device = NILP (Vdefault_x_device) && EQ (type, Qx);
 #endif
+#ifdef HAVE_GTK
+  int first_gtk_device = NILP (Vdefault_gtk_device) && EQ (type, Qgtk);
+#endif
 
   GCPRO3 (device, console, name);
 
@@ -596,6 +599,10 @@ have no effect.
   init_device_sound (d);
 #ifdef HAVE_X_WINDOWS
   if (first_x_device)
+    init_global_resources (d);
+#endif
+#ifdef HAVE_GTK
+  if (first_gtk_device)
     init_global_resources (d);
 #endif
   init_device_resources (d);
@@ -758,7 +765,8 @@ delete_device_internal (struct device *d, int force,
 
     /* #### This should probably be a device method but it is time for
        19.14 to go out the door. */
-#ifdef HAVE_X_WINDOWS
+    /* #### BILL!!! Should this deal with HAVE_MSWINDOWS as well? */
+#if defined (HAVE_X_WINDOWS) || defined (HAVE_GTK)
     /* Next delete all frames which have the popup property to avoid
        deleting a child after its parent. */
     DEVICE_FRAME_LOOP (frmcons, d)

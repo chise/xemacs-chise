@@ -275,7 +275,14 @@
   ;; (condition-case () (delete-file "xemacs") (file-error nil))
   (when (fboundp 'really-free)
     (really-free))
-  (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
+  (dump-emacs
+   (cond
+    ((featurep 'infodock) "infodock")
+    ;; #### BILL!!!
+    ;; If we want to dump under a name other than `xemacs', do that here!
+    ;; ((featurep 'gtk) "xemacs-gtk")
+    (t "xemacs"))
+   "temacs")
   (kill-emacs))
 
 ;; Avoid error if user loads some more libraries now.

@@ -417,8 +417,8 @@ appears as the name of the symbol in the @sc{car} of the list.
      @result{} "C-x SPC M-y SPC LFD SPC TAB SPC RET SPC C-l 1 2 3"
 @end group
 @group
-(single-key-description 'kp_next)
-     @result{} "kp_next"
+(single-key-description 'kp-next)
+     @result{} "kp-next"
 @end group
 @group
 (single-key-description '(shift button1))

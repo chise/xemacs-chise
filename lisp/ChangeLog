@@ -697,6 +697,182 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* menubar-items.el (default-menubar): Update sample.emacs to
+	sample.init.el and adjust accelerators.
+
+2001-02-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* build-report.el (build-report): Improve docstring.
+
+2001-03-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* ChangeLog: Log GTK merge.
+
+	* gutter-items.el:
+	* mwheel.el:
+	* sound.el:
+	* startup.el:
+	Revert gratuitous whitespace changes.
+
+2001-03-07  Ben Wing  <ben@xemacs.org>
+
+	* help.el:
+	* help.el (key-or-menu-binding):
+	* help.el (Help-find-file): New.
+	* help.el (describe-beta):
+	* help.el (describe-copying):
+	* help.el (describe-project):
+	* help.el (view-emacs-news):
+	* help.el (view-sample-init-el): New.
+	* help.el (Help-princ-face): New.
+	* help.el (Help-prin1-face): New.
+	* help.el (help-symbol-function-context-menu):
+	* help.el (help-symbol-variable-context-menu):
+	* help.el (help-symbol-function-and-variable-context-menu):
+	* help.el (frob-help-extents):
+	* help.el (describe-function-1):
+	* help.el (describe-variable):
+
+	Add coloring in Help buffers, correspondent with hyperlinks.
+	View files in view-mode rather than Fundamental.
+	Remove separators from context menus -- now handled in generic code.
+	Add `Find Tag' to context menu.
+	
+	* menubar.el (popup-mode-menu):
+
+	Rewrite code that outputs the popup menu to (a) put more specific
+	entries first, (b) be more robust, (c) output the proper context
+	menu separators automatically (the context menu functionality is
+	new and currently used only by Help).
+
+2001-03-10  William M. Perry  <wmperry@aventail.com>
+
+	* dialog-gtk.el (gtk-make-dialog-box-internal): Forgot to rewrite
+	this function when converting from the 21.1 GTK branch.  Now
+	supports file, password, question, and color built-in dialogs.
+
+2001-03-06  Ben Wing  <ben@xemacs.org>
+
+	* keydefs.el:
+	* keydefs.el (global-map):
+	Add commented-out change of M-k (for 21.5).
+	
+	* menubar-items.el (default-menubar):
+	Fix items to control kill-line behavior; add items for
+	shifted motion.
+	
+	* simple.el:
+	* simple.el (kill-whole-line):
+	* simple.el (historical-kill-line): Removed.
+	* simple.el (kill-line): Removed.
+	* simple.el (kill-entire-line): New.
+	* simple.el (kill-line-1): New.
+	* simple.el (backward-kill-line):
+	Undo kill-whole-line == always changes.  Add new function
+	kill-entire-line to unconditionally delete the current line.
+	Add comments describing the lamentable state of affairs of
+	the kill-line functions and variables.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* simple.el:
+	* simple.el (beginning-of-buffer):
+	* simple.el (end-of-buffer):
+	* simple.el (mark-ring-unrecorded-commands):
+	* simple.el (signal-error-on-buffer-boundary):
+	* simple.el (shifted-motion-keys-select-region):
+	* simple.el (unshifted-motion-keys-deselect-region):
+	* simple.el (motion-keys-for-shifted-motion): New.
+	* simple.el (handle-pre-motion-command):
+	* simple.el (handle-post-motion-command):
+	* simple.el (forward-char-command):
+	* simple.el (backward-char-command):
+	* simple.el (scroll-up-command):
+	* simple.el (scroll-down-command):
+	* simple.el (next-line):
+	* simple.el (previous-line):
+	* simple.el (backward-block-of-lines):
+	* simple.el (forward-block-of-lines):
+	* simple.el (backward-word):
+	* simple.el (mark-word):
+
+	Augment documentation of the most common motion commands to make
+	note of the shifted-motion support.  Improve the support to (a)
+	properly document how it works and why it's done in the fashion it
+	is, and (b) allow the keystrokes that trigger it to be customized.
+
+	Correct error in the customize specification of
+	mark-ring-unrecorded-commands.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el:
+	* font-lock.el (font-lock-pending-extent-table): Removed.
+	* font-lock.el (font-lock-pending-buffer-table): New.
+	* font-lock.el (font-lock-pre-idle-hook):
+	* font-lock.el (font-lock-after-change-function):
+	* font-lock.el (font-lock-fontify-pending-extents):
+	* font-lock.el (font-lock-lisp-like):
+
+	Fix handling of pending extents to avoid excessive slowness (N^2
+	behavior) when making lots of buffer changes between redisplays,
+	such as when saving the Options.
+
+2001-03-09  William M. Perry  <wmperry@aventail.com>
+
+	* device.el:
+	* dragdrop.el:
+	* dumped-lisp.el:
+	* faces.el:
+	* frame.el:
+	* gnuserv.el:
+	* loadup.el:
+	* menubar-items.el:
+	* minibuf.el:
+	The Great GTK Merge.
+
+	* ChangeLog.GTK:
+	* dialog-gtk.el:
+	* gdk.el:
+	* generic-widgets.el:
+	* glade.el:
+	* gnome-widgets.el:
+	* gnome.el:
+	* gtk-compose.el:
+	* gtk-extra.el:
+	* gtk-faces.el:
+	* gtk-ffi.el:
+	* gtk-file-dialog.el:
+	* gtk-font-menu.el:
+	* gtk-glyphs.el:
+	* gtk-init.el:
+	* gtk-iso8859-1.el:
+	* gtk-marshal.el:
+	* gtk-mouse.el:
+	* gtk-package.el:
+	* gtk-password-dialog.el:
+	* gtk-select.el:
+	* gtk-widget-accessors.el:
+	* gtk-widgets.el:
+	* gtk.el:
+	widgets-gtk.el:
+	The Great GTK Merge: new files.
+
+2001-03-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* generic-widgets.el: Don't require gtk (a built-in feature) at
+	top level.  Don't execute the last sexp unless (featurep 'gtk).
+
+2001-02-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule/mule-init.el (auto-language-alist): Split zh into GB and BIG5.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

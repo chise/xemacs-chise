@@ -244,6 +244,11 @@ select_console_1 (Lisp_Object console)
     Vwindow_system = Qx;
   else
 #endif
+#ifdef HAVE_GTK
+  if (CONSOLE_GTK_P (XCONSOLE (console)))
+    Vwindow_system = Qgtk;
+  else
+#endif
 #ifdef HAVE_MS_WINDOWS
   if (CONSOLE_MSWINDOWS_P (XCONSOLE (console)))
     Vwindow_system = Qmswindows;

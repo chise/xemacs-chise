@@ -122,7 +122,7 @@ information.
 @item asm-mode
 @cindex asm-mode
 Use asm-mode for editing files of assembler code. Look at the file 
-@file{ /usr/local/lib/xemacs-19.11/lisp/modes/asm.el} for more
+@file{ /usr/local/lib/xemacs-VERSION/lisp/modes/asm.el} for more
 information. 
 
 @end table
@@ -169,8 +169,8 @@ menu item from the @b{Options} menu on the menu-bar at the
 top. If you wish to have this mode enabled permanently, choose 
 @b{Save Options} from the @b{Options} menu. @xref{Options Menu}, for
 more information on the Options menu.  You can also add statements in
-your @file{.emacs} file. For each major mode in which you wish to
-enable this minor mode, you need a statement in your @file{.emacs}
+your @file{init.el} file. For each major mode in which you wish to
+enable this minor mode, you need a statement in your @file{init.el}
 file. The following example shows how to enable the font-lock mode when
 the major mode is c-mode. 
 

@@ -383,11 +383,11 @@ M-x find-file-other-window (bound to keys: C-x 4 f, C-x 4 C-f)
 @end example 
 
 @item Syntax Highlighting
-You can customize your @code{.emacs} file to include the font-lock mode
+You can customize your @code{init.el} file to include the font-lock mode
 so that when you select this item, the comments will be displayed in one
 face, strings in another, reserved words in another, and so
 on. @xref{Customization,,,xemacs,XEmacs User's Manual}, for more
-information on customizing @code{.emacs} file.  After selecting this
+information on customizing @code{init.el} file.  After selecting this
 item, you will find your code a lot easier to read. When @b{Fonts} is
 selected, different parts of the program will appear in different
 Fonts. When @b{Colors} is selected, then the program will be displayed
@@ -433,7 +433,7 @@ available will be selecting that buffer.
 
 @item Save Options
 Selecting this item will save the current settings of your Options 
-menu to your @code{.emacs} file so that the next time you start XEmacs,
+menu to your @code{init.el} file so that the next time you start XEmacs,
 you won't need to select the options again.
 @end table
 

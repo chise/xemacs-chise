@@ -1,3 +1,30 @@
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-09  William M. Perry  <wmperry@aventail.com>
+
+	* gtk/UNIMPLEMENTED:
+	* gtk/event-stream-tests.el:
+	* gtk/gnome-test.el:
+	* gtk/gtk-embedded-test.el:
+	* gtk/gtk-extra-test.el:
+	* gtk/gtk-test.el:
+	* gtk/gtk-test.glade:
+	* gtk/statusbar-test.el:
+	* gtk/toolbar-test.el:
+	* gtk/xemacs-toolbar.el:
+	The Great GTK Merge: new directory and files.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* automated\case-tests.el (string-0-through-32): 
+	(string-127-through-160): Created new strings which contain
+	unprintable characters, and initialize them in a loop.
+	Rewrite all strings using unprintable characters as concat's
+	with the above variables, so that this file can be made ASCII,
+	not binary.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

@@ -102,6 +102,7 @@
 		     `[progress-gauge :width 5 :pixel-height 16
 				      :descriptor "ok" :value ,x])
     (setq x (+ x 5))
+    (redisplay-frame)
     (sit-for 0.1)))
 
 (set-extent-begin-glyph 

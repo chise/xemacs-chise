@@ -589,6 +589,11 @@ Move point forward COUNT words (backward if COUNT is negative).
 Normally t is returned, but if an edge of the buffer is reached,
 point is left there and nil is returned.
 
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
+
 COUNT defaults to 1, and BUFFER defaults to the current buffer.
 */
        (count, buffer))

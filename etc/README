@@ -61,7 +61,7 @@ recycle2.xpm		Two versions of oversized Recycle cursor
 refcard.ps.gz		Postscript version of XEmacs reference card
 refcard.tex		XEmacs reference card
 sample.Xdefaults	Example ~/.Xdefaults file
-sample.emacs		Example ~/.emacs file
+sample.init.el		Example ~/.xemacs/init.el file
 sink.xbm		A Gnu icon
 sparcworks/		Support files for Sparcworks
 tests/			Testcases for external widget

@@ -4335,6 +4335,220 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-03-21  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.46 "Urania" is released.
+
+2001-03-20  Dan Holmsand  <dan@eyebee.com>
+
+	* realpath.c (xrealpath): Make file-truename work with symlinks to
+	/cygdrive paths on cygwin. Always lowercase drive-letters on
+	native windows.
+	(cygwin_readlink): Don't try to find canonical filename unless
+	file exists.
+
+2001-03-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* ChangeLog: Log GTK merge.
+
+	* dumper.c:
+	* select-x.c:
+	* specifier.c:
+	* symeval.h:
+	Revert gratuitous whitespace changes from GTK merge.
+
+	* emacs.c: Document end of complex #ifdef @ l. 1495.
+
+
+2001-03-12  Andy Piper  <andy@xemacs.org>
+
+	* mingw32.h: unfortunately cygnus changed mingw32 -> mingw so we
+	have to do likewise.
+
+2001-03-12  Andy Piper  <andy@xemacs.org>
+
+	* sysdep.c: we only support mingw now.
+
+2001-03-09  Andy Piper  <andy@xemacs.org>
+
+	* unexcw.c (copy_executable_and_dump_data_section): making approx
+	overrun a warning only.
+
+2001-03-10  William M. Perry  <wmperry@aventail.com>
+
+	* faces.c (complex_vars_of_faces): Rewrote the font mucking to
+	satisfy Stephen's identical-after-cpp plea.
+
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* cmds.c:
+	* cmds.c (Fforward_char):
+	* syntax.c:
+	* window.c:
+
+	Augment documentation of the most common motion commands to make
+	note of the shifted-motion support.
+	
+2001-03-02  Ben Wing  <ben@xemacs.org>
+
+	* nt.c (mswindows_fstat):
+	* nt.c (mswindows_stat):
+	* search.c (boyer_moore):
+	Fix compile warnings under Windows.
+	
+	* sysdep.c (sys_readdir):
+	Fix buggy filename-conversion code under Mule.
+
+2001-03-09  William M. Perry  <wmperry@aventail.com>
+
+	* Makefile.in.in:
+	* config.h.in:
+	* console.c:
+	* console.h:
+	* device.c:
+	* device.h:
+	* dragdrop.c:
+	* emacs.c:
+	* event-stream.c:
+	* events.c:
+	* events.h:
+	* faces.c:
+	* frame.h:
+	* general-slots.h:
+	* glyphs.c:
+	* gutter.c:
+	* inline.c:
+	* lisp.h:
+	* lrecord.h:
+	* make-src-depend:
+	* redisplay-output.c:
+	* redisplay.c:
+	* symsinit.h:
+	* sysfile.h:
+	* toolbar.c:
+	* window.c:
+	The Great GTK Merge.
+
+	* ChangeLog.GTK:
+	* console-gtk.c:
+	* console-gtk.h:
+	* device-gtk.c:
+	* emacs-marshals.c:
+	* emacs-widget-accessors.c:
+	* event-gtk.c:
+	* frame-gtk.c:
+	* gccache-gtk.c:
+	* gccache-gtk.h:
+	* glade.c:
+	* glyphs-gtk.c:
+	* glyphs-gtk.h:
+	* gtk-glue.c:
+	* gtk-xemacs.c:
+	* gtk-xemacs.h:
+	* gui-gtk.c:
+	* gui-gtk.h:
+	* menubar-gtk.c:
+	* native-gtk-toolbar.c:
+	* objects-gtk.c:
+	* objects-gtk.h:
+	* redisplay-gtk.c:
+	* scrollbar-gtk.c:
+	* scrollbar-gtk.h:
+	* select-gtk.c:
+	* toolbar-gtk.c:
+	* ui-byhand.c:
+	* ui-gtk.c:
+	* ui-gtk.h:
+	The Great GTK Merge: new files.
+
+2001-02-26  Ben Wing  <ben@xemacs.org>
+
+	Reapplied Lstream change.
+
+2001-02-26  Ben Wing  <ben@xemacs.org>
+
+	Undid the last change, since it is more controversial than I
+	thought.  It should be back in at some point soon.
+	
+2001-02-25  Ben Wing  <ben@xemacs.org>
+
+	* buffer.c:
+	* callproc.c (Fold_call_process_internal):
+	* event-msw.c (ntpipe_slurp_reader):
+	* event-msw.c (ntpipe_shove_writer):
+	* event-msw.c (winsock_reader):
+	* event-msw.c (winsock_writer):
+	* file-coding.c:
+	* file-coding.c (detect_eol_type):
+	* file-coding.c (detect_coding_type):
+	* file-coding.c (determine_real_coding_system):
+	* file-coding.c (Fdetect_coding_region):
+	* file-coding.c (decoding_reader):
+	* file-coding.c (decoding_writer):
+	* file-coding.c (mule_decode):
+	* file-coding.c (Fdecode_coding_region):
+	* file-coding.c (encoding_reader):
+	* file-coding.c (encoding_writer):
+	* file-coding.c (mule_encode):
+	* file-coding.c (Fencode_coding_region):
+	* file-coding.c (detect_coding_sjis):
+	* file-coding.c (decode_coding_sjis):
+	* file-coding.c (encode_coding_sjis):
+	* file-coding.c (detect_coding_big5):
+	* file-coding.c (decode_coding_big5):
+	* file-coding.c (encode_coding_big5):
+	* file-coding.c (detect_coding_ucs4):
+	* file-coding.c (decode_coding_ucs4):
+	* file-coding.c (encode_coding_ucs4):
+	* file-coding.c (detect_coding_utf8):
+	* file-coding.c (decode_coding_utf8):
+	* file-coding.c (encode_coding_utf8):
+	* file-coding.c (detect_coding_iso2022):
+	* file-coding.c (decode_coding_iso2022):
+	* file-coding.c (encode_coding_iso2022):
+	* file-coding.c (decode_coding_no_conversion):
+	* file-coding.c (encode_coding_no_conversion):
+	* glyphs-x.c (write_lisp_string_to_temp_file):
+	* gpmevent.c (tty_get_foreign_selection):
+	* lisp.h:
+	* lstream.c:
+	* lstream.c (Lstream_flush_out):
+	* lstream.c (Lstream_adding):
+	* lstream.c (Lstream_write_1):
+	* lstream.c (Lstream_write):
+	* lstream.c (Lstream_raw_read):
+	* lstream.c (Lstream_read_more):
+	* lstream.c (Lstream_read):
+	* lstream.c (Lstream_unread):
+	* lstream.c (Lstream_fputc):
+	* lstream.c (stdio_reader):
+	* lstream.c (stdio_writer):
+	* lstream.c (filedesc_reader):
+	* lstream.c (filedesc_writer):
+	* lstream.c (lisp_string_reader):
+	* lstream.c (struct fixed_buffer_stream):
+	* lstream.c (make_fixed_buffer_input_stream):
+	* lstream.c (make_fixed_buffer_output_stream):
+	* lstream.c (fixed_buffer_reader):
+	* lstream.c (fixed_buffer_writer):
+	* lstream.c (struct resizing_buffer_stream):
+	* lstream.c (resizing_buffer_writer):
+	* lstream.c (dynarr_writer):
+	* lstream.c (lisp_buffer_reader):
+	* lstream.c (lisp_buffer_writer):
+	* lstream.h:
+	* lstream.h (lstream_implementation):
+	* lstream.h (struct lstream):
+	* md5.c (Fmd5):
+	* process-nt.c (nt_send_process):
+	* process-unix.c (unix_send_process):
+	
+	Correct Lstream lossage due to mixing of signed and unsigned
+	quantities.  All Lstream uses of size_t and ssize_t are now a
+	single signed data type Lstream_data_count.  This fixes problems
+	under Windows with sending large quantities of data to a process,
+	and may well fix other subtle bugs.
+
 2001-02-23  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.45 "Thelxepeia" is released.

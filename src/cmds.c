@@ -51,6 +51,11 @@ Move point right COUNT characters (left if COUNT is negative).
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
 On reaching end of buffer, stop and signal error.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count, buffer))
 {
@@ -96,6 +101,11 @@ DEFUN ("backward-char", Fbackward_char, 0, 2, "_p", /*
 Move point left COUNT characters (right if COUNT is negative).
 On attempt to pass end of buffer, stop and signal `end-of-buffer'.
 On attempt to pass beginning of buffer, stop and signal `beginning-of-buffer'.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count, buffer))
 {
@@ -118,6 +128,11 @@ that is COUNT - number of lines moved; if backward, COUNT + number moved.
 With positive COUNT, a non-empty line at the end counts as one line
   successfully moved (for the return value).
 If BUFFER is nil, the current buffer is assumed.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count, buffer))
 {
@@ -179,6 +194,11 @@ Move point to beginning of current line.
 With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, stop there without error.
 If BUFFER is nil, the current buffer is assumed.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count, buffer))
 {
@@ -216,6 +236,11 @@ Move point to end of current line.
 With argument COUNT not nil or 1, move forward COUNT - 1 lines first.
 If scan reaches end of buffer, stop there without error.
 If BUFFER is nil, the current buffer is assumed.
+
+The characters that are moved over may be added to the current selection
+\(i.e. active region) if the Shift key is held down, a motion key is used
+to invoke this command, and `shifted-motion-keys-select-region' is t; see
+the documentation for this variable for more details.
 */
        (count, buffer))
 {

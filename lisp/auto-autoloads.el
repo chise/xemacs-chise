@@ -978,6 +978,8 @@ Find packages matching a given keyword." t nil)
 
 (defcustom font-lock-maximum-size (* 250 1024) "*If non-nil, the maximum size for buffers for fontifying.\nOnly buffers less than this can be fontified when Font Lock mode is turned on.\nIf nil, means size is irrelevant.\nIf a list, each element should be a cons pair of the form (MAJOR-MODE . SIZE),\nwhere MAJOR-MODE is a symbol or t (meaning the default).  For example:\n ((c++-mode . 256000) (c-mode . 256000) (rmail-mode . 1048576))\nmeans that the maximum size is 250K for buffers in `c++-mode' or `c-mode', one\nmegabyte for buffers in `rmail-mode', and size is irrelevant otherwise." :type '(choice (const :tag "none" nil) (integer :tag "size") (repeat :menu-tag "mode specific" :tag "mode specific" :value ((t)) (cons :tag "Instance" (radio :tag "Mode" (const :tag "all" t) (symbol :tag "name")) (radio :tag "Size" (const :tag "none" nil) (integer :tag "size"))))) :group 'font-lock)
 
+(defcustom font-lock-fontify-string-delimiters nil "*If non-nil, apply font-lock-string-face to string delimiters as well as\nstring text when fontifying." :type 'boolean :group 'font-lock)
+
 (defvar font-lock-keywords nil "\
 A list defining the keywords for `font-lock-mode' to highlight.
 
@@ -1098,6 +1100,43 @@ dramatically slow things down!
 ")
 
 (make-variable-buffer-local 'font-lock-keywords)
+
+(defvar font-lock-syntactic-keywords nil "\
+A list of the syntactic keywords to highlight.
+Can be the list or the name of a function or variable whose value is the list.
+See `font-lock-keywords' for a description of the form of this list;
+the differences are listed below.  MATCH-HIGHLIGHT should be of the form:
+
+ (MATCH SYNTAX OVERRIDE LAXMATCH)
+
+where SYNTAX can be of the form (SYNTAX-CODE . MATCHING-CHAR), the name of a
+syntax table, or an expression whose value is such a form or a syntax table.
+OVERRIDE cannot be `prepend' or `append'.
+
+For example, an element of the form highlights syntactically:
+
+ (\"\\\\$\\\\(#\\\\)\" 1 (1 . nil))
+
+ a hash character when following a dollar character, with a SYNTAX-CODE of
+ 1 (meaning punctuation syntax).  Assuming that the buffer syntax table does
+ specify hash characters to have comment start syntax, the element will only
+ highlight hash characters that do not follow dollar characters as comments
+ syntactically.
+
+ (\"\\\\('\\\\).\\\\('\\\\)\"
+  (1 (7 . ?'))
+  (2 (7 . ?')))
+
+ both single quotes which surround a single character, with a SYNTAX-CODE of
+ 7 (meaning string quote syntax) and a MATCHING-CHAR of a single quote (meaning
+ a single quote matches a single quote).  Assuming that the buffer syntax table
+ does not specify single quotes to have quote syntax, the element will only
+ highlight single quotes of the form 'c' as strings syntactically.
+ Other forms, such as foo'bar or 'fubar', will not be highlighted as strings.
+
+This is normally set via `font-lock-defaults'.")
+
+(make-variable-buffer-local 'font-lock-syntactic-keywords)
 
 (defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set (function (lambda (var val) (font-lock-mode (or val 0)))))
 
@@ -1759,6 +1798,11 @@ buffer called `*Shadows*'.  Shadowings are located by calling the
 
 (autoload 'load-sound-file "sound" "\
 Read in an audio-file and add it to the sound-alist.
+
+FILENAME can either be absolute or relative, in which case the file will
+be searched in the directories given by `default-sound-directory-list'.
+When looking for the file, the extensions given by `sound-extension-list' are
+also tried in the given order.
 
 You can only play sound files if you are running on display 0 of the
 console of a machine with native sound support or running a NetAudio

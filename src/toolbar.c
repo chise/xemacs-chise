@@ -1610,6 +1610,9 @@ See `default-toolbar-height' for more information.
 #ifdef HAVE_TTY
   fb = Fcons (Fcons (list1 (Qtty), Qzero), fb);
 #endif
+#ifdef HAVE_GTK
+  fb = Fcons (Fcons (list1 (Qgtk), make_int (DEFAULT_TOOLBAR_HEIGHT)), fb);
+#endif
 #ifdef HAVE_X_WINDOWS
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_TOOLBAR_HEIGHT)), fb);
 #endif
@@ -1623,6 +1626,9 @@ See `default-toolbar-height' for more information.
   fb = Qnil;
 #ifdef HAVE_TTY
   fb = Fcons (Fcons (list1 (Qtty), Qzero), fb);
+#endif
+#ifdef HAVE_GTK
+  fb = Fcons (Fcons (list1 (Qgtk), make_int (DEFAULT_TOOLBAR_WIDTH)), fb);
 #endif
 #ifdef HAVE_X_WINDOWS
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_TOOLBAR_WIDTH)), fb);
@@ -1739,6 +1745,9 @@ See `default-toolbar-height' for more information.
 #endif
 #ifdef HAVE_X_WINDOWS
   fb = Fcons (Fcons (list1 (Qx), make_int (DEFAULT_TOOLBAR_BORDER_WIDTH)), fb);
+#endif
+#ifdef HAVE_GTK
+  fb = Fcons (Fcons (list1 (Qgtk), make_int (DEFAULT_TOOLBAR_BORDER_WIDTH)), fb);
 #endif
 #ifdef HAVE_MS_WINDOWS
   fb = Fcons (Fcons (list1 (Qmswindows), make_int (MSWINDOWS_DEFAULT_TOOLBAR_BORDER_WIDTH)), fb);

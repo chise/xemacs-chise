@@ -1,40 +1,6 @@
-2001-02-23  Martin Buchholz <martin@xemacs.org>
+2001-03-21  Martin Buchholz <martin@xemacs.org>
 
-	* XEmacs 21.2.45 "Thelxepeia" is released.
-
-2001-02-16  Raymond Toy  <toy@rtp.ericsson.se>
-
-	* lwlib-Xaw.c: Always include ATHENA_AsciiText_h_ to get the
-	text-field widget.
-	(xaw_creation_table): Always include the text-field widget
-
-2001-02-08  Martin Buchholz <martin@xemacs.org>
-
-	* XEmacs 21.2.44 "Thalia" is released.
-
-2001-02-06  Martin Buchholz  <martin@xemacs.org>
-
-	* xlwgauge.c:
-	* xlwgcs.c:
-	* xlwgcs.c (XtAllocateGC): Fix typo for X11R4.
-	* xlwgcs.h:
-	* xlwradio.c (RadioExpose):
-	* xlwcheckbox.c:
-	Remove use of BSD-specific types.
-	s/u_(char|short|int_long)/unsigned $1/g
-
-2001-02-05  Martin Buchholz  <martin@xemacs.org>
-
-	* lwlib-Xm.c (xm_update_one_value):
-	Obey the man page; use XtFree instead of free.
-
-2001-02-02  Martin Buchholz  <martin@xemacs.org>
-
-	* config.h.in: Use "..." to include config.h
-
-2001-01-26  Martin Buchholz <martin@xemacs.org>
-
-	* XEmacs 21.2.43 "Terspichore" is released.
+	* XEmacs 21.2.46 "Urania" is released.
 
 2001-01-20  Martin Buchholz <martin@xemacs.org>
 

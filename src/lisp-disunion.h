@@ -41,7 +41,7 @@ Boston, MA 02111-1307, USA.  */
  bits are the Lisp object.  Some people call such Lisp_Objects "immediate".
 
  The object is obtained by masking off the type bits.
- Bit 1 is used as a value bit by splitting the Lisp integer type
+     Bit 1 is used as a value bit by splitting the Lisp integer type
  into two subtypes, Lisp_Type_Int_Even and Lisp_Type_Int_Odd.
  By this trickery we get 31 bits for integers instead of 30.
 
@@ -49,7 +49,7 @@ Boston, MA 02111-1307, USA.  */
  a pointer to a structure containing the object.  The pointer is
  obtained by masking off the type and mark bits.
 
- All pointer-based types are coalesced under a single type called
+     All pointer-based types are coalesced under a single type called
  Lisp_Type_Record.  The type bits for this type are required by the
  implementation to be 00, just like the least significant bits of
  word-aligned struct pointers on 32-bit hardware.  This requires that

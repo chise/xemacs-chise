@@ -133,7 +133,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifndef NOT_C_CODE
 #include <stdlib.h>
-#include <mingw32/process.h>
+#include <mingw/process.h>
 #define mkdir __mkdir
 #include <dir.h>
 #undef mkdir

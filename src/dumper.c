@@ -401,9 +401,9 @@ pdump_backtrace (void)
       else
 	{
 	  stderr_out ("  - %s (%d, %d)\n",
-		      LHEADER_IMPLEMENTATION (backtrace[i].obj)->name,
-		      backtrace[i].position,
-		      backtrace[i].offset);
+		   LHEADER_IMPLEMENTATION (backtrace[i].obj)->name,
+		   backtrace[i].position,
+		   backtrace[i].offset);
 	}
     }
 }

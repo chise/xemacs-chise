@@ -677,35 +677,35 @@ static int stack_idx_of_map_multiple;
 				   r[7] = LOWER_BYTE (SJIS (Y, Z) */
 
 /* Terminate CCL program successfully.  */
-#define CCL_SUCCESS			\
-do {					\
-  ccl->status = CCL_STAT_SUCCESS;	\
+#define CCL_SUCCESS		   	\
+  do {				   	\
+    ccl->status = CCL_STAT_SUCCESS;	\
   /* The "if (1)" inhibits the warning	\
      "end-of loop code not reached" */	\
   if (1) goto ccl_finish;		\
-} while (0)
+  } while (0)
 
 /* Suspend CCL program because of reading from empty input buffer or
    writing to full output buffer.  When this program is resumed, the
    same I/O command is executed.  */
-#define CCL_SUSPEND(stat)		\
-do {					\
-  ic--;					\
+#define CCL_SUSPEND(stat)	\
+  do {				\
+    ic--;			\
   ccl->status = (stat);			\
   /* The "if (1)" inhibits the warning	\
      "end-of loop code not reached" */	\
   if (1) goto ccl_finish;		\
-} while (0)
+  } while (0)
 
 /* Terminate CCL program because of invalid command.  Should not occur
    in the normal case.  */
-#define CCL_INVALID_CMD			\
-do {					\
-  ccl->status = CCL_STAT_INVALID_CMD;	\
+#define CCL_INVALID_CMD		     	\
+  do {				     	\
+    ccl->status = CCL_STAT_INVALID_CMD;	\
   /* The "if (1)" inhibits the warning	\
      "end-of loop code not reached" */	\
   if (1) goto ccl_error_handler;	\
-} while (0)
+  } while (0)
 
 /* Encode one character CH to multibyte form and write to the current
    output buffer.  At encoding time, if CH is less than 256, CH is
@@ -1284,57 +1284,57 @@ ccl_driver (struct ccl_program *ccl,
 	      if (!src)
 		CCL_INVALID_CMD;
 
-	      if (src >= src_end)
-		{
-		  src++;
-		  goto ccl_read_multibyte_character_suspend;
-		}
+		if (src >= src_end)
+		  {
+		    src++;
+		    goto ccl_read_multibyte_character_suspend;
+		  }
 
-	      i = *src++;
-	      if (i < 0x80)
-		{
-		  /* ASCII */
-		  reg[rrr] = i;
-		  reg[RRR] = LEADING_BYTE_ASCII;
-		}
-	      else if (i <= MAX_LEADING_BYTE_OFFICIAL_1)
-		{
-		  if (src >= src_end)
-		    goto ccl_read_multibyte_character_suspend;
-		  reg[RRR] = i;
-		  reg[rrr] = (*src++ & 0x7F);
-		}
-	      else if (i <= MAX_LEADING_BYTE_OFFICIAL_2)
-		{
-		  if ((src + 1) >= src_end)
-		    goto ccl_read_multibyte_character_suspend;
-		  reg[RRR] = i;
-		  i = (*src++ & 0x7F);
-		  reg[rrr] = ((i << 7) | (*src & 0x7F));
-		  src++;
-		}
-	      else if (i == PRE_LEADING_BYTE_PRIVATE_1)
-		{
-		  if ((src + 1) >= src_end)
-		    goto ccl_read_multibyte_character_suspend;
-		  reg[RRR] = *src++;
-		  reg[rrr] = (*src++ & 0x7F);
-		}
-	      else if (i == PRE_LEADING_BYTE_PRIVATE_2)
-		{
-		  if ((src + 2) >= src_end)
-		    goto ccl_read_multibyte_character_suspend;
-		  reg[RRR] = *src++;
-		  i = (*src++ & 0x7F);
-		  reg[rrr] = ((i << 7) | (*src & 0x7F));
-		  src++;
-		}
-	      else
-		{
-		  /* INVALID CODE.  Return a single byte character.  */
-		  reg[RRR] = LEADING_BYTE_ASCII;
-		  reg[rrr] = i;
-		}
+		i = *src++;
+		if (i < 0x80)
+		  {
+		    /* ASCII */
+		    reg[rrr] = i;
+		    reg[RRR] = LEADING_BYTE_ASCII;
+		  }
+		else if (i <= MAX_LEADING_BYTE_OFFICIAL_1)
+		  {
+		    if (src >= src_end)
+		      goto ccl_read_multibyte_character_suspend;
+		    reg[RRR] = i;
+		    reg[rrr] = (*src++ & 0x7F);
+		  }
+		else if (i <= MAX_LEADING_BYTE_OFFICIAL_2)
+		  {
+		    if ((src + 1) >= src_end)
+		      goto ccl_read_multibyte_character_suspend;
+		    reg[RRR] = i;
+		    i = (*src++ & 0x7F);
+		    reg[rrr] = ((i << 7) | (*src & 0x7F));
+		    src++;
+		  }
+		else if (i == PRE_LEADING_BYTE_PRIVATE_1)
+		  {
+		    if ((src + 1) >= src_end)
+		      goto ccl_read_multibyte_character_suspend;
+		    reg[RRR] = *src++;
+		    reg[rrr] = (*src++ & 0x7F);
+		  }
+		else if (i == PRE_LEADING_BYTE_PRIVATE_2)
+		  {
+		    if ((src + 2) >= src_end)
+		      goto ccl_read_multibyte_character_suspend;
+		    reg[RRR] = *src++;
+		    i = (*src++ & 0x7F);
+		    reg[rrr] = ((i << 7) | (*src & 0x7F));
+		    src++;
+		  }
+		else
+		  {
+		    /* INVALID CODE.  Return a single byte character.  */
+		    reg[RRR] = LEADING_BYTE_ASCII;
+		    reg[rrr] = i;
+		  }
 	      break;
 
 	    ccl_read_multibyte_character_suspend:

@@ -165,8 +165,16 @@ void *alloca ();
 #endif
 #endif /* HAVE_X_WINDOWS */
 
+/* Defines for building Gtk applications */
+#undef HAVE_GNOME
+#undef HAVE_GTK
+#undef HAVE_GDK_IMLIB_INIT
+#undef HAVE_GLADE_GLADE_H
+#undef HAVE_GLADE_H
+#undef LIBGLADE_XML_TXTDOMAIN
+
 /* Define HAVE_WINDOW_SYSTEM if any windowing system is available. */
-#if defined (HAVE_X_WINDOWS) || defined(HAVE_MS_WINDOWS) /* || defined (HAVE_NEXTSTEP) */
+#if defined (HAVE_GTK) || defined (HAVE_X_WINDOWS) || defined(HAVE_MS_WINDOWS) /* || defined (HAVE_NEXTSTEP) */
 #define HAVE_WINDOW_SYSTEM
 #endif
 
