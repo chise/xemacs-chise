@@ -52,9 +52,12 @@
     (=iso-ir165		. #x5856)	; ø»¿»
     (=cns11643-4	. #x212A)	; ø»— ±
     (=jis-x0213-2-2000	. #x2335)	; ø»¤ 
+    (=gt-pj-2		. #x402D)	; ý¡€€¥¥
     (=daikanwa		. 01847)	; ø¸€œ·
     (=big5-cdp		. #x8B4D)	; ý¢€ˆ­
+    (=gt-k		. 00110)	; ý¡„€®
     (=jef-china3	. #x44B2)	; øº„’²
+    (=gt		. 02405)	; ý¡€€¥¥
     (=ucs		. #x5202)	; åˆ‚
     ))
 (define-char
@@ -70,7 +73,10 @@
       )
      ((=ucs		  . #x4E36)	; ä¸¶
       ))
+    (=gt-pj-2		. #x402E)	; ý¡€€¥¦
     (=daikanwa		. 01848)	; ø¸€œ¸
+    (=gt-k		. 00215)	; ý¡„€ƒ—
+    (=gt		. 02406)	; ý¡€€¥¦
     ))
 (define-char
   '((=>ucs		. #x5203)	; åˆƒ
@@ -215,9 +221,12 @@
     (=jis-x0208-1978	. #x4A2C)	; ø»‚¸™
     (=jis-x0208-1983	. #x4A2C)	; ø»‡Œ¡
     (=ks-x1001		. #x5D42)	; ø»‰²µ
+    (=gt-pj-2		. #x4031)	; ý¡€€¥´
     (=big5		. #xA4C0)	; ý¢€Š“€
     (=daikanwa		. 01853)	; ø¸€œ½
+    (=gt-k		. 00485)	; ý¡„€‡¥
     (=jef-china3	. #x44B5)	; øº„’µ
+    (=gt		. 02420)	; ý¡€€¥´
     ))
 (define-char
   '((morohashi-daikanwa	1853 0 0)
