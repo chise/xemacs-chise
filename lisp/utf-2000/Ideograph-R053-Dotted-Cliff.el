@@ -53,6 +53,11 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x572C)	; ø½‹…›
+      (=ks-x1001	  . #x7466)	; ø»Š•‹
+      (=daikanwa	  . 09562)	; ø¸‚•š
+      ))
     (shinjigen-2	. 2169)
     (=jis-x0208		. #x4423)	; ø½Š©˜
     (=gt		. 11623)	; ý¡€‚µ§
@@ -70,13 +75,20 @@
     (=cns11643-3	. #x2247)	; ø»•˜¨
     ))
 (define-char
-  '((ideographic-radical . 53)	; â¼´
+  '((=>ucs		. #x5E82)	; åº‚
+    (ideographic-radical . 53)	; â¼´
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=big5		. #xC97A)	; ý¢€Œ¥º
+    (=daikanwa		. 09224)	; ø¸‚ˆ
+    ))
+(define-char
+  '((morohashi-daikanwa	9224 0 0)
+    (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x5E82)	; åº‚
     (=cns11643-2	. #x215B)	; ø»“š
-    (=big5		. #xC97A)	; ý¢€Œ¥º
-    (=daikanwa		. 09224)	; ø¸‚ˆ
     ))
 (define-char
   '((=>ucs		. #x5E83)	; åºƒ
@@ -84,6 +96,11 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5722)	; ø½‹…‘
+      (=ks-x1001	  . #x4E46)	; ø»‰œ·
+      (=daikanwa	  . 09493)	; ø¸‚”•
+      ))
     (=jis-x0208		. #x392D)	; ø½Š™˜
     (=gt		. 11621)	; ý¡€‚µ¥
     (=gt-k		. 00928)	; ý¡„€Ž 
@@ -2909,6 +2926,11 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-simplified@JP/Jouyou
+     ((=jis-x0208	  . #x5726)	; ø½‹…•
+      (=ks-x1001	  . #x7848)	; ø»Šš¥
+      (=daikanwa	  . 09492)	; ø¸‚””
+      ))
     (shinjigen-2	. 2194)
     (=jis-x0208		. #x4751)	; ø½Š® 
     (=gt		. 11854)	; ý¡€‚¹Ž
@@ -3180,6 +3202,11 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-simplified@JP/Jouyou
+     ((=ks-x1001	  . #x5546)	; ø»‰§‰
+      (=jis-x0213-1-2000  . #x742E)	; ø»¤ƒ
+      (=daikanwa	  . 09437)	; ø¸‚“
+      ))
     (=jis-x0208		. #x4F2D)	; ø½Š¹¬
     (=big5		. #xB459)	; ý¢€‹‘™
     (=gt		. 11865)	; ý¡€‚¹™
