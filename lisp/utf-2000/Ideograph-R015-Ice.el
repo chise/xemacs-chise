@@ -239,7 +239,7 @@
 	  )
 	 ((=ucs		      . #x51AB)	; 冫
 	  )
-	 ((=ucs		      . #x7259)	; 牙
+	 ((=gb2312	      . #x5140)	; &G0-5140; [49-32]
 	  ))
 	(shinjigen-1	    . 544)
 	(shinjigen-2	    . 544)
@@ -2425,13 +2425,12 @@
     (=ucs		. #x51DB)	; 凛
     (->subsumptive
      ((<-vulgar
-       ((shinjigen-1	    . 561)
-	(=ks-x1001	    . #x574F)	; &GT-02256; [55-47]
+       ((=ks-x1001	    . #x574F)	; &GT-02256; [55-47]
 	(=jis-x0208@1990    . #x7425)	; &I-J90-7425; [84-05]
 	(=daikanwa	    . 01717)	; &I-M-01717;
 	))
       (<-vulgar*sources
-       pianhai daikanwa shinjigen-1)
+       pianhai daikanwa)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -2440,8 +2439,6 @@
 	)
        ((=daikanwa	    . 24742)	; &M-24742;
 	))
-      (shinjigen-1	  . 563)
-      (shinjigen-2	  . 563)
       (=jis-x0208@1978	  . #x515B)	; &M-01718; [49-59]
       (=jis-x0208@1983	  . #x515B)	; &I-J83-515B; [49-59]
       (=daikanwa	  . 01718)	; &I-M-01718;
@@ -2456,7 +2453,15 @@
 	))
       (=cns11643-3	  . #x4B30)	; &C3-4B30; [43-16]
       )
-     ((ideographic-structure
+     ((<-vulgar
+       ((shinjigen-1	    . 561)
+	(=ks-x1001	    . #x574F)	; &GT-02256; [55-47]
+	(=jis-x0208@1990    . #x7425)	; &I-J90-7425; [84-05]
+	(=daikanwa	    . 01717)	; &I-M-01717;
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
@@ -2464,6 +2469,8 @@
 	)
        ((=jis-x0208	    . #x6349)	; &GT-31833; [67-41]
 	))
+      (shinjigen-1	  . 563)
+      (shinjigen-2	  . 563)
       (=jis-x0208@1990	  . #x515B)	; &GT-02257; [49-59]
       (=gt		  . 02257)	; &I-GT-02257;
       (=gt-pj-1		  . #x515B)	; &I-GT-02257; [49-59]
@@ -2476,7 +2483,7 @@
 	)
        ((=ucs		    . #x51AB)	; 冫
 	)
-       ((=ucs		    . #x7980)	; 禀
+       ((=gb2312	    . #x5977)	; &G0-5977; [57-87]
 	))
       (=gb2312		  . #x415D)	; &HZK01-E443; [33-61]
       (=hanziku-1	  . #xE443)	; &I-HZK01-E443;
