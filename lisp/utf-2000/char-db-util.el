@@ -159,6 +159,7 @@
 		       arabic-digit
 		       arabic-1-column
 		       arabic-2-column)))
+	      ((string-match "^mojikyo-pj-" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
 	       (unless (memq 'ideograph-gt dest)
 		 (setq dest (cons 'ideograph-gt dest))))
