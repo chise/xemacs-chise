@@ -4060,7 +4060,7 @@
     ))
 (define-char
   '((=>ucs		. #xFA43)	; 暑
-    (=>ucs-ks		. #x6691)	; 暑
+    (=>ucs@ks		. #x6691)	; 暑
     (morohashi-daikanwa	14051 0 0)
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 9)

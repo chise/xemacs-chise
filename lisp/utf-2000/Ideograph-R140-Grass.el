@@ -11531,7 +11531,7 @@
     ))
 (define-char
   '((=>ucs		. #xFA5F)	; 著
-    (=>ucs-ks		. #x8457)	; 著
+    (=>ucs@ks		. #x8457)	; 著
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
