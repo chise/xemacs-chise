@@ -5863,11 +5863,13 @@
      ((name		  . "CJK RADICAL PERSON")
       (ucs		  . #x2E85)	; âº…
       )
-     ((ucs		  . #x6B21)	; æ¬¡
+     ((korean-ksc5601	  . #x732D)	; ø»Š’´
+      (ideograph-daikanwa . 15992)	; ø¸ƒ¹¸
       ))
-    (japanese-jisx0212	. #x307A)	; ø»Š»«
-    (ideograph-daikanwa . 00571)	; ø¸€ˆ»
-    (mojikyo		. 000571)	; ý €€ˆ»
+    (japanese-jisx0212		. #x307A)	; ø»Š»«
+    (japanese-jisx0213-2	. #x214A)	; ø»¤©
+    (ideograph-daikanwa		. 00571)	; ø¸€ˆ»
+    (mojikyo			. 000571)	; ý €€ˆ»
     ))
 (define-char
   '((morohashi-daikanwa	571 0 1)
@@ -5904,7 +5906,7 @@
      ((name		  . "CJK RADICAL PERSON")
       (ucs		  . #x2E85)	; âº…
       )
-     ((ucs		  . #x6B21)	; æ¬¡
+     ((chinese-cns11643-1 . #x4839)	; ø»‘¼†
       ))
     (chinese-cns11643-2 . #x2535)	; ø»“’¬
     (chinese-big5	. #xCBB5)	; øº¡«‘
