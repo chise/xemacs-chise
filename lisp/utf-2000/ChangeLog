@@ -1,4 +1,53 @@
+2002-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el (GT-60403): New character.
+
+	* Ideograph-R154-Shell.el (C4-3026): Unify U-00027D2A.
+	(BC-8ACC): New character.
+
+	* Ideograph-R082-Fur.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R075-Tree.el (C3-2D2E): Unify BC-8CAD.
+	(U+6A37): Use `->synonyms' instead of `->same-ideograph'.
+
+	* Ideograph-R064-Hand.el (U+63D1): Unify JC3-4FE6.
+	(JX1-7474): Unify JC3-4FED.
+	(U+63F5): Don't relate to JC3-98C1.
+	(U+6505): Unify JC3-50B1.
+
+	* Ideograph-R058-Snout.el (GT-60403): New character.
+	(U+5F54): Unify JC3-4CFA.
+
+	* Ideograph-R041-Inch.el (U+5C03): Separate C2-2E6B.
+
+	* Ideograph-R031-Enclosure.el, Ideograph-R030-Mouth.el: Add some
+	missing `ideographic-structure' properties.
+
+	* Ideograph-R010-Legs.el (U+515A): Fix `ideographic-structure'.
+
+	* Ideograph-R009-Man.el (J0-4152): Separate G1-3256 and U+5009;
+	modify `ideographic-structure'.
+	(U+505E): Use U+67BC instead of BC-8CAD in the
+	`ideographic-structure'.
+
+2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (J0-4151): Simplify
+	`ideographic-structure'.
+	(U+53E2): Likewise.
+
+	* Ideograph-R027-Cliff.el (U+53B4): Fix the operator of the
+	`ideographic-structure'.
+
+	* Ideograph-R025-Divination.el (U+5364): Add
+	`ideographic-structure'.
+
 2002-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el (JSP-303C): Modify
+	`ideographic-structure'.
 
 	* char-db-util.el (char-db-coded-charset-priority-list): Ignore
 	all `mojikyo-*'.
@@ -235,6 +284,8 @@
 	* Ideograph-R060-Step.el: Merge mapping to CHINA3-JEF code points.
 
 2002-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* README.en (Character Reference): Add `senhen'.
 
 	* Ideograph-R059-Bristle.el, Ideograph-R058-Snout.el,
 	Ideograph-R057-Bow.el: Merge mapping to CHINA3-JEF code points.
