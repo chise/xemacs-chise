@@ -986,9 +986,51 @@ get_unallocated_leading_byte (int dimension)
 Emchar
 decode_builtin_char (Lisp_Object charset, int code_point)
 {
+  Lisp_Object mother = XCHARSET_MOTHER (charset);
   int final;
 
-  if (EQ (charset, Vcharset_chinese_big5))
+  if ( CHARSETP (mother) )
+    {
+      int code = code_point;
+
+      if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
+	{
+	  int row = code_point >> 8;
+	  int cell = code_point & 255;	  
+
+	  if (row < 16 + 32)
+	    return -1;
+	  else if (row < 16 + 32 + 30)
+	    code = (row - (16 + 32)) * 94 + cell - 33;
+	  else if (row < 18 + 32 + 30)
+	    return -1;
+	  else if (row < 18 + 32 + 60)
+	    code = (row - (18 + 32)) * 94 + cell - 33;
+	}
+      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
+	{
+	  int plane = code_point >> 16;
+	  int row = (code_point >> 8) & 255;
+	  int cell = code_point & 255;	  
+
+	  if (row < 16 + 32)
+	    return -1;
+	  else if (row < 16 + 32 + 30)
+	    code
+	      = (plane - 33) * 94 * 60
+	      + (row - (16 + 32)) * 94
+	      + cell - 33;
+	  else if (row < 18 + 32 + 30)
+	    return -1;
+	  else if (row < 18 + 32 + 60)
+	    code
+	      = (plane - 33) * 94 * 60
+	      + (row - (18 + 32)) * 94
+	      + cell - 33;
+	}
+      return DECODE_CHAR (mother, code + XCHARSET_CODE_OFFSET(charset));
+    }
+  else if (EQ (charset, Vcharset_chinese_big5))
     {
       int c1 = code_point >> 8;
       int c2 = code_point & 0xFF;
