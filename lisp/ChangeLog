@@ -1,3 +1,9 @@
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/viet-chars.el: Don't define charset
+	`vietnamese-viscii-lower' and `vietnamese-viscii-upper' because
+	they are defined as builtin charsets.
+
 1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* version.el (emacs-version): Add more space just before UTF-2000
