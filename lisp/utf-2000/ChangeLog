@@ -1,3 +1,13 @@
+2003-07-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el, Ideograph-R145-Clothes.el: Add some
+	mappings between CNS 11643-5 and CJK Ext-B code points.
+
+2003-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el (U-0002767E): Relate to M-34274; separate
+	H1-CFE4; moved to Ideograph-R145-Clothes.el.
+
 2003-07-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R130-Meat.el (M-29965'): Unify H8-B3F3 and U-0002686D.
