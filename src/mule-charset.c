@@ -1104,7 +1104,13 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	{
 	  int d = code - XCHARSET_CODE_OFFSET (charset);
 
-	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
+	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_IDENTICAL )
+	    return d;
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94 )
+	    return d + 33;
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_96 )
+	    return d + 32;
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
 	    {
 	      int row  = d / 94;
 	      int cell = d % 94 + 33;
@@ -1115,6 +1121,10 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 		row += 18 + 32;
 	      return (row << 8) | cell;
 	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94 )
+	    return ((d / 94 + 33) << 8) | (d % 94 + 33);
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_96x96 )
+	    return ((d / 96 + 32) << 8) | (d % 96 + 32);
 	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
 	    {
 	      int plane =  d / (94 * 60) + 33;
@@ -1127,44 +1137,34 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 		row += 18 + 32;
 	      return (plane << 16) | (row << 8) | cell;
 	    }
-	  else if (XCHARSET_CHARS (charset) == 94)
-	    {
-	      if (XCHARSET_DIMENSION (charset) == 1)
-		return d + 33;
-	      else if (XCHARSET_DIMENSION (charset) == 2)
-		return ((d / 94 + 33) << 8) | (d % 94 + 33);
-	      else if (XCHARSET_DIMENSION (charset) == 3)
-		return
-		  (   (d / (94 * 94) + 33) << 16)
-		  |  ((d / 94 % 94   + 33) <<  8)
-		  |   (d % 94        + 33);
-	      else /* if (XCHARSET_DIMENSION (charset) == 4) */
-		return
-		  (  (d / (94 * 94 * 94) + 33) << 24)
-		  | ((d / (94 * 94) % 94 + 33) << 16)
-		  | ((d / 94 % 94        + 33) <<  8)
-		  |  (d % 94             + 33);
-	    }
-	  else if (XCHARSET_CHARS (charset) == 96)
-	    {
-	      if (XCHARSET_DIMENSION (charset) == 1)
-		return d + 32;
-	      else if (XCHARSET_DIMENSION (charset) == 2)
-		return ((d / 96 + 32) << 8) | (d % 96 + 32);
-	      else if (XCHARSET_DIMENSION (charset) == 3)
-		return
-		  (   (d / (96 * 96) + 32) << 16)
-		  |  ((d / 96 % 96   + 32) <<  8)
-		  |   (d % 96        + 32);
-	      else /* if (XCHARSET_DIMENSION (charset) == 4) */
-		return
-		  (  (d / (96 * 96 * 96) + 32) << 24)
-		  | ((d / (96 * 96) % 96 + 32) << 16)
-		  | ((d / 96 % 96        + 32) <<  8)
-		  |  (d % 96             + 32);
-	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x94 )
+	    return
+	      (   (d / (94 * 94) + 33) << 16)
+	      |  ((d / 94 % 94   + 33) <<  8)
+	      |   (d % 94        + 33);
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_96x96x96 )
+	    return
+	      (   (d / (96 * 96) + 32) << 16)
+	      |  ((d / 96 % 96   + 32) <<  8)
+	      |   (d % 96        + 32);
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x94x94 )
+	    return
+	      (  (d / (94 * 94 * 94) + 33) << 24)
+	      | ((d / (94 * 94) % 94 + 33) << 16)
+	      | ((d / 94 % 94        + 33) <<  8)
+	      |  (d % 94             + 33);
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_96x96x96x96 )
+	    return
+	      (  (d / (96 * 96 * 96) + 32) << 24)
+	      | ((d / (96 * 96) % 96 + 32) << 16)
+	      | ((d / 96 % 96        + 32) <<  8)
+	      |  (d % 96             + 32);
 	  else
-	    return code - XCHARSET_CODE_OFFSET (charset);
+	    {
+	      printf ("Unknown CCS-conversion %d is specified!",
+		      XCHARSET_CONVERSION (charset));
+	      exit (-1);
+	    }
 	}
       else if ( (XCHARSET_CODE_OFFSET (charset) == 0) ||
 		(XCHARSET_CODE_OFFSET (charset)
@@ -2903,7 +2903,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
 		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI,
-		  MIN_CHAR_THAI, 32, Qnil, CONVERSION_IDENTICAL);
+		  MIN_CHAR_THAI, 32, Qnil, CONVERSION_96);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 96, 1,
@@ -3021,7 +3021,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  MIN_CHAR_JIS_X0208_1990,
 		  MAX_CHAR_JIS_X0208_1990, MIN_CHAR_JIS_X0208_1990, 33,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, CONVERSION_94x94);
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
