@@ -193,20 +193,45 @@ void xfree (void *);
 # endif /* GNUC */
 #endif
 
+/* No type has a greater alignment requirement than max_align_t.
+   (except perhaps for types we don't use, like long double) */
+typedef union
+{
+  struct { long l; } l;
+  struct { void *p; } p;
+  struct { void (*f)(void); } f;
+  struct { double d; } d;
+} max_align_t;
+
 #ifndef ALIGNOF
 # if defined (__GNUC__) && (__GNUC__ >= 2)
-#  define ALIGNOF(x) __alignof__ (x)
+/* gcc has an extension that gives us exactly what we want. */
+#  define ALIGNOF(type) __alignof__ (type)
+# elif ! defined (__cplusplus)
+/* The following is mostly portable, except that:
+   - it doesn't work for inside out declarations like void (*) (void).
+     (so just call ALIGNOF with a typedef'ed name)
+   - it doesn't work with C++.  The C++ committee has decided,
+     in its infinite wisdom, that:
+     "Types must be declared in declarations, not in expressions." */
+#  define ALIGNOF(type) offsetof (struct { char c; type member; }, member)
 # else
-#  define ALIGNOF(x) sizeof (x)
+/* The following should be completely portable, but might give values
+   that are larger than necessary.  But never larger than the maximum
+   possible alignment. */
+#  define ALIGNOF(type)				\
+((sizeof (type) % sizeof (max_align_t)) == 0 ?	\
+ sizeof (max_align_t) :				\
+ (sizeof (type) % sizeof (max_align_t)))
 # endif
-#endif
+#endif /* ALIGNOF */
 
 #define ALIGN_SIZE(len, unit) \
   ((((len) + (unit) - 1) / (unit)) * (unit))
 
 /* #### Yuck, this is kind of evil */
 #define ALIGN_PTR(ptr, unit) \
-  ((void *) ALIGN_SIZE ((long) (ptr), unit))
+  ((void *) ALIGN_SIZE ((size_t) (ptr), unit))
 
 #ifndef DO_NOTHING
 #define DO_NOTHING do {} while (0)

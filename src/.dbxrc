@@ -204,14 +204,14 @@ function update-elc {
   run -nd -batch -l ../lisp/update-elc.el
 }
 
-document dump-temacs << 'end'
-Usage: dump-temacs
+document dmp << 'end'
+Usage: dmp
 Run the dumping part of the build procedure.
 Use when debugging temacs, not xemacs!
 Use this when temacs builds successfully, but xemacs does not.
 end
 
-function dump-temacs {
+function dmp {
   environment-to-run-temacs
   run -nd -batch -l ../lisp/loadup.el dump
 }

@@ -1,3 +1,47 @@
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-12  Andy Piper  <andy@xemacs.org>
+
+	* package-get.el (package-get-custom): call
+	package-net-update-installed-db.
+
+	* package-ui.el (pui-install-selected-packages): call
+	package-net-update-installed-db.
+
+	* package-net.el (package-net-update-installed-db): use
+	packages-package-list so that we reflect reality.
+
+	* packages.el (packages-package-list): Make docstring reflect
+	reality.
+
+	* package-net.el (package-net-convert-index-to-ini): exclude mule entries.
+
+	* postinstall.cc (do_postinstall): don't pick up shells if cygwin
+	isn't installed.
+
+2001-01-17  Andy Piper  <andy@xemacs.org>
+
+	* wid-edit.el (widget-activation-glyph-mapper): activate or
+	deactivate native widgets.
+	(widget-glyph-insert-glyph): record instantiator.
+	(widget-push-button-value-create): use it.
+
+	* gui.el (gui-button-action): new function. Make button's domain
+	buffer current when calling.
+	(make-gui-button): update to use gui-button-action.
+
+2001-01-16  Didier Verna  <didier@xemacs.org>
+
+	* menubar-items.el (default-menubar): add an entry for modeline
+	horizontal scrolling in Options -> Display.
+
+2001-01-17  Steve Youngs  <youngs@xemacs.org>
+
+	* package-get.el (package-get-require-signed-base): Set to nil
+	by default.
+
 2001-01-17  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.41 "Polyhymnia" is released.

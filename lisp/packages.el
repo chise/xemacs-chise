@@ -55,7 +55,7 @@
 ;;; Package versioning
 
 (defvar packages-package-list nil
-  "Database of loaded packages and version numbers")
+  "Database of installed packages and version numbers")
 
 (defvar packages-hierarchy-depth 1
   "Depth of package hierarchies.")

@@ -143,6 +143,7 @@ function, and on a tab in the gutter to switch buffers.
 
 * Menubar Basics::      How XEmacs uses the menubar.
 * Scrollbar Basics::    How XEmacs uses scrollbars.
+* Mode Line Basics::    How XEmacs uses modelines.
 * Toolbar Basics::      How XEmacs uses toolbars.
 * Gutter Basics::       How XEmacs uses gutters.
 * Inhibiting::          What if you don't like GUI?
@@ -185,7 +186,7 @@ descriptions of these menus, *Note Pull-down Menus::.  (In 21.2
 XEmacsen, the `Mule' menu will be moved under `Options'.)
 
 
-File: xemacs.info,  Node: Scrollbar Basics,  Next: Toolbar Basics,  Prev: Menubar Basics,  Up: GUI Components
+File: xemacs.info,  Node: Scrollbar Basics,  Next: Mode Line Basics,  Prev: Menubar Basics,  Up: GUI Components
 
 XEmacs Scrollbars
 =================
@@ -206,7 +207,27 @@ present in all windows (except the minibuffer), and there is no
 horizontal scrollbar.
 
 
-File: xemacs.info,  Node: Toolbar Basics,  Next: Gutter Basics,  Prev: Scrollbar Basics,  Up: GUI Components
+File: xemacs.info,  Node: Mode Line Basics,  Next: Toolbar Basics,  Prev: Scrollbar Basics,  Up: GUI Components
+
+XEmacs Mode Lines
+=================
+
+   When used in a windowing system, the XEmacs modelines can be dragged
+vertically. The effect is to resize the windows above and below the
+modeline (this includes the minibuffer window).
+
+   Additionally, a modeline can be dragged horizontally, in which case
+it scrolls its own text. This behavior is not enabled by default
+because it could be considered as disturbing when dragging vertically.
+When this behavior is enabled, the modeline's text can be dragged
+either in the same direction as the mouse, or in the opposite sense,
+making the modeline act as a scrollbar for its own text.
+
+   You can select the behavior you want from the `Display' submenu of
+the `Options' menu.
+
+
+File: xemacs.info,  Node: Toolbar Basics,  Next: Gutter Basics,  Prev: Mode Line Basics,  Up: GUI Components
 
 XEmacs Toolbars
 ===============

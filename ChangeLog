@@ -1,3 +1,25 @@
+2001-01-20  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.42 "Poseidon" is released.
+
+2001-01-18  Martin Buchholz  <martin@xemacs.org>
+
+	* PROBLEMS (Sun/Solaris): Yet another microimprovement.
+
+2001-01-17  Martin Buchholz  <martin@xemacs.org>
+
+	* PROBLEMS (Sun/Solaris): Replace --with-gnu-ld=no with
+	--with-ld=/usr/ccs/bin/ld
+
+2001-01-16  Robert Pluim  <rpluim@bigfoot.com>
+
+	* PROBLEMS (SunOS/Solaris): Document workaround for GNU ld bug on
+	Solaris. Half mine, half Raymond Toy, half Martin Buchholz.
+
+2001-01-16  Didier Verna  <didier@xemacs.org>
+
+	* NEWS: document the modeline horizontal scrolling feature.
+
 2001-01-17  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.41 "Polyhymnia" is released.
@@ -62,7 +84,7 @@
 
 	* XEmacs 21.2.38 is released.
 
-2000-11-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+2000-11-26  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* configure.in: Only show message about DnD API if compiling with DnD
 
@@ -109,7 +131,7 @@
 
 2000-10-10  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	Use stropts.h, not sys/stropts.h.
 	Use strtio.h, not sys/strtio.h.
 
@@ -224,21 +246,21 @@
 
 2000-07-12  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	Make sure Unix98 socklen_t is defined.
 	Use ANSI C mode `-std1' with DEC C instead of `-std'.
 
 2000-07-09  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	Replace SMART_INCLUDE with a dumber, but more reliable method.
 2000-07-10  Martin Buchholz  <martin@xemacs.org>
 
-	* modules/zlib/Makefile: 
-	* modules/sample/Makefile: 
-	* modules/ldap/Makefile: 
-	* modules/base64/Makefile: 
-	* Makefile.in.in: 
+	* modules/zlib/Makefile:
+	* modules/sample/Makefile:
+	* modules/ldap/Makefile:
+	* modules/base64/Makefile:
+	* Makefile.in.in:
 	rm -f ==> $(RM)
 	define SHELL=/bin/sh
 
@@ -261,12 +283,12 @@
 2000-07-08  Ben Wing  <ben@xemacs.org>
 
 	* configure.in: add -lcomdlg32 for cygwin.
-	
+
 2000-07-05  Craig Lanning  <lanning@scra.org>
 
 	* aclocal.m4 (can_build_shared):
 	First pass at module support for cygwin and mingw.
-	
+
 	* configure:
 	* configure (xe_check_libs):
 	* configure (acfindx):
@@ -371,11 +393,11 @@
 
 2000-04-19  Martin Buchholz  <martin@xemacs.org>
 
-	* configure.in: 
+	* configure.in:
 	* src/config.h.in:
 	Rewrite SMART_INCLUDE implementation to actually work.
 	Be paranoid - Avoid use of spaces in these macro definitions.
-	Leave alloca() definition at start of compilation unit, 
+	Leave alloca() definition at start of compilation unit,
 	as AIX requests.
 	Rename SMART_INCLUDE_MACRO to SMART_INCLUDE_INDIRECTIONS.
 
@@ -402,7 +424,7 @@
 
 	* xemacs/configure.in: Do a normal link when compiling with
 	--pdump. Don't try compiling an unexec object file.
- 
+
 2000-03-27  Didier Verna  <didier@xemacs.org>
 
 	* configure.in: reorganize the output by topic.
@@ -1403,7 +1425,7 @@
 
 	* config.guess: Synched with latest FSF version.
 
-1998-07-12  Björn Torkelsson  <torkel@hpc2n.umu.se>
+1998-07-12  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* Makefile.in: added LDFLAGS.
 

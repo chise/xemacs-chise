@@ -2326,6 +2326,24 @@ mswindows_redisplay_widget (Lisp_Image_Instance *p)
       SendMessage (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
 		   WM_SETTEXT, 0, (LPARAM)lparam);
     }
+  /* Set active state. */
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
+    {
+      Lisp_Object item = IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p);
+      LONG style = GetWindowLong 
+	(WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
+	 GWL_STYLE);
+
+      if (CONSP (item))
+	item = XCAR (item);
+
+      if (gui_item_active_p (item))
+	SetWindowLong (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
+		       GWL_STYLE, style & ~WS_DISABLED);
+      else
+	SetWindowLong (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p),
+		       GWL_STYLE, style | WS_DISABLED);
+    }
 }
 
 /* register widgets into our hashtable so that we can cope with the
@@ -2935,7 +2953,7 @@ mswindows_tab_control_redisplay (Lisp_Object image_instance)
       IMAGE_INSTANCE_WIDGET_ACTION_OCCURRED (ii))
     {
       HWND wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
-      int i = 0, selected = 0;
+      int i = 0, selected_idx = 0;
       Lisp_Object rest;
 
       assert (!NILP (IMAGE_INSTANCE_WIDGET_ITEMS (ii)));
@@ -2988,10 +3006,10 @@ mswindows_tab_control_redisplay (Lisp_Object image_instance)
 	      add_tab_item (image_instance, wnd, XCAR (rest),
 			    IMAGE_INSTANCE_FRAME (ii), i);
 	      if (gui_item_selected_p (XCAR (rest)))
-		selected = i;
+		selected_idx = i;
 	      i++;
 	    }
-	  SendMessage (wnd, TCM_SETCURSEL, selected, 0);
+	  SendMessage (wnd, TCM_SETCURSEL, selected_idx, 0);
 	}
     }
 }

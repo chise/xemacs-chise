@@ -56,6 +56,7 @@ Lisp_Object Qstring_lessp;
 Lisp_Object Qidentity;
 
 static int internal_old_equal (Lisp_Object, Lisp_Object, int);
+Lisp_Object safe_copy_tree (Lisp_Object arg, Lisp_Object vecp, int depth);
 
 static Lisp_Object
 mark_bit_vector (Lisp_Object obj)
@@ -863,6 +864,15 @@ are not copied.
 */
        (arg, vecp))
 {
+  return safe_copy_tree (arg, vecp, 0);
+}
+
+Lisp_Object
+safe_copy_tree (Lisp_Object arg, Lisp_Object vecp, int depth)
+{
+  if (depth > 200)
+    signal_simple_error ("Stack overflow in copy-tree", arg);
+    
   if (CONSP (arg))
     {
       Lisp_Object rest;
@@ -872,9 +882,9 @@ are not copied.
 	  Lisp_Object elt = XCAR (rest);
 	  QUIT;
 	  if (CONSP (elt) || VECTORP (elt))
-	    XCAR (rest) = Fcopy_tree (elt, vecp);
+	    XCAR (rest) = safe_copy_tree (elt, vecp, depth + 1);
 	  if (VECTORP (XCDR (rest))) /* hack for (a b . [c d]) */
-	    XCDR (rest) = Fcopy_tree (XCDR (rest), vecp);
+	    XCDR (rest) = safe_copy_tree (XCDR (rest), vecp, depth +1);
 	  rest = XCDR (rest);
 	}
     }
@@ -888,7 +898,7 @@ are not copied.
 	  Lisp_Object elt = XVECTOR_DATA (arg) [j];
 	  QUIT;
 	  if (CONSP (elt) || VECTORP (elt))
-	    XVECTOR_DATA (arg) [j] = Fcopy_tree (elt, vecp);
+	    XVECTOR_DATA (arg) [j] = safe_copy_tree (elt, vecp, depth + 1);
 	}
     }
   return arg;

@@ -37,6 +37,7 @@ Lisp_Object Qmenu_no_selection_hook;
 Lisp_Object Vmenu_no_selection_hook;
 
 static Lisp_Object parse_gui_item_tree_list (Lisp_Object list);
+Lisp_Object find_keyword_in_vector (Lisp_Object vector, Lisp_Object keyword);
 
 #ifdef HAVE_POPUPS
 
@@ -111,39 +112,63 @@ get_gui_callback (Lisp_Object data, Lisp_Object *fn, Lisp_Object *arg)
  * structure. If KEY is not a keyword, or is an unknown keyword, then
  * error is signaled.
  */
-void
+int
 gui_item_add_keyval_pair (Lisp_Object gui_item,
 			  Lisp_Object key, Lisp_Object val,
 			  Error_behavior errb)
 {
   Lisp_Gui_Item *pgui_item = XGUI_ITEM (gui_item);
+  int retval = 0;
 
   if (!KEYWORDP (key))
     syntax_error_2 ("Non-keyword in gui item", key, pgui_item->name);
 
-  if	  (EQ (key, Q_suffix))	 pgui_item->suffix   = val;
-  else if (EQ (key, Q_active))	 pgui_item->active   = val;
-  else if (EQ (key, Q_included)) pgui_item->included = val;
-  else if (EQ (key, Q_config))	 pgui_item->config   = val;
-  else if (EQ (key, Q_filter))	 pgui_item->filter   = val;
-  else if (EQ (key, Q_style))	 pgui_item->style    = val;
-  else if (EQ (key, Q_selected)) pgui_item->selected = val;
-  else if (EQ (key, Q_keys))	 pgui_item->keys     = val;
-  else if (EQ (key, Q_callback)) pgui_item->callback = val;
-  else if (EQ (key, Q_callback_ex)) pgui_item->callback_ex = val;
-  else if (EQ (key, Q_value))	 pgui_item->value     = val;
+  if (EQ (key, Q_descriptor))
+    {
+      if (!EQ (pgui_item->name, val))
+	{
+	  retval = 1;
+	  pgui_item->name   = val;
+	}
+    }
+#define FROB(slot) \
+  else if (EQ (key, Q_##slot))			\
+  {						\
+    if (!EQ (pgui_item->slot, val))			\
+      {						\
+	retval = 1;				\
+	pgui_item->slot   = val;			\
+      }						\
+  }
+  FROB (suffix)
+  FROB (active)
+  FROB (included)
+  FROB (config)
+  FROB (filter)
+  FROB (style)
+  FROB (selected)
+  FROB (keys)
+  FROB (callback)
+  FROB (callback_ex)
+  FROB (value)
+#undef FROB
   else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatibility */
   else if (EQ (key, Q_label)) ;   /* ignored for 21.0 implement in 21.2  */
   else if (EQ (key, Q_accelerator))
     {
-      if (SYMBOLP (val) || CHARP (val))
-	pgui_item->accelerator = val;
-      else if (ERRB_EQ (errb, ERROR_ME))
-	syntax_error ("Bad keyboard accelerator", val);
+      if (!EQ (pgui_item->accelerator, val))
+	{
+	  retval = 1;
+	  if (SYMBOLP (val) || CHARP (val))
+	    pgui_item->accelerator = val;
+	  else if (ERRB_EQ (errb, ERROR_ME))
+	    syntax_error ("Bad keyboard accelerator", val);
+	}
     }
   else if (ERRB_EQ (errb, ERROR_ME))
     syntax_error_2 ("Unknown keyword in gui item", key,
 			   pgui_item->name);
+  return retval;
 }
 
 void
@@ -246,6 +271,69 @@ make_gui_item_from_keywords_internal (Lisp_Object item,
 	}
     }
   return gui_item;
+}
+
+/* This will only work with descriptors in the new format. */
+Lisp_Object
+widget_gui_parse_item_keywords (Lisp_Object item)
+{
+  int i, length;
+  Lisp_Object *contents;
+  Lisp_Object gui_item = allocate_gui_item ();
+  Lisp_Object desc = find_keyword_in_vector (item, Q_descriptor);
+
+  CHECK_VECTOR (item);
+  length = XVECTOR_LENGTH (item);
+  contents = XVECTOR_DATA (item);
+
+  if (!NILP (desc) && !STRINGP (desc) && !VECTORP (desc))
+    syntax_error ("Invalid GUI item descriptor", item);
+
+  if (length & 1)
+    {
+      if (!SYMBOLP (contents [0]))
+	syntax_error ("Invalid GUI item descriptor", item);
+      contents++;			/* Ignore the leading symbol. */
+      length--;
+    }
+
+  for (i = 0; i < length;)
+    {
+      Lisp_Object key = contents [i++];
+      Lisp_Object val = contents [i++];
+      gui_item_add_keyval_pair (gui_item, key, val, ERROR_ME_NOT);
+    }
+
+  return gui_item;
+}
+
+/* Update a gui item from a partial descriptor. */
+int
+update_gui_item_keywords (Lisp_Object gui_item, Lisp_Object item)
+{
+  int i, length, retval = 0;
+  Lisp_Object *contents;
+
+  CHECK_VECTOR (item);
+  length = XVECTOR_LENGTH (item);
+  contents = XVECTOR_DATA (item);
+
+ if (length & 1)
+    {
+      if (!SYMBOLP (contents [0]))
+	syntax_error ("Invalid GUI item descriptor", item);
+      contents++;			/* Ignore the leading symbol. */
+      length--;
+    }
+
+  for (i = 0; i < length;)
+    {
+      Lisp_Object key = contents [i++];
+      Lisp_Object val = contents [i++];
+      if (gui_item_add_keyval_pair (gui_item, key, val, ERROR_ME_NOT))
+	retval = 1;
+    }
+  return retval;
 }
 
 Lisp_Object
@@ -618,7 +706,7 @@ print_gui_item (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
-static Lisp_Object
+Lisp_Object
 copy_gui_item (Lisp_Object gui_item)
 {
   Lisp_Object  ret = allocate_gui_item ();

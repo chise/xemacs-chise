@@ -21,16 +21,16 @@ you can split the frame into two or more subwindows.  If you are
 running XEmacs under the X window system, that means you can have several
 @dfn{XEmacs windows} inside the X window that contains the XEmacs frame.
 You can even have multiple frames in different X windows, each with
-their own set of subwindows. 
+their own set of subwindows.
 @refill
 @end table
 
-Each XEmacs frame displays a variety of information: 
+Each XEmacs frame displays a variety of information:
 @itemize @bullet
 @item
 The biggest area usually displays the text you are editing.  It may
 consist of one window or of two or more windows if you need to look at two
-buffers a the same time. 
+buffers a the same time.
 @item
 Below each text window's last line is a @dfn{mode line} (@pxref{Mode
 Line}), which describes what is going on in that window.  The mode line
@@ -78,12 +78,12 @@ visible in all XEmacs windows containing that buffer.
 
 
 @menu
-* Point::	        The place in the text where editing commands operate.  
-* Echo Area::           Short messages appear at the bottom of the frame.  
+* Point::	        The place in the text where editing commands operate.
+* Echo Area::           Short messages appear at the bottom of the frame.
 * Mode Line::	        Interpreting the mode line.
 * GUI Components::      Menubar, toolbars, gutters.
-* XEmacs under X::      Some information on using XEmacs under the X 
-                        Window System. 
+* XEmacs under X::      Some information on using XEmacs under the X
+                        Window System.
 * XEmacs under MS Windows:: Some information on using XEmacs under
                         Microsoft Windows.
 @end menu
@@ -203,7 +203,7 @@ looking.
 
   @var{ch} contains two stars (@samp{**}) if the text in the buffer has been
 edited (the buffer is ``modified''), or two dashes (@samp{--}) if the
-buffer has not been edited.  Exception: for a read-only buffer, it is 
+buffer has not been edited.  Exception: for a read-only buffer, it is
 @samp{%%}.
 
   @var{buf} is the name of the window's chosen @dfn{buffer}.  The chosen
@@ -214,7 +214,7 @@ currently selected buffer.  @xref{Buffers}.
 
   @var{pos} tells you whether there is additional text above the top of
 the screen or below the bottom.  If your file is small and it is
-completely visible on the screen, @var{pos} is @samp{All}.  Otherwise, 
+completely visible on the screen, @var{pos} is @samp{All}.  Otherwise,
 @var{pos} is @samp{Top} if you are looking at the beginning of the file,
 @samp{Bot} if you are looking at the end of the file, or
 @samp{@var{nn}%}, where @var{nn} is the percentage of the file above the
@@ -274,7 +274,7 @@ controls whether the mode line is displayed in inverse video (assuming
 the terminal supports it); @code{nil} means no inverse video.  The
 default is @code{t}.  For X frames, simply set the foreground and
 background colors appropriately.
-  
+
 @node GUI Components, XEmacs under X, Mode Line, Frame
 @comment  node-name,  next,  previous,  up
 @section GUI Components
@@ -294,6 +294,7 @@ function, and on a tab in the gutter to switch buffers.
 @menu
 * Menubar Basics::      How XEmacs uses the menubar.
 * Scrollbar Basics::    How XEmacs uses scrollbars.
+* Mode Line Basics::    How XEmacs uses modelines.
 * Toolbar Basics::      How XEmacs uses toolbars.
 * Gutter Basics::       How XEmacs uses gutters.
 * Inhibiting::          What if you don't like GUI?
@@ -336,7 +337,7 @@ Other menus which are typically available are the @samp{Options},
 detailed descriptions of these menus, @ref{Pull-down Menus}.  (In 21.2
 XEmacsen, the @samp{Mule} menu will be moved under @samp{Options}.)
 
-@node Scrollbar Basics, Toolbar Basics, Menubar Basics, GUI Components
+@node Scrollbar Basics, Mode Line Basics, Menubar Basics, GUI Components
 @comment  node-name,  next,  previous,  up
 @section XEmacs Scrollbars
 
@@ -355,7 +356,25 @@ may be customized by the user.  By default a vertical scrollbar is
 present in all windows (except the minibuffer), and there is no
 horizontal scrollbar.
 
-@node Toolbar Basics, Gutter Basics, Scrollbar Basics, GUI Components
+@node Mode Line Basics, Toolbar Basics, Scrollbar Basics, GUI Components
+@comment  node-name,  next,  previous,  up
+@section XEmacs Mode Lines
+
+When used in a windowing system, the XEmacs modelines can be dragged
+vertically. The effect is to resize the windows above and below the
+modeline (this includes the minibuffer window).
+
+Additionally, a modeline can be dragged horizontally, in which case it
+scrolls its own text. This behavior is not enabled by default because it
+could be considered as disturbing when dragging vertically. When this
+behavior is enabled, the modeline's text can be dragged either in the
+same direction as the mouse, or in the opposite sense, making the
+modeline act as a scrollbar for its own text.
+
+You can select the behavior you want from the @samp{Display} submenu of
+the @samp{Options} menu.
+
+@node Toolbar Basics, Gutter Basics, Mode Line Basics, GUI Components
 @comment  node-name,  next,  previous,  up
 @section XEmacs Toolbars
 
@@ -491,7 +510,7 @@ in first.  This is normally bound to @kbd{C-x 5 b}.
 You can specify a different default frame size other than the one provided.
 Use the variable @code{default-frame-alist}, which is an alist of default
 values for frame creation other than the first one.  These may be set in
-your init file, like this:  
+your init file, like this:
 
 @example
   (setq default-frame-alist '((width . 80) (height . 55)))
@@ -509,7 +528,7 @@ When you create a new frame, the variable @code{create-frame-hook}
 is called with one argument, the frame just created.
 
 If you want to close one or more of the X windows you created using
-@b{New Frame}, use the @b{Delete Frame} menu item from the @b{File} menu.  
+@b{New Frame}, use the @b{Delete Frame} menu item from the @b{File} menu.
 
 @vindex frame-title-format
 @vindex frame-icon-title-format
@@ -549,4 +568,3 @@ with MS Windows.
 
 Where possible, native MS Windows GUI components and capabilities are
 used in XEmacs.
-

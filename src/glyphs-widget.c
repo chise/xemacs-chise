@@ -294,16 +294,89 @@ widget_update (Lisp_Object image_instance, Lisp_Object instantiator)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   struct image_instantiator_methods* meths;
+  struct gcpro gcpro1;
 
   Lisp_Object text = find_keyword_in_vector (instantiator, Q_text);
+  Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
+  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
+  Lisp_Object descriptor_item = Qnil;
+
+  GCPRO1 (descriptor_item);
+
   /* Pick up any generic properties that we might need to keep hold
-     of. */
+     of. 
+     #### This is potentially bogus because it is changing the items
+     in place rather than in the pending items. */
   if (!NILP (text))
     {
       IMAGE_INSTANCE_WIDGET_TEXT (ii) = text;
       IMAGE_INSTANCE_TEXT_CHANGED (ii) = 1;
     }
 
+  /* Retrieve the gui item information. This is easy if we have been
+     provided with a vector, more difficult if we have just been given
+     keywords.
+
+     #### This is inconsistent with instantiation in that you have to
+     have the :descriptor keyword for updates in order to recognise 
+     changes. */
+  if (VECTORP (desc))
+    {
+      descriptor_item = gui_parse_item_keywords_no_errors (desc);
+    }
+  else
+    {
+      /* Since we are updating the instantiator could be incomplete
+	 and hence the gui item descriptor not well formed. We
+	 therefore try updating and discard the results if nothing
+	 changed. */
+      descriptor_item = copy_gui_item (IMAGE_INSTANCE_WIDGET_ITEM (ii));
+      if (!update_gui_item_keywords (descriptor_item, instantiator))
+	descriptor_item = Qnil;
+    }
+
+  /* Record new items for update. *_redisplay will do the
+     rest. */
+  if (!EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qlayout)
+      && 
+      !EQ (IMAGE_INSTANCE_WIDGET_TYPE (ii), Qnative_layout))
+    {
+      if (!NILP (items))
+	{
+	  if (NILP (descriptor_item))
+	    descriptor_item = IMAGE_INSTANCE_WIDGET_ITEM (ii);
+	  
+	  check_valid_item_list (items);
+#ifdef DEBUG_WIDGET_OUTPUT
+	  stderr_out ("items for widget %p updated\n", 
+		      IMAGE_INSTANCE_SUBWINDOW_ID (ii));
+#endif
+	  /* Don't set the actual items since we might decide not to use
+	     the new ones (because nothing has really changed). If we did
+	     set them and didn't use them then we would get into whole
+	     heaps of trouble when the old items get GC'd. */
+	  descriptor_item = Fcons (descriptor_item, parse_gui_item_tree_children (items));
+	}
+      /* If the descriptor was updated but not the items we need to fill
+	 in the `new' items. */
+      else if (!NILP (descriptor_item) 
+	       && 
+	       CONSP (IMAGE_INSTANCE_WIDGET_ITEMS (ii)))
+	{
+	  descriptor_item = Fcons 
+	    (descriptor_item,
+	     copy_gui_item_tree (XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii))));
+	}
+    }
+
+  if (!NILP (descriptor_item))
+    {
+      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) = descriptor_item;
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
+    }
+
+  UNGCPRO;
+      
   /* Now try device specific methods first ... */
   meths = decode_device_ii_format (image_instance_device (image_instance),
 				   IMAGE_INSTANCE_WIDGET_TYPE (ii),
@@ -570,19 +643,24 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   if (!NILP (face))
     SET_IMAGE_INSTANCE_WIDGET_FACE (ii, Fget_face (face));
 
-  /* retrieve the gui item information. This is easy if we have been
+  /* Retrieve the gui item information. This is easy if we have been
      provided with a vector, more difficult if we have just been given
-     keywords */
-  if (STRINGP (desc) || NILP (desc))
+     keywords. Note that standard gui descriptor shortcuts will not work
+     because of keyword parsing.
+
+     #### This is bogus in that descriptor and items share the same slot, 
+     we should rationalize. */
+  if (VECTORP (desc))
+    {
+      IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
+	gui_parse_item_keywords_no_errors (desc);
+    }
+  else
     {
       /* big cheat - we rely on the fact that a gui item looks like an instantiator */
       IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-	gui_parse_item_keywords_no_errors (instantiator);
-      IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
+	widget_gui_parse_item_keywords (instantiator);
     }
-  else
-    IMAGE_INSTANCE_WIDGET_ITEMS (ii) =
-      gui_parse_item_keywords_no_errors (desc);
 
   /* Pick up the orientation before we do our first layout. */
   if (EQ (orient, Qleft) || EQ (orient, Qright) || EQ (orient, Qvertical))
@@ -776,32 +854,6 @@ tab_control_query_geometry (Lisp_Object image_instance,
     }
 }
 
-/* Update the contents of a tab control. */
-static void
-tab_control_update (Lisp_Object image_instance,
-		    Lisp_Object instantiator)
-{
-  Lisp_Object items = find_keyword_in_vector (instantiator, Q_items);
-  /* Record new items for update. *_tab_control_redisplay will do the
-     rest. */
-  if (!NILP (items))
-    {
-      Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
-      check_valid_item_list (items);
-#ifdef DEBUG_WIDGET_OUTPUT
-      stderr_out ("tab control %p updated\n", IMAGE_INSTANCE_SUBWINDOW_ID (ii));
-#endif
-      /* Don't set the actual items since we might decide not to use
-         the new ones (because nothing has really changed). If we did
-         set them and didn't use them then we would get into whole
-         heaps of trouble when the old items get GC'd. */
-      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
-	Fcons (XCAR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)),
-	       parse_gui_item_tree_children (items));
-      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
-    }
-}
-
 /* Determine whether only the order has changed for a tab. */
 int tab_control_order_only_changed (Lisp_Object image_instance)
 {
@@ -838,32 +890,6 @@ int tab_control_order_only_changed (Lisp_Object image_instance)
 	}
     }
   return found;
-}
-
-/* Set the properties of a progress gauge */
-static void
-progress_gauge_update (Lisp_Object image_instance,
-		       Lisp_Object instantiator)
-{
-  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  Lisp_Object value = find_keyword_in_vector (instantiator, Q_value);
-
-  if (!NILP (value))
-    {
-      CHECK_INT (value);
-#ifdef DEBUG_WIDGET_OUTPUT
-      stderr_out ("progress gauge value set to %ld\n", XINT (value));
-#endif
-      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii) =
-	copy_gui_item_tree (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
-#ifdef ERROR_CHECK_GLYPHS
-      assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
-#endif
-      if (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)))
-	XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value = value;
-
-      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii) = 1;
-    }
 }
 
 
@@ -1480,7 +1506,6 @@ static void image_instantiator_progress_guage (void)
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (progress_gauge, governing_domain, subwindow);
-  IIFORMAT_HAS_METHOD (progress_gauge, update);
   VALID_WIDGET_KEYWORDS (progress_gauge);
   VALID_GUI_KEYWORDS (progress_gauge);
 
@@ -1495,7 +1520,6 @@ static void image_instantiator_tree_view (void)
   IIFORMAT_HAS_SHARED_METHOD (tree_view, instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tree_view, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tree_view, governing_domain, subwindow);
-  IIFORMAT_HAS_SHARED_METHOD (tree_view, update, tab_control);
   IIFORMAT_HAS_METHOD (tree_view, query_geometry);
   VALID_WIDGET_KEYWORDS (tree_view);
   VALID_GUI_KEYWORDS (tree_view);
@@ -1511,7 +1535,6 @@ static void image_instantiator_tab_control (void)
   IIFORMAT_HAS_SHARED_METHOD (tab_control, post_instantiate, widget);
   IIFORMAT_HAS_SHARED_METHOD (tab_control, governing_domain, subwindow);
   IIFORMAT_HAS_METHOD (tab_control, query_geometry);
-  IIFORMAT_HAS_METHOD (tab_control, update);
   VALID_WIDGET_KEYWORDS (tab_control);
   VALID_GUI_KEYWORDS (tab_control);
   IIFORMAT_VALID_KEYWORD (tab_control, Q_orientation,

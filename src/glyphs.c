@@ -1004,7 +1004,7 @@ print_image_instance (Lisp_Object obj, Lisp_Object printcharfun,
 	  print_internal
 	    (IMAGE_INSTANCE_WIDGET_FACE (ii), printcharfun, 0);
 	}
-
+      /* fallthrough */
 
     case IMAGE_SUBWINDOW:
       sprintf (buf, " %dx%d", IMAGE_INSTANCE_WIDTH (ii),

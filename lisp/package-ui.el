@@ -424,6 +424,8 @@ and whether or not it is up-to-date."
       (if pui-deleted-packages
 	  (pui-list-packages)
 	(error "No packages have been selected!")))
+    ;; sync with windows type systems
+    (package-net-update-installed-db)
     ))
 
 (defun pui-add-required-packages ()

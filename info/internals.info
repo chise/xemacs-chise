@@ -47,6 +47,7 @@ internals.info-5: 194152
 internals.info-6: 243742
 internals.info-7: 287809
 internals.info-8: 336676
+internals.info-9: 380670
 
 Tag Table:
 (Indirect)
@@ -180,17 +181,17 @@ Node: Mathematics of Extent Ordering357821
 Node: Extent Fragments362578
 Node: Faces363664
 Node: Glyphs363780
-Node: Specifiers365967
-Node: Menus366096
-Node: Subprocesses368354
-Node: Interface to the X Window System370340
-Node: Lucid Widget Library370621
-Node: Generic Widget Interface371912
-Node: Scrollbars375471
-Node: Menubars375614
-Node: Checkboxes and Radio Buttons375757
-Node: Progress Bars375943
-Node: Tab Controls376103
-Node: Index376224
+Node: Specifiers370413
+Node: Menus370542
+Node: Subprocesses372800
+Node: Interface to the X Window System374786
+Node: Lucid Widget Library375067
+Node: Generic Widget Interface376358
+Node: Scrollbars379917
+Node: Menubars380060
+Node: Checkboxes and Radio Buttons380203
+Node: Progress Bars380389
+Node: Tab Controls380549
+Node: Index380670
 
 End Tag Table

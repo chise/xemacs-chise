@@ -480,14 +480,22 @@ Suitable for use with `map-extents'."
       (let* ((glyph-widget (extent-property extent 'glyph-widget))
 	     (up-glyph (widget-get glyph-widget :glyph-up))
 	     (inactive-glyph (widget-get glyph-widget :glyph-inactive))
+	     (instantiator (widget-get glyph-widget :glyph-instantiator))
 	     (new-glyph (if activate-p up-glyph inactive-glyph)))
+	(cond
+	 ;; Assume that an instantiator means a native widget.
+	 (instantiator
+	  (setq instantiator
+		(set-instantiator-property instantiator :active activate-p))
+	  (widget-put glyph-widget :glyph-instantiator instantiator)
+	  (set-glyph-image up-glyph instantiator))
 	 ;; Check that the new glyph exists, and differs from the
 	 ;; default one.
-	(and up-glyph inactive-glyph (not (eq up-glyph inactive-glyph))
-	     ;; Check if the glyph is already installed.
-	     (not (eq (extent-end-glyph extent) new-glyph))
-	     ;; Change it.
-	     (set-extent-end-glyph extent new-glyph)))))
+	 ((and up-glyph inactive-glyph (not (eq up-glyph inactive-glyph))
+	       ;; Check if the glyph is already installed.
+	       (not (eq (extent-end-glyph extent) new-glyph)))
+	  ;; Change it.
+	  (set-extent-end-glyph extent new-glyph))))))
   nil)
 
 (defun widget-specify-inactive (widget from to)
@@ -785,10 +793,12 @@ only because of compatibility."
       (insert tag))
     glyph))
 
-(defun widget-glyph-insert-glyph (widget glyph &optional down inactive)
+(defun widget-glyph-insert-glyph (widget glyph &optional down inactive
+					 instantiator)
   "In WIDGET, insert GLYPH.
 If optional arguments DOWN and INACTIVE are given, they should be
-glyphs used when the widget is pushed and inactive, respectively."
+glyphs used when the widget is pushed and inactive, respectively.
+INSTANTIATOR is the vector used to create the glyph."
   (insert "*")
   (let ((extent (make-extent (point) (1- (point))))
 	(help-echo (and widget (widget-get widget :help-echo)))
@@ -810,6 +820,7 @@ glyphs used when the widget is pushed and inactive, respectively."
   (when widget
     (widget-put widget :glyph-up glyph)
     (when down (widget-put widget :glyph-down down))
+    (when instantiator (widget-put widget :glyph-instantiator instantiator))
     (when inactive (widget-put widget :glyph-inactive inactive))))
 
 
@@ -1924,7 +1935,7 @@ If END is omitted, it defaults to the length of LIST."
 	 (tag-glyph (widget-get widget :tag-glyph))
 	 (text (concat widget-push-button-prefix
 		       tag widget-push-button-suffix))
-	 gui)
+	 gui inst)
     (cond (tag-glyph
 	   (widget-glyph-insert widget text tag-glyph))
 	  ;; We must check for console-on-window-system-p here,
@@ -1933,9 +1944,9 @@ If END is omitted, it defaults to the length of LIST."
 	  ((and widget-push-button-gui
 		(console-on-window-system-p))
 	   (let* ((gui-button-shadow-thickness 1))
-	     (setq gui (make-glyph 
-			(make-gui-button tag 'widget-gui-action widget))))
-	   (widget-glyph-insert-glyph widget gui))
+	     (setq inst (make-gui-button tag 'widget-gui-action widget))
+	     (setq gui (make-glyph inst)))
+	   (widget-glyph-insert-glyph widget gui nil nil inst))
 	  (t
 	   (insert text)))))
 

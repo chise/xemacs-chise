@@ -544,35 +544,27 @@ dbg_eq (Lisp_Object obj1, Lisp_Object obj2)
    currently executing functions; the gcpro list; etc.) and
    recursively marking all objects that are accessible.
 
-   At the beginning of the sweep stage, the conses in the cons
-   blocks are in one of three states: in use and marked, in use
-   but not marked, and not in use (already freed).  Any conses
-   that are marked have been marked in the mark stage just
-   executed, because as part of the sweep stage we unmark any
-   marked objects.  The way we tell whether or not a cons cell
-   is in use is through the FREE_STRUCT_P macro.  This basically
-   looks at the first 4 bytes (or however many bytes a pointer
-   fits in) to see if all the bits in those bytes are 1.  The
-   resulting value (0xFFFFFFFF) is not a valid pointer and is
-   not a valid Lisp_Object.  All current fixed-size types have
-   a pointer or Lisp_Object as their first element with the
-   exception of strings; they have a size value, which can
-   never be less than zero, and so 0xFFFFFFFF is invalid for
-   strings as well.  Now assuming that a cons cell is in use,
-   the way we tell whether or not it is marked is to look at
-   the mark bit of its car (each Lisp_Object has one bit
-   reserved as a mark bit, in case it's needed).  Note that
-   different types of objects use different fields to indicate
-   whether the object is marked, but the principle is the same.
+   At the beginning of the sweep stage, the conses in the cons blocks
+   are in one of three states: in use and marked, in use but not
+   marked, and not in use (already freed).  Any conses that are marked
+   have been marked in the mark stage just executed, because as part
+   of the sweep stage we unmark any marked objects.  The way we tell
+   whether or not a cons cell is in use is through the LRECORD_FREE_P
+   macro.  This uses a special lrecord type `lrecord_type_free',
+   which is never associated with any valid object.
 
-   Conses on the free_cons_list are threaded through a pointer
-   stored in the bytes directly after the bytes that are set
-   to 0xFFFFFFFF (we cannot overwrite these because the cons
-   is still in a cons_block and needs to remain marked as
-   not in use for the next time that GC happens).  This
-   implies that all fixed-size types must be at least big
-   enough to store two pointers, which is indeed the case
-   for all current fixed-size types.
+   Conses on the free_cons_list are threaded through a pointer stored
+   in the conses themselves.  Because the cons is still in a
+   cons_block and needs to remain marked as not in use for the next
+   time that GC happens, we need room to store both the "free"
+   indicator and the chaining pointer.  So this pointer is stored
+   after the lrecord header (actually where C places a pointer after
+   the lrecord header; they are not necessarily contiguous).  This
+   implies that all fixed-size types must be big enough to contain at
+   least one pointer.  This is true for all current fixed-size types,
+   with the possible exception of Lisp_Floats, for which we define the
+   meat of the struct using a union of a pointer and a double to
+   ensure adequate space for the free list chain pointer.
 
    Some types of objects need additional "finalization" done
    when an object is converted from in use to not in use;
@@ -586,19 +578,18 @@ dbg_eq (Lisp_Object obj1, Lisp_Object obj2)
    WARNING: Things are in an extremely bizarre state when
    the ADDITIONAL_FREE_type macros are called, so beware!
 
-   When ERROR_CHECK_GC is defined, we do things differently
-   so as to maximize our chances of catching places where
-   there is insufficient GCPROing.  The thing we want to
-   avoid is having an object that we're using but didn't
-   GCPRO get freed by GC and then reallocated while we're
-   in the process of using it -- this will result in something
-   seemingly unrelated getting trashed, and is extremely
-   difficult to track down.  If the object gets freed but
-   not reallocated, we can usually catch this because we
-   set all bytes of a freed object to 0xDEADBEEF. (The
-   first four bytes, however, are 0xFFFFFFFF, and the next
-   four are a pointer used to chain freed objects together;
-   we play some tricks with this pointer to make it more
+   When ERROR_CHECK_GC is defined, we do things differently so as to
+   maximize our chances of catching places where there is insufficient
+   GCPROing.  The thing we want to avoid is having an object that
+   we're using but didn't GCPRO get freed by GC and then reallocated
+   while we're in the process of using it -- this will result in
+   something seemingly unrelated getting trashed, and is extremely
+   difficult to track down.  If the object gets freed but not
+   reallocated, we can usually catch this because we set most of the
+   bytes of a freed object to 0xDEADBEEF. (The lisp object type is set
+   to the invalid type `lrecord_type_free', however, and a pointer
+   used to chain freed objects together is stored after the lrecord
+   header; we play some tricks with this pointer to make it more
    bogus, so crashes are more likely to occur right away.)
 
    We want freed objects to stay free as long as possible,
@@ -663,8 +654,8 @@ struct type##_block					\
 static struct type##_block *current_##type##_block;	\
 static int current_##type##_block_index;		\
 							\
-static structtype *type##_free_list;			\
-static structtype *type##_free_list_tail;		\
+static Lisp_Free *type##_free_list;			\
+static Lisp_Free *type##_free_list_tail;		\
 							\
 static void						\
 init_##type##_alloc (void)				\
@@ -704,42 +695,37 @@ static int gc_count_num_##type##_freelist
    cell was not GC-protected and was getting collected before
    free_cons() was called. */
 
-#define ALLOCATE_FIXED_TYPE_1(type, structtype, result)			 \
-do									 \
-{									 \
-  if (gc_count_num_##type##_freelist >					 \
-      MINIMUM_ALLOWED_FIXED_TYPE_CELLS_##type) 				 \
-    {									 \
-      result = type##_free_list;					 \
-      /* Before actually using the chain pointer, we complement all its	 \
-         bits; see FREE_FIXED_TYPE(). */				 \
-      type##_free_list =						 \
-        (structtype *) ~(unsigned long)					 \
-          (* (structtype **) ((char *) result + sizeof (void *)));	 \
-      gc_count_num_##type##_freelist--;					 \
-    }									 \
-  else									 \
-    ALLOCATE_FIXED_TYPE_FROM_BLOCK (type, result);			 \
-  MARK_STRUCT_AS_NOT_FREE (result);					 \
+#define ALLOCATE_FIXED_TYPE_1(type, structtype, result) do {	\
+  if (gc_count_num_##type##_freelist >				\
+      MINIMUM_ALLOWED_FIXED_TYPE_CELLS_##type)			\
+    {								\
+      result = (structtype *) type##_free_list;			\
+      /* Before actually using the chain pointer,		\
+	 we complement all its bits; see FREE_FIXED_TYPE(). */	\
+      type##_free_list = (Lisp_Free *)				\
+	(~ (EMACS_UINT) (type##_free_list->chain));		\
+      gc_count_num_##type##_freelist--;				\
+    }								\
+  else								\
+    ALLOCATE_FIXED_TYPE_FROM_BLOCK (type, result);		\
+  MARK_LRECORD_AS_NOT_FREE (result);				\
 } while (0)
 
 #else /* !ERROR_CHECK_GC */
 
-#define ALLOCATE_FIXED_TYPE_1(type, structtype, result)		\
-do								\
-{								\
+#define ALLOCATE_FIXED_TYPE_1(type, structtype, result) do {	\
   if (type##_free_list)						\
     {								\
-      result = type##_free_list;				\
-      type##_free_list =					\
-        * (structtype **) ((char *) result + sizeof (void *));	\
+      result = (structtype *) type##_free_list;			\
+      type##_free_list = type##_free_list->chain;		\
     }								\
   else								\
     ALLOCATE_FIXED_TYPE_FROM_BLOCK (type, result);		\
-  MARK_STRUCT_AS_NOT_FREE (result);				\
+  MARK_LRECORD_AS_NOT_FREE (result);				\
 } while (0)
 
 #endif /* !ERROR_CHECK_GC */
+
 
 #define ALLOCATE_FIXED_TYPE(type, structtype, result)	\
 do							\
@@ -755,70 +741,54 @@ do								\
   NOSEEUM_INCREMENT_CONS_COUNTER (sizeof (structtype), #type);	\
 } while (0)
 
-/* INVALID_POINTER_VALUE should be a value that is invalid as a pointer
-   to a Lisp object and invalid as an actual Lisp_Object value.  We have
-   to make sure that this value cannot be an integer in Lisp_Object form.
-   0xFFFFFFFF could be so on a 64-bit system, so we extend it to 64 bits.
-   On a 32-bit system, the type bits will be non-zero, making the value
-   be a pointer, and the pointer will be misaligned.
 
-   Even if Emacs is run on some weirdo system that allows and allocates
-   byte-aligned pointers, this pointer is at the very top of the address
-   space and so it's almost inconceivable that it could ever be valid. */
+/* Lisp_Free is the type to represent a free list member inside a frob
+   block of any lisp object type.  */
+typedef struct Lisp_Free
+{
+  struct lrecord_header lheader;
+  struct Lisp_Free *chain;
+} Lisp_Free;
 
-#if INTBITS == 32
-# define INVALID_POINTER_VALUE 0xFFFFFFFF
-#elif INTBITS == 48
-# define INVALID_POINTER_VALUE 0xFFFFFFFFFFFF
-#elif INTBITS == 64
-# define INVALID_POINTER_VALUE 0xFFFFFFFFFFFFFFFF
+#define LRECORD_FREE_P(ptr) \
+((ptr)->lheader.type == lrecord_type_free)
+
+#define MARK_LRECORD_AS_FREE(ptr) \
+((void) ((ptr)->lheader.type = lrecord_type_free))
+
+#ifdef ERROR_CHECK_GC
+#define MARK_LRECORD_AS_NOT_FREE(ptr) \
+((void) ((ptr)->lheader.type = lrecord_type_undefined))
 #else
-You have some weird system and need to supply a reasonable value here.
+#define MARK_LRECORD_AS_NOT_FREE(ptr) DO_NOTHING
 #endif
-
-/* The construct (* (void **) (ptr)) would cause aliasing problems
-   with modern optimizing compilers like `gcc -O3 -fstrict-aliasing'.
-   But `char *' can legally alias any pointer.  Hence this union trick...
-
-   It turned out that the union trick was not good enough for xlC -O3;
-   and it is questionable whether it really complies with the C standard.
-   so we use memset instead, which should be safe from optimizations. */
-typedef union { char c; void *p; } *aliasing_voidpp;
-#define ALIASING_VOIDPP_DEREFERENCE(ptr) \
-  (((aliasing_voidpp) (ptr))->p)
-#define FREE_STRUCT_P(ptr) \
-  (ALIASING_VOIDPP_DEREFERENCE (ptr) == (void *) INVALID_POINTER_VALUE)
-#define MARK_STRUCT_AS_FREE(ptr) memset (ptr, 0xff, sizeof (void *))
-#define MARK_STRUCT_AS_NOT_FREE(ptr) memset (ptr, 0x00, sizeof (void *))
 
 #ifdef ERROR_CHECK_GC
 
-#define PUT_FIXED_TYPE_ON_FREE_LIST(type, structtype, ptr)		\
-do { if (type##_free_list_tail)						\
-       {								\
-	 /* When we store the chain pointer, we complement all		\
-	    its bits; this should significantly increase its		\
-	    bogosity in case someone tries to use the value, and	\
-	    should make us dump faster if someone stores something	\
-	    over the pointer because when it gets un-complemented in	\
-	    ALLOCATED_FIXED_TYPE(), the resulting pointer will be	\
-	    extremely bogus. */						\
-	 * (structtype **)						\
-	   ((char *) type##_free_list_tail + sizeof (void *)) =		\
-	     (structtype *) ~(unsigned long) ptr;			\
-       }								\
-     else								\
-       type##_free_list = ptr;						\
-     type##_free_list_tail = ptr;					\
-   } while (0)
+#define PUT_FIXED_TYPE_ON_FREE_LIST(type, structtype, ptr) do {	\
+  if (type##_free_list_tail)					\
+    {								\
+      /* When we store the chain pointer, we complement all	\
+	 its bits; this should significantly increase its	\
+	 bogosity in case someone tries to use the value, and	\
+	 should make us crash faster if someone overwrites the	\
+	 pointer because when it gets un-complemented in	\
+	 ALLOCATED_FIXED_TYPE(), the resulting pointer will be	\
+	 extremely bogus. */					\
+      type##_free_list_tail->chain =				\
+	(Lisp_Free *) ~ (EMACS_UINT) (ptr);			\
+    }								\
+  else								\
+    type##_free_list = (Lisp_Free *) (ptr);			\
+  type##_free_list_tail = (Lisp_Free *) (ptr);			\
+} while (0)
 
 #else /* !ERROR_CHECK_GC */
 
-#define PUT_FIXED_TYPE_ON_FREE_LIST(type, structtype, ptr)	\
-do { * (structtype **) ((char *) (ptr) + sizeof (void *)) =	\
-       type##_free_list;					\
-     type##_free_list = (ptr);					\
-   } while (0)
+#define PUT_FIXED_TYPE_ON_FREE_LIST(type, structtype, ptr) do {	\
+  ((Lisp_Free *) (ptr))->chain = type##_free_list;		\
+  type##_free_list = (Lisp_Free *) (ptr);			\
+} while (0)							\
 
 #endif /* !ERROR_CHECK_GC */
 
@@ -829,7 +799,7 @@ do { * (structtype **) ((char *) (ptr) + sizeof (void *)) =	\
   ADDITIONAL_FREE_##type (FFT_ptr);				\
   deadbeef_memory (FFT_ptr, sizeof (structtype));		\
   PUT_FIXED_TYPE_ON_FREE_LIST (type, structtype, FFT_ptr);	\
-  MARK_STRUCT_AS_FREE (FFT_ptr);				\
+  MARK_LRECORD_AS_FREE (FFT_ptr);				\
 } while (0)
 
 /* Like FREE_FIXED_TYPE() but used when we are explicitly
@@ -1781,6 +1751,9 @@ static struct string_chars_block *current_string_chars_block;
 #define BIG_STRING_FULLSIZE_P(fullsize) ((fullsize) >= STRING_CHARS_BLOCK_SIZE)
 #define BIG_STRING_SIZE_P(size) (BIG_STRING_FULLSIZE_P (STRING_FULLSIZE(size)))
 
+#define STRING_CHARS_FREE_P(ptr) ((ptr)->string == NULL)
+#define MARK_STRING_CHARS_AS_FREE(ptr) ((void) ((ptr)->string = NULL))
+
 struct string_chars
 {
   Lisp_String *string;
@@ -1988,7 +1961,7 @@ resize_string (Lisp_String *s, Bytecount pos, Bytecount delta)
 	    /* Sanity check to make sure we aren't hosed by strange
 	       alignment/padding. */
 	    assert (old_s_chars->string == s);
-	    MARK_STRUCT_AS_FREE (old_s_chars);
+	    MARK_STRING_CHARS_AS_FREE (old_s_chars);
 	    ((struct unused_string_chars *) old_s_chars)->fullsize =
 	      oldfullsize;
 	  }
@@ -2644,7 +2617,7 @@ do {									\
 	{								\
 	  obj_type *SFTB_victim = &(SFTB_current->block[SFTB_iii]);	\
 									\
-	  if (FREE_STRUCT_P (SFTB_victim))				\
+	  if (LRECORD_FREE_P (SFTB_victim))				\
 	    {								\
 	      num_free++;						\
 	    }								\
@@ -2690,13 +2663,13 @@ do {										\
     {										\
       int SFTB_iii;								\
       int SFTB_empty = 1;							\
-      obj_type *SFTB_old_free_list = typename##_free_list;			\
+      Lisp_Free *SFTB_old_free_list = typename##_free_list;			\
 										\
       for (SFTB_iii = 0; SFTB_iii < SFTB_limit; SFTB_iii++)			\
 	{									\
 	  obj_type *SFTB_victim = &(SFTB_current->block[SFTB_iii]);		\
 										\
-	  if (FREE_STRUCT_P (SFTB_victim))					\
+	  if (LRECORD_FREE_P (SFTB_victim))					\
 	    {									\
 	      num_free++;							\
 	      PUT_FIXED_TYPE_ON_FREE_LIST (typename, obj_type, SFTB_victim);	\
@@ -2914,11 +2887,11 @@ verify_string_chars_integrity (void)
 	  int size;
 	  int fullsize;
 
-	  /* If the string_chars struct is marked as free (i.e. the STRING
-	     pointer is 0xFFFFFFFF) then this is an unused chunk of string
-             storage. (See below.) */
+	  /* If the string_chars struct is marked as free (i.e. the
+	     STRING pointer is NULL) then this is an unused chunk of
+	     string storage. (See below.) */
 
-	  if (FREE_STRUCT_P (s_chars))
+	  if (STRING_CHARS_FREE_P (s_chars))
 	    {
 	      fullsize = ((struct unused_string_chars *) s_chars)->fullsize;
 	      pos += fullsize;
@@ -2965,16 +2938,16 @@ compact_string_chars (void)
 	  int size;
 	  int fullsize;
 
-	  /* If the string_chars struct is marked as free (i.e. the STRING
-	     pointer is 0xFFFFFFFF) then this is an unused chunk of string
-             storage.  This happens under Mule when a string's size changes
-	     in such a way that its fullsize changes. (Strings can change
-	     size because a different-length character can be substituted
-	     for another character.) In this case, after the bogus string
-	     pointer is the "fullsize" of this entry, i.e. how many bytes
-	     to skip. */
+	  /* If the string_chars struct is marked as free (i.e. the
+	     STRING pointer is NULL) then this is an unused chunk of
+	     string storage.  This happens under Mule when a string's
+	     size changes in such a way that its fullsize changes.
+	     (Strings can change size because a different-length
+	     character can be substituted for another character.)
+	     In this case, after the bogus string pointer is the
+	     "fullsize" of this entry, i.e. how many bytes to skip. */
 
-	  if (FREE_STRUCT_P (from_s_chars))
+	  if (STRING_CHARS_FREE_P (from_s_chars))
 	    {
 	      fullsize = ((struct unused_string_chars *) from_s_chars)->fullsize;
 	      from_pos += fullsize;
@@ -2982,7 +2955,7 @@ compact_string_chars (void)
             }
 
           string = from_s_chars->string;
-	  assert (!(FREE_STRUCT_P (string)));
+	  assert (!(LRECORD_FREE_P (string)));
 
           size = string_length (string);
           fullsize = STRING_FULLSIZE (size);
