@@ -1,8 +1,32 @@
 2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R096-Jade.el: Add some `total-strokes' features.
+	(M-21218): New character.
+	(C3-4D34): Separate U+3EF1; map to M-21218.
+	(U+3EF1): Likewise.
+	(U+7490): Use `ideographic-radical' and
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`ideographic-'.
+
 	* Ideograph-R002-Line.el (U-00020077): Use
 	`ideographic-{radical|strokes}@{ucs|cns}' instead of
 	`ideographic-'.
+
+	* Ideograph-R086-Fire.el: Add some `total-strokes' features.
+	(U+5911): Moved to Ideograph-R035-Go-Slowly.el.
+
+	* Ideograph-R117-Stand.el (U+7ADE): Add `total-strokes'.
+
+	* Ideograph-R113-Spirit.el: Add some `total-strokes' features.
+
+	* Ideograph-R112-Stone.el: Add some `total-strokes' features.
+	(U+7800): Fix strokes.
+
+	* Ideograph-R109-Eye.el: Add some `total-strokes' features.
+	(U+7714): Use `<-original-ideograph*sources' instead of char-ref
+	in `<-original-ideograph'.
+	(C4-2E55): Likewise.
+	(U+7786): Fix strokes.
 
 2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
