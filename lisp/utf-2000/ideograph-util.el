@@ -267,7 +267,11 @@
     (aset ideograph-radical-chars-vector radical chars)
     (dolist (char chars)
       (when (some (lambda (ccs)
-		    (encode-char char ccs))
+		    (let ((code (encode-char char ccs)))
+		      (and code
+			   ;;(not (memq ccs char-db-ignored-attributes))
+			   ;;(or (not (memq ccs '(ucs))
+			   (and (<= 0 code)(<= code #x10FFFF)))))
 		  ccss)
 	(insert-char-data char nil attributes ccss)))))
 
