@@ -1,5 +1,11 @@
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (M-05334): Simplify
+	`ideographic-structure'.
+	(U-000213B0): Likewise.
+
 	* Ideograph-R189-Tall.el (U-00029ACF): Modify
 	`ideographic-structure'; use `hanyu-dazidian' instead of
 	`hanyu-dazidian-{vol|page|char}'.
