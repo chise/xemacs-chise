@@ -40,7 +40,7 @@ COMPOUND_TEXT and STRING are the most commonly used data types.
 If a list is provided, the types are tried in sequence until
 there is a successful conversion.")
 
-(defvar selection-is-clipboard-p nil 
+(defvar selection-sets-clipboard nil 
   "Controls the selection's relationship to the clipboard.
 When non-nil, any operation that sets the primary selection will also
 set the clipboard.")
@@ -75,21 +75,18 @@ set the clipboard.")
   "Return the value of one of the cut buffers.
 This will do nothing under anything other than X.")
 
-(defun get-selection (&optional type data-type)
-  "Return the value of a Windows selection.
-The argument TYPE (default `PRIMARY') says which selection,
-and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
-says how to convert the data. If there is no selection an error is signalled."
-  (let ((text (get-selection-no-error type data-type)))
-    (when (not (stringp text))
-      (error "Selection is not a string: %S" text))
-    text))
-
 (defun get-selection-no-error (&optional type data-type)
   "Return the value of a Windows selection.
 The argument TYPE (default `PRIMARY') says which selection,
 and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
 says how to convert the data. Returns NIL if there is no selection"
+  (condition-case err (get-selection type data-type) (t nil)))
+
+(defun get-selection (&optional type data-type)
+  "Return the value of a Windows selection.
+The argument TYPE (default `PRIMARY') says which selection,
+and the argument DATA-TYPE (default `STRING', or `COMPOUND_TEXT' under Mule)
+says how to convert the data. If there is no selection an error is signalled."
   (or type (setq type 'PRIMARY))
   (or data-type (setq data-type selected-text-type))
   (let ((text
@@ -103,6 +100,8 @@ says how to convert the data. Returns NIL if there is no selection"
 	   (get-selection-internal type data-type))))
     (when (and (consp text) (symbolp (car text)))
       (setq text (cdr text)))
+    (when (not (stringp text))
+      (error "Selection is not a string: %S" text))
     text))
 
 ;; FSFmacs calls this `x-set-selection', and reverses the
@@ -144,7 +143,7 @@ Interactively, the text of the region is used as the selection value."
       (disown-selection-internal type)
     (own-selection-internal type data)
     (when (and (eq type 'PRIMARY)
-	       selection-is-clipboard-p)
+	       selection-sets-clipboard)
       (own-selection-internal 'CLIPBOARD data)))
   (cond ((eq type 'PRIMARY)
 	 (setq primary-selection-extent

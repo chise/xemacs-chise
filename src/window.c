@@ -38,6 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #include "window.h"
 #include "elhash.h"
 #include "commands.h"
+#include "gutter.h"
 
 Lisp_Object Qwindowp, Qwindow_live_p, Qwindow_configurationp;
 Lisp_Object Qscroll_up, Qscroll_down, Qdisplay_buffer;
@@ -231,7 +232,7 @@ finalize_window (void *header, int for_disksave)
 
 DEFINE_LRECORD_IMPLEMENTATION ("window", window,
                                mark_window, print_window, finalize_window,
-			       0, 0, struct window);
+			       0, 0, 0, struct window);
 
 
 #define INIT_DISP_VARIABLE(field, initialization)	\
@@ -641,7 +642,7 @@ window_full_width_p (struct window *w)
   return window_is_leftmost (w) && window_is_rightmost (w);
 }
 
-static int
+int
 window_is_highest (struct window *w)
 {
   Lisp_Object parent, current_ancestor, window;
@@ -669,7 +670,7 @@ window_is_highest (struct window *w)
     return 0;
 }
 
-static int
+int
 window_is_lowest (struct window *w)
 {
   Lisp_Object parent, current_ancestor, window;
@@ -972,32 +973,6 @@ window_right_margin_width (struct window *w)
   return margin_width_internal (w, 0);
 }
 
-static int
-window_top_toolbar_height (struct window *w)
-{
-  /* #### implement this shit. */
-  return 0;
-}
-
-/* #### Currently used in scrollbar.c.  Does it actually need to be? */
-int
-window_bottom_toolbar_height (struct window *w)
-{
-  return 0;
-}
-
-static int
-window_left_toolbar_width (struct window *w)
-{
-  return 0;
-}
-
-static int
-window_right_toolbar_width (struct window *w)
-{
-  return 0;
-}
-
 /*****************************************************************************
  Window Gutters
 
@@ -1019,46 +994,44 @@ window_right_toolbar_width (struct window *w)
 int
 window_top_gutter_height (struct window *w)
 {
-  int toolbar_height = window_top_toolbar_height (w);
+  int gutter = WINDOW_REAL_TOP_GUTTER_BOUNDS (w);
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
 
 #ifdef HAVE_SCROLLBARS
   if (!NILP (w->scrollbar_on_top_p))
-    return window_scrollbar_height (w) + toolbar_height;
+    return window_scrollbar_height (w) + gutter;
   else
 #endif
-    return toolbar_height;
+    return gutter;
 }
 
 int
 window_bottom_gutter_height (struct window *w)
 {
-  int other_height;
+  int gutter = WINDOW_REAL_BOTTOM_GUTTER_BOUNDS (w);
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
-  else
-    other_height =
-      window_modeline_height (w) + window_bottom_toolbar_height (w);
+
+  gutter += window_modeline_height (w);
 
 #ifdef HAVE_SCROLLBARS
   if (NILP (w->scrollbar_on_top_p))
-    return window_scrollbar_height (w) + other_height;
+    return window_scrollbar_height (w) + gutter;
   else
 #endif
-    return other_height;
+    return gutter;
 }
 
 int
 window_left_gutter_width (struct window *w, int modeline)
 {
-  int gutter = window_left_toolbar_width (w);
+  int gutter = WINDOW_REAL_LEFT_GUTTER_BOUNDS (w);
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
-
 
 #ifdef HAVE_SCROLLBARS
   if (!modeline && !NILP (w->scrollbar_on_left_p))
@@ -1071,7 +1044,7 @@ window_left_gutter_width (struct window *w, int modeline)
 int
 window_right_gutter_width (struct window *w, int modeline)
 {
-  int gutter = window_right_toolbar_width (w);
+  int gutter = WINDOW_REAL_RIGHT_GUTTER_BOUNDS (w);
 
   if (!NILP (w->hchild) || !NILP (w->vchild))
     return 0;
@@ -3926,6 +3899,8 @@ change_window_height (struct window *win, int delta, int widthflag,
   SET_LAST_MODIFIED (w, 0);
   SET_LAST_FACECHANGE (w);
   MARK_FRAME_WINDOWS_STRUCTURE_CHANGED (f);
+  /* overkill maybe, but better to be correct */
+  MARK_FRAME_GUTTERS_CHANGED (f);
 }
 #undef MINSIZE
 #undef CURBEG
@@ -4711,7 +4686,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("window-configuration",
 					window_configuration,
 					mark_window_config,
 					print_window_config,
-					0, 0, 0, sizeof_window_config,
+					0, 0, 0, 0, sizeof_window_config,
 					struct window_config);
 
 

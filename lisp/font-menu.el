@@ -400,7 +400,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 		(list :family family
 		      :size (concat
 			     (int-to-string
-			      (/ size
+			      (/ (or size from-size)
 				 (specifier-instance font-menu-size-scaling
 				      (selected-device))))
 			      "pt")))		 

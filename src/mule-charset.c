@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #include "device.h"
 #include "faces.h"
+#include "mule-ccl.h"
 
 /* The various pre-defined charsets. */
 
@@ -121,7 +122,6 @@ Lisp_Object Qcharsetp;
 Lisp_Object Qregistry, Qfinal, Qgraphic;
 Lisp_Object Qdirection;
 Lisp_Object Qreverse_direction_charset;
-Lisp_Object Qccl_program;
 Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
 
@@ -554,8 +554,13 @@ print_charset (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description charset_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Charset, name), 7 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("charset", charset,
-                               mark_charset, print_charset, 0, 0, 0,
+                               mark_charset, print_charset, 0, 0, 0, charset_description,
 			       struct Lisp_Charset);
 /* Make a new charset. */
 
@@ -1220,27 +1225,33 @@ Return the character set of char CH.
 			(CHAR_LEADING_BYTE (XCHAR (ch))));
 }
 
-DEFUN ("char-octet", Fchar_octet, 1, 2, 0, /*
-Return the octet numbered N (should be 0 or 1) of char CH.
-N defaults to 0 if omitted.
+DEFUN ("split-char", Fsplit_char, 1, 1, 0, /*
+Return list of charset and one or two position-codes of CHAR.
 */
-       (ch, n))
+       (character))
 {
-  Lisp_Object charset;
-  int c1, c2, int_n;
+  /* This function can GC */
+  struct gcpro gcpro1, gcpro2;
+  Lisp_Object charset = Qnil;
+  Lisp_Object rc = Qnil;
+  int c1, c2;
 
-  CHECK_CHAR_COERCE_INT (ch);
-  if (NILP (n))
-    int_n = 0;
+  GCPRO2 (charset, rc);
+  CHECK_CHAR_COERCE_INT (character);
+
+  BREAKUP_CHAR (XCHAR (character), charset, c1, c2);
+
+  if (XCHARSET_DIMENSION (Fget_charset (charset)) == 2)
+    {
+      rc = list3 (XCHARSET_NAME (charset), make_int (c1), make_int (c2));
+    }
   else
     {
-      CHECK_INT (n);
-      int_n = XINT (n);
-      if (int_n != 0 && int_n != 1)
-	signal_simple_error ("Octet number must be 0 or 1", n);
+      rc = list2 (XCHARSET_NAME (charset), make_int (c1));
     }
-  BREAKUP_CHAR (XCHAR (ch), charset, c1, c2);
-  return make_int (int_n == 0 ? c1 : c2);
+  UNGCPRO;
+
+  return rc;
 }
 
 
@@ -1345,7 +1356,7 @@ syms_of_mule_charset (void)
 
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
-  DEFSUBR (Fchar_octet);
+  DEFSUBR (Fsplit_char);
 
 #ifdef ENABLE_COMPOSITE_CHARS
   DEFSUBR (Fmake_composite_char);
@@ -1358,7 +1369,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qgraphic, "graphic");
   defsymbol (&Qdirection, "direction");
   defsymbol (&Qreverse_direction_charset, "reverse-direction-charset");
-  defsymbol (&Qccl_program, "ccl-program");
   defsymbol (&Qshort_name, "short-name");
   defsymbol (&Qlong_name, "long-name");
 

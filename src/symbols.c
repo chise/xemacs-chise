@@ -108,9 +108,13 @@ mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
   }
 }
 
+static const struct lrecord_description symbol_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Symbol, next), 5 }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("symbol", symbol,
 				     mark_symbol, print_symbol, 0, 0, 0,
-				     struct Lisp_Symbol);
+				     symbol_description, struct Lisp_Symbol);
 
 
 /**********************************************************************/
@@ -952,28 +956,46 @@ print_symbol_value_magic (Lisp_Object obj,
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description symbol_value_buffer_local_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct symbol_value_buffer_local, default_value), 4 },
+  { XD_END }
+};
+
+static const struct lrecord_description symbol_value_lisp_magic_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct symbol_value_lisp_magic, handler), 2*MAGIC_HANDLER_MAX+1 },
+  { XD_END }
+};
+
+static const struct lrecord_description symbol_value_varalias_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct symbol_value_varalias, aliasee), 2 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-forward",
 			       symbol_value_forward,
 			       this_one_is_unmarkable,
-			       print_symbol_value_magic, 0, 0, 0,
+			       print_symbol_value_magic, 0, 0, 0, 0,
 			       struct symbol_value_forward);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-buffer-local",
 			       symbol_value_buffer_local,
 			       mark_symbol_value_buffer_local,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_buffer_local_description,
 			       struct symbol_value_buffer_local);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-lisp-magic",
 			       symbol_value_lisp_magic,
 			       mark_symbol_value_lisp_magic,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_lisp_magic_description,
 			       struct symbol_value_lisp_magic);
 
 DEFINE_LRECORD_IMPLEMENTATION ("symbol-value-varalias",
 			       symbol_value_varalias,
 			       mark_symbol_value_varalias,
 			       print_symbol_value_magic, 0, 0, 0,
+			       symbol_value_varalias_description,
 			       struct symbol_value_varalias);
 
 

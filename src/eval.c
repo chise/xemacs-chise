@@ -296,7 +296,7 @@ print_subr (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("subr", subr,
-                               this_one_is_unmarkable, print_subr, 0, 0, 0,
+                               this_one_is_unmarkable, print_subr, 0, 0, 0, 0,
 			       Lisp_Subr);
 
 /************************************************************************/

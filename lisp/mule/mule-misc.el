@@ -64,7 +64,7 @@ using a window system."
 	(len (length string))
 	(i 0))
     (while (< i len)
-      (setq col (+ col (charset-columns (char-charset (aref string i)))))
+      (setq col (+ col (charset-width (char-charset (aref string i)))))
       (setq i (1+ i)))
     col))
 
@@ -170,7 +170,7 @@ It returns only 1 in XEmacs.  It is for compatibility with MULE 2.3."
 
 (defun char-width (character)
   "Return number of columns a CHARACTER occupies when displayed."
-  (charset-columns (char-charset character)))
+  (charset-width (char-charset character)))
 
 (defalias 'char-columns 'char-width)
 (make-obsolete 'char-columns 'char-width)
@@ -190,34 +190,47 @@ It might be available for compatibility with Mule 2.3,
 because its `find-charset-string' ignores ASCII charset."
   (delq 'ascii (charsets-in-region start end)))
 
-(defun split-char (char)
-  "Return list of charset and one or two position-codes of CHAR."
-  (let ((charset (char-charset char)))
-    (if (eq charset 'ascii)
-	(list charset (char-int char))
-      (let ((i 0)
-	    (len (charset-dimension charset))
-	    (code (if (integerp char)
-		      char
-		    (char-int char)))
-	    dest)
-	(while (< i len)
-	  (setq dest (cons (logand code 127) dest)
-		code (lsh code -7)
-		i (1+ i)))
-	(cons charset dest)
-	))))
+;(defun split-char (char)
+;  "Return list of charset and one or two position-codes of CHAR."
+;  (let ((charset (char-charset char)))
+;    (if (eq charset 'ascii)
+;	(list charset (char-int char))
+;      (let ((i 0)
+;	    (len (charset-dimension charset))
+;	    (code (if (integerp char)
+;		      char
+;		    (char-int char)))
+;	    dest)
+;	(while (< i len)
+;	  (setq dest (cons (logand code 127) dest)
+;		code (lsh code -7)
+;		i (1+ i)))
+;	(cons charset dest)
+;	))))
 
-(defun split-char-or-char-int (char)
-  "Return list of charset and one or two position-codes of CHAR.
-CHAR must be character or integer."
-  (if (characterp char)
-      (split-char char)
-    (let ((c (int-char char)))
-      (if c
-	  (split-char c)
-	(list 'ascii c)
-	))))
+(defun char-octet (ch &optional n)
+  "Return the octet numbered N (should be 0 or 1) of char CH.
+N defaults to 0 if omitted."
+  (let ((split (split-char ch)))
+    (setq n (or n 0))
+    (cond ((eq n 0)
+	   (nth 1 split))
+	  ((eq n 1)
+	   (nth 2 split))
+	  (t (error "n must be 0 or 1")))))
+;; Made obsolete June 15, 1999.  Delete ASAP.
+(make-obsolete 'char-octet "Use split-char")
+
+;(defun split-char-or-char-int (char)
+;  "Return list of charset and one or two position-codes of CHAR.
+;CHAR must be character or integer."
+;  (if (characterp char)
+;      (split-char char)
+;    (let ((c (int-char char)))
+;      (if c
+;	  (split-char c)
+;	(list 'ascii c)
+;	))))
 
 
 ;;; Commands
@@ -301,4 +314,60 @@ when the language environment is made current."
 ;;   (put env-sym 'quail-environ-doc-string doc-string)
 ;;   (put env-sym 'set-quail-environ enable-function))
 
+
+;;; @ coding-system category
+;;;
+
+(defun coding-system-get (coding-system prop)
+  "Extract a value from CODING-SYSTEM's property list for property PROP."
+  (or (plist-get
+       (get (coding-system-name coding-system) 'coding-system-property)
+       prop)
+      (condition-case nil
+	  (coding-system-property coding-system prop)
+	(error nil))))
+
+(defun coding-system-put (coding-system prop val)
+  "Change value in CODING-SYSTEM's property list PROP to VAL."
+  (put (coding-system-name coding-system)
+       'coding-system-property
+       (plist-put (get (coding-system-name coding-system)
+		       'coding-system-property)
+		  prop val)))
+
+(defun coding-system-category (coding-system)
+  "Return the coding category of CODING-SYSTEM."
+  (or (coding-system-get coding-system 'category)
+      (let ((type (coding-system-type coding-system)))
+	(cond ((eq type 'no-conversion)
+	       'no-conversion)
+	      ((eq type 'shift-jis)
+	       'shift-jis)
+	      ((eq type 'ucs-4)
+	       'ucs-4)
+	      ((eq type 'utf-8)
+	       'utf-8)
+	      ((eq type 'big5)
+	       'big5)
+	      ((eq type 'iso2022)
+	       (cond ((coding-system-lock-shift coding-system)
+		      'iso-lock-shift)
+		     ((coding-system-seven coding-system)
+		      'iso-7)
+		     (t
+		      (let ((dim 0)
+			    ccs
+			    (i 0))
+			(while (< i 4)
+			  (setq ccs (coding-system-charset coding-system i))
+			  (if (and ccs
+				   (> (charset-dimension ccs) dim))
+			      (setq dim (charset-dimension ccs))
+			    )
+			  (setq i (1+ i)))
+			(cond ((= dim 1) 'iso-8-1)
+			      ((= dim 2) 'iso-8-2)
+			      (t 'iso-8-designate))
+			))))))))
+	    
 ;;; mule-misc.el ends here

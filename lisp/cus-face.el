@@ -30,6 +30,7 @@
   "Like `defface', but FACE is evaluated as a normal argument."
   ;; (when (fboundp 'pureload)
     ;; (error "Attempt to declare a face during dump"))
+  ;; #### should we possibly reset force-face here?
   (unless (get face 'face-defface-spec)
     (put face 'face-defface-spec spec)
     (unless (find-face face)
@@ -69,7 +70,7 @@ Text size (e.g. 9pt or 2mm).")
 	   custom-set-face-font-size custom-face-font-size)
     (:family (editable-field :format "Font Family: %v"
 			     :help-echo "\
-Name of font family to use (e.g. times).") 
+Name of font family to use (e.g. times).")
 	     custom-set-face-font-family custom-face-font-family)
     (:background-pixmap (editable-field :format "Background pixmap: %v"
 					:help-echo "\
@@ -184,7 +185,7 @@ If FRAME is nil, use the default face."
 
 (defun custom-face-italic (face &rest args)
   "Return non-nil if the font of FACE is italic."
-  (let* ((font (apply 'face-font-name face))
+  (let* ((font (apply 'face-font-name face args))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (font-italic-p fontobj)))
@@ -240,33 +241,94 @@ If FRAME is nil, use the default face."
 ;;;###autoload
 (defun custom-set-faces (&rest args)
   "Initialize faces according to user preferences.
+This asociates the setting with the USER theme.
 The arguments should be a list where each entry has the form:
 
-  (FACE SPEC [NOW])
+  (FACE SPEC [NOW [COMMENT]])
 
 SPEC will be stored as the saved value for FACE.  If NOW is present
 and non-nil, FACE will also be created according to SPEC.
+COMMENT is a string comment about FACE.
 
 See `defface' for the format of SPEC."
-  (while args
-    (let ((entry (car args)))
-      (if (listp entry)
-	  (let ((face (nth 0 entry))
-		(spec (nth 1 entry))
-		(now (nth 2 entry)))
+  (apply #'custom-theme-set-faces 'user args))
+
+;;;###autoload
+(defun custom-theme-set-faces (theme &rest args)
+  "Initialize faces according to settings specified by args.
+Records the settings as belonging to THEME.
+
+See `custom-set-faces' for a description of the arguments ARGS."
+  (custom-check-theme theme)
+  (let ((immediate (get theme 'theme-immediate)))
+    (while args
+      (let ((entry (car args)))
+	(if (listp entry)
+	    (let ((face (nth 0 entry))
+		  (spec (nth 1 entry))
+		  (now (nth 2 entry))
+		  (comment (nth 3 entry)))
+	      (put face 'saved-face spec)
+	      (custom-push-theme 'theme-face face theme 'set spec)
+	      (put face 'saved-face-comment comment)
+	      (when (or now immediate)
+		(put face 'force-face (if now 'rogue 'immediate)))
+	      (when (or now immediate (find-face face))
+		(put face 'face-comment comment)
+		(unless (find-face face)
+		  (make-empty-face face))
+		(face-spec-set face spec nil '(custom)))
+	      (setq args (cdr args)))
+	  ;; Old format, a plist of FACE SPEC pairs.
+	  (let ((face (nth 0 args))
+		(spec (nth 1 args)))
 	    (put face 'saved-face spec)
-	    (when now
-	      (put face 'force-face t))
-	    (when (or now (find-face face))
+	    (custom-push-theme 'theme-face face theme 'set spec))
+	  (setq args (cdr (cdr args))))))))
+
+;;;###autoload
+(defun custom-theme-face-value (face theme)
+  "Return spec of FACE in THEME if the THEME modifies the
+FACE.  Nil otherwise."
+  (car-safe (custom-theme-value theme (get face 'theme-face))))
+
+(defun custom-theme-reset-internal-face (face to-theme)
+  (let ((spec (custom-theme-face-value face to-theme))
+	was-in-theme)
+    (setq was-in-theme spec)
+    (setq spec (or spec (get face 'standard-value)))
+    (when spec
+      (put face 'save-face was-in-theme)
+      (when (or (get face 'force-face) (find-face face))
 	      (unless (find-face face)
 		(make-empty-face face))
-	      (face-spec-set face spec nil '(custom)))
-	    (setq args (cdr args)))
-	;; Old format, a plist of FACE SPEC pairs.
-	(let ((face (nth 0 args))
-	      (spec (nth 1 args)))
-	  (put face 'saved-face spec))
-	(setq args (cdr (cdr args)))))))
+	      (face-spec-set face spec)))
+    spec))
+
+;;;###autoload
+(defun custom-theme-reset-faces (theme &rest args)
+  (custom-check-theme theme)
+  "Reset the value of the face to values previously defined.
+Assosiate this setting with THEME.
+
+ARGS is a list of lists of the form
+
+    (face to-theme)
+
+This means reset face to its value in to-theme."
+  (mapc #'(lambda (arg)
+	    (apply #'custom-theme-reset-internal-face arg)
+	    (custom-push-theme (car arg) 'theme-face theme 'reset (cadr arg)))
+	args))
+
+;;;###autoload
+(defun custom-reset-faces (&rest args)
+  "Reset the value of the face to values previously defined.
+Assosiate this setting with the 'user' theme.
+
+ARGS is defined as for `custom-theme-reset-faces'"
+  (apply #'custom-theme-reset-faces 'user args))
+
 
 ;;; The End.
 

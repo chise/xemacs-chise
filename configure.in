@@ -345,22 +345,27 @@ datadir='${prefix}/lib'
 statedir='${prefix}/lib'
 libdir='${exec_prefix}/lib'
 mandir='${prefix}/man/man1'
-infodir='${datadir}/${PROGNAME}-${version}/info'
+inststaticdir='${PROGNAME}'
+instvardir='${PROGNAME}-${version}'
+infodir='${datadir}/${instvardir}/info'
 infopath=''
 install_pp=''
-lispdir='${datadir}/${PROGNAME}-${version}/lisp'
-moduledir='${datadir}/${PROGNAME}-${version}/${configuration}/modules'
-sitelispdir='${datadir}/xemacs/site-lisp'
-sitemoduledir='${datadir}/xemacs/site-modules'
-pkgdir='${datadir}/${PROGNAME}-${version}/lisp'
+lispdir='${datadir}/${instvardir}/lisp'
+moduledir='${datadir}/${instvardir}/${configuration}/modules'
+sitelispdir='${datadir}/${inststaticdir}/site-lisp'
+sitemoduledir='${datadir}/${inststaticdir}/site-modules'
+pkgdir='${datadir}/${instvardir}/lisp'
 package_path=''
-etcdir='${datadir}/${PROGNAME}-${version}/etc'
-lockdir='${statedir}/${PROGNAME}/lock'
-archlibdir='${datadir}/${PROGNAME}-${version}/${configuration}'
+etcdir='${datadir}/${instvardir}/etc'
+lockdir='${statedir}/${inststaticdir}/lock'
+archlibdir='${datadir}/${instvardir}/${configuration}'
+docdir='${archlibdir}'
+with_prefix='yes'
 with_site_lisp='no'
 with_site_modules='yes'
 with_menubars=''
 with_scrollbars=''
+with_widgets=''
 with_dialogs=''
 with_file_coding=''
 dnl const_is_losing is removed - we rely on AC_C_CONST instead.
@@ -463,7 +468,8 @@ while test $# != 0; do
 
       dnl Process (many) boolean options
 	with_site_lisp	| \
-    with_site_modules | \
+	with_prefix	| \
+	with_site_modules | \
 	with_x		| \
 	with_x11	| \
 	with_msw	| \
@@ -516,7 +522,7 @@ while test $# != 0; do
 	use_assertions	| \
 	memory_usage_stats | \
 	with_clash_detection | \
-	with_shlib | \
+	with_modules | \
 	no_doc_file )
 	  dnl Make sure the value given was either "yes" or "no".
 	  case "$val" in
@@ -711,6 +717,8 @@ while test $# != 0; do
            dnl You need to synchronize this with the way the
            dnl default values are built.
 	   case "$opt" in
+	     dnl prefix is taken care of by --with-prefix
+	     exec_prefix ) AC_DEFINE(EXEC_PREFIX_USER_DEFINED) ;;
              lispdir ) AC_DEFINE(LISPDIR_USER_DEFINED) ;;
              sitelispdir ) AC_DEFINE(SITELISPDIR_USER_DEFINED) ;;
              moduledir ) AC_DEFINE(MODULEDIR_USER_DEFINED) ;;
@@ -724,6 +732,7 @@ while test $# != 0; do
             AC_DEFINE(MODULEDIR_USER_DEFINED)
 	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
              statedir | lockdir ) AC_DEFINE(LOCKDIR_USER_DEFINED) ;;
+	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
 	;;
@@ -737,7 +746,8 @@ while test $# != 0; do
 	dnl Has the user specified the toolkit(s) to use for GUI elements?
 	"with_menubars"   | \
 	"with_scrollbars" | \
-	"with_dialogs" )
+	"with_dialogs" | \
+	"with_widgets" )
 	  case "$val" in
 	    l | lu | luc | luci | lucid )		val=lucid  ;;
 	    m | mo | mot | moti | motif )		val=motif  ;;
@@ -933,7 +943,7 @@ AC_DEFINE_UNQUOTED(XEMACS_CODENAME, "$xemacs_codename")
 AC_DEFINE_UNQUOTED(EMACS_VERSION, "$version")
 
 if test "$with_infodock" = "yes"; then
-  if test ! -f ../ID-INSTALL; then
+  if test ! -f ../../ID-INSTALL; then
     echo "Cannot build InfoDock without InfoDock sources"
     with_infodock=no
   fi
@@ -1475,6 +1485,7 @@ case "$canonical" in
 	else
 		NON_GNU_CPP="/lib/cpp -D_XOPEN_SOURCE"  ;
 	fi ;;
+      *-sysv5* )		opsys=sco7 ;;
       *-386bsd* )	        opsys=386bsd ;;
       *-freebsd* )		opsys=freebsd ;;
       *-nextstep* )		opsys=nextstep ;;
@@ -2477,6 +2488,7 @@ if test "$with_msw" != "no"; then
 	    && XE_ADD_OBJS(toolbar-msw.o)
 	test "$with_dialogs"   != "no" && with_dialogs=msw \
 	    && XE_ADD_OBJS(dialog-msw.o)
+	test "$with_widgets"   != "no" && with_widgets=msw
     else
 	test "$with_scrollbars" != "no" && XE_ADD_OBJS(scrollbar-msw.o)
 	test "$with_menubars"   != "no" && XE_ADD_OBJS(menubar-msw.o)
@@ -2672,23 +2684,29 @@ AC_CHECKING(for LDAP)
 test -z "$with_ldap" && { AC_CHECK_HEADER(ldap.h, ,with_ldap=no) }
 test -z "$with_ldap" && { AC_CHECK_HEADER(lber.h, ,with_ldap=no) }
 if test "$with_ldap" != "no"; then
-  test -z "$with_umich_ldap" && { AC_CHECK_LIB(ldap, ldap_open, with_umich_ldap=yes, with_umich_ldap=no, -llber) }
-  test "$with_umich_ldap" = "no" && { AC_CHECK_LIB(ldap10, ldap_set_option, with_ns_ldap=yes, with_ns_ldap=no) }
-  test -z "$with_ldap" -a \( "$with_umich_ldap" = "yes" -o "$with_ns_ldap" = "yes" \) && with_ldap=yes
+  AC_CHECK_LIB(ldap, ldap_search, with_ldap_nolber=yes, with_ldap_nolber=no)
+  test "$with_ldap_nolber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_lber=yes, with_ldap_lber=no, -llber) }
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krb=yes, with_ldap_krb=no, -llber -lkrb) }
+  test "$with_ldap_nolber" = "no" -a "$with_ldap_lber" = "no" -a "$with_ldap_krb" = "no" && { AC_CHECK_LIB(ldap, ldap_open, with_ldap_krbdes=yes, with_ldap_krbdes=no, -llber -lkrb -ldes) }
+  test -z "$with_ldap" -a \( "$with_ldap_lber" = "yes" -o "$with_ldap_nolber" = "yes" -o "$with_ldap_krb" = "yes" -o "$with_ldap_krbdes" = "yes" \) && with_ldap=yes
 fi
 if test "$with_ldap" = "yes"; then
   AC_DEFINE(HAVE_LDAP)
   XE_ADD_OBJS(eldap.o)
-  if test "$with_umich_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_UMICH_LDAP)
+  if test "$with_ldap_nolber" = "yes" ; then
+    XE_PREPEND(-lldap, LIBS)
+  else
+    if test "$with_ldap_krb" = "yes" ; then
+      XE_PREPEND(-lkrb, LIBS)
+    fi
+    if test "$with_ldap_krbdes" = "yes" ; then
+      XE_PREPEND(-ldes, LIBS)
+      XE_PREPEND(-lkrb, LIBS)
+    fi
     XE_PREPEND(-llber, LIBS)
     XE_PREPEND(-lldap, LIBS)
-  elif test "$with_ldap" = "yes" -a "$with_ns_ldap" = "yes" ; then
-    AC_DEFINE(HAVE_NS_LDAP)
-    XE_PREPEND(-lldap10, LIBS)
-  elif test "$with_ldap" = "yes" ; then
-    XE_PREPEND(-lldap, LIBS)
   fi
+  AC_CHECK_FUNCS(ldap_set_option ldap_get_lderrno ldap_result2error ldap_parse_result)
 fi
 
 dnl ----------------------
@@ -2879,8 +2897,13 @@ esac
 case "$with_scrollbars" in "" | "yes" )
   with_scrollbars="lucid" ;;
 esac
+case "$with_widgets" in "" | "yes" )
+  if   test "$have_motif" = "yes"; then with_widgets="motif"
+  else with_widgets=no
+  fi ;;
+esac
 
-all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars"
+all_widgets="$with_menubars $with_scrollbars $with_dialogs $with_toolbars $with_widgets"
 
 case "$all_widgets" in *athena* )
   AC_DEFINE(LWLIB_USES_ATHENA)
@@ -2933,7 +2956,7 @@ if test "$with_x11" = "yes"; then
   test "$with_scrollbars" != "no"      && XE_ADD_OBJS(scrollbar-x.o)
   test "$with_dialogs"    != "no"      && XE_ADD_OBJS(dialog-x.o)
   test "$with_toolbars"   != "no"      && XE_ADD_OBJS(toolbar-x.o)
-  test "$all_widgets" != "no no no no" && XE_ADD_OBJS(gui-x.o)
+  test "$all_widgets" != "no no no no no" && XE_ADD_OBJS(gui-x.o)
 else
   if test \( "$with_sound" = "nas" \) -o \( "$with_sound" = "both" \); then
     echo "Attempt to Build NAS sound without X"
@@ -3275,7 +3298,6 @@ int main (int argc, char *argv[])
 esac
 AC_MSG_RESULT($have_mmap)
 test "$have_mmap" = "yes" && AC_DEFINE(HAVE_MMAP)
-AC_FUNC_MMAP
 
 dnl rel_alloc requires either GNU malloc or system malloc with mmap
 dnl We only turn rel_alloc on by default if mmap is available.
@@ -3611,12 +3633,12 @@ fi
 dnl autodetect dll support
 AC_CHECK_HEADERS(dlfcn.h, [have_dlfcn=yes
   AC_DEFINE(HAVE_DLFCN_H)])
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_shlib=yes]) }
-test -z "$with_shlib" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_shlib=yes]) }
-if test "$with_shlib" = "yes"; then
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(dl,  dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=dl;  with_modules=yes]) }
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   _dlopen,  [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
+test -z "$with_modules" && test ! -z "$have_dlfcn" && { AC_CHECK_LIB(c,   dlopen,   [ AC_DEFINE(HAVE_DLOPEN) DLL_LIB=;   with_modules=yes]) }
+test -z "$with_modules" && { AC_CHECK_LIB(dld, shl_load, [ AC_DEFINE(HAVE_SHL_LOAD) DLL_LIB=dld; with_modules=yes]) }
+test -z "$with_modules" && { AC_CHECK_LIB(dld, dld_init, [ AC_DEFINE(HAVE_DLD_INIT) DLL_LIB=dld; with_modules=yes]) }
+if test "$with_modules" = "yes"; then
   XE_SHLIB_STUFF
   if test "$can_build_shared" = "yes"; then
     AC_DEFINE(HAVE_SHLIB)
@@ -3627,7 +3649,7 @@ if test "$with_shlib" = "yes"; then
     AC_CHECK_FUNCS(dlerror _dlerror)
   else
     AC_MSG_WARN(disabling shared library support)
-    with_shlib=no
+    with_modules=no
   fi
 fi
 
@@ -3744,6 +3766,8 @@ AC_SUBST(PROGNAME)
 AC_SUBST(version)
 AC_SUBST(configuration)
 AC_SUBST(canonical)
+AC_SUBST(inststaticdir)
+AC_SUBST(instvardir)
 AC_SUBST(srcdir)
 AC_SUBST(bindir)
 AC_SUBST(datadir)
@@ -3753,6 +3777,7 @@ AC_SUBST(libdir)
 AC_SUBST(mandir)
 
 AC_SUBST(prefix)
+AC_SUBST(PREFIX_USER_DEFINED)
 dnl Yo, Stephen Bourne!  I want to marry you!
 PREFIX=$prefix
 while true; do
@@ -3764,6 +3789,7 @@ done
 AC_SUBST(PREFIX)
 
 AC_SUBST(exec_prefix)
+AC_SUBST(EXEC_PREFIX_USER_DEFINED)
 EXEC_PREFIX=$exec_prefix
 while true; do
   case "$EXEC_PREFIX" in
@@ -3872,6 +3898,17 @@ while true; do
 done
 AC_SUBST(LOCKDIR)
 
+AC_SUBST(docdir)
+AC_SUBST(DOCDIR_USER_DEFINED)
+DOCDIR=$docdir
+while true; do
+  case "$DOCDIR" in
+    *\$* ) eval "DOCDIR=$DOCDIR" ;;
+    *) break ;;
+  esac
+done
+AC_SUBST(DOCDIR)
+
 AC_SUBST(archlibdir)
 AC_SUBST(ARCHLIBDIR_USER_DEFINED)
 ARCHLIBDIR=$archlibdir
@@ -3919,6 +3956,10 @@ dnl Useful for building XEmacs with a C++ or 64-bit compiler.
 : ${XEMACS_CC:=$CC}
 AC_SUBST(XEMACS_CC)
 
+dnl The default is yes
+if test "$with_prefix" = "yes"; then
+  AC_DEFINE(PREFIX_USER_DEFINED)
+fi
 
 dnl The default is no
 if test "$with_site_lisp" = "no"; then
@@ -4070,9 +4111,7 @@ test "$with_database_berkdb" = yes && echo "  Compiling in support for Berkeley 
 test "$with_database_dbm"    = yes && echo "  Compiling in support for DBM."
 test "$with_database_gnudbm" = yes && echo "  Compiling in support for GNU DBM."
 
-test "$with_umich_ldap"	     = yes && echo "  Compiling in support for LDAP (UMich libs)."
-test "$with_ns_ldap"	     = yes && echo "  Compiling in support for LDAP (Netscape SDK)."
-test "$with_ldap" = yes -a "$with_umich_ldap" = no -a "$with_ns_ldap" = no && echo "  Compiling in support for LDAP (Generic)."
+test "$with_ldap"	     = yes && echo "  Compiling in support for LDAP."
 
 test "$with_ncurses"  = yes && echo "  Compiling in support for ncurses."
 test "$with_gpm"      = yes && echo "  Compiling in support for GPM (General Purpose Mouse)."
@@ -4109,6 +4148,9 @@ case "$with_scrollbars" in
   athena   ) echo "  Using Athena scrollbars."    ;;
   athena3d ) echo "  Using Athena-3d scrollbars." ;;
 esac
+case "$with_widgets" in
+  motif    ) echo "  Using Motif native widgets."     ;;
+esac
 case "$with_dialogs" in
   motif    )
     echo "  Using Motif dialog boxes."
@@ -4122,7 +4164,7 @@ case "$with_dialogs" in
   athena   ) echo "  Using Athena dialog boxes."    ;;
   athena3d ) echo "  Using Athena-3d dialog boxes." ;;
 esac
-test "$with_shlib" = "yes" && echo "  Compiling in DLL support."
+test "$with_modules" = "yes" && echo "  Compiling in DSO module support."
 test "$with_clash_detection" = yes && \
   echo "  Clash detection will use \"$lockdir\" for locking files."
 echo "  movemail will use \"$mail_locking\" for locking mail spool files."
@@ -4165,7 +4207,7 @@ for file in $internal_makefile_list; do
   ac_output_files="${ac_output_files+$ac_output_files }$file"
 done
 ac_output_files="$ac_output_files src/paths.h lib-src/config.values"
-if test "$with_shlib" = "yes"; then
+if test "$with_modules" = "yes"; then
   ac_output_files="$ac_output_files lib-src/ellcc.h"
 fi
 

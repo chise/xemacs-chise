@@ -1,5 +1,50 @@
 							-*- indented-text -*-
+to 21.2.19 "Shinjuku"
+-- various fixes from Gunnar Evermann
+-- XIM fixes from Kazuyuki IENAGA
+-- keymap fix from Katsumi Yamaoka
+-- Microsoft build fixes from Adrian Aichner
+-- documentation update from Adrian Aichner
+-- rect.el rewrite from Didier Verna
+-- custom comment fields from Didier Verna
+-- various fixes from Karl Hegbloom
+-- filling fix from Yoshiki Hayashi
+-- miscellaneous changes from Jeff Miller and Didier Verna
+-- configure hacking from Steve Baur
+-- various fixes from Bob Weiner
+-- Mule synching from MORIOKA Tomohiko
+-- various fixes from Steve Baur
+-- LDAP configure changes from Gregory Neil Shapiro
+-- gutter implementation from Andy Piper
+-- tab widgets in gutter from Andy Piper
+-- Custom themes, API part. See etc/custom/theme-examples from Jan Vroonhof
+
+to 21.2.18 "Toshima"
+-- miscellaneous fixes from Steve Baur
+-- miscellaneous fixes from Didier Verna
+-- various bug fixes from Karl Hegbloom
+-- miscellaneous fixes from Bob Weiner
+-- fix for XIM server crashing and taking down XEmacs from Kazuyuki IENAGA
+-- valid-image-instantiator-format-p tightened up by Andy Piper.
+-- glyph widget support under X/Motif from Andy Piper
+-- Make docdir configurable, update package searching rules from Michael
+   Sperber
+-- Fix for Japanese word/character movements from MORIOKA Tomohiko
+-- lrecord struct header size fix from Olivier Galibert
+
+to 21.2.17 "Chiyoda"
+-- miscellaneous bug fixes from Steve Baur
+-- font menu fix from Robert Pluim
+-- ldap API update from Oscar Figueiredo
+-- Fix thai-xtis charset width from MORIOKA Tomohiko
+-- CCL engine fix from MORIOKA Tomohiko
+-- mswindows build fixes from Norbert Koch
+-- miscellaneous fixes from Andy Piper
+-- automated tests for mswindows from Adrian Aichner
+-- tree-view and tab-control widget glyph support from Andy Piper
+
 to 21.2.16 "Sumida"
+-- miscellaneous fixes from Hrvoje Niksic and Olivier Galibert
 -- make selection more mswindows conformant.
 -- Make customize use specifiers from Jan Vroonhof
 -- Cyrillic CCL crash fix from MORIOKA Tomohiko

@@ -329,6 +329,8 @@ int window_char_height (struct window *, int include_gutters_p);
 int window_displayed_height (struct window *);
 int window_is_leftmost (struct window *w);
 int window_is_rightmost (struct window *w);
+int window_is_lowest (struct window *w);
+int window_is_highest (struct window *w);
 int window_truncation_on (struct window *w);
 int window_needs_vertical_divider (struct window *);
 int window_scrollbar_width (struct window *w);
@@ -340,7 +342,6 @@ int window_top_gutter_height (struct window *w);
 int window_bottom_gutter_height (struct window *w);
 int window_left_gutter_width (struct window *w, int modeline);
 int window_right_gutter_width (struct window *w, int modeline);
-int window_bottom_toolbar_height (struct window *w);
 
 void delete_all_subwindows (struct window *w);
 void set_window_pixheight (Lisp_Object window, int pixheight,

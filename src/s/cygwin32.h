@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
  * YMMV. I build with NT4 SP3.
  *
  * Andy Piper <andy@xemacs.org> 8/1/98 
- * http://www.parallax.co.uk/~andyp */
+ * http://www.xemacs.freeserve.co.uk/ */
 
 /* cheesy way to determine cygwin version */
 #ifndef NOT_C_CODE

@@ -10,6 +10,126 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-28  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in: Removed superfluous call to AC_FUNC_MMAP.
+
+1999-03-07  Gregory Neil Shapiro  <gshapiro@sendmail.org>
+
+	* configure.in: Check for Kerberos and the need for the DES
+	library before checking for LDAP in case LDAP requires these
+	libraries.
+
+1999-07-26  SL Baur  <steve@miho>
+
+	* configure.in: Rename --with-shlib to --with-modules for
+	consistency with the other two options that use that name.
+
+	* configure.usage (--with-modules): Document it.
+
+1999-07-23  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* etc/custom/example-themes/example-theme.el: 
+	* etc/custom/example-themes/europe-theme.el: 
+	* etc/custom/example-themes/ex-custom-file: Some simple examples
+	illustrating the custom theme support. 
+
+1999-07-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/HELLO (Thai): Modify for new font.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
+
+1999-07-22  SL Baur  <steve@beopen.com>
+
+	* configure.in: add sco7 support
+	From Bob Weiner  <weiner@beopen.com>
+
+1999-07-22  SL Baur  <steve@miho>
+
+	* Makefile.in.in (install-arch-dep): Install config.values into
+	docdir.
+	From Karl M. Hegbloom  <karlheg@cathcart.sysc.pdx.edu>
+
+1999-07-21  SL Baur  <steve@miho>
+
+	* Makefile.in.in (inststaticdir): New variable.
+	(instvardir): Ditto.
+	(install-arch-dep): Use them.
+
+	* configure.in (sitelispdir): Need to use ${PROGNAME}.
+	(sitemoduledir): Ditto.
+	(inststaticdir): New variable.
+	(instvardir): Ditto.
+	(infodir): Use them.
+	(lispdir): Ditto.
+	(moduledir): Ditto.
+	(pkgdir): Ditto.
+	(etcdir): Ditto.
+	(lockdir): Ditto.
+	(archlibdir): Ditto.
+
+1999-07-14  SL Baur  <steve@beopen.com>
+
+	* InfoDock 4.0.8 is released
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* config.guess (main): Synch with newer config.guess for HP
+	support.
+	From Marcus Thiessel <marcus@xemacs.org>
+
+1999-06-25  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in (with_prefix): Added --with-prefix, defaults to
+	yes, to control whether the value of --prefix is compiled into the 
+	binary.
+
+1999-07-03  Andy Piper  <andy@xemacs.org>
+
+	* configure.usage (--with-widgets): add.
+
+1999-07-02  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: Make sure we get motif in lwlib if we have widgets
+ 	and motif.
+
+1999-06-25  SL Baur  <steve@miho.m17n.org>
+
+	* configure.in (version): Fix --with-infodock test.
+
+1999-06-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in: --prefix and --exec-prefix are now only compiled
+	into the binary if user-defined.
+
+1999-03-23  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in: Made docdir configurable.
+
+	* Makefile.in (docdir): Added variable for custom DOC directory.
+
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* configure.in (with_ldap): Check libldap independently of liblber
+	Do not test alternate library names such as libldap10
+	Test the presence of a variety of LDAP API functions which were
+	formerly assumed to be present according to dubious heuristics
+
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released

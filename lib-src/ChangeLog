@@ -1,3 +1,20 @@
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-22  SL Baur  <steve@miho>
+
+	* Makefile.in.in (datadir): Add.
+	From Jeff Miller <jmiller@smart.net>
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released

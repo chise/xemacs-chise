@@ -461,7 +461,9 @@ You should never set this directory, only let-bind it.")
   (if (and (integerp help-max-help-buffers)
            (> help-max-help-buffers 0)
            (stringp name))
-      (format "*%s: %s*" help-buffer-prefix-string name)
+      (if help-buffer-prefix-string
+	  (format "*%s: %s*" help-buffer-prefix-string name)
+	(format "*%s*" name))
     (format "*%s*" help-buffer-prefix-string)))
 
 ;; Use this function for displaying help when C-h something is pressed

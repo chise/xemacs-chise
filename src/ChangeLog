@@ -165,6 +165,698 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+1999-08-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (determine_real_coding_system): Treat `coding:'
+	cookie.
+
+1999-08-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (struct decoding_stream): New member `counter'.
+	(reset_decoding_stream): Initialize `counter'.
+	(decode_coding_ucs4): Use `counter'.
+	(decode_coding_utf8): Likewise.
+
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-27  Jeff Miller  <jmiller@smart.net>
+
+	* add a "#ifdef HAVE_MENUBARS"  wrapper to gui.c around 
+	  menubar_show_keybindings.
+
+1999-07-23  SL Baur  <steve@miho>
+
+	* mule-charset.c (syms_of_mule_charset): Delete duplicated
+	definition of Qccl_program.
+
+	* mule-ccl.h: Make a global declaration of it here.
+
+1999-07-20  Bob Weiner  <weiner@beopen.com>
+
+	* s/sco7.h: Added from rr@sco.com.
+
+1999-06-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-ccl.c (ccl_driver): Fix `CCL_WriteMultibyteChar2'.
+
+1999-06-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (mule_decode): Setup `str->ccl.last_block'.
+	(mule_encode): Likewise.
+
+	* mule-ccl.c (Qccl_program): New variable.
+	(CCL_SUSPEND): New macro.
+	(CCL_INVALID_CMD): New macro.
+	(CCL_READ_CHAR): Don't regard as invalid command while processing
+	the last block even if input is empty; use
+	`CCL_STAT_SUSPEND_BY_SRC' instead of `CCL_STAT_SUSPEND'.
+	(vars_of_mule_ccl): Setup `Qccl_program' and `Qccl_program_idx'.
+
+	* mule-ccl.h (CCL_STAT_SUCCESS): Moved from mule-ccl.c.
+	(CCL_STAT_SUSPEND_BY_SRC): Imported from Emacs 20.3.10.
+	(CCL_STAT_SUSPEND_BY_DST): Likewise.
+	(CCL_STAT_INVALID_CMD): Moved from mule-ccl.c; change value from 2.
+	(CCL_STAT_QUIT): Moved from mule-ccl.c; change value from 3.
+
+1999-05-04  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule-ccl.h (struct ccl_program): New member stack_idx.
+
+	* mule-ccl.c (ccl_prog_stack_struct): Declare it as static.
+	(ccl_driver): Setup stack_idx and ccl_prog correctly.  Update them
+	before returing.
+	(setup_ccl_program): Initialize ccl->stack_idx to 0.
+
+1998-10-12  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_DECODE_SJIS, CCL_ENCODE_SJIS): Swap the
+	definitions.
+
+1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_READ_CHAR): If eof is encounterd while
+	processing the last block, don't just finish but processes eol
+	block of the current CCL program.
+	(ccl_driver): Add a new jump label ccl_repeat for the above
+	change.
+
+1998-04-15  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c: Typo in comments fixed.
+	(Qccl_program_idx): New variables.
+	(CCL_ReadMultibyteChar2): Macro name changed from
+	CCL_ReadMultibyteCharacter.
+	(CCL_WriteMultibyteChar2): Macro name changed from
+	CCL_WriteMultibyteChar2.
+	(ccl_driver): Adjusted for the above changes.
+	(resolve_symbol_ccl_program): New function.
+	(Fccl_execute): The arg CCL-PROGRAM can be a symbol of CCL
+	program.  If CCL-PRGRAM is a vector, convert symbols in it to ID
+	numbers by resolve_symbol_ccl_program.
+	(Fccl_execute_on_string): Likewise.
+	(Fregister_ccl_program): If the arg CCL-PRGRAM is a vector,
+	convert symbols in it to ID numbers by resolve_symbol_ccl_program.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.h: (struct ccl_program): New member private_state.
+
+	* mule-ccl.c
+	(CCL_Call): Fix the comment.
+	(CCL_ReadMultibyteCharacter, CCL_WriteMultibyteCharacter): New
+	macros for CCL Commands.
+	(EXCMD): New macro.
+	(ccl_driver): New case lable `CCL_Extention'.
+	(setup_ccl_program): Initialize the member `private_state' of CCL.
+
+1999-07-08  Katsumi Yamaoka <yamaoka@jpl.org>
+
+	* keymap.c (copy_keymap_internal): Inherit the default binding.
+
+1999-07-14  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	* event-Xt.c (handle_focus_event_1): Re-enable Motif/XIM to get
+	focus the event (XIM_focus_event).
+	(emacs_Xt_handle_magic_event): No side effect on Motif/XIM because 
+	XIM_SetGeometry does nothing in input_method_motif.c, but re-unify
+	the interface for future use (XIM_SetGeometry).
+	* redisplay-x.c (x_output_string): Re-enable Motif/XIM to set spot 
+	location (XIM_SetSpotLocation).
+	(x_output_eol_cursor): Ditto.
+
+1999-07-17  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* gdbinit (pobj): change lrecord_foo to &lrecord_foo to match
+	Olivier's change to lrecord.h of 1999-04-22
+
+1999-07-20  Robert Pluim  <rpluim@bigfoot.com>
+
+	* gutter.c (redraw_exposed_gutter): Change type of pos from
+	enum toolbar_pos -> enum gutter_pos, since former is only defined
+	if toolbar support is.
+
+1999-07-19  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_resize_subwindow): cope with widgets as well as
+ 	subwindows.
+
+	* gutter.c (gutter_validate): new function for the gutter specifier.
+	(specifier_type_create_gutter): declare specifier validator.
+
+	* buffer.h (INC_CHARBYTIND): add for no error checking version.
+
+1999-07-18  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (add_emchar_rune): use XSTRING_DATA not string_data.
+
+	* glyphs-msw.c (console_type_create_glyphs_mswindows): add
+ 	resize_subwindow.
+	(mswindows_resize_subwindow): new function.
+
+	* gutter.c (redraw_exposed_gutter): only reset the
+ 	current_display_lines if non-zero.
+	(Fgutter_pixel_height): new function.
+	(Fgutter_pixel_width): new function.
+
+	* event-msw.c (mswindows_wnd_proc): set the mask of the parameter
+ 	we want to retrive from the tab control.
+
+1999-07-17  Andy Piper  <andy@xemacs.org>
+
+	* window.c (change_window_height): mark gutters changed when we're
+ 	done.
+
+	* gutter.c (specifier_vars_of_gutter): make defaults more
+ 	sensible.
+
+	* gutter.h (WINDOW_REAL_GUTTER_BORDER_WIDTH): adjust to be 0 for 0
+ 	height gutter.
+	(DEFAULT_GUTTER_WIDTH): change.
+	(DEFAULT_GUTTER_BORDER_WIDTH): change.
+
+1999-07-18  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (add_emchar_rune): use XSTRING_DATA not string_data.
+
+1999-07-16  Andy Piper  <andy@xemacs.org>
+
+	* frame.c (Fmake_frame): call init_frame_gutters().
+
+	* redisplay.c (add_emchar_rune): use string functions if we are
+ 	working with a string.
+	(position_redisplay_data_type): add string element.
+
+1999-07-15  Andy Piper  <andy@xemacs.org>
+
+	* winslots.h: add real_gutter_size slots to hold the actual gutter
+ 	size. This is important for autodetected sizes.
+
+	* gutter.c (calculate_gutter_size): calculate size for gutters
+ 	that have 'autodetect size.
+
+	* redisplay-msw.c (mswindows_output_vertical_divider): adjust
+ 	extent of divider for gutters.
+
+	* redisplay-x.c (x_output_vertical_divider): adjust extent of
+ 	divider for gutters.
+
+	* scrollbar.c (update_scrollbar_instance): adjust scrollbar
+ 	position to take into account the gutters.
+
+	* redisplay.c (generate_modeline): adjust modeline position to
+ 	take into account the gutters.
+
+1999-07-14  Andy Piper  <andy@xemacs.org>
+
+	* gutter.c (frame_topmost_window): new function.
+	(frame_bottommost_window): ditto.
+	(frame_leftmost_window): ditto.
+	(frame_rightmost_window): ditto.
+
+1999-07-13  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (calculate_display_line_boundaries): use text
+ 	boundaries so that gutters get handled properly.
+
+1999-07-12  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c (x_widget_instantiate): set the font Motif-style if
+ 	we're using Motif.
+
+	* redisplay-output.c (redisplay_clear_to_window_end): generalised
+ 	from redisplay-x.c
+
+	* redisplay-x.c (redisplay_clear_to_window_end): moved to
+ 	redisplay.c
+	
+	* redisplay-msw.c (redisplay_clear_to_window_end): deleted.
+
+	* gutter.c: new file - implements gutters. All new functions are
+ 	semantically equivalent to the toolbar functions.
+	(gutter_was_visible): new function.
+	(get_gutter_coords): ditto.
+	(output_gutter): ditto.
+	(clear_gutter): ditto.
+	(update_frame_gutters): ditto.
+	(redraw_exposed_gutter): ditto.
+	(redraw_exposed_gutters): ditto.
+	(free_frame_gutters): ditto.
+	(init_frame_gutters): ditto.
+	(decode_gutter_position): ditto.
+	(Fset_default_gutter_position): ditto.
+	(Fset_default_gutter_position): ditto.
+	(Fdefault_gutter_position): ditto.
+	(gutter_after_change): ditto.
+	(Fgutter_specifier_p): ditto.
+	(recompute_overlaying_specifier): ditto.
+	(gutter_specs_changed): ditto.
+	(default_gutter_specs_changed): ditto.
+	(gutter_geometry_changed_in_window): ditto.
+	(default_gutter_size_changed_in_window): ditto.
+	(default_gutter_border_width_changed_in_window): ditto.
+	(default_gutter_visible_p_changed_in_window): ditto.
+	(syms_of_gutter): ditto.
+	(vars_of_gutter): ditto.
+	(specifier_type_create_gutter): ditto.
+	(specifier_vars_of_gutter): ditto.
+
+	* gutter.h: new file. Contains gutter constants and sizing macros
+ 	similar to those for the toolbar.
+
+	* winslots.h: add gutter variables.
+
+	* window.h: declare window_is_* functions.
+
+	* window.c (window_is_lowest): make non-static.
+	(window_is_highest): ditto.
+	(window_top_toolbar_height): deleted.
+	(window_bottom_toolbar_height): deleted.
+	(window_left_toolbar_width): deleted.
+	(window_right_toolbar_width): deleted.
+	(window_top_gutter_height): add gutter sizing.
+	(window_bottom_gutter_height): ditto.
+	(window_left_gutter_width): ditto.
+	(window_right_gutter_width): ditto.
+
+	* symsinit.h: declarations for gutters vars etc.
+
+	* search.c (bi_find_next_emchar_in_string): new function.
+
+	* scrollbar.c (update_scrollbar_instance): remove reference to
+ 	window_bottom_toolbar_height which did nothing.
+
+	* redisplay.h (struct display_line): add face indices for
+ 	overriding defaults in output_display_line.
+	Add gutter_changed flags and declarations.
+
+	* redisplay.c (create_string_text_block): new function, similar to
+ 	create_text_block but for strings. Display tables etc are used
+ 	from the currently selected window.
+	(generate_string_display_line): ditto. Similar to
+ 	generate_display_line.
+	(generate_displayable_area): generate display lines for a given
+ 	area on a frame. Input is the string, with associated extents, to
+ 	display.
+	(redisplay_frame): add gutter_changed check.
+	(redisplay_device): ditto.
+	(redisplay_without_hooks): ditto.
+
+	* redisplay-x.c (bevel_modeline): moved to redisplay.c.
+	(x_redraw_exposed_area): redraw exposed gutters.
+	(x_bevel_area): new redisplay device method.
+	(x_type_create_redisplay_mswindows): add bevel_area device method.
+	(x_output_display_block): fiddly Martin-style cleanup.
+	(x_output_vertical_divider): use bevel_area.
+
+	* redisplay-output.c (output_display_line): check display_lines
+ 	for face information before using defaults.
+	(bevel_modeline): new function, calls bevel_area with appropriate
+ 	values.
+
+	* redisplay-msw.c (bevel_modeline): moved to redisplay.c.
+	(mswindows_redraw_exposed_area): redraw exposed gutters.
+	(mswindows_bevel_area): new redisplay device method.
+	(console_type_create_redisplay_mswindows): add bevel_area device
+ 	method.
+
+	* indent.c (string_column_at_point): add column_at_point but for
+ 	strings.
+
+	* glyphs-x.c (image_instantiator_format_create_glyphs_x): only
+ 	instantiate widgets that we have a toolkit for.
+
+	* general.c: add Qgutter.
+
+	* frame.h (struct frame): add display lines for gutters and
+ 	visibility flags.
+
+	* frame.c (set_frame_selected_window): mark gutters changed.
+
+	* emacs.c (main_1): add gutter initialisation.
+
+	* device.h (struct device): add gutter_changed flag and macros to
+ 	manipulate it.
+
+	* console.h (struct console_methods): new bevel area redisplay
+ 	method.
+
+	* buffer.h (REAL_INC_CHARBYTIND): new macro for strings as
+ 	REAL_INC_BYTIND is for buffers.
+	(INC_CHARPTR): ditto.
+
+	* Makefile.in.in (objs): add gutter.o
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-08  SL Baur  <steve@mule.m17n.org>
+
+	* event-Xt.c (handle_focus_event_1): Guard FRAME_X_XIC with
+	XIM_XLIB.
+	(emacs_Xt_handle_magic_event): Ditto.
+	* redisplay-x.c (x_output_string): Ditto.
+	(x_output_eol_cursor): Ditto.
+
+1999-06-30  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	*  event-Xt.c, input-method-xlib.c, redisplay-x.c: Avoid the
+	problem that when XIM is destroyed or missed with some reason,
+	xemacs will die.  Now xim=xlib waits the XIM will be ready and
+	endures the case of XIM end up.
+
+1999-07-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+        * tooltalk.c (init_tooltalk): save signal actions for SIGQUIT,
+        SIGINT and SIGCHLD before calling tt_open and restore the
+        afterwards. This fixes e.g. the zombie subprocesses on Solaris
+
+1999-07-06  SL Baur  <steve@xemacs.org>
+
+	* s/linux.h: gcc-2.8 changes for powerpc
+	From Justin Vallon <vallon@mindspring.com>
+
+1999-07-05  Didier Verna  <verna@inf.enst.fr>
+
+	* indent.c: new symbol Qcoerce.
+	(Fmove_to_column): use it + doc string update.
+
+1999-07-04  Andy Piper  <andy@xemacs.org>
+
+	* console.c: undo earlier Fprovide changes.
+	* fns.c: ditto.
+	* console.h: ditto.
+
+	* console-tty.c (image_instantiator_format_create_glyphs_tty): new
+ 	function. validate appropriate image formats for tty.
+
+	* glyphs.h (INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM):
+ 	initialize consoles parameter.
+	(struct image_instantiator_methods): add consoles parameter.
+	(IIFORMAT_VALID_CONSOLE): new function. validate the format on the
+ 	console.
+	(INITIALIZE_DEVICE_IIFORMAT): validate the format on the given
+ 	console.
+
+	* glyphs-msw.c: declare instantiators for later use.
+	(image_instantiator_format_create_glyphs_mswindows): validate xpm
+ 	and friends on the mswindows console.
+	* glyphs-x.c: ditto.
+
+	* glyphs.c (valid_image_instantiator_format_p): disallow glyphs
+ 	that have not been registered on the supplied device.
+	(Fvalid_image_instantiator_format_p): add locale argument.
+	(instantiate_image_instantiator): valid image instantiator on the
+ 	device.
+
+	* symsinit.h: add image_instantiator_format_create_glyphs_tty()
+ 	declaration.
+
+	* emacs.c (main_1): add call to
+ 	image_instantiator_format_create_glyphs_tty().
+
+1999-06-29  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add #include <stddef.h>.
+
+	* sysdep.c: Remove #include <stddef.h>.
+	* symbols.c: Remove #include <stddef.h>.
+	* sheap.c: Remove #include <stddef.h>.
+	* opaque.c: Remove #include <stddef.h>.
+	* nt.c: Remove #include <stddef.h>.
+	* mule-charset.c: Remove #include <stddef.h>.
+	* marker.c: Remove #include <stddef.h>.
+	* file-coding.c: Remove #include <stddef.h>.
+	* extents.c: Remove #include <stddef.h>.
+	* elhash.c: Remove #include <stddef.h>.
+	* data.c: Remove #include <stddef.h>.
+	* chartab.c: Remove #include <stddef.h>.
+	* bytecode.c: Remove #include <stddef.h>.
+	* alloc.c: Remove #include <stddef.h>.  Fix vector description
+
+1999-06-30  SL Baur  <steve@miho.m17n.org>
+
+	* editfns.c: Document "%s" format spec.
+	Suggested by Bob Weiner <weiner@altrasoft.com>
+
+1999-06-29  Andy Piper  <andy@xemacs.org>
+
+	* event-msw.c: fix definition booboo.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c: change tree -> tree-view, progress ->
+ 	progress_gauge, edit -> edit-field, tab -> tab-control, combo ->
+ 	combo-box.
+	(complex_vars_of_glyphs_x): provide-on-console the implemented
+ 	widget types.
+
+	* glyphs-msw.c: ditto.
+	(complex_vars_of_glyphs_mswindows): ditto.
+
+	* lisp.h: add Fprovide_on_console.
+
+	* fns.c (Ffeaturep): add extra optional console argument.
+	(Fprovide_on_console): like Fprovide but provides only on the
+ 	specified console-type.
+	(Frequire): check console-features as well as global features.
+
+	* console.c (Fconsole_features): new function. return features for
+ 	this console.
+	(syms_of_console): add Fconsole_features.
+
+	* console.h (CONMETH_FEATURES): new function for accessing features.
+	(CONSOLE_FEATURES): ditto.
+	(struct console_methods): add features slot.
+	(INITIALIZE_CONSOLE_TYPE): initialize features slot.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* event-Xt.c (handle_focus_event_1): conditionally compile for
+ 	X11R5.
+
+	* s/cygwin32.h: fix me website address.
+
+	* event-msw.c: add NMHDR for pre b20 cygwin builds.
+
+	* gui-x.c (button_item_to_widget_value): only add callback if it
+ 	is non-nil.
+
+	* glyphs-x.c: add progress, edit and combo instantiators.
+	(x_widget_set_property): new function. uses lwlib to set widget
+ 	values.
+	(x_widget_property): new function. uses lwlib to get widget
+ 	values.
+	(x_button_instantiate): support images in buttons.
+	(x_button_property): new function. use lwlib to get the selected
+ 	state.
+	(x_progress_instantiate): new function for instantiating progress
+ 	gauges.
+	(x_progress_set_property): new function. sets the progress gauge
+ 	position.
+	(x_edit_instantiate): new function. for instantiating edit fields.
+	(x_combo_instantiate): new function. for instantiating combo
+ 	boxes.
+	(image_instantiator_format_create_glyphs_x): add new device ii
+ 	formats.
+
+	* glyphs-msw.c (mswindows_tab_instantiate): remove redundant var.
+
+	* console.h (CONSOLE_FEATURES): new features accesor.
+
+	* conslots.h (MARKED_SLOT): add features entry.
+
+1999-06-25  Andy Piper  <andy@xemacs.org>
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): use new
+ 	gui functions.
+
+	* menubar-msw.c: move MAX_MENUITEM_LENGTH to gui.h
+
+	* gui.h (struct Lisp_Gui_Item): add accelerator.
+
+	* gui.c (gui_item_add_keyval_pair): deal with accelerators.
+	(gui_item_init): ditto.
+	(gui_add_item_keywords_to_plist): ditto.
+	(mark_gui_item): ditto.
+	(gui_item_hash): ditto.
+	(gui_item_accelerator): new function.
+	(gui_name_accelerator): new function stolen from gui-x.c
+
+	* gui-x.c (popup_selection_callback): always define. mark
+ 	subwindows changed after calling a callback.
+	(menu_name_to_accelerator): deleted.
+	(button_item_to_widget_value): forward gui_item things to gui_item
+ 	functions.
+
+	* glyphs-x.h (struct x_subwindow_data): add data for widgets. add
+ 	appropriate accesors.
+
+	* glyphs-x.c: declare new glyph formats.
+	(x_finalize_image_instance): unmanage and destroy widgets if they
+ 	exist.
+	(x_unmap_subwindow): handle widgets specially.
+	(x_map_subwindow): ditto. offset display of widgets by offset of
+ 	text widget within container.
+	(x_update_subwindow): new function. call lw_modify_all_widgets
+ 	when we are a widget.
+	(x_widget_instantiate): new function for generically creating
+ 	widgets-glyphs. toolkit specifics forwarded to lwlib.
+	(x_button_instantiate): new function for instantiating
+ 	widgets-glyph buttons.
+	(console_type_create_glyphs_x): register update_subwindow.
+	(image_instantiator_format_create_glyphs_x): register widget and
+ 	button types.
+
+	* event-msw.c (mswindows_wnd_proc): remove redundant variable.
+
+	* event-Xt.c (x_event_to_emacs_event): call handle_focus_event_1
+ 	when we get a button press in case we do not have the focus.
+	(handle_focus_event_1): set the keyboard focus to the text widget
+ 	if we do not have it.
+
+	* dialog-x.c (dbox_descriptor_to_widget_value): use new gui_item
+ 	functions.
+
+1999-06-24  SL Baur  <steve@miho.m17n.org>
+
+	* syntax.c (scan_words): Restore non-Mule code.
+	(word_constituent_p): Restore.
+
+1999-06-23  Olivier Galibert  <galibert@pobox.com>
+
+	* config.h.in: Add missing #undef *_USER_DEFINED.
+
+1999-06-23  SL Baur  <steve@miho.m17n.org>
+
+	* lisp.h (set_bit_vector_bit): Force promotion to unsigned long
+	int (fixes a 64-bit problem).
+
+	* chartab.c (word_boundary_p): Use EQ not == for lisp_object
+	comparison.
+
+1999-03-23  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* paths.h.in (PATH_DOC): Made doc-directory configurable.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added basic external description system.
+
+	* symbols.c: Added symbol, symbol-value-buffer-local,
+ 	symbol-value-lisp-magic and symbol-value-varalias description.
+	* mule-charset.c: Added charset description.
+	* marker.c: Added marker description.
+	* keymap.c: Added keymap description.
+	* glyphs.c: Added glyph description.
+	* floatfns.c: Added float description.
+	* file-coding.c: Added coding-system description.
+	* extents.c: Added extent description.
+	* elhash.c: Added hash-table description.
+	* data.c: Added weak-list desciption.
+	* chartab.c: Added char-table-entry and char-table description.
+	* bytecode.c: Added compiled-function description.
+	* alloc.c: Added cons, vector and string description.
+
+1999-06-22  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h (struct lrecord_header): Reduced size to 4 bytes.
+	Updated everything to the removal of the "flags" substructure.
+
+	* lisp.h (subr_lheader_initializer): Updated.
+	* symeval.h (symbol_value_forward_lheader_initializer): Updated.
+
+1999-06-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* syntax.c (word_constituent_p): Deleted.
+	(scan_words): Use `WORD_BOUNDARY_P'.
+
+	* chartab.c (Vword_combining_categories): New variable.
+	(Vword_separating_categories): Likewise.
+	(CATEGORYP): New macro.
+	(CATEGORY_SET): Likewise.
+	(CATEGORY_MEMBER): Likewise.
+	(word_boundary_p): New function.
+	(complex_vars_of_chartab): Set up new variable
+	`word-combining-categories' and `word-separating-categories'.
+
+1999-06-18  Olivier Galibert  <galibert@pobox.com>
+
+	* lrecord.h: Added description as a placehold in the lrecord
+ 	implementation structures.  Added the parameter to all constructor
+ 	defines.
+
+	* alloc.c: Added placeholders.
+	* buffer.c: Ditto.
+	* bytecode.c: Ditto.
+	* chartab.c: Ditto.
+	* console.c: Ditto.
+	* data.c: Ditto.
+	* database.c: Ditto.
+	* device.c: Ditto.
+	* eldap.c: Ditto.
+	* elhash.c: Ditto.
+	* eval.c: Ditto.
+	* event-stream.c: Ditto.
+	* events.c: Ditto.
+	* extents.c: Ditto.
+	* faces.c: Ditto.
+	* file-coding.c: Ditto.
+	* floatfns.c: Ditto.
+	* fns.c: Ditto.
+	* frame.c: Ditto.
+	* glyphs.c: Ditto.
+	* gui-x.c: Ditto.
+	* keymap.c: Ditto.
+	* lstream.c: Ditto.
+	* marker.c: Ditto.
+	* mule-charset.c: Ditto.
+	* objects.c: Ditto.
+	* opaque.c: Ditto.
+	* process.c: Ditto.
+	* rangetab.c: Ditto.
+	* specifier.c: Ditto.
+	* symbols.c: Ditto.
+	* toolbar.c: Ditto.
+	* tooltalk.c: Ditto.
+	* window.c: Ditto.
+
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-13  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* config.h.in (HAVE_LDAP_SET_OPTION): New define
+	(HAVE_LDAP_GET_LDERRNO): Ditto
+	(HAVE_LDAP_RESULT2ERROR): Ditto
+	(HAVE_LDAP_PARSE_RESULT): Ditto
+	(HAVE_UMICH_LDAP): Removed
+	(HAVE_NS_LDAP): Removed
+
+	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as
+	suggested by Olivier Galibert
+	(CHECK_LIVE_LDAP): Test on `ld' instead of `livep'
+
+	* eldap.c: Take the removal of `livep' into account in all the
+	necessary functions
+	(signal_ldap_error): Take two additional parameters
+	Added new finer compilation conditions in order to use
+	ldap_parse_result or ldap_result2error if available
+	(Fldap_open): Conform to this new API
+	(Fldap_search_internal): Ditto
+
+1999-06-17  SL Baur  <steve@miho.m17n.org>
+
+	* data.c (struct int_or_double): Should use EMACS_INT not int.
+
+1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
+
+	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in
+	redisplay-x.c
+
 1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* redisplay-x.c (separate_textual_runs): Run `ccl_driver' with
@@ -183,6 +875,97 @@
 	* mule-ccl.h (CCL_MODE_ENCODING): New macro.
 	(CCL_MODE_DECODING): New macro.
 	(ccl_driver): Add new argument `conversion_mode'.
+
+1999-06-15  SL Baur  <steve@miho.m17n.org>
+
+	* mule-charset.c (Fsplit_char): New subr.
+	(Fchar_octet): delete.
+	(syms_of_mule_charset): DEFSUBR it.
+
+1999-06-13  Andy Piper  <andy@xemacs.org>
+
+	* menubar.h: update declarations involving gui_items.
+
+	* lisp.h: declare Lisp_Gui_Item.
+
+	* glyphs.h (struct Lisp_Image_Instance): update type of gui_item.
+
+	* glyphs.c (mark_image_instance): modify for new lisp-based gui_items.
+	(print_image_instance): ditto.
+	(image_instance_equal): ditto.
+	(image_instance_hash): ditto.
+
+	* event-msw.c (mswindows_need_event): assert badly_p status.
+	(mswindows_wnd_proc): modify WM_NOTIFY handling to cope with
+ 	callbacks in tree-view and tab-control widgets.
+	(emacs_mswindows_next_event): modify use of
+ 	mswindows_dequeue_dispatch_event.
+
+	* dialog-msw.c (mswindows_popup_dialog_box): modify for new
+ 	lisp-based gui_items.
+
+	* glyphs-msw.c (mswindows_update_subwindow): update use of
+ 	gui_items.
+	(mswindows_register_gui_item): new function.
+	(mswindows_register_gui_item): fix to use lisp gui_items.
+	(mswindows_widget_instantiate): ditto.
+	(mswindows_button_instantiate): ditto.
+	(add_tree_item): new function to recursively add tree view
+ 	elements.
+	(add_tree_item_list): ditto.
+	(mswindows_tree_instantiate): new function. instantiate tree view
+ 	controls.
+	(add_tab_item): new function to add tabs to a tab control.
+	(mswindows_tab_instantiate): new function. instantiate tab
+ 	controls.
+	(image_instantiator_format_create_glyphs_mswindows): add tree view
+ 	and tab controls.
+	(vars_of_glyphs_mswindows): ditto.
+
+	* glyphs-widget.c (check_valid_item_list_1): allow nested lists in
+ 	item lists.
+	(check_valid_item_list): ditto.
+	(initialize_widget_image_instance): fix to use new lisp gui_item.
+	(widget_instantiate_1): allow the setting of default textwidth in
+ 	characters.
+	(widget_instantiate): change to use new widget_instantiate_1
+ 	signature.
+	(combo_instantiate): ditto.
+	(static_instantiate): ditto.
+	(tab_instantiate): new function for tab widgets.
+	(image_instantiator_format_create_glyphs_widget): add tab and tree
+ 	view widgets.
+
+	* menubar-msw.c (displayable_menu_item): convert to use lisp
+ 	gui_items.
+	(populate_menu_add_item): ditto.
+	(populate_or_checksum_helper): ditto.
+
+	* menubar.c (menu_parse_submenu_keywords): convert to use lisp
+ 	gui_items.
+	(Fmenu_find_real_submenu): ditto.
+
+	* gui.h (struct Lisp_Gui_Item): make gui_item a lisp oebjct.
+
+	* gui.c (gui_item_add_keyval_pair): gui_items are now lisp
+ 	objects, convert functions that use them accordingly.
+	(gui_item_init): ditto.
+	(gui_item_active_p): ditto.
+	(gui_item_selected_p): ditto.
+	(gui_item_included_p): ditto.
+	(gui_item_display_flush_left): ditto.
+	(gui_item_display_flush_right): ditto.
+	(mark_gui_item): ditto.
+	(allocate_gui_item): new function to create a gui_item.
+	(make_gui_item_from_keywords_internal): ditto. create and return a
+ 	gui_item as well as setting keywords.
+	(gui_parse_item_keywords): ditto.
+	(gui_parse_item_keywords_no_errors): ditto.
+	(gui_add_item_keywords_to_plist): new function, not yet used.
+	(gui_item_hash): new function.
+	(gui_item_id_hash): use gui_item_hash.
+	(gui_item_equal): new function.
+	(print_gui_item): new function.
 
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
@@ -212,12 +995,6 @@
 	`no-conversion' as an alias for `raw-text'.
 
 	* file-coding.h (Qraw_text): New variable.
-
-1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule-charset.c (complex_vars_of_mule_charset): Registry of
-	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
-	"jisc6226.1983".
 
 1999-06-08  SL Baur  <steve@xemacs.org>
 
@@ -355,9 +1132,9 @@
  	ARG2.
 
 1999-05-21  Andy Piper  <andy@xemacs.org>
-	
+
 	* xselect.c: deleted.
-	
+
 	* symsinit.h: declare select initialisation.
 
 	* select.h: new file. declare commonly used select functions and
@@ -490,7 +1267,7 @@
 	is interned in the main obarray.
 
 1999-04-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
-        
+
 	* menubar-x.c (pre_activate_callback): set accelerator field in
 	"No menu" entries to nil. Avoid crash in
 	command_builder_operate_menu_accelerator
@@ -512,13 +1289,13 @@
 	* m/intel386.h: remove redundant definitions.
 
 	* s/mingw32.h: new header for mingw32.
-	
+
 	* unexnt.c: (open_input_file): function moved to nt.c.
 	(close_file_data): ditto.
 	(rva_to_section): function moved to ntproc.
 
 	* symsinit.h: declare syms_of_ntproc();
-	
+
 	* objects-msw.c (mswindows_font_instance_truename): new function.
 
 	* ntproc.c: remove many warnings.
@@ -530,7 +1307,7 @@
 	(sys_spawnve): fix bad MULE/GCPRO bug in filename handling.
 
 	* ntheap.h: remove declarations of functions that are now static.
-	
+
 	* ntheap.c: support static heap.
 
 	* nt.h: conditionalise X_OK definition.
@@ -541,7 +1318,7 @@
 	(_sys_read_ahead): moved to ntproc.c
 
 	* emacs.c: make sure syms_of_ntptroc gets called under windows.
-	
+
 	* console-msw.h: support mingw32.
 	* getloadavg.c: ditto.
 	* ntplay.c: ditto.
@@ -552,14 +1329,14 @@
 
 	* config.h.in: dont turn on DEBUG_ENCAPSULATION by default because
  	some systems don't have all of the encapsulated system calls.
-	
+
 	* callproc.c: warning elimination.
 	* dired-msw.c: ditto.
 	* process-nt.c: ditto.
 	* realpath.c: ditto.
-	
+
 	* Makefile.in.in: tweak : and ; for building under mswindows.
-	
+
 1999-04-26  Michael Harnois  <mharnois@willinet.net>
 
 	* eldap.c (allocate_ldap): Adapt to the new semantics of
@@ -675,7 +1452,7 @@
 	* symbols.c: Make gung-ho mandatory.  make_pure_pname ->
  		  make_string or make_string_nocopy.  Fix various
 	 	  alloc_lcrecord_type.
-	
+
 	* lread.c: Remove everything purespace related.
 	(Flocate_file_clear_hashing): purified -> c_readonly.
 	(locate_file): Ditto.
@@ -844,7 +1621,7 @@
 
 	* fns.c (base64_decode_1): Remove COUNTER.
 	(base64_decode_1): Accept CRLF in addition to CR.
-	(base64_decode_1): Disallow a stray character after final EOF; the 
+	(base64_decode_1): Disallow a stray character after final EOF; the
 	check was probably a remnant of buggy recode code.
 
 1998-12-05  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1013,8 +1790,8 @@
 	(composite_char_string):
 	(make-composite-char):
 	(composite-char-string):
-	(syms_of_mule_charset): 
-	(complex_vars_of_mule_charset): 
+	(syms_of_mule_charset):
+	(complex_vars_of_mule_charset):
 	* mule-charset.h (LEADING_BYTE_COMPOSITE):
 	(CHAR_LEADING_BYTE):
 	(MAKE_CHAR):
@@ -1027,8 +1804,8 @@
 	(reset_iso2022):
 	(parse_iso2022_esc):
 	(encode_coding_iso2022):
-	#ifdef out all composite character support using 
-	#ifdef ENABLE_COMPOSITE_CHARS 
+	#ifdef out all composite character support using
+	#ifdef ENABLE_COMPOSITE_CHARS
 
 	* alloc.c: Define lrecord_coding_system only if ! FILE_CODING
 
@@ -5312,4 +6089,3 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-05-10  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* frame.c (Ffocus_frame): New function.
-

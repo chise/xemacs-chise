@@ -553,6 +553,7 @@ DOC_SRC3=\
  $(XEMACS)\src\glyphs-widget.c \
  $(XEMACS)\src\gmalloc.c \
  $(XEMACS)\src\gui.c  \
+ $(XEMACS)\src\gutter.c \
  $(XEMACS)\src\hash.c \
  $(XEMACS)\src\imgproc.c \
  $(XEMACS)\src\indent.c \
@@ -650,8 +651,7 @@ DOC_SRC7=\
 DOC_SRC8=\
  $(XEMACS)\src\mule.c \
  $(XEMACS)\src\mule-charset.c \
- $(XEMACS)\src\mule-ccl.c \
- $(XEMACS)\src\mule-coding.c
+ $(XEMACS)\src\mule-ccl.c
 ! if $(HAVE_X)
  DOC_SRC8=$(DOC_SRC8) $(XEMACS)\src\input-method-xlib.c
 ! endif
@@ -739,8 +739,7 @@ TEMACS_MSW_OBJS=\
 TEMACS_MULE_OBJS=\
 	$(OUTDIR)\mule.obj \
 	$(OUTDIR)\mule-charset.obj \
-	$(OUTDIR)\mule-ccl.obj \
-	$(OUTDIR)\mule-coding.obj
+	$(OUTDIR)\mule-ccl.obj
 ! if $(HAVE_X)
 TEMACS_MULE_OBJS=\
 	$(TEMACS_MULE_OBJS) $(OUTDIR)\input-method-xlib.obj
@@ -802,6 +801,7 @@ TEMACS_OBJS= \
 	$(OUTDIR)\glyphs-widget.obj \
 	$(OUTDIR)\gmalloc.obj \
 	$(OUTDIR)\gui.obj \
+	$(OUTDIR)\gutter.obj \
 	$(OUTDIR)\hash.obj \
 	$(OUTDIR)\indent.obj \
 	$(OUTDIR)\imgproc.obj \
@@ -852,7 +852,7 @@ TEMACS_OBJS= \
 # Rules
 
 .SUFFIXES:
-.SUFFIXES:	.c
+.SUFFIXES:	.c .texi
 
 # nmake rule
 !if $(DEBUG_XEMACS)
@@ -889,6 +889,202 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS)
 
 $(OUTDIR)\xemacs.res: xemacs.rc
 	rc -Fo$@ xemacs.rc
+
+# Section handling automated tests starts here
+
+SRCDIR=..\src
+PROGNAME=$(SRCDIR)\xemacs.exe
+blddir=$(MAKEDIR:\=\\)\\..
+temacs_loadup=$(TEMACS) -batch -l $(SRCDIR)/../lisp/loadup.el
+dump_temacs   = $(temacs_loadup) dump
+run_temacs    = $(temacs_loadup) run-temacs
+## We have automated tests!!
+testdir=../tests/automated
+batch_test_emacs=-batch -l $(testdir)/test-harness.el -f batch-test-emacs $(testdir)
+
+# .PHONY: check check-temacs
+
+check:
+	cd $(SRCDIR)
+	$(PROGNAME) $(batch_test_emacs)
+
+check-temacs:
+	cd $(SRCDIR)
+	set EMACSBOOTSTRAPLOADPATH=$(LISP)
+	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
+	$(run_temacs) $(batch_test_emacs)
+
+# Section handling automated tests ends here
+
+# Section handling info starts here
+MAKEINFO=$(PROGNAME) -no-site-file -no-init-file -batch -l texinfmt -f batch-texinfo-format
+
+MANDIR = $(XEMACS)\man
+INFODIR = $(XEMACS)\info
+INFO_FILES= \
+	$(INFODIR)\cl.info \
+	$(INFODIR)\custom.info \
+	$(INFODIR)\emodules.info \
+	$(INFODIR)\external-widget.info \
+	$(INFODIR)\info.info \
+	$(INFODIR)\standards.info \
+	$(INFODIR)\term.info \
+	$(INFODIR)\termcap.info \
+	$(INFODIR)\texinfo.info \
+	$(INFODIR)\widget.info \
+	$(INFODIR)\xemacs-faq.info \
+	$(INFODIR)\xemacs.info \
+	$(INFODIR)\lispref.info \
+	$(INFODIR)\new-users-guide.info \
+	$(INFODIR)\internals.info
+
+{$(MANDIR)}.texi{$(INFODIR)}.info:
+	$(MAKEINFO) $**
+
+$(INFODIR)\xemacs.info:	$(MANDIR)\xemacs\xemacs.texi
+	$(MAKEINFO) $**
+
+$(MANDIR)\xemacs\xemacs.texi: \
+	$(MANDIR)\xemacs\abbrevs.texi \
+	$(MANDIR)\xemacs\basic.texi \
+	$(MANDIR)\xemacs\buffers.texi \
+	$(MANDIR)\xemacs\building.texi \
+	$(MANDIR)\xemacs\calendar.texi \
+	$(MANDIR)\xemacs\cmdargs.texi \
+	$(MANDIR)\xemacs\custom.texi \
+	$(MANDIR)\xemacs\display.texi \
+	$(MANDIR)\xemacs\entering.texi \
+	$(MANDIR)\xemacs\files.texi \
+	$(MANDIR)\xemacs\fixit.texi \
+	$(MANDIR)\xemacs\glossary.texi \
+	$(MANDIR)\xemacs\gnu.texi \
+	$(MANDIR)\xemacs\help.texi \
+	$(MANDIR)\xemacs\indent.texi \
+	$(MANDIR)\xemacs\keystrokes.texi \
+	$(MANDIR)\xemacs\killing.texi \
+	$(MANDIR)\xemacs\\xemacs.texi \
+	$(MANDIR)\xemacs\m-x.texi \
+	$(MANDIR)\xemacs\major.texi \
+	$(MANDIR)\xemacs\mark.texi \
+	$(MANDIR)\xemacs\menus.texi \
+	$(MANDIR)\xemacs\mini.texi \
+	$(MANDIR)\xemacs\misc.texi \
+	$(MANDIR)\xemacs\mouse.texi \
+	$(MANDIR)\xemacs\new.texi \
+	$(MANDIR)\xemacs\picture.texi \
+	$(MANDIR)\xemacs\programs.texi \
+	$(MANDIR)\xemacs\reading.texi \
+	$(MANDIR)\xemacs\regs.texi \
+	$(MANDIR)\xemacs\frame.texi \
+	$(MANDIR)\xemacs\search.texi \
+	$(MANDIR)\xemacs\sending.texi \
+	$(MANDIR)\xemacs\text.texi \
+	$(MANDIR)\xemacs\trouble.texi \
+	$(MANDIR)\xemacs\undo.texi \
+	$(MANDIR)\xemacs\windows.texi \
+
+
+$(INFODIR)\lispref.info:	$(MANDIR)\lispref\lispref.texi
+	copy $(MANDIR)\lispref\index.perm $(MANDIR)\lispref\index.texi
+	$(MAKEINFO) $**
+
+$(MANDIR)\lispref\lispref.texi: \
+	$(MANDIR)\lispref\abbrevs.texi \
+	$(MANDIR)\lispref\annotations.texi \
+	$(MANDIR)\lispref\back.texi \
+	$(MANDIR)\lispref\backups.texi \
+	$(MANDIR)\lispref\buffers.texi \
+	$(MANDIR)\lispref\building.texi \
+	$(MANDIR)\lispref\commands.texi \
+	$(MANDIR)\lispref\compile.texi \
+	$(MANDIR)\lispref\consoles-devices.texi \
+	$(MANDIR)\lispref\control.texi \
+	$(MANDIR)\lispref\databases.texi \
+	$(MANDIR)\lispref\debugging.texi \
+	$(MANDIR)\lispref\dialog.texi \
+	$(MANDIR)\lispref\display.texi \
+	$(MANDIR)\lispref\edebug-inc.texi \
+	$(MANDIR)\lispref\edebug.texi \
+	$(MANDIR)\lispref\errors.texi \
+	$(MANDIR)\lispref\eval.texi \
+	$(MANDIR)\lispref\extents.texi \
+	$(MANDIR)\lispref\faces.texi \
+	$(MANDIR)\lispref\files.texi \
+	$(MANDIR)\lispref\frames.texi \
+	$(MANDIR)\lispref\functions.texi \
+	$(MANDIR)\lispref\glyphs.texi \
+	$(MANDIR)\lispref\hash-tables.texi \
+	$(MANDIR)\lispref\help.texi \
+	$(MANDIR)\lispref\hooks.texi \
+	$(MANDIR)\lispref\index.texi \
+	$(MANDIR)\lispref\internationalization.texi \
+	$(MANDIR)\lispref\intro.texi \
+	$(MANDIR)\lispref\keymaps.texi \
+	$(MANDIR)\lispref\ldap.texi \
+	$(MANDIR)\lispref\lists.texi \
+	$(MANDIR)\lispref\loading.texi \
+	$(MANDIR)\lispref\locals.texi \
+	$(MANDIR)\lispref\macros.texi \
+	$(MANDIR)\lispref\maps.texi \
+	$(MANDIR)\lispref\markers.texi \
+	$(MANDIR)\lispref\menus.texi \
+	$(MANDIR)\lispref\minibuf.texi \
+	$(MANDIR)\lispref\modes.texi \
+	$(MANDIR)\lispref\mouse.texi \
+	$(MANDIR)\lispref\mule.texi \
+	$(MANDIR)\lispref\numbers.texi \
+	$(MANDIR)\lispref\objects.texi \
+	$(MANDIR)\lispref\os.texi \
+	$(MANDIR)\lispref\positions.texi \
+	$(MANDIR)\lispref\processes.texi \
+	$(MANDIR)\lispref\range-tables.texi \
+	$(MANDIR)\lispref\scrollbars.texi \
+	$(MANDIR)\lispref\searching.texi \
+	$(MANDIR)\lispref\sequences.texi \
+	$(MANDIR)\lispref\specifiers.texi \
+	$(MANDIR)\lispref\streams.texi \
+	$(MANDIR)\lispref\strings.texi \
+	$(MANDIR)\lispref\symbols.texi \
+	$(MANDIR)\lispref\syntax.texi \
+	$(MANDIR)\lispref\text.texi \
+	$(MANDIR)\lispref\tips.texi \
+	$(MANDIR)\lispref\toolbar.texi \
+	$(MANDIR)\lispref\tooltalk.texi \
+	$(MANDIR)\lispref\variables.texi \
+	$(MANDIR)\lispref\windows.texi \
+	$(MANDIR)\lispref\x-windows.texi \
+	$(MANDIR)\lispref\index.unperm \
+	$(MANDIR)\lispref\index.perm \
+
+
+$(INFODIR)\new-users-guide.info:	$(MANDIR)\new-users-guide\new-users-guide.texi
+	$(MAKEINFO) $**
+
+$(MANDIR)\new-users-guide\new-users-guide.texi: \
+	$(MANDIR)\new-users-guide\custom1.texi \
+	$(MANDIR)\new-users-guide\files.texi \
+	$(MANDIR)\new-users-guide\region.texi \
+	$(MANDIR)\new-users-guide\custom2.texi \
+	$(MANDIR)\new-users-guide\help.texi \
+	$(MANDIR)\new-users-guide\search.texi \
+	$(MANDIR)\new-users-guide\edit.texi \
+	$(MANDIR)\new-users-guide\modes.texi \
+	$(MANDIR)\new-users-guide\xmenu.texi \
+	$(MANDIR)\new-users-guide\enter.texi \
+
+
+$(INFODIR)\internals.info:	$(MANDIR)\internals\internals.texi
+	copy $(MANDIR)\internals\index.perm $(MANDIR)\internals\index.texi
+	$(MAKEINFO) $**
+
+$(MANDIR)\internals\internals.texi: \
+	$(MANDIR)\internals\index.unperm \
+	$(MANDIR)\internals\index.perm \
+
+
+info:	$(INFO_FILES)
+
+# Section handling info ends here
 
 #------------------------------------------------------------------------------
 
@@ -928,7 +1124,7 @@ dump-xemacs: $(TEMACS)
 
 # use this rule to build the complete system
 all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
-	$(TEMACS) update-elc $(DOC) dump-xemacs
+	$(TEMACS) update-elc $(DOC) dump-xemacs info
 
 temacs: $(TEMACS)
 
@@ -991,6 +1187,8 @@ distclean:
 	del $(CONFIG_VALUES)
 	cd $(LISP)
 	-del /s /q *.bak *.elc *.orig *.rej
+	cd $(INFODIR)
+	del *.info* $(MANDIR)\internals\index.texi $(MANDIR)\lispref\index.texi
 
 depend:
 	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c

@@ -2592,7 +2592,8 @@ indicating whether soft newlines should be inserted.")
 		       bounce
 		       ;; 97/3/14 jhod: Kinsoku
 		       (re-break-point (if (featurep 'mule)
-					    (concat "[ \t\n]\\|" word-across-newline)
+					    (concat "[ \t\n]\\|" word-across-newline
+						    ".\\|." word-across-newline)
 					"[ \t\n]"))
 		       ;; end patch
 		       (first t))
@@ -2889,6 +2890,7 @@ unless optional argument SOFT is non-nil."
       (if (and comcol (not fill-prefix))  ; XEmacs - (ENE) from fa-extras.
 	  (let ((comment-column comcol)
 		(comment-start comstart)
+		(block-comment-start comstart)
 		(comment-end comment-end))
 	    (and comment-end (not (equal comment-end ""))
   ;	       (if (not comment-multi-line)

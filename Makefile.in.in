@@ -93,6 +93,14 @@ PROGNAME=@PROGNAME@
 ## not need to change them.  This defaults to /usr/local.
 prefix=@prefix@
 
+## Variable data (as per each program update) goes here
+## The default is ${PROGNAME}
+inststaticdir=@inststaticdir@
+
+## Static data (constant across program updates) goes here
+## The default is ${PROGNAME}-${version}
+instvardir=@instvardir@
+
 ## Like `prefix', but used for architecture-specific files.
 exec_prefix=@exec_prefix@
 
@@ -190,6 +198,9 @@ etcdir=@etcdir@
 ## the XEmacs locking code keeps track of which files are
 ## currently being edited.
 lockdir=@lockdir@
+
+# Where to put the DOC file.
+docdir=@docdir@
 
 ## Where to put executables to be run by XEmacs rather than
 ## the user.  This path usually includes the XEmacs version
@@ -393,9 +404,8 @@ install-arch-dep: mkdir
 	   if test -f ../Installation; then \
 		${INSTALL_DATA} ../Installation ${archlibdir}/Installation; \
 	   fi; \
-	   for f in DOC config.values; do \
-		${INSTALL_DATA} lib-src/$${f} ${archlibdir}/$${f}; \
-	   done ; \
+	   ${INSTALL_DATA} lib-src/config.values ${docdir}/config.values; \
+	   ${INSTALL_DATA} lib-src/DOC ${docdir}/DOC; \
 	   for subdir in `find ${archlibdir} -type d ! -name RCS ! -name SCCS ! -name CVS -print` ; \
 	     do (cd $${subdir} && $(RM) -r RCS CVS SCCS \#* *~) ; done ; \
 	else true; fi
@@ -404,10 +414,10 @@ install-arch-dep: mkdir
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
 	if test "${prefix}" != "${exec_prefix}"; then \
 	  for dir in \
-		lib/${PROGNAME} \
-	 	lib/${PROGNAME}-${version}/etc \
-		lib/${PROGNAME}-${version}/info \
-		lib/${PROGNAME}-${version}/lisp; do \
+		lib/${inststaticdir} \
+	 	lib/${instvardir}/etc \
+		lib/${instvardir}/info \
+		lib/${instvardir}/lisp; do \
 	    if test ! -d ${exec_prefix}/$${dir}; then \
 	      $(LN_S) ${prefix}/$${dir} ${exec_prefix}/$${dir}; fi; \
 	  done; \
@@ -449,7 +459,6 @@ install-arch-indep: mkdir info
 	    chmod 0644 ${infodir}/$${file}; \
 	  done ; \
 	fi
-	## Note it's `xemacs' not ${PROGNAME}
 	cd ${srcdir}/etc && \
 	  for page in xemacs etags ctags gnuserv gnuclient gnuattach gnudoit; do \
 	    ${INSTALL_DATA} ${srcdir}/etc/$${page}.1 ${mandir}/$${page}${manext} ; \
@@ -471,7 +480,7 @@ MAKEPATH=./lib-src/make-path
 ## (e.g. /usr/local/lib/${PROGNAME}-20.5/sparc-sun-solaris2.6), we use
 ## make-path instead of mkdir.  Not all mkdirs have the `-p' flag.
 mkdir: FRC.mkdir
-	${MAKEPATH} ${COPYDESTS} ${lockdir} ${infodir} ${archlibdir} \
+	${MAKEPATH} ${COPYDESTS} ${lockdir} ${docdir} ${infodir} ${archlibdir} \
 	  ${mandir} ${bindir} ${datadir} ${libdir} ${pkgdir} \
 	  ${sitelispdir} ${moduledir} ${sitemoduledir}
 	-chmod 0777 ${lockdir}

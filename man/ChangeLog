@@ -1,3 +1,30 @@
+1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.19 is released
+
+1999-07-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* emodules.texi: Use @set emacs and @value{emacs} instead of
+	@macro (unsupported by texinfo package).  Remove stray @code.
+	* custom.texi: Add info extension to @setfilename.
+	* texinfo.texi: Ditto.
+	* widget.texi: Ditto.
+	* packages.texi: Reword a sentence, fixing @item Decide where to
+ 	install ...
+
+1999-07-19  Didier Verna  <verna@inf.enst.fr>
+
+	* custom.texi (Wishlist): removed the Custom Comments wishlist
+	entry. They are implemented.
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
 1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.16 is released
@@ -213,7 +240,7 @@
 1998-09-03  Darryl Okahata  <darrylo@sr.hp.com>
 
 	* xemacs/packages.texi: Correct and update package documentation.
-	  Updated the package installation section to mention the visual 
+	  Updated the package installation section to mention the visual
 	  package browser/installer.
 
 1998-08-31  Hrvoje Niksic  <hniksic@srce.hr>
@@ -235,7 +262,7 @@
 
 	* xemacs/startup.texi: Small fixes, suggested by Hrvoje.
 
-	* xemacs/xemacs.texi: 
+	* xemacs/xemacs.texi:
 	* xemacs/packages.texi: More packages documentation.
 
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
@@ -302,15 +329,15 @@
 
 1998-06-20  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
-	* xemacs/abbrevs.texi: 
-	* xemacs/basic.texi: 
-	* xemacs/buildings.texi: 
-	* xemacs/cmdargs.texi: 
-	* xemacs/files.texi: 
+	* xemacs/abbrevs.texi:
+	* xemacs/basic.texi:
+	* xemacs/buildings.texi:
+	* xemacs/cmdargs.texi:
+	* xemacs/files.texi:
 	* xemacs/adjustments.texi: Adjustments to integrate startup.texi
 	and packages.texi stuff.
 
-	* xemacs/startup.texi: 
+	* xemacs/startup.texi:
 	* xemacs/packages.texi: Created.
 
 1998-06-10  Adrian Aichner  <aichner@ecf.teradyne.com>
@@ -326,12 +353,12 @@
 
 1998-06-13  Greg Klanderman  <greg@alphatech.com>
 
-	* lispref/windows.texi (Resizing Windows): document third optional 
+	* lispref/windows.texi (Resizing Windows): document third optional
 	WINDOW argument to enlarge-window and shrink-window.
 	(Selecting Windows): document select-window optional norecord
-	argument. 
+	argument.
 	(Size of Window): document window-text-area-pixel-height and
-	window-text-area-pixel-width. 
+	window-text-area-pixel-width.
 	(Size of Window): document window-displayed-text-pixel-height.
 	(Position of Window): document window-text-area-pixel-edges.
 
@@ -422,7 +449,7 @@
 1998-05-13  Greg Klanderman  <greg@alphatech.com>
 
 	* lispref/frames.texi (Input Focus): cleanup select-frame
-	documentation. 
+	documentation.
 
 1998-05-10  Oliver Graf <ograf@fga.de>
 
@@ -438,7 +465,7 @@
 
 1998-05-04  Martin Buchholz  <martin@xemacs.org>
 
-	* internals.texi (Techniques for XEmacs Developers): Add some more 
+	* internals.texi (Techniques for XEmacs Developers): Add some more
 	comments on adding new files, inspired by Olivier Galibert.
 
 1998-05-02  Hrvoje Niksic  <hniksic@srce.hr>
@@ -446,7 +473,7 @@
 	* lispref/windows.texi (Vertical Scrolling): Fixup docstring for
  	scroll-conservatively.
 
-	* lispref/loading.texi (Named Features): Document advanced args to 
+	* lispref/loading.texi (Named Features): Document advanced args to
 	`feature'.
 
 	* lispref/files.texi (File Name Expansion): Document that
@@ -462,7 +489,7 @@
 	* lispref/os.texi (Time Conversion): Document that TIME may be
 	omitted from format-time-string.
 
-	* lispref/strings.texi (String Conversion): Document BASE argument 
+	* lispref/strings.texi (String Conversion): Document BASE argument
 	to `string-to-number'.
 
 	* lispref/searching.texi (Syntax of Regexps): Fix up Perl
@@ -478,7 +505,7 @@
  	stuff, including `display-message', `lmessage', `clear-message',
 	(Warnings): Document warning stuff.
 
-	* lispref/commands.texi (Working With Events): Update `make-event' 
+	* lispref/commands.texi (Working With Events): Update `make-event'
 	for misc-user events.
 	(Using Interactive): Document `function-interactive'.
 
@@ -492,7 +519,7 @@
 
 1998-05-02  Hrvoje Niksic  <hniksic@srce.hr>
 
-	* lispref/numbers.texi (Comparison of Numbers): Document multi-arg 
+	* lispref/numbers.texi (Comparison of Numbers): Document multi-arg
 	comparison functions.
 
 1998-04-30  Greg Klanderman  <greg@alphatech.com>
@@ -538,7 +565,7 @@
 	setting of x-emacs-application-class.
 
 	* lispref/x-windows.texi (Resources): update doc for
-	x-emacs-application-class. 
+	x-emacs-application-class.
 
 1998-02-20  Karl M. Hegbloom  <karlheg@bittersweet.inetarena.com>
 
@@ -907,4 +934,3 @@ Mon May 23 10:41:35 1988  Robert J. Chassell (bob at frosted-flakes.ai.mit.edu)
 
 	* emacs.tex: Update information for obtaining TeX distribution from the
 	University of Washington.
-

@@ -155,6 +155,7 @@ struct console_methods
 			    int duration);
   void (*frame_redraw_cursor_method) (struct frame *f);
   void (*set_final_cursor_coords_method) (struct frame *, int, int);
+  void (*bevel_area_method) (struct window *, face_index, int, int, int, int, int);
 
   /* color methods */
   int (*initialize_color_instance_method) (struct Lisp_Color_Instance *,

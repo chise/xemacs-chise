@@ -38,10 +38,10 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (button);
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (combo);
-Lisp_Object Qcombo;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (edit);
-Lisp_Object Qedit;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (combo_box);
+Lisp_Object Qcombo_box;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (edit_field);
+Lisp_Object Qedit_field;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (scrollbar);
 Lisp_Object Qscrollbar;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (widget);
@@ -51,8 +51,12 @@ Lisp_Object Qgroup;
 #endif
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (label);
 Lisp_Object Qlabel;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress);
-Lisp_Object Qprogress;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge);
+Lisp_Object Qprogress_gauge;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (tree_view);
+Lisp_Object Qtree_view;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (tab_control);
+Lisp_Object Qtab_control;
 
 Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
 Lisp_Object Q_image, Q_text, Q_percent;
@@ -145,20 +149,34 @@ check_valid_string_or_vector (Lisp_Object data)
 	signal_simple_error (":descriptor must be a string or a vector", data);
 }
 
-static void
-check_valid_item_list (Lisp_Object data)
+void
+check_valid_item_list_1 (Lisp_Object items)
 {
   Lisp_Object rest;
-  Lisp_Object items;
-  Fcheck_valid_plist (data);
-  
-  items = Fplist_get (data, Q_items, Qnil);
 
   CHECK_LIST (items);
   EXTERNAL_LIST_LOOP (rest, items)
     {
-      CHECK_STRING (XCAR (rest));
+      if (STRINGP (XCAR (rest)))
+	CHECK_STRING (XCAR (rest));
+      else if (VECTORP (XCAR (rest)))
+	gui_parse_item_keywords (XCAR (rest));
+      else if (LISTP (XCAR (rest)))
+	check_valid_item_list_1 (XCAR (rest));
+      else
+	signal_simple_error ("Items must be vectors, lists or strings", items);
     }
+}
+
+static void
+check_valid_item_list (Lisp_Object data)
+{
+  Lisp_Object items;
+
+  Fcheck_valid_plist (data);
+  items = Fplist_get (data, Q_items, Qnil);
+
+  check_valid_item_list_1 (items);
 }
 
 /* wire widget property invocations to specific widgets ...  The
@@ -169,7 +187,7 @@ check_valid_item_list (Lisp_Object data)
  the instances. This is encoded in the widget type
  field. widget_property gets invoked by decoding the primary type
  (Qwidget), widget property then invokes based on the secondary type
- (Qedit for example). It is debatable that we should wire things in this
+ (Qedit_field for example). It is debatable that we should wire things in this
  generalised way rather than treating widgets specially in
  image_instance_property. */
 static Lisp_Object 
@@ -235,15 +253,15 @@ static void
 widget_validate (Lisp_Object instantiator)
 {
   Lisp_Object desc = find_keyword_in_vector (instantiator, Q_descriptor);
-  struct gui_item gui;
+
   if (NILP (desc))
     signal_simple_error ("Must supply :descriptor", instantiator);
 
   if (VECTORP (desc))
-      gui_parse_item_keywords (desc, &gui);
+    gui_parse_item_keywords (desc);
 
   if (!NILP (find_keyword_in_vector (instantiator, Q_width))
-	     && !NILP (find_keyword_in_vector (instantiator, Q_pixel_width)))
+      && !NILP (find_keyword_in_vector (instantiator, Q_pixel_width)))
     signal_simple_error ("Must supply only one of :width and :pixel-width", instantiator);
 
   if (!NILP (find_keyword_in_vector (instantiator, Q_height))
@@ -252,7 +270,7 @@ widget_validate (Lisp_Object instantiator)
 }
 
 static void
-combo_validate (Lisp_Object instantiator)
+combo_box_validate (Lisp_Object instantiator)
 {
   widget_validate (instantiator);
   if (NILP (find_keyword_in_vector (instantiator, Q_properties)))
@@ -300,23 +318,22 @@ initialize_widget_image_instance (struct Lisp_Image_Instance *ii, Lisp_Object ty
   IMAGE_INSTANCE_WIDGET_TYPE (ii) = type;
   IMAGE_INSTANCE_WIDGET_PROPS (ii) = Qnil;
   IMAGE_INSTANCE_WIDGET_FACE (ii) = Vwidget_face;
-  gui_item_init (&IMAGE_INSTANCE_WIDGET_ITEM (ii));
+  IMAGE_INSTANCE_WIDGET_ITEM (ii) = allocate_gui_item ();
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
    particular to a frame since they need to have a parent. It's not
    like images where you just select the image into the context you
-   want to display it in and BitBlt it. So images instances can have a
+   want to display it in and BitBlt it. So image instances can have a
    many-to-one relationship with things you see, whereas widgets can
    only be one-to-one (i.e. per frame) */
 static void
 widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
 		      Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		      int dest_mask, Lisp_Object domain, int default_textheight,
-		      int default_pixheight)
+		      int default_pixheight, int default_textwidth)
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  struct gui_item* pgui = &IMAGE_INSTANCE_WIDGET_ITEM (ii);
   Lisp_Object face = find_keyword_in_vector (instantiator, Q_face);
   Lisp_Object height = find_keyword_in_vector (instantiator, Q_height);
   Lisp_Object width = find_keyword_in_vector (instantiator, Q_width);
@@ -349,11 +366,13 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
   if (STRINGP (desc) || NILP (desc))
     {
       /* big cheat - we rely on the fact that a gui item looks like an instantiator */
-      gui_parse_item_keywords_no_errors (instantiator, pgui);
+      IMAGE_INSTANCE_WIDGET_ITEM (ii) = 
+	gui_parse_item_keywords_no_errors (instantiator);
       IMAGE_INSTANCE_WIDGET_TEXT (ii) = desc;
     }
   else
-    gui_parse_item_keywords_no_errors (desc, pgui);
+    IMAGE_INSTANCE_WIDGET_ITEM (ii) =
+      gui_parse_item_keywords_no_errors (desc);
 
   /* normalize size information */
   if (!NILP (width))
@@ -377,8 +396,14 @@ widget_instantiate_1 (Lisp_Object image_instance, Lisp_Object instantiator,
     }
 
   /* if we still don' t have sizes, guess from text size */
-  if (!tw && !pw && !NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
-    tw = XSTRING_LENGTH (IMAGE_INSTANCE_WIDGET_TEXT (ii));
+  if (!tw && !pw)
+    {
+      if (default_textwidth)
+	tw = default_textwidth;
+      else if (!NILP (IMAGE_INSTANCE_WIDGET_TEXT (ii)))
+	tw = XSTRING_LENGTH (IMAGE_INSTANCE_WIDGET_TEXT (ii));
+    }
+
   if (!th && !ph)
     {
       if (default_textheight)
@@ -404,11 +429,12 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    int dest_mask, Lisp_Object domain)
 {
   widget_instantiate_1 (image_instance, instantiator, pointer_fg,
-			       pointer_bg, dest_mask, domain, 1, 0);
+			       pointer_bg, dest_mask, domain, 1, 0, 0);
 }
 
+/* combo-box generic instantiation - get he heigh right */
 static void
-combo_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		   int dest_mask, Lisp_Object domain)
 {
@@ -417,7 +443,33 @@ combo_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   int len;
   GET_LIST_LENGTH (data, len);
   widget_instantiate_1 (image_instance, instantiator, pointer_fg,
-			pointer_bg, dest_mask, domain, len + 1, 0);
+			pointer_bg, dest_mask, domain, len + 1, 0, 0);
+}
+
+static void
+tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+		 int dest_mask, Lisp_Object domain)
+{
+  Lisp_Object data = Fplist_get (find_keyword_in_vector (instantiator, Q_properties),
+				 Q_items, Qnil);
+  Lisp_Object rest;
+  int len = 0;
+
+  LIST_LOOP (rest, data)
+    {
+      len += 3;			/* some bias */
+      if (STRINGP (XCAR (rest)))
+	len += XSTRING_LENGTH (XCAR (rest));
+      else if (VECTORP (XCAR (rest)))
+	{
+	  Lisp_Object gui = gui_parse_item_keywords (XCAR (rest));
+	  len += XSTRING_LENGTH (XGUI_ITEM (gui)->name);
+	}
+    }
+
+  widget_instantiate_1 (image_instance, instantiator, pointer_fg,
+			pointer_bg, dest_mask, domain, 0, 0, len);
 }
 
 /* Instantiate a static control */
@@ -427,7 +479,7 @@ static_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    int dest_mask, Lisp_Object domain)
 {
   widget_instantiate_1 (image_instance, instantiator, pointer_fg,
-			pointer_bg, dest_mask, domain, 0, 4);
+			pointer_bg, dest_mask, domain, 0, 4, 0);
 }
 
 
@@ -445,7 +497,7 @@ syms_of_glyphs_widget (void)
   defkeyword (&Q_items, ":items");
   defkeyword (&Q_image, ":image");
   defkeyword (&Q_percent, ":percent");
-  defkeyword (&Q_text, "text");
+  defkeyword (&Q_text, ":text");
 }
 
 void
@@ -489,25 +541,25 @@ image_instantiator_format_create_glyphs_widget (void)
   VALID_GUI_KEYWORDS (button);
 
   /* edit fields */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (edit, "edit");
-  IIFORMAT_HAS_SHARED_METHOD (edit, validate, widget);
-  IIFORMAT_HAS_SHARED_METHOD (edit, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (edit, instantiate, widget);
-  VALID_WIDGET_KEYWORDS (edit);
-  VALID_GUI_KEYWORDS (edit);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (edit_field, "edit-field");
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, validate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, instantiate, widget);
+  VALID_WIDGET_KEYWORDS (edit_field);
+  VALID_GUI_KEYWORDS (edit_field);
 
   /* combo box */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo, "combo");
-  IIFORMAT_HAS_METHOD (combo, validate);
-  IIFORMAT_HAS_SHARED_METHOD (combo, possible_dest_types, widget);
-  IIFORMAT_HAS_METHOD (combo, instantiate);
-  VALID_GUI_KEYWORDS (combo);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo_box, "combo-box");
+  IIFORMAT_HAS_METHOD (combo_box, validate);
+  IIFORMAT_HAS_SHARED_METHOD (combo_box, possible_dest_types, widget);
+  IIFORMAT_HAS_METHOD (combo_box, instantiate);
+  VALID_GUI_KEYWORDS (combo_box);
 
-  IIFORMAT_VALID_KEYWORD (combo, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (combo, Q_properties, check_valid_item_list);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_height, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_face, check_valid_face);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_properties, check_valid_item_list);
 
   /* scrollbar */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (scrollbar, "scrollbar");
@@ -521,12 +573,30 @@ image_instantiator_format_create_glyphs_widget (void)
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_face, check_valid_face);
 
   /* progress guage */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress, "progress");
-  IIFORMAT_HAS_SHARED_METHOD (progress, validate, widget);
-  IIFORMAT_HAS_SHARED_METHOD (progress, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (progress, instantiate, widget);
-  VALID_WIDGET_KEYWORDS (progress);
-  VALID_GUI_KEYWORDS (progress);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge, "progress-gauge");
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, validate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, combo_box);
+  VALID_WIDGET_KEYWORDS (progress_gauge);
+  VALID_GUI_KEYWORDS (progress_gauge);
+
+  /* tree view */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tree_view, "tree-view");
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, validate, combo_box);
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, instantiate, combo_box);
+  VALID_WIDGET_KEYWORDS (tree_view);
+  VALID_GUI_KEYWORDS (tree_view);
+  IIFORMAT_VALID_KEYWORD (tree_view, Q_properties, check_valid_item_list);
+
+  /* tab control */
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tab_control, "tab-control");
+  IIFORMAT_HAS_SHARED_METHOD (tab_control, validate, combo_box);
+  IIFORMAT_HAS_SHARED_METHOD (tab_control, possible_dest_types, widget);
+  IIFORMAT_HAS_METHOD (tab_control, instantiate);
+  VALID_WIDGET_KEYWORDS (tab_control);
+  VALID_GUI_KEYWORDS (tab_control);
+  IIFORMAT_VALID_KEYWORD (tab_control, Q_properties, check_valid_item_list);
 
   /* labels */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (label, "label");

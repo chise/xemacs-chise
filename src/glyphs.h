@@ -85,6 +85,8 @@ struct image_instantiator_methods
   Lisp_Object device;		/* sometimes used */
 
   ii_keyword_entry_dynarr *keywords;
+  /* consoles this ii is supported on */
+  console_type_entry_dynarr *consoles;
   /* Implementation specific methods: */
 
   /* Validate method: Given an instantiator vector, signal an error if
@@ -170,6 +172,8 @@ do {								\
   format##_image_instantiator_methods->device = Qnil;		\
   format##_image_instantiator_methods->keywords =		\
     Dynarr_new (ii_keyword_entry);				\
+  format##_image_instantiator_methods->consoles =		\
+    Dynarr_new (console_type_entry);				\
   add_entry_to_image_instantiator_format_list			\
     (Q##format, format##_image_instantiator_methods);		\
 } while (0)
@@ -215,7 +219,20 @@ do {								\
 		entry);							\
   } while (0)
 
+/* Declare that image-instantiator format FORMAT is supported on 
+   CONSOLE type. */
+#define IIFORMAT_VALID_CONSOLE(console, format)		\
+  do {								\
+    struct console_type_entry entry;				\
+								\
+    entry.symbol = Q##console;					\
+    entry.meths = console##_console_methods;			\
+    Dynarr_add (format##_image_instantiator_methods->consoles,	\
+		entry);						\
+  } while (0)
+
 #define DEFINE_DEVICE_IIFORMAT(type, format)\
+DECLARE_IMAGE_INSTANTIATOR_FORMAT(format);		\
 struct image_instantiator_methods *type##_##format##_image_instantiator_methods
 
 #define INITIALIZE_DEVICE_IIFORMAT(type, format)	\
@@ -228,6 +245,7 @@ do {								\
     Dynarr_new (ii_keyword_entry);				\
   add_entry_to_device_ii_format_list				\
     (Q##type, Q##format, type##_##format##_image_instantiator_methods);	\
+  IIFORMAT_VALID_CONSOLE(type,format);			\
 } while (0)
 
 /* Declare that image-instantiator format FORMAT has method M; used in
@@ -432,7 +450,7 @@ struct Lisp_Image_Instance
 	Lisp_Object face; /* foreground and background colors */
 	Lisp_Object type;
 	Lisp_Object props;	/* properties */
-	struct gui_item gui_item;
+	Lisp_Object gui_item;	/* a list of gui_items */
       } widget;			/* widgets are subwindows */
     } subwindow;
   } u;
@@ -472,13 +490,15 @@ struct Lisp_Image_Instance
   IMAGE_INSTANCE_SUBWINDOW_WIDTH(i)
 #define IMAGE_INSTANCE_WIDGET_HEIGHT(i) \
   IMAGE_INSTANCE_SUBWINDOW_HEIGHT(i)
-#define IMAGE_INSTANCE_WIDGET_CALLBACK(i) \
-  ((i)->u.subwindow.widget.gui_item.callback)
 #define IMAGE_INSTANCE_WIDGET_TYPE(i) ((i)->u.subwindow.widget.type)
 #define IMAGE_INSTANCE_WIDGET_PROPS(i) ((i)->u.subwindow.widget.props)
 #define IMAGE_INSTANCE_WIDGET_FACE(i) ((i)->u.subwindow.widget.face)
-#define IMAGE_INSTANCE_WIDGET_TEXT(i) ((i)->u.subwindow.widget.gui_item.name)
 #define IMAGE_INSTANCE_WIDGET_ITEM(i) ((i)->u.subwindow.widget.gui_item)
+#define IMAGE_INSTANCE_WIDGET_SINGLE_ITEM(i) \
+(CONSP (IMAGE_INSTANCE_WIDGET_ITEM (i)) ? \
+XCAR (IMAGE_INSTANCE_WIDGET_ITEM (i)) : \
+  IMAGE_INSTANCE_WIDGET_ITEM (i))
+#define IMAGE_INSTANCE_WIDGET_TEXT(i) XGUI_ITEM (IMAGE_INSTANCE_WIDGET_ITEM (i))->name
 
 #define XIMAGE_INSTANCE_DEVICE(i) \
   IMAGE_INSTANCE_DEVICE (XIMAGE_INSTANCE (i))
@@ -513,18 +533,18 @@ struct Lisp_Image_Instance
   IMAGE_INSTANCE_WIDGET_WIDTH (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDGET_HEIGHT(i) \
   IMAGE_INSTANCE_WIDGET_HEIGHT (XIMAGE_INSTANCE (i))
-#define XIMAGE_INSTANCE_WIDGET_CALLBACK(i) \
-  IMAGE_INSTANCE_WIDGET_CALLBACK (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDGET_TYPE(i) \
   IMAGE_INSTANCE_WIDGET_TYPE (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDGET_PROPS(i) \
   IMAGE_INSTANCE_WIDGET_PROPS (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDGET_FACE(i) \
   IMAGE_INSTANCE_WIDGET_FACE (XIMAGE_INSTANCE (i))
-#define XIMAGE_INSTANCE_WIDGET_TEXT(i) \
-  IMAGE_INSTANCE_WIDGET_TEXT (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_WIDGET_ITEM(i) \
   IMAGE_INSTANCE_WIDGET_ITEM (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_SINGLE_ITEM(i) \
+  IMAGE_INSTANCE_WIDGET_SINGLE_ITEM (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_WIDGET_TEXT(i) \
+  IMAGE_INSTANCE_WIDGET_TEXT (XIMAGE_INSTANCE (i))
 
 #define XIMAGE_INSTANCE_SUBWINDOW_WIDTH(i) \
   IMAGE_INSTANCE_SUBWINDOW_WIDTH (XIMAGE_INSTANCE (i))
@@ -622,7 +642,8 @@ DECLARE_LRECORD (glyph, struct Lisp_Glyph);
 
 extern Lisp_Object Qxpm, Qxface;
 extern Lisp_Object Q_data, Q_file, Q_color_symbols, Qconst_glyph_variable;
-extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar, Qprogress;
+extern Lisp_Object Qxbm, Qedit_field, Qgroup, Qlabel, Qcombo_box, Qscrollbar;
+extern Lisp_Object Qtree_view, Qtab_control, Qprogress_gauge;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
 extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
 extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height, Q_text;

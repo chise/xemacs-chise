@@ -64,6 +64,7 @@ Normally it also has no modelines, menubars, or toolbars."
 				 menubar-visible-p nil
 				 has-modeline-p nil
 				 default-toolbar-visible-p nil
+				 default-gutter-visible-p nil
 				 modeline-shadow-thickness 0
 				 left ,(+ fleft (- (/ fwidth 2)
 						   (/ (* dfwidth fontw)

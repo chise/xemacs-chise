@@ -72,6 +72,10 @@ typedef unsigned int SOCKET;
 #include <io.h>
 #include <errno.h>
 
+#if defined (__CYGWIN32__) && !defined (CYGWIN_VERSION_DLL_MAJOR)
+typedef NMHDR *LPNMHDR;
+#endif
+
 #ifdef HAVE_MENUBARS
 #define ADJR_MENUFLAG TRUE
 #else
@@ -1327,6 +1331,7 @@ mswindows_need_event (int badly_p)
       
       if (active == 0)
 	{
+	  assert (!badly_p);
 	  return;		/* timeout */
 	}
       else if (active > 0)
@@ -1925,17 +1930,20 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 				       Qcancel_mode_internal, Qnil);
     break;
 
-#ifdef HAVE_TOOLBARS
   case WM_NOTIFY:
     {
-      LPTOOLTIPTEXT tttext = (LPTOOLTIPTEXT)lParam;
-      Lisp_Object btext;
-      if (tttext->hdr.code ==  TTN_NEEDTEXT)    
+      LPNMHDR nmhdr = (LPNMHDR)lParam;
+
+      if (nmhdr->code ==  TTN_NEEDTEXT)
 	{
+#ifdef HAVE_TOOLBARS
+	  LPTOOLTIPTEXT tttext = (LPTOOLTIPTEXT)lParam;
+	  Lisp_Object btext;
+
 	  /* find out which toolbar */
 	  frame = XFRAME (mswindows_find_frame (hwnd));
 	  btext = mswindows_get_toolbar_button_text ( frame, 
-						      tttext->hdr.idFrom );
+						      nmhdr->idFrom );
 	  
 	  tttext->lpszText = NULL;
 	  tttext->hinst = NULL;
@@ -1947,13 +1955,30 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	      GET_C_STRING_EXT_DATA_ALLOCA (btext, FORMAT_OS, 
 					    tttext->lpszText);
 	    }
-#if 0
-	  tttext->uFlags |= TTF_DI_SETITEM;
 #endif
-	}    
+	}
+      /* handle tree view callbacks */
+      else if (nmhdr->code == TVN_SELCHANGED)
+	{
+	  NM_TREEVIEW* ptree = (NM_TREEVIEW*)lParam;
+	  frame = XFRAME (mswindows_find_frame (hwnd));
+	  mswindows_handle_gui_wm_command (frame, 0, ptree->itemNew.lParam);
+	}
+      /* handle tab control callbacks */
+      else if (nmhdr->code == TCN_SELCHANGE)
+	{
+	  TC_ITEM item;
+	  int index = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
+	  frame = XFRAME (mswindows_find_frame (hwnd));
+
+	  item.mask = TCIF_PARAM;
+	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)index,
+		       (LPARAM)&item);
+	  
+	  mswindows_handle_gui_wm_command (frame, 0, item.lParam);
+	}
     }
     break;
-#endif
     
   case WM_PAINT:
     {
@@ -2552,7 +2577,7 @@ emacs_mswindows_next_event (struct Lisp_Event *emacs_event)
 
   mswindows_need_event (1);
 
-  event = mswindows_dequeue_dispatch_event (!NILP(mswindows_u_dispatch_event_queue));
+  event = mswindows_dequeue_dispatch_event ();
   XSETEVENT (event2, emacs_event);
   Fcopy_event (event, event2);
   Fdeallocate_event (event);

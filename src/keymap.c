@@ -285,9 +285,16 @@ print_keymap (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
+static const struct lrecord_description keymap_description[] = {
+  { XD_LISP_OBJECT, offsetof(Lisp_Keymap, parents), 6 },
+  { XD_LISP_OBJECT, offsetof(Lisp_Keymap, name), 1 },
+  { XD_END }
+};
+
 /* No need for keymap_equal #### Why not? */
 DEFINE_LRECORD_IMPLEMENTATION ("keymap", keymap,
                                mark_keymap, print_keymap, 0, 0, 0,
+			       keymap_description,
 			       Lisp_Keymap);
 
 /************************************************************************/
@@ -1134,6 +1141,7 @@ copy_keymap_internal (Lisp_Keymap *keymap)
   new_keymap->sub_maps_cache = Qnil; /* No submaps */
   new_keymap->table          = Fcopy_hash_table (keymap->table);
   new_keymap->inverse_table  = Fcopy_hash_table (keymap->inverse_table);
+  new_keymap->default_binding = keymap->default_binding;
   /* After copying the inverse map, we need to copy the conses which
      are its values, lest they be shared by the copy, and mangled.
    */

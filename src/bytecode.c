@@ -56,7 +56,6 @@ by Hallvard:
 #include "opaque.h"
 #include "syntax.h"
 
-#include <stddef.h>
 #include <limits.h>
 
 EXFUN (Ffetch_bytecode, 1);
@@ -2024,11 +2023,20 @@ compiled_function_hash (Lisp_Object obj, int depth)
 		internal_hash (f->constants,    depth + 1));
 }
 
+static const struct lrecord_description compiled_function_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Compiled_Function, instructions), 4 },
+#ifdef COMPILED_FUNCTION_ANNOTATION_HACK
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Compiled_Function, annotated), 1 },
+#endif
+  { XD_END }
+};
+
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("compiled-function", compiled_function,
 				     mark_compiled_function,
 				     print_compiled_function, 0,
 				     compiled_function_equal,
 				     compiled_function_hash,
+				     compiled_function_description,
 				     Lisp_Compiled_Function);
 
 DEFUN ("compiled-function-p", Fcompiled_function_p, 1, 1, 0, /*

@@ -34,6 +34,7 @@ Boston, MA 02111-1307, USA.  */
 #include "faces.h"
 #include "frame.h"
 #include "glyphs.h"
+#include "gutter.h"
 #include "menubar.h"
 #include "redisplay.h"
 #include "scrollbar.h"
@@ -155,7 +156,7 @@ print_frame (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 }
 
 DEFINE_LRECORD_IMPLEMENTATION ("frame", frame,
-                               mark_frame, print_frame, 0, 0, 0,
+                               mark_frame, print_frame, 0, 0, 0, 0,
 			       struct frame);
 
 static void
@@ -460,11 +461,17 @@ See `set-frame-properties', `default-x-frame-plist', and
       reset_glyph_cachels (XWINDOW (FRAME_SELECTED_WINDOW (f)));
       reset_subwindow_cachels (f);
       change_frame_size (f, f->height, f->width, 0);
+
     }
 
   MAYBE_FRAMEMETH (f, init_frame_2, (f, props));
   Fset_frame_properties (frame, props);
   MAYBE_FRAMEMETH (f, init_frame_3, (f));
+
+  /* now initialise the gutters, this won't change the frame size
+     so is ok here. */
+  if (!DEVICE_STREAM_P (d))
+    init_frame_gutters (f);
 
   /* Hallelujah, praise the lord. */
   f->init_finished = 1;
@@ -893,7 +900,10 @@ set_frame_selected_window (struct frame *f, Lisp_Object window)
     {
 #ifdef HAVE_TOOLBARS
       if (!EQ (f->last_nonminibuf_window, window))
-	MARK_TOOLBAR_CHANGED;
+	{
+	  MARK_TOOLBAR_CHANGED;
+	  MARK_GUTTER_CHANGED;
+	}
 #endif
       f->last_nonminibuf_window = window;
     }
@@ -1526,6 +1536,7 @@ delete_frame_internal (struct frame *f, int force,
 #ifdef HAVE_TOOLBARS
   free_frame_toolbars (f);
 #endif
+  free_frame_gutters (f);
 
   /* This must be done before the window and window_mirror structures
      are freed.  The scrollbar information is attached to them. */

@@ -77,7 +77,10 @@
   (make-local-variable 'next-line-add-newlines)
   (setq next-line-add-newlines nil)
   (setq list-mode-extent nil)
-  (set-specifier text-cursor-visible-p nil (current-buffer))
+;; It is visually disconcerting to have the text cursor disappear within list 
+;; buffers, especially when moving from window to window, so leave it
+;; visible.  -- Bob Weiner, 06/20/1999
+; (set-specifier text-cursor-visible-p nil (current-buffer))
   (setq buffer-read-only t)
   (goto-char (point-min))
   (run-hooks 'list-mode-hook))
@@ -458,21 +461,23 @@ buffer."
 (define-derived-mode completion-list-mode list-mode 
   "Completion List"
   "Major mode for buffers showing lists of possible completions.
-Type \\<completion-list-mode-map>\\[choose-completion] in the completion list\
- to select the completion near point.
-Use \\<completion-list-mode-map>\\[mouse-choose-completion] to select one\
- with the mouse."
+\\{completion-list-mode-map}"
   (make-local-variable 'completion-base-size)
   (setq completion-base-size nil))
 
 (let ((map completion-list-mode-map))
+  (define-key map 'button2up 'mouse-choose-completion)
+  (define-key map 'button2 'undefined)
+  (define-key map "\C-m" 'choose-completion)
   (define-key map "\e\e\e" 'delete-completion-window)
   (define-key map "\C-g" 'minibuffer-keyboard-quit)
-  (define-key map "q" 'abort-recursive-edit)
-  (define-key map " " (lambda () (interactive)
-			(select-window (minibuffer-window))))
-  (define-key map "\t" (lambda () (interactive)
-			 (select-window (minibuffer-window)))))
+  (define-key map "q" 'completion-list-mode-quit)
+  (define-key map " " 'completion-switch-to-minibuffer)
+  ;; [Tab] used to switch to the minibuffer but since [space] does that and
+  ;; since most applications in the world use [Tab] to select the next item
+  ;; in a list, do that in the *Completions* buffer too.  -- Bob Weiner,
+  ;; BeOpen.com, 06/23/1999.
+  (define-key map "\t" 'next-list-mode-item))
 
 (defvar completion-reference-buffer nil
   "Record the buffer that was current when the completion list was requested.
@@ -486,6 +491,10 @@ but it talks about the buffer in `completion-reference-buffer'.
 If this is nil, it means to compare text to determine which part
 of the tail end of the buffer's text is involved in completion.")
 
+;; These names are referenced in the doc string for `completion-list-mode'.
+(defalias 'choose-completion 'list-mode-item-keyboard-selected)
+(defalias 'mouse-choose-completion 'list-mode-item-mouse-selected)
+
 (defun delete-completion-window ()
   "Delete the completion list window.
 Go to the window from which completion was requested."
@@ -494,6 +503,21 @@ Go to the window from which completion was requested."
     (delete-window (selected-window))
     (if (get-buffer-window buf)
 	 (select-window (get-buffer-window buf)))))
+
+(defun completion-switch-to-minibuffer ()
+  "Move from a completions buffer to the active minibuffer window."
+  (interactive)
+  (select-window (minibuffer-window)))
+
+(defun completion-list-mode-quit ()
+  "Abort any recursive edit and bury the completions buffer."
+  (interactive)
+  (condition-case ()
+      (abort-recursive-edit)
+    (error nil))
+  ;; If there was no recursive edit to abort, simply bury the completions
+  ;; list buffer.
+  (if (eq major-mode 'completion-list-mode) (bury-buffer)))
 
 (defun completion-do-in-minibuffer ()
   (interactive "_")

@@ -347,7 +347,7 @@ sizeof_specifier (CONST void *header)
 DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION ("specifier", specifier,
 					mark_specifier, print_specifier,
 					finalize_specifier,
-					specifier_equal, specifier_hash,
+					specifier_equal, specifier_hash, 0,
 					sizeof_specifier,
 					struct Lisp_Specifier);
 

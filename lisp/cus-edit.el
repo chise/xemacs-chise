@@ -617,7 +617,7 @@ when the action is chosen.")
 
 ;;; The Customize Commands
 
-(defun custom-prompt-variable (prompt-var prompt-val)
+(defun custom-prompt-variable (prompt-var prompt-val &optional comment)
   "Prompt for a variable and a value and return them as a list.
 PROMPT-VAR is the prompt for the variable, and PROMPT-VAL is the
 prompt for the value.  The %s escape in PROMPT-VAL is replaced with
@@ -627,10 +627,13 @@ If the variable has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If the variable has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value."
+`:prompt-value' property of that widget will be used for reading the value.
+
+If optional COMMENT argument is non nil, also prompt for a comment and return
+it as the third element in the list."
   (let* ((var (read-variable prompt-var))
-	 (minibuffer-help-form '(describe-variable var)))
-    (list var
+	 (minibuffer-help-form '(describe-variable var))
+	 (val
 	  (let ((prop (get var 'variable-interactive))
 		(type (get var 'custom-type))
 		(prompt (format prompt-val var)))
@@ -649,24 +652,36 @@ If the variable has a `custom-type' property, it must be a widget and the
 					    (symbol-value var))
 					(not (boundp var))))
 		  (t
-		   (eval-minibuffer prompt)))))))
+		   (eval-minibuffer prompt))))))
+    (if comment
+	(list var val
+	      (read-string "Comment: " (get var 'variable-comment)))
+      (list var val))
+    ))
 
 ;;;###autoload
-(defun customize-set-value (var val)
+(defun customize-set-value (var val &optional comment)
   "Set VARIABLE to VALUE.  VALUE is a Lisp object.
 
 If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value."
-  (interactive (custom-prompt-variable "Set variable: "
-				       "Set %s to value: "))
+`:prompt-value' property of that widget will be used for reading the value.
 
-  (set var val))
+If given a prefix (or a COMMENT argument), also prompt for a comment."
+  (interactive (custom-prompt-variable "Set variable: "
+				       "Set %s to value: "
+				       current-prefix-arg))
+
+  (set var val)
+  (cond ((string= comment "")
+	 (put var 'variable-comment nil))
+	(comment
+	 (put var 'variable-comment comment))))
 
 ;;;###autoload
-(defun customize-set-variable (var val)
+(defun customize-set-variable (var val &optional comment)
   "Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
 
 If VARIABLE has a `custom-set' property, that is used for setting
@@ -679,14 +694,24 @@ If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value. "
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment."
   (interactive (custom-prompt-variable "Set variable: "
-				       "Set customized value for %s to: "))
+				       "Set customized value for %s to: "
+				       current-prefix-arg))
   (funcall (or (get var 'custom-set) 'set-default) var val)
-  (put var 'customized-value (list (custom-quote val))))
+  (put var 'customized-value (list (custom-quote val)))
+  (cond ((string= comment "")
+	 (put var 'variable-comment nil)
+	 (put var 'customized-variable-comment nil))
+	(comment
+	 (put var 'variable-comment comment)
+	 (put var 'customized-variable-comment comment))))
+
 
 ;;;###autoload
-(defun customize-save-variable (var val)
+(defun customize-save-variable (var val &optional comment)
   "Set the default for VARIABLE to VALUE, and save it for future sessions.
 If VARIABLE has a `custom-set' property, that is used for setting
 VARIABLE, otherwise `set-default' is used.
@@ -698,11 +723,21 @@ If VARIABLE has a `variable-interactive' property, that is used as if
 it were the arg to `interactive' (which see) to interactively read the value.
 
 If VARIABLE has a `custom-type' property, it must be a widget and the
-`:prompt-value' property of that widget will be used for reading the value. "
+`:prompt-value' property of that widget will be used for reading the value.
+
+If given a prefix (or a COMMENT argument), also prompt for a comment."
   (interactive (custom-prompt-variable "Set and ave variable: "
-				       "Set and save value for %s as: "))
+				       "Set and save value for %s as: "
+				       current-prefix-arg))
   (funcall (or (get var 'custom-set) 'set-default) var val)
   (put var 'saved-value (list (custom-quote val)))
+  (custom-push-theme 'theme-value var 'user 'set (list (custom-quote val)))
+  (cond ((string= comment "")
+	 (put var 'variable-comment nil)
+	 (put var 'saved-variable-comment nil))
+	(comment
+	 (put var 'variable-comment comment)
+	 (put var 'saved-variable-comment comment)))
   (custom-save-all))
 
 ;;;###autoload
@@ -842,10 +877,12 @@ If SYMBOL is nil, customize all faces."
   (interactive)
   (let ((found nil))
     (mapatoms (lambda (symbol)
-		(and (get symbol 'customized-face)
+		(and (or (get symbol 'customized-face)
+			 (get symbol 'customized-face-comment))
 		     (find-face symbol)
 		     (push (list symbol 'custom-face) found))
-		(and (get symbol 'customized-value)
+		(and (or (get symbol 'customized-value)
+			 (get symbol 'customized-variable-comment))
 		     (boundp symbol)
 		     (push (list symbol 'custom-variable) found))))
     (if (not found)
@@ -859,10 +896,12 @@ If SYMBOL is nil, customize all faces."
   (interactive)
   (let ((found nil))
     (mapatoms (lambda (symbol)
-		(and (get symbol 'saved-face)
+		(and (or (get symbol 'saved-face)
+			 (get symbol 'saved-face-comment))
 		     (find-face symbol)
 		     (push (list symbol 'custom-face) found))
-		(and (get symbol 'saved-value)
+		(and (or (get symbol 'saved-value)
+			 (get symbol 'saved-variable-comment))
 		     (boundp symbol)
 		     (push (list symbol 'custom-variable) found))))
     (if (not found )
@@ -1705,6 +1744,77 @@ If INITIAL-STRING is non-nil, use that rather than \"Parent groups:\"."
       (delete-region start (point)))
     found))
 
+;;; The `custom-comment' Widget.
+
+;; like the editable field
+(defface custom-comment-face '((((class grayscale color)
+				 (background light))
+				(:background "gray85"))
+			       (((class grayscale color)
+				 (background dark))
+				(:background "dim gray"))
+			       (t
+				(:italic t)))
+  "Face used for comments on variables or faces"
+  :group 'custom-faces)
+
+;; like font-lock-comment-face
+(defface custom-comment-tag-face
+  '((((class color) (background dark)) (:foreground "gray80"))
+    (((class color) (background light)) (:foreground "blue4"))
+    (((class grayscale) (background light))
+     (:foreground "DimGray" :bold t :italic t))
+    (((class grayscale) (background dark))
+     (:foreground "LightGray" :bold t :italic t))
+    (t (:bold t)))
+  "Face used for variables or faces comment tags"
+  :group 'custom-faces)
+
+(define-widget 'custom-comment 'string
+  "User comment"
+  :tag "Comment"
+  :help-echo "Edit a comment here"
+  :sample-face 'custom-comment-tag-face
+  :value-face 'custom-comment-face
+  :value-set 'custom-comment-value-set
+  :create 'custom-comment-create
+  :delete 'custom-comment-delete)
+
+(defun custom-comment-create (widget)
+  (let (ext)
+    (widget-default-create widget)
+    (widget-put widget :comment-extent
+		(setq ext (make-extent (widget-get widget :from)
+				       (widget-get widget :to))))
+    (set-extent-property ext 'start-open t)
+    (when (equal (widget-get widget :value) "")
+      (set-extent-property ext 'invisible t))
+    ))
+
+(defun custom-comment-delete (widget)
+  (widget-default-delete widget)
+  (delete-extent (widget-get widget :comment-extent)))
+
+(defun custom-comment-value-set (widget value)
+  (widget-default-value-set widget value)
+  (if (equal value "")
+      (set-extent-property (widget-get widget :comment-extent)
+			   'invisible t)
+    (set-extent-property (widget-get widget :comment-extent)
+			 'invisible nil)))
+
+;; Those functions are for the menu. WIDGET is NOT the comment widget. It's
+;; the global custom one
+(defun custom-comment-show (widget)
+  (set-extent-property
+   (widget-get (widget-get widget :comment-widget) :comment-extent)
+   'invisible nil))
+
+(defun custom-comment-invisible-p (widget)
+  (extent-property
+   (widget-get (widget-get widget :comment-widget) :comment-extent)
+   'invisible))
+
 ;;; The `custom-variable' Widget.
 
 (defface custom-variable-tag-face '((((class color)
@@ -1870,23 +1980,40 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
 		    :value value)
 		   children))))
     (unless (eq custom-buffer-style 'tree)
-      ;; Now update the state.
       (unless (eq (preceding-char) ?\n)
 	(widget-insert "\n"))
-      (if (eq state 'hidden)
-	  (widget-put widget :custom-state state)
-	(custom-variable-state-set widget))
       ;; Create the magic button.
       (let ((magic (widget-create-child-and-convert
 		    widget 'custom-magic nil)))
 	(widget-put widget :custom-magic magic)
 	(push magic buttons))
-      ;; Update properties.
-      (widget-put widget :custom-form form)
-      (widget-put widget :buttons buttons)
-      (widget-put widget :children children)
       ;; Insert documentation.
+      ;; ### NOTE: this is ugly!!!! I need to do update the :buttons property
+      ;; before the call to `widget-default-format-handler'. Otherwise, I
+      ;; loose my current `buttons'. This function shouldn't be called like
+      ;; this anyway. The doc string widget should be added like the others.
+      ;; --dv
+      (widget-put widget :buttons buttons)
       (widget-default-format-handler widget ?h)
+      ;; The comment field
+      (unless (eq state 'hidden)
+	(let* ((comment (get symbol 'variable-comment))
+	       (comment-widget
+		(widget-create-child-and-convert
+		 widget 'custom-comment
+		 :parent widget
+		 :value (or comment ""))))
+	  (widget-put widget :comment-widget comment-widget)
+	  ;; Don't push it !!! Custom assumes that the first child is the
+	  ;; value one.
+	  (setq children (append children (list comment-widget)))))
+      ;; Update the rest of the properties properties.
+      (widget-put widget :custom-form form)
+      (widget-put widget :children children)
+      ;; Now update the state.
+      (if (eq state 'hidden)
+	  (widget-put widget :custom-state state)
+	(custom-variable-state-set widget))
       ;; See also.
       (unless (eq state 'hidden)
 	(when (eq (widget-get widget :custom-level) 1)
@@ -1910,22 +2037,32 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
 	 (value (if (default-boundp symbol)
 		    (funcall get symbol)
 		  (widget-get widget :value)))
+	 (comment (get symbol 'variable-comment))
 	 tmp
-	 (state (cond ((setq tmp (get symbol 'customized-value))
+	 temp
+	 (state (cond ((progn (setq tmp (get symbol 'customized-value))
+			      (setq temp
+				    (get symbol 'customized-variable-comment))
+			      (or tmp temp))
 		       (if (condition-case nil
-			       (equal value (eval (car tmp)))
+			       (and (equal value (eval (car tmp)))
+				    (equal comment temp))
 			     (error nil))
 			   'set
 			 'changed))
-		      ((setq tmp (get symbol 'saved-value))
+		      ((progn (setq tmp (get symbol 'saved-value))
+			      (setq temp (get symbol 'saved-variable-comment))
+			      (or tmp temp))
 		       (if (condition-case nil
-			       (equal value (eval (car tmp)))
+			       (and (equal value (eval (car tmp)))
+				    (equal comment temp))
 			     (error nil))
 			   'saved
 			 'changed))
 		      ((setq tmp (get symbol 'standard-value))
 		       (if (condition-case nil
-			       (equal value (eval (car tmp)))
+			       (and (equal value (eval (car tmp)))
+				    (equal comment nil))
 			     (error nil))
 			   'standard
 			 'changed))
@@ -1945,7 +2082,8 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
 	    (memq (widget-get widget :custom-state) '(modified changed)))))
     ("Reset to Saved" custom-variable-reset-saved
      (lambda (widget)
-       (and (get (widget-value widget) 'saved-value)
+       (and (or (get (widget-value widget) 'saved-value)
+		(get (widget-value widget) 'saved-variable-comment))
 	    (memq (widget-get widget :custom-state)
 		  '(modified set changed rogue)))))
     ("Reset to Standard Settings" custom-variable-reset-standard
@@ -1953,6 +2091,8 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
        (and (get (widget-value widget) 'standard-value)
 	    (memq (widget-get widget :custom-state)
 		  '(modified set changed saved rogue)))))
+    ("---" ignore ignore)
+    ("Add Comment" custom-comment-show custom-comment-invisible-p)
     ("---" ignore ignore)
     ("Don't show as Lisp expression" custom-variable-edit
      (lambda (widget)
@@ -2005,18 +2145,34 @@ Optional EVENT is the location for the menu."
 	 (child (car (widget-get widget :children)))
 	 (symbol (widget-value widget))
 	 (set (or (get symbol 'custom-set) 'set-default))
-	  val)
+	 (comment-widget (widget-get widget :comment-widget))
+	 (comment (widget-value comment-widget))
+	 val)
     (cond ((eq state 'hidden)
 	   (error "Cannot set hidden variable"))
 	  ((setq val (widget-apply child :validate))
 	   (goto-char (widget-get val :from))
 	   (error "%s" (widget-get val :error)))
 	  ((memq form '(lisp mismatch))
+	   (when (equal comment "")
+	     (setq comment nil)
+	     ;; Make the comment invisible by hand if it's empty
+	     (set-extent-property (widget-get comment-widget :comment-extent)
+				  'invisible t))
 	   (funcall set symbol (eval (setq val (widget-value child))))
-	   (put symbol 'customized-value (list val)))
+	   (put symbol 'customized-value (list val))
+	   (put symbol 'variable-comment comment)
+	   (put symbol 'customized-variable-comment comment))
 	  (t
+	   (when (equal comment "")
+	     (setq comment nil)
+	     ;; Make the comment invisible by hand if it's empty
+	     (set-extent-property (widget-get comment-widget :comment-extent)
+				  'invisible t))
 	   (funcall set symbol (setq val (widget-value child)))
-	   (put symbol 'customized-value (list (custom-quote val)))))
+	   (put symbol 'customized-value (list (custom-quote val)))
+	   (put symbol 'variable-comment comment)
+	   (put symbol 'customized-variable-comment comment)))
     (custom-variable-state-set widget)
     (custom-redraw-magic widget)))
 
@@ -2027,6 +2183,8 @@ Optional EVENT is the location for the menu."
 	 (child (car (widget-get widget :children)))
 	 (symbol (widget-value widget))
 	 (set (or (get symbol 'custom-set) 'set-default))
+	 (comment-widget (widget-get widget :comment-widget))
+	 (comment (widget-value comment-widget))
 	 val)
     (cond ((eq state 'hidden)
 	   (error "Cannot set hidden variable"))
@@ -2034,14 +2192,34 @@ Optional EVENT is the location for the menu."
 	   (goto-char (widget-get val :from))
 	   (error "%s" (widget-get val :error)))
 	  ((memq form '(lisp mismatch))
+	   (when (equal comment "")
+	     (setq comment nil)
+	     ;; Make the comment invisible by hand if it's empty
+	     (set-extent-property (widget-get comment-widget :comment-extent)
+				  'invisible t))
 	   (put symbol 'saved-value (list (widget-value child)))
-	   (funcall set symbol (eval (widget-value child))))
+	   (custom-push-theme 'theme-value symbol 'user
+			      'set (list (widget-value child)))
+	   (funcall set symbol (eval (widget-value child)))
+	   (put symbol 'variable-comment comment)
+	   (put symbol 'saved-variable-comment comment))
 	  (t
+	   (when (equal comment "")
+	     (setq comment nil)
+	     ;; Make the comment invisible by hand if it's empty
+	     (set-extent-property (widget-get comment-widget :comment-extent)
+				  'invisible t))
 	   (put symbol
 		'saved-value (list (custom-quote (widget-value
 						  child))))
-	   (funcall set symbol (widget-value child))))
+	   (custom-push-theme 'theme-value symbol 'user
+			      'set (list (custom-quote (widget-value
+						  child))))
+	   (funcall set symbol (widget-value child))
+	   (put symbol 'variable-comment comment)
+	   (put symbol 'saved-variable-comment comment)))
     (put symbol 'customized-value nil)
+    (put symbol 'customized-variable-comment nil)
     (custom-save-all)
     (custom-variable-state-set widget)
     (custom-redraw-magic widget)))
@@ -2049,28 +2227,45 @@ Optional EVENT is the location for the menu."
 (defun custom-variable-reset-saved (widget)
   "Restore the saved value for the variable being edited by WIDGET."
   (let* ((symbol (widget-value widget))
-	 (set (or (get symbol 'custom-set) 'set-default)))
-    (if (get symbol 'saved-value)
-	(condition-case nil
-	    (funcall set symbol (eval (car (get symbol 'saved-value))))
-	  (error nil))
-      (signal 'error (list "No saved value for variable" symbol)))
+	 (set (or (get symbol 'custom-set) 'set-default))
+	 (comment-widget (widget-get widget :comment-widget))
+	 (value (get symbol 'saved-value))
+	 (comment (get symbol 'saved-variable-comment)))
+    (cond ((or value comment)
+	   (put symbol 'variable-comment comment)
+	   (condition-case nil
+	       (funcall set symbol (eval (car value)))
+	     (error nil)))
+	  (t
+	   (signal 'error (list "No saved value for variable" symbol))))
     (put symbol 'customized-value nil)
+    (put symbol 'customized-variable-comment nil)
     (widget-put widget :custom-state 'unknown)
+    ;; This call will possibly make the comment invisible
     (custom-redraw widget)))
 
 (defun custom-variable-reset-standard (widget)
   "Restore the standard setting for the variable being edited by WIDGET."
   (let* ((symbol (widget-value widget))
-	 (set (or (get symbol 'custom-set) 'set-default)))
+	 (set (or (get symbol 'custom-set) 'set-default))
+	 (comment-widget (widget-get widget :comment-widget)))
     (if (get symbol 'standard-value)
 	(funcall set symbol (eval (car (get symbol 'standard-value))))
       (signal 'error (list "No standard setting known for variable" symbol)))
+    (put symbol 'variable-comment nil)
     (put symbol 'customized-value nil)
-    (when (get symbol 'saved-value)
+    (put symbol 'customized-variable-comment nil)
+    (when (or (get symbol 'saved-value) (get symbol 'saved-variable-comment))
       (put symbol 'saved-value nil)
+      (custom-push-theme 'theme-value symbol 'user 'reset 'standard)
+      ;; As a special optimizations we do not (explictly)
+      ;; save resets to standard when no theme set the value.
+      (if (null (cdr (get symbol 'theme-value)))
+	  (put symbol 'theme-value nil))
+      (put symbol 'saved-variable-comment nil)
       (custom-save-all))
     (widget-put widget :custom-state 'unknown)
+    ;; This call will possibly make the comment invisible
     (custom-redraw widget)))
 
 ;;; The `custom-face-edit' Widget.
@@ -2225,6 +2420,7 @@ Match frames with dark backgrounds")
 (defun custom-face-value-create (widget)
   "Create a list of the display specifications for WIDGET."
   (let ((buttons (widget-get widget :buttons))
+	children
 	(symbol (widget-get widget :value))
 	(tag (widget-get widget :tag))
 	(state (widget-get widget :custom-state))
@@ -2274,6 +2470,16 @@ Match frames with dark backgrounds")
 	   (widget-put widget :buttons buttons)
 	   ;; Insert documentation.
 	   (widget-default-format-handler widget ?h)
+	   ;; The comment field
+	   (unless (eq state 'hidden)
+	     (let* ((comment (get symbol 'face-comment))
+		    (comment-widget
+		     (widget-create-child-and-convert
+		      widget 'custom-comment
+		      :parent widget
+		      :value (or comment ""))))
+	       (widget-put widget :comment-widget comment-widget)
+	       (push comment-widget children)))
 	   ;; See also.
 	   (unless (eq state 'hidden)
 	     (when (eq (widget-get widget :custom-level) 1)
@@ -2307,7 +2513,8 @@ Match frames with dark backgrounds")
 				  'sexp))
 			   :value spec)))
 	       (custom-face-state-set widget)
-	       (widget-put widget :children (list edit)))
+	       (push edit children)
+	       (widget-put widget :children children))
 	     (message "Creating face editor...done"))))))
 
 (defvar custom-face-menu
@@ -2315,10 +2522,13 @@ Match frames with dark backgrounds")
     ("Save for Future Sessions" custom-face-save)
     ("Reset to Saved" custom-face-reset-saved
      (lambda (widget)
-       (get (widget-value widget) 'saved-face)))
+       (or (get (widget-value widget) 'saved-face)
+	   (get (widget-value widget) 'saved-face-comment))))
     ("Reset to Standard Setting" custom-face-reset-standard
      (lambda (widget)
        (get (widget-value widget) 'face-defface-spec)))
+    ("---" ignore ignore)
+    ("Add Comment" custom-comment-show custom-comment-invisible-p)
     ("---" ignore ignore)
     ("Show all display specs" custom-face-edit-all
      (lambda (widget)
@@ -2356,15 +2566,30 @@ widget. If FILTER is nil, ACTION is always valid.")
 
 (defun custom-face-state-set (widget)
   "Set the state of WIDGET."
-  (let ((symbol (widget-value widget)))
-    (widget-put widget :custom-state (cond ((get symbol 'customized-face)
-					    'set)
-					   ((get symbol 'saved-face)
-					    'saved)
-					   ((get symbol 'face-defface-spec)
-					    'standard)
-					   (t
-					    'rogue)))))
+  (let* ((symbol (widget-value widget))
+	 (comment (get symbol 'face-comment))
+	 tmp temp)
+    (widget-put widget :custom-state
+		(cond ((progn
+			 (setq tmp (get symbol 'customized-face))
+			 (setq temp (get symbol 'customized-face-comment))
+			 (or tmp temp))
+		       (if (equal temp comment)
+			   'set
+			 'changed))
+		      ((progn
+			 (setq tmp (get symbol 'saved-face))
+			 (setq temp (get symbol 'saved-face-comment))
+			 (or tmp temp))
+		       (if (equal temp comment)
+			   'saved
+			 'changed))
+		      ((get symbol 'face-defface-spec)
+		       (if (equal comment nil)
+			   'standard
+			 'changed))
+		      (t
+		       'rogue)))))
 
 (defun custom-face-action (widget &optional event)
   "Show the menu for `custom-face' WIDGET.
@@ -2385,9 +2610,18 @@ Optional EVENT is the location for the menu."
   "Make the face attributes in WIDGET take effect."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
-	 (value (widget-value child)))
+	 (value (widget-value child))
+	 (comment-widget (widget-get widget :comment-widget))
+	 (comment (widget-value comment-widget)))
+    (when (equal comment "")
+      (setq comment nil)
+      ;; Make the comment invisible by hand if it's empty
+      (set-extent-property (widget-get comment-widget :comment-extent)
+			   'invisible t))
     (put symbol 'customized-face value)
     (face-spec-set symbol value nil '(custom))
+    (put symbol 'customized-face-comment comment)
+    (put symbol 'face-comment comment)
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
 
@@ -2395,10 +2629,21 @@ Optional EVENT is the location for the menu."
   "Make the face attributes in WIDGET default."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
-	 (value (widget-value child)))
+	 (value (widget-value child))
+	 (comment-widget (widget-get widget :comment-widget))
+	 (comment (widget-value comment-widget)))
+    (when (equal comment "")
+      (setq comment nil)
+      ;; Make the comment invisible by hand if it's empty
+      (set-extent-property (widget-get comment-widget :comment-extent)
+			   'invisible t))
     (face-spec-set symbol value nil '(custom))
     (put symbol 'saved-face value)
+    (custom-push-theme 'theme-face symbol 'user 'set value)
     (put symbol 'customized-face nil)
+    (put symbol 'face-comment comment)
+    (put symbol 'customized-face-comment nil)
+    (put symbol 'saved-face-comment comment)
     (custom-save-all)
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
@@ -2407,12 +2652,18 @@ Optional EVENT is the location for the menu."
   "Restore WIDGET to the face's default attributes."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
-	 (value (get symbol 'saved-face)))
-    (unless value
+	 (value (get symbol 'saved-face))
+	 (comment (get symbol 'saved-face-comment))
+	 (comment-widget (widget-get widget :comment-widget)))
+    (unless (or value comment)
       (signal 'error (list "No saved value for this face" symbol)))
     (put symbol 'customized-face nil)
+    (put symbol 'customized-face-comment nil)
     (face-spec-set symbol value nil '(custom))
+    (put symbol 'face-comment comment)
     (widget-value-set child value)
+    ;; This call manages the comment visibility
+    (widget-value-set comment-widget (or comment ""))
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
 
@@ -2420,15 +2671,25 @@ Optional EVENT is the location for the menu."
   "Restore WIDGET to the face's standard settings."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
-	 (value (get symbol 'face-defface-spec)))
+	 (value (get symbol 'face-defface-spec))
+	 (comment-widget (widget-get widget :comment-widget)))
     (unless value
       (signal 'error (list "No standard setting for this face" symbol)))
     (put symbol 'customized-face nil)
-    (when (get symbol 'saved-face)
+    (put symbol 'customized-face-comment nil)
+    (when (or (get symbol 'saved-face) (get symbol 'saved-face-comment))
       (put symbol 'saved-face nil)
+      (custom-push-theme 'theme-face symbol 'user 'reset 'standard)
+      ;; Do not explictly save resets to standards without themes.
+      (if (null (cdr (get symbol 'theme-face)))
+	  (put symbol  'theme-face nil))
+      (put symbol 'saved-face-comment nil)
       (custom-save-all))
     (face-spec-set symbol value nil '(custom))
+    (put symbol 'face-comment nil)
     (widget-value-set child value)
+    ;; This call manages the comment visibility
+    (widget-value-set comment-widget "")
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
 
@@ -2977,7 +3238,7 @@ explicitly load that file for the settings to take effect."
   :group 'customize)
 
 (defun custom-save-delete (symbol)
-  "Delete the call to SYMBOL form `custom-file'.
+  "Delete the call to SYMBOL form in `custom-file'.
 Leave point at the location of the call, or after the last expression."
   (let ((find-file-hooks nil)
 	(auto-mode-alist nil))
@@ -2997,73 +3258,127 @@ Leave point at the location of the call, or after the last expression."
 	  (throw 'found nil))))))
 
 (defun custom-save-variables ()
-  "Save all customized variables in `custom-file'."
-  (save-excursion
-    (custom-save-delete 'custom-set-variables)
-    (let ((standard-output (current-buffer)))
-      (unless (bolp)
-	(princ "\n"))
-      (princ "(custom-set-variables")
-      (mapatoms (lambda (symbol)
-		  (let ((value (get symbol 'saved-value))
-			(requests (get symbol 'custom-requests))
-			(now (not (or (get symbol 'standard-value)
-				      (and (not (boundp symbol))
-					   (not (get symbol 'force-value)))))))
-		    (when value
-		      (princ "\n '(")
-		      (prin1 symbol)
-		      (princ " ")
-		      (prin1 (car value))
-		      (cond (requests
-			     (if now
-				 (princ " t ")
-			       (princ " nil "))
-			     (prin1 requests)
-			     (princ ")"))
-			    (now
-			     (princ " t)"))
-			    (t
-			     (princ ")")))))))
+   "Save all customized variables in `custom-file'."
+   (save-excursion
+     (custom-save-delete 'custom-load-themes)
+     (custom-save-delete 'custom-reset-variables)
+     (custom-save-delete 'custom-set-variables)
+     (custom-save-loaded-themes)
+     (custom-save-resets 'theme-value 'custom-reset-variables nil)
+     (let ((standard-output (current-buffer)))
+       (unless (bolp)
+ 	(princ "\n"))
+       (princ "(custom-set-variables")
+       (mapatoms (lambda (symbol)		 
+ 		  (let ((spec (car-safe (get symbol 'theme-value)))
+ 			(requests (get symbol 'custom-requests))
+ 			(now (not (or (get symbol 'standard-value)
+ 				      (and (not (boundp symbol))
+ 					   (not (eq (get symbol 'force-value)
+						    'rogue))))))
+			(comment (get symbol 'saved-variable-comment)))
+ 		    (when (or (and spec (eq (car spec) 'user)
+ 			       (eq (second spec) 'set)) comment)
+ 		      (princ "\n '(")
+ 		      (princ symbol)
+ 		      (princ " ")
+		      ;; This comment stuf is in the way ####
+		      ;; Is (eq (third spec) (car saved-value)) ????
+ 		      ;; (prin1 (third spec))
+		      (prin1 (car (get symbol 'saved-value)))
+		      (when (or now requests comment)
+			(princ (if now " t" " nil")))
+		      (when (or comment requests)
+			(princ " ")
+			(prin1 requests))
+		      (when comment
+			(princ " ")
+			(prin1 comment))
+		      (princ ")")))))
       (princ ")")
       (unless (looking-at "\n")
 	(princ "\n")))))
 
+(defvar custom-save-face-ignoring nil)
+
+(defun custom-save-face-internal (symbol)
+  (let ((theme-spec (car-safe (get symbol 'theme-face)))
+	(comment (get symbol 'saved-face-comment))
+	(now (not (or (get symbol 'face-defface-spec)
+	      (and (not (find-face symbol))
+		   (not (eq (get symbol 'force-face) 'rogue)))))))
+    (when (or (and (not (memq symbol custom-save-face-ignoring))
+	       ;; Don't print default face here.
+	       theme-spec
+	       (eq (car theme-spec) 'user)
+	       (eq (second theme-spec) 'set)) comment)
+      (princ "\n '(")
+      (princ symbol)
+      (princ " ")
+      (prin1 (get symbol 'saved-face))
+      (if (or comment now)
+	  (princ (if now " t" " nil")))
+      (when comment
+	  (princ " ")
+	  (prin1 comment))
+      (princ ")"))))
+
 (defun custom-save-faces ()
   "Save all customized faces in `custom-file'."
   (save-excursion
+    (custom-save-delete 'custom-reset-faces)
     (custom-save-delete 'custom-set-faces)
+    (custom-save-resets 'theme-face 'custom-reset-faces '(default))
     (let ((standard-output (current-buffer)))
       (unless (bolp)
 	(princ "\n"))
       (princ "(custom-set-faces")
-      (let ((value (get 'default 'saved-face)))
 	;; The default face must be first, since it affects the others.
-	(when value
-	  (princ "\n '(default ")
-	  (prin1 value)
-	  (if (or (get 'default 'face-defface-spec)
-		  (and (not (find-face 'default))
-		       (not (get 'default 'force-face))))
-	      (princ ")")
-	    (princ " t)"))))
-      (mapatoms (lambda (symbol)
-		  (let ((value (get symbol 'saved-face)))
-		    (when (and (not (eq symbol 'default))
-			       ;; Don't print default face here.
-			       value)
-		      (princ "\n '(")
-		      (prin1 symbol)
-		      (princ " ")
-		      (prin1 value)
-		      (if (or (get symbol 'face-defface-spec)
-			      (and (not (find-face symbol))
-				   (not (get symbol 'force-face))))
-			  (princ ")")
-			(princ " t)"))))))
+      (custom-save-face-internal 'default)
+      (let ((custom-save-face-ignoring '(default)))
+	(mapatoms #'custom-save-face-internal))
       (princ ")")
       (unless (looking-at "\n")
 	(princ "\n")))))
+
+(defun custom-save-resets (property setter special)
+  (let (started-writing ignored-special)
+    ;; (custom-save-delete setter) Done by caller 
+    (let ((standard-output (current-buffer))
+	  (mapper `(lambda (object)
+		    (let ((spec (car-safe (get object (quote ,property)))))
+		      (when (and (not (memq object ignored-special))
+				 (eq (car spec) 'user)
+				 (eq (second spec) 'reset))
+			;; Do not write reset statements unless necessary.
+			(unless started-writing
+			  (setq started-writing t)
+			  (unless (bolp)
+			    (princ "\n"))
+			(princ "(")
+			(princ (quote ,setter))
+			(princ "\n '(")
+			(princ object)
+			(princ " ")
+			(prin1 (third spec))
+			(princ ")")))))))
+      (mapc mapper special)
+      (setq ignored-special special)
+      (mapatoms mapper)
+      (when started-writing
+	(princ ")\n")))))
+			
+
+(defun custom-save-loaded-themes ()
+  (let ((themes (reverse (get 'user 'theme-loads-themes)))
+	(standard-output (current-buffer)))
+    (when themes
+      (unless (bolp) (princ "\n"))
+      (princ "(custom-load-themes")
+      (mapc (lambda (theme)
+	      (princ "\n   '")
+	      (prin1 theme)) themes)
+      (princ " )\n"))))	 
 
 ;;;###autoload
 (defun customize-save-customized ()
@@ -3071,13 +3386,24 @@ Leave point at the location of the call, or after the last expression."
   (interactive)
   (mapatoms (lambda (symbol)
 	      (let ((face (get symbol 'customized-face))
-		    (value (get symbol 'customized-value)))
+		    (value (get symbol 'customized-value))
+		    (face-comment (get symbol 'customized-face-comment))
+		    (variable-comment
+		     (get symbol 'customized-variable-comment)))
 		(when face
 		  (put symbol 'saved-face face)
+		  (custom-push-theme 'theme-face symbol 'user 'set value)
 		  (put symbol 'customized-face nil))
 		(when value
 		  (put symbol 'saved-value value)
-		  (put symbol 'customized-value nil)))))
+		  (custom-push-theme 'theme-value symbol 'user 'set value)
+		  (put symbol 'customized-value nil))
+		(when variable-comment
+		  (put symbol 'saved-variable-comment variable-comment)
+		  (put symbol 'customized-variable-comment nil))
+		(when face-comment
+		  (put symbol 'saved-face-comment face-comment)
+		  (put symbol 'customized-face-comment nil)))))
   ;; We really should update all custom buffers here.
   (custom-save-all))
 

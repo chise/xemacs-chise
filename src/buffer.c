@@ -276,7 +276,7 @@ print_buffer (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
    because all buffers have `kill-buffer' applied to them before
    they disappear, and the children removal happens then. */
 DEFINE_LRECORD_IMPLEMENTATION ("buffer", buffer,
-                               mark_buffer, print_buffer, 0, 0, 0,
+                               mark_buffer, print_buffer, 0, 0, 0, 0,
 			       struct buffer);
 
 DEFUN ("bufferp", Fbufferp, 1, 1, 0, /*

@@ -32,10 +32,24 @@ void get_gui_callback (Lisp_Object, Lisp_Object *, Lisp_Object *);
 
 extern int popup_up_p;
 
+/************************************************************************/
+/*			Image Instance Object				*/
+/************************************************************************/
+
+DECLARE_LRECORD (gui_item, struct Lisp_Gui_Item);
+#define XGUI_ITEM(x) \
+  XRECORD (x, gui_item, struct Lisp_Gui_Item)
+#define XSETGUI_ITEM(x, p) XSETRECORD (x, p, gui_item)
+#define GUI_ITEMP(x) RECORDP (x, gui_item)
+#define GC_GUI_ITEMP(x) GC_RECORDP (x, gui_item)
+#define CHECK_GUI_ITEM(x) CHECK_RECORD (x, gui_item)
+#define CONCHECK_GUI_ITEM(x) CONCHECK_RECORD (x, gui_item)
+
 /* This structure describes gui button,
    menu item or submenu properties */
-struct gui_item
+struct Lisp_Gui_Item
 {
+  struct lcrecord_header header;
   Lisp_Object name;		/* String */
   Lisp_Object callback;		/* Symbol or form */
   Lisp_Object suffix;		/* String */
@@ -46,50 +60,38 @@ struct gui_item
   Lisp_Object style;		/* Symbol */
   Lisp_Object selected;		/* Form */
   Lisp_Object keys;		/* String */
+  Lisp_Object accelerator;	/* Char or Symbol  */
 };
-#define GUI_ITEM_LAST_GCPROED keys
-#define GUI_ITEM_GCPRO_COUNT \
-  (slot_offset(struct gui_item, GUI_ITEM_LAST_GCPROED) / sizeof(Lisp_Object) + 1)
-
-/*
- * gui_item is a struct containing a bunch of Lisp_Object
- * members.  We need to GC-protect all the member slots.
- * Rather than build a long chain of individual gcpro structs
- * that protect the slots individually, we protect all the
- * member slots by pretending the struct is an array.  ANSI C
- * requires this hack to work, ugly though it is.
- */
-#define GCPRO_GUI_ITEM(pgui_item)					\
-	do {								\
-	  Lisp_Object *gui_item_array = (Lisp_Object *) pgui_item;	\
-	  GCPRO1 (gui_item_array[0]);					\
-	  gcpro1.nvars = GUI_ITEM_GCPRO_COUNT;				\
-	} while (0);
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
 extern Lisp_Object Q_keys, Q_selected, Q_suffix, Qradio, Qtoggle;
 extern Lisp_Object Q_key_sequence, Q_label, Q_callback;
 
-void gui_item_init (struct gui_item *pgui_item);
-void gui_item_add_keyval_pair (struct gui_item *pgui_item,
+void gui_item_add_keyval_pair (Lisp_Object,
 			       Lisp_Object key, Lisp_Object val,
 			       Error_behavior errb);
-void gui_parse_item_keywords (Lisp_Object item, struct gui_item *pgui_item);
-void gui_parse_item_keywords_no_errors (Lisp_Object item, struct gui_item *pgui_item);
-int  gui_item_active_p (CONST struct gui_item *pgui_item);
-int  gui_item_selected_p (CONST struct gui_item *pgui_item);
-int  gui_item_included_p (CONST struct gui_item *pgui_item, Lisp_Object into);
-int  gui_item_hash (Lisp_Object, struct gui_item*, int);
-Lisp_Object mark_gui_item (struct gui_item* p, void (*markobj) (Lisp_Object));
-unsigned int gui_item_display_flush_left  (CONST struct gui_item *pgui_item,
+Lisp_Object gui_parse_item_keywords (Lisp_Object item);
+Lisp_Object gui_parse_item_keywords_no_errors (Lisp_Object item);
+int  gui_item_active_p (Lisp_Object);
+int  gui_item_selected_p (Lisp_Object);
+int  gui_item_included_p (Lisp_Object, Lisp_Object into);
+Lisp_Object gui_item_accelerator (Lisp_Object gui_item);
+Lisp_Object gui_name_accelerator (Lisp_Object name);
+int  gui_item_id_hash (Lisp_Object, Lisp_Object gui_item, int);
+unsigned int gui_item_display_flush_left  (Lisp_Object pgui_item,
 					   char* buf, Bytecount buf_len);
-unsigned int gui_item_display_flush_right (CONST struct gui_item *pgui_item,
+unsigned int gui_item_display_flush_right (Lisp_Object gui_item,
 					   char* buf, Bytecount buf_len);
+
+Lisp_Object allocate_gui_item ();
+void gui_item_init (Lisp_Object gui_item);
 
 /* this is mswindows biased but reasonably safe I think */
 #define GUI_ITEM_ID_SLOTS 8
 #define GUI_ITEM_ID_MIN(s) (s * 0x2000)
 #define GUI_ITEM_ID_MAX(s) (0x1FFF + GUI_ITEM_ID_MIN (s))
 #define GUI_ITEM_ID_BITS(x,s) (((x) & 0x1FFF) + GUI_ITEM_ID_MIN (s))
+
+#define MAX_MENUITEM_LENGTH 128
 
 #endif /* _XEMACS_GUI_H_ */

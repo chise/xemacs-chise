@@ -78,6 +78,7 @@ Boston, MA 02111-1307, USA.  */
 #include "events-mod.h"
 
 static void enqueue_Xt_dispatch_event (Lisp_Object event);
+static void handle_focus_event_1 (struct frame *f, int in_p);
 
 static struct event_stream *Xt_event_stream;
 
@@ -807,7 +808,8 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
   len = XmImMbLookupString (XtWindowToWidget (event->display, event->window),
 			    event, bufptr, bufsiz, &keysym, &status);
 #else /* XIM_XLIB */
-  len = XmbLookupString (xic, event, bufptr, bufsiz, &keysym, &status);
+  if (xic)
+    len = XmbLookupString (xic, event, bufptr, bufsiz, &keysym, &status);
 #endif /* HAVE_XIM */
 
 #ifdef DEBUG_XEMACS
@@ -1046,6 +1048,7 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	  {
 	    XButtonEvent *ev = &x_event->xbutton;
 	    struct frame *frame = x_window_to_frame (d, ev->window);
+
 	    if (! frame)
 	      return 0;	/* not for us */
 	    XSETFRAME (emacs_event->channel, frame);
@@ -1058,7 +1061,11 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	    emacs_event->event.button.button	= ev->button;
 	    emacs_event->event.button.x		= ev->x;
 	    emacs_event->event.button.y		= ev->y;
-
+	    /* because we don't seem to get a FocusIn event for button clicks
+	       when a widget-glyph is selected we will assume that we want the
+	       focus if a button gets pressed. */
+	    if (x_event->type == ButtonPress)
+	      handle_focus_event_1 (frame, 1);
 	  }
       }
     break;
@@ -1304,6 +1311,9 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 static void
 handle_focus_event_1 (struct frame *f, int in_p)
 {
+#if XtSpecificationRelease > 5
+  Widget focus_widget = XtGetKeyboardFocusWidget (FRAME_X_TEXT_WIDGET (f));
+#endif
 #ifdef HAVE_XIM
   XIM_focus_event (f, in_p);
 #endif /* HAVE_XIM */
@@ -1319,7 +1329,26 @@ handle_focus_event_1 (struct frame *f, int in_p)
      Actually, we half handle it: we handle it as far as changing the
      box cursor for redisplay, but we don't call any hooks or do any
      select-frame stuff until after the sit-for.
-   */
+
+     Unfortunately native widgets break the model because they grab
+     the keyboard focus and nothing sets it back again. I cannot find
+     any reasonable way to do this elsewhere so we assert here that
+     the keyboard focus is on the emacs text widget. Menus and dialogs
+     do this in their selection callback, but we don't want that since
+     a button having focus is legitimate. An edit field having focus
+     is mandatory. Weirdly you get a FocusOut event when you click in
+     a widget-glyph but you don't get a correspondng FocusIn when you
+     click in the frame. Why is this?  */
+  if (in_p 
+#if XtSpecificationRelease > 5      
+      && FRAME_X_TEXT_WIDGET (f) != focus_widget
+#endif
+      )
+    {
+      lw_set_keyboard_focus (FRAME_X_SHELL_WIDGET (f),
+			     FRAME_X_TEXT_WIDGET (f));
+    }
+  /* do the generic event-stream stuff. */
   {
     Lisp_Object frm;
     Lisp_Object conser;
@@ -1404,7 +1433,7 @@ handle_map_event (struct frame *f, XEvent *event)
 
       /* Bleagh!!!!!!  Apparently some window managers (e.g. MWM)
 	 send synthetic MapNotify events when a window is first
-	 created, EVENT IF IT'S CREATED ICONIFIED OR INVISIBLE.
+	 created, EVEN IF IT'S CREATED ICONIFIED OR INVISIBLE.
 	 Or something like that.  We initially tried a different
 	 solution below, but that ran into a different window-
 	 manager bug.
@@ -1579,6 +1608,7 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
 
     case FocusIn:
     case FocusOut:
+
 #ifdef EXTERNAL_WIDGET
       /* External widget lossage: Ben said:
 	 YUCK.  The only way to make focus changes work properly is to

@@ -29,7 +29,7 @@
 ;;; Code:
 
 
-(defvar config-value-file (expand-file-name "config.values" exec-directory)
+(defvar config-value-file (expand-file-name "config.values" doc-directory)
   "File containing configuration parameters and their values.")
 
 (defvar config-value-hash-table nil

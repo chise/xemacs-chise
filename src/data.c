@@ -799,7 +799,7 @@ typedef struct
   int int_p;
   union
   {
-    int ival;
+    EMACS_INT ival;
     double dval;
   } c;
 } int_or_double;
@@ -1623,9 +1623,16 @@ make_weak_list (enum weak_list_type type)
   return result;
 }
 
+static const struct lrecord_description weak_list_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct weak_list, list), 1 },
+  { XD_LISP_OBJECT, offsetof(struct weak_list, next_weak), 1 },
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("weak-list", weak_list,
 			       mark_weak_list, print_weak_list,
 			       0, weak_list_equal, weak_list_hash,
+			       weak_list_description,
 			       struct weak_list);
 /*
    -- we do not mark the list elements (either the elements themselves

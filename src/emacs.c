@@ -943,6 +943,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       syms_of_gui ();
 #endif
+      syms_of_gutter ();
       syms_of_indent ();
       syms_of_intl ();
       syms_of_keymap ();
@@ -1165,6 +1166,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       specifier_type_create ();
 
       specifier_type_create_image ();
+      specifier_type_create_gutter ();
       specifier_type_create_objects ();
 #ifdef HAVE_TOOLBARS
       specifier_type_create_toolbar ();
@@ -1200,6 +1202,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       image_instantiator_format_create ();
       image_instantiator_format_create_glyphs_eimage ();
       image_instantiator_format_create_glyphs_widget ();
+#ifdef HAVE_TTY
+      image_instantiator_format_create_glyphs_tty ();
+#endif
 #ifdef HAVE_X_WINDOWS
       image_instantiator_format_create_glyphs_x ();
 #endif /* HAVE_X_WINDOWS */
@@ -1335,6 +1340,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #if defined (HAVE_MENUBARS) || defined (HAVE_SCROLLBARS) || defined (HAVE_DIALOGS) || defined (HAVE_TOOLBARS)
       vars_of_gui ();
 #endif
+      vars_of_gutter ();
       vars_of_indent ();
       vars_of_insdel ();
       vars_of_intl ();
@@ -1487,6 +1493,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 	 */
 
       specifier_vars_of_glyphs ();
+      specifier_vars_of_gutter ();
 #ifdef HAVE_MENUBARS
       specifier_vars_of_menubar ();
 #endif

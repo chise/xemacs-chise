@@ -143,7 +143,7 @@
 	    ("Set language environment")
 	    "--"
 	    ["Toggle input method" toggle-input-method]
-	    ["Select input method" select-input-method]
+	    ["Select input method" set-input-method]
 	    ["Describe input method" describe-input-method]
 	    "--"
 	    ["Describe current coding systems"
@@ -737,6 +737,32 @@
 		 :selected (eq default-toolbar-position 'right)]
 		)
 	       )))
+      ,@(if (featurep 'gutter)
+	    '(("Gutter Appearance"
+	       ["Visible"
+		(customize-set-variable 'gutter-visible-p
+					(not gutter-visible-p))
+		:style toggle
+		:selected gutter-visible-p]
+	       ("Default Location"
+		["Top"
+		 (customize-set-variable 'default-gutter-position 'top)
+		 :style radio
+		 :selected (eq default-gutter-position 'top)]
+		["Bottom"
+		 (customize-set-variable 'default-gutter-position 'bottom)
+		 :style radio
+		 :selected (eq default-gutter-position 'bottom)]
+		["Left"
+		 (customize-set-variable 'default-gutter-position 'left)
+		 :style radio
+		 :selected (eq default-gutter-position 'left)]
+		["Right"
+		 (customize-set-variable 'default-gutter-position 'right)
+		 :style radio
+		 :selected (eq default-gutter-position 'right)]
+		)
+	       )))
       ("Mouse"
        ["Avoid Text..."
 	(customize-set-variable 'mouse-avoidance-mode
@@ -955,7 +981,8 @@
        ["No Warranty" describe-no-warranty]
        ["XEmacs License" describe-copying]
        ["The Latest Version" describe-distribution])
-      ["Send Bug Report..." report-emacs-bug]))))
+      ["Send Bug Report..." report-emacs-bug
+       :active (fboundp 'report-emacs-bug)]))))
 
 
 (defun maybe-add-init-button ()

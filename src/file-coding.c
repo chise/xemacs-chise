@@ -25,6 +25,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+
 #include "buffer.h"
 #include "elhash.h"
 #include "insdel.h"
@@ -244,10 +245,46 @@ static Lisp_Object mark_coding_system (Lisp_Object, void (*) (Lisp_Object));
 static void print_coding_system (Lisp_Object, Lisp_Object, int);
 static void finalize_coding_system (void *header, int for_disksave);
 
+#ifdef MULE
+static const struct lrecord_description ccs_description_1[] = {
+  { XD_LISP_OBJECT, offsetof(charset_conversion_spec, from_charset), 2 },
+  { XD_END }
+};
+
+static const struct struct_description ccs_description = {
+  sizeof(charset_conversion_spec),
+  ccs_description_1
+};
+  
+static const struct lrecord_description ccsd_description_1[] = {
+  XD_DYNARR_DESC(charset_conversion_spec_dynarr, &ccs_description),
+  { XD_END }
+};
+
+static const struct struct_description ccsd_description = {
+  sizeof(charset_conversion_spec_dynarr),
+  ccsd_description_1
+};
+#endif
+
+static const struct lrecord_description coding_system_description[] = {
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, name), 2 },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, mnemonic), 3 },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, eol_lf), 3 },
+#ifdef MULE
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, iso2022.initial_charset), 4 },
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.input_conv),  1, &ccsd_description },
+  { XD_STRUCT_PTR,  offsetof(struct Lisp_Coding_System, iso2022.output_conv), 1, &ccsd_description },
+  { XD_LISP_OBJECT, offsetof(struct Lisp_Coding_System, ccl.decode), 2 },
+#endif
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("coding-system", coding_system,
 			       mark_coding_system, print_coding_system,
 			       finalize_coding_system,
-			       0, 0, struct Lisp_Coding_System);
+			       0, 0, coding_system_description,
+			       struct Lisp_Coding_System);
 
 static Lisp_Object
 mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
@@ -1587,26 +1624,65 @@ determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
   if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT ||
       *eol_type_in_out == EOL_AUTODETECT)
     {
+      unsigned char random_buffer[4096];
+      int nread;
+      Lisp_Object coding_system = Qnil;
 
-      while (1)
+      nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
+      if (nread)
 	{
-	  unsigned char random_buffer[4096];
-	  int nread;
+	  unsigned char *cp = random_buffer;
 
-	  nread = Lstream_read (stream, random_buffer, sizeof (random_buffer));
-	  if (!nread)
-	    break;
-	  if (detect_coding_type (&decst, random_buffer, nread,
-				  XCODING_SYSTEM_TYPE (*codesys_in_out) !=
-				  CODESYS_AUTODETECT))
-	    break;
+	  while (cp < random_buffer + nread)
+	    {
+	      if ((*cp++ == 'c') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'o') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'd') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'i') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'n') && (cp < random_buffer + nread) &&
+		  (*cp++ == 'g') && (cp < random_buffer + nread) &&
+		  (*cp++ == ':') && (cp < random_buffer + nread))
+		{
+		  unsigned char coding_system_name[4096 - 6];
+		  unsigned char *np = coding_system_name;
+
+		  while ( (cp < random_buffer + nread)
+			  && ((*cp == ' ') || (*cp == '\t')) )
+		    {
+		      cp++;
+		    }
+		  while ( (cp < random_buffer + nread) &&
+			  (*cp != ' ') && (*cp != '\t') && (*cp != ';') )
+		    {
+		      *np++ = *cp++;
+		    }
+		  *np = 0;
+		  coding_system
+		    = Ffind_coding_system (intern (coding_system_name));
+		  break;
+		}
+	    }
+	  if (EQ(coding_system, Qnil))
+	    do{
+	      if (detect_coding_type (&decst, random_buffer, nread,
+				      XCODING_SYSTEM_TYPE (*codesys_in_out)
+				      != CODESYS_AUTODETECT))
+		break;
+	      nread = Lstream_read (stream,
+				    random_buffer, sizeof (random_buffer));
+	      if (!nread)
+		break;
+	    } while(1);
 	}
-
       *eol_type_in_out = decst.eol_type;
       if (XCODING_SYSTEM_TYPE (*codesys_in_out) == CODESYS_AUTODETECT)
-	*codesys_in_out = coding_system_from_mask (decst.mask);
+	{
+	  if (EQ(coding_system, Qnil))
+	    *codesys_in_out = coding_system_from_mask (decst.mask);
+	  else
+	    *codesys_in_out = coding_system;
+	}
     }
-
   /* If we absolutely can't determine the EOL type, just assume LF. */
   if (*eol_type_in_out == EOL_AUTODETECT)
     *eol_type_in_out = EOL_LF;
@@ -1860,6 +1936,9 @@ struct decoding_stream
   /* Additional information (the state of the running CCL program)
      used by the CCL decoder. */
   struct ccl_program ccl;
+
+  /* counter for UTF-8 or UCS-4 */
+  unsigned char counter;
 #endif
   struct detection_state decst;
 };
@@ -1994,6 +2073,7 @@ reset_decoding_stream (struct decoding_stream *str)
     {
       setup_ccl_program (&str->ccl, CODING_SYSTEM_CCL_DECODE (str->codesys));
     }
+  str->counter = 0;
 #endif /* MULE */
   str->flags = str->ch = 0;
 }
@@ -2177,6 +2257,7 @@ mule_decode (Lstream *decoding, CONST unsigned char *src,
       decode_coding_utf8 (decoding, src, dst, n);
       break;
     case CODESYS_CCL:
+      str->ccl.last_block = str->flags & CODING_STATE_END;
       ccl_driver (&str->ccl, src, dst, n, 0, CCL_MODE_DECODING);
       break;
     case CODESYS_ISO2022:
@@ -2593,6 +2674,7 @@ mule_encode (Lstream *encoding, CONST unsigned char *src,
       encode_coding_utf8 (encoding, src, dst, n);
       break;
     case CODESYS_CCL:
+      str->ccl.last_block = str->flags & CODING_STATE_END;
       ccl_driver (&str->ccl, src, dst, n, 0, CCL_MODE_ENCODING);
       break;
     case CODESYS_ISO2022:
@@ -3373,31 +3455,33 @@ decode_coding_ucs4 (Lstream *decoding, CONST unsigned char *src,
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags = str->flags;
   unsigned int ch    = str->ch;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  ch = c;
-	  flags = 3;
+	  counter = 3;
 	  break;
 	case 1:
 	  decode_ucs4 ( ( ch << 8 ) | c, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 8 ) | c;
-	  flags--;
+	  counter--;
 	}
     }
-  if (flags & CODING_STATE_END)
+  if (counter & CODING_STATE_END)
     DECODE_OUTPUT_PARTIAL_CHAR (ch);
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 static void
@@ -3582,37 +3666,38 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
   unsigned int flags  = str->flags;
   unsigned int ch     = str->ch;
   eol_type_t eol_type = str->eol_type;
+  unsigned char counter = str->counter;
 
   while (n--)
     {
       unsigned char c = *src++;
-      switch (flags)
+      switch (counter)
 	{
 	case 0:
 	  if ( c >= 0xfc )
 	    {
 	      ch = c & 0x01;
-	      flags = 5;
+	      counter = 5;
 	    }
 	  else if ( c >= 0xf8 )
 	    {
 	      ch = c & 0x03;
-	      flags = 4;
+	      counter = 4;
 	    }
 	  else if ( c >= 0xf0 )
 	    {
 	      ch = c & 0x07;
-	      flags = 3;
+	      counter = 3;
 	    }
 	  else if ( c >= 0xe0 )
 	    {
 	      ch = c & 0x0f;
-	      flags = 2;
+	      counter = 2;
 	    }
 	  else if ( c >= 0xc0 )
 	    {
 	      ch = c & 0x1f;
-	      flags = 1;
+	      counter = 1;
 	    }
 	  else
 	    {
@@ -3624,11 +3709,11 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 	  ch = ( ch << 6 ) | ( c & 0x3f );
 	  decode_ucs4 (ch, dst);
 	  ch = 0;
-	  flags = 0;
+	  counter = 0;
 	  break;
 	default:
 	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  flags--;
+	  counter--;
 	}
     label_continue_loop:;
     }
@@ -3638,6 +3723,7 @@ decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
 
   str->flags = flags;
   str->ch    = ch;
+  str->counter = counter;
 }
 
 #ifndef UTF2000
