@@ -16,10 +16,21 @@
     (=daikanwa		. 02493)	; &I-M-02493;
     ))
 (define-char
+  '((ideographic-radical . 20)	; ⼓
+    (ideographic-strokes . 1)
+    (total-strokes	 . 3)
+    (=ucs		. #x52FA)	; 勺
+    (=big5		. #xA463)	; &I-B-A463;
+    (=jis-x0208@1997	. #x3C5B)	; 勺 [28-59]
+    ))
+(define-char
   '((=>ucs*		. #x52FA)	; 勺
     (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x52FA)	; 勺
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
       (=ucs		  . #x2FF9)	; ⿹
@@ -33,7 +44,6 @@
     (=ucs		. #x2F828)	; 勺
     (=ks-x1001		. #x6D43)	; &I-K0-6D43; [77-35]
     (=cns11643-4	. #x212F)	; &I-C4-212F; [01-15]
-    (=big5-cdp		. #xA463)	; &I-B-A463;
     (=gt		. 03203)	; &I-GT-03203;
     (=gt-k		. 00184)	; &I-GT-K00184;
     (=gt-pj-2		. #x4634)	; &I-GT-03203; [38-20]
@@ -42,9 +52,13 @@
     (=ucs@ks		. #x52FA)	; 勺
     ))
 (define-char
-  '((ideographic-radical . 20)	; ⼓
+  '((=>ucs*		. #x52FA)	; 勺
+    (ideographic-radical . 20)	; ⼓
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x52FA)	; 勺
+      ))
     (hanyu-dazidian	1 254 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -56,15 +70,15 @@
       ))
     (shinjigen-1	. 762)
     (shinjigen-2	. 762)
-    (=ucs		. #x52FA)	; 勺
+    (=ucs		. #xFA77)	; 勺
     (=jis-x0208		. #x3C5B)	; &I-J90-3C5B; [28-59]
     (=gb2312		. #x4957)	; &I-G0-4957; [41-55]
     (=cns11643-1	. #x4444)	; &I-C1-4444; [36-36]
-    (=big5		. #xA463)	; &I-B-A463;
     (=gt		. 03204)	; &I-GT-03204;
     (=gt-k		. 00183)	; &I-GT-K00183;
     (=gt-pj-1		. #x3C5B)	; &I-GT-03204; [28-59]
     (=daikanwa		. 02495)	; &I-M-02495;
+    (=ucs@unicode	. #x52FA)	; 勺
     ))
 (define-char
   '((ideographic-radical . 20)	; ⼓

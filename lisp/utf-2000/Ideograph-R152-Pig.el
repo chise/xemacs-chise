@@ -256,22 +256,21 @@
     (=daikanwa		. 36360)	; &I-M-36360;
     ))
 (define-char
-  '((=>ucs		. #x8C59)	; 豙
-    (ideographic-radical . 152)	; ⾗
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
-    (=jis-x0212		. #x5E72)	; &CDP-8AD1; [62-82]
-    (=big5-cdp		. #x8AD1)	; &I-CDP-8AD1;
-    (=daikanwa		. 36361)	; &I-M-36361;
-    (=ucs@jis		. #x8C59)	; &CDP-8AD1;
-    ))
-(define-char
-  '((morohashi-daikanwa	36361 0 0)
-    (ideographic-radical . 152)	; ⾗
+  '((ideographic-radical . 152)	; ⾗
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=ucs		. #x8C59)	; 豙
-    (=cns11643-4	. #x354D)	; &I-C4-354D; [21-45]
+    (->subsumptive
+     ((=jis-x0212	  . #x5E72)	; &M-36361; [62-82]
+      (=daikanwa	  . 36361)	; &I-M-36361;
+      (=ucs@jis		  . #x8C59)	; &M-36361;
+      )
+     ((=ucs@unicode	  . #x8C59)	; &UU+8C59;
+      )
+     ((=big5-cdp	  . #x8AD1)	; &CDP-8AD1;
+      )
+     ((=cns11643-4	  . #x354D)	; &C4-354D; [21-45]
+      ))
     ))
 (define-char
   '((ideographic-radical . 152)	; ⾗

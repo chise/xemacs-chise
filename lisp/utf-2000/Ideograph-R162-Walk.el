@@ -5943,34 +5943,69 @@
     (=ucs		. #x903F)	; 逿
     ))
 (define-char
-  '((=>ucs		. #x48A1)	; 䢡
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (=ucs		. #x48A1)	; 䢡
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x48A1)	; 䢡
+      ))
     (=daikanwa		. 38979)	; &M-38979;
     ))
 (define-char
-  '((morohashi-daikanwa	38979 0 3)
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=ucs		. #x48A1)	; 䢡
-    (=cns11643-4	. #x412F)	; &I-C4-412F; [33-15]
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x48A1)	; 䢡
+      ))
+    (=ucs@unicode	. #x48A1)	; &UU+48A1;
     ))
 (define-char
-  '((=>ucs		. #x9040)	; 遀
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x48A1)	; 䢡
+      ))
+    (=cns11643-4	. #x412F)	; &C4-412F; [33-15]
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (=ucs		. #x9040)	; 遀
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x9040)	; 遀
+      ))
     (=daikanwa		. 38980)	; &M-38980;
     ))
 (define-char
-  '((morohashi-daikanwa	38980 0 0)
-    (ideographic-radical . 162)	; ⾡
+  '((ideographic-radical . 162)	; ⾡
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x9040)	; 遀
+      ))
+    (=ucs@unicode	. #x9040)	; &UU+9040;
+    ))
+(define-char
+  '((ideographic-radical . 162)	; ⾡
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ucs		. #x9040)	; 遀
-    (=cns11643-3	. #x447D)	; &I-C3-447D; [36-93]
+    (<-denotational
+     ((=ucs		  . #x9040)	; 遀
+      ))
+    (=cns11643-3	. #x447D)	; &CDP-8CBC; [36-93]
+    (=big5-cdp		. #x8CBC)	; &I-CDP-8CBC;
     ))
 (define-char
   '((ideographic-radical . 162)	; ⾡

@@ -1966,22 +1966,24 @@
     (=gt-pj-9		. #x3B41)	; &GT-00074; [27-33]
     ))
 (define-char
-  '((=>ucs		. #x4E26)	; 並
+  '((=>ucs*		. #x4E26)	; 並
     (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (shinjigen-1	. 5733)
-    (=daikanwa		. 00053)	; &M-00053;
-    (mojikyo		. 000053)	; &MCS-60000035;
-    ))
-(define-char
-  '((morohashi-daikanwa	53 0 0)
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 8)
-    (total-strokes	 . 9)
-    (=gt		. 00089)	; &GT-00089;
-    (=gt-k		. 06059)	; &I-GT-K06059;
-    (=gt-pj-2		. #x3046)	; &GT-00089; [16-38]
+    (ideographic-strokes@daikanwa . 7)
+    (total-strokes@daikanwa	  . 8)
+    (ideographic-strokes@gt . 8)
+    (total-strokes@gt	    . 9)
+    (=ucs		. #xFA70)	; 並
+    (->subsumptive
+     ((shinjigen-1	  . 5733)
+      (=gt		  . 00089)	; &GT-00089;
+      (=gt-k		  . 06059)	; &I-GT-K06059;
+      (=gt-pj-2		  . #x3046)	; &GT-00089; [16-38]
+      (=daikanwa	  . 00053)	; &I-M-00053;
+      (=ucs@JP		  . #xFA70)	; &GT-00089;
+      (mojikyo		  . 000053)	; &MCS-60000035;
+      )
+     ((=ucs@unicode	  . #xFA70)	; &UU+FA70;
+      ))
     ))
 (define-char
   '((ideographic-radical . 1)	; ⼀

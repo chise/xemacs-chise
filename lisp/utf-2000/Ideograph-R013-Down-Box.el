@@ -131,8 +131,8 @@
     (ideographic-radical@cns*sources
      cns11643-3 daikanwa)
     (total-strokes	 . 4)
-    (<-vulgar
-     ((=ucs		  . #x5167)	; 內
+    (<-denotational
+     ((=jis-x0208@1997	  . #x4662)	; &J97-4662; [38-66]
       ))
     (=ucs		. #x5185)	; 内
     ))
@@ -144,7 +144,8 @@
      ((=ucs		  . #x5185)	; 内
       ))
     (<-vulgar
-     ((=daikanwa	  . 01418)	; &I-M-01418;
+     ((=ks-x1001	  . #x522E)	; &M-01418; [50-14]
+      (=daikanwa	  . 01418)	; &I-M-01418;
       ))
     (<-vulgar*sources
      daikanwa)
@@ -152,6 +153,22 @@
     (=gt		. 01982)	; &I-GT-01982;
     (=gt-pj-2		. #x3D2C)	; &I-GT-01982; [29-12]
     (=daikanwa		. 01512)	; &I-M-01512;
+    ))
+(define-char
+  '((ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     daikanwa=01512 cns11643-6 ucs=0x5185)
+    (ideographic-radical@daikanwa . 11)	; ⼊
+    (ideographic-strokes@daikanwa . 2)
+    (ideographic-radical@daikanwa*sources
+     daikanwa=01418 cns11643-1 ucs=0x5167)
+    (ideographic-radical@cns-3 . 9)	; ⼈
+    (ideographic-strokes@cns-3 . 2)
+    (ideographic-radical@cns-3*sources
+     cns11643-3 daikanwa=366-1)
+    (total-strokes	 . 4)
+    (=jis-x0208@1997	. #x4662)	; &J97-4662; [38-66]
     ))
 (define-char
   '((ideographic-radical . 13)	; ⼌
@@ -785,26 +802,41 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (=ucs		. #x5190)	; 冐
-    (->subsumptive
-     ((hanyu-dazidian	  2 1490 4)
-      (ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((name*		    . "ideographic component hood")
-	(=big5-cdp	    . #x8A78)	; &CDP-8A78;
-	)
-       ((=big5-cdp	    . #x8958)	; &CDP-8958;
-	))
-      (=jis-x0208	  . #x666E)	; &GT-02014; [70-78]
-      (=gt		  . 02014)	; &I-GT-02014;
-      (=gt-k		  . 03995)	; &I-GT-K03995;
-      (=gt-pj-1		  . #x666E)	; &I-GT-02014; [70-78]
-      (=daikanwa	  . 01534)	; &I-M-01534;
-      (=hanziku-4	  . #xDCEE)	; &I-HZK04-DCEE;
-      (=ucs@unicode	  . #x5190)	; &GT-02014;
-      (mojikyo		  . 001534)	; &MCS-600005FE;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5190)	; 冐
+      ))
+    (hanyu-dazidian	2 1490 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; ⿱
       )
+     ((name*		  . "ideographic component hood")
+      (=big5-cdp	  . #x8A78)	; &CDP-8A78;
+      )
+     ((=big5-cdp	  . #x8958)	; &CDP-8958;
+      ))
+    (=jis-x0208		. #x666E)	; &GT-02014; [70-78]
+    (=gt		. 02014)	; &I-GT-02014;
+    (=gt-k		. 03995)	; &I-GT-K03995;
+    (=gt-pj-1		. #x666E)	; &I-GT-02014; [70-78]
+    (=daikanwa		. 01534)	; &I-M-01534;
+    (=hanziku-4		. #xDCEE)	; &I-HZK04-DCEE;
+    (=ucs@unicode	. #x5190)	; &GT-02014;
+    (mojikyo		. 001534)	; &MCS-600005FE;
+    ))
+(define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5190)	; 冐
+      ))
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
@@ -819,7 +851,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x65E5)	; 日
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	)
        ((=big5-cdp	    . #x8958)	; &CDP-8958;
 	))
@@ -829,7 +861,17 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs		    . #x65E5)	; 日
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
+	)
+       ((=big5-cdp	    . #x8A73)	; &CDP-8A73;
+	))
+      (=big5-cdp	  . #x8CCB)	; &CDP-8CCB;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=cns11643-1	    . #x454B)	; &C1-454B; [37-43]
 	)
        ((=ucs		    . #x6708)	; 月
 	))
@@ -1196,7 +1238,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=ucs@unicode	  . #x65E5)	; &UU+65E5;
+     ((=ucs		  . #x65E5)	; 日
       )
      ((=gb2312		  . #x4362)	; &C1-492D; [35-66]
       (=ks-x1001	  . #x5873)	; &I-K0-5873; [56-83]

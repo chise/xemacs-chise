@@ -1,3 +1,209 @@
+2005-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R152-Pig.el (U+8C59): Use `->subsumptive'.
+
+	* Ideograph-R129-Brush.el (C3-383E): Unify BC-88C9.
+
+	* Ideograph-R087-Claw.el (U+722B): Changed to abstract character;
+	add `<-ideographic-component-forms' for U+722A.
+	(<CJK RADICAL PAW TWO>): Copied from
+	u02E00-CJK-Radical-Supplement.el; use `<-denotational' for U+722B;
+	add `<-radical' for U+722A.
+	(JX2-7029): Unify <CJK RADICAL PAW ONE> and BC-8B58; use
+	`=ucs@unicode' instead of `=ucs@gb' for UU+722B; use
+	`->subsumptive' for U+FA49.
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL PAW ONE>): Use
+	`<-denotational' for U+722B; unify JX2-7029, UU+722B and JU+FA49;
+	add `->subsumptive' for U+FA49.
+	(<CJK RADICAL PAW TWO>): Use `<-denotational' for U+722B; add
+	`<-radical' for U+722A.
+
+	* Ideograph-R072-Sun.el (U+669B): Changed to abstract character.
+	(U+669C): Use `->subsumptive'.
+
+2005-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5D11): Use `->subsumptive'.
+	(U-00021E1C): Likewise.
+
+2005-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R071-Not.el (J0-5A5B): Unify CB07099.
+
+2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (BC-8BE7): New character.
+
+	* Ideograph-R055-Two-Hands.el (U-0002F890): Unify BC-887D.
+
+	* Ideograph-R101-Use.el (U-00024C08): Use `->subsumptive'.
+	(CB08880): New character.
+
+	* Ideograph-R162-Walk.el (U+48A1): Changed to abstract character.
+	(U+9040): Changed to abstract character.
+	(C3-447D): Use `<-denotational' for U+9040; unify BC-8CBC.
+
+2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R073-Say.el (U+66F0): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U+5190): Use `->denotational'
+	instead of `->subsumptive'.
+	(BC-8CCB): New character.
+
+	* Ideograph-R009-Man.el (U-00020203): Delete incomplete
+	`ideographic-structure'.
+	(U-000202A7): Changed to abstract character.
+	(U-000202BB): Likewise.
+	(U-000202FD): Use `->subsumptive'.
+	(U-000202FE): Likewise.
+	(U-000202FF): Delete incomplete `ideographic-structure'.
+
+2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el (U+470C): Use `->subsumptive'.
+	(U+9FBB): New character; add `<-denotational' for C5-6952; add
+	`<-ideographic-component-forms' for U+470C.
+
+	* Ideograph-R167-Gold.el (U+9FAC): New character; unify CB02156.
+
+	* Ideograph-R163-City.el (U+90C1): Use `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (U+9FB7): New character; unify BC-8B5C.
+	(U+82F1): Changed to abstract character.
+
+	* Ideograph-R130-Meat.el (U+8127): Use `->subsumptive'.
+
+	* Ideograph-R100-Life.el (BC-8B77): Unify U+9FB6.
+
+	* Ideograph-R045-Sprout.el (U+37B7): Use `->subsumptive'.
+
+	* Ideograph-R037-Big.el (M-05921): Unify U+FA7F; add
+	`<-denotational' for J97-4B5B.
+	(J97-4B5B): New character.
+	(U+5954): Add `<-denotational' for J97-4B5B; add `<-simplified'
+	for M-05921.
+
+	* Ideograph-R032-Earth.el (GT-06661): Unify U+FA7C into the parent
+	node.
+
+2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R077-Stop.el (GT-K00182): Use `=>daikanwa' instead of
+	`morohashi-daikanwa'; add `<-ideographic-component-forms' for
+	U+6B62.
+	(GT-K00439): Likewise.
+	(GT-K00440): Likewise; unify U+9FB0.
+
+	* Ideograph-R066-Rap.el (U+656C): Changed to abstract character.
+
+	* Ideograph-R064-Hand.el (U+9FB5): New character; unify BC-8B6D.
+
+	* Ideograph-R031-Enclosure.el (CB00638): Unify U+9FB1.
+	(U+5705): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+35A9): Use `->subsumptive'.
+	(JU+559D): Unify U+FA78.
+	(U+55E2): Changed to abstract character.
+	(UU+55E2): Unify U+FA7B.
+
+	* Ideograph-R024-Ten.el (U+9FBA): New character.
+
+	* Ideograph-R015-Ice.el (U+51B5): Separate CB00288.
+	(CB00288): Unify U+FA71.
+
+	* Ideograph-R010-Legs.el (M-01344): Unify U+FA74.
+	(U-00020496): Changed to abstract character.
+	(U-000204A8): Likewise.
+	(M-01398): Unify U-000204AE and H1-DEC9.
+
+	* Ideograph-R012-Eight.el (U+9FB9): New character.
+	(GT-K01769): Map to U+9FB9 instead of U-00020509.
+	(BC-8BFA): Likewise.
+
+	* Ideograph-R011-Enter.el (U+5168): Use `->denotational' instead
+	of `->subsumptive'.
+	(UU+5168): Use `<-denotational' for U+5168; unify U+FA72.
+
+	* Ideograph-R002-Line.el (U+4E35): Use `->subsumptive'.
+
+	* Ideograph-R001-One.el (M-00053): Unify GT-00089 and GT-K06059;
+	map to U+FA70 instead of U+4E26.
+	(U+FA70): New character.
+
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+52FA): Changed to abstract character.
+	(GT-03204): Use `<-denotational' U+52FA; unify U+FA77; add
+	UU+52FA.
+
+	* Ideograph-R019-Power.el (UU+52C7): Unify U+FA76.
+
+	* Ideograph-R005-Second.el (U+9FB4): New character; unify BC-8B69.
+
+	* char-db-util.el (insert-char-data-with-variant): Don't refer
+	`->ucs'; fix problem about cyclic relations.
+
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F65): Add `<-denotational' for
+	J97-4927.
+	(J97-4927): New abstract character.
+	(U+5F66): Add `<-denotational' for J97-4927.
+
+	* Ideograph-R030-Mouth.el (U+356F): Changed to abstract character.
+	(U+5436): Use `->subsumptive'.
+	(U+5468): Changed to abstract character.
+
+2005-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R059-Bristle.el (U+5F65): Use `->subsumptive'.
+	(U+5F66): Likewise.
+
+	* Ideograph-R146-West.el (J97-4D57): New abstract character.
+	(M-34768): Use `<-denotational' for J97-4D57 instead of `=>ucs'
+	for U+8981.
+	(U+8981): Use `<-denotational' for J97-4D57; use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+5185): Add `<-denotational' for
+	J97-4662; delete `<-vulgar' for U+5167.
+	(C3-2148): Delete `->identical' for C6-2150.
+	(J97-4662): New abstract character.
+	(U-000202EE): Use `->subsumptive'.
+	(U+50FF): Likewise.
+
+2005-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+82E5): Changed to abstract character.
+
+	* Ideograph-R032-Earth.el (U+585E): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el (U+5185): Add `<-denotational' for
+	J97-4662; delete `<-vulgar' for U+5167.
+	(J97-4662): New abstract character.
+
+	* Ideograph-R011-Enter.el (U+5167): Use `->subsumptive'; add
+	`<-denotational' for J97-4662.
+	(J97-4662): New abstract character.
+	(U+5185): Copied from Ideograph-R009-Man.el and
+	Ideograph-R013-Down-Box.el; changed to abstract character; add
+	`<-denotational' for J97-4662.
+
+	* Ideograph-R074-Moon.el (J97-442B): New abstract character.
+	(M-14374): Use `<-denotational' for J97-442B instead of `=>ucs'
+	for U+671D.
+	(U+671D): Likewise.
+
+	* Ideograph-R061-Heart.el (U+611B): Use `->subsumptive'.
+
+2005-01-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (char-total-strokes-from-domains): Use
+	`char-feature' instead of `get-char-attribute' to get
+	`total-strokes'.
+	(char-total-strokes): Likewise.
+
 2005-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U+4FC0): Unify B-CDED.

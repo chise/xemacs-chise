@@ -1102,6 +1102,18 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x2099D)	; 𠦝
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x2099D)	; 𠦝
+      ))
+    (=ucs		. #x9FBA)	; 龺
+    ))
+(define-char
+  '((ideographic-radical . 24)	; ⼗
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱

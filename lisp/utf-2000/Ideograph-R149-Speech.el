@@ -12708,9 +12708,28 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (=ucs		. #x470C)	; 䜌
-    (=cns11643-5	. #x6952)	; &I-C5-6952; [73-50]
-    (=jis-x0213-2-2000	. #x786B)	; &I-JX2-786B; [88-75]
-    (=daikanwa		. 35943)	; &I-M-35943;
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x786B)	; &M-35943; [88-75]
+      (=daikanwa	  . 35943)	; &I-M-35943;
+      (=ucs@jis		  . #x470C)	; &M-35943;
+      )
+     ((=big5-cdp	  . #x8BE7)	; &CDP-8BE7;
+      )
+     ((=cns11643-5	  . #x6952)	; &C5-6952; [73-50]
+      (=ucs@unicode	  . #x470C)	; &C5-6952;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 149)	; ⾔
+    (ideographic-strokes . 12)
+    (total-strokes	 . 19)
+    (<-denotational
+     ((=cns11643-5	  . #x6952)	; &C5-6952; [73-50]
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x470C)	; 䜌
+      ))
+    (=ucs		. #x9FBB)	; 龻
     ))
 (define-char
   '((=>ucs		. #x27B06)	; 𧬆

@@ -1385,17 +1385,30 @@
     (=jef-china3	. #x48E3)	; &I-JC3-48E3;
     ))
 (define-char
-  '((=>ucs		. #x5954)	; 奔
+  '((=>ucs*		. #x5954)	; 奔
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (=daikanwa		. 05921)	; &M-05921;
+    (<-denotational
+     ((=jis-x0208@1997	  . #x4B5B)	; &J97-4B5B; [43-59]
+      ))
+    (=ucs		. #xFA7F)	; 奔
+    (=daikanwa		. 05921)	; &I-M-05921;
     ))
 (define-char
-  '((morohashi-daikanwa	5921 0 2)
-    (ideographic-radical . 37)	; ⼤
+  '((ideographic-radical . 37)	; ⼤
+    (=jis-x0208@1997	. #x4B5B)	; &J97-4B5B; [43-59]
+    ))
+(define-char
+  '((ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x4B5B)	; &J97-4B5B; [43-59]
+      ))
+    (<-simplified
+     ((=ucs		  . #xFA7F)	; 奔
+      ))
     (=ucs		. #x5954)	; 奔
     (=jis-x0208		. #x4B5B)	; &I-J90-4B5B; [43-59]
     (=gb2312		. #x313C)	; &I-G0-313C; [17-28]

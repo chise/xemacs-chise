@@ -7901,12 +7901,14 @@
       ))
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((=>ucs*		. #x585A)	; 塚
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (<-denotational
      ((=ucs		  . #x585A)	; 塚
       ))
+    (=ucs		. #xFA7C)	; 塚
     (->subsumptive
      ((<-simplified@JP/Jouyou
        ((=ucs		    . #xFA10)	; 塚
@@ -7919,6 +7921,8 @@
       (=gt-pj-1		  . #x444D)	; &I-GT-06661; [36-45]
       (=ucs@jis		  . #x585A)	; &GT-06661;
       (mojikyo		  . 054239)	; &MCS-6000D3DF;
+      )
+     ((=ucs@unicode	  . #xFA7C)	; &UU+FA7C;
       )
      ((=jef-china3	  . #x47C9)	; &JC3-47C9;
       ))
@@ -7967,30 +7971,26 @@
     (=cns11643-6	. #x5B62)	; &C6-5B62; [59-66]
     ))
 (define-char
-  '((=>ucs		. #x585E)	; 塞
-    (ideographic-radical . 32)	; ⼟
-    (ideographic-strokes . 10)
-    (total-strokes	 . 13)
-    (shinjigen-2	. 1464)
-    (=jis-x0208		. #x3A49)	; &GT-06725; [26-41]
-    (=ks-x1001		. #x5F5D)	; &I-K0-5F5D; [63-61]
-    (=big5		. #xB6EB)	; &I-B-B6EB;
-    (=gt		. 06725)	; &I-GT-06725;
-    (=gt-k		. 10208)	; &I-GT-K10208;
-    (=gt-pj-1		. #x3A49)	; &I-GT-06725; [26-41]
-    (=daikanwa		. 05349)	; &I-M-05349;
-    (=ucs@jis		. #x585E)	; &GT-06725;
-    (=ucs@big5		. #x585E)	; &GT-06725;
-    ))
-(define-char
-  '((morohashi-daikanwa	5349 0 0)
-    (ideographic-radical . 32)	; ⼟
+  '((ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (hanyu-dazidian	1 475 1)
     (=ucs		. #x585E)	; 塞
-    (=gb2312		. #x487B)	; &I-G0-487B; [40-91]
-    (=cns11643-1	. #x6352)	; &I-C1-6352; [67-50]
+    (=big5		. #xB6EB)	; &I-B-B6EB;
+    (->subsumptive
+     ((shinjigen-2	  . 1464)
+      (=jis-x0208	  . #x3A49)	; &GT-06725; [26-41]
+      (=ks-x1001	  . #x5F5D)	; &I-K0-5F5D; [63-61]
+      (=gt		  . 06725)	; &I-GT-06725;
+      (=gt-k		  . 10208)	; &I-GT-K10208;
+      (=gt-pj-1		  . #x3A49)	; &I-GT-06725; [26-41]
+      (=daikanwa	  . 05349)	; &I-M-05349;
+      (=ucs@jis		  . #x585E)	; &GT-06725;
+      )
+     ((=gb2312		  . #x487B)	; &C1-6352; [40-91]
+      (=cns11643-1	  . #x6352)	; &I-C1-6352; [67-50]
+      (=ucs@unicode	  . #x585E)	; &C1-6352;
+      ))
     ))
 (define-char
   '((ideographic-radical . 32)	; ⼟

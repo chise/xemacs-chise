@@ -133,7 +133,8 @@
       (=ucs@unicode	  . #x7C9B)	; &GT-37838;
       (mojikyo		  . 050367)	; &MCS-6000C4BF;
       )
-     ((=cns11643-3	  . #x383E)	; &C3-383E; [24-30]
+     ((=cns11643-3	  . #x383E)	; &CDP-88C9; [24-30]
+      (=big5-cdp	  . #x88C9)	; &I-CDP-88C9;
       ))
     ))
 (define-char

@@ -1537,13 +1537,15 @@
      ((=ucs		  . #x52C7)	; 勇
       ))
     (->subsumptive
-     ((hanyu-dazidian	  1 372 7)
+     ((=>ucs*		  . #x52C7)	; 勇
+      (hanyu-dazidian	  1 372 7)
       (shinjigen-1	  . 731)
       (shinjigen-2	  . 731)
-      (=gb2312		  . #x5342)	; &M-02360; [51-34]
+      (=ucs		  . #xFA76)	; 勇
+      (=gb2312		  . #x5342)	; &I-G0-5342; [51-34]
       (=big5		  . #xAB69)	; &I-B-AB69;
       (=daikanwa	  . 02360)	; &I-M-02360;
-      (=ucs@unicode	  . #x52C7)	; &M-02360;
+      (=ucs@unicode	  . #x52C7)	; 勇
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -1564,7 +1566,7 @@
       ))
     (<-vulgar
      ((shinjigen-1	  . 731)
-      (=gb2312		  . #x5342)	; &M-02360; [51-34]
+      (=ucs		  . #xFA76)	; 勇
       (=daikanwa	  . 02360)	; &I-M-02360;
       ))
     (<-vulgar*sources
