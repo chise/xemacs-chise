@@ -1,3 +1,13 @@
+2005-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+5311): Use `->subsumptive'.
+
+	* Ideograph-R027-Cliff.el (U+5397): Use `->subsumptive'.
+
+2005-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-722F.
+
 2005-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el (U-00021FB0): Use `->subsumptive'.
