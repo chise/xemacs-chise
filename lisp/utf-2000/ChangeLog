@@ -1,5 +1,17 @@
 2003-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* char-db-util.el (char-db-feature-domains): Add `jis', `jis/alt',
+	`jis/a' and `jis/b'.
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R051-Dry.el (U+5F00):
+	Delete `script'; use `ideographic-strokes@{ucs|cns}' instead of
+	`ideographic-strokes'; add `ideographic-radical@ucs*sources'; add
+	`ideographic-{radical|strokes}@jis/b' and
+	`ideographic-radical@jis/b*sources'; unify JX1-7431.
+
+	* Ideograph-R007-Two.el (U+5F00): Copied from
+	Ideograph-R055-Two-Hands.el and Ideograph-R051-Dry.el.
+
 	* Ideograph-R196-Bird.el (C1-7B4E): Unify U+9DB4.
 
 	* Ideograph-R195-Fish.el (M-46019): Separate U+9B72; unify
