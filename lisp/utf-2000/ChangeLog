@@ -9,6 +9,14 @@
 
 2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R127-Plow.el: Add mappings for Big5 code points.
+
+	* Ideograph-R009-Man.el: Use =ucs@{unicode|iso} components in
+	`ideographic-structure' features of =ucs@{unicode|iso} characters.
+	(U+5009): Use `->subsumptive'.
+
+2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R187-Horse.el (U+9A2B): Use `->subsumptive'.
 	(U+4BA3): Likewise.
 
