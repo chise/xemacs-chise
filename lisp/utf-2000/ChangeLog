@@ -1,3 +1,28 @@
+2003-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R167-Gold.el (M-40693): Separate J0-3379, C2-637E and
+	U+938C.
+	(C2-6430): Separate U+938D.
+	(U+938E): Separate C2-6427.
+	(JX2-7B3A): Separate G0-764C, C2-602A and U+938F; fix
+	`total-strokes'.
+	(M-40698): Separate C3-5940 and U+9390.
+
+2003-08-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R184-Eat.el (M-44237): Unify JC3-6DBE.
+	(J0-345B): Separate G1-395D and U+9928.
+
+	* Ideograph-R170-Mound.el (J0-3E63): Separate G0-554F, C1-6B62 and
+	U+969C.
+	(JC3-68D3): New character.
+
+	* Ideograph-R163-City.el (U+FA26): Unify JC3-68A8.
+
+2003-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (M-38727): Unify JC3-67A8.
+
 2003-08-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R154-Shell.el (M-36750): Unify JC3-65F3.
