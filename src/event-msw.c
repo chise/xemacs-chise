@@ -146,13 +146,13 @@ int mswindows_quit_chars_count = 0;
 /* These are Lisp integers; see DEFVARS in this file for description. */
 int mswindows_dynamic_frame_resize;
 int mswindows_alt_by_itself_activates_menu;
-int mswindows_num_mouse_buttons;
-int mswindows_mouse_button_max_skew_x;
-int mswindows_mouse_button_max_skew_y;
-int mswindows_mouse_button_tolerance;
+Fixnum mswindows_num_mouse_buttons;
+Fixnum mswindows_mouse_button_max_skew_x;
+Fixnum mswindows_mouse_button_max_skew_y;
+Fixnum mswindows_mouse_button_tolerance;
 
 #ifdef DEBUG_XEMACS
-int debug_mswindows_events;
+Fixnum debug_mswindows_events;
 #endif
 
 /* This is the event signaled by the event pump.

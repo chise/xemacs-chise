@@ -52,9 +52,8 @@ NOTE-END */
 
 /* #define CANNOT_DUMP */
 
-/* XEmacs: Richard Cognot <cognot@ensg.u-nancy.fr> says we need this for
-   HPUX; but eeide@asylum.cs.utah.edu (Eric Eide) says it loses on BSD. */
-#ifndef BSD
+/* Let the OS header file determine this if not HPUX. */
+#ifdef HPUX
 # define UNEXEC "unexhp9k3.o"
 #endif
 

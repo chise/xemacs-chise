@@ -111,14 +111,14 @@ Lisp_Object Vtemp_buffer_show_function;
 Lisp_Object Vtemp_buffer_show_hook;
 
 /* If a window gets smaller than either of these, it is removed. */
-int window_min_height;
-int window_min_width;
+Fixnum window_min_height;
+Fixnum window_min_width;
 
 /* Hook run at end of temp_output_buffer_show.  */
 Lisp_Object Qtemp_buffer_show_hook;
 
 /* Number of lines of continuity in scrolling by screenfuls.  */
-int next_screen_context_lines;
+Fixnum next_screen_context_lines;
 
 /* List of freed window configurations with 1 - 10 windows. */
 static Lisp_Object Vwindow_configuration_free_list[10];
@@ -4331,7 +4331,7 @@ window_scroll (Lisp_Object window, Lisp_Object count, int direction,
 	  &&
 	  Dynarr_length (dla) >= (1 + modeline)
 	  &&
-	  (dl->ascent - dl->top_clip) - fheight * value > 0)
+	  (dl->ascent - dl->top_clip) > fheight * value)
 	{
 	  WINDOW_TEXT_TOP_CLIP (w) += value * fheight;
 	  MARK_WINDOWS_CHANGED (w);

@@ -150,7 +150,7 @@ check_valid_callback (Lisp_Object data)
 static void
 check_valid_int_or_function (Lisp_Object data)
 {
-  if (!INTP (data) && !CONSP (data))
+  if (!INTP (data) && !CONSP (data) && !SYMBOLP (data))
     invalid_argument ("must be an integer or expresssion", data);
 }
 
@@ -1021,6 +1021,8 @@ layout_update (Lisp_Object image_instance, Lisp_Object instantiator)
 	  /* Instantiate any new glyphs. */
 	  for (; !NILP (items); items = XCDR (items))
 	    {
+	      /* #### We really want to use call_with_suspended_errors
+		 here, but it won't allow us to call lisp. */
 	      border = Fcons (call1 (Qmake_glyph, XCAR (items)), border);
 	    }
 	  IMAGE_INSTANCE_LAYOUT_CHILDREN (ii) = Fnreverse (border);

@@ -1028,6 +1028,13 @@ normally include all functions and subroutines, and may also include
 global variables, data types, and anything else convenient.  Each name
 recorded is called a @dfn{tag}.
 
+@cindex C++ class browser, tags
+@cindex tags, C++
+@cindex class browser, C++
+@cindex Ebrowse
+The Ebrowse is a separate facility tailored for C++, with tags and a
+class browser.  @xref{,,, ebrowse, Ebrowse User's Manual}.
+
 @menu
 * Tag Syntax::		Tag syntax for various types of code and text files.
 * Create Tags Table::	Creating a tags table with @code{etags}.
@@ -1038,7 +1045,7 @@ recorded is called a @dfn{tag}.
 * List Tags::		Listing and finding tags defined in a file.
 @end menu
 
-@node Tag Syntax, Create Tags Table, Tags, Tags
+@node Tag Syntax
 @subsection Source File Tag Syntax
 
   Here is how tag syntax is defined for the most popular languages:
@@ -1077,7 +1084,7 @@ In La@TeX{} text, the argument of any of the commands @code{\chapter},
 tag.@refill
 
 Other commands can make tags as well, if you specify them in the
-environment variable @code{TEXTAGS} before invoking @code{etags}.  The
+environment variable @env{TEXTAGS} before invoking @code{etags}.  The
 value of this environment variable should be a colon-separated list of
 command names.  For example,
 
@@ -1108,8 +1115,34 @@ set with @code{set!} at top level in the file.
 
 @item
 In Ada code, functions, procedures, packages, tasks, and types are
-tags.  Use the @samp{--packages-only} option to create tags for packages
-only.
+tags.  Use the @samp{--packages-only} option to create tags for
+packages only.
+
+With Ada, it is possible to have the same name used for different
+entity kinds (e.g.@: the same name for a procedure and a function).  Also,
+for things like packages, procedures and functions, there is the spec
+(i.e.@: the interface) and the body (i.e.@: the implementation).  To
+facilitate the choice to the user, a tag value is appended with a
+qualifier:
+
+@table @asis
+@item function
+ @kbd{/f}
+@item procedure
+ @kbd{/p}
+@item package spec
+ @kbd{/s}
+@item package body
+ @kbd{/b}
+@item type
+ @kbd{/t}
+@item task
+ @kbd{/k}
+@end table
+
+So, as an example, @kbd{M-x find-tag bidule/b} will go directly to the
+body of the package @var{bidule} while @kbd{M-x find-tag bidule} will
+just search for any tag @var{bidule}.
 
 @item
 In assembler code, labels appearing at the beginning of a line,
@@ -1132,6 +1165,9 @@ in the file.
 In Fortran code, functions, subroutines and blockdata are tags.
 
 @item
+In makefiles, targets are tags.
+
+@item
 In Objective C code, tags include Objective C definitions for classes,
 class categories, methods, and protocols.
 
@@ -1145,7 +1181,7 @@ In Perl code, the tags are the procedures defined by the @code{sub},
 to tag global variables.
 
 @item
-In Postscript code, the tags are the functions.
+In PostScript code, the tags are the functions.
 
 @item
 In Prolog code, a tag name appears at the left margin.
@@ -1155,10 +1191,10 @@ In Python code, @code{def} or @code{class} at the beginning of a line
 generate a tag.
 @end itemize
 
-  You can also generate tags based on regexp matching 
-(@pxref{Etags Regexps}) to handle other formats and languages.
+  You can also generate tags based on regexp matching (@pxref{Etags
+Regexps}) to handle other formats and languages.
 
-@node Create Tags Table, Etags Regexps, Tag Syntax, Tags
+@node Create Tags Table
 @subsection Creating Tags Tables
 @cindex @code{etags} program
 
@@ -1251,7 +1287,7 @@ knows, and the file name rules for guessing the language. It also prints
 a list of all the available @code{etags} options, together with a short
 explanation.
 
-@node Etags Regexps, Select Tags Table, Create Tags Table, Tags
+@node Etags Regexps
 @subsection Etags Regexps
 
   The @samp{--regex} option provides a general way of recognizing tags

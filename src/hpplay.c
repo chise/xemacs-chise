@@ -66,7 +66,7 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Vhp_play_server;
 Lisp_Object Vhp_play_speaker;
-int         hp_play_gain;
+Fixnum      hp_play_gain;
 
 /* Functions */
 

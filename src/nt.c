@@ -48,7 +48,7 @@ extern Lisp_Object Vwin32_generate_fake_inodes;
 #endif
 extern Lisp_Object Vmswindows_get_true_file_attributes;
 
-int nt_fake_unix_uid;
+Fixnum nt_fake_unix_uid;
 
 static char startup_dir[ MAXPATHLEN ];
 

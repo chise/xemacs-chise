@@ -50,8 +50,8 @@ extern int esd_play_sound_data (unsigned char *data, size_t length, int vol);
 # define DEVICE_CONNECTED_TO_ESD_P(x) 1 /* FIXME: better check */
 #endif
 
-int bell_volume;
-int bell_inhibit_time;
+Fixnum bell_volume;
+Fixnum bell_inhibit_time;
 Lisp_Object Vsound_alist;
 Lisp_Object Vsynchronous_sounds;
 Lisp_Object Vnative_sound_only_on_console;

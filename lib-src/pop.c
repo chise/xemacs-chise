@@ -95,7 +95,7 @@ extern struct servent *hes_getservbyname (/* char *, char * */);
 #ifdef KERBEROS
 #ifndef KRB5
 extern int krb_sendauth (/* long, int, KTEXT, char *, char *, char *,
-			    u_long, MSG_DAT *, CREDENTIALS *, Key_schedule,
+			    unsigned long, MSG_DAT *, CREDENTIALS *, Key_schedule,
 			    struct sockaddr_in *, struct sockaddr_in *,
 			    char * */);
 extern char *krb_realmofhost (/* char * */);
