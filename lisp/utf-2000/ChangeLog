@@ -28,6 +28,10 @@
 
 	* Ideograph-R040-Roof.el (U-00021A5C): New character.
 
+	* u02E00-CJK-Radical-Supplement.el (U+2EAB): Add
+	`<-ideographic-component-forms' for U+76EE.
+	(BC-8B48): Map to U+76EE; copied from Ideograph-R109-Eye.el.
+
 2004-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R109-Eye.el (BC-8B48): New character.
@@ -50,6 +54,10 @@
 	(U-00020055): Unify M-00064; use
 	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
 	`{ideographic|total}-strokes'.
+
+2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+3424): Use `->unified'.
 
 2004-02-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
