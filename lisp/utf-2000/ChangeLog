@@ -14,6 +14,12 @@
 	* Ideograph-R012-Eight.el (C3-403F): Unify H1-D9DB.
 	(U+517E): Separate H1-D9DB.
 
+	* char-db-util.el (char-db-insert-char-spec): Refer
+	`char-db-ignored-attributes'; add `ideographic-structure' into
+	requesting non-CCS attributes if requesting is nil.
+	(char-db-ignored-attributes): New variable.
+	(insert-char-attributes): Refer `char-db-ignored-attributes'.
+
 2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R013-Down-Box.el (U+5188): Unify BE-C8A2 instead of
