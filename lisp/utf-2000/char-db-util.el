@@ -450,7 +450,8 @@
 	(line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
-	key al cal)
+	key al cal
+	dest-ccss)
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -485,13 +486,6 @@
 			name value (decode-char '=ucs value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
-    ;; (when (and (memq '=>ucs* attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs*)))
-    ;;   (insert (format "(=>ucs*\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char '=ucs value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs* attributes))
-    ;;   )
     (dolist (name '(=>ucs@gb =>ucs@cns =>ucs@jis =>ucs@ks =>ucs@big5))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -520,41 +514,6 @@
 				     value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
-    ;; (when (and (memq '=>ucs-gb attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs-gb)))
-    ;;   (insert (format "(=>ucs@gb\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char '=ucs@gb value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs-gb attributes))
-    ;;   )
-    ;; (when (and (memq '=>ucs-cns attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs-cns)))
-    ;;   (insert (format "(=>ucs@cns\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char '=ucs@cns value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs-cns attributes))
-    ;;   )
-    ;; (when (and (memq '=>ucs-big5 attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs-big5)))
-    ;;   (insert (format "(=>ucs-big5\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char 'ucs-big5 value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs-big5 attributes))
-    ;;   )
-    ;; (when (and (memq '=>ucs-jis attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs-jis)))
-    ;;   (insert (format "(=>ucs@jis\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char '=ucs@jis value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs-jis attributes))
-    ;;   )
-    ;; (when (and (memq '=>ucs-ks attributes)
-    ;;            (setq value (get-char-attribute char '=>ucs-ks)))
-    ;;   (insert (format "(=>ucs-ks\t\t. #x%04X)\t; %c%s"
-    ;;                   value (decode-char 'ucs-ks value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '=>ucs-ks attributes))
-    ;;   )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
       (insert (format (if char-db-convert-obsolete-format
@@ -983,14 +942,15 @@
 		))
       (setq attributes (cdr attributes)))
     (while ccs-attributes
-      (setq name (car ccs-attributes))
-      (if (and (eq name (charset-name name))
-	       (setq value (get-char-attribute char name)))
+      (setq name (charset-name (car ccs-attributes)))
+      (if (and (not (memq name dest-ccss))
+	       (prog1
+		   (setq value (get-char-attribute char name))
+		 (setq dest-ccss (cons name dest-ccss))))
 	  (insert
 	   (format
-	    (cond ((memq name '(ideograph-daikanwa
-				=daikanwa-rev1
-				=daikanwa-rev2
+	    (cond ((memq name '(=daikanwa
+				=daikanwa-rev1 =daikanwa-rev2
 				=gt =gt-k =cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
