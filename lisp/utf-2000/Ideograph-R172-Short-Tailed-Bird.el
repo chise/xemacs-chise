@@ -55,6 +55,7 @@
     (japanese-jisx0212		. #x6671)	; ø»ŒŠ¶
     (japanese-jisx0213-2	. #x7B6E)	; ø»¦¢™
     (ideograph-daikanwa		. 41940)	; ø¸Š”
+    (chinese-big5-cdp		. #x8D4B)	; ý¢€ˆµ‹
     ))
 (define-char
   '((morohashi-daikanwa	41940 0 1)
