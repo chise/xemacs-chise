@@ -1,5 +1,10 @@
 2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* char-db-util.el (insert-char-attributes): Don't insert attribute
+	`composition' if argument `readable' is nil.
+
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* char-db-util.el (char-ref-p): Deleted [defined as a builtin
 	function].
 
