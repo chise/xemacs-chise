@@ -1,7 +1,65 @@
+2003-01-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el: Reformatted.
+	(U+20089): Use `name*' instead of `name' for non-standard name;
+	rename <cjk radical person for top> to <ideographic component
+	person for top>; add `:sources' of `:radical' and `:strokes'.
+	(JC3-71FA): Use `name*' instead of `name' for non-standard name;
+	rename <cjk radical person as roof> to <ideographic component
+	person as roof>.
+
+	* Ideograph-R031-Enclosure.el: Reformatted.
+
+2003-01-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R027-Cliff.el, Ideograph-R026-Seal.el: Reformatted.
+
+	* Ideograph-R024-Ten.el: Reformatted.
+	(U-0002099C): Separate BC-88DF.
+	(U-000209A4): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R001-One.el, Ideograph-R004-Slash.el (U-00020089): Use
+	`name*' instead of `name' for non-standard name; rename <cjk
+	radical person for top> to <ideographic component person for top>;
+	add `:sources' of `:radical' and `:strokes'.
+
+2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el, Ideograph-R028-Private.el,
+	Ideograph-R025-Divination.el: Reformatted.
+
+	* Ideograph-R011-Enter.el: Reformatted.
+	(U-000204EE): Simplify `ideographic-structure'.
+	(C6-353D): Likewise.
+
+	* Ideograph-R005-Second.el: Reformatted.
+	(C4-2157): Add `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U+4E2A): Use `name*' instead of `name'
+	for non-standard name; rename <cjk radical person as roof> to
+	<ideographic component person as roof>.
+
 2003-01-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el: Reformatted.
+
+	* Ideograph-R018-Knife.el:
+	- Reformatted.
+	- Don't use char-ref for the operator of `ideographic-structure'.
+	(M-01848): Separate G0-4850, K0-6C53, JC3-44B3 and U+5203.
+	(J0-516B): Unify BC-AB62.
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: Reformatted.
 
 	* char-db-util.el (char-db-make-char-spec): Add `name*' as same as
 	`name'.
+
+2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R010-Legs.el: Reformatted.
+
+	* Ideograph-R007-Two.el, Ideograph-R006-Hook.el: Reformatted.
 
 2003-01-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
