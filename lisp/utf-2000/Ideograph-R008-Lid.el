@@ -866,11 +866,18 @@
     (japanese-jisx0208-1978	. #x4E3C)	; ø»‚¾¡
     (japanese-jisx0208		. #x4E3C)	; ø»‡’©
     (korean-ksc5601		. #x5555)	; ø»‰§˜
-    (chinese-cns11643-1		. #x4F69)	; ø»’‡ˆ
     (japanese-jisx0208-1990	. #x4E3C)	; ø½Š¸
     (chinese-big5		. #xAB47)	; øºŸ³©
     (ideograph-daikanwa		. 00304)	; ø¸€„°
     (mojikyo			. 000304)	; ý €€„°
+    ))
+(define-char
+  '((=>ucs		. #x4EAE)	; äº®
+    (morohashi-daikanwa	304 0 0)
+    (ideographic-radical . 8)	; â¼‡
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (chinese-cns11643-1 . #x4F69)	; ø»’‡ˆ
     ))
 (define-char
   '((morohashi-daikanwa	304 0 2)
