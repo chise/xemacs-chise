@@ -1,5 +1,16 @@
 2003-07-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R004-Slash.el (U-00020088): Separate C6-2124.
+	(C6-2124): Unify GT-K00130.
+	(U-00020089): Use `ideographic-{radical|strokes}@{ucs|gt|misc}'
+	and `ideographic-radical@{ucs|gt}*sources' instead of
+	`ideographic-'; delete `ideograph-cdp'.
+
+	* Ideograph-R001-One.el (U-00020089): Use
+	`ideographic-{radical|strokes}@{ucs|gt|misc}' and
+	`ideographic-radical@{ucs|gt}*sources' instead of `ideographic-';
+	delete `ideograph-cdp'.
+
 	* char-db-util.el (char-db-feature-domains): Add `misc' and
 	`unknown'.
 
