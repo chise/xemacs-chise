@@ -127,9 +127,9 @@
     greek-iso8859-7
     thai-tis620
     =jis-x0208
-    japanese-jisx0208
+    =jis-x0208@1978
+    =jis-x0208@1983
     japanese-jisx0212
-    japanese-jisx0208-1978
     chinese-gb2312
     chinese-cns11643-1
     chinese-cns11643-2
@@ -138,7 +138,7 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
-    =jis-x0208-1990
+    =jis-x0208@1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
@@ -205,6 +205,8 @@
 					 =daikanwa@rev2
 					 ;; =gt-k
 					 )))
+			     (setq ccs (charset-name ccs))
+			     (null (assq ccs char-spec))
 			     (setq ret (encode-char char ccs 'defined-only)))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
