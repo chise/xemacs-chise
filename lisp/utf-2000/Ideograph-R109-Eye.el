@@ -1031,25 +1031,22 @@
     (ideograph-daikanwa . 23209)	; ø¸…ª©
     ))
 (define-char
-  '((ideographic-radical . 109)	; â½¬
+  '((=>ucs*		. #x250F2)	; ð¥ƒ²
+    (ideographic-radical . 109)	; â½¬
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (ideograph=
-     ((sources		  ucs)
-      (char . ((ucs		   . #x250F2)	; ð¥ƒ²
-	       ))
-      ))
-    (original-ideograph-of
-     ((sources		  morohashi-daikanwa)
-      (char . ((ideograph-daikanwa . 01473)	; ø¸€—
-	       ))
+    (<-original-ideograph
+     (:sources	(morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 01473)	; ø¸€—
+		 )
       ))
     (chinese-cns11643-6 . #x333D)	; ø»œ¨
     (ideograph-daikanwa . 23210)	; ø¸…ªª
     (ucs		. #x2F942)	; ð¯¥‚
     ))
 (define-char
-  '((->ucs		. #x2F942)	; ð¯¥‚
+  '((=>ucs		. #x2F942)	; ð¯¥‚
+    (=>ucs*		. #x250F2)	; ð¥ƒ²
     (morohashi-daikanwa	23210 0 0)
     (ideographic-radical . 109)	; â½¬
     (ideographic-strokes . 4)
