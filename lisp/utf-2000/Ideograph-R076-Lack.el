@@ -442,19 +442,15 @@
 (define-char
   '((morohashi-daikanwa	16104)
     (ideographic-radical . 76)	; â½‹
-    (kangxi-strokes	. 8)
-    (ideograph-daikanwa . 16104)	; ø¸ƒ»¨
-    (ucs		. #x6B3D)	; æ¬½
-    ))
-(define-char
-  '((morohashi-daikanwa	16104)
-    (ideographic-radical . 76)	; â½‹
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 3928)
+    (japanese-jisx0208-1978	. #x3656)	; ø»‚›«
+    (japanese-jisx0208		. #x3656)	; ø»†¯³
     (chinese-cns11643-1		. #x6023)	; ø»’Ÿ€
-    (japanese-jisx0208-1990	. #x3656)	; ø»’Ÿ€
+    (japanese-jisx0208-1990	. #x3656)	; æ¬½
     (ideograph-daikanwa		. 16104)	; ø¸ƒ»¨
+    (ucs			. #x6B3D)	; æ¬½
     ))
 (define-char
   '((morohashi-daikanwa	16107)
