@@ -1,3 +1,40 @@
+2005-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R020-Wrap.el (U+52FB): Use `->subsumptive'; add
+	`<-denotational' for B-A4C3.
+	(B-A4C3): Changed to an abstract character.
+	(U+5300): Add `<-denotational' for B-A4C3.
+
+2005-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+
+	* Ideograph-R002-Line.el (U-00023D92): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@cns' and `total-strokes@cns'
+	instead of `ideographic-{radical|strokes}' and `total-strokes';
+	add `ideographic-{radical|strokes}@{ucs|gt|cdp}' and
+	`total-strokes@cdp'.
+
+	* Ideograph-R015-Ice.el (J78-515B): Delete S-563.
+	(J90-515B): Add S-563.
+
+	* Ideograph-R008-Lid.el (U-00020186): Use <CJK RADICAL EWE>
+	instead of CB06151 in `ideographic-structure'.
+	(C7-2679): Separate H1-E256 and IU-00020186.
+
+	* Ideograph-R004-Slash.el (U-00020086): Add `->mistakable' for
+	U+5382 and U+2E81.
+	(U-00023D92): Copied from Ideograph-R002-Line.el.
+	(BC-8DD9): Use `<-subsumptive' for U-00023D92; unify GT-00120 and
+	GT-K06263.
+
+	* Ideograph-R017-Open-Box.el (C5-2129): Unify U-0002F81D; add
+	`=>daikanwa' for M-01800; add `<-unknown' for M-01800.
+
+	* Ideograph-R010-Legs.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+
 2005-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R033-Scholar.el (U+58F2): Add S-7905.
