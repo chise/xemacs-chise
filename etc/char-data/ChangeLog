@@ -1,5 +1,19 @@
 2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* GT-RS.txt (000634): Fixed.
+	(001609): Fixed.
+	(002233): Fixed.
+	(005818): Fixed.
+	(006258): Fixed.
+	(007475): Fixed.
+	(010521): Fixed.
+	(011055): Fixed.
+	(012861): Fixed.
+	(012984..012991): Don't define Kangxi radical number.
+	(012992..019302): Fix Kangxi radical number.
+
+2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* GT-RS.txt: Reformatted.
 
 2003-07-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
