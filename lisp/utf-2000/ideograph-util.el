@@ -236,8 +236,7 @@
 ;;;###autoload
 (defun char-ucs (char)
   (or (get-char-attribute char 'ucs)
-      (get-char-attribute char '=>ucs)
-      (get-char-attribute char '->ucs)))
+      (get-char-attribute char '=>ucs)))
 
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
