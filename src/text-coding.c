@@ -1,6 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3067,13 +3068,12 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
       Lisp_Object charset;
       unsigned int c1, c2, s1, s2;
 #ifdef UTF2000
-      Lisp_Object value = charset_code_point (Vcharset_latin_jisx0201, ch);
-      Lisp_Object ret = Fcar (value);
+      int code_point = charset_code_point (Vcharset_latin_jisx0201, ch);
 
-      if (INTP (ret))
+      if (code_point >= 0)
 	{
 	  charset = Vcharset_latin_jisx0201;
-	  c1 = XINT (ret);
+	  c1 = code_point;
 	  c2 = 0;
 	}
       else
@@ -4876,31 +4876,25 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       reg = -1;
       for (i = 0; i < 4; i++)
 	{
-	  Lisp_Object code_point;
+	  int code_point;
 
 	  if ((CHARSETP (charset = str->iso2022.charset[i])
-	       && !EQ (code_point = charset_code_point (charset, ch), Qnil))
+	       && ((code_point = charset_code_point (charset, ch)) >= 0))
 	      ||
 	      (CHARSETP
 	       (charset
 		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
-	       && !EQ (code_point = charset_code_point (charset, ch), Qnil)))
+	       && ((code_point = charset_code_point (charset, ch)) >= 0)))
 	    {
-	      Lisp_Object ret = Fcar (code_point);
-
-	      if (INTP (ret))
+	      if (XCHARSET_DIMENSION (charset) == 1)
 		{
-		  byte1 = XINT (ret);
-		  ret = Fcar (Fcdr (code_point));
-		  if (INTP (ret))
-		    byte2 = XINT (ret);
-		  else
-		    byte2 = 0;
-		}
-	      else
-		{
-		  byte1 = 0;
+		  byte1 = code_point;
 		  byte2 = 0;
+		}
+	      else /* if (XCHARSET_DIMENSION (charset) == 2) */
+		{
+		  byte1 = code_point >> 8;
+		  byte2 = code_point & 255;
 		}
 	      reg = i;
 	      break;
