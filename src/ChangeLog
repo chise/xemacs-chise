@@ -1,3 +1,21 @@
+2002-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.h: Add an EXFUN for Fmount_char_attribute_table.
+
+	* casetab.c (Q_lowercase): New variable in UTF-2000.
+	(Q_uppercase): Likewise.
+	(Fput_case_table): New implementation in UTF-2000.
+	(Fput_case_table_pair): Likewise.
+	(Fcopy_case_table): Likewise.
+	(syms_of_casetab): Add new symbol `->lowercase' and `->uppercase'.
+	(complex_vars_of_casetab): Use char-attribute `->lowercase' and
+	`->uppercase' in Vstandard_case_table in UTF-2000.
+
+2002-08-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* buffer.h (TRT_TABLE_CHAR_1): New implementation in UTF-2000.
+	(SET_TRT_TABLE_CHAR_1): Likewise.
+
 2002-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (decode_add_er_char): Support isolated-chars.
