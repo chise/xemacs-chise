@@ -340,7 +340,7 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_THAI		0x0E00
 #define MAX_CHAR_THAI		0x0E5F
 
-#define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF60
+#define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
 #define MIN_CHAR_94		0xE90940
@@ -367,7 +367,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return decoding_table[c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)];
   else if (EQ (charset, Vcharset_katakana_jisx0201))
     if (c1 < 0x60)
-      return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
+      return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
     else
       /* return MIN_CHAR_94 + ('I' - '0') * 94 + (c1 - 33); */
       return ' ';
@@ -483,7 +483,7 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
 	{
 	  *charset = Vcharset_katakana_jisx0201;
-	  *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20;
+	  *c1 = c - MIN_CHAR_HALFWIDTH_KATAKANA + 33;
 	  *c2 = 0;
 	}
       else
