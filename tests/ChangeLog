@@ -1,3 +1,11 @@
+1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.15 is released
+
+1999-06-02  Oscar Figueiredo  <oscar@xemacs.org>
+
+	* automated/lisp-tests.el: Test `split-string'
+
 1999-05-27  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* automated/base64-tests.el: New file.

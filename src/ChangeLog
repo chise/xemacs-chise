@@ -1,3 +1,28 @@
+1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.15 is released
+
+1999-06-01  Hirokazu FUKUI  <fukui@atesoft.advantest.co.jp>
+
+	* frame.c (Fset_mouse_position):
+	(Fset_mouse_pixel_position):
+	* window.c (Fsplit_window):
+	(Fmove_to_window_line):
+	Fix crash when invoking functions with an already-deleted window
+	argument.
+
+	* indent.c (vertical_motion_1):
+	(vmotion_pixels):
+	(Fvertical_motion_pixels):
+	* window.c (Fwindow_displayed_text_pixel_height):
+	Fix error message when invoking functions with an already-deleted
+	window argument.
+
+1999-06-01  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* sysdep.c (request_sigio_on_device): Guard against glibc
+	2.1's stub streams implementation.
+
 1999-06-03  SL Baur  <steve@xemacs.org>
 
 	* config.h.in:

@@ -1,3 +1,7 @@
+1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.15 is released
+
 1999-06-03  SL Baur  <steve@steve1.m17n.org>
 
 	* Makefile.in.in: Move .PHONY up to force execution of `all'.

@@ -1345,7 +1345,7 @@ is non-nil, do not include space occupied by clipped lines.
   if (NILP (window))
     window = Fselected_window (Qnil);
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   w = XWINDOW (window);
 
   start  = marker_position (w->start[CURRENT_DISP]);
@@ -3366,7 +3366,7 @@ and put SIZE columns in the first of the pair.
   if (NILP (window))
     window = Fselected_window (Qnil);
   else
-    CHECK_WINDOW (window);
+    CHECK_LIVE_WINDOW (window);
 
   o = XWINDOW (window);
   f = XFRAME (WINDOW_FRAME (o));
@@ -4304,7 +4304,7 @@ If WINDOW is nil, the selected window is used.
   if (NILP (window))
     window = Fselected_window (Qnil);
   else
-    CHECK_WINDOW (window);
+    CHECK_LIVE_WINDOW (window);
   w = XWINDOW (window);
   b = XBUFFER (w->buffer);
 

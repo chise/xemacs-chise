@@ -294,10 +294,14 @@ Otherwise treat \\ in NEWTEXT string as special:
 If PATTERN is omitted, it defaults to \"[ \\f\\t\\n\\r\\v]+\"."
   (or pattern
       (setq pattern "[ \f\t\n\r\v]+"))
-  ;; The FSF version of this function takes care not to cons in case
-  ;; of infloop.  Maybe we should synch?
-  (let (parts (start 0))
-    (while (string-match pattern string start)
+  (let (parts (start 0) (len (length string)))
+    (if (string-match pattern string)
+	(setq parts (cons (substring string 0 (match-beginning 0)) parts)
+	      start (match-end 0)))
+    (while (and (< start len)
+		(string-match pattern string (if (> start (match-beginning 0))
+						 start
+					       (1+ start))))
       (setq parts (cons (substring string start (match-beginning 0)) parts)
 	    start (match-end 0)))
     (nreverse (cons (substring string start) parts))))

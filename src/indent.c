@@ -665,7 +665,7 @@ Lisp_Object vertical_motion_1 (Lisp_Object lines, Lisp_Object window,
   if (NILP (window))
     window = Fselected_window (Qnil);
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   CHECK_INT (lines);
 
   selected = (EQ (window, Fselected_window (Qnil)));
@@ -739,7 +739,7 @@ vmotion_pixels (Lisp_Object window, Bufpos start, int pixels, int how,
   if (NILP (window))
     window = Fselected_window (Qnil);
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   w = XWINDOW (window);
 
   eobuf = BUF_ZV (XBUFFER (w->buffer));
@@ -842,7 +842,7 @@ that the motion should be as close as possible to PIXELS.
   if (NILP (window))
     window = Fselected_window (Qnil);
 
-  CHECK_WINDOW (window);
+  CHECK_LIVE_WINDOW (window);
   CHECK_INT (pixels);
 
   selected = (EQ (window, Fselected_window (Qnil)));
