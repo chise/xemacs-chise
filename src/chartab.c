@@ -70,13 +70,6 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 static void
 decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
 
-int
-map_char_id_table (Lisp_Char_Table *ct,
-		   struct chartab_range *range,
-		   int (*fn) (struct chartab_range *range,
-			      Lisp_Object val, void *arg),
-		   void *arg);
-
 #define BT_UINT8_MIN		0
 #define BT_UINT8_MAX	(UCHAR_MAX - 3)
 #define BT_UINT8_t	(UCHAR_MAX - 2)
@@ -973,172 +966,6 @@ put_char_id_table (Lisp_Char_Table* cit,
       put_char_id_table_0 (cit, range.ch, value);
       break;
     }
-}
-
-/* Map FN (with client data ARG) in char table CT.
-   Mapping stops the first time FN returns non-zero, and that value
-   becomes the return value of map_char_id_table(). */
-int
-map_char_id_table (Lisp_Char_Table *ct,
-		   struct chartab_range *range,
-		   int (*fn) (struct chartab_range *range,
-			      Lisp_Object val, void *arg),
-		   void *arg)
-{
-  Lisp_Object v = ct->table;
-
-  switch (range->type)
-    {
-    case CHARTAB_RANGE_ALL:
-      if (UINT8_BYTE_TABLE_P (v))
-	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v), 0, 3,
-					  Qnil, fn, arg);
-      else if (UINT16_BYTE_TABLE_P (v))
-	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v), 0, 3,
-					   Qnil, fn, arg);
-      else if (BYTE_TABLE_P (v))
-	return map_over_byte_table (XBYTE_TABLE(v), 0, 3, Qnil, fn, arg);
-      else if (!UNBOUNDP (v))
-	{
-	  struct chartab_range rainj;
-	  int unit = 1 << 30;
-	  Emchar c = 0;
-	  Emchar c1 = c + unit;
-	  int retval;
-
-	  rainj.type = CHARTAB_RANGE_CHAR;
-
-	  for (retval = 0; c < c1 && retval == 0; c++)
-	    {
-	      rainj.ch = c;
-	      retval = (fn) (&rainj, v, arg);
-	    }
-	}
-      return 0;
-    case CHARTAB_RANGE_CHARSET:
-      if (UINT8_BYTE_TABLE_P (v))
-	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(v), 0, 3,
-					  range->charset, fn, arg);
-      else if (UINT16_BYTE_TABLE_P (v))
-	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(v), 0, 3,
-					   range->charset, fn, arg);
-      else if (BYTE_TABLE_P (v))
-	return map_over_byte_table (XBYTE_TABLE(v), 0, 3,
-				    range->charset, fn, arg);
-      else if (!UNBOUNDP (v))
-	{
-	  struct chartab_range rainj;
-	  int unit = 1 << 30;
-	  Emchar c = 0;
-	  Emchar c1 = c + unit;
-	  int retval;
-
-	  rainj.type = CHARTAB_RANGE_CHAR;
-
-	  for (retval = 0; c < c1 && retval == 0; c++)
-	    {
-	      if ( charset_code_point (range->charset, c) >= 0 )
-		{
-		  rainj.ch = c;
-		  retval = (fn) (&rainj, v, arg);
-		}
-	    }
-	}
-      return 0;
-    case CHARTAB_RANGE_ROW:
-      {
-	int cell_min, cell_max, i;
-	int retval;
-	struct chartab_range rainj;
-
-	if (XCHARSET_DIMENSION (range->charset) < 2)
-	  signal_simple_error ("Charset in row vector must be multi-byte",
-			       range->charset);
-	else
-	  {
-	    switch (XCHARSET_CHARS (range->charset))
-	      {
-	      case 94:
-		cell_min = 33; cell_max = 126;
-		break;
-	      case 96:
-		cell_min = 32; cell_max = 127;
-		break;
-	      case 128:
-		cell_min = 0; cell_max = 127;
-		break;
-	      case 256:
-		cell_min = 0; cell_max = 255;
-		break;
-	      default:
-		abort ();
-	      }
-	  }
-	if (XCHARSET_DIMENSION (range->charset) == 2)
-	  check_int_range (range->row, cell_min, cell_max);
-	else if (XCHARSET_DIMENSION (range->charset) == 3)
-	  {
-	    check_int_range (range->row >> 8  , cell_min, cell_max);
-	    check_int_range (range->row & 0xFF, cell_min, cell_max);
-	  }
-	else if (XCHARSET_DIMENSION (range->charset) == 4)
-	  {
-	    check_int_range ( range->row >> 16       , cell_min, cell_max);
-	    check_int_range ((range->row >> 8) & 0xFF, cell_min, cell_max);
-	    check_int_range ( range->row       & 0xFF, cell_min, cell_max);
-	  }
-	else
-	  abort ();
-
-	rainj.type = CHARTAB_RANGE_CHAR;
-	for (retval =0, i = cell_min; i <= cell_max && retval == 0; i++)
-	  {
-	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
-	    Lisp_Object val
-	      = get_byte_table (get_byte_table
-				(get_byte_table
-				 (get_byte_table
-				  (v,
-				   (unsigned char)(ch >> 24)),
-				  (unsigned char) (ch >> 16)),
-				 (unsigned char)  (ch >> 8)),
-				(unsigned char)    ch);
-
-	    if (!UNBOUNDP (val))
-	      {
-		rainj.ch = ch;
-		retval = (fn) (&rainj, val, arg);
-	      }
-	  }
-	return retval;
-      }
-    case CHARTAB_RANGE_CHAR:
-      {
-	Emchar ch = range->ch;
-	Lisp_Object val
-	  = get_byte_table (get_byte_table
-			    (get_byte_table
-			     (get_byte_table
-			      (v,
-			       (unsigned char)(ch >> 24)),
-			      (unsigned char) (ch >> 16)),
-			     (unsigned char)  (ch >> 8)),
-			    (unsigned char)    ch);
-	struct chartab_range rainj;
-
-	if (!UNBOUNDP (val))
-	  {
-	    rainj.type = CHARTAB_RANGE_CHAR;
-	    rainj.ch = ch;
-	    return (fn) (&rainj, val, arg);
-	  }
-	else
-	  return 0;
-      }
-    default:
-      abort ();
-    }
-  return 0;
 }
 
 
@@ -3414,7 +3241,7 @@ the entire table.
   slarg.function = function;
   slarg.retval = Qnil;
   GCPRO2 (slarg.function, slarg.retval);
-  map_char_id_table (ct, &rainj, slow_map_char_table_fun, &slarg);
+  map_char_table (ct, &rainj, slow_map_char_table_fun, &slarg);
   UNGCPRO;
 
   return slarg.retval;
