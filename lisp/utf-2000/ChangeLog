@@ -3,6 +3,9 @@
 	* Ideograph-R001-One.el (U-00023944): Moved to
 	Ideograph-R077-Stop.el.
 
+	* Ideograph-R130-Meat.el (U+81A4): Add J90-6733 into the
+	`->same-ideograph'.
+
 	* Ideograph-R109-Eye.el (C6-333D): Use `=>ucs*' instead of
 	`ideograph='; use `<-original-ideograph' instead of
 	`original-ideograph-of'.
