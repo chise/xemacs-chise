@@ -294,6 +294,14 @@
     (ucs		. #x5B5E)	; å­ž
     ))
 (define-char
+  '((->ucs		. #x6588)	; æ–ˆ
+    (morohashi-daikanwa	13453 0 0)
+    (ideographic-radical . 39)	; â¼¦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (chinese-cns11643-3 . #x2558)	; ø»•“
+    ))
+(define-char
   '((ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
