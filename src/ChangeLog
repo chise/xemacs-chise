@@ -1,3 +1,11 @@
+2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Use S-expression as key of
+	external database.
+
+	* chartab.h (get_char_id_table): Use S-expression as key of
+	external database.
+
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (map_over_uint8_byte_table): Add new argument `root';
