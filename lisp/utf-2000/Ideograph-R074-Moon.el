@@ -381,6 +381,7 @@
     ))
 (define-char
   '((=>ucs		. #x2F8D8)	; 朗
+    (=>ucs*		. #x6717)	; 朗
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
@@ -392,6 +393,7 @@
     ))
 (define-char
   '((=>ucs		. #x2F8D8)	; 朗
+    (=>ucs*		. #x6717)	; 朗
     (morohashi-daikanwa	14364 0 0)
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
@@ -400,7 +402,7 @@
     (ucs		. #xF929)	; 朗
     ))
 (define-char
-  '((=>ucs		. #x6717)	; 朗
+  '((=>ucs*		. #x6717)	; 朗
     (morohashi-daikanwa	14364 0 1)
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 7)
