@@ -1,3 +1,15 @@
+1999-11-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fchar_attribute_alist): Check the argument is a
+	character; copy the return value.
+
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (SPLIT_CHAR): Use `split_builtin_char'.
+
+	* mule-charset.c (range_charset_code_point): Must use make_int.
+	(split_builtin_char): New function.
+
 1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (char_byte_table): Change name from
