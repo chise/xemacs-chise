@@ -1,4 +1,20 @@
+2004-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R008-Lid.el: Add some `=ucs@cns' features.
+	(U+4EB9): Changed to abstract character.
+
 2004-11-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el,
+	Ideograph-R022-Right-Open-Box.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
 
 	* Ideograph-R025-Divination.el (U+5368): Changed to abstract
 	character.
