@@ -1,3 +1,9 @@
+2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fencode_char): Reverse arguments.
+
+	* mule-charset.c (charset_code_point): Fixed.
+
 2001-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_mojikyo): Deleted.
