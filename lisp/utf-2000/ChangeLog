@@ -1,5 +1,22 @@
 2003-05-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R086-Fire.el (U+71B3): Unify JC3-57F8.
+	(U+3DFE): Separate C3-553D.
+	(M-19548): Unify JC3-58A1.
+
+	* Ideograph-R085-Water.el (JX2-6F3C): Unify JC3-8EAA.
+	(M-18527): Unify JC3-57B7.
+	(C5-703E): Unify JC3-57BF.
+
+	* Ideograph-R030-Mouth.el (JX2-2421): Unify JC3-46E0.
+	(U+553C): Separate JC3-46E0.
+	(U+5613): Unify JC3-8DC0.
+	(U+56A2): Use `<-simplified-ideograph' and
+	`<-simplified-ideograph*sources' instead of
+	`simplified-ideograph-of'.
+
+2003-05-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R096-Jade.el (U+7496): Unify JC3-59F6.
 
 	* Ideograph-R046-Mountain.el (M-08650): Unify JC3-4BE3.
