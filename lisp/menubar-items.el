@@ -143,7 +143,7 @@
 	    ("Set language environment")
 	    "--"
 	    ["Toggle input method" toggle-input-method]
-	    ["Select input method" select-input-method]
+	    ["Select input method" set-input-method]
 	    ["Describe input method" describe-input-method]
 	    "--"
 	    ["Describe current coding systems"
