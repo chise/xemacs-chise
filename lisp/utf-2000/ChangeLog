@@ -386,7 +386,7 @@
 	* Ideograph-R030-Mouth.el (M-03562): Add `ideographic-structure'.
 	(U-00020C57): Likewise; unify H1-E0EE.
 	(M-04326): Add `ideographic-structure'.
-	(C7-2146): Separate U-0002018A; add ~->identical' for U-0002018A;
+	(C7-2146): Separate U-0002018A; add `->identical' for U-0002018A;
 	add `ideographic-structure'.
 
 2001-12-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
