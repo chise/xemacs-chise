@@ -445,7 +445,10 @@
     ))
 (define-char
   '((morohashi-daikanwa	ho 8 0)
-    (ideographic-radical . 8)	; ⼇
+    (ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 17)	; ⼐
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 283 2)
