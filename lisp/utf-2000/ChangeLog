@@ -1,3 +1,42 @@
+2001-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el (M-00268): Unify J78-3A33, J83-3A33,
+	K0-5E41 and J90-3A33.
+	(C1-4B68): Separate J78-3A33, J83-3A33 and K0-5E41.
+
+	* Ideograph-R006-Hook.el (U+4E8A): Use `vulgar-ideograph-of'
+	property instead of `vulgar-char-of-shinjigen-1' property; unify
+	J90-502F.
+
+	* Ideograph-R210-Even.el (M-48567): Unify U+9F4C; separate
+	C2-6535.
+	(C2-6535): Relate to U+9F4C.
+	(M-48569): Unify U+9F4D; separate C2-6866.
+	(C2-6866): Relate to U+9F4D.
+	(M-48577): Fix `ideographic-strokes'.
+
+	* Ideograph-R004-Slash.el (M-00111): Unify J90-5029.
+	(U+4E42): Separate J90-5029.
+	(U+4E55): Delete `daikanwa-radical', `daikanwa-strokes' and
+	`non-morohashi'; unify J90-6949.
+
+	* Ideograph-R001-One.el (M-00011): Unify J78-3E66 and J83-3E66.
+	(U+4E08): Separate J78-3E66 and J83-3E66.
+
+2001-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R207-Drum.el (C3-6160): Unify M-48376; relate to
+	M-48376.
+
+	* Ideograph-R196-Bird.el (C*-****): Unify or relate to missing
+	code point U+****.
+	(U+9D48): Unify M058046.
+	(U+9D49): Unify M058047.
+	- Fix some bugs.
+
+	* Ideograph-R187-Horse.el (M-49906): Unify U+9A3A.
+	(M-44998): Separate C5-7233; fix strokes.
+
 2001-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el (U+9BB3): Unify C4-5A43.
