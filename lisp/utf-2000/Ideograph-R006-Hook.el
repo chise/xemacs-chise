@@ -284,7 +284,6 @@
     (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (=ucs		. #x20116)	; ð „–
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -320,6 +319,7 @@
 	))
       (=hanziku-1	  . #xBE59)	; ý¢€›¹™
       ))
+    (=ucs		. #x20116)	; ð „–
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…

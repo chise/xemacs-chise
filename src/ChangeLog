@@ -1,8 +1,3 @@
-2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* char-ucs.h (encode_char_2): New inline function.
-	(CHAR_TO_CHARC): Use `encode_char_2' instead of `encode_char_1'.
-
 2004-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-specs to

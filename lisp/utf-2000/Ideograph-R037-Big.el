@@ -2521,7 +2521,6 @@
     (ideographic-radical . 37)	; ⼤
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (=ucs		. #x5969)	; 奩
     (->subsumptive
      ((<-vulgar-ideograph
        ((shinjigen-1	    . 796)
@@ -2542,6 +2541,7 @@
      ((=gb12345		  . #x5E46)	; 󰀔
       (=ucs@unicode	  . #x5969)	; 󰀔
       ))
+    (=ucs		. #x5969)	; 奩
     ))
 (define-char
   '((=>ucs		. #x2166C)	; 𡙬

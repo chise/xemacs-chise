@@ -109,18 +109,17 @@
 ;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
-    (or (catch 'tag
+    (or (char-ideographic-strokes-from-domains
+	 char preferred-domains radical)
+	(char-feature char 'ideographic-strokes)
+	(char-ideographic-strokes-from-domains
+	 char char-db-feature-domains radical)
+	(catch 'tag
 	  (dolist (cell (get-char-attribute char 'ideographic-))
 	    (if (and (setq ret (plist-get cell :radical))
 		     (or (eq ret radical)
 			 (null radical)))
 		(throw 'tag (plist-get cell :strokes)))))
-	(char-ideographic-strokes-from-domains
-	 char preferred-domains radical)
-	(get-char-attribute char 'ideographic-strokes)
-	(char-ideographic-strokes-from-domains
-	 char char-db-feature-domains radical)
-	(char-feature char 'ideographic-strokes)
 	(get-char-attribute char 'daikanwa-strokes)
 	(let ((strokes
 	       (or (get-char-attribute char 'kangxi-strokes)
@@ -168,8 +167,6 @@
 	 (dolist (char (cons chr
 			     (get-char-attribute chr '->denotational)))
 	   (when (and radical
-		      (eq radical
-			  (char-ideographic-radical char radical))
 		      (or (null (setq script
 				      (get-char-attribute char 'script)))
 			  (memq 'Ideograph script)))
@@ -304,18 +301,18 @@
 (defun char-daikanwa (char)
   (or (encode-char char 'ideograph-daikanwa 'defined-only)
       (encode-char char '=daikanwa-rev2 'defined-only)
-      (get-char-attribute char 'morohashi-daikanwa)
       (let ((ret (char-feature char '=>daikanwa)))
 	(and ret
 	     (if (or (get-char-attribute char '<-subsumptive)
 		     (get-char-attribute char '<-denotational))
 		 (list ret 0)
-	       ret)))))
+	       ret)))
+      (get-char-attribute char 'morohashi-daikanwa)))
 
 ;;;###autoload
 (defun char-ucs (char)
   (or (encode-char char '=ucs 'defined-only)
-      (char-feature char '=>ucs)))
+      (get-char-attribute char '=>ucs)))
 
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
@@ -334,30 +331,23 @@
 	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
 	       (lambda (a b)
 		 (ideograph-char< a b radical))))
-	attributes ; ccss
-	)
+	attributes ccss)
     (dolist (name (char-attribute-list))
       (unless (memq name char-db-ignored-attributes)
-        ;; (if (find-charset name)
-        ;;     (push name ccss)
-	(push name attributes)
-	;; )
-	))
+	(if (find-charset name)
+	    (push name ccss)
+	  (push name attributes))))
     (setq attributes (sort attributes #'char-attribute-name<)
-	  ;; ccss (sort ccss #'char-attribute-name<)
-	  )
+	  ccss (sort ccss #'char-attribute-name<))
     (aset ideograph-radical-chars-vector radical chars)
     (dolist (char chars)
-      (when ;;(or
-	  (not (some (lambda (atr)
-		       (get-char-attribute char atr))
-		     char-db-ignored-attributes))
-	;; (some (lambda (ccs)
-	;;         (encode-char char ccs 'defined-only))
-	;;       ccss)
-	;;)
-	(insert-char-data char nil attributes ;ccss
-			  )))))
+      (when (or (not (some (lambda (atr)
+			     (get-char-attribute char atr))
+			   char-db-ignored-attributes))
+		(some (lambda (ccs)
+			(encode-char char ccs 'defined-only))
+		      ccss))
+	(insert-char-data char nil attributes ccss)))))
 
 (defun write-ideograph-radical-char-data (radical file)
   (if (file-directory-p file)

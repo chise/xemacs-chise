@@ -2415,7 +2415,6 @@
     (total-strokes	 . 10)
     (=ucs		. #x5BBE)	; å®¾
     (=gb2312		. #x3176)	; ø»„ž¹
-    (=jef-china3	. #x81F7)	; øºˆ‡·
     ))
 (define-char
   '((ideographic-radical . 40)	; â¼§
@@ -3469,13 +3468,13 @@
   '((ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (=ucs		. #x21A5C)	; ð¡©œ
     (->subsumptive
      ((sources		  bos=A015412-00003)
       (=ruimoku-v6	  . #xE009)	; øº€‰
       )
      ((=ucs@iso		  . #x21A5C)	; ó°€•
       ))
+    (=ucs		. #x21A5C)	; ð¡©œ
     ))
 (define-char
   '((=>ucs		. #x21A5F)	; ð¡©Ÿ

@@ -74,7 +74,6 @@
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (=ucs		. #x516C)	; å…¬
     (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -126,6 +125,7 @@
       (=gt-pj-1		  . #x3878)	; ý¡€€¥
       (=ucs@unicode	  . #x516C)	; ø»„©ž
       ))
+    (=ucs		. #x516C)	; å…¬
     ))
 (define-char
   '((=>ucs		. #x516D)	; å…­

@@ -41,7 +41,6 @@
     (ideographic-radical . 193)	; â¿€
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (=ucs		. #x29C2C)	; ð©°¬
     (->subsumptive
      ((=daikanwa	  . 45674)	; ø¸‹‰ª
       )
@@ -53,6 +52,7 @@
        ((=cns11643-6	    . #x5A4E)	; ø»‰‹
 	))
       ))
+    (=ucs		. #x29C2C)	; ð©°¬
     ))
 (define-char
   '((=>ucs		. #x4C19)	; ä°™
