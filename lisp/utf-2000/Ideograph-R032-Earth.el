@@ -746,7 +746,7 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((chinese-cns11643-3 . #x214F)	; ø»•—’
+     ((ucs		  . #x2F817)	; ð¯ —
       ))
     (chinese-cns11643-3		. #x252D)	; ø»•œ¨
     (ideograph-daikanwa		. 04921)	; ø¸Œ¹
@@ -4164,7 +4164,6 @@
      ((ucs		  . #x571F)	; åœŸ
       )
      ((chinese-cns11643-2 . #x232C)	; ø»“§
-      (ideograph-daikanwa . 01528)	; ø¸€—¸
       ))
     (chinese-cns11643-3		. #x3032)	; ø»•¬·
     (ideograph-hanziku-2	. #xABBE)	; ý¢€ª®¾
@@ -7580,7 +7579,8 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((ideograph-daikanwa . 38836)	; ø¸‰ž´
+     ((korean-ksc5601	  . #x755A)	; ø»Š–
+      (ideograph-daikanwa . 38836)	; ø¸‰ž´
       ))
     (ideograph-daikanwa . 05354)	; ø¸“ª
     (ideograph-cbeta	. 00694)	; ø¸ Š¶
@@ -7773,7 +7773,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ideograph-daikanwa . 24672)	; ø¸† 
+     ((korean-ksc5601		  . #x7566)	; ø»Š–©
+      (japanese-jisx0213-1	  . #x793B)	; ø»¤”¦
+      (ideograph-daikanwa	  . 24672)	; ø¸† 
       )
      ((ucs		  . #x571F)	; åœŸ
       ))
@@ -10315,7 +10317,8 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((ideograph-daikanwa . 38985)	; ø¸‰¡‰
+     ((korean-ksc5601	  . #x6244)	; ø»‰º
+      (ideograph-daikanwa . 38985)	; ø¸‰¡‰
       ))
     (ideograph-daikanwa . 05507)	; ø¸–ƒ
     ))
@@ -10324,14 +10327,6 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x571F)	; åœŸ
-      )
-     ((ucs		  . #x9042)	; é‚
-      ))
     (ideograph-cbeta	. 01092)	; ø¸ ‘„
     ))
 (define-char
@@ -11619,7 +11614,9 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((ideograph-daikanwa . 48818)	; ø¸‹º²
+     ((=jis-x0208	  . #x4E36)	; ø½Š¸—
+      (korean-ksc5601	  . #x5723)	; ø»‰©¢
+      (ideograph-daikanwa . 48818)	; ø¸‹º²
       ))
     (japanese-jisx0213-1	. #x2F65)	; ø»¢¨¤
     (ideograph-daikanwa		. 05592)	; ø¸—˜
@@ -11650,6 +11647,14 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x571F)	; åœŸ
+      )
+     ((china3-jef	  . #x70A4)	; øº‡‚¤
+      ))
     (ideograph-cbeta	. 00102)	; ø¸ ¦
     ))
 (define-char
