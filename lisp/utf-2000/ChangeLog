@@ -1,3 +1,24 @@
+2003-02-21  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* Ideograph-R199-Wheat.el (M-47748): Unify U-0002A312.
+	(C7-2C2D): Map to U-0002A312.
+	(CB01463): New character.
+
+	* Ideograph-R145-Clothes.el (M-34556): Separate G0-4F65, C1-7543
+	and U+8944; add JU+8944, KU+8944 and BU+8944.
+
+	* Ideograph-R009-Man.el (U-000201EE): Add `ideographic-strokes'
+	and `total-strokes'.
+	(CB06079): New character.
+	(C4-4232): Modify `ideographic-structure'.
+
+2003-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (U-00021B3E): Unify CB12636.
+
+	* Ideograph-R030-Mouth.el (M-03598): Modify
+	`ideographic-structure'.
+
 2003-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R032-Earth.el (U-0002123D): New character.
