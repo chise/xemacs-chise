@@ -226,4 +226,4 @@
     (ideograph-gt	. 60403)
     ))
 
-;;; mime-view.el ends here
+;;; isolated-char.el ends here
