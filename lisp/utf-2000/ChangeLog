@@ -1,3 +1,32 @@
+2004-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U-0002695B): Use `<-wrong*sources'
+	instead of char-ref in `<-wrong'.
+
+	* Ideograph-R079-Weapon.el (M-16636): Moved into U-00023A8E; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-00023A8E): Use `->subsumptive'.
+
+	* Ideograph-R074-Moon.el (M-14394): Moved into U-00023393; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-00023393): Use `->subsumptive'.
+
+	* Ideograph-R011-Enter.el (M-01416): Moved into U-000204DB; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-000204DB): Use `->subsumptive'.
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->wrong' when running with non-readable mode.
+
+2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R079-Weapon.el, Ideograph-R076-Lack.el,
+	Ideograph-R074-Moon.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R018-Knife.el,
+	Ideograph-R015-Ice.el, Ideograph-R011-Enter.el: Rename
+	`<-wrong-ideograph' to `<-wrong'.
+
 2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (U+8F9E): Changed to abstract
