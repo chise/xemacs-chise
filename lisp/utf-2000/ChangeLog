@@ -1,3 +1,70 @@
+2004-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
+	Delete `=>daikanwa'.
+	(<CJK RADICAL GRASS THREE): Likewise.
+
+	* Ideograph-R140-Grass.el (U+8279): Delete `=>daikanwa'.
+	(<CJK RADICAL GRASS ONE>): Likewise.
+	(<CJK RADICAL GRASS THREE): Likewise.
+
+2004-03-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (update-ideograph-radical-table): Check
+	variants specified by `<-identical' and `->denotational'
+	recursively.
+	(char-daikanwa): New implementation; try to return hierarchical
+	information for inherited characters.
+
+2004-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+5F50): Separate every CCS features.
+	(JSP-3C77): Use `<-denotational' for U+5F50.
+	(G0-6566): Likewise.
+	(BC-897C): New character.
+	(BC-8BAB): Use `<-denotational' for U+5F50.
+	(GT-K00267): Modify for inheritance.
+
+	* Ideograph-R015-Ice.el (U+4ECC): Deleted [defined in
+	Ideograph-R009-Man.el].
+
+2004-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (C3-396C): Unify U+4E80 and M-00210.
+
+	* Ideograph-R203-Black.el (C1-702E): Unify U+FA3A and M-05469.
+
+	* Ideograph-R200-Hemp.el (J0-4B63): Unify BC-8A5F.
+
+	* Ideograph-R169-Gate.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+	* Ideograph-R032-Earth.el (U+58A8): Delete `->identical' for
+	U+FA3A.
+	(U+FA3A): Use `<-denotational' for U+58A8; unify C1-702E.
+	(J0-4B4F): Use `<-denotational' for U+58A8.
+
+	* Ideograph-R005-Second.el (U+4E80): Unify C3-396C.
+
+	* Ideograph-R015-Ice.el (U-0002F819): Moved into U+4ECC.
+	(U+4ECC): Copied from Ideograph-R009-Man.el.
+	(U+51B0): Add `->same' for C3-214C; use
+	`<-original-ideograph*sources' instead of char-ref in
+	`<-original-ideograph'.
+
+2004-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44029): Moved into U-00020A78.
+	(U-00020A78): Use `->subsumptive' instead of `->same' for M-02979.
+
+	* Ideograph-R027-Cliff.el (U-00020A78): Use `->subsumptive'
+	instead of `->same' for M-44029.
+
 2004-03-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el (M-02134): Use `<-denotational' for
