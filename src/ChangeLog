@@ -1,3 +1,9 @@
+2003-08-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (load_char_decoding_entry_maybe): Use
+	`chise_ds_get_ccs' instead of `chise_ds_open_ccs_table'; don't use
+	`chise_ccst_close'.
+
 2003-08-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Fsave_charset_mapping_table): Use
