@@ -237,6 +237,30 @@
       (write-region (point-min)(point-max) file)
       )))
 
+(defun ideographic-structure= (char1 char2)
+  (if (char-ref-p char1)
+      (setq char1 (plist-get char1 :char)))
+  (if (char-ref-p char2)
+      (setq char2 (plist-get char2 :char)))
+  (let ((s1 (if (characterp char1)
+		(get-char-attribute char1 'ideographic-structure)
+	      (cdr (assq 'ideographic-structure char1))))
+	(s2 (if (characterp char2)
+		(get-char-attribute char2 'ideographic-structure)
+	      (cdr (assq 'ideographic-structure char2))))
+	e1 e2)
+    (if (or (null s1)(null s2))
+	(char-spec= char1 char2)
+      (catch 'tag
+	(while (and s1 s2)
+	  (setq e1 (car s1)
+		e2 (car s2))
+	  (unless (ideographic-structure= e1 e2)
+	    (throw 'tag nil))
+	  (setq s1 (cdr s1)
+		s2 (cdr s2)))
+	(and (null s1)(null s2))))))
+
 ;;;###autoload
 (defun ideographic-structure-find-char (structure)
   (let (rest)
@@ -244,7 +268,8 @@
 			  (setq rest structure)
 			  (catch 'tag
 			    (while (and rest value)
-			      (unless (char-ref= (car rest)(car value))
+			      (unless (ideographic-structure=
+				       (car rest)(car value))
 				(throw 'tag nil))
 			      (setq rest (cdr rest)
 				    value (cdr value)))
