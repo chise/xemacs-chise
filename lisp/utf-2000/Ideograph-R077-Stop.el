@@ -569,16 +569,27 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x6B6D)	; 歭
-    (=big5		. #xD1FA)	; &I-B-D1FA;
-    (=daikanwa		. 16293)	; &I-M-16293;
     ))
 (define-char
-  '((=>ucs		. #x6B6D)	; 歭
-    (morohashi-daikanwa	16293 0 1)
-    (ideographic-radical . 77)	; ⽌
+  '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (<-denotational
+     ((=ucs		  . #x6B6D)	; 歭
+      ))
+    (=big5		. #xD1FA)	; &M-16293;
+    (=daikanwa		. 16293)	; &I-M-16293;
+    (=ucs@unicode	. #x6B6D)	; &M-16293;
+    ))
+(define-char
+  '((ideographic-radical . 77)	; ⽌
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (<-denotational
+     ((=ucs		  . #x6B6D)	; 歭
+      ))
     (=cns11643-2	. #x2F7C)	; &C2-2F7C; [15-92]
+    (=ucs@cns		. #x6B6D)	; &C2-2F7C;
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
@@ -1057,26 +1068,44 @@
   '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
+      ))
     (=ucs		. #x6B72)	; 歲
-    (=cns11643-1	. #x6459)	; &I-C1-6459; [68-57]
-    (=gb12345		. #x4B6A)	; 歲 [43-74]
-    (=big5		. #xB7B3)	; &I-B-B7B3;
-    (=daikanwa		. 16326)	; &I-M-16326;
-    (=jef-china3	. #x54DD)	; &I-JC3-54DD;
+    (->subsumptive
+     ((=cns11643-1	  . #x6459)	; &M-16326; [68-57]
+      (=gb12345		  . #x4B6A)	; &M-16326; [43-74]
+      (=big5		  . #xB7B3)	; &I-B-B7B3;
+      (=daikanwa	  . 16326)	; &I-M-16326;
+      (=ucs@unicode	  . #x6B72)	; &M-16326;
+      )
+     ((shinjigen-1	  . 3956)
+      (=ks-x1001	  . #x6128)	; &K0-6128; [65-08]
+      (=jef-china3	  . #x54DD)	; &I-JC3-54DD;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x6B72)	; 歲
-    (morohashi-daikanwa	16326 0 0)
-    (ideographic-radical . 77)	; ⽌
+  '((ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (=ks-x1001		. #x6128)	; &K0-6128; [65-08]
+    (=jis-x0208@1997	. #x3A50)	; &J97-3A50; [26-48]
     ))
 (define-char
   '((morohashi-daikanwa	16326 1)
     (ideographic-radical . 77)	; ⽌
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3A50)	; &J97-3A50; [26-48]
+      ))
+    (<-simplified@JP
+     ((=cns11643-1	  . #x6459)	; &M-16326; [68-57]
+      (=daikanwa	  . 16326)	; &I-M-16326;
+      ))
+    (<-simplified@JP*sources
+     daikanwa)
+    (shinjigen-1	. 3955)
+    (shinjigen-2	. 3955)
     (=ucs		. #x6B73)	; 歳
     (=jis-x0208		. #x3A50)	; &I-J90-3A50; [26-48]
     (=cns11643-3	. #x4221)	; &I-C3-4221; [34-01]
