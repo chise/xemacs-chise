@@ -1,3 +1,10 @@
+2004-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-specs in value of
+	`{<-|->}ancient[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}ancient[^*]*'.
+
 2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-specs in value of
