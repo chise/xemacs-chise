@@ -1,5 +1,11 @@
 2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R036-Evening.el (J0-546D): Add S1-1552.
+	(U+5922): Add `<-simplified-ideograph' for S1-1550.
+	(M-05802): Add S1-1550.
+	(M-05803): Separate U+5923; add S1-1553; add `<-vulgar-ideograph'
+	for S1-1550.
+
 	* Ideograph-R029-Again.el (M-03115): Unify GT-K00065.
 	(GT-K00064): New character.
 
