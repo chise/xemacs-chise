@@ -709,22 +709,28 @@
     (=hanziku-8		. #xE7DB)	; &I-HZK08-E7DB;
     ))
 (define-char
+  '((ideographic-radical . 140)	; ⾋
+    (ideographic-strokes . 3)
+    (=ucs		. #x8289)	; 芉
+    (->subsumptive
+     ((total-strokes	   . 7)
+      (=cns11643-4	  . #x2475)	; &M-30668; [04-85]
+      (=daikanwa	  . 30668)	; &I-M-30668;
+      )
+     ((total-strokes	   . 6)
+      (hanyu-dazidian	  5 3174 4)
+      (=jis-x0212	  . #x5734)	; &HZK08-E7BB; [55-20]
+      (=hanziku-8	  . #xE7BB)	; &I-HZK08-E7BB;
+      (=ucs@unicode	  . #x8289)	; &HZK08-E7BB;
+      ))
+    ))
+(define-char
   '((=>ucs		. #x8289)	; 芉
+    (=>daikanwa		. 30668)	; &M-30668;
     (ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-4	. #x2475)	; &M-30668; [04-85]
-    (=daikanwa		. 30668)	; &I-M-30668;
-    ))
-(define-char
-  '((morohashi-daikanwa	30668 0 1)
-    (ideographic-radical . 140)	; ⾋
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (hanyu-dazidian	5 3174 4)
-    (=ucs		. #x8289)	; 芉
-    (=jis-x0212		. #x5734)	; &I-JSP-5734; [55-20]
-    (=hanziku-8		. #xE7BB)	; &I-HZK08-E7BB;
+    (=cbeta		. 06151)	; &CB06151;
     ))
 (define-char
   '((=>ucs		. #x828A)	; 芊
