@@ -1,3 +1,17 @@
+2004-09-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (JSP-695C): Use `=ucs@jis' instead of
+	`=ucs@jis-1990'.
+
+	* Ideograph-R118-Bamboo.el (JX1-795A): Use `=ucs@jis' instead of
+	`=ucs@jis-2000'.
+
+	* Ideograph-R116-Cave.el (JSP-5157): Use `=ucs@jis' instead of
+	`=ucs@jis-1990'.
+
+	* Ideograph-R064-Hand.el (JSP-3F3C): Use `=ucs@jis' instead of
+	`=ucs@jis-1990' and `=ucs@jis-2000'.
+
 2004-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R172-Short-Tailed-Bird.el: Use `=ucs@jis/{1990|2000}'
