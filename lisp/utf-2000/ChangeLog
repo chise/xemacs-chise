@@ -1,5 +1,16 @@
 2005-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R035-Go-Slowly.el (U+5912): Use `->subsumptive'.
+
+	* Ideograph-R034-Go.el (M-05699): Separate C5-2362; add `=>ucs'
+	and `<-unknown' for U-0002F85C.
+	(C5-2362): Unify U-0002F85C; add `<-unknown' for M-05699.
+
+	* Ideograph-R031-Enclosure.el (U+56DB): Use `->subsumptive'.
+	(U+56E7): Use `->denotational' and `->subsumptive'.
+
+2005-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R030-Mouth.el: Add mappings for shinjigen-* numbers.
 	(M-03418): Unify U-00020C3C and H2-CFA1.
 	(U-000210B0): New character.
@@ -36,7 +47,7 @@
 
 	* Ideograph-R012-Eight.el (U-00020532): Unify M-03111; use
 	`ideographic-{radical|strokes}@ucs' instead of
-	``ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}'; add
 	`ideographic-{radical|strokes}@daikanwa'.
 
 	* Ideograph-R009-Man.el: Use `->subsumptive' or
