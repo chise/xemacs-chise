@@ -1,10 +1,19 @@
+2003-07-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R132-Self.el (U+81EA): Unify GT-38936.
+	(J0-3D2D): Unify GT-38944.
+
+	* Ideograph-R131-Minister.el: Add some GT code points.
+
+	* Ideograph-R119-Rice.el: Add some GT code points.
+
 2003-07-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R128-Ear.el, Ideograph-R127-Plow.el,
-	Ideograph-R125-Old.el, Ideograph-R124-Feather.el,
-	Ideograph-R123-Sheep.el, Ideograph-R122-Net.el,
-	Ideograph-R121-Jar.el, Ideograph-R118-Bamboo.el: Add some GT code
-	points.
+	* Ideograph-R129-Brush.el, Ideograph-R128-Ear.el,
+	Ideograph-R127-Plow.el, Ideograph-R125-Old.el,
+	Ideograph-R124-Feather.el, Ideograph-R123-Sheep.el,
+	Ideograph-R122-Net.el, Ideograph-R121-Jar.el,
+	Ideograph-R118-Bamboo.el: Add some GT code points.
 
 	* Ideograph-R060-Step.el (J90-352B): Unify GT-35717.
 
