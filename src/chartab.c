@@ -3236,7 +3236,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   CHECK_CHAR (character);
 
   if (!NILP (ccs))
-    value = put_char_ccs_code_point (character, ccs, value);
+    {
+      value = put_char_ccs_code_point (character, ccs, value);
+      attribute = XCHARSET_NAME (ccs);
+    }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
   else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
