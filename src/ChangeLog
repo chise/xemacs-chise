@@ -1,3 +1,10 @@
+2001-09-02  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* chartab.h: Lisp_Byte_Table related codes are moved from
+	chartab.h.
+
+	* char-ucs.h: Move Lisp_Byte_Table related codes to chartab.h.
+
 2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
 
 	* chartab.h: Don't include "chartab.h".
