@@ -142,9 +142,9 @@ put_byte_from_character_table (Emchar ch, unsigned char val,
 {
   if (table->base == NULL)
     {
-      table->base = xmalloc (128);
-      table->offset = ch - (ch % 128);
-      table->size = 128;
+      table->base = xmalloc (256);
+      table->offset = ch - (ch % 256);
+      table->size = 256;
       table->base[ch - table->offset] = val;
     }
   else
@@ -156,7 +156,7 @@ put_byte_from_character_table (Emchar ch, unsigned char val,
 	  size_t new_size = table->size - i;
 	  size_t j;
 
-	  new_size += 128 - (new_size % 128);
+	  new_size += 256 - (new_size % 256);
 	  table->base = xrealloc (table->base, new_size);
       	  memmove (table->base + (new_size - table->size), table->base,
 		   table->size);
@@ -171,7 +171,7 @@ put_byte_from_character_table (Emchar ch, unsigned char val,
 	  size_t new_size = i + 1;
 	  size_t j;
 
-	  new_size += 128 - (new_size % 128);
+	  new_size += 256 - (new_size % 256);
 	  table->base = xrealloc (table->base, new_size);
       	  for (j = table->size; j < new_size; j++)
 	    table->base[j] = 0;
@@ -611,7 +611,9 @@ mark_charset (Lisp_Object obj, void (*markobj) (Lisp_Object))
   markobj (cs->doc_string);
   markobj (cs->registry);
   markobj (cs->ccl_program);
+#ifdef UTF2000
   markobj (cs->decoding_table);
+#endif
   return cs->name;
 }
 
@@ -1322,7 +1324,7 @@ NEW-NAME is the name of the new charset.  Return the new charset.
 			      CHARSET_CODE_OFFSET(cs),
 			      CHARSET_BYTE_OFFSET(cs)
 #else
-			      Qnil, 0, 0, 0
+			      Qnil, 0, 0, 0, 0
 #endif
 );
 
