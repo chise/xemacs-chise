@@ -15,6 +15,44 @@
 
 	* file-coding.h (Qraw_text): New variable.
 
+1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Registry of
+	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
+	"jisc6226.1983".
+
+1999-06-08  SL Baur  <steve@xemacs.org>
+
+	* s/decosf4-0.h: Explicitly #undef SYSTEM_MALLOC.
+
+1999-06-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (MIME_LINE_LENGTH): Default to 72, as in mimencode and
+ 	base64.el.
+	(base64_decode_1): Signal errors instead of returning -1.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* mule-charset.c (Fmake_char): Update docstring.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fstring_lessp): Actually increment the Bufbyte pointers.
+
+1999-06-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (base64_decode_1): Allow and ignore any non-base64
+ 	characters in input.
+
+1999-05-27  Olivier Galibert  <galibert@pobox.com>
+
+	* emacs.c (Fdump_emacs): Add clear_message() lost with the removal
+	of report_pure_usage().
+
+1999-06-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fstring_lessp): Remove O(n^2) under Mule.
+
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.15 is released

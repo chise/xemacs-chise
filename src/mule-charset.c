@@ -1050,7 +1050,10 @@ Set the 'registry property of CHARSET to REGISTRY.
 /************************************************************************/
 
 DEFUN ("make-char", Fmake_char, 2, 3, 0, /*
-Make a multi-byte character from CHARSET and octets ARG1 and ARG2.
+Make a character from CHARSET and octets ARG1 and ARG2.
+ARG2 is required only for characters from two-dimensional charsets.
+For example, (make-char 'latin-iso8859-2 185) will return the Latin 2
+character s with caron.
 */
        (charset, arg1, arg2))
 {

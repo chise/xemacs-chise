@@ -77,7 +77,7 @@ Boston, MA 02111-1307, USA.  */
 void report_sheap_usage (int die_if_pure_storage_exceeded);
 #endif
 
-#if !defined SYSTEM_MALLOC && !defined DOUG_LEA_MALLOC
+#if !defined (SYSTEM_MALLOC) && !defined (DOUG_LEA_MALLOC)
 extern void *(*__malloc_hook)(size_t);
 extern void *(*__realloc_hook)(void *, size_t);
 extern void (*__free_hook)(void *);
@@ -2465,6 +2465,8 @@ and announce itself normally when it is run.
 #ifdef HEAP_IN_DATA
   report_sheap_usage (1);
 #endif
+
+  clear_message ();
 
   fflush (stderr);
   fflush (stdout);

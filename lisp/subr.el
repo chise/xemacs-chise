@@ -682,6 +682,16 @@ FILE should be the name of a library, with no directory name."
   (eval-after-load file (read)))
 (make-compatible 'eval-next-after-load "")
 
+(unless (featurep 'mule)
+  (defun make-char (charset &optional arg1 arg2)
+    "Make a character from CHARSET and octets ARG1 and ARG2.
+This function is available for compatibility with Mule-enabled XEmacsen.
+When CHARSET is `ascii', return (int-char ARG1).  Otherwise, return
+that value with the high bit set.  ARG2 is always ignored."
+    (int-char (if (eq charset 'ascii)
+		  arg1
+		(logior arg1 #x80)))))
+
 ; alternate names (not obsolete)
 (if (not (fboundp 'mod)) (define-function 'mod '%))
 (define-function 'move-marker 'set-marker)
