@@ -1,5 +1,8 @@
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R008-Lid.el (M00286): Separate
+	`japanese-jisx0208-1978' and `japanese-jisx0208'.
+
 	* utf-2000/Ideograph-R005-Second.el: Merge `chinese-isoir165'.
 
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
