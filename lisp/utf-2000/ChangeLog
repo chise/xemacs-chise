@@ -1,3 +1,42 @@
+2001-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el:
+	- Merge some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Add some `ideographic-structure' properties.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	(U+56D9): Unify BC-8DE5.
+	(M-04695): Unify BC-8668.
+	(M-04736): Separate C6-2F5C; delete `cns-total-strokes'.
+	(C6-2F5C): Unify BC-8870.
+	(M-04747): Separate C6-2A41.
+	(BC-876C): New character; relate to M-04747.
+	(M-04823): Unify BC-8559.
+	(U+5716): Use U+555A instead of BC-8BEB in
+	`ideographic-structure'.
+	(C7-5321): Unify BC-856D.
+
+	* Ideograph-R030-Mouth.el (M-03829): Separate C3-3464 and U+555A;
+	unify BC-8BEB.
+
+	* Ideograph-R024-Ten.el (C6-2977): Unify BC-85D0.
+
+	* Ideograph-R019-Power.el:
+	- Merge some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	(U+529E): Unify BC-8A63.
+	(C6-2F28): Unify BC-85C9.
+
+	* Ideograph-R018-Knife.el:
+	- Merge some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Add some `ideographic-structure' properties.
+
 2001-11-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
