@@ -1,5 +1,12 @@
 2004-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R004-Slash.el (C3-212F): Unify U+51E2 instead of using
+	`->same' for M-01740; use `->subsumptive' for M-00123 and M-01740;
+	use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
+2004-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R023-Hiding-Enclosure.el (C6-212B): Moved into
 	U-0002092C.
 	(JSP-3433): Moved into U+533C.
