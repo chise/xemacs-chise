@@ -995,19 +995,24 @@
   '((ideographic-radical . 140)	; ⾋
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
-    (<-original-ideograph
-     ((shinjigen-1	  . 816)
-      (=daikanwa	  . 02706)	; &I-M-02706;
-      ))
-    (<-original-ideograph*sources
-     shinjigen-1)
-    (shinjigen-1	. 817)
     (=ucs		. #x8294)	; 芔
-    (=jis-x0212		. #x5738)	; &I-JSP-5738; [55-24]
-    (=cns11643-2	. #x2D2D)	; &I-C2-2D2D; [13-13]
     (=big5		. #xD06A)	; &I-B-D06A;
-    (=daikanwa		. 30685)	; &I-M-30685;
-    (=jef-china3	. #x45C1)	; &I-JC3-45C1;
+    (->subsumptive
+     ((<-original
+       ((shinjigen-1	    . 816)
+	(=daikanwa	    . 02706)	; &I-M-02706;
+	))
+      (<-original*sources
+       shinjigen-1)
+      (shinjigen-1	  . 817)
+      (=jis-x0212	  . #x5738)	; &M-30685; [55-24]
+      (=cns11643-2	  . #x2D2D)	; &I-C2-2D2D; [13-13]
+      (=daikanwa	  . 30685)	; &I-M-30685;
+      (=jef-china3	  . #x45C1)	; &I-JC3-45C1;
+      (=ucs@jis		  . #x8294)	; &M-30685;
+      )
+     ((=ucs@unicode	  . #x8294)	; &UU+8294;
+      ))
     ))
 (define-char
   '((=>ucs		. #x8295)	; 芕
