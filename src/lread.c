@@ -2217,8 +2217,8 @@ read_structure (Lisp_Object readcharfun)
 
 
 static Lisp_Object read_compiled_function (Lisp_Object readcharfun,
-					   int terminator);
-static Lisp_Object read_vector (Lisp_Object readcharfun, int terminator);
+					   Emchar terminator);
+static Lisp_Object read_vector (Lisp_Object readcharfun, Emchar terminator);
 
 /* Get the next character; filter out whitespace and comments */
 
