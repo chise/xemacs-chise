@@ -1,5 +1,33 @@
 2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R170-Mound.el (U+96A3): Use `->subsumptive'.
+	(C3-4F5A): Moved into U+96A3.
+	(J83-4E59): Likewise.
+	(J90-4E59): Likewise.
+
+	* Ideograph-R141-Tiger.el (M-32723): Use `->subsumptive'; use
+	`<-denotational' for U+865E.
+	(U+865E): Define as an abstract character.
+	(J0-3673): Use `<-denotational' for U+865E.
+	(G0-535D): Separate U+865E; use `<-denotational' for U+865E.
+
+	* Ideograph-R075-Tree.el (JSP-434D): Separate U+681F and B-D1D9;
+	use `<-denotational' for U+681F.
+	(U+681F): Define as an abstract character.
+	(M-15010): Moved into U-0002F8E5.
+	(U-0002F8E5): Use `->subsumptive'; use `<-denotational' for
+	U+681F.
+
+	* Ideograph-R037-Big.el (U-0002162C): Use `->subsumptive'.
+	(U-00021643): Likewise.
+
+	* Ideograph-R040-Roof.el (U+5BCC): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+5674): Add `kangxi' into
+	`<-vulgar*sources'.
+	(U+5673): Use `->subsumptive'.
+	(C7-2C65): Unify U-0002F84F; add `<-denotational' for U+5674.
+
 	* Ideograph-R014-Cover.el (U+51A8): Add `zhengzi-tong' and
 	`daikanwa' into `<-vulgar*sources'.
 
