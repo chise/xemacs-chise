@@ -1,5 +1,20 @@
 2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R149-Speech.el (U+8A00): Use `->subsumptive'.
+
+	* Ideograph-R126-And.el: Add mappings for Big5 code points.
+	(M-28886): Unify U-000264D5.
+	(M-28895): Unify U-000264DF.
+
+	* char-db-util.el (char-db-feature-domains): Add `jis-x0212'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+3533): Use `->subsumptive'.
+	(U+532F): Likewise.
+
+	* Ideograph-R046-Mountain.el (U+5DB2): Changed to abstract
+	character.
+	(B-E967): Use `<-denotational' for U+5DB2; use `->subsumptive'.
+
 	* Ideograph-R124-Feather.el (U+7FCF): Use `->subsumptive'.
 	(U+7FDF): Likewise.
 
