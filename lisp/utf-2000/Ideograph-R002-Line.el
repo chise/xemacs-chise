@@ -320,6 +320,12 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 29)
     (hanyu-dazidian-char . 3)
+    (->identical
+     ((chinese-cns11643-6 . #x225F)	; ø»›·Œ
+      ))
+    (->same-ideograph
+     ((ideograph-daikanwa . 04684)	; ø¸‰Œ
+      ))
     (chinese-big5-cdp	. #x87E5)	; ý¢€ˆŸ¥
     (ucs		. #x20064)	; ð ¤
     ))
