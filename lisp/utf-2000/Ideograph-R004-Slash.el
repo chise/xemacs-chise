@@ -1224,6 +1224,10 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (->identical
+     ((chinese-cns11643-6 . #x245D)	; ø»›º†
+      (ideograph-daikanwa . 08750)	; ø¸‚ˆ®
+      ))
     (ideograph-hanziku-1	. #xB25E)	; ý¢€›‰ž
     (ucs			. #x200AC)	; ð ‚¬
     ))
