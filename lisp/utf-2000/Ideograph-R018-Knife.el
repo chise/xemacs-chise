@@ -3497,28 +3497,6 @@
     (ucs			. #x5265)	; å‰¥
     ))
 (define-char
-  '((morohashi-daikanwa	ho 52)
-    (ideographic-radical . 18)	; â¼‘
-    (ideographic-strokes . 12)
-    (total-strokes	 . 14)
-    (->mojikyo		. 054893)	; ø»”Œª
-    (->same-ideograph
-     (:sources	(kouin kangxi morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 26149)	; ø¸†˜¥
-		 )
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x7B54)	; ç­”
-      )
-     ((ucs		  . #x5202)	; åˆ‚
-      ))
-    (japanese-jisx0213-2	. #x233D)	; ø»¤ ˜
-    (ucs			. #x5284)	; åŠ„
-    ))
-(define-char
   '((ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
@@ -5299,6 +5277,28 @@
     (total-strokes	 . 14)
     (chinese-cns11643-6 . #x5B23)	; ø»‰¾
     (ideograph-daikanwa . 02210)	; ø¸€¢¢
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 52)
+    (ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 12)
+    (total-strokes	 . 14)
+    (->mojikyo		. 054893)	; ø»”Œª
+    (->same-ideograph
+     (:sources	(kouin kangxi morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 26149)	; ø¸†˜¥
+		 )
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x7B54)	; ç­”
+      )
+     ((ucs		  . #x5202)	; åˆ‚
+      ))
+    (japanese-jisx0213-2	. #x233D)	; ø»¤ ˜
+    (ucs			. #x5284)	; åŠ„
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
