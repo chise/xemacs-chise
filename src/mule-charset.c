@@ -1314,7 +1314,8 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 			      + (XCHARSET_FINAL (charset) - '0') * 94 * 94))
 		   >= 0)
 		  && (d < 94 * 94))
-		return list2 ((d / 94) + 33, d % 94 + 33);
+		return list2 (make_int ((d / 94) + 33),
+			      make_int (d % 94 + 33));
 	    }
 	  else if (XCHARSET_CHARS (charset) == 96)
 	    {
@@ -1322,11 +1323,108 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
 			      + (XCHARSET_FINAL (charset) - '0') * 96 * 96))
 		   >= 0)
 		  && (d < 96 * 96))
-		return list2 ((d / 96) + 32, d % 96 + 32);
+		return list2 (make_int ((d / 96) + 32),
+			      make_int (d % 96 + 32));
 	    }
 	}
     }
   return Qnil;
+}
+
+Lisp_Object
+split_builtin_char (Emchar c)
+{
+  if (c < MIN_CHAR_OBS_94x94)
+    {
+      if (c <= MAX_CHAR_BASIC_LATIN)
+	{
+	  return list2 (Vcharset_ascii, make_int (c));
+	}
+      else if (c < 0xA0)
+	{
+	  return list2 (Vcharset_control_1, make_int (c & 0x7F));
+	}
+      else if (c <= 0xff)
+	{
+	  return list2 (Vcharset_latin_iso8859_1, make_int (c & 0x7F));
+	}
+      else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
+	{
+	  return list2 (Vcharset_greek_iso8859_7,
+			make_int (c - MIN_CHAR_GREEK + 0x20));
+	}
+      else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
+	{
+	  return list2 (Vcharset_cyrillic_iso8859_5,
+			make_int (c - MIN_CHAR_CYRILLIC + 0x20));
+	}
+      else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
+	{
+	  return list2 (Vcharset_hebrew_iso8859_8,
+			make_int (c - MIN_CHAR_HEBREW + 0x20));
+	}
+      else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
+	{
+	  return list2 (Vcharset_thai_tis620,
+			make_int (c - MIN_CHAR_THAI + 0x20));
+	}
+      else if ((MIN_CHAR_HALFWIDTH_KATAKANA <= c)
+	       && (c <= MAX_CHAR_HALFWIDTH_KATAKANA))
+	{
+	  return list2 (Vcharset_katakana_jisx0201,
+			make_int (c - MIN_CHAR_HALFWIDTH_KATAKANA + 33));
+	}
+      else
+	{
+	  return list3 (Vcharset_ucs_bmp,
+			make_int (c >> 8), make_int (c & 0xff));
+	}
+    }
+  else if (c <= MAX_CHAR_OBS_94x94)
+    {
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_94X94,
+		     ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33),
+		    make_int (((c - MIN_CHAR_OBS_94x94) % 94) + 33));
+    }
+  else if (c <= MAX_CHAR_94)
+    {
+      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
+					   ((c - MIN_CHAR_94) / 94) + '0',
+					   CHARSET_LEFT_TO_RIGHT),
+		    make_int (((c - MIN_CHAR_94) % 94) + 33));
+    }
+  else if (c <= MAX_CHAR_96)
+    {
+      return list2 (CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
+					   ((c - MIN_CHAR_96) / 96) + '0',
+					   CHARSET_LEFT_TO_RIGHT),
+		    make_int (((c - MIN_CHAR_96) % 96) + 32));
+    }
+  else if (c <= MAX_CHAR_94x94)
+    {
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_94X94,
+		     ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_94x94) / 94) % 94) + 33),
+		    make_int (((c - MIN_CHAR_94x94) % 94) + 33));
+    }
+  else if (c <= MAX_CHAR_96x96)
+    {
+      return list3 (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_96X96,
+		     ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
+		     CHARSET_LEFT_TO_RIGHT),
+		    make_int ((((c - MIN_CHAR_96x96) / 96) % 96) + 32),
+		    make_int (((c - MIN_CHAR_96x96) % 96) + 32));
+    }
+  else
+    {
+      return Qnil;
+    }
 }
 
 Lisp_Object
