@@ -1,3 +1,50 @@
+2001-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R127-Plow.el (U+8032): Unify C4-692D.
+
+	* Ideograph-R125-Old.el (U+8009): Unify C4-2B25.
+
+	* Ideograph-R124-Feather.el (U+7FF6): Unify C3-557E.
+
+	* Ideograph-R118-Bamboo.el (U+****): Unify or relate to missing
+	C*-**** code points.
+	(M-26102): Separate K0-6F3D.
+	(M-26120): Separate U+7B89 and C4-456B.
+	(M-26224): Separate G0-7367, J83-4824, C1-6A2F, J90-4824 and
+	U+7BB8; fix `total-strokes'.
+	(M-26243): Add `total-strokes'; separate JX1-7964.
+	(JX1-7964): Unify K0-6F3D and M054432; add `morohashi-daikanwa-ho'
+	for 460; relate to U+7BC0.
+	(M-26444): Separate EGB-7E2A, C2-5E32 and U+7C09.
+	(EGB-7E2A): Unify U+7C09 and M057361; fix strokes.
+
+	* Ideograph-R115-Grain.el (U+79C3): Add `total-strokes'; unify
+	M057263.
+	(C3-2A3E): Relate to U+79C3 and M057263.
+
+	* Ideograph-R119-Rice.el (U+7CB5): Unify C1-656D.
+	(U+7CEC): Unify C2-6637.
+	(U+7CED): Unify M059851.
+
+2001-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el (C2-5921): Relate to U+7AB1.
+	(U+7ABD): Unify C3-522E.
+
+	* Ideograph-R113-Spirit.el (U+7942): Unify C2-2842.
+	(U+7977): Unify C4-395A.
+
+2001-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el:
+	- Add missing relations between C*-**** and M-*****.
+	- Add missing relations between C*-**** and U-****.
+	(M-24080): Delete `kangxi-strokes'.
+	(M-24082): Cancel relation to C4-2E59.
+	(M-24098): Separate C2-375C; fix `total-strokes'.
+	(C3-5846): Moved to Ideograph-R113-Spirit.el.
+	(C3-5847): Likewise.
+
 2001-06-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R104-Sickness.el, Ideograph-R098-Tile.el:
