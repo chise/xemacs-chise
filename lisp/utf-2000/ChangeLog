@@ -1,3 +1,11 @@
+2003-06-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R092-Fang.el (M-19911): Unify C5-2368 and U-00024605;
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources' and
+	`ideographic-{radical|strokes}@cns'.
+
 2003-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R096-Jade.el (U+738D): Use
