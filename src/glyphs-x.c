@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
    Many changes for color work and optimizations by Jareth Hein for 21.0
    Switch of GIF/JPEG/PNG to new EImage intermediate code by Jareth Hein for 21.0
    TIFF code by Jareth Hein for 21.0
+   GIF/JPEG/PNG/TIFF code moved to new glyph-eimage.c for 21.0
 
    TODO:
    Convert images.el to C and stick it in here?

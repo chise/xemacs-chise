@@ -156,7 +156,7 @@ void font_lock_buffer_was_killed (struct buffer *buf);
 void barf_if_buffer_read_only (struct buffer *buf, Bufpos from,
 			       Bufpos to);
 
-void init_buffer_text (struct buffer *b, int indirect_p);
-void uninit_buffer_text (struct buffer *b, int indirect_p);
+void init_buffer_text (struct buffer *b);
+void uninit_buffer_text (struct buffer *b);
 
 #endif /* _XEMACS_INSDEL_H_ */

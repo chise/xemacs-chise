@@ -715,7 +715,14 @@ when reading the arguments.
             }
 	  case 'k':		/* Key sequence (vector of events) */
 	    {
-	      Lisp_Object tem = Fread_key_sequence (PROMPT (), Qnil, Qnil);
+	      struct gcpro ngcpro1;
+	      Lisp_Object tem;
+	      Lisp_Object key_prompt = PROMPT ();
+
+	      NGCPRO1(key_prompt);
+	      tem = Fread_key_sequence (key_prompt, Qnil, Qnil);
+	      NUNGCPRO;
+
 	      visargs[argnum] = Fkey_description (tem);
 	      /* The following makes `describe-key' not work with
 		 extent-local keymaps and such; and anyway, it's
@@ -728,7 +735,14 @@ when reading the arguments.
 	  case 'K':		/* Key sequence (vector of events),
 				   no automatic downcasing */
 	    {
-	      Lisp_Object tem = Fread_key_sequence (PROMPT (), Qnil, Qt);
+	      struct gcpro ngcpro1;
+	      Lisp_Object tem;
+	      Lisp_Object key_prompt = PROMPT ();
+
+	      NGCPRO1(key_prompt);
+	      tem = Fread_key_sequence (key_prompt, Qnil, Qt);
+	      NUNGCPRO;
+
 	      visargs[argnum] = Fkey_description (tem);
 	      /* The following makes `describe-key' not work with
 		 extent-local keymaps and such; and anyway, it's

@@ -82,17 +82,14 @@ struct extent
     unsigned int has_aux	    :1; /*  6 extent has an aux. structure */
     unsigned int start_open	    :1; /*  7 insertion behavior at start  */
     unsigned int end_open	    :1; /*  8 insertion behavior at end    */
-    unsigned int unused9	    :1; /*  9 unused                       */
-    unsigned int unique	            :1; /* 10 there may be only one attached  */
-    unsigned int duplicable	    :1; /* 11 copied to strings by kill/undo  */
-    unsigned int REPLICATING	    :1; /* 12 invoke old extent-replica behav.*/
-				        /*    Not used any more */
-    unsigned int detachable	    :1; /* 13 extent detaches if text deleted */
-    unsigned int internal	    :1; /* 14 used by map-extents etc.        */
-    unsigned int in_red_event       :1; /* 15 An event has been spawned for
+    unsigned int unique	            :1; /*  9 there may be only one attached  */
+    unsigned int duplicable	    :1; /* 10 copied to strings by kill/undo  */
+    unsigned int detachable	    :1; /* 11 extent detaches if text deleted */
+    unsigned int internal	    :1; /* 12 used by map-extents etc.        */
+    unsigned int in_red_event       :1; /* 13 An event has been spawned for
 					      initial redisplay.
-					      Not exported to the lisp level */
-    unsigned int unused16	    :1;  /* 16 unused			     */
+					      (not exported to lisp) */
+    unsigned int unused16	    :1;  /* 16 unused bits		     */
     /* --- Adding more flags will cause the extent struct to grow by another
        word.  It's not clear that this would make a difference, however,
        because on 32-bit machines things tend to get allocated in chunks
@@ -139,6 +136,7 @@ struct extent_auxiliary
   Lisp_Object read_only;
   Lisp_Object mouse_face;
   Lisp_Object initial_redisplay_function;
+  Lisp_Object before_change_functions, after_change_functions;
   int priority;
 };
 
@@ -230,6 +228,8 @@ extent_aux_or_default (EXTENT e)
 #define extent_read_only(e)	extent_aux_field (e, read_only)
 #define extent_mouse_face(e)	extent_aux_field (e, mouse_face)
 #define extent_initial_redisplay_function(e)	extent_aux_field (e, initial_redisplay_function)
+#define extent_before_change_functions(e) extent_aux_field (e, before_change_functions)
+#define extent_after_change_functions(e)  extent_aux_field (e, after_change_functions)
 
 #define set_extent_begin_glyph(e, value)	\
   set_extent_aux_field (e, begin_glyph, value)
@@ -246,6 +246,10 @@ extent_aux_or_default (EXTENT e)
 /* Use Fset_extent_initial_redisplay_function unless you know what you're doing */
 #define set_extent_initial_redisplay_function(e, value) \
   set_extent_aux_field (e, initial_redisplay_function, value)
+#define set_extent_before_change_functions(e, value)	\
+  set_extent_aux_field (e, before_change_functions, value)
+#define set_extent_after_change_functions(e, value)	\
+  set_extent_aux_field (e, after_change_functions, value)
 
 #define extent_face(e)		     extent_normal_field (e, face)
 #define extent_begin_glyph_layout(e) extent_normal_field (e, begin_glyph_layout)
@@ -366,6 +370,7 @@ void process_extents_for_insertion (Lisp_Object object,
 				    Bytind opoint, Bytecount length);
 void process_extents_for_deletion (Lisp_Object object, Bytind from,
 				   Bytind to, int destroy_them);
+void report_extent_modification (Lisp_Object, Bufpos, Bufpos, int *, int);
 
 void set_extent_glyph (EXTENT extent, Lisp_Object glyph, int endp,
 		       glyph_layout layout);

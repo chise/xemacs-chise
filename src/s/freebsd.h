@@ -49,6 +49,20 @@
 
 #define LIBS_TERMCAP "-ltermcap"
 
+#ifdef __ELF__ /* since from 3.0-CURRENT(maybe 19980831 or later) */
+#ifndef NOT_C_CODE
+#include <stddef.h>
+#endif
+#define LD_SWITCH_SYSTEM
+#define START_FILES pre-crt0.o /usr/lib/crt1.o /usr/lib/crti.o /usr/lib/crtbegin.o
+#define UNEXEC unexelf.o
+#define LIB_STANDARD -lgcc -lc -lgcc /usr/lib/crtend.o /usr/lib/crtn.o
+#define LINKER "$(CC) -nostdlib"
+#undef LIB_GCC
+#define LIB_GCC
+
+#else /* not __ELF__ */
+
 #ifndef NO_SHARED_LIBS
 #if 0 /* mrb */
 #define LIB_GCC "-lgcc"
@@ -78,6 +92,8 @@
 #define A_TEXT_SEEK(hdr) (N_TXTOFF(hdr) + A_TEXT_OFFSET(hdr))
 #endif /* __FreeBSD__ */
 #endif /* NO_SHARED_LIBS */
+
+#endif /* not __ELF__ */
 
 #define HAVE_GETLOADAVG
 /* #define NO_TERMIO */ /* detected in configure */

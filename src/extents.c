@@ -921,6 +921,8 @@ mark_extent_auxiliary (Lisp_Object obj, void (*markobj) (Lisp_Object))
   ((markobj) (data->read_only));
   ((markobj) (data->mouse_face));
   ((markobj) (data->initial_redisplay_function));
+  ((markobj) (data->before_change_functions));
+  ((markobj) (data->after_change_functions));
   return data->parent;
 }
 
@@ -3156,6 +3158,8 @@ extent_remprop (Lisp_Object obj, Lisp_Object prop)
       || EQ (prop, Qpriority)
       || EQ (prop, Qface)
       || EQ (prop, Qinitial_redisplay_function)
+      || EQ (prop, Qafter_change_functions)
+      || EQ (prop, Qbefore_change_functions)
       || EQ (prop, Qmouse_face)
       || EQ (prop, Qhighlight)
       || EQ (prop, Qbegin_glyph_layout)
@@ -4602,6 +4606,105 @@ process_extents_for_deletion (Lisp_Object object, Bytind from,
 		      ME_END_CLOSED | ME_MIGHT_MODIFY_EXTENTS);
 }
 
+/* ------------------------------- */
+/*   report_extent_modification()  */
+/* ------------------------------- */
+struct report_extent_modification_closure {
+  Lisp_Object buffer;
+  Bufpos start, end;
+  int afterp;
+  int speccount;
+};
+
+/* This juggling with the pointer to another file's global variable is
+   kind of yucky.  Perhaps I should just export the variable.  */
+static int *inside_change_hook_pointer;
+
+static Lisp_Object
+report_extent_modification_restore (Lisp_Object buffer)
+{
+  *inside_change_hook_pointer = 0;
+  if (current_buffer != XBUFFER (buffer))
+    Fset_buffer (buffer);
+  return Qnil;
+}
+
+static int
+report_extent_modification_mapper (EXTENT extent, void *arg)
+{
+  struct report_extent_modification_closure *closure =
+    (struct report_extent_modification_closure *)arg;
+  Lisp_Object exobj, startobj, endobj;
+  Lisp_Object hook = (closure->afterp
+		      ? extent_after_change_functions (extent)
+		      : extent_before_change_functions (extent));
+  if (NILP (hook))
+    return 0;
+
+  XSETEXTENT (exobj, extent);
+  XSETINT (startobj, closure->start);
+  XSETINT (endobj, closure->end);
+
+  /* Now that we are sure to call elisp, set up an unwind-protect so
+     inside_change_hook gets restored in case we throw.  Also record
+     the current buffer, in case we change it.  Do the recording only
+     once.  */
+  if (closure->speccount == -1)
+    {
+      closure->speccount = specpdl_depth ();
+      record_unwind_protect (report_extent_modification_restore,
+			     Fcurrent_buffer ());
+    }
+
+  /* The functions will expect closure->buffer to be the current
+     buffer, so change it if it isn't.  */
+  if (current_buffer != XBUFFER (closure->buffer))
+    Fset_buffer (closure->buffer);
+
+  /* #### It's a shame that we can't use any of the existing run_hook*
+     functions here.  This is so because all of them work with
+     symbols, to be able to retrieve default values of local hooks.
+     <sigh> */
+
+  if (!CONSP (hook) || EQ (XCAR (hook), Qlambda))
+    call3 (hook, exobj, startobj, endobj);
+  else
+    {
+      Lisp_Object tail;
+      EXTERNAL_LIST_LOOP (tail, hook)
+	call3 (XCAR (tail), exobj, startobj, endobj);
+    }
+  return 0;
+}
+
+void
+report_extent_modification (Lisp_Object buffer, Bufpos start, Bufpos end,
+			    int *inside, int afterp)
+{
+  struct report_extent_modification_closure closure;
+
+  closure.buffer = buffer;
+  closure.start = start;
+  closure.end = end;
+  closure.afterp = afterp;
+  closure.speccount = -1;
+
+  inside_change_hook_pointer = inside;
+  *inside = 1;
+
+  map_extents (start, end, report_extent_modification_mapper, (void *)&closure,
+	       buffer, NULL, ME_MIGHT_CALL_ELISP);
+
+  if (closure.speccount == -1)
+    *inside = 0;
+  else
+    {
+      /* We mustn't unbind when closure.speccount != -1 because
+	 map_extents_bytind has already done that.  */
+      assert (*inside == 0);
+    }
+}
+
 
 /************************************************************************/
 /*		    	extent properties				*/
@@ -5201,6 +5304,10 @@ The following symbols have predefined meanings:
     Fset_extent_face (extent, value);
   else if (EQ (property, Qinitial_redisplay_function))
     Fset_extent_initial_redisplay_function (extent, value);
+  else if (EQ (property, Qbefore_change_functions))
+    set_extent_before_change_functions (e, value);
+  else if (EQ (property, Qafter_change_functions))
+    set_extent_after_change_functions (e, value);
   else if (EQ (property, Qmouse_face))
     Fset_extent_mouse_face (extent, value);
   /* Obsolete: */
@@ -5306,6 +5413,10 @@ See `set-extent-property' for the built-in property names.
     return Fextent_face (extent);
   else if (EQ (property, Qinitial_redisplay_function))
     return extent_initial_redisplay_function (e);
+  else if (EQ (property, Qbefore_change_functions))
+    return extent_before_change_functions (e);
+  else if (EQ (property, Qafter_change_functions))
+    return extent_after_change_functions (e);
   else if (EQ (property, Qmouse_face))
     return Fextent_mouse_face (extent);
   /* Obsolete: */
@@ -5381,6 +5492,14 @@ Do not modify this list; use `set-extent-property' instead.
   if (!NILP (extent_initial_redisplay_function (anc)))
     result = cons3 (Qinitial_redisplay_function,
 		    extent_initial_redisplay_function (anc), result);
+
+  if (!NILP (extent_before_change_functions (anc)))
+    result = cons3 (Qbefore_change_functions,
+		    extent_before_change_functions (anc), result);
+
+  if (!NILP (extent_after_change_functions (anc)))
+    result = cons3 (Qafter_change_functions,
+		    extent_after_change_functions (anc), result);
 
   if (!NILP (extent_invisible (anc)))
     result = cons3 (Qinvisible, extent_invisible (anc), result);
@@ -6723,6 +6842,8 @@ functions `get-text-property' or `get-char-property' are called.
   extent_auxiliary_defaults.read_only = Qnil;
   extent_auxiliary_defaults.mouse_face = Qnil;
   extent_auxiliary_defaults.initial_redisplay_function = Qnil;
+  extent_auxiliary_defaults.before_change_functions = Qnil;
+  extent_auxiliary_defaults.after_change_functions = Qnil;
 }
 
 void

@@ -75,7 +75,9 @@ undo_prelude (struct buffer *b, int hack_pending_boundary)
   if (EQ (b->undo_list, Qt))
     return (0);
 
-  if (NILP (last_undo_buffer) || b != XBUFFER (last_undo_buffer))
+  if (NILP (last_undo_buffer)
+      || (BUFFER_BASE_BUFFER (b)
+	  != BUFFER_BASE_BUFFER (XBUFFER (last_undo_buffer))))
     {
       undo_boundary (b);
       XSETBUFFER (last_undo_buffer, b);

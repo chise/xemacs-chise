@@ -454,13 +454,16 @@ Given a Unix syntax file name, returns a string ending in slash.
       Bufbyte *res = alloca (MAXPATHLEN + 1);
       if (getdefdir (toupper (*beg) - 'A' + 1, res))
 	{
-	  if (!IS_DIRECTORY_SEP (res[strlen ((char *) res) - 1]))
-	    strcat ((char *) res, "/");
+	  char *c=((char *) res) + strlen ((char *) res);
+	  if (!IS_DIRECTORY_SEP (*c))
+	    {
+	      *c++ = DIRECTORY_SEP;
+	      *c = '\0';
+	    }
 	  beg = res;
 	  p = beg + strlen ((char *) beg);
 	}
     }
-  CORRECT_DIR_SEPS (beg);
 #endif /* WINDOWSNT */
   return make_string (beg, p - beg);
 }
@@ -544,9 +547,6 @@ file_name_as_directory (char *out, char *in)
 	  out[size + 1] = '\0';
 	}
     }
-#ifdef WINDOWSNT
-  CORRECT_DIR_SEPS (out);
-#endif
   return out;
 }
 
@@ -608,9 +608,6 @@ directory_file_name (CONST char *src, char *dst)
       )
     dst[slen - 1] = 0;
 #endif /* APOLLO */
-#ifdef WINDOWSNT
-  CORRECT_DIR_SEPS (dst);
-#endif /* WINDOWSNT */
   return 1;
 }
 
@@ -2288,7 +2285,7 @@ See also `file-exists-p' and `file-attributes'.
   if (!NILP (handler))
     RETURN_UNGCPRO (call2 (handler, Qfile_readable_p, abspath));
 
-#ifdef WINDOWSNT
+#if defined(WINDOWSNT) || defined(__CYGWIN32__)
   /* Under MS-DOS and Windows, open does not work for directories.  */
   UNGCPRO;
   if (access (XSTRING_DATA (abspath), 0) == 0)

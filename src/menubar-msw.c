@@ -123,7 +123,7 @@ static HMENU top_level_menu;
  * "Left Flush\tRight Flush"
  */
 static char*
-displayable_menu_item (struct gui_item* pgui_item)
+displayable_menu_item (struct gui_item* pgui_item, int bar_p)
 {
   /* We construct the name in a static buffer. That's fine, beause
      menu items longer than 128 chars are probably programming errors,
@@ -135,12 +135,15 @@ displayable_menu_item (struct gui_item* pgui_item)
   /* Left flush part of the string */
   ll = gui_item_display_flush_left (pgui_item, buf, MAX_MENUITEM_LENGTH);
 
-  /* Right flush part */
-  assert (MAX_MENUITEM_LENGTH > ll + 1);
-  lr = gui_item_display_flush_right (pgui_item, buf + ll + 1,
-				     MAX_MENUITEM_LENGTH - ll - 1);
-  if (lr)
-    buf [ll] = '\t';
+  /* Right flush part, unless we're at the top-level where it's not allowed */
+  if (!bar_p)
+    {
+      assert (MAX_MENUITEM_LENGTH > ll + 1);
+      lr = gui_item_display_flush_right (pgui_item, buf + ll + 1,
+					 MAX_MENUITEM_LENGTH - ll - 1);
+      if (lr)
+	buf [ll] = '\t';
+     }
 
   return buf;
 }
@@ -223,7 +226,8 @@ checksum_menu_item (Lisp_Object item)
 
 static void
 populate_menu_add_item (HMENU menu, Lisp_Object path,
-			Lisp_Object hash_tab, Lisp_Object item, int flush_right)
+			Lisp_Object hash_tab, Lisp_Object item,
+			int flush_right, int bar_p)
 {
   MENUITEMINFO item_info;
 
@@ -271,7 +275,7 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
       submenu = create_empty_popup_menu();
 
       item_info.fMask |= MIIM_SUBMENU;
-      item_info.dwTypeData = displayable_menu_item (&gui_item);
+      item_info.dwTypeData = displayable_menu_item (&gui_item, bar_p);
       item_info.hSubMenu = submenu;
 
       if (!(item_info.fState & MFS_GRAYED))
@@ -332,13 +336,13 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
 
       item_info.wID = (UINT) XINT(id);
       item_info.fType |= MFT_STRING;
-      item_info.dwTypeData = displayable_menu_item (&gui_item);
+      item_info.dwTypeData = displayable_menu_item (&gui_item, bar_p);
 
       UNGCPRO; /* gui_item */
     }
   else
     {
-      signal_simple_error ("Mailformed menu item descriptor", item);
+      signal_simple_error ("Malformed menu item descriptor", item);
     }
 
   if (flush_right)
@@ -408,7 +412,7 @@ populate_or_checksum_helper (HMENU menu, Lisp_Object path, Lisp_Object desc,
 	}
       else if (populate_p)
 	populate_menu_add_item (menu, path, hash_tab,
-				XCAR (item_desc), flush_right);
+				XCAR (item_desc), flush_right, bar_p);
       else
 	checksum = HASH2 (checksum,
 			  checksum_menu_item (XCAR (item_desc)));

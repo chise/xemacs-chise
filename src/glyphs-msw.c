@@ -521,6 +521,8 @@ mswindows_create_resized_bitmap (struct Lisp_Image_Instance* ii,
 		   IMAGE_INSTANCE_PIXMAP_HEIGHT (ii), 
 		   SRCCOPY))
     {
+      DeleteObject (newbmp);
+      DeleteDC (hdcDst);
       return 0;
     }
 
@@ -553,6 +555,8 @@ mswindows_create_resized_mask (struct Lisp_Image_Instance* ii,
 		      IMAGE_INSTANCE_PIXMAP_HEIGHT (ii), 
 		      SRCCOPY))
 	{
+	  DeleteObject (newmask);
+	  DeleteDC (hdcDst);
 	  return NULL;
 	}
       

@@ -658,6 +658,9 @@ void
 emacs_Xt_mapping_action (Widget w, XEvent* event)
 {
   struct device *d = get_device_from_display (event->xany.display);
+
+  if (DEVICE_X_BEING_DELETED (d))
+    return;
 #if 0
   /* nyet.  Now this is handled by Xt. */
   XRefreshKeyboardMapping (&event->xmapping);
@@ -769,7 +772,7 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
      /* simple_p means don't try too hard (ASCII only) */
 {
   KeySym keysym = 0;
-
+  
 #ifdef HAVE_XIM
   int len;
   char buffer[64];
@@ -794,7 +797,8 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
          than passing in 0) to avoid crashes on German IRIX */
       char dummy[256];
       XLookupString (event, dummy, 200, &keysym, 0);
-      return x_keysym_to_emacs_keysym (keysym, simple_p);
+      return (IsModifierKey (keysym) || keysym == XK_Mode_switch )
+	? Qnil : x_keysym_to_emacs_keysym (keysym, simple_p);
     }
 #endif /* ! XIM_MOTIF */
 
@@ -843,7 +847,8 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
     {
     case XLookupKeySym:
     case XLookupBoth:
-      return x_keysym_to_emacs_keysym (keysym, simple_p);
+      return (IsModifierKey (keysym) || keysym == XK_Mode_switch )
+	? Qnil : x_keysym_to_emacs_keysym (keysym, simple_p);
 
     case XLookupChars:
       {
@@ -921,6 +926,10 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
   struct device *d    = get_device_from_display (display);
   struct x_device *xd = DEVICE_X_DATA (d);
 
+  if (DEVICE_X_BEING_DELETED (d))
+     /* #### Uh, is this 0 correct? */
+     return 0;
+
   set_last_server_timestamp (d, x_event);
 
   switch (x_event->type)
@@ -983,20 +992,16 @@ x_event_to_emacs_event (XEvent *x_event, struct Lisp_Event *emacs_event)
 	  {
 	    Lisp_Object keysym;
 	    XKeyEvent *ev = &x_event->xkey;
-	    KeyCode keycode = ev->keycode;
-
-	    if (x_key_is_modifier_p (keycode, d)) /* it's a modifier key */
-	      return 0;
-
 	    /* This used to compute the frame from the given X window and
 	       store it here, but we really don't care about the frame. */
 	    emacs_event->channel = DEVICE_CONSOLE (d);
 	    keysym = x_to_emacs_keysym (&x_event->xkey, 0);
 
-	    /* If the emacs keysym is nil, then that means that the
-	       X keysym was NoSymbol, which probably means that
-	       we're in the midst of reading a Multi_key sequence,
-	       or a "dead" key prefix, or XIM input.  Ignore it. */
+	    /* If the emacs keysym is nil, then that means that the X
+	       keysym was either a Modifier or NoSymbol, which
+	       probably means that we're in the midst of reading a
+	       Multi_key sequence, or a "dead" key prefix, or XIM
+	       input. Ignore it. */
 	    if (NILP (keysym))
 	      return 0;
 
@@ -1337,14 +1342,17 @@ void emacs_Xt_handle_focus_event (XEvent *event);
 void
 emacs_Xt_handle_focus_event (XEvent *event)
 {
+  struct device *d = get_device_from_display (event->xany.display);
+  struct frame *f;
+
+  if (DEVICE_X_BEING_DELETED (d))
+    return;
+
   /*
    * It's curious that we're using x_any_window_to_frame() instead
    * of x_window_to_frame().  I don't know what the impact of this is.
    */
-
-  struct frame *f =
-    x_any_window_to_frame (get_device_from_display (event->xany.display),
-			   event->xfocus.window);
+  f = x_any_window_to_frame (d, event->xfocus.window);
   if (!f)
     /* focus events are sometimes generated just before
        a frame is destroyed. */
@@ -1511,7 +1519,7 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
   XEvent *event = &emacs_event->event.magic.underlying_x_event;
   struct frame *f = XFRAME (EVENT_CHANNEL (emacs_event));
 
-  if (!FRAME_LIVE_P (f))
+  if (!FRAME_LIVE_P (f) || DEVICE_X_BEING_DELETED (XDEVICE (FRAME_DEVICE (f))))
     return;
 
   switch (event->type)

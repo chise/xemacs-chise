@@ -74,8 +74,8 @@ Boston, MA 02111-1307, USA.  */
 #define LINE_NUMBER_LARGE_STRING 256
 
 /* To be used only when you *know* the cache has been allocated!  */
-#define LINE_NUMBER_RING(b) (XCAR ((b)->line_number_cache))
-#define LINE_NUMBER_BEGV(b) (XCDR ((b)->line_number_cache))
+#define LINE_NUMBER_RING(b) (XCAR ((b)->text->line_number_cache))
+#define LINE_NUMBER_BEGV(b) (XCDR ((b)->text->line_number_cache))
 
 
 /* Initialize the cache.  Cache is (in pseudo-BNF):
@@ -89,12 +89,12 @@ Boston, MA 02111-1307, USA.  */
 
    Line number cache should never, ever, be visible to Lisp (because
    destructively modifying its elements can cause crashes.)  Debug it
-   using debug_print (current_buffer->last_number_cache).  */
+   using debug_print (current_buffer->text->last_number_cache).  */
 static void
 allocate_line_number_cache (struct buffer *b)
 {
-  b->line_number_cache = Fcons (make_vector (LINE_NUMBER_RING_SIZE, Qnil),
-				Qzero);
+  b->text->line_number_cache = Fcons (make_vector (LINE_NUMBER_RING_SIZE, Qnil),
+				      Qzero);
   narrow_line_number_cache (b);
 }
 
@@ -103,7 +103,7 @@ allocate_line_number_cache (struct buffer *b)
 void
 narrow_line_number_cache (struct buffer *b)
 {
-  if (NILP (b->line_number_cache))
+  if (NILP (b->text->line_number_cache))
     return;
 
   if (BUF_BEG (b) == BUF_BEGV (b))
@@ -161,7 +161,7 @@ void
 insert_invalidate_line_number_cache (struct buffer *b, Bufpos pos,
 				     CONST Bufbyte *nonreloc, Bytecount length)
 {
-  if (NILP (b->line_number_cache))
+  if (NILP (b->text->line_number_cache))
     return;
 
   if (length > LINE_NUMBER_LARGE_STRING
@@ -182,7 +182,7 @@ insert_invalidate_line_number_cache (struct buffer *b, Bufpos pos,
 void
 delete_invalidate_line_number_cache (struct buffer *b, Bufpos from, Bufpos to)
 {
-  if (NILP (b->line_number_cache))
+  if (NILP (b->text->line_number_cache))
     return;
 
   if ((to - from) > LINE_NUMBER_LARGE_STRING)
@@ -280,7 +280,7 @@ buffer_line_number (struct buffer *b, Bufpos pos, int cachep)
 
   if (cachep)
     {
-      if (NILP (b->line_number_cache))
+      if (NILP (b->text->line_number_cache))
 	allocate_line_number_cache (b);
       /* If we don't know the line number of BUF_BEGV, calculate it now.  */
       if (XINT (LINE_NUMBER_BEGV (b)) == -1)

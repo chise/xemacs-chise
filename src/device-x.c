@@ -62,9 +62,6 @@ Lisp_Object Vx_app_defaults_directory;
 Lisp_Object Qx_error;
 Lisp_Object Qinit_pre_x_win, Qinit_post_x_win;
 
-/* 切腹, n.  Japanese ritual suicide. */
-int x_seppuku_on_epipe;
-
 /* The application class of Emacs. */
 Lisp_Object Vx_emacs_application_class;
 
@@ -880,10 +877,8 @@ x_IO_error_handler (Display *disp)
   Lisp_Object dev;
   struct device *d = get_device_from_display_1 (disp);
 
-  if (d)
-    XSETDEVICE (dev, d);
-  else
-    dev = Qnil;
+  assert (d != NULL);
+  XSETDEVICE (dev, d);
 
   if (NILP (find_nonminibuffer_frame_not_on_device (dev)))
     {
@@ -903,31 +898,24 @@ x_IO_error_handler (Display *disp)
     {
       warn_when_safe
 	(Qx, Qcritical,
-	 "I/O Error %d (%s) on display connection \"%s\"\n"
-	 "  after %lu requests (%lu known processed) with "
-	 "%d events remaining.\n",
+	 "I/O Error %d (%s) on display connection\n"
+	 "  \"%s\" after after %lu requests (%lu known processed)\n"
+	 "  with %d events remaining.\n"
+	 "  Throwing to top level.\n",
 	 errno, strerror (errno), DisplayString (disp),
          NextRequest (disp) - 1, LastKnownRequestProcessed (disp),
          QLength (disp));
     }
 
+  /* According to X specs, we should not return from this function, or
+     Xlib might just decide to exit().  So we mark the offending
+     console for deletion and throw to top level.  */
   if (d)
     enqueue_magic_eval_event (io_error_delete_device, dev);
+  DEVICE_X_BEING_DELETED (d) = 1;
+  Fthrow (Qtop_level, Qnil);
 
-  /* CvE, July 16, 1996, XEmacs 19.14 */
-  /* Test for broken pipe error, which indicates X-server has gone down */
-  if (errno == EPIPE && x_seppuku_on_epipe)
-    {
-      /* Most probably X-server has gone down: Avoid infinite loop by just */
-      /* exiting */
-      /* slb:  This sounds really, really dangerous to do by default, so */
-      /* I'm adding a guard to avoid doing this as default behavior */
-      stderr_out( "\n\nXEmacs exiting on broken pipe (errno %d, %s)\n",
-		  errno, strerror(errno));
-      exit(errno);
-    }
-
-  return 0;
+  RETURN_NOT_REACHED (0);
 }
 
 DEFUN ("x-debug-mode", Fx_debug_mode, 1, 2, 0, /*
@@ -1733,14 +1721,6 @@ args are placed back into `x-initial-arg-list' and thence into
 just reside in C.
 */ );
   Vx_initial_argv_list = Qnil;
-
-  DEFVAR_BOOL ("x-seppuku-on-epipe", &x_seppuku_on_epipe /*
-When non-nil, terminate XEmacs immediately on SIGPIPE from the X server.
-XEmacs doesn't terminate properly on some systems.
-When this variable is non-nil, XEmacs will commit immediate suicide
-when it gets a sigpipe from the X Server.
-*/ );
-  x_seppuku_on_epipe = 0;
 
 #if defined(MULE) && (defined(LWLIB_MENUBARS_MOTIF) || defined(HAVE_XIM) || defined (USE_XFONTSET))
   DEFVAR_LISP ("x-app-defaults-directory", &Vx_app_defaults_directory /*

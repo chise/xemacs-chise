@@ -1633,7 +1633,9 @@ from overriding motion of point in order to display at this exact start.
   CHECK_INT_COERCE_MARKER (pos);
   set_marker_restricted (w->start[CURRENT_DISP], pos, w->buffer);
   /* this is not right, but much easier than doing what is right. */
-  w->start_at_line_beg = 0;
+  /* w->start_at_line_beg = 0; */
+  /* WTF is the above supposed to mean?  GE */
+  w->start_at_line_beg = beginning_of_line_p (XBUFFER (w->buffer), XINT (pos));
   if (NILP (noforce))
     w->force_start = 1;
   w->redo_modeline = 1;
@@ -3163,7 +3165,9 @@ BUFFER can be a buffer or buffer name.
 			 make_int (XBUFFER (buffer)->last_window_start),
 			 buffer);
   Fset_marker (w->sb_point, w->start[CURRENT_DISP], buffer);
-  w->start_at_line_beg = 0;
+  /* set start_at_line_beg correctly. GE */
+  w->start_at_line_beg = beginning_of_line_p (XBUFFER (buffer),
+					      XBUFFER (buffer)->last_window_start);  
   w->force_start = 0;           /* Lucid fix */
   SET_LAST_MODIFIED (w, 1);
   SET_LAST_FACECHANGE (w);

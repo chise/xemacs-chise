@@ -24,14 +24,19 @@
 #define regoff_t sys_regoff_t
 #define regmatch_t sys_regmatch_t
 
+/* A perfectly ordinary link wins again - martin */
 #undef C_SWITCH_SYSTEM
-#define C_SWITCH_SYSTEM "-D_BSD"
+#undef LIBS_SYSTEM
+#undef LIBS_DEBUG
+#define ORDINARY_LINK
 
 #define SYSTEM_MALLOC
 
+#if 0 /* martin */
 /* Some V4.0* versions before V4.0B don't detect rename properly. */
 #ifndef HAVE_RENAME
 #define HAVE_RENAME
 #endif
 
 #define LIBS_DEBUG
+#endif /* 0 */
