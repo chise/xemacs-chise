@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2001,2002 MORIOKA Tomohiko
 
 ;; Keywords: multilingual, Chinese
 
@@ -39,58 +39,23 @@
 ;;(loop for row from 42 to 126
 ;;      do (modify-syntax-entry `[chinese-gb2312 ,row] "w"))
 
-(modify-syntax-entry 'chinese-cns11643-1  "w")
-(modify-syntax-entry 'chinese-cns11643-2  "w")
-(modify-syntax-entry 'chinese-big5-1 "w")
-(modify-syntax-entry 'chinese-big5-2 "w")
+(modify-syntax-entry 'chinese-cns11643-1 "w")
+(modify-syntax-entry 'chinese-cns11643-2 "w")
+(modify-syntax-entry 'chinese-cns11643-3 "w")
+(modify-syntax-entry 'chinese-cns11643-4 "w")
+(modify-syntax-entry 'chinese-cns11643-5 "w")
+(modify-syntax-entry 'chinese-cns11643-6 "w")
+(modify-syntax-entry 'chinese-cns11643-7 "w")
+(if (featurep 'utf-2000)
+    (modify-syntax-entry 'chinese-big5 "w")
+  (modify-syntax-entry 'chinese-big5-1 "w")
+  (modify-syntax-entry 'chinese-big5-2 "w"))
 
-;; CNS11643 Plane3 thru Plane7
-;; These represent more and more obscure Chinese characters.
-;; By the time you get to Plane 7, we're talking about characters
-;; that appear once in some ancient manuscript and whose meaning
-;; is unknown.
-
-(flet
-    ((make-chinese-cns11643-charset
-      (name plane final)
-      (make-charset
-       name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
-       `(registry 
-         ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
-         dimension 2
-         chars 94
-         final ,final
-         graphic 0))
-      (modify-syntax-entry   name "w")
-      (modify-category-entry name ?t)
-      ))
-  (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
-  (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
-  (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
-  (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
-  (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
-  )
-
-;; ISO-IR-165 (CCITT Extended GB)
-;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
-;;    GB 8565-88 table A4 + 293 characters.
-(make-charset
- 'chinese-isoir165
- "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
- `(registry "isoir165"
-   dimension 2
-   chars 94
-   final ?E
-   graphic 0))
-
-;; PinYin-ZhuYin
-(make-charset 'sisheng "PinYin-ZhuYin"
-	      '(registry "sisheng_cwnn\\|OMRON_UDC_ZH"
-		dimension 1
-		chars 94
-		final ?0
-		graphic 0
-		))
+(modify-category-entry 'chinese-cns11643-3 ?t)
+(modify-category-entry 'chinese-cns11643-4 ?t)
+(modify-category-entry 'chinese-cns11643-5 ?t)
+(modify-category-entry 'chinese-cns11643-6 ?t)
+(modify-category-entry 'chinese-cns11643-7 ?t)
 
 ;; If you prefer QUAIL to EGG, please modify below as you wish.
 ;;(when (and (featurep 'egg) (featurep 'wnn))
@@ -211,7 +176,7 @@
 		(coding-priority cn-gb-2312 big5 iso-2022-7bit)
 		(input-method . "chinese-py-punct")
 		(features china-util)
-		(sample-text . "Chinese ($AVPND(B,$AFUM(;0(B,$A::So(B)	$ADc:C(B")
+		(sample-text . "Chinese ($BCf$AND(B,$BIaDL$A;0(B,$A::So(B)	$(D0_$B9%(B")
 		(documentation . "Support for Chinese GB2312 character set."))
  '("Chinese"))
 
@@ -231,6 +196,33 @@
  'big5 'big5
  "Coding-system of BIG5."
  '(mnemonic "Zh/Big5"))
+
+(when (featurep 'utf-2000)
+  (make-coding-system
+   'big5-er 'big5 "Coding-system of BIG5 with entity-reference."
+   '(mnemonic "Big5r"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5
+	      use-entity-reference t))
+
+  (make-coding-system
+   'big5-eten 'big5 "Coding-system of BIG5-ETEN."
+   '(mnemonic "Big5E"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-eten))
+  (make-coding-system
+   'big5-eten-er 'big5 "Coding-system of BIG5-ETEN with entity-reference."
+   '(mnemonic "Big5Er"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-eten
+	      use-entity-reference t))
+
+  (make-coding-system
+   'big5-cdp 'big5 "Coding-system of BIG5 with CDP-extension."
+   '(mnemonic "Big5C"
+	      charset-g0 ascii
+	      charset-g1 chinese-big5-cdp))
+  )
 
 ;; (define-coding-system-alias 'big5 'chinese-big5)
 ;; (define-coding-system-alias 'cn-big5 'chinese-big5)
@@ -264,7 +256,7 @@
 		  (coding-priority big5 cn-gb-2312 iso-2022-7bit)
 		  (input-method . "chinese-py-punct-b5")
 		  (features china-util)
-		  (sample-text . "Cantonese ($(0GnM$(B,$(0N]0*Hd(B)	$(0*/=((B, $(0+$)p(B")
+		  (sample-text . "Cantonese ($(0GnM$(B,$(0N]0*Hd(B)	$(0*/=((B, $(D0_$(0)p(B")
 		  (documentation . "Support for Chinese Big5 character set."))
  '("Chinese"))
 

@@ -39,6 +39,9 @@ Boston, MA 02111-1307, USA.  */
 #endif /* LISP_FLOAT_TYPE */
 
 Lisp_Object Qnil, Qt, Qquote, Qlambda, Qunbound;
+#ifdef UTF2000
+Lisp_Object Qunloaded;
+#endif
 Lisp_Object Qerror_conditions, Qerror_message;
 Lisp_Object Qerror, Qquit, Qsyntax_error, Qinvalid_read_syntax;
 Lisp_Object Qlist_formation_error;
@@ -457,6 +460,14 @@ confoundedness in older versions of E-Lisp.
        (object))
 {
   return CHAR_OR_CHAR_INTP (object) || STRINGP (object) ? Qt : Qnil;
+}
+
+DEFUN ("char-ref-p", Fchar_ref_p, 1, 1, 0, /*
+Return t if OBJECT is a character-reference.
+*/
+       (object))
+{
+  return CONSP (object) && KEYWORDP (XCAR (object)) ? Qt : Qnil;
 }
 
 DEFUN ("integerp", Fintegerp, 1, 1, 0, /*
@@ -2156,6 +2167,7 @@ syms_of_data (void)
   DEFSUBR (Fchar_to_int);
   DEFSUBR (Fint_to_char);
   DEFSUBR (Fchar_or_char_int_p);
+  DEFSUBR (Fchar_ref_p);
   DEFSUBR (Fintegerp);
   DEFSUBR (Finteger_or_marker_p);
   DEFSUBR (Finteger_or_char_p);
