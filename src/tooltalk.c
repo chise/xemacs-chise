@@ -763,7 +763,7 @@ New arguments can be added to a message with add-tooltalk-message-arg.
       TO_EXTERNAL_FORMAT (LISP_STRING, value,
 			  ALLOCA, (value_ext, value_ext_len),
 			  Qnative);
-      tt_message_arg_bval_set (m, n, value_ext, value_ext_len);
+      tt_message_arg_bval_set (m, n, (unsigned char *) value_ext, value_ext_len);
     }
   else if (EQ (attribute, Qtt_arg_ival))
     {

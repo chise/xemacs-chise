@@ -7,17 +7,17 @@
 ;; Keywords: wp, unix
 
 ;; This file is part of XEmacs.
-;; 
+;;
 ;; XEmacs is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2 of the License, or
 ;; (at your option) any later version.
-;; 
+;;
 ;; XEmacs is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with XEmacs; if not, write to the Free Software
 ;; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
@@ -32,7 +32,7 @@
 ;; Originally written for v18 by David Gudeman (gudeman@arizona.edu)
 ;; Mods by Bengt Martensson, to closely resemble less (July 1987)
 ;;
-;; If you would like all write-protected files to be visited in view-mode, 
+;; If you would like all write-protected files to be visited in view-mode,
 ;; then add the following to your .emacs file:
 ;;
 ;;      (add-hook 'find-file-hooks 'auto-view-mode)
@@ -108,33 +108,34 @@
     map))
 
 ;;;###autoload
-(defun view-file (file &optional other-p)
-  "Find FILE, enter view mode.  With prefix arg OTHER-P, use other window."
+(defun view-file (filename &optional other-window-p)
+  "Find FILENAME, enter view mode.  With prefix arg OTHER-WINDOW-P, use other window."
   (interactive "fView File: \nP")
-  (let ((old-p (get-file-buffer file))
+  (let ((old-p (get-file-buffer filename))
 	(obuf (current-buffer)))
-    (if other-p
-	(find-file-other-window file)
-      (find-file file))
-    (view-mode (if other-p nil obuf)
+    (if other-window-p
+	(find-file-other-window filename)
+      (find-file filename))
+    (view-mode (if other-window-p nil obuf)
 	       (if old-p nil 'kill-buffer))
     nil))
 
 ;;;###autoload
-(defun view-buffer (buf &optional other-p)
-  "Switch to BUF, enter view mode.  With prefix arg use other window."
+(defun view-buffer (buffer &optional other-window-p)
+  "Switch to BUFFER, enter view mode.  With prefix arg use other window."
   (interactive "bView Buffer: \nP")
   (let ((obuf (current-buffer)))
-    (if other-p
-	(switch-to-buffer-other-window buf)
-      (switch-to-buffer buf))
-    (view-mode (if other-p nil obuf) (if other-p nil 'bury-buffer))))
+    (if other-window-p
+	(switch-to-buffer-other-window buffer)
+      (switch-to-buffer buffer))
+    (view-mode (if other-window-p nil obuf)
+	       (if other-window-p nil 'bury-buffer))))
 
 ;;;###autoload
-(defun view-file-other-window (file)
-  "Find FILE in other window, and enter view mode."
+(defun view-file-other-window (filename)
+  "Find FILENAME in other window, and enter view mode."
   (interactive "fView File: ")
-  (view-file file t))
+  (view-file filename t))
 
 ;;;###autoload
 (defun view-buffer-other-window (buffer)
@@ -252,7 +253,7 @@ This is meant to be added to `find-file-hooks'."
   "Exit view mode and execute the global binding of the key that invoked this
 command.  Normally, this will toggle the state of `buffer-read-only', perhaps
 invoking some version-control mechanism."
-  (interactive) 
+  (interactive)
   (setq view-exit-position nil)
   ;; Kludge so this works as advertised.  Stig, why can't you write
   ;; bug-free code???
@@ -376,7 +377,7 @@ Positive prefix arg sets, negative disables."
 With prefix ARG, search forward that many occurrences."
   (interactive "sView search: \np")
   (unwind-protect
-      (re-search-forward		
+      (re-search-forward
        (if (string-equal "" s) view-search-string s) nil nil p)
     (setq view-search-arg p)
     (or (string-equal "" s)

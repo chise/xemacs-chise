@@ -196,7 +196,7 @@ minibuffer is reinvoked while it is the selected window."
     (define-key map "\M-\t" 'comint-dynamic-complete)
     (define-key map "\M-?" 'comint-dynamic-list-completions)
     map)
-  "Minibuffer keymap used by shell-command and related commands.")
+  "Minibuffer keymap used by `shell-command' and related commands.")
 
 (defcustom use-dialog-box t
   "*Variable controlling usage of the dialog box.
@@ -376,8 +376,8 @@ Sixth arg ABBREV-TABLE, if non-nil, becomes the value of `local-abbrev-table'
 Seventh arg DEFAULT, if non-nil, will be returned when user enters
   an empty string.
 
-See also the variable completion-highlight-first-word-only for control over
-  completion display."
+See also the variable `completion-highlight-first-word-only' for
+  control over completion display."
   (if (and (not enable-recursive-minibuffers)
            (> (minibuffer-depth) 0)
            (eq (selected-window) (minibuffer-window)))
@@ -1212,7 +1212,7 @@ the special minibuffer behavior."
 
 (defun minibuffer-smart-maybe-select-highlighted-completion
   (event &optional click-count)
-  "Like minibuffer-smart-select-highlighted-completion but does nothing if
+  "Like `minibuffer-smart-select-highlighted-completion' but does nothing if
 there is no completion (as opposed to executing the global binding).  Useful
 as the value of `mouse-track-click-hook'."
   (interactive "e")

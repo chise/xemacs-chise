@@ -21,6 +21,9 @@ Perform standard editing operations, such as
 cutting, copying, pasting, and killing selected text.
 @cindex Edit menu
 
+@c #### The Mule menu needs to be documented, but this is not the place
+@c for it since Ben just moved it.
+
 @item Apps
 Access to sub-applications implemented within XEmacs, such as the mail
 reader, the World Wide Web browser, the spell-checker, and the calendar

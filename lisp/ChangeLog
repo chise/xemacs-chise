@@ -470,6 +470,381 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-11-13  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* code-cmds.el: Provide the feature.
+
+2000-07-21  Jan Vroonhof  <jan@xemacs.org>
+
+	* dumped-lisp.el (preloaded-file-list): Load code-cmds.el
+
+	* code-cmds.el: New file
+	* mule/mule-cmds.el:
+	* mule/mule-misc.el
+	(coding-keymap): New keymap. Define coding system keyboard
+	commands on file-coding builds too.
+	(coding-system-change-eol-conversion): 
+	(universal-coding-system-argument): 
+	(set-default-coding-systems): 
+	(prefer-coding-system): Moved from mule-cmds.el
+	(set-buffer-process-coding-system): Moved from mule-misc.el
+
+2000-09-15  Stephen Carney <carney@scubadoo.com>
+
+	* etags.el (buffer-tag-table-files): Use append instead of nconc.
+
+2000-11-09  Steve Youngs  <youngs@xemacs.org>
+
+	* package-get.el (package-get-download-sites): Add a pre-release
+	site for experimental packages.
+
+	* auto-autoloads.el: Regenerated.
+
+2000-08-01  Andy Piper  <andy@xemacs.org>
+
+	* gutter-items.el (buffers-tab-omit-function): reference
+	buffers-tab-select-visible-buffers.
+	(buffers-tab-filter-functions): new variable, by default uses
+	buffers-tab-selection-function and buffers-tab-omit-function.
+	(select-buffers-tab-buffers-by-mode): invert arguments.
+	(buffers-tab-select-visible-buffers): new function. Invert calling
+	of buffers-menu-omit-invisible-buffers.
+	(buffers-tab-items): rewrite to use
+	buffers-tab-filter-functions. Rewrite docstring.
+	(gutter-buffers-tab-extent): delete.
+	(add-tab-to-gutter): always build a new extent when adding the
+	tabs.
+	(update-tab-in-gutter): make gutter dirty when orientation
+	changes.
+
+2000-11-07  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecomp.el (byte-compile-defvar-or-defconst):
+	Only do loadhist recording if defvar form includes a value.
+
+2000-11-02  Martin Buchholz  <martin@xemacs.org>
+
+	* bytecomp.el (byte-compile-initial-macro-environment):
+	`eval-when-compile' should not compile its body.
+
+2000-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* mule/cyrillic.el: Add Windows 1251 code page encoding (by
+	Sergey Groznyh <gsm@fct.ru> in <863diqaygu.fsf@fct.ru>).  Fix
+	some Japanese English.	Remove some ancient FSF comments, and
+	improve docstrings.  Use symbols not vectors for tables.
+
+2000-11-03  Martin Buchholz  <martin@xemacs.org>
+
+	* keymap.el:
+	(local-key-binding):
+	(global-key-binding):
+	Add an optional `accept-defaults' parameter, just like `lookup-key'.
+
+	* lisp.el:
+	(backward-sexp): Slightly simpler code.
+	(mark-sexp): Make arg optional, like FSF Emacs.
+	(forward-list): Slightly simpler code.
+	(backward-list): Slightly simpler code.
+	(down-list):  Make arg optional, like FSF Emacs.
+	(up-list):  Make arg optional, like FSF Emacs.
+	(backward-up-list):  Make arg optional, like FSF Emacs.
+	(kill-sexp):  Make arg optional, like FSF Emacs.
+	(backward-kill-sexp):  Make arg optional, like FSF Emacs.
+
+	* font-menu.el (font-menu-change-face):
+	Take continuable errors into account.
+
+	* abbrev.el:
+	* abbrev.el (clear-abbrev-table):
+	* abbrev.el (define-abbrev-table):
+	* abbrev.el (define-abbrev):
+	* abbrev.el (insert-abbrev-table-description):
+	* apropos.el (apropos-documentation-check-doc-file):
+	* apropos.el (apropos-documentation-check-elc-file):
+	* buff-menu.el (list-buffers):
+	* buff-menu.el (list-buffers-noselect):
+	* bytecomp.el (byte-recompile-directory):
+	* bytecomp.el (batch-byte-compile):
+	* cl-macs.el (typep):
+	* code-files.el (find-coding-system-magic-cookie):
+	* code-files.el (insert-file-contents):
+	* cus-edit.el (customize-set-variable):
+	* cus-edit.el (customize-save-variable):
+	* cus-face.el (custom-set-face-font-size):
+	* cus-face.el (custom-set-face-update-spec):
+	* cus-face.el (custom-reset-faces):
+	* custom.el (custom-check-theme):
+	* custom.el (copy-upto-last):
+	* fill.el (canonically-space-region):
+	* fill.el (fill-paragraph):
+	* fill.el (fill-region):
+	* fill.el (find-space-insertable-point):
+	* fill.el (justify-current-line):
+	* faces.el (face-spec-update-all-matching):
+	* faces.el (set-face-stipple):
+	* files-nomule.el (insert-file-contents):
+	* files.el (insert-file-contents-literally):
+	* files.el (hack-local-variables-last-page):
+	* files.el (basic-save-buffer):
+	* files.el (insert-directory):
+	* font-menu.el (font-menu-change-face):
+	* font.el (font-spatial-to-canonical):
+	* format.el (format-encode-region):
+	* format.el (format-insert-file):
+	* format.el (format-replace-strings):
+	* gutter.el (set-gutter-element):
+	* help.el (key-or-menu-binding):
+	* help.el (describe-bindings):
+	* help.el (with-syntax-table):
+	* indent.el (indent-rigidly):
+	* indent.el (delete-to-left-margin):
+	* info.el:
+	* info.el (Info-extract-dir-entry-from):
+	* info.el (Info-build-dir-anew):
+	* info.el (Info-rebuild-dir):
+	* info.el (Info-batch-rebuild-dir):
+	* info.el (Info-read-subfile):
+	* info.el (Info-build-node-completions):
+	* info.el (Info-extract-menu-node-name):
+	* isearch-mode.el (isearch-range-invisible):
+	* isearch-mode.el (isearch-restore-invisible-extents):
+	* itimer.el (itimerp):
+	* itimer.el (itimer-live-p):
+	* keymap.el:
+	* keymap.el (substitute-key-definition):
+	* keymap.el (read-command-or-command-sexp):
+	* keymap.el (local-key-binding):
+	* keymap.el (global-key-binding):
+	* keymap.el (global-set-key):
+	* keymap.el (local-set-key):
+	* ldap.el:
+	* ldap.el (ldap-add-entries):
+	* ldap.el (ldap-delete-entries):
+	* lisp.el (backward-sexp):
+	* lisp.el (mark-sexp):
+	* lisp.el (forward-list):
+	* lisp.el (backward-list):
+	* lisp.el (down-list):
+	* lisp.el (backward-up-list):
+	* lisp.el (up-list):
+	* lisp.el (kill-sexp):
+	* lisp.el (backward-kill-sexp):
+	* menubar.el (add-menu-button):
+	* menubar.el (add-submenu):
+	* menubar.el (delete-menu-item):
+	* menubar.el (relabel-menu-item):
+	* mouse.el (narrow-window-to-region):
+	* obsolete.el (define-obsolete-variable-alias):
+	* obsolete.el (store-substring):
+	* package-admin.el:
+	* package-admin.el (package-admin-install-function):
+	* package-admin.el (package-admin-install-function-mswindows):
+	* package-admin.el (package-admin-default-install-function):
+	* package-get.el (package-get-update-base-entries):
+	* packages.el (packages-load-package-dumped-lisps):
+	* packages.el (packages-collect-package-dumped-lisps):
+	* printer.el (generic-print-buffer):
+	* printer.el (generic-print-region):
+	* replace.el (occur-mode-mouse-goto):
+	* replace.el (perform-replace):
+	* select.el (get-selection-no-error):
+	* simple.el:
+	* simple.el (newline):
+	* simple.el (open-line):
+	* simple.el (edit-and-eval-command):
+	* simple.el (goto-line):
+	* simple.el (undo):
+	* simple.el (kill-region):
+	* simple.el (copy-region-as-kill):
+	* simple.el (kill-ring-save):
+	* simple.el (set-mark):
+	* simple.el (next-line):
+	* simple.el (previous-line):
+	* simple.el (line-move):
+	* simple.el (set-goal-column):
+	* simple.el (comment-region):
+	* subr.el:
+	* subr.el (putf):
+	* syntax.el (modify-syntax-entry):
+	* syntax.el (map-syntax-table):
+	* view-less.el (view-file):
+	* view-less.el (view-buffer):
+	* view-less.el (view-file-other-window):
+	* window-xemacs.el (backward-other-window):
+	* window.el:
+	* window.el (one-window-p):
+	* window.el (walk-windows):
+	* window.el (window-list):
+	* x-mouse.el (x-mouse-kill):
+	* x-select.el (x-get-cutbuffer):
+	* x-select.el (x-store-cutbuffer):
+	* term/bg-mouse.el (bg-mouse-line-to-center):
+	* term/sun-mouse.el (window-line-end):
+	* term/sun-mouse.el (sun-select-region):
+	* term/sun.el (kill-region-and-unmark):
+	* mule/mule-category.el:
+	* mule/mule-category.el (modify-category-entry):
+	* mule/mule-category.el (char-category-list):
+	* mule/mule-coding.el (coding-system-force-on-output):
+	* mule/mule-misc.el (coding-system-put):
+	Docstring arglist/Texinfo fixes.  See man/ChangeLog for details.
+
+2000-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* cus-face.el: Typo fixes and tiny clarifications.
+	* custom.el: ditto
+
+2000-10-27  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* startup.el (auto-save-list-file-prefix): Moved to fileio.c.
+	* startup.el (normal-top-level): Setup auto-save-list-file-name
+	if auto-save-list-file-prefix is non-nil.
+
+2000-10-25  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* files.el (auto-mode-alist): Allow mixed case suffix for idlwave-mode.
+
+2000-01-05  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* hyper-apropos.el (hyper-apropos-this-symbol): Don't always
+	get symbol at point-min.
+
+2000-10-24  Didier Verna  <didier@xemacs.org>
+
+	* info.el (Info-emacs-info-file-name): defconst it.
+	* info.el (Info-footnote-tag): defcustom it.
+	* info.el (Info-no-description-string): ditto.
+	* info.el (Info-find-node): adapt to new semantics of
+	'Info-suffixed-file (don't do the case variants stuff).
+	* info.el (Info-insert-dir): rewrite the dir file variants code.
+	* info.el (Info-directory-files): New. Return the list of info
+	files in a directory.
+	* info.el (Info-dir-outdated-p): use it.
+	* info.el (Info-parse-dir-entries): ditto.
+	* info.el (Info-build-dir-anew): don't restrict to files ending
+	with a ".info.*" extension.
+	* info.el (Info-set-mode-line): ditto.
+	* info.el (Info-read-subfile): adapt to new semantics of
+	'Info-suffixed-file (append 'exact argument).
+	* info.el (Info-all-case-regexp): New. Return a regexp matching a
+	string independently of the case.
+	* info.el (Info-suffixed-file): use it (match all possible case
+	for the file name).
+	* info.el (Info-insert-file-contents): code cleanup.
+	* info.el (Info-rebuild-dir): cosmetics only. Fit code in 80
+	columns.
+	* info.el (Info-batch-rebuild-dir): ditto.
+	* info.el (Info-read-node-name-1): ditto.
+	* info.el (Info-search): ditto.
+	* info.el (Info-fontify-node): ditto.
+
+
+2000-10-24  Didier Verna  <didier@xemacs.org>
+
+	* process.el (shell-command): when called from a program, avoid
+	'push-mark's "mark-set" message.
+
+2000-10-15  MIYASHITA Hisashi  <himi@m17n.org>
+
+	* mule/thai-xtis.el (tis-620): Specify coding-system's ccl-program
+	by a symbol, not by a vector.
+	* mule/vietnamese.el (vscii): Likewise.
+	(viscii): Likewise.
+	* mule/cyrillic.el (koi8-r): Likewise.
+
+	* mule/chinese.el (chinese-big5-1): Specify charset's ccl-program
+	by a symbol, not by a vector.
+	(chinese-big5-2): Likewise.
+	* mule/ethiopic.el (ethiopic): Likewise.
+	* mule/vietnamese.el (vietnamese-viscii-lower): Likewise.
+	(vietnamese-viscii-upper): Likewise.
+
+2000-10-12  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* files.el (auto-mode-alist): Remove obsolete entry for html3-mode.
+
+2000-10-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-car): New function.
+	(byte-optimize-cdr): Ditto.
+
+2000-10-12  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* byte-optimize.el: Partial synch with FSF 20.7.
+	Optimize constant concatenation.
+	Add keymapp as a side effect free function.  It is a built-in.
+	(byte-after-unbind-pos): Remove byte-equal.
+
+2000-10-13  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* update-elc-2.el: Quote regexps correctly.
+
+2000-10-05  MIYASHITA Hisashi  <himi@m17n.org>
+
+	* mule/mule-ccl.el: Sync up with Emacs 21.0.90.
+	(ccl-compile): Apply integerp, not integer-or-char-p to
+	check the type of the buffer magnification
+	(ccl-compile-write-string): Encode a string with binary
+	coding system.
+	(ccl-compile-write-repeat): Likewise.
+
+2000-09-25  Robert Pluim  <rpluim@bigfoot.com>
+
+	* buff-menu.el:
+	* bytecomp.el:
+	* coding.el:
+	* faces.el:
+	* files.el:
+	* fill.el:
+	* float-sup.el:
+	* font-lock.el:
+	* help.el:
+	* iso8859-1.el:
+	* loaddefs.el:
+	* menubar-items.el:
+	* menubar.el:
+	* modeline.el:
+	* msw-font-menu.el:
+	* paragraphs.el:
+	* paths.el:
+	* replace.el:
+	* simple.el:
+	* sound.el:
+	* startup.el:
+	* version.el:
+	* x-faces.el:
+	* x-font-menu.el:
+	Remove purecopy.
+
+2000-10-03  Daniel Pittman  <daniel@rimspace.net>
+
+	* simple.el (do-auto-fill): Use the function pointer to by
+	`comment-line-break-function', not `indent-new-comment-line'. This
+	fixes an issue with cc-mode comment continuation.
+
+2000-10-11  Martin Buchholz  <martin@xemacs.org>
+
+	* simple.el (turn-on-auto-fill):  Add (interactive).
+	* mwheel.el (mwheel-install): Add (interactive).
+	* font-lock.el (turn-on-font-lock): Add (interactive).
+	(turn-off-font-lock): Add (interactive).
+
+2000-10-03  Karl M. Hegbloom  <karlheg@bittersweet.inetarena.com>
+
+	* packages.el (packages-special-base-regexp): Add `man'.
+
+2000-10-08  Adrian Aichner  <adrian@xemacs.org>
+
+	* wid-edit.el (widget-specify-active): map over extents in current
+	buffer like `widget-specify-inactive' does.  Mapping over the
+	inactive extent object does not work since the current extent is
+	ignored by `map-extents'.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.
@@ -544,13 +919,13 @@
 
 	* easymenu.el: doc fixes.
 	(easy-menu-do-define): Use backquote.
-	(easy-menu-change): 
-	(easy-menu-add): 
+	(easy-menu-change):
+	(easy-menu-add):
 	`when' seems much clearer than `if' here.
 	(easy-menu-remove):
-	(easy-menu-add-item): 
-	(easy-menu-item-present-p): 
-	(easy-menu-remove-item): 
+	(easy-menu-add-item):
+	(easy-menu-item-present-p):
+	(easy-menu-remove-item):
 	Wrap using (when (featurep 'menubar) ...)
 
 2000-09-16  Martin Buchholz  <martin@xemacs.org>
@@ -563,7 +938,7 @@
 
 	* window.el (save-selected-window): Use backquote.
 
-	* bytecomp.el (byte-compile-file-form-defvar-or-defconst): 
+	* bytecomp.el (byte-compile-file-form-defvar-or-defconst):
 	Renamed from `byte-compile-file-form-defvar'.
 	* bytecomp.el (byte-compile-defvar-or-defconst):
 	Only cons onto current-load-list in top-level forms.
@@ -579,9 +954,9 @@
 	Remove unneeded defvar by rearranging order of let* forms.
 
 	* mule/mule-ccl.el (ccl-get-next-code):
-	* menubar-items.el (bookmark-menu-filter): 
-	(language-environment-menu-filter): 
-	(tutorials-menu-filter): 
+	* menubar-items.el (bookmark-menu-filter):
+	(language-environment-menu-filter):
+	(tutorials-menu-filter):
 	* toolbar-items.el (toolbar-compile):
 	* byte-optimize.el (disassemble-offset):
 	Use (declare (special ...)) instead of `defvar'.
@@ -621,13 +996,13 @@
 	problems.  also undo the kludge of using a separate "*Show*"
 	buffer for display when there's a temp-buffer-show-function;
 	we can avoid this by just being a little smarter.
-	
+
 	* dialog-items.el:
 	* dialog-items.el (search-dialog-regexp): New.
 	* dialog-items.el (search-dialog-callback):
 	* dialog-items.el (make-search-dialog):
 	add a regexp option to the dialog and clean up a bit.
-	
+
 	* dialog.el:
 	* dialog.el (yes-or-no-p-dialog-box):
 	* dialog.el (get-dialog-box-response):
@@ -640,12 +1015,12 @@
 	modal dialog boxes, giving the standard window-system feedback.
 	(e.g. under windows, clicking on a disabled frame causes a beep
 	and makes the dialog box flash three times.)
-	
+
 	* dragdrop.el: header keyword frobbing.
-	
+
 	* dumped-lisp.el (preloaded-file-list):
 	renamed winnt.el to win32-native.el.
-	
+
 	* faces.el (face-property):
 	* faces.el (set-face-property):
 	* faces.el (frob-face-property):
@@ -665,20 +1040,20 @@
 	something that required 'term. (Adrian, now you can use stack-trace-
 	on-error to find the exact place where things are going wrong instead
 	of having to laboriously binary-search your way through.)
-	
+
 	* finder.el (finder-known-keywords):
 	cleaned up -- properly sorted, clarified the meanings of many of
 	the keywords, and added a few -- mswin, gui, content, build, www,
 	user, services.  the last two try to distinguish between a package
 	that's used directly by the user, and a package that provides
 	support services to other packages.
-	
+
 	* font-lock.el (lisp-font-lock-keywords-2):
 	update list of lisp control structures to include everything,
 	including new ones i introduced.
-	
+
 	* gutter.el: header keyword frobbing.
-	
+
 	* isearch-mode.el (isearch-ring-adjust1): M-p to recall the most
 	recent isearch element was not doing so!  you got the second-most-
 	recent instead.
@@ -687,7 +1062,7 @@
 	more menubar cleanups.
 	* lisp-mode.el (with-selected-window):
 	make it indent properly.
-	
+
 	* menubar-items.el (default-menubar): lots of menubar cleanups.
 	rearranged the options menu the most, e.g. splitting up the
 	Keyboard/Mouse menu into a new Editing menu and combining the
@@ -702,7 +1077,7 @@
 	better and better ways to group menu items.  When we eventually
 	move the options menu to a property sheet, the existing structure
 	will probably be preserved fairly well.
-	
+
 	* minibuf.el (next-history-element): fix problems with pressing
 	down arrow in repeat-complex-command.
 
@@ -711,19 +1086,19 @@
 	added custom variable for controlling the 3d modeline.  the
 	corresponding Options item has been present for a long time,
 	but commented out with "fix me!" comments.  it's fixed now.
-	
+
 	* obsolete.el (add-menu):
 	remove bogus gettexts.
-	
+
 	* process.el (shell-quote-argument):
 	handle this correctly under Windows native with COMMAND.COM/CMD.EXE.
 	For bash under Windows native, see below.
-	
+
 	* simple.el:
 	* simple.el (display-warning-buffer):
 	Fixed the handling of warning display to eliminate the annoying
 	*Show* buffer, like was done for byte-compiler output above.
-	
+
 	* simple.el (debug-print): New.
 	Simple function for sending debug messages to the console and/or
 	other debug places.
@@ -736,7 +1111,7 @@
 	duplicated the entire logic.  The new version is smaller, easier
 	to understand, much more robust, and has extended features --
 	those of replace-match.)
-	
+
 	* window.el:
 	* window.el (with-selected-window): New.
 	An obvious complement to the existing `with-selected-frame' and
@@ -752,7 +1127,7 @@
 	version, I tried hard to do what I thought was correct.  But more
 	thought is needed, and ideally the volunteer work of people with
 	these configurations that they generally run on.)
-	
+
 	* x-font-menu.el (x-font-menu-font-data):
 	Put in defvar's to fix byte-compiler warnings.
 
@@ -787,7 +1162,7 @@
 	* files.el (auto-mode-alist): Add .spec for RPM.
 
 2000-07-31  Andy Piper  <andy@xemacs.org>
-	
+
 	* gutter-items.el (update-tab-in-gutter): deprecate :properties.
 
 2000-07-31  Yoshiki Hayashi  <yoshiki@xemacs.org>
@@ -838,7 +1213,7 @@
 2000-07-10  Andy Piper  <andy@xemacs.org>
 
 	* dialog-items.el: sync with Ben's patch.
-	
+
 	* gutter-items.el (buffers-tab-switch-to-buffer): remove now-bogus
 	comment.
 	(progress-text-glyph): deleted.
@@ -984,13 +1359,13 @@
         * help.el (variable-at-point):
         * help.el (variable-at-event): New.
         * help.el (describe-variable):
-        Major overhaul.  
-        - Make functions and variables be mousable.  
-        - Middle button hyperlinks.  
+        Major overhaul.
+        - Make functions and variables be mousable.
+        - Middle button hyperlinks.
         - New context-menu entries.
 
         * keydefs.el:
-        * keydefs.el (global-map): 
+        * keydefs.el (global-map):
         New key bindings to move lines up and down.
 
         * lisp-mode.el:
@@ -1014,7 +1389,7 @@
         * menubar-items.el (popup-buffer-menu): Removed.
         * menubar-items.el (popup-menubar-menu): Removed.
         Move to menubar.el.
-        
+
         * menubar.el:
         * menubar.el (global-popup-menu): New.
         * menubar.el (mode-popup-menu): New.
@@ -1027,10 +1402,10 @@
         Move non-content functions here.  Add support for context menu
         items on extents.
 
-        * minibuf.el (minibuffer-history-uniquify): 
+        * minibuf.el (minibuffer-history-uniquify):
         Typo fix.
 
-        * minibuf.el (read-file-name-1): 
+        * minibuf.el (read-file-name-1):
         Call new file dialog box if it exists.
 
         * minibuf.el (mouse-rfn-setup-vars):
@@ -1134,14 +1509,14 @@
 
 2000-07-16  Martin Buchholz  <martin@xemacs.org>
 
-	* apropos.el (apropos-documentation-check-doc-file): 
+	* apropos.el (apropos-documentation-check-doc-file):
 	`doc' variable should be let-bound, as was presumably intended.
 
-	* cus-edit.el (custom-variable-reset-saved): 
-	(custom-variable-reset-standard): 
+	* cus-edit.el (custom-variable-reset-saved):
+	(custom-variable-reset-standard):
 	Remove unused variable comment-widget.  Twice.
 
-	* toolbar.el (toolbar-blank-press-function): 
+	* toolbar.el (toolbar-blank-press-function):
 	Add a real defvar with initial value nil and proper docstring.
 	(press-toolbar-button): No need to check for boundp-ness anymore.
 
@@ -1150,7 +1525,7 @@
 
 	* info.el (Info-find-node): This function needs an autoload cookie.
 
-	* mule/mule-x-init.el (x-use-halfwidth-roman-font): 
+	* mule/mule-x-init.el (x-use-halfwidth-roman-font):
 	Use let* since the second form referred to the first.
 
 2000-07-16  Adrian Aichner  <aichner@ecf.teradyne.com>
@@ -1199,19 +1574,19 @@
 
 2000-07-15  Martin Buchholz  <martin@xemacs.org>
 
-	* mule/mule-category.el (defined-category-hashtable): 
+	* mule/mule-category.el (defined-category-hashtable):
 	Use make-hash-table instead of make-hashtable
 
 	* buff-menu.el: Byte-compiler warning fix.
 
-	* isearch-mode.el (isearch-highlight-all-cleanup): 
+	* isearch-mode.el (isearch-highlight-all-cleanup):
 	Remove unused variable `isearch-highlight-all-start'.
 
 	* etags.el (add-to-tag-completion-table): Byte-compiler warning fix.
 
 	* itimer.el (itimer-edit-mode): Byte-compiler warning fixes.
 
-	* cus-dep.el (Custom-make-dependencies): 
+	* cus-dep.el (Custom-make-dependencies):
 	Add autoload cookie for custom-add-loads to generated custom-load.el.
 
 	* autoload.el (autoload-package-name): Warning suppression.
@@ -1219,7 +1594,7 @@
 
 	* custom.el: Add autoload for custom-declare-face.
 	Allow `xemacs -no-autoloads -l bytecomp -f batch-byte-compile ...'
-	* cl.el (cl-hack-byte-compiler): 
+	* cl.el (cl-hack-byte-compiler):
 	Allow `xemacs -no-autoloads -l bytecomp -f batch-byte-compile ...'
 	to work properly.
 
@@ -1304,7 +1679,7 @@
 	only when necessary.
 
 2000-06-30  Charles G Waldman  <cgw@alum.mit.edu>
-	
+
 	* cl-macs.el: fix cl-transform-function-property kludge
 	so that it does not require a random feature.
 
@@ -1321,10 +1696,10 @@
 
 	* package-ui.el (defgroup pui):  Correct a misspelling
 	(pui-toggle-package-delete):  Change `seleted' to `selected'
-	
+
 2000-06-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
 
-	* package-get.el (package-get-update-base):	
+	* package-get.el (package-get-update-base):
 	(package-get): Use insert-file-contents-literally always.
 	(package-get-maybe-save-index):
 	Force coding system for writing to binary.
@@ -1425,7 +1800,7 @@
 	Rewrite deferral code to handle any number of changes, merging
 	them properly.  Remove hacked-up code for revert-buffer, now
 	unnecessary.
-	
+
 	* menubar-items.el (default-menubar):
 	In Options->Edit Init File, don't switch to emacs-lisp-mode
 	unless necessary; doing this turns off font-lock.
@@ -1460,14 +1835,14 @@
 	* gutter-items.el (raw-append-progress-display):
 	Further fixes.  Use set-glyph-image not set-image-instance-property,
 	to fix problems with multiple windows in a frame.
-	
+
 	* menubar-items.el (tutorials-menu-filter):
 	Fix typo.
-	
+
 	* startup.el (early-error-handler):
 	Display message box under windows; otherwise, message will disappear
 	before it can be viewed.
-	
+
 	* update-elc.el:
 	Fix bug in NEEDTODUMP processing.
 
@@ -1495,7 +1870,7 @@
 	* faces.el (set-face-blinking-p):
 	* faces.el (set-face-reverse-p):
 	doc string changes.
-	
+
 	* glyphs.el:
 	* glyphs.el (make-image-specifier):
 	* glyphs.el (glyph-property):
@@ -1511,7 +1886,7 @@
 	conventions elsewhere in XEmacs and in general is a lot more obvious
 	of a place to look.  sometimes the make-foo-specifier function needs
 	to be created in the process.
-	
+
 	* gutter.el:
 	* gutter.el (make-gutter-specifier): New.
 	* gutter.el (make-gutter-size-specifier): New.
@@ -1574,7 +1949,7 @@
 	Restore M-up, M-down to 21.1 state.  Put *ward-sentence on
 	C-M-left, C-M-right instead.  Define C-M-up, C-M-down to scroll
 	the window without moving point.
-	
+
 	* simple.el:
 	* simple.el (scroll-up-one): New.
 	* simple.el (scroll-down-one): New.
@@ -1586,9 +1961,9 @@
 
 2000-04-29  Martin Buchholz  <martin@xemacs.org>
 
-	* dialog.el (yes-or-no-p-dialog-box): 
+	* dialog.el (yes-or-no-p-dialog-box):
 	Fix docstring.
-	Fix following horrible bug in X11 mode with focus-follows-mouse: 
+	Fix following horrible bug in X11 mode with focus-follows-mouse:
 	  1. Visit two files in two different frames.
 	  2. do File->Revert Buffer in one of those frames.
 	  3. Dialog box appears.
@@ -1596,7 +1971,7 @@
 	     frame, then to the dialog box, and click on "Yes".
 	  5. The file contents end up in the *wrong* buffer!
 	Add TODO comment.
-	
+
 2000-04-28  Ben Wing  <ben@xemacs.org>
 
 	* help.el (describe-installation): correct typo introduced
@@ -1605,17 +1980,17 @@
 	* etags.el (buffer-tag-table-list):
 	canonicalize filenames to Unix format so that tag-table-alist
 	searching works under Windows.
-	
+
 	* autoload.el:
 	Bowdlerize the supposedly objectionable words
 	"who couldn't quite manage to cleanly modify batch-update-autoloads".
-	
+
 	* gutter-items.el (set-progress-display-style):
 	* gutter-items.el (search-dialog-callback):
 	* gutter-items.el (make-search-dialog):
 	Change to new callback-ex api.
 
-2000-04-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+2000-04-26  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* help.el: (describe-installation): decode-coding-string is not
 	defined in a non MULE environment.
@@ -1655,7 +2030,7 @@
 	when quick-building.
 
 	add commented-out code for profiling loadup.
-	
+
 
 	* update-elc.el (preloaded-file-list): add bytecomp.el, since it
 	is required in order to build xemacs.
@@ -1670,7 +2045,7 @@
 	* update-elc.el: compute whether any dumped .el or .elc files
 	are newer than the dumped exe, and touch the file ../src/NEEDTODUMP
 	if so.
-	
+
 	* update-elc.el (update-elc-files-to-compile): always change
 	NOBYTECOMPILE in the src directory rather than current dir,
 	so it will work under NT.
@@ -1701,21 +2076,21 @@
 2000-04-16  Ben Wing  <ben@xemacs.org>
 
 	* printer.el: New file.
-	
+
 	* dumped-lisp.el (preloaded-file-list): Declare printer.el.
-	
+
 	* help.el (describe-installation): Fix decoding for Windows.
-	
+
 	* menubar-items.el:
 	* menubar-items.el (default-menubar):
 	* menubar-items.el (tutorials-menu-filter): New.
 	* menubar-items.el (popup-menubar-menu):
 	Add authorship.  Redo Help menu and Tutorials filter.
-	
+
 	* menubar.el: Correct comment.
-	
+
 	* modeline.el (modeline-buffer-identification): Correct doc string.
-	
+
 	* simple.el:
 	* simple.el (printing): Removed.
 	* simple.el (printer-name): Removed.
@@ -1742,7 +2117,7 @@
 	(gutter-element-visibility-changed-hook): ditto.
 	(set-gutter-element): ditto.
 	(remove-gutter-element): ditto.
-	(set-gutter-element-visible-p): ditto. 
+	(set-gutter-element-visible-p): ditto.
 	(gutter-element-visible-p): ditto.
 	(init-gutter): ditto.
 
@@ -1761,9 +2136,9 @@
 		without constantly being prompted for the tag.
 	* simple.el: Added a number of section headings, to clarify the
 		organization of this file.
-	* simple.el (activate-region): 
-	* simple.el (region-exists-p): 
-	* simple.el (region-active-p): 
+	* simple.el (activate-region):
+	* simple.el (region-exists-p):
+	* simple.el (region-active-p):
 		Moved these three function down to the other side of
 		the case-changing functions, so they join the rest of
 		the region code.
@@ -1772,10 +2147,10 @@
 	* simple.el (generic-print-buffer): New.
 		New functions, a very simple prototype for a unified
 		printing interface.
-	
+
 	* process.el (call-process-internal): Real fix for null BUFFER,
 		other problems with BUFFER specs.
-	
+
 	* menubar-items.el:
 		Fixed up File->Print to use new printing functions.
 		Various corrections and expansions to Grep/Compile menus.
@@ -1893,13 +2268,13 @@
 	(append-progress-display): ditto.
 
 2000-03-20  Jeff Miller <jmiller@cablespeed.com>
-	
+
 	* lisp/make-docfile.el: call-process-internal is now implemented
 	in process.el.
 
 2000-03-21  Ben Wing  <ben@xemacs.org>
 
-	* mule\mule-cmds.el (set-language-info-alist): 
+	* mule\mule-cmds.el (set-language-info-alist):
 	Fix to correspond to new menu arrangement.
 
 2000-03-21  Ben Wing  <ben@xemacs.org>
@@ -1915,7 +2290,7 @@
 	* lisp-mode.el (lisp-interaction-mode-menubar-menu): New.
 	* lisp-mode.el (lisp-interaction-mode):
 	Put back Lisp Interaction menubar for Jan V's sake.
-	
+
 	* simple.el:
 	* simple.el (mark-ring):
 	* simple.el (dont-record-current-mark): New.
@@ -1926,7 +2301,7 @@
 	* simple.el (push-mark):
 	* simple.el (handle-pre-motion-command):
 	Implement scheme for not recording unimportant marks.
-	
+
 	* subr.el:
 	* subr.el (function-allows-args): New.
 	New function function-allows-args.
@@ -2046,12 +2421,12 @@
 	vassoc moved to alist.el.
 	Accelerators added to all menus.
 	Unused bound var new-props removed.
-	
+
         * keydefs.el: I did a whole lot of rearranging to put things in a
         more consistent order and fixed a number of cases where key
         combinations involving up, down, left, right and so on were
         defined but the corresponding keypad combinations were not
-        defined. 
+        defined.
 
 	* lisp-mode.el:
 	* lisp-mode.el (lisp-interaction-mode-popup-menu):
@@ -2119,14 +2494,14 @@
         b) I combined the top level Tools and Apps menus into a single
         Tools menu, because the distinction between the two is not
         obvious, and the items on the menus are not used often enough that
-        putting some of them onto submenus is a problem. 
+        putting some of them onto submenus is a problem.
 
         c) I created two new top level menus called View and Cmds because
         there were too many items on the File and Edit menus, and I'm going
         to be adding more items to these menus.  In contrast to the Tools
         menu, the items on these menus may be used quite often during an
         editing session, and so should be available with fewer
-        keystrokes. 
+        keystrokes.
 
         d) I added a number of options to the options menu, including one
         for controlling whether the alt key can be used to traverse to
@@ -2136,18 +2511,18 @@
         options, and various other things.  I also did a bit of
         rearranging, for example, combining the keyboard and mouse options
         into a single keyboard and mouse submenu to facilitate the
-        accelerators on that level. 
+        accelerators on that level.
 
         e) I changed the variable buffers-menu-format-buffer-line-function
         to take two arguments instead of one, the second argument being
         the line number for use in creating an accelerator.  I added a
         hack to support existing functions with one argument (although I
-        doubt that very many of these exist), for backward compatibility. 
+        doubt that very many of these exist), for backward compatibility.
 
         f) I moved the top level mule menu to be a submenu of the edit
         menu.  I think that most of the items on this menu are fairly
         useless and there are certainly not enough frequently used items
-        to justify this being its own top level menu. 
+        to justify this being its own top level menu.
 
 	g) I combined most of the items in big-menubar.el into the main menu.
 	If people think the main menu is too big, it would be possible to
@@ -2168,23 +2543,23 @@
 
         a) Fixing the problem where closing the dialog box by clicking on
         the close button of the window didn't properly exit the
-        minibuffer. 
+        minibuffer.
 
         b) Fixing the problem that if you typed part of a file name, and
         then clicked on a completion with the mouse, the file was not
-        correctly selected. 
+        correctly selected.
 
         c) Changing the title of the dialog box to reflect the operation
         being done in accordance with user interface conventions, rather
-        than the name of the dialog box buffer, which is rather useless. 
+        than the name of the dialog box buffer, which is rather useless.
 
         d) Remove the words "possible completions are" which didn't
-        belong. 
+        belong.
 
         e) Fix things so that the completions scroll off the end of the
         completions windows only to the right, rather than both to the
         right and down, which is in accordance with Windows user interface
-        conventions.  
+        conventions.
 
 	* msw-init.el (init-post-mswindows-win):
         Added a binding for meta-F4, which is the standard windows binding
@@ -2252,7 +2627,7 @@
 	* simple.el (capitalize-string-as-title):
 	* simple.el (capitalize-region-as-title):
 	New.
-	
+
 
         * subr.el (add-hook):
         * subr.el (make-local-hook): New.

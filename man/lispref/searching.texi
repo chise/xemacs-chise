@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/searching.info
 @node Searching and Matching, Syntax Tables, Text, Top
@@ -35,15 +35,14 @@ portions of it.
   These are the primitive functions for searching through the text in a
 buffer.  They are meant for use in programs, but you may call them
 interactively.  If you do so, they prompt for the search string;
-@var{limit} and @var{noerror} are set to @code{nil}, and @var{repeat}
+@var{limit} and @var{noerror} are set to @code{nil}, and @var{count}
 is set to 1.
 
-@deffn Command search-forward string &optional limit noerror repeat
+@deffn Command search-forward string &optional limit noerror count buffer
   This function searches forward from point for an exact match for
 @var{string}.  If successful, it sets point to the end of the occurrence
 found, and returns the new value of point.  If no match is found, the
 value and side effects depend on @var{noerror} (see below).
-@c Emacs 19 feature
 
   In the following example, point is initially at the beginning of the
 line.  Then @code{(search-forward "fox")} moves point after the last
@@ -81,25 +80,26 @@ upper bound and returns @code{nil}.  (It would be more consistent now
 to return the new position of point in that case, but some programs
 may depend on a value of @code{nil}.)
 
-If @var{repeat} is supplied (it must be a positive number), then the
-search is repeated that many times (each time starting at the end of the
-previous time's match).  If these successive searches succeed, the
-function succeeds, moving point and returning its new value.  Otherwise
-the search fails.
+If @var{count} is supplied (it must be an integer), then the search is
+repeated that many times (each time starting at the end of the previous
+time's match).  If @var{count} is negative, the search direction is
+backward.  If the successive searches succeed, the function succeeds,
+moving point and returning its new value.  Otherwise the search fails.
+
+@var{buffer} is the buffer to search in, and defaults to the current buffer.
 @end deffn
 
-@deffn Command search-backward string &optional limit noerror repeat
+@deffn Command search-backward string &optional limit noerror count buffer
 This function searches backward from point for @var{string}.  It is
 just like @code{search-forward} except that it searches backwards and
 leaves point at the beginning of the match.
 @end deffn
 
-@deffn Command word-search-forward string &optional limit noerror repeat
+@deffn Command word-search-forward string &optional limit noerror count buffer
 @cindex word search
 This function searches forward from point for a ``word'' match for
 @var{string}.  If it finds a match, it sets point to the end of the
 match found, and returns the new value of point.
-@c Emacs 19 feature
 
 Word matching regards @var{string} as a sequence of words, disregarding
 punctuation that separates them.  It searches the buffer for the same
@@ -140,11 +140,13 @@ returns @code{nil} instead of signaling an error.  If @var{noerror} is
 neither @code{nil} nor @code{t}, it moves point to @var{limit} (or the
 end of the buffer) and returns @code{nil}.
 
-If @var{repeat} is non-@code{nil}, then the search is repeated that many
+If @var{count} is non-@code{nil}, then the search is repeated that many
 times.  Point is positioned at the end of the last match.
+
+@var{buffer} is the buffer to search in, and defaults to the current buffer.
 @end deffn
 
-@deffn Command word-search-backward string &optional limit noerror repeat
+@deffn Command word-search-backward string &optional limit noerror count buffer
 This function searches backward from point for a word match to
 @var{string}.  This function is just like @code{word-search-forward}
 except that it searches backward and normally leaves point at the
@@ -585,7 +587,7 @@ whitespace:
 
   Here is a complicated regexp, used by XEmacs to recognize the end of a
 sentence together with any whitespace that follows.  It is the value of
-the variable @code{sentence-end}.  
+the variable @code{sentence-end}.
 
   First, we show the regexp as a string in Lisp syntax to distinguish
 spaces from tab characters.  The string constant begins and ends with a
@@ -604,7 +606,7 @@ will see the following:
 @group
 sentence-end
 @result{}
-"[.?!][]\"')@}]*\\($\\| $\\|  \\|  \\)[       
+"[.?!][]\"')@}]*\\($\\| $\\|  \\|  \\)[
 ]*"
 @end group
 @end example
@@ -655,7 +657,7 @@ Search, emacs, The XEmacs Reference Manual}.  Here we describe only the search
 functions useful in programs.  The principal one is
 @code{re-search-forward}.
 
-@deffn Command re-search-forward regexp &optional limit noerror repeat
+@deffn Command re-search-forward regexp &optional limit noerror count buffer
 This function searches forward in the current buffer for a string of
 text that is matched by the regular expression @var{regexp}.  The
 function skips over any amount of text that is not matched by
@@ -674,7 +676,7 @@ error is signaled.  If @var{noerror} is @code{t},
 @code{re-search-forward} moves point to @var{limit} (or the end of the
 buffer) and returns @code{nil}.
 
-If @var{repeat} is supplied (it must be a positive number), then the
+If @var{count} is supplied (it must be a positive number), then the
 search is repeated that many times (each time starting at the end of the
 previous time's match).  If these successive searches succeed, the
 function succeeds, moving point and returning its new value.  Otherwise
@@ -704,7 +706,7 @@ comes back" twice.
 @end example
 @end deffn
 
-@deffn Command re-search-backward regexp &optional limit noerror repeat
+@deffn Command re-search-backward regexp &optional limit noerror count buffer
 This function searches backward in the current buffer for a string of
 text that is matched by the regular expression @var{regexp}, leaving
 point at the beginning of the first text found.
@@ -723,11 +725,16 @@ feature for matching regexps from end to beginning.  It's not worth the
 trouble of implementing that.
 @end deffn
 
-@defun string-match regexp string &optional start
+@defun string-match regexp string &optional start buffer
 This function returns the index of the start of the first match for
 the regular expression @var{regexp} in @var{string}, or @code{nil} if
 there is no match.  If @var{start} is non-@code{nil}, the search starts
 at that index in @var{string}.
+
+
+Optional arg @var{buffer} controls how case folding is done (according
+to the value of @code{case-fold-search} in @var{buffer} and
+@var{buffer}'s case tables) and defaults to the current buffer.
 
 For example,
 
@@ -801,7 +808,7 @@ components are separated with the characters specified with
 be @samp{:}, while under Windows, it will be @samp{;}.
 @end defun
 
-@defun looking-at regexp
+@defun looking-at regexp &optional buffer
 This function determines whether the text in the current buffer directly
 following point matches the regular expression @var{regexp}.  ``Directly
 following'' means precisely that: the search is ``anchored'' and it can
@@ -846,28 +853,32 @@ functions only when you really need the longest match.
   In Emacs versions prior to 19.29, these functions did not exist, and
 the functions described above implemented full POSIX backtracking.
 
-@defun posix-search-forward regexp &optional limit noerror repeat
+@deffn Command posix-search-forward regexp &optional limit noerror count buffer
 This is like @code{re-search-forward} except that it performs the full
 backtracking specified by the POSIX standard for regular expression
 matching.
-@end defun
+@end deffn
 
-@defun posix-search-backward regexp &optional limit noerror repeat
+@deffn Command posix-search-backward regexp &optional limit noerror count buffer
 This is like @code{re-search-backward} except that it performs the full
 backtracking specified by the POSIX standard for regular expression
 matching.
-@end defun
+@end deffn
 
-@defun posix-looking-at regexp
+@defun posix-looking-at regexp &optional buffer
 This is like @code{looking-at} except that it performs the full
 backtracking specified by the POSIX standard for regular expression
 matching.
 @end defun
 
-@defun posix-string-match regexp string &optional start
+@defun posix-string-match regexp string &optional start buffer
 This is like @code{string-match} except that it performs the full
 backtracking specified by the POSIX standard for regular expression
 matching.
+
+Optional arg @var{buffer} controls how case folding is done (according
+to the value of @code{case-fold-search} in @var{buffer} and
+@var{buffer}'s case tables) and defaults to the current buffer.
 @end defun
 
 @ignore
@@ -900,29 +911,29 @@ that all men are created
 @end deffn
 
 @deffn Command flush-lines regexp
-This function is the same as @code{delete-matching-lines}.
+This function is an alias of @code{delete-matching-lines}.
 @end deffn
 
-@defun delete-non-matching-lines regexp
+@deffn Command delete-non-matching-lines regexp
 This function deletes all lines following point which don't
 contain a match for the regular expression @var{regexp}.
-@end defun
+@end deffn
 
 @deffn Command keep-lines regexp
 This function is the same as @code{delete-non-matching-lines}.
 @end deffn
 
-@deffn Command how-many regexp
+@deffn Command count-matches regexp
 This function counts the number of matches for @var{regexp} there are in
 the current buffer following point.  It prints this number in
 the echo area, returning the string printed.
 @end deffn
 
-@deffn Command count-matches regexp
-This function is a synonym of @code{how-many}.
+@deffn Command how-many regexp
+This function is an alias of @code{count-matches}.
 @end deffn
 
-@deffn Command list-matching-lines regexp nlines
+@deffn Command list-matching-lines regexp &optional nlines
 This function is a synonym of @code{occur}.
 Show all lines following point containing a match for @var{regexp}.
 Display each line with @var{nlines} lines before and after,
@@ -1124,7 +1135,7 @@ positions within the text:
 @group
 (string-match "\\(qu\\)\\(ick\\)"
               "The quick fox jumped quickly.")
-              ;0123456789      
+              ;0123456789
      @result{} 4
 @end group
 
@@ -1191,7 +1202,7 @@ character of the buffer counts as 1.)
 @var{replacement}.
 
 @cindex case in replacements
-@defun replace-match replacement &optional fixedcase literal string
+@defun replace-match replacement &optional fixedcase literal string strbuffer
 This function replaces the text in the buffer (or in @var{string}) that
 was matched by the last search.  It replaces that text with
 @var{replacement}.
@@ -1205,6 +1216,12 @@ If you did the search in a string, pass the same string as @var{string}.
 Then @code{replace-match} does the replacement by constructing and
 returning a new string.
 
+If the fourth argument @var{string} is a string, fifth argument
+@var{strbuffer} specifies the buffer to be used for syntax-table and
+case-table lookup and defaults to the current buffer.  When @var{string}
+is not a string, the buffer that the match occurred in has automatically
+been remembered and you do not need to specify it.
+
 If @var{fixedcase} is non-@code{nil}, then the case of the replacement
 text is not changed; otherwise, the replacement text is converted to a
 different case depending upon the capitalization of the text to be
@@ -1216,7 +1233,7 @@ letter, @code{replace-match} considers this a capitalized first word
 rather than all upper case.
 
 If @code{case-replace} is @code{nil}, then case conversion is not done,
-regardless of the value of @var{fixed-case}.  @xref{Searching and Case}.
+regardless of the value of @var{fixedcase}.  @xref{Searching and Case}.
 
 If @var{literal} is non-@code{nil}, then @var{replacement} is inserted
 exactly as it is, the only alterations being case changes as needed.
@@ -1247,7 +1264,7 @@ Subexpressions are those expressions grouped inside @samp{\(@dots{}\)}.
   The functions @code{match-data} and @code{set-match-data} read or
 write the entire match data, all at once.
 
-@defun match-data
+@defun match-data &optional integers reuse
 This function returns a newly constructed list containing all the
 information on what text the last search matched.  Element zero is the
 position of the beginning of the match for the whole expression; element
@@ -1272,9 +1289,13 @@ corresponds to @code{(match-end @var{n})}.
 
 All the elements are markers or @code{nil} if matching was done on a
 buffer, and all are integers or @code{nil} if matching was done on a
-string with @code{string-match}.  (In Emacs 18 and earlier versions,
-markers were used even for matching on a string, except in the case
-of the integer 0.)
+string with @code{string-match}.  However, if the optional first
+argument @var{integers} is non-@code{nil}, always use integers (rather
+than markers) to represent buffer positions.
+
+If the optional second argument @var{reuse} is a list, reuse it as part
+of the value.  If @var{reuse} is long enough to hold all the values, and if
+@var{integers} is non-@code{nil}, no new lisp objects are created.
 
 As always, there must be no possibility of intervening searches between
 the call to a search function and the call to @code{match-data} that is
@@ -1324,10 +1345,10 @@ that shows the problem that arises if you fail to save the match data:
 
   You can save and restore the match data with @code{save-match-data}:
 
-@defmac save-match-data body@dots{}
+@defspec save-match-data body@dots{}
 This special form executes @var{body}, saving and restoring the match
 data around it.
-@end defmac
+@end defspec
 
   You can use @code{set-match-data} together with @code{match-data} to
 imitate the effect of the special form @code{save-match-data}.  This is

@@ -1276,6 +1276,8 @@ mswindows_drain_windows_queue (void)
     {
       char class_name_buf [sizeof (XEMACS_CLASS) + 2] = "";
 
+      /* Don't translate messages destined for a dialog box, this
+	 makes keyboard traversal work. I think?? */
       if (mswindows_is_dialog_msg (&msg))
 	{
 	  mswindows_unmodalize_signal_maybe ();
@@ -2792,6 +2794,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  case CBN_SELCHANGE:
 	    if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
 	      return 0;
+	  case BN_SETFOCUS:
+	    
 	  }
 	/* menubars always must come last since the hashtables do not
 	   always exist*/

@@ -486,7 +486,7 @@ defines these commands:
 comments in assembler syntax.
 
 
-File: xemacs.info,  Node: Running,  Next: Packages,  Prev: Programs,  Up: Top
+File: xemacs.info,  Node: Running,  Next: Abbrevs,  Prev: Programs,  Up: Top
 
 Compiling and Testing Programs
 ******************************
@@ -558,7 +558,7 @@ the word `run' or `exit' in the parentheses to tell you whether
 compilation is finished.  You do not have to keep this buffer visible;
 compilation continues in any case.
 
-   To kill the compilation process, type `M-x-kill-compilation'.  The
+   To kill the compilation process, type `M-x kill-compilation'.  The
 mode line of the `*compilation*' buffer changes to say `signal' instead
 of `run'.  Starting a new compilation also kills any running
 compilation, as only one can occur at any time.  Starting a new
@@ -1096,7 +1096,7 @@ doing so is different according to where the relevant Lisp environment
 is found.  *Note Lisp Modes::.
 
 
-File: xemacs.info,  Node: Packages,  Next: Abbrevs,  Prev: Running,  Up: Top
+File: xemacs.info,  Node: Packages,  Next: Basic,  Prev: Startup Paths,  Up: Top
 
 Packages
 ========
@@ -1114,6 +1114,7 @@ local needs with safe removal of unnecessary code.
 * Package Terminology:: Understanding different kinds of packages.
 * Using Packages::      How to install and use packages.
 * Building Packages::   Building packages from sources.
+* Available Packages::  A brief, out-of-date, directory of packaged LISP.
 
 
 File: xemacs.info,  Node: Package Terminology,  Next: Using Packages,  Up: Packages

@@ -92,8 +92,8 @@ Boston, MA 02111-1307, USA.  */
 #define FUNCPROTO 15
 #endif
 
-/* Define this if you're using XFree386.  */
-#undef HAVE_XFREE386
+#define HAVE_XREGISTERIMINSTANTIATECALLBACK
+#undef XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE
 
 #undef THIS_IS_X11R4
 #undef THIS_IS_X11R5
@@ -148,7 +148,6 @@ Boston, MA 02111-1307, USA.  */
 /* Some things figured out by the configure script, grouped as they are in
    configure.in.  */
 #undef HAVE_MACH_MACH_H
-#undef HAVE_SYS_STROPTS_H
 #undef HAVE_SYS_TIMEB_H
 #undef HAVE_UNISTD_H
 #undef HAVE_UTIME_H
@@ -261,6 +260,22 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_TZSET
 #undef HAVE_UTIMES
 #undef HAVE_WAITPID
+#undef HAVE_VSNPRINTF
+
+/* PTY support functions */
+#undef HAVE_GETPT	/* glibc's easy pty allocation function */
+#undef HAVE__GETPTY	/*   SGI's easy pty allocation function */
+#undef HAVE_OPENPTY	/*   BSD's easy pty allocation function */
+#undef HAVE_GRANTPT	/* Unix98 */
+#undef HAVE_UNLOCKPT	/* Unix98 */
+#undef HAVE_PTSNAME	/* Unix98 */
+#undef HAVE_KILLPG	/* BSD */
+#undef HAVE_TCGETPGRP	/* Posix 1 */
+#undef HAVE_ISASTREAM	/* SysV streams */
+#undef HAVE_PTY_H	/* Linux, Tru64 openpty */
+#undef HAVE_LIBUTIL_H	/* BSD openpty */
+#undef HAVE_STROPTS_H	/* SysV streams */
+#undef HAVE_STRTIO_H	/* SysV streams TIOCSIGNAL */
 
 #define HAVE_SOCKETS
 #undef HAVE_SOCKADDR_SUN_LEN

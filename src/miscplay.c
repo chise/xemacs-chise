@@ -381,8 +381,11 @@ size_t sndcnv8S_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*((signed char *)(src++)) +
-                              (int)*((signed char *)(src++))) / 2);
+    {
+      *dest++ = (unsigned char)(((int)*((signed char *)(src)) +
+				 (int)*((signed char *)(src+1))) / 2);
+      src  += 2;
+    }
   *data   = src;
   return(rc);
 }
@@ -402,8 +405,11 @@ size_t sndcnv2monounsigned(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    *dest++ = (unsigned char)(((int)*((signed char *)(src++)) +
-                              (int)*((signed char *)(src++))) / 2) ^ 0x80;
+    {
+      *dest++ = (unsigned char)(((int)*((signed char *)(src)) +
+				 (int)*((signed char *)(src+1))) / 2) ^ 0x80;
+      src += 2;
+    }
   *data   = src;
   return(rc);
 }
@@ -493,7 +499,10 @@ size_t sndcnvULaw_2linear(void **data,size_t *sz,void **outbuf)
 
   *outbuf = *data;
   while ((*sz)--)
-    *p++ = ulaw_dsp[*p];
+    {
+      *p = ulaw_dsp[*p];
+      p++;
+    }
   *sz = 0;
   *data = p;
   return p - (unsigned char *)*outbuf;
@@ -550,11 +559,14 @@ size_t sndcnvULaw_2mono(void **data,size_t *sz,void **outbuf)
   *outbuf =
   dest    = miscplay_sndbuf;
   while (count--)
-    /* it is not possible to directly interpolate between two ulaw encoded
-       data bytes, thus we need to convert to linear format first and later
-       we convert back to ulaw format */
-    *dest++ = int2ulaw(ulaw2int[*(src)++] +
-                      ulaw2int[*(src)++]);
+    {
+      /* it is not possible to directly interpolate between two ulaw encoded
+	 data bytes, thus we need to convert to linear format first and later
+	 we convert back to ulaw format */
+      *dest++ = int2ulaw(ulaw2int[*src] +
+			 ulaw2int[*(src+1)]);
+      src  += 2;
+    }
   *data = src;
   return(rc);
 }
@@ -566,9 +578,11 @@ size_t sndcnv16swap(void **data,size_t *sz,void **outbuf)
 
   *outbuf = *data;
   p = (unsigned short *) *outbuf;
-  while (cnt--) {
-    *p++ = ((*p & 0x00ff) << 8) | (*p >> 8);
-  }
+  while (cnt--)
+    {
+      *p = ((*p & 0x00ff) << 8) | (*p >> 8);
+      p++;
+    }
   *data = p;
   cnt = *sz;
   *sz = 0;

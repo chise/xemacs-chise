@@ -68,7 +68,6 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef emacs
-#include <sys/stropts.h>	/* Support for pty's */
 #include <sys/conf.h>
 
 /*#define BROKEN_SIGIO*/	/* SIGIO is already undef'd elsewhere. PTX

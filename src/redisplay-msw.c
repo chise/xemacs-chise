@@ -134,9 +134,9 @@ separate_textual_runs (unsigned char *text_storage,
 #ifdef MULE
 	  {
 	    Lisp_Object ccl_prog = XCHARSET_CCL_PROGRAM (charset);
-	    need_ccl_conversion = !NILP (ccl_prog);
-	    if (need_ccl_conversion)
-	      setup_ccl_program (&char_converter, ccl_prog);
+	    if ((!NILP (ccl_prog))
+		  && (setup_ccl_program (&char_converter, ccl_prog) >= 0))
+	      need_ccl_conversion = 1;
 	  }
 #endif
 	}

@@ -510,11 +510,11 @@ MAKE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash
 
 #define MAKE_EXTERNAL_LRECORD_IMPLEMENTATION(name,c_name,marker,printer,nuker,equal,hash,desc,getprop,putprop,remprop,plist,size,sizer,basic_p,structtype) \
 DECLARE_ERROR_CHECK_TYPECHECK(c_name, structtype)			\
-unsigned int lrecord_type_##c_name = lrecord_type_count++;              \
-const struct lrecord_implementation lrecord_##c_name =			\
+unsigned int lrecord_type_##c_name;					\
+struct lrecord_implementation lrecord_##c_name =			\
   { name, marker, printer, nuker, equal, hash, desc,			\
     getprop, putprop, remprop, plist, size, sizer,			\
-    (enum lrecord_type)lrecord_type_##c_name, basic_p }
+    lrecord_type_last_built_in_type, basic_p }
 
 
 extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
@@ -523,6 +523,12 @@ extern Lisp_Object (*lrecord_markers[]) (Lisp_Object);
   lrecord_implementations_table[lrecord_type_##type] = &lrecord_##type;	\
   lrecord_markers[lrecord_type_##type] =				\
     lrecord_implementations_table[lrecord_type_##type]->marker;		\
+} while (0)
+
+#define INIT_EXTERNAL_LRECORD_IMPLEMENTATION(type) do {			\
+  lrecord_type_##type = lrecord_type_count++;				\
+  lrecord_##type.lrecord_type_index = lrecord_type_##type;		\
+  INIT_LRECORD_IMPLEMENTATION(type);					\
 } while (0)
 
 #define LRECORDP(a) (XTYPE (a) == Lisp_Type_Record)
@@ -679,7 +685,16 @@ extern Lisp_Object Q##c_name##p
 
 # define DECLARE_EXTERNAL_LRECORD(c_name, structtype)	       	\
 extern unsigned int lrecord_type_##c_name;                      \
-DECLARE_LRECORD(c_name, structtype)
+extern struct lrecord_implementation lrecord_##c_name;		\
+INLINE_HEADER structtype *					\
+error_check_##c_name (Lisp_Object obj);				\
+INLINE_HEADER structtype *					\
+error_check_##c_name (Lisp_Object obj)				\
+{								\
+  assert (RECORD_TYPEP (obj, lrecord_type_##c_name));		\
+  return (structtype *) XPNTR (obj);				\
+}								\
+extern Lisp_Object Q##c_name##p
 
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
 INLINE_HEADER structtype *					\
@@ -709,7 +724,7 @@ extern const struct lrecord_implementation lrecord_##c_name
 # define DECLARE_EXTERNAL_LRECORD(c_name, structtype)		\
 extern Lisp_Object Q##c_name##p;				\
 extern unsigned int lrecord_type_##c_name;			\
-extern const struct lrecord_implementation lrecord_##c_name
+extern struct lrecord_implementation lrecord_##c_name
 # define DECLARE_NONRECORD(c_name, type_enum, structtype)	\
 extern Lisp_Object Q##c_name##p
 # define XRECORD(x, c_name, structtype) ((structtype *) XPNTR (x))

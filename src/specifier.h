@@ -411,6 +411,7 @@ struct specifier_caching
   int offset_into_struct_frame;
   void (*value_changed_in_frame) (Lisp_Object specifier, struct frame *f,
 				  Lisp_Object oldval);
+  int always_recompute;
 };
 
 /* #### get image instances out of domains! */
@@ -480,7 +481,8 @@ void set_specifier_caching (Lisp_Object specifier,
 			    int struct_frame_offset,
 			    void (*value_changed_in_frame)
 			    (Lisp_Object specifier, struct frame *f,
-			     Lisp_Object oldval));
+			     Lisp_Object oldval),
+			    int always_recompute);
 void set_specifier_fallback (Lisp_Object specifier,
 			     Lisp_Object fallback);
 void recompute_all_cached_specifiers_in_window (struct window *w);

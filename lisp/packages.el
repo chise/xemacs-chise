@@ -355,7 +355,7 @@ This function is basically a wrapper over `locate-file'."
      (and version-directory (list version-directory))
      (and site-directory (list site-directory)))))
 
-(defvar packages-special-base-regexp "^\\(etc\\|info\\|lisp\\|lib-src\\|bin\\|pkginfo\\)$"
+(defvar packages-special-base-regexp "^\\(etc\\|info\\|man\\|lisp\\|lib-src\\|bin\\|pkginfo\\)$"
   "Special subdirectories of packages.")
 
 (defvar packages-no-package-hierarchy-regexp
@@ -418,7 +418,7 @@ DEFAULT is a default list of packages."
   (or default
       (let ((packages '()))
 	(while package-locations
-	  (packages-deconstruct 
+	  (packages-deconstruct
 	   (car package-locations)
 	   #'(lambda (name a-time thunk)
 	       (if (and (eq time a-time)
@@ -529,12 +529,12 @@ Call HANDLE on each file off definitions of PACKAGE-LISP there."
 
 (defun packages-load-package-dumped-lisps (package-load-path)
   "Load dumped-lisp.el files along a load path.
-Also load files off PACKAGE-LISP definitions there"
+Also load files off PACKAGE-LISP definitions there."
   (packages-handle-package-dumped-lisps #'load package-load-path))
 
 (defun packages-collect-package-dumped-lisps (package-load-path)
   "Load dumped-lisp.el files along a load path.
-Return list of files off PACKAGE-LISP definitions there"
+Return list of files off PACKAGE-LISP definitions there."
   (let ((*files* '()))
     (packages-handle-package-dumped-lisps
      #'(lambda (file)

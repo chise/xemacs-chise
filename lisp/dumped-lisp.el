@@ -116,8 +116,10 @@
 	;;;;;;;;;;;;;;;;;; Coding-system support
 	(when-feature file-coding "coding")
 	(when-feature file-coding "code-files")
+	;; Handle process with encoding/decoding coding-system.
 	(when-feature file-coding "code-process")
-
+	;; Provide basic commands to set coding systems to user
+	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
 	(when-feature utf-2000 "u00000-C0")
@@ -449,7 +451,7 @@
 
 	(when-feature mule "arabic")
 	(when-feature mule "chinese")
-	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
+;	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
 	(when-feature mule "ethiopic")
 	(when-feature mule "european")
@@ -458,8 +460,8 @@
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
 	(when-feature mule "misc-lang")
-	(when-feature mule "thai-xtis-chars")
-	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
+;	(when-feature mule "thai-xtis-chars")
+;	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
 	(when-feature (and mule (not utf-2000)) "viet-ccl")
 	(when-feature mule "vietnamese")

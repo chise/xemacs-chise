@@ -10,7 +10,7 @@
 ;;	Richard Stallman <rms@gnu.org>
 ;; Keywords: internal lisp
 
-(defconst byte-compile-version (purecopy  "2.27 XEmacs; 2000-09-12."))
+(defconst byte-compile-version "2.27 XEmacs; 2000-09-12.")
 
 ;; This file is part of XEmacs.
 
@@ -121,7 +121,7 @@
 ;;;				generate .elc files which can be loaded into
 ;;;				generic emacs 19.
 ;;; emacs-lisp-file-regexp	Regexp for the extension of source-files;
-;;;				see also the function byte-compile-dest-file.
+;;;				see also the function `byte-compile-dest-file'.
 ;;; byte-compile-overwrite-file	If nil, delete old .elc files before saving.
 ;;;
 ;;; Most of the above parameters can also be set on a file-by-file basis; see
@@ -145,7 +145,7 @@
 ;;;	This is, in fact, exactly what `defsubst' does.  To make a function no
 ;;;	longer be inline, you must use `proclaim-notinline'.  Beware that if
 ;;;	you define a function with `defsubst' and later redefine it with
-;;;	`defun', it will still be open-coded until you use proclaim-notinline.
+;;;	`defun', it will still be open-coded until you use `proclaim-notinline'.
 ;;;
 ;;;  o	You can also open-code one particular call to a function without
 ;;;	open-coding all calls.  Use the 'inline' form to do this, like so:
@@ -164,20 +164,20 @@
 ;;;
 ;;;  o  Forms like ((lambda ...) ...) are open-coded.
 ;;;
-;;;  o  The form `eval-when-compile' is like progn, except that the body
+;;;  o  The form `eval-when-compile' is like `progn', except that the body
 ;;;     is evaluated at compile-time.  When it appears at top-level, this
 ;;;     is analogous to the Common Lisp idiom (eval-when (compile) ...).
 ;;;     When it does not appear at top-level, it is similar to the
 ;;;     Common Lisp #. reader macro (but not in interpreted code).
 ;;;
-;;;  o  The form `eval-and-compile' is similar to eval-when-compile, but
-;;;	the whole form is evalled both at compile-time and at run-time.
+;;;  o  The form `eval-and-compile' is similar to `eval-when-compile',
+;;;     but the whole form is evalled both at compile-time and at run-time.
 ;;;
 ;;;  o  The command M-x byte-compile-and-load-file does what you'd think.
 ;;;
-;;;  o  The command compile-defun is analogous to eval-defun.
+;;;  o  The command `compile-defun' is analogous to `eval-defun'.
 ;;;
-;;;  o  If you run byte-compile-file on a filename which is visited in a
+;;;  o  If you run `byte-compile-file' on a filename which is visited in a
 ;;;     buffer, and that buffer is modified, you are asked whether you want
 ;;;     to save the buffer before compiling.
 ;;;
@@ -229,7 +229,7 @@ is compiled with optimization, this causes a speedup.")
     (defmacro byte-compile-version-cond (cond) cond)))
   )
 
-(defvar emacs-lisp-file-regexp (purecopy "\\.el$")
+(defvar emacs-lisp-file-regexp "\\.el$"
   "*Regexp which matches Emacs Lisp source files.
 You may want to redefine `byte-compile-dest-file' if you change this.")
 
@@ -444,15 +444,13 @@ on the specbind stack.  The cdr of each cell is an integer bitmask.")
 (defvar byte-compiler-error-flag)
 
 (defconst byte-compile-initial-macro-environment
-  (purecopy
-   '((byte-compiler-options . (lambda (&rest forms)
-				(apply 'byte-compiler-options-handler forms)))
-     (eval-when-compile . (lambda (&rest body)
-			    (list 'quote (eval (byte-compile-top-level
-						(cons 'progn body))))))
-     (eval-and-compile . (lambda (&rest body)
-			   (eval (cons 'progn body))
-			   (cons 'progn body)))))
+  '((byte-compiler-options . (lambda (&rest forms)
+			       (apply 'byte-compiler-options-handler forms)))
+    (eval-when-compile . (lambda (&rest body)
+			   (list 'quote (eval (cons 'progn body)))))
+    (eval-and-compile . (lambda (&rest body)
+			  (eval (cons 'progn body))
+			  (cons 'progn body))))
   "The default macro-environment passed to macroexpand by the compiler.
 Placing a macro here will cause a macro to have different semantics when
 expanded by the compiler as when expanded by the interpreter.")
@@ -716,18 +714,18 @@ otherwise pop it")
 (defconst byte-constant-limit 64
   "Exclusive maximum index usable in the `byte-constant' opcode.")
 
-(defconst byte-goto-ops (purecopy
-			 '(byte-goto byte-goto-if-nil byte-goto-if-not-nil
-			   byte-goto-if-nil-else-pop
-			   byte-goto-if-not-nil-else-pop))
+(defconst byte-goto-ops
+  '(byte-goto byte-goto-if-nil byte-goto-if-not-nil
+	      byte-goto-if-nil-else-pop
+	      byte-goto-if-not-nil-else-pop)
   "List of byte-codes whose offset is a pc.")
 
 (defconst byte-goto-always-pop-ops
-  (purecopy '(byte-goto-if-nil byte-goto-if-not-nil)))
+  '(byte-goto-if-nil byte-goto-if-not-nil))
 
 (defconst byte-rel-goto-ops
-  (purecopy '(byte-rel-goto byte-rel-goto-if-nil byte-rel-goto-if-not-nil
-	      byte-rel-goto-if-nil-else-pop byte-rel-goto-if-not-nil-else-pop))
+  '(byte-rel-goto byte-rel-goto-if-nil byte-rel-goto-if-not-nil
+		  byte-rel-goto-if-nil-else-pop byte-rel-goto-if-not-nil-else-pop)
   "byte-codes for relative jumps.")
 
 (byte-extrude-byte-code-vectors)
@@ -997,7 +995,7 @@ otherwise pop it")
 	      '(emacs19) '(emacs20)))))
 
 ;; now we can copy it.
-(setq byte-compiler-legal-options (purecopy byte-compiler-legal-options))
+(setq byte-compiler-legal-options byte-compiler-legal-options)
 
 (defun byte-compiler-options-handler (&rest args)
   (let (key val desc choices)
@@ -1229,7 +1227,10 @@ otherwise pop it")
 	      (setq var nil))
 	  (setq rest (cdr rest)))
 	;; if var is nil at this point, it's a defvar in this file.
-	(not var))))
+	(not var))
+      ;; Perhaps (eval-when-compile (defvar foo))
+      (and (boundp 'current-load-list)
+	   (memq var current-load-list))))
 
 
 ;;; If we have compiled bindings of variables which have no referents, warn.
@@ -1371,8 +1372,8 @@ Files in subdirectories of DIRECTORY are processed also."
 (defun byte-recompile-directory (directory &optional arg norecursion force)
   "Recompile every `.el' file in DIRECTORY that needs recompilation.
 This is if a `.elc' file exists but is older than the `.el' file.
-Files in subdirectories of DIRECTORY are processed also unless argument
-NORECURSION is non-nil.
+Files in subdirectories of DIRECTORY are also processed unless
+optional argument NORECURSION is non-nil.
 
 If the `.elc' file does not exist, normally the `.el' file is *not* compiled.
 But a prefix argument (optional second arg) means ask user,
@@ -1381,7 +1382,7 @@ don't ask and compile the file anyway.
 
 A nonzero prefix argument also means ask about each subdirectory.
 
-If the fourth argument FORCE is non-nil,
+If the fourth optional argument FORCE is non-nil,
 recompile every `.el' file that already has a `.elc' file."
   (interactive "DByte recompile directory: \nP")
   (if arg
@@ -2725,6 +2726,8 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 					 (if (eq base-op 'byte-varset)
 					     byte-compile-assigned-bit
 					   byte-compile-referenced-bit)))))
+	      (and (boundp 'current-load-list)
+		   (memq var current-load-list))
 	      (if (eq base-op 'byte-varset)
 		  (or (memq var byte-compile-free-assignments)
 		      (progn
@@ -3815,8 +3818,9 @@ If FORM is a lambda or a macro, byte-compile it as a function."
     (byte-compile-body-do-effect
      (list
       ;; Put the defined variable in this library's load-history entry
-      ;; just as a real defvar would, but only in top-level forms.
-      (when (null byte-compile-current-form)
+      ;; just as a real defvar would, but only in top-level forms with values.
+      (when (and (> (length form) 2)
+		 (null byte-compile-current-form))
 	`(push ',var current-load-list))
       (when (> (length form) 3)
 	(when (and string (not (stringp string)))
@@ -4094,7 +4098,7 @@ invoked interactively."
 Use this from the command line, with `-batch';
 it won't work in an interactive Emacs.
 Each file is processed even if an error occurred previously.
-For example, invoke \"xemacs -batch -f batch-byte-compile $emacs/ ~/*.el\""
+For example, invoke \"xemacs -batch -f batch-byte-compile $emacs/ ~/*.el\"."
   ;; command-line-args-left is what is left of the command line (from
   ;; startup.el)
   (defvar command-line-args-left)	;Avoid 'free variable' warning

@@ -385,8 +385,8 @@ int nodumpfile;
 int debug_paths;
 
 /* Save argv and argc.  */
-static Extbyte **initial_argv;
-static int initial_argc;
+static Extbyte **initial_argv;	/* #### currently unused */
+static int initial_argc;	/* #### currently unused */
 
 static void sort_args (int argc, char **argv);
 
@@ -1678,6 +1678,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_extents ();
       vars_of_faces ();
       vars_of_fileio ();
+#ifdef CLASH_DETECTION
+      vars_of_filelock ();
+#endif
       vars_of_floatfns ();
       vars_of_font_lock ();
       vars_of_frame ();
@@ -2912,13 +2915,13 @@ Remember to set `command-line-processed' to nil before dumping
 if you want the dumped XEmacs to process its command line
 and announce itself normally when it is run.
 */
-       (intoname, symname))
+       (filename, symfile))
 {
   /* This function can GC */
   struct gcpro gcpro1, gcpro2;
   int opurify;
 
-  GCPRO2 (intoname, symname);
+  GCPRO2 (filename, symfile);
 
 #ifdef FREE_CHECKING
   Freally_free (Qnil);
@@ -2927,15 +2930,15 @@ and announce itself normally when it is run.
   disable_free_hook ();
 #endif
 
-  CHECK_STRING (intoname);
-  intoname = Fexpand_file_name (intoname, Qnil);
-  if (!NILP (symname))
+  CHECK_STRING (filename);
+  filename = Fexpand_file_name (filename, Qnil);
+  if (!NILP (symfile))
     {
-      CHECK_STRING (symname);
-      if (XSTRING_LENGTH (symname) > 0)
-	symname = Fexpand_file_name (symname, Qnil);
+      CHECK_STRING (symfile);
+      if (XSTRING_LENGTH (symfile) > 0)
+	symfile = Fexpand_file_name (symfile, Qnil);
       else
-	symname = Qnil;
+	symfile = Qnil;
     }
 
   opurify = purify_flag;
@@ -2962,15 +2965,15 @@ and announce itself normally when it is run.
   UNGCPRO;
 
   {
-    char *intoname_ext;
-    char *symname_ext;
+    char *filename_ext;
+    char *symfile_ext;
 
-    LISP_STRING_TO_EXTERNAL (intoname, intoname_ext, Qfile_name);
+    LISP_STRING_TO_EXTERNAL (filename, filename_ext, Qfile_name);
 
-    if (STRINGP (symname))
-      LISP_STRING_TO_EXTERNAL (symname, symname_ext, Qfile_name);
+    if (STRINGP (symfile))
+      LISP_STRING_TO_EXTERNAL (symfile, symfile_ext, Qfile_name);
     else
-      symname_ext = 0;
+      symfile_ext = 0;
 
     garbage_collect_1 ();
 
@@ -2987,7 +2990,7 @@ and announce itself normally when it is run.
      modify all the unexec routines to ensure that filename
      conversion is applied everywhere.  Don't worry about memory
      leakage because this call only happens once. */
-    unexec (intoname_ext, symname_ext, (uintptr_t) my_edata, 0, 0);
+    unexec (filename_ext, symfile_ext, (uintptr_t) my_edata, 0, 0);
 #ifdef DOUG_LEA_MALLOC
     free (malloc_state_ptr);
 #endif
@@ -3521,7 +3524,7 @@ This is mainly meant for use in path searching.
 
   DEFVAR_LISP ("emacs-program-version", &Vemacs_program_version /*
 *Version of the Emacs variant.
-This typically has the form XX.XX[-bXX].
+This typically has the form NN.NN-bNN.
 This is mainly meant for use in path searching.
 */ );
   Vemacs_program_version = build_string ((char *) PATH_VERSION);
@@ -3540,7 +3543,7 @@ especially executable programs intended for XEmacs to invoke.
 
   DEFVAR_LISP ("configure-exec-directory", &Vconfigure_exec_directory /*
 For internal use by the build procedure only.
-configure's idea of what EXEC-DIRECTORY will be.
+configure's idea of what `exec-directory' will be.
 */ );
 #ifdef PATH_EXEC
   Vconfigure_exec_directory = Ffile_name_as_directory
@@ -3556,7 +3559,7 @@ configure's idea of what EXEC-DIRECTORY will be.
 
   DEFVAR_LISP ("configure-lisp-directory", &Vconfigure_lisp_directory /*
 For internal use by the build procedure only.
-configure's idea of what LISP-DIRECTORY will be.
+configure's idea of what `lisp-directory' will be.
 */ );
 #ifdef PATH_LOADSEARCH
   Vconfigure_lisp_directory = Ffile_name_as_directory
@@ -3572,7 +3575,7 @@ configure's idea of what LISP-DIRECTORY will be.
 
   DEFVAR_LISP ("configure-module-directory", &Vconfigure_module_directory /*
 For internal use by the build procedure only.
-configure's idea of what MODULE-DIRECTORY will be.
+configure's idea of what `module-directory' will be.
 */ );
 #ifdef PATH_MODULESEARCH
   Vconfigure_module_directory = Ffile_name_as_directory
@@ -3602,7 +3605,7 @@ functions `locate-data-file' and `locate-data-directory' and the variable
 
   DEFVAR_LISP ("configure-data-directory", &Vconfigure_data_directory /*
 For internal use by the build procedure only.
-configure's idea of what DATA-DIRECTORY will be.
+configure's idea of what `data-directory' will be.
 */ );
 #ifdef PATH_DATA
   Vconfigure_data_directory = Ffile_name_as_directory
@@ -3624,7 +3627,7 @@ or were installed as packages, and are intended for XEmacs to use.
 
   DEFVAR_LISP ("configure-site-directory", &Vconfigure_site_directory /*
 For internal use by the build procedure only.
-configure's idea of what SITE-DIRECTORY will be.
+configure's idea of what `site-directory' will be.
 */ );
 #ifdef PATH_SITE
   Vconfigure_site_directory = Ffile_name_as_directory
@@ -3640,7 +3643,7 @@ configure's idea of what SITE-DIRECTORY will be.
 
   DEFVAR_LISP ("configure-site-module-directory", &Vconfigure_site_module_directory /*
 For internal use by the build procedure only.
-configure's idea of what SITE-DIRECTORY will be.
+configure's idea of what `site-directory' will be.
 */ );
 #ifdef PATH_SITE_MODULES
   Vconfigure_site_module_directory = Ffile_name_as_directory
@@ -3651,13 +3654,13 @@ configure's idea of what SITE-DIRECTORY will be.
 
   DEFVAR_LISP ("doc-directory", &Vdoc_directory /*
 *Directory containing the DOC file that comes with XEmacs.
-This is usually the same as exec-directory.
+This is usually the same as `exec-directory'.
 */ );
   Vdoc_directory = Qnil;
 
   DEFVAR_LISP ("configure-doc-directory", &Vconfigure_doc_directory /*
 For internal use by the build procedure only.
-configure's idea of what DOC-DIRECTORY will be.
+configure's idea of what `doc-directory' will be.
 */ );
 #ifdef PATH_DOC
   Vconfigure_doc_directory = Ffile_name_as_directory
@@ -3668,7 +3671,7 @@ configure's idea of what DOC-DIRECTORY will be.
 
   DEFVAR_LISP ("configure-exec-prefix-directory", &Vconfigure_exec_prefix_directory /*
 For internal use by the build procedure only.
-configure's idea of what EXEC-PREFIX-DIRECTORY will be.
+configure's idea of what `exec-prefix-directory' will be.
 */ );
 #ifdef PATH_EXEC_PREFIX
   Vconfigure_exec_prefix_directory = Ffile_name_as_directory
@@ -3679,7 +3682,7 @@ configure's idea of what EXEC-PREFIX-DIRECTORY will be.
 
   DEFVAR_LISP ("configure-prefix-directory", &Vconfigure_prefix_directory /*
 For internal use by the build procedure only.
-configure's idea of what PREFIX-DIRECTORY will be.
+configure's idea of what `prefix-directory' will be.
 */ );
 #ifdef PATH_PREFIX
   Vconfigure_prefix_directory = Ffile_name_as_directory

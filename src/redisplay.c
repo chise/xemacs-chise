@@ -464,8 +464,7 @@ int column_number_start_at_one;
 
 Lisp_Object Qtop_bottom;
 
-#define WINDOW_SCROLLED(w) \
-(w->hscroll > 0 || w->left_xoffset)
+#define WINDOW_SCROLLED(w) ((w)->hscroll > 0 || (w)->left_xoffset)
 
 
 /***************************************************************************/
@@ -9293,7 +9292,7 @@ See also `overlay-arrow-string'.
 
   DEFVAR_LISP_MAGIC ("overlay-arrow-string", &Voverlay_arrow_string /*
 String or glyph to display as an arrow.  See also `overlay-arrow-position'.
-(Note that despite the name of this variable, it can be set to a glyph as
+\(Note that despite the name of this variable, it can be set to a glyph as
 well as a string.)
 */ ,
 		     redisplay_variable_changed);
@@ -9458,7 +9457,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, left_margin_width),
 			 some_window_value_changed,
 			 offsetof (struct frame, left_margin_width),
-			 margin_width_changed_in_frame);
+			 margin_width_changed_in_frame, 0);
 
   DEFVAR_SPECIFIER ("right-margin-width", &Vright_margin_width /*
 *Width of right margin.
@@ -9470,7 +9469,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, right_margin_width),
 			 some_window_value_changed,
 			 offsetof (struct frame, right_margin_width),
-			 margin_width_changed_in_frame);
+			 margin_width_changed_in_frame, 0);
 
   DEFVAR_SPECIFIER ("minimum-line-ascent", &Vminimum_line_ascent /*
 *Minimum ascent height of lines.
@@ -9481,7 +9480,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vminimum_line_ascent,
 			 offsetof (struct window, minimum_line_ascent),
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("minimum-line-descent", &Vminimum_line_descent /*
 *Minimum descent height of lines.
@@ -9492,7 +9491,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vminimum_line_descent,
 			 offsetof (struct window, minimum_line_descent),
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("use-left-overflow", &Vuse_left_overflow /*
 *Non-nil means use the left outside margin as extra whitespace when
@@ -9504,7 +9503,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vuse_left_overflow,
 			 offsetof (struct window, use_left_overflow),
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("use-right-overflow", &Vuse_right_overflow /*
 *Non-nil means use the right outside margin as extra whitespace when
@@ -9516,7 +9515,7 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vuse_right_overflow,
 			 offsetof (struct window, use_right_overflow),
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 
   DEFVAR_SPECIFIER ("text-cursor-visible-p", &Vtext_cursor_visible_p /*
 *Non-nil means the text cursor is visible (this is usually the case).
@@ -9527,6 +9526,6 @@ This is a specifier; use `set-specifier' to change it.
   set_specifier_caching (Vtext_cursor_visible_p,
 			 offsetof (struct window, text_cursor_visible_p),
 			 text_cursor_visible_p_changed,
-			 0, 0);
+			 0, 0, 0);
 
 }

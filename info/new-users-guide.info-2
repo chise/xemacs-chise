@@ -542,7 +542,7 @@ saved by reading the text from the file again (called "reverting"). For
 more information on this option, *Note Reverting: (xemacs)Reverting.
 
    When you save a file in Emacs, it destroys its old contents. However,
-if you set the variable MAKE-BACKUP-FILES to non-NIL i.e. `t', Emacs
+if you set the variable MAKE-BACKUP-FILES to non-`nil' i.e. `t', Emacs
 will create a "backup" file. Select the Describe variable option from
 the Help menu and look at the documentation for this variable. Its
 default value should be `t'. However, if its not then use `M-x
@@ -1096,7 +1096,7 @@ complete typing the whole string. All searches in Emacs ignore the case
 of the text they are searching, i.e. if you are searching for "String",
 then "string" will also be one of the selections. If you want a case
 sensitive search select the Case Sensitive Search from the Option menu.
-You can also set the variable CASE-FOLD-SEARCH to NIL for making
+You can also set the variable CASE-FOLD-SEARCH to `nil' for making
 searches case-sensitive. For information on setting variables, *Note
 Setting Variables::. The two commands for searching for strings in
 XEmacs are:

@@ -396,7 +396,7 @@ LOAD should be either a library file name, or a feature name."
 
 Define a theme labeled by SYMBOL THEME. The optional argument DOC is a
 doc string describing the theme. It is optionally followed by the
-following keyboard arguments
+following keyword arguments
 
 :short-description DESC
       DESC is a short (one line) description of the theme. If not given DOC
@@ -423,7 +423,7 @@ following keyboard arguments
   (memq theme custom-known-themes))
 
 (defsubst custom-check-theme (theme)
-  "Check whether THEME is valid and signal an error if NOT"
+  "Check whether THEME is valid and signal an error if NOT."
   (unless (custom-theme-p theme)
     (error "Unknown theme `%s'" theme)))
 
@@ -565,7 +565,7 @@ BODY is as with custom-theme-load-themes."
 
 
 (defsubst copy-upto-last (elt list)
-  "Copy all the elements of the list upto the last occurrence of elt"
+  "Copy all the elements of the list upto the last occurrence of elt."
   ;; Is it faster to do more work in C than to do less in elisp?
   (nreverse (cdr (member elt (reverse list)))))
 

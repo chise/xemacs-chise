@@ -1,8 +1,8 @@
 /* CCL (Code Conversion Language) interpreter.
-   Copyright (C) 1995, 1997, 1998, 1999 Electrotechnical Laboratory, JAPAN.
+   Copyright (C) 1995, 1997 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
 
-This file is part of XEmacs.
+This file is part of GNU Emacs.
 
 GNU Emacs is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -19,18 +19,15 @@ along with GNU Emacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Synched up with : FSF Emacs 20.3.10 without ExCCL
- *                   (including {Read|Write}MultibyteChar) */
+/* Synched up with : FSF Emacs 21.0.90 except TranslateCharacter */
 
 #ifdef emacs
-
 #include <config.h>
+#endif
 
-#if 0
-#ifdef STDC_HEADERS
-#include <stdlib.h>
-#endif
-#endif
+#include <stdio.h>
+
+#ifdef emacs
 
 #include "lisp.h"
 #include "buffer.h"
@@ -40,35 +37,34 @@ Boston, MA 02111-1307, USA.  */
 
 #else  /* not emacs */
 
-#include <stdio.h>
 #include "mulelib.h"
 
 #endif /* not emacs */
 
 /* This contains all code conversion map available to CCL.  */
-/*
 Lisp_Object Vcode_conversion_map_vector;
-*/
 
 /* Alist of fontname patterns vs corresponding CCL program.  */
 Lisp_Object Vfont_ccl_encoder_alist;
 
-/* This symbol is a property which assocates with ccl program vector.
+/* This symbol is a property which associates with ccl program vector.
    Ex: (get 'ccl-big5-encoder 'ccl-program) returns ccl program vector.  */
 Lisp_Object Qccl_program;
 
 /* These symbols are properties which associate with code conversion
    map and their ID respectively.  */
-/*
 Lisp_Object Qcode_conversion_map;
 Lisp_Object Qcode_conversion_map_id;
-*/
 
 /* Symbols of ccl program have this property, a value of the property
-   is an index for Vccl_protram_table. */
+   is an index for Vccl_program_table. */
 Lisp_Object Qccl_program_idx;
 
-/* Vector of CCL program names vs corresponding program data.  */
+/* Table of registered CCL programs.  Each element is a vector of
+   NAME, CCL_PROG, and RESOLVEDP where NAME (symbol) is the name of
+   the program, CCL_PROG (vector) is the compiled code of the program,
+   RESOLVEDP (t or nil) is the flag to tell if symbols in CCL_PROG is
+   already resolved to index numbers or not.  */
 Lisp_Object Vccl_program_table;
 
 /* CCL (Code Conversion Language) is a simple language which has
@@ -181,18 +177,18 @@ Lisp_Object Vccl_program_table;
 
 #define CCL_WriteConstJump	0x08 /* Write constant and jump:
 					1:A--D--D--R--E--S--S-000XXXXX
-					2:const
+					2:CONST
 					------------------------------
-					write (const);
+					write (CONST);
 					IC += ADDRESS;
 					*/
 
 #define CCL_WriteConstReadJump	0x09 /* Write constant, read, and jump:
 					1:A--D--D--R--E--S--S-rrrXXXXX
-					2:const
+					2:CONST
 					3:A--D--D--R--E--S--S-rrrYYYYY
 					-----------------------------
-					write (const);
+					write (CONST);
 					IC += 2;
 					read (reg[rrr]);
 					IC += ADDRESS;
@@ -300,10 +296,15 @@ Lisp_Object Vccl_program_table;
 					*/
 
 #define CCL_Call		0x13 /* Call the CCL program whose ID is
-					(CC..C).
-					1:CCCCCCCCCCCCCCCCCCCC000XXXXX
+					CC..C or cc..c.
+					1:CCCCCCCCCCCCCCCCCCCCFFFXXXXX
+					[2:00000000cccccccccccccccccccc]
 					------------------------------
-					call (CC..C)
+					if (FFF)
+					  call (cc..c)
+					  IC++;
+					else
+					  call (CC..C)
 					*/
 
 #define CCL_WriteConstString	0x14 /* Write a constant or a string:
@@ -422,9 +423,9 @@ Lisp_Object Vccl_program_table;
 					  IC += 2;
 					*/
 
-#define CCL_Extension		0x1F /* Extended CCL code
+#define CCL_Extention		0x1F /* Extended CCL code
 					1:ExtendedCOMMNDRrrRRRrrrXXXXX
-					2:ARGUEMENT
+					2:ARGUMENT
 					3:...
 					------------------------------
 					extended_command (rrr,RRR,Rrr,ARGS)
@@ -450,7 +451,6 @@ Lisp_Object Vccl_program_table;
 #define CCL_WriteMultibyteChar2	0x01 /* Write Multibyte Character
 					1:ExtendedCOMMNDRrrRRRrrrXXXXX  */
 
-#if 0
 /* Translate a character whose code point is reg[rrr] and the charset
    ID is reg[RRR] by a translation table whose ID is reg[Rrr].
 
@@ -480,7 +480,7 @@ Lisp_Object Vccl_program_table;
    If the element is t or lambda, finish without changing reg[rrr].
    If the element is a number, set reg[rrr] to the number and finish.
 
-   Detail of the map structure is descibed in the comment for
+   Detail of the map structure is described in the comment for
    CCL_MapMultiple below.  */
 
 #define CCL_IterateMultipleMap	0x10 /* Iterate multiple maps
@@ -504,7 +504,7 @@ Lisp_Object Vccl_program_table;
 	 (MAP-ID21
 	  (MAP-ID211 (MAP-ID2111) MAP-ID212)
 	  MAP-ID22)),
-   the compiled CCL codes has this sequence:
+   the compiled CCL code has this sequence:
 	CCL_MapMultiple (CCL code of this command)
 	16 (total number of MAPs and SEPARATORs)
 	-7 (1st SEPARATOR)
@@ -540,19 +540,26 @@ Lisp_Object Vccl_program_table;
    At first, VAL0 is set to reg[rrr], and it is translated by the
    first map to VAL1.  Then, VAL1 is translated by the next map to
    VAL2.  This mapping is iterated until the last map is used.  The
-   result of the mapping is the last value of VAL?.
+   result of the mapping is the last value of VAL?.  When the mapping
+   process reached to the end of the map set, it moves to the next
+   map set.  If the next does not exit, the mapping process terminates,
+   and regard the last value as a result.
 
    But, when VALm is mapped to VALn and VALn is not a number, the
-   mapping proceed as below:
+   mapping proceeds as follows:
 
    If VALn is nil, the lastest map is ignored and the mapping of VALm
-   proceed to the next map.
+   proceeds to the next map.
 
    In VALn is t, VALm is reverted to reg[rrr] and the mapping of VALm
-   proceed to the next map.
+   proceeds to the next map.
 
-   If VALn is lambda, the whole mapping process terminates, and VALm
-   is the result of this mapping.
+   If VALn is lambda, move to the next map set like reaching to the
+   end of the current map set.
+
+   If VALn is a symbol, call the CCL program refered by it.
+   Then, use reg[rrr] as a mapped value except for -1, -2 and -3.
+   Such special values are regarded as nil, t, and lambda respectively.
 
    Each map is a Lisp vector of the following format (a) or (b):
 	(a)......[STARTPOINT VAL1 VAL2 ...]
@@ -580,7 +587,7 @@ Lisp_Object Vccl_program_table;
 					 N:SEPARATOR_z (< 0)
 				      */
 
-#define MAX_MAP_SET_LEVEL 20
+#define MAX_MAP_SET_LEVEL 30
 
 typedef struct
 {
@@ -590,21 +597,45 @@ typedef struct
 
 static tr_stack mapping_stack[MAX_MAP_SET_LEVEL];
 static tr_stack *mapping_stack_pointer;
-#endif
 
-#define PUSH_MAPPING_STACK(restlen, orig)                 \
-{                                                           \
-  mapping_stack_pointer->rest_length = (restlen);         \
-  mapping_stack_pointer->orig_val = (orig);               \
-  mapping_stack_pointer++;                                \
-}
+/* If this variable is non-zero, it indicates the stack_idx
+   of immediately called by CCL_MapMultiple. */
+static int stack_idx_of_map_multiple = 0;
 
-#define POP_MAPPING_STACK(restlen, orig)                  \
-{                                                           \
-  mapping_stack_pointer--;                                \
-  (restlen) = mapping_stack_pointer->rest_length;         \
-  (orig) = mapping_stack_pointer->orig_val;               \
-}                                                           \
+#define PUSH_MAPPING_STACK(restlen, orig)		\
+  do {							\
+    mapping_stack_pointer->rest_length = (restlen);	\
+    mapping_stack_pointer->orig_val = (orig);		\
+    mapping_stack_pointer++;				\
+  } while (0)
+
+#define POP_MAPPING_STACK(restlen, orig)		\
+  do {							\
+    mapping_stack_pointer--;				\
+    (restlen) = mapping_stack_pointer->rest_length;	\
+    (orig) = mapping_stack_pointer->orig_val;		\
+  } while (0)
+
+#define CCL_CALL_FOR_MAP_INSTRUCTION(symbol, ret_ic)		\
+  do {								\
+    struct ccl_program called_ccl;				\
+    if (stack_idx >= 256					\
+	|| (setup_ccl_program (&called_ccl, (symbol)) != 0))	\
+      {								\
+	if (stack_idx > 0)					\
+	  {							\
+	    ccl_prog = ccl_prog_stack_struct[0].ccl_prog;	\
+	    ic = ccl_prog_stack_struct[0].ic;			\
+	  }							\
+	CCL_INVALID_CMD;					\
+      }								\
+    ccl_prog_stack_struct[stack_idx].ccl_prog = ccl_prog;	\
+    ccl_prog_stack_struct[stack_idx].ic = (ret_ic);		\
+    stack_idx++;						\
+    ccl_prog = called_ccl.prog;					\
+    ic = CCL_HEADER_MAIN;					\
+    goto ccl_repeat;						\
+  } while (0)
 
 #define CCL_MapSingle		0x12 /* Map by single code conversion map
 					1:ExtendedCOMMNDXXXRRRrrrXXXXX
@@ -643,100 +674,192 @@ static tr_stack *mapping_stack_pointer;
 #define CCL_ENCODE_SJIS 0x17	/* X = HIGHER_BYTE (SJIS (Y, Z))
 				   r[7] = LOWER_BYTE (SJIS (Y, Z) */
 
+/* Terminate CCL program successfully.  */
+#define CCL_SUCCESS		   	\
+  do {				   	\
+    ccl->status = CCL_STAT_SUCCESS;	\
+    goto ccl_finish;		   	\
+  } while (0)
+
 /* Suspend CCL program because of reading from empty input buffer or
    writing to full output buffer.  When this program is resumed, the
-   same I/O command is executed.  The `if (1)' is for warning suppression. */
+   same I/O command is executed.  */
 #define CCL_SUSPEND(stat)	\
   do {				\
     ic--;			\
     ccl->status = stat;		\
-    if (1) goto ccl_finish;	\
+    goto ccl_finish;		\
   } while (0)
 
 /* Terminate CCL program because of invalid command.  Should not occur
-   in the normal case.  The `if (1)' is for warning suppression. */
+   in the normal case.  */
 #define CCL_INVALID_CMD		     	\
   do {				     	\
     ccl->status = CCL_STAT_INVALID_CMD;	\
-    if (1) goto ccl_error_handler;	\
+    goto ccl_error_handler;	     	\
   } while (0)
 
 /* Encode one character CH to multibyte form and write to the current
-   output buffer.  If CH is less than 256, CH is written as is.  */
-#define CCL_WRITE_CHAR(ch) do {				\
-  if (!destination)					\
-    {							\
-      ccl->status = CCL_STAT_INVALID_CMD;		\
-      goto ccl_error_handler;				\
-    }							\
-  else							\
-    {							\
-      Bufbyte work[MAX_EMCHAR_LEN];			\
-      int len = ( ch < ( conversion_mode == CCL_MODE_ENCODING ? \
-                         256 : 128 ) ) ?			\
-	simple_set_charptr_emchar (work, ch) :		\
-	non_ascii_set_charptr_emchar (work, ch);	\
-      Dynarr_add_many (destination, work, len);		\
-    }							\
-} while (0)
+   output buffer.  At encoding time, if CH is less than 256, CH is
+   written as is.  At decoding time, if CH cannot be regarded as an
+   ASCII character, write it in multibyte form.  */
+#define CCL_WRITE_CHAR(ch)					\
+  do {								\
+    if (!destination)						\
+      CCL_INVALID_CMD;						\
+    if (conversion_mode == CCL_MODE_ENCODING)			\
+      {								\
+	if (ch == '\n')						\
+	  {							\
+	    if (ccl->eol_type == CCL_CODING_EOL_CRLF)		\
+	      {							\
+		Dynarr_add (destination, '\r');			\
+		Dynarr_add (destination, '\n');			\
+	      }							\
+	    else if (ccl->eol_type == CCL_CODING_EOL_CR)	\
+	      Dynarr_add (destination, '\r');			\
+	    else						\
+	      Dynarr_add (destination, '\n');			\
+	  }							\
+	else if (ch < 0x100)					\
+	  {							\
+	    Dynarr_add (destination, ch);			\
+	  }							\
+	else							\
+	  {							\
+	    Bufbyte work[MAX_EMCHAR_LEN];			\
+	    int len;						\
+	    len = non_ascii_set_charptr_emchar (work, ch);	\
+	    Dynarr_add_many (destination, work, len);		\
+	  }							\
+      }								\
+    else							\
+      {								\
+	if (!CHAR_MULTIBYTE_P(ch))				\
+	  {							\
+	    Dynarr_add (destination, ch);			\
+	  }							\
+	else							\
+	  {							\
+	    Bufbyte work[MAX_EMCHAR_LEN];			\
+	    int len;						\
+	    len = non_ascii_set_charptr_emchar (work, ch);	\
+	    Dynarr_add_many (destination, work, len);		\
+	  }							\
+      }								\
+  } while (0)
 
 /* Write a string at ccl_prog[IC] of length LEN to the current output
-   buffer.  */
-#define CCL_WRITE_STRING(len) do {				\
-  if (!destination)						\
-    {								\
-      ccl->status = CCL_STAT_INVALID_CMD;			\
-      goto ccl_error_handler;					\
-    }								\
-  else								\
-    {								\
-      Bufbyte work[MAX_EMCHAR_LEN];				\
-      for (i = 0; i < len; i++)					\
-	{							\
-	  int ch = (XINT (ccl_prog[ic + (i / 3)])		\
-		    >> ((2 - (i % 3)) * 8)) & 0xFF;		\
-	  int bytes =						\
-	    ( ch < ( conversion_mode == CCL_MODE_ENCODING ?	\
-		     256 : 128 ) ) ?				\
-	    simple_set_charptr_emchar (work, ch) :		\
-	    non_ascii_set_charptr_emchar (work, ch);		\
-	  Dynarr_add_many (destination, work, bytes);		\
-	}							\
-    }								\
-} while (0)
+   buffer.  But this macro treat this string as a binary.  Therefore,
+   cannot handle a multibyte string except for Control-1 characters. */
+#define CCL_WRITE_STRING(len)					\
+  do {								\
+    Bufbyte work[MAX_EMCHAR_LEN];				\
+    int ch, bytes;						\
+    if (!destination)						\
+      CCL_INVALID_CMD;						\
+    else if (conversion_mode == CCL_MODE_ENCODING)		\
+      {								\
+	for (i = 0; i < len; i++)				\
+	  {							\
+	    ch = ((XINT (ccl_prog[ic + (i / 3)]))		\
+		  >> ((2 - (i % 3)) * 8)) & 0xFF;		\
+	    if (ch == '\n')					\
+	      {							\
+		if (ccl->eol_type == CCL_CODING_EOL_CRLF)	\
+		  {						\
+		    Dynarr_add (destination, '\r');		\
+		    Dynarr_add (destination, '\n');		\
+		  }						\
+		else if (ccl->eol_type == CCL_CODING_EOL_CR)	\
+		  Dynarr_add (destination, '\r');		\
+		else						\
+		  Dynarr_add (destination, '\n');		\
+	      }							\
+	    if (ch < 0x100)					\
+	      {							\
+		Dynarr_add (destination, ch);			\
+	      }							\
+	    else						\
+	      {							\
+		bytes = non_ascii_set_charptr_emchar (work, ch); \
+		Dynarr_add_many (destination, work, len);	\
+	      }							\
+	  }							\
+      }								\
+    else							\
+      {								\
+	for (i = 0; i < len; i++)				\
+	  {							\
+	    ch = ((XINT (ccl_prog[ic + (i / 3)]))		\
+		  >> ((2 - (i % 3)) * 8)) & 0xFF;		\
+	    if (!CHAR_MULTIBYTE_P(ch))				\
+	      {							\
+		Dynarr_add (destination, ch);			\
+	      }							\
+	    else						\
+	      {							\
+		bytes = non_ascii_set_charptr_emchar (work, ch); \
+		Dynarr_add_many (destination, work, len);	\
+	      }							\
+	  }							\
+      }								\
+  } while (0)
 
 /* Read one byte from the current input buffer into Rth register.  */
-#define CCL_READ_CHAR(r) do {			\
-  if (!src && !ccl->last_block)			\
-    {						\
-      ccl->status = CCL_STAT_INVALID_CMD;	\
-      goto ccl_error_handler;			\
-    }						\
-  else if (src < src_end)			\
-    r = *src++;					\
-  else if (ccl->last_block)			\
-    {						\
-      ic = ccl->eof_ic;				\
-      goto ccl_repeat;				\
-    }						\
-  else						\
-    /* Suspend CCL program because of		\
-       reading from empty input buffer or	\
-       writing to full output buffer.		\
-       When this program is resumed, the	\
-       same I/O command is executed.  */	\
-    {						\
-      ic--;					\
-      ccl->status = CCL_STAT_SUSPEND_BY_SRC;	\
-      goto ccl_finish;				\
-    }						\
-} while (0)
+#define CCL_READ_CHAR(r)				\
+  do {							\
+    if (!src)						\
+      CCL_INVALID_CMD;					\
+    if (src < src_end)					\
+      r = *src++;					\
+    else						\
+      {							\
+	if (ccl->last_block)				\
+	  {						\
+	    ic = ccl->eof_ic;				\
+	    goto ccl_repeat;				\
+	  }						\
+	else						\
+	  CCL_SUSPEND (CCL_STAT_SUSPEND_BY_SRC);	\
+      }							\
+  } while (0)
+
+
+/* Set C to the character code made from CHARSET and CODE.  This is
+   like MAKE_CHAR but check the validity of CHARSET and CODE.  If they
+   are not valid, set C to (CODE & 0xFF) because that is usually the
+   case that CCL_ReadMultibyteChar2 read an invalid code and it set
+   CODE to that invalid byte.  */
+
+/* On XEmacs, TranslateCharacter is not supported.  Thus, this
+   macro is not used.  */
+#if 0
+#define CCL_MAKE_CHAR(charset, code, c)				\
+  do {								\
+    if (charset == CHARSET_ASCII)				\
+      c = code & 0xFF;						\
+    else if (CHARSET_DEFINED_P (charset)			\
+	     && (code & 0x7F) >= 32				\
+	     && (code < 256 || ((code >> 7) & 0x7F) >= 32))	\
+      {								\
+	int c1 = code & 0x7F, c2 = 0;				\
+								\
+	if (code >= 256)					\
+	  c2 = c1, c1 = (code >> 7) & 0x7F;			\
+	c = MAKE_CHAR (charset, c1, c2);			\
+      }								\
+    else							\
+      c = code & 0xFF;						\
+  } while (0)
+#endif
 
 
 /* Execute CCL code on SRC_BYTES length text at SOURCE.  The resulting
-   text goes to a place pointed by DESTINATION. The bytes actually
-   processed is returned as *CONSUMED.  The return value is the length
-   of the resulting text.  As a side effect, the contents of CCL registers
+   text goes to a place pointed by DESTINATION, the length of which
+   should not exceed DST_BYTES.  The bytes actually processed is
+   returned as *CONSUMED.  The return value is the length of the
+   resulting text.  As a side effect, the contents of CCL registers
    are updated.  If SOURCE or DESTINATION is NULL, only operations on
    registers are permitted.  */
 
@@ -756,17 +879,20 @@ struct ccl_prog_stack
 static struct ccl_prog_stack ccl_prog_stack_struct[256];
 
 int
-ccl_driver (struct ccl_program *ccl, const unsigned char *source,
-	    unsigned_char_dynarr *destination, int src_bytes,
-	    int *consumed, int conversion_mode)
+ccl_driver (struct ccl_program *ccl,
+	    const unsigned char *source,
+	    unsigned_char_dynarr *destination,
+	    int src_bytes,
+	    int *consumed,
+	    int conversion_mode)
 {
-  int *reg = ccl->reg;
-  int ic = ccl->ic;
-  int code = -1; /* init to illegal value,  */
-  int field1, field2;
-  Lisp_Object *ccl_prog = ccl->prog;
+  register int *reg = ccl->reg;
+  register int ic = ccl->ic;
+  register int code = -1;
+  register int field1, field2;
+  register Lisp_Object *ccl_prog = ccl->prog;
   const unsigned char *src = source, *src_end = src + src_bytes;
-  int jump_address = 0; /* shut up the compiler */
+  int jump_address;
   int i, j, op;
   int stack_idx = ccl->stack_idx;
   /* Instruction counter of the current CCL code. */
@@ -775,10 +901,11 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
   if (ic >= ccl->eof_ic)
     ic = CCL_HEADER_MAIN;
 
-#if 0 /* not for XEmacs ? */
   if (ccl->buf_magnification ==0) /* We can't produce any bytes.  */
-    dst = NULL;
-#endif
+    destination = NULL;
+
+  /* Set mapping stack pointer. */
+  mapping_stack_pointer = mapping_stack;
 
 #ifdef CCL_DEBUG
   ccl_backtrace_idx = 0;
@@ -927,7 +1054,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  i = reg[RRR];
 	  j = XINT (ccl_prog[ic]);
 	  op = field1 >> 6;
-	  ic++;
+	  jump_address = ic + 1;
 	  goto ccl_set_expr;
 
 	case CCL_WriteRegister:	/* CCCCCCCCCCCCCCCCCCCrrrXXXXX */
@@ -947,32 +1074,43 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  i = reg[RRR];
 	  j = reg[Rrr];
 	  op = field1 >> 6;
+	  jump_address = ic;
 	  goto ccl_set_expr;
 
-	case CCL_Call:		/* CCCCCCCCCCCCCCCCCCCC000XXXXX */
+	case CCL_Call:		/* 1:CCCCCCCCCCCCCCCCCCCCFFFXXXXX */
 	  {
 	    Lisp_Object slot;
+	    int prog_id;
+
+	    /* If FFF is nonzero, the CCL program ID is in the
+               following code.  */
+	    if (rrr)
+	      {
+		prog_id = XINT (ccl_prog[ic]);
+		ic++;
+	      }
+	    else
+	      prog_id = field1;
 
 	    if (stack_idx >= 256
-		|| field1 < 0
-		|| field1 >= XVECTOR_LENGTH (Vccl_program_table)
-		|| (slot = XVECTOR_DATA (Vccl_program_table)[field1],
-		    !CONSP (slot))
-		|| !VECTORP (XCDR (slot)))
+		|| prog_id < 0
+		|| prog_id >= XVECTOR (Vccl_program_table)->size
+		|| (slot = XVECTOR (Vccl_program_table)->contents[prog_id],
+		    !VECTORP (slot))
+		|| !VECTORP (XVECTOR (slot)->contents[1]))
 	      {
 		if (stack_idx > 0)
 		  {
 		    ccl_prog = ccl_prog_stack_struct[0].ccl_prog;
 		    ic = ccl_prog_stack_struct[0].ic;
 		  }
-		ccl->status = CCL_STAT_INVALID_CMD;
-		goto ccl_error_handler;
+		CCL_INVALID_CMD;
 	      }
 
 	    ccl_prog_stack_struct[stack_idx].ccl_prog = ccl_prog;
 	    ccl_prog_stack_struct[stack_idx].ic = ic;
 	    stack_idx++;
-	    ccl_prog = XVECTOR_DATA (XCDR (slot));
+	    ccl_prog = XVECTOR (XVECTOR (slot)->contents[1])->contents;
 	    ic = CCL_HEADER_MAIN;
 	  }
 	  break;
@@ -998,8 +1136,9 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  break;
 
 	case CCL_End:		/* 0000000000000000000000XXXXX */
-	  if (stack_idx-- > 0)
+	  if (stack_idx > 0)
 	    {
+	      stack_idx--;
 	      ccl_prog = ccl_prog_stack_struct[stack_idx].ccl_prog;
 	      ic = ccl_prog_stack_struct[stack_idx].ic;
 	      break;
@@ -1009,9 +1148,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  /* ccl->ic should points to this command code again to
              suppress further processing.  */
 	  ic--;
-	  /* Terminate CCL program successfully.  */
-	  ccl->status = CCL_STAT_SUCCESS;
-	  goto ccl_finish;
+	  CCL_SUCCESS;
 
 	case CCL_ExprSelfConst: /* 00000OPERATION000000rrrXXXXX */
 	  i = XINT (ccl_prog[ic]);
@@ -1045,9 +1182,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	    case CCL_LE: reg[rrr] = reg[rrr] <= i; break;
 	    case CCL_GE: reg[rrr] = reg[rrr] >= i; break;
 	    case CCL_NE: reg[rrr] = reg[rrr] != i; break;
-	    default:
-	      ccl->status = CCL_STAT_INVALID_CMD;
-	      goto ccl_error_handler;
+	    default: CCL_INVALID_CMD;
 	    }
 	  break;
 
@@ -1096,7 +1231,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	    case CCL_MOD: reg[rrr] = i % j; break;
 	    case CCL_AND: reg[rrr] = i & j; break;
 	    case CCL_OR: reg[rrr] = i | j; break;
-	    case CCL_XOR: reg[rrr] = i ^ j; break;
+	    case CCL_XOR: reg[rrr] = i ^ j;; break;
 	    case CCL_LSH: reg[rrr] = i << j; break;
 	    case CCL_RSH: reg[rrr] = i >> j; break;
 	    case CCL_LSH8: reg[rrr] = (i << 8) | j; break;
@@ -1108,23 +1243,32 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	    case CCL_LE: reg[rrr] = i <= j; break;
 	    case CCL_GE: reg[rrr] = i >= j; break;
 	    case CCL_NE: reg[rrr] = i != j; break;
-	    case CCL_DECODE_SJIS: DECODE_SJIS (i, j, reg[rrr], reg[7]); break;
-	    case CCL_ENCODE_SJIS: ENCODE_SJIS (i, j, reg[rrr], reg[7]); break;
-	    default:
-	      ccl->status = CCL_STAT_INVALID_CMD;
-	      goto ccl_error_handler;
+	    case CCL_DECODE_SJIS:
+	      /* DECODE_SJIS set MSB for internal format
+		 as opposed to Emacs.  */
+	      DECODE_SJIS (i, j, reg[rrr], reg[7]);
+	      reg[rrr] &= 0x7F;
+	      reg[7] &= 0x7F;
+	      break;
+	    case CCL_ENCODE_SJIS:
+	      /* ENCODE_SJIS assumes MSB of SJIS-char is set
+		 as opposed to Emacs.  */
+	      ENCODE_SJIS (i | 0x80, j | 0x80, reg[rrr], reg[7]);
+	      break;
+	    default: CCL_INVALID_CMD;
 	    }
 	  code &= 0x1F;
 	  if (code == CCL_WriteExprConst || code == CCL_WriteExprRegister)
 	    {
 	      i = reg[rrr];
 	      CCL_WRITE_CHAR (i);
+	      ic = jump_address;
 	    }
 	  else if (!reg[rrr])
 	    ic = jump_address;
 	  break;
 
-	case CCL_Extension:
+	case CCL_Extention:
 	  switch (EXCMD)
 	    {
 #ifndef UTF2000
@@ -1140,48 +1284,6 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		  }
 
 		i = *src++;
-#if 0
-		if (i == LEADING_CODE_COMPOSITION)
-		  {
-		    if (src >= src_end)
-		      goto ccl_read_multibyte_character_suspend;
-		    if (*src == 0xFF)
-		      {
-			ccl->private_state = COMPOSING_WITH_RULE_HEAD;
-			src++;
-		      }
-		    else
-		      ccl->private_state = COMPOSING_NO_RULE_HEAD;
-
-		    continue;
-		  }
-		if (ccl->private_state != COMPOSING_NO)
-		  {
-		    /* composite character */
-		    if (i < 0xA0)
-		      ccl->private_state = COMPOSING_NO;
-		    else
-		      {
-			if (COMPOSING_WITH_RULE_RULE == ccl->private_state)
-			  {
-			    ccl->private_state = COMPOSING_WITH_RULE_HEAD;
-			    continue;
-			  }
-			else if (COMPOSING_WITH_RULE_HEAD == ccl->private_state)
-			  ccl->private_state = COMPOSING_WITH_RULE_RULE;
-
-			if (i == 0xA0)
-			  {
-			    if (src >= src_end)
-			      goto ccl_read_multibyte_character_suspend;
-			    i = *src++ & 0x7F;
-			  }
-			else
-			  i -= 0x20;
-		      }
-		  }
-#endif
-
 		if (i < 0x80)
 		  {
 		    /* ASCII */
@@ -1248,14 +1350,10 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	      i = reg[RRR]; /* charset */
 	      if (i == LEADING_BYTE_ASCII)
 		i = reg[rrr] & 0xFF;
-#if 0
-	      else if (i == CHARSET_COMPOSITION)
-		i = MAKE_COMPOSITE_CHAR (reg[rrr]);
-#endif
 	      else if (XCHARSET_DIMENSION (CHARSET_BY_LEADING_BYTE (i)) == 1)
-		i = ((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
-		  | (reg[rrr] & 0x7F);
-	      else if (i < MIN_LEADING_BYTE_OFFICIAL_2)
+		i = (((i - FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7)
+		     | (reg[rrr] & 0x7F));
+	      else if (i < MAX_LEADING_BYTE_OFFICIAL_2)
 		i = ((i - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14) | reg[rrr];
 	      else
 		i = ((i - FIELD1_TO_PRIVATE_LEADING_BYTE) << 14) | reg[rrr];
@@ -1265,23 +1363,11 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	      break;
 #endif
 
-#if 0
 	    case CCL_TranslateCharacter:
-	      i = reg[RRR]; /* charset */
-	      if (i == LEADING_BYTE_ASCII)
-		i = reg[rrr];
-	      else if (i == CHARSET_COMPOSITION)
-		{
-		  reg[RRR] = -1;
-		  break;
-		}
-	      else if (CHARSET_DIMENSION (i) == 1)
-		i = ((i - 0x70) << 7) | (reg[rrr] & 0x7F);
-	      else if (i < MIN_LEADING_BYTE_OFFICIAL_2)
-		i = ((i - 0x8F) << 14) | (reg[rrr] & 0x3FFF);
-	      else
-		i = ((i - 0xE0) << 14) | (reg[rrr] & 0x3FFF);
-
+#if 0
+	      /* XEmacs does not have translate_char, and its
+		 equivalent nor.  We do nothing on this operation. */
+	      CCL_MAKE_CHAR (reg[RRR], reg[rrr], i);
 	      op = translate_char (GET_TRANSLATION_TABLE (reg[Rrr]),
 				   i, -1, 0, 0);
 	      SPLIT_CHAR (op, reg[RRR], i, j);
@@ -1289,32 +1375,23 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		i = (i << 7) | j;
 
 	      reg[rrr] = i;
+#endif
 	      break;
 
 	    case CCL_TranslateCharacterConstTbl:
+#if 0
+	      /* XEmacs does not have translate_char, and its
+		 equivalent nor.  We do nothing on this operation. */
 	      op = XINT (ccl_prog[ic]); /* table */
 	      ic++;
-	      i = reg[RRR]; /* charset */
-	      if (i == LEADING_BYTE_ASCII)
-		i = reg[rrr];
-	      else if (i == CHARSET_COMPOSITION)
-		{
-		  reg[RRR] = -1;
-		  break;
-		}
-	      else if (CHARSET_DIMENSION (i) == 1)
-		i = ((i - 0x70) << 7) | (reg[rrr] & 0x7F);
-	      else if (i < MIN_LEADING_BYTE_OFFICIAL_2)
-		i = ((i - 0x8F) << 14) | (reg[rrr] & 0x3FFF);
-	      else
-		i = ((i - 0xE0) << 14) | (reg[rrr] & 0x3FFF);
-
+	      CCL_MAKE_CHAR (reg[RRR], reg[rrr], i);
 	      op = translate_char (GET_TRANSLATION_TABLE (op), i, -1, 0, 0);
 	      SPLIT_CHAR (op, reg[RRR], i, j);
 	      if (j != -1)
 		i = (i << 7) | j;
 
 	      reg[rrr] = i;
+#endif
 	      break;
 
 	    case CCL_IterateMultipleMap:
@@ -1346,9 +1423,9 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		    map =
 		      XVECTOR (Vcode_conversion_map_vector)->contents[point];
 
-		    /* Check map varidity.  */
+		    /* Check map validity.  */
 		    if (!CONSP (map)) continue;
-		    map = XCONS(map)->cdr;
+		    map = XCDR (map);
 		    if (!VECTORP (map)) continue;
 		    size = XVECTOR (map)->size;
 		    if (size <= 1) continue;
@@ -1357,8 +1434,8 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 
 		    /* check map type,
 		       [STARTPOINT VAL1 VAL2 ...] or
-		       [t ELELMENT STARTPOINT ENDPOINT]  */
-		    if (NUMBERP (content))
+		       [t ELEMENT STARTPOINT ENDPOINT]  */
+		    if (INTP (content))
 		      {
 			point = XUINT (content);
 			point = op - point + 1;
@@ -1379,7 +1456,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 
 		    if (NILP (content))
 		      continue;
-		    else if (NUMBERP (content))
+		    else if (INTP (content))
 		      {
 			reg[RRR] = i;
 			reg[rrr] = XINT(content);
@@ -1392,14 +1469,18 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		      }
 		    else if (CONSP (content))
 		      {
-			attrib = XCONS (content)->car;
-			value = XCONS (content)->cdr;
-			if (!NUMBERP (attrib) || !NUMBERP (value))
+			attrib = XCAR (content);
+			value = XCDR (content);
+			if (!INTP (attrib) || !INTP (value))
 			  continue;
 			reg[RRR] = i;
 			reg[rrr] = XUINT (value);
 			break;
 		      }
+		    else if (SYMBOLP (content))
+		      CCL_CALL_FOR_MAP_INSTRUCTION (content, fin_ic);
+		    else
+		      CCL_INVALID_CMD;
 		  }
 		if (i == j)
 		  reg[RRR] = -1;
@@ -1412,10 +1493,27 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		Lisp_Object map, content, attrib, value;
 		int point, size, map_vector_size;
 		int map_set_rest_length, fin_ic;
+		int current_ic = this_ic;
+
+		/* inhibit recursive call on MapMultiple. */
+		if (stack_idx_of_map_multiple > 0)
+		  {
+		    if (stack_idx_of_map_multiple <= stack_idx)
+		      {
+			stack_idx_of_map_multiple = 0;
+			mapping_stack_pointer = mapping_stack;
+			CCL_INVALID_CMD;
+		      }
+		  }
+		else
+		  mapping_stack_pointer = mapping_stack;
+		stack_idx_of_map_multiple = 0;
 
 		map_set_rest_length =
 		  XINT (ccl_prog[ic++]); /* number of maps and separators. */
 		fin_ic = ic + map_set_rest_length;
+		op = reg[rrr];
+
 		if ((map_set_rest_length > reg[RRR]) && (reg[RRR] >= 0))
 		  {
 		    ic += reg[RRR];
@@ -1426,100 +1524,165 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		  {
 		    ic = fin_ic;
 		    reg[RRR] = -1;
+		    mapping_stack_pointer = mapping_stack;
 		    break;
 		  }
-		mapping_stack_pointer = mapping_stack;
-		op = reg[rrr];
-		PUSH_MAPPING_STACK (0, op);
-		reg[RRR] = -1;
-		map_vector_size = XVECTOR (Vcode_conversion_map_vector)->size;
-		for (;map_set_rest_length > 0;i++, map_set_rest_length--)
+
+		if (mapping_stack_pointer <= (mapping_stack + 1))
 		  {
-		    point = XINT(ccl_prog[ic++]);
-		    if (point < 0)
-		      {
-			point = -point;
-			if (mapping_stack_pointer
-			    >= &mapping_stack[MAX_MAP_SET_LEVEL])
-			  {
-			    CCL_INVALID_CMD;
-			  }
-			PUSH_MAPPING_STACK (map_set_rest_length - point,
-					    reg[rrr]);
-			map_set_rest_length = point + 1;
-			reg[rrr] = op;
-			continue;
-		      }
+		    /* Set up initial state. */
+		    mapping_stack_pointer = mapping_stack;
+		    PUSH_MAPPING_STACK (0, op);
+		    reg[RRR] = -1;
+		  }
+		else
+		  {
+		    /* Recover after calling other ccl program. */
+		    int orig_op;
 
-		    if (point >= map_vector_size) continue;
-		    map = (XVECTOR (Vcode_conversion_map_vector)
-			   ->contents[point]);
-
-		    /* Check map varidity.  */
-		    if (!CONSP (map)) continue;
-		    map = XCONS (map)->cdr;
-		    if (!VECTORP (map)) continue;
-		    size = XVECTOR (map)->size;
-		    if (size <= 1) continue;
-
-		    content = XVECTOR (map)->contents[0];
-
-		    /* check map type,
-		       [STARTPOINT VAL1 VAL2 ...] or
-		       [t ELEMENT STARTPOINT ENDPOINT]  */
-		    if (NUMBERP (content))
+		    POP_MAPPING_STACK (map_set_rest_length, orig_op);
+		    POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+		    switch (op)
 		      {
-			point = XUINT (content);
-			point = op - point + 1;
-			if (!((point >= 1) && (point < size))) continue;
-			content = XVECTOR (map)->contents[point];
-		      }
-		    else if (EQ (content, Qt))
-		      {
-			if (size != 4) continue;
-			if ((op >= XUINT (XVECTOR (map)->contents[2])) &&
-			    (op < XUINT (XVECTOR (map)->contents[3])))
-			  content = XVECTOR (map)->contents[1];
-			else
-			  continue;
-		      }
-		    else
-		      continue;
-
-		    if (NILP (content))
-		      continue;
-		    else if (NUMBERP (content))
-		      {
-			op = XINT (content);
-			reg[RRR] = i;
-			i += map_set_rest_length;
-			POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
-		      }
-		    else if (CONSP (content))
-		      {
-			attrib = XCONS (content)->car;
-			value = XCONS (content)->cdr;
-			if (!NUMBERP (attrib) || !NUMBERP (value))
-			  continue;
-			reg[RRR] = i;
-			op = XUINT (value);
-			i += map_set_rest_length;
-			POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
-		      }
-		    else if (EQ (content, Qt))
-		      {
-			reg[RRR] = i;
+		      case -1:
+			/* Regard it as Qnil. */
+			op = orig_op;
+			i++;
+			ic++;
+			map_set_rest_length--;
+			break;
+		      case -2:
+			/* Regard it as Qt. */
 			op = reg[rrr];
+			i++;
+			ic++;
+			map_set_rest_length--;
+			break;
+		      case -3:
+			/* Regard it as Qlambda. */
+			op = orig_op;
 			i += map_set_rest_length;
+			ic += map_set_rest_length;
+			map_set_rest_length = 0;
+			break;
+		      default:
+			/* Regard it as normal mapping. */
+			i += map_set_rest_length;
+			ic += map_set_rest_length;
 			POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
-		      }
-		    else if (EQ (content, Qlambda))
-		      {
 			break;
 		      }
-		    else
-		      CCL_INVALID_CMD;
 		  }
+		map_vector_size = XVECTOR (Vcode_conversion_map_vector)->size;
+
+		do {
+		  for (;map_set_rest_length > 0;i++, ic++, map_set_rest_length--)
+		    {
+		      point = XINT(ccl_prog[ic]);
+		      if (point < 0)
+			{
+			  /* +1 is for including separator. */
+			  point = -point + 1;
+			  if (mapping_stack_pointer
+			      >= &mapping_stack[MAX_MAP_SET_LEVEL])
+			    CCL_INVALID_CMD;
+			  PUSH_MAPPING_STACK (map_set_rest_length - point,
+					      reg[rrr]);
+			  map_set_rest_length = point;
+			  reg[rrr] = op;
+			  continue;
+			}
+
+		      if (point >= map_vector_size) continue;
+		      map = (XVECTOR (Vcode_conversion_map_vector)
+			     ->contents[point]);
+
+		      /* Check map validity.  */
+		      if (!CONSP (map)) continue;
+		      map = XCDR (map);
+		      if (!VECTORP (map)) continue;
+		      size = XVECTOR (map)->size;
+		      if (size <= 1) continue;
+
+		      content = XVECTOR (map)->contents[0];
+
+		      /* check map type,
+			 [STARTPOINT VAL1 VAL2 ...] or
+			 [t ELEMENT STARTPOINT ENDPOINT]  */
+		      if (INTP (content))
+			{
+			  point = XUINT (content);
+			  point = op - point + 1;
+			  if (!((point >= 1) && (point < size))) continue;
+			  content = XVECTOR (map)->contents[point];
+			}
+		      else if (EQ (content, Qt))
+			{
+			  if (size != 4) continue;
+			  if ((op >= XUINT (XVECTOR (map)->contents[2])) &&
+			      (op < XUINT (XVECTOR (map)->contents[3])))
+			    content = XVECTOR (map)->contents[1];
+			  else
+			    continue;
+			}
+		      else
+			continue;
+
+		      if (NILP (content))
+			continue;
+
+		      reg[RRR] = i;
+		      if (INTP (content))
+			{
+			  op = XINT (content);
+			  i += map_set_rest_length - 1;
+			  ic += map_set_rest_length - 1;
+			  POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+			  map_set_rest_length++;
+			}
+		      else if (CONSP (content))
+			{
+			  attrib = XCAR (content);
+			  value = XCDR (content);
+			  if (!INTP (attrib) || !INTP (value))
+			    continue;
+			  op = XUINT (value);
+			  i += map_set_rest_length - 1;
+			  ic += map_set_rest_length - 1;
+			  POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+			  map_set_rest_length++;
+			}
+		      else if (EQ (content, Qt))
+			{
+			  op = reg[rrr];
+			}
+		      else if (EQ (content, Qlambda))
+			{
+			  i += map_set_rest_length;
+			  ic += map_set_rest_length;
+			  break;
+			}
+		      else if (SYMBOLP (content))
+			{
+			  if (mapping_stack_pointer
+			      >= &mapping_stack[MAX_MAP_SET_LEVEL])
+			    CCL_INVALID_CMD;
+			  PUSH_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+			  PUSH_MAPPING_STACK (map_set_rest_length, op);
+			  stack_idx_of_map_multiple = stack_idx + 1;
+			  CCL_CALL_FOR_MAP_INSTRUCTION (content, current_ic);
+			}
+		      else
+			CCL_INVALID_CMD;
+		    }
+		  if (mapping_stack_pointer <= (mapping_stack + 1))
+		    break;
+		  POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+		  i += map_set_rest_length;
+		  ic += map_set_rest_length;
+		  POP_MAPPING_STACK (map_set_rest_length, reg[rrr]);
+		} while (1);
+
 		ic = fin_ic;
 	      }
 	      reg[rrr] = op;
@@ -1542,7 +1705,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		    reg[RRR] = -1;
 		    break;
 		  }
-		map = XCONS(map)->cdr;
+		map = XCDR (map);
 		if (!VECTORP (map))
 		  {
 		    reg[RRR] = -1;
@@ -1557,28 +1720,29 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 		  reg[RRR] = -1;
 		else
 		  {
+		    reg[RRR] = 0;
 		    content = XVECTOR (map)->contents[point];
 		    if (NILP (content))
 		      reg[RRR] = -1;
-		    else if (NUMBERP (content))
+		    else if (INTP (content))
 		      reg[rrr] = XINT (content);
-		    else if (EQ (content, Qt))
-		      reg[RRR] = i;
+		    else if (EQ (content, Qt));
 		    else if (CONSP (content))
 		      {
-			attrib = XCONS (content)->car;
-			value = XCONS (content)->cdr;
-			if (!NUMBERP (attrib) || !NUMBERP (value))
+			attrib = XCAR (content);
+			value = XCDR (content);
+			if (!INTP (attrib) || !INTP (value))
 			  continue;
 			reg[rrr] = XUINT(value);
 			break;
 		      }
+		    else if (SYMBOLP (content))
+		      CCL_CALL_FOR_MAP_INSTRUCTION (content, ic);
 		    else
 		      reg[RRR] = -1;
 		  }
 	      }
 	      break;
-#endif
 
 	    default:
 	      CCL_INVALID_CMD;
@@ -1586,8 +1750,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  break;
 
 	default:
-	  ccl->status = CCL_STAT_INVALID_CMD;
-	  goto ccl_error_handler;
+	  CCL_INVALID_CMD;
 	}
     }
 
@@ -1599,15 +1762,8 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
          there.  */
       char msg[256];
 
-#if 0 /* not for XEmacs ? */
-      if (!dst)
-	dst = destination;
-#endif
-
       switch (ccl->status)
 	{
-	  /* Terminate CCL program because of invalid command.
-	     Should not occur in the normal case.  */
 	case CCL_STAT_INVALID_CMD:
 	  sprintf(msg, "\nCCL: Invalid command %x (ccl_code = %x) at %d.",
 		  code & 0x1F, code, this_ic);
@@ -1632,7 +1788,7 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
 	  break;
 
 	case CCL_STAT_QUIT:
-	  sprintf(msg, "\nCCL: Quited.");
+	  sprintf(msg, "\nCCL: Exited.");
 	  break;
 
 	default:
@@ -1647,26 +1803,137 @@ ccl_driver (struct ccl_program *ccl, const unsigned char *source,
   ccl->stack_idx = stack_idx;
   ccl->prog = ccl_prog;
   if (consumed) *consumed = src - source;
-  if (destination)
-    return Dynarr_length (destination);
-  else
+  if (!destination)
     return 0;
+  return Dynarr_length (destination);
+}
+
+/* Resolve symbols in the specified CCL code (Lisp vector).  This
+   function converts symbols of code conversion maps and character
+   translation tables embedded in the CCL code into their ID numbers.
+
+   The return value is a vector (CCL itself or a new vector in which
+   all symbols are resolved), Qt if resolving of some symbol failed,
+   or nil if CCL contains invalid data.  */
+
+static Lisp_Object
+resolve_symbol_ccl_program (Lisp_Object ccl)
+{
+  int i, veclen, unresolved = 0;
+  Lisp_Object result, contents, val;
+
+  result = ccl;
+  veclen = XVECTOR (result)->size;
+
+  for (i = 0; i < veclen; i++)
+    {
+      contents = XVECTOR (result)->contents[i];
+      if (INTP (contents))
+	continue;
+      else if (CONSP (contents)
+	       && SYMBOLP (XCAR (contents))
+	       && SYMBOLP (XCDR (contents)))
+	{
+	  /* This is the new style for embedding symbols.  The form is
+	     (SYMBOL . PROPERTY).  (get SYMBOL PROPERTY) should give
+	     an index number.  */
+
+	  if (EQ (result, ccl))
+	    result =  Fcopy_sequence (ccl);
+
+	  val = Fget (XCAR (contents), XCDR (contents), Qnil);
+	  if (NATNUMP (val))
+	    XVECTOR (result)->contents[i] = val;
+	  else
+	    unresolved = 1;
+	  continue;
+	}
+      else if (SYMBOLP (contents))
+	{
+	  /* This is the old style for embedding symbols.  This style
+             may lead to a bug if, for instance, a translation table
+             and a code conversion map have the same name.  */
+	  if (EQ (result, ccl))
+	    result = Fcopy_sequence (ccl);
+
+	  val = Fget (contents, Qcode_conversion_map_id, Qnil);
+	  if (NATNUMP (val))
+	    XVECTOR (result)->contents[i] = val;
+	  else
+	    {
+	      val = Fget (contents, Qccl_program_idx, Qnil);
+	      if (NATNUMP (val))
+		XVECTOR (result)->contents[i] = val;
+	      else
+		unresolved = 1;
+	    }
+	  continue;
+	}
+      return Qnil;
+    }
+
+  return (unresolved ? Qt : result);
+}
+
+/* Return the compiled code (vector) of CCL program CCL_PROG.
+   CCL_PROG is a name (symbol) of the program or already compiled
+   code.  If necessary, resolve symbols in the compiled code to index
+   numbers.  If we failed to get the compiled code or to resolve
+   symbols, return Qnil.  */
+
+static Lisp_Object
+ccl_get_compiled_code (Lisp_Object ccl_prog)
+{
+  Lisp_Object val, slot;
+
+  if (VECTORP (ccl_prog))
+    {
+      val = resolve_symbol_ccl_program (ccl_prog);
+      return (VECTORP (val) ? val : Qnil);
+    }
+  if (!SYMBOLP (ccl_prog))
+    return Qnil;
+
+  val = Fget (ccl_prog, Qccl_program_idx, Qnil);
+  if (! NATNUMP (val)
+      || XINT (val) >= XVECTOR_LENGTH (Vccl_program_table))
+    return Qnil;
+  slot = XVECTOR_DATA (Vccl_program_table)[XINT (val)];
+  if (! VECTORP (slot)
+      || XVECTOR (slot)->size != 3
+      || ! VECTORP (XVECTOR_DATA (slot)[1]))
+    return Qnil;
+  if (NILP (XVECTOR_DATA (slot)[2]))
+    {
+      val = resolve_symbol_ccl_program (XVECTOR_DATA (slot)[1]);
+      if (! VECTORP (val))
+	return Qnil;
+      XVECTOR_DATA (slot)[1] = val;
+      XVECTOR_DATA (slot)[2] = Qt;
+    }
+  return XVECTOR_DATA (slot)[1];
 }
 
 /* Setup fields of the structure pointed by CCL appropriately for the
-   execution of compiled CCL code in VEC (vector of integer).
-   If VEC is nil, we skip setting ups based on VEC.  */
-void
-setup_ccl_program (struct ccl_program *ccl, Lisp_Object vec)
+   execution of CCL program CCL_PROG.  CCL_PROG is the name (symbol)
+   of the CCL program or the already compiled code (vector).
+   Return 0 if we succeed this setup, else return -1.
+
+   If CCL_PROG is nil, we just reset the structure pointed by CCL.  */
+int
+setup_ccl_program (struct ccl_program *ccl, Lisp_Object ccl_prog)
 {
   int i;
 
-  if (VECTORP (vec))
+  if (! NILP (ccl_prog))
     {
-      ccl->size = XVECTOR_LENGTH (vec);
-      ccl->prog = XVECTOR_DATA (vec);
-      ccl->eof_ic = XINT (XVECTOR_DATA (vec)[CCL_HEADER_EOF]);
-      ccl->buf_magnification = XINT (XVECTOR_DATA (vec)[CCL_HEADER_BUF_MAG]);
+      ccl_prog = ccl_get_compiled_code (ccl_prog);
+      if (! VECTORP (ccl_prog))
+	return -1;
+      ccl->size = XVECTOR_LENGTH (ccl_prog);
+      ccl->prog = XVECTOR_DATA (ccl_prog);
+      ccl->eof_ic = XINT (XVECTOR_DATA (ccl_prog)[CCL_HEADER_EOF]);
+      ccl->buf_magnification = XINT (XVECTOR_DATA (ccl_prog)[CCL_HEADER_BUF_MAG]);
     }
   ccl->ic = CCL_HEADER_MAIN;
   for (i = 0; i < 8; i++)
@@ -1675,115 +1942,81 @@ setup_ccl_program (struct ccl_program *ccl, Lisp_Object vec)
   ccl->private_state = 0;
   ccl->status = 0;
   ccl->stack_idx = 0;
+  ccl->eol_type = CCL_CODING_EOL_LF;
+  return 0;
 }
-
-/* Resolve symbols in the specified CCL code (Lisp vector).  This
-   function converts symbols of code conversion maps and character
-   translation tables embeded in the CCL code into their ID numbers.  */
-
-static Lisp_Object
-resolve_symbol_ccl_program (Lisp_Object ccl)
-{
-  int i, veclen;
-  Lisp_Object result, contents /*, prop */;
-
-  result = ccl;
-  veclen = XVECTOR_LENGTH (result);
-
-  /* Set CCL program's table ID */
-  for (i = 0; i < veclen; i++)
-    {
-      contents = XVECTOR_DATA (result)[i];
-      if (SYMBOLP (contents))
-	{
-	  if (EQ(result, ccl))
-	    result = Fcopy_sequence (ccl);
-
-#if 0
-	  prop = Fget (contents, Qtranslation_table_id);
-	  if (NUMBERP (prop))
-	    {
-	      XVECTOR_DATA (result)[i] = prop;
-	      continue;
-	    }
-	  prop = Fget (contents, Qcode_conversion_map_id);
-	  if (NUMBERP (prop))
-	    {
-	      XVECTOR_DATA (result)[i] = prop;
-	      continue;
-	    }
-	  prop = Fget (contents, Qccl_program_idx);
-	  if (NUMBERP (prop))
-	    {
-	      XVECTOR_DATA (result)[i] = prop;
-	      continue;
-	    }
-#endif
-	}
-    }
-
-  return result;
-}
-
 
 #ifdef emacs
+
+DEFUN ("ccl-program-p", Fccl_program_p, 1, 1, 0, /*
+Return t if OBJECT is a CCL program name or a compiled CCL program code.
+See the documentation of  `define-ccl-program' for the detail of CCL program.
+*/
+       (object))
+{
+  Lisp_Object val;
+
+  if (VECTORP (object))
+    {
+      val = resolve_symbol_ccl_program (object);
+      return (VECTORP (val) ? Qt : Qnil);
+    }
+  if (!SYMBOLP (object))
+    return Qnil;
+
+  val = Fget (object, Qccl_program_idx, Qnil);
+  return ((! NATNUMP (val)
+	   || XINT (val) >= XVECTOR_LENGTH (Vccl_program_table))
+	  ? Qnil : Qt);
+}
 
 DEFUN ("ccl-execute", Fccl_execute, 2, 2, 0, /*
 Execute CCL-PROGRAM with registers initialized by REGISTERS.
 
-CCL-PROGRAM is a symbol registered by register-ccl-program,
+CCL-PROGRAM is a CCL program name (symbol)
 or a compiled code generated by `ccl-compile' (for backward compatibility,
-in this case, the execution is slower).
+in this case, the overhead of the execution is bigger than the former case).
 No I/O commands should appear in CCL-PROGRAM.
 
 REGISTERS is a vector of [R0 R1 ... R7] where RN is an initial value
  of Nth register.
 
-As side effect, each element of REGISTER holds the value of
+As side effect, each element of REGISTERS holds the value of
  corresponding register after the execution.
+
+See the documentation of `define-ccl-program' for the detail of CCL program.
 */
-  (ccl_prog, reg))
+       (ccl_prog, reg))
 {
   struct ccl_program ccl;
   int i;
-  Lisp_Object ccl_id;
 
-  if (SYMBOLP (ccl_prog) &&
-      !NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil)))
-    {
-      ccl_prog = XVECTOR_DATA (Vccl_program_table)[XUINT (ccl_id)];
-      CHECK_LIST (ccl_prog);
-      ccl_prog = XCDR (ccl_prog);
-      CHECK_VECTOR (ccl_prog);
-    }
-  else
-    {
-      CHECK_VECTOR (ccl_prog);
-      ccl_prog = resolve_symbol_ccl_program (ccl_prog);
-    }
+  if (setup_ccl_program (&ccl, ccl_prog) < 0)
+    error ("Invalid CCL program");
 
   CHECK_VECTOR (reg);
   if (XVECTOR_LENGTH (reg) != 8)
-    error ("Invalid length of vector REGISTERS");
+    error ("Length of vector REGISTERS is not 8");
 
-  setup_ccl_program (&ccl, ccl_prog);
   for (i = 0; i < 8; i++)
     ccl.reg[i] = (INTP (XVECTOR_DATA (reg)[i])
 		  ? XINT (XVECTOR_DATA (reg)[i])
 		  : 0);
 
-  ccl_driver (&ccl, (const unsigned char *)0, (unsigned_char_dynarr *)0,
-	      0, (int *)0, CCL_MODE_ENCODING);
+  ccl_driver (&ccl, (const unsigned char *)0,
+	      (unsigned_char_dynarr *)0, 0, (int *)0,
+	      CCL_MODE_ENCODING);
   QUIT;
   if (ccl.status != CCL_STAT_SUCCESS)
     error ("Error in CCL program at %dth code", ccl.ic);
 
   for (i = 0; i < 8; i++)
-    XSETINT (XVECTOR_DATA (reg)[i], ccl.reg[i]);
+    XSETINT (XVECTOR (reg)->contents[i], ccl.reg[i]);
   return Qnil;
 }
 
-DEFUN ("ccl-execute-on-string", Fccl_execute_on_string, 3, 4, 0, /*
+DEFUN ("ccl-execute-on-string", Fccl_execute_on_string,
+       3, 4, 0, /*
 Execute CCL-PROGRAM with initial STATUS on STRING.
 
 CCL-PROGRAM is a symbol registered by register-ccl-program,
@@ -1792,7 +2025,6 @@ in this case, the execution is slower).
 
 Read buffer is set to STRING, and write buffer is allocated automatically.
 
-If IC is nil, it is initialized to head of the CCL program.\n\
 STATUS is a vector of [R0 R1 ... R7 IC], where
  R0..R7 are initial values of corresponding registers,
  IC is the instruction counter specifying from where to start the program.
@@ -1800,42 +2032,32 @@ If R0..R7 are nil, they are initialized to 0.
 If IC is nil, it is initialized to head of the CCL program.
 
 If optional 4th arg CONTINUE is non-nil, keep IC on read operation
-when read buffer is exausted, else, IC is always set to the end of
+when read buffer is exhausted, else, IC is always set to the end of
 CCL-PROGRAM on exit.
 
 It returns the contents of write buffer as a string,
  and as side effect, STATUS is updated.
+
+See the documentation of `define-ccl-program' for the detail of CCL program.
 */
-  (ccl_prog, status, str, contin))
+       (ccl_prog, status, string, continue_))
 {
   Lisp_Object val;
   struct ccl_program ccl;
   int i, produced;
   unsigned_char_dynarr *outbuf;
-  struct gcpro gcpro1, gcpro2, gcpro3;
-  Lisp_Object ccl_id;
+  struct gcpro gcpro1, gcpro2;
 
-  if (SYMBOLP (ccl_prog) &&
-      !NILP (ccl_id = Fget (ccl_prog, Qccl_program_idx, Qnil)))
-    {
-      ccl_prog = XVECTOR (Vccl_program_table)->contents[XUINT (ccl_id)];
-      CHECK_LIST (ccl_prog);
-      ccl_prog = XCDR (ccl_prog);
-      CHECK_VECTOR (ccl_prog);
-    }
-  else
-    {
-      CHECK_VECTOR (ccl_prog);
-      ccl_prog = resolve_symbol_ccl_program (ccl_prog);
-    }
+  if (setup_ccl_program (&ccl, ccl_prog) < 0)
+    error ("Invalid CCL program");
 
   CHECK_VECTOR (status);
-  if (XVECTOR_LENGTH (status) != 9)
-    signal_simple_error ("Vector should be of length 9", status);
-  CHECK_STRING (str);
-  GCPRO3 (ccl_prog, status, str);
+  if (XVECTOR (status)->size != 9)
+    error ("Length of vector STATUS is not 9");
+  CHECK_STRING (string);
 
-  setup_ccl_program (&ccl, ccl_prog);
+  GCPRO2 (status, string);
+
   for (i = 0; i < 8; i++)
     {
       if (NILP (XVECTOR_DATA (status)[i]))
@@ -1843,80 +2065,106 @@ It returns the contents of write buffer as a string,
       if (INTP (XVECTOR_DATA (status)[i]))
 	ccl.reg[i] = XINT (XVECTOR_DATA (status)[i]);
     }
-  if (INTP (XVECTOR_DATA (status)[8]))
+  if (INTP (XVECTOR (status)->contents[i]))
     {
       i = XINT (XVECTOR_DATA (status)[8]);
       if (ccl.ic < i && i < ccl.size)
 	ccl.ic = i;
     }
   outbuf = Dynarr_new (unsigned_char);
-  ccl.last_block = NILP (contin);
-  produced = ccl_driver (&ccl, XSTRING_DATA (str), outbuf,
-			 XSTRING_LENGTH (str), (int *)0, CCL_MODE_DECODING);
+  ccl.last_block = NILP (continue_);
+  produced = ccl_driver (&ccl, XSTRING_DATA (string), outbuf,
+			 XSTRING_LENGTH (string),
+			 (int *) 0,
+			 CCL_MODE_DECODING);
   for (i = 0; i < 8; i++)
-    XVECTOR_DATA (status)[i] = make_int(ccl.reg[i]);
+    XSETINT (XVECTOR_DATA (status)[i], ccl.reg[i]);
   XSETINT (XVECTOR_DATA (status)[8], ccl.ic);
   UNGCPRO;
 
   val = make_string (Dynarr_atp (outbuf, 0), produced);
   Dynarr_free (outbuf);
   QUIT;
+  if (ccl.status == CCL_STAT_SUSPEND_BY_DST)
+    error ("Output buffer for the CCL programs overflow");
   if (ccl.status != CCL_STAT_SUCCESS
-      && ccl.status != CCL_STAT_SUSPEND_BY_SRC
-      && ccl.status != CCL_STAT_SUSPEND_BY_DST)
+      && ccl.status != CCL_STAT_SUSPEND_BY_SRC)
     error ("Error in CCL program at %dth code", ccl.ic);
 
   return val;
 }
 
-DEFUN ("register-ccl-program", Fregister_ccl_program, 2, 2, 0, /*
-Register CCL program PROGRAM of NAME in `ccl-program-table'.
-PROGRAM should be a compiled code of CCL program, or nil.
+DEFUN ("register-ccl-program", Fregister_ccl_program,
+       2, 2, 0, /*
+Register CCL program CCL-PROG as NAME in `ccl-program-table'.
+CCL-PROG should be a compiled CCL program (vector), or nil.
+If it is nil, just reserve NAME as a CCL program name.
 Return index number of the registered CCL program.
 */
-  (name, ccl_prog))
+       (name, ccl_prog))
 {
   int len = XVECTOR_LENGTH (Vccl_program_table);
-  int i;
+  int idx;
+  Lisp_Object resolved;
 
   CHECK_SYMBOL (name);
+  resolved = Qnil;
   if (!NILP (ccl_prog))
     {
       CHECK_VECTOR (ccl_prog);
-      ccl_prog = resolve_symbol_ccl_program (ccl_prog);
-    }
-
-  for (i = 0; i < len; i++)
-    {
-      Lisp_Object slot = XVECTOR_DATA (Vccl_program_table)[i];
-
-      if (!CONSP (slot))
-	break;
-
-      if (EQ (name, XCAR (slot)))
+      resolved = resolve_symbol_ccl_program (ccl_prog);
+      if (! NILP (resolved))
 	{
-	  XCDR (slot) = ccl_prog;
-	  return make_int (i);
+	  ccl_prog = resolved;
+	  resolved = Qt;
 	}
     }
 
-  if (i == len)
+  for (idx = 0; idx < len; idx++)
     {
-      Lisp_Object new_table = Fmake_vector (make_int (len * 2), Qnil);
+      Lisp_Object slot;
+
+      slot = XVECTOR_DATA (Vccl_program_table)[idx];
+      if (!VECTORP (slot))
+	/* This is the first unused slot.  Register NAME here.  */
+	break;
+
+      if (EQ (name, XVECTOR_DATA (slot)[0]))
+	{
+	  /* Update this slot.  */
+	  XVECTOR_DATA (slot)[1] = ccl_prog;
+	  XVECTOR_DATA (slot)[2] = resolved;
+	  return make_int (idx);
+	}
+    }
+
+  if (idx == len)
+    {
+      /* Extend the table.  */
+      Lisp_Object new_table;
       int j;
 
+      new_table = Fmake_vector (make_int (len * 2), Qnil);
       for (j = 0; j < len; j++)
 	XVECTOR_DATA (new_table)[j]
 	  = XVECTOR_DATA (Vccl_program_table)[j];
       Vccl_program_table = new_table;
     }
 
-  XVECTOR_DATA (Vccl_program_table)[i] = Fcons (name, ccl_prog);
-  Fput (name, Qccl_program_idx, make_int (i));
-  return make_int (i);
+  {
+    Lisp_Object elt;
+
+    elt = Fmake_vector (make_int (3), Qnil);
+    XVECTOR_DATA (elt)[0] = name;
+    XVECTOR_DATA (elt)[1] = ccl_prog;
+    XVECTOR_DATA (elt)[2] = resolved;
+    XVECTOR_DATA (Vccl_program_table)[idx] = elt;
+  }
+
+  Fput (name, Qccl_program_idx, make_int (idx));
+  return make_int (idx);
 }
 
-#if 0
 /* Register code conversion map.
    A code conversion map consists of numbers, Qt, Qnil, and Qlambda.
    The first element is start code point.
@@ -1927,34 +2175,33 @@ Return index number of the registered CCL program.
 */
 
 DEFUN ("register-code-conversion-map", Fregister_code_conversion_map,
-       Sregister_code_conversion_map,
-       2, 2, 0,
-  "Register SYMBOL as code conversion map MAP.\n\
-Return index number of the registered map.")
-  (symbol, map)
-     Lisp_Object symbol, map;
+       2, 2, 0, /*
+Register SYMBOL as code conversion map MAP.
+Return index number of the registered map.
+*/
+       (symbol, map))
 {
-  int len = XVECTOR (Vcode_conversion_map_vector)->size;
+  int len = XVECTOR_LENGTH (Vcode_conversion_map_vector);
   int i;
-  Lisp_Object index;
+  Lisp_Object idx;
 
-  CHECK_SYMBOL (symbol, 0);
-  CHECK_VECTOR (map, 1);
+  CHECK_SYMBOL (symbol);
+  CHECK_VECTOR (map);
 
   for (i = 0; i < len; i++)
     {
-      Lisp_Object slot = XVECTOR (Vcode_conversion_map_vector)->contents[i];
+      Lisp_Object slot = XVECTOR_DATA (Vcode_conversion_map_vector)[i];
 
       if (!CONSP (slot))
 	break;
 
-      if (EQ (symbol, XCONS (slot)->car))
+      if (EQ (symbol, XCAR (slot)))
 	{
-	  index = make_int (i);
-	  XCONS (slot)->cdr = map;
+	  idx = make_int (i);
+	  XCDR (slot) = map;
 	  Fput (symbol, Qcode_conversion_map, map);
-	  Fput (symbol, Qcode_conversion_map_id, index);
-	  return index;
+	  Fput (symbol, Qcode_conversion_map_id, idx);
+	  return idx;
 	}
     }
 
@@ -1964,29 +2211,27 @@ Return index number of the registered map.")
       int j;
 
       for (j = 0; j < len; j++)
-	XVECTOR (new_vector)->contents[j]
-	  = XVECTOR (Vcode_conversion_map_vector)->contents[j];
+	XVECTOR_DATA (new_vector)[j]
+	  = XVECTOR_DATA (Vcode_conversion_map_vector)[j];
       Vcode_conversion_map_vector = new_vector;
     }
 
-  index = make_int (i);
+  idx = make_int (i);
   Fput (symbol, Qcode_conversion_map, map);
-  Fput (symbol, Qcode_conversion_map_id, index);
-  XVECTOR (Vcode_conversion_map_vector)->contents[i] = Fcons (symbol, map);
-  return index;
+  Fput (symbol, Qcode_conversion_map_id, idx);
+  XVECTOR_DATA (Vcode_conversion_map_vector)[i] = Fcons (symbol, map);
+  return idx;
 }
-#endif
 
 
 void
 syms_of_mule_ccl (void)
 {
+  DEFSUBR (Fccl_program_p);
   DEFSUBR (Fccl_execute);
   DEFSUBR (Fccl_execute_on_string);
   DEFSUBR (Fregister_ccl_program);
-#if 0
-  DEFSUBR (&Fregister_code_conversion_map);
-#endif
+  DEFSUBR (Fregister_code_conversion_map);
 }
 
 void
@@ -1995,23 +2240,15 @@ vars_of_mule_ccl (void)
   staticpro (&Vccl_program_table);
   Vccl_program_table = Fmake_vector (make_int (32), Qnil);
 
-  Qccl_program = intern ("ccl-program");
-  staticpro (&Qccl_program);
-
-  Qccl_program_idx = intern ("ccl-program-idx");
-  staticpro (&Qccl_program_idx);
-
-#if 0
-  Qcode_conversion_map = intern ("code-conversion-map");
-  staticpro (&Qcode_conversion_map);
-
-  Qcode_conversion_map_id = intern ("code-conversion-map-id");
-  staticpro (&Qcode_conversion_map_id);
+  defsymbol (&Qccl_program, "ccl-program");
+  defsymbol (&Qccl_program_idx, "ccl-program-idx");
+  defsymbol (&Qcode_conversion_map, "code-conversion-map");
+  defsymbol (&Qcode_conversion_map_id, "code-conversion-map-id");
 
   DEFVAR_LISP ("code-conversion-map-vector", &Vcode_conversion_map_vector /*
-Vector of code conversion maps.*/ );
+Vector of code conversion maps.
+*/ );
   Vcode_conversion_map_vector = Fmake_vector (make_int (16), Qnil);
-#endif
 
   DEFVAR_LISP ("font-ccl-encoder-alist", &Vfont_ccl_encoder_alist /*
 Alist of fontname patterns vs corresponding CCL program.

@@ -99,26 +99,26 @@ init_editfns (void)
 }
 
 DEFUN ("char-to-string", Fchar_to_string, 1, 1, 0, /*
-Convert arg CH to a one-character string containing that character.
+Convert CHARACTER to a one-character string containing that character.
 */
-       (ch))
+       (character))
 {
   Bytecount len;
   Bufbyte str[MAX_EMCHAR_LEN];
 
-  if (EVENTP (ch))
+  if (EVENTP (character))
     {
-      Lisp_Object ch2 = Fevent_to_character (ch, Qt, Qnil, Qnil);
+      Lisp_Object ch2 = Fevent_to_character (character, Qt, Qnil, Qnil);
       if (NILP (ch2))
 	return
 	  signal_simple_continuable_error
-	    ("character has no ASCII equivalent:", Fcopy_event (ch, Qnil));
-      ch = ch2;
+	    ("character has no ASCII equivalent:", Fcopy_event (character, Qnil));
+      character = ch2;
     }
 
-  CHECK_CHAR_COERCE_INT (ch);
+  CHECK_CHAR_COERCE_INT (character);
 
-  len = set_charptr_emchar (str, XCHAR (ch));
+  len = set_charptr_emchar (str, XCHAR (character));
   return make_string (str, len);
 }
 
@@ -126,12 +126,12 @@ DEFUN ("string-to-char", Fstring_to_char, 1, 1, 0, /*
 Convert arg STRING to a character, the first character of that string.
 An empty string will return the constant `nil'.
 */
-       (str))
+       (string))
 {
   Lisp_String *p;
-  CHECK_STRING (str);
+  CHECK_STRING (string);
 
-  p = XSTRING (str);
+  p = XSTRING (string);
   if (string_length (p) != 0)
     return make_char (string_char (p, 0));
   else
@@ -611,7 +611,7 @@ DEFUN ("temp-directory", Ftemp_directory, 0, 0, 0, /*
 Return the pathname to the directory to use for temporary files.
 On MS Windows, this is obtained from the TEMP or TMP environment variables,
 defaulting to / if they are both undefined.
-On Unix it is obtained from TMPDIR, with /tmp as the default
+On Unix it is obtained from TMPDIR, with /tmp as the default.
 */
        ())
 {
@@ -1579,7 +1579,7 @@ Jamie thinks this is bogus. */
 
 
 DEFUN ("insert-char", Finsert_char, 1, 4, 0, /*
-Insert COUNT (second arg) copies of CHR (first arg).
+Insert COUNT copies of CHARACTER into BUFFER.
 Point and all markers are affected as in the function `insert'.
 COUNT defaults to 1 if omitted.
 The optional third arg IGNORED is INHERIT under FSF Emacs.
@@ -1588,7 +1588,7 @@ This is highly bogus, however, and XEmacs always behaves as if
 The optional fourth arg BUFFER specifies the buffer to insert the
 text into.  If BUFFER is nil, the current buffer is assumed.
 */
-       (chr, count, ignored, buffer))
+       (character, count, ignored, buffer))
 {
   /* This function can GC */
   REGISTER Bufbyte *string;
@@ -1600,7 +1600,7 @@ text into.  If BUFFER is nil, the current buffer is assumed.
   struct buffer *b = decode_buffer (buffer, 1);
   int cou;
 
-  CHECK_CHAR_COERCE_INT (chr);
+  CHECK_CHAR_COERCE_INT (character);
   if (NILP (count))
     cou = 1;
   else
@@ -1609,7 +1609,7 @@ text into.  If BUFFER is nil, the current buffer is assumed.
       cou = XINT (count);
     }
 
-  charlen = set_charptr_emchar (str, XCHAR (chr));
+  charlen = set_charptr_emchar (str, XCHAR (character));
   n = cou * charlen;
   if (n <= 0)
     return Qnil;
@@ -1668,7 +1668,7 @@ If BUFFER is nil, the current buffer is assumed.
    and what the function does is probably good enough for what the
    user-code will typically want to use it for. */
 DEFUN ("buffer-substring-no-properties", Fbuffer_substring_no_properties, 0, 3, 0, /*
-Return the text from BEG to END, as a string, without copying the extents.
+Return the text from START to END as a string, without copying the extents.
 */
        (start, end, buffer))
 {
@@ -1991,18 +1991,18 @@ Returns the number of substitutions performed.
 
 DEFUN ("delete-region", Fdelete_region, 2, 3, "r", /*
 Delete the text between point and mark.
-When called from a program, expects two arguments,
-positions (integers or markers) specifying the stretch to be deleted.
-If BUFFER is nil, the current buffer is assumed.
+When called from a program, expects two arguments START and END
+\(integers or markers) specifying the stretch to be deleted.
+If optional third arg BUFFER is nil, the current buffer is assumed.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
   /* This function can GC */
-  Bufpos start, end;
+  Bufpos bp_start, bp_end;
   struct buffer *buf = decode_buffer (buffer, 1);
 
-  get_buffer_range_char (buf, b, e, &start, &end, 0);
-  buffer_delete_range (buf, start, end, 0);
+  get_buffer_range_char (buf, start, end, &bp_start, &bp_end, 0);
+  buffer_delete_range (buf, bp_start, bp_end, 0);
   zmacs_region_stays = 0;
   return Qnil;
 }
@@ -2055,22 +2055,23 @@ See also `save-restriction'.
 When calling from a program, pass two arguments; positions (integers
 or markers) bounding the text that should remain visible.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
-  Bufpos start, end;
+  Bufpos bp_start, bp_end;
   struct buffer *buf = decode_buffer (buffer, 1);
   Bytind bi_start, bi_end;
 
-  get_buffer_range_char (buf, b, e, &start, &end, GB_ALLOW_PAST_ACCESSIBLE);
-  bi_start = bufpos_to_bytind (buf, start);
-  bi_end = bufpos_to_bytind (buf, end);
+  get_buffer_range_char (buf, start, end, &bp_start, &bp_end,
+			 GB_ALLOW_PAST_ACCESSIBLE);
+  bi_start = bufpos_to_bytind (buf, bp_start);
+  bi_end = bufpos_to_bytind (buf, bp_end);
 
-  SET_BOTH_BUF_BEGV (buf, start, bi_start);
-  SET_BOTH_BUF_ZV (buf, end, bi_end);
-  if (BUF_PT (buf) < start)
-    BUF_SET_PT (buf, start);
-  if (BUF_PT (buf) > end)
-    BUF_SET_PT (buf, end);
+  SET_BOTH_BUF_BEGV (buf, bp_start, bi_start);
+  SET_BOTH_BUF_ZV (buf, bp_end, bi_end);
+  if (BUF_PT (buf) < bp_start)
+    BUF_SET_PT (buf, bp_start);
+  if (BUF_PT (buf) > bp_end)
+    BUF_SET_PT (buf, bp_end);
   MARK_CLIP_CHANGED;
   /* Changing the buffer bounds invalidates any recorded current column.  */
   invalidate_current_column ();
@@ -2270,15 +2271,15 @@ Both arguments must be characters (i.e. NOT integers).
 Case is ignored if `case-fold-search' is non-nil in BUFFER.
 If BUFFER is nil, the current buffer is assumed.
 */
-       (c1, c2, buffer))
+       (character1, character2, buffer))
 {
   Emchar x1, x2;
   struct buffer *b = decode_buffer (buffer, 1);
 
-  CHECK_CHAR_COERCE_INT (c1);
-  CHECK_CHAR_COERCE_INT (c2);
-  x1 = XCHAR (c1);
-  x2 = XCHAR (c2);
+  CHECK_CHAR_COERCE_INT (character1);
+  CHECK_CHAR_COERCE_INT (character2);
+  x1 = XCHAR (character1);
+  x2 = XCHAR (character2);
 
   return (!NILP (b->case_fold_search)
 	  ? DOWNCASE (b, x1) == DOWNCASE (b, x2)
@@ -2290,12 +2291,12 @@ DEFUN ("char=", Fchar_Equal, 2, 2, 0, /*
 Return t if two characters match, case is significant.
 Both arguments must be characters (i.e. NOT integers).
 */
-       (c1, c2))
+       (character1, character2))
 {
-  CHECK_CHAR_COERCE_INT (c1);
-  CHECK_CHAR_COERCE_INT (c2);
+  CHECK_CHAR_COERCE_INT (character1);
+  CHECK_CHAR_COERCE_INT (character2);
 
-  return EQ (c1, c2) ? Qt : Qnil;
+  return EQ (character1, character2) ? Qt : Qnil;
 }
 
 #if 0 /* Undebugged FSFmacs code */
@@ -2367,36 +2368,36 @@ Transpose region START1 to END1 with START2 to END2.
 The regions may not be overlapping, because the size of the buffer is
 never changed in a transposition.
 
-Optional fifth arg LEAVE_MARKERS, if non-nil, means don't transpose
+Optional fifth arg LEAVE-MARKERS, if non-nil, means don't transpose
 any markers that happen to be located in the regions. (#### BUG: currently
-this function always acts as if LEAVE_MARKERS is non-nil.)
+this function always acts as if LEAVE-MARKERS is non-nil.)
 
 Transposing beyond buffer boundaries is an error.
 */
-  (startr1, endr1, startr2, endr2, leave_markers))
+  (start1, end1, start2, end2, leave_markers))
 {
-  Bufpos start1, end1, start2, end2;
+  Bufpos startr1, endr1, startr2, endr2;
   Charcount len1, len2;
   Lisp_Object string1, string2;
   struct buffer *buf = current_buffer;
 
-  get_buffer_range_char (buf, startr1, endr1, &start1, &end1, 0);
-  get_buffer_range_char (buf, startr2, endr2, &start2, &end2, 0);
+  get_buffer_range_char (buf, start1, end1, &startr1, &endr1, 0);
+  get_buffer_range_char (buf, start2, end2, &startr2, &endr2, 0);
 
-  len1 = end1 - start1;
-  len2 = end2 - start2;
+  len1 = endr1 - startr1;
+  len2 = endr2 - startr2;
 
-  if (start2 < end1)
+  if (startr2 < endr1)
     error ("transposed regions not properly ordered");
-  else if (start1 == end1 || start2 == end2)
+  else if (startr1 == endr1 || startr2 == endr2)
     error ("transposed region may not be of length 0");
 
-  string1 = make_string_from_buffer (buf, start1, len1);
-  string2 = make_string_from_buffer (buf, start2, len2);
-  buffer_delete_range (buf, start2, end2, 0);
-  buffer_insert_lisp_string_1 (buf, start2, string1, 0);
-  buffer_delete_range (buf, start1, end1, 0);
-  buffer_insert_lisp_string_1 (buf, start1, string2, 0);
+  string1 = make_string_from_buffer (buf, startr1, len1);
+  string2 = make_string_from_buffer (buf, startr2, len2);
+  buffer_delete_range (buf, startr2, endr2, 0);
+  buffer_insert_lisp_string_1 (buf, startr2, string1, 0);
+  buffer_delete_range (buf, startr1, endr1, 0);
+  buffer_insert_lisp_string_1 (buf, startr1, string2, 0);
 
   /* In FSFmacs there is a whole bunch of really ugly code here
      to attempt to transpose the regions without using up any
@@ -2510,7 +2511,7 @@ More specifically:
 
  - Commands which operate on the region only work if the region is active.
  - Only a very small set of commands cause the region to become active:
-   Those commands whose semantics are to mark an area, like mark-defun.
+   Those commands whose semantics are to mark an area, like `mark-defun'.
  - The region is deactivated after each command that is executed, except that:
  - "Motion" commands do not change whether the region is active or not.
 

@@ -331,9 +331,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
     REGISTER char **save_environ = environ;
     REGISTER int fd1 = fd[1];
     int fd_error = fd1;
-    char **env;
-
-    env = environ;
 
     /* Record that we're about to create a synchronous process.  */
     synch_process_alive = 1;
@@ -452,7 +449,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
   {
     int nread;
-    int first = 1;
     int total_read = 0;
     Lisp_Object instream;
     struct gcpro ngcpro1;
@@ -536,7 +532,6 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
 	if (!NILP (display) && INTERACTIVE)
 	  {
-	    first = 0;
 	    redisplay ();
 	  }
       }

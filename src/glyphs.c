@@ -226,7 +226,7 @@ valid_image_instantiator_format_p (Lisp_Object format, Lisp_Object locale)
 DEFUN ("valid-image-instantiator-format-p", Fvalid_image_instantiator_format_p,
        1, 2, 0, /*
 Given an IMAGE-INSTANTIATOR-FORMAT, return non-nil if it is valid.
-If LOCALE is non-nil then the format is checked in that domain.
+If LOCALE is non-nil then the format is checked in that locale.
 If LOCALE is nil the current console is used.
 
 Valid formats are some subset of 'nothing, 'string, 'formatted-string,
@@ -283,7 +283,7 @@ get_image_conversion_list (Lisp_Object console_type)
 
 DEFUN ("set-console-type-image-conversion-list", Fset_console_type_image_conversion_list,
        2, 2, 0, /*
-Set the image-conversion-list for consoles of the given TYPE.
+Set the image-conversion-list for consoles of the given CONSOLE-TYPE.
 The image-conversion-list specifies how image instantiators that
 are strings should be interpreted.  Each element of the list should be
 a list of two elements (a regular expression string and a vector) or
@@ -351,7 +351,7 @@ specifiers will not be affected.
 
 DEFUN ("console-type-image-conversion-list", Fconsole_type_image_conversion_list,
        1, 1, 0, /*
-Return the image-conversion-list for devices of the given TYPE.
+Return the image-conversion-list for devices of the given CONSOLE-TYPE.
 The image-conversion-list specifies how to interpret image string
 instantiators for the specified console type.  See
 `set-console-type-image-conversion-list' for a description of its syntax.
@@ -473,11 +473,11 @@ find_instantiator_differences (Lisp_Object new, Lisp_Object old)
 
 DEFUN ("set-instantiator-property", Fset_instantiator_property,
        3, 3, 0, /*
-Destructively set the property KEYWORD of INSTANTIATOR to VAL.
+Destructively set the property KEYWORD of INSTANTIATOR to VALUE.
 If the property is not set then it is added to a copy of the
 instantiator and the new instantiator returned.
 Use `set-glyph-image' on glyphs to register instantiator changes.  */
-       (instantiator, keyword, val))
+       (instantiator, keyword, value))
 {
   Lisp_Object *elt;
   int len;
@@ -493,7 +493,7 @@ Use `set-glyph-image' on glyphs to register instantiator changes.  */
     {
       if (EQ (elt[len], keyword))
 	{
-	  elt[len+1] = val;
+	  elt[len+1] = value;
 	  break;
 	}
     }
@@ -506,7 +506,7 @@ Use `set-glyph-image' on glyphs to register instantiator changes.  */
 
     GCPRO1 (alist);
     alist = tagged_vector_to_alist (instantiator);
-    alist = Fcons (Fcons (keyword, val), alist);
+    alist = Fcons (Fcons (keyword, value), alist);
     result = alist_to_tagged_vector (elt[0], alist);
     free_alist (alist);
     RETURN_UNGCPRO (result);
@@ -1413,11 +1413,11 @@ Return a list of valid image-instance types.
 }
 
 Error_behavior
-decode_error_behavior_flag (Lisp_Object no_error)
+decode_error_behavior_flag (Lisp_Object noerror)
 {
-  if (NILP (no_error))        return ERROR_ME;
-  else if (EQ (no_error, Qt)) return ERROR_ME_NOT;
-  else                        return ERROR_ME_WARN;
+  if (NILP (noerror))        return ERROR_ME;
+  else if (EQ (noerror, Qt)) return ERROR_ME_NOT;
+  else                       return ERROR_ME_WARN;
 }
 
 Lisp_Object
@@ -1567,14 +1567,14 @@ but we currently disallow this. #### We should fix this.)
 
 If omitted, DOMAIN defaults to the selected window.
 
-NO-ERROR controls what happens when the image cannot be generated.
+NOERROR controls what happens when the image cannot be generated.
 If nil, an error message is generated.  If t, no messages are
 generated and this function returns nil.  If anything else, a warning
 message is generated and this function returns nil.
 */
-       (data, domain, dest_types, no_error))
+       (data, domain, dest_types, noerror))
 {
-  Error_behavior errb = decode_error_behavior_flag (no_error);
+  Error_behavior errb = decode_error_behavior_flag (noerror);
 
   return call_with_suspended_errors ((lisp_fn_t) make_image_instance_1,
 				     Qnil, Qimage, errb,
@@ -2583,7 +2583,7 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
 
   LISP_STRING_TO_EXTERNAL (name, filename_ext, Qfile_name);
   result = read_bitmap_data_from_file (filename_ext, &w, &h,
-				       &data, xhot, yhot);
+				       (unsigned char **) &data, xhot, yhot);
 
   if (result == BitmapSuccess)
     {
@@ -2592,7 +2592,7 @@ bitmap_to_lisp_data (Lisp_Object name, int *xhot, int *yhot,
 
       retval = list3 (make_int (w), make_int (h),
 		      make_ext_string (data, len, Qbinary));
-      XFree ((char *) data);
+      XFree (data);
       return retval;
     }
 
@@ -5383,7 +5383,7 @@ are necessary to properly display Unicode characters.
   set_specifier_caching (Vcurrent_display_table,
 			 offsetof (struct window, display_table),
 			 some_window_value_changed,
-			 0, 0);
+			 0, 0, 0);
 }
 
 void

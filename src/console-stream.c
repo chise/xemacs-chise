@@ -279,17 +279,17 @@ void
 vars_of_console_stream (void)
 {
   DEFVAR_LISP ("terminal-console", &Vterminal_console /*
-The initial console-object, which represents XEmacs' stdout.
+The initial console object, which represents XEmacs' stdout.
 */ );
   Vterminal_console = Qnil;
 
   DEFVAR_LISP ("terminal-device", &Vterminal_device /*
-The initial device-object, which represents XEmacs' stdout.
+The initial device object, which represents XEmacs' stdout.
 */ );
   Vterminal_device = Qnil;
 
   DEFVAR_LISP ("terminal-frame", &Vterminal_frame /*
-The initial frame-object, which represents XEmacs' stdout.
+The initial frame object, which represents XEmacs' stdout.
 */ );
   Vterminal_frame = Qnil;
 

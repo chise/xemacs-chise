@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/09/19 07:50:41 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/11/02 21:51:16 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -148,6 +148,8 @@ Installation and Trouble Shooting
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
+* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
+* Q2.0.14::     How do I figure out which packages to install? (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -174,6 +176,7 @@ Trouble Shooting:
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
 * Q2.1.24::     XEmacs won't start without network. (NEW)
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
 
 Customization and Options
 
@@ -787,23 +790,23 @@ developers responsible for the 19.16/20.x releases are:
 
 @itemize @bullet
 @item @email{martin@@xemacs.org, Martin Buchholz}
-@ifhtml
+@html
 <br><img src="mrb.jpeg" alt="Portrait of Martin Buchholz"><br>
-@end ifhtml
+@end html
 
 
 @item @email{steve@@xemacs.org, Steve Baur}
 
-@ifhtml
+@html
 <br><img src="steve.gif" alt="Portrait of Steve Baur"><br>
-@end ifhtml
+@end html
 
 
 @item @email{hniksic@@xemacs.org, Hrvoje Niksic}
 
-@ifhtml
+@html
 <br><img src="hniksic.jpeg" alt="Portrait of Hrvoje Niksic"><br>
-@end ifhtml
+@end html
 
 @end itemize
 
@@ -811,26 +814,26 @@ The developers responsible for the 19.14 release are:
 
 @itemize @bullet
 @item @email{cthomp@@xemacs.org, Chuck Thompson}
-@ifhtml
+@html
 <br><img src="cthomp.jpeg" alt="Portrait of Chuck Thompson"><br>
-@end ifhtml
+@end html
 
 Chuck was Mr. XEmacs from 19.11 through 19.14, and is responsible
 for XEmacs becoming a widely distributed program over the Internet.
 
 @item @email{ben@@xemacs.org, Ben Wing}
-@ifhtml
+@html
 <br><img src="wing.gif" alt="Portrait of Ben Wing"><br>
-@end ifhtml
+@end html
 
 @end itemize
 
 
 @itemize @bullet
 @item @email{jwz@@jwz.org, Jamie Zawinski}
-@ifhtml
+@html
 <br><img src="jwz.gif" alt="Portrait of Jamie Zawinski"><br>
-@end ifhtml
+@end html
 
 Jamie Zawinski was Mr. Lucid Emacs from 19.0 through 19.10, the last
 release actually named Lucid Emacs.  Richard Mlynarik was crucial to
@@ -1212,6 +1215,8 @@ Installation:
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
+* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
+* Q2.0.14::     I don't want to install a million .els one at a time! (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -1238,6 +1243,7 @@ Trouble Shooting:
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
 * Q2.1.24::     XEmacs won't start without network. (NEW)
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
 @end menu
 
 @node Q2.0.1, Q2.0.2, Installation, Installation
@@ -1520,7 +1526,7 @@ check to see if you've put DNS in the shared libc and will then proceed
 to link against the DNS resolver library code.
 @end quotation
 
-@node Q2.0.12, Q2.1.1, Q2.0.11, Installation
+@node Q2.0.12, Q2.0.13, Q2.0.11, Installation
 @unnumberedsubsec Q2.0.12: Why can't I strip XEmacs?
 
 @email{cognot@@fronsac.ensg.u-nancy.fr, Richard Cognot} writes:
@@ -1575,7 +1581,42 @@ cp lib-src/DOC-19.16-XEmacs
 @end enumerate
 @end quotation
 
-@node Q2.1.1, Q2.1.2, Q2.0.12, Installation
+@node Q2.0.13, Q2.0.14, Q2.0.12, Installation
+@unnumberedsubsec Q2.0.13: I don't need no steenkin' packages.  Do I? (NEW)
+
+Strictly speaking, no.  XEmacs will build and install just fine without
+any packages installed.  However, only the most basic editing functions
+will be available with no packages installed, so installing packages is
+an essential part of making your installed XEmacs _useful_.
+
+@node Q2.0.14, Q2.1.1, Q2.0.13, Installation
+@unnumberedsubsec Q2.0.12: How do I figure out which packages to install? (NEW)
+
+Many people really liked the old way that packages were bundled and do
+not want to mess with packages at all.  You can grab all the packages at
+once like you used to with old XEmacs versions.  Download the file
+
+@file{xemacs-sumo.tar.gz}
+
+For an XEmacs compiled with Mule you also need
+
+@file{xemacs-mule-sumo.tar.gz}
+
+from the @file{packages} directory on your XEmacs mirror archive.
+N.B. They are called 'Sumo Tarballs' for good reason. They are
+currently about 15MB and 2.3MB (gzipped) respectively.
+
+Install them by
+
+@code{cd $prefix/lib/xemacs ; gunzip -c <tarballname> | tar xf -}
+
+See README.packages for more detailed installation instructions.
+
+As the Sumo tarballs are not regenerated as often as the individual
+packages, it is recommended that you use the automatic package tools
+afterwards to pick up any recent updates.
+
+@node Q2.1.1, Q2.1.2, Q2.0.14, Installation
 @unnumberedsec 2.1: Trouble Shooting
 @unnumberedsubsec Q2.1.1: Help!  XEmacs just crashed on me!
 
@@ -2274,7 +2315,7 @@ and uncomment the line that reads:
 @end example
 @end quotation
 
-@node Q2.1.24,  , Q2.1.23, Installation
+@node Q2.1.24, Q2.1.25, Q2.1.23, Installation
 @unnumberedsubsec Q2.1.24:  XEmacs won't start without network. (NEW)
 
 If XEmacs starts when you're on the network, but fails when you're not
@@ -2286,6 +2327,18 @@ on the network, you may be missing a "localhost" entry in your
 @end example
 
 Add that line, and XEmacs will be happy.
+
+@node Q2.1.25,  , Q2.1.24, Installation
+@unnumberedsubsec Q2.1.25::  After upgrading, XEmacs won't do `foo' any more! (NEW)
+
+You have been used to doing `foo', but now when you invoke it (or click
+the toolbar button or select the menu item), nothing (or an error)
+happens.  The simplest explanation is that you are missing a package
+that is essential to you.  You can either track it down and install it
+(there is a list of packages and brief descriptions of their contents in
+@file{etc/PACKAGES}), or install the `Sumo Tarball' (see @pxref{Q2.0.14}).
+
+@c #### should xref to XEmacs manual here
 
 @node Customization, Subsystems, Installation, Top
 @unnumbered 3 Customization and Options

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/strings.info
 @node Strings and Characters, Lists, Numbers, Top
@@ -138,13 +138,14 @@ putting strings together, or by taking them apart.
 
 Analogous functions operating on other data types include @code{list},
 @code{cons} (@pxref{Building Lists}), @code{vector} (@pxref{Vectors})
-and @code{bit-vector} (@pxref{Bit Vectors}).  This function has not been 
+and @code{bit-vector} (@pxref{Bit Vectors}).  This function has not been
 available in XEmacs prior to 21.0 and FSF Emacs prior to 20.3.
 @end defun
 
-@defun make-string count character
-  This function returns a string made up of @var{count} repetitions of
-@var{character}.  If @var{count} is negative, an error is signaled.
+@defun make-string length character
+This function returns a new string consisting entirely of @var{length}
+successive copies of @var{character}.  @var{length} must be a
+non-negative integer.
 
 @example
 (make-string 5 ?x)
@@ -179,7 +180,7 @@ position up to which the substring is copied.  The character whose index
 is 3 is actually the fourth character in the string.
 
 A negative number counts from the end of the string, so that @minus{}1
-signifies the index of the last character of the string.  For example: 
+signifies the index of the last character of the string.  For example:
 
 @example
 @group
@@ -312,7 +313,7 @@ This function returns @code{t} if @var{object} is an integer or character.
 @node Character Codes
 @section Character Codes
 
-@defun char-int ch
+@defun char-int character
 This function converts a character into an equivalent integer.
 The resulting integer will always be non-negative.  The integers in
 the range 0 - 255 map to characters as follows:
@@ -357,10 +358,11 @@ integer that can be converted into one.
 @section Comparison of Characters and Strings
 @cindex string equality
 
-@defun char-equal character1 character2
+@defun char-equal character1 character2 &optional buffer
 This function returns @code{t} if the arguments represent the same
 character, @code{nil} otherwise.  This function ignores differences
-in case if @code{case-fold-search} is non-@code{nil}.
+in case if the value of @code{case-fold-search} is non-@code{nil} in
+@var{buffer}, which defaults to the current buffer.
 
 @example
 (char-equal ?x ?x)
@@ -460,7 +462,7 @@ no characters is less than any other string.
 (string< "abc" "ab")
      @result{} nil
 (string< "" "")
-     @result{} nil                   
+     @result{} nil
 @end group
 @end example
 @end defun
@@ -560,13 +562,13 @@ See also the function @code{format} in @ref{Formatting Strings}.
 
 @defun string-to-number string &optional base
 @cindex string to number
-This function returns the numeric value of the characters in
-@var{string}, read in @var{base}.  It skips spaces and tabs at the
-beginning of @var{string}, then reads as much of @var{string} as it can
-interpret as a number.  (On some systems it ignores other whitespace at
-the beginning, not just spaces and tabs.)  If the first character after
-the ignored whitespace is not a digit or a minus sign, this function
-returns 0.
+This function returns the numeric value represented by @var{string},
+read in @var{base}.  It skips spaces and tabs at the beginning of
+@var{string}, then reads as much of @var{string} as it can interpret as
+a number.  (On some systems it ignores other whitespace at the
+beginning, not just spaces and tabs.)  If the first character after the
+ignored whitespace is not a digit or a minus sign, this function returns
+0.
 
 If @var{base} is not specified, it defaults to ten.  With @var{base}
 other than ten, only integers can be read.
@@ -637,7 +639,7 @@ in how they use the result of formatting.
 
 @defun format string &rest objects
   This function returns a new string that is made by copying
-@var{string} and then replacing any format specification 
+@var{string} and then replacing any format specification
 in the copy with encodings of the corresponding @var{objects}.  The
 arguments @var{objects} are the computed values to be formatted.
 @end defun
@@ -745,9 +747,9 @@ operation} error.
 (format "The buffer object prints as %s." (current-buffer))
      @result{} "The buffer object prints as #<buffer strings.texi>."
 
-(format "The octal value of %d is %o, 
+(format "The octal value of %d is %o,
          and the hex value is %x." 18 18 18)
-     @result{} "The octal value of 18 is 22, 
+     @result{} "The octal value of 18 is 22,
          and the hex value is 12."
 @end group
 @end example
@@ -782,9 +784,9 @@ An optional precision, preceded by a @samp{.} character.
 specifications.  Normally the first specification uses the first
 argument, the second specification uses the second argument, etc.  Using
 a repositioning specification, you can change this.  By placing a number
-@var{N} followed by a @samp{$} between the @samp{%} and the format
-character, you cause the specification to use the @var{N}th argument.
-The next specification will use the @var{N}+1'th argument, etc.
+@var{n} followed by a @samp{$} between the @samp{%} and the format
+character, you cause the specification to use the @var{n}th argument.
+The next specification will use the @var{n}+1'th argument, etc.
 
 For example:
 
@@ -846,23 +848,23 @@ only 3 letters, so 4 blank spaces are inserted for padding.  In the
 second case, the string @code{"specification"} is 13 letters wide but is
 not truncated.  In the third case, the padding is on the right.
 
-@smallexample 
+@smallexample
 @group
 (format "The word `%7s' actually has %d letters in it."
         "foo" (length "foo"))
-     @result{} "The word `    foo' actually has 3 letters in it."  
+     @result{} "The word `    foo' actually has 3 letters in it."
 @end group
 
 @group
 (format "The word `%7s' actually has %d letters in it."
-        "specification" (length "specification")) 
-     @result{} "The word `specification' actually has 13 letters in it."  
+        "specification" (length "specification"))
+     @result{} "The word `specification' actually has 13 letters in it."
 @end group
 
 @group
 (format "The word `%-7s' actually has %d letters in it."
         "foo" (length "foo"))
-     @result{} "The word `foo    ' actually has 3 letters in it."  
+     @result{} "The word `foo    ' actually has 3 letters in it."
 @end group
 @end smallexample
 
@@ -899,9 +901,9 @@ conversions.
 
 @node Character Case
 @section Character Case
-@cindex upper case 
-@cindex lower case 
-@cindex character case 
+@cindex upper case
+@cindex lower case
+@cindex character case
 
   The character case functions change the case of single characters or
 of the contents of strings.  The functions convert only alphabetic
@@ -912,7 +914,7 @@ modify the strings that are passed to them as arguments.
   The examples below use the characters @samp{X} and @samp{x} which have
 @sc{ascii} codes 88 and 120 respectively.
 
-@defun downcase string-or-char
+@defun downcase string-or-char &optional buffer
 This function converts a character or a string to lower case.
 
 When the argument to @code{downcase} is a string, the function creates
@@ -922,6 +924,9 @@ upper case is converted to lower case.  When the argument to
 corresponding lower case character. (This value is actually an integer
 under XEmacs 19.) If the original character is lower case, or is not a
 letter, then the value equals the original character.
+
+Optional second arg @var{buffer} specifies which buffer's case tables to
+use, and defaults to the current buffer.
 
 @example
 (downcase "The cat in the hat")
@@ -934,7 +939,7 @@ letter, then the value equals the original character.
 @end example
 @end defun
 
-@defun upcase string-or-char
+@defun upcase string-or-char &optional buffer
 This function converts a character or a string to upper case.
 
 When the argument to @code{upcase} is a string, the function creates
@@ -946,6 +951,9 @@ the corresponding upper case character. (This value is actually an
 integer under XEmacs 19.)  If the original character is upper case, or
 is not a letter, then the value equals the original character.
 
+Optional second arg @var{buffer} specifies which buffer's case tables to
+use, and defaults to the current buffer.
+
 @example
 (upcase "The cat in the hat")
      @result{} "THE CAT IN THE HAT"
@@ -956,7 +964,7 @@ is not a letter, then the value equals the original character.
 @end example
 @end defun
 
-@defun capitalize string-or-char
+@defun capitalize string-or-char &optional buffer
 @cindex capitalization
 This function capitalizes strings or characters.  If
 @var{string-or-char} is a string, the function creates and returns a new
@@ -971,6 +979,9 @@ table (@pxref{Syntax Class Table}).
 
 When the argument to @code{capitalize} is a character, @code{capitalize}
 has the same result as @code{upcase}.
+
+Optional second arg @var{buffer} specifies which buffer's case tables to
+use, and defaults to the current buffer.
 
 @example
 (capitalize "The cat in the hat")
@@ -1045,21 +1056,22 @@ This predicate returns non-@code{nil} if @var{object} is a valid case
 table.
 @end defun
 
-@defun set-standard-case-table table
-This function makes @var{table} the standard case table, so that it will
-apply to any buffers created subsequently.
+@defun set-standard-case-table case-table
+This function makes @var{case-table} the standard case table, so that it
+will apply to any buffers created subsequently.
 @end defun
 
 @defun standard-case-table
 This returns the standard case table.
 @end defun
 
-@defun current-case-table
-This function returns the current buffer's case table.
+@defun current-case-table &optional buffer
+This function returns the case table of @var{buffer}, which defaults to
+the current buffer.
 @end defun
 
-@defun set-case-table table
-This sets the current buffer's case table to @var{table}.
+@defun set-case-table case-table
+This sets the current buffer's case table to @var{case-table}.
 @end defun
 
   The following three functions are convenient subroutines for packages
@@ -1171,8 +1183,8 @@ character.  Higher-level Lisp functions are provided for
 working with syntax tables.  The valid values are integers.
 @end table
 
-@defun char-table-type table
-This function returns the type of char table @var{table}.
+@defun char-table-type char-table
+This function returns the type of char table @var{char-table}.
 @end defun
 
 @defun char-table-type-list
@@ -1192,9 +1204,9 @@ This function makes a new, empty char table of type @var{type}.
 @code{display}, @code{generic}, or @code{syntax}.
 @end defun
 
-@defun put-char-table range val table
-This function sets the value for chars in @var{range} to be @var{val} in
-@var{table}.
+@defun put-char-table range value char-table
+This function sets the value for chars in @var{range} to be @var{value} in
+@var{char-table}.
 
 @var{range} specifies one or more characters to be affected and should be
 one of the following:
@@ -1211,24 +1223,24 @@ A vector of two elements: a two-octet charset and a row number
 A single character
 @end itemize
 
-@var{val} must be a value appropriate for the type of @var{table}.
+@var{value} must be a value appropriate for the type of @var{char-table}.
 @end defun
 
-@defun get-char-table ch table
-This function finds the value for char @var{ch} in @var{table}.
+@defun get-char-table character char-table
+This function finds the value for @var{character} in @var{char-table}.
 @end defun
 
-@defun get-range-char-table range table &optional multi
-This function finds the value for a range in @var{table}.  If there is
+@defun get-range-char-table range char-table &optional multi
+This function finds the value for a range in @var{char-table}.  If there is
 more than one value, @var{multi} is returned (defaults to @code{nil}).
 @end defun
 
-@defun reset-char-table table
-This function resets a char table to its default state.
+@defun reset-char-table char-table
+This function resets @var{char-table} to its default state.
 @end defun
 
-@defun map-char-table function table &optional range
-This function maps @var{function} over entries in @var{table}, calling
+@defun map-char-table function char-table &optional range
+This function maps @var{function} over entries in @var{char-table}, calling
 it with two args, each key and value in the table.
 
 @var{range} specifies a subrange to map over and is in the same format

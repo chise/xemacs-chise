@@ -53,6 +53,9 @@ Lisp_Object Vmark_even_if_inactive;
 #endif
 
 #if 0 /* ill-conceived */
+/* FSF calls Qmouse_leave_buffer_hook at all sorts of random places,
+   including a bunch of places in their mouse.el.  If this is
+   implemented, it has to be done cleanly. */
 Lisp_Object Vmouse_leave_buffer_hook, Qmouse_leave_buffer_hook;
 #endif
 
@@ -807,14 +810,6 @@ when reading the arguments.
 	    }
 	  case 'S':		/* Any symbol.  */
 	    {
-#if 0				/* Historical crock */
-	      Lisp_Object tem = intern ("minibuffer-local-ns-map");
-	      tem = find_symbol_value (tem);
-	      if (UNBOUNDP (tem)) tem = Qnil;
-	      tem = call3 (Qread_from_minibuffer, PROMPT (), Qnil,
-			   tem);
-	      args[argnum] = Fintern (tem, Qnil);
-#else /* 1 */
 	      visargs[argnum] = Qnil;
 	      for (;;)
 		{
@@ -837,7 +832,6 @@ when reading the arguments.
                        directly */
 		    break;
 		}
-#endif /* 1 */
 	      arg_from_tty = 1;
 	      break;
 	    }
@@ -952,7 +946,7 @@ when reading the arguments.
 }
 
 DEFUN ("prefix-numeric-value", Fprefix_numeric_value, 1, 1, 0, /*
-Return numeric meaning of raw prefix argument ARG.
+Return numeric meaning of raw prefix argument RAW.
 A raw prefix argument is what you get from `(interactive "P")'.
 Its numeric meaning is what you would get from `(interactive "p")'.
 */

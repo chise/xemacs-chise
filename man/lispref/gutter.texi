@@ -115,10 +115,10 @@ gutter.  The values of the variables @code{default-gutter-visible-p},
 @code{right-gutter-visible-p}, and @code{bottom-gutter-visible-p} are
 always gutter-visible specifiers.
 
-Valid gutter-visible instantiators are t, nil or a list of symbols.  If
-a gutter-visible instantiator is set to a list of symbols, and the
-corresponding gutter specification is a property-list strings, then
-elements of the gutter specification will only be visible if the
+Valid gutter-visible instantiators are @code{t}, @code{nil} or a list of
+symbols.  If a gutter-visible instantiator is set to a list of symbols,
+and the corresponding gutter specification is a property-list strings,
+then elements of the gutter specification will only be visible if the
 corresponding symbol occurs in the gutter-visible instantiator.
 @end defun
 
@@ -252,7 +252,7 @@ the user to choose where the gutter should go.
 
 @defvr Specifier default-gutter
 The position of this gutter is specified in the function
-@code{default-gutter-position}.  If the corresponding 
+@code{default-gutter-position}.  If the corresponding
 position-specific gutter (e.g. @code{top-gutter} if
 @code{default-gutter-position} is @code{top}) does not specify a
 gutter in a particular domain, then the value of @code{default-gutter}
@@ -312,7 +312,7 @@ Specifier for the gutter at the right edge of the frame.
 @end defvr
 
 @defun gutter-specifier-p object
-This function returns non-nil if @var{object} is a gutter specifier.
+This function returns non-@code{nil} if @var{object} is a gutter specifier.
 Gutter specifiers are the actual objects contained in the gutter
 variables described above, and their valid instantiators are
 gutter descriptors (@pxref{Gutter Descriptor Format}).
@@ -408,7 +408,7 @@ visibility that is used in frame geometry calculations.
 left gutter width for that frame to 68 pixels, then the frame will be
 sized to fit 80 characters plus a 68-pixel left gutter.  If you then
 set the left gutter width to 0 for a particular buffer (or if that
-buffer does not specify a left gutter or has a nil value specified for
+buffer does not specify a left gutter or has a @code{nil} value specified for
 @code{left-gutter-visible-p}), you will find that, when that buffer is
 displayed in the selected window, the window will have a width of 86 or
 87 characters -- the frame is sized for a 68-pixel left gutter but the

@@ -127,16 +127,18 @@ other non-@code{nil} value both permanent and temporary are included.
 @end defun
 
 @defun facep object
-This function returns whether the given object is a face.
+This function returns @code{t} if @var{object} is a face, else @code{nil}.
 @end defun
 
-@defun copy-face old-face new-name &optional locale how-to-add
+@defun copy-face old-face new-name &optional locale tag-set exact-p how-to-add
 This function defines a new face named @var{new-name} which is a copy of
 the existing face named @var{old-face}.  If there is already a face
 named @var{new-name}, then it alters the face to have the same
-properties as @var{old-face}.  @var{locale} and @var{how-to-add}
-let you copy just parts of the old face rather than the whole face,
-and are as in @code{copy-specifier} (@pxref{Specifiers}).
+properties as @var{old-face}.
+
+@var{locale}, @var{tag-set}, @var{exact-p} and @var{how-to-add} let you
+copy just parts of the old face rather than the whole face, and are as
+in @code{copy-specifier} (@pxref{Specifiers}).
 @end defun
 
 @node Face Properties
@@ -187,7 +189,7 @@ specifier, unlike all the other built-in properties, and cannot contain
 locale-specific values.
 @end table
 
-@defun set-face-property face property value &optional locale tag how-to-add
+@defun set-face-property face property value &optional locale tag-set how-to-add
 This function changes a property of a @var{face}.
 
 For built-in properties, the actual value of the property is a specifier
@@ -248,7 +250,7 @@ specifier, it will automatically be converted into a @code{generic}
 specifier.
 @end defun
 
-@defun remove-face-property face property &optional local tag-set exact-p
+@defun remove-face-property face property &optional locale tag-set exact-p
 This function removes a property of a @var{face}.
 
 For built-in properties, this is analogous to @code{remove-specifier}.
@@ -263,7 +265,7 @@ specifier, it will be converted into a @code{generic} specifier
 automatically.
 @end defun
 
-@defun face-property face property &optional locale
+@defun face-property face property &optional locale tag-set exact-p
 This function returns @var{face}'s value of the given @var{property}.
 
 If @var{locale} is omitted, the @var{face}'s actual value for
@@ -354,15 +356,15 @@ in @code{specifier-instance}.  @xref{Specifiers}.
 @node Face Convenience Functions
 @subsection Face Convenience Functions
 
-@defun set-face-foreground face color &optional locale tag how-to-add
-@defunx set-face-background face color &optional locale tag how-to-add
+@deffn Command set-face-foreground face color &optional locale tag-set how-to-add
+@deffnx Command set-face-background face color &optional locale tag-set how-to-add
 These functions set the foreground (respectively, background) color of
 face @var{face} to @var{color}.  The argument @var{color} should be a
 string (the name of a color) or a color object as returned by
 @code{make-color} (@pxref{Colors}).
-@end defun
+@end deffn
 
-@defun set-face-background-pixmap face pixmap &optional locale tag how-to-add
+@deffn Command set-face-background-pixmap face pixmap &optional locale tag-set how-to-add
 This function sets the background pixmap of face @var{face} to
 @var{pixmap}.  The argument @var{pixmap} should be a string (the name of
 a bitmap or pixmap file; the directories listed in the variable
@@ -371,33 +373,34 @@ returned by @code{make-glyph} (@pxref{Glyphs}).  The argument may also
 be a list of the form @code{(@var{width} @var{height} @var{data})} where
 @var{width} and @var{height} are the size in pixels, and @var{data} is a
 string, containing the raw bits of the bitmap.
-@end defun
+@end deffn
 
-@defun set-face-font face font &optional locale tag how-to-add
+@deffn Command set-face-font face font &optional locale tag-set how-to-add
 This function sets the font of face @var{face}.  The argument @var{font}
 should be a string or a font object as returned by @code{make-font}
 (@pxref{Fonts}).
-@end defun
+@end deffn
 
-@defun set-face-underline-p face underline-p &optional locale tag how-to-add
+@deffn Command set-face-underline-p face underline-p &optional locale tag-set how-to-add
 This function sets the underline property of face @var{face}.
-@end defun
+@end deffn
 
-@defun face-foreground face &optional locale
-@defunx face-background face &optional locale
+@defun face-foreground face &optional locale tag-set exact-p
+@defunx face-background face &optional locale tag-set exact-p
 These functions return the foreground (respectively, background) color
 specifier of face @var{face}.
 @xref{Colors}.
 @end defun
 
-@defun face-background-pixmap face &optional locale
+@defun face-background-pixmap face &optional locale tag-set exact-p
 This function return the background-pixmap glyph object of face
 @var{face}.
 @end defun
 
-@defun face-font face &optional locale
+@defun face-font face &optional locale tag-set exact-p
 This function returns the font specifier of face @var{face}.  (Note:
 This is not the same as the function @code{face-font} in FSF Emacs.)
+
 @xref{Fonts}.
 @end defun
 
@@ -433,11 +436,11 @@ This function returns the font specifier of face @var{face}.
 @node Other Face Display Functions
 @subsection Other Face Display Functions
 
-@defun invert-face face &optional locale
+@deffn Command invert-face face &optional locale
 Swap the foreground and background colors of face @var{face}.  If the
 face doesn't specify both foreground and background, then its foreground
 and background are set to the default background and foreground.
-@end defun
+@end deffn
 
 @defun face-equal face1 face2 &optional domain
 This returns @code{t} if the faces @var{face1} and @var{face2} will
@@ -584,7 +587,7 @@ that is defined.
 @cindex italic
 @cindex oblique
 
-@defun font-instance-properties font
+@defun font-instance-properties font-instance
 This function returns the properties (an alist or @code{nil}) of
 @var{font-instance}.
 @end defun
@@ -711,7 +714,7 @@ A vector of two or three elements: a face to inherit from, optionally a
 symbol naming the property of that face to inherit from (if omitted,
 defaults to the same property that this face-boolean specifier is used
 for; if this specifier is not part of a face, the instantiator would not
-be valid), and optionally a value which, if non-nil, means to invert the
+be valid), and optionally a value which, if non-@code{nil}, means to invert the
 sense of the inherited property.
 @end itemize
 
@@ -736,7 +739,7 @@ The color-instance object returned describes the way the background
 color of the @code{default} face is displayed in the next window after
 the selected one.
 
-@defun color-instance-p object 
+@defun color-instance-p object
 This function returns non-@code{nil} if @var{object} is a color-instance.
 @end defun
 
@@ -744,7 +747,7 @@ This function returns non-@code{nil} if @var{object} is a color-instance.
 @subsection Color Instance Properties
 
 @defun color-instance-name color-instance
-This function returns the name used to allocate @var{color-instance}.  
+This function returns the name used to allocate @var{color-instance}.
 @end defun
 
 @defun color-instance-rgb-components color-instance

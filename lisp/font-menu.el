@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -158,7 +158,7 @@ the last entry in the menu."
   :type '(choice (string :tag "Format string")
 		 (function)))
 
-(defvar font-menu-preferred-resolution 
+(defvar font-menu-preferred-resolution
   (make-specifier-and-init 'generic '((global ((mswindows) . ":")
 					      ((x) . "*-*"))) t)
   "Preferred horizontal and vertical font menu resolution (e.g. \"75:75\").")
@@ -187,7 +187,7 @@ the last entry in the menu."
 This is run the first time that a font-menu is needed for each device.
 If you don't like the lazy invocation of this function, you can add it to
 `create-device-hook' and that will make the font menus respond more quickly
-when they are selected for the first time.  If you add fonts to your system, 
+when they are selected for the first time.  If you add fonts to your system,
 or if you change your font path, you can call this to re-initialize the menus."
   (message "Getting list of fonts from server... ")
   (if (or noninteractive
@@ -356,7 +356,7 @@ or if you change your font path, you can call this to re-initialize the menus."
     (when weight
       (signal 'error '("Setting weight currently not supported")))
     (setq new-default-face-font
-	  (font-menu-load-font 
+	  (font-menu-load-font
 	   (or family from-family)
 	   (or weight from-weight)
 	   (or size   from-size)
@@ -398,14 +398,14 @@ or if you change your font path, you can call this to re-initialize the menus."
 						 (/ (or size from-size)
 						    (specifier-instance font-menu-size-scaling
 									(selected-device))))
-						"pt")))		 
+						"pt")))
       (message "Font %s" (face-font-name 'default)))))
 
 
 (defun font-menu-change-face (face
 			      from-family from-weight from-size
 			      to-family   to-weight   to-size)
-  (or (symbolp face) (signal 'wrong-type-argument (list 'symbolp face)))
+  (or (symbolp face) (setq face (wrong-type-argument 'symbolp face)))
   (let* ((dcache (device-fonts-cache))
 	 (font-data (font-menu-font-data face dcache))
 	 (face-family (aref font-data 1))
@@ -422,7 +422,7 @@ or if you change your font path, you can call this to re-initialize the menus."
     ;; If its value is inherited, we don't touch it.  If any of this
     ;; is not true, we leave it alone.
     (when (and (face-font face 'global)
-	       (cond 
+	       (cond
 		(to-family (string-equal face-family from-family))
 		(to-weight (string-equal face-weight from-weight))
 		(to-size   (=            face-size   from-size))))
@@ -432,7 +432,7 @@ or if you change your font path, you can call this to re-initialize the menus."
 					  (or to-size   face-size)
 					  face-slant
 					  (specifier-instance
-					   font-menu-preferred-resolution 
+					   font-menu-preferred-resolution
 					   (selected-device)))
 		     (and font-menu-this-frame-only-p
 			  (selected-frame))))))

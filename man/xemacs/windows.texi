@@ -6,7 +6,7 @@
   Emacs can split the frame into two or many windows, which can display
 parts of different buffers or different parts of one buffer.  If you are
 running XEmacs under X, that means you can have the X window that contains
-the Emacs frame have multiple subwindows. 
+the Emacs frame have multiple subwindows.
 
 @menu
 * Basic Window::     Introduction to Emacs windows.
@@ -30,7 +30,7 @@ show different parts of it, because each window has its own value of point.
  displayed by that window is the current buffer.  The cursor
 shows the location of point in that window.  Each other window has a
 location of point as well, but since the terminal has only one cursor, it
-cannot show the location of point in the other windows. 
+cannot show the location of point in the other windows.
 
   Commands to move point affect the value of point for the selected Emacs
 window only.  They do not change the value of point in any other Emacs
@@ -127,7 +127,7 @@ order, generally top to bottom and left to right.  From the rightmost
 and bottommost window, it goes back to the one at the upper left corner.
 A numeric argument, @var{n}, moves several steps in the cyclic order of
 windows. A negative numeric argument moves around the cycle in the
-opposite order.  If the optional second argument @var{all-frames} is
+opposite order.  If the optional second argument @var{which-frames} is
 non-@code{nil}, the function cycles through all frames.  When the
 minibuffer is active, the minibuffer is the last window in the cycle;
 you can switch from the minibuffer window to one of the other windows,
@@ -146,7 +146,7 @@ are no more windows.
   The usual scrolling commands (@pxref{Display}) apply to the selected
 window only.  @kbd{M-C-v} (@code{scroll-other-window}) scrolls the
 window that @kbd{C-x o} would select.  Like @kbd{C-v}, it takes positive
-and negative arguments. 
+and negative arguments.
 
 @findex compare-windows
   The command @kbd{M-x compare-windows} compares the text in the current
@@ -178,7 +178,7 @@ buffer to select.
 @findex mail-other-window
 @table @kbd
 @item C-x 4 b @var{bufname} @key{RET}
-Select buffer @var{bufname} in another window.  This runs 
+Select buffer @var{bufname} in another window.  This runs
 @code{switch-to-buffer-other-window}.
 @item C-x 4 f @var{filename} @key{RET}
 Visit file @var{filename} and select its buffer in another window.  This
@@ -209,10 +209,10 @@ work using this function.
 
 @table @kbd
 @item C-x 0
-Get rid of the selected window (@code{delete-window}).  That is a zero. 
+Get rid of the selected window (@code{delete-window}).  That is a zero.
 If there is more than one Emacs frame, deleting the sole remaining
 window on that frame deletes the frame as well. If the current frame
-is the only frame, it is not deleted. 
+is the only frame, it is not deleted.
 @item C-x 1
 Get rid of all windows except the selected one
 (@code{delete-other-windows}).

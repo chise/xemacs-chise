@@ -50,6 +50,411 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Input to Processes,  Next: Signals to Processes,  Prev: Process Information,  Up: Processes
+
+Sending Input to Processes
+==========================
+
+   Asynchronous subprocesses receive input when it is sent to them by
+XEmacs, which is done with the functions in this section.  You must
+specify the process to send input to, and the input data to send.  The
+data appears on the "standard input" of the subprocess.
+
+   Some operating systems have limited space for buffered input in a
+PTY.  On these systems, XEmacs sends long input in chunks, with EOF
+characters added amidst the other characters, to force the operating
+system to periodically drain the input buffer.  For most programs,
+these EOFs do no harm.
+
+ - Function: process-send-string process string &optional start end
+     This function sends PROCESS the contents of STRING as standard
+     input.
+
+     The argument PROCESS may be a process or the name of a process, or
+     a buffer or the name of a buffer, in which case the buffer's
+     process is used.  If it is `nil', the current buffer's process is
+     used.
+
+     Optional arguments START and END specify part of STRING; see
+     `substring'.
+
+     The function returns `nil'.
+
+          (process-send-string "shell<1>" "ls\n")
+               => nil
+          
+          
+          ---------- Buffer: *shell* ----------
+          ...
+          introduction.texi               syntax-tables.texi~
+          introduction.texi~              text.texi
+          introduction.txt                text.texi~
+          ...
+          ---------- Buffer: *shell* ----------
+
+ - Function: process-send-region process start end &optional buffer
+     This function sends the text in the region defined by START and
+     END as standard input to PROCESS.
+
+     The argument PROCESS may be a process or the name of a process, or
+     a buffer or the name of a buffer, in which case the buffer's
+     process is used.  If it is `nil', the current buffer's process is
+     used.
+
+     An error is signaled unless both START and END are integers or
+     markers that indicate positions in the current buffer.  (It is
+     unimportant which number is larger.)
+
+ - Function: process-send-eof &optional process
+     This function makes PROCESS see an end-of-file in its input.  The
+     EOF comes after any text already sent to it.
+
+     PROCESS may be a process, a buffer, the name of a process or
+     buffer, or `nil', indicating the current buffer's process.  An
+     error is signaled if PROCESS does not identify any process.
+
+     The function returns the process object identified by PROCESS.
+
+          (process-send-eof "shell")
+               => "shell"
+
+
+File: lispref.info,  Node: Signals to Processes,  Next: Output from Processes,  Prev: Input to Processes,  Up: Processes
+
+Sending Signals to Processes
+============================
+
+   "Sending a signal" to a subprocess is a way of interrupting its
+activities.  There are several different signals, each with its own
+meaning.  The set of signals and their names is defined by the operating
+system.  For example, the signal `SIGINT' means that the user has typed
+`C-c', or that some analogous thing has happened.
+
+   Each signal has a standard effect on the subprocess.  Most signals
+kill the subprocess, but some stop or resume execution instead.  Most
+signals can optionally be handled by programs; if the program handles
+the signal, then we can say nothing in general about its effects.
+
+   The set of signals and their names is defined by the operating
+system; XEmacs has facilities for sending only a few of the signals
+that are defined.  XEmacs can send signals only to its own subprocesses.
+
+   You can send signals explicitly by calling the functions in this
+section.  XEmacs also sends signals automatically at certain times:
+killing a buffer sends a `SIGHUP' signal to all its associated
+processes; killing XEmacs sends a `SIGHUP' signal to all remaining
+processes.  (`SIGHUP' is a signal that indicates that the connection
+between the user and the process is broken, for example if a connection
+via a telephone line is hung up.)
+
+   Each of the signal-sending functions takes two optional arguments:
+PROCESS and CURRENT-GROUP.
+
+   The argument PROCESS must be either a process or a buffer, the name
+of one, or `nil'.  If it is `nil', the process defaults to the process
+associated with the current buffer.  An error is signaled if PROCESS
+does not identify a process.
+
+   The argument CURRENT-GROUP is a flag that makes a difference when
+you are running a job-control shell as an XEmacs subprocess.  If it is
+non-`nil', then the signal is sent to the current foreground process
+group of the terminal that XEmacs uses to communicate with the
+subprocess.  If the process is a job-control shell, this means the
+shell's current subjob.  If it is `nil', the signal is sent to the
+process group of the immediate subprocess of XEmacs.  If the subprocess
+is a job-control shell, this is the shell itself.
+
+   The flag CURRENT-GROUP has no effect when a pipe is used to
+communicate with the subprocess, because the operating system does not
+support the distinction in the case of pipes.  For the same reason,
+job-control shells won't work when a pipe is used.  See
+`process-connection-type' in *Note Asynchronous Processes::.
+
+   Some of the functions below take a SIGNAL argument, which identifies
+a signal to be sent.  It must be either an integer or a symbol which
+names the signal, like `SIGSEGV'.
+
+ - Function: process-send-signal signal &optional process current-group
+     This function sends the signal SIGNAL to the process PROCESS.  The
+     following functions can be implemented in terms of
+     `process-send-signal'.
+
+ - Function: interrupt-process &optional process current-group
+     This function interrupts the process PROCESS by sending the signal
+     `SIGINT'.  Outside of XEmacs, typing the "interrupt character"
+     (normally `C-c') sends this signal.  When the argument
+     CURRENT-GROUP is non-`nil', you can think of this function as
+     "typing `C-c'" on the terminal by which XEmacs talks to the
+     subprocess.
+
+ - Function: kill-process &optional process current-group
+     This function kills the process PROCESS by sending the signal
+     `SIGKILL'.  This signal kills the subprocess immediately, and
+     cannot be handled by the subprocess.
+
+ - Function: quit-process &optional process current-group
+     This function sends the signal `SIGQUIT' to the process PROCESS.
+     This signal is the one sent by the "quit character" (usually
+     `C-\') when you are not inside XEmacs.
+
+ - Function: stop-process &optional process current-group
+     This function stops the process PROCESS by sending the signal
+     `SIGTSTP'.  Use `continue-process' to resume its execution.
+
+     On systems with job control, the "stop character" (usually `C-z')
+     sends this signal (outside of XEmacs).  When CURRENT-GROUP is
+     non-`nil', you can think of this function as "typing `C-z'" on the
+     terminal XEmacs uses to communicate with the subprocess.
+
+ - Function: continue-process &optional process current-group
+     This function resumes execution of the process PROCESS by sending
+     it the signal `SIGCONT'.  This presumes that PROCESS was stopped
+     previously.
+
+ - Command: signal-process pid signal
+     This function sends a signal to the process with process id PID,
+     which need not be a child of XEmacs.  The argument SIGNAL
+     specifies which signal to send.
+
+
+File: lispref.info,  Node: Output from Processes,  Next: Sentinels,  Prev: Signals to Processes,  Up: Processes
+
+Receiving Output from Processes
+===============================
+
+   There are two ways to receive the output that a subprocess writes to
+its standard output stream.  The output can be inserted in a buffer,
+which is called the associated buffer of the process, or a function
+called the "filter function" can be called to act on the output.  If
+the process has no buffer and no filter function, its output is
+discarded.
+
+* Menu:
+
+* Process Buffers::       If no filter, output is put in a buffer.
+* Filter Functions::      Filter functions accept output from the process.
+* Accepting Output::      Explicitly permitting subprocess output.
+                            Waiting for subprocess output.
+
+
+File: lispref.info,  Node: Process Buffers,  Next: Filter Functions,  Up: Output from Processes
+
+Process Buffers
+---------------
+
+   A process can (and usually does) have an "associated buffer", which
+is an ordinary Emacs buffer that is used for two purposes: storing the
+output from the process, and deciding when to kill the process.  You
+can also use the buffer to identify a process to operate on, since in
+normal practice only one process is associated with any given buffer.
+Many applications of processes also use the buffer for editing input to
+be sent to the process, but this is not built into XEmacs Lisp.
+
+   Unless the process has a filter function (*note Filter Functions::),
+its output is inserted in the associated buffer.  The position to insert
+the output is determined by the `process-mark', which is then updated
+to point to the end of the text just inserted.  Usually, but not
+always, the `process-mark' is at the end of the buffer.
+
+ - Function: process-buffer process
+     This function returns the associated buffer of the process PROCESS.
+
+          (process-buffer (get-process "shell"))
+               => #<buffer *shell*>
+
+ - Function: process-mark process
+     This function returns the process marker for PROCESS, which is the
+     marker that says where to insert output from the process.
+
+     If PROCESS does not have a buffer, `process-mark' returns a marker
+     that points nowhere.
+
+     Insertion of process output in a buffer uses this marker to decide
+     where to insert, and updates it to point after the inserted text.
+     That is why successive batches of output are inserted
+     consecutively.
+
+     Filter functions normally should use this marker in the same
+     fashion as is done by direct insertion of output in the buffer.  A
+     good example of a filter function that uses `process-mark' is
+     found at the end of the following section.
+
+     When the user is expected to enter input in the process buffer for
+     transmission to the process, the process marker is useful for
+     distinguishing the new input from previous output.
+
+ - Function: set-process-buffer process buffer
+     This function sets the buffer associated with PROCESS to BUFFER.
+     If BUFFER is `nil', the process becomes associated with no buffer.
+
+ - Function: get-buffer-process buffer-or-name
+     This function returns the process associated with BUFFER-OR-NAME.
+     If there are several processes associated with BUFFER-OR-NAME,
+     then one is chosen.  (Presently, the one chosen is the one most
+     recently created.)  It is usually a bad idea to have more than one
+     process associated with the same buffer.
+
+          (get-buffer-process "*shell*")
+               => #<process shell>
+
+     Killing the process's buffer deletes the process, which kills the
+     subprocess with a `SIGHUP' signal (*note Signals to Processes::).
+
+
+File: lispref.info,  Node: Filter Functions,  Next: Accepting Output,  Prev: Process Buffers,  Up: Output from Processes
+
+Process Filter Functions
+------------------------
+
+   A process "filter function" is a function that receives the standard
+output from the associated process.  If a process has a filter, then
+_all_ output from that process is passed to the filter.  The process
+buffer is used directly for output from the process only when there is
+no filter.
+
+   A filter function must accept two arguments: the associated process
+and a string, which is the output.  The function is then free to do
+whatever it chooses with the output.
+
+   A filter function runs only while XEmacs is waiting (e.g., for
+terminal input, or for time to elapse, or for process output).  This
+avoids the timing errors that could result from running filters at
+random places in the middle of other Lisp programs.  You may explicitly
+cause Emacs to wait, so that filter functions will run, by calling
+`sit-for' or `sleep-for' (*note Waiting::), or `accept-process-output'
+(*note Accepting Output::).  Emacs is also waiting when the command loop
+is reading input.
+
+   Quitting is normally inhibited within a filter function--otherwise,
+the effect of typing `C-g' at command level or to quit a user command
+would be unpredictable.  If you want to permit quitting inside a filter
+function, bind `inhibit-quit' to `nil'.  *Note Quitting::.
+
+   If an error happens during execution of a filter function, it is
+caught automatically, so that it doesn't stop the execution of whatever
+program was running when the filter function was started.  However, if
+`debug-on-error' is non-`nil', the error-catching is turned off.  This
+makes it possible to use the Lisp debugger to debug the filter
+function.  *Note Debugger::.
+
+   Many filter functions sometimes or always insert the text in the
+process's buffer, mimicking the actions of XEmacs when there is no
+filter.  Such filter functions need to use `set-buffer' in order to be
+sure to insert in that buffer.  To avoid setting the current buffer
+semipermanently, these filter functions must use `unwind-protect' to
+make sure to restore the previous current buffer.  They should also
+update the process marker, and in some cases update the value of point.
+Here is how to do these things:
+
+     (defun ordinary-insertion-filter (process string)
+       (let ((old-buffer (current-buffer)))
+         (unwind-protect
+             (let (moving)
+               (set-buffer (process-buffer process))
+               (setq moving (= (point) (process-mark process)))
+               (save-excursion
+                 ;; Insert the text, moving the process-marker.
+                 (goto-char (process-mark process))
+                 (insert string)
+                 (set-marker (process-mark process) (point)))
+               (if moving (goto-char (process-mark process))))
+           (set-buffer old-buffer))))
+
+The reason to use an explicit `unwind-protect' rather than letting
+`save-excursion' restore the current buffer is so as to preserve the
+change in point made by `goto-char'.
+
+   To make the filter force the process buffer to be visible whenever
+new text arrives, insert the following line just before the
+`unwind-protect':
+
+     (display-buffer (process-buffer process))
+
+   To force point to move to the end of the new output no matter where
+it was previously, eliminate the variable `moving' and call `goto-char'
+unconditionally.
+
+   In earlier Emacs versions, every filter function that did regexp
+searching or matching had to explicitly save and restore the match data.
+Now Emacs does this automatically; filter functions never need to do it
+explicitly.  *Note Match Data::.
+
+   A filter function that writes the output into the buffer of the
+process should check whether the buffer is still alive.  If it tries to
+insert into a dead buffer, it will get an error.  If the buffer is dead,
+`(buffer-name (process-buffer PROCESS))' returns `nil'.
+
+   The output to the function may come in chunks of any size.  A program
+that produces the same output twice in a row may send it as one batch
+of 200 characters one time, and five batches of 40 characters the next.
+
+ - Function: set-process-filter process filter
+     This function gives PROCESS the filter function FILTER.  If FILTER
+     is `nil', then the process will have no filter.  If FILTER is `t',
+     then no output from the process will be accepted until the filter
+     is changed. (Output received during this time is not discarded,
+     but is queued, and will be processed as soon as the filter is
+     changed.)
+
+ - Function: process-filter process
+     This function returns the filter function of PROCESS, or `nil' if
+     it has none.  `t' means that output processing has been stopped.
+
+   Here is an example of use of a filter function:
+
+     (defun keep-output (process output)
+        (setq kept (cons output kept)))
+          => keep-output
+     (setq kept nil)
+          => nil
+     (set-process-filter (get-process "shell") 'keep-output)
+          => keep-output
+     (process-send-string "shell" "ls ~/other\n")
+          => nil
+     kept
+          => ("lewis@slug[8] % "
+     "FINAL-W87-SHORT.MSS    backup.otl              kolstad.mss~
+     address.txt             backup.psf              kolstad.psf
+     backup.bib~             david.mss               resume-Dec-86.mss~
+     backup.err              david.psf               resume-Dec.psf
+     backup.mss              dland                   syllabus.mss
+     "
+     "#backups.mss#          backup.mss~             kolstad.mss
+     ")
+
+
+File: lispref.info,  Node: Accepting Output,  Prev: Filter Functions,  Up: Output from Processes
+
+Accepting Output from Processes
+-------------------------------
+
+   Output from asynchronous subprocesses normally arrives only while
+XEmacs is waiting for some sort of external event, such as elapsed time
+or terminal input.  Occasionally it is useful in a Lisp program to
+explicitly permit output to arrive at a specific point, or even to wait
+until output arrives from a process.
+
+ - Function: accept-process-output &optional process seconds millisec
+     This function allows XEmacs to read pending output from processes.
+     The output is inserted in the associated buffers or given to
+     their filter functions.  If PROCESS is non-`nil' then this
+     function does not return until some output has been received from
+     PROCESS.
+
+     The arguments SECONDS and MILLISEC let you specify timeout
+     periods.  The former specifies a period measured in seconds and the
+     latter specifies one measured in milliseconds.  The two time
+     periods thus specified are added together, and
+     `accept-process-output' returns after that much time whether or
+     not there has been any subprocess output.  Note that SECONDS is
+     allowed to be a floating-point number; thus, there is no need to
+     ever use MILLISEC. (It is retained for compatibility purposes.)
+
+     The function `accept-process-output' returns non-`nil' if it did
+     get some output, or `nil' if the timeout expired before output
+     arrived.
+
+
 File: lispref.info,  Node: Sentinels,  Next: Process Window Size,  Prev: Output from Processes,  Up: Processes
 
 Sentinels: Detecting Process Status Changes
@@ -201,22 +606,38 @@ connection, and it never returns either of those values for a real
 subprocess.  *Note Process Information::.
 
  - Function: open-network-stream name buffer-or-name host service
+          &optional protocol
      This function opens a TCP connection for a service to a host.  It
      returns a process object to represent the connection.
+
+     Input and output work as for other process objects.
+     `delete-process' closes the connection.
 
      The NAME argument specifies the name for the process object.  It
      is modified as necessary to make it unique.
 
      The BUFFER-OR-NAME argument is the buffer to associate with the
-     connection.  Output from the connection is inserted in the buffer,
-     unless you specify a filter function to handle the output.  If
-     BUFFER-OR-NAME is `nil', it means that the connection is not
-     associated with any buffer.
+     connection.  It can be a buffer or the name of one.  Output from
+     the connection is inserted in the buffer, unless you specify a
+     filter function to handle the output.  If BUFFER-OR-NAME is `nil',
+     it means that the connection is not associated with any buffer.
 
      The arguments HOST and SERVICE specify where to connect to; HOST
      is the host name or IP address (a string), and SERVICE is the name
      of a defined network service (a string) or a port number (an
      integer).
+
+     Optional fifth arg PROTOCOL is the network protocol to use.
+     Currently only `tcp' (Transmission Control Protocol) and `udp'
+     (User Datagram Protocol) are supported.  When omitted, `tcp' is
+     assumed.
+
+     Output via `process-send-string' and input via buffer or filter
+     (see `set-process-filter') are stream-oriented.  That means UDP
+     datagrams are not guaranteed to be sent and received in discrete
+     packets. (But small datagrams around 500 bytes that are not
+     truncated by `process-send-string' are usually fine.)  Note further
+     that the UDP protocol does not guard against lost packets.
 
 
 File: lispref.info,  Node: System Interface,  Next: X-Windows,  Prev: Processes,  Up: Top
@@ -584,7 +1005,7 @@ Killing XEmacs
 parent process normally resumes control.  The low-level primitive for
 killing XEmacs is `kill-emacs'.
 
- - Function: kill-emacs &optional exit-data
+ - Command: kill-emacs &optional exit-data
      This function exits the XEmacs process and kills it.
 
      If EXIT-DATA is an integer, then it is used as the exit status of
@@ -638,15 +1059,15 @@ case you can give input to some other job such as a shell merely by
 moving to a different window.  Therefore, suspending is not allowed
 when XEmacs is an X client.
 
- - Function: suspend-emacs string
+ - Command: suspend-emacs &optional stuffstring
      This function stops XEmacs and returns control to the superior
      process.  If and when the superior process resumes XEmacs,
      `suspend-emacs' returns `nil' to its caller in Lisp.
 
-     If STRING is non-`nil', its characters are sent to be read as
-     terminal input by XEmacs's superior shell.  The characters in
-     STRING are not echoed by the superior shell; only the results
-     appear.
+     If optional arg STUFFSTRING is non-`nil', its characters are sent
+     to be read as terminal input by XEmacs's superior shell.  The
+     characters in STUFFSTRING are not echoed by the superior shell;
+     only the results appear.
 
      Before suspending, `suspend-emacs' runs the normal hook
      `suspend-hook'.  In Emacs version 18, `suspend-hook' was not a
@@ -696,587 +1117,4 @@ when XEmacs is an X client.
 
  - Variable: suspend-resume-hook
      This variable is a normal hook run after suspending.
-
-
-File: lispref.info,  Node: System Environment,  Next: User Identification,  Prev: Getting Out,  Up: System Interface
-
-Operating System Environment
-============================
-
-   XEmacs provides access to variables in the operating system
-environment through various functions.  These variables include the
-name of the system, the user's UID, and so on.
-
- - Variable: system-type
-     The value of this variable is a symbol indicating the type of
-     operating system XEmacs is operating on.  Here is a table of the
-     possible values:
-
-    `aix-v3'
-          AIX.
-
-    `berkeley-unix'
-          Berkeley BSD.
-
-    `dgux'
-          Data General DGUX operating system.
-
-    `gnu'
-          A GNU system using the GNU HURD and Mach.
-
-    `hpux'
-          Hewlett-Packard HPUX operating system.
-
-    `irix'
-          Silicon Graphics Irix system.
-
-    `linux'
-          A GNU system using the Linux kernel.
-
-    `ms-dos'
-          Microsoft MS-DOS "operating system."
-
-    `next-mach'
-          NeXT Mach-based system.
-
-    `rtu'
-          Masscomp RTU, UCB universe.
-
-    `unisoft-unix'
-          UniSoft UniPlus.
-
-    `usg-unix-v'
-          AT&T System V.
-
-    `vax-vms'
-          VAX VMS.
-
-    `windows-nt'
-          Microsoft windows NT.
-
-    `xenix'
-          SCO Xenix 386.
-
-     We do not wish to add new symbols to make finer distinctions
-     unless it is absolutely necessary!  In fact, we hope to eliminate
-     some of these alternatives in the future.  We recommend using
-     `system-configuration' to distinguish between different operating
-     systems.
-
- - Variable: system-configuration
-     This variable holds the three-part configuration name for the
-     hardware/software configuration of your system, as a string.  The
-     convenient way to test parts of this string is with `string-match'.
-
- - Function: system-name
-     This function returns the name of the machine you are running on.
-          (system-name)
-               => "prep.ai.mit.edu"
-
-   The symbol `system-name' is a variable as well as a function.  In
-fact, the function returns whatever value the variable `system-name'
-currently holds.  Thus, you can set the variable `system-name' in case
-Emacs is confused about the name of your system.  The variable is also
-useful for constructing frame titles (*note Frame Titles::).
-
- - Variable: mail-host-address
-     If this variable is non-`nil', it is used instead of `system-name'
-     for purposes of generating email addresses.  For example, it is
-     used when constructing the default value of `user-mail-address'.
-     *Note User Identification::.  (Since this is done when XEmacs
-     starts up, the value actually used is the one saved when XEmacs
-     was dumped.  *Note Building XEmacs::.)
-
- - Function: getenv var
-     This function returns the value of the environment variable VAR,
-     as a string.  Within XEmacs, the environment variable values are
-     kept in the Lisp variable `process-environment'.
-
-          (getenv "USER")
-               => "lewis"
-          
-          lewis@slug[10] % printenv
-          PATH=.:/user/lewis/bin:/usr/bin:/usr/local/bin
-          USER=lewis
-          TERM=ibmapa16
-          SHELL=/bin/csh
-          HOME=/user/lewis
-
- - Command: setenv variable value
-     This command sets the value of the environment variable named
-     VARIABLE to VALUE.  Both arguments should be strings.  This
-     function works by modifying `process-environment'; binding that
-     variable with `let' is also reasonable practice.
-
- - Variable: process-environment
-     This variable is a list of strings, each describing one environment
-     variable.  The functions `getenv' and `setenv' work by means of
-     this variable.
-
-          process-environment
-          => ("l=/usr/stanford/lib/gnuemacs/lisp"
-              "PATH=.:/user/lewis/bin:/usr/class:/nfsusr/local/bin"
-              "USER=lewis"
-              "TERM=ibmapa16"
-              "SHELL=/bin/csh"
-              "HOME=/user/lewis")
-
- - Variable: path-separator
-     This variable holds a string which says which character separates
-     directories in a search path (as found in an environment
-     variable).  Its value is `":"' for Unix and GNU systems, and `";"'
-     for MS-DOS and Windows NT.
-
- - Variable: invocation-name
-     This variable holds the program name under which Emacs was
-     invoked.  The value is a string, and does not include a directory
-     name.
-
- - Variable: invocation-directory
-     This variable holds the directory from which the Emacs executable
-     was invoked, or perhaps `nil' if that directory cannot be
-     determined.
-
- - Variable: installation-directory
-     If non-`nil', this is a directory within which to look for the
-     `lib-src' and `etc' subdirectories.  This is non-`nil' when Emacs
-     can't find those directories in their standard installed
-     locations, but can find them in a directory related somehow to the
-     one containing the Emacs executable.
-
- - Function: load-average &optional use-floats
-     This function returns a list of the current 1-minute, 5-minute and
-     15-minute load averages.  The values are integers that are 100
-     times the system load averages.  (The load averages indicate the
-     number of processes trying to run.)
-
-     When USE-FLOATS is non-`nil', floats will be returned instead of
-     integers.  These floats are not multiplied by 100.
-
-          (load-average)
-               => (169 158 164)
-          (load-average t)
-               => (1.69921875 1.58984375 1.640625)
-          
-          lewis@rocky[5] % uptime
-            8:06pm  up 16 day(s), 21:57,  40 users,
-           load average: 1.68, 1.59, 1.64
-
-     If the 5-minute or 15-minute load averages are not available,
-     return a shortened list, containing only those averages which are
-     available.
-
-     On some systems, this function may require special privileges to
-     run, or it may be unimplemented for the particular system type.
-     In that case, the function will signal an error.
-
- - Function: emacs-pid
-     This function returns the process ID of the Emacs process.
-
- - Function: setprv privilege-name &optional setp getprv
-     This function sets or resets a VMS privilege.  (It does not exist
-     on Unix.)  The first arg is the privilege name, as a string.  The
-     second argument, SETP, is `t' or `nil', indicating whether the
-     privilege is to be turned on or off.  Its default is `nil'.  The
-     function returns `t' if successful, `nil' otherwise.
-
-     If the third argument, GETPRV, is non-`nil', `setprv' does not
-     change the privilege, but returns `t' or `nil' indicating whether
-     the privilege is currently enabled.
-
-
-File: lispref.info,  Node: User Identification,  Next: Time of Day,  Prev: System Environment,  Up: System Interface
-
-User Identification
-===================
-
- - Variable: user-mail-address
-     This holds the nominal email address of the user who is using
-     Emacs.  When Emacs starts up, it computes a default value that is
-     usually right, but users often set this themselves when the
-     default value is not right.
-
- - Function: user-login-name &optional uid
-     If you don't specify UID, this function returns the name under
-     which the user is logged in.  If the environment variable `LOGNAME'
-     is set, that value is used.  Otherwise, if the environment variable
-     `USER' is set, that value is used.  Otherwise, the value is based
-     on the effective UID, not the real UID.
-
-     If you specify UID, the value is the user name that corresponds to
-     UID (which should be an integer).
-
-          (user-login-name)
-               => "lewis"
-
- - Function: user-real-login-name
-     This function returns the user name corresponding to Emacs's real
-     UID.  This ignores the effective UID and ignores the environment
-     variables `LOGNAME' and `USER'.
-
- - Variable: user-full-name
-     This variable holds the name of the user running this Emacs.  It is
-     initialized at startup time from the value of `NAME' environment
-     variable.  You can change the value of this variable to alter the
-     result of the `user-full-name' function.
-
- - Function: user-full-name &optional user
-     This function returns the full name of USER.  If USER is `nil', it
-     defaults to the user running this Emacs.  In that case, the value
-     of `user-full-name' variable, if non-`nil', will be used.
-
-     If USER is specified explicitly, `user-full-name' variable is
-     ignored.
-
-          (user-full-name)
-               => "Hrvoje Niksic"
-          (setq user-full-name "Hrvoje \"Niksa\" Niksic")
-          (user-full-name)
-               => "Hrvoje \"Niksa\" Niksic"
-          (user-full-name "hniksic")
-               => "Hrvoje Niksic"
-
-   The symbols `user-login-name', `user-real-login-name' and
-`user-full-name' are variables as well as functions.  The functions
-return the same values that the variables hold.  These variables allow
-you to "fake out" Emacs by telling the functions what to return.  The
-variables are also useful for constructing frame titles (*note Frame
-Titles::).
-
- - Function: user-real-uid
-     This function returns the real UID of the user.
-
-          (user-real-uid)
-               => 19
-
- - Function: user-uid
-     This function returns the effective UID of the user.
-
- - Function: user-home-directory
-     This function returns the "`HOME'" directory of the user, and is
-     intended to replace occurrences of "`(getenv "HOME")'".  Under
-     Unix systems, the following is done:
-
-       1. Return the value of "`(getenv "HOME")'", if set.
-
-       2. Return "/", as a fallback, but issue a warning.  (Future
-          versions of XEmacs will also attempt to lookup the `HOME'
-          directory via `getpwent()', but this has not yet been
-          implemented.)
-
-     Under MS Windows, this is done:
-
-       1. Return the value of "`(getenv "HOME")'", if set.
-
-       2. If the environment variables `HOMEDRIVE' and `HOMEDIR' are
-          both set, return the concatenation (the following description
-          uses MS Windows environment variable substitution syntax):
-          `%HOMEDRIVE%%HOMEDIR%'.
-
-       3. Return "C:\", as a fallback, but issue a warning.
-
-
-File: lispref.info,  Node: Time of Day,  Next: Time Conversion,  Prev: User Identification,  Up: System Interface
-
-Time of Day
-===========
-
-   This section explains how to determine the current time and the time
-zone.
-
- - Function: current-time-string &optional time-value
-     This function returns the current time and date as a
-     humanly-readable string.  The format of the string is unvarying;
-     the number of characters used for each part is always the same, so
-     you can reliably use `substring' to extract pieces of it.  It is
-     wise to count the characters from the beginning of the string
-     rather than from the end, as additional information may be added
-     at the end.
-
-     The argument TIME-VALUE, if given, specifies a time to format
-     instead of the current time.  The argument should be a list whose
-     first two elements are integers.  Thus, you can use times obtained
-     from `current-time' (see below) and from `file-attributes' (*note
-     File Attributes::).
-
-          (current-time-string)
-               => "Wed Oct 14 22:21:05 1987"
-
- - Function: current-time
-     This function returns the system's time value as a list of three
-     integers: `(HIGH LOW MICROSEC)'.  The integers HIGH and LOW
-     combine to give the number of seconds since 0:00 January 1, 1970,
-     which is HIGH * 2**16 + LOW.
-
-     The third element, MICROSEC, gives the microseconds since the
-     start of the current second (or 0 for systems that return time
-     only on the resolution of a second).
-
-     The first two elements can be compared with file time values such
-     as you get with the function `file-attributes'.  *Note File
-     Attributes::.
-
- - Function: current-time-zone &optional time-value
-     This function returns a list describing the time zone that the
-     user is in.
-
-     The value has the form `(OFFSET NAME)'.  Here OFFSET is an integer
-     giving the number of seconds ahead of UTC (east of Greenwich).  A
-     negative value means west of Greenwich.  The second element, NAME
-     is a string giving the name of the time zone.  Both elements
-     change when daylight savings time begins or ends; if the user has
-     specified a time zone that does not use a seasonal time
-     adjustment, then the value is constant through time.
-
-     If the operating system doesn't supply all the information
-     necessary to compute the value, both elements of the list are
-     `nil'.
-
-     The argument TIME-VALUE, if given, specifies a time to analyze
-     instead of the current time.  The argument should be a cons cell
-     containing two integers, or a list whose first two elements are
-     integers.  Thus, you can use times obtained from `current-time'
-     (see above) and from `file-attributes' (*note File Attributes::).
-
-
-File: lispref.info,  Node: Time Conversion,  Next: Timers,  Prev: Time of Day,  Up: System Interface
-
-Time Conversion
-===============
-
-   These functions convert time values (lists of two or three integers)
-to strings or to calendrical information.  There is also a function to
-convert calendrical information to a time value.  You can get time
-values from the functions `current-time' (*note Time of Day::) and
-`file-attributes' (*note File Attributes::).
-
- - Function: format-time-string format-string &optional time
-     This function converts TIME to a string according to
-     FORMAT-STRING.  If TIME is omitted, it defaults to the current
-     time.  The argument FORMAT-STRING may contain `%'-sequences which
-     say to substitute parts of the time.  Here is a table of what the
-     `%'-sequences mean:
-
-    `%a'
-          This stands for the abbreviated name of the day of week.
-
-    `%A'
-          This stands for the full name of the day of week.
-
-    `%b'
-          This stands for the abbreviated name of the month.
-
-    `%B'
-          This stands for the full name of the month.
-
-    `%c'
-          This is a synonym for `%x %X'.
-
-    `%C'
-          This has a locale-specific meaning.  In the default locale
-          (named C), it is equivalent to `%A, %B %e, %Y'.
-
-    `%d'
-          This stands for the day of month, zero-padded.
-
-    `%D'
-          This is a synonym for `%m/%d/%y'.
-
-    `%e'
-          This stands for the day of month, blank-padded.
-
-    `%h'
-          This is a synonym for `%b'.
-
-    `%H'
-          This stands for the hour (00-23).
-
-    `%I'
-          This stands for the hour (00-12).
-
-    `%j'
-          This stands for the day of the year (001-366).
-
-    `%k'
-          This stands for the hour (0-23), blank padded.
-
-    `%l'
-          This stands for the hour (1-12), blank padded.
-
-    `%m'
-          This stands for the month (01-12).
-
-    `%M'
-          This stands for the minute (00-59).
-
-    `%n'
-          This stands for a newline.
-
-    `%p'
-          This stands for `AM' or `PM', as appropriate.
-
-    `%r'
-          This is a synonym for `%I:%M:%S %p'.
-
-    `%R'
-          This is a synonym for `%H:%M'.
-
-    `%S'
-          This stands for the seconds (00-60).
-
-    `%t'
-          This stands for a tab character.
-
-    `%T'
-          This is a synonym for `%H:%M:%S'.
-
-    `%U'
-          This stands for the week of the year (01-52), assuming that
-          weeks start on Sunday.
-
-    `%w'
-          This stands for the numeric day of week (0-6).  Sunday is day
-          0.
-
-    `%W'
-          This stands for the week of the year (01-52), assuming that
-          weeks start on Monday.
-
-    `%x'
-          This has a locale-specific meaning.  In the default locale
-          (named C), it is equivalent to `%D'.
-
-    `%X'
-          This has a locale-specific meaning.  In the default locale
-          (named C), it is equivalent to `%T'.
-
-    `%y'
-          This stands for the year without century (00-99).
-
-    `%Y'
-          This stands for the year with century.
-
-    `%Z'
-          This stands for the time zone abbreviation.
-
- - Function: decode-time time
-     This function converts a time value into calendrical information.
-     The return value is a list of nine elements, as follows:
-
-          (SECONDS MINUTES HOUR DAY MONTH YEAR DOW DST ZONE)
-
-     Here is what the elements mean:
-
-    SEC
-          The number of seconds past the minute, as an integer between
-          0 and 59.
-
-    MINUTE
-          The number of minutes past the hour, as an integer between 0
-          and 59.
-
-    HOUR
-          The hour of the day, as an integer between 0 and 23.
-
-    DAY
-          The day of the month, as an integer between 1 and 31.
-
-    MONTH
-          The month of the year, as an integer between 1 and 12.
-
-    YEAR
-          The year, an integer typically greater than 1900.
-
-    DOW
-          The day of week, as an integer between 0 and 6, where 0
-          stands for Sunday.
-
-    DST
-          `t' if daylight savings time is effect, otherwise `nil'.
-
-    ZONE
-          An integer indicating the time zone, as the number of seconds
-          east of Greenwich.
-
-     Note that Common Lisp has different meanings for DOW and ZONE.
-
- - Function: encode-time seconds minutes hour day month year &optional
-          zone
-     This function is the inverse of `decode-time'.  It converts seven
-     items of calendrical data into a time value.  For the meanings of
-     the arguments, see the table above under `decode-time'.
-
-     Year numbers less than 100 are treated just like other year
-     numbers.  If you want them to stand for years above 1900, you must
-     alter them yourself before you call `encode-time'.
-
-     The optional argument ZONE defaults to the current time zone and
-     its daylight savings time rules.  If specified, it can be either a
-     list (as you would get from `current-time-zone') or an integer (as
-     you would get from `decode-time').  The specified zone is used
-     without any further alteration for daylight savings time.
-
-
-File: lispref.info,  Node: Timers,  Next: Terminal Input,  Prev: Time Conversion,  Up: System Interface
-
-Timers for Delayed Execution
-============================
-
-   You can set up a timer to call a function at a specified future time.
-
- - Function: add-timeout secs function object &optional resignal
-     This function adds a timeout, to be signaled after the timeout
-     period has elapsed.  SECS is a number of seconds, expressed as an
-     integer or a float.  FUNCTION will be called after that many
-     seconds have elapsed, with one argument, the given OBJECT.  If the
-     optional RESIGNAL argument is provided, then after this timeout
-     expires, `add-timeout' will automatically be called again with
-     RESIGNAL as the first argument.
-
-     This function returns an object which is the "id" of this
-     particular timeout.  You can pass that object to `disable-timeout'
-     to turn off the timeout before it has been signalled.
-
-     The number of seconds may be expressed as a floating-point number,
-     in which case some fractional part of a second will be used.
-     Caveat: the usable timeout granularity will vary from system to
-     system.
-
-     Adding a timeout causes a timeout event to be returned by
-     `next-event', and the function will be invoked by
-     `dispatch-event', so if XEmacs is in a tight loop, the function
-     will not be invoked until the next call to sit-for or until the
-     return to top-level (the same is true of process filters).
-
-     WARNING: if you are thinking of calling add-timeout from inside of
-     a callback function as a way of resignalling a timeout, think
-     again.  There is a race condition.  That's why the RESIGNAL
-     argument exists.
-
-     (NOTE: In FSF Emacs, this function is called `run-at-time' and has
-     different semantics.)
-
- - Function: disable-timeout id
-     Cancel the requested action for ID, which should be a value
-     previously returned by `add-timeout'.  This cancels the effect of
-     that call to `add-timeout'; the arrival of the specified time will
-     not cause anything special to happen.  (NOTE: In FSF Emacs, this
-     function is called `cancel-timer'.)
-
-
-File: lispref.info,  Node: Terminal Input,  Next: Terminal Output,  Prev: Timers,  Up: System Interface
-
-Terminal Input
-==============
-
-   This section describes functions and variables for recording or
-manipulating terminal input.  See *Note Display::, for related
-functions.
-
-* Menu:
-
-* Input Modes::		Options for how input is processed.
-* Translating Input::   Low level conversion of some characters or events
-			  into others.
-* Recording Input::	Saving histories of recent or all input events.
 

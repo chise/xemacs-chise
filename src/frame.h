@@ -772,10 +772,8 @@ extern int frame_changed;
     DEVICE_FRAME_LOOP (frmcons, XDEVICE (XCAR (devcons)))
 
 void update_frame_title (struct frame *f);
-Lisp_Object next_frame (Lisp_Object f, Lisp_Object frametype,
-			Lisp_Object console);
-Lisp_Object previous_frame (Lisp_Object f, Lisp_Object frametype,
-			    Lisp_Object console);
+Lisp_Object next_frame (Lisp_Object, Lisp_Object, Lisp_Object);
+Lisp_Object previous_frame (Lisp_Object, Lisp_Object, Lisp_Object);
 void pixel_to_char_size (struct frame *f, int pixel_width, int pixel_height,
 			 int *char_width, int *char_height);
 void char_to_pixel_size (struct frame *f, int char_width, int char_height,
@@ -811,7 +809,7 @@ void delete_frame_internal (struct frame *f, int force,
 void io_error_delete_frame (Lisp_Object frame);
 Lisp_Object find_some_frame (int (*predicate) (Lisp_Object, void *),
 			     void *closure);
-int device_matches_console_spec (Lisp_Object device, Lisp_Object console);
+int device_matches_device_spec (Lisp_Object device, Lisp_Object device_spec);
 Lisp_Object frame_first_window (struct frame *f);
 int show_gc_cursor (struct frame *f, Lisp_Object cursor);
 void set_frame_selected_window (struct frame *f, Lisp_Object window);

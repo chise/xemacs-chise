@@ -1407,9 +1407,9 @@ static void
 try_to_initialize_subtty (struct unix_process_data *upd)
 {
   if (upd->pty_flag
-      && (upd->subtty = -1 || ! isatty (upd->subtty))
+      && (upd->subtty == -1 || ! isatty (upd->subtty))
       && STRINGP (upd->tty_name))
-    upd->subtty = open (XSTRING_DATA (upd->tty_name), O_RDWR, 0);
+    upd->subtty = open ((char *) XSTRING_DATA (upd->tty_name), O_RDWR, 0);
 }
 
 /* Send signal number SIGNO to PROCESS.
@@ -1475,9 +1475,21 @@ unix_kill_child_process (Lisp_Object proc, int signo,
      ioctl TIOCGPGRP it is supposed to obsolete.  Sometimes we have to
      use TIOCGPGRP on the master end, sometimes the slave end
      (probably an AIX bug).  So we better get a fd for the slave if we
-     haven't got it yet.  On some systems none of these work, so then
-     we just fall back to the non-current_group behavior and kill the
-     process group of the child. */
+     haven't got it yet.
+
+     Anal operating systems like SGI Irix and Compaq Tru64 adhere
+     strictly to the letter of the law, so our hack doesn't work.
+     The following fragment from an Irix header file is suggestive:
+
+     #ifdef __notdef__
+     // this is not currently supported
+     #define TIOCSIGNAL      (tIOC|31)       // pty: send signal to slave
+     #endif
+
+     On those systems where none of our tricks work, we just fall back
+     to the non-current_group behavior and kill the process group of
+     the child.
+  */
   if (current_group)
     {
       try_to_initialize_subtty (d);

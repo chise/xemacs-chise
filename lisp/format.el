@@ -312,7 +312,7 @@ formats defined in `format-alist', or a list of such symbols."
 			      buffer-file-format))))
   (format-encode-region (point-min) (point-max) format))
 
-(defun format-encode-region (beg end &optional format)
+(defun format-encode-region (start end &optional format)
  "Translate the region into some FORMAT.
 FORMAT defaults to `buffer-file-format', it is a symbol naming
 one of the formats defined in `format-alist', or a list of such symbols."
@@ -334,10 +334,10 @@ one of the formats defined in `format-alist', or a list of such symbols."
 	      )
 	 (if to-fn
 	     (if modify
-		 (setq end (format-encode-run-method to-fn beg end
+		 (setq end (format-encode-run-method to-fn start end
 						     (current-buffer)))
 	       (format-insert-annotations
-		(funcall to-fn beg end (current-buffer)))))
+		(funcall to-fn start end (current-buffer)))))
 	 (setq format (cdr format)))))))
 
 (defun format-write-file (filename format)
@@ -374,10 +374,10 @@ If FORMAT is nil then do not do any format conversion."
   (if format
       (format-decode-buffer format)))
 
-(defun format-insert-file (filename format &optional beg end)
+(defun format-insert-file (filename format &optional start end)
   "Insert the contents of file FILE using data format FORMAT.
 If FORMAT is nil then do not do any format conversion.
-The optional third and fourth arguments BEG and END specify
+The optional third and fourth arguments START and END specify
 the part of the file to read.
 
 The return value is like the value of `insert-file-contents':
@@ -390,7 +390,7 @@ a list (ABSOLUTE-FILE-NAME . SIZE)."
      (list file fmt)))
   (let (value size)
     (let ((format-alist nil))
-      (setq value (insert-file-contents filename nil beg end))
+      (setq value (insert-file-contents filename nil start end))
       (setq size (nth 1 value)))
     (if format
 	(setq size (format-decode format size)
@@ -412,7 +412,7 @@ Formats are defined in `format-alist'.  Optional arg is the PROMPT to use."
 ;;; decoding functions for use in format-alist.
 ;;;
 
-(defun format-replace-strings (alist &optional reverse beg end)
+(defun format-replace-strings (alist &optional reverse start end)
   "Do multiple replacements on the buffer.
 ALIST is a list of (from . to) pairs, which should be proper arguments to
 `search-forward' and `replace-match' respectively.
@@ -422,12 +422,12 @@ strings.
 Optional args BEGIN and END specify a region of the buffer to operate on."
   (save-excursion
     (save-restriction
-      (or beg (setq beg (point-min)))
+      (or start (setq start (point-min)))
       (if end (narrow-to-region (point-min) end))
       (while alist
 	(let ((from (if reverse (cdr (car alist)) (car (car alist))))
 	      (to   (if reverse (car (cdr alist)) (cdr (car alist)))))
-	  (goto-char beg)
+	  (goto-char start)
 	  (while (search-forward from nil t)
 	    (goto-char (match-beginning 0))
 	    (insert to)

@@ -30,6 +30,201 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: File Variables,  Prev: Locals,  Up: Variables
+
+Local Variables in Files
+------------------------
+
+   A file can contain a "local variables list", which specifies the
+values to use for certain Emacs variables when that file is edited.
+Visiting the file checks for a local variables list and makes each
+variable in the list local to the buffer in which the file is visited,
+with the value specified in the file.
+
+   A local variables list goes near the end of the file, in the last
+page.  (It is often best to put it on a page by itself.)  The local
+variables list starts with a line containing the string `Local
+Variables:', and ends with a line containing the string `End:'.  In
+between come the variable names and values, one set per line, as
+`VARIABLE: VALUE'.  The VALUEs are not evaluated; they are used
+literally.
+
+   The line which starts the local variables list does not have to say
+just `Local Variables:'.  If there is other text before `Local
+Variables:', that text is called the "prefix", and if there is other
+text after, that is called the "suffix".  If a prefix or suffix are
+present, each entry in the local variables list should have the prefix
+before it and the suffix after it.  This includes the `End:' line.  The
+prefix and suffix are included to disguise the local variables list as
+a comment so the compiler or text formatter  will ignore it.  If you do
+not need to disguise the local variables list as a comment in this way,
+there is no need to include a prefix or a suffix.
+
+   Two "variable" names are special in a local variables list: a value
+for the variable `mode' sets the major mode, and a value for the
+variable `eval' is simply evaluated as an expression and the value is
+ignored.  These are not real variables; setting them in any other
+context does not have the same effect.  If `mode' is used in a local
+variables list, it should be the first entry in the list.
+
+   Here is an example of a local variables list:
+     ;;; Local Variables: ***
+     ;;; mode:lisp ***
+     ;;; comment-column:0 ***
+     ;;; comment-start: ";;; "  ***
+     ;;; comment-end:"***" ***
+     ;;; End: ***
+
+   Note that the prefix is `;;; ' and the suffix is ` ***'.  Note also
+that comments in the file begin with and end with the same strings.
+Presumably the file contains code in a language which is enough like
+Lisp for Lisp mode to be useful but in which comments start and end
+differently.  The prefix and suffix are used in the local variables
+list to make the list look like several lines of comments when the
+compiler or interpreter for that language reads the file.
+
+   The start of the local variables list must be no more than 3000
+characters from the end of the file, and must be in the last page if the
+file is divided into pages.  Otherwise, Emacs will not notice it is
+there.  The purpose is twofold: a stray `Local Variables:' not in the
+last page does not confuse Emacs, and Emacs never needs to search a
+long file that contains no page markers and has no local variables list.
+
+   You may be tempted to turn on Auto Fill mode with a local variable
+list.  That is inappropriate.  Whether you use Auto Fill mode or not is
+a matter of personal taste, not a matter of the contents of particular
+files.  If you want to use Auto Fill, set up major mode hooks with your
+init file to turn it on (when appropriate) for you alone (*note Init
+File::).  Don't try to use a local variable list that would impose your
+taste on everyone working with the file.
+
+   XEmacs allows you to specify local variables in the first line of a
+file, in addition to specifying them in the `Local Variables' section
+at the end of a file.
+
+   If the first line of a file contains two occurrences of ``-*-'',
+XEmacs uses the information between them to determine what the major
+mode and variable settings should be.  For example, these are all legal:
+
+             ;;; -*- mode: emacs-lisp -*-
+             ;;; -*- mode: postscript; version-control: never -*-
+             ;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
+
+   For historical reasons, the syntax ``-*- modename -*-'' is allowed
+as well; for example, you can use:
+
+             ;;; -*- emacs-lisp -*-
+
+   The variable `enable-local-variables' controls the use of local
+variables lists in files you visit.  The value can be `t', `nil', or
+something else.  A value of `t' means local variables lists are obeyed;
+`nil' means they are ignored; anything else means query.
+
+   The command `M-x normal-mode' always obeys local variables lists and
+ignores this variable.
+
+
+File: xemacs.info,  Node: Keyboard Macros,  Next: Key Bindings,  Prev: Variables,  Up: Customization
+
+Keyboard Macros
+===============
+
+   A "keyboard macro" is a command defined by the user to abbreviate a
+sequence of keys.  For example, if you discover that you are about to
+type `C-n C-d' forty times, you can speed your work by defining a
+keyboard macro to invoke `C-n C-d' and calling it with a repeat count
+of forty.
+
+`C-x ('
+     Start defining a keyboard macro (`start-kbd-macro').
+
+`C-x )'
+     End the definition of a keyboard macro (`end-kbd-macro').
+
+`C-x e'
+     Execute the most recent keyboard macro (`call-last-kbd-macro').
+
+`C-u C-x ('
+     Re-execute last keyboard macro, then add more keys to its
+     definition.
+
+`C-x q'
+     When this point is reached during macro execution, ask for
+     confirmation (`kbd-macro-query').
+
+`M-x name-last-kbd-macro'
+     Give a command name (for the duration of the session) to the most
+     recently defined keyboard macro.
+
+`M-x insert-kbd-macro'
+     Insert in the buffer a keyboard macro's definition, as Lisp code.
+
+   Keyboard macros differ from other Emacs commands in that they are
+written in the Emacs command language rather than in Lisp.  This makes
+it easier for the novice to write them and makes them more convenient as
+temporary hacks.  However, the Emacs command language is not powerful
+enough as a programming language to be useful for writing anything
+general or complex.  For such things, Lisp must be used.
+
+   You define a keyboard macro by executing the commands which are its
+definition.  Put differently, as you are defining a keyboard macro, the
+definition is being executed for the first time.  This way, you see
+what the effects of your commands are, and don't have to figure them
+out in your head.  When you are finished, the keyboard macro is defined
+and also has been executed once.  You can then execute the same set of
+commands again by invoking the macro.
+
+* Menu:
+
+* Basic Kbd Macro::     Defining and running keyboard macros.
+* Save Kbd Macro::      Giving keyboard macros names; saving them in files.
+* Kbd Macro Query::     Keyboard macros that do different things each use.
+
+
+File: xemacs.info,  Node: Basic Kbd Macro,  Next: Save Kbd Macro,  Up: Keyboard Macros
+
+Basic Use
+---------
+
+   To start defining a keyboard macro, type `C-x ('
+(`start-kbd-macro').  From then on, anything you type continues to be
+executed, but also becomes part of the definition of the macro.  `Def'
+appears in the mode line to remind you of what is going on.  When you
+are finished, the `C-x )' command (`end-kbd-macro') terminates the
+definition, without becoming part of it.
+
+   For example,
+
+     C-x ( M-f foo C-x )
+
+defines a macro to move forward a word and then insert `foo'.
+
+   You can give `C-x )' a repeat count as an argument, in which case it
+repeats the macro that many times right after defining it, but defining
+the macro counts as the first repetition (since it is executed as you
+define it).  If you give `C-x )' an argument of 4, it executes the
+macro immediately 3 additional times.  An argument of zero to `C-x e'
+or `C-x )' means repeat the macro indefinitely (until it gets an error
+or you type `C-g').
+
+   Once you have defined a macro, you can invoke it again with the `C-x
+e' command (`call-last-kbd-macro').  You can give the command a repeat
+count numeric argument to execute the macro many times.
+
+   To repeat an operation at regularly spaced places in the text,
+define a macro and include as part of the macro the commands to move to
+the next place you want to use it.  For example, if you want to change
+each line, you should position point at the start of a line, and define
+a macro to change that line and leave point at the start of the next
+line.  Repeating the macro will then operate on successive lines.
+
+   After you have terminated the definition of a keyboard macro, you
+can add to the end of its definition by typing `C-u C-x ('.  This is
+equivalent to plain `C-x (' followed by retyping the whole definition
+so far.  As a consequence it re-executes the macro as previously
+defined.
+
+
 File: xemacs.info,  Node: Save Kbd Macro,  Next: Kbd Macro Query,  Prev: Basic Kbd Macro,  Up: Keyboard Macros
 
 Naming and Saving Keyboard Macros
@@ -977,255 +1172,4 @@ kernel of Emacs uses.
 
 `yes-or-no-p'
      You type something other than `yes' or `no'
-
-
-File: xemacs.info,  Node: Faces,  Next: Frame Components,  Prev: Audible Bell,  Up: Customization
-
-Faces
-=====
-
-   XEmacs has objects called extents and faces.  An "extent" is a
-region of text and a "face" is a collection of textual attributes, such
-as fonts and colors.  Every extent is displayed in some face;
-therefore, changing the properties of a face immediately updates the
-display of all associated extents.  Faces can be frame-local: you can
-have a region of text that displays with completely different
-attributes when its buffer is viewed from a different X window.
-
-   The display attributes of faces may be specified either in Lisp or
-through the X resource manager.
-
-Customizing Faces
------------------
-
-   You can change the face of an extent with the functions in this
-section.  All the functions prompt for a FACE as an argument; use
-completion for a list of possible values.
-
-`M-x invert-face'
-     Swap the foreground and background colors of the given FACE.
-
-`M-x make-face-bold'
-     Make the font of the given FACE bold.  When called from a program,
-     returns `nil' if this is not possible.
-
-`M-x make-face-bold-italic'
-     Make the font of the given FACE bold italic.  When called from a
-     program, returns `nil' if not possible.
-
-`M-x make-face-italic'
-     Make the font of the given FACE italic.  When called from a
-     program, returns `nil' if not possible.
-
-`M-x make-face-unbold'
-     Make the font of the given FACE non-bold.  When called from a
-     program, returns `nil' if not possible.
-
-`M-x make-face-unitalic'
-     Make the font of the given FACE non-italic.  When called from a
-     program, returns `nil' if not possible.
-
-`M-x make-face-larger'
-     Make the font of the given FACE a little larger.  When called from
-     a program, returns `nil' if not possible.
-
-`M-x make-face-smaller'
-     Make the font of the given FACE a little smaller.  When called
-     from a program, returns `nil' if not possible.
-
-`M-x set-face-background'
-     Change the background color of the given FACE.
-
-`M-x set-face-background-pixmap'
-     Change the background pixmap of the given FACE.
-
-`M-x set-face-font'
-     Change the font of the given FACE.
-
-`M-x set-face-foreground'
-     Change the foreground color of the given FACE.
-
-`M-x set-face-underline-p'
-     Change whether the given FACE is underlined.
-
-   You can exchange the foreground and background color of the selected
-FACE with the function `invert-face'. If the face does not specify both
-foreground and background, then its foreground and background are set
-to the background and foreground of the default face.  When calling
-this from a program, you can supply the optional argument FRAME to
-specify which frame is affected; otherwise, all frames are affected.
-
-   You can set the background color of the specified FACE with the
-function `set-face-background'.  The argument `color' should be a
-string, the name of a color.  When called from a program, if the
-optional FRAME argument is provided, the face is changed only in that
-frame; otherwise, it is changed in all frames.
-
-   You can set the background pixmap of the specified FACE with the
-function `set-face-background-pixmap'.  The pixmap argument NAME should
-be a string, the name of a file of pixmap data.  The directories listed
-in the `x-bitmap-file-path' variable are searched.  The bitmap may also
-be a list of the form `(WIDTH HEIGHT DATA)', where WIDTH and HEIGHT are
-the size in pixels, and DATA is a string containing the raw bits of the
-bitmap.  If the optional FRAME argument is provided, the face is
-changed only in that frame; otherwise, it is changed in all frames.
-
-   The variable `x-bitmap-file-path' takes as a value a list of the
-directories in which X bitmap files may be found.  If the value is
-`nil', the list is initialized from the `*bitmapFilePath' resource.
-
-   If the environment variable XBMLANGPATH is set, then it is consulted
-before the `x-bitmap-file-path' variable.
-
-   You can set the font of the specified FACE with the function
-`set-face-font'.  The FONT argument should be a string, the name of a
-font.  When called from a program, if the optional FRAME argument is
-provided, the face is changed only in that frame; otherwise, it is
-changed in all frames.
-
-   You can set the foreground color of the specified FACE with the
-function `set-face-foreground'.  The argument COLOR should be a string,
-the name of a color.  If the optional FRAME argument is provided, the
-face is changed only in that frame; otherwise, it is changed in all
-frames.
-
-   You can set underline the specified FACE with the function
-`set-face-underline-p'. The argument UNDERLINE-P can be used to make
-underlining an attribute of the face or not. If the optional FRAME
-argument is provided, the face is changed only in that frame;
-otherwise, it is changed in all frames.
-
-
-File: xemacs.info,  Node: Frame Components,  Next: X Resources,  Prev: Faces,  Up: Customization
-
-Frame Components
-================
-
-   You can control the presence and position of most frame components,
-such as the menubar, toolbars, and gutters.
-
-   This section is not written yet.  Try the Lisp Reference Manual:
-*Note Menubar: (lispref)Menubar, *Note Toolbar Intro: (lispref)Toolbar
-Intro, and *Note Gutter Intro: (lispref)Gutter Intro.
-
-
-File: xemacs.info,  Node: X Resources,  Prev: Frame Components,  Up: Customization
-
-X Resources
-===========
-
-   Historically, XEmacs has used the X resource application class
-`Emacs' for its resources.  Unfortunately, GNU Emacs uses the same
-application class, and resources are not compatible between the two
-Emacsen.  This sharing of the application class often leads to trouble
-if you want to run both variants.
-
-   Starting with XEmacs 21, XEmacs uses the class `XEmacs' if it finds
-any XEmacs resources in the resource database when the X connection is
-initialized.  Otherwise, it will use the class `Emacs' for backwards
-compatibility.  The variable X-EMACS-APPLICATION-CLASS may be consulted
-to determine the application class being used.
-
-   The examples in this section assume the application class is `Emacs'.
-
-   The Emacs resources are generally set per-frame. Each Emacs frame
-can have its own name or the same name as another, depending on the
-name passed to the `make-frame' function.
-
-   You can specify resources for all frames with the syntax:
-
-     Emacs*parameter: value
-
-or
-
-     Emacs*EmacsFrame.parameter:value
-
-You can specify resources for a particular frame with the syntax:
-
-     Emacs*FRAME-NAME.parameter: value
-
-* Menu:
-
-* Geometry Resources::     Controlling the size and position of frames.
-* Iconic Resources::       Controlling whether frames come up iconic.
-* Resource List::          List of resources settable on a frame or device.
-* Face Resources::         Controlling faces using resources.
-* Widgets::                The widget hierarchy for XEmacs.
-* Menubar Resources::      Specifying resources for the menubar.
-
-
-File: xemacs.info,  Node: Geometry Resources,  Next: Iconic Resources,  Up: X Resources
-
-Geometry Resources
-------------------
-
-   To make the default size of all Emacs frames be 80 columns by 55
-lines, do this:
-
-     Emacs*EmacsFrame.geometry: 80x55
-
-To set the geometry of a particular frame named `fred', do this:
-
-     Emacs*fred.geometry: 80x55
-
-Important! Do not use the following syntax:
-
-     Emacs*geometry: 80x55
-
-You should never use `*geometry' with any X application. It does not
-say "make the geometry of Emacs be 80 columns by 55 lines."  It really
-says, "make Emacs and all subwindows thereof be 80x55 in whatever units
-they care to measure in."  In particular, that is both telling the
-Emacs text pane to be 80x55 in characters, and telling the menubar pane
-to be 80x55 pixels, which is surely not what you want.
-
-   As a special case, this geometry specification also works (and sets
-the default size of all Emacs frames to 80 columns by 55 lines):
-
-     Emacs.geometry: 80x55
-
-since that is the syntax used with most other applications (since most
-other applications have only one top-level window, unlike Emacs).  In
-general, however, the top-level shell (the unmapped ApplicationShell
-widget named `Emacs' that is the parent of the shell widgets that
-actually manage the individual frames) does not have any interesting
-resources on it, and you should set the resources on the frames instead.
-
-   The `-geometry' command-line argument sets only the geometry of the
-initial frame created by Emacs.
-
-   A more complete explanation of geometry-handling is
-
-   * The `-geometry' command-line option sets the `Emacs.geometry'
-     resource, that is, the geometry of the ApplicationShell.
-
-   * For the first frame created, the size of the frame is taken from
-     the ApplicationShell if it is specified, otherwise from the
-     geometry of the frame.
-
-   * For subsequent frames, the order is reversed: First the frame, and
-     then the ApplicationShell.
-
-   * For the first frame created, the position of the frame is taken
-     from the ApplicationShell (`Emacs.geometry') if it is specified,
-     otherwise from the geometry of the frame.
-
-   * For subsequent frames, the position is taken only from the frame,
-     and never from the ApplicationShell.
-
-   This is rather complicated, but it does seem to provide the most
-intuitive behavior with respect to the default sizes and positions of
-frames created in various ways.
-
-
-File: xemacs.info,  Node: Iconic Resources,  Next: Resource List,  Prev: Geometry Resources,  Up: X Resources
-
-Iconic Resources
-----------------
-
-   Analogous to `-geometry', the `-iconic' command-line option sets the
-iconic flag of the ApplicationShell (`Emacs.iconic') and always applies
-to the first frame created regardless of its name.  However, it is
-possible to set the iconic flag on particular frames (by name) by using
-the `Emacs*FRAME-NAME.iconic' resource.
 

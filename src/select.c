@@ -134,13 +134,16 @@ get_local_selection (Lisp_Object selection_symbol, Lisp_Object target_type)
 #endif
 
 DEFUN ("own-selection-internal", Fown_selection_internal, 2, 5, 0, /*
-Assert a selection of the given NAME with the given VALUE, and
-optional window-system DATA-TYPE. HOW-TO-ADD specifies how the
-selection will be combined with any existing selection(s) - see
-`own-selection' for more information.
-NAME is a symbol, typically PRIMARY, SECONDARY, or CLIPBOARD.
-VALUE is typically a string, or a cons of two markers, but may be
+Give the selection SELECTION-NAME the value SELECTION-VALUE.
+SELECTION-NAME is a symbol, typically PRIMARY, SECONDARY, or CLIPBOARD.
+SELECTION-VALUE is typically a string, or a cons of two markers, but may be
 anything that the functions on selection-converter-out-alist know about.
+Optional arg HOW-TO-ADD specifies how the selection will be combined
+with any existing selection(s) - see `own-selection' for more
+information.
+Optional arg DATA-TYPE is a window-system-specific type.
+Optional arg DEVICE specifies the device on which to assert the selection.
+It defaults to the selected device.
 */
        (selection_name, selection_value, how_to_add, data_type, device))
 {
@@ -441,8 +444,8 @@ If we own the named selection, then disown it (make there be no selection).
 }
 
 DEFUN ("selection-owner-p", Fselection_owner_p, 0, 1, 0, /*
-Return t if current emacs process owns the given Selection.
-The arg should be the name of the selection in question, typically one of
+Return t if the current emacs process owns SELECTION.
+SELECTION should be the name of the selection in question, typically one of
 the symbols PRIMARY, SECONDARY, or CLIPBOARD.  (For convenience, the symbol
 nil is the same as PRIMARY, and t is the same as SECONDARY.)
 */
@@ -456,11 +459,11 @@ nil is the same as PRIMARY, and t is the same as SECONDARY.)
 }
 
 DEFUN ("selection-exists-p", Fselection_exists_p, 0, 3, 0, /*
-Whether there is an owner for the given Selection.
-The arg should be the name of the selection in question, typically one of
+Whether there is currently an owner for SELECTION.
+SELECTION should be the name of the selection in question, typically one of
 the symbols PRIMARY, SECONDARY, or CLIPBOARD.  (For convenience, the symbol
 nil is the same as PRIMARY, and t is the same as SECONDARY.)
-Optionally the DEVICE and the window-system DATA-TYPE may be specified.
+Optionally, the window-system DATA-TYPE and the DEVICE may be specified.
 */
        (selection, data_type, device))
 {
@@ -499,18 +502,18 @@ visible from Lisp.
  */
 DEFUN ("get-selection-internal", Fget_selection_internal, 2, 3, 0, /*
 Return text selected from some window-system window.
-SELECTION_SYMBOL is a symbol, typically PRIMARY, SECONDARY, or CLIPBOARD.
-TARGET_TYPE is the type of data desired, typically STRING or COMPOUND_TEXT.
+SELECTION is a symbol, typically PRIMARY, SECONDARY, or CLIPBOARD.
+TARGET-TYPE is the type of data desired, typically STRING or COMPOUND_TEXT.
 Under Mule, if the resultant data comes back as 8-bit data in type
 TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
 */
-       (selection_symbol, target_type, device))
+       (selection, target_type, device))
 {
   /* This function can GC */
   Lisp_Object val = Qnil;
   struct gcpro gcpro1, gcpro2;
   GCPRO2 (target_type, val);
-  CHECK_SYMBOL (selection_symbol);
+  CHECK_SYMBOL (selection);
 
   if (NILP (device))
     device = Fselected_device (Qnil);
@@ -538,19 +541,19 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
      the device (in which case target_type would be a device-specific
      identifier - probably an integer) - ajh */
 
-  val = get_local_selection (selection_symbol, target_type);
+  val = get_local_selection (selection, target_type);
 
   if (!NILP (val))
     {
       /* If we get something from the local cache, we may need to convert
          it slightly - to do this, we call select-coerce */
-      val = call3 (Qselect_coerce, selection_symbol, target_type, val);
+      val = call3 (Qselect_coerce, selection, target_type, val);
     }
   else if (HAS_DEVMETH_P (XDEVICE (device), get_foreign_selection))
     {
       /* Nothing in the local cache; try the window system */
       val = DEVMETH (XDEVICE (device), get_foreign_selection,
-		     (selection_symbol, target_type));
+		     (selection, target_type));
     }
 
   if (NILP (val))
@@ -562,12 +565,12 @@ TEXT or COMPOUND_TEXT, it will be decoded as Compound Text.
 	 the first for which a conversion succeeds gets returned. */
       EXTERNAL_LIST_LOOP_2 (element, Vselection_coercible_types)
 	{
-	  val = get_local_selection (selection_symbol, element);
+	  val = get_local_selection (selection, element);
 
 	  if (NILP (val))
 	    continue;
 
-	  val = call3 (Qselect_coerce, selection_symbol, target_type, val);
+	  val = call3 (Qselect_coerce, selection, target_type, val);
 
 	  if (!NILP (val))
 	    break;

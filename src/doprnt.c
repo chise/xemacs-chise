@@ -651,7 +651,7 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		strcat (constructed_spec, " ");
 	      if (spec->number_flag)
 		strcat (constructed_spec, "#");
-	      if (spec->precision >= 0)
+	      if (spec->precision >= 0 && !spec->minwidth)
 		{
 		  strcat (constructed_spec, ".");
 		  long_to_string (constructed_spec + strlen (constructed_spec),

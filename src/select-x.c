@@ -84,7 +84,7 @@ static void lisp_data_to_selection_data (struct device *,
 					 unsigned int *size_ret,
 					 int *format_ret);
 static Lisp_Object selection_data_to_lisp_data (struct device *,
-						unsigned char *data,
+						Extbyte *data,
 						size_t size,
 						Atom type,
 						int format);
@@ -284,8 +284,8 @@ hack_motif_clipboard_selection (Atom selection_atom,
 #endif
       XmString fmh;
       String encoding = "STRING";
-      const Extbyte *data  = XSTRING_DATA (selection_value);
-      Extcount bytes = XSTRING_LENGTH (selection_value);
+      const Bufbyte *data  = XSTRING_DATA (selection_value);
+      Bytecount bytes = XSTRING_LENGTH (selection_value);
 
 #ifdef MULE
       {
@@ -948,11 +948,11 @@ x_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type)
 
 static void
 x_get_window_property (Display *display, Window window, Atom property,
-		       unsigned char **data_ret, int *bytes_ret,
+		       Extbyte **data_ret, int *bytes_ret,
 		       Atom *actual_type_ret, int *actual_format_ret,
 		       unsigned long *actual_size_ret, int delete_p)
 {
-  int total_size;
+  size_t total_size;
   unsigned long bytes_remaining;
   int offset = 0;
   unsigned char *tmp_data = 0;
@@ -983,7 +983,7 @@ x_get_window_property (Display *display, Window window, Atom property,
     }
 
   total_size = bytes_remaining + 1;
-  *data_ret = (unsigned char *) xmalloc (total_size);
+  *data_ret = (Extbyte *) xmalloc (total_size);
 
   /* Now read, until we've gotten it all. */
   while (bytes_remaining)
@@ -1020,7 +1020,7 @@ receive_incremental_selection (Display *display, Window window, Atom property,
 			       /* this one is for error messages only */
 			       Lisp_Object target_type,
 			       unsigned int min_size_bytes,
-			       unsigned char **data_ret, int *size_bytes_ret,
+			       Extbyte **data_ret, int *size_bytes_ret,
 			       Atom *type_ret, int *format_ret,
 			       unsigned long *size_ret)
 {
@@ -1028,7 +1028,7 @@ receive_incremental_selection (Display *display, Window window, Atom property,
   int offset = 0;
   int prop_id;
   *size_bytes_ret = min_size_bytes;
-  *data_ret = (unsigned char *) xmalloc (*size_bytes_ret);
+  *data_ret = (Extbyte *) xmalloc (*size_bytes_ret);
 #if 0
   stderr_out ("\nread INCR %d\n", min_size_bytes);
 #endif
@@ -1044,7 +1044,7 @@ receive_incremental_selection (Display *display, Window window, Atom property,
 				    PropertyNewValue);
   while (1)
     {
-      unsigned char *tmp_data;
+      Extbyte *tmp_data;
       int tmp_size_bytes;
       wait_for_property_change (prop_id);
       /* expect it again immediately, because x_get_window_property may
@@ -1076,7 +1076,7 @@ receive_incremental_selection (Display *display, Window window, Atom property,
 		   *size_bytes_ret, offset + tmp_size_bytes);
 #endif
 	  *size_bytes_ret = offset + tmp_size_bytes;
-	  *data_ret = (unsigned char *) xrealloc (*data_ret, *size_bytes_ret);
+	  *data_ret = (Extbyte *) xrealloc (*data_ret, *size_bytes_ret);
 	}
       memcpy ((*data_ret) + offset, tmp_data, tmp_size_bytes);
       offset += tmp_size_bytes;
@@ -1097,7 +1097,7 @@ x_get_window_property_as_lisp_data (Display *display,
   Atom actual_type;
   int actual_format;
   unsigned long actual_size;
-  unsigned char *data = NULL;
+  Extbyte *data = NULL;
   int bytes = 0;
   Lisp_Object val;
   struct device *d = get_device_from_display (display);
@@ -1179,7 +1179,7 @@ x_get_window_property_as_lisp_data (Display *display,
 
 static Lisp_Object
 selection_data_to_lisp_data (struct device *d,
-			     unsigned char *data,
+			     Extbyte *data,
 			     size_t size,
 			     Atom type,
 			     int format)
@@ -1544,7 +1544,7 @@ Return the value of the named CUTBUFFER (typically CUT_BUFFER0).
   Display *display = DEVICE_X_DISPLAY (d);
   Window window = RootWindow (display, 0); /* Cutbuffers are on frame 0 */
   Atom cut_buffer_atom;
-  unsigned char *data;
+  Extbyte *data;
   int bytes;
   Atom type;
   int format;
@@ -1586,9 +1586,9 @@ Set the value of the named CUTBUFFER (typically CUT_BUFFER0) to STRING.
   Display *display = DEVICE_X_DISPLAY (d);
   Window window = RootWindow (display, 0); /* Cutbuffers are on frame 0 */
   Atom cut_buffer_atom;
-  const Extbyte *data  = XSTRING_DATA (string);
-  Extcount bytes = XSTRING_LENGTH (string);
-  Extcount bytes_remaining;
+  const Bufbyte *data  = XSTRING_DATA (string);
+  Bytecount bytes = XSTRING_LENGTH (string);
+  Bytecount bytes_remaining;
   int max_bytes = SELECTION_QUANTUM (display);
 #ifdef MULE
   const Bufbyte *ptr, *end;

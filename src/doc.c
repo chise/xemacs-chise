@@ -138,7 +138,7 @@ unparesseuxify_doc_string (int fd, EMACS_INT position,
     }
 
   /* #### mrb: following STILL completely broken */
-  return_me = make_ext_string ((Bufbyte *) buffer, to - buffer, Qbinary);
+  return_me = make_ext_string (buffer, to - buffer, Qbinary);
 
  done:
   if (buffer != buf) /* We must have allocated buffer above */
@@ -261,7 +261,7 @@ read_doc_string (Lisp_Object filepos)
 
 DEFUN ("documentation", Fdocumentation, 1, 2, 0, /*
 Return the documentation string of FUNCTION.
-Unless a non-nil second argument is given, the
+Unless a non-nil second argument RAW is given, the
 string is passed through `substitute-command-keys'.
 */
        (function, raw))
@@ -359,7 +359,7 @@ This is like `get', but it can refer to strings stored in the
 through `substitute-command-keys'.  A non-nil third argument avoids this
 translation.
 */
-       (sym, prop, raw))
+       (symbol, prop, raw))
 {
   /* This function can GC */
   REGISTER Lisp_Object doc = Qnil;
@@ -370,7 +370,7 @@ translation.
 
   GCPRO1 (doc);
 
-  doc = Fget (sym, prop, Qnil);
+  doc = Fget (symbol, prop, Qnil);
   if (INTP (doc))
     doc = get_doc_string (XINT (doc) > 0 ? doc : make_int (- XINT (doc)));
   else if (CONSP (doc))
@@ -378,7 +378,7 @@ translation.
 #ifdef I18N3
   if (!NILP (doc))
     {
-      domain = Fget (sym, Qvariable_domain, Qnil);
+      domain = Fget (symbol, Qvariable_domain, Qnil);
       if (NILP (domain))
 	doc = Fgettext (doc);
       else
@@ -739,13 +739,13 @@ Return a new string which is STRING with substrings of the form \\=\\[COMMAND]
 replaced by either:  a keystroke sequence that will invoke COMMAND,
 or "M-x COMMAND" if COMMAND is not on any keys.
 Substrings of the form \\=\\{MAPVAR} are replaced by summaries
-\(made by describe-bindings) of the value of MAPVAR, taken as a keymap.
+\(made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
 Substrings of the form \\=\\<MAPVAR> specify to use the value of MAPVAR
 as the keymap for future \\=\\[COMMAND] substrings.
 \\=\\= quotes the following character and is discarded;
 thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ into the output.
 */
-       (str))
+       (string))
 {
   /* This function can GC */
   Bufbyte *buf;
@@ -756,33 +756,30 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
   Bytecount idx;
   Bytecount bsize;
   Bufbyte *new;
-  Lisp_Object tem;
-  Lisp_Object keymap;
+  Lisp_Object tem = Qnil;
+  Lisp_Object keymap = Qnil;
+  Lisp_Object name = Qnil;
   Bufbyte *start;
   Bytecount length;
-  Lisp_Object name;
   struct gcpro gcpro1, gcpro2, gcpro3, gcpro4;
 
-  if (NILP (str))
+  if (NILP (string))
     return Qnil;
 
-  CHECK_STRING (str);
-  tem = Qnil;
-  keymap = Qnil;
-  name = Qnil;
-  GCPRO4 (str, tem, keymap, name);
+  CHECK_STRING (string);
+  GCPRO4 (string, tem, keymap, name);
 
   /* There is the possibility that the string is not destined for a
      translating stream, and it could be argued that we should do the
      same thing here as in Fformat(), but there are very few times
      when this will be the case and many calls to this function
      would have to have `gettext' calls added. (I18N3) */
-  str = LISP_GETTEXT (str);
+  string = LISP_GETTEXT (string);
 
   /* KEYMAP is either nil (which means search all the active keymaps)
      or a specified local map (which means search just that and the
      global map).  If non-nil, it might come from Voverriding_local_map,
-     or from a \\<mapname> construct in STR itself..  */
+     or from a \\<mapname> construct in STRING itself..  */
 #if 0 /* FSFmacs */
   /* This is really weird and garbagey.  If keymap is nil and there's
      an overriding-local-map, `where-is-internal' will correctly note
@@ -795,13 +792,13 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
   */
 #endif
 
-  strlength = XSTRING_LENGTH (str);
+  strlength = XSTRING_LENGTH (string);
   bsize = 1 + strlength;
   buf = (Bufbyte *) xmalloc (bsize);
   bufp = buf;
 
   /* Have to reset strdata every time GC might be called */
-  strdata = XSTRING_DATA (str);
+  strdata = XSTRING_DATA (string);
   for (idx = 0; idx < strlength; )
     {
       Bufbyte *strp = strdata + idx;
@@ -856,15 +853,15 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
 	    tem = Fwhere_is_internal (tem, keymap, Qt, Qnil, Qnil);
 
 #if 0 /* FSFmacs */
-	  /* Disregard menu bar bindings; it is positively annoying to
-	     mention them when there's no menu bar, and it isn't terribly
-	     useful even when there is a menu bar.  */
-	  if (!NILP (tem))
-	    {
-	      firstkey = Faref (tem, Qzero);
-	      if (EQ (firstkey, Qmenu_bar))
-		tem = Qnil;
-	    }
+	    /* Disregard menu bar bindings; it is positively annoying to
+	       mention them when there's no menu bar, and it isn't terribly
+	       useful even when there is a menu bar.  */
+	    if (!NILP (tem))
+	      {
+		firstkey = Faref (tem, Qzero);
+		if (EQ (firstkey, Qmenu_bar))
+		  tem = Qnil;
+	      }
 #endif
 
 	    if (NILP (tem))	/* but not on any keys */
@@ -885,13 +882,8 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
 	case '{':
 	case '<':
 	  {
-	    /* #### jump to label `subst_string|subst' crosses
-               initialization of `buffer|_buf' */
-	    Lisp_Object buffer;
-	    struct buffer *buf_;
-
-	    buffer = Fget_buffer_create (QSsubstitute);
-	    buf_ = XBUFFER (buffer);
+	    Lisp_Object buffer = Fget_buffer_create (QSsubstitute);
+	    struct buffer *buf_ = XBUFFER (buffer);
 
 	    Fbuffer_disable_undo (buffer);
 	    Ferase_buffer (buffer);
@@ -926,16 +918,9 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
 
 	    if (NILP (tem))
 	      {
-		char boof[255], *b = boof;
-		*b++ = '\n';
-		/* #### This sprintf() is potentially dangerous!  */
-		sprintf (b, GETTEXT (
-		"Uses keymap \"%s\", which is not currently defined."),
-			 (char *) XSTRING_DATA (Fsymbol_name (name)));
-		b += strlen (b);
-		*b++ = '\n';
-		*b++ = 0;
-		buffer_insert_c_string (buf_, boof);
+		buffer_insert_c_string (buf_, "(uses keymap \"");
+		buffer_insert_lisp_string (buf_, Fsymbol_name (name));
+		buffer_insert_c_string (buf_, "\", which is not currently defined) ");
 
 		if (start[-1] == '<') keymap = Qnil;
 	      }
@@ -947,31 +932,31 @@ thus, \\=\\=\\=\\= puts \\=\\= into the output, and \\=\\=\\=\\[ puts \\=\\[ int
 	    tem = make_string_from_buffer (buf_, BUF_BEG (buf_),
 					   BUF_Z (buf_) - BUF_BEG (buf_));
 	    Ferase_buffer (buffer);
-	    goto subst_string;
-
-	  subst_string:
-	    start = XSTRING_DATA (tem);
-	    length = XSTRING_LENGTH (tem);
-	  subst:
-	    bsize += length;
-	    new = (Bufbyte *) xrealloc (buf, bsize);
-	    bufp += new - buf;
-	    buf = new;
-	    memcpy (bufp, start, length);
-	    bufp += length;
-
-	    /* Reset STRDATA in case gc relocated it.  */
-	    strdata = XSTRING_DATA (str);
-
-	    break;
 	  }
+	  goto subst_string;
+
+	subst_string:
+	  start = XSTRING_DATA (tem);
+	  length = XSTRING_LENGTH (tem);
+	subst:
+	  bsize += length;
+	  new = (Bufbyte *) xrealloc (buf, bsize);
+	  bufp += new - buf;
+	  buf = new;
+	  memcpy (bufp, start, length);
+	  bufp += length;
+
+	  /* Reset STRDATA in case gc relocated it.  */
+	  strdata = XSTRING_DATA (string);
+
+	  break;
 	}
     }
 
   if (changed)			/* don't bother if nothing substituted */
     tem = make_string (buf, bufp - buf);
   else
-    tem = str;
+    tem = string;
   xfree (buf);
   UNGCPRO;
   return tem;

@@ -50,6 +50,373 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Annotation Basics,  Next: Annotation Primitives,  Up: Annotations
+
+Annotation Basics
+=================
+
+   Marginal annotations are notes associated with a particular location
+in a buffer.  They may be displayed in a margin created on the
+left-hand or right-hand side of the frame, in any whitespace at the
+beginning or end of a line, or inside of the text itself.  Every
+annotation may have an associated action to be performed when the
+annotation is selected.  The term "annotation" is used to refer to an
+individual note.  The term "margin" is generically used to refer to the
+whitespace before the first character on a line or after the last
+character on a line.
+
+   Each annotation has the following characteristics:
+GLYPH
+     This is a glyph object and is used as the displayed representation
+     of the annotation.
+
+DOWN-GLYPH
+     If given, this glyph is used as the displayed representation of
+     the annotation when the mouse is pressed down over the annotation.
+
+FACE
+     The face with which to display the glyph.
+
+SIDE
+     Which side of the text (left or right) the annotation is displayed
+     at.
+
+ACTION
+     If non-`nil', this field must contain a function capable of being
+     the first argument to `funcall'.  This function is normally
+     evaluated with a single argument, the value of the DATA field,
+     each time the annotation is selected.  However, if the WITH-EVENT
+     parameter to `make-annotation' is non-`nil', the function is
+     called with two arguments.  The first argument is the same as
+     before, and the second argument is the event (a button-up event,
+     usually) that activated the annotation.
+
+DATA
+     Not used internally.  This field can contain any E-Lisp object.
+     It is passed as the first argument to ACTION described above.
+
+MENU
+     A menu displayed when the right mouse button is pressed over the
+     annotation.
+
+   The margin is divided into "outside" and "inside".  The outside
+margin is space on the left or right side of the frame which normal text
+cannot be displayed in.  The inside margin is that space between the
+leftmost or rightmost point at which text can be displayed and where the
+first or last character actually is.
+
+   There are four different "layout types" which affect the exact
+location an annotation appears.
+
+`outside-margin'
+     The annotation is placed in the outside margin area. as close as
+     possible to the edge of the frame.  If the outside margin is not
+     wide enough for an annotation to fit, it is not displayed.
+
+`inside-margin'
+     The annotation is placed in the inside margin area, as close as
+     possible to the edge of the frame.  If the inside margin is not
+     wide enough for the annotation to fit, it will be displayed using
+     any available outside margin space if and only if the specifier
+     `use-left-overflow' or `use-right-overflow' (depending on which
+     side the annotation appears in) is non-`nil'.
+
+`whitespace'
+     The annotation is placed in the inside margin area, as close as
+     possible to the first or last non-whitespace character on a line.
+     If the inside margin is not wide enough for the annotation to fit,
+     it will be displayed if and only if the specifier
+     `use-left-overflow' or `use-right-overflow' (depending on which
+     side the annotation appears in) is non-`nil'.
+
+`text'
+     The annotation is placed at the position it is inserted.  It will
+     create enough space for itself inside of the text area.  It does
+     not take up a place in the logical buffer, only in the display of
+     the buffer.
+
+   The current layout policy is that all `whitespace' annotations are
+displayed first.  Next, all `inside-margin' annotations are displayed
+using any remaining space.  Finally as many `outside-margin'
+annotations are displayed as possible.  The `text' annotations will
+always display as they create their own space to display in.
+
+
+File: lispref.info,  Node: Annotation Primitives,  Next: Annotation Properties,  Prev: Annotation Basics,  Up: Annotations
+
+Annotation Primitives
+=====================
+
+ - Function: make-annotation glyph &optional position layout buffer
+          with-event d-glyph rightp
+     This function creates a marginal annotation at position POSITION in
+     BUFFER.  The annotation is displayed using GLYPH, which should be
+     a glyph object or a string, and is positioned using layout policy
+     LAYOUT.  If POSITION is `nil', point is used.  If LAYOUT is `nil',
+     `whitespace' is used.  If BUFFER is `nil', the current buffer is
+     used.
+
+     If WITH-EVENT is non-`nil', then when an annotation is activated,
+     the triggering event is passed as the second arg to the annotation
+     function.  If D-GLYPH is non-`nil' then it is used as the glyph
+     that will be displayed when button1 is down.  If RIGHTP is
+     non-`nil' then the glyph will be displayed on the right side of
+     the buffer instead of the left.
+
+     The newly created annotation is returned.
+
+ - Function: delete-annotation annotation
+     This function removes ANNOTATION from its buffer.  This does not
+     modify the buffer text.
+
+ - Function: annotationp annotation
+     This function returns `t' if ANNOTATION is an annotation, `nil'
+     otherwise.
+
+
+File: lispref.info,  Node: Annotation Properties,  Next: Margin Primitives,  Prev: Annotation Primitives,  Up: Annotations
+
+Annotation Properties
+=====================
+
+ - Function: annotation-glyph annotation
+     This function returns the glyph object used to display ANNOTATION.
+
+ - Function: set-annotation-glyph annotation glyph &optional layout side
+     This function sets the glyph of ANNOTATION to GLYPH, which should
+     be a glyph object.  If LAYOUT is non-`nil', set the layout policy
+     of ANNOTATION to LAYOUT.  If SIDE is `left' or `right', change the
+     side of the buffer at which the annotation is displayed to the
+     given side.  The new value of `annotation-glyph' is returned.
+
+ - Function: annotation-down-glyph annotation
+     This function returns the glyph used to display ANNOTATION when
+     the left mouse button is depressed on the annotation.
+
+ - Function: set-annotation-down-glyph annotation glyph
+     This function returns the glyph used to display ANNOTATION when
+     the left mouse button is depressed on the annotation to GLYPH,
+     which should be a glyph object.
+
+ - Function: annotation-face annotation
+     This function returns the face associated with ANNOTATION.
+
+ - Function: set-annotation-face annotation face
+     This function sets the face associated with ANNOTATION to FACE.
+
+ - Function: annotation-layout annotation
+     This function returns the layout policy of ANNOTATION.
+
+ - Function: set-annotation-layout annotation layout
+     This function sets the layout policy of ANNOTATION to LAYOUT.
+
+ - Function: annotation-side annotation
+     This function returns the side of the buffer that ANNOTATION is
+     displayed on.  Return value is a symbol, either `left' or `right'.
+
+ - Function: annotation-data annotation
+     This function returns the data associated with ANNOTATION.
+
+ - Function: set-annotation-data annotation data
+     This function sets the data field of ANNOTATION to DATA.  DATA is
+     returned.
+
+ - Function: annotation-action annotation
+     This function returns the action associated with ANNOTATION.
+
+ - Function: set-annotation-action annotation action
+     This function sets the action field of ANNOTATION to ACTION.
+     ACTION is returned..
+
+ - Function: annotation-menu annotation
+     This function returns the menu associated with ANNOTATION.
+
+ - Function: set-annotation-menu annotation menu
+     This function sets the menu associated with ANNOTATION to MENU.
+     This menu will be displayed when the right mouse button is pressed
+     over the annotation.
+
+ - Function: annotation-visible annotation
+     This function returns `t' if there is enough available space to
+     display ANNOTATION, `nil' otherwise.
+
+ - Function: annotation-width annotation
+     This function returns the width of ANNOTATION in pixels.
+
+ - Function: hide-annotation annotation
+     This function removes ANNOTATION's glyph, making it invisible.
+
+ - Function: reveal-annotation annotation
+     This function restores ANNOTATION's glyph, making it visible.
+
+
+File: lispref.info,  Node: Locating Annotations,  Next: Annotation Hooks,  Prev: Margin Primitives,  Up: Annotations
+
+Locating Annotations
+====================
+
+ - Function: annotations-in-region start end buffer
+     This function returns a list of all annotations in BUFFER which
+     are between START and END inclusively.
+
+ - Function: annotations-at &optional position buffer
+     This function returns a list of all annotations at POSITION in
+     BUFFER.  If POSITION is `nil' point is used.  If BUFFER is `nil'
+     the current buffer is used.
+
+ - Function: annotation-list &optional buffer
+     This function returns a list of all annotations in BUFFER.  If
+     BUFFER is `nil', the current buffer is used.
+
+ - Function: all-annotations
+     This function returns a list of all annotations in all buffers in
+     existence.
+
+
+File: lispref.info,  Node: Margin Primitives,  Next: Locating Annotations,  Prev: Annotation Properties,  Up: Annotations
+
+Margin Primitives
+=================
+
+   The margin widths are controllable on a buffer-local, window-local,
+frame-local, device-local, or device-type-local basis through the use
+of specifiers.  *Note Specifiers::.
+
+ - Specifier: left-margin-width
+     This is a specifier variable controlling the width of the left
+     outside margin, in characters.  Use `set-specifier' to change its
+     value.
+
+ - Specifier: right-margin-width
+     This is a specifier variable controlling the width of the right
+     outside margin, in characters.  Use `set-specifier' to change its
+     value.
+
+ - Specifier: use-left-overflow
+     If non-`nil', use the left outside margin as extra whitespace when
+     displaying `whitespace' and `inside-margin' annotations.  Defaults
+     to `nil'.  This is a specifier variable; use `set-specifier' to
+     change its value.
+
+ - Specifier: use-right-overflow
+     If non-`nil', use the right outside margin as extra whitespace when
+     displaying `whitespace' and `inside-margin' annotations.  Defaults
+     to `nil'.  This is a specifier variable; use `set-specifier' to
+     change its value.
+
+ - Function: window-left-margin-pixel-width &optional window
+     This function returns the width in pixels of the left outside
+     margin of WINDOW.  If WINDOW is `nil', the selected window is
+     assumed.
+
+ - Function: window-right-margin-pixel-width &optional window
+     This function returns the width in pixels of the right outside
+     margin of WINDOW.  If WINDOW is `nil', the selected window is
+     assumed.
+
+   The margin colors are controlled by the faces `left-margin' and
+`right-margin'.  These can be set using the X resources
+`Emacs.left-margin.background' and `Emacs.left-margin.foreground';
+likewise for the right margin.
+
+
+File: lispref.info,  Node: Annotation Hooks,  Prev: Locating Annotations,  Up: Annotations
+
+Annotation Hooks
+================
+
+   The following three hooks are provided for use with the marginal
+annotations:
+
+`before-delete-annotation-hook'
+     This hook is called immediately before an annotation is destroyed.
+     It is passed a single argument, the annotation being destroyed.
+
+`after-delete-annotation-hook'
+     This normal hook is called immediately after an annotation is
+     destroyed.
+
+`make-annotation-hook'
+     This hook is called immediately after an annotation is created.
+     It is passed a single argument, the newly created annotation.
+
+
+File: lispref.info,  Node: Display,  Next: Hash Tables,  Prev: Annotations,  Up: Top
+
+Emacs Display
+*************
+
+   This chapter describes a number of other features related to the
+display that XEmacs presents to the user.
+
+* Menu:
+
+* Refresh Screen::      Clearing the screen and redrawing everything on it.
+* Truncation::          Folding or wrapping long text lines.
+* The Echo Area::       Where messages are displayed.
+* Warnings::            Display of Warnings.
+* Invisible Text::      Hiding part of the buffer text.
+* Selective Display::   Hiding part of the buffer text (the old way).
+* Overlay Arrow::       Display of an arrow to indicate position.
+* Temporary Displays::  Displays that go away automatically.
+* Blinking::            How XEmacs shows the matching open parenthesis.
+* Usual Display::	The usual conventions for displaying nonprinting chars.
+* Display Tables::	How to specify other conventions.
+* Beeping::             Audible signal to the user.
+
+
+File: lispref.info,  Node: Refresh Screen,  Next: Truncation,  Up: Display
+
+Refreshing the Screen
+=====================
+
+   The function `redraw-frame' redisplays the entire contents of a
+given frame.  *Note Frames::.
+
+ - Function: redraw-frame &optional frame no-preempt
+     This function clears and redisplays frame FRAME.
+
+     FRAME defaults to the selected frame if omitted.
+
+     Normally, redisplay is preempted as normal if input arrives.
+     However, if optional second arg NO-PREEMPT is non-`nil', redisplay
+     will not stop for input and is guaranteed to proceed to completion.
+
+   Even more powerful is `redraw-display':
+
+ - Command: redraw-display &optional device
+     This function redraws all frames on DEVICE marked as having their
+     image garbled.  DEVICE defaults to the selected device.  If DEVICE
+     is `t', all devices will have their frames checked.
+
+   Processing user input takes absolute priority over redisplay.  If you
+call these functions when input is available, they do nothing
+immediately, but a full redisplay does happen eventually--after all the
+input has been processed.
+
+   Normally, suspending and resuming XEmacs also refreshes the screen.
+Some terminal emulators record separate contents for display-oriented
+programs such as XEmacs and for ordinary sequential display.  If you are
+using such a terminal, you might want to inhibit the redisplay on
+resumption.  *Note Suspending XEmacs::.
+
+ - Variable: no-redraw-on-reenter
+     This variable controls whether XEmacs redraws the entire screen
+     after it has been suspended and resumed.  Non-`nil' means yes,
+     `nil' means no.
+
+   The above functions do not actually cause the display to be updated;
+rather, they clear out the internal display records that XEmacs
+maintains, so that the next time the display is updated it will be
+redrawn from scratch.  Normally this occurs the next time that
+`next-event' or `sit-for' is called; however, a display update will not
+occur if there is input pending.  *Note Command Loop::.
+
+ - Function: force-cursor-redisplay &optional frame
+     This function causes an immediate update of the cursor on FRAME,
+     which defaults to the selected frame.
+
+
 File: lispref.info,  Node: Truncation,  Next: The Echo Area,  Prev: Refresh Screen,  Up: Display
 
 Truncation
@@ -201,7 +568,7 @@ the message stack.
      If a message remains at the head of the message-stack and
      NO-RESTORE is `nil', it will be displayed.  The string which
      remains in the echo area will be returned, or `nil' if the
-     message-stack is now empty.  If LABEL is nil, the entire
+     message-stack is now empty.  If LABEL is `nil', the entire
      message-stack is cleared.
 
           ;; Show a message, wait for 2 seconds, and restore old minibuffer
@@ -693,7 +1060,7 @@ open parenthesis when the user inserts a close parenthesis.
      gives good results, but the default is 1, which works on all
      systems.
 
- - Function: blink-matching-open
+ - Command: blink-matching-open
      This function is the default value of `blink-paren-function'.  It
      assumes that point follows a character with close parenthesis
      syntax and moves the cursor momentarily to the matching opening
@@ -827,396 +1194,4 @@ effect of setting `ctl-arrow' to a non-`nil' value:
              (aset disptab i (concat "^" (char-to-string (+ i 64)))))
          (setq i (1+ i)))
        (aset disptab 127 "^?"))
-
-
-File: lispref.info,  Node: Active Display Table,  Next: Character Descriptors,  Prev: Display Table Format,  Up: Display Tables
-
-Active Display Table
---------------------
-
-   The active display table is controlled by the variable
-`current-display-table'.  This is a specifier, which means that you can
-specify separate values for it in individual buffers, windows, frames,
-and devices, as well as a global value.  It also means that you cannot
-set this variable using `setq'; use `set-specifier' instead.  *Note
-Specifiers::. (FSF Emacs uses `window-display-table',
-`buffer-display-table', `standard-display-table', etc. to control the
-display table.  However, specifiers are a cleaner and more powerful way
-of doing the same thing.  FSF Emacs also uses a different format for
-the contents of a display table, using additional indirection to a
-"glyph table" and such.  Note that "glyph" has a different meaning in
-XEmacs.)
-
- - Variable: current-display-table
-     The display table currently in use.  This is a specifier.
-
-     Display tables are used to control how characters are displayed.
-     Each time that redisplay processes a character, it is looked up in
-     all the display tables that apply (obtained by calling
-     `specifier-instance' on `current-display-table' and any overriding
-     display tables specified in currently active faces).  The first
-     entry found that matches the character determines how the
-     character is displayed.  If there is no matching entry, the
-     default display method is used. (Non-control characters are
-     displayed as themselves and control characters are displayed
-     according to the buffer-local variable `ctl-arrow'.  Control
-     characters are further affected by `control-arrow-glyph' and
-     `octal-escape-glyph'.)
-
-     Each instantiator in this specifier and the display-table
-     specifiers in faces is a display table or a list of such tables.
-     If a list, each table will be searched in turn for an entry
-     matching a particular character.  Each display table is one of
-
-        * A vector, specifying values for characters starting at 0.
-
-        * A char table, either of type `char' or `generic'.
-
-        * A range table.
-
-     Each entry in a display table should be one of
-
-        * nil (this entry is ignored and the search continues).
-
-        * A character (use this character; if it happens to be the same
-          as the original character, default processing happens,
-          otherwise redisplay attempts to display this character
-          directly; #### At some point recursive display-table lookup
-          will be implemented).
-
-        * A string (display each character in the string directly; ####
-          At some point recursive display-table lookup will be
-          implemented).
-
-        * A glyph (display the glyph; #### At some point recursive
-          display-table lookup will be implemented when a string glyph
-          is being processed).
-
-        * A cons of the form (format "STRING") where STRING is a
-          printf-like spec used to process the character. ####
-          Unfortunately no formatting directives other than %% are
-          implemented.
-
-        * A vector (each element of the vector is processed recursively;
-          in such a case, nil elements in the vector are simply
-          ignored).
-
-          #### At some point in the near future, display tables are
-          likely to be expanded to include other features, such as
-          referencing characters in particular fonts and allowing the
-          character search to continue all the way up the chain of
-          specifier instantiators.  These features are necessary to
-          properly display Unicode characters.
-
-   Individual faces can also specify an overriding display table; this
-is set using `set-face-display-table'.  *Note Faces::.
-
-   If no display table can be determined for a particular window, then
-XEmacs uses the usual display conventions.  *Note Usual Display::.
-
-
-File: lispref.info,  Node: Character Descriptors,  Prev: Active Display Table,  Up: Display Tables
-
-Character Descriptors
----------------------
-
-   Each element of the display-table vector describes how to display a
-particular character and is called a "character descriptor".  A
-character descriptor can be:
-
-a string
-     Display this particular string wherever the character is to be
-     displayed.
-
-a glyph
-     Display this particular glyph wherever the character is to be
-     displayed.
-
-a vector
-     The vector may contain strings and/or glyphs.  Display the
-     elements of the vector one after another wherever the character is
-     to be displayed.
-
-`nil'
-     Display according to the standard interpretation (*note Usual
-     Display::).
-
-
-File: lispref.info,  Node: Beeping,  Prev: Display Tables,  Up: Display
-
-Beeping
-=======
-
-   You can make XEmacs ring a bell, play a sound, or blink the screen to
-attract the user's attention.  Be conservative about how often you do
-this; frequent bells can become irritating.  Also be careful not to use
-beeping alone when signaling an error is appropriate.  (*Note Errors::.)
-
- - Function: ding &optional dont-terminate sound device
-     This function beeps, or flashes the screen (see `visible-bell'
-     below).  It also terminates any keyboard macro currently executing
-     unless DONT-TERMINATE is non-`nil'.  If SOUND is specified, it
-     should be a symbol specifying which sound to make.  This sound
-     will be played if `visible-bell' is `nil'. (This only works if
-     sound support was compiled into the executable and you are running
-     on the console of a Sun SparcStation, SGI, HP9000s700, or Linux
-     PC. Otherwise you just get a beep.) The optional third argument
-     specifies what device to make the sound on, and defaults to the
-     selected device.
-
- - Function: beep &optional dont-terminate sound device
-     This is a synonym for `ding'.
-
- - User Option: visible-bell
-     This variable determines whether XEmacs should flash the screen to
-     represent a bell.  Non-`nil' means yes, `nil' means no.  On TTY
-     devices, this is effective only if the Termcap entry for the
-     terminal type has the visible bell flag (`vb') set.
-
- - Variable: sound-alist
-     This variable holds an alist associating names with sounds.  When
-     `beep' or `ding' is called with one of the name symbols, the
-     associated sound will be generated instead of the standard beep.
-
-     Each element of `sound-alist' is a list describing a sound.  The
-     first element of the list is the name of the sound being defined.
-     Subsequent elements of the list are alternating keyword/value
-     pairs:
-
-    `sound'
-          A string of raw sound data, or the name of another sound to
-          play.  The symbol `t' here means use the default X beep.
-
-    `volume'
-          An integer from 0-100, defaulting to `bell-volume'.
-
-    `pitch'
-          If using the default X beep, the pitch (Hz) to generate.
-
-    `duration'
-          If using the default X beep, the duration (milliseconds).
-
-     For compatibility, elements of `sound-alist' may also be:
-
-        * `( sound-name . <sound> )'
-
-        * `( sound-name <volume> <sound> )'
-
-     You should probably add things to this list by calling the function
-     `load-sound-file'.
-
-     Caveats:
-
-        - You can only play audio data if running on the console screen
-          of a Sun SparcStation, SGI, or HP9000s700.
-
-        - The pitch, duration, and volume options are available
-          everywhere, but many X servers ignore the `pitch' option.
-
-     The following beep-types are used by XEmacs itself:
-
-    `auto-save-error'
-          when an auto-save does not succeed
-
-    `command-error'
-          when the XEmacs command loop catches an error
-
-    `undefined-key'
-          when you type a key that is undefined
-
-    `undefined-click'
-          when you use an undefined mouse-click combination
-
-    `no-completion'
-          during completing-read
-
-    `y-or-n-p'
-          when you type something other than 'y' or 'n'
-
-    `yes-or-no-p'
-          when you type something other than 'yes' or 'no'
-
-    `default'
-          used when nothing else is appropriate.
-
-     Other lisp packages may use other beep types, but these are the
-     ones that the C kernel of XEmacs uses.
-
- - User Option: bell-volume
-     This variable specifies the default volume for sounds, from 0 to
-     100.
-
- - Command: load-default-sounds
-     This function loads and installs some sound files as beep-types.
-
- - Command: load-sound-file filename sound-name &optional volume
-     This function reads in an audio file and adds it to `sound-alist'.
-     The sound file must be in the Sun/NeXT U-LAW format.  SOUND-NAME
-     should be a symbol, specifying the name of the sound.  If VOLUME
-     is specified, the sound will be played at that volume; otherwise,
-     the value of BELL-VOLUME will be used.
-
- - Function: play-sound sound &optional volume device
-     This function plays sound SOUND, which should be a symbol
-     mentioned in `sound-alist'.  If VOLUME is specified, it overrides
-     the value (if any) specified in `sound-alist'.  DEVICE specifies
-     the device to play the sound on, and defaults to the selected
-     device.
-
- - Command: play-sound-file file &optional volume device
-     This function plays the named sound file at volume VOLUME, which
-     defaults to `bell-volume'.  DEVICE specifies the device to play
-     the sound on, and defaults to the selected device.
-
-
-File: lispref.info,  Node: Hash Tables,  Next: Range Tables,  Prev: Display,  Up: Top
-
-Hash Tables
-***********
-
- - Function: hash-table-p object
-     This function returns `t' if OBJECT is a hash table, else `nil'.
-
-* Menu:
-
-* Introduction to Hash Tables::	Hash tables are fast data structures for
-                                implementing simple tables (i.e. finite
-                                mappings from keys to values).
-* Working With Hash Tables::    Hash table functions.
-* Weak Hash Tables::            Hash tables with special garbage-collection
-                                behavior.
-
-
-File: lispref.info,  Node: Introduction to Hash Tables,  Next: Working With Hash Tables,  Up: Hash Tables
-
-Introduction to Hash Tables
-===========================
-
-   A "hash table" is a data structure that provides mappings from
-arbitrary Lisp objects called "keys" to other arbitrary Lisp objects
-called "values".  A key/value pair is sometimes called an "entry" in
-the hash table.  There are many ways other than hash tables of
-implementing the same sort of mapping, e.g.  association lists (*note
-Association Lists::) and property lists (*note Property Lists::), but
-hash tables provide much faster lookup when there are many entries in
-the mapping.  Hash tables are an implementation of the abstract data
-type "dictionary", also known as "associative array".
-
-   Internally, hash tables are hashed using the "linear probing" hash
-table implementation method.  This method hashes each key to a
-particular spot in the hash table, and then scans forward sequentially
-until a blank entry is found.  To look up a key, hash to the appropriate
-spot, then search forward for the key until either a key is found or a
-blank entry stops the search.  This method is used in preference to
-double hashing because of changes in recent hardware.  The penalty for
-non-sequential access to memory has been increasing, and this
-compensates for the problem of clustering that linear probing entails.
-
-   When hash tables are created, the user may (but is not required to)
-specify initial properties that influence performance.
-
-   Use the `:size' parameter to specify the number of entries that are
-likely to be stored in the hash table, to avoid the overhead of resizing
-the table.  But if the pre-allocated space for the entries is never
-used, it is simply wasted and makes XEmacs slower.  Excess unused hash
-table entries exact a small continuous performance penalty, since they
-must be scanned at every garbage collection.  If the number of entries
-in the hash table is unknown, simply avoid using the `:size' keyword.
-
-   Use the `:rehash-size' and `:rehash-threshold' keywords to adjust
-the algorithm for deciding when to rehash the hash table.  For
-temporary hash tables that are going to be very heavily used, use a
-small rehash threshold, for example, 0.4 and a large rehash size, for
-example 2.0.  For permanent hash tables that will be infrequently used,
-specify a large rehash threshold, for example 0.8.
-
-   Hash tables can also be created by the lisp reader using structure
-syntax, for example:
-     #s(hash-table size 20 data (foo 1 bar 2))
-
-   The structure syntax accepts the same keywords as `make-hash-table'
-(without the `:' character), as well as the additional keyword `data',
-which specifies the initial hash table contents.
-
- - Function: make-hash-table &key `test' `size' `rehash-size'
-          `rehash-threshold' `weakness'
-     This function returns a new empty hash table object.
-
-     Keyword `:test' can be `eq', `eql' (default) or `equal'.
-     Comparison between keys is done using this function.  If speed is
-     important, consider using `eq'.  When storing strings in the hash
-     table, you will likely need to use `equal'.
-
-     Keyword `:size' specifies the number of keys likely to be inserted.
-     This number of entries can be inserted without enlarging the hash
-     table.
-
-     Keyword `:rehash-size' must be a float greater than 1.0, and
-     specifies the factor by which to increase the size of the hash
-     table when enlarging.
-
-     Keyword `:rehash-threshold' must be a float between 0.0 and 1.0,
-     and specifies the load factor of the hash table which triggers
-     enlarging.
-
-     Non-standard keyword `:weakness' can be `nil' (default), `t',
-     `key-and-value', `key', `value' or `key-or-value'.  `t' is an
-     alias for `key-and-value'.
-
-     A key-and-value-weak hash table, also known as a fully-weak or
-     simply as a weak hash table, is one whose pointers do not count as
-     GC referents: for any key-value pair in the hash table, if the only
-     remaining pointer to either the key or the value is in a weak hash
-     table, then the pair will be removed from the hash table, and the
-     key and value collected.  A non-weak hash table (or any other
-     pointer) would prevent the object from being collected.
-
-     A key-weak hash table is similar to a fully-weak hash table except
-     that a key-value pair will be removed only if the key remains
-     unmarked outside of weak hash tables.  The pair will remain in the
-     hash table if the key is pointed to by something other than a weak
-     hash table, even if the value is not.
-
-     A value-weak hash table is similar to a fully-weak hash table
-     except that a key-value pair will be removed only if the value
-     remains unmarked outside of weak hash tables.  The pair will
-     remain in the hash table if the value is pointed to by something
-     other than a weak hash table, even if the key is not.
-
-     A key-or-value-weak hash table is similar to a fully-weak hash
-     table except that a key-value pair will be removed only if the
-     value and the key remain unmarked outside of weak hash tables.
-     The pair will remain in the hash table if the value or key are
-     pointed to by something other than a weak hash table, even if the
-     other is not.
-
- - Function: copy-hash-table hash-table
-     This function returns a new hash table which contains the same
-     keys and values as HASH-TABLE.  The keys and values will not
-     themselves be copied.
-
- - Function: hash-table-count hash-table
-     This function returns the number of entries in HASH-TABLE.
-
- - Function: hash-table-test hash-table
-     This function returns the test function of HASH-TABLE.  This can
-     be one of `eq', `eql' or `equal'.
-
- - Function: hash-table-size hash-table
-     This function returns the current number of slots in HASH-TABLE,
-     whether occupied or not.
-
- - Function: hash-table-rehash-size hash-table
-     This function returns the current rehash size of HASH-TABLE.  This
-     is a float greater than 1.0; the factor by which HASH-TABLE is
-     enlarged when the rehash threshold is exceeded.
-
- - Function: hash-table-rehash-threshold hash-table
-     This function returns the current rehash threshold of HASH-TABLE.
-     This is a float between 0.0 and 1.0; the maximum "load factor" of
-     HASH-TABLE, beyond which the HASH-TABLE is enlarged by rehashing.
-
- - Function: hash-table-weakness hash-table
-     This function returns the weakness of HASH-TABLE.  This can be one
-     of `nil', `t', `key' or `value'.
 

@@ -272,11 +272,11 @@ If BUFFER is nil, the current buffer is assumed.
 
 DEFUN ("indent-to", Findent_to, 1, 3, "NIndent to column: ", /*
 Indent from point with tabs and spaces until COLUMN is reached.
-Optional second argument MIN says always do at least MIN spaces
- even if that goes past COLUMN; by default, MIN is zero.
+Optional second argument MINIMUM says always do at least MINIMUM spaces
+ even if that goes past COLUMN; by default, MINIMUM is zero.
 If BUFFER is nil, the current buffer is assumed.
 */
-       (col, minimum, buffer))
+       (column, minimum, buffer))
 {
   /* This function can GC */
   int mincol;
@@ -285,7 +285,7 @@ If BUFFER is nil, the current buffer is assumed.
   int tab_width = XINT (buf->tab_width);
   Bufpos opoint = 0;
 
-  CHECK_INT (col);
+  CHECK_INT (column);
   if (NILP (minimum))
     minimum = Qzero;
   else
@@ -295,7 +295,7 @@ If BUFFER is nil, the current buffer is assumed.
 
   fromcol = current_column (buf);
   mincol = fromcol + XINT (minimum);
-  if (mincol < XINT (col)) mincol = XINT (col);
+  if (mincol < XINT (column)) mincol = XINT (column);
 
   if (fromcol == mincol)
     return make_int (mincol);

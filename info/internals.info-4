@@ -915,8 +915,8 @@ are used that are worth remembering are various elisp commands, as for
 example `or', `and', `if', `cond', `while', `setq', etc., miscellaneous
 `gui_item_...' functions, everything related to `eval' (`Feval_buffer',
 `call0', ...) and inside `Fsignal'. The latter is used to handle
-signals, as for example the ones raised by every `QUITE'-macro
-triggered after pressing Ctrl-g.
+signals, as for example the ones raised by every `QUIT'-macro triggered
+after pressing Ctrl-g.
 
 
 File: internals.info,  Node: garbage_collect_1,  Next: mark_object,  Prev: Invocation,  Up: Garbage Collection - Step by Step

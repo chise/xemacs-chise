@@ -1,5 +1,5 @@
 
-@node Abbrevs, Picture, Packages, Top
+@node Abbrevs, Picture, Running, Top
 @chapter Abbrevs
 @cindex abbrevs
 @cindex expansion (of abbrevs)

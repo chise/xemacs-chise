@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/syntax.info
 @node Syntax Tables, Abbrevs, Searching and Matching, Top
@@ -368,7 +368,7 @@ prefix (@samp{'}).  @xref{Motion and Syntax}.
   In this section we describe functions for creating, accessing and
 altering syntax tables.
 
-@defun make-syntax-table &optional table
+@defun make-syntax-table &optional oldtable
 This function creates a new syntax table.  Character codes 0 through
 31 and 128 through 255 are set up to inherit from the standard syntax
 table.  The other character codes are set up by copying what the
@@ -377,28 +377,28 @@ standard syntax table says about them.
 Most major mode syntax tables are created in this way.
 @end defun
 
-@defun copy-syntax-table &optional table
-This function constructs a copy of @var{table} and returns it.  If
-@var{table} is not supplied (or is @code{nil}), it returns a copy of the
-current syntax table.  Otherwise, an error is signaled if @var{table} is
-not a syntax table.
+@defun copy-syntax-table &optional syntax-table
+This function constructs a copy of @var{syntax-table} and returns it.
+If @var{syntax-table} is not supplied (or is @code{nil}), it returns a
+copy of the current syntax table.  Otherwise, an error is signaled if
+@var{syntax-table} is not a syntax table.
 @end defun
 
-@deffn Command modify-syntax-entry char syntax-descriptor  &optional table
-This function sets the syntax entry for @var{char} according to
-@var{syntax-descriptor}.  The syntax is changed only for @var{table},
-which defaults to the current buffer's syntax table, and not in any
-other syntax table.  The argument @var{syntax-descriptor} specifies the
-desired syntax; this is a string beginning with a class designator
-character, and optionally containing a matching character and flags as
-well.  @xref{Syntax Descriptors}.
+@deffn Command modify-syntax-entry char-range syntax-descriptor  &optional syntax-table
+This function sets the syntax entry for @var{char-range} according to
+@var{syntax-descriptor}.  @var{char-range} is either a single character
+or a range of characters, as used with @code{put-char-table}. The syntax
+is changed only for @var{syntax-table}, which defaults to the current
+buffer's syntax table, and not in any other syntax table.  The argument
+@var{syntax-descriptor} specifies the desired syntax; this is a string
+beginning with a class designator character, and optionally containing a
+matching character and flags as well.  @xref{Syntax Descriptors}.
 
 This function always returns @code{nil}.  The old syntax information in
-the table for this character is discarded.
+the table for @var{char-range} is discarded.
 
 An error is signaled if the first character of the syntax descriptor is not
-one of the twelve syntax class designator characters.  An error is also
-signaled if @var{char} is not a character.
+one of the twelve syntax class designator characters.
 
 @example
 @group
@@ -434,12 +434,18 @@ signaled if @var{char} is not a character.
 @end example
 @end deffn
 
-@defun char-syntax character
+@defun char-syntax character &optional syntax-table
 This function returns the syntax class of @var{character}, represented
 by its mnemonic designator character.  This @emph{only} returns the
 class, not any matching parenthesis or flags.
 
-An error is signaled if @var{char} is not a character.
+An error is signaled if @var{character} is not a character.
+
+The characters that correspond to various syntax codes
+are listed in the documentation of @code{modify-syntax-entry}.
+
+Optional second argument @var{syntax-table} is the syntax table to be
+used, and defaults to the current buffer's syntax table.
 
 The following examples apply to C mode.  The first example shows that
 the syntax class of space is whitespace (represented by a space).  The
@@ -467,9 +473,9 @@ character, @samp{)}.
 @end example
 @end defun
 
-@defun set-syntax-table table &optional buffer
-This function makes @var{table} the syntax table for @var{buffer}, which
-defaults to the current buffer if omitted.  It returns @var{table}.
+@defun set-syntax-table syntax-table &optional buffer
+This function makes @var{syntax-table} the syntax table for @var{buffer}, which
+defaults to the current buffer if omitted.  It returns @var{syntax-table}.
 @end defun
 
 @defun syntax-table &optional buffer
@@ -560,33 +566,33 @@ The result is a list of eight elements describing the final state of
 the parse:
 
 @enumerate 0
-@item 
+@item
 The depth in parentheses, counting from 0.
 
-@item 
+@item
 @cindex innermost containing parentheses
 The character position of the start of the innermost parenthetical
 grouping containing the stopping point; @code{nil} if none.
 
-@item 
+@item
 @cindex previous complete subexpression
 The character position of the start of the last complete subexpression
 terminated; @code{nil} if none.
 
-@item 
+@item
 @cindex inside string
 Non-@code{nil} if inside a string.  More precisely, this is the
 character that will terminate the string.
 
-@item 
+@item
 @cindex inside comment
 @code{t} if inside a comment (of either style).
 
-@item 
+@item
 @cindex quote character
 @code{t} if point is just after a quote character.
 
-@item 
+@item
 The minimum parenthesis depth encountered during this scan.
 
 @item

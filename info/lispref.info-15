@@ -50,6 +50,197 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Edebug Options,  Prev: Instrumenting Macro Calls,  Up: Edebug
+
+Edebug Options
+--------------
+
+   These options affect the behavior of Edebug:
+
+ - User Option: edebug-setup-hook
+     Functions to call before Edebug is used.  Each time it is set to a
+     new value, Edebug will call those functions once and then
+     `edebug-setup-hook' is reset to `nil'.  You could use this to load
+     up Edebug specifications associated with a package you are using
+     but only when you also use Edebug.  See *Note Instrumenting::.
+
+ - User Option: edebug-all-defs
+     If non-`nil', normal evaluation of any defining forms (e.g.
+     `defun' and `defmacro') will instrument them for Edebug.  This
+     applies to `eval-defun', `eval-region', and `eval-current-buffer'.
+
+     Use the command `M-x edebug-all-defs' to toggle the value of this
+     variable. You may want to make this variable local to each buffer
+     by calling `(make-local-variable 'edebug-all-defs)' in your
+     `emacs-lisp-mode-hook'.  See *Note Instrumenting::.
+
+ - User Option: edebug-all-forms
+     If non-`nil', normal evaluation of any forms by `eval-defun',
+     `eval-region', and `eval-current-buffer' will instrument them for
+     Edebug.
+
+     Use the command `M-x edebug-all-forms' to toggle the value of this
+     option.  See *Note Instrumenting::.
+
+ - User Option: edebug-save-windows
+     If non-`nil', save and restore window configuration on Edebug
+     calls.  It takes some time to do this, so if your program does not
+     care what happens to data about windows, you may want to set this
+     variable to `nil'.
+
+     If the value is a list, only the listed windows are saved and
+     restored.
+
+     `M-x edebug-toggle-save-windows' may be used to change this
+     variable.  This command is bound to `W' in source code buffers.
+     See *Note Edebug Display Update::.
+
+ - User Option: edebug-save-displayed-buffer-points
+     If non-`nil', save and restore point in all displayed buffers.
+     This is necessary if you are debugging code that changes the point
+     of a buffer which is displayed in a non-selected window.  If
+     Edebug or the user then selects the window, the buffer's point
+     will be changed to the window's point.
+
+     This is an expensive operation since it visits each window and
+     therefore each displayed buffer twice for each Edebug activation,
+     so it is best to avoid it if you can.  See *Note Edebug Display
+     Update::.
+
+ - User Option: edebug-initial-mode
+     If this variable is non-`nil', it specifies the initial execution
+     mode for Edebug when it is first activated.  Possible values are
+     `step', `next', `go', `Go-nonstop', `trace', `Trace-fast',
+     `continue', and `Continue-fast'.
+
+     The default value is `step'.  See *Note Edebug Execution Modes::.
+
+ - User Option: edebug-trace
+     Non-`nil' means display a trace of function entry and exit.
+     Tracing output is displayed in a buffer named `*edebug-trace*', one
+     function entry or exit per line, indented by the recursion level.
+
+     The default value is `nil'.
+
+     Also see `edebug-tracing'.  See *Note Tracing::.
+
+ - User Option: edebug-test-coverage
+     If non-`nil', Edebug tests coverage of all expressions debugged.
+     This is done by comparing the result of each expression with the
+     previous result. Coverage is considered OK if two different
+     results are found.  So to sufficiently test the coverage of your
+     code, try to execute it under conditions that evaluate all
+     expressions more than once, and produce different results for each
+     expression.
+
+     Use `M-x edebug-display-freq-count' to display the frequency count
+     and coverage information for a definition.  See *Note Coverage
+     Testing::.
+
+ - User Option: edebug-continue-kbd-macro
+     If non-`nil', continue defining or executing any keyboard macro
+     that is executing outside of Edebug.   Use this with caution since
+     it is not debugged.  See *Note Edebug Execution Modes::.
+
+ - User Option: edebug-print-length
+     If non-`nil', bind `print-length' to this while printing results
+     in Edebug.  The default value is `50'.  See *Note Printing in
+     Edebug::.
+
+ - User Option: edebug-print-level
+     If non-`nil', bind `print-level' to this while printing results in
+     Edebug.  The default value is `50'.
+
+ - User Option: edebug-print-circle
+     If non-`nil', bind `print-circle' to this while printing results
+     in Edebug.  The default value is `nil'.
+
+ - User Option: edebug-on-error
+     `debug-on-error' is bound to this while Edebug is active.  See
+     *Note Trapping Errors::.
+
+ - User Option: edebug-on-quit
+     `debug-on-quit' is bound to this while Edebug is active.  See
+     *Note Trapping Errors::.
+
+ - User Option: edebug-unwrap-results
+     Non-`nil' if Edebug should unwrap results of expressions.  This is
+     useful when debugging macros where the results of expressions are
+     instrumented expressions.  But don't do this when results might be
+     circular or an infinite loop will result.  See *Note Debugging
+     Backquote::.
+
+ - User Option: edebug-global-break-condition
+     If non-`nil', an expression to test for at every stop point.  If
+     the result is non-`nil', then break.  Errors are ignored.  See
+     *Note Global Break Condition::.
+
+
+File: lispref.info,  Node: Read and Print,  Next: Minibuffers,  Prev: Debugging,  Up: Top
+
+Reading and Printing Lisp Objects
+*********************************
+
+   "Printing" and "reading" are the operations of converting Lisp
+objects to textual form and vice versa.  They use the printed
+representations and read syntax described in *Note Lisp Data Types::.
+
+   This chapter describes the Lisp functions for reading and printing.
+It also describes "streams", which specify where to get the text (if
+reading) or where to put it (if printing).
+
+* Menu:
+
+* Streams Intro::     Overview of streams, reading and printing.
+* Input Streams::     Various data types that can be used as input streams.
+* Input Functions::   Functions to read Lisp objects from text.
+* Output Streams::    Various data types that can be used as output streams.
+* Output Functions::  Functions to print Lisp objects as text.
+* Output Variables::  Variables that control what the printing functions do.
+
+
+File: lispref.info,  Node: Streams Intro,  Next: Input Streams,  Up: Read and Print
+
+Introduction to Reading and Printing
+====================================
+
+   "Reading" a Lisp object means parsing a Lisp expression in textual
+form and producing a corresponding Lisp object.  This is how Lisp
+programs get into Lisp from files of Lisp code.  We call the text the
+"read syntax" of the object.  For example, the text `(a . 5)' is the
+read syntax for a cons cell whose CAR is `a' and whose CDR is the
+number 5.
+
+   "Printing" a Lisp object means producing text that represents that
+object--converting the object to its printed representation.  Printing
+the cons cell described above produces the text `(a . 5)'.
+
+   Reading and printing are more or less inverse operations: printing
+the object that results from reading a given piece of text often
+produces the same text, and reading the text that results from printing
+an object usually produces a similar-looking object.  For example,
+printing the symbol `foo' produces the text `foo', and reading that text
+returns the symbol `foo'.  Printing a list whose elements are `a' and
+`b' produces the text `(a b)', and reading that text produces a list
+(but not the same list) with elements `a' and `b'.
+
+   However, these two operations are not precisely inverses.  There are
+three kinds of exceptions:
+
+   * Printing can produce text that cannot be read.  For example,
+     buffers, windows, frames, subprocesses and markers print into text
+     that starts with `#'; if you try to read this text, you get an
+     error.  There is no way to read those data types.
+
+   * One object can have multiple textual representations.  For example,
+     `1' and `01' represent the same integer, and `(a b)' and `(a .
+     (b))' represent the same list.  Reading will accept any of the
+     alternatives, but printing must choose one of them.
+
+   * Comments can appear at certain points in the middle of an object's
+     read sequence without affecting the result of reading it.
+
+
 File: lispref.info,  Node: Input Streams,  Next: Input Functions,  Prev: Streams Intro,  Up: Read and Print
 
 Input Streams
@@ -581,7 +772,7 @@ Variables Affecting Output
      following the decimal point.  With `f', a precision of 0 means to
      omit the decimal point.  0 is not allowed with `f' or `g'.
 
-     A value of nil means to use `%.16g'.
+     A value of `nil' means to use `%.16g'.
 
      Regardless of the value of `float-output-format', a floating point
      number will never be printed in such a way that it is ambiguous
@@ -740,10 +931,10 @@ Defining Commands::.
      The arguments PROMPT and INITIAL are used as in
      `read-from-minibuffer'.  The keymap used is `minibuffer-local-map'.
 
-     The optional argument HISTORY, if non-nil, specifies a history
+     The optional argument HISTORY, if non-`nil', specifies a history
      list and optionally the initial position in the list.  The optional
-     argument DEFAULT specifies a default value to return if the user
-     enters null input; it should be a string.
+     argument DEFAULT-VALUE specifies a default value to return if the
+     user enters null input; it should be a string.
 
      This function is a simplified interface to the
      `read-from-minibuffer' function:
@@ -793,7 +984,7 @@ minibuffer.
      returns it without evaluating it.  The arguments PROMPT and
      INITIAL are used as in `read-from-minibuffer'.
 
-     The optional argument HISTORY, if non-nil, specifies a history
+     The optional argument HISTORY, if non-`nil', specifies a history
      list and optionally the initial position in the list.  The optional
      argument DEFAULT-VALUE specifies a default value to return if the
      user enters null input; it should be a string.
@@ -832,7 +1023,7 @@ minibuffer.
      evaluates it, then returns the result.  The arguments PROMPT and
      INITIAL are used as in `read-from-minibuffer'.
 
-     The optional argument HISTORY, if non-nil, specifies a history
+     The optional argument HISTORY, if non-`nil', specifies a history
      list and optionally the initial position in the list.  The optional
      argument DEFAULT-VALUE specifies a default value to return if the
      user enters null input; it should be a string.
@@ -844,10 +1035,10 @@ minibuffer.
           ==
           (eval (read-expression PROMPT INITIAL))
 
- - Function: edit-and-eval-command prompt command &optional history
+ - Function: edit-and-eval-command prompt form &optional history
      This function reads a Lisp expression in the minibuffer, and then
      evaluates it.  The difference between this command and
-     `eval-minibuffer' is that here the initial COMMAND is not optional
+     `eval-minibuffer' is that here the initial FORM is not optional
      and it is treated as a Lisp object to be converted to printed
      representation rather than as a string of text.  It is printed with
      `prin1', so if it is a string, double-quote characters (`"')
@@ -992,200 +1183,4 @@ certain kinds of names with completion.
                              (reading buffer name, file name, etc.)
 * Reading File Names::     Using completion to read file names.
 * Programmed Completion::  Finding the completions for a given file name.
-
-
-File: lispref.info,  Node: Basic Completion,  Next: Minibuffer Completion,  Up: Completion
-
-Basic Completion Functions
---------------------------
-
-   The two functions `try-completion' and `all-completions' have
-nothing in themselves to do with minibuffers.  We describe them in this
-chapter so as to keep them near the higher-level completion features
-that do use the minibuffer.
-
- - Function: try-completion string collection &optional predicate
-     This function returns the longest common substring of all possible
-     completions of STRING in COLLECTION.  The value of COLLECTION must
-     be an alist, an obarray, or a function that implements a virtual
-     set of strings (see below).
-
-     Completion compares STRING against each of the permissible
-     completions specified by COLLECTION; if the beginning of the
-     permissible completion equals STRING, it matches.  If no
-     permissible completions match, `try-completion' returns `nil'.  If
-     only one permissible completion matches, and the match is exact,
-     then `try-completion' returns `t'.  Otherwise, the value is the
-     longest initial sequence common to all the permissible completions
-     that match.
-
-     If COLLECTION is an alist (*note Association Lists::), the CARs of
-     the alist elements form the set of permissible completions.
-
-     If COLLECTION is an obarray (*note Creating Symbols::), the names
-     of all symbols in the obarray form the set of permissible
-     completions.  The global variable `obarray' holds an obarray
-     containing the names of all interned Lisp symbols.
-
-     Note that the only valid way to make a new obarray is to create it
-     empty and then add symbols to it one by one using `intern'.  Also,
-     you cannot intern a given symbol in more than one obarray.
-
-     If the argument PREDICATE is non-`nil', then it must be a function
-     of one argument.  It is used to test each possible match, and the
-     match is accepted only if PREDICATE returns non-`nil'.  The
-     argument given to PREDICATE is either a cons cell from the alist
-     (the CAR of which is a string) or else it is a symbol (_not_ a
-     symbol name) from the obarray.
-
-     You can also use a symbol that is a function as COLLECTION.  Then
-     the function is solely responsible for performing completion;
-     `try-completion' returns whatever this function returns.  The
-     function is called with three arguments: STRING, PREDICATE and
-     `nil'.  (The reason for the third argument is so that the same
-     function can be used in `all-completions' and do the appropriate
-     thing in either case.)  *Note Programmed Completion::.
-
-     In the first of the following examples, the string `foo' is
-     matched by three of the alist CARs.  All of the matches begin with
-     the characters `fooba', so that is the result.  In the second
-     example, there is only one possible match, and it is exact, so the
-     value is `t'.
-
-          (try-completion
-           "foo"
-           '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4)))
-               => "fooba"
-          
-          (try-completion "foo" '(("barfoo" 2) ("foo" 3)))
-               => t
-
-     In the following example, numerous symbols begin with the
-     characters `forw', and all of them begin with the word `forward'.
-     In most of the symbols, this is followed with a `-', but not in
-     all, so no more than `forward' can be completed.
-
-          (try-completion "forw" obarray)
-               => "forward"
-
-     Finally, in the following example, only two of the three possible
-     matches pass the predicate `test' (the string `foobaz' is too
-     short).  Both of those begin with the string `foobar'.
-
-          (defun test (s)
-            (> (length (car s)) 6))
-               => test
-          (try-completion
-           "foo"
-           '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4))
-           'test)
-               => "foobar"
-
- - Function: all-completions string collection &optional predicate
-          nospace
-     This function returns a list of all possible completions of
-     STRING.  The arguments to this function are the same as those of
-     `try-completion'.
-
-     If COLLECTION is a function, it is called with three arguments:
-     STRING, PREDICATE and `t'; then `all-completions' returns whatever
-     the function returns.  *Note Programmed Completion::.
-
-     If NOSPACE is non-`nil', completions that start with a space are
-     ignored unless STRING also starts with a space.
-
-     Here is an example, using the function `test' shown in the example
-     for `try-completion':
-
-          (defun test (s)
-            (> (length (car s)) 6))
-               => test
-          
-          (all-completions
-           "foo"
-           '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4))
-           'test)
-               => ("foobar1" "foobar2")
-
- - Variable: completion-ignore-case
-     If the value of this variable is non-`nil', XEmacs does not
-     consider case significant in completion.
-
-
-File: lispref.info,  Node: Minibuffer Completion,  Next: Completion Commands,  Prev: Basic Completion,  Up: Completion
-
-Completion and the Minibuffer
------------------------------
-
-   This section describes the basic interface for reading from the
-minibuffer with completion.
-
- - Function: completing-read prompt collection &optional predicate
-          require-match initial hist default
-     This function reads a string in the minibuffer, assisting the user
-     by providing completion.  It activates the minibuffer with prompt
-     PROMPT, which must be a string.  If INITIAL is non-`nil',
-     `completing-read' inserts it into the minibuffer as part of the
-     input.  Then it allows the user to edit the input, providing
-     several commands to attempt completion.
-
-     The actual completion is done by passing COLLECTION and PREDICATE
-     to the function `try-completion'.  This happens in certain
-     commands bound in the local keymaps used for completion.
-
-     If REQUIRE-MATCH is `t', the usual minibuffer exit commands won't
-     exit unless the input completes to an element of COLLECTION.  If
-     REQUIRE-MATCH is neither `nil' nor `t', then the exit commands
-     won't exit unless the input typed is itself an element of
-     COLLECTION.  If REQUIRE-MATCH is `nil', the exit commands work
-     regardless of the input in the minibuffer.
-
-     However, empty input is always permitted, regardless of the value
-     of REQUIRE-MATCH; in that case, `completing-read' returns DEFAULT.
-     The value of DEFAULT (if non-`nil') is also available to the user
-     through the history commands.
-
-     The user can exit with null input by typing <RET> with an empty
-     minibuffer.  Then `completing-read' returns `""'.  This is how the
-     user requests whatever default the command uses for the value being
-     read.  The user can return using <RET> in this way regardless of
-     the value of REQUIRE-MATCH, and regardless of whether the empty
-     string is included in COLLECTION.
-
-     The function `completing-read' works by calling `read-expression'.
-     It uses `minibuffer-local-completion-map' as the keymap if
-     REQUIRE-MATCH is `nil', and uses `minibuffer-local-must-match-map'
-     if REQUIRE-MATCH is non-`nil'.  *Note Completion Commands::.
-
-     The argument HIST specifies which history list variable to use for
-     saving the input and for minibuffer history commands.  It defaults
-     to `minibuffer-history'.  *Note Minibuffer History::.
-
-     Completion ignores case when comparing the input against the
-     possible matches, if the built-in variable
-     `completion-ignore-case' is non-`nil'.  *Note Basic Completion::.
-
-     Here's an example of using `completing-read':
-
-          (completing-read
-           "Complete a foo: "
-           '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4))
-           nil t "fo")
-          
-          ;; After evaluation of the preceding expression,
-          ;;   the following appears in the minibuffer:
-          
-          ---------- Buffer: Minibuffer ----------
-          Complete a foo: fo-!-
-          ---------- Buffer: Minibuffer ----------
-
-     If the user then types `<DEL> <DEL> b <RET>', `completing-read'
-     returns `barfoo'.
-
-     The `completing-read' function binds three variables to pass
-     information to the commands that actually do completion.  These
-     variables are `minibuffer-completion-table',
-     `minibuffer-completion-predicate' and
-     `minibuffer-completion-confirm'.  For more information about them,
-     see *Note Completion Commands::.
 

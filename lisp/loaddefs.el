@@ -85,7 +85,6 @@
 ;; are ignored in completion,
 ;; making it more likely you will get a unique match.
 (setq completion-ignored-extensions
-      (mapcar 'purecopy
 	      ;; this is way way way bogus.
 	      ;; completely wtf?
 	      ;; the only things that should be here are those that are
@@ -99,10 +98,10 @@
 ;		".aux" ".a" ".ln"
 ;		".lof" ".blg" ".bbl" ".glo" ".idx" ".lot" ".fmt"
 ;		".diff" ".oi" ".class")))
-	      '(".o" ".obj" ".elc" "~"
-		".bin" ".lbin" ;; #### these are doubtful, esp. the latter.
-		".dvi";; possibly doubtful, too.
-		".class")))
+      '(".o" ".obj" ".elc" "~"
+	".bin" ".lbin" ;; #### these are doubtful, esp. the latter.
+	".dvi";; possibly doubtful, too.
+	".class"))
 
 
 ;; This needs to be redone better. -slb

@@ -27,7 +27,7 @@ Boston, MA 02111-1307, USA.  */
      Play .au sound files on hp9000s700
    BUGS
      I have been unable to figure out how to use the volume feature, so no
-     attempts has been made to honor the volume arg of play_sound_*
+     attempt has been made to honor the volume arg of play_sound_*
      This means that all sounds are played at 100%.
      The gain parameter can be set by using the hp-play-gain variable.
 

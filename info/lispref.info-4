@@ -530,7 +530,7 @@ describing the data type.
                => nil
 
 
- - Function: old-eq obj1 obj2
+ - Function: old-eq object1 object2
      This function exists under XEmacs 20 and is exactly like `eq'
      except that it suffers from the char-int confoundance disease.  In
      other words, it returns `t' if given a character and the
@@ -943,8 +943,12 @@ any argument is floating.
 not check for overflow.  Thus `(1+ 134217727)' may evaluate to
 -134217728, depending on your hardware.
 
- - Function: 1+ number-or-marker
-     This function returns NUMBER-OR-MARKER plus 1.  For example,
+ - Function: 1+ number
+     This function returns NUMBER plus one.  NUMBER may be a number,
+     character or marker.  Markers and characters are converted to
+     integers.
+
+     For example,
 
           (setq foo 4)
                => 4
@@ -968,15 +972,20 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
      more convenient and natural way to increment a variable is
      `(incf foo)'.
 
- - Function: 1- number-or-marker
-     This function returns NUMBER-OR-MARKER minus 1.
+ - Function: 1- number
+     This function returns NUMBER minus one.  NUMBER may be a number,
+     character or marker.  Markers and characters are converted to
+     integers.
 
  - Function: abs number
      This returns the absolute value of NUMBER.
 
- - Function: + &rest numbers-or-markers
+ - Function: + &rest numbers
      This function adds its arguments together.  When given no
      arguments, `+' returns 0.
+
+     If any of the arguments are characters or markers, they are first
+     converted to integers.
 
           (+)
                => 0
@@ -985,12 +994,15 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (+ 1 2 3 4)
                => 10
 
- - Function: - &optional number-or-marker &rest other-numbers-or-markers
+ - Function: - &optional number &rest other-numbers
      The `-' function serves two purposes: negation and subtraction.
      When `-' has a single argument, the value is the negative of the
      argument.  When there are multiple arguments, `-' subtracts each of
-     the OTHER-NUMBERS-OR-MARKERS from NUMBER-OR-MARKER, cumulatively.
-     If there are no arguments, the result is 0.
+     the OTHER-NUMBERS from NUMBER, cumulatively.  If there are no
+     arguments, an error is signaled.
+
+     If any of the arguments are characters or markers, they are first
+     converted to integers.
 
           (- 10 1 2 3 4)
                => 0
@@ -999,9 +1011,12 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (-)
                => 0
 
- - Function: * &rest numbers-or-markers
+ - Function: * &rest numbers
      This function multiplies its arguments together, and returns the
      product.  When given no arguments, `*' returns 1.
+
+     If any of the arguments are characters or markers, they are first
+     converted to integers.
 
           (*)
                => 1
@@ -1010,19 +1025,23 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
           (* 1 2 3 4)
                => 24
 
- - Function: / dividend divisor &rest divisors
-     This function divides DIVIDEND by DIVISOR and returns the
-     quotient.  If there are additional arguments DIVISORS, then it
-     divides DIVIDEND by each divisor in turn.  Each argument may be a
-     number or a marker.
+ - Function: / dividend &rest divisors
+     The `/' function serves two purposes: inversion and division.  When
+     `/' has a single argument, the value is the inverse of the
+     argument.  When there are multiple arguments, `/' divides DIVIDEND
+     by each of the DIVISORS, cumulatively, returning the quotient.  If
+     there are no arguments, an error is signaled.
 
-     If all the arguments are integers, then the result is an integer
-     too.  This means the result has to be rounded.  On most machines,
-     the result is rounded towards zero after each division, but some
+     If none of the arguments are floats, then the result is an integer.
+     This means the result has to be rounded.  On most machines, the
+     result is rounded towards zero after each division, but some
      machines may round differently with negative arguments.  This is
      because the Lisp function `/' is implemented using the C division
      operator, which also permits machine-dependent rounding.  As a
      practical matter, all known machines round in the standard fashion.
+
+     If any of the arguments are characters or markers, they are first
+     converted to integers.
 
      If you divide by 0, an `arith-error' error is signaled.  (*Note
      Errors::.)
@@ -1033,6 +1052,8 @@ not check for overflow.  Thus `(1+ 134217727)' may evaluate to
                => 2
           (/ 25 3 2)
                => 4
+          (/ 3.0)
+               => 0.3333333333333333
           (/ -17 6)
                => -2
 
@@ -1110,20 +1131,20 @@ is a nearby integer.  `ffloor' returns the nearest integer below;
 `fceiling', the nearest integer above; `ftruncate', the nearest integer
 in the direction towards zero; `fround', the nearest integer.
 
- - Function: ffloor float
-     This function rounds FLOAT to the next lower integral value, and
+ - Function: ffloor number
+     This function rounds NUMBER to the next lower integral value, and
      returns that value as a floating point number.
 
- - Function: fceiling float
-     This function rounds FLOAT to the next higher integral value, and
+ - Function: fceiling number
+     This function rounds NUMBER to the next higher integral value, and
      returns that value as a floating point number.
 
- - Function: ftruncate float
-     This function rounds FLOAT towards zero to an integral value, and
+ - Function: ftruncate number
+     This function rounds NUMBER towards zero to an integral value, and
      returns that value as a floating point number.
 
- - Function: fround float
-     This function rounds FLOAT to the nearest integral value, and
+ - Function: fround number
+     This function rounds NUMBER to the nearest integral value, and
      returns that value as a floating point number.
 
 
@@ -1351,62 +1372,65 @@ Standard Mathematical Functions
 supported (which is the normal state of affairs).  They allow integers
 as well as floating point numbers as arguments.
 
- - Function: sin arg
- - Function: cos arg
- - Function: tan arg
+ - Function: sin number
+ - Function: cos number
+ - Function: tan number
      These are the ordinary trigonometric functions, with argument
      measured in radians.
 
- - Function: asin arg
-     The value of `(asin ARG)' is a number between -pi/2 and pi/2
-     (inclusive) whose sine is ARG; if, however, ARG is out of range
-     (outside [-1, 1]), then the result is a NaN.
+ - Function: asin number
+     The value of `(asin NUMBER)' is a number between -pi/2 and pi/2
+     (inclusive) whose sine is NUMBER; if, however, NUMBER is out of
+     range (outside [-1, 1]), then the result is a NaN.
 
- - Function: acos arg
-     The value of `(acos ARG)' is a number between 0 and pi (inclusive)
-     whose cosine is ARG; if, however, ARG is out of range (outside
-     [-1, 1]), then the result is a NaN.
+ - Function: acos number
+     The value of `(acos NUMBER)' is a number between 0 and pi
+     (inclusive) whose cosine is NUMBER; if, however, NUMBER is out of
+     range (outside [-1, 1]), then the result is a NaN.
 
- - Function: atan arg
-     The value of `(atan ARG)' is a number between -pi/2 and pi/2
-     (exclusive) whose tangent is ARG.
+ - Function: atan number &optional number2
+     The value of `(atan NUMBER)' is a number between -pi/2 and pi/2
+     (exclusive) whose tangent is NUMBER.
 
- - Function: sinh arg
- - Function: cosh arg
- - Function: tanh arg
+     If optional argument NUMBER2 is supplied, the function returns
+     `atan2(NUMBER,NUMBER2)'.
+
+ - Function: sinh number
+ - Function: cosh number
+ - Function: tanh number
      These are the ordinary hyperbolic trigonometric functions.
 
- - Function: asinh arg
- - Function: acosh arg
- - Function: atanh arg
+ - Function: asinh number
+ - Function: acosh number
+ - Function: atanh number
      These are the inverse hyperbolic trigonometric functions.
 
- - Function: exp arg
-     This is the exponential function; it returns e to the power ARG.
-     e is a fundamental mathematical constant also called the base of
-     natural logarithms.
+ - Function: exp number
+     This is the exponential function; it returns e to the power
+     NUMBER.  e is a fundamental mathematical constant also called the
+     base of natural logarithms.
 
- - Function: log arg &optional base
-     This function returns the logarithm of ARG, with base BASE.  If
-     you don't specify BASE, the base E is used.  If ARG is negative,
-     the result is a NaN.
+ - Function: log number &optional base
+     This function returns the logarithm of NUMBER, with base BASE.  If
+     you don't specify BASE, the base E is used.  If NUMBER is
+     negative, the result is a NaN.
 
- - Function: log10 arg
-     This function returns the logarithm of ARG, with base 10.  If ARG
-     is negative, the result is a NaN.  `(log10 X)' == `(log X 10)', at
-     least approximately.
+ - Function: log10 number
+     This function returns the logarithm of NUMBER, with base 10.  If
+     NUMBER is negative, the result is a NaN.  `(log10 X)' == `(log X
+     10)', at least approximately.
 
  - Function: expt x y
      This function returns X raised to power Y.  If both arguments are
      integers and Y is positive, the result is an integer; in this
      case, it is truncated to fit the range of possible integer values.
 
- - Function: sqrt arg
-     This returns the square root of ARG.  If ARG is negative, the
-     value is a NaN.
+ - Function: sqrt number
+     This returns the square root of NUMBER.  If NUMBER is negative,
+     the value is a NaN.
 
- - Function: cube-root arg
-     This returns the cube root of ARG.
+ - Function: cube-root number
+     This returns the cube root of NUMBER.
 
 
 File: lispref.info,  Node: Random Numbers,  Prev: Math Functions,  Up: Numbers

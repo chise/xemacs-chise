@@ -205,7 +205,7 @@ unexconvex.o: config.h getpagesize.h
 unexcw.o: config.h sysfile.h
 unexec.o: $(LISP_H) getpagesize.h
 unexelf.o: config.h
-unexelfsgi.o: $(LISP_H)
+unexelfsgi.o: config.h
 unexenix.o: config.h
 unexfreebsd.o: config.h
 unexhp9k3.o: config.h sysdep.h

@@ -147,7 +147,7 @@ Boston, MA 02111-1307, USA.  */
 #define REAL_INC_CHARPTR(ptr) \
   ((void) ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr))))
 
-#define REAL_INC_CHARBYTIND(ptr,pos) \
+#define REAL_INC_CHARBYTIND(ptr, pos) \
   (pos += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
 
 #define REAL_DEC_CHARPTR(ptr) do {	\
@@ -160,9 +160,9 @@ Boston, MA 02111-1307, USA.  */
   REAL_INC_CHARPTR (ptr);		\
 } while (0)
 
-#define INC_CHARBYTIND(ptr,pos) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARBYTIND (ptr,pos);		\
+#define INC_CHARBYTIND(ptr, pos) do {		\
+  ASSERT_VALID_CHARPTR (ptr);			\
+  REAL_INC_CHARBYTIND (ptr, pos);		\
 } while (0)
 
 #define DEC_CHARPTR(ptr) do {			\
@@ -171,11 +171,11 @@ Boston, MA 02111-1307, USA.  */
   REAL_DEC_CHARPTR (dc_ptr2);			\
   assert (dc_ptr1 - dc_ptr2 ==			\
 	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
-  (ptr) = dc_ptr2;				\
+  (ptr) = (Bufbyte *) dc_ptr2;			\
 } while (0)
 
 #else /* ! ERROR_CHECK_BUFPOS */
-#define INC_CHARBYTIND(ptr,pos) REAL_INC_CHARBYTIND (ptr,pos)
+#define INC_CHARBYTIND(ptr, pos) REAL_INC_CHARBYTIND (ptr, pos)
 #define INC_CHARPTR(ptr) REAL_INC_CHARPTR (ptr)
 #define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
 #endif /* ! ERROR_CHECK_BUFPOS */

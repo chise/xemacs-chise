@@ -137,8 +137,8 @@ Optional argument DEVICE specifies the device this object applies to
 and defaults to the selected device.
 
 An error is signaled if the color is unknown or cannot be allocated;
-however, if optional argument NO-ERROR is non-nil, nil is simply
-returned in this case. (And if NO-ERROR is other than t, a warning may
+however, if optional argument NOERROR is non-nil, nil is simply
+returned in this case. (And if NOERROR is other than t, a warning may
 be issued.)
 
 The returned object is a normal, first-class lisp object.  The way you
@@ -147,7 +147,7 @@ you drop all pointers to it and allow it to be garbage collected.  When
 these objects are GCed, the underlying window-system data (e.g. X object)
 is deallocated as well.
 */
-       (name, device, no_error))
+       (name, device, noerror))
 {
   Lisp_Color_Instance *c;
   Lisp_Object val;
@@ -163,7 +163,7 @@ is deallocated as well.
 
   retval = MAYBE_INT_DEVMETH (XDEVICE (device), initialize_color_instance,
 			      (c, name, device,
-			       decode_error_behavior_flag (no_error)));
+			       decode_error_behavior_flag (noerror)));
   if (!retval)
     return Qnil;
 
@@ -315,12 +315,12 @@ The returned object is a normal, first-class lisp object.  The way you
 you drop all pointers to it and allow it to be garbage collected.  When
 these objects are GCed, the underlying X data is deallocated as well.
 */
-       (name, device, no_error))
+       (name, device, noerror))
 {
   Lisp_Font_Instance *f;
   Lisp_Object val;
   int retval = 0;
-  Error_behavior errb = decode_error_behavior_flag (no_error);
+  Error_behavior errb = decode_error_behavior_flag (noerror);
 
   if (ERRB_EQ (errb, ERROR_ME))
     CHECK_STRING (name);

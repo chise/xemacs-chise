@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/text.info
 @node Text, Searching and Matching, Markers, Top
@@ -329,13 +329,16 @@ a buffer other than the current one (otherwise you could just
 use @code{insert}).
 @end defun
 
-@defun insert-char character count &optional buffer
+@defun insert-char character &optional count ignored buffer
 This function inserts @var{count} instances of @var{character} into
 @var{buffer} before point.  @var{count} must be a number, and
-@var{character} must be a character.  The value is @code{nil}.  If
-optional argument @var{buffer} is @code{nil}, the current buffer is
-assumed. (In FSF Emacs, the third argument is called @var{inherit}
-and refers to text properties.)
+@var{character} must be a character.
+
+If optional argument @var{buffer} is @code{nil}, the current buffer is
+assumed. (In FSF Emacs, the third argument is called @var{inherit} and
+refers to text properties.  In XEmacs, it is always ignored.)
+
+This function always returns @code{nil}.
 @end defun
 
 @defun insert-buffer-substring from-buffer-or-name &optional start end
@@ -403,19 +406,19 @@ This is also responsible for calling @code{blink-paren-function} when
 the inserted character has close parenthesis syntax (@pxref{Blinking}).
 @end deffn
 
-@deffn Command newline &optional number-of-newlines 
+@deffn Command newline &optional count
 This command inserts newlines into the current buffer before point.
-If @var{number-of-newlines} is supplied, that many newline characters
+If @var{count} is supplied, that many newline characters
 are inserted.
 
 @cindex newline and Auto Fill mode
 This function calls @code{auto-fill-function} if the current column
 number is greater than the value of @code{fill-column} and
-@var{number-of-newlines} is @code{nil}.  Typically what
+@var{count} is @code{nil}.  Typically what
 @code{auto-fill-function} does is insert a newline; thus, the overall
 result in this case is to insert two newlines at different places: one
 at point, and another earlier in the line.  @code{newline} does not
-auto-fill if @var{number-of-newlines} is non-@code{nil}.
+auto-fill if @var{count} is non-@code{nil}.
 
 This command indents to the left margin if that is not zero.
 @xref{Margins}.
@@ -453,7 +456,7 @@ cases.
   All of the deletion functions operate on the current buffer, and all
 return a value of @code{nil}.
 
-@defun erase-buffer &optional buffer
+@deffn Command erase-buffer &optional buffer
 This function deletes the entire text of @var{buffer}, leaving it
 empty.  If the buffer is read-only, it signals a @code{buffer-read-only}
 error.  Otherwise, it deletes the text without asking for any
@@ -465,7 +468,7 @@ auto-saving of that buffer ``because it has shrunk''.  However,
 @code{erase-buffer} does not do this, the idea being that the future
 text is not really related to the former text, and its size should not
 be compared with that of the former text.
-@end defun
+@end deffn
 
 @deffn Command delete-region start end &optional buffer
 This command deletes the text in @var{buffer} in the region defined by
@@ -564,7 +567,7 @@ You thought
 @end example
 @end deffn
 
-@deffn Command delete-indentation &optional join-following-p 
+@deffn Command delete-indentation &optional join-following-p
 This function joins the line point is on to the previous line, deleting
 any whitespace at the join and in some cases replacing it with one
 space.  If @var{join-following-p} is non-@code{nil},
@@ -601,7 +604,7 @@ After the lines are joined, the function @code{fixup-whitespace} is
 responsible for deciding whether to leave a space at the junction.
 @end deffn
 
-@defun fixup-whitespace
+@deffn Command fixup-whitespace
 This function replaces all the white space surrounding point with either
 one space or no space, according to the context.  It returns @code{nil}.
 
@@ -637,7 +640,7 @@ This has too many spaces at the start of (this list)
 ---------- Buffer: foo ----------
 @end group
 @end smallexample
-@end defun
+@end deffn
 
 @deffn Command just-one-space
 @comment !!SourceFile simple.el
@@ -738,7 +741,7 @@ adds it to the most recent element.  It uses the @code{last-command}
 variable to determine whether the previous command was a kill command,
 and if so appends the killed text to the most recent entry.
 
-@deffn Command kill-region start end
+@deffn Command kill-region start end &optional verbose
 This function kills the text in the region defined by @var{start} and
 @var{end}.  The text is deleted but saved in the kill ring, along with
 its text properties.  The value is always @code{nil}.
@@ -822,26 +825,32 @@ level, but still convenient for use in Lisp programs.  They take care of
 interaction with X Window selections.  They do not exist in Emacs
 version 18.
 
-@defun current-kill n &optional do-not-move
+@defun current-kill count &optional do-not-move
 The function @code{current-kill} rotates the yanking pointer which
-designates the ``front'' of the kill ring by @var{n} places (from newer
+designates the ``front'' of the kill ring by @var{count} places (from newer
 kills to older ones), and returns the text at that place in the ring.
 
 If the optional second argument @var{do-not-move} is non-@code{nil},
 then @code{current-kill} doesn't alter the yanking pointer; it just
-returns the @var{n}th kill, counting from the current yanking pointer.
+returns the @var{count}th kill, counting from the current yanking pointer.
 
-If @var{n} is zero, indicating a request for the latest kill,
+If @var{count} is zero, indicating a request for the latest kill,
 @code{current-kill} calls the value of
 @code{interprogram-paste-function} (documented below) before consulting
 the kill ring.
 @end defun
 
-@defun kill-new string
-This function puts the text @var{string} into the kill ring as a new
-entry at the front of the ring.  It discards the oldest entry if
-appropriate.  It also invokes the value of
-@code{interprogram-cut-function} (see below).
+@defun kill-new string &optional replace
+This function makes the text @var{string} the latest entry in the kill
+ring, and sets @code{kill-ring-yank-pointer} to point to it.
+
+Normally, @var{string} is added to the front of the kill ring as a new
+entry.  However, if optional argument @var{replace} is non-@code{nil},
+the entry previously at the front of the kill ring is discarded, and
+@var{string} replaces it.
+
+This function runs the functions on @code{kill-hooks}, and also invokes
+the value of @code{interprogram-cut-function} (see below).
 @end defun
 
 @defun kill-append string before-p
@@ -884,7 +893,7 @@ to the newly killed text.
 
   The variable @code{kill-ring} holds the kill ring contents, in the
 form of a list of strings.  The most recent kill is always at the front
-of the list. 
+of the list.
 
   The @code{kill-ring-yank-pointer} variable points to a link in the
 kill ring list, whose @sc{car} is the text to yank next.  We say it
@@ -909,7 +918,7 @@ rotate the ring so that the newly killed text is at the front.
 
   Here is a diagram that shows the variable @code{kill-ring-yank-pointer}
 pointing to the second entry in the kill ring @code{("some text" "a
-different piece of text" "yet older text")}.  
+different piece of text" "yet older text")}.
 
 @example
 @group
@@ -917,11 +926,11 @@ kill-ring       kill-ring-yank-pointer
   |               |
   |     ___ ___    --->  ___ ___      ___ ___
    --> |___|___|------> |___|___|--> |___|___|--> nil
-         |                |            |            
-         |                |            |            
-         |                |             -->"yet older text" 
+         |                |            |
+         |                |            |
+         |                |             -->"yet older text"
          |                |
-         |                 --> "a different piece of text" 
+         |                 --> "a different piece of text"
          |
           --> "some text"
 @end group
@@ -973,9 +982,9 @@ This kind of element records a previous value of point.  Ordinary cursor
 motion does not get any sort of undo record, but deletion commands use
 these entries to record where point was before the command.
 
-@item (@var{beg} . @var{end})
+@item (@var{start} . @var{end})
 This kind of element indicates how to delete text that was inserted.
-Upon insertion, the text occupied the range @var{beg}--@var{end} in the 
+Upon insertion, the text occupied the range @var{start}--@var{end} in the
 buffer.
 
 @item (@var{text} . @var{position})
@@ -991,12 +1000,12 @@ was previously visited or saved.  @code{primitive-undo} uses those
 values to determine whether to mark the buffer as unmodified once again;
 it does so only if the file's modification time matches those numbers.
 
-@item (nil @var{property} @var{value} @var{beg} . @var{end})
+@item (nil @var{property} @var{value} @var{start} . @var{end})
 This kind of element records a change in a text property.
 Here's how you might undo the change:
 
 @example
-(put-text-property @var{beg} @var{end} @var{property} @var{value})
+(put-text-property @var{start} @var{end} @var{property} @var{value})
 @end example
 
 @item @var{position}
@@ -1072,8 +1081,8 @@ In an interactive call, @var{buffer-or-name} is the current buffer.
 You cannot specify any other buffer.
 @end deffn
 
-@defun buffer-disable-undo &optional buffer
-@defunx buffer-flush-undo &optional buffer
+@deffn Command buffer-disable-undo &optional buffer
+@deffnx Command buffer-flush-undo &optional buffer
 @cindex disable undo
 This function discards the undo list of @var{buffer}, and disables
 further recording of undo information.  As a result, it is no longer
@@ -1086,7 +1095,7 @@ This function returns @code{nil}.  It cannot be called interactively.
 The name @code{buffer-flush-undo} is not considered obsolete, but the
 preferred name @code{buffer-disable-undo} is new as of Emacs versions
 19.
-@end defun
+@end deffn
 
   As editing continues, undo lists get longer and longer.  To prevent
 them from using up all available memory space, garbage collection trims
@@ -1321,11 +1330,14 @@ If @var{force} is non-@code{nil}, that says to fix the line's
 indentation if that doesn't match the left margin value.
 @end deffn
 
-@defun delete-to-left-margin from to
+@defun delete-to-left-margin &optional from to
 This function removes left margin indentation from the text
 between @var{from} and @var{to}.  The amount of indentation
 to delete is determined by calling @code{current-left-margin}.
 In no case does this function delete non-whitespace.
+
+The arguments @var{from} and @var{to} are optional; the default is the
+whole buffer.
 @end defun
 
 @defun indent-to-left-margin
@@ -1441,16 +1453,16 @@ definition for @code{sort-lines}:
 @group
 ;; @r{Note that the first two lines of doc string}
 ;; @r{are effectively one line when viewed by a user.}
-(defun sort-lines (reverse beg end)
+(defun sort-lines (reverse start end)
   "Sort lines in region alphabetically.
 Called from a program, there are three arguments:
 @end group
 @group
 REVERSE (non-nil means reverse order),
-and BEG and END (the region to sort)."
+and START and END (the region to sort)."
   (interactive "P\nr")
   (save-restriction
-    (narrow-to-region beg end)
+    (narrow-to-region start end)
     (goto-char (point-min))
     (sort-subr reverse
                'forward-line
@@ -1469,8 +1481,8 @@ its @code{sort-subr} call looks like this:
 @example
 @group
 (sort-subr reverse
-           (function 
-            (lambda () 
+           (function
+            (lambda ()
               (skip-chars-forward "\n \t\f")))
            'forward-paragraph)
 @end group
@@ -1582,16 +1594,16 @@ region.  Fields are separated by whitespace and numbered starting from
 is useful for sorting tables.
 @end deffn
 
-@deffn Command sort-columns reverse &optional beg end
-This command sorts the lines in the region between @var{beg} and
+@deffn Command sort-columns reverse &optional start end
+This command sorts the lines in the region between @var{start} and
 @var{end}, comparing them alphabetically by a certain range of columns.
-The column positions of @var{beg} and @var{end} bound the range of
+The column positions of @var{start} and @var{end} bound the range of
 columns to sort on.
 
 If @var{reverse} is non-@code{nil}, the sort is in reverse order.
 
 One unusual thing about this command is that the entire line
-containing position @var{beg}, and the entire line containing position
+containing position @var{start}, and the entire line containing position
 @var{end}, are included in the region sorted.
 
 Note that @code{sort-columns} uses the @code{sort} utility program,
@@ -1620,17 +1632,29 @@ occupying a number of columns that depends on the value of
 amount of horizontal scrolling.  Consequently, a column value can be
 arbitrarily high.  The first (or leftmost) column is numbered 0.
 
-@defun current-column
+@defun current-column &optional buffer
 This function returns the horizontal position of point, measured in
-columns, counting from 0 at the left margin.  The column position is the
-sum of the widths of all the displayed representations of the characters
-between the start of the current line and point.
+columns, counting from 0 at the left margin.
+
+This is calculated by adding together the widths of all the displayed
+representations of the character between the start of the previous line
+and point. (e.g. control characters will have a width of 2 or 4, tabs
+will have a variable width.)
+
+Ignores the finite width of frame displaying the buffer, which means
+that this function may return values greater than
+@code{(frame-width)}.
+
+Whether the line is visible (if @code{selective-display} is t) has no effect;
+however, ^M is treated as end of line when @code{selective-display} is t.
+
+If @var{buffer} is nil, the current buffer is assumed.
 
 For an example of using @code{current-column}, see the description of
 @code{count-lines} in @ref{Text Lines}.
 @end defun
 
-@defun move-to-column column &optional force
+@defun move-to-column column &optional force buffer
 This function moves point to @var{column} in the current line.  The
 calculation of @var{column} takes into account the widths of the
 displayed representations of the characters between the start of the
@@ -1649,10 +1673,11 @@ converts the tab into spaces so that it can move precisely to column
 @var{force}, since there is no way to split them.
 
 The argument @var{force} also has an effect if the line isn't long
-enough to reach column @var{column}; in that case, it says to add
+enough to reach column @var{column}; in that case, unless the value of
+@var{force} is the special value @code{coerce}, it says to add
 whitespace at the end of the line to reach that column.
 
-If @var{column} is not an integer, an error is signaled.
+If @var{column} is not a non-negative integer, an error is signaled.
 
 The return value is the column number actually moved to.
 @end defun
@@ -1682,7 +1707,7 @@ count from zero at the left margin.
 insert indentation.  The functions in the following sections use these
 primitives.
 
-@defun current-indentation
+@defun current-indentation &optional buffer
 @comment !!Type Primitive Function
 @comment !!SourceFile indent.c
 This function returns the indentation of the current line, which is
@@ -1691,7 +1716,7 @@ contents are entirely blank, then this is the horizontal position of the
 end of the line.
 @end defun
 
-@deffn Command indent-to column &optional minimum
+@deffn Command indent-to column &optional minimum buffer
 @comment !!Type Primitive Function
 @comment !!SourceFile indent.c
 This function indents from point with tabs and spaces until @var{column}
@@ -1699,7 +1724,7 @@ is reached.  If @var{minimum} is specified and non-@code{nil}, then at
 least that many spaces are inserted even if this requires going beyond
 @var{column}.  Otherwise the function does nothing if point is already
 beyond @var{column}.  The value is the column at which the inserted
-indentation ends.
+indentation ends.  If @var{buffer} is @code{nil}, the current buffer is assumed.
 @end deffn
 
 @defopt indent-tabs-mode
@@ -1734,7 +1759,7 @@ This command calls the function in @code{indent-line-function} to
 indent the current line in a way appropriate for the current major mode.
 @end deffn
 
-@deffn Command indent-for-tab-command
+@deffn Command indent-for-tab-command &optional prefix-arg
 This command calls the function in @code{indent-line-function} to indent
 the current line; except that if that function is
 @code{indent-to-left-margin}, it calls @code{insert-tab} instead.  (That
@@ -1826,13 +1851,13 @@ In Mail mode, @kbd{C-c C-y} (@code{mail-yank-original}) uses
 replied to.
 @end deffn
 
-@defun indent-code-rigidly start end columns &optional nochange-regexp
+@deffn Command indent-code-rigidly start end columns &optional nochange-regexp
 This is like @code{indent-rigidly}, except that it doesn't alter lines
 that start within strings or comments.
 
 In addition, it doesn't alter a line if @var{nochange-regexp} matches at
 the beginning of the line (if @var{nochange-regexp} is non-@code{nil}).
-@end defun
+@end deffn
 
 @node Relative Indent
 @subsection Indentation Relative to Previous Lines
@@ -1946,7 +1971,7 @@ interactively.
   These commands, primarily for interactive use, act based on the
 indentation in the text.
 
-@deffn Command back-to-indentation 
+@deffn Command back-to-indentation
 @comment !!SourceFile simple.el
 This command moves point to the first non-whitespace character in the
 current line (which is the line in which point is located).  It returns
@@ -1974,7 +1999,7 @@ buffer.  @xref{Character Case}, for case conversion commands that work
 on strings and characters.  @xref{Case Tables}, for how to customize
 which characters are upper or lower case and how to convert them.
 
-@deffn Command capitalize-region start end
+@deffn Command capitalize-region start end &optional buffer
 This function capitalizes all words in the region defined by
 @var{start} and @var{end}.  To capitalize means to convert each word's
 first character to upper case and convert the rest of each word to lower
@@ -2004,7 +2029,7 @@ This Is The Contents Of The 5th Foo.
 @end example
 @end deffn
 
-@deffn Command downcase-region start end
+@deffn Command downcase-region start end &optional buffer
 This function converts all of the letters in the region defined by
 @var{start} and @var{end} to lower case.  The function returns
 @code{nil}.
@@ -2013,7 +2038,7 @@ When @code{downcase-region} is called interactively, @var{start} and
 @var{end} are point and the mark, with the smallest first.
 @end deffn
 
-@deffn Command upcase-region start end
+@deffn Command upcase-region start end &optional buffer
 This function converts all of the letters in the region defined by
 @var{start} and @var{end} to upper case.  The function returns
 @code{nil}.
@@ -2022,7 +2047,7 @@ When @code{upcase-region} is called interactively, @var{start} and
 @var{end} are point and the mark, with the smallest first.
 @end deffn
 
-@deffn Command capitalize-word count
+@deffn Command capitalize-word count &optional buffer
 This function capitalizes @var{count} words after point, moving point
 over as it does.  To capitalize means to convert each word's first
 character to upper case and convert the rest of each word to lower case.
@@ -2037,7 +2062,7 @@ When @code{capitalize-word} is called interactively, @var{count} is
 set to the numeric prefix argument.
 @end deffn
 
-@deffn Command downcase-word count
+@deffn Command downcase-word count &optional buffer
 This function converts the @var{count} words after point to all lower
 case, moving point over as it does.  If @var{count} is negative, it
 converts the @minus{}@var{count} previous words but does not move point.
@@ -2047,7 +2072,7 @@ When @code{downcase-word} is called interactively, @var{count} is set
 to the numeric prefix argument.
 @end deffn
 
-@deffn Command upcase-word count
+@deffn Command upcase-word count &optional buffer
 This function converts the @var{count} words after point to all upper
 case, moving point over as it does.  If @var{count} is negative, it
 converts the @minus{}@var{count} previous words but does not move point.
@@ -2115,7 +2140,7 @@ functions to examine the properties of a number of characters at once.
 positions in a string start from 0, whereas positions in a buffer start
 from 1.)
 
-@defun get-text-property pos prop &optional object
+@defun get-text-property pos prop &optional object at-flag
 This function returns the value of the @var{prop} property of the
 character after position @var{pos} in @var{object} (a buffer or string).
 The argument @var{object} is optional and defaults to the current
@@ -2127,7 +2152,7 @@ the @var{prop} property of that symbol.
 @end ignore
 @end defun
 
-@defun get-char-property pos prop &optional object
+@defun get-char-property pos prop &optional object at-flag
 This function is like @code{get-text-property}, except that it checks
 all extents, not just text-property extents.
 
@@ -2280,7 +2305,7 @@ properties are not identical to those of the character just after
 @var{pos}.
 
 If @var{limit} is non-@code{nil}, then the scan ends at position
-@var{limit}.  If there is no property change before that point, 
+@var{limit}.  If there is no property change before that point,
 @code{next-property-change} returns @var{limit}.
 
 The value is @code{nil} if the properties remain unchanged all the way
@@ -2311,7 +2336,7 @@ returns the position of the first character beyond @var{pos} whose
 @var{pos}.
 
 If @var{limit} is non-@code{nil}, then the scan ends at position
-@var{limit}.  If there is no property change before that point, 
+@var{limit}.  If there is no property change before that point,
 @code{next-single-property-change} returns @var{limit}.
 
 The value is @code{nil} if the property remains unchanged all the way to
@@ -2321,14 +2346,14 @@ equals @var{pos} only if @var{limit} equals @var{pos}.
 @end defun
 
 @defun previous-property-change pos &optional object limit
-This is like @code{next-property-change}, but scans back from @var{pos}
+This is like @code{next-property-change}, but scans backward from @var{pos}
 instead of forward.  If the value is non-@code{nil}, it is a position
 less than or equal to @var{pos}; it equals @var{pos} only if @var{limit}
 equals @var{pos}.
 @end defun
 
 @defun previous-single-property-change pos prop &optional object limit
-This is like @code{next-single-property-change}, but scans back from
+This is like @code{next-single-property-change}, but scans backward from
 @var{pos} instead of forward.  If the value is non-@code{nil}, it is a
 position less than or equal to @var{pos}; it equals @var{pos} only if
 @var{limit} equals @var{pos}.
@@ -2372,7 +2397,7 @@ The predefined properties are the same as those for extents.
 @cindex saving text properties
 
   You can save text properties in files, and restore text properties
-when inserting the files, using these two hooks: 
+when inserting the files, using these two hooks:
 
 @defvar write-region-annotate-functions
 This variable's value is a list of functions for @code{write-region} to
@@ -2422,7 +2447,7 @@ uses may be possible.
 
 We invite users to write Lisp programs to store and retrieve text
 properties in files, using these hooks, and thus to experiment with
-various data formats and find good ones.  Eventually we hope users 
+various data formats and find good ones.  Eventually we hope users
 will produce good, general extensions we can install in Emacs.
 
 We suggest not trying to handle arbitrary Lisp objects as property
@@ -2477,7 +2502,7 @@ This function applies a translation table to the characters in the
 buffer between positions @var{start} and @var{end}.  The translation
 table @var{table} can be either a string, a vector, or a char-table.
 
-If @var{table} is a string, its @var{n}th element is the mapping for the 
+If @var{table} is a string, its @var{n}th element is the mapping for the
 character with code @var{n}.
 
 If @var{table} is a vector, its @var{n}th element is the mapping for
@@ -2557,44 +2582,44 @@ the register.  A marker represents a position.  A list represents a
 rectangle; its elements are strings, one per line of the rectangle.
 @end defvar
 
-@defun get-register reg
+@defun get-register register
 This function returns the contents of the register
-@var{reg}, or @code{nil} if it has no contents.
+@var{register}, or @code{nil} if it has no contents.
 @end defun
 
-@defun set-register reg value
-This function sets the contents of register @var{reg} to @var{value}.
+@defun set-register register value
+This function sets the contents of register @var{register} to @var{value}.
 A register can be set to any value, but the other register functions
 expect only certain data types.  The return value is @var{value}.
 @end defun
 
-@deffn Command view-register reg
-This command displays what is contained in register @var{reg}.
+@deffn Command view-register register
+This command displays what is contained in register @var{register}.
 @end deffn
 
 @ignore
-@deffn Command point-to-register reg
+@deffn Command point-to-register register
 This command stores both the current location of point and the current
-buffer in register @var{reg} as a marker.
+buffer in register @var{register} as a marker.
 @end deffn
 
-@deffn Command jump-to-register reg
-@deffnx Command register-to-point reg
+@deffn Command jump-to-register register
+@deffnx Command register-to-point register
 @comment !!SourceFile register.el
-This command restores the status recorded in register @var{reg}.
+This command restores the status recorded in register @var{register}.
 
-If @var{reg} contains a marker, it moves point to the position stored in
-the marker.  Since both the buffer and the location within the buffer
-are stored by the @code{point-to-register} function, this command can
-switch you to another buffer.
+If @var{register} contains a marker, it moves point to the position
+stored in the marker.  Since both the buffer and the location within the
+buffer are stored by the @code{point-to-register} function, this command
+can switch you to another buffer.
 
-If @var{reg} contains a window configuration or a frame configuration.
+If @var{register} contains a window configuration or a frame configuration.
 @code{jump-to-register} restores that configuration.
 @end deffn
 @end ignore
 
-@deffn Command insert-register reg &optional beforep
-This command inserts contents of register @var{reg} into the current
+@deffn Command insert-register register &optional beforep
+This command inserts contents of register @var{register} into the current
 buffer.
 
 Normally, this command puts point before the inserted text, and the
@@ -2613,39 +2638,39 @@ changed in the future.
 @end deffn
 
 @ignore
-@deffn Command copy-to-register reg start end &optional delete-flag
+@deffn Command copy-to-register register start end &optional delete-flag
 This command copies the region from @var{start} to @var{end} into
-register @var{reg}.  If @var{delete-flag} is non-@code{nil}, it deletes
+register @var{register}.  If @var{delete-flag} is non-@code{nil}, it deletes
 the region from the buffer after copying it into the register.
 @end deffn
 
-@deffn Command prepend-to-register reg start end &optional delete-flag
+@deffn Command prepend-to-register register start end &optional delete-flag
 This command prepends the region from @var{start} to @var{end} into
-register @var{reg}.  If @var{delete-flag} is non-@code{nil}, it deletes
+register @var{register}.  If @var{delete-flag} is non-@code{nil}, it deletes
 the region from the buffer after copying it to the register.
 @end deffn
 
-@deffn Command append-to-register reg start end &optional delete-flag
+@deffn Command append-to-register register start end &optional delete-flag
 This command appends the region from @var{start} to @var{end} to the
-text already in register @var{reg}.  If @var{delete-flag} is
+text already in register @var{register}.  If @var{delete-flag} is
 non-@code{nil}, it deletes the region from the buffer after copying it
 to the register.
 @end deffn
 
-@deffn Command copy-rectangle-to-register reg start end &optional delete-flag
+@deffn Command copy-rectangle-to-register register start end &optional delete-flag
 This command copies a rectangular region from @var{start} to @var{end}
-into register @var{reg}.  If @var{delete-flag} is non-@code{nil}, it
+into register @var{register}.  If @var{delete-flag} is non-@code{nil}, it
 deletes the region from the buffer after copying it to the register.
 @end deffn
 
-@deffn Command window-configuration-to-register reg
+@deffn Command window-configuration-to-register register
 This function stores the window configuration of the selected frame in
-register @var{reg}.
+register @var{register}.
 @end deffn
 
-@deffn Command frame-configuration-to-register reg
+@deffn Command frame-configuration-to-register register
 This function stores the current frame configuration in register
-@var{reg}.
+@var{register}.
 @end deffn
 @end ignore
 
@@ -2742,14 +2767,23 @@ target digest.  MD5 is used heavily by various authentication schemes.
 
 Emacs Lisp interface to MD5 consists of a single function @code{md5}:
 
-@defun md5 object &optional start end
+@defun md5 object &optional start end coding noerror
 This function returns the MD5 message digest of @var{object}, a buffer
 or string.
 
 Optional arguments @var{start} and @var{end} denote positions for
 computing the digest of a portion of @var{object}.
 
-Some examples of usage:
+The optional @var{coding} argument specifies the coding system the text
+is to be represented in while computing the digest.  If unspecified, it
+defaults to the current format of the data, or is guessed.
+
+If @var{noerror} is non-@code{nil}, silently assume binary coding if the
+guesswork fails.  Normally, an error is signaled in such case.
+
+@var{coding} and @var{noerror} arguments are meaningful only in XEmacsen
+with file-coding or Mule support.  Otherwise, they are ignored.  Some
+examples of usage:
 
 @example
 @group
@@ -2779,13 +2813,13 @@ binary bodies, and to encode binary characters in message headers.
 
 The Lisp interface to base64 consists of four functions:
 
-@defun base64-encode-region beg end &optional no-line-break
-This function encodes the region between @var{beg} and @var{end} of the
-current buffer to base64 format.  This means that the original region is 
+@deffn Command base64-encode-region start end &optional no-line-break
+This function encodes the region between @var{start} and @var{end} of the
+current buffer to base64 format.  This means that the original region is
 deleted, and replaced with its base64 equivalent.
 
 Normally, encoded base64 output is multi-line, with 76-character lines.
-If @var{no-line-break} is non-@code{nil}, newlines will not be inserted, 
+If @var{no-line-break} is non-@code{nil}, newlines will not be inserted,
 resulting in single-line output.
 
 Mule note: you should make sure that you convert the multibyte
@@ -2805,11 +2839,15 @@ an error.
 
 The function can also be used interactively, in which case it works on
 the currently active region.
-@end defun
+@end deffn
 
-@defun base64-encode-string string
+@defun base64-encode-string string &optional no-line-break
 This function encodes @var{string} to base64, and returns the encoded
 string.
+
+Normally, encoded base64 output is multi-line, with 76-character lines.
+If @var{no-line-break} is non-@code{nil}, newlines will not be inserted,
+resulting in single-line output.
 
 For Mule, the same considerations apply as for
 @code{base64-encode-region}.
@@ -2822,12 +2860,12 @@ For Mule, the same considerations apply as for
 @end example
 @end defun
 
-@defun base64-decode-region beg end
-This function decodes the region between @var{beg} and @var{end} of the
+@deffn Command base64-decode-region start end
+This function decodes the region between @var{start} and @var{end} of the
 current buffer.  The region should be in base64 encoding.
 
 If the region was decoded correctly, @code{base64-decode-region} returns
-the length of the decoded region.  If the decoding failed, @code{nil} is 
+the length of the decoded region.  If the decoding failed, @code{nil} is
 returned.
 
 @example
@@ -2836,7 +2874,7 @@ returned.
 (base64-decode-region (point-min) (point-max))
 @end group
 @end example
-@end defun
+@end deffn
 
 @defun base64-decode-string string
 This function decodes @var{string} to base64, and returns the decoded

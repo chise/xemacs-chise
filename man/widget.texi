@@ -94,7 +94,7 @@ implement forms are:
 
 @enumerate
 @item
-More complex field than just editable text are supported. 
+More complex fields than just editable text are supported. 
 @item
 You can give the user immediate feedback if he enters invalid data in a
 text field, and sometimes prevent entering invalid data.
@@ -430,7 +430,7 @@ NAME ::= (NAME [KEYWORD ARGUMENT]... ARGS)
      |   NAME
 @end example
 
-Where, @var{name} is a widget name, @var{keyword} is the name of a
+where @var{name} is a widget name, @var{keyword} is the name of a
 property, @var{argument} is the value of the property, and @var{args}
 are interpreted in a widget specific way.
 
@@ -510,7 +510,7 @@ The value of the symbol is expanded according to this table.
 @end table
 
 @item :doc
-The string inserted by the @samp{%d} escape in the format
+The string inserted by the @samp{%d} or @samp{%h} escape in the format
 string.  
 
 @item :tag
@@ -559,7 +559,7 @@ Should be a function called with two arguments, the widget and a value,
 and returning non-nil if the widget can represent the specified value.
 
 @item :validate
-A function which takes a widget as an argument, and return nil if the
+A function which takes a widget as an argument, and returns nil if the
 widget's current value is valid for the widget.  Otherwise it should
 return the widget containing the invalid data, and set that widget's
 @code{:error} property to a string explaining the error.
@@ -722,8 +722,10 @@ The following extra properties are recognized.
 
 @table @code
 @item :size
-The width of the editable field.@*
-By default the field will reach to the end of the line.
+The minimum width of the editable field.@*
+By default the field will reach to the end of the line.  If the
+content is too large, the displayed representation will expand to
+contain it.  The content is not truncated to size.
 
 @item :value-face
 Face used for highlighting the editable field.  Default is
@@ -742,7 +744,7 @@ which matches everything.
 @item :keymap
 Keymap used in the editable field.  The default value is
 @code{widget-field-keymap}, which allows you to use all the normal
-editing commands, even if the buffers major mode suppress some of them.
+editing commands, even if the buffer's major mode suppress some of them.
 Pressing return invokes the function specified by @code{:action}. 
 @end table
 

@@ -468,12 +468,12 @@ assigned values are
 -- all characters
 -- a single character
 
-To create a char table, use `make-char-table'.  To modify a char
-table, use `put-char-table' or `remove-char-table'.  To retrieve the
-value for a particular character, use `get-char-table'.  See also
-`map-char-table', `clear-char-table', `copy-char-table',
-`valid-char-table-type-p', `char-table-type-list', `valid-char-table-value-p',
-and `check-char-table-value'.
+To create a char table, use `make-char-table'.
+To modify a char table, use `put-char-table' or `remove-char-table'.
+To retrieve the value for a particular character, use `get-char-table'.
+See also `map-char-table', `clear-char-table', `copy-char-table',
+`valid-char-table-type-p', `char-table-type-list',
+`valid-char-table-value-p', and `check-char-table-value'.
 */
        (object))
 {
@@ -533,13 +533,13 @@ sorts of values.  The different char table types are
 }
 
 DEFUN ("char-table-type", Fchar_table_type, 1, 1, 0, /*
-Return the type of char table TABLE.
+Return the type of CHAR-TABLE.
 See `valid-char-table-type-p'.
 */
-       (table))
+       (char_table))
 {
-  CHECK_CHAR_TABLE (table);
-  return char_table_type_to_symbol (XCHAR_TABLE (table)->type);
+  CHECK_CHAR_TABLE (char_table);
+  return char_table_type_to_symbol (XCHAR_TABLE (char_table)->type);
 }
 
 void
@@ -559,14 +559,14 @@ fill_char_table (Lisp_Char_Table *ct, Lisp_Object value)
 }
 
 DEFUN ("reset-char-table", Freset_char_table, 1, 1, 0, /*
-Reset a char table to its default state.
+Reset CHAR-TABLE to its default state.
 */
-       (table))
+       (char_table))
 {
   Lisp_Char_Table *ct;
 
-  CHECK_CHAR_TABLE (table);
-  ct = XCHAR_TABLE (table);
+  CHECK_CHAR_TABLE (char_table);
+  ct = XCHAR_TABLE (char_table);
 
   switch (ct->type)
     {
@@ -666,18 +666,18 @@ copy_char_table_entry (Lisp_Object entry)
 #endif /* MULE */
 
 DEFUN ("copy-char-table", Fcopy_char_table, 1, 1, 0, /*
-Make a new char table which is a copy of OLD-TABLE.
+Return a new char table which is a copy of CHAR-TABLE.
 It will contain the same values for the same characters and ranges
-as OLD-TABLE.  The values will not themselves be copied.
+as CHAR-TABLE.  The values will not themselves be copied.
 */
-       (old_table))
+       (char_table))
 {
   Lisp_Char_Table *ct, *ctnew;
   Lisp_Object obj;
   int i;
 
-  CHECK_CHAR_TABLE (old_table);
-  ct = XCHAR_TABLE (old_table);
+  CHECK_CHAR_TABLE (char_table);
+  ct = XCHAR_TABLE (char_table);
   ctnew = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ctnew->type = ct->type;
 
@@ -852,32 +852,29 @@ get_char_table (Emchar ch, Lisp_Char_Table *ct)
 
 
 DEFUN ("get-char-table", Fget_char_table, 2, 2, 0, /*
-Find value for char CH in TABLE.
+Find value for CHARACTER in CHAR-TABLE.
 */
-       (ch, table))
+       (character, char_table))
 {
-  Lisp_Char_Table *ct;
+  CHECK_CHAR_TABLE (char_table);
+  CHECK_CHAR_COERCE_INT (character);
 
-  CHECK_CHAR_TABLE (table);
-  ct = XCHAR_TABLE (table);
-  CHECK_CHAR_COERCE_INT (ch);
-
-  return get_char_table (XCHAR (ch), ct);
+  return get_char_table (XCHAR (character), XCHAR_TABLE (char_table));
 }
 
 DEFUN ("get-range-char-table", Fget_range_char_table, 2, 3, 0, /*
-Find value for a range in TABLE.
+Find value for a range in CHAR-TABLE.
 If there is more than one value, return MULTI (defaults to nil).
 */
-       (range, table, multi))
+       (range, char_table, multi))
 {
   Lisp_Char_Table *ct;
   struct chartab_range rainj;
 
   if (CHAR_OR_CHAR_INTP (range))
-    return Fget_char_table (range, table);
-  CHECK_CHAR_TABLE (table);
-  ct = XCHAR_TABLE (table);
+    return Fget_char_table (range, char_table);
+  CHECK_CHAR_TABLE (char_table);
+  ct = XCHAR_TABLE (char_table);
 
   decode_char_table_range (range, &rainj);
   switch (rainj.type)
@@ -1148,7 +1145,7 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 }
 
 DEFUN ("put-char-table", Fput_char_table, 3, 3, 0, /*
-Set the value for chars in RANGE to be VAL in TABLE.
+Set the value for chars in RANGE to be VALUE in CHAR-TABLE.
 
 RANGE specifies one or more characters to be affected and should be
 one of the following:
@@ -1159,20 +1156,20 @@ one of the following:
    (only allowed when Mule support is present)
 -- A single character
 
-VAL must be a value appropriate for the type of TABLE.
+VALUE must be a value appropriate for the type of CHAR-TABLE.
 See `valid-char-table-type-p'.
 */
-       (range, val, table))
+       (range, value, char_table))
 {
   Lisp_Char_Table *ct;
   struct chartab_range rainj;
 
-  CHECK_CHAR_TABLE (table);
-  ct = XCHAR_TABLE (table);
-  check_valid_char_table_value (val, ct->type, ERROR_ME);
+  CHECK_CHAR_TABLE (char_table);
+  ct = XCHAR_TABLE (char_table);
+  check_valid_char_table_value (value, ct->type, ERROR_ME);
   decode_char_table_range (range, &rainj);
-  val = canonicalize_char_table_value (val, ct->type);
-  put_char_table (ct, &rainj, val);
+  value = canonicalize_char_table_value (value, ct->type);
+  put_char_table (ct, &rainj, value);
   return Qnil;
 }
 
@@ -1451,22 +1448,22 @@ slow_map_char_table_fun (struct chartab_range *range,
 }
 
 DEFUN ("map-char-table", Fmap_char_table, 2, 3, 0, /*
-Map FUNCTION over entries in TABLE, calling it with two args,
+Map FUNCTION over entries in CHAR-TABLE, calling it with two args,
 each key and value in the table.
 
 RANGE specifies a subrange to map over and is in the same format as
 the RANGE argument to `put-range-table'.  If omitted or t, it defaults to
 the entire table.
 */
-       (function, table, range))
+       (function, char_table, range))
 {
   Lisp_Char_Table *ct;
   struct slow_map_char_table_arg slarg;
   struct gcpro gcpro1, gcpro2;
   struct chartab_range rainj;
 
-  CHECK_CHAR_TABLE (table);
-  ct = XCHAR_TABLE (table);
+  CHECK_CHAR_TABLE (char_table);
+  ct = XCHAR_TABLE (char_table);
   if (NILP (range))
     range = Qt;
   decode_char_table_range (range, &rainj);
@@ -1583,7 +1580,7 @@ chartab_instantiate (Lisp_Object data)
 /************************************************************************/
 
 DEFUN ("category-table-p", Fcategory_table_p, 1, 1, 0, /*
-Return t if ARG is a category table.
+Return t if OBJECT is a category table.
 A category table is a type of char table used for keeping track of
 categories.  Categories are used for classifying characters for use
 in regexps -- you can refer to a category rather than having to use
@@ -1606,21 +1603,21 @@ whether the character is in that category.
 Special Lisp functions are provided that abstract this, so you do not
 have to directly manipulate bit vectors.
 */
-       (obj))
+       (object))
 {
-  return (CHAR_TABLEP (obj) &&
-	  XCHAR_TABLE_TYPE (obj) == CHAR_TABLE_TYPE_CATEGORY) ?
+  return (CHAR_TABLEP (object) &&
+	  XCHAR_TABLE_TYPE (object) == CHAR_TABLE_TYPE_CATEGORY) ?
     Qt : Qnil;
 }
 
 static Lisp_Object
-check_category_table (Lisp_Object obj, Lisp_Object def)
+check_category_table (Lisp_Object object, Lisp_Object default_)
 {
-  if (NILP (obj))
-    obj = def;
-  while (NILP (Fcategory_table_p (obj)))
-    obj = wrong_type_argument (Qcategory_table_p, obj);
-  return obj;
+  if (NILP (object))
+    object = default_;
+  while (NILP (Fcategory_table_p (object)))
+    object = wrong_type_argument (Qcategory_table_p, object);
+  return object;
 }
 
 int
@@ -1643,32 +1640,33 @@ check_category_char (Emchar ch, Lisp_Object table,
 }
 
 DEFUN ("check-category-at", Fcheck_category_at, 2, 4, 0, /*
-Return t if category of a character at POS includes DESIGNATOR,
-else return nil. Optional third arg specifies which buffer
-\(defaulting to current), and fourth specifies the CATEGORY-TABLE,
-\(defaulting to the buffer's category table).
+Return t if category of the character at POSITION includes DESIGNATOR.
+Optional third arg BUFFER specifies which buffer to use, and defaults
+to the current buffer.
+Optional fourth arg CATEGORY-TABLE specifies the category table to
+use, and defaults to BUFFER's category table.
 */
-       (pos, designator, buffer, category_table))
+       (position, designator, buffer, category_table))
 {
   Lisp_Object ctbl;
   Emchar ch;
   unsigned int des;
   struct buffer *buf = decode_buffer (buffer, 0);
 
-  CHECK_INT (pos);
+  CHECK_INT (position);
   CHECK_CATEGORY_DESIGNATOR (designator);
   des = XCHAR (designator);
   ctbl = check_category_table (category_table, Vstandard_category_table);
-  ch = BUF_FETCH_CHAR (buf, XINT (pos));
+  ch = BUF_FETCH_CHAR (buf, XINT (position));
   return check_category_char (ch, ctbl, des, 0) ? Qt : Qnil;
 }
 
 DEFUN ("char-in-category-p", Fchar_in_category_p, 2, 3, 0, /*
-Return t if category of character CHR includes DESIGNATOR, else nil.
-Optional third arg specifies the CATEGORY-TABLE to use,
-which defaults to the system default table.
+Return t if category of CHARACTER includes DESIGNATOR, else nil.
+Optional third arg CATEGORY-TABLE specifies the category table to use,
+and defaults to the standard category table.
 */
-       (chr, designator, category_table))
+       (character, designator, category_table))
 {
   Lisp_Object ctbl;
   Emchar ch;
@@ -1676,16 +1674,15 @@ which defaults to the system default table.
 
   CHECK_CATEGORY_DESIGNATOR (designator);
   des = XCHAR (designator);
-  CHECK_CHAR (chr);
-  ch = XCHAR (chr);
+  CHECK_CHAR (character);
+  ch = XCHAR (character);
   ctbl = check_category_table (category_table, Vstandard_category_table);
   return check_category_char (ch, ctbl, des, 0) ? Qt : Qnil;
 }
 
 DEFUN ("category-table", Fcategory_table, 0, 1, 0, /*
-Return the current category table.
-This is the one specified by the current buffer, or by BUFFER if it
-is non-nil.
+Return BUFFER's current category table.
+BUFFER defaults to the current buffer.
 */
        (buffer))
 {
@@ -1702,48 +1699,48 @@ This is the one used for new buffers.
 }
 
 DEFUN ("copy-category-table", Fcopy_category_table, 0, 1, 0, /*
-Construct a new category table and return it.
-It is a copy of the TABLE, which defaults to the standard category table.
+Return a new category table which is a copy of CATEGORY-TABLE.
+CATEGORY-TABLE defaults to the standard category table.
 */
-       (table))
+       (category_table))
 {
   if (NILP (Vstandard_category_table))
     return Fmake_char_table (Qcategory);
 
-  table = check_category_table (table, Vstandard_category_table);
-  return Fcopy_char_table (table);
+  category_table =
+    check_category_table (category_table, Vstandard_category_table);
+  return Fcopy_char_table (category_table);
 }
 
 DEFUN ("set-category-table", Fset_category_table, 1, 2, 0, /*
-Select a new category table for BUFFER.
-One argument, a category table.
+Select CATEGORY-TABLE as the new category table for BUFFER.
 BUFFER defaults to the current buffer if omitted.
 */
-       (table, buffer))
+       (category_table, buffer))
 {
   struct buffer *buf = decode_buffer (buffer, 0);
-  table = check_category_table (table, Qnil);
-  buf->category_table = table;
+  category_table = check_category_table (category_table, Qnil);
+  buf->category_table = category_table;
   /* Indicate that this buffer now has a specified category table.  */
   buf->local_var_flags |= XINT (buffer_local_flags.category_table);
-  return table;
+  return category_table;
 }
 
 DEFUN ("category-designator-p", Fcategory_designator_p, 1, 1, 0, /*
-Return t if ARG is a category designator (a char in the range ' ' to '~').
+Return t if OBJECT is a category designator (a char in the range ' ' to '~').
 */
-       (obj))
+       (object))
 {
-  return CATEGORY_DESIGNATORP (obj) ? Qt : Qnil;
+  return CATEGORY_DESIGNATORP (object) ? Qt : Qnil;
 }
 
 DEFUN ("category-table-value-p", Fcategory_table_value_p, 1, 1, 0, /*
-Return t if ARG is a category table value.
+Return t if OBJECT is a category table value.
 Valid values are nil or a bit vector of size 95.
 */
-       (obj))
+       (object))
 {
-  return CATEGORY_TABLE_VALUEP (obj) ? Qt : Qnil;
+  return CATEGORY_TABLE_VALUEP (object) ? Qt : Qnil;
 }
 
 
@@ -1893,7 +1890,7 @@ Emacs treats a sequence of word constituent characters as a single
 word (i.e. finds no word boundary between them) iff they belongs to
 the same charset.  But, exceptions are allowed in the following cases.
 
-(1) The case that characters are in different charsets is controlled
+\(1) The case that characters are in different charsets is controlled
 by the variable `word-combining-categories'.
 
 Emacs finds no word boundary between characters of different charsets
@@ -1907,7 +1904,7 @@ For instance, to tell that ASCII characters and Latin-1 characters can
 form a single word, the element `(?l . ?l)' should be in this list
 because both characters have the category `l' (Latin characters).
 
-(2) The case that character are in the same charset is controlled by
+\(2) The case that character are in the same charset is controlled by
 the variable `word-separating-categories'.
 
 Emacs find a word boundary between characters of the same charset

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/os.info
 @node System Interface, X-Windows, Processes, Top
@@ -77,13 +77,13 @@ It loads the library @file{site-start}, unless the option
 @file{site-start.el}.
 @cindex @file{site-start.el}
 
-@item 
+@item
 It loads the file @file{~/.emacs} unless @samp{-q} was specified on
 the command line.  (This is not done in @samp{-batch} mode.)  The @samp{-u}
 option can specify the user name whose home directory should be used
 instead of @file{~}.
 
-@item 
+@item
 It loads the library @file{default} unless @code{inhibit-default-init}
 is non-@code{nil}.  (This is not done in @samp{-batch} mode or if
 @samp{-q} was specified on the command line.)  The library's file name
@@ -98,7 +98,7 @@ It sets the major mode according to @code{initial-major-mode}, provided
 the buffer @samp{*scratch*} is still current and still in Fundamental
 mode.
 
-@item 
+@item
 It loads the terminal-specific Lisp file, if any, except when in batch
 mode or using a window system.
 
@@ -106,10 +106,10 @@ mode or using a window system.
 It displays the initial echo area message, unless you have suppressed
 that with @code{inhibit-startup-echo-area-message}.
 
-@item 
+@item
 It processes the action arguments from the command line.
 
-@item 
+@item
 It runs @code{term-setup-hook}.
 
 @item
@@ -117,10 +117,10 @@ It calls @code{frame-notice-user-settings}, which modifies the
 parameters of the selected frame according to whatever the init files
 specify.
 
-@item 
+@item
 It runs @code{window-setup-hook}.  @xref{Terminal-Specific}.
 
-@item 
+@item
 It displays copyleft, nonwarranty, and basic use information, provided
 there were no remaining command line arguments (a few steps above) and
 the value of @code{inhibit-startup-message} is @code{nil}.
@@ -272,7 +272,7 @@ terminal-initialization file.  To do this, put the following in
 your @file{.emacs} file: @code{(setq term-file-prefix nil)}.
 @end defvar
 
-@defvar term-setup-hook 
+@defvar term-setup-hook
 This variable is a normal hook that XEmacs runs after loading your
 @file{.emacs} file, the default initialization file (if any) and the
 terminal-specific Lisp file.
@@ -346,7 +346,7 @@ form:
 -@var{option}
 @end example
 
-The elements of the @code{command-switch-alist} look like this: 
+The elements of the @code{command-switch-alist} look like this:
 
 @example
 (@var{option} . @var{handler-function})
@@ -416,7 +416,7 @@ common.
 parent process normally resumes control.  The low-level primitive for
 killing XEmacs is @code{kill-emacs}.
 
-@defun kill-emacs &optional exit-data
+@deffn Command kill-emacs &optional exit-data
 This function exits the XEmacs process and kills it.
 
 If @var{exit-data} is an integer, then it is used as the exit status
@@ -426,7 +426,7 @@ of the XEmacs process.  (This is useful primarily in batch operation; see
 If @var{exit-data} is a string, its contents are stuffed into the
 terminal input buffer so that the shell (or whatever program next reads
 input) can read them.
-@end defun
+@end deffn
 
   All the information in the XEmacs process, aside from files that have
 been saved, is lost when the XEmacs is killed.  Because killing XEmacs
@@ -470,15 +470,15 @@ case you can give input to some other job such as a shell merely by
 moving to a different window.  Therefore, suspending is not allowed
 when XEmacs is an X client.
 
-@defun suspend-emacs string
+@deffn Command suspend-emacs &optional stuffstring
 This function stops XEmacs and returns control to the superior process.
 If and when the superior process resumes XEmacs, @code{suspend-emacs}
 returns @code{nil} to its caller in Lisp.
 
-If @var{string} is non-@code{nil}, its characters are sent to be read
-as terminal input by XEmacs's superior shell.  The characters in
-@var{string} are not echoed by the superior shell; only the results
-appear.
+If optional arg @var{stuffstring} is non-@code{nil}, its characters are
+sent to be read as terminal input by XEmacs's superior shell.  The
+characters in @var{stuffstring} are not echoed by the superior shell;
+only the results appear.
 
 Before suspending, @code{suspend-emacs} runs the normal hook
 @code{suspend-hook}.  In Emacs version 18, @code{suspend-hook} was not a
@@ -538,7 +538,7 @@ lewis@@slug[24] % fg
 Resumed!
 @end group
 @end smallexample
-@end defun
+@end deffn
 
 @defvar suspend-hook
 This variable is a normal hook run before suspending.
@@ -597,9 +597,6 @@ UniSoft UniPlus.
 @item usg-unix-v
 AT&T System V.
 
-@item vax-vms
-VAX VMS.
-
 @item windows-nt
 Microsoft windows NT.
 
@@ -645,11 +642,13 @@ done when XEmacs starts up, the value actually used is the one saved when
 XEmacs was dumped.  @xref{Building XEmacs}.)
 @end defvar
 
-@defun getenv var
+@deffn Command getenv var &optional interactivep
 @cindex environment variable access
 This function returns the value of the environment variable @var{var},
 as a string.  Within XEmacs, the environment variable values are kept in
 the Lisp variable @code{process-environment}.
+
+When invoked interactively, @code{getenv} prints the value in the echo area.
 
 @example
 @group
@@ -668,10 +667,9 @@ SHELL=/bin/csh
 HOME=/user/lewis
 @end group
 @end example
-@end defun
+@end deffn
 
-@c Emacs 19 feature
-@deffn Command setenv variable value
+@deffn Command setenv variable &optional value unset
 This command sets the value of the environment variable named
 @var{variable} to @var{value}.  Both arguments should be strings.  This
 function works by modifying @code{process-environment}; binding that
@@ -680,18 +678,18 @@ variable with @code{let} is also reasonable practice.
 
 @defvar process-environment
 This variable is a list of strings, each describing one environment
-variable.  The functions @code{getenv} and @code{setenv} work by means
-of this variable.
+variable.  The functions @code{getenv} and @code{setenv} work by
+manipulating this variable.
 
 @smallexample
 @group
 process-environment
 @result{} ("l=/usr/stanford/lib/gnuemacs/lisp"
     "PATH=.:/user/lewis/bin:/usr/class:/nfsusr/local/bin"
-    "USER=lewis" 
+    "USER=lewis"
 @end group
 @group
-    "TERM=ibmapa16" 
+    "TERM=ibmapa16"
     "SHELL=/bin/csh"
     "HOME=/user/lewis")
 @end group
@@ -729,7 +727,7 @@ This function returns a list of the current 1-minute, 5-minute and
 system load averages.  (The load averages indicate the number of
 processes trying to run.)
 
-When @var{use-floats} is non-@code{nil}, floats will be returned instead 
+When @var{use-floats} is non-@code{nil}, floats will be returned instead
 of integers.  These floats are not multiplied by 100.
 
 @example
@@ -750,25 +748,13 @@ lewis@@rocky[5] % uptime
 If the 5-minute or 15-minute load averages are not available, return a
 shortened list, containing only those averages which are available.
 
-On some systems, this function may require special privileges to run, or 
+On some systems, this function may require special privileges to run, or
 it may be unimplemented for the particular system type.  In that case,
 the function will signal an error.
 @end defun
 
 @defun emacs-pid
 This function returns the process @sc{id} of the Emacs process.
-@end defun
-
-@defun setprv privilege-name &optional setp getprv
-This function sets or resets a VMS privilege.  (It does not exist on
-Unix.)  The first arg is the privilege name, as a string.  The second
-argument, @var{setp}, is @code{t} or @code{nil}, indicating whether the
-privilege is to be turned on or off.  Its default is @code{nil}.  The
-function returns @code{t} if successful, @code{nil} otherwise.
-
-  If the third argument, @var{getprv}, is non-@code{nil}, @code{setprv}
-does not change the privilege, but returns @code{t} or @code{nil}
-indicating whether the privilege is currently enabled.
 @end defun
 
 @node User Identification
@@ -807,7 +793,7 @@ environment variables @code{LOGNAME} and @code{USER}.
 @defvar user-full-name
 This variable holds the name of the user running this Emacs.  It is
 initialized at startup time from the value of @code{NAME} environment
-variable.  You can change the value of this variable to alter the result 
+variable.  You can change the value of this variable to alter the result
 of the @code{user-full-name} function.
 @end defvar
 
@@ -817,7 +803,7 @@ This function returns the full name of @var{user}.  If @var{user} is
 the value of @code{user-full-name} variable, if non-@code{nil}, will be
 used.
 
-If @var{user} is specified explicitly, @code{user-full-name} variable is 
+If @var{user} is specified explicitly, @code{user-full-name} variable is
 ignored.
 
 @example
@@ -855,7 +841,7 @@ This function returns the real @sc{uid} of the user.
 @end defun
 
 @defun user-uid
-This function returns the effective @sc{uid} of the user.  
+This function returns the effective @sc{uid} of the user.
 @end defun
 
 @defun user-home-directory
@@ -1052,9 +1038,14 @@ This stands for the time zone abbreviation.
 @end table
 @end defun
 
-@defun decode-time time
+@defun decode-time &optional specified-time
 This function converts a time value into calendrical information.  The
-return value is a list of nine elements, as follows:
+optional @var{specified-time} should be a list of
+(@var{high} @var{low} . @var{ignored}) or (@var{high} . @var{low}), as from
+@code{current-time} and @code{file-attributes}, or @code{nil} to use the
+current time.
+
+The return value is a list of nine elements, as follows:
 
 @example
 (@var{seconds} @var{minutes} @var{hour} @var{day} @var{month} @var{year} @var{dow} @var{dst} @var{zone})
@@ -1117,8 +1108,8 @@ has elapsed.  @var{secs} is a number of seconds, expressed as an integer
 or a float.  @var{function} will be called after that many seconds have
 elapsed, with one argument, the given @var{object}.  If the optional
 @var{resignal} argument is provided, then after this timeout expires,
-`add-timeout' will automatically be called again with @var{resignal} as the
-first argument.
+@code{add-timeout} will automatically be called again with
+@var{resignal} as the first argument.
 
 This function returns an object which is the @dfn{id} of this particular
 timeout.  You can pass that object to @code{disable-timeout} to turn off
@@ -1170,7 +1161,7 @@ functions.
 @cindex input modes
 @cindex terminal input modes
 
-@defun set-input-mode interrupt flow meta quit-char
+@defun set-input-mode interrupt flow meta &optional quit-char console
 This function sets the mode for reading keyboard input.  If
 @var{interrupt} is non-null, then XEmacs uses input interrupts.  If it is
 @code{nil}, then it uses @sc{cbreak} mode.  When XEmacs communicates
@@ -1203,7 +1194,7 @@ The @code{current-input-mode} function returns the input mode settings
 XEmacs is currently using.
 
 @c Emacs 19 feature
-@defun current-input-mode
+@defun current-input-mode &optional console
 This function returns current mode for reading keyboard input.  It
 returns a list, corresponding to the arguments of @code{set-input-mode},
 of the form @code{(@var{interrupt} @var{flow} @var{meta} @var{quit})} in
@@ -1306,10 +1297,11 @@ such as @code{recent-keys} and dribble files record the characters after
 translation.
 @end defvar
 
-@defun keyboard-translate from to
+@defun keyboard-translate &rest pairs
 This function modifies @code{keyboard-translate-table} to translate
 character code @var{from} into character code @var{to}.  It creates
-or enlarges the translate table if necessary.
+or enlarges the translate table if necessary.  Multiple
+@var{from}-@var{to} pairs may be specified.
 @end defun
 @end ignore
 
@@ -1441,7 +1433,7 @@ return.  By default, 100 events are stored.
 @end defun
 
 @defun set-recent-keys-ring-size size
-This function changes the number of events stored by XEmacs and returned 
+This function changes the number of events stored by XEmacs and returned
 by @code{recent-keys}.
 
 For example, @code{(set-recent-keys-ring-size 250)} will make XEmacs
@@ -1449,7 +1441,7 @@ remember last 250 events and will make @code{recent-keys} return last
 250 events by default.
 @end defun
 
-@deffn Command open-dribble-file  filename
+@deffn Command open-dribble-file filename
 @cindex dribble file
 This function opens a @dfn{dribble file} named @var{filename}.  When a
 dribble file is open, each input event from the keyboard or mouse (but
@@ -1505,10 +1497,10 @@ the proper value, but others do not.  If XEmacs has the wrong value, it
 makes decisions that are less than optimal.  To fix the problem, use
 @code{set-device-baud-rate}.
 
-@defun set-device-baud-rate &optional device
+@defun set-device-baud-rate device baud-rate
 This function sets the output speed of @var{device}.  See
 @code{device-baud-rate}.  @var{device} defaults to the selected device
-(usually the only device) if omitted.
+(usually the only device) if @code{nil}.
 @end defun
 
 @defun send-string-to-terminal char-or-string &optional stdout-p device
@@ -1629,11 +1621,15 @@ terminals, this problem is gradually being cured.  For the mean time,
 XEmacs provides a convenient way of enabling flow control if you want it:
 call the function @code{enable-flow-control}.
 
-@defun enable-flow-control
+@deffn Command enable-flow-control &optional argument
 This function enables use of @kbd{C-s} and @kbd{C-q} for output flow
 control, and provides the characters @kbd{C-\} and @kbd{C-^} as aliases
 for them using @code{keyboard-translate-table} (@pxref{Translating Input}).
-@end defun
+
+With optional argument @var{argument} (interactively the prefix
+argument), enable flow control mode if @var{argument} is positive; else
+disable it.
+@end deffn
 
 You can use the function @code{enable-flow-control-on} in your
 @file{.emacs} file to enable flow control automatically on certain

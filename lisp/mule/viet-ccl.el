@@ -207,8 +207,8 @@ Both tables are indexed by the position code of Vietnamese characters.")
  'viscii 'ccl
  "Coding-system used for VISCII 1.1."
  `(mnemonic "VISCII"
-   decode ,ccl-decode-viscii
-   encode ,ccl-encode-viscii))
+   decode ccl-decode-viscii
+   encode ccl-encode-viscii))
 
 ;; it is not correct, but XEmacs doesn't have `ccl' category...
 (coding-system-put 'viscii 'category 'iso-8-1)
@@ -227,8 +227,8 @@ Both tables are indexed by the position code of Vietnamese characters.")
  'vscii 'ccl
  "Coding-system used for VSCII 1.1."
  `(mnemonic "VSCII"
-   decode ,ccl-decode-vscii
-   encode ,ccl-encode-vscii))
+   decode ccl-decode-vscii
+   encode ccl-encode-vscii))
 
 ;; (make-coding-system
 ;;  'vietnamese-vscii 4 ?v
@@ -241,12 +241,12 @@ Both tables are indexed by the position code of Vietnamese characters.")
 
 ;; For VISCII users
 (set-charset-ccl-program 'vietnamese-viscii-lower
-			 ccl-encode-viscii-font)
+			 'ccl-encode-viscii-font)
 (set-charset-ccl-program 'vietnamese-viscii-upper
-			 ccl-encode-viscii-font)
+			 'ccl-encode-viscii-font)
 ;; For VSCII users
-(set-charset-ccl-program 'vietnamese-viscii-lower ccl-encode-vscii-font)
-(set-charset-ccl-program 'vietnamese-viscii-upper ccl-encode-vscii-font)
+(set-charset-ccl-program 'vietnamese-viscii-lower 'ccl-encode-vscii-font)
+(set-charset-ccl-program 'vietnamese-viscii-upper 'ccl-encode-vscii-font)
 
 ;; (setq font-ccl-encoder-alist
 ;;       (cons (cons "viscii" ccl-encode-viscii-font) font-ccl-encoder-alist))

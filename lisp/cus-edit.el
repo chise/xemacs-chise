@@ -682,8 +682,8 @@ If given a prefix (or a COMMENT argument), also prompt for a comment."
 	 (put var 'variable-comment comment))))
 
 ;;;###autoload
-(defun customize-set-variable (var val &optional comment)
-  "Set the default for VARIABLE to VALUE.  VALUE is a Lisp object.
+(defun customize-set-variable (variable value &optional comment)
+  "Set the default for VARIABLE to VALUE.  VALUE is any Lisp object.
 
 If VARIABLE has a `custom-set' property, that is used for setting
 VARIABLE, otherwise `set-default' is used.
@@ -701,18 +701,18 @@ If given a prefix (or a COMMENT argument), also prompt for a comment."
   (interactive (custom-prompt-variable "Set variable: "
 				       "Set customized value for %s to: "
 				       current-prefix-arg))
-  (funcall (or (get var 'custom-set) 'set-default) var val)
-  (put var 'customized-value (list (custom-quote val)))
+  (funcall (or (get variable 'custom-set) 'set-default) variable value)
+  (put variable 'customized-value (list (custom-quote value)))
   (cond ((string= comment "")
-	 (put var 'variable-comment nil)
-	 (put var 'customized-variable-comment nil))
+	 (put variable 'variable-comment nil)
+	 (put variable 'customized-variable-comment nil))
 	(comment
-	 (put var 'variable-comment comment)
-	 (put var 'customized-variable-comment comment))))
+	 (put variable 'variable-comment comment)
+	 (put variable 'customized-variable-comment comment))))
 
 
 ;;;###autoload
-(defun customize-save-variable (var val &optional comment)
+(defun customize-save-variable (variable value &optional comment)
   "Set the default for VARIABLE to VALUE, and save it for future sessions.
 If VARIABLE has a `custom-set' property, that is used for setting
 VARIABLE, otherwise `set-default' is used.
@@ -730,15 +730,15 @@ If given a prefix (or a COMMENT argument), also prompt for a comment."
   (interactive (custom-prompt-variable "Set and ave variable: "
 				       "Set and save value for %s as: "
 				       current-prefix-arg))
-  (funcall (or (get var 'custom-set) 'set-default) var val)
-  (put var 'saved-value (list (custom-quote val)))
-  (custom-push-theme 'theme-value var 'user 'set (list (custom-quote val)))
+  (funcall (or (get variable 'custom-set) 'set-default) variable value)
+  (put variable 'saved-value (list (custom-quote value)))
+  (custom-push-theme 'theme-value variable 'user 'set (list (custom-quote value)))
   (cond ((string= comment "")
-	 (put var 'variable-comment nil)
-	 (put var 'saved-variable-comment nil))
+	 (put variable 'variable-comment nil)
+	 (put variable 'saved-variable-comment nil))
 	(comment
-	 (put var 'variable-comment comment)
-	 (put var 'saved-variable-comment comment)))
+	 (put variable 'variable-comment comment)
+	 (put variable 'saved-variable-comment comment)))
   (custom-save-all))
 
 ;;;###autoload
@@ -1988,7 +1988,7 @@ Otherwise, look up symbol in `custom-guess-type-alist'."
       ;; Insert documentation.
       ;; #### NOTE: this is ugly!!!! I need to do update the :buttons property
       ;; before the call to `widget-default-format-handler'. Otherwise, I
-      ;; loose my current `buttons'. This function shouldn't be called like
+      ;; lose my current `buttons'. This function shouldn't be called like
       ;; this anyway. The doc string widget should be added like the others.
       ;; --dv
       (widget-put widget :buttons buttons)
@@ -3270,7 +3270,7 @@ Leave point at the location of the call, or after the last expression."
        (unless (bolp)
  	(princ "\n"))
        (princ "(custom-set-variables")
-       (mapatoms (lambda (symbol)		 
+       (mapatoms (lambda (symbol)
  		  (let ((spec (car-safe (get symbol 'theme-value)))
  			(requests (get symbol 'custom-requests))
  			(now (not (or (get symbol 'standard-value)
@@ -3345,7 +3345,7 @@ Leave point at the location of the call, or after the last expression."
 (defun custom-save-resets (property setter special)
   (let (started-writing ignored-special)
     (setq ignored-special ignored-special) ;; suppress byte-compiler warning
-    ;; (custom-save-delete setter) Done by caller 
+    ;; (custom-save-delete setter) Done by caller
     (let ((standard-output (current-buffer))
 	  (mapper `(lambda (object)
 		    (let ((spec (car-safe (get object (quote ,property)))))
@@ -3370,7 +3370,7 @@ Leave point at the location of the call, or after the last expression."
       (when started-writing
 	(princ ")\n"))))
     )
-			
+
 
 (defun custom-save-loaded-themes ()
   (let ((themes (reverse (get 'user 'theme-loads-themes)))
@@ -3381,7 +3381,7 @@ Leave point at the location of the call, or after the last expression."
       (mapc (lambda (theme)
 	      (princ "\n   '")
 	      (prin1 theme)) themes)
-      (princ " )\n"))))	 
+      (princ " )\n"))))
 
 ;;;###autoload
 (defun customize-save-customized ()

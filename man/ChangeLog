@@ -1,3 +1,328 @@
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-10-27  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs/windows.texi (Other Window):
+
+	* new-users-guide/files.texi (Saving Files):
+	* new-users-guide/search.texi (Search and Replace):
+
+	* lispref/abbrevs.texi (Abbrev Tables):
+	* lispref/abbrevs.texi (Defining Abbrevs):
+	* lispref/abbrevs.texi (Abbrev Files):
+	* lispref/annotations.texi (Annotation Primitives):
+	* lispref/backups.texi (Auto-Saving):
+	* lispref/backups.texi (Reverting):
+	* lispref/buffers.texi (Current Buffer):
+	* lispref/buffers.texi (Buffer Names):
+	* lispref/buffers.texi (Buffer Modification):
+	* lispref/buffers.texi (Read Only Buffers):
+	* lispref/buffers.texi (The Buffer List):
+	* lispref/buffers.texi (Killing Buffers):
+	* lispref/buffers.texi (Indirect Buffers):
+	* lispref/building.texi (Building XEmacs):
+	* lispref/building.texi (Garbage Collection):
+	* lispref/commands.texi (Interactive Call):
+	* lispref/commands.texi (Events):
+	* lispref/commands.texi (Event Predicates):
+	* lispref/commands.texi (Working With Events):
+	* lispref/commands.texi (Converting Events):
+	* lispref/commands.texi (Key Sequence Input):
+	* lispref/commands.texi (Reading One Event):
+	* lispref/commands.texi (Waiting):
+	* lispref/commands.texi (Prefix Command Arguments):
+	* lispref/commands.texi (Recursive Editing):
+	* lispref/compile.texi (Compilation Functions):
+	* lispref/compile.texi (Compiled-Function Objects):
+	* lispref/consoles-devices.texi (Basic Device Functions):
+	* lispref/consoles-devices.texi (Console Types and Device Classes):
+	* lispref/consoles-devices.texi (Connecting to a Console or Device):
+	* lispref/control.texi (Signaling Errors):
+	* lispref/customize.texi (Type Keywords):
+	* lispref/databases.texi (Connecting to a Database):
+	* lispref/databases.texi (Working With a Database):
+	* lispref/databases.texi (Other Database Functions):
+	* lispref/debugging.texi (Function Debugging):
+	* lispref/display.texi (Refresh Screen):
+	* lispref/display.texi (The Echo Area):
+	* lispref/display.texi (Blinking):
+	* lispref/edebug-inc.texi (Tracing):
+	* lispref/edebug-inc.texi (Instrumenting Macro Calls):
+	* lispref/edebug-inc.texi (Edebug Options):
+	* lispref/eval.texi (Function Indirection):
+	* lispref/extents.texi (Creating and Modifying Extents):
+	* lispref/extents.texi (Finding Extents):
+	* lispref/extents.texi (Mapping Over Extents):
+	* lispref/extents.texi (Extent Properties):
+	* lispref/faces.texi (Basic Face Functions):
+	* lispref/faces.texi (Face Properties):
+	* lispref/faces.texi (Face Convenience Functions):
+	* lispref/faces.texi (Other Face Display Functions):
+	* lispref/faces.texi (Font Instance Characteristics):
+	* lispref/faces.texi (Color Specifiers):
+	* lispref/files.texi (Visiting Functions):
+	* lispref/files.texi (Reading from Files):
+	* lispref/files.texi (Changing File Attributes):
+	* lispref/files.texi (File Names):
+	* lispref/files.texi (File Name Components):
+	* lispref/files.texi (Directory Names):
+	* lispref/files.texi (Relative File Names):
+	* lispref/files.texi (File Name Expansion):
+	* lispref/files.texi (File Name Completion):
+	* lispref/files.texi (User Name Completion):
+	* lispref/files.texi (Magic File Names):
+	* lispref/files.texi (Creating a Partial File):
+	* lispref/files.texi (Format Conversion):
+	* lispref/frames.texi (Creating Frames):
+	* lispref/frames.texi (Property Access):
+	* lispref/frames.texi (Size and Position):
+	* lispref/frames.texi (Deleting Frames):
+	* lispref/frames.texi (Finding All Frames):
+	* lispref/frames.texi (Frames and Windows):
+	* lispref/frames.texi (Visibility of Frames):
+	* lispref/frames.texi (Frame Configurations):
+	* lispref/functions.texi (Calling Functions):
+	* lispref/functions.texi (Function Cells):
+	* lispref/glyphs.texi (Creating Glyphs):
+	* lispref/glyphs.texi (Image Specifiers):
+	* lispref/glyphs.texi (Image Instance Types):
+	* lispref/glyphs.texi (Image Instance Functions):
+	* lispref/gutter.texi (Creating Gutter):
+	* lispref/gutter.texi (Specifying a Gutter):
+	* lispref/gutter.texi (Other Gutter Variables):
+	* lispref/help.texi (Accessing Documentation):
+	* lispref/help.texi (Help Functions):
+	* lispref/help.texi (Obsoleteness):
+	* lispref/internationalization.texi (Domain Specification):
+	* lispref/intro.texi (Caveats):
+	* lispref/keymaps.texi (Active Keymaps):
+	* lispref/keymaps.texi (Functions for Key Lookup):
+	* lispref/keymaps.texi (Changing Key Bindings):
+	* lispref/keymaps.texi (Scanning Keymaps):
+	* lispref/ldap.texi (The High-Level LDAP API):
+	* lispref/ldap.texi (Low-level Operations on a LDAP Server):
+	* lispref/ldap.texi (Encoder/Decoder Functions):
+	* lispref/lists.texi (Setcar):
+	* lispref/lists.texi (Setcdr):
+	* lispref/lists.texi (Working With Normal Plists):
+	* lispref/lists.texi (Working With Lax Plists):
+	* lispref/loading.texi (Autoload):
+	* lispref/loading.texi (Named Features):
+	* lispref/markers.texi (Creating Markers):
+	* lispref/markers.texi (Changing Markers):
+	* lispref/markers.texi (The Mark):
+	* lispref/menus.texi (Modifying Menus):
+	* lispref/menus.texi (Pop-Up Menus):
+	* lispref/menus.texi (Menu Accelerator Functions):
+	* lispref/minibuf.texi (Text from Minibuffer):
+	* lispref/minibuf.texi (Object from Minibuffer):
+	* lispref/minibuf.texi (Basic Completion):
+	* lispref/minibuf.texi (High-Level Completion):
+	* lispref/minibuf.texi (Reading a Password):
+	* lispref/minibuf.texi (Minibuffer Misc):
+	* lispref/mouse.texi (Mouse Tracking):
+	* lispref/syntax.texi (Syntax Table Functions):
+	* lispref/numbers.texi (Arithmetic Operations):
+	* lispref/numbers.texi (Rounding Operations):
+	* lispref/numbers.texi (Math Functions):
+	* lispref/objects.texi (String Type):
+	* lispref/objects.texi (Equality Predicates):
+	* lispref/os.texi (Killing XEmacs):
+	* lispref/os.texi (Suspending XEmacs):
+	* lispref/os.texi (System Environment):
+	* lispref/os.texi (Time Conversion):
+	* lispref/os.texi (Timers):
+	* lispref/os.texi (Input Modes):
+	* lispref/os.texi (Translating Input):
+	* lispref/os.texi (Terminal Output):
+	* lispref/os.texi (Flow Control):
+	* lispref/positions.texi (Character Motion):
+	* lispref/positions.texi (Word Motion):
+	* lispref/positions.texi (Text Lines):
+	* lispref/positions.texi (Screen Lines):
+	* lispref/positions.texi (List Motion):
+	* lispref/positions.texi (Narrowing):
+	* lispref/postgresql.texi (Asynchronous Interface Functions):
+	* lispref/processes.texi (Subprocess Creation):
+	* lispref/processes.texi (Synchronous Processes):
+	* lispref/processes.texi (Asynchronous Processes):
+	* lispref/processes.texi (Process Information):
+	* lispref/processes.texi (Input to Processes):
+	* lispref/processes.texi (Signals to Processes):
+	* lispref/processes.texi (Process Buffers):
+	* lispref/processes.texi (Filter Functions):
+	* lispref/processes.texi (Network):
+	* lispref/range-tables.texi (Working With Range Tables):
+	* lispref/searching.texi (String Search):
+	* lispref/searching.texi (Regexp Search):
+	* lispref/searching.texi (POSIX Regexps):
+	* lispref/searching.texi (Replacing Match):
+	* lispref/searching.texi (Entire Match Data):
+	* lispref/sequences.texi (Bit Vector Functions):
+	* lispref/specifiers.texi (Adding Specifications):
+	* lispref/specifiers.texi (Creating Specifiers):
+	* lispref/specifiers.texi (Specifier Validation Functions):
+	* lispref/specifiers.texi (Other Specification Functions):
+	* lispref/streams.texi (Output Variables):
+	* lispref/symbols.texi (Other Plists):
+	* lispref/text.texi (Insertion):
+	* lispref/text.texi (Commands for Insertion):
+	* lispref/text.texi (Deletion):
+	* lispref/text.texi (User-Level Deletion):
+	* lispref/text.texi (Kill Functions):
+	* lispref/text.texi (Low-Level Kill Ring):
+	* lispref/text.texi (Undo):
+	* lispref/text.texi (Maintaining Undo):
+	* lispref/text.texi (Margins):
+	* lispref/text.texi (Sorting):
+	* lispref/text.texi (Columns):
+	* lispref/text.texi (Primitive Indent):
+	* lispref/text.texi (Mode-Specific Indent):
+	* lispref/text.texi (Region Indent):
+	* lispref/text.texi (Case Changes):
+	* lispref/text.texi (Examining Properties):
+	* lispref/text.texi (Property Search):
+	* lispref/text.texi (Registers):
+	* lispref/text.texi (Transformations):
+	* lispref/mule.texi (Charset Property Functions):
+	* lispref/mule.texi (MULE Characters):
+	* lispref/mule.texi (Composite Characters):
+	* lispref/mule.texi (Coding System Properties):
+	* lispref/mule.texi (Big5 and Shift-JIS Functions):
+	* lispref/mule.texi (CCL Statements):
+	* lispref/mule.texi (Calling CCL):
+	* lispref/mule.texi (Category Tables):
+	* lispref/toolbar.texi (Specifying the Toolbar):
+	* lispref/toolbar.texi (Other Toolbar Variables):
+	* lispref/tooltalk.texi (Elisp Interface for Sending Messages):
+	* lispref/tooltalk.texi (Elisp Interface for Receiving Messages):
+	* lispref/variables.texi (Creating Buffer-Local):
+	* lispref/variables.texi (Variable Aliases):
+	* lispref/windows.texi (Splitting Windows):
+	* lispref/windows.texi (Deleting Windows):
+	* lispref/windows.texi (Selecting Windows):
+	* lispref/windows.texi (Cyclic Window Ordering):
+	* lispref/windows.texi (Buffers and Windows):
+	* lispref/windows.texi (Displaying Buffers):
+	* lispref/windows.texi (Choosing Window):
+	* lispref/windows.texi (Window Point):
+	* lispref/windows.texi (Window Start):
+	* lispref/windows.texi (Vertical Scrolling):
+	* lispref/windows.texi (Horizontal Scrolling):
+	* lispref/windows.texi (Resizing Windows):
+	* lispref/windows.texi (Window Configurations):
+	* lispref/x-windows.texi (X Selections):
+	* lispref/x-windows.texi (Resources):
+	* lispref/strings.texi (Creating Strings):
+	* lispref/strings.texi (Character Codes):
+	* lispref/strings.texi (Text Comparison):
+	* lispref/strings.texi (String Conversion):
+	* lispref/strings.texi (Formatting Strings):
+	* lispref/strings.texi (Character Case):
+	* lispref/strings.texi (Case Tables):
+	* lispref/strings.texi (Char Table Types):
+	* lispref/strings.texi (Working With Char Tables):
+	Giant docstring parameter/Texinfo fixes.
+
+	Don't use abbreviations for English words, especially when those
+	words have other meanings.  For example, use START, not BEG.
+	Use OBJECT, not OBJ.
+	Use VALUE, not VAL.
+	Use BUFFER, not BUF.
+	Use PROCESS, not PROC.  (Sometimes PROC was used to mean FUNCTION!)
+	Use CHARACTER, not CH or CHR.
+	Use NUMBER, not NUM.
+	Use COLUMN, not COL.
+	Use POSITION, not POS.
+	Use SYMBOL, not SYM.
+	Use STRING, not STR.
+	Use LIMIT, not LIM.
+	Use OTHER-WINDOW-P, not OTHER-P.
+	Use PRIORITY, not PRI.
+
+	Use `non-nil', not `true'.
+
+	Don't call a parameter an ALIST if it can also be a FUNCTION or OBARRAY.
+
+	Use CASE-TABLE, CATEGORY-TABLE, CHAR-TABLE, etc. instead of TABLE.
+
+	Try to find better parameter names than ARG.
+
+	Use consistent parameter names.  For example, s/NO-ERROR/NOERROR/g;
+
+	Use type information in parameter names.  For example, use
+	(make-bit-vector length bit), not (make-bit-vector length init).
+
+	Completion functions should have parameters with names like
+	PARTIAL-FILENAME instead of the misleading FILENAME.
+
+	Type predicates should consistently take an OBJECT parameter,
+	since any object is valid as input.
+
+	Use WHICH-FRAMES and WHICH-DEVICES parameters consistently for
+	functions like next-window and next-frame that walk over window or
+	frame lists.
+
+	Deleted duplicated documentation for:
+	one-window-p, format-insert-file
+
+	Deleted 21 lines of VMS-specific texinfo documentation.
+
+	Fixed up a few places where `_' was used in docstring parameter
+	names instead of `-'.
+
+	Fixed up places that used nil or t without @code.
+
+	Fixed up places that erroneously used @code instead of @var.
+
+	Fixed many typos.
+
+	Fixed many places where the parameters mentioned in the docstring
+	didn't match the actual parameters.
+
+	Fixed 7 places that used `@var{nil}' instead of `@code{nil}'.
+
+	Fixed 40 places where docstrings were missing trailing `.'
+
+	Fixed the texi documentation of 41 functions where the
+	interactiveness of the function in the documentation did not match
+	the implementation.
+
+	Fixed 117 functions where the names of parameters in the texi was
+	different from the names in the implementation.
+
+	Fixed the texi documentation of 137 functions where the parameter
+	list of the function in the texi was semantically different from
+	the implementation.
+
+2000-10-28  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q1.2.1): Use @html instead of @ifhtml to
+	incorporate raw HTML output in the HTML version.
+
+2000-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/menus.texi:
+	* widget.texi:
+	Typo fixes and tiny clarifications.
+
+2000-10-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi: Added Q2.0.13, Q2.0.14 - packages why and how.
+	Added Q2.1.25 - function not found due to package not installed.
+
+	* xemacs/xemacs.texi:
+	* xemacs/abbrevs.texi:
+	* xemacs/basic.texi:
+	* xemacs/building.texi:
+	* xemacs/packages.texi:
+	* xemacs/startup.texi:
+	Moved "Packages" node to "Important General Concepts" section.
+
+	* xemacs/packages.texi: Added package list from etc/PACKAGES.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.

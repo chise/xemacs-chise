@@ -50,12 +50,589 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: System Environment,  Next: User Identification,  Prev: Getting Out,  Up: System Interface
+
+Operating System Environment
+============================
+
+   XEmacs provides access to variables in the operating system
+environment through various functions.  These variables include the
+name of the system, the user's UID, and so on.
+
+ - Variable: system-type
+     The value of this variable is a symbol indicating the type of
+     operating system XEmacs is operating on.  Here is a table of the
+     possible values:
+
+    `aix-v3'
+          AIX.
+
+    `berkeley-unix'
+          Berkeley BSD.
+
+    `dgux'
+          Data General DGUX operating system.
+
+    `gnu'
+          A GNU system using the GNU HURD and Mach.
+
+    `hpux'
+          Hewlett-Packard HPUX operating system.
+
+    `irix'
+          Silicon Graphics Irix system.
+
+    `linux'
+          A GNU system using the Linux kernel.
+
+    `ms-dos'
+          Microsoft MS-DOS "operating system."
+
+    `next-mach'
+          NeXT Mach-based system.
+
+    `rtu'
+          Masscomp RTU, UCB universe.
+
+    `unisoft-unix'
+          UniSoft UniPlus.
+
+    `usg-unix-v'
+          AT&T System V.
+
+    `windows-nt'
+          Microsoft windows NT.
+
+    `xenix'
+          SCO Xenix 386.
+
+     We do not wish to add new symbols to make finer distinctions
+     unless it is absolutely necessary!  In fact, we hope to eliminate
+     some of these alternatives in the future.  We recommend using
+     `system-configuration' to distinguish between different operating
+     systems.
+
+ - Variable: system-configuration
+     This variable holds the three-part configuration name for the
+     hardware/software configuration of your system, as a string.  The
+     convenient way to test parts of this string is with `string-match'.
+
+ - Function: system-name
+     This function returns the name of the machine you are running on.
+          (system-name)
+               => "prep.ai.mit.edu"
+
+   The symbol `system-name' is a variable as well as a function.  In
+fact, the function returns whatever value the variable `system-name'
+currently holds.  Thus, you can set the variable `system-name' in case
+Emacs is confused about the name of your system.  The variable is also
+useful for constructing frame titles (*note Frame Titles::).
+
+ - Variable: mail-host-address
+     If this variable is non-`nil', it is used instead of `system-name'
+     for purposes of generating email addresses.  For example, it is
+     used when constructing the default value of `user-mail-address'.
+     *Note User Identification::.  (Since this is done when XEmacs
+     starts up, the value actually used is the one saved when XEmacs
+     was dumped.  *Note Building XEmacs::.)
+
+ - Command: getenv var &optional interactivep
+     This function returns the value of the environment variable VAR,
+     as a string.  Within XEmacs, the environment variable values are
+     kept in the Lisp variable `process-environment'.
+
+     When invoked interactively, `getenv' prints the value in the echo
+     area.
+
+          (getenv "USER")
+               => "lewis"
+          
+          lewis@slug[10] % printenv
+          PATH=.:/user/lewis/bin:/usr/bin:/usr/local/bin
+          USER=lewis
+          TERM=ibmapa16
+          SHELL=/bin/csh
+          HOME=/user/lewis
+
+ - Command: setenv variable &optional value unset
+     This command sets the value of the environment variable named
+     VARIABLE to VALUE.  Both arguments should be strings.  This
+     function works by modifying `process-environment'; binding that
+     variable with `let' is also reasonable practice.
+
+ - Variable: process-environment
+     This variable is a list of strings, each describing one environment
+     variable.  The functions `getenv' and `setenv' work by
+     manipulating this variable.
+
+          process-environment
+          => ("l=/usr/stanford/lib/gnuemacs/lisp"
+              "PATH=.:/user/lewis/bin:/usr/class:/nfsusr/local/bin"
+              "USER=lewis"
+              "TERM=ibmapa16"
+              "SHELL=/bin/csh"
+              "HOME=/user/lewis")
+
+ - Variable: path-separator
+     This variable holds a string which says which character separates
+     directories in a search path (as found in an environment
+     variable).  Its value is `":"' for Unix and GNU systems, and `";"'
+     for MS-DOS and Windows NT.
+
+ - Variable: invocation-name
+     This variable holds the program name under which Emacs was
+     invoked.  The value is a string, and does not include a directory
+     name.
+
+ - Variable: invocation-directory
+     This variable holds the directory from which the Emacs executable
+     was invoked, or perhaps `nil' if that directory cannot be
+     determined.
+
+ - Variable: installation-directory
+     If non-`nil', this is a directory within which to look for the
+     `lib-src' and `etc' subdirectories.  This is non-`nil' when Emacs
+     can't find those directories in their standard installed
+     locations, but can find them in a directory related somehow to the
+     one containing the Emacs executable.
+
+ - Function: load-average &optional use-floats
+     This function returns a list of the current 1-minute, 5-minute and
+     15-minute load averages.  The values are integers that are 100
+     times the system load averages.  (The load averages indicate the
+     number of processes trying to run.)
+
+     When USE-FLOATS is non-`nil', floats will be returned instead of
+     integers.  These floats are not multiplied by 100.
+
+          (load-average)
+               => (169 158 164)
+          (load-average t)
+               => (1.69921875 1.58984375 1.640625)
+          
+          lewis@rocky[5] % uptime
+            8:06pm  up 16 day(s), 21:57,  40 users,
+           load average: 1.68, 1.59, 1.64
+
+     If the 5-minute or 15-minute load averages are not available,
+     return a shortened list, containing only those averages which are
+     available.
+
+     On some systems, this function may require special privileges to
+     run, or it may be unimplemented for the particular system type.
+     In that case, the function will signal an error.
+
+ - Function: emacs-pid
+     This function returns the process ID of the Emacs process.
+
+
+File: lispref.info,  Node: User Identification,  Next: Time of Day,  Prev: System Environment,  Up: System Interface
+
+User Identification
+===================
+
+ - Variable: user-mail-address
+     This holds the nominal email address of the user who is using
+     Emacs.  When Emacs starts up, it computes a default value that is
+     usually right, but users often set this themselves when the
+     default value is not right.
+
+ - Function: user-login-name &optional uid
+     If you don't specify UID, this function returns the name under
+     which the user is logged in.  If the environment variable `LOGNAME'
+     is set, that value is used.  Otherwise, if the environment variable
+     `USER' is set, that value is used.  Otherwise, the value is based
+     on the effective UID, not the real UID.
+
+     If you specify UID, the value is the user name that corresponds to
+     UID (which should be an integer).
+
+          (user-login-name)
+               => "lewis"
+
+ - Function: user-real-login-name
+     This function returns the user name corresponding to Emacs's real
+     UID.  This ignores the effective UID and ignores the environment
+     variables `LOGNAME' and `USER'.
+
+ - Variable: user-full-name
+     This variable holds the name of the user running this Emacs.  It is
+     initialized at startup time from the value of `NAME' environment
+     variable.  You can change the value of this variable to alter the
+     result of the `user-full-name' function.
+
+ - Function: user-full-name &optional user
+     This function returns the full name of USER.  If USER is `nil', it
+     defaults to the user running this Emacs.  In that case, the value
+     of `user-full-name' variable, if non-`nil', will be used.
+
+     If USER is specified explicitly, `user-full-name' variable is
+     ignored.
+
+          (user-full-name)
+               => "Hrvoje Niksic"
+          (setq user-full-name "Hrvoje \"Niksa\" Niksic")
+          (user-full-name)
+               => "Hrvoje \"Niksa\" Niksic"
+          (user-full-name "hniksic")
+               => "Hrvoje Niksic"
+
+   The symbols `user-login-name', `user-real-login-name' and
+`user-full-name' are variables as well as functions.  The functions
+return the same values that the variables hold.  These variables allow
+you to "fake out" Emacs by telling the functions what to return.  The
+variables are also useful for constructing frame titles (*note Frame
+Titles::).
+
+ - Function: user-real-uid
+     This function returns the real UID of the user.
+
+          (user-real-uid)
+               => 19
+
+ - Function: user-uid
+     This function returns the effective UID of the user.
+
+ - Function: user-home-directory
+     This function returns the "`HOME'" directory of the user, and is
+     intended to replace occurrences of "`(getenv "HOME")'".  Under
+     Unix systems, the following is done:
+
+       1. Return the value of "`(getenv "HOME")'", if set.
+
+       2. Return "/", as a fallback, but issue a warning.  (Future
+          versions of XEmacs will also attempt to lookup the `HOME'
+          directory via `getpwent()', but this has not yet been
+          implemented.)
+
+     Under MS Windows, this is done:
+
+       1. Return the value of "`(getenv "HOME")'", if set.
+
+       2. If the environment variables `HOMEDRIVE' and `HOMEDIR' are
+          both set, return the concatenation (the following description
+          uses MS Windows environment variable substitution syntax):
+          `%HOMEDRIVE%%HOMEDIR%'.
+
+       3. Return "C:\", as a fallback, but issue a warning.
+
+
+File: lispref.info,  Node: Time of Day,  Next: Time Conversion,  Prev: User Identification,  Up: System Interface
+
+Time of Day
+===========
+
+   This section explains how to determine the current time and the time
+zone.
+
+ - Function: current-time-string &optional time-value
+     This function returns the current time and date as a
+     humanly-readable string.  The format of the string is unvarying;
+     the number of characters used for each part is always the same, so
+     you can reliably use `substring' to extract pieces of it.  It is
+     wise to count the characters from the beginning of the string
+     rather than from the end, as additional information may be added
+     at the end.
+
+     The argument TIME-VALUE, if given, specifies a time to format
+     instead of the current time.  The argument should be a list whose
+     first two elements are integers.  Thus, you can use times obtained
+     from `current-time' (see below) and from `file-attributes' (*note
+     File Attributes::).
+
+          (current-time-string)
+               => "Wed Oct 14 22:21:05 1987"
+
+ - Function: current-time
+     This function returns the system's time value as a list of three
+     integers: `(HIGH LOW MICROSEC)'.  The integers HIGH and LOW
+     combine to give the number of seconds since 0:00 January 1, 1970,
+     which is HIGH * 2**16 + LOW.
+
+     The third element, MICROSEC, gives the microseconds since the
+     start of the current second (or 0 for systems that return time
+     only on the resolution of a second).
+
+     The first two elements can be compared with file time values such
+     as you get with the function `file-attributes'.  *Note File
+     Attributes::.
+
+ - Function: current-time-zone &optional time-value
+     This function returns a list describing the time zone that the
+     user is in.
+
+     The value has the form `(OFFSET NAME)'.  Here OFFSET is an integer
+     giving the number of seconds ahead of UTC (east of Greenwich).  A
+     negative value means west of Greenwich.  The second element, NAME
+     is a string giving the name of the time zone.  Both elements
+     change when daylight savings time begins or ends; if the user has
+     specified a time zone that does not use a seasonal time
+     adjustment, then the value is constant through time.
+
+     If the operating system doesn't supply all the information
+     necessary to compute the value, both elements of the list are
+     `nil'.
+
+     The argument TIME-VALUE, if given, specifies a time to analyze
+     instead of the current time.  The argument should be a cons cell
+     containing two integers, or a list whose first two elements are
+     integers.  Thus, you can use times obtained from `current-time'
+     (see above) and from `file-attributes' (*note File Attributes::).
+
+
+File: lispref.info,  Node: Time Conversion,  Next: Timers,  Prev: Time of Day,  Up: System Interface
+
+Time Conversion
+===============
+
+   These functions convert time values (lists of two or three integers)
+to strings or to calendrical information.  There is also a function to
+convert calendrical information to a time value.  You can get time
+values from the functions `current-time' (*note Time of Day::) and
+`file-attributes' (*note File Attributes::).
+
+ - Function: format-time-string format-string &optional time
+     This function converts TIME to a string according to
+     FORMAT-STRING.  If TIME is omitted, it defaults to the current
+     time.  The argument FORMAT-STRING may contain `%'-sequences which
+     say to substitute parts of the time.  Here is a table of what the
+     `%'-sequences mean:
+
+    `%a'
+          This stands for the abbreviated name of the day of week.
+
+    `%A'
+          This stands for the full name of the day of week.
+
+    `%b'
+          This stands for the abbreviated name of the month.
+
+    `%B'
+          This stands for the full name of the month.
+
+    `%c'
+          This is a synonym for `%x %X'.
+
+    `%C'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%A, %B %e, %Y'.
+
+    `%d'
+          This stands for the day of month, zero-padded.
+
+    `%D'
+          This is a synonym for `%m/%d/%y'.
+
+    `%e'
+          This stands for the day of month, blank-padded.
+
+    `%h'
+          This is a synonym for `%b'.
+
+    `%H'
+          This stands for the hour (00-23).
+
+    `%I'
+          This stands for the hour (00-12).
+
+    `%j'
+          This stands for the day of the year (001-366).
+
+    `%k'
+          This stands for the hour (0-23), blank padded.
+
+    `%l'
+          This stands for the hour (1-12), blank padded.
+
+    `%m'
+          This stands for the month (01-12).
+
+    `%M'
+          This stands for the minute (00-59).
+
+    `%n'
+          This stands for a newline.
+
+    `%p'
+          This stands for `AM' or `PM', as appropriate.
+
+    `%r'
+          This is a synonym for `%I:%M:%S %p'.
+
+    `%R'
+          This is a synonym for `%H:%M'.
+
+    `%S'
+          This stands for the seconds (00-60).
+
+    `%t'
+          This stands for a tab character.
+
+    `%T'
+          This is a synonym for `%H:%M:%S'.
+
+    `%U'
+          This stands for the week of the year (01-52), assuming that
+          weeks start on Sunday.
+
+    `%w'
+          This stands for the numeric day of week (0-6).  Sunday is day
+          0.
+
+    `%W'
+          This stands for the week of the year (01-52), assuming that
+          weeks start on Monday.
+
+    `%x'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%D'.
+
+    `%X'
+          This has a locale-specific meaning.  In the default locale
+          (named C), it is equivalent to `%T'.
+
+    `%y'
+          This stands for the year without century (00-99).
+
+    `%Y'
+          This stands for the year with century.
+
+    `%Z'
+          This stands for the time zone abbreviation.
+
+ - Function: decode-time &optional specified-time
+     This function converts a time value into calendrical information.
+     The optional SPECIFIED-TIME should be a list of (HIGH LOW .
+     IGNORED) or (HIGH . LOW), as from `current-time' and
+     `file-attributes', or `nil' to use the current time.
+
+     The return value is a list of nine elements, as follows:
+
+          (SECONDS MINUTES HOUR DAY MONTH YEAR DOW DST ZONE)
+
+     Here is what the elements mean:
+
+    SEC
+          The number of seconds past the minute, as an integer between
+          0 and 59.
+
+    MINUTE
+          The number of minutes past the hour, as an integer between 0
+          and 59.
+
+    HOUR
+          The hour of the day, as an integer between 0 and 23.
+
+    DAY
+          The day of the month, as an integer between 1 and 31.
+
+    MONTH
+          The month of the year, as an integer between 1 and 12.
+
+    YEAR
+          The year, an integer typically greater than 1900.
+
+    DOW
+          The day of week, as an integer between 0 and 6, where 0
+          stands for Sunday.
+
+    DST
+          `t' if daylight savings time is effect, otherwise `nil'.
+
+    ZONE
+          An integer indicating the time zone, as the number of seconds
+          east of Greenwich.
+
+     Note that Common Lisp has different meanings for DOW and ZONE.
+
+ - Function: encode-time seconds minutes hour day month year &optional
+          zone
+     This function is the inverse of `decode-time'.  It converts seven
+     items of calendrical data into a time value.  For the meanings of
+     the arguments, see the table above under `decode-time'.
+
+     Year numbers less than 100 are treated just like other year
+     numbers.  If you want them to stand for years above 1900, you must
+     alter them yourself before you call `encode-time'.
+
+     The optional argument ZONE defaults to the current time zone and
+     its daylight savings time rules.  If specified, it can be either a
+     list (as you would get from `current-time-zone') or an integer (as
+     you would get from `decode-time').  The specified zone is used
+     without any further alteration for daylight savings time.
+
+
+File: lispref.info,  Node: Timers,  Next: Terminal Input,  Prev: Time Conversion,  Up: System Interface
+
+Timers for Delayed Execution
+============================
+
+   You can set up a timer to call a function at a specified future time.
+
+ - Function: add-timeout secs function object &optional resignal
+     This function adds a timeout, to be signaled after the timeout
+     period has elapsed.  SECS is a number of seconds, expressed as an
+     integer or a float.  FUNCTION will be called after that many
+     seconds have elapsed, with one argument, the given OBJECT.  If the
+     optional RESIGNAL argument is provided, then after this timeout
+     expires, `add-timeout' will automatically be called again with
+     RESIGNAL as the first argument.
+
+     This function returns an object which is the "id" of this
+     particular timeout.  You can pass that object to `disable-timeout'
+     to turn off the timeout before it has been signalled.
+
+     The number of seconds may be expressed as a floating-point number,
+     in which case some fractional part of a second will be used.
+     Caveat: the usable timeout granularity will vary from system to
+     system.
+
+     Adding a timeout causes a timeout event to be returned by
+     `next-event', and the function will be invoked by
+     `dispatch-event', so if XEmacs is in a tight loop, the function
+     will not be invoked until the next call to sit-for or until the
+     return to top-level (the same is true of process filters).
+
+     WARNING: if you are thinking of calling add-timeout from inside of
+     a callback function as a way of resignalling a timeout, think
+     again.  There is a race condition.  That's why the RESIGNAL
+     argument exists.
+
+     (NOTE: In FSF Emacs, this function is called `run-at-time' and has
+     different semantics.)
+
+ - Function: disable-timeout id
+     Cancel the requested action for ID, which should be a value
+     previously returned by `add-timeout'.  This cancels the effect of
+     that call to `add-timeout'; the arrival of the specified time will
+     not cause anything special to happen.  (NOTE: In FSF Emacs, this
+     function is called `cancel-timer'.)
+
+
+File: lispref.info,  Node: Terminal Input,  Next: Terminal Output,  Prev: Timers,  Up: System Interface
+
+Terminal Input
+==============
+
+   This section describes functions and variables for recording or
+manipulating terminal input.  See *Note Display::, for related
+functions.
+
+* Menu:
+
+* Input Modes::		Options for how input is processed.
+* Translating Input::   Low level conversion of some characters or events
+			  into others.
+* Recording Input::	Saving histories of recent or all input events.
+
+
 File: lispref.info,  Node: Input Modes,  Next: Translating Input,  Up: Terminal Input
 
 Input Modes
 -----------
 
- - Function: set-input-mode interrupt flow meta quit-char
+ - Function: set-input-mode interrupt flow meta &optional quit-char
+          console
      This function sets the mode for reading keyboard input.  If
      INTERRUPT is non-null, then XEmacs uses input interrupts.  If it is
      `nil', then it uses CBREAK mode.  When XEmacs communicates
@@ -83,7 +660,7 @@ Input Modes
    The `current-input-mode' function returns the input mode settings
 XEmacs is currently using.
 
- - Function: current-input-mode
+ - Function: current-input-mode &optional console
      This function returns current mode for reading keyboard input.  It
      returns a list, corresponding to the arguments of `set-input-mode',
      of the form `(INTERRUPT FLOW META QUIT)' in which:
@@ -287,10 +864,10 @@ the proper value, but others do not.  If XEmacs has the wrong value, it
 makes decisions that are less than optimal.  To fix the problem, use
 `set-device-baud-rate'.
 
- - Function: set-device-baud-rate &optional device
+ - Function: set-device-baud-rate device baud-rate
      This function sets the output speed of DEVICE.  See
      `device-baud-rate'.  DEVICE defaults to the selected device
-     (usually the only device) if omitted.
+     (usually the only device) if `nil'.
 
  - Function: send-string-to-terminal char-or-string &optional stdout-p
           device
@@ -374,11 +951,15 @@ terminals, this problem is gradually being cured.  For the mean time,
 XEmacs provides a convenient way of enabling flow control if you want
 it: call the function `enable-flow-control'.
 
- - Function: enable-flow-control
+ - Command: enable-flow-control &optional argument
      This function enables use of `C-s' and `C-q' for output flow
      control, and provides the characters `C-\' and `C-^' as aliases
      for them using `keyboard-translate-table' (*note Translating
      Input::).
+
+     With optional argument ARGUMENT (interactively the prefix
+     argument), enable flow control mode if ARGUMENT is positive; else
+     disable it.
 
    You can use the function `enable-flow-control-on' in your `.emacs'
 file to enable flow control automatically on certain terminal types.
@@ -505,11 +1086,25 @@ clients that still use them.
      This function returns the contents of cut buffer number N. (This
      function is called `x-get-cut-buffer' in FSF Emacs.)
 
- - Function: x-store-cutbuffer string
+ - Function: x-store-cutbuffer string &optional push
      This function stores STRING into the first cut buffer (cut buffer
-     0), moving the other values down through the series of cut buffers,
-     kill-ring-style. (This function is called `x-set-cut-buffer' in FSF
-     Emacs.)
+     0).
+
+     Normally, the contents of the first cut buffer are simply replaced
+     by STRING.  However, if optional argument PUSH is non-`nil', the
+     cut buffers are rotated.  This means that the previous value of
+     the first cut buffer moves to the second cut buffer, and the
+     second to the third, and so on, moving the other values down
+     through the series of cut buffers, kill-ring-style.  There are 8
+     cut buffers altogether.
+
+     Cut buffers are considered obsolete; you should use selections
+     instead.
+
+     This function has no effect if support for cut buffers was not
+     compiled in.
+
+     This function is called `x-set-cut-buffer' in FSF Emacs.
 
 
 File: lispref.info,  Node: X Server,  Next: X Miscellaneous,  Prev: X Selections,  Up: X-Windows
@@ -644,7 +1239,7 @@ Resources
      XEmacs is dumped, or by setting it in the file
      `lisp/term/x-win.el'.
 
-     By default, this variable is nil at startup.  When the connection
+     By default, this variable is `nil' at startup.  When the connection
      to the X server is first initialized, the X resource database will
      be consulted and the value will be set according to whether any
      resources are found for the application class "XEmacs".
@@ -676,496 +1271,4 @@ optional and defaults to the selected device.
      `static-color', `pseudo-color', `true-color', and `direct-color'.
      (Note that this is different from previous versions of XEmacs,
      which returned `StaticGray', `GrayScale', etc.)
-
-
-File: lispref.info,  Node: Grabs,  Prev: Server Data,  Up: X Server
-
-Restricting Access to the Server by Other Apps
-----------------------------------------------
-
- - Function: x-grab-keyboard &optional device
-     This function grabs the keyboard on the given device (defaulting
-     to the selected one).  So long as the keyboard is grabbed, all
-     keyboard events will be delivered to XEmacs--it is not possible
-     for other X clients to eavesdrop on them.  Ungrab the keyboard
-     with `x-ungrab-keyboard' (use an `unwind-protect').  Returns `t'
-     if the grab was successful; `nil' otherwise.
-
- - Function: x-ungrab-keyboard &optional device
-     This function releases a keyboard grab made with `x-grab-keyboard'.
-
- - Function: x-grab-pointer &optional device cursor ignore-keyboard
-     This function grabs the pointer and restricts it to its current
-     window.  If optional DEVICE argument is `nil', the selected device
-     will be used.  If optional CURSOR argument is non-`nil', change
-     the pointer shape to that until `x-ungrab-pointer' is called (it
-     should be an object returned by the `make-cursor' function).  If
-     the second optional argument IGNORE-KEYBOARD is non-`nil', ignore
-     all keyboard events during the grab.  Returns `t' if the grab is
-     successful, `nil' otherwise.
-
- - Function: x-ungrab-pointer &optional device
-     This function releases a pointer grab made with `x-grab-pointer'.
-     If optional first arg DEVICE is `nil' the selected device is used.
-     If it is `t' the pointer will be released on all X devices.
-
-
-File: lispref.info,  Node: X Miscellaneous,  Prev: X Server,  Up: X-Windows
-
-Miscellaneous X Functions and Variables
-=======================================
-
- - Variable: x-bitmap-file-path
-     This variable holds a list of the directories in which X bitmap
-     files may be found.  If `nil', this is initialized from the
-     `"*bitmapFilePath"' resource.  This is used by the
-     `make-image-instance' function (however, note that if the
-     environment variable `XBMLANGPATH' is set, it is consulted first).
-
- - Variable: x-library-search-path
-     This variable holds the search path used by `read-color' to find
-     `rgb.txt'.
-
- - Function: x-valid-keysym-name-p keysym
-     This function returns true if KEYSYM names a keysym that the X
-     library knows about.  Valid keysyms are listed in the files
-     `/usr/include/X11/keysymdef.h' and in `/usr/lib/X11/XKeysymDB', or
-     whatever the equivalents are on your system.
-
- - Function: x-window-id &optional frame
-     This function returns the ID of the X11 window.  This gives us a
-     chance to manipulate the Emacs window from within a different
-     program.  Since the ID is an unsigned long, we return it as a
-     string.
-
- - Variable: x-allow-sendevents
-     If non-`nil', synthetic events are allowed.  `nil' means they are
-     ignored.  Beware: allowing XEmacs to process SendEvents opens a
-     big security hole.
-
- - Function: x-debug-mode arg &optional device
-     With a true arg, make the connection to the X server synchronous.
-     With false, make it asynchronous.  Synchronous connections are
-     much slower, but are useful for debugging. (If you get X errors,
-     make the connection synchronous, and use a debugger to set a
-     breakpoint on `x_error_handler'.  Your backtrace of the C stack
-     will now be useful.  In asynchronous mode, the stack above
-     `x_error_handler' isn't helpful because of buffering.)  If DEVICE
-     is not specified, the selected device is assumed.
-
-     Calling this function is the same as calling the C function
-     `XSynchronize', or starting the program with the `-sync' command
-     line argument.
-
- - Variable: x-debug-events
-     If non-zero, debug information about events that XEmacs sees is
-     displayed.  Information is displayed on stderr.  Currently defined
-     values are:
-
-        * 1 == non-verbose output
-
-        * 2 == verbose output
-
-
-File: lispref.info,  Node: ToolTalk Support,  Next: LDAP Support,  Prev: X-Windows,  Up: Top
-
-ToolTalk Support
-****************
-
-* Menu:
-
-* XEmacs ToolTalk API Summary::
-* Sending Messages::
-* Receiving Messages::
-
-
-File: lispref.info,  Node: XEmacs ToolTalk API Summary,  Next: Sending Messages,  Up: ToolTalk Support
-
-XEmacs ToolTalk API Summary
-===========================
-
-   The XEmacs Lisp interface to ToolTalk is similar, at least in spirit,
-to the standard C ToolTalk API.  Only the message and pattern parts of
-the API are supported at present; more of the API could be added if
-needed.  The Lisp interface departs from the C API in a few ways:
-
-   * ToolTalk is initialized automatically at XEmacs startup-time.
-     Messages can only be sent other ToolTalk applications connected to
-     the same X11 server that XEmacs is running on.
-
-   * There are fewer entry points; polymorphic functions with keyword
-     arguments are used instead.
-
-   * The callback interface is simpler and marginally less functional.
-     A single callback may be associated with a message or a pattern;
-     the callback is specified with a Lisp symbol (the symbol should
-     have a function binding).
-
-   * The session attribute for messages and patterns is always
-     initialized to the default session.
-
-   * Anywhere a ToolTalk enum constant, e.g. `TT_SESSION', is valid, one
-     can substitute the corresponding symbol, e.g. `'TT_SESSION'.  This
-     simplifies building lists that represent messages and patterns.
-
-
-File: lispref.info,  Node: Sending Messages,  Next: Receiving Messages,  Prev: XEmacs ToolTalk API Summary,  Up: ToolTalk Support
-
-Sending Messages
-================
-
-* Menu:
-
-* Example of Sending Messages::
-* Elisp Interface for Sending Messages::
-
-
-File: lispref.info,  Node: Example of Sending Messages,  Next: Elisp Interface for Sending Messages,  Up: Sending Messages
-
-Example of Sending Messages
----------------------------
-
-   Here's a simple example that sends a query to another application
-and then displays its reply.  Both the query and the reply are stored
-in the first argument of the message.
-
-     (defun tooltalk-random-query-handler (msg)
-       (let ((state (get-tooltalk-message-attribute msg 'state)))
-         (cond
-           ((eq state 'TT_HANDLED)
-            (message (get-tooltalk-message-attribute msg arg_val 0)))
-           ((memq state '(TT_FAILED TT_REJECTED))
-            (message "Random query turns up nothing")))))
-     
-     (defvar random-query-message
-       '(   class TT_REQUEST
-            scope TT_SESSION
-          address TT_PROCEDURE
-               op "random-query"
-             args '((TT_INOUT "?" "string"))
-         callback tooltalk-random-query-handler))
-     
-     (let ((m (make-tooltalk-message random-query-message)))
-       (send-tooltalk-message m))
-
-
-File: lispref.info,  Node: Elisp Interface for Sending Messages,  Prev: Example of Sending Messages,  Up: Sending Messages
-
-Elisp Interface for Sending Messages
-------------------------------------
-
- - Function: make-tooltalk-message attributes
-     Create a ToolTalk message and initialize its attributes.  The
-     value of ATTRIBUTES must be a list of alternating keyword/values,
-     where keywords are symbols that name valid message attributes.
-     For example:
-
-            (make-tooltalk-message
-              '(class TT_NOTICE
-                scope TT_SESSION
-                address TT_PROCEDURE
-                op "do-something"
-                args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
-
-     Values must always be strings, integers, or symbols that represent
-     ToolTalk constants.  Attribute names are the same as those
-     supported by `set-tooltalk-message-attribute', plus `args'.
-
-     The value of `args' should be a list of message arguments where
-     each message argument has the following form:
-
-             `(mode [value [type]])' or just `value'
-
-     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
-     a string.  If TYPE isn't specified then `int' is used if VALUE is
-     a number; otherwise `string' is used.  If TYPE is `string' then
-     VALUE is converted to a string (if it isn't a string already) with
-     `prin1-to-string'.  If only a value is specified then MODE
-     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
-     don't need to be specified.  You can find out more about the
-     semantics and uses of ToolTalk message arguments in chapter 4 of
-     the `ToolTalk Programmer's Guide'.
-
-
- - Function: send-tooltalk-message msg
-     Send the message on its way.  Once the message has been sent it's
-     almost always a good idea to get rid of it with
-     `destroy-tooltalk-message'.
-
-
- - Function: return-tooltalk-message msg &optional mode
-     Send a reply to this message.  The second argument can be `reply',
-     `reject' or `fail'; the default is `reply'.  Before sending a
-     reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
-     should have been filled in--see `set-tooltalk-message-attribute'.
-
-
- - Function: get-tooltalk-message-attribute msg attribute &optional argn
-     Returns the indicated ToolTalk message attribute.  Attributes are
-     identified by symbols with the same name (underscores and all) as
-     the suffix of the ToolTalk `tt_message_<attribute>' function that
-     extracts the value.  String attribute values are copied and
-     enumerated type values (except disposition) are converted to
-     symbols; e.g. `TT_HANDLER' is `'TT_HANDLER', `uid' and `gid' are
-     represented by fixnums (small integers), `opnum' is converted to a
-     string, and `disposition' is converted to a fixnum.  We convert
-     `opnum' (a C int) to a string (e.g. `123' => `"123"') because
-     there's no guarantee that opnums will fit within the range of
-     XEmacs Lisp integers.
-
-     [TBD] Use the `plist' attribute instead of C API `user' attribute
-     for user-defined message data.  To retrieve the value of a message
-     property, specify the indicator for ARGN.  For example, to get the
-     value of a property called `rflag', use
-
-             (get-tooltalk-message-attribute msg 'plist 'rflag)
-
-     To get the value of a message argument use one of the `arg_val'
-     (strings), `arg_ival' (integers), or `arg_bval' (strings with
-     embedded nulls), attributes.  For example, to get the integer
-     value of the third argument:
-
-             (get-tooltalk-message-attribute msg 'arg_ival 2)
-
-     As you can see, argument numbers are zero-based.  The type of each
-     arguments can be retrieved with the `arg_type' attribute; however
-     ToolTalk doesn't define any semantics for the string value of
-     `arg_type'.  Conventionally `string' is used for strings and `int'
-     for 32 bit integers.  Note that XEmacs Lisp stores the lengths of
-     strings explicitly (unlike C) so treating the value returned by
-     `arg_bval' like a string is fine.
-
-
- - Function: set-tooltalk-message-attribute value msg attribute
-          &optional argn
-     Initialize one ToolTalk message attribute.
-
-     Attribute names and values are the same as for
-     `get-tooltalk-message-attribute'.  A property list is provided for
-     user data (instead of the `user' message attribute); see
-     `get-tooltalk-message-attribute'.
-
-     Callbacks are handled slightly differently than in the C ToolTalk
-     API.  The value of CALLBACK should be the name of a function of one
-     argument.  It will be called each time the state of the message
-     changes.  This is usually used to notice when the message's state
-     has changed to `TT_HANDLED' (or `TT_FAILED'), so that reply
-     argument values can be used.
-
-     If one of the argument attributes is specified as `arg_val',
-     `arg_ival', or `arg_bval', then ARGN must be the number of an
-     already created argument.  Arguments can be added to a message
-     with `add-tooltalk-message-arg'.
-
-
- - Function: add-tooltalk-message-arg msg mode type &optional value
-     Append one new argument to the message.  MODE must be one of
-     `TT_IN', `TT_INOUT', or `TT_OUT', TYPE must be a string, and VALUE
-     can be a string or an integer.  ToolTalk doesn't define any
-     semantics for TYPE, so only the participants in the protocol
-     you're using need to agree what types mean (if anything).
-     Conventionally `string' is used for strings and `int' for 32 bit
-     integers.  Arguments can initialized by providing a value or with
-     `set-tooltalk-message-attribute'; the latter is necessary if you
-     want to initialize the argument with a string that can contain
-     embedded nulls (use `arg_bval').
-
-
- - Function: create-tooltalk-message
-     Create a new ToolTalk message.  The message's session attribute is
-     initialized to the default session.  Other attributes can be
-     initialized with `set-tooltalk-message-attribute'.
-     `make-tooltalk-message' is the preferred way to create and
-     initialize a message.
-
-
- - Function: destroy-tooltalk-message msg
-     Apply `tt_message_destroy' to the message.  It's not necessary to
-     destroy messages after they've been processed by a message or
-     pattern callback, the Lisp/ToolTalk callback machinery does this
-     for you.
-
-
-File: lispref.info,  Node: Receiving Messages,  Prev: Sending Messages,  Up: ToolTalk Support
-
-Receiving Messages
-==================
-
-* Menu:
-
-* Example of Receiving Messages::
-* Elisp Interface for Receiving Messages::
-
-
-File: lispref.info,  Node: Example of Receiving Messages,  Next: Elisp Interface for Receiving Messages,  Up: Receiving Messages
-
-Example of Receiving Messages
------------------------------
-
-   Here's a simple example of a handler for a message that tells XEmacs
-to display a string in the mini-buffer area.  The message operation is
-called `emacs-display-string'.  Its first (0th) argument is the string
-to display.
-
-     (defun tooltalk-display-string-handler (msg)
-       (message (get-tooltalk-message-attribute msg 'arg_val 0)))
-     
-     (defvar display-string-pattern
-       '(category TT_HANDLE
-            scope TT_SESSION
-               op "emacs-display-string"
-         callback tooltalk-display-string-handler))
-     
-     (let ((p (make-tooltalk-pattern display-string-pattern)))
-       (register-tooltalk-pattern p))
-
-
-File: lispref.info,  Node: Elisp Interface for Receiving Messages,  Prev: Example of Receiving Messages,  Up: Receiving Messages
-
-Elisp Interface for Receiving Messages
---------------------------------------
-
- - Function: make-tooltalk-pattern attributes
-     Create a ToolTalk pattern and initialize its attributes.  The
-     value of attributes must be a list of alternating keyword/values,
-     where keywords are symbols that name valid pattern attributes or
-     lists of valid attributes.  For example:
-
-            (make-tooltalk-pattern
-              '(category TT_OBSERVE
-                   scope TT_SESSION
-                      op ("operation1" "operation2")
-                    args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
-
-     Attribute names are the same as those supported by
-     `add-tooltalk-pattern-attribute', plus `'args'.
-
-     Values must always be strings, integers, or symbols that represent
-     ToolTalk constants or lists of same.  When a list of values is
-     provided all of the list elements are added to the attribute.  In
-     the example above, messages whose `op' attribute is `"operation1"'
-     or `"operation2"' would match the pattern.
-
-     The value of ARGS should be a list of pattern arguments where each
-     pattern argument has the following form:
-
-             `(mode [value [type]])' or just `value'
-
-     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
-     a string.  If TYPE isn't specified then `int' is used if VALUE is
-     a number; otherwise `string' is used.  If TYPE is `string' then
-     VALUE is converted to a string (if it isn't a string already) with
-     `prin1-to-string'.  If only a value is specified then MODE
-     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
-     don't need to be specified.  You can find out more about the
-     semantics and uses of ToolTalk pattern arguments in chapter 3 of
-     the `ToolTalk Programmer's Guide'.
-
-
- - Function: register-tooltalk-pattern pat
-     XEmacs will begin receiving messages that match this pattern.
-
- - Function: unregister-tooltalk-pattern pat
-     XEmacs will stop receiving messages that match this pattern.
-
- - Function: add-tooltalk-pattern-attribute value pat indicator
-     Add one value to the indicated pattern attribute. The names of
-     attributes are the same as the ToolTalk accessors used to set them
-     less the `tooltalk_pattern_' prefix and the `_add' suffix.  For
-     example, the name of the attribute for the
-     `tt_pattern_disposition_add' attribute is `disposition'.  The
-     `category' attribute is handled specially, since a pattern can only
-     be a member of one category (`TT_OBSERVE' or `TT_HANDLE').
-
-     Callbacks are handled slightly differently than in the C ToolTalk
-     API.  The value of CALLBACK should be the name of a function of one
-     argument.  It will be called each time the pattern matches an
-     incoming message.
-
- - Function: add-tooltalk-pattern-arg pat mode type value
-     Add one fully-specified argument to a ToolTalk pattern.  MODE must
-     be one of `TT_IN', `TT_INOUT', or `TT_OUT'.  TYPE must be a
-     string.  VALUE can be an integer, string or `nil'.  If VALUE is an
-     integer then an integer argument (`tt_pattern_iarg_add') is added;
-     otherwise a string argument is added.  At present there's no way
-     to add a binary data argument.
-
-
- - Function: create-tooltalk-pattern
-     Create a new ToolTalk pattern and initialize its session attribute
-     to be the default session.
-
- - Function: destroy-tooltalk-pattern pat
-     Apply `tt_pattern_destroy' to the pattern.  This effectively
-     unregisters the pattern.
-
- - Function: describe-tooltalk-message msg &optional stream
-     Print the message's attributes and arguments to STREAM.  This is
-     often useful for debugging.
-
-
-File: lispref.info,  Node: LDAP Support,  Next: PostgreSQL Support,  Prev: ToolTalk Support,  Up: Top
-
-LDAP Support
-************
-
-   XEmacs can be linked with a LDAP client library to provide Elisp
-primitives to access directory servers using the Lightweight Directory
-Access Protocol.
-
-* Menu:
-
-* Building XEmacs with LDAP support::  How to add LDAP support to XEmacs
-* XEmacs LDAP API::             Lisp access to LDAP functions
-* Syntax of Search Filters::    A brief summary of RFC 1558
-
-
-File: lispref.info,  Node: Building XEmacs with LDAP support,  Next: XEmacs LDAP API,  Prev: LDAP Support,  Up: LDAP Support
-
-Building XEmacs with LDAP support
-=================================
-
-   LDAP support must be added to XEmacs at build time since it requires
-linking to an external LDAP client library.  As of 21.2, XEmacs has been
-successfully built and tested with
-
-   * OpenLDAP 1.2 (<http://www.openldap.org/>)
-
-   * University of Michigan's LDAP 3.3
-     (<http://www.umich.edu/~dirsvcs/ldap/>)
-
-   * LDAP SDK 1.0 from Netscape Corp. (<http://developer.netscape.com/>)
-
-   Other libraries conforming to RFC 1823 will probably work also but
-may require some minor tweaking at C level.
-
-   The standard XEmacs configure script auto-detects an installed LDAP
-library provided the library itself and the corresponding header files
-can be found in the library and include paths.  A successful detection
-will be signalled in the final output of the configure script.
-
-
-File: lispref.info,  Node: XEmacs LDAP API,  Next: Syntax of Search Filters,  Prev: Building XEmacs with LDAP support,  Up: LDAP Support
-
-XEmacs LDAP API
-===============
-
-   XEmacs LDAP API consists of two layers:  a low-level layer which
-tries to stay as close as possible to the C API (where practical) and a
-higher-level layer which provides more convenient primitives to
-effectively use LDAP.
-
-   The low-level API should be used directly for very specific purposes
-(such as multiple operations on a connection) only.  The higher-level
-functions provide a more convenient way to access LDAP directories
-hiding the subtleties of handling the connection, translating arguments
-and ensuring compliance with LDAP internationalization rules and formats
-(currently partly implemented only).
-
-* Menu:
-
-* LDAP Variables::              Lisp variables related to LDAP
-* The High-Level LDAP API::     High-level LDAP lisp functions
-* The Low-Level LDAP API::      Low-level LDAP lisp primitives
-* LDAP Internationalization::   I18n variables and functions
 

@@ -94,7 +94,7 @@ and the HTML form support in the `w3' browser.
    The advantages for a programmer of using the `widget' package to
 implement forms are:
 
-  1. More complex field than just editable text are supported.
+  1. More complex fields than just editable text are supported.
 
   2. You can give the user immediate feedback if he enters invalid data
      in a text field, and sometimes prevent entering invalid data.
@@ -416,7 +416,7 @@ Basic Types
      NAME ::= (NAME [KEYWORD ARGUMENT]... ARGS)
           |   NAME
 
-   Where, NAME is a widget name, KEYWORD is the name of a property,
+   where NAME is a widget name, KEYWORD is the name of a property,
 ARGUMENT is the value of the property, and ARGS are interpreted in a
 widget specific way.
 
@@ -490,7 +490,8 @@ widget specific way.
           The value of the symbol is expanded according to this table.
 
 `:doc'
-     The string inserted by the `%d' escape in the format string.
+     The string inserted by the `%d' or `%h' escape in the format
+     string.
 
 `:tag'
      The string inserted by the `%t' escape in the format string.
@@ -538,7 +539,7 @@ widget specific way.
      specified value.
 
 `:validate'
-     A function which takes a widget as an argument, and return nil if
+     A function which takes a widget as an argument, and returns nil if
      the widget's current value is valid for the widget.  Otherwise it
      should return the widget containing the invalid data, and set that
      widget's `:error' property to a string explaining the error.
@@ -685,8 +686,10 @@ widget will match all string values.
    The following extra properties are recognized.
 
 `:size'
-     The width of the editable field.
-     By default the field will reach to the end of the line.
+     The minimum width of the editable field.
+     By default the field will reach to the end of the line.  If the
+     content is too large, the displayed representation will expand to
+     contain it.  The content is not truncated to size.
 
 `:value-face'
      Face used for highlighting the editable field.  Default is
@@ -705,7 +708,7 @@ widget will match all string values.
 `:keymap'
      Keymap used in the editable field.  The default value is
      `widget-field-keymap', which allows you to use all the normal
-     editing commands, even if the buffers major mode suppress some of
+     editing commands, even if the buffer's major mode suppress some of
      them.  Pressing return invokes the function specified by `:action'.
 
 
@@ -1517,35 +1520,35 @@ Wishlist
 Tag Table:
 Node: Top211
 Node: Introduction591
-Node: User Interface4074
-Node: Programming Example8969
-Node: Setting Up the Buffer13119
-Node: Basic Types14836
-Node: link20881
-Node: url-link21395
-Node: info-link21707
-Node: push-button21998
-Node: editable-field22571
-Node: text23910
-Node: menu-choice24208
-Node: radio-button-choice25061
-Node: item26628
-Node: choice-item27016
-Node: toggle27514
-Node: checkbox28251
-Node: checklist28557
-Node: editable-list30001
-Node: group31183
-Node: Sexp Types31470
-Node: constants31783
-Node: generic32862
-Node: atoms33395
-Node: composite35342
-Node: Widget Properties37812
-Node: Defining New Widgets40877
-Node: Widget Browser46177
-Node: Widget Minor Mode47035
-Node: Utilities47592
-Node: Widget Wishlist48073
+Node: User Interface4075
+Node: Programming Example8970
+Node: Setting Up the Buffer13120
+Node: Basic Types14837
+Node: link20895
+Node: url-link21409
+Node: info-link21721
+Node: push-button22012
+Node: editable-field22585
+Node: text24068
+Node: menu-choice24366
+Node: radio-button-choice25219
+Node: item26786
+Node: choice-item27174
+Node: toggle27672
+Node: checkbox28409
+Node: checklist28715
+Node: editable-list30159
+Node: group31341
+Node: Sexp Types31628
+Node: constants31941
+Node: generic33020
+Node: atoms33553
+Node: composite35500
+Node: Widget Properties37970
+Node: Defining New Widgets41035
+Node: Widget Browser46335
+Node: Widget Minor Mode47193
+Node: Utilities47750
+Node: Widget Wishlist48231
 
 End Tag Table

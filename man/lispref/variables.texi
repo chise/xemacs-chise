@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/variables.info
 @node Variables, Functions, Control Structures, Top
@@ -190,7 +190,7 @@ which is 2, not the new value, 1.
      @result{} 2
 @end group
 @group
-(let ((Y 1) 
+(let ((Y 1)
       (Z Y))
   (list Y Z))
      @result{} (1 2)
@@ -635,7 +635,7 @@ The value of the @code{setq} form is the value of the last @var{form}.
 x                   ; @r{@code{x} now has a global value.}
      @result{} 3
 @group
-(let ((x 5)) 
+(let ((x 5))
   (setq x 6)        ; @r{The local binding of @code{x} is set.}
   x)
      @result{} 6
@@ -652,7 +652,7 @@ second @var{symbol} is set, and so on:
 @group
 (setq x 10          ; @r{Notice that @code{x} is set before}
       y (1+ x))     ;   @r{the value of @code{y} is computed.}
-     @result{} 11             
+     @result{} 11
 @end group
 @end example
 @end defspec
@@ -1101,10 +1101,26 @@ local to the current buffer at the time.
 The value returned is @var{variable}.
 @end deffn
 
-@defun local-variable-p variable &optional buffer
+@defun local-variable-p variable buffer &optional after-set
 This returns @code{t} if @var{variable} is buffer-local in buffer
-@var{buffer} (which defaults to the current buffer); otherwise,
-@code{nil}.
+@var{buffer}; else @code{nil}.
+
+If optional third arg @var{after-set} is non-@code{nil}, return @code{t}
+if @var{symbol} would be buffer-local after it is set, regardless of
+whether it is so presently.
+
+A @code{nil} value for @var{buffer} is @emph{not} the same as
+@code{(current-buffer)}, but means "no buffer".  Specifically:
+
+If @var{buffer} is @code{nil} and @var{after-set} is @code{nil}, a
+return value of @code{t} indicates that the variable is one of the
+special built-in variables that is always buffer-local. (This includes
+@code{buffer-file-name}, @code{buffer-read-only},
+@code{buffer-undo-list}, and others.)
+
+If @var{buffer} is @code{nil} and @var{after-set} is @code{t}, a return
+value of @code{t} indicates that the variable has had
+@code{make-variable-buffer-local} applied to it.
 @end defun
 
 @defun buffer-local-variables &optional buffer
@@ -1129,7 +1145,7 @@ the current buffer is used.
     (mode-name . "Fundamental")
     @dots{}
 @group
-    ;; @r{Next, non-built-in local variables.} 
+    ;; @r{Next, non-built-in local variables.}
     ;; @r{This one is local and void:}
     foobar
     ;; @r{This one is local and nonvoid:}
@@ -1330,13 +1346,13 @@ cannot be a built-in variable, a variable that has a buffer-local value
 in any buffer, or the symbols @code{nil} or @code{t}.
 @end defun
 
-@defun variable-alias variable
+@defun variable-alias variable &optional follow-past-lisp-magic
 If @var{variable} is aliased to another variable, this function returns
 that variable.  @var{variable} should be a symbol.  If @var{variable} is
 not aliased, this function returns @code{nil}.
 @end defun
 
-@defun indirect-variable object
+@defun indirect-variable object &optional follow-past-lisp-magic
 This function returns the variable at the end of @var{object}'s
 variable-alias chain.  If @var{object} is a symbol, follow all variable
 aliases and return the final (non-aliased) symbol.  If @var{object} is

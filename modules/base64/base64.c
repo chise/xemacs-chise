@@ -66,7 +66,7 @@ determined.  Else assume binary coding if all else fails.
 	/* set up the in stream */
 	if (BUFFERP (object))
 	{
-		struct buffer *b = decode_buffer (object, 1);
+		struct buffer *b = XBUFFER (object);
 		Bufpos begv, endv;
 		/* Figure out where we need to get info from */
 		get_buffer_range_char (b, start, end, &begv, &endv, GB_ALLOW_NIL);
@@ -256,7 +256,7 @@ determined.  Else assume binary coding if all else fails.
 	/* set up the in stream */
 	if (BUFFERP (object))
 	{
-		struct buffer *b = decode_buffer (object, 1);
+		struct buffer *b = XBUFFER (object);
 		Bufpos begv, endv;
 		/* Figure out where we need to get info from */
 		get_buffer_range_char (b, start, end, &begv, &endv, GB_ALLOW_NIL);

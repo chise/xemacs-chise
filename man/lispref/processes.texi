@@ -60,7 +60,7 @@ The other two, @code{call-process} and @code{call-process-region},
 create a synchronous process and do not return a process object
 (@pxref{Synchronous Processes}).
 
-  Synchronous and asynchronous processes are explained in following
+  Synchronous and asynchronous processes are explained in the following
 sections.  Since the three functions are all called in a similar
 fashion, their common arguments are described here.
 
@@ -97,6 +97,10 @@ since they are passed directly to the specified program.
   @strong{Please note:} The argument @var{program} contains only the
 name of the program; it may not contain any command-line arguments.  You
 must use @var{args} to provide those.
+
+If you want to use features of the shell, then invoke the shell directly
+using, for example, @var{program} of @code{"sh"}, and @var{args} of
+@code{"-c"} and @var{"command line..."}.
 
   The subprocess gets its current directory from the value of
 @code{default-directory} (@pxref{File Name Expansion}).
@@ -246,13 +250,13 @@ of @code{call-process}:
 @end smallexample
 @end defun
 
-@defun call-process-region start end program &optional delete destination display &rest args
+@defun call-process-region start end program &optional deletep destination displayp &rest args
 This function sends the text between @var{start} to @var{end} as
 standard input to a process running @var{program}.  It deletes the text
-sent if @var{delete} is non-@code{nil}; this is useful when @var{buffer}
+sent if @var{deletep} is non-@code{nil}; this is useful when @var{buffer}
 is @code{t}, to insert the output in the current buffer.
 
-The arguments @var{destination} and @var{display} control what to do
+The arguments @var{destination} and @var{displayp} control what to do
 with the output from the subprocess, and whether to update the display
 as it comes in.  For details, see the description of
 @code{call-process}, above.  If @var{destination} is the integer 0,
@@ -406,7 +410,9 @@ etc.) to work between the process and its children whereas pipes do not.
 For subprocesses used for internal purposes by programs, it is often
 better to use a pipe, because they are more efficient.  In addition, the
 total number of @sc{pty}s is limited on many systems and it is good not
-to waste them.
+to waste them.  A rule of thumb is to use ptys for processes the user
+interacts with directly, and pipes for processes that are hidden from
+the user.
 
 The value @code{process-connection-type} is used when
 @code{start-process} is called.  So you can specify how to communicate
@@ -424,6 +430,16 @@ To determine whether a given subprocess actually got a pipe or a
 @sc{pty}, use the function @code{process-tty-name} (@pxref{Process
 Information}).
 @end defvar
+
+Lisp functions that manipulate processes usually accept a @var{process}
+argument.  Besides using an actual process object for this argument, you
+can use a process name, a buffer object, the name of a buffer, or
+@code{nil}.  Specifying a buffer or buffer name for the @var{process}
+argument means use the process associated with the buffer (or the most
+recent one, if there is more than one).  @code{nil} means use the
+process associated with the current buffer.
+@xref{Process Information}.
+@xref{Process Buffers}.
 
 @node Deleting Processes
 @section Deleting Processes
@@ -500,9 +516,12 @@ This function returns a list of all processes that have not been deleted.
 @end smallexample
 @end defun
 
-@defun get-process name
-This function returns the process named @var{name}, or @code{nil} if
-there is none.  An error is signaled if @var{name} is not a string.
+@defun get-process process-name
+This function returns the process named @var{process-name}.  If
+@var{process-name} is a string and there is no process with that name, the
+value is @code{nil}.  If @var{process-name} is actually a process, it is
+returned as given.  (That is not very useful, so the argument is usually
+a name.) For example:
 
 @smallexample
 @group
@@ -538,9 +557,9 @@ process is started and remains constant as long as the process exists.
 This function returns the name of @var{process}.
 @end defun
 
-@defun process-status process-name
-This function returns the status of @var{process-name} as a symbol.
-The argument @var{process-name} must be a process, a buffer, a
+@defun process-status process
+This function returns the status of @var{process} as a symbol.
+The argument @var{process} must be a process, a buffer, a
 process name (string) or a buffer name (string).
 
 The possible values for an actual subprocess are:
@@ -561,7 +580,7 @@ for a network connection that is closed.  Once a connection
 is closed, you cannot reopen it, though you might be able to open
 a new connection to the same place.
 @item nil
-if @var{process-name} is not the name of an existing process.
+if @var{process} does not identify an existing process.
 @end table
 
 @smallexample
@@ -619,15 +638,21 @@ specify the process to send input to, and the input data to send.  The
 data appears on the ``standard input'' of the subprocess.
 
   Some operating systems have limited space for buffered input in a
-@sc{pty}.  On these systems, Emacs sends an @sc{eof} periodically amidst
-the other characters, to force them through.  For most programs,
-these @sc{eof}s do no harm.
+@sc{pty}.  On these systems, XEmacs sends long input in chunks, with
+@sc{eof} characters added amidst the other characters, to force the
+operating system to periodically drain the input buffer.  For most
+programs, these @sc{eof}s do no harm.
 
-@defun process-send-string process-name string
-This function sends @var{process-name} the contents of @var{string} as
-standard input.  The argument @var{process-name} must be a process or
-the name of a process.  If it is @code{nil}, the current buffer's
-process is used.
+@defun process-send-string process string &optional start end
+This function sends @var{process} the contents of @var{string} as
+standard input.
+
+The argument @var{process} may be a process or the name of a process, or
+a buffer or the name of a buffer, in which case the buffer's process is
+used.  If it is @code{nil}, the current buffer's process is used.
+
+Optional arguments @var{start} and @var{end} specify part of @var{string};
+see @code{substring}.
 
   The function returns @code{nil}.
 
@@ -650,26 +675,28 @@ introduction.txt                text.texi~
 @end smallexample
 @end defun
 
-@deffn Command process-send-region process-name start end
+@defun process-send-region process start end &optional buffer
 This function sends the text in the region defined by @var{start} and
-@var{end} as standard input to @var{process-name}, which is a process or
-a process name.  (If it is @code{nil}, the current buffer's process is
-used.)
+@var{end} as standard input to @var{process}.
+
+The argument @var{process} may be a process or the name of a process, or
+a buffer or the name of a buffer, in which case the buffer's process is
+used.  If it is @code{nil}, the current buffer's process is used.
 
 An error is signaled unless both @var{start} and @var{end} are
 integers or markers that indicate positions in the current buffer.  (It
 is unimportant which number is larger.)
-@end deffn
+@end defun
 
-@defun process-send-eof &optional process-name
-  This function makes @var{process-name} see an end-of-file in its
+@defun process-send-eof &optional process
+  This function makes @var{process} see an end-of-file in its
 input.  The @sc{eof} comes after any text already sent to it.
 
-  If @var{process-name} is not supplied, or if it is @code{nil}, then
-this function sends the @sc{eof} to the current buffer's process.  An
-error is signaled if the current buffer has no process.
+@var{process} may be a process, a buffer, the name of a process or
+buffer, or @code{nil}, indicating the current buffer's process.  An
+error is signaled if @var{process} does not identify any process.
 
-  The function returns @var{process-name}.
+The function returns the process object identified by @var{process}.
 
 @smallexample
 @group
@@ -779,11 +806,11 @@ it the signal @code{SIGCONT}.  This presumes that @var{process} was
 stopped previously.
 @end defun
 
-@defun signal-process pid signal
+@deffn Command signal-process pid signal
 This function sends a signal to the process with process id @var{pid},
 which need not be a child of XEmacs.  The argument @var{signal}
 specifies which signal to send.
-@end defun
+@end deffn
 
 @node Output from Processes
 @section Receiving Output from Processes
@@ -862,10 +889,10 @@ associated with no buffer.
 
 @defun get-buffer-process buffer-or-name
 This function returns the process associated with @var{buffer-or-name}.
-If there are several processes associated with it, then one is chosen.
-(Presently, the one chosen is the one most recently created.)  It is
-usually a bad idea to have more than one process associated with the
-same buffer.
+If there are several processes associated with @var{buffer-or-name},
+then one is chosen.  (Presently, the one chosen is the one most recently
+created.)  It is usually a bad idea to have more than one process
+associated with the same buffer.
 
 @smallexample
 @group
@@ -926,20 +953,20 @@ Here is how to do these things:
 
 @smallexample
 @group
-(defun ordinary-insertion-filter (proc string)
+(defun ordinary-insertion-filter (process string)
   (let ((old-buffer (current-buffer)))
     (unwind-protect
         (let (moving)
-          (set-buffer (process-buffer proc))
-          (setq moving (= (point) (process-mark proc)))
+          (set-buffer (process-buffer process))
+          (setq moving (= (point) (process-mark process)))
 @end group
 @group
           (save-excursion
             ;; @r{Insert the text, moving the process-marker.}
-            (goto-char (process-mark proc))
+            (goto-char (process-mark process))
             (insert string)
-            (set-marker (process-mark proc) (point)))
-          (if moving (goto-char (process-mark proc))))
+            (set-marker (process-mark process) (point)))
+          (if moving (goto-char (process-mark process))))
       (set-buffer old-buffer))))
 @end group
 @end smallexample
@@ -954,7 +981,7 @@ text arrives, insert the following line just before the
 @code{unwind-protect}:
 
 @smallexample
-(display-buffer (process-buffer proc))
+(display-buffer (process-buffer process))
 @end smallexample
 
   To force point to move to the end of the new output no matter where
@@ -1032,15 +1059,15 @@ there is no filter function:
 @group
 ;; @r{Insert input in the buffer specified by @code{my-shell-buffer}}
 ;;   @r{and make sure that buffer is shown in some window.}
-(defun my-process-filter (proc str)
+(defun my-process-filter (process string)
     (let ((cur (selected-window))
           (pop-up-windows t))
       (pop-to-buffer my-shell-buffer)
 @end group
 @group
       (goto-char (point-max))
-      (insert str)
-      (set-marker (process-mark proc) (point-max))
+      (insert string)
+      (set-marker (process-mark process) (point-max))
       (select-window cur)))
 @end group
 @end smallexample
@@ -1254,21 +1281,35 @@ function.  It always returns either @code{open} or @code{closed} for a
 network connection, and it never returns either of those values for a
 real subprocess.  @xref{Process Information}.
 
-@defun open-network-stream name buffer-or-name host service
+@defun open-network-stream name buffer-or-name host service &optional protocol
 This function opens a TCP connection for a service to a host.  It
 returns a process object to represent the connection.
+
+Input and output work as for other process objects.
+@code{delete-process} closes the connection.
 
 The @var{name} argument specifies the name for the process object.  It
 is modified as necessary to make it unique.
 
 The @var{buffer-or-name} argument is the buffer to associate with the
-connection.  Output from the connection is inserted in the buffer,
-unless you specify a filter function to handle the output.  If
-@var{buffer-or-name} is @code{nil}, it means that the connection is not
-associated with any buffer.
+connection.  It can be a buffer or the name of one.  Output from the
+connection is inserted in the buffer, unless you specify a filter
+function to handle the output.  If @var{buffer-or-name} is @code{nil},
+it means that the connection is not associated with any buffer.
 
 The arguments @var{host} and @var{service} specify where to connect to;
 @var{host} is the host name or IP address (a string), and @var{service}
 is the name of a defined network service (a string) or a port number (an
 integer).
+
+Optional fifth arg @var{protocol} is the network protocol to use.
+Currently only @code{tcp} (Transmission Control Protocol) and @code{udp}
+(User Datagram Protocol) are supported.  When omitted, @code{tcp} is assumed.
+
+Output via @code{process-send-string} and input via buffer or filter
+(see @code{set-process-filter}) are stream-oriented.  That means
+UDP datagrams are not guaranteed to be sent and received in
+discrete packets. (But small datagrams around 500 bytes that are not
+truncated by @code{process-send-string} are usually fine.)  Note further
+that the UDP protocol does not guard against lost packets.
 @end defun

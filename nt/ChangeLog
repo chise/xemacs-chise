@@ -1,3 +1,27 @@
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-10-27  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h: Oops, _getpt ==> _getpty
+
+2000-10-11  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h (HAVE_XFREE86): Remove.
+	(HAVE_XREGISTERIMINSTANTIATECALLBACK): New.
+	(XREGISTERIMINSTANTIATECALLBACK_NONSTANDARD_PROTOTYPE): New.
+
+2000-10-10  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h:
+	Sync with pty/signaling related changes to src/config.h.in
+
+2000-10-07  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (default): Enforce runnig nmake from xemacs.mak's
+	directory to avoid problems with relative paths.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.

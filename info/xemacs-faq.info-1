@@ -97,6 +97,8 @@ Installation and Trouble Shooting
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
+* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
+* Q2.0.14::     How do I figure out which packages to install? (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -123,6 +125,7 @@ Trouble Shooting:
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
 * Q2.1.24::     XEmacs won't start without network. (NEW)
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
 
 Customization and Options
 
@@ -1115,6 +1118,8 @@ Installation:
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
+* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
+* Q2.0.14::     I don't want to install a million .els one at a time! (NEW)
 
 Trouble Shooting:
 * Q2.1.1::      XEmacs just crashed on me!
@@ -1141,6 +1146,7 @@ Trouble Shooting:
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
 * Q2.1.24::     XEmacs won't start without network. (NEW)
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
 
 
 File: xemacs-faq.info,  Node: Q2.0.1,  Next: Q2.0.2,  Prev: Installation,  Up: Installation
@@ -1235,22 +1241,4 @@ handling in netaudio isn't perfect).
 else, so if you see references to NAS or Network Audio System, it's the
 same thing.  It also might be found at
 `ftp://ftp.x.org/contrib/audio/nas/'.
-
-
-File: xemacs-faq.info,  Node: Q2.0.4,  Next: Q2.0.5,  Prev: Q2.0.3,  Up: Installation
-
-Q2.0.4: Problems with Linux and ncurses.
-----------------------------------------
-
-   On Linux 1.3.98 with termcap 2.0.8 and the ncurses that came with
-libc 5.2.18, XEmacs 20.0b20 is unable to open a tty device:
-
-     src/xemacs -nw -q
-     Initialization error:
-     Terminal type `xterm' undefined (or can't access database?)
-
-   Ben Wing <ben@xemacs.org> writes:
-
-     Your ncurses configuration is messed up.  Your /usr/lib/terminfo
-     is a bad pointer, perhaps to a CD-ROM that is not inserted.
 

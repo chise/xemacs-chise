@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/positions.info
 @node Positions, Markers, Consoles and Devices, Top
@@ -249,26 +249,26 @@ Likewise, to move to the end of the buffer, use:
 documented here to warn you not to use them in Lisp programs, because
 they set the mark and display messages in the echo area.
 
-@deffn Command beginning-of-buffer &optional n
+@deffn Command beginning-of-buffer &optional count
 This function moves point to the beginning of the buffer (or the limits
 of the accessible portion, when narrowing is in effect), setting the
-mark at the previous position.  If @var{n} is non-@code{nil}, then it
-puts point @var{n} tenths of the way from the beginning of the buffer.
+mark at the previous position.  If @var{count} is non-@code{nil}, then it
+puts point @var{count} tenths of the way from the beginning of the buffer.
 
-In an interactive call, @var{n} is the numeric prefix argument,
-if provided; otherwise @var{n} defaults to @code{nil}.
+In an interactive call, @var{count} is the numeric prefix argument,
+if provided; otherwise @var{count} defaults to @code{nil}.
 
 Don't use this function in Lisp programs!
 @end deffn
 
-@deffn Command end-of-buffer &optional n
+@deffn Command end-of-buffer &optional count
 This function moves point to the end of the buffer (or the limits of
 the accessible portion, when narrowing is in effect), setting the mark
-at the previous position.  If @var{n} is non-@code{nil}, then it puts
-point @var{n} tenths of the way from the end of the buffer.
+at the previous position.  If @var{count} is non-@code{nil}, then it puts
+point @var{count} tenths of the way from the end of the buffer.
 
-In an interactive call, @var{n} is the numeric prefix argument,
-if provided; otherwise @var{n} defaults to @code{nil}.
+In an interactive call, @var{count} is the numeric prefix argument,
+if provided; otherwise @var{count} defaults to @code{nil}.
 
 Don't use this function in Lisp programs!
 @end deffn
@@ -353,7 +353,7 @@ the end of the last line, and the value will be 2.
 In an interactive call, @var{count} is the numeric prefix argument.
 @end deffn
 
-@defun count-lines start end
+@defun count-lines start end &optional ignore-invisible-lines-flag
 @cindex lines in region
 This function returns the number of lines between the positions
 @var{start} and @var{end} in the current buffer.  If @var{start} and
@@ -361,6 +361,16 @@ This function returns the number of lines between the positions
 1, even if @var{start} and @var{end} are on the same line.  This is
 because the text between them, considered in isolation, must contain at
 least one line unless it is empty.
+
+With optional @var{ignore-invisible-lines-flag} non-@code{nil}, lines
+collapsed with selective-display are excluded from the line count.
+
+@strong{Note:} The expression to return the current line number is not
+obvious:
+
+@example
+(1+ (count-lines 1 (point-at-bol)))
+@end example
 
 Here is an example of using @code{count-lines}:
 
@@ -475,7 +485,7 @@ performance of your code.  @xref{Text Lines, cache-long-line-scans}.
 This function moves point to the start of the frame line @var{count}
 frame lines down from the frame line containing point.  If @var{count}
 is negative, it moves up instead.  The optional second argument
-@var{window} may be used to specify a window other than the 
+@var{window} may be used to specify a window other than the
 selected window in which to perform the motion.
 
 Normally, @code{vertical-motion} returns the number of lines moved.  The
@@ -592,7 +602,7 @@ beginning of the first screen line.  @xref{Minibuffer Misc}.
 @end ignore
 
 @node List Motion
-@subsection Moving over Balanced Expressions 
+@subsection Moving over Balanced Expressions
 @cindex sexp motion
 @cindex Lisp expression motion
 @cindex list motion
@@ -612,29 +622,30 @@ quotes are ignored.) @var{arg} defaults to 1 if omitted.  If @var{arg}
 is negative, move backward across that many groups of parentheses.
 @end deffn
 
-@deffn Command backward-list &optional arg
-This function moves backward across @var{arg} balanced groups of
+@deffn Command backward-list &optional count
+This function moves backward across @var{count} balanced groups of
 parentheses. (Other syntactic entities such as words or paired string
-quotes are ignored.) @var{arg} defaults to 1 if omitted.  If @var{arg}
-is negative, move forward across that many groups of parentheses.
+quotes are ignored.) @var{count} defaults to 1 if omitted.  If
+@var{count} is negative, move forward across that many groups of
+parentheses.
 @end deffn
 
-@deffn Command up-list arg
-This function moves forward out of @var{arg} levels of parentheses.
+@deffn Command up-list &optional count
+This function moves forward out of @var{count} levels of parentheses.
 A negative argument means move backward but still to a less deep spot.
 @end deffn
 
-@deffn Command down-list arg
-This function moves forward into @var{arg} levels of parentheses.  A
-negative argument means move backward but still go
-deeper in parentheses (@minus{}@var{arg} levels).
+@deffn Command down-list &optional count
+This function moves forward into @var{count} levels of parentheses.
+A negative argument means move backward but still go deeper in
+parentheses (@minus{}@var{count} levels).
 @end deffn
 
-@deffn Command forward-sexp &optional arg
-This function moves forward across @var{arg} balanced expressions.
+@deffn Command forward-sexp &optional count
+This function moves forward across @var{count} balanced expressions.
 Balanced expressions include both those delimited by parentheses and
-other kinds, such as words and string constants.  @var{arg} defaults to
-1 if omitted.  If @var{arg} is negative, move backward across that many
+other kinds, such as words and string constants.  @var{count} defaults to
+1 if omitted.  If @var{count} is negative, move backward across that many
 balanced expressions.  For example,
 
 @example
@@ -655,24 +666,24 @@ balanced expressions.  For example,
 @end example
 @end deffn
 
-@deffn Command backward-sexp &optional arg
-This function moves backward across @var{arg} balanced expressions.
-@var{arg} defaults to 1 if omitted.  If @var{arg} is negative, move
+@deffn Command backward-sexp &optional count
+This function moves backward across @var{count} balanced expressions.
+@var{count} defaults to 1 if omitted.  If @var{count} is negative, move
 forward across that many balanced expressions.
 @end deffn
 
-@deffn Command beginning-of-defun &optional arg
-This function moves back to the @var{arg}th beginning of a defun.  If
-@var{arg} is negative, this actually moves forward, but it still moves
-to the beginning of a defun, not to the end of one.  @var{arg} defaults
-to 1 if omitted.
+@deffn Command beginning-of-defun &optional count
+This function moves back to the @var{count}th beginning of a defun.
+If @var{count} is negative, this actually moves forward, but it still
+moves to the beginning of a defun, not to the end of one.  @var{count}
+defaults to 1 if omitted.
 @end deffn
 
-@deffn Command end-of-defun &optional arg
-This function moves forward to the @var{arg}th end of a defun.  If
-@var{arg} is negative, this actually moves backward, but it still moves
-to the end of a defun, not to the beginning of one.  @var{arg} defaults
-to 1 if omitted.
+@deffn Command end-of-defun &optional count
+This function moves forward to the @var{count}th end of a defun.
+If @var{count} is negative, this actually moves backward, but it still
+moves to the end of a defun, not to the beginning of one.  @var{count}
+defaults to 1 if omitted.
 @end deffn
 
 @defopt defun-prompt-regexp
@@ -813,9 +824,9 @@ This special form evaluates @var{forms} with @var{buffer} as the current
 buffer.  It returns the value of the last form.
 @end defspec
 
-@defspec with-temp-file file forms@dots{}
+@defspec with-temp-file filename forms@dots{}
 This special form creates a new buffer, evaluates @var{forms} there, and
-writes the buffer to @var{file}.  It returns the value of the last form
+writes the buffer to @var{filename}.  It returns the value of the last form
 evaluated.
 @end defspec
 
@@ -925,13 +936,13 @@ tool for the job.  Here is what you must use instead:
 
 @example
 @group
-(let ((beg (point-min-marker))
+(let ((start (point-min-marker))
       (end (point-max-marker)))
   (unwind-protect
       (progn @var{body})
     (save-excursion
-      (set-buffer (marker-buffer beg))
-      (narrow-to-region beg end))))
+      (set-buffer (marker-buffer start))
+      (narrow-to-region start end))))
 @end group
 @end example
 

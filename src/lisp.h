@@ -304,19 +304,14 @@ typedef UChar UBufbyte;
 typedef char  SBufbyte;
 
 /* The data representing a string in "external" format (binary or any
-   external encoding) is logically a set of Extbytes, declared as follows. */
+   external encoding) is logically a set of Extbytes, declared as
+   follows.  Extbyte is guaranteed to be just a char, so for example
+   strlen (Extbyte *) is OK.  Extbyte is only a documentation device
+   for referring to external text. */
 
-typedef UChar Extbyte; /* #### I REALLY think this should be a char.  This
-			  is more logical and will fix enough char-UChar
-			  inconsistencies that maybe we'll be able to stop
-			  turning off those warnings. --ben */
-
-/* Explicitly signed or unsigned versions: */
-typedef UChar UExtbyte;
-typedef char  SExtbyte;
+typedef char Extbyte;
 
 /* A byte in a string in binary format: */
-
 typedef char Char_Binary;
 typedef UChar UChar_Binary;
 
@@ -808,24 +803,20 @@ PRIVATE_EXTERNAL_LIST_LOOP_6 (elt, list, len, tail,			\
 		      tortoise_##elt, CIRCULAR_LIST_SUSPICION_LENGTH)
 
 
-#define PRIVATE_EXTERNAL_LIST_LOOP_6(elt, list, len, hare,	\
-                             tortoise, suspicion_length)	\
-  for (tortoise = hare = list, len = 0;				\
-								\
-       (CONSP (hare) ? ((elt = XCAR (hare)), 1) :		\
-	(NILP (hare) ? 0 :					\
-	 (signal_malformed_list_error (list), 0)));		\
-								\
-       hare = XCDR (hare),					\
-	 ((++len < suspicion_length) ?				\
-	  ((void) 0) :						\
-	  (((len & 1) ?						\
-	    ((void) (tortoise = XCDR (tortoise))) :		\
-	    ((void) 0))						\
-	   ,							\
-	   (EQ (hare, tortoise) ?				\
-	    ((void) signal_circular_list_error (list)) :	\
-	    ((void) 0)))))
+#define PRIVATE_EXTERNAL_LIST_LOOP_6(elt, list, len, hare,		\
+				     tortoise, suspicion_length)	\
+  for (tortoise = hare = list, len = 0;					\
+									\
+       (CONSP (hare) ? ((elt = XCAR (hare)), 1) :			\
+	(NILP (hare) ? 0 :						\
+	 (signal_malformed_list_error (list), 0)));			\
+									\
+       hare = XCDR (hare),						\
+	 (void)								\
+	 ((++len > suspicion_length)					\
+	  &&								\
+	  ((((len & 1) != 0) && (tortoise = XCDR (tortoise), 0)),	\
+	   (EQ (hare, tortoise) && (signal_circular_list_error (list), 0)))))
 
 /* GET_LIST_LENGTH and GET_EXTERNAL_LIST_LENGTH:
 

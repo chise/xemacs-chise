@@ -157,6 +157,9 @@ mswindows_is_dialog_msg (MSG *msg)
     LIST_LOOP_2 (popup, Vpopup_frame_list)
       {
 	HWND hwnd = FRAME_MSWINDOWS_HANDLE (XFRAME (popup));
+	/* This is a windows feature that allows dialog type
+	   processing to be applied to standard windows containing
+	   controls. */
 	if (IsDialogMessage (hwnd, msg))
 	  return 1;
       }

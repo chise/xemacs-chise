@@ -257,7 +257,7 @@ Execute MACRO as string of editor command characters.
 If MACRO is a symbol, its function definition is used.
 COUNT is a repeat count, or nil for once, or 0 for infinite loop.
 */
-       (macro, prefixarg))
+       (macro, count))
 {
   /* This function can GC */
   Lisp_Object final;
@@ -267,10 +267,10 @@ COUNT is a repeat count, or nil for once, or 0 for infinite loop.
   struct gcpro gcpro1;
   struct console *con = XCONSOLE (Vselected_console);
 
-  if (!NILP (prefixarg))
+  if (!NILP (count))
     {
-      prefixarg = Fprefix_numeric_value (prefixarg);
-      repeat = XINT (prefixarg);
+      count = Fprefix_numeric_value (count);
+      repeat = XINT (count);
     }
 
   final = indirect_function (macro, 1);

@@ -227,9 +227,9 @@ DEFUN ("dfw-device", Fdfw_device, 1, 1, 0, /*
 Given a device, frame, or window, return the associated device.
 Return nil otherwise.
 */
-       (obj))
+       (object))
 {
-  return DFW_DEVICE (obj);
+  return DFW_DEVICE (object);
 }
 
 

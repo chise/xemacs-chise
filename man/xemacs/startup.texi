@@ -1,4 +1,4 @@
-@node Startup Paths, Basic, Command Switches, Top
+@node Startup Paths, Packages, Command Switches, Top
 @comment  node-name,  next,  previous,  up
 @section How XEmacs finds Directories and Files
 

@@ -403,19 +403,19 @@ enum LEADING_BYTE_OFFICIAL_2
 
 /* Is this a prefix for a private leading byte? */
 
-INLINE_HEADER int LEADING_BYTE_PREFIX_P (unsigned char lb);
+INLINE_HEADER int LEADING_BYTE_PREFIX_P (Bufbyte lb);
 INLINE_HEADER int
-LEADING_BYTE_PREFIX_P (unsigned char lb)
+LEADING_BYTE_PREFIX_P (Bufbyte lb)
 {
   return (lb == PRE_LEADING_BYTE_PRIVATE_1 ||
 	  lb == PRE_LEADING_BYTE_PRIVATE_2);
 }
 
 /* Given a private leading byte, return the leading byte prefix stored
-   in a string */
+   in a string. */
 
 #define PRIVATE_LEADING_BYTE_PREFIX(lb)	\
-  ((lb) < MIN_LEADING_BYTE_PRIVATE_2 ?	\
+  ((unsigned int) (lb) < MIN_LEADING_BYTE_PRIVATE_2 ?	\
    PRE_LEADING_BYTE_PRIVATE_1 :		\
    PRE_LEADING_BYTE_PRIVATE_2)
 
@@ -425,13 +425,12 @@ LEADING_BYTE_PREFIX_P (unsigned char lb)
 /*                             of any format                            */
 /************************************************************************/
 
-/* Argument `c' should be (unsigned int) or (unsigned char). */
-/* Note that SP and DEL are not included. */
+/* These are carefully designed to work if BYTE is signed or unsigned. */
+/* Note that SPC and DEL are considered ASCII, not control. */
 
-#define BYTE_ASCII_P(c) ((c) < 0x80)
-#define BYTE_C0_P(c) ((c) < 0x20)
-/* Do some forced casting just to make *sure* things are gotten right. */
-#define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
+#define BYTE_ASCII_P(byte) (((byte) & ~0x7f) == 0)
+#define BYTE_C0_P(byte)    (((byte) & ~0x1f) == 0)
+#define BYTE_C1_P(byte)    (((byte) & ~0x1f) == 0x80)
 
 
 /************************************************************************/
@@ -439,13 +438,13 @@ LEADING_BYTE_PREFIX_P (unsigned char lb)
 /*                       in a Mule-formatted string                     */
 /************************************************************************/
 
-/* Does this byte represent the first byte of a character? */
+/* Does BYTE represent the first byte of a character? */
 
-#define BUFBYTE_FIRST_BYTE_P(c) ((c) < 0xA0)
+#define BUFBYTE_FIRST_BYTE_P(byte) ((byte) < 0xA0)
 
-/* Does this byte represent the first byte of a multi-byte character? */
+/* Does BYTE represent the first byte of a multi-byte character? */
 
-#define BUFBYTE_LEADING_BYTE_P(c) BYTE_C1_P (c)
+#define BUFBYTE_LEADING_BYTE_P(byte) BYTE_C1_P (byte)
 
 
 /************************************************************************/
@@ -564,35 +563,33 @@ struct charset_lookup {
   Charset_ID next_allocated_2_byte_leading_byte;
 };
 
-extern struct charset_lookup *chlook;
+INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (Bufbyte lb);
+INLINE_HEADER Lisp_Object
+CHARSET_BY_LEADING_BYTE (Bufbyte lb)
+{
+  extern struct charset_lookup *chlook;
 
 #ifdef ERROR_CHECK_TYPECHECK
-/* int not Bufbyte even though that is the actual type of a leading byte.
-   This way, out-of-range values will get caught rather than automatically
-   truncated. */
-INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (int lb);
-INLINE_HEADER Lisp_Object
-CHARSET_BY_LEADING_BYTE (int lb)
-{
-  assert (lb >= MIN_LEADING_BYTE &&
-	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
+  /* When error-checking is on, x86 GCC 2.95.2 -O3 miscompiles the
+     following unless we introduce `tem'. */
+  int tem = lb;
+  type_checking_assert (tem >= MIN_LEADING_BYTE &&
+			tem < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
+#endif
   return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
-#else
-
-#define CHARSET_BY_LEADING_BYTE(lb) \
-  (chlook->charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
-
-#endif
-
 INLINE_HEADER Lisp_Object
-CHARSET_BY_ATTRIBUTES (int chars, int multi, int final, int dir);
+CHARSET_BY_ATTRIBUTES (unsigned int type, unsigned char final, int dir);
 INLINE_HEADER Lisp_Object
-CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
+CHARSET_BY_ATTRIBUTES (unsigned int type, unsigned char final, int dir)
 {
-  return chlook->charset_by_attributes[(dimension == 1 ? 0 : 2)
-				      + (chars == 94 ? 0 : 1)][final][dir];
+  extern struct charset_lookup *chlook;
+
+  type_checking_assert (type  < countof (chlook->charset_by_attributes) &&
+			final < countof (chlook->charset_by_attributes[0]) &&
+			dir   < countof (chlook->charset_by_attributes[0][0]));
+  return chlook->charset_by_attributes[type][final][dir];
 }
 
 /* Table of number of bytes in the string representation of a character
@@ -604,13 +601,11 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 extern const Bytecount rep_bytes_by_first_byte[0xA0];
 
 /* Number of bytes in the string representation of a character. */
-INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE_HEADER int REP_BYTES_BY_FIRST_BYTE (Bufbyte fb);
 INLINE_HEADER int
-REP_BYTES_BY_FIRST_BYTE (int fb)
+REP_BYTES_BY_FIRST_BYTE (Bufbyte fb)
 {
-#ifdef ERROR_CHECK_TYPECHECK
-  assert (0 <= fb && fb < 0xA0);
-#endif
+  type_checking_assert (fb < 0xA0);
   return rep_bytes_by_first_byte[fb];
 }
 

@@ -402,11 +402,10 @@ assoc_ignore_text_properties (REGISTER Lisp_Object key, Lisp_Object list)
 #endif /* FSFmacs */
 
 DEFUN ("get-buffer", Fget_buffer, 1, 1, 0, /*
-Return the buffer named NAME (a string).
-If there is no live buffer named NAME, return nil.
-NAME may also be a buffer; if so, the value is that buffer.
+Return the buffer named BUFFER-NAME (a string), or nil if there is none.
+BUFFER-NAME may also be a buffer; if so, the value is that buffer.
 */
-       (name))
+       (buffer_name))
 {
 #ifdef I18N3
   /* #### Doc string should indicate that the buffer name will get
@@ -415,9 +414,9 @@ NAME may also be a buffer; if so, the value is that buffer.
 
   /* #### This might return a dead buffer.  This is gross.  This is
      called FSF compatibility. */
-  if (BUFFERP (name))
-    return name;
-  return get_buffer (name, 0);
+  if (BUFFERP (buffer_name))
+    return buffer_name;
+  return get_buffer (buffer_name, 0);
   /* FSFmacs 19.29 calls assoc_ignore_text_properties() here.
      Bleagh!! */
 }
@@ -633,10 +632,11 @@ The value is never nil.
 
 DEFUN ("make-indirect-buffer", Fmake_indirect_buffer, 2, 2,
        "bMake indirect buffer (to buffer): \nBName of indirect buffer: ", /*
-Create and return an indirect buffer for buffer BASE, named NAME.
-BASE should be an existing buffer (or buffer name).
+Create and return an indirect buffer for buffer BASE-BUFFER, named NAME.
+BASE-BUFFER should be an existing buffer (or buffer name).
 NAME should be a string which is not the name of an existing buffer.
-If BASE is an indirect buffer itself, the base buffer for that buffer
+
+If BASE-BUFFER is itself an indirect buffer, the base buffer for that buffer
  is made the base buffer for the newly created buffer. (Thus, there will
  never be indirect buffers whose base buffers are themselves indirect.)
 */
@@ -924,7 +924,7 @@ as BUFFER means use current buffer.
      display).  We still need to make sure redisplay realizes that the
      contents have potentially altered and it needs to do some
      work. */
-  buf = decode_buffer(buffer, 0);
+  buf = decode_buffer (buffer, 0);
   BUF_MODIFF (buf)++;
   BUF_SAVE_MODIFF (buf) = NILP (flag) ? BUF_MODIFF (buf) : 0;
   MARK_MODELINE_CHANGED;
@@ -1078,7 +1078,7 @@ VISIBLE-OK.
 }
 
 DEFUN ("buffer-disable-undo", Fbuffer_disable_undo, 0, 1, "", /*
-Make BUFFER stop keeping undo information.
+Stop keeping undo information for BUFFER.
 Any undo records it already has are discarded.
 No argument or nil as argument means do this for the current buffer.
 */
@@ -1091,7 +1091,7 @@ No argument or nil as argument means do this for the current buffer.
 }
 
 DEFUN ("buffer-enable-undo", Fbuffer_enable_undo, 0, 1, "", /*
-Start keeping undo information for buffer BUFFER.
+Start keeping undo information for BUFFER.
 No argument or nil as argument means do this for the current buffer.
 */
        (buffer))
@@ -1280,7 +1280,7 @@ with `delete-process'.
     /* #### This is a problem if this buffer is in a dedicated window.
        Need to undedicate any windows of this buffer first (and delete them?)
        */
-    Freplace_buffer_in_windows (buf);
+    Freplace_buffer_in_windows (buf, Qnil, Qnil);
 
     font_lock_buffer_was_killed (b);
 
@@ -1524,7 +1524,7 @@ Use `switch-to-buffer' or `pop-to-buffer' to switch buffers permanently.
 
 
 DEFUN ("barf-if-buffer-read-only", Fbarf_if_buffer_read_only, 0, 3, 0, /*
-Signal a `buffer-read-only' error if the buffer is read-only.
+Signal a `buffer-read-only' error if BUFFER is read-only.
 Optional argument BUFFER defaults to the current buffer.
 
 If optional argument START is non-nil, all extents in the buffer
@@ -1974,7 +1974,7 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
   if (sink_type != DFC_TYPE_LISP_LSTREAM)
     {
       sink->data.len = Dynarr_length (conversion_out_dynarr);
-      Dynarr_add (conversion_out_dynarr, 0);
+      Dynarr_add (conversion_out_dynarr, '\0');	/* NUL-terminate! */
       sink->data.ptr = Dynarr_atp (conversion_out_dynarr, 0);
     }
 }
@@ -2023,7 +2023,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 
       for (; ptr < end; ptr++)
         {
-          Extbyte c = *ptr;
+          Bufbyte c = *ptr;
 
 #ifdef UTF2000
 	  if (BYTE_ASCII_P (c))
@@ -2122,7 +2122,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
   if (sink_type != DFC_TYPE_LISP_LSTREAM)
     {
       sink->data.len = Dynarr_length (conversion_in_dynarr);
-      Dynarr_add (conversion_in_dynarr, 0); /* remember to zero-terminate! */
+      Dynarr_add (conversion_in_dynarr, '\0'); /* NUL-terminate! */
       sink->data.ptr = Dynarr_atp (conversion_in_dynarr, 0);
     }
 }
@@ -2232,16 +2232,16 @@ the read-only state of the buffer.  See also `kill-all-local-variables'.
   Vchange_major_mode_hook = Qnil;
 
   DEFVAR_BOOL ("find-file-compare-truenames", &find_file_compare_truenames /*
-If this is true, then the find-file command will check the truenames
+If this is true, then the `find-file' command will check the truenames
 of all visited files when deciding whether a given file is already in
-a buffer, instead of just the buffer-file-name.  This means that if you
-attempt to visit another file which is a symbolic-link to a file which is
-already in a buffer, the existing buffer will be found instead of a newly-
-created one.  This works if any component of the pathname (including a non-
-terminal component) is a symbolic link as well, but doesn't work with hard
-links (nothing does).
+a buffer, instead of just `buffer-file-name'.  This means that if you
+attempt to visit another file which is a symbolic link to a file which
+is already in a buffer, the existing buffer will be found instead of a
+newly-created one.  This works if any component of the pathname
+(including a non-terminal component) is a symbolic link as well, but
+doesn't work with hard links (nothing does).
 
-See also the variable find-file-use-truenames.
+See also the variable `find-file-use-truenames'.
 */ );
   find_file_compare_truenames = 0;
 
@@ -2252,7 +2252,7 @@ will never be a symbolic link anywhere in its directory path.
 That is, the buffer-file-name and buffer-file-truename will be equal.
 This doesn't work with hard links.
 
-See also the variable find-file-compare-truenames.
+See also the variable `find-file-compare-truenames'.
 */ );
   find_file_use_truenames = 0;
 
@@ -2936,8 +2936,8 @@ and VALUE is the old value.
 List of undo entries in current buffer.
 Recent changes come first; older changes follow newer.
 
-An entry (BEG . END) represents an insertion which begins at
-position BEG and ends at position END.
+An entry (START . END) represents an insertion which begins at
+position START and ends at position END.
 
 An entry (TEXT . POSITION) represents the deletion of the string TEXT
 from (abs POSITION).  If POSITION is positive, point was at the front
@@ -3021,8 +3021,8 @@ The default is t, which means that text is invisible
 if it has (or is covered by an extent with) a non-nil `invisible' property.
 If the value is a list, a text character is invisible if its `invisible'
 property is an element in that list.
-If an element is a cons cell of the form (PROP . ELLIPSIS),
-then characters with property value PROP are invisible,
+If an element is a cons cell of the form (PROPERTY . ELLIPSIS),
+then characters with property value PROPERTY are invisible,
 and they have an ellipsis as well if ELLIPSIS is non-nil.
 Note that the actual characters used for the ellipsis are controllable
 using `invisible-text-glyph', and default to "...".

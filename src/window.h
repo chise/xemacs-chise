@@ -310,7 +310,7 @@ DECLARE_LRECORD (window_configuration, struct window_config);
 EXFUN (Fget_buffer_window, 3);
 EXFUN (Fmove_to_window_line, 2);
 EXFUN (Frecenter, 2);
-EXFUN (Freplace_buffer_in_windows, 1);
+EXFUN (Freplace_buffer_in_windows, 3);
 EXFUN (Fselect_window, 2);
 EXFUN (Fselected_window, 1);
 EXFUN (Fset_window_buffer, 3);

@@ -181,6 +181,7 @@ struct x_device
   unsigned int need_to_add_mask, down_mask;
   KeyCode last_downkey;
   Time release_time;
+  Time modifier_release_time;
 };
 
 #define DEVICE_X_DATA(d) DEVICE_TYPE_DATA (d, x)

@@ -770,8 +770,8 @@ Bufpos bytind_to_bufpos (struct buffer *buf, Bytind x);
   DATA,   (ptr, len),    // input data is a fixed buffer of size len
   ALLOCA, (ptr, len),    // output data is in a alloca()ed buffer of size len
   MALLOC, (ptr, len),    // output data is in a malloc()ed buffer of size len
-  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output.
-  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output.
+  C_STRING_ALLOCA, ptr,  // equivalent to ALLOCA (ptr, len_ignored) on output
+  C_STRING_MALLOC, ptr,  // equivalent to MALLOC (ptr, len_ignored) on output
   C_STRING,     ptr,     // equivalent to DATA, (ptr, strlen (ptr) + 1) on input
   LISP_STRING,  string,  // input or output is a Lisp_Object of type string
   LISP_BUFFER,  buffer,  // output is written to (point) in lisp buffer
@@ -1459,5 +1459,61 @@ UPCASE (struct buffer *buf, Emchar ch)
 /* Downcase a character, or make no change if that cannot be done. */
 
 #define DOWNCASE(buf, ch) DOWNCASE_TABLE_OF (buf, ch)
+
+/************************************************************************/
+/*		Lisp string representation convenience functions	*/
+/************************************************************************/
+/* Because the representation of internally formatted data is subject to change,
+   It's bad style to do something like strcmp (XSTRING_DATA (s), "foo")
+   Instead, use the portable: bufbyte_strcmp (XSTRING_DATA (s), "foo")
+   or bufbyte_memcmp (XSTRING_DATA (s), "foo", 3) */
+
+/* Like strcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string);
+INLINE_HEADER int
+bufbyte_strcmp (const Bufbyte *bp, const char *ascii_string)
+{
+#ifdef MULE
+  while (1)
+    {
+      int diff;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if ((diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string) != 0)
+	return diff;
+      if (*ascii_string == '\0')
+	return 0;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+#else
+  return strcmp ((char *)bp, ascii_string);
+#endif
+}
+
+
+/* Like memcmp, except first arg points at internally formatted data,
+   while the second points at a string of only ASCII chars. */
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len);
+INLINE_HEADER int
+bufbyte_memcmp (const Bufbyte *bp, const char *ascii_string, size_t len)
+{
+#ifdef MULE
+  while (len--)
+    {
+      int diff = charptr_emchar (bp) - *(Bufbyte *) ascii_string;
+      type_checking_assert (BYTE_ASCII_P (*ascii_string));
+      if (diff != 0)
+	return diff;
+      ascii_string++;
+      INC_CHARPTR (bp);
+    }
+  return 0;
+#else
+  return memcmp (bp, ascii_string, len);
+#endif
+}
 
 #endif /* INCLUDED_buffer_h_ */

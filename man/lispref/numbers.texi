@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/numbers.info
 @node Numbers, Strings and Characters, Lisp Data Types, Top
@@ -37,17 +37,17 @@ they have a fixed, limited amount of precision.
 
   The range of values for an integer depends on the machine.  The
 minimum range is @minus{}134217728 to 134217727 (28 bits; i.e.,
-@ifinfo 
+@ifinfo
 -2**27
 @end ifinfo
-@tex 
+@tex
 $-2^{27}$
 @end tex
-to 
-@ifinfo 
+to
+@ifinfo
 2**27 - 1),
 @end ifinfo
-@tex 
+@tex
 $2^{27}-1$),
 @end tex
 but some machines may provide a wider range.  Many examples in this
@@ -410,8 +410,11 @@ if any argument is floating.
 do not check for overflow.  Thus @code{(1+ 134217727)} may evaluate to
 @minus{}134217728, depending on your hardware.
 
-@defun 1+ number-or-marker
-This function returns @var{number-or-marker} plus 1.
+@defun 1+ number
+This function returns @var{number} plus one.  @var{number} may be a
+number, character or marker.  Markers and characters are converted to
+integers.
+
 For example,
 
 @example
@@ -442,17 +445,22 @@ more convenient and natural way to increment a variable is
 @w{@code{(incf foo)}}.
 @end defun
 
-@defun 1- number-or-marker
-This function returns @var{number-or-marker} minus 1.
+@defun 1- number
+This function returns @var{number} minus one.  @var{number} may be a
+number, character or marker.  Markers and characters are converted to
+integers.
 @end defun
 
 @defun abs number
 This returns the absolute value of @var{number}.
 @end defun
 
-@defun + &rest numbers-or-markers
+@defun + &rest numbers
 This function adds its arguments together.  When given no arguments,
 @code{+} returns 0.
+
+If any of the arguments are characters or markers, they are first
+converted to integers.
 
 @example
 (+)
@@ -464,12 +472,15 @@ This function adds its arguments together.  When given no arguments,
 @end example
 @end defun
 
-@defun - &optional number-or-marker &rest other-numbers-or-markers
+@defun - &optional number &rest other-numbers
 The @code{-} function serves two purposes: negation and subtraction.
 When @code{-} has a single argument, the value is the negative of the
 argument.  When there are multiple arguments, @code{-} subtracts each of
-the @var{other-numbers-or-markers} from @var{number-or-marker},
-cumulatively.  If there are no arguments, the result is 0.
+the @var{other-numbers} from @var{number}, cumulatively.  If there are
+no arguments, an error is signaled.
+
+If any of the arguments are characters or markers, they are first
+converted to integers.
 
 @example
 (- 10 1 2 3 4)
@@ -481,9 +492,12 @@ cumulatively.  If there are no arguments, the result is 0.
 @end example
 @end defun
 
-@defun * &rest numbers-or-markers
+@defun * &rest numbers
 This function multiplies its arguments together, and returns the
 product.  When given no arguments, @code{*} returns 1.
+
+If any of the arguments are characters or markers, they are first
+converted to integers.
 
 @example
 (*)
@@ -495,19 +509,23 @@ product.  When given no arguments, @code{*} returns 1.
 @end example
 @end defun
 
-@defun / dividend divisor &rest divisors
-This function divides @var{dividend} by @var{divisor} and returns the
-quotient.  If there are additional arguments @var{divisors}, then it
-divides @var{dividend} by each divisor in turn.  Each argument may be a
-number or a marker.
+@defun / dividend &rest divisors
+The @code{/} function serves two purposes: inversion and division.  When
+@code{/} has a single argument, the value is the inverse of the
+argument.  When there are multiple arguments, @code{/} divides
+@var{dividend} by each of the @var{divisors}, cumulatively, returning
+the quotient.  If there are no arguments, an error is signaled.
 
-If all the arguments are integers, then the result is an integer too.
+If none of the arguments are floats, then the result is an integer.
 This means the result has to be rounded.  On most machines, the result
 is rounded towards zero after each division, but some machines may round
 differently with negative arguments.  This is because the Lisp function
 @code{/} is implemented using the C division operator, which also
 permits machine-dependent rounding.  As a practical matter, all known
 machines round in the standard fashion.
+
+If any of the arguments are characters or markers, they are first
+converted to integers.
 
 @cindex @code{arith-error} in division
 If you divide by 0, an @code{arith-error} error is signaled.
@@ -522,6 +540,8 @@ If you divide by 0, an @code{arith-error} error is signaled.
      @result{} 2
 (/ 25 3 2)
      @result{} 4
+(/ 3.0)
+     @result{} 0.3333333333333333
 (/ -17 6)
      @result{} -2
 @end example
@@ -627,23 +647,23 @@ nearest integer below; @code{fceiling}, the nearest integer above;
 @code{ftruncate}, the nearest integer in the direction towards zero;
 @code{fround}, the nearest integer.
 
-@defun ffloor float
-This function rounds @var{float} to the next lower integral value, and
+@defun ffloor number
+This function rounds @var{number} to the next lower integral value, and
 returns that value as a floating point number.
 @end defun
 
-@defun fceiling float
-This function rounds @var{float} to the next higher integral value, and
+@defun fceiling number
+This function rounds @var{number} to the next higher integral value, and
 returns that value as a floating point number.
 @end defun
 
-@defun ftruncate float
-This function rounds @var{float} towards zero to an integral value, and
+@defun ftruncate number
+This function rounds @var{number} towards zero to an integral value, and
 returns that value as a floating point number.
 @end defun
 
-@defun fround float
-This function rounds @var{float} to the nearest integral value,
+@defun fround number
+This function rounds @var{number} to the nearest integral value,
 and returns that value as a floating point number.
 @end defun
 
@@ -698,7 +718,7 @@ like this (with 8-bit binary numbers):
 (lsh 3 2)
      @result{} 12
 ;; @r{Decimal 3 becomes decimal 12.}
-00000011 @result{} 00001100       
+00000011 @result{} 00001100
 @end group
 @end example
 
@@ -709,14 +729,14 @@ On the other hand, shifting one place to the right looks like this:
 (lsh 6 -1)
      @result{} 3
 ;; @r{Decimal 6 becomes decimal 3.}
-00000110 @result{} 00000011       
+00000110 @result{} 00000011
 @end group
 
 @group
 (lsh 5 -1)
      @result{} 2
 ;; @r{Decimal 5 becomes decimal 2.}
-00000101 @result{} 00000010       
+00000101 @result{} 00000010
 @end group
 @end example
 
@@ -739,7 +759,7 @@ In binary, in the 28-bit implementation, the argument looks like this:
 @example
 @group
 ;; @r{Decimal 134,217,727}
-0111  1111 1111  1111 1111  1111 1111         
+0111  1111 1111  1111 1111  1111 1111
 @end group
 @end example
 
@@ -749,7 +769,7 @@ which becomes the following when left shifted:
 @example
 @group
 ;; @r{Decimal @minus{}2}
-1111  1111 1111  1111 1111  1111 1110         
+1111  1111 1111  1111 1111  1111 1110
 @end group
 @end example
 @end defun
@@ -770,10 +790,10 @@ looks like this:
 
 @example
 @group
-(ash -6 -1) @result{} -3            
+(ash -6 -1) @result{} -3
 ;; @r{Decimal @minus{}6 becomes decimal @minus{}3.}
 1111  1111 1111  1111 1111  1111 1010
-     @result{} 
+     @result{}
 1111  1111 1111  1111 1111  1111 1101
 @end group
 @end example
@@ -786,7 +806,7 @@ In contrast, shifting the pattern of bits one place to the right with
 (lsh -6 -1) @result{} 134217725
 ;; @r{Decimal @minus{}6 becomes decimal 134,217,725.}
 1111  1111 1111  1111 1111  1111 1010
-     @result{} 
+     @result{}
 0111  1111 1111  1111 1111  1111 1101
 @end group
 @end example
@@ -944,7 +964,7 @@ bit is one in the result if, and only if, the @var{n}th bit is zero in
 @var{integer}, and vice-versa.
 
 @example
-(lognot 5)             
+(lognot 5)
      @result{} -6
 ;;  5  =  @r{0000  0000 0000  0000 0000  0000 0101}
 ;; @r{becomes}
@@ -961,71 +981,60 @@ These mathematical functions are available if floating point is
 supported (which is the normal state of affairs).  They allow integers
 as well as floating point numbers as arguments.
 
-@defun sin arg
-@defunx cos arg
-@defunx tan arg
+@defun sin number
+@defunx cos number
+@defunx tan number
 These are the ordinary trigonometric functions, with argument measured
 in radians.
 @end defun
 
-@defun asin arg
-The value of @code{(asin @var{arg})} is a number between @minus{}pi/2
-and pi/2 (inclusive) whose sine is @var{arg}; if, however, @var{arg}
+@defun asin number
+The value of @code{(asin @var{number})} is a number between @minus{}pi/2
+and pi/2 (inclusive) whose sine is @var{number}; if, however, @var{number}
 is out of range (outside [-1, 1]), then the result is a NaN.
 @end defun
 
-@defun acos arg
-The value of @code{(acos @var{arg})} is a number between 0 and pi
-(inclusive) whose cosine is @var{arg}; if, however, @var{arg}
+@defun acos number
+The value of @code{(acos @var{number})} is a number between 0 and pi
+(inclusive) whose cosine is @var{number}; if, however, @var{number}
 is out of range (outside [-1, 1]), then the result is a NaN.
 @end defun
 
-@defun atan arg
-The value of @code{(atan @var{arg})} is a number between @minus{}pi/2
-and pi/2 (exclusive) whose tangent is @var{arg}.
+@defun atan number &optional number2
+The value of @code{(atan @var{number})} is a number between @minus{}pi/2
+and pi/2 (exclusive) whose tangent is @var{number}.
+
+If optional argument @var{number2} is supplied, the function returns
+@code{atan2(@var{number},@var{number2})}.
 @end defun
 
-@defun sinh arg
-@defunx cosh arg
-@defunx tanh arg
+@defun sinh number
+@defunx cosh number
+@defunx tanh number
 These are the ordinary hyperbolic trigonometric functions.
 @end defun
 
-@defun asinh arg
-@defunx acosh arg
-@defunx atanh arg
+@defun asinh number
+@defunx acosh number
+@defunx atanh number
 These are the inverse hyperbolic trigonometric functions.
 @end defun
 
-@defun exp arg
+@defun exp number
 This is the exponential function; it returns @i{e} to the power
-@var{arg}.  @i{e} is a fundamental mathematical constant also called the
+@var{number}.  @i{e} is a fundamental mathematical constant also called the
 base of natural logarithms.
 @end defun
 
-@defun log arg &optional base
-This function returns the logarithm of @var{arg}, with base @var{base}.
-If you don't specify @var{base}, the base @var{e} is used.  If @var{arg}
+@defun log number &optional base
+This function returns the logarithm of @var{number}, with base @var{base}.
+If you don't specify @var{base}, the base @var{e} is used.  If @var{number}
 is negative, the result is a NaN.
 @end defun
 
-@ignore
-@defun expm1 arg
-This function returns @code{(1- (exp @var{arg}))}, but it is more
-accurate than that when @var{arg} is negative and @code{(exp @var{arg})}
-is close to 1.
-@end defun
-
-@defun log1p arg
-This function returns @code{(log (1+ @var{arg}))}, but it is more
-accurate than that when @var{arg} is so small that adding 1 to it would
-lose accuracy.
-@end defun
-@end ignore
-
-@defun log10 arg
-This function returns the logarithm of @var{arg}, with base 10.  If
-@var{arg} is negative, the result is a NaN.  @code{(log10 @var{x})}
+@defun log10 number
+This function returns the logarithm of @var{number}, with base 10.  If
+@var{number} is negative, the result is a NaN.  @code{(log10 @var{x})}
 @equiv{} @code{(log @var{x} 10)}, at least approximately.
 @end defun
 
@@ -1036,13 +1045,13 @@ integer; in this case, it is truncated to fit the range of possible
 integer values.
 @end defun
 
-@defun sqrt arg
-This returns the square root of @var{arg}.  If @var{arg} is negative,
+@defun sqrt number
+This returns the square root of @var{number}.  If @var{number} is negative,
 the value is a NaN.
 @end defun
 
-@defun cube-root arg
-This returns the cube root of @var{arg}.
+@defun cube-root number
+This returns the cube root of @var{number}.
 @end defun
 
 @node Random Numbers

@@ -71,9 +71,9 @@ struct Lisp_Hash_Table
 #define HASH_TABLE_MIN_SIZE 10
 
 #define HASH_CODE(key, ht)						\
-((((ht)->hash_function ? (ht)->hash_function (key) : LISP_HASH (key))	\
-  * (ht)->golden_ratio)							\
- % (ht)->size)
+  ((((ht)->hash_function ? (ht)->hash_function (key) : LISP_HASH (key))	\
+    * (ht)->golden_ratio)						\
+   % (ht)->size)
 
 #define KEYS_EQUAL_P(key1, key2, testfun) \
   (EQ (key1, key2) || ((testfun) && (testfun) (key1, key2)))
@@ -1432,7 +1432,7 @@ internal_hash (Lisp_Object obj, int depth)
 
 DEFUN ("sxhash", Fsxhash, 1, 1, 0, /*
 Return a hash value for OBJECT.
-(equal obj1 obj2) implies (= (sxhash obj1) (sxhash obj2)).
+\(equal obj1 obj2) implies (= (sxhash obj1) (sxhash obj2)).
 */
        (object))
 {

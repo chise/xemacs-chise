@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/intro.info
 
@@ -368,7 +368,7 @@ when it starts in an interactive mode:
 Gnomovision version 69, Copyright (C) 19@var{yy} @var{name of author}
 Gnomovision comes with ABSOLUTELY NO WARRANTY; for details
 type `show w'.  This is free software, and you are welcome
-to redistribute it under certain conditions; type `show c' 
+to redistribute it under certain conditions; type `show c'
 for details.
 @end smallexample
 
@@ -386,7 +386,7 @@ necessary.  Here is a sample; alter the names:
 @group
 Yoyodyne, Inc., hereby disclaims all copyright
 interest in the program `Gnomovision'
-(which makes passes at compilers) written 
+(which makes passes at compilers) written
 by James Hacker.
 
 @var{signature of Ty Coon}, 1 April 1989
@@ -441,7 +441,7 @@ but not flawless.  There are a few topics that are not covered, either
 because we consider them secondary (such as most of the individual
 modes) or because they are yet to be written.  Because we are not able
 to deal with them completely, we have left out several parts
-intentionally.  This includes most information about usage on VMS.
+intentionally.
 
   The manual should be fully correct in what it does cover, and it is
 therefore open to criticism on anything it says---from specific examples
@@ -712,7 +712,7 @@ The description follows on succeeding lines, sometimes with examples.
                                           function, @code{foo}.
 * A Sample Variable Description::       A description of an imaginary
                                           variable,
-                                          @code{electric-future-map}.  
+                                          @code{electric-future-map}.
 @end menu
 
 @node A Sample Function Description

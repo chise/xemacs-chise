@@ -1,6 +1,20 @@
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-11-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib.h: Typo fixes and tiny clarifications.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.
+
+2000-09-21  Andy Piper  <andy@xemacs.org>
+
+	* lwlib.h: declare copy_widget_value_tree.
+
+	* lwlib.c (copy_widget_value_tree): make non-static.
 
 2000-09-19  Martin Buchholz  <martin@xemacs.org>
 

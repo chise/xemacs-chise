@@ -134,32 +134,33 @@ user-id          User logon id
 user-name        User full name"
   (error "not yet implemented"))
 
-(defun generic-print-buffer (&optional buf)
-  "Print buffer BUF using a printing method appropriate to the O.S. being run.
+(defun generic-print-buffer (&optional buffer)
+  "Print buffer BUFFER using a printing method appropriate to the O.S. being run.
 Under Unix, `lpr' is normally used to spool out a no-frills version of the
 buffer, or the `ps-print' package is used to pretty-print the buffer to a
 PostScript printer.  Under MS Windows, the built-in printing support is used.
 
-If BUF is nil or omitted, the current buffer is used."
+If BUFFER is nil or omitted, the current buffer is used."
   (interactive)
-  (generic-print-region (point-min buf) (point-max buf) buf))
+  (generic-print-region (point-min buffer) (point-max buffer) buffer))
 
-(defun generic-print-region (b e &optional buf)
+(defun generic-print-region (start end &optional buffer)
   "Print region using a printing method appropriate to the O.S. being run.
-The region between B and E of BUF (defaults to the current buffer) is printed.
+The region between START and END of BUFFER (defaults to the current
+buffer) is printed.
 
 Under Unix, `lpr' is normally used to spool out a no-frills version of the
 buffer, or the `ps-print' package is used to pretty-print the buffer to a
 PostScript printer.  Under MS Windows, the built-in printing support is used."
   (cond ((valid-specifier-tag-p 'msprinter)
 	 (let (d f)
-	   (setq buf (decode-buffer buf))
+	   (setq buffer (decode-buffer buffer))
 	   (unwind-protect
 	       (progn
 		 (setq d (make-device 'msprinter printer-name))
 		 (setq f (make-frame
-			  (list* 'name (concat (substitute ?_ ?. 
-							   (buffer-name buf))
+			  (list* 'name (concat (substitute ?_ ?.
+							   (buffer-name buffer))
 					       " - XEmacs")
 				 '(menubar-visible-p nil
 				   has-modeline-p nil
@@ -175,12 +176,12 @@ PostScript printer.  Under MS Windows, the built-in printing support is used."
 			(pixel-vertical-clip-threshold (/ vertdpi 2))
 			(last-end 0)
 			done)
-		   (set-window-buffer w (or buf (current-buffer)))
-		   (set-window-start w b)
+		   (set-window-buffer w (or buffer (current-buffer)))
+		   (set-window-start w start)
 		   (while (not done)
 		     (redisplay-frame f)
 		     (print-job-eject-page f)
-		     (let ((end (window-end w))
+		     (let ((this-end (window-end w))
 			   (pixvis (window-last-line-visible-height w)))
 		       ;; in case we get stuck somewhere, bow out
 		       ;; rather than printing an infinite number of
@@ -188,14 +189,14 @@ PostScript printer.  Under MS Windows, the built-in printing support is used."
 		       ;; bigger than an entire page.  but we really
 		       ;; need this check here.  we should be more
 		       ;; clever in our check, to deal with this case.
-		       (if (or (= end last-end)
+		       (if (or (= this-end last-end)
 			       ;; #### fuckme!  window-end returns a value
 			       ;; outside of the valid range of buffer
 			       ;; positions!!!
-			       (>= end e))
+			       (>= this-end end))
 			   (setq done t)
-			 (setq last-end end)
-			 (set-window-start w end)
+			 (setq last-end this-end)
+			 (set-window-start w this-end)
 			 (if pixvis
 			     (save-selected-window
 			       (select-window w)
@@ -207,5 +208,5 @@ PostScript printer.  Under MS Windows, the built-in printing support is used."
 	     )))
 	((and (not (eq system-type 'windows-nt))
 	      (fboundp 'lpr-buffer))
-	 (lpr-region buf))
+	 (lpr-region buffer))
 	(t (error "No print support available"))))

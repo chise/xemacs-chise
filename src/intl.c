@@ -168,16 +168,18 @@ x_get_composed_input (XKeyPressedEvent *x_key_event, XIC context,
 Lisp_Object Qdefer_gettext;
 
 DEFUN ("ignore-defer-gettext", Fignore_defer_gettext, 1, 1, 0, /*
-If OBJ is of the form (defer-gettext "string"), return the string.
+If OBJECT is of the form (defer-gettext "string"), return the string.
 The purpose of the defer-gettext symbol is to identify strings which
 are translated when they are referenced instead of when they are defined.
 */
-       (obj))
+       (object))
 {
-  if (CONSP (obj) && SYMBOLP (Fcar (obj)) && EQ (Fcar (obj), Qdefer_gettext))
-    return Fcar (Fcdr (obj));
+  if (CONSP (object)
+      && SYMBOLP (Fcar (object))
+      && EQ (Fcar (object), Qdefer_gettext))
+    return Fcar (Fcdr (object));
   else
-    return obj;
+    return object;
 }
 
 DEFUN ("gettext", Fgettext, 1, 1, 0, /*

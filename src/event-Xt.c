@@ -687,20 +687,29 @@ x_handle_sticky_modifiers (XEvent *ev, struct device *d)
     { /* Not a modifier key */
       Bool key_event_p = (type == KeyPress || type == KeyRelease);
 
-      if (type == KeyPress && !xd->last_downkey)
-	xd->last_downkey = keycode;
-      else if (type == ButtonPress ||
-	       (type == KeyPress && xd->last_downkey &&
-		(keycode != xd->last_downkey ||
-		 ev->xkey.time != xd->release_time)))
+      if (type == ButtonPress
+	  || (type == KeyPress
+	      && ((xd->last_downkey
+		   && ((keycode != xd->last_downkey
+			|| ev->xkey.time != xd->release_time)))
+		  || (INTP (Vmodifier_keys_sticky_time)
+		      && ev->xkey.time
+		      > (xd->modifier_release_time
+			 + XINT (Vmodifier_keys_sticky_time))))))
 	{
 	  xd->need_to_add_mask = 0;
 	  xd->last_downkey = 0;
 	}
+      else if (type == KeyPress && !xd->last_downkey)
+	xd->last_downkey = keycode;
+
       if (type == KeyPress)
 	xd->release_time = 0;
       if (type == KeyPress || type == ButtonPress)
-	xd->down_mask = 0;
+	{
+	  xd->down_mask = 0;
+	  xd->modifier_release_time = 0;
+	}
 
       if (key_event_p)
         ev->xkey.state    |= xd->need_to_add_mask;
@@ -722,7 +731,8 @@ x_handle_sticky_modifiers (XEvent *ev, struct device *d)
 	   So we assume that if the release and the next press
 	   occur at the same time, the key was actually auto-
 	   repeated.  Under Open-Windows, at least, this works. */
-	xd->release_time = key_event_p ? ev->xkey.time : ev->xbutton.time;
+	xd->modifier_release_time = xd->release_time
+	  = key_event_p ? ev->xkey.time : ev->xbutton.time;
     }
   else                          /* Modifier key pressed */
     {
@@ -740,6 +750,15 @@ x_handle_sticky_modifiers (XEvent *ev, struct device *d)
 	{
 	  xd->last_downkey = 0;
 	  xd->need_to_add_mask = 0;
+	}
+
+      if (xd->modifier_release_time
+	  && INTP (Vmodifier_keys_sticky_time)
+	  && (ev->xkey.time
+	      > xd->modifier_release_time + XINT (Vmodifier_keys_sticky_time)))
+	{
+	  xd->need_to_add_mask = 0;
+	  xd->down_mask = 0;
 	}
 
 #define FROB(mask)				\
@@ -767,6 +786,7 @@ do {						\
 	  xd->need_to_add_mask |= mask;		\
 	}					\
     }						\
+  xd->modifier_release_time = ev->xkey.time;	\
 } while (0)
 
       for (i = 0; i < xd->x_keysym_map_keysyms_per_code; i++)

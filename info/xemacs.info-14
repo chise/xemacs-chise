@@ -30,6 +30,164 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Mail Mode,  Prev: Mail Headers,  Up: Sending Mail
+
+Mail Mode
+=========
+
+   The major mode used in the `*mail*' buffer is Mail mode.  Mail mode
+is similar to Text mode, but several commands are provided on the `C-c'
+prefix.  These commands all deal specifically with editing or sending
+the message.
+
+`C-c C-s'
+     Send the message, and leave the `*mail*' buffer selected
+     (`mail-send').
+
+`C-c C-c'
+     Send the message, and select some other buffer
+     (`mail-send-and-exit').
+
+`C-c C-f C-t'
+     Move to the `To' header field, creating one if there is none
+     (`mail-to').
+
+`C-c C-f C-s'
+     Move to the `Subject' header field, creating one if there is none
+     (`mail-subject').
+
+`C-c C-f C-c'
+     Move to the `CC' header field, creating one if there is none
+     (`mail-cc').
+
+`C-c C-w'
+     Insert the file `~/.signature' at the end of the message text
+     (`mail-signature').
+
+`C-c C-y'
+     Yank the selected message (`mail-yank-original').
+
+`C-c C-q'
+     Fill all paragraphs of yanked old messages, each individually
+     (`mail-fill-yanked-message').
+
+`<button3>'
+     Pops up a menu of useful mail-mode commands.
+
+   There are two ways to send a message.  `C-c C-c'
+(`mail-send-and-exit') is the usual way to send the message.  It sends
+the message and then deletes the window (if there is another window) or
+switches to another buffer.  It puts the `*mail*' buffer at the lowest
+priority for automatic reselection, since you are finished with using
+it.  `C-c C-s' (`mail-send') sends the message and marks the `*mail*'
+buffer unmodified, but leaves that buffer selected so that you can
+modify the message (perhaps with new recipients) and send it again.
+
+   Mail mode provides some other special commands that are useful for
+editing the headers and text of the message before you send it.  There
+are three commands defined to move point to particular header fields,
+all based on the prefix `C-c C-f' (`C-f' is for "field").  They are
+`C-c C-f C-t' (`mail-to') to move to the `To' field, `C-c C-f C-s'
+(`mail-subject') for the `Subject' field, and `C-c C-f C-c' (`mail-cc')
+for the `CC' field.  These fields have special motion commands because
+they are edited most frequently.
+
+   `C-c C-w' (`mail-signature') adds a standard piece of text at the
+end of the message to say more about who you are.  The text comes from
+the file `.signature' in your home directory.
+
+   When you use an Rmail command to send mail from the Rmail mail
+reader, you can use `C-c C-y' `mail-yank-original' inside the `*mail*'
+buffer to insert the text of the message you are replying to.  Normally
+Rmail indents each line of that message four spaces and eliminates most
+header fields.  A numeric argument specifies the number of spaces to
+indent.  An argument of just `C-u' says not to indent at all and not to
+eliminate anything.  `C-c C-y' always uses the current message from the
+`RMAIL' buffer, so you can insert several old messages by selecting one
+in `RMAIL', switching to `*mail*' and yanking it, then switching back
+to `RMAIL' to select another.
+
+   After using `C-c C-y', you can use the command `C-c C-q'
+(`mail-fill-yanked-message') to fill the paragraphs of the yanked old
+message or messages.  One use of `C-c C-q' fills all such paragraphs,
+each one separately.
+
+   Clicking the right mouse button in a mail buffer pops up a menu of
+the above commands, for easy access.
+
+   Turning on Mail mode (which `C-x m' does automatically) calls the
+value of `text-mode-hook', if it is not void or `nil', and then calls
+the value of `mail-mode-hook' if that is not void or `nil'.
+
+
+File: xemacs.info,  Node: Reading Mail,  Next: Calendar/Diary,  Prev: Sending Mail,  Up: Top
+
+Reading Mail
+************
+
+   XEmacs provides three separate mail-reading packages.  Each one
+comes with its own manual, which is included standard with the XEmacs
+distribution.
+
+   The recommended mail-reading package for new users is VM.  VM works
+with standard Unix-mail-format folders and was designed as a replacement
+for the older Rmail.
+
+   XEmacs also provides a sophisticated and comfortable front-end to the
+MH mail-processing system, called `mh-e'.  Unlike in other mail
+programs, folders in MH are stored as file-system directories, with
+each message occupying one (numbered) file.  This facilitates working
+with mail using shell commands, and many other features of MH are also
+designed to integrate well with the shell and with shell scripts.  Keep
+in mind, however, that in order to use mh-e you must have the MH
+mail-processing system installed on your computer.
+
+   Finally, XEmacs provides the Rmail package.  Rmail is (currently) the
+only mail reading package distributed with FSF GNU Emacs, and is
+powerful in its own right.  However, it stores mail folders in a special
+format called `Babyl', that is incompatible with all other
+frequently-used mail programs.  A utility program is provided for
+converting Babyl folders to standard Unix-mail format; however, unless
+you already have mail in Babyl-format folders, you should consider
+using VM or mh-e instead. (If at times you have to use FSF Emacs, it is
+not hard to obtain and install VM for that editor.)
+
+
+File: xemacs.info,  Node: Calendar/Diary,  Next: Sorting,  Prev: Reading Mail,  Up: Top
+
+Calendar Mode and the Diary
+===========================
+
+   Emacs provides the functions of a desk calendar, with a diary of
+planned or past events.  To enter the calendar, type `M-x calendar';
+this displays a three-month calendar centered on the current month, with
+point on the current date.  With a numeric argument, as in `C-u M-x
+calendar', it prompts you for the month and year to be the center of the
+three-month calendar.  The calendar uses its own buffer, whose major
+mode is Calendar mode.
+
+   `Button2' in the calendar brings up a menu of operations on a
+particular date; `Buttons3' brings up a menu of commonly used calendar
+features that are independent of any particular date.  To exit the
+calendar, type `q'.  *Note Customizing the Calendar and Diary:
+(elisp)Calendar, for customization information about the calendar and
+diary.
+
+* Menu:
+
+* Calendar Motion::        Moving through the calendar; selecting a date.
+* Scroll Calendar::        Bringing earlier or later months onto the screen.
+* Mark and Region::        Remembering dates, the mark ring.
+* General Calendar::       Exiting or recomputing the calendar.
+* LaTeX Calendar::         Print a calendar using LaTeX.
+* Holidays::               Displaying dates of holidays.
+* Sunrise/Sunset::         Displaying local times of sunrise and sunset.
+* Lunar Phases::           Displaying phases of the moon.
+* Other Calendars::        Converting dates to other calendar systems.
+* Diary::                  Displaying events from your diary.
+* Calendar Customization:: Altering the behavior of the features above.
+
+
 File: xemacs.info,  Node: Calendar Motion,  Next: Scroll Calendar,  Prev: Calendar/Diary,  Up: Calendar/Diary
 
 Movement in the Calendar
@@ -1098,169 +1256,4 @@ style of writing dates, type `M-x american-calendar'.
 applies to any date falling on that day of the week.  You can abbreviate
 the day of the week to three letters (with or without a period) or spell
 it in full; case is not significant.
-
-
-File: xemacs.info,  Node: Adding to Diary,  Next: Special Diary Entries,  Prev: Date Formats,  Up: Diary
-
-Commands to Add to the Diary
-----------------------------
-
-   While in the calendar, there are several commands to create diary
-entries:
-
-`i d'
-     Add a diary entry for the selected date (`insert-diary-entry').
-
-`i w'
-     Add a diary entry for the selected day of the week
-     (`insert-weekly-diary-entry').
-
-`i m'
-     Add a diary entry for the selected day of the month
-     (`insert-monthly-diary-entry').
-
-`i y'
-     Add a diary entry for the selected day of the year
-     (`insert-yearly-diary-entry').
-
-   You can make a diary entry for a specific date by selecting that date
-in the calendar window and typing the `i d' command.  This command
-displays the end of your diary file in another window and inserts the
-date; you can then type the rest of the diary entry.
-
-   If you want to make a diary entry that applies to a specific day of
-the week, select that day of the week (any occurrence will do) and type
-`i w'.  This inserts the day-of-week as a generic date; you can then
-type the rest of the diary entry.  You can make a monthly diary entry in
-the same fashion.  Select the day of the month, use the `i m' command,
-and type rest of the entry.  Similarly, you can insert a yearly diary
-entry with the `i y' command.
-
-   All of the above commands make marking diary entries by default.  To
-make a nonmarking diary entry, give a numeric argument to the command.
-For example, `C-u i w' makes a nonmarking weekly diary entry.
-
-   When you modify the diary file, be sure to save the file before
-exiting Emacs.
-
-
-File: xemacs.info,  Node: Special Diary Entries,  Prev: Adding to Diary,  Up: Diary
-
-Special Diary Entries
----------------------
-
-   In addition to entries based on calendar dates, the diary file can
-contain "sexp entries" for regular events such as anniversaries.  These
-entries are based on Lisp expressions (sexps) that Emacs evaluates as
-it scans the diary file.  Instead of a date, a sexp entry contains `%%'
-followed by a Lisp expression which must begin and end with
-parentheses.  The Lisp expression determines which dates the entry
-applies to.
-
-   Calendar mode provides commands to insert certain commonly used sexp
-entries:
-
-`i a'
-     Add an anniversary diary entry for the selected date
-     (`insert-anniversary-diary-entry').
-
-`i b'
-     Add a block diary entry for the current region
-     (`insert-block-diary-entry').
-
-`i c'
-     Add a cyclic diary entry starting at the date
-     (`insert-cyclic-diary-entry').
-
-   If you want to make a diary entry that applies to the anniversary of
-a specific date, move point to that date and use the `i a' command.
-This displays the end of your diary file in another window and inserts
-the anniversary description; you can then type the rest of the diary
-entry. The entry looks like this:
-
-   The effect of `i a' is to add a `diary-anniversary' sexp to your
-diary file.  You can also add one manually, for instance:
-
-     %%(diary-anniversary 10 31 1948) Arthur's birthday
-
-This entry applies to October 31 in any year after 1948; `10 31 1948'
-specifies the date.  (If you are using the European calendar style, the
-month and day are interchanged.)  The reason this expression requires a
-beginning year is that advanced diary functions can use it to calculate
-the number of elapsed years.
-
-   A "block" diary entry applies to a specified range of consecutive
-dates.  Here is a block diary entry that applies to all dates from June
-24, 1990 through July 10, 1990:
-
-     %%(diary-block 6 24 1990 7 10 1990) Vacation
-
-The `6 24 1990' indicates the starting date and the `7 10 1990'
-indicates the stopping date.  (Again, if you are using the European
-calendar style, the month and day are interchanged.)
-
-   To insert a block entry, place point and the mark on the two dates
-that begin and end the range, and type `i b'.  This command displays
-the end of your diary file in another window and inserts the block
-description; you can then type the diary entry.
-
-   "Cyclic" diary entries repeat after a fixed interval of days.  To
-create one, select the starting date and use the `i c' command.  The
-command prompts for the length of interval, then inserts the entry,
-which looks like this:
-
-     %%(diary-cyclic 50 3 1 1990) Renew medication
-
-This entry applies to March 1, 1990 and every 50th day following; `3 1
-1990' specifies the starting date.  (If you are using the European
-calendar style, the month and day are interchanged.)
-
-   All three of these commands make marking diary entries.  To insert a
-nonmarking entry, give a numeric argument to the command.  For example,
-`C-u i a' makes a nonmarking anniversary diary entry.
-
-   Marking sexp diary entries in the calendar is _extremely_
-time-consuming, since every date visible in the calendar window must be
-individually checked.  So it's a good idea to make sexp diary entries
-nonmarking (with `&') when possible.
-
-   Another sophisticated kind of sexp entry, a "floating" diary entry,
-specifies a regularly occurring event by offsets specified in days,
-weeks, and months.  It is comparable to a crontab entry interpreted by
-the `cron' utility.  Here is a nonmarking, floating diary entry that
-applies to the last Thursday in November:
-
-     &%%(diary-float 11 4 -1) American Thanksgiving
-
-The 11 specifies November (the eleventh month), the 4 specifies Thursday
-(the fourth day of the week, where Sunday is numbered zero), and the -1
-specifies "last" (1 would mean "first", 2 would mean "second", -2 would
-mean "second-to-last", and so on).  The month can be a single month or
-a list of months.  Thus you could change the 11 above to `'(1 2 3)' and
-have the entry apply to the last Thursday of January, February, and
-March.  If the month is `t', the entry applies to all months of the
-year.
-
-   The sexp feature of the diary allows you to specify diary entries
-based on any Emacs Lisp expression.  You can use the library of built-in
-functions or you can write your own functions.  The built-in functions
-include the ones shown in this section, plus a few others (*note Sexp
-Diary Entries::).
-
-   The generality of sexps lets you specify any diary entry that you can
-describe algorithmically.  Suppose you get paid on the 21st of the month
-if it is a weekday, and to the Friday before if the 21st is on a
-weekend.  The diary entry
-
-     &%%(let ((dayname (calendar-day-of-week date))
-              (day (car (cdr date))))
-           (or (and (= day 21) (memq dayname '(1 2 3 4 5)))
-               (and (memq day '(19 20)) (= dayname 5)))
-              ) Pay check deposited
-
-to just those dates.  This example illustrates how the sexp can depend
-on the variable `date'; this variable is a list (MONTH DAY YEAR) that
-gives the Gregorian date for which the diary entries are being found.
-If the value of the sexp is `t', the entry applies to that date.  If
-the sexp evaluates to `nil', the entry does _not_ apply to that date.
 

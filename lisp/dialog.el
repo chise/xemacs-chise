@@ -308,7 +308,7 @@ For type `page-setup':
 
 This invokes the Windows standard Page Setup dialog.
 This dialog is usually invoked in response to the Page Setup command, and
-used to chose such parameters as page orientation, print margins etc.
+used to choose such parameters as page orientation, print margins etc.
 Note that this dialog contains the \"Printer\" button, which invokes
 the Printer Setup dialog (see `msprinter-print-setup-dialog') so that the
 user can update the printer options or even select a different printer

@@ -50,6 +50,549 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Creating Buffers,  Next: Killing Buffers,  Prev: The Buffer List,  Up: Buffers
+
+Creating Buffers
+================
+
+   This section describes the two primitives for creating buffers.
+`get-buffer-create' creates a buffer if it finds no existing buffer
+with the specified name; `generate-new-buffer' always creates a new
+buffer and gives it a unique name.
+
+   Other functions you can use to create buffers include
+`with-output-to-temp-buffer' (*note Temporary Displays::) and
+`create-file-buffer' (*note Visiting Files::).  Starting a subprocess
+can also create a buffer (*note Processes::).
+
+ - Function: get-buffer-create name
+     This function returns a buffer named NAME.  It returns an existing
+     buffer with that name, if one exists; otherwise, it creates a new
+     buffer.  The buffer does not become the current buffer--this
+     function does not change which buffer is current.
+
+     An error is signaled if NAME is not a string.
+
+          (get-buffer-create "foo")
+               => #<buffer foo>
+
+     The major mode for the new buffer is set to Fundamental mode.  The
+     variable `default-major-mode' is handled at a higher level.  *Note
+     Auto Major Mode::.
+
+ - Function: generate-new-buffer name
+     This function returns a newly created, empty buffer, but does not
+     make it current.  If there is no buffer named NAME, then that is
+     the name of the new buffer.  If that name is in use, this function
+     adds suffixes of the form `<N>' to NAME, where N is an integer.
+     It tries successive integers starting with 2 until it finds an
+     available name.
+
+     An error is signaled if NAME is not a string.
+
+          (generate-new-buffer "bar")
+               => #<buffer bar>
+          (generate-new-buffer "bar")
+               => #<buffer bar<2>>
+          (generate-new-buffer "bar")
+               => #<buffer bar<3>>
+
+     The major mode for the new buffer is set to Fundamental mode.  The
+     variable `default-major-mode' is handled at a higher level.  *Note
+     Auto Major Mode::.
+
+     See the related function `generate-new-buffer-name' in *Note
+     Buffer Names::.
+
+
+File: lispref.info,  Node: Killing Buffers,  Next: Indirect Buffers,  Prev: Creating Buffers,  Up: Buffers
+
+Killing Buffers
+===============
+
+   "Killing a buffer" makes its name unknown to XEmacs and makes its
+text space available for other use.
+
+   The buffer object for the buffer that has been killed remains in
+existence as long as anything refers to it, but it is specially marked
+so that you cannot make it current or display it.  Killed buffers retain
+their identity, however; two distinct buffers, when killed, remain
+distinct according to `eq'.
+
+   If you kill a buffer that is current or displayed in a window, XEmacs
+automatically selects or displays some other buffer instead.  This means
+that killing a buffer can in general change the current buffer.
+Therefore, when you kill a buffer, you should also take the precautions
+associated with changing the current buffer (unless you happen to know
+that the buffer being killed isn't current).  *Note Current Buffer::.
+
+   If you kill a buffer that is the base buffer of one or more indirect
+buffers, the indirect buffers are automatically killed as well.
+
+   The `buffer-name' of a killed buffer is `nil'.  To test whether a
+buffer has been killed, you can either use this feature or the function
+`buffer-live-p'.
+
+ - Function: buffer-live-p object
+     This function returns `t' if OBJECT is an editor buffer that has
+     not been deleted, `nil' otherwise.
+
+ - Command: kill-buffer buffer-or-name
+     This function kills the buffer BUFFER-OR-NAME, freeing all its
+     memory for use as space for other buffers.  (Emacs version 18 and
+     older was unable to return the memory to the operating system.)
+     It returns `nil'.  The argument BUFFER-OR-NAME may be a buffer or
+     the name of one.
+
+     Any processes that have this buffer as the `process-buffer' are
+     sent the `SIGHUP' signal, which normally causes them to terminate.
+     (The basic meaning of `SIGHUP' is that a dialup line has been
+     disconnected.)  *Note Deleting Processes::.
+
+     If the buffer is visiting a file and contains unsaved changes,
+     `kill-buffer' asks the user to confirm before the buffer is killed.
+     It does this even if not called interactively.  To prevent the
+     request for confirmation, clear the modified flag before calling
+     `kill-buffer'.  *Note Buffer Modification::.
+
+     Killing a buffer that is already dead has no effect.
+
+          (kill-buffer "foo.unchanged")
+               => nil
+          (kill-buffer "foo.changed")
+          
+          ---------- Buffer: Minibuffer ----------
+          Buffer foo.changed modified; kill anyway? (yes or no) yes
+          ---------- Buffer: Minibuffer ----------
+          
+               => nil
+
+ - Variable: kill-buffer-query-functions
+     After confirming unsaved changes, `kill-buffer' calls the functions
+     in the list `kill-buffer-query-functions', in order of appearance,
+     with no arguments.  The buffer being killed is the current buffer
+     when they are called.  The idea is that these functions ask for
+     confirmation from the user for various nonstandard reasons.  If
+     any of them returns `nil', `kill-buffer' spares the buffer's life.
+
+ - Variable: kill-buffer-hook
+     This is a normal hook run by `kill-buffer' after asking all the
+     questions it is going to ask, just before actually killing the
+     buffer.  The buffer to be killed is current when the hook
+     functions run.  *Note Hooks::.
+
+ - Variable: buffer-offer-save
+     This variable, if non-`nil' in a particular buffer, tells
+     `save-buffers-kill-emacs' and `save-some-buffers' to offer to save
+     that buffer, just as they offer to save file-visiting buffers.  The
+     variable `buffer-offer-save' automatically becomes buffer-local
+     when set for any reason.  *Note Buffer-Local Variables::.
+
+
+File: lispref.info,  Node: Indirect Buffers,  Prev: Killing Buffers,  Up: Buffers
+
+Indirect Buffers
+================
+
+   An "indirect buffer" shares the text of some other buffer, which is
+called the "base buffer" of the indirect buffer.  In some ways it is
+the analogue, for buffers, of a symbolic link among files.  The base
+buffer may not itself be an indirect buffer.  One base buffer may have
+several "indirect children".
+
+   The text of the indirect buffer is always identical to the text of
+its base buffer; changes made by editing either one are visible
+immediately in the other.
+
+   But in all other respects, the indirect buffer and its base buffer
+are completely separate.  They have different names, different values of
+point and mark, different narrowing, different markers and extents
+(though inserting or deleting text in either buffer relocates the
+markers and extents for both), different major modes, and different
+local variables.  Unlike in FSF Emacs, XEmacs indirect buffers do not
+automatically share text properties among themselves and their base
+buffer.
+
+   An indirect buffer cannot visit a file, but its base buffer can.  If
+you try to save the indirect buffer, that actually works by saving the
+base buffer.
+
+   Killing an indirect buffer has no effect on its base buffer.  Killing
+the base buffer kills all its indirect children.
+
+ - Command: make-indirect-buffer base-buffer name
+     This creates an indirect buffer named NAME whose base buffer is
+     BASE-BUFFER.  The argument BASE-BUFFER may be a buffer or a string.
+
+     If BASE-BUFFER is an indirect buffer, its base buffer is used as
+     the base for the new buffer.
+
+          (make-indirect-buffer "*scratch*" "indirect")
+               => #<buffer "indirect">
+
+ - Function: buffer-base-buffer &optional buffer
+     This function returns the base buffer of BUFFER.  If BUFFER is not
+     indirect, the value is `nil'.  Otherwise, the value is another
+     buffer, which is never an indirect buffer.  If BUFFER is not
+     supplied, it defaults to the current buffer.
+
+          (buffer-base-buffer (get-buffer "indirect"))
+               => #<buffer "*scratch*">
+
+ - Function: buffer-indirect-children &optional buffer
+     This function returns a list of all indirect buffers whose base
+     buffer is BUFFER.  If BUFFER is indirect, the return value will
+     always be `nil'; see `make-indirect-buffer'.  If BUFFER is not
+     supplied, it defaults to the current buffer.
+
+          (buffer-indirect-children (get-buffer "*scratch*"))
+               => (#<buffer "indirect">)
+
+
+File: lispref.info,  Node: Windows,  Next: Frames,  Prev: Buffers,  Up: Top
+
+Windows
+*******
+
+   This chapter describes most of the functions and variables related to
+Emacs windows.  See *Note Display::, for information on how text is
+displayed in windows.
+
+* Menu:
+
+* Basic Windows::          Basic information on using windows.
+* Splitting Windows::      Splitting one window into two windows.
+* Deleting Windows::       Deleting a window gives its space to other windows.
+* Selecting Windows::      The selected window is the one that you edit in.
+* Cyclic Window Ordering:: Moving around the existing windows.
+* Buffers and Windows::    Each window displays the contents of a buffer.
+* Displaying Buffers::     Higher-lever functions for displaying a buffer
+                             and choosing a window for it.
+* Choosing Window::	   How to choose a window for displaying a buffer.
+* Window Point::           Each window has its own location of point.
+* Window Start::           The display-start position controls which text
+                             is on-screen in the window.
+* Vertical Scrolling::     Moving text up and down in the window.
+* Horizontal Scrolling::   Moving text sideways on the window.
+* Size of Window::         Accessing the size of a window.
+* Position of Window::     Accessing the position of a window.
+* Resizing Windows::       Changing the size of a window.
+* Window Configurations::  Saving and restoring the state of the screen.
+
+
+File: lispref.info,  Node: Basic Windows,  Next: Splitting Windows,  Up: Windows
+
+Basic Concepts of Emacs Windows
+===============================
+
+   A "window" in XEmacs is the physical area of the screen in which a
+buffer is displayed.  The term is also used to refer to a Lisp object
+that represents that screen area in XEmacs Lisp.  It should be clear
+from the context which is meant.
+
+   XEmacs groups windows into frames.  A frame represents an area of
+screen available for XEmacs to use.  Each frame always contains at least
+one window, but you can subdivide it vertically or horizontally into
+multiple nonoverlapping Emacs windows.
+
+   In each frame, at any time, one and only one window is designated as
+"selected within the frame".  The frame's cursor appears in that
+window.  At ant time, one frame is the selected frame; and the window
+selected within that frame is "the selected window".  The selected
+window's buffer is usually the current buffer (except when `set-buffer'
+has been used).  *Note Current Buffer::.
+
+   For practical purposes, a window exists only while it is displayed in
+a frame.  Once removed from the frame, the window is effectively deleted
+and should not be used, _even though there may still be references to
+it_ from other Lisp objects.  Restoring a saved window configuration is
+the only way for a window no longer on the screen to come back to life.
+(*Note Deleting Windows::.)
+
+   Each window has the following attributes:
+
+   * containing frame
+
+   * window height
+
+   * window width
+
+   * window edges with respect to the frame or screen
+
+   * the buffer it displays
+
+   * position within the buffer at the upper left of the window
+
+   * amount of horizontal scrolling, in columns
+
+   * point
+
+   * the mark
+
+   * how recently the window was selected
+
+   Users create multiple windows so they can look at several buffers at
+once.  Lisp libraries use multiple windows for a variety of reasons, but
+most often to display related information.  In Rmail, for example, you
+can move through a summary buffer in one window while the other window
+shows messages one at a time as they are reached.
+
+   The meaning of "window" in XEmacs is similar to what it means in the
+context of general-purpose window systems such as X, but not identical.
+The X Window System places X windows on the screen; XEmacs uses one or
+more X windows as frames, and subdivides them into Emacs windows.  When
+you use XEmacs on a character-only terminal, XEmacs treats the whole
+terminal screen as one frame.
+
+   Most window systems support arbitrarily located overlapping windows.
+In contrast, Emacs windows are "tiled"; they never overlap, and
+together they fill the whole screen or frame.  Because of the way in
+which XEmacs creates new windows and resizes them, you can't create
+every conceivable tiling of windows on an Emacs frame.  *Note Splitting
+Windows::, and *Note Size of Window::.
+
+   *Note Display::, for information on how the contents of the window's
+buffer are displayed in the window.
+
+ - Function: windowp object
+     This function returns `t' if OBJECT is a window.
+
+
+File: lispref.info,  Node: Splitting Windows,  Next: Deleting Windows,  Prev: Basic Windows,  Up: Windows
+
+Splitting Windows
+=================
+
+   The functions described here are the primitives used to split a
+window into two windows.  Two higher level functions sometimes split a
+window, but not always: `pop-to-buffer' and `display-buffer' (*note
+Displaying Buffers::).
+
+   The functions described here do not accept a buffer as an argument.
+The two "halves" of the split window initially display the same buffer
+previously visible in the window that was split.
+
+ - Function: one-window-p &optional nomini which-frames which-devices
+     This function returns non-`nil' if there is only one window.  The
+     argument NOMINI, if non-`nil', means don't count the minibuffer
+     even if it is active; otherwise, the minibuffer window is
+     included, if active, in the total number of windows which is
+     compared against one.
+
+     The remaining arguments controls which set of windows are counted,
+     as with `next-window'.
+
+ - Command: split-window &optional window size horizontal
+     This function splits WINDOW into two windows.  The original window
+     WINDOW remains the selected window, but occupies only part of its
+     former screen area.  The rest is occupied by a newly created
+     window which is returned as the value of this function.
+
+     If HORIZONTAL is non-`nil', then WINDOW splits into two side by
+     side windows.  The original window WINDOW keeps the leftmost SIZE
+     columns, and gives the rest of the columns to the new window.
+     Otherwise, it splits into windows one above the other, and WINDOW
+     keeps the upper SIZE lines and gives the rest of the lines to the
+     new window.  The original window is therefore the left-hand or
+     upper of the two, and the new window is the right-hand or lower.
+
+     If WINDOW is omitted or `nil', then the selected window is split.
+     If SIZE is omitted or `nil', then WINDOW is divided evenly into
+     two parts.  (If there is an odd line, it is allocated to the new
+     window.)  When `split-window' is called interactively, all its
+     arguments are `nil'.
+
+     The following example starts with one window on a frame that is 50
+     lines high by 80 columns wide; then the window is split.
+
+          (setq w (selected-window))
+               => #<window 8 on windows.texi>
+          (window-edges)          ; Edges in order:
+               => (0 0 80 50)     ;   left-top-right-bottom
+          
+          ;; Returns window created
+          (setq w2 (split-window w 15))
+               => #<window 28 on windows.texi>
+          (window-edges w2)
+               => (0 15 80 50)    ; Bottom window;
+                                  ;   top is line 15
+          (window-edges w)
+               => (0 0 80 15)     ; Top window
+
+     The frame looks like this:
+
+                   __________
+                  |          |  line 0
+                  |    w     |
+                  |__________|
+                  |          |  line 15
+                  |    w2    |
+                  |__________|
+                                line 50
+           column 0   column 80
+
+     Next, the top window is split horizontally:
+
+          (setq w3 (split-window w 35 t))
+               => #<window 32 on windows.texi>
+          (window-edges w3)
+               => (35 0 80 15)  ; Left edge at column 35
+          (window-edges w)
+               => (0 0 35 15)   ; Right edge at column 35
+          (window-edges w2)
+               => (0 15 80 50)  ; Bottom window unchanged
+
+     Now, the screen looks like this:
+
+               column 35
+                   __________
+                  |   |      |  line 0
+                  | w |  w3  |
+                  |___|______|
+                  |          |  line 15
+                  |    w2    |
+                  |__________|
+                                line 50
+           column 0   column 80
+
+     Normally, Emacs indicates the border between two side-by-side
+     windows with a scroll bar (*note Scroll Bars: X Frame Properties.)
+     or `|' characters.  The display table can specify alternative
+     border characters; see *Note Display Tables::.
+
+ - Command: split-window-vertically &optional size
+     This function splits the selected window into two windows, one
+     above the other, leaving the selected window with SIZE lines.
+
+     This function is simply an interface to `split-window'.  Here is
+     the complete function definition for it:
+
+          (defun split-window-vertically (&optional arg)
+            "Split current window into two windows, one above the other."
+            (interactive "P")
+            (split-window nil (and arg (prefix-numeric-value arg))))
+
+ - Command: split-window-horizontally &optional size
+     This function splits the selected window into two windows
+     side-by-side, leaving the selected window with SIZE columns.
+
+     This function is simply an interface to `split-window'.  Here is
+     the complete definition for `split-window-horizontally' (except for
+     part of the documentation string):
+
+          (defun split-window-horizontally (&optional arg)
+            "Split selected window into two windows, side by side..."
+            (interactive "P")
+            (split-window nil (and arg (prefix-numeric-value arg)) t))
+
+
+File: lispref.info,  Node: Deleting Windows,  Next: Selecting Windows,  Prev: Splitting Windows,  Up: Windows
+
+Deleting Windows
+================
+
+   A window remains visible on its frame unless you "delete" it by
+calling certain functions that delete windows.  A deleted window cannot
+appear on the screen, but continues to exist as a Lisp object until
+there are no references to it.  There is no way to cancel the deletion
+of a window aside from restoring a saved window configuration (*note
+Window Configurations::).  Restoring a window configuration also
+deletes any windows that aren't part of that configuration.
+
+   When you delete a window, the space it took up is given to one
+adjacent sibling.  (In Emacs version 18, the space was divided evenly
+among all the siblings.)
+
+ - Function: window-live-p window
+     This function returns `nil' if WINDOW is deleted, and `t'
+     otherwise.
+
+     *Warning:* Erroneous information or fatal errors may result from
+     using a deleted window as if it were live.
+
+ - Command: delete-window &optional window force
+     This function removes WINDOW from the display.  If WINDOW is
+     omitted, then the selected window is deleted. If window is the
+     only one on its frame, the frame is deleted as well.
+
+     Normally, you cannot delete the last non-minibuffer-only frame
+     (you must use `save-buffers-kill-emacs' or `kill-emacs'); an error
+     is signaled instead.  However, if optional second argument FORCE is
+     non-`nil', you can delete the last frame. (This will automatically
+     call `save-buffers-kill-emacs'.)
+
+     This function returns `nil'.
+
+     When `delete-window' is called interactively, the selected window
+     is deleted.
+
+ - Command: delete-other-windows &optional window
+     This function makes WINDOW the only window on its frame, by
+     deleting the other windows in that frame.  If WINDOW is omitted or
+     `nil', then the selected window is used by default.
+
+     The result is `nil'.
+
+ - Command: delete-windows-on buffer &optional which-frames
+          which-devices
+     This function deletes all windows showing BUFFER.  If there are no
+     windows showing BUFFER, it does nothing.
+
+     `delete-windows-on' operates frame by frame.  If a frame has
+     several windows showing different buffers, then those showing
+     BUFFER are removed, and the others expand to fill the space.  If
+     all windows in some frame are showing BUFFER (including the case
+     where there is only one window), then the frame reverts to having a
+     single window showing another buffer chosen with `other-buffer'.
+     *Note The Buffer List::.
+
+     The argument WHICH-FRAMES controls which frames to operate on:
+
+    `nil'
+          Delete all windows showing BUFFER in any frame.
+
+    `t'
+          Delete only windows showing BUFFER in the selected frame.
+
+    `visible'
+          Delete all windows showing BUFFER in any visible frame.
+
+    `0'
+          Delete all windows showing BUFFER in any visible frame.
+
+    FRAME
+          If it is a frame, delete all windows showing BUFFER in that
+          frame.
+
+     *Warning:* This is similar to, but not identical to, the meaning
+     of the WHICH-FRAMES argument to `next-window'; the meanings of
+     `nil' and `t' are reversed.
+
+     The optional argument WHICH-DEVICES further clarifies on which
+     devices to search for frames as specified by WHICH-FRAMES.  This
+     value is only meaningful if WHICH-FRAMES is not `t'.
+
+    `nil'
+          Consider all devices on the selected console.
+
+    DEVICE
+          Consider only the one device DEVICE.
+
+    CONSOLE
+          Consider all devices on CONSOLE.
+
+    DEVICE-TYPE
+          Consider all devices with device type DEVICE-TYPE.
+
+    `window-system'
+          Consider all devices on window system consoles.
+
+    anything else
+          Consider all devices without restriction.
+
+     This function always returns `nil'.
+
+
 File: lispref.info,  Node: Selecting Windows,  Next: Cyclic Window Ordering,  Prev: Deleting Windows,  Up: Windows
 
 Selecting Windows
@@ -81,8 +624,8 @@ current buffer, and the cursor will appear in it.
           (select-window w)
                => #<window 65 on windows.texi>
 
- - Macro: save-selected-window forms...
-     This macro records the selected window, executes FORMS in
+ - Special Form: save-selected-window forms...
+     This special form records the selected window, executes FORMS in
      sequence, then restores the earlier selected window.  It does not
      save or restore anything about the sizes, arrangement or contents
      of windows; therefore, if the FORMS change them, the changes are
@@ -91,7 +634,7 @@ current buffer, and the cursor will appear in it.
    The following functions choose one of the windows on the screen,
 offering various criteria for the choice.
 
- - Function: get-lru-window &optional frame
+ - Function: get-lru-window &optional which-frames which-devices
      This function returns the window least recently "used" (that is,
      selected).  The selected window is always the most recently used
      window.
@@ -101,20 +644,56 @@ offering various criteria for the choice.
      recently used window until it is selected.  A minibuffer window is
      never a candidate.
 
-     The argument FRAME controls which windows are considered.
+     By default, only the windows in the selected frame are considered.
+     The optional argument WHICH-FRAMES changes this behavior.  Here
+     are the possible values and their meanings:
 
-        * If it is `nil', consider windows on the selected frame.
+    `nil'
+          Consider all the windows in the selected windows's frame,
+          plus the minibuffer used by that frame even if it lies in
+          some other frame.
 
-        * If it is `t', consider windows on all frames.
+    `t'
+          Consider all windows in all existing frames.
 
-        * If it is `visible', consider windows on all visible frames.
+    `visible'
+          Consider all windows in all visible frames.  (To get useful
+          results, you must ensure WINDOW is in a visible frame.)
 
-        * If it is 0, consider windows on all visible or iconified
-          frames.
+    `0'
+          Consider all windows in all visible or iconified frames.
 
-        * If it is a frame, consider windows on that frame.
+    FRAME
+          Consider all windows on frame FRAME.
 
- - Function: get-largest-window &optional frame
+    anything else
+          Consider precisely the windows in the selected window's
+          frame, and no others.
+
+     The optional argument WHICH-DEVICES further clarifies on which
+     devices to search for frames as specified by WHICH-FRAMES.  This
+     value is only meaningful if WHICH-FRAMES is non-`nil'.
+
+    `nil'
+          Consider all devices on the selected console.
+
+    DEVICE
+          Consider only the one device DEVICE.
+
+    CONSOLE
+          Consider all devices on CONSOLE.
+
+    DEVICE-TYPE
+          Consider all devices with device type DEVICE-TYPE.
+
+    `window-system'
+          Consider all devices on window system consoles.
+
+    anything else
+          Consider all devices without restriction.
+
+
+ - Function: get-largest-window &optional which-frames which-devices
      This function returns the window with the largest area (height
      times width).  If there are no side-by-side windows, then this is
      the window with the most lines.  A minibuffer window is never a
@@ -124,8 +703,8 @@ offering various criteria for the choice.
      returns the window that is first in the cyclic ordering of windows
      (see following section), starting from the selected window.
 
-     The argument FRAME controls which set of windows are considered.
-     See `get-lru-window', above.
+     The remaining arguments control which set of windows are
+     considered.  See `next-window', above.
 
 
 File: lispref.info,  Node: Cyclic Window Ordering,  Next: Buffers and Windows,  Prev: Selecting Windows,  Up: Windows
@@ -150,7 +729,8 @@ horizontal, the ordering is top to bottom in the left part, and so on.
 In general, within each set of siblings at any level in the window tree,
 the order is left to right, or top to bottom.
 
- - Function: next-window &optional window minibuf all-frames
+ - Function: next-window &optional window minibuf which-frames
+          which-devices
      This function returns the window following WINDOW in the cyclic
      ordering of windows.  This is the window that `C-x o' would select
      if typed when WINDOW is selected.  If WINDOW is the only window
@@ -169,7 +749,8 @@ the order is left to right, or top to bottom.
      If MINIBUF is neither `t' nor `nil', then the minibuffer window is
      not included even if it is active.
 
-     The argument ALL-FRAMES specifies which frames to consider.  Here
+     By default, only the windows in the selected frame are considered.
+     The optional argument WHICH-FRAMES changes this behavior.  Here
      are the possible values and their meanings:
 
     `nil'
@@ -184,12 +765,43 @@ the order is left to right, or top to bottom.
           Consider all windows in all visible frames.  (To get useful
           results, you must ensure WINDOW is in a visible frame.)
 
-    0
+    `0'
           Consider all windows in all visible or iconified frames.
+
+    FRAME
+          Consider all windows on frame FRAME.
 
     anything else
           Consider precisely the windows in WINDOW's frame, and no
           others.
+
+     The optional argument WHICH-DEVICES further clarifies on which
+     devices to search for frames as specified by WHICH-FRAMES.  This
+     value is only meaningful if WHICH-FRAMES is non-`nil'.
+
+    `nil'
+          Consider all devices on the selected console.
+
+    DEVICE
+          Consider only the one device DEVICE.
+
+    CONSOLE
+          Consider all devices on CONSOLE.
+
+    DEVICE-TYPE
+          Consider all devices with device type DEVICE-TYPE.
+
+    `window-system'
+          Consider all devices on window system consoles.
+
+    anything else
+          Consider all devices without restriction.
+
+     If you use consistent values for MINIBUF, WHICH-FRAMES, and
+     WHICH-DEVICES, you can use `next-window' to iterate through the
+     entire cycle of acceptable windows, eventually ending up back at
+     the window you started with.  `previous-window' traverses the same
+     cycle, in the reverse order.
 
      This example assumes there are two windows, both displaying the
      buffer `windows.texi':
@@ -201,42 +813,29 @@ the order is left to right, or top to bottom.
           (next-window (next-window (selected-window)))
                => #<window 56 on windows.texi>
 
- - Function: previous-window &optional window minibuf all-frames
+ - Function: previous-window &optional window minibuf which-frames
+          which-devices
      This function returns the window preceding WINDOW in the cyclic
      ordering of windows.  The other arguments specify which windows to
      include in the cycle, as in `next-window'.
 
- - Command: other-window count &optional frame
+ - Command: other-window count &optional which-frames which-devices
      This function selects the COUNTth following window in the cyclic
-     order.  If count is negative, then it selects the -COUNTth
+     order.  If COUNT is negative, then it selects the -COUNTth
      preceding window.  It returns `nil'.
 
      In an interactive call, COUNT is the numeric prefix argument.
 
-     The argument FRAME controls which set of windows are considered.
-        * If it is `nil' or omitted, then windows on the selected frame
-          are considered.
+     The other arguments specify which windows to include in the cycle,
+     as in `next-window'.
 
-        * If it is a frame, then windows on that frame are considered.
+ - Function: walk-windows function &optional minibuf which-frames
+          which-devices
+     This function cycles through all windows, calling `function' once
+     for each window with the window as its sole argument.
 
-        * If it is `t', then windows on all frames that currently exist
-          (including invisible and iconified frames) are considered.
-
-        * If it is the symbol `visible', then windows on all visible
-          frames are considered.
-
-        * If it is the number 0, then windows on all visible and
-          iconified frames are considered.
-
-        * If it is any other value, then the behavior is undefined.
-
- - Function: walk-windows proc &optional minibuf all-frames
-     This function cycles through all windows, calling `proc' once for
-     each window with the window as its sole argument.
-
-     The optional arguments MINIBUF and ALL-FRAMES specify the set of
-     windows to include in the scan.  See `next-window', above, for
-     details.
+     The other arguments specify which windows to cycle through, as in
+     `next-window'.
 
 
 File: lispref.info,  Node: Buffers and Windows,  Next: Displaying Buffers,  Prev: Cyclic Window Ordering,  Up: Windows
@@ -251,9 +850,14 @@ and specify a buffer for it.  The functions described there are easier
 to use than these, but they employ heuristics in choosing or creating a
 window; use these functions when you need complete control.
 
- - Function: set-window-buffer window buffer-or-name
+ - Function: set-window-buffer window buffer-or-name &optional norecord
      This function makes WINDOW display BUFFER-OR-NAME as its contents.
-     It returns `nil'.
+     BUFFER-OR-NAME can be a buffer or a buffer name.
+
+     With non-`nil' optional argument NORECORD, do not modify the
+     global or per-frame buffer ordering.
+
+     This function returns `nil'.
 
           (set-window-buffer (selected-window) "foo")
                => nil
@@ -266,25 +870,16 @@ window; use these functions when you need complete control.
           (window-buffer)
                => #<buffer windows.texi>
 
- - Function: get-buffer-window buffer-or-name &optional frame
+ - Function: get-buffer-window buffer-or-name &optional which-frames
+          which-devices
      This function returns a window currently displaying
      BUFFER-OR-NAME, or `nil' if there is none.  If there are several
      such windows, then the function returns the first one in the
      cyclic ordering of windows, starting from the selected window.
      *Note Cyclic Window Ordering::.
 
-     The argument ALL-FRAMES controls which windows to consider.
-
-        * If it is `nil', consider windows on the selected frame.
-
-        * If it is `t', consider windows on all frames.
-
-        * If it is `visible', consider windows on all visible frames.
-
-        * If it is 0, consider windows on all visible or iconified
-          frames.
-
-        * If it is a frame, consider windows on that frame.
+     The remaining arguments control which windows to consider.  They
+     have the same meaning as for `next-window'.
 
 
 File: lispref.info,  Node: Displaying Buffers,  Next: Choosing Window,  Prev: Buffers and Windows,  Up: Windows
@@ -383,12 +978,16 @@ without affecting the display of buffers in windows.
      An example use of this function is found at the end of *Note
      Filter Functions::.
 
- - Command: replace-buffer-in-windows buffer
+ - Command: replace-buffer-in-windows buffer &optional which-frames
+          which-devices
      This function replaces BUFFER with some other buffer in all
      windows displaying it.  The other buffer used is chosen with
      `other-buffer'.  In the usual applications of this function, you
      don't care which other buffer is used; you just want to make sure
      that BUFFER is no longer displayed.
+
+     The optional arguments WHICH-FRAMES and WHICH-DEVICES have the
+     same meaning as with `delete-windows-on'.
 
      This function returns `nil'.
 
@@ -404,10 +1003,13 @@ and commands use this subroutine.  Here we describe how to use
 `display-buffer' and how to customize it.
 
  - Command: display-buffer buffer-or-name &optional not-this-window
+          override-frame
      This command makes BUFFER-OR-NAME appear in some window, like
      `pop-to-buffer', but it does not select that window and does not
      make the buffer current.  The identity of the selected window is
      unaltered by this function.
+
+     BUFFER-OR-NAME can be a buffer or the name of one.
 
      If NOT-THIS-WINDOW is non-`nil', it means to display the specified
      buffer in a window other than the selected one, even if it is
@@ -415,6 +1017,9 @@ and commands use this subroutine.  Here we describe how to use
      buffer to appear in two windows at once.  Otherwise, if
      BUFFER-OR-NAME is already being displayed in any window, that is
      good enough, so this function does nothing.
+
+     If OVERRIDE-FRAME is non-`nil', display on that frame instead of
+     the current frame (or the dedicated frame).
 
      `display-buffer' returns the window chosen to display
      BUFFER-OR-NAME.
@@ -597,14 +1202,14 @@ to have multiple windows showing one buffer.
 when the user switches to another buffer, the cursor jumps to the
 position of point in that buffer.
 
- - Function: window-point window
+ - Function: window-point &optional window
      This function returns the current position of point in WINDOW.
      For a non-selected window, this is the value point would have (in
      that window's buffer) if that window were selected.
 
      When WINDOW is the selected window and its buffer is also the
-     current buffer, the value returned is the same as point in that
-     buffer.
+     current buffer, the value returned is the same as the value of
+     point in that buffer.
 
      Strictly speaking, it would be more correct to return the
      "top-level" value of point, outside of any `save-excursion' forms.
@@ -613,484 +1218,4 @@ position of point in that buffer.
  - Function: set-window-point window position
      This function positions point in WINDOW at position POSITION in
      WINDOW's buffer.
-
-
-File: lispref.info,  Node: Window Start,  Next: Vertical Scrolling,  Prev: Window Point,  Up: Windows
-
-The Window Start Position
-=========================
-
-   Each window contains a marker used to keep track of a buffer position
-that specifies where in the buffer display should start.  This position
-is called the "display-start" position of the window (or just the
-"start").  The character after this position is the one that appears at
-the upper left corner of the window.  It is usually, but not
-inevitably, at the beginning of a text line.
-
- - Function: window-start &optional window
-     This function returns the display-start position of window WINDOW.
-     If WINDOW is `nil', the selected window is used.  For example,
-
-          (window-start)
-               => 7058
-
-     When you create a window, or display a different buffer in it, the
-     display-start position is set to a display-start position recently
-     used for the same buffer, or 1 if the buffer doesn't have any.
-
-     For a realistic example, see the description of `count-lines' in
-     *Note Text Lines::.
-
- - Function: window-end &optional window
-     This function returns the position of the end of the display in
-     window WINDOW.  If WINDOW is `nil', the selected window is used.
-
-     Simply changing the buffer text or moving point does not update the
-     value that `window-end' returns.  The value is updated only when
-     Emacs redisplays and redisplay actually finishes.
-
-     If the last redisplay of WINDOW was preempted, and did not finish,
-     Emacs does not know the position of the end of display in that
-     window.  In that case, this function returns a value that is not
-     correct.  In a future version, `window-end' will return `nil' in
-     that case.
-
- - Function: set-window-start window position &optional noforce
-     This function sets the display-start position of WINDOW to
-     POSITION in WINDOW's buffer.  It returns POSITION.
-
-     The display routines insist that the position of point be visible
-     when a buffer is displayed.  Normally, they change the
-     display-start position (that is, scroll the window) whenever
-     necessary to make point visible.  However, if you specify the
-     start position with this function using `nil' for NOFORCE, it
-     means you want display to start at POSITION even if that would put
-     the location of point off the screen.  If this does place point
-     off screen, the display routines move point to the left margin on
-     the middle line in the window.
-
-     For example, if point is 1 and you set the start of the window
-     to 2, then point would be "above" the top of the window.  The
-     display routines will automatically move point if it is still 1
-     when redisplay occurs.  Here is an example:
-
-          ;; Here is what `foo' looks like before executing
-          ;;   the `set-window-start' expression.
-          
-          ---------- Buffer: foo ----------
-          -!-This is the contents of buffer foo.
-          2
-          3
-          4
-          5
-          6
-          ---------- Buffer: foo ----------
-          
-          (set-window-start
-           (selected-window)
-           (1+ (window-start)))
-          => 2
-          
-          ;; Here is what `foo' looks like after executing
-          ;;   the `set-window-start' expression.
-          ---------- Buffer: foo ----------
-          his is the contents of buffer foo.
-          2
-          3
-          -!-4
-          5
-          6
-          ---------- Buffer: foo ----------
-
-     If NOFORCE is non-`nil', and POSITION would place point off screen
-     at the next redisplay, then redisplay computes a new window-start
-     position that works well with point, and thus POSITION is not used.
-
- - Function: pos-visible-in-window-p &optional position window
-     This function returns `t' if POSITION is within the range of text
-     currently visible on the screen in WINDOW.  It returns `nil' if
-     POSITION is scrolled vertically out of view.  The argument
-     POSITION defaults to the current position of point; WINDOW, to the
-     selected window.  Here is an example:
-
-          (or (pos-visible-in-window-p
-               (point) (selected-window))
-              (recenter 0))
-
-     The `pos-visible-in-window-p' function considers only vertical
-     scrolling.  If POSITION is out of view only because WINDOW has
-     been scrolled horizontally, `pos-visible-in-window-p' returns `t'.
-     *Note Horizontal Scrolling::.
-
-
-File: lispref.info,  Node: Vertical Scrolling,  Next: Horizontal Scrolling,  Prev: Window Start,  Up: Windows
-
-Vertical Scrolling
-==================
-
-   Vertical scrolling means moving the text up or down in a window.  It
-works by changing the value of the window's display-start location.  It
-may also change the value of `window-point' to keep it on the screen.
-
-   In the commands `scroll-up' and `scroll-down', the directions "up"
-and "down" refer to the motion of the text in the buffer at which you
-are looking through the window.  Imagine that the text is written on a
-long roll of paper and that the scrolling commands move the paper up
-and down.  Thus, if you are looking at text in the middle of a buffer
-and repeatedly call `scroll-down', you will eventually see the
-beginning of the buffer.
-
-   Some people have urged that the opposite convention be used: they
-imagine that the window moves over text that remains in place.  Then
-"down" commands would take you to the end of the buffer.  This view is
-more consistent with the actual relationship between windows and the
-text in the buffer, but it is less like what the user sees.  The
-position of a window on the terminal does not move, and short scrolling
-commands clearly move the text up or down on the screen.  We have chosen
-names that fit the user's point of view.
-
-   The scrolling functions (aside from `scroll-other-window') have
-unpredictable results if the current buffer is different from the buffer
-that is displayed in the selected window.  *Note Current Buffer::.
-
- - Command: scroll-up &optional count
-     This function scrolls the text in the selected window upward COUNT
-     lines.  If COUNT is negative, scrolling is actually downward.
-
-     If COUNT is `nil' (or omitted), then the length of scroll is
-     `next-screen-context-lines' lines less than the usable height of
-     the window (not counting its modeline).
-
-     `scroll-up' returns `nil'.
-
- - Command: scroll-down &optional count
-     This function scrolls the text in the selected window downward
-     COUNT lines.  If COUNT is negative, scrolling is actually upward.
-
-     If COUNT is omitted or `nil', then the length of the scroll is
-     `next-screen-context-lines' lines less than the usable height of
-     the window (not counting its mode line).
-
-     `scroll-down' returns `nil'.
-
- - Command: scroll-other-window &optional count
-     This function scrolls the text in another window upward COUNT
-     lines.  Negative values of COUNT, or `nil', are handled as in
-     `scroll-up'.
-
-     You can specify a buffer to scroll with the variable
-     `other-window-scroll-buffer'.  When the selected window is the
-     minibuffer, the next window is normally the one at the top left
-     corner.  You can specify a different window to scroll with the
-     variable `minibuffer-scroll-window'.  This variable has no effect
-     when any other window is selected.  *Note Minibuffer Misc::.
-
-     When the minibuffer is active, it is the next window if the
-     selected window is the one at the bottom right corner.  In this
-     case, `scroll-other-window' attempts to scroll the minibuffer.  If
-     the minibuffer contains just one line, it has nowhere to scroll
-     to, so the line reappears after the echo area momentarily displays
-     the message "Beginning of buffer".
-
- - Variable: other-window-scroll-buffer
-     If this variable is non-`nil', it tells `scroll-other-window'
-     which buffer to scroll.
-
- - User Option: scroll-step
-     This variable controls how scrolling is done automatically when
-     point moves off the screen.  If the value is zero, then redisplay
-     scrolls the text to center point vertically in the window.  If the
-     value is a positive integer N, then redisplay brings point back on
-     screen by scrolling N lines in either direction, if possible;
-     otherwise, it centers point.  The default value is zero.
-
- - User Option: scroll-conservatively
-     This variable controls how many lines Emacs tries to scroll before
-     recentering.  If you set it to a small number, then when you move
-     point a short distance off the screen, XEmacs will scroll the
-     screen just far enough to bring point back on screen, provided
-     that does not exceed `scroll-conservatively' lines.  This variable
-     overrides the redisplay preemption.
-
- - User Option: next-screen-context-lines
-     The value of this variable is the number of lines of continuity to
-     retain when scrolling by full screens.  For example, `scroll-up'
-     with an argument of `nil' scrolls so that this many lines at the
-     bottom of the window appear instead at the top.  The default value
-     is `2'.
-
- - Command: recenter &optional count
-     This function scrolls the selected window to put the text where
-     point is located at a specified vertical position within the
-     window.
-
-     If COUNT is a nonnegative number, it puts the line containing
-     point COUNT lines down from the top of the window.  If COUNT is a
-     negative number, then it counts upward from the bottom of the
-     window, so that -1 stands for the last usable line in the window.
-     If COUNT is a non-`nil' list, then it stands for the line in the
-     middle of the window.
-
-     If COUNT is `nil', `recenter' puts the line containing point in
-     the middle of the window, then clears and redisplays the entire
-     selected frame.
-
-     When `recenter' is called interactively, COUNT is the raw prefix
-     argument.  Thus, typing `C-u' as the prefix sets the COUNT to a
-     non-`nil' list, while typing `C-u 4' sets COUNT to 4, which
-     positions the current line four lines from the top.
-
-     With an argument of zero, `recenter' positions the current line at
-     the top of the window.  This action is so handy that some people
-     make a separate key binding to do this.  For example,
-
-          (defun line-to-top-of-window ()
-            "Scroll current line to top of window.
-          Replaces three keystroke sequence C-u 0 C-l."
-            (interactive)
-            (recenter 0))
-          
-          (global-set-key [kp-multiply] 'line-to-top-of-window)
-
-
-File: lispref.info,  Node: Horizontal Scrolling,  Next: Size of Window,  Prev: Vertical Scrolling,  Up: Windows
-
-Horizontal Scrolling
-====================
-
-   Because we read English first from top to bottom and second from left
-to right, horizontal scrolling is not like vertical scrolling.  Vertical
-scrolling involves selection of a contiguous portion of text to display.
-Horizontal scrolling causes part of each line to go off screen.  The
-amount of horizontal scrolling is therefore specified as a number of
-columns rather than as a position in the buffer.  It has nothing to do
-with the display-start position returned by `window-start'.
-
-   Usually, no horizontal scrolling is in effect; then the leftmost
-column is at the left edge of the window.  In this state, scrolling to
-the right is meaningless, since there is no data to the left of the
-screen to be revealed by it; so this is not allowed.  Scrolling to the
-left is allowed; it scrolls the first columns of text off the edge of
-the window and can reveal additional columns on the right that were
-truncated before.  Once a window has a nonzero amount of leftward
-horizontal scrolling, you can scroll it back to the right, but only so
-far as to reduce the net horizontal scroll to zero.  There is no limit
-to how far left you can scroll, but eventually all the text will
-disappear off the left edge.
-
- - Command: scroll-left count
-     This function scrolls the selected window COUNT columns to the
-     left (or to the right if COUNT is negative).  The return value is
-     the total amount of leftward horizontal scrolling in effect after
-     the change--just like the value returned by `window-hscroll'
-     (below).
-
- - Command: scroll-right count
-     This function scrolls the selected window COUNT columns to the
-     right (or to the left if COUNT is negative).  The return value is
-     the total amount of leftward horizontal scrolling in effect after
-     the change--just like the value returned by `window-hscroll'
-     (below).
-
-     Once you scroll a window as far right as it can go, back to its
-     normal position where the total leftward scrolling is zero,
-     attempts to scroll any farther right have no effect.
-
- - Function: window-hscroll &optional window
-     This function returns the total leftward horizontal scrolling of
-     WINDOW--the number of columns by which the text in WINDOW is
-     scrolled left past the left margin.
-
-     The value is never negative.  It is zero when no horizontal
-     scrolling has been done in WINDOW (which is usually the case).
-
-     If WINDOW is `nil', the selected window is used.
-
-          (window-hscroll)
-               => 0
-          (scroll-left 5)
-               => 5
-          (window-hscroll)
-               => 5
-
- - Function: set-window-hscroll window columns
-     This function sets the number of columns from the left margin that
-     WINDOW is scrolled to the value of COLUMNS.  The argument COLUMNS
-     should be zero or positive; if not, it is taken as zero.
-
-     The value returned is COLUMNS.
-
-          (set-window-hscroll (selected-window) 10)
-               => 10
-
-   Here is how you can determine whether a given position POSITION is
-off the screen due to horizontal scrolling:
-
-     (defun hscroll-on-screen (window position)
-       (save-excursion
-         (goto-char position)
-         (and
-          (>= (- (current-column) (window-hscroll window)) 0)
-          (< (- (current-column) (window-hscroll window))
-             (window-width window)))))
-
-
-File: lispref.info,  Node: Size of Window,  Next: Position of Window,  Prev: Horizontal Scrolling,  Up: Windows
-
-The Size of a Window
-====================
-
-   An Emacs window is rectangular, and its size information consists of
-the height (in lines or pixels) and the width (in character positions
-or pixels).  The modeline is included in the height.  The pixel width
-and height values include scrollbars and margins, while the
-line/character-position values do not.
-
-   Note that the height in lines, and the width in characters, are
-determined by dividing the corresponding pixel value by the height or
-width of the default font in that window (if this is a variable-width
-font, the average width is used).  The resulting values may or may not
-represent the actual number of lines in the window, or the actual number
-of character positions in any particular line, esp. if there are pixmaps
-or various different fonts in the window.
-
-   The following functions return size information about a window:
-
- - Function: window-height &optional window
-     This function returns the number of lines in WINDOW, including its
-     modeline but not including the horizontal scrollbar, if any (this
-     is different from `window-pixel-height').  If WINDOW is `nil', the
-     function uses the selected window.
-
-          (window-height)
-               => 40
-          (split-window-vertically)
-               => #<window on "windows.texi" 0x679b>
-          (window-height)
-               => 20
-
- - Function: window-width &optional window
-     This function returns the number of columns in WINDOW, not
-     including any left margin, right margin, or vertical scrollbar
-     (this is different from `window-pixel-width').  If WINDOW is
-     `nil', the function uses the selected window.
-
-          (window-width)
-               => 80
-          (window-height)
-               => 40
-          (split-window-horizontally)
-               => #<window on "windows.texi" 0x7538>
-          (window-width)
-               => 39
-
-   Note that after splitting the window into two side-by-side windows,
-the width of each window is less the half the width of the original
-window because a vertical scrollbar appeared between the windows,
-occupying two columns worth of space.  Also, the height shrunk by one
-because horizontal scrollbars appeared that weren't there before.
-(Horizontal scrollbars appear only when lines are truncated, not when
-they wrap.  This is usually the case for horizontally split windows but
-not for full-frame windows.  You can change this using the variables
-`truncate-lines' and `truncate-partial-width-windows'.)
-
- - Function: window-pixel-height &optional window
-     This function returns the height of WINDOW in pixels, including
-     its modeline and horizontal scrollbar, if any.  If WINDOW is
-     `nil', the function uses the selected window.
-
-          (window-pixel-height)
-               => 600
-          (split-window-vertically)
-               => #<window on "windows.texi" 0x68a6>
-          (window-pixel-height)
-               => 300
-
- - Function: window-pixel-width &optional window
-     This function returns the width of WINDOW in pixels, including any
-     left margin, right margin, or vertical scrollbar that may be
-     displayed alongside it.  If WINDOW is `nil', the function uses the
-     selected window.
-
-          (window-pixel-width)
-               => 735
-          (window-pixel-height)
-               => 600
-          (split-window-horizontally)
-               => #<window on "windows.texi" 0x7538>
-          (window-pixel-width)
-               => 367
-          (window-pixel-height)
-               => 600
-
- - Function: window-text-area-pixel-height &optional window
-     This function returns the height in pixels of the text displaying
-     portion of WINDOW, which defaults to the selected window.  Unlike
-     `window-pixel-height', the space occupied by the modeline and
-     horizontal scrollbar, if any, is not counted.
-
- - Function: window-text-area-pixel-width &optional window
-     This function returns the width in pixels of the text displaying
-     portion of WINDOW, which defaults to the selected window.  Unlike
-     `window-pixel-width', the space occupied by the vertical scrollbar
-     and divider, if any, is not counted.
-
- - Function: window-displayed-text-pixel-height &optional window
-          noclipped
-     This function returns the height in pixels of the text displayed in
-     WINDOW, which defaults to the selected window.  Unlike
-     `window-text-area-pixel-height', any blank space below the end of
-     the buffer is not included.  If optional argument NOCLIPPED is
-     non-`nil', any space occupied by clipped lines will not be
-     included.
-
-
-File: lispref.info,  Node: Position of Window,  Next: Resizing Windows,  Prev: Size of Window,  Up: Windows
-
-The Position of a Window
-========================
-
-   XEmacs provides functions to determine the absolute location of
-windows within a frame, and the relative location of a window in
-comparison to other windows in the same frame.
-
- - Function: window-pixel-edges &optional window
-     This function returns a list of the pixel edge coordinates of
-     WINDOW.  If WINDOW is `nil', the selected window is used.
-
-     The order of the list is `(LEFT TOP RIGHT BOTTOM)', all elements
-     relative to 0, 0 at the top left corner of the frame.  The element
-     RIGHT of the value is one more than the rightmost pixel used by
-     WINDOW (including any left margin, right margin, or vertical
-     scrollbar displayed alongside it), and BOTTOM is one more than the
-     bottommost pixel used by WINDOW (including any modeline or
-     horizontal scrollbar displayed above or below it).  The frame area
-     does not include any frame menubars or toolbars that may be
-     displayed; thus, for example, if there is only one window on the
-     frame, the values for LEFT and TOP will always be 0.
-
-     If WINDOW is at the upper left corner of its frame, RIGHT and
-     BOTTOM are the same as the values returned by
-     `(window-pixel-width)' and `(window-pixel-height)' respectively,
-     and TOP and BOTTOM are zero.
-
-   There is no longer a function `window-edges' because it does not
-make sense in a world with variable-width and variable-height lines, as
-are allowed in XEmacs.
-
- - Function: window-highest-p window
-     This function returns non-`nil' if WINDOW is along the top of its
-     frame.
-
- - Function: window-lowest-p window
-     This function returns non-`nil' if WINDOW is along the bottom of
-     its frame.
-
- - Function: window-text-area-pixel-edges &optional window
-     This function allows one to determine the location of the
-     text-displaying portion of WINDOW, which defaults to the selected
-     window, with respect to the top left corner of the window.  It
-     returns a list of integer pixel positions `(left top right
-     bottom)', all relative to `(0,0)' at the top left corner of the
-     window.
 

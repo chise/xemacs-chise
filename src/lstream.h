@@ -277,8 +277,9 @@ INLINE_HEADER Emchar
 Lstream_get_emchar (Lstream *stream)
 {
   int c = Lstream_getc (stream);
-  return BYTE_ASCII_P (c) ? (Emchar) c :
-    Lstream_get_emchar_1 (stream, c);
+  return (c < 0x80		/* c == EOF || BYTE_ASCII_P (c) */
+	  ? (Emchar) c
+	  : Lstream_get_emchar_1 (stream, c));
 }
 
 INLINE_HEADER int Lstream_put_emchar (Lstream *stream, Emchar ch);

@@ -210,7 +210,7 @@ the user to choose where the toolbar should go.
 
 @defvr Specifier default-toolbar
 The position of this toolbar is specified in the function
-@code{default-toolbar-position}.  If the corresponding 
+@code{default-toolbar-position}.  If the corresponding
 position-specific toolbar (e.g. @code{top-toolbar} if
 @code{default-toolbar-position} is @code{top}) does not specify a
 toolbar in a particular domain, then the value of @code{default-toolbar}
@@ -270,7 +270,7 @@ Specifier for the toolbar at the right edge of the frame.
 @end defvr
 
 @defun toolbar-specifier-p object
-This function returns non-nil if @var{object} is a toolbar specifier.
+This function returns non-@code{nil} if @var{object} is a toolbar specifier.
 Toolbar specifiers are the actual objects contained in the toolbar
 variables described above, and their valid instantiators are
 toolbar descriptors (@pxref{Toolbar Descriptor Format}).
@@ -366,7 +366,7 @@ Thus, for example, if you set the frame width to 80 characters and the
 left toolbar width for that frame to 68 pixels, then the frame will be
 sized to fit 80 characters plus a 68-pixel left toolbar.  If you then
 set the left toolbar width to 0 for a particular buffer (or if that
-buffer does not specify a left toolbar or has a nil value specified for
+buffer does not specify a left toolbar or has a @code{nil} value specified for
 @code{left-toolbar-visible-p}), you will find that, when that buffer is
 displayed in the selected window, the window will have a width of 86 or
 87 characters---the frame is sized for a 68-pixel left toolbar but the

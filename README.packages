@@ -19,6 +19,13 @@ Q. I really liked the old way that packages were bundled and do not
 A. You can grab all the packages at once like you used to with old
    XEmacs versions, skip to the 'Sumo Tarball' section below.
 
+Q. After installing, I want XEmacs to do `foo', but when I invoke it
+   (or click the toolbar button or select the menu item), nothing (or
+   an error) happens, and it used to work.
+A. See the first FAQ; you may be missing a package that is essential to
+   you.  You can either track it down and install it, or install the
+   `Sumo Tarball' (see the second FAQ).
+
 A note of caution
 -----------------
 

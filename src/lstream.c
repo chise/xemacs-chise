@@ -74,20 +74,21 @@ int Lstream_putc (Lstream *stream, int c)
 	0 on success, -1 on error.
 
 int Lstream_getc (Lstream *stream)
-	Read one byte from the stream.  This is a macro and so it
-	is very efficient.  The STREAM argument is evaluated more
-	than once.  Return value is -1 for EOF or error.
+	Read one byte from the stream and returns it as an unsigned
+	char cast to an int, or EOF on end of file or error.
+	This is a macro and so it is very efficient.  The STREAM
+	argument is evaluated more than once.
 
 void Lstream_ungetc (Lstream *stream, int c)
-	Push one byte back onto the input queue.  This will be the
-	next byte read from the stream.  Any number of bytes can be
-	pushed back and will be read in the reverse order they were
-	pushed back -- most recent first. (This is necessary for
-	consistency -- if there are a number of bytes that have been
-	unread and I read and unread a byte, it needs to be the first
-	to be read again.) This is a macro and so it is very
-	efficient.  The C argument is only evaluated once but the
-	STREAM argument is evaluated more than once.
+	Push one byte back onto the input queue, cast to unsigned char.
+	This will be the next byte read from the stream.  Any number
+	of bytes can be pushed back and will be read in the reverse
+	order they were pushed back -- most recent first. (This is
+	necessary for consistency -- if there are a number of bytes
+	that have been unread and I read and unread a byte, it needs
+	to be the first to be read again.) This is a macro and so it
+	is very efficient.  The C argument is only evaluated once but
+	the STREAM argument is evaluated more than once.
 
 int Lstream_fputc (Lstream *stream, int c)
 int Lstream_fgetc (Lstream *stream)
@@ -497,7 +498,7 @@ Lstream_was_blocked_p (Lstream *lstr)
   return lstr->imp->was_blocked_p ? lstr->imp->was_blocked_p (lstr) : 0;
 }
 
-static int
+static ssize_t
 Lstream_raw_read (Lstream *lstr, unsigned char *buffer, size_t size)
 {
   if (! (lstr->flags & LSTREAM_FL_IS_OPEN))

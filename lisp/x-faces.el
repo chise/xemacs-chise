@@ -101,41 +101,38 @@
       (encoding	"[^-]+")		; false!
       )
   (setq x-font-regexp
-	(purecopy
-	 (concat "\\`\\*?[-?*]"
-		 foundry - family - weight\? - slant\? - swidth - adstyle -
-		 pixelsize - pointsize - resx - resy - spacing - avgwidth -
-		 registry - encoding "\\'"
-		 )))
+	(concat "\\`\\*?[-?*]"
+		foundry - family - weight\? - slant\? - swidth - adstyle -
+		pixelsize - pointsize - resx - resy - spacing - avgwidth -
+		registry - encoding "\\'"
+		))
   (setq x-font-regexp-head
-	(purecopy
-          (concat "\\`[-?*]" foundry - family - weight\? - slant\?
-		  "\\([-*?]\\|\\'\\)")))
+	(concat "\\`[-?*]" foundry - family - weight\? - slant\?
+		"\\([-*?]\\|\\'\\)"))
   (setq x-font-regexp-head-2
-	(purecopy
-          (concat "\\`[-?*]" foundry - family - weight\? - slant\?
-		  - swidth - adstyle - pixelsize - pointsize
-		  "\\([-*?]\\|\\'\\)")))
-  (setq x-font-regexp-slant (purecopy (concat - slant -)))
-  (setq x-font-regexp-weight (purecopy (concat - weight -)))
+	(concat "\\`[-?*]" foundry - family - weight\? - slant\?
+		- swidth - adstyle - pixelsize - pointsize
+		"\\([-*?]\\|\\'\\)"))
+  (setq x-font-regexp-slant (concat - slant -))
+  (setq x-font-regexp-weight (concat - weight -))
   ;; if we can't match any of the more specific regexps (unfortunate) then
   ;; look for digits; assume 2+ digits is 10ths of points, and 1-2 digits
   ;; is pixels.  Bogus as hell.
-  (setq x-font-regexp-pixel (purecopy "[-?*]\\([0-9][0-9]?\\)[-?*]"))
-  (setq x-font-regexp-point (purecopy "[-?*]\\([0-9][0-9]+\\)[-?*]"))
+  (setq x-font-regexp-pixel "[-?*]\\([0-9][0-9]?\\)[-?*]")
+  (setq x-font-regexp-point "[-?*]\\([0-9][0-9]+\\)[-?*]")
   ;; the following two are used by x-font-menu.el.
   (setq x-font-regexp-foundry-and-family
-	(purecopy (concat "\\`[-?*]" foundry - "\\(" family "\\)" -)))
+	(concat "\\`[-?*]" foundry - "\\(" family "\\)" -))
   (setq x-font-regexp-registry-and-encoding
-	(purecopy (concat - "\\(" registry "\\)" - "\\(" encoding "\\)\\'")))
+	(concat - "\\(" registry "\\)" - "\\(" encoding "\\)\\'"))
   (setq x-font-regexp-spacing
-	(purecopy (concat - "\\(" spacing "\\)" - avgwidth
-			  - registry - encoding "\\'")))
+	(concat - "\\(" spacing "\\)" - avgwidth
+			  - registry - encoding "\\'"))
   )
 
 ;; A "loser font" is something like "8x13" -> "8x13bold".
 ;; These are supported only through extreme generosity.
-(defconst x-loser-font-regexp (purecopy "\\`[0-9]+x[0-9]+\\'"))
+(defconst x-loser-font-regexp "\\`[0-9]+x[0-9]+\\'")
 
 (defun x-frob-font-weight (font which)
   (if (font-instance-p font) (setq font (font-instance-name font)))

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/streams.info
 @node Read and Print, Minibuffers, Debugging, Top
@@ -558,13 +558,13 @@ characters are used.  @code{print} returns @var{object}.  For example:
 (progn (print 'The\ cat\ in)
        (print "the hat")
        (print " came back"))
-     @print{} 
+     @print{}
      @print{} The\ cat\ in
-     @print{} 
+     @print{}
      @print{} "the hat"
-     @print{} 
+     @print{}
      @print{} " came back"
-     @print{} 
+     @print{}
      @result{} " came back"
 @end group
 @end example
@@ -578,8 +578,8 @@ This function outputs the printed representation of @var{object} to
 
 @example
 @group
-(progn (prin1 'The\ cat\ in) 
-       (prin1 "the hat") 
+(progn (prin1 'The\ cat\ in)
+       (prin1 "the hat")
        (prin1 " came back"))
      @print{} The\ cat\ in"the hat"" came back"
      @result{} " came back"
@@ -789,7 +789,7 @@ The precision in any of these cases is the number of digits following
 the decimal point.  With @samp{f}, a precision of 0 means to omit the
 decimal point.  0 is not allowed with @samp{f} or @samp{g}.
 
-A value of nil means to use @samp{%.16g}.
+A value of @code{nil} means to use @samp{%.16g}.
 
 Regardless of the value of @code{float-output-format}, a floating point
 number will never be printed in such a way that it is ambiguous with an

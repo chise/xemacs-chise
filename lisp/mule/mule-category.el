@@ -19,7 +19,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -79,21 +79,21 @@ Categories are given by their designators."
   (check-argument-type 'defined-category-p designator)
   (gethash designator defined-category-hashtable))
 
-(defun modify-category-entry (char-range designator &optional table reset)
+(defun modify-category-entry (char-range designator &optional category-table reset)
   "Add a category to the categories associated with CHAR-RANGE.
 CHAR-RANGE is a single character or a range of characters,
  as per `put-char-table'.
 The category is given by a designator character.
-The changes are made in TABLE, which defaults to the current buffer's
- category table.
+The changes are made in CATEGORY-TABLE, which defaults to the current
+ buffer's category table.
 If optional fourth argument RESET is non-nil, previous categories associated
  with CHAR-RANGE are removed before adding the specified category."
-  (or table (setq table (category-table)))
-  (check-argument-type 'category-table-p table)
+  (or category-table (setq category-table (category-table)))
+  (check-argument-type 'category-table-p category-table)
   (check-argument-type 'defined-category-p designator)
   (if reset
       ;; clear all existing stuff.
-      (put-char-table char-range nil table))
+      (put-char-table char-range nil category-table))
   (map-char-table
    #'(lambda (key value)
        ;; make sure that this range has a bit-vector assigned to it
@@ -103,16 +103,16 @@ If optional fourth argument RESET is non-nil, previous categories associated
        ;; set the appropriate bit in that vector.
        (aset value (- designator 32) 1)
        ;; put the vector back, thus assuring we have a unique setting for this range
-       (put-char-table key value table))
-   table char-range))
+       (put-char-table key value category-table))
+   category-table char-range))
 
-(defun char-category-list (char &optional table)
-  "Return a list of the categories that CHAR is in.
-TABLE defaults to the current buffer's category table.
+(defun char-category-list (character &optional category-table)
+  "Return a list of the categories that CHARACTER is in.
+CATEGORY-TABLE defaults to the current buffer's category table.
 The categories are given by their designators."
-  (or table (setq table (category-table)))
-  (check-argument-type 'category-table-p table)
-  (let ((vec (get-char-table char table)))
+  (or category-table (setq category-table (category-table)))
+  (check-argument-type 'category-table-p category-table)
+  (let ((vec (get-char-table character category-table)))
     (if (null vec) nil
       (let ((a 32) list)
 	(while (< a 127)
@@ -121,7 +121,7 @@ The categories are given by their designators."
 	  (setq a (1+ a)))
 	(nreverse list)))))
 
-;; implemented in c, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
+;; implemented in C, file chartab.c (97/3/14 jhod@po.iijnet.or.jp)
 ;(defun char-in-category-p (char category &optional table)
 ;  "Return non-nil if CHAR is in CATEGORY.
 ;TABLE defaults to the current buffer's category table.

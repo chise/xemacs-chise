@@ -30,28 +30,29 @@ Boston, MA 02111-1307, USA.  */
 enum case_action {CASE_UP, CASE_DOWN, CASE_CAPITALIZE, CASE_CAPITALIZE_UP};
 
 static Lisp_Object
-casify_object (enum case_action flag, Lisp_Object obj, Lisp_Object buffer)
+casify_object (enum case_action flag, Lisp_Object string_or_char,
+	       Lisp_Object buffer)
 {
   struct buffer *buf = decode_buffer (buffer, 0);
 
  retry:
 
-  if (CHAR_OR_CHAR_INTP (obj))
+  if (CHAR_OR_CHAR_INTP (string_or_char))
     {
       Emchar c;
-      CHECK_CHAR_COERCE_INT (obj);
-      c = XCHAR (obj);
+      CHECK_CHAR_COERCE_INT (string_or_char);
+      c = XCHAR (string_or_char);
       c = (flag == CASE_DOWN) ? DOWNCASE (buf, c) : UPCASE (buf, c);
       return make_char (c);
     }
 
-  if (STRINGP (obj))
+  if (STRINGP (string_or_char))
     {
       Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
       Bufbyte *storage =
-	alloca_array (Bufbyte, XSTRING_LENGTH (obj) * MAX_EMCHAR_LEN);
+	alloca_array (Bufbyte, XSTRING_LENGTH (string_or_char) * MAX_EMCHAR_LEN);
       Bufbyte *newp = storage;
-      Bufbyte *oldp = XSTRING_DATA (obj);
+      Bufbyte *oldp = XSTRING_DATA (string_or_char);
       int wordp = 0, wordp_prev;
 
       while (*oldp)
@@ -87,91 +88,90 @@ casify_object (enum case_action flag, Lisp_Object obj, Lisp_Object buffer)
       return make_string (storage, newp - storage);
     }
 
-  obj = wrong_type_argument (Qchar_or_string_p, obj);
+  string_or_char = wrong_type_argument (Qchar_or_string_p, string_or_char);
   goto retry;
 }
 
 DEFUN ("upcase", Fupcase, 1, 2, 0, /*
-Convert OBJECT to upper case and return that.
-OBJECT may be a character or string.  The result has the same type.
-OBJECT is not altered--the value is a copy.
+Convert STRING-OR-CHAR to upper case and return that.
+STRING-OR-CHAR may be a character or string.  The result has the same type.
+STRING-OR-CHAR is not altered--the value is a copy.
 See also `capitalize', `downcase' and `upcase-initials'.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (object, buffer))
+       (string_or_char, buffer))
 {
-  return casify_object (CASE_UP, object, buffer);
+  return casify_object (CASE_UP, string_or_char, buffer);
 }
 
 DEFUN ("downcase", Fdowncase, 1, 2, 0, /*
-Convert OBJECT to lower case and return that.
-OBJECT may be a character or string.  The result has the same type.
-OBJECT is not altered--the value is a copy.
+Convert STRING-OR-CHAR to lower case and return that.
+STRING-OR-CHAR may be a character or string.  The result has the same type.
+STRING-OR-CHAR is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (object, buffer))
+       (string_or_char, buffer))
 {
-  return casify_object (CASE_DOWN, object, buffer);
+  return casify_object (CASE_DOWN, string_or_char, buffer);
 }
 
 DEFUN ("capitalize", Fcapitalize, 1, 2, 0, /*
-Convert OBJECT to capitalized form and return that.
+Convert STRING-OR-CHAR to capitalized form and return that.
 This means that each word's first character is upper case
 and the rest is lower case.
-OBJECT may be a character or string.  The result has the same type.
-OBJECT is not altered--the value is a copy.
+STRING-OR-CHAR may be a character or string.  The result has the same type.
+STRING-OR-CHAR is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (object, buffer))
+       (string_or_char, buffer))
 {
-  return casify_object (CASE_CAPITALIZE, object, buffer);
+  return casify_object (CASE_CAPITALIZE, string_or_char, buffer);
 }
 
 /* Like Fcapitalize but change only the initial characters.  */
 
 DEFUN ("upcase-initials", Fupcase_initials, 1, 2, 0, /*
-Convert the initial of each word in OBJECT to upper case.
+Convert the initial of each word in STRING-OR-CHAR to upper case.
 Do not change the other letters of each word.
-OBJECT may be a character or string.  The result has the same type.
-OBJECT is not altered--the value is a copy.
+STRING-OR-CHAR may be a character or string.  The result has the same type.
+STRING-OR-CHAR is not altered--the value is a copy.
 Optional second arg BUFFER specifies which buffer's case tables to use,
  and defaults to the current buffer.
 */
-       (object, buffer))
+       (string_or_char, buffer))
 {
-  return casify_object (CASE_CAPITALIZE_UP, object, buffer);
+  return casify_object (CASE_CAPITALIZE_UP, string_or_char, buffer);
 }
 
 /* flag is CASE_UP, CASE_DOWN or CASE_CAPITALIZE or CASE_CAPITALIZE_UP.
-   b and e specify range of buffer to operate on. */
+   START and END specify range of buffer to operate on. */
 
 static void
-casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
-			struct buffer *buf)
+casify_region_internal (enum case_action flag, Lisp_Object start,
+			Lisp_Object end, struct buffer *buf)
 {
   /* This function can GC */
-  REGISTER Bufpos i;
-  Bufpos start, end;
+  Bufpos pos, s, e;
   Lisp_Char_Table *syntax_table = XCHAR_TABLE (buf->mirror_syntax_table);
   int mccount;
-  Emchar oldc, c;
   int wordp = 0, wordp_prev;
 
-  if (EQ (b, e))
+  if (EQ (start, end))
     /* Not modifying because nothing marked */
     return;
 
-  get_buffer_range_char (buf, b, e, &start, &end, 0);
+  get_buffer_range_char (buf, start, end, &s, &e, 0);
 
-  mccount = begin_multiple_change (buf, start, end);
-  record_change (buf, start, end - start);
+  mccount = begin_multiple_change (buf, s, e);
+  record_change (buf, s, e - s);
 
-  for (i = start; i < end; i++)
+  for (pos = s; pos < e; pos++)
     {
-      c = oldc = BUF_FETCH_CHAR (buf, i);
+      Emchar oldc = BUF_FETCH_CHAR (buf, pos);
+      Emchar c = oldc;
 
       switch (flag)
 	{
@@ -199,7 +199,7 @@ casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
 	}
 
       if (oldc == c) continue;
-      buffer_replace_char (buf, i, c, 1, (i == start));
+      buffer_replace_char (buf, pos, c, 1, (pos == s));
       BUF_MODIFF (buf)++;
     }
 
@@ -207,10 +207,10 @@ casify_region_internal (enum case_action flag, Lisp_Object b, Lisp_Object e,
 }
 
 static Lisp_Object
-casify_region (enum case_action flag, Lisp_Object b, Lisp_Object e,
+casify_region (enum case_action flag, Lisp_Object start, Lisp_Object end,
 	       Lisp_Object buffer)
 {
-  casify_region_internal (flag, b, e, decode_buffer (buffer, 1));
+  casify_region_internal (flag, start, end, decode_buffer (buffer, 1));
   return Qnil;
 }
 
@@ -222,10 +222,10 @@ These arguments specify the starting and ending character numbers of
 See also `capitalize-region'.
 Optional third arg BUFFER defaults to the current buffer.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
   /* This function can GC */
-  return casify_region (CASE_UP, b, e, buffer);
+  return casify_region (CASE_UP, start, end, buffer);
 }
 
 DEFUN ("downcase-region", Fdowncase_region, 2, 3, "r", /*
@@ -235,10 +235,10 @@ These arguments specify the starting and ending character numbers of
  point and the mark is operated on.
 Optional third arg BUFFER defaults to the current buffer.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
   /* This function can GC */
-  return casify_region (CASE_DOWN, b, e, buffer);
+  return casify_region (CASE_DOWN, start, end, buffer);
 }
 
 DEFUN ("capitalize-region", Fcapitalize_region, 2, 3, "r", /*
@@ -249,10 +249,10 @@ In programs, give two arguments, the starting and ending
  character positions to operate on.
 Optional third arg BUFFER defaults to the current buffer.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
   /* This function can GC */
-  return casify_region (CASE_CAPITALIZE, b, e, buffer);
+  return casify_region (CASE_CAPITALIZE, start, end, buffer);
 }
 
 /* Like Fcapitalize_region but change only the initials.  */
@@ -264,9 +264,9 @@ In programs, give two arguments, the starting and ending
  character positions to operate on.
 Optional third arg BUFFER defaults to the current buffer.
 */
-       (b, e, buffer))
+       (start, end, buffer))
 {
-  return casify_region (CASE_CAPITALIZE_UP, b, e, buffer);
+  return casify_region (CASE_CAPITALIZE_UP, start, end, buffer);
 }
 
 
@@ -288,39 +288,39 @@ casify_word (enum case_action flag, Lisp_Object arg, Lisp_Object buffer)
 }
 
 DEFUN ("upcase-word", Fupcase_word, 1, 2, "p", /*
-Convert following word (or N words) to upper case, moving over.
+Convert following word (or COUNT words) to upper case, moving over.
 With negative argument, convert previous words but do not move.
 See also `capitalize-word'.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (n, buffer))
+       (count, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_UP, n, buffer);
+  return casify_word (CASE_UP, count, buffer);
 }
 
 DEFUN ("downcase-word", Fdowncase_word, 1, 2, "p", /*
-Convert following word (or N words) to lower case, moving over.
+Convert following word (or COUNT words) to lower case, moving over.
 With negative argument, convert previous words but do not move.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (n, buffer))
+       (count, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_DOWN, n, buffer);
+  return casify_word (CASE_DOWN, count, buffer);
 }
 
 DEFUN ("capitalize-word", Fcapitalize_word, 1, 2, "p", /*
-Capitalize the following word (or N words), moving over.
+Capitalize the following word (or COUNT words), moving over.
 This gives the word(s) a first character in upper case
  and the rest lower case.
 With negative argument, capitalize previous words but do not move.
 Optional second arg BUFFER defaults to the current buffer.
 */
-       (n, buffer))
+       (count, buffer))
 {
   /* This function can GC */
-  return casify_word (CASE_CAPITALIZE, n, buffer);
+  return casify_word (CASE_CAPITALIZE, count, buffer);
 }
 
 

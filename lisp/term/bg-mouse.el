@@ -71,7 +71,7 @@ To reinitialize the mouse if the terminal is reset, type ESC : RET"
       ((screen-mouse-x (min (1- (frame-width))	;don't hit column 86!
 			    (/ (bg-get-tty-num semicolon) 9)))
        (screen-mouse-y (- (1- (frame-height)) ;assume default font size.
-			  (/ (bg-get-tty-num semicolon) 16))) 
+			  (/ (bg-get-tty-num semicolon) 16)))
        (bg-mouse-buttons (% (bg-get-tty-num ?c) 8))
        (bg-mouse-window (bg-window-from-x-y screen-mouse-x screen-mouse-y))
        (bg-cursor-window (selected-window))
@@ -168,8 +168,8 @@ through the buffer as the BitGraph mouse's X position in the window."
   (scroll-up bg-mouse-y))
 
 (defun bg-mouse-line-to-center ()
-  "Scroll the line pointed to by the BitGraph mouse to the center 
-of the window"
+  "Scroll the line pointed to by the BitGraph mouse to the center
+of the window."
   (interactive)
   (scroll-up (/ (+ 2 bg-mouse-y bg-mouse-y (- (window-height))) 2)))
 
@@ -290,7 +290,7 @@ X and Y are 0-based character positions on the screen."
   "Bind bg-mouse CLICK-CODE to run FUNCTION."
   (define-key mouse-map (char-to-string click-code) function))
 
-(bind-bg-mouse-click bg-button-l 'bg-set-point) 
+(bind-bg-mouse-click bg-button-l 'bg-set-point)
 (bind-bg-mouse-click bg-button-m 'bg-yank)
 (bind-bg-mouse-click bg-button-r 'bg-set-mark)
 (bind-bg-mouse-click (+ bg-button-l bg-button-m) 'yank-pop-1)

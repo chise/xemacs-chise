@@ -50,6 +50,480 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Mode Help,  Next: Derived Modes,  Prev: Auto Major Mode,  Up: Major Modes
+
+Getting Help about a Major Mode
+-------------------------------
+
+   The `describe-mode' function is used to provide information about
+major modes.  It is normally called with `C-h m'.  The `describe-mode'
+function uses the value of `major-mode', which is why every major mode
+function needs to set the `major-mode' variable.
+
+ - Command: describe-mode
+     This function displays the documentation of the current major mode.
+
+     The `describe-mode' function calls the `documentation' function
+     using the value of `major-mode' as an argument.  Thus, it displays
+     the documentation string of the major mode function.  (*Note
+     Accessing Documentation::.)
+
+ - Variable: major-mode
+     This variable holds the symbol for the current buffer's major mode.
+     This symbol should have a function definition that is the command
+     to switch to that major mode.  The `describe-mode' function uses
+     the documentation string of the function as the documentation of
+     the major mode.
+
+
+File: lispref.info,  Node: Derived Modes,  Prev: Mode Help,  Up: Major Modes
+
+Defining Derived Modes
+----------------------
+
+   It's often useful to define a new major mode in terms of an existing
+one.  An easy way to do this is to use `define-derived-mode'.
+
+ - Macro: define-derived-mode variant parent name docstring body...
+     This construct defines VARIANT as a major mode command, using NAME
+     as the string form of the mode name.
+
+     The new command VARIANT is defined to call the function PARENT,
+     then override certain aspects of that parent mode:
+
+        * The new mode has its own keymap, named `VARIANT-map'.
+          `define-derived-mode' initializes this map to inherit from
+          `PARENT-map', if it is not already set.
+
+        * The new mode has its own syntax table, kept in the variable
+          `VARIANT-syntax-table'.  `define-derived-mode' initializes
+          this variable by copying `PARENT-syntax-table', if it is not
+          already set.
+
+        * The new mode has its own abbrev table, kept in the variable
+          `VARIANT-abbrev-table'.  `define-derived-mode' initializes
+          this variable by copying `PARENT-abbrev-table', if it is not
+          already set.
+
+        * The new mode has its own mode hook, `VARIANT-hook', which it
+          runs in standard fashion as the very last thing that it does.
+          (The new mode also runs the mode hook of PARENT as part of
+          calling PARENT.)
+
+     In addition, you can specify how to override other aspects of
+     PARENT with BODY.  The command VARIANT evaluates the forms in BODY
+     after setting up all its usual overrides, just before running
+     `VARIANT-hook'.
+
+     The argument DOCSTRING specifies the documentation string for the
+     new mode.  If you omit DOCSTRING, `define-derived-mode' generates
+     a documentation string.
+
+     Here is a hypothetical example:
+
+          (define-derived-mode hypertext-mode
+            text-mode "Hypertext"
+            "Major mode for hypertext.
+          \\{hypertext-mode-map}"
+            (setq case-fold-search nil))
+          
+          (define-key hypertext-mode-map
+            [down-mouse-3] 'do-hyper-link)
+
+
+File: lispref.info,  Node: Minor Modes,  Next: Modeline Format,  Prev: Major Modes,  Up: Modes
+
+Minor Modes
+===========
+
+   A "minor mode" provides features that users may enable or disable
+independently of the choice of major mode.  Minor modes can be enabled
+individually or in combination.  Minor modes would be better named
+"Generally available, optional feature modes" except that such a name is
+unwieldy.
+
+   A minor mode is not usually a modification of single major mode.  For
+example, Auto Fill mode may be used in any major mode that permits text
+insertion.  To be general, a minor mode must be effectively independent
+of the things major modes do.
+
+   A minor mode is often much more difficult to implement than a major
+mode.  One reason is that you should be able to activate and deactivate
+minor modes in any order.  A minor mode should be able to have its
+desired effect regardless of the major mode and regardless of the other
+minor modes in effect.
+
+   Often the biggest problem in implementing a minor mode is finding a
+way to insert the necessary hook into the rest of XEmacs.  Minor mode
+keymaps make this easier than it used to be.
+
+* Menu:
+
+* Minor Mode Conventions::      Tips for writing a minor mode.
+* Keymaps and Minor Modes::     How a minor mode can have its own keymap.
+
+
+File: lispref.info,  Node: Minor Mode Conventions,  Next: Keymaps and Minor Modes,  Up: Minor Modes
+
+Conventions for Writing Minor Modes
+-----------------------------------
+
+   There are conventions for writing minor modes just as there are for
+major modes.  Several of the major mode conventions apply to minor
+modes as well: those regarding the name of the mode initialization
+function, the names of global symbols, and the use of keymaps and other
+tables.
+
+   In addition, there are several conventions that are specific to
+minor modes.
+
+   * Make a variable whose name ends in `-mode' to represent the minor
+     mode.  Its value should enable or disable the mode (`nil' to
+     disable; anything else to enable.)  We call this the "mode
+     variable".
+
+     This variable is used in conjunction with the `minor-mode-alist' to
+     display the minor mode name in the modeline.  It can also enable
+     or disable a minor mode keymap.  Individual commands or hooks can
+     also check the variable's value.
+
+     If you want the minor mode to be enabled separately in each buffer,
+     make the variable buffer-local.
+
+   * Define a command whose name is the same as the mode variable.  Its
+     job is to enable and disable the mode by setting the variable.
+
+     The command should accept one optional argument.  If the argument
+     is `nil', it should toggle the mode (turn it on if it is off, and
+     off if it is on).  Otherwise, it should turn the mode on if the
+     argument is a positive integer, a symbol other than `nil' or `-',
+     or a list whose CAR is such an integer or symbol; it should turn
+     the mode off otherwise.
+
+     Here is an example taken from the definition of
+     `transient-mark-mode'.  It shows the use of `transient-mark-mode'
+     as a variable that enables or disables the mode's behavior, and
+     also shows the proper way to toggle, enable or disable the minor
+     mode based on the raw prefix argument value.
+
+          (setq transient-mark-mode
+                (if (null arg) (not transient-mark-mode)
+                  (> (prefix-numeric-value arg) 0)))
+
+   * Add an element to `minor-mode-alist' for each minor mode (*note
+     Modeline Variables::).  This element should be a list of the
+     following form:
+
+          (MODE-VARIABLE STRING)
+
+     Here MODE-VARIABLE is the variable that controls enabling of the
+     minor mode, and STRING is a short string, starting with a space,
+     to represent the mode in the modeline.  These strings must be
+     short so that there is room for several of them at once.
+
+     When you add an element to `minor-mode-alist', use `assq' to check
+     for an existing element, to avoid duplication.  For example:
+
+          (or (assq 'leif-mode minor-mode-alist)
+              (setq minor-mode-alist
+                    (cons '(leif-mode " Leif") minor-mode-alist)))
+
+
+File: lispref.info,  Node: Keymaps and Minor Modes,  Prev: Minor Mode Conventions,  Up: Minor Modes
+
+Keymaps and Minor Modes
+-----------------------
+
+   Each minor mode can have its own keymap, which is active when the
+mode is enabled.  To set up a keymap for a minor mode, add an element
+to the alist `minor-mode-map-alist'.  *Note Active Keymaps::.
+
+   One use of minor mode keymaps is to modify the behavior of certain
+self-inserting characters so that they do something else as well as
+self-insert.  In general, this is the only way to do that, since the
+facilities for customizing `self-insert-command' are limited to special
+cases (designed for abbrevs and Auto Fill mode).  (Do not try
+substituting your own definition of `self-insert-command' for the
+standard one.  The editor command loop handles this function specially.)
+
+
+File: lispref.info,  Node: Modeline Format,  Next: Hooks,  Prev: Minor Modes,  Up: Modes
+
+Modeline Format
+===============
+
+   Each Emacs window (aside from minibuffer windows) includes a
+modeline, which displays status information about the buffer displayed
+in the window.  The modeline contains information about the buffer,
+such as its name, associated file, depth of recursive editing, and the
+major and minor modes.
+
+   This section describes how the contents of the modeline are
+controlled.  It is in the chapter on modes because much of the
+information displayed in the modeline relates to the enabled major and
+minor modes.
+
+   `modeline-format' is a buffer-local variable that holds a template
+used to display the modeline of the current buffer.  All windows for
+the same buffer use the same `modeline-format' and their modelines
+appear the same (except for scrolling percentages and line numbers).
+
+   The modeline of a window is normally updated whenever a different
+buffer is shown in the window, or when the buffer's modified-status
+changes from `nil' to `t' or vice-versa.  If you modify any of the
+variables referenced by `modeline-format' (*note Modeline Variables::),
+you may want to force an update of the modeline so as to display the
+new information.
+
+ - Function: redraw-modeline &optional all
+     Force redisplay of the current buffer's modeline.  If ALL is
+     non-`nil', then force redisplay of all modelines.
+
+   The modeline is usually displayed in inverse video.  This is
+controlled using the `modeline' face.  *Note Faces::.
+
+* Menu:
+
+* Modeline Data::         The data structure that controls the modeline.
+* Modeline Variables::    Variables used in that data structure.
+* %-Constructs::          Putting information into a modeline.
+
+
+File: lispref.info,  Node: Modeline Data,  Next: Modeline Variables,  Up: Modeline Format
+
+The Data Structure of the Modeline
+----------------------------------
+
+   The modeline contents are controlled by a data structure of lists,
+strings, symbols, and numbers kept in the buffer-local variable
+`modeline-format'.  The data structure is called a "modeline
+construct", and it is built in recursive fashion out of simpler modeline
+constructs.  The same data structure is used for constructing frame
+titles (*note Frame Titles::).
+
+ - Variable: modeline-format
+     The value of this variable is a modeline construct with overall
+     responsibility for the modeline format.  The value of this variable
+     controls which other variables are used to form the modeline text,
+     and where they appear.
+
+   A modeline construct may be as simple as a fixed string of text, but
+it usually specifies how to use other variables to construct the text.
+Many of these variables are themselves defined to have modeline
+constructs as their values.
+
+   The default value of `modeline-format' incorporates the values of
+variables such as `mode-name' and `minor-mode-alist'.  Because of this,
+very few modes need to alter `modeline-format'.  For most purposes, it
+is sufficient to alter the variables referenced by `modeline-format'.
+
+   A modeline construct may be a string, symbol, glyph, generic
+specifier, list or cons cell.
+
+`STRING'
+     A string as a modeline construct is displayed verbatim in the mode
+     line except for "`%'-constructs".  Decimal digits after the `%'
+     specify the field width for space filling on the right (i.e., the
+     data is left justified).  *Note %-Constructs::.
+
+`SYMBOL'
+     A symbol as a modeline construct stands for its value.  The value
+     of SYMBOL is processed as a modeline construct, in place of
+     SYMBOL.  However, the symbols `t' and `nil' are ignored; so is any
+     symbol whose value is void.
+
+     There is one exception: if the value of SYMBOL is a string, it is
+     displayed verbatim: the `%'-constructs are not recognized.
+
+`GLYPH'
+     A glyph is displayed as is.
+
+`GENERIC-SPECIFIER'
+     A GENERIC-SPECIFIER (i.e. a specifier of type `generic') stands
+     for its instance.  The instance of GENERIC-SPECIFIER is computed
+     in the current window using the equivalent of `specifier-instance'
+     and the value is processed.
+
+`(STRING REST...) or (LIST REST...)'
+     A list whose first element is a string or list means to process
+     all the elements recursively and concatenate the results.  This is
+     the most common form of mode line construct.
+
+`(SYMBOL THEN ELSE)'
+     A list whose first element is a symbol is a conditional.  Its
+     meaning depends on the value of SYMBOL.  If the value is non-`nil',
+     the second element, THEN, is processed recursively as a modeline
+     element.  But if the value of SYMBOL is `nil', the third element,
+     ELSE, is processed recursively.  You may omit ELSE; then the mode
+     line element displays nothing if the value of SYMBOL is `nil'.
+
+`(WIDTH REST...)'
+     A list whose first element is an integer specifies truncation or
+     padding of the results of REST.  The remaining elements REST are
+     processed recursively as modeline constructs and concatenated
+     together.  Then the result is space filled (if WIDTH is positive)
+     or truncated (to -WIDTH columns, if WIDTH is negative) on the
+     right.
+
+     For example, the usual way to show what percentage of a buffer is
+     above the top of the window is to use a list like this: `(-3
+     "%p")'.
+
+`(EXTENT REST...)'
+     A list whose car is an extent means the cdr of the list is
+     processed normally but the results are displayed using the face of
+     the extent, and mouse clicks over this section are processed using
+     the keymap of the extent. (In addition, if the extent has a
+     help-echo property, that string will be echoed when the mouse
+     moves over this section.) If extents are nested, all keymaps are
+     properly consulted when processing mouse clicks, but multiple
+     faces are not correctly merged (only the first face is used), and
+     lists of faces are not correctly handled.
+
+   If you do alter `modeline-format' itself, the new value should use
+the same variables that appear in the default value (*note Modeline
+Variables::), rather than duplicating their contents or displaying the
+information in another fashion.  This way, customizations made by the
+user or by Lisp programs (such as `display-time' and major modes) via
+changes to those variables remain effective.
+
+   Here is an example of a `modeline-format' that might be useful for
+`shell-mode', since it contains the hostname and default directory.
+
+     (setq modeline-format
+       (list ""
+        'modeline-modified
+        "%b--"
+        (getenv "HOST")      ; One element is not constant.
+        ":"
+        'default-directory
+        "   "
+        'global-mode-string
+        "   %[("
+        'mode-name
+        'modeline-process
+        'minor-mode-alist
+        "%n"
+        ")%]----"
+        '(line-number-mode "L%l--")
+        '(-3 . "%p")
+        "-%-"))
+
+
+File: lispref.info,  Node: Modeline Variables,  Next: %-Constructs,  Prev: Modeline Data,  Up: Modeline Format
+
+Variables Used in the Modeline
+------------------------------
+
+   This section describes variables incorporated by the standard value
+of `modeline-format' into the text of the mode line.  There is nothing
+inherently special about these variables; any other variables could
+have the same effects on the modeline if `modeline-format' were changed
+to use them.
+
+ - Variable: modeline-modified
+     This variable holds the value of the modeline construct that
+     displays whether the current buffer is modified.
+
+     The default value of `modeline-modified' is `("--%1*%1+-")'.  This
+     means that the modeline displays `--**-' if the buffer is
+     modified, `-----' if the buffer is not modified, `--%%-' if the
+     buffer is read only, and `--%*--' if the buffer is read only and
+     modified.
+
+     Changing this variable does not force an update of the modeline.
+
+ - Variable: modeline-buffer-identification
+     This variable identifies the buffer being displayed in the window.
+     Its default value is `("%F: %17b")', which means that it usually
+     displays `Emacs:' followed by seventeen characters of the buffer
+     name.  (In a terminal frame, it displays the frame name instead of
+     `Emacs'; this has the effect of showing the frame number.)  You may
+     want to change this in modes such as Rmail that do not behave like
+     a "normal" XEmacs.
+
+ - Variable: global-mode-string
+     This variable holds a modeline spec that appears in the mode line
+     by default, just after the buffer name.  The command `display-time'
+     sets `global-mode-string' to refer to the variable
+     `display-time-string', which holds a string containing the time and
+     load information.
+
+     The `%M' construct substitutes the value of `global-mode-string',
+     but this is obsolete, since the variable is included directly in
+     the modeline.
+
+ - Variable: mode-name
+     This buffer-local variable holds the "pretty" name of the current
+     buffer's major mode.  Each major mode should set this variable so
+     that the mode name will appear in the modeline.
+
+ - Variable: minor-mode-alist
+     This variable holds an association list whose elements specify how
+     the modeline should indicate that a minor mode is active.  Each
+     element of the `minor-mode-alist' should be a two-element list:
+
+          (MINOR-MODE-VARIABLE MODELINE-STRING)
+
+     More generally, MODELINE-STRING can be any mode line spec.  It
+     appears in the mode line when the value of MINOR-MODE-VARIABLE is
+     non-`nil', and not otherwise.  These strings should begin with
+     spaces so that they don't run together.  Conventionally, the
+     MINOR-MODE-VARIABLE for a specific mode is set to a non-`nil'
+     value when that minor mode is activated.
+
+     The default value of `minor-mode-alist' is:
+
+          minor-mode-alist
+          => ((vc-mode vc-mode)
+              (abbrev-mode " Abbrev")
+              (overwrite-mode overwrite-mode)
+              (auto-fill-function " Fill")
+              (defining-kbd-macro " Def")
+              (isearch-mode isearch-mode))
+
+     `minor-mode-alist' is not buffer-local.  The variables mentioned
+     in the alist should be buffer-local if the minor mode can be
+     enabled separately in each buffer.
+
+ - Variable: modeline-process
+     This buffer-local variable contains the modeline information on
+     process status in modes used for communicating with subprocesses.
+     It is displayed immediately following the major mode name, with no
+     intervening space.  For example, its value in the `*shell*' buffer
+     is `(": %s")', which allows the shell to display its status along
+     with the major mode as: `(Shell: run)'.  Normally this variable is
+     `nil'.
+
+ - Variable: default-modeline-format
+     This variable holds the default `modeline-format' for buffers that
+     do not override it.  This is the same as `(default-value
+     'modeline-format)'.
+
+     The default value of `default-modeline-format' is:
+
+          (""
+           modeline-modified
+           modeline-buffer-identification
+           "   "
+           global-mode-string
+           "   %[("
+           mode-name
+           modeline-process
+           minor-mode-alist
+           "%n"
+           ")%]----"
+           (line-number-mode "L%l--")
+           (-3 . "%p")
+           "-%-")
+
+ - Variable: vc-mode
+     The variable `vc-mode', local in each buffer, records whether the
+     buffer's visited file is maintained with version control, and, if
+     so, which kind.  Its value is `nil' for no version control, or a
+     string that appears in the mode line.
+
+
 File: lispref.info,  Node: %-Constructs,  Prev: Modeline Variables,  Up: Modeline Format
 
 `%'-Constructs in the ModeLine
@@ -288,7 +762,7 @@ added with `add-hooks'.
      difference.
 
  - Function: make-local-hook hook
-     This function makes the hook variable `hook' local to the current
+     This function makes the hook variable HOOK local to the current
      buffer.  When a hook variable is local, it can have local and
      global hook functions, and `run-hooks' runs all of them.
 
@@ -489,7 +963,7 @@ more information.
      Set the current horizontal position as a goal for C-n and C-p.
      Those commands will move to this position in the line moved to
      rather than trying to keep the same horizontal position.
-     With a non-nil argument, clears out the goal column
+     With a non-`nil' argument, clears out the goal column
      so that C-n and C-p resume vertical motion.
      The goal column is stored in the variable `goal-column'.
      
@@ -605,14 +1079,14 @@ XEmacs Lisp.
      
      (substitute-command-keys
        "Substrings of the form \\=\\{MAPVAR} are replaced by summaries
-     \(made by describe-bindings) of the value of MAPVAR, taken as a keymap.
+     \(made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
      Substrings of the form \\=\\<MAPVAR> specify to use the value of MAPVAR
      as the keymap for future \\=\\[COMMAND] substrings.
      \\=\\= quotes the following character and is discarded;
      thus, \\=\\=\\=\\= puts \\=\\= into the output,
      and \\=\\=\\=\\[ puts \\=\\[ into the output.")
      => "Substrings of the form \{MAPVAR} are replaced by summaries
-     (made by describe-bindings) of the value of MAPVAR, taken as a keymap.
+     (made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
      Substrings of the form \<MAPVAR> specify to use the value of MAPVAR
      as the keymap for future \[COMMAND] substrings.
      \= quotes the following character and is discarded;
@@ -670,441 +1144,4 @@ the character itself.
                => "M-m"
           (text-char-description ?\C-\M-m)
                => "M-^M"
-
-
-File: lispref.info,  Node: Help Functions,  Next: Obsoleteness,  Prev: Describing Characters,  Up: Documentation
-
-Help Functions
-==============
-
-   XEmacs provides a variety of on-line help functions, all accessible
-to the user as subcommands of the prefix `C-h', or on some keyboards,
-`help'.  For more information about them, see *Note Help: (emacs)Help.
-Here we describe some program-level interfaces to the same information.
-
- - Command: apropos regexp &optional do-all predicate
-     This function finds all symbols whose names contain a match for the
-     regular expression REGEXP, and returns a list of them (*note
-     Regular Expressions::).  It also displays the symbols in a buffer
-     named `*Help*', each with a one-line description.
-
-     If DO-ALL is non-`nil', then `apropos' also shows key bindings for
-     the functions that are found.
-
-     If PREDICATE is non-`nil', it should be a function to be called on
-     each symbol that has matched REGEXP.  Only symbols for which
-     PREDICATE returns a non-`nil' value are listed or displayed.
-
-     In the first of the following examples, `apropos' finds all the
-     symbols with names containing `exec'.  In the second example, it
-     finds and returns only those symbols that are also commands.  (We
-     don't show the output that results in the `*Help*' buffer.)
-
-          (apropos "exec")
-               => (Buffer-menu-execute command-execute exec-directory
-              exec-path execute-extended-command execute-kbd-macro
-              executing-kbd-macro executing-macro)
-          
-          (apropos "exec" nil 'commandp)
-               => (Buffer-menu-execute execute-extended-command)
-
-     `apropos' is used by various user-level commands, such as `C-h a'
-     (`hyper-apropos'), a graphical front-end to `apropos'; and `C-h A'
-     (`command-apropos'), which does an apropos over only those
-     functions which are user commands.  `command-apropos' calls
-     `apropos', specifying a PREDICATE to restrict the output to
-     symbols that are commands.  The call to `apropos' looks like this:
-
-          (apropos string t 'commandp)
-
- - Variable: help-map
-     The value of this variable is a local keymap for characters
-     following the Help key, `C-h'.
-
- - Prefix Command: help-command
-     This symbol is not a function; its function definition is actually
-     the keymap known as `help-map'.  It is defined in `help.el' as
-     follows:
-
-          (define-key global-map "\C-h" 'help-command)
-          (fset 'help-command help-map)
-
- - Function: print-help-return-message &optional function
-     This function builds a string that explains how to restore the
-     previous state of the windows after a help command.  After
-     building the message, it applies FUNCTION to it if FUNCTION is
-     non-`nil'.  Otherwise it calls `message' to display it in the echo
-     area.
-
-     This function expects to be called inside a
-     `with-output-to-temp-buffer' special form, and expects
-     `standard-output' to have the value bound by that special form.
-     For an example of its use, see the long example in *Note Accessing
-     Documentation::.
-
- - Variable: help-char
-     The value of this variable is the help character--the character
-     that XEmacs recognizes as meaning Help.  By default, it is the
-     character `?\^H' (ASCII 8), which is `C-h'.  When XEmacs reads this
-     character, if `help-form' is non-`nil' Lisp expression, it
-     evaluates that expression, and displays the result in a window if
-     it is a string.
-
-     `help-char' can be a character or a key description such as `help'
-     or `(meta h)'.
-
-     Usually the value of `help-form''s value is `nil'.  Then the help
-     character has no special meaning at the level of command input, and
-     it becomes part of a key sequence in the normal way.  The standard
-     key binding of `C-h' is a prefix key for several general-purpose
-     help features.
-
-     The help character is special after prefix keys, too.  If it has no
-     binding as a subcommand of the prefix key, it runs
-     `describe-prefix-bindings', which displays a list of all the
-     subcommands of the prefix key.
-
- - Variable: help-form
-     If this variable is non-`nil', its value is a form to evaluate
-     whenever the character `help-char' is read.  If evaluating the form
-     produces a string, that string is displayed.
-
-     A command that calls `next-command-event' or `next-event' probably
-     should bind `help-form' to a non-`nil' expression while it does
-     input.  (The exception is when `C-h' is meaningful input.)
-     Evaluating this expression should result in a string that explains
-     what the input is for and how to enter it properly.
-
-     Entry to the minibuffer binds this variable to the value of
-     `minibuffer-help-form' (*note Minibuffer Misc::).
-
- - Variable: prefix-help-command
-     This variable holds a function to print help for a prefix
-     character.  The function is called when the user types a prefix
-     key followed by the help character, and the help character has no
-     binding after that prefix.  The variable's default value is
-     `describe-prefix-bindings'.
-
- - Function: describe-prefix-bindings
-     This function calls `describe-bindings' to display a list of all
-     the subcommands of the prefix key of the most recent key sequence.
-     The prefix described consists of all but the last event of that
-     key sequence.  (The last event is, presumably, the help character.)
-
-   The following two functions are found in the library `helper'.  They
-are for modes that want to provide help without relinquishing control,
-such as the "electric" modes.  You must load that library with
-`(require 'helper)' in order to use them.  Their names begin with
-`Helper' to distinguish them from the ordinary help functions.
-
- - Command: Helper-describe-bindings
-     This command pops up a window displaying a help buffer containing a
-     listing of all of the key bindings from both the local and global
-     keymaps.  It works by calling `describe-bindings'.
-
- - Command: Helper-help
-     This command provides help for the current mode.  It prompts the
-     user in the minibuffer with the message `Help (Type ? for further
-     options)', and then provides assistance in finding out what the key
-     bindings are, and what the mode is intended for.  It returns `nil'.
-
-     This can be customized by changing the map `Helper-help-map'.
-
-
-File: lispref.info,  Node: Obsoleteness,  Prev: Help Functions,  Up: Documentation
-
-Obsoleteness
-============
-
-   As you add functionality to a package, you may at times want to
-replace an older function with a new one.  To preserve compatibility
-with existing code, the older function needs to still exist; but users
-of that function should be told to use the newer one instead.  XEmacs
-Lisp lets you mark a function or variable as "obsolete", and indicate
-what should be used instead.
-
- - Function: make-obsolete function new
-     This function indicates that FUNCTION is an obsolete function, and
-     the function NEW should be used instead.  The byte compiler will
-     issue a warning to this effect when it encounters a usage of the
-     older function, and the help system will also note this in the
-     function's documentation.  NEW can also be a string (if there is
-     not a single function with the same functionality any more), and
-     should be a descriptive statement, such as "use FOO or BAR
-     instead" or "this function is unnecessary".
-
- - Function: make-obsolete-variable variable new
-     This is like `make-obsolete' but is for variables instead of
-     functions.
-
- - Function: define-obsolete-function-alias oldfun newfun
-     This function combines `make-obsolete' and `define-function',
-     declaring OLDFUN to be an obsolete variant of NEWFUN and defining
-     OLDFUN as an alias for NEWFUN.
-
- - Function: define-obsolete-variable-alias oldvar newvar
-     This is like `define-obsolete-function-alias' but for variables.
-
-   Note that you should not normally put obsoleteness information
-explicitly in a function or variable's doc string.  The obsoleteness
-information that you specify using the above functions will be displayed
-whenever the doc string is displayed, and by adding it explicitly the
-result is redundancy.
-
-   Also, if an obsolete function is substantially the same as a newer
-one but is not actually an alias, you should consider omitting the doc
-string entirely (use a null string `""' as the doc string).  That way,
-the user is told about the obsoleteness and is forced to look at the
-documentation of the new function, making it more likely that he will
-use the new function.
-
- - Function: function-obsoleteness-doc function
-     If FUNCTION is obsolete, this function returns a string describing
-     this.  This is the message that is printed out during byte
-     compilation or in the function's documentation.  If FUNCTION is
-     not obsolete, `nil' is returned.
-
- - Function: variable-obsoleteness-doc variable
-     This is like `function-obsoleteness-doc' but for variables.
-
-   The obsoleteness information is stored internally by putting a
-property `byte-obsolete-info' (for functions) or
-`byte-obsolete-variable' (for variables) on the symbol that specifies
-the obsolete function or variable.  For more information, see the
-implementation of `make-obsolete' and `make-obsolete-variable' in
-`lisp/bytecomp/bytecomp-runtime.el'.
-
-
-File: lispref.info,  Node: Files,  Next: Backups and Auto-Saving,  Prev: Documentation,  Up: Top
-
-Files
-*****
-
-   In XEmacs, you can find, create, view, save, and otherwise work with
-files and file directories.  This chapter describes most of the
-file-related functions of XEmacs Lisp, but a few others are described in
-*Note Buffers::, and those related to backups and auto-saving are
-described in *Note Backups and Auto-Saving::.
-
-   Many of the file functions take one or more arguments that are file
-names.  A file name is actually a string.  Most of these functions
-expand file name arguments using `expand-file-name', so that `~' is
-handled correctly, as are relative file names (including `../').  These
-functions don't recognize environment variable substitutions such as
-`$HOME'.  *Note File Name Expansion::.
-
-* Menu:
-
-* Visiting Files::           Reading files into Emacs buffers for editing.
-* Saving Buffers::           Writing changed buffers back into files.
-* Reading from Files::       Reading files into buffers without visiting.
-* Writing to Files::         Writing new files from parts of buffers.
-* File Locks::               Locking and unlocking files, to prevent
-                               simultaneous editing by two people.
-* Information about Files::  Testing existence, accessibility, size of files.
-* Changing File Attributes:: Renaming files, changing protection, etc.
-* File Names::               Decomposing and expanding file names.
-* Contents of Directories::  Getting a list of the files in a directory.
-* Create/Delete Dirs::	     Creating and Deleting Directories.
-* Magic File Names::	     Defining "magic" special handling
-			       for certain file names.
-* Partial Files::            Treating a section of a buffer as a file.
-* Format Conversion::        Conversion to and from various file formats.
-* Files and MS-DOS::         Distinguishing text and binary files on MS-DOS.
-
-
-File: lispref.info,  Node: Visiting Files,  Next: Saving Buffers,  Up: Files
-
-Visiting Files
-==============
-
-   Visiting a file means reading a file into a buffer.  Once this is
-done, we say that the buffer is "visiting" that file, and call the file
-"the visited file" of the buffer.
-
-   A file and a buffer are two different things.  A file is information
-recorded permanently in the computer (unless you delete it).  A buffer,
-on the other hand, is information inside of XEmacs that will vanish at
-the end of the editing session (or when you kill the buffer).  Usually,
-a buffer contains information that you have copied from a file; then we
-say the buffer is visiting that file.  The copy in the buffer is what
-you modify with editing commands.  Such changes to the buffer do not
-change the file; therefore, to make the changes permanent, you must
-"save" the buffer, which means copying the altered buffer contents back
-into the file.
-
-   In spite of the distinction between files and buffers, people often
-refer to a file when they mean a buffer and vice-versa.  Indeed, we say,
-"I am editing a file," rather than, "I am editing a buffer that I will
-soon save as a file of the same name."  Humans do not usually need to
-make the distinction explicit.  When dealing with a computer program,
-however, it is good to keep the distinction in mind.
-
-* Menu:
-
-* Visiting Functions::         The usual interface functions for visiting.
-* Subroutines of Visiting::    Lower-level subroutines that they use.
-
-
-File: lispref.info,  Node: Visiting Functions,  Next: Subroutines of Visiting,  Up: Visiting Files
-
-Functions for Visiting Files
-----------------------------
-
-   This section describes the functions normally used to visit files.
-For historical reasons, these functions have names starting with
-`find-' rather than `visit-'.  *Note Buffer File Name::, for functions
-and variables that access the visited file name of a buffer or that
-find an existing buffer by its visited file name.
-
-   In a Lisp program, if you want to look at the contents of a file but
-not alter it, the fastest way is to use `insert-file-contents' in a
-temporary buffer.  Visiting the file is not necessary and takes longer.
-*Note Reading from Files::.
-
- - Command: find-file filename
-     This command selects a buffer visiting the file FILENAME, using an
-     existing buffer if there is one, and otherwise creating a new
-     buffer and reading the file into it.  It also returns that buffer.
-
-     The body of the `find-file' function is very simple and looks like
-     this:
-
-          (switch-to-buffer (find-file-noselect filename))
-
-     (See `switch-to-buffer' in *Note Displaying Buffers::.)
-
-     When `find-file' is called interactively, it prompts for FILENAME
-     in the minibuffer.
-
- - Function: find-file-noselect filename &optional nowarn
-     This function is the guts of all the file-visiting functions.  It
-     finds or creates a buffer visiting the file FILENAME, and returns
-     it.  It uses an existing buffer if there is one, and otherwise
-     creates a new buffer and reads the file into it.  You may make the
-     buffer current or display it in a window if you wish, but this
-     function does not do so.
-
-     When `find-file-noselect' uses an existing buffer, it first
-     verifies that the file has not changed since it was last visited or
-     saved in that buffer.  If the file has changed, then this function
-     asks the user whether to reread the changed file.  If the user says
-     `yes', any changes previously made in the buffer are lost.
-
-     If `find-file-noselect' needs to create a buffer, and there is no
-     file named FILENAME, it displays the message `New file' in the
-     echo area, and leaves the buffer empty.
-
-     If NO-WARN is non-`nil', various warnings that XEmacs normally
-     gives (e.g. if another buffer is already visiting FILENAME but
-     FILENAME has been removed from disk since that buffer was created)
-     are suppressed.
-
-     The `find-file-noselect' function calls `after-find-file' after
-     reading the file (*note Subroutines of Visiting::).  That function
-     sets the buffer major mode, parses local variables, warns the user
-     if there exists an auto-save file more recent than the file just
-     visited, and finishes by running the functions in
-     `find-file-hooks'.
-
-     The `find-file-noselect' function returns the buffer that is
-     visiting the file FILENAME.
-
-          (find-file-noselect "/etc/fstab")
-               => #<buffer fstab>
-
- - Command: find-file-other-window filename
-     This command selects a buffer visiting the file FILENAME, but does
-     so in a window other than the selected window.  It may use another
-     existing window or split a window; see *Note Displaying Buffers::.
-
-     When this command is called interactively, it prompts for FILENAME.
-
- - Command: find-file-read-only filename
-     This command selects a buffer visiting the file FILENAME, like
-     `find-file', but it marks the buffer as read-only.  *Note Read
-     Only Buffers::, for related functions and variables.
-
-     When this command is called interactively, it prompts for FILENAME.
-
- - Command: view-file filename
-     This command visits FILENAME in View mode, and displays it in a
-     recursive edit, returning to the previous buffer when done.  View
-     mode is a mode that allows you to skim rapidly through the file
-     but does not let you modify it.  Entering View mode runs the
-     normal hook `view-mode-hook'.  *Note Hooks::.
-
-     When `view-file' is called interactively, it prompts for FILENAME.
-
- - Variable: find-file-hooks
-     The value of this variable is a list of functions to be called
-     after a file is visited.  The file's local-variables specification
-     (if any) will have been processed before the hooks are run.  The
-     buffer visiting the file is current when the hook functions are
-     run.
-
-     This variable works just like a normal hook, but we think that
-     renaming it would not be advisable.
-
- - Variable: find-file-not-found-hooks
-     The value of this variable is a list of functions to be called when
-     `find-file' or `find-file-noselect' is passed a nonexistent file
-     name.  `find-file-noselect' calls these functions as soon as it
-     detects a nonexistent file.  It calls them in the order of the
-     list, until one of them returns non-`nil'.  `buffer-file-name' is
-     already set up.
-
-     This is not a normal hook because the values of the functions are
-     used and they may not all be called.
-
-
-File: lispref.info,  Node: Subroutines of Visiting,  Prev: Visiting Functions,  Up: Visiting Files
-
-Subroutines of Visiting
------------------------
-
-   The `find-file-noselect' function uses the `create-file-buffer' and
-`after-find-file' functions as subroutines.  Sometimes it is useful to
-call them directly.
-
- - Function: create-file-buffer filename
-     This function creates a suitably named buffer for visiting
-     FILENAME, and returns it.  It uses FILENAME (sans directory) as
-     the name if that name is free; otherwise, it appends a string such
-     as `<2>' to get an unused name.  See also *Note Creating Buffers::.
-
-     *Please note:* `create-file-buffer' does _not_ associate the new
-     buffer with a file and does not select the buffer.  It also does
-     not use the default major mode.
-
-          (create-file-buffer "foo")
-               => #<buffer foo>
-          (create-file-buffer "foo")
-               => #<buffer foo<2>>
-          (create-file-buffer "foo")
-               => #<buffer foo<3>>
-
-     This function is used by `find-file-noselect'.  It uses
-     `generate-new-buffer' (*note Creating Buffers::).
-
- - Function: after-find-file &optional error warn noauto
-     This function sets the buffer major mode, and parses local
-     variables (*note Auto Major Mode::).  It is called by
-     `find-file-noselect' and by the default revert function (*note
-     Reverting::).
-
-     If reading the file got an error because the file does not exist,
-     but its directory does exist, the caller should pass a non-`nil'
-     value for ERROR.  In that case, `after-find-file' issues a warning:
-     `(New File)'.  For more serious errors, the caller should usually
-     not call `after-find-file'.
-
-     If WARN is non-`nil', then this function issues a warning if an
-     auto-save file exists and is more recent than the visited file.
-
-     If NOAUTO is non-`nil', then this function does not turn on
-     auto-save mode; otherwise, it does.
-
-     The last thing `after-find-file' does is call all the functions in
-     `find-file-hooks'.
 

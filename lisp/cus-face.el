@@ -55,6 +55,7 @@
 
 ;;; Font Attributes.
 
+;; Consider adding the stuff in the XML font model here.
 (defconst custom-face-attributes
   '((:foreground (color :tag "Foreground"
 			:value ""
@@ -98,18 +99,20 @@ Control whether the text should be strikethru.")
 			    :help-echo "\
 Control whether the text should be inverted.  Works only on TTY-s")
 		    set-face-reverse-p face-reverse-p))
-  "Alist of face attributes. 
+  "Alist of face attributes.
 
-The elements are of the form (KEY TYPE SET GET) where KEY is a symbol
-identifying the attribute, TYPE is a widget type for editing the
-attibute, SET is a function for setting the attribute value, and GET is a function for getiing the attribute value. 
+The elements are lists of the form (KEY TYPE SET GET) where:
+ KEY is a symbol identifying the attribute.
+ TYPE is a widget type for editing the attribute.
+ SET is a function for setting the attribute value.
+ GET is a function for getting the attribute value.
 
-The SET function should take three arguments, the face to modify, the
+The SET function should take three arguments: the face to modify, the
 value of the attribute, and optionally the frame where the face should
 be changed.
 
 The GET function should take two arguments, the face to examine, and
-optonally the frame where the face should be examined.")
+optionally the frame where the face should be examined.")
 
 (defun face-custom-attributes-set (face frame tags &rest atts)
   "For FACE on FRAME set the attributes [KEYWORD VALUE]....
@@ -192,13 +195,13 @@ If FRAME is nil, use the default face."
 
 (defun custom-face-background-pixmap (face &rest args)
   "Return the name of the background pixmap file used for FACE."
-  (let ((image  (apply 'specifier-instance 
+  (let ((image  (apply 'specifier-instance
 		       (face-background-pixmap face) args)))
-    (and image 
+    (and image
 	 (image-instance-file-name image))))
 
 (defun custom-set-face-font-size (face size &optional locale tags)
-  "Set the font of FACE to SIZE"
+  "Set the font of FACE to SIZE."
   (let* ((font (apply 'face-font-name face locale))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
@@ -230,7 +233,7 @@ If FRAME is nil, use the default face."
 ;;;###autoload
 (defun custom-set-face-update-spec (face display plist)
   "Customize the FACE for display types matching DISPLAY, merging
-  in the new items from PLIST"
+  in the new items from PLIST."
   (let ((spec (face-spec-update-all-matching (custom-face-get-spec face)
 					     display plist)))
     (put face 'customized-face spec)
@@ -326,7 +329,7 @@ This means reset face to its value in to-theme."
   "Reset the value of the face to values previously defined.
 Associate this setting with the 'user' theme.
 
-ARGS is defined as for `custom-theme-reset-faces'"
+ARGS is defined as for `custom-theme-reset-faces'."
   (apply #'custom-theme-reset-faces 'user args))
 
 

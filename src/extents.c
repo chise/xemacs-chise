@@ -3426,7 +3426,7 @@ DEFUN ("next-extent-change", Fnext_extent_change, 1, 2, 0, /*
 Return the next position after POS where an extent begins or ends.
 If POS is at the end of the buffer or string, POS will be returned;
  otherwise a position greater than POS will always be returned.
-If BUFFER is nil, the current buffer is assumed.
+If OBJECT is nil, the current buffer is assumed.
 */
        (pos, object))
 {
@@ -4916,7 +4916,7 @@ canonicalize_extent_property (Lisp_Object prop, Lisp_Object value)
 
 /* Do we need a lisp-level function ? */
 DEFUN ("set-extent-initial-redisplay-function", Fset_extent_initial_redisplay_function,
-       2,2,0,/*
+       2,2,0, /*
 Note: This feature is experimental!
 
 Set initial-redisplay-function of EXTENT to the function
@@ -5437,6 +5437,7 @@ For a list of built-in properties, see `set-extent-property'.
 
 DEFUN ("extent-property", Fextent_property, 2, 3, 0, /*
 Return EXTENT's value for property PROPERTY.
+If no such property exists, DEFAULT is returned.
 See `set-extent-property' for the built-in property names.
 */
        (extent, property, default_))
@@ -6596,7 +6597,7 @@ Scans characters forward from POS till it finds a change in the PROP
  argument OBJECT is the buffer or string to scan (defaults to the current
  buffer).
 The property values are compared with `eq'.
-Return nil if the property is constant all the way to the end of BUFFER.
+Return nil if the property is constant all the way to the end of OBJECT.
 If the value is non-nil, it is a position greater than POS, never equal.
 
 If the optional fourth argument LIMIT is non-nil, don't search
@@ -6663,7 +6664,7 @@ Scans characters backward from POS till it finds a change in the PROP
  argument OBJECT is the buffer or string to scan (defaults to the current
  buffer).
 The property values are compared with `eq'.
-Return nil if the property is constant all the way to the start of BUFFER.
+Return nil if the property is constant all the way to the start of OBJECT.
 If the value is non-nil, it is a position less than POS, never equal.
 
 If the optional fourth argument LIMIT is non-nil, don't search back

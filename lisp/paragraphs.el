@@ -99,8 +99,7 @@ to paragraphs.  The fill functions insert and delete only soft newlines."
 			       (point) (1+ (point))))))))))))
     (setq use-hard-newlines t)))
 
-;; XEmacs - use purecopy
-(defconst paragraph-start (purecopy "[ \t\n\f]") "\
+(defconst paragraph-start "[ \t\n\f]" "\
 *Regexp for beginning of a line that starts OR separates paragraphs.
 This regexp should match lines that separate paragraphs
 and should also match lines that start a paragraph
@@ -123,8 +122,7 @@ hard newline are considered to match.")
 ;; something very minimal, even including "." (which makes every hard newline
 ;; start a new paragraph).
 
-;; XEmacs -- use purecopy
-(defconst paragraph-separate (purecopy "[ \t\f]*$") "\
+(defconst paragraph-separate "[ \t\f]*$" "\
 *Regexp for beginning of a line that separates paragraphs.
 If you change this, you may have to change paragraph-start also.
 
@@ -133,8 +131,7 @@ the beginning of the line, so it should not use \"^\" as an anchor.  This
 ensures that the paragraph functions will work equally within a region of
 text indented by a margin setting.")
 
-;; XEmacs -- use purecopy
-(defconst sentence-end (purecopy "[.?!][]\"')}]*\\($\\| $\\|\t\\|  \\)[ \t\n]*") "\
+(defconst sentence-end "[.?!][]\"')}]*\\($\\| $\\|\t\\|  \\)[ \t\n]*" "\
 *Regexp describing the end of a sentence.
 All paragraph boundaries also end sentences, regardless.
 
@@ -142,8 +139,7 @@ In order to be recognized as the end of a sentence, the ending period,
 question mark, or exclamation point must be followed by two spaces,
 unless it's inside some sort of quotes or parenthesis.")
 
-;; XEmacs -- use purecopy
-(defconst page-delimiter (purecopy "^\014") "\
+(defconst page-delimiter "^\014" "\
 *Regexp describing line-beginnings that separate pages.")
 
 (defvar paragraph-ignore-fill-prefix nil "\

@@ -136,7 +136,7 @@ Otherwise, XEmacs will offer migration to the init directory.")
 
 ;; #### called `site-run-file' in FSFmacs
 
-(defvar site-start-file (purecopy "site-start")
+(defvar site-start-file "site-start"
   "File containing site-wide run-time initializations.
 This file is loaded at run-time before `.emacs'.  It
 contains inits that need to be in place for the entire site, but
@@ -171,11 +171,6 @@ after your init file is read, in case it sets `mail-host-address'."
   :type 'string
   :group 'mail)
 
-(defvar auto-save-list-file-prefix "~/.saves-"
-  "Prefix for generating auto-save-list-file-name.
-Emacs's pid and the system name will be appended to
-this prefix to create a unique file name.")
-
 (defvar init-file-debug nil)
 
 (defvar init-file-had-error nil)
@@ -190,23 +185,22 @@ after, and will not be true at any time before.")
 
 
 (defvar command-switch-alist
-  (purecopy
-   '(("-help"	. command-line-do-help)
-     ("-version". command-line-do-version)
-     ("-V"	. command-line-do-version)
-     ("-funcall". command-line-do-funcall)
-     ("-f"	. command-line-do-funcall)
-     ("-e"	. command-line-do-funcall-1)
-     ("-eval"	. command-line-do-eval)
-     ("-load"	. command-line-do-load)
-     ("-l"	. command-line-do-load)
-     ("-insert"	. command-line-do-insert)
-     ("-i"	. command-line-do-insert)
-     ("-kill"	. command-line-do-kill)
-     ;; Options like +35 are handled specially.
-     ;; Window-system, site, or package-specific code might add to this.
-     ;; X11 handles its options by letting Xt remove args from this list.
-     ))
+  '(("-help"	. command-line-do-help)
+    ("-version". command-line-do-version)
+    ("-V"	. command-line-do-version)
+    ("-funcall". command-line-do-funcall)
+    ("-f"	. command-line-do-funcall)
+    ("-e"	. command-line-do-funcall-1)
+    ("-eval"	. command-line-do-eval)
+    ("-load"	. command-line-do-load)
+    ("-l"	. command-line-do-load)
+    ("-insert"	. command-line-do-insert)
+    ("-i"	. command-line-do-insert)
+    ("-kill"	. command-line-do-kill)
+    ;; Options like +35 are handled specially.
+    ;; Window-system, site, or package-specific code might add to this.
+    ;; X11 handles its options by letting Xt remove args from this list.
+    )
   "Alist of command-line switches.
 Elements look like (SWITCH-STRING . HANDLER-FUNCTION).
 HANDLER-FUNCTION receives switch name as sole arg;
@@ -449,12 +443,13 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (setq default-directory (abbreviate-file-name default-directory))
       ;; Specify the file for recording all the auto save files of
       ;; this session.  This is used by recover-session.
-      (setq auto-save-list-file-name
-	    (expand-file-name
-	     (format "%s%d-%s"
-		     auto-save-list-file-prefix
-		     (emacs-pid)
-		     (system-name))))
+      (if auto-save-list-file-prefix
+	  (setq auto-save-list-file-name
+		(expand-file-name
+		 (format "%s%d-%s"
+			 auto-save-list-file-prefix
+			 (emacs-pid)
+			 (system-name)))))
       (run-hooks 'emacs-startup-hook)
       (and term-setup-hook
 	   (run-hooks 'term-setup-hook))

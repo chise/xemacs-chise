@@ -1,3 +1,37 @@
+to 21.2.37 "Pan"
+-- etags fix -- Stephen Carney
+-- more gutters and tab changes -- Andy Piper
+-- eval-when-compile no longer compiles its body -- Martin Buchholz
+-- top-level (defvar foo) no longer generates a run-time load-history
+   entry -- Martin Buchholz
+-- Windows 1251 code page encoding for Cyrillic -- Sergey Groznyh
+-- `local-key-binding' and `global-key-binding' now have an optional
+   `accepts-defaults' parameter, just like `lookup-key' -- Martin Buchholz
+-- 1000 arglist-related lispref documentation bugs fixed -- Martin Buchholz
+-- arg to `down-list', `up-list', `backward-up-list', `kill-sexp',
+   `backward-kill-sexp' are now optional, just like FSF Emacs -- Martin Buchholz
+-- info mode fixes -- Didier Verna
+-- Massive CCL upgrade -- MIYASHITA Hisashi
+-- byte-code optimizations -- Yoshiki Hayashi
+-- historical purecopy's purged -- Robert Pluim
+-- `mwheel-install', `turn-on-auto-fill', `turn-on-font-lock',
+   `turn-off-font-lock' are now interactive -- Martin Buchholz
+-- Detect _getpty correctly (for SGIs) -- Martin Buchholz
+-- Several GCPRO bugs found -- Yoshiki Hayashi
+-- `replace-buffer-in-windows' now has the same WHICH-FRAMES and
+   WHICH-DEVICES paratmeters as `delete-windows-on' -- Martin Buchholz
+-- Add support for Compaq C on Alpha Linux -- Martin Buchholz
+-- auto-save fixes -- Yoshiki Hayashi
+-- Removed unused C vars detected by Compaq C -- Martin Buchholz
+-- More 64-bit cleanliness micro-fixes -- Martin Buchholz
+-- Fix cachel.merged_faces memory leak -- Golubev I. N.
+-- More changes to allow definitions of lisp object types by
+   third-party modules -- Daiki Ueno.
+-- Extbyte is now a char, not unsigned char -- Martin Buchholz
+-- C++ compilability is restored -- Martin Buchholz
+-- New tests for CCL -- MIYASHITA Hisashi, Yoshiki Hayashi
+-- Use stropts.h, not sys/stropts.h.  Likewise for strtio.h -- Martin Buchholz
+
 to 21.2.36 "Notus"
 -- Fix build problems on AIX 4.3 -- Martin Buchholz
 -- Fix build problems on HP-UX 10.20 -- Alexandre Oliva and Martin Buchholz

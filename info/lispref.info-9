@@ -50,6 +50,166 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Handling Errors,  Next: Error Symbols,  Prev: Processing of Errors,  Up: Errors
+
+Writing Code to Handle Errors
+.............................
+
+   The usual effect of signaling an error is to terminate the command
+that is running and return immediately to the XEmacs editor command
+loop.  You can arrange to trap errors occurring in a part of your
+program by establishing an error handler, with the special form
+`condition-case'.  A simple example looks like this:
+
+     (condition-case nil
+         (delete-file filename)
+       (error nil))
+
+This deletes the file named FILENAME, catching any error and returning
+`nil' if an error occurs.
+
+   The second argument of `condition-case' is called the "protected
+form".  (In the example above, the protected form is a call to
+`delete-file'.)  The error handlers go into effect when this form
+begins execution and are deactivated when this form returns.  They
+remain in effect for all the intervening time.  In particular, they are
+in effect during the execution of functions called by this form, in
+their subroutines, and so on.  This is a good thing, since, strictly
+speaking, errors can be signaled only by Lisp primitives (including
+`signal' and `error') called by the protected form, not by the
+protected form itself.
+
+   The arguments after the protected form are handlers.  Each handler
+lists one or more "condition names" (which are symbols) to specify
+which errors it will handle.  The error symbol specified when an error
+is signaled also defines a list of condition names.  A handler applies
+to an error if they have any condition names in common.  In the example
+above, there is one handler, and it specifies one condition name,
+`error', which covers all errors.
+
+   The search for an applicable handler checks all the established
+handlers starting with the most recently established one.  Thus, if two
+nested `condition-case' forms offer to handle the same error, the inner
+of the two will actually handle it.
+
+   When an error is handled, control returns to the handler.  Before
+this happens, XEmacs unbinds all variable bindings made by binding
+constructs that are being exited and executes the cleanups of all
+`unwind-protect' forms that are exited.  Once control arrives at the
+handler, the body of the handler is executed.
+
+   After execution of the handler body, execution continues by returning
+from the `condition-case' form.  Because the protected form is exited
+completely before execution of the handler, the handler cannot resume
+execution at the point of the error, nor can it examine variable
+bindings that were made within the protected form.  All it can do is
+clean up and proceed.
+
+   `condition-case' is often used to trap errors that are predictable,
+such as failure to open a file in a call to `insert-file-contents'.  It
+is also used to trap errors that are totally unpredictable, such as
+when the program evaluates an expression read from the user.
+
+   Even when an error is handled, the debugger may still be called if
+the variable `debug-on-signal' (*note Error Debugging::) is non-`nil'.
+Note that this may yield unpredictable results with code that traps
+expected errors as normal part of its operation.  Do not set
+`debug-on-signal' unless you know what you are doing.
+
+   Error signaling and handling have some resemblance to `throw' and
+`catch', but they are entirely separate facilities.  An error cannot be
+caught by a `catch', and a `throw' cannot be handled by an error
+handler (though using `throw' when there is no suitable `catch' signals
+an error that can be handled).
+
+ - Special Form: condition-case var protected-form handlers...
+     This special form establishes the error handlers HANDLERS around
+     the execution of PROTECTED-FORM.  If PROTECTED-FORM executes
+     without error, the value it returns becomes the value of the
+     `condition-case' form; in this case, the `condition-case' has no
+     effect.  The `condition-case' form makes a difference when an
+     error occurs during PROTECTED-FORM.
+
+     Each of the HANDLERS is a list of the form `(CONDITIONS BODY...)'.
+     Here CONDITIONS is an error condition name to be handled, or a
+     list of condition names; BODY is one or more Lisp expressions to
+     be executed when this handler handles an error.  Here are examples
+     of handlers:
+
+          (error nil)
+          
+          (arith-error (message "Division by zero"))
+          
+          ((arith-error file-error)
+           (message
+            "Either division by zero or failure to open a file"))
+
+     Each error that occurs has an "error symbol" that describes what
+     kind of error it is.  The `error-conditions' property of this
+     symbol is a list of condition names (*note Error Symbols::).  Emacs
+     searches all the active `condition-case' forms for a handler that
+     specifies one or more of these condition names; the innermost
+     matching `condition-case' handles the error.  Within this
+     `condition-case', the first applicable handler handles the error.
+
+     After executing the body of the handler, the `condition-case'
+     returns normally, using the value of the last form in the handler
+     body as the overall value.
+
+     The argument VAR is a variable.  `condition-case' does not bind
+     this variable when executing the PROTECTED-FORM, only when it
+     handles an error.  At that time, it binds VAR locally to a list of
+     the form `(ERROR-SYMBOL . DATA)', giving the particulars of the
+     error.  The handler can refer to this list to decide what to do.
+     For example, if the error is for failure opening a file, the file
+     name is the second element of DATA--the third element of VAR.
+
+     If VAR is `nil', that means no variable is bound.  Then the error
+     symbol and associated data are not available to the handler.
+
+   Here is an example of using `condition-case' to handle the error
+that results from dividing by zero.  The handler prints out a warning
+message and returns a very large number.
+
+     (defun safe-divide (dividend divisor)
+       (condition-case err
+           ;; Protected form.
+           (/ dividend divisor)
+         ;; The handler.
+         (arith-error                        ; Condition.
+          (princ (format "Arithmetic error: %s" err))
+          1000000)))
+     => safe-divide
+     
+     (safe-divide 5 0)
+          -| Arithmetic error: (arith-error)
+     => 1000000
+
+The handler specifies condition name `arith-error' so that it will
+handle only division-by-zero errors.  Other kinds of errors will not be
+handled, at least not by this `condition-case'.  Thus,
+
+     (safe-divide nil 3)
+          error--> Wrong type argument: integer-or-marker-p, nil
+
+   Here is a `condition-case' that catches all kinds of errors,
+including those signaled with `error':
+
+     (setq baz 34)
+          => 34
+     
+     (condition-case err
+         (if (eq baz 35)
+             t
+           ;; This is a call to the function `error'.
+           (error "Rats!  The variable %s was %s, not 35" 'baz baz))
+       ;; This is the handler; it is not a form.
+       (error (princ (format "The error was: %s" err))
+              2))
+     -| The error was: (error "Rats!  The variable baz was 34, not 35")
+     => 2
+
+
 File: lispref.info,  Node: Error Symbols,  Prev: Handling Errors,  Up: Errors
 
 Error Symbols and Condition Names
@@ -1043,172 +1203,4 @@ important customization method.
 * Creating Buffer-Local::      Creating and destroying buffer-local bindings.
 * Default Value::              The default value is seen in buffers
                                  that don't have their own local values.
-
-
-File: lispref.info,  Node: Intro to Buffer-Local,  Next: Creating Buffer-Local,  Up: Buffer-Local Variables
-
-Introduction to Buffer-Local Variables
---------------------------------------
-
-   A buffer-local variable has a buffer-local binding associated with a
-particular buffer.  The binding is in effect when that buffer is
-current; otherwise, it is not in effect.  If you set the variable while
-a buffer-local binding is in effect, the new value goes in that binding,
-so the global binding is unchanged; this means that the change is
-visible in that buffer alone.
-
-   A variable may have buffer-local bindings in some buffers but not in
-others.  The global binding is shared by all the buffers that don't have
-their own bindings.  Thus, if you set the variable in a buffer that does
-not have a buffer-local binding for it, the new value is visible in all
-buffers except those with buffer-local bindings.  (Here we are assuming
-that there are no `let'-style local bindings to complicate the issue.)
-
-   The most common use of buffer-local bindings is for major modes to
-change variables that control the behavior of commands.  For example, C
-mode and Lisp mode both set the variable `paragraph-start' to specify
-that only blank lines separate paragraphs.  They do this by making the
-variable buffer-local in the buffer that is being put into C mode or
-Lisp mode, and then setting it to the new value for that mode.
-
-   The usual way to make a buffer-local binding is with
-`make-local-variable', which is what major mode commands use.  This
-affects just the current buffer; all other buffers (including those yet
-to be created) continue to share the global value.
-
-   A more powerful operation is to mark the variable as "automatically
-buffer-local" by calling `make-variable-buffer-local'.  You can think
-of this as making the variable local in all buffers, even those yet to
-be created.  More precisely, the effect is that setting the variable
-automatically makes the variable local to the current buffer if it is
-not already so.  All buffers start out by sharing the global value of
-the variable as usual, but any `setq' creates a buffer-local binding
-for the current buffer.  The new value is stored in the buffer-local
-binding, leaving the (default) global binding untouched.  The global
-value can no longer be changed with `setq'; you need to use
-`setq-default' to do that.
-
-   Local variables in a file you edit are also represented by
-buffer-local bindings for the buffer that holds the file within XEmacs.
-*Note Auto Major Mode::.
-
-
-File: lispref.info,  Node: Creating Buffer-Local,  Next: Default Value,  Prev: Intro to Buffer-Local,  Up: Buffer-Local Variables
-
-Creating and Deleting Buffer-Local Bindings
--------------------------------------------
-
- - Command: make-local-variable variable
-     This function creates a buffer-local binding in the current buffer
-     for VARIABLE (a symbol).  Other buffers are not affected.  The
-     value returned is VARIABLE.
-
-     The buffer-local value of VARIABLE starts out as the same value
-     VARIABLE previously had.  If VARIABLE was void, it remains void.
-
-          ;; In buffer `b1':
-          (setq foo 5)                ; Affects all buffers.
-               => 5
-          (make-local-variable 'foo)  ; Now it is local in `b1'.
-               => foo
-          foo                         ; That did not change
-               => 5                   ;   the value.
-          (setq foo 6)                ; Change the value
-               => 6                   ;   in `b1'.
-          foo
-               => 6
-          
-          ;; In buffer `b2', the value hasn't changed.
-          (save-excursion
-            (set-buffer "b2")
-            foo)
-               => 5
-
-     Making a variable buffer-local within a `let'-binding for that
-     variable does not work.  This is because `let' does not distinguish
-     between different kinds of bindings; it knows only which variable
-     the binding was made for.
-
-     *Please note:* do not use `make-local-variable' for a hook
-     variable.  Instead, use `make-local-hook'.  *Note Hooks::.
-
- - Command: make-variable-buffer-local variable
-     This function marks VARIABLE (a symbol) automatically
-     buffer-local, so that any subsequent attempt to set it will make it
-     local to the current buffer at the time.
-
-     The value returned is VARIABLE.
-
- - Function: local-variable-p variable &optional buffer
-     This returns `t' if VARIABLE is buffer-local in buffer BUFFER
-     (which defaults to the current buffer); otherwise, `nil'.
-
- - Function: buffer-local-variables &optional buffer
-     This function returns a list describing the buffer-local variables
-     in buffer BUFFER.  It returns an association list (*note
-     Association Lists::) in which each association contains one
-     buffer-local variable and its value.  When a buffer-local variable
-     is void in BUFFER, then it appears directly in the resulting list.
-     If BUFFER is omitted, the current buffer is used.
-
-          (make-local-variable 'foobar)
-          (makunbound 'foobar)
-          (make-local-variable 'bind-me)
-          (setq bind-me 69)
-          (setq lcl (buffer-local-variables))
-              ;; First, built-in variables local in all buffers:
-          => ((mark-active . nil)
-              (buffer-undo-list nil)
-              (mode-name . "Fundamental")
-              ...
-              ;; Next, non-built-in local variables.
-              ;; This one is local and void:
-              foobar
-              ;; This one is local and nonvoid:
-              (bind-me . 69))
-
-     Note that storing new values into the CDRs of cons cells in this
-     list does _not_ change the local values of the variables.
-
- - Command: kill-local-variable variable
-     This function deletes the buffer-local binding (if any) for
-     VARIABLE (a symbol) in the current buffer.  As a result, the
-     global (default) binding of VARIABLE becomes visible in this
-     buffer.  Usually this results in a change in the value of
-     VARIABLE, since the global value is usually different from the
-     buffer-local value just eliminated.
-
-     If you kill the local binding of a variable that automatically
-     becomes local when set, this makes the global value visible in the
-     current buffer.  However, if you set the variable again, that will
-     once again create a local binding for it.
-
-     `kill-local-variable' returns VARIABLE.
-
-     This function is a command because it is sometimes useful to kill
-     one buffer-local variable interactively, just as it is useful to
-     create buffer-local variables interactively.
-
- - Function: kill-all-local-variables
-     This function eliminates all the buffer-local variable bindings of
-     the current buffer except for variables marked as "permanent".  As
-     a result, the buffer will see the default values of most variables.
-
-     This function also resets certain other information pertaining to
-     the buffer: it sets the local keymap to `nil', the syntax table to
-     the value of `standard-syntax-table', and the abbrev table to the
-     value of `fundamental-mode-abbrev-table'.
-
-     Every major mode command begins by calling this function, which
-     has the effect of switching to Fundamental mode and erasing most
-     of the effects of the previous major mode.  To ensure that this
-     does its job, the variables that major modes set should not be
-     marked permanent.
-
-     `kill-all-local-variables' returns `nil'.
-
-   A local variable is "permanent" if the variable name (a symbol) has a
-`permanent-local' property that is non-`nil'.  Permanent locals are
-appropriate for data pertaining to where the file came from or how to
-save it, rather than with how to edit the contents.
 

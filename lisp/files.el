@@ -291,11 +291,11 @@ changing the major mode does not clear it.  However, calling
 (defvar after-set-visited-file-name-hooks nil
   "List of functions to be called after \\[set-visited-file-name]
 or during \\[write-file].
-You can use this hook to restore local values of write-file-hooks,
-after-save-hook, and revert-buffer-function, which pertain
+You can use this hook to restore local values of `write-file-hooks',
+`after-save-hook', and `revert-buffer-function', which pertain
 to a specific file and therefore are normally killed by a rename.
-Put hooks pertaining to the buffer contents on write-contents-hooks
-and revert-buffer-insert-file-contents-function.")
+Put hooks pertaining to the buffer contents on `write-contents-hooks'
+and `revert-buffer-insert-file-contents-function'.")
 
 (defvar write-contents-hooks nil
   "List of functions to be called before writing out a buffer to a file.
@@ -870,18 +870,18 @@ If there is no such live buffer, return nil."
 		 (setq list (cdr list))))
 	  found))))
 
-(defun insert-file-contents-literally (filename &optional visit beg end replace)
-  "Like `insert-file-contents', q.v., but only reads in the file literally.
+(defun insert-file-contents-literally (filename &optional visit start end replace)
+  "Like `insert-file-contents', q.v., but only reads in the file.
 A buffer may be modified in several ways after reading into the buffer due
 to advanced Emacs features, such as format decoding, character code
-conversion,find-file-hooks, automatic uncompression, etc.
+conversion, find-file-hooks, automatic uncompression, etc.
 
   This function ensures that none of these modifications will take place."
   (let ((wrap-func (find-file-name-handler filename
 					   'insert-file-contents-literally)))
-    (if wrap-func 
+    (if wrap-func
 	(funcall wrap-func 'insert-file-contents-literally filename
-		 visit beg end replace)
+		 visit start end replace)
       (let ((file-name-handler-alist nil)
 	    (format-alist nil)
 	    (after-insert-file-functions nil)
@@ -895,7 +895,7 @@ conversion,find-file-hooks, automatic uncompression, etc.
 	(unwind-protect
 	    (progn
 	      (fset 'find-buffer-file-type (lambda (filename) t))
-	      (insert-file-contents filename visit beg end replace))
+	      (insert-file-contents filename visit start end replace))
 	  (if find-buffer-file-type-function
 	      (fset 'find-buffer-file-type find-buffer-file-type-function)
 	    (fmakunbound 'find-buffer-file-type)))))))
@@ -1174,7 +1174,7 @@ run `normal-mode' explicitly."
     ("\\.m\\(?:[mes]\\|an\\)\\'" . nroff-mode)
     ("\\.icn\\'" . icon-mode)
     ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
-    ("\\.pro\\'" . idlwave-mode)
+    ("\\.[Pp][Rr][Oo]\\'" . idlwave-mode)
     ;; #### Unix-specific!
     ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
     ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
@@ -1207,7 +1207,6 @@ run `normal-mode' explicitly."
     ("\\.[sj]?html?\\'" . html-mode)
     ("\\.jsp\\'" . html-mode)
     ("\\.xml\\'" . xml-mode)
-    ("\\.htm?l?3\\'" . html3-mode)
     ("\\.\\(?:sgml?\\|dtd\\)\\'" . sgml-mode)
     ("\\.c?ps\\'" . postscript-mode)
     ;; .emacs following a directory delimiter in either Unix or
@@ -1282,9 +1281,9 @@ If it matches, mode MODE is selected.")
 ;		 "tiff"
 ;		 "jpg"
 ;		 "jpeg"))))))
-  
+
 (defvar inhibit-first-line-modes-regexps
-  (purecopy binary-file-regexps)
+  binary-file-regexps
   "List of regexps; if one matches a file name, don't look for `-*-'.")
 
 (defvar inhibit-first-line-modes-suffixes nil
@@ -1482,7 +1481,7 @@ for current buffer."
 	       (or force
                    (hack-local-variables-p nil))))
 	(let ((continue t)
-	      prefix prefixlen suffix beg
+	      prefix prefixlen suffix start
               (enable-local-eval enable-local-eval))
 	  ;; The prefix is what comes before "local variables:" in its line.
 	  ;; The suffix is what comes after "local variables:" in its line.
@@ -1509,11 +1508,11 @@ for current buffer."
 		  (error "Local variables entry is missing the prefix")))
 	    ;; Find the variable name; strip whitespace.
 	    (skip-chars-forward " \t")
-	    (setq beg (point))
+	    (setq start (point))
 	    (skip-chars-forward "^:\n")
 	    (if (eolp) (error "Missing colon in local variables entry"))
 	    (skip-chars-backward " \t")
-	    (let* ((str (buffer-substring beg (point)))
+	    (let* ((str (buffer-substring start (point)))
 		   (var (read str))
 		  val)
 	      ;; Setting variable named "end" means end of list.
@@ -2246,7 +2245,7 @@ After saving the buffer, run `after-save-hook'."
 		(goto-char (point-max))
 		(insert ?\n)))
 
-	    ;; Run the write-file-hooks until one returns non-null.
+	    ;; Run the write-file-hooks until one returns non-nil.
 	    ;; Bind after-save-hook to nil while running the
 	    ;; write-file-hooks so that if this function is called
 	    ;; recursively (from inside a write-file-hook) the
@@ -2362,9 +2361,9 @@ After saving the buffer, run `after-save-hook'."
   "Provide a clean way for a write-file-hook to wrap AROUND
 the execution of the remaining hooks and writing to disk.
 Do not call this function except from a functions
-on the write-file-hooks or write-contents-hooks list.
+on the `write-file-hooks' or `write-contents-hooks' list.
 A hook that calls this function must return non-nil,
-to signal completion to its caller.  continue-save-buffer
+to signal completion to its caller.  `continue-save-buffer'
 always returns non-nil."
   (let ((hooks (cdr (or continue-save-buffer-hooks-tail
 			(error
@@ -3166,19 +3165,19 @@ If WILDCARD, it also runs the shell specified by `shell-file-name'."
                           (file-name-directory file)
                           (file-name-directory (expand-file-name file))))
 		  (pattern (file-name-nondirectory file))
-		  (beg 0))
+		  (start 0))
 	      ;; Quote some characters that have special meanings in shells;
 	      ;; but don't quote the wildcards--we want them to be special.
 	      ;; We also currently don't quote the quoting characters
 	      ;; in case people want to use them explicitly to quote
 	      ;; wildcard characters.
               ;;#### Unix-specific
-	      (while (string-match "[ \t\n;<>&|()#$]" pattern beg)
+	      (while (string-match "[ \t\n;<>&|()#$]" pattern start)
 		(setq pattern
 		      (concat (substring pattern 0 (match-beginning 0))
 			      "\\"
 			      (substring pattern (match-beginning 0)))
-		      beg (1+ (match-end 0))))
+		      start (1+ (match-end 0))))
 	      (call-process shell-file-name nil t nil
 			    "-c" (concat "\\"  ;; Disregard shell aliases!
 					 insert-directory-program

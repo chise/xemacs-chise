@@ -184,6 +184,7 @@ order until the package is found.  As a special case, `site-name' can be
 (defcustom package-get-download-sites
   '(
     ;; North America
+    ("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages")
     ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages")
     ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages")
     ("ualberta.ca (Canada)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages")
@@ -457,11 +458,11 @@ used interactively, for example from a mail or news buffer."
       (package-get-update-base-entries content-beg content-end)
       (message "Updated package-get database"))))
 
-(defun package-get-update-base-entries (beg end)
+(defun package-get-update-base-entries (start end)
   "Update the package-get database with the entries found between
-BEG and END in the current buffer."
+START and END in the current buffer."
   (save-excursion
-    (goto-char beg)
+    (goto-char start)
     (if (not (re-search-forward "^(package-get-update-base-entry" nil t))
         (error "Buffer does not contain package-get database entries"))
     (beginning-of-line)

@@ -50,6 +50,195 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: How Programs Do Loading,  Next: Autoload,  Up: Loading
+
+How Programs Do Loading
+=======================
+
+   XEmacs Lisp has several interfaces for loading.  For example,
+`autoload' creates a placeholder object for a function in a file;
+trying to call the autoloading function loads the file to get the
+function's real definition (*note Autoload::).  `require' loads a file
+if it isn't already loaded (*note Named Features::).  Ultimately, all
+these facilities call the `load' function to do the work.
+
+ - Function: load filename &optional missing-ok nomessage nosuffix
+     This function finds and opens a file of Lisp code, evaluates all
+     the forms in it, and closes the file.
+
+     To find the file, `load' first looks for a file named
+     `FILENAME.elc', that is, for a file whose name is FILENAME with
+     `.elc' appended.  If such a file exists, it is loaded.  If there
+     is no file by that name, then `load' looks for a file named
+     `FILENAME.el'.  If that file exists, it is loaded.  Finally, if
+     neither of those names is found, `load' looks for a file named
+     FILENAME with nothing appended, and loads it if it exists.  (The
+     `load' function is not clever about looking at FILENAME.  In the
+     perverse case of a file named `foo.el.el', evaluation of `(load
+     "foo.el")' will indeed find it.)
+
+     If the optional argument NOSUFFIX is non-`nil', then the suffixes
+     `.elc' and `.el' are not tried.  In this case, you must specify
+     the precise file name you want.
+
+     If FILENAME is a relative file name, such as `foo' or
+     `baz/foo.bar', `load' searches for the file using the variable
+     `load-path'.  It appends FILENAME to each of the directories
+     listed in `load-path', and loads the first file it finds whose name
+     matches.  The current default directory is tried only if it is
+     specified in `load-path', where `nil' stands for the default
+     directory.  `load' tries all three possible suffixes in the first
+     directory in `load-path', then all three suffixes in the second
+     directory, and so on.
+
+     If you get a warning that `foo.elc' is older than `foo.el', it
+     means you should consider recompiling `foo.el'.  *Note Byte
+     Compilation::.
+
+     Messages like `Loading foo...' and `Loading foo...done' appear in
+     the echo area during loading unless NOMESSAGE is non-`nil'.
+
+     Any unhandled errors while loading a file terminate loading.  If
+     the load was done for the sake of `autoload', any function
+     definitions made during the loading are undone.
+
+     If `load' can't find the file to load, then normally it signals the
+     error `file-error' (with `Cannot open load file FILENAME').  But
+     if MISSING-OK is non-`nil', then `load' just returns `nil'.
+
+     You can use the variable `load-read-function' to specify a function
+     for `load' to use instead of `read' for reading expressions.  See
+     below.
+
+     `load' returns `t' if the file loads successfully.
+
+ - User Option: load-path
+     The value of this variable is a list of directories to search when
+     loading files with `load'.  Each element is a string (which must be
+     a directory name) or `nil' (which stands for the current working
+     directory).  The value of `load-path' is initialized from the
+     environment variable `EMACSLOADPATH', if that exists; otherwise its
+     default value is specified in `emacs/src/paths.h' when XEmacs is
+     built.
+
+     The syntax of `EMACSLOADPATH' is the same as used for `PATH'; `:'
+     (or `;', according to the operating system) separates directory
+     names, and `.' is used for the current default directory.  Here is
+     an example of how to set your `EMACSLOADPATH' variable from a
+     `csh' `.login' file:
+
+          setenv EMACSLOADPATH .:/user/bil/emacs:/usr/lib/emacs/lisp
+
+     Here is how to set it using `sh':
+
+          export EMACSLOADPATH
+          EMACSLOADPATH=.:/user/bil/emacs:/usr/local/lib/emacs/lisp
+
+     Here is an example of code you can place in a `.emacs' file to add
+     several directories to the front of your default `load-path':
+
+          (setq load-path
+                (append (list nil "/user/bil/emacs"
+                              "/usr/local/lisplib"
+                              "~/emacs")
+                        load-path))
+
+     In this example, the path searches the current working directory
+     first, followed then by the `/user/bil/emacs' directory, the
+     `/usr/local/lisplib' directory, and the `~/emacs' directory, which
+     are then followed by the standard directories for Lisp code.
+
+     The command line options `-l' or `-load' specify a Lisp library to
+     load as part of Emacs startup.  Since this file might be in the
+     current directory, Emacs 18 temporarily adds the current directory
+     to the front of `load-path' so the file can be found there.  Newer
+     Emacs versions also find such files in the current directory, but
+     without altering `load-path'.
+
+     Dumping Emacs uses a special value of `load-path'.  If the value of
+     `load-path' at the end of dumping is unchanged (that is, still the
+     same special value), the dumped Emacs switches to the ordinary
+     `load-path' value when it starts up, as described above.  But if
+     `load-path' has any other value at the end of dumping, that value
+     is used for execution of the dumped Emacs also.
+
+     Therefore, if you want to change `load-path' temporarily for
+     loading a few libraries in `site-init.el' or `site-load.el', you
+     should bind `load-path' locally with `let' around the calls to
+     `load'.
+
+ - Function: locate-file filename path-list &optional suffixes mode
+     This function searches for a file in the same way that `load' does,
+     and returns the file found (if any). (In fact, `load' uses this
+     function to search through `load-path'.) It searches for FILENAME
+     through PATH-LIST, expanded by one of the optional SUFFIXES
+     (string of suffixes separated by `:'s), checking for access MODE
+     (0|1|2|4 = exists|executable|writable|readable), default readable.
+
+     `locate-file' keeps hash tables of the directories it searches
+     through, in order to speed things up.  It tries valiantly to not
+     get confused in the face of a changing and unpredictable
+     environment, but can occasionally get tripped up.  In this case,
+     you will have to call `locate-file-clear-hashing' to get it back
+     on track.  See that function for details.
+
+ - Function: locate-file-clear-hashing path
+     This function clears the hash records for the specified list of
+     directories.  `locate-file' uses a hashing scheme to speed lookup,
+     and will correctly track the following environmental changes:
+
+        * changes of any sort to the list of directories to be searched.
+
+        * addition and deletion of non-shadowing files (see below) from
+          the directories in the list.
+
+        * byte-compilation of a .el file into a .elc file.
+
+     `locate-file' will primarily get confused if you add a file that
+     shadows (i.e. has the same name as) another file further down in
+     the directory list.  In this case, you must call
+     `locate-file-clear-hashing'.
+
+ - Variable: load-in-progress
+     This variable is non-`nil' if Emacs is in the process of loading a
+     file, and it is `nil' otherwise.
+
+ - Variable: load-read-function
+     This variable specifies an alternate expression-reading function
+     for `load' and `eval-region' to use instead of `read'.  The
+     function should accept one argument, just as `read' does.
+
+     Normally, the variable's value is `nil', which means those
+     functions should use `read'.
+
+ - User Option: load-warn-when-source-newer
+     This variable specifies whether `load' should check whether the
+     source is newer than the binary.  If this variable is true, then
+     when a `.elc' file is being loaded and the corresponding `.el' is
+     newer, a warning message will be printed.  The default is `nil',
+     but it is bound to `t' during the initial loadup.
+
+ - User Option: load-warn-when-source-only
+     This variable specifies whether `load' should warn when loading a
+     `.el' file instead of an `.elc'.  If this variable is true, then
+     when `load' is called with a filename without an extension, and
+     the `.elc' version doesn't exist but the `.el' version does, then
+     a message will be printed.  If an explicit extension is passed to
+     `load', no warning will be printed.  The default is `nil', but it
+     is bound to `t' during the initial loadup.
+
+ - User Option: load-ignore-elc-files
+     This variable specifies whether `load' should ignore `.elc' files
+     when a suffix is not given.  This is normally used only to
+     bootstrap the `.elc' files when building XEmacs, when you use the
+     command `make all-elc'. (This forces the `.el' versions to be
+     loaded in the process of compiling those same files, so that
+     existing out-of-date `.elc' files do not make it mess things up.)
+
+   To learn how `load' is used to build XEmacs, see *Note Building
+XEmacs::.
+
+
 File: lispref.info,  Node: Autoload,  Next: Repeated Loading,  Prev: How Programs Do Loading,  Up: Loading
 
 Autoload
@@ -78,11 +267,10 @@ installed along with Emacs.
      specifies the file to load to get the real definition of FUNCTION.
 
      The argument DOCSTRING is the documentation string for the
-     function.  Normally, this is the identical to the documentation
-     string in the function definition itself.  Specifying the
-     documentation string in the call to `autoload' makes it possible
-     to look at the documentation without loading the function's real
-     definition.
+     function.  Normally, this is identical to the documentation string
+     in the function definition itself.  Specifying the documentation
+     string in the call to `autoload' makes it possible to look at the
+     documentation without loading the function's real definition.
 
      If INTERACTIVE is non-`nil', then the function can be called
      interactively.  This lets completion in `M-x' work without loading
@@ -344,7 +532,7 @@ loading.
      and `t' is returned if it is found, `nil' otherwise.
 
      If FEXP is a number, the function returns `t' if this Emacs has an
-     equal or greater number than `fexp', `nil' otherwise.  Note that
+     equal or greater number than FEXP, `nil' otherwise.  Note that
      minor Emacs version is expected to be 2 decimal places wide, so
      `(featurep 20.4)' will return `nil' on XEmacs 20.4--you must write
      `(featurep 20.04)', unless you wish to match for XEmacs 20.40.
@@ -641,13 +829,20 @@ around the `require' calls (*note Eval During Compile::).
           -rw-r--r--  1 lewis     638 Oct  8 20:25 push.elc
 
  - Command: byte-recompile-directory directory &optional flag
+          norecursion force
      This function recompiles every `.el' file in DIRECTORY that needs
      recompilation.  A file needs recompilation if a `.elc' file exists
      but is older than the `.el' file.
 
+     Files in subdirectories of DIRECTORY are also processed unless
+     optional argument NORECURSION is non-`nil'.
+
      When a `.el' file has no corresponding `.elc' file, then FLAG says
      what to do.  If it is `nil', these files are ignored.  If it is
      non-`nil', the user is asked whether to compile each such file.
+
+     If the fourth optional argument FORCE is non-`nil', recompile
+     every `.el' file that already has a `.elc' file.
 
      The return value of this command is unpredictable.
 
@@ -672,7 +867,7 @@ around the `require' calls (*note Eval During Compile::).
      normally `nil', but is bound to `t' by
      `batch-byte-recompile-directory'.
 
- - Function: byte-code instructions constants stack-size
+ - Function: byte-code instructions constants stack-depth
      This function actually interprets byte-code.  Don't call this
      function yourself.  Only the byte compiler knows how to generate
      valid calls to this function.
@@ -855,7 +1050,7 @@ CONSTANTS
      The vector of Lisp objects referenced by the byte code.  These
      include symbols used as function names and variable names.
 
-STACK-SIZE
+STACK-DEPTH
      The maximum stack size this function needs.
 
 DOC-STRING
@@ -886,7 +1081,7 @@ representation.  It is the definition of the command `backward-sexp'.
    The primitive way to create a compiled-function object is with
 `make-byte-code':
 
- - Function: make-byte-code arglist instructions constants stack-size
+ - Function: make-byte-code arglist instructions constants stack-depth
           &optional doc-string interactive
      This function constructs and returns a compiled-function object
      with the specified attributes.
@@ -921,7 +1116,7 @@ a compiled-function object.
      This function returns the vector of Lisp objects referenced by
      compiled-function object FUNCTION.
 
- - Function: compiled-function-stack-size function
+ - Function: compiled-function-stack-depth function
      This function returns the maximum stack size needed by
      compiled-function object FUNCTION.
 
@@ -940,240 +1135,4 @@ a compiled-function object.
      This function returns the domain of compiled-function object
      FUNCTION, if any.  The result will be a string or `nil'.  *Note
      Domain Specification::.
-
-
-File: lispref.info,  Node: Disassembly,  Prev: Compiled-Function Objects,  Up: Byte Compilation
-
-Disassembled Byte-Code
-======================
-
-   People do not write byte-code; that job is left to the byte compiler.
-But we provide a disassembler to satisfy a cat-like curiosity.  The
-disassembler converts the byte-compiled code into humanly readable form.
-
-   The byte-code interpreter is implemented as a simple stack machine.
-It pushes values onto a stack of its own, then pops them off to use them
-in calculations whose results are themselves pushed back on the stack.
-When a byte-code function returns, it pops a value off the stack and
-returns it as the value of the function.
-
-   In addition to the stack, byte-code functions can use, bind, and set
-ordinary Lisp variables, by transferring values between variables and
-the stack.
-
- - Command: disassemble object &optional stream
-     This function prints the disassembled code for OBJECT.  If STREAM
-     is supplied, then output goes there.  Otherwise, the disassembled
-     code is printed to the stream `standard-output'.  The argument
-     OBJECT can be a function name or a lambda expression.
-
-     As a special exception, if this function is used interactively, it
-     outputs to a buffer named `*Disassemble*'.
-
-   Here are two examples of using the `disassemble' function.  We have
-added explanatory comments to help you relate the byte-code to the Lisp
-source; these do not appear in the output of `disassemble'.
-
-     (defun factorial (integer)
-       "Compute factorial of an integer."
-       (if (= 1 integer) 1
-         (* integer (factorial (1- integer)))))
-          => factorial
-     
-     (factorial 4)
-          => 24
-     
-     (disassemble 'factorial)
-          -| byte-code for factorial:
-      doc: Compute factorial of an integer.
-      args: (integer)
-     
-     0   varref   integer        ; Get value of `integer'
-                                 ;   from the environment
-                                 ;   and push the value
-                                 ;   onto the stack.
-     
-     1   constant 1              ; Push 1 onto stack.
-     
-     2   eqlsign                 ; Pop top two values off stack,
-                                 ;   compare them,
-                                 ;   and push result onto stack.
-     
-     3   goto-if-nil 1           ; Pop and test top of stack;
-                                 ;   if `nil',
-                                 ;   go to label 1 (which is also byte 7),
-                                 ;   else continue.
-     
-     5   constant 1              ; Push 1 onto top of stack.
-     
-     6   return                  ; Return the top element
-                                 ;   of the stack.
-     
-     7:1 varref   integer        ; Push value of `integer' onto stack.
-     
-     8   constant factorial      ; Push `factorial' onto stack.
-     
-     9   varref   integer        ; Push value of `integer' onto stack.
-     
-     10  sub1                    ; Pop `integer', decrement value,
-                                 ;   push new value onto stack.
-     
-                                 ; Stack now contains:
-                                 ;   - decremented value of `integer'
-                                 ;   - `factorial'
-                                 ;   - value of `integer'
-     
-     15  call     1              ; Call function `factorial' using
-                                 ;   the first (i.e., the top) element
-                                 ;   of the stack as the argument;
-                                 ;   push returned value onto stack.
-     
-                                 ; Stack now contains:
-                                 ;   - result of recursive
-                                 ;        call to `factorial'
-                                 ;   - value of `integer'
-     
-     12  mult                    ; Pop top two values off the stack,
-                                 ;   multiply them,
-                                 ;   pushing the result onto the stack.
-     
-     13  return                  ; Return the top element
-                                 ;   of the stack.
-          => nil
-
-   The `silly-loop' function is somewhat more complex:
-
-     (defun silly-loop (n)
-       "Return time before and after N iterations of a loop."
-       (let ((t1 (current-time-string)))
-         (while (> (setq n (1- n))
-                   0))
-         (list t1 (current-time-string))))
-          => silly-loop
-     
-     (disassemble 'silly-loop)
-          -| byte-code for silly-loop:
-      doc: Return time before and after N iterations of a loop.
-      args: (n)
-     
-     0   constant current-time-string  ; Push
-                                       ;   `current-time-string'
-                                       ;   onto top of stack.
-     
-     1   call     0              ; Call `current-time-string'
-                                 ;    with no argument,
-                                 ;    pushing result onto stack.
-     
-     2   varbind  t1             ; Pop stack and bind `t1'
-                                 ;   to popped value.
-     
-     3:1 varref   n              ; Get value of `n' from
-                                 ;   the environment and push
-                                 ;   the value onto the stack.
-     
-     4   sub1                    ; Subtract 1 from top of stack.
-     
-     5   dup                     ; Duplicate the top of the stack;
-                                 ;   i.e., copy the top of
-                                 ;   the stack and push the
-                                 ;   copy onto the stack.
-     
-     6   varset   n              ; Pop the top of the stack,
-                                 ;   and set `n' to the value.
-     
-                                 ; In effect, the sequence `dup varset'
-                                 ;   copies the top of the stack
-                                 ;   into the value of `n'
-                                 ;   without popping it.
-     
-     7   constant 0              ; Push 0 onto stack.
-     
-     8   gtr                     ; Pop top two values off stack,
-                                 ;   test if N is greater than 0
-                                 ;   and push result onto stack.
-     
-     9   goto-if-not-nil 1       ; Goto label 1 (byte 3) if `n' <= 0
-                                 ;   (this exits the while loop).
-                                 ;   else pop top of stack
-                                 ;   and continue
-     
-     11  varref   t1             ; Push value of `t1' onto stack.
-     
-     12  constant current-time-string  ; Push
-                                       ;   `current-time-string'
-                                       ;   onto top of stack.
-     
-     13  call     0              ; Call `current-time-string' again.
-     
-     14  unbind   1              ; Unbind `t1' in local environment.
-     
-     15  list2                   ; Pop top two elements off stack,
-                                 ;   create a list of them,
-                                 ;   and push list onto stack.
-     
-     16  return                  ; Return the top element of the stack.
-     
-          => nil
-
-
-File: lispref.info,  Node: Debugging,  Next: Read and Print,  Prev: Byte Compilation,  Up: Top
-
-Debugging Lisp Programs
-***********************
-
-   There are three ways to investigate a problem in an XEmacs Lisp
-program, depending on what you are doing with the program when the
-problem appears.
-
-   * If the problem occurs when you run the program, you can use a Lisp
-     debugger (either the default debugger or Edebug) to investigate
-     what is happening during execution.
-
-   * If the problem is syntactic, so that Lisp cannot even read the
-     program, you can use the XEmacs facilities for editing Lisp to
-     localize it.
-
-   * If the problem occurs when trying to compile the program with the
-     byte compiler, you need to know how to examine the compiler's
-     input buffer.
-
-* Menu:
-
-* Debugger::            How the XEmacs Lisp debugger is implemented.
-* Syntax Errors::       How to find syntax errors.
-* Compilation Errors::  How to find errors that show up in byte compilation.
-* Edebug::		A source-level XEmacs Lisp debugger.
-
-   Another useful debugging tool is the dribble file.  When a dribble
-file is open, XEmacs copies all keyboard input characters to that file.
-Afterward, you can examine the file to find out what input was used.
-*Note Terminal Input::.
-
-   For debugging problems in terminal descriptions, the
-`open-termscript' function can be useful.  *Note Terminal Output::.
-
-
-File: lispref.info,  Node: Debugger,  Next: Syntax Errors,  Up: Debugging
-
-The Lisp Debugger
-=================
-
-   The "Lisp debugger" provides the ability to suspend evaluation of a
-form.  While evaluation is suspended (a state that is commonly known as
-a "break"), you may examine the run time stack, examine the values of
-local or global variables, or change those values.  Since a break is a
-recursive edit, all the usual editing facilities of XEmacs are
-available; you can even run programs that will enter the debugger
-recursively.  *Note Recursive Editing::.
-
-* Menu:
-
-* Error Debugging::       Entering the debugger when an error happens.
-* Infinite Loops::	  Stopping and debugging a program that doesn't exit.
-* Function Debugging::    Entering it when a certain function is called.
-* Explicit Debug::        Entering it at a certain point in the program.
-* Using Debugger::        What the debugger does; what you see while in it.
-* Debugger Commands::     Commands used while in the debugger.
-* Invoking the Debugger:: How to call the function `debug'.
-* Internals of Debugger:: Subroutines of the debugger, and global variables.
 
