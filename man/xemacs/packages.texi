@@ -1,0 +1,379 @@
+@node Packages, Abbrevs, Running, Top
+@comment  node-name,  next,  previous,  up
+
+@section Packages
+@cindex packages
+
+The XEmacs 21 distribution comes only with a very basic set of
+built-in modes and packages.  Most of the packages that were part of
+the distribution of earlier versions of XEmacs are now separately
+available.  The installer as well as the user can choose which
+packages to install; the actual installation process is easy.
+This gives an installer the ability to tailor an XEmacs installation for
+local needs with safe removal of unnecessary code.
+
+@menu
+* Package Terminology:: Understanding different kinds of packages.
+* Using Packages::      How to install and use packages.
+* Building Packages::   Building packages from sources.
+@end menu
+
+@node Package Terminology, Using Packages, , Packages
+@comment  node-name,  next,  previous,  up
+
+@subsection Package Flavors
+
+There are two main flavors of packages.
+
+@itemize @bullet
+@item Regular Packages
+@cindex regular packages
+A regular package is one in which multiple files are involved and one
+may not in general safely remove any of them.
+
+@item Single-File Packages
+@cindex single-file packages
+A single-file package is an aggregate collection of thematically
+related but otherwise independent lisp files.  These files are bundled 
+together for download convenience and individual files may be deleted at
+will without any loss of functionality.
+@end itemize
+
+@subsection Package Distributions
+
+XEmacs Lisp packages are distributed in two ways, depending on the
+intended use.  Binary Packages are for installers and end-users and may
+be installed directly into an XEmacs package directory.  Source Packages
+are for developers and include all files necessary for rebuilding
+bytecompiled lisp and creating tarballs for distribution.
+
+@subsection Binary Packages
+@cindex binary packages
+Binary packages may be installed directly into an XEmacs package
+hierarchy.
+
+@subsection Source Packages
+@cindex source packages
+Source packages contain all of the Package author's (where appropriate
+in regular packages) source code plus all of the files necessary to
+build distribution tarballs (Unix Tar format files, gzipped for space
+savings).
+
+@node Using Packages, Building Packages, Package Terminology, Packages
+@comment  node-name,  next,  previous,  up
+
+@subsection Getting Started
+
+When you first download XEmacs 21, you will usually first grab the
+@dfn{core distribution},
+@cindex core distribution
+a file called
+@file{xemacs-21.0.tar.gz}. (Replace the @t{21.0} by the current version
+number.)  The core distribution contains the sources of XEmacs and a
+minimal set of Emacs Lisp files, which are in the subdirectory named
+@file{lisp}.  This subdirectory used to contain all Emacs Lisp files
+distributed with XEmacs.  Now, to conserve disk space, most
+non-essential packages were made optional.
+
+@subsection Choosing the Packages You Need
+
+The available packages can currently be found in the same ftp directory
+where you grabbed the core distribution from, and are located in the
+subdirectory @file{packages/binary-packages}.  Package file names follow
+the naming convention @file{<package-name>-<version>-pkg.tar.gz}.
+
+If you have EFS @ref{(EFS)}, packages can be installed over the network.
+Alternatively, if you have copies of the packages locally, you can
+install packages from a local disk or CDROM.
+
+The file @file{etc/PACKAGES} in the core distribution contains a list of
+the packages available at the time of the XEmacs release.  Packages are
+also listed on the @code{Options} menu under:
+
+@example
+	Options->Customize->Emacs->Packages
+@end example
+
+However, don't select any of these menu picks unless you actually want 
+to install the given package (and have properly configured your system 
+to do so).
+
+You can also get a list of available packages, and whether or not they
+are installed, using the visual package browser and installer.  You can
+access it via the menus:
+
+@example
+	Options->Manage Packages->List & Install
+@end example
+
+Or, you can get to it via the keyboard:
+
+@example
+M-x pui-list-packages
+@end example
+
+Hint to system administrators of multi-user systems: it might be a good
+idea to install all packages and not interfere with the wishes of your
+users.
+
+@subsection XEmacs and Installing Packages
+
+Normally, packages are installed over the network, using EFS
+@ref{(EFS)}.  However, you may not have network access, or you may
+already have some or all of the packages on a local disk, such as a
+CDROM.  If you want to install from a local disk, you must first tell
+XEmacs where to find the package binaries.  This is done by adding a line
+like the following to your @file{.emacs} file:
+
+@example
+(setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
+                               package-get-remote))
+@end example
+
+Here, you'd change @file{/my/path/to/package/binaries} to be the path
+to your local package binaries.  Next, restart XEmacs, and you're ready
+to go (advanced users can just re-evaluate the sexp).
+
+If you are installing from a temporary, one-time directory, you can also 
+add these directory names to @code{package-get-remote} using:
+
+@example
+	M-x pui-add-install-directory
+@end example
+
+Note, however, that any directories added using this function are not
+saved; this information will be lost when you quit XEmacs.
+
+If you're going to install over the network, you only have to insure
+that EFS @ref{(EFS)} works, and that it can get outside a firewall, if
+you happen to be behind one.  You shouldn't have to do anything else;
+XEmacs already knows where to go. However you can add your own mirrors
+to this list. See @code{package-get-remote}.
+
+The easiest way to install a package is to use the visual package
+browser and installer, using the menu pick:
+
+@example
+	Options->Manage Packages->List & Install
+@end example
+or
+@example
+	Options->Manage Packages->Using Custom->Select-> ...
+@end example
+
+You can also access it using the keyboard:
+
+@example
+M-x pui-list-packages
+@end example
+
+The visual package browser will then display a list of all packages.
+Help information will be displayed at the very bottom of the buffer; you
+may have to scroll down to see it.  You can also press @kbd{?} to get
+the same help.  From this buffer, you can tell the package status by the
+character in the first column:
+
+@table @kbd
+@item -
+The package has not been installed.
+@item *
+The package has been installed, but a newer version is available.  The
+current version is out-of-date.
+@item +
+The package has been marked for installation/update.
+@end table
+
+If there is no character in the first column, the package has been
+installed and is up-to-date.
+
+From here, you can select or unselect packages for installation using
+the @key{RET} key, the @kbd{Mouse-2} button or selecting "Select" from
+the (Popup) Menu.
+Once you've finished selecting the packages, you can
+press the @kbd{x} key (or use the menu) to actually install the
+packages. Note that you will have to restart XEmacs for XEmacs to
+recognize any new packages.
+
+Key summary:
+
+@table @kbd
+@item ?
+Display simple help.
+@item @key{RET}
+@itemx @key{Mouse-2}
+Toggle between selecting and unselecting a package for installation.
+@item x
+Install selected packages.
+@item @key{SPC}
+View, in the minibuffer, additional information about the package, such
+as the package date (not the build date) and the package author.  Moving 
+the mouse over a package name will also do the same thing.
+@item v
+Toggle between verbose and non-verbose package display.
+@item g
+Refresh the package display.
+@item q
+Kill the package buffer.
+@end table
+
+Moving the mouse over a package will also cause additional information
+about the package to be displayed in the minibuffer.
+
+@subsection Other package installation interfaces
+
+For an alternative package interface, you can select packages from the
+customize menus, under:
+
+@example
+	Options->Customize->Emacs->Packages-> ...
+@end example
+or
+@example
+	Options->Manage Packages->Using Custom->Select-> ...
+@end example
+
+Set their state to on, and then do:
+
+@example
+	Options->Manage Packages->Using Custom->Update Packages
+@end example
+
+This will automatically retrieve the packages you have selected from the
+XEmacs ftp site or your local disk, and install them into
+XEmacs.  Additionally it will update any packages you already have
+installed to the newest version.  Note that if a package is newly
+installed you will have to restart XEmacs for the change to take effect.
+
+You can also install packages using a semi-manual interface:
+
+@example
+M-x package-get-all <return>
+@end example
+
+Enter the name of the package (e.g., @code{prog-modes}), and XEmacs
+will search for the latest version (as listed in the lisp file
+@file{lisp/package-get-base.el}), and install it and any packages that
+it depends upon.
+
+@subsection Manual Binary Package Installation
+
+Pre-compiled, binary packages can be installed in either a system
+package directory (this is determined when XEmacs is compiled), or in a
+subdirectory of your @file{$HOME} directory:
+
+@example
+~/.xemacs/packages
+@end example
+
+XEmacs does not have to be running to install binary packages, although
+XEmacs will not know about any newly-installed packages until you
+restart XEmacs.  Note, however, that installing a newer version of a
+package while XEmacs is running could cause strange errors in XEmacs;
+it's best to exit XEmacs before upgrading an existing package.
+
+To install binary packages manually:
+
+@enumerate
+@item
+Download the package(s) that you want to install.  Each binary package
+will typically be a gzip'd tarball.
+
+@item
+Decide where to install the packages: in the system package directory,
+or in @file{~/.xemacs/packages}.  If you want to install the
+packages in the system package directory, make sure you can write into
+that directory.  If you want to install in your @file{$HOME} directory,
+create the directory, @file{~/.xemacs/packages}.
+
+@item
+Next, @code{cd} to the directory under which you want to install the
+package(s).
+
+@item
+From this directory, uncompress and extract each of the gzip'd tarballs
+that you downloaded in step 1.  Unix and Cygnus cygwin users will
+typically do this using the commands:
+
+@example
+	gunzip < package.tar.gz | tar xvf -
+@end example
+
+Above, replace @file{package.tar.gz} with the filename of the
+package that you downloaded in step 1.
+
+Of course, if you use GNU @code{tar}, you could also use:
+
+@example
+	tar xvzf package.tar.gz
+@end example
+
+@comment What about native MS Windows users???
+
+@item
+That's it.  Quit and restart XEmacs to get it to recognize any new or
+changed packages.
+
+@end enumerate
+
+@node Building Packages, , Using Packages, Packages
+@comment  node-name,  next,  previous,  up
+
+Source packages are available from the @file{packages/source-packages}
+subdirectory of your favorite XEmacs distribution site.  Alternatively,
+they are available via CVS from @file{cvs.xemacs.org}.  Look at
+@file{http://cvs.xemacs.org} for instructions.
+
+@subsection Prerequisites for Building Source Packages
+
+You must have GNU @code{cp}, GNU @code{install} (or a BSD compatible
+@code{install} program) GNU @code{make} (3.75 or later preferred),
+@code{makeinfo} (1.68 from @code{texinfo-3.11} or later required), GNU
+@code{tar} and XEmacs 21.0.  The source packages will untar into a
+correct directory structure.  At the top level you must have
+@file{XEmacs.rules} and @file{package-compile.el}.  These files are
+available from the XEmacs FTP site from the same place you obtained your
+source package distributions.
+
+@subsection What You Can Do With Source Packages
+
+NB:  A global build operation doesn't exist yet as of 13 January 1998.
+
+Source packages are most useful for creating XEmacs package tarballs
+for installation into your own XEmacs installations or for
+distributing to others.
+
+Supported operations from @file{make} are:
+
+@table @code
+@item clean
+Remove all built files except @file{auto-autoloads.el} and @file{custom-load.el}.
+
+@item distclean
+Remove XEmacs backups as well as the files deleted by @code{make clean}.
+
+@item all
+Bytecompile all files, build and bytecompile byproduct files like
+@file{auto-autoloads.el} and @file{custom-load.el}.  Create info version
+of TeXinfo documentation if present.
+
+@item srckit
+Usually aliased to @code{make srckit-std}.  This does a @code{make
+distclean} and creates a package source tarball in the staging
+directory.  This is generally only of use for package maintainers.
+
+@item binkit
+May be aliased to @code{binkit-sourceonly}, @code{binkit-sourceinfo},
+@code{binkit-sourcedata}, or
+@code{binkit-sourcedatainfo}. @code{sourceonly} indicates there is
+nothing to install in a data directory or info directory.
+@code{sourceinfo} indicates that source and info files are to be
+installed.  @code{sourcedata} indicates that source and etc (data) files
+are to be installed.  @code{sourcedatainfo} indicates source, etc
+(data), and info files are to be installed.  A few packages have needs
+beyond the basic templates so this is not yet complete.
+
+@item dist
+Runs the rules @code{srckit} followed by @code{binkit}.  This is
+primarily of use by XEmacs maintainers producing files for distribution.
+
+@end table
