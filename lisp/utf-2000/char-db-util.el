@@ -588,7 +588,7 @@
 			      ->simplified-ideograph <-simplified-ideograph
 			      ->same-ideograph
 			      ->ideographic-variants
-			      ->synonymous
+			      ->synonyms
 			      ->radical <-radical
 			      ->bopomofo ->ideograph
 			      ->ideographic <-ideographic))
