@@ -1,3 +1,8 @@
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Print GR value for
+	GR-set.
+
 1999-11-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
