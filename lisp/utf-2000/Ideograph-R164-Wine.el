@@ -1857,11 +1857,6 @@
 (define-char
   '((ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 9)
-    (ucs		. #x9197)	; é†—
-    ))
-(define-char
-  '((ideographic-radical . 164)	; â¾£
-    (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x3460)	; ø»ž›­
     ))
@@ -2217,11 +2212,6 @@
     ))
 (define-char
   '((ideographic-radical . 164)	; â¾£
-    (ideographic-strokes . 10)
-    (ucs		. #x91A4)	; é†¤
-    ))
-(define-char
-  '((ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (chinese-cns11643-5 . #x6546)	; ø»›‰
@@ -2454,6 +2444,17 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (chinese-cns11643-1 . #x7751)	; ø»“ 
+    ))
+(define-char
+  '((morohashi-daikanwa	40011 0 5)
+    (ideographic-radical . 164)	; â¾£
+    (ideographic-strokes . 10)
+    (total-strokes	 . 17)
+    (<-simplified-ideograph
+     ((ucs		  . #x91AC)	; é†¬
+      ))
+    (japanese-jisx0208-1990	. #x3E5F)	; ø½Š¡ 
+    (ucs			. #x91A4)	; é†¤
     ))
 (define-char
   '((ideographic-radical . 164)	; â¾£
@@ -2734,6 +2735,17 @@
     (ucs			. #x91B1)	; é†±
     ))
 (define-char
+  '((morohashi-daikanwa	40041 0 5)
+    (ideographic-radical . 164)	; â¾£
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (<-simplified-ideograph
+     ((ucs		  . #x91B1)	; é†±
+      ))
+    (japanese-jisx0208-1990	. #x4830)	; ø½Š¯
+    (ucs			. #x9197)	; é†—
+    ))
+(define-char
   '((ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
@@ -2942,8 +2954,13 @@
     (ideographic-radical . 164)	; â¾£
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (mojikyo		. 050544)	; ý €Œ•°
-    (ucs		. #x91B8)	; é†¸
+    (<-simplified-ideograph
+     ((japanese-jisx0208-1990	  . #x6E56)	; ø½‹§·
+      (ideograph-daikanwa	  . 40099)	; ø¸‰²£
+      ))
+    (japanese-jisx0208-1990	. #x3E7A)	; ø½Š¡»
+    (mojikyo			. 050544)	; ý €Œ•°
+    (ucs			. #x91B8)	; é†¸
     ))
 (define-char
   '((ideographic-radical . 164)	; â¾£
