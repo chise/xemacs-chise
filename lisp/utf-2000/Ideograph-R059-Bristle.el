@@ -713,22 +713,20 @@
     (=hanziku-3		. #xAC66)	; &I-HZK03-AC66;
     ))
 (define-char
-  '((=>ucs		. #x5F6F)	; 彯
-    (ideographic-radical . 59)	; ⼺
-    (ideographic-strokes . 11)
-    (total-strokes	 . 14)
-    (=cns11643-2	. #x4A27)	; &M-10014; [42-07]
-    (=daikanwa		. 10014)	; &I-M-10014;
-    ))
-(define-char
-  '((morohashi-daikanwa	10014 0 1)
-    (ideographic-radical . 59)	; ⼺
+  '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x5F6F)	; 彯
-    (=jis-x0212		. #x3D21)	; &I-JSP-3D21; [29-01]
-    (=big5		. #xE1C0)	; &I-B-E1C0;
-    (=jef-china3	. #x4DA8)	; &I-JC3-4DA8;
+    (->subsumptive
+     ((=cns11643-2	  . #x4A27)	; &M-10014; [42-07]
+      (=daikanwa	  . 10014)	; &I-M-10014;
+      (=ucs@cns		  . #x5F6F)	; &M-10014;
+      )
+     ((=jis-x0212	  . #x3D21)	; &JSP-3D21; [29-01]
+      (=big5		  . #xE1C0)	; &I-B-E1C0;
+      (=jef-china3	  . #x4DA8)	; &I-JC3-4DA8;
+      (=ucs@unicode	  . #x5F6F)	; &JSP-3D21;
+      ))
     ))
 (define-char
   '((=>ucs		. #x5F70)	; 彰
