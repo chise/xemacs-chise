@@ -43,9 +43,6 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "chartab.h"
 #include "syntax.h"
-#ifdef CHISE
-#include <chise.h>
-#endif
 #ifdef UTF2000
 #include "elhash.h"
 #endif /* UTF2000 */
@@ -1811,7 +1808,9 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
-#ifndef CHISE
+#ifdef CHISE
+  ct->feature_table = NULL;
+#else
   ct->db = Qnil;
 #endif
 #endif
@@ -1888,7 +1887,10 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
-#ifndef CHISE
+#ifdef CHISE
+  ctnew->ds = ct->ds;
+  ctnew->feature_table = ct->feature_table;
+#else
   ctnew->db = ct->db;
 #endif
 
@@ -3443,7 +3445,9 @@ Mount database file on char-attribute-table ATTRIBUTE.
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
       XCHAR_TABLE_UNLOADED(table) = 1;
-#ifndef CHISE
+#ifdef CHISE
+      ct->feature_table = NULL;
+#else
       ct->db = Qnil;
 #endif
       return Qt;
@@ -3467,7 +3471,14 @@ Close database of ATTRIBUTE.
   else
     return Qnil;
 
-#ifndef CHISE
+#ifdef CHISE
+  if (ct->feature_table != NULL)
+    {
+      chise_close_feature_table (ct->feature_table);
+      chise_close_data_source (&ct->ds);
+      ct->feature_table = NULL;
+    }
+#else
   if (!NILP (ct->db))
     {
       if (!NILP (Fdatabase_live_p (ct->db)))
@@ -3501,7 +3512,14 @@ Reset values of ATTRIBUTE with database file.
 	}
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
-#ifndef CHISE
+#ifdef CHISE
+      if (ct->feature_table != NULL)
+	{
+	  chise_close_feature_table (ct->feature_table);
+	  chise_close_data_source (&ct->ds);
+	  ct->feature_table = NULL;
+	}
+#else
       if (!NILP (Fdatabase_live_p (ct->db)))
 	Fclose_database (ct->db);
       ct->db = Qnil;
@@ -3521,9 +3539,6 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
   if (!NILP (attribute))
     {
 #ifdef CHISE
-      Lisp_Object db_dir = Vexec_directory;
-      CHISE_DS ds;
-      CHISE_Feature_Table *ft_feature;
       int modemask;
       int accessmask = 0;
       DBTYPE real_subtype;
@@ -3531,42 +3546,40 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
       CHISE_Value value;
       Lisp_Object val;
 
-#ifndef CHISE
-      if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
+      if (cit->feature_table == NULL)
 	{
-	  Fclose_database (cit->db);
-	  cit->db = Qnil;
+	  Lisp_Object db_dir = Vexec_directory;
+
+	  if (NILP (db_dir))
+	    db_dir = build_string ("../lib-src");
+	  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+	  status = chise_open_data_source (&cit->ds, CHISE_DS_Berkeley_DB,
+					   XSTRING_DATA (db_dir));
+	  if (status)
+	    {
+	      chise_close_data_source (&cit->ds);
+	      return -1;
+	    }
+
+	  modemask = 0755;		/* rwxr-xr-x */
+	  real_subtype = DB_HASH;
+	  accessmask = DB_RDONLY;
+
+	  status = chise_open_feature_table (&cit->feature_table, &cit->ds,
+					     XSTRING_DATA
+					     (Fsymbol_name (attribute)),
+					     real_subtype,
+					     accessmask, modemask);
+	  if (status)
+	    {
+	      chise_close_feature_table (cit->feature_table);
+	      chise_close_data_source (&cit->ds);
+	      cit->feature_table = NULL;
+	      return -1;
+	    }
 	}
-#endif
-
-      if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
-      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-
-      status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
-				       XSTRING_DATA (db_dir));
-      if (status)
-	{
-	  chise_close_data_source (&ds);
-	  return -1;
-	}
-
-      modemask = 0755;		/* rwxr-xr-x */
-      real_subtype = DB_HASH;
-      accessmask = DB_RDONLY;
-
-      status
-	= chise_open_feature_table (&ft_feature, &ds,
-				    XSTRING_DATA (Fsymbol_name (attribute)),
-				    real_subtype, accessmask, modemask);
-      if (status)
-	{
-	  chise_close_feature_table (ft_feature);
-	  chise_close_data_source (&ds);
-	  return -1;
-	}
-
-      status = chise_ft_get_value (ft_feature, ch, &value);
+      status = chise_ft_get_value (cit->feature_table, ch, &value);
 
       if (!status)
 	{
@@ -3575,9 +3588,6 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
 	}
       else
 	val = Qunbound;
-
-      chise_close_feature_table (ft_feature);
-      chise_close_data_source (&ds);
 
       return val;
 #else
@@ -3661,62 +3671,54 @@ Load values of ATTRIBUTE into database file.
   if (CHAR_TABLEP (table))
     {
 #ifdef CHISE
-#ifndef CHISE
       Lisp_Char_Table *cit = XCHAR_TABLE (table);
-#endif
-      Lisp_Object db_dir = Vexec_directory;
-      CHISE_DS ds;
-      CHISE_Feature_Table *ft_feature;
       int modemask;
       int accessmask = 0;
       DBTYPE real_subtype;
       int status;
 
-#ifndef CHISE
-      if (!NILP (cit->db) && NILP (Fdatabase_live_p (cit->db)))
+      if (cit->feature_table == NULL)
 	{
-	  Fclose_database (cit->db);
-	  cit->db = Qnil;
+	  Lisp_Object db_dir = Vexec_directory;
+
+	  if (NILP (db_dir))
+	    db_dir = build_string ("../lib-src");
+	  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+	  status = chise_open_data_source (&cit->ds, CHISE_DS_Berkeley_DB,
+					   XSTRING_DATA (db_dir));
+	  if (status)
+	    {
+	      chise_close_data_source (&cit->ds);
+	      return -1;
+	    }
+
+	  modemask = 0755;		/* rwxr-xr-x */
+	  real_subtype = DB_HASH;
+	  accessmask = DB_RDONLY;
+
+	  status
+	    = chise_open_feature_table (&cit->feature_table, &cit->ds,
+					XSTRING_DATA
+					(Fsymbol_name (attribute)),
+					real_subtype, accessmask, modemask);
+	  if (status)
+	    {
+	      chise_close_feature_table (cit->feature_table);
+	      chise_close_data_source (&cit->ds);
+	      cit->feature_table = NULL;
+	      return -1;
+	    }
 	}
-#endif
-
-      if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
-      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
-
-      status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
-				       XSTRING_DATA (db_dir));
-      if (status)
-	{
-	  chise_close_data_source (&ds);
-	  return -1;
-	}
-
-      modemask = 0755;		/* rwxr-xr-x */
-      real_subtype = DB_HASH;
-      accessmask = DB_RDONLY;
-
-      status
-	= chise_open_feature_table (&ft_feature, &ds,
-				    XSTRING_DATA (Fsymbol_name (attribute)),
-				    real_subtype, accessmask, modemask);
-      if (status)
-	{
-	  chise_close_feature_table (ft_feature);
-	  chise_close_data_source (&ds);
-	  return -1;
-	}
-
       char_attribute_table_to_load = XCHAR_TABLE (table);
       {
 	struct gcpro gcpro1;
 
 	GCPRO1 (table);
-	chise_ft_iterate (ft_feature, &load_char_attribute_table_map_func);
+	chise_ft_iterate (cit->feature_table,
+			  &load_char_attribute_table_map_func);
 	UNGCPRO;
       }
-      chise_close_feature_table (ft_feature);
-      chise_close_data_source (&ds);
 #else
       Lisp_Char_Table *ct = XCHAR_TABLE (table);
 
