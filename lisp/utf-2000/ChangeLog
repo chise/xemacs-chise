@@ -1,3 +1,60 @@
+2001-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el: New file.
+
+2001-07-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R065-Branch.el (U+652F): Unify J78-3B59 and J83-3B59.
+
+2001-07-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (M-10513): Unify J78-576A.
+	(M-10585): Separate J78-4351, J83-4351 and U+6065; unify S1-2496.
+	(U+6065): Unify J78-4351 and J83-4351.
+	(U+6077): Unify J78-576E and J90-576E.
+	(M-10664): Separate J78-5824.
+	(M-10719): Separate G0-632D and U+60B1.
+	(M-10720): Separate G0-312F, C1-5F2B, J90-4861 and U+60B2.
+	(C1-5F2B): Unify J90-4861.
+	(U+60B2): Unify G0-312F.
+	(M-10809): Separate J78-5831, J83-5831 and U+60D8; unify S1-2567.
+	(M-11028): Separate C3-412E and J90-5849.
+	(M-11239): Separate S2-2700, C1-6C73, J90-4A30 and U+61A4.
+	(U+61F4): Unify J78-5873 and J83-5873.
+	(M-11498): Separate C1-7A6B, J90-5877 and U+61FE.
+
+2001-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (M-11707): Add strokes; unify C3-2628.
+	(J90-4C61): Separate C3-2628; unify J78-4C61 and J83-4C61.
+	(J90-4B3C): Unify J78-4B3C and J83-4B3C.
+	(J90-3D6A): Unify J78-3D6A and J83-3D6A.
+	(J90-5928): Unify J78-5928 and J83-5928.
+	(M-11743): New character; relate to U+6247.
+	(C1-5552): Separated from M-11743'; relate to M-11743.
+	(M-11743'): Separated C1-5552; unify J78-4070 and J83-4070.
+	(M-11746): Unify J78-6E3D.
+	(J90-6E3D): Unify J83-6E3D.
+
+2001-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el: Merge `ideograph-gt' and
+	`ideograph-gt-pj-{1..11}'.
+	(C5-2521): Delete `non-morohashi'.
+
+	* Ideograph-R003-Dot.el: Update.
+
+	* Ideograph-R060-Step.el (M-10141): Separate U+5F98, G0-4547,
+	K0-5B47, C1-5A38 and J90-5751.
+	(K0-5B47): Unify C1-5A38 and J90-5751.
+	(U+5F98): Unify G0-4547.
+
+	* Ideograph-R057-Bow.el (M-09768): Unify S1-2281, S2-2281,
+	J78-5739 and J83-5739.
+	(U+5F2D): Separate S1-2281, J78-5739 and J83-5739.
+	(U+5F2F): Unify J90-573F.
+	(U+5F41): Unify J90-573B.
+
 2001-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Print
