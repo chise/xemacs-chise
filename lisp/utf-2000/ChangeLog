@@ -1,3 +1,47 @@
+2003-07-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-feature-domains): Add `misc' and
+	`unknown'.
+
+2003-07-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el (C4-2127): Unify GT-K00068.
+	(U-00020061): Don't use char-ref format in `<->same-ideograph' and
+	`<-ancient-ideograph'; use `->same-ideograph*sources' and
+	`<-ancient-ideograph*sources' instead.
+
+	* Ideograph-R077-Stop.el (M-16254): Unify GT-K00187 and GT-20883.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EBC): Unify GT-37857.
+
+2003-07-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el (BC-87F5): Use `hanyu-dazidian' instead
+	of `hanyu-dazidian-{vol|page|char}'.
+
+2003-07-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el: Add some GT code points.
+	(M-31330'): New character.
+	(H10-D46C): Separate U-00027163; unify M-32477' and GT-43922.
+	(U-00027163): Separate H10-D46C; relate to M-32477'.
+
+2003-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (M-06920): Separate C3-6073 and CB05463.
+	(U+5B4F): Unify CB05463.
+
+	* Ideograph-R030-Mouth.el (M-04658): Separate C3-6071 and CB02258;
+	modify `ideographic-structure'.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EBC): Unify GT-37857.
+
+	* Ideograph-R130-Meat.el: Add some GT code points.
+	(M-29250): Unify H6-A472, GT-37865 and U-0002662D.
+	(C6-2548): Map to U-0002662D.
+	(U-00026630): Unify GT-37869; add strokes.
+	(M-29966'): New character.
+
 2003-07-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R072-Sun.el (GT-K03318): New character.
