@@ -300,20 +300,6 @@ syms_of_device_mswindows (void)
 {
   defsymbol (&Qinit_pre_mswindows_win, "init-pre-mswindows-win");
   defsymbol (&Qinit_post_mswindows_win, "init-post-mswindows-win");
-
-  DEFVAR_LISP ("mswindows-downcase-file-names", &Vmswindows_downcase_file_names /*
-Non-nil means convert all-upper case file names to lower case.
-This applies when performing completions and file name expansion.
-*/ );
-  Vmswindows_downcase_file_names = Qnil;
-
-  DEFVAR_LISP ("mswindows-get-true-file-attributes", &Vmswindows_get_true_file_attributes /*
-Non-nil means determine accurate link count in file-attributes.
-This option slows down file-attributes noticeably, so is disabled by
-default.  Note that it is only useful for files on NTFS volumes,
-where hard links are supported.
-*/ );
-  Vmswindows_get_true_file_attributes = Qnil;
 }
 
 void
@@ -330,4 +316,17 @@ console_type_create_device_mswindows (void)
 void
 vars_of_device_mswindows (void)
 {
+  DEFVAR_LISP ("mswindows-downcase-file-names", &Vmswindows_downcase_file_names /*
+Non-nil means convert all-upper case file names to lower case.
+This applies when performing completions and file name expansion.
+*/ );
+  Vmswindows_downcase_file_names = Qnil;
+
+  DEFVAR_LISP ("mswindows-get-true-file-attributes", &Vmswindows_get_true_file_attributes /*
+Non-nil means determine accurate link count in file-attributes.
+This option slows down file-attributes noticeably, so is disabled by
+default.  Note that it is only useful for files on NTFS volumes,
+where hard links are supported.
+*/ );
+  Vmswindows_get_true_file_attributes = Qnil;
 }

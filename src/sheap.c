@@ -25,7 +25,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <unistd.h>
 #include <sheap-adjust.h>
 
-#define STATIC_HEAP_BASE	0x600000
+#define STATIC_HEAP_BASE	0x800000
 #define STATIC_HEAP_SLOP	0x40000
 #define STATIC_HEAP_SIZE \
 (STATIC_HEAP_BASE + SHEAP_ADJUSTMENT + STATIC_HEAP_SLOP)
@@ -103,7 +103,7 @@ static_heap_base, static_heap_ptr);
   return result;
 }
 
-void
+static void
 sheap_adjust_h ()
 {
   FILE *stream = fopen ("sheap-adjust.h", "w");
@@ -119,4 +119,32 @@ sheap_adjust_h ()
 	   ((static_heap_ptr - static_heap_buffer) - STATIC_HEAP_BASE));
   fclose (stream);
 }
+
+void
+report_sheap_usage (int die_if_pure_storage_exceeded)
+{
+  int rc = 0;
+
+  size_t lost = (STATIC_HEAP_BASE + STATIC_HEAP_SLOP + SHEAP_ADJUSTMENT)
+    - (static_heap_ptr - static_heap_buffer);
+  char buf[200];
+  sprintf (buf, "Static heap usage: %ld of %ld",
+               (long) (static_heap_ptr - static_heap_buffer),
+	   (long) (STATIC_HEAP_BASE + STATIC_HEAP_SLOP + SHEAP_ADJUSTMENT));
+
+  if (lost > STATIC_HEAP_SLOP) {
+    sprintf (buf + strlen (buf), " -- %ldk wasted", (long)(lost/1024));
+    if (die_if_pure_storage_exceeded) {
+      sheap_adjust_h();
+      rc = -1;
+    }
+    message ("%s", buf);
+  }
+
+  if (rc < 0) {
+    unlink("SATISFIED");
+    fatal ("Static heap size adjusted, Don't Panic!  I will restart the `make'");
+  }
+}
+
 

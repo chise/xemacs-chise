@@ -36,6 +36,8 @@
 ;;(define-key global-map '(shift button2) 'x-mouse-kill)
 (define-key global-map '(control button2) 'x-set-point-and-move-selection)
 
+(define-obsolete-function-alias 'x-insert-selection 'insert-selection)
+
 (defun x-mouse-kill (event)
   "Kill the text between the point and mouse and copy it to the clipboard and
 to the cut buffer"
@@ -43,50 +45,9 @@ to the cut buffer"
   (let ((old-point (point)))
     (mouse-set-point event)
     (let ((s (buffer-substring old-point (point))))
-      (x-own-clipboard s)
+      (own-clipboard s)
       (x-store-cutbuffer s))
     (kill-region old-point (point))))
-
-(defun x-yank-function ()
-  "Insert the current X selection or, if there is none, insert the X cutbuffer.
-A mark is pushed, so that the inserted text lies between point and mark."
-  (push-mark)
-  (if (region-active-p)
-      (if (consp zmacs-region-extent)
-	  ;; pirated code from insert-rectangle in rect.el
-	  ;; perhaps that code should be modified to handle a list of extents
-	  ;; as the rectangle to be inserted?
-	  (let ((lines zmacs-region-extent)
-		(insertcolumn (current-column))
-		(first t))
-	    (push-mark)
-	    (while lines
-	      (or first
-		  (progn
-		    (forward-line 1)
-		    (or (bolp) (insert ?\n))
-		    (move-to-column insertcolumn t)))
-	      (setq first nil)
-	      (insert (extent-string (car lines)))
-	      (setq lines (cdr lines))))
-	(insert (extent-string zmacs-region-extent)))
-    (x-insert-selection t)))
-
-(defun x-insert-selection (&optional check-cutbuffer-p move-point-event)
-  "Insert the current selection into buffer at point."
-  (interactive "P")
-  (let ((text (if check-cutbuffer-p
-		  (or (condition-case () (x-get-selection) (error ()))
-		      (x-get-cutbuffer)
-		      (error "No selection or cut buffer available"))
-		(x-get-selection))))
-    (cond (move-point-event
-	   (mouse-set-point move-point-event)
-	   (push-mark (point)))
-	  ((interactive-p)
-	   (push-mark (point))))
-    (insert text)
-    ))
 
 (make-obsolete 'x-set-point-and-insert-selection 'mouse-yank)
 (defun x-set-point-and-insert-selection (event)
@@ -102,9 +63,9 @@ A mark is pushed, so that the inserted text lies between point and mark."
   ;; to fail; just let the appropriate error message get issued. (We need
   ;; to insert the selection and set point first, or the selection may
   ;; get inserted at the wrong place.)
-  (and (x-selection-owner-p)
+  (and (selection-owner-p)
        primary-selection-extent
-       (x-insert-selection t event))
+       (insert-selection t event))
   (kill-primary-selection))
 
 (defun mouse-track-and-copy-to-cutbuffer (event)

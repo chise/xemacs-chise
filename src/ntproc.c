@@ -1442,9 +1442,6 @@ If successful, the new locale id is returned, otherwise nil.
 void
 syms_of_ntproc ()
 {
-  Qhigh = intern ("high");
-  Qlow = intern ("low");
-
   DEFSUBR (Fwin32_short_file_name);
   DEFSUBR (Fwin32_long_file_name);
   DEFSUBR (Fwin32_set_process_priority);
@@ -1453,6 +1450,14 @@ syms_of_ntproc ()
   DEFSUBR (Fwin32_get_default_locale_id);
   DEFSUBR (Fwin32_get_valid_locale_ids);
   DEFSUBR (Fwin32_set_current_locale);
+}
+
+
+void
+vars_of_ntproc (void)
+{
+  Qhigh = intern ("high");
+  Qlow = intern ("low");
 
   DEFVAR_LISP ("win32-quote-process-args", &Vwin32_quote_process_args /*
     Non-nil enables quoting of process arguments to ensure correct parsing.
@@ -1483,7 +1488,7 @@ or indirectly by Emacs), and preventing Emacs from cleanly terminating the
 subprocess group, but may allow Emacs to interrupt a subprocess that doesn't
 otherwise respond to interrupts from Emacs.
 */ );
-  Vwin32_start_process_share_console = Qnil;
+  Vwin32_start_process_share_console = Qt;
 
   DEFVAR_LISP ("win32-pipe-read-delay", &Vwin32_pipe_read_delay /*
     Forced delay before reading subprocess output.
@@ -1508,4 +1513,5 @@ the truename of a file can be slow.
   Vwin32_generate_fake_inodes = Qnil;
 #endif
 }
+
 /* end of ntproc.c */

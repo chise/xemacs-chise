@@ -85,6 +85,9 @@ file name prompts; e.g. `C-x C-f ~hni<TAB>' will complete to
 `~hniksic/'.  To make this operation faster, a cache of user names is
 maintained internally.
 
+The new primitives available for this purpose are functions named
+`user-name-completion' and `user-name-all-completions'.
+
 
 * Lisp and internal changes in XEmacs 21.2
 ==========================================
@@ -175,6 +178,18 @@ details.
 
 Of course, the old form is still accepted for backward compatibility.
 
+** `translate-region' has been improved in several ways.  Its TABLE
+argument used to be a 256-character string.  In addition to this, it
+can now also be a vector or a char-table (which is useful for Mule.)
+If TABLE a vector or a generic char-table, you can map characters to
+strings instead of to other characters.  For instance:
+
+    (let ((table (make-char-table 'generic)))
+      (put-char-table ?a "the letter a" table)
+      (put-char-table ?b "" table)
+      (put-char-table ?c ?\n table)
+      (translate-region (point-min) (point-max) table))
+
 ** The `keywordp' function now returns non-nil only on symbols
 interned in the global obarray.  For example:
 
@@ -185,7 +200,7 @@ interned in the global obarray.  For example:
 
 This behaviour is compatible with other code which treats symbols
 beginning with colon as keywords only if they are interned in the
-global obarray.  `keyword' used to wrongly return t in both cases
+global obarray.  `keywordp' used to wrongly return t in both cases
 above.
 
 ** The first argument to `intern-soft' may now also be a symbol, like

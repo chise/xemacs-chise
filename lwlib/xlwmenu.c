@@ -2825,8 +2825,8 @@ make_shadow_gcs (XlwMenuWidget mw)
   xgcv.foreground = mw->menu.bottom_shadow_color;
 /*  xgcv.stipple = mw->menu.bottom_shadow_pixmap; gtb */
 #ifdef NEED_MOTIF
-  if (mw->menu.top_shadow_pixmap &&
-      mw->menu.top_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
+  if (mw->menu.bottom_shadow_pixmap &&
+      mw->menu.bottom_shadow_pixmap != XmUNSPECIFIED_PIXMAP)
      xgcv.stipple = mw->menu.bottom_shadow_pixmap;
   else
      xgcv.stipple = 0;

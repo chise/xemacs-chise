@@ -2074,9 +2074,9 @@ A positive or negative prefix argument moves by multiple screenfuls."
 	       (not (eq Info-auto-advance t))
 	       (not (eq last-command this-command)))
 	  (message "Hit %s again to go to previous node"
-		   (if (= last-command-char 0)
+		   (if (mouse-event-p last-command-event)
 		       "mouse button"
-		     (key-description (char-to-string last-command-char))))
+		     (key-description (event-key last-command-event))))
 	(Info-page-prev)
 	(setq this-command 'Info))
     (scroll-down arg)))

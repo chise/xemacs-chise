@@ -13,7 +13,6 @@
 @dircategory XEmacs Editor
 @direntry
 * Customizations: (custom).	Customization Library.
-package.
 @end direntry
 @end ifinfo
 

@@ -1,3 +1,8 @@
+1999-05-17  Jerry James  <jerry@cs.ucsb.edu>
+
+	* xlwmenu.c (make_shadow_gcs): Test bottom_shadow_pixmap before
+	using it.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released

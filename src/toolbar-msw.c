@@ -209,7 +209,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 			internal_hash (get_toolbar_button_glyph(w, tb), 0),
 			internal_hash (tb->callback, 0),
 			width,
-			w->toolbar_buttons_captioned_p);
+			LISP_HASH (w->toolbar_buttons_captioned_p));
       button = tb->next;
       nbuttons++;
     }

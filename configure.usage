@@ -56,9 +56,8 @@ Window-system options:
 --x-includes=DIR        Search for X header files in DIR.
 --x-libraries=DIR       Search for X libraries in DIR.
 --without-toolbars      Don't compile with any toolbar support.
---without-session       Compile without realized leader window which will
-                        keep the WM_COMMAND property. Required for proper
-                        session-management.
+--without-wmcommand     Compile without realized leader window which will
+                        keep the WM_COMMAND property.
 --with-menubars=TYPE    Use TYPE menubars (lucid, motif, or no).  The Lucid
                         widgets emulate Motif (mostly) but are faster.
                         *WARNING*  The Motif menubar is currently broken.

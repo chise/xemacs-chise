@@ -39,6 +39,19 @@
 (defun mswindows-init-frame-faces (frame)
   )
 
+;; Other functions expect these regexps
+(defconst mswindows-font-regexp
+  (let
+      ((- 		":")
+       (fontname	"\\([a-zA-Z ]+\\)")
+       (weight	"\\([a-zA-Z]*\\)?")
+       (style	"\\( [a-zA-Z]*\\)?")
+       (pointsize	"\\([0-9]+\\)?")
+       (effects	"\\([a-zA-Z ]*\\)?")
+       (charset	"\\([a-zA-Z 0-9]*\\)")
+       )
+    (concat "^"
+	    fontname - weight style - pointsize - effects - charset "$")))
 
 ;;; Fill in missing parts of a font spec. This is primarily intended as a
 ;;; helper function for the functions below.

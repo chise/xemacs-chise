@@ -35,7 +35,7 @@
 /*
  * Update the value of the `_edata' and `_end' symbols.
  */
-#pragma ident	"@(#) $Id: _relocate.c,v 1.4 1995/06/26 20:13:26 georgn Exp $ - SMI"
+#pragma ident	"@(#) $Id: _relocate.c,v 1.4 1998/03/31 20:10:55 steve Exp $ - SMI"
 
 #include	<libelf.h>
 #include	<string.h>
