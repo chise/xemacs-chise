@@ -578,40 +578,14 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
   return encode_builtin_char_1 (ch, charset);
 }
 
-INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
-INLINE_HEADER int
-encode_char_2 (Emchar ch, Lisp_Object* charset)
-{
-  int code_point = encode_char_1 (ch, charset);
-
-  if (EQ (*charset, Vcharset_mojikyo))
-    {
-      int plane, byte1, byte2;
-
-      code_point--;
-      plane = code_point / (94 * 60);
-      byte1 = (code_point % (94 * 60)) / 94;
-      if (byte1 < 30)
-	byte1 += 16 + 32;
-      else
-	byte1 += 18 + 32;
-      byte2 = code_point % 94 + 33;
-      *charset
-	= CHARSET_BY_LEADING_BYTE (LEADING_BYTE_MOJIKYO_PJ_1 - plane);
-      return (byte1 << 8) | byte2;
-    }
-  else
-    return code_point;
-}
-
-#define ENCODE_CHAR(ch, charset)	encode_char_2 (ch, &(charset))
+#define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
 
 INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE_HEADER void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  int code_point = encode_char_2 (c, charset);
+  int code_point = encode_char_1 (c, charset);
 
   if (code_point >= 0)
     {
@@ -655,6 +629,32 @@ typedef struct Charc
   Lisp_Object charset;
   int code_point;
 } Charc;
+
+INLINE_HEADER Charc CHAR_TO_CHARC (Emchar ch);
+INLINE_HEADER Charc
+CHAR_TO_CHARC (Emchar ch)
+{
+  Charc cc;
+
+  cc.code_point = encode_char_1 (ch, &cc.charset);
+  if (EQ (cc.charset, Vcharset_mojikyo))
+    {
+      int plane, byte1, byte2;
+
+      cc.code_point--;
+      plane = cc.code_point / (94 * 60);
+      byte1 = (cc.code_point % (94 * 60)) / 94;
+      if (byte1 < 30)
+	byte1 += 16 + 32;
+      else
+	byte1 += 18 + 32;
+      byte2 = cc.code_point % 94 + 33;
+      cc.charset
+	= CHARSET_BY_LEADING_BYTE (LEADING_BYTE_MOJIKYO_PJ_1 - plane);
+      cc.code_point = (byte1 << 8) | byte2;
+    }
+  return cc;
+}
 
 
 /************************************************************************/
