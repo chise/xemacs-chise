@@ -424,23 +424,45 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c <= MAX_CHAR_BASIC_LATIN)
+  if (c < 0x100)
     {
-      *charset = Vcharset_ascii;
-      *c1 = charset_get_byte1 (*charset, c);
-      *c2 = charset_get_byte2 (*charset, c);
-    }
-  else if (c < 0xA0)
-    {
-      *charset = Vcharset_control_1;
-      *c1 = charset_get_byte1 (*charset, c);
-      *c2 = charset_get_byte2 (*charset, c);
-    }
-  else if (c <= 0xff)
-    {
-      *charset = Vcharset_latin_iso8859_1;
-      *c1 = charset_get_byte1 (*charset, c);
-      *c2 = charset_get_byte2 (*charset, c);
+      Lisp_Object charsets = Vdefault_preferred_coded_charset_list;
+      while (!EQ (charsets, Qnil))
+	{
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if (!EQ (*charset, Qnil)
+	      && (*c1 = charset_get_byte1 (*charset, c)) )
+	    {
+	      *c2 = charset_get_byte2 (*charset, c);
+	      return;
+	    }
+	  charsets = Fcdr (charsets);	      
+	}
+      /* otherwise */
+      if (c <= MAX_CHAR_BASIC_LATIN)
+	{
+	  *charset = Vcharset_ascii;
+	  *c1 = charset_get_byte1 (*charset, c);
+	  *c2 = charset_get_byte2 (*charset, c);
+	}
+      else if (c < 0xA0)
+	{
+	  *charset = Vcharset_control_1;
+	  *c1 = charset_get_byte1 (*charset, c);
+	  *c2 = charset_get_byte2 (*charset, c);
+	}
+      else if (c <= 0xff)
+	{
+	  *charset = Vcharset_latin_iso8859_1;
+	  *c1 = charset_get_byte1 (*charset, c);
+	  *c2 = charset_get_byte2 (*charset, c);
+	}
+      else
+	{
+	  *charset = Vcharset_ucs_bmp;
+	  *c1 = c >> 8;
+	  *c2 = c & 0xff;
+	}
     }
   else if (c <= 0x17f)
     {
