@@ -240,6 +240,7 @@
 (define-char
   '((morohashi-daikanwa	47555 0 8)
     (ideographic-radical . 197)	; â¿„
+    (ideographic-strokes . 9)
     (total-strokes	 . 20)
     (chinese-cns11643-5 . #x6F48)	; ø»›·
     ))
@@ -259,6 +260,7 @@
 (define-char
   '((morohashi-daikanwa	47557 0 3)
     (ideographic-radical . 197)	; â¿„
+    (ideographic-strokes . 9)
     (total-strokes	 . 20)
     (chinese-cns11643-7 . #x5247)	; ø»Ÿ‡˜
     ))
