@@ -1,3 +1,37 @@
+2001-11-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R004-Slash.el (BC-8856): New character.
+
+	* Ideograph-R134-Mortar.el (BC-8863): New character; relate to
+	M-30175.
+
+	* Ideograph-R037-Big.el (BC-87EE): New character; relate to
+	M-5861.
+	(U+593A): Delete `morohashi-daikanwa'.
+
+	* Ideograph-R028-Private.el (C6-215C): Unify BC-87B8.
+
+	* Ideograph-R017-Open-Box.el: Use char-spec instead of char-ref as
+	operators in `ideographic-structure' properties.
+	(M-01801): Unify BC-8AAF.
+	(CB-00631): Unify BC-8DC7.
+	(C6-2361): Unify BC-87B4.
+	(U+342B): Add `ideographic-structure'.
+	(C6-3548): Unify BC-87BF.
+
+	* Ideograph-R016-Table.el: Use char-spec instead of char-ref as
+	operators in `ideographic-structure' properties.
+	(C4-2129): Unify BC-8AAE.
+	(U+51E6): Unify BC-8BE4; add `ideographic-structure'.
+
+	* Ideograph-R002-Line.el (U-00020CCB): Use JX2-286F instead of
+	BC-8BAD in `ideographic-structure'.
+
+	* Ideograph-R042-Small.el:
+	- Merge Big5 code points.
+	- Merge some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+
 2001-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-char-spec): Modify for new
