@@ -1,81 +1,81 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "KATAKANA LETTER SMALL KU")
     (=ucs		. #x31F0)	; ã‡°
-    (=jis-x0213-1-2000	. #x266E)	; ø»¢›Ÿ
+    (=jis-x0213-1-2000	. #x266E)	; &I-JX1-266E;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL SI")
     (=ucs		. #x31F1)	; ã‡±
-    (=jis-x0213-1-2000	. #x266F)	; ø»¢› 
+    (=jis-x0213-1-2000	. #x266F)	; &I-JX1-266F;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL SU")
     (=ucs		. #x31F2)	; ã‡²
-    (=jis-x0213-1-2000	. #x2670)	; ø»¢›¡
+    (=jis-x0213-1-2000	. #x2670)	; &I-JX1-2670;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL TO")
     (=ucs		. #x31F3)	; ã‡³
-    (=jis-x0213-1-2000	. #x2671)	; ø»¢›¢
+    (=jis-x0213-1-2000	. #x2671)	; &I-JX1-2671;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL NU")
     (=ucs		. #x31F4)	; ã‡´
-    (=jis-x0213-1-2000	. #x2672)	; ø»¢›£
+    (=jis-x0213-1-2000	. #x2672)	; &I-JX1-2672;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL HA")
     (=ucs		. #x31F5)	; ã‡µ
-    (=jis-x0213-1-2000	. #x2673)	; ø»¢›¤
+    (=jis-x0213-1-2000	. #x2673)	; &I-JX1-2673;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL HI")
     (=ucs		. #x31F6)	; ã‡¶
-    (=jis-x0213-1-2000	. #x2674)	; ø»¢›¥
+    (=jis-x0213-1-2000	. #x2674)	; &I-JX1-2674;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL HU")
     (=ucs		. #x31F7)	; ã‡·
-    (=jis-x0213-1-2000	. #x2675)	; ø»¢›¦
+    (=jis-x0213-1-2000	. #x2675)	; &I-JX1-2675;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL HE")
     (=ucs		. #x31F8)	; ã‡¸
-    (=jis-x0213-1-2000	. #x2676)	; ø»¢›§
+    (=jis-x0213-1-2000	. #x2676)	; &I-JX1-2676;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL HO")
     (=ucs		. #x31F9)	; ã‡¹
-    (=jis-x0213-1-2000	. #x2677)	; ø»¢›¨
+    (=jis-x0213-1-2000	. #x2677)	; &I-JX1-2677;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL MU")
     (=ucs		. #x31FA)	; ã‡º
-    (=jis-x0213-1-2000	. #x2679)	; ø»¢›ª
+    (=jis-x0213-1-2000	. #x2679)	; &I-JX1-2679;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL RA")
     (=ucs		. #x31FB)	; ã‡»
-    (=jis-x0213-1-2000	. #x267A)	; ø»¢›«
+    (=jis-x0213-1-2000	. #x267A)	; &I-JX1-267A;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL RI")
     (=ucs		. #x31FC)	; ã‡¼
-    (=jis-x0213-1-2000	. #x267B)	; ø»¢›¬
+    (=jis-x0213-1-2000	. #x267B)	; &I-JX1-267B;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL RU")
     (=ucs		. #x31FD)	; ã‡½
-    (=jis-x0213-1-2000	. #x267C)	; ø»¢›­
+    (=jis-x0213-1-2000	. #x267C)	; &I-JX1-267C;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL RE")
     (=ucs		. #x31FE)	; ã‡¾
-    (=jis-x0213-1-2000	. #x267D)	; ø»¢›®
+    (=jis-x0213-1-2000	. #x267D)	; &I-JX1-267D;
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL RO")
     (=ucs		. #x31FF)	; ã‡¿
-    (=jis-x0213-1-2000	. #x267E)	; ø»¢›¯
+    (=jis-x0213-1-2000	. #x267E)	; &I-JX1-267E;
     ))

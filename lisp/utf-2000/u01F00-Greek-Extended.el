@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH PSILI")
     (general-category	letter lowercase) ; Normative Category
@@ -1202,8 +1202,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x0251 #x0300)
-    (=jis-x0213-1-2000	. #x2B46)	; ø»¢¢
-    (=ucs@jis		. #x1F70)	; ø»¢¢
+    (=jis-x0213-1-2000	. #x2B46)	; &JX1-2B46;
+    (=ucs@jis		. #x1F70)	; &JX1-2B46;
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH OXIA")
@@ -1224,8 +1224,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x0251 #x0301)
-    (=jis-x0213-1-2000	. #x2B47)	; ø»¢¢Ž
-    (=ucs@jis		. #x1F71)	; ø»¢¢Ž
+    (=jis-x0213-1-2000	. #x2B47)	; &JX1-2B47;
+    (=ucs@jis		. #x1F71)	; &JX1-2B47;
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH VARIA")
@@ -1249,8 +1249,8 @@
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
       ))
-    (=jis-x0213-1-2000	. #x2B50)	; ø»¢¢—
-    (=ucs@jis		. #x1F72)	; ø»¢¢—
+    (=jis-x0213-1-2000	. #x2B50)	; &JX1-2B50;
+    (=ucs@jis		. #x1F72)	; &JX1-2B50;
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH OXIA")
@@ -1274,8 +1274,8 @@
     (->uppercase
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")
       ))
-    (=jis-x0213-1-2000	. #x2B51)	; ø»¢¢˜
-    (=ucs@jis		. #x1F73)	; ø»¢¢˜
+    (=jis-x0213-1-2000	. #x2B51)	; &JX1-2B51;
+    (=ucs@jis		. #x1F73)	; &JX1-2B51;
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ETA WITH VARIA")
