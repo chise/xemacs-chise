@@ -1855,8 +1855,14 @@
     (=daikanwa		. 00209)	; ø¸€ƒ‘
     ))
 (define-char
-  '((ideographic-radical . 5)	; â¼„
-    (ideographic-strokes . 10)
+  '((ideographic-radical@ucs . 5)	; â¼„
+    (ideographic-strokes@ucs . 10)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 213)	; â¿”
+    (ideographic-strokes@cns . 0)
+    (ideographic-radical@cns*sources
+     shinjigen-1 cns11643 gt)
     (total-strokes	 . 11)
     (<-vulgar-ideograph
      ((ideographic-radical . 213)	; â¿”
@@ -1874,10 +1880,12 @@
      ((=big5-cdp	  . #x89BD)	; ý¢€ˆ¦½
       ))
     (shinjigen-1	. 9917)
+    (shinjigen-2	. 9916)
     (sound@ja/kun	"kame")
     (sound@ja/on	"ki")
     (=ucs		. #x4E80)	; äº€
     (=jis-x0208		. #x3535)	; ø½Š“¨
+    (=cns11643-3	. #x396C)	; ø»•º¿
     (=gt		. 66701)	; ý¡€’
     (=gt-k		. 07742)	; ý¡„¸¾
     (=gt-pj-1		. #x3535)	; ý¡€’
