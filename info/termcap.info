@@ -1,0 +1,81 @@
+This is Info file ../info/termcap.info, produced by Makeinfo version
+1.68 from the input file termcap.texi.
+
+START-INFO-DIR-ENTRY
+* Termcap: (termcap).		Termcap library of the GNU system.
+END-INFO-DIR-ENTRY
+
+   This file documents the termcap library of the GNU system.
+
+   Copyright (C) 1988 Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+
+Indirect:
+termcap.info-1: 985
+termcap.info-2: 49255
+termcap.info-3: 92578
+
+Tag Table:
+(Indirect)
+Node: Top985
+Node: Introduction1630
+Node: Library3357
+Node: Preparation4374
+Node: Find5573
+Node: Interrogate9121
+Node: Initialize14429
+Node: Padding16069
+Node: Why Pad16730
+Node: Describe Padding18374
+Node: Output Padding19849
+Node: Parameters23464
+Node: Encode Parameters25123
+Node: Using Parameters31228
+Node: tparam31817
+Node: tgoto33882
+Node: Data Base36437
+Node: Format37315
+Node: Capability Format39406
+Node: Naming42459
+Node: Inheriting47028
+Node: Capabilities49255
+Node: Basic52097
+Node: Screen Size55941
+Node: Cursor Motion57681
+Node: Wrapping67338
+Node: Scrolling70163
+Node: Windows75183
+Node: Clearing75917
+Node: Insdel Line77681
+Node: Insdel Char82593
+Node: Standout92578
+Node: Underlining101637
+Node: Cursor Visibility104056
+Node: Bell104804
+Node: Keypad105353
+Node: Meta Key110074
+Node: Initialization111028
+Node: Pad Specs113392
+Node: Status Line115445
+Node: Half-Line117329
+Node: Printer118131
+Node: Summary119810
+Node: Var Index130016
+Node: Cap Index130740
+Node: Index137931
+
+End Tag Table

@@ -1,0 +1,1245 @@
+This is Info file ../../info/lispref.info, produced by Makeinfo version
+1.68 from the input file lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Character Type,  Next: Symbol Type,  Prev: Floating Point Type,  Up: Programming Types
+
+Character Type
+--------------
+
+   In XEmacs version 19, and in all versions of FSF GNU Emacs, a
+"character" in XEmacs Lisp is nothing more than an integer.  This is
+yet another holdover from XEmacs Lisp's derivation from vintage-1980
+Lisps; modern versions of Lisp consider this equivalence a bad idea,
+and have separate character types.  In XEmacs version 20, the modern
+convention is followed, and characters are their own primitive types.
+(This change was necessary in order for MULE, i.e. Asian-language,
+support to be correctly implemented.)
+
+   Even in XEmacs version 20, remnants of the equivalence between
+characters and integers still exist; this is termed the "char-int
+confoundance disease".  In particular, many functions such as `eq',
+`equal', and `memq' have equivalent functions (`old-eq', `old-equal',
+`old-memq', etc.) that pretend like characters are integers are the
+same.  Byte code compiled under any version 19 Emacs will have all such
+functions mapped to their `old-' equivalents when the byte code is read
+into XEmacs 20.  This is to preserve compatibility - Emacs 19 converts
+all constant characters to the equivalent integer during
+byte-compilation, and thus there is no other way to preserve byte-code
+compatibility even if the code has specifically been written with the
+distinction between characters and integers in mind.
+
+   Every character has an equivalent integer, called the "character
+code".  For example, the character `A' is represented as the
+integer 65, following the standard ASCII representation of characters.
+If XEmacs was not compiled with MULE support, the range of this integer
+will always be 0 to 255 - eight bits, or one byte. (Integers outside
+this range are accepted but silently truncated; however, you should
+most decidedly *not* rely on this, because it will not work under
+XEmacs with MULE support.)  When MULE support is present, the range of
+character codes is much larger. (Currently, 19 bits are used.)
+
+   FSF GNU Emacs uses kludgy character codes above 255 to represent
+keyboard input of ASCII characters in combination with certain
+modifiers.  XEmacs does not use this (a more general mechanism is used
+that does not distinguish between ASCII keys and other keys), so you
+will never find character codes above 255 in a non-MULE XEmacs.
+
+   Individual characters are not often used in programs.  It is far more
+common to work with *strings*, which are sequences composed of
+characters.  *Note String Type::.
+
+   The read syntax for characters begins with a question mark, followed
+by the character (if it's printable) or some symbolic representation of
+it.  In XEmacs 20, where characters are their own type, this is also the
+print representation.  In XEmacs 19, however, where characters are
+really integers, the printed representation of a character is a decimal
+number.  This is also a possible read syntax for a character, but
+writing characters that way in Lisp programs is a very bad idea.  You
+should *always* use the special read syntax formats that XEmacs Lisp
+provides for characters.
+
+   The usual read syntax for alphanumeric characters is a question mark
+followed by the character; thus, `?A' for the character `A', `?B' for
+the character `B', and `?a' for the character `a'.
+
+   For example:
+
+     ;; Under XEmacs 20:
+     ?Q => ?Q    ?q => ?q
+     (char-int ?Q) => 81
+     ;; Under XEmacs 19:
+     ?Q => 81     ?q => 113
+
+   You can use the same syntax for punctuation characters, but it is
+often a good idea to add a `\' so that the Emacs commands for editing
+Lisp code don't get confused.  For example, `?\ ' is the way to write
+the space character.  If the character is `\', you *must* use a second
+`\' to quote it: `?\\'.  XEmacs 20 always prints punctuation characters
+with a `\' in front of them, to avoid confusion.
+
+   You can express the characters Control-g, backspace, tab, newline,
+vertical tab, formfeed, return, and escape as `?\a', `?\b', `?\t',
+`?\n', `?\v', `?\f', `?\r', `?\e', respectively.  Their character codes
+are 7, 8, 9, 10, 11, 12, 13, and 27 in decimal.  Thus,
+
+     ;; Under XEmacs 20:
+     ?\a => ?\^G              ; `C-g'
+     (char-int ?\a) => 7
+     ?\b => ?\^H              ; backspace, <BS>, `C-h'
+     (char-int ?\b) => 8
+     ?\t => ?\t               ; tab, <TAB>, `C-i'
+     (char-int ?\t) => 9
+     ?\n => ?\n               ; newline, <LFD>, `C-j'
+     ?\v => ?\^K              ; vertical tab, `C-k'
+     ?\f => ?\^L              ; formfeed character, `C-l'
+     ?\r => ?\r               ; carriage return, <RET>, `C-m'
+     ?\e => ?\^[              ; escape character, <ESC>, `C-['
+     ?\\ => ?\\               ; backslash character, `\'
+     ;; Under XEmacs 19:
+     ?\a => 7                 ; `C-g'
+     ?\b => 8                 ; backspace, <BS>, `C-h'
+     ?\t => 9                 ; tab, <TAB>, `C-i'
+     ?\n => 10                ; newline, <LFD>, `C-j'
+     ?\v => 11                ; vertical tab, `C-k'
+     ?\f => 12                ; formfeed character, `C-l'
+     ?\r => 13                ; carriage return, <RET>, `C-m'
+     ?\e => 27                ; escape character, <ESC>, `C-['
+     ?\\ => 92                ; backslash character, `\'
+
+   These sequences which start with backslash are also known as "escape
+sequences", because backslash plays the role of an escape character;
+this usage has nothing to do with the character <ESC>.
+
+   Control characters may be represented using yet another read syntax.
+This consists of a question mark followed by a backslash, caret, and the
+corresponding non-control character, in either upper or lower case.  For
+example, both `?\^I' and `?\^i' are valid read syntax for the character
+`C-i', the character whose value is 9.
+
+   Instead of the `^', you can use `C-'; thus, `?\C-i' is equivalent to
+`?\^I' and to `?\^i':
+
+     ;; Under XEmacs 20:
+     ?\^I => ?\t   ?\C-I => ?\t
+     (char-int ?\^I) => 9
+     ;; Under XEmacs 19:
+     ?\^I => 9     ?\C-I => 9
+
+   There is also a character read syntax beginning with `\M-'.  This
+sets the high bit of the character code (same as adding 128 to the
+character code).  For example, `?\M-A' stands for the character with
+character code 193, or 128 plus 65.  You should *not* use this syntax
+in your programs.  It is a holdover of yet another confoundance disease
+from earlier Emacsen. (This was used to represent keyboard input with
+the <META> key set, thus the `M'; however, it conflicts with the
+legitimate ISO-8859-1 interpretation of the character code.  For
+example, character code 193 is a lowercase `a' with an acute accent, in
+ISO-8859-1.)
+
+   Finally, the most general read syntax consists of a question mark
+followed by a backslash and the character code in octal (up to three
+octal digits); thus, `?\101' for the character `A', `?\001' for the
+character `C-a', and `?\002' for the character `C-b'.  Although this
+syntax can represent any ASCII character, it is preferred only when the
+precise octal value is more important than the ASCII representation.
+
+     ;; Under XEmacs 20:
+     ?\012 => ?\n        ?\n => ?\n        ?\C-j => ?\n
+     ?\101 => ?A         ?A => ?A
+     ;; Under XEmacs 19:
+     ?\012 => 10         ?\n => 10         ?\C-j => 10
+     ?\101 => 65         ?A => 65
+
+   A backslash is allowed, and harmless, preceding any character without
+a special escape meaning; thus, `?\+' is equivalent to `?+'.  There is
+no reason to add a backslash before most characters.  However, you
+should add a backslash before any of the characters `()\|;'`"#.,' to
+avoid confusing the Emacs commands for editing Lisp code.  Also add a
+backslash before whitespace characters such as space, tab, newline and
+formfeed.  However, it is cleaner to use one of the easily readable
+escape sequences, such as `\t', instead of an actual whitespace
+character such as a tab.
+
+
+File: lispref.info,  Node: Symbol Type,  Next: Sequence Type,  Prev: Character Type,  Up: Programming Types
+
+Symbol Type
+-----------
+
+   A "symbol" in XEmacs Lisp is an object with a name.  The symbol name
+serves as the printed representation of the symbol.  In ordinary use,
+the name is unique--no two symbols have the same name.
+
+   A symbol can serve as a variable, as a function name, or to hold a
+property list.  Or it may serve only to be distinct from all other Lisp
+objects, so that its presence in a data structure may be recognized
+reliably.  In a given context, usually only one of these uses is
+intended.  But you can use one symbol in all of these ways,
+independently.
+
+   A symbol name can contain any characters whatever.  Most symbol names
+are written with letters, digits, and the punctuation characters
+`-+=*/'.  Such names require no special punctuation; the characters of
+the name suffice as long as the name does not look like a number.  (If
+it does, write a `\' at the beginning of the name to force
+interpretation as a symbol.)  The characters `_~!@$%^&:<>{}' are less
+often used but also require no special punctuation.  Any other
+characters may be included in a symbol's name by escaping them with a
+backslash.  In contrast to its use in strings, however, a backslash in
+the name of a symbol simply quotes the single character that follows the
+backslash.  For example, in a string, `\t' represents a tab character;
+in the name of a symbol, however, `\t' merely quotes the letter `t'.
+To have a symbol with a tab character in its name, you must actually
+use a tab (preceded with a backslash).  But it's rare to do such a
+thing.
+
+     Common Lisp note: In Common Lisp, lower case letters are always
+     "folded" to upper case, unless they are explicitly escaped.  In
+     Emacs Lisp, upper case and lower case letters are distinct.
+
+   Here are several examples of symbol names.  Note that the `+' in the
+fifth example is escaped to prevent it from being read as a number.
+This is not necessary in the sixth example because the rest of the name
+makes it invalid as a number.
+
+     foo                 ; A symbol named `foo'.
+     FOO                 ; A symbol named `FOO', different from `foo'.
+     char-to-string      ; A symbol named `char-to-string'.
+     1+                  ; A symbol named `1+'
+                         ;   (not `+1', which is an integer).
+     \+1                 ; A symbol named `+1'
+                         ;   (not a very readable name).
+     \(*\ 1\ 2\)         ; A symbol named `(* 1 2)' (a worse name).
+     +-*/_~!@$%^&=:<>{}  ; A symbol named `+-*/_~!@$%^&=:<>{}'.
+                         ;   These characters need not be escaped.
+
+
+File: lispref.info,  Node: Sequence Type,  Next: Cons Cell Type,  Prev: Symbol Type,  Up: Programming Types
+
+Sequence Types
+--------------
+
+   A "sequence" is a Lisp object that represents an ordered set of
+elements.  There are two kinds of sequence in XEmacs Lisp, lists and
+arrays.  Thus, an object of type list or of type array is also
+considered a sequence.
+
+   Arrays are further subdivided into strings, vectors, and bit vectors.
+Vectors can hold elements of any type, but string elements must be
+characters, and bit vector elements must be either 0 or 1.  However, the
+characters in a string can have extents (*note Extents::.) and text
+properties (*note Text Properties::.) like characters in a buffer;
+vectors do not support extents or text properties even when their
+elements happen to be characters.
+
+   Lists, strings, vectors, and bit vectors are different, but they have
+important similarities.  For example, all have a length L, and all have
+elements which can be indexed from zero to L minus one.  Also, several
+functions, called sequence functions, accept any kind of sequence.  For
+example, the function `elt' can be used to extract an element of a
+sequence, given its index.  *Note Sequences Arrays Vectors::.
+
+   It is impossible to read the same sequence twice, since sequences are
+always created anew upon reading.  If you read the read syntax for a
+sequence twice, you get two sequences with equal contents.  There is one
+exception: the empty list `()' always stands for the same object, `nil'.
+
+
+File: lispref.info,  Node: Cons Cell Type,  Next: Array Type,  Prev: Sequence Type,  Up: Programming Types
+
+Cons Cell and List Types
+------------------------
+
+   A "cons cell" is an object comprising two pointers named the CAR and
+the CDR.  Each of them can point to any Lisp object.
+
+   A "list" is a series of cons cells, linked together so that the CDR
+of each cons cell points either to another cons cell or to the empty
+list.  *Note Lists::, for functions that work on lists.  Because most
+cons cells are used as part of lists, the phrase "list structure" has
+come to refer to any structure made out of cons cells.
+
+   The names CAR and CDR have only historical meaning now.  The
+original Lisp implementation ran on an IBM 704 computer which divided
+words into two parts, called the "address" part and the "decrement";
+CAR was an instruction to extract the contents of the address part of a
+register, and CDR an instruction to extract the contents of the
+decrement.  By contrast, "cons cells" are named for the function `cons'
+that creates them, which in turn is named for its purpose, the
+construction of cells.
+
+   Because cons cells are so central to Lisp, we also have a word for
+"an object which is not a cons cell".  These objects are called "atoms".
+
+   The read syntax and printed representation for lists are identical,
+and consist of a left parenthesis, an arbitrary number of elements, and
+a right parenthesis.
+
+   Upon reading, each object inside the parentheses becomes an element
+of the list.  That is, a cons cell is made for each element.  The CAR
+of the cons cell points to the element, and its CDR points to the next
+cons cell of the list, which holds the next element in the list.  The
+CDR of the last cons cell is set to point to `nil'.
+
+   A list can be illustrated by a diagram in which the cons cells are
+shown as pairs of boxes.  (The Lisp reader cannot read such an
+illustration; unlike the textual notation, which can be understood by
+both humans and computers, the box illustrations can be understood only
+by humans.)  The following represents the three-element list `(rose
+violet buttercup)':
+
+         ___ ___      ___ ___      ___ ___
+        |___|___|--> |___|___|--> |___|___|--> nil
+          |            |            |
+          |            |            |
+           --> rose     --> violet   --> buttercup
+
+   In this diagram, each box represents a slot that can refer to any
+Lisp object.  Each pair of boxes represents a cons cell.  Each arrow is
+a reference to a Lisp object, either an atom or another cons cell.
+
+   In this example, the first box, the CAR of the first cons cell,
+refers to or "contains" `rose' (a symbol).  The second box, the CDR of
+the first cons cell, refers to the next pair of boxes, the second cons
+cell.  The CAR of the second cons cell refers to `violet' and the CDR
+refers to the third cons cell.  The CDR of the third (and last) cons
+cell refers to `nil'.
+
+   Here is another diagram of the same list, `(rose violet buttercup)',
+sketched in a different manner:
+
+     ---------------       ----------------       -------------------
+     | car   | cdr   |     | car    | cdr   |     | car       | cdr   |
+     | rose  |   o-------->| violet |   o-------->| buttercup |  nil  |
+     |       |       |     |        |       |     |           |       |
+      ---------------       ----------------       -------------------
+
+   A list with no elements in it is the "empty list"; it is identical
+to the symbol `nil'.  In other words, `nil' is both a symbol and a list.
+
+   Here are examples of lists written in Lisp syntax:
+
+     (A 2 "A")            ; A list of three elements.
+     ()                   ; A list of no elements (the empty list).
+     nil                  ; A list of no elements (the empty list).
+     ("A ()")             ; A list of one element: the string `"A ()"'.
+     (A ())               ; A list of two elements: `A' and the empty list.
+     (A nil)              ; Equivalent to the previous.
+     ((A B C))            ; A list of one element
+                          ;   (which is a list of three elements).
+
+   Here is the list `(A ())', or equivalently `(A nil)', depicted with
+boxes and arrows:
+
+         ___ ___      ___ ___
+        |___|___|--> |___|___|--> nil
+          |            |
+          |            |
+           --> A        --> nil
+
+* Menu:
+
+* Dotted Pair Notation::        An alternative syntax for lists.
+* Association List Type::       A specially constructed list.
+
+
+File: lispref.info,  Node: Dotted Pair Notation,  Next: Association List Type,  Up: Cons Cell Type
+
+Dotted Pair Notation
+....................
+
+   "Dotted pair notation" is an alternative syntax for cons cells that
+represents the CAR and CDR explicitly.  In this syntax, `(A . B)'
+stands for a cons cell whose CAR is the object A, and whose CDR is the
+object B.  Dotted pair notation is therefore more general than list
+syntax.  In the dotted pair notation, the list `(1 2 3)' is written as
+`(1 .  (2 . (3 . nil)))'.  For `nil'-terminated lists, the two
+notations produce the same result, but list notation is usually clearer
+and more convenient when it is applicable.  When printing a list, the
+dotted pair notation is only used if the CDR of a cell is not a list.
+
+   Here's how box notation can illustrate dotted pairs.  This example
+shows the pair `(rose . violet)':
+
+         ___ ___
+        |___|___|--> violet
+          |
+          |
+           --> rose
+
+   Dotted pair notation can be combined with list notation to represent
+a chain of cons cells with a non-`nil' final CDR.  For example, `(rose
+violet . buttercup)' is equivalent to `(rose . (violet . buttercup))'.
+The object looks like this:
+
+         ___ ___      ___ ___
+        |___|___|--> |___|___|--> buttercup
+          |            |
+          |            |
+           --> rose     --> violet
+
+   These diagrams make it evident why `(rose . violet . buttercup)' is
+invalid syntax; it would require a cons cell that has three parts
+rather than two.
+
+   The list `(rose violet)' is equivalent to `(rose . (violet))' and
+looks like this:
+
+         ___ ___      ___ ___
+        |___|___|--> |___|___|--> nil
+          |            |
+          |            |
+           --> rose     --> violet
+
+   Similarly, the three-element list `(rose violet buttercup)' is
+equivalent to `(rose . (violet . (buttercup)))'.  It looks like this:
+
+         ___ ___      ___ ___      ___ ___
+        |___|___|--> |___|___|--> |___|___|--> nil
+          |            |            |
+          |            |            |
+           --> rose     --> violet   --> buttercup
+
+
+File: lispref.info,  Node: Association List Type,  Prev: Dotted Pair Notation,  Up: Cons Cell Type
+
+Association List Type
+.....................
+
+   An "association list" or "alist" is a specially-constructed list
+whose elements are cons cells.  In each element, the CAR is considered
+a "key", and the CDR is considered an "associated value".  (In some
+cases, the associated value is stored in the CAR of the CDR.)
+Association lists are often used as stacks, since it is easy to add or
+remove associations at the front of the list.
+
+   For example,
+
+     (setq alist-of-colors
+           '((rose . red) (lily . white)  (buttercup . yellow)))
+
+sets the variable `alist-of-colors' to an alist of three elements.  In
+the first element, `rose' is the key and `red' is the value.
+
+   *Note Association Lists::, for a further explanation of alists and
+for functions that work on alists.
+
+
+File: lispref.info,  Node: Array Type,  Next: String Type,  Prev: Cons Cell Type,  Up: Programming Types
+
+Array Type
+----------
+
+   An "array" is composed of an arbitrary number of slots for referring
+to other Lisp objects, arranged in a contiguous block of memory.
+Accessing any element of an array takes the same amount of time.  In
+contrast, accessing an element of a list requires time proportional to
+the position of the element in the list.  (Elements at the end of a
+list take longer to access than elements at the beginning of a list.)
+
+   XEmacs defines three types of array, strings, vectors, and bit
+vectors.  A string is an array of characters, a vector is an array of
+arbitrary objects, and a bit vector is an array of 1's and 0's.  All are
+one-dimensional.  (Most other programming languages support
+multidimensional arrays, but they are not essential; you can get the
+same effect with an array of arrays.)  Each type of array has its own
+read syntax; see *Note String Type::, *Note Vector Type::, and *Note
+Bit Vector Type::.
+
+   An array may have any length up to the largest integer; but once
+created, it has a fixed size.  The first element of an array has index
+zero, the second element has index 1, and so on.  This is called
+"zero-origin" indexing.  For example, an array of four elements has
+indices 0, 1, 2, and 3.
+
+   The array type is contained in the sequence type and contains the
+string type, the vector type, and the bit vector type.
+
+
+File: lispref.info,  Node: String Type,  Next: Vector Type,  Prev: Array Type,  Up: Programming Types
+
+String Type
+-----------
+
+   A "string" is an array of characters.  Strings are used for many
+purposes in XEmacs, as can be expected in a text editor; for example, as
+the names of Lisp symbols, as messages for the user, and to represent
+text extracted from buffers.  Strings in Lisp are constants: evaluation
+of a string returns the same string.
+
+   The read syntax for strings is a double-quote, an arbitrary number of
+characters, and another double-quote, `"like this"'.  The Lisp reader
+accepts the same formats for reading the characters of a string as it
+does for reading single characters (without the question mark that
+begins a character literal).  You can enter a nonprinting character such
+as tab or `C-a' using the convenient escape sequences, like this: `"\t,
+\C-a"'.  You can include a double-quote in a string by preceding it
+with a backslash; thus, `"\""' is a string containing just a single
+double-quote character.  (*Note Character Type::, for a description of
+the read syntax for characters.)
+
+   The printed representation of a string consists of a double-quote,
+the characters it contains, and another double-quote.  However, you must
+escape any backslash or double-quote characters in the string with a
+backslash, like this: `"this \" is an embedded quote"'.
+
+   The newline character is not special in the read syntax for strings;
+if you write a new line between the double-quotes, it becomes a
+character in the string.  But an escaped newline--one that is preceded
+by `\'--does not become part of the string; i.e., the Lisp reader
+ignores an escaped newline while reading a string.
+
+     "It is useful to include newlines
+     in documentation strings,
+     but the newline is \
+     ignored if escaped."
+          => "It is useful to include newlines
+     in documentation strings,
+     but the newline is ignored if escaped."
+
+   A string can hold extents and properties of the text it contains, in
+addition to the characters themselves.  This enables programs that copy
+text between strings and buffers to preserve the extents and properties
+with no special effort.  *Note Extents::, *Note Text Properties::.
+
+   Note that FSF GNU Emacs has a special read and print syntax for
+strings with text properties, but XEmacs does not currently implement
+this.  It was judged better not to include this in XEmacs because it
+entails that `equal' return `nil' when passed a string with text
+properties and the equivalent string without text properties, which is
+often counter-intuitive.
+
+   *Note Strings and Characters::, for functions that work on strings.
+
+
+File: lispref.info,  Node: Vector Type,  Next: Bit Vector Type,  Prev: String Type,  Up: Programming Types
+
+Vector Type
+-----------
+
+   A "vector" is a one-dimensional array of elements of any type.  It
+takes a constant amount of time to access any element of a vector.  (In
+a list, the access time of an element is proportional to the distance of
+the element from the beginning of the list.)
+
+   The printed representation of a vector consists of a left square
+bracket, the elements, and a right square bracket.  This is also the
+read syntax.  Like numbers and strings, vectors are considered constants
+for evaluation.
+
+     [1 "two" (three)]      ; A vector of three elements.
+          => [1 "two" (three)]
+
+   *Note Vectors::, for functions that work with vectors.
+
+
+File: lispref.info,  Node: Bit Vector Type,  Next: Function Type,  Prev: Vector Type,  Up: Programming Types
+
+Bit Vector Type
+---------------
+
+   A "bit vector" is a one-dimensional array of 1's and 0's.  It takes
+a constant amount of time to access any element of a bit vector, as for
+vectors.  Bit vectors have an extremely compact internal representation
+(one machine bit per element), which makes them ideal for keeping track
+of unordered sets, large collections of boolean values, etc.
+
+   The printed representation of a bit vector consists of `#*' followed
+by the bits in the vector.  This is also the read syntax.  Like
+numbers, strings, and vectors, bit vectors are considered constants for
+evaluation.
+
+     #*00101000      ; A bit vector of eight elements.
+          => #*00101000
+
+   *Note Bit Vectors::, for functions that work with bit vectors.
+
+
+File: lispref.info,  Node: Function Type,  Next: Macro Type,  Prev: Bit Vector Type,  Up: Programming Types
+
+Function Type
+-------------
+
+   Just as functions in other programming languages are executable,
+"Lisp function" objects are pieces of executable code.  However,
+functions in Lisp are primarily Lisp objects, and only secondarily the
+text which represents them.  These Lisp objects are lambda expressions:
+lists whose first element is the symbol `lambda' (*note Lambda
+Expressions::.).
+
+   In most programming languages, it is impossible to have a function
+without a name.  In Lisp, a function has no intrinsic name.  A lambda
+expression is also called an "anonymous function" (*note Anonymous
+Functions::.).  A named function in Lisp is actually a symbol with a
+valid function in its function cell (*note Defining Functions::.).
+
+   Most of the time, functions are called when their names are written
+in Lisp expressions in Lisp programs.  However, you can construct or
+obtain a function object at run time and then call it with the primitive
+functions `funcall' and `apply'.  *Note Calling Functions::.
+
+
+File: lispref.info,  Node: Macro Type,  Next: Primitive Function Type,  Prev: Function Type,  Up: Programming Types
+
+Macro Type
+----------
+
+   A "Lisp macro" is a user-defined construct that extends the Lisp
+language.  It is represented as an object much like a function, but with
+different parameter-passing semantics.  A Lisp macro has the form of a
+list whose first element is the symbol `macro' and whose CDR is a Lisp
+function object, including the `lambda' symbol.
+
+   Lisp macro objects are usually defined with the built-in `defmacro'
+function, but any list that begins with `macro' is a macro as far as
+XEmacs is concerned.  *Note Macros::, for an explanation of how to
+write a macro.
+
+
+File: lispref.info,  Node: Primitive Function Type,  Next: Compiled-Function Type,  Prev: Macro Type,  Up: Programming Types
+
+Primitive Function Type
+-----------------------
+
+   A "primitive function" is a function callable from Lisp but written
+in the C programming language.  Primitive functions are also called
+"subrs" or "built-in functions".  (The word "subr" is derived from
+"subroutine".)  Most primitive functions evaluate all their arguments
+when they are called.  A primitive function that does not evaluate all
+its arguments is called a "special form" (*note Special Forms::.).
+
+   It does not matter to the caller of a function whether the function
+is primitive.  However, this does matter if you try to substitute a
+function written in Lisp for a primitive of the same name.  The reason
+is that the primitive function may be called directly from C code.
+Calls to the redefined function from Lisp will use the new definition,
+but calls from C code may still use the built-in definition.
+
+   The term "function" refers to all Emacs functions, whether written
+in Lisp or C.  *Note Function Type::, for information about the
+functions written in Lisp.
+
+   Primitive functions have no read syntax and print in hash notation
+with the name of the subroutine.
+
+     (symbol-function 'car)          ; Access the function cell
+                                     ;   of the symbol.
+          => #<subr car>
+     (subrp (symbol-function 'car))  ; Is this a primitive function?
+          => t                       ; Yes.
+
+
+File: lispref.info,  Node: Compiled-Function Type,  Next: Autoload Type,  Prev: Primitive Function Type,  Up: Programming Types
+
+Compiled-Function Type
+----------------------
+
+   The byte compiler produces "compiled-function objects".  The
+evaluator handles this data type specially when it appears as a function
+to be called.  *Note Byte Compilation::, for information about the byte
+compiler.
+
+   The printed representation for a compiled-function object is normally
+`#<compiled-function...>'.  If `print-readably' is true, however, it is
+`#[...]'.
+
+
+File: lispref.info,  Node: Autoload Type,  Next: Char Table Type,  Prev: Compiled-Function Type,  Up: Programming Types
+
+Autoload Type
+-------------
+
+   An "autoload object" is a list whose first element is the symbol
+`autoload'.  It is stored as the function definition of a symbol as a
+placeholder for the real definition; it says that the real definition
+is found in a file of Lisp code that should be loaded when necessary.
+The autoload object contains the name of the file, plus some other
+information about the real definition.
+
+   After the file has been loaded, the symbol should have a new function
+definition that is not an autoload object.  The new definition is then
+called as if it had been there to begin with.  From the user's point of
+view, the function call works as expected, using the function definition
+in the loaded file.
+
+   An autoload object is usually created with the function `autoload',
+which stores the object in the function cell of a symbol.  *Note
+Autoload::, for more details.
+
+
+File: lispref.info,  Node: Char Table Type,  Next: Hash Table Type,  Prev: Autoload Type,  Up: Programming Types
+
+Char Table Type
+---------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Hash Table Type,  Next: Range Table Type,  Prev: Char Table Type,  Up: Programming Types
+
+Hash Table Type
+---------------
+
+   A "hash table" is a table providing an arbitrary mapping from one
+Lisp object to another, using an internal indexing method called
+"hashing".  Hash tables are very fast (much more efficient that using
+an association list, when there are a large number of elements in the
+table).
+
+   Hash tables have a special read syntax beginning with
+`#s(hash-table' (this is an example of "structure" read syntax.  This
+notation is also used for printing when `print-readably' is `t'.
+
+   Otherwise they print in hash notation (The "hash" in "hash notation"
+has nothing to do with the "hash" in "hash table"), giving the number
+of elements, total space allocated for elements, and a unique number
+assigned at the time the hash table was created. (Hash tables
+automatically resize as necessary so there is no danger of running out
+of space for elements.)
+
+     (make-hash-table :size 50)
+          => #<hash-table 0/107 0x313a>
+
+   *Note Hash Tables::, for information on how to create and work with
+hash tables.
+
+
+File: lispref.info,  Node: Range Table Type,  Next: Weak List Type,  Prev: Hash Table Type,  Up: Programming Types
+
+Range Table Type
+----------------
+
+   A "range table" is a table that maps from ranges of integers to
+arbitrary Lisp objects.  Range tables automatically combine overlapping
+ranges that map to the same Lisp object, and operations are provided
+for mapping over all of the ranges in a range table.
+
+   Range tables have a special read syntax beginning with
+`#s(range-table' (this is an example of "structure" read syntax, which
+is also used for char tables and faces).
+
+     (setq x (make-range-table))
+     (put-range-table 20 50 'foo x)
+     (put-range-table 100 200 "bar" x)
+     x
+          => #s(range-table data ((20 50) foo (100 200) "bar"))
+
+   *Note Range Tables::, for information on how to create and work with
+range tables.
+
+
+File: lispref.info,  Node: Weak List Type,  Prev: Range Table Type,  Up: Programming Types
+
+Weak List Type
+--------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Editing Types,  Next: Window-System Types,  Prev: Programming Types,  Up: Lisp Data Types
+
+Editing Types
+=============
+
+   The types in the previous section are common to many Lisp dialects.
+XEmacs Lisp provides several additional data types for purposes
+connected with editing.
+
+* Menu:
+
+* Buffer Type::         The basic object of editing.
+* Marker Type::         A position in a buffer.
+* Extent Type::         A range in a buffer or string, maybe with properties.
+* Window Type::         Buffers are displayed in windows.
+* Frame Type::		Windows subdivide frames.
+* Device Type::         Devices group all frames on a display.
+* Console Type::        Consoles group all devices with the same keyboard.
+* Window Configuration Type::   Recording the way a frame is subdivided.
+* Event Type::          An interesting occurrence in the system.
+* Process Type::        A process running on the underlying OS.
+* Stream Type::         Receive or send characters.
+* Keymap Type::         What function a keystroke invokes.
+* Syntax Table Type::   What a character means.
+* Display Table Type::  How display tables are represented.
+* Database Type::       A connection to an external DBM or DB database.
+* Charset Type::        A character set (e.g. all Kanji characters),
+                          under XEmacs/MULE.
+* Coding System Type::  An object encapsulating a way of converting between
+                          different textual encodings, under XEmacs/MULE.
+* ToolTalk Message Type:: A message, in the ToolTalk IPC protocol.
+* ToolTalk Pattern Type:: A pattern, in the ToolTalk IPC protocol.
+
+
+File: lispref.info,  Node: Buffer Type,  Next: Marker Type,  Up: Editing Types
+
+Buffer Type
+-----------
+
+   A "buffer" is an object that holds text that can be edited (*note
+Buffers::.).  Most buffers hold the contents of a disk file (*note
+Files::.) so they can be edited, but some are used for other purposes.
+Most buffers are also meant to be seen by the user, and therefore
+displayed, at some time, in a window (*note Windows::.).  But a buffer
+need not be displayed in any window.
+
+   The contents of a buffer are much like a string, but buffers are not
+used like strings in XEmacs Lisp, and the available operations are
+different.  For example, insertion of text into a buffer is very
+efficient, whereas "inserting" text into a string requires
+concatenating substrings, and the result is an entirely new string
+object.
+
+   Each buffer has a designated position called "point" (*note
+Positions::.).  At any time, one buffer is the "current buffer".  Most
+editing commands act on the contents of the current buffer in the
+neighborhood of point.  Many of the standard Emacs functions manipulate
+or test the characters in the current buffer; a whole chapter in this
+manual is devoted to describing these functions (*note Text::.).
+
+   Several other data structures are associated with each buffer:
+
+   * a local syntax table (*note Syntax Tables::.);
+
+   * a local keymap (*note Keymaps::.);
+
+   * a local variable binding list (*note Buffer-Local Variables::.);
+
+   * a list of extents (*note Extents::.);
+
+   * and various other related properties.
+
+The local keymap and variable list contain entries that individually
+override global bindings or values.  These are used to customize the
+behavior of programs in different buffers, without actually changing the
+programs.
+
+   A buffer may be "indirect", which means it shares the text of
+another buffer.  *Note Indirect Buffers::.
+
+   Buffers have no read syntax.  They print in hash notation, showing
+the buffer name.
+
+     (current-buffer)
+          => #<buffer "objects.texi">
+
+
+File: lispref.info,  Node: Marker Type,  Next: Extent Type,  Prev: Buffer Type,  Up: Editing Types
+
+Marker Type
+-----------
+
+   A "marker" denotes a position in a specific buffer.  Markers
+therefore have two components: one for the buffer, and one for the
+position.  Changes in the buffer's text automatically relocate the
+position value as necessary to ensure that the marker always points
+between the same two characters in the buffer.
+
+   Markers have no read syntax.  They print in hash notation, giving the
+current character position and the name of the buffer.
+
+     (point-marker)
+          => #<marker at 50661 in objects.texi>
+
+   *Note Markers::, for information on how to test, create, copy, and
+move markers.
+
+
+File: lispref.info,  Node: Extent Type,  Next: Window Type,  Prev: Marker Type,  Up: Editing Types
+
+Extent Type
+-----------
+
+   An "extent" specifies temporary alteration of the display appearance
+of a part of a buffer (or string).  It contains markers delimiting a
+range of the buffer, plus a property list (a list whose elements are
+alternating property names and values).  Extents are used to present
+parts of the buffer temporarily in a different display style.  They
+have no read syntax, and print in hash notation, giving the buffer name
+and range of positions.
+
+   Extents can exist over strings as well as buffers; the primary use
+of this is to preserve extent and text property information as text is
+copied from one buffer to another or between different parts of a
+buffer.
+
+   Extents have no read syntax.  They print in hash notation, giving the
+range of text they cover, the name of the buffer or string they are in,
+the address in core, and a summary of some of the properties attached to
+the extent.
+
+     (extent-at (point))
+          => #<extent [51742, 51748) font-lock text-prop 0x90121e0 in buffer objects.texi>
+
+   *Note Extents::, for how to create and use extents.
+
+   Extents are used to implement text properties.  *Note Text
+Properties::.
+
+
+File: lispref.info,  Node: Window Type,  Next: Frame Type,  Prev: Extent Type,  Up: Editing Types
+
+Window Type
+-----------
+
+   A "window" describes the portion of the frame that XEmacs uses to
+display a buffer. (In standard window-system usage, a "window" is what
+XEmacs calls a "frame"; XEmacs confusingly uses the term "window" to
+refer to what is called a "pane" in standard window-system usage.)
+Every window has one associated buffer, whose contents appear in the
+window.  By contrast, a given buffer may appear in one window, no
+window, or several windows.
+
+   Though many windows may exist simultaneously, at any time one window
+is designated the "selected window".  This is the window where the
+cursor is (usually) displayed when XEmacs is ready for a command.  The
+selected window usually displays the current buffer, but this is not
+necessarily the case.
+
+   Windows are grouped on the screen into frames; each window belongs to
+one and only one frame.  *Note Frame Type::.
+
+   Windows have no read syntax.  They print in hash notation, giving the
+name of the buffer being displayed and a unique number assigned at the
+time the window was created. (This number can be useful because the
+buffer displayed in any given window can change frequently.)
+
+     (selected-window)
+          => #<window on "objects.texi" 0x266c>
+
+   *Note Windows::, for a description of the functions that work on
+windows.
+
+
+File: lispref.info,  Node: Frame Type,  Next: Device Type,  Prev: Window Type,  Up: Editing Types
+
+Frame Type
+----------
+
+   A FRAME is a rectangle on the screen (a "window" in standard
+window-system terminology) that contains one or more non-overlapping
+Emacs windows ("panes" in standard window-system terminology).  A frame
+initially contains a single main window (plus perhaps a minibuffer
+window) which you can subdivide vertically or horizontally into smaller
+windows.
+
+   Frames have no read syntax.  They print in hash notation, giving the
+frame's type, name as used for resourcing, and a unique number assigned
+at the time the frame was created.
+
+     (selected-frame)
+          => #<x-frame "emacs" 0x9db>
+
+   *Note Frames::, for a description of the functions that work on
+frames.
+
+
+File: lispref.info,  Node: Device Type,  Next: Console Type,  Prev: Frame Type,  Up: Editing Types
+
+Device Type
+-----------
+
+   A "device" represents a single display on which frames exist.
+Normally, there is only one device object, but there may be more than
+one if XEmacs is being run on a multi-headed display (e.g. an X server
+with attached color and mono screens) or if XEmacs is simultaneously
+driving frames attached to different consoles, e.g.  an X display and a
+TTY connection.
+
+   Devices do not have a read syntax.  They print in hash notation,
+giving the device's type, connection name, and a unique number assigned
+at the time the device was created.
+
+     (selected-device)
+          => #<x-device on ":0.0" 0x5b9>
+
+   *Note Consoles and Devices::, for a description of several functions
+related to devices.
+
+
+File: lispref.info,  Node: Console Type,  Next: Window Configuration Type,  Prev: Device Type,  Up: Editing Types
+
+Console Type
+------------
+
+   A "console" represents a single keyboard to which devices (i.e.
+displays on which frames exist) are connected.  Normally, there is only
+one console object, but there may be more than one if XEmacs is
+simultaneously driving frames attached to different X servers and/or
+TTY connections. (XEmacs is capable of driving multiple X and TTY
+connections at the same time, and provides a robust mechanism for
+handling the differing display capabilities of such heterogeneous
+environments.  A buffer with embedded glyphs and multiple fonts and
+colors, for example, will display reasonably if it simultaneously
+appears on a frame on a color X display, a frame on a mono X display,
+and a frame on a TTY connection.)
+
+   Consoles do not have a read syntax.  They print in hash notation,
+giving the console's type, connection name, and a unique number assigned
+at the time the console was created.
+
+     (selected-console)
+          => #<x-console on "localhost:0" 0x5b7>
+
+   *Note Consoles and Devices::, for a description of several functions
+related to consoles.
+
+
+File: lispref.info,  Node: Window Configuration Type,  Next: Event Type,  Prev: Console Type,  Up: Editing Types
+
+Window Configuration Type
+-------------------------
+
+   A "window configuration" stores information about the positions,
+sizes, and contents of the windows in a frame, so you can recreate the
+same arrangement of windows later.
+
+   Window configurations do not have a read syntax.  They print in hash
+notation, giving a unique number assigned at the time the window
+configuration was created.
+
+     (current-window-configuration)
+          => #<window-configuration 0x2db4>
+
+   *Note Window Configurations::, for a description of several functions
+related to window configurations.
+
+
+File: lispref.info,  Node: Event Type,  Next: Process Type,  Prev: Window Configuration Type,  Up: Editing Types
+
+Event Type
+----------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Process Type,  Next: Stream Type,  Prev: Event Type,  Up: Editing Types
+
+Process Type
+------------
+
+   The word "process" usually means a running program.  XEmacs itself
+runs in a process of this sort.  However, in XEmacs Lisp, a process is a
+Lisp object that designates a subprocess created by the XEmacs process.
+Programs such as shells, GDB, ftp, and compilers, running in
+subprocesses of XEmacs, extend the capabilities of XEmacs.
+
+   An Emacs subprocess takes textual input from Emacs and returns
+textual output to Emacs for further manipulation.  Emacs can also send
+signals to the subprocess.
+
+   Process objects have no read syntax.  They print in hash notation,
+giving the name of the process, its associated process ID, and the
+current state of the process:
+
+     (process-list)
+          => (#<process "shell" pid 2909 state:run>)
+
+   *Note Processes::, for information about functions that create,
+delete, return information about, send input or signals to, and receive
+output from processes.
+
+
+File: lispref.info,  Node: Stream Type,  Next: Keymap Type,  Prev: Process Type,  Up: Editing Types
+
+Stream Type
+-----------
+
+   A "stream" is an object that can be used as a source or sink for
+characters--either to supply characters for input or to accept them as
+output.  Many different types can be used this way: markers, buffers,
+strings, and functions.  Most often, input streams (character sources)
+obtain characters from the keyboard, a buffer, or a file, and output
+streams (character sinks) send characters to a buffer, such as a
+`*Help*' buffer, or to the echo area.
+
+   The object `nil', in addition to its other meanings, may be used as
+a stream.  It stands for the value of the variable `standard-input' or
+`standard-output'.  Also, the object `t' as a stream specifies input
+using the minibuffer (*note Minibuffers::.) or output in the echo area
+(*note The Echo Area::.).
+
+   Streams have no special printed representation or read syntax, and
+print as whatever primitive type they are.
+
+   *Note Read and Print::, for a description of functions related to
+streams, including parsing and printing functions.
+
+
+File: lispref.info,  Node: Keymap Type,  Next: Syntax Table Type,  Prev: Stream Type,  Up: Editing Types
+
+Keymap Type
+-----------
+
+   A "keymap" maps keys typed by the user to commands.  This mapping
+controls how the user's command input is executed.
+
+   NOTE: In XEmacs, a keymap is a separate primitive type.  In FSF GNU
+Emacs, a keymap is actually a list whose CAR is the symbol `keymap'.
+
+   *Note Keymaps::, for information about creating keymaps, handling
+prefix keys, local as well as global keymaps, and changing key bindings.
+
+
+File: lispref.info,  Node: Syntax Table Type,  Next: Display Table Type,  Prev: Keymap Type,  Up: Editing Types
+
+Syntax Table Type
+-----------------
+
+   Under XEmacs 20, a "syntax table" is a particular type of char
+table.  Under XEmacs 19, a syntax table a vector of 256 integers.  In
+both cases, each element defines how one character is interpreted when
+it appears in a buffer.  For example, in C mode (*note Major Modes::.),
+the `+' character is punctuation, but in Lisp mode it is a valid
+character in a symbol.  These modes specify different interpretations by
+changing the syntax table entry for `+'.
+
+   Syntax tables are used only for scanning text in buffers, not for
+reading Lisp expressions.  The table the Lisp interpreter uses to read
+expressions is built into the XEmacs source code and cannot be changed;
+thus, to change the list delimiters to be `{' and `}' instead of `('
+and `)' would be impossible.
+
+   *Note Syntax Tables::, for details about syntax classes and how to
+make and modify syntax tables.
+
+
+File: lispref.info,  Node: Display Table Type,  Next: Database Type,  Prev: Syntax Table Type,  Up: Editing Types
+
+Display Table Type
+------------------
+
+   A "display table" specifies how to display each character code.
+Each buffer and each window can have its own display table.  A display
+table is actually a vector of length 256, although in XEmacs 20 this may
+change to be a particular type of char table.  *Note Display Tables::.
+
+
+File: lispref.info,  Node: Database Type,  Next: Charset Type,  Prev: Display Table Type,  Up: Editing Types
+
+Database Type
+-------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Charset Type,  Next: Coding System Type,  Prev: Database Type,  Up: Editing Types
+
+Charset Type
+------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Coding System Type,  Next: ToolTalk Message Type,  Prev: Charset Type,  Up: Editing Types
+
+Coding System Type
+------------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: ToolTalk Message Type,  Next: ToolTalk Pattern Type,  Prev: Coding System Type,  Up: Editing Types
+
+ToolTalk Message Type
+---------------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: ToolTalk Pattern Type,  Prev: ToolTalk Message Type,  Up: Editing Types
+
+ToolTalk Pattern Type
+---------------------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Window-System Types,  Next: Type Predicates,  Prev: Editing Types,  Up: Lisp Data Types
+
+Window-System Types
+===================
+
+   XEmacs also has some types that represent objects such as faces
+(collections of display characters), fonts, and pixmaps that are
+commonly found in windowing systems.
+
+* Menu:
+
+* Face Type::           A collection of display characteristics.
+* Glyph Type::          An image appearing in a buffer or elsewhere.
+* Specifier Type::      A way of controlling display characteristics on
+                          a per-buffer, -frame, -window, or -device level.
+* Font Instance Type::  The way a font appears on a particular device.
+* Color Instance Type:: The way a color appears on a particular device.
+* Image Instance Type:: The way an image appears on a particular device.
+* Toolbar Button Type:: An object representing a button in a toolbar.
+* Subwindow Type::      An externally-controlled window-system window
+                          appearing in a buffer.
+* X Resource Type::     A miscellaneous X resource, if Epoch support was
+                          compiled into XEmacs.
+
+
+File: lispref.info,  Node: Face Type,  Next: Glyph Type,  Up: Window-System Types
+
+Face Type
+---------
+
+   (not yet documented)
+
+
+File: lispref.info,  Node: Glyph Type,  Next: Specifier Type,  Prev: Face Type,  Up: Window-System Types
+
+Glyph Type
+----------
+
+   (not yet documented)
+
