@@ -1231,7 +1231,7 @@ of buffer-file-coding-system set by this function."
     (if priority
 	(let ((categories (mapcar 'coding-system-category priority)))
 	  (set-default-coding-systems
-	   (if (memq eol-type '(0 1 2 unix dos mac))
+	   (if (memq eol-type '(lf crlf cr unix dos mac))
 	       (coding-system-change-eol-conversion default-coding eol-type)
 	     default-coding))
           ;; (setq default-sendmail-coding-system default-coding)
