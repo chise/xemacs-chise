@@ -1,4 +1,26 @@
-2001-09-01  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.h: Don't include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved from char-ucs.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+	* char-ucs.h: Include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved to chartab.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+2001-09-01  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
 
 	* chartab.c (copy_uint8_byte_table): New function.
 	(copy_uint16_byte_table): New function.
@@ -150,7 +172,7 @@
 	(put_char_ccs_code_point): New prototype.
 	(remove_char_ccs): Likewise.
 
-2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+2001-08-14  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
 
 	* mule-charset.c (Vcharset_ucs_jis): New variable.
 	(Qucs_jis): Likewise.
