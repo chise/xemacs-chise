@@ -1,3 +1,18 @@
+2004-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U+53C5): Use `<-vulgar*sources'
+	instead of char-ref in `<-vulgar'.
+
+	* Ideograph-R017-Open-Box.el (U+51FD): Use `->subsumptive'.
+	(U+51FE): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'; unify C3-275A.
+
+	* Ideograph-R014-Cover.el (U-0002F817): Use `=>daikanwa' instead
+	of `morohashi-daikanwa'; add `=>ucs*' for U+5197; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U+51A8): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'.
+
 2004-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (U+5451): Use `<-vulgar*sources' instead
