@@ -327,6 +327,8 @@ Boston, MA 02111-1307, USA.  */
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
 #define LEADING_BYTE_ASCII		0x8E /* Omitted in a buffer */
+#ifdef ENABLE_COMPOSITE_CHARS
+#endif
 #define LEADING_BYTE_COMPOSITE		0x80 /* for a composite character */
 #define LEADING_BYTE_CONTROL_1		0x8F /* represent normal 80-9F */
 
@@ -676,7 +678,14 @@ CHAR_LEADING_BYTE (Emchar c)
   else if (c < MIN_CHAR_COMPOSITION)
     return CHAR_FIELD1 (c) + FIELD1_TO_PRIVATE_LEADING_BYTE;
   else
-    return LEADING_BYTE_COMPOSITE;
+    {
+#ifdef ENABLE_COMPOSITE_CHARS
+      return LEADING_BYTE_COMPOSITE;
+#else
+      abort();
+      return 0;
+#endif /* ENABLE_COMPOSITE_CHARS */
+    }
 }
 
 #define CHAR_CHARSET(c) CHARSET_BY_LEADING_BYTE (CHAR_LEADING_BYTE (c))
@@ -697,8 +706,10 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return c1;
   else if (EQ (charset, Vcharset_control_1))
     return c1 | 0x80;
+#ifdef ENABLE_COMPOSITE_CHARS
   else if (EQ (charset, Vcharset_composite))
     return (0x1F << 14) | ((c1) << 7) | (c2);
+#endif
   else if (XCHARSET_DIMENSION (charset) == 1)
     return ((XCHARSET_LEADING_BYTE (charset) -
 	     FIELD2_TO_OFFICIAL_LEADING_BYTE) << 7) | (c1);
@@ -738,12 +749,14 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 
 
 
+#ifdef ENABLE_COMPOSITE_CHARS
 /************************************************************************/
 /*                           Composite characters                       */
 /************************************************************************/
 
 Emchar lookup_composite_char (Bufbyte *str, int len);
 Lisp_Object composite_char_string (Emchar ch);
+#endif /* ENABLE_COMPOSITE_CHARS */
 
 
 /************************************************************************/

@@ -1,3 +1,25 @@
+1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.13 is released
+
+1999-03-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Don't link lib-src programs incrementally.
+	  Don't include debug info in release builds.
+	  Put intermediate files in the appropriate directories.
+	  Make "distclean" target delete all intermediate files.
+
+1999-03-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Fix building on Windows 95/98 by conditionalising escape
+	  character '^'.
+	  Only put mule-packages in package path on MULE builds.
+	  Only build source browser files on debug builds.
+	  Build source browser database before link so that it's
+	  available even if link fails.
+
 1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.12 is released

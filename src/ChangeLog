@@ -1,3 +1,245 @@
+1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.13 is released
+
+1999-03-12  SL Baur  <steve@xemacs.org>
+
+	* file-coding.c: Guard ucs table initialization with ifdef MULE.
+
+1999-03-10  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* file-coding.c:  docstring and comment improvements.
+	(decode_ucs4)  flag possible data loss with comment.
+
+1999-03-10  Martin Buchholz  <martin@xemacs.org>
+
+	* file-coding.c (Fset_ucs_char): add CHECK_INT, CHECK_CHAR
+	(ucs_to_char):
+	(Fucs_char):
+	(Fset_char_ucs):
+	(decode_coding_ucs4):
+	(encode_coding_ucs4):
+	(detect_coding_utf8):
+	(decode_coding_utf8):
+	(encode_utf8):
+	(encode_coding_utf8):
+	Add CHECK_* macros where needed to avoid crashes.
+	#ifdef out all composite character support using
+	#ifdef ENABLE_COMPOSITE_CHARS
+	Use normal XEmacs coding standards.
+	Fix docstrings.
+	Remove CODING_STREAM_COMPOSE, CODING_STREAM_DECOMPOSE.
+
+1998-09-08  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (make-coding-system): Add description about
+	`ucs-4' and `utf-8'.
+	(detection_state): Modify to implement ucs-4 and utf-8.
+	(detect_coding_type): Likewise.
+	(detect_coding_ucs4): New implementation.
+	(detect_coding_utf8): New implementation.
+	(encode_utf8): fixed.
+	(syms_of_mule_coding): Rename `ucs4' and `utf8' to `ucs-4' and
+	`utf-8'.
+
+1998-09-08  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (mule_char_to_ucs4): Encode 94x94 chars in ISO
+	2022 registry to private area.
+
+1998-09-07  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (encode_utf8): New function.
+	(encode_coding_utf8): New implementation.
+
+1998-09-07  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (ucs_to_mule_table): New variable; abolish
+	`Vucs_to_mule_table'
+	(mule_to_ucs_table): renamed from `Vmule_to_ucs_table'.
+	(set-ucs-char): New function.
+	(ucs_to_char): New function.
+	(ucs-char): New function.
+	(set-char-ucs): New function.
+	(char-ucs): New function.
+	(decode_ucs4): Use `ucs_to_char'.
+	(complex_vars_of_mule_coding): Abolish `ucs-to-mule-table' and
+	`mule-to-ucs-table'.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* chartab.h: EXFUN `Fget_char_table'.
+
+	* file-coding.c (encode_ucs4): New function.
+	(encode_coding_ucs4): Use `encode_ucs4'.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (decode_coding_ucs4): New implementation.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (decode_coding_ucs4): fixed.
+
+	* file-coding.c (Vmule_to_ucs_table): New variable.
+	(mule_char_to_ucs4): New function.
+	(encode_coding_ucs4): New implementation.
+	(complex_vars_of_mule_coding): Define variable
+	`mule-to-ucs-table'.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (decode_coding_utf8): New implementation.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (decode_coding_utf8): fixed.
+
+1998-09-06  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (Vucs_to_mule_table): New variable.
+	(decode_ucs4): Refer `Vucs_to_mule_table'.
+	(complex_vars_of_mule_coding): Define variable
+	`ucs-to-mule-table'.
+
+1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* file-coding.c (detect_coding_ucs4): New function (not
+	implemented yet).
+	(decode_coding_ucs4): New function.
+	(encode_coding_ucs4): New function (not implemented yet).
+	(detect_coding_utf8): New function (not implemented yet).
+	(decode_coding_utf8): New function.
+	(encode_coding_utf8): New function (not implemented yet).
+	(make-coding-system): New type `ucs4' and `utf8'.
+	(coding-system-type): Likewise.
+	(detection_state): Add `ucs4' and `utf8'.
+	(detect_coding_type): Likewise.
+	(mule_decode): Use `decode_coding_ucs4' and `decode_coding_utf8'.
+	(mule_encode): Use `encode_coding_ucs4' and `encode_coding_utf8'.
+	(decode_ucs4): New function (very incomplete).
+	(syms_of_mule_coding): Add `ucs4' and `utf8'.
+
+	* file-coding.h: Add definitions for UCS-4 and UTF-8.
+
+1999-03-08  Martin Buchholz  <martin@xemacs.org>
+
+	* mule-charset.c:
+	(non_ascii_valid_char_p):
+	(lookup_composite_char):
+	(composite_char_string):
+	(make-composite-char):
+	(composite-char-string):
+	(syms_of_mule_charset): 
+	(complex_vars_of_mule_charset): 
+	* mule-charset.h (LEADING_BYTE_COMPOSITE):
+	(CHAR_LEADING_BYTE):
+	(MAKE_CHAR):
+	* file-coding.h (CODING_STATE_COMPOSITE):
+	(CODING_STATE_ISO2022_LOCK):
+	(iso_esc_flag):
+	(LEADING_BYTE_COMPOSITE):
+	* file-coding.c (struct iso2022_decoder):
+	(decoding_closer):
+	(reset_iso2022):
+	(parse_iso2022_esc):
+	(encode_coding_iso2022):
+	#ifdef out all composite character support using 
+	#ifdef ENABLE_COMPOSITE_CHARS 
+
+	* alloc.c: Define lrecord_coding_system only if ! FILE_CODING
+
+1999-03-04  Takeshi YAMADA <yamada@cslab.kecl.ntt.co.jp>
+
+	* fns.c (Fbase64_encode_string): Calculate `allength' in the same
+	way of `Fbase64_encode_region'.
+
+1999-02-18  Katsumi Yamaoka   <yamaoka@jpl.org>
+
+	* fns.c (base64_encode_1): Don't add a newline at the tail.
+
+1999-03-08  Andy Piper  <andy@xemacs.org>
+
+	* menubar-msw.c (displayable_menu_item): correct off-by-one &
+	handling.
+
+1999-03-07  Martin Buchholz  <martin@xemacs.org>
+
+	* console-stream.h (struct stream_console):
+	* event-unixoid.c (event_stream_unixoid_select_console):
+	(event_stream_unixoid_unselect_console):
+	* print.c (Fexternal_debugging_output):
+	* sysdep.c (reset_one_device):
+	* console-stream.c (stream_init_console):
+	(stream_delete_console):
+	(allocate_stream_console_struct): move into stream_init_console.
+	(free_stream_console_struct): move into stream_delete_console.
+	Use `fd' only for file descriptors.
+	Therefore, rename members of struct stream_console.
+
+	* systime.h: Unix98 says sys/time.h should define select(), but
+	some systems define that in unistd.h.  So include that file always.
+
+	* glyphs.h (MAYBE_IIFORMAT_METH): Don't use leading `_'.  Avoid
+	multiple evaluation of first arg.  Do proper do {} while (0) wrapping.
+	(HAS_IIFORMAT_METH_P): Prevent macro from being used in
+	non-boolean context
+	(MAYBE_IIFORMAT_DEVMETH): Use standard internal macro naming convention.
+
+	* EmacsShell.c:
+	* balloon_help.c:
+	Add #include <stdio.h>.
+	Some versions of assert.h use printf() without #include'ing stdio.h
+
+	* free-hook.c (blocktype): Add gcpro5_type to blocktype.
+	(log_gcpro): Remove unused variable FRAME.
+	(show_gcprohist): Ansify.
+	Comment the #endif's
+
+	* frame-x.c (x_delete_frame): Don't use FRAME_X_SHELL_WIDGET(f)
+	after it's just been XtDestroy'ed!
+
+1999-02-18  Martin Buchholz  <martin@xemacs.org>
+
+	* opaque.c (print_opaque):
+	(sizeof_opaque):
+	(equal_opaque):
+	(hash_opaque):
+	Egcs 1.1.1 seems to have a bug where
+	INTP (p->size_or_chain)
+	will crash XEmacs.  Fix by introducing intermediate variable.
+
+	* sound.c (Fdevice_sound_enabled_p): Fix compiler warning.
+
+	* dired.c (Fdirectory_files):
+	(Ffile_name_completion):
+	(Ffile_name_all_completions):
+	(file_name_completion):
+	- Use `directory' instead of `dirname' to sync with FSF Emacs and
+	avoid compiler warnings.
+	- Fix up docstrings so that C variables match documentation.
+
+1999-03-05  Martin Buchholz  <martin@xemacs.org>
+
+	* alloc.c: (garbage_collect_1): Reorg code to make scope of local
+	variables as small as possible to help out the compiler and the maintainer.
+
+	* alloc.c: (disksave_object_finalization):
+	Set all the *-load-path variables to
+	nil, not just load-path itself.  This gets the locate-file hash
+	tables garbage collected BEFORE dump, and has the side effect of
+	preventing crashes on OSF4.0+egcs.
+
+	* alloc.c:
+	* gdbinit:
+	* dbxrc:
+	- Clean up gdb/dbx debugging support.
+	- Storing an EMACS_INT in an enum is not 64-bit clean!
+	- So change the enum to a set of separate variables.
+	- Add test cases to help debug the debugging support!
+	- Add `lisp-shadows' and `run-temacs' targets for dbx.
+	- Both dbx and gdb have been tested now.
+
 1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.12 is released
@@ -87,6 +329,11 @@
 
 	* s/cygwin32.h (BROKEN_SIGIO): don't define this as it causes
 	major lockups.
+
+1999-02-16  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+
+	* fns.c (Fbase64_encode_string): New optional argument
+	`NO_LINE_BREAK'.
 
 1999-02-16  Martin Buchholz  <martin@xemacs.org>
 

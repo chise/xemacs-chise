@@ -61,43 +61,43 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
  if FILES-ONLY is nil (the default) then both files and subdirectories will
  be returned.
 */
-       (dirname, full, match, nosort, files_only))
+       (directory, full, match, nosort, files_only))
 {
   /* This function can GC */
   DIR *d;
   Lisp_Object list = Qnil;
-  Bytecount dirnamelen;
+  Bytecount directorylen;
   Lisp_Object handler;
   struct re_pattern_buffer *bufp = NULL;
   int speccount = specpdl_depth ();
   char *statbuf, *statbuf_tail;
 
   struct gcpro gcpro1, gcpro2;
-  GCPRO2 (dirname, list);
+  GCPRO2 (directory, list);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (dirname, Qdirectory_files);
+  handler = Ffind_file_name_handler (directory, Qdirectory_files);
   if (!NILP (handler))
     {
       UNGCPRO;
       if (!NILP (files_only))
-	return call6 (handler, Qdirectory_files, dirname, full, match, nosort,
-		      files_only);
+	return call6 (handler, Qdirectory_files, directory, full, match,
+		      nosort, files_only);
       else
-	return call5 (handler, Qdirectory_files, dirname, full, match,
+	return call5 (handler, Qdirectory_files, directory, full, match,
 		      nosort);
     }
 
   /* #### why do we do Fexpand_file_name after file handlers here,
      but earlier everywhere else? */
-  dirname = Fexpand_file_name (dirname, Qnil);
-  dirname = Ffile_name_as_directory (dirname);
-  dirnamelen = XSTRING_LENGTH (dirname);
+  directory = Fexpand_file_name (directory, Qnil);
+  directory = Ffile_name_as_directory (directory);
+  directorylen = XSTRING_LENGTH (directory);
 
-  statbuf = (char *)alloca (dirnamelen + MAXNAMLEN + 1);
-  memcpy (statbuf, XSTRING_DATA (dirname), dirnamelen);
-  statbuf_tail = statbuf + dirnamelen;
+  statbuf = (char *)alloca (directorylen + MAXNAMLEN + 1);
+  memcpy (statbuf, XSTRING_DATA (directory), directorylen);
+  statbuf_tail = statbuf + directorylen;
 
   /* XEmacs: this should come after Ffile_name_as_directory() to avoid
      potential regexp cache smashage.  It comes before the opendir()
@@ -118,9 +118,9 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
   /* Do this opendir after anything which might signal an error.
      NOTE: the above comment is old; previously, there was no
      unwind-protection in case of error, but now there is.  */
-  d = opendir ((char *) XSTRING_DATA (dirname));
+  d = opendir ((char *) XSTRING_DATA (directory));
   if (!d)
-    report_file_error ("Opening directory", list1 (dirname));
+    report_file_error ("Opening directory", list1 (directory));
 
   record_unwind_protect (close_directory_unwind, make_opaque_ptr ((void *)d));
 
@@ -157,9 +157,9 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 		 overrun.  */
 	      if (len > MAXNAMLEN)
 		{
-		  cur_statbuf = (char *)xmalloc (dirnamelen + len + 1);
-		  memcpy (cur_statbuf, statbuf, dirnamelen);
-		  cur_statbuf_tail = cur_statbuf + dirnamelen;
+		  cur_statbuf = (char *)xmalloc (directorylen + len + 1);
+		  memcpy (cur_statbuf, statbuf, directorylen);
+		  cur_statbuf_tail = cur_statbuf + directorylen;
 		}
 	      memcpy (cur_statbuf_tail, dp->d_name, len);
 	      cur_statbuf_tail[len] = 0;
@@ -182,7 +182,7 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 	    Lisp_Object name =
 	      make_string ((Bufbyte *)dp->d_name, len);
 	    if (!NILP (full))
-	      name = concat2 (dirname, name);
+	      name = concat2 (directory, name);
 
 	    list = Fcons (name, list);
 	  }
@@ -197,79 +197,79 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 }
 
 static Lisp_Object file_name_completion (Lisp_Object file,
-                                         Lisp_Object dirname,
+                                         Lisp_Object directory,
                                          int all_flag, int ver_flag);
 
 DEFUN ("file-name-completion", Ffile_name_completion, 2, 2, 0, /*
-Complete file name FILE in directory DIR.
-Returns the longest string common to all filenames in DIR
+Complete file name FILE in directory DIRECTORY.
+Returns the longest string common to all filenames in DIRECTORY
 that start with FILE.
 If there is only one and FILE matches it exactly, returns t.
-Returns nil if DIR contains no name starting with FILE.
+Returns nil if DIRECTORY contains no name starting with FILE.
 
 Filenames which end with any member of `completion-ignored-extensions'
 are not considered as possible completions for FILE unless there is no
 other possible completion.  `completion-ignored-extensions' is not applied
 to the names of directories.
 */
-       (file, dirname))
+       (file, directory))
 {
   /* This function can GC.  GC checked 1996.04.06. */
   Lisp_Object handler;
 
   /* If the directory name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (dirname, Qfile_name_completion);
+  handler = Ffind_file_name_handler (directory, Qfile_name_completion);
   if (!NILP (handler))
-    return call3 (handler, Qfile_name_completion, file, dirname);
+    return call3 (handler, Qfile_name_completion, file, directory);
 
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
   handler = Ffind_file_name_handler (file, Qfile_name_completion);
   if (!NILP (handler))
-    return call3 (handler, Qfile_name_completion, file, dirname);
+    return call3 (handler, Qfile_name_completion, file, directory);
 
-  return file_name_completion (file, dirname, 0, 0);
+  return file_name_completion (file, directory, 0, 0);
 }
 
 DEFUN ("file-name-all-completions", Ffile_name_all_completions, 2, 2, 0, /*
-Return a list of all completions of file name FILE in directory DIR.
-These are all file names in directory DIR which begin with FILE.
+Return a list of all completions of file name FILE in directory DIRECTORY.
+These are all file names in directory DIRECTORY which begin with FILE.
 
-Filenames which end with any member of `completion-ignored-extensions'
+File names which end with any member of `completion-ignored-extensions'
 are not considered as possible completions for FILE unless there is no
 other possible completion.  `completion-ignored-extensions' is not applied
 to the names of directories.
 */
-       (file, dirname))
+       (file, directory))
 {
   /* This function can GC. GC checked 1997.06.04. */
   Lisp_Object handler;
   struct gcpro gcpro1;
 
-  GCPRO1 (dirname);
-  dirname = Fexpand_file_name (dirname, Qnil);
+  GCPRO1 (directory);
+  directory = Fexpand_file_name (directory, Qnil);
   /* If the file name has special constructs in it,
      call the corresponding file handler.  */
-  handler = Ffind_file_name_handler (dirname, Qfile_name_all_completions);
+  handler = Ffind_file_name_handler (directory, Qfile_name_all_completions);
   UNGCPRO;
   if (!NILP (handler))
     return call3 (handler, Qfile_name_all_completions, file,
-		  dirname);
+		  directory);
 
-  return file_name_completion (file, dirname, 1, 0);
+  return file_name_completion (file, directory, 1, 0);
 }
 
 static int
-file_name_completion_stat (Lisp_Object dirname, DIRENTRY *dp,
+file_name_completion_stat (Lisp_Object directory, DIRENTRY *dp,
 			   struct stat *st_addr)
 {
   Bytecount len = NAMLEN (dp);
-  Bytecount pos = XSTRING_LENGTH (dirname);
+  Bytecount pos = XSTRING_LENGTH (directory);
   int value;
   char *fullname = (char *) alloca (len + pos + 2);
 
-  memcpy (fullname, XSTRING_DATA (dirname), pos);
+  memcpy (fullname, XSTRING_DATA (directory), pos);
   if (!IS_DIRECTORY_SEP (fullname[pos - 1]))
     fullname[pos++] = DIRECTORY_SEP;
 
@@ -306,7 +306,7 @@ file_name_completion_unwind (Lisp_Object locative)
 }
 
 static Lisp_Object
-file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
+file_name_completion (Lisp_Object file, Lisp_Object directory, int all_flag,
 		      int ver_flag)
 {
   /* This function can GC */
@@ -321,7 +321,7 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
   Lisp_Object locative;
   struct gcpro gcpro1, gcpro2, gcpro3;
 
-  GCPRO3 (file, dirname, bestmatch);
+  GCPRO3 (file, directory, bestmatch);
 
   CHECK_STRING (file);
 
@@ -334,7 +334,7 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
 #ifdef FILE_SYSTEM_CASE
   file = FILE_SYSTEM_CASE (file);
 #endif
-  dirname = Fexpand_file_name (dirname, Qnil);
+  directory = Fexpand_file_name (directory, Qnil);
   file_name_length = XSTRING_CHAR_LENGTH (file);
 
   /* With passcount = 0, ignore files that end in an ignored extension.
@@ -355,9 +355,9 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
 
   for (passcount = !!all_flag; NILP (bestmatch) && passcount < 2; passcount++)
     {
-      d = opendir ((char *) XSTRING_DATA (Fdirectory_file_name (dirname)));
+      d = opendir ((char *) XSTRING_DATA (Fdirectory_file_name (directory)));
       if (!d)
-	report_file_error ("Opening directory", list1 (dirname));
+	report_file_error ("Opening directory", list1 (directory));
       XCAR (locative) = make_opaque_ptr ((void *)d);
 
       /* Loop reading blocks */
@@ -387,7 +387,7 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
 	      || 0 <= scmp (d_name, XSTRING_DATA (file), file_name_length))
 	    continue;
 
-          if (file_name_completion_stat (dirname, dp, &st) < 0)
+          if (file_name_completion_stat (directory, dp, &st) < 0)
             continue;
 
           directoryp = ((st.st_mode & S_IFMT) == S_IFDIR);
@@ -501,7 +501,7 @@ file_name_completion (Lisp_Object file, Lisp_Object dirname, int all_flag,
                     }
                 }
 
-              /* If this dirname all matches,
+              /* If this directory all matches,
                  see if implicit following slash does too.  */
               if (directoryp
                   && compare == matchsize
@@ -831,13 +831,13 @@ If file does not exist, returns nil.
 {
   /* This function can GC. GC checked 1997.06.04. */
   Lisp_Object values[12];
-  Lisp_Object dirname = Qnil;
+  Lisp_Object directory = Qnil;
   struct stat s;
   char modes[10];
   Lisp_Object handler;
   struct gcpro gcpro1, gcpro2;
 
-  GCPRO2 (filename, dirname);
+  GCPRO2 (filename, directory);
   filename = Fexpand_file_name (filename, Qnil);
 
   /* If the file name has special constructs in it,
@@ -856,7 +856,7 @@ If file does not exist, returns nil.
     }
 
 #ifdef BSD4_2
-  dirname = Ffile_name_directory (filename);
+  directory = Ffile_name_directory (filename);
 #endif
 
 #ifdef MSDOS
@@ -906,7 +906,7 @@ If file does not exist, returns nil.
   {
     struct stat sdir;
 
-    if (!NILP (dirname) && stat ((char *) XSTRING_DATA (dirname), &sdir) == 0)
+    if (!NILP (directory) && stat ((char *) XSTRING_DATA (directory), &sdir) == 0)
       values[9] = (sdir.st_gid != s.st_gid) ? Qt : Qnil;
     else                        /* if we can't tell, assume worst */
       values[9] = Qt;

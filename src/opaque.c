@@ -56,8 +56,9 @@ Lisp_Object Vopaque_ptr_free_list;
 static Lisp_Object
 mark_opaque (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-   Lisp_Opaque *p = XOPAQUE (obj);
-   Lisp_Object size_or_chain = p->size_or_chain;
+  Lisp_Opaque *p = XOPAQUE (obj);
+  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+  Lisp_Object size_or_chain = p->size_or_chain;
 #ifdef ERROR_CHECK_GC
   if (!in_opaque_list_marking)
     /* size is non-int for objects on an opaque free list.  We sure
@@ -81,10 +82,12 @@ static void
 print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   CONST Lisp_Opaque *p = XOPAQUE (obj);
+  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+  Lisp_Object size_or_chain = p->size_or_chain;
   char buf[200];
   char size_buf[50];
 
-  if (INTP (p->size_or_chain))
+  if (INTP (size_or_chain))
     sprintf (size_buf, "size=%lu", (unsigned long) OPAQUE_SIZE (p));
   else
     sprintf (size_buf, "freed");
@@ -98,8 +101,10 @@ static size_t
 sizeof_opaque (CONST void *header)
 {
   CONST Lisp_Opaque *p = (CONST Lisp_Opaque *) header;
+  /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+  Lisp_Object size_or_chain = p->size_or_chain;
   return offsetof (Lisp_Opaque, data)
-    + (GC_INTP (p->size_or_chain) ? XINT (p->size_or_chain) : 0);
+    + (GC_INTP (size_or_chain) ? XINT (size_or_chain) : 0);
 }
 
 /* Return an opaque object of size SIZE.
@@ -133,14 +138,21 @@ make_opaque (size_t size, CONST void *data)
 static int
 equal_opaque (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  size_t size;
 #ifdef DEBUG_XEMACS
-  assert (!XOPAQUE_MARKFUN (obj1) && !XOPAQUE_MARKFUN (obj2));
-  assert (INTP (XOPAQUE (obj1)->size_or_chain));
-  assert (INTP (XOPAQUE (obj2)->size_or_chain));
+  {
+    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+    Lisp_Object size_or_chain_1 = XOPAQUE (obj1)->size_or_chain;
+    Lisp_Object size_or_chain_2 = XOPAQUE (obj2)->size_or_chain;
+    assert (INTP (size_or_chain_1));
+    assert (INTP (size_or_chain_2));
+    assert (!XOPAQUE_MARKFUN (obj1) && !XOPAQUE_MARKFUN (obj2));
+  }
 #endif
-  return ((size = XOPAQUE_SIZE (obj1)) == XOPAQUE_SIZE (obj2) &&
-	  !memcmp (XOPAQUE_DATA (obj1), XOPAQUE_DATA (obj2), size));
+  {
+    size_t size;
+    return ((size = XOPAQUE_SIZE (obj1)) == XOPAQUE_SIZE (obj2) &&
+	    !memcmp (XOPAQUE_DATA (obj1), XOPAQUE_DATA (obj2), size));
+  }
 }
 
 /* This will not work correctly for opaques with subobjects! */
@@ -149,11 +161,15 @@ static unsigned long
 hash_opaque (Lisp_Object obj, int depth)
 {
 #ifdef DEBUG_XEMACS
-  assert (!XOPAQUE_MARKFUN (obj));
-  assert (INTP (XOPAQUE (obj)->size_or_chain));
+  {
+    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+    Lisp_Object size_or_chain = XOPAQUE (obj)->size_or_chain;
+    assert (INTP (size_or_chain));
+    assert (!XOPAQUE_MARKFUN (obj));
+  }
 #endif
   if (XOPAQUE_SIZE (obj) == sizeof (unsigned long))
-    return *((unsigned long *) XOPAQUE_DATA(obj));
+    return *((unsigned long *) XOPAQUE_DATA (obj));
   else
     return memory_hash (XOPAQUE_DATA (obj), XOPAQUE_SIZE (obj));
 }
@@ -223,7 +239,11 @@ free_managed_opaque (Lisp_Object opaque_list, Lisp_Object opaque)
   Lisp_Opaque_List *li = XOPAQUE_LIST (opaque_list);
 
 #ifdef ERROR_CHECK_GC
-  assert (INTP (XOPAQUE (opaque)->size_or_chain));
+  {
+    /* Egcs 1.1.1 sometimes crashes on INTP (p->size_or_chain) */
+    Lisp_Object size_or_chain = XOPAQUE (opaque)->size_or_chain;
+    assert (INTP (size_or_chain));
+  }
 #endif
   XOPAQUE (opaque)->size_or_chain = li->free;
   li->free = opaque;

@@ -3562,11 +3562,6 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
       *e++ = base64_value_to_char[0x3f & c];
     }
 
-  /* Complete last partial line.  */
-  if (line_break)
-    if (counter > 0)
-      *e++ = '\n';
-
   return e - to;
 }
 #undef ADVANCE_INPUT
@@ -3755,10 +3750,10 @@ into shorter lines.
   return make_int (encoded_length);
 }
 
-DEFUN ("base64-encode-string", Fbase64_encode_string, 1, 1, 0, /*
+DEFUN ("base64-encode-string", Fbase64_encode_string, 1, 2, 0, /*
 Base64 encode STRING and return the result.
 */
-       (string))
+       (string, no_line_break))
 {
   Charcount allength, length;
   Bytind encoded_length;
@@ -3769,11 +3764,13 @@ Base64 encode STRING and return the result.
   CHECK_STRING (string);
 
   length = XSTRING_CHAR_LENGTH (string);
-  allength = length + length/3 + 1 + 6;
+  allength = length + length/3 + 1;
+  allength += allength / MIME_LINE_LENGTH + 1 + 6;
 
   input = make_lisp_string_input_stream (string, 0, -1);
   XMALLOC_OR_ALLOCA (encoded, allength, Bufbyte);
-  encoded_length = base64_encode_1 (XLSTREAM (input), encoded, 0);
+  encoded_length = base64_encode_1 (XLSTREAM (input), encoded,
+				    NILP (no_line_break));
   if (encoded_length > allength)
     abort ();
   Lstream_delete (XLSTREAM (input));

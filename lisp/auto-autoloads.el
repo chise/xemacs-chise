@@ -12,6 +12,35 @@ Describe the True Editor and its minions." t nil)
 
 ;;;***
 
+;;;### (autoloads (set-modified-alist modify-alist remove-alist set-alist del-alist put-alist) "alist" "lisp/alist.el")
+
+(autoload 'put-alist "alist" "\
+Modify ALIST to set VALUE to ITEM.
+If there is a pair whose car is ITEM, replace its cdr by VALUE.
+If there is not such pair, create new pair (ITEM . VALUE) and
+return new alist whose car is the new pair and cdr is ALIST.
+[tomo's ELIS like function]" nil nil)
+
+(autoload 'del-alist "alist" "\
+If there is a pair whose key is ITEM, delete it from ALIST.
+[tomo's ELIS emulating function]" nil nil)
+
+(autoload 'set-alist "alist" "\
+Modify a alist indicated by SYMBOL to set VALUE to ITEM." nil nil)
+
+(autoload 'remove-alist "alist" "\
+Remove ITEM from the alist indicated by SYMBOL." nil nil)
+
+(autoload 'modify-alist "alist" "\
+Modify alist DEFAULT into alist MODIFIER." nil nil)
+
+(autoload 'set-modified-alist "alist" "\
+Modify a value of a symbol SYM into alist MODIFIER.
+The symbol SYM should be alist. If it is not bound,
+its value regard as nil." nil nil)
+
+;;;***
+
 ;;;### (autoloads (apropos-documentation apropos-value apropos apropos-command) "apropos" "lisp/apropos.el")
 
 (fset 'command-apropos 'apropos-command)
@@ -1221,6 +1250,52 @@ Install a pre-bytecompiled XEmacs package into package hierarchy." t nil)
 ;;;***
 
 ;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-save-base package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base package-get-download-menu) "package-get" "lisp/package-get.el")
+
+(defvar package-get-base nil "\
+List of packages that are installed at this site.
+For each element in the alist,  car is the package name and the cdr is
+a plist containing information about the package.   Typical fields
+kept in the plist are:
+
+version		- version of this package
+provides	- list of symbols provided
+requires	- list of symbols that are required.
+		  These in turn are provided by other packages.
+filename	- name of the file.
+size		- size of the file (aka the bundled package)
+md5sum		- computed md5 checksum
+description	- What this package is for.
+type		- Whether this is a 'binary (default) or 'single file package
+
+More fields may be added as needed.  An example:
+
+'(
+ (name
+  (version \"<version 2>\"
+   file \"filename\"
+   description \"what this package is about.\"
+   provides (<list>)
+   requires (<list>)
+   size <integer-bytes>
+   md5sum \"<checksum\"
+   type single
+   )
+  (version \"<version 1>\"
+   file \"filename\"
+   description \"what this package is about.\"
+   provides (<list>)
+   requires (<list>)
+   size <integer-bytes>
+   md5sum \"<checksum\"
+   type single
+   )
+   ...
+   ))
+
+For version information, it is assumed things are listed in most
+recent to least recent -- in other words, the version names don't have to
+be lexically ordered.  It is debatable if it makes sense to have more than
+one version of a package available.")
 
 (autoload 'package-get-download-menu "package-get" "\
 Build the `Add Download Site' menu." nil nil)

@@ -43,6 +43,7 @@
 (defvar command-line-processed nil "t once command line has been processed")
 
 (defconst startup-message-timeout 12000) ; More or less disable the timeout
+(defconst splash-frame-timeout 7) ; interval between splash frame elements
 
 (defconst inhibit-startup-message nil
   "*Non-nil inhibits the initial startup message.
@@ -735,22 +736,23 @@ a new format, when variables have changed, etc."
       (when (string= (buffer-name) "*scratch*")
 	(unless (or inhibit-startup-message
 		    (input-pending-p))
-	  (let ((timeout nil))
+	  (let (tmout circ-tmout)
 	    (unwind-protect
 		;; Guts of with-timeout
-		(catch 'timeout
-		  (setq timeout (add-timeout startup-message-timeout
-					     (lambda (ignore)
-					       (condition-case nil
-						   (throw 'timeout t)
-						 (error nil)))
-					     nil))
-		  (startup-splash-frame)
+		(catch 'tmout
+		  (setq tmout (add-timeout startup-message-timeout
+					   (lambda (ignore)
+					     (condition-case nil
+						 (throw 'tmout t)
+					       (error nil)))
+					   nil))
+		  (setq circ-tmout (display-splash-frame))
 		  (or nil;; (pos-visible-in-window-p (point-min))
 		      (goto-char (point-min)))
 		  (sit-for 0)
 		  (setq unread-command-event (next-command-event)))
-	      (when timeout (disable-timeout timeout)))))
+	      (when tmout (disable-timeout tmout))
+	      (when circ-tmout (disable-timeout circ-tmout)))))
 	(with-current-buffer (get-buffer "*scratch*")
 	  ;; In case the XEmacs server has already selected
 	  ;; another buffer, erase the one our message is in.
@@ -843,12 +845,12 @@ a new format, when variables have changed, etc."
     (symbol-name e)))
 
 (defun splash-frame-present-hack (e v)
-  ;;  (set-extent-property e 'mouse-face 'highlight)
-  ;;  (set-extent-property e 'keymap
-  ;;                       startup-presentation-hack-keymap)
-  ;;  (set-extent-property e 'startup-presentation-hack v)
-  ;;  (set-extent-property e 'help-echo
-  ;;                       'startup-presentation-hack-help))
+  ;;   (set-extent-property e 'mouse-face 'highlight)
+  ;;   (set-extent-property e 'keymap
+  ;;    		       startup-presentation-hack-keymap)
+  ;;   (set-extent-property e 'startup-presentation-hack v)
+  ;;   (set-extent-property e 'help-echo
+  ;;    		       'startup-presentation-hack-help)
   )
 
 (defun splash-hack-version-string ()
@@ -926,81 +928,125 @@ a new format, when variables have changed, etc."
     (+ left-margin
        (round (/ (/ (- fill-area-width glyph-pixwidth) 2) avg-pixwidth)))))
 
-(defun startup-splash-frame-body ()
-  `("\n" ,(emacs-version) "\n"
-    ,@(if (string-match "beta" emacs-version)
-	  `( (face (bold blue) ( "This is an Experimental version of XEmacs. "
-				 " Type " (key describe-beta)
-				 " to see what this means.\n")))
-	`( "\n"))
-    (face bold-italic "\
+(defun splash-frame-body ()
+  `[((face (blue bold underline)
+	   "\nDistribution, copying license, warranty:\n\n")
+     "Please visit the XEmacs website at http://www.xemacs.org !\n\n"
+     ,@(if (featurep 'sparcworks)
+	   `( "\
+Sun provides support for the WorkShop/XEmacs integration package only.
+All other XEmacs packages are provided to you \"AS IS\".\n"
+	      ,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES") 
+				(getenv "LANG"))))
+		  (if (and
+		       (not (featurep 'mule)) ;; Already got mule?
+		       ;; No Mule support on tty's yet
+		       (not (eq 'tty (console-type))) 
+		       lang ;; Non-English locale?
+		       (not (string= lang "C"))
+		       (not (string-match "^en" lang))
+		       ;; Comes with Sun WorkShop
+		       (locate-file "xemacs-mule" exec-path))
+		      '( "\
+This version of XEmacs has been built with support for Latin-1 languages only.
+To handle other languages you need to run a Multi-lingual (`Mule') version of
+XEmacs, by either running the command `xemacs-mule', or by using the X resource
+`ESERVE*defaultXEmacsPath: xemacs-mule' when starting XEmacs from Sun WorkShop.
+\n")))))
+     ((key describe-no-warranty) 
+      ": "(face (red bold) "XEmacs comes with ABSOLUTELY NO WARRANTY\n"))
+     ((key describe-copying)
+      ": conditions to give out copies of XEmacs\n")
+     ((key describe-distribution)
+      ": how to get the latest version\n")
+     "\n--\n"
+     (face italic "\
 Copyright (C) 1985-1998 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
-Copyright (C) 1995-1996 Ben Wing\n\n")
+Copyright (C) 1995-1996 Ben Wing\n"))
     
-    ,@(if (featurep 'sparcworks)
-          `( "\
-Sun provides support for the WorkShop/XEmacs integration package only.
-All other XEmacs packages are provided to you \"AS IS\".
-For full details, type " (key describe-no-warranty)
-" to refer to the GPL Version 2, dated June 1991.\n\n"
-,@(let ((lang (or (getenv "LC_ALL") (getenv "LC_MESSAGES") (getenv "LANG"))))
-    (if (and
-         (not (featurep 'mule))         ; Already got mule?
-         (not (eq 'tty (console-type))) ; No Mule support on tty's yet
-         lang                           ; Non-English locale?
-         (not (string= lang "C"))
-         (not (string-match "^en" lang))
-         (locate-file "xemacs-mule" exec-path)) ; Comes with Sun WorkShop
-        '( "\
-This version of XEmacs has been built with support for Latin-1 languages only.
-To handle other languages you need to run a Multi-lingual (`Mule') version of
-XEmacs, by either running the command `xemacs-mule', or by using the X resource
-`ESERVE*defaultXEmacsPath: xemacs-mule' when starting XEmacs from Sun WorkShop.\n\n"))))
+    ((face (blue bold underline) "\nInformation, on-line help:\n\n")
+     "XEmacs comes with plenty of documentation...\n\n"
+     ,@(if (string-match "beta" emacs-version)
+	   `((key describe-beta) 
+	     ": " (face (red bold)
+			"This is an Experimental version of XEmacs.\n"))
+	 `( "\n"))
+     ((key xemacs-local-faq)
+      ": read the XEmacs FAQ (a " (face underline "capital") " F!)\n")
+     ((key help-with-tutorial)
+      ": read the XEmacs tutorial (also available through the "
+      (face bold "Help") " menu)\n")
+     ((key help-command)
+      ": get help on using XEmacs (also available through the "
+      (face bold "Help") " menu)\n")
+     ((key info) ": read the on-line documentation\n\n")
+     ((key describe-project) ": read about the GNU project\n")
+     ((key about-xemacs) ": see who's developping XEmacs\n"))
 
-        '("XEmacs comes with ABSOLUTELY NO WARRANTY; type "
-          (key describe-no-warranty) " for full details.\n"))
-    
-    "You may give out copies of XEmacs; type "
-    (key describe-copying) " to see the conditions.\n"
-    "Type " (key describe-distribution)
-    " for information on getting the latest version.\n\n"
-
-    "Type " (key help-command) " or use the " (face bold "Help") " menu to get help.\n"
-    "Type " (key advertised-undo) " to undo changes  (`C-' means use the Control key).\n"
-    "To get out of XEmacs, type " (key save-buffers-kill-emacs) ".\n"
-    "Type " (key help-with-tutorial) " for a tutorial on using XEmacs.\n"
-    "Type " (key info) " to enter Info, "
-    "which you can use to read online documentation.\n"
-    (face (bold red) ( "\
-For tips and answers to frequently asked questions, see the XEmacs FAQ.
-\(It's on the Help menu, or type " (key xemacs-local-faq) " [a capital F!].\)"))))
+    ((face (blue bold underline) "\nUseful stuff:\n\n")
+     "Things that you should know rather quickly...\n\n"
+     ((key find-file) ": visit a file\n")
+     ((key save-buffer) ": save changes\n")
+     ((key advertised-undo) ": undo changes\n")
+     ((key save-buffers-kill-emacs) ": exit XEmacs\n"))
+    ])
 
 ;; I really hate global variables, oh well.
 ;(defvar xemacs-startup-logo-function nil
 ;  "If non-nil, function called to provide the startup logo.
 ;This function should return an initialized glyph if it is used.")
 
-(defun startup-splash-frame ()
-  (let ((p (point))
-;	(logo (cond (xemacs-startup-logo-function
-;		     (funcall xemacs-startup-logo-function))
-;		    (t xemacs-logo)))
-	(logo xemacs-logo)
+;; This will hopefully go away when gettext is functionnal.
+(defconst splash-frame-static-body
+  `(,(emacs-version) "\n\n"
+    (face italic "`C-' means the control key,`M-' means the meta key\n\n")))
+
+
+(defun circulate-splash-frame-elements (client-data)
+  (with-current-buffer (aref client-data 2)
+    (let ((buffer-read-only nil)
+	  (elements (aref client-data 3))
+	  (indice (aref client-data 0)))
+      (goto-char (aref client-data 1))
+      (delete-region (point) (point-max))
+      (splash-frame-present (aref elements indice))
+      (set-buffer-modified-p nil)
+      (aset client-data 0
+	    (if (= indice (- (length elements) 1))
+		0
+	      (1+ indice )))
+      )))
+
+;; ### This function now returns the (possibly nil) timeout circulating the
+;; splash-frame elements
+(defun display-splash-frame ()
+  (let ((logo xemacs-logo)
+	(buffer-read-only nil)
         (cramped-p (eq 'tty (console-type))))
     (unless cramped-p (insert "\n"))
     (indent-to (startup-center-spaces logo))
     (set-extent-begin-glyph (make-extent (point) (point)) logo)
-    (insert (if cramped-p "\n" "\n\n"))
-    (splash-frame-present-hack (make-extent p (point)) 'about-xemacs))
-
-  (let ((after-change-functions nil))	; no font-lock, thank you
-    (dolist (l (startup-splash-frame-body))
-      (splash-frame-present l)))
-  (splash-hack-version-string)
-  (set-buffer-modified-p nil))
+    ;;(splash-frame-present-hack (make-extent p (point)) 'about-xemacs))
+    (insert "\n\n")
+    (splash-frame-present splash-frame-static-body)
+    (splash-hack-version-string)
+    (goto-char (point-max))
+    (let* ((after-change-functions nil) ; no font-lock, thank you
+	   (elements (splash-frame-body))
+	   (client-data `[ 1 ,(point) ,(current-buffer) ,elements ])
+	   tmout)
+      (if (listp  elements) ;; A single element to display
+	  (splash-frame-present (splash-frame-body))
+	;; several elements to rotate
+	(splash-frame-present (aref elements 0))
+	(setq tmout (add-timeout splash-frame-timeout
+				 'circulate-splash-frame-elements
+				 client-data splash-frame-timeout)))
+      (set-buffer-modified-p nil)
+      tmout)))
 
 ;;  (let ((present-file
 ;;         #'(lambda (f)

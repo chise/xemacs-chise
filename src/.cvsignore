@@ -7,5 +7,6 @@ GNUmakefile
 puresize-adjust.h
 sheap-adjust.h
 temacs
+xemacs
 SATISFIED
 update-elc.stamp

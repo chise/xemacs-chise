@@ -77,7 +77,7 @@
 (custom-add-loads 'isearch '("isearch-mode"))
 (custom-add-loads 'font-lock-faces '("font-lock"))
 (custom-add-loads 'modeline '("modeline"))
-(custom-add-loads 'editing '("simple" "abbrev" "fill" "mouse" "cus-edit" "dragdrop"))
+(custom-add-loads 'editing '("simple" "abbrev" "fill" "mouse" "dragdrop" "cus-edit"))
 (custom-add-loads 'matching '("simple" "isearch-mode" "hyper-apropos"))
 (custom-add-loads 'i18n '("cus-edit"))
 (custom-add-loads 'info '("toolbar-items" "info"))

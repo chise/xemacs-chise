@@ -31,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include "lstream.h"
 #ifdef MULE
 #include "mule-ccl.h"
+#include "chartab.h"
 #endif
 #include "file-coding.h"
 
@@ -64,6 +65,7 @@ Lisp_Object Qpost_read_conversion;
 Lisp_Object Qpre_write_conversion;
 
 #ifdef MULE
+Lisp_Object Qucs4, Qutf8;
 Lisp_Object Qbig5, Qshift_jis;
 Lisp_Object Qcharset_g0, Qcharset_g1, Qcharset_g2, Qcharset_g3;
 Lisp_Object Qforce_g0_on_output, Qforce_g1_on_output;
@@ -103,8 +105,10 @@ struct iso2022_decoder
   /* Index for next byte to store in ISO escape sequence. */
   int esc_bytes_index;
 
+#ifdef ENABLE_COMPOSITE_CHARS
   /* Stuff seen so far when composing a string. */
   unsigned_char_dynarr *composite_chars;
+#endif
 
   /* If we saw an invalid designation sequence for a particular
      register, we flag it here and switch to ASCII.  The next time we
@@ -164,6 +168,24 @@ static void decode_coding_big5 (Lstream *decoding,
 				CONST unsigned char *src,
 				unsigned_char_dynarr *dst, unsigned int n);
 static void encode_coding_big5 (Lstream *encoding,
+				CONST unsigned char *src,
+				unsigned_char_dynarr *dst, unsigned int n);
+static int detect_coding_ucs4 (struct detection_state *st,
+			       CONST unsigned char *src,
+			       unsigned int n);
+static void decode_coding_ucs4 (Lstream *decoding,
+				CONST unsigned char *src,
+				unsigned_char_dynarr *dst, unsigned int n);
+static void encode_coding_ucs4 (Lstream *encoding,
+				CONST unsigned char *src,
+				unsigned_char_dynarr *dst, unsigned int n);
+static int detect_coding_utf8 (struct detection_state *st,
+			       CONST unsigned char *src,
+			       unsigned int n);
+static void decode_coding_utf8 (Lstream *decoding,
+				CONST unsigned char *src,
+				unsigned_char_dynarr *dst, unsigned int n);
+static void encode_coding_utf8 (Lstream *encoding,
 				CONST unsigned char *src,
 				unsigned_char_dynarr *dst, unsigned int n);
 static int postprocess_iso2022_mask (int mask);
@@ -230,7 +252,7 @@ DEFINE_LRECORD_IMPLEMENTATION ("coding-system", coding_system,
 static Lisp_Object
 mark_coding_system (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
-  struct Lisp_Coding_System *codesys = XCODING_SYSTEM (obj);
+  Lisp_Coding_System *codesys = XCODING_SYSTEM (obj);
 
   markobj (CODING_SYSTEM_NAME (codesys));
   markobj (CODING_SYSTEM_DOC_STRING (codesys));
@@ -285,7 +307,7 @@ static void
 print_coding_system (Lisp_Object obj, Lisp_Object printcharfun,
 		     int escapeflag)
 {
-  struct Lisp_Coding_System *c = XCODING_SYSTEM (obj);
+  Lisp_Coding_System *c = XCODING_SYSTEM (obj);
   if (print_readably)
     error ("printing unreadable object #<coding_system 0x%x>",
 	   c->header.uid);
@@ -298,7 +320,7 @@ print_coding_system (Lisp_Object obj, Lisp_Object printcharfun,
 static void
 finalize_coding_system (void *header, int for_disksave)
 {
-  struct Lisp_Coding_System *c = (struct Lisp_Coding_System *) header;
+  Lisp_Coding_System *c = (Lisp_Coding_System *) header;
   /* Since coding systems never go away, this function is not
      necessary.  But it would be necessary if we changed things
      so that coding systems could go away. */
@@ -353,7 +375,7 @@ eol_type_to_symbol (enum eol_type type)
 }
 
 static void
-setup_eol_coding_systems (struct Lisp_Coding_System *codesys)
+setup_eol_coding_systems (Lisp_Coding_System *codesys)
 {
   Lisp_Object codesys_obj;
   int len = string_length (XSYMBOL (CODING_SYSTEM_NAME (codesys))->name);
@@ -505,11 +527,11 @@ Return the name of the given coding system.
   return XCODING_SYSTEM_NAME (coding_system);
 }
 
-static struct Lisp_Coding_System *
+static Lisp_Coding_System *
 allocate_coding_system (enum coding_system_type type, Lisp_Object name)
 {
-  struct Lisp_Coding_System *codesys =
-    alloc_lcrecord_type (struct Lisp_Coding_System, lrecord_coding_system);
+  Lisp_Coding_System *codesys =
+    alloc_lcrecord_type (Lisp_Coding_System, lrecord_coding_system);
 
   zero_lcrecord (codesys);
   CODING_SYSTEM_PRE_WRITE_CONVERSION (codesys) = Qnil;
@@ -608,6 +630,10 @@ nil or 'undecided
      characters will only be present if you explicitly insert them.)
 'shift-jis
      Shift-JIS (a Japanese encoding commonly used in PC operating systems).
+'ucs-4
+     ISO 10646 UCS-4 encoding.
+'utf-8
+     ISO 10646 UTF-8 encoding.
 'iso2022
      Any ISO2022-compliant encoding.  Among other things, this includes
      JIS (the Japanese encoding commonly used for e-mail), EUC (the
@@ -762,7 +788,7 @@ if TYPE is 'ccl:
 */
        (name, type, doc_string, props))
 {
-  struct Lisp_Coding_System *codesys;
+  Lisp_Coding_System *codesys;
   Lisp_Object rest, key, value;
   enum coding_system_type ty;
   int need_to_setup_eol_systems = 1;
@@ -774,6 +800,8 @@ if TYPE is 'ccl:
   else if (EQ (type, Qshift_jis))     { ty = CODESYS_SHIFT_JIS; }
   else if (EQ (type, Qiso2022))       { ty = CODESYS_ISO2022; }
   else if (EQ (type, Qbig5))          { ty = CODESYS_BIG5; }
+  else if (EQ (type, Qucs4))          { ty = CODESYS_UCS4; }
+  else if (EQ (type, Qutf8))          { ty = CODESYS_UTF8; }
   else if (EQ (type, Qccl))           { ty = CODESYS_CCL; }
 #endif
   else if (EQ (type, Qno_conversion)) { ty = CODESYS_NO_CONVERSION; }
@@ -911,8 +939,8 @@ be created.
     }
 
   {
-    struct Lisp_Coding_System *to = XCODING_SYSTEM (new_coding_system);
-    struct Lisp_Coding_System *from = XCODING_SYSTEM (old_coding_system);
+    Lisp_Coding_System *to = XCODING_SYSTEM (new_coding_system);
+    Lisp_Coding_System *from = XCODING_SYSTEM (old_coding_system);
     memcpy (((char *) to  ) + sizeof (to->header),
 	    ((char *) from) + sizeof (from->header),
 	    sizeof (*from) - sizeof (from->header));
@@ -924,7 +952,7 @@ be created.
 static Lisp_Object
 subsidiary_coding_system (Lisp_Object coding_system, enum eol_type type)
 {
-  struct Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
+  Lisp_Coding_System *cs = XCODING_SYSTEM (coding_system);
   Lisp_Object new_coding_system;
 
   if (CODING_SYSTEM_EOL_TYPE (cs) != EOL_AUTODETECT)
@@ -980,6 +1008,8 @@ Return the type of CODING-SYSTEM.
     case CODESYS_SHIFT_JIS:	return Qshift_jis;
     case CODESYS_ISO2022:	return Qiso2022;
     case CODESYS_BIG5:		return Qbig5;
+    case CODESYS_UCS4:		return Qucs4;
+    case CODESYS_UTF8:		return Qutf8;
     case CODESYS_CCL:		return Qccl;
 #endif
     case CODESYS_NO_CONVERSION:	return Qno_conversion;
@@ -1282,6 +1312,20 @@ struct detection_state
   struct
     {
       int mask;
+      int in_byte;
+  }
+  ucs4;
+
+  struct
+    {
+      int mask;
+      int in_byte;
+    }
+  utf8;
+
+  struct
+    {
+      int mask;
       int initted;
       struct iso2022_decoder iso;
       unsigned int flags;
@@ -1398,6 +1442,8 @@ detect_coding_type (struct detection_state *st, CONST unsigned char *src,
 #ifdef MULE
 	      st->shift_jis.mask = ~0;
 	      st->big5.mask = ~0;
+	      st->ucs4.mask = ~0;
+	      st->utf8.mask = ~0;
 	      st->iso2022.mask = ~0;
 #endif
 	      break;
@@ -1414,8 +1460,14 @@ detect_coding_type (struct detection_state *st, CONST unsigned char *src,
     st->shift_jis.mask = detect_coding_sjis (st, src, n);
   if (!mask_has_at_most_one_bit_p (st->big5.mask))
     st->big5.mask = detect_coding_big5 (st, src, n);
+  if (!mask_has_at_most_one_bit_p (st->utf8.mask))
+    st->utf8.mask = detect_coding_utf8 (st, src, n);
+  if (!mask_has_at_most_one_bit_p (st->ucs4.mask))
+    st->ucs4.mask = detect_coding_ucs4 (st, src, n);
 
-  st->mask = st->iso2022.mask | st->shift_jis.mask | st->big5.mask;
+  st->mask
+    = st->iso2022.mask | st->shift_jis.mask | st->big5.mask
+    | st->utf8.mask | st->ucs4.mask;
 #endif
   {
     int retval = mask_has_at_most_one_bit_p (st->mask);
@@ -1677,7 +1729,7 @@ do {					\
 struct decoding_stream
 {
   /* Coding system that governs the conversion. */
-  struct Lisp_Coding_System *codesys;
+  Lisp_Coding_System *codesys;
 
   /* Stream that we read the encoded data from or
      write the decoded data to. */
@@ -1883,8 +1935,10 @@ decoding_closer (Lstream *stream)
     }
   Dynarr_free (str->runoff);
 #ifdef MULE
+#ifdef ENABLE_COMPOSITE_CHARS
   if (str->iso2022.composite_chars)
     Dynarr_free (str->iso2022.composite_chars);
+#endif
 #endif
   return Lstream_close (str->other_end);
 }
@@ -1902,7 +1956,7 @@ decoding_stream_coding_system (Lstream *stream)
 void
 set_decoding_stream_coding_system (Lstream *lstr, Lisp_Object codesys)
 {
-  struct Lisp_Coding_System *cs = XCODING_SYSTEM (codesys);
+  Lisp_Coding_System *cs = XCODING_SYSTEM (codesys);
   struct decoding_stream *str = DECODING_STREAM_DATA (lstr);
   str->codesys = cs;
   if (CODING_SYSTEM_EOL_TYPE (cs) != EOL_AUTODETECT)
@@ -2019,6 +2073,12 @@ mule_decode (Lstream *decoding, CONST unsigned char *src,
     case CODESYS_BIG5:
       decode_coding_big5 (decoding, src, dst, n);
       break;
+    case CODESYS_UCS4:
+      decode_coding_ucs4 (decoding, src, dst, n);
+      break;
+    case CODESYS_UTF8:
+      decode_coding_utf8 (decoding, src, dst, n);
+      break;
     case CODESYS_CCL:
       ccl_driver (&str->ccl, src, dst, n, 0);
       break;
@@ -2110,7 +2170,7 @@ BUFFER defaults to the current buffer if unspecified.
 struct encoding_stream
 {
   /* Coding system that governs the conversion. */
-  struct Lisp_Coding_System *codesys;
+  Lisp_Coding_System *codesys;
 
   /* Stream that we read the encoded data from or
      write the decoded data to. */
@@ -2361,7 +2421,7 @@ encoding_stream_coding_system (Lstream *stream)
 void
 set_encoding_stream_coding_system (Lstream *lstr, Lisp_Object codesys)
 {
-  struct Lisp_Coding_System *cs = XCODING_SYSTEM (codesys);
+  Lisp_Coding_System *cs = XCODING_SYSTEM (codesys);
   struct encoding_stream *str = ENCODING_STREAM_DATA (lstr);
   str->codesys = cs;
   reset_encoding_stream (str);
@@ -2424,6 +2484,12 @@ mule_encode (Lstream *encoding, CONST unsigned char *src,
       break;
     case CODESYS_BIG5:
       encode_coding_big5 (encoding, src, dst, n);
+      break;
+    case CODESYS_UCS4:
+      encode_coding_ucs4 (encoding, src, dst, n);
+      break;
+    case CODESYS_UTF8:
+      encode_coding_utf8 (encoding, src, dst, n);
       break;
     case CODESYS_CCL:
       ccl_driver (&str->ccl, src, dst, n, 0);
@@ -2510,9 +2576,9 @@ text.  BUFFER defaults to the current buffer if unspecified.
 
 /* Shift-JIS is a coding system encoding three character sets: ASCII, right
    half of JISX0201-Kana, and JISX0208.  An ASCII character is encoded
-   as is.  A character of JISX0201-Kana (TYPE94 character set) is
+   as is.  A character of JISX0201-Kana (DIMENSION1_CHARS94 character set) is
    encoded by "position-code + 0x80".  A character of JISX0208
-   (TYPE94x94 character set) is encoded in 2-byte but two
+   (DIMENSION2_CHARS94 character set) is encoded in 2-byte but two
    position-codes are divided and shifted so that it fit in the range
    below.
 
@@ -2569,12 +2635,10 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
 		    unsigned_char_dynarr *dst, unsigned int n)
 {
   unsigned char c;
-  unsigned int flags, ch;
-  enum eol_type eol_type;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = str->eol_type;
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
@@ -2617,7 +2681,8 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
 
   DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 /* Convert internally-formatted data to Shift-JIS. */
@@ -2628,11 +2693,9 @@ encode_coding_sjis (Lstream *encoding, CONST unsigned char *src,
 {
   unsigned char c;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags, ch;
-  enum eol_type eol_type;
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
 
   while (n--)
     {
@@ -2675,7 +2738,8 @@ encode_coding_sjis (Lstream *encoding, CONST unsigned char *src,
 	}
     }
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 DEFUN ("decode-shift-jis-char", Fdecode_shift_jis_char, 1, 1, 0, /*
@@ -2742,7 +2806,7 @@ Return the corresponding character code in SHIFT-JIS as a cons of two bytes.
    Since the number of characters in Big5 is larger than maximum
    characters in Emacs' charset (96x96), it can't be handled as one
    charset.  So, in Emacs, Big5 is divided into two: `charset-big5-1'
-   and `charset-big5-2'.  Both <type>s are TYPE94x94.  The former
+   and `charset-big5-2'.  Both <type>s are DIMENSION2_CHARS94.  The former
    contains frequently used characters and the latter contains less
    frequently used characters.  */
 
@@ -2858,12 +2922,10 @@ decode_coding_big5 (Lstream *decoding, CONST unsigned char *src,
 		    unsigned_char_dynarr *dst, unsigned int n)
 {
   unsigned char c;
-  unsigned int flags, ch;
-  enum eol_type eol_type;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = str->eol_type;
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
@@ -2899,7 +2961,8 @@ decode_coding_big5 (Lstream *decoding, CONST unsigned char *src,
 
   DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 /* Convert internally-formatted data to Big5. */
@@ -2910,11 +2973,9 @@ encode_coding_big5 (Lstream *encoding, CONST unsigned char *src,
 {
   unsigned char c;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags, ch;
-  enum eol_type eol_type;
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
 
   while (n--)
     {
@@ -2962,7 +3023,8 @@ encode_coding_big5 (Lstream *encoding, CONST unsigned char *src,
       ch = 0;
     }
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 
@@ -3017,46 +3079,694 @@ Return the corresponding character code in Big5.
 
 
 /************************************************************************/
+/*                           UCS-4 methods                              */
+/*                                                                      */
+/*  UCS-4 character codes are implemented as nonnegative integers.      */
+/*                                                                      */
+/************************************************************************/
+
+Lisp_Object ucs_to_mule_table[65536];
+Lisp_Object mule_to_ucs_table;
+
+DEFUN ("set-ucs-char", Fset_ucs_char, 2, 2, 0, /*
+Map UCS-4 code CODE to Mule character CHARACTER.
+
+Return T on success, NIL on failure.
+*/
+       (code, character))
+{
+  unsigned int c;
+
+  CHECK_CHAR (character);
+  CHECK_INT (code);
+  c = XINT (code);
+
+  if (c < sizeof (ucs_to_mule_table))
+    {
+      ucs_to_mule_table[c] = character;
+      return Qt;
+    }
+  else
+    return Qnil;
+}
+
+static Lisp_Object
+ucs_to_char (unsigned long code)
+{
+  if (code < sizeof (ucs_to_mule_table))
+    {
+      return ucs_to_mule_table[code];
+    }
+  else if ((0xe00000 <= code) && (code <= 0xe00000 + 94 * 94 * 14))
+    {
+      unsigned int c;
+
+      code -= 0xe00000;
+      c = code % (94 * 94);
+      return make_char
+	(MAKE_CHAR (CHARSET_BY_ATTRIBUTES
+		    (CHARSET_TYPE_94X94, code / (94 * 94) + '@',
+		     CHARSET_LEFT_TO_RIGHT),
+		    c / 94 + 33, c % 94 + 33));
+    }
+  else
+    return Qnil;
+}
+
+DEFUN ("ucs-char", Fucs_char, 1, 1, 0, /*
+Return Mule character corresponding to UCS code CODE (a positive integer).
+*/
+       (code))
+{
+  CHECK_NATNUM (code);
+  return ucs_to_char (XINT (code));
+}
+
+DEFUN ("set-char-ucs", Fset_char_ucs, 2, 2, 0, /*
+Map Mule character CHARACTER to UCS code CODE (a positive integer).
+*/
+       (character, code))
+{
+  /* #### Isn't this gilding the lily?  Fput_char_table checks its args.
+          Fset_char_ucs is more restrictive on index arg, but should
+          check code arg in a char_table method. */
+  CHECK_CHAR (character);
+  CHECK_NATNUM (code);
+  return Fput_char_table (character, code, mule_to_ucs_table);
+}
+
+DEFUN ("char-ucs", Fchar_ucs, 1, 1, 0, /*
+Return the UCS code (a positive integer) corresponding to CHARACTER.
+*/
+       (character))
+{
+  return Fget_char_table (character, mule_to_ucs_table);
+}
+
+/* Decode a UCS-4 character into a buffer.  If the lookup fails, use
+   JIS X 0208 double-width `=' instead.
+   #### do something more appropriate (use blob?)
+        Danger, Will Robinson!  Data loss.  Should we signal user? */
+static void
+decode_ucs4 (unsigned long ch, unsigned_char_dynarr *dst)
+{
+  Lisp_Object chr = ucs_to_char (ch);
+
+  if (! NILP (chr))
+    {
+      Bufbyte work[MAX_EMCHAR_LEN];
+      int len;
+
+      ch = XCHAR (chr);
+      len = (ch < 128) ?
+	simple_set_charptr_emchar (work, ch) :
+	non_ascii_set_charptr_emchar (work, ch);
+      Dynarr_add_many (dst, work, len);
+    }
+  else
+    {
+      Dynarr_add (dst, LEADING_BYTE_JAPANESE_JISX0208);
+      Dynarr_add (dst, 34 + 128);
+      Dynarr_add (dst, 46 + 128);
+    }
+}
+
+static unsigned long
+mule_char_to_ucs4 (Lisp_Object charset,
+		   unsigned char h, unsigned char l)
+{
+  Lisp_Object code
+    = Fget_char_table (make_char (MAKE_CHAR (charset, h & 127, l & 127)),
+		       mule_to_ucs_table);
+
+  if (INTP (code))
+    {
+      return XINT (code);
+    }
+  else if ( (XCHARSET_DIMENSION (charset) == 2) &&
+	    (XCHARSET_CHARS (charset) == 94) )
+    {
+      unsigned char final = XCHARSET_FINAL (charset);
+
+      if ( ('@' <= final) && (final < 0x7f) )
+	{
+	  return 0xe00000 + (final - '@') * 94 * 94
+	    + ((h & 127) - 33) * 94 + (l & 127) - 33;
+	}
+      else
+	{
+	  return '?';
+	}
+    }
+  else
+    {
+      return '?';
+    }
+}
+
+static void
+encode_ucs4 (Lisp_Object charset,
+	     unsigned char h, unsigned char l, unsigned_char_dynarr *dst)
+{
+  unsigned long code = mule_char_to_ucs4 (charset, h, l);
+  Dynarr_add (dst,  code >> 24);
+  Dynarr_add (dst, (code >> 16) & 255);
+  Dynarr_add (dst, (code >>  8) & 255);
+  Dynarr_add (dst,  code        & 255);
+}
+
+static int
+detect_coding_ucs4 (struct detection_state *st, CONST unsigned char *src,
+		    unsigned int n)
+{
+  while (n--)
+    {
+      int c = *src++;
+      switch (st->ucs4.in_byte)
+	{
+	case 0:
+	  if (c >= 128)
+	    return 0;
+	  else
+	    st->ucs4.in_byte++;
+	  break;
+	case 3:
+	  st->ucs4.in_byte = 0;
+	  break;
+	default:
+	  st->ucs4.in_byte++;
+	}
+    }
+  return CODING_CATEGORY_UCS4_MASK;
+}
+
+static void
+decode_coding_ucs4 (Lstream *decoding, CONST unsigned char *src,
+		    unsigned_char_dynarr *dst, unsigned int n)
+{
+  struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
+  unsigned int flags = str->flags;
+  unsigned int ch    = str->ch;
+
+  while (n--)
+    {
+      unsigned char c = *src++;
+      switch (flags)
+	{
+	case 0:
+	  ch = c;
+	  flags = 3;
+	  break;
+	case 1:
+	  decode_ucs4 ( ( ch << 8 ) | c, dst);
+	  ch = 0;
+	  flags = 0;
+	  break;
+	default:
+	  ch = ( ch << 8 ) | c;
+	  flags--;
+	}
+    }
+  if (flags & CODING_STATE_END)
+    DECODE_OUTPUT_PARTIAL_CHAR (ch);
+
+  str->flags = flags;
+  str->ch    = ch;
+}
+
+static void
+encode_coding_ucs4 (Lstream *encoding, CONST unsigned char *src,
+		    unsigned_char_dynarr *dst, unsigned int n)
+{
+  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
+  unsigned int flags = str->flags;
+  unsigned int ch = str->ch;
+  unsigned char char_boundary = str->iso2022.current_char_boundary;
+  Lisp_Object charset = str->iso2022.current_charset;
+
+#ifdef ENABLE_COMPOSITE_CHARS
+  /* flags for handling composite chars.  We do a little switcharoo
+     on the source while we're outputting the composite char. */
+  unsigned int saved_n = 0;
+  CONST unsigned char *saved_src = NULL;
+  int in_composite = 0;
+
+ back_to_square_n:
+#endif
+
+  while (n--)
+    {
+      unsigned char c = *src++;
+
+      if (BYTE_ASCII_P (c))
+	{		/* Processing ASCII character */
+	  ch = 0;
+	  encode_ucs4 (Vcharset_ascii, c, 0, dst);
+	  char_boundary = 1;
+	}
+      else if (BUFBYTE_LEADING_BYTE_P (c) || BUFBYTE_LEADING_BYTE_P (ch))
+	{ /* Processing Leading Byte */
+	  ch = 0;
+	  charset = CHARSET_BY_LEADING_BYTE (c);
+	  if (LEADING_BYTE_PREFIX_P(c))
+	    ch = c;
+	  char_boundary = 0;
+	}
+      else
+	{			/* Processing Non-ASCII character */
+	  char_boundary = 1;
+	  if (EQ (charset, Vcharset_control_1))
+	    {
+	      encode_ucs4 (Vcharset_control_1, c, 0, dst);
+	    }
+	  else
+	    {
+	      switch (XCHARSET_REP_BYTES (charset))
+		{
+		case 2:
+		  encode_ucs4 (charset, c, 0, dst);
+		  break;
+		case 3:
+		  if (XCHARSET_PRIVATE_P (charset))
+		    {
+		      encode_ucs4 (charset, c, 0, dst);
+		      ch = 0;
+		    }
+		  else if (ch)
+		    {
+#ifdef ENABLE_COMPOSITE_CHARS
+		      if (EQ (charset, Vcharset_composite))
+			{
+			  if (in_composite)
+			    {
+			      /* #### Bother! We don't know how to
+				 handle this yet. */
+			      Dynarr_add (dst, 0);
+			      Dynarr_add (dst, 0);
+			      Dynarr_add (dst, 0);
+			      Dynarr_add (dst, '~');
+			    }
+			  else
+			    {
+			      Emchar emch = MAKE_CHAR (Vcharset_composite,
+						       ch & 0x7F, c & 0x7F);
+			      Lisp_Object lstr = composite_char_string (emch);
+			      saved_n = n;
+			      saved_src = src;
+			      in_composite = 1;
+			      src = XSTRING_DATA   (lstr);
+			      n   = XSTRING_LENGTH (lstr);
+			    }
+			}
+		      else
+#endif /* ENABLE_COMPOSITE_CHARS */
+			{
+			  encode_ucs4(charset, ch, c, dst);
+			}
+		      ch = 0;
+		    }
+		  else
+		    {
+		      ch = c;
+		      char_boundary = 0;
+		    }
+		  break;
+		case 4:
+		  if (ch)
+		    {
+		      encode_ucs4 (charset, ch, c, dst);
+		      ch = 0;
+		    }
+		  else
+		    {
+		      ch = c;
+		      char_boundary = 0;
+		    }
+		  break;
+		default:
+		  abort ();
+		}
+	    }
+	}
+    }
+
+#ifdef ENABLE_COMPOSITE_CHARS
+  if (in_composite)
+    {
+      n = saved_n;
+      src = saved_src;
+      in_composite = 0;
+      goto back_to_square_n; /* Wheeeeeeeee ..... */
+    }
+#endif /* ENABLE_COMPOSITE_CHARS */
+
+  str->flags = flags;
+  str->ch = ch;
+  str->iso2022.current_char_boundary = char_boundary;
+  str->iso2022.current_charset = charset;
+
+  /* Verbum caro factum est! */
+}
+
+
+/************************************************************************/
+/*                           UTF-8 methods                              */
+/************************************************************************/
+
+static int
+detect_coding_utf8 (struct detection_state *st, CONST unsigned char *src,
+		    unsigned int n)
+{
+  while (n--)
+    {
+      unsigned char c = *src++;
+      switch (st->utf8.in_byte)
+	{
+	case 0:
+	  if (c == ISO_CODE_ESC || c == ISO_CODE_SI || c == ISO_CODE_SO)
+	    return 0;
+	  else if (c >= 0xfc)
+	    st->utf8.in_byte = 5;
+	  else if (c >= 0xf8)
+	    st->utf8.in_byte = 4;
+	  else if (c >= 0xf0)
+	    st->utf8.in_byte = 3;
+	  else if (c >= 0xe0)
+	    st->utf8.in_byte = 2;
+	  else if (c >= 0xc0)
+	    st->utf8.in_byte = 1;
+	  else if (c >= 0x80)
+	    return 0;
+	  break;
+	default:
+	  if ((c & 0xc0) != 0x80)
+	    return 0;
+	  else
+	    st->utf8.in_byte--;
+	}
+    }
+  return CODING_CATEGORY_UTF8_MASK;
+}
+
+static void
+decode_coding_utf8 (Lstream *decoding, CONST unsigned char *src,
+		    unsigned_char_dynarr *dst, unsigned int n)
+{
+  struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = str->eol_type;
+
+  while (n--)
+    {
+      unsigned char c = *src++;
+      switch (flags)
+	{
+	case 0:
+	  if ( c >= 0xfc )
+	    {
+	      ch = c & 0x01;
+	      flags = 5;
+	    }
+	  else if ( c >= 0xf8 )
+	    {
+	      ch = c & 0x03;
+	      flags = 4;
+	    }
+	  else if ( c >= 0xf0 )
+	    {
+	      ch = c & 0x07;
+	      flags = 3;
+	    }
+	  else if ( c >= 0xe0 )
+	    {
+	      ch = c & 0x0f;
+	      flags = 2;
+	    }
+	  else if ( c >= 0xc0 )
+	    {
+	      ch = c & 0x1f;
+	      flags = 1;
+	    }
+	  else
+	    {
+	      DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
+	      decode_ucs4 (c, dst);
+	    }
+	  break;
+	case 1:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  decode_ucs4 (ch, dst);
+	  ch = 0;
+	  flags = 0;
+	  break;
+	default:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  flags--;
+	}
+    label_continue_loop:;
+    }
+
+  if (flags & CODING_STATE_END)
+    DECODE_OUTPUT_PARTIAL_CHAR (ch);
+
+  str->flags = flags;
+  str->ch    = ch;
+}
+
+static void
+encode_utf8 (Lisp_Object charset,
+	     unsigned char h, unsigned char l, unsigned_char_dynarr *dst)
+{
+  unsigned long code = mule_char_to_ucs4 (charset, h, l);
+  if ( code <= 0x7f )
+    {
+      Dynarr_add (dst, code);
+    }
+  else if ( code <= 0x7ff )
+    {
+      Dynarr_add (dst, (code >> 6) | 0xc0);
+      Dynarr_add (dst, (code & 0x3f) | 0x80);
+    }
+  else if ( code <= 0xffff )
+    {
+      Dynarr_add (dst,  (code >> 12) | 0xe0);
+      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+    }
+  else if ( code <= 0x1fffff )
+    {
+      Dynarr_add (dst,  (code >> 18) | 0xf0);
+      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+    }
+  else if ( code <= 0x3ffffff )
+    {
+      Dynarr_add (dst,  (code >> 24) | 0xf8);
+      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+    }
+  else
+    {
+      Dynarr_add (dst,  (code >> 30) | 0xfc);
+      Dynarr_add (dst, ((code >> 24) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >> 18) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >> 12) & 0x3f) | 0x80);
+      Dynarr_add (dst, ((code >>  6) & 0x3f) | 0x80);
+      Dynarr_add (dst,  (code        & 0x3f) | 0x80);
+    }
+}
+
+static void
+encode_coding_utf8 (Lstream *encoding, CONST unsigned char *src,
+		    unsigned_char_dynarr *dst, unsigned int n)
+{
+  struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+  unsigned char char_boundary = str->iso2022.current_char_boundary;
+  Lisp_Object charset = str->iso2022.current_charset;
+
+#ifdef ENABLE_COMPOSITE_CHARS
+  /* flags for handling composite chars.  We do a little switcharoo
+     on the source while we're outputting the composite char. */
+  unsigned int saved_n = 0;
+  CONST unsigned char *saved_src = NULL;
+  int in_composite = 0;
+
+ back_to_square_n:
+#endif /* ENABLE_COMPOSITE_CHARS */
+  
+  while (n--)
+    {
+      unsigned char c = *src++;
+
+      if (BYTE_ASCII_P (c))
+	{		/* Processing ASCII character */
+	  ch = 0;
+	  if (c == '\n')
+	    {
+	      if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+		Dynarr_add (dst, '\r');
+	      if (eol_type != EOL_CR)
+		Dynarr_add (dst, c);
+	    }
+	  else
+	    encode_utf8 (Vcharset_ascii, c, 0, dst);
+	  char_boundary = 1;
+	}
+      else if (BUFBYTE_LEADING_BYTE_P (c) || BUFBYTE_LEADING_BYTE_P (ch))
+	{ /* Processing Leading Byte */
+	  ch = 0;
+	  charset = CHARSET_BY_LEADING_BYTE (c);
+	  if (LEADING_BYTE_PREFIX_P(c))
+	    ch = c;
+	  char_boundary = 0;
+	}
+      else
+	{			/* Processing Non-ASCII character */
+	  char_boundary = 1;
+	  if (EQ (charset, Vcharset_control_1))
+	    {
+	      encode_utf8 (Vcharset_control_1, c, 0, dst);
+	    }
+	  else
+	    {
+	      switch (XCHARSET_REP_BYTES (charset))
+		{
+		case 2:
+		  encode_utf8 (charset, c, 0, dst);
+		  break;
+		case 3:
+		  if (XCHARSET_PRIVATE_P (charset))
+		    {
+		      encode_utf8 (charset, c, 0, dst);
+		      ch = 0;
+		    }
+		  else if (ch)
+		    {
+#ifdef ENABLE_COMPOSITE_CHARS
+		      if (EQ (charset, Vcharset_composite))
+			{
+			  if (in_composite)
+			    {
+			      /* #### Bother! We don't know how to
+				 handle this yet. */
+			      encode_utf8 (Vcharset_ascii, '~', 0, dst);
+			    }
+			  else
+			    {
+			      Emchar emch = MAKE_CHAR (Vcharset_composite,
+						       ch & 0x7F, c & 0x7F);
+			      Lisp_Object lstr = composite_char_string (emch);
+			      saved_n = n;
+			      saved_src = src;
+			      in_composite = 1;
+			      src = XSTRING_DATA   (lstr);
+			      n   = XSTRING_LENGTH (lstr);
+			    }
+			}
+		      else
+#endif /* ENABLE_COMPOSITE_CHARS */
+			{
+			  encode_utf8 (charset, ch, c, dst);
+			}
+		      ch = 0;
+		    }
+		  else
+		    {
+		      ch = c;
+		      char_boundary = 0;
+		    }
+		  break;
+		case 4:
+		  if (ch)
+		    {
+		      encode_utf8 (charset, ch, c, dst);
+		      ch = 0;
+		    }
+		  else
+		    {
+		      ch = c;
+		      char_boundary = 0;
+		    }
+		  break;
+		default:
+		  abort ();
+		}
+	    }
+	}
+    }
+
+#ifdef ENABLE_COMPOSITE_CHARS
+  if (in_composite)
+    {
+      n = saved_n;
+      src = saved_src;
+      in_composite = 0;
+      goto back_to_square_n; /* Wheeeeeeeee ..... */
+    }
+#endif
+
+  str->flags = flags;
+  str->ch    = ch;
+  str->iso2022.current_char_boundary = char_boundary;
+  str->iso2022.current_charset = charset;
+
+  /* Verbum caro factum est! */
+}
+
+
+/************************************************************************/
 /*                           ISO2022 methods                            */
 /************************************************************************/
 
 /* The following note describes the coding system ISO2022 briefly.
-   Since the intention of this note is to help understanding of the
-   programs in this file, some parts are NOT ACCURATE or OVERLY
+   Since the intention of this note is to help understand the
+   functions in this file, some parts are NOT ACCURATE or OVERLY
    SIMPLIFIED.  For thorough understanding, please refer to the
    original document of ISO2022.
 
    ISO2022 provides many mechanisms to encode several character sets
-   in 7-bit and 8-bit environments.  If one chooses 7-bit environment,
-   all text is encoded by codes of less than 128.  This may make the
-   encoded text a little bit longer, but the text get more stability
-   to pass through several gateways (some of them strip off MSB).
+   in 7-bit and 8-bit environments.  For 7-bit environments, all text
+   is encoded using bytes less than 128.  This may make the encoded
+   text a little bit longer, but the text passes more easily through
+   several gateways, some of which strip off MSB (Most Signigant Bit).
 
-   There are two kind of character sets: control character set and
+   There are two kinds of character sets: control character set and
    graphic character set.  The former contains control characters such
    as `newline' and `escape' to provide control functions (control
-   functions are provided also by escape sequence).  The latter
+   functions are also provided by escape sequences).  The latter
    contains graphic characters such as 'A' and '-'.  Emacs recognizes
    two control character sets and many graphic character sets.
 
-   Graphic character sets are classified into one of four types,
-   according to the dimension and number of characters in the set:
-   TYPE94, TYPE96, TYPE94x94, and TYPE96x96.  In addition, each
-   character set is assigned an identification byte, unique for each
-   type, called "final character" (denoted as <F> hereafter).  The <F>
-   of each character set is decided by ECMA(*) when it is registered
-   in ISO.  Code range of <F> is 0x30..0x7F (0x30..0x3F are for
-   private use only).
+   Graphic character sets are classified into one of the following
+   four classes, according to the number of bytes (DIMENSION) and
+   number of characters in one dimension (CHARS) of the set:
+   - DIMENSION1_CHARS94
+   - DIMENSION1_CHARS96
+   - DIMENSION2_CHARS94
+   - DIMENSION2_CHARS96
+
+   In addition, each character set is assigned an identification tag,
+   unique for each set, called "final character" (denoted as <F>
+   hereafter).  The <F> of each character set is decided by ECMA(*)
+   when it is registered in ISO.  The code range of <F> is 0x30..0x7F
+   (0x30..0x3F are for private use only).
 
    Note (*): ECMA = European Computer Manufacturers Association
 
    Here are examples of graphic character set [NAME(<F>)]:
-	o TYPE94 -- ASCII('B'), right-half-of-JISX0201('I'), ...
-	o TYPE96 -- right-half-of-ISO8859-1('A'), ...
-	o TYPE94x94 -- GB2312('A'), JISX0208('B'), ...
-	o TYPE96x96 -- none for the moment
+	o DIMENSION1_CHARS94 -- ASCII('B'), right-half-of-JISX0201('I'), ...
+	o DIMENSION1_CHARS96 -- right-half-of-ISO8859-1('A'), ...
+	o DIMENSION2_CHARS94 -- GB2312('A'), JISX0208('B'), ...
+	o DIMENSION2_CHARS96 -- none for the moment
 
-   A code area (1byte=8bits) is divided into 4 areas, C0, GL, C1, and GR.
+   A code area (1 byte = 8 bits) is divided into 4 areas, C0, GL, C1, and GR.
 	C0 [0x00..0x1F] -- control character plane 0
 	GL [0x20..0x7F] -- graphic character plane 0
 	C1 [0x80..0x9F] -- control character plane 1
@@ -3080,70 +3790,72 @@ Return the corresponding character code in Big5.
    these invocations and designations are omitted in encoded text.
    In a 7-bit environment, only GL can be used.
 
-   When a graphic character set of TYPE94 or TYPE94x94 is invoked to
-   GL, codes 0x20 and 0x7F of the GL area work as control characters
-   SPACE and DEL respectively, and code 0xA0 and 0xFF of GR area
-   should not be used.
+   When a graphic character set of CHARS94 is invoked to GL, codes
+   0x20 and 0x7F of the GL area work as control characters SPACE and
+   DEL respectively, and codes 0xA0 and 0xFF of the GR area should not
+   be used.
 
    There are two ways of invocation: locking-shift and single-shift.
    With locking-shift, the invocation lasts until the next different
-   invocation, whereas with single-shift, the invocation works only
-   for the following character and doesn't affect locking-shift.
-   Invocations are done by the following control characters or escape
-   sequences.
+   invocation, whereas with single-shift, the invocation affects the
+   following character only and doesn't affect the locking-shift
+   state.  Invocations are done by the following control characters or
+   escape sequences:
 
    ----------------------------------------------------------------------
    abbrev  function	             cntrl escape seq	description
    ----------------------------------------------------------------------
    SI/LS0  (shift-in)		     0x0F  none		invoke G0 into GL
    SO/LS1  (shift-out)		     0x0E  none		invoke G1 into GL
-   LS1R    (locking-shift-1 right)   none  ESC '~'      invoke G1 into GR
    LS2     (locking-shift-2)	     none  ESC 'n'	invoke G2 into GL
-   LS2R    (locking-shift-2 right)   none  ESC '}'      invoke G2 into GR
    LS3     (locking-shift-3)	     none  ESC 'o'	invoke G3 into GL
-   LS3R    (locking-shift 3 right)   none  ESC '|'      invoke G3 into GR
+   LS1R    (locking-shift-1 right)   none  ESC '~'      invoke G1 into GR (*)
+   LS2R    (locking-shift-2 right)   none  ESC '}'      invoke G2 into GR (*)
+   LS3R    (locking-shift 3 right)   none  ESC '|'      invoke G3 into GR (*)
    SS2     (single-shift-2)	     0x8E  ESC 'N'	invoke G2 for one char
    SS3     (single-shift-3)	     0x8F  ESC 'O'	invoke G3 for one char
    ----------------------------------------------------------------------
-   The first four are for locking-shift.  Control characters for these
-   functions are defined by macros ISO_CODE_XXX in `coding.h'.
+   (*) These are not used by any known coding system.
 
-   Designations are done by the following escape sequences.
+   Control characters for these functions are defined by macros
+   ISO_CODE_XXX in `coding.h'.
+
+   Designations are done by the following escape sequences:
    ----------------------------------------------------------------------
    escape sequence	description
    ----------------------------------------------------------------------
-   ESC '(' <F>		designate TYPE94<F> to G0
-   ESC ')' <F>		designate TYPE94<F> to G1
-   ESC '*' <F>		designate TYPE94<F> to G2
-   ESC '+' <F>		designate TYPE94<F> to G3
-   ESC ',' <F>		designate TYPE96<F> to G0 (*)
-   ESC '-' <F>		designate TYPE96<F> to G1
-   ESC '.' <F>		designate TYPE96<F> to G2
-   ESC '/' <F>		designate TYPE96<F> to G3
-   ESC '$' '(' <F>	designate TYPE94x94<F> to G0 (**)
-   ESC '$' ')' <F>	designate TYPE94x94<F> to G1
-   ESC '$' '*' <F>	designate TYPE94x94<F> to G2
-   ESC '$' '+' <F>	designate TYPE94x94<F> to G3
-   ESC '$' ',' <F>	designate TYPE96x96<F> to G0 (*)
-   ESC '$' '-' <F>	designate TYPE96x96<F> to G1
-   ESC '$' '.' <F>	designate TYPE96x96<F> to G2
-   ESC '$' '/' <F>	designate TYPE96x96<F> to G3
+   ESC '(' <F>		designate DIMENSION1_CHARS94<F> to G0
+   ESC ')' <F>		designate DIMENSION1_CHARS94<F> to G1
+   ESC '*' <F>		designate DIMENSION1_CHARS94<F> to G2
+   ESC '+' <F>		designate DIMENSION1_CHARS94<F> to G3
+   ESC ',' <F>		designate DIMENSION1_CHARS96<F> to G0 (*)
+   ESC '-' <F>		designate DIMENSION1_CHARS96<F> to G1
+   ESC '.' <F>		designate DIMENSION1_CHARS96<F> to G2
+   ESC '/' <F>		designate DIMENSION1_CHARS96<F> to G3
+   ESC '$' '(' <F>	designate DIMENSION2_CHARS94<F> to G0 (**)
+   ESC '$' ')' <F>	designate DIMENSION2_CHARS94<F> to G1
+   ESC '$' '*' <F>	designate DIMENSION2_CHARS94<F> to G2
+   ESC '$' '+' <F>	designate DIMENSION2_CHARS94<F> to G3
+   ESC '$' ',' <F>	designate DIMENSION2_CHARS96<F> to G0 (*)
+   ESC '$' '-' <F>	designate DIMENSION2_CHARS96<F> to G1
+   ESC '$' '.' <F>	designate DIMENSION2_CHARS96<F> to G2
+   ESC '$' '/' <F>	designate DIMENSION2_CHARS96<F> to G3
    ----------------------------------------------------------------------
-   In this list, "TYPE94<F>" means a graphic character set of type TYPE94
-   and final character <F>, and etc.
+
+   In this list, "DIMENSION1_CHARS94<F>" means a graphic character set
+   of dimension 1, chars 94, and final character <F>, etc...
 
    Note (*): Although these designations are not allowed in ISO2022,
    Emacs accepts them on decoding, and produces them on encoding
-   TYPE96 or TYPE96x96 character set in a coding system which is
-   characterized as 7-bit environment, non-locking-shift, and
-   non-single-shift.
+   CHARS96 character sets in a coding system which is characterized as
+   7-bit environment, non-locking-shift, and non-single-shift.
 
    Note (**): If <F> is '@', 'A', or 'B', the intermediate character
-   '(' can be omitted.  We call this as "short-form" here after.
+   '(' can be omitted.  We refer to this as "short-form" hereafter.
 
    Now you may notice that there are a lot of ways for encoding the
    same multilingual text in ISO2022.  Actually, there exist many
-   coding systems such as Compound Text (used in X's inter client
+   coding systems such as Compound Text (used in X11's inter client
    communication, ISO-2022-JP (used in Japanese internet), ISO-2022-KR
    (used in Korean internet), EUC (Extended UNIX Code, used in Asian
    localized platforms), and all of these are variants of ISO2022.
@@ -3152,19 +3864,19 @@ Return the corresponding character code in Big5.
    sequences: ISO6429's direction specification and Emacs' private
    sequence for specifying character composition.
 
-   ISO6429's direction specification takes the following format:
+   ISO6429's direction specification takes the following form:
 	o CSI ']'      -- end of the current direction
 	o CSI '0' ']'  -- end of the current direction
 	o CSI '1' ']'  -- start of left-to-right text
 	o CSI '2' ']'  -- start of right-to-left text
    The control character CSI (0x9B: control sequence introducer) is
-   abbreviated to the escape sequence ESC '[' in 7-bit environment.
+   abbreviated to the escape sequence ESC '[' in a 7-bit environment.
 
-   Character composition specification takes the following format:
+   Character composition specification takes the following form:
 	o ESC '0' -- start character composition
 	o ESC '1' -- end character composition
-   Since these are not standard escape sequences of any ISO, the use
-   of them for these meanings is restricted to Emacs only.  */
+   Since these are not standard escape sequences of any ISO standard,
+   their use with these meanings is restricted to Emacs only.  */
 
 static void
 reset_iso2022 (Lisp_Object coding_system, struct iso2022_decoder *iso)
@@ -3188,8 +3900,10 @@ reset_iso2022 (Lisp_Object coding_system, struct iso2022_decoder *iso)
   iso->invalid_switch_dir = 0;
   iso->output_direction_sequence = 0;
   iso->output_literally = 0;
+#ifdef ENABLE_COMPOSITE_CHARS
   if (iso->composite_chars)
     Dynarr_reset (iso->composite_chars);
+#endif
 }
 
 static int
@@ -3317,6 +4031,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	  reg = 3; half = 1;
 	  goto locking_shift;
 
+#ifdef ENABLE_COMPOSITE_CHARS
 	  /**** composite ****/
 
 	case '0':
@@ -3330,6 +4045,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	  *flags = (*flags & CODING_STATE_ISO2022_LOCK) &
 	    ~CODING_STATE_COMPOSITE;
 	  return 1;
+#endif /* ENABLE_COMPOSITE_CHARS */
 
 	  /**** directionality ****/
 
@@ -3713,7 +4429,7 @@ postprocess_iso2022_mask (int mask)
    need to handle the CSI differently. */
 
 static void
-restore_left_to_right_direction (struct Lisp_Coding_System *codesys,
+restore_left_to_right_direction (Lisp_Coding_System *codesys,
 				 unsigned_char_dynarr *dst,
 				 unsigned int *flags,
 				 int internal_p)
@@ -3744,7 +4460,7 @@ restore_left_to_right_direction (struct Lisp_Coding_System *codesys,
    need to handle the CSI differently. */
 
 static void
-ensure_correct_direction (int direction, struct Lisp_Coding_System *codesys,
+ensure_correct_direction (int direction, Lisp_Coding_System *codesys,
 			  unsigned_char_dynarr *dst, unsigned int *flags,
 			  int internal_p)
 {
@@ -3777,18 +4493,21 @@ static void
 decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		       unsigned_char_dynarr *dst, unsigned int n)
 {
-  unsigned int flags, ch;
-  enum eol_type eol_type;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-  Lisp_Object coding_system;
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = str->eol_type;
+#ifdef ENABLE_COMPOSITE_CHARS
   unsigned_char_dynarr *real_dst = dst;
+#endif
+  Lisp_Object coding_system;
 
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = str->eol_type;
   XSETCODING_SYSTEM (coding_system, str->codesys);
 
+#ifdef ENABLE_COMPOSITE_CHARS
   if (flags & CODING_STATE_COMPOSITE)
     dst = str->iso2022.composite_chars;
+#endif /* ENABLE_COMPOSITE_CHARS */
 
   while (n--)
     {
@@ -3802,6 +4521,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 	    {
 	      switch (str->iso2022.esc)
 		{
+#ifdef ENABLE_COMPOSITE_CHARS
 		case ISO_ESC_START_COMPOSITE:
 		  if (str->iso2022.composite_chars)
 		    Dynarr_reset (str->iso2022.composite_chars);
@@ -3820,6 +4540,7 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
 		    Dynarr_add_many (dst, comstr, len);
 		    break;
 		  }
+#endif /* ENABLE_COMPOSITE_CHARS */
 
 		case ISO_ESC_LITERAL:
 		  DECODE_ADD_BINARY_CHAR (c, dst);
@@ -3997,7 +4718,8 @@ decode_coding_iso2022 (Lstream *decoding, CONST unsigned char *src,
   if (flags & CODING_STATE_END)
     DECODE_OUTPUT_PARTIAL_CHAR (ch);
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 
@@ -4009,7 +4731,8 @@ static void
 iso2022_designate (Lisp_Object charset, unsigned char reg,
 		   struct encoding_stream *str, unsigned_char_dynarr *dst)
 {
-  CONST char *inter94 = "()*+", *inter96= ",-./";
+  static CONST char inter94[] = "()*+";
+  static CONST char inter96[] = ",-./";
   unsigned int type;
   unsigned char final;
   Lisp_Object old_charset = str->iso2022.charset[reg];
@@ -4097,28 +4820,31 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 		       unsigned_char_dynarr *dst, unsigned int n)
 {
   unsigned char charmask, c;
-  unsigned int flags, ch;
-  enum eol_type eol_type;
   unsigned char char_boundary;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  struct Lisp_Coding_System *codesys = str->codesys;
+  unsigned int flags          = str->flags;
+  unsigned int ch             = str->ch;
+  Lisp_Coding_System *codesys = str->codesys;
+  eol_type_t eol_type         = CODING_SYSTEM_EOL_TYPE (str->codesys);
   int i;
   Lisp_Object charset;
   int half;
 
+#ifdef ENABLE_COMPOSITE_CHARS
   /* flags for handling composite chars.  We do a little switcharoo
      on the source while we're outputting the composite char. */
   unsigned int saved_n = 0;
   CONST unsigned char *saved_src = NULL;
   int in_composite = 0;
+#endif /* ENABLE_COMPOSITE_CHARS */
 
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
   char_boundary = str->iso2022.current_char_boundary;
   charset = str->iso2022.current_charset;
   half = str->iso2022.current_half;
 
+#ifdef ENABLE_COMPOSITE_CHARS
  back_to_square_n:
+#endif
   while (n--)
     {
       c = *src++;
@@ -4177,7 +4903,10 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 	  if (LEADING_BYTE_PREFIX_P(c))
 	    ch = c;
 	  else if (!EQ (charset, Vcharset_control_1)
-		   && !EQ (charset, Vcharset_composite))
+#ifdef ENABLE_COMPOSITE_CHARS
+		   && !EQ (charset, Vcharset_composite)
+#endif
+		   )
 	    {
 	      int reg;
 
@@ -4297,6 +5026,7 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 		    }
 		  else if (ch)
 		    {
+#ifdef ENABLE_COMPOSITE_CHARS
 		      if (EQ (charset, Vcharset_composite))
 			{
 			  if (in_composite)
@@ -4320,6 +5050,7 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 			    }
 			}
 		      else
+#endif /* ENABLE_COMPOSITE_CHARS */
 			{
 			  Dynarr_add (dst, ch & charmask);
 			  Dynarr_add (dst, c & charmask);
@@ -4352,6 +5083,7 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 	}
     }
 
+#ifdef ENABLE_COMPOSITE_CHARS
   if (in_composite)
     {
       n = saved_n;
@@ -4361,6 +5093,7 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
       Dynarr_add (dst, '1'); /* end composing */
       goto back_to_square_n; /* Wheeeeeeeee ..... */
     }
+#endif /* ENABLE_COMPOSITE_CHARS */
 
   if (char_boundary && flags & CODING_STATE_END)
     {
@@ -4374,7 +5107,8 @@ encode_coding_iso2022 (Lstream *encoding, CONST unsigned char *src,
 	}
     }
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
   str->iso2022.current_char_boundary = char_boundary;
   str->iso2022.current_charset = charset;
   str->iso2022.current_half = half;
@@ -4395,12 +5129,10 @@ decode_coding_no_conversion (Lstream *decoding, CONST unsigned char *src,
 			     unsigned_char_dynarr *dst, unsigned int n)
 {
   unsigned char c;
-  unsigned int flags, ch;
-  enum eol_type eol_type;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = str->eol_type;
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
@@ -4413,7 +5145,8 @@ decode_coding_no_conversion (Lstream *decoding, CONST unsigned char *src,
 
   DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 static void
@@ -4422,11 +5155,9 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 {
   unsigned char c;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
-  unsigned int flags, ch;
-  enum eol_type eol_type;
-
-  CODING_STREAM_DECOMPOSE (str, flags, ch);
-  eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+  unsigned int flags  = str->flags;
+  unsigned int ch     = str->ch;
+  eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
 
   while (n--)
     {
@@ -4468,7 +5199,8 @@ encode_coding_no_conversion (Lstream *encoding, CONST unsigned char *src,
 	}
     }
 
-  CODING_STREAM_COMPOSE (str, flags, ch);
+  str->flags = flags;
+  str->ch    = ch;
 }
 
 
@@ -4670,12 +5402,18 @@ syms_of_mule_coding (void)
   DEFSUBR (Fencode_shift_jis_char);
   DEFSUBR (Fdecode_big5_char);
   DEFSUBR (Fencode_big5_char);
+  DEFSUBR (Fset_ucs_char);
+  DEFSUBR (Fucs_char);
+  DEFSUBR (Fset_char_ucs);
+  DEFSUBR (Fchar_ucs);
 #endif /* MULE */
   defsymbol (&Qcoding_system_p, "coding-system-p");
   defsymbol (&Qno_conversion, "no-conversion");
 #ifdef MULE
   defsymbol (&Qbig5, "big5");
   defsymbol (&Qshift_jis, "shift-jis");
+  defsymbol (&Qucs4, "ucs-4");
+  defsymbol (&Qutf8, "utf-8");
   defsymbol (&Qccl, "ccl");
   defsymbol (&Qiso2022, "iso2022");
 #endif /* MULE */
@@ -4719,6 +5457,10 @@ syms_of_mule_coding (void)
 	     "shift-jis");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_BIG5],
 	     "big5");
+  defsymbol (&coding_category_symbol[CODING_CATEGORY_UCS4],
+	     "ucs-4");
+  defsymbol (&coding_category_symbol[CODING_CATEGORY_UTF8],
+	     "utf-8");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_ISO_7],
 	     "iso-7");
   defsymbol (&coding_category_symbol[CODING_CATEGORY_ISO_8_DESIGNATE],
@@ -4872,4 +5614,15 @@ complex_vars_of_mule_coding (void)
   /* Need this for bootstrapping */
   coding_category_system[CODING_CATEGORY_NO_CONVERSION] =
     Fget_coding_system (Qno_conversion);
+
+#ifdef MULE
+  {
+    unsigned int i;
+
+    for (i = 0; i < 65536; i++)
+      ucs_to_mule_table[i] = Qnil;
+  }
+  staticpro (&mule_to_ucs_table);
+  mule_to_ucs_table = Fmake_char_table(Qgeneric);
+#endif /* MULE */
 }

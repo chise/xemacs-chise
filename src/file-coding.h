@@ -42,6 +42,8 @@ enum coding_system_type
   CODESYS_ISO2022,	/* Any ISO2022-compliant coding system.
 			   Includes JIS, EUC, CTEXT */
   CODESYS_BIG5,		/* BIG5 (used for Taiwanese). */
+  CODESYS_UCS4,		/* ISO 10646 UCS-4 */
+  CODESYS_UTF8,		/* ISO 10646 UTF-8 */
   CODESYS_CCL,		/* Converter written in CCL. */
 #endif
   CODESYS_NO_CONVERSION	/* "No conversion"; used for binary files.
@@ -61,6 +63,7 @@ enum eol_type
   EOL_CRLF,
   EOL_CR
 };
+typedef enum eol_type eol_type_t;
 
 #ifdef MULE
 typedef struct charset_conversion_spec charset_conversion_spec;
@@ -131,6 +134,7 @@ struct Lisp_Coding_System
   } ccl;
 #endif
 };
+typedef struct Lisp_Coding_System Lisp_Coding_System;
 
 DECLARE_LRECORD (coding_system, struct Lisp_Coding_System);
 #define XCODING_SYSTEM(x) XRECORD (x, coding_system, struct Lisp_Coding_System)
@@ -245,6 +249,7 @@ EXFUN (Fset_coding_category_system, 2);
 EXFUN (Fset_coding_priority_list, 1);
 EXFUN (Fsubsidiary_coding_system, 2);
 
+extern Lisp_Object Qucs4, Qutf8;
 extern Lisp_Object Qbig5, Qbuffer_file_coding_system, Qccl, Qcharset_g0;
 extern Lisp_Object Qcharset_g1, Qcharset_g2, Qcharset_g3, Qcoding_system_error;
 extern Lisp_Object Qcoding_system_p, Qcr, Qcrlf, Qctext, Qdecode, Qencode;
@@ -305,20 +310,26 @@ extern Lisp_Object Vterminal_coding_system;
 					     CODING_STATE_SS2 overrides; but
 					     this probably indicates an error
 					     in the text encoding. */
+#ifdef ENABLE_COMPOSITE_CHARS
 #define CODING_STATE_COMPOSITE  (1 << 8)  /* If set, we're currently processing
 					     a composite character (i.e. a
 					     character constructed by
 					     overstriking two or more
 					     characters). */
+#endif /* ENABLE_COMPOSITE_CHARS */
 
 
 /* CODING_STATE_ISO2022_LOCK is the mask of flags that remain on until
    explicitly turned off when in the ISO2022 encoder/decoder.  Other flags are
    turned off at the end of processing each character or escape sequence. */
+#ifdef ENABLE_COMPOSITE_CHARS
 # define CODING_STATE_ISO2022_LOCK \
   (CODING_STATE_END | CODING_STATE_COMPOSITE | CODING_STATE_R2L)
-#define CODING_STATE_BIG5_LOCK \
-  CODING_STATE_END
+#else
+# define CODING_STATE_ISO2022_LOCK (CODING_STATE_END | CODING_STATE_R2L)
+#endif
+
+#define CODING_STATE_BIG5_LOCK CODING_STATE_END
 
 /* Flags indicating what we've seen so far when parsing an
    ISO2022 escape sequence. */
@@ -361,16 +372,15 @@ enum iso_esc_flag
 			   starts a directionality-control
 			   sequence.  The next character
 			   must be 0, 1, 2, or ]. */
-  ISO_ESC_5_11_0,	/* We've seen 0x9B 0.  The next
-			   character must be ]. */
-  ISO_ESC_5_11_1,	/* We've seen 0x9B 1.  The next
-			   character must be ]. */
-  ISO_ESC_5_11_2,	/* We've seen 0x9B 2.  The next
-			   character must be ]. */
+  ISO_ESC_5_11_0,	/* We've seen 0x9B 0.  The next character must be ]. */
+  ISO_ESC_5_11_1,	/* We've seen 0x9B 1.  The next character must be ]. */
+  ISO_ESC_5_11_2,	/* We've seen 0x9B 2.  The next character must be ]. */
 
   /* Full sequences. */
+#ifdef ENABLE_COMPOSITE_CHARS
   ISO_ESC_START_COMPOSITE, /* Private usage for START COMPOSING */
-  ISO_ESC_END_COMPOSITE, /* Private usage for END COMPOSING */
+  ISO_ESC_END_COMPOSITE,   /* Private usage for END COMPOSING */
+#endif /* ENABLE_COMPOSITE_CHARS */
   ISO_ESC_SINGLE_SHIFT, /* We've seen a complete single-shift sequence. */
   ISO_ESC_LOCKING_SHIFT,/* We've seen a complete locking-shift sequence. */
   ISO_ESC_DESIGNATE,	/* We've seen a complete designation sequence. */
@@ -393,21 +403,6 @@ enum iso_esc_flag
 #define ISO_CODE_CSI	0x9B		/* control-sequence-introduce */
 #endif /* MULE */
 
-/* Macros to access an encoding stream or decoding stream */
-
-#define CODING_STREAM_DECOMPOSE(str, flags, ch)	\
-do {						\
-  flags = (str)->flags;				\
-  ch = (str)->ch;				\
-} while (0)
-
-#define CODING_STREAM_COMPOSE(str, flags, ch)	\
-do {						\
-  (str)->flags = flags;				\
-  (str)->ch = ch;				\
-} while (0)
-
-
 /* For detecting the encoding of text */
 enum coding_category_type
 {
@@ -426,6 +421,8 @@ enum coding_category_type
 			      two-dimension characters in the upper half. */
   CODING_CATEGORY_ISO_LOCK_SHIFT, /* ISO2022 system using locking shift */
   CODING_CATEGORY_BIG5,
+  CODING_CATEGORY_UCS4,
+  CODING_CATEGORY_UTF8,
 #endif /* MULE */
   CODING_CATEGORY_NO_CONVERSION
 };
@@ -447,6 +444,10 @@ enum coding_category_type
   (1 << CODING_CATEGORY_ISO_LOCK_SHIFT)
 #define CODING_CATEGORY_BIG5_MASK \
   (1 << CODING_CATEGORY_BIG5)
+#define CODING_CATEGORY_UCS4_MASK \
+  (1 << CODING_CATEGORY_UCS4)
+#define CODING_CATEGORY_UTF8_MASK \
+  (1 << CODING_CATEGORY_UTF8)
 #endif
 #define CODING_CATEGORY_NO_CONVERSION_MASK \
   (1 << CODING_CATEGORY_NO_CONVERSION)
@@ -505,7 +506,9 @@ void determine_real_coding_system (Lstream *stream, Lisp_Object *codesys_in_out,
 #ifndef MULE
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
+#ifdef ENABLE_COMPOSITE_CHARS
 #define LEADING_BYTE_COMPOSITE		0x80 /* for a composite character */
+#endif
 #define LEADING_BYTE_CONTROL_1		0x8F /* represent normal 80-9F */
 #define LEADING_BYTE_LATIN_ISO8859_1	0x81 /* Right half of ISO 8859-1 */
 #define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)

@@ -191,6 +191,7 @@ void prune_syntax_tables (int (*obj_marked_p) (Lisp_Object));
 EXFUN (Fcopy_char_table, 1);
 EXFUN (Fmake_char_table, 1);
 EXFUN (Fput_char_table, 3);
+EXFUN (Fget_char_table, 2);
 
 extern Lisp_Object Vall_syntax_tables;
 
