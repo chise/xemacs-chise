@@ -397,8 +397,12 @@
     ))
 (define-char
   '((=>ucs		. #x4E3D)	; ä¸½
-    (ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 7)
+    (ideographic-	(:radical	1 ; â¼€
+			 :strokes	7
+			 :sources	(cns-11643))
+			(:radical	3 ; â¼‚
+			 :strokes	7
+			 :sources	(morohashi-daikanwa gt)))
     (total-strokes	 . 8)
     (->same-ideograph
      ((ideographic-radical . 1)	; â¼€
@@ -446,6 +450,7 @@
 	  ))
 	))
       ))
+    (chinese-cns11643-3 . #x2740)	; ø»•Ÿ·
     (ideograph-gt-pj-2	. #x3071)	; ý¡€€‚‘
     (ideograph-daikanwa . 00104)	; ø¸€¨
     (ideograph-gt	. 00145)	; ý¡€€‚‘
