@@ -1,3 +1,40 @@
+2000-03-22  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R115-Grain.el (M25218): Separate J78-374E and
+	K0-4D26.
+	(M48869): Moved to Ideograph-R213-Turtle.el.
+
+	* utf-2000/Ideograph-R113-Spirit.el (M24634): Separate U+7941.
+	(M24636): Separate U+7944.
+	(M24637): Separate U+7945.
+	(M24638): Separate U+7946.
+	(M24640): Move K0-5137 from U+7948.
+	(M24641): Move K0-7233 from U+7949.
+	(M24643): Separate U+794A.
+	(M24645): Separate U+794B.
+	(M24647): Separate U+794C.
+	(M24651): Separate U+794F.
+	(M24652): Move K0-695E from M24652'.
+
+2000-03-21  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R145-Clothes.el (M34166): Add J{78|83}-3736.
+
+	* utf-2000/Ideograph-R123-Sheep.el (M28498): Add J{78|83}-3732.
+
+	* utf-2000/Ideograph-R119-Rice.el (M26860): Add J{78|83}-3729.
+
+	* utf-2000/Ideograph-R177-Leather.el (M42729): Separate
+	J{83|90}-3724m K0-7C28 and C1-675D.
+	(M42732): Separate U+9775.
+
+	* utf-2000/Ideograph-R030-Mouth.el (M4015): Add J90-3674.
+	(J78-3674): New character.
+
+2000-03-20  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R158-Body.el (U+8EAF): Add J{83|90}-366D.
+
 2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/Ideograph-R023-Hiding-Enclosure.el (U+533A): Add
@@ -19,6 +56,14 @@
 	(M34151): Add `ideographic-strokes'.
 
 	* utf-2000/Ideograph-R076-Lack.el (M16104): Unify U+6B3D.
+
+2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/char-db-util.el (insert-char-data): Regard charset
+	`mojikyo' as same as `ideograph-daikanwa'; support
+	`jisx0208-1978/4X'.
+	(decode-builtin-char): Regard charset `mojikyo' as same as
+	`ideograph-daikanwa'.
 
 2000-03-16  MORIOKA Tomohiko  <tomo@m17n.org>
 
