@@ -652,7 +652,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (<-simplified
-     ((=gb12345		  . #x5E46)	; 󰀗
+     ((=gb12345		  . #x5E46)	; &UU+5969;
       ))
     (hanyu-dazidian	1 529 9)
     (=ucs		. #x5941)	; 奁
@@ -2543,8 +2543,8 @@
       (=daikanwa	  . 05991)	; &I-M-05991;
       (=ucs@jis		  . #x5969)	; &GT-07573;
       )
-     ((=gb12345		  . #x5E46)	; 󰀗
-      (=ucs@unicode	  . #x5969)	; 󰀗
+     ((=gb12345		  . #x5E46)	; &UU+5969;
+      (=ucs@unicode	  . #x5969)	; &UU+5969;
       ))
     ))
 (define-char

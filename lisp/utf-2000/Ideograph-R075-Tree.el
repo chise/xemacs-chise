@@ -2740,7 +2740,7 @@
       (=jef-china3	  . #x70C9)	; &I-JC3-70C9;
       (=ucs@jis		  . #x67A6)	; &GT-18539;
       )
-     ((=ucs@unicode	  . #x67A6)	; 󰀛
+     ((=ucs@unicode	  . #x67A6)	; &UU+67A6;
       ))
     ))
 (define-char

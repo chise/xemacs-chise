@@ -471,7 +471,7 @@
 	)
        ((=ucs		    . #x516B)	; 八
 	))
-      (=ucs@unicode	  . #x4EC8)	; 󰀂
+      (=ucs@unicode	  . #x4EC8)	; &UU+4EC8;
       ))
     ))
 (define-char
@@ -3175,7 +3175,7 @@
 	)
        ((=ucs		    . #x5185)	; 内
 	))
-      (=ucs@unicode	  . #x343B)	; 󰀄
+      (=ucs@unicode	  . #x343B)	; &UU+343B;
       ))
     ))
 (define-char
@@ -23968,7 +23968,7 @@
 	)
        ((=ucs		    . #x6562)	; 敢
 	))
-      (=ucs@unicode	  . #x3488)	; 󰀈
+      (=ucs@unicode	  . #x3488)	; &UU+3488;
       ))
     ))
 (define-char
@@ -25064,7 +25064,7 @@
 	 ((=ucs		      . #x975E)	; 非
 	  ))
 	))
-      (=ucs@unicode	  . #x348E)	; 󰀊
+      (=ucs@unicode	  . #x348E)	; &UU+348E;
       ))
     ))
 (define-char
@@ -26897,7 +26897,7 @@
 	)
        ((=ucs		    . #x842C)	; 萬
 	))
-      (=ucs@unicode	  . #x3496)	; 󰀋
+      (=ucs@unicode	  . #x3496)	; &UU+3496;
       ))
     ))
 (define-char
@@ -27380,7 +27380,7 @@
       (=cns11643-4	  . #x4F5D)	; &C4-4F5D;
       (=ucs@cns		  . #x349A)	; &C4-4F5D;
       )
-     ((=ucs@unicode	  . #x349A)	; 󰀌
+     ((=ucs@unicode	  . #x349A)	; &UU+349A;
       ))
     ))
 (define-char
@@ -27468,7 +27468,7 @@
 	)
        ((=ucs		    . #x7FDF)	; 翟
 	))
-      (=ucs@unicode	  . #x349B)	; 󰀍
+      (=ucs@unicode	  . #x349B)	; &UU+349B;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -30099,7 +30099,7 @@
 	)
        ((=ucs		    . #x7E47)	; 繇
 	))
-      (=ucs@unicode	  . #x34A1)	; 󰀏
+      (=ucs@unicode	  . #x34A1)	; &UU+34A1;
       ))
     ))
 (define-char

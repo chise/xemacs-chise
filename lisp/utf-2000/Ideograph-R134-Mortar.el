@@ -77,7 +77,7 @@
       (=daikanwa	  . 30177)	; &I-M-30177;
       (=ucs@jis		  . #x81FD)	; &M-30177;
       )
-     ((=ucs@unicode	  . #x81FD)	; 󰀢
+     ((=ucs@unicode	  . #x81FD)	; &UU+81FD;
       ))
     ))
 (define-char

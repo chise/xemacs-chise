@@ -32,7 +32,7 @@
       (=gt-pj-6		  . #x3879)	; &GT-37857;
       (=daikanwa	  . 29237)	; &I-M-29237;
       )
-     ((=ucs@unicode	  . #x2EBC)	; 󰀀
+     ((=ucs@unicode	  . #x2EBC)	; &UU+2EBC;
       )
      ((=big5-cdp	  . #x8A73)	; &CDP-8A73;
       )

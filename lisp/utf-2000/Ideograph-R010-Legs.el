@@ -631,7 +631,7 @@
 	)
        ((=ucs		    . #x5144)	; 兄
 	))
-      (=ucs@unicode	  . #x514C)	; 󰀐
+      (=ucs@unicode	  . #x514C)	; &UU+514C;
       ))
     ))
 (define-char
