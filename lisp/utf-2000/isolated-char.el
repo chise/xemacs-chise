@@ -1,6 +1,6 @@
 ;;; isolated-char.el --- Set up isolated-characters.
 
-;; Copyright (C) 2001 MORIOKA Tomohiko
+;; Copyright (C) 2001,2002 MORIOKA Tomohiko
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, UCS-4, character, CCS, multiscript, multilingual
@@ -185,6 +185,14 @@
 			    code)
 	)))
 
+(define-char
+  '((ideograph-gt-pj-4	. #x493C)
+    (ideograph-gt	. 21862)
+    ))
+(define-char
+  '((ideograph-gt-pj-11 . #x5277)
+    (ideograph-gt	. 40268)
+    ))
 (define-char
   '((ideograph-gt-pj-1	. #x3F6B)
     (ideograph-gt	. 52230)
