@@ -2027,6 +2027,19 @@
   '((ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (->same-ideograph
+     ((ideograph-daikanwa . 24824)	; ø¸†ƒ¸
+      ))
+    (shinjigen-2	. 5660)
+    (japanese-jisx0208-1978	. #x3150)	; ø»‚”
+    (japanese-jisx0208		. #x3150)	; ø»†¨—
+    (japanese-jisx0208-1990	. #x3150)	; ø½ŠŽ‹
+    (ucs			. #x9834)	; é ´
+    ))
+(define-char
+  '((ideographic-radical . 181)	; â¾´
+    (ideographic-strokes . 7)
+    (total-strokes	 . 16)
     (chinese-cns11643-3 . #x535F)	; ø»– ¾
     (ucs		. #x983D)	; é ½
     ))
