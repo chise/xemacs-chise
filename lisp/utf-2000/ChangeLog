@@ -1,6 +1,16 @@
 2002-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R077-Stop.el, Ideograph-R076-Lack.el,
+	* Ideograph-R030-Mouth.el, Ideograph-R027-Cliff.el,
+	Ideograph-R012-Eight.el: Add some missing `ideographic-structure'
+	properties.
+
+	* Ideograph-R028-Private.el: Add some missing
+	`ideographic-structure' properties.
+	(U+53C2): Use `script' and `<-simplified-ideograph' instead of
+	`comment'.
+
+	* Ideograph-R079-Weapon.el, Ideograph-R078-Death.el,
+	Ideograph-R077-Stop.el, Ideograph-R076-Lack.el,
 	Ideograph-R075-Tree.el:
 	- Use `=>ucs' instead of `->ucs'.
 	- Merge mapping to CHINA3-JEF code points.
