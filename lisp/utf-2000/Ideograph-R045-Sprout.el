@@ -11,20 +11,19 @@
     (ucs			. #x5C6E)	; å±®
     ))
 (define-char
-  '((=>ucs		. #x5C6E)	; å±®
-    (ideographic-radical . 45)	; â¼¬
+  '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (->synonyms
-     (:sources	(shuowen morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 08720)	; ø¸‚ˆ
+     (:char	((ideograph-daikanwa . 08720)	; ø¸‚ˆ
 		 )
-      ))
+      :sources	(shuowen morohashi-daikanwa)))
     (comment		. "M-07825 is a different char.")
     (=jis-x0208		. #x5625)	; ø½‹ƒ¶
     (chinese-cns11643-4 . #x2135)	; ø»— ¼
     (ideograph-daikanwa . 07826)	; ø¸º’
-    (ucs-jis		. #x5C6E)	; ø½‹ƒ¶
+    (ucs-jis		. #x5C6E)	; ð¯¡¸
+    (ucs		. #x2F878)	; ð¯¡¸
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
