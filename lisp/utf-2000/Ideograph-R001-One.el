@@ -122,7 +122,7 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (->unified
+    (->subsumptive
      ((shinjigen-1	  . 3)
       (shinjigen-2	  . 3)
       (=jis-x0208	  . #x3C37)	; ø½Š¼

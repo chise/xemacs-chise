@@ -1911,7 +1911,7 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 11)
     (total-strokes	 . 12)
-    (->unified
+    (->subsumptive
      ((hanyu-dazidian	  1 263 7)
       (=gt		  . 00280)	; ý¡€€„˜
       (=gt-pj-2		  . #x316C)	; ý¡€€„˜

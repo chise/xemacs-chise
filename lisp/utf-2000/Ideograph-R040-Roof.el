@@ -3468,7 +3468,7 @@
   '((ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (->unified
+    (->subsumptive
      ((sources		  bos=A015412-00003)
       (=ruimoku-v6	  . #xE009)	; øº€‰
       )

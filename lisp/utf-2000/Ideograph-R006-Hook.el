@@ -284,7 +284,7 @@
     (ideographic-radical . 6)	; ⼅
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰

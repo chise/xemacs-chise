@@ -241,7 +241,7 @@
     (ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱

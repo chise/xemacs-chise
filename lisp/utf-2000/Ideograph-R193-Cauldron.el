@@ -41,10 +41,10 @@
     (ideographic-radical . 193)	; â¿€
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 45674)	; ø¸‹‰ª
       )
-     ((->unified
+     ((->subsumptive
        ((sources	    bos=A016374-00004)
 	(=ruimoku-v6	    . #xE00A)	; øº€Š
 	(=ucs@unicode	    . #x29C2C)	; øº€Š

@@ -597,7 +597,7 @@
     (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (->unified
+    (->subsumptive
      ((=cns11643-4	  . #x2D2F)	; ø»—²ž
       (=daikanwa	  . 11583)	; ø¸‚´¿
       )

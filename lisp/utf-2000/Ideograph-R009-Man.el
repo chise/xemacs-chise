@@ -3115,8 +3115,8 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (->unified
-     ((->unified
+    (->subsumptive
+     ((->subsumptive
        ((hanyu-dazidian	    1 122 1)
 	(ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -6551,7 +6551,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -8094,7 +8094,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -9337,7 +9337,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->unified
+    (->subsumptive
      ((=cns11643-4	  . #x2839)	; ø»—«’
       (=daikanwa	  . 00651)	; ø¸€Š‹
       (=ucs@cns		  . #x3459)	; ø»—«’
@@ -9469,7 +9469,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -12795,7 +12795,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -14898,7 +14898,7 @@
 (define-char
   '((=>daikanwa		. 00825)	; ø»•³†
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 9)
       (total-strokes	   . 11)
       (ideographic-structure
@@ -18178,7 +18178,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -18703,7 +18703,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -20355,7 +20355,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (->unified
+    (->subsumptive
      ((morohashi-daikanwa	ho 21)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -20765,7 +20765,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -21269,7 +21269,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 01025)	; ø¸€
       )
      ((hanyu-dazidian	  1 213 5)
@@ -21694,7 +21694,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -23665,7 +23665,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 01109)	; ø¸€‘•
       )
      ((hanyu-dazidian	  1 221 3)
@@ -23775,7 +23775,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (->unified
+    (->subsumptive
      ((hanyu-dazidian	  1 220 10)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -23891,7 +23891,7 @@
 (define-char
   '((=>daikanwa		. 01118)	; ø»˜‘”
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 12)
       (total-strokes	   . 14)
       (hanyu-dazidian	  1 216 13)
@@ -24960,7 +24960,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -25357,7 +25357,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -25641,7 +25641,7 @@
 (define-char
   '((=>daikanwa		. 01174)	; ø¸€’–
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 13)
       (total-strokes	   . 15)
       (ideographic-structure
@@ -25851,7 +25851,7 @@
 (define-char
   '((=>daikanwa		. 01179)	; ø¸€’›
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 13)
       (total-strokes	   . 15)
       (ideographic-structure
@@ -26228,7 +26228,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -26814,7 +26814,7 @@
 (define-char
   '((=>daikanwa		. 01207)	; ø»–”—
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 13)
       (total-strokes	   . 15)
       (hanyu-dazidian	  1 217 11)
@@ -27082,7 +27082,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -27136,7 +27136,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -27309,7 +27309,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (->unified
+    (->subsumptive
      ((hanyu-dazidian	  1 231 8)
       (=daikanwa	  . 01222)	; ø¸€“†
       (=hanziku-1	  . #xD5D4)	; ý¢€—”
@@ -27376,7 +27376,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (->unified
+    (->subsumptive
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
@@ -28290,7 +28290,7 @@
 (define-char
   '((=>daikanwa		. 01252)	; ø¸€“¤
     (ideographic-radical . 9)	; â¼ˆ
-    (->unified
+    (->subsumptive
      ((ideographic-strokes . 15)
       (total-strokes	   . 17)
       (ideographic-structure
@@ -29145,7 +29145,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 01271)	; ø¸€“·
       )
      ((hanyu-dazidian	  1 236 14)
@@ -30015,8 +30015,8 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
-    (->unified
-     ((->unified
+    (->subsumptive
+     ((->subsumptive
        ((ideographic-structure
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; â¿°
@@ -30483,7 +30483,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 19)
     (total-strokes	 . 21)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 01312)	; ø¸€” 
       (=cbeta		  . 04184)	; ø¸¡˜
       )
@@ -31135,7 +31135,7 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 22)
     (total-strokes	 . 24)
-    (->unified
+    (->subsumptive
      ((=daikanwa	  . 01334)	; ø¸€”¶
       )
      ((hanyu-dazidian	  1 240 11)
