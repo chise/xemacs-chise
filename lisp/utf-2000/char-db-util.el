@@ -857,15 +857,9 @@
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
     (unless readable
-      (when (memq '->ucs-unified attributes)
-	(setq attributes (delq '->ucs-unified attributes))
-	)
-      (when (memq '->denotational attributes)
-	(setq attributes (delq '->denotational attributes))
-	)
-      (when (memq 'composition attributes)
-	(setq attributes (delq 'composition attributes))
-	))
+      (dolist (ignored '(composition
+			 ->denotational <-unified ->ucs-unified))
+	(setq attributes (delq ignored attributes))))
     (setq rest ccs-attributes)
     (while (and rest
 		(progn
