@@ -1850,7 +1850,8 @@ Recognized properties are those listed in `make-charset', as well as
   if (EQ (prop, Qdimension))   return make_int (CHARSET_DIMENSION (cs));
   if (EQ (prop, Qcolumns))     return make_int (CHARSET_COLUMNS (cs));
   if (EQ (prop, Qgraphic))     return make_int (CHARSET_GRAPHIC (cs));
-  if (EQ (prop, Qfinal))       return make_char (CHARSET_FINAL (cs));
+  if (EQ (prop, Qfinal))       return CHARSET_FINAL (cs) == 0 ?
+				 Qnil : make_char (CHARSET_FINAL (cs));
   if (EQ (prop, Qchars))       return make_int (CHARSET_CHARS (cs));
   if (EQ (prop, Qregistry))    return CHARSET_REGISTRY (cs);
   if (EQ (prop, Qccl_program)) return CHARSET_CCL_PROGRAM (cs);
