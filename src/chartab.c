@@ -356,7 +356,7 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
 #ifdef MULE
   {
-    int i;
+    Charset_ID i;
 
     for (i = MIN_LEADING_BYTE; i < MIN_LEADING_BYTE + NUM_LEADING_BYTES;
 	 i++)
@@ -767,8 +767,8 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 
 /* called from CHAR_TABLE_VALUE(). */
 Lisp_Object
-get_non_ascii_char_table_value (struct Lisp_Char_Table *ct, int leading_byte,
-			       Emchar c)
+get_non_ascii_char_table_value (struct Lisp_Char_Table *ct,
+				Charset_ID leading_byte, Emchar c)
 {
   Lisp_Object val;
 #ifdef UTF2000
@@ -819,7 +819,7 @@ get_char_table (Emchar ch, struct Lisp_Char_Table *ct)
       val = ct->ascii[byte1 + 128];
     else
       {
-	int lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
+	Charset_ID lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
 	val = ct->level1[lb];
 	if (CHAR_TABLE_ENTRYP (val))
 	  {
@@ -1074,7 +1074,8 @@ put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
 	}
       else
 	{
-	  int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
+	  Charset_ID lb
+	    = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	  ct->level1[lb] = val;
 	}
       break;
@@ -1082,7 +1083,8 @@ put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
     case CHARTAB_RANGE_ROW:
       {
 	struct Lisp_Char_Table_Entry *cte;
-	int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
+	Charset_ID lb
+	  = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	/* make sure that there is a separate entry for the row. */
 	if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
 	  ct->level1[lb] = make_char_table_entry (ct->level1[lb]);
@@ -1106,7 +1108,7 @@ put_char_table (struct Lisp_Char_Table *ct, struct chartab_range *range,
 	else
 	  {
 	    struct Lisp_Char_Table_Entry *cte;
-	    int lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
+	    Charset_ID lb = XCHARSET_LEADING_BYTE (charset) - MIN_LEADING_BYTE;
 	    /* make sure that there is a separate entry for the row. */
 	    if (!CHAR_TABLE_ENTRYP (ct->level1[lb]))
 	      ct->level1[lb] = make_char_table_entry (ct->level1[lb]);
@@ -1267,7 +1269,7 @@ map_over_charset_row (struct Lisp_Char_Table_Entry *cte,
 
 
 static int
-map_over_other_charset (struct Lisp_Char_Table *ct, int lb,
+map_over_other_charset (struct Lisp_Char_Table *ct, Charset_ID lb,
 			int (*fn) (struct chartab_range *range,
 				   Lisp_Object val, void *arg),
 			void *arg)
@@ -1344,9 +1346,9 @@ map_char_table (struct Lisp_Char_Table *ct,
 	if (retval)
 	  return retval;
 	{
-	  int i;
-	  int start = MIN_LEADING_BYTE;
-	  int stop  = start + NUM_LEADING_BYTES;
+	  Charset_ID i;
+	  Charset_ID start = MIN_LEADING_BYTE;
+	  Charset_ID stop  = start + NUM_LEADING_BYTES;
 
 	  for (i = start, retval = 0; i < stop && retval == 0; i++)
 	    {
@@ -1365,7 +1367,8 @@ map_char_table (struct Lisp_Char_Table *ct,
 
     case CHARTAB_RANGE_ROW:
       {
-	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE];
+	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (range->charset)
+				    - MIN_LEADING_BYTE];
 	if (!CHAR_TABLE_ENTRYP (val))
 	  {
 	    struct chartab_range rainj;
