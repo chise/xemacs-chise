@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001,2002 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002,2003 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -152,8 +152,12 @@
 	   (cond ((and (setq ret (get-char-attribute char 'ucs))
 		       (not (and (<= #xE000 ret)(<= ret #xF8FF))))
 		  (setq char-spec (list (cons 'ucs ret)))
-		  (if (setq ret (get-char-attribute char 'name))
-		      (setq char-spec (cons (cons 'name ret) char-spec)))
+		  (cond ((setq ret (get-char-attribute char 'name))
+			 (setq char-spec (cons (cons 'name ret) char-spec))
+			 )
+			((setq ret (get-char-attribute char 'name*))
+			 (setq char-spec (cons (cons 'name* ret) char-spec))
+			 ))
 		  )
 		 ((setq ret
 			(let ((default-coded-charset-priority-list
@@ -167,8 +171,12 @@
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
 		      (setq char-spec (split-char char)))
-		  (if (setq ret (get-char-attribute char 'name))
-		      (setq char-spec (cons (cons 'name ret) char-spec)))
+		  (cond ((setq ret (get-char-attribute char 'name))
+			 (setq char-spec (cons (cons 'name ret) char-spec))
+			 )
+			((setq ret (get-char-attribute char 'name*))
+			 (setq char-spec (cons (cons 'name* ret) char-spec))
+			 ))
 		  ))
 	   char-spec)
 	  ((consp char)
@@ -179,31 +187,6 @@
     (setq column (current-column)))
   (let (char-spec ret al cal key temp-char)
     (setq char-spec (char-db-make-char-spec char))
-    ;; (cond ((characterp char)
-    ;;        (cond ((and (setq ret (get-char-attribute char 'ucs))
-    ;;                    (not (and (<= #xE000 ret)(<= ret #xF8FF))))
-    ;;               (setq char-spec (list (cons 'ucs ret)))
-    ;;               (if (setq ret (get-char-attribute char 'name))
-    ;;                   (setq char-spec (cons (cons 'name ret) char-spec)))
-    ;;               )
-    ;;              ((setq ret
-    ;;                     (let ((default-coded-charset-priority-list
-    ;;                             char-db-coded-charset-priority-list))
-    ;;                       (split-char char)))
-    ;;               (setq char-spec (list ret))
-    ;;               (dolist (ccs (delq (car ret) (charset-list)))
-    ;;                 (if (or (and (charset-iso-final-char ccs)
-    ;;                              (setq ret (get-char-attribute char ccs)))
-    ;;                         (eq ccs 'ideograph-daikanwa))
-    ;;                     (setq char-spec (cons (cons ccs ret) char-spec))))
-    ;;               (if (null char-spec)
-    ;;                   (setq char-spec (split-char char)))
-    ;;               (if (setq ret (get-char-attribute char 'name))
-    ;;                   (setq char-spec (cons (cons 'name ret) char-spec)))
-    ;;               )))
-    ;;       ((consp char)
-    ;;        (setq char-spec char)
-    ;;        (setq char nil)))
     (unless (or (characterp char) ; char
 		(condition-case nil
 		    (setq char (find-char char-spec))
