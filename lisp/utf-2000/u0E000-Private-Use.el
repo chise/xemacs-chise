@@ -26691,9 +26691,7 @@
   '((ucs		. #xF4DB)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B42)	; 
-    (chinese-big5-cdp	. #x8B42)	; 
-    (ucs		. #xF4DC)	; 
+  '((ucs		. #xF4DC)	; 
     ))
 (define-char
   '((chinese-big5	. #x8B43)	; 
