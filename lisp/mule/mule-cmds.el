@@ -151,11 +151,10 @@ They means `lf', `crlf', and `cr' respectively."
   "Set default value of various coding systems to CODING-SYSTEM.
 This sets the following coding systems:
   o coding system of a newly created buffer
+  o default coding system for terminal output
+  o default coding system for keyboard input
   o default coding system for subprocess I/O
-This also sets the following values:
-  o default value used as file-name-coding-system for converting file names.
-  o default value for the command `set-terminal-coding-system' (not on MSDOS)
-  o default value for the command `set-keyboard-coding-system'."
+  o default coding system for converting file names."
   (check-coding-system coding-system)
   ;;(setq-default buffer-file-coding-system coding-system)
   (set-default-buffer-file-coding-system coding-system)
@@ -181,11 +180,9 @@ This also sets the following values:
   "Add CODING-SYSTEM at the front of the priority list for automatic detection.
 This also sets the following coding systems:
   o coding system of a newly created buffer
-  o default coding system for subprocess I/O
-This also sets the following values:
-  o default value used as file-name-coding-system for converting file names.
-  o default value for the command `set-terminal-coding-system' (not on MSDOS)
-  o default value for the command `set-keyboard-coding-system'
+  o default coding system for terminal output
+  o default coding system for keyboard input
+  o default coding system for converting file names.
 
 If CODING-SYSTEM specifies a certain type of EOL conversion, the coding
 systems set by this function will use that type of EOL conversion.
