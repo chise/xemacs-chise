@@ -81,9 +81,6 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 for GB */
 #define LEADING_BYTE_UCS_GB		(MIN_LEADING_BYTE + 6)
 
-/* ISO/IEC 10646 for CNS */
-#define LEADING_BYTE_UCS_CNS		(MIN_LEADING_BYTE + 7)
-
 /* Japanese JIS X0208 Common	2/4 2/{(8),9,10,11} 4/2 (B) */
 #define LEADING_BYTE_JIS_X0208 		(MIN_LEADING_BYTE + 11)
 
