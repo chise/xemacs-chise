@@ -1,5 +1,21 @@
 1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/mule-conf.el (sisheng): Moved from mule/chinese.el.
+	(chinese-isoir165): Moved from mule/chinese.el.
+	(chinese-cns11643-3): Moved from mule/chinese.el.
+	(chinese-cns11643-4): Moved from mule/chinese.el.
+	(chinese-cns11643-5): Moved from mule/chinese.el.
+	(chinese-cns11643-6): Moved from mule/chinese.el.
+	(chinese-cns11643-7): Moved from mule/chinese.el.
+
+	* mule/chinese.el: Move definition of coded-charsets to
+	mule/mule-conf.el.
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order of
+	`morohashi-daikanwa'.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/char-db-util.el (char-attribute-name<) Use
 	`charset-iso-final-char' instead of `charset-final'; fixed.
 	(insert-char-data): Delete unused local variable `name'; use
