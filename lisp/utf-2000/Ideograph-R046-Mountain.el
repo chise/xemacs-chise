@@ -701,12 +701,13 @@
     (ucs		. #x5C8D)	; 岍
     ))
 (define-char
-  '((=>ucs		. #x5C8D)	; 岍
+  '((=>ucs*		. #x5C8D)	; 岍
     (morohashi-daikanwa	7930 0 2)
     (ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-cns11643-3 . #x2C40)	; �����
+    (ucs		. #x2F87A)	; 岍
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭
