@@ -50,6 +50,7 @@ EXFUN (Fget_charset, 1);
 
 extern Lisp_Object Qsystem_char_id;
 extern Lisp_Object Qmap_ucs, Qucs;
+extern Lisp_Object Q_subsumptive, Q_denotational;
 
 Lisp_Object put_char_ccs_code_point (Lisp_Object character,
 				     Lisp_Object ccs, Lisp_Object value);
@@ -719,9 +720,29 @@ encode_char_2 (Emchar ch, Lisp_Object* charset)
 	   && (XCHARSET_DIMENSION (*charset) <= 2) )
 	{
 	  int code_point = charset_code_point (*charset, ch, 0);
+	  Lisp_Object rest;
 
 	  if (code_point >= 0)
 	    return code_point;
+
+	  rest = Fget_char_attribute (make_char (ch), Q_subsumptive, Qnil);
+	  for ( ; !NILP (rest); rest = XCDR (rest) )
+	    {
+	      Lisp_Object c = XCAR (rest);
+
+	      code_point = charset_code_point (*charset, XCHAR (c), 0);
+	      if (code_point >= 0)
+		return code_point;
+	    }
+	  rest = Fget_char_attribute (make_char (ch), Q_denotational, Qnil);
+	  for ( ; !NILP (rest); rest = XCDR (rest) )
+	    {
+	      Lisp_Object c = XCAR (rest);
+
+	      code_point = charset_code_point (*charset, XCHAR (c), 0);
+	      if (code_point >= 0)
+		return code_point;
+	    }
 	}
       charsets = Fcdr (charsets);	      
     }
