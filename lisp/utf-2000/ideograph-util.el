@@ -132,11 +132,11 @@
 (defun ideograph-char< (a b)
   (let (ra rb)
     (cond
-     ((setq ra (or (get-char-attribute a 'morohashi-daikanwa)
-		   (get-char-attribute a 'non-morohashi)))
+     ((setq ra (or (get-char-attribute a 'non-morohashi)
+		   (get-char-attribute a 'morohashi-daikanwa)))
       (cond
-       ((setq rb (or (get-char-attribute b 'morohashi-daikanwa)
-		     (get-char-attribute b 'non-morohashi)))
+       ((setq rb (or (get-char-attribute b 'non-morohashi)
+		     (get-char-attribute b 'morohashi-daikanwa)))
 	(cond
 	 ((= (car ra)(car rb))
 	  (cond ((eq (car (cdr ra))(car (cdr rb)))
@@ -159,8 +159,8 @@
 		(t (< (car (cdr ra))(car (cdr rb))))))
 	 (t (< (car ra)(car rb)))))
        (t)))
-     ((or (get-char-attribute b 'morohashi-daikanwa)
-	  (get-char-attribute b 'non-morohashi))
+     ((or (get-char-attribute b 'non-morohashi)
+	  (get-char-attribute b 'morohashi-daikanwa))
       nil)
      ((setq ra (get-char-attribute a 'ucs))
       (cond
