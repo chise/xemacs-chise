@@ -3648,9 +3648,11 @@ Store character's ATTRIBUTES.
        (attributes))
 {
   Lisp_Object rest = attributes;
-  Lisp_Object code = Fcdr (Fassq (Qucs, attributes));
+  Lisp_Object code = Fcdr (Fassq (Qmap_ucs, attributes));
   Lisp_Object character;
 
+  if (NILP (code))
+    code = Fcdr (Fassq (Qucs, attributes));
   if (NILP (code))
     {
       while (CONSP (rest))
