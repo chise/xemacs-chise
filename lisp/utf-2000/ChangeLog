@@ -1,3 +1,90 @@
+2001-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (M-03247): Add `jisx0208-difference'
+	with `78/1'; unify J78-3C38 and M003247.
+	(M-03248): Separate J78-3C38; unify M003248.
+	(M-03249): Separate G0-4A37, C1-4638, J90-3B4B and U+53F2; unify
+	M054796.
+	(M058260): New character; relate to U+53F2 and M-03249.
+	(U+53F2): Unify G0-4A37, C1-4638, J90-3B4B and M003249.
+	(M-03299): Separate G0-4074, C1-4750, J90-4D79 and U+540F; unify
+	M054797.
+	(M071082): New character; relate to M-03299 and U+540F.
+	(U+540F): Unify G0-4074, C1-4750 and M003299.
+	(M-03383): Unify J78-5260, J83-5260 and M003383.
+	(M055154): New character; relate to U+5440 and M-03383.
+	(M-48970): Add `vulgar-ideograph-of' for M-03329; unify J78-465D,
+	J83-465D and M048970.
+	(U+54D8): Unify J90-5326, M054513 and MH-66.
+	(M-03801): Unify J78-426F and M003801.
+	(J83-426F): Separate J83-426F; unify M054217.
+	(M-03979): Separate J78-5348, J83-5348, C3-3A42 and U+55A9; unify
+	S1-1176 and M003979.
+	(U+55A9): Unify J78-5348, J83-5348 and M055162.
+	(C3-3A42): Unify M059223.
+	(U+55BB): Relate to M-03979; unify M054518; delete
+	`non-morohashi'.
+	(C1-5E51): Relate to M-03979; delete `non-morohashi'.
+	(U+55B8): Delete `non-morohashi'; unify M059228.
+	(U+55B9): Delete `non-morohashi'.
+	(U+55BA): Likewise; unify M059229.
+	(U+55BC): Unify M059230.
+	(M065068): New character; relate to U+55BC.
+	(U+55BD): Delete `non-morohashi'.
+	(M-04254): Separate G0-3330, J83-535E, C1-6C34, J90-535E and
+	U+5632; unify M004254.
+	(U+5632): Unify G0-3330, J83-535E, C1-6C34, J90-535E and M055170.
+	(M-04345): Separate C1-6C3B, J90-4A2E and U+5674; unify S1-1247;
+	add `vulgar-ideograph-of' for M-04409.
+	(U+5674): Unify C1-6C3B, J90-4A2E and M004345.
+	(M-04429): Separate J83-4655, C1-7040, J90-4655 and U+5678; relate
+	to M004429.
+	(U+5678): Unify C1-7040 and M053223.
+	(J83-4655): Unify J90-4655 and M004429.
+	(U+56A2): Unify MH-561, J90-4739 and M054288; add
+	`simplified-ideograph-of' for M-04633.
+	(U+56A1): Add `total-strokes'; unify M059274.
+	(U+56A3): Delete `non-morohashi'.
+	(U+56A4): Likewise; unify M059275.
+	(M-04545): Separate J78-536B; unify M004545.
+	(J78-536B): Unify M055174.
+	(M-04615): Separate C1-7A64, J90-5371 and U+56C1; unify S1-1292.
+	(U+56C1): Unify C1-7A64, J90-5371 and M004615.
+	(M-04633): Unify M004633.
+	(M-04641'): New character; unify M050126.
+	(C7-5758): Relate to M050126.
+	(U+56CE): Delete `non-morohashi'; unify MH-74, J90-5375 and
+	M054523.
+	(M055177): New character; relate to MH-74 and M054523.
+
+2001-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (U+53C8): Unify J90-4B74.
+	(M-03128): Use `script' and `vulgar-ideograph-of' instead of
+	`comment'; separate J78-3C7D and J83-3C7D; unify M003128.
+	(M-03166): Unify M003166.
+	(M067958): New character; relate to U+53DB and M-03166.
+	(J83-4840): Unify J90-4840 and M054307.
+	(C1-5035): Relate to M054307.
+	(U+53DB): Unify M057947.
+	(M-03176): Unify J90-5257.
+
+	* Ideograph-R027-Cliff.el (M-03048'): Add `morohashi-daikanwa' as
+	a source of `simplified-ideograph-of' property for M-04589; unify
+	J90-3837.
+
+2001-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R024-Ten.el (M-02707): Unify M002707.
+	(U+534A): J90-483E and M054306.
+	(J83-485C): Use `script' and `vulgar-ideograph-of' instead of
+	`comment'; unify J90-485C.
+	(M-02739): Use `vulgar-ideograph-of' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(M-02761): Separate S1-833, S2-833 and C1-5E3B.
+	(C1-5E3B): Unify S1-833, S2-833 and M002761.
+	(M-02761'): Unify J90-476E.
+
 2001-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Sort `attributes' and
