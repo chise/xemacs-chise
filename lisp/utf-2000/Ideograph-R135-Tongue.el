@@ -23,7 +23,8 @@
     (total-strokes	 . 6)
     (<-original-ideograph
      (:sources	(shinjigen-1)
-      :char	((mojikyo	     . 030277)	; ý €‡™…
+      :char	((japanese-jisx0208  . #x4065)	; ø»†¾®
+		 (ucs		     . #x820C)	; èˆŒ
 		 )
       ))
     (ideograph-cdp	. 31451)
@@ -37,10 +38,8 @@
     (total-strokes	 . 8)
     (ideograph-cdp	. 31452)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
