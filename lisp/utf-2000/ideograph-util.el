@@ -86,106 +86,20 @@
 ;;;###autoload
 (defun update-ideograph-radical-table ()
   (interactive)
-  (let ((i #x3400)
-	j
-	char radical
-	(charsets '(japanese-jisx0208-1978
-		    japanese-jisx0208
-		    japanese-jisx0208-1990
-		    japanese-jisx0212
-		    japanese-jisx0213-1
-		    japanese-jisx0213-2
-		    chinese-cns11643-1
-		    chinese-cns11643-2
-		    chinese-cns11643-3
-		    chinese-cns11643-4
-		    chinese-cns11643-5
-		    chinese-cns11643-6
-		    chinese-cns11643-7
-		    korean-ksc5601
-		    chinese-gb2312
-		    chinese-isoir165
-		    chinese-big5-1
-		    chinese-big5-2))
-	ret script)
-    (while (<= i #x9FFF)
-      (setq char (decode-char 'ucs i))
-      (when (and (or (null (setq script (get-char-attribute char 'script)))
-		     (memq 'Ideograph script))
-		 (setq radical (char-ideographic-radical char)))
-	(or (get-char-attribute char 'ucs)
-	    (put-char-attribute char 'ucs i))
-	(char-ideographic-strokes char)
-	(if (not (memq char
+  (let (ret script)
+    (map-char-attribute
+     (lambda (char radical)
+       (when (and radical
+		  (or (null (setq script (get-char-attribute char 'script)))
+		      (memq 'Ideograph script)))
+	 (unless (memq char
 		       (setq ret
-			     (aref ideograph-radical-chars-vector radical))))
-	    (aset ideograph-radical-chars-vector radical
-		  (cons char ret))))
-      (setq i (1+ i)))
-    (setq i #x100000)
-    (while (<= i #x10FFFF)
-      (setq char (decode-char 'ucs i))
-      (when (and (or (null (setq script (get-char-attribute char 'script)))
-		     (memq 'Ideograph script))
-		 (setq radical (char-ideographic-radical char)))
-	(if (not (memq char
-		       (setq ret
-			     (aref ideograph-radical-chars-vector radical))))
-	    (aset ideograph-radical-chars-vector radical
-		  (cons char ret))))
-      (setq i (1+ i)))
-    (setq i 1)
-    (while (<= i 66773)
-      (setq char (decode-char 'ideograph-gt i))
-      (if (and (setq radical (char-ideographic-radical char))
-	       (not
-		(memq char
-		      (setq ret
-			    (aref ideograph-radical-chars-vector radical)))))
-	  (aset ideograph-radical-chars-vector radical
-		(cons char ret)))
-      (setq i (1+ i)))
-    (setq i 0)
-    (while (< i 50101)
-      (setq char (decode-char 'ideograph-daikanwa i))
-      (if (and (setq radical (char-ideographic-radical char))
-	       (not
-		(memq char
-		      (setq ret
-			    (aref ideograph-radical-chars-vector radical)))))
-	  (aset ideograph-radical-chars-vector radical
-		(cons char ret)))
-      (setq i (1+ i)))
-    (setq i 0)
-    (while (< i (* 94 60 22))
-      (setq char (decode-char 'mojikyo i))
-      (if (and (setq radical (char-ideographic-radical char))
-	       (not
-		(memq char
-		      (setq ret
-			    (aref ideograph-radical-chars-vector radical)))))
-	  (aset ideograph-radical-chars-vector radical
-		(cons char ret)))
-      (setq i (1+ i)))
-    (while charsets
-      (setq i 33)
-      (while (< i 127)
-	(setq j 33)
-	(while (< j 127)
-	  (setq char (make-char (car charsets) i j))
-	  (if (and (or (null (setq script (get-char-attribute char 'script)))
-		       (memq 'Ideograph script))
-		   (setq radical (char-ideographic-radical char))
-		   (not (memq char
-			      (setq ret
-				    (aref ideograph-radical-chars-vector
-					  radical)))))
-	      (aset ideograph-radical-chars-vector radical
-		    (cons char ret)))
-	  (setq j (1+ j)))
-	(setq i (1+ i)))
-      (setq charsets (cdr charsets)))
-    ))
+			     (aref ideograph-radical-chars-vector radical)))
+	   (char-ideographic-strokes char)
+	   (aset ideograph-radical-chars-vector radical
+		 (cons char ret))))
+       nil)
+     'ideographic-radical)))
 
 (defun int-list< (a b)
   (if (numberp (car a))
@@ -215,7 +129,8 @@
 	(b-m-m (get-char-attribute b 'ideograph-daikanwa))
 	a-m-r b-m-r
 	a-s b-s
-	a-u b-u m ret)
+	a-u b-u
+	ret pat)
     (if a-m-m
 	(setq a-s (char-ideographic-strokes a))
       (setq a-m-r (get-char-attribute a 'morohashi-daikanwa))
@@ -230,10 +145,17 @@
 			 (get-char-attribute a 'ideographic-radical))
 		      (setq a-s (char-ideographic-strokes ret))
 		    (setq a-s (char-ideographic-strokes a))))
-	      (if (setq m (get-char-attribute a '->mojikyo))
-		  (setq a-s (char-ideographic-strokes
-			     (decode-char 'mojikyo m)))
-		(setq a-s (char-ideographic-strokes a)))))
+              (setq a-s (char-ideographic-strokes
+			 (if (cdr a-m-r)
+			     (progn
+			       (setq pat (list a-m-m (car a-m-r)))
+			       (or (map-char-attribute (lambda (c v)
+							 (if (equal v pat)
+							     c))
+						       'morohashi-daikanwa)
+				   a))
+			   a)))
+	      ))
 	(setq a-s (char-ideographic-strokes a))))
     (if b-m-m
 	(setq b-s (char-ideographic-strokes b))
@@ -249,10 +171,17 @@
 			 (get-char-attribute b 'ideographic-radical))
 		      (setq b-s (char-ideographic-strokes ret))
 		    (setq b-s (char-ideographic-strokes b))))
-	      (if (setq m (get-char-attribute b '->mojikyo))
-		  (setq b-s (char-ideographic-strokes
-			     (decode-char 'mojikyo m)))
-		(setq b-s (char-ideographic-strokes b)))))
+              (setq b-s (char-ideographic-strokes
+			 (if (cdr b-m-r)
+			     (progn
+			       (setq pat (list b-m-m (car b-m-r)))
+			       (or (map-char-attribute (lambda (c v)
+							 (if (equal v pat)
+							     c))
+						       'morohashi-daikanwa)
+				   b))
+			   b)))
+	      ))
 	(setq b-s (char-ideographic-strokes b))))
     (if a-s
 	(if b-s
