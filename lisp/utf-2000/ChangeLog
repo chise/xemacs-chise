@@ -1,5 +1,27 @@
 2004-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R212-Dragon.el (K0-5B42): Moved into U+9F90; unify
+	JC3-70AA.
+	(U+9F90): Use `->subsumptive'.
+	(C1-7832): Moved into U+9F90.
+
+	* Ideograph-R170-Mound.el (IU-00028E1A): Unify H11-AB7D.
+
+	* Ideograph-R164-Wine.el (IU-000287F5): Unify H09-E661.
+	(U+48E9): Use `->subsumptive'.
+	(U+9153): Likewise.
+	(U-0002880C): Add H09-E741.
+	(IU-00028810): Unify H09-E766.
+	(IU-00028839): Unify H09-E7DD.
+	(U+9181): Modify family tree.
+	(M-40109): Moved into U+91C5.
+	(C1-7D3C): Likewise; separate JSP-6323.
+	(U+91C5): Use `->subsumptive'.
+
+2004-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (M-38729): Unify H10-C1C0.
+
 	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
 	Delete `=>daikanwa'.
 	(<CJK RADICAL GRASS THREE): Likewise.
