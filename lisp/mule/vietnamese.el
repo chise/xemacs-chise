@@ -37,8 +37,7 @@
 		charset-g1 latin-tcvn5712
 		charset-g2 t ;; unspecified but can be used later.
 		short t
-		mnemonic "VIET/ISO8"
-		composite t))
+		mnemonic "VIET/ISO8"))
   (define-coding-system-alias 'tcvn-5712 'vscii-2)
   )
 
