@@ -307,8 +307,7 @@
       (=gt-pj-3		  . #x5C23)	; &I-GT-14901; [60-03]
       (=daikanwa	  . 11788)	; &I-M-11788;
       (=jef-china3	  . #x4FAB)	; &I-JC3-4FAB;
-      (=ucs@jis-1990	  . #x6256)	; &GT-14901;
-      (=ucs@jis-2000	  . #x6256)	; &GT-14901;
+      (=ucs@jis		  . #x6256)	; &GT-14901;
       )
      ((=ucs@unicode	  . #x6256)	; &UU+6256;
       ))
