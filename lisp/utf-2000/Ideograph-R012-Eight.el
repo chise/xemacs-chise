@@ -929,6 +929,7 @@
     (shinjigen-1	. 503)
     (shinjigen-2	. 503)
     (ideograph-gt-pj-9	. #x4C41)	; ý¡€€ž
+    (ideograph-gt-k	. 06415)	; ý¡„¤
     (ideograph-gt	. 01936)	; ý¡€€ž
     ))
 (define-char
