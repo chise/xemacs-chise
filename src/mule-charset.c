@@ -2363,6 +2363,57 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
   return -1;
 #endif /* not HAVE_LIBCHISE */
 }
+
+#ifdef HAVE_LIBCHISE
+DEFUN ("save-charset-properties", Fsave_charset_properties, 1, 1, 0, /*
+Save properties of CHARSET.
+*/
+       (charset))
+{
+  struct Lisp_Charset *cs;
+  CHISE_Property property;
+  Lisp_Object ccs;
+  unsigned char* feature_name;
+
+  ccs = Fget_charset (charset);
+  cs = XCHARSET (ccs);
+
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  if (SYMBOLP (charset))
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"true-name");
+      feature_name = XSTRING_DATA (Fsymbol_name (charset));
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (CHARSET_NAME (cs),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+  charset = XCHARSET_NAME (ccs);
+  feature_name = XSTRING_DATA (Fsymbol_name (charset));
+
+  property = chise_ds_get_property (default_chise_data_source, "chars");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_CHARS (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "dimension");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_DIMENSION (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+  return Qnil;
+}
+#endif /* HAVE_LIBCHISE */
+
 #endif /* HAVE_CHISE */
 #endif /* UTF2000 */
 
@@ -2703,6 +2754,9 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_mapping_table);
 #ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
+#ifdef HAVE_LIBCHISE
+  DEFSUBR (Fsave_charset_properties);
+#endif /* HAVE_LIBCHISE */
   DEFSUBR (Freset_charset_mapping_table);
 #endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
