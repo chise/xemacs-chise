@@ -31,5 +31,6 @@ EXFUN (Fopen_database, 5);
 EXFUN (Fput_database, 4);
 EXFUN (Fget_database, 3);
 EXFUN (Fclose_database, 1);
+EXFUN (Fmap_database, 2);
 
 #endif /* INCLUDED_database_h_ */
