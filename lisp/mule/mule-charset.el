@@ -3,6 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
+;; Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -251,11 +252,97 @@ DESCRIPTION (string) is the description string of the charset."
 
 ;; Setup auto-fill-chars for charsets that should invoke auto-filling.
 ;; SPACE and NEWLIE are already set.
-(let ((l '(katakana-jisx0201
-	   japanese-jisx0208 japanese-jisx0212
-	   chinese-gb2312 chinese-big5-1 chinese-big5-2)))
-  (while l
-    (put-char-table (car l) t auto-fill-chars)
-    (setq l (cdr l))))
+;; (let ((l '(katakana-jisx0201
+;;            japanese-jisx0208 japanese-jisx0212
+;;            chinese-gb2312 chinese-big5-1 chinese-big5-2)))
+;;   (while l
+;;     (put-char-table (car l) t auto-fill-chars)
+;;     (setq l (cdr l))))
+
+
+;;; @ Coded character set
+;;;
+
+(when (featurep 'utf-2000)
+  (setq default-coded-charset-priority-list
+	'(ascii
+	  control-1
+	  latin-iso8859-1
+	  latin-iso8859-2
+	  latin-iso8859-3
+	  latin-iso8859-4
+	  latin-iso8859-9
+	  latin-jisx0201
+	  cyrillic-iso8859-5
+	  greek-iso8859-7
+	  thai-tis620
+	  =jis-x0208
+	  japanese-jisx0208
+	  =jis-x0208-1990
+	  japanese-jisx0212
+	  japanese-jisx0208-1978
+	  chinese-gb2312
+	  korean-ksc5601
+	  chinese-cns11643-1
+	  chinese-cns11643-2
+	  chinese-cns11643-3
+          chinese-cns11643-4
+	  chinese-cns11643-5
+	  chinese-cns11643-6
+	  chinese-cns11643-7
+	  =jis-x0213-1-2000
+	  =jis-x0213-2-2000
+	  ;; chinese-gb12345
+	  chinese-isoir165
+	  katakana-jisx0201
+	  hebrew-iso8859-8
+	  latin-viscii
+	  latin-viscii-lower
+	  latin-viscii-upper
+	  ipa
+	  lao
+	  ethiopic-ucs
+	  ethiopic
+	  arabic-digit
+	  arabic-1-column
+	  arabic-2-column
+	  =big5-cdp
+	  chinese-big5-eten-a
+	  chinese-big5-eten-b
+	  chinese-big5
+	  =gt-pj-1
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2
+	  ideograph-daikanwa-2
+	  ideograph-daikanwa
+	  =hanziku-1
+	  =hanziku-2
+	  =hanziku-3
+	  =hanziku-4
+	  =hanziku-5
+	  =hanziku-6
+	  =hanziku-7
+	  =hanziku-8
+	  =hanziku-9
+	  =hanziku-10
+	  =hanziku-11
+	  =hanziku-12
+	  =cbeta
+	  ucs-bmp
+	  =jef-china3
+	  arabic-iso8859-6
+	  chinese-big5-1
+	  chinese-big5-2
+	  ucs-sip)))
 
 ;;; mule-charset.el ends here

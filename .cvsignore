@@ -7,7 +7,3 @@ config.status
 GNUmakefile
 Makefile.in
 so_locations
-xemacs-packages
-mule-packages
-site-packages
-gmon.out
