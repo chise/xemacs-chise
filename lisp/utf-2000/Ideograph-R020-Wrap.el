@@ -417,16 +417,15 @@
     (ucs		. #x208CC)	; ð £Œ
     ))
 (define-char
-  '((=>ucs		. #x5306)	; åŒ†
+  '((=>ucs*		. #x5306)	; åŒ†
     (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 772)
+     (:char	((shinjigen-1	     . 772)
 		 (ucs		     . #x5306)	; åŒ†
 		 )
-      ))
+      :sources	(shinjigen-1)))
     (ideographic-structure
      ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
       (ucs		  . #x2FFB)	; â¿»
@@ -439,6 +438,7 @@
     (shinjigen-2	. 774)
     (chinese-cns11643-3 . #x2225)	; ø»•˜†
     (ideograph-daikanwa . 02511)	; ø¸€§
+    (ucs		. #x2F82A)	; ð¯ ª
     ))
 (define-char
   '((morohashi-daikanwa	2511 0 2)
