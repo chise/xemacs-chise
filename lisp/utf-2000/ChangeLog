@@ -1,4 +1,16 @@
+2003-07-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el: Add some GT code points.
+	(M-32477'): Unify H10-D46C and GT-43922.
+	(U-00027163): Separate H10-D46C; relate to M-32477'.
+
 2003-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (M-06920): Separate C3-6073 and CB05463.
+	(U+5B4F): Unify CB05463.
+
+	* Ideograph-R030-Mouth.el (M-04658): Separate C3-6071 and CB02258;
+	modify `ideographic-structure'.
 
 	* u02E00-CJK-Radical-Supplement.el (U+2EBC): Unify GT-37857.
 
