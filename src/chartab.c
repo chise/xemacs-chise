@@ -3254,7 +3254,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 #if defined(HAVE_DATABASE) && 0
     {
       Lisp_Object db;
-      Lisp_Object db_dir = Vdata_directory;
+      Lisp_Object db_dir = Vexec_directory;
       Lisp_Object db_file;
 
       if (NILP (table))
@@ -3266,8 +3266,16 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  XCHAR_TABLE_NAME (table) = attribute;
 	}
       if (NILP (db_dir))
-	db_dir = build_string ("../etc");
+	db_dir = build_string ("../lib-src");
+
+      db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+      if (NILP (Ffile_exists_p (db_dir)))
+	Fmake_directory_internal (db_dir);
+
       db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+      if (NILP (Ffile_exists_p (db_dir)))
+	Fmake_directory_internal (db_dir);
+
       db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
       db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       if (!NILP (db))
@@ -3335,7 +3343,7 @@ Save values of ATTRIBUTE into database file.
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
   Lisp_Object db;
-  Lisp_Object db_dir = Vdata_directory;
+  Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
 
   if (CHAR_TABLEP (table))
@@ -3344,8 +3352,16 @@ Save values of ATTRIBUTE into database file.
     return Qnil;
   
   if (NILP (db_dir))
-    db_dir = build_string ("../etc");
+    db_dir = build_string ("../lib-src");
+
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
   db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
   db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   if (!NILP (Ffile_exists_p (db_file)))
     {
@@ -3380,12 +3396,20 @@ Lisp_Object
 load_char_attribute_maybe (Emchar ch, Lisp_Object attribute)
 {
   Lisp_Object db;
-  Lisp_Object db_dir = Vdata_directory;
+  Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
 
   if (NILP (db_dir))
-    db_dir = build_string ("../etc");
+    db_dir = build_string ("../lib-src");
+
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
   db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
   db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
   if (!NILP (db))
@@ -3431,11 +3455,12 @@ Load values of ATTRIBUTE into database file.
 {
 #ifdef HAVE_DATABASE
   Lisp_Object db;
-  Lisp_Object db_dir = Vdata_directory;
+  Lisp_Object db_dir = Vexec_directory;
   Lisp_Object db_file;
 
   if (NILP (db_dir))
-    db_dir = build_string ("../etc");
+    db_dir = build_string ("../lib-src");
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
   db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
   db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
   db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
