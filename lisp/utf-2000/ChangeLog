@@ -1,3 +1,34 @@
+2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el, Ideograph-R102-Field.el: Merge GB
+	12345 code points.
+
+	* Ideograph-R093-Cow.el: Merge GB 12345 code points.
+
+2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R111-Arrow.el (U+77EF): Unify G1-3D43.
+
+	* Ideograph-R107-Skin.el: Merge GB 12345 code points.
+
+	* Ideograph-R106-White.el (U+769A): Unify G1-3028.
+
+	* Ideograph-R100-Life.el (U+7523): Unify G1-327A.
+
+	* Ideograph-R098-Tile.el (U+750C): Unify G1-6A31.
+
+	* Ideograph-R091-Slice.el (U+7258): Unify G1-6B39.
+
+	* Ideograph-R089-Double-X.el (U+723E): Unify G1-367B.
+
+	* Ideograph-R088-Father.el (U+723A): Unify G1-522F.
+
+	* Ideograph-R087-Claw.el: Merge GB 12345 code points.
+
+2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el: Merge GB 12345 code points.
+
 2001-08-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R077-Stop.el, Ideograph-R084-Steam.el: Merge GB 12345
