@@ -275,6 +275,8 @@
 	   ?\u2421)
 	  (t ret))))
 
+(defvar char-db-convert-obsolete-format t)
+
 (defun insert-char-attributes (char &optional readable
 				    attributes ccs-attributes
 				    column)
@@ -324,7 +326,9 @@
       )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
-      (insert (format "(=>ucs\t\t. #x%04X)\t; %c%s"
+      (insert (format (if char-db-convert-obsolete-format
+			  "(=>ucs\t\t. #x%04X)\t; %c%s"
+			"(->ucs\t\t. #x%04X)\t; %c%s")
 		      value (decode-char 'ucs value)
 		      line-breaking))
       (setq attributes (delq '->ucs attributes))
@@ -577,6 +581,7 @@
 			      ->fullwidth <-fullwidth
 			      ->vulgar-ideograph <-vulgar-ideograph
 			      ->ancient-ideograph <-ancient-ideograph
+			      ->simplified-ideograph <-simplified-ideograph
 			      ->same-ideograph
 			      ->bopomofo))
 		 (insert (format "(%-18s%s " name line-breaking))
