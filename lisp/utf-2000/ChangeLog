@@ -1,3 +1,19 @@
+2002-04-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Modify
+	for new definitions of big5 variants.
+
+	* ad-hoc-cdp.el:
+	- Use `chinese-big5-pua' instead of `chinese-big5' as the private
+	  used area of Big5.
+	- Comment out code to remove `chinese-big5' attribute from
+	  `chinese-big5-cdp' characters.
+
+2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el: Use `chinese-big5-pua' instead of
+	`chinese-big5'.
+
 2002-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* isolated-char.el (GT-19655): New character.
