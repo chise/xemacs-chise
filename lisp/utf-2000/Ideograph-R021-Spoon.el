@@ -154,44 +154,31 @@
   '((ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (hanyu-dazidian	1 262 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=big5-cdp	  . #x8BC5)	; &CDP-8BC5;
-      )
-     ((=ucs		  . #x5315)	; 匕
-      ))
-    (shinjigen-1	. 784)
-    (shinjigen-2	. 784)
     (=ucs		. #x5317)	; 北
-    (=jis-x0208		. #x4B4C)	; &I-J90-4B4C; [43-44]
-    (=gb2312		. #x3131)	; &I-G0-3131; [17-17]
-    (=ks-x1001		. #x5D41)	; &I-K0-5D41; [61-33]
-    (=big5		. #xA55F)	; &I-B-A55F;
-    (=gt		. 03302)	; &I-GT-03302;
-    (=gt-k		. 01003)	; &I-GT-K01003;
-    (=gt-pj-1		. #x4B4C)	; &I-GT-03302; [43-44]
-    (=daikanwa		. 02574)	; &I-M-02574;
-    ))
-(define-char
-  '((=>ucs		. #x5317)	; 北
-    (morohashi-daikanwa	2574 0 0)
-    (ideographic-radical . 21)	; ⼔
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     (:cdp-combinator	1
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-		 (=ucs		     . #x2FF0)	; ⿰
-		 )
+    (->subsumptive
+     ((hanyu-dazidian	  1 262 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=big5-cdp	    . #x8BC5)	; &CDP-8BC5;
+	)
+       ((=ucs		    . #x5315)	; 匕
+	))
+      (shinjigen-1	  . 784)
+      (shinjigen-2	  . 784)
+      (=jis-x0208	  . #x4B4C)	; &GT-03302; [43-44]
+      (=gb2312		  . #x3131)	; &I-G0-3131; [17-17]
+      (=ks-x1001	  . #x5D41)	; &I-K0-5D41; [61-33]
+      (=big5		  . #xA55F)	; &I-B-A55F;
+      (=gt		  . 03302)	; &I-GT-03302;
+      (=gt-k		  . 01003)	; &I-GT-K01003;
+      (=gt-pj-1		  . #x4B4C)	; &I-GT-03302; [43-44]
+      (=daikanwa	  . 02574)	; &I-M-02574;
+      (=ucs@unicode	  . #x5317)	; &GT-03302;
       )
-     ((=big5-cdp	  . #x8BC5)	; &CDP-8BC5;
-      )
-     ((=ucs		  . #x5315)	; 匕
+     ((=cns11643-1	  . #x4621)	; &C1-4621; [38-01]
       ))
-    (=cns11643-1	. #x4621)	; &C1-4621; [38-01]
     ))
 (define-char
   '((ideographic-radical . 21)	; ⼔
