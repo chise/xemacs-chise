@@ -380,6 +380,7 @@
      ((ideographic-strokes . 6)
       (total-strokes	   . 11)
       (=cns11643-2	  . #x3749)	; &C2-3749; [23-41]
+      (=ucs@cns		  . #x7689)	; &C2-3749;
       ))
     ))
 (define-char
@@ -392,6 +393,7 @@
      ((=daikanwa	  . 22712)	; &M-22712;
       )
      ((=cns11643-2	  . #x312E)	; &C2-312E; [17-14]
+      (=ucs@cns		  . #x768A)	; &C2-312E;
       )
      ((=ucs@unicode	  . #x768A)	; &UU+768A;
       ))
@@ -1407,6 +1409,7 @@
       (=ucs@unicode	  . #x76AA)	; &M-22806;
       )
      ((=cns11643-2	  . #x6940)	; &C2-6940; [73-32]
+      (=ucs@cns		  . #x76AA)	; &C2-6940;
       ))
     ))
 (define-char
@@ -1421,6 +1424,7 @@
      ((=ucs@unicode	  . #x76AB)	; &UU+76AB;
       )
      ((=cns11643-2	  . #x693F)	; &C2-693F; [73-31]
+      (=ucs@cns		  . #x76AB)	; &C2-693F;
       ))
     ))
 (define-char
