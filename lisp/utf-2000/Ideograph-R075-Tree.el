@@ -13670,19 +13670,17 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x3BA4)	; 㮤
-    (ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=jis-x0213-2-2000	. #x2F34)	; &M-15227; [15-20]
-    (=daikanwa		. 15227)	; &I-M-15227;
-    ))
-(define-char
-  '((morohashi-daikanwa	15227 0 0)
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=ucs		. #x3BA4)	; 㮤
+    (->subsumptive
+     ((=jis-x0213-2-2000  . #x2F34)	; &M-15227; [15-20]
+      (=daikanwa	  . 15227)	; &I-M-15227;
+      (=ucs@jis		  . #x3BA4)	; &M-15227;
+      )
+     ((=ucs@unicode	  . #x3BA4)	; &UU+3BA4;
+      ))
     ))
 (define-char
   '((=>ucs		. #x6995)	; 榕
