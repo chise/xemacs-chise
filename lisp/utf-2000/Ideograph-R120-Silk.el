@@ -9914,7 +9914,8 @@
     (=ucs		. #x7E23)	; 縣
     (=big5		. #xBFA4)	; &I-B-BFA4;
     (->subsumptive
-     ((shinjigen-2	  . 6143)
+     ((shinjigen-1	  . 6141)
+      (shinjigen-2	  . 6143)
       (=jis-x0208	  . #x6551)	; &GT-35730; [69-49]
       (=ks-x1001	  . #x7A63)	; &I-K0-7A63; [90-67]
       (=gt		  . 35730)	; &I-GT-35730;
