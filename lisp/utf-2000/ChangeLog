@@ -1,8 +1,20 @@
-2000-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+2000-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R141-Tiger.el: Resorted; add missing
+	* Ideograph-R211-Tooth.el: Resorted; add missing
 	`ideographic-strokes' attributes; use `ideographic-strokes' if
 	each stroke attribute has same value.
+
+2000-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el: Add missing `ideographic-strokes'
+	attributes; use `ideographic-strokes' if each stroke attribute has
+	same value.
+
+2000-09-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el, Ideograph-R141-Tiger.el: Resorted; add
+	missing `ideographic-strokes' attributes; use
+	`ideographic-strokes' if each stroke attribute has same value.
 
 2000-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
