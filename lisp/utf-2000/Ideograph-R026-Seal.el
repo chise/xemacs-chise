@@ -893,6 +893,11 @@
     (=hanziku-1		. #xE7C4)	; &I-HZK01-E7C4;
     ))
 (define-char
+  '((ideographic-radical . 26)	; ⼙
+    (hanyu-dazidian	1 318 3)
+    (=ucs		. #x537F)	; 卿
+    ))
+(define-char
   '((=>ucs*		. #x537F)	; 卿
     (ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 9)
@@ -985,11 +990,6 @@
     (=ucs		. #x2F833)	; 卿
     (=cns11643-3	. #x3A26)	; &I-C3-3A26;
     (=daikanwa		. 02879)	; &I-M-02879;
-    ))
-(define-char
-  '((ideographic-radical . 26)	; ⼙
-    (hanyu-dazidian	1 318 3)
-    (=ucs		. #x537F)	; 卿
     ))
 (define-char
   '((ideographic-radical . 26)	; ⼙
