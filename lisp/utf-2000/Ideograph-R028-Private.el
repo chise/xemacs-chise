@@ -672,14 +672,12 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (=ucs		. #x20AF8)	; 𠫸
-    ))
-(define-char
-  '((=>ucs		. #x20AF8)	; 𠫸
-    (ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 387 10)
-    (=hanziku-1		. #xF5B6)	; &HZK01-F5B6;
+    (->subsumptive
+     ((=ucs@iso		  . #x20AF8)	; &UU+20AF8;
+      )
+     ((hanyu-dazidian	  1 387 10)
+      (=hanziku-1	  . #xF5B6)	; &HZK01-F5B6;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 28)	; ⼛
@@ -690,6 +688,9 @@
     (hanyu-dazidian	1 387 18)
     (=ucs		. #x20AFC)	; 𠫼
     (=cns11643-6	. #x352E)	; &I-C6-352E;
+    (=gt		. 00368)	; &I-GT-00368;
+    (=gt-k		. 06658)	; &I-GT-K06658;
+    (=gt-pj-2		. #x3244)	; &I-GT-00368;
     (=daikanwa		. 00283)	; &I-M-00283;
     (=hanziku-1		. #xF5BE)	; &I-HZK01-F5BE;
     ))
