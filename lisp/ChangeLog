@@ -1,3 +1,10 @@
+2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* format.el (format-alist): Revive `image/jpeg', `image/gif',
+	`image/png', `image/x-xpm' and `image/tiff'.
+
+	* files.el (binary-file-regexps): Add *.PNG.
+
 2000-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
