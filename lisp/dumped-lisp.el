@@ -451,7 +451,7 @@
 
 	(when-feature mule "arabic")
 	(when-feature mule "chinese")
-;	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
+	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
 	(when-feature mule "ethiopic")
 	(when-feature mule "european")
@@ -460,8 +460,8 @@
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
 	(when-feature mule "misc-lang")
-;	(when-feature mule "thai-xtis-chars")
-;	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
+	(when-feature mule "thai-xtis-chars")
+	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
 	(when-feature (and mule (not utf-2000)) "viet-ccl")
 	(when-feature mule "vietnamese")
