@@ -1619,6 +1619,10 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 17)
     (hanyu-dazidian-char . 12)
+    (->identical
+     ((chinese-cns11643-6 . #x2467)	; ø»›º
+      (ideograph-daikanwa . 09592)	; ø¸‚•¸
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
