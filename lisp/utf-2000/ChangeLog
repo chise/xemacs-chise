@@ -1,5 +1,19 @@
 2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R030-Mouth.el (JX2-243A): Unify U-00020E64.
+
+	* Ideograph-R009-Man.el (JX2-2170): Unify U-0002032B.
+	(JX2-2179): Unify U-00020371.
+	(C4-4234): Relate to U-00020371.
+
+	* Ideograph-R004-Slash.el (C4-2226): Unify U-000200A2.
+	(JX2-212B): Relate to U-000200A2.
+	(JX2-212E): Unify U-000200A4.
+
+	* README.en (Character Reference): Add `inkai'.
+
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R037-Big.el, Ideograph-R036-Evening.el,
 	Ideograph-R035-Go-Slowly.el, Ideograph-R033-Scholar.el: Merge
 	missing KS X 1001 code points.
