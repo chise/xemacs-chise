@@ -1514,6 +1514,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (chinese-cns11643-3 . #x5371)	; ø»–¡
+    (chinese-big5-cdp	. #x8DC0)	; ý¢€ˆ·€
     (ucs		. #x99E6)	; é§¦
     ))
 (define-char
