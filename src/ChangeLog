@@ -1,4 +1,4 @@
-2001-11-05  MORIOKA Tomohiko  <tomo@localhost>
+2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (uint8_byte_table_description): New constant.
 	(uint8-byte-table): Use `uint8_byte_table_description'.
