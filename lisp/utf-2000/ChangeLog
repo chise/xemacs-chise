@@ -1,3 +1,33 @@
+2004-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+5BC3): Add J97-5563.
+
+	* Ideograph-R033-Scholar.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+58F7): Add `<-same' for U+58FA.
+	(U+58FF): Changed to abstract character.
+	(M-05678): Use `<-denotational' for U+58FF.
+	(C2-4F7A): Likewise; use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R026-Seal.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U-00020A1D): Unify GT-03655.
+	(U+537E): Unify GT-03657.
+	(U+537F): Add B-ADEB and J97-362A.
+	(G0-4764): Add `<-simplified@JP' for J78-362A.
+	(U-0002F833): Use `->same' and `->same*sources' instead of
+	`->ideographic-variants' with char-ref.
+	(J78-362A): Add `<-same' for U-0002F833; separate B-ADEB; add
+	KU+537F.
+
 2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R027-Cliff.el: Use `=jis-x0208@{1978|1983|1990}'
