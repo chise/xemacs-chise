@@ -4,11 +4,18 @@
 
 1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* character.h (REP_BYTES_BY_FIRST_BYTE): Change order of
+	condition.
+
+1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* character.h (LEADING_BYTE_PRIVATE_P): Don't define in UTF2000.
 	(CHARSET_PRIVATE_P): Likewise.
 	(XCHARSET_PRIVATE_P): Likewise.
-	(REP_BYTES_BY_FIRST_BYTE): Change order of condition.
 	(MAKE_CHAR): Don't use XCHARSET_PRIVATE_P in UTF2000.
+
+	* file-coding.c (encode_coding_ucs4): Don't implement in UTF2000.
+	(decode_coding_iso2022): Don't use XCHARSET_PRIVATE_P in UTF2000.
 
 1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
