@@ -1545,7 +1545,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (=jis-x0208-1990	. #x612E)	; ø½‹”‰
-    (chinese-gb12345	. #x6A31)	; ç”Œ
+    (=gb12345		. #x6A31)	; ç”Œ
     (=big5		. #xBF5E)	; ý¢€‹½ž
     (=ucs		. #x750C)	; ç”Œ
     ))

@@ -262,7 +262,7 @@
       )
      ((=big5-cdp	  . #x8A60)	; ������
       ))
-    (chinese-gb12345	. #x7D67)	; 兯
+    (=gb12345		. #x7D67)	; 兯
     (=ucs		. #x516F)	; 兯
     ))
 (define-char
@@ -1041,7 +1041,7 @@
        ((=ucs		    . #x5315)	; 匕
 	))
       ))
-    (chinese-gb12345	. #x7D45)	; 兺
+    (=gb12345		. #x7D45)	; 兺
     (=ucs		. #x517A)	; 兺
     ))
 (define-char

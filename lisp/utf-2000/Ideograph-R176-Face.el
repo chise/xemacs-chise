@@ -676,7 +676,7 @@
     (total-strokes	 . 23)
     (shinjigen-2	. 9043)
     (=jis-x0208		. #x7054)	; ø½‹ª±
-    (chinese-gb12345	. #x584C)	; é¨
+    (=gb12345		. #x584C)	; é¨
     (ideograph-daikanwa . 42698)	; ø¸Š›Š
     (=ucs		. #x9768)	; é¨
     ))

@@ -1734,7 +1734,7 @@
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x6B39)	; 牘
+    (=gb12345		. #x6B39)	; 牘
     (=ucs		. #x7258)	; 牘
     ))
 (define-char

@@ -77,7 +77,7 @@
       )
      ((=big5-cdp	  . #x8B7C)	; ������
       ))
-    (chinese-gb12345	. #x623B)	; 飠
+    (=gb12345		. #x623B)	; 飠
     (=ucs		. #x98E0)	; 飠
     ))
 (define-char
@@ -212,7 +212,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 10)
     (=jis-x0208		. #x3532)	; �����
-    (chinese-gb12345	. #x783F)	; 飢
+    (=gb12345		. #x783F)	; 飢
     (=gt-pj-1		. #x3532)	; 飢
     (=gt-k		. 06397)	; ������
     (mojikyo		. 050580)	; ������
@@ -627,7 +627,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x623D)	; 飩
+    (=gb12345		. #x623D)	; 飩
     (=ucs		. #x98E9)	; 飩
     ))
 (define-char
@@ -660,7 +660,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x623F)	; 飪
+    (=gb12345		. #x623F)	; 飪
     (=ucs		. #x98EA)	; 飪
     ))
 (define-char
@@ -694,7 +694,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x6240)	; 飫
+    (=gb12345		. #x6240)	; 飫
     (=ucs		. #x98EB)	; 飫
     ))
 (define-char
@@ -806,7 +806,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x6241)	; 飭
+    (=gb12345		. #x6241)	; 飭
     (=ucs		. #x98ED)	; 飭
     ))
 (define-char
@@ -887,7 +887,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
     (=jis-x0208		. #x307B)	; �����
-    (chinese-gb12345	. #x527B)	; 飲
+    (=gb12345		. #x527B)	; 飲
     (=gt-pj-1		. #x307B)	; 飲
     (=gt-k		. 08993)	; ������
     (mojikyo		. 050582)	; ������
@@ -942,7 +942,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x3739)	; 飯
+    (=gb12345		. #x3739)	; 飯
     (=ucs		. #x98EF)	; 飯
     ))
 (define-char
@@ -1239,7 +1239,7 @@
     (shinjigen-2	. 9250)
     (=jis-x0208-1983	. #x303B)	; �����
     (=jis-x0208-1990	. #x303B)	; �����
-    (chinese-gb12345	. #x6242)	; 飴
+    (=gb12345		. #x6242)	; 飴
     (=ucs		. #x98F4)	; 飴
     ))
 (define-char
@@ -1635,7 +1635,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
     (=jis-x0208		. #x3B74)	; �����
-    (chinese-gb12345	. #x4B47)	; 飼
+    (=gb12345		. #x4B47)	; 飼
     (mojikyo		. 050584)	; ������
     (=ucs		. #x98FC)	; 飼
     ))
@@ -1685,7 +1685,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
-    (chinese-gb12345	. #x3125)	; 飽
+    (=gb12345		. #x3125)	; 飽
     (=ucs		. #x98FD)	; 飽
     ))
 (define-char
@@ -1726,7 +1726,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
     (=jis-x0208		. #x3E7E)	; �����
-    (chinese-gb12345	. #x4A4E)	; 飾
+    (=gb12345		. #x4A4E)	; 飾
     (mojikyo		. 050586)	; ������
     (=ucs		. #x98FE)	; 飾
     ))
@@ -2059,7 +2059,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
-    (chinese-gb12345	. #x3D48)	; 餃
+    (=gb12345		. #x3D48)	; 餃
     (=ucs		. #x9903)	; 餃
     ))
 (define-char
@@ -2100,7 +2100,7 @@
     (total-strokes	 . 14)
     (=jis-x0208-1983	. #x4C5F)	; �����
     (=jis-x0208-1990	. #x4C5F)	; �����
-    (chinese-gb12345	. #x317D)	; 餅
+    (=gb12345		. #x317D)	; 餅
     (=ucs		. #x9905)	; 餅
     ))
 (define-char
@@ -2219,7 +2219,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
-    (chinese-gb12345	. #x6243)	; 餉
+    (=gb12345		. #x6243)	; 餉
     (=ucs		. #x9909)	; 餉
     ))
 (define-char
@@ -2296,7 +2296,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (chinese-gb12345	. #x5178)	; 養
+    (=gb12345		. #x5178)	; 養
     (=ucs		. #x990A)	; 養
     ))
 (define-char
@@ -2353,7 +2353,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 14)
     (=jis-x0208-1983	. #x3142)	; �����
-    (chinese-gb12345	. #x367C)	; 餌
+    (=gb12345		. #x367C)	; 餌
     (=ucs		. #x990C)	; 餌
     ))
 (define-char
@@ -2648,7 +2648,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x6244)	; 餑
+    (=gb12345		. #x6244)	; 餑
     (=ucs		. #x9911)	; 餑
     ))
 (define-char
@@ -2674,7 +2674,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x4459)	; 餒
+    (=gb12345		. #x4459)	; 餒
     (=ucs		. #x9912)	; 餒
     ))
 (define-char
@@ -2749,7 +2749,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
     (=jis-x0208		. #x326E)	; �����
-    (chinese-gb12345	. #x3676)	; 餓
+    (=gb12345		. #x3676)	; 餓
     (mojikyo		. 050587)	; ������
     (=ucs		. #x9913)	; 餓
     ))
@@ -3023,7 +3023,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
-    (chinese-gb12345	. #x5360)	; 餘
+    (=gb12345		. #x5360)	; 餘
     (=ucs		. #x9918)	; 餘
     ))
 (define-char
@@ -3251,7 +3251,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x6246)	; 餛
+    (=gb12345		. #x6246)	; 餛
     (=ucs		. #x991B)	; 餛
     ))
 (define-char
@@ -3444,7 +3444,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x3D24)	; 餞
+    (=gb12345		. #x3D24)	; 餞
     (=ucs		. #x991E)	; 餞
     ))
 (define-char
@@ -3601,7 +3601,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x4F5A)	; 餡
+    (=gb12345		. #x4F5A)	; 餡
     (=ucs		. #x9921)	; 餡
     ))
 (define-char
@@ -3797,7 +3797,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
     (=jis-x0208		. #x345B)	; �����
-    (chinese-gb12345	. #x395D)	; 館
+    (=gb12345		. #x395D)	; 館
     (mojikyo		. 050588)	; ������
     (=ucs		. #x9928)	; 館
     ))
@@ -4404,7 +4404,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
-    (chinese-gb12345	. #x623C)	; 餳
+    (=gb12345		. #x623C)	; 餳
     (=ucs		. #x9933)	; 餳
     ))
 (define-char
@@ -4556,7 +4556,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
     (chinese-cns11643-4 . #x5A29)	; �����
-    (chinese-gb12345	. #x6247)	; 餷
+    (=gb12345		. #x6247)	; 餷
     (=ucs		. #x9937)	; 餷
     ))
 (define-char
@@ -4883,7 +4883,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x623E)	; 餼
+    (=gb12345		. #x623E)	; 餼
     (=ucs		. #x993C)	; 餼
     ))
 (define-char
@@ -4974,7 +4974,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x4173)	; 餾
+    (=gb12345		. #x4173)	; 餾
     (=ucs		. #x993E)	; 餾
     ))
 (define-char
@@ -5012,7 +5012,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 9)
     (total-strokes	 . 17)
-    (chinese-gb12345	. #x6248)	; 餿
+    (=gb12345		. #x6248)	; 餿
     (=ucs		. #x993F)	; 餿
     ))
 (define-char
@@ -5207,7 +5207,7 @@
   '((ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x6249)	; 饃
+    (=gb12345		. #x6249)	; 饃
     (=ucs		. #x9943)	; 饃
     ))
 (define-char
@@ -5367,7 +5367,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x4278)	; 饅
+    (=gb12345		. #x4278)	; 饅
     (=ucs		. #x9945)	; 饅
     ))
 (define-char
@@ -5602,7 +5602,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x624A)	; 饈
+    (=gb12345		. #x624A)	; 饈
     (=ucs		. #x9948)	; 饈
     ))
 (define-char
@@ -5655,7 +5655,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 11)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x624B)	; 饉
+    (=gb12345		. #x624B)	; 饉
     (=ucs		. #x9949)	; 饉
     ))
 (define-char
@@ -5867,7 +5867,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x624C)	; 饊
+    (=gb12345		. #x624C)	; 饊
     (=ucs		. #x994A)	; 饊
     ))
 (define-char
@@ -5949,7 +5949,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x4021)	; 饋
+    (=gb12345		. #x4021)	; 饋
     (=ucs		. #x994B)	; 饋
     ))
 (define-char
@@ -6019,7 +6019,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x624D)	; 饌
+    (=gb12345		. #x624D)	; 饌
     (=ucs		. #x994C)	; 饌
     ))
 (define-char
@@ -6187,7 +6187,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x3C22)	; 饑
+    (=gb12345		. #x3C22)	; 饑
     (=ucs		. #x9951)	; 饑
     ))
 (define-char
@@ -6240,7 +6240,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x4844)	; 饒
+    (=gb12345		. #x4844)	; 饒
     (=ucs		. #x9952)	; 饒
     ))
 (define-char
@@ -6691,7 +6691,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (chinese-gb12345	. #x774F)	; 饗
+    (=gb12345		. #x774F)	; 饗
     (=ucs		. #x9957)	; 饗
     ))
 (define-char
@@ -6978,7 +6978,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
-    (chinese-gb12345	. #x7750)	; 饜
+    (=gb12345		. #x7750)	; 饜
     (=ucs		. #x995C)	; 饜
     ))
 (define-char
@@ -7305,7 +7305,7 @@
     (ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 17)
     (total-strokes	 . 25)
-    (chinese-gb12345	. #x3276)	; 饞
+    (=gb12345		. #x3276)	; 饞
     (=ucs		. #x995E)	; 饞
     ))
 (define-char
@@ -7418,7 +7418,7 @@
 (define-char
   '((ideographic-radical . 184)	; ⾷
     (ideographic-strokes . 21)
-    (chinese-gb12345	. #x624E)	; 饢
+    (=gb12345		. #x624E)	; 饢
     (=ucs		. #x9962)	; 饢
     ))
 (define-char

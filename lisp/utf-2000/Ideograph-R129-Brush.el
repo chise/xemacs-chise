@@ -121,7 +121,7 @@
     (=jis-x0208		. #x6669)	; ø½‹œš
     (=ks-x1001		. #x625C)	; ø»‰º¥
     (chinese-cns11643-1 . #x6148)	; ø»’¡ƒ
-    (chinese-gb12345	. #x4B60)	; è‚…
+    (=gb12345		. #x4B60)	; è‚…
     (=gt-pj-1		. #x6669)	; è‚…
     (ideograph-daikanwa . 29225)	; ø¸‡ˆ©
     (=gt-k		. 10340)	; ý¡„‚¡¤

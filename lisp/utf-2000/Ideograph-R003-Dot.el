@@ -43,7 +43,7 @@
       )
      ((=ucs		  . #x4E3F)	; ä¸¿
       ))
-    (chinese-gb12345	. #x7D65)	; ä¸·
+    (=gb12345		. #x7D65)	; ä¸·
     (=big5-cdp		. #x8B55)	; ý¢€ˆ­•
     (mojikyo		. 059001)	; ý €Ž™¹
     (=ucs		. #x4E37)	; ä¸·

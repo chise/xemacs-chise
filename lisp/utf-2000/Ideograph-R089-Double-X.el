@@ -171,7 +171,7 @@
     (=jis-x0208		. #x3C24)	; ø½Š©
     (=ks-x1001		. #x6C33)	; ø»Šˆ¨
     (chinese-cns11643-1 . #x695F)	; ø»’­Š
-    (chinese-gb12345	. #x367B)	; çˆ¾
+    (=gb12345		. #x367B)	; çˆ¾
     (=gt-pj-1		. #x3C24)	; çˆ¾
     (=big5		. #xBAB8)	; ý¢€‹ª¸
     (ideograph-daikanwa . 19750)	; ø¸„´¦

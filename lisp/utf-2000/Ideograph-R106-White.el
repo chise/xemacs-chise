@@ -845,7 +845,7 @@
     (shinjigen-2	. 5212)
     (=jis-x0208		. #x622D)	; ø½‹•¦
     (chinese-cns11643-1 . #x6D73)	; ø»’³–
-    (chinese-gb12345	. #x3028)	; çšš
+    (=gb12345		. #x3028)	; çšš
     (ideograph-daikanwa . 22765)	; ø¸…£­
     (=ucs		. #x769A)	; çšš
     ))

@@ -1959,7 +1959,7 @@
     (=jis-x0208		. #x5D4C)	; ø½‹Ž¯
     (=ks-x1001		. #x6D51)	; ø»ŠŠ¤
     (chinese-cns11643-1 . #x6024)	; ø»’Ÿ
-    (chinese-gb12345	. #x3250)	; æ®˜
+    (=gb12345		. #x3250)	; æ®˜
     (=gt-pj-1		. #x5D4C)	; æ®˜
     (=big5		. #xB4DD)	; ý¢€‹“
     (ideograph-daikanwa . 16506)	; ø¸„º
@@ -2387,7 +2387,7 @@
     (=jis-x0208		. #x5D4E)	; ø½‹Ž±
     (=ks-x1001		. #x6979)	; ø»Š…”
     (chinese-cns11643-2 . #x4B2E)	; ø»”Š™
-    (chinese-gb12345	. #x6966)	; æ®ž
+    (=gb12345		. #x6966)	; æ®ž
     (=big5		. #xE266)	; ý¢€Ž‰¦
     (ideograph-daikanwa . 16535)	; ø¸„‚—
     (=ucs		. #x6B9E)	; æ®ž
@@ -2622,7 +2622,7 @@
     (shinjigen-2	. 3983)
     (=jis-x0208		. #x5D4F)	; ø½‹Ž²
     (chinese-cns11643-1 . #x6D46)	; ø»’²©
-    (chinese-gb12345	. #x6964)	; æ®¤
+    (=gb12345		. #x6964)	; æ®¤
     (=gt-pj-1		. #x5D4F)	; æ®¤
     (=big5		. #xBCDC)	; ý¢€‹³œ
     (ideograph-daikanwa . 16557)	; ø¸„‚­
@@ -2966,7 +2966,7 @@
     (shinjigen-2	. 3985)
     (=jis-x0208		. #x5D51)	; ø½‹Ž´
     (chinese-cns11643-2 . #x576E)	; ø»”
-    (chinese-gb12345	. #x6969)	; æ®«
+    (=gb12345		. #x6969)	; æ®«
     (=big5		. #xE9E3)	; ý¢€Ž§£
     (ideograph-daikanwa . 16581)	; ø¸„ƒ…
     (=ucs		. #x6BAB)	; æ®«
@@ -3114,7 +3114,7 @@
     (=jis-x0212		. #x462E)	; ø»‹š³
     (chinese-cns11643-1 . #x737D)	; ø»’¼”
     (=jis-x0213-2-2000	. #x6E22)	; ø»¦Ž‡
-    (chinese-gb12345	. #x6967)	; æ®®
+    (=gb12345		. #x6967)	; æ®®
     (=big5		. #xC0D4)	; ý¢€Œƒ”
     (ideograph-daikanwa . 16590)	; ø¸„ƒŽ
     (=jef-china3	. #x54E8)	; øº…“¨
@@ -3210,7 +3210,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (chinese-cns11643-1 . #x7658)	; ø»“€‰
-    (chinese-gb12345	. #x696B)	; æ®¯
+    (=gb12345		. #x696B)	; æ®¯
     (=ucs		. #x6BAF)	; æ®¯
     ))
 (define-char
@@ -3361,7 +3361,7 @@
     (=jis-x0208		. #x5D53)	; ø½‹Ž¶
     (=ks-x1001		. #x6068)	; ø»‰·µ
     (chinese-cns11643-1 . #x7A73)	; ø»“†œ
-    (chinese-gb12345	. #x3C5F)	; æ®²
+    (=gb12345		. #x3C5F)	; æ®²
     (=big5		. #xC4E8)	; ý¢€Œ“¨
     (ideograph-daikanwa . 16608)	; ø¸„ƒ 
     (=ucs		. #x6BB2)	; æ®²

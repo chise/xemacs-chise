@@ -1234,7 +1234,7 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
-    (chinese-gb12345	. #x6B4A)	; 朧
+    (=gb12345		. #x6B4A)	; 朧
     (=ucs		. #x6727)	; 朧
     ))
 (define-char

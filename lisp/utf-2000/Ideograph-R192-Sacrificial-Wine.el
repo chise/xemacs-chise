@@ -167,7 +167,7 @@
     (total-strokes	 . 29)
     (=jis-x0208		. #x5D35)	; ø½‹Ž˜
     (=ks-x1001		. #x6A26)	; ø»Š…Ÿ
-    (chinese-gb12345	. #x5374)	; é¬±
+    (=gb12345		. #x5374)	; é¬±
     (ideograph-daikanwa . 45671)	; ø¸‹‰§
     (=ucs		. #x9B31)	; é¬±
     ))

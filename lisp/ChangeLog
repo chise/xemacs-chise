@@ -1,3 +1,8 @@
+2003-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el: `chinese-gb12345' is renamed to `=gb12345'.
+	(chinese-gb12345): New alias for `=gb12345'.
+
 2003-04-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el: `chinese-gb2312' is renamed to `=gb2312'.

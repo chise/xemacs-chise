@@ -1516,7 +1516,7 @@
     (ideographic-radical . 124)	; ⽻
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (chinese-gb12345	. #x4F30)	; 習
+    (=gb12345		. #x4F30)	; 習
     (=ucs		. #x7FD2)	; 習
     ))
 (define-char
@@ -4660,7 +4660,7 @@
      ((=ucs		  . #x7FBD)	; 羽
       ))
     (chinese-cns11643-1 . #x7728)	; �����
-    (chinese-gb12345	. #x474C)	; 翹
+    (=gb12345		. #x474C)	; 翹
     (=ucs		. #x7FF9)	; 翹
     ))
 (define-char

@@ -90,7 +90,7 @@
   '((ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (chinese-gb12345	. #x7D70)	; ä¹›
+    (=gb12345		. #x7D70)	; ä¹›
     (=big5-cdp		. #x8D54)	; ý¢€ˆµ”
     (mojikyo		. 059003)	; ý €Ž™»
     (=ucs		. #x4E5B)	; ä¹›
@@ -450,7 +450,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D6A)	; ä¹¤
+    (=gb12345		. #x7D6A)	; ä¹¤
     (=ucs		. #x4E64)	; ä¹¤
     ))
 (define-char
@@ -465,7 +465,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D6C)	; ä¹¥
+    (=gb12345		. #x7D6C)	; ä¹¥
     (=ucs		. #x4E65)	; ä¹¥
     ))
 (define-char
@@ -788,7 +788,7 @@
      ((=ucs		  . #x7530)	; ç”°
       ))
     (chinese-cns11643-4 . #x2228)	; ø»—¢
-    (chinese-gb12345	. #x7C5A)	; ä¹ª
+    (=gb12345		. #x7C5A)	; ä¹ª
     (=gt-pj-2		. #x3155)	; ý¡€€ƒ¶
     (ideograph-daikanwa . 00185)	; ø¸€‚¹
     (=gt		. 00246)	; ý¡€€ƒ¶
@@ -848,7 +848,7 @@
      ((=ucs		  . #x4E59)	; ä¹™
       ))
     (=ks-x1001		. #x4A61)	; ø»‰—š
-    (chinese-gb12345	. #x7D21)	; ä¹«
+    (=gb12345		. #x7D21)	; ä¹«
     (=ucs		. #x4E6B)	; ä¹«
     ))
 (define-char
@@ -863,7 +863,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D24)	; ä¹¬
+    (=gb12345		. #x7D24)	; ä¹¬
     (=ucs		. #x4E6C)	; ä¹¬
     ))
 (define-char
@@ -879,7 +879,7 @@
      ((=ucs		  . #x4E59)	; ä¹™
       ))
     (=ks-x1001		. #x544C)	; ø»‰¥±
-    (chinese-gb12345	. #x7D32)	; ä¹­
+    (=gb12345		. #x7D32)	; ä¹­
     (=ucs		. #x4E6D)	; ä¹­
     ))
 (define-char
@@ -894,7 +894,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D3F)	; ä¹®
+    (=gb12345		. #x7D3F)	; ä¹®
     (=ucs		. #x4E6E)	; ä¹®
     ))
 (define-char
@@ -909,7 +909,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D7A)	; ä¹¯
+    (=gb12345		. #x7D7A)	; ä¹¯
     (=ucs		. #x4E6F)	; ä¹¯
     ))
 (define-char
@@ -1024,7 +1024,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D54)	; ä¹²
+    (=gb12345		. #x7D54)	; ä¹²
     (=ucs		. #x4E72)	; ä¹²
     ))
 (define-char
@@ -1308,7 +1308,7 @@
      ((=ucs		  . #x4E59)	; ä¹™
       ))
     (=ks-x1001		. #x5C63)	; ø»‰±¸
-    (chinese-gb12345	. #x7D61)	; ä¹¶
+    (=gb12345		. #x7D61)	; ä¹¶
     (=ucs		. #x4E76)	; ä¹¶
     ))
 (define-char
@@ -1540,7 +1540,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D4F)	; ä¹º
+    (=gb12345		. #x7D4F)	; ä¹º
     (=ucs		. #x4E7A)	; ä¹º
     ))
 (define-char
@@ -1556,7 +1556,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D74)	; ä¹»
+    (=gb12345		. #x7D74)	; ä¹»
     (=ucs		. #x4E7B)	; ä¹»
     ))
 (define-char
@@ -1572,7 +1572,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D5B)	; ä¹¼
+    (=gb12345		. #x7D5B)	; ä¹¼
     (=ucs		. #x4E7C)	; ä¹¼
     ))
 (define-char
@@ -1587,7 +1587,7 @@
       )
      ((=ucs		  . #x4E59)	; ä¹™
       ))
-    (chinese-gb12345	. #x7D55)	; ä¹½
+    (=gb12345		. #x7D55)	; ä¹½
     (=ucs		. #x4E7D)	; ä¹½
     ))
 (define-char
@@ -2140,7 +2140,7 @@
      ((=ucs		  . #x4E5A)	; ä¹š
       ))
     (chinese-cns11643-1 . #x632A)	; ø»’£¡
-    (chinese-gb12345	. #x4252)	; äº‚
+    (=gb12345		. #x4252)	; äº‚
     (=gt-pj-9		. #x5123)	; ý¡€€„ž
     (=gt-k		. 10402)	; ý¡„‚¢¢
     (=gt		. 00286)	; ý¡€€„ž

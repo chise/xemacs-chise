@@ -985,7 +985,7 @@
     (ideographic-radical . 127)	; ⽾
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (chinese-gb12345	. #x716F)	; 耬
+    (=gb12345		. #x716F)	; 耬
     (=ucs		. #x802C)	; 耬
     ))
 (define-char
@@ -1094,7 +1094,7 @@
     (ideographic-radical . 127)	; ⽾
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x716C)	; 耮
+    (=gb12345		. #x716C)	; 耮
     (=ucs		. #x802E)	; 耮
     ))
 (define-char

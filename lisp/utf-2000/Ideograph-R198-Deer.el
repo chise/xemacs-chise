@@ -731,7 +731,7 @@
     (ideographic-radical . 198)	; ⿅
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
-    (chinese-gb12345	. #x4076)	; 麗
+    (=gb12345		. #x4076)	; 麗
     (=ucs		. #x9E97)	; 麗
     ))
 (define-char

@@ -246,7 +246,7 @@
     (ideographic-radical . 88)	; ⽗
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-gb12345	. #x522F)	; 爺
+    (=gb12345		. #x522F)	; 爺
     (=ucs		. #x723A)	; 爺
     ))
 (define-char

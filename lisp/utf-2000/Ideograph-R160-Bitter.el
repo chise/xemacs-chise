@@ -420,7 +420,7 @@
     (ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x306C)	; è¾¦
+    (=gb12345		. #x306C)	; è¾¦
     (=ucs		. #x8FA6)	; è¾¦
     ))
 (define-char
@@ -649,7 +649,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 19)
     (chinese-cns11643-1 . #x7930)	; ø»“ƒ»
-    (chinese-gb12345	. #x3447)	; è¾­
+    (=gb12345		. #x3447)	; è¾­
     (=ucs		. #x8FAD)	; è¾­
     ))
 (define-char
@@ -720,7 +720,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 21)
     (chinese-cns11643-1 . #x7B33)	; ø»“†º
-    (chinese-gb12345	. #x3167)	; è¾¯
+    (=gb12345		. #x3167)	; è¾¯
     (=ucs		. #x8FAF)	; è¾¯
     ))
 (define-char

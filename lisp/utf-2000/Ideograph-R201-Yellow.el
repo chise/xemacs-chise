@@ -751,7 +751,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 24)
     (shinjigen-2	. 9812)
-    (chinese-gb12345	. #x5964)	; 黌
+    (=gb12345		. #x5964)	; 黌
     (=ucs		. #x9ECC)	; 黌
     ))
 (define-char

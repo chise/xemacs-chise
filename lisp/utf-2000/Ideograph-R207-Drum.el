@@ -115,7 +115,7 @@
     (ideographic-radical . 207)	; ⿎
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x782E)	; 鼕
+    (=gb12345		. #x782E)	; 鼕
     (=ucs		. #x9F15)	; 鼕
     ))
 (define-char

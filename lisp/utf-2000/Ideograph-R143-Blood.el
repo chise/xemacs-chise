@@ -232,7 +232,7 @@
     (ideographic-radical . 143)	; â¾Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x565A)	; è¡†
+    (=gb12345		. #x565A)	; è¡†
     (=ucs		. #x8846)	; è¡†
     ))
 (define-char
@@ -609,7 +609,7 @@
     (total-strokes	 . 20)
     (=jis-x0212		. #x5C28)	; ø»‹»
     (=jis-x0213-2-2000	. #x7825)	; ø»¦œ¶
-    (chinese-gb12345	. #x785A)	; è¡Š
+    (=gb12345		. #x785A)	; è¡Š
     (=ucs		. #x884A)	; è¡Š
     ))
 (define-char

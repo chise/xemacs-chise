@@ -106,7 +106,7 @@
     (total-strokes	 . 17)
     (shinjigen-2	. 8939)
     (=jis-x0208		. #x7031)	; ø½‹ªŽ
-    (chinese-gb12345	. #x4125)	; éš¸
+    (=gb12345		. #x4125)	; éš¸
     (=ucs		. #x96B8)	; éš¸
     ))
 (define-char

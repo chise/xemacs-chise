@@ -242,7 +242,7 @@
     (ideographic-radical . 52)	; ⼳
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (chinese-gb12345	. #x3C38)	; 幾
+    (=gb12345		. #x3C38)	; 幾
     (=ucs		. #x5E7E)	; 幾
     ))
 (define-char

@@ -808,7 +808,7 @@
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
-    (chinese-gb12345	. #x477B)	; 軀
+    (=gb12345		. #x477B)	; 軀
     (=ucs		. #x8EC0)	; 軀
     ))
 (define-char

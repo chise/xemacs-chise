@@ -1246,7 +1246,7 @@
      ((=ucs		  . #x722D)	; çˆ­
       ))
     (chinese-cns11643-2 . #x2E27)	; ø»“Ÿ¬
-    (chinese-gb12345	. #x3E3B)	; å‡ˆ
+    (=gb12345		. #x3E3B)	; å‡ˆ
     (=ucs		. #x51C8)	; å‡ˆ
     ))
 (define-char
@@ -1488,7 +1488,7 @@
     (=jis-x0208		. #x4560)	; ø½Š«³
     (=ks-x1001		. #x5450)	; ø»‰¥µ
     (chinese-cns11643-1 . #x5444)	; ø»’¹
-    (chinese-gb12345	. #x3633)	; å‡
+    (=gb12345		. #x3633)	; å‡
     (=gt-pj-1		. #x4560)	; å‡
     (=big5		. #xADE1)	; ý¢€Š·¡
     (ideograph-daikanwa . 01670)	; ø¸€š†

@@ -15,7 +15,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 13)
     (shinjigen-2	. 9841)
-    (chinese-gb12345	. #x763C)	; é»½
+    (=gb12345		. #x763C)	; é»½
     (=ucs		. #x9EFD)	; é»½
     ))
 (define-char
@@ -81,7 +81,7 @@
     (total-strokes	 . 17)
     (=jis-x0212		. #x6D22)	; ø»Œ“¹
     (=jis-x0213-2-2000	. #x7E5E)	; ø»¦¦£
-    (chinese-gb12345	. #x763D)	; é»¿
+    (=gb12345		. #x763D)	; é»¿
     (ideograph-daikanwa . 48261)	; ø¸‹²…
     (=ucs		. #x9EFF)	; é»¿
     ))
@@ -540,7 +540,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 25)
     (=jis-x0212		. #x6D25)	; ø»Œ“¼
-    (chinese-gb12345	. #x763E)	; é¼‰
+    (=gb12345		. #x763E)	; é¼‰
     (ideograph-daikanwa . 48306)	; ø¸‹²²
     (=ucs		. #x9F09)	; é¼‰
     ))

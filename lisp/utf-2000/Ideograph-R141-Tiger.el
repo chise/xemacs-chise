@@ -267,7 +267,7 @@
     (shinjigen-2	. 569)
     (=jis-x0208		. #x515D)	; ø½Š½˜
     (=ks-x1001		. #x7425)	; ø»Š”Š
-    (chinese-gb12345	. #x3426)	; è™•
+    (=gb12345		. #x3426)	; è™•
     (=gt-pj-1		. #x515D)	; è™•
     (ideograph-daikanwa . 32697)	; ø¸‡¾¹
     (=gt-k		. 07907)	; ý¡„»£
@@ -515,7 +515,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (=jis-x0208		. #x4E3A)	; ø½Š¸›
-    (chinese-gb12345	. #x4232)	; è™œ
+    (=gb12345		. #x4232)	; è™œ
     (=gt-pj-1		. #x4E3A)	; è™œ
     (=gt-k		. 10421)	; ý¡„‚¢µ
     (mojikyo		. 050431)	; ý €Œ“¿
@@ -619,7 +619,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (=ks-x1001		. #x7B5C)	; ø»ŠŸ“
-    (chinese-gb12345	. #x3A45)	; è™Ÿ
+    (=gb12345		. #x3A45)	; è™Ÿ
     (=ucs		. #x865F)	; è™Ÿ
     ))
 (define-char
@@ -1072,7 +1072,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (chinese-cns11643-1 . #x7536)	; ø»’¾‰
-    (chinese-gb12345	. #x3F77)	; è™§
+    (=gb12345		. #x3F77)	; è™§
     (=ucs		. #x8667)	; è™§
     ))
 (define-char
