@@ -1,3 +1,31 @@
+2002-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* database.h: Add new EXFUN for `Fmap_database'.
+
+	* database.c (Fmap_database): Renamed from `Fmapdatabase'.
+	(syms_of_database): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member `unloaded' in
+	UTF-2000.
+	(CHAR_TABLE_UNLOADED): New macro of UTF-2000.
+	(XCHAR_TABLE_UNLOADED): Likewise.
+
+	* chartab.c (fill_char_table): Initialize `ct->unloaded'.
+	(Fput_char_attribute): Set XCHAR_TABLE_UNLOADED(table) if
+	HAVE_DATABASE is defined.
+	(char_attribute_table_to_load): New variable of UTF-2000 with
+	external database support.
+	(Qload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table_map_function): New function of
+	UTF-2000 with external database support.
+	(Fload_char_attribute_table): New function of UTF-2000.
+	(Fmap_char_attribute): Call Fload_char_attribute_table if
+	CHAR_TABLE_UNLOADED(ct) is set when HAVE_DATABASE is defined.
+	(syms_of_chartab): Add new symbol and function
+	`load-char-attribute-table-map-function' in UTF-2000 with external
+	database support; add new function `load-char-attribute-table' in
+	UTF-2000.
+
 2002-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.h (load_char_attribute_maybe): New prototype for
