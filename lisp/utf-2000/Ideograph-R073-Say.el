@@ -204,6 +204,8 @@
 (define-char
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (japanese-jisx0212	. #x426D)	; ø»‹•º
     (ucs		. #x66FA)	; æ›º
     ))
 (define-char
