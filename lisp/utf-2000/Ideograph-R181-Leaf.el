@@ -108,6 +108,7 @@
     (total-strokes	 . 8)
     (=ucs		. #x9877)	; 顷
     (=gb2312		. #x476A)	; &I-G0-476A; [39-74]
+    (=hanziku-1		. #xDC48)	; &I-HZK01-DC48;
     ))
 (define-char
   '((ideographic-radical . 181)	; ⾴
