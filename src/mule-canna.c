@@ -1791,8 +1791,9 @@ c2mu (unsigned char *cp, int l, unsigned char *mp)
 	}
       else if (ch == ISO_CODE_SS3)
 	{
+	  ch = *cp++;
 	  chr = MAKE_CHAR (Vcharset_japanese_jisx0212,
-			   (*cp++) & 0x7f, (*cp++) & 0x7f);
+			   ch & 0x7f, (*cp++) & 0x7f);
 	}
       else if (ch & 0x80)
 	{
