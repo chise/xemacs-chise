@@ -20,7 +20,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gb2312		. #x4737)	; ø»„¾Ž
-    (=iso-ir165		. #x4737)	; ø»¦ž
     (=big5		. #xA4ED)	; ý¢€Š“­
     (=ucs		. #x6B20)	; æ¬ 
     ))
@@ -50,7 +49,6 @@
     (total-strokes	 . 6)
     (=gb2312		. #x344E)	; ø»„¢«
     (=jis-x0208		. #x3C21)	; ø½Š¦
-    (=iso-ir165		. #x344E)	; ø»Š»
     (=cns11643-6	. #x2523)	; ø»›ºª
     (=gt-pj-1		. #x3C21)	; ý¡€…ž
     (=gt-k		. 01626)	; ý¡„€™š
@@ -71,7 +69,6 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=gb2312		. #x3B36)	; ø»„¬¥
-    (=iso-ir165		. #x3B36)	; ø»”µ
     (=cns11643-3	. #x2379)	; ø»•š¸
     (=daikanwa		. 15994)	; ø¸ƒ¹º
     (=ucs		. #x6B22)	; æ¬¢
@@ -258,7 +255,6 @@
     (=gb2312		. #x5040)	; ø»…‹¥
     (=jis-x0208		. #x3655)	; ø½Š•¦
     (=ks-x1001		. #x7D5B)	; ø»Š¢Ž
-    (=iso-ir165		. #x5040)	; ø»³µ
     (=cns11643-1	. #x4E3C)	; ø»’„½
     (=gt-pj-1		. #x3655)	; ý¡€…±
     (=big5		. #xAA59)	; ý¢€Š©™
@@ -314,7 +310,6 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=gb2312		. #x6C23)	; ø»…´
-    (=iso-ir165		. #x6C23)	; ø»Žœ 
     (=ucs		. #x6B24)	; æ¬¤
     ))
 (define-char
@@ -367,7 +362,6 @@
     (total-strokes	 . 8)
     (=gb2312		. #x4537)	; ø»„»’
     (=jis-x0208		. #x3224)	; ø½ŠŽ½
-    (=iso-ir165		. #x4537)	; ø»£¢
     (=gt-pj-1		. #x3224)	; ý¡€…ª
     (=gt-k		. 03644)	; ý¡„€¸¼
     (=gt		. 20586)	; ý¡€…ª
@@ -839,7 +833,6 @@
     (=gb2312		. #x537B)	; ø»…º
     (=jis-x0208		. #x4D5F)	; ø½Š·¢
     (=ks-x1001		. #x6930)	; ø»Š„‹
-    (=iso-ir165		. #x537B)	; ø»¹Š
     (=cns11643-1	. #x5B43)	; ø»’˜Š
     (=gt-pj-1		. #x4D5F)	; ý¡€…ƒŠ
     (=big5		. #xB1FD)	; ý¢€‹‡½
@@ -917,7 +910,6 @@
     (shinjigen-2	. 3914)
     (=gb2312		. #x6C24)	; ø»…´‘
     (=jis-x0208		. #x5D38)	; ø½‹Ž›
-    (=iso-ir165		. #x6C24)	; ø»Žœ¡
     (=cns11643-2	. #x363C)	; ø»“«±
     (=gt-pj-1		. #x5D38)	; ý¡€…ƒ€
     (=big5		. #xD5D8)	; ý¢€—˜
@@ -1017,7 +1009,6 @@
     (shinjigen-2	. 3918)
     (=gb2312		. #x6C25)	; ø»…´’
     (=jis-x0208		. #x5D3A)	; ø½‹Ž
-    (=iso-ir165		. #x6C25)	; ø»Žœ¢
     (=cns11643-2	. #x3C7D)	; ø»“µ¦
     (=gt-pj-1		. #x5D3A)	; ý¡€…ƒŽ
     (=big5		. #xD9DA)	; ý¢€§š
@@ -1033,7 +1024,6 @@
     (=gb2312		. #x465B)	; ø»„½”
     (=jis-x0208		. #x353D)	; ø½Š“°
     (=ks-x1001		. #x5127)	; ø»‰ ²
-    (=iso-ir165		. #x465B)	; ø»¥¤
     (=cns11643-1	. #x6022)	; ø»’ž¿
     (=gt-pj-1		. #x353D)	; ý¡€…ƒ™
     (=big5		. #xB4DB)	; ý¢€‹“›
@@ -1152,7 +1142,6 @@
     (=gb2312		. #x3F6E)	; ø»„³•
     (=jis-x0208		. #x343E)	; ø½Š’“
     (=ks-x1001		. #x4E33)	; ø»‰œ¤
-    (=iso-ir165		. #x3F6E)	; ø»›¥
     (=gt-pj-1		. #x343E)	; ý¡€…ƒ“
     (=big5		. #xB4DA)	; ý¢€‹“š
     (=gt-k		. 09016)	; ý¡„‚Œ¸
@@ -1369,7 +1358,6 @@
     (shinjigen-2	. 3934)
     (=gb2312		. #x6C26)	; ø»…´“
     (=jis-x0208		. #x5D3D)	; ø½‹Ž 
-    (=iso-ir165		. #x6C26)	; ø»Žœ£
     (=cns11643-2	. #x437D)	; ø»“¿¸
     (=gt-pj-1		. #x5D3D)	; ý¡€…„‰
     (=big5		. #xDDF7)	; ý¢€··
@@ -1413,7 +1401,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=gb2312		. #x6C27)	; ø»…´”
-    (=iso-ir165		. #x6C27)	; ø»Žœ¤
     (=cns11643-2	. #x437B)	; ø»“¿¶
     (=ucs		. #x6B46)	; æ­†
     ))
@@ -1425,7 +1412,6 @@
     (=gb2312		. #x502A)	; ø»…‹
     (=jis-x0208		. #x5D3C)	; ø½‹ŽŸ
     (=ks-x1001		. #x7A4E)	; ø»Š§
-    (=iso-ir165		. #x502A)	; ø»³Ÿ
     (=gt-pj-1		. #x5D3C)	; ý¡€…ƒ¿
     (=big5		. #xB7B2)	; ý¢€‹ž²
     (=daikanwa		. 16141)	; ø¸ƒ¼
@@ -1660,7 +1646,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=gb2312		. #x4738)	; ø»„¾
-    (=iso-ir165		. #x4738)	; ø»¦Ÿ
     (=cns11643-1	. #x6939)	; ø»’¬¤
     (=ucs		. #x6B49)	; æ­‰
     ))
@@ -1744,7 +1729,6 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=gb2312		. #x3868)	; ø»„¨½
-    (=iso-ir165		. #x3868)	; ø»‘
     (=cns11643-1	. #x693A)	; ø»’¬¥
     (=ucs		. #x6B4C)	; æ­Œ
     ))
@@ -2206,7 +2190,6 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=gb2312		. #x6C28)	; ø»…´•
-    (=iso-ir165		. #x6C28)	; ø»Žœ¥
     (=cns11643-1	. #x7124)	; ø»’·¿
     (=ucs		. #x6B59)	; æ­™
     ))

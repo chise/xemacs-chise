@@ -16,7 +16,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (=gb2312		. #x582A)	; ø»…–¿
-    (=iso-ir165		. #x582A)	; ø»¿
     (=cns11643-1	. #x586F)	; ø»’”œ
     (=ucs		. #x9B32)	; é¬²
     ))
@@ -699,7 +698,6 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 22)
     (=gb2312		. #x6577)	; ø»…«’
-    (=iso-ir165		. #x6577)	; ø»Ž“¢
     (=cns11643-2	. #x6E54)	; ø»”¾™
     (=ucs		. #x9B3B)	; é¬»
     ))

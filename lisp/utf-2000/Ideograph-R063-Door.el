@@ -27,7 +27,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=gb2312		. #x3B27)	; ø»„¬–
-    (=iso-ir165		. #x3B27)	; ø»”¦
     (=cns11643-3	. #x2165)	; ø»•—¨
     (=ucs		. #x6237)	; æˆ·
     ))
@@ -185,7 +184,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x6C66)	; ø»…µ“
-    (=iso-ir165		. #x6C66)	; ø»Ž£
     (=ucs		. #x623D)	; æˆ½
     ))
 (define-char
@@ -207,7 +205,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x6C65)	; ø»…µ’
-    (=iso-ir165		. #x6C65)	; ø»Ž¢
     (=ucs		. #x623E)	; æˆ¾
     ))
 (define-char
@@ -246,7 +243,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x373F)	; ø»„¦¶
-    (=iso-ir165		. #x373F)	; ø»†
     (=ucs		. #x623F)	; æˆ¿
     ))
 (define-char
@@ -255,7 +251,6 @@
     (total-strokes	 . 8)
     (=gb2312		. #x4B79)	; ø»……ˆ
     (=ks-x1001		. #x6136)	; ø»‰¸¡
-    (=iso-ir165		. #x4B79)	; ø»­˜
     (=cns11643-1	. #x4D54)	; ø»’ƒ·
     (=big5		. #xA9D2)	; ý¢€Š§’
     (=daikanwa		. 11715)	; ø¸‚·ƒ
@@ -355,7 +350,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=gb2312		. #x3162)	; ø»„ž¥
-    (=iso-ir165		. #x3162)	; ø»†µ
     (=ucs		. #x6241)	; æ‰
     ))
 (define-char
@@ -417,7 +411,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (=gb2312		. #x6C67)	; ø»…µ”
-    (=iso-ir165		. #x6C67)	; ø»Ž¤
     (=ucs		. #x6243)	; æ‰ƒ
     ))
 (define-char
@@ -623,7 +616,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=gb2312		. #x4948)	; ø»…›
-    (=iso-ir165		. #x4948)	; ø»©«
     (mojikyo		. 057162)	; ý €½Š
     (=ucs		. #x6247)	; æ‰‡
     ))
@@ -673,7 +665,6 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=gb2312		. #x6C68)	; ø»…µ•
-    (=iso-ir165		. #x6C68)	; ø»Ž¥
     (=ucs		. #x6248)	; æ‰ˆ
     ))
 (define-char
@@ -728,7 +719,6 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=gb2312		. #x6C69)	; ø»…µ–
-    (=iso-ir165		. #x6C69)	; ø»Ž¦
     (=ucs		. #x6249)	; æ‰‰
     ))
 (define-char

@@ -14,7 +14,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 9)
     (=gb2312		. #x5274)	; ø»…•
-    (=iso-ir165		. #x5274)	; ø»·¥
     (=cns11643-1	. #x5376)	; ø»’
     (=ucs		. #x97F3)	; éŸ³
     ))
@@ -106,7 +105,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (=gb2312		. #x544F)	; ø»…‘¬
-    (=iso-ir165		. #x544F)	; ø»¹¼
     (=ucs		. #x97F5)	; éŸµ
     ))
 (define-char
@@ -161,7 +159,6 @@
     (=gb2312		. #x4958)	; ø»…«
     (=jis-x0208		. #x7070)	; ø½‹«
     (=ks-x1001		. #x6152)	; ø»‰¸½
-    (=iso-ir165		. #x4958)	; ø»©»
     (=cns11643-1	. #x6B69)	; ø»’°
     (=daikanwa		. 43276)	; ø¸Š¤Œ
     (=ucs		. #x97F6)	; éŸ¶

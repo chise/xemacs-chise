@@ -6,7 +6,6 @@
     (=gb2312		. #x3D6F)	; ø»„°š
     (=jis-x0208		. #x3654)	; ø½Š•¥
     (=ks-x1001		. #x5045)	; ø»‰Ÿ²
-    (=iso-ir165		. #x3D6F)	; ø»˜ª
     (=cns11643-1	. #x4548)	; ø»‘·»
     (=gt-pj-1		. #x3654)	; ý¡€„‹‘
     (=big5		. #xA4E7)	; ý¢€Š“§
@@ -23,7 +22,6 @@
     (=gb2312		. #x3362)	; ø»„¡¡
     (=jis-x0208		. #x404D)	; ø½Š¤Š
     (=ks-x1001		. #x742E)	; ø»Š”“
-    (=iso-ir165		. #x3362)	; ø»‰±
     (=gt-pj-1		. #x404D)	; ý¡€„‹“
     (=big5		. #xA5B8)	; ý¢€Š–¸
     (=daikanwa		. 13535)	; ø¸ƒ“Ÿ
@@ -93,7 +91,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x382B)	; ø»„¨€
-    (=iso-ir165		. #x382B)	; ø»
     (=cns11643-1	. #x4D74)	; ø»’„—
     (=ucs		. #x65A7)	; æ–§
     ))
@@ -147,7 +144,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x5536)	; ø»…’±
-    (=iso-ir165		. #x5536)	; ø»»
     (=ucs		. #x65A9)	; æ–©
     ))
 (define-char
@@ -190,7 +186,6 @@
     (=gb2312		. #x6D3D)	; ø»…¶ˆ
     (=jis-x0208		. #x5A51)	; ø½‹Šš
     (=ks-x1001		. #x6D45)	; ø»ŠŠ˜
-    (=iso-ir165		. #x6D3D)	; ø»Žž˜
     (=cns11643-1	. #x514B)	; ø»’‰¦
     (=gt-pj-1		. #x5A51)	; ý¡€„‹¡
     (=big5		. #xAC48)	; ý¢€Š±ˆ
@@ -259,7 +254,6 @@
   '((ideographic-radical . 69)	; â½„
     (ideographic-strokes . 6)
     (=gb2312		. #x717D)	; ø»…½€
-    (=iso-ir165		. #x717D)	; ø»Ž¥
     (=ucs		. #x9880)	; é¢€
     ))
 (define-char
@@ -308,7 +302,6 @@
     (shinjigen-2	. 3228)
     (=gb2312		. #x364F)	; ø»„¥¨
     (=jis-x0208		. #x4347)	; ø½Š¨ž
-    (=iso-ir165		. #x364F)	; ø»¸
     (=cns11643-3	. #x363A)	; ø»•µ³
     (=gt-pj-1		. #x4347)	; ý¡€„‹­
     (=daikanwa		. 13557)	; ø¸ƒ“µ
@@ -387,7 +380,6 @@
     (=gb2312		. #x4B39)	; ø»…„ˆ
     (=jis-x0208		. #x3B5B)	; ø½Š‚
     (=ks-x1001		. #x5E59)	; ø»‰´ª
-    (=iso-ir165		. #x4B39)	; ø»¬˜
     (=cns11643-1	. #x5F5A)	; ø»’ž™
     (=gt-pj-1		. #x3B5B)	; ý¡€„‹µ
     (=big5		. #xB4B5)	; ý¢€‹’µ
@@ -504,7 +496,6 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=gb2312		. #x5042)	; ø»…‹§
-    (=iso-ir165		. #x5042)	; ø»³·
     (=ucs		. #x65B0)	; æ–°
     ))
 (define-char

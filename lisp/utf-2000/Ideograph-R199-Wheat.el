@@ -26,7 +26,6 @@
     (shinjigen-2	. 9791)
     (=gb2312		. #x4273)	; ø»„·´
     (=jis-x0208		. #x477E)	; ø½Š¯
-    (=iso-ir165		. #x4273)	; ø» „
     (=gt-pj-1		. #x477E)	; éº¦
     (=daikanwa		. 47718)	; ø¸‹©¦
     (=gt-k		. 02633)	; ý¡„€©‰
@@ -327,7 +326,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (=gb2312		. #x746F)	; ø»†Œ
-    (=iso-ir165		. #x746F)	; ø»Ž©œ
     (=ucs		. #x9EB8)	; éº¸
     ))
 (define-char
@@ -1302,7 +1300,6 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
     (=gb2312		. #x7470)	; ø»†
-    (=iso-ir165		. #x7470)	; ø»Ž©
     (=ucs		. #x9EB4)	; éº´
     ))
 (define-char

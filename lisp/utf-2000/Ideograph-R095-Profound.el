@@ -19,7 +19,6 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=gb2312		. #x507E)	; ø»…Œ£
-    (=iso-ir165		. #x507E)	; ø»´³
     (=cns11643-1	. #x4668)	; ø»‘¹¹
     (=ucs		. #x7384)	; çŽ„
     ))
@@ -95,7 +94,6 @@
     (total-strokes	 . 11)
     (->mojikyo		. 050282)	; ø½Š¸‰
     (=gb2312		. #x424A)	; ø»„·‹
-    (=iso-ir165		. #x424A)	; ø»Ÿ›
     (=cns11643-1	. #x5B7B)	; ø»’™‚
     (=ucs		. #x7387)	; çŽ‡
     ))
