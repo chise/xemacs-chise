@@ -1,5 +1,10 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* utf-2000/u00180-Latin-Extended-B.el: Reformatted to print
+	code-point of GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* utf-2000/char-db-util.el (insert-char-data): Modify order when
 	CHAR does not have `decimal-digit-value' property.
 
