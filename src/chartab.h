@@ -154,6 +154,7 @@ struct Lisp_Char_Table
 
 #ifdef UTF2000
   Lisp_Object table;
+  Lisp_Object default_value;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
@@ -213,14 +214,18 @@ CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 {
-  return get_byte_table (get_byte_table
-			 (get_byte_table
-			  (get_byte_table
-			   (ct->table,
-			    (unsigned char)(ch >> 24)),
-			   (unsigned char) (ch >> 16)),
-			  (unsigned char)  (ch >> 8)),
-			 (unsigned char)    ch);
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (ct->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+  if (UNBOUNDP (val))
+    return ct->default_value;
+  else
+    return val;
 }
 
 #elif defined(MULE)
@@ -262,6 +267,9 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 enum chartab_range_type
 {
   CHARTAB_RANGE_ALL,
+#ifdef UTF2000
+  CHARTAB_RANGE_DEFAULT,
+#endif
 #ifdef MULE
   CHARTAB_RANGE_CHARSET,
   CHARTAB_RANGE_ROW,
