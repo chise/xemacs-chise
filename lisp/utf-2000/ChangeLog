@@ -1,5 +1,18 @@
 2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R194-Ghost.el, Ideograph-R187-Horse.el,
+	Ideograph-R181-Leaf.el: Add missing `=ucs@jis' features.
+
+	* Ideograph-R164-Wine.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el: Add missing `=ucs@jis' features.
+
 	* Ideograph-R075-Tree.el (U+3BA4): Use `->subsumptive'.
 
 	* Ideograph-R054-Long-Stride.el (U+5EFC): Use `->subsumptive'.
@@ -7,6 +20,10 @@
 
 	* Ideograph-R069-Axe.el, Ideograph-R030-Mouth.el: Add missing
 	`=ucs@jis' features.
+
+	* read-maps.el (mapping-table-ccs-setting-alist): New variable.
+	(mapping-table-read-file): Use `mapping-table-ccs-setting-alist'
+	instead of hard coding.
 
 	* Ideograph-R196-Bird.el, Ideograph-R195-Fish.el: Add missing
 	`=ucs@jis' features.
