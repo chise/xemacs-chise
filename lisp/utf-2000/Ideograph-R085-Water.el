@@ -6208,11 +6208,11 @@
   '((=>ucs*		. #x6D41)	; æµ
     (=>ucs-gb		. #x6D41)	; æµ
     (=>ucs-jis		. #x6D41)	; ø½Š¸
+    (=>ucs-ks		. #x6D41)	; ø½Š¸
     (morohashi-daikanwa	17572 1 1)
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (=>ucs-ks		. 27969)
     (ucs		. #x2F902)	; ð¯¤‚
     ))
 (define-char
