@@ -1,3 +1,15 @@
+2003-01-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (put_char_composition): New function.
+	(Fput_char_attribute): Use `put_char_composition'; use
+	`Fchar_refs_simplify_char_specs' for `ideographic-structure'.
+
+	* fns.c (simplify_char_spec): New function.
+	(char_ref_simplify_spec): New function.
+	(Fchar_refs_simplify_char_specs): New function.
+	(syms_of_fns): Add new builtin function
+	`char-refs-simplify-char-specs'.
+
 2003-01-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (Vcharset_ideograph_cbeta): Deleted.
