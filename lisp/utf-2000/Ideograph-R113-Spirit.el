@@ -3347,10 +3347,12 @@
     (ucs		. #x256DD)	; 𥛝
     ))
 (define-char
-  '((ideographic-radical . 113)	; ⽰
+  '((=>ucs*		. #x256C5)	; 𥛅
+    (ideographic-radical . 113)	; ⽰
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
     (chinese-cns11643-4 . #x4B60)	; �����
+    (ucs		. #x2F955)	; 𥛅
     ))
 (define-char
   '((ideographic-radical . 113)	; ⽰
