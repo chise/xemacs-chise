@@ -1244,24 +1244,6 @@
     (total-strokes	 . 5)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 14)
-    (hanyu-dazidian-char . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
-      )
-     ((ucs		  . #x4E00)	; ä¸€
-      )
-     ((chinese-big5-cdp	  . #x88B1)	; ý¢€ˆ¢±
-      ))
-    (ideograph-hanziku-1	. #xA6EA)	; ý¢€š›ª
-    (ucs			. #x23944)	; ð£¥„
-    ))
-(define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 4)
-    (total-strokes	 . 5)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 14)
     (hanyu-dazidian-char . 2)
     (chinese-big5-cdp	. #x88D0)	; ý¢€ˆ£
     (ucs		. #x29C0A)	; ð©°Š
