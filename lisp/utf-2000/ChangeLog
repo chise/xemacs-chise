@@ -1,5 +1,62 @@
 2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R128-Ear.el (M-29074): Relate to U+8056.
+	(M-29074'): Unify M050366.
+
+	* Ideograph-R129-Brush.el (M-29223'): Unify M050367.
+
+	* Ideograph-R127-Plow.el (M-28907'): Unify M050364.
+	(M-28909'): Unify M050365.
+
+	* Ideograph-R113-Spirit.el (M-24626'): Unify M050303.
+	(M-24631'): Unify M050304.
+	(M-24640'): Unify M050305.
+	(M-24641'): Unify M050306.
+	(M-24652'): Unify M050307.
+	(M-24664'): Unify M050308.
+	(M-24672'): Unify M050309.
+	(M-24673'): Unify M050310.
+	(M-24689'): Unify M050311.
+	(C3-3764): Relate to M-24690.
+	(M-24692): Add `daikanwa-strokes'.
+	(C6-4263): Relate to M-24704.
+	(C6-4C38): Relate to M-24706.
+	(C3-3D61): Relate to M-24707.
+	(C6-4C3E): Unify M-24725.
+	(C6-4C37): Relate to M-24726.
+	(C4-3F45): Relate to M-24728.
+	(C6-5575): Relate to M-24729.
+	(M-24741'): Unify M050312.
+	(C6-4C3F): Unify M-24749.
+	(C4-3F48): Relate to M-24750.
+	(C3-433C): Relate to M-24751.
+	(C6-5574): Relate to M-24752.
+	(C3-433F): Relate to M-24753.
+	(U+7985): Relate to M-24754.
+	(M-24766'): Unify M050313.
+	(M-24767'): Unify M050314.
+	(M-24768'): Unify M050315.
+
+	* Ideograph-R086-Fire.el: Add missing relations between C*-****
+	and M-*****.
+	(M-*****'): Unify missing Mojikyo numbers.
+
+2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R112-Stone.el (M-24080'): Unify M050298.
+	(C5-2F2C): Relate to M-24114.
+	(C4-2E5B): Unify M-24119.
+	(M-24120): New character; unify K0-785F, C1-5728 and U+7832.
+	(M-24120'): Separate K0-785F, C1-5728 and U+7832; unify M050299.
+	(C4-2E5D): Unify M-24121.
+	(C4-2E5E): Unify M-24122.
+	(M-24201'): Unify M050300.
+	(M-24364'): Unify M050301.
+	(C4-4B5A): Relate to M-24365.
+	(M-24449'): Unify M050302.
+
+2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R122-Net.el (M-28311'): Separate K0-5F7E; unify
 	M050357.
 	(M-28319): Unify K0-5F7E; relate to U+7F72.
