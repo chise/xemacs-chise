@@ -9101,14 +9101,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(ucs		    . #x2FF0)	; â¿°
-	)
-       ((ucs		    . #x8D1D)	; è´
-	)
-       ((ucs		    . #x5202)	; åˆ‚
-	))
+     ((ucs		  . #x5219)	; åˆ™
       ))
     (chinese-gb2312		. #x3260)	; ø»„ 
     (chinese-isoir165		. #x3260)	; ø»ˆ‘
@@ -11328,7 +11321,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x4EBC)	; äº¼
+     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ucs		  . #x5216)	; åˆ–
       ))
