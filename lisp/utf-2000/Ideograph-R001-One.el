@@ -226,6 +226,14 @@
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 1)
+    (total-strokes	 . 2)
+    (ideograph-cdp	. -48)
+    (chinese-big5-cdp	. #x8BBF)	; ý¢€ˆ®¿
+    (mojikyo		. 070007)	; ý €‘…·
+    ))
+(define-char
+  '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (hanyu-dazidian-vol	 . 1)
@@ -721,7 +729,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (ucs		  . #x2FF8)	; â¿¸
       )
-     ((chinese-big5-cdp	  . #x8B5F)	; ý¢€ˆ­Ÿ
+     ((ucs		  . #x20087)	; ð ‚‡
       )
      ((name		  . "CJK RADICAL BOX")
       (ucs		  . #x2E86)	; âº†
