@@ -1,11 +1,26 @@
+2004-02-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Display
+	`->simplified(@...)' when running with readable mode.
+
+2004-02-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R041-Inch.el (U+5C0E): Use `<-simplified*sources'
+	instead of char-ref in `<-simplified'.
+
 2004-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (GT-K02585): New character.
 
 	* Ideograph-R005-Second.el (U+4E75): Use `->subsumptive'.
 
+	* read-maps.el (jp-jouyou-read-file): Check inherited value of
+	`<-simplified@JP/Jouyou'.
+
 	* Ideograph-R105-Dotted-Tent.el (U+767A): Fix
 	`<-simplified@JP/Jouyou'.
+
+	* Ideograph-R029-Again.el (U+53CE): Use `->subsumptive'.
 
 2004-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
