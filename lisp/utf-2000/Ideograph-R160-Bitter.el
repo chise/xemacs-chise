@@ -158,9 +158,16 @@
 (define-char
   '((ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 6)
-    (kangxi-radical	 . 135)	; â¾†
-    (kangxi-strokes	 . 7)
     (total-strokes	 . 13)
+    (<-vulgar-ideograph
+     (:sources	(seiji-tsuu morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 38671)	; ø¸‰œ
+		 )
+      )
+     (:sources	(jiyun morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 38649)	; ø¸‰›¹
+		 )
+      ))
     (shinjigen-2	. 8199)
     (japanese-jisx0208-1978	. #x3C2D)	; ø»‚£¶
     (chinese-gb2312		. #x3447)	; ø»„¢¤
