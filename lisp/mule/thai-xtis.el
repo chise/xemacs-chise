@@ -1,4 +1,4 @@
-;;; thai-xtis.el --- Thai support for pre-composed font (for XTIS).
+;;; thai-xtis.el --- Thai support for pre-composed representation (XTIS).
 
 ;; Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
@@ -35,19 +35,6 @@
 ;;; Code:
 
 (when (featurep 'xemacs)
-  (make-charset 'thai-xtis "Precomposed Thai (XTIS by Virach)."
-		'(registry "xtis-0"
-			   dimension 2
-			   columns 1
-			   chars 94
-			   final ??
-			   graphic 0))
-
-  (modify-syntax-entry 'thai-xtis "w")
-
-  (define-category ?x "Precomposed Thai character.")
-  (modify-category-entry 'thai-xtis ?x)
-
   (let ((deflist	'(;; chars	syntax
 			  ("$(?!0(B-$(?NxP0R0S0`0(B-$(?e0(B"	"w")
 			  ("$(?p0(B-$(?y0(B"	"w")
