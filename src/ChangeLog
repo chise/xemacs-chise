@@ -1,3 +1,14 @@
+2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_china3_jef): Deleted.
+	(Qchina3_jef): Deleted.
+	(syms_of_mule_charset): Don't define `china3-jef'.
+	(complex_vars_of_mule_charset): Likewise.
+
+	* char-ucs.h (LEADING_BYTE_CHINA3_JEF): Deleted.
+	(MIN_CHAR_CHINA3_JEF): Comment out.
+	(MAX_CHAR_CHINA3_JEF): Comment out.
+
 2002-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ucs_gb): New variable.
