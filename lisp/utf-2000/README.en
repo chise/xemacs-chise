@@ -76,6 +76,8 @@ list describes meaning of keys:
 <-ancient-ideograph	an ``ancient'' character of
 ->vulgar-ideograph	indicates ``vulgar'' characters (俗字)
 <-vulgar-ideograph	a ``vulgar'' character of
+->wrong-ideograph	indicates ``wrong'' characters (譌字)
+<-wrong-ideograph	a ``wrong'' character of
 ->simplified-ideograph	indicates simplified characters
 <-simplified-ideograph	a simplified character of
 ->ideographic-variants	indicates variants (異体字)
