@@ -176,7 +176,6 @@
     (mirrored		. nil)
     (chinese-gb2312	. #x212A)	; ø»„†
     (korean-ksc5601	. #x212A)	; ø»ˆš•
-    (chinese-big5	. #xA277)	; øºŸž”
     (ucs		. #x2015)	; â€•
     ))
 (define-char
@@ -198,7 +197,6 @@
     (japanese-jisx0208		. #x2142)	; ø»†©
     (chinese-cns11643-1		. #x225D)	; ø»‘„¶
     (japanese-jisx0208-1990	. #x2142)	; ø½‰¶
-    (chinese-big5		. #xA1FC)	; øºŸš
     (ucs			. #x2016)	; â€–
     ))
 (define-char
@@ -320,7 +318,6 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (japanese-jisx0213-1	. #x2340)	; ø»¢–—
-    (chinese-big5		. #xA145)	; øºŸ›…
     (ucs			. #x2022)	; â€¢
     ))
 (define-char
@@ -477,7 +474,6 @@
     (japanese-jisx0208		. #x216D)	; ø»†‘”
     (korean-ksc5601		. #x2148)	; ø»ˆš³
     (japanese-jisx0208-1990	. #x216D)	; ø½‰·ˆ
-    (chinese-big5		. #xA1B2)	; øºŸœ
     (ucs			. #x2033)	; â€³
     ))
 (define-char
@@ -582,10 +578,12 @@
     (mirrored		. nil)
     (->decomposition	wide #x203E)
     (japanese-jisx0208-1978	. #x2131)	; ø»¼
+    (chinese-gb2312		. #x237E)	; ø»„Š
     (japanese-jisx0208		. #x2131)	; ø»†˜
+    (korean-ksc5601		. #x237E)	; ø»ˆž¥
     (chinese-cns11643-1		. #x2223)	; ø»‘ƒ¼
     (japanese-jisx0208-1990	. #x2131)	; ø½‰¶Œ
-    (chinese-big5		. #xA1C3)	; øºŸœ¡
+    (chinese-big5		. #xA1C2)	; øºŸœ 
     ))
 (define-char
   '((name		. "UNDERTIE")
