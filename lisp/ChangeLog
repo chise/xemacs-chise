@@ -1,5 +1,18 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* utf-2000/char-db-util.el (insert-char-data): Modify order when
+	CHAR does not have `decimal-digit-value' property.
+
+	* utf-2000/u00100-Latin-Extended-A.el: Reformatted to print
+	code-point of GR-set as GR value.
+	(FULLWIDTH LATIN SMALL LIGATURE IJ): Separated from <LATIN SMALL
+	LIGATURE IJ>.
+
+	* utf-2000/u000A0-Latin-1-Supplement.el: Reformatted to print
+	code-point of GR-set as GR value.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Delete "ccs-viscii.el".
 
 	* utf-2000/ccs-viscii.el: Deleted.

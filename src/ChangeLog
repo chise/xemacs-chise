@@ -1,5 +1,10 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (Fput_char_attribute): Convert each element of
+	VALUE to GL position if ATTRIBUTE is a GR-set,
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (Fput_char_attribute): Allow GR code-point if a
 	coded-charset is a GR-set.
 
