@@ -2082,6 +2082,14 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
+    (mojikyo		. 050579)	; ø¸Œ–“
+    ))
+(define-char
+  '((morohashi-daikanwa	43920 1 1)
+    (ideographic-radical . 182)	; â¾µ
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (->mojikyo		. 050579)	; ø¸Œ–“
     (chinese-cns11643-4 . #x6231)	; ø»™€–
     ))
 (define-char
