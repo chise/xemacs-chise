@@ -3077,7 +3077,7 @@
     (mojikyo		. 038482)	; ý €‰™’
     ))
 (define-char
-  '((->ucs		. #x8F44)	; è½„
+  '((=>ucs		. #x8F44)	; è½„
     (morohashi-daikanwa	38482 0 1)
     (ideographic-radical . 159)	; â¾ž
     (ideographic-strokes . 10)
