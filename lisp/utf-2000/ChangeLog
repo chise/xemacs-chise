@@ -19,6 +19,9 @@
 
 2002-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R012-Eight.el: Add some mappings for Hanziku code
+	points.
+
 	* Ideograph-R009-Man.el (J0-3F2E): Modify `ideographic-structure'.
 	(JSP-3148): Likewise; separate C3-2F46.
 	(U+5009): Modify structure of `ideographic-structure'.
