@@ -4,8 +4,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2025)
-    (=cns11643-1	. #x212B)	; ø»‘‚¦
-    (=big5		. #xA14A)	; ý¢€Š…Š
+    (chinese-cns11643-1 . #x212B)	; ø»‘‚¦
+    (chinese-big5	. #xA14A)	; ý¢€Š…Š
     (=ucs		. #xFE30)	; ï¸°
     ))
 (define-char
@@ -14,8 +14,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2014)
-    (=cns11643-1	. #x2136)	; ø»‘‚±
-    (=big5		. #xA157)	; ý¢€Š…—
+    (chinese-cns11643-1 . #x2136)	; ø»‘‚±
+    (chinese-big5	. #xA157)	; ý¢€Š…—
     (=ucs		. #xFE31)	; ï¸±
     ))
 (define-char
@@ -24,7 +24,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x2013)
-    (=cns11643-1	. #x2138)	; ø»‘‚³
+    (chinese-cns11643-1 . #x2138)	; ø»‘‚³
     (=ucs		. #xFE32)	; ï¸²
     ))
 (define-char
@@ -33,7 +33,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x005F)
-    (=big5		. #xA159)	; ý¢€Š…™
+    (chinese-big5	. #xA159)	; ý¢€Š…™
     (=ucs		. #xFE33)	; ï¸³
     ))
 (define-char
@@ -50,8 +50,8 @@
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=cns11643-1	. #x213C)	; ø»‘‚·
-    (=big5		. #xA15B)	; ý¢€Š…›
+    (chinese-cns11643-1 . #x213C)	; ø»‘‚·
+    (chinese-big5	. #xA15B)	; ý¢€Š…›
     ))
 (define-char
   '((name . "PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS")
@@ -59,8 +59,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x0028)
-    (=cns11643-1	. #x2140)	; ø»‘‚»
-    (=big5		. #xA15F)	; ý¢€Š…Ÿ
+    (chinese-cns11643-1 . #x2140)	; ø»‘‚»
+    (chinese-big5	. #xA15F)	; ý¢€Š…Ÿ
     (=ucs		. #xFE35)	; ï¸µ
     ))
 (define-char
@@ -69,8 +69,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x0029)
-    (=cns11643-1	. #x2141)	; ø»‘‚¼
-    (=big5		. #xA160)	; ý¢€Š… 
+    (chinese-cns11643-1 . #x2141)	; ø»‘‚¼
+    (chinese-big5	. #xA160)	; ý¢€Š… 
     (=ucs		. #xFE36)	; ï¸¶
     ))
 (define-char
@@ -79,8 +79,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x007B)
-    (=cns11643-1	. #x2144)	; ø»‘‚¿
-    (=big5		. #xA163)	; ý¢€Š…£
+    (chinese-cns11643-1 . #x2144)	; ø»‘‚¿
+    (chinese-big5	. #xA163)	; ý¢€Š…£
     (=ucs		. #xFE37)	; ï¸·
     ))
 (define-char
@@ -89,8 +89,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x007D)
-    (=cns11643-1	. #x2145)	; ø»‘ƒ€
-    (=big5		. #xA164)	; ý¢€Š…¤
+    (chinese-cns11643-1 . #x2145)	; ø»‘ƒ€
+    (chinese-big5	. #xA164)	; ý¢€Š…¤
     (=ucs		. #xFE38)	; ï¸¸
     ))
 (define-char
@@ -99,8 +99,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3014)
-    (=cns11643-1	. #x2148)	; ø»‘ƒƒ
-    (=big5		. #xA167)	; ý¢€Š…§
+    (chinese-cns11643-1 . #x2148)	; ø»‘ƒƒ
+    (chinese-big5	. #xA167)	; ý¢€Š…§
     (=ucs		. #xFE39)	; ï¸¹
     ))
 (define-char
@@ -109,8 +109,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3015)
-    (=cns11643-1	. #x2149)	; ø»‘ƒ„
-    (=big5		. #xA168)	; ý¢€Š…¨
+    (chinese-cns11643-1 . #x2149)	; ø»‘ƒ„
+    (chinese-big5	. #xA168)	; ý¢€Š…¨
     (=ucs		. #xFE3A)	; ï¸º
     ))
 (define-char
@@ -119,8 +119,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3010)
-    (=cns11643-1	. #x214C)	; ø»‘ƒ‡
-    (=big5		. #xA16B)	; ý¢€Š…«
+    (chinese-cns11643-1 . #x214C)	; ø»‘ƒ‡
+    (chinese-big5	. #xA16B)	; ý¢€Š…«
     (=ucs		. #xFE3B)	; ï¸»
     ))
 (define-char
@@ -129,8 +129,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3011)
-    (=cns11643-1	. #x214D)	; ø»‘ƒˆ
-    (=big5		. #xA16C)	; ý¢€Š…¬
+    (chinese-cns11643-1 . #x214D)	; ø»‘ƒˆ
+    (chinese-big5	. #xA16C)	; ý¢€Š…¬
     (=ucs		. #xFE3C)	; ï¸¼
     ))
 (define-char
@@ -139,8 +139,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300A)
-    (=cns11643-1	. #x2150)	; ø»‘ƒ‹
-    (=big5		. #xA16F)	; ý¢€Š…¯
+    (chinese-cns11643-1 . #x2150)	; ø»‘ƒ‹
+    (chinese-big5	. #xA16F)	; ý¢€Š…¯
     (=ucs		. #xFE3D)	; ï¸½
     ))
 (define-char
@@ -149,8 +149,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300B)
-    (=cns11643-1	. #x2151)	; ø»‘ƒŒ
-    (=big5		. #xA170)	; ý¢€Š…°
+    (chinese-cns11643-1 . #x2151)	; ø»‘ƒŒ
+    (chinese-big5	. #xA170)	; ý¢€Š…°
     (=ucs		. #xFE3E)	; ï¸¾
     ))
 (define-char
@@ -159,8 +159,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3008)
-    (=cns11643-1	. #x2154)	; ø»‘ƒ
-    (=big5		. #xA173)	; ý¢€Š…³
+    (chinese-cns11643-1 . #x2154)	; ø»‘ƒ
+    (chinese-big5	. #xA173)	; ý¢€Š…³
     (=ucs		. #xFE3F)	; ï¸¿
     ))
 (define-char
@@ -169,8 +169,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x3009)
-    (=cns11643-1	. #x2155)	; ø»‘ƒ
-    (=big5		. #xA174)	; ý¢€Š…´
+    (chinese-cns11643-1 . #x2155)	; ø»‘ƒ
+    (chinese-big5	. #xA174)	; ý¢€Š…´
     (=ucs		. #xFE40)	; ï¹€
     ))
 (define-char
@@ -179,8 +179,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300C)
-    (=cns11643-1	. #x2158)	; ø»‘ƒ“
-    (=big5		. #xA177)	; ý¢€Š…·
+    (chinese-cns11643-1 . #x2158)	; ø»‘ƒ“
+    (chinese-big5	. #xA177)	; ý¢€Š…·
     (=ucs		. #xFE41)	; ï¹
     ))
 (define-char
@@ -189,8 +189,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300D)
-    (=cns11643-1	. #x2159)	; ø»‘ƒ”
-    (=big5		. #xA178)	; ý¢€Š…¸
+    (chinese-cns11643-1 . #x2159)	; ø»‘ƒ”
+    (chinese-big5	. #xA178)	; ý¢€Š…¸
     (=ucs		. #xFE42)	; ï¹‚
     ))
 (define-char
@@ -199,8 +199,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300E)
-    (=cns11643-1	. #x215C)	; ø»‘ƒ—
-    (=big5		. #xA17B)	; ý¢€Š…»
+    (chinese-cns11643-1 . #x215C)	; ø»‘ƒ—
+    (chinese-big5	. #xA17B)	; ý¢€Š…»
     (=ucs		. #xFE43)	; ï¹ƒ
     ))
 (define-char
@@ -209,8 +209,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	vertical #x300F)
-    (=cns11643-1	. #x215D)	; ø»‘ƒ˜
-    (=big5		. #xA17C)	; ý¢€Š…¼
+    (chinese-cns11643-1 . #x215D)	; ø»‘ƒ˜
+    (chinese-big5	. #xA17C)	; ý¢€Š…¼
     (=ucs		. #xFE44)	; ï¹„
     ))
 (define-char
@@ -229,8 +229,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
-    (=cns11643-1	. #x2227)	; ø»‘„€
-    (=big5		. #xA1C6)	; ý¢€Š‡†
+    (chinese-cns11643-1 . #x2227)	; ø»‘„€
+    (chinese-big5	. #xA1C6)	; ý¢€Š‡†
     (=ucs		. #xFE49)	; ï¹‰
     ))
 (define-char
@@ -239,8 +239,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
-    (=cns11643-1	. #x2228)	; ø»‘„
-    (=big5		. #xA1C7)	; ý¢€Š‡‡
+    (chinese-cns11643-1 . #x2228)	; ø»‘„
+    (chinese-big5	. #xA1C7)	; ý¢€Š‡‡
     (=ucs		. #xFE4A)	; ï¹Š
     ))
 (define-char
@@ -249,8 +249,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
-    (=cns11643-1	. #x222B)	; ø»‘„„
-    (=big5		. #xA1CA)	; ý¢€Š‡Š
+    (chinese-cns11643-1 . #x222B)	; ø»‘„„
+    (chinese-big5	. #xA1CA)	; ý¢€Š‡Š
     (=ucs		. #xFE4B)	; ï¹‹
     ))
 (define-char
@@ -259,8 +259,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x203E)
-    (=cns11643-1	. #x222C)	; ø»‘„…
-    (=big5		. #xA1CB)	; ý¢€Š‡‹
+    (chinese-cns11643-1 . #x222C)	; ø»‘„…
+    (chinese-big5	. #xA1CB)	; ý¢€Š‡‹
     (=ucs		. #xFE4C)	; ï¹Œ
     ))
 (define-char
@@ -269,8 +269,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x005F)
-    (=cns11643-1	. #x2229)	; ø»‘„‚
-    (=big5		. #xA1C8)	; ý¢€Š‡ˆ
+    (chinese-cns11643-1 . #x2229)	; ø»‘„‚
+    (chinese-big5	. #xA1C8)	; ý¢€Š‡ˆ
     (=ucs		. #xFE4D)	; ï¹
     ))
 (define-char
@@ -279,8 +279,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x005F)
-    (=cns11643-1	. #x222A)	; ø»‘„ƒ
-    (=big5		. #xA1C9)	; ý¢€Š‡‰
+    (chinese-cns11643-1 . #x222A)	; ø»‘„ƒ
+    (chinese-big5	. #xA1C9)	; ý¢€Š‡‰
     (=ucs		. #xFE4E)	; ï¹Ž
     ))
 (define-char
@@ -297,6 +297,6 @@
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=cns11643-1	. #x213D)	; ø»‘‚¸
-    (=big5		. #xA15C)	; ý¢€Š…œ
+    (chinese-cns11643-1 . #x213D)	; ø»‘‚¸
+    (chinese-big5	. #xA15C)	; ý¢€Š…œ
     ))
