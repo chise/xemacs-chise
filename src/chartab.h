@@ -48,6 +48,11 @@ EXFUN (Ffind_char, 1);
 
 extern Lisp_Object Qdowncase, Qflippedcase, Q_lowercase, Q_uppercase;
 
+#ifdef CHISE
+extern CHISE_DS *default_chise_data_source;
+
+int open_chise_data_source_maybe (void);
+#endif
 
 /************************************************************************/
 /*			    Char-ID Tables                              */
@@ -175,7 +180,6 @@ struct Lisp_Char_Table
   Lisp_Object default_value;
   Lisp_Object name;
 #ifdef CHISE
-  CHISE_DS ds;
   CHISE_Feature_Table *feature_table;
 #else
   Lisp_Object db;
