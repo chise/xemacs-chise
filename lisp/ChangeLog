@@ -1,3 +1,9 @@
+2003-02-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Use
+	`=big5-cdp', `=cbeta' and `=jef-china3' instead of
+	`chinese-big5-cdp', `ideograph-cbeta' and `china3-jef'.
+
 2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=gt): Renamed from `ideograph-gt'.
