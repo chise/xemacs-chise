@@ -1,3 +1,11 @@
+2004-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R121-Jar.el: Add mappings for Big5 code points.
+
+2004-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R122-Net.el: Add mappings for Big5 code points.
+
 2004-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R121-Jar.el: Use `->subsumptive' for some character
