@@ -6333,6 +6333,14 @@
     ))
 (define-char
   '((=>ucs		. #x737E)	; ç¾
+    (morohashi-daikanwa	20798 0 0)
+    (ideographic-radical . 94)	; â½
+    (ideographic-strokes . 18)
+    (total-strokes	 . 21)
+    (china3-jef		. #x9FD1)	; øº‰¿‘
+    ))
+(define-char
+  '((=>ucs		. #x737E)	; ç¾
     (morohashi-daikanwa	20798 0 1)
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 18)

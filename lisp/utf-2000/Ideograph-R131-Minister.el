@@ -37,6 +37,7 @@
     (chinese-cns11643-4		. #x276C)	; ø»—ª§
     (japanese-jisx0213-2	. #x7557)	; ø»¦™Ž
     (ideograph-daikanwa		. 30070)	; ø¸‡•¶
+    (china3-jef			. #x60DF)	; øº†ƒŸ
     (ucs			. #x81E4)	; è‡¤
     ))
 (define-char
