@@ -1105,10 +1105,11 @@ Return the alist of attributes of CHARACTER.
   return alist;
 }
 
-DEFUN ("get-char-attribute", Fget_char_attribute, 2, 2, 0, /*
+DEFUN ("get-char-attribute", Fget_char_attribute, 2, 3, 0, /*
 Return the value of CHARACTER's ATTRIBUTE.
+Return DEFAULT-VALUE if the value is not exist.
 */
-       (character, attribute))
+       (character, attribute, default_value))
 {
   Lisp_Object ccs;
 
@@ -1119,8 +1120,6 @@ Return the value of CHARACTER's ATTRIBUTE.
 
       if (CHAR_ID_TABLE_P (encoding_table))
 	return get_char_id_table (XCHAR (character), encoding_table);
-      else
-	return Qnil;
     }
   else
     {
@@ -1134,7 +1133,7 @@ Return the value of CHARACTER's ATTRIBUTE.
 	    return ret;
 	}
     }
-  return Qnil;
+  return default_value;
 }
 
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
@@ -1429,7 +1428,7 @@ put_char_ccs_code_point (Lisp_Object character,
 
       if (VECTORP (v))
 	{
-	  Lisp_Object cpos = Fget_char_attribute (character, ccs);
+	  Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
 	  if (!NILP (cpos))
 	    {
 	      decoding_table_remove_char (v, dim, byte_offset, XINT (cpos));
@@ -1460,7 +1459,7 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 
   if (VECTORP (decoding_table))
     {
-      Lisp_Object cpos = Fget_char_attribute (character, ccs);
+      Lisp_Object cpos = Fget_char_attribute (character, ccs, Qnil);
 
       if (!NILP (cpos))
 	{
