@@ -1,3 +1,181 @@
+2001-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R094-Dog.el (M-20337): Cancel relation to C6-2C7E and
+	U+72DD.
+	(U+72DD): Unify C6-2C7E.
+	(M-20534): Add `ucs-cns' property for U+732A.
+	(M-20620): Fix strokes.
+	(C3-4777): Unify U+7355.
+
+	* Ideograph-R093-Cow.el (U+****): Unify missing C*-**** code
+	points.
+	(C6-2853): Unify M-19936.
+	(C6-2852): Unify M-19937.
+	(C6-2854): Unify M-19938.
+	(C5-267D): Unify M-19951.
+	(C4-272F): Unify M-19952.
+	(C4-2730): Unify M-19955.
+	(C5-2721): Relate to M-19956.
+	(C5-267E): Unify M-19958.
+	(C5-2723): Unify M-19961.
+	(C6-2C71): Unify M-19963.
+	(C5-267A): Unify M-19965.
+	(M-49284): Relate to U+726C; separate C2-2B7A; fix strokes.
+	(C3-2D6C): Relate to M-19969.
+	(C3-2D6F): Relate to M-19970.
+	(C5-2A32): Relate to M-19971.
+	(C4-2A30): Relate to M-19985.
+	(C6-325A): Relate to M-19989.
+	(C5-2A34): Unify M-19990.
+	(C6-325D): Unify M-19991.
+	(C6-3258): Relate to M-19992.
+	(C6-325E): Unify M-19993.
+	(C6-325B): Unify M-19996.
+	(C5-2E58): Unify M-20000.
+	(C5-2E54): Unify M-20003.
+	(C3-3234): Unify M-20004.
+	(C3-3235): Unify M-20005.
+	(C4-2D7D): Unify M-20006.
+	(C5-2E56): Unify M-20007.
+	(C5-2E57): Unify M-20008.
+	(C5-2E55): Unify M-20009.
+	(C4-2D7C): Unify M-20010.
+	(C6-3944): Unify M-20014.
+	(C5-2E59): Unify M-20015.
+	(C4-327B): Unify M-20016.
+	(C4-327A): Relate to M-20017.
+	(C5-2E59): Relate to M-20018.
+	(C4-3279): Relate to M-20019.
+	(C4-327E): Unify M-20021.
+	(C6-4167): Relate to M-20022.
+	(C6-4168): Unify M-20024.
+	(C4-327C): Relate to M-20033.
+	(C5-334C): Relate to M-20036.
+	(C5-3348): Unify M-20038.
+	(C6-4169): Unify M-20039.
+	(C6-4165): Unify M-20041.
+	(C6-416A): Unify M-20042.
+	(C6-4164): Unify M-20043.
+	(C3-3737): Unify M-20044.
+	(C5-403B): Relate to M-20094.
+	(C6-5476): Relate to M-20097.
+	(C5-403D): Unify M-20104.
+	(C5-4039): Unify M-20105.
+	(C5-472B): Relate to M-20106.
+	(C4-4463): Relate to M-20107.
+	(C4-4461): Relate to M-20108.
+	(C5-472D): Relate to M-20109.
+	(C5-4728): Relate to M-20110.
+	(C5-472E): Unify M-20111.
+	(C4-4462): Unify M-20112.
+	(C5-472C): Relate to M-20113.
+	(C4-4460): Relate to M-20115.
+	(C6-5E61): Unify M-20129.
+	(C6-5E66): Relate to M-20131.
+	(C6-5E65): Unify M-20133.
+	(C6-5E60): Unify M-20136.
+	(C5-4729): Cancel relation to M-49289.
+	(C5-4E36): Relate to M-20138.
+	(C4-4A6F): Relate to M-20139.
+	(C7-2526): Unify M-20142.
+	(C4-4A74): Relate to M-20145.
+	(C4-4A72): Unify M-20146.
+	(C4-4A71): Unify M-20147.
+	(C5-4E39): Relate to M-20148.
+	(C5-4E3A): Relate to M-20149.
+	(C5-4E38): Relate to M-20150.
+	(C4-4A73): Unify M-20151.
+	(C4-4A70): Unify M-20152.
+	(C5-4E35): Relate to M-20153.
+	(C7-2527): Relate to M-20156.
+	(C7-2528): Relate to M-20162.
+	(C7-2F70): Unify M-20163.
+	(C5-5549): Relate to M-20164.
+	(C4-512E): Unify M-20165.
+	(C5-554E): Relate to M-20166.
+	(C7-2F71): Unify M-20167.
+	(C5-554B): Relate to M-20169.
+	(C5-554D): Unify M-20170.
+	(C4-5130): Relate to M-20172.
+	(C5-554A): Unify M-20173.
+	(C4-512F): Unify M-20174.
+	(C7-2F6F): Unify M-20177.
+	(C7-3930): Unify M-20179.
+	(C4-5667): Unify M-20180.
+	(C7-392E): Unify M-20181.
+	(C3-5546): Relate to M-20182.
+	(C3-5547): Relate to M-20183.
+	(C5-5C27): Unify M-20184.
+	(C4-5668): Unify M-20185.
+	(C4-5669): Unify M-20186.
+	(C7-2F6E): Relate to M-20187.
+	(C7-392F): Unify M-20188.
+	(C4-5B66): Unify M-20191.
+	(C4-5B65): Relate to M-20192.
+	(C7-4057): Relate to M-20193.
+
+	* Ideograph-R086-Fire.el (U+70BB): Unify C3-2D5D.
+	(U+70BE): Unify C2-2B70.
+	(U+70C0): Unify C4-2A28.
+	(U+70EE): Unify C3-3230.
+	(U+7110): Unify C2-3674.
+	(C2-3678): Relate to U+7113.
+	(U+7117): Unify C2-366E.
+	(C3-4258): Relate to U+7151 and M-19187.
+	(U+7175): Unify M059752.
+	(U+7176): Unify M059753.
+	(U+7177): Unify M059754.
+	(C2-445A): Relate to U+7178.
+	(C6-5E4B): Relate to M-19320.
+	(U+7196): Unify M059756.
+	(U+7197): Unify C2-4B6A.
+	(U+7199): Unify C1-695A.
+	(C4-4A6B): Relate to M-19323.
+	(U+3DEB): Relate to M-19329.
+	(C3-4D23): Relate to M-19330.
+	(C7-2474): Relate to M-19338.
+	(C7-246D): Relate to M-19339.
+	(C3-4D21): Relate to M-19340.
+	(M-19344): Fix `ideographic-strokes'; separate C3-4D29 and U+71A6.
+	(U+71B5): Unify C2-5171.
+	(U+7226): Unify C2-7126.
+
+	* Ideograph-R096-Jade.el (C3-4826): Unify M-21148.
+	(U+7476): Unify C3-4823 and M054613.
+	(C5-4741): Relate to M-21150.
+	(C6-5E75): Relate to M-21173.
+	(C6-5E77): Relate to M-21175.
+	(C6-5E76): Unify M-21177.
+	(C5-4742): Unify M-21179.
+	(C7-2538): Relate to M-21180.
+
+2001-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+****): Unify or relate missing
+	C*-**** code points.
+	(C6-2C51): Unify M-49209.
+	(C7-2465): Relate to M-18292.
+	(C4-507C): Unify M-18372.
+
+	* Ideograph-R091-Slice.el (U+7257): Unify C3-4D2D.
+
+2001-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R084-Steam.el (U+6C20): Unify C2-2B4D.
+	(U+6C32): Unify C3-422A.
+
+	* Ideograph-R082-Fur.el (U+6BEA): Unify C3-316D.
+
+	* char-db-util.el (char-db-insert-alist): Specify `none' as the
+	third argument of `insert-char-attributes' if non-CCS attributes
+	is not specified in a value of `char' attribute.
+	(insert-char-attributes): Use nil as `attributes' if non-nil-list
+	is specified for the argument.
+
+	* Ideograph-R072-Sun.el (M-13886): Add `vulgar-ideograph-of'
+	property for M-13948.
+	(U+66A8): Unify C1-6924.
+
 2001-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Check argument
