@@ -489,6 +489,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 5)
+    (<-radical
+     ((ucs		  . #x8864)	; è¡¤
+      ))
     (ideograph-cdp	. -849)
     (chinese-big5-cdp	. #x8BB1)	; ý¢€ˆ®±
     (ucs		. #x2EC2)	; â»‚
