@@ -34,6 +34,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include "systime.h"
 #include "syssignal.h"
 #include "sysproc.h"
+#include "sysfile.h"
 
 #include <ctype.h>
 #include <direct.h>
@@ -48,7 +49,20 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <stdio.h>
 
 #include <windows.h>
+#ifndef __MINGW32__
 #include <mmsystem.h>
+#else
+typedef void (CALLBACK TIMECALLBACK)(UINT uTimerID, UINT uMsg, DWORD dwUser, DWORD dw1, DWORD dw2);
+
+typedef TIMECALLBACK FAR *LPTIMECALLBACK;
+DWORD WINAPI timeGetTime(void);
+MMRESULT WINAPI timeSetEvent(UINT uDelay, UINT uResolution,
+    LPTIMECALLBACK fptc, DWORD dwUser, UINT fuEvent);
+MMRESULT WINAPI timeKillEvent(UINT uTimerID);
+MMRESULT WINAPI timeGetDevCaps(TIMECAPS* ptc, UINT cbtc);
+MMRESULT WINAPI timeBeginPeriod(UINT uPeriod);
+MMRESULT WINAPI timeEndPeriod(UINT uPeriod);
+#endif
 
 #include "nt.h"
 #include <sys/dir.h>
@@ -533,7 +547,6 @@ nt_get_resource (key, lpdwtype)
   LPBYTE lpvalue;
   HKEY hrootkey = NULL;
   DWORD cbData;
-  BOOL ok = FALSE;
   
   /* Check both the current user and the local machine to see if 
      we have any resources.  */
@@ -942,7 +955,7 @@ map_win32_filename (const char * name, const char ** pPath)
   static char shortname[MAX_PATH];
   char * str = shortname;
   char c;
-  char * path;
+  const char * path;
   const char * save_name = name;
 
   if (is_fat_volume (name, &path)) /* truncate to 8.3 */
@@ -1052,7 +1065,7 @@ opendir (const char *filename)
   /* Opening is done by FindFirstFile.  However, a read is inherent to
      this operation, so we defer the open until read time.  */
 
-  if (!(dirp = (DIR *) xmalloc (sizeof (DIR))))
+  if (!(dirp = xnew_and_zero(DIR)))
     return NULL;
   if (dir_find_handle != INVALID_HANDLE_VALUE)
     return NULL;
@@ -1077,7 +1090,7 @@ closedir (DIR *dirp)
       FindClose (dir_find_handle);
       dir_find_handle = INVALID_HANDLE_VALUE;
     }
-  xfree ((char *) dirp);
+  xfree (dirp);
 }
 
 struct direct *
@@ -1527,67 +1540,6 @@ sys_pipe (int * phandles)
   return rc;
 }
 
-/* From ntproc.c */
-extern Lisp_Object Vwin32_pipe_read_delay;
-
-/* Function to do blocking read of one byte, needed to implement
-   select.  It is only allowed on sockets and pipes. */
-int
-_sys_read_ahead (int fd)
-{
-  child_process * cp;
-  int rc;
-
-  if (fd < 0 || fd >= MAXDESC)
-    return STATUS_READ_ERROR;
-
-  cp = fd_info[fd].cp;
-
-  if (cp == NULL || cp->fd != fd || cp->status != STATUS_READ_READY)
-    return STATUS_READ_ERROR;
-
-  if ((fd_info[fd].flags & (FILE_PIPE | FILE_SOCKET)) == 0
-      || (fd_info[fd].flags & FILE_READ) == 0)
-    {
-      /* fd is not a pipe or socket */
-      abort ();
-    }
-  
-  cp->status = STATUS_READ_IN_PROGRESS;
-  
-  if (fd_info[fd].flags & FILE_PIPE)
-    {
-      rc = _read (fd, &cp->chr, sizeof (char));
-
-      /* Give subprocess time to buffer some more output for us before
-	 reporting that input is available; we need this because Win95
-	 connects DOS programs to pipes by making the pipe appear to be
-	 the normal console stdout - as a result most DOS programs will
-	 write to stdout without buffering, ie.  one character at a
-	 time.  Even some Win32 programs do this - "dir" in a command
-	 shell on NT is very slow if we don't do this. */
-      if (rc > 0)
-	{
-	  int wait = XINT (Vwin32_pipe_read_delay);
-
-	  if (wait > 0)
-	    Sleep (wait);
-	  else if (wait < 0)
-	    while (++wait <= 0)
-	      /* Yield remainder of our time slice, effectively giving a
-		 temporary priority boost to the child process. */
-	      Sleep (0);
-	}
-    }
-
-  if (rc == sizeof (char))
-    cp->status = STATUS_READ_SUCCEEDED;
-  else
-    cp->status = STATUS_READ_FAILED;
-
-  return cp->status;
-}
-
 void
 term_ntproc (int unused)
 {
@@ -1810,6 +1762,7 @@ int msw_raise (int nsig)
     exit (3);
 
   /* Other signals are ignored by default */
+  return 0;
 }
 
 /*--------------------------------------------------------------------*/
@@ -1926,6 +1879,47 @@ int setitimer (int kind, const struct itimerval* itnew,
     return setitimer_helper (itnew, itold, &it_prof, &tid_prof, SIGPROF);
   else
     return errno = EINVAL;
+}
+
+int
+open_input_file (file_data *p_file, CONST char *filename)
+{
+  HANDLE file;
+  HANDLE file_mapping;
+  void  *file_base;
+  DWORD size, upper_size;
+
+  file = CreateFile (filename, GENERIC_READ, FILE_SHARE_READ, NULL,
+		     OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
+  if (file == INVALID_HANDLE_VALUE) 
+    return FALSE;
+
+  size = GetFileSize (file, &upper_size);
+  file_mapping = CreateFileMapping (file, NULL, PAGE_READONLY, 
+				    0, size, NULL);
+  if (!file_mapping) 
+    return FALSE;
+
+  file_base = MapViewOfFile (file_mapping, FILE_MAP_READ, 0, 0, size);
+  if (file_base == 0) 
+    return FALSE;
+
+  p_file->name = (char*)filename;
+  p_file->size = size;
+  p_file->file = file;
+  p_file->file_mapping = file_mapping;
+  p_file->file_base = file_base;
+
+  return TRUE;
+}
+
+/* Close the system structures associated with the given file.  */
+void
+close_file_data (file_data *p_file)
+{
+    UnmapViewOfFile (p_file->file_base);
+    CloseHandle (p_file->file_mapping);
+    CloseHandle (p_file->file);
 }
 
 /* end of nt.c */

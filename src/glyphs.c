@@ -917,7 +917,7 @@ static Lisp_Object
 allocate_image_instance (Lisp_Object device)
 {
   struct Lisp_Image_Instance *lp =
-    alloc_lcrecord_type (struct Lisp_Image_Instance, lrecord_image_instance);
+    alloc_lcrecord_type (struct Lisp_Image_Instance, &lrecord_image_instance);
   Lisp_Object val;
 
   zero_lcrecord (lp);
@@ -2940,7 +2940,7 @@ allocate_glyph (enum glyph_type type,
   /* This function can GC */
   Lisp_Object obj = Qnil;
   struct Lisp_Glyph *g =
-    alloc_lcrecord_type (struct Lisp_Glyph, lrecord_glyph);
+    alloc_lcrecord_type (struct Lisp_Glyph, &lrecord_glyph);
 
   g->type = type;
   g->image = Fmake_specifier (Qimage); /* This function can GC */

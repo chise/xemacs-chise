@@ -97,7 +97,6 @@ vpath %.h @srcdir@
 vpath config.h
 vpath paths.h
 vpath Emacs.ad.h
-vpath puresize-adjust.h
 vpath sheap-adjust.h
 #else
 VPATH=@srcdir@
@@ -176,7 +175,7 @@ objs=\
  eval.o events.o $(extra_objs)\
  event-stream.o extents.o faces.o\
  fileio.o $(LOCK_OBJ) filemode.o floatfns.o fns.o font-lock.o\
- frame.o general.o getloadavg.o glyphs.o glyphs-eimage.o glyphs-widget.o\
+ frame.o general.o glyphs.o glyphs-eimage.o glyphs-widget.o\
  gui.o $(gui_objs) hash.o imgproc.o indent.o insdel.o intl.o\
  keymap.o $(RTC_patch_objs) line-number.o lread.o lstream.o\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
@@ -310,8 +309,13 @@ mo_dir = ${etcdir}
 mo_file = ${mo_dir}emacs.mo
 #endif
 
+#ifdef WINDOWSNT
+LOADPATH   =  EMACSBOOTSTRAPLOADPATH="${lispdir};${blddir}"
+MODULEPATH =  EMACSBOOTSTRAPMODULEPATH="${moduledir};${blddir}"
+#else
 LOADPATH   =  EMACSBOOTSTRAPLOADPATH="${lispdir}:${blddir}"
 MODULEPATH =  EMACSBOOTSTRAPMODULEPATH="${moduledir}:${blddir}"
+#endif
 DUMPENV = $(LOADPATH) $(MODULEPATH)
 temacs_loadup = $(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el
 dump_temacs   = ${temacs_loadup} dump
@@ -325,39 +329,26 @@ release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 	-if [ -w ${srcdir}/../lisp ]; then \
 	  w=`pwd`; cd ${srcdir} && $${w}/temacs -nl -batch -l ${srcdir}/../lisp/inc-vers; \
 	else true; fi
-	@touch SATISFIED
 	-$(DUMPENV) ./temacs -nl -batch -l ${srcdir}/../lisp/loadup.el dump
-	@if test ! -f SATISFIED; then $(RECURSIVE_MAKE) $@; fi
-	@$(RM) SATISFIED
 #else /* ! defined (HAVE_SHM) */
 	-if [ -w ${srcdir}/../lisp ]; then \
 	  w=`pwd`; cd ${srcdir} && $${w}/temacs -batch -l ${srcdir}/../lisp/inc-vers; \
 	else true; fi
-	@touch SATISFIED
 	-$(DUMPENV) ./temacs -batch -l ${srcdir}/../lisp/loadup.el dump
-	@if test ! -f SATISFIED; then $(RECURSIVE_MAKE) $@; fi
-	@$(RM) SATISFIED
 #endif /* ! defined (HAVE_SHM) */
 	touch release
 #endif /* ! defined (CANNOT_DUMP) */
 
 ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
-	@$(RM) $@ && touch SATISFIED
+	@$(RM) $@
 	-${dump_temacs}
-	@if test -f $@; then if test -f SATISFIED; then \
-		echo "Testing for Lisp shadows ..."; \
-		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
-		$(RM) SATISFIED; exit 0; fi; \
-	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi; \
-	$(RECURSIVE_MAKE) $@;
+	@echo "Testing for Lisp shadows ..."
+	@./${PROGNAME} -batch -vanilla -f list-load-path-shadows
 
 fastdump: temacs 
 	@$(RM) ${PROGNAME} && touch SATISFIED
 	-${dump_temacs}
-	@if test -f ${PROGNAME}; then if test -f SATISFIED; then \
-		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
-		$(RM) SATISFIED; exit 0; fi; \
-	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi;
+	@./${PROGNAME} -batch -vanilla -f list-load-path-shadows
 
 FRC.update-elc.stamp :
 
@@ -456,13 +447,7 @@ run-temacs: temacs
 
 ## We have automated tests!!
 testdir = ${srcdir}/../tests/automated
-tests   = \
-	${testdir}/hash-table-tests.el    \
-	${testdir}/lisp-tests.el          \
-	${testdir}/database-tests.el      \
-	${testdir}/byte-compiler-tests.el \
-	${testdir}/md5-tests.el
-batch_test_emacs = -batch -l ${testdir}/test-harness.el -f batch-test-emacs ${tests}
+batch_test_emacs = -batch -l ${testdir}/test-harness.el -f batch-test-emacs ${testdir}
 
 .PHONY: check check-temacs
 check:
@@ -631,10 +616,9 @@ libextcli_Xlib.so.1: ${external_client_xlib_objs_shared}
 #endif /* EXTERNAL_WIDGET */
 
 config.h: ${srcdir}/config.h.in
-puresize-adjust.h: ${srcdir}/puresize.h
 Emacs.ad.h: ${srcdir}/${etcdir}Emacs.ad
 
-config.h puresize-adjust.h sheap-adjust.h paths.h Emacs.ad.h :
+config.h sheap-adjust.h paths.h Emacs.ad.h :
 	@echo "The file $@ needs to be re-generated."
 	@echo "Please run a make in the top level directory."
 	@echo "Consult the file \`INSTALL' for instructions for building XEmacs."
@@ -689,7 +673,7 @@ hpplay.o: ${srcdir}/hpplay.c
 .PHONY: mostlyclean clean distclean realclean versionclean extraclean
 mostlyclean:
 	$(RM) temacs puremacs quantmacs prefix-args *.o *.i  \
-	  core temacs.exe puresize-adjust.h sheap-adjust.h
+	  core temacs.exe sheap-adjust.h
 clean: mostlyclean versionclean
 	$(RM) libextcli* update-elc.stamp
 ## This is used in making a distribution.

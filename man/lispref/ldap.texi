@@ -21,10 +21,11 @@ to access directory servers using the Lightweight Directory Access Protocol.
 @section Building XEmacs with LDAP support
 
 LDAP support must be added to XEmacs at build time since it requires
-linking to an external LDAP client library.  As of 21.0, XEmacs has been
+linking to an external LDAP client library.  As of 21.2, XEmacs has been
 successfully built and tested with
 
 @itemize @bullet
+@item OpenLDAP 1.0.3 (@url{http://www.openldap.org/})
 @item University of Michigan's LDAP 3.3 (@url{http://www.umich.edu/~dirsvcs/ldap/})
 @item LDAP SDK 1.0 from Netscape Corp. (@url{http://developer.netscape.com/})
 @end itemize
@@ -63,7 +64,9 @@ provided, broader support is planned in future versions.
 @subsection LDAP Variables
 
 @defvar ldap-default-host
-The default LDAP server
+The default LDAP server hostname.
+A TCP port number can be appended to that name using a colon as 
+a separator.
 @end defvar
 
 @defvar ldap-default-port
@@ -81,7 +84,9 @@ Acme organization in the United States.
 @defvar ldap-host-parameters-alist
 An alist of per host options for LDAP transactions.  
 The list elements look like @code{(HOST PROP1 VAL1 PROP2 VAL2 ...)}
-@var{host} is the name of an LDAP server. @var{propn} and @var{valn} are
+@var{host} is the name of an LDAP server. A TCP port number can be
+appended to that name using a colon as a separator.
+@var{propn} and @var{valn} are
 property/value pairs describing parameters for the server.  Valid
 properties:
 @table @code

@@ -144,7 +144,7 @@ static struct console *
 allocate_console (void)
 {
   Lisp_Object console;
-  struct console *con = alloc_lcrecord_type (struct console, lrecord_console);
+  struct console *con = alloc_lcrecord_type (struct console, &lrecord_console);
   struct gcpro gcpro1;
 
   copy_lcrecord (con, XCONSOLE (Vconsole_defaults));
@@ -1195,8 +1195,8 @@ complex_vars_of_console (void)
   /* Make sure all markable slots in console_defaults
      are initialized reasonably, so mark_console won't choke.
    */
-  struct console *defs = alloc_lcrecord_type (struct console, lrecord_console);
-  struct console *syms = alloc_lcrecord_type (struct console, lrecord_console);
+  struct console *defs = alloc_lcrecord_type (struct console, &lrecord_console);
+  struct console *syms = alloc_lcrecord_type (struct console, &lrecord_console);
 
   staticpro (&Vconsole_defaults);
   staticpro (&Vconsole_local_symbols);

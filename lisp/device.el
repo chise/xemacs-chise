@@ -106,6 +106,29 @@ the toolbar, glyphs, etc."
   (or device (setq device (selected-device)))
   (console-on-window-system-p (device-console device)))
 
+(defun call-device-method (name device &rest args)
+  "Call a DEVICE-specific function with the generic name NAME.
+If DEVICE is not provide the selected device is used."
+  (or device (setq device (selected-device)))
+  (or (symbolp name) (error "function name must be a symbol"))
+  (let ((devmeth (intern (concat (symbol-name 
+				  (device-type device)) "-" (symbol-name name)))))
+    (if (functionp devmeth)
+	(if args
+	    (apply devmeth args)
+	  (funcall devmeth))
+      nil)))
+
+(defmacro define-device-method (name &optional docstring)
+  "Define NAME to be a device method."
+  `(defun ,name (&rest arglist) ,docstring
+     (apply 'call-device-method (quote ,name) nil arglist)))
+
+(defmacro define-device-method* (name &optional docstring)
+  "Define NAME to be a device method."
+  `(defun* ,name (&rest arglist) ,docstring
+     (apply 'call-device-method (quote ,name) nil arglist)))
+
 (defalias 'valid-device-type-p 'valid-console-type-p)
 (defalias 'device-type-list 'console-type-list)
 (defalias 'device-pixel-depth 'device-bitplanes)

@@ -319,14 +319,14 @@ mswindows_format_file (WIN32_FIND_DATA *file, char *buf, int display_size,
       cptr[1] = cptr[4] = cptr[7] = 'w';
     }
   if ((file->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ||
-      len > 4 &&
-      (_stricmp(&file->cFileName[len - 4], ".exe") == 0
-       || _stricmp(&file->cFileName[len - 4], ".com") == 0
-       || _stricmp(&file->cFileName[len - 4], ".bat") == 0
+      (len > 4 &&
+       (_stricmp(&file->cFileName[len - 4], ".exe") == 0
+	|| _stricmp(&file->cFileName[len - 4], ".com") == 0
+	|| _stricmp(&file->cFileName[len - 4], ".bat") == 0
 #if 0
-       || _stricmp(&file->cFileName[len - 4], ".pif") == 0
+	|| _stricmp(&file->cFileName[len - 4], ".pif") == 0
 #endif
-       ))
+	)))
     {
       cptr[2] = cptr[5] = cptr[8] = 'x';
     } else {
@@ -639,7 +639,7 @@ syms_of_dired_mswindows (void)
 void
 vars_of_dired_mswindows (void)
 {
-  DEFVAR_BOOL ("mswindows-ls-sort-case-insensitive", &mswindows_ls_sort_case_insensitive, /*
+  DEFVAR_BOOL ("mswindows-ls-sort-case-insensitive", &mswindows_ls_sort_case_insensitive /*
 *Non-nil means filenames are sorted in a case-insensitive fashion.
 Nil means filenames are sorted in a case-sensitive fashion, just like Unix.
 */ );

@@ -53,6 +53,7 @@ exec_prefix=@exec_prefix@
 bindir=@bindir@
 libdir=@libdir@
 srcdir=@srcdir@
+top_srcdir=@top_srcdir@
 archlibdir=@archlibdir@
 configuration=@configuration@
 moduledir=@moduledir@
@@ -72,7 +73,11 @@ INSTALL_DATA = @INSTALL_DATA@
 
 ## Things that a user might actually run,
 ## which should be installed in bindir.
+#ifdef WINDOWSNT
+INSTALLABLES_BASE = etags ctags b2m ootags
+#else
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
+#endif
 INSTALLABLE_SCRIPTS = rcs-checkin pstogif gnudoit gnuattach
 #ifdef HAVE_SHLIB
 #ifdef HAVE_MS_WINDOWS
@@ -91,9 +96,15 @@ INSTALLABLES = $(INSTALLABLES_BASE)
 
 ## Things that Emacs runs internally, or during the build process,
 ## which should not be installed in bindir.
+#ifdef WINDOWSNT
+UTILITIES= make-path wakeup profile make-docfile digest-doc \
+	sorted-doc movemail cvtmail yow hexl \
+	mmencode
+#else
 UTILITIES= make-path wakeup profile make-docfile digest-doc \
 	sorted-doc movemail cvtmail fakemail yow hexl \
 	gnuserv mmencode
+#endif
 ## These need to be conditional on I18N3 make-msgfile make-po
 
 ## Like UTILITIES, but they are not system-dependent, and should not be
@@ -149,7 +160,7 @@ ld_libs_general=@ld_libs_general@
 
 ## We need to #define emacs to get the right versions of some files.
 
-cppflags = -Demacs -I../src $(CPPFLAGS)
+cppflags = -Demacs -I$(top_srcdir)/src -I../src $(CPPFLAGS)
 cflags   = $(CFLAGS) $(cppflags) $(c_switch_general)
 ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 

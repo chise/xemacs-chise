@@ -22,7 +22,7 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; Synched up with: Not in FSF
+;;; Synched up with: Not in FSF.
 
 ;;; Commentary:
 
@@ -31,7 +31,7 @@
 ;;; Basically you just create files of emacs-lisp, and use the
 ;;; Assert, Check-Error, and Check-Message functions to create tests.
 ;;; You run the tests using M-x test-emacs-test-file,
-;;; or $(EMACS) -l .../test-harness.el -f batch-test-emacs file ...
+;;; or $(EMACS) -batch -l .../test-harness.el -f batch-test-emacs file ...
 ;;; which is run for you by the `make check' target in the top-level Makefile.
 
 (require 'bytecomp)
@@ -42,7 +42,7 @@
 
 (defvar test-harness-current-file nil)
 
-(defvar emacs-lisp-file-regexp (purecopy "\\.el$")
+(defvar emacs-lisp-file-regexp (purecopy "\\.el\\'")
   "*Regexp which matches Emacs Lisp source files.")
 
 ;;;###autoload
@@ -342,21 +342,17 @@ For example, invoke \"xemacs -batch -f batch-test-emacs tests/*.el\""
   (if (not noninteractive)
       (error "`batch-test-emacs' is to be used only with -batch"))
   (let ((error nil))
-    (loop for file in command-line-args-left
-      do
-      (if (file-directory-p (expand-file-name file))
-	  (let ((files (directory-files file))
-		source)
-	    (while files
-	      (if (and (string-match emacs-lisp-file-regexp (car files))
-		       (not (auto-save-file-name-p (car files)))
-		       (setq source (expand-file-name
-				     (car files)
-				     file))
-		       (if (null (batch-test-emacs-1 source))
-			   (setq error t)))
-		  (setq files (cdr files)))))
-	(if (null (batch-test-emacs-1 file))
+    (dolist (file command-line-args-left)
+      (if (file-directory-p file)
+	  (dolist (file-in-dir (directory-files file t))
+	    (when (and (string-match emacs-lisp-file-regexp file-in-dir)
+		       (not (or (auto-save-file-name-p file-in-dir)
+				(backup-file-name-p file-in-dir)
+				(equal (file-name-nondirectory file-in-dir)
+				       "test-harness.el"))))
+	      (or (batch-test-emacs-1 file-in-dir)
+		  (setq error t))))
+	(or (batch-test-emacs-1 file)
 	    (setq error t))))
     ;;(message "%s" (buffer-string nil nil "*Test-Log*"))
     (message "Done")

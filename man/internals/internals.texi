@@ -5,6 +5,10 @@
 @c %**end of header
 
 @ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Internals: (internals).	XEmacs Internals Manual.
+@end direntry
 
 Copyright @copyright{} 1992 - 1996 Ben Wing.
 Copyright @copyright{} 1996, 1997 Sun Microsystems.

@@ -934,7 +934,7 @@ allocate_extent_auxiliary (EXTENT ext)
 {
   Lisp_Object extent_aux;
   struct extent_auxiliary *data =
-    alloc_lcrecord_type (struct extent_auxiliary, lrecord_extent_auxiliary);
+    alloc_lcrecord_type (struct extent_auxiliary, &lrecord_extent_auxiliary);
 
   copy_lcrecord (data, &extent_auxiliary_defaults);
   XSETEXTENT_AUXILIARY (extent_aux, data);
@@ -1033,7 +1033,7 @@ allocate_extent_info (void)
 {
   Lisp_Object extent_info;
   struct extent_info *data =
-    alloc_lcrecord_type (struct extent_info, lrecord_extent_info);
+    alloc_lcrecord_type (struct extent_info, &lrecord_extent_info);
 
   XSETEXTENT_INFO (extent_info, data);
   data->extents = allocate_extent_list ();
@@ -3667,7 +3667,7 @@ copy_extent (EXTENT original, Bytind from, Bytind to, Lisp_Object object)
 	 one. */
       struct extent_auxiliary *data =
 	alloc_lcrecord_type (struct extent_auxiliary,
-			     lrecord_extent_auxiliary);
+			     &lrecord_extent_auxiliary);
 
       copy_lcrecord (data, XEXTENT_AUXILIARY (XCAR (original->plist)));
       XSETEXTENT_AUXILIARY (XCAR (e->plist), data);
@@ -5009,10 +5009,10 @@ set_extent_glyph_1 (Lisp_Object extent_obj, Lisp_Object glyph, int endp,
   EXTENT extent = decode_extent (extent_obj, DE_MUST_HAVE_BUFFER);
   glyph_layout layout = symbol_to_glyph_layout (layout_obj);
 
-  /* Make sure we've actually been given a glyph or it's nil (meaning
-     we're deleting a glyph from an extent). */
+  /* Make sure we've actually been given a valid glyph or it's nil
+     (meaning we're deleting a glyph from an extent). */
   if (!NILP (glyph))
-    CHECK_GLYPH (glyph);
+    CHECK_BUFFER_GLYPH (glyph);
 
   set_extent_glyph (extent, glyph, endp, layout);
   return glyph;

@@ -121,7 +121,6 @@ int start_child(char* cmdline, int wait_for_child)
 {
    STARTUPINFO start;
    SECURITY_ATTRIBUTES sec_attrs;
-   SECURITY_DESCRIPTOR sec_desc;
    PROCESS_INFORMATION child;
    int retval;
 
@@ -240,7 +239,6 @@ void process_execname(char *exec, const char* execname,const char* execpath )
    char buf[MAX_PATH + FILENAME_MAX + 100];
    int i,j;
 
-   int len = 0;
    /* 
     * STARTS WITH / or \ 
     * execpath NOT used
@@ -625,7 +623,6 @@ char *pfopen(char *retval, const char *name, const char *dirs)
     char *ptr;
     char *tdirs;
     char returnval[MAX_PATH + FILENAME_MAX + 100];
-    char *recursive_name;
     int foundit = FALSE;
     
     returnval[0] = '\0';

@@ -2,6 +2,10 @@
 @setfilename ../info/termcap.info
 @settitle The Termcap Library
 @ifinfo
+@direntry
+* Termcap: (termcap).		Termcap library of the GNU system.
+@end direntry
+
 This file documents the termcap library of the GNU system.
 
 Copyright (C) 1988 Free Software Foundation, Inc.

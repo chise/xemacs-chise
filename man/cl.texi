@@ -7,6 +7,11 @@
 @end iftex
 
 @ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Common Lisp: (cl).		GNU Emacs Common Lisp emulation package.
+@end direntry
+
 This file documents the GNU Emacs Common Lisp emulation package.
 
 Copyright (C) 1993 Free Software Foundation, Inc.

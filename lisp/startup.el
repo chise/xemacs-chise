@@ -961,7 +961,7 @@ XEmacs, by either running the command `xemacs-mule', or by using the X resource
       ": how to get the latest version\n")
      "\n--\n"
      (face italic "\
-Copyright (C) 1985-1998 Free Software Foundation, Inc.
+Copyright (C) 1985-1999 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois
@@ -984,7 +984,7 @@ Copyright (C) 1995-1996 Ben Wing\n"))
       (face bold "Help") " menu)\n")
      ((key info) ": read the on-line documentation\n\n")
      ((key describe-project) ": read about the GNU project\n")
-     ((key about-xemacs) ": see who's developping XEmacs\n"))
+     ((key about-xemacs) ": see who's developing XEmacs\n"))
 
     ((face (blue bold underline) "\nUseful stuff:\n\n")
      "Things that you should know rather quickly...\n\n"

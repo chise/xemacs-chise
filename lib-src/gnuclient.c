@@ -48,6 +48,8 @@ static char rcsid [] = "!Header: gnuclient.c,v 2.2 95/12/12 01:39:21 wing nene !
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
+#define DONT_ENCAPSULATE
+#include <sysfile.h>
 
 #ifdef HAVE_STRING_H
 #include <string.h>
@@ -89,7 +91,9 @@ tell_emacs_to_resume (int sig)
 
   /* Why is SYSV so retarded? */
   /* We want emacs to realize that we are resuming */
+#ifdef SIGCONT
   signal(SIGCONT, tell_emacs_to_resume);
+#endif
 
   connect_type = make_connection (NULL, (u_short) 0, &s);
 
@@ -129,8 +133,10 @@ initialize_signals ()
   signal (SIGWINCH, pass_signal_to_emacs);
 #endif
 
+#ifdef SIGCONT
   /* We want emacs to realize that we are resuming */
   signal (SIGCONT, tell_emacs_to_resume);
+#endif
 }
 
 

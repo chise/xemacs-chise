@@ -189,20 +189,6 @@ sbrk (unsigned long increment)
       if (!data_region_base)
 	return NULL;
 
-#ifndef USE_MINIMAL_TAGBITS
-      /* Ensure that the addresses don't use the upper tag bits since
-	 the Lisp type goes there.  */
-#ifdef USE_UNION_TYPE
-      if (((unsigned long) data_region_base & ~((1U << VALBITS) - 1)) != 0)
-#else
-      if (((unsigned long) data_region_base & ~VALMASK) != 0)
-#endif
-	{
-	  printf ("Error: The heap was allocated in upper memory.\n");
-	  exit (1);
-	}
-#endif
-
       data_region_end = data_region_base;
       real_data_region_end = data_region_end;
       data_region_size = get_reserved_heap_size ();
@@ -261,7 +247,7 @@ sbrk (unsigned long increment)
   return result;
 }
 
-#ifndef CANNOT_DUMP
+#if !defined (CANNOT_DUMP) && !defined(HEAP_IN_DATA)
 
 /* Recreate the heap from the data that was dumped to the executable.
    EXECUTABLE_PATH tells us where to find the executable.  */

@@ -49,7 +49,7 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "insdel.h"
 
-#ifdef __CYGWIN32__
+#if defined(__CYGWIN32__) || defined(__MINGW32__)
 #define stricmp strcasecmp
 #define FONTENUMPROC FONTENUMEXPROC
 #define ntmTm ntmentm
@@ -1438,6 +1438,51 @@ mswindows_list_fonts (Lisp_Object pattern, Lisp_Object device)
   return Fnreverse (result);
 }
 
+/* Fill in missing parts of a font spec. This is primarily intended as a
+ * helper function for the functions below.
+ * mswindows fonts look like:
+ *	fontname[:[weight][ style][:pointsize[:effects]]][:charset]
+ * A minimal mswindows font spec looks like:
+ *	Courier New
+ * A maximal mswindows font spec looks like:
+ *	Courier New:Bold Italic:10:underline strikeout:Western
+ * Missing parts of the font spec should be filled in with these values:
+ *	Courier New:Regular:10::Western */
+static Lisp_Object
+mswindows_font_instance_truename (struct Lisp_Font_Instance *f, Error_behavior errb)
+{
+  int nsep=0;
+  char *name = (char *) XSTRING_DATA (f->name);
+  char* ptr = name;
+  char* extname = alloca (strlen (name) + 19);
+  strcpy (extname, name);
+
+  while ((ptr = strchr (ptr, ':')) != 0)
+    {
+      ptr++;
+      nsep++;
+    }
+
+  switch (nsep)
+    {
+    case 0:
+      strcat (extname, ":Regular:10::Western");
+      break;
+    case 1:
+      strcat (extname, ":10::Western");
+      break;
+    case 2:
+      strcat (extname, "::Western");
+      break;
+    case 3:
+      strcat (extname, ":Western");
+      break;
+    default:;
+    }
+  
+  return build_ext_string (extname, FORMAT_OS);
+}
+
 #ifdef MULE
 
 static int
@@ -1512,7 +1557,7 @@ console_type_create_objects_mswindows (void)
 /*  CONSOLE_HAS_METHOD (mswindows, mark_font_instance); */
   CONSOLE_HAS_METHOD (mswindows, print_font_instance);
   CONSOLE_HAS_METHOD (mswindows, finalize_font_instance);
-/*  CONSOLE_HAS_METHOD (mswindows, font_instance_truename); */
+  CONSOLE_HAS_METHOD (mswindows, font_instance_truename); 
   CONSOLE_HAS_METHOD (mswindows, list_fonts);
 #ifdef MULE
   CONSOLE_HAS_METHOD (mswindows, font_spec_matches_charset);

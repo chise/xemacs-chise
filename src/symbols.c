@@ -86,8 +86,6 @@ static Lisp_Object follow_varalias_pointers (Lisp_Object symbol,
 					     Lisp_Object follow_past_lisp_magic);
 
 
-#ifdef LRECORD_SYMBOL
-
 static Lisp_Object
 mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
 {
@@ -96,8 +94,6 @@ mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
   markobj (sym->value);
   markobj (sym->function);
-  /* No need to mark through ->obarray, because it only holds nil or t.  */
-  /* markobj (sym->obarray);*/
   XSETSTRING (pname, sym->name);
   markobj (pname);
   if (!symbol_next (sym))
@@ -115,7 +111,6 @@ mark_symbol (Lisp_Object obj, void (*markobj) (Lisp_Object))
 DEFINE_BASIC_LRECORD_IMPLEMENTATION ("symbol", symbol,
 				     mark_symbol, print_symbol, 0, 0, 0,
 				     struct Lisp_Symbol);
-#endif /* LRECORD_SYMBOL */
 
 
 /**********************************************************************/
@@ -161,10 +156,7 @@ intern (CONST char *str)
       return tem;
   }
 
-  return Fintern ((purify_flag
-		   ? make_pure_pname (buf, len, 0)
-		   : make_string (buf, len)),
-		  obarray);
+  return Fintern (make_string (buf, len), obarray);
 }
 
 DEFUN ("intern", Fintern, 1, 2, 0, /*
@@ -175,7 +167,8 @@ it defaults to the value of `obarray'.
 */
        (string, obarray))
 {
-  Lisp_Object sym, *ptr;
+  Lisp_Object object, *ptr;
+  struct Lisp_Symbol *symbol;
   Bytecount len;
 
   if (NILP (obarray)) obarray = Vobarray;
@@ -184,52 +177,64 @@ it defaults to the value of `obarray'.
   CHECK_STRING (string);
 
   len = XSTRING_LENGTH (string);
-  sym = oblookup (obarray, XSTRING_DATA (string), len);
-  if (!INTP (sym))
+  object = oblookup (obarray, XSTRING_DATA (string), len);
+  if (!INTP (object))
     /* Found it */
-    return sym;
+    return object;
 
-  ptr = &XVECTOR_DATA (obarray)[XINT (sym)];
+  ptr = &XVECTOR_DATA (obarray)[XINT (object)];
 
-  if (purify_flag && ! purified (string))
-    string = make_pure_pname (XSTRING_DATA (string), len, 0);
-  sym = Fmake_symbol (string);
-  /* FSFmacs places OBARRAY here, but it is pointless because we do
-     not mark through this slot, so it is not usable later (because
-     the obarray might have been collected).  Marking through the
-     ->obarray slot is an even worse idea, because it would keep
-     obarrays from being collected because of symbols pointed to them.
-
-     NOTE: We place Qt here only if OBARRAY is actually Vobarray.  It
-     is safer to do it this way, to avoid hosing with symbols within
-     pure objects.  */
-  if (EQ (obarray, Vobarray))
-    XSYMBOL (sym)->obarray = Qt;
+  object = Fmake_symbol (string);
+  symbol = XSYMBOL (object);
 
   if (SYMBOLP (*ptr))
-    symbol_next (XSYMBOL (sym)) = XSYMBOL (*ptr);
+    symbol_next (symbol) = XSYMBOL (*ptr);
   else
-    symbol_next (XSYMBOL (sym)) = 0;
-  *ptr = sym;
-  return sym;
+    symbol_next (symbol) = 0;
+  *ptr = object;
+
+  if (string_byte (symbol_name (symbol), 0) == ':' && EQ (obarray, Vobarray))
+    {
+      /* The LISP way is to put keywords in their own package, but we
+	 don't have packages, so we do something simpler.  Someday,
+	 maybe we'll have packages and then this will be reworked.
+	 --Stig. */
+      symbol_value (symbol) = object;
+    }
+
+  return object;
 }
 
 DEFUN ("intern-soft", Fintern_soft, 1, 2, 0, /*
-Return the canonical symbol whose name is STRING, or nil if none exists.
+Return the canonical symbol named NAME, or nil if none exists.
+NAME may be a string or a symbol.  If it is a symbol, that exact
+symbol is searched for.
 A second optional argument specifies the obarray to use;
 it defaults to the value of `obarray'.
 */
-       (string, obarray))
+       (name, obarray))
 {
+  /* #### Bug!  (intern-soft "nil") returns nil.  Perhaps we should
+     add a DEFAULT-IF-NOT-FOUND arg, like in get.  */
   Lisp_Object tem;
+  struct Lisp_String *string;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
 
-  CHECK_STRING (string);
+  if (!SYMBOLP (name))
+    {
+      CHECK_STRING (name);
+      string = XSTRING (name);
+    }
+  else
+    string = symbol_name (XSYMBOL (name));
 
-  tem = oblookup (obarray, XSTRING_DATA (string), XSTRING_LENGTH (string));
-  return !INTP (tem) ? tem : Qnil;
+  tem = oblookup (obarray, string_data (string), string_length (string));
+  if (INTP (tem) || (SYMBOLP (name) && !EQ (name, tem)))
+    return Qnil;
+  else
+    return tem;
 }
 
 DEFUN ("unintern", Funintern, 1, 2, 0, /*
@@ -241,21 +246,22 @@ OBARRAY defaults to the value of the variable `obarray'
 */
        (name, obarray))
 {
-  Lisp_Object string, tem;
+  Lisp_Object tem;
+  struct Lisp_String *string;
   int hash;
 
   if (NILP (obarray)) obarray = Vobarray;
   obarray = check_obarray (obarray);
 
   if (SYMBOLP (name))
-    XSETSTRING (string, XSYMBOL (name)->name);
+    string = symbol_name (XSYMBOL (name));
   else
     {
       CHECK_STRING (name);
-      string = name;
+      string = XSTRING (name);
     }
 
-  tem = oblookup (obarray, XSTRING_DATA (string), XSTRING_LENGTH (string));
+  tem = oblookup (obarray, string_data (string), string_length (string));
   if (INTP (tem))
     return Qnil;
   /* If arg was a symbol, don't delete anything but that symbol itself.  */
@@ -287,7 +293,6 @@ OBARRAY defaults to the value of the variable `obarray'
 	    }
 	}
     }
-  XSYMBOL (tem)->obarray = Qnil;
   return Qt;
 }
 
@@ -310,11 +315,6 @@ oblookup (Lisp_Object obarray, CONST Bufbyte *ptr, Bytecount size)
       obarray = check_obarray (obarray);
       obsize = XVECTOR_LENGTH (obarray);
     }
-#if 0 /* FSFmacs */
-  /* #### Huh? */
-  /* This is sometimes needed in the middle of GC.  */
-  obsize &= ~ARRAY_MARK_FLAG;
-#endif
   hash = hash_string (ptr, size) % obsize;
   oblookup_last_bucket_number = hash;
   bucket = XVECTOR_DATA (obarray)[hash];
@@ -558,8 +558,7 @@ reject_constant_symbols (Lisp_Object sym, Lisp_Object newval, int function_p,
 			 sym);
 
   if (symbol_is_constant (sym, val)
-      || (SYMBOL_IS_KEYWORD (sym) && !EQ (newval, sym)
-	  && !NILP (XSYMBOL (sym)->obarray)))
+      || (SYMBOL_IS_KEYWORD (sym) && !EQ (newval, sym)))
     signal_error (Qsetting_constant,
 		  UNBOUNDP (newval) ? list1 (sym) : list2 (sym, newval));
 }
@@ -2035,7 +2034,7 @@ sets it.
   {
     struct symbol_value_buffer_local *bfwd
       = alloc_lcrecord_type (struct symbol_value_buffer_local,
-			     lrecord_symbol_value_buffer_local);
+			     &lrecord_symbol_value_buffer_local);
     Lisp_Object foo;
     bfwd->magic.type = SYMVAL_BUFFER_LOCAL;
 
@@ -2143,7 +2142,7 @@ Use `make-local-hook' instead.
 
   /* Make sure variable is set up to hold per-buffer values */
   bfwd = alloc_lcrecord_type (struct symbol_value_buffer_local,
-			      lrecord_symbol_value_buffer_local);
+			      &lrecord_symbol_value_buffer_local);
   bfwd->magic.type = SYMVAL_SOME_BUFFER_LOCAL;
 
   bfwd->current_buffer = Qnil;
@@ -2863,7 +2862,7 @@ pity, thereby invalidating your code.
   if (!SYMBOL_VALUE_LISP_MAGIC_P (valcontents))
     {
       bfwd = alloc_lcrecord_type (struct symbol_value_lisp_magic,
-				  lrecord_symbol_value_lisp_magic);
+				  &lrecord_symbol_value_lisp_magic);
       bfwd->magic.type = SYMVAL_LISP_MAGIC;
       for (i = 0; i < MAGIC_HANDLER_MAX; i++)
 	{
@@ -2999,7 +2998,7 @@ has a buffer-local value in any buffer, or the symbols nil or t.
   reject_constant_symbols (variable, Qunbound, 0, Qt);
 
   bfwd = alloc_lcrecord_type (struct symbol_value_varalias,
-			      lrecord_symbol_value_varalias);
+			      &lrecord_symbol_value_varalias);
   bfwd->magic.type = SYMVAL_VARALIAS;
   bfwd->aliasee = alias;
   bfwd->shadowed = valcontents;
@@ -3079,8 +3078,6 @@ static struct symbol_value_magic guts_of_unbound_marker =
   { { symbol_value_forward_lheader_initializer, 0, 69},
     SYMVAL_UNBOUND_MARKER };
 
-Lisp_Object Vpure_uninterned_symbol_table;
-
 void
 init_symbols_once_early (void)
 {
@@ -3094,14 +3091,9 @@ init_symbols_once_early (void)
   XSETOBJ (Qnull_pointer, (enum Lisp_Type) 0, 0);
 #endif
 
-  /* see comment in Fpurecopy() */
-  Vpure_uninterned_symbol_table =
-    make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQ);
-  staticpro (&Vpure_uninterned_symbol_table);
-
-  Qnil = Fmake_symbol (make_pure_pname ((CONST Bufbyte *) "nil", 3, 1));
-  /* Bootstrapping problem: Qnil isn't set when make_pure_pname is
+  /* Bootstrapping problem: Qnil isn't set when make_string_nocopy is
      called the first time. */
+  Qnil = Fmake_symbol (make_string_nocopy ((CONST Bufbyte *) "nil", 3));
   XSYMBOL (Qnil)->name->plist = Qnil;
   XSYMBOL (Qnil)->value = Qnil; /* Nihil ex nihil */
   XSYMBOL (Qnil)->plist = Qnil;
@@ -3113,7 +3105,6 @@ init_symbols_once_early (void)
   {
     int hash = hash_string (string_data (XSYMBOL (Qnil)->name), 3);
     XVECTOR_DATA (Vobarray)[hash % OBARRAY_SIZE] = Qnil;
-    XSYMBOL (Qnil)->obarray = Qt;
   }
 
   {
@@ -3145,8 +3136,8 @@ init_symbols_once_early (void)
 void
 defsymbol (Lisp_Object *location, CONST char *name)
 {
-  *location = Fintern (make_pure_pname ((CONST Bufbyte *) name,
-                                        strlen (name), 1),
+  *location = Fintern (make_string_nocopy ((CONST Bufbyte *) name,
+					   strlen (name)),
 		       Qnil);
   staticpro (location);
 }
@@ -3372,8 +3363,8 @@ defvar_magic (CONST char *symbol_name, CONST struct symbol_value_forward *magic)
     sym = Fintern (build_string (symbol_name), Qnil);
   else
 #endif
-    sym = Fintern (make_pure_pname ((CONST Bufbyte *) symbol_name,
-                                    strlen (symbol_name), 1), Qnil);
+    sym = Fintern (make_string_nocopy ((CONST Bufbyte *) symbol_name,
+				       strlen (symbol_name)), Qnil);
 
   XSETOBJ (XSYMBOL (sym)->value, Lisp_Type_Record, magic);
 }

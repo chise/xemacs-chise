@@ -2,7 +2,6 @@
       (assemble-list
         "backquote" 		; needed for defsubst etc.
 	"bytecomp-runtime"	; define defsubst
-	"Installation.el"
 	"find-paths"
 	"packages"		; Bootstrap run-time lisp environment
 	"setup-paths"

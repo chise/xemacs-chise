@@ -176,18 +176,19 @@ If it fails, it returns nil."
 If it fails, it returns nil."
   (try-font-name (x-frob-font-weight font "medium") device))
 
-(defcustom *try-oblique-before-italic-fonts* nil
+(defcustom try-oblique-before-italic-fonts nil
   "*If nil, italic fonts are searched before oblique fonts.
 If non-nil, oblique fonts are tried before italic fonts.  This is mostly
 applicable to adobe-courier fonts"
   :type 'boolean
-  :tag "Try Oblique Before Italic Fonts"
   :group 'x)
+(define-obsolete-variable-alias '*try-oblique-before-italic-fonts*
+  'try-oblique-before-italic-fonts)
 
 (defun x-make-font-italic (font &optional device)
   "Given an X font specification, this attempts to make an `italic' font.
 If it fails, it returns nil."
-  (if *try-oblique-before-italic-fonts*
+  (if try-oblique-before-italic-fonts
       (or (try-font-name (x-frob-font-slant font "o") device)
 	  (try-font-name (x-frob-font-slant font "i") device))
     (or (try-font-name (x-frob-font-slant font "i") device)
@@ -202,18 +203,31 @@ If it fails, it returns nil."
   "Given an X font specification, this attempts to make a `bold-italic' font.
 If it fails, it returns nil."
   ;; This is haired up to avoid loading the "intermediate" fonts.
-  (or (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "bold") "i") device)
-      (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "bold") "o") device)
-      (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "black") "i") device)
-      (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "black") "o") device)
-      (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "demibold") "i") device)
-      (try-font-name
-       (x-frob-font-slant (x-frob-font-weight font "demibold") "o") device)))
+  (if *try-oblique-before-italic-fonts*
+      (or (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "bold") "o") device)
+	  (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "bold") "i") device)
+	  (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "black") "o") device)
+	  (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "black") "i") device)
+	  (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "demibold") "o") device)
+	  (try-font-name
+	   (x-frob-font-slant (x-frob-font-weight font "demibold") "i") device))
+    (or (try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "bold") "i") device)
+	(try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "bold") "o") device)
+	(try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "black") "i") device)
+	(try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "black") "o") device)
+	(try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "demibold") "i") device)
+	(try-font-name
+	 (x-frob-font-slant (x-frob-font-weight font "demibold") "o") device))))
 
 (defun x-font-size (font)
   "Return the nominal size of the given font.

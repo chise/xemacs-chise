@@ -229,8 +229,16 @@ These languages are supported with the Latin-2 (ISO-8859-2) character set:
 " . describe-european-environment-map))
 	      ))
 
+;; Romanian support originally from romanian.el
+
+(defun setup-romanian-environment ()
+  "Setup multilingual environment (MULE) for Romanian."
+  (interactive)
+  (setup-8-bit-environment "Romanian" 'latin-iso8859-2 'iso-8859-2
+			   "romanian"))
+
 (set-language-info-alist
- "Romanian" '((setup-function . (setup-latin2-environment
+ "Romanian" '((setup-function . (setup-romanian-environment
 				 . setup-european-environment-map))
 	      (charset . (ascii latin-iso8859-2))
 	      (tutorial . "TUTORIAL.ro")
@@ -241,6 +249,33 @@ These languages are supported with the Latin-2 (ISO-8859-2) character set:
  Serbian, Croatian, Slovak, Slovene, and Swedish.
 " . describe-european-environment-map))
 	      ))
+
+;; Czech support originally from czech.el
+;; Author: Milan Zamazal <pdm@fi.muni.cz>
+;; Maintainer(for XEmacs): David Sauer <davids@penguin.cz>
+
+(defun setup-czech-environment ()
+  "Set up multilingual environment (MULE) for czech users."
+  (interactive)
+  (setup-8-bit-environment "Czech" 'latin-iso8859-2 'iso-8859-2
+			   "czech"))
+
+
+(set-language-info-alist
+ "Czech" 
+ '((setup-function . (setup-czech-environment
+		      . setup-european-environment-map))
+   (charset . (ascii latin-iso8859-2))
+   (coding-system . (iso-8859-2))
+   (tutorial . "TUTORIAL.cs")
+   (documentation . ("\
+These languages are supported with the Latin-2 (ISO-8859-2) character set:
+Albanian, Czech, English, German, Hungarian, Polish, Romanian,
+Serbian, Croatian, Slovak, Slovene, and Swedish.
+" . describe-european-environment-map))
+))
+
+
 
 ;; Latin-3 (ISO-8859-3)
 

@@ -59,9 +59,7 @@ Lisp_Object Qinteger_or_char_p, Qinteger_char_or_marker_p;
 Lisp_Object Qnumberp, Qnumber_or_marker_p, Qnumber_char_or_marker_p;
 Lisp_Object Qbit_vectorp, Qbitp, Qcons, Qkeyword, Qcdr, Qignore;
 
-#ifdef LISP_FLOAT_TYPE
 Lisp_Object Qfloatp;
-#endif
 
 #ifdef DEBUG_XEMACS
 
@@ -69,19 +67,14 @@ int debug_issue_ebola_notices;
 
 int debug_ebola_backtrace_length;
 
-#if 0
-/*#ifndef LRECORD_SYMBOL*/
-#include "backtrace.h"
-#endif
-
 int
 eq_with_ebola_notice (Lisp_Object obj1, Lisp_Object obj2)
 {
-  if (debug_issue_ebola_notices != -42 /* abracadabra */ &&
-      (((CHARP (obj1) && INTP (obj2)) || (CHARP (obj2) && INTP (obj1)))
-       && (debug_issue_ebola_notices >= 2
-	   || XCHAR_OR_INT (obj1) == XCHAR_OR_INT (obj2))))
+  if (debug_issue_ebola_notices
+      && ((CHARP (obj1) && INTP (obj2)) || (CHARP (obj2) && INTP (obj1))))
     {
+      /* #### It would be really nice if this were a proper warning
+         instead of brain-dead print ro Qexternal_debugging_output.  */
       write_c_string ("Comparison between integer and character is constant nil (",
 		      Qexternal_debugging_output);
       Fprinc (obj1, Qexternal_debugging_output);
@@ -130,9 +123,15 @@ PREDICATE.  At that point, the gotten value is returned.
 }
 
 DOESNT_RETURN
-pure_write_error (Lisp_Object obj)
+c_write_error (Lisp_Object obj)
 {
-  signal_simple_error ("Attempt to modify read-only object", obj);
+  signal_simple_error ("Attempt to modify read-only object (c)", obj);
+}
+
+DOESNT_RETURN
+lisp_write_error (Lisp_Object obj)
+{
+  signal_simple_error ("Attempt to modify read-only object (lisp)", obj);
 }
 
 DOESNT_RETURN
@@ -546,22 +545,6 @@ Return a symbol representing the type of OBJECT.
 {
   switch (XTYPE (object))
     {
-#ifndef LRECORD_CONS
-      case Lisp_Type_Cons: return Qcons;
-#endif
-
-#ifndef LRECORD_SYMBOL
-    case Lisp_Type_Symbol: return Qsymbol;
-#endif
-
-#ifndef LRECORD_STRING
-    case Lisp_Type_String: return Qstring;
-#endif
-
-#ifndef LRECORD_VECTOR
-    case Lisp_Type_Vector: return Qvector;
-#endif
-
     case Lisp_Type_Record:
       return intern (XRECORD_LHEADER_IMPLEMENTATION (object)->name);
 
@@ -632,7 +615,7 @@ Set the car of CONSCELL to be NEWCAR.  Return NEWCAR.
   if (!CONSP (conscell))
     conscell = wrong_type_argument (Qconsp, conscell);
 
-  CHECK_IMPURE (conscell);
+  CHECK_LISP_WRITEABLE (conscell);
   XCAR (conscell) = newcar;
   return newcar;
 }
@@ -645,7 +628,7 @@ Set the cdr of CONSCELL to be NEWCDR.  Return NEWCDR.
   if (!CONSP (conscell))
     conscell = wrong_type_argument (Qconsp, conscell);
 
-  CHECK_IMPURE (conscell);
+  CHECK_LISP_WRITEABLE (conscell);
   XCDR (conscell) = newcdr;
   return newcdr;
 }
@@ -774,7 +757,7 @@ ARRAY may be a vector, bit vector, or string.  INDEX starts at 0.
 
   if (idx < 0) goto range_error;
 
-  CHECK_IMPURE (array);
+  CHECK_LISP_WRITEABLE (array);
 
   if (VECTORP (array))
     {
@@ -1630,7 +1613,7 @@ make_weak_list (enum weak_list_type type)
 {
   Lisp_Object result;
   struct weak_list *wl =
-    alloc_lcrecord_type (struct weak_list, lrecord_weak_list);
+    alloc_lcrecord_type (struct weak_list, &lrecord_weak_list);
 
   wl->list = Qnil;
   wl->type = type;
@@ -2219,7 +2202,7 @@ vars_of_data (void)
   Vall_weak_lists = Qnil;
 
 #ifdef DEBUG_XEMACS
-  DEFVAR_INT ("debug-issue-ebola-notices", &debug_issue_ebola_notices /*
+  DEFVAR_BOOL ("debug-issue-ebola-notices", &debug_issue_ebola_notices /*
 If non-zero, note when your code may be suffering from char-int confoundance.
 That is to say, if XEmacs encounters a usage of `eq', `memq', `equal',
 etc. where an int and a char with the same value are being compared,
@@ -2233,7 +2216,7 @@ have its chars and ints all confounded in the byte code, making it
 impossible to accurately determine Ebola infection.
 */ );
 
-  debug_issue_ebola_notices = 2; /* #### temporary hack */
+  debug_issue_ebola_notices = 0;
 
   DEFVAR_INT ("debug-ebola-backtrace-length",
 	      &debug_ebola_backtrace_length /*

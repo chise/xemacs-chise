@@ -232,7 +232,7 @@ Lstream_new (CONST Lstream_implementation *imp, CONST char *mode)
       lstream_types[lstream_type_count] = imp;
       Vlstream_free_list[lstream_type_count] =
 	make_lcrecord_list (sizeof (*p) + imp->size - 1,
-			    lrecord_lstream);
+			    &lrecord_lstream);
       lstream_type_count++;
     }
 

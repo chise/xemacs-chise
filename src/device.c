@@ -166,7 +166,7 @@ static struct device *
 allocate_device (Lisp_Object console)
 {
   Lisp_Object device;
-  struct device *d = alloc_lcrecord_type (struct device, lrecord_device);
+  struct device *d = alloc_lcrecord_type (struct device, &lrecord_device);
   struct gcpro gcpro1;
 
   zero_lcrecord (d);

@@ -448,13 +448,11 @@ struct Lisp_Charset
 
   int id;
   Lisp_Object name;
-  Lisp_Object doc_string, registry;
+  Lisp_Object doc_string, registry, short_name, long_name;
 
   Lisp_Object reverse_direction_charset;
 
   Lisp_Object ccl_program;
-
-  Bufbyte leading_byte;
 
   /* Final byte of this character set in ISO2022 designating escape sequence */
   Bufbyte final;
@@ -500,9 +498,12 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_LEFT_TO_RIGHT	0
 #define CHARSET_RIGHT_TO_LEFT	1
 
+/* Leading byte and id have been regrouped. -- OG */
 #define CHARSET_ID(cs)		 ((cs)->id)
+#define CHARSET_LEADING_BYTE(cs) ((Bufbyte)(CHARSET_ID(cs)))
 #define CHARSET_NAME(cs)	 ((cs)->name)
-#define CHARSET_LEADING_BYTE(cs) ((cs)->leading_byte)
+#define CHARSET_SHORT_NAME(cs)	 ((cs)->short_name)
+#define CHARSET_LONG_NAME(cs)	 ((cs)->long_name)
 #define CHARSET_REP_BYTES(cs)	 ((cs)->rep_bytes)
 #define CHARSET_COLUMNS(cs)	 ((cs)->columns)
 #define CHARSET_GRAPHIC(cs)	 ((cs)->graphic)
@@ -521,6 +522,8 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 
 #define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
 #define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
+#define XCHARSET_SHORT_NAME(cs)	  CHARSET_SHORT_NAME   (XCHARSET (cs))
+#define XCHARSET_LONG_NAME(cs)	  CHARSET_LONG_NAME    (XCHARSET (cs))
 #define XCHARSET_REP_BYTES(cs)	  CHARSET_REP_BYTES    (XCHARSET (cs))
 #define XCHARSET_COLUMNS(cs)	  CHARSET_COLUMNS      (XCHARSET (cs))
 #define XCHARSET_GRAPHIC(cs)      CHARSET_GRAPHIC      (XCHARSET (cs))

@@ -1,3 +1,30 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/symbol-tests.el: Add many more tests.
+
+1999-05-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/lisp-tests.el: Ditto.
+
+	* automated/hash-table-tests.el: Ditto.
+
+	* automated/database-tests.el: Don't use backquote where quote
+	would suffice.
+
+	* automated/symbol-tests.el: Add tests for magic symbols.
+
+1999-05-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/hash-table-tests.el: Fix comment.
+
+1999-04-22  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/test-harness.el (batch-test-emacs): Minor fixes.
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

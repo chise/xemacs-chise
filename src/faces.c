@@ -358,7 +358,7 @@ static struct Lisp_Face *
 allocate_face (void)
 {
   struct Lisp_Face *result =
-    alloc_lcrecord_type (struct Lisp_Face, lrecord_face);
+    alloc_lcrecord_type (struct Lisp_Face, &lrecord_face);
 
   reset_face (result);
   return result;
@@ -1827,7 +1827,7 @@ vars_of_faces (void)
     syms[n++] = Qblinking;
     syms[n++] = Qreverse;
 
-    Vbuilt_in_face_specifiers = pure_list (n, syms);
+    Vbuilt_in_face_specifiers = Flist (n, syms);
     staticpro (&Vbuilt_in_face_specifiers);
   }
 }

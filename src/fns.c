@@ -2678,7 +2678,7 @@ See also `get', `remprop', and `object-plist'.
        (object, propname, value))
 {
   CHECK_SYMBOL (propname);
-  CHECK_IMPURE (object);
+  CHECK_LISP_WRITEABLE (object);
 
   if (SYMBOLP (object))
     symbol_putprop (object, propname, value);
@@ -2723,7 +2723,7 @@ was present in the property list).  See also `get', `put', and
   int retval = 0;
 
   CHECK_SYMBOL (propname);
-  CHECK_IMPURE (object);
+  CHECK_LISP_WRITEABLE (object);
 
   if (SYMBOLP (object))
     retval = symbol_remprop (object, propname);
@@ -2786,47 +2786,12 @@ internal_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   if (depth > 200)
     error ("Stack overflow in equal");
-#ifndef LRECORD_CONS
- do_cdr:
-#endif
   QUIT;
   if (EQ_WITH_EBOLA_NOTICE (obj1, obj2))
     return 1;
   /* Note that (equal 20 20.0) should be nil */
   if (XTYPE (obj1) != XTYPE (obj2))
     return 0;
-#ifndef LRECORD_CONS
-  if (CONSP (obj1))
-    {
-      if (!internal_equal (XCAR (obj1), XCAR (obj2), depth + 1))
-        return 0;
-      obj1 = XCDR (obj1);
-      obj2 = XCDR (obj2);
-      goto do_cdr;
-    }
-#endif
-#ifndef LRECORD_VECTOR
-  if (VECTORP (obj1))
-    {
-      Lisp_Object *v1 = XVECTOR_DATA (obj1);
-      Lisp_Object *v2 = XVECTOR_DATA (obj2);
-      int len = XVECTOR_LENGTH (obj1);
-      if (len != XVECTOR_LENGTH (obj2))
-	return 0;
-      while (len--)
-	if (!internal_equal (*v1++, *v2++, depth + 1))
-	  return 0;
-      return 1;
-    }
-#endif
-#ifndef LRECORD_STRING
-  if (STRINGP (obj1))
-    {
-      Bytecount len;
-      return (((len = XSTRING_LENGTH (obj1)) == XSTRING_LENGTH (obj2)) &&
-	      !memcmp (XSTRING_DATA (obj1), XSTRING_DATA (obj2), len));
-    }
-#endif
   if (LRECORDP (obj1))
     {
       CONST struct lrecord_implementation
@@ -2851,39 +2816,12 @@ internal_old_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
   if (depth > 200)
     error ("Stack overflow in equal");
-#ifndef LRECORD_CONS
- do_cdr:
-#endif
   QUIT;
   if (HACKEQ_UNSAFE (obj1, obj2))
     return 1;
   /* Note that (equal 20 20.0) should be nil */
   if (XTYPE (obj1) != XTYPE (obj2))
     return 0;
-#ifndef LRECORD_CONS
-  if (CONSP (obj1))
-    {
-      if (!internal_old_equal (XCAR (obj1), XCAR (obj2), depth + 1))
-        return 0;
-      obj1 = XCDR (obj1);
-      obj2 = XCDR (obj2);
-      goto do_cdr;
-    }
-#endif
-#ifndef LRECORD_VECTOR
-  if (VECTORP (obj1))
-    {
-      Lisp_Object *v1 = XVECTOR_DATA (obj1);
-      Lisp_Object *v2 = XVECTOR_DATA (obj2);
-      int len = XVECTOR_LENGTH (obj1);
-      if (len != XVECTOR_LENGTH (obj2))
-	return 0;
-      while (len--)
-	if (!internal_old_equal (*v1++, *v2++, depth + 1))
-	  return 0;
-      return 1;
-    }
-#endif
 
   return internal_equal (obj1, obj2, depth);
 }
@@ -2929,7 +2867,7 @@ ARRAY is a vector, bit vector, or string.
       Charcount len = string_char_length (s);
       Charcount i;
       CHECK_CHAR_COERCE_INT (item);
-      CHECK_IMPURE (array);
+      CHECK_LISP_WRITEABLE (array);
       charval = XCHAR (item);
       for (i = 0; i < len; i++)
 	set_string_char (s, i, charval);
@@ -2939,7 +2877,7 @@ ARRAY is a vector, bit vector, or string.
     {
       Lisp_Object *p = XVECTOR_DATA (array);
       int len = XVECTOR_LENGTH (array);
-      CHECK_IMPURE (array);
+      CHECK_LISP_WRITEABLE (array);
       while (len--)
 	*p++ = item;
     }
@@ -2949,7 +2887,7 @@ ARRAY is a vector, bit vector, or string.
       int len = bit_vector_length (v);
       int bit;
       CHECK_BIT (item);
-      CHECK_IMPURE (array);
+      CHECK_LISP_WRITEABLE (array);
       bit = XINT (item);
       while (len--)
 	set_bit_vector_bit (v, len, bit);
@@ -3570,11 +3508,6 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
  (ec = Lstream_get_emchar (stream),		\
   ec == -1 ? 0 : (c = (Bufbyte)ec, 1))
 
-#define INPUT_EOF_P(stream)				\
- (ADVANCE_INPUT (c2, stream)				\
-  ? (Lstream_unget_emchar (stream, (Emchar)c2), 0)	\
-  : 1)
-
 #define STORE_BYTE(pos, val) do {					\
   pos += set_charptr_emchar (pos, (Emchar)((unsigned char)(val)));	\
   ++*ccptr;								\
@@ -3583,7 +3516,6 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
 static Bytind
 base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
 {
-  EMACS_INT counter = 0;
   Emchar ec;
   Bufbyte *e = to;
   unsigned long value;
@@ -3591,27 +3523,26 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
   *ccptr = 0;
   while (1)
     {
-      Bufbyte c, c2;
+      Bufbyte c;
 
       if (!ADVANCE_INPUT (c, istream))
 	break;
 
-      /* Accept wrapping lines, reversibly if at each 76 characters.  */
+      /* Accept wrapping lines.  */
+      if (c == '\r')
+	{
+	  if (!ADVANCE_INPUT (c, istream)
+	      || c != '\n')
+	    return -1;
+	}
       if (c == '\n')
 	{
 	  if (!ADVANCE_INPUT (c, istream))
 	    break;
-	  if (INPUT_EOF_P (istream))
-	    break;
-	  /* FSF Emacs has this check, apparently inherited from
-             recode.  However, I see no reason to be this picky about
-             line length -- why reject base64 with say 72-byte lines?
-             (yes, there are programs that generate them.)  */
-	  /*if (counter != MIME_LINE_LENGTH / 4) return -1;*/
-	  counter = 1;
+	  /* FSF checks for end of text here, but that's wrong. */
+	  /* FSF checks for correct line length here; that's also
+             wrong; some MIME encoders use different line lengths.  */
 	}
-      else
-	counter++;
 
       /* Process first byte of a quadruplet.  */
       if (!IS_BASE64 (c))
@@ -3968,4 +3899,6 @@ A list of symbols which are the features of the executing emacs.
 Used by `featurep' and `require', and altered by `provide'.
 */ );
   Vfeatures = Qnil;
+
+  Fprovide (intern ("base64"));
 }

@@ -208,7 +208,7 @@ You can manipulate it using `put-range-table', `get-range-table',
 {
   Lisp_Object obj;
   struct Lisp_Range_Table *rt = alloc_lcrecord_type (struct Lisp_Range_Table,
-						     lrecord_range_table);
+						     &lrecord_range_table);
   rt->entries = Dynarr_new (range_table_entry);
   XSETRANGE_TABLE (obj, rt);
   return obj;
@@ -226,7 +226,7 @@ ranges as the given table.  The values will not themselves be copied.
   CHECK_RANGE_TABLE (old_table);
   rt = XRANGE_TABLE (old_table);
 
-  rtnew = alloc_lcrecord_type (struct Lisp_Range_Table, lrecord_range_table);
+  rtnew = alloc_lcrecord_type (struct Lisp_Range_Table, &lrecord_range_table);
   rtnew->entries = Dynarr_new (range_table_entry);
 
   Dynarr_add_many (rtnew->entries, Dynarr_atp (rt->entries, 0),

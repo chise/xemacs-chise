@@ -4,6 +4,11 @@
 
 
 @ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Intro: (new-users-guide).	Introduction to the XEmacs Editor.
+@end direntry
+
 This manual serves as an introduction to the XEmacs editor.
 
 Copyright (C) 1985, 1986, 1988 Richard M. Stallman.

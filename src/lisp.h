@@ -506,58 +506,9 @@ enum munge_me_out_the_door
 /*		     Definition of Lisp_Object data type		*/
 /************************************************************************/
 
-#ifdef USE_MINIMAL_TAGBITS
-# define LRECORD_CONS
-# define LRECORD_VECTOR
-# define LRECORD_SYMBOL
-# define LRECORD_STRING
-#endif
-
 /* Define the fundamental Lisp data structures */
 
 /* This is the set of Lisp data types */
-
-#ifndef USE_MINIMAL_TAGBITS
-
-enum Lisp_Type
-{
-  /* XRECORD_LHEADER (object) points to a struct lrecord_header
-     lheader->implementation determines the type (and GC behavior)
-     of the object. */
-  Lisp_Type_Record,
-
-  /* Integer.  XINT(obj) is the integer value. */
-  Lisp_Type_Int,
-
-#ifndef LRECORD_CONS
-  /* Cons.  XCONS (object) points to a struct Lisp_Cons. */
-  Lisp_Type_Cons,
-#endif
-
-#ifndef LRECORD_STRING
-  /* String.  XSTRING (object) points to a struct Lisp_String.
-     The length of the string, and its contents, are stored therein. */
-  Lisp_Type_String,
-#endif
-
-#ifndef LRECORD_VECTOR
-  /* Vector of Lisp objects.  XVECTOR(object) points to a struct Lisp_Vector.
-     The length of the vector, and its contents, are stored therein. */
-  Lisp_Type_Vector,
-#endif /* !LRECORD_VECTOR */
-
-#ifndef LRECORD_SYMBOL
-  /* Symbol.  XSYMBOL (object) points to a struct Lisp_Symbol. */
-  Lisp_Type_Symbol,
-#endif /* !LRECORD_SYMBOL */
-
-  Lisp_Type_Char
-};
-
-# define POINTER_TYPE_P(type) \
-  ((type) != Lisp_Type_Int && (type) != Lisp_Type_Char)
-
-#else /* USE_MINIMAL_TAGBITS */
 
 enum Lisp_Type
 {
@@ -568,8 +519,6 @@ enum Lisp_Type
 };
 
 #define POINTER_TYPE_P(type) ((type) == Lisp_Type_Record)
-
-#endif /* USE_MINIMAL_TAGBITS */
 
 /* EMACS_INT is the underlying integral type into which a Lisp_Object must fit.
    In particular, it must be large enough to contain a pointer.
@@ -602,17 +551,10 @@ enum Lisp_Type
 # define ASSERT_VALID_POINTER(pnt) (assert ((((EMACS_UINT) pnt) & 3) == 0))
 #endif
 
-#ifdef USE_MINIMAL_TAGBITS
-# define GCMARKBITS  0
-# define GCTYPEBITS  2
-# define GCBITS      2
-# define INT_GCBITS  1
-#else
-# define GCMARKBITS  1
-# define GCTYPEBITS  3
-# define GCBITS      4
-# define INT_GCBITS  GCBITS
-#endif
+#define GCMARKBITS  0
+#define GCTYPEBITS  2
+#define GCBITS      2
+#define INT_GCBITS  1
 
 #define INT_VALBITS (BITS_PER_EMACS_INT - INT_GCBITS)
 #define VALBITS (BITS_PER_EMACS_INT - GCBITS)
@@ -624,25 +566,7 @@ enum Lisp_Type
 # include "lisp-disunion.h"
 #endif /* !USE_UNION_TYPE */
 
-#ifdef HAVE_SHM
-/* In this representation, data is found in two widely separated segments.  */
-extern int pure_size;
-# define XPNTR(x) \
-  ((void *)(XPNTRVAL(x)) | (XPNTRVAL(x) > pure_size ? DATA_SEG_BITS : PURE_SEG_BITS)))
-#else /* not HAVE_SHM */
-# ifdef DATA_SEG_BITS
-/* This case is used for the rt-pc and hp-pa.
-   In the diffs I was given, it checked for ptr = 0
-   and did not adjust it in that case.
-   But I don't think that zero should ever be found
-   in a Lisp object whose data type says it points to something.
- */
-#  define XPNTR(x) ((void *)((XPNTRVAL(x)) | DATA_SEG_BITS))
-# else /* not DATA_SEG_BITS */
-#  define XPNTR(x) ((void *) (XPNTRVAL(x)))
-# endif /* not DATA_SEG_BITS */
-#endif /* not HAVE_SHM */
-
+#define XPNTR(x) ((void *) (XPNTRVAL(x)))
 
 /* WARNING WARNING WARNING.  You must ensure on your own that proper
    GC protection is provided for the elements in this array. */
@@ -693,9 +617,7 @@ int eq_with_ebola_notice (Lisp_Object, Lisp_Object);
 
 struct Lisp_Cons
 {
-#ifdef LRECORD_CONS
   struct lrecord_header lheader;
-#endif
   Lisp_Object car, cdr;
 };
 typedef struct Lisp_Cons Lisp_Cons;
@@ -712,8 +634,6 @@ struct Lisp_Buffer_Cons
 };
 #endif
 
-#ifdef LRECORD_CONS
-
 DECLARE_LRECORD (cons, Lisp_Cons);
 #define XCONS(x) XRECORD (x, cons, Lisp_Cons)
 #define XSETCONS(x, p) XSETRECORD (x, p, cons)
@@ -724,23 +644,6 @@ DECLARE_LRECORD (cons, Lisp_Cons);
 
 #define CONS_MARKED_P(c) MARKED_RECORD_HEADER_P(&((c)->lheader))
 #define MARK_CONS(c) MARK_RECORD_HEADER (&((c)->lheader))
-
-#else /* ! LRECORD_CONS */
-
-DECLARE_NONRECORD (cons, Lisp_Type_Cons, Lisp_Cons);
-#define XCONS(a) XNONRECORD (a, cons, Lisp_Type_Cons, Lisp_Cons)
-#define XSETCONS(c, p) XSETOBJ (c, Lisp_Type_Cons, p)
-#define CONSP(x) (XTYPE (x) == Lisp_Type_Cons)
-#define GC_CONSP(x) (XGCTYPE (x) == Lisp_Type_Cons)
-#define CHECK_CONS(x) CHECK_NONRECORD (x, Lisp_Type_Cons, Qconsp)
-#define CONCHECK_CONS(x) CONCHECK_NONRECORD (x, Lisp_Type_Cons, Qconsp)
-
-/* Define these because they're used in a few places, inside and
-   out of alloc.c */
-#define CONS_MARKED_P(c) XMARKBIT (c->car)
-#define MARK_CONS(c) XMARK (c->car)
-
-#endif /* ! LRECORD_CONS */
 
 extern Lisp_Object Qnil;
 
@@ -1051,20 +954,14 @@ TRUE_LIST_P (Lisp_Object object)
 
 /*********** string ***********/
 
-/* In a string, the markbit of the plist is used as the gc mark bit */
-
 struct Lisp_String
 {
-#ifdef LRECORD_STRING
   struct lrecord_header lheader;
-#endif
   Bytecount size;
   Bufbyte *data;
   Lisp_Object plist;
 };
 typedef struct Lisp_String Lisp_String;
-
-#ifdef LRECORD_STRING
 
 DECLARE_LRECORD (string, Lisp_String);
 #define XSTRING(x) XRECORD (x, string, Lisp_String)
@@ -1073,18 +970,6 @@ DECLARE_LRECORD (string, Lisp_String);
 #define GC_STRINGP(x) GC_RECORDP (x, string)
 #define CHECK_STRING(x) CHECK_RECORD (x, string)
 #define CONCHECK_STRING(x) CONCHECK_RECORD (x, string)
-
-#else /* ! LRECORD_STRING */
-
-DECLARE_NONRECORD (string, Lisp_Type_String, Lisp_String);
-#define XSTRING(x) XNONRECORD (x, string, Lisp_Type_String, Lisp_String)
-#define XSETSTRING(x, p) XSETOBJ (x, Lisp_Type_String, p)
-#define STRINGP(x) (XTYPE (x) == Lisp_Type_String)
-#define GC_STRINGP(x) (XGCTYPE (x) == Lisp_Type_String)
-#define CHECK_STRING(x) CHECK_NONRECORD (x, Lisp_Type_String, Qstringp)
-#define CONCHECK_STRING(x) CONCHECK_NONRECORD (x, Lisp_Type_String, Qstringp)
-
-#endif /* ! LRECORD_STRING */
 
 #ifdef MULE
 
@@ -1138,9 +1023,7 @@ void set_string_char (Lisp_String *s, Charcount i, Emchar c);
 
 struct Lisp_Vector
 {
-#ifdef LRECORD_VECTOR
   struct lcrecord_header header;
-#endif
   long size;
   /* next is now chained through v->contents[size], terminated by Qzero.
      This means that pure vectors don't need a "next" */
@@ -1148,8 +1031,6 @@ struct Lisp_Vector
   Lisp_Object contents[1];
 };
 typedef struct Lisp_Vector Lisp_Vector;
-
-#ifdef LRECORD_VECTOR
 
 DECLARE_LRECORD (vector, Lisp_Vector);
 #define XVECTOR(x) XRECORD (x, vector, Lisp_Vector)
@@ -1159,25 +1040,10 @@ DECLARE_LRECORD (vector, Lisp_Vector);
 #define CHECK_VECTOR(x) CHECK_RECORD (x, vector)
 #define CONCHECK_VECTOR(x) CONCHECK_RECORD (x, vector)
 
-#else
-
-DECLARE_NONRECORD (vector, Lisp_Type_Vector, Lisp_Vector);
-#define XVECTOR(x) XNONRECORD (x, vector, Lisp_Type_Vector, Lisp_Vector)
-#define XSETVECTOR(x, p) XSETOBJ (x, Lisp_Type_Vector, p)
-#define VECTORP(x) (XTYPE (x) == Lisp_Type_Vector)
-#define GC_VECTORP(x) (XGCTYPE (x) == Lisp_Type_Vector)
-#define CHECK_VECTOR(x) CHECK_NONRECORD (x, Lisp_Type_Vector, Qvectorp)
-#define CONCHECK_VECTOR(x) CONCHECK_NONRECORD (x, Lisp_Type_Vector, Qvectorp)
-
-#endif
-
 #define vector_length(v) ((v)->size)
 #define XVECTOR_LENGTH(s) vector_length (XVECTOR (s))
 #define vector_data(v) ((v)->contents)
 #define XVECTOR_DATA(s) vector_data (XVECTOR (s))
-#ifndef LRECORD_VECTOR
-# define vector_next(v) ((v)->contents[(v)->size])
-#endif
 
 /*********** bit vector ***********/
 
@@ -1257,28 +1123,24 @@ set_bit_vector_bit (Lisp_Bit_Vector *v, int i, int value)
 
 /*********** symbol ***********/
 
-/* In a symbol, the markbit of the plist is used as the gc mark bit */
-
 struct Lisp_Symbol
 {
-#ifdef LRECORD_SYMBOL
   struct lrecord_header lheader;
-#endif
   /* next symbol in this obarray bucket */
   struct Lisp_Symbol *next;
   struct Lisp_String *name;
   Lisp_Object value;
   Lisp_Object function;
-  /* non-nil if the symbol is interned in Vobarray */
-  Lisp_Object obarray;
   Lisp_Object plist;
 };
 typedef struct Lisp_Symbol Lisp_Symbol;
 
-#define SYMBOL_IS_KEYWORD(sym) (string_byte (XSYMBOL(sym)->name, 0) == ':')
+#define SYMBOL_IS_KEYWORD(sym)						\
+  ((string_byte (symbol_name (XSYMBOL (sym)), 0) == ':')		\
+   && EQ (sym, oblookup (Vobarray,					\
+			 string_data (symbol_name (XSYMBOL (sym))),	\
+			 string_length (symbol_name (XSYMBOL (sym))))))
 #define KEYWORDP(obj) (SYMBOLP (obj) && SYMBOL_IS_KEYWORD (obj))
-
-#ifdef LRECORD_SYMBOL
 
 DECLARE_LRECORD (symbol, Lisp_Symbol);
 #define XSYMBOL(x) XRECORD (x, symbol, Lisp_Symbol)
@@ -1287,18 +1149,6 @@ DECLARE_LRECORD (symbol, Lisp_Symbol);
 #define GC_SYMBOLP(x) GC_RECORDP (x, symbol)
 #define CHECK_SYMBOL(x) CHECK_RECORD (x, symbol)
 #define CONCHECK_SYMBOL(x) CONCHECK_RECORD (x, symbol)
-
-#else
-
-DECLARE_NONRECORD (symbol, Lisp_Type_Symbol, Lisp_Symbol);
-#define XSYMBOL(x) XNONRECORD (x, symbol, Lisp_Type_Symbol, Lisp_Symbol)
-#define XSETSYMBOL(s, p) XSETOBJ ((s), Lisp_Type_Symbol, (p))
-#define SYMBOLP(x) (XTYPE (x) == Lisp_Type_Symbol)
-#define GC_SYMBOLP(x) (XGCTYPE (x) == Lisp_Type_Symbol)
-#define CHECK_SYMBOL(x) CHECK_NONRECORD (x, Lisp_Type_Symbol, Qsymbolp)
-#define CONCHECK_SYMBOL(x) CONCHECK_NONRECORD (x, Lisp_Type_Symbol, Qsymbolp)
-
-#endif
 
 #define symbol_next(s) ((s)->next)
 #define symbol_name(s) ((s)->name)
@@ -1528,10 +1378,16 @@ XCHAR_OR_INT (Lisp_Object obj)
 } while (0)
 
 
-/*********** pure space ***********/
+/*********** readonly objects ***********/
+    
+#define CHECK_C_WRITEABLE(obj)					\
+  do { if (c_readonly (obj)) c_write_error (obj); } while (0)
 
-#define CHECK_IMPURE(obj)					\
-  do { if (purified (obj)) pure_write_error (obj); } while (0)
+#define CHECK_LISP_WRITEABLE(obj)					\
+  do { if (lisp_readonly (obj)) lisp_write_error (obj); } while (0)
+
+#define C_READONLY(obj) (C_READONLY_RECORD_HEADER_P(XRECORD_LHEADER (obj)))
+#define LISP_READONLY(obj) (LISP_READONLY_RECORD_HEADER_P(XRECORD_LHEADER (obj)))
 
 /*********** structures ***********/
 
@@ -1693,11 +1549,7 @@ Lisp_Object,Lisp_Object,Lisp_Object
 /* Can't be const, because then subr->doc is read-only and
    Snarf_documentation chokes */
 
-#ifdef USE_INDEXED_LRECORD_IMPLEMENTATION
-# define subr_lheader_initializer { 0, 0, 0 }
-#else
-# define subr_lheader_initializer { lrecord_subr }
-#endif
+#define subr_lheader_initializer { 0, { 0, 0, 0 } }
 
 #define DEFUN(lname, Fname, min_args, max_args, prompt, arglist)	\
   Lisp_Object Fname (EXFUN_##max_args);					\
@@ -1932,7 +1784,7 @@ void debug_ungcpro(char *, int, struct gcpro *);
 #define NNGCPRO5(v1,v2,v3,v4,v5) \
  debug_gcpro5 (__FILE__, __LINE__,&nngcpro1,&nngcpro2,&nngcpro3,&nngcpro4,\
 	       &nngcpro5,&v1,&v2,&v3,&v4,&v5)
-#define NUNNGCPRO \
+#define NNUNGCPRO \
  debug_ungcpro(__FILE__, __LINE__,&nngcpro1)
 
 #else /* ! DEBUG_GCPRO */
@@ -2184,7 +2036,8 @@ extern int purify_flag;
 extern int gc_currently_forbidden;
 Lisp_Object restore_gc_inhibit (Lisp_Object);
 extern EMACS_INT gc_generation_number[1];
-int purified (Lisp_Object);
+int c_readonly (Lisp_Object);
+int lisp_readonly (Lisp_Object);
 Lisp_Object build_string (CONST char *);
 Lisp_Object build_ext_string (CONST char *, enum external_data_format);
 Lisp_Object build_translated_string (CONST char *);
@@ -2193,13 +2046,7 @@ Lisp_Object make_ext_string (CONST Extbyte *, EMACS_INT,
 			     enum external_data_format);
 Lisp_Object make_uninit_string (Bytecount);
 Lisp_Object make_float (double);
-size_t purespace_usage (void);
-void report_pure_usage (int, int);
-Lisp_Object make_pure_string (CONST Bufbyte *, Bytecount, Lisp_Object, int);
-Lisp_Object make_pure_pname (CONST Bufbyte *, Bytecount, int);
-Lisp_Object pure_cons (Lisp_Object, Lisp_Object);
-Lisp_Object pure_list (int, Lisp_Object *);
-Lisp_Object make_pure_vector (size_t, Lisp_Object);
+Lisp_Object make_string_nocopy (CONST Bufbyte *, Bytecount);
 void free_cons (Lisp_Cons *);
 void free_list (Lisp_Object);
 void free_alist (Lisp_Object);
@@ -2226,7 +2073,8 @@ char *egetenv (CONST char *);
 void stuff_buffered_input (Lisp_Object);
 
 /* Defined in data.c */
-DECLARE_DOESNT_RETURN (pure_write_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (c_write_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (lisp_write_error (Lisp_Object));
 DECLARE_DOESNT_RETURN (args_out_of_range (Lisp_Object, Lisp_Object));
 DECLARE_DOESNT_RETURN (args_out_of_range_3 (Lisp_Object, Lisp_Object,
 					    Lisp_Object));
@@ -2525,7 +2373,8 @@ void where_is_to_char (Lisp_Object, char *);
 /* Defined in lread.c */
 void ebolify_bytecode_constants (Lisp_Object);
 void close_load_descs (void);
-int locate_file (Lisp_Object, Lisp_Object, CONST char *, Lisp_Object *, int);
+int locate_file (Lisp_Object, Lisp_Object, Lisp_Object, Lisp_Object *, int);
+EXFUN (Flocate_file_clear_hashing, 1);
 int isfloat_string (CONST char *);
 
 /* Well, I've decided to enable this. -- ben */
@@ -3049,7 +2898,7 @@ extern Lisp_Object Vmirror_ascii_eqv_table, Vmirror_ascii_upcase_table;
 extern Lisp_Object Vmodule_directory, Vmswindows_downcase_file_names;
 extern Lisp_Object Vmswindows_get_true_file_attributes, Vobarray;
 extern Lisp_Object Vprint_length, Vprint_level, Vprocess_environment;
-extern Lisp_Object Vpure_uninterned_symbol_table, Vquit_flag;
+extern Lisp_Object Vquit_flag;
 extern Lisp_Object Vrecent_keys_ring, Vshell_file_name, Vsite_directory;
 extern Lisp_Object Vsite_module_directory;
 extern Lisp_Object Vstandard_input, Vstandard_output, Vstdio_str;

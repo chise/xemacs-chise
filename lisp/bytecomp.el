@@ -432,7 +432,6 @@ on the specbind stack.  The cdr of each cell is an integer bitmask.")
 
 (defvar byte-compile-free-references)
 (defvar byte-compile-free-assignments)
-(defvar debug-issue-ebola-notices)
 
 (defvar byte-compiler-error-flag)
 
@@ -1298,11 +1297,7 @@ otherwise pop it")
 	(byte-compile-warnings (if (eq byte-compile-warnings t)
 				   byte-compile-default-warnings
 				 byte-compile-warnings))
-	(byte-compile-file-domain nil)
-
-	;; We reserve the right to compare ANY objects for equality.
-	(debug-issue-ebola-notices -42)
-	)
+	(byte-compile-file-domain nil))
      (prog1
 	 (progn ,@body)
        (if (memq 'unused-vars byte-compile-warnings)

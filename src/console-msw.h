@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 #include <windows.h>
 #include <ddeml.h>	/* DDE management library */
-#ifndef __CYGWIN32__
+#if !defined (__CYGWIN32__) && !defined(__MINGW32__)
 #include <shellapi.h>	/* FileManager/Explorer drag and drop */
 #include <commctrl.h>
 #endif

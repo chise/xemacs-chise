@@ -581,7 +581,7 @@ and 'syntax.  See `valid-char-table-type-p'.
   Lisp_Object obj;
   enum char_table_type ty = symbol_to_char_table_type (type);
 
-  ct = alloc_lcrecord_type (struct Lisp_Char_Table, lrecord_char_table);
+  ct = alloc_lcrecord_type (struct Lisp_Char_Table, &lrecord_char_table);
   ct->type = ty;
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
     {
@@ -611,7 +611,7 @@ make_char_table_entry (Lisp_Object initval)
   int i;
   struct Lisp_Char_Table_Entry *cte =
     alloc_lcrecord_type (struct Lisp_Char_Table_Entry,
-			 lrecord_char_table_entry);
+			 &lrecord_char_table_entry);
 
   for (i = 0; i < 96; i++)
     cte->level2[i] = initval;
@@ -628,7 +628,7 @@ copy_char_table_entry (Lisp_Object entry)
   int i;
   struct Lisp_Char_Table_Entry *ctenew =
     alloc_lcrecord_type (struct Lisp_Char_Table_Entry,
-			 lrecord_char_table_entry);
+			 &lrecord_char_table_entry);
 
   for (i = 0; i < 96; i++)
     {
@@ -658,7 +658,7 @@ as OLD-TABLE.  The values will not themselves be copied.
 
   CHECK_CHAR_TABLE (old_table);
   ct = XCHAR_TABLE (old_table);
-  ctnew = alloc_lcrecord_type (struct Lisp_Char_Table, lrecord_char_table);
+  ctnew = alloc_lcrecord_type (struct Lisp_Char_Table, &lrecord_char_table);
   ctnew->type = ct->type;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)

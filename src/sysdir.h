@@ -26,7 +26,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef SYSV_SYSTEM_DIR
 # include <dirent.h>
-#elif defined (NONSYSTEM_DIR_LIBRARY)
+#elif defined (NONSYSTEM_DIR_LIBRARY) 
 # include "ndir.h"
 #elif defined (MSDOS)
 # include <dirent.h>

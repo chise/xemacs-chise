@@ -24,9 +24,6 @@
 # Synched up with: Not in FSF.
 #
 
-# Shell escape character. Used for escaping ', ` and " in commands.
-ESC=^
-
 XEMACS=..
 LISP=$(XEMACS)\lisp
 MODULES=$(XEMACS)\modules
@@ -138,8 +135,6 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=0
 #
 !if !defined(OS)
 OS=Windows_95/98
-# command.com doesn't like or need '^' as an escape character
-ESC=
 EMACS_CONFIGURATION=i586-pc-win32
 !else if "$(PROCESSOR_ARCHITECTURE)" == "x86"
 EMACS_CONFIGURATION=i586-pc-win32
@@ -236,79 +231,6 @@ CONFIG_ERROR=1
 USE_MINIMAL_TAGBITS=$(GUNG_HO)
 USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !endif
-
-#
-# Small configuration report
-#
-!if !defined(CONF_REPORT_ALREADY_PRINTED)
-!if [set CONF_REPORT_ALREADY_PRINTED=1]
-!endif
-!message ------------------------------------------------
-!message XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename) configured for "$(EMACS_CONFIGURATION)".
-!message 
-!message Installation directory is "$(INSTALL_DIR)".
-!message Package path is "$(PACKAGE_PATH)".
-!message 
-!if $(INFODOCK)
-!message Building InfoDock.
-!endif
-!if $(HAVE_MSW)
-!message Compiling in support for native GUI.
-!endif
-!if $(HAVE_X)
-!message Compiling in support for X-Windows.
-!endif
-!if $(HAVE_MULE)
-!message Compiling in MULE.
-!endif
-!if $(HAVE_XPM)
-!message Compiling in support for XPM images.
-!endif
-!if $(HAVE_GIF)
-!message Compiling in support for GIF images.
-!endif
-!if $(HAVE_PNG)
-!message Compiling in support for PNG images.
-!endif
-!if $(HAVE_TIFF)
-!message Compiling in support for TIFF images.
-!endif
-!if $(HAVE_JPEG)
-!message Compiling in support for JPEG images.
-!endif
-!if $(HAVE_XFACE)
-!message Compiling in support for X-Face message headers.
-!endif
-!if $(HAVE_TOOLBARS)
-!message Compiling in support for toolbars.
-!endif
-!if $(HAVE_DIALOGS)
-!message Compiling in support for dialogs.
-!endif
-!if $(HAVE_NATIVE_SOUND)
-!message Compiling in support for native sounds.
-!endif
-!if $(HAVE_MSW_C_DIRED)
-# Define HAVE_MSW_C_DIRED to be non-zero if you want XEmacs to use C
-# primitives to significantly speed up dired, at the expense of an
-# additional ~4KB of code.
-!message Compiling in fast dired implementation.
-!endif
-!if $(USE_MINIMAL_TAGBITS)
-!message Using minimal tagbits.
-!endif
-!if $(USE_INDEXED_LRECORD_IMPLEMENTATION)
-!message Using indexed lrecord implementation.
-!endif
-!if $(USE_UNION_TYPE)
-!message Using union type for Lisp object storage.
-!endif
-!if $(DEBUG_XEMACS)
-!message Compiling in extra debug checks. XEmacs will be slow!
-!endif
-!message ------------------------------------------------
-!message 
-!endif # !defined(CONF_REPORT_ALREADY_PRINTED)
 
 #
 # Compiler command echo control. Define VERBOSECC=1 to get vebose compilation.
@@ -429,43 +351,6 @@ DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
 	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
-#
-# Creating simplified versions of Installation and Installation.el
-#
-# Some values cannot be written on the same line with
-# their key, since they cannot be put inside an echo command.
-# Macro substitution (:"=\", :\=\\) can be performed on values in order
-# to create a legal string in LISP for Installation.el.
-#
-!if [echo OS: $(OS)>Installation] ||\
-[echo XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for $(ESC)`$(EMACS_CONFIGURATION)$(ESC)'.>>Installation] ||\
-[echo Where should the build process find the source code?>>Installation] ||\
-[echo $(MAKEDIR:\=\\)>>Installation]
-!endif
-# Compiler Information
-!if defined(CCV) &&\
-[echo What compiler should XEmacs be built with?>>Installation] &&\
-[echo $(CC) $(CFLAGS)>>Installation]
-!endif
-# Window System Information
-!if [echo What window system should XEmacs use?>>Installation]
-!endif
-!if (defined (HAVE_X) && $(HAVE_X) == 1)
-!if [echo X11>>Installation]
-!endif
-!endif
-!if (defined (HAVE_MSW) && $(HAVE_MSW) == 1)
-!if [echo MS Windows>>Installation]
-!endif
-!endif
-# Creation of Installation.el
-!if [type Installation] ||\
-[echo (setq Installation-string $(ESC)">Installation.el] ||\
-[type Installation >>Installation.el] ||\
-[echo $(ESC)")>>Installation.el]
-!endif
-
-
 #------------------------------------------------------------------------------
 
 default: $(OUTDIR)\nul all 
@@ -476,8 +361,7 @@ $(OUTDIR)\nul:
 XEMACS_INCLUDES=\
  $(XEMACS)\src\config.h \
  $(XEMACS)\src\Emacs.ad.h \
- $(XEMACS)\src\paths.h \
- $(XEMACS)\src\puresize-adjust.h
+ $(XEMACS)\src\paths.h
 
 $(XEMACS)\src\config.h:	config.h
 	copy config.h $(XEMACS)\src
@@ -487,9 +371,6 @@ $(XEMACS)\src\Emacs.ad.h:	Emacs.ad.h
 
 $(XEMACS)\src\paths.h:	paths.h
 	copy paths.h $(XEMACS)\src
-
-$(XEMACS)\src\puresize-adjust.h:	puresize-adjust.h
-	copy puresize-adjust.h $(XEMACS)\src
 
 #------------------------------------------------------------------------------
 
@@ -505,17 +386,18 @@ CONFIG_VALUES = $(LIB_SRC)\config.values
 !if [echo Creating $(CONFIG_VALUES) && echo ;;; Do not edit this file!>$(CONFIG_VALUES)]
 !endif
 # MAKEDIR has to be made into a string.
-!if [echo blddir>>$(CONFIG_VALUES) && echo $(ESC)"$(MAKEDIR:\=\\)\\..$(ESC)">>$(CONFIG_VALUES)]
+#!if [echo blddir>>$(CONFIG_VALUES) && echo $(ESC)"$(MAKEDIR:\=\\)\\..$(ESC)">>$(CONFIG_VALUES)]
+!if [echo blddir>>$(CONFIG_VALUES) && echo "$(MAKEDIR:\=\\)\\..">>$(CONFIG_VALUES)]
 !endif
-!if [echo CC>>$(CONFIG_VALUES) && echo $(ESC)"$(CC:\=\\)$(ESC)">>$(CONFIG_VALUES)]
+!if [echo CC>>$(CONFIG_VALUES) && echo "$(CC:\=\\)">>$(CONFIG_VALUES)]
 !endif
-!if [echo CFLAGS>>$(CONFIG_VALUES) && echo $(ESC)"$(CFLAGS:\=\\)$(ESC)">>$(CONFIG_VALUES)]
+!if [echo CFLAGS>>$(CONFIG_VALUES) && echo "$(CFLAGS:\=\\)">>$(CONFIG_VALUES)]
 !endif
-!if [echo CPP>>$(CONFIG_VALUES) && echo $(ESC)"$(CPP:\=\\)$(ESC)">>$(CONFIG_VALUES)]
+!if [echo CPP>>$(CONFIG_VALUES) && echo "$(CPP:\=\\)">>$(CONFIG_VALUES)]
 !endif
-!if [echo CPPFLAGS>>$(CONFIG_VALUES) && echo $(ESC)"$(CPPFLAGS:\=\\)$(ESC)">>$(CONFIG_VALUES)]
+!if [echo CPPFLAGS>>$(CONFIG_VALUES) && echo "$(CPPFLAGS:\=\\)">>$(CONFIG_VALUES)]
 !endif
-!if [echo LISPDIR>>$(CONFIG_VALUES) && echo $(ESC)"$(MAKEDIR:\=\\)\\$(LISP:\=\\)$(ESC)">>$(CONFIG_VALUES)]
+!if [echo LISPDIR>>$(CONFIG_VALUES) && echo "$(MAKEDIR:\=\\)\\$(LISP:\=\\)">>$(CONFIG_VALUES)]
 !endif
 # PATH_PACKAGEPATH is already a quoted string.
 !if [echo PACKAGE_PATH>>$(CONFIG_VALUES) && echo $(PATH_PACKAGEPATH)>>$(CONFIG_VALUES)]
@@ -982,7 +864,7 @@ $(OUTDIR)\TopLevelEmacsShell.obj:	$(TEMACS_SRC)\EmacsShell-sub.c
 $(OUTDIR)\TransientEmacsShell.obj: $(TEMACS_SRC)\EmacsShell-sub.c
 	$(CCV) $(TEMACS_CPP_FLAGS) -DDEFINE_TRANSIENT_EMACS_SHELL $** -Fo$@
 
-$(OUTDIR)\alloc.obj: $(TEMACS_SRC)\alloc.c $(TEMACS_SRC)\puresize-adjust.h
+$(OUTDIR)\alloc.obj: $(TEMACS_SRC)\alloc.c
 
 #$(TEMACS_SRC)\Emacs.ad.h: $(XEMACS)\etc\Emacs.ad
 #	!"sed -f ad2c.sed < $(XEMACS)\etc\Emacs.ad > $(TEMACS_SRC)\Emacs.ad.h"
@@ -1022,10 +904,7 @@ $(DOC): $(LIB_SRC)\make-docfile.exe
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC8)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC9)
 
-$(LISP)\Installation.el: Installation.el
-	copy Installation.el $(LISP)
-
-update-elc: $(LISP)\Installation.el
+update-elc:
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
@@ -1043,7 +922,7 @@ dump-xemacs: $(TEMACS)
 #------------------------------------------------------------------------------
 
 # use this rule to build the complete system
-all:	$(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
+all:	Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
 	$(TEMACS) update-elc $(DOC) dump-xemacs
 
 temacs: $(TEMACS)
@@ -1078,7 +957,6 @@ distclean:
 	del *.rej
 	del *.tmp
 	del Installation
-	del Installation.el
 	cd $(OUTDIR)
 	del *.lib
 	del *.obj
@@ -1086,7 +964,6 @@ distclean:
 	del *.res
 	del *.sbr
 	cd $(XEMACS)\$(TEMACS_DIR)
-	del puresize-adjust.h
 	del config.h
 	del paths.h
 	del Emacs.ad.h
@@ -1112,6 +989,99 @@ distclean:
 
 depend:
 	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c
+
+Installation:
+	@type > Installation <<
+!if defined(OS)
+OS: $(OS)
+!endif
+
+XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_CONFIGURATION)'.
+
+  Building XEmacs in \"$(MAKEDIR:\=\\)\".
+!if defined(CCV)
+  Using compiler \"$(CC) $(CFLAGS)\".
+!endif
+  Installing XEmacs in \"$(INSTALL_DIR:\=\\)\".
+  Package path is $(PATH_PACKAGEPATH:"=\").
+!if $(INFODOCK)
+  Building InfoDock.
+!endif
+!if $(HAVE_MSW)
+  Compiling in support for Microsoft Windows native GUI.
+!endif
+!if $(HAVE_X)
+  Compiling in support for X-Windows.
+!endif
+!if $(HAVE_MULE)
+  Compiling in MULE.
+!endif
+!if $(HAVE_XPM)
+  Compiling in support for XPM images.
+!else
+  --------------------------------------------------------------------
+  WARNING: Compiling without XPM support.
+  WARNING: You should strongly consider installing XPM.
+  WARNING: Otherwise toolbars and other graphics will look suboptimal.
+  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux)
+  --------------------------------------------------------------------
+!endif
+!if $(HAVE_GIF)
+  Compiling in support for GIF images.
+!endif
+!if $(HAVE_PNG)
+  Compiling in support for PNG images.
+!else
+  --------------------------------------------------------------------
+  WARNING: Compiling without PNG image support.
+  WARNING: You should strongly consider installing the PNG libraries.
+  WARNING: Otherwise certain images and glyphs may not display.
+  WARNING: (a copy may be found in ftp://ftp.xemacs.org/pub/xemacs/aux
+  --------------------------------------------------------------------
+!endif
+!if $(HAVE_TIFF)
+  Compiling in support for TIFF images.
+!endif
+!if $(HAVE_JPEG)
+  Compiling in support for JPEG images.
+!endif
+!if $(HAVE_XFACE)
+  Compiling in support for X-Face message headers.
+!endif
+!if $(HAVE_TOOLBARS)
+  Compiling in support for toolbars.
+!endif
+!if $(HAVE_DIALOGS)
+  Compiling in support for dialogs.
+!endif
+!if $(HAVE_NATIVE_SOUND)
+  Compiling in support for native sounds.
+!endif
+!if $(HAVE_MSW_C_DIRED)
+  Compiling in fast dired implementation.
+!else
+  --------------------------------------------------------------------
+  WARNING: Define HAVE_MSW_C_DIRED to be non-zero if you want XEmacs
+  WARNING: to use C primitives to significantly speed up dired, at the
+  WARNING: expense of an additional ~4KB of code.
+  --------------------------------------------------------------------
+!endif
+!if $(USE_MINIMAL_TAGBITS)
+  Using minimal tagbits.
+!endif
+!if $(USE_INDEXED_LRECORD_IMPLEMENTATION)
+  Using indexed lrecord implementation.
+!endif
+!if $(USE_UNION_TYPE)
+  Using union type for Lisp object storage.
+!endif
+!if $(DEBUG_XEMACS)
+  Compiling in extra debug checks. XEmacs will be slow!
+!endif
+<<NOKEEP
+	@echo --------------------------------------------------------------------
+	@type Installation
+	@echo --------------------------------------------------------------------
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

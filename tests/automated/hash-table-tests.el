@@ -22,11 +22,11 @@
 ;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; Synched up with: not in FSF Emacs.
+;;; Synched up with: Not in FSF.
 
 ;;; Commentary:
 
-;;; Test database functionality
+;;; Test hash tables implementation
 ;;; See test-harness.el
 
 (condition-case err
@@ -37,12 +37,12 @@
      (require 'test-harness))))
 
 ;; Test all combinations of make-hash-table keywords
-(dolist (type `(non-weak weak key-weak value-weak))
-  (dolist (test `(eq eql equal))
-    (dolist (size `(0 1 100))
-      (dolist (rehash-size `(1.1 9.9))
-	(dolist (rehash-threshold `(0.2 .9))
-	  (dolist (data `(() (1 2) (1 2 3 4)))
+(dolist (type '(non-weak weak key-weak value-weak))
+  (dolist (test '(eq eql equal))
+    (dolist (size '(0 1 100))
+      (dolist (rehash-size '(1.1 9.9))
+	(dolist (rehash-threshold '(0.2 .9))
+	  (dolist (data '(() (1 2) (1 2 3 4)))
 	    (let ((ht (make-hash-table :test test
 				       :type type
 				       :size size
@@ -56,7 +56,7 @@
 	      (Assert (eql rehash-size (hash-table-rehash-size ht)))
 	      (Assert (eql rehash-threshold (hash-table-rehash-threshold ht))))))))))
 
-(loop for (fun type) in `((make-hashtable non-weak)
+(loop for (fun type) in '((make-hashtable non-weak)
 			  (make-weak-hashtable weak)
 			  (make-key-weak-hashtable key-weak)
 			  (make-value-weak-hashtable value-weak))
@@ -194,7 +194,7 @@
 
 ;; Test that weak hash-tables are properly handled
 (loop for (type expected-count expected-k-sum expected-v-sum) in
-  `((non-weak 6 38 25)
+  '((non-weak 6 38 25)
     (weak 3 6 9)
     (key-weak 4 38 9)
     (value-weak 4 6 25))

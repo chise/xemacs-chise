@@ -175,8 +175,6 @@ It returns only 1 in XEmacs.  It is for compatibility with MULE 2.3."
 (defalias 'char-columns 'char-width)
 (make-obsolete 'char-columns 'char-width)
 
-(defalias 'charset-description 'charset-doc-string)
-
 (defalias 'find-charset-string 'charsets-in-string)
 (defalias 'find-charset-region 'charsets-in-region)
 

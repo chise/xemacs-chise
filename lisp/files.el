@@ -1158,7 +1158,7 @@ run `normal-mode' explicitly."
     ("\\.icn\\'" . icon-mode)
     ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
     ;; #### Unix-specific!
-    ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\||logout\\)\\'" . sh-mode)
+    ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
     ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
     ("/\\.\\(?:[kz]shenv\\|xsession\\)\\'" . sh-mode)
     ;; The following come after the ChangeLog pattern for the sake of

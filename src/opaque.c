@@ -115,7 +115,7 @@ Lisp_Object
 make_opaque (size_t size, CONST void *data)
 {
   Lisp_Opaque *p = (Lisp_Opaque *)
-    alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, lrecord_opaque);
+    alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, &lrecord_opaque);
   p->markfun = 0;
   p->size_or_chain = make_int (size);
 
@@ -195,7 +195,7 @@ make_opaque_list (size_t size,
 {
   Lisp_Object val;
   Lisp_Opaque_List *p =
-    alloc_lcrecord_type (Lisp_Opaque_List, lrecord_opaque_list);
+    alloc_lcrecord_type (Lisp_Opaque_List, &lrecord_opaque_list);
 
   p->markfun = markfun;
   p->size = size;

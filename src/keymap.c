@@ -742,7 +742,7 @@ static Lisp_Object
 make_keymap (size_t size)
 {
   Lisp_Object result;
-  Lisp_Keymap *keymap = alloc_lcrecord_type (Lisp_Keymap, lrecord_keymap);
+  Lisp_Keymap *keymap = alloc_lcrecord_type (Lisp_Keymap, &lrecord_keymap);
 
   XSETKEYMAP (result, keymap);
 
@@ -4319,7 +4319,7 @@ Incremented for each change to any keymap.
 
   staticpro (&Vcurrent_global_map);
 
-  Vsingle_space_string = make_pure_string ((CONST Bufbyte *) " ", 1, Qnil, 1);
+  Vsingle_space_string = make_string_nocopy ((CONST Bufbyte *) " ", 1);
   staticpro (&Vsingle_space_string);
 }
 

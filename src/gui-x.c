@@ -123,7 +123,7 @@ gcpro_popup_callbacks (LWLIB_ID id)
   Lisp_Object lpdata;
 
   assert (NILP (assq_no_quit (lid, Vpopup_callbacks)));
-  pdata = alloc_lcrecord_type (struct popup_data, lrecord_popup_data);
+  pdata = alloc_lcrecord_type (struct popup_data, &lrecord_popup_data);
   pdata->id = id;
   pdata->last_menubar_buffer = Qnil;
   pdata->menubar_contents_up_to_date = 0;

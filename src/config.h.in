@@ -429,11 +429,6 @@ char *alloca();
 #undef USE_GCC
 #undef USE_LCC
 
-/* Allow the user to override the default value of PURESIZE at configure
-   time.  This must come before we include the sys files in order for
-   it to be able to override any changes in them. */
-#undef RAW_PURESIZE
-
 /* Define this if you want level 2 internationalization compliance
    (localized collation and formatting).  Generally this should be
    defined, unless your system doesn't have the strcoll() and
@@ -498,15 +493,6 @@ char *alloca();
    seem to require this, probably because something with the int
    definitions isn't right with 64-bit systems.  */
 #undef USE_UNION_TYPE
-
-/* If defined, use a minimal number of tagbits.  This allows usage of more
-   advanced versions of malloc (like the Doug Lea new GNU malloc) and larger
-   integers. */
-/* --use-minimal-tagbits  */
-#undef USE_MINIMAL_TAGBITS
-
-/* --use-indexed-lrecord-implementation  */
-#undef USE_INDEXED_LRECORD_IMPLEMENTATION
 
 /* The configuration script defines opsysfile to be the name of the
    s/...h file that describes the system type you are using.
@@ -635,7 +621,7 @@ extern "C" {
 /* If you turn this flag on, it forces encapsulation in all
 circumstances; this can be used to make sure things compile OK
 on various systems. */
-#define DEBUG_ENCAPSULATION
+#undef DEBUG_ENCAPSULATION
 
 /* basic system calls */
 

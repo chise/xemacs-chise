@@ -43,7 +43,7 @@ for (grep (/\.[ch]$/, readdir (SRCDIR))) { $exists{$_} = 1; }
 closedir SRCDIR;
 {
   my %generated_header;
-  for (qw (config.h puresize-adjust.h sheap-adjust.h paths.h Emacs.ad.h)) {
+  for (qw (config.h sheap-adjust.h paths.h Emacs.ad.h)) {
     $generated_header{$_} = 1;
   }
 

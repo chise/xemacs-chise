@@ -194,7 +194,7 @@ extract_float (Lisp_Object num)
   if (INTP (num))
     return (double) XINT (num);
 
-  return extract_float (wrong_type_argument (num, Qnumberp));
+  return extract_float (wrong_type_argument (Qnumberp, num));
 }
 #endif /* LISP_FLOAT_TYPE */
 
@@ -666,12 +666,12 @@ Return the absolute value of ARG.
   if (INTP (arg))
     return (XINT (arg) >= 0) ? arg : make_int (- XINT (arg));
 
-  return Fabs (wrong_type_argument (arg, Qnumberp));
+  return Fabs (wrong_type_argument (Qnumberp, arg));
 }
 
 #ifdef LISP_FLOAT_TYPE
 DEFUN ("float", Ffloat, 1, 1, 0, /*
-Return the floating point number equal to ARG.
+Return the floating point number numerically equal to ARG.
 */
        (arg))
 {
@@ -681,7 +681,7 @@ Return the floating point number equal to ARG.
   if (FLOATP (arg))		/* give 'em the same float back */
     return arg;
 
-  return Ffloat (wrong_type_argument (arg, Qnumberp));
+  return Ffloat (wrong_type_argument (Qnumberp, arg));
 }
 #endif /* LISP_FLOAT_TYPE */
 
@@ -757,7 +757,7 @@ Return the smallest integer no less than ARG.  (Round toward +inf.)
   if (INTP (arg))
     return arg;
 
-  return Fceiling (wrong_type_argument (arg, Qnumberp));
+  return Fceiling (wrong_type_argument (Qnumberp, arg));
 }
 
 
@@ -834,7 +834,7 @@ Return the nearest integer to ARG.
   if (INTP (arg))
     return arg;
 
-  return Fround (wrong_type_argument (arg, Qnumberp));
+  return Fround (wrong_type_argument (Qnumberp, arg));
 }
 
 DEFUN ("truncate", Ftruncate, 1, 1, 0, /*
@@ -851,7 +851,7 @@ Rounds the value toward zero.
   if (INTP (arg))
     return arg;
 
-  return Ftruncate (wrong_type_argument (arg, Qnumberp));
+  return Ftruncate (wrong_type_argument (Qnumberp, arg));
 }
 
 /* Float-rounding functions. */

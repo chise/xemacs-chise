@@ -55,6 +55,7 @@
 (custom-add-loads 'widget-button '("wid-edit"))
 (custom-add-loads 'paren-blinking '("simple"))
 (custom-add-loads 'find-file '("files"))
+(custom-add-loads 'font-menu '("x-font-menu"))
 (custom-add-loads 'files '("files"))
 (custom-add-loads 'build '("build-report"))
 (custom-add-loads 'font-lock '("font-lock"))

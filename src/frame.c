@@ -175,7 +175,7 @@ allocate_frame_core (Lisp_Object device)
   /* This function can GC */
   Lisp_Object frame;
   Lisp_Object root_window;
-  struct frame *f = alloc_lcrecord_type (struct frame, lrecord_frame);
+  struct frame *f = alloc_lcrecord_type (struct frame, &lrecord_frame);
 
   zero_lcrecord (f);
   nuke_all_frame_slots (f);
