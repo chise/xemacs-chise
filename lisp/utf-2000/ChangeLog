@@ -1,3 +1,8 @@
+2003-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
 2003-05-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R003-Dot.el, Ideograph-R001-One.el (C3-2740): Use
