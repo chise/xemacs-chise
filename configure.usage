@@ -30,7 +30,6 @@ Compilation options:
 
 --compiler=PROG         C compiler to use
 --with-gcc (*)          Use GCC to compile XEmacs.
---without-gcc           Don't use GCC to compile XEmacs.
 --cflags=FLAGS          Compiler flags (such as -O)
 --cpp=PROG              C preprocessor to use (e.g. /usr/ccs/lib/cpp or cc -E)
 --cppflags=FLAGS        C preprocessor flags (e.g. -I/foo or -Dfoo=bar)
@@ -43,7 +42,7 @@ Compilation options:
                         'site-libraries'
 --site-runtime-libraries=PATH
                         List of ALL directories to search for dynamically
-                        linked libraries at run time.
+                        linked libraries at run time
 --dynamic=yes           Link dynamically if supported by system.
 --dynamic=no            Force static linking on systems where dynamic
                         linking is the default.
@@ -61,7 +60,6 @@ Installation options:
 Window-system options:
 
 --with-x11 (*)          Support the X Window System.
---without-x11           Don't support X.
 --x-includes=DIR        Search for X header files in DIR.
 --x-libraries=DIR       Search for X libraries in DIR.
 --with-msw (*)          Support MS Windows as a window system (only under
