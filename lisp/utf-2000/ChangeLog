@@ -1,4 +1,18 @@
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Add `<-halfwidth'
+	features for <HALFWIDTH> characters.
+
 2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el, Ideograph-R147-See.el,
+	Ideograph-R146-West.el, Ideograph-R145-Clothes.el,
+	Ideograph-R141-Tiger.el: Add some `<-simplified@JP/Jouyou'
+	features.
+
+	* Ideograph-R115-Grain.el: Add some `<-simplified@JP/Jouyou'
+	features.
+	(U-00025784): Unify M-25006; separate C5-2A76.
 
 	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el,
 	Ideograph-R140-Grass.el, Ideograph-R086-Fire.el: Add some
