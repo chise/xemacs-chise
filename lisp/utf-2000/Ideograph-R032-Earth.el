@@ -5565,6 +5565,7 @@
     (total-strokes	 . 10)
     (=jis-x0208		. #x5442)	; ø½‹—
     (=gt-pj-1		. #x5442)	; ø½‹—
+    (=ucs@jis		. #x57D6)	; ø½‹—
     ))
 (define-char
   '((morohashi-daikanwa	ho 90)
@@ -11133,6 +11134,7 @@
     (total-strokes	 . 16)
     (=jis-x0208		. #x3275)	; ø½ŠŽ
     (=gt-pj-1		. #x3275)	; ý¡€¬®
+    (=ucs@jis		. #x58CA)	; ø½ŠŽ
     (=gt		. 06958)	; ý¡€¬®
     ))
 (define-char
