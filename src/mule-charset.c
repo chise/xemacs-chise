@@ -2892,6 +2892,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208:1983 Japanese Kanji"),
 		  build_string ("jisx0208\\.1983"),
 		  Qnil, 0, 0, 0, 33);
+#ifdef UTF2000
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
@@ -2905,6 +2906,7 @@ complex_vars_of_mule_charset (void)
 		  Qnil,
 		  MIN_CHAR_JIS_X0208_1990,
 		  MAX_CHAR_JIS_X0208_1990, 0, 33);
+#endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
     make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
