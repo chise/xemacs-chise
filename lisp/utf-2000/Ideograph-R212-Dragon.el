@@ -9,6 +9,7 @@
     (japanese-jisx0208-1990	. #x4E36)	; ø½Š¸—
     (chinese-gb12345		. #x417A)	; é¾
     (ideograph-daikanwa		. 48818)	; ø¸‹º²
+    (mojikyo			. 048818)	; ý €‹º²
     (ucs			. #x9F8D)	; é¾
     ))
 (define-char
@@ -25,6 +26,7 @@
     (total-strokes	 . 5)
     (chinese-gb2312	. #x417A)	; ø»„¶
     (chinese-isoir165	. #x417A)	; ø»ž­
+    (mojikyo		. 051091)	; ý €Œž“
     (ucs		. #x9F99)	; é¾™
     ))
 (define-char

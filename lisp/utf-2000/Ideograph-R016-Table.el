@@ -114,6 +114,7 @@
       ))
     (chinese-cns11643-3 . #x2135)	; ø»•–¸
     (ideograph-cbeta	. 04891)	; ø¸¡Œ›
+    (mojikyo		. 059131)	; ý €Ž›»
     (ucs		. #x51E3)	; å‡£
     ))
 (define-char
@@ -529,6 +530,7 @@
     (total-strokes	 . 8)
     (chinese-cns11643-6 . #x295E)	; ø»œ
     (ideograph-daikanwa . 01775)	; ø¸€›¯
+    (mojikyo		. 009200)	; ý €‚°
     (ucs		. #x221BB)	; ð¢†»
     ))
 (define-char
@@ -604,6 +606,7 @@
     (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3547)	; ø»œ’®
     (ideograph-daikanwa . 01780)	; ø¸€›´
+    (mojikyo		. 036670)	; ý €ˆ¼¾
     (ucs		. #x20652)	; ð ™’
     ))
 (define-char

@@ -218,6 +218,7 @@
      ((ucs		  . #x5DE5)	; å·¥
       ))
     (ideograph-cbeta	. 00112)	; ø¸ °
+    (mojikyo		. 073450)	; ý €‘»ª
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«
@@ -415,6 +416,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (ideograph-daikanwa . 07665)	; ø¸·±
+    (mojikyo		. 000302)	; ý €€„®
     ))
 (define-char
   '((morohashi-daikanwa	7665 0 0)
@@ -1064,6 +1066,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 49044)	; ø¸‹¾”
+    (mojikyo		. 049044)	; ý €‹¾”
     ))
 (define-char
   '((morohashi-daikanwa	49044 0 2)
@@ -1078,6 +1081,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideograph-cbeta	. 00471)	; ø¸ ‡—
+    (mojikyo		. 059508)	; ý €Ž¡´
     (ucs		. #x5C57)	; å±—
     ))
 (define-char
@@ -1085,6 +1089,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (chinese-cns11643-5 . #x2D26)	; ø»™¼™
+    (mojikyo		. 086250)	; ý €•ƒª
     (ucs		. #x21C70)	; ð¡±°
     ))
 (define-char
@@ -1137,6 +1142,7 @@
     (total-strokes	 . 11)
     (japanese-jisx0212	. #x3A78)	; ø»‹Š•
     (ideograph-daikanwa . 07731)	; ø¸¸³
+    (mojikyo		. 007731)	; ý €¸³
     (ucs		. #x5C5A)	; å±š
     ))
 (define-char
@@ -1449,6 +1455,7 @@
     (chinese-cns11643-1		. #x5973)	; ø»’•¾
     (japanese-jisx0208-1990	. #x454B)	; ø½Š«ž
     (chinese-big5		. #xB14F)	; øº ‚Ÿ
+    (mojikyo			. 054252)	; ý €¬
     (ucs			. #x5C60)	; å± 
     ))
 (define-char
@@ -2013,6 +2020,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-7 . #x223F)	; ø»ž€°
+    (mojikyo		. 050156)	; ý €Œ¬
     (ucs		. #x21CE1)	; ð¡³¡
     ))
 (define-char
@@ -2065,6 +2073,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (ideograph-daikanwa . 07810)	; ø¸º‚
+    (mojikyo		. 007810)	; ý €º‚
     (ucs		. #x21CE8)	; ð¡³¨
     ))
 (define-char
@@ -2099,6 +2108,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
     (ideograph-daikanwa . 07819)	; ø¸º‹
+    (mojikyo		. 007819)	; ý €º‹
     (ucs		. #x21CED)	; ð¡³­
     ))
 (define-char

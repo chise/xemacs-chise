@@ -6,6 +6,7 @@
     (chinese-isoir165	. #x3147)	; ø»†š
     (chinese-cns11643-1 . #x6B7C)	; ø»’°£
     (ideograph-daikanwa . 48498)	; ø¸‹µ²
+    (mojikyo		. 048498)	; ý €‹µ²
     (ucs		. #x9F3B)	; é¼»
     ))
 (define-char
@@ -19,6 +20,7 @@
     (korean-ksc5601		. #x5E2C)	; ø»‰³½
     (chinese-cns11643-4		. #x4877)	; ø»˜›
     (japanese-jisx0208-1990	. #x4921)	; ø½Š°¬
+    (mojikyo			. 050611)	; ý €Œ–³
     ))
 (define-char
   '((ideographic-radical . 209)	; â¿

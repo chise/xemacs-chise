@@ -167,6 +167,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-gb12345	. #x7D23)	; å·ª
+    (mojikyo		. 059572)	; ý €Ž¢´
     (ucs		. #x5DEA)	; å·ª
     ))
 (define-char
@@ -227,6 +228,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-gb12345	. #x7D43)	; å·¬
+    (mojikyo		. 059573)	; ý €Ž¢µ
     (ucs		. #x5DEC)	; å·¬
     ))
 (define-char
@@ -234,6 +236,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-gb12345	. #x7D44)	; å·­
+    (mojikyo		. 059574)	; ý €Ž¢¶
     (ucs		. #x5DED)	; å·­
     ))
 (define-char
@@ -257,6 +260,7 @@
     (total-strokes	 . 9)
     (chinese-gb2312	. #x326E)	; ø»„ 
     (chinese-isoir165	. #x326E)	; ø»ˆŸ
+    (mojikyo		. 053115)	; ý €Œ½»
     (ucs		. #x5DEE)	; å·®
     ))
 (define-char
@@ -297,6 +301,7 @@
     (total-strokes	 . 12)
     (chinese-gb2312	. #x5B4F)	; ø»…›¾
     (chinese-isoir165	. #x5B4F)	; ø»Ž„Ž
+    (mojikyo		. 052445)	; ý €Œ³
     (ucs		. #x5DEF)	; å·¯
     ))
 (define-char
@@ -304,6 +309,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (->mojikyo		. 053083)	; å·°
     (chinese-cns11643-2 . #x425D)	; ø»“½º
     ))
 (define-char
@@ -312,6 +318,7 @@
     (total-strokes	 . 14)
     (chinese-gb12345	. #x5B4F)	; å·°
     (chinese-big5	. #xDD57)	; øº¢–Ÿ
+    (mojikyo		. 053083)	; ý €Œ½›
     (ucs		. #x5DF0)	; å·°
     ))
 (define-char

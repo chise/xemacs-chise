@@ -34,6 +34,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (chinese-big5-cdp	. #x8A60)	; ý¢€ˆ© 
+    (mojikyo		. 070838)	; ý €‘’¶
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
@@ -846,6 +847,7 @@
     (japanese-jisx0208-1990	. #x362A)	; ø½Š”»
     (chinese-big5		. #xADEB)	; øºŸº¥
     (china3-jef			. #x45D5)	; øº„—•
+    (mojikyo			. 054486)	; ý €“–
     (ucs			. #x537F)	; å¿
     ))
 (define-char

@@ -213,6 +213,7 @@
     (japanese-jisx0208		. #x342C)	; ø»†¬
     (chinese-cns11643-3		. #x2C44)	; ø»•§‘
     (japanese-jisx0208-1990	. #x342C)	; ø½Š’
+    (mojikyo			. 050162)	; ý €Œ²
     (ucs			. #x5DFB)	; å·»
     ))
 (define-char
@@ -220,6 +221,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-gb12345	. #x7D60)	; å·¼
+    (mojikyo		. 059575)	; ý €Ž¢·
     (ucs		. #x5DFC)	; å·¼
     ))
 (define-char

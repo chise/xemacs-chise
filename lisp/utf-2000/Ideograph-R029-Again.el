@@ -101,6 +101,7 @@
     (chinese-cns11643-6		. #x2161)	; ø»›µ°
     (japanese-jisx0208-1990	. #x355A)	; ø½Š”
     (chinese-big5		. #xA4CE)	; øºŸ¤ƒ
+    (mojikyo			. 050116)	; ý €Œ„
     (ucs			. #x53CA)	; åŠ
     ))
 (define-char
@@ -310,6 +311,7 @@
     (japanese-jisx0208-1990	. #x3C7D)	; ø½ŠŸ‚
     (ideograph-daikanwa		. 03128)	; ø¸€°¸
     (ideograph-cbeta		. 01495)	; ø¸ ——
+    (mojikyo			. 003128)	; ý €€°¸
     (ucs			. #x53CE)	; åŽ
     ))
 (define-char
@@ -1001,6 +1003,28 @@
       ))
     (korean-ksc5601	. #x5A64)	; ø»‰®½
     (ideograph-daikanwa . 03166)	; ø¸€±ž
+    (mojikyo		. 003166)	; ý €€±ž
+    ))
+(define-char
+  '((=>ucs		. #x53DB)	; å›
+    (morohashi-daikanwa	3166 0 1)
+    (ideographic-radical . 29)	; â¼œ
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((korean-ksc5601	  . #x5A62)	; ø»‰®»
+      (ideograph-daikanwa . 02707)	; ø¸€ª“
+      )
+     ((japanese-jisx0208-1978	  . #x483F)	; ø»‚µ°
+      (japanese-jisx0208	  . #x483F)	; ø»‡‰¸
+      (korean-ksc5601		  . #x5A63)	; ø»‰®¼
+      (chinese-cns11643-1	  . #x4530)	; ø»‘·£
+      (ideograph-daikanwa	  . 03127)	; ø¸€°·
+      ))
+    (mojikyo		. 067958)	; ý €¥¶
     ))
 (define-char
   '((=>ucs		. #x53DB)	; å›
@@ -1024,6 +1048,7 @@
     (japanese-jisx0208		. #x4840)	; ø»‡‰¹
     (japanese-jisx0208-1990	. #x4840)	; ø½Š¯­
     (china3-jef			. #x45EC)	; øº„—¬
+    (mojikyo			. 054307)	; ý €£
     ))
 (define-char
   '((=>ucs		. #x53DB)	; å›
@@ -1031,6 +1056,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (->mojikyo		. 054307)	; ø»‚µ±
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -1064,6 +1090,7 @@
     (chinese-gb2312	. #x4551)	; ø»„»¬
     (chinese-isoir165	. #x4551)	; ø»£¼
     (chinese-big5	. #xAB71)	; øºŸ´“
+    (mojikyo		. 057947)	; ý €Ž‰›
     (ucs		. #x53DB)	; å›
     ))
 (define-char

@@ -38,6 +38,7 @@
     (total-strokes	 . 7)
     (chinese-cns11643-5 . #x2464)	; ø»™°‰
     (ideograph-daikanwa . 22018)	; ø¸…˜‚
+    (mojikyo		. 022018)	; ý €…˜‚
     (ucs		. #x24D26)	; ð¤´¦
     ))
 (define-char
@@ -5291,6 +5292,7 @@
 (define-char
   '((ideographic-radical . 104)	; â½§
     (ideographic-strokes . 13)
+    (mojikyo		. 059786)	; ý €Ž¦Š
     (ucs		. #x765D)	; ç™
     ))
 (define-char

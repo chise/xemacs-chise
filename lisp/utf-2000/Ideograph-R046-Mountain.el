@@ -175,6 +175,7 @@
   '((ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (mojikyo		. 059512)	; ý €Ž¡¸
     (ucs		. #x5C77)	; å±·
     ))
 (define-char
@@ -401,6 +402,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-gb12345	. #x7C59)	; å²ƒ
+    (mojikyo		. 059514)	; ý €Ž¡º
     (ucs		. #x5C83)	; å²ƒ
     ))
 (define-char
@@ -890,6 +892,7 @@
       (ideograph-daikanwa	  . 01853)	; ø¸€œ½
       ))
     (ideograph-cbeta	. 03791)	; ø¸ »
+    (mojikyo		. 077215)	; ý €’¶Ÿ
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
@@ -2047,6 +2050,7 @@
     (chinese-isoir165		. #x4F3F)	; ø»²–
     (chinese-cns11643-3		. #x2C3E)	; ø»•§‹
     (japanese-jisx0208-1990	. #x362E)	; ø½Š”¿
+    (mojikyo			. 050157)	; ý €Œ­
     (ucs			. #x5CE1)	; å³¡
     ))
 (define-char
@@ -3635,6 +3639,7 @@
     (chinese-cns11643-1		. #x597D)	; ø»’–ˆ
     (japanese-jisx0208-1990	. #x4A78)	; ø½Š³¡
     (chinese-big5		. #xB159)	; øº ‚©
+    (mojikyo			. 050158)	; ý €Œ®
     (ucs			. #x5D29)	; å´©
     ))
 (define-char
@@ -5299,6 +5304,7 @@
   '((ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
+    (->mojikyo		. 059556)	; ø¸ ·
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
@@ -5323,6 +5329,7 @@
      ((chinese-cns11643-1 . #x556B)	; ø»’¾
       ))
     (ideograph-cbeta	. 00119)	; ø¸ ·
+    (mojikyo		. 059556)	; ý €Ž¢¤
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
@@ -6070,6 +6077,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4974)	; ø»”ˆ£
     (chinese-big5	. #xE1AF)	; øº¢¡‰
+    (mojikyo		. 053297)	; ý €€±
     (ucs		. #x5D8D)	; å¶
     ))
 (define-char
@@ -7159,6 +7167,7 @@
      ((ucs		  . #x5FAE)	; å¾®
       ))
     (ideograph-cbeta	. 00122)	; ø¸ º
+    (mojikyo		. 059566)	; ý €Ž¢®
     (ucs		. #x5DB6)	; å¶¶
     ))
 (define-char
@@ -8018,6 +8027,7 @@
     (total-strokes	 . 20)
     (chinese-cns11643-3		. #x5C3E)	; ø»–­«
     (japanese-jisx0208-1990	. #x3460)	; ø½Š’µ
+    (mojikyo			. 050159)	; ý €Œ¯
     (ucs			. #x5DCC)	; å·Œ
     ))
 (define-char

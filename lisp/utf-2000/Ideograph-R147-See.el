@@ -312,6 +312,7 @@
     (chinese-cns11643-1		. #x617E)	; ø»’¡¹
     (japanese-jisx0208-1990	. #x3B6B)	; ø½Š’
     (chinese-gb12345		. #x4A53)	; è¦–
+    (mojikyo			. 050449)	; ý €Œ”‘
     (ucs			. #x8996)	; è¦–
     ))
 (define-char

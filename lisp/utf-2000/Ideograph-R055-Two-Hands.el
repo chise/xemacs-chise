@@ -119,6 +119,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (ideograph-cbeta	. 02326)	; ø¸ ¤–
+    (mojikyo		. 053212)	; ý €Œ¿œ
     ))
 (define-char
   '((ideographic-radical . 55)	; â¼¶
@@ -487,6 +488,7 @@
      ((ucs		  . #x5EFE)	; å»¾
       ))
     (ideograph-cbeta	. 04455)	; ø¸¡…§
+    (mojikyo		. 058174)	; ý €ŽŒ¾
     ))
 (define-char
   '((ideographic-radical . 55)	; â¼¶

@@ -297,6 +297,7 @@
     (chinese-cns11643-6 . #x2634)	; ø»›¼™
     (ideograph-daikanwa . 02609)	; ø¸€¨±
     (china3-jef		. #x8FB6)	; øºˆ¾¶
+    (mojikyo		. 002609)	; ý €€¨±
     (ucs		. #x20933)	; ð ¤³
     ))
 (define-char

@@ -123,6 +123,7 @@
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
 	(when-feature mule "arabic")
+	(when-feature utf-2000 "mojikyo-ccs")
 	(when-feature utf-2000 "isolated-char")
 	(when-feature utf-2000 "u00000-C0")
 	(when-feature utf-2000 "u00020-Basic-Latin")
@@ -422,10 +423,10 @@
 	(when-feature utf-2000 "u0FE70-Arabic-Presentation-Forms-B")
 	(when-feature utf-2000 "u0FF00-Halfwidth-and-Fullwidth-Forms")
 	(when-feature utf-2000 "u0FFF0-Specials")
-        ;; (when-feature utf-2000 "mojikyo")
 	(when-feature utf-2000 "ad-hoc-cdp")
 	(when-feature utf-2000 "ccs-tcvn5712.el")
 	(when-feature mule "mule-charset")
+	(when-feature utf-2000 "mojikyo-conf")
 	(when-feature mule "mule-coding")
 	;; All files after this can have extended characters in them.
 	(when-feature mule "mule-help")

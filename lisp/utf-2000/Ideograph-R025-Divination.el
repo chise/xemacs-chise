@@ -36,6 +36,12 @@
     ))
 (define-char
   '((ideographic-radical . 25)	; â¼˜
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (mojikyo		. 070816)	; ý €‘’ 
+    ))
+(define-char
+  '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideograph-daikanwa . 02776)	; ø¸€«˜

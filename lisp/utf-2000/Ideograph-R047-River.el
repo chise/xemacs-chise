@@ -140,6 +140,7 @@
     (chinese-isoir165		. #x5132)	; ø»µ…
     (chinese-cns11643-6		. #x2736)	; ø»›½¹
     (japanese-jisx0208-1990	. #x3D64)	; ø½Š ‡
+    (mojikyo			. 050160)	; ý €Œ°
     (ucs			. #x5DE1)	; å·¡
     ))
 (define-char
@@ -330,6 +331,7 @@
     (japanese-jisx0208		. #x4163)	; ø»‡€Š
     (chinese-cns11643-3		. #x3557)	; ø»•´²
     (japanese-jisx0208-1990	. #x4163)	; ø½Š¥¾
+    (mojikyo			. 050161)	; ý €Œ±
     (ucs			. #x5DE3)	; å·£
     ))
 (define-char

@@ -2715,6 +2715,7 @@
     (total-strokes	 . 11)
     (ideograph-gt-pj-9	. #x4C4B)	; ý¡€°¬
     (ideograph-gt	. 56364)	; ý¡€°¬
+    (mojikyo		. 076024)	; ý €’£¸
     ))
 (define-char
   '((->ucs		. #x96DB)	; é››

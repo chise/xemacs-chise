@@ -716,6 +716,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
     (china3-jef		. #x8CE9)	; øºˆ³©
+    (mojikyo		. 068913)	; ý €´±
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´
@@ -2088,6 +2089,7 @@
     (japanese-jisx0208		. #x4D6A)	; ø»‡‘¹
     (chinese-cns11643-3		. #x535B)	; ø»– º
     (japanese-jisx0208-1990	. #x4D6A)	; ø½Š·­
+    (mojikyo			. 050574)	; ý €Œ–Ž
     (ucs			. #x983C)	; é ¼
     ))
 (define-char
@@ -2825,6 +2827,7 @@
     (chinese-cns11643-1		. #x776D)	; ø»“¼
     (japanese-jisx0208-1990	. #x707A)	; ø½‹«—
     (ideograph-daikanwa		. 43591)	; ø¸Š©‡
+    (mojikyo			. 043591)	; ý €Š©‡
     (ucs			. #x984F)	; é¡
     ))
 (define-char
@@ -2838,6 +2841,7 @@
     (chinese-cns11643-3		. #x5956)	; ø»–©©
     (japanese-jisx0208-1990	. #x3469)	; ø½Š’¾
     (chinese-gb12345		. #x5155)	; é¡”
+    (mojikyo			. 050575)	; ý €Œ–
     (ucs			. #x9854)	; é¡”
     ))
 (define-char
@@ -2966,6 +2970,7 @@
     (japanese-jisx0208-1978	. #x4E60)	; ø»‚¿…
     (japanese-jisx0208		. #x4E60)	; ø»‡“
     (japanese-jisx0208-1990	. #x4E60)	; ø½Š¹
+    (mojikyo			. 050576)	; ý €Œ–
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´
@@ -2991,6 +2996,7 @@
     (japanese-jisx0208		. #x3832)	; ø»†²‹
     (chinese-cns11643-3		. #x5958)	; ø»–©«
     (japanese-jisx0208-1990	. #x3832)	; ø½Š—¿
+    (mojikyo			. 050577)	; ý €Œ–‘
     (ucs			. #x9855)	; é¡•
     ))
 (define-char
@@ -3822,6 +3828,7 @@
     (total-strokes	 . 21)
     (korean-ksc5601	. #x4D53)	; ø»‰›¦
     (ideograph-daikanwa . 43689)	; ø¸Šª©
+    (mojikyo		. 043689)	; ý €Šª©
     ))
 (define-char
   '((->ucs		. #x9867)	; é¡§
@@ -3837,6 +3844,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
     (chinese-gb12345	. #x394B)	; é¡§
+    (mojikyo		. 057193)	; ý €½©
     (ucs		. #x9867)	; é¡§
     ))
 (define-char
@@ -3849,6 +3857,7 @@
     (japanese-jisx0208-1978	. #x385C)	; ø»‚ž­
     (japanese-jisx0208		. #x385C)	; ø»†²µ
     (japanese-jisx0208-1990	. #x385C)	; ø½Š˜©
+    (mojikyo			. 054112)	; ý € 
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´

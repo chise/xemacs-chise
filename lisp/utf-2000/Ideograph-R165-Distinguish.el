@@ -70,6 +70,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 40120)	; ø¸‰²¸
+    (mojikyo		. 040120)	; ý €‰²¸
     ))
 (define-char
   '((morohashi-daikanwa	40120 1)
@@ -83,6 +84,7 @@
     (japanese-jisx0208-1978	. #x3C61)	; ø»‚¤ª
     (japanese-jisx0208		. #x3C61)	; ø»†¸²
     (japanese-jisx0208-1990	. #x3C61)	; ø½Šž¦
+    (mojikyo			. 050545)	; ý €Œ•±
     (ucs			. #x91C8)	; é‡ˆ
     ))
 (define-char
