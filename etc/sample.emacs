@@ -97,13 +97,14 @@
        (setq ispell-extra-args '("-W" "3"))
 
        (cond ((or (not (fboundp 'device-type))
-		  (equal (device-type) 'x))
-	      ;; Code which applies only when running emacs under X goes here.
-	      ;; (We check whether the function `device-type' exists
-	      ;; before using it.  In versions before 19.12, there
-	      ;; was no such function.  If it doesn't exist, we
-	      ;; simply assume we're running under X -- versions before
-	      ;; 19.12 only supported X.)
+		  (equal (device-type) 'x)
+		  (equal (device-type) 'mswindows))
+	      ;; Code which applies only when running emacs under X or
+	      ;; MicroSoft Windows goes here.  (We check whether the
+	      ;; function `device-type' exists before using it.  In
+	      ;; versions before 19.12, there was no such function.
+	      ;; If it doesn't exist, we simply assume we're running
+	      ;; under X -- versions before 19.12 only supported X.)
 
 	      ;; Remove the binding of C-x C-c, which normally exits emacs.
 	      ;; It's easy to hit this by mistake, and that can be annoying.
@@ -153,7 +154,10 @@
 	      ;; standard beep only works with some X servers; many servers
 	      ;; completely ignore those parameters.)
 	      ;;
-	      (cond ((string-match ":0" (getenv "DISPLAY"))
+	      (cond ((or (and (getenv "DISPLAY") 
+			      (string-match ":0" (getenv "DISPLAY")))
+			 (and (eq (console-type) 'mswindows)
+			      (device-sound-enabled-p)))
 		     (load-default-sounds))
 		    (t
 		     (setq bell-volume 40)
