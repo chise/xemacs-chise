@@ -59,8 +59,9 @@
 	  (setq i (1+ i))))
       (concat dest (substring filename base len))))
 
-  (when (or load-ignore-elc-files
-	    (not (file-exists-p system-char-database-directory)))
+  (cond
+   ((or load-ignore-elc-files
+	(not (file-exists-p system-char-database-directory)))
     (if (file-exists-p system-char-database-directory)
 	(delete-file-with-children system-char-database-directory))
 
@@ -72,16 +73,17 @@
       (save-char-attribute-table attribute))
 
     (dolist (ccs (charset-list))
-      (save-charset-mapping-table ccs)))
-
-  (mapcar (lambda (file)
-	    (reset-char-attribute-table
-	     (intern (file-name-char-attribute-name file))))
-	  (directory-files
-	   (expand-file-name "system-char-id"
-			     system-char-database-directory)
-	   nil nil t t))
-  )
+      (save-charset-mapping-table ccs))
+    )
+   (t
+    (mapcar (lambda (file)
+	      (mount-char-attribute-table
+	       (intern (file-name-char-attribute-name file))))
+	    (directory-files
+	     (expand-file-name "system-char-id"
+			       system-char-database-directory)
+	     nil nil t t))
+    )))
  (t
   (load "dumped-chars.el")
   (dolist (file system-char-db-source-file-list)
