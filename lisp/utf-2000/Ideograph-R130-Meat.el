@@ -9164,6 +9164,22 @@
     (=cns11643-1	. #x6629)	; &C1-6629; [70-09]
     ))
 (define-char
+  '((ideographic-radical@ucs . 74)	; ⽉
+    (ideographic-radical@cns . 130)	; ⾁
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (=ucs		. #x6721)	; 朡
+    ))
+(define-char
+  '((ideographic-radical . 130)	; ⾁
+    (ideographic-strokes . 9)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x6721)	; 朡
+      ))
+    (=cns11643-2	. #x4641)	; &C2-4641; [38-33]
+    ))
+(define-char
   '((ideographic-radical . 130)	; ⾁
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
