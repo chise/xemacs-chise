@@ -264,21 +264,26 @@
     (=daikanwa		. 21715)	; &I-M-21715;
     ))
 (define-char
-  '((=>ucs		. #x24C08)	; 𤰈
-    (ideographic-radical . 101)	; ⽤
+  '((ideographic-radical . 101)	; ⽤
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (=cns11643-5	. #x3361)	; &M-21716; [19-65]
-    (=daikanwa		. 21716)	; &I-M-21716;
+    (=ucs		. #x24C08)	; 𤰈
+    (->subsumptive
+     ((=cns11643-5	  . #x3361)	; &M-21716; [19-65]
+      (=daikanwa	  . 21716)	; &I-M-21716;
+      )
+     ((hanyu-dazidian	  5 3223 6)
+      (=hanziku-8	  . #xF1BB)	; &HZK08-F1BB;
+      (=ucs@iso		  . #x24C08)	; &HZK08-F1BB;
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	21716 0 0)
+  '((=>ucs		. #x24C08)	; 𤰈
+    (=>daikanwa		. 21716)	; &M-21716;
     (ideographic-radical . 101)	; ⽤
-    (ideographic-strokes . 6)
-    (total-strokes	 . 11)
-    (hanyu-dazidian	5 3223 6)
-    (=ucs		. #x24C08)	; 𤰈
-    (=hanziku-8		. #xF1BB)	; &I-HZK08-F1BB;
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (=cbeta		. 08880)	; &CB08880;
     ))
 (define-char
   '((ideographic-radical . 101)	; ⽤
