@@ -1,3 +1,10 @@
+2004-07-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fsave_charset_properties): New function when
+	HAVE_LIBCHISE is defined.
+	(syms_of_mule_charset): Add new builtin function
+	`save-charset-properties' when HAVE_LIBCHISE is defined.
+
 2004-06-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Convert char-specs in value of
