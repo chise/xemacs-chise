@@ -6258,6 +6258,7 @@
     (=ucs		. #x2F823)	; 剷
     (=cns11643-3	. #x4043)	; &I-C3-4043; [32-35]
     (=ucs@unicode	. #x5277)	; 剷
+    (=ucs@cns		. #x2F823)	; 剷
     ))
 (define-char
   '((ideographic-radical . 18)	; ⼑
