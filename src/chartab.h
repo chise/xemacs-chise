@@ -27,6 +27,20 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_chartab_h_
 #define INCLUDED_chartab_h_
 
+
+#ifdef UTF2000
+
+#include "char-ucs.h"
+
+Lisp_Object make_char_id_table (Lisp_Object initval);
+
+void put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table);
+
+EXFUN (Fget_char_attribute, 3);
+
+#endif
+
+
 /************************************************************************/
 /*                               Char Tables                            */
 /************************************************************************/
