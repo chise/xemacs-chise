@@ -357,10 +357,14 @@ char *alloca();
 
 /* Do we have LDAP support? */
 #undef HAVE_LDAP
-/* Do we have the LDAP library of the University of Michigan ? */
-#undef HAVE_UMICH_LDAP
-/* Do we have Netscape LDAP SDK library */
-#undef HAVE_NS_LDAP
+/* Does the library define ldap_set_option () ? */
+#undef HAVE_LDAP_SET_OPTION
+/* Does the library define ldap_get_lderrno () ? */
+#undef HAVE_LDAP_GET_LDERRNO
+/* Does the library define ldap_result2error () ? */
+#undef HAVE_LDAP_RESULT2ERROR
+/* Does the library define ldap_parse_result () ? */
+#undef HAVE_LDAP_PARSE_RESULT
 
 /* Do you have the Xauth library present?  This will add some extra
    functionality to gnuserv. */

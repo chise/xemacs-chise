@@ -1,3 +1,12 @@
+1999-06-22  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.17 is released
+
+1999-06-17  Robert Pluim  <rpluim@bigfoot.com>
+
+	* font-menu.el (font-menu-set-font): allow for nil specification
+	of font size.
+
 1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/thai-xtis.el: Specify `columns' of the charset `thai-xtis'
