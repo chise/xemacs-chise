@@ -1,4 +1,38 @@
+2003-08-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R143-Blood.el (C2-6C36): Unify JC3-63E3.
+
+	* Ideograph-R108-Dish.el (U+76EC): Unify JC3-8DFC.
+
 2003-08-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R147-See.el: Add some mappings to JEF-CHINA3 code
+	points.
+
+	* Ideograph-R141-Tiger.el (U+8650): Separate C1-534B; unify
+	JC3-63A6.
+	(M-32692): Separate C5-3535 and U+458E; unify JC3-63AE.
+	(U+8656): Separate C2-3921; unify JC3-63A7.
+	(U+8657): Separate C3-3863; unify JC3-63A8.
+	(U+8658): Separate C3-3860; unify JC3-63A9.
+	(M-32705): Separate C4-3478 and U-000271A8.
+	(U+865B): Unify JC3-63AA.
+	(JX1-7B4F): Unify JC3-63AB.
+	(M-32711): Separate C5-3B70 and U+4590.
+	(M-32719): Separate C5-4254 and U+4593; unify JC3-63AF.
+	(M-32720): Separate C5-4253 and U+4594.
+	(JSP-5A41): Separate C2-4D5B and U+8661.
+	(JX1-7B50): Separate C2-5367 and U+8662; unify JC3-63B0.
+	(JSP-5A43): Separate C2-5A25 and U+8663; unify JC3-63B1.
+
+	* Ideograph-R128-Ear.el (JSP-555E): Separate U+8039; unify
+	JC3-60CD.
+	(JSP-5561): Separate U+803E; unify JC3-60CE.
+	(C2-3848): Separate U+8048; unify JC3-60CF.
+	(M029074): Unify JC3-60CB.
+	(JX2-752C): Separate U+8066; unify JC3-60D0.
+	(JX2-752E): Unify JC3-60D1.
+	(M-29213): Separate U+43CA; unify JC3-60D3.
 
 	* Ideograph-R144-Walk-Enclosure.el (U+884E): Unify JC3-99A9.
 	(U+8855): Unify JC3-63E8.
@@ -6,6 +40,8 @@
 	(U+885C): Unify JC3-63EA.
 	(U+885F): Unify JC3-63EB.
 	(JSP-5C32): Unify JC3-63EC.
+
+	* Ideograph-R140-Grass.el (U+FA5F): Unify M058116.
 
 	* Ideograph-R143-Blood.el (JSP-5C25): Unify JC3-63E2.
 
