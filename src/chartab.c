@@ -2897,6 +2897,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     {
       CHECK_CHAR (character);
       value = put_char_ccs_code_point (character, ccs, value);
+      attribute = XCHARSET_NAME (ccs);
     }
   else if (EQ (attribute, Q_decomposition))
     {
