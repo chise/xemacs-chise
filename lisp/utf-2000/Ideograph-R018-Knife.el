@@ -2767,6 +2767,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (hanyu-dazidian	1 332 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -2775,14 +2776,14 @@
       )
      ((ucs		  . #x5204)	; åˆ„
       ))
-    (chinese-cns11643-3 . #x275D)	; ø»• ”
+    (chinese-cns11643-3		. #x275D)	; ø»• ”
+    (ideograph-hanziku-1	. #xEA70)	; ý¢€ž©°
     ))
 (define-char
   '((morohashi-daikanwa	1987 0 2)
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (hanyu-dazidian	1 332 7)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -2791,8 +2792,7 @@
       )
      ((ucs		  . #x5203)	; åˆƒ
       ))
-    (ideograph-hanziku-1	. #xEA70)	; ý¢€ž©°
-    (ucs			. #x523C)	; åˆ¼
+    (ucs		. #x523C)	; åˆ¼
     ))
 (define-char
   '((ideographic-radical . 18)	; â¼‘
