@@ -84,8 +84,8 @@ typedef EMACS_INT Lisp_Object;
 #define VALMASK (((1UL << VALBITS) - 1UL) << GCTYPEBITS)
 #define XTYPE(x) ((enum Lisp_Type) (((EMACS_UINT)(x)) & ~VALMASK))
 #define XPNTRVAL(x) (x) /* This depends on Lisp_Type_Record == 0 */
-#if defined(UTF2000) && (SIZEOF_EMACS_INT == 32)
-INLINE_HEADER Emchar XCHARVAL (Emchar chr);
+#if defined(UTF2000) && (SIZEOF_EMACS_INT == 4)
+INLINE_HEADER Emchar XCHARVAL (Lisp_Object chr);
 INLINE_HEADER Emchar
 XCHARVAL (Lisp_Object chr)
 {
