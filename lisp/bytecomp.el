@@ -1747,7 +1747,7 @@ With argument, insert value in current buffer after the form."
   ;; file if under Mule.  If there are any extended characters in the
   ;; input file, use `escape-quoted' to make sure that both binary and
   ;; extended characters are output properly and distinguished properly.
-  ;; Otherwise, use `raw-text' for maximum portability with non-Mule
+  ;; Otherwise, use `binary' for maximum portability with non-Mule
   ;; Emacsen.
   (when (featurep 'mule)
     (defvar buffer-file-coding-system)
@@ -1759,7 +1759,7 @@ With argument, insert value in current buffer after the form."
 	(skip-chars-forward (concat (char-to-string 0) "-"
 				    (char-to-string 255)))
 	(if (eq (point) (point-max))
-	    (setq ces 'raw-text)
+	    (setq ces 'binary)
 	  (goto-char (point-min))
 	  (while (< (point)(point-max))
 	    (cond ((eq (char-after) ?\;)
@@ -1788,15 +1788,15 @@ With argument, insert value in current buffer after the form."
 		   (forward-char))))
 	  (goto-char (point-min))
 	  (skip-chars-forward (concat (char-to-string 0) "-"
-				      (char-to-string 255)))
-	  (setq ces
-		(if (eq (point) (point-max))
-		    (if (and (featurep 'utf-2000)
-			     (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
-			'utf-8-unix
-		      'raw-text)))))
-      (if (eq ces 'raw-text)
-	  (setq buffer-file-coding-system 'raw-text)
+				      (char-to-string 255))))
+	(setq ces
+	      (if (eq (point) (point-max))
+		  (if (and (featurep 'utf-2000)
+			   (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
+		      'utf-8-unix
+		    'binary))))
+      (if (eq ces 'binary)
+	  (setq buffer-file-coding-system 'binary)
 	(cond ((eq ces 'utf-8-unix)
 	       (insert "(require 'mule)\n;;;###coding system: utf-8-unix\n")
 	       (setq buffer-file-coding-system 'utf-8-unix)
