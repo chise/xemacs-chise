@@ -1,3 +1,24 @@
+2000-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vchar_attribute_hash_table): New variable.
+	(Vcharacter_attribute_table): Deleted.
+	(Vcharacter_name_table): Deleted.
+	(put_char_attribute): Deleted.
+	(remove_char_attribute): Deleted.
+	(struct char_attribute_alist_closure): New structure.
+	(add_char_attribute_alist_mapper): New function.
+	(Fchar_attribute_alist): Use `Vchar_attribute_hash_table' instead
+	of `Vcharacter_attribute_table' and `Vcharacter_name_table'.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fremove_char_attribute): Use `Vchar_attribute_hash_table' instead
+	of `remove_char_attribute'.
+	(Fdefine_char): Return character.
+	(vars_of_mule_charset): Don't setup `Vcharacter_attribute_table'
+	and `Vcharacter_name_table'.
+	(complex_vars_of_mule_charset): Likewise
+	`Vchar_attribute_hash_table'.
+
 2000-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* character.h (CHARC_CHARSET): New macro.
