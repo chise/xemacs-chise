@@ -1718,10 +1718,12 @@ do {					\
 
 #define DECODE_HANDLE_END_OF_CONVERSION(flags, ch, dst)	\
 do {					\
-  DECODE_OUTPUT_PARTIAL_CHAR (ch);	\
-  if ((flags & CODING_STATE_END) &&	\
-      (flags & CODING_STATE_CR))	\
-    Dynarr_add (dst, '\r');		\
+  if (flags & CODING_STATE_END)		\
+    {					\
+      DECODE_OUTPUT_PARTIAL_CHAR (ch);	\
+      if (flags & CODING_STATE_CR)	\
+	Dynarr_add (dst, '\r');		\
+    }					\
 } while (0)
 
 #define DECODING_STREAM_DATA(stream) LSTREAM_TYPE_DATA (stream, decoding)
