@@ -3464,6 +3464,7 @@
   '((ideographic-radical . 50)	; â¼±
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (jisx0208-difference . 78err)
     (japanese-jisx0208-1978	. #x5672)	; ø»ƒ‹‡
     (japanese-jisx0208		. #x5672)	; ø»‡Ÿ
     (japanese-jisx0208-1990	. #x5672)	; ø½‹…ƒ
