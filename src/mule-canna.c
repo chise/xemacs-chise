@@ -1791,17 +1791,13 @@ c2mu (unsigned char *cp, int l, unsigned char *mp)
 	}
       else if (ch == ISO_CODE_SS3)
 	{
-	  chr = MULE_CHAR_PRIVATE_OFFSET
-	    | ( (LEADING_BYTE_JAPANESE_JISX0212
-		 - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14 )
-	    | (((*cp++) & 0x7f) << 7) | ((*cp++) & 0x7f);
+	  chr = MAKE_CHAR (Vcharset_japanese_jisx0212,
+			   (*cp++) & 0x7f, (*cp++) & 0x7f);
 	}
       else if (ch & 0x80)
 	{
-	  chr = MULE_CHAR_PRIVATE_OFFSET
-	    | ( (LEADING_BYTE_JAPANESE_JISX0208
-		 - FIELD1_TO_OFFICIAL_LEADING_BYTE) << 14 )
-	    | ((ch & 0x7f) << 7) | ((*cp++) & 0x7f);	  
+	  chr = MAKE_CHAR (Vcharset_japanese_jisx0208,
+			   ch & 0x7f, (*cp++) & 0x7f);
         }
       else
 	{
@@ -1938,14 +1934,18 @@ m2c (unsigned char *mp, int l, unsigned char *cp)
 	}
       else
 	{
-	  fb = (chr >> 14) & 0x7f;
-	  switch ( fb )
+	  Lisp_Object charset;
+	  int c1, c2;
+
+	  BREAKUP_CHAR (chr, charset, c1, c2);
+	  fb = XCHARSET_FINAL (charset);
+	  switch (fb)
 	    {
 	    case 'D':
 	      *cp++ = ISO_CODE_SS3;
 	    default:
-	      *cp++ = ( (chr >> 7) & 0x7f ) | 0x80;
-	      *cp++ = ( chr & 0x7f ) | 0x80;
+	      *cp++ = c1;
+	      *cp++ = c2;
 	    }
 	}
 #else
