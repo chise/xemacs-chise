@@ -1,5 +1,18 @@
 1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* character.h: Add document about interface for characters.
+
+	* char-ucs.h (CHAR_ASCII_P): Modify name of argument.
+	(MAKE_CHAR): Delete comment about
+	`FIELD2_TO_OFFICIAL_LEADING_BYTE' and
+	`FIELD2_TO_PRIVATE_LEADING_BYTE'.
+	(BREAKUP_CHAR): Modify name of arguments.
+	(CHAR_CHARSET): Modify name of argument.
+
+	* buffer.h: Delete document about Emchar accessors.
+
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* character.h (CHAR_INTP): Moved from buffer.h
 	(CHAR_OR_CHAR_INTP): Likewise.
 	(XCHAR_OR_CHAR_INT): Likewise.
