@@ -280,8 +280,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0208
 	  japanese-jisx0208-1990
 	  japanese-jisx0212
-	  japanese-jisx0213-1
-	  japanese-jisx0213-2
+	  =jis-x0213-1-2000
+	  =jis-x0213-2-2000
 	  japanese-jisx0208-1978
 	  chinese-gb2312
 	  korean-ksc5601
