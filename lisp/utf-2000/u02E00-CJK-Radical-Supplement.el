@@ -245,6 +245,7 @@
     (<-radical
      ((ucs		  . #x624C)	; æ‰Œ
       ))
+    (chinese-big5-cdp	. #x8AFA)	; ý¢€ˆ«º
     (ucs		. #x2E98)	; âº˜
     ))
 (define-char
