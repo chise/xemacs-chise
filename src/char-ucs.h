@@ -1,0 +1,660 @@
+/* Header for UCS-4 character representation.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
+
+This file is part of XEmacs.
+
+XEmacs is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 2, or (at your option) any
+later version.
+
+XEmacs is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License
+along with XEmacs; see the file COPYING.  If not, write to
+the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+Boston, MA 02111-1307, USA.  */
+
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
+
+#ifndef INCLUDED_char_ucs_h_
+#define INCLUDED_char_ucs_h_
+
+#define valid_char_p(ch) 1
+
+#define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
+
+
+struct Lisp_Char_Byte_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object property[256];
+};
+typedef struct Lisp_Char_Byte_Table Lisp_Char_Byte_Table;
+
+DECLARE_LRECORD (char_byte_table, Lisp_Char_Byte_Table);
+#define XCHAR_BYTE_TABLE(x) XRECORD (x, char_byte_table, Lisp_Char_Byte_Table)
+#define XSETCHAR_BYTE_TABLE(x, p) XSETRECORD (x, p, char_byte_table)
+#define CHAR_BYTE_TABLE_P(x) RECORDP (x, char_byte_table)
+#define GC_CHAR_BYTE_TABLE_P(x) GC_RECORDP (x, char_byte_table)
+/* #define CHECK_CHAR_BYTE_TABLE(x) CHECK_RECORD (x, char_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Char_Code_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object table;
+};
+typedef struct Lisp_Char_Code_Table Lisp_Char_Code_Table;
+
+DECLARE_LRECORD (char_code_table, Lisp_Char_Code_Table);
+#define XCHAR_CODE_TABLE(x) \
+  XRECORD (x, char_code_table, Lisp_Char_Code_Table)
+#define XSETCHAR_CODE_TABLE(x, p) XSETRECORD (x, p, char_code_table)
+#define CHAR_CODE_TABLE_P(x) RECORDP (x, char_code_table)
+#define GC_CHAR_CODE_TABLE_P(x) GC_RECORDP (x, char_code_table)
+/* #define CHECK_CHAR_CODE_TABLE(x) CHECK_RECORD (x, char_code_table)
+   char table entries should never escape to Lisp */
+
+
+Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
+
+
+extern Lisp_Object Vcharset_mojikyo;
+extern Lisp_Object Vcharset_latin_jisx0201;
+
+
+/************************************************************************/
+/*                    Definition of leading bytes                       */
+/************************************************************************/
+
+typedef int Charset_ID;
+
+#define MIN_LEADING_BYTE		-0x60
+#define CHARSET_ID_OFFSET		0x00
+
+/* ISO/IEC 10646 */
+#define LEADING_BYTE_UCS		(CHARSET_ID_OFFSET - 1)
+
+/* represent normal 80-9F */
+#define LEADING_BYTE_CONTROL_1		(CHARSET_ID_OFFSET - 2)
+
+/* ISO/IEC 10646 BMP */
+#define LEADING_BYTE_UCS_BMP		(CHARSET_ID_OFFSET - 3)
+
+/* VISCII 1.1 */
+#define LEADING_BYTE_LATIN_VISCII	(CHARSET_ID_OFFSET - 4)
+
+/* MULE VISCII-LOWER			(CHARSET_ID_OFFSET_96 + '1') */
+#define LEADING_BYTE_LATIN_VISCII_LOWER	(CHARSET_ID_OFFSET - 5)
+
+/* MULE VISCII-UPPER			(CHARSET_ID_OFFSET_96 + '2') */
+#define LEADING_BYTE_LATIN_VISCII_UPPER	(CHARSET_ID_OFFSET - 6)
+
+/* Big5 Level 1			2/4 2/{(8),9,10,11} 4/0 '0' */
+#define LEADING_BYTE_CHINESE_BIG5_1	(CHARSET_ID_OFFSET - 7)
+
+/* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
+#define LEADING_BYTE_CHINESE_BIG5_2	(CHARSET_ID_OFFSET - 8)
+
+#define LEADING_BYTE_ETHIOPIC_UCS	(CHARSET_ID_OFFSET - 9)
+
+#define LEADING_BYTE_DAIKANWA		(CHARSET_ID_OFFSET - 10)
+#define LEADING_BYTE_DAIKANWA_EKANJI	(CHARSET_ID_OFFSET - 11)
+#define LEADING_BYTE_MOJIKYO		(CHARSET_ID_OFFSET - 12)
+
+/* Japanese JIS X0208-1990	2/4 2/{(8),9,10,11} 4/2 (B) */
+#define LEADING_BYTE_JAPANESE_JISX0208_1990 (CHARSET_ID_OFFSET - 13)
+
+/* Konjaku-Mojikyo font (for pseudo-JIS X 0208 encoding) */
+#define LEADING_BYTE_MOJIKYO_PJ_1	(CHARSET_ID_OFFSET - 14)
+#define LEADING_BYTE_MOJIKYO_PJ_2	(CHARSET_ID_OFFSET - 15)
+#define LEADING_BYTE_MOJIKYO_PJ_3	(CHARSET_ID_OFFSET - 16)
+#define LEADING_BYTE_MOJIKYO_PJ_4	(CHARSET_ID_OFFSET - 17)
+#define LEADING_BYTE_MOJIKYO_PJ_5	(CHARSET_ID_OFFSET - 18)
+#define LEADING_BYTE_MOJIKYO_PJ_6	(CHARSET_ID_OFFSET - 19)
+#define LEADING_BYTE_MOJIKYO_PJ_7	(CHARSET_ID_OFFSET - 20)
+#define LEADING_BYTE_MOJIKYO_PJ_8	(CHARSET_ID_OFFSET - 21)
+#define LEADING_BYTE_MOJIKYO_PJ_9	(CHARSET_ID_OFFSET - 22)
+#define LEADING_BYTE_MOJIKYO_PJ_10	(CHARSET_ID_OFFSET - 23)
+#define LEADING_BYTE_MOJIKYO_PJ_11	(CHARSET_ID_OFFSET - 24)
+#define LEADING_BYTE_MOJIKYO_PJ_12	(CHARSET_ID_OFFSET - 25)
+#define LEADING_BYTE_MOJIKYO_PJ_13	(CHARSET_ID_OFFSET - 26)
+#define LEADING_BYTE_MOJIKYO_PJ_14	(CHARSET_ID_OFFSET - 27)
+#define LEADING_BYTE_MOJIKYO_PJ_15	(CHARSET_ID_OFFSET - 28)
+#define LEADING_BYTE_MOJIKYO_PJ_16	(CHARSET_ID_OFFSET - 29)
+#define LEADING_BYTE_MOJIKYO_PJ_17	(CHARSET_ID_OFFSET - 30)
+#define LEADING_BYTE_MOJIKYO_PJ_18	(CHARSET_ID_OFFSET - 31)
+#define LEADING_BYTE_MOJIKYO_PJ_19	(CHARSET_ID_OFFSET - 32)
+#define LEADING_BYTE_MOJIKYO_PJ_20	(CHARSET_ID_OFFSET - 33)
+#define LEADING_BYTE_MOJIKYO_PJ_21	(CHARSET_ID_OFFSET - 34)
+
+#define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 35)
+
+
+/* #define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0') */
+
+/* #define MIN_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '0') */
+/* #define MAX_CHARSET_ID_PRIVATE_94	(CHARSET_ID_OFFSET_94 + '?') */
+
+/* ISO 646 IRV */
+#define LEADING_BYTE_ASCII		  6 /* (CHARSET_ID_OFFSET_94 + 'B') */
+
+/* Right half of JIS X0201-1976 */
+#define LEADING_BYTE_KATAKANA_JISX0201	 13 /* (CHARSET_ID_OFFSET_94 + 'I') */
+
+/* Left  half of JIS X0201-1976 */
+#define LEADING_BYTE_LATIN_JISX0201	 14 /* (CHARSET_ID_OFFSET_94 + 'J') */
+
+
+/* #define CHARSET_ID_OFFSET_96		(CHARSET_ID_OFFSET_94 + 80) */
+
+/* Right half of ISO 8859-1 */
+#define LEADING_BYTE_LATIN_ISO8859_1	100 /* (CHARSET_ID_OFFSET_96 + 'A') */
+
+/* Right half of ISO 8859-2 */
+#define LEADING_BYTE_LATIN_ISO8859_2	101 /* (CHARSET_ID_OFFSET_96 + 'B') */
+
+/* Right half of ISO 8859-3 */
+#define LEADING_BYTE_LATIN_ISO8859_3	109 /* (CHARSET_ID_OFFSET_96 + 'C') */
+
+/* Right half of ISO 8859-4 */
+#define LEADING_BYTE_LATIN_ISO8859_4	110 /* (CHARSET_ID_OFFSET_96 + 'D') */
+
+/* Right half of ISO 8859-7 */
+#define LEADING_BYTE_GREEK_ISO8859_7	126 /* (CHARSET_ID_OFFSET_96 + 'F') */
+
+/* Right half of ISO 8859-6 */
+#define LEADING_BYTE_ARABIC_ISO8859_6	127 /* (CHARSET_ID_OFFSET_96 + 'G') */
+
+/* Right half of ISO 8859-8 */
+#define LEADING_BYTE_HEBREW_ISO8859_8	138 /* (CHARSET_ID_OFFSET_96 + 'H') */
+
+/* Right half of ISO 8859-5 */
+#define LEADING_BYTE_CYRILLIC_ISO8859_5	144 /* (CHARSET_ID_OFFSET_96 + 'L') */
+
+/* Right half of ISO 8859-9 */
+#define LEADING_BYTE_LATIN_ISO8859_9	148 /* (CHARSET_ID_OFFSET_96 + 'M') */
+
+/* TIS620-2533 */
+#define LEADING_BYTE_THAI_TIS620	166 /* (CHARSET_ID_OFFSET_96 + 'T') */
+
+/* Right-hand Part of the VSCII-2 (TCVN 5712:1983) */
+#define LEADING_BYTE_LATIN_TCVN5712	180 /* F = 5/10 0x5A `Z' */
+
+
+/* #define CHARSET_ID_OFFSET_94x94		(CHARSET_ID_OFFSET_96 + 80) */
+
+/* #define MIN_LEADING_BYTE_PRIVATE_2	('0' + CHARSET_ID_OFFSET_94x94) */
+/* #define MAX_LEADING_BYTE_PRIVATE_2	('?' + CHARSET_ID_OFFSET_94x94) */
+
+/* Japanese JIS X0208-1978	2/4 2/{(8),9,10,11} 4/0 (@) */
+#define LEADING_BYTE_JAPANESE_JISX0208_1978	 42
+
+/* Chinese Hanzi GB2312-1980	2/4 2/{(8),9,10,11} 4/1 (A) */
+#define LEADING_BYTE_CHINESE_GB2312		 58
+
+/* Japanese JIS X0208-1983	2/4 2/{(8),9,10,11} 4/2 (B) */
+#define LEADING_BYTE_JAPANESE_JISX0208		 87
+
+/* Hangul KS C5601-1987		2/4 2/{8,9,10,11} 4/3 (C) */
+#define LEADING_BYTE_KOREAN_KSC5601		149
+
+/* Japanese JIS X0212-1990	2/4 2/{8,9,10,11} 4/4 (D) */
+#define LEADING_BYTE_JAPANESE_JISX0212		159
+
+/* CCITT Extended GB		2/4 2/{8,9,10,11} 4/5 (E) */
+#define LEADING_BYTE_CHINESE_CCITT_GB		165
+
+/* Chinese CNS11643 Set 1	2/4 2/{8,9,10,11} 4/7 (G) */
+#define LEADING_BYTE_CHINESE_CNS11643_1		171
+
+/* Chinese CNS11643 Set 2	2/4 2/{8,9,10,11} 4/8 (H) */
+#define LEADING_BYTE_CHINESE_CNS11643_2		172
+
+/* Chinese CNS11643 Set 3	2/4 2/{8,9,10,11} 4/9 (I) */
+#define LEADING_BYTE_CHINESE_CNS11643_3		183
+
+/* Chinese CNS11643 Set 4	2/4 2/{8,9,10,11} 4/10 (J) */
+#define LEADING_BYTE_CHINESE_CNS11643_4		184
+
+/* Chinese CNS11643 Set 5	2/4 2/{8,9,10,11} 4/11 (K) */
+#define LEADING_BYTE_CHINESE_CNS11643_5		185
+
+/* Chinese CNS11643 Set 6	2/4 2/{8,9,10,11} 4/12 (L) */
+#define LEADING_BYTE_CHINESE_CNS11643_6		186
+
+/* Chinese CNS11643 Set 7	2/4 2/{8,9,10,11} 4/13 (M) */
+#define LEADING_BYTE_CHINESE_CNS11643_7		187
+
+/* DPRK Hangul KPS 9566-1997	2/4 2/{8,9,10,11} 4/14 (N) */
+#define LEADING_BYTE_KOREAN_KPS9566		202
+
+
+#define NUM_LEADING_BYTES	(80 * 3 - MIN_LEADING_BYTE)
+
+
+/************************************************************************/
+/*            Information about a particular character set              */
+/************************************************************************/
+
+struct Lisp_Charset
+{
+  struct lcrecord_header header;
+
+  int id;
+  Lisp_Object name;
+  Lisp_Object doc_string;
+  Lisp_Object registry;
+  Lisp_Object short_name;
+  Lisp_Object long_name;
+
+  Lisp_Object reverse_direction_charset;
+
+  Lisp_Object ccl_program;
+
+  /* Final byte of this character set in ISO2022 designating escape sequence */
+  Bufbyte final;
+
+  /* Number of columns a character in this charset takes up, on TTY
+     devices.  Not used for X devices. */
+  unsigned int columns;
+
+  /* Direction of this character set */
+  unsigned int direction;
+
+  /* Number of bytes used in encoding of this character set (1 .. 4) */
+  unsigned short dimension;
+
+  /* Number of chars in each dimension (94, 96, 128, 256) */
+  unsigned short chars;
+
+  /* Which half of font to be used to display this character set */
+  unsigned int graphic;
+
+  /* Byte->character mapping table */
+  Lisp_Object decoding_table;
+
+  /* Range of character code */
+  Emchar ucs_min, ucs_max;
+
+  /* Offset for external code */
+  Emchar code_offset;
+
+  /* Offset for each byte */
+  Emchar byte_offset;
+};
+typedef struct Lisp_Charset Lisp_Charset;
+
+DECLARE_LRECORD (charset, Lisp_Charset);
+#define XCHARSET(x) XRECORD (x, charset, Lisp_Charset)
+#define XSETCHARSET(x, p) XSETRECORD (x, p, charset)
+#define CHARSETP(x) RECORDP (x, charset)
+#define GC_CHARSETP(x) GC_RECORDP (x, charset)
+#define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
+#define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
+
+#define CHARSET_TYPE_94      0 /* This charset includes 94      characters. */
+#define CHARSET_TYPE_94X94   1 /* This charset includes 94x94   characters. */
+#define CHARSET_TYPE_96      2 /* This charset includes 96      characters. */
+#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96   characters. */
+#define CHARSET_TYPE_128     4 /* This charset includes 128     characters. */
+#define CHARSET_TYPE_128X128 5 /* This charset includes 128x128 characters. */
+#define CHARSET_TYPE_256     6 /* This charset includes 256     characters. */
+#define CHARSET_TYPE_256X256 7 /* This charset includes 256x256 characters. */
+
+#define CHARSET_LEFT_TO_RIGHT	0
+#define CHARSET_RIGHT_TO_LEFT	1
+
+/* Leading byte and id have been regrouped. -- OG */
+#define CHARSET_ID(cs)		 ((cs)->id)
+#define CHARSET_LEADING_BYTE(cs) (CHARSET_ID(cs))
+#define CHARSET_NAME(cs)	 ((cs)->name)
+#define CHARSET_SHORT_NAME(cs)	 ((cs)->short_name)
+#define CHARSET_LONG_NAME(cs)	 ((cs)->long_name)
+#define CHARSET_COLUMNS(cs)	 ((cs)->columns)
+#define CHARSET_GRAPHIC(cs)	 ((cs)->graphic)
+#define CHARSET_DIRECTION(cs)	 ((cs)->direction)
+#define CHARSET_FINAL(cs)	 ((cs)->final)
+#define CHARSET_DOC_STRING(cs)	 ((cs)->doc_string)
+#define CHARSET_REGISTRY(cs)	 ((cs)->registry)
+#define CHARSET_CCL_PROGRAM(cs)  ((cs)->ccl_program)
+#define CHARSET_DIMENSION(cs)	 ((cs)->dimension)
+#define CHARSET_CHARS(cs)	 ((cs)->chars)
+#define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
+#define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
+#define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
+#define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
+#define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
+#define CHARSET_BYTE_OFFSET(cs)	 ((cs)->byte_offset)
+
+
+#define XCHARSET_ID(cs)		  CHARSET_ID           (XCHARSET (cs))
+#define XCHARSET_NAME(cs)	  CHARSET_NAME         (XCHARSET (cs))
+#define XCHARSET_SHORT_NAME(cs)	  CHARSET_SHORT_NAME   (XCHARSET (cs))
+#define XCHARSET_LONG_NAME(cs)	  CHARSET_LONG_NAME    (XCHARSET (cs))
+#define XCHARSET_GRAPHIC(cs)      CHARSET_GRAPHIC      (XCHARSET (cs))
+#define XCHARSET_DIRECTION(cs)	  CHARSET_DIRECTION    (XCHARSET (cs))
+#define XCHARSET_FINAL(cs)	  CHARSET_FINAL        (XCHARSET (cs))
+#define XCHARSET_DOC_STRING(cs)	  CHARSET_DOC_STRING   (XCHARSET (cs))
+#define XCHARSET_REGISTRY(cs)	  CHARSET_REGISTRY     (XCHARSET (cs))
+#define XCHARSET_LEADING_BYTE(cs) CHARSET_LEADING_BYTE (XCHARSET (cs))
+#define XCHARSET_CCL_PROGRAM(cs)  CHARSET_CCL_PROGRAM  (XCHARSET (cs))
+#define XCHARSET_DIMENSION(cs)	  CHARSET_DIMENSION    (XCHARSET (cs))
+#define XCHARSET_CHARS(cs)	  CHARSET_CHARS        (XCHARSET (cs))
+#define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
+  CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
+#define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
+#define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
+#define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
+#define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
+#define XCHARSET_BYTE_OFFSET(cs)  CHARSET_BYTE_OFFSET(XCHARSET(cs))
+
+struct charset_lookup {
+  /* Table of charsets indexed by (leading byte - 128). */
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
+  
+  /* Table of charsets indexed by type/final-byte/direction. */
+  Lisp_Object charset_by_attributes[4][128];
+};
+
+extern struct charset_lookup *chlook;
+
+#ifdef ERROR_CHECK_TYPECHECK
+/* int not Bufbyte even though that is the actual type of a leading byte.
+   This way, out-ot-range values will get caught rather than automatically
+   truncated. */
+INLINE Lisp_Object CHARSET_BY_LEADING_BYTE (Charset_ID lb);
+INLINE Lisp_Object
+CHARSET_BY_LEADING_BYTE (Charset_ID lb)
+{
+  assert (lb >= MIN_LEADING_BYTE &&
+	  lb < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
+  return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
+}
+
+#else
+
+#define CHARSET_BY_LEADING_BYTE(lb) \
+  (chlook->charset_by_leading_byte[(lb) - MIN_LEADING_BYTE])
+
+#endif
+
+#define CHARSET_BY_ATTRIBUTES(type, final, dir) \
+  (chlook->charset_by_attributes[type][final])
+
+
+/************************************************************************/
+/*                        Dealing with characters                       */
+/************************************************************************/
+
+#define MAX_CHAR_BASIC_LATIN	0x007F
+
+/*
+#define MIN_CHAR_GREEK		0x0370
+#define MAX_CHAR_GREEK		0x03CF
+
+#define MIN_CHAR_CYRILLIC	0x0400
+#define MAX_CHAR_CYRILLIC	0x045F
+*/
+
+#define MIN_CHAR_HEBREW		0x0590
+#define MAX_CHAR_HEBREW		0x05EF
+
+#define MIN_CHAR_THAI		0x0E00
+#define MAX_CHAR_THAI		0x0E5F
+
+/*
+#define MIN_CHAR_HIRAGANA	0x3041
+#define MAX_CHAR_HIRAGANA	0x3093
+
+#define MIN_CHAR_KATAKANA	0x30A1
+#define MAX_CHAR_KATAKANA	0x30F6
+*/
+
+#define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
+#define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
+
+#define MAX_CHAR_BMP		0x00FFFF
+
+#define MIN_CHAR_MOJIKYO	0xE00000
+#define MIN_CHAR_DAIKANWA	MIN_CHAR_MOJIKYO
+#define MAX_CHAR_DAIKANWA	0xE0FFFF
+/* #define MAX_CHAR_MOJIKYO	0xE9093F */
+#define MAX_CHAR_MOJIKYO	(MIN_CHAR_MOJIKYO + 94 * 60 * 22)
+
+#define MIN_CHAR_94		0xE90940
+#define MAX_CHAR_94		(MIN_CHAR_94 + 94 * 80 - 1)
+#define MIN_CHAR_96		(MIN_CHAR_94 + 94 * 80)
+#define MAX_CHAR_96		(MIN_CHAR_96 + 96 * 80 - 1)
+
+#define MIN_CHAR_94x94		0xE9F6C0
+#define MIN_CHAR_JIS_X0208_1990	(MIN_CHAR_94x94 + 94 * 94 * 79)
+#define MAX_CHAR_94x94		(MIN_CHAR_94x94 + 94 * 94 * 80 - 1)
+#define MAX_CHAR_JIS_X0208_1990	MAX_CHAR_94x94
+#define MIN_CHAR_96x96		0xF4C000
+#define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
+
+
+Emchar make_builtin_char (Lisp_Object charset, int c1, int c2);
+
+INLINE Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point)
+{
+  int dim = XCHARSET_DIMENSION (charset);
+  Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
+  int idx;
+  Lisp_Object ch;
+
+  while (dim > 0)
+    {
+      dim--;
+      if ( VECTORP (decoding_table)
+	   && ( 0 <= (idx = ((code_point >> (dim * 8))
+			     & 255) - XCHARSET_BYTE_OFFSET (charset)) )
+	   && ( idx < XVECTOR_LENGTH (decoding_table) )
+	   && !NILP (ch = XVECTOR_DATA(decoding_table)[idx]) )
+	{
+	  if (CHARP (ch))
+	    return XCHAR (ch);
+	  else
+	    decoding_table = ch;
+	}
+      else
+	break;
+    }
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return make_builtin_char (charset, code_point, 0);
+  else
+    {
+      int plane = LEADING_BYTE_MOJIKYO_PJ_1 - XCHARSET_ID (charset);
+
+      if ( (0 <= plane) && (plane <= 21) )
+	{
+	  int c1 = code_point >> 8;
+	  int c2 = code_point & 255;
+
+	  if (c1 < 16 + 32)
+	    return ' ';
+	  else if (c1 < 16 + 32 + 30)
+	    return DECODE_CHAR (Vcharset_mojikyo,
+				plane * (94 * 60)
+				+ (c1 - (16 + 32)) * 94
+				+ (c2 - 33)
+				+ 1);
+	  else if (c1 < 18 + 32 + 30)
+	    return ' ';
+	  else if (c1 < 18 + 32 + 60)
+	    return DECODE_CHAR (Vcharset_mojikyo,
+				plane * (94 * 60)
+				+ (c1 - (18 + 32)) * 94
+				+ (c2 - 33)
+				+ 1);
+	  else
+	    return ' ';
+	}
+      else
+	return make_builtin_char (charset, code_point >> 8, code_point & 255);
+    }
+}
+
+/* Return a character whose charset is CHARSET and position-codes
+   are C1 and C2.  TYPE9N character ignores C2. */
+
+INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
+INLINE Emchar
+MAKE_CHAR (Lisp_Object charset, int c1, int c2)
+{
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return DECODE_CHAR (charset, c1);
+  else
+    return DECODE_CHAR (charset, (c1 << 8) | c2);
+}
+
+extern Lisp_Object Vcharacter_attribute_table;
+
+int encode_builtin_char_1 (Emchar c, Lisp_Object* charset);
+int range_charset_code_point (Lisp_Object charset, Emchar ch);
+
+INLINE int charset_code_point (Lisp_Object charset, Emchar ch);
+INLINE int
+charset_code_point (Lisp_Object charset, Emchar ch)
+{
+  Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
+
+  if (!NILP (cdef))
+    {
+      Lisp_Object field = Fassq (charset, cdef);
+
+      if (!NILP (field))
+	return XINT (Fcdr (field));
+    }
+  return range_charset_code_point (charset, ch);
+}
+
+extern Lisp_Object Vdefault_coded_charset_priority_list;
+EXFUN (Ffind_charset, 1);
+
+INLINE int encode_char_1 (Emchar c, Lisp_Object* charset);
+INLINE int
+encode_char_1 (Emchar c, Lisp_Object* charset)
+{
+  Lisp_Object cdef = get_char_code_table (c, Vcharacter_attribute_table);
+
+  if (!EQ (cdef, Qnil))
+    {
+      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
+      Lisp_Object field;
+
+      while (!EQ (charsets, Qnil))
+	{
+	  *charset = Ffind_charset (Fcar (charsets));
+	  if (!EQ (*charset, Qnil))
+	    {
+	      int code_point;
+
+	      if (!NILP (field = Fassq (*charset, cdef)))
+		return XINT (Fcdr (field));
+	      else if ((code_point
+			= range_charset_code_point (*charset, c)) >= 0)
+		return code_point;
+	    }
+	  charsets = Fcdr (charsets);	      
+	}
+    }
+  
+  /* otherwise --- maybe for bootstrap */
+  return encode_builtin_char_1 (c, charset);
+}
+
+INLINE int encode_char_2 (Emchar ch, Lisp_Object* charset);
+INLINE int
+encode_char_2 (Emchar ch, Lisp_Object* charset)
+{
+  int code_point = encode_char_1 (ch, charset);
+
+  if (EQ (*charset, Vcharset_mojikyo))
+    {
+      int plane, byte1, byte2;
+
+      code_point--;
+      plane = code_point / (94 * 60);
+      byte1 = (code_point % (94 * 60)) / 94;
+      if (byte1 < 30)
+	byte1 += 16 + 32;
+      else
+	byte1 += 18 + 32;
+      byte2 = code_point % 94 + 33;
+      *charset
+	= CHARSET_BY_LEADING_BYTE (LEADING_BYTE_MOJIKYO_PJ_1 - plane);
+      return (byte1 << 8) | byte2;
+    }
+  else
+    return code_point;
+}
+
+#define ENCODE_CHAR(ch, charset)	encode_char_2 (ch, &(charset))
+
+INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
+INLINE void
+breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
+{
+  int code_point = encode_char_2 (c, charset);
+
+  if (code_point >= 0)
+    {
+      int dim = XCHARSET_DIMENSION (*charset);
+
+       if (dim == 1)
+	 {
+	   *c1 = code_point;
+	   *c2 = 0;
+	 }
+       else /* if (dim == 2) */
+	 {
+	   *c1 = code_point >> 8;
+	   *c2 = code_point & 255;
+	 }
+    }
+  else{
+    *c1 = *c2 = 0;
+  }
+}
+
+#define BREAKUP_CHAR(ch, charset, b1, b2) \
+  breakup_char_1 (ch, &(charset), &(b1), &(b2))
+
+INLINE Lisp_Object CHAR_CHARSET (Emchar ch);
+INLINE Lisp_Object
+CHAR_CHARSET (Emchar ch)
+{
+  Lisp_Object charset;
+ 
+  ENCODE_CHAR (ch, charset);
+  return charset;
+}
+
+#define CHAR_CHARSET_ID(c)  (XCHARSET_ID(CHAR_CHARSET(c)))
+#define CHAR_COLUMNS(c)     (CHARSET_COLUMNS(XCHARSET(CHAR_CHARSET(c))))
+
+
+/************************************************************************/
+/*                            Exported functions                        */
+/************************************************************************/
+
+EXFUN (Fget_charset, 1);
+
+extern Lisp_Object Vcharset_chinese_big5_1;
+extern Lisp_Object Vcharset_chinese_big5_2;
+extern Lisp_Object Vcharset_japanese_jisx0208;
+extern Lisp_Object Vcharset_japanese_jisx0212;
+
+#endif /* INCLUDED_char_ucs_h_ */

@@ -32,9 +32,8 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_buffer_h_
 #define INCLUDED_buffer_h_
 
-#ifdef MULE
-#include "mule-charset.h"
-#endif
+#include "character.h"
+#include "multibyte.h"
 
 /************************************************************************/
 /*                                                                      */
@@ -94,7 +93,11 @@ struct buffer_text
      This information is text-only so it goes here. */
   Bufpos mule_bufmin, mule_bufmax;
   Bytind mule_bytmin, mule_bytmax;
+#ifdef UTF2000
+  int mule_size;
+#else
   int mule_shifter, mule_three_p;
+#endif
 
   /* And we also cache 16 positions for fairly fast access near those
      positions. */
@@ -277,314 +280,7 @@ for (mps_bufcons = Qunbound,							\
       denoted with the word "unsafe" in their name and are generally
       meant to be called only by other macros that have already
       stored the calling values in temporary variables.
-
-
-   Use the following functions/macros on contiguous strings of data.
-   If the text you're operating on is known to come from a buffer, use
-   the buffer-level functions below -- they know about the gap and may
-   be more efficient.
-
-
-  (A) For working with charptr's (pointers to internally-formatted text):
-  -----------------------------------------------------------------------
-
-   VALID_CHARPTR_P (ptr):
-	Given a charptr, does it point to the beginning of a character?
-
-   ASSERT_VALID_CHARPTR (ptr):
-	If error-checking is enabled, assert that the given charptr
-	points to the beginning of a character.	 Otherwise, do nothing.
-
-   INC_CHARPTR (ptr):
-	Given a charptr (assumed to point at the beginning of a character),
-	modify that pointer so it points to the beginning of the next
-	character.
-
-   DEC_CHARPTR (ptr):
-	Given a charptr (assumed to point at the beginning of a
-	character or at the very end of the text), modify that pointer
-	so it points to the beginning of the previous character.
-
-   VALIDATE_CHARPTR_BACKWARD (ptr):
-	Make sure that PTR is pointing to the beginning of a character.
-	If not, back up until this is the case.	  Note that there are not
-	too many places where it is legitimate to do this sort of thing.
-	It's an error if you're passed an "invalid" char * pointer.
-	NOTE: PTR *must* be pointing to a valid part of the string (i.e.
-	not the very end, unless the string is zero-terminated or
-	something) in order for this function to not cause crashes.
-
-   VALIDATE_CHARPTR_FORWARD (ptr):
-	Make sure that PTR is pointing to the beginning of a character.
-	If not, move forward until this is the case.  Note that there
-	are not too many places where it is legitimate to do this sort
-	of thing.  It's an error if you're passed an "invalid" char *
-	pointer.
-
-
-   (B) For working with the length (in bytes and characters) of a
-       section of internally-formatted text:
-   --------------------------------------------------------------
-
-   bytecount_to_charcount (ptr, nbi):
-	Given a pointer to a text string and a length in bytes,
-	return the equivalent length in characters.
-
-   charcount_to_bytecount (ptr, nch):
-	Given a pointer to a text string and a length in characters,
-	return the equivalent length in bytes.
-
-   charptr_n_addr (ptr, n):
-	Return a pointer to the beginning of the character offset N
-	(in characters) from PTR.
-
-
-   (C) For retrieving or changing the character pointed to by a charptr:
-   ---------------------------------------------------------------------
-
-   charptr_emchar (ptr):
-	Retrieve the character pointed to by PTR as an Emchar.
-
-   charptr_emchar_n (ptr, n):
-	Retrieve the character at offset N (in characters) from PTR,
-	as an Emchar.
-
-   set_charptr_emchar (ptr, ch):
-	Store the character CH (an Emchar) as internally-formatted
-	text starting at PTR.  Return the number of bytes stored.
-
-   charptr_copy_char (ptr, ptr2):
-	Retrieve the character pointed to by PTR and store it as
-	internally-formatted text in PTR2.
-
-
-   (D) For working with Emchars:
-   -----------------------------
-
-   [Note that there are other functions/macros for working with Emchars
-    in mule-charset.h, for retrieving the charset of an Emchar
-    and such.  These are only valid when MULE is defined.]
-
-   valid_char_p (ch):
-	Return whether the given Emchar is valid.
-
-   CHARP (ch):
-	Return whether the given Lisp_Object is a character.
-
-   CHECK_CHAR_COERCE_INT (ch):
-	Signal an error if CH is not a valid character or integer Lisp_Object.
-	If CH is an integer Lisp_Object, convert it to a character Lisp_Object,
-	but merely by repackaging, without performing tests for char validity.
-
-   MAX_EMCHAR_LEN:
-	Maximum number of buffer bytes per Emacs character.
-
 */
-
-
-/* ---------------------------------------------------------------------- */
-/* (A) For working with charptr's (pointers to internally-formatted text) */
-/* ---------------------------------------------------------------------- */
-
-#ifdef MULE
-# define VALID_CHARPTR_P(ptr) BUFBYTE_FIRST_BYTE_P (* (unsigned char *) ptr)
-#else
-# define VALID_CHARPTR_P(ptr) 1
-#endif
-
-#ifdef ERROR_CHECK_BUFPOS
-# define ASSERT_VALID_CHARPTR(ptr) assert (VALID_CHARPTR_P (ptr))
-#else
-# define ASSERT_VALID_CHARPTR(ptr)
-#endif
-
-/* Note that INC_CHARPTR() and DEC_CHARPTR() have to be written in
-   completely separate ways.  INC_CHARPTR() cannot use the DEC_CHARPTR()
-   trick of looking for a valid first byte because it might run off
-   the end of the string.  DEC_CHARPTR() can't use the INC_CHARPTR()
-   method because it doesn't have easy access to the first byte of
-   the character it's moving over. */
-
-#define REAL_INC_CHARPTR(ptr) \
-  ((void) ((ptr) += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr))))
-
-#define REAL_INC_CHARBYTIND(ptr,pos) \
-  (pos += REP_BYTES_BY_FIRST_BYTE (* (unsigned char *) (ptr)))
-
-#define REAL_DEC_CHARPTR(ptr) do {	\
-  (ptr)--;				\
-} while (!VALID_CHARPTR_P (ptr))
-
-#ifdef ERROR_CHECK_BUFPOS
-#define INC_CHARPTR(ptr) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARPTR (ptr);		\
-} while (0)
-
-#define INC_CHARBYTIND(ptr,pos) do {		\
-  ASSERT_VALID_CHARPTR (ptr);		\
-  REAL_INC_CHARBYTIND (ptr,pos);		\
-} while (0)
-
-#define DEC_CHARPTR(ptr) do {			\
-  const Bufbyte *dc_ptr1 = (ptr);		\
-  const Bufbyte *dc_ptr2 = dc_ptr1;		\
-  REAL_DEC_CHARPTR (dc_ptr2);			\
-  assert (dc_ptr1 - dc_ptr2 ==			\
-	  REP_BYTES_BY_FIRST_BYTE (*dc_ptr2));	\
-  (ptr) = dc_ptr2;				\
-} while (0)
-
-#else /* ! ERROR_CHECK_BUFPOS */
-#define INC_CHARBYTIND(ptr,pos) REAL_INC_CHARBYTIND (ptr,pos)
-#define INC_CHARPTR(ptr) REAL_INC_CHARPTR (ptr)
-#define DEC_CHARPTR(ptr) REAL_DEC_CHARPTR (ptr)
-#endif /* ! ERROR_CHECK_BUFPOS */
-
-#ifdef MULE
-
-#define VALIDATE_CHARPTR_BACKWARD(ptr) do {	\
-  while (!VALID_CHARPTR_P (ptr)) ptr--;		\
-} while (0)
-
-/* This needs to be trickier to avoid the possibility of running off
-   the end of the string. */
-
-#define VALIDATE_CHARPTR_FORWARD(ptr) do {	\
-  Bufbyte *vcf_ptr = (ptr);			\
-  VALIDATE_CHARPTR_BACKWARD (vcf_ptr);		\
-  if (vcf_ptr != (ptr))				\
-    {						\
-      (ptr) = vcf_ptr;				\
-      INC_CHARPTR (ptr);			\
-    }						\
-} while (0)
-
-#else /* not MULE */
-#define VALIDATE_CHARPTR_BACKWARD(ptr)
-#define VALIDATE_CHARPTR_FORWARD(ptr)
-#endif /* not MULE */
-
-/* -------------------------------------------------------------- */
-/* (B) For working with the length (in bytes and characters) of a */
-/*     section of internally-formatted text 			  */
-/* -------------------------------------------------------------- */
-
-INLINE const Bufbyte *charptr_n_addr (const Bufbyte *ptr, Charcount offset);
-INLINE const Bufbyte *
-charptr_n_addr (const Bufbyte *ptr, Charcount offset)
-{
-  return ptr + charcount_to_bytecount (ptr, offset);
-}
-
-/* -------------------------------------------------------------------- */
-/* (C) For retrieving or changing the character pointed to by a charptr */
-/* -------------------------------------------------------------------- */
-
-#define simple_charptr_emchar(ptr)		((Emchar) (ptr)[0])
-#define simple_set_charptr_emchar(ptr, x)	((ptr)[0] = (Bufbyte) (x), 1)
-#define simple_charptr_copy_char(ptr, ptr2)	((ptr2)[0] = *(ptr), 1)
-
-#ifdef MULE
-
-Emchar non_ascii_charptr_emchar (const Bufbyte *ptr);
-Bytecount non_ascii_set_charptr_emchar (Bufbyte *ptr, Emchar c);
-Bytecount non_ascii_charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
-
-INLINE Emchar charptr_emchar (const Bufbyte *ptr);
-INLINE Emchar
-charptr_emchar (const Bufbyte *ptr)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_emchar (ptr) :
-    non_ascii_charptr_emchar (ptr);
-}
-
-INLINE Bytecount set_charptr_emchar (Bufbyte *ptr, Emchar x);
-INLINE Bytecount
-set_charptr_emchar (Bufbyte *ptr, Emchar x)
-{
-  return !CHAR_MULTIBYTE_P (x) ?
-    simple_set_charptr_emchar (ptr, x) :
-    non_ascii_set_charptr_emchar (ptr, x);
-}
-
-INLINE Bytecount charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2);
-INLINE Bytecount
-charptr_copy_char (const Bufbyte *ptr, Bufbyte *ptr2)
-{
-  return BYTE_ASCII_P (*ptr) ?
-    simple_charptr_copy_char (ptr, ptr2) :
-    non_ascii_charptr_copy_char (ptr, ptr2);
-}
-
-#else /* not MULE */
-
-# define charptr_emchar(ptr)		simple_charptr_emchar (ptr)
-# define set_charptr_emchar(ptr, x)	simple_set_charptr_emchar (ptr, x)
-# define charptr_copy_char(ptr, ptr2)	simple_charptr_copy_char (ptr, ptr2)
-
-#endif /* not MULE */
-
-#define charptr_emchar_n(ptr, offset) \
-  charptr_emchar (charptr_n_addr (ptr, offset))
-
-
-/* ---------------------------- */
-/* (D) For working with Emchars */
-/* ---------------------------- */
-
-#ifdef MULE
-
-int non_ascii_valid_char_p (Emchar ch);
-
-INLINE int valid_char_p (Emchar ch);
-INLINE int
-valid_char_p (Emchar ch)
-{
-  return ((unsigned int) (ch) <= 0xff) || non_ascii_valid_char_p (ch);
-}
-
-#else /* not MULE */
-
-#define valid_char_p(ch) ((unsigned int) (ch) <= 0xff)
-
-#endif /* not MULE */
-
-#define CHAR_INTP(x) (INTP (x) && valid_char_p (XINT (x)))
-
-#define CHAR_OR_CHAR_INTP(x) (CHARP (x) || CHAR_INTP (x))
-
-#ifdef ERROR_CHECK_TYPECHECK
-
-INLINE Emchar XCHAR_OR_CHAR_INT (Lisp_Object obj);
-INLINE Emchar
-XCHAR_OR_CHAR_INT (Lisp_Object obj)
-{
-  assert (CHAR_OR_CHAR_INTP (obj));
-  return CHARP (obj) ? XCHAR (obj) : XINT (obj);
-}
-
-#else
-
-#define XCHAR_OR_CHAR_INT(obj) (CHARP (obj) ? XCHAR (obj) : XINT (obj))
-
-#endif
-
-#define CHECK_CHAR_COERCE_INT(x) do {		\
-  if (CHARP (x))				\
-     ;						\
-  else if (CHAR_INTP (x))			\
-    x = make_char (XINT (x));			\
-  else						\
-    x = wrong_type_argument (Qcharacterp, x);	\
-} while (0)
-
-#ifdef MULE
-# define MAX_EMCHAR_LEN 4
-#else
-# define MAX_EMCHAR_LEN 1
-#endif
 
 
 /*----------------------------------------------------------------------*/
@@ -971,7 +667,9 @@ Bufpos bytind_to_bufpos_func (struct buffer *buf, Bytind x);
    64K for width-three characters.
    */
 
+#ifndef UTF2000
 extern short three_to_one_table[];
+#endif
 
 INLINE int real_bufpos_to_bytind (struct buffer *buf, Bufpos x);
 INLINE int
@@ -979,8 +677,13 @@ real_bufpos_to_bytind (struct buffer *buf, Bufpos x)
 {
   if (x >= buf->text->mule_bufmin && x <= buf->text->mule_bufmax)
     return (buf->text->mule_bytmin +
+#ifdef UTF2000
+	    (x - buf->text->mule_bufmin) * buf->text->mule_size
+#else
 	    ((x - buf->text->mule_bufmin) << buf->text->mule_shifter) +
-	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0));
+	    (buf->text->mule_three_p ? (x - buf->text->mule_bufmin) : 0)
+#endif
+	    );
   else
     return bufpos_to_bytind_func (buf, x);
 }
@@ -991,9 +694,15 @@ real_bytind_to_bufpos (struct buffer *buf, Bytind x)
 {
   if (x >= buf->text->mule_bytmin && x <= buf->text->mule_bytmax)
     return (buf->text->mule_bufmin +
+#ifdef UTF2000
+	    (buf->text->mule_size == 0 ? 0 :
+	     (x - buf->text->mule_bytmin) / buf->text->mule_size)
+#else
 	    ((buf->text->mule_three_p
 	      ? three_to_one_table[x - buf->text->mule_bytmin]
-	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter)));
+	      : (x - buf->text->mule_bytmin) >> buf->text->mule_shifter))
+#endif
+	    );
   else
     return bytind_to_bufpos_func (buf, x);
 }
@@ -1303,40 +1012,171 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
    argument to TO_EXTERNAL_FORMAT() and TO_INTERNAL_FORMAT(). */
 #define Qnative Qfile_name
 
-
-/************************************************************************/
-/*                                                                      */
-/*                          fake charset functions                      */
-/*                                                                      */
-/************************************************************************/
-
-/* used when MULE is not defined, so that Charset-type stuff can still
-   be done */
-
-#ifndef MULE
-
-#define Vcharset_ascii Qnil
-
-#define CHAR_CHARSET(ch) Vcharset_ascii
-#define CHAR_LEADING_BYTE(ch) LEADING_BYTE_ASCII
-#define LEADING_BYTE_ASCII 0x80
-#define NUM_LEADING_BYTES 1
-#define MIN_LEADING_BYTE 0x80
-#define CHARSETP(cs) 1
-#define CHARSET_BY_LEADING_BYTE(lb) Vcharset_ascii
-#define XCHARSET_LEADING_BYTE(cs) LEADING_BYTE_ASCII
-#define XCHARSET_GRAPHIC(cs) -1
-#define XCHARSET_COLUMNS(cs) 1
-#define XCHARSET_DIMENSION(cs) 1
-#define REP_BYTES_BY_FIRST_BYTE(fb) 1
-#define BREAKUP_CHAR(ch, charset, byte1, byte2) do {	\
-  (charset) = Vcharset_ascii;				\
-  (byte1) = (ch);					\
-  (byte2) = 0;						\
+#define GET_C_CHARPTR_EXT_DATA_ALLOCA(ptr, fmt, ptr_out) do	\
+{								\
+  Extcount gcceda_ignored_len;					\
+  const Bufbyte *gcceda_ptr_in = (const Bufbyte *) (ptr);	\
+  Extbyte *gcceda_ptr_out;					\
+								\
+  GET_CHARPTR_EXT_DATA_ALLOCA (gcceda_ptr_in,			\
+			       strlen ((char *) gcceda_ptr_in),	\
+			       fmt,				\
+			       gcceda_ptr_out,			\
+			       gcceda_ignored_len);		\
+  (ptr_out) = (char *) gcceda_ptr_out;				\
 } while (0)
-#define BYTE_ASCII_P(byte) 1
+
+#define GET_C_CHARPTR_EXT_BINARY_DATA_ALLOCA(ptr, ptr_out) \
+  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_BINARY, ptr_out)
+#define GET_CHARPTR_EXT_BINARY_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_BINARY, ptr_out, len_out)
+
+#define GET_C_CHARPTR_EXT_FILENAME_DATA_ALLOCA(ptr, ptr_out) \
+  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_FILENAME, ptr_out)
+#define GET_CHARPTR_EXT_FILENAME_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_FILENAME, ptr_out, len_out)
+
+#define GET_C_CHARPTR_EXT_CTEXT_DATA_ALLOCA(ptr, ptr_out) \
+  GET_C_CHARPTR_EXT_DATA_ALLOCA (ptr, FORMAT_CTEXT, ptr_out)
+#define GET_CHARPTR_EXT_CTEXT_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_EXT_DATA_ALLOCA (ptr, len, FORMAT_CTEXT, ptr_out, len_out)
+
+/* Maybe convert external charptr's data into internal format and store
+   the result in alloca()'ed space.
+
+   You may wonder why this is written in this fashion and not as a
+   function call.  With a little trickery it could certainly be
+   written this way, but it won't work because of those DAMN GCC WANKERS
+   who couldn't be bothered to handle alloca() properly on the x86
+   architecture. (If you put a call to alloca() in the argument to
+   a function call, the stack space gets allocated right in the
+   middle of the arguments to the function call and you are unbelievably
+   hosed.) */
+
+#ifdef MULE
+
+#define GET_CHARPTR_INT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do	\
+{									\
+  Extcount gcida_len_in = (Extcount) (len);				\
+  Bytecount gcida_len_out;						\
+  const Extbyte *gcida_ptr_in = (ptr);					\
+  Bufbyte *gcida_ptr_out =						\
+    convert_from_external_format (gcida_ptr_in, gcida_len_in,		\
+				  &gcida_len_out, fmt);			\
+  /* If the new string is identical to the old (will be the case most	\
+     of the time), just return the same string back.  This saves	\
+     on alloca()ing, which can be useful on C alloca() machines and	\
+     on stack-space-challenged environments. */				\
+									\
+  if (gcida_len_in == gcida_len_out &&					\
+      !memcmp (gcida_ptr_in, gcida_ptr_out, gcida_len_out))		\
+    {									\
+      (ptr_out) = (Bufbyte *) gcida_ptr_in;				\
+    }									\
+  else									\
+    {									\
+      (ptr_out) = (Extbyte *) alloca (1 + gcida_len_out);		\
+      memcpy ((void *) ptr_out, gcida_ptr_out, 1 + gcida_len_out);	\
+    }									\
+  (len_out) = gcida_len_out;						\
+} while (0)
+
+#else /* ! MULE */
+
+#define GET_CHARPTR_INT_DATA_ALLOCA(ptr, len, fmt, ptr_out, len_out) do \
+{					\
+  (ptr_out) = (Bufbyte *) (ptr);	\
+  (len_out) = (Bytecount) (len);	\
+} while (0)
 
 #endif /* ! MULE */
+
+#define GET_C_CHARPTR_INT_DATA_ALLOCA(ptr, fmt, ptr_out) do	\
+{								\
+  Bytecount gccida_ignored_len;					\
+  const Extbyte *gccida_ptr_in = (const Extbyte *) (ptr);	\
+  Bufbyte *gccida_ptr_out;					\
+								\
+  GET_CHARPTR_INT_DATA_ALLOCA (gccida_ptr_in,			\
+			       strlen ((char *) gccida_ptr_in),	\
+			       fmt,				\
+			       gccida_ptr_out,			\
+			       gccida_ignored_len);		\
+  (ptr_out) = gccida_ptr_out;					\
+} while (0)
+
+#define GET_C_CHARPTR_INT_BINARY_DATA_ALLOCA(ptr, ptr_out)	\
+  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_BINARY, ptr_out)
+#define GET_CHARPTR_INT_BINARY_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_BINARY, ptr_out, len_out)
+
+#define GET_C_CHARPTR_INT_FILENAME_DATA_ALLOCA(ptr, ptr_out)	\
+  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_FILENAME, ptr_out)
+#define GET_CHARPTR_INT_FILENAME_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_FILENAME, ptr_out, len_out)
+
+#define GET_C_CHARPTR_INT_CTEXT_DATA_ALLOCA(ptr, ptr_out)	\
+  GET_C_CHARPTR_INT_DATA_ALLOCA (ptr, FORMAT_CTEXT, ptr_out)
+#define GET_CHARPTR_INT_CTEXT_DATA_ALLOCA(ptr, len, ptr_out, len_out) \
+  GET_CHARPTR_INT_DATA_ALLOCA (ptr, len, FORMAT_CTEXT, ptr_out, len_out)
+
+
+/* Maybe convert Lisp string's data into ext-format and store the result in
+   alloca()'ed space.
+
+   You may wonder why this is written in this fashion and not as a
+   function call.  With a little trickery it could certainly be
+   written this way, but it won't work because of those DAMN GCC WANKERS
+   who couldn't be bothered to handle alloca() properly on the x86
+   architecture. (If you put a call to alloca() in the argument to
+   a function call, the stack space gets allocated right in the
+   middle of the arguments to the function call and you are unbelievably
+   hosed.) */
+
+#define GET_STRING_EXT_DATA_ALLOCA(s, fmt, ptr_out, len_out) do	\
+{								\
+  Extcount gseda_len_out;					\
+  struct Lisp_String *gseda_s = XSTRING (s);			\
+  Extbyte * gseda_ptr_out =					\
+    convert_to_external_format (string_data (gseda_s),		\
+				string_length (gseda_s),	\
+				&gseda_len_out, fmt);		\
+  (ptr_out) = (Extbyte *) alloca (1 + gseda_len_out);		\
+  memcpy ((void *) ptr_out, gseda_ptr_out, 1 + gseda_len_out);	\
+  (len_out) = gseda_len_out;					\
+} while (0)
+
+
+#define GET_C_STRING_EXT_DATA_ALLOCA(s, fmt, ptr_out) do	\
+{								\
+  Extcount gcseda_ignored_len;					\
+  Extbyte *gcseda_ptr_out;					\
+								\
+  GET_STRING_EXT_DATA_ALLOCA (s, fmt, gcseda_ptr_out,		\
+			      gcseda_ignored_len);		\
+  (ptr_out) = (char *) gcseda_ptr_out;				\
+} while (0)
+
+#define GET_STRING_BINARY_DATA_ALLOCA(s, ptr_out, len_out)	\
+  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_BINARY, ptr_out, len_out)
+#define GET_C_STRING_BINARY_DATA_ALLOCA(s, ptr_out)		\
+  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_BINARY, ptr_out)
+
+#define GET_STRING_FILENAME_DATA_ALLOCA(s, ptr_out, len_out)	\
+  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_FILENAME, ptr_out, len_out)
+#define GET_C_STRING_FILENAME_DATA_ALLOCA(s, ptr_out)		\
+  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_FILENAME, ptr_out)
+
+#define GET_STRING_OS_DATA_ALLOCA(s, ptr_out, len_out)		\
+  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_OS, ptr_out, len_out)
+#define GET_C_STRING_OS_DATA_ALLOCA(s, ptr_out)			\
+  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_OS, ptr_out)
+
+#define GET_STRING_CTEXT_DATA_ALLOCA(s, ptr_out, len_out)	\
+  GET_STRING_EXT_DATA_ALLOCA (s, FORMAT_CTEXT, ptr_out, len_out)
+#define GET_C_STRING_CTEXT_DATA_ALLOCA(s, ptr_out)		\
+  GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_CTEXT, ptr_out)
+
 
 /************************************************************************/
 /*                                                                      */
@@ -1567,10 +1407,10 @@ int beginning_of_line_p (struct buffer *b, Bufpos pt);
 
 /* from insdel.c */
 void set_buffer_point (struct buffer *buf, Bufpos pos, Bytind bipos);
-void find_charsets_in_bufbyte_string (unsigned char *charsets,
+void find_charsets_in_bufbyte_string (Charset_ID *charsets,
 				      const Bufbyte *str,
 				      Bytecount len);
-void find_charsets_in_emchar_string (unsigned char *charsets,
+void find_charsets_in_emchar_string (Charset_ID *charsets,
 				     const Emchar *str,
 				     Charcount len);
 int bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len);

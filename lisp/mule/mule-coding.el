@@ -176,8 +176,11 @@
 ;; so that the remaining Lisp files can contain extended characters.
 ;; (They will be in ISO-7 format)
 
-(set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
-			    iso-7 iso-lock-shift no-conversion))
+(if (featurep 'utf-2000)
+    (set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
+				iso-7 iso-lock-shift utf-8 no-conversion))
+  (set-coding-priority-list '(iso-8-2 iso-8-designate iso-8-1
+			      iso-7 iso-lock-shift no-conversion)))
 
 (set-coding-category-system 'iso-7 'iso-2022-7)
 (set-coding-category-system 'iso-8-designate 'ctext)

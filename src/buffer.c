@@ -1913,11 +1913,17 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
 	const Bufbyte *end;
 	for (end = ptr + len; ptr < end;)
 	  {
+#ifdef UTF2000
+	    Bufbyte c =
+	      (*ptr < 0xc0) ? *ptr :
+	      ((*ptr & 0x1f) << 6) | (*(ptr+1) & 0x3f);
+#else
 	    Bufbyte c =
 	      (BYTE_ASCII_P (*ptr))		   ? *ptr :
 	      (*ptr == LEADING_BYTE_CONTROL_1)	   ? (*(ptr+1) - 0x20) :
 	      (*ptr == LEADING_BYTE_LATIN_ISO8859_1) ? (*(ptr+1)) :
 	      '~';
+#endif
 
 	    Dynarr_add (conversion_out_dynarr, (Extbyte) c);
 	    INC_CHARPTR (ptr);
@@ -2052,6 +2058,15 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
         {
           Extbyte c = *ptr;
 
+#ifdef UTF2000
+	  if (BYTE_ASCII_P (c))
+	    Dynarr_add (conversion_in_dynarr, c);
+	  else
+	    {
+	      Dynarr_add (conversion_in_dynarr, (c >> 6) | 0xC0);
+	      Dynarr_add (conversion_in_dynarr, (c & 0x3F) | 0x80);
+	    }
+#else
 	  if (BYTE_ASCII_P (c))
 	    Dynarr_add (conversion_in_dynarr, c);
 	  else if (BYTE_C1_P (c))
@@ -2064,6 +2079,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 	      Dynarr_add (conversion_in_dynarr, LEADING_BYTE_LATIN_ISO8859_1);
 	      Dynarr_add (conversion_in_dynarr, c);
 	    }
+#endif
         }
 #else
       Dynarr_add_many (conversion_in_dynarr, source->data.ptr, source->data.len);

@@ -1776,6 +1776,77 @@ For canna
 
 /* EUC multibyte string to MULE internal string */
 
+#ifdef UTF2000
+static void
+c2mu (unsigned char *cp, int l, unsigned char *mp)
+{
+  Emchar chr;
+  unsigned char	ch, *ep = cp+l;
+
+  while ((cp < ep) && (ch = *cp++))
+    {
+      if (ch == ISO_CODE_SS2)
+	{
+	  chr = (*cp++) + MIN_CHAR_HALFWIDTH_KATAKANA - 0x20;
+	}
+      else if (ch == ISO_CODE_SS3)
+	{
+	  ch = *cp++;
+	  chr = MAKE_CHAR (Vcharset_japanese_jisx0212,
+			   ch & 0x7f, (*cp++) & 0x7f);
+	}
+      else if (ch & 0x80)
+	{
+	  chr = MAKE_CHAR (Vcharset_japanese_jisx0208,
+			   ch & 0x7f, (*cp++) & 0x7f);
+        }
+      else
+	{
+	  chr = ch;
+	}
+      if ( chr <= 0x7f )
+        {
+	  *mp++ = chr;
+	}
+      else if ( chr <= 0x7ff )
+        {
+	  *mp++ = (chr >> 6) | 0xc0;
+	  *mp++ = (chr & 0x3f) | 0x80;
+	}
+      else if ( chr <= 0xffff )
+        {
+	  *mp++ =  (chr >> 12) | 0xe0;
+	  *mp++ = ((chr >>  6) & 0x3f) | 0x80;
+	  *mp++ =  (chr        & 0x3f) | 0x80;
+	}
+      else if ( chr <= 0x1fffff )
+	{
+	  *mp++ =  (chr >> 18) | 0xf0;
+	  *mp++ = ((chr >> 12) & 0x3f) | 0x80;
+	  *mp++ = ((chr >>  6) & 0x3f) | 0x80;
+	  *mp++ =  (chr        & 0x3f) | 0x80;
+	}
+      else if ( chr <= 0x3ffffff )
+	{
+	  *mp++ =  (chr >> 24) | 0xf8;
+	  *mp++ = ((chr >> 18) & 0x3f) | 0x80;
+	  *mp++ = ((chr >> 12) & 0x3f) | 0x80;
+	  *mp++ = ((chr >>  6) & 0x3f) | 0x80;
+	  *mp++ =  (chr        & 0x3f) | 0x80;
+	}
+      else
+        {
+	  *mp++ =  (chr >> 30) | 0xfc;
+	  *mp++ = ((chr >> 24) & 0x3f) | 0x80;
+	  *mp++ = ((chr >> 18) & 0x3f) | 0x80;
+	  *mp++ = ((chr >> 12) & 0x3f) | 0x80;
+	  *mp++ = ((chr >>  6) & 0x3f) | 0x80;
+	  *mp++ =  (chr        & 0x3f) | 0x80;
+	}
+    }
+  *mp = 0;
+}
+#else
 static void
 c2mu (char *cp, int l, char *mp)
 {
@@ -1803,6 +1874,7 @@ c2mu (char *cp, int l, char *mp)
     }
   *mp = 0;
 }
+#endif
 
 /* MULE internal string to EUC multibyte string */
 
@@ -1810,9 +1882,74 @@ static void
 m2c (unsigned char *mp, int l, unsigned char *cp)
 {
   unsigned char	ch, *ep = mp + l;
+#ifdef UTF2000
+  unsigned char fb;
+  int len;
+  Emchar chr;
+#endif
 
   while ((mp < ep) && (ch = *mp++))
     {
+#ifdef UTF2000
+      if ( ch >= 0xfc )
+	{
+	  chr = (ch & 0x01);
+	  len = 5;
+	}
+      else if ( ch >= 0xf8 )
+	{
+	  chr = ch & 0x03;
+	  len = 4;
+	}
+      else if ( ch >= 0xf0 )
+	{
+	  chr = ch & 0x07;
+	  len = 3;
+	}
+      else if ( ch >= 0xe0 )
+	{
+	  chr = ch & 0x0f;
+	  len = 2;
+	}
+      else if ( ch >= 0xc0 )
+	{
+	  chr = ch & 0x1f;
+	  len = 1;
+	}
+      else
+	{
+	  chr = ch;
+	  len = 0;
+	}
+      for( ; len > 0; len-- )
+	{
+	  ch = *mp++;
+	  chr = ( chr << 6 ) | ( ch & 0x3f );
+	}
+      if ( chr <= 0x7f )
+	*cp++ = chr;
+      else if ( chr <= MAX_CHAR_HALFWIDTH_KATAKANA )
+	{
+	  *cp++ = ISO_CODE_SS2;
+	  *cp++ = ( chr & 0x7f ) | 0x80;
+	}
+      else
+	{
+	  Lisp_Object charset;
+	  int c1, c2;
+
+	  BREAKUP_CHAR (chr, charset, c1, c2);
+	  fb = XCHARSET_FINAL (charset);
+	  switch (fb)
+	    {
+	    case 'D':
+	      *cp++ = ISO_CODE_SS3;
+	    default:
+	      *cp++ = c1;
+	      *cp++ = c2;
+	    }
+	}
+#else
       switch (ch)
 	{
 	case LEADING_BYTE_KATAKANA_JISX0201:
@@ -1829,6 +1966,7 @@ m2c (unsigned char *mp, int l, unsigned char *cp)
 	  *cp++ = ch;
 	  break;
 	}
+#endif
     }
   *cp = 0;
 }

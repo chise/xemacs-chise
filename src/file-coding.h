@@ -138,6 +138,9 @@ struct Lisp_Coding_System
     Lisp_Object encode;
   } ccl;
 #endif
+#ifdef UTF2000
+  char disable_composition;
+#endif
 };
 typedef struct Lisp_Coding_System Lisp_Coding_System;
 
@@ -181,6 +184,10 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #define CODING_SYSTEM_CCL_DECODE(codesys) ((codesys)->ccl.decode)
 #define CODING_SYSTEM_CCL_ENCODE(codesys) ((codesys)->ccl.encode)
 #endif /* MULE */
+#ifdef UTF2000
+#define CODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  ((codesys)->disable_composition)
+#endif
 
 #define XCODING_SYSTEM_NAME(codesys) \
   CODING_SYSTEM_NAME (XCODING_SYSTEM (codesys))
@@ -227,6 +234,10 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #define XCODING_SYSTEM_CCL_ENCODE(codesys) \
   CODING_SYSTEM_CCL_ENCODE (XCODING_SYSTEM (codesys))
 #endif /* MULE */
+#ifdef UTF2000
+#define XCODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  CODING_SYSTEM_DISABLE_COMPOSITION (XCODING_SYSTEM (codesys))
+#endif
 
 EXFUN (Fcoding_category_list, 0);
 EXFUN (Fcoding_category_system, 1);
