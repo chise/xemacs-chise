@@ -1,5 +1,22 @@
 2001-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R211-Tooth.el (M-48632'): Unify J90-4E70; add
+	`total-strokes'; separate U+9F62; add `<-simplified-ideograph'.
+
+	* Ideograph-R199-Wheat.el (J90-7350): New character; relate to
+	U+9EB8 and M-47739.
+	(U+9EB8): Relate to M-47739; add `total-strokes'.
+
+	* Ideograph-R190-Hair.el (JX2-7D3B): Unify U+9B1C and JSP-6A2E.
+
+	* Ideograph-R181-Leaf.el (U+982C): Unify J90-4B4B; relate to
+	M-43496; add `<-simplified-ideograph'.
+	(U+983D): Unify J90-7078; relate to M-43517.
+	(U+985B): Relate to M-43628.
+	(J90-453F): New character; relate to U+985B and M-43628.
+
+2001-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R195-Fish.el: Add missing JIS X 0208:1990 and JIS X
 	0212 code points.
 
