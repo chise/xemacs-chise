@@ -5,10 +5,10 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 5384)
     (=ucs		. #x77DB)	; çŸ›
-    (=cns11643-1	. #x4679)	; ø»‘ºŠ
-    (=ks-x1001		. #x5943)	; ø»‰¬¾
     (=gb2312		. #x432C)	; ø»„¸‹
     (=jis-x0208		. #x4C37)	; ø½Šµœ
+    (=ks-x1001		. #x5943)	; ø»‰¬¾
+    (=cns11643-1	. #x4679)	; ø»‘ºŠ
     (=gt		. 30525)	; ý¡€‡œ½
     (=gt-k		. 01009)	; ý¡„€±
     (=gt-pj-1		. #x4C37)	; ý¡€‡œ½
@@ -73,13 +73,13 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (shinjigen-2	. 5387)
-    (=cns11643-1	. #x5264)	; ø»’‹
-    (=ks-x1001		. #x5068)	; ø»‰ •
     (=jis-x0208		. #x6262)	; ø½‹–›
+    (=ks-x1001		. #x5068)	; ø»‰ •
+    (=cns11643-1	. #x5264)	; ø»’‹
     (=gt		. 30529)	; ý¡€‡
     (=gt-pj-1		. #x6262)	; ý¡€‡
     (=daikanwa		. 23852)	; ø¸…´¬
-    (=ucs@jis		. #x77DC)	; ø»’‹
+    (=ucs@jis		. #x77DC)	; ø½‹–›
     ))
 (define-char
   '((morohashi-daikanwa	23852 0 1)
@@ -195,12 +195,12 @@
     (ideographic-radical . 110)	; â½­
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=jis-x0213-2-2000	. #x7233)	; ø»¦”
-    (=cns11643-2	. #x3E47)	; ø»“·¬
     (=jis-x0212		. #x4F42)	; ø»‹¨•
+    (=cns11643-2	. #x3E47)	; ø»“·¬
+    (=jis-x0213-2-2000	. #x7233)	; ø»¦”
     (=daikanwa		. 23863)	; ø¸…´·
     (=jef-china3	. #x5BE5)	; øº…¯¥
-    (=ucs@jis		. #x77DE)	; ø»¦”
+    (=ucs@jis		. #x77DE)	; ø»‹¨•
     ))
 (define-char
   '((morohashi-daikanwa	23863 0 0)
@@ -253,10 +253,10 @@
     (ideographic-radical . 110)	; â½­
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (=jis-x0213-2-2000	. #x7234)	; ø»¦”‘
     (=jis-x0212		. #x4F43)	; ø»‹¨–
+    (=jis-x0213-2-2000	. #x7234)	; ø»¦”‘
     (=daikanwa		. 23867)	; ø¸…´»
-    (=ucs@jis		. #x77DF)	; ø»¦”‘
+    (=ucs@jis		. #x77DF)	; ø»‹¨–
     ))
 (define-char
   '((morohashi-daikanwa	23867 0 2)
@@ -362,9 +362,9 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (=ucs		. #x77E0)	; çŸ 
-    (=jis-x0213-1-2000	. #x787C)	; ø»¤”‰
-    (=cns11643-2	. #x4549)	; ø»”‚€
     (=jis-x0212		. #x4F44)	; ø»‹¨—
+    (=cns11643-2	. #x4549)	; ø»”‚€
+    (=jis-x0213-1-2000	. #x787C)	; ø»¤”‰
     (=daikanwa		. 23875)	; ø¸…µƒ
     ))
 (define-char

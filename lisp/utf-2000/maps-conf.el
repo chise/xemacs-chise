@@ -29,7 +29,12 @@
 		     #x666B #x4C2E #x6724 #x3D58 #x682B
 		     #x427B #x4978 #x694A #x303A #x6A44
 		     #x6B43 #x6B78 #x6C2E #x6C57 #x6D36
-		     #x6D3A #x3D34 #x4A56 #x3063 #x3D3F))
+		     #x6D3A #x3D34 #x4A56 #x3063 #x3D3F
+		     #x6E60 #x6F52 #x6F5C #x3458 #x4262
+		     #x4E59 #x6F58 #x7051 #x7056 #x375B
+		     #x7123 #x712A #x3142 #x3B41 #x7149
+		     #x7165 #x7227 #x7233 #x733B #x4E6F
+		     #x7366 #x7367 #x7368 #x736C))
      (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
 			 '=gt-pj-1 v))
    nil)

@@ -7,9 +7,9 @@
     (shinjigen-1	. 565)
     (shinjigen-2	. 565)
     (=ucs		. #x51E0)	; å‡ 
-    (=cns11643-1	. #x442D)	; ø»‘¶‚
     (=gb2312		. #x3C38)	; ø»„®…
     (=jis-x0208		. #x515C)	; ø½Š½—
+    (=cns11643-1	. #x442D)	; ø»‘¶‚
     (=big5		. #xA44C)	; ý¢€Š‘Œ
     (=gt		. 02282)	; ý¡€€£ª
     (=gt-k		. 00084)	; ý¡„€”
@@ -50,10 +50,10 @@
     (shinjigen-1	. 566)
     (shinjigen-2	. 566)
     (=ucs		. #x51E1)	; å‡¡
-    (=cns11643-1	. #x443B)	; ø»‘¶
-    (=ks-x1001		. #x5B6D)	; ø»‰°¤
     (=gb2312		. #x3732)	; ø»„¦©
     (=jis-x0208		. #x4B5E)	; ø½Š´¥
+    (=ks-x1001		. #x5B6D)	; ø»‰°¤
+    (=cns11643-1	. #x443B)	; ø»‘¶
     (=big5		. #xA45A)	; ý¢€Š‘š
     (=gt		. 02286)	; ý¡€€£®
     (=gt-k		. 00203)	; ý¡„€ƒ‹
@@ -126,8 +126,8 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=ucs		. #x51E2)	; å‡¢
-    (=jis-x0213-1-2000	. #x2E58)	; ø»¢¦¹
     (=jis-x0212		. #x3329)	; ø»Š¾´
+    (=jis-x0213-1-2000	. #x2E58)	; ø»¢¦¹
     (=daikanwa		. 01740)	; ø¸€›Œ
     (=hanziku-1		. #xDEE9)	; ý¢€»©
     (=jef-china3	. #x41B8)	; øº„†¸
@@ -243,8 +243,8 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=ucs		. #x51E5)	; å‡¥
-    (=cns11643-3	. #x217B)	; ø»•—¾
     (=jis-x0212		. #x332A)	; ø»Š¾µ
+    (=cns11643-3	. #x217B)	; ø»•—¾
     (=daikanwa		. 01744)	; ø¸€›
     (=hanziku-1		. #xDEF5)	; ý¢€»µ
     (=jef-china3	. #x44AA)	; øº„’ª
@@ -258,8 +258,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (=ucs		  . #x2FFA)	; â¿º
       )
-     ((=cns11643-3	  . #x2139)	; ø»•–¼
-      (=jis-x0208	  . #x5469)	; ø½‹¾
+     ((=jis-x0208	  . #x5469)	; ø½‹¾
+      (=cns11643-3	  . #x2139)	; ø»•–¼
       (=daikanwa	  . 05691)	; ø¸˜»
       )
      ((=ucs		  . #x51E0)	; å‡ 
@@ -717,9 +717,9 @@
      ((=ucs		  . #x767E)	; ç™¾
       ))
     (=ucs		. #x51EE)	; å‡®
-    (=jis-x0213-1-2000	. #x2E59)	; ø»¢¦º
-    (=cns11643-4	. #x2545)	; ø»—§„
     (=jis-x0212		. #x332B)	; ø»Š¾¶
+    (=cns11643-4	. #x2545)	; ø»—§„
+    (=jis-x0213-1-2000	. #x2E59)	; ø»¢¦º
     (=daikanwa		. 01776)	; ø¸€›°
     (=hanziku-12	. #xEBA9)	; ý¢ƒŽ®©
     (=jef-china3	. #x44A8)	; øº„’¨
@@ -836,10 +836,10 @@
     (shinjigen-1	. 576)
     (shinjigen-2	. 576)
     (=ucs		. #x51F0)	; å‡°
-    (=cns11643-1	. #x5929)	; ø»’”´
-    (=ks-x1001		. #x7C45)	; ø»Š š
     (=gb2312		. #x3B4B)	; ø»„¬º
     (=jis-x0208		. #x5160)	; ø½Š½›
+    (=ks-x1001		. #x7C45)	; ø»Š š
+    (=cns11643-1	. #x5929)	; ø»’”´
     (=big5		. #xB0C4)	; ý¢€‹ƒ„
     (=gt		. 02337)	; ý¡€€¤¡
     (=gt-k		. 07908)	; ý¡„»¤
@@ -936,9 +936,9 @@
     (shinjigen-1	. 577)
     (shinjigen-2	. 577)
     (=ucs		. #x51F1)	; å‡±
-    (=cns11643-1	. #x5E33)	; ø»’œ”
-    (=ks-x1001		. #x4B42)	; ø»‰˜™
     (=jis-x0208		. #x332E)	; ø½Š¥
+    (=ks-x1001		. #x4B42)	; ø»‰˜™
+    (=cns11643-1	. #x5E33)	; ø»’œ”
     (=gb12345		. #x3F2D)	; å‡±
     (=big5		. #xB3CD)	; ý¢€‹
     (=gt		. 02341)	; ý¡€€¤¥
@@ -977,12 +977,12 @@
       )
      ((=gt		  . 01936)	; ý¡€€ž
       ))
-    (=cns11643-6	. #x4665)	; ø»œ¬Š
     (=jis-x0212		. #x332C)	; ø»Š¾·
+    (=cns11643-6	. #x4665)	; ø»œ¬Š
     (=daikanwa		. 01792)	; ø¸€œ€
     (=hanziku-1		. #xDF76)	; ý¢€½¶
     (=jef-china3	. #x44A9)	; øº„’©
-    (=ucs@jis		. #x51F2)	; ø»œ¬Š
+    (=ucs@jis		. #x51F2)	; ø»Š¾·
     ))
 (define-char
   '((morohashi-daikanwa	1792 0 2)
@@ -1085,10 +1085,10 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=ucs		. #x51F3)	; å‡³
-    (=jis-x0213-2-2000	. #x2333)	; ø»¤ Ž
-    (=cns11643-1	. #x6821)	; ø»’ª®
-    (=jis-x0212		. #x332D)	; ø»Š¾¸
     (=gb2312		. #x354A)	; ø»„¤…
+    (=jis-x0212		. #x332D)	; ø»Š¾¸
+    (=cns11643-1	. #x6821)	; ø»’ª®
+    (=jis-x0213-2-2000	. #x2333)	; ø»¤ Ž
     (=big5		. #xB9B9)	; ý¢€‹¦¹
     (=daikanwa		. 01797)	; ø¸€œ…
     (=jef-china3	. #x98DF)	; øº‰£Ÿ
@@ -1107,9 +1107,9 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=ucs		. #x51F4)	; å‡´
-    (=jis-x0213-2-2000	. #x2334)	; ø»¤ 
-    (=cns11643-3	. #x457A)	; ø»–Œµ
     (=jis-x0212		. #x332E)	; ø»Š¾¹
+    (=cns11643-3	. #x457A)	; ø»–Œµ
+    (=jis-x0213-2-2000	. #x2334)	; ø»¤ 
     (=daikanwa		. 01798)	; ø¸€œ†
     (=hanziku-1		. #xDF7B)	; ý¢€½»
     (=cbeta		. 06316)	; ø¸¡¢¬

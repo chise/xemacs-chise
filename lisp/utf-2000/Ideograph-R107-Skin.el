@@ -5,10 +5,10 @@
     (total-strokes	 . 5)
     (shinjigen-2	. 5223)
     (=ucs		. #x76AE)	; çš®
-    (=cns11643-1	. #x4676)	; ø»‘º‡
-    (=ks-x1001		. #x792B)	; ø»Š›¦
     (=gb2312		. #x4624)	; ø»„¼
     (=jis-x0208		. #x4869)	; ø½Š°–
+    (=ks-x1001		. #x792B)	; ø»Š›¦
+    (=cns11643-1	. #x4676)	; ø»‘º‡
     (=big5		. #xA5D6)	; ý¢€Š—–
     (=gt		. 29253)	; ý¡€‡‰…
     (=gt-k		. 00989)	; ý¡„€
@@ -44,8 +44,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
     (=ucs		. #x76AF)	; çš¯
-    (=jis-x0213-2-2000	. #x7174)	; ø»¦“³
     (=cns11643-2	. #x2837)	; ø»“—ˆ
+    (=jis-x0213-2-2000	. #x7174)	; ø»¦“³
     (=big5		. #xCD75)	; ý¢€Œµµ
     (=daikanwa		. 22827)	; ø¸…¤«
     ))
@@ -444,12 +444,12 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (shinjigen-2	. 5226)
-    (=cns11643-1	. #x6078)	; ø»’ •
     (=jis-x0208		. #x622F)	; ø½‹•¨
+    (=cns11643-1	. #x6078)	; ø»’ •
     (=gt		. 29302)	; ý¡€‡‰¶
     (=gt-pj-1		. #x622F)	; ý¡€‡‰¶
     (=daikanwa		. 22866)	; ø¸…¥’
-    (=ucs@jis		. #x76B4)	; ø»’ •
+    (=ucs@jis		. #x76B4)	; ø½‹•¨
     ))
 (define-char
   '((=>ucs		. #x76B4)	; çš´
@@ -582,8 +582,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x76B6)	; çš¶
-    (=jis-x0213-1-2000	. #x7866)	; ø»¤“³
     (=cns11643-4	. #x4534)	; ø»˜•³
+    (=jis-x0213-1-2000	. #x7866)	; ø»¤“³
     (=daikanwa		. 22883)	; ø¸…¥£
     ))
 (define-char
@@ -600,8 +600,8 @@
     (total-strokes	 . 14)
     (shinjigen-2	. 9855)
     (=ucs		. #x76B7)	; çš·
-    (=cns11643-3	. #x4830)	; ø»–…
     (=jis-x0208		. #x7369)	; ø½‹¯ 
+    (=cns11643-3	. #x4830)	; ø»–…
     (=gt		. 29326)	; ý¡€‡ŠŽ
     (=gt-k		. 11242)	; ý¡„‚¯ª
     (=gt-pj-1		. #x7369)	; ý¡€‡ŠŽ
@@ -613,8 +613,8 @@
     (total-strokes	 . 14)
     (shinjigen-2	. 5227)
     (=ucs		. #x76B8)	; çš¸
-    (=cns11643-2	. #x4C29)	; ø»”‹²
     (=jis-x0208		. #x6230)	; ø½‹•©
+    (=cns11643-2	. #x4C29)	; ø»”‹²
     (=gb12345		. #x7164)	; çš¸
     (=big5		. #xE2E1)	; ý¢€Ž‹¡
     (=gt		. 29324)	; ý¡€‡ŠŒ
@@ -689,8 +689,8 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
     (=ucs		. #x76B9)	; çš¹
-    (=cns11643-3	. #x482E)	; ø»–ƒ
     (=jis-x0208		. #x6231)	; ø½‹•ª
+    (=cns11643-3	. #x482E)	; ø»–ƒ
     (=gt		. 29325)	; ý¡€‡Š
     (=gt-pj-1		. #x6231)	; ý¡€‡Š
     ))
@@ -767,9 +767,9 @@
     (total-strokes	 . 15)
     (shinjigen-2	. 5229)
     (=ucs		. #x76BA)	; çšº
-    (=cns11643-1	. #x6D74)	; ø»’³—
-    (=ks-x1001		. #x7554)	; ø»Š–—
     (=jis-x0208		. #x6232)	; ø½‹•«
+    (=ks-x1001		. #x7554)	; ø»Š–—
+    (=cns11643-1	. #x6D74)	; ø»’³—
     (=gb12345		. #x5665)	; çšº
     (=big5		. #xBD4B)	; ý¢€‹µ‹
     (=gt		. 29345)	; ý¡€‡Š¡

@@ -5,11 +5,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2500)	; â”€
-    (=cns11643-1	. #x2339)	; ø»‘…°
-    (=jis-x0208-1990	. #x2821)	; ø½Š€Ž
-    (=ks-x1001		. #x2621)	; ø»ˆ¡¢
-    (=jis-x0208-1983	. #x2821)	; ø»†šš
     (=gb2312		. #x2924)	; ø»„‘·
+    (=jis-x0208-1983	. #x2821)	; ø»†šš
+    (=ks-x1001		. #x2621)	; ø»ˆ¡¢
+    (=jis-x0208-1990	. #x2821)	; ø½Š€Ž
+    (=cns11643-1	. #x2339)	; ø»‘…°
     (=big5		. #xA277)	; ý¢€Š‰·
     ))
 (define-char
@@ -18,10 +18,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2501)	; â”
-    (=jis-x0208-1990	. #x282C)	; ø½Š€™
-    (=ks-x1001		. #x262C)	; ø»ˆ¡­
-    (=jis-x0208-1983	. #x282C)	; ø»†š¥
     (=gb2312		. #x2925)	; ø»„‘¸
+    (=jis-x0208-1983	. #x282C)	; ø»†š¥
+    (=ks-x1001		. #x262C)	; ø»ˆ¡­
+    (=jis-x0208-1990	. #x282C)	; ø½Š€™
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL")
@@ -29,11 +29,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2502)	; â”‚
-    (=cns11643-1	. #x233A)	; ø»‘…±
-    (=jis-x0208-1990	. #x2822)	; ø½Š€
-    (=ks-x1001		. #x2622)	; ø»ˆ¡£
-    (=jis-x0208-1983	. #x2822)	; ø»†š›
     (=gb2312		. #x2926)	; ø»„‘¹
+    (=jis-x0208-1983	. #x2822)	; ø»†š›
+    (=ks-x1001		. #x2622)	; ø»ˆ¡£
+    (=jis-x0208-1990	. #x2822)	; ø½Š€
+    (=cns11643-1	. #x233A)	; ø»‘…±
     (=big5		. #xA278)	; ý¢€Š‰¸
     ))
 (define-char
@@ -42,10 +42,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2503)	; â”ƒ
-    (=jis-x0208-1990	. #x282D)	; ø½Š€š
-    (=ks-x1001		. #x262D)	; ø»ˆ¡®
-    (=jis-x0208-1983	. #x282D)	; ø»†š¦
     (=gb2312		. #x2927)	; ø»„‘º
+    (=jis-x0208-1983	. #x282D)	; ø»†š¦
+    (=ks-x1001		. #x262D)	; ø»ˆ¡®
+    (=jis-x0208-1990	. #x282D)	; ø½Š€š
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT TRIPLE DASH HORIZONTAL")
@@ -117,11 +117,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x250C)	; â”Œ
-    (=cns11643-1	. #x233C)	; ø»‘…³
-    (=jis-x0208-1990	. #x2823)	; ø½Š€
-    (=ks-x1001		. #x2623)	; ø»ˆ¡¤
-    (=jis-x0208-1983	. #x2823)	; ø»†šœ
     (=gb2312		. #x2930)	; ø»„’ƒ
+    (=jis-x0208-1983	. #x2823)	; ø»†šœ
+    (=ks-x1001		. #x2623)	; ø»ˆ¡¤
+    (=jis-x0208-1990	. #x2823)	; ø½Š€
+    (=cns11643-1	. #x233C)	; ø»‘…³
     (=big5		. #xA27A)	; ý¢€Š‰º
     ))
 (define-char
@@ -130,8 +130,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x250D)	; â”
-    (=ks-x1001		. #x2648)	; ø»ˆ¢‰
     (=gb2312		. #x2931)	; ø»„’„
+    (=ks-x1001		. #x2648)	; ø»ˆ¢‰
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND RIGHT LIGHT")
@@ -139,8 +139,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x250E)	; â”Ž
-    (=ks-x1001		. #x2647)	; ø»ˆ¢ˆ
     (=gb2312		. #x2932)	; ø»„’…
+    (=ks-x1001		. #x2647)	; ø»ˆ¢ˆ
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND RIGHT")
@@ -148,10 +148,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x250F)	; â”
-    (=jis-x0208-1990	. #x282E)	; ø½Š€›
-    (=ks-x1001		. #x262E)	; ø»ˆ¡¯
-    (=jis-x0208-1983	. #x282E)	; ø»†š§
     (=gb2312		. #x2933)	; ø»„’†
+    (=jis-x0208-1983	. #x282E)	; ø»†š§
+    (=ks-x1001		. #x262E)	; ø»ˆ¡¯
+    (=jis-x0208-1990	. #x282E)	; ø½Š€›
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOWN AND LEFT")
@@ -159,11 +159,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2510)	; â”
-    (=cns11643-1	. #x233D)	; ø»‘…´
-    (=jis-x0208-1990	. #x2824)	; ø½Š€‘
-    (=ks-x1001		. #x2624)	; ø»ˆ¡¥
-    (=jis-x0208-1983	. #x2824)	; ø»†š
     (=gb2312		. #x2934)	; ø»„’‡
+    (=jis-x0208-1983	. #x2824)	; ø»†š
+    (=ks-x1001		. #x2624)	; ø»ˆ¡¥
+    (=jis-x0208-1990	. #x2824)	; ø½Š€‘
+    (=cns11643-1	. #x233D)	; ø»‘…´
     (=big5		. #xA27B)	; ý¢€Š‰»
     ))
 (define-char
@@ -172,8 +172,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2511)	; â”‘
-    (=ks-x1001		. #x2642)	; ø»ˆ¢ƒ
     (=gb2312		. #x2935)	; ø»„’ˆ
+    (=ks-x1001		. #x2642)	; ø»ˆ¢ƒ
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND LEFT LIGHT")
@@ -181,8 +181,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2512)	; â”’
-    (=ks-x1001		. #x2641)	; ø»ˆ¢‚
     (=gb2312		. #x2936)	; ø»„’‰
+    (=ks-x1001		. #x2641)	; ø»ˆ¢‚
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND LEFT")
@@ -190,10 +190,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2513)	; â”“
-    (=jis-x0208-1990	. #x282F)	; ø½Š€œ
-    (=ks-x1001		. #x262F)	; ø»ˆ¡°
-    (=jis-x0208-1983	. #x282F)	; ø»†š¨
     (=gb2312		. #x2937)	; ø»„’Š
+    (=jis-x0208-1983	. #x282F)	; ø»†š¨
+    (=ks-x1001		. #x262F)	; ø»ˆ¡°
+    (=jis-x0208-1990	. #x282F)	; ø½Š€œ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND RIGHT")
@@ -201,11 +201,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2514)	; â””
-    (=cns11643-1	. #x233E)	; ø»‘…µ
-    (=jis-x0208-1990	. #x2826)	; ø½Š€“
-    (=ks-x1001		. #x2626)	; ø»ˆ¡§
-    (=jis-x0208-1983	. #x2826)	; ø»†šŸ
     (=gb2312		. #x2938)	; ø»„’‹
+    (=jis-x0208-1983	. #x2826)	; ø»†šŸ
+    (=ks-x1001		. #x2626)	; ø»ˆ¡§
+    (=jis-x0208-1990	. #x2826)	; ø½Š€“
+    (=cns11643-1	. #x233E)	; ø»‘…µ
     (=big5		. #xA27C)	; ý¢€Š‰¼
     ))
 (define-char
@@ -214,8 +214,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2515)	; â”•
-    (=ks-x1001		. #x2646)	; ø»ˆ¢‡
     (=gb2312		. #x2939)	; ø»„’Œ
+    (=ks-x1001		. #x2646)	; ø»ˆ¢‡
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND RIGHT LIGHT")
@@ -223,8 +223,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2516)	; â”–
-    (=ks-x1001		. #x2645)	; ø»ˆ¢†
     (=gb2312		. #x293A)	; ø»„’
+    (=ks-x1001		. #x2645)	; ø»ˆ¢†
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND RIGHT")
@@ -232,10 +232,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2517)	; â”—
-    (=jis-x0208-1990	. #x2831)	; ø½Š€ž
-    (=ks-x1001		. #x2631)	; ø»ˆ¡²
-    (=jis-x0208-1983	. #x2831)	; ø»†šª
     (=gb2312		. #x293B)	; ø»„’Ž
+    (=jis-x0208-1983	. #x2831)	; ø»†šª
+    (=ks-x1001		. #x2631)	; ø»ˆ¡²
+    (=jis-x0208-1990	. #x2831)	; ø½Š€ž
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND LEFT")
@@ -243,11 +243,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2518)	; â”˜
-    (=cns11643-1	. #x233F)	; ø»‘…¶
-    (=jis-x0208-1990	. #x2825)	; ø½Š€’
-    (=ks-x1001		. #x2625)	; ø»ˆ¡¦
-    (=jis-x0208-1983	. #x2825)	; ø»†šž
     (=gb2312		. #x293C)	; ø»„’
+    (=jis-x0208-1983	. #x2825)	; ø»†šž
+    (=ks-x1001		. #x2625)	; ø»ˆ¡¦
+    (=jis-x0208-1990	. #x2825)	; ø½Š€’
+    (=cns11643-1	. #x233F)	; ø»‘…¶
     (=big5		. #xA27D)	; ý¢€Š‰½
     ))
 (define-char
@@ -256,8 +256,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2519)	; â”™
-    (=ks-x1001		. #x2644)	; ø»ˆ¢…
     (=gb2312		. #x293D)	; ø»„’
+    (=ks-x1001		. #x2644)	; ø»ˆ¢…
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND LEFT LIGHT")
@@ -265,8 +265,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251A)	; â”š
-    (=ks-x1001		. #x2643)	; ø»ˆ¢„
     (=gb2312		. #x293E)	; ø»„’‘
+    (=ks-x1001		. #x2643)	; ø»ˆ¢„
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND LEFT")
@@ -274,10 +274,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251B)	; â”›
-    (=jis-x0208-1990	. #x2830)	; ø½Š€
-    (=ks-x1001		. #x2630)	; ø»ˆ¡±
-    (=jis-x0208-1983	. #x2830)	; ø»†š©
     (=gb2312		. #x293F)	; ø»„’’
+    (=jis-x0208-1983	. #x2830)	; ø»†š©
+    (=ks-x1001		. #x2630)	; ø»ˆ¡±
+    (=jis-x0208-1990	. #x2830)	; ø½Š€
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND RIGHT")
@@ -285,11 +285,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251C)	; â”œ
-    (=cns11643-1	. #x2337)	; ø»‘…®
-    (=jis-x0208-1990	. #x2827)	; ø½Š€”
-    (=ks-x1001		. #x2627)	; ø»ˆ¡¨
-    (=jis-x0208-1983	. #x2827)	; ø»†š 
     (=gb2312		. #x2940)	; ø»„’“
+    (=jis-x0208-1983	. #x2827)	; ø»†š 
+    (=ks-x1001		. #x2627)	; ø»ˆ¡¨
+    (=jis-x0208-1990	. #x2827)	; ø½Š€”
+    (=cns11643-1	. #x2337)	; ø»‘…®
     (=big5		. #xA275)	; ý¢€Š‰µ
     ))
 (define-char
@@ -298,10 +298,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251D)	; â”
-    (=jis-x0208-1990	. #x283C)	; ø½Š€©
-    (=ks-x1001		. #x263C)	; ø»ˆ¡½
-    (=jis-x0208-1983	. #x283C)	; ø»†šµ
     (=gb2312		. #x2941)	; ø»„’”
+    (=jis-x0208-1983	. #x283C)	; ø»†šµ
+    (=ks-x1001		. #x263C)	; ø»ˆ¡½
+    (=jis-x0208-1990	. #x283C)	; ø½Š€©
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND RIGHT DOWN LIGHT")
@@ -309,8 +309,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251E)	; â”ž
-    (=ks-x1001		. #x2649)	; ø»ˆ¢Š
     (=gb2312		. #x2942)	; ø»„’•
+    (=ks-x1001		. #x2649)	; ø»ˆ¢Š
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND RIGHT UP LIGHT")
@@ -318,8 +318,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x251F)	; â”Ÿ
-    (=ks-x1001		. #x264A)	; ø»ˆ¢‹
     (=gb2312		. #x2943)	; ø»„’–
+    (=ks-x1001		. #x264A)	; ø»ˆ¢‹
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL HEAVY AND RIGHT LIGHT")
@@ -327,10 +327,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2520)	; â” 
-    (=jis-x0208-1990	. #x2837)	; ø½Š€¤
-    (=ks-x1001		. #x2637)	; ø»ˆ¡¸
-    (=jis-x0208-1983	. #x2837)	; ø»†š°
     (=gb2312		. #x2944)	; ø»„’—
+    (=jis-x0208-1983	. #x2837)	; ø»†š°
+    (=ks-x1001		. #x2637)	; ø»ˆ¡¸
+    (=jis-x0208-1990	. #x2837)	; ø½Š€¤
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND RIGHT UP HEAVY")
@@ -338,8 +338,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2521)	; â”¡
-    (=ks-x1001		. #x264B)	; ø»ˆ¢Œ
     (=gb2312		. #x2945)	; ø»„’˜
+    (=ks-x1001		. #x264B)	; ø»ˆ¢Œ
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND RIGHT DOWN HEAVY")
@@ -347,8 +347,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2522)	; â”¢
-    (=ks-x1001		. #x264C)	; ø»ˆ¢
     (=gb2312		. #x2946)	; ø»„’™
+    (=ks-x1001		. #x264C)	; ø»ˆ¢
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND RIGHT")
@@ -356,10 +356,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2523)	; â”£
-    (=jis-x0208-1990	. #x2832)	; ø½Š€Ÿ
-    (=ks-x1001		. #x2632)	; ø»ˆ¡³
-    (=jis-x0208-1983	. #x2832)	; ø»†š«
     (=gb2312		. #x2947)	; ø»„’š
+    (=jis-x0208-1983	. #x2832)	; ø»†š«
+    (=ks-x1001		. #x2632)	; ø»ˆ¡³
+    (=jis-x0208-1990	. #x2832)	; ø½Š€Ÿ
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND LEFT")
@@ -367,11 +367,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2524)	; â”¤
-    (=cns11643-1	. #x2336)	; ø»‘…­
-    (=jis-x0208-1990	. #x2829)	; ø½Š€–
-    (=ks-x1001		. #x2629)	; ø»ˆ¡ª
-    (=jis-x0208-1983	. #x2829)	; ø»†š¢
     (=gb2312		. #x2948)	; ø»„’›
+    (=jis-x0208-1983	. #x2829)	; ø»†š¢
+    (=ks-x1001		. #x2629)	; ø»ˆ¡ª
+    (=jis-x0208-1990	. #x2829)	; ø½Š€–
+    (=cns11643-1	. #x2336)	; ø»‘…­
     (=big5		. #xA274)	; ý¢€Š‰´
     ))
 (define-char
@@ -380,10 +380,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2525)	; â”¥
-    (=jis-x0208-1990	. #x283E)	; ø½Š€«
-    (=ks-x1001		. #x263E)	; ø»ˆ¡¿
-    (=jis-x0208-1983	. #x283E)	; ø»†š·
     (=gb2312		. #x2949)	; ø»„’œ
+    (=jis-x0208-1983	. #x283E)	; ø»†š·
+    (=ks-x1001		. #x263E)	; ø»ˆ¡¿
+    (=jis-x0208-1990	. #x283E)	; ø½Š€«
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND LEFT DOWN LIGHT")
@@ -391,8 +391,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2526)	; â”¦
-    (=ks-x1001		. #x264D)	; ø»ˆ¢Ž
     (=gb2312		. #x294A)	; ø»„’
+    (=ks-x1001		. #x264D)	; ø»ˆ¢Ž
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND LEFT UP LIGHT")
@@ -400,8 +400,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2527)	; â”§
-    (=ks-x1001		. #x264E)	; ø»ˆ¢
     (=gb2312		. #x294B)	; ø»„’ž
+    (=ks-x1001		. #x264E)	; ø»ˆ¢
     ))
 (define-char
   '((name		. "BOX DRAWINGS VERTICAL HEAVY AND LEFT LIGHT")
@@ -409,10 +409,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2528)	; â”¨
-    (=jis-x0208-1990	. #x2839)	; ø½Š€¦
-    (=ks-x1001		. #x2639)	; ø»ˆ¡º
-    (=jis-x0208-1983	. #x2839)	; ø»†š²
     (=gb2312		. #x294C)	; ø»„’Ÿ
+    (=jis-x0208-1983	. #x2839)	; ø»†š²
+    (=ks-x1001		. #x2639)	; ø»ˆ¡º
+    (=jis-x0208-1990	. #x2839)	; ø½Š€¦
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND LEFT UP HEAVY")
@@ -420,8 +420,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2529)	; â”©
-    (=ks-x1001		. #x264F)	; ø»ˆ¢
     (=gb2312		. #x294D)	; ø»„’ 
+    (=ks-x1001		. #x264F)	; ø»ˆ¢
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND LEFT DOWN HEAVY")
@@ -429,8 +429,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252A)	; â”ª
-    (=ks-x1001		. #x2650)	; ø»ˆ¢‘
     (=gb2312		. #x294E)	; ø»„’¡
+    (=ks-x1001		. #x2650)	; ø»ˆ¢‘
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND LEFT")
@@ -438,10 +438,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252B)	; â”«
-    (=jis-x0208-1990	. #x2834)	; ø½Š€¡
-    (=ks-x1001		. #x2634)	; ø»ˆ¡µ
-    (=jis-x0208-1983	. #x2834)	; ø»†š­
     (=gb2312		. #x294F)	; ø»„’¢
+    (=jis-x0208-1983	. #x2834)	; ø»†š­
+    (=ks-x1001		. #x2634)	; ø»ˆ¡µ
+    (=jis-x0208-1990	. #x2834)	; ø½Š€¡
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOWN AND HORIZONTAL")
@@ -449,11 +449,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252C)	; â”¬
-    (=cns11643-1	. #x2335)	; ø»‘…¬
-    (=jis-x0208-1990	. #x2828)	; ø½Š€•
-    (=ks-x1001		. #x2628)	; ø»ˆ¡©
-    (=jis-x0208-1983	. #x2828)	; ø»†š¡
     (=gb2312		. #x2950)	; ø»„’£
+    (=jis-x0208-1983	. #x2828)	; ø»†š¡
+    (=ks-x1001		. #x2628)	; ø»ˆ¡©
+    (=jis-x0208-1990	. #x2828)	; ø½Š€•
+    (=cns11643-1	. #x2335)	; ø»‘…¬
     (=big5		. #xA273)	; ý¢€Š‰³
     ))
 (define-char
@@ -462,8 +462,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252D)	; â”­
-    (=ks-x1001		. #x2651)	; ø»ˆ¢’
     (=gb2312		. #x2951)	; ø»„’¤
+    (=ks-x1001		. #x2651)	; ø»ˆ¢’
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT HEAVY AND LEFT DOWN LIGHT")
@@ -471,8 +471,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252E)	; â”®
-    (=ks-x1001		. #x2652)	; ø»ˆ¢“
     (=gb2312		. #x2952)	; ø»„’¥
+    (=ks-x1001		. #x2652)	; ø»ˆ¢“
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN LIGHT AND HORIZONTAL HEAVY")
@@ -480,10 +480,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x252F)	; â”¯
-    (=jis-x0208-1990	. #x2838)	; ø½Š€¥
-    (=ks-x1001		. #x2638)	; ø»ˆ¡¹
-    (=jis-x0208-1983	. #x2838)	; ø»†š±
     (=gb2312		. #x2953)	; ø»„’¦
+    (=jis-x0208-1983	. #x2838)	; ø»†š±
+    (=ks-x1001		. #x2638)	; ø»ˆ¡¹
+    (=jis-x0208-1990	. #x2838)	; ø½Š€¥
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOWN HEAVY AND HORIZONTAL LIGHT")
@@ -491,10 +491,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2530)	; â”°
-    (=jis-x0208-1990	. #x283D)	; ø½Š€ª
-    (=ks-x1001		. #x263D)	; ø»ˆ¡¾
-    (=jis-x0208-1983	. #x283D)	; ø»†š¶
     (=gb2312		. #x2954)	; ø»„’§
+    (=jis-x0208-1983	. #x283D)	; ø»†š¶
+    (=ks-x1001		. #x263D)	; ø»ˆ¡¾
+    (=jis-x0208-1990	. #x283D)	; ø½Š€ª
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT LIGHT AND LEFT DOWN HEAVY")
@@ -502,8 +502,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2531)	; â”±
-    (=ks-x1001		. #x2653)	; ø»ˆ¢”
     (=gb2312		. #x2955)	; ø»„’¨
+    (=ks-x1001		. #x2653)	; ø»ˆ¢”
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT LIGHT AND RIGHT DOWN HEAVY")
@@ -511,8 +511,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2532)	; â”²
-    (=ks-x1001		. #x2654)	; ø»ˆ¢•
     (=gb2312		. #x2956)	; ø»„’©
+    (=ks-x1001		. #x2654)	; ø»ˆ¢•
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY DOWN AND HORIZONTAL")
@@ -520,10 +520,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2533)	; â”³
-    (=jis-x0208-1990	. #x2833)	; ø½Š€ 
-    (=ks-x1001		. #x2633)	; ø»ˆ¡´
-    (=jis-x0208-1983	. #x2833)	; ø»†š¬
     (=gb2312		. #x2957)	; ø»„’ª
+    (=jis-x0208-1983	. #x2833)	; ø»†š¬
+    (=ks-x1001		. #x2633)	; ø»ˆ¡´
+    (=jis-x0208-1990	. #x2833)	; ø½Š€ 
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT UP AND HORIZONTAL")
@@ -531,11 +531,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2534)	; â”´
-    (=cns11643-1	. #x2334)	; ø»‘…«
-    (=jis-x0208-1990	. #x282A)	; ø½Š€—
-    (=ks-x1001		. #x262A)	; ø»ˆ¡«
-    (=jis-x0208-1983	. #x282A)	; ø»†š£
     (=gb2312		. #x2958)	; ø»„’«
+    (=jis-x0208-1983	. #x282A)	; ø»†š£
+    (=ks-x1001		. #x262A)	; ø»ˆ¡«
+    (=jis-x0208-1990	. #x282A)	; ø½Š€—
+    (=cns11643-1	. #x2334)	; ø»‘…«
     (=big5		. #xA272)	; ý¢€Š‰²
     ))
 (define-char
@@ -544,8 +544,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2535)	; â”µ
-    (=ks-x1001		. #x2655)	; ø»ˆ¢–
     (=gb2312		. #x2959)	; ø»„’¬
+    (=ks-x1001		. #x2655)	; ø»ˆ¢–
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT HEAVY AND LEFT UP LIGHT")
@@ -553,8 +553,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2536)	; â”¶
-    (=ks-x1001		. #x2656)	; ø»ˆ¢—
     (=gb2312		. #x295A)	; ø»„’­
+    (=ks-x1001		. #x2656)	; ø»ˆ¢—
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP LIGHT AND HORIZONTAL HEAVY")
@@ -562,10 +562,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2537)	; â”·
-    (=jis-x0208-1990	. #x283A)	; ø½Š€§
-    (=ks-x1001		. #x263A)	; ø»ˆ¡»
-    (=jis-x0208-1983	. #x283A)	; ø»†š³
     (=gb2312		. #x295B)	; ø»„’®
+    (=jis-x0208-1983	. #x283A)	; ø»†š³
+    (=ks-x1001		. #x263A)	; ø»ˆ¡»
+    (=jis-x0208-1990	. #x283A)	; ø½Š€§
     ))
 (define-char
   '((name		. "BOX DRAWINGS UP HEAVY AND HORIZONTAL LIGHT")
@@ -573,10 +573,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2538)	; â”¸
-    (=jis-x0208-1990	. #x283F)	; ø½Š€¬
-    (=ks-x1001		. #x263F)	; ø»ˆ¢€
-    (=jis-x0208-1983	. #x283F)	; ø»†š¸
     (=gb2312		. #x295C)	; ø»„’¯
+    (=jis-x0208-1983	. #x283F)	; ø»†š¸
+    (=ks-x1001		. #x263F)	; ø»ˆ¢€
+    (=jis-x0208-1990	. #x283F)	; ø½Š€¬
     ))
 (define-char
   '((name		. "BOX DRAWINGS RIGHT LIGHT AND LEFT UP HEAVY")
@@ -584,8 +584,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2539)	; â”¹
-    (=ks-x1001		. #x2657)	; ø»ˆ¢˜
     (=gb2312		. #x295D)	; ø»„’°
+    (=ks-x1001		. #x2657)	; ø»ˆ¢˜
     ))
 (define-char
   '((name		. "BOX DRAWINGS LEFT LIGHT AND RIGHT UP HEAVY")
@@ -593,8 +593,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253A)	; â”º
-    (=ks-x1001		. #x2658)	; ø»ˆ¢™
     (=gb2312		. #x295E)	; ø»„’±
+    (=ks-x1001		. #x2658)	; ø»ˆ¢™
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY UP AND HORIZONTAL")
@@ -602,10 +602,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253B)	; â”»
-    (=jis-x0208-1990	. #x2835)	; ø½Š€¢
-    (=ks-x1001		. #x2635)	; ø»ˆ¡¶
-    (=jis-x0208-1983	. #x2835)	; ø»†š®
     (=gb2312		. #x295F)	; ø»„’²
+    (=jis-x0208-1983	. #x2835)	; ø»†š®
+    (=ks-x1001		. #x2635)	; ø»ˆ¡¶
+    (=jis-x0208-1990	. #x2835)	; ø½Š€¢
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL")
@@ -613,11 +613,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253C)	; â”¼
-    (=cns11643-1	. #x2333)	; ø»‘…ª
-    (=jis-x0208-1990	. #x282B)	; ø½Š€˜
-    (=ks-x1001		. #x262B)	; ø»ˆ¡¬
-    (=jis-x0208-1983	. #x282B)	; ø»†š¤
     (=gb2312		. #x2960)	; ø»„’³
+    (=jis-x0208-1983	. #x282B)	; ø»†š¤
+    (=ks-x1001		. #x262B)	; ø»ˆ¡¬
+    (=jis-x0208-1990	. #x282B)	; ø½Š€˜
+    (=cns11643-1	. #x2333)	; ø»‘…ª
     (=big5		. #xA271)	; ý¢€Š‰±
     ))
 (define-char
@@ -626,8 +626,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253D)	; â”½
-    (=ks-x1001		. #x2659)	; ø»ˆ¢š
     (=gb2312		. #x2961)	; ø»„’´
+    (=ks-x1001		. #x2659)	; ø»ˆ¢š
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT HEAVY AND LEFT VERTICAL LIGHT")
@@ -635,8 +635,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253E)	; â”¾
-    (=ks-x1001		. #x265A)	; ø»ˆ¢›
     (=gb2312		. #x2962)	; ø»„’µ
+    (=ks-x1001		. #x265A)	; ø»ˆ¢›
     ))
 (define-char
   '((name . "BOX DRAWINGS VERTICAL LIGHT AND HORIZONTAL HEAVY")
@@ -644,10 +644,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x253F)	; â”¿
-    (=jis-x0208-1990	. #x283B)	; ø½Š€¨
-    (=ks-x1001		. #x263B)	; ø»ˆ¡¼
-    (=jis-x0208-1983	. #x283B)	; ø»†š´
     (=gb2312		. #x2963)	; ø»„’¶
+    (=jis-x0208-1983	. #x283B)	; ø»†š´
+    (=ks-x1001		. #x263B)	; ø»ˆ¡¼
+    (=jis-x0208-1990	. #x283B)	; ø½Š€¨
     ))
 (define-char
   '((name . "BOX DRAWINGS UP HEAVY AND DOWN HORIZONTAL LIGHT")
@@ -655,8 +655,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2540)	; â•€
-    (=ks-x1001		. #x265B)	; ø»ˆ¢œ
     (=gb2312		. #x2964)	; ø»„’·
+    (=ks-x1001		. #x265B)	; ø»ˆ¢œ
     ))
 (define-char
   '((name . "BOX DRAWINGS DOWN HEAVY AND UP HORIZONTAL LIGHT")
@@ -664,8 +664,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2541)	; â•
-    (=ks-x1001		. #x265C)	; ø»ˆ¢
     (=gb2312		. #x2965)	; ø»„’¸
+    (=ks-x1001		. #x265C)	; ø»ˆ¢
     ))
 (define-char
   '((name . "BOX DRAWINGS VERTICAL HEAVY AND HORIZONTAL LIGHT")
@@ -673,10 +673,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2542)	; â•‚
-    (=jis-x0208-1990	. #x2840)	; ø½Š€­
-    (=ks-x1001		. #x2640)	; ø»ˆ¢
-    (=jis-x0208-1983	. #x2840)	; ø»†š¹
     (=gb2312		. #x2966)	; ø»„’¹
+    (=jis-x0208-1983	. #x2840)	; ø»†š¹
+    (=ks-x1001		. #x2640)	; ø»ˆ¢
+    (=jis-x0208-1990	. #x2840)	; ø½Š€­
     ))
 (define-char
   '((name . "BOX DRAWINGS LEFT UP HEAVY AND RIGHT DOWN LIGHT")
@@ -684,8 +684,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2543)	; â•ƒ
-    (=ks-x1001		. #x265D)	; ø»ˆ¢ž
     (=gb2312		. #x2967)	; ø»„’º
+    (=ks-x1001		. #x265D)	; ø»ˆ¢ž
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT UP HEAVY AND LEFT DOWN LIGHT")
@@ -693,8 +693,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2544)	; â•„
-    (=ks-x1001		. #x265E)	; ø»ˆ¢Ÿ
     (=gb2312		. #x2968)	; ø»„’»
+    (=ks-x1001		. #x265E)	; ø»ˆ¢Ÿ
     ))
 (define-char
   '((name . "BOX DRAWINGS LEFT DOWN HEAVY AND RIGHT UP LIGHT")
@@ -702,8 +702,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2545)	; â•…
-    (=ks-x1001		. #x265F)	; ø»ˆ¢ 
     (=gb2312		. #x2969)	; ø»„’¼
+    (=ks-x1001		. #x265F)	; ø»ˆ¢ 
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT DOWN HEAVY AND LEFT UP LIGHT")
@@ -711,8 +711,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2546)	; â•†
-    (=ks-x1001		. #x2660)	; ø»ˆ¢¡
     (=gb2312		. #x296A)	; ø»„’½
+    (=ks-x1001		. #x2660)	; ø»ˆ¢¡
     ))
 (define-char
   '((name . "BOX DRAWINGS DOWN LIGHT AND UP HORIZONTAL HEAVY")
@@ -720,8 +720,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2547)	; â•‡
-    (=ks-x1001		. #x2661)	; ø»ˆ¢¢
     (=gb2312		. #x296B)	; ø»„’¾
+    (=ks-x1001		. #x2661)	; ø»ˆ¢¢
     ))
 (define-char
   '((name . "BOX DRAWINGS UP LIGHT AND DOWN HORIZONTAL HEAVY")
@@ -729,8 +729,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2548)	; â•ˆ
-    (=ks-x1001		. #x2662)	; ø»ˆ¢£
     (=gb2312		. #x296C)	; ø»„’¿
+    (=ks-x1001		. #x2662)	; ø»ˆ¢£
     ))
 (define-char
   '((name . "BOX DRAWINGS RIGHT LIGHT AND LEFT VERTICAL HEAVY")
@@ -738,8 +738,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2549)	; â•‰
-    (=ks-x1001		. #x2663)	; ø»ˆ¢¤
     (=gb2312		. #x296D)	; ø»„“€
+    (=ks-x1001		. #x2663)	; ø»ˆ¢¤
     ))
 (define-char
   '((name . "BOX DRAWINGS LEFT LIGHT AND RIGHT VERTICAL HEAVY")
@@ -747,8 +747,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x254A)	; â•Š
-    (=ks-x1001		. #x2664)	; ø»ˆ¢¥
     (=gb2312		. #x296E)	; ø»„“
+    (=ks-x1001		. #x2664)	; ø»ˆ¢¥
     ))
 (define-char
   '((name		. "BOX DRAWINGS HEAVY VERTICAL AND HORIZONTAL")
@@ -756,10 +756,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x254B)	; â•‹
-    (=jis-x0208-1990	. #x2836)	; ø½Š€£
-    (=ks-x1001		. #x2636)	; ø»ˆ¡·
-    (=jis-x0208-1983	. #x2836)	; ø»†š¯
     (=gb2312		. #x296F)	; ø»„“‚
+    (=jis-x0208-1983	. #x2836)	; ø»†š¯
+    (=ks-x1001		. #x2636)	; ø»ˆ¡·
+    (=jis-x0208-1990	. #x2836)	; ø½Š€£
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT DOUBLE DASH HORIZONTAL")

@@ -152,8 +152,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2013)	; â€“
-    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
     (=cns11643-1	. #x2139)	; ø»‘‚´
+    (=jis-x0213-1-2000	. #x237C)	; ø»¢—“
     (=big5		. #xA156)	; ý¢€Š…–
     ))
 (define-char
@@ -162,8 +162,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2014)	; â€”
-    (=cns11643-1	. #x2137)	; ø»‘‚²
     (=jis-x0208		. #x213D)	; ø½‰¶˜
+    (=cns11643-1	. #x2137)	; ø»‘‚²
     (=big5		. #xA158)	; ý¢€Š…˜
     ))
 (define-char
@@ -172,8 +172,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2015)	; â€•
-    (=ks-x1001		. #x212A)	; ø»ˆš•
     (=gb2312		. #x212A)	; ø»„†
+    (=ks-x1001		. #x212A)	; ø»ˆš•
     ))
 (define-char
   '((name		. "HALFWIDTH HORIZONTAL BAR")
@@ -190,9 +190,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2016)	; â€–
-    (=cns11643-1	. #x225D)	; ø»‘„¶
     (=gb2312		. #x212C)	; ø»„†
     (=jis-x0208		. #x2142)	; ø½‰¶
+    (=cns11643-1	. #x225D)	; ø»‘„¶
     ))
 (define-char
   '((name		. "DOUBLE LOW LINE")
@@ -209,10 +209,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2018)	; â€˜
-    (=cns11643-1	. #x2164)	; ø»‘ƒŸ
-    (=ks-x1001		. #x212E)	; ø»ˆš™
     (=gb2312		. #x212E)	; ø»„†‘
     (=jis-x0208		. #x2146)	; ø½‰¶¡
+    (=ks-x1001		. #x212E)	; ø»ˆš™
+    (=cns11643-1	. #x2164)	; ø»‘ƒŸ
     (=big5		. #xA1A5)	; ý¢€Š†¥
     ))
 (define-char
@@ -221,10 +221,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2019)	; â€™
-    (=cns11643-1	. #x2165)	; ø»‘ƒ 
-    (=ks-x1001		. #x212F)	; ø»ˆšš
     (=gb2312		. #x212F)	; ø»„†’
     (=jis-x0208		. #x2147)	; ø½‰¶¢
+    (=ks-x1001		. #x212F)	; ø»ˆšš
+    (=cns11643-1	. #x2165)	; ø»‘ƒ 
     (=big5		. #xA1A6)	; ý¢€Š†¦
     ))
 (define-char
@@ -247,10 +247,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201C)	; â€œ
-    (=cns11643-1	. #x2166)	; ø»‘ƒ¡
-    (=ks-x1001		. #x2130)	; ø»ˆš›
     (=gb2312		. #x2130)	; ø»„†“
     (=jis-x0208		. #x2148)	; ø½‰¶£
+    (=ks-x1001		. #x2130)	; ø»ˆš›
+    (=cns11643-1	. #x2166)	; ø»‘ƒ¡
     (=big5		. #xA1A7)	; ý¢€Š†§
     ))
 (define-char
@@ -259,10 +259,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x201D)	; â€
-    (=cns11643-1	. #x2167)	; ø»‘ƒ¢
-    (=ks-x1001		. #x2131)	; ø»ˆšœ
     (=gb2312		. #x2131)	; ø»„†”
     (=jis-x0208		. #x2149)	; ø½‰¶¤
+    (=ks-x1001		. #x2131)	; ø»ˆšœ
+    (=cns11643-1	. #x2167)	; ø»‘ƒ¢
     (=big5		. #xA1A8)	; ý¢€Š†¨
     ))
 (define-char
@@ -285,9 +285,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2020)	; â€ 
-    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
-    (=ks-x1001		. #x2253)	; ø»ˆœœ
     (=jis-x0208-1983	. #x2277)	; ø»†’¼
+    (=ks-x1001		. #x2253)	; ø»ˆœœ
+    (=jis-x0208-1990	. #x2277)	; ø½‰¸°
     ))
 (define-char
   '((name		. "DOUBLE DAGGER")
@@ -295,9 +295,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2021)	; â€¡
-    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
-    (=ks-x1001		. #x2254)	; ø»ˆœ
     (=jis-x0208-1983	. #x2278)	; ø»†’½
+    (=ks-x1001		. #x2254)	; ø»ˆœ
+    (=jis-x0208-1990	. #x2278)	; ø½‰¸±
     ))
 (define-char
   '((name		. "BULLET")
@@ -329,9 +329,9 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E)
     (=ucs		. #x2025)	; â€¥
-    (=cns11643-1	. #x212D)	; ø»‘‚¨
-    (=ks-x1001		. #x2125)	; ø»ˆš
     (=jis-x0208		. #x2145)	; ø½‰¶ 
+    (=ks-x1001		. #x2125)	; ø»ˆš
+    (=cns11643-1	. #x212D)	; ø»‘‚¨
     (=big5		. #xA14C)	; ý¢€Š…Œ
     ))
 (define-char
@@ -341,10 +341,10 @@
     (mirrored		. nil)
     (->decomposition	compat #x002E #x002E #x002E)
     (=ucs		. #x2026)	; â€¦
-    (=cns11643-1	. #x212C)	; ø»‘‚§
-    (=ks-x1001		. #x2126)	; ø»ˆš‘
     (=gb2312		. #x212D)	; ø»„†
     (=jis-x0208		. #x2144)	; ø½‰¶Ÿ
+    (=ks-x1001		. #x2126)	; ø»ˆš‘
+    (=cns11643-1	. #x212C)	; ø»‘‚§
     (=big5		. #xA14B)	; ý¢€Š…‹
     ))
 (define-char
@@ -419,10 +419,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2030)	; â€°
-    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
-    (=ks-x1001		. #x2236)	; ø»ˆ›¿
-    (=jis-x0208-1983	. #x2273)	; ø»†’¸
     (=gb2312		. #x216B)	; ø»„‡Ž
+    (=jis-x0208-1983	. #x2273)	; ø»†’¸
+    (=ks-x1001		. #x2236)	; ø»ˆ›¿
+    (=jis-x0208-1990	. #x2273)	; ø½‰¸¬
     ))
 (define-char
   '((name		. "PER TEN THOUSAND SIGN")
@@ -437,10 +437,10 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (=ucs		. #x2032)	; â€²
-    (=cns11643-1	. #x216B)	; ø»‘ƒ¦
-    (=ks-x1001		. #x2147)	; ø»ˆš²
     (=gb2312		. #x2164)	; ø»„‡‡
     (=jis-x0208		. #x216C)	; ø½‰·‡
+    (=ks-x1001		. #x2147)	; ø»ˆš²
+    (=cns11643-1	. #x216B)	; ø»‘ƒ¦
     (=big5		. #xA1AC)	; ý¢€Š†¬
     ))
 (define-char
@@ -450,9 +450,9 @@
     (mirrored		. nil)
     (->decomposition	compat #x2032 #x2032)
     (=ucs		. #x2033)	; â€³
-    (=ks-x1001		. #x2148)	; ø»ˆš³
     (=gb2312		. #x2165)	; ø»„‡ˆ
     (=jis-x0208		. #x216D)	; ø½‰·ˆ
+    (=ks-x1001		. #x2148)	; ø»ˆš³
     ))
 (define-char
   '((name		. "TRIPLE PRIME")
@@ -514,10 +514,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x203B)	; â€»
-    (=cns11643-1	. #x216F)	; ø»‘ƒª
-    (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
     (=gb2312		. #x2179)	; ø»„‡œ
     (=jis-x0208		. #x2228)	; ø½‰·¡
+    (=ks-x1001		. #x2158)	; ø»ˆ›ƒ
+    (=cns11643-1	. #x216F)	; ø»‘ƒª
     (=big5		. #xA1B0)	; ý¢€Š†°
     ))
 (define-char
@@ -544,10 +544,10 @@
     (->decomposition	compat #x0020 #x0305)
     (->fullwidth
      ((name		  . "FULLWIDTH OVERLINE")
-      (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
-      (=ks-x1001	  . #x237E)	; ø»ˆž¥
       (=gb2312		  . #x237E)	; ø»„Š
       (=jis-x0208	  . #x2131)	; ø½‰¶Œ
+      (=ks-x1001	  . #x237E)	; ø»ˆž¥
+      (=cns11643-1	  . #x2223)	; ø»‘ƒ¼
       ))
     (=ucs		. #x203E)	; â€¾
     (hebrew-iso8859-8	. #xAF)	; øº’¾¯
@@ -564,12 +564,12 @@
      ((name		  . "OVERLINE")
       (=ucs		  . #x203E)	; â€¾
       ))
-    (=cns11643-1	. #x2223)	; ø»‘ƒ¼
-    (=ks-x1001		. #x237E)	; ø»ˆž¥
     (=gb2312		. #x237E)	; ø»„Š
     (=jis-x0208		. #x2131)	; ø½‰¶Œ
+    (=ks-x1001		. #x237E)	; ø»ˆž¥
+    (=cns11643-1	. #x2223)	; ø»‘ƒ¼
     (=big5		. #xA1C2)	; ý¢€Š‡‚
-    (=ucs@jis		. #x203E)	; ø»‘ƒ¼
+    (=ucs@jis		. #x203E)	; ø»„Š
     ))
 (define-char
   '((name		. "heavy overline")
