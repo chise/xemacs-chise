@@ -387,7 +387,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (ucs		  . #x2FFA)	; â¿º
       )
-     ((ideograph-daikanwa . 13061)	; ø¸ƒŒ…
+     ((china3-jef	  . #x50BD)	; øº…‚½
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
@@ -1676,14 +1676,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x53E3)	; å£
-	)
-       ((ucs		    . #x8D1D)	; è´
-	))
+     ((ucs		  . #x5458)	; å‘˜
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
