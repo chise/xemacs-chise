@@ -1,5 +1,10 @@
 2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* C1-to-UCS.txt (C1-213A): Add.
+	(C1-213B): Add.
+
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* C1-to-UCS.txt (C1-2126): Map to U+2027 instead of U+30FB.
 	(C1-213C): Add.
 	(C1-213D): Add.
