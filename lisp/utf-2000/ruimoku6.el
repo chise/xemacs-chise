@@ -78,16 +78,13 @@
     (=ruimoku-v6	. #xE008)	; øº€ˆ
     ))
 (define-char
-  '((<-unified
-     ((=ucs		  . #x21A5C)	; ð¡©œ
-      ))
-    (sources		bos=A015412-00003)
+  '((sources		bos=A015412-00003)
     (=ruimoku-v6	. #xE009)	; øº€‰
     ))
 (define-char
   '((sources		bos=A016374-00004)
     (=ruimoku-v6	. #xE00A)	; øº€Š
-    (=ucs@unicode	. #x29C2C)	; ð©°¬
+    (=ucs@unicode	. #x29C2C)	; øº€Š
     ))
 (define-char
   '((sources		bos=A2001-16138-00013)
