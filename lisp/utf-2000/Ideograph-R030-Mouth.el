@@ -19588,7 +19588,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x595A)	; &UU+595A;
+       ((=ucs@unicode	    . #x595A)	; &G0-5E49;
 	))
       (=ucs@unicode	  . #x55D8)	; &UU+55D8;
       )
