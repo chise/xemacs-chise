@@ -1,5 +1,12 @@
 2004-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R066-Rap.el (K0-4A72): Moved into U+6562.
+	(J83-343A): Likewise.
+	(U+6562): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (J0-536E): Moved into U+56B4.
+	(U+56B4): Use `->subsumptive'.
+
 	* Ideograph-R163-City.el (U+9115): Use `->subsumptive'; moved into
 	intersection between U+9115 and U+9109.
 	(U+9109): Likewise.
