@@ -11225,45 +11225,42 @@
     (=daikanwa		. 11115)	; &I-M-11115;
     ))
 (define-char
-  '((=>ucs		. #x6167)	; 慧
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=ks-x1001		. #x7B34)	; &M-11116; [91-20]
-    (=cns11643-1	. #x6C64)	; &I-C1-6C64; [76-68]
-    (=big5		. #xBC7A)	; &I-B-BC7A;
-    (=daikanwa		. 11116)	; &I-M-11116;
-    (=ucs@big5		. #x6167)	; &M-11116;
-    ))
-(define-char
-  '((=>ucs		. #x6167)	; 慧
-    (morohashi-daikanwa	11116 0 1)
-    (ideographic-radical . 61)	; ⼼
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=jis-x0208-1983	. #x3745)	; &GT-14060; [23-37]
-    (=jis-x0208-1990	. #x3745)	; &I-J90-3745; [23-37]
-    (=gt		. 14060)	; &I-GT-14060;
-    (=gt-k		. 11901)	; &I-GT-K11901;
-    (=gt-pj-1		. #x3745)	; &I-GT-14060; [23-37]
-    (=jef-china3	. #x4DC2)	; &I-JC3-4DC2;
-    (=ucs@jis		. #x6167)	; &GT-14060;
-    ))
-(define-char
-  '((morohashi-daikanwa	11116 0 2)
-    (ideographic-radical . 61)	; ⼼
+  '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x6167)	; 慧
-    (=gb2312		. #x3B5B)	; &I-G0-3B5B; [27-59]
+    (->subsumptive
+     ((shinjigen-1	  . 2646)
+      (=jis-x0208-1978	  . #x3745)	; &M-11116; [23-37]
+      (=ks-x1001	  . #x7B34)	; &I-K0-7B34; [91-20]
+      (=cns11643-1	  . #x6C64)	; &I-C1-6C64; [76-68]
+      (=big5		  . #xBC7A)	; &I-B-BC7A;
+      (=daikanwa	  . 11116)	; &I-M-11116;
+      (=ucs@big5	  . #x6167)	; &M-11116;
+      )
+     ((=jis-x0208-1983	  . #x3745)	; &GT-14060; [23-37]
+      (=jis-x0208-1990	  . #x3745)	; &I-J90-3745; [23-37]
+      (=gt		  . 14060)	; &I-GT-14060;
+      (=gt-k		  . 11901)	; &I-GT-K11901;
+      (=gt-pj-1		  . #x3745)	; &I-GT-14060; [23-37]
+      (=jef-china3	  . #x4DC2)	; &I-JC3-4DC2;
+      (=ucs@jis		  . #x6167)	; &GT-14060;
+      )
+     ((=gb2312		  . #x3B5B)	; &G0-3B5B; [27-59]
+      (=ucs@unicode	  . #x6167)	; &G0-3B5B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x227E9)	; 𢟩
-    (=cns11643-5	. #x4573)	; &I-C5-4573; [37-83]
-    (=daikanwa		. 11117)	; &I-M-11117;
+    (->subsumptive
+     ((=cns11643-5	  . #x4573)	; &M-11117; [37-83]
+      (=daikanwa	  . 11117)	; &I-M-11117;
+      )
+     ((=ucs@iso		  . #x227E9)	; &UU+227E9;
+      ))
     ))
 (define-char
   '((=>ucs		. #x227E6)	; 𢟦
