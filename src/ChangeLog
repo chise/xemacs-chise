@@ -1,3 +1,49 @@
+1999-10-10  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* text-coding.c (char_encode_shift_jis): Refer
+	`XCHARSET_ENCODING_TABLE(Vcharset_latin_jisx0201)' instead of
+	`XCHARSET_TO_BYTE1_TABLE(Vcharset_latin_jisx0201)'.
+
+	* mule-charset.c (mark_char_byte_table): New function in UTF-2000.
+	(char_byte_table_equal): New function in UTF-2000.
+	(char_byte_table_hash): New function in UTF-2000.
+	(char_byte_table_description): New constant in UTF-2000.
+	(char_byte_table): New type in UTF-2000.
+	(make_char_byte_table): New function in UTF-2000.
+	(copy_char_byte_table): New function in UTF-2000.
+	(make_char_code_table): New macro in UTF-2000.
+	(get_char_code_table): New function in UTF-2000.
+	(put_char_code_table): New function in UTF-2000.
+	(mark_charset): Mark `cs->encoding_table' in UTF-2000.
+	(charset_description): Add setting in UTF-2000.
+	(make_charset): Setup `CHARSET_ENCODING_TABLE(cs)' instead of
+	`CHARSET_TO_BYTE1_TABLE(cs)'.
+	(charset_get_byte1): Refer `XCHARSET_ENCODING_TABLE(charset)'
+	instead of `XCHARSET_TO_BYTE1_TABLE(charset)'.
+	(charset_get_byte2): Refer `XCHARSET_ENCODING_TABLE(charset)'
+	instead of `XCHARSET_TO_BYTE2_TABLE(charset)'.
+	(Fset_charset_mapping_table): Setup `CHARSET_ENCODING_TABLE(cs)'
+	instead of `CHARSET_TO_BYTE1_TABLE(cs)' and
+	`CHARSET_TO_BYTE2_TABLE(cs)'.
+
+	* char-ucs.h (char_byte_table): New type.
+	(XCHAR_BYTE_TABLE): New macro.
+	(XSETCHAR_BYTE_TABLE): New macro.
+	(CHAR_BYTE_TABLE_P): New macro.
+	(GC_CHAR_BYTE_TABLE_P): New macro.
+	(struct Lisp_Char_Byte_Table): New structure.
+	(get_char_code_table): New interface.
+	(Emchar_to_byte_table): Deleted.
+	(get_byte_from_character_table): Deleted.
+	(struct Lisp_Charset): Add `encoding_table'; delete
+	`to_byte1_table' and `to_byte2_table'.
+	(CHARSET_ENCODING_TABLE): New macro.
+	(CHARSET_TO_BYTE1_TABLE): Deleted.
+	(CHARSET_TO_BYTE2_TABLE): Deleted.
+	(XCHARSET_ENCODING_TABLE): New macro.
+	(XCHARSET_TO_BYTE1_TABLE): Deleted.
+	(XCHARSET_TO_BYTE2_TABLE): Deleted.
+
 1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (syms_of_mule_charset): Delete charset alias
