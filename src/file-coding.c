@@ -3820,6 +3820,7 @@ static void
 encode_coding_ucs4 (Lstream *encoding, const Bufbyte *src,
 		    unsigned_char_dynarr *dst, Lstream_data_count n)
 {
+#ifndef UTF2000
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
   unsigned int flags = str->flags;
   unsigned int ch = str->ch;
@@ -3948,6 +3949,7 @@ encode_coding_ucs4 (Lstream *encoding, const Bufbyte *src,
   str->iso2022.current_charset = charset;
 
   /* Verbum caro factum est! */
+#endif
 }
 
 
@@ -5307,7 +5309,11 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		  break;
 
 		case 3:	/* one-byte private or two-byte official */
+#ifdef UTF2000
+		  if (XCHARSET_DIMENSION (charset) == 1)
+#else
 		  if (XCHARSET_PRIVATE_P (charset))
+#endif
 		    {
 		      DECODE_OUTPUT_PARTIAL_CHAR (ch);
 #ifdef UTF2000

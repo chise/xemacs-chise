@@ -50,26 +50,27 @@
 ;; that appear once in some ancient manuscript and whose meaning
 ;; is unknown.
 
-(flet
-    ((make-chinese-cns11643-charset
-      (name plane final)
-      (make-charset
-       name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
-       `(registry 
-         ,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
-         dimension 2
-         chars 94
-         final ,final
-         graphic 0))
-      (modify-syntax-entry   name "w")
-      (modify-category-entry name ?t)
-      ))
-  (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
-  (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
-  (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
-  (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
-  (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
-  )
+(unless (featurep 'utf-2000)
+  (flet
+   ((make-chinese-cns11643-charset
+     (name plane final)
+     (make-charset
+      name (concat "CNS 11643 Plane " plane " (Chinese traditional)")
+      `(registry 
+	,(concat "CNS11643[.-]\\(.*[.-]\\)?" plane "$")
+	dimension 2
+	chars 94
+	final ,final
+	graphic 0))
+     (modify-syntax-entry   name "w")
+     (modify-category-entry name ?t)
+     ))
+   (make-chinese-cns11643-charset 'chinese-cns11643-3 "3" ?I)
+   (make-chinese-cns11643-charset 'chinese-cns11643-4 "4" ?J)
+   (make-chinese-cns11643-charset 'chinese-cns11643-5 "5" ?K)
+   (make-chinese-cns11643-charset 'chinese-cns11643-6 "6" ?L)
+   (make-chinese-cns11643-charset 'chinese-cns11643-7 "7" ?M)
+   ))
 
 ;; ISO-IR-165 (CCITT Extended GB)
 ;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
