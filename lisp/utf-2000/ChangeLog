@@ -1,3 +1,9 @@
+2003-10-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0AC00-Hangul-Syllables.el (U+AD6C): Unify JC3-93F2 instead of
+	JC3-82E4.
+	(U+B300): Unify JC3-93FC.
+
 2003-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R108-Dish.el (U-00025085): Separated from M-23493 and
