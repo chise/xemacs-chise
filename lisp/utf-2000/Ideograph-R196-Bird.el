@@ -2337,19 +2337,39 @@
     (=daikanwa		. 46874)	; ø¸‹œš
     ))
 (define-char
-  '((ideographic-radical . 196)	; â¿ƒ
+  '((=>ucs		. #x4CD0)	; ä³
+    (ideographic-radical . 196)	; â¿ƒ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 17)
+    (=daikanwa		. 46875)	; ø¸‹œ›
+    ))
+(define-char
+  '((=>ucs		. #x4CD0)	; ä³
+    (morohashi-daikanwa	46875 0 1)
+    (ideographic-radical . 196)	; â¿ƒ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 17)
+    (=cns11643-3	. #x5746)	; ø»–¦
+    ))
+(define-char
+  '((morohashi-daikanwa	46875 0 2)
+    (ideographic-radical . 196)	; â¿ƒ
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
     (=ucs		. #x4CD0)	; ä³
-    (=cns11643-3	. #x5746)	; ø»–¦
-    (=daikanwa		. 46875)	; ø¸‹œ›
     ))
 (define-char
   '((ideographic-radical . 196)	; â¿ƒ
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
-    (=cns11643-5	. #x6063)	; ø»›ˆ
     (=daikanwa		. 46876)	; ø¸‹œœ
+    ))
+(define-char
+  '((morohashi-daikanwa	46876 0 0)
+    (ideographic-radical . 196)	; â¿ƒ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 17)
+    (=cns11643-5	. #x6063)	; ø»›ˆ
     ))
 (define-char
   '((ideographic-radical . 196)	; â¿ƒ
