@@ -311,12 +311,14 @@
     (setq column (current-column)))
   (let ((line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
+	(separator "")
 	name value)
     (insert "(")
     (while plist
       (setq name (pop plist))
       (setq value (pop plist))
       (cond ((eq name :char)
+	     (insert separator)
 	     (insert ":char\t")
 	     (cond ((numberp value)
 		    (setq value (decode-char 'ucs value)))
@@ -325,11 +327,18 @@
                    ;;                  value)))
 		   )
 	     (char-db-insert-char-spec value readable)
-             (insert line-breaking))
-            (t
-	     (insert (format "%s\t%S%s"
+             (insert line-breaking)
+	     (setq separator ""))
+	    ((eq name :radical)
+	     (insert (format "%s%s\t%d ; %c%s"
+			     separator
 			     name value
-			     line-breaking))))
+			     (aref ideographic-radicals value)
+			     line-breaking))
+	     (setq separator ""))
+            (t
+	     (insert (format "%s%s\t%S" separator name value))
+	     (setq separator line-breaking)))
       ))
   (insert ")"))
 
@@ -625,6 +634,38 @@
 	    (setq radical value)))
       (setq attributes (delq 'shinjigen-1-radical attributes))
       )
+    (when (and (memq 'ideographic- attributes)
+	       (setq value (get-char-attribute char 'ideographic-)))
+      (insert "(ideographic-       ")
+      (setq lbs (concat "\n" (make-string (current-column) ?\ ))
+	    separator nil)
+      (while (consp value)
+	(setq cell (car value))
+	(if (integerp cell)
+	    (setq cell (decode-char 'ucs cell)))
+	(cond ((characterp cell)
+	       (if separator
+		   (insert lbs))
+	       (if readable
+		   (insert (format "%S" cell))
+		 (char-db-insert-char-spec cell readable))
+	       (setq separator lbs))
+	      ((consp cell)
+	       (if separator
+		   (insert lbs))
+	       (if (consp (car cell))
+		   (char-db-insert-char-spec cell readable)
+		 (char-db-insert-char-reference cell readable))
+	       (setq separator lbs))
+	      (t
+	       (if separator
+		   (insert separator))
+	       (insert (prin1-to-string cell))
+	       (setq separator " ")))
+	(setq value (cdr value)))
+      (insert ")")
+      (insert line-breaking)
+      (setq attributes (delq 'ideographic- attributes)))
     (when (and (memq 'total-strokes attributes)
 	       (setq value (get-char-attribute char 'total-strokes)))
       (insert (format "(total-strokes       . %S)%s"
@@ -719,6 +760,7 @@
 				 name value
 				 line-breaking)))
 		((or (eq name 'ideographic-structure)
+		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
                  ;; (memq name '(->lowercase
                  ;;              ->uppercase ->titlecase
