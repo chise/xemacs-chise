@@ -1,3 +1,17 @@
+2001-10-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_cbeta): New variable.
+	(Qideograph_cbeta): New variable.
+	(encode_builtin_char_1): Comment out special code for
+	coded-charset `mojikyo' and `japanese-jef-china3'.
+	(syms_of_mule_charset): Add new symbol `ideograph-cbeta'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-cbeta'.
+
+	* char-ucs.h (LEADING_BYTE_CBETA): New macro.
+	(MIN_CHAR_CBETA): New macro.
+	(MAX_CHAR_CBETA): New macro.
+
 2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (MIN_LEADING_BYTE): Changed to -0x100.
