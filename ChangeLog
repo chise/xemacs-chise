@@ -1,8 +1,6 @@
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* etc/GT-RS.txt, etc/char-data/GT-RS.txt,
-	lisp/utf-2000/isolated-char.el: Move etc/GT-RS.txt to
-	etc/char-data/GT-RS.txt.
+	* etc/char-data/GT-RS.txt: Moved from etc/GT-RS.txt.
 
 2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
