@@ -142,8 +142,9 @@
     (ideograph-daikanwa . 30284)	; ø¸‡™Œ
     ))
 (define-char
-  '((morohashi-daikanwa	30284 0 0)
+  '((morohashi-daikanwa	30284 0 1)
     (ideographic-radical . 135)	; â¾†
+    (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-4 . #x2F4D)	; ø»—µ¸
     ))
