@@ -18,11 +18,15 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	super #x0034)
+    (->fullwidth
+     ((name		  . "fullwidth superscript four")
+      (korean-ksc5601	  . #x2979)	; ø»ˆ§”
+      ))
     (ucs		. #x2074)	; â´
     ))
 (define-char
   '((name		. "fullwidth superscript four")
-    (->ucs		. #x2074)	; â´
+    (=>ucs		. #x2074)	; â´
     (general-category	number other) ; Normative Category
     (bidi-category	. "EN")
     (mirrored		. nil)
@@ -30,6 +34,10 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (->decomposition	wide #x2074)
+    (<-fullwidth
+     ((name		  . "SUPERSCRIPT FOUR")
+      (ucs		  . #x2074)	; â´
+      ))
     (korean-ksc5601	. #x2979)	; ø»ˆ§”
     ))
 (define-char
@@ -133,14 +141,22 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	super #x006E)
+    (->fullwidth
+     ((name		  . "fullwidth superscript latin small letter n")
+      (korean-ksc5601	  . #x297A)	; ø»ˆ§•
+      ))
     (ucs		. #x207F)	; â¿
     ))
 (define-char
   '((name		. "fullwidth superscript latin small letter n")
-    (->ucs		. #x207F)	; â¿
+    (=>ucs		. #x207F)	; â¿
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x207F)
+    (<-fullwidth
+     ((name		  . "SUPERSCRIPT LATIN SMALL LETTER N")
+      (ucs		  . #x207F)	; â¿
+      ))
     (korean-ksc5601	. #x297A)	; ø»ˆ§•
     ))
