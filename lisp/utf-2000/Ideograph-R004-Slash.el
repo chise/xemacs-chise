@@ -1294,6 +1294,7 @@
     (japanese-jisx0208-1990	. #x6949)	; ø½‹ ”
     (ideograph-gt-pj-1		. #x6949)	; ý¡€€ƒ‰
     (china3-jef			. #x41BB)	; øº„†»
+    (ideograph-hanziku-1	. #xB260)	; ý¢€›‰ 
     (ideograph-gt		. 00201)	; ý¡€€ƒ‰
     (ucs			. #x4E55)	; ä¹•
     ))
