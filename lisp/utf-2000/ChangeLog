@@ -1,3 +1,24 @@
+2004-08-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+8289): Use `->subsumptive'.
+	(CB06151): New character.
+
+	* Ideograph-R123-Sheep.el (U-00026392): Use `->subsumptive';
+	integrate M-28513.
+	(U-0002638E): Use `->subsumptive'; integrate M-28514.
+	(U+7FAA): Use `->subsumptive'.
+	(U-00026391): Use `->subsumptive'.
+	(U+4372): Use `->subsumptive'.
+	(U+7FAB): Use `->subsumptive'.
+	(U+4373): Use `->subsumptive'.
+	(U-00020186): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-';
+	compact `ideographic-structure'.
+
+	* Ideograph-R008-Lid.el (U-00020186): Compact
+	`ideographic-structure'.
+
 2004-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R072-Sun.el (U+6637): Add `<-same' for U-00025055; add
