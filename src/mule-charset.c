@@ -180,9 +180,10 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if (!EQ (XCHARSET_NAME (ccs), Qmap_ucs)
-      || !INTP (value)
-      || (XCHAR (character) != XINT (value)))
+  if ( !(EQ (XCHARSET_NAME (ccs), Qmap_ucs)
+	 && INTP (value) && (XINT (value) < 0xF0000))
+       || !INTP (value)
+       /* || (XCHAR (character) != XINT (value)) */ )
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       int code_point;
