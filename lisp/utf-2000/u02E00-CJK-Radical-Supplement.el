@@ -669,7 +669,7 @@
       (=gt-pj-6		  . #x3879)	; ý¡€‰¡
       (=daikanwa	  . 29237)	; ø¸‡ˆµ
       )
-     ((=ucs@unicode	  . #x2EBC)	; ó°€™
+     ((=ucs@unicode	  . #x2EBC)	; ó°€€
       )
      ((=big5-cdp	  . #x8A73)	; ý¢€ˆ©³
       )
