@@ -878,18 +878,24 @@
     (ucs		. #x52C7)	; å‹‡
     ))
 (define-char
-  '((->ucs		. #x52C7)	; å‹‡
+  '((script		JP-Jouyou Ideograph)
+    (->ucs		. #x52C7)	; å‹‡
     (morohashi-daikanwa	2360 1)
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "[JP-Jouyou] <vulgar character> of S1-0731")
     (shinjigen-1	. 730)
     (shinjigen-2	. 730)
+    (vulgar-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((shinjigen-1	   . 731)
+	       (ideograph-daikanwa . 02360)	; ø¸€¤¸
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x4D26)	; ø»‚¼­
     (japanese-jisx0208		. #x4D26)	; ø»‡µ
     (chinese-cns11643-6		. #x2F25)	; ø»œ‰˜
-    (mojikyo			. 050110)	; ø¸ŒŽ¾
+    (mojikyo			. 050110)	; ý €ŒŽ¾
     ))
 (define-char
   '((ideographic-radical . 19)	; â¼’
@@ -1165,18 +1171,18 @@
     (ideograph-daikanwa . 02384)	; ø¸€¥
     ))
 (define-char
-  '((->ucs		. #x52C9)	; å‹‰
+  '((script		JP-Jouyou Ideograph)
+    (->ucs		. #x52C9)	; å‹‰
     (morohashi-daikanwa	2384 1)
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (comment		. "[JP-Jouyou]")
     (shinjigen-1	. 735)
     (shinjigen-2	. 735)
     (japanese-jisx0208-1978	. #x4A59)	; ø»‚¹†
     (japanese-jisx0208		. #x4A59)	; ø»‡Ž
     (chinese-cns11643-6		. #x3558)	; ø»œ’¿
-    (mojikyo			. 050111)	; ø¸ŒŽ¿
+    (mojikyo			. 050111)	; ý €ŒŽ¿
     ))
 (define-char
   '((ideographic-radical . 19)	; â¼’
@@ -1553,19 +1559,25 @@
     (ideograph-daikanwa . 02415)	; ø¸€¥¯
     ))
 (define-char
-  '((->ucs		. #x52E4)	; å‹¤
+  '((script		JP-Jouyou Ideograph)
+    (->ucs		. #x52E4)	; å‹¤
     (morohashi-daikanwa	2415 1)
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (comment		. "[JP-Jouyou] <vulgar character> of S1-0744")
     (shinjigen-1	. 743)
     (shinjigen-2	. 743)
+    (vulgar-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((shinjigen-1	   . 744)
+	       (ideograph-daikanwa . 02424)	; ø¸€¥¸
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x3650)	; ø»‚›¥
     (japanese-jisx0208		. #x3650)	; ø»†¯­
     (chinese-cns11643-4		. #x364C)	; ø»˜€‰
     (japanese-jisx0208-1990	. #x3650)	; ø½Š•¡
-    (mojikyo			. 050112)	; ø¸Œ€
+    (mojikyo			. 050112)	; ý €Œ€
     ))
 (define-char
   '((->ucs		. #x52DF)	; å‹Ÿ
