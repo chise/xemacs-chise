@@ -340,7 +340,6 @@ save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 			     Fprin1_to_string (UINT8_DECODE (ct->property[i]),
 					       Qnil),
 			     db, Qt);
-	      put_char_id_table (root, make_char (c), Qunloaded);
 	    }
 	}
       else
@@ -652,7 +651,6 @@ save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 			     Fprin1_to_string (UINT16_DECODE (ct->property[i]),
 					       Qnil),
 			     db, Qt);
-	      put_char_id_table (root, make_char (c), Qunloaded);
 	    }
 	}
       else
@@ -932,7 +930,6 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
 			     Fprin1_to_string (v, Qnil),
 			     db, Qt);
-	      put_char_id_table (root, make_char (c), Qunloaded);
 	    }
 	}
       else
@@ -3400,6 +3397,32 @@ Save values of ATTRIBUTE into database file.
 #endif
 }
 
+DEFUN ("mount-char-attribute-table", Fmount_char_attribute_table, 1, 1, 0, /*
+Mount database file on char-attribute-table ATTRIBUTE.
+*/
+       (attribute))
+{
+#ifdef HAVE_DATABASE
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table, Qunbound);
+
+  if (UNBOUNDP (table))
+    {
+      Lisp_Char_Table *ct;
+
+      table = make_char_id_table (Qunbound);
+      Fputhash (attribute, table, Vchar_attribute_hash_table);
+      XCHAR_TABLE_NAME(table) = attribute;
+      ct = XCHAR_TABLE (table);
+      ct->table = Qunloaded;
+      XCHAR_TABLE_UNLOADED(table) = 1;
+      ct->db = Qnil;
+      return Qt;
+    }
+#endif
+  return Qnil;
+}
+
 DEFUN ("close-char-attribute-table", Fclose_char_attribute_table, 1, 1, 0, /*
 Close database of ATTRIBUTE.
 */
@@ -4067,6 +4090,7 @@ syms_of_chartab (void)
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
   DEFSUBR (Fsave_char_attribute_table);
+  DEFSUBR (Fmount_char_attribute_table);
   DEFSUBR (Freset_char_attribute_table);
   DEFSUBR (Fclose_char_attribute_table);
 #ifdef HAVE_DATABASE
