@@ -1,3 +1,8 @@
+2002-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (charset_code_point): Fix problem about
+	inheritance.
+
 2002-11-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (decode_builtin_char): Reorganized.
