@@ -1,4 +1,33 @@
+2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-00020203): Delete incomplete
+	`ideographic-structure'.
+	(U-000202A7): Changed to abstract character.
+	(U-000202BB): Likewise.
+	(U-000202FD): Use `->subsumptive'.
+	(U-000202FE): Likewise.
+	(U-000202FF): Delete incomplete `ideographic-structure'.
+
 2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (U+9FAC): New character; unify CB02156.
+
+	* Ideograph-R163-City.el (U+90C1): Use `->subsumptive'.
+
+	* Ideograph-R140-Grass.el (U+9FB7): New character; unify BC-8B5C.
+	(U+82F1): Changed to abstract character.
+
+	* Ideograph-R130-Meat.el (U+8127): Use `->subsumptive'.
+
+	* Ideograph-R100-Life.el (BC-8B77): Unify U+9FB6.
+
+	* Ideograph-R045-Sprout.el (U+37B7): Use `->subsumptive'.
+
+	* Ideograph-R037-Big.el (M-05921): Unify U+FA7F; add
+	`<-denotational' for J97-4B5B.
+	(J97-4B5B): New character.
+	(U+5954): Add `<-denotational' for J97-4B5B; add `<-simplified'
+	for M-05921.
 
 	* Ideograph-R032-Earth.el (GT-06661): Unify U+FA7C into the parent
 	node.
