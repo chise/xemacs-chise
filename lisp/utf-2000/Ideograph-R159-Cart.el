@@ -2603,21 +2603,18 @@
     (=cns11643-5	. #x515F)	; &I-C5-515F; [49-63]
     ))
 (define-char
-  '((=>ucs		. #x8F2C)	; 輬
-    (ideographic-radical . 159)	; ⾞
-    (ideographic-strokes . 8)
-    (total-strokes	 . 15)
-    (=jis-x0212		. #x6075)	; &M-38402; [64-85]
-    (=daikanwa		. 38402)	; &I-M-38402;
-    (=ucs@jis-1990	. #x8F2C)	; &M-38402;
-    ))
-(define-char
-  '((morohashi-daikanwa	38402 0 0)
-    (ideographic-radical . 159)	; ⾞
+  '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (=ucs		. #x8F2C)	; 輬
-    (=cns11643-2	. #x546F)	; &I-C2-546F; [52-79]
+    (->subsumptive
+     ((=jis-x0212	  . #x6075)	; &M-38402; [64-85]
+      (=daikanwa	  . 38402)	; &I-M-38402;
+      (=ucs@jis		  . #x8F2C)	; &M-38402;
+      )
+     ((=cns11643-2	  . #x546F)	; &C2-546F; [52-79]
+      (=ucs@unicode	  . #x8F2C)	; &C2-546F;
+      ))
     ))
 (define-char
   '((ideographic-radical . 159)	; ⾞
@@ -3515,21 +3512,18 @@
     (=cns11643-5	. #x5F28)	; &I-C5-5F28; [63-08]
     ))
 (define-char
-  '((=>ucs		. #x8F41)	; 轁
-    (ideographic-radical . 159)	; ⾞
-    (ideographic-strokes . 10)
-    (total-strokes	 . 17)
-    (=jis-x0212		. #x607E)	; &M-38477; [64-94]
-    (=daikanwa		. 38477)	; &I-M-38477;
-    (=ucs@jis-1990	. #x8F41)	; &M-38477;
-    ))
-(define-char
-  '((morohashi-daikanwa	38477 0 2)
-    (ideographic-radical . 159)	; ⾞
+  '((ideographic-radical . 159)	; ⾞
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (=ucs		. #x8F41)	; 轁
-    (=cns11643-3	. #x565A)	; &I-C3-565A; [54-58]
+    (->subsumptive
+     ((=jis-x0212	  . #x607E)	; &M-38477; [64-94]
+      (=daikanwa	  . 38477)	; &I-M-38477;
+      (=ucs@jis		  . #x8F41)	; &M-38477;
+      )
+     ((=cns11643-3	  . #x565A)	; &C3-565A; [54-58]
+      (=ucs@unicode	  . #x8F41)	; &C3-565A;
+      ))
     ))
 (define-char
   '((=>ucs		. #x28379)	; 𨍹
