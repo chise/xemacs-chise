@@ -216,11 +216,11 @@ FRAME must be a frame or nil."
 
 (defvar display-buffer-function nil
   "If non-nil, function to call to handle `display-buffer'.
-It will receive three args: the same as those to `display-buffer'.")
+It will receive four args: the same as those to `display-buffer'.")
 
 (defvar pre-display-buffer-function nil
   "If non-nil, function that will be called from `display-buffer'
-as the first action.  It will receive three args: the same as those
+as the first action.  It will receive four args: the same as those
 to `display-buffer'.
 This function may be used to select an appropriate frame for the buffer,
 for example.  See also the variable `display-buffer-function', which may
@@ -352,7 +352,8 @@ If there is only one window, it is split regardless of this value."
 ;; Can you believe that all of this crap was formerly in C?
 ;; Praise Jesus that it's not there any more.
 
-(defun display-buffer (buffer &optional not-this-window-p override-frame)
+(defun display-buffer (buffer &optional not-this-window-p override-frame
+			      shrink-to-fit)
   "Make BUFFER appear in some window on the current frame, but don't select it.
 BUFFER can be a buffer or a buffer name.
 If BUFFER is shown already in some window in the current frame,
@@ -364,6 +365,9 @@ the current frame, unless OVERRIDE-FRAME is non-nil.
 
 If OVERRIDE-FRAME is non-nil, display on that frame instead of
 the current frame (or the dedicated frame).
+
+If SHRINK-TO-FIT is non-nil and splitting the window is appropriate, give
+the new buffer less than half the space if it is small enough to fit.
 
 If `pop-up-windows' is non-nil, always use the
 current frame and create a new window regardless of whether the
@@ -390,7 +394,8 @@ Returns the window displaying BUFFER."
 		   (if pre-display-buffer-function
 		       (funcall pre-display-buffer-function buffer
 				not-this-window-p
-				override-frame)))
+				override-frame
+				shrink-to-fit)))
 
 	     ;; Give the user the ability to completely reimplement
 	     ;; this function via the `display-buffer-function'.
@@ -398,7 +403,8 @@ Returns the window displaying BUFFER."
 		 (throw 'done
 			(funcall display-buffer-function buffer
 				 not-this-window-p
-				 override-frame)))
+				 override-frame
+				 shrink-to-fit)))
 
 	     ;; If the buffer has a dedicated frame, that takes
 	     ;; precedence over the current frame, and over what the
@@ -615,7 +621,9 @@ Returns the window displaying BUFFER."
 						    (window-height window))
 						 2)
 					      (window-height upper))
-					   nil upper)))))
+					   nil upper))
+		       (if shrink-to-fit
+			   (shrink-window-if-larger-than-buffer window)))))
 
 	       (setq window (get-lru-window target-frame)))
 

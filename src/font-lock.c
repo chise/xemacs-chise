@@ -405,12 +405,14 @@ setup_context_cache (struct buffer *buf, Bufpos pt)
    comment_style_b :						\
    comment_style_none)
 
+/* GCC 2.95.4 seems to need the cast */
 #define SINGLE_SYNTAX_STYLE(c)						\
+  ((enum comment_style)                                                 \
       (SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_A) ?	\
        comment_style_a :						\
        SYNTAX_CODE_MATCHES_1CHAR_P (c, SYNTAX_COMMENT_STYLE_B) ?	\
        comment_style_b :						\
-       comment_style_none)
+       comment_style_none))
 
 /* Set up context_cache for position PT in BUF. */
 

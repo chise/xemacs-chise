@@ -1,3 +1,67 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-05-22  Andy Piper  <andy@xemacs.org>
+
+	* build-msw-release.sh (TMPINSTALL): install to a tmpdir so that
+	xemacs can be running while we build a dist.
+
+2002-04-26  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: make sure that a combined X and windows build gets
+	widgets.
+
+2002-08-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/package-index.LATEST.pgp: Update.
+
+2002-08-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (General advice): Define runtime and build problems.
+
+2002-07-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (Running, Linux): Rewrite "Hannibal Lecter" ld stuff.
+
+2002-07-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/BETA (Large contributions): Typo fix per JPW.
+
+2002-07-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/BETA (Large contributions): New section.  Reorganize file.
+
+2002-06-04  Jerry James  <james@xemacs.org>
+
+	* configure.usage: Identify --with-modules as autodetecting.
+
+2002-07-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS: Add two basic configuration questions.
+
+2002-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS: Describe "Hannibal Lecter" crash on Linux.  Reorder
+	Linux runtime issues section.
+	* INSTALL: Improve description of mail locking.
+
+2002-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/OXYMORONS (21.4.15): New.  Not a reference to Vin.
+
+	* build-msw-release.sh: Synch to Andy.
+
+2002-03-18  Gregory Steuck  <greg-xemacs-patch@nest.cx>
+
+	* configure.in:  Improve OpenBSD support: correct check for
+	socklen_t, check for libtermcap is libncurses.
+
+2002-02-28  Malcolm Purvis  <malcolmpurvis@optushome.com.au>
+
+	* configure.in: Protect nocomboreloc linker arguments to avoid
+	problem on the ppc.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.

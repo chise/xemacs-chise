@@ -1,10 +1,60 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.
 
+2002-02-04  Andy Piper  <andy@xemacs.org>
+
+	* install.cc (install_one): Munge installed filename to fit inside
+	dialog.
+
 2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.7 "Economic Science" is released.
+
+2001-12-17  Andy Piper  <andy@xemacs.org>
+
+	* desktop.cc (do_desktop_setup): register the whole gamut of C++
+	file types.
+
+2001-12-12  Andy Piper  <andy@xemacs.org>
+
+	* win32.h (CDECL): reorder to remove warnings.
+
+	* Makefile.in.in: add new dependencies.
+
+	* desktop.h: new file.
+
+	* uninstall.cc: use it.
+
+	* install.cc (uninstall_one): when uninstalling xemacs remove
+	shortcuts also.
+
+	* desktop.cc (remove_xemacs_setup): split out from
+	remove_desktop_setup.
+	(remove_desktop_setup): call it.
+
+2001-12-05  Andy Piper  <andy@xemacs.org>
+
+	* win32.h: re-order declarations for native windows from Fabrice
+	Popineau.
+
+2001-11-22  Andy Piper  <andy@xemacs.org>
+
+	* Makefile.in.in (setup-bin.ini): cope with kit revisions.
+
+	* source.cc (save_dialog): warning removal.
+	(load_dialog): ditto.
+
+	* msg.cc: remove cvs id.
+
+	* desktop.cc (find_xemacs_version): new function. Cope with kit
+	revisions.
+	(find_xemacs_exe_path): use it.
+	(find_xemacs_exe_name): ditto.
 
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
@@ -296,5 +346,6 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.15 2002/05/09 12:02:35 stephent Exp $
-$Revision: 1.2.2.15 $
+%%% $Id: ChangeLog,v 1.2.2.16 2002/08/20 11:36:02 stephent Exp $
+$Revision: 1.2.2.16 $
+

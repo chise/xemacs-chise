@@ -88,6 +88,9 @@ PUBLIC_INSTALLABLE_EXES=\
 #ifdef HAVE_SHLIB
  ellcc\
 #endif
+#ifdef HAVE_MS_WINDOWS
+ winclient\
+#endif
  etags ctags b2m ootags
 
 PUBLIC_INSTALLABLE_SCRIPTS=\
@@ -356,6 +359,9 @@ i: ${srcdir}/i.c
 
 minitar: ${srcdir}/../nt/minitar.c
 	$(CC) $(cflags) ${srcdir}/../nt/minitar.c $(ldflags) -lz -o $@
+
+winclient: ${srcdir}/winclient.c
+	$(CC) $(cflags) ${srcdir}/winclient.c $(ldflags) -o $@
 
 hexl: ${srcdir}/hexl.c
 	$(CC) $(cflags) ${srcdir}/hexl.c $(ldflags) -o $@

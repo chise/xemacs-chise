@@ -306,10 +306,7 @@ and CODESYS.  The default for DISPLAY-FUNCTION is `find-file'."
   (let ((path (if (or (null library) (equal library ""))
 		   nil
 		(locate-file library load-path
-			     ;; decompression doesn't work with Mule -slb
-			     (if (featurep 'mule)
-				 ":.el:.elc"
-			       ":.el:.el.gz:.el.Z:.elc")))))
+			       ":.el:.el.gz:.el.Z:.elc"))))
     (if path (funcall (if (fboundp display-function)
 			  display-function 'find-file)
 		      path codesys)

@@ -186,7 +186,7 @@ static DWORD mswindows_last_mouse_button_state;
    exists. For example, "start notepad" command is issued from the
    shell, then the shell is closed by C-c C-d. Although the shell
    process exits, its output pipe will not get closed until the
-   notepad process exits also, because it inherits the pipe form the
+   notepad process exits also, because it inherits the pipe from the
    shell. In this case, we abandon the thread, and let it live until
    all such processes exit. While struct ntpipe_slurp_stream is
    deallocated in this case, ntpipe_slurp_stream_shared_data are not. */
@@ -1149,6 +1149,21 @@ remove_waitable_handle (HANDLE h)
 }
 #endif /* HAVE_MSG_SELECT */
 
+/*
+ * Given a lisp process pointer remove the corresponding process handle
+ * from mswindows_waitable_handles if it is in it.  Normally the handle is
+ * removed when the process terminates, but if the lisp process structure
+ * is deleted before the process terminates we must delete the process
+ * handle since it will be invalid and will cause the wait to fail
+ */
+void
+mswindows_unwait_process (Lisp_Process *p)
+{
+#ifndef HAVE_MSG_SELECT
+  remove_waitable_handle (get_nt_process_handle (p));
+#endif /* HAVE_MSG_SELECT */
+}
+
 
 /************************************************************************/
 /*                             Event pump                               */
@@ -1494,6 +1509,8 @@ mswindows_need_event (int badly_p)
 #else
       /* Now try getting a message or process event */
       DWORD what_events;
+      MSG msg;
+
       if (mswindows_in_modal_loop)
        /* In a modal loop, only look for timer events, and only if
           we really need one. */
@@ -1507,10 +1524,23 @@ mswindows_need_event (int badly_p)
        /* Look for any event */
        what_events = QS_ALLINPUT;
 
-      active = MsgWaitForMultipleObjects (mswindows_waitable_count,
-					  mswindows_waitable_handles,
-					  FALSE, badly_p ? INFINITE : 0,
-                                         what_events);
+      /* This fixes a long outstanding bug, where XEmacs would occasionally
+       * not redraw its window (or process other events) until "something
+       * happened" - usually the mouse moving over a frame.
+       *
+       * The problem is that MsgWaitForMultipleObjects only checks to see
+       * if NEW messages have been placed into the thread queue. So we
+       * specifically check to see if the queue is empty (using PeekMessage
+       * with the PM_NOREMOVE flag) before we wait.
+       */
+      if (what_events == QS_ALLINPUT && badly_p &&
+	  PeekMessage (&msg, 0, 0, 0, PM_NOREMOVE))
+	active = WAIT_OBJECT_0 + mswindows_waitable_count;
+      else
+	active = MsgWaitForMultipleObjects (mswindows_waitable_count,
+					    mswindows_waitable_handles,
+					    FALSE, badly_p ? INFINITE : 0,
+					    what_events);
 
       /* This will assert if handle being waited for becomes abandoned.
 	 Not the case currently tho */
@@ -1526,10 +1556,10 @@ mswindows_need_event (int badly_p)
       else if (active == WAIT_OBJECT_0 + mswindows_waitable_count)
 	{
 	  /* Got your message, thanks */
-         if (mswindows_in_modal_loop)
-           mswindows_need_event_in_modal_loop (badly_p);
-         else
-           mswindows_drain_windows_queue ();
+	  if (mswindows_in_modal_loop)
+	    mswindows_need_event_in_modal_loop (badly_p);
+	  else
+	    mswindows_drain_windows_queue ();
 	}
       else
 	{
@@ -2619,6 +2649,70 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
       mswindows_handle_paint (XFRAME (mswindows_find_frame (hwnd)));
       break;
 
+    case WM_ACTIVATE:
+      {
+        /*
+         * If we receive a WM_ACTIVATE message that indicates that our frame
+         * is being activated, make sure that the frame is marked visible
+         * if the window itself is visible. This seems to fix the problem
+         * where XEmacs appears to lock-up after switching desktops with
+         * some virtual window managers.
+         */
+        int state = (int)(short) LOWORD(wParam);
+#ifdef DEBUG_XEMACS
+        if (debug_mswindows_events)
+          stderr_out("state = %d\n", state);
+#endif /* DEBUG_XEMACS */
+        if (state == WA_ACTIVE || state == WA_CLICKACTIVE)
+          {
+#ifdef DEBUG_XEMACS
+            if (debug_mswindows_events)
+              stderr_out("  activating\n");
+#endif /* DEBUG_XEMACS */
+            
+            fobj = mswindows_find_frame (hwnd);
+            frame = XFRAME (fobj);
+            if (IsWindowVisible (hwnd))
+              {
+#ifdef DEBUG_XEMACS
+                if (debug_mswindows_events)
+                  stderr_out("  window is visible\n");
+#endif /* DEBUG_XEMACS */
+                if (!FRAME_VISIBLE_P (frame))
+                  {
+#ifdef DEBUG_XEMACS
+                    if (debug_mswindows_events)
+                      stderr_out("  frame is not visible\n");
+#endif /* DEBUG_XEMACS */
+                    /*
+                     * It seems that we have to enqueue the XM_MAPFRAME event
+                     * prior to setting the frame visible so that
+                     * suspend-or-iconify-emacs works properly.
+                     */
+                    mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
+                    FRAME_VISIBLE_P (frame) = 1;
+                    FRAME_ICONIFIED_P (frame) = 0;
+                  }
+#ifdef DEBUG_XEMACS
+                else
+                  {
+                    if (debug_mswindows_events)
+                      stderr_out("  frame is visible\n");
+                  }
+#endif /* DEBUG_XEMACS */
+              }
+#ifdef DEBUG_XEMACS
+            else
+              {     
+                if (debug_mswindows_events)
+                  stderr_out("  window is not visible\n");
+              }
+#endif /* DEBUG_XEMACS */
+          }
+	return DefWindowProc (hwnd, message_, wParam, lParam);
+      }
+      break;
+      
     case WM_WINDOWPOSCHANGED:
       /* This is sent before WM_SIZE; in fact, the processing of this
 	 by DefWindowProc() sends WM_SIZE.  But WM_SIZE is not sent when
@@ -2634,7 +2728,11 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  }
 	else if (IsWindowVisible (hwnd))
 	  {
-	    FRAME_VISIBLE_P (frame) = 1;
+	    /* APA: It's too early here to set the frame visible.
+	     * Let's do this later, in WM_SIZE processing, after the
+	     * magic XM_MAPFRAME event has been sent (just like 21.1
+	     * did). */
+	    /* FRAME_VISIBLE_P (frame) = 1; */
 	    FRAME_ICONIFIED_P (frame) = 0;
 	  }
 	else
@@ -2645,6 +2743,30 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 
 	return DefWindowProc (hwnd, message_, wParam, lParam);
       }
+
+    case WM_SHOWWINDOW:
+      /*
+         The WM_SHOWWINDOW message is sent to a window when the window
+         is about to be hidden or shown.
+         APA: This message is also sent when switching to a virtual
+         desktop under the virtuawin virtual window manager.
+      
+      */
+      {
+	fobj = mswindows_find_frame (hwnd);
+	frame = XFRAME (fobj);
+        if (wParam == TRUE)
+          {
+            mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
+            FRAME_VISIBLE_P (frame) = 1;
+          }
+        else
+          {
+            mswindows_enqueue_magic_event (hwnd, XM_UNMAPFRAME);
+            FRAME_VISIBLE_P (frame) = 0;
+          }
+      }
+      break;
 
     case WM_SIZE:
       /* We only care about this message if our size has really changed */
@@ -2698,7 +2820,13 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	      else
 		{
 		  if (!msframe->sizing && !FRAME_VISIBLE_P (frame))
-		    mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
+                    {
+                      mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
+                      /* APA: Now that the magic XM_MAPFRAME event has
+                       * been sent we can mark the frame as visible (just
+                       * like 21.1 did). */
+                      FRAME_VISIBLE_P (frame) = 1;
+                    }
 
 		  if (!msframe->sizing || mswindows_dynamic_frame_resize)
 		    redisplay ();
@@ -2821,20 +2949,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
       {
 	int keys = LOWORD (wParam); /* Modifier key flags */
 	int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
-	struct gcpro gcpro1, gcpro2;
 
 	if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd),
 					       keys, delta,
 					       MAKEPOINTS (lParam)))
-	  {
-	    GCPRO2 (emacs_event, fobj);
-	    if (UNBOUNDP(mswindows_pump_outstanding_events ()))	/* Can GC */
-	      SendMessage (hwnd, WM_CANCELMODE, 0, 0);
-	    UNGCPRO;
-	  }
+	  /* We are not in a modal loop so no pumping is necessary. */
+	  break;
 	else
 	  goto defproc;
-	break;
       }
 #endif
 
@@ -3984,6 +4106,25 @@ debug_output_mswin_message (HWND hwnd, UINT message_, WPARAM wParam,
       stderr_out (" wparam=%d lparam=%d hwnd=%x frame: ",
 		  wParam, (int) lParam, (unsigned int) hwnd);
       debug_print (frame);
+      if (message_ == WM_WINDOWPOSCHANGED ||
+          message_ == WM_WINDOWPOSCHANGING)
+        {
+          WINDOWPOS *wp = (WINDOWPOS *) lParam;
+          stderr_out("  WINDOWPOS: x=%d, y=%d, h=%d, w=%d\n",
+                     wp->x, wp->y, wp->cx, wp->cy);
+        }
+      else if (message_ == WM_MOVE)
+        {
+          int x = (int)(short) LOWORD(lParam);   /* horizontal position */
+          int y = (int)(short) HIWORD(lParam);   /* vertical position */
+          stderr_out("  MOVE: x=%d, y=%d\n", x, y);
+        }
+      else if (message_ == WM_SIZE)
+        {
+          int w = (int)(short) LOWORD(lParam);   /* width */
+          int h = (int)(short) HIWORD(lParam);   /* height */
+          stderr_out("  SIZE: w=%d, h=%d\n", w, h);
+        }
     }
   else
     stderr_out ("\n");

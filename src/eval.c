@@ -1236,6 +1236,7 @@ definitions to shadow the loaded ones for use in file byte-compilation.
 	      if (EQ (tem, Qt) || EQ (tem, Qmacro))
 		{
 		  /* Yes, load it and try again.  */
+		  /* do_autoload GCPROs both arguments */
 		  do_autoload (def, sym);
 		  continue;
 		}
@@ -2952,7 +2953,10 @@ when reading the arguments.
     {
       final = indirect_function (cmd, 1);
       if (CONSP (final) && EQ (Fcar (final), Qautoload))
-	do_autoload (final, cmd);
+	{
+	  /* do_autoload GCPROs both arguments */
+	  do_autoload (final, cmd);
+	}
       else
 	break;
     }
@@ -3135,10 +3139,10 @@ do_autoload (Lisp_Object fundef,
   /* This function can GC */
   int speccount = specpdl_depth();
   Lisp_Object fun = funname;
-  struct gcpro gcpro1, gcpro2;
+  struct gcpro gcpro1, gcpro2, gcpro3;
 
   CHECK_SYMBOL (funname);
-  GCPRO2 (fun, funname);
+  GCPRO3 (fun, funname, fundef);
 
   /* Value saved here is to be restored into Vautoload_queue */
   record_unwind_protect (un_autoload, Vautoload_queue);
@@ -3401,6 +3405,7 @@ Evaluate FORM and return its value.
 
       if (EQ (funcar, Qautoload))
 	{
+	  /* do_autoload GCPROs both arguments */
 	  do_autoload (fun, original_fun);
 	  goto retry;
 	}
@@ -3458,6 +3463,7 @@ Evaluate FORM and return its value.
 }
 
 
+/* #### Why is Feval so anal about GCPRO, Ffuncall so cavalier? */
 DEFUN ("funcall", Ffuncall, 1, MANY, 0, /*
 Call first argument as a function, passing the remaining arguments to it.
 Thus, (funcall 'cons 'x 'y) returns (x . y).
@@ -3525,7 +3531,10 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
       if (fun_nargs == max_args) /* Optimize for the common case */
 	{
 	funcall_subr:
-	  FUNCALL_SUBR (val, subr, fun_args, max_args);
+	  {
+	  /* The "extra" braces placate GCC 2.95.4. */
+	    FUNCALL_SUBR (val, subr, fun_args, max_args);
+	  }
 	}
       else if (fun_nargs < subr->min_args)
 	{
@@ -3572,6 +3581,7 @@ Thus, (funcall 'cons 'x 'y) returns (x . y).
 	}
       else if (EQ (funcar, Qautoload))
 	{
+	  /* do_autoload GCPROs both arguments */
 	  do_autoload (fun, args[0]);
 	  goto retry;
 	}
@@ -3650,11 +3660,8 @@ function_argcount (Lisp_Object function, int function_min_args_p)
 	}
       else if (EQ (funcar, Qautoload))
 	{
-	  struct gcpro gcpro1;
-
-	  GCPRO1 (function);
+	  /* do_autoload GCPROs both arguments */
 	  do_autoload (function, orig_function);
-	  UNGCPRO;
 	  function = orig_function;
 	  goto retry;
 	}
@@ -4788,9 +4795,9 @@ call2_trapping_errors (const char *warning_string, Lisp_Object function,
 #define min_max_specpdl_size 400
 
 void
-grow_specpdl (size_t reserved)
+grow_specpdl (EMACS_INT reserved)
 {
-  size_t size_needed = specpdl_depth() + reserved;
+  EMACS_INT size_needed = specpdl_depth() + reserved;
   if (size_needed >= max_specpdl_size)
     {
       if (max_specpdl_size < min_max_specpdl_size)

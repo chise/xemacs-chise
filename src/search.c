@@ -108,6 +108,7 @@ Lisp_Object Vforward_word_regexp, Vbackward_word_regexp;
 Lisp_Object Vskip_chars_range_table;
 
 static void set_search_regs (struct buffer *buf, Bufpos beg, Charcount len);
+/* #### according to comment in 21.5, unnecessary */
 static void save_search_regs (void);
 static Bufpos simple_search (struct buffer *buf, Bufbyte *base_pat,
 			     Bytecount len, Bytind pos, Bytind lim,
@@ -772,6 +773,7 @@ find_before_next_newline (struct buffer *buf, Bufpos from, Bufpos to, int count)
   return pos;
 }
 
+/* This function synched with FSF 21.1 */
 static Lisp_Object
 skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	    Lisp_Object string, Lisp_Object lim)
@@ -842,6 +844,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	    {
 	      Emchar cend;
 
+	      /* Skip over the dash.  */
 	      p++;
 	      if (p == pend) break;
 	      cend = charptr_emchar (p);
@@ -866,6 +869,7 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 	}
     }
 
+  /* #### Not in FSF 21.1 */
   if (syntaxp && fastmap['-'] != 0)
     fastmap[' '] = 1;
 
@@ -879,36 +883,48 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
 
   {
     Bufpos start_point = BUF_PT (buf);
+    Bufpos pos = start_point;
+    Bytind pos_byte = BI_BUF_PT (buf);
 
     if (syntaxp)
       {
-	SETUP_SYNTAX_CACHE_FOR_BUFFER (buf, BUF_PT (buf), forwardp ? 1 : -1);
+	SETUP_SYNTAX_CACHE_FOR_BUFFER (buf, pos, forwardp ? 1 : -1);
 	/* All syntax designators are normal chars so nothing strange
 	   to worry about */
 	if (forwardp)
 	  {
-	    while (BUF_PT (buf) < limit
-		   && fastmap[(unsigned char)
-                              syntax_code_spec
-			      [(int) SYNTAX_FROM_CACHE (syntax_table,
-							BUF_FETCH_CHAR
-							(buf, BUF_PT (buf)))]])
-	      {
-		BUF_SET_PT (buf, BUF_PT (buf) + 1);
-		UPDATE_SYNTAX_CACHE_FORWARD (BUF_PT (buf));
-	      }
+	    if (pos < limit)
+	      while (fastmap[(unsigned char)
+			     syntax_code_spec
+			     [(int) SYNTAX_FROM_CACHE
+			      (syntax_table,
+			       BI_BUF_FETCH_CHAR (buf, pos_byte))]])
+		{
+		  pos++;
+		  INC_BYTIND (buf, pos_byte);
+		  if (pos >= limit)
+		    break;
+		  UPDATE_SYNTAX_CACHE_FORWARD (pos);
+		}
 	  }
 	else
 	  {
-	    while (BUF_PT (buf) > limit
-		   && fastmap[(unsigned char)
-                              syntax_code_spec
-			      [(int) SYNTAX_FROM_CACHE (syntax_table,
-							BUF_FETCH_CHAR
-							(buf, BUF_PT (buf) - 1))]])
+	    while (pos > limit)
 	      {
-		BUF_SET_PT (buf, BUF_PT (buf) - 1);
-		UPDATE_SYNTAX_CACHE_BACKWARD (BUF_PT (buf) - 1);
+		Bufpos savepos = pos_byte;
+		pos--;
+		DEC_BYTIND (buf, pos_byte);
+		UPDATE_SYNTAX_CACHE_BACKWARD (pos);
+		if (!fastmap[(unsigned char)
+			     syntax_code_spec
+			     [(int) SYNTAX_FROM_CACHE
+			      (syntax_table,
+			       BI_BUF_FETCH_CHAR (buf, pos_byte))]])
+		  {
+		    pos++;
+		    pos_byte = savepos;
+		    break;
+		  }
 	      }
 	  }
       }
@@ -916,36 +932,47 @@ skip_chars (struct buffer *buf, int forwardp, int syntaxp,
       {
 	if (forwardp)
 	  {
-	    while (BUF_PT (buf) < limit)
+	    while (pos < limit)
 	      {
-		Emchar ch = BUF_FETCH_CHAR (buf, BUF_PT (buf));
+		Emchar ch = BI_BUF_FETCH_CHAR (buf, pos_byte);
 		if ((ch < 0400) ? fastmap[ch] :
 		    (NILP (Fget_range_table (make_int (ch),
 					     Vskip_chars_range_table,
 					     Qnil))
 		     == negate))
-		  BUF_SET_PT (buf, BUF_PT (buf) + 1);
+		  {
+		    pos++;
+		    INC_BYTIND (buf, pos_byte);
+		  }
 		else
 		  break;
 	      }
 	  }
 	else
 	  {
-	    while (BUF_PT (buf) > limit)
+	    while (pos > limit)
 	      {
-		Emchar ch = BUF_FETCH_CHAR (buf, BUF_PT (buf) - 1);
+		Bufpos prev_pos_byte = pos_byte;
+		Emchar ch;
+
+		DEC_BYTIND (buf, prev_pos_byte);
+		ch = BI_BUF_FETCH_CHAR (buf, prev_pos_byte);
 		if ((ch < 0400) ? fastmap[ch] :
-		    (NILP (Fget_range_table (make_int (ch),
-					     Vskip_chars_range_table,
-					     Qnil))
-		     == negate))
-		  BUF_SET_PT (buf, BUF_PT (buf) - 1);
-                else
-                  break;
+		      (NILP (Fget_range_table (make_int (ch),
+					       Vskip_chars_range_table,
+					       Qnil))
+		       == negate))
+		  {
+		    pos--;
+		    pos_byte = prev_pos_byte;
+		  }
+		else
+		  break;
 	      }
 	  }
       }
     QUIT;
+    BOTH_BUF_SET_PT (buf, pos, pos_byte);
     return make_int (BUF_PT (buf) - start_point);
   }
 }
@@ -2825,8 +2852,11 @@ LIST should have been created by calling `match-data' previously.
   int num_regs;
   int length;
 
+#if 0
+  /* #### according to 21.5 comment, unnecessary */
   if (running_asynch_code)
     save_search_regs ();
+#endif
 
   CONCHECK_LIST (list);
 
@@ -2889,6 +2919,7 @@ LIST should have been created by calling `match-data' previously.
   return Qnil;
 }
 
+/* #### according to 21.5 comment, unnecessary */
 /* If non-zero the match data have been saved in saved_search_regs
    during the execution of a sentinel or filter. */
 static int search_regs_saved;
@@ -2912,6 +2943,8 @@ save_search_regs (void)
     }
 }
 
+/* #### according to 21.5 comment, unnecessary
+   prototype in lisp.h, all calls in process.c */
 /* Called upon exit from filters and sentinels. */
 void
 restore_match_data (void)

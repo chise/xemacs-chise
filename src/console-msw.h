@@ -342,6 +342,8 @@ USID emacs_mswindows_delete_stream_pair (Lisp_Object instream,
 HANDLE get_nt_process_handle (Lisp_Process *p);
 #endif
 
+void mswindows_unwait_process (Lisp_Process *p);
+
 extern Lisp_Object Vmswindows_frame_being_created;
 extern Lisp_Object mswindows_frame_being_created;
 

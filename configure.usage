@@ -169,7 +169,7 @@ Additional features:
                         development environment.
 --with-socks            Compile with support for SOCKS (an Internet proxy).
 --with-dnet (*)         Compile with support for DECnet.
---with-modules          Compile in experimental support for dynamically
+--with-modules (*)      Compile in experimental support for dynamically
                         loaded libraries (Dynamic Shared Objects).
 --with-netinstall       Compile in support for installation over the internet.
                         Only functional on the MS Windows platforms.

@@ -223,7 +223,7 @@ information.@refill
 @c  **** zmacs-regions is on by default these days - jwz
 @c
 @c Note: By default, you can use the @b{Edit} menu items on the region between
-@c point an the mark as well as regions selected with the mouse. To change
+@c point and the mark as well as regions selected with the mouse. To change
 @c this behavior, set the variable @code{zmacs-regions} to
 @c @code{t}. @xref{Active Regions} for more information.
 

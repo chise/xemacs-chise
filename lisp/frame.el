@@ -1031,7 +1031,8 @@ This is a subroutine of `get-frame-for-buffer' (which see)."
 ;; The pre-display-buffer-function is called for effect, so this needs to
 ;; actually select the frame it wants.  Fdisplay_buffer() takes notice of
 ;; changes to the selected frame.
-(defun get-frame-for-buffer (buffer &optional not-this-window-p on-frame)
+(defun get-frame-for-buffer (buffer &optional not-this-window-p on-frame
+				    shrink-to-fit)
   "Select and return a frame in which to display BUFFER.
 Normally, the buffer will simply be displayed in the selected frame.
 But if the symbol naming the major-mode of the buffer has a 'frame-name
@@ -1110,20 +1111,13 @@ always displays the buffer in the selected frame, regardless of the behavior
 that would otherwise be introduced by the `pre-display-buffer-function', which
 is normally set to `get-frame-for-buffer' (which see)."
   (let ((pre-display-buffer-function nil)) ; turn it off, whatever it is
-    (let ((window (display-buffer buffer)))
+    (let ((window (display-buffer buffer nil nil temp-buffer-shrink-to-fit)))
       (if (not (eq (last-nonminibuf-frame) (window-frame window)))
 	  ;; only the pre-display-buffer-function should ever do this.
 	  (error "display-buffer switched frames on its own!!"))
       (setq minibuffer-scroll-window window)
       (set-window-start window 1) ; obeys narrowing
       (set-window-point window 1)
-      (when temp-buffer-shrink-to-fit
-        (let* ((temp-window-size (round (* temp-buffer-max-height
-                                           (frame-height (window-frame window)))))
-               (size (window-displayed-height window)))
-          (when (< size temp-window-size)
-            (enlarge-window (- temp-window-size size) nil window)))
-        (shrink-window-if-larger-than-buffer window))
       nil)))
 
 (setq pre-display-buffer-function 'get-frame-for-buffer)

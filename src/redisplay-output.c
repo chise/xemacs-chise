@@ -230,7 +230,10 @@ compare_runes (struct window *w, struct rune *crb, struct rune *drb)
   else if (crb->type == RUNE_DGLYPH &&
 	   (!EQ (crb->object.dglyph.glyph, drb->object.dglyph.glyph) ||
 	    !EQ (crb->object.dglyph.extent, drb->object.dglyph.extent) ||
-	    crb->object.dglyph.xoffset != drb->object.dglyph.xoffset))
+	    crb->object.dglyph.xoffset != drb->object.dglyph.xoffset ||
+	    crb->object.dglyph.yoffset != drb->object.dglyph.yoffset ||
+            crb->object.dglyph.ascent != drb->object.dglyph.ascent ||
+            crb->object.dglyph.descent != drb->object.dglyph.descent))
     return 0;
   /* Only check dirtiness if we know something has changed. */
   else if (crb->type == RUNE_DGLYPH &&
@@ -1174,14 +1177,14 @@ redisplay_unmap_subwindows (struct frame* f, int x, int y, int width, int height
       if (IMAGE_INSTANCE_SUBWINDOW_DISPLAYEDP (ii)
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_X (ii)
-	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) > x
+	  + IMAGE_INSTANCE_DISPLAY_WIDTH (ii) > (unsigned) x
 	  &&
-	  IMAGE_INSTANCE_DISPLAY_X (ii) < x + width
+	  IMAGE_INSTANCE_DISPLAY_X (ii) < (unsigned) (x + width)
 	  &&
 	  IMAGE_INSTANCE_DISPLAY_Y (ii)
-	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) > y
+	  + IMAGE_INSTANCE_DISPLAY_HEIGHT (ii) > (unsigned) y
 	  &&
-	  IMAGE_INSTANCE_DISPLAY_Y (ii) < y + height
+	  IMAGE_INSTANCE_DISPLAY_Y (ii) < (unsigned) (y + height)
 	  &&
 	  !EQ (XCAR (rest), ignored_window))
 	{
@@ -1549,9 +1552,23 @@ redisplay_output_pixmap (struct window *w,
   dga->height = IMAGE_INSTANCE_PIXMAP_HEIGHT (p);
   dga->width = IMAGE_INSTANCE_PIXMAP_WIDTH (p);
 
+#ifdef DEBUG_REDISPLAY
+  printf ("redisplay_output_pixmap(request) \
+[%dx%d@%d+%d] in [%dx%d@%d+%d]\n", 
+	  db->width, db->height, db->xpos, db->ypos,
+	  dga->width, dga->height, dga->xoffset, dga->yoffset);
+#endif
+
   /* This makes the glyph area fit into the display area. */
   if (!redisplay_normalize_glyph_area (db, dga))
     return;
+
+#ifdef DEBUG_REDISPLAY
+  printf ("redisplay_output_pixmap(normalized) \
+[%dx%d@%d+%d] in [%dx%d@%d+%d]\n",
+	  db->width, db->height, db->xpos, db->ypos,
+	  dga->width, dga->height, dga->xoffset, dga->yoffset);
+#endif
 
   /* Clear the area the pixmap is going into.  The pixmap itself will
      always take care of the full width.  We don't want to clear where
@@ -1746,7 +1763,28 @@ redisplay_clear_clipped_region (Lisp_Object window, face_index findex,
  redisplay_normalize_glyph_area
  redisplay_normalize_display_box
 
- Calculate the visible box for displaying src in dest.
+ Calculate the visible box for displaying glyphsrc in dest.
+
+ display_box and display_glyph_area are used to represent an area to
+ displayed and where to display it. Using these two structures all
+ combinations of clipping and position can be accommodated.
+
+ dest - display_box
+
+	xpos - absolute horizontal position of area.
+
+  	ypos - absolute vertical position of area.
+
+  glyphsrc - display_glyph_area
+
+	xoffset - horizontal offset of the glyph, +ve means display
+	the glyph with the x position offset by xoffset, -ve means
+	display starting xoffset into the glyph.
+
+	yoffset - vertical offset of the glyph, +ve means display the
+	glyph with y position offset by yoffset, -ve means display
+	starting xoffset into the glyph.
+
  ****************************************************************************/
 int
 redisplay_normalize_glyph_area (struct display_box* dest,
@@ -1774,28 +1812,51 @@ redisplay_normalize_glyph_area (struct display_box* dest,
       return 0;
     }
 
-  /* Horizontal offsets. This works because xoffset can be -ve as well as +ve */
+  /* Horizontal offsets. This works because xoffset can be -ve as well
+     as +ve.  When we enter this function the glyphsrc width and
+     height are set to the actual glyph width and height irrespective
+     of how much can be displayed. We are trying to clip both the
+     offset into the image and the rightmost bounding box. Its
+     possible for the glyph width to be much larger than the area we
+     are displaying into (e.g. a large glyph in a small frame). */
   if (dest->xpos + glyphsrc->xoffset + glyphsrc->width > dest->xpos + dest->width)
     {
+      /* glyphsrc offset is +ve we are trying to display offset from the
+	 origin (the bounding box contains some space and then the
+	 glyph). At most the width we want to display is dest->width -
+	 glyphsrc->xoffset. */
       if (glyphsrc->xoffset > 0)
 	glyphsrc->width = dest->width - glyphsrc->xoffset;
+      /* glyphsrc offset is -ve we are trying to display hard up
+	 against the dest corner inset into the glyphsrc by
+	 xoffset.*/
+      else if (glyphsrc->xoffset < 0) 
+	{
+	  glyphsrc->width += glyphsrc->xoffset;
+	  glyphsrc->width = min (glyphsrc->width, dest->width);
+	}
       else
 	glyphsrc->width = dest->width;
     }
 
-  if (glyphsrc->xoffset < 0)
+  else if (glyphsrc->xoffset < 0) 
     glyphsrc->width += glyphsrc->xoffset;
 
   /* Vertical offsets. This works because yoffset can be -ve as well as +ve */
   if (dest->ypos + glyphsrc->yoffset + glyphsrc->height > dest->ypos + dest->height)
     {
-      if (glyphsrc->yoffset > 0)
+      if ((glyphsrc->yoffset > 0) && (dest->height > glyphsrc->yoffset))
 	glyphsrc->height = dest->height - glyphsrc->yoffset;
+      else if (glyphsrc->yoffset < 0) 
+	{
+	  glyphsrc->height += glyphsrc->yoffset;
+	  glyphsrc->height = min (glyphsrc->height, dest->height);
+	}
       else
 	glyphsrc->height = dest->height;
     }
 
-  if (glyphsrc->yoffset < 0)
+  else if (glyphsrc->yoffset < 0)
     glyphsrc->height += glyphsrc->yoffset;
 
   return 1;
@@ -1880,8 +1941,8 @@ redisplay_display_boxes_in_window_p (struct window* w,
  ****************************************************************************/
 int
 redisplay_calculate_display_boxes (struct display_line *dl, int xpos,
-				   int xoffset, int start_pixpos, int width,
-				   struct display_box* dest,
+				   int xoffset, int yoffset, int start_pixpos,
+                                   int width, struct display_box* dest,
 				   struct display_glyph_area* src)
 {
   dest->xpos = xpos;
@@ -1890,9 +1951,10 @@ redisplay_calculate_display_boxes (struct display_line *dl, int xpos,
   dest->height = DISPLAY_LINE_HEIGHT (dl);
 
   src->xoffset = -xoffset;
-  src->yoffset = -dl->top_clip;
   src->width = 0;
   src->height = 0;
+
+  src->yoffset = -dl->top_clip + yoffset;
 
   if (start_pixpos >=0 && start_pixpos > xpos)
     {

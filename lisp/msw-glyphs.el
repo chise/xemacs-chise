@@ -1,6 +1,7 @@
 ;;; msw-glyphs.el --- Support for glyphs in ms windows
 
 ;; Copyright (C) 1994, 1997 Free Software Foundation, Inc.
+;; Copyright (C) 2002 Ben Wing.
 
 ;; Author: Kirill M. Katsnelson <kkm@kis.ru>
 ;; Maintainer: XEmacs Development Team
@@ -80,6 +81,9 @@ device class."
   (set-glyph-image continuation-glyph "\xC3" 'global 'msgdi)
   (set-glyph-image truncation-glyph "\xF0" 'global 'msgdi)
   (set-glyph-image hscroll-glyph "\xEF" 'global 'msgdi)
+  (set-glyph-contrib-p continuation-glyph nil)
+  (set-glyph-contrib-p truncation-glyph nil)
+  (set-glyph-contrib-p hscroll-glyph nil)
 
   (set-glyph-image octal-escape-glyph "\\")
   (set-glyph-image control-arrow-glyph "^")

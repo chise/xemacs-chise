@@ -301,6 +301,14 @@ xm_update_label (widget_instance* instance, Widget widget, widget_value* val)
     XmStringFree (val_string);
 }
 
+static void
+xm_safe_update_label (widget_instance* instance, Widget widget, widget_value* val)
+{
+  /* Don't clobber non-labels. */
+  if (XtIsSubclass (widget, xmLabelWidgetClass))
+    xm_update_label (instance, widget, val);
+}
+
 #endif /* defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) */
 
 /* update of list */
@@ -540,7 +548,7 @@ make_menu_in_widget (widget_instance* instance, Widget widget,
 	  XtSetArg (al [ac], XmNsubMenuId, menu); ac++;
 	  button = XmCreateCascadeButton (widget, cur->name, al, ac);
 
-	  xm_update_label (instance, button, cur);
+	  xm_safe_update_label (instance, button, cur);
 
 	  XtAddCallback (button, XmNcascadingCallback, xm_pull_down_callback,
 			 (XtPointer)instance);
@@ -561,7 +569,7 @@ make_menu_in_widget (widget_instance* instance, Widget widget,
 	  else
 	    button = XmCreatePushButtonGadget (widget, cur->name, al, ac);
 
-	  xm_update_label (instance, button, cur);
+	  xm_safe_update_label (instance, button, cur);
 
 	  /* don't add a callback to a simple label */
 	  if (cur->type == TOGGLE_TYPE || cur->type == RADIO_TYPE)
@@ -615,7 +623,8 @@ update_one_menu_entry (widget_instance* instance, Widget widget,
   /* update the menu button as a label. */
   if (val->change >= VISIBLE_CHANGE)
     {
-      xm_update_label (instance, widget, val);
+      xm_safe_update_label (instance, widget, val);
+
       if (XtClass (widget) == xmToggleButtonWidgetClass
 	  || XtClass (widget) == xmToggleButtonGadgetClass)
 	{
@@ -829,8 +838,7 @@ xm_update_one_widget (widget_instance* instance, Widget widget,
 
 #if defined (LWLIB_DIALOGS_MOTIF) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_WIDGETS_MOTIF)
   /* Common to all label like widgets */
-  if (XtIsSubclass (widget, xmLabelWidgetClass))
-    xm_update_label (instance, widget, val);
+  xm_safe_update_label (instance, widget, val);
 #endif
   class = XtClass (widget);
   /* Class specific things */

@@ -336,7 +336,8 @@ gtk_get_button_size (struct frame *f, Lisp_Object window,
 	    || tb->y != y						\
 	    || tb->width != width					\
 	    || tb->height != height					\
-	    || tb->dirty)						\
+	    || tb->dirty						\
+	    || f->clear) /* This is clearly necessary. */		\
 	  {								\
 	    if (width && height)					\
 	      {								\
@@ -542,22 +543,30 @@ gtk_output_frame_toolbars (struct frame *f)
 
   if (FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
     gtk_output_toolbar (f, TOP_TOOLBAR);
-  else if (f->top_toolbar_was_visible)
-    gtk_clear_toolbar (f, TOP_TOOLBAR, 0);
-
   if (FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
     gtk_output_toolbar (f, BOTTOM_TOOLBAR);
-  else if (f->bottom_toolbar_was_visible)
-    gtk_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
-
   if (FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
     gtk_output_toolbar (f, LEFT_TOOLBAR);
-  else if (f->left_toolbar_was_visible)
-    gtk_clear_toolbar (f, LEFT_TOOLBAR, 0);
-
   if (FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     gtk_output_toolbar (f, RIGHT_TOOLBAR);
-  else if (f->right_toolbar_was_visible)
+}
+
+static void
+gtk_clear_frame_toolbars (struct frame *f)
+{
+  assert (FRAME_GTK_P (f));
+
+  if (f->top_toolbar_was_visible
+      && !FRAME_REAL_TOP_TOOLBAR_VISIBLE (f))
+    gtk_clear_toolbar (f, TOP_TOOLBAR, 0);
+  if (f->bottom_toolbar_was_visible
+      && !FRAME_REAL_BOTTOM_TOOLBAR_VISIBLE (f))
+    gtk_clear_toolbar (f, BOTTOM_TOOLBAR, 0);
+  if (f->left_toolbar_was_visible 
+      && !FRAME_REAL_LEFT_TOOLBAR_VISIBLE (f))
+    gtk_clear_toolbar (f, LEFT_TOOLBAR, 0);
+  if (f->right_toolbar_was_visible 
+      && !FRAME_REAL_RIGHT_TOOLBAR_VISIBLE (f))
     gtk_clear_toolbar (f, RIGHT_TOOLBAR, 0);
 }
 
@@ -663,6 +672,7 @@ void
 console_type_create_toolbar_gtk (void)
 {
   CONSOLE_HAS_METHOD (gtk, output_frame_toolbars);
+  CONSOLE_HAS_METHOD (gtk, clear_frame_toolbars);
   CONSOLE_HAS_METHOD (gtk, initialize_frame_toolbars);
   CONSOLE_HAS_METHOD (gtk, free_frame_toolbars);
   CONSOLE_HAS_METHOD (gtk, output_toolbar_button);

@@ -467,8 +467,8 @@ static JMP_BUF run_temacs_catch;
 static int run_temacs_argc;
 static char **run_temacs_argv;
 static char *run_temacs_args;
-static size_t run_temacs_argv_size;
-static size_t run_temacs_args_size;
+static EMACS_INT run_temacs_argv_size;
+static EMACS_INT run_temacs_args_size;
 
 static void shut_down_emacs (int sig, Lisp_Object stuff, int no_auto_save);
 
@@ -2862,10 +2862,13 @@ all of which are called before XEmacs is actually killed.
 
 #ifdef HAVE_MS_WINDOWS
   /* If we displayed a message on the console, then we must allow the
-     user to see this message.  This may be unnecessary, but can't hurt,
-     and we can't necessarily check arg; e.g. xemacs --help kills with
-     argument 0. */
-  if (mswindows_message_outputted)
+     user to see this message.  This may be unnecessary, but can't
+     hurt, and we can't necessarily check arg; e.g. xemacs --help
+     kills with argument 0.
+
+     Don't do this in batch mode, it makes no sense and is more
+     annoying than useful. --andyp */
+  if (mswindows_message_outputted && !noninteractive)
     Fmswindows_message_box (build_string ("Messages outputted.  XEmacs is exiting."),
 			    Qnil, Qnil);
 #endif
@@ -3194,7 +3197,7 @@ decode_env_path (const char *evarname, const char *default_)
 /* Ben thinks this function should not exist or be exported to Lisp.
    We use it to define split-path-string in subr.el (not!).  */
 
-DEFUN ("split-string-by-char", Fsplit_string_by_char, 1, 2, 0, /*
+DEFUN ("split-string-by-char", Fsplit_string_by_char, 2, 2, 0, /*
 Split STRING into a list of substrings originally separated by SEPCHAR.
 */
        (string, sepchar))

@@ -1054,7 +1054,7 @@ Recommended as a parent keymap for modes using widgets.")
 
 
 (defun widget-field-activate (pos &optional event)
-  "Invoke the ediable field at point."
+  "Invoke the editable field at point."
   (interactive "@d")
   (let ((field (widget-field-find pos)))
     (if field

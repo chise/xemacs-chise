@@ -178,8 +178,8 @@ When return is typed, the entire current line of the buffer
 (except possibly the prompt) is sent to the inferior process.
 Line mode is basically the original shell mode from earlier Emacs versions.
 
-To switch from line mode to character mode type @kbd{C-c c}.
-To switch from character mode to line mode type @kbd{C-c l}.
+To switch from line mode to character mode type @kbd{C-c C-k}.
+To switch from character mode to line mode type @kbd{C-c C-j}.
 
 In either mode, "echoing" of user input is handled by the inferior.
 Therefor, in line mode after an input line at the end of the buffer

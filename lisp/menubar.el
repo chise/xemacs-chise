@@ -671,6 +671,10 @@ If no response was received, nil is returned.
 
 MENU-DESC and EVENT are as in the call to `popup-menu'."
   ;; partially stolen from w3
+
+  ;; This function is way gross and assumes to much about menu
+  ;; processing that is X specific. Under mswindows popup menus behave
+  ;; in reasonable ways that you can't obstruct.
   (let ((echo-keystrokes 0)
 	new-event)
     (popup-menu menu-desc event)
@@ -679,14 +683,22 @@ MENU-DESC and EVENT are as in the call to `popup-menu'."
 	(setq new-event (next-command-event new-event))
 	(cond ((misc-user-event-p new-event)
 	       (throw 'popup-done new-event))
-	      ((not (popup-up-p))
+	      ((button-release-event-p new-event);; don't beep twice
+	       nil)
+	      ;; It shows how bogus this function is that the event
+	      ;; arg could be missing and no-one noticed ...
+	      ((event-matches-key-specifier-p new-event (quit-char))
+	       (signal 'quit nil))
+	      ;; mswindows has no pop-down processing (selection is
+	      ;; atomic) so doing anything more makes no sense. Since
+	      ;; popup-up-p is always false under mswindows, this
+	      ;; function has been ordered to do essentially X-specifc
+	      ;; processing after this check.
+	      ((not (popup-up-p))	
 	       (setq unread-command-events (cons new-event
 						 unread-command-events))
 	       (throw 'popup-done nil))
-	      ((button-release-event-p new-event);; don't beep twice
-	       nil)
-	      ((event-matches-key-specifier-p (quit-char))
-	       (signal 'quit nil))
+	      ;; mswindows never gets here
 	      (t
 	       (beep)
 	       (message "please make a choice from the menu.")))))))

@@ -69,7 +69,7 @@ visible in the buffer.
 A simple constant widget intended to be used in the @code{menu-choice} and
 @code{radio-button-choice} widgets. 
 @item choice-item
-An button item only intended for use in choices.  When invoked, the user
+A button item only intended for use in choices.  When invoked, the user
 will be asked to select another option from the choice widget.
 @item toggle
 A simple @samp{on}/@samp{off} switch.
@@ -130,11 +130,11 @@ it will be autoloaded when needed.
 @comment  node-name,  next,  previous,  up
 @section User Interface
 
-A form consist of read only text for documentation and some fields,
-where each the fields contain two parts, as tag and a value.  The tags
-are used to identify the fields, so the documentation can refer to the
-foo field, meaning the field tagged with @samp{Foo}. Here is an example
-form:
+A form consists of read only text for documentation and some fields,
+where each of the fields contains two parts, a tag and a value.  The
+tags are used to identify the fields, so the documentation can refer to
+the foo field, meaning the field tagged with @samp{Foo}.  Here is an
+example form:
 
 @example
 Here is some documentation.
@@ -226,7 +226,7 @@ between a number of different options.  This is how you edit an option
 field.  Option fields are created by the @code{menu-choice} widget.  In
 the example, @samp{@b{Choose}} is an option field tag.
 @item The @samp{@b{[INS]}} and @samp{@b{[DEL]}} buttons.
-Activating these will insert or delete elements from a editable list.
+Activating these will insert or delete elements from an editable list.
 The list is created by the @code{editable-list} widget. 
 @item Embedded Buttons.
 The @samp{@b{_other work_}} is an example of an embedded
@@ -591,7 +591,7 @@ in the buffer with a positive tabbing order, or @code{nil}
 
 @item :parent
 The parent of a nested widget (e.g. a @code{menu-choice} item or an
-element of a @code{editable-list} widget).
+element of an @code{editable-list} widget).
 
 @item :sibling-args
 This keyword is only used for members of a @code{radio-button-choice} or
@@ -1029,7 +1029,7 @@ List whose car is the type of the list elements.
 @comment  node-name,  next,  previous,  up
 @subsection The @code{group} Widget
 
-This widget simply group other widget together.
+This widget simply groups other widgets together.
 
 Syntax:
 

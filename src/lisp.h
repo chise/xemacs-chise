@@ -71,7 +71,7 @@ void Dynarr_free (void *d);
 #define Dynarr_at(d, pos) ((d)->base[pos])
 #define Dynarr_atp(d, pos) (&Dynarr_at (d, pos))
 #define Dynarr_begin(d) Dynarr_atp (d, 0)
-#define Dynarr_end(d) Dynarr_atp (d, Dynarr_length (d))
+#define Dynarr_end(d) Dynarr_atp (d, Dynarr_length (d) - 1)
 #define Dynarr_sizeof(d) ((d)->cur * (d)->elsize)
 #define Dynarr_length(d) ((d)->cur)
 #define Dynarr_largest(d) ((d)->largest)
@@ -136,7 +136,7 @@ char *xstrdup (const char *);
    least NEEDED_SIZE objects.  The reallocing is done by doubling,
    which ensures constant amortized time per element. */
 #define DO_REALLOC(basevar, sizevar, needed_size, type)	do {	\
-  size_t do_realloc_needed_size = (needed_size);		\
+  EMACS_INT do_realloc_needed_size = (needed_size);		\
   if ((sizevar) < do_realloc_needed_size)			\
     {								\
       if ((sizevar) < 32)					\
@@ -1277,7 +1277,7 @@ struct Lisp_Bit_Vector
 {
   struct lrecord_header lheader;
   Lisp_Object next;
-  size_t size;
+  EMACS_INT size;
   unsigned long bits[1];
 };
 typedef struct Lisp_Bit_Vector Lisp_Bit_Vector;

@@ -490,7 +490,7 @@ permitted (unsigned long host_addr, int fd)
 
 	  auth_data_len = atoi(buf);
 
-	  if (auth_data_len <= 0 || auth_data_len > sizeof(buf))
+	  if (auth_data_len <= 0 || auth_data_len > (int) sizeof(buf))
 	      {
 		return FALSE;
 	      }

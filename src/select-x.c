@@ -1782,7 +1782,7 @@ A value of 0 means wait as long as necessary.  This is initialized from the
   x_selection_timeout = 0;
 
   DEFVAR_BOOL ("x-selection-strict-motif-ownership", &x_selection_strict_motif_ownership /*
-*If true and XEmacs already owns the clipboard, don't own it again in the
+*If nil and XEmacs already owns the clipboard, don't own it again in the
 Motif way. Owning the selection on the Motif way does a huge amount of
 X protocol, and it makes killing text incredibly slow when using an
 X terminal.  However, when enabled Motif text fields don't bother to look up

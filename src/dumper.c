@@ -414,7 +414,7 @@ pdump_get_indirect_count (EMACS_INT code,
 			  const struct lrecord_description *idesc,
 			  const void *idata)
 {
-  EMACS_INT count;
+  EMACS_INT count = 0;		/* initialize to shut up GCC */
   const void *irdata;
 
   int line = XD_INDIRECT_VAL (code);
@@ -818,7 +818,7 @@ pdump_scan_by_alignment (void (*f)(pdump_entry_list_elt *,
 
   for (align = ALIGNOF (max_align_t); align; align>>=1)
     {
-      int i;
+      size_t i;
       pdump_entry_list_elt *elt;
 
       for (i=0; i<lrecord_type_count; i++)
@@ -843,7 +843,7 @@ pdump_scan_by_alignment (void (*f)(pdump_entry_list_elt *,
 static void
 pdump_dump_root_struct_ptrs (void)
 {
-  int i;
+  size_t i;
   size_t count = Dynarr_length (pdump_root_struct_ptrs);
   pdump_static_pointer *data = alloca_array (pdump_static_pointer, count);
   for (i = 0; i < count; i++)
@@ -870,7 +870,7 @@ pdump_dump_opaques (void)
 static void
 pdump_dump_rtables (void)
 {
-  int i;
+  size_t i;
   pdump_entry_list_elt *elt;
   pdump_reloc_table rt;
 
@@ -922,7 +922,7 @@ pdump_dump_root_objects (void)
 {
   size_t count = (Dynarr_length (pdump_root_objects) +
 		  Dynarr_length (pdump_weak_object_chains));
-  size_t i;
+  EMACS_INT i;
 
   PDUMP_WRITE_ALIGNED (size_t, count);
   PDUMP_ALIGN_OUTPUT (pdump_static_Lisp_Object);
@@ -969,7 +969,7 @@ pdump_dump_root_objects (void)
 void
 pdump (void)
 {
-  int i;
+  size_t i;
   Lisp_Object t_console, t_device, t_frame;
   int none;
   pdump_header header;
@@ -1027,7 +1027,7 @@ pdump (void)
   if (!none)
     return;
 
-  for (i=0; i<Dynarr_length (pdump_root_struct_ptrs); i++)
+  for (i=0; i<(size_t)Dynarr_length (pdump_root_struct_ptrs); i++)
     {
       pdump_root_struct_ptr info = Dynarr_at (pdump_root_struct_ptrs, i);
       pdump_register_struct (*(info.ptraddress), info.desc, 1);

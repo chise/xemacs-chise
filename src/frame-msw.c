@@ -827,36 +827,38 @@ msprinter_init_frame_3 (struct frame *f)
 {
   DOCINFO di;
   struct device *device = XDEVICE (FRAME_DEVICE (f));
-  HDC hdc;
   int frame_left, frame_top, frame_width, frame_height;
 
   /* DC might be recreated in msprinter_apply_devmode,
      so do not initialize until now */
-  hdc = DEVICE_MSPRINTER_HDC (device);
+  HDC hdc = DEVICE_MSPRINTER_HDC (device);
+  int logpixelsx = GetDeviceCaps (hdc, LOGPIXELSX);
+  int logpixelsy = GetDeviceCaps (hdc, LOGPIXELSY);
+  int physicaloffsetx = GetDeviceCaps (hdc, PHYSICALOFFSETX);
+  int physicaloffsety = GetDeviceCaps (hdc, PHYSICALOFFSETY);
+  int physicalheight = GetDeviceCaps (hdc, PHYSICALHEIGHT);
+  int physicalwidth = GetDeviceCaps (hdc, PHYSICALWIDTH);
 
-  /* Compute geometry properties */
-  frame_left = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
-			FRAME_MSPRINTER_LEFT_MARGIN(f), 1440)
-		- GetDeviceCaps (hdc, PHYSICALOFFSETX));
+  /* Compute geometry properties.
+     Conversion is from TWIPS -> inches -> pixels. */
+  frame_left = MulDiv (logpixelsx, FRAME_MSPRINTER_LEFT_MARGIN(f), 1440)
+    - physicaloffsetx;
 
   if (FRAME_MSPRINTER_CHARWIDTH(f) > 0)
     {
       char_to_real_pixel_size (f, FRAME_MSPRINTER_CHARWIDTH(f), 0,
 			       &frame_width, NULL);
       FRAME_MSPRINTER_RIGHT_MARGIN(f) =
-	MulDiv (GetDeviceCaps (hdc, PHYSICALWIDTH)
-		- (frame_left + frame_width), 1440,
-		GetDeviceCaps (hdc, LOGPIXELSX));
+	MulDiv (physicalwidth - (frame_left + frame_width), 1440,
+		logpixelsx);
     }
   else
-    frame_width = (GetDeviceCaps (hdc, PHYSICALWIDTH)
-		   - frame_left
-		   - MulDiv (GetDeviceCaps (hdc, LOGPIXELSX),
-			     FRAME_MSPRINTER_RIGHT_MARGIN(f), 1440));
+    frame_width = physicalwidth - frame_left
+      - MulDiv (logpixelsx, FRAME_MSPRINTER_RIGHT_MARGIN(f), 1440)
+      - physicaloffsetx;
 
-  frame_top = (MulDiv (GetDeviceCaps (hdc, LOGPIXELSY),
-		       FRAME_MSPRINTER_TOP_MARGIN(f), 1440)
-	       - GetDeviceCaps (hdc, PHYSICALOFFSETY));
+  frame_top = MulDiv (logpixelsy, FRAME_MSPRINTER_TOP_MARGIN(f), 1440)
+    - physicaloffsety;
 
   if (FRAME_MSPRINTER_CHARHEIGHT(f) > 0)
     {
@@ -864,15 +866,13 @@ msprinter_init_frame_3 (struct frame *f)
 			       NULL, &frame_height);
 
       FRAME_MSPRINTER_BOTTOM_MARGIN(f) =
-	MulDiv (GetDeviceCaps (hdc, PHYSICALHEIGHT)
-		- (frame_top + frame_height), 1440,
-		GetDeviceCaps (hdc, LOGPIXELSY));
+	MulDiv (physicalheight - (frame_top + frame_height), 1440,
+		logpixelsy);
     }
   else
-    frame_height = (GetDeviceCaps (hdc, PHYSICALHEIGHT)
-		    - frame_top
-		    - MulDiv (GetDeviceCaps (hdc, LOGPIXELSY),
-			      FRAME_MSPRINTER_BOTTOM_MARGIN(f), 1440));
+    frame_height = physicalheight - frame_top
+      - MulDiv (logpixelsy, FRAME_MSPRINTER_BOTTOM_MARGIN(f), 1440)
+      - physicaloffsety;
 
   /* Geometry sanity checks */
   if (!frame_pixsize_valid_p (f, frame_width, frame_height))

@@ -739,7 +739,7 @@ in the buffer with a positive tabbing order, or @code{nil}
 
 @item :parent
 The parent of a nested widget (e.g. a @code{menu-choice} item or an
-element of a @code{editable-list} widget).
+element of an @code{editable-list} widget).
 
 @item :sibling-args
 This keyword is only used for members of a @code{radio-button-choice} or

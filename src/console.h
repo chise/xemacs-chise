@@ -281,6 +281,7 @@ struct console_methods
 #ifdef HAVE_TOOLBARS
   /* toolbar methods */
   void (*output_frame_toolbars_method) (struct frame *);
+  void (*clear_frame_toolbars_method) (struct frame *);
   void (*initialize_frame_toolbars_method) (struct frame *);
   void (*free_frame_toolbars_method) (struct frame *);
   void (*output_toolbar_button_method) (struct frame *, Lisp_Object);

@@ -488,7 +488,7 @@ and whether or not it is up-to-date."
   "Display additional package info in the modeline.
 EXTENT determines the package to display (the package information is
 attached to the extent as properties)."
-  (let (pkg-sym info inst-ver auth-ver date maintainer)
+  (let (pkg-sym info inst-ver auth-ver date maintainer balloon req)
     (if (or force-update (not (current-message))
 	    (string-match ".*: .*: " (current-message))
 	    )
@@ -498,14 +498,29 @@ attached to the extent as properties)."
 		inst-ver (package-get-key pkg-sym :version)
 		auth-ver (package-get-info-prop info 'author-version)
 		date (package-get-info-prop info 'date)
-		maintainer (package-get-info-prop info 'maintainer))
+		maintainer (package-get-info-prop info 'maintainer)
+		req (package-get-info-prop info 'requires))
 	  (if (not inst-ver)
-	      (setq inst-ver ""))
+	      (setq inst-ver 0))
+	  (if (featurep 'balloon-help)
+	      (progn
+		(setq balloon (format "
+Package Information:  [For package: \"%s\"]
+================
+Installed Version : %.2f
+Author Version : %s
+Maintainer: %s
+Released: %s
+Required Packages : %s\n\n"
+				      pkg-sym inst-ver auth-ver maintainer 
+				      date req))
+		(set-extent-property extent 'balloon-help balloon)))
 	  (if pui-list-verbose
-	      (format "Author version: %-8s %11s: %s"
-		      auth-ver date maintainer)
-	    (format "%-6s: %-8s %11s: %s"
-		    inst-ver auth-ver date maintainer))
+	      (format 
+	       "Inst V: %.2f Auth V: %s Maint: %s" 
+	       inst-ver auth-ver maintainer)
+	    (format "%.2f : %s : %s"
+		    inst-ver auth-ver maintainer))
 	  ))
     ))
 

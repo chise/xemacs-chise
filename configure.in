@@ -2002,6 +2002,21 @@ esac
 AC_MSG_RESULT(no)
 fi
 
+dnl GNU ld now defaults to combreloc, which screws up unexec, but not pdump.
+dnl Note that it's OK if the GNU style long option causes non-GNU ld to barf
+dnl a usage message, that's often good enough.  Please report it, though.
+dnl #### Should make this Solaris-friendly.
+dnl Link with -z nocombreloc for now.
+if test "$pdump" != "yes"; then
+  AC_MSG_CHECKING(for \"-z nocombreloc\" linker flag)
+  case "`ld --help 2>&1`" in
+    *-z\ nocombreloc* ) AC_MSG_RESULT(yes)
+      XE_PREPEND(-z nocombreloc, ld_switch_site) ;;
+    *) AC_MSG_RESULT(no) ;;
+  esac
+fi
+
+
 dnl Inform compiler that certain flags are meant for the linker
 dnl XE_PROTECT_LINKER_FLAGS(shell_var)
 define([XE_PROTECT_LINKER_FLAGS], [
@@ -2019,6 +2034,7 @@ if test "$GCC" = "yes"; then
 fi])dnl
 XE_PROTECT_LINKER_FLAGS(ld_switch_system)
 XE_PROTECT_LINKER_FLAGS(ld_switch_machine)
+XE_PROTECT_LINKER_FLAGS(ld_switch_site)
 XE_PROTECT_LINKER_FLAGS(LDFLAGS)
 XE_PROTECT_LINKER_FLAGS(ld_call_shared)
 
@@ -2403,10 +2419,12 @@ AC_CHECK_TYPE(ssize_t, int)
 
 dnl check for Unix98 socklen_t
 AC_MSG_CHECKING(for socklen_t)
-AC_TRY_COMPILE([#include <sys/socket.h>
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <sys/socket.h>
 socklen_t x;
 ],[],[AC_MSG_RESULT(yes)],[
-AC_TRY_COMPILE([#include <sys/socket.h>
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <sys/socket.h>
 int accept (int, struct sockaddr *, size_t *);
 ],[],[
 AC_MSG_RESULT(size_t)
@@ -2527,20 +2545,6 @@ if test "$opsys" = "sol2"; then
       *) AC_MSG_RESULT(no) ;;
     esac
   fi
-fi
-
-dnl GNU ld now defaults to combreloc, which screws up unexec, but not pdump.
-dnl Note that it's OK if the GNU style long option causes non-GNU ld to barf
-dnl a usage message, that's often good enough.  Please report it, though.
-dnl #### Should make this Solaris-friendly.
-dnl Link with -z nocombreloc for now.
-if test "$pdump" != "yes"; then
-  AC_MSG_CHECKING(for \"-z nocombreloc\" linker flag)
-  case "`ld --help 2>&1`" in
-    *-z\ nocombreloc* ) AC_MSG_RESULT(yes)
-      XE_PREPEND(-z nocombreloc, ld_switch_site) ;;
-    *) AC_MSG_RESULT(no) ;;
-  esac
 fi
 
 dnl ----------------------
@@ -4250,7 +4254,14 @@ if test "$with_tty" = "yes"  ; then
 	done
       fi
     else dnl "$have_terminfo" = "no" && "with_ncurses" = "no"
-      XE_ADD_OBJS(tparam.o)
+      if test -n "$libs_termcap" -a "$opsys" = "openbsd"; then
+        dnl We need to check if tgoto does not exist in termcap yet
+        dnl because on OpenBSD libtermcap is another name for libcurses
+        dnl which provides the same tgoto as ncurses
+        AC_CHECK_LIB(termcap, tgoto, , XE_ADD_OBJS(tparam.o))
+      else
+        XE_ADD_OBJS(tparam.o)
+      fi
       dnl The HP-UX curses library seems to have a badly broken version of select(2)
       dnl that makes "poll: interrupted system call" messages to appear and
       dnl Emacs subprocesses to hang (e.g. TeX compilation w/ AUCTeX) */

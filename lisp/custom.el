@@ -179,7 +179,7 @@ The following KEYWORD's are defined:
         `custom-initialize-set'
 :set    VALUE should be a function to set the value of the symbol.
         It takes two arguments, the symbol to set and the value to
-        give it.  The default is `set-default'.
+        give it.  The default is `custom-set-default'.
 :get    VALUE should be a function to extract the value of symbol.
         The function takes one argument, a symbol, and should return
         the current value for that symbol.  The default is
@@ -187,6 +187,11 @@ The following KEYWORD's are defined:
 :require VALUE should be a feature symbol.  Each feature will be
         required after initialization, of the user have saved this
         option.
+:version VALUE should be a string specifying that the variable was
+        first introduced, or its default value was changed, in Emacs
+        version VERSION.
+:set-after VARIABLE specifies that SYMBOL should be set after VARIABLE when
+	both have been customized.
 
 Read the section about customization in the Emacs Lisp manual for more
 information."
@@ -323,17 +328,38 @@ Third argument TYPE is the custom option type."
   "For customization option SYMBOL, handle KEYWORD with VALUE.
 Fourth argument TYPE is the custom option type."
   (cond ((eq keyword :group)
-         (custom-add-to-group value symbol type))
-        ((eq keyword :version)
-         (custom-add-version symbol value))
-        ((eq keyword :link)
-         (custom-add-link symbol value))
-        ((eq keyword :load)
-         (custom-add-load symbol value))
-        ((eq keyword :tag)
-         (put symbol 'custom-tag value))
-        (t
-         (signal 'error (list "Unknown keyword" keyword)))))
+	 (custom-add-to-group value symbol type))
+	((eq keyword :version)
+	 (custom-add-version symbol value))
+	((eq keyword :link)
+	 (custom-add-link symbol value))
+	((eq keyword :load)
+	 (custom-add-load symbol value))
+	((eq keyword :tag)
+	 (put symbol 'custom-tag value))
+ 	((eq keyword :set-after)
+	 (custom-add-dependencies symbol value))
+	(t
+	 (signal 'error (list "Unknown keyword" keyword)))))
+
+(defun custom-add-dependencies (symbol value)
+  "To the custom option SYMBOL, add dependencies specified by VALUE.
+VALUE should be a list of symbols.  For each symbol in that list,
+this specifies that SYMBOL should be set after the specified symbol, if
+both appear in constructs like `custom-set-variables'."
+  (unless (listp value)
+    (error "Invalid custom dependency `%s'" value))
+  (let* ((deps (get symbol 'custom-dependencies))
+	 (new-deps deps))
+    (while value
+      (let ((dep (car value)))
+	(unless (symbolp dep)
+	  (error "Invalid custom dependency `%s'" dep))
+	(unless (memq dep new-deps)
+	  (setq new-deps (cons dep new-deps)))
+	(setq value (cdr value))))
+    (unless (eq deps new-deps)
+      (put symbol 'custom-dependencies new-deps))))
 
 (defun custom-add-option (symbol option)
   "To the variable SYMBOL add OPTION.
@@ -439,10 +465,18 @@ following keyword arguments
         (setq old (cdr old)))
     (put symbol prop (cons (list theme mode value) old))))
 
+(defvar custom-local-buffer nil
+  "Non-nil, in a Customization buffer, means customize a specific buffer.
+If this variable is non-nil, it should be a buffer,
+and it means customize the local bindings of that buffer.
+This variable is a permanent local, and it normally has a local binding
+in every Customization buffer.")
+(put 'custom-local-buffer 'permanent-local t)
+
 (defun custom-set-variables (&rest args)
   "Initialize variables according to user preferences.
 The settings are registered as theme `user'.
-The arguments should be a list where each entry has the form:
+Each argument should be a list of the form:
 
   (SYMBOL VALUE [NOW [REQUEST [COMMENT]]])
 
@@ -459,8 +493,29 @@ Records the settings as belonging to THEME.
 
 See `custom-set-variables' for a description of the arguments ARGS."
   (custom-check-theme theme)
+  (setq args
+	(sort args
+	      (lambda (a1 a2)
+		(let* ((sym1 (car a1))
+		       (sym2 (car a2))
+		       (1-then-2 (memq sym1 (get sym2 'custom-dependencies)))
+		       (2-then-1 (memq sym2 (get sym1 'custom-dependencies))))
+		  (cond ((and 1-then-2 2-then-1)
+			 (error "Circular custom dependency between `%s' and `%s'"
+				sym1 sym2))
+			(1-then-2 t)
+			(2-then-1 nil)
+			;; Put symbols with :require last.  The macro
+			;; define-minor-mode generates a defcustom
+			;; with a :require and a :set, where the
+			;; setter function calls the mode function.
+			;; Putting symbols with :require last ensures
+			;; that the mode function will see other
+			;; customized values rather than default
+			;; values.
+			(t (nth 3 a2)))))))
   (let ((immediate (get theme 'theme-immediate)))
-    (while args * etc/custom/example-themes/example-theme.el:
+    (while args
       (let ((entry (car args)))
         (if (listp entry)
             (let* ((symbol (nth 0 entry))
@@ -468,10 +523,13 @@ See `custom-set-variables' for a description of the arguments ARGS."
                    (now (nth 2 entry))
                    (requests (nth 3 entry))
                    (comment (nth 4 entry))
-                   (set (or (get symbol 'custom-set) 'set-default)))
+                   (set (or (get symbol 'custom-set) 'custom-set-default)))
               (put symbol 'saved-value (list value))
               (custom-push-theme 'theme-value symbol theme 'set value)
               (put symbol 'saved-variable-comment comment)
+	  ;; Allow for errors in the case where the setter has
+	  ;; changed between versions, say, but let the user know.
+	      (condition-case data
               (cond ((or now immediate)
                      ;; Rogue variable, set it now.
                      (put symbol 'force-value (if now 'rogue 'immediate))
@@ -479,6 +537,8 @@ See `custom-set-variables' for a description of the arguments ARGS."
                     ((default-boundp symbol)
                      ;; Something already set this, overwrite it.
                      (funcall set symbol (eval value))))
+	      (error 
+	       (message "Error setting %s: %s" symbol data)))
               (and (or now (default-boundp symbol))
                  (put symbol 'variable-comment comment))
               (when requests
@@ -634,6 +694,15 @@ Associate this setting with the `user' theme.
 The ARGS are as in `custom-theme-reset-variables'."
     (apply #'custom-theme-reset-variables 'user args))
 
+(defun custom-set-default (variable value)
+  "Default :set function for a customizable variable.
+Normally, this sets the default value of VARIABLE to VALUE,
+but if `custom-local-buffer' is non-nil,
+this sets the local binding in that buffer instead."
+  (if custom-local-buffer
+      (with-current-buffer custom-local-buffer
+	(set variable value))
+    (set-default variable value)))
 
 ;;; The End.
 

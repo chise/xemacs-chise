@@ -298,6 +298,8 @@ With argument, join this line to following line."
 	    (delete-region (point) (+ (point) (length fill-prefix))))
 	(fixup-whitespace))))
 
+(defalias 'join-line 'delete-indentation)
+
 (defun fixup-whitespace ()
   "Fixup white space between objects around point.
 Leave one space or none, according to the context."

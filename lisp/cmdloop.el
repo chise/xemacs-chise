@@ -391,7 +391,7 @@ when called from Lisp."
 ;             (call-interactively _command _record-flag)))))
 
 (defun y-or-n-p-minibuf (prompt)
-  "Ask user a \"y or n\" question.  Return t if answer is \"y\".
+  "Ask user a \"y or n\" question.  Return t if answer is \"y\", nil if \"n\".
 Takes one argument, which is the string to display to ask the question.
 It should end in a space; `y-or-n-p' adds `(y or n) ' to it.
 No confirmation of the answer is requested; a single character is enough.
@@ -474,7 +474,7 @@ and can edit it until it as been confirmed."
     (yes-or-no-p-minibuf prompt)))
 
 (defun y-or-n-p (prompt)
-  "Ask user a \"y or n\" question.  Return t if answer is \"y\".
+  "Ask user a \"y or n\" question.  Return t if answer is \"y\", nil if \"n\".
 Takes one argument, which is the string to display to ask the question.
 The question is asked with a dialog box or the minibuffer, as appropriate.
 It should end in a space; `y-or-n-p' adds `(y or n) ' to it.

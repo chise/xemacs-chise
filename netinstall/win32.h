@@ -23,14 +23,6 @@
 
 #define NOCOMATTRIBUTE
 
-#include <stdarg.h>
-
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
-
-#include <wininet.h>
-#include <windowsx.h>
-
 /* Cope with native win32 & mingw differences.  Written by F. Popineau
    <Fabrice.Popineau@supelec.fr> */
 #ifdef WIN32_NATIVE
@@ -39,6 +31,14 @@
 #  define stat _stat
 #  define strnicmp _strnicmp
 #endif
+
+#include <stdarg.h>
+
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+#include <wininet.h>
+#include <windowsx.h>
 
 #ifndef CDECL
 #define CDECL __cdecl

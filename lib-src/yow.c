@@ -124,7 +124,7 @@ yow (FILE *fp)
   long offset;
   int c, i = 0;
   char *buf;
-  unsigned int bufsize;
+  int bufsize;
 
   offset = rand() % len + header_len;
   if (fseek(fp, offset, 0) == -1) {

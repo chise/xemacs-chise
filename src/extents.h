@@ -328,7 +328,7 @@ struct extent_fragment *extent_fragment_new (Lisp_Object buffer_or_string,
 face_index extent_fragment_update (struct window *w,
 				   struct extent_fragment *ef,
 				   /* Note this is in Bytinds */
-				   Bytind pos);
+				   Bytind pos, Lisp_Object last_glyph);
 void extent_fragment_delete (struct extent_fragment *ef);
 
 

@@ -509,7 +509,7 @@ scan_c_file (const char *filename, const char *mode)
   register int defvarperbufferflag = 0;
   register int defvarflag;
   int minargs, maxargs;
-  int l = strlen (filename);
+  size_t l = strlen (filename);
   char f[MAXPATHLEN];
 
   if (l > sizeof (f))

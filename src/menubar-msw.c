@@ -821,8 +821,7 @@ mswindows_handle_wm_command (struct frame *f, WORD id)
      breaks customize because the misc_event gets eval'ed in some
      circumstances. Don't change it back unless you can fix the
      customize problem also.*/
-  enqueue_misc_user_event (frame, fn, arg);
-  mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+  mswindows_enqueue_misc_user_event (frame, fn, arg);
 
   UNGCPRO; /* data */
   return Qt;
@@ -916,6 +915,8 @@ mswindows_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
 	eev = NULL;
     }
 
+  popup_up_p++;
+
   /* Default is to put the menu at the point (10, 10) in frame */
   if (eev)
     {
@@ -930,6 +931,8 @@ mswindows_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
     menu_desc = Fsymbol_value (menu_desc);
   CHECK_CONS (menu_desc);
   CHECK_STRING (XCAR (menu_desc));
+
+  menu_cleanup (f);
 
   current_menudesc = menu_desc;
   current_hash_table =
@@ -949,7 +952,15 @@ mswindows_popup_menu (Lisp_Object menu_desc, Lisp_Object event)
 
   DestroyMenu (menu);
 
-  /* Signal a signal if caught by Track...() modal loop */
+  /* A WM_COMMAND is not issued until TrackPopupMenu returns. This
+     makes setting popup_up_p fairly pointless since we cannot keep
+     the menu up and dispatch events. Furthermore, we seem to have
+     little control over what happens to the menu when we click. */
+  popup_up_p--;
+
+  /* Signal a signal if caught by Track...() modal loop. */
+  /* I think this is pointless, the code hasn't actually put us in a
+     modal loop at this time -- andyp. */
   mswindows_unmodalize_signal_maybe ();
 
   /* This is probably the only real reason for failure */

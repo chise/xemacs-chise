@@ -110,13 +110,13 @@ struct frame
   /* Size of toolbars as seen by redisplay. This is used to determine
      whether to re-layout windows by a call to change_frame_size early
      in redisplay_frame. */
-  unsigned int current_toolbar_size[4];
+  int current_toolbar_size[4];
 #endif
 
   /* Size of gutters as seen by redisplay. This is used to determine
      whether to re-layout windows by a call to change_frame_size early
      in redisplay_frame. */
-  unsigned int current_gutter_bounds[4];
+  int current_gutter_bounds[4];
 
   /* Dynamic arrays of display lines for gutters */
   display_line_dynarr *current_display_lines[4];
@@ -188,6 +188,8 @@ Value : Emacs meaning                           :f-v-p : X meaning
   unsigned int extents_changed :1;
   unsigned int faces_changed :1;
   unsigned int frame_changed :1;
+  unsigned int frame_layout_changed :1;	       /* The layout of frame
+						  elements has changed. */
   unsigned int subwindows_changed :1;
   unsigned int subwindows_state_changed :1;
   unsigned int glyphs_changed :1;
@@ -455,6 +457,19 @@ extern int frame_changed;
     }							\
   else							\
     frame_changed = 1;					\
+} while (0)
+
+#define MARK_FRAME_LAYOUT_CHANGED(f) do {		\
+  struct frame *mfc_f = (f);				\
+  mfc_f->frame_layout_changed = 1;			\
+  mfc_f->modiff++;					\
+  if (!NILP (mfc_f->device))				\
+    {							\
+      struct device *mfc_d = XDEVICE (mfc_f->device);	\
+      MARK_DEVICE_FRAME_LAYOUT_CHANGED (mfc_d);		\
+    }							\
+  else							\
+    frame_layout_changed = 1;				\
 } while (0)
 
 #define MARK_FRAME_WINDOWS_CHANGED(f) do {		\

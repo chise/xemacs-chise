@@ -1,3 +1,230 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-06-22  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* subr.el (add-to-list): Sync with GNU Emacs 21.2, adding the
+	"&optional append" argument.
+
+2002-07-16  Didier Verna  <didier@xemacs.org>
+
+	* subr.el (replace-in-string): fix case fold bug introduced by
+	"2000-07-30  Ben Wing  <ben@xemacs.org>": honor the value of
+	case-fold-search in temporary buffers.
+
+2002-08-03  Steve Youngs  <youngs@xemacs.org>
+
+	* lib-complete.el (find-library): Remove check for mule because
+	decompression DOES work on Mule.
+
+2002-08-11  John Paul Wallington  <jpw@shootybangbang.com>
+
+	* simple.el (join-line): New alias for `delete-indentation'.
+
+2002-08-02  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* font-lock.el: Some faces and doc typo fixes from GNU Emacs.
+	(font-lock-doc-face): New alias to font-lock-doc-string-face.
+	(font-lock-builtin-face): New.
+	(font-lock-constant-face): New.
+	(font-lock-face-list): Add builtin and constant faces.
+
+2002-08-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* autoload.el (make-autoload): Support define-derived-mode.
+	Collected puts of doc-string-elt property.  Based on a patch by
+	Didier Verna <didier@xemacs.org>.
+
+2002-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* wid-edit.el (widget-field-activate): Fix docstring typo.
+
+2002-07-23  Andy Piper  <andy@xemacs.org>
+
+	* about.el (about-personal-info): update me.
+
+2002-07-12  Andy Piper  <andy@xemacs.org>
+
+	* custom.el (custom-theme-set-variables): remove bogus
+	arguments. Use custom-set-default to set defaults.
+	(custom-set-variables): update doc.
+	(custom-local-buffer): new, synced from FSF.
+	(custom-set-default): ditto.
+	(defcustom): update doc.
+
+2002-06-16  Andy Piper  <andy@xemacs.org>
+
+	* menubar-items.el (default-menubar): enable windows printing on
+	cygwin as well as native.
+
+2002-06-12  Andy Piper  <andy@xemacs.org>
+
+	* printer.el (generic-print-buffer): catch all errors so that the
+	print device can be cleared in all scenarios.
+	(Printer-clear-device): make sure clearing the printer allows it
+	to be used again immediately.
+	(generic-print-region): make sure the default printer face is
+	black-on-white.
+
+2002-04-23  Jerry James  <james@xemacs.org>
+
+	* window-xemacs.el (display-buffer-function): Change doc to
+	reflect new arg.
+	* window-xemacs.el (pre-display-buffer-function): Ditto.
+	* window-xemacs.el (display-buffer): New arg, shrink-to-fit.  If
+	non-nil, make the new window just big enough for its contents.
+	* frame.el (get-frame-for-buffer): Accept new arg, due to above.
+	* frame.el (show-temp-buffer-in-current-frame): Remove broken
+	temp-buffer-shrink-to-fit code.  Tell display-buffer instead.
+
+2002-06-06  Andy Piper  <andy@xemacs.org>
+
+	* custom.el (custom-theme-set-variables): sync :set-after from FSF.
+	(defcustom): ditto.
+	(custom-handle-keyword): ditto.
+
+2002-07-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gutter-items.el (buffers-tab-selection-function): Improve doc.
+	Make obsolete.  Default to nil.
+	(buffers-tab-filter-functions): Improve doc.  Use literal default.
+	Inspired by a patch by John Palmieri.
+
+2002-07-01  Mike Alexander  <mta@arbortext.com>
+
+	* process.el (shell-command-on-region): Don't delete the region
+	before giving it to call-process-region
+
+2002-06-04  Jerry James <james@eecs.ku.edu>
+
+	* find-paths.el (paths-find-architecture-directory): Search in
+	`system-configuration'/`base', not `base'`system-configuration'.
+
+2002-06-23  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* info.el (Info-index): Add missing \ in [ t].
+
+2002-06-11  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* gutter-items.el (gutter-buffers-tab-visible-p,
+	buffers-tab-omit-function, buffers-tab-selection-function,
+	buffers-tab-filter-functions):
+	Doc improvements.
+
+2002-06-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* toolbar.el (toolbar-icon-directory): Document trailing separator.
+
+	* toolbar-items.el (toolbar-news): Fix typo in message string.
+
+2002-06-08  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* dialog.el (yes-or-no-p-dialog-box): 
+	* cmdloop.el (y-or-n-p-minibuf):
+	(yes-or-no-p-minibuf):
+	(yes-or-no-p):
+	(y-or-n-p): 
+	Specify negative answers in docstrings.
+
+2002-05-25  Steve Youngs  <youngs@xemacs.org>
+
+	* package-ui.el (pui-help-echo): Display both installed and author
+	version.  Use a balloon-help window to display extra info like
+	package requires.
+
+2002-05-30  Andy Piper  <andy@xemacs.org>
+
+	* files.el (revert-buffer-internal): don't visit
+	revert-buffer. Kill buffer when not used. Suggested by Mike
+	Alexander <mta@arbortext.com>
+
+2002-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* files.el (revert-buffer): More docstring fiddling.
+
+2002-05-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* files.el (revert-buffer):
+	(revert-buffer-internal):
+	(revert-buffer-insert-file-contents-function):
+	Improve docstrings and comments.
+
+2002-05-08  Andy Piper  <andy@xemacs.org>
+
+	* files.el (revert-buffer): observe noconfirm behavior.
+
+2002-04-09  Andy Piper  <andy@xemacs.org>
+
+	* files.el (revert-buffer): use revert-buffer-internal if it looks
+	like doing so will not result in any user-visible changes.
+	(revert-buffer-internal): new function. Do the actual process of
+	reversion and then see whether the result is any different to what
+	we have already. If it is not then do nothing.
+
+2001-12-11  Andy Piper  <andy@xemacs.org>
+
+	* menubar.el (get-popup-menu-response): re-order so that it works
+	on more sane/facist window systems.
+
+2001-12-03  Andy Piper  <andy@xemacs.org>
+
+	* faces.el (frob-face-property): don't infloop in face frobbing
+	from Jan Vroonhof <jan@xemacs.org>.
+
+2001-11-30  Jan Vroonhof  <jan@xemacs.org>
+
+	* faces.el (frob-face-property): Follow face fall-back hierarchy
+	properly for face properties without an instance. Only do manual
+	copy form 'default in last resort. This handles in particular
+	the case where 'default itself has only a fall-back (which is
+	the case by default on windows).
+
+2001-11-24  Andy Piper  <andy@xemacs.org>
+
+	* printer.el (generic-print-region): set default-frame-plist to
+	nil while creating the printer frame so that sizes reflect the
+	printed page.
+
+	* faces.el (face-complain-about-font): Don't complain on printers.
+
+2002-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
+	
+	* package-net.el: Andy synch.
+	
+2001-12-16  Andy Piper  <andy@xemacs.org>
+
+	* package-get.el (package-get-update-all): Make sure installed.db
+	gets updated after updating packages.
+
+2002-03-28  Ben Wing  <ben@xemacs.org>
+
+	* msw-glyphs.el: Set glyph-contrib-p to nil on hscroll,
+	continuation, truncation so that we don't get line jumpiness from
+	them being larger than the line height.
+
+	* msw-font-menu.el (mswindows-font-menu-font-data): Fix bug.
+
+2001-11-30  Jan Vroonhof  <jan@xemacs.org>
+
+	* font.el (font-window-system-mappings): Add mapping for Gtk
+	(assume identical to X) 
+
+2002-02-04  Andy Piper  <andy@xemacs.org>
+
+	* files.el (convert-standard-filename): Fix for short filename
+	Peter Arius <pas@methodpark.de>
+
+2001-12-10  Christoph Wedler  <Christoph.Wedler@sap.com>
+
+	* list-mode.el (default-choose-completion): completion-base-size
+	should refer to local value in the completion list buffer.
+
+2001-12-03  Didier Verna  <didier@xemacs.org>
+
+	* rect.el: autoload `replace-rectangle'.
+	* keydefs.el (global-map): bind it to `C-x r p'.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.

@@ -32,7 +32,12 @@ Boston, MA 02111-1307, USA.  */
 #undef HAVE_ALLOCA_H
 
 #ifndef NOT_C_CODE
-#ifdef __GNUC__
+#if defined (__CYGWIN__)
+/* We get complaints about redefinitions if we just use the __GNUC__
+   definition: stdlib.h also includes alloca.h, which defines it slightly
+   differently */
+#include <alloca.h>
+#elif defined (__GNUC__)
 #define alloca __builtin_alloca
 #elif defined __DECC
 #include <alloca.h>

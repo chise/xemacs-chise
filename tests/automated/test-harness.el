@@ -99,7 +99,7 @@ The output file's name is made by appending `c' to the end of FILENAME."
 	  (setq body (cons (read buffer) body)))
       (end-of-file nil)
       (error
-       (princ "Unexpected error %S reading forms from buffer\n" error-info)))
+       (princ (format "Unexpected error %S reading forms from buffer\n" error-info))))
     `(lambda ()
        (defvar passes)
        (defvar assertion-failures)

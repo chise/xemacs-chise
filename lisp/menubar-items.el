@@ -147,7 +147,7 @@ which will not be used as accelerators."
       ["Save %_As..." write-file]
       ["Save So%_me Buffers" save-some-buffers]
       "-----"
-      ,@(if (eq system-type 'windows-nt)
+      ,@(if (valid-specifier-tag-p 'msprinter)
 	  '(["Page Set%_up..." generic-page-setup]))
       ["%_Print" generic-print-buffer
        :active (or (valid-specifier-tag-p 'msprinter)
@@ -156,7 +156,7 @@ which will not be used as accelerators."
        :suffix (if (region-active-p) "Selection..."
 		 (if put-buffer-names-in-file-menu (concat (buffer-name) "...")
 		   "..."))]
-      ,@(unless (eq system-type 'windows-nt)
+      ,@(unless (valid-specifier-tag-p 'msprinter)
 	  '(["Prett%_y-Print" ps-print-buffer-with-faces
 	     :active (fboundp 'ps-print-buffer-with-faces)
 	     :suffix (if put-buffer-names-in-file-menu (buffer-name) "")]))

@@ -348,7 +348,8 @@ close_to_reference_time (Widget w, Time reference_time, XEvent *ev)
 {
   return
     reference_time &&
-    (ev->xbutton.time - reference_time < XtGetMultiClickTime (XtDisplay (w)));
+    (ev->xbutton.time - reference_time
+     < (Time) XtGetMultiClickTime (XtDisplay (w)));
 }
 
 /* Size code */

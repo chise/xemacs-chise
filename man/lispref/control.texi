@@ -922,7 +922,7 @@ formatting are explained below.
 This function displays @var{error-object} on @var{stream}.
 @var{error-object} is a cons of error type, a symbol, and error
 arguments, a list.  If the error type symbol of one of its error
-condition superclasses has an @code{display-error} property, that
+condition superclasses has a @code{display-error} property, that
 function is invoked for printing the actual error message.  Otherwise,
 the error is printed as @samp{Error: arg1, arg2, ...}.
 @end defun

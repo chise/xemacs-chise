@@ -2805,6 +2805,7 @@ C_entries (c_ext, inf)
   midtoken = inquote = inchar = incomm = quotednl = FALSE;
   token.valid = savetoken.valid = FALSE;
   cblev = 0;
+  typdefcblev = 0;
   parlev = 0;
   cplpl = (c_ext & C_PLPL) == C_PLPL;
   cjava = (c_ext & C_JAVA) == C_JAVA;

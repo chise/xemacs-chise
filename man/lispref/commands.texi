@@ -1755,7 +1755,7 @@ This variable holds a list of events waiting to be read as command
 input.  The events are used in the order they appear in the list, and
 removed one by one as they are used.
 
-The variable is needed because in some cases a function reads a event
+The variable is needed because in some cases a function reads an event
 and then decides not to use it.  Storing the event in this variable
 causes it to be processed normally, by the command loop or by the
 functions to read command input.

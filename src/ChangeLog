@@ -1,3 +1,426 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-08-19  Andy Piper  <andy@xemacs.org>
+
+	* fileio.c (Ffile_truename): on cygwin using win32 normalize to
+	win32 format.
+
+	* realpath.c (xrealpath): normalize drive spec also so that dir
+	sep chars are not mixed on cygwin.
+
+2002-08-06  Jerry James  <james@xemacs.org>
+
+	* window.c (Fsplit_window): Count only half of the divider width
+	against the left window when splitting horizontally. 
+
+2002-06-24  Andy Piper  <andy@xemacs.org>
+
+	* toolbar-gtk.c (GTK_OUTPUT_BUTTONS_LOOP): output button if whole
+	toolbar was cleared.
+
+	* toolbar-msw.c (mswindows_clear_frame_toolbars): new
+	function. Split out from mswindows_output_frame_toolbars.
+	(mswindows_output_frame_toolbars): move clear pieces to
+	mswindows_output_frame_toolbars.
+
+	* toolbar-gtk.c (gtk_clear_frame_toolbars): new function. Split
+	out from gtk_output_frame_toolbars.
+	(gtk_output_frame_toolbars): move clear pieces to
+	gtk_clear_frame_toolbars.
+
+	* toolbar-x.c (X_OUTPUT_BUTTONS_LOOP): always output buttons when
+	the frame is cleared. How this ever worked before is a mystery.
+	(x_output_frame_toolbars): Only output toolbars.
+	(x_clear_frame_toolbars): new. Clear previous toolbar locations.
+
+	* gutter.c (update_gutter_geometry):
+	Mark frame layout changed.
+	(update_frame_gutter_geometry, update_frame_gutters):
+	Respect frame_layout_changed.
+
+	* console.h (struct console_methods): add
+	clear_frame_toolbars_method.
+
+	* redisplay.c (redisplay_frame): call
+	update_frame_toolbars_geometry and re-order update_frame_toolbars.
+
+	* toolbar.h: declare update_frame_toolbars_geometry.
+
+	* toolbar.c (update_frame_toolbars_geometry): new function. Split
+	out from update_frame_toolbars.  Call clear_frame_toolbars.
+	(update_frame_toolbars): only output, do not change geometry.
+
+	* redisplay.c: add frame_layout_changed.
+
+	* redisplay.h: add frame_layout_changed.
+	(CLASS_RESET_CHANGED_FLAGS): set it.
+	(GLOBAL_RESET_CHANGED_FLAGS): ditto.
+	(CLASS_REDISPLAY_FLAGS_CHANGEDP): test it.
+	(GLOBAL_REDISPLAY_FLAGS_CHANGEDP): ditto.
+
+	* device.h (struct device): add frame_layout_changed.
+	(MARK_DEVICE_FRAME_LAYOUT_CHANGED): new.
+
+	* frame.h (struct frame): add frame_layout_changed.
+	(MARK_FRAME_LAYOUT_CHANGED): new.
+
+2002-06-30  Mike Alexander  <mta@arbortext.com>
+
+	* event-msw.c (mswindows_need_event): Don't wait for a new message
+	if the queue is not empty.  Suggested by Paul Moore.
+
+2002-06-12  Andy Piper  <andy@xemacs.org>
+
+	* frame-msw.c (msprinter_init_frame_3): calculate the frame size
+	for printing on accurately.
+
+2002-06-09  Rick Rankin <rick_rankin@yahoo.com>
+
+	* event-msw.c (mswindows_wnd_proc): Add a handler for the
+	WM_ACTIVATE message. Make sure that the frame is visible if the
+	window is visible. This seemss to fix the problem where XEmacs
+	appears to freeze after switching desktops with certain virtual
+	window managers.
+	(debug_output_mswin_message): Added code to output message
+	parameters for WM_WINDOWPOSCHANGED, 
+	WM_WINDOWPOSCHANGING, WM_MOVE, and WM_SIZE messages.
+
+2002-05-25  Andy Piper  <andy@xemacs.org>
+
+	* select-x.c (vars_of_select_x): Fix docstring of
+	x-selection-strict-motif-ownership
+
+2002-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* keymap.c (get_keymap):
+	Add comment about do_autoload GCPROs own args.
+
+2002-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* bytecode.c (execute_optimized_program): check_opcode ifdef
+	ERROR_CHECK_BYTE_CODE.
+
+2002-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Thanks to Ben Wing and Michael Sperber.
+
+	* eval.c (Fcommand_execute):
+	(Feval):
+	(Ffuncall):
+	(Fmacroexpand_internal):
+	(function_argcount):
+	callint.c (Fcall_interactively):
+	Add comment about do_autoload GCPROs own args.
+
+	* (do_autoload): GCPRO both args as well as local Lisp_Object.
+
+	* eval.c (Ffuncall): Extra braces to placate GCC.
+
+2002-08-10  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* backtrace.h (grow_specpdl):
+	(SPECPDL_RESERVE):
+	* EmacsFrame.c (EmacsFrameSetValues):
+	* eval.c (grow_specpdl):
+	* ExternalShell.c (hack_event_masks_1):
+	* glyphs-x.c (convert_EImage_to_XImage): 
+	(x_finalize_image_instance):
+	* ralloc.c (page_size):
+	(r_alloc_sbrk):
+	* xgccache.c (gc_cache_hash):
+	Fix unsigned comparison warnings.
+
+2002-07-29  Jerry James  <james@xemacs.org>
+
+	* lread.c (locate_file): Any nonnegative return value indicates
+	success if MODE is nonnegative.
+
+2002-08-03  Brian A Palmer  <bpalmer@rescomp.Stanford.EDU>
+
+	* emacs.c (Fsplit_string_by_char): Make 2nd arg SEPCHAR a required
+	argument. 
+
+2002-07-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* process-unix.c (unix_send_process): #ifdef the coding_stream member.
+
+	* dumper.c (pdump_get_indirect_count):
+	(pdump_scan_by_alignment):
+	(pdump_dump_root_struct_ptrs):
+	(pdump_dump_rtables):
+	(pdump_dump_root_objects):
+	(pdump):
+	* nas.c (WaveOpenDataForReading):
+	* fns.c (print_bit_vector):
+	* font-lock.c (SINGLE_SYNTAX_STYLE):
+	* glyphs.c (check_for_ignored_expose):
+	(find_matching_subwindow):
+	* glyphs-eimage.c:
+	* imgproc.c (get_histogram):
+	* redisplay.c (point_in_line_start_cache):
+	* redisplay-output.c (redisplay_unmap_subwindows):
+	* symbols.c (defsymbol_massage_name_1):
+	(defkeyword_massage_name):
+	(deferror_massage_name_and_message):
+	* redisplay-x.c (x_output_string): 
+	* emacs.c (run_temacs_argv_size, run_temacs_args_size):
+	* frame.h (struct frame):
+	* filelock.c (current_lock_owner):
+	* doprnt.c (emacs_doprnt_1):
+	* lisp.h (struct Lisp_Bit_Vector):
+	(DO_REALLOC):
+	Fix warnings.
+
+2002-02-13  Ben Wing  <ben@xemacs.org>
+
+	* event-stream.c (reset_key_echo):
+	* event-stream.c (reset_this_command_keys):
+	* event-stream.c (execute_command_event):
+	If console is dead as a result of C-x 5 0, then post-command stuff
+	needs to be careful and do only non-console-specific stuff.
+
+2002-07-01  Mike Sperber <mike@xemacs.org>
+
+	* process-unix.c (unix_send_process): Mark coding_outstream as
+	non-open upon SIGPIPE.
+
+	* event-stream.c (Fnext_event): Reorder switch cases to something
+	that makes sense.
+
+2001-08-13  Dmitry Astapov  <adept@umc.com.ua>
+
+	* event-Xt.c (maybe_define_x_key_as_self_inserting_character):
+	Don't bogusly reinitialize ascii_character property.
+
+2002-07-08  Mike Sperber <mike@xemacs.org>
+
+	* process.c (Fstart_process_internal): Do error checking before we
+	fork off the child, so the child can't muck with the state of the
+	parent.
+
+2002-07-08  Mike Sperber <mike@xemacs.org>
+
+	* ralloc.c (init_ralloc): Allocate properly for pdump.
+
+2002-06-12  Andy Piper  <andy@xemacs.org>
+
+	* glyphs.c (query_string_geometry): check the string.
+
+	* glyphs-widget.c (widget_logical_unit_height): cope with nil
+	widget names.
+
+2002-06-17  Jerry James  <james@xemacs.org>
+
+	* sysdll.c: Remove RTLD_GLOBAL initialization.
+	* sysdll.c (dll_open): Do not use RTLD_GLOBAL.
+
+2002-06-25  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* search.c (skip_chars): Port Ben's crash fix and efficiency patch.
+
+2002-05-16  Mathias Grimmberger  <mgri@zaphod.sax.de>
+
+	* sysdep.c (sys_rename): Make sys_rename work for the case where
+	Windows rename sets errno to EACCES if target file exists.
+
+2002-05-21  Jonathan Harris  <jonathan@xemacs.org>
+
+	* device-msw.c (mswindows_handle_page_setup_dialog_box):
+	Fix detection of metric units to work on Win95
+
+2002-05-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* syswindows.h: #define LOCALE_RETURN_NUMBER.  Why, I don't know.
+
+2002-04-25  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (create_text_block): Remove extra comment trailer.
+
+2002-04-24  Andy Piper  <andy@xemacs.org>
+
+	* redisplay.c (create_text_block): Don't actually add propagation
+	data if the line ends after we have added a glyph.
+
+2002-04-22  Andy Piper  <andy@xemacs.org>
+
+	* extents.c (extent_fragment_update): check for glyphs we have
+	previously displayed.
+	* extents.c (print_extent_1): warning removal.
+	* extents.h: change prototype.
+	* redisplay-output.c (redisplay_normalize_glyph_area): calculate
+	widths correctly for wide glyphs.
+	* redisplay.c (position_redisplay_data_type): add end_glyph_width.
+	* redisplay.c (prop_type): add PROP_GLYPH.
+	* redisplay.c (struct prop_block): add glyph type
+	* redisplay.c (add_glyph_rune): when adding part of a glyph add it
+	to the propagation data.
+	* redisplay.c (create_text_block): if there is a glyph in the
+	propagation data use it to salt extent_fragment_update.
+	* redisplay.c (create_string_text_block): ditto.
+
+2002-04-13  Nix  <nix@esperi.demon.co.uk>
+
+	* redisplay.h (struct rune): Add ascent, descent, and yoffset fields.
+	* redisplay-output.c (compare_runes): Compare them.
+	* redisplay.c: Update copyright date.
+	* redisplay.c (pos_data): Add need_baseline_computation field.
+	* redisplay.c (add_glyph_rune): Update ascent, descent, and
+	need_baseline_computation; zero yoffset. Set max_pixmap_height
+	for all pixmaps, not just automatically positioned ones.
+	* redisplay.c (calculate_yoffset): New, compute yoffset values.
+	* redisplay.c (calculate_baseline): New, compute textual baseline.
+	* redisplay.c (add_glyph_rune): Call them.
+	* redisplay.c (create_text_block): Likewise.
+	* redisplay.c (create_overlay_glyph_block): Likewise.
+	* redisplay.c (add_margin_runes): Likewise.
+	* redisplay.c (create_string_text_block): Likewise. Fix tabdamage.
+
+	* redisplay.h: (redisplay_calculate_display_boxes): Change prototype.
+	* redisplay-output.c (redisplay_calculate_display_boxes): Use yoffset.
+	* redisplay-msw.c (mswindows_output_blank): Pass 0 as yoffset.
+	* redisplay-msw.c (mswindows_output_string): Likewise.
+	* redisplay-msw.c (mswindows_output_display_block): Pass yoffset.
+	* redisplay-gtk.c (gtk_output_display_block): Likewise.
+	* redisplay-x.c (x_output_display_block): Likewise.
+
+2002-03-28  Ben Wing  <ben@xemacs.org>
+
+	* redisplay.c: Fixed bug in redisplay
+	w.r.t. hscroll/truncation/continuation glyphs causing jumping up
+	and down of the lines, since they're bigger than the line
+	size. (It was seen most obviously when there's a horizontal scroll
+	bar, e.g. do C-h a glyph or something like that.) The problem was
+	that the glyph-contrib-p setting on glyphs was ignored even if it
+	was set properly, which it wasn't until now.
+
+2002-04-24  Andy Piper  <andy@xemacs.org>
+
+	* lisp.h (Dynarr_end): Fix definition.
+
+2002-02-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* redisplay.c (mark_redisplay): Remove call to
+	update_frame_window_mirror.
+
+2001-11-15  Andy Piper  <andy@xemacs.org>
+
+	* win32.c (Fmswindows_shell_execute): fix handling of URL's under
+	cygwin (again).
+
+2002-02-13  Andy Piper  <andy@xemacs.org>
+
+	* event-msw.c (mswindows_wnd_proc): only mark the frame visible if
+	we did in fact enqueue the XM_MAPFRAME event.
+
+2002-01-15  Adrian Aichner  <adrian@xemacs.org>
+
+	* event-msw.c (mswindows_wnd_proc): Add handling of WM_SHOWWINDOW
+	to fix problem switching between virtual desktops under virtuawin
+	virtual window manager.
+
+2001-07-30  Adrian Aichner  <adrian@xemacs.org>
+
+	* event-msw.c: Typo fix.
+	* event-msw.c (mswindows_wnd_proc): Set FRAME_VISIBLE_P after
+	magic XM_MAPFRAME event has been sent.
+
+2001-11-23  Andy Piper  <andy@xemacs.org>
+
+	* event-msw.c (mswindows_wnd_proc): Don't pump mousewheel events.
+
+2001-11-21  Andy Piper  <andy@xemacs.org>
+
+	* scrollbar-msw.c (mswindows_handle_mousewheel_event): cope with
+	mouse events outside the frame.
+
+2002-03-20  Andy Piper  <andy@xemacs.org>
+
+	* menubar-msw.c (mswindows_popup_menu): warning removal.
+	* dialog-msw.c (dialog_popped_down): ditto.
+
+2001-12-11  Andy Piper  <andy@xemacs.org>
+
+	* dialog-msw.c (dialog_popped_down): new function. unset popup_up_p.
+	* dialog-msw.c (mswindows_make_dialog_box_internal): set
+	popup_up_p.
+	* menubar-msw.c (unsafe_handle_wm_initmenupopup_1): ditto.
+	* menubar-msw.c (mswindows_handle_wm_command): ditto.
+	* menubar-msw.c (mswindows_popup_menu): ditto.
+
+2001-10-29  Andy Piper  <andy@xemacs.org>
+
+	* dialog-msw.c (handle_directory_dialog_box): quit if the user
+	cancels.
+
+2002-01-03  Andy Piper  <andy@xemacs.org>
+
+	* realpath.c (ABS_LENGTH): dtrt for cygwin systems using drive
+	letters.
+	(xrealpath): ditto.
+
+2002-03-29  Jonathan Harris  <jonathan@xemacs.org>
+
+	* device-msw.c (plist_get_margin): Add arg specifying mm or inches
+	* device-msw.c (plist_set_margin): Fix multiplicand used for mm
+	* device-msw.c (mswindows_handle_page_setup_dialog_box):
+	Detect and handle case where machine is set up for metric units
+
+2002-04-02  Andy Piper  <andy@xemacs.org>
+
+	* dired-msw.c (mswindows_get_files): 
+	* nt.c (mswindows_stat): SetErrorMode() so that file errors are
+	completely handled by XEmacs. Suggested by Thomas Vogler
+	<mail@thomas-vogler.de>.
+
+2001-11-14  Andy Piper  <andy@xemacs.org>
+
+	* nt.c (REG_ROOT): change registry key to XEmacs.
+
+2002-04-27  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_widget_instantiate): remove dead-code.
+
+2002-04-26  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-msw.c (mswindows_map_subwindow): observe :initial-focus
+	behavior.
+
+2002-03-14  Mike Alexander  <mta@arbortext.com>
+
+	* event-msw.c (mswindows_unwait_process): New, remove process from
+	wait list
+	* process-nt.c (nt_finalize_process_data): Call
+	mswindows_unwait_process
+	* console-msw.h: Declare mswindows_unwait_process
+
+2002-05-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* editfns.c (Fdecode_time):
+	(Fformat_time_string):
+	Check for invalid time.  Thanks to Nick Pakoulin <npak@ispras.ru>.
+	(make_time): Warning elimination (change arg name).
+
+2001-11-24  Andy Piper  <andy@xemacs.org>
+
+	* window.c (Fsplit_window): Doc return type.
+
+2002-04-01  Andy Piper  <andy@xemacs.org>
+
+	* emacs.c (Fkill_emacs): Only output message box in interactive
+	mode.
+
+2002-04-26  Andy Piper  <andy@xemacs.org>
+ 
+	* config.h.in: pull in 21.5.x change to stop alloca warnings under
+	cygwin.
+
+2002-03-18  Gregory Steuck  <greg-xemacs-patch@nest.cx>
+
+	* unexelf.c:  Use ELFSIZE or define from _LP64 to indicate a 64
+	bit platform.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.

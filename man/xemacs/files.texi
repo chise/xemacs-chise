@@ -643,31 +643,34 @@ version of the file.  To do this, use @kbd{M-x revert-buffer}, which
 operates on the current buffer.  Since reverting a buffer can result in
 very extensive changes, you must confirm it with @kbd{yes}.
 
-  If the current buffer has been auto-saved more recently than it has been
-saved explicitly, @code{revert-buffer} offers to read the auto save file
-instead of the visited file (@pxref{Auto Save}).  Emacs asks you about
-the auto-save file before the request for confirmation of the
-@kbd{revert-buffer} operation, and demands @kbd{y} or @kbd{n}
-as an answer.  If you have started to type @kbd{yes} for confirmation
-without realizing that the auto-save question was going to be asked, the
-@kbd{y} will answer that question, but the @kbd{es} will not be valid
-confirmation.  This gives you a chance to cancel the operation with
-@kbd{C-g} and try again with the answers you really intend.
+  You may request that @code{revert-buffer} check for an auto-save file
+that is more recent than the visited file by providing a prefix
+argument.  If a recent auto-save file exists, @code{revert-buffer}
+offers to read the auto-save file instead of the visited file
+(@pxref{Auto Save}).  Emacs asks you about the auto-save file before the
+request for confirmation of the @kbd{revert-buffer} operation, and
+demands @kbd{y} or @kbd{n} as an answer.  If you have started to type
+@kbd{yes} to confirm the revert operation, the @kbd{y} will answer the
+question about using the auto-save file, but the @kbd{es} will not be
+valid confirmation for the reversion.  This gives you a chance to cancel
+the operation with @kbd{C-g} and try again with the answers you really
+intend.
 
-  @code{revert-buffer} keeps point at the same distance (measured in
-characters) from the beginning of the file.  If the file was edited only
-slightly, you will be at approximately the same piece of text after
-reverting as before.  If you have made more extensive changes, the value of
-point in the old file may bring you to a totally different piece of text
-than your last editing point.
+  @code{revert-buffer} preserves the value of point (in characters from
+the beginning of the file).  If the file was edited only slightly, you
+will be at approximately the same piece of text after reverting as
+before.  If you have made more extensive changes, after reversion point
+may be in a totally different context than your last edits before
+reversion.
 
 A buffer reverted from its visited file is marked ``not modified'' until
-you make a change.
+you make a change.  The buffer's modes will also be recalculated, by
+@code{normal-mode}.
 
   Some kinds of buffers whose contents reflect data bases other than files,
 such as Dired buffers, can also be reverted.  For them, reverting means
-recalculating their contents from the appropriate data.  Buffers
-created randomly with @kbd{C-x b} cannot be reverted; @code{revert-buffer}
+refreshing their contents from the appropriate data.  Buffers created
+randomly with @kbd{C-x b} cannot be reverted; @code{revert-buffer}
 reports an error when asked to do so.
 
 @node Auto Save, Version Control, Reverting, Files
