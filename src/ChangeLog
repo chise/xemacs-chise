@@ -1,3 +1,13 @@
+1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Qvietnamese_viscii_lower): New variable.
+	(Qvietnamese_viscii_upper): New variable.
+	(Fdefine_charset_alias): New function.
+	(syms_of_mule_charset): Add new function `define-charset-alias'.
+	(syms_of_mule_charset): Rename charset `vietnamese-viscii-*' to
+	`latin-viscii-*'; define `vietnamese-viscii-*' as aliases for
+	`latin-viscii-*'.
+
 1999-10-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* char-ucs.h (MIN_CHAR_OBS_94x94): New macro.
