@@ -11,6 +11,11 @@
 	instead of `=ucs@gb'.
 	(C2-677E): Use `<-denotational' for U+99A7.
 
+2004-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el: Check `save-charset-properties' is defined before
+	calling `save-charset-properties'.
+
 2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el: Add mappings between CJK Ext B and CNS
