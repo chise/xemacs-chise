@@ -48,7 +48,8 @@
   '((ideographic-radical . 179)	; ⾲
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (=cns11643-5	. #x442E)	; &M-43239;
+    (=ucs		. #x29401)	; 𩐁
+    (=cns11643-5	. #x442E)	; &I-C5-442E;
     (=daikanwa		. 43239)	; &I-M-43239;
     ))
 (define-char
@@ -72,7 +73,8 @@
   '((ideographic-radical . 179)	; ⾲
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (=cns11643-5	. #x5252)	; &M-43242;
+    (=ucs		. #x29403)	; 𩐃
+    (=cns11643-5	. #x5252)	; &I-C5-5252;
     (=daikanwa		. 43242)	; &I-M-43242;
     ))
 (define-char
@@ -246,14 +248,13 @@
   '((ideographic-radical . 179)	; ⾲
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (=daikanwa		. 43257)	; &M-43257;
-    ))
-(define-char
-  '((morohashi-daikanwa	43257 0 2)
-    (ideographic-radical . 179)	; ⾲
-    (ideographic-strokes . 12)
-    (total-strokes	 . 21)
-    (=cns11643-5	. #x7173)	; &C5-7173;
+    (=ucs		. #x2940C)	; 𩐌
+    (->subsumptive
+     ((=daikanwa	  . 43257)	; &M-43257;
+      )
+     ((=cns11643-5	  . #x7173)	; &C5-7173;
+      (=ucs@iso		  . #x2940C)	; &C5-7173;
+      ))
     ))
 (define-char
   '((ideographic-radical . 179)	; ⾲
