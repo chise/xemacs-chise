@@ -2197,7 +2197,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((name*		  . "ideographic radical hood")
+     ((name*		  . "ideographic component hood")
       (chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
       )
      ((ucs		  . #x52A9)	; åŠ©
@@ -2208,9 +2208,12 @@
     ))
 (define-char
   '((morohashi-daikanwa	2392 0 1)
-    (ideographic-radical . 19)	; â¼’
-    (ideographic-strokes . 9)
-    (cns-radical	 . 73)	; â½ˆ
+    (ideographic-	(:radical	19 ; â¼’
+			 :strokes	9
+			 :sources	(morohashi-daikanwa ucs))
+			(:radical	73 ; â½ˆ
+			 :strokes	7
+			 :sources	(cns-11643)))
     (total-strokes	 . 11)
     (hanyu-dazidian	2 1512 12)
     (ideographic-structure
