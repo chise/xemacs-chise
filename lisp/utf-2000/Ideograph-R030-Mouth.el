@@ -1259,6 +1259,7 @@
     (total-strokes	 . 6)
     (chinese-cns11643-6 . #x2428)	; ø»›¹‘
     (ideograph-daikanwa . 03290)	; ø¸€³š
+    (chinese-big5-cdp	. #x8BF3)	; ý¢€ˆ¯³
     (china3-jef		. #x45FB)	; øº„—»
     (ucs		. #x20BB7)	; ð ®·
     ))
