@@ -644,14 +644,16 @@
     (ucs			. #x20077)	; ð ·
     ))
 (define-char
-  '((ideographic-radical . 2)	; â¼
-    (ideographic-strokes . 15)
+  '((ideographic-	(:radical	2 ; â¼
+			 :strokes	15
+			 :sources	(cns-11643))
+			(:radical	6 ; â¼…
+			 :strokes	15
+			 :sources	(morohashi-daikanwa ucs)))
     (total-strokes	 . 16)
-    (->same-ideograph
-     ((ideograph-daikanwa . 00246)	; ø¸€ƒ¶
-      ))
     (hanyu-dazidian	1 360 8)
     (chinese-cns11643-7		. #x2C3C)	; ø»ž™
+    (ideograph-daikanwa		. 00246)	; ø¸€ƒ¶
     (ideograph-hanziku-1	. #xF043)	; ý¢€Ÿƒ
     (ucs			. #x2011D)	; ð „
     ))

@@ -1035,15 +1035,21 @@
     ))
 (define-char
   '((=>ucs		. #x6700)	; æœ€
-    (ideographic-radical . 13)	; â¼Œ
-    (ideographic-strokes . 10)
+    (ideographic-	(:radical	13 ; â¼Œ
+			 :strokes	10
+			 :sources	(cns-11643))
+			(:radical	14 ; â¼
+			 :strokes	10
+			 :sources	(morohashi-daikanwa)))
     (total-strokes	 . 12)
-    (->same-ideograph
-     ((ideograph-daikanwa . 01597)	; ø¸€˜½
-      ))
+    (<-original-ideograph
+     (:char	((ideograph-daikanwa . 14301)	; ø¸ƒŸ
+		 )
+      :sources	(seiji-tsuu morohashi-daikanwa)))
     (hanyu-dazidian	2 1516 8)
     (chinese-cns11643-1 . #x5E32)	; ø»’œ“
     (chinese-big5	. #xB3CC)	; ý¢€‹Œ
+    (ideograph-daikanwa . 01597)	; ø¸€˜½
     ))
 (define-char
   '((=>ucs		. #x34BE)	; ã’¾
