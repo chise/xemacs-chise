@@ -9655,7 +9655,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs@unicode	    . #x66F4)	; &UU+66F4;
+       ((=gb2312	    . #x387C)	; &GT-18079; [24-92]
 	))
       (shinjigen-1	  . 269)
       (shinjigen-2	  . 269)
