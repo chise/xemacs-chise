@@ -518,12 +518,20 @@
     (japanese-jisx0208-1978	. #x514B)	; ø»ƒƒŠ
     ))
 (define-char
-  '((ideographic-radical . 13)	; â¼Œ
+  '((->ucs		. #x665F)	; æ™Ÿ
+    (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (cns-total-strokes	. 10)
-    (chinese-cns11643-5 . #x2B78)	; ø»™º¯
+    (comment		. "M-13950 is different.")
     (ideograph-daikanwa . 01546)	; ø¸€˜Š
+    ))
+(define-char
+  '((->ucs		. #x665F)	; æ™Ÿ
+    (morohashi-daikanwa	1546 0 1)
+    (ideographic-radical . 13)	; â¼Œ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 10)
+    (chinese-cns11643-5 . #x2B78)	; ø»™º¯
     ))
 (define-char
   '((->ucs		. #x34BC)	; ã’¼
