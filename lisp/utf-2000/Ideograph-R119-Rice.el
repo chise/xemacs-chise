@@ -393,6 +393,8 @@
     (japanese-jisx0208		. #x4A34)	; ø»‡Œ©
     (korean-ksc5601		. #x5D4F)	; ø»‰³‚
     (ideograph-daikanwa		. 26872)	; ø¸†£¸
+    (=jef-china3		. #x5EF3)	; øº…»³
+    (mojikyo			. 054342)	; ý €‘†
     ))
 (define-char
   '((morohashi-daikanwa	26872 0 0)
@@ -404,6 +406,7 @@
     (chinese-isoir165		. #x375B)	; ø»¢
     (chinese-cns11643-1		. #x573E)	; ø»’’
     (japanese-jisx0208-1990	. #x4A34)	; ø½Š²
+    (mojikyo			. 026872)	; ý €†£¸
     (ucs			. #x7C89)	; ç²‰
     ))
 (define-char
