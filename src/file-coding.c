@@ -2834,10 +2834,16 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
 	    {
 	      unsigned char e1, e2;
 
-	      Dynarr_add (dst, LEADING_BYTE_JAPANESE_JISX0208);
 	      DECODE_SJIS (ch, c, e1, e2);
+#ifdef UTF2000
+	      DECODE_ADD_UCS_CHAR(MAKE_CHAR(Vcharset_japanese_jisx0208,
+					    e1 & 0x7F,
+					    e2 & 0x7F), dst);
+#else
+	      Dynarr_add (dst, LEADING_BYTE_JAPANESE_JISX0208);
 	      Dynarr_add (dst, e1);
 	      Dynarr_add (dst, e2);
+#endif
 	    }
 	  else
 	    {
@@ -2853,8 +2859,13 @@ decode_coding_sjis (Lstream *decoding, CONST unsigned char *src,
 	    ch = c;
 	  else if (BYTE_SJIS_KATAKANA_P (c))
 	    {
+#ifdef UTF2000
+	      DECODE_ADD_UCS_CHAR(MAKE_CHAR(Vcharset_katakana_jisx0201,
+					    c & 0x7F, 0), dst);
+#else
 	      Dynarr_add (dst, LEADING_BYTE_KATAKANA_JISX0201);
 	      Dynarr_add (dst, c);
+#endif
 	    }
 	  else
 	    DECODE_ADD_BINARY_CHAR (c, dst);
@@ -2879,10 +2890,82 @@ encode_coding_sjis (Lstream *encoding, CONST unsigned char *src,
   unsigned int flags  = str->flags;
   unsigned int ch     = str->ch;
   eol_type_t eol_type = CODING_SYSTEM_EOL_TYPE (str->codesys);
+#ifdef UTF2000
+  unsigned char char_boundary = str->iso2022.current_char_boundary;
+#endif
 
   while (n--)
     {
       c = *src++;
+#ifdef UTF2000
+      switch (char_boundary)
+	{
+	case 0:
+	  if ( c >= 0xfc )
+	    {
+	      ch = c & 0x01;
+	      char_boundary = 5;
+	    }
+	  else if ( c >= 0xf8 )
+	    {
+	      ch = c & 0x03;
+	      char_boundary = 4;
+	    }
+	  else if ( c >= 0xf0 )
+	    {
+	      ch = c & 0x07;
+	      char_boundary = 3;
+	    }
+	  else if ( c >= 0xe0 )
+	    {
+	      ch = c & 0x0f;
+	      char_boundary = 2;
+	    }
+	  else if ( c >= 0xc0 )
+	    {
+	      ch = c & 0x1f;
+	      char_boundary = 1;
+	    }
+	  else
+	    {
+	      ch = 0;
+	      if (c == '\n')
+		{
+		  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
+		    Dynarr_add (dst, '\r');
+		  if (eol_type != EOL_CR)
+		    Dynarr_add (dst, c);
+		}
+	      else
+		Dynarr_add (dst, c);
+	      char_boundary = 0;
+	    }
+	  break;
+	case 1:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  {
+	    Lisp_Object charset;
+	    unsigned int c1, c2, s1, s2;
+	    
+	    BREAKUP_CHAR (ch, charset, c1, c2);
+	    if (EQ(charset, Vcharset_katakana_jisx0201))
+	      {
+		Dynarr_add (dst, c1 | 0x80);
+	      }
+	    else if (EQ(charset, Vcharset_japanese_jisx0208))
+	      {
+		ENCODE_SJIS (c1 | 0x80, c2 | 0x80, s1, s2);
+		Dynarr_add (dst, s1);
+		Dynarr_add (dst, s2);
+	      }
+	  }
+	  char_boundary = 0;
+	  break;
+	default:
+	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  char_boundary--;
+	}
+#else
       if (c == '\n')
 	{
 	  if (eol_type != EOL_LF && eol_type != EOL_AUTODETECT)
@@ -2919,10 +3002,14 @@ encode_coding_sjis (Lstream *encoding, CONST unsigned char *src,
 	      ch = 0;
 	    }
 	}
+#endif
     }
 
   str->flags = flags;
   str->ch    = ch;
+#ifdef UTF2000
+  str->iso2022.current_char_boundary = char_boundary;
+#endif
 }
 
 DEFUN ("decode-shift-jis-char", Fdecode_shift_jis_char, 1, 1, 0, /*
