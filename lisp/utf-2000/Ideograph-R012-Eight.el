@@ -28,6 +28,15 @@
     (ucs		. #x516B)	; å…«
     ))
 (define-char
+  '((=>ucs		. #x516B)	; å…«
+    (morohashi-daikanwa	1450 0 1)
+    (ideographic-radical . 12)	; â¼‹
+    (ideographic-strokes . 0)
+    (total-strokes	 . 2)
+    (ideograph-gt-pj-k1 . #x3768)	; ý¡„€€»
+    (ideograph-gt-k	. 00059)	; ý¡„€€»
+    ))
+(define-char
   '((ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
