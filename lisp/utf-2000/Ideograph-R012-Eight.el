@@ -48,7 +48,10 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((ideograph-daikanwa . 01450)	; ø¸€–ª
+     ((japanese-jisx0208-1978	  . #x482C)	; ø»‚µ
+      (japanese-jisx0208	  . #x482C)	; ø»‡‰¥
+      (korean-ksc5601		  . #x7822)	; ø»Š™¿
+      (ideograph-daikanwa	  . 01450)	; ø¸€–ª
       )
      ((chinese-big5-cdp	  . #x8AFD)	; åŽ¶
       (ucs		  . #x53B6)	; åŽ¶
@@ -155,7 +158,10 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((ideograph-daikanwa . 01450)	; ø¸€–ª
+     ((japanese-jisx0208-1978	  . #x482C)	; ø»‚µ
+      (japanese-jisx0208	  . #x482C)	; ø»‡‰¥
+      (korean-ksc5601		  . #x7822)	; ø»Š™¿
+      (ideograph-daikanwa	  . 01450)	; ø¸€–ª
       )
      ((chinese-big5-cdp	  . #x8BCD)	; ï•…
       ))

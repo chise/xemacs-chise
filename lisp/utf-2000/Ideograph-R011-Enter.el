@@ -156,7 +156,10 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((ideograph-daikanwa . 01415)	; ø¸€–‡
+     ((japanese-jisx0208-1978	  . #x467E)	; ø»‚³³
+      (japanese-jisx0208	  . #x467E)	; ø»‡‡»
+      (korean-ksc5601		  . #x6C7D)	; ø»Š‰²
+      (ideograph-daikanwa	  . 01415)	; ø¸€–‡
       )
      ((ucs		  . #x738B)	; çŽ‹
       ))
