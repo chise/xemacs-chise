@@ -276,6 +276,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (total-strokes	 . 4)
+    (<-radical
+     ((ucs		  . #x722B)	; çˆ«
+      ))
     (ideograph-cdp	. -493)
     (chinese-big5-cdp	. #x8B58)	; ý¢€ˆ­˜
     (ucs		. #x2EA4)	; âº¤
@@ -285,6 +288,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-radical
+     ((ideograph-daikanwa . 19655)	; ø¸„³‡
+      ))
     (ucs		. #x2EA5)	; âº¥
     ))
 (define-char
