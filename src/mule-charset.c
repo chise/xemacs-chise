@@ -859,6 +859,16 @@ NEW-NAME is the name of the new charset.  Return the new charset.
   return new_charset;
 }
 
+DEFUN ("define-charset-alias", Fdefine_charset_alias, 2, 2, 0, /*
+Define symbol ALIAS as an alias for CHARSET.
+*/
+       (alias, charset))
+{
+  CHECK_SYMBOL (alias);
+  charset = Fget_charset (charset);
+  return Fputhash (alias, charset, Vcharset_hash_table);
+}
+
 /* #### Reverse direction charsets not yet implemented.  */
 #if 0
 DEFUN ("charset-reverse-direction-charset", Fcharset_reverse_direction_charset,
@@ -1231,6 +1241,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fmake_charset);
   DEFSUBR (Fmake_reverse_direction_charset);
   /*  DEFSUBR (Freverse_direction_charset); */
+  DEFSUBR (Fdefine_charset_alias);
   DEFSUBR (Fcharset_from_attributes);
   DEFSUBR (Fcharset_short_name);
   DEFSUBR (Fcharset_long_name);
