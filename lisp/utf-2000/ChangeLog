@@ -1,3 +1,9 @@
+2003-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* update-cdb.el: Must use `function-max-args' instead of
+	`function-min-args' to detect optional argument of
+	`char-attribute-list'.
+
 2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* update-cdb.el (system-char-database-directory): Use "chise-db"
