@@ -1,3 +1,17 @@
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ideograph_daikanwa_2): New variable.
+	(Qideograph_daikanwa_2): New variable.
+	(syms_of_mule_charset): Add new symbol `ideograph-daikanwa-2'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`ideograph-daikanwa-2'; use `LEADING_BYTE_DAIKANWA_3' instead of
+	`LEADING_BYTE_DAIKANWA'.
+
+	* char-ucs.h (LEADING_BYTE_DAIKANWA_0): New macro.
+	(LEADING_BYTE_DAIKANWA_1): New macro.
+	(LEADING_BYTE_DAIKANWA_2): New macro.
+	(LEADING_BYTE_DAIKANWA_3): Renamed from `LEADING_BYTE_DAIKANWA'.
+
 2001-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Change
