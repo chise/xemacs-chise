@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -113,8 +113,9 @@
    ((symbolp kb)
     nil)))
 
-(defun insert-char-data (char &optional readable
-			      attributes ccs-attributes)
+(defun insert-char-attributes (char &optional readable
+				    attributes ccs-attributes
+				    column)
   (setq attributes
 	(if attributes
 	    (copy-sequence attributes)
@@ -123,365 +124,400 @@
 	(if ccs-attributes
 	    (copy-sequence ccs-attributes)
 	  (sort (charset-list) #'char-attribute-name<)))
+  (unless column
+    (setq column (current-column)))
   (let (name value has-long-ccs-name rest
-	radical strokes)
-    (save-restriction
-      (narrow-to-region (point)(point))
-      (insert "(define-char
-  '(")
-      (when (setq value (get-char-attribute char 'name))
-	(insert (format
-		 (if (> (length value) 47)
-		     "(name . %S)
-    "
-		   "(name\t\t. %S)
-    ")
-		 value))
-	(setq attributes (delq 'name attributes))
-	)
-      (when (setq value (get-char-attribute char 'script))
-	(insert (format "(script\t\t%s)
-    "
-			(mapconcat (function prin1-to-string)
-				   value " ")))
-	(setq attributes (delq 'script attributes))
-	)
-      (when (setq value (get-char-attribute char '->ucs))
-	(insert (format "(->ucs\t\t. #x%04X)\t; %c
-    "
-			value (decode-char 'ucs value)))
-	(setq attributes (delq '->ucs attributes))
-	)
-      (when (setq value (get-char-attribute char 'general-category))
-	(insert (format
-		 "(general-category\t%s) ; %s
-    "
-		 (mapconcat (lambda (cell)
-			      (format "%S" cell))
-			    value " ")
-		 (cond ((rassoc value unidata-normative-category-alist)
-			"Normative Category")
-		       ((rassoc value unidata-informative-category-alist)
-			"Informative Category")
-		       (t
-			"Unknown Category"))))
-	(setq attributes (delq 'general-category attributes))
-	)
-      (when (setq value (get-char-attribute char 'bidi-category))
-	(insert (format "(bidi-category\t. %S)
-    "
-			value))
-	(setq attributes (delq 'bidi-category attributes))
-	)
-      (unless (eq (setq value (get-char-attribute char 'mirrored 'empty))
-		  'empty)
-	(insert (format "(mirrored\t\t. %S)
-    "
-			value))
-	(setq attributes (delq 'mirrored attributes))
-	)
-      (cond
-       ((setq value (get-char-attribute char 'decimal-digit-value))
-	(insert (format "(decimal-digit-value . %S)
-    "
-			value))
-	(setq attributes (delq 'decimal-digit-value attributes))
-	(when (setq value (get-char-attribute char 'digit-value))
-	  (insert (format "(digit-value\t . %S)
-    "
-			  value))
-	  (setq attributes (delq 'digit-value attributes))
-	  )
-	(when (setq value (get-char-attribute char 'numeric-value))
-	  (insert (format "(numeric-value\t . %S)
-    "
-			  value))
-	  (setq attributes (delq 'numeric-value attributes))
-	  )
-	)
-       (t
-	(when (setq value (get-char-attribute char 'digit-value))
-	  (insert (format "(digit-value\t. %S)
-    "
-			  value))
-	  (setq attributes (delq 'digit-value attributes))
-	  )
-	(when (setq value (get-char-attribute char 'numeric-value))
-	  (insert (format "(numeric-value\t. %S)
-    "
-			  value))
-	  (setq attributes (delq 'numeric-value attributes))
-	  )))
-      (when (setq value (get-char-attribute char 'iso-10646-comment))
-	(insert (format "(iso-10646-comment\t. %S)
-    "
-			value))
-	(setq attributes (delq 'iso-10646-comment attributes))
-	)
-      (when (setq value (get-char-attribute char 'morohashi-daikanwa))
-	(insert (format "(morohashi-daikanwa\t%s)
-    "
-			(mapconcat (function prin1-to-string) value " ")))
-	(setq attributes (delq 'morohashi-daikanwa attributes))
-	)
-      (setq radical nil
-	    strokes nil)
-      (when (setq value (get-char-attribute char 'ideographic-radical))
-	(setq radical value)
-	(insert (format "(ideographic-radical . %S)\t; %c
-    "
-			radical
-			(aref ideographic-radicals radical)))
-	(setq attributes (delq 'ideographic-radical attributes))
-	)
-      (when (setq value (get-char-attribute char 'ideographic-strokes))
-	(setq strokes value)
-	(insert (format "(ideographic-strokes . %S)
-    "
-			strokes))
-	(setq attributes (delq 'ideographic-strokes attributes))
-	)
-      (when (setq value (get-char-attribute char 'kangxi-radical))
-	(unless (eq value radical)
-	  (insert (format "(kangxi-radical\t . %S)\t; %c
-    "
-			  value
-			  (aref ideographic-radicals value)))
-	  (or radical
-	      (setq radical value)))
-	(setq attributes (delq 'kangxi-radical attributes))
-	)
-      (when (setq value (get-char-attribute char 'kangxi-strokes))
-	(unless (eq value strokes)
-	  (insert (format "(kangxi-strokes\t . %S)
-    "
-			  value))
-	  (or strokes
-	      (setq strokes value)))
-	(setq attributes (delq 'kangxi-strokes attributes))
-	)
-      (when (setq value (get-char-attribute char 'japanese-radical))
-	(unless (eq value radical)
-	  (insert (format "(japanese-radical\t . %S)\t; %c
-    "
-			  value
-			  (aref ideographic-radicals value)))
-	  (or radical
-	      (setq radical value)))
-	(setq attributes (delq 'japanese-radical attributes))
-	)
-      (when (setq value (get-char-attribute char 'japanese-strokes))
-	(unless (eq value strokes)
-	  (insert (format "(japanese-strokes\t . %S)
-    "
-			  value))
-	  (or strokes
-	      (setq strokes value)))
-	(setq attributes (delq 'japanese-strokes attributes))
-	)
-      (when (setq value (get-char-attribute char 'cns-radical))
-	(insert (format "(cns-radical\t . %S)\t; %c
-    "
+	radical strokes
+	(line-breaking
+	 (concat "\n" (make-string (1+ column) ?\ ))))
+    (insert "(")
+    (when (setq value (get-char-attribute char 'name))
+      (insert (format
+	       (if (> (length value) 47)
+		   "(name . %S)%s"
+		 "(name\t\t. %S)%s")
+	       value line-breaking))
+      (setq attributes (delq 'name attributes))
+      )
+    (when (setq value (get-char-attribute char 'script))
+      (insert (format "(script\t\t%s)%s"
+		      (mapconcat (function prin1-to-string)
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq 'script attributes))
+      )
+    (when (setq value (get-char-attribute char '->ucs))
+      (insert (format "(->ucs\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs value)
+		      line-breaking))
+      (setq attributes (delq '->ucs attributes))
+      )
+    (when (setq value (get-char-attribute char 'general-category))
+      (insert (format
+	       "(general-category\t%s) ; %s%s"
+	       (mapconcat (lambda (cell)
+			    (format "%S" cell))
+			  value " ")
+	       (cond ((rassoc value unidata-normative-category-alist)
+		      "Normative Category")
+		     ((rassoc value unidata-informative-category-alist)
+		      "Informative Category")
+		     (t
+		      "Unknown Category"))
+	       line-breaking))
+      (setq attributes (delq 'general-category attributes))
+      )
+    (when (setq value (get-char-attribute char 'bidi-category))
+      (insert (format "(bidi-category\t. %S)%s"
+		      value
+		      line-breaking))
+      (setq attributes (delq 'bidi-category attributes))
+      )
+    (unless (eq (setq value (get-char-attribute char 'mirrored 'empty))
+		'empty)
+      (insert (format "(mirrored\t\t. %S)%s"
+		      value
+		      line-breaking))
+      (setq attributes (delq 'mirrored attributes))
+      )
+    (cond
+     ((setq value (get-char-attribute char 'decimal-digit-value))
+      (insert (format "(decimal-digit-value . %S)%s"
+		      value
+		      line-breaking))
+      (setq attributes (delq 'decimal-digit-value attributes))
+      (when (setq value (get-char-attribute char 'digit-value))
+	(insert (format "(digit-value\t . %S)%s"
 			value
-			(aref ideographic-radicals value)))
-	(setq attributes (delq 'cns-radical attributes))
+			line-breaking))
+	(setq attributes (delq 'digit-value attributes))
 	)
-      (when (setq value (get-char-attribute char 'cns-strokes))
-	(unless (eq value strokes)
-	  (insert (format "(cns-strokes\t . %S)
-    "
-			  value))
-	  (or strokes
-	      (setq strokes value)))
-	(setq attributes (delq 'cns-strokes attributes))
+      (when (setq value (get-char-attribute char 'numeric-value))
+	(insert (format "(numeric-value\t . %S)%s"
+			value
+			line-breaking))
+	(setq attributes (delq 'numeric-value attributes))
 	)
-      (when (setq value (get-char-attribute char 'shinjigen-1-radical))
-	(unless (eq value radical)
-	  (insert (format "(shinjigen-1-radical . %S)\t; %c
-    "
-			  value
-			  (aref ideographic-radicals value)))
-	  (or radical
-	      (setq radical value)))
-	(setq attributes (delq 'shinjigen-1-radical attributes))
+      )
+     (t
+      (when (setq value (get-char-attribute char 'digit-value))
+	(insert (format "(digit-value\t. %S)%s"
+			value
+			line-breaking))
+	(setq attributes (delq 'digit-value attributes))
 	)
-      (when (setq value (get-char-attribute char 'total-strokes))
-	(insert (format "(total-strokes\t . %S)
-    "
-			value))
-	(setq attributes (delq 'total-strokes attributes))
-	)
-      (when (setq value (get-char-attribute char '->ideograph))
-	(insert (format "(->ideograph\t%s)
-    "
-			(mapconcat (lambda (code)
-				     (cond ((symbolp code)
-					    (symbol-name code))
-					   ((integerp code)
-					    (format "#x%04X" code))
-					   (t
-					    (format "\n     %S" code))))
-				   value " ")))
-	(setq attributes (delq '->ideograph attributes))
-	)
-      (when (setq value (get-char-attribute char '->decomposition))
-	(insert (format "(->decomposition\t%s)
-    "
-			(mapconcat (lambda (code)
-				     (cond ((symbolp code)
-					    (symbol-name code))
-					   ((characterp code)
-					    (if readable
-						(format "%S" code)
-					      (format "#x%04X"
-						      (char-int code))
-					      ))
-					   ((integerp code)
-					    (format "#x%04X" code))
-					   (t
-					    (format "\n     %S" code))))
-				   value " ")))
-	(setq attributes (delq '->decomposition attributes))
-	)
-      (when (setq value (get-char-attribute char '->uppercase))
-	(insert (format "(->uppercase\t%s)
-    "
-			(mapconcat (lambda (code)
-				     (cond ((symbolp code)
-					    (symbol-name code))
-					   ((integerp code)
-					    (format "#x%04X" code))
-					   (t
-					    (format "\n     %S" code))))
-				   value " ")))
-	(setq attributes (delq '->uppercase attributes))
-	)
-      (when (setq value (get-char-attribute char '->lowercase))
-	(insert (format "(->lowercase\t%s)
-    "
-			(mapconcat (lambda (code)
-				     (cond ((symbolp code)
-					    (symbol-name code))
-					   ((integerp code)
-					    (format "#x%04X" code))
-					   (t
-					    (format "\n     %S" code))))
-				   value " ")))
-	(setq attributes (delq '->lowercase attributes))
-	)
-      (when (setq value (get-char-attribute char '->titlecase))
-	(insert (format "(->titlecase\t%s)
-    "
-			(mapconcat (lambda (code)
-				     (cond ((symbolp code)
-					    (symbol-name code))
-					   ((integerp code)
-					    (format "#x%04X" code))
-					   (t
-					    (format "\n     %S" code))))
-				   value " ")))
-	(setq attributes (delq '->titlecase attributes))
-	)
-      (when (setq value (get-char-attribute char '->mojikyo))
-	(insert (format "(->mojikyo\t\t. %06d)\t; %c
-    "
-			value (decode-char 'mojikyo value)))
-	(setq attributes (delq '->mojikyo attributes))
-	)
-      (setq rest ccs-attributes)
-      (while (and rest
-		    (progn
-		      (setq value (get-char-attribute char (car rest)))
-		      (if value
-			  (if (>= (length (symbol-name (car rest))) 19)
-			      (progn
-				(setq has-long-ccs-name t)
-				nil)
-			    t)
-			t)))
-	  (setq rest (cdr rest)))
-      (while attributes
-	(setq name (car attributes))
-	(if (setq value (get-char-attribute char name))
-	    (cond ((string-match "^->" (symbol-name name))
-		   (insert
-		    (format "(%-18s %s)
-    "
-			    name
-			    (mapconcat (lambda (code)
-					 (cond ((symbolp code)
-						(symbol-name code))
-					       ((integerp code)
-						(format "#x%04X" code))
-					       (t
-						(format "\n     %S" code))))
-				       value " "))))
-		  ((consp value)
-		   (insert (format "(%-18s %s)
-    "
-				   name
-				   (mapconcat (function prin1-to-string)
-					      value " "))))
-		  ((eq name 'jisx0208-1978/4X)
-		   (insert (format "(%-18s . #x%04X)
-    "
-				   name value)))
-		  (t
-		   (insert (format "(%-18s . %S)
-    "
-				   name value)))
-		  ))
-	(setq attributes (cdr attributes)))
-      (while ccs-attributes
-	(setq name (car ccs-attributes))
-	(if (setq value (get-char-attribute char name))
-	    (insert
-	     (format
-	      (if has-long-ccs-name
-		  (cond ((eq name 'ideograph-daikanwa)
-			 "(%-26s . %05d)\t; %c
-    "
-			 )
-			((eq name 'mojikyo)
-			 "(%-26s . %06d)\t; %c
-    "
-			 )
-			(t
-			 "(%-26s . #x%X)\t; %c
-    "
-			 ))
+      (when (setq value (get-char-attribute char 'numeric-value))
+	(insert (format "(numeric-value\t. %S)%s"
+			value
+			line-breaking))
+	(setq attributes (delq 'numeric-value attributes))
+	)))
+    (when (setq value (get-char-attribute char 'iso-10646-comment))
+      (insert (format "(iso-10646-comment\t. %S)%s"
+		      value
+		      line-breaking))
+      (setq attributes (delq 'iso-10646-comment attributes))
+      )
+    (when (setq value (get-char-attribute char 'morohashi-daikanwa))
+      (insert (format "(morohashi-daikanwa\t%s)%s"
+		      (mapconcat (function prin1-to-string) value " ")
+		      line-breaking))
+      (setq attributes (delq 'morohashi-daikanwa attributes))
+      )
+    (setq radical nil
+	  strokes nil)
+    (when (setq value (get-char-attribute char 'ideographic-radical))
+      (setq radical value)
+      (insert (format "(ideographic-radical . %S)\t; %c%s"
+		      radical
+		      (aref ideographic-radicals radical)
+		      line-breaking))
+      (setq attributes (delq 'ideographic-radical attributes))
+      )
+    (when (setq value (get-char-attribute char 'ideographic-strokes))
+      (setq strokes value)
+      (insert (format "(ideographic-strokes . %S)%s"
+		      strokes
+		      line-breaking))
+      (setq attributes (delq 'ideographic-strokes attributes))
+      )
+    (when (setq value (get-char-attribute char 'kangxi-radical))
+      (unless (eq value radical)
+	(insert (format "(kangxi-radical\t . %S)\t; %c%s"
+			value
+			(aref ideographic-radicals value)
+			line-breaking))
+	(or radical
+	    (setq radical value)))
+      (setq attributes (delq 'kangxi-radical attributes))
+      )
+    (when (setq value (get-char-attribute char 'kangxi-strokes))
+      (unless (eq value strokes)
+	(insert (format "(kangxi-strokes\t . %S)%s"
+			value
+			line-breaking))
+	(or strokes
+	    (setq strokes value)))
+      (setq attributes (delq 'kangxi-strokes attributes))
+      )
+    (when (setq value (get-char-attribute char 'japanese-radical))
+      (unless (eq value radical)
+	(insert (format "(japanese-radical\t . %S)\t; %c%s"
+			value
+			(aref ideographic-radicals value)
+			line-breaking))
+	(or radical
+	    (setq radical value)))
+      (setq attributes (delq 'japanese-radical attributes))
+      )
+    (when (setq value (get-char-attribute char 'japanese-strokes))
+      (unless (eq value strokes)
+	(insert (format "(japanese-strokes\t . %S)%s"
+			value
+			line-breaking))
+	(or strokes
+	    (setq strokes value)))
+      (setq attributes (delq 'japanese-strokes attributes))
+      )
+    (when (setq value (get-char-attribute char 'cns-radical))
+      (insert (format "(cns-radical\t . %S)\t; %c%s"
+		      value
+		      (aref ideographic-radicals value)
+		      line-breaking))
+      (setq attributes (delq 'cns-radical attributes))
+      )
+    (when (setq value (get-char-attribute char 'cns-strokes))
+      (unless (eq value strokes)
+	(insert (format "(cns-strokes\t . %S)%s"
+			value
+			line-breaking))
+	(or strokes
+	    (setq strokes value)))
+      (setq attributes (delq 'cns-strokes attributes))
+      )
+    (when (setq value (get-char-attribute char 'shinjigen-1-radical))
+      (unless (eq value radical)
+	(insert (format "(shinjigen-1-radical . %S)\t; %c%s"
+			value
+			(aref ideographic-radicals value)
+			line-breaking))
+	(or radical
+	    (setq radical value)))
+      (setq attributes (delq 'shinjigen-1-radical attributes))
+      )
+    (when (setq value (get-char-attribute char 'total-strokes))
+      (insert (format "(total-strokes       . %S)%s"
+		      value
+		      line-breaking))
+      (setq attributes (delq 'total-strokes attributes))
+      )
+    (when (setq value (get-char-attribute char '->ideograph))
+      (insert (format "(->ideograph\t%s)%s"
+		      (mapconcat (lambda (code)
+				   (cond ((symbolp code)
+					  (symbol-name code))
+					 ((integerp code)
+					  (format "#x%04X" code))
+					 (t
+					  (format "%s%S" line-breaking code))))
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq '->ideograph attributes))
+      )
+    (when (setq value (get-char-attribute char '->decomposition))
+      (insert (format "(->decomposition\t%s)%s"
+		      (mapconcat (lambda (code)
+				   (cond ((symbolp code)
+					  (symbol-name code))
+					 ((characterp code)
+					  (if readable
+					      (format "%S" code)
+					    (format "#x%04X"
+						    (char-int code))
+					    ))
+					 ((integerp code)
+					  (format "#x%04X" code))
+					 (t
+					  (format "%s%S" line-breaking code))))
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq '->decomposition attributes))
+      )
+    (when (setq value (get-char-attribute char '->uppercase))
+      (insert (format "(->uppercase\t%s)%s"
+		      (mapconcat (lambda (code)
+				   (cond ((symbolp code)
+					  (symbol-name code))
+					 ((integerp code)
+					  (format "#x%04X" code))
+					 (t
+					  (format "%s%S" line-breaking code))))
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq '->uppercase attributes))
+      )
+    (when (setq value (get-char-attribute char '->lowercase))
+      (insert (format "(->lowercase\t%s)%s"
+		      (mapconcat (lambda (code)
+				   (cond ((symbolp code)
+					  (symbol-name code))
+					 ((integerp code)
+					  (format "#x%04X" code))
+					 (t
+					  (format "%s%S" line-breaking code))))
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq '->lowercase attributes))
+      )
+    (when (setq value (get-char-attribute char '->titlecase))
+      (insert (format "(->titlecase\t%s)%s"
+		      (mapconcat (lambda (code)
+				   (cond ((symbolp code)
+					  (symbol-name code))
+					 ((integerp code)
+					  (format "#x%04X" code))
+					 (t
+					  (format "%s%S" line-breaking code))))
+				 value " ")
+		      line-breaking))
+      (setq attributes (delq '->titlecase attributes))
+      )
+    (when (setq value (get-char-attribute char '->mojikyo))
+      (insert (format "(->mojikyo\t\t. %06d)\t; %c%s"
+		      value (decode-char 'mojikyo value)
+		      line-breaking))
+      (setq attributes (delq '->mojikyo attributes))
+      )
+    (setq rest ccs-attributes)
+    (while (and rest
+		(progn
+		  (setq value (get-char-attribute char (car rest)))
+		  (if value
+		      (if (>= (length (symbol-name (car rest))) 19)
+			  (progn
+			    (setq has-long-ccs-name t)
+			    nil)
+			t)
+		    t)))
+      (setq rest (cdr rest)))
+    (while attributes
+      (setq name (car attributes))
+      (if (setq value (get-char-attribute char name))
+	  (cond ((string-match "^->" (symbol-name name))
+		 (insert
+		  (format "(%-18s %s)%s"
+			  name
+			  (mapconcat (lambda (code)
+				       (cond ((symbolp code)
+					      (symbol-name code))
+					     ((integerp code)
+					      (format "#x%04X" code))
+					     (t
+					      (format "%s%S"
+						      line-breaking code))))
+				     value " ")
+			  line-breaking)))
+		((consp value)
+		 (insert (format "(%-18s " name))
+		 (let ((lbs (concat "\n" (make-string (current-column) ?\ )))
+		       cell ret
+		       rest key al cal
+		       separator)
+		   (while (consp value)
+		     (setq cell (car value))
+		     (if (and (consp cell)
+			      (consp (car cell))
+			      (setq ret (condition-case nil
+					    (define-char cell)
+					  (error nil))))
+			 (progn
+			   (setq rest cell
+				 al nil
+				 cal nil)
+			   (while rest
+			     (setq key (car (car rest)))
+			     (if (find-charset key)
+				 (setq cal (cons key cal))
+			       (setq al (cons key al)))
+			     (setq rest (cdr rest)))
+			   (if separator
+			       (insert lbs))
+			   (insert-char-attributes ret
+						   readable
+						   al cal)
+			   (setq separator lbs))
+		       (if separator
+			   (insert separator))
+		       (insert (prin1-to-string cell))
+		       (setq separator " "))
+		     (setq value (cdr value))))
+		 (insert ")")
+		 (insert line-breaking))
+		((eq name 'jisx0208-1978/4X)
+		 (insert (format "(%-18s . #x%04X)%s"
+				 name value
+				 line-breaking)))
+		(t
+		 (insert (format "(%-18s . %S)%s"
+				 name value
+				 line-breaking)))
+		))
+      (setq attributes (cdr attributes)))
+    (while ccs-attributes
+      (setq name (car ccs-attributes))
+      (if (setq value (get-char-attribute char name))
+	  (insert
+	   (format
+	    (if has-long-ccs-name
 		(cond ((eq name 'ideograph-daikanwa)
-		       "(%-18s . %05d)\t; %c
-    "
+		       "(%-26s . %05d)\t; %c%s"
 		       )
 		      ((eq name 'mojikyo)
-		       "(%-18s . %06d)\t; %c
-    "
+		       "(%-26s . %06d)\t; %c%s"
 		       )
 		      (t
-		       "(%-18s . #x%X)\t; %c
-    "
-		       )))
-	      name
-	      (if (= (charset-iso-graphic-plane name) 1)
-		  (logior value
-			  (cond ((= (charset-dimension name) 1)
-				 #x80)
-				((= (charset-dimension name) 2)
-				 #x8080)
-				((= (charset-dimension name) 3)
-				 #x808080)
-				(t 0)))
-		value)
-	      (decode-builtin-char name value))))
-	(setq ccs-attributes (cdr ccs-attributes)))
-      (insert "))\n")
-      (goto-char (point-min))
-      (while (re-search-forward "[ \t]+$" nil t)
-	(replace-match ""))
-      (goto-char (point-max))
-      (tabify (point-min)(point-max))
-      )))
+		       "(%-26s . #x%X)\t; %c%s"
+		       ))
+	      (cond ((eq name 'ideograph-daikanwa)
+		     "(%-18s . %05d)\t; %c%s"
+		     )
+		    ((eq name 'mojikyo)
+		     "(%-18s . %06d)\t; %c%s"
+		     )
+		    (t
+		     "(%-18s . #x%X)\t; %c%s"
+		     )))
+	    name
+	    (if (= (charset-iso-graphic-plane name) 1)
+		(logior value
+			(cond ((= (charset-dimension name) 1)
+			       #x80)
+			      ((= (charset-dimension name) 2)
+			       #x8080)
+			      ((= (charset-dimension name) 3)
+			       #x808080)
+			      (t 0)))
+	      value)
+	    (decode-builtin-char name value)
+	    line-breaking)))
+      (setq ccs-attributes (cdr ccs-attributes)))
+    (insert ")")))
+
+(defun insert-char-data (char &optional readable
+			      attributes ccs-attributes)
+  (save-restriction
+    (narrow-to-region (point)(point))
+    (insert "(define-char
+  '")
+    (insert-char-attributes char readable
+			    attributes ccs-attributes)
+    (insert ")\n")
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t]+$" nil t)
+      (replace-match ""))
+    (goto-char (point-max))
+    (tabify (point-min)(point-max))
+    ))
 
 ;;;###autoload
 (defun char-db-update-comment ()
