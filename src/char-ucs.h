@@ -414,6 +414,95 @@ extern Charset_ID    latin_a_char_to_charset[128];
 extern unsigned char latin_a_char_to_byte1[128];
 extern unsigned char latin_a_char_to_byte2[128];
 
+INLINE unsigned char XCHARSET_GET_BYTE1 (Lisp_Object charset, Emchar ch);
+INLINE unsigned char
+XCHARSET_GET_BYTE1 (Lisp_Object charset, Emchar ch)
+{
+  Emchar_to_byte_table* table;
+
+  if ((table = XCHARSET_TO_BYTE1_TABLE (charset)) != NULL)
+    return get_byte_from_character_table (ch, table);
+  else if (EQ (charset, Vcharset_ascii))
+    return ch <= 0x7f ? ch : 0;
+  else if (EQ (charset, Vcharset_control_1))
+    return (0x80 <= ch) && (ch < 0xA0) ? ch & 0x7f : 0;
+  else if (EQ (charset, Vcharset_latin_iso8859_1))
+    return (0xA0 <= ch) && (ch <= 0xff) ? ch & 0x7f : 0;
+  else if (EQ (charset, Vcharset_cyrillic_iso8859_5))
+    return (MIN_CHAR_GREEK <= ch) && (ch <= MAX_CHAR_CYRILLIC) ?
+      ch - MIN_CHAR_CYRILLIC + 0x20 : 0;
+  else if (EQ (charset, Vcharset_greek_iso8859_7))
+    return (MIN_CHAR_GREEK <= ch) && (ch <= MAX_CHAR_GREEK) ?
+      ch - MIN_CHAR_GREEK + 0x20 : 0;
+  else if (EQ (charset, Vcharset_hebrew_iso8859_8))
+    return (MIN_CHAR_HEBREW <= ch) && (ch <= MAX_CHAR_HEBREW) ?
+      ch - MIN_CHAR_HEBREW + 0x20 : 0;
+  else if (EQ (charset, Vcharset_thai_tis620))
+    return (MIN_CHAR_THAI <= ch) && (ch <= MAX_CHAR_THAI) ?
+      ch - MIN_CHAR_THAI + 0x20 : 0;
+  else if (EQ (charset, Vcharset_katakana_jisx0201))
+    return (MIN_CHAR_HALFWIDTH_KATAKANA <= ch)
+      && (ch <= MAX_CHAR_HALFWIDTH_KATAKANA) ?
+      ch - MIN_CHAR_HALFWIDTH_KATAKANA + 0x20 : 0;
+  else if (EQ (charset, Vcharset_ucs_bmp))
+    return ch & 0xff;
+  else if (XCHARSET_DIMENSION (charset) == 1)
+    {
+      if (XCHARSET_CHARS (charset) == 94)
+	return (MIN_CHAR_94 + (XCHARSET_FINAL (charset) - '0') * 94 <= ch)
+	  && (ch < MIN_CHAR_94 + (XCHARSET_FINAL (charset) - '0' + 1) * 94) ?
+	  ((ch - MIN_CHAR_94) % 94) + 33 : 0;
+      else /* if (XCHARSET_CHARS (charset) == 96) */
+	return (MIN_CHAR_96 + (XCHARSET_FINAL (charset) - '0') * 96 <= ch)
+	  && (ch < MIN_CHAR_96 + (XCHARSET_FINAL (charset) - '0' + 1) * 96) ?
+	  ((ch - MIN_CHAR_94) % 96) + 32 : 0;
+    }
+  else /* if (XCHARSET_DIMENSION (charset) == 2) */
+    {
+      if (XCHARSET_CHARS (charset) == 94)
+	return (MIN_CHAR_94x94
+		+ (XCHARSET_FINAL (charset) - '0') * 94 * 94 <= ch)
+	  && (ch < MIN_CHAR_94x94
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 94 * 94) ?
+	  (((ch - MIN_CHAR_94x94) / 94) % 94) + 33 : 0;
+      else /* if (XCHARSET_CHARS (charset) == 96) */
+	return (MIN_CHAR_96x96
+		+ (XCHARSET_FINAL (charset) - '0') * 96 * 96 <= ch)
+	  && (ch < MIN_CHAR_96x96
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 96 * 96) ?
+	  (((ch - MIN_CHAR_96x96) / 96) % 96) + 32 : 0;
+    }
+}
+
+INLINE unsigned char XCHARSET_GET_BYTE2 (Lisp_Object charset, Emchar ch);
+INLINE unsigned char
+XCHARSET_GET_BYTE2 (Lisp_Object charset, Emchar ch)
+{
+  if (XCHARSET_DIMENSION (charset) == 1)
+    return 0;
+  else
+    {
+      Emchar_to_byte_table* table;
+
+      if ((table = XCHARSET_TO_BYTE2_TABLE (charset)) != NULL)
+	return get_byte_from_character_table (ch, table);
+      else if (EQ (charset, Vcharset_ucs_bmp))
+	return (ch >> 8) & 0xff;
+      else if (XCHARSET_CHARS (charset) == 94)
+	return (MIN_CHAR_94x94
+		+ (XCHARSET_FINAL (charset) - '0') * 94 * 94 <= ch)
+	  && (ch < MIN_CHAR_94x94
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 94 * 94) ?
+	  ((ch - MIN_CHAR_94x94) % 94) + 33 : 0;
+      else /* if (XCHARSET_CHARS (charset) == 96) */
+	return (MIN_CHAR_96x96
+		+ (XCHARSET_FINAL (charset) - '0') * 96 * 96 <= ch)
+	  && (ch < MIN_CHAR_96x96
+	      + (XCHARSET_FINAL (charset) - '0' + 1) * 96 * 96) ?
+	  ((ch - MIN_CHAR_96x96) % 96) + 32 : 0;
+    }
+}
+
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
@@ -440,11 +529,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     {
       *charset
 	= CHARSET_BY_LEADING_BYTE (latin_a_char_to_charset[c - 0x100]);
-      if (XCHARSET_DECODING_TABLE (*charset) != NULL)
+      if (XCHARSET_TO_BYTE1_TABLE (*charset) != NULL)
 	{
-	  *c1 =
-	    get_byte_from_character_table
-	    (c, XCHARSET_TO_BYTE1_TABLE(*charset));
+	  *c1 = XCHARSET_GET_BYTE1 (*charset, c);
 	  *c2 = 0;
 	}
       else
@@ -464,11 +551,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
       while (!EQ (charsets, Qnil))
 	{
 	  *charset = Fcar (charsets);
-	  if (XCHARSET_DECODING_TABLE (*charset) != NULL)
+	  if (XCHARSET_TO_BYTE1_TABLE (*charset) != NULL)
 	    {
-	      if ( (*c1 =
-		    get_byte_from_character_table
-		    (c, XCHARSET_TO_BYTE1_TABLE (*charset))) )
+	      if ( (*c1 = XCHARSET_GET_BYTE1 (*charset, c)) )
 		{
 		  *c2 = 0;
 		  return;
@@ -531,11 +616,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
       while (!EQ (charsets, Qnil))
 	{
 	  *charset = Fcar (charsets);
-	  if (XCHARSET_DECODING_TABLE (*charset) != NULL)
+	  if (XCHARSET_TO_BYTE1_TABLE (*charset) != NULL)
 	    {
-	      if ( (*c1 =
-		    get_byte_from_character_table
-		    (c, XCHARSET_TO_BYTE1_TABLE (*charset))) )
+	      if ( (*c1 = XCHARSET_GET_BYTE1 (*charset, c)) )
 		{
 		  *c2 = 0;
 		  return;
