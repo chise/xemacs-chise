@@ -187,8 +187,17 @@
     (total-strokes	 . 11)
     (shinjigen-1	. 7325)
     (=ks-x1001		. #x627A)	; ø»‰»ƒ
-    (=cns11643-1	. #x5D34)	; ø»’š·
     (=daikanwa		. 34046)	; ø¸ˆ“¾
+    (=jef-china3	. #x63E7)	; øº†§
+    ))
+(define-char
+  '((=>ucs		. #x8853)	; è¡“
+    (morohashi-daikanwa	34046 0 0)
+    (ideographic-radical . 144)	; â¾
+    (ideographic-strokes . 5)
+    (total-strokes	 . 11)
+    (shinjigen-1	. 7325)
+    (=cns11643-1	. #x5D34)	; ø»’š·
     ))
 (define-char
   '((=>ucs		. #x8853)	; è¡“
