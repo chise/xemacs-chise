@@ -1,5 +1,10 @@
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Fdecode_builtin_char): Comment out
+	regularization code for ISO-IR GR representation.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (decode_builtin_char): New function; renamed from
 	`make_builtin_char'; return -1 instead of signal.
 	(Fdecode_builtin_char): Use `decode_builtin_char'.
