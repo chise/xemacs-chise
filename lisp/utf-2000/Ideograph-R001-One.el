@@ -162,6 +162,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (comment		. "K0076.021")
+    (chinese-gb12345	. #x7D3D)	; ä¸†
     (mojikyo		. 058599)	; ý €Ž“§
     (ucs		. #x4E06)	; ä¸†
     ))
