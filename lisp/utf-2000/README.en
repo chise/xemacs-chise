@@ -1,5 +1,5 @@
-CHISE character database format (S-expression version)
-+
+UTF-2000 character database format (S-expression version)
+
 * Relations between Characters
 
 Property-name `->foo' or `<-foo' mean relations between characters.
@@ -40,31 +40,29 @@ list describes meaning of keys:
 	Meaning of some symbols are defined.  Following list describes
 	meaning of symbols:
 
-		zhonghua-dazidian (chuuka-daijiten)	$BCf$(Ga^DKGsL((B
-		tongwen-tongkao (doubun-tsuukou)	$BF1J8DL9M(B
-		yupian (gyokuhen)			$B6LJS(B
-		pianhai (henkai)			$BJS3$(B
-		pianhai-leibian (henkai-ruihen)		$BJS3$$(CW>x:(B
-		yunhai (inkai)				$B1$2q(B
-		yunhai-bei (inkaiho)			$B1$2qJd(B
-		zihui (jii)				$B;zWC(B
-		zihui-bei (jiiho)			$B;zWCJd(B
-		cihai (jikai)				$B<-3$(B
-		jiyun (shuuin)				$B=81$(B
-		haipian (kaihen)			$B3$JS(B
-		kangxi					$B9/_f;zE5(B
-		guangyun (kouin)			$B9-1$(B
-		daikanwa (morohashi-daikanwa)		$BBg4AOB<-E5(B
-		ruishuu-meigishou			$BN`f\L>5A>6(B
-		zhengyun (seiin)			$B@51$(B
-		zhengzi-tong (seiji-tsuu)		$B@5;z$(CwW(B
-		shuowen-tongxun-dingsheng
-			(setsumon-tsuukun-teisei)	$B@bJ8DL71Djfa(B
-		shuowen					$B@bJ8(B
-		songyuan-yilai-suzipu
-			(sougen-irai-zokujifu)		$BAW850JMhB/;zIh(B
-		yuquan					$B6L@t(B
-		chuanpian (senhen)			$B@nJS(B
+		chuuka-daijiten			$BCf$(Ga^DKGsL((B
+		doubun-tsuukou			$BF1J8DL9M(B
+		gyokuhen			$B6LJS(B
+		henkai				$BJS3$(B
+		henkai-ruihen			$BJS3$$(GyK$(Cx:(B
+		inkai				$B1$2q(B
+		inkaiho				$B1$2qJd(B
+		jii				$B;zWC(B
+		jiiho				$B;zWCJd(B
+		jikai				$B<-3$(B
+		jiyun (shuuin)			$B=81$(B
+		kaihen				$B3$JS(B
+		kangxi				$B9/_f;zE5(B
+		kouin				$B9-1$(B
+		morohashi-daikanwa		$BBg4AOB<-E5(B
+		ruishuu-meigishou		$BN`f\L>5A>6(B
+		seiin				$B@51$(B
+		seiji-tsuu			$B@5;z$(CwW(B
+		setsumon-tsuukun-teisei		$B@bJ8DL71Djfa(B
+		shuowen				$B@bJ8(B
+		sougen-irai-zokujifu		$BAW850JMhB/;zIh(B
+		yuquan				$B6L@t(B
+		senhen				$B@nJS(B
 
 ** Properties
 

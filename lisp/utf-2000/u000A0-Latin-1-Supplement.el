@@ -165,10 +165,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth section sign")
-      (=gb2312		  . #x216C)	; ø»„‡
-      (=jis-x0208	  . #x2178)	; ø½‰·“
-      (=ks-x1001	  . #x2157)	; ø»ˆ›‚
-      (=cns11643-1	  . #x2170)	; ø»‘ƒ«
+      (chinese-cns11643-1 . #x2170)	; ø»‘ƒ«
       ))
     (latin-iso8859-1	. #xA7)	; øº’´‡
     (latin-iso8859-2	. #xA7)	; øº’µ§
@@ -193,7 +190,7 @@
     (=gb2312		. #x216C)	; ø»„‡
     (=jis-x0208		. #x2178)	; ø½‰·“
     (=ks-x1001		. #x2157)	; ø»ˆ›‚
-    (=cns11643-1	. #x2170)	; ø»‘ƒ«
+    (chinese-cns11643-1 . #x2170)	; ø»‘ƒ«
     (=big5		. #xA1B1)	; ý¢€Š†±
     (=ucs@jis		. #x00A7)	; ø»„‡
     ))
@@ -426,10 +423,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth degree sign")
-      (=gb2312		  . #x2163)	; ø»„‡†
-      (=jis-x0208	  . #x216B)	; ø½‰·†
-      (=ks-x1001	  . #x2146)	; ø»ˆš±
-      (=cns11643-1	  . #x2278)	; ø»‘…‘
+      (chinese-cns11643-1 . #x2278)	; ø»‘…‘
       ))
     (latin-iso8859-1	. #xB0)	; øº’´
     (latin-iso8859-2	. #xB0)	; øº’µ°
@@ -453,7 +447,7 @@
     (=gb2312		. #x2163)	; ø»„‡†
     (=jis-x0208		. #x216B)	; ø½‰·†
     (=ks-x1001		. #x2146)	; ø»ˆš±
-    (=cns11643-1	. #x2278)	; ø»‘…‘
+    (chinese-cns11643-1 . #x2278)	; ø»‘…‘
     (=big5		. #xA258)	; ý¢€Š‰˜
     (=ucs@jis		. #x00B0)	; ø»„‡†
     ))
@@ -464,10 +458,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth plus-minus sign")
-      (=gb2312		  . #x2140)	; ø»„†£
-      (=jis-x0208	  . #x215E)	; ø½‰¶¹
-      (=ks-x1001	  . #x213E)	; ø»ˆš©
-      (=cns11643-1	  . #x2234)	; ø»‘„
+      (chinese-cns11643-1 . #x2234)	; ø»‘„
       ))
     (latin-iso8859-1	. #xB1)	; øº’´‘
     (greek-iso8859-7	. #xB1)	; øº’»±
@@ -488,7 +479,7 @@
     (=gb2312		. #x2140)	; ø»„†£
     (=jis-x0208		. #x215E)	; ø½‰¶¹
     (=ks-x1001		. #x213E)	; ø»ˆš©
-    (=cns11643-1	. #x2234)	; ø»‘„
+    (chinese-cns11643-1 . #x2234)	; ø»‘„
     (=big5		. #xA1D3)	; ý¢€Š‡“
     (=ucs@jis		. #x00B1)	; ø»„†£
     ))
@@ -652,9 +643,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth middle dot")
-      (=ks-x1001	  . #x2124)	; ø»ˆš
-      (=cns11643-1	  . #x2126)	; ø»‘‚¡
-      (=jis-x0213-1-2000  . #x292E)	; ø»¢ž¹
+      (chinese-cns11643-1 . #x2126)	; ø»‘‚¡
       ))
     (latin-iso8859-1	. #xB7)	; øº’´—
     (latin-iso8859-3	. #xB7)	; øº’·—
@@ -674,7 +663,7 @@
       (=ucs		  . #x00B7)	; Â·
       ))
     (=ks-x1001		. #x2124)	; ø»ˆš
-    (=cns11643-1	. #x2126)	; ø»‘‚¡
+    (chinese-cns11643-1 . #x2126)	; ø»‘‚¡
     (=jis-x0213-1-2000	. #x292E)	; ø»¢ž¹
     (=big5		. #xA150)	; ý¢€Š…
     (=ucs@jis		. #x00B7)	; ø»ˆš
@@ -1859,10 +1848,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth multiplication sign")
-      (=gb2312		  . #x2141)	; ø»„†¤
-      (=jis-x0208	  . #x215F)	; ø½‰¶º
-      (=ks-x1001	  . #x213F)	; ø»ˆšª
-      (=cns11643-1	  . #x2232)	; ø»‘„‹
+      (chinese-cns11643-1 . #x2232)	; ø»‘„‹
       ))
     (latin-iso8859-1	. #xD7)	; øº’´·
     (latin-iso8859-2	. #xD7)	; øº’¶—
@@ -1885,7 +1871,7 @@
     (=gb2312		. #x2141)	; ø»„†¤
     (=jis-x0208		. #x215F)	; ø½‰¶º
     (=ks-x1001		. #x213F)	; ø»ˆšª
-    (=cns11643-1	. #x2232)	; ø»‘„‹
+    (chinese-cns11643-1 . #x2232)	; ø»‘„‹
     (=big5		. #xA1D1)	; ý¢€Š‡‘
     (=ucs@jis		. #x00D7)	; ø»„†¤
     ))
@@ -3128,10 +3114,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth division sign")
-      (=gb2312		  . #x2142)	; ø»„†¥
-      (=jis-x0208	  . #x2160)	; ø½‰¶»
-      (=ks-x1001	  . #x2140)	; ø»ˆš«
-      (=cns11643-1	  . #x2233)	; ø»‘„Œ
+      (chinese-cns11643-1 . #x2233)	; ø»‘„Œ
       ))
     (latin-iso8859-1	. #xF7)	; øº’µ—
     (latin-iso8859-2	. #xF7)	; øº’¶·
@@ -3154,7 +3137,7 @@
     (=gb2312		. #x2142)	; ø»„†¥
     (=jis-x0208		. #x2160)	; ø½‰¶»
     (=ks-x1001		. #x2140)	; ø»ˆš«
-    (=cns11643-1	. #x2233)	; ø»‘„Œ
+    (chinese-cns11643-1 . #x2233)	; ø»‘„Œ
     (=big5		. #xA1D2)	; ý¢€Š‡’
     (=ucs@jis		. #x00F7)	; ø»„†¥
     ))
