@@ -315,6 +315,7 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_96x96		0xF4C000
 #define MAX_CHAR_96x96		(MIN_CHAR_96x96 + 96 * 96 * 80 - 1)
 
+extern Lisp_Object Vcharset_ucs_bmp;
 
 /* Return a character whose charset is CHARSET and position-codes
    are C1 and C2.  TYPE9N character ignores C2. */
@@ -327,6 +328,8 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
     return c1;
   else if (EQ (charset, Vcharset_control_1))
     return c1 | 0x80;
+  else if (EQ (charset, Vcharset_ucs_bmp))
+    return (c1 << 8) | c2;
   else if (EQ (charset, Vcharset_latin_iso8859_1))
     return c1 | 0x80;
   else if (EQ (charset, Vcharset_greek_iso8859_7))
@@ -409,8 +412,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_GREEK)
     {
-      printf("not break up u+%x", c);
-      abort ();
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_GREEK)
     {
@@ -420,8 +424,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_CYRILLIC)
     {
-      printf("not break up u+%x", c);
-      abort ();
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_CYRILLIC)
     {
@@ -431,8 +436,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_HEBREW)
     {
-      printf("not break up u+%x", c);
-      abort ();
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_HEBREW)
     {
@@ -442,8 +448,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_THAI)
     {
-      printf("not break up u+%x", c);
-      abort ();
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_THAI)
     {
@@ -453,8 +460,9 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
   else if (c < MIN_CHAR_HALFWIDTH_KATAKANA)
     {
-      printf("not break up u+%x", c);
-      abort ();
+      *charset = Vcharset_ucs_bmp;
+      *c1 = c >> 8;
+      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_HALFWIDTH_KATAKANA)
     {
