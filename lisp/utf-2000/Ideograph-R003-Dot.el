@@ -176,6 +176,7 @@
     (shinjigen-2	. 42)
     (ideograph-gt-pj-2	. #x306E)	; ý¡€€‚‰
     (ideograph-daikanwa . 00100)	; ø¸€¤
+    (china3-jef		. #x41B3)	; øº„†³
     (ideograph-gt	. 00137)	; ý¡€€‚‰
     (mojikyo		. 000100)	; ý €€¤
     ))
