@@ -1,12 +1,12 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED A")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0250)	; É
-    (=jis-x0213-1-2000	. #x2B33)	; ø»¢¡º
-    (ipa		. #xA8)	; øº’š¨
+    (=jis-x0213-1-2000	. #x2B33)	; &I-JX1-2B33;
+    (ipa		. #xA8)	; &I-MULE-IPA-28;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ALPHA")
@@ -14,8 +14,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0251)	; É‘
-    (=jis-x0213-1-2000	. #x2B39)	; ø»¢¢€
-    (ipa		. #xAC)	; øº’š¬
+    (=jis-x0213-1-2000	. #x2B39)	; &I-JX1-2B39;
+    (ipa		. #xAC)	; &I-MULE-IPA-2C;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED ALPHA")
@@ -23,8 +23,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0252)	; É’
-    (=jis-x0213-1-2000	. #x2B3A)	; ø»¢¢
-    (ipa		. #xB8)	; øº’š¸
+    (=jis-x0213-1-2000	. #x2B3A)	; &I-JX1-2B3A;
+    (ipa		. #xB8)	; &I-MULE-IPA-38;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER B WITH HOOK")
@@ -36,7 +36,7 @@
       (=ucs		  . #x0181)	; Æ
       ))
     (=ucs		. #x0253)	; É“
-    (=jis-x0213-1-2000	. #x2B25)	; ø»¢¡¬
+    (=jis-x0213-1-2000	. #x2B25)	; &I-JX1-2B25;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER OPEN O")
@@ -48,8 +48,8 @@
       (=ucs		  . #x0186)	; Æ†
       ))
     (=ucs		. #x0254)	; É”
-    (=jis-x0213-1-2000	. #x2B38)	; ø»¢¡¿
-    (ipa		. #xB7)	; øº’š·
+    (=jis-x0213-1-2000	. #x2B38)	; &I-JX1-2B38;
+    (ipa		. #xB7)	; &I-MULE-IPA-37;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER C WITH CURL")
@@ -57,7 +57,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0255)	; É•
-    (=jis-x0213-1-2000	. #x2B3F)	; ø»¢¢†
+    (=jis-x0213-1-2000	. #x2B3F)	; &I-JX1-2B3F;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D WITH TAIL")
@@ -69,7 +69,7 @@
       (=ucs		  . #x0189)	; Æ‰
       ))
     (=ucs		. #x0256)	; É–
-    (=jis-x0213-1-2000	. #x2A6E)	; ø»¢¡—
+    (=jis-x0213-1-2000	. #x2A6E)	; &I-JX1-2A6E;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER D WITH HOOK")
@@ -81,7 +81,7 @@
       (=ucs		  . #x018A)	; ÆŠ
       ))
     (=ucs		. #x0257)	; É—
-    (=jis-x0213-1-2000	. #x2B26)	; ø»¢¡­
+    (=jis-x0213-1-2000	. #x2B26)	; &I-JX1-2B26;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED E")
@@ -89,7 +89,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0258)	; É˜
-    (=jis-x0213-1-2000	. #x2B2E)	; ø»¢¡µ
+    (=jis-x0213-1-2000	. #x2B2E)	; &I-JX1-2B2E;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCHWA")
@@ -101,8 +101,8 @@
       (=ucs		  . #x018F)	; Æ
       ))
     (=ucs		. #x0259)	; É™
-    (=jis-x0213-1-2000	. #x2B30)	; ø»¢¡·
-    (ipa		. #xA7)	; øº’š§
+    (=jis-x0213-1-2000	. #x2B30)	; &I-JX1-2B30;
+    (ipa		. #xA7)	; &I-MULE-IPA-27;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCHWA WITH HOOK")
@@ -110,8 +110,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x025A)	; Éš
-    (=jis-x0213-1-2000	. #x2B43)	; ø»¢¢Š
-    (ipa		. #xBA)	; øº’šº
+    (=jis-x0213-1-2000	. #x2B43)	; &I-JX1-2B43;
+    (ipa		. #xBA)	; &I-MULE-IPA-3A;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER OPEN E")
@@ -123,7 +123,7 @@
       (=ucs		  . #x0190)	; Æ
       ))
     (=ucs		. #x025B)	; É›
-    (ipa		. #xA3)	; øº’š£
+    (ipa		. #xA3)	; &I-MULE-IPA-23;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E")
@@ -131,7 +131,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x025C)	; Éœ
-    (=jis-x0213-1-2000	. #x2B31)	; ø»¢¡¸
+    (=jis-x0213-1-2000	. #x2B31)	; &I-JX1-2B31;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED OPEN E WITH HOOK")
@@ -146,7 +146,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x025E)	; Éž
-    (=jis-x0213-1-2000	. #x2B32)	; ø»¢¡¹
+    (=jis-x0213-1-2000	. #x2B32)	; &I-JX1-2B32;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DOTLESS J WITH STROKE")
@@ -154,7 +154,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x025F)	; ÉŸ
-    (=jis-x0213-1-2000	. #x2A75)	; ø»¢¡ž
+    (=jis-x0213-1-2000	. #x2A75)	; &I-JX1-2A75;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER G WITH HOOK")
@@ -166,7 +166,7 @@
       (=ucs		  . #x0193)	; Æ“
       ))
     (=ucs		. #x0260)	; É 
-    (=jis-x0213-1-2000	. #x2B28)	; ø»¢¡¯
+    (=jis-x0213-1-2000	. #x2B28)	; &I-JX1-2B28;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SCRIPT G")
@@ -174,7 +174,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0261)	; É¡
-    (=jis-x0213-1-2000	. #x2A79)	; ø»¢¡¢
+    (=jis-x0213-1-2000	. #x2A79)	; &I-JX1-2A79;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL G")
@@ -200,8 +200,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0264)	; É¤
-    (=jis-x0213-1-2000	. #x2B36)	; ø»¢¡½
-    (ipa		. #xAA)	; øº’šª
+    (=jis-x0213-1-2000	. #x2B36)	; &I-JX1-2B36;
+    (ipa		. #xAA)	; &I-MULE-IPA-2A;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED H")
@@ -209,8 +209,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0265)	; É¥
-    (=jis-x0213-1-2000	. #x2B3C)	; ø»¢¢ƒ
-    (ipa		. #xDD)	; øº’›
+    (=jis-x0213-1-2000	. #x2B3C)	; &I-JX1-2B3C;
+    (ipa		. #xDD)	; &I-MULE-IPA-5D;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER H WITH HOOK")
@@ -218,7 +218,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0266)	; É¦
-    (=jis-x0213-1-2000	. #x2B22)	; ø»¢¡©
+    (=jis-x0213-1-2000	. #x2B22)	; &I-JX1-2B22;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER HENG WITH HOOK")
@@ -226,7 +226,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0267)	; É§
-    (=jis-x0213-1-2000	. #x2B42)	; ø»¢¢‰
+    (=jis-x0213-1-2000	. #x2B42)	; &I-JX1-2B42;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH STROKE")
@@ -238,8 +238,8 @@
       (=ucs		  . #x0197)	; Æ—
       ))
     (=ucs		. #x0268)	; É¨
-    (=jis-x0213-1-2000	. #x2B2C)	; ø»¢¡³
-    (ipa		. #xA6)	; øº’š¦
+    (=jis-x0213-1-2000	. #x2B2C)	; &I-JX1-2B2C;
+    (ipa		. #xA6)	; &I-MULE-IPA-26;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER IOTA")
@@ -258,7 +258,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x026A)	; Éª
-    (ipa		. #xA1)	; øº’š¡
+    (ipa		. #xA1)	; &I-MULE-IPA-21;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH MIDDLE TILDE")
@@ -273,7 +273,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x026C)	; É¬
-    (=jis-x0213-1-2000	. #x2A6A)	; ø»¢¡“
+    (=jis-x0213-1-2000	. #x2A6A)	; &I-JX1-2A6A;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER L WITH RETROFLEX HOOK")
@@ -281,7 +281,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x026D)	; É­
-    (=jis-x0213-1-2000	. #x2A74)	; ø»¢¡
+    (=jis-x0213-1-2000	. #x2A74)	; &I-JX1-2A74;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER LEZH")
@@ -289,7 +289,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x026E)	; É®
-    (=jis-x0213-1-2000	. #x2A6B)	; ø»¢¡”
+    (=jis-x0213-1-2000	. #x2A6B)	; &I-JX1-2A6B;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED M")
@@ -301,8 +301,8 @@
       (=ucs		  . #x019C)	; Æœ
       ))
     (=ucs		. #x026F)	; É¯
-    (=jis-x0213-1-2000	. #x2B34)	; ø»¢¡»
-    (ipa		. #xA9)	; øº’š©
+    (=jis-x0213-1-2000	. #x2B34)	; &I-JX1-2B34;
+    (ipa		. #xA9)	; &I-MULE-IPA-29;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED M WITH LONG LEG")
@@ -310,7 +310,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0270)	; É°
-    (=jis-x0213-1-2000	. #x2A7B)	; ø»¢¡¤
+    (=jis-x0213-1-2000	. #x2A7B)	; &I-JX1-2A7B;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER M WITH HOOK")
@@ -318,8 +318,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0271)	; É±
-    (=jis-x0213-1-2000	. #x2A65)	; ø»¢¡Ž
-    (ipa		. #xDF)	; øº’›Ÿ
+    (=jis-x0213-1-2000	. #x2A65)	; &I-JX1-2A65;
+    (ipa		. #xDF)	; &I-MULE-IPA-5F;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH LEFT HOOK")
@@ -331,8 +331,8 @@
       (=ucs		  . #x019D)	; Æ
       ))
     (=ucs		. #x0272)	; É²
-    (=jis-x0213-1-2000	. #x2A76)	; ø»¢¡Ÿ
-    (ipa		. #xD4)	; øº’›”
+    (=jis-x0213-1-2000	. #x2A76)	; &I-JX1-2A76;
+    (ipa		. #xD4)	; &I-MULE-IPA-54;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER N WITH RETROFLEX HOOK")
@@ -340,7 +340,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0273)	; É³
-    (=jis-x0213-1-2000	. #x2A6F)	; ø»¢¡˜
+    (=jis-x0213-1-2000	. #x2A6F)	; &I-JX1-2A6F;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL N")
@@ -359,8 +359,8 @@
       (=ucs		  . #x019F)	; ÆŸ
       ))
     (=ucs		. #x0275)	; Éµ
-    (=jis-x0213-1-2000	. #x2B2F)	; ø»¢¡¶
-    (ipa		. #xB3)	; øº’š³
+    (=jis-x0213-1-2000	. #x2B2F)	; &I-JX1-2B2F;
+    (ipa		. #xB3)	; &I-MULE-IPA-33;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL OE")
@@ -368,7 +368,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0276)	; É¶
-    (ipa		. #xB1)	; øº’š±
+    (ipa		. #xB1)	; &I-MULE-IPA-31;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER CLOSED OMEGA")
@@ -390,8 +390,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0279)	; É¹
-    (=jis-x0213-1-2000	. #x2A6C)	; ø»¢¡•
-    (ipa		. #xD8)	; øº’›˜
+    (=jis-x0213-1-2000	. #x2A6C)	; &I-JX1-2A6C;
+    (ipa		. #xD8)	; &I-MULE-IPA-58;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R WITH LONG LEG")
@@ -399,7 +399,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x027A)	; Éº
-    (=jis-x0213-1-2000	. #x2B41)	; ø»¢¢ˆ
+    (=jis-x0213-1-2000	. #x2B41)	; &I-JX1-2B41;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED R WITH HOOK")
@@ -407,7 +407,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x027B)	; É»
-    (=jis-x0213-1-2000	. #x2A73)	; ø»¢¡œ
+    (=jis-x0213-1-2000	. #x2A73)	; &I-JX1-2A73;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R WITH LONG LEG")
@@ -422,7 +422,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x027D)	; É½
-    (=jis-x0213-1-2000	. #x2A70)	; ø»¢¡™
+    (=jis-x0213-1-2000	. #x2A70)	; &I-JX1-2A70;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER R WITH FISHHOOK")
@@ -430,7 +430,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x027E)	; É¾
-    (=jis-x0213-1-2000	. #x2A67)	; ø»¢¡
+    (=jis-x0213-1-2000	. #x2A67)	; &I-JX1-2A67;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER REVERSED R WITH FISHHOOK")
@@ -449,7 +449,7 @@
       (=ucs		  . #x01A6)	; Æ¦
       ))
     (=ucs		. #x0280)	; Ê€
-    (ipa		. #xD7)	; øº’›—
+    (ipa		. #xD7)	; &I-MULE-IPA-57;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL INVERTED R")
@@ -457,8 +457,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0281)	; Ê
-    (=jis-x0213-1-2000	. #x2A7C)	; ø»¢¡¥
-    (ipa		. #xD0)	; øº’›
+    (=jis-x0213-1-2000	. #x2A7C)	; &I-JX1-2A7C;
+    (ipa		. #xD0)	; &I-MULE-IPA-50;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER S WITH HOOK")
@@ -466,7 +466,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0282)	; Ê‚
-    (=jis-x0213-1-2000	. #x2A71)	; ø»¢¡š
+    (=jis-x0213-1-2000	. #x2A71)	; &I-JX1-2A71;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER ESH")
@@ -478,8 +478,8 @@
       (=ucs		  . #x01A9)	; Æ©
       ))
     (=ucs		. #x0283)	; Êƒ
-    (=jis-x0213-1-2000	. #x2A68)	; ø»¢¡‘
-    (ipa		. #xCC)	; øº’›Œ
+    (=jis-x0213-1-2000	. #x2A68)	; &I-JX1-2A68;
+    (ipa		. #xCC)	; &I-MULE-IPA-4C;
     ))
 (define-char
   '((name . "LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK")
@@ -487,7 +487,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0284)	; Ê„
-    (=jis-x0213-1-2000	. #x2B27)	; ø»¢¡®
+    (=jis-x0213-1-2000	. #x2B27)	; &I-JX1-2B27;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER SQUAT REVERSED ESH")
@@ -520,7 +520,7 @@
       (=ucs		  . #x01AE)	; Æ®
       ))
     (=ucs		. #x0288)	; Êˆ
-    (=jis-x0213-1-2000	. #x2A6D)	; ø»¢¡–
+    (=jis-x0213-1-2000	. #x2A6D)	; &I-JX1-2A6D;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U BAR")
@@ -528,8 +528,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0289)	; Ê‰
-    (=jis-x0213-1-2000	. #x2B2D)	; ø»¢¡´
-    (ipa		. #xB2)	; øº’š²
+    (=jis-x0213-1-2000	. #x2B2D)	; &I-JX1-2B2D;
+    (ipa		. #xB2)	; &I-MULE-IPA-32;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER UPSILON")
@@ -541,8 +541,8 @@
       (=ucs		  . #x01B1)	; Æ±
       ))
     (=ucs		. #x028A)	; ÊŠ
-    (=jis-x0213-1-2000	. #x2B35)	; ø»¢¡¼
-    (ipa		. #xB5)	; øº’šµ
+    (=jis-x0213-1-2000	. #x2B35)	; &I-JX1-2B35;
+    (ipa		. #xB5)	; &I-MULE-IPA-35;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER V WITH HOOK")
@@ -554,7 +554,7 @@
       (=ucs		  . #x01B2)	; Æ²
       ))
     (=ucs		. #x028B)	; Ê‹
-    (=jis-x0213-1-2000	. #x2A66)	; ø»¢¡
+    (=jis-x0213-1-2000	. #x2A66)	; &I-JX1-2A66;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED V")
@@ -562,8 +562,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x028C)	; ÊŒ
-    (=jis-x0213-1-2000	. #x2B37)	; ø»¢¡¾
-    (ipa		. #xAB)	; øº’š«
+    (=jis-x0213-1-2000	. #x2B37)	; &I-JX1-2B37;
+    (ipa		. #xAB)	; &I-MULE-IPA-2B;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED W")
@@ -571,8 +571,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x028D)	; Ê
-    (=jis-x0213-1-2000	. #x2B3B)	; ø»¢¢‚
-    (ipa		. #xDF)	; øº’›Ÿ
+    (=jis-x0213-1-2000	. #x2B3B)	; &I-JX1-2B3B;
+    (ipa		. #xDF)	; &I-MULE-IPA-5F;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED Y")
@@ -580,8 +580,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x028E)	; ÊŽ
-    (=jis-x0213-1-2000	. #x2A78)	; ø»¢¡¡
-    (ipa		. #xDB)	; øº’››
+    (=jis-x0213-1-2000	. #x2A78)	; &I-JX1-2A78;
+    (ipa		. #xDB)	; &I-MULE-IPA-5B;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL Y")
@@ -589,7 +589,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x028F)	; Ê
-    (ipa		. #xAE)	; øº’š®
+    (ipa		. #xAE)	; &I-MULE-IPA-2E;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z WITH RETROFLEX HOOK")
@@ -597,7 +597,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0290)	; Ê
-    (=jis-x0213-1-2000	. #x2A72)	; ø»¢¡›
+    (=jis-x0213-1-2000	. #x2A72)	; &I-JX1-2A72;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Z WITH CURL")
@@ -605,7 +605,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0291)	; Ê‘
-    (=jis-x0213-1-2000	. #x2B40)	; ø»¢¢‡
+    (=jis-x0213-1-2000	. #x2B40)	; &I-JX1-2B40;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER EZH")
@@ -617,8 +617,8 @@
       (=ucs		  . #x01B7)	; Æ·
       ))
     (=ucs		. #x0292)	; Ê’
-    (=jis-x0213-1-2000	. #x2A69)	; ø»¢¡’
-    (ipa		. #xCD)	; øº’›
+    (=jis-x0213-1-2000	. #x2A69)	; &I-JX1-2A69;
+    (ipa		. #xCD)	; &I-MULE-IPA-4D;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER EZH WITH CURL")
@@ -633,7 +633,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0294)	; Ê”
-    (=jis-x0213-1-2000	. #x2B21)	; ø»¢¡¨
+    (=jis-x0213-1-2000	. #x2B21)	; &I-JX1-2B21;
     ))
 (define-char
   '((name		. "LATIN LETTER PHARYNGEAL VOICED FRICATIVE")
@@ -641,7 +641,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0295)	; Ê•
-    (=jis-x0213-1-2000	. #x2A7E)	; ø»¢¡§
+    (=jis-x0213-1-2000	. #x2A7E)	; &I-JX1-2A7E;
     ))
 (define-char
   '((name		. "LATIN LETTER INVERTED GLOTTAL STOP")
@@ -663,7 +663,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x0298)	; Ê˜
-    (=jis-x0213-1-2000	. #x2B23)	; ø»¢¡ª
+    (=jis-x0213-1-2000	. #x2B23)	; &I-JX1-2B23;
     ))
 (define-char
   '((name		. "LATIN LETTER SMALL CAPITAL B")
@@ -699,7 +699,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x029D)	; Ê
-    (=jis-x0213-1-2000	. #x2A77)	; ø»¢¡ 
+    (=jis-x0213-1-2000	. #x2A77)	; &I-JX1-2A77;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER TURNED K")
@@ -714,7 +714,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x029F)	; ÊŸ
-    (ipa		. #xDC)	; øº’›œ
+    (ipa		. #xDC)	; &I-MULE-IPA-5C;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER Q WITH HOOK")
@@ -729,7 +729,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x02A1)	; Ê¡
-    (=jis-x0213-1-2000	. #x2B3E)	; ø»¢¢…
+    (=jis-x0213-1-2000	. #x2B3E)	; &I-JX1-2B3E;
     ))
 (define-char
   '((name . "LATIN LETTER REVERSED GLOTTAL STOP WITH STROKE")
@@ -737,7 +737,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x02A2)	; Ê¢
-    (=jis-x0213-1-2000	. #x2B3D)	; ø»¢¢„
+    (=jis-x0213-1-2000	. #x2B3D)	; &I-JX1-2B3D;
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER DZ DIGRAPH")

@@ -1,13 +1,13 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "BOPOMOFO LETTER B")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3105)	; ã„…
-    (=gb2312		. #x2845)	; ø»„º
-    (=cns11643-1	. #x2547)	; ø»‘ˆº
-    (=big5		. #xA374)	; ý¢€Š´
+    (=gb2312		. #x2845)	; &I-G0-2845;
+    (=cns11643-1	. #x2547)	; &I-C1-2547;
+    (=big5		. #xA374)	; &I-B-A374;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER P")
@@ -15,9 +15,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3106)	; ã„†
-    (=gb2312		. #x2846)	; ø»„»
-    (=cns11643-1	. #x2548)	; ø»‘ˆ»
-    (=big5		. #xA375)	; ý¢€Šµ
+    (=gb2312		. #x2846)	; &I-G0-2846;
+    (=cns11643-1	. #x2548)	; &I-C1-2548;
+    (=big5		. #xA375)	; &I-B-A375;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER M")
@@ -25,9 +25,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3107)	; ã„‡
-    (=gb2312		. #x2847)	; ø»„¼
-    (=cns11643-1	. #x2549)	; ø»‘ˆ¼
-    (=big5		. #xA376)	; ý¢€Š¶
+    (=gb2312		. #x2847)	; &I-G0-2847;
+    (=cns11643-1	. #x2549)	; &I-C1-2549;
+    (=big5		. #xA376)	; &I-B-A376;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER F")
@@ -35,9 +35,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3108)	; ã„ˆ
-    (=gb2312		. #x2848)	; ø»„½
-    (=cns11643-1	. #x254A)	; ø»‘ˆ½
-    (=big5		. #xA377)	; ý¢€Š·
+    (=gb2312		. #x2848)	; &I-G0-2848;
+    (=cns11643-1	. #x254A)	; &I-C1-254A;
+    (=big5		. #xA377)	; &I-B-A377;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER D")
@@ -45,9 +45,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3109)	; ã„‰
-    (=gb2312		. #x2849)	; ø»„¾
-    (=cns11643-1	. #x254B)	; ø»‘ˆ¾
-    (=big5		. #xA378)	; ý¢€Š¸
+    (=gb2312		. #x2849)	; &I-G0-2849;
+    (=cns11643-1	. #x254B)	; &I-C1-254B;
+    (=big5		. #xA378)	; &I-B-A378;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER T")
@@ -55,9 +55,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x310A)	; ã„Š
-    (=gb2312		. #x284A)	; ø»„¿
-    (=cns11643-1	. #x254C)	; ø»‘ˆ¿
-    (=big5		. #xA379)	; ý¢€Š¹
+    (=gb2312		. #x284A)	; &I-G0-284A;
+    (=cns11643-1	. #x254C)	; &I-C1-254C;
+    (=big5		. #xA379)	; &I-B-A379;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER N")
@@ -65,9 +65,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x310B)	; ã„‹
-    (=gb2312		. #x284B)	; ø»„‘€
-    (=cns11643-1	. #x254D)	; ø»‘‰€
-    (=big5		. #xA37A)	; ý¢€Šº
+    (=gb2312		. #x284B)	; &I-G0-284B;
+    (=cns11643-1	. #x254D)	; &I-C1-254D;
+    (=big5		. #xA37A)	; &I-B-A37A;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER L")
@@ -75,9 +75,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x310C)	; ã„Œ
-    (=gb2312		. #x284C)	; ø»„‘
-    (=cns11643-1	. #x254E)	; ø»‘‰
-    (=big5		. #xA37B)	; ý¢€Š»
+    (=gb2312		. #x284C)	; &I-G0-284C;
+    (=cns11643-1	. #x254E)	; &I-C1-254E;
+    (=big5		. #xA37B)	; &I-B-A37B;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER G")
@@ -85,9 +85,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x310D)	; ã„
-    (=gb2312		. #x284D)	; ø»„‘‚
-    (=cns11643-1	. #x254F)	; ø»‘‰‚
-    (=big5		. #xA37C)	; ý¢€Š¼
+    (=gb2312		. #x284D)	; &I-G0-284D;
+    (=cns11643-1	. #x254F)	; &I-C1-254F;
+    (=big5		. #xA37C)	; &I-B-A37C;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER K")
@@ -95,17 +95,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	3)
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=ucs		  . #x4E02)	; ä¸‚
       ))
     (=ucs		. #x310E)	; ã„Ž
-    (=gb2312		. #x284E)	; ø»„‘ƒ
-    (=cns11643-1	. #x2550)	; ø»‘‰ƒ
-    (=big5		. #xA37D)	; ý¢€Š½
+    (=gb2312		. #x284E)	; &I-G0-284E;
+    (=cns11643-1	. #x2550)	; &I-C1-2550;
+    (=big5		. #xA37D)	; &I-B-A37D;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER H")
@@ -113,9 +109,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x310F)	; ã„
-    (=gb2312		. #x284F)	; ø»„‘„
-    (=cns11643-1	. #x2551)	; ø»‘‰„
-    (=big5		. #xA37E)	; ý¢€Š¾
+    (=gb2312		. #x284F)	; &I-G0-284F;
+    (=cns11643-1	. #x2551)	; &I-C1-2551;
+    (=big5		. #xA37E)	; &I-B-A37E;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER J")
@@ -123,9 +119,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3110)	; ã„
-    (=gb2312		. #x2850)	; ø»„‘…
-    (=cns11643-1	. #x2552)	; ø»‘‰…
-    (=big5		. #xA3A1)	; ý¢€ŠŽ¡
+    (=gb2312		. #x2850)	; &I-G0-2850;
+    (=cns11643-1	. #x2552)	; &I-C1-2552;
+    (=big5		. #xA3A1)	; &I-B-A3A1;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER Q")
@@ -133,9 +129,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3111)	; ã„‘
-    (=gb2312		. #x2851)	; ø»„‘†
-    (=cns11643-1	. #x2553)	; ø»‘‰†
-    (=big5		. #xA3A2)	; ý¢€ŠŽ¢
+    (=gb2312		. #x2851)	; &I-G0-2851;
+    (=cns11643-1	. #x2553)	; &I-C1-2553;
+    (=big5		. #xA3A2)	; &I-B-A3A2;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER X")
@@ -143,9 +139,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3112)	; ã„’
-    (=gb2312		. #x2852)	; ø»„‘‡
-    (=cns11643-1	. #x2554)	; ø»‘‰‡
-    (=big5		. #xA3A3)	; ý¢€ŠŽ£
+    (=gb2312		. #x2852)	; &I-G0-2852;
+    (=cns11643-1	. #x2554)	; &I-C1-2554;
+    (=big5		. #xA3A3)	; &I-B-A3A3;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ZH")
@@ -153,9 +149,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3113)	; ã„“
-    (=gb2312		. #x2853)	; ø»„‘ˆ
-    (=cns11643-1	. #x2555)	; ø»‘‰ˆ
-    (=big5		. #xA3A4)	; ý¢€ŠŽ¤
+    (=gb2312		. #x2853)	; &I-G0-2853;
+    (=cns11643-1	. #x2555)	; &I-C1-2555;
+    (=big5		. #xA3A4)	; &I-B-A3A4;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER CH")
@@ -163,9 +159,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3114)	; ã„”
-    (=gb2312		. #x2854)	; ø»„‘‰
-    (=cns11643-1	. #x2556)	; ø»‘‰‰
-    (=big5		. #xA3A5)	; ý¢€ŠŽ¥
+    (=gb2312		. #x2854)	; &I-G0-2854;
+    (=cns11643-1	. #x2556)	; &I-C1-2556;
+    (=big5		. #xA3A5)	; &I-B-A3A5;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER SH")
@@ -173,9 +169,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3115)	; ã„•
-    (=gb2312		. #x2855)	; ø»„‘Š
-    (=cns11643-1	. #x2557)	; ø»‘‰Š
-    (=big5		. #xA3A6)	; ý¢€ŠŽ¦
+    (=gb2312		. #x2855)	; &I-G0-2855;
+    (=cns11643-1	. #x2557)	; &I-C1-2557;
+    (=big5		. #xA3A6)	; &I-B-A3A6;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER R")
@@ -183,9 +179,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3116)	; ã„–
-    (=gb2312		. #x2856)	; ø»„‘‹
-    (=cns11643-1	. #x2558)	; ø»‘‰‹
-    (=big5		. #xA3A7)	; ý¢€ŠŽ§
+    (=gb2312		. #x2856)	; &I-G0-2856;
+    (=cns11643-1	. #x2558)	; &I-C1-2558;
+    (=big5		. #xA3A7)	; &I-B-A3A7;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER Z")
@@ -193,9 +189,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3117)	; ã„—
-    (=gb2312		. #x2857)	; ø»„‘Œ
-    (=cns11643-1	. #x2559)	; ø»‘‰Œ
-    (=big5		. #xA3A8)	; ý¢€ŠŽ¨
+    (=gb2312		. #x2857)	; &I-G0-2857;
+    (=cns11643-1	. #x2559)	; &I-C1-2559;
+    (=big5		. #xA3A8)	; &I-B-A3A8;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER C")
@@ -203,17 +199,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	9)
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
-     ((=daikanwa	  . 00009)	; ø¸€€‰
+     ((=daikanwa	  . 00009)	; &I-M-00009;
       ))
     (=ucs		. #x3118)	; ã„˜
-    (=gb2312		. #x2858)	; ø»„‘
-    (=cns11643-1	. #x255A)	; ø»‘‰
-    (=big5		. #xA3A9)	; ý¢€ŠŽ©
+    (=gb2312		. #x2858)	; &I-G0-2858;
+    (=cns11643-1	. #x255A)	; &I-C1-255A;
+    (=big5		. #xA3A9)	; &I-B-A3A9;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER S")
@@ -221,9 +213,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3119)	; ã„™
-    (=gb2312		. #x2859)	; ø»„‘Ž
-    (=cns11643-1	. #x255B)	; ø»‘‰Ž
-    (=big5		. #xA3AA)	; ý¢€ŠŽª
+    (=gb2312		. #x2859)	; &I-G0-2859;
+    (=cns11643-1	. #x255B)	; &I-C1-255B;
+    (=big5		. #xA3AA)	; &I-B-A3AA;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER A")
@@ -231,9 +223,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x311A)	; ã„š
-    (=gb2312		. #x285A)	; ø»„‘
-    (=cns11643-1	. #x255C)	; ø»‘‰
-    (=big5		. #xA3AB)	; ý¢€ŠŽ«
+    (=gb2312		. #x285A)	; &I-G0-285A;
+    (=cns11643-1	. #x255C)	; &I-C1-255C;
+    (=big5		. #xA3AB)	; &I-B-A3AB;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER O")
@@ -241,17 +233,14 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	4)
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
-     ((=daikanwa	  . 00004)	; ø¸€€„
+     ((=ucs		  . #x20000)	; ð €€
+      (=daikanwa	  . 00004)	; &I-M-00004;
       ))
     (=ucs		. #x311B)	; ã„›
-    (=gb2312		. #x285B)	; ø»„‘
-    (=cns11643-1	. #x255D)	; ø»‘‰
-    (=big5		. #xA3AC)	; ý¢€ŠŽ¬
+    (=gb2312		. #x285B)	; &I-G0-285B;
+    (=cns11643-1	. #x255D)	; &I-C1-255D;
+    (=big5		. #xA3AC)	; &I-B-A3AC;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER E")
@@ -259,17 +248,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	5)
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
-     ((=daikanwa	  . 00005)	; ø¸€€…
+     ((=daikanwa	  . 00005)	; &M-00005;
       ))
     (=ucs		. #x311C)	; ã„œ
-    (=gb2312		. #x285C)	; ø»„‘‘
-    (=cns11643-1	. #x255E)	; ø»‘‰‘
-    (=big5		. #xA3AD)	; ý¢€ŠŽ­
+    (=gb2312		. #x285C)	; &I-G0-285C;
+    (=cns11643-1	. #x255E)	; &I-C1-255E;
+    (=big5		. #xA3AD)	; &I-B-A3AD;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EH")
@@ -277,9 +262,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x311D)	; ã„
-    (=gb2312		. #x285D)	; ø»„‘’
-    (=cns11643-1	. #x255F)	; ø»‘‰’
-    (=big5		. #xA3AE)	; ý¢€ŠŽ®
+    (=gb2312		. #x285D)	; &I-G0-285D;
+    (=cns11643-1	. #x255F)	; &I-C1-255F;
+    (=big5		. #xA3AE)	; &I-B-A3AE;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AI")
@@ -287,9 +272,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x311E)	; ã„ž
-    (=gb2312		. #x285E)	; ø»„‘“
-    (=cns11643-1	. #x2560)	; ø»‘‰“
-    (=big5		. #xA3AF)	; ý¢€ŠŽ¯
+    (=gb2312		. #x285E)	; &I-G0-285E;
+    (=cns11643-1	. #x2560)	; &I-C1-2560;
+    (=big5		. #xA3AF)	; &I-B-A3AF;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EI")
@@ -297,9 +282,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x311F)	; ã„Ÿ
-    (=gb2312		. #x285F)	; ø»„‘”
-    (=cns11643-1	. #x2561)	; ø»‘‰”
-    (=big5		. #xA3B0)	; ý¢€ŠŽ°
+    (=gb2312		. #x285F)	; &I-G0-285F;
+    (=cns11643-1	. #x2561)	; &I-C1-2561;
+    (=big5		. #xA3B0)	; &I-B-A3B0;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AU")
@@ -307,9 +292,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3120)	; ã„ 
-    (=gb2312		. #x2860)	; ø»„‘•
-    (=cns11643-1	. #x2562)	; ø»‘‰•
-    (=big5		. #xA3B1)	; ý¢€ŠŽ±
+    (=gb2312		. #x2860)	; &I-G0-2860;
+    (=cns11643-1	. #x2562)	; &I-C1-2562;
+    (=big5		. #xA3B1)	; &I-B-A3B1;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER OU")
@@ -317,9 +302,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3121)	; ã„¡
-    (=gb2312		. #x2861)	; ø»„‘–
-    (=cns11643-1	. #x2563)	; ø»‘‰–
-    (=big5		. #xA3B2)	; ý¢€ŠŽ²
+    (=gb2312		. #x2861)	; &I-G0-2861;
+    (=cns11643-1	. #x2563)	; &I-C1-2563;
+    (=big5		. #xA3B2)	; &I-B-A3B2;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER AN")
@@ -327,9 +312,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3122)	; ã„¢
-    (=gb2312		. #x2862)	; ø»„‘—
-    (=cns11643-1	. #x2564)	; ø»‘‰—
-    (=big5		. #xA3B3)	; ý¢€ŠŽ³
+    (=gb2312		. #x2862)	; &I-G0-2862;
+    (=cns11643-1	. #x2564)	; &I-C1-2564;
+    (=big5		. #xA3B3)	; &I-B-A3B3;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER EN")
@@ -337,9 +322,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3123)	; ã„£
-    (=gb2312		. #x2863)	; ø»„‘˜
-    (=cns11643-1	. #x2565)	; ø»‘‰˜
-    (=big5		. #xA3B4)	; ý¢€ŠŽ´
+    (=gb2312		. #x2863)	; &I-G0-2863;
+    (=cns11643-1	. #x2565)	; &I-C1-2565;
+    (=big5		. #xA3B4)	; &I-B-A3B4;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ANG")
@@ -347,9 +332,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3124)	; ã„¤
-    (=gb2312		. #x2864)	; ø»„‘™
-    (=cns11643-1	. #x2566)	; ø»‘‰™
-    (=big5		. #xA3B5)	; ý¢€ŠŽµ
+    (=gb2312		. #x2864)	; &I-G0-2864;
+    (=cns11643-1	. #x2566)	; &I-C1-2566;
+    (=big5		. #xA3B5)	; &I-B-A3B5;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ENG")
@@ -357,9 +342,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3125)	; ã„¥
-    (=gb2312		. #x2865)	; ø»„‘š
-    (=cns11643-1	. #x2567)	; ø»‘‰š
-    (=big5		. #xA3B6)	; ý¢€ŠŽ¶
+    (=gb2312		. #x2865)	; &I-G0-2865;
+    (=cns11643-1	. #x2567)	; &I-C1-2567;
+    (=big5		. #xA3B6)	; &I-B-A3B6;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER ER")
@@ -367,9 +352,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3126)	; ã„¦
-    (=gb2312		. #x2866)	; ø»„‘›
-    (=cns11643-1	. #x2568)	; ø»‘‰›
-    (=big5		. #xA3B7)	; ý¢€ŠŽ·
+    (=gb2312		. #x2866)	; &I-G0-2866;
+    (=cns11643-1	. #x2568)	; &I-C1-2568;
+    (=big5		. #xA3B7)	; &I-B-A3B7;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER I")
@@ -377,9 +362,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3127)	; ã„§
-    (=gb2312		. #x2867)	; ø»„‘œ
-    (=cns11643-1	. #x2569)	; ø»‘‰œ
-    (=big5		. #xA3B8)	; ý¢€ŠŽ¸
+    (=gb2312		. #x2867)	; &I-G0-2867;
+    (=cns11643-1	. #x2569)	; &I-C1-2569;
+    (=big5		. #xA3B8)	; &I-B-A3B8;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER U")
@@ -387,17 +372,13 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	115)
-    (ideographic-radical . 4)	; â¼ƒ
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=ucs		  . #x3405)	; ã…
       ))
     (=ucs		. #x3128)	; ã„¨
-    (=gb2312		. #x2868)	; ø»„‘
-    (=cns11643-1	. #x256A)	; ø»‘‰
-    (=big5		. #xA3B9)	; ý¢€ŠŽ¹
+    (=gb2312		. #x2868)	; &I-G0-2868;
+    (=cns11643-1	. #x256A)	; &I-C1-256A;
+    (=big5		. #xA3B9)	; &I-B-A3B9;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER IU")
@@ -405,9 +386,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (=ucs		. #x3129)	; ã„©
-    (=gb2312		. #x2869)	; ø»„‘ž
-    (=cns11643-1	. #x256B)	; ø»‘‰ž
-    (=big5		. #xA3BA)	; ý¢€ŠŽº
+    (=gb2312		. #x2869)	; &I-G0-2869;
+    (=cns11643-1	. #x256B)	; &I-C1-256B;
+    (=big5		. #xA3BA)	; &I-B-A3BA;
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER V")

@@ -1,7 +1,7 @@
 /* Functions to handle multilingual characters.
    Copyright (C) 1992, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -67,6 +67,7 @@ Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
 Lisp_Object Vcharset_chinese_cns11643_2;
 #ifdef UTF2000
+Lisp_Object Vcharset_system_char_id;
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_smp;
@@ -179,9 +180,10 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if (!EQ (XCHARSET_NAME (ccs), Qmap_ucs)
-      || !INTP (value)
-      || (XCHAR (character) != XINT (value)))
+  if ( !(EQ (XCHARSET_NAME (ccs), Qmap_ucs)
+	 && INTP (value) && (XINT (value) < 0xF0000))
+       || !INTP (value)
+       /* || (XCHAR (character) != XINT (value)) */ )
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       int code_point;
@@ -306,6 +308,7 @@ Lisp_Object Qascii,
   Qmap_cns11643_1,
   Qmap_cns11643_2,
 #ifdef UTF2000
+  Qsystem_char_id,
   Qmap_ucs, Qucs,
   Qucs_bmp,
   Qucs_smp,
@@ -2766,6 +2769,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qmap_cns11643_1,		"=cns11643-1");
   defsymbol (&Qmap_cns11643_2,		"=cns11643-2");
 #ifdef UTF2000
+  defsymbol (&Qsystem_char_id,		"system-char-id");
   defsymbol (&Qmap_ucs,			"=ucs");
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
@@ -2851,6 +2855,15 @@ complex_vars_of_mule_charset (void)
      ease of access. */
 
 #ifdef UTF2000
+  staticpro (&Vcharset_system_char_id);
+  Vcharset_system_char_id =
+    make_charset (LEADING_BYTE_SYSTEM_CHAR_ID, Qsystem_char_id, 256, 4,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("SCID"),
+		  build_string ("CHAR-ID"),
+		  build_string ("System char-id"),
+		  build_string (""),
+		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs);
   Vcharset_ucs =
     make_charset (LEADING_BYTE_UCS, Qmap_ucs, 256, 4,
@@ -2859,7 +2872,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS"),
 		  build_string ("ISO/IEC 10646"),
 		  build_string (""),
-		  Qnil, 0, 0x7FFFFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0xEFFFF, 0, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_bmp);
   Vcharset_ucs_bmp =
     make_charset (LEADING_BYTE_UCS_BMP, Qucs_bmp, 256, 2,

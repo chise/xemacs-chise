@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "UPPER BLADE SCISSORS")
     (general-category	symbol other) ; Informative Category
@@ -110,7 +110,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2713)	; âœ“
-    (=jis-x0213-1-2000	. #x277B)	; ø»¢Š
+    (=jis-x0213-1-2000	. #x277B)	; &I-JX1-277B;
     ))
 (define-char
   '((name		. "HEAVY CHECK MARK")
@@ -398,7 +398,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x273D)	; âœ½
-    (=big5-eten		. #xC6E6)	; ý¢€Œ›¦
+    (=big5-eten		. #xC6E6)	; &B-C6E6;
     ))
 (define-char
   '((name		. "SIX PETALLED BLACK AND WHITE FLORETTE")
@@ -539,7 +539,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2756)	; â–
-    (=jis-x0213-1-2000	. #x2D7D)	; ø»¢¦€
+    (=jis-x0213-1-2000	. #x2D7D)	; &I-JX1-2D7D;
     ))
 (define-char
   '((name		. "LIGHT VERTICAL BAR")
@@ -647,7 +647,7 @@
     (digit-value	. 1)
     (numeric-value	. 1)
     (=ucs		. #x2776)	; â¶
-    (=jis-x0213-1-2000	. #x2C21)	; ø»¢£†
+    (=jis-x0213-1-2000	. #x2C21)	; &I-JX1-2C21;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT TWO")
@@ -657,7 +657,7 @@
     (digit-value	. 2)
     (numeric-value	. 2)
     (=ucs		. #x2777)	; â·
-    (=jis-x0213-1-2000	. #x2C22)	; ø»¢£‡
+    (=jis-x0213-1-2000	. #x2C22)	; &I-JX1-2C22;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT THREE")
@@ -667,7 +667,7 @@
     (digit-value	. 3)
     (numeric-value	. 3)
     (=ucs		. #x2778)	; â¸
-    (=jis-x0213-1-2000	. #x2C23)	; ø»¢£ˆ
+    (=jis-x0213-1-2000	. #x2C23)	; &I-JX1-2C23;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT FOUR")
@@ -677,7 +677,7 @@
     (digit-value	. 4)
     (numeric-value	. 4)
     (=ucs		. #x2779)	; â¹
-    (=jis-x0213-1-2000	. #x2C24)	; ø»¢£‰
+    (=jis-x0213-1-2000	. #x2C24)	; &I-JX1-2C24;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT FIVE")
@@ -687,7 +687,7 @@
     (digit-value	. 5)
     (numeric-value	. 5)
     (=ucs		. #x277A)	; âº
-    (=jis-x0213-1-2000	. #x2C25)	; ø»¢£Š
+    (=jis-x0213-1-2000	. #x2C25)	; &I-JX1-2C25;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT SIX")
@@ -697,7 +697,7 @@
     (digit-value	. 6)
     (numeric-value	. 6)
     (=ucs		. #x277B)	; â»
-    (=jis-x0213-1-2000	. #x2C26)	; ø»¢£‹
+    (=jis-x0213-1-2000	. #x2C26)	; &I-JX1-2C26;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT SEVEN")
@@ -707,7 +707,7 @@
     (digit-value	. 7)
     (numeric-value	. 7)
     (=ucs		. #x277C)	; â¼
-    (=jis-x0213-1-2000	. #x2C27)	; ø»¢£Œ
+    (=jis-x0213-1-2000	. #x2C27)	; &I-JX1-2C27;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT EIGHT")
@@ -717,7 +717,7 @@
     (digit-value	. 8)
     (numeric-value	. 8)
     (=ucs		. #x277D)	; â½
-    (=jis-x0213-1-2000	. #x2C28)	; ø»¢£
+    (=jis-x0213-1-2000	. #x2C28)	; &I-JX1-2C28;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED DIGIT NINE")
@@ -727,7 +727,7 @@
     (digit-value	. 9)
     (numeric-value	. 9)
     (=ucs		. #x277E)	; â¾
-    (=jis-x0213-1-2000	. #x2C29)	; ø»¢£Ž
+    (=jis-x0213-1-2000	. #x2C29)	; &I-JX1-2C29;
     ))
 (define-char
   '((name		. "DINGBAT NEGATIVE CIRCLED NUMBER TEN")
@@ -736,7 +736,7 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (=ucs		. #x277F)	; â¿
-    (=jis-x0213-1-2000	. #x2C2A)	; ø»¢£
+    (=jis-x0213-1-2000	. #x2C2A)	; &I-JX1-2C2A;
     ))
 (define-char
   '((name		. "DINGBAT CIRCLED SANS-SERIF DIGIT ONE")

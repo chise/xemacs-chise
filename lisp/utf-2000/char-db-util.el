@@ -69,9 +69,11 @@
       (setq i (1+ i)))
     v))
 
+(defvar char-db-file-coding-system 'utf-8-mcs-er)
+
 (defvar char-db-feature-domains
   '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
-	jis-x0213 misc unknown))
+	jis-x0213 cdp misc unknown))
 
 (defvar char-db-ignored-attributes nil)
 
@@ -87,8 +89,8 @@
     nil)
    ((find-charset ka)
     (if (find-charset kb)
-	(if (<= (charset-id ka) 0)
-	    (if (<= (charset-id kb) 0)
+	(if (<= (charset-id ka) 1)
+	    (if (<= (charset-id kb) 1)
 		(cond
 		 ((= (charset-dimension ka)
 		     (charset-dimension kb))
@@ -98,7 +100,7 @@
 		     (charset-dimension kb))
 		  ))
 	      t)
-	  (if (<= (charset-id kb) 0)
+	  (if (<= (charset-id kb) 1)
 	      nil
 	    (< (charset-id ka)(charset-id kb))))
       nil))
@@ -447,6 +449,14 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
+    ;; (when (and (memq '<-denotational attributes)
+    ;;            (setq value (get-char-attribute char '<-denotational))
+    ;;            (null (cdr value))
+    ;;            (setq value (encode-char (car value) 'ucs 'defined-only)))
+    ;;   (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                   '=>ucs value (decode-char 'ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '<-denotational attributes)))
     (dolist (name '(=>ucs =>ucs*))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -828,7 +838,9 @@
       )
     (unless readable
       (dolist (ignored '(composition
-			 ->denotational <-subsumptive ->ucs-unified))
+			 ->denotational <-subsumptive ->ucs-unified
+			 ->ideographic-component-forms
+			 <-same))
 	(setq attributes (delq ignored attributes))))
     ;; (setq rest ccs-attributes)
     ;; (while (and rest
@@ -896,7 +908,16 @@
 				 line-breaking))
 		 )
 		((and (not readable)
-		      (string-match "^->simplified" (symbol-name name)))
+		      (null (get-char-attribute
+			     char
+			     (intern (format "%s*sources" name))))
+		      (not (string-match "\\*sources$" (symbol-name name)))
+		      (or (eq name '<-identical)
+			  (string-match "^->simplified" (symbol-name name))
+			  (string-match "^<-same" (symbol-name name))
+			  (string-match "^->vulgar" (symbol-name name))
+			  (string-match "^->wrong" (symbol-name name))
+			  ))
 		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
@@ -932,24 +953,47 @@
 				 (intern (format "%s*sources" name))))
 			  (setq required-features nil)
 			  (dolist (source sources)
-			    (setq required-features
-				  (cons
-				   (if (find-charset
-					(setq ret (intern
-						   (format "=%s" source))))
-				       ret
-				     source)
-				   required-features)))
-			  (when (string-match "@JP" (symbol-name name))
-			    (setq required-features
-				  (union required-features
-					 '(=jis-x0208
-					   =jis-x0208-1990
-					   =jis-x0213-1-2000
-					   =jis-x0213-2-2000
-					   =jis-x0212
-					   =jis-x0208-1983
-					   =jis-x0208-1978))))
+			    (cond
+			     ((memq source '(JP JP/Jouyou
+						shinjigen-1))
+			      (setq required-features
+				    (union required-features
+					   '(=jis-x0208
+					     =jis-x0208-1990
+					     =jis-x0213-1-2000
+					     =jis-x0213-2-2000
+					     =jis-x0212
+					     =jis-x0208-1983
+					     =jis-x0208-1978))))
+			     ((eq source 'CN)
+			      (setq required-features
+				    (union required-features
+					   '(=gb2312
+					     =gb12345
+					     =iso-ir165)))))
+			    (cond
+			     ((find-charset
+			       (setq ret (intern (format "=%s" source))))
+			      (setq required-features
+				    (cons ret required-features)))
+			     (t (setq required-features
+				      (cons source required-features)))))
+			  (cond ((string-match "@JP" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=jis-x0208
+						=jis-x0208-1990
+						=jis-x0213-1-2000
+						=jis-x0213-2-2000
+						=jis-x0212
+						=jis-x0208-1983
+						=jis-x0208-1978))))
+				((string-match "@CN" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=gb2312
+						=gb12345
+						=iso-ir165)))))
 			  (if separator
 			      (insert lbs))
 			  (if readable
@@ -1146,9 +1190,10 @@
 
 (defun write-char-range-data-to-file (min max file
 					  &optional script excluded-script)
-  (let ((coding-system-for-write 'utf-8-mcs))
+  (let ((coding-system-for-write char-db-file-coding-system))
     (with-temp-buffer
-      (insert ";; -*- coding: utf-8-mcs -*-\n")
+      (insert (format ";; -*- coding: %s -*-\n"
+		      char-db-file-coding-system))
       (insert-char-range-data min max script excluded-script)
       (write-region (point-min)(point-max) file))))
 
