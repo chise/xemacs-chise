@@ -542,7 +542,7 @@ put_ccs_octet_table (Lisp_Object table, Lisp_Object ccs, int code,
 		     Lisp_Object value)
 {
   int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
-  int ccs_len = XCHARSET_CHARS (ccs);
+  int ccs_len = XCHARSET_BYTE_SIZE (ccs);
 
   if (VECTORP (table))
     {
