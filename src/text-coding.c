@@ -1,7 +1,7 @@
 /* Code conversion functions.
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -3340,11 +3340,11 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 				string, Qnil, Qnil)))
 	{
 	  int code
-	    = XINT (Fstring_to_number
-		    (Fsubstring (string,
-				 Fmatch_beginning (make_int (1)),
-				 Fmatch_end (make_int (1))),
-		     make_int (16)));
+	    = XUINT (Fstring_to_number
+		     (Fsubstring (string,
+				  Fmatch_beginning (make_int (1)),
+				  Fmatch_end (make_int (1))),
+		      make_int (16)));
 
 	  DECODE_ADD_UCS_CHAR (code, dst);
 	}
