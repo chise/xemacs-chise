@@ -1,7 +1,49 @@
+2002-04-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R184-Eat.el (U+98DF): Separate J0-3F29 and M-44014.
+	(C1-537A): Unify M-44014.
+	(J0-3F29): Unify M044014.
+
+	* Ideograph-R163-City.el (U+9109): Relate to M-39571.
+
+	* Ideograph-R154-Shell.el (U+8D2A): Add `ideographic-structure';
+	unify H1-C161.
+
+	* Ideograph-R138-Stopping.el (J0-4E49): Separate G0-413C, C1-4B40
+	and U+826F.
+
+	* Ideograph-R132-Self.el (C4-2472): Unify BC-8CC2.
+
+	* Ideograph-R052-Short-Thread.el (BC-895C): New character.
+
+	* Ideograph-R034-Go.el, Ideograph-R033-Scholar.el: Add some
+	`ideographic-structure' properties.
+
+	* Ideograph-R031-Enclosure.el: Add some missing
+	`ideographic-structure' properties.
+
+	* Ideograph-R030-Mouth.el (U-00020B9B): Unify BC-8B53.
+	(C4-2564): Simplify `ideographic-structure'.
+	(U+545D): Likewise.
+	(JC3-46A4): Modify structure of `ideographic-structure'.
+	(JSP-3578): Add `ideographic-structure'.
+	(M-04565): Likewise.
+	(JX2-2452): Likewise.
+	(M-04615): Likewise.
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el,
+	Ideograph-R013-Down-Box.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
 2002-04-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: Add some
-	mappings for Hanziku code points.
+	* Ideograph-R024-Ten.el (M071896): New character.
+	(BC-8B75): New character.
+
+	* Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el: Add some mappings for Hanziku code
+	points.
 
 	* Ideograph-R012-Eight.el: Use `hanyu-dazidian' instead of
 	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
