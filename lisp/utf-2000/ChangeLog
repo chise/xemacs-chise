@@ -1,3 +1,8 @@
+2000-10-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el (U+728B): Add C2-3D70 [moved from
+	Ideograph-R094-Dog.el].
+
 2000-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R093-Cow.el: Resorted; add missing
