@@ -1,3 +1,26 @@
+1999-11-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (char_byte_table): Change name from
+	"char-code-table" to "char-byte-table".
+	(mark_char_code_table): New function.
+	(char_code_table_equal): New function.
+	(char_code_table_hash): New function.
+	(char_code_table_description): New constant.
+	(char_code_table): New type.
+	(make_char_code_table): New function.
+	(copy_char_code_table): New function.
+	(get_char_code_table): Modify for `char_code_table' type.
+	(put_char_code_table): Likewise.
+	(vars_of_mule_charset): Update `utf-2000-version' to 0.12
+	(Kashiwara).
+
+	* char-ucs.h (char_code_table): New type.
+	(XCHAR_CODE_TABLE): New macro.
+	(XSETCHAR_CODE_TABLE): New macro.
+	(CHAR_CODE_TABLE_P): New macro.
+	(GC_CHAR_CODE_TABLE_P): New macro.
+	(struct Lisp_Char_Code_Table): New structure.
+
 1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_charset): Setup byte_offset for
