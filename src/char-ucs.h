@@ -416,7 +416,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c < 0x17F)
+  if (c < MIN_CHAR_GREEK)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -455,25 +455,6 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
 	}
-    }
-  else if (c < MIN_CHAR_GREEK)
-    {
-      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
-      while (!EQ (charsets, Qnil))
-	{
-	  *charset = Ffind_charset (Fcar (charsets));
-	  if (!EQ (*charset, Qnil)
-	      && (*c1 = charset_get_byte1 (*charset, c)) )
-	    {
-	      *c2 = charset_get_byte2 (*charset, c);
-	      return;
-	    }
-	  charsets = Fcdr (charsets);	      
-	}
-      /* otherwise */
-      *charset = Vcharset_ucs_bmp;
-      *c1 = c >> 8;
-      *c2 = c & 0xff;
     }
   else if (c <= MAX_CHAR_GREEK)
     {
