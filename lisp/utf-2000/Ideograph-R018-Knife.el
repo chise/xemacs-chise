@@ -5946,12 +5946,15 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (->identical
+     ((=ucs		  . #x202F4)	; ð ‹´
+      ))
     (->same
-     ((=daikanwa	  . 00938)	; ø¸€Žª
-      )
-     (:char	((=daikanwa	     . 00768)	; ø¸€Œ€
-		 )
-      :sources	(shuowen inkaiho morohashi-daikanwa)))
+     ((=ucs		  . #x5013)	; å€“
+      (=daikanwa	  . 00768)	; ø¸€Œ€
+      ))
+    (->same*sources
+     shuowen yunhai-bei daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
@@ -7202,7 +7205,8 @@
     (ideographic-strokes@cns . 8)
     (total-strokes	 . 14)
     (->same
-     ((=daikanwa	  . 26149)	; ø¸†˜¥
+     ((=ucs		  . #x7B9A)	; ç®š
+      (=daikanwa	  . 26149)	; ø¸†˜¥
       ))
     (->same*sources
      kouin kangxi daikanwa)
@@ -7900,14 +7904,17 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (->same
-     (:char	((=daikanwa	     . 02228)	; ø¸€¢´
-		 )
-      :sources	(gyokuhen morohashi-daikanwa)))
+     ((=ucs		  . #x528D)	; åŠ
+      (=daikanwa	  . 02228)	; ø¸€¢´
+      ))
+    (->same*sources
+     yupian daikanwa)
     (<-ancient-ideograph
-     (:char	((shinjigen-1	     . 653)
-		 (=daikanwa	     . 02228)	; ø¸€¢´
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 653)
+      (=daikanwa	  . 02228)	; ø¸€¢´
+      ))
+    (<-ancient-ideograph*sources
+     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
