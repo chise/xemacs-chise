@@ -1,3 +1,8 @@
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (J0-3150): Separated from M-24824 and
+	moved from Ideograph-R113-Spirit.el.
+
 2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R119-Rice.el, Ideograph-R116-Cave.el: Merge GB 12345
