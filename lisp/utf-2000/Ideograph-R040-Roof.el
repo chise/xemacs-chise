@@ -38,6 +38,12 @@
     (=cns11643-6	. #x2169)	; &I-C6-2169; [01-73]
     ))
 (define-char
+  '((ideographic-radical . 40)	; ⼧
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (=ucs		. #x3749)	; 㝉
+    ))
+(define-char
   '((=>ucs		. #x5B81)	; 宁
     (ideographic-radical . 40)	; ⼧
     (ideographic-strokes . 2)
