@@ -1,3 +1,122 @@
+2001-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5C76): Unify J90-5627 and MH-48.
+	(U+5CC5): Unify J90-5632 and MH-142.
+	(U+5CBE): Unify J90-5633 and MH-143.
+	(U+5CBC): Unify J90-5630 and MH-144.
+	(M-08281): Separate EGB-7A7B, J90-564A and U+5D4E.
+	(U+5D4E): Unify EGB-7A7B and J90-564A.
+	(U+5D5C): Unify J90-563F.
+	(U+5D76): Unify J90-564E.
+	(M-08426): Separate C1-685A, J90-564F and U+5D87.
+	(U+5D87): Unify J90-564F.
+	(M-08618): Separate C1-796B and J90-565A.
+	(J90-565A): Unify C1-796B.
+	(M-08644): Separate J78-565C, J83-565C and C3-5F43.
+
+	* Ideograph-R041-Inch.el (U+5C02): Relate M-07439.
+
+2001-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (M006163): New character; relate to
+	U+59C8 and M-06163.
+	(C2-2633): Unify M059379.
+	(U+59C8): Unify M059378.
+	(M-06165): Separate K0-6D2B, C3-283F and J90-3B50.
+	(J90-3B50): Unify K0-6D2B and M006165.
+	(M-06202): Separate G0-5226, C1-5062, J90-552D and U+59DA.
+	(U+59DA): Unify G0-5226 and J90-552D.
+	(M-06337): Separate J83-4A5A, C1-547B and J90-4A5A.
+	(C1-547B): Unify M006337.
+	(J83-4A5A): Unify J90-4A5A and M054353.
+	(M-06365): Separate J78-5538, G0-4822, J83-5538, C1-595E and
+	U+5A36.
+	(U+5A36): Unify J78-5538, G0-4822, J83-5538 and M006365.
+	(M006367): New character; relate to U+5A37 and M-06367.
+	(C2-3B26): Unify M059423.
+	(M-06516): Separate G0-6642, J83-4932, C1-5E69, J90-4932 and
+	U+5A9B.
+	(U+5A9B): Unify G0-6642, J83-4932, C1-5E69, J90-4932 and M054321.
+	(M-06597): Separate G0-6645, J83-553D, C1-6363, J90-553D and
+	U+5ABE.
+	(M006597): New character; relate to U+5ABE and M-06597.
+	(M054540): Likewise.
+	(U+5ABE): Unify G0-6645 and J90-553D; relate to M054540.
+	(C1-6363): Relate to M054540.
+	(M-06601): Separate C2-4247.
+	(M006601): New character; relate to U+5AC0 and M-06601.
+
+	* Ideograph-R040-Roof.el (M-07202): Separate J78-5563, C3-3541 and
+	U+5BC3; add `vulgar-ideograph-of' for M-01587; unify M007202.
+	(U+5BC3): Unify C3-3541.
+	(J78-5563): Unify M055204.
+	(K0-6A32): New character; relate to M-07202 and U+5BC3.
+	(C4-3130): Relate to M-07202 and U+5BC3.
+	(U+5BC9): Unify MH-133, J90-5565 and M054545.
+
+2001-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+5738): Unify MH-79, J90-542B and
+	M054525; add `script'.
+	(U+5789): Unify MH-80, J90-5435 and M054527.
+	(M055180): New character; relate to MH-80, U+5789 and M054527.
+	(U+5788): Unify MH-81, J90-5432 and M054526; add `script'.
+	(U+57B3): Unify MH-83, J90-5438 and M054528; add `script'.
+	(U+57B0): Unify MH-84, J90-543B and M054529; add `script'.
+	(U+57AF): Unify M053789; add `script'.
+	(U+57B1): Unify M059297.
+	(U+57D7): Unify M059301.
+	(M-05188): Separate J78-3E7D and J83-3E7D.
+	(J83-3E7D): Unify J78-3E7D.
+	(M005188): New character; relate to U+57F4 and M-05188.
+	(U+57F4): Separate C2-3435; unify M053138.
+	(C2-3435): Relate to M-05188, U+57F4 and M053138.
+	(M-05217): Separate G0-5C21, J83-5444, C2-343B, J90-5444 and
+	U+580B; unify M005217.
+	(U+580B): Unify G0-5C21, J83-5444, C2-343B, J90-5444 and M055183.
+	(MH-89): New character; unify M054531; relate to U+57D6.
+	(U+57D6): Unify J90-5442 and M055182; relate to MH-89 and M054531.
+	(U+5812): Add `total-strokes'.
+	(U+5813): Likewise.
+	(U+5814): Separate C2-3431; unify M059313.
+	(M-05316'): Delete `kangxi-radical' and `kangxi-strokes'; separate
+	M050137; unify J90-4E5D; add `simplified-ideograph-of' for
+	M-05574.
+	(U+5815): Delete `kangxi-strokes'; fix `total-strokes'; unify
+	J90-4244 and M054209.
+	(U+5816): Delete `kangxi-strokes'; fix `ideographic-strokes'; add
+	`total-strokes'; unify M059314.
+	(U+5842): Delete `kangxi-strokes'; delete `non-morohashi'; unify
+	M059318.
+	(U+5847): Add `total-strokes'.
+	(M-05340): Separate J83-4564 and J90-4564; unify M005340.
+	(J83-4564): Unify J90-4564 and M054257.
+	(U+5870): Unify MH-96 and J90-544B; fix strokes.
+	(U+586E): Add `total-strokes'; unify M059330.
+	(U+5871): Fix `ideographic-strokes'; delete `kangxi-strokes';
+	unify M053145.
+	(U+589B): Add `total-strokes'.
+	(U+58B8): Separate J78-5457 and J83-5457; fix strokes; relate to
+	M055187; unify M054535.
+	(U+58B9): Unify MH-100, J90-5451 and M054533.
+	(U+58B6): Add `total-strokes'; unify M053134.
+	(J83-5457): Unify J90-5457 and M055187.
+	(M059409): New character; relate to U+58B6 and M053134.
+	(M055188): New character; relate to U+58B8 and M055187.
+	(U+58CC): Unify J90-3E6D.
+	(U+58D7): Unify MH-106, J90-545C and M054536; add `script'.
+	(U+58E5): Unify J90-545F and M054537; add comment.
+
+2001-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el (M-04806): Separate J90-5423 and
+	U+570D; unify M004806.
+	(U+570D): Unify J90-5423.
+	(M-04832): Fixed; separate C6-5B5B; separate U+5716; unify
+	M004832.
+	(U+5716): Unify M059291.
+	(C6-5B5B): Relate to M-04832, M059291 and U+5716.
+
 2001-07-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el (M-03247): Add `jisx0208-difference'
