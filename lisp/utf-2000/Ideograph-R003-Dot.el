@@ -116,7 +116,7 @@
     ))
 (define-char
   '((name		. "IDEOGRAPHIC ITERATION MARK")
-    (script		Ideograph)
+    (script		Ideograph symbol)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
