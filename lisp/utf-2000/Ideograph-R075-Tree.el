@@ -3856,35 +3856,54 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x6728)	; 木
-      )
-     ((=ucs		  . #x4E14)	; 且
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3A3A)	; &J97-3A3A; [26-26]
       ))
-    (shinjigen-2	. 3545)
     (=ucs		. #x67FB)	; 査
-    (=jis-x0208		. #x3A3A)	; &I-J90-3A3A; [26-26]
-    (=ks-x1001		. #x5E5B)	; &I-K0-5E5B; [62-59]
-    (=cns11643-3	. #x2D34)	; &I-C3-2D34; [13-20]
-    (=gt		. 18586)	; &I-GT-18586;
-    (=gt-k		. 05082)	; &I-GT-K05082;
-    (=gt-pj-1		. #x3A3A)	; &I-GT-18586; [26-26]
-    (=daikanwa		. 14643)	; &I-M-14643;
-    (=cbeta		. 05372)	; &I-CB05372;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x6728)	; 木
+	)
+       ((=ucs		    . #x4E14)	; 且
+	))
+      (shinjigen-2	  . 3545)
+      (=jis-x0208	  . #x3A3A)	; &GT-18586; [26-26]
+      (=ks-x1001	  . #x5E5B)	; &I-K0-5E5B; [62-59]
+      (=gt		  . 18586)	; &I-GT-18586;
+      (=gt-k		  . 05082)	; &I-GT-K05082;
+      (=gt-pj-1		  . #x3A3A)	; &I-GT-18586; [26-26]
+      (=daikanwa	  . 14643)	; &I-M-14643;
+      (=cbeta		  . 05372)	; &I-CB05372;
+      (=ucs@unicode	  . #x67FB)	; &GT-18586;
+      )
+     ((=cns11643-3	  . #x2D34)	; &C3-2D34; [13-20]
+      ))
     ))
 (define-char
-  '((morohashi-daikanwa	14643 0 3)
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
+    (=jis-x0208@1997	. #x3A3A)	; &J97-3A3A; [26-26]
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x3A3A)	; &J97-3A3A; [26-26]
+      ))
     (=ucs		. #x67E5)	; 查
-    (=gb2312		. #x3269)	; &I-G0-3269; [18-73]
-    (=cns11643-1	. #x5167)	; &I-C1-5167; [49-71]
-    (=big5		. #xAC64)	; &I-B-AC64;
-    (=jef-china3	. #x52E9)	; &I-JC3-52E9;
+    (->subsumptive
+     ((=gb2312		  . #x3269)	; &G0-3269; [18-73]
+      (=big5		  . #xAC64)	; &I-B-AC64;
+      (=jef-china3	  . #x52E9)	; &I-JC3-52E9;
+      (=ucs@unicode	  . #x67E5)	; &G0-3269;
+      )
+     ((=cns11643-1	  . #x5167)	; &C1-5167; [49-71]
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
