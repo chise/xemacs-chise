@@ -145,6 +145,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-3		. #x3745)	; ø»•·œ
     (japanese-jisx0208-1990	. #x3B3A)	; ø½Šœ¡
+    (mojikyo			. 050288)	; ø¸Œ‘°
     (ucs			. #x7523)	; ç”£
     ))
 (define-char
