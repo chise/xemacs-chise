@@ -15211,9 +15211,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((korean-ksc5601		  . #x6D3A)	; ø»ŠŠ
-      (japanese-jisx0213-1	  . #x7A44)	; ø»¤–
-      (ideograph-daikanwa	  . 28853)	; ø¸‡‚µ
+     ((ucs		  . #xFA5B)	; ï©›
       ))
     (shinjigen-1	. 339)
     (shinjigen-2	. 339)
