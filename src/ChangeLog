@@ -1,3 +1,8 @@
+1999-11-09  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fdefine_char): Fix problem with non-UCS
+	character.
+
 1999-11-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* char-ucs.h (SPLIT_CHAR): Don't make new cell if a charset slot
