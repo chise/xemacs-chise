@@ -1,5 +1,12 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/misc-lang.el (setup-ipa-environment): Just call
+	`set-language-environment'.
+	- Specify `coding-priority' and `input-method' properties of IPA
+	  environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/japanese.el:
 	- Use `define-coding-system-alias' instead of `copy-coding-system'.
 	- Register `coding-priority', `input-method' and `features' keys
