@@ -375,7 +375,7 @@ remove_char_ccs (Lisp_Object character, Lisp_Object ccs)
 				      XINT (cpos));
 	}
     }
-  if (CHAR_ID_TABLE_P (encoding_table))
+  if (CHAR_TABLEP (encoding_table))
     {
       put_char_id_table (XCHAR_TABLE(encoding_table), character, Qnil);
     }
