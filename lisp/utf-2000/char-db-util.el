@@ -485,14 +485,14 @@
     (when (and (memq '=>ucs-jis attributes)
 	       (setq value (get-char-attribute char '=>ucs-jis)))
       (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
-		      value (decode-char 'ucs value)
+		      value (decode-char 'ucs-jis value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-jis attributes))
       )
     (when (and (memq '=>ucs-cns attributes)
 	       (setq value (get-char-attribute char '=>ucs-cns)))
       (insert (format "(=>ucs-cns\t\t. #x%04X)\t; %c%s"
-		      value (decode-char 'ucs value)
+		      value (decode-char 'ucs-cns value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-cns attributes))
       )
