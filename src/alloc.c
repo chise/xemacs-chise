@@ -357,9 +357,6 @@ allocate_lisp_storage (size_t size)
    After doing the mark phase, GC will walk this linked list
    and free any lcrecord which hasn't been marked. */
 static struct lcrecord_header *all_lcrecords;
-#ifdef UTF2000
-static struct lcrecord_header *all_older_lcrecords;
-#endif
 
 void *
 alloc_lcrecord (size_t size, const struct lrecord_implementation *implementation)
@@ -388,37 +385,6 @@ alloc_lcrecord (size_t size, const struct lrecord_implementation *implementation
   INCREMENT_CONS_COUNTER (size, implementation->name);
   return lcheader;
 }
-
-#ifdef UTF2000
-void *
-alloc_older_lcrecord (size_t size,
-		      const struct lrecord_implementation *implementation)
-{
-  struct lcrecord_header *lcheader;
-
-  type_checking_assert
-    ((implementation->static_size == 0 ?
-      implementation->size_in_bytes_method != NULL :
-      implementation->static_size == size)
-     &&
-     (! implementation->basic_p)
-     &&
-     (! (implementation->hash == NULL && implementation->equal != NULL)));
-
-  lcheader = (struct lcrecord_header *) allocate_lisp_storage (size);
-  set_lheader_older_implementation (&lcheader->lheader, implementation);
-  lcheader->next = all_older_lcrecords;
-#if 1                           /* mly prefers to see small ID numbers */
-  lcheader->uid = lrecord_uid_counter++;
-#else				/* jwz prefers to see real addrs */
-  lcheader->uid = (int) &lcheader;
-#endif
-  lcheader->free = 0;
-  all_older_lcrecords = lcheader;
-  INCREMENT_CONS_COUNTER (size, implementation->name);
-  return lcheader;
-}
-#endif
 
 #if 0 /* Presently unused */
 /* Very, very poor man's EGC?
@@ -470,14 +436,6 @@ disksave_object_finalization_1 (void)
 	  !header->free)
 	LHEADER_IMPLEMENTATION (&header->lheader)->finalizer (header, 1);
     }
-#ifdef UTF2000
-  for (header = all_older_lcrecords; header; header = header->next)
-    {
-      if (LHEADER_IMPLEMENTATION (&header->lheader)->finalizer &&
-	  !header->free)
-	LHEADER_IMPLEMENTATION (&header->lheader)->finalizer (header, 1);
-    }
-#endif
 }
 
 
@@ -2450,11 +2408,7 @@ mark_object (Lisp_Object obj)
 
       /* All c_readonly objects have their mark bit set,
 	 so that we only need to check the mark bit here. */
-      if ( (!MARKED_RECORD_HEADER_P (lheader))
-#ifdef UTF2000
-	   && (!OLDER_RECORD_HEADER_P (lheader))
-#endif
-	   )
+      if (! MARKED_RECORD_HEADER_P (lheader))
 	{
 	  MARK_RECORD_HEADER (lheader);
 
@@ -3856,9 +3810,6 @@ reinit_alloc_once_early (void)
   XSETINT (all_bit_vectors, 0); /* Qzero may not be set yet. */
   XSETINT (Vgc_message, 0);
   all_lcrecords = 0;
-#ifdef UTF2000
-  all_older_lcrecords = 0;
-#endif
   ignore_malloc_warnings = 1;
 #ifdef DOUG_LEA_MALLOC
   mallopt (M_TRIM_THRESHOLD, 128*1024); /* trim threshold */
