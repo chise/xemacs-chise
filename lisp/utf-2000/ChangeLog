@@ -1,5 +1,52 @@
 2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R122-Net.el (M-28311'): Separate K0-5F7E; unify
+	M050357.
+	(M-28319): Unify K0-5F7E; relate to U+7F72.
+
+	* Ideograph-R119-Rice.el (M-26997): New character; unify K0-6F71.
+	(M-26997'): Separate K0-6F71; separate C1-6A34; unify M050341.
+
+	* Ideograph-R102-Field.el (M-21739'): Unify M050289.
+	(C6-3965): Unify M-21805' and M050290.
+	(C6-3962): Unify M-21818.
+	(C5-2E6E): Relate to M-21819.
+	(C5-2E6D): Relate to M-21820.
+	(C4-2E30): Relate to M-21825.
+	(C5-2E6C): Relate to M-21826.
+	(M-21875'): Unify M050291.
+
+	* Ideograph-R087-Claw.el (C7-2479): Relate to M-19705.
+	(C7-2F69): Relate to M-19706.
+	(C7-2F6A): Relate to M-19707.
+	(C5-553F): Relate to M-19708.
+	(C4-5665): Relate to M-19709.
+	(M-19710'): Fix `ideographic-strokes'; unify M050273.
+	(C3-5545): Relate to M-19711 instead of M-19710'.
+	(C7-4056): Relate to M-19712.
+	(C5-6838): Relate to M-19713.
+	(C7-4E3D): Relate to M-19715.
+	(C7-5B71): Relate to M-19718.
+	(M-19719): New character.
+	(C7-6122): Relate to M-19720.
+
+	* Ideograph-R109-Eye.el (M-23210'): Unify M050295.
+	(M-23275'): Unify M050296.
+	(M-23668'): Unify M050297.
+
+	* Ideograph-R096-Jade.el (C3-4D32): Relate to M-21220.
+	(C5-4E49): Unify M-21221.
+	(C7-253B): Unify M-21222.
+	(M-21223'): Unify M050283.
+	(C5-683E): Unify M-21329.
+	(C4-602A): Unify M-21330.
+	(C7-477A): Unify M-21331.
+	(C7-4E43): Unify M-21332.
+	(C5-683D): Unify M-21334.
+	(M-21334'): Unify M050284.
+
+2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R108-Dish.el (M-22972'): Unify M050293.
 	(M-23001'): Unify M050294.
 
