@@ -124,8 +124,28 @@
   '((ideographic-radical . 136)	; â¾‡
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (chinese-cns11643-5 . #x5027)	; ø»š¯´
-    (ideograph-daikanwa . 30344)	; ø¸‡šˆ
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 58)
+    (hanyu-dazidian-char . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x708E)	; ç‚Ž
+	)
+       ((ucs		    . #x821B)	; èˆ›
+	))
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
+    (chinese-cns11643-5		. #x5027)	; ø»š¯´
+    (ideograph-daikanwa		. 30344)	; ø¸‡šˆ
+    (ideograph-hanziku-1	. #xAFE8)	; ý¢€š¿¨
+    (ucs			. #x269FF)	; ð¦§¿
     ))
 (define-char
   '((ideographic-radical . 136)	; â¾‡
