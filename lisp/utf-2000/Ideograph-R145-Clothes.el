@@ -4314,8 +4314,16 @@
   '((ideographic-radical . 145)	; â¾
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (japanese-jisx0212	. #x5C5F)	; ø»‹»¸
     (ucs		. #x891C)	; è¤œ
+    ))
+(define-char
+  '((=>ucs		. #x891C)	; è¤œ
+    (ideographic-radical . 145)	; â¾
+    (ideographic-strokes . 9)
+    (total-strokes	 . 15)
+    (japanese-jisx0212		. #x5C5F)	; ø»‹»¸
+    (japanese-jisx0213-1	. #x7B6E)	; ø»¤˜•
+    (ucs-jis			. #x891C)	; ø»‹»¸
     ))
 (define-char
   '((ideographic-radical . 145)	; â¾
