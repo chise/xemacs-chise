@@ -56,6 +56,12 @@
     ))
 (define-char
   '((ideographic-radical . 103)	; â½¦
+    (ideographic-strokes . 4)
+    (total-strokes	 . 9)
+    (mojikyo		. 074034)	; ý €’„²
+    ))
+(define-char
+  '((ideographic-radical . 103)	; â½¦
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (chinese-cns11643-4 . #x2E32)	; ø»—³¿
