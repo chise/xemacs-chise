@@ -7,6 +7,68 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: xemacs-faq.info,  Node: Q3.1.7,  Next: Q3.1.8,  Prev: Q3.1.6,  Up: Customization
+
+Q3.1.7: `xemacs -name junk' doesn't work?
+-----------------------------------------
+
+   When I run `xterm -name junk', I get an xterm whose class name
+according to xprop, is `junk'.  This is the way it's supposed to work,
+I think.  When I run `xemacs -name junk' the class name is not set to
+`junk'.  It's still `emacs'.  What does `xemacs -name' really do?  The
+reason I ask is that my window manager (fvwm) will make a window sticky
+and I use XEmacs to read my mail.  I want that XEmacs window to be
+sticky, without having to use the window manager's function to set the
+window sticky.  What gives?
+
+   `xemacs -name' sets the application name for the program (that is,
+the thing which normally comes from `argv[0]').  Using `-name' is the
+same as making a copy of the executable with that new name.  The
+`WM_CLASS' property on each frame is set to the frame-name, and the
+application-class.  So, if you did `xemacs -name FOO' and then created
+a frame named BAR, you'd get an X window with WM_CLASS = `( "BAR",
+"Emacs")'.  However, the resource hierarchy for this widget would be:
+
+     Name:    FOO   .shell             .container   .BAR
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   instead of the default
+
+     Name:    xemacs.shell             .container   .emacs
+     Class:   Emacs .TopLevelEmacsShell.EmacsManager.EmacsFrame
+
+   It is arguable that the first element of WM_CLASS should be set to
+the application-name instead of the frame-name, but I think that's less
+flexible, since it does not give you the ability to have multiple frames
+with different WM_CLASS properties.  Another possibility would be for
+the default frame name to come from the application name instead of
+simply being `emacs'.  However, at this point, making that change would
+be troublesome: it would mean that many users would have to make yet
+another change to their resource files (since the default frame name
+would suddenly change from `emacs' to `xemacs', or whatever the
+executable happened to be named), so we'd rather avoid it.
+
+   To make a frame with a particular name use:
+
+     (make-frame '((name . "the-name")))
+
+
+File: xemacs-faq.info,  Node: Q3.1.8,  Next: Q3.2.1,  Prev: Q3.1.7,  Up: Customization
+
+Q3.1.8: `-iconic' doesn't work.
+-------------------------------
+
+   When I start up XEmacs using `-iconic' it doesn't work right.  Using
+`-unmapped' on the command line, and setting the `initiallyUnmapped' X
+Resource don't seem to help much either...
+
+   Ben Wing <ben@xemacs.org> writes:
+
+     Ugh, this stuff is such an incredible mess that I've about given up
+     getting it to work.  The principal problem is numerous
+     window-manager bugs...
+
+
 File: xemacs-faq.info,  Node: Q3.2.1,  Next: Q3.2.2,  Prev: Q3.1.8,  Up: Customization
 
 3.2: Textual Fonts & Colors
@@ -1330,87 +1392,4 @@ Q4.0.11: How do I make VM or mh-e display graphical smilies?
    For tm use the following:
      (autoload 'smiley-buffer "smiley" nil t)
      (add-hook 'mime-viewer/plain-text-preview-hook 'smiley-buffer)
-
-
-File: xemacs-faq.info,  Node: Q4.0.12,  Next: Q4.1.1,  Prev: Q4.0.11,  Up: Subsystems
-
-Q4.0.12: Customization of VM not covered in the manual, or here.
-----------------------------------------------------------------
-
-   giacomo boffi <boffi@hp735.stru.polimi.it> writes:
-
-     The meta-answer is to look into the file `vm-vars.el', in the vm
-     directory of the lisp library.
-
-     `vm-vars.el' contains, initializes and carefully describes, with
-     examples of usage, the plethora of user options that _fully_
-     control VM's behavior.
-
-     Enter vm-vars, `forward-search' for toolbar, find the variables
-     that control the toolbar placement, appearance, existence, copy to
-     your `.emacs' or `.vm' and modify according to the detailed
-     instructions.
-
-     The above also applies to all the various features of VM: search
-     for some keywords, maybe the first you conjure isn't appropriate,
-     find the appropriate variables, copy and experiment.
-
-
-File: xemacs-faq.info,  Node: Q4.1.1,  Next: Q4.1.2,  Prev: Q4.0.12,  Up: Subsystems
-
-4.1: Web browsing with W3
-=========================
-
-Q4.1.1: What is W3?
--------------------
-
-   W3 is an advanced graphical browser written in Emacs lisp that runs
-on XEmacs.  It has full support for cascaded style sheets, and more...
-
-   It has a home web page at
-`http://www.cs.indiana.edu/elisp/w3/docs.html'.
-
-
-File: xemacs-faq.info,  Node: Q4.1.2,  Next: Q4.1.3,  Prev: Q4.1.1,  Up: Subsystems
-
-Q4.1.2: How do I run W3 from behind a firewall?
------------------------------------------------
-
-   There is a long, well-written, detailed section in the W3 manual that
-describes how to do this.  Look in the section entitled "Firewalls".
-
-
-File: xemacs-faq.info,  Node: Q4.1.3,  Next: Q4.2.1,  Prev: Q4.1.2,  Up: Subsystems
-
-Q4.1.3: Is it true that W3 supports style sheets and tables?
-------------------------------------------------------------
-
-   Yes, and much more.  W3, as distributed with the latest XEmacs is a
-full-featured web browser.
-
-
-File: xemacs-faq.info,  Node: Q4.2.1,  Next: Q4.2.2,  Prev: Q4.1.3,  Up: Subsystems
-
-4.2: Reading Netnews and Mail with Gnus
-=======================================
-
-Q4.2.1: GNUS, (ding) Gnus, Gnus 5, September Gnus, Red Gnus, Quassia Gnus, argh!
---------------------------------------------------------------------------------
-
-   The Gnus numbering issues are not meant for mere mortals to know
-them.  If you feel you _must_ enter the muddy waters of Gnus, visit the
-excellent FAQ, maintained by Justin Sheehy, at:
-
-     `http://www.ccs.neu.edu/software/contrib/gnus/'
-
-   See also Gnus home page
-     `http://www.gnus.org/'
-
-
-File: xemacs-faq.info,  Node: Q4.2.2,  Next: Q4.2.3,  Prev: Q4.2.1,  Up: Subsystems
-
-Q4.2.2: This question intentionally left blank.
------------------------------------------------
-
-   Obsolete question, left blank to avoid renumbering.
 

@@ -343,9 +343,11 @@ symbolic link anywhere in its directory path. In other words, the
 the `find-file' command will check the `buffer-file-truename' of all
 visited files when deciding whether a given file is already in a
 buffer, instead of just `buffer-file-name'.  If you attempt to visit
-another file which is a hard-link or symbolic-link to a file that is
-already in a buffer, the existing buffer will be found instead of a
-newly created one.
+another file which is a symbolic link to a file that is already in a
+buffer, the existing buffer will be found instead of a newly created
+one.  This works if any component of the pathname (including a
+non-terminal component) is a symbolic link as well, but doesn't work
+with hard links (nothing does).
 
    If you want to create a file, just visit it.  Emacs prints `(New
 File)' in the echo area, but in other respects behaves as if you had

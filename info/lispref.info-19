@@ -50,6 +50,413 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Key Sequences,  Next: Prefix Keys,  Prev: Inheritance and Keymaps,  Up: Keymaps
+
+Key Sequences
+=============
+
+   Contrary to popular belief, the world is not ASCII.  When running
+under a window manager, XEmacs can tell the difference between, for
+example, the keystrokes `control-h', `control-shift-h', and
+`backspace'.  You can, in fact, bind different commands to each of
+these.
+
+   A "key sequence" is a set of keystrokes.  A "keystroke" is a keysym
+and some set of modifiers (such as <CONTROL> and <META>).  A "keysym"
+is what is printed on the keys on your keyboard.
+
+   A keysym may be represented by a symbol, or (if and only if it is
+equivalent to an ASCII character in the range 32 - 255) by a character
+or its equivalent ASCII code.  The `A' key may be represented by the
+symbol `A', the character `?A', or by the number 65.  The `break' key
+may be represented only by the symbol `break'.
+
+   A keystroke may be represented by a list: the last element of the
+list is the key (a symbol, character, or number, as above) and the
+preceding elements are the symbolic names of modifier keys (<CONTROL>,
+<META>, <SUPER>, <HYPER>, <ALT>, and <SHIFT>).  Thus, the sequence
+`control-b' is represented by the forms `(control b)', `(control ?b)',
+and `(control 98)'.  A keystroke may also be represented by an event
+object, as returned by the `next-command-event' and `read-key-sequence'
+functions.
+
+   Note that in this context, the keystroke `control-b' is _not_
+represented by the number 2 (the ASCII code for `^B') or the character
+`?\^B'.  See below.
+
+   The <SHIFT> modifier is somewhat of a special case.  You should not
+(and cannot) use `(meta shift a)' to mean `(meta A)', since for
+characters that have ASCII equivalents, the state of the shift key is
+implicit in the keysym (`a' vs. `A').  You also cannot say `(shift =)'
+to mean `+', as that sort of thing varies from keyboard to keyboard.
+The <SHIFT> modifier is for use only with characters that do not have a
+second keysym on the same key, such as `backspace' and `tab'.
+
+   A key sequence is a vector of keystrokes.  As a degenerate case,
+elements of this vector may also be keysyms if they have no modifiers.
+That is, the `A' keystroke is represented by all of these forms:
+
+             A       ?A      65      (A)     (?A)    (65)
+             [A]     [?A]    [65]    [(A)]   [(?A)]  [(65)]
+
+   the `control-a' keystroke is represented by these forms:
+
+             (control A)     (control ?A)    (control 65)
+             [(control A)]   [(control ?A)]  [(control 65)]
+
+   the key sequence `control-c control-a' is represented by these forms:
+
+             [(control c) (control a)]       [(control ?c) (control ?a)]
+             [(control 99) (control 65)]     etc.
+
+   Mouse button clicks work just like keypresses: `(control button1)'
+means pressing the left mouse button while holding down the control
+key.  `[(control c) (shift button3)]' means `control-c', hold <SHIFT>,
+click right.
+
+   Commands may be bound to the mouse-button up-stroke rather than the
+down-stroke as well.  `button1' means the down-stroke, and `button1up'
+means the up-stroke.  Different commands may be bound to the up and
+down strokes, though that is probably not what you want, so be careful.
+
+   For backward compatibility, a key sequence may also be represented by
+a string.  In this case, it represents the key sequence(s) that would
+produce that sequence of ASCII characters in a purely ASCII world.  For
+example, a string containing the ASCII backspace character, `"\^H"',
+would represent two key sequences: `(control h)' and `backspace'.
+Binding a command to this will actually bind both of those key
+sequences.  Likewise for the following pairs:
+
+                     control h       backspace
+                     control i       tab
+                     control m       return
+                     control j       linefeed
+                     control [       escape
+                     control @      control space
+
+   After binding a command to two key sequences with a form like
+
+             (define-key global-map "\^X\^I" 'command-1)
+
+it is possible to redefine only one of those sequences like so:
+
+             (define-key global-map [(control x) (control i)] 'command-2)
+             (define-key global-map [(control x) tab] 'command-3)
+
+   Of course, all of this applies only when running under a window
+system.  If you're talking to XEmacs through a TTY connection, you
+don't get any of these features.
+
+ - Function: event-matches-key-specifier-p event key-specifier
+     This function returns non-`nil' if EVENT matches KEY-SPECIFIER,
+     which can be any valid form representing a key sequence.  This can
+     be useful, e.g., to determine if the user pressed `help-char' or
+     `quit-char'.
+
+
+File: lispref.info,  Node: Prefix Keys,  Next: Active Keymaps,  Prev: Key Sequences,  Up: Keymaps
+
+Prefix Keys
+===========
+
+   A "prefix key" has an associated keymap that defines what to do with
+key sequences that start with the prefix key.  For example, `C-x' is a
+prefix key, and it uses a keymap that is also stored in the variable
+`ctl-x-map'.  Here is a list of the standard prefix keys of XEmacs and
+their keymaps:
+
+   * `help-map' is used for events that follow `C-h'.
+
+   * `mode-specific-map' is for events that follow `C-c'.  This map is
+     not actually mode specific; its name was chosen to be informative
+     for the user in `C-h b' (`display-bindings'), where it describes
+     the main use of the `C-c' prefix key.
+
+   * `ctl-x-map' is the map used for events that follow `C-x'.  This
+     map is also the function definition of `Control-X-prefix'.
+
+   * `ctl-x-4-map' is used for events that follow `C-x 4'.
+
+   * `ctl-x-5-map' is used for events that follow `C-x 5'.
+
+   * The prefix keys `C-x n', `C-x r' and `C-x a' use keymaps that have
+     no special name.
+
+   * `esc-map' is an evil hack that is present for compatibility
+     purposes with Emacs 18.  Defining a key in `esc-map' is equivalent
+     to defining the same key in `global-map' but with the <META>
+     prefix added.  You should _not_ use this in your code. (This map is
+     also the function definition of `ESC-prefix'.)
+
+   The binding of a prefix key is the keymap to use for looking up the
+events that follow the prefix key.  (It may instead be a symbol whose
+function definition is a keymap.  The effect is the same, but the symbol
+serves as a name for the prefix key.)  Thus, the binding of `C-x' is
+the symbol `Control-X-prefix', whose function definition is the keymap
+for `C-x' commands.  (The same keymap is also the value of `ctl-x-map'.)
+
+   Prefix key definitions can appear in any active keymap.  The
+definitions of `C-c', `C-x', `C-h' and <ESC> as prefix keys appear in
+the global map, so these prefix keys are always available.  Major and
+minor modes can redefine a key as a prefix by putting a prefix key
+definition for it in the local map or the minor mode's map.  *Note
+Active Keymaps::.
+
+   If a key is defined as a prefix in more than one active map, then its
+various definitions are in effect merged: the commands defined in the
+minor mode keymaps come first, followed by those in the local map's
+prefix definition, and then by those from the global map.
+
+   In the following example, we make `C-p' a prefix key in the local
+keymap, in such a way that `C-p' is identical to `C-x'.  Then the
+binding for `C-p C-f' is the function `find-file', just like `C-x C-f'.
+The key sequence `C-p 6' is not found in any active keymap.
+
+     (use-local-map (make-sparse-keymap))
+         => nil
+     (local-set-key "\C-p" ctl-x-map)
+         => nil
+     (key-binding "\C-p\C-f")
+         => find-file
+     
+     (key-binding "\C-p6")
+         => nil
+
+ - Function: define-prefix-command symbol &optional mapvar
+     This function defines SYMBOL as a prefix command: it creates a
+     keymap and stores it as SYMBOL's function definition.  Storing the
+     symbol as the binding of a key makes the key a prefix key that has
+     a name.  If optional argument MAPVAR is not specified, it also
+     sets SYMBOL as a variable, to have the keymap as its value. (If
+     MAPVAR is given and is not `t', its value is stored as the value
+     of SYMBOL.) The function returns SYMBOL.
+
+     In Emacs version 18, only the function definition of SYMBOL was
+     set, not the value as a variable.
+
+
+File: lispref.info,  Node: Active Keymaps,  Next: Key Lookup,  Prev: Prefix Keys,  Up: Keymaps
+
+Active Keymaps
+==============
+
+   XEmacs normally contains many keymaps; at any given time, just a few
+of them are "active" in that they participate in the interpretation of
+user input.  These are the global keymap, the current buffer's local
+keymap, and the keymaps of any enabled minor modes.
+
+   The "global keymap" holds the bindings of keys that are defined
+regardless of the current buffer, such as `C-f'.  The variable
+`global-map' holds this keymap, which is always active.
+
+   Each buffer may have another keymap, its "local keymap", which may
+contain new or overriding definitions for keys.  The current buffer's
+local keymap is always active except when `overriding-local-map' or
+`overriding-terminal-local-map' overrides it.  Extents and text
+properties can specify an alternative local map for certain parts of the
+buffer; see *Note Extents and Events::.
+
+   Each minor mode may have a keymap; if it does, the keymap is active
+when the minor mode is enabled.
+
+   The variable `overriding-local-map' and
+`overriding-terminal-local-map', if non-`nil', specify other local
+keymaps that override the buffer's local map and all the minor mode
+keymaps.
+
+   All the active keymaps are used together to determine what command to
+execute when a key is entered.  XEmacs searches these maps one by one,
+in order of decreasing precedence, until it finds a binding in one of
+the maps.
+
+   More specifically:
+
+   For key-presses, the order of keymaps searched is:
+
+   * the `keymap' property of any extent(s) or text properties at point;
+
+   * any applicable minor-mode maps;
+
+   * the current local map of the current buffer;
+
+   * the current global map.
+
+   For mouse-clicks, the order of keymaps searched is:
+
+   * the current local map of the `mouse-grabbed-buffer' if any;
+
+   * the `keymap' property of any extent(s) at the position of the click
+     (this includes modeline extents);
+
+   * the `modeline-map' of the buffer corresponding to the modeline
+     under the mouse (if the click happened over a modeline);
+
+   * the value of `toolbar-map' in the current buffer (if the click
+     happened over a toolbar);
+
+   * the current local map of the buffer under the mouse (does not
+     apply to toolbar clicks);
+
+   * any applicable minor-mode maps;
+
+   * the current global map.
+
+   Note that if `overriding-local-map' or
+`overriding-terminal-local-map' is non-`nil', _only_ those two maps and
+the current global map are searched.
+
+   The procedure for searching a single keymap is called "key lookup";
+see *Note Key Lookup::.
+
+   Since every buffer that uses the same major mode normally uses the
+same local keymap, you can think of the keymap as local to the mode.  A
+change to the local keymap of a buffer (using `local-set-key', for
+example) is seen also in the other buffers that share that keymap.
+
+   The local keymaps that are used for Lisp mode, C mode, and several
+other major modes exist even if they have not yet been used.  These
+local maps are the values of the variables `lisp-mode-map',
+`c-mode-map', and so on.  For most other modes, which are less
+frequently used, the local keymap is constructed only when the mode is
+used for the first time in a session.
+
+   The minibuffer has local keymaps, too; they contain various
+completion and exit commands.  *Note Intro to Minibuffers::.
+
+   *Note Standard Keymaps::, for a list of standard keymaps.
+
+ - Function: current-keymaps &optional event-or-keys
+     This function returns a list of the current keymaps that will be
+     searched for bindings.  This lists keymaps such as the current
+     local map and the minor-mode maps, but does not list the parents
+     of those keymaps.  EVENT-OR-KEYS controls which keymaps will be
+     listed.  If EVENT-OR-KEYS is a mouse event (or a vector whose last
+     element is a mouse event), the keymaps for that mouse event will
+     be listed.  Otherwise, the keymaps for key presses will be listed.
+
+ - Variable: global-map
+     This variable contains the default global keymap that maps XEmacs
+     keyboard input to commands.  The global keymap is normally this
+     keymap.  The default global keymap is a full keymap that binds
+     `self-insert-command' to all of the printing characters.
+
+     It is normal practice to change the bindings in the global map,
+     but you should not assign this variable any value other than the
+     keymap it starts out with.
+
+ - Function: current-global-map
+     This function returns the current global keymap.  This is the same
+     as the value of `global-map' unless you change one or the other.
+
+          (current-global-map)
+          => #<keymap global-map 639 entries 0x221>
+
+ - Function: current-local-map &optional buffer
+     This function returns BUFFER's local keymap, or `nil' if it has
+     none.  BUFFER defaults to the current buffer.
+
+     In the following example, the keymap for the `*scratch*' buffer
+     (using Lisp Interaction mode) has a number of entries, including
+     one prefix key, `C-x'.
+
+          (current-local-map)
+          => #<keymap lisp-interaction-mode-map 5 entries 0x558>
+          (describe-bindings-internal (current-local-map))
+          =>  ; Inserted into the buffer:
+          backspace       backward-delete-char-untabify
+          linefeed        eval-print-last-sexp
+          delete          delete-char
+          C-j             eval-print-last-sexp
+          C-x             << Prefix Command >>
+          M-tab           lisp-complete-symbol
+          M-;             lisp-indent-for-comment
+          M-C-i           lisp-complete-symbol
+          M-C-q           indent-sexp
+          M-C-x           eval-defun
+          Alt-backspace   backward-kill-sexp
+          Alt-delete      kill-sexp
+          
+          C-x x           edebug-defun
+
+ - Function: current-minor-mode-maps
+     This function returns a list of the keymaps of currently enabled
+     minor modes.
+
+ - Function: use-global-map keymap
+     This function makes KEYMAP the new current global keymap.  It
+     returns `nil'.
+
+     It is very unusual to change the global keymap.
+
+ - Function: use-local-map keymap &optional buffer
+     This function makes KEYMAP the new local keymap of BUFFER.  BUFFER
+     defaults to the current buffer.  If KEYMAP is `nil', then the
+     buffer has no local keymap.  `use-local-map' returns `nil'.  Most
+     major mode commands use this function.
+
+ - Variable: minor-mode-map-alist
+     This variable is an alist describing keymaps that may or may not be
+     active according to the values of certain variables.  Its elements
+     look like this:
+
+          (VARIABLE . KEYMAP)
+
+     The keymap KEYMAP is active whenever VARIABLE has a non-`nil'
+     value.  Typically VARIABLE is the variable that enables or
+     disables a minor mode.  *Note Keymaps and Minor Modes::.
+
+     Note that elements of `minor-mode-map-alist' do not have the same
+     structure as elements of `minor-mode-alist'.  The map must be the
+     CDR of the element; a list with the map as the second element will
+     not do.
+
+     What's more, the keymap itself must appear in the CDR.  It does not
+     work to store a variable in the CDR and make the map the value of
+     that variable.
+
+     When more than one minor mode keymap is active, their order of
+     priority is the order of `minor-mode-map-alist'.  But you should
+     design minor modes so that they don't interfere with each other.
+     If you do this properly, the order will not matter.
+
+     See also `minor-mode-key-binding', above.  See *Note Keymaps and
+     Minor Modes::, for more information about minor modes.
+
+ - Variable: modeline-map
+     This variable holds the keymap consulted for mouse-clicks on the
+     modeline of a window.  This variable may be buffer-local; its
+     value will be looked up in the buffer of the window whose modeline
+     was clicked upon.
+
+ - Variable: toolbar-map
+     This variable holds the keymap consulted for mouse-clicks over a
+     toolbar.
+
+ - Variable: mouse-grabbed-buffer
+     If non-`nil', a buffer which should be consulted first for all
+     mouse activity.  When a mouse-click is processed, it will first be
+     looked up in the local-map of this buffer, and then through the
+     normal mechanism if there is no binding for that click.  This
+     buffer's value of `mode-motion-hook' will be consulted instead of
+     the `mode-motion-hook' of the buffer of the window under the mouse.
+     You should _bind_ this, not set it.
+
+ - Variable: overriding-local-map
+     If non-`nil', this variable holds a keymap to use instead of the
+     buffer's local keymap and instead of all the minor mode keymaps.
+     This keymap, if any, overrides all other maps that would have been
+     active, except for the current global map.
+
+ - Variable: overriding-terminal-local-map
+     If non-`nil', this variable holds a keymap to use instead of the
+     buffer's local keymap and instead of all the minor mode keymaps,
+     but for the selected console only. (In other words, this variable
+     is always console-local; putting a keymap here only applies to
+     keystrokes coming from the selected console.  *Note Consoles and
+     Devices::.) This keymap, if any, overrides all other maps that
+     would have been active, except for the current global map.
+
+
 File: lispref.info,  Node: Key Lookup,  Next: Functions for Key Lookup,  Prev: Active Keymaps,  Up: Keymaps
 
 Key Lookup
@@ -226,15 +633,15 @@ Functions for Key Lookup
           (key-binding [escape escape escape])
               => keyboard-escape-quit
 
- - Function: local-key-binding key &optional accept-defaults
-     This function returns the binding for KEY in the current local
+ - Function: local-key-binding keys &optional accept-defaults
+     This function returns the binding for KEYS in the current local
      keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
      bindings, as in `lookup-key' (above).
 
- - Function: global-key-binding key &optional accept-defaults
-     This function returns the binding for command KEY in the current
+ - Function: global-key-binding keys &optional accept-defaults
+     This function returns the binding for command KEYS in the current
      global keymap, or `nil' if it is undefined there.
 
      The argument ACCEPT-DEFAULTS controls checking for default
@@ -402,10 +809,13 @@ changing an entry in `ctl-x-map', and this has the effect of changing
 the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
 
  - Function: substitute-key-definition olddef newdef keymap &optional
-          oldmap
+          oldmap prefix
      This function replaces OLDDEF with NEWDEF for any keys in KEYMAP
      that were bound to OLDDEF.  In other words, OLDDEF is replaced
-     with NEWDEF wherever it appears.  The function returns `nil'.
+     with NEWDEF wherever it appears.  Prefix keymaps are checked
+     recursively.
+
+     The function returns `nil'.
 
      For example, this redefines `C-x C-f', if you do it in an XEmacs
      with standard bindings:
@@ -414,7 +824,7 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
            'find-file 'find-file-read-only (current-global-map))
 
      If OLDMAP is non-`nil', then its bindings determine which keys to
-     rebind.  The rebindings still happen in NEWMAP, not in OLDMAP.
+     rebind.  The rebindings still happen in KEYMAP, not in OLDMAP.
      Thus, you can change one map under the control of the bindings in
      another.  For example,
 
@@ -424,6 +834,10 @@ the bindings of both `C-p C-f' and `C-x C-f' in the default global map.
 
      puts the special deletion command in `my-map' for whichever keys
      are globally bound to the standard deletion command.
+
+     If argument PREFIX is non-`nil', then only those occurrences of
+     OLDDEF found in keymaps accessible through the keymap bound to
+     PREFIX in KEYMAP are redefined.  See also `accessible-keymaps'.
 
 
  - Function: suppress-keymap keymap &optional nodigits
@@ -614,7 +1028,7 @@ information.
                         2 entries 0x3f5>))
 
  - Function: map-keymap function keymap &optional sort-first
-     This function applies FUNCTION to each element of `KEYMAP'.
+     This function applies FUNCTION to each element of KEYMAP.
      FUNCTION will be called with two arguments: a key-description
      list, and the binding.  The order in which the elements of the
      keymap are passed to the function is unspecified.  If the function
@@ -649,9 +1063,9 @@ information.
      exactly those keymaps and no others).  If KEYMAPS is nil, search
      in the currently applicable maps for EVENT-OR-KEYS.
 
-     If KEYMAP is a keymap, then the maps searched are KEYMAP and the
-     global keymap.  If KEYMAP is a list of keymaps, then the maps
-     searched are exactly those keymaps, and no others.  If KEYMAP is
+     If KEYMAPS is a keymap, then the maps searched are KEYMAPS and the
+     global keymap.  If KEYMAPS is a list of keymaps, then the maps
+     searched are exactly those keymaps, and no others.  If KEYMAPS is
      `nil', then the maps used are the current active keymaps for
      EVENT-OR-KEYS (this is equivalent to specifying `(current-keymaps
      EVENT-OR-KEYS)' as the argument to KEYMAPS).
@@ -685,13 +1099,13 @@ information.
    `describe-bindings-internal' is used to implement the help command
 `describe-bindings'.
 
- - Command: describe-bindings prefix mouse-only-p
+ - Command: describe-bindings &optional prefix mouse-only-p
      This function creates a listing of all defined keys and their
      definitions.  It writes the listing in a buffer named `*Help*' and
      displays it in a window.
 
-     If PREFIX is non-`nil', it should be a prefix key; then the
-     listing includes only keys that start with PREFIX.
+     If optional argument PREFIX is non-`nil', it should be a prefix
+     key; then the listing includes only keys that start with PREFIX.
 
      When several characters with consecutive ASCII codes have the same
      definition, they are shown together, as `FIRSTCHAR..LASTCHAR'.  In
@@ -703,8 +1117,9 @@ information.
      digits, punctuation, etc.); all these characters are bound to
      `self-insert-command'.
 
-     If the second argument (prefix arg, interactively) is non-`nil'
-     then only the mouse bindings are displayed.
+     If the second optional argument MOUSE-ONLY-P (prefix arg,
+     interactively) is non-`nil' then only the mouse bindings are
+     displayed.
 
 
 File: lispref.info,  Node: Other Keymap Functions,  Prev: Scanning Keymaps,  Up: Keymaps
@@ -739,498 +1154,4 @@ Menus
 * Menu Filters::        Filter functions for the default menubar.
 * Menu Accelerators::   Using and controlling menu accelerator keys
 * Buffers Menu::        The menu that displays the list of buffers.
-
-
-File: lispref.info,  Node: Menu Format,  Next: Menubar Format,  Up: Menus
-
-Format of Menus
-===============
-
-   A menu is described using a "menu description", which is a list of
-menu items, keyword-value pairs, strings, and submenus.  The menu
-description specifies which items are present in the menu, what function
-each item invokes, and whether the item is selectable or not.  Pop-up
-menus are directly described with a menu description, while menubars are
-described slightly differently (see below).
-
-   The first element of a menu must be a string, which is the name of
-the menu.  This is the string that will be displayed in the parent menu
-or menubar, if any.  This string is not displayed in the menu itself,
-except in the case of the top level pop-up menu, where there is no
-parent.  In this case, the string will be displayed at the top of the
-menu if `popup-menu-titles' is non-`nil'.
-
-   Immediately following the first element there may optionally be up
-to four keyword-value pairs, as follows:
-
-`:included FORM'
-     This can be used to control the visibility of a menu.  The form is
-     evaluated and the menu will be omitted if the result is `nil'.
-
-`:config SYMBOL'
-     This is an efficient shorthand for `:included (memq SYMBOL
-     menubar-configuration)'.  See the variable `menubar-configuration'.
-
-`:filter FUNCTION'
-     A menu filter is used to sensitize or incrementally create a
-     submenu only when it is selected by the user and not every time
-     the menubar is activated.  The filter function is passed the list
-     of menu items in the submenu and must return a list of menu items
-     to be used for the menu.  It is called only when the menu is about
-     to be displayed, so other menus may already be displayed.  Vile
-     and terrible things will happen if a menu filter function changes
-     the current buffer, window, or frame.  It also should not raise,
-     lower, or iconify any frames.  Basically, the filter function
-     should have no side-effects.
-
-`:accelerator KEY'
-     A menu accelerator is a keystroke which can be pressed while the
-     menu is visible which will immediately activate the item.  KEY
-     must be a char or the symbol name of a key.  *Note Menu
-     Accelerators::.
-
-   The rest of the menu consists of elements as follows:
-
-   * A "menu item", which is a vector in the following form:
-
-          `[ NAME CALLBACK :KEYWORD VALUE :KEYWORD VALUE ... ]'
-
-     NAME is a string, the name of the menu item; it is the string to
-     display on the menu.  It is filtered through the resource
-     database, so it is possible for resources to override what string
-     is actually displayed.
-
-     CALLBACK is a form that will be invoked when the menu item is
-     selected.  If the callback of a menu item is a symbol, then it
-     must name a command.  It will be invoked with
-     `call-interactively'.  If it is a list, then it is evaluated with
-     `eval'.
-
-     The valid keywords and their meanings are described below.
-
-     Note that for compatibility purposes, the form
-
-          `[ NAME CALLBACK ACTIVE-P ]'
-
-     is also accepted and is equivalent to
-
-          `[ NAME CALLBACK :active ACTIVE-P ]'
-
-     and the form
-
-          `[ NAME CALLBACK ACTIVE-P SUFFIX]'
-
-     is accepted and is equivalent to
-
-          `[ NAME CALLBACK :active ACTIVE-P :suffix SUFFIX]'
-
-     However, these older forms are deprecated and should generally not
-     be used.
-
-   * If an element of a menu is a string, then that string will be
-     presented in the menu as unselectable text.
-
-   * If an element of a menu is a string consisting solely of hyphens,
-     then that item will be presented as a solid horizontal line.
-
-   * If an element of a menu is a string beginning with `--:', then a
-     particular sort of horizontal line will be displayed, as follows:
-
-    `"--:singleLine"'
-          A solid horizontal line.  This is equivalent to a string
-          consisting solely of hyphens.
-
-    `"--:doubleLine"'
-          A solid double horizontal line.
-
-    `"--:singleDashedLine"'
-          A dashed horizontal line.
-
-    `"--:doubleDashedLine"'
-          A dashed double horizontal line.
-
-    `"--:noLine"'
-          No line (but a small space is left).
-
-    `"--:shadowEtchedIn"'
-          A solid horizontal line with a 3-d recessed appearance.
-
-    `"--:shadowEtchedOut"'
-          A solid horizontal line with a 3-d pushed-out appearance.
-
-    `"--:shadowDoubleEtchedIn"'
-          A solid double horizontal line with a 3-d recessed appearance.
-
-    `"--:shadowDoubleEtchedOut"'
-          A solid double horizontal line with a 3-d pushed-out
-          appearance.
-
-    `"--:shadowEtchedInDash"'
-          A dashed horizontal line with a 3-d recessed appearance.
-
-    `"--:shadowEtchedOutDash"'
-          A dashed horizontal line with a 3-d pushed-out appearance.
-
-    `"--:shadowDoubleEtchedInDash"'
-          A dashed double horizontal line with a 3-d recessed
-          appearance.
-
-    `"--:shadowDoubleEtchedOutDash"'
-          A dashed double horizontal line with a 3-d pushed-out
-          appearance.
-
-   * If an element of a menu is a list, it is treated as a submenu.
-     The name of that submenu (the first element in the list) will be
-     used as the name of the item representing this menu on the parent.
-
-   The possible keywords are as follows:
-
-:active FORM
-     FORM will be evaluated when the menu that this item is a part of
-     is about to be displayed, and the item will be selectable only if
-     the result is non-`nil'.  If the item is unselectable, it will
-     usually be displayed grayed-out to indicate this.
-
-:suffix FORM
-     FORM will be evaluated when the menu that this item is a part of
-     is about to be displayed, and the resulting string is appended to
-     the displayed name.  This provides a convenient way of adding the
-     name of a command's "argument" to the menu, like `Kill Buffer
-     NAME'.
-
-:keys STRING
-     Normally, the keyboard equivalents of commands in menus are
-     displayed when the "callback" is a symbol.  This can be used to
-     specify keys for more complex menu items.  It is passed through
-     `substitute-command-keys' first.
-
-:style STYLE
-     Specifies what kind of object this menu item is.  STYLE be one of
-     the symbols
-
-    `nil'
-          A normal menu item.
-
-    `toggle'
-          A toggle button.
-
-    `radio'
-          A radio button.
-
-    `button'
-          A menubar button.
-
-     The only difference between toggle and radio buttons is how they
-     are displayed.  But for consistency, a toggle button should be
-     used when there is one option whose value can be turned on or off,
-     and radio buttons should be used when there is a set of mutually
-     exclusive options.  When using a group of radio buttons, you
-     should arrange for no more than one to be marked as selected at a
-     time.
-
-:selected FORM
-     Meaningful only when STYLE is `toggle', `radio' or `button'.  This
-     specifies whether the button will be in the selected or unselected
-     state.  FORM is evaluated, as for `:active'.
-
-:included FORM
-     This can be used to control the visibility of a menu item.  The
-     form is evaluated and the menu item is only displayed if the
-     result is non-`nil'.  Note that this is different from `:active':
-     If `:active' evaluates to `nil', the item will be displayed grayed
-     out, while if `:included' evaluates to `nil', the item will be
-     omitted entirely.
-
-:config SYMBOL
-     This is an efficient shorthand for `:included (memq SYMBOL
-     menubar-configuration)'.  See the variable `menubar-configuration'.
-
-:accelerator KEY
-     A menu accelerator is a keystroke which can be pressed while the
-     menu is visible which will immediately activate the item.  KEY
-     must be a char or the symbol name of a key.  *Note Menu
-     Accelerators::.
-
- - Variable: menubar-configuration
-     This variable holds a list of symbols, against which the value of
-     the `:config' tag for each menubar item will be compared.  If a
-     menubar item has a `:config' tag, then it is omitted from the
-     menubar if that tag is not a member of the `menubar-configuration'
-     list.
-
-   For example:
-
-      ("File"
-       :filter file-menu-filter      ; file-menu-filter is a function that takes
-                                     ; one argument (a list of menu items) and
-                                     ; returns a list of menu items
-       [ "Save As..."    write-file]
-       [ "Revert Buffer" revert-buffer :active (buffer-modified-p) ]
-       [ "Read Only"     toggle-read-only :style toggle :selected buffer-read-only ]
-       )
-
-
-File: lispref.info,  Node: Menubar Format,  Next: Menubar,  Prev: Menu Format,  Up: Menus
-
-Format of the Menubar
-=====================
-
-   A menubar is a list of menus, menu items, and strings.  The format is
-similar to that of a menu, except:
-
-   * The first item need not be a string, and is not treated specially.
-
-   * A string consisting solely of hyphens is not treated specially.
-
-   * If an element of a menubar is `nil', then it is used to represent
-     the division between the set of menubar items which are flush-left
-     and those which are flush-right.  (Note: this isn't completely
-     implemented yet.)
-
-
-File: lispref.info,  Node: Menubar,  Next: Modifying Menus,  Prev: Menubar Format,  Up: Menus
-
-Menubar
-=======
-
- - Variable: current-menubar
-     This variable holds the description of the current menubar.  This
-     may be buffer-local.  When the menubar is changed, the function
-     `set-menubar-dirty-flag' has to be called in order for the menubar
-     to be updated on the screen.
-
- - Constant: default-menubar
-     This variable holds the menubar description of the menubar that is
-     visible at startup.  This is the value that `current-menubar' has
-     at startup.
-
- - Function: set-menubar-dirty-flag
-     This function tells XEmacs that the menubar widget has to be
-     updated.  Changes to the menubar will generally not be visible
-     until this function is called.
-
-   The following convenience functions are provided for setting the
-menubar.  They are equivalent to doing the appropriate action to change
-`current-menubar', and then calling `set-menubar-dirty-flag'.  Note
-that these functions copy their argument using `copy-sequence'.
-
- - Function: set-menubar menubar
-     This function sets the default menubar to be MENUBAR (*note Menu
-     Format::).  This is the menubar that will be visible in buffers
-     that have not defined their own, buffer-local menubar.
-
- - Function: set-buffer-menubar menubar
-     This function sets the buffer-local menubar to be MENUBAR.  This
-     does not change the menubar in any buffers other than the current
-     one.
-
-   Miscellaneous:
-
- - Variable: menubar-show-keybindings
-     If true, the menubar will display keyboard equivalents.  If false,
-     only the command names will be displayed.
-
- - Variable: activate-menubar-hook
-     Function or functions called before a menubar menu is pulled down.
-     These functions are called with no arguments, and should
-     interrogate and modify the value of `current-menubar' as desired.
-
-     The functions on this hook are invoked after the mouse goes down,
-     but before the menu is mapped, and may be used to activate,
-     deactivate, add, or delete items from the menus.  However, using a
-     filter (with the `:filter' keyword in a menu description) is
-     generally a more efficient way of accomplishing the same thing,
-     because the filter is invoked only when the actual menu goes down.
-     With a complex menu, there can be a quite noticeable and
-     sometimes aggravating delay if all menu modification is
-     implemented using the `activate-menubar-hook'.  See above.
-
-     These functions may return the symbol `t' to assert that they have
-     made no changes to the menubar.  If any other value is returned,
-     the menubar is recomputed.  If `t' is returned but the menubar has
-     been changed, then the changes may not show up right away.
-     Returning `nil' when the menubar has not changed is not so bad;
-     more computation will be done, but redisplay of the menubar will
-     still be performed optimally.
-
- - Variable: menu-no-selection-hook
-     Function or functions to call when a menu or dialog box is
-     dismissed without a selection having been made.
-
-
-File: lispref.info,  Node: Modifying Menus,  Next: Pop-Up Menus,  Prev: Menubar,  Up: Menus
-
-Modifying Menus
-===============
-
-   The following functions are provided to modify the menubar of one of
-its submenus.  Note that these functions modify the menu in-place,
-rather than copying it and making a new menu.
-
-   Some of these functions take a "menu path", which is a list of
-strings identifying the menu to be modified.  For example, `("File")'
-names the top-level "File" menu.  `("File" "Foo")' names a hypothetical
-submenu of "File".
-
-   Others take a "menu item path", which is similar to a menu path but
-also specifies a particular item to be modified.  For example, `("File"
-"Save")' means the menu item called "Save" under the top-level "File"
-menu.  `("Menu" "Foo" "Item")' means the menu item called "Item" under
-the "Foo" submenu of "Menu".
-
- - Function: add-submenu menu-path submenu &optional before
-     This function adds a menu to the menubar or one of its submenus.
-     If the named menu exists already, it is changed.
-
-     MENU-PATH identifies the menu under which the new menu should be
-     inserted.  If MENU-PATH is `nil', then the menu will be added to
-     the menubar itself.
-
-     SUBMENU is the new menu to add (*note Menu Format::).
-
-     BEFORE, if provided, is the name of a menu before which this menu
-     should be added, if this menu is not on its parent already.  If
-     the menu is already present, it will not be moved.
-
- - Function: add-menu-button menu-path menu-leaf &optional before
-     This function adds a menu item to some menu, creating the menu
-     first if necessary.  If the named item exists already, it is
-     changed.
-
-     MENU-PATH identifies the menu under which the new menu item should
-     be inserted.
-
-     MENU-LEAF is a menubar leaf node (*note Menu Format::).
-
-     BEFORE, if provided, is the name of a menu before which this item
-     should be added, if this item is not on the menu already.  If the
-     item is already present, it will not be moved.
-
- - Function: delete-menu-item menu-item-path
-     This function removes the menu item specified by MENU-ITEM-PATH
-     from the menu hierarchy.
-
- - Function: enable-menu-item menu-item-path
-     This function makes the menu item specified by MENU-ITEM-PATH be
-     selectable.
-
- - Function: disable-menu-item menu-item-path
-     This function makes the menu item specified by MENU-ITEM-PATH be
-     unselectable.
-
- - Function: relabel-menu-item menu-item-path new-name
-     This function changes the string of the menu item specified by
-     MENU-ITEM-PATH.  NEW-NAME is the string that the menu item will be
-     printed as from now on.
-
-   The following function can be used to search for a particular item in
-a menubar specification, given a path to the item.
-
- - Function: find-menu-item menubar menu-item-path &optional parent
-     This function searches MENUBAR for the item given by
-     MENU-ITEM-PATH starting from PARENT (`nil' means start at the top
-     of MENUBAR).  This function returns `(ITEM . PARENT)', where
-     PARENT is the immediate parent of the item found (a menu
-     description), and ITEM is either a vector, list, or string,
-     depending on the nature of the menu item.
-
-     This function signals an error if the item is not found.
-
-   The following deprecated functions are also documented, so that
-existing code can be understood.  You should not use these functions in
-new code.
-
- - Function: add-menu menu-path menu-name menu-items &optional before
-     This function adds a menu to the menubar or one of its submenus.
-     If the named menu exists already, it is changed.  This is
-     obsolete; use `add-submenu' instead.
-
-     MENU-PATH identifies the menu under which the new menu should be
-     inserted.  If MENU-PATH is `nil', then the menu will be added to
-     the menubar itself.
-
-     MENU-NAME is the string naming the menu to be added; MENU-ITEMS is
-     a list of menu items, strings, and submenus.  These two arguments
-     are the same as the first and following elements of a menu
-     description (*note Menu Format::).
-
-     BEFORE, if provided, is the name of a menu before which this menu
-     should be added, if this menu is not on its parent already.  If the
-     menu is already present, it will not be moved.
-
- - Function: add-menu-item menu-path item-name function enabled-p
-          &optional before
-     This function adds a menu item to some menu, creating the menu
-     first if necessary.  If the named item exists already, it is
-     changed.  This is obsolete; use `add-menu-button' instead.
-
-     MENU-PATH identifies the menu under which the new menu item should
-     be inserted. ITEM-NAME, FUNCTION, and ENABLED-P are the first,
-     second, and third elements of a menu item vector (*note Menu
-     Format::).
-
-     BEFORE, if provided, is the name of a menu item before which this
-     item should be added, if this item is not on the menu already.  If
-     the item is already present, it will not be moved.
-
-
-File: lispref.info,  Node: Menu Filters,  Next: Menu Accelerators,  Prev: Pop-Up Menus,  Up: Menus
-
-Menu Filters
-============
-
-   The following filter functions are provided for use in
-`default-menubar'.  You may want to use them in your own menubar
-description.
-
- - Function: file-menu-filter menu-items
-     This function changes the arguments and sensitivity of these File
-     menu items:
-
-    `Delete Buffer'
-          Has the name of the current buffer appended to it.
-
-    `Print Buffer'
-          Has the name of the current buffer appended to it.
-
-    `Pretty-Print Buffer'
-          Has the name of the current buffer appended to it.
-
-    `Save Buffer'
-          Has the name of the current buffer appended to it, and is
-          sensitive only when the current buffer is modified.
-
-    `Revert Buffer'
-          Has the name of the current buffer appended to it, and is
-          sensitive only when the current buffer has a file.
-
-    `Delete Frame'
-          Sensitive only when there is more than one visible frame.
-
- - Function: edit-menu-filter menu-items
-     This function changes the arguments and sensitivity of these Edit
-     menu items:
-
-    `Cut'
-          Sensitive only when XEmacs owns the primary X Selection (if
-          `zmacs-regions' is `t', this is equivalent to saying that
-          there is a region selected).
-
-    `Copy'
-          Sensitive only when XEmacs owns the primary X Selection.
-
-    `Clear'
-          Sensitive only when XEmacs owns the primary X Selection.
-
-    `Paste'
-          Sensitive only when there is an owner for the X Clipboard
-          Selection.
-
-    `Undo'
-          Sensitive only when there is undo information.  While in the
-          midst of an undo, this is changed to `Undo More'.
-
- - Function: buffers-menu-filter menu-items
-     This function sets up the Buffers menu.  *Note Buffers Menu::, for
-     more information.
 

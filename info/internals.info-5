@@ -388,8 +388,8 @@ into the enum's code at compile-time.
      which is used to mark an object.  All Lisp objects that are
      contained within the object need to be marked by applying this
      function to them.  The mark method should also return a Lisp
-     object, which should be either nil or an object to mark. (This can
-     be used in lieu of calling `mark_object()' on the object, to
+     object, which should be either `nil' or an object to mark. (This
+     can be used in lieu of calling `mark_object()' on the object, to
      reduce the recursion depth, and consequently should be the most
      heavily nested sub-object, such as a long list.)
 

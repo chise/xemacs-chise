@@ -50,6 +50,650 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Finding All Frames,  Next: Frames and Windows,  Prev: Deleting Frames,  Up: Frames
+
+Finding All Frames
+==================
+
+ - Function: frame-list
+     The function `frame-list' returns a list of all the frames that
+     have not been deleted.  It is analogous to `buffer-list' for
+     buffers.  The list that you get is newly created, so modifying the
+     list doesn't have any effect on the internals of XEmacs.
+
+ - Function: device-frame-list &optional device
+     This function returns a list of all frames on DEVICE.  If DEVICE
+     is `nil', the selected device will be used.
+
+ - Function: visible-frame-list &optional device
+     This function returns a list of just the currently visible frames.
+     If DEVICE is specified only frames on that device will be returned.
+     *Note Visibility of Frames::.  (TTY frames always count as
+     "visible", even though only the selected one is actually
+     displayed.)
+
+ - Function: next-frame &optional frame which-frames which-devices
+     The function `next-frame' lets you cycle conveniently through all
+     the frames from an arbitrary starting point.  It returns the "next"
+     frame after FRAME in the cycle.  If FRAME defaults to the selected
+     frame.
+
+     The second argument, WHICH-FRAMES, says which frames to consider:
+
+    `visible'
+          Consider only frames that are visible.
+
+    `iconic'
+          Consider only frames that are iconic.
+
+    `invisible'
+          Consider only frames that are invisible (this is different
+          from iconic).
+
+    `visible-iconic'
+          Consider frames that are visible or iconic.
+
+    `invisible-iconic'
+          Consider frames that are invisible or iconic.
+
+    `nomini'
+          Consider all frames except minibuffer-only ones.
+
+    `visible-nomini'
+          Like `visible' but omits minibuffer-only frames.
+
+    `iconic-nomini'
+          Like `iconic' but omits minibuffer-only frames.
+
+    `invisible-nomini'
+          Like `invisible' but omits minibuffer-only frames.
+
+    `visible-iconic-nomini'
+          Like `visible-iconic' but omits minibuffer-only frames.
+
+    `invisible-iconic-nomini'
+          Like `invisible-iconic' but omits minibuffer-only frames.
+
+    `nil'
+          Identical to `nomini'.
+
+    WINDOW
+          Consider only the window WINDOW's frame and any frame now
+          using WINDOW as the minibuffer.
+
+    any other value
+          Consider all frames.
+
+     The optional argument WHICH-DEVICES further clarifies on which
+     devices to search for frames as specified by WHICH-FRAMES.
+
+    `nil'
+          Consider all devices on the selected console.
+
+    DEVICE
+          Consider only the one device DEVICE.
+
+    CONSOLE
+          Consider all devices on CONSOLE.
+
+    DEVICE-TYPE
+          Consider all devices with device type DEVICE-TYPE.
+
+    `window-system'
+          Consider all devices on window system consoles.
+
+    anything else
+          Consider all devices without restriction.
+
+ - Function: previous-frame &optional frame which-frames which-devices
+     Like `next-frame', but cycles through all frames in the opposite
+     direction.
+
+   See also `next-window' and `previous-window', in *Note Cyclic Window
+Ordering::.
+
+
+File: lispref.info,  Node: Frames and Windows,  Next: Minibuffers and Frames,  Prev: Finding All Frames,  Up: Frames
+
+Frames and Windows
+==================
+
+   Each window is part of one and only one frame; you can get the frame
+with `window-frame'.
+
+ - Function: frame-root-window &optional frame
+     This returns the root window of frame FRAME.  FRAME defaults to
+     the selected frame if not specified.
+
+ - Function: window-frame &optional window
+     This function returns the frame that WINDOW is on.  WINDOW
+     defaults to the selected window if omitted.
+
+   All the non-minibuffer windows in a frame are arranged in a cyclic
+order.  The order runs from the frame's top window, which is at the
+upper left corner, down and to the right, until it reaches the window at
+the lower right corner (always the minibuffer window, if the frame has
+one), and then it moves back to the top.
+
+ - Function: frame-highest-window &optional frame position
+     This function returns the topmost, leftmost window of frame FRAME
+     at position POSITION.
+
+     If omitted, FRAME defaults to the currently selected frame.
+
+     POSITION is used to distinguish between multiple windows that abut
+     the top of the frame: 0 means the leftmost window abutting the top
+     of the frame, 1 the next-leftmost, etc.  POSITION can also be less
+     than zero: -1 means the rightmost window abutting the top of the
+     frame, -2 the next-rightmost, etc.  If omitted, POSITION defaults
+     to 0, i.e. the leftmost highest window.  If there is no window at
+     the given POSITION, `nil' is returned.
+
+   The following three functions work similarly.
+
+ - Function: frame-lowest-window &optional frame position
+     This function returns the lowest window on FRAME which is at
+     POSITION.
+
+ - Function: frame-leftmost-window &optional frame position
+     This function returns the leftmost window on FRAME which is at
+     POSITION.
+
+ - Function: frame-rightmost-window &optional frame position
+     This function returns the rightmost window on FRAME which is at
+     POSITION.
+
+   At any time, exactly one window on any frame is "selected within the
+frame".  The significance of this designation is that selecting the
+frame also selects this window.  You can get the frame's current
+selected window with `frame-selected-window'.
+
+ - Function: frame-selected-window &optional frame
+     This function returns the window on FRAME that is selected within
+     FRAME.  FRAME defaults to the selected frame if not specified.
+
+   Conversely, selecting a window for XEmacs with `select-window' also
+makes that window selected within its frame.  *Note Selecting Windows::.
+
+   Another function that (usually) returns one of the windows in a
+frame is `minibuffer-window'.  *Note Minibuffer Misc::.
+
+
+File: lispref.info,  Node: Minibuffers and Frames,  Next: Input Focus,  Prev: Frames and Windows,  Up: Frames
+
+Minibuffers and Frames
+======================
+
+   Normally, each frame has its own minibuffer window at the bottom,
+which is used whenever that frame is selected.  If the frame has a
+minibuffer, you can get it with `minibuffer-window' (*note Minibuffer
+Misc::).
+
+   However, you can also create a frame with no minibuffer.  Such a
+frame must use the minibuffer window of some other frame.  When you
+create the frame, you can specify explicitly the minibuffer window to
+use (in some other frame).  If you don't, then the minibuffer is found
+in the frame which is the value of the variable
+`default-minibuffer-frame'.  Its value should be a frame which does
+have a minibuffer.
+
+ - Variable: default-minibuffer-frame
+     This variable specifies the frame to use for the minibuffer
+     window, by default.
+
+
+File: lispref.info,  Node: Input Focus,  Next: Visibility of Frames,  Prev: Minibuffers and Frames,  Up: Frames
+
+Input Focus
+===========
+
+   At any time, one frame in XEmacs is the "selected frame".  The
+selected window always resides on the selected frame.  As the focus
+moves from device to device, the selected frame on each device is
+remembered and restored when the focus moves back to that device.
+
+ - Function: selected-frame &optional device
+     This function returns the selected frame on DEVICE.  If DEVICE is
+     not specified, the selected device will be used.  If no frames
+     exist on the device, `nil' is returned.
+
+   The X server normally directs keyboard input to the X window that the
+mouse is in.  Some window managers use mouse clicks or keyboard events
+to "shift the focus" to various X windows, overriding the normal
+behavior of the server.
+
+   Lisp programs can switch frames "temporarily" by calling the
+function `select-frame'.  This does not override the window manager;
+rather, it escapes from the window manager's control until that control
+is somehow reasserted.
+
+   When using a text-only terminal, there is no window manager;
+therefore, `select-frame' is the only way to switch frames, and the
+effect lasts until overridden by a subsequent call to `select-frame'.
+Only the selected terminal frame is actually displayed on the terminal.
+Each terminal screen except for the initial one has a number, and the
+number of the selected frame appears in the mode line after the word
+`XEmacs' (*note Modeline Variables::).
+
+ - Function: select-frame frame
+     This function selects frame FRAME, temporarily disregarding the
+     focus of the X server if any.  The selection of FRAME lasts until
+     the next time the user does something to select a different frame,
+     or until the next time this function is called.
+
+     Note that `select-frame' does not actually cause the window-system
+     focus to be set to this frame, or the `select-frame-hook' or
+     `deselect-frame-hook' to be run, until the next time that XEmacs is
+     waiting for an event.
+
+     Also note that when the variable `focus-follows-mouse' is
+     non-`nil', the frame selection is temporary and is reverted when
+     the current command terminates, much like the buffer selected by
+     `set-buffer'.  In order to effect a permanent focus change use
+     `focus-frame'.
+
+ - Function: focus-frame frame
+     This function selects FRAME and gives it the window system focus.
+     The operation of `focus-frame' is not affected by the value of
+     `focus-follows-mouse'.
+
+ - Special Form: save-selected-frame forms...
+     This special form records the selected frame, executes FORMS in
+     sequence, then restores the earlier selected frame.  The value
+     returned is the value of the last form.
+
+ - Special Form: with-selected-frame frame forms...
+     This special form records the selected frame, then selects FRAME
+     and executes FORMS in sequence.  After the last form is finished,
+     the earlier selected frame is restored.  The value returned is the
+     value of the last form.
+
+
+File: lispref.info,  Node: Visibility of Frames,  Next: Raising and Lowering,  Prev: Input Focus,  Up: Frames
+
+Visibility of Frames
+====================
+
+   An frame on a window system may be "visible", "invisible", or
+"iconified".  If it is visible, you can see its contents.  If it is
+iconified, the frame's contents do not appear on the screen, but an icon
+does.  If the frame is invisible, it doesn't show on the screen, not
+even as an icon.
+
+   Visibility is meaningless for TTY frames, since only the selected
+one is actually displayed in any case.
+
+ - Function: make-frame-visible &optional frame
+     This function makes frame FRAME visible.  If you omit FRAME, it
+     makes the selected frame visible.
+
+ - Function: make-frame-invisible &optional frame force
+     This function makes frame FRAME invisible.
+
+ - Command: iconify-frame &optional frame
+     This function iconifies frame FRAME.
+
+ - Function: Command deiconify-frame &optional frame
+     This function de-iconifies frame FRAME.  Under a window system,
+     this is equivalent to `make-frame-visible'.
+
+ - Function: frame-visible-p &optional frame
+     This returns whether FRAME is currently "visible" (actually in use
+     for display).  A frame that is not visible is not updated, and, if
+     it works through a window system, may not show at all.
+
+ - Function: frame-iconified-p &optional frame
+     This returns whether FRAME is iconified.  Not all window managers
+     use icons; some merely unmap the window, so this function is not
+     the inverse of `frame-visible-p'.  It is possible for a frame to
+     not be visible and not be iconified either.  However, if the frame
+     is iconified, it will not be visible.  (Under FSF Emacs, the
+     functionality of this function is obtained through
+     `frame-visible-p'.)
+
+ - Function: frame-totally-visible-p &optional frame
+     This returns whether FRAME is not obscured by any other X windows.
+     On TTY frames, this is the same as `frame-visible-p'.
+
+
+File: lispref.info,  Node: Raising and Lowering,  Next: Frame Configurations,  Prev: Visibility of Frames,  Up: Frames
+
+Raising and Lowering Frames
+===========================
+
+   The X Window System uses a desktop metaphor.  Part of this metaphor
+is the idea that windows are stacked in a notional third dimension
+perpendicular to the screen surface, and thus ordered from "highest" to
+"lowest".  Where two windows overlap, the one higher up covers the one
+underneath.  Even a window at the bottom of the stack can be seen if no
+other window overlaps it.
+
+   A window's place in this ordering is not fixed; in fact, users tend
+to change the order frequently.  "Raising" a window means moving it
+"up", to the top of the stack.  "Lowering" a window means moving it to
+the bottom of the stack.  This motion is in the notional third
+dimension only, and does not change the position of the window on the
+screen.
+
+   You can raise and lower XEmacs's X windows with these functions:
+
+ - Command: raise-frame &optional frame
+     This function raises frame FRAME.
+
+ - Command: lower-frame &optional frame
+     This function lowers frame FRAME.
+
+   You can also specify auto-raise (raising automatically when a frame
+is selected) or auto-lower (lowering automatically when it is
+deselected).  Under X, most ICCCM-compliant window managers will have
+an option to do this for you, but the following variables are provided
+in case you're using a broken WM.  (Under FSF Emacs, the same
+functionality is provided through the `auto-raise' and `auto-lower'
+frame properties.)
+
+ - Variable: auto-raise-frame
+     This variable's value is `t' if frames will be raised to the top
+     when selected.
+
+ - Variable: auto-lower-frame
+     This variable's value is `t' if frames will be lowered to the
+     bottom when no longer selected.
+
+   Auto-raising and auto-lowering is implemented through functions
+attached to `select-frame-hook' and `deselect-frame-hook' (*note Frame
+Hooks::).  Under normal circumstances, you should not call these
+functions directly.
+
+ - Function: default-select-frame-hook
+     This hook function implements the `auto-raise-frame' variable; it
+     is for use as the value of `select-frame-hook'.
+
+ - Function: default-deselect-frame-hook
+     This hook function implements the `auto-lower-frame' variable; it
+     is for use as the value of `deselect-frame-hook'.
+
+
+File: lispref.info,  Node: Frame Configurations,  Next: Frame Hooks,  Prev: Raising and Lowering,  Up: Frames
+
+Frame Configurations
+====================
+
+   A "frame configuration" records the current arrangement of frames,
+all their properties, and the window configuration of each one.
+
+ - Function: current-frame-configuration
+     This function returns a frame configuration list that describes
+     the current arrangement of frames and their contents.
+
+ - Function: set-frame-configuration configuration &optional nodelete
+     This function restores the state of frames described by
+     CONFIGURATION, which should be the return value from a previous
+     call to `current-frame-configuration'.
+
+     Each frame listed in CONFIGURATION has its position, size, window
+     configuration, and other properties set as specified in
+     CONFIGURATION.
+
+     Ordinarily, this function deletes all existing frames not listed in
+     CONFIGURATION.  But if optional second argument NODELETE is
+     non-`nil', the unwanted frames are iconified instead.
+
+
+File: lispref.info,  Node: Frame Hooks,  Prev: Frame Configurations,  Up: Frames
+
+Hooks for Customizing Frame Behavior
+====================================
+
+   XEmacs provides many hooks that are called at various times during a
+frame's lifetime.  *Note Hooks::.
+
+ - Variable: create-frame-hook
+     This hook is called each time a frame is created.  The functions
+     are called with one argument, the newly-created frame.
+
+ - Variable: delete-frame-hook
+     This hook is called each time a frame is deleted.  The functions
+     are called with one argument, the about-to-be-deleted frame.
+
+ - Variable: select-frame-hook
+     This is a normal hook that is run just after a frame is selected.
+     The function `default-select-frame-hook', which implements
+     auto-raising (*note Raising and Lowering::), is normally attached
+     to this hook.
+
+     Note that calling `select-frame' does not necessarily set the
+     focus: The actual window-system focus will not be changed until
+     the next time that XEmacs is waiting for an event, and even then,
+     the window manager may refuse the focus-change request.
+
+ - Variable: deselect-frame-hook
+     This is a normal hook that is run just before a frame is deselected
+     (and another frame is selected).  The function
+     `default-deselect-frame-hook', which implements auto-lowering
+     (*note Raising and Lowering::), is normally attached to this hook.
+
+ - Variable: map-frame-hook
+     This hook is called each time a frame is mapped (i.e. made
+     visible).  The functions are called with one argument, the newly
+     mapped frame.
+
+ - Variable: unmap-frame-hook
+     This hook is called each time a frame is unmapped (i.e. made
+     invisible or iconified).  The functions are called with one
+     argument, the newly unmapped frame.
+
+
+File: lispref.info,  Node: Consoles and Devices,  Next: Positions,  Prev: Frames,  Up: Top
+
+Consoles and Devices
+********************
+
+   A "console" is an object representing a single input connection to
+XEmacs, such as an X display or a TTY connection.  It is possible for
+XEmacs to have frames on multiple consoles at once (even on
+heterogeneous types--you can simultaneously have a frame on an X
+display and a TTY connection).  Normally, there is only one console in
+existence.
+
+   A "device" is an object representing a single output device, such as
+a particular screen on an X display. (Usually there is exactly one
+device per X console connection, but there may be more than one if you
+have a multi-headed X display.  For TTY connections, there is always
+exactly one device per console.)
+
+   Each device has one or more "frames" in which text can be displayed.
+For X displays and the like, a frame corresponds to the normal
+window-system concept of a window.  Frames can overlap, be displayed at
+various locations within the display, be resized, etc.  For TTY, only
+one frame can be displayed at a time, and it occupies the entire TTY
+display area.
+
+   However, you can still define multiple frames and switch between
+them.  Their contents are entirely separate from each other.  These
+sorts of frames resemble the "virtual console" capability provided
+under Linux or the multiple screens provided by the multiplexing program
+`screen' under Unix.
+
+   When you start up XEmacs, an initial console and device are created
+to receive input and display frames on.  This will either be an X
+display or a TTY connection, depending on what mode you started XEmacs
+in (this is determined by the `DISPLAY' environment variable, the
+`-nw', `-t' and `-display' command-line options, etc.).
+
+   You can connect to other X displays and TTY connections by creating
+new console objects, and to other X screens on an existing display by
+creating new device objects, as described below.  Many functions (for
+example the frame-creation functions) take an optional device argument
+specifying which device the function pertains to.  If the argument is
+omitted, it defaults to the selected device (see below).
+
+ - Function: consolep object
+     This returns non-`nil' if OBJECT is a console.
+
+ - Function: devicep object
+     This returns non-`nil' if OBJECT is a device.
+
+* Menu:
+
+* Basic Console Functions::     Functions for working with consoles.
+* Basic Device Functions::      Functions for working with devices.
+* Console Types and Device Classes::
+                                I/O and color characteristics.
+* Connecting to a Console or Device::
+* The Selected Console and Device::
+* Console and Device I/O::      Controlling input and output.
+
+
+File: lispref.info,  Node: Basic Console Functions,  Next: Basic Device Functions,  Up: Consoles and Devices
+
+Basic Console Functions
+=======================
+
+ - Function: console-list
+     This function returns a list of all existing consoles.
+
+ - Function: console-device-list &optional console
+     This function returns a list of all devices on CONSOLE.  If
+     CONSOLE is `nil', the selected console will be used.
+
+
+File: lispref.info,  Node: Basic Device Functions,  Next: Console Types and Device Classes,  Prev: Basic Console Functions,  Up: Consoles and Devices
+
+Basic Device Functions
+======================
+
+ - Function: device-list
+     This function returns a list of all existing devices.
+
+ - Function: device-or-frame-p object
+     This function returns non-`nil' if OBJECT is a device or frame.
+     This function is useful because devices and frames are similar in
+     many respects and many functions can operate on either one.
+
+ - Function: device-frame-list &optional device
+     This function returns a list of all frames on DEVICE.  DEVICE
+     defaults to the currently selected device.
+
+ - Function: frame-device &optional frame
+     This function returns the device that FRAME is on.  FRAME defaults
+     to the currently selected frame.
+
+
+File: lispref.info,  Node: Console Types and Device Classes,  Next: Connecting to a Console or Device,  Prev: Basic Device Functions,  Up: Consoles and Devices
+
+Console Types and Device Classes
+================================
+
+   Every device is of a particular "type", which describes how the
+connection to that device is made and how the device operates, and a
+particular "class", which describes other characteristics of the device
+(currently, the color capabilities of the device).
+
+   The currently-defined device types are
+
+`x'
+     A connection to an X display (such as `willow:0').
+
+`tty'
+     A connection to a tty (such as `/dev/ttyp3').
+
+`stream'
+     A stdio connection.  This describes a device for which input and
+     output is only possible in a stream-like fashion, such as when
+     XEmacs in running in batch mode.  The very first device created by
+     XEmacs is a terminal device and is used to print out messages of
+     various sorts (for example, the help message when you use the
+     `-help' command-line option).
+
+   The currently-defined device classes are
+`color'
+     A color device.
+
+`grayscale'
+     A grayscale device (a device that can display multiple shades of
+     gray, but no color).
+
+`mono'
+     A device that can only display two colors (e.g. black and white).
+
+ - Function: device-type &optional device
+     This function returns the type of DEVICE.  This is a symbol whose
+     name is one of the device types mentioned above.  DEVICE defaults
+     to the selected device.
+
+ - Function: device-or-frame-type device-or-frame
+     This function returns the type of DEVICE-OR-FRAME.
+
+ - Function: device-class &optional device
+     This function returns the class (color behavior) of DEVICE.  This
+     is a symbol whose name is one of the device classes mentioned
+     above.
+
+ - Function: valid-device-type-p device-type
+     This function returns whether DEVICE-TYPE (which should be a
+     symbol) specifies a valid device type.
+
+ - Function: valid-device-class-p device-class
+     This function returns whether DEVICE-CLASS (which should be a
+     symbol) specifies a valid device class.
+
+ - Variable: terminal-device
+     This variable holds the initial terminal device object, which
+     represents XEmacs's stdout.
+
+
+File: lispref.info,  Node: Connecting to a Console or Device,  Next: The Selected Console and Device,  Prev: Console Types and Device Classes,  Up: Consoles and Devices
+
+Connecting to a Console or Device
+=================================
+
+ - Function: make-device type connection &optional props
+     This function creates a new device.
+
+   The following two functions create devices of specific types and are
+written in terms of `make-device'.
+
+ - Function: make-tty-device &optional tty terminal-type
+     This function creates a new tty device on TTY.  This also creates
+     the tty's first frame.  TTY should be a string giving the name of
+     a tty device file (e.g. `/dev/ttyp3' under SunOS et al.), as
+     returned by the `tty' command issued from the Unix shell.  A value
+     of `nil' means use the stdin and stdout as passed to XEmacs from
+     the shell.  If TERMINAL-TYPE is non-`nil', it should be a string
+     specifying the type of the terminal attached to the specified tty.
+     If it is `nil', the terminal type will be inferred from the
+     `TERM' environment variable.
+
+ - Function: make-x-device &optional display argv-list
+     This function creates a new device connected to DISPLAY.  Optional
+     argument ARGV-LIST is a list of strings describing command line
+     options.
+
+ - Function: delete-device device &optional force
+     This function deletes DEVICE, permanently eliminating it from use.
+     This disconnects XEmacs's connection to the device.
+
+ - Variable: create-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is created.
+
+ - Variable: delete-device-hook
+     This variable, if non-`nil', should contain a list of functions,
+     which are called when a device is deleted.
+
+ - Function: console-live-p object
+     This function returns non-`nil' if OBJECT is a console that has
+     not been deleted.
+
+ - Function: device-live-p object
+     This function returns non-`nil' if OBJECT is a device that has not
+     been deleted.
+
+ - Function: device-x-display device
+     This function returns the X display which DEVICE is connected to,
+     if DEVICE is an X device.
+
+
 File: lispref.info,  Node: The Selected Console and Device,  Next: Console and Device I/O,  Prev: Connecting to a Console or Device,  Up: Consoles and Devices
 
 The Selected Console and Device
@@ -318,26 +962,26 @@ Likewise, to move to the end of the buffer, use:
 documented here to warn you not to use them in Lisp programs, because
 they set the mark and display messages in the echo area.
 
- - Command: beginning-of-buffer &optional n
+ - Command: beginning-of-buffer &optional count
      This function moves point to the beginning of the buffer (or the
      limits of the accessible portion, when narrowing is in effect),
-     setting the mark at the previous position.  If N is non-`nil',
-     then it puts point N tenths of the way from the beginning of the
-     buffer.
+     setting the mark at the previous position.  If COUNT is non-`nil',
+     then it puts point COUNT tenths of the way from the beginning of
+     the buffer.
 
-     In an interactive call, N is the numeric prefix argument, if
-     provided; otherwise N defaults to `nil'.
+     In an interactive call, COUNT is the numeric prefix argument, if
+     provided; otherwise COUNT defaults to `nil'.
 
      Don't use this function in Lisp programs!
 
- - Command: end-of-buffer &optional n
+ - Command: end-of-buffer &optional count
      This function moves point to the end of the buffer (or the limits
      of the accessible portion, when narrowing is in effect), setting
-     the mark at the previous position.  If N is non-`nil', then it puts
-     point N tenths of the way from the end of the buffer.
+     the mark at the previous position.  If COUNT is non-`nil', then it
+     puts point COUNT tenths of the way from the end of the buffer.
 
-     In an interactive call, N is the numeric prefix argument, if
-     provided; otherwise N defaults to `nil'.
+     In an interactive call, COUNT is the numeric prefix argument, if
+     provided; otherwise COUNT defaults to `nil'.
 
      Don't use this function in Lisp programs!
 
@@ -418,13 +1062,21 @@ tabs and control characters are displayed.
 
      In an interactive call, COUNT is the numeric prefix argument.
 
- - Function: count-lines start end
+ - Function: count-lines start end &optional ignore-invisible-lines-flag
      This function returns the number of lines between the positions
      START and END in the current buffer.  If START and END are equal,
      then it returns 0.  Otherwise it returns at least 1, even if START
      and END are on the same line.  This is because the text between
      them, considered in isolation, must contain at least one line
      unless it is empty.
+
+     With optional IGNORE-INVISIBLE-LINES-FLAG non-`nil', lines
+     collapsed with selective-display are excluded from the line count.
+
+     *Note:* The expression to return the current line number is not
+     obvious:
+
+          (1+ (count-lines 1 (point-at-bol)))
 
      Here is an example of using `count-lines':
 
@@ -517,672 +1169,4 @@ performance of your code.  *Note cache-long-line-scans: Text Lines.
 
      The value returned is the window line number point has moved to,
      with the top line in the window numbered 0.
-
-
-File: lispref.info,  Node: List Motion,  Next: Skipping Characters,  Prev: Screen Lines,  Up: Motion
-
-Moving over Balanced Expressions
---------------------------------
-
-   Here are several functions concerned with balanced-parenthesis
-expressions (also called "sexps" in connection with moving across them
-in XEmacs).  The syntax table controls how these functions interpret
-various characters; see *Note Syntax Tables::.  *Note Parsing
-Expressions::, for lower-level primitives for scanning sexps or parts of
-sexps.  For user-level commands, see *Note Lists and Sexps:
-(emacs)Lists and Sexps.
-
- - Command: forward-list &optional arg
-     This function moves forward across ARG balanced groups of
-     parentheses. (Other syntactic entities such as words or paired
-     string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
-     is negative, move backward across that many groups of parentheses.
-
- - Command: backward-list &optional arg
-     This function moves backward across ARG balanced groups of
-     parentheses. (Other syntactic entities such as words or paired
-     string quotes are ignored.) ARG defaults to 1 if omitted.  If ARG
-     is negative, move forward across that many groups of parentheses.
-
- - Command: up-list arg
-     This function moves forward out of ARG levels of parentheses.  A
-     negative argument means move backward but still to a less deep
-     spot.
-
- - Command: down-list arg
-     This function moves forward into ARG levels of parentheses.  A
-     negative argument means move backward but still go deeper in
-     parentheses (-ARG levels).
-
- - Command: forward-sexp &optional arg
-     This function moves forward across ARG balanced expressions.
-     Balanced expressions include both those delimited by parentheses
-     and other kinds, such as words and string constants.  ARG defaults
-     to 1 if omitted.  If ARG is negative, move backward across that
-     many balanced expressions.  For example,
-
-          ---------- Buffer: foo ----------
-          (concat-!- "foo " (car x) y z)
-          ---------- Buffer: foo ----------
-          
-          (forward-sexp 3)
-               => nil
-          
-          ---------- Buffer: foo ----------
-          (concat "foo " (car x) y-!- z)
-          ---------- Buffer: foo ----------
-
- - Command: backward-sexp &optional arg
-     This function moves backward across ARG balanced expressions.  ARG
-     defaults to 1 if omitted.  If ARG is negative, move forward across
-     that many balanced expressions.
-
- - Command: beginning-of-defun &optional arg
-     This function moves back to the ARGth beginning of a defun.  If
-     ARG is negative, this actually moves forward, but it still moves
-     to the beginning of a defun, not to the end of one.  ARG defaults
-     to 1 if omitted.
-
- - Command: end-of-defun &optional arg
-     This function moves forward to the ARGth end of a defun.  If ARG
-     is negative, this actually moves backward, but it still moves to
-     the end of a defun, not to the beginning of one.  ARG defaults to
-     1 if omitted.
-
- - User Option: defun-prompt-regexp
-     If non-`nil', this variable holds a regular expression that
-     specifies what text can appear before the open-parenthesis that
-     starts a defun.  That is to say, a defun begins on a line that
-     starts with a match for this regular expression, followed by a
-     character with open-parenthesis syntax.
-
-
-File: lispref.info,  Node: Skipping Characters,  Prev: List Motion,  Up: Motion
-
-Skipping Characters
--------------------
-
-   The following two functions move point over a specified set of
-characters.  For example, they are often used to skip whitespace.  For
-related functions, see *Note Motion and Syntax::.
-
- - Function: skip-chars-forward character-set &optional limit buffer
-     This function moves point in BUFFER forward, skipping over a given
-     set of characters.  It examines the character following point,
-     then advances point if the character matches CHARACTER-SET.  This
-     continues until it reaches a character that does not match.  The
-     function returns `nil'.  BUFFER defaults to the current buffer if
-     omitted.
-
-     The argument CHARACTER-SET is like the inside of a `[...]' in a
-     regular expression except that `]' is never special and `\' quotes
-     `^', `-' or `\'.  Thus, `"a-zA-Z"' skips over all letters,
-     stopping before the first non-letter, and `"^a-zA-Z'" skips
-     non-letters stopping before the first letter.  *Note Regular
-     Expressions::.
-
-     If LIMIT is supplied (it must be a number or a marker), it
-     specifies the maximum position in the buffer that point can be
-     skipped to.  Point will stop at or before LIMIT.
-
-     In the following example, point is initially located directly
-     before the `T'.  After the form is evaluated, point is located at
-     the end of that line (between the `t' of `hat' and the newline).
-     The function skips all letters and spaces, but not newlines.
-
-          ---------- Buffer: foo ----------
-          I read "-!-The cat in the hat
-          comes back" twice.
-          ---------- Buffer: foo ----------
-          
-          (skip-chars-forward "a-zA-Z ")
-               => nil
-          
-          ---------- Buffer: foo ----------
-          I read "The cat in the hat-!-
-          comes back" twice.
-          ---------- Buffer: foo ----------
-
- - Function: skip-chars-backward character-set &optional limit buffer
-     This function moves point backward, skipping characters that match
-     CHARACTER-SET, until LIMIT.  It just like `skip-chars-forward'
-     except for the direction of motion.
-
-
-File: lispref.info,  Node: Excursions,  Next: Narrowing,  Prev: Motion,  Up: Positions
-
-Excursions
-==========
-
-   It is often useful to move point "temporarily" within a localized
-portion of the program, or to switch buffers temporarily.  This is
-called an "excursion", and it is done with the `save-excursion' special
-form.  This construct saves the current buffer and its values of point
-and the mark so they can be restored after the completion of the
-excursion.
-
-   The forms for saving and restoring the configuration of windows are
-described elsewhere (see *Note Window Configurations:: and *note Frame
-Configurations::).
-
- - Special Form: save-excursion forms...
-     The `save-excursion' special form saves the identity of the current
-     buffer and the values of point and the mark in it, evaluates
-     FORMS, and finally restores the buffer and its saved values of
-     point and the mark.  All three saved values are restored even in
-     case of an abnormal exit via `throw' or error (*note Nonlocal
-     Exits::).
-
-     The `save-excursion' special form is the standard way to switch
-     buffers or move point within one part of a program and avoid
-     affecting the rest of the program.  It is used more than 500 times
-     in the Lisp sources of XEmacs.
-
-     `save-excursion' does not save the values of point and the mark for
-     other buffers, so changes in other buffers remain in effect after
-     `save-excursion' exits.
-
-     Likewise, `save-excursion' does not restore window-buffer
-     correspondences altered by functions such as `switch-to-buffer'.
-     One way to restore these correspondences, and the selected window,
-     is to use `save-window-excursion' inside `save-excursion' (*note
-     Window Configurations::).
-
-     The value returned by `save-excursion' is the result of the last of
-     FORMS, or `nil' if no FORMS are given.
-
-          (save-excursion
-            FORMS)
-          ==
-          (let ((old-buf (current-buffer))
-                (old-pnt (point-marker))
-                (old-mark (copy-marker (mark-marker))))
-            (unwind-protect
-                (progn FORMS)
-              (set-buffer old-buf)
-              (goto-char old-pnt)
-              (set-marker (mark-marker) old-mark)))
-
- - Special Form: save-current-buffer forms...
-     This special form is similar to `save-excursion' but it only saves
-     and restores the current buffer.  Beginning with XEmacs 20.3,
-     `save-current-buffer' is a primitive.
-
- - Special Form: with-current-buffer buffer forms...
-     This special form evaluates FORMS with BUFFER as the current
-     buffer.  It returns the value of the last form.
-
- - Special Form: with-temp-file file forms...
-     This special form creates a new buffer, evaluates FORMS there, and
-     writes the buffer to FILE.  It returns the value of the last form
-     evaluated.
-
- - Special Form: save-selected-window forms...
-     This special form is similar to `save-excursion' but it saves and
-     restores the selected window and nothing else.
-
-
-File: lispref.info,  Node: Narrowing,  Prev: Excursions,  Up: Positions
-
-Narrowing
-=========
-
-   "Narrowing" means limiting the text addressable by XEmacs editing
-commands to a limited range of characters in a buffer.  The text that
-remains addressable is called the "accessible portion" of the buffer.
-
-   Narrowing is specified with two buffer positions which become the
-beginning and end of the accessible portion.  For most editing commands
-and most Emacs primitives, these positions replace the values of the
-beginning and end of the buffer.  While narrowing is in effect, no text
-outside the accessible portion is displayed, and point cannot move
-outside the accessible portion.
-
-   Values such as positions or line numbers, which usually count from
-the beginning of the buffer, do so despite narrowing, but the functions
-which use them refuse to operate on text that is inaccessible.
-
-   The commands for saving buffers are unaffected by narrowing; they
-save the entire buffer regardless of any narrowing.
-
- - Command: narrow-to-region start end &optional buffer
-     This function sets the accessible portion of BUFFER to start at
-     START and end at END.  Both arguments should be character
-     positions.  BUFFER defaults to the current buffer if omitted.
-
-     In an interactive call, START and END are set to the bounds of the
-     current region (point and the mark, with the smallest first).
-
- - Command: narrow-to-page &optional move-count
-     This function sets the accessible portion of the current buffer to
-     include just the current page.  An optional first argument
-     MOVE-COUNT non-`nil' means to move forward or backward by
-     MOVE-COUNT pages and then narrow.  The variable `page-delimiter'
-     specifies where pages start and end (*note Standard Regexps::).
-
-     In an interactive call, MOVE-COUNT is set to the numeric prefix
-     argument.
-
- - Command: widen &optional buffer
-     This function cancels any narrowing in BUFFER, so that the entire
-     contents are accessible.  This is called "widening".  It is
-     equivalent to the following expression:
-
-          (narrow-to-region 1 (1+ (buffer-size)))
-
-     BUFFER defaults to the current buffer if omitted.
-
- - Special Form: save-restriction body...
-     This special form saves the current bounds of the accessible
-     portion, evaluates the BODY forms, and finally restores the saved
-     bounds, thus restoring the same state of narrowing (or absence
-     thereof) formerly in effect.  The state of narrowing is restored
-     even in the event of an abnormal exit via `throw' or error (*note
-     Nonlocal Exits::).  Therefore, this construct is a clean way to
-     narrow a buffer temporarily.
-
-     The value returned by `save-restriction' is that returned by the
-     last form in BODY, or `nil' if no body forms were given.
-
-     *Caution:* it is easy to make a mistake when using the
-     `save-restriction' construct.  Read the entire description here
-     before you try it.
-
-     If BODY changes the current buffer, `save-restriction' still
-     restores the restrictions on the original buffer (the buffer whose
-     restrictions it saved from), but it does not restore the identity
-     of the current buffer.
-
-     `save-restriction' does _not_ restore point and the mark; use
-     `save-excursion' for that.  If you use both `save-restriction' and
-     `save-excursion' together, `save-excursion' should come first (on
-     the outside).  Otherwise, the old point value would be restored
-     with temporary narrowing still in effect.  If the old point value
-     were outside the limits of the temporary narrowing, this would
-     fail to restore it accurately.
-
-     The `save-restriction' special form records the values of the
-     beginning and end of the accessible portion as distances from the
-     beginning and end of the buffer.  In other words, it records the
-     amount of inaccessible text before and after the accessible
-     portion.
-
-     This method yields correct results if BODY does further narrowing.
-     However, `save-restriction' can become confused if the body widens
-     and then make changes outside the range of the saved narrowing.
-     When this is what you want to do, `save-restriction' is not the
-     right tool for the job.  Here is what you must use instead:
-
-          (let ((beg (point-min-marker))
-                (end (point-max-marker)))
-            (unwind-protect
-                (progn BODY)
-              (save-excursion
-                (set-buffer (marker-buffer beg))
-                (narrow-to-region beg end))))
-
-     Here is a simple example of correct use of `save-restriction':
-
-          ---------- Buffer: foo ----------
-          This is the contents of foo
-          This is the contents of foo
-          This is the contents of foo-!-
-          ---------- Buffer: foo ----------
-          
-          (save-excursion
-            (save-restriction
-              (goto-char 1)
-              (forward-line 2)
-              (narrow-to-region 1 (point))
-              (goto-char (point-min))
-              (replace-string "foo" "bar")))
-          
-          ---------- Buffer: foo ----------
-          This is the contents of bar
-          This is the contents of bar
-          This is the contents of foo-!-
-          ---------- Buffer: foo ----------
-
-
-File: lispref.info,  Node: Markers,  Next: Text,  Prev: Positions,  Up: Top
-
-Markers
-*******
-
-   A "marker" is a Lisp object used to specify a position in a buffer
-relative to the surrounding text.  A marker changes its offset from the
-beginning of the buffer automatically whenever text is inserted or
-deleted, so that it stays with the two characters on either side of it.
-
-* Menu:
-
-* Overview of Markers::      The components of a marker, and how it relocates.
-* Predicates on Markers::    Testing whether an object is a marker.
-* Creating Markers::         Making empty markers or markers at certain places.
-* Information from Markers:: Finding the marker's buffer or character position.
-* Changing Markers::         Moving the marker to a new buffer or position.
-* The Mark::                 How ``the mark'' is implemented with a marker.
-* The Region::               How to access ``the region''.
-
-
-File: lispref.info,  Node: Overview of Markers,  Next: Predicates on Markers,  Up: Markers
-
-Overview of Markers
-===================
-
-   A marker specifies a buffer and a position in that buffer.  The
-marker can be used to represent a position in the functions that
-require one, just as an integer could be used.  *Note Positions::, for
-a complete description of positions.
-
-   A marker has two attributes: the marker position, and the marker
-buffer.  The marker position is an integer that is equivalent (at a
-given time) to the marker as a position in that buffer.  But the
-marker's position value can change often during the life of the marker.
-Insertion and deletion of text in the buffer relocate the marker.  The
-idea is that a marker positioned between two characters remains between
-those two characters despite insertion and deletion elsewhere in the
-buffer.  Relocation changes the integer equivalent of the marker.
-
-   Deleting text around a marker's position leaves the marker between
-the characters immediately before and after the deleted text.  Inserting
-text at the position of a marker normally leaves the marker in front of
-the new text--unless it is inserted with `insert-before-markers' (*note
-Insertion::).
-
-   Insertion and deletion in a buffer must check all the markers and
-relocate them if necessary.  This slows processing in a buffer with a
-large number of markers.  For this reason, it is a good idea to make a
-marker point nowhere if you are sure you don't need it any more.
-Unreferenced markers are garbage collected eventually, but until then
-will continue to use time if they do point somewhere.
-
-   Because it is common to perform arithmetic operations on a marker
-position, most of the arithmetic operations (including `+' and `-')
-accept markers as arguments.  In such cases, the marker stands for its
-current position.
-
-   Note that you can use extents to achieve the same functionality, and
-more, as markers. (Markers were defined before extents, which is why
-they both continue to exist.) A zero-length extent with the
-`detachable' property removed is almost identical to a marker.  (*Note
-Extent Endpoints::, for more information on zero-length extents.)
-
-   In particular:
-
-   * In order to get marker-like behavior in a zero-length extent, the
-     `detachable' property must be removed (otherwise, the extent will
-     disappear when text near it is deleted) and exactly one endpoint
-     must be closed (if both endpoints are closed, the extent will
-     expand to contain text inserted where it is located).
-
-   * If a zero-length extent has the `end-open' property but not the
-     `start-open' property (this is the default), text inserted at the
-     extent's location causes the extent to move forward, just like a
-     marker.
-
-   * If a zero-length extent has the `start-open' property but not the
-     `end-open' property, text inserted at the extent's location causes
-     the extent to remain before the text, like what happens to markers
-     when `insert-before-markers' is used.
-
-   * Markers end up after or before inserted text depending on whether
-     `insert' or `insert-before-markers' was called.  These functions
-     do not affect zero-length extents differently; instead, the
-     presence or absence of the `start-open' and `end-open' extent
-     properties determines this, as just described.
-
-   * Markers are automatically removed from a buffer when they are no
-     longer in use.  Extents remain around until explicitly removed
-     from a buffer.
-
-   * Many functions are provided for listing the extents in a buffer or
-     in a region of a buffer.  No such functions exist for markers.
-
-   Here are examples of creating markers, setting markers, and moving
-point to markers:
-
-     ;; Make a new marker that initially does not point anywhere:
-     (setq m1 (make-marker))
-          => #<marker in no buffer>
-     
-     ;; Set `m1' to point between the 99th and 100th characters
-     ;;   in the current buffer:
-     (set-marker m1 100)
-          => #<marker at 100 in markers.texi>
-     
-     ;; Now insert one character at the beginning of the buffer:
-     (goto-char (point-min))
-          => 1
-     (insert "Q")
-          => nil
-     
-     ;; `m1' is updated appropriately.
-     m1
-          => #<marker at 101 in markers.texi>
-     
-     ;; Two markers that point to the same position
-     ;;   are not `eq', but they are `equal'.
-     (setq m2 (copy-marker m1))
-          => #<marker at 101 in markers.texi>
-     (eq m1 m2)
-          => nil
-     (equal m1 m2)
-          => t
-     
-     ;; When you are finished using a marker, make it point nowhere.
-     (set-marker m1 nil)
-          => #<marker in no buffer>
-
-
-File: lispref.info,  Node: Predicates on Markers,  Next: Creating Markers,  Prev: Overview of Markers,  Up: Markers
-
-Predicates on Markers
-=====================
-
-   You can test an object to see whether it is a marker, or whether it
-is either an integer or a marker or either an integer, a character, or a
-marker.  The latter tests are useful in connection with the arithmetic
-functions that work with any of markers, integers, or characters.
-
- - Function: markerp object
-     This function returns `t' if OBJECT is a marker, `nil' otherwise.
-     Note that integers are not markers, even though many functions
-     will accept either a marker or an integer.
-
- - Function: integer-or-marker-p object
-     This function returns `t' if OBJECT is an integer or a marker,
-     `nil' otherwise.
-
- - Function: integer-char-or-marker-p object
-     This function returns `t' if OBJECT is an integer, a character, or
-     a marker, `nil' otherwise.
-
- - Function: number-or-marker-p object
-     This function returns `t' if OBJECT is a number (either kind) or a
-     marker, `nil' otherwise.
-
- - Function: number-char-or-marker-p object
-     This function returns `t' if OBJECT is a number (either kind), a
-     character, or a marker, `nil' otherwise.
-
-
-File: lispref.info,  Node: Creating Markers,  Next: Information from Markers,  Prev: Predicates on Markers,  Up: Markers
-
-Functions That Create Markers
-=============================
-
-   When you create a new marker, you can make it point nowhere, or point
-to the present position of point, or to the beginning or end of the
-accessible portion of the buffer, or to the same place as another given
-marker.
-
- - Function: make-marker
-     This functions returns a newly created marker that does not point
-     anywhere.
-
-          (make-marker)
-               => #<marker in no buffer>
-
- - Function: point-marker &optional dont-copy-p buffer
-     This function returns a marker that points to the present position
-     of point in BUFFER, which defaults to the current buffer.  *Note
-     Point::.  For an example, see `copy-marker', below.
-
-     Internally, a marker corresponding to point is always maintained.
-     Normally the marker returned by `point-marker' is a copy; you may
-     modify it with reckless abandon.  However, if optional argument
-     DONT-COPY-P is non-`nil', then the real point-marker is returned;
-     modifying the position of this marker will move point.  It is
-     illegal to change the buffer of it, or make it point nowhere.
-
- - Function: point-min-marker &optional buffer
-     This function returns a new marker that points to the beginning of
-     the accessible portion of BUFFER, which defaults to the current
-     buffer.  This will be the beginning of the buffer unless narrowing
-     is in effect.  *Note Narrowing::.
-
- - Function: point-max-marker &optional buffer
-     This function returns a new marker that points to the end of the
-     accessible portion of BUFFER, which defaults to the current
-     buffer.  This will be the end of the buffer unless narrowing is in
-     effect.  *Note Narrowing::.
-
-     Here are examples of this function and `point-min-marker', shown in
-     a buffer containing a version of the source file for the text of
-     this chapter.
-
-          (point-min-marker)
-               => #<marker at 1 in markers.texi>
-          (point-max-marker)
-               => #<marker at 15573 in markers.texi>
-          
-          (narrow-to-region 100 200)
-               => nil
-          (point-min-marker)
-               => #<marker at 100 in markers.texi>
-          (point-max-marker)
-               => #<marker at 200 in markers.texi>
-
- - Function: copy-marker marker-or-integer
-     If passed a marker as its argument, `copy-marker' returns a new
-     marker that points to the same place and the same buffer as does
-     MARKER-OR-INTEGER.  If passed an integer as its argument,
-     `copy-marker' returns a new marker that points to position
-     MARKER-OR-INTEGER in the current buffer.
-
-     If passed an integer argument less than 1, `copy-marker' returns a
-     new marker that points to the beginning of the current buffer.  If
-     passed an integer argument greater than the length of the buffer,
-     `copy-marker' returns a new marker that points to the end of the
-     buffer.
-
-     An error is signaled if MARKER is neither a marker nor an integer.
-
-          (setq p (point-marker))
-               => #<marker at 2139 in markers.texi>
-          
-          (setq q (copy-marker p))
-               => #<marker at 2139 in markers.texi>
-          
-          (eq p q)
-               => nil
-          
-          (equal p q)
-               => t
-          
-          (point)
-               => 2139
-          
-          (set-marker p 3000)
-               => #<marker at 3000 in markers.texi>
-          
-          (point)
-               => 2139
-          
-          (setq p (point-marker t))
-               => #<marker at 2139 in markers.texi>
-          
-          (set-marker p 3000)
-               => #<marker at 3000 in markers.texi>
-          
-          (point)
-               => 3000
-          
-          (copy-marker 0)
-               => #<marker at 1 in markers.texi>
-          
-          (copy-marker 20000)
-               => #<marker at 7572 in markers.texi>
-
-
-File: lispref.info,  Node: Information from Markers,  Next: Changing Markers,  Prev: Creating Markers,  Up: Markers
-
-Information from Markers
-========================
-
-   This section describes the functions for accessing the components of
-a marker object.
-
- - Function: marker-position marker
-     This function returns the position that MARKER points to, or `nil'
-     if it points nowhere.
-
- - Function: marker-buffer marker
-     This function returns the buffer that MARKER points into, or `nil'
-     if it points nowhere.
-
-          (setq m (make-marker))
-               => #<marker in no buffer>
-          (marker-position m)
-               => nil
-          (marker-buffer m)
-               => nil
-          
-          (set-marker m 3770 (current-buffer))
-               => #<marker at 3770 in markers.texi>
-          (marker-buffer m)
-               => #<buffer markers.texi>
-          (marker-position m)
-               => 3770
-
-   Two distinct markers are considered `equal' (even though not `eq')
-to each other if they have the same position and buffer, or if they
-both point nowhere.
-
-
-File: lispref.info,  Node: Changing Markers,  Next: The Mark,  Prev: Information from Markers,  Up: Markers
-
-Changing Marker Positions
-=========================
-
-   This section describes how to change the position of an existing
-marker.  When you do this, be sure you know whether the marker is used
-outside of your program, and, if so, what effects will result from
-moving it--otherwise, confusing things may happen in other parts of
-Emacs.
-
- - Function: set-marker marker position &optional buffer
-     This function moves MARKER to POSITION in BUFFER.  If BUFFER is
-     not provided, it defaults to the current buffer.
-
-     If POSITION is less than 1, `set-marker' moves MARKER to the
-     beginning of the buffer.  If POSITION is greater than the size of
-     the buffer, `set-marker' moves marker to the end of the buffer.
-     If POSITION is `nil' or a marker that points nowhere, then MARKER
-     is set to point nowhere.
-
-     The value returned is MARKER.
-
-          (setq m (point-marker))
-               => #<marker at 4714 in markers.texi>
-          (set-marker m 55)
-               => #<marker at 55 in markers.texi>
-          (setq b (get-buffer "foo"))
-               => #<buffer foo>
-          (set-marker m 0 b)
-               => #<marker at 1 in foo>
-
- - Function: move-marker marker position &optional buffer
-     This is another name for `set-marker'.
 

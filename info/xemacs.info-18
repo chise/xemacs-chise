@@ -30,6 +30,257 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Faces,  Next: Frame Components,  Prev: Audible Bell,  Up: Customization
+
+Faces
+=====
+
+   XEmacs has objects called extents and faces.  An "extent" is a
+region of text and a "face" is a collection of textual attributes, such
+as fonts and colors.  Every extent is displayed in some face;
+therefore, changing the properties of a face immediately updates the
+display of all associated extents.  Faces can be frame-local: you can
+have a region of text that displays with completely different
+attributes when its buffer is viewed from a different X window.
+
+   The display attributes of faces may be specified either in Lisp or
+through the X resource manager.
+
+Customizing Faces
+-----------------
+
+   You can change the face of an extent with the functions in this
+section.  All the functions prompt for a FACE as an argument; use
+completion for a list of possible values.
+
+`M-x invert-face'
+     Swap the foreground and background colors of the given FACE.
+
+`M-x make-face-bold'
+     Make the font of the given FACE bold.  When called from a program,
+     returns `nil' if this is not possible.
+
+`M-x make-face-bold-italic'
+     Make the font of the given FACE bold italic.  When called from a
+     program, returns `nil' if not possible.
+
+`M-x make-face-italic'
+     Make the font of the given FACE italic.  When called from a
+     program, returns `nil' if not possible.
+
+`M-x make-face-unbold'
+     Make the font of the given FACE non-bold.  When called from a
+     program, returns `nil' if not possible.
+
+`M-x make-face-unitalic'
+     Make the font of the given FACE non-italic.  When called from a
+     program, returns `nil' if not possible.
+
+`M-x make-face-larger'
+     Make the font of the given FACE a little larger.  When called from
+     a program, returns `nil' if not possible.
+
+`M-x make-face-smaller'
+     Make the font of the given FACE a little smaller.  When called
+     from a program, returns `nil' if not possible.
+
+`M-x set-face-background'
+     Change the background color of the given FACE.
+
+`M-x set-face-background-pixmap'
+     Change the background pixmap of the given FACE.
+
+`M-x set-face-font'
+     Change the font of the given FACE.
+
+`M-x set-face-foreground'
+     Change the foreground color of the given FACE.
+
+`M-x set-face-underline-p'
+     Change whether the given FACE is underlined.
+
+   You can exchange the foreground and background color of the selected
+FACE with the function `invert-face'. If the face does not specify both
+foreground and background, then its foreground and background are set
+to the background and foreground of the default face.  When calling
+this from a program, you can supply the optional argument FRAME to
+specify which frame is affected; otherwise, all frames are affected.
+
+   You can set the background color of the specified FACE with the
+function `set-face-background'.  The argument `color' should be a
+string, the name of a color.  When called from a program, if the
+optional FRAME argument is provided, the face is changed only in that
+frame; otherwise, it is changed in all frames.
+
+   You can set the background pixmap of the specified FACE with the
+function `set-face-background-pixmap'.  The pixmap argument NAME should
+be a string, the name of a file of pixmap data.  The directories listed
+in the `x-bitmap-file-path' variable are searched.  The bitmap may also
+be a list of the form `(WIDTH HEIGHT DATA)', where WIDTH and HEIGHT are
+the size in pixels, and DATA is a string containing the raw bits of the
+bitmap.  If the optional FRAME argument is provided, the face is
+changed only in that frame; otherwise, it is changed in all frames.
+
+   The variable `x-bitmap-file-path' takes as a value a list of the
+directories in which X bitmap files may be found.  If the value is
+`nil', the list is initialized from the `*bitmapFilePath' resource.
+
+   If the environment variable XBMLANGPATH is set, then it is consulted
+before the `x-bitmap-file-path' variable.
+
+   You can set the font of the specified FACE with the function
+`set-face-font'.  The FONT argument should be a string, the name of a
+font.  When called from a program, if the optional FRAME argument is
+provided, the face is changed only in that frame; otherwise, it is
+changed in all frames.
+
+   You can set the foreground color of the specified FACE with the
+function `set-face-foreground'.  The argument COLOR should be a string,
+the name of a color.  If the optional FRAME argument is provided, the
+face is changed only in that frame; otherwise, it is changed in all
+frames.
+
+   You can set underline the specified FACE with the function
+`set-face-underline-p'. The argument UNDERLINE-P can be used to make
+underlining an attribute of the face or not. If the optional FRAME
+argument is provided, the face is changed only in that frame;
+otherwise, it is changed in all frames.
+
+
+File: xemacs.info,  Node: Frame Components,  Next: X Resources,  Prev: Faces,  Up: Customization
+
+Frame Components
+================
+
+   You can control the presence and position of most frame components,
+such as the menubar, toolbars, and gutters.
+
+   This section is not written yet.  Try the Lisp Reference Manual:
+*Note Menubar: (lispref)Menubar, *Note Toolbar Intro: (lispref)Toolbar
+Intro, and *Note Gutter Intro: (lispref)Gutter Intro.
+
+
+File: xemacs.info,  Node: X Resources,  Prev: Frame Components,  Up: Customization
+
+X Resources
+===========
+
+   Historically, XEmacs has used the X resource application class
+`Emacs' for its resources.  Unfortunately, GNU Emacs uses the same
+application class, and resources are not compatible between the two
+Emacsen.  This sharing of the application class often leads to trouble
+if you want to run both variants.
+
+   Starting with XEmacs 21, XEmacs uses the class `XEmacs' if it finds
+any XEmacs resources in the resource database when the X connection is
+initialized.  Otherwise, it will use the class `Emacs' for backwards
+compatibility.  The variable X-EMACS-APPLICATION-CLASS may be consulted
+to determine the application class being used.
+
+   The examples in this section assume the application class is `Emacs'.
+
+   The Emacs resources are generally set per-frame. Each Emacs frame
+can have its own name or the same name as another, depending on the
+name passed to the `make-frame' function.
+
+   You can specify resources for all frames with the syntax:
+
+     Emacs*parameter: value
+
+or
+
+     Emacs*EmacsFrame.parameter:value
+
+You can specify resources for a particular frame with the syntax:
+
+     Emacs*FRAME-NAME.parameter: value
+
+* Menu:
+
+* Geometry Resources::     Controlling the size and position of frames.
+* Iconic Resources::       Controlling whether frames come up iconic.
+* Resource List::          List of resources settable on a frame or device.
+* Face Resources::         Controlling faces using resources.
+* Widgets::                The widget hierarchy for XEmacs.
+* Menubar Resources::      Specifying resources for the menubar.
+
+
+File: xemacs.info,  Node: Geometry Resources,  Next: Iconic Resources,  Up: X Resources
+
+Geometry Resources
+------------------
+
+   To make the default size of all Emacs frames be 80 columns by 55
+lines, do this:
+
+     Emacs*EmacsFrame.geometry: 80x55
+
+To set the geometry of a particular frame named `fred', do this:
+
+     Emacs*fred.geometry: 80x55
+
+Important! Do not use the following syntax:
+
+     Emacs*geometry: 80x55
+
+You should never use `*geometry' with any X application. It does not
+say "make the geometry of Emacs be 80 columns by 55 lines."  It really
+says, "make Emacs and all subwindows thereof be 80x55 in whatever units
+they care to measure in."  In particular, that is both telling the
+Emacs text pane to be 80x55 in characters, and telling the menubar pane
+to be 80x55 pixels, which is surely not what you want.
+
+   As a special case, this geometry specification also works (and sets
+the default size of all Emacs frames to 80 columns by 55 lines):
+
+     Emacs.geometry: 80x55
+
+since that is the syntax used with most other applications (since most
+other applications have only one top-level window, unlike Emacs).  In
+general, however, the top-level shell (the unmapped ApplicationShell
+widget named `Emacs' that is the parent of the shell widgets that
+actually manage the individual frames) does not have any interesting
+resources on it, and you should set the resources on the frames instead.
+
+   The `-geometry' command-line argument sets only the geometry of the
+initial frame created by Emacs.
+
+   A more complete explanation of geometry-handling is
+
+   * The `-geometry' command-line option sets the `Emacs.geometry'
+     resource, that is, the geometry of the ApplicationShell.
+
+   * For the first frame created, the size of the frame is taken from
+     the ApplicationShell if it is specified, otherwise from the
+     geometry of the frame.
+
+   * For subsequent frames, the order is reversed: First the frame, and
+     then the ApplicationShell.
+
+   * For the first frame created, the position of the frame is taken
+     from the ApplicationShell (`Emacs.geometry') if it is specified,
+     otherwise from the geometry of the frame.
+
+   * For subsequent frames, the position is taken only from the frame,
+     and never from the ApplicationShell.
+
+   This is rather complicated, but it does seem to provide the most
+intuitive behavior with respect to the default sizes and positions of
+frames created in various ways.
+
+
+File: xemacs.info,  Node: Iconic Resources,  Next: Resource List,  Prev: Geometry Resources,  Up: X Resources
+
+Iconic Resources
+----------------
+
+   Analogous to `-geometry', the `-iconic' command-line option sets the
+iconic flag of the ApplicationShell (`Emacs.iconic') and always applies
+to the first frame created regardless of its name.  However, it is
+possible to set the iconic flag on particular frames (by name) by using
+the `Emacs*FRAME-NAME.iconic' resource.
+
+
 File: xemacs.info,  Node: Resource List,  Next: Face Resources,  Prev: Iconic Resources,  Up: X Resources
 
 Resource List

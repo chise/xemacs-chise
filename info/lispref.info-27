@@ -50,6 +50,493 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Window Start,  Next: Vertical Scrolling,  Prev: Window Point,  Up: Windows
+
+The Window Start Position
+=========================
+
+   Each window contains a marker used to keep track of a buffer position
+that specifies where in the buffer display should start.  This position
+is called the "display-start" position of the window (or just the
+"start").  The character after this position is the one that appears at
+the upper left corner of the window.  It is usually, but not
+inevitably, at the beginning of a text line.
+
+ - Function: window-start &optional window
+     This function returns the display-start position of window WINDOW.
+     If WINDOW is `nil', the selected window is used.  For example,
+
+          (window-start)
+               => 7058
+
+     When you create a window, or display a different buffer in it, the
+     display-start position is set to a display-start position recently
+     used for the same buffer, or 1 if the buffer doesn't have any.
+
+     For a realistic example, see the description of `count-lines' in
+     *Note Text Lines::.
+
+ - Function: window-end &optional window guarantee
+     This function returns the position of the end of the display in
+     window WINDOW.  If WINDOW is `nil', the selected window is used.
+
+     Simply changing the buffer text or setting `window-start' does not
+     update the value that `window-end' returns.  The value is updated
+     only when Emacs redisplays and redisplay actually finishes.
+
+     If the last redisplay of WINDOW was preempted, and did not finish,
+     Emacs does not know the position of the end of display in that
+     window.  In that case, this function returns a value that is not
+     correct.  In a future version, `window-end' will return `nil' in
+     that case.
+
+     If optional arg GUARANTEE is non-`nil', the return value is
+     guaranteed to be the same as `window-end' would return at the end
+     of the next full redisplay assuming nothing else changes in the
+     meantime.  This function is potentially much slower with this flag
+     set.
+
+
+ - Function: set-window-start window position &optional noforce
+     This function sets the display-start position of WINDOW to
+     POSITION in WINDOW's buffer.  It returns POSITION.
+
+     The display routines insist that the position of point be visible
+     when a buffer is displayed.  Normally, they change the
+     display-start position (that is, scroll the window) whenever
+     necessary to make point visible.  However, if you specify the
+     start position with this function using `nil' for NOFORCE, it
+     means you want display to start at POSITION even if that would put
+     the location of point off the screen.  If this does place point
+     off screen, the display routines move point to the left margin on
+     the middle line in the window.
+
+     For example, if point is 1 and you set the start of the window
+     to 2, then point would be "above" the top of the window.  The
+     display routines will automatically move point if it is still 1
+     when redisplay occurs.  Here is an example:
+
+          ;; Here is what `foo' looks like before executing
+          ;;   the `set-window-start' expression.
+          
+          ---------- Buffer: foo ----------
+          -!-This is the contents of buffer foo.
+          2
+          3
+          4
+          5
+          6
+          ---------- Buffer: foo ----------
+          
+          (set-window-start
+           (selected-window)
+           (1+ (window-start)))
+          => 2
+          
+          ;; Here is what `foo' looks like after executing
+          ;;   the `set-window-start' expression.
+          ---------- Buffer: foo ----------
+          his is the contents of buffer foo.
+          2
+          3
+          -!-4
+          5
+          6
+          ---------- Buffer: foo ----------
+
+     If NOFORCE is non-`nil', and POSITION would place point off screen
+     at the next redisplay, then redisplay computes a new window-start
+     position that works well with point, and thus POSITION is not used.
+
+ - Function: pos-visible-in-window-p &optional position window
+     This function returns `t' if POSITION is within the range of text
+     currently visible on the screen in WINDOW.  It returns `nil' if
+     POSITION is scrolled vertically out of view.  The argument
+     POSITION defaults to the current position of point; WINDOW, to the
+     selected window.  Here is an example:
+
+          (or (pos-visible-in-window-p
+               (point) (selected-window))
+              (recenter 0))
+
+     The `pos-visible-in-window-p' function considers only vertical
+     scrolling.  If POSITION is out of view only because WINDOW has
+     been scrolled horizontally, `pos-visible-in-window-p' returns `t'.
+     *Note Horizontal Scrolling::.
+
+
+File: lispref.info,  Node: Vertical Scrolling,  Next: Horizontal Scrolling,  Prev: Window Start,  Up: Windows
+
+Vertical Scrolling
+==================
+
+   Vertical scrolling means moving the text up or down in a window.  It
+works by changing the value of the window's display-start location.  It
+may also change the value of `window-point' to keep it on the screen.
+
+   In the commands `scroll-up' and `scroll-down', the directions "up"
+and "down" refer to the motion of the text in the buffer at which you
+are looking through the window.  Imagine that the text is written on a
+long roll of paper and that the scrolling commands move the paper up
+and down.  Thus, if you are looking at text in the middle of a buffer
+and repeatedly call `scroll-down', you will eventually see the
+beginning of the buffer.
+
+   Some people have urged that the opposite convention be used: they
+imagine that the window moves over text that remains in place.  Then
+"down" commands would take you to the end of the buffer.  This view is
+more consistent with the actual relationship between windows and the
+text in the buffer, but it is less like what the user sees.  The
+position of a window on the terminal does not move, and short scrolling
+commands clearly move the text up or down on the screen.  We have chosen
+names that fit the user's point of view.
+
+   The scrolling functions (aside from `scroll-other-window') have
+unpredictable results if the current buffer is different from the buffer
+that is displayed in the selected window.  *Note Current Buffer::.
+
+ - Command: scroll-up &optional lines
+     This function scrolls the text in the selected window upward LINES
+     lines.  If LINES is negative, scrolling is actually downward.
+
+     If LINES is `nil' (or omitted), then the length of scroll is
+     `next-screen-context-lines' lines less than the usable height of
+     the window (not counting its modeline).
+
+     `scroll-up' returns `nil'.
+
+ - Command: scroll-down &optional lines
+     This function scrolls the text in the selected window downward
+     LINES lines.  If LINES is negative, scrolling is actually upward.
+
+     If LINES is omitted or `nil', then the length of the scroll is
+     `next-screen-context-lines' lines less than the usable height of
+     the window (not counting its mode line).
+
+     `scroll-down' returns `nil'.
+
+ - Command: scroll-other-window &optional lines
+     This function scrolls the text in another window upward LINES
+     lines.  Negative values of LINES, or `nil', are handled as in
+     `scroll-up'.
+
+     You can specify a buffer to scroll with the variable
+     `other-window-scroll-buffer'.  When the selected window is the
+     minibuffer, the next window is normally the one at the top left
+     corner.  You can specify a different window to scroll with the
+     variable `minibuffer-scroll-window'.  This variable has no effect
+     when any other window is selected.  *Note Minibuffer Misc::.
+
+     When the minibuffer is active, it is the next window if the
+     selected window is the one at the bottom right corner.  In this
+     case, `scroll-other-window' attempts to scroll the minibuffer.  If
+     the minibuffer contains just one line, it has nowhere to scroll
+     to, so the line reappears after the echo area momentarily displays
+     the message "Beginning of buffer".
+
+ - Variable: other-window-scroll-buffer
+     If this variable is non-`nil', it tells `scroll-other-window'
+     which buffer to scroll.
+
+ - User Option: scroll-step
+     This variable controls how scrolling is done automatically when
+     point moves off the screen.  If the value is zero, then redisplay
+     scrolls the text to center point vertically in the window.  If the
+     value is a positive integer N, then redisplay brings point back on
+     screen by scrolling N lines in either direction, if possible;
+     otherwise, it centers point.  The default value is zero.
+
+ - User Option: scroll-conservatively
+     This variable controls how many lines Emacs tries to scroll before
+     recentering.  If you set it to a small number, then when you move
+     point a short distance off the screen, XEmacs will scroll the
+     screen just far enough to bring point back on screen, provided
+     that does not exceed `scroll-conservatively' lines.  This variable
+     overrides the redisplay preemption.
+
+ - User Option: next-screen-context-lines
+     The value of this variable is the number of lines of continuity to
+     retain when scrolling by full screens.  For example, `scroll-up'
+     with an argument of `nil' scrolls so that this many lines at the
+     bottom of the window appear instead at the top.  The default value
+     is `2'.
+
+ - Command: recenter &optional location window
+     This function scrolls WINDOW (which defaults to the selected
+     window) to put the text where point is located at a specified
+     vertical position within the window.
+
+     If LOCATION is a nonnegative number, it puts the line containing
+     point LOCATION lines down from the top of the window.  If LOCATION
+     is a negative number, then it counts upward from the bottom of the
+     window, so that -1 stands for the last usable line in the window.
+     If LOCATION is a non-`nil' list, then it stands for the line in
+     the middle of the window.
+
+     If LOCATION is `nil', `recenter' puts the line containing point in
+     the middle of the window, then clears and redisplays the entire
+     selected frame.
+
+     When `recenter' is called interactively, LOCATION is the raw
+     prefix argument.  Thus, typing `C-u' as the prefix sets the
+     LOCATION to a non-`nil' list, while typing `C-u 4' sets LOCATION
+     to 4, which positions the current line four lines from the top.
+
+     With an argument of zero, `recenter' positions the current line at
+     the top of the window.  This action is so handy that some people
+     make a separate key binding to do this.  For example,
+
+          (defun line-to-top-of-window ()
+            "Scroll current line to top of window.
+          Replaces three keystroke sequence C-u 0 C-l."
+            (interactive)
+            (recenter 0))
+          
+          (global-set-key [kp-multiply] 'line-to-top-of-window)
+
+
+File: lispref.info,  Node: Horizontal Scrolling,  Next: Size of Window,  Prev: Vertical Scrolling,  Up: Windows
+
+Horizontal Scrolling
+====================
+
+   Because we read English first from top to bottom and second from left
+to right, horizontal scrolling is not like vertical scrolling.  Vertical
+scrolling involves selection of a contiguous portion of text to display.
+Horizontal scrolling causes part of each line to go off screen.  The
+amount of horizontal scrolling is therefore specified as a number of
+columns rather than as a position in the buffer.  It has nothing to do
+with the display-start position returned by `window-start'.
+
+   Usually, no horizontal scrolling is in effect; then the leftmost
+column is at the left edge of the window.  In this state, scrolling to
+the right is meaningless, since there is no data to the left of the
+screen to be revealed by it; so this is not allowed.  Scrolling to the
+left is allowed; it scrolls the first columns of text off the edge of
+the window and can reveal additional columns on the right that were
+truncated before.  Once a window has a nonzero amount of leftward
+horizontal scrolling, you can scroll it back to the right, but only so
+far as to reduce the net horizontal scroll to zero.  There is no limit
+to how far left you can scroll, but eventually all the text will
+disappear off the left edge.
+
+ - Command: scroll-left &optional count
+     This function scrolls the selected window COUNT columns to the
+     left (or to the right if COUNT is negative).  The return value is
+     the total amount of leftward horizontal scrolling in effect after
+     the change--just like the value returned by `window-hscroll'
+     (below).
+
+ - Command: scroll-right &optional count
+     This function scrolls the selected window COUNT columns to the
+     right (or to the left if COUNT is negative).  The return value is
+     the total amount of leftward horizontal scrolling in effect after
+     the change--just like the value returned by `window-hscroll'
+     (below).
+
+     Once you scroll a window as far right as it can go, back to its
+     normal position where the total leftward scrolling is zero,
+     attempts to scroll any farther right have no effect.
+
+ - Function: window-hscroll &optional window
+     This function returns the total leftward horizontal scrolling of
+     WINDOW--the number of columns by which the text in WINDOW is
+     scrolled left past the left margin.
+
+     The value is never negative.  It is zero when no horizontal
+     scrolling has been done in WINDOW (which is usually the case).
+
+     If WINDOW is `nil', the selected window is used.
+
+          (window-hscroll)
+               => 0
+          (scroll-left 5)
+               => 5
+          (window-hscroll)
+               => 5
+
+ - Function: set-window-hscroll window columns
+     This function sets the number of columns from the left margin that
+     WINDOW is scrolled to the value of COLUMNS.  The argument COLUMNS
+     should be zero or positive; if not, it is taken as zero.
+
+     The value returned is COLUMNS.
+
+          (set-window-hscroll (selected-window) 10)
+               => 10
+
+   Here is how you can determine whether a given position POSITION is
+off the screen due to horizontal scrolling:
+
+     (defun hscroll-on-screen (window position)
+       (save-excursion
+         (goto-char position)
+         (and
+          (>= (- (current-column) (window-hscroll window)) 0)
+          (< (- (current-column) (window-hscroll window))
+             (window-width window)))))
+
+
+File: lispref.info,  Node: Size of Window,  Next: Position of Window,  Prev: Horizontal Scrolling,  Up: Windows
+
+The Size of a Window
+====================
+
+   An Emacs window is rectangular, and its size information consists of
+the height (in lines or pixels) and the width (in character positions
+or pixels).  The modeline is included in the height.  The pixel width
+and height values include scrollbars and margins, while the
+line/character-position values do not.
+
+   Note that the height in lines, and the width in characters, are
+determined by dividing the corresponding pixel value by the height or
+width of the default font in that window (if this is a variable-width
+font, the average width is used).  The resulting values may or may not
+represent the actual number of lines in the window, or the actual number
+of character positions in any particular line, esp. if there are pixmaps
+or various different fonts in the window.
+
+   The following functions return size information about a window:
+
+ - Function: window-height &optional window
+     This function returns the number of lines in WINDOW, including its
+     modeline but not including the horizontal scrollbar, if any (this
+     is different from `window-pixel-height').  If WINDOW is `nil', the
+     function uses the selected window.
+
+          (window-height)
+               => 40
+          (split-window-vertically)
+               => #<window on "windows.texi" 0x679b>
+          (window-height)
+               => 20
+
+ - Function: window-width &optional window
+     This function returns the number of columns in WINDOW, not
+     including any left margin, right margin, or vertical scrollbar
+     (this is different from `window-pixel-width').  If WINDOW is
+     `nil', the function uses the selected window.
+
+          (window-width)
+               => 80
+          (window-height)
+               => 40
+          (split-window-horizontally)
+               => #<window on "windows.texi" 0x7538>
+          (window-width)
+               => 39
+
+   Note that after splitting the window into two side-by-side windows,
+the width of each window is less the half the width of the original
+window because a vertical scrollbar appeared between the windows,
+occupying two columns worth of space.  Also, the height shrunk by one
+because horizontal scrollbars appeared that weren't there before.
+(Horizontal scrollbars appear only when lines are truncated, not when
+they wrap.  This is usually the case for horizontally split windows but
+not for full-frame windows.  You can change this using the variables
+`truncate-lines' and `truncate-partial-width-windows'.)
+
+ - Function: window-pixel-height &optional window
+     This function returns the height of WINDOW in pixels, including
+     its modeline and horizontal scrollbar, if any.  If WINDOW is
+     `nil', the function uses the selected window.
+
+          (window-pixel-height)
+               => 600
+          (split-window-vertically)
+               => #<window on "windows.texi" 0x68a6>
+          (window-pixel-height)
+               => 300
+
+ - Function: window-pixel-width &optional window
+     This function returns the width of WINDOW in pixels, including any
+     left margin, right margin, or vertical scrollbar that may be
+     displayed alongside it.  If WINDOW is `nil', the function uses the
+     selected window.
+
+          (window-pixel-width)
+               => 735
+          (window-pixel-height)
+               => 600
+          (split-window-horizontally)
+               => #<window on "windows.texi" 0x7538>
+          (window-pixel-width)
+               => 367
+          (window-pixel-height)
+               => 600
+
+ - Function: window-text-area-pixel-height &optional window
+     This function returns the height in pixels of the text displaying
+     portion of WINDOW, which defaults to the selected window.  Unlike
+     `window-pixel-height', the space occupied by the modeline and
+     horizontal scrollbar, if any, is not counted.
+
+ - Function: window-text-area-pixel-width &optional window
+     This function returns the width in pixels of the text displaying
+     portion of WINDOW, which defaults to the selected window.  Unlike
+     `window-pixel-width', the space occupied by the vertical scrollbar
+     and divider, if any, is not counted.
+
+ - Function: window-displayed-text-pixel-height &optional window
+          noclipped
+     This function returns the height in pixels of the text displayed in
+     WINDOW, which defaults to the selected window.  Unlike
+     `window-text-area-pixel-height', any blank space below the end of
+     the buffer is not included.  If optional argument NOCLIPPED is
+     non-`nil', any space occupied by clipped lines will not be
+     included.
+
+
+File: lispref.info,  Node: Position of Window,  Next: Resizing Windows,  Prev: Size of Window,  Up: Windows
+
+The Position of a Window
+========================
+
+   XEmacs provides functions to determine the absolute location of
+windows within a frame, and the relative location of a window in
+comparison to other windows in the same frame.
+
+ - Function: window-pixel-edges &optional window
+     This function returns a list of the pixel edge coordinates of
+     WINDOW.  If WINDOW is `nil', the selected window is used.
+
+     The order of the list is `(LEFT TOP RIGHT BOTTOM)', all elements
+     relative to 0, 0 at the top left corner of WINDOW's frame.  The
+     element RIGHT of the value is one more than the rightmost pixel
+     used by WINDOW (including any left margin, right margin, or
+     vertical scrollbar displayed alongside it), and BOTTOM is one more
+     than the bottommost pixel used by WINDOW (including any modeline
+     or horizontal scrollbar displayed above or below it).  The frame
+     area does not include any frame menubars, toolbars, or gutters
+     that may be displayed; thus, for example, if there is only one
+     window on the frame, the values for LEFT and TOP will always be 0.
+
+     If WINDOW is at the upper left corner of its frame, RIGHT and
+     BOTTOM are the same as the values returned by
+     `(window-pixel-width)' and `(window-pixel-height)' respectively,
+     and LEFT and TOP are zero.
+
+   There is no longer a function `window-edges' because it does not
+make sense in a world with variable-width and variable-height lines, as
+are allowed in XEmacs.
+
+ - Function: window-highest-p window
+     This function returns non-`nil' if WINDOW is along the top of its
+     frame.
+
+ - Function: window-lowest-p window
+     This function returns non-`nil' if WINDOW is along the bottom of
+     its frame.
+
+ - Function: window-text-area-pixel-edges &optional window
+     This function allows one to determine the location of the
+     text-displaying portion of WINDOW, which defaults to the selected
+     window, with respect to the top left corner of the window.  It
+     returns a list of integer pixel positions `(left top right
+     bottom)', all relative to `(0,0)' at the top left corner of the
+     window.
+
+
 File: lispref.info,  Node: Resizing Windows,  Next: Window Configurations,  Prev: Position of Window,  Up: Windows
 
 Changing the Size of a Window
@@ -60,23 +547,23 @@ that change the size of windows and low-level functions that access
 window size.  XEmacs does not permit overlapping windows or gaps between
 windows, so resizing one window affects other windows.
 
- - Command: enlarge-window size &optional horizontal window
-     This function makes the selected window SIZE lines taller,
+ - Command: enlarge-window count &optional horizontal window
+     This function makes the selected window COUNT lines taller,
      stealing lines from neighboring windows.  It takes the lines from
      one window at a time until that window is used up, then takes from
      another.  If a window from which lines are stolen shrinks below
      `window-min-height' lines, that window disappears.
 
      If HORIZONTAL is non-`nil', this function makes WINDOW wider by
-     SIZE columns, stealing columns instead of lines.  If a window from
-     which columns are stolen shrinks below `window-min-width' columns,
-     that window disappears.
+     COUNT columns, stealing columns instead of lines.  If a window
+     from which columns are stolen shrinks below `window-min-width'
+     columns, that window disappears.
 
      If the requested size would exceed that of the window's frame,
      then the function makes the window occupy the entire height (or
      width) of the frame.
 
-     If SIZE is negative, this function shrinks the window by -SIZE
+     If COUNT is negative, this function shrinks the window by -COUNT
      lines or columns.  If that makes the window smaller than the
      minimum size (`window-min-height' and `window-min-width'),
      `enlarge-window' deletes the window.
@@ -99,13 +586,13 @@ windows, so resizing one window affects other windows.
      grow sideways COUNT pixels, and optional third argument WINDOW
      specifies the window to change instead of the selected window.
 
- - Command: shrink-window size &optional horizontal window
+ - Command: shrink-window count &optional horizontal window
      This function is like `enlarge-window' but negates the argument
-     SIZE, making the selected window smaller by giving lines (or
+     COUNT, making the selected window smaller by giving lines (or
      columns) to the other windows.  If the window shrinks below
      `window-min-height' or `window-min-width', then it disappears.
 
-     If SIZE is negative, the window is enlarged by -SIZE lines or
+     If COUNT is negative, the window is enlarged by -COUNT lines or
      columns.
 
      If WINDOW is non-`nil', it specifies a window to change instead of
@@ -181,13 +668,15 @@ configuration previously saved.
 configuration instead of a window configuration.  *Note Frame
 Configurations::.
 
- - Function: current-window-configuration
-     This function returns a new object representing XEmacs's current
-     window configuration, namely the number of windows, their sizes
-     and current buffers, which window is the selected window, and for
-     each window the displayed buffer, the display-start position, and
-     the positions of point and the mark.  An exception is made for
-     point in the current buffer, whose value is not saved.
+ - Function: current-window-configuration &optional frame
+     This function returns a new object representing the current current
+     window configuration of FRAME, namely the number of windows, their
+     sizes and current buffers, which window is the selected window,
+     and for each window the displayed buffer, the display-start
+     position, and the positions of point and the mark.  An exception
+     is made for point in the current buffer, whose value is not saved.
+
+     FRAME defaults to the selected frame.
 
  - Function: set-window-configuration configuration
      This function restores the configuration of XEmacs's windows and
@@ -308,7 +797,7 @@ Creating Frames
 
    To create a new frame, call the function `make-frame'.
 
- - Function: make-frame &optional props device
+ - Command: make-frame &optional props device
      This function creates a new frame on DEVICE, if DEVICE permits
      creation of frames.  (An X server does; an ordinary terminal does
      not (yet).)  DEVICE defaults to the selected device if omitted.
@@ -365,16 +854,17 @@ Access to Frame Properties
      and their values.
 
  - Function: frame-property frame property &optional default
-     This function returns FRAME's value for the property PROPERTY.
+     This function returns FRAME's value for the property PROPERTY, or
+     DEFAULT if there is no such property.
 
  - Function: set-frame-properties frame plist
      This function alters the properties of frame FRAME based on the
      elements of property list PLIST.  If you don't mention a property
      in PLIST, its value doesn't change.
 
- - Function: set-frame-property frame prop val
-     This function sets the property PROP of frame FRAME to the value
-     VAL.
+ - Function: set-frame-property frame property value
+     This function sets the property PROPERTY of frame FRAME to the
+     value VALUE.
 
 
 File: lispref.info,  Node: Initial Properties,  Next: X Frame Properties,  Prev: Property Access,  Up: Frame Properties
@@ -585,9 +1075,9 @@ in its usual fashion.
  - Function: set-frame-size frame cols rows &optional pretend
      This function sets the size of FRAME, measured in characters; COLS
      and ROWS specify the new width and height.  (If PRETEND is
-     non-nil, it means that redisplay should act as if the frame's size
-     is COLS by ROWS, but the actual size of the frame should not be
-     changed.  You should not normally use this option.)
+     non-`nil', it means that redisplay should act as if the frame's
+     size is COLS by ROWS, but the actual size of the frame should not
+     be changed.  You should not normally use this option.)
 
    You can also use the functions `set-frame-height' and
 `set-frame-width' to set the height and width individually.  The frame
@@ -670,574 +1160,18 @@ Deleting Frames
 them.  A deleted frame cannot appear on the screen, but continues to
 exist as a Lisp object until there are no references to it.
 
- - Command: delete-frame &optional frame
+ - Command: delete-frame &optional frame force
      This function deletes the frame FRAME.  By default, FRAME is the
      selected frame.
+
+     A frame may not be deleted if its minibuffer is used by other
+     frames.  Normally, you cannot delete the last non-minibuffer-only
+     frame (you must use `save-buffers-kill-emacs' or `kill-emacs').
+     However, if optional second argument FORCE is non-`nil', you can
+     delete the last frame. (This will automatically call
+     `save-buffers-kill-emacs'.)
 
  - Function: frame-live-p frame
      The function `frame-live-p' returns non-`nil' if the frame FRAME
      has not been deleted.
-
-
-File: lispref.info,  Node: Finding All Frames,  Next: Frames and Windows,  Prev: Deleting Frames,  Up: Frames
-
-Finding All Frames
-==================
-
- - Function: frame-list
-     The function `frame-list' returns a list of all the frames that
-     have not been deleted.  It is analogous to `buffer-list' for
-     buffers.  The list that you get is newly created, so modifying the
-     list doesn't have any effect on the internals of XEmacs.
-
- - Function: device-frame-list &optional device
-     This function returns a list of all frames on DEVICE.  If DEVICE
-     is `nil', the selected device will be used.
-
- - Function: visible-frame-list &optional device
-     This function returns a list of just the currently visible frames.
-     If DEVICE is specified only frames on that device will be returned.
-     *Note Visibility of Frames::.  (TTY frames always count as
-     "visible", even though only the selected one is actually
-     displayed.)
-
- - Function: next-frame &optional frame minibuf
-     The function `next-frame' lets you cycle conveniently through all
-     the frames from an arbitrary starting point.  It returns the "next"
-     frame after FRAME in the cycle.  If FRAME is omitted or `nil', it
-     defaults to the selected frame.
-
-     The second argument, MINIBUF, says which frames to consider:
-
-    `nil'
-          Exclude minibuffer-only frames.
-
-    `visible'
-          Consider all visible frames.
-
-    0
-          Consider all visible or iconified frames.
-
-    a window
-          Consider only the frames using that particular window as their
-          minibuffer.
-
-    the symbol `visible'
-          Include all visible frames.
-
-    `0'
-          Include all visible and iconified frames.
-
-    anything else
-          Consider all frames.
-
- - Function: previous-frame &optional frame minibuf
-     Like `next-frame', but cycles through all frames in the opposite
-     direction.
-
-   See also `next-window' and `previous-window', in *Note Cyclic Window
-Ordering::.
-
-
-File: lispref.info,  Node: Frames and Windows,  Next: Minibuffers and Frames,  Prev: Finding All Frames,  Up: Frames
-
-Frames and Windows
-==================
-
-   Each window is part of one and only one frame; you can get the frame
-with `window-frame'.
-
- - Function: frame-root-window &optional frame
-     This returns the root window of frame FRAME.  FRAME defaults to
-     the selected frame if not specified.
-
- - Function: window-frame &optional window
-     This function returns the frame that WINDOW is on.  WINDOW
-     defaults to the selected window if omitted.
-
-   All the non-minibuffer windows in a frame are arranged in a cyclic
-order.  The order runs from the frame's top window, which is at the
-upper left corner, down and to the right, until it reaches the window at
-the lower right corner (always the minibuffer window, if the frame has
-one), and then it moves back to the top.
-
- - Function: frame-top-window frame
-     This returns the topmost, leftmost window of frame FRAME.
-
-   At any time, exactly one window on any frame is "selected within the
-frame".  The significance of this designation is that selecting the
-frame also selects this window.  You can get the frame's current
-selected window with `frame-selected-window'.
-
- - Function: frame-selected-window &optional frame
-     This function returns the window on FRAME that is selected within
-     FRAME.  FRAME defaults to the selected frame if not specified.
-
-   Conversely, selecting a window for XEmacs with `select-window' also
-makes that window selected within its frame.  *Note Selecting Windows::.
-
-   Another function that (usually) returns one of the windows in a
-frame is `minibuffer-window'.  *Note Minibuffer Misc::.
-
-
-File: lispref.info,  Node: Minibuffers and Frames,  Next: Input Focus,  Prev: Frames and Windows,  Up: Frames
-
-Minibuffers and Frames
-======================
-
-   Normally, each frame has its own minibuffer window at the bottom,
-which is used whenever that frame is selected.  If the frame has a
-minibuffer, you can get it with `minibuffer-window' (*note Minibuffer
-Misc::).
-
-   However, you can also create a frame with no minibuffer.  Such a
-frame must use the minibuffer window of some other frame.  When you
-create the frame, you can specify explicitly the minibuffer window to
-use (in some other frame).  If you don't, then the minibuffer is found
-in the frame which is the value of the variable
-`default-minibuffer-frame'.  Its value should be a frame which does
-have a minibuffer.
-
- - Variable: default-minibuffer-frame
-     This variable specifies the frame to use for the minibuffer
-     window, by default.
-
-
-File: lispref.info,  Node: Input Focus,  Next: Visibility of Frames,  Prev: Minibuffers and Frames,  Up: Frames
-
-Input Focus
-===========
-
-   At any time, one frame in XEmacs is the "selected frame".  The
-selected window always resides on the selected frame.  As the focus
-moves from device to device, the selected frame on each device is
-remembered and restored when the focus moves back to that device.
-
- - Function: selected-frame &optional device
-     This function returns the selected frame on DEVICE.  If DEVICE is
-     not specified, the selected device will be used.  If no frames
-     exist on the device, `nil' is returned.
-
-   The X server normally directs keyboard input to the X window that the
-mouse is in.  Some window managers use mouse clicks or keyboard events
-to "shift the focus" to various X windows, overriding the normal
-behavior of the server.
-
-   Lisp programs can switch frames "temporarily" by calling the
-function `select-frame'.  This does not override the window manager;
-rather, it escapes from the window manager's control until that control
-is somehow reasserted.
-
-   When using a text-only terminal, there is no window manager;
-therefore, `select-frame' is the only way to switch frames, and the
-effect lasts until overridden by a subsequent call to `select-frame'.
-Only the selected terminal frame is actually displayed on the terminal.
-Each terminal screen except for the initial one has a number, and the
-number of the selected frame appears in the mode line after the word
-`XEmacs' (*note Modeline Variables::).
-
- - Function: select-frame frame
-     This function selects frame FRAME, temporarily disregarding the
-     focus of the X server if any.  The selection of FRAME lasts until
-     the next time the user does something to select a different frame,
-     or until the next time this function is called.
-
-     Note that `select-frame' does not actually cause the window-system
-     focus to be set to this frame, or the `select-frame-hook' or
-     `deselect-frame-hook' to be run, until the next time that XEmacs is
-     waiting for an event.
-
-     Also note that when the variable `focus-follows-mouse' is
-     non-`nil', the frame selection is temporary and is reverted when
-     the current command terminates, much like the buffer selected by
-     `set-buffer'.  In order to effect a permanent focus change use
-     `focus-frame'.
-
- - Function: focus-frame frame
-     This function selects FRAME and gives it the window system focus.
-     The operation of `focus-frame' is not affected by the value of
-     `focus-follows-mouse'.
-
- - Macro: save-selected-frame forms...
-     This macro records the selected frame, executes FORMS in sequence,
-     then restores the earlier selected frame.  The value returned is
-     the value of the last form.
-
- - Macro: with-selected-frame frame forms...
-     This macro records the selected frame, then selects FRAME and
-     executes FORMS in sequence.  After the last form is finished, the
-     earlier selected frame is restored.  The value returned is the
-     value of the last form.
-
-
-File: lispref.info,  Node: Visibility of Frames,  Next: Raising and Lowering,  Prev: Input Focus,  Up: Frames
-
-Visibility of Frames
-====================
-
-   An X window frame may be "visible", "invisible", or "iconified".  If
-it is visible, you can see its contents.  If it is iconified, the
-frame's contents do not appear on the screen, but an icon does.  If the
-frame is invisible, it doesn't show on the screen, not even as an icon.
-
-   Visibility is meaningless for TTY frames, since only the selected
-one is actually displayed in any case.
-
- - Command: make-frame-visible &optional frame
-     This function makes frame FRAME visible.  If you omit FRAME, it
-     makes the selected frame visible.
-
- - Command: make-frame-invisible &optional frame
-     This function makes frame FRAME invisible.
-
- - Command: iconify-frame &optional frame
-     This function iconifies frame FRAME.
-
- - Command: deiconify-frame &optional frame
-     This function de-iconifies frame FRAME.  Under X, this is
-     equivalent to `make-frame-visible'.
-
- - Function: frame-visible-p frame
-     This returns whether FRAME is currently "visible" (actually in use
-     for display).  A frame that is not visible is not updated, and, if
-     it works through a window system, may not show at all.
-
- - Function: frame-iconified-p frame
-     This returns whether FRAME is iconified.  Not all window managers
-     use icons; some merely unmap the window, so this function is not
-     the inverse of `frame-visible-p'.  It is possible for a frame to
-     not be visible and not be iconified either.  However, if the frame
-     is iconified, it will not be visible.  (Under FSF Emacs, the
-     functionality of this function is obtained through
-     `frame-visible-p'.)
-
- - Function: frame-totally-visible-p frame
-     This returns whether FRAME is not obscured by any other X windows.
-     On TTY frames, this is the same as `frame-visible-p'.
-
-
-File: lispref.info,  Node: Raising and Lowering,  Next: Frame Configurations,  Prev: Visibility of Frames,  Up: Frames
-
-Raising and Lowering Frames
-===========================
-
-   The X Window System uses a desktop metaphor.  Part of this metaphor
-is the idea that windows are stacked in a notional third dimension
-perpendicular to the screen surface, and thus ordered from "highest" to
-"lowest".  Where two windows overlap, the one higher up covers the one
-underneath.  Even a window at the bottom of the stack can be seen if no
-other window overlaps it.
-
-   A window's place in this ordering is not fixed; in fact, users tend
-to change the order frequently.  "Raising" a window means moving it
-"up", to the top of the stack.  "Lowering" a window means moving it to
-the bottom of the stack.  This motion is in the notional third
-dimension only, and does not change the position of the window on the
-screen.
-
-   You can raise and lower XEmacs's X windows with these functions:
-
- - Command: raise-frame &optional frame
-     This function raises frame FRAME.
-
- - Command: lower-frame &optional frame
-     This function lowers frame FRAME.
-
-   You can also specify auto-raise (raising automatically when a frame
-is selected) or auto-lower (lowering automatically when it is
-deselected).  Under X, most ICCCM-compliant window managers will have
-an option to do this for you, but the following variables are provided
-in case you're using a broken WM.  (Under FSF Emacs, the same
-functionality is provided through the `auto-raise' and `auto-lower'
-frame properties.)
-
- - Variable: auto-raise-frame
-     This variable's value is `t' if frames will be raised to the top
-     when selected.
-
- - Variable: auto-lower-frame
-     This variable's value is `t' if frames will be lowered to the
-     bottom when no longer selected.
-
-   Auto-raising and auto-lowering is implemented through functions
-attached to `select-frame-hook' and `deselect-frame-hook' (*note Frame
-Hooks::).  Under normal circumstances, you should not call these
-functions directly.
-
- - Function: default-select-frame-hook
-     This hook function implements the `auto-raise-frame' variable; it
-     is for use as the value of `select-frame-hook'.
-
- - Function: default-deselect-frame-hook
-     This hook function implements the `auto-lower-frame' variable; it
-     is for use as the value of `deselect-frame-hook'.
-
-
-File: lispref.info,  Node: Frame Configurations,  Next: Frame Hooks,  Prev: Raising and Lowering,  Up: Frames
-
-Frame Configurations
-====================
-
-   A "frame configuration" records the current arrangement of frames,
-all their properties, and the window configuration of each one.
-
- - Function: current-frame-configuration
-     This function returns a frame configuration list that describes
-     the current arrangement of frames and their contents.
-
- - Function: set-frame-configuration configuration
-     This function restores the state of frames described in
-     CONFIGURATION.
-
-
-File: lispref.info,  Node: Frame Hooks,  Prev: Frame Configurations,  Up: Frames
-
-Hooks for Customizing Frame Behavior
-====================================
-
-   XEmacs provides many hooks that are called at various times during a
-frame's lifetime.  *Note Hooks::.
-
- - Variable: create-frame-hook
-     This hook is called each time a frame is created.  The functions
-     are called with one argument, the newly-created frame.
-
- - Variable: delete-frame-hook
-     This hook is called each time a frame is deleted.  The functions
-     are called with one argument, the about-to-be-deleted frame.
-
- - Variable: select-frame-hook
-     This is a normal hook that is run just after a frame is selected.
-     The function `default-select-frame-hook', which implements
-     auto-raising (*note Raising and Lowering::), is normally attached
-     to this hook.
-
-     Note that calling `select-frame' does not necessarily set the
-     focus: The actual window-system focus will not be changed until
-     the next time that XEmacs is waiting for an event, and even then,
-     the window manager may refuse the focus-change request.
-
- - Variable: deselect-frame-hook
-     This is a normal hook that is run just before a frame is deselected
-     (and another frame is selected).  The function
-     `default-deselect-frame-hook', which implements auto-lowering
-     (*note Raising and Lowering::), is normally attached to this hook.
-
- - Variable: map-frame-hook
-     This hook is called each time a frame is mapped (i.e. made
-     visible).  The functions are called with one argument, the newly
-     mapped frame.
-
- - Variable: unmap-frame-hook
-     This hook is called each time a frame is unmapped (i.e. made
-     invisible or iconified).  The functions are called with one
-     argument, the newly unmapped frame.
-
-
-File: lispref.info,  Node: Consoles and Devices,  Next: Positions,  Prev: Frames,  Up: Top
-
-Consoles and Devices
-********************
-
-   A "console" is an object representing a single input connection to
-XEmacs, such as an X display or a TTY connection.  It is possible for
-XEmacs to have frames on multiple consoles at once (even on
-heterogeneous types--you can simultaneously have a frame on an X
-display and a TTY connection).  Normally, there is only one console in
-existence.
-
-   A "device" is an object representing a single output device, such as
-a particular screen on an X display. (Usually there is exactly one
-device per X console connection, but there may be more than one if you
-have a multi-headed X display.  For TTY connections, there is always
-exactly one device per console.)
-
-   Each device has one or more "frames" in which text can be displayed.
-For X displays and the like, a frame corresponds to the normal
-window-system concept of a window.  Frames can overlap, be displayed at
-various locations within the display, be resized, etc.  For TTY, only
-one frame can be displayed at a time, and it occupies the entire TTY
-display area.
-
-   However, you can still define multiple frames and switch between
-them.  Their contents are entirely separate from each other.  These
-sorts of frames resemble the "virtual console" capability provided
-under Linux or the multiple screens provided by the multiplexing program
-`screen' under Unix.
-
-   When you start up XEmacs, an initial console and device are created
-to receive input and display frames on.  This will either be an X
-display or a TTY connection, depending on what mode you started XEmacs
-in (this is determined by the `DISPLAY' environment variable, the
-`-nw', `-t' and `-display' command-line options, etc.).
-
-   You can connect to other X displays and TTY connections by creating
-new console objects, and to other X screens on an existing display by
-creating new device objects, as described below.  Many functions (for
-example the frame-creation functions) take an optional device argument
-specifying which device the function pertains to.  If the argument is
-omitted, it defaults to the selected device (see below).
-
- - Function: consolep object
-     This returns non-`nil' if OBJECT is a console.
-
- - Function: devicep object
-     This returns non-`nil' if OBJECT is a device.
-
-* Menu:
-
-* Basic Console Functions::     Functions for working with consoles.
-* Basic Device Functions::      Functions for working with devices.
-* Console Types and Device Classes::
-                                I/O and color characteristics.
-* Connecting to a Console or Device::
-* The Selected Console and Device::
-* Console and Device I/O::      Controlling input and output.
-
-
-File: lispref.info,  Node: Basic Console Functions,  Next: Basic Device Functions,  Up: Consoles and Devices
-
-Basic Console Functions
-=======================
-
- - Function: console-list
-     This function returns a list of all existing consoles.
-
- - Function: console-device-list &optional console
-     This function returns a list of all devices on CONSOLE.  If
-     CONSOLE is `nil', the selected console will be used.
-
-
-File: lispref.info,  Node: Basic Device Functions,  Next: Console Types and Device Classes,  Prev: Basic Console Functions,  Up: Consoles and Devices
-
-Basic Device Functions
-======================
-
- - Function: device-list
-     This function returns a list of all existing devices.
-
- - Function: device-or-frame-p object
-     This function returns non-`nil' if OBJECT is a device or frame.
-     This function is useful because devices and frames are similar in
-     many respects and many functions can operate on either one.
-
- - Function: device-frame-list device
-     This function returns a list of all frames on DEVICE.
-
- - Function: frame-device frame
-     This function returns the device that FRAME is on.
-
-
-File: lispref.info,  Node: Console Types and Device Classes,  Next: Connecting to a Console or Device,  Prev: Basic Device Functions,  Up: Consoles and Devices
-
-Console Types and Device Classes
-================================
-
-   Every device is of a particular "type", which describes how the
-connection to that device is made and how the device operates, and a
-particular "class", which describes other characteristics of the device
-(currently, the color capabilities of the device).
-
-   The currently-defined device types are
-
-`x'
-     A connection to an X display (such as `willow:0').
-
-`tty'
-     A connection to a tty (such as `/dev/ttyp3').
-
-`stream'
-     A stdio connection.  This describes a device for which input and
-     output is only possible in a stream-like fashion, such as when
-     XEmacs in running in batch mode.  The very first device created by
-     XEmacs is a terminal device and is used to print out messages of
-     various sorts (for example, the help message when you use the
-     `-help' command-line option).
-
-   The currently-defined device classes are
-`color'
-     A color device.
-
-`grayscale'
-     A grayscale device (a device that can display multiple shades of
-     gray, but no color).
-
-`mono'
-     A device that can only display two colors (e.g. black and white).
-
- - Function: device-type device
-     This function returns the type of DEVICE.  This is a symbol whose
-     name is one of the device types mentioned above.
-
- - Function: device-or-frame-type device-or-frame
-     This function returns the type of DEVICE-OR-FRAME.
-
- - Function: device-class device
-     This function returns the class (color behavior) of DEVICE.  This
-     is a symbol whose name is one of the device classes mentioned
-     above.
-
- - Function: valid-device-type-p device-type
-     This function returns whether DEVICE-TYPE (which should be a
-     symbol) specifies a valid device type.
-
- - Function: valid-device-class-p device-class
-     This function returns whether DEVICE-CLASS (which should be a
-     symbol) specifies a valid device class.
-
- - Variable: terminal-device
-     This variable holds the initial terminal device object, which
-     represents XEmacs's stdout.
-
-
-File: lispref.info,  Node: Connecting to a Console or Device,  Next: The Selected Console and Device,  Prev: Console Types and Device Classes,  Up: Consoles and Devices
-
-Connecting to a Console or Device
-=================================
-
- - Function: make-device &optional type device-data
-     This function creates a new device.
-
-   The following two functions create devices of specific types and are
-written in terms of `make-device'.
-
- - Function: make-tty-device &optional tty terminal-type
-     This function creates a new tty device on TTY.  This also creates
-     the tty's first frame.  TTY should be a string giving the name of
-     a tty device file (e.g. `/dev/ttyp3' under SunOS et al.), as
-     returned by the `tty' command issued from the Unix shell.  A value
-     of `nil' means use the stdin and stdout as passed to XEmacs from
-     the shell.  If TERMINAL-TYPE is non-`nil', it should be a string
-     specifying the type of the terminal attached to the specified tty.
-     If it is `nil', the terminal type will be inferred from the
-     `TERM' environment variable.
-
- - Function: make-x-device &optional display argv-list
-     This function creates a new device connected to DISPLAY.  Optional
-     argument ARGV-LIST is a list of strings describing command line
-     options.
-
- - Function: delete-device device
-     This function deletes DEVICE, permanently eliminating it from use.
-     This disconnects XEmacs's connection to the device.
-
- - Variable: create-device-hook
-     This variable, if non-`nil', should contain a list of functions,
-     which are called when a device is created.
-
- - Variable: delete-device-hook
-     This variable, if non-`nil', should contain a list of functions,
-     which are called when a device is deleted.
-
- - Function: console-live-p object
-     This function returns non-`nil' if OBJECT is a console that has
-     not been deleted.
-
- - Function: device-live-p object
-     This function returns non-`nil' if OBJECT is a device that has not
-     been deleted.
-
- - Function: device-x-display device
-     This function returns the X display which DEVICE is connected to,
-     if DEVICE is an X device.
 

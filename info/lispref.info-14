@@ -50,6 +50,224 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Jumping,  Next: Edebug Misc,  Prev: Edebug Execution Modes,  Up: Edebug
+
+Jumping
+-------
+
+   Commands described here let you jump to a specified location.  All,
+except `i', use temporary breakpoints to establish the stop point and
+then switch to `go' mode.  Any other breakpoint reached before the
+intended stop point will also stop execution.  See *Note Breakpoints::
+for the details on breakpoints.
+
+`f'
+     Run the program forward over one expression
+     (`edebug-forward-sexp').  More precisely, set a temporary
+     breakpoint at the position that `C-M-f' would reach, then execute
+     in `go' mode so that the program will stop at breakpoints.
+
+     With a prefix argument N, the temporary breakpoint is placed N
+     sexps beyond point.  If the containing list ends before N more
+     elements, then the place to stop is after the containing
+     expression.
+
+     Be careful that the position `C-M-f' finds is a place that the
+     program will really get to; this may not be true in a `cond', for
+     example.
+
+     This command does `forward-sexp' starting at point rather than the
+     stop point.  If you want to execute one expression from the
+     current stop point, type `w' first, to move point there.
+
+`o'
+     Continue "out of" an expression (`edebug-step-out').  It places a
+     temporary breakpoint at the end of the sexp containing point.
+
+     If the containing sexp is a function definition itself, it
+     continues until just before the last sexp in the definition.  If
+     that is where you are now, it returns from the function and then
+     stops.  In other words, this command does not exit the currently
+     executing function unless you are positioned after the last sexp.
+
+`I'
+     Step into the function or macro after point after first ensuring
+     that it is instrumented.  It does this by calling
+     `edebug-on-entry' and then switching to `go' mode.
+
+     Although the automatic instrumentation is convenient, it is not
+     later automatically uninstrumented.
+
+`h'
+     Proceed to the stop point near where point is using a temporary
+     breakpoint (`edebug-goto-here').
+
+   All the commands in this section may fail to work as expected in case
+of nonlocal exit, because a nonlocal exit can bypass the temporary
+breakpoint where you expected the program to stop.
+
+
+File: lispref.info,  Node: Edebug Misc,  Next: Breakpoints,  Prev: Jumping,  Up: Edebug
+
+Miscellaneous
+-------------
+
+   Some miscellaneous commands are described here.
+
+`?'
+     Display the help message for Edebug (`edebug-help').
+
+`C-]'
+     Abort one level back to the previous command level
+     (`abort-recursive-edit').
+
+`q'
+     Return to the top level editor command loop (`top-level').  This
+     exits all recursive editing levels, including all levels of Edebug
+     activity.  However, instrumented code protected with
+     `unwind-protect' or `condition-case' forms may resume debugging.
+
+`Q'
+     Like `q' but don't stop even for protected code
+     (`top-level-nonstop').
+
+`r'
+     Redisplay the most recently known expression result in the echo
+     area (`edebug-previous-result').
+
+`d'
+     Display a backtrace, excluding Edebug's own functions for clarity
+     (`edebug-backtrace').
+
+     You cannot use debugger commands in the backtrace buffer in Edebug
+     as you would in the standard debugger.
+
+     The backtrace buffer is killed automatically when you continue
+     execution.
+
+   From the Edebug recursive edit, you may invoke commands that activate
+Edebug again recursively.  Any time Edebug is active, you can quit to
+the top level with `q' or abort one recursive edit level with `C-]'.
+You can display a backtrace of all the pending evaluations with `d'.
+
+
+File: lispref.info,  Node: Breakpoints,  Next: Trapping Errors,  Prev: Edebug Misc,  Up: Edebug
+
+Breakpoints
+-----------
+
+   There are three more ways to stop execution once it has started:
+breakpoints, the global break condition, and embedded breakpoints.
+
+   While using Edebug, you can specify "breakpoints" in the program you
+are testing: points where execution should stop.  You can set a
+breakpoint at any stop point, as defined in *Note Using Edebug::.  For
+setting and unsetting breakpoints, the stop point that is affected is
+the first one at or after point in the source code buffer.  Here are the
+Edebug commands for breakpoints:
+
+`b'
+     Set a breakpoint at the stop point at or after point
+     (`edebug-set-breakpoint').  If you use a prefix argument, the
+     breakpoint is temporary (it turns off the first time it stops the
+     program).
+
+`u'
+     Unset the breakpoint (if any) at the stop point at or after the
+     current point (`edebug-unset-breakpoint').
+
+`x CONDITION <RET>'
+     Set a conditional breakpoint which stops the program only if
+     CONDITION evaluates to a non-`nil' value
+     (`edebug-set-conditional-breakpoint').  If you use a prefix
+     argument, the breakpoint is temporary (it turns off the first time
+     it stops the program).
+
+`B'
+     Move point to the next breakpoint in the definition
+     (`edebug-next-breakpoint').
+
+   While in Edebug, you can set a breakpoint with `b' and unset one
+with `u'.  First you must move point to a position at or before the
+desired Edebug stop point, then hit the key to change the breakpoint.
+Unsetting a breakpoint that has not been set does nothing.
+
+   Reevaluating or reinstrumenting a definition clears all its
+breakpoints.
+
+   A "conditional breakpoint" tests a condition each time the program
+gets there.  To set a conditional breakpoint, use `x', and specify the
+condition expression in the minibuffer.  Setting a conditional
+breakpoint at a stop point that already has a conditional breakpoint
+puts the current condition expression in the minibuffer so you can edit
+it.
+
+   You can make both conditional and unconditional breakpoints
+"temporary" by using a prefix arg to the command to set the breakpoint.
+After breaking at a temporary breakpoint, it is automatically cleared.
+
+   Edebug always stops or pauses at a breakpoint except when the Edebug
+mode is `Go-nonstop'.  In that mode, it ignores breakpoints entirely.
+
+   To find out where your breakpoints are, use `B', which moves point
+to the next breakpoint in the definition following point, or to the
+first breakpoint if there are no following breakpoints.  This command
+does not continue execution--it just moves point in the buffer.
+
+* Menu:
+
+* Global Break Condition::	Breaking on an event.
+* Embedded Breakpoints::	Embedding breakpoints in code.
+
+
+File: lispref.info,  Node: Global Break Condition,  Next: Embedded Breakpoints,  Up: Breakpoints
+
+Global Break Condition
+......................
+
+   In contrast to breaking when execution reaches specified locations,
+you can also cause a break when a certain event occurs.  The "global
+break condition" is a condition that is repeatedly evaluated at every
+stop point.  If it evaluates to a non-`nil' value, then execution is
+stopped or paused depending on the execution mode, just like a
+breakpoint.  Any errors that might occur as a result of evaluating the
+condition are ignored, as if the result were `nil'.
+
+   You can set or edit the condition expression, stored in
+`edebug-global-break-condition', using `X'
+(`edebug-set-global-break-condition').
+
+   Using the global break condition is perhaps the fastest way to find
+where in your code some event occurs, but since it is rather expensive
+you should reset the condition to `nil' when not in use.
+
+
+File: lispref.info,  Node: Embedded Breakpoints,  Prev: Global Break Condition,  Up: Breakpoints
+
+Embedded Breakpoints
+....................
+
+   Since all breakpoints in a definition are cleared each time you
+reinstrument it, you might rather create an "embedded breakpoint" which
+is simply a call to the function `edebug'.  You can, of course, make
+such a call conditional.  For example, in the `fac' function, insert
+the first line as shown below to stop when the argument reaches zero:
+
+     (defun fac (n)
+       (if (= n 0) (edebug))
+       (if (< 0 n)
+           (* n (fac (1- n)))
+         1))
+
+   When the `fac' definition is instrumented and the function is
+called, Edebug will stop before the call to `edebug'.  Depending on the
+execution mode, Edebug will stop or pause.
+
+   However, if no instrumented code is being executed, calling `edebug'
+will instead invoke `debug'.  Calling `debug' will always invoke the
+standard backtrace debugger.
+
+
 File: lispref.info,  Node: Trapping Errors,  Next: Edebug Views,  Prev: Breakpoints,  Up: Edebug
 
 Trapping Errors
@@ -325,7 +543,7 @@ called _tracing_ (see *Note Edebug Execution Modes::), Edebug can
 produce a traditional trace listing of execution in a separate buffer,
 `*edebug-trace*'.
 
-   If the variable `edebug-trace' is non-nil, each function entry and
+   If the variable `edebug-trace' is non-`nil', each function entry and
 exit adds lines to the trace buffer.  On function entry, Edebug prints
 `::::{' followed by the function name and argument values.  On function
 exit, Edebug prints `::::}' followed by the function name and result of
@@ -986,195 +1204,4 @@ causes very deep recursion that could fail.)
             (backquote-form . [&or nil backquote-form])
             (vector &rest backquote-form)
             sexp))
-
-
-File: lispref.info,  Node: Edebug Options,  Prev: Instrumenting Macro Calls,  Up: Edebug
-
-Edebug Options
---------------
-
-   These options affect the behavior of Edebug:
-
- - User Option: edebug-setup-hook
-     Functions to call before Edebug is used.  Each time it is set to a
-     new value, Edebug will call those functions once and then
-     `edebug-setup-hook' is reset to `nil'.  You could use this to load
-     up Edebug specifications associated with a package you are using
-     but only when you also use Edebug.  See *Note Instrumenting::.
-
- - User Option: edebug-all-defs
-     If non-`nil', normal evaluation of any defining forms (e.g.
-     `defun' and `defmacro') will instrument them for Edebug.  This
-     applies to `eval-defun', `eval-region', and `eval-current-buffer'.
-
-     Use the command `M-x edebug-all-defs' to toggle the value of this
-     variable. You may want to make this variable local to each buffer
-     by calling `(make-local-variable 'edebug-all-defs)' in your
-     `emacs-lisp-mode-hook'.  See *Note Instrumenting::.
-
- - User Option: edebug-all-forms
-     If non-`nil', normal evaluation of any forms by `eval-defun',
-     `eval-region', and `eval-current-buffer' will instrument them for
-     Edebug.
-
-     Use the command `M-x edebug-all-forms' to toggle the value of this
-     option.  See *Note Instrumenting::.
-
- - User Option: edebug-save-windows
-     If non-`nil', save and restore window configuration on Edebug
-     calls.  It takes some time to do this, so if your program does not
-     care what happens to data about windows, you may want to set this
-     variable to `nil'.
-
-     If the value is a list, only the listed windows are saved and
-     restored.
-
-     `M-x edebug-toggle-save-windows' may be used to change this
-     variable.  This command is bound to `W' in source code buffers.
-     See *Note Edebug Display Update::.
-
- - User Option: edebug-save-displayed-buffer-points
-     If non-`nil', save and restore point in all displayed buffers.
-     This is necessary if you are debugging code that changes the point
-     of a buffer which is displayed in a non-selected window.  If
-     Edebug or the user then selects the window, the buffer's point
-     will be changed to the window's point.
-
-     This is an expensive operation since it visits each window and
-     therefore each displayed buffer twice for each Edebug activation,
-     so it is best to avoid it if you can.  See *Note Edebug Display
-     Update::.
-
- - User Option: edebug-initial-mode
-     If this variable is non-`nil', it specifies the initial execution
-     mode for Edebug when it is first activated.  Possible values are
-     `step', `next', `go', `Go-nonstop', `trace', `Trace-fast',
-     `continue', and `Continue-fast'.
-
-     The default value is `step'.  See *Note Edebug Execution Modes::.
-
- - User Option: edebug-trace
-     Non-`nil' means display a trace of function entry and exit.
-     Tracing output is displayed in a buffer named `*edebug-trace*', one
-     function entry or exit per line, indented by the recursion level.
-
-     The default value is `nil'.
-
-     Also see `edebug-tracing'.  See *Note Tracing::.
-
- - User Option: edebug-test-coverage
-     If non-`nil', Edebug tests coverage of all expressions debugged.
-     This is done by comparing the result of each expression with the
-     previous result. Coverage is considered OK if two different
-     results are found.  So to sufficiently test the coverage of your
-     code, try to execute it under conditions that evaluate all
-     expressions more than once, and produce different results for each
-     expression.
-
-     Use `M-x edebug-display-freq-count' to display the frequency count
-     and coverage information for a definition.  See *Note Coverage
-     Testing::.
-
- - User Option: edebug-continue-kbd-macro
-     If non-`nil', continue defining or executing any keyboard macro
-     that is executing outside of Edebug.   Use this with caution since
-     it is not debugged.  See *Note Edebug Execution Modes::.
-
- - User Option: edebug-print-length
-     If non-`nil', bind `print-length' to this while printing results
-     in Edebug.  The default value is `50'.  See *Note Printing in
-     Edebug::.
-
- - User Option: edebug-print-level
-     If non-`nil', bind `print-level' to this while printing results in
-     Edebug.  The default value is `50'.
-
- - User Option: edebug-print-circle
-     If non-`nil', bind `print-circle' to this while printing results
-     in Edebug.  The default value is `nil'.
-
- - User Option: edebug-on-error
-     `debug-on-error' is bound to this while Edebug is active.  See
-     *Note Trapping Errors::.
-
- - User Option: edebug-on-quit
-     `debug-on-quit' is bound to this while Edebug is active.  See
-     *Note Trapping Errors::.
-
- - User Option: edebug-unwrap-results
-     Non-`nil' if Edebug should unwrap results of expressions.  This is
-     useful when debugging macros where the results of expressions are
-     instrumented expressions.  But don't do this when results might be
-     circular or an infinite loop will result.  See *Note Debugging
-     Backquote::.
-
- - User Option: edebug-global-break-condition
-     If non-`nil', an expression to test for at every stop point.  If
-     the result is non-nil, then break.  Errors are ignored.  See *Note
-     Global Break Condition::.
-
-
-File: lispref.info,  Node: Read and Print,  Next: Minibuffers,  Prev: Debugging,  Up: Top
-
-Reading and Printing Lisp Objects
-*********************************
-
-   "Printing" and "reading" are the operations of converting Lisp
-objects to textual form and vice versa.  They use the printed
-representations and read syntax described in *Note Lisp Data Types::.
-
-   This chapter describes the Lisp functions for reading and printing.
-It also describes "streams", which specify where to get the text (if
-reading) or where to put it (if printing).
-
-* Menu:
-
-* Streams Intro::     Overview of streams, reading and printing.
-* Input Streams::     Various data types that can be used as input streams.
-* Input Functions::   Functions to read Lisp objects from text.
-* Output Streams::    Various data types that can be used as output streams.
-* Output Functions::  Functions to print Lisp objects as text.
-* Output Variables::  Variables that control what the printing functions do.
-
-
-File: lispref.info,  Node: Streams Intro,  Next: Input Streams,  Up: Read and Print
-
-Introduction to Reading and Printing
-====================================
-
-   "Reading" a Lisp object means parsing a Lisp expression in textual
-form and producing a corresponding Lisp object.  This is how Lisp
-programs get into Lisp from files of Lisp code.  We call the text the
-"read syntax" of the object.  For example, the text `(a . 5)' is the
-read syntax for a cons cell whose CAR is `a' and whose CDR is the
-number 5.
-
-   "Printing" a Lisp object means producing text that represents that
-object--converting the object to its printed representation.  Printing
-the cons cell described above produces the text `(a . 5)'.
-
-   Reading and printing are more or less inverse operations: printing
-the object that results from reading a given piece of text often
-produces the same text, and reading the text that results from printing
-an object usually produces a similar-looking object.  For example,
-printing the symbol `foo' produces the text `foo', and reading that text
-returns the symbol `foo'.  Printing a list whose elements are `a' and
-`b' produces the text `(a b)', and reading that text produces a list
-(but not the same list) with elements `a' and `b'.
-
-   However, these two operations are not precisely inverses.  There are
-three kinds of exceptions:
-
-   * Printing can produce text that cannot be read.  For example,
-     buffers, windows, frames, subprocesses and markers print into text
-     that starts with `#'; if you try to read this text, you get an
-     error.  There is no way to read those data types.
-
-   * One object can have multiple textual representations.  For example,
-     `1' and `01' represent the same integer, and `(a b)' and `(a .
-     (b))' represent the same list.  Reading will accept any of the
-     alternatives, but printing must choose one of them.
-
-   * Comments can appear at certain points in the middle of an object's
-     read sequence without affecting the result of reading it.
 

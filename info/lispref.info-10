@@ -50,6 +50,191 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Intro to Buffer-Local,  Next: Creating Buffer-Local,  Up: Buffer-Local Variables
+
+Introduction to Buffer-Local Variables
+--------------------------------------
+
+   A buffer-local variable has a buffer-local binding associated with a
+particular buffer.  The binding is in effect when that buffer is
+current; otherwise, it is not in effect.  If you set the variable while
+a buffer-local binding is in effect, the new value goes in that binding,
+so the global binding is unchanged; this means that the change is
+visible in that buffer alone.
+
+   A variable may have buffer-local bindings in some buffers but not in
+others.  The global binding is shared by all the buffers that don't have
+their own bindings.  Thus, if you set the variable in a buffer that does
+not have a buffer-local binding for it, the new value is visible in all
+buffers except those with buffer-local bindings.  (Here we are assuming
+that there are no `let'-style local bindings to complicate the issue.)
+
+   The most common use of buffer-local bindings is for major modes to
+change variables that control the behavior of commands.  For example, C
+mode and Lisp mode both set the variable `paragraph-start' to specify
+that only blank lines separate paragraphs.  They do this by making the
+variable buffer-local in the buffer that is being put into C mode or
+Lisp mode, and then setting it to the new value for that mode.
+
+   The usual way to make a buffer-local binding is with
+`make-local-variable', which is what major mode commands use.  This
+affects just the current buffer; all other buffers (including those yet
+to be created) continue to share the global value.
+
+   A more powerful operation is to mark the variable as "automatically
+buffer-local" by calling `make-variable-buffer-local'.  You can think
+of this as making the variable local in all buffers, even those yet to
+be created.  More precisely, the effect is that setting the variable
+automatically makes the variable local to the current buffer if it is
+not already so.  All buffers start out by sharing the global value of
+the variable as usual, but any `setq' creates a buffer-local binding
+for the current buffer.  The new value is stored in the buffer-local
+binding, leaving the (default) global binding untouched.  The global
+value can no longer be changed with `setq'; you need to use
+`setq-default' to do that.
+
+   Local variables in a file you edit are also represented by
+buffer-local bindings for the buffer that holds the file within XEmacs.
+*Note Auto Major Mode::.
+
+
+File: lispref.info,  Node: Creating Buffer-Local,  Next: Default Value,  Prev: Intro to Buffer-Local,  Up: Buffer-Local Variables
+
+Creating and Deleting Buffer-Local Bindings
+-------------------------------------------
+
+ - Command: make-local-variable variable
+     This function creates a buffer-local binding in the current buffer
+     for VARIABLE (a symbol).  Other buffers are not affected.  The
+     value returned is VARIABLE.
+
+     The buffer-local value of VARIABLE starts out as the same value
+     VARIABLE previously had.  If VARIABLE was void, it remains void.
+
+          ;; In buffer `b1':
+          (setq foo 5)                ; Affects all buffers.
+               => 5
+          (make-local-variable 'foo)  ; Now it is local in `b1'.
+               => foo
+          foo                         ; That did not change
+               => 5                   ;   the value.
+          (setq foo 6)                ; Change the value
+               => 6                   ;   in `b1'.
+          foo
+               => 6
+          
+          ;; In buffer `b2', the value hasn't changed.
+          (save-excursion
+            (set-buffer "b2")
+            foo)
+               => 5
+
+     Making a variable buffer-local within a `let'-binding for that
+     variable does not work.  This is because `let' does not distinguish
+     between different kinds of bindings; it knows only which variable
+     the binding was made for.
+
+     *Please note:* do not use `make-local-variable' for a hook
+     variable.  Instead, use `make-local-hook'.  *Note Hooks::.
+
+ - Command: make-variable-buffer-local variable
+     This function marks VARIABLE (a symbol) automatically
+     buffer-local, so that any subsequent attempt to set it will make it
+     local to the current buffer at the time.
+
+     The value returned is VARIABLE.
+
+ - Function: local-variable-p variable buffer &optional after-set
+     This returns `t' if VARIABLE is buffer-local in buffer BUFFER;
+     else `nil'.
+
+     If optional third arg AFTER-SET is non-`nil', return `t' if SYMBOL
+     would be buffer-local after it is set, regardless of whether it is
+     so presently.
+
+     A `nil' value for BUFFER is _not_ the same as `(current-buffer)',
+     but means "no buffer".  Specifically:
+
+     If BUFFER is `nil' and AFTER-SET is `nil', a return value of `t'
+     indicates that the variable is one of the special built-in
+     variables that is always buffer-local. (This includes
+     `buffer-file-name', `buffer-read-only', `buffer-undo-list', and
+     others.)
+
+     If BUFFER is `nil' and AFTER-SET is `t', a return value of `t'
+     indicates that the variable has had `make-variable-buffer-local'
+     applied to it.
+
+ - Function: buffer-local-variables &optional buffer
+     This function returns a list describing the buffer-local variables
+     in buffer BUFFER.  It returns an association list (*note
+     Association Lists::) in which each association contains one
+     buffer-local variable and its value.  When a buffer-local variable
+     is void in BUFFER, then it appears directly in the resulting list.
+     If BUFFER is omitted, the current buffer is used.
+
+          (make-local-variable 'foobar)
+          (makunbound 'foobar)
+          (make-local-variable 'bind-me)
+          (setq bind-me 69)
+          (setq lcl (buffer-local-variables))
+              ;; First, built-in variables local in all buffers:
+          => ((mark-active . nil)
+              (buffer-undo-list nil)
+              (mode-name . "Fundamental")
+              ...
+              ;; Next, non-built-in local variables.
+              ;; This one is local and void:
+              foobar
+              ;; This one is local and nonvoid:
+              (bind-me . 69))
+
+     Note that storing new values into the CDRs of cons cells in this
+     list does _not_ change the local values of the variables.
+
+ - Command: kill-local-variable variable
+     This function deletes the buffer-local binding (if any) for
+     VARIABLE (a symbol) in the current buffer.  As a result, the
+     global (default) binding of VARIABLE becomes visible in this
+     buffer.  Usually this results in a change in the value of
+     VARIABLE, since the global value is usually different from the
+     buffer-local value just eliminated.
+
+     If you kill the local binding of a variable that automatically
+     becomes local when set, this makes the global value visible in the
+     current buffer.  However, if you set the variable again, that will
+     once again create a local binding for it.
+
+     `kill-local-variable' returns VARIABLE.
+
+     This function is a command because it is sometimes useful to kill
+     one buffer-local variable interactively, just as it is useful to
+     create buffer-local variables interactively.
+
+ - Function: kill-all-local-variables
+     This function eliminates all the buffer-local variable bindings of
+     the current buffer except for variables marked as "permanent".  As
+     a result, the buffer will see the default values of most variables.
+
+     This function also resets certain other information pertaining to
+     the buffer: it sets the local keymap to `nil', the syntax table to
+     the value of `standard-syntax-table', and the abbrev table to the
+     value of `fundamental-mode-abbrev-table'.
+
+     Every major mode command begins by calling this function, which
+     has the effect of switching to Fundamental mode and erasing most
+     of the effects of the previous major mode.  To ensure that this
+     does its job, the variables that major modes set should not be
+     marked permanent.
+
+     `kill-all-local-variables' returns `nil'.
+
+   A local variable is "permanent" if the variable name (a symbol) has a
+`permanent-local' property that is non-`nil'.  Permanent locals are
+appropriate for data pertaining to where the file came from or how to
+save it, rather than with how to edit the contents.
+
+
 File: lispref.info,  Node: Default Value,  Prev: Creating Buffer-Local,  Up: Buffer-Local Variables
 
 The Default Value of a Buffer-Local Variable
@@ -157,12 +342,12 @@ Obsoleteness::).
      variable, a variable that has a buffer-local value in any buffer,
      or the symbols `nil' or `t'.
 
- - Function: variable-alias variable
+ - Function: variable-alias variable &optional follow-past-lisp-magic
      If VARIABLE is aliased to another variable, this function returns
      that variable.  VARIABLE should be a symbol.  If VARIABLE is not
      aliased, this function returns `nil'.
 
- - Function: indirect-variable object
+ - Function: indirect-variable object &optional follow-past-lisp-magic
      This function returns the variable at the end of OBJECT's
      variable-alias chain.  If OBJECT is a symbol, follow all variable
      aliases and return the final (non-aliased) symbol.  If OBJECT is
@@ -745,7 +930,7 @@ function:
  - Function: identity arg
      This function returns ARG and has no side effects.
 
- - Function: ignore &rest args
+ - Command: ignore &rest args
      This function ignores any arguments and returns `nil'.
 
 
@@ -949,9 +1134,9 @@ cell contains no object whatsoever.
 can make it void once more using `fmakunbound'.
 
  - Function: fboundp symbol
-     This function returns `t' if the symbol has an object in its
-     function cell, `nil' otherwise.  It does not check that the object
-     is a legitimate function.
+     This function returns `t' if SYMBOL has an object in its function
+     cell, `nil' otherwise.  It does not check that the object is a
+     legitimate function.
 
  - Function: fmakunbound symbol
      This function makes SYMBOL's function cell void, so that a
@@ -979,9 +1164,9 @@ can make it void once more using `fmakunbound'.
 
         * Giving a symbol a function definition that is not a list and
           therefore cannot be made with `defun'.  For example, you can
-          use `fset' to give a symbol `s1' a function definition which
-          is another symbol `s2'; then `s1' serves as an alias for
-          whatever definition `s2' presently has.
+          use `fset' to give a symbol SYMBOL1 a function definition
+          which is another symbol SYMBOL2; then SYMBOL1 serves as an
+          alias for whatever definition SYMBOL2 presently has.
 
         * In constructs for defining or altering functions.  If `defun'
           were not a primitive, it could be written in Lisp (as a
@@ -1030,216 +1215,4 @@ before moving aside the old definition of `foo'.
 
    But it is unmodular and unclean, in any case, for a Lisp file to
 redefine a function defined elsewhere.
-
-
-File: lispref.info,  Node: Inline Functions,  Next: Related Topics,  Prev: Function Cells,  Up: Functions
-
-Inline Functions
-================
-
-   You can define an "inline function" by using `defsubst' instead of
-`defun'.  An inline function works just like an ordinary function
-except for one thing: when you compile a call to the function, the
-function's definition is open-coded into the caller.
-
-   Making a function inline makes explicit calls run faster.  But it
-also has disadvantages.  For one thing, it reduces flexibility; if you
-change the definition of the function, calls already inlined still use
-the old definition until you recompile them.  Since the flexibility of
-redefining functions is an important feature of XEmacs, you should not
-make a function inline unless its speed is really crucial.
-
-   Another disadvantage is that making a large function inline can
-increase the size of compiled code both in files and in memory.  Since
-the speed advantage of inline functions is greatest for small
-functions, you generally should not make large functions inline.
-
-   It's possible to define a macro to expand into the same code that an
-inline function would execute.  But the macro would have a limitation:
-you can use it only explicitly--a macro cannot be called with `apply',
-`mapcar' and so on.  Also, it takes some work to convert an ordinary
-function into a macro.  (*Note Macros::.)  To convert it into an inline
-function is very easy; simply replace `defun' with `defsubst'.  Since
-each argument of an inline function is evaluated exactly once, you
-needn't worry about how many times the body uses the arguments, as you
-do for macros.  (*Note Argument Evaluation::.)
-
-   Inline functions can be used and open-coded later on in the same
-file, following the definition, just like macros.
-
-
-File: lispref.info,  Node: Related Topics,  Prev: Inline Functions,  Up: Functions
-
-Other Topics Related to Functions
-=================================
-
-   Here is a table of several functions that do things related to
-function calling and function definitions.  They are documented
-elsewhere, but we provide cross references here.
-
-`apply'
-     See *Note Calling Functions::.
-
-`autoload'
-     See *Note Autoload::.
-
-`call-interactively'
-     See *Note Interactive Call::.
-
-`commandp'
-     See *Note Interactive Call::.
-
-`documentation'
-     See *Note Accessing Documentation::.
-
-`eval'
-     See *Note Eval::.
-
-`funcall'
-     See *Note Calling Functions::.
-
-`ignore'
-     See *Note Calling Functions::.
-
-`indirect-function'
-     See *Note Function Indirection::.
-
-`interactive'
-     See *Note Using Interactive::.
-
-`interactive-p'
-     See *Note Interactive Call::.
-
-`mapatoms'
-     See *Note Creating Symbols::.
-
-`mapcar'
-     See *Note Mapping Functions::.
-
-`mapconcat'
-     See *Note Mapping Functions::.
-
-`undefined'
-     See *Note Key Lookup::.
-
-
-File: lispref.info,  Node: Macros,  Next: Loading,  Prev: Functions,  Up: Top
-
-Macros
-******
-
-   "Macros" enable you to define new control constructs and other
-language features.  A macro is defined much like a function, but instead
-of telling how to compute a value, it tells how to compute another Lisp
-expression which will in turn compute the value.  We call this
-expression the "expansion" of the macro.
-
-   Macros can do this because they operate on the unevaluated
-expressions for the arguments, not on the argument values as functions
-do.  They can therefore construct an expansion containing these
-argument expressions or parts of them.
-
-   If you are using a macro to do something an ordinary function could
-do, just for the sake of speed, consider using an inline function
-instead.  *Note Inline Functions::.
-
-* Menu:
-
-* Simple Macro::            A basic example.
-* Expansion::               How, when and why macros are expanded.
-* Compiling Macros::        How macros are expanded by the compiler.
-* Defining Macros::         How to write a macro definition.
-* Backquote::               Easier construction of list structure.
-* Problems with Macros::    Don't evaluate the macro arguments too many times.
-                              Don't hide the user's variables.
-
-
-File: lispref.info,  Node: Simple Macro,  Next: Expansion,  Up: Macros
-
-A Simple Example of a Macro
-===========================
-
-   Suppose we would like to define a Lisp construct to increment a
-variable value, much like the `++' operator in C.  We would like to
-write `(inc x)' and have the effect of `(setq x (1+ x))'.  Here's a
-macro definition that does the job:
-
-     (defmacro inc (var)
-        (list 'setq var (list '1+ var)))
-
-   When this is called with `(inc x)', the argument `var' has the value
-`x'--_not_ the _value_ of `x'.  The body of the macro uses this to
-construct the expansion, which is `(setq x (1+ x))'.  Once the macro
-definition returns this expansion, Lisp proceeds to evaluate it, thus
-incrementing `x'.
-
-
-File: lispref.info,  Node: Expansion,  Next: Compiling Macros,  Prev: Simple Macro,  Up: Macros
-
-Expansion of a Macro Call
-=========================
-
-   A macro call looks just like a function call in that it is a list
-which starts with the name of the macro.  The rest of the elements of
-the list are the arguments of the macro.
-
-   Evaluation of the macro call begins like evaluation of a function
-call except for one crucial difference: the macro arguments are the
-actual expressions appearing in the macro call.  They are not evaluated
-before they are given to the macro definition.  By contrast, the
-arguments of a function are results of evaluating the elements of the
-function call list.
-
-   Having obtained the arguments, Lisp invokes the macro definition just
-as a function is invoked.  The argument variables of the macro are bound
-to the argument values from the macro call, or to a list of them in the
-case of a `&rest' argument.  And the macro body executes and returns
-its value just as a function body does.
-
-   The second crucial difference between macros and functions is that
-the value returned by the macro body is not the value of the macro call.
-Instead, it is an alternate expression for computing that value, also
-known as the "expansion" of the macro.  The Lisp interpreter proceeds
-to evaluate the expansion as soon as it comes back from the macro.
-
-   Since the expansion is evaluated in the normal manner, it may contain
-calls to other macros.  It may even be a call to the same macro, though
-this is unusual.
-
-   You can see the expansion of a given macro call by calling
-`macroexpand'.
-
- - Function: macroexpand form &optional environment
-     This function expands FORM, if it is a macro call.  If the result
-     is another macro call, it is expanded in turn, until something
-     which is not a macro call results.  That is the value returned by
-     `macroexpand'.  If FORM is not a macro call to begin with, it is
-     returned as given.
-
-     Note that `macroexpand' does not look at the subexpressions of
-     FORM (although some macro definitions may do so).  Even if they
-     are macro calls themselves, `macroexpand' does not expand them.
-
-     The function `macroexpand' does not expand calls to inline
-     functions.  Normally there is no need for that, since a call to an
-     inline function is no harder to understand than a call to an
-     ordinary function.
-
-     If ENVIRONMENT is provided, it specifies an alist of macro
-     definitions that shadow the currently defined macros.  Byte
-     compilation uses this feature.
-
-          (defmacro inc (var)
-              (list 'setq var (list '1+ var)))
-               => inc
-          
-          (macroexpand '(inc r))
-               => (setq r (1+ r))
-          
-          (defmacro inc2 (var1 var2)
-              (list 'progn (list 'inc var1) (list 'inc var2)))
-               => inc2
-          
-          (macroexpand '(inc2 r s))
-               => (progn (inc r) (inc s))  ; `inc' not expanded here.
 

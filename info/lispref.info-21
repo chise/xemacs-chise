@@ -50,6 +50,497 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Gutter Intro,  Next: Creating Gutter,  Prev: Gutter,  Up: Gutter
+
+Gutter Intro
+============
+
+   A "gutter" is a rectangle displayed along one edge of a frame.  It
+can contain arbitrary text or graphics.  It could be considered a
+generalization of a toolbar, although toolbars are not currently
+implemented using gutters.
+
+   In XEmacs, a gutter can be displayed along any of the four edges of
+the frame, and two or more different edges can be displaying gutters
+simultaneously.  The contents, thickness, and visibility of the gutters
+can be controlled separately, and the values can be per-buffer,
+per-frame, etc., using specifiers (*note Specifiers::).
+
+   Normally, there is one gutter displayed in a frame.  Usually, this is
+the default gutter, containing buffer tabs, but modes cab override this
+and substitute their own gutter.  This default gutter is usually
+positioned along the top of the frame, but this can be changed using
+`set-default-gutter-position'.
+
+   Note that, for each of the gutter properties (contents, thickness,
+and visibility), there is a separate specifier for each of the four
+gutter positions (top, bottom, left, and right), and an additional
+specifier for the "default" gutter, i.e. the gutter whose position is
+controlled by `set-default-gutter-position'.  The way this works is
+that `set-default-gutter-position' arranges things so that the
+appropriate position-specific specifiers for the default position
+inherit from the corresponding default specifiers.  That way, if the
+position-specific specifier does not give a value (which it usually
+doesn't), then the value from the default specifier applies.  If you
+want to control the default gutter, you just change the default
+specifiers, and everything works.  A package such as VM that wants to
+put its own gutter in a different location from the default just sets
+the position-specific specifiers, and if the user sets the default
+gutter to the same position, it will just not be visible.
+
+
+File: lispref.info,  Node: Creating Gutter,  Next: Gutter Descriptor Format,  Prev: Gutter Intro,  Up: Gutter
+
+Creating Gutter
+===============
+
+ - Function: make-gutter-specifier spec-list
+     Return a new `gutter' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter specifiers are used to specify the format of a gutter.  The
+     values of the variables `default-gutter', `top-gutter',
+     `left-gutter', `right-gutter', and `bottom-gutter' are always
+     gutter specifiers.
+
+     Valid gutter instantiators are called "gutter descriptors" and are
+     either strings or property-lists of strings.  See `default-gutter'
+     for a description of the exact format.
+
+ - Function: make-gutter-size-specifier spec-list
+     Return a new `gutter-size' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-size specifiers are used to specify the size of a gutter.
+     The values of the variables `default-gutter-size',
+     `top-gutter-size', `left-gutter-size', `right-gutter-size', and
+     `bottom-gutter-size' are always gutter-size specifiers.
+
+     Valid gutter-size instantiators are either integers or the special
+     symbol `autodetect'. If a gutter-size is set to `autodetect' them
+     the size of the gutter will be adjusted to just accommodate the
+     gutters contents. `autodetect' only works for top and bottom
+     gutters.
+
+ - Function: make-gutter-visible-specifier spec-list
+     Return a new `gutter-visible' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-visible specifiers are used to specify the visibility of a
+     gutter.  The values of the variables `default-gutter-visible-p',
+     `top-gutter-visible-p', `left-gutter-visible-p',
+     `right-gutter-visible-p', and `bottom-gutter-visible-p' are always
+     gutter-visible specifiers.
+
+     Valid gutter-visible instantiators are `t', `nil' or a list of
+     symbols.  If a gutter-visible instantiator is set to a list of
+     symbols, and the corresponding gutter specification is a
+     property-list strings, then elements of the gutter specification
+     will only be visible if the corresponding symbol occurs in the
+     gutter-visible instantiator.
+
+
+File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Creating Gutter,  Up: Gutter
+
+Gutter Descriptor Format
+========================
+
+   The contents of a gutter are specified using a "gutter descriptor".
+The format of a gutter descriptor is a list of "gutter button
+descriptors".  Each gutter button descriptor is a vector in one of the
+following formats:
+
+   * `[GLYPH-LIST FUNCTION ENABLED-P HELP]'
+
+   * `[:style 2D-OR-3D]'
+
+   * `[:style 2D-OR-3D :size WIDTH-OR-HEIGHT]'
+
+   * `[:size WIDTH-OR-HEIGHT :style 2D-OR-3D]'
+
+   Optionally, one of the gutter button descriptors may be `nil'
+instead of a vector; this signifies the division between the gutter
+buttons that are to be displayed flush-left, and the buttons to be
+displayed flush-right.
+
+   The first vector format above specifies a normal gutter button; the
+others specify blank areas in the gutter.
+
+   For the first vector format:
+
+   * GLYPH-LIST should be a list of one to six glyphs (as created by
+     `make-glyph') or a symbol whose value is such a list.  The first
+     glyph, which must be provided, is the glyph used to display the
+     gutter button when it is in the "up" (not pressed) state.  The
+     optional second glyph is for displaying the button when it is in
+     the "down" (pressed) state.  The optional third glyph is for when
+     the button is disabled.  The last three glyphs are for displaying
+     the button in the "up", "down", and "disabled" states,
+     respectively, but are used when the user has called for captioned
+     gutter buttons (using `gutter-buttons-captioned-p').  The function
+     `gutter-make-button-list' is useful in creating these glyph lists.
+
+   * Even if you do not provide separate down-state and disabled-state
+     glyphs, the user will still get visual feedback to indicate which
+     state the button is in.  Buttons in the up-state are displayed
+     with a shadowed border that gives a raised appearance to the
+     button.  Buttons in the down-state are displayed with shadows that
+     give a recessed appearance.  Buttons in the disabled state are
+     displayed with no shadows, giving a 2-d effect.
+
+   * If some of the gutter glyphs are not provided, they inherit as
+     follows:
+
+               UP:                up
+               DOWN:              down -> up
+               DISABLED:          disabled -> up
+               CAP-UP:            cap-up -> up
+               CAP-DOWN:          cap-down -> cap-up -> down -> up
+               CAP-DISABLED:      cap-disabled -> cap-up -> disabled -> up
+
+   * The second element FUNCTION is a function to be called when the
+     gutter button is activated (i.e. when the mouse is released over
+     the gutter button, if the press occurred in the gutter).  It can
+     be any form accepted by `call-interactively', since this is how it
+     is invoked.
+
+   * The third element ENABLED-P specifies whether the gutter button is
+     enabled (disabled buttons do nothing when they are activated, and
+     are displayed differently; see above).  It should be either a
+     boolean or a form that evaluates to a boolean.
+
+   * The fourth element HELP, if non-`nil', should be a string.  This
+     string is displayed in the echo area when the mouse passes over the
+     gutter button.
+
+   For the other vector formats (specifying blank areas of the gutter):
+
+   * 2D-OR-3D should be one of the symbols `2d' or `3d', indicating
+     whether the area is displayed with shadows (giving it a raised,
+     3-d appearance) or without shadows (giving it a flat appearance).
+
+   * WIDTH-OR-HEIGHT specifies the length, in pixels, of the blank
+     area.  If omitted, it defaults to a device-specific value (8
+     pixels for X devices).
+
+ - Function: gutter-make-button-list up &optional down disabled cap-up
+          cap-down cap-disabled
+     This function calls `make-glyph' on each arg and returns a list of
+     the results.  This is useful for setting the first argument of a
+     gutter button descriptor (typically, the result of this function
+     is assigned to a symbol, which is specified as the first argument
+     of the gutter button descriptor).
+
+ - Function: check-gutter-button-syntax button &optional noerror
+     Verify the syntax of entry BUTTON in a gutter description list.
+     If you want to verify the syntax of a gutter description list as a
+     whole, use `check-valid-instantiator' with a specifier type of
+     `gutter'.
+
+
+File: lispref.info,  Node: Specifying a Gutter,  Next: Other Gutter Variables,  Prev: Gutter Descriptor Format,  Up: Gutter
+
+Specifying a Gutter
+===================
+
+   In order to specify the contents of a gutter, set one of the
+specifier variables `default-gutter', `top-gutter', `bottom-gutter',
+`left-gutter', or `right-gutter'.  These are specifiers, which means
+you set them with `set-specifier' and query them with `specifier-specs'
+or `specifier-instance'.  You will get an error if you try to set them
+using `setq'.  The valid instantiators for these specifiers are gutter
+descriptors, as described above.  *Note Specifiers::, for more
+information.
+
+   Most of the time, you will set `default-gutter', which allows the
+user to choose where the gutter should go.
+
+ - Specifier: default-gutter
+     The position of this gutter is specified in the function
+     `default-gutter-position'.  If the corresponding position-specific
+     gutter (e.g. `top-gutter' if `default-gutter-position' is `top')
+     does not specify a gutter in a particular domain, then the value
+     of `default-gutter' in that domain, of any, will be used instead.
+
+   Note that the gutter at any particular position will not be displayed
+unless its thickness (width or height, depending on orientation) is
+non-zero and its visibility status is true.  The thickness is controlled
+by the specifiers `top-gutter-height', `bottom-gutter-height',
+`left-gutter-width', and `right-gutter-width', and the visibility
+status is controlled by the specifiers `top-gutter-visible-p',
+`bottom-gutter-visible-p', `left-gutter-visible-p', and
+`right-gutter-visible-p' (*note Other Gutter Variables::).
+
+ - Function: set-default-gutter-position position
+     This function sets the position that the `default-gutter' will be
+     displayed at.  Valid positions are the symbols `top', `bottom',
+     `left' and `right'.  What this actually does is set the fallback
+     specifier for the position-specific specifier corresponding to the
+     given position to `default-gutter', and set the fallbacks for the
+     other position-specific specifiers to `nil'.  It also does the
+     same thing for the position-specific thickness and visibility
+     specifiers, which inherit from one of `default-gutter-height' or
+     `default-gutter-width', and from `default-gutter-visible-p',
+     respectively (*note Other Gutter Variables::).
+
+ - Function: default-gutter-position
+     This function returns the position that the `default-gutter' will
+     be displayed at.
+
+   You can also explicitly set a gutter at a particular position.  When
+redisplay determines what to display at a particular position in a
+particular domain (i.e. window), it first consults the position-specific
+gutter.  If that does not yield a gutter descriptor, the
+`default-gutter' is consulted if `default-gutter-position' indicates
+this position.
+
+ - Specifier: top-gutter
+     Specifier for the gutter at the top of the frame.
+
+ - Specifier: bottom-gutter
+     Specifier for the gutter at the bottom of the frame.
+
+ - Specifier: left-gutter
+     Specifier for the gutter at the left edge of the frame.
+
+ - Specifier: right-gutter
+     Specifier for the gutter at the right edge of the frame.
+
+ - Function: gutter-specifier-p object
+     This function returns non-`nil' if OBJECT is a gutter specifier.
+     Gutter specifiers are the actual objects contained in the gutter
+     variables described above, and their valid instantiators are
+     gutter descriptors (*note Gutter Descriptor Format::).
+
+
+File: lispref.info,  Node: Other Gutter Variables,  Next: Common Gutter Widgets,  Prev: Specifying a Gutter,  Up: Gutter
+
+Other Gutter Variables
+======================
+
+   The variables to control the gutter thickness, visibility status, and
+captioned status are all specifiers.  *Note Specifiers::.
+
+ - Specifier: default-gutter-height
+     This specifies the height of the default gutter, if it's oriented
+     horizontally.  The position of the default gutter is specified by
+     the function `set-default-gutter-position'.  If the corresponding
+     position-specific gutter thickness specifier (e.g.
+     `top-gutter-height' if `default-gutter-position' is `top') does
+     not specify a thickness in a particular domain (a window or a
+     frame), then the value of `default-gutter-height' or
+     `default-gutter-width' (depending on the gutter orientation) in
+     that domain, if any, will be used instead.
+
+ - Specifier: default-gutter-width
+     This specifies the width of the default gutter, if it's oriented
+     vertically.  This behaves like `default-gutter-height'.
+
+   Note that `default-gutter-height' is only used when
+`default-gutter-position' is `top' or `bottom', and
+`default-gutter-width' is only used when `default-gutter-position' is
+`left' or `right'.
+
+ - Specifier: top-gutter-height
+     This specifies the height of the top gutter.
+
+ - Specifier: bottom-gutter-height
+     This specifies the height of the bottom gutter.
+
+ - Specifier: left-gutter-width
+     This specifies the width of the left gutter.
+
+ - Specifier: right-gutter-width
+     This specifies the width of the right gutter.
+
+   Note that all of the position-specific gutter thickness specifiers
+have a fallback value of zero when they do not correspond to the
+default gutter.  Therefore, you will have to set a non-zero thickness
+value if you want a position-specific gutter to be displayed.
+
+ - Specifier: default-gutter-visible-p
+     This specifies whether the default gutter is visible.  The
+     position of the default gutter is specified by the function
+     `set-default-gutter-position'.  If the corresponding
+     position-specific gutter visibility specifier (e.g.
+     `top-gutter-visible-p' if `default-gutter-position' is `top') does
+     not specify a visible-p value in a particular domain (a window or
+     a frame), then the value of `default-gutter-visible-p' in that
+     domain, if any, will be used instead.
+
+ - Specifier: top-gutter-visible-p
+     This specifies whether the top gutter is visible.
+
+ - Specifier: bottom-gutter-visible-p
+     This specifies whether the bottom gutter is visible.
+
+ - Specifier: left-gutter-visible-p
+     This specifies whether the left gutter is visible.
+
+ - Specifier: right-gutter-visible-p
+     This specifies whether the right gutter is visible.
+
+   `default-gutter-visible-p' and all of the position-specific gutter
+visibility specifiers have a fallback value of true.
+
+   Internally, gutter thickness and visibility specifiers are
+instantiated in both window and frame domains, for different purposes.
+The value in the domain of a frame's selected window specifies the
+actual gutter thickness or visibility that you will see in that frame.
+The value in the domain of a frame itself specifies the gutter
+thickness or visibility that is used in frame geometry calculations.
+
+   Thus, for example, if you set the frame width to 80 characters and
+the left gutter width for that frame to 68 pixels, then the frame will
+be sized to fit 80 characters plus a 68-pixel left gutter.  If you then
+set the left gutter width to 0 for a particular buffer (or if that
+buffer does not specify a left gutter or has a `nil' value specified for
+`left-gutter-visible-p'), you will find that, when that buffer is
+displayed in the selected window, the window will have a width of 86 or
+87 characters - the frame is sized for a 68-pixel left gutter but the
+selected window specifies that the left gutter is not visible, so it is
+expanded to take up the slack.
+
+ - Specifier: gutter-buttons-captioned-p
+     Whether gutter buttons are captioned.  This affects which glyphs
+     from a gutter button descriptor are chosen.  *Note Gutter
+     Descriptor Format::.
+
+   You can also reset the gutter to what it was when XEmacs started up.
+
+ - Constant: initial-gutter-spec
+     The gutter descriptor used to initialize `default-gutter' at
+     startup.
+
+
+File: lispref.info,  Node: Common Gutter Widgets,  Prev: Other Gutter Variables,  Up: Gutter
+
+Common Gutter Widgets
+=====================
+
+   A gutter can contain arbitrary text.  So, for example, in an Info
+buffer you could put the title of the current node in the top gutter,
+and it would not scroll out of view in a long node.  (This is an
+artificial example, since usually the node name is sufficiently
+descriptive, and Info puts that in the mode line.)
+
+   A more common use for the gutter is to hold some kind of active
+widget.  The buffer-tab facility, available in all XEmacs frames,
+creates an array of file-folder-like tabs, which the user can click with
+the mouse to switch buffers.  W3 uses a progress-bar widget in the
+bottom gutter to give a visual indication of the progress of
+time-consuming operations like downloading.
+
+* Menu:
+
+* Buffer Tabs::         Tabbed divider index metaphor for switching buffers.
+* Progress Bars::       Visual indication of operation progress.
+
+
+File: lispref.info,  Node: Buffer Tabs,  Next: Progress Bars,  Up: Common Gutter Widgets
+
+Buffer Tabs
+-----------
+
+   Not documented yet.
+
+
+File: lispref.info,  Node: Progress Bars,  Prev: Buffer Tabs,  Up: Common Gutter Widgets
+
+Progress Bars
+-------------
+
+   Not documented yet.
+
+
+File: lispref.info,  Node: Scrollbars,  Next: Drag and Drop,  Prev: Gutter,  Up: Top
+
+Scrollbars
+**********
+
+   Not yet documented.
+
+
+File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: Top
+
+Drag and Drop
+*************
+
+   _WARNING_: the Drag'n'Drop API is still under development and the
+interface may change! The current implementation is considered
+experimental.
+
+   Drag'n'drop is a way to transfer information between multiple
+applications.  To do this several GUIs define their own protocols.
+Examples are OffiX, CDE, Motif, KDE, MSWindows, GNOME, and many more.
+To catch all these protocols, XEmacs provides a generic API.
+
+   One prime idea behind the API is to use a data interface that is
+transparent for all systems. The author thinks that this is best
+archived by using URL and MIME data, cause any internet enabled system
+must support these for email already. XEmacs also already provides
+powerful interfaces to support these types of data (tm and w3).
+
+* Menu:
+
+* Supported Protocols:: Which low-level protocols are supported.
+* Drop Interface::      How XEmacs handles a drop from another application.
+* Drag Interface::      Calls to initiate a drag from XEmacs.
+
+
+File: lispref.info,  Node: Supported Protocols,  Next: Drop Interface,  Up: Drag and Drop
+
+Supported Protocols
+===================
+
+   The current release of XEmacs only support a small set of Drag'n'drop
+protocols. Some of these only support limited options available in the
+API.
+
+* Menu:
+
+* OffiX DND::           A generic X based protocol.
+* CDE dt::              Common Desktop Environment used on suns.
+* MSWindows OLE::       Mr. Gates way of live.
+* Loose ends::          The other protocols.
+
+
+File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
+
+OffiX DND
+---------
+
+   _WARNING_: If you compile in OffiX, you may not be able to use
+multiple X displays successfully.  If the two servers are from
+different vendors, the results may be unpredictable.
+
+   The OffiX Drag'n'Drop protocol is part of a X API/Widget library
+created by Cesar Crusius. It is based on X-Atoms and ClientMessage
+events, and works with any X platform supporting them.
+
+   OffiX is supported if 'offix is member of the variable
+dragdrop-protocols, or the feature 'offix is defined.
+
+   Unfortunately it uses it's own data types. Examples are: File, Files,
+Exe, Link, URL, MIME. The API tries to choose the right type for the
+data that is dragged from XEmacs (well, not yet...).
+
+   XEmacs supports both MIME and URL drags and drops using this API. No
+application interaction is possible while dragging is in progress.
+
+   For information about the OffiX project have a look at
+http://leb.net/~offix/
+
+
 File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
 
 CDE dt
@@ -659,478 +1150,4 @@ visited.
      The handling of `enable-local-variables' documented for
      `normal-mode' actually takes place here.  The argument FORCE
      usually comes from the argument FIND-FILE given to `normal-mode'.
-
-
-File: lispref.info,  Node: Mode Help,  Next: Derived Modes,  Prev: Auto Major Mode,  Up: Major Modes
-
-Getting Help about a Major Mode
--------------------------------
-
-   The `describe-mode' function is used to provide information about
-major modes.  It is normally called with `C-h m'.  The `describe-mode'
-function uses the value of `major-mode', which is why every major mode
-function needs to set the `major-mode' variable.
-
- - Command: describe-mode
-     This function displays the documentation of the current major mode.
-
-     The `describe-mode' function calls the `documentation' function
-     using the value of `major-mode' as an argument.  Thus, it displays
-     the documentation string of the major mode function.  (*Note
-     Accessing Documentation::.)
-
- - Variable: major-mode
-     This variable holds the symbol for the current buffer's major mode.
-     This symbol should have a function definition that is the command
-     to switch to that major mode.  The `describe-mode' function uses
-     the documentation string of the function as the documentation of
-     the major mode.
-
-
-File: lispref.info,  Node: Derived Modes,  Prev: Mode Help,  Up: Major Modes
-
-Defining Derived Modes
-----------------------
-
-   It's often useful to define a new major mode in terms of an existing
-one.  An easy way to do this is to use `define-derived-mode'.
-
- - Macro: define-derived-mode variant parent name docstring body...
-     This construct defines VARIANT as a major mode command, using NAME
-     as the string form of the mode name.
-
-     The new command VARIANT is defined to call the function PARENT,
-     then override certain aspects of that parent mode:
-
-        * The new mode has its own keymap, named `VARIANT-map'.
-          `define-derived-mode' initializes this map to inherit from
-          `PARENT-map', if it is not already set.
-
-        * The new mode has its own syntax table, kept in the variable
-          `VARIANT-syntax-table'.  `define-derived-mode' initializes
-          this variable by copying `PARENT-syntax-table', if it is not
-          already set.
-
-        * The new mode has its own abbrev table, kept in the variable
-          `VARIANT-abbrev-table'.  `define-derived-mode' initializes
-          this variable by copying `PARENT-abbrev-table', if it is not
-          already set.
-
-        * The new mode has its own mode hook, `VARIANT-hook', which it
-          runs in standard fashion as the very last thing that it does.
-          (The new mode also runs the mode hook of PARENT as part of
-          calling PARENT.)
-
-     In addition, you can specify how to override other aspects of
-     PARENT with BODY.  The command VARIANT evaluates the forms in BODY
-     after setting up all its usual overrides, just before running
-     `VARIANT-hook'.
-
-     The argument DOCSTRING specifies the documentation string for the
-     new mode.  If you omit DOCSTRING, `define-derived-mode' generates
-     a documentation string.
-
-     Here is a hypothetical example:
-
-          (define-derived-mode hypertext-mode
-            text-mode "Hypertext"
-            "Major mode for hypertext.
-          \\{hypertext-mode-map}"
-            (setq case-fold-search nil))
-          
-          (define-key hypertext-mode-map
-            [down-mouse-3] 'do-hyper-link)
-
-
-File: lispref.info,  Node: Minor Modes,  Next: Modeline Format,  Prev: Major Modes,  Up: Modes
-
-Minor Modes
-===========
-
-   A "minor mode" provides features that users may enable or disable
-independently of the choice of major mode.  Minor modes can be enabled
-individually or in combination.  Minor modes would be better named
-"Generally available, optional feature modes" except that such a name is
-unwieldy.
-
-   A minor mode is not usually a modification of single major mode.  For
-example, Auto Fill mode may be used in any major mode that permits text
-insertion.  To be general, a minor mode must be effectively independent
-of the things major modes do.
-
-   A minor mode is often much more difficult to implement than a major
-mode.  One reason is that you should be able to activate and deactivate
-minor modes in any order.  A minor mode should be able to have its
-desired effect regardless of the major mode and regardless of the other
-minor modes in effect.
-
-   Often the biggest problem in implementing a minor mode is finding a
-way to insert the necessary hook into the rest of XEmacs.  Minor mode
-keymaps make this easier than it used to be.
-
-* Menu:
-
-* Minor Mode Conventions::      Tips for writing a minor mode.
-* Keymaps and Minor Modes::     How a minor mode can have its own keymap.
-
-
-File: lispref.info,  Node: Minor Mode Conventions,  Next: Keymaps and Minor Modes,  Up: Minor Modes
-
-Conventions for Writing Minor Modes
------------------------------------
-
-   There are conventions for writing minor modes just as there are for
-major modes.  Several of the major mode conventions apply to minor
-modes as well: those regarding the name of the mode initialization
-function, the names of global symbols, and the use of keymaps and other
-tables.
-
-   In addition, there are several conventions that are specific to
-minor modes.
-
-   * Make a variable whose name ends in `-mode' to represent the minor
-     mode.  Its value should enable or disable the mode (`nil' to
-     disable; anything else to enable.)  We call this the "mode
-     variable".
-
-     This variable is used in conjunction with the `minor-mode-alist' to
-     display the minor mode name in the modeline.  It can also enable
-     or disable a minor mode keymap.  Individual commands or hooks can
-     also check the variable's value.
-
-     If you want the minor mode to be enabled separately in each buffer,
-     make the variable buffer-local.
-
-   * Define a command whose name is the same as the mode variable.  Its
-     job is to enable and disable the mode by setting the variable.
-
-     The command should accept one optional argument.  If the argument
-     is `nil', it should toggle the mode (turn it on if it is off, and
-     off if it is on).  Otherwise, it should turn the mode on if the
-     argument is a positive integer, a symbol other than `nil' or `-',
-     or a list whose CAR is such an integer or symbol; it should turn
-     the mode off otherwise.
-
-     Here is an example taken from the definition of
-     `transient-mark-mode'.  It shows the use of `transient-mark-mode'
-     as a variable that enables or disables the mode's behavior, and
-     also shows the proper way to toggle, enable or disable the minor
-     mode based on the raw prefix argument value.
-
-          (setq transient-mark-mode
-                (if (null arg) (not transient-mark-mode)
-                  (> (prefix-numeric-value arg) 0)))
-
-   * Add an element to `minor-mode-alist' for each minor mode (*note
-     Modeline Variables::).  This element should be a list of the
-     following form:
-
-          (MODE-VARIABLE STRING)
-
-     Here MODE-VARIABLE is the variable that controls enabling of the
-     minor mode, and STRING is a short string, starting with a space,
-     to represent the mode in the modeline.  These strings must be
-     short so that there is room for several of them at once.
-
-     When you add an element to `minor-mode-alist', use `assq' to check
-     for an existing element, to avoid duplication.  For example:
-
-          (or (assq 'leif-mode minor-mode-alist)
-              (setq minor-mode-alist
-                    (cons '(leif-mode " Leif") minor-mode-alist)))
-
-
-File: lispref.info,  Node: Keymaps and Minor Modes,  Prev: Minor Mode Conventions,  Up: Minor Modes
-
-Keymaps and Minor Modes
------------------------
-
-   Each minor mode can have its own keymap, which is active when the
-mode is enabled.  To set up a keymap for a minor mode, add an element
-to the alist `minor-mode-map-alist'.  *Note Active Keymaps::.
-
-   One use of minor mode keymaps is to modify the behavior of certain
-self-inserting characters so that they do something else as well as
-self-insert.  In general, this is the only way to do that, since the
-facilities for customizing `self-insert-command' are limited to special
-cases (designed for abbrevs and Auto Fill mode).  (Do not try
-substituting your own definition of `self-insert-command' for the
-standard one.  The editor command loop handles this function specially.)
-
-
-File: lispref.info,  Node: Modeline Format,  Next: Hooks,  Prev: Minor Modes,  Up: Modes
-
-Modeline Format
-===============
-
-   Each Emacs window (aside from minibuffer windows) includes a
-modeline, which displays status information about the buffer displayed
-in the window.  The modeline contains information about the buffer,
-such as its name, associated file, depth of recursive editing, and the
-major and minor modes.
-
-   This section describes how the contents of the modeline are
-controlled.  It is in the chapter on modes because much of the
-information displayed in the modeline relates to the enabled major and
-minor modes.
-
-   `modeline-format' is a buffer-local variable that holds a template
-used to display the modeline of the current buffer.  All windows for
-the same buffer use the same `modeline-format' and their modelines
-appear the same (except for scrolling percentages and line numbers).
-
-   The modeline of a window is normally updated whenever a different
-buffer is shown in the window, or when the buffer's modified-status
-changes from `nil' to `t' or vice-versa.  If you modify any of the
-variables referenced by `modeline-format' (*note Modeline Variables::),
-you may want to force an update of the modeline so as to display the
-new information.
-
- - Function: redraw-modeline &optional all
-     Force redisplay of the current buffer's modeline.  If ALL is
-     non-`nil', then force redisplay of all modelines.
-
-   The modeline is usually displayed in inverse video.  This is
-controlled using the `modeline' face.  *Note Faces::.
-
-* Menu:
-
-* Modeline Data::         The data structure that controls the modeline.
-* Modeline Variables::    Variables used in that data structure.
-* %-Constructs::          Putting information into a modeline.
-
-
-File: lispref.info,  Node: Modeline Data,  Next: Modeline Variables,  Up: Modeline Format
-
-The Data Structure of the Modeline
-----------------------------------
-
-   The modeline contents are controlled by a data structure of lists,
-strings, symbols, and numbers kept in the buffer-local variable
-`modeline-format'.  The data structure is called a "modeline
-construct", and it is built in recursive fashion out of simpler modeline
-constructs.  The same data structure is used for constructing frame
-titles (*note Frame Titles::).
-
- - Variable: modeline-format
-     The value of this variable is a modeline construct with overall
-     responsibility for the modeline format.  The value of this variable
-     controls which other variables are used to form the modeline text,
-     and where they appear.
-
-   A modeline construct may be as simple as a fixed string of text, but
-it usually specifies how to use other variables to construct the text.
-Many of these variables are themselves defined to have modeline
-constructs as their values.
-
-   The default value of `modeline-format' incorporates the values of
-variables such as `mode-name' and `minor-mode-alist'.  Because of this,
-very few modes need to alter `modeline-format'.  For most purposes, it
-is sufficient to alter the variables referenced by `modeline-format'.
-
-   A modeline construct may be a string, symbol, glyph, generic
-specifier, list or cons cell.
-
-`STRING'
-     A string as a modeline construct is displayed verbatim in the mode
-     line except for "`%'-constructs".  Decimal digits after the `%'
-     specify the field width for space filling on the right (i.e., the
-     data is left justified).  *Note %-Constructs::.
-
-`SYMBOL'
-     A symbol as a modeline construct stands for its value.  The value
-     of SYMBOL is processed as a modeline construct, in place of
-     SYMBOL.  However, the symbols `t' and `nil' are ignored; so is any
-     symbol whose value is void.
-
-     There is one exception: if the value of SYMBOL is a string, it is
-     displayed verbatim: the `%'-constructs are not recognized.
-
-`GLYPH'
-     A glyph is displayed as is.
-
-`GENERIC-SPECIFIER'
-     A GENERIC-SPECIFIER (i.e. a specifier of type `generic') stands
-     for its instance.  The instance of GENERIC-SPECIFIER is computed
-     in the current window using the equivalent of `specifier-instance'
-     and the value is processed.
-
-`(STRING REST...) or (LIST REST...)'
-     A list whose first element is a string or list means to process
-     all the elements recursively and concatenate the results.  This is
-     the most common form of mode line construct.
-
-`(SYMBOL THEN ELSE)'
-     A list whose first element is a symbol is a conditional.  Its
-     meaning depends on the value of SYMBOL.  If the value is non-`nil',
-     the second element, THEN, is processed recursively as a modeline
-     element.  But if the value of SYMBOL is `nil', the third element,
-     ELSE, is processed recursively.  You may omit ELSE; then the mode
-     line element displays nothing if the value of SYMBOL is `nil'.
-
-`(WIDTH REST...)'
-     A list whose first element is an integer specifies truncation or
-     padding of the results of REST.  The remaining elements REST are
-     processed recursively as modeline constructs and concatenated
-     together.  Then the result is space filled (if WIDTH is positive)
-     or truncated (to -WIDTH columns, if WIDTH is negative) on the
-     right.
-
-     For example, the usual way to show what percentage of a buffer is
-     above the top of the window is to use a list like this: `(-3
-     "%p")'.
-
-`(EXTENT REST...)'
-     A list whose car is an extent means the cdr of the list is
-     processed normally but the results are displayed using the face of
-     the extent, and mouse clicks over this section are processed using
-     the keymap of the extent. (In addition, if the extent has a
-     help-echo property, that string will be echoed when the mouse
-     moves over this section.) If extents are nested, all keymaps are
-     properly consulted when processing mouse clicks, but multiple
-     faces are not correctly merged (only the first face is used), and
-     lists of faces are not correctly handled.
-
-   If you do alter `modeline-format' itself, the new value should use
-the same variables that appear in the default value (*note Modeline
-Variables::), rather than duplicating their contents or displaying the
-information in another fashion.  This way, customizations made by the
-user or by Lisp programs (such as `display-time' and major modes) via
-changes to those variables remain effective.
-
-   Here is an example of a `modeline-format' that might be useful for
-`shell-mode', since it contains the hostname and default directory.
-
-     (setq modeline-format
-       (list ""
-        'modeline-modified
-        "%b--"
-        (getenv "HOST")      ; One element is not constant.
-        ":"
-        'default-directory
-        "   "
-        'global-mode-string
-        "   %[("
-        'mode-name
-        'modeline-process
-        'minor-mode-alist
-        "%n"
-        ")%]----"
-        '(line-number-mode "L%l--")
-        '(-3 . "%p")
-        "-%-"))
-
-
-File: lispref.info,  Node: Modeline Variables,  Next: %-Constructs,  Prev: Modeline Data,  Up: Modeline Format
-
-Variables Used in the Modeline
-------------------------------
-
-   This section describes variables incorporated by the standard value
-of `modeline-format' into the text of the mode line.  There is nothing
-inherently special about these variables; any other variables could
-have the same effects on the modeline if `modeline-format' were changed
-to use them.
-
- - Variable: modeline-modified
-     This variable holds the value of the modeline construct that
-     displays whether the current buffer is modified.
-
-     The default value of `modeline-modified' is `("--%1*%1+-")'.  This
-     means that the modeline displays `--**-' if the buffer is
-     modified, `-----' if the buffer is not modified, `--%%-' if the
-     buffer is read only, and `--%*--' if the buffer is read only and
-     modified.
-
-     Changing this variable does not force an update of the modeline.
-
- - Variable: modeline-buffer-identification
-     This variable identifies the buffer being displayed in the window.
-     Its default value is `("%F: %17b")', which means that it usually
-     displays `Emacs:' followed by seventeen characters of the buffer
-     name.  (In a terminal frame, it displays the frame name instead of
-     `Emacs'; this has the effect of showing the frame number.)  You may
-     want to change this in modes such as Rmail that do not behave like
-     a "normal" XEmacs.
-
- - Variable: global-mode-string
-     This variable holds a modeline spec that appears in the mode line
-     by default, just after the buffer name.  The command `display-time'
-     sets `global-mode-string' to refer to the variable
-     `display-time-string', which holds a string containing the time and
-     load information.
-
-     The `%M' construct substitutes the value of `global-mode-string',
-     but this is obsolete, since the variable is included directly in
-     the modeline.
-
- - Variable: mode-name
-     This buffer-local variable holds the "pretty" name of the current
-     buffer's major mode.  Each major mode should set this variable so
-     that the mode name will appear in the modeline.
-
- - Variable: minor-mode-alist
-     This variable holds an association list whose elements specify how
-     the modeline should indicate that a minor mode is active.  Each
-     element of the `minor-mode-alist' should be a two-element list:
-
-          (MINOR-MODE-VARIABLE MODELINE-STRING)
-
-     More generally, MODELINE-STRING can be any mode line spec.  It
-     appears in the mode line when the value of MINOR-MODE-VARIABLE is
-     non-`nil', and not otherwise.  These strings should begin with
-     spaces so that they don't run together.  Conventionally, the
-     MINOR-MODE-VARIABLE for a specific mode is set to a non-`nil'
-     value when that minor mode is activated.
-
-     The default value of `minor-mode-alist' is:
-
-          minor-mode-alist
-          => ((vc-mode vc-mode)
-              (abbrev-mode " Abbrev")
-              (overwrite-mode overwrite-mode)
-              (auto-fill-function " Fill")
-              (defining-kbd-macro " Def")
-              (isearch-mode isearch-mode))
-
-     `minor-mode-alist' is not buffer-local.  The variables mentioned
-     in the alist should be buffer-local if the minor mode can be
-     enabled separately in each buffer.
-
- - Variable: modeline-process
-     This buffer-local variable contains the modeline information on
-     process status in modes used for communicating with subprocesses.
-     It is displayed immediately following the major mode name, with no
-     intervening space.  For example, its value in the `*shell*' buffer
-     is `(": %s")', which allows the shell to display its status along
-     with the major mode as: `(Shell: run)'.  Normally this variable is
-     `nil'.
-
- - Variable: default-modeline-format
-     This variable holds the default `modeline-format' for buffers that
-     do not override it.  This is the same as `(default-value
-     'modeline-format)'.
-
-     The default value of `default-modeline-format' is:
-
-          (""
-           modeline-modified
-           modeline-buffer-identification
-           "   "
-           global-mode-string
-           "   %[("
-           mode-name
-           modeline-process
-           minor-mode-alist
-           "%n"
-           ")%]----"
-           (line-number-mode "L%l--")
-           (-3 . "%p")
-           "-%-")
-
- - Variable: vc-mode
-     The variable `vc-mode', local in each buffer, records whether the
-     buffer's visited file is maintained with version control, and, if
-     so, which kind.  Its value is `nil' for no version control, or a
-     string that appears in the mode line.
 

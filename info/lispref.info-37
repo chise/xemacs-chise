@@ -50,6 +50,315 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Glyph Properties,  Next: Glyph Convenience Functions,  Prev: Creating Glyphs,  Up: Glyph Functions
+
+Glyph Properties
+----------------
+
+   Each glyph has a list of properties, which control all of the
+aspects of the glyph's appearance.  The following symbols have
+predefined meanings:
+
+`image'
+     The image used to display the glyph.
+
+`baseline'
+     Percent above baseline that glyph is to be displayed.  Only for
+     glyphs displayed inside of a buffer.
+
+`contrib-p'
+     Whether the glyph contributes to the height of the line it's on.
+     Only for glyphs displayed inside of a buffer.
+
+`face'
+     Face of this glyph (_not_ a specifier).
+
+ - Function: set-glyph-property glyph property value &optional locale
+          tag-set how-to-add
+     This function changes a property of a GLYPH.
+
+     For built-in properties, the actual value of the property is a
+     specifier and you cannot change this; but you can change the
+     specifications within the specifier, and that is what this
+     function will do.  For user-defined properties, you can use this
+     function to either change the actual value of the property or, if
+     this value is a specifier, change the specifications within it.
+
+     If PROPERTY is a built-in property, the specifications to be added
+     to this property can be supplied in many different ways:
+
+        * If VALUE is a simple instantiator (e.g. a string naming a
+          pixmap filename) or a list of instantiators, then the
+          instantiator(s) will be added as a specification of the
+          property for the given LOCALE (which defaults to `global' if
+          omitted).
+
+        * If VALUE is a list of specifications (each of which is a cons
+          of a locale and a list of instantiators), then LOCALE must be
+          `nil' (it does not make sense to explicitly specify a locale
+          in this case), and specifications will be added as given.
+
+        * If VALUE is a specifier (as would be returned by
+          `glyph-property' if no LOCALE argument is given), then some
+          or all of the specifications in the specifier will be added
+          to the property.  In this case, the function is really
+          equivalent to `copy-specifier' and LOCALE has the same
+          semantics (if it is a particular locale, the specification
+          for the locale will be copied; if a locale type,
+          specifications for all locales of that type will be copied;
+          if `nil' or `all', then all specifications will be copied).
+
+     HOW-TO-ADD should be either `nil' or one of the symbols `prepend',
+     `append', `remove-tag-set-prepend', `remove-tag-set-append',
+     `remove-locale', `remove-locale-type', or `remove-all'.  See
+     `copy-specifier' and `add-spec-to-specifier' for a description of
+     what each of these means.  Most of the time, you do not need to
+     worry about this argument; the default behavior usually is fine.
+
+     In general, it is OK to pass an instance object (e.g. as returned
+     by `glyph-property-instance') as an instantiator in place of an
+     actual instantiator.  In such a case, the instantiator used to
+     create that instance object will be used (for example, if you set
+     a font-instance object as the value of the `font' property, then
+     the font name used to create that object will be used instead).
+     If some cases, however, doing this conversion does not make sense,
+     and this will be noted in the documentation for particular types
+     of instance objects.
+
+     If PROPERTY is not a built-in property, then this function will
+     simply set its value if LOCALE is `nil'.  However, if LOCALE is
+     given, then this function will attempt to add VALUE as the
+     instantiator for the given LOCALE, using `add-spec-to-specifier'.
+     If the value of the property is not a specifier, it will
+     automatically be converted into a `generic' specifier.
+
+ - Function: glyph-property glyph property &optional locale
+     This function returns GLYPH's value of the given PROPERTY.
+
+     If LOCALE is omitted, the GLYPH's actual value for PROPERTY will
+     be returned.  For built-in properties, this will be a specifier
+     object of a type appropriate to the property (e.g. a font or color
+     specifier).  For other properties, this could be anything.
+
+     If LOCALE is supplied, then instead of returning the actual value,
+     the specification(s) for the given locale or locale type will be
+     returned.  This will only work if the actual value of PROPERTY is
+     a specifier (this will always be the case for built-in properties,
+     but may or may not apply to user-defined properties).  If the
+     actual value of PROPERTY is not a specifier, this value will
+     simply be returned regardless of LOCALE.
+
+     The return value will be a list of instantiators (e.g. vectors
+     specifying pixmap data), or a list of specifications, each of
+     which is a cons of a locale and a list of instantiators.
+     Specifically, if LOCALE is a particular locale (a buffer, window,
+     frame, device, or `global'), a list of instantiators for that
+     locale will be returned.  Otherwise, if LOCALE is a locale type
+     (one of the symbols `buffer', `window', `frame', or `device'), the
+     specifications for all locales of that type will be returned.
+     Finally, if LOCALE is `all', the specifications for all locales of
+     all types will be returned.
+
+     The specifications in a specifier determine what the value of
+     PROPERTY will be in a particular "domain" or set of circumstances,
+     which is typically a particular Emacs window along with the buffer
+     it contains and the frame and device it lies within.  The value is
+     derived from the instantiator associated with the most specific
+     locale (in the order buffer, window, frame, device, and `global')
+     that matches the domain in question.  In other words, given a
+     domain (i.e. an Emacs window, usually), the specifier for PROPERTY
+     will first be searched for a specification whose locale is the
+     buffer contained within that window; then for a specification
+     whose locale is the window itself; then for a specification whose
+     locale is the frame that the window is contained within; etc.  The
+     first instantiator that is valid for the domain (usually this
+     means that the instantiator is recognized by the device [i.e. the
+     X server or TTY device] that the domain is on).  The function
+     `glyph-property-instance' actually does all this, and is used to
+     determine how to display the glyph.
+
+ - Function: glyph-property-instance glyph property &optional domain
+          default no-fallback
+     This function returns the instance of GLYPH's PROPERTY in the
+     specified DOMAIN.
+
+     Under most circumstances, DOMAIN will be a particular window, and
+     the returned instance describes how the specified property
+     actually is displayed for that window and the particular buffer in
+     it.  Note that this may not be the same as how the property
+     appears when the buffer is displayed in a different window or
+     frame, or how the property appears in the same window if you
+     switch to another buffer in that window; and in those cases, the
+     returned instance would be different.
+
+     The returned instance is an image-instance object, and you can
+     query it using the appropriate image instance functions.  For
+     example, you could use `image-instance-depth' to find out the
+     depth (number of color planes) of a pixmap displayed in a
+     particular window.  The results might be different from the
+     results you would get for another window (perhaps the user
+     specified a different image for the frame that window is on; or
+     perhaps the same image was specified but the window is on a
+     different X server, and that X server has different color
+     capabilities from this one).
+
+     DOMAIN defaults to the selected window if omitted.
+
+     DOMAIN can be a frame or device, instead of a window.  The value
+     returned for such a domain is used in special circumstances when a
+     more specific domain does not apply; for example, a frame value
+     might be used for coloring a toolbar, which is conceptually
+     attached to a frame rather than a particular window.  The value is
+     also useful in determining what the value would be for a
+     particular window within the frame or device, if it is not
+     overridden by a more specific specification.
+
+     If PROPERTY does not name a built-in property, its value will
+     simply be returned unless it is a specifier object, in which case
+     it will be instanced using `specifier-instance'.
+
+     Optional arguments DEFAULT and NO-FALLBACK are the same as in
+     `specifier-instance'.  *Note Specifiers::.
+
+ - Function: remove-glyph-property glyph property &optional locale
+          tag-set exact-p
+     This function removes a property from a glyph.  For built-in
+     properties, this is analogous to `remove-specifier'.  *Note
+     remove-specifier-p: Specifiers, for the meaning of the LOCALE,
+     TAG-SET, and EXACT-P arguments.
+
+
+File: lispref.info,  Node: Glyph Convenience Functions,  Next: Glyph Dimensions,  Prev: Glyph Properties,  Up: Glyph Functions
+
+Glyph Convenience Functions
+---------------------------
+
+   The following functions are provided for working with specific
+properties of a glyph.  Note that these are exactly like calling the
+general functions described above and passing in the appropriate value
+for PROPERTY.
+
+   Remember that if you want to determine the "value" of a specific
+glyph property, you probably want to use the `*-instance' functions.
+For example, to determine whether a glyph contributes to its line
+height, use `glyph-contrib-p-instance', not `glyph-contrib-p'. (The
+latter will return a boolean specifier or a list of specifications, and
+you probably aren't concerned with these.)
+
+ - Function: glyph-image glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `image'.  The return value will be an image specifier
+     if LOCALE is `nil' or omitted; otherwise, it will be a
+     specification or list of specifications.
+
+ - Function: set-glyph-image glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `image'.
+
+ - Function: glyph-image-instance glyph &optional domain default
+          no-fallback
+     This function returns the instance of GLYPH's image in the given
+     DOMAIN, and is equivalent to calling `glyph-property-instance'
+     with a property of `image'.  The return value will be an image
+     instance.
+
+     Normally DOMAIN will be a window or `nil' (meaning the selected
+     window), and an instance object describing how the image appears
+     in that particular window and buffer will be returned.
+
+ - Function: glyph-contrib-p glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `contrib-p'.  The return value will be a boolean
+     specifier if LOCALE is `nil' or omitted; otherwise, it will be a
+     specification or list of specifications.
+
+ - Function: set-glyph-contrib-p glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `contrib-p'.
+
+ - Function: glyph-contrib-p-instance glyph &optional domain default
+          no-fallback
+     This function returns whether the glyph contributes to its line
+     height in the given DOMAIN, and is equivalent to calling
+     `glyph-property-instance' with a property of `contrib-p'.  The
+     return value will be either `nil' or `t'. (Normally DOMAIN will be
+     a window or `nil', meaning the selected window.)
+
+ - Function: glyph-baseline glyph &optional locale
+     This function is equivalent to calling `glyph-property' with a
+     property of `baseline'.  The return value will be a specifier if
+     LOCALE is `nil' or omitted; otherwise, it will be a specification
+     or list of specifications.
+
+ - Function: set-glyph-baseline glyph spec &optional locale tag-set
+          how-to-add
+     This function is equivalent to calling `set-glyph-property' with a
+     property of `baseline'.
+
+ - Function: glyph-baseline-instance glyph &optional domain default
+          no-fallback
+     This function returns the instance of GLYPH's baseline value in
+     the given DOMAIN, and is equivalent to calling
+     `glyph-property-instance' with a property of `baseline'.  The
+     return value will be an integer or `nil'.
+
+     Normally DOMAIN will be a window or `nil' (meaning the selected
+     window), and an instance object describing the baseline value
+     appears in that particular window and buffer will be returned.
+
+ - Function: glyph-face glyph
+     This function returns the face of GLYPH. (Remember, this is not a
+     specifier, but a simple property.)
+
+ - Function: set-glyph-face glyph face
+     This function changes the face of GLYPH to FACE.
+
+
+File: lispref.info,  Node: Glyph Dimensions,  Prev: Glyph Convenience Functions,  Up: Glyph Functions
+
+Glyph Dimensions
+----------------
+
+ - Function: glyph-width glyph &optional window
+     This function returns the width of GLYPH on WINDOW.  This may not
+     be exact as it does not take into account all of the context that
+     redisplay will.
+
+ - Function: glyph-ascent glyph &optional window
+     This function returns the ascent value of GLYPH on WINDOW.  This
+     may not be exact as it does not take into account all of the
+     context that redisplay will.
+
+ - Function: glyph-descent glyph &optional window
+     This function returns the descent value of GLYPH on WINDOW.  This
+     may not be exact as it does not take into account all of the
+     context that redisplay will.
+
+ - Function: glyph-height glyph &optional window
+     This function returns the height of GLYPH on WINDOW.  (This is
+     equivalent to the sum of the ascent and descent values.)  This may
+     not be exact as it does not take into account all of the context
+     that redisplay will.
+
+
+File: lispref.info,  Node: Images,  Next: Glyph Types,  Prev: Glyph Functions,  Up: Glyphs
+
+Images
+======
+
+* Menu:
+
+* Image Specifiers::		Specifying how an image will appear.
+* Image Instantiator Conversion::
+				Conversion is applied to image instantiators
+				  at the time they are added to an
+				  image specifier or at the time they
+				  are passed to `make-image-instance'.
+* Image Instances::		What an image specifier gets instanced as.
+
+
 File: lispref.info,  Node: Image Specifiers,  Next: Image Instantiator Conversion,  Up: Images
 
 Image Specifiers
@@ -366,11 +675,15 @@ implies that the file must exist when the instantiator is added to the
 image, but does not need to exist at any other time (e.g. it may safely
 be a temporary file).
 
- - Function: valid-image-instantiator-format-p format
+ - Function: valid-image-instantiator-format-p format &optional locale
      This function returns non-`nil' if FORMAT is a valid image
-     instantiator format.  Note that the return value for many formats
-     listed above depends on whether XEmacs was compiled with support
-     for that format.
+     instantiator format.
+
+     If LOCALE is non-`nil' then the format is checked in that locale.
+     If LOCALE is `nil' the current console is used.
+
+     Note that the return value for many formats listed above depends on
+     whether XEmacs was compiled with support for that format.
 
  - Function: image-instantiator-format-list
      This function return a list of valid image-instantiator formats.
@@ -391,10 +704,10 @@ be a temporary file).
 
  - Variable: x-bitmap-file-path
      A list of the directories in which X bitmap files may be found.
-     If nil, this is initialized from the `"*bitmapFilePath"' resource.
-     This is used by the `make-image-instance' function (however, note
-     that if the environment variable `XBMLANGPATH' is set, it is
-     consulted first).
+     If `nil', this is initialized from the `"*bitmapFilePath"'
+     resource.  This is used by the `make-image-instance' function
+     (however, note that if the environment variable `XBMLANGPATH' is
+     set, it is consulted first).
 
 
 File: lispref.info,  Node: Image Instantiator Conversion,  Next: Image Instances,  Prev: Image Specifiers,  Up: Images
@@ -522,7 +835,7 @@ string, a mono pixmap, a color pixmap, etc.
      type `nothing'.
 
  - Function: widget-image-instance-p object
-     Return t if OBJECT is an image instance of type `widget'.
+     Return `t' if OBJECT is an image instance of type `widget'.
 
 
 File: lispref.info,  Node: Image Instance Functions,  Prev: Image Instance Types,  Up: Image Instances
@@ -531,7 +844,7 @@ Image Instance Functions
 ........................
 
  - Function: make-image-instance data &optional domain dest-types
-          no-error
+          noerror
      This function creates a new image-instance object.
 
      DATA is an image instantiator, which describes the image (*note
@@ -589,10 +902,10 @@ Image Instance Functions
      #### We should fix this.)  n If omitted, DOMAIN defaults to the
      selected window.
 
-     NO-ERROR controls what happens when the image cannot be generated.
-     If NIL, an error message is generated.  If T, no messages are
-     generated and this function returns NIL.  If anything else, a
-     warning message is generated and this function returns NIL.
+     NOERROR controls what happens when the image cannot be generated.
+     If `nil', an error message is generated.  If `t', no messages are
+     generated and this function returns `nil'.  If anything else, a
+     warning message is generated and this function returns `nil'.
 
  - Function: colorize-image-instance image-instance foreground
           background
@@ -851,365 +1164,4 @@ can work with annotations without knowing how extents work.
 * Locating Annotations::	Looking for annotations in a buffer.
 * Annotation Hooks::		Hooks called at certain times during an
 				  annotation's lifetime.
-
-
-File: lispref.info,  Node: Annotation Basics,  Next: Annotation Primitives,  Up: Annotations
-
-Annotation Basics
-=================
-
-   Marginal annotations are notes associated with a particular location
-in a buffer.  They may be displayed in a margin created on the
-left-hand or right-hand side of the frame, in any whitespace at the
-beginning or end of a line, or inside of the text itself.  Every
-annotation may have an associated action to be performed when the
-annotation is selected.  The term "annotation" is used to refer to an
-individual note.  The term "margin" is generically used to refer to the
-whitespace before the first character on a line or after the last
-character on a line.
-
-   Each annotation has the following characteristics:
-GLYPH
-     This is a glyph object and is used as the displayed representation
-     of the annotation.
-
-DOWN-GLYPH
-     If given, this glyph is used as the displayed representation of
-     the annotation when the mouse is pressed down over the annotation.
-
-FACE
-     The face with which to display the glyph.
-
-SIDE
-     Which side of the text (left or right) the annotation is displayed
-     at.
-
-ACTION
-     If non-`nil', this field must contain a function capable of being
-     the first argument to `funcall'.  This function is normally
-     evaluated with a single argument, the value of the DATA field,
-     each time the annotation is selected.  However, if the WITH-EVENT
-     parameter to `make-annotation' is non-`nil', the function is
-     called with two arguments.  The first argument is the same as
-     before, and the second argument is the event (a button-up event,
-     usually) that activated the annotation.
-
-DATA
-     Not used internally.  This field can contain any E-Lisp object.
-     It is passed as the first argument to ACTION described above.
-
-MENU
-     A menu displayed when the right mouse button is pressed over the
-     annotation.
-
-   The margin is divided into "outside" and "inside".  The outside
-margin is space on the left or right side of the frame which normal text
-cannot be displayed in.  The inside margin is that space between the
-leftmost or rightmost point at which text can be displayed and where the
-first or last character actually is.
-
-   There are four different "layout types" which affect the exact
-location an annotation appears.
-
-`outside-margin'
-     The annotation is placed in the outside margin area. as close as
-     possible to the edge of the frame.  If the outside margin is not
-     wide enough for an annotation to fit, it is not displayed.
-
-`inside-margin'
-     The annotation is placed in the inside margin area, as close as
-     possible to the edge of the frame.  If the inside margin is not
-     wide enough for the annotation to fit, it will be displayed using
-     any available outside margin space if and only if the specifier
-     `use-left-overflow' or `use-right-overflow' (depending on which
-     side the annotation appears in) is non-`nil'.
-
-`whitespace'
-     The annotation is placed in the inside margin area, as close as
-     possible to the first or last non-whitespace character on a line.
-     If the inside margin is not wide enough for the annotation to fit,
-     it will be displayed if and only if the specifier
-     `use-left-overflow' or `use-right-overflow' (depending on which
-     side the annotation appears in) is non-`nil'.
-
-`text'
-     The annotation is placed at the position it is inserted.  It will
-     create enough space for itself inside of the text area.  It does
-     not take up a place in the logical buffer, only in the display of
-     the buffer.
-
-   The current layout policy is that all `whitespace' annotations are
-displayed first.  Next, all `inside-margin' annotations are displayed
-using any remaining space.  Finally as many `outside-margin'
-annotations are displayed as possible.  The `text' annotations will
-always display as they create their own space to display in.
-
-
-File: lispref.info,  Node: Annotation Primitives,  Next: Annotation Properties,  Prev: Annotation Basics,  Up: Annotations
-
-Annotation Primitives
-=====================
-
- - Function: make-annotation glyph &optional position layout buffer
-          with-event d-glyph rightp
-     This function creates a marginal annotation at position POS in
-     BUFFER.  The annotation is displayed using GLYPH, which should be
-     a glyph object or a string, and is positioned using layout policy
-     LAYOUT.  If POS is `nil', point is used.  If LAYOUT is `nil',
-     `whitespace' is used.  If BUFFER is `nil', the current buffer is
-     used.
-
-     If WITH-EVENT is non-`nil', then when an annotation is activated,
-     the triggering event is passed as the second arg to the annotation
-     function.  If D-GLYPH is non-`nil' then it is used as the glyph
-     that will be displayed when button1 is down.  If RIGHTP is
-     non-`nil' then the glyph will be displayed on the right side of
-     the buffer instead of the left.
-
-     The newly created annotation is returned.
-
- - Function: delete-annotation annotation
-     This function removes ANNOTATION from its buffer.  This does not
-     modify the buffer text.
-
- - Function: annotationp annotation
-     This function returns `t' if ANNOTATION is an annotation, `nil'
-     otherwise.
-
-
-File: lispref.info,  Node: Annotation Properties,  Next: Margin Primitives,  Prev: Annotation Primitives,  Up: Annotations
-
-Annotation Properties
-=====================
-
- - Function: annotation-glyph annotation
-     This function returns the glyph object used to display ANNOTATION.
-
- - Function: set-annotation-glyph annotation glyph &optional layout side
-     This function sets the glyph of ANNOTATION to GLYPH, which should
-     be a glyph object.  If LAYOUT is non-`nil', set the layout policy
-     of ANNOTATION to LAYOUT.  If SIDE is `left' or `right', change the
-     side of the buffer at which the annotation is displayed to the
-     given side.  The new value of `annotation-glyph' is returned.
-
- - Function: annotation-down-glyph annotation
-     This function returns the glyph used to display ANNOTATION when
-     the left mouse button is depressed on the annotation.
-
- - Function: set-annotation-down-glyph annotation glyph
-     This function returns the glyph used to display ANNOTATION when
-     the left mouse button is depressed on the annotation to GLYPH,
-     which should be a glyph object.
-
- - Function: annotation-face annotation
-     This function returns the face associated with ANNOTATION.
-
- - Function: set-annotation-face annotation face
-     This function sets the face associated with ANNOTATION to FACE.
-
- - Function: annotation-layout annotation
-     This function returns the layout policy of ANNOTATION.
-
- - Function: set-annotation-layout annotation layout
-     This function sets the layout policy of ANNOTATION to LAYOUT.
-
- - Function: annotation-side annotation
-     This function returns the side of the buffer that ANNOTATION is
-     displayed on.  Return value is a symbol, either `left' or `right'.
-
- - Function: annotation-data annotation
-     This function returns the data associated with ANNOTATION.
-
- - Function: set-annotation-data annotation data
-     This function sets the data field of ANNOTATION to DATA.  DATA is
-     returned.
-
- - Function: annotation-action annotation
-     This function returns the action associated with ANNOTATION.
-
- - Function: set-annotation-action annotation action
-     This function sets the action field of ANNOTATION to ACTION.
-     ACTION is returned..
-
- - Function: annotation-menu annotation
-     This function returns the menu associated with ANNOTATION.
-
- - Function: set-annotation-menu annotation menu
-     This function sets the menu associated with ANNOTATION to MENU.
-     This menu will be displayed when the right mouse button is pressed
-     over the annotation.
-
- - Function: annotation-visible annotation
-     This function returns `t' if there is enough available space to
-     display ANNOTATION, `nil' otherwise.
-
- - Function: annotation-width annotation
-     This function returns the width of ANNOTATION in pixels.
-
- - Function: hide-annotation annotation
-     This function removes ANNOTATION's glyph, making it invisible.
-
- - Function: reveal-annotation annotation
-     This function restores ANNOTATION's glyph, making it visible.
-
-
-File: lispref.info,  Node: Locating Annotations,  Next: Annotation Hooks,  Prev: Margin Primitives,  Up: Annotations
-
-Locating Annotations
-====================
-
- - Function: annotations-in-region start end buffer
-     This function returns a list of all annotations in BUFFER which
-     are between START and END inclusively.
-
- - Function: annotations-at &optional position buffer
-     This function returns a list of all annotations at POSITION in
-     BUFFER.  If POSITION is `nil' point is used.  If BUFFER is `nil'
-     the current buffer is used.
-
- - Function: annotation-list &optional buffer
-     This function returns a list of all annotations in BUFFER.  If
-     BUFFER is `nil', the current buffer is used.
-
- - Function: all-annotations
-     This function returns a list of all annotations in all buffers in
-     existence.
-
-
-File: lispref.info,  Node: Margin Primitives,  Next: Locating Annotations,  Prev: Annotation Properties,  Up: Annotations
-
-Margin Primitives
-=================
-
-   The margin widths are controllable on a buffer-local, window-local,
-frame-local, device-local, or device-type-local basis through the use
-of specifiers.  *Note Specifiers::.
-
- - Specifier: left-margin-width
-     This is a specifier variable controlling the width of the left
-     outside margin, in characters.  Use `set-specifier' to change its
-     value.
-
- - Specifier: right-margin-width
-     This is a specifier variable controlling the width of the right
-     outside margin, in characters.  Use `set-specifier' to change its
-     value.
-
- - Specifier: use-left-overflow
-     If non-`nil', use the left outside margin as extra whitespace when
-     displaying `whitespace' and `inside-margin' annotations.  Defaults
-     to `nil'.  This is a specifier variable; use `set-specifier' to
-     change its value.
-
- - Specifier: use-right-overflow
-     If non-`nil', use the right outside margin as extra whitespace when
-     displaying `whitespace' and `inside-margin' annotations.  Defaults
-     to `nil'.  This is a specifier variable; use `set-specifier' to
-     change its value.
-
- - Function: window-left-margin-pixel-width &optional window
-     This function returns the width in pixels of the left outside
-     margin of WINDOW.  If WINDOW is `nil', the selected window is
-     assumed.
-
- - Function: window-right-margin-pixel-width &optional window
-     This function returns the width in pixels of the right outside
-     margin of WINDOW.  If WINDOW is `nil', the selected window is
-     assumed.
-
-   The margin colors are controlled by the faces `left-margin' and
-`right-margin'.  These can be set using the X resources
-`Emacs.left-margin.background' and `Emacs.left-margin.foreground';
-likewise for the right margin.
-
-
-File: lispref.info,  Node: Annotation Hooks,  Prev: Locating Annotations,  Up: Annotations
-
-Annotation Hooks
-================
-
-   The following three hooks are provided for use with the marginal
-annotations:
-
-`before-delete-annotation-hook'
-     This hook is called immediately before an annotation is destroyed.
-     It is passed a single argument, the annotation being destroyed.
-
-`after-delete-annotation-hook'
-     This normal hook is called immediately after an annotation is
-     destroyed.
-
-`make-annotation-hook'
-     This hook is called immediately after an annotation is created.
-     It is passed a single argument, the newly created annotation.
-
-
-File: lispref.info,  Node: Display,  Next: Hash Tables,  Prev: Annotations,  Up: Top
-
-Emacs Display
-*************
-
-   This chapter describes a number of other features related to the
-display that XEmacs presents to the user.
-
-* Menu:
-
-* Refresh Screen::      Clearing the screen and redrawing everything on it.
-* Truncation::          Folding or wrapping long text lines.
-* The Echo Area::       Where messages are displayed.
-* Warnings::            Display of Warnings.
-* Invisible Text::      Hiding part of the buffer text.
-* Selective Display::   Hiding part of the buffer text (the old way).
-* Overlay Arrow::       Display of an arrow to indicate position.
-* Temporary Displays::  Displays that go away automatically.
-* Blinking::            How XEmacs shows the matching open parenthesis.
-* Usual Display::	The usual conventions for displaying nonprinting chars.
-* Display Tables::	How to specify other conventions.
-* Beeping::             Audible signal to the user.
-
-
-File: lispref.info,  Node: Refresh Screen,  Next: Truncation,  Up: Display
-
-Refreshing the Screen
-=====================
-
-   The function `redraw-frame' redisplays the entire contents of a
-given frame.  *Note Frames::.
-
- - Function: redraw-frame frame
-     This function clears and redisplays frame FRAME.
-
-   Even more powerful is `redraw-display':
-
- - Command: redraw-display &optional device
-     This function redraws all frames on DEVICE marked as having their
-     image garbled.  DEVICE defaults to the selected device.  If DEVICE
-     is `t', all devices will have their frames checked.
-
-   Processing user input takes absolute priority over redisplay.  If you
-call these functions when input is available, they do nothing
-immediately, but a full redisplay does happen eventually--after all the
-input has been processed.
-
-   Normally, suspending and resuming XEmacs also refreshes the screen.
-Some terminal emulators record separate contents for display-oriented
-programs such as XEmacs and for ordinary sequential display.  If you are
-using such a terminal, you might want to inhibit the redisplay on
-resumption.  *Note Suspending XEmacs::.
-
- - Variable: no-redraw-on-reenter
-     This variable controls whether XEmacs redraws the entire screen
-     after it has been suspended and resumed.  Non-`nil' means yes,
-     `nil' means no.
-
-   The above functions do not actually cause the display to be updated;
-rather, they clear out the internal display records that XEmacs
-maintains, so that the next time the display is updated it will be
-redrawn from scratch.  Normally this occurs the next time that
-`next-event' or `sit-for' is called; however, a display update will not
-occur if there is input pending.  *Note Command Loop::.
-
- - Function: force-cursor-redisplay
-     This function causes an immediate update of the cursor on the
-     selected frame.  (This function does not exist in FSF Emacs.)
 

@@ -50,6 +50,321 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Using Interactive,  Next: Interactive Codes,  Up: Defining Commands
+
+Using `interactive'
+-------------------
+
+   This section describes how to write the `interactive' form that
+makes a Lisp function an interactively-callable command.
+
+ - Special Form: interactive arg-descriptor
+     This special form declares that the function in which it appears
+     is a command, and that it may therefore be called interactively
+     (via `M-x' or by entering a key sequence bound to it).  The
+     argument ARG-DESCRIPTOR declares how to compute the arguments to
+     the command when the command is called interactively.
+
+     A command may be called from Lisp programs like any other
+     function, but then the caller supplies the arguments and
+     ARG-DESCRIPTOR has no effect.
+
+     The `interactive' form has its effect because the command loop
+     (actually, its subroutine `call-interactively') scans through the
+     function definition looking for it, before calling the function.
+     Once the function is called, all its body forms including the
+     `interactive' form are executed, but at this time `interactive'
+     simply returns `nil' without even evaluating its argument.
+
+   There are three possibilities for the argument ARG-DESCRIPTOR:
+
+   * It may be omitted or `nil'; then the command is called with no
+     arguments.  This leads quickly to an error if the command requires
+     one or more arguments.
+
+   * It may be a Lisp expression that is not a string; then it should
+     be a form that is evaluated to get a list of arguments to pass to
+     the command.
+
+     If this expression reads keyboard input (this includes using the
+     minibuffer), keep in mind that the integer value of point or the
+     mark before reading input may be incorrect after reading input.
+     This is because the current buffer may be receiving subprocess
+     output; if subprocess output arrives while the command is waiting
+     for input, it could relocate point and the mark.
+
+     Here's an example of what _not_ to do:
+
+          (interactive
+           (list (region-beginning) (region-end)
+                 (read-string "Foo: " nil 'my-history)))
+
+     Here's how to avoid the problem, by examining point and the mark
+     only after reading the keyboard input:
+
+          (interactive
+           (let ((string (read-string "Foo: " nil 'my-history)))
+             (list (region-beginning) (region-end) string)))
+
+   * It may be a string; then its contents should consist of a code
+     character followed by a prompt (which some code characters use and
+     some ignore).  The prompt ends either with the end of the string
+     or with a newline.  Here is a simple example:
+
+          (interactive "bFrobnicate buffer: ")
+
+     The code letter `b' says to read the name of an existing buffer,
+     with completion.  The buffer name is the sole argument passed to
+     the command.  The rest of the string is a prompt.
+
+     If there is a newline character in the string, it terminates the
+     prompt.  If the string does not end there, then the rest of the
+     string should contain another code character and prompt,
+     specifying another argument.  You can specify any number of
+     arguments in this way.
+
+     The prompt string can use `%' to include previous argument values
+     (starting with the first argument) in the prompt.  This is done
+     using `format' (*note Formatting Strings::).  For example, here is
+     how you could read the name of an existing buffer followed by a
+     new name to give to that buffer:
+
+          (interactive "bBuffer to rename: \nsRename buffer %s to: ")
+
+     If the first character in the string is `*', then an error is
+     signaled if the buffer is read-only.
+
+     If the first character in the string is `@', and if the key
+     sequence used to invoke the command includes any mouse events, then
+     the window associated with the first of those events is selected
+     before the command is run.
+
+     If the first character in the string is `_', then this command will
+     not cause the region to be deactivated when it completes; that is,
+     `zmacs-region-stays' will be set to `t' when the command exits
+     successfully.
+
+     You can use `*', `@', and `_' together; the order does not matter.
+     Actual reading of arguments is controlled by the rest of the
+     prompt string (starting with the first character that is not `*',
+     `@', or `_').
+
+ - Function: function-interactive function
+     This function retrieves the interactive specification of FUNCTION,
+     which may be any funcallable object.  The specification will be
+     returned as the list of the symbol `interactive' and the specs.  If
+     FUNCTION is not interactive, `nil' will be returned.
+
+
+File: lispref.info,  Node: Interactive Codes,  Next: Interactive Examples,  Prev: Using Interactive,  Up: Defining Commands
+
+Code Characters for `interactive'
+---------------------------------
+
+   The code character descriptions below contain a number of key words,
+defined here as follows:
+
+Completion
+     Provide completion.  <TAB>, <SPC>, and <RET> perform name
+     completion because the argument is read using `completing-read'
+     (*note Completion::).  `?' displays a list of possible completions.
+
+Existing
+     Require the name of an existing object.  An invalid name is not
+     accepted; the commands to exit the minibuffer do not exit if the
+     current input is not valid.
+
+Default
+     A default value of some sort is used if the user enters no text in
+     the minibuffer.  The default depends on the code character.
+
+No I/O
+     This code letter computes an argument without reading any input.
+     Therefore, it does not use a prompt string, and any prompt string
+     you supply is ignored.
+
+     Even though the code letter doesn't use a prompt string, you must
+     follow it with a newline if it is not the last code character in
+     the string.
+
+Prompt
+     A prompt immediately follows the code character.  The prompt ends
+     either with the end of the string or with a newline.
+
+Special
+     This code character is meaningful only at the beginning of the
+     interactive string, and it does not look for a prompt or a newline.
+     It is a single, isolated character.
+
+   Here are the code character descriptions for use with `interactive':
+
+`*'
+     Signal an error if the current buffer is read-only.  Special.
+
+`@'
+     Select the window mentioned in the first mouse event in the key
+     sequence that invoked this command.  Special.
+
+`_'
+     Do not cause the region to be deactivated when this command
+     completes.  Special.
+
+`a'
+     A function name (i.e., a symbol satisfying `fboundp').  Existing,
+     Completion, Prompt.
+
+`b'
+     The name of an existing buffer.  By default, uses the name of the
+     current buffer (*note Buffers::).  Existing, Completion, Default,
+     Prompt.
+
+`B'
+     A buffer name.  The buffer need not exist.  By default, uses the
+     name of a recently used buffer other than the current buffer.
+     Completion, Default, Prompt.
+
+`c'
+     A character.  The cursor does not move into the echo area.  Prompt.
+
+`C'
+     A command name (i.e., a symbol satisfying `commandp').  Existing,
+     Completion, Prompt.
+
+`d'
+     The position of point, as an integer (*note Point::).  No I/O.
+
+`D'
+     A directory name.  The default is the current default directory of
+     the current buffer, `default-directory' (*note System
+     Environment::).  Existing, Completion, Default, Prompt.
+
+`e'
+     The last mouse-button or misc-user event in the key sequence that
+     invoked the command.  No I/O.
+
+     You can use `e' more than once in a single command's interactive
+     specification.  If the key sequence that invoked the command has N
+     mouse-button or misc-user events, the Nth `e' provides the Nth
+     such event.
+
+`f'
+     A file name of an existing file (*note File Names::).  The default
+     directory is `default-directory'.  Existing, Completion, Default,
+     Prompt.
+
+`F'
+     A file name.  The file need not exist.  Completion, Default,
+     Prompt.
+
+`k'
+     A key sequence (*note Keymap Terminology::).  This keeps reading
+     events until a command (or undefined command) is found in the
+     current key maps.  The key sequence argument is represented as a
+     vector of events.  The cursor does not move into the echo area.
+     Prompt.
+
+     This kind of input is used by commands such as `describe-key' and
+     `global-set-key'.
+
+`K'
+     A key sequence, whose definition you intend to change.  This works
+     like `k', except that it suppresses, for the last input event in
+     the key sequence, the conversions that are normally used (when
+     necessary) to convert an undefined key into a defined one.
+
+`m'
+     The position of the mark, as an integer.  No I/O.
+
+`n'
+     A number read with the minibuffer.  If the input is not a number,
+     the user is asked to try again.  The prefix argument, if any, is
+     not used.  Prompt.
+
+`N'
+     The raw prefix argument.  If the prefix argument is `nil', then
+     read a number as with `n'.  Requires a number.  *Note Prefix
+     Command Arguments::.  Prompt.
+
+`p'
+     The numeric prefix argument.  (Note that this `p' is lower case.)
+     No I/O.
+
+`P'
+     The raw prefix argument.  (Note that this `P' is upper case.)  No
+     I/O.
+
+`r'
+     Point and the mark, as two numeric arguments, smallest first.
+     This is the only code letter that specifies two successive
+     arguments rather than one.  No I/O.
+
+`s'
+     Arbitrary text, read in the minibuffer and returned as a string
+     (*note Text from Minibuffer::).  Terminate the input with either
+     <LFD> or <RET>.  (`C-q' may be used to include either of these
+     characters in the input.)  Prompt.
+
+`S'
+     An interned symbol whose name is read in the minibuffer.  Any
+     whitespace character terminates the input.  (Use `C-q' to include
+     whitespace in the string.)  Other characters that normally
+     terminate a symbol (e.g., parentheses and brackets) do not do so
+     here.  Prompt.
+
+`v'
+     A variable declared to be a user option (i.e., satisfying the
+     predicate `user-variable-p').  *Note High-Level Completion::.
+     Existing, Completion, Prompt.
+
+`x'
+     A Lisp object, specified with its read syntax, terminated with a
+     <LFD> or <RET>.  The object is not evaluated.  *Note Object from
+     Minibuffer::.  Prompt.
+
+`X'
+     A Lisp form is read as with `x', but then evaluated so that its
+     value becomes the argument for the command.  Prompt.
+
+
+File: lispref.info,  Node: Interactive Examples,  Prev: Interactive Codes,  Up: Defining Commands
+
+Examples of Using `interactive'
+-------------------------------
+
+   Here are some examples of `interactive':
+
+     (defun foo1 ()              ; `foo1' takes no arguments,
+         (interactive)           ;   just moves forward two words.
+         (forward-word 2))
+          => foo1
+     
+     (defun foo2 (n)             ; `foo2' takes one argument,
+         (interactive "p")       ;   which is the numeric prefix.
+         (forward-word (* 2 n)))
+          => foo2
+     
+     (defun foo3 (n)             ; `foo3' takes one argument,
+         (interactive "nCount:") ;   which is read with the Minibuffer.
+         (forward-word (* 2 n)))
+          => foo3
+     
+     (defun three-b (b1 b2 b3)
+       "Select three existing buffers.
+     Put them into three windows, selecting the last one."
+         (interactive "bBuffer1:\nbBuffer2:\nbBuffer3:")
+         (delete-other-windows)
+         (split-window (selected-window) 8)
+         (switch-to-buffer b1)
+         (other-window 1)
+         (split-window (selected-window) 8)
+         (switch-to-buffer b2)
+         (other-window 1)
+         (switch-to-buffer b3))
+          => three-b
+     (three-b "*scratch*" "declarations.texi" "*mail*")
+          => nil
+
+
 File: lispref.info,  Node: Interactive Call,  Next: Command Loop Info,  Prev: Defining Commands,  Up: Command Loop
 
 Interactive Call
@@ -61,9 +376,9 @@ definition, it invokes that definition using the function
 `command-execute' calls `call-interactively', which reads the arguments
 and calls the command.  You can also call these functions yourself.
 
- - Function: commandp object
-     Returns `t' if OBJECT is suitable for calling interactively; that
-     is, if OBJECT is a command.  Otherwise, returns `nil'.
+ - Function: commandp function
+     Returns `t' if FUNCTION is suitable for calling interactively;
+     that is, if FUNCTION is a command.  Otherwise, returns `nil'.
 
      The interactively callable objects include strings and vectors
      (treated as keyboard macros), lambda expressions that contain a
@@ -80,7 +395,7 @@ and calls the command.  You can also call these functions yourself.
      See `documentation' in *Note Accessing Documentation::, for a
      realistic example of using `commandp'.
 
- - Function: call-interactively command &optional record-flag
+ - Function: call-interactively command &optional record-flag keys
      This function calls the interactively callable function COMMAND,
      reading arguments according to its interactive calling
      specifications.  An error is signaled if COMMAND is not a function
@@ -90,7 +405,7 @@ and calls the command.  You can also call these functions yourself.
      functions.
 
      If RECORD-FLAG is the symbol `lambda', the interactive calling
-     arguments for `command' are read and returned as a list, but the
+     arguments for COMMAND are read and returned as a list, but the
      function is not called on them.
 
      If RECORD-FLAG is `t', then this command and its arguments are
@@ -98,7 +413,7 @@ and calls the command.  You can also call these functions yourself.
      the command is added only if it uses the minibuffer to read an
      argument.  *Note Command History::.
 
- - Function: command-execute command &optional record-flag
+ - Function: command-execute command &optional record-flag keys
      This function executes COMMAND as an editing command.  The
      argument COMMAND must satisfy the `commandp' predicate; i.e., it
      must be an interactively callable function or a keyboard macro.
@@ -310,7 +625,7 @@ command binding of the key sequence.
 *Note Reading Input::.
 
  - Function: eventp object
-     This function returns non-`nil' if EVENT is an input event.
+     This function returns non-`nil' if OBJECT is an input event.
 
 * Menu:
 
@@ -560,7 +875,7 @@ particular type.
  - Function: key-press-event-p object
      This is true if OBJECT is a key-press event.
 
- - Function: button-event-p object object
+ - Function: button-event-p object
      This is true if OBJECT is a mouse button-press or button-release
      event.
 
@@ -957,10 +1272,10 @@ latter case.
                               (event-properties EVENT)))
 
  - Function: copy-event event1 &optional event2
-     This function makes a copy of the given event object.  If a second
-     argument is given, the first event is copied into the second and
-     the second is returned.  If the second argument is not supplied
-     (or is `nil') then a new event will be made.
+     This function makes a copy of the event object EVENT1.  If a
+     second event argument EVENT2 is given, EVENT1 is copied into
+     EVENT2 and EVENT2 is returned.  If EVENT2 is not supplied (or is
+     `nil') then a new event will be made, as with `make-event'.
 
  - Function: deallocate-event event
      This function allows the given event structure to be reused.  You
@@ -968,345 +1283,5 @@ latter case.
      it.  You will lose.  It is not necessary to call this function, as
      event objects are garbage-collected like all other objects;
      however, it may be more efficient to explicitly deallocate events
-     when you are sure that that is safe.
-
-
-File: lispref.info,  Node: Converting Events,  Prev: Working With Events,  Up: Events
-
-Converting Events
------------------
-
-   XEmacs provides some auxiliary functions for converting between
-events and other ways of representing keys.  These are useful when
-working with ASCII strings and with keymaps.
-
- - Function: character-to-event ch &optional event device
-     This function converts a numeric ASCII value to an event structure,
-     replete with modifier bits.  CH is the character to convert, and
-     EVENT is the event object to fill in.  This function contains
-     knowledge about what the codes "mean"--for example, the number 9 is
-     converted to the character <Tab>, not the distinct character
-     <Control-I>.
-
-     Note that CH does not have to be a numeric value, but can be a
-     symbol such as `clear' or a list such as `(control backspace)'.
-
-     If `event' is not `nil', it is modified; otherwise, a new event
-     object is created.  In both cases, the event is returned.
-
-     Optional third arg DEVICE is the device to store in the event;
-     this also affects whether the high bit is interpreted as a meta
-     key.  A value of `nil' means use the selected device but always
-     treat the high bit as meta.
-
-     Beware that `character-to-event' and `event-to-character' are not
-     strictly inverse functions, since events contain much more
-     information than the ASCII character set can encode.
-
- - Function: event-to-character event &optional allow-extra-modifiers
-          allow-meta allow-non-ascii
-     This function returns the closest ASCII approximation to EVENT.
-     If the event isn't a keypress, this returns `nil'.
-
-     If ALLOW-EXTRA-MODIFIERS is non-`nil', then this is lenient in its
-     translation; it will ignore modifier keys other than <control> and
-     <meta>, and will ignore the <shift> modifier on those characters
-     which have no shifted ASCII equivalent (<Control-Shift-A> for
-     example, will be mapped to the same ASCII code as <Control-A>).
-
-     If ALLOW-META is non-`nil', then the <Meta> modifier will be
-     represented by turning on the high bit of the byte returned;
-     otherwise, `nil' will be returned for events containing the <Meta>
-     modifier.
-
-     If ALLOW-NON-ASCII is non-`nil', then characters which are present
-     in the prevailing character set (*note variable
-     `character-set-property': Keymaps.) will be returned as their code
-     in that character set, instead of the return value being
-     restricted to ASCII.
-
-     Note that specifying both ALLOW-META and ALLOW-NON-ASCII is
-     ambiguous, as both use the high bit; <M-x> and <oslash> will be
-     indistinguishable.
-
- - Function: events-to-keys events &optional no-mice
-     Given a vector of event objects, this function returns a vector of
-     key descriptors, or a string (if they all fit in the ASCII range).
-     Optional arg NO-MICE means that button events are not allowed.
-
-
-File: lispref.info,  Node: Reading Input,  Next: Waiting,  Prev: Events,  Up: Command Loop
-
-Reading Input
-=============
-
-   The editor command loop reads keyboard input using the function
-`next-event' and constructs key sequences out of the events using
-`dispatch-event'.  Lisp programs can also use the function
-`read-key-sequence', which reads input a key sequence at a time.  See
-also `momentary-string-display' in *Note Temporary Displays::, and
-`sit-for' in *Note Waiting::.  *Note Terminal Input::, for functions
-and variables for controlling terminal input modes and debugging
-terminal input.
-
-   For higher-level input facilities, see *Note Minibuffers::.
-
-* Menu:
-
-* Key Sequence Input::		How to read one key sequence.
-* Reading One Event::		How to read just one event.
-* Dispatching an Event::        What to do with an event once it has been read.
-* Quoted Character Input::	Asking the user to specify a character.
-* Peeking and Discarding::    	How to reread or throw away input events.
-
-
-File: lispref.info,  Node: Key Sequence Input,  Next: Reading One Event,  Up: Reading Input
-
-Key Sequence Input
-------------------
-
-   Lisp programs can read input a key sequence at a time by calling
-`read-key-sequence'; for example, `describe-key' uses it to read the
-key to describe.
-
- - Function: read-key-sequence prompt
-     This function reads a sequence of keystrokes or mouse clicks and
-     returns it as a vector of events.  It keeps reading events until
-     it has accumulated a full key sequence; that is, enough to specify
-     a non-prefix command using the currently active keymaps.
-
-     The vector and the event objects it contains are freshly created,
-     and will not be side-effected by subsequent calls to this function.
-
-     The function `read-key-sequence' suppresses quitting: `C-g' typed
-     while reading with this function works like any other character,
-     and does not set `quit-flag'.  *Note Quitting::.
-
-     The argument PROMPT is either a string to be displayed in the echo
-     area as a prompt, or `nil', meaning not to display a prompt.
-
-     If the user selects a menu item while we are prompting for a key
-     sequence, the returned value will be a vector of a single
-     menu-selection event (a misc-user event).  An error will be
-     signalled if you pass this value to `lookup-key' or a related
-     function.
-
-     In the example below, the prompt `?' is displayed in the echo area,
-     and the user types `C-x C-f'.
-
-          (read-key-sequence "?")
-          
-          ---------- Echo Area ----------
-          ?C-x C-f
-          ---------- Echo Area ----------
-          
-               => [#<keypress-event control-X> #<keypress-event control-F>]
-
-   If an input character is an upper-case letter and has no key binding,
-but its lower-case equivalent has one, then `read-key-sequence'
-converts the character to lower case.  Note that `lookup-key' does not
-perform case conversion in this way.
-
-
-File: lispref.info,  Node: Reading One Event,  Next: Dispatching an Event,  Prev: Key Sequence Input,  Up: Reading Input
-
-Reading One Event
------------------
-
-   The lowest level functions for command input are those which read a
-single event.  These functions often make a distinction between
-"command events", which are user actions (keystrokes and mouse
-actions), and other events, which serve as communication between XEmacs
-and the window system.
-
- - Function: next-event &optional event prompt
-     This function reads and returns the next available event from the
-     window system or terminal driver, waiting if necessary until an
-     event is available.  Pass this object to `dispatch-event' to
-     handle it. If an event object is supplied, it is filled in and
-     returned; otherwise a new event object will be created.
-
-     Events can come directly from the user, from a keyboard macro, or
-     from `unread-command-events'.
-
-     In most cases, the function `next-command-event' is more
-     appropriate.
-
- - Function: next-command-event &optional event
-     This function returns the next available "user" event from the
-     window system or terminal driver.  Pass this object to
-     `dispatch-event' to handle it.  If an event object is supplied, it
-     is filled in and returned, otherwise a new event object will be
-     created.
-
-     The event returned will be a keyboard, mouse press, or mouse
-     release event.  If there are non-command events available (mouse
-     motion, sub-process output, etc) then these will be executed (with
-     `dispatch-event') and discarded.  This function is provided as a
-     convenience; it is equivalent to the Lisp code
-
-                  (while (progn
-                           (next-event event)
-                           (not (or (key-press-event-p event)
-                                    (button-press-event-p event)
-                                    (button-release-event-p event)
-                                    (menu-event-p event))))
-                     (dispatch-event event))
-
-     Here is what happens if you call `next-command-event' and then
-     press the right-arrow function key:
-
-          (next-command-event)
-               => #<keypress-event right>
-
- - Function: read-char
-     This function reads and returns a character of command input.  If a
-     mouse click is detected, an error is signalled.  The character
-     typed is returned as an ASCII value.  This function is retained for
-     compatibility with Emacs 18, and is most likely the wrong thing
-     for you to be using: consider using `next-command-event' instead.
-
- - Function: enqueue-eval-event function object
-     This function adds an eval event to the back of the queue.  The
-     eval event will be the next event read after all pending events.
-
-
-File: lispref.info,  Node: Dispatching an Event,  Next: Quoted Character Input,  Prev: Reading One Event,  Up: Reading Input
-
-Dispatching an Event
---------------------
-
- - Function: dispatch-event event
-     Given an event object returned by `next-event', this function
-     executes it.  This is the basic function that makes XEmacs respond
-     to user input; it also deals with notifications from the window
-     system (such as Expose events).
-
-
-File: lispref.info,  Node: Quoted Character Input,  Next: Peeking and Discarding,  Prev: Dispatching an Event,  Up: Reading Input
-
-Quoted Character Input
-----------------------
-
-   You can use the function `read-quoted-char' to ask the user to
-specify a character, and allow the user to specify a control or meta
-character conveniently, either literally or as an octal character code.
-The command `quoted-insert' uses this function.
-
- - Function: read-quoted-char &optional prompt
-     This function is like `read-char', except that if the first
-     character read is an octal digit (0-7), it reads up to two more
-     octal digits (but stopping if a non-octal digit is found) and
-     returns the character represented by those digits in octal.
-
-     Quitting is suppressed when the first character is read, so that
-     the user can enter a `C-g'.  *Note Quitting::.
-
-     If PROMPT is supplied, it specifies a string for prompting the
-     user.  The prompt string is always displayed in the echo area,
-     followed by a single `-'.
-
-     In the following example, the user types in the octal number 177
-     (which is 127 in decimal).
-
-          (read-quoted-char "What character")
-          
-          ---------- Echo Area ----------
-          What character-177
-          ---------- Echo Area ----------
-          
-               => 127
-
-
-File: lispref.info,  Node: Peeking and Discarding,  Prev: Quoted Character Input,  Up: Reading Input
-
-Miscellaneous Event Input Features
-----------------------------------
-
-   This section describes how to "peek ahead" at events without using
-them up, how to check for pending input, and how to discard pending
-input.
-
-   See also the variables `last-command-event' and `last-command-char'
-(*Note Command Loop Info::).
-
- - Variable: unread-command-events
-     This variable holds a list of events waiting to be read as command
-     input.  The events are used in the order they appear in the list,
-     and removed one by one as they are used.
-
-     The variable is needed because in some cases a function reads a
-     event and then decides not to use it.  Storing the event in this
-     variable causes it to be processed normally, by the command loop
-     or by the functions to read command input.
-
-     For example, the function that implements numeric prefix arguments
-     reads any number of digits.  When it finds a non-digit event, it
-     must unread the event so that it can be read normally by the
-     command loop.  Likewise, incremental search uses this feature to
-     unread events with no special meaning in a search, because these
-     events should exit the search and then execute normally.
-
-
- - Variable: unread-command-event
-     This variable holds a single event to be read as command input.
-
-     This variable is mostly obsolete now that you can use
-     `unread-command-events' instead; it exists only to support programs
-     written for versions of XEmacs prior to 19.12.
-
- - Function: input-pending-p
-     This function determines whether any command input is currently
-     available to be read.  It returns immediately, with value `t' if
-     there is available input, `nil' otherwise.  On rare occasions it
-     may return `t' when no input is available.
-
- - Variable: last-input-event
-     This variable is set to the last keyboard or mouse button event
-     received.
-
-     This variable is off limits: you may not set its value or modify
-     the event that is its value, as it is destructively modified by
-     `read-key-sequence'.  If you want to keep a pointer to this value,
-     you must use `copy-event'.
-
-     Note that this variable is an alias for `last-input-char' in FSF
-     Emacs.
-
-     In the example below, a character is read (the character `1').  It
-     becomes the value of `last-input-event', while `C-e' (from the
-     `C-x C-e' command used to evaluate this expression) remains the
-     value of `last-command-event'.
-
-          (progn (print (next-command-event))
-                 (print last-command-event)
-                 last-input-event)
-               -| #<keypress-event 1>
-               -| #<keypress-event control-E>
-               => #<keypress-event 1>
-
- - Variable: last-input-char
-     If the value of `last-input-event' is a keyboard event, then this
-     is the nearest ASCII equivalent to it.  Remember that there is
-     _not_ a 1:1 mapping between keyboard events and ASCII characters:
-     the set of keyboard events is much larger, so writing code that
-     examines this variable to determine what key has been typed is bad
-     practice, unless you are certain that it will be one of a small
-     set of characters.
-
-     This function exists for compatibility with Emacs version 18.
-
- - Function: discard-input
-     This function discards the contents of the terminal input buffer
-     and cancels any keyboard macro that might be in the process of
-     definition.  It returns `nil'.
-
-     In the following example, the user may type a number of characters
-     right after starting the evaluation of the form.  After the
-     `sleep-for' finishes sleeping, `discard-input' discards any
-     characters typed during the sleep.
-
-          (progn (sleep-for 2)
-                 (discard-input))
-               => nil
+     when you are sure that it is safe to do so.
 

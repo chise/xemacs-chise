@@ -50,6 +50,578 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Abbrev Expansion,  Next: Standard Abbrev Tables,  Prev: Abbrev Files,  Up: Abbrevs
+
+Looking Up and Expanding Abbreviations
+======================================
+
+   Abbrevs are usually expanded by commands for interactive use,
+including `self-insert-command'.  This section describes the
+subroutines used in writing such functions, as well as the variables
+they use for communication.
+
+ - Function: abbrev-symbol abbrev &optional table
+     This function returns the symbol representing the abbrev named
+     ABBREV.  The value returned is `nil' if that abbrev is not
+     defined.  The optional second argument TABLE is the abbrev table
+     to look it up in.  If TABLE is `nil', this function tries first
+     the current buffer's local abbrev table, and second the global
+     abbrev table.
+
+ - Function: abbrev-expansion abbrev &optional table
+     This function returns the string that ABBREV would expand into (as
+     defined by the abbrev tables used for the current buffer).  The
+     optional argument TABLE specifies the abbrev table to use, as in
+     `abbrev-symbol'.
+
+ - Command: expand-abbrev
+     This command expands the abbrev before point, if any.  If point
+     does not follow an abbrev, this command does nothing.  The command
+     returns `t' if it did expansion, `nil' otherwise.
+
+ - Command: abbrev-prefix-mark &optional arg
+     Mark current point as the beginning of an abbrev.  The next call to
+     `expand-abbrev' will use the text from here to point (where it is
+     then) as the abbrev to expand, rather than using the previous word
+     as usual.
+
+ - User Option: abbrev-all-caps
+     When this is set non-`nil', an abbrev entered entirely in upper
+     case is expanded using all upper case.  Otherwise, an abbrev
+     entered entirely in upper case is expanded by capitalizing each
+     word of the expansion.
+
+ - Variable: abbrev-start-location
+     This is the buffer position for `expand-abbrev' to use as the start
+     of the next abbrev to be expanded.  (`nil' means use the word
+     before point instead.)  `abbrev-start-location' is set to `nil'
+     each time `expand-abbrev' is called.  This variable is also set by
+     `abbrev-prefix-mark'.
+
+ - Variable: abbrev-start-location-buffer
+     The value of this variable is the buffer for which
+     `abbrev-start-location' has been set.  Trying to expand an abbrev
+     in any other buffer clears `abbrev-start-location'.  This variable
+     is set by `abbrev-prefix-mark'.
+
+ - Variable: last-abbrev
+     This is the `abbrev-symbol' of the last abbrev expanded.  This
+     information is left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-location
+     This is the location of the last abbrev expanded.  This contains
+     information left by `expand-abbrev' for the sake of the
+     `unexpand-abbrev' command.
+
+ - Variable: last-abbrev-text
+     This is the exact expansion text of the last abbrev expanded,
+     after case conversion (if any).  Its value is `nil' if the abbrev
+     has already been unexpanded.  This contains information left by
+     `expand-abbrev' for the sake of the `unexpand-abbrev' command.
+
+ - Variable: pre-abbrev-expand-hook
+     This is a normal hook whose functions are executed, in sequence,
+     just before any expansion of an abbrev.  *Note Hooks::.  Since it
+     is a normal hook, the hook functions receive no arguments.
+     However, they can find the abbrev to be expanded by looking in the
+     buffer before point.
+
+   The following sample code shows a simple use of
+`pre-abbrev-expand-hook'.  If the user terminates an abbrev with a
+punctuation character, the hook function asks for confirmation.  Thus,
+this hook allows the user to decide whether to expand the abbrev, and
+aborts expansion if it is not confirmed.
+
+     (add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
+     
+     ;; This is the function invoked by `pre-abbrev-expand-hook'.
+     
+     ;; If the user terminated the abbrev with a space, the function does
+     ;; nothing (that is, it returns so that the abbrev can expand).  If the
+     ;; user entered some other character, this function asks whether
+     ;; expansion should continue.
+     
+     ;; If the user answers the prompt with `y', the function returns
+     ;; `nil' (because of the `not' function), but that is
+     ;; acceptable; the return value has no effect on expansion.
+     
+     (defun query-if-not-space ()
+       (if (/= ?\  (preceding-char))
+           (if (not (y-or-n-p "Do you want to expand this abbrev? "))
+               (error "Not expanding this abbrev"))))
+
+
+File: lispref.info,  Node: Standard Abbrev Tables,  Prev: Abbrev Expansion,  Up: Abbrevs
+
+Standard Abbrev Tables
+======================
+
+   Here we list the variables that hold the abbrev tables for the
+preloaded major modes of XEmacs.
+
+ - Variable: global-abbrev-table
+     This is the abbrev table for mode-independent abbrevs.  The abbrevs
+     defined in it apply to all buffers.  Each buffer may also have a
+     local abbrev table, whose abbrev definitions take precedence over
+     those in the global table.
+
+ - Variable: local-abbrev-table
+     The value of this buffer-local variable is the (mode-specific)
+     abbreviation table of the current buffer.
+
+ - Variable: fundamental-mode-abbrev-table
+     This is the local abbrev table used in Fundamental mode; in other
+     words, it is the local abbrev table in all buffers in Fundamental
+     mode.
+
+ - Variable: text-mode-abbrev-table
+     This is the local abbrev table used in Text mode.
+
+ - Variable: c-mode-abbrev-table
+     This is the local abbrev table used in C mode.
+
+ - Variable: lisp-mode-abbrev-table
+     This is the local abbrev table used in Lisp mode and Emacs Lisp
+     mode.
+
+
+File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
+
+Extents
+*******
+
+   An "extent" is a region of text (a start position and an end
+position) that is displayed in a particular face and can have certain
+other properties such as being read-only.  Extents can overlap each
+other.  XEmacs efficiently handles buffers with large numbers of
+extents in them.
+
+ - Function: extentp object
+     This returns `t' if OBJECT is an extent.
+
+* Menu:
+
+* Intro to Extents::	   Extents are regions over a buffer or string.
+* Creating and Modifying Extents::
+			   Basic extent functions.
+* Extent Endpoints::	   Accessing and setting the bounds of an extent.
+* Finding Extents::	   Determining which extents are in an object.
+* Mapping Over Extents::   More sophisticated functions for extent scanning.
+* Extent Properties::	   Extents have built-in and user-definable properties.
+* Detached Extents::	   Extents that are not in a buffer.
+* Extent Parents::         Inheriting properties from another extent.
+* Duplicable Extents::	   Extents can be marked to be copied into strings.
+* Extents and Events::	   Extents can interact with the keyboard and mouse.
+* Atomic Extents::	   Treating a block of text as a single entity.
+
+
+File: lispref.info,  Node: Intro to Extents,  Next: Creating and Modifying Extents,  Up: Extents
+
+Introduction to Extents
+=======================
+
+   An extent is a region of text within a buffer or string that has
+certain properties associated with it.  The properties of an extent
+primarily affect the way the text contained in the extent is displayed.
+Extents can freely overlap each other in a buffer or string.  Extents
+are invisible to functions that merely examine the text of a buffer or
+string.
+
+   _Please note:_ An alternative way to add properties to a buffer or
+string is to use text properties.  *Note Text Properties::.
+
+   An extent is logically a Lisp object consisting of a start position,
+an end position, a buffer or string to which these positions refer, and
+a property list.  As text is inserted into a buffer, the start and end
+positions of the extent are automatically adjusted as necessary to keep
+the extent referring to the same text in the buffer.  If text is
+inserted at the boundary of an extent, the extent's `start-open' and
+`end-open' properties control whether the text is included as part of
+the extent.  If the text bounded by an extent is deleted, the extent
+becomes "detached"; its start and end positions are no longer
+meaningful, but it maintains all its other properties and can later be
+reinserted into a buffer. (None of these considerations apply to
+strings, because text cannot be inserted into or deleted from a string.)
+
+   Each extent has a face or list of faces associated with it, which
+controls the way in which the text bounded by the extent is displayed.
+If an extent's face is `nil' or its properties are partially undefined,
+the corresponding properties from the default face for the frame is
+used.  If two or more extents overlap, or if a list of more than one
+face is specified for a particular extent, the corresponding faces are
+merged to determine the text's displayed properties.  Every extent has
+a "priority" that determines which face takes precedence if the faces
+conflict. (If two extents have the same priority, the one that comes
+later in the display order takes precedence.  *Note display order:
+Extent Endpoints.) Higher-numbered priority values correspond to a
+higher priority, and priority values can be negative.  Every extent is
+created with a priority of 0, but this can be changed with
+`set-extent-priority'.  Within a single extent with a list of faces,
+faces earlier in the list have a higher priority than faces later in
+the list.
+
+   Extents can be set to respond specially to key and mouse events
+within the extent.  An extent's `keymap' property controls the effect of
+key and mouse strokes within the extent's text, and the `mouse-face'
+property controls whether the extent is highlighted when the mouse moves
+over it.  *Note Extents and Events::.
+
+   An extent can optionally have a "begin-glyph" or "end-glyph"
+associated with it.  A begin-glyph or end-glyph is a pixmap or string
+that will be displayed either at the start or end of an extent or in the
+margin of the line that the start or end of the extent lies in,
+depending on the extent's layout policy.  Begin-glyphs and end-glyphs
+are used to implement annotations, and you should use the annotation API
+functions in preference to the lower-level extent functions.  For more
+information, *Note Annotations::.
+
+   If an extent has its `detachable' property set, it will become
+"detached" (i.e. no longer in the buffer) when all its text is deleted.
+Otherwise, it will simply shrink down to zero-length and sit in the
+same place in the buffer.  By default, the `detachable' property is set
+on newly-created extents.  *Note Detached Extents::.
+
+   If an extent has its `duplicable' property set, it will be
+remembered when a string is created from text bounded by the extent.
+When the string is re-inserted into a buffer, the extent will also be
+re-inserted.  This mechanism is used in the kill, yank, and undo
+commands.  *Note Duplicable Extents::.
+
+
+File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoints,  Prev: Intro to Extents,  Up: Extents
+
+Creating and Modifying Extents
+==============================
+
+ - Function: make-extent from to &optional buffer-or-string
+     This function makes an extent for the range [FROM, TO) in
+     BUFFER-OR-STRING (a buffer or string).  BUFFER-OR-STRING defaults
+     to the current buffer.  Insertions at point TO will be outside of
+     the extent; insertions at FROM will be inside the extent, causing
+     the extent to grow (*note Extent Endpoints::).  This is the same
+     way that markers behave.  The extent is initially detached if both
+     FROM and TO are `nil', and in this case BUFFER-OR-STRING defaults
+     to `nil', meaning the extent is in no buffer or string (*note
+     Detached Extents::).
+
+ - Function: delete-extent extent
+     This function removes EXTENT from its buffer and destroys it.
+     This does not modify the buffer's text, only its display
+     properties.  The extent cannot be used thereafter.  To remove an
+     extent in such a way that it can be re-inserted later, use
+     `detach-extent'.  *Note Detached Extents::.
+
+ - Function: extent-object extent
+     This function returns the buffer or string that EXTENT is in.  If
+     the return value is `nil', this means that the extent is detached;
+     however, a detached extent will not necessarily return a value of
+     `nil'.
+
+ - Function: extent-live-p object
+     This function returns `t' if OBJECT is an extent that has not been
+     deleted, and `nil' otherwise.
+
+
+File: lispref.info,  Node: Extent Endpoints,  Next: Finding Extents,  Prev: Creating and Modifying Extents,  Up: Extents
+
+Extent Endpoints
+================
+
+   Every extent has a start position and an end position, and logically
+affects the characters between those positions.  Normally the start and
+end positions must both be valid positions in the extent's buffer or
+string.  However, both endpoints can be `nil', meaning the extent is
+detached.  *Note Detached Extents::.
+
+   Whether the extent overlaps its endpoints is governed by its
+`start-open' and `end-open' properties.  Insertion of a character at a
+closed endpoint will expand the extent to include that character;
+insertion at an open endpoint will not.  Similarly, functions such as
+`extent-at' that scan over all extents overlapping a particular
+position will include extents with a closed endpoint at that position,
+but not extents with an open endpoint.
+
+   Note that the `start-closed' and `end-closed' properties are
+equivalent to `start-open' and `end-open' with the opposite sense.
+
+   Both endpoints can be equal, in which case the extent includes no
+characters but still exists in the buffer or string.  Zero-length
+extents are used to represent annotations (*note Annotations::) and can
+be used as a more powerful form of a marker.  Deletion of all the
+characters in an extent may or may not result in a zero-length extent;
+this depends on the `detachable' property (*note Detached Extents::).
+Insertion at the position of a zero-length extent expands the extent if
+both endpoints are closed; goes before the extent if it has the
+`start-open' property; and goes after the extent if it has the
+`end-open' property.  Zero-length extents with both the `start-open'
+and `end-open' properties are treated as if their starting point were
+closed.  Deletion of a character on a side of a zero-length extent
+whose corresponding endpoint is closed causes the extent to be detached
+if its `detachable' property is set; if the corresponding endpoint is
+open, the extent remains in the buffer, moving as necessary.
+
+   Extents are ordered within a buffer or string by increasing start
+position, and then by decreasing end position (this is called the
+"display order").
+
+ - Function: extent-start-position extent
+     This function returns the start position of EXTENT.
+
+ - Function: extent-end-position extent
+     This function returns the end position of EXTENT.
+
+ - Function: extent-length extent
+     This function returns the length of EXTENT in characters.  If the
+     extent is detached, this returns `0'.  If the extent is not
+     detached, this is equivalent to
+          (- (extent-end-position EXTENT) (extent-start-position EXTENT))
+
+ - Function: set-extent-endpoints extent start end &optional
+          buffer-or-string
+     This function sets the start and end position of EXTENT to START
+     and END.  If both are `nil', this is equivalent to `detach-extent'.
+
+     BUFFER-OR-STRING specifies the new buffer or string that the
+     extent should be in, and defaults to EXTENT's buffer or string.
+     (If `nil', and EXTENT is in no buffer and no string, it defaults
+     to the current buffer.)
+
+     See documentation on `detach-extent' for a discussion of undo
+     recording.
+
+
+File: lispref.info,  Node: Finding Extents,  Next: Mapping Over Extents,  Prev: Extent Endpoints,  Up: Extents
+
+Finding Extents
+===============
+
+   The following functions provide a simple way of determining the
+extents in a buffer or string.  A number of more sophisticated
+primitives for mapping over the extents in a range of a buffer or string
+are also provided (*note Mapping Over Extents::).  When reading through
+this section, keep in mind the way that extents are ordered (*note
+Extent Endpoints::).
+
+ - Function: extent-list &optional buffer-or-string from to flags
+          property value
+     This function returns a list of the extents in BUFFER-OR-STRING.
+     BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
+     and TO can be used to limit the range over which extents are
+     returned; if omitted, all extents in the buffer or string are
+     returned.
+
+     More specifically, if a range is specified using FROM and TO, only
+     extents that overlap the range (i.e. begin or end inside of the
+     range) are included in the list.  FROM and TO default to the
+     beginning and end of BUFFER-OR-STRING, respectively.
+
+     FLAGS controls how end cases are treated.  For a discussion of
+     this, and exactly what "overlap" means, see `map-extents'.
+
+     The optional arguments PROPERTY and VALUE can be used to further
+     restrict which extents are returned.  They have the same meaning
+     as for `map-extents'.
+
+     If you want to map a function over the extents in a buffer or
+     string, consider using `map-extents' or `mapcar-extents' instead.
+
+     See also the function `extents-at'.
+
+   Functions that create extents must be prepared for the possibility
+that there are other extents in the same area, created by other
+functions.  To deal with this, functions typically mark their own
+extents by setting a particular property on them.  The following
+function makes it easier to locate those extents.
+
+ - Function: extent-at pos &optional object property before at-flag
+     This function finds the "smallest" extent (i.e., the last one in
+     the display order) at (i.e., overlapping) POS in OBJECT (a buffer
+     or string) having PROPERTY set.  OBJECT defaults to the current
+     buffer.  PROPERTY defaults to `nil', meaning that any extent will
+     do.  Returns `nil' if there is no matching extent at POS.  If the
+     fourth argument BEFORE is not `nil', it must be an extent; any
+     returned extent will precede that extent.  This feature allows
+     `extent-at' to be used by a loop over extents.
+
+     AT-FLAG controls how end cases are handled (i.e. what "at" really
+     means), and should be one of:
+
+    `nil'
+
+    `after'
+          An extent is at POS if it covers the character after POS.
+          This is consistent with the way that text properties work.
+
+    `before'
+          An extent is at POS if it covers the character before POS.
+
+    `at'
+          An extent is at POS if it overlaps or abuts POS.  This
+          includes all zero-length extents at POS.
+
+     Note that in all cases, the start-openness and end-openness of the
+     extents considered is ignored.  If you want to pay attention to
+     those properties, you should use `map-extents', which gives you
+     more control.
+
+   The following low-level functions are provided for explicitly
+traversing the extents in a buffer according to the display order.
+These functions are mostly intended for debugging--in normal operation,
+you should probably use `mapcar-extents' or `map-extents', or loop
+using the BEFORE argument to `extent-at', rather than creating a loop
+using `next-extent'.
+
+ - Function: next-extent extent
+     Given an extent EXTENT, this function returns the next extent in
+     the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the first extent in the buffer or string.
+
+ - Function: previous-extent extent
+     Given an extent EXTENT, this function returns the previous extent
+     in the buffer or string's display order.  If EXTENT is a buffer or
+     string, this returns the last extent in the buffer or string.
+
+
+File: lispref.info,  Node: Mapping Over Extents,  Next: Extent Properties,  Prev: Finding Extents,  Up: Extents
+
+Mapping Over Extents
+====================
+
+   The most basic and general function for mapping over extents is
+called `map-extents'.  You should read through the definition of this
+function to familiarize yourself with the concepts and optional
+arguments involved.  However, in practice you may find it more
+convenient to use the function `mapcar-extents' or to create a loop
+using the `before' argument to `extent-at' (*note Finding Extents::).
+
+ - Function: map-extents function &optional object from to maparg flags
+          property value
+     This function maps FUNCTION over the extents which overlap a
+     region in OBJECT.  OBJECT is normally a buffer or string but could
+     be an extent (see below).  The region is normally bounded by
+     [FROM, TO) (i.e. the beginning of the region is closed and the end
+     of the region is open), but this can be changed with the FLAGS
+     argument (see below for a complete discussion).
+
+     FUNCTION is called with the arguments (extent, MAPARG).  The
+     arguments OBJECT, FROM, TO, MAPARG, and FLAGS are all optional and
+     default to the current buffer, the beginning of OBJECT, the end of
+     OBJECT, `nil', and `nil', respectively.  `map-extents' returns the
+     first non-`nil' result produced by FUNCTION, and no more calls to
+     FUNCTION are made after it returns non-`nil'.
+
+     If OBJECT is an extent, FROM and TO default to the extent's
+     endpoints, and the mapping omits that extent and its predecessors.
+     This feature supports restarting a loop based on `map-extents'.
+     Note: OBJECT must be attached to a buffer or string, and the
+     mapping is done over that buffer or string.
+
+     An extent overlaps the region if there is any point in the extent
+     that is also in the region. (For the purpose of overlap,
+     zero-length extents and regions are treated as closed on both ends
+     regardless of their endpoints' specified open/closedness.) Note
+     that the endpoints of an extent or region are considered to be in
+     that extent or region if and only if the corresponding end is
+     closed.  For example, the extent [5,7] overlaps the region [2,5]
+     because 5 is in both the extent and the region.  However, (5,7]
+     does not overlap [2,5] because 5 is not in the extent, and neither
+     [5,7] nor (5,7] overlaps the region [2,5) because 5 is not in the
+     region.
+
+     The optional FLAGS can be a symbol or a list of one or more
+     symbols, modifying the behavior of `map-extents'.  Allowed symbols
+     are:
+
+    `end-closed'
+          The region's end is closed.
+
+    `start-open'
+          The region's start is open.
+
+    `all-extents-closed'
+          Treat all extents as closed on both ends for the purpose of
+          determining whether they overlap the region, irrespective of
+          their actual open- or closedness.
+
+    `all-extents-open'
+          Treat all extents as open on both ends.
+
+    `all-extents-closed-open'
+          Treat all extents as start-closed, end-open.
+
+    `all-extents-open-closed'
+          Treat all extents as start-open, end-closed.
+
+    `start-in-region'
+          In addition to the above conditions for extent overlap, the
+          extent's start position must lie within the specified region.
+          Note that, for this condition, open start positions are
+          treated as if 0.5 was added to the endpoint's value, and open
+          end positions are treated as if 0.5 was subtracted from the
+          endpoint's value.
+
+    `end-in-region'
+          The extent's end position must lie within the region.
+
+    `start-and-end-in-region'
+          Both the extent's start and end positions must lie within the
+          region.
+
+    `start-or-end-in-region'
+          Either the extent's start or end position must lie within the
+          region.
+
+    `negate-in-region'
+          The condition specified by a `*-in-region' flag must _not_
+          hold for the extent to be considered.
+
+     At most one of `all-extents-closed', `all-extents-open',
+     `all-extents-closed-open', and `all-extents-open-closed' may be
+     specified.
+
+     At most one of `start-in-region', `end-in-region',
+     `start-and-end-in-region', and `start-or-end-in-region' may be
+     specified.
+
+     If optional arg PROPERTY is non-`nil', only extents with that
+     property set on them will be visited.  If optional arg VALUE is
+     non-`nil', only extents whose value for that property is `eq' to
+     VALUE will be visited.
+
+   If you want to map over extents and accumulate a list of results,
+the following function may be more convenient than `map-extents'.
+
+ - Function: mapcar-extents function &optional predicate
+          buffer-or-string from to flags property value
+     This function applies FUNCTION to all extents which overlap a
+     region in BUFFER-OR-STRING.  The region is delimited by FROM and
+     TO.  FUNCTION is called with one argument, the extent.  A list of
+     the values returned by FUNCTION is returned.  An optional
+     PREDICATE may be used to further limit the extents over which
+     FUNCTION is mapped.  The optional arguments FLAGS, PROPERTY, and
+     VALUE may also be used to control the extents passed to PREDICATE
+     or FUNCTION, and have the same meaning as in `map-extents'.
+
+ - Function: map-extent-children function &optional object from to
+          maparg flags property value
+     This function is similar to `map-extents', but differs in that:
+
+        * It only visits extents which start in the given region.
+
+        * After visiting an extent E, it skips all other extents which
+          start inside E but end before E's end.
+
+     Thus, this function may be used to walk a tree of extents in a
+     buffer:
+          (defun walk-extents (buffer &optional ignore)
+            (map-extent-children 'walk-extents buffer))
+
+ - Function: extent-in-region-p extent &optional from to flags
+     This function returns `t' if `map-extents' would visit EXTENT if
+     called with the given arguments.
+
+
 File: lispref.info,  Node: Extent Properties,  Next: Detached Extents,  Prev: Mapping Over Extents,  Up: Extents
 
 Properties of Extents
@@ -72,9 +644,9 @@ from that parent (or from the root ancestor if the parent in turn has a
 parent), and setting a property of the extent actually sets that
 property on the parent.  *Note Extent Parents::.
 
- - Function: extent-property extent property
-     This function returns the value of PROPERTY in EXTENT.  If
-     PROPERTY is undefined, `nil' is returned.
+ - Function: extent-property extent property &optional default
+     This function returns EXTENT's value for PROPERTY, or DEFAULT if
+     no such property exists.
 
  - Function: extent-properties extent
      This function returns a list of all of EXTENT's properties that do
@@ -259,8 +831,8 @@ particular properties of an extent.
    The following convenience functions are provided for setting
 particular properties of an extent.
 
- - Function: set-extent-priority extent pri
-     This function sets the `priority' property of EXTENT to PRI.
+ - Function: set-extent-priority extent priority
+     This function sets the `priority' property of EXTENT to PRIORITY.
 
  - Function: set-extent-face extent face
      This function sets the `face' property of EXTENT to FACE.
@@ -583,488 +1155,4 @@ of the default face be
    * red for all other buffers displayed on a color device
 
    * white for all other buffers
-
-
-File: lispref.info,  Node: Specifiers In-Depth,  Next: Specifier Instancing,  Prev: Introduction to Specifiers,  Up: Specifiers
-
-In-Depth Overview of a Specifier
-================================
-
-   A specifier object encapsulates a set of "specifications", each of
-which says what its value should be if a particular condition applies.
-For example, one specification might be "The value should be
-darkseagreen2 on X devices" another might be "The value should be blue
-in the *Help* buffer".  In specifier terminology, these conditions are
-called "locales" and the values are called "instantiators".  Given a
-specifier, a logical question is "What is its value in a particular
-situation?" This involves looking through the specifications to see
-which ones apply to this particular situation, and perhaps preferring
-one over another if more than one applies.  In specifier terminology, a
-"particular situation" is called a "domain", and determining its value
-in a particular domain is called "instancing".  Most of the time, a
-domain is identified by a particular window.  For example, if the
-redisplay engine is drawing text in the default face in a particular
-window, it retrieves the specifier for the foreground color of the
-default face and "instances" it in the domain given by that window; in
-other words, it asks the specifier, "What is your value in this
-window?".
-
-   More specifically, a specifier contains a set of "specifications",
-each of which associates a "locale" (a window object, a buffer object,
-a frame object, a device object, or the symbol `global') with an
-"inst-list", which is a list of one or more "inst-pairs". (For each
-possible locale, there can be at most one specification containing that
-locale.) Each inst-pair is a cons of a "tag set" (an unordered list of
-zero or more symbols, or "tags") and an "instantiator" (the allowed
-form of this varies depending on the type of specifier).  In a given
-specification, there may be more than one inst-pair with the same tag
-set; this is unlike for locales.
-
-   The tag set is used to restrict the sorts of devices over which the
-instantiator is valid and to uniquely identify instantiators added by a
-particular application, so that different applications can work on the
-same specifier and not interfere with each other.  Each tag can have a
-"predicate" associated with it, which is a function of one argument (a
-device) that specifies whether the tag matches that particular device.
-(If a tag does not have a predicate, it matches all devices.)  All tags
-in a tag set must match a device for the associated inst-pair to be
-instantiable over that device.  (A null tag set is perfectly valid.)
-
-   The valid device types (normally `x', `tty', and `stream') and
-device classes (normally `color', `grayscale', and `mono') can always
-be used as tags, and match devices of the associated type or class
-(*note Consoles and Devices::).  User-defined tags may be defined, with
-an optional predicate specified.  An application can create its own
-tag, use it to mark all its instantiators, and be fairly confident that
-it will not interfere with other applications that modify the same
-specifier--Functions that add a specification to a specifier usually
-only overwrite existing inst-pairs with the same tag set as was given,
-and a particular tag or tag set can be specified when removing
-instantiators.
-
-   When a specifier is instanced in a domain, both the locale and the
-tag set can be viewed as specifying necessary conditions that must
-apply in that domain for an instantiator to be considered as a possible
-result of the instancing.  More specific locales always override more
-general locales (thus, there is no particular ordering of the
-specifications in a specifier); however, the tag sets are simply
-considered in the order that the inst-pairs occur in the
-specification's inst-list.
-
-   Note also that the actual object that results from the instancing
-(called an "instance object") may not be the same as the instantiator
-from which it was derived.  For some specifier types (such as integer
-specifiers and boolean specifiers), the instantiator will be returned
-directly as the instance object.  For other types, however, this is not
-the case.  For example, for font specifiers, the instantiator is a
-font-description string and the instance object is a font-instance
-object, which describes how the font is displayed on a particular
-device.  A font-instance object encapsulates such things as the actual
-font name used to display the font on that device (a font-description
-string under X is usually a wildcard specification that may resolve to
-different font names, with possibly different foundries, widths, etc.,
-on different devices), the extra properties of that font on that
-device, etc.  Furthermore, this conversion (called "instantiation")
-might fail--a font or color might not exist on a particular device, for
-example.
-
-
-File: lispref.info,  Node: Specifier Instancing,  Next: Specifier Types,  Prev: Specifiers In-Depth,  Up: Specifiers
-
-How a Specifier Is Instanced
-============================
-
-   Instancing of a specifier in a particular window domain proceeds as
-follows:
-
-   * First, XEmacs searches for a specification whose locale is the
-     same as the window.  If that fails, the search is repeated,
-     looking for a locale that is the same as the window's buffer.  If
-     that fails, the search is repeated using the window's frame, then
-     using the device that frame is on.  Finally, the specification
-     whose locale is the symbol `global' (if there is such a
-     specification) is considered.
-
-   * The inst-pairs contained in the specification that was found are
-     considered in their order in the inst-list, looking for one whose
-     tag set matches the device that is derived from the window domain.
-     (The tag set is an unordered list of zero or more tag symbols.
-     For all tags that have predicates associated with them, the
-     predicate must match the device.)
-
-   * If a matching tag set is found, the corresponding instantiator is
-     passed to the specifier's instantiation method, which is specific
-     to the type of the specifier.  If it succeeds, the resulting
-     instance object is returned as the result of the instancing and
-     the instancing is done.  Otherwise, the operation continues,
-     looking for another matching inst-pair in the current
-     specification.
-
-   * When there are no more inst-pairs to be considered in the current
-     specification, the search starts over, looking for another
-     specification as in the first step above.
-
-   * If all specifications are exhausted and no instance object can be
-     derived, the instancing fails. (Actually, this is not completely
-     true.  Some specifier objects for built-in properties have a
-     "fallback" value, which is either an inst-list or another
-     specifier object, that is consulted if the instancing is about to
-     fail.  If it is an inst-list, the searching proceeds using the
-     inst-pairs in that list.  If it is a specifier, the entire
-     instancing starts over using that specifier instead of the given
-     one.  Fallback values are set by the C code and cannot be
-     modified, except perhaps indirectly, using any Lisp functions.
-     The purpose of them is to supply some values to make sure that
-     instancing of built-in properties can't fail and to implement some
-     basic specifier inheritance, such as the fact that faces inherit
-     their properties from the `default' face.)
-
-   It is also possible to instance a specifier over a frame domain or
-device domain instead of over a window domain.  The C code, for example,
-instances the `top-toolbar-height' variable over a frame domain in
-order to determine the height of a frame's top toolbar.  Instancing over
-a frame or device is similar to instancing over a window except that
-specifications for locales that cannot be derived from the domain are
-ignored.  Specifically, instancing over a frame looks first for frame
-locales, then device locales, then the `global' locale.  Instancing
-over a device domain looks only for device locales and the `global'
-locale.
-
-
-File: lispref.info,  Node: Specifier Types,  Next: Adding Specifications,  Prev: Specifier Instancing,  Up: Specifiers
-
-Specifier Types
-===============
-
-   There are various different types of specifiers.  The type of a
-specifier controls what sorts of instantiators are valid, how an
-instantiator is instantiated, etc.  Here is a list of built-in specifier
-types:
-
-`boolean'
-     The valid instantiators are the symbols `t' and `nil'.  Instance
-     objects are the same as instantiators so no special instantiation
-     function is needed.
-
-`integer'
-     The valid instantiators are integers.  Instance objects are the
-     same as instantiators so no special instantiation function is
-     needed.  `modeline-shadow-thickness' is an example of an integer
-     specifier (negative thicknesses indicate that the shadow is drawn
-     recessed instead of raised).
-
-`natnum'
-     The valid instantiators are natnums (non-negative integers).
-     Instance objects are the same as instantiators so no special
-     instantiation function is needed.  Natnum specifiers are used for
-     dimension variables such as `top-toolbar-height'.
-
-`generic'
-     All Lisp objects are valid instantiators.  Instance objects are
-     the same as instantiators so no special instantiation function is
-     needed.
-
-`font'
-     The valid instantiators are strings describing fonts or vectors
-     indicating inheritance from the font of some face.  Instance
-     objects are font-instance objects, which are specific to a
-     particular device.  The instantiation method for font specifiers
-     can fail, unlike for integer, natnum, boolean, and generic
-     specifiers.
-
-`color'
-     The valid instantiators are strings describing colors or vectors
-     indicating inheritance from the foreground or background of some
-     face.  Instance objects are color-instance objects, which are
-     specific to a particular device.  The instantiation method for
-     color specifiers can fail, as for font specifiers.
-
-`image'
-     Images are perhaps the most complicated type of built-in
-     specifier.  The valid instantiators are strings (a filename,
-     inline data for a pixmap, or text to be displayed in a text glyph)
-     or vectors describing inline data of various sorts or indicating
-     inheritance from the background-pixmap property of some face.
-     Instance objects are either strings (for text images),
-     image-instance objects (for pixmap images), or subwindow objects
-     (for subwindow images).  The instantiation method for image
-     specifiers can fail, as for font and color specifiers.
-
-`face-boolean'
-     The valid instantiators are the symbols `t' and `nil' and vectors
-     indicating inheritance from a boolean property of some face.
-     Specifiers of this sort are used for all of the built-in boolean
-     properties of faces.  Instance objects are either the symbol `t'
-     or the symbol `nil'.
-
-`toolbar'
-     The valid instantiators are toolbar descriptors, which are lists
-     of toolbar-button descriptors (each of which is a vector of two or
-     four elements).  *Note Toolbar::, for more information.
-
-   Color and font instance objects can also be used in turn as
-instantiators for a new color or font instance object.  Since these
-instance objects are device-specific, the instantiator can be used
-directly as the new instance object, but only if they are of the same
-device.  If the devices differ, the base color or font of the
-instantiating object is effectively used instead as the instantiator.
-
-   *Note Faces and Window-System Objects::, for more information on
-fonts, colors, and face-boolean specifiers.  *Note Glyphs::, for more
-information about image specifiers.  *Note Toolbar::, for more
-information on toolbar specifiers.
-
- - Function: specifier-type specifier
-     This function returns the type of SPECIFIER.  The returned value
-     will be a symbol: one of `integer', `boolean', etc., as listed in
-     the above table.
-
-   Functions are also provided to query whether an object is a
-particular kind of specifier:
-
- - Function: boolean-specifier-p object
-     This function returns non-`nil' if OBJECT is a boolean specifier.
-
- - Function: integer-specifier-p object
-     This function returns non-`nil' if OBJECT is an integer specifier.
-
- - Function: natnum-specifier-p object
-     This function returns non-`nil' if OBJECT is a natnum specifier.
-
- - Function: generic-specifier-p object
-     This function returns non-`nil' if OBJECT is a generic specifier.
-
- - Function: face-boolean-specifier-p object
-     This function returns non-`nil' if OBJECT is a face-boolean
-     specifier.
-
- - Function: toolbar-specifier-p object
-     This function returns non-`nil' if OBJECT is a toolbar specifier.
-
- - Function: font-specifier-p object
-     This function returns non-`nil' if OBJECT is a font specifier.
-
- - Function: color-specifier-p object
-     This function returns non-`nil' if OBJECT is a color specifier.
-
- - Function: image-specifier-p object
-     This function returns non-`nil' if OBJECT is an image specifier.
-
-
-File: lispref.info,  Node: Adding Specifications,  Next: Retrieving Specifications,  Prev: Specifier Types,  Up: Specifiers
-
-Adding specifications to a Specifier
-====================================
-
- - Function: add-spec-to-specifier specifier instantiator &optional
-          locale tag-set how-to-add
-     This function adds a specification to SPECIFIER.  The
-     specification maps from LOCALE (which should be a window, buffer,
-     frame, device, or the symbol `global', and defaults to `global')
-     to INSTANTIATOR, whose allowed values depend on the type of the
-     specifier.  Optional argument TAG-SET limits the instantiator to
-     apply only to the specified tag set, which should be a list of
-     tags all of which must match the device being instantiated over
-     (tags are a device type, a device class, or tags defined with
-     `define-specifier-tag').  Specifying a single symbol for TAG-SET
-     is equivalent to specifying a one-element list containing that
-     symbol.  Optional argument HOW-TO-ADD specifies what to do if
-     there are already specifications in the specifier.  It should be
-     one of
-
-    `prepend'
-          Put at the beginning of the current list of instantiators for
-          LOCALE.
-
-    `append'
-          Add to the end of the current list of instantiators for
-          LOCALE.
-
-    `remove-tag-set-prepend'
-          This is the default.  Remove any existing instantiators whose
-          tag set is the same as TAG-SET; then put the new instantiator
-          at the beginning of the current list.
-
-    `remove-tag-set-append'
-          Remove any existing instantiators whose tag set is the same as
-          TAG-SET; then put the new instantiator at the end of the
-          current list.
-
-    `remove-locale'
-          Remove all previous instantiators for this locale before
-          adding the new spec.
-
-    `remove-locale-type'
-          Remove all specifications for all locales of the same type as
-          LOCALE (this includes LOCALE itself) before adding the new
-          spec.
-
-    `remove-all'
-          Remove all specifications from the specifier before adding
-          the new spec.
-
-     `remove-tag-set-prepend' is the default.
-
-     You can retrieve the specifications for a particular locale or
-     locale type with the function `specifier-spec-list' or
-     `specifier-specs'.
-
- - Function: add-spec-list-to-specifier specifier spec-list &optional
-          how-to-add
-     This function adds a "spec-list" (a list of specifications) to
-     SPECIFIER.  The format of a spec-list is
-
-            `((LOCALE (TAG-SET . INSTANTIATOR) ...) ...)'
-
-     where
-
-        * LOCALE := a window, a buffer, a frame, a device, or `global'
-
-        * TAG-SET := an unordered list of zero or more TAGS, each of
-          which is a symbol
-
-        * TAG := a device class (*note Consoles and Devices::), a
-          device type, or a tag defined with `define-specifier-tag'
-
-        * INSTANTIATOR := format determined by the type of specifier
-
-     The pair `(TAG-SET . INSTANTIATOR)' is called an "inst-pair".  A
-     list of inst-pairs is called an "inst-list".  The pair `(LOCALE .
-     INST-LIST)' is called a "specification".  A spec-list, then, can
-     be viewed as a list of specifications.
-
-     HOW-TO-ADD specifies how to combine the new specifications with
-     the existing ones, and has the same semantics as for
-     `add-spec-to-specifier'.
-
-     In many circumstances, the higher-level function `set-specifier' is
-     more convenient and should be used instead.
-
- - Macro: let-specifier specifier-list &rest body
-     This special form temporarily adds specifications to specifiers,
-     evaluates forms in BODY and restores the specifiers to their
-     previous states.  The specifiers and their temporary
-     specifications are listed in SPECIFIER-LIST.
-
-     The format of SPECIFIER-LIST is
-
-          ((SPECIFIER VALUE &optional LOCALE TAG-SET HOW-TO-ADD) ...)
-
-     SPECIFIER is the specifier to be temporarily modified.  VALUE is
-     the instantiator to be temporarily added to specifier in LOCALE.
-     LOCALE, TAG-SET and HOW-TO-ADD have the same meaning as in
-     `add-spec-to-specifier'.
-
-     This special form is implemented as a macro; the code resulting
-     from macro expansion will add specifications to specifiers using
-     `add-spec-to-specifier'.  After forms in BODY are evaluated, the
-     temporary specifications are removed and old specifier spec-lists
-     are restored.
-
-     LOCALE, TAG-SET and HOW-TO-ADD may be omitted, and default to
-     `nil'.  The value of the last form in BODY is returned.
-
-     NOTE: If you want the specifier's instance to change in all
-     circumstances, use `(selected-window)' as the LOCALE.  If LOCALE
-     is `nil' or omitted, it defaults to `global'.
-
-     The following example removes the 3D modeline effect in the
-     currently selected window for the duration of a second:
-
-          (let-specifier ((modeline-shadow-thickness 0 (selected-window)))
-            (sit-for 1))
-
- - Function: set-specifier specifier value &optional how-to-add
-     This function adds some specifications to SPECIFIER.  VALUE can be
-     a single instantiator or tagged instantiator (added as a global
-     specification), a list of tagged and/or untagged instantiators
-     (added as a global specification), a cons of a locale and
-     instantiator or locale and instantiator list, a list of such
-     conses, or nearly any other reasonable form.  More specifically,
-     VALUE can be anything accepted by `canonicalize-spec-list'.
-
-     HOW-TO-ADD is the same as in `add-spec-to-specifier'.
-
-     Note that `set-specifier' is exactly complementary to
-     `specifier-specs' except in the case where SPECIFIER has no specs
-     at all in it but `nil' is a valid instantiator (in that case,
-     `specifier-specs' will return `nil' (meaning no specs) and
-     `set-specifier' will interpret the `nil' as meaning "I'm adding a
-     global instantiator and its value is `nil'"), or in strange cases
-     where there is an ambiguity between a spec-list and an inst-list,
-     etc. (The built-in specifier types are designed in such a way as
-     to avoid any such ambiguities.)
-
-     If you want to work with spec-lists, you should probably not use
-     these functions, but should use the lower-level functions
-     `specifier-spec-list' and `add-spec-list-to-specifier'.  These
-     functions always work with fully-qualified spec-lists; thus, there
-     is no ambiguity.
-
- - Function: canonicalize-inst-pair inst-pair specifier-type &optional
-          noerror
-     This function canonicalizes the given INST-PAIR.
-
-     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
-     will be used for.
-
-     Canonicalizing means converting to the full form for an inst-pair,
-     i.e.  `(TAG-SET . INSTANTIATOR)'.  A single, untagged instantiator
-     is given a tag set of `nil' (the empty set), and a single tag is
-     converted into a tag set consisting only of that tag.
-
-     If NOERROR is non-`nil', signal an error if the inst-pair is
-     invalid; otherwise return `t'.
-
- - Function: canonicalize-inst-list inst-list specifier-type &optional
-          noerror
-     This function canonicalizes the given INST-LIST (a list of
-     inst-pairs).
-
-     SPECIFIER-TYPE specifies the type of specifier that this INST-LIST
-     will be used for.
-
-     Canonicalizing means converting to the full form for an inst-list,
-     i.e.  `((TAG-SET . INSTANTIATOR) ...)'.  This function accepts a
-     single inst-pair or any abbreviation thereof or a list of
-     (possibly abbreviated) inst-pairs. (See `canonicalize-inst-pair'.)
-
-     If NOERROR is non-`nil', signal an error if the inst-list is
-     invalid; otherwise return `t'.
-
- - Function: canonicalize-spec spec specifier-type &optional noerror
-     This function canonicalizes the given SPEC (a specification).
-
-     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
-     will be used for.
-
-     Canonicalizing means converting to the full form for a spec, i.e.
-     `(LOCALE (TAG-SET . INSTANTIATOR) ...)'.  This function accepts a
-     possibly abbreviated inst-list or a cons of a locale and a
-     possibly abbreviated inst-list. (See `canonicalize-inst-list'.)
-
-     If NOERROR is `nil', signal an error if the specification is
-     invalid; otherwise return `t'.
-
- - Function: canonicalize-spec-list spec-list specifier-type &optional
-          noerror
-     This function canonicalizes the given SPEC-LIST (a list of
-     specifications).
-
-     SPECIFIER-TYPE specifies the type of specifier that this SPEC-LIST
-     will be used for.
-
-     Canonicalizing means converting to the full form for a spec-list,
-     i.e.  `((LOCALE (TAG-SET . INSTANTIATOR) ...) ...)'.  This
-     function accepts a possibly abbreviated specification or a list of
-     such things. (See `canonicalize-spec'.) This is the function used
-     to convert spec-lists accepted by `set-specifier' and such into a
-     form suitable for `add-spec-list-to-specifier'.
-
-     This function tries extremely hard to resolve any ambiguities, and
-     the built-in specifier types (font, image, toolbar, etc.) are
-     designed so that there won't be any ambiguities.
-
-     If NOERROR is `nil', signal an error if the spec-list is invalid;
-     otherwise return `t'.
 

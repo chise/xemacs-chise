@@ -56,8 +56,8 @@ top to bottom and left to right.  From the rightmost and bottommost
 window, it goes back to the one at the upper left corner.  A numeric
 argument, N, moves several steps in the cyclic order of windows. A
 negative numeric argument moves around the cycle in the opposite order.
-If the optional second argument ALL-FRAMES is non-`nil', the function
-cycles through all frames.  When the minibuffer is active, the
+If the optional second argument WHICH-FRAMES is non-`nil', the
+function cycles through all frames.  When the minibuffer is active, the
 minibuffer is the last window in the cycle; you can switch from the
 minibuffer window to one of the other windows, and later switch back
 and finish supplying the minibuffer argument that is requested.  *Note

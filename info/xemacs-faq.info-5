@@ -7,6 +7,71 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: xemacs-faq.info,  Node: Q5.1.9,  Next: Q5.1.10,  Prev: Q5.1.8,  Up: Miscellaneous
+
+Q5.1.9: How do I put a glyph as annotation in a buffer?
+-------------------------------------------------------
+
+   Here is a solution that will insert the glyph annotation at the
+beginning of buffer:
+
+     (make-annotation (make-glyph '([FORMAT :file FILE]
+                                    [string :data "fallback-text"]))
+                      (point-min)
+                      'text
+                      (current-buffer))
+
+   Replace `FORMAT' with an unquoted symbol representing the format of
+the image (e.g. `xpm', `xbm', `gif', `jpeg', etc.)  Instead of `FILE',
+use the image file name (e.g.
+`/usr/local/lib/xemacs-20.2/etc/recycle.xpm').
+
+   You can turn this to a function (that optionally prompts you for a
+file name), and inserts the glyph at `(point)' instead of `(point-min)'.
+
+
+File: xemacs-faq.info,  Node: Q5.1.10,  Next: Q5.1.11,  Prev: Q5.1.9,  Up: Miscellaneous
+
+Q5.1.10: `map-extents' won't traverse all of my extents!
+--------------------------------------------------------
+
+   I tried to use `map-extents' to do an operation on all the extents
+in a region.  However, it seems to quit after processing a random number
+of extents.  Is it buggy?
+
+   No.  The documentation of `map-extents' states that it will iterate
+across the extents as long as FUNCTION returns `nil'.  Unexperienced
+programmers often forget to return `nil' explicitly, which results in
+buggy code.  For instance, the following code is supposed to delete all
+the extents in a buffer, and issue as many `fubar!' messages.
+
+     (map-extents (lambda (ext ignore)
+                    (delete-extent ext)
+                    (message "fubar!")))
+
+   Instead, it will delete only the first extent, and stop right there -
+because `message' will return a non-nil value.  The correct code is:
+
+     (map-extents (lambda (ext ignore)
+                    (delete-extent ext)
+                    (message "fubar!")
+                    nil))
+
+
+File: xemacs-faq.info,  Node: Q5.1.11,  Next: Q5.2.1,  Prev: Q5.1.10,  Up: Miscellaneous
+
+Q5.1.11: My elisp program is horribly slow.  Is there
+-----------------------------------------------------
+
+   an easy way to find out where it spends time?
+
+   zHrvoje Niksic <hniksic@xemacs.org> writes:
+     Under XEmacs 20.4 and later  you can use `M-x
+     profile-key-sequence', press a key (say <RET> in the Gnus Group
+     buffer), and get the results using `M-x profile-results'.  It
+     should give you an idea of where the time is being spent.
+
+
 File: xemacs-faq.info,  Node: Q5.2.1,  Next: Q5.2.2,  Prev: Q5.1.11,  Up: Miscellaneous
 
 Q5.2.1: How do I turn off the sound?

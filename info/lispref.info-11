@@ -50,6 +50,218 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Inline Functions,  Next: Related Topics,  Prev: Function Cells,  Up: Functions
+
+Inline Functions
+================
+
+   You can define an "inline function" by using `defsubst' instead of
+`defun'.  An inline function works just like an ordinary function
+except for one thing: when you compile a call to the function, the
+function's definition is open-coded into the caller.
+
+   Making a function inline makes explicit calls run faster.  But it
+also has disadvantages.  For one thing, it reduces flexibility; if you
+change the definition of the function, calls already inlined still use
+the old definition until you recompile them.  Since the flexibility of
+redefining functions is an important feature of XEmacs, you should not
+make a function inline unless its speed is really crucial.
+
+   Another disadvantage is that making a large function inline can
+increase the size of compiled code both in files and in memory.  Since
+the speed advantage of inline functions is greatest for small
+functions, you generally should not make large functions inline.
+
+   It's possible to define a macro to expand into the same code that an
+inline function would execute.  But the macro would have a limitation:
+you can use it only explicitly--a macro cannot be called with `apply',
+`mapcar' and so on.  Also, it takes some work to convert an ordinary
+function into a macro.  (*Note Macros::.)  To convert it into an inline
+function is very easy; simply replace `defun' with `defsubst'.  Since
+each argument of an inline function is evaluated exactly once, you
+needn't worry about how many times the body uses the arguments, as you
+do for macros.  (*Note Argument Evaluation::.)
+
+   Inline functions can be used and open-coded later on in the same
+file, following the definition, just like macros.
+
+
+File: lispref.info,  Node: Related Topics,  Prev: Inline Functions,  Up: Functions
+
+Other Topics Related to Functions
+=================================
+
+   Here is a table of several functions that do things related to
+function calling and function definitions.  They are documented
+elsewhere, but we provide cross references here.
+
+`apply'
+     See *Note Calling Functions::.
+
+`autoload'
+     See *Note Autoload::.
+
+`call-interactively'
+     See *Note Interactive Call::.
+
+`commandp'
+     See *Note Interactive Call::.
+
+`documentation'
+     See *Note Accessing Documentation::.
+
+`eval'
+     See *Note Eval::.
+
+`funcall'
+     See *Note Calling Functions::.
+
+`ignore'
+     See *Note Calling Functions::.
+
+`indirect-function'
+     See *Note Function Indirection::.
+
+`interactive'
+     See *Note Using Interactive::.
+
+`interactive-p'
+     See *Note Interactive Call::.
+
+`mapatoms'
+     See *Note Creating Symbols::.
+
+`mapcar'
+     See *Note Mapping Functions::.
+
+`mapconcat'
+     See *Note Mapping Functions::.
+
+`undefined'
+     See *Note Key Lookup::.
+
+
+File: lispref.info,  Node: Macros,  Next: Loading,  Prev: Functions,  Up: Top
+
+Macros
+******
+
+   "Macros" enable you to define new control constructs and other
+language features.  A macro is defined much like a function, but instead
+of telling how to compute a value, it tells how to compute another Lisp
+expression which will in turn compute the value.  We call this
+expression the "expansion" of the macro.
+
+   Macros can do this because they operate on the unevaluated
+expressions for the arguments, not on the argument values as functions
+do.  They can therefore construct an expansion containing these
+argument expressions or parts of them.
+
+   If you are using a macro to do something an ordinary function could
+do, just for the sake of speed, consider using an inline function
+instead.  *Note Inline Functions::.
+
+* Menu:
+
+* Simple Macro::            A basic example.
+* Expansion::               How, when and why macros are expanded.
+* Compiling Macros::        How macros are expanded by the compiler.
+* Defining Macros::         How to write a macro definition.
+* Backquote::               Easier construction of list structure.
+* Problems with Macros::    Don't evaluate the macro arguments too many times.
+                              Don't hide the user's variables.
+
+
+File: lispref.info,  Node: Simple Macro,  Next: Expansion,  Up: Macros
+
+A Simple Example of a Macro
+===========================
+
+   Suppose we would like to define a Lisp construct to increment a
+variable value, much like the `++' operator in C.  We would like to
+write `(inc x)' and have the effect of `(setq x (1+ x))'.  Here's a
+macro definition that does the job:
+
+     (defmacro inc (var)
+        (list 'setq var (list '1+ var)))
+
+   When this is called with `(inc x)', the argument `var' has the value
+`x'--_not_ the _value_ of `x'.  The body of the macro uses this to
+construct the expansion, which is `(setq x (1+ x))'.  Once the macro
+definition returns this expansion, Lisp proceeds to evaluate it, thus
+incrementing `x'.
+
+
+File: lispref.info,  Node: Expansion,  Next: Compiling Macros,  Prev: Simple Macro,  Up: Macros
+
+Expansion of a Macro Call
+=========================
+
+   A macro call looks just like a function call in that it is a list
+which starts with the name of the macro.  The rest of the elements of
+the list are the arguments of the macro.
+
+   Evaluation of the macro call begins like evaluation of a function
+call except for one crucial difference: the macro arguments are the
+actual expressions appearing in the macro call.  They are not evaluated
+before they are given to the macro definition.  By contrast, the
+arguments of a function are results of evaluating the elements of the
+function call list.
+
+   Having obtained the arguments, Lisp invokes the macro definition just
+as a function is invoked.  The argument variables of the macro are bound
+to the argument values from the macro call, or to a list of them in the
+case of a `&rest' argument.  And the macro body executes and returns
+its value just as a function body does.
+
+   The second crucial difference between macros and functions is that
+the value returned by the macro body is not the value of the macro call.
+Instead, it is an alternate expression for computing that value, also
+known as the "expansion" of the macro.  The Lisp interpreter proceeds
+to evaluate the expansion as soon as it comes back from the macro.
+
+   Since the expansion is evaluated in the normal manner, it may contain
+calls to other macros.  It may even be a call to the same macro, though
+this is unusual.
+
+   You can see the expansion of a given macro call by calling
+`macroexpand'.
+
+ - Function: macroexpand form &optional environment
+     This function expands FORM, if it is a macro call.  If the result
+     is another macro call, it is expanded in turn, until something
+     which is not a macro call results.  That is the value returned by
+     `macroexpand'.  If FORM is not a macro call to begin with, it is
+     returned as given.
+
+     Note that `macroexpand' does not look at the subexpressions of
+     FORM (although some macro definitions may do so).  Even if they
+     are macro calls themselves, `macroexpand' does not expand them.
+
+     The function `macroexpand' does not expand calls to inline
+     functions.  Normally there is no need for that, since a call to an
+     inline function is no harder to understand than a call to an
+     ordinary function.
+
+     If ENVIRONMENT is provided, it specifies an alist of macro
+     definitions that shadow the currently defined macros.  Byte
+     compilation uses this feature.
+
+          (defmacro inc (var)
+              (list 'setq var (list '1+ var)))
+               => inc
+          
+          (macroexpand '(inc r))
+               => (setq r (1+ r))
+          
+          (defmacro inc2 (var1 var2)
+              (list 'progn (list 'inc var1) (list 'inc var2)))
+               => inc2
+          
+          (macroexpand '(inc2 r s))
+               => (progn (inc r) (inc s))  ; `inc' not expanded here.
+
+
 File: lispref.info,  Node: Compiling Macros,  Next: Defining Macros,  Prev: Expansion,  Up: Macros
 
 Macros and Byte Compilation
@@ -1076,193 +1288,4 @@ the forms are function definitions and variable definitions.
 * Unloading::			How to ``unload'' a library that was loaded.
 * Hooks for Loading::		Providing code to be run when
 				  particular libraries are loaded.
-
-
-File: lispref.info,  Node: How Programs Do Loading,  Next: Autoload,  Up: Loading
-
-How Programs Do Loading
-=======================
-
-   XEmacs Lisp has several interfaces for loading.  For example,
-`autoload' creates a placeholder object for a function in a file;
-trying to call the autoloading function loads the file to get the
-function's real definition (*note Autoload::).  `require' loads a file
-if it isn't already loaded (*note Named Features::).  Ultimately, all
-these facilities call the `load' function to do the work.
-
- - Function: load filename &optional missing-ok nomessage nosuffix
-     This function finds and opens a file of Lisp code, evaluates all
-     the forms in it, and closes the file.
-
-     To find the file, `load' first looks for a file named
-     `FILENAME.elc', that is, for a file whose name is FILENAME with
-     `.elc' appended.  If such a file exists, it is loaded.  If there
-     is no file by that name, then `load' looks for a file named
-     `FILENAME.el'.  If that file exists, it is loaded.  Finally, if
-     neither of those names is found, `load' looks for a file named
-     FILENAME with nothing appended, and loads it if it exists.  (The
-     `load' function is not clever about looking at FILENAME.  In the
-     perverse case of a file named `foo.el.el', evaluation of `(load
-     "foo.el")' will indeed find it.)
-
-     If the optional argument NOSUFFIX is non-`nil', then the suffixes
-     `.elc' and `.el' are not tried.  In this case, you must specify
-     the precise file name you want.
-
-     If FILENAME is a relative file name, such as `foo' or
-     `baz/foo.bar', `load' searches for the file using the variable
-     `load-path'.  It appends FILENAME to each of the directories
-     listed in `load-path', and loads the first file it finds whose name
-     matches.  The current default directory is tried only if it is
-     specified in `load-path', where `nil' stands for the default
-     directory.  `load' tries all three possible suffixes in the first
-     directory in `load-path', then all three suffixes in the second
-     directory, and so on.
-
-     If you get a warning that `foo.elc' is older than `foo.el', it
-     means you should consider recompiling `foo.el'.  *Note Byte
-     Compilation::.
-
-     Messages like `Loading foo...' and `Loading foo...done' appear in
-     the echo area during loading unless NOMESSAGE is non-`nil'.
-
-     Any unhandled errors while loading a file terminate loading.  If
-     the load was done for the sake of `autoload', any function
-     definitions made during the loading are undone.
-
-     If `load' can't find the file to load, then normally it signals the
-     error `file-error' (with `Cannot open load file FILENAME').  But
-     if MISSING-OK is non-`nil', then `load' just returns `nil'.
-
-     You can use the variable `load-read-function' to specify a function
-     for `load' to use instead of `read' for reading expressions.  See
-     below.
-
-     `load' returns `t' if the file loads successfully.
-
- - User Option: load-path
-     The value of this variable is a list of directories to search when
-     loading files with `load'.  Each element is a string (which must be
-     a directory name) or `nil' (which stands for the current working
-     directory).  The value of `load-path' is initialized from the
-     environment variable `EMACSLOADPATH', if that exists; otherwise its
-     default value is specified in `emacs/src/paths.h' when XEmacs is
-     built.
-
-     The syntax of `EMACSLOADPATH' is the same as used for `PATH'; `:'
-     (or `;', according to the operating system) separates directory
-     names, and `.' is used for the current default directory.  Here is
-     an example of how to set your `EMACSLOADPATH' variable from a
-     `csh' `.login' file:
-
-          setenv EMACSLOADPATH .:/user/bil/emacs:/usr/lib/emacs/lisp
-
-     Here is how to set it using `sh':
-
-          export EMACSLOADPATH
-          EMACSLOADPATH=.:/user/bil/emacs:/usr/local/lib/emacs/lisp
-
-     Here is an example of code you can place in a `.emacs' file to add
-     several directories to the front of your default `load-path':
-
-          (setq load-path
-                (append (list nil "/user/bil/emacs"
-                              "/usr/local/lisplib"
-                              "~/emacs")
-                        load-path))
-
-     In this example, the path searches the current working directory
-     first, followed then by the `/user/bil/emacs' directory, the
-     `/usr/local/lisplib' directory, and the `~/emacs' directory, which
-     are then followed by the standard directories for Lisp code.
-
-     The command line options `-l' or `-load' specify a Lisp library to
-     load as part of Emacs startup.  Since this file might be in the
-     current directory, Emacs 18 temporarily adds the current directory
-     to the front of `load-path' so the file can be found there.  Newer
-     Emacs versions also find such files in the current directory, but
-     without altering `load-path'.
-
-     Dumping Emacs uses a special value of `load-path'.  If the value of
-     `load-path' at the end of dumping is unchanged (that is, still the
-     same special value), the dumped Emacs switches to the ordinary
-     `load-path' value when it starts up, as described above.  But if
-     `load-path' has any other value at the end of dumping, that value
-     is used for execution of the dumped Emacs also.
-
-     Therefore, if you want to change `load-path' temporarily for
-     loading a few libraries in `site-init.el' or `site-load.el', you
-     should bind `load-path' locally with `let' around the calls to
-     `load'.
-
- - Function: locate-file filename path-list &optional suffixes mode
-     This function searches for a file in the same way that `load' does,
-     and returns the file found (if any). (In fact, `load' uses this
-     function to search through `load-path'.) It searches for FILENAME
-     through PATH-LIST, expanded by one of the optional SUFFIXES
-     (string of suffixes separated by `:'s), checking for access MODE
-     (0|1|2|4 = exists|executable|writable|readable), default readable.
-
-     `locate-file' keeps hash tables of the directories it searches
-     through, in order to speed things up.  It tries valiantly to not
-     get confused in the face of a changing and unpredictable
-     environment, but can occasionally get tripped up.  In this case,
-     you will have to call `locate-file-clear-hashing' to get it back
-     on track.  See that function for details.
-
- - Function: locate-file-clear-hashing path
-     This function clears the hash records for the specified list of
-     directories.  `locate-file' uses a hashing scheme to speed lookup,
-     and will correctly track the following environmental changes:
-
-        * changes of any sort to the list of directories to be searched.
-
-        * addition and deletion of non-shadowing files (see below) from
-          the directories in the list.
-
-        * byte-compilation of a .el file into a .elc file.
-
-     `locate-file' will primarily get confused if you add a file that
-     shadows (i.e. has the same name as) another file further down in
-     the directory list.  In this case, you must call
-     `locate-file-clear-hashing'.
-
- - Variable: load-in-progress
-     This variable is non-`nil' if Emacs is in the process of loading a
-     file, and it is `nil' otherwise.
-
- - Variable: load-read-function
-     This variable specifies an alternate expression-reading function
-     for `load' and `eval-region' to use instead of `read'.  The
-     function should accept one argument, just as `read' does.
-
-     Normally, the variable's value is `nil', which means those
-     functions should use `read'.
-
- - User Option: load-warn-when-source-newer
-     This variable specifies whether `load' should check whether the
-     source is newer than the binary.  If this variable is true, then
-     when a `.elc' file is being loaded and the corresponding `.el' is
-     newer, a warning message will be printed.  The default is `nil',
-     but it is bound to `t' during the initial loadup.
-
- - User Option: load-warn-when-source-only
-     This variable specifies whether `load' should warn when loading a
-     `.el' file instead of an `.elc'.  If this variable is true, then
-     when `load' is called with a filename without an extension, and
-     the `.elc' version doesn't exist but the `.el' version does, then
-     a message will be printed.  If an explicit extension is passed to
-     `load', no warning will be printed.  The default is `nil', but it
-     is bound to `t' during the initial loadup.
-
- - User Option: load-ignore-elc-files
-     This variable specifies whether `load' should ignore `.elc' files
-     when a suffix is not given.  This is normally used only to
-     bootstrap the `.elc' files when building XEmacs, when you use the
-     command `make all-elc'. (This forces the `.el' versions to be
-     loaded in the process of compiling those same files, so that
-     existing out-of-date `.elc' files do not make it mess things up.)
-
-   To learn how `load' is used to build XEmacs, see *Note Building
-XEmacs::.
 

@@ -30,6 +30,197 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Interactive Shell,  Next: Shell Mode,  Prev: Single Shell,  Up: Shell
+
+Interactive Inferior Shell
+--------------------------
+
+   To run a subshell interactively with its typescript in an XEmacs
+buffer, use `M-x shell'.  This creates (or reuses) a buffer named
+`*shell*' and runs a subshell with input coming from and output going
+to that buffer.  That is to say, any "terminal output" from the subshell
+will go into the buffer, advancing point, and any "terminal input" for
+the subshell comes from text in the buffer.  To give input to the
+subshell, go to the end of the buffer and type the input, terminated by
+<RET>.
+
+   XEmacs does not wait for the subshell to do anything.  You can switch
+windows or buffers and edit them while the shell is waiting, or while
+it is running a command.  Output from the subshell waits until XEmacs
+has time to process it; this happens whenever XEmacs is waiting for
+keyboard input or for time to elapse.
+
+   To get multiple subshells, change the name of buffer `*shell*' to
+something different by using `M-x rename-buffer'.  The next use of `M-x
+shell' creates a new buffer `*shell*' with its own subshell.  By
+renaming this buffer as well you can create a third one, and so on.
+All the subshells run independently and in parallel.
+
+   The file name used to load the subshell is the value of the variable
+`explicit-shell-file-name', if that is non-`nil'.  Otherwise, the
+environment variable `ESHELL' is used, or the environment variable
+`SHELL' if there is no `ESHELL'.  If the file name specified is
+relative, the directories in the list `exec-path' are searched (*note
+Single Shell Commands: Single Shell.).
+
+   As soon as the subshell is started, it is sent as input the contents
+of the file `~/.emacs_SHELLNAME', if that file exists, where SHELLNAME
+is the name of the file that the shell was loaded from.  For example,
+if you use `csh', the file sent to it is `~/.emacs_csh'.
+
+   `cd', `pushd', and `popd' commands given to the inferior shell are
+watched by XEmacs so it can keep the `*shell*' buffer's default
+directory the same as the shell's working directory.  These commands
+are recognized syntactically by examining lines of input that are sent.
+If you use aliases for these commands, you can tell XEmacs to
+recognize them also.  For example, if the value of the variable
+`shell-pushd-regexp' matches the beginning of a shell command line,
+that line is regarded as a `pushd' command.  Change this variable when
+you add aliases for `pushd'.  Likewise, `shell-popd-regexp' and
+`shell-cd-regexp' are used to recognize commands with the meaning of
+`popd' and `cd'.
+
+   `M-x shell-resync-dirs' queries the shell and resynchronizes XEmacs'
+idea of what the current directory stack is.  `M-x
+shell-dirtrack-toggle' turns directory tracking on and off.
+
+   XEmacs keeps a history of the most recent commands you have typed in
+the `*shell*' buffer.  If you are at the beginning of a shell command
+line and type <M-p>, the previous shell input is inserted into the
+buffer before point.  Immediately typing <M-p> again deletes that input
+and inserts the one before it.  By repeating <M-p> you can move
+backward through your commands until you find one you want to repeat.
+You may then edit the command before typing <RET> if you wish. <M-n>
+moves forward through the command history, in case you moved backward
+past the one you wanted while using <M-p>.  If you type the first few
+characters of a previous command and then type <M-p>, the most recent
+shell input starting with those characters is inserted.  This can be
+very convenient when you are repeating a sequence of shell commands.
+The variable `input-ring-size' controls how many commands are saved in
+your input history.  The default is 30.
+
+
+File: xemacs.info,  Node: Shell Mode,  Next: Terminal emulator,  Prev: Interactive Shell,  Up: Shell
+
+Shell Mode
+----------
+
+   The shell buffer uses Shell mode, which defines several special keys
+attached to the `C-c' prefix.  They are chosen to resemble the usual
+editing and job control characters present in shells that are not under
+XEmacs, except that you must type `C-c' first.  Here is a list of the
+special key bindings of Shell mode:
+
+`<RET>'
+     At end of buffer send line as input; otherwise, copy current line
+     to end of buffer and send it (`send-shell-input').  When a line is
+     copied, any text at the beginning of the line that matches the
+     variable `shell-prompt-pattern' is left out; this variable's value
+     should be a regexp string that matches the prompts that you use in
+     your subshell.
+
+`C-c C-d'
+     Send end-of-file as input, probably causing the shell or its
+     current subjob to finish (`shell-send-eof').
+
+`C-d'
+     If point is not at the end of the buffer, delete the next
+     character just like most other modes.  If point is at the end of
+     the buffer, send end-of-file as input, instead of generating an
+     error as in other modes (`comint-delchar-or-maybe-eof').
+
+`C-c C-u'
+     Kill all text that has yet to be sent as input
+     (`kill-shell-input').
+
+`C-c C-w'
+     Kill a word before point (`backward-kill-word').
+
+`C-c C-c'
+     Interrupt the shell or its current subjob if any
+     (`interrupt-shell-subjob').
+
+`C-c C-z'
+     Stop the shell or its current subjob if any (`stop-shell-subjob').
+
+`C-c C-\'
+     Send quit signal to the shell or its current subjob if any
+     (`quit-shell-subjob').
+
+`C-c C-o'
+     Delete last batch of output from shell (`kill-output-from-shell').
+
+`C-c C-r'
+     Scroll top of last batch of output to top of window
+     (`show-output-from-shell').
+
+`C-c C-y'
+     Copy the previous bunch of shell input and insert it into the
+     buffer before point (`copy-last-shell-input').  No final newline
+     is inserted, and the input copied is not resubmitted until you type
+     <RET>.
+
+`M-p'
+     Move backward through the input history.  Search for a matching
+     command if you have typed the beginning of a command
+     (`comint-previous-input').
+
+`M-n'
+     Move forward through the input history.  Useful when you are using
+     <M-p> quickly and go past the desired command
+     (`comint-next-input').
+
+`<TAB>'
+     Complete the file name preceding point (`comint-dynamic-complete').
+
+
+File: xemacs.info,  Node: Terminal emulator,  Next: Term Mode,  Prev: Shell Mode,  Up: Shell
+
+Interactive Inferior Shell with Terminal Emulator
+-------------------------------------------------
+
+   To run a subshell in a terminal emulator, putting its typescript in
+an XEmacs buffer, use `M-x term'.  This creates (or reuses) a buffer
+named `*term*' and runs a subshell with input coming from your keyboard
+and output going to that buffer.
+
+   All the normal keys that you type are sent without any interpretation
+by XEmacs directly to the subshell, as "terminal input."  Any "echo" of
+your input is the responsibility of the subshell.  (The exception is
+the terminal escape character, which by default is `C-c'. *note Term
+Mode::.)  Any "terminal output" from the subshell goes into the buffer,
+advancing point.
+
+   Some programs (such as XEmacs itself) need to control the appearance
+on the terminal screen in detail.  They do this by sending special
+control codes.  The exact control codes needed vary from terminal to
+terminal, but nowadays most terminals and terminal emulators (including
+xterm) understand the so-called "ANSI escape sequences" (first
+popularized by the Digital's VT100 family of terminal).  The term mode
+also understands these escape sequences, and for each control code does
+the appropriate thing to change the buffer so that the appearance of
+the window will match what it would be on a real terminal.  Thus you
+can actually run XEmacs inside an XEmacs Term window!
+
+   XEmacs does not wait for the subshell to do anything.  You can switch
+windows or buffers and edit them while the shell is waiting, or while
+it is running a command.  Output from the subshell waits until XEmacs
+has time to process it; this happens whenever XEmacs is waiting for
+keyboard input or for time to elapse.
+
+   To make multiple terminal emulators, rename the buffer `*term*' to
+something different using `M-x rename-uniquely', just as with Shell
+mode.
+
+   The file name used to load the subshell is determined the same way
+as for Shell mode.
+
+   Unlike Shell mode, Term mode does not track the current directory by
+examining your input.  Instead, if you use a programmable shell, you
+can have it tell Term what the current directory is.  This is done
+automatically by bash for version 1.15 and later.
+
+
 File: xemacs.info,  Node: Term Mode,  Next: Paging in Term,  Prev: Terminal emulator,  Up: Shell
 
 Term Mode
@@ -975,199 +1166,4 @@ value.  The argument is evaluated; usually you must quote it
 explicitly, as in the case of:
 
      (default-value 'fill-column)
-
-
-File: xemacs.info,  Node: File Variables,  Prev: Locals,  Up: Variables
-
-Local Variables in Files
-------------------------
-
-   A file can contain a "local variables list", which specifies the
-values to use for certain Emacs variables when that file is edited.
-Visiting the file checks for a local variables list and makes each
-variable in the list local to the buffer in which the file is visited,
-with the value specified in the file.
-
-   A local variables list goes near the end of the file, in the last
-page.  (It is often best to put it on a page by itself.)  The local
-variables list starts with a line containing the string `Local
-Variables:', and ends with a line containing the string `End:'.  In
-between come the variable names and values, one set per line, as
-`VARIABLE: VALUE'.  The VALUEs are not evaluated; they are used
-literally.
-
-   The line which starts the local variables list does not have to say
-just `Local Variables:'.  If there is other text before `Local
-Variables:', that text is called the "prefix", and if there is other
-text after, that is called the "suffix".  If a prefix or suffix are
-present, each entry in the local variables list should have the prefix
-before it and the suffix after it.  This includes the `End:' line.  The
-prefix and suffix are included to disguise the local variables list as
-a comment so the compiler or text formatter  will ignore it.  If you do
-not need to disguise the local variables list as a comment in this way,
-there is no need to include a prefix or a suffix.
-
-   Two "variable" names are special in a local variables list: a value
-for the variable `mode' sets the major mode, and a value for the
-variable `eval' is simply evaluated as an expression and the value is
-ignored.  These are not real variables; setting them in any other
-context does not have the same effect.  If `mode' is used in a local
-variables list, it should be the first entry in the list.
-
-   Here is an example of a local variables list:
-     ;;; Local Variables: ***
-     ;;; mode:lisp ***
-     ;;; comment-column:0 ***
-     ;;; comment-start: ";;; "  ***
-     ;;; comment-end:"***" ***
-     ;;; End: ***
-
-   Note that the prefix is `;;; ' and the suffix is ` ***'.  Note also
-that comments in the file begin with and end with the same strings.
-Presumably the file contains code in a language which is enough like
-Lisp for Lisp mode to be useful but in which comments start and end
-differently.  The prefix and suffix are used in the local variables
-list to make the list look like several lines of comments when the
-compiler or interpreter for that language reads the file.
-
-   The start of the local variables list must be no more than 3000
-characters from the end of the file, and must be in the last page if the
-file is divided into pages.  Otherwise, Emacs will not notice it is
-there.  The purpose is twofold: a stray `Local Variables:' not in the
-last page does not confuse Emacs, and Emacs never needs to search a
-long file that contains no page markers and has no local variables list.
-
-   You may be tempted to turn on Auto Fill mode with a local variable
-list.  That is inappropriate.  Whether you use Auto Fill mode or not is
-a matter of personal taste, not a matter of the contents of particular
-files.  If you want to use Auto Fill, set up major mode hooks with your
-init file to turn it on (when appropriate) for you alone (*note Init
-File::).  Don't try to use a local variable list that would impose your
-taste on everyone working with the file.
-
-   XEmacs allows you to specify local variables in the first line of a
-file, in addition to specifying them in the `Local Variables' section
-at the end of a file.
-
-   If the first line of a file contains two occurrences of ``-*-'',
-XEmacs uses the information between them to determine what the major
-mode and variable settings should be.  For example, these are all legal:
-
-             ;;; -*- mode: emacs-lisp -*-
-             ;;; -*- mode: postscript; version-control: never -*-
-             ;;; -*- tags-file-name: "/foo/bar/TAGS" -*-
-
-   For historical reasons, the syntax ``-*- modename -*-'' is allowed
-as well; for example, you can use:
-
-             ;;; -*- emacs-lisp -*-
-
-   The variable `enable-local-variables' controls the use of local
-variables lists in files you visit.  The value can be `t', `nil', or
-something else.  A value of `t' means local variables lists are obeyed;
-`nil' means they are ignored; anything else means query.
-
-   The command `M-x normal-mode' always obeys local variables lists and
-ignores this variable.
-
-
-File: xemacs.info,  Node: Keyboard Macros,  Next: Key Bindings,  Prev: Variables,  Up: Customization
-
-Keyboard Macros
-===============
-
-   A "keyboard macro" is a command defined by the user to abbreviate a
-sequence of keys.  For example, if you discover that you are about to
-type `C-n C-d' forty times, you can speed your work by defining a
-keyboard macro to invoke `C-n C-d' and calling it with a repeat count
-of forty.
-
-`C-x ('
-     Start defining a keyboard macro (`start-kbd-macro').
-
-`C-x )'
-     End the definition of a keyboard macro (`end-kbd-macro').
-
-`C-x e'
-     Execute the most recent keyboard macro (`call-last-kbd-macro').
-
-`C-u C-x ('
-     Re-execute last keyboard macro, then add more keys to its
-     definition.
-
-`C-x q'
-     When this point is reached during macro execution, ask for
-     confirmation (`kbd-macro-query').
-
-`M-x name-last-kbd-macro'
-     Give a command name (for the duration of the session) to the most
-     recently defined keyboard macro.
-
-`M-x insert-kbd-macro'
-     Insert in the buffer a keyboard macro's definition, as Lisp code.
-
-   Keyboard macros differ from other Emacs commands in that they are
-written in the Emacs command language rather than in Lisp.  This makes
-it easier for the novice to write them and makes them more convenient as
-temporary hacks.  However, the Emacs command language is not powerful
-enough as a programming language to be useful for writing anything
-general or complex.  For such things, Lisp must be used.
-
-   You define a keyboard macro by executing the commands which are its
-definition.  Put differently, as you are defining a keyboard macro, the
-definition is being executed for the first time.  This way, you see
-what the effects of your commands are, and don't have to figure them
-out in your head.  When you are finished, the keyboard macro is defined
-and also has been executed once.  You can then execute the same set of
-commands again by invoking the macro.
-
-* Menu:
-
-* Basic Kbd Macro::     Defining and running keyboard macros.
-* Save Kbd Macro::      Giving keyboard macros names; saving them in files.
-* Kbd Macro Query::     Keyboard macros that do different things each use.
-
-
-File: xemacs.info,  Node: Basic Kbd Macro,  Next: Save Kbd Macro,  Up: Keyboard Macros
-
-Basic Use
----------
-
-   To start defining a keyboard macro, type `C-x ('
-(`start-kbd-macro').  From then on, anything you type continues to be
-executed, but also becomes part of the definition of the macro.  `Def'
-appears in the mode line to remind you of what is going on.  When you
-are finished, the `C-x )' command (`end-kbd-macro') terminates the
-definition, without becoming part of it.
-
-   For example,
-
-     C-x ( M-f foo C-x )
-
-defines a macro to move forward a word and then insert `foo'.
-
-   You can give `C-x )' a repeat count as an argument, in which case it
-repeats the macro that many times right after defining it, but defining
-the macro counts as the first repetition (since it is executed as you
-define it).  If you give `C-x )' an argument of 4, it executes the
-macro immediately 3 additional times.  An argument of zero to `C-x e'
-or `C-x )' means repeat the macro indefinitely (until it gets an error
-or you type `C-g').
-
-   Once you have defined a macro, you can invoke it again with the `C-x
-e' command (`call-last-kbd-macro').  You can give the command a repeat
-count numeric argument to execute the macro many times.
-
-   To repeat an operation at regularly spaced places in the text,
-define a macro and include as part of the macro the commands to move to
-the next place you want to use it.  For example, if you want to change
-each line, you should position point at the start of a line, and define
-a macro to change that line and leave point at the start of the next
-line.  Repeating the macro will then operate on successive lines.
-
-   After you have terminated the definition of a keyboard macro, you
-can add to the end of its definition by typing `C-u C-x ('.  This is
-equivalent to plain `C-x (' followed by retyping the whole definition
-so far.  As a consequence it re-executes the macro as previously
-defined.
 

@@ -271,7 +271,7 @@ it's best to exit XEmacs before upgrading an existing package.
 
 
 
-File: xemacs.info,  Node: Building Packages,  Prev: Using Packages,  Up: Packages
+File: xemacs.info,  Node: Building Packages,  Next: Available Packages,  Prev: Using Packages,  Up: Packages
 
    Source packages are available from the `packages/source-packages'
 subdirectory of your favorite XEmacs distribution site.  Alternatively,
@@ -334,7 +334,270 @@ to others.
      of use by XEmacs maintainers producing files for distribution.
 
 
-File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Packages,  Up: Top
+File: xemacs.info,  Node: Available Packages,  Prev: Building Packages,  Up: Packages
+
+   This section is surely out-of-date.  If you're sure that XEmacs is
+able to do something, but your installed XEmacs won't do it for you,
+it's probably in a package.  If you can't find it in this section,
+that's a bug--please report it.  It is very hard to keep this section
+up-to-date; your reports, comments, and questions will help a lot.
+
+   This data is up-to-date as of 10 February 1999.  (Ouch!  I told you!)
+
+Library Packages (libs)
+-----------------------
+
+   These packages are required to build and support most of the rest of
+XEmacs.  By design, xemacs-base is a `regular' package.  Use restraint
+when adding new files there as it is required by almost everything.
+
+`Sun'
+     Support for Sparcworks.
+
+`apel'
+     A Portable Emacs Library.  Used by XEmacs MIME support.
+
+`edebug'
+     A Lisp debugger.
+
+`dired'
+     The DIRectory EDitor is for manipulating, and running commands on
+     files in a directory.
+
+`efs'
+     Treat files on remote systems the same as local files.
+
+`mail-lib'
+     Fundamental lisp files for providing email support.
+
+`tooltalk'
+     Support for building with Tooltalk.
+
+`xemacs-base'
+     Fundamental XEmacs support.  Install this unless you wish a totally
+     naked XEmacs.
+
+`xemacs-devel'
+     XEmacs Lisp developer support.  This package contains utilities for
+     supporting Lisp development.  It is a single-file package so it
+     may be tailored.
+
+Communications Packages (comm)
+------------------------------
+
+   These packages provide support for various communications, primarily
+email and usenet.
+
+`footnote'
+     Footnoting in mail message editing modes.
+
+`gnats'
+     XEmacs bug reports.
+
+`gnus'
+     The Gnus Newsreader and Mailreader.
+
+`mailcrypt'
+     Support for messaging encryption with PGP.
+
+`mh-e'
+     Front end support for MH.
+
+`net-utils'
+     Miscellaneous Networking Utilities.  This is a single-file package
+     and files may be deleted at will.
+
+`ph'
+     Emacs implementation of the ph client to CCSO/qi directory servers.
+
+`rmail'
+     An obsolete Emacs mailer.  If you do not already use it don't
+     start.
+
+`supercite'
+     An Emacs citation tool.  Useful with all Emacs Mailers and
+     Newsreaders.
+
+`tm'
+     Emacs MIME support.
+
+`vm'
+     An Emacs mailer.
+
+`w3'
+     A Web browser.
+
+Games and Amusements (games)
+----------------------------
+
+`cookie'
+     Spook and Yow (Zippy quotes).
+
+`games'
+     Tetris, Sokoban, and Snake.
+
+`mine'
+     Minehunt.
+
+`misc-games'
+     Other amusements and diversions.
+
+Mule Support (mule)
+-------------------
+
+`egg-its'
+     Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
+     XEmacs build.
+
+`leim'
+     Quail.  Used for everything other than English and Japanese.
+
+`locale'
+     Used for localized menubars (French and Japanese) and localized
+     splash screens (Japanese).
+
+`mule-base'
+     Basic Mule support.  Must be installed prior to building with Mule.
+
+`skk'
+     Another Japanese Language Input Method.  Can be used without a
+     separate process running as a dictionary server.
+
+Productivity Packages (oa)
+--------------------------
+
+`calendar'
+     Calendar and diary support.
+
+`edit-utils'
+     Single file lisp packages for various XEmacs goodies.  Load this
+     and weed out the junk you don't want.
+
+`forms'
+     Forms editing support (obsolete, use the builtin Widget instead).
+
+`frame-icon'
+     Provide a WM icon based on major mode.
+
+`hm--html-menus'
+     HTML editing.
+
+`ispell'
+     Spell-checking with ispell.
+
+`pc'
+     PC style interface emulation.
+
+`psgml'
+     Validated HTML/SGML editing.
+
+`sgml'
+     SGML/Linuxdoc-SGML editing.
+
+`slider'
+     User interface tool.
+
+`speedbar'
+     ??? Document me.
+
+`strokes'
+     Mouse enhancement utility.
+
+`text-modes'
+     Various single file lisp packages for editing text files.
+
+`time'
+     Display time & date on the modeline.
+
+Operating System Utilities (os)
+-------------------------------
+
+`eterm'
+     Terminal emulator.
+
+`igrep'
+     Enhanced front-end for Grep.
+
+`ilisp'
+     Front-end for Inferior Lisp.
+
+`os-utils'
+     Miscellaneous single-file O/S utilities, for printing, archiving,
+     compression, remote shells, etc.
+
+`view-process'
+     A Unix process browsing tool.
+
+Program Editing Support (prog)
+------------------------------
+
+`ada'
+     Ada language support.
+
+`c-support'
+     Basic single-file add-ons for editing C code.
+
+`cc-mode'
+     C, C++ and Java language support.
+
+`debug'
+     GUD, gdb, dbx debugging support.
+
+`ediff'
+     Interface over patch.
+
+`emerge'
+     Another interface over patch.
+
+`pcl-cvs'
+     CVS frontend.
+
+`prog-modes'
+     Miscellaneous single-file lisp files for various programming
+     languages.
+
+`scheme'
+     Front-end support for Inferior Scheme.
+
+`sh-script'
+     Support for editing shell scripts.
+
+`vc'
+     Version Control for Free systems.
+
+`vc-cc'
+     Version Control for ClearCase.  This package must be installed
+     prior to building XEmacs [broken as of XEmacs 20.5-beta19].
+
+`vhdl'
+     Support for VHDL.
+
+Word Processing (wp)
+--------------------
+
+`auctex'
+     Basic TeX/LaTeX support.
+
+`crisp'
+     Crisp/Brief emulation.
+
+`edt'
+     DEC EDIT/EDT emulation.
+
+`texinfo'
+     XEmacs TeXinfo support.
+
+`textools'
+     Single-file TeX support.
+
+`tpu'
+     DEC EDIT/TPU support.
+
+`viper'
+     VI emulation support.
+
+
+File: xemacs.info,  Node: Abbrevs,  Next: Picture,  Prev: Running,  Up: Top
 
 Abbrevs
 *******
@@ -1072,162 +1335,4 @@ reasonable behavior.
 a string naming a file.  Each time you start to edit a message to send,
 an `FCC' field is entered for that file.  Unless you remove the `FCC'
 field, every message is written into that file when it is sent.
-
-
-File: xemacs.info,  Node: Mail Mode,  Prev: Mail Headers,  Up: Sending Mail
-
-Mail Mode
-=========
-
-   The major mode used in the `*mail*' buffer is Mail mode.  Mail mode
-is similar to Text mode, but several commands are provided on the `C-c'
-prefix.  These commands all deal specifically with editing or sending
-the message.
-
-`C-c C-s'
-     Send the message, and leave the `*mail*' buffer selected
-     (`mail-send').
-
-`C-c C-c'
-     Send the message, and select some other buffer
-     (`mail-send-and-exit').
-
-`C-c C-f C-t'
-     Move to the `To' header field, creating one if there is none
-     (`mail-to').
-
-`C-c C-f C-s'
-     Move to the `Subject' header field, creating one if there is none
-     (`mail-subject').
-
-`C-c C-f C-c'
-     Move to the `CC' header field, creating one if there is none
-     (`mail-cc').
-
-`C-c C-w'
-     Insert the file `~/.signature' at the end of the message text
-     (`mail-signature').
-
-`C-c C-y'
-     Yank the selected message (`mail-yank-original').
-
-`C-c C-q'
-     Fill all paragraphs of yanked old messages, each individually
-     (`mail-fill-yanked-message').
-
-`<button3>'
-     Pops up a menu of useful mail-mode commands.
-
-   There are two ways to send a message.  `C-c C-c'
-(`mail-send-and-exit') is the usual way to send the message.  It sends
-the message and then deletes the window (if there is another window) or
-switches to another buffer.  It puts the `*mail*' buffer at the lowest
-priority for automatic reselection, since you are finished with using
-it.  `C-c C-s' (`mail-send') sends the message and marks the `*mail*'
-buffer unmodified, but leaves that buffer selected so that you can
-modify the message (perhaps with new recipients) and send it again.
-
-   Mail mode provides some other special commands that are useful for
-editing the headers and text of the message before you send it.  There
-are three commands defined to move point to particular header fields,
-all based on the prefix `C-c C-f' (`C-f' is for "field").  They are
-`C-c C-f C-t' (`mail-to') to move to the `To' field, `C-c C-f C-s'
-(`mail-subject') for the `Subject' field, and `C-c C-f C-c' (`mail-cc')
-for the `CC' field.  These fields have special motion commands because
-they are edited most frequently.
-
-   `C-c C-w' (`mail-signature') adds a standard piece of text at the
-end of the message to say more about who you are.  The text comes from
-the file `.signature' in your home directory.
-
-   When you use an Rmail command to send mail from the Rmail mail
-reader, you can use `C-c C-y' `mail-yank-original' inside the `*mail*'
-buffer to insert the text of the message you are replying to.  Normally
-Rmail indents each line of that message four spaces and eliminates most
-header fields.  A numeric argument specifies the number of spaces to
-indent.  An argument of just `C-u' says not to indent at all and not to
-eliminate anything.  `C-c C-y' always uses the current message from the
-`RMAIL' buffer, so you can insert several old messages by selecting one
-in `RMAIL', switching to `*mail*' and yanking it, then switching back
-to `RMAIL' to select another.
-
-   After using `C-c C-y', you can use the command `C-c C-q'
-(`mail-fill-yanked-message') to fill the paragraphs of the yanked old
-message or messages.  One use of `C-c C-q' fills all such paragraphs,
-each one separately.
-
-   Clicking the right mouse button in a mail buffer pops up a menu of
-the above commands, for easy access.
-
-   Turning on Mail mode (which `C-x m' does automatically) calls the
-value of `text-mode-hook', if it is not void or `nil', and then calls
-the value of `mail-mode-hook' if that is not void or `nil'.
-
-
-File: xemacs.info,  Node: Reading Mail,  Next: Calendar/Diary,  Prev: Sending Mail,  Up: Top
-
-Reading Mail
-************
-
-   XEmacs provides three separate mail-reading packages.  Each one
-comes with its own manual, which is included standard with the XEmacs
-distribution.
-
-   The recommended mail-reading package for new users is VM.  VM works
-with standard Unix-mail-format folders and was designed as a replacement
-for the older Rmail.
-
-   XEmacs also provides a sophisticated and comfortable front-end to the
-MH mail-processing system, called `mh-e'.  Unlike in other mail
-programs, folders in MH are stored as file-system directories, with
-each message occupying one (numbered) file.  This facilitates working
-with mail using shell commands, and many other features of MH are also
-designed to integrate well with the shell and with shell scripts.  Keep
-in mind, however, that in order to use mh-e you must have the MH
-mail-processing system installed on your computer.
-
-   Finally, XEmacs provides the Rmail package.  Rmail is (currently) the
-only mail reading package distributed with FSF GNU Emacs, and is
-powerful in its own right.  However, it stores mail folders in a special
-format called `Babyl', that is incompatible with all other
-frequently-used mail programs.  A utility program is provided for
-converting Babyl folders to standard Unix-mail format; however, unless
-you already have mail in Babyl-format folders, you should consider
-using VM or mh-e instead. (If at times you have to use FSF Emacs, it is
-not hard to obtain and install VM for that editor.)
-
-
-File: xemacs.info,  Node: Calendar/Diary,  Next: Sorting,  Prev: Reading Mail,  Up: Top
-
-Calendar Mode and the Diary
-===========================
-
-   Emacs provides the functions of a desk calendar, with a diary of
-planned or past events.  To enter the calendar, type `M-x calendar';
-this displays a three-month calendar centered on the current month, with
-point on the current date.  With a numeric argument, as in `C-u M-x
-calendar', it prompts you for the month and year to be the center of the
-three-month calendar.  The calendar uses its own buffer, whose major
-mode is Calendar mode.
-
-   `Button2' in the calendar brings up a menu of operations on a
-particular date; `Buttons3' brings up a menu of commonly used calendar
-features that are independent of any particular date.  To exit the
-calendar, type `q'.  *Note Customizing the Calendar and Diary:
-(elisp)Calendar, for customization information about the calendar and
-diary.
-
-* Menu:
-
-* Calendar Motion::        Moving through the calendar; selecting a date.
-* Scroll Calendar::        Bringing earlier or later months onto the screen.
-* Mark and Region::        Remembering dates, the mark ring.
-* General Calendar::       Exiting or recomputing the calendar.
-* LaTeX Calendar::         Print a calendar using LaTeX.
-* Holidays::               Displaying dates of holidays.
-* Sunrise/Sunset::         Displaying local times of sunrise and sunset.
-* Lunar Phases::           Displaying phases of the moon.
-* Other Calendars::        Converting dates to other calendar systems.
-* Diary::                  Displaying events from your diary.
-* Calendar Customization:: Altering the behavior of the features above.
 

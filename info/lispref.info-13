@@ -50,6 +50,242 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Disassembly,  Prev: Compiled-Function Objects,  Up: Byte Compilation
+
+Disassembled Byte-Code
+======================
+
+   People do not write byte-code; that job is left to the byte compiler.
+But we provide a disassembler to satisfy a cat-like curiosity.  The
+disassembler converts the byte-compiled code into humanly readable form.
+
+   The byte-code interpreter is implemented as a simple stack machine.
+It pushes values onto a stack of its own, then pops them off to use them
+in calculations whose results are themselves pushed back on the stack.
+When a byte-code function returns, it pops a value off the stack and
+returns it as the value of the function.
+
+   In addition to the stack, byte-code functions can use, bind, and set
+ordinary Lisp variables, by transferring values between variables and
+the stack.
+
+ - Command: disassemble object &optional stream
+     This function prints the disassembled code for OBJECT.  If STREAM
+     is supplied, then output goes there.  Otherwise, the disassembled
+     code is printed to the stream `standard-output'.  The argument
+     OBJECT can be a function name or a lambda expression.
+
+     As a special exception, if this function is used interactively, it
+     outputs to a buffer named `*Disassemble*'.
+
+   Here are two examples of using the `disassemble' function.  We have
+added explanatory comments to help you relate the byte-code to the Lisp
+source; these do not appear in the output of `disassemble'.
+
+     (defun factorial (integer)
+       "Compute factorial of an integer."
+       (if (= 1 integer) 1
+         (* integer (factorial (1- integer)))))
+          => factorial
+     
+     (factorial 4)
+          => 24
+     
+     (disassemble 'factorial)
+          -| byte-code for factorial:
+      doc: Compute factorial of an integer.
+      args: (integer)
+     
+     0   varref   integer        ; Get value of `integer'
+                                 ;   from the environment
+                                 ;   and push the value
+                                 ;   onto the stack.
+     
+     1   constant 1              ; Push 1 onto stack.
+     
+     2   eqlsign                 ; Pop top two values off stack,
+                                 ;   compare them,
+                                 ;   and push result onto stack.
+     
+     3   goto-if-nil 1           ; Pop and test top of stack;
+                                 ;   if `nil',
+                                 ;   go to label 1 (which is also byte 7),
+                                 ;   else continue.
+     
+     5   constant 1              ; Push 1 onto top of stack.
+     
+     6   return                  ; Return the top element
+                                 ;   of the stack.
+     
+     7:1 varref   integer        ; Push value of `integer' onto stack.
+     
+     8   constant factorial      ; Push `factorial' onto stack.
+     
+     9   varref   integer        ; Push value of `integer' onto stack.
+     
+     10  sub1                    ; Pop `integer', decrement value,
+                                 ;   push new value onto stack.
+     
+                                 ; Stack now contains:
+                                 ;   - decremented value of `integer'
+                                 ;   - `factorial'
+                                 ;   - value of `integer'
+     
+     15  call     1              ; Call function `factorial' using
+                                 ;   the first (i.e., the top) element
+                                 ;   of the stack as the argument;
+                                 ;   push returned value onto stack.
+     
+                                 ; Stack now contains:
+                                 ;   - result of recursive
+                                 ;        call to `factorial'
+                                 ;   - value of `integer'
+     
+     12  mult                    ; Pop top two values off the stack,
+                                 ;   multiply them,
+                                 ;   pushing the result onto the stack.
+     
+     13  return                  ; Return the top element
+                                 ;   of the stack.
+          => nil
+
+   The `silly-loop' function is somewhat more complex:
+
+     (defun silly-loop (n)
+       "Return time before and after N iterations of a loop."
+       (let ((t1 (current-time-string)))
+         (while (> (setq n (1- n))
+                   0))
+         (list t1 (current-time-string))))
+          => silly-loop
+     
+     (disassemble 'silly-loop)
+          -| byte-code for silly-loop:
+      doc: Return time before and after N iterations of a loop.
+      args: (n)
+     
+     0   constant current-time-string  ; Push
+                                       ;   `current-time-string'
+                                       ;   onto top of stack.
+     
+     1   call     0              ; Call `current-time-string'
+                                 ;    with no argument,
+                                 ;    pushing result onto stack.
+     
+     2   varbind  t1             ; Pop stack and bind `t1'
+                                 ;   to popped value.
+     
+     3:1 varref   n              ; Get value of `n' from
+                                 ;   the environment and push
+                                 ;   the value onto the stack.
+     
+     4   sub1                    ; Subtract 1 from top of stack.
+     
+     5   dup                     ; Duplicate the top of the stack;
+                                 ;   i.e., copy the top of
+                                 ;   the stack and push the
+                                 ;   copy onto the stack.
+     
+     6   varset   n              ; Pop the top of the stack,
+                                 ;   and set `n' to the value.
+     
+                                 ; In effect, the sequence `dup varset'
+                                 ;   copies the top of the stack
+                                 ;   into the value of `n'
+                                 ;   without popping it.
+     
+     7   constant 0              ; Push 0 onto stack.
+     
+     8   gtr                     ; Pop top two values off stack,
+                                 ;   test if N is greater than 0
+                                 ;   and push result onto stack.
+     
+     9   goto-if-not-nil 1       ; Goto label 1 (byte 3) if `n' <= 0
+                                 ;   (this exits the while loop).
+                                 ;   else pop top of stack
+                                 ;   and continue
+     
+     11  varref   t1             ; Push value of `t1' onto stack.
+     
+     12  constant current-time-string  ; Push
+                                       ;   `current-time-string'
+                                       ;   onto top of stack.
+     
+     13  call     0              ; Call `current-time-string' again.
+     
+     14  unbind   1              ; Unbind `t1' in local environment.
+     
+     15  list2                   ; Pop top two elements off stack,
+                                 ;   create a list of them,
+                                 ;   and push list onto stack.
+     
+     16  return                  ; Return the top element of the stack.
+     
+          => nil
+
+
+File: lispref.info,  Node: Debugging,  Next: Read and Print,  Prev: Byte Compilation,  Up: Top
+
+Debugging Lisp Programs
+***********************
+
+   There are three ways to investigate a problem in an XEmacs Lisp
+program, depending on what you are doing with the program when the
+problem appears.
+
+   * If the problem occurs when you run the program, you can use a Lisp
+     debugger (either the default debugger or Edebug) to investigate
+     what is happening during execution.
+
+   * If the problem is syntactic, so that Lisp cannot even read the
+     program, you can use the XEmacs facilities for editing Lisp to
+     localize it.
+
+   * If the problem occurs when trying to compile the program with the
+     byte compiler, you need to know how to examine the compiler's
+     input buffer.
+
+* Menu:
+
+* Debugger::            How the XEmacs Lisp debugger is implemented.
+* Syntax Errors::       How to find syntax errors.
+* Compilation Errors::  How to find errors that show up in byte compilation.
+* Edebug::		A source-level XEmacs Lisp debugger.
+
+   Another useful debugging tool is the dribble file.  When a dribble
+file is open, XEmacs copies all keyboard input characters to that file.
+Afterward, you can examine the file to find out what input was used.
+*Note Terminal Input::.
+
+   For debugging problems in terminal descriptions, the
+`open-termscript' function can be useful.  *Note Terminal Output::.
+
+
+File: lispref.info,  Node: Debugger,  Next: Syntax Errors,  Up: Debugging
+
+The Lisp Debugger
+=================
+
+   The "Lisp debugger" provides the ability to suspend evaluation of a
+form.  While evaluation is suspended (a state that is commonly known as
+a "break"), you may examine the run time stack, examine the values of
+local or global variables, or change those values.  Since a break is a
+recursive edit, all the usual editing facilities of XEmacs are
+available; you can even run programs that will enter the debugger
+recursively.  *Note Recursive Editing::.
+
+* Menu:
+
+* Error Debugging::       Entering the debugger when an error happens.
+* Infinite Loops::	  Stopping and debugging a program that doesn't exit.
+* Function Debugging::    Entering it when a certain function is called.
+* Explicit Debug::        Entering it at a certain point in the program.
+* Using Debugger::        What the debugger does; what you see while in it.
+* Debugger Commands::     Commands used while in the debugger.
+* Invoking the Debugger:: How to call the function `debug'.
+* Internals of Debugger:: Subroutines of the debugger, and global variables.
+
+
 File: lispref.info,  Node: Error Debugging,  Next: Infinite Loops,  Up: Debugger
 
 Entering the Debugger on an Error
@@ -197,7 +433,7 @@ function, and then step through its caller.
                     (debug (quote debug))
                     (if (zerop n) 1 (* n (fact (1- n)))))
 
- - Command: cancel-debug-on-entry function-name
+ - Command: cancel-debug-on-entry &optional function-name
      This function undoes the effect of `debug-on-entry' on
      FUNCTION-NAME.  When called interactively, it prompts for
      FUNCTION-NAME in the minibuffer.  If FUNCTION-NAME is `nil' or the
@@ -961,222 +1197,4 @@ executing a keyboard macro is forgotten.  Also, defining or executing a
 keyboard macro outside of Edebug does not affect the command loop inside
 Edebug.  This is usually an advantage.  But see
 `edebug-continue-kbd-macro'.
-
-
-File: lispref.info,  Node: Jumping,  Next: Edebug Misc,  Prev: Edebug Execution Modes,  Up: Edebug
-
-Jumping
--------
-
-   Commands described here let you jump to a specified location.  All,
-except `i', use temporary breakpoints to establish the stop point and
-then switch to `go' mode.  Any other breakpoint reached before the
-intended stop point will also stop execution.  See *Note Breakpoints::
-for the details on breakpoints.
-
-`f'
-     Run the program forward over one expression
-     (`edebug-forward-sexp').  More precisely, set a temporary
-     breakpoint at the position that `C-M-f' would reach, then execute
-     in `go' mode so that the program will stop at breakpoints.
-
-     With a prefix argument N, the temporary breakpoint is placed N
-     sexps beyond point.  If the containing list ends before N more
-     elements, then the place to stop is after the containing
-     expression.
-
-     Be careful that the position `C-M-f' finds is a place that the
-     program will really get to; this may not be true in a `cond', for
-     example.
-
-     This command does `forward-sexp' starting at point rather than the
-     stop point.  If you want to execute one expression from the
-     current stop point, type `w' first, to move point there.
-
-`o'
-     Continue "out of" an expression (`edebug-step-out').  It places a
-     temporary breakpoint at the end of the sexp containing point.
-
-     If the containing sexp is a function definition itself, it
-     continues until just before the last sexp in the definition.  If
-     that is where you are now, it returns from the function and then
-     stops.  In other words, this command does not exit the currently
-     executing function unless you are positioned after the last sexp.
-
-`I'
-     Step into the function or macro after point after first ensuring
-     that it is instrumented.  It does this by calling
-     `edebug-on-entry' and then switching to `go' mode.
-
-     Although the automatic instrumentation is convenient, it is not
-     later automatically uninstrumented.
-
-`h'
-     Proceed to the stop point near where point is using a temporary
-     breakpoint (`edebug-goto-here').
-
-   All the commands in this section may fail to work as expected in case
-of nonlocal exit, because a nonlocal exit can bypass the temporary
-breakpoint where you expected the program to stop.
-
-
-File: lispref.info,  Node: Edebug Misc,  Next: Breakpoints,  Prev: Jumping,  Up: Edebug
-
-Miscellaneous
--------------
-
-   Some miscellaneous commands are described here.
-
-`?'
-     Display the help message for Edebug (`edebug-help').
-
-`C-]'
-     Abort one level back to the previous command level
-     (`abort-recursive-edit').
-
-`q'
-     Return to the top level editor command loop (`top-level').  This
-     exits all recursive editing levels, including all levels of Edebug
-     activity.  However, instrumented code protected with
-     `unwind-protect' or `condition-case' forms may resume debugging.
-
-`Q'
-     Like `q' but don't stop even for protected code
-     (`top-level-nonstop').
-
-`r'
-     Redisplay the most recently known expression result in the echo
-     area (`edebug-previous-result').
-
-`d'
-     Display a backtrace, excluding Edebug's own functions for clarity
-     (`edebug-backtrace').
-
-     You cannot use debugger commands in the backtrace buffer in Edebug
-     as you would in the standard debugger.
-
-     The backtrace buffer is killed automatically when you continue
-     execution.
-
-   From the Edebug recursive edit, you may invoke commands that activate
-Edebug again recursively.  Any time Edebug is active, you can quit to
-the top level with `q' or abort one recursive edit level with `C-]'.
-You can display a backtrace of all the pending evaluations with `d'.
-
-
-File: lispref.info,  Node: Breakpoints,  Next: Trapping Errors,  Prev: Edebug Misc,  Up: Edebug
-
-Breakpoints
------------
-
-   There are three more ways to stop execution once it has started:
-breakpoints, the global break condition, and embedded breakpoints.
-
-   While using Edebug, you can specify "breakpoints" in the program you
-are testing: points where execution should stop.  You can set a
-breakpoint at any stop point, as defined in *Note Using Edebug::.  For
-setting and unsetting breakpoints, the stop point that is affected is
-the first one at or after point in the source code buffer.  Here are the
-Edebug commands for breakpoints:
-
-`b'
-     Set a breakpoint at the stop point at or after point
-     (`edebug-set-breakpoint').  If you use a prefix argument, the
-     breakpoint is temporary (it turns off the first time it stops the
-     program).
-
-`u'
-     Unset the breakpoint (if any) at the stop point at or after the
-     current point (`edebug-unset-breakpoint').
-
-`x CONDITION <RET>'
-     Set a conditional breakpoint which stops the program only if
-     CONDITION evaluates to a non-`nil' value
-     (`edebug-set-conditional-breakpoint').  If you use a prefix
-     argument, the breakpoint is temporary (it turns off the first time
-     it stops the program).
-
-`B'
-     Move point to the next breakpoint in the definition
-     (`edebug-next-breakpoint').
-
-   While in Edebug, you can set a breakpoint with `b' and unset one
-with `u'.  First you must move point to a position at or before the
-desired Edebug stop point, then hit the key to change the breakpoint.
-Unsetting a breakpoint that has not been set does nothing.
-
-   Reevaluating or reinstrumenting a definition clears all its
-breakpoints.
-
-   A "conditional breakpoint" tests a condition each time the program
-gets there.  To set a conditional breakpoint, use `x', and specify the
-condition expression in the minibuffer.  Setting a conditional
-breakpoint at a stop point that already has a conditional breakpoint
-puts the current condition expression in the minibuffer so you can edit
-it.
-
-   You can make both conditional and unconditional breakpoints
-"temporary" by using a prefix arg to the command to set the breakpoint.
-After breaking at a temporary breakpoint, it is automatically cleared.
-
-   Edebug always stops or pauses at a breakpoint except when the Edebug
-mode is `Go-nonstop'.  In that mode, it ignores breakpoints entirely.
-
-   To find out where your breakpoints are, use `B', which moves point
-to the next breakpoint in the definition following point, or to the
-first breakpoint if there are no following breakpoints.  This command
-does not continue execution--it just moves point in the buffer.
-
-* Menu:
-
-* Global Break Condition::	Breaking on an event.
-* Embedded Breakpoints::	Embedding breakpoints in code.
-
-
-File: lispref.info,  Node: Global Break Condition,  Next: Embedded Breakpoints,  Up: Breakpoints
-
-Global Break Condition
-......................
-
-   In contrast to breaking when execution reaches specified locations,
-you can also cause a break when a certain event occurs.  The "global
-break condition" is a condition that is repeatedly evaluated at every
-stop point.  If it evaluates to a non-`nil' value, then execution is
-stopped or paused depending on the execution mode, just like a
-breakpoint.  Any errors that might occur as a result of evaluating the
-condition are ignored, as if the result were `nil'.
-
-   You can set or edit the condition expression, stored in
-`edebug-global-break-condition', using `X'
-(`edebug-set-global-break-condition').
-
-   Using the global break condition is perhaps the fastest way to find
-where in your code some event occurs, but since it is rather expensive
-you should reset the condition to `nil' when not in use.
-
-
-File: lispref.info,  Node: Embedded Breakpoints,  Prev: Global Break Condition,  Up: Breakpoints
-
-Embedded Breakpoints
-....................
-
-   Since all breakpoints in a definition are cleared each time you
-reinstrument it, you might rather create an "embedded breakpoint" which
-is simply a call to the function `edebug'.  You can, of course, make
-such a call conditional.  For example, in the `fac' function, insert
-the first line as shown below to stop when the argument reaches zero:
-
-     (defun fac (n)
-       (if (= n 0) (edebug))
-       (if (< 0 n)
-           (* n (fac (1- n)))
-         1))
-
-   When the `fac' definition is instrumented and the function is
-called, Edebug will stop before the call to `edebug'.  Depending on the
-execution mode, Edebug will stop or pause.
-
-   However, if no instrumented code is being executed, calling `edebug'
-will instead invoke `debug'.  Calling `debug' will always invoke the
-standard backtrace debugger.
 

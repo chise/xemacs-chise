@@ -50,6 +50,719 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Replacing Match,  Next: Entire Match Data,  Prev: Simple Match Data,  Up: Match Data
+
+Replacing the Text That Matched
+-------------------------------
+
+   This function replaces the text matched by the last search with
+REPLACEMENT.
+
+ - Function: replace-match replacement &optional fixedcase literal
+          string strbuffer
+     This function replaces the text in the buffer (or in STRING) that
+     was matched by the last search.  It replaces that text with
+     REPLACEMENT.
+
+     If you did the last search in a buffer, you should specify `nil'
+     for STRING.  Then `replace-match' does the replacement by editing
+     the buffer; it leaves point at the end of the replacement text,
+     and returns `t'.
+
+     If you did the search in a string, pass the same string as STRING.
+     Then `replace-match' does the replacement by constructing and
+     returning a new string.
+
+     If the fourth argument STRING is a string, fifth argument
+     STRBUFFER specifies the buffer to be used for syntax-table and
+     case-table lookup and defaults to the current buffer.  When STRING
+     is not a string, the buffer that the match occurred in has
+     automatically been remembered and you do not need to specify it.
+
+     If FIXEDCASE is non-`nil', then the case of the replacement text
+     is not changed; otherwise, the replacement text is converted to a
+     different case depending upon the capitalization of the text to be
+     replaced.  If the original text is all upper case, the replacement
+     text is converted to upper case.  If the first word of the
+     original text is capitalized, then the first word of the
+     replacement text is capitalized.  If the original text contains
+     just one word, and that word is a capital letter, `replace-match'
+     considers this a capitalized first word rather than all upper case.
+
+     If `case-replace' is `nil', then case conversion is not done,
+     regardless of the value of FIXEDCASE.  *Note Searching and Case::.
+
+     If LITERAL is non-`nil', then REPLACEMENT is inserted exactly as
+     it is, the only alterations being case changes as needed.  If it
+     is `nil' (the default), then the character `\' is treated
+     specially.  If a `\' appears in REPLACEMENT, then it must be part
+     of one of the following sequences:
+
+    `\&'
+          `\&' stands for the entire text being replaced.
+
+    `\N'
+          `\N', where N is a digit, stands for the text that matched
+          the Nth subexpression in the original regexp.  Subexpressions
+          are those expressions grouped inside `\(...\)'.
+
+    `\\'
+          `\\' stands for a single `\' in the replacement text.
+
+
+File: lispref.info,  Node: Entire Match Data,  Next: Saving Match Data,  Prev: Replacing Match,  Up: Match Data
+
+Accessing the Entire Match Data
+-------------------------------
+
+   The functions `match-data' and `set-match-data' read or write the
+entire match data, all at once.
+
+ - Function: match-data &optional integers reuse
+     This function returns a newly constructed list containing all the
+     information on what text the last search matched.  Element zero is
+     the position of the beginning of the match for the whole
+     expression; element one is the position of the end of the match
+     for the expression.  The next two elements are the positions of
+     the beginning and end of the match for the first subexpression,
+     and so on.  In general, element number 2N corresponds to
+     `(match-beginning N)'; and element number 2N + 1 corresponds to
+     `(match-end N)'.
+
+     All the elements are markers or `nil' if matching was done on a
+     buffer, and all are integers or `nil' if matching was done on a
+     string with `string-match'.  However, if the optional first
+     argument INTEGERS is non-`nil', always use integers (rather than
+     markers) to represent buffer positions.
+
+     If the optional second argument REUSE is a list, reuse it as part
+     of the value.  If REUSE is long enough to hold all the values, and
+     if INTEGERS is non-`nil', no new lisp objects are created.
+
+     As always, there must be no possibility of intervening searches
+     between the call to a search function and the call to `match-data'
+     that is intended to access the match data for that search.
+
+          (match-data)
+               =>  (#<marker at 9 in foo>
+                    #<marker at 17 in foo>
+                    #<marker at 13 in foo>
+                    #<marker at 17 in foo>)
+
+ - Function: set-match-data match-list
+     This function sets the match data from the elements of MATCH-LIST,
+     which should be a list that was the value of a previous call to
+     `match-data'.
+
+     If MATCH-LIST refers to a buffer that doesn't exist, you don't get
+     an error; that sets the match data in a meaningless but harmless
+     way.
+
+     `store-match-data' is an alias for `set-match-data'.
+
+
+File: lispref.info,  Node: Saving Match Data,  Prev: Entire Match Data,  Up: Match Data
+
+Saving and Restoring the Match Data
+-----------------------------------
+
+   When you call a function that may do a search, you may need to save
+and restore the match data around that call, if you want to preserve the
+match data from an earlier search for later use.  Here is an example
+that shows the problem that arises if you fail to save the match data:
+
+     (re-search-forward "The \\(cat \\)")
+          => 48
+     (foo)                   ; Perhaps `foo' does
+                             ;   more searching.
+     (match-end 0)
+          => 61              ; Unexpected result--not 48!
+
+   You can save and restore the match data with `save-match-data':
+
+ - Special Form: save-match-data body...
+     This special form executes BODY, saving and restoring the match
+     data around it.
+
+   You can use `set-match-data' together with `match-data' to imitate
+the effect of the special form `save-match-data'.  This is useful for
+writing code that can run in Emacs 18.  Here is how:
+
+     (let ((data (match-data)))
+       (unwind-protect
+           ...   ; May change the original match data.
+         (set-match-data data)))
+
+   Emacs automatically saves and restores the match data when it runs
+process filter functions (*note Filter Functions::) and process
+sentinels (*note Sentinels::).
+
+
+File: lispref.info,  Node: Searching and Case,  Next: Standard Regexps,  Prev: Match Data,  Up: Searching and Matching
+
+Searching and Case
+==================
+
+   By default, searches in Emacs ignore the case of the text they are
+searching through; if you specify searching for `FOO', then `Foo' or
+`foo' is also considered a match.  Regexps, and in particular character
+sets, are included: thus, `[aB]' would match `a' or `A' or `b' or `B'.
+
+   If you do not want this feature, set the variable `case-fold-search'
+to `nil'.  Then all letters must match exactly, including case.  This
+is a buffer-local variable; altering the variable affects only the
+current buffer.  (*Note Intro to Buffer-Local::.)  Alternatively, you
+may change the value of `default-case-fold-search', which is the
+default value of `case-fold-search' for buffers that do not override it.
+
+   Note that the user-level incremental search feature handles case
+distinctions differently.  When given a lower case letter, it looks for
+a match of either case, but when given an upper case letter, it looks
+for an upper case letter only.  But this has nothing to do with the
+searching functions Lisp functions use.
+
+ - User Option: case-replace
+     This variable determines whether the replacement functions should
+     preserve case.  If the variable is `nil', that means to use the
+     replacement text verbatim.  A non-`nil' value means to convert the
+     case of the replacement text according to the text being replaced.
+
+     The function `replace-match' is where this variable actually has
+     its effect.  *Note Replacing Match::.
+
+ - User Option: case-fold-search
+     This buffer-local variable determines whether searches should
+     ignore case.  If the variable is `nil' they do not ignore case;
+     otherwise they do ignore case.
+
+ - Variable: default-case-fold-search
+     The value of this variable is the default value for
+     `case-fold-search' in buffers that do not override it.  This is the
+     same as `(default-value 'case-fold-search)'.
+
+
+File: lispref.info,  Node: Standard Regexps,  Prev: Searching and Case,  Up: Searching and Matching
+
+Standard Regular Expressions Used in Editing
+============================================
+
+   This section describes some variables that hold regular expressions
+used for certain purposes in editing:
+
+ - Variable: page-delimiter
+     This is the regexp describing line-beginnings that separate pages.
+     The default value is `"^\014"' (i.e., `"^^L"' or `"^\C-l"'); this
+     matches a line that starts with a formfeed character.
+
+   The following two regular expressions should _not_ assume the match
+always starts at the beginning of a line; they should not use `^' to
+anchor the match.  Most often, the paragraph commands do check for a
+match only at the beginning of a line, which means that `^' would be
+superfluous.  When there is a nonzero left margin, they accept matches
+that start after the left margin.  In that case, a `^' would be
+incorrect.  However, a `^' is harmless in modes where a left margin is
+never used.
+
+ - Variable: paragraph-separate
+     This is the regular expression for recognizing the beginning of a
+     line that separates paragraphs.  (If you change this, you may have
+     to change `paragraph-start' also.)  The default value is
+     `"[ \t\f]*$"', which matches a line that consists entirely of
+     spaces, tabs, and form feeds (after its left margin).
+
+ - Variable: paragraph-start
+     This is the regular expression for recognizing the beginning of a
+     line that starts _or_ separates paragraphs.  The default value is
+     `"[ \t\n\f]"', which matches a line starting with a space, tab,
+     newline, or form feed (after its left margin).
+
+ - Variable: sentence-end
+     This is the regular expression describing the end of a sentence.
+     (All paragraph boundaries also end sentences, regardless.)  The
+     default value is:
+
+          "[.?!][]\"')}]*\\($\\| $\\|\t\\| \\)[ \t\n]*"
+
+     This means a period, question mark or exclamation mark, followed
+     optionally by a closing parenthetical character, followed by tabs,
+     spaces or new lines.
+
+     For a detailed explanation of this regular expression, see *Note
+     Regexp Example::.
+
+
+File: lispref.info,  Node: Syntax Tables,  Next: Abbrevs,  Prev: Searching and Matching,  Up: Top
+
+Syntax Tables
+*************
+
+   A "syntax table" specifies the syntactic textual function of each
+character.  This information is used by the parsing commands, the
+complex movement commands, and others to determine where words, symbols,
+and other syntactic constructs begin and end.  The current syntax table
+controls the meaning of the word motion functions (*note Word Motion::)
+and the list motion functions (*note List Motion::) as well as the
+functions in this chapter.
+
+* Menu:
+
+* Basics: Syntax Basics.     Basic concepts of syntax tables.
+* Desc: Syntax Descriptors.  How characters are classified.
+* Syntax Table Functions::   How to create, examine and alter syntax tables.
+* Motion and Syntax::	     Moving over characters with certain syntaxes.
+* Parsing Expressions::      Parsing balanced expressions
+                                using the syntax table.
+* Standard Syntax Tables::   Syntax tables used by various major modes.
+* Syntax Table Internals::   How syntax table information is stored.
+
+
+File: lispref.info,  Node: Syntax Basics,  Next: Syntax Descriptors,  Up: Syntax Tables
+
+Syntax Table Concepts
+=====================
+
+   A "syntax table" provides Emacs with the information that determines
+the syntactic use of each character in a buffer.  This information is
+used by the parsing commands, the complex movement commands, and others
+to determine where words, symbols, and other syntactic constructs begin
+and end.  The current syntax table controls the meaning of the word
+motion functions (*note Word Motion::) and the list motion functions
+(*note List Motion::) as well as the functions in this chapter.
+
+   Under XEmacs 20, a syntax table is a particular subtype of the
+primitive char table type (*note Char Tables::), and each element of the
+char table is an integer that encodes the syntax of the character in
+question, or a cons of such an integer and a matching character (for
+characters with parenthesis syntax).
+
+   Under XEmacs 19, a syntax table is a vector of 256 elements; it
+contains one entry for each of the 256 possible characters in an 8-bit
+byte.  Each element is an integer that encodes the syntax of the
+character in question. (The matching character, if any, is embedded in
+the bits of this integer.)
+
+   Syntax tables are used only for moving across text, not for the Emacs
+Lisp reader.  XEmacs Lisp uses built-in syntactic rules when reading
+Lisp expressions, and these rules cannot be changed.
+
+   Each buffer has its own major mode, and each major mode has its own
+idea of the syntactic class of various characters.  For example, in Lisp
+mode, the character `;' begins a comment, but in C mode, it terminates
+a statement.  To support these variations, XEmacs makes the choice of
+syntax table local to each buffer.  Typically, each major mode has its
+own syntax table and installs that table in each buffer that uses that
+mode.  Changing this table alters the syntax in all those buffers as
+well as in any buffers subsequently put in that mode.  Occasionally
+several similar modes share one syntax table.  *Note Example Major
+Modes::, for an example of how to set up a syntax table.
+
+   A syntax table can inherit the data for some characters from the
+standard syntax table, while specifying other characters itself.  The
+"inherit" syntax class means "inherit this character's syntax from the
+standard syntax table."  Most major modes' syntax tables inherit the
+syntax of character codes 0 through 31 and 128 through 255.  This is
+useful with character sets such as ISO Latin-1 that have additional
+alphabetic characters in the range 128 to 255.  Just changing the
+standard syntax for these characters affects all major modes.
+
+ - Function: syntax-table-p object
+     This function returns `t' if OBJECT is a vector of length 256
+     elements.  This means that the vector may be a syntax table.
+     However, according to this test, any vector of length 256 is
+     considered to be a syntax table, no matter what its contents.
+
+
+File: lispref.info,  Node: Syntax Descriptors,  Next: Syntax Table Functions,  Prev: Syntax Basics,  Up: Syntax Tables
+
+Syntax Descriptors
+==================
+
+   This section describes the syntax classes and flags that denote the
+syntax of a character, and how they are represented as a "syntax
+descriptor", which is a Lisp string that you pass to
+`modify-syntax-entry' to specify the desired syntax.
+
+   XEmacs defines a number of "syntax classes".  Each syntax table puts
+each character into one class.  There is no necessary relationship
+between the class of a character in one syntax table and its class in
+any other table.
+
+   Each class is designated by a mnemonic character, which serves as the
+name of the class when you need to specify a class.  Usually the
+designator character is one that is frequently in that class; however,
+its meaning as a designator is unvarying and independent of what syntax
+that character currently has.
+
+   A syntax descriptor is a Lisp string that specifies a syntax class, a
+matching character (used only for the parenthesis classes) and flags.
+The first character is the designator for a syntax class.  The second
+character is the character to match; if it is unused, put a space there.
+Then come the characters for any desired flags.  If no matching
+character or flags are needed, one character is sufficient.
+
+   For example, the descriptor for the character `*' in C mode is
+`. 23' (i.e., punctuation, matching character slot unused, second
+character of a comment-starter, first character of an comment-ender),
+and the entry for `/' is `. 14' (i.e., punctuation, matching character
+slot unused, first character of a comment-starter, second character of
+a comment-ender).
+
+* Menu:
+
+* Syntax Class Table::      Table of syntax classes.
+* Syntax Flags::            Additional flags each character can have.
+
+
+File: lispref.info,  Node: Syntax Class Table,  Next: Syntax Flags,  Up: Syntax Descriptors
+
+Table of Syntax Classes
+-----------------------
+
+   Here is a table of syntax classes, the characters that stand for
+them, their meanings, and examples of their use.
+
+ - Syntax class: whitespace character
+     "Whitespace characters" (designated with ` ' or `-') separate
+     symbols and words from each other.  Typically, whitespace
+     characters have no other syntactic significance, and multiple
+     whitespace characters are syntactically equivalent to a single
+     one.  Space, tab, newline and formfeed are almost always
+     classified as whitespace.
+
+ - Syntax class: word constituent
+     "Word constituents" (designated with `w') are parts of normal
+     English words and are typically used in variable and command names
+     in programs.  All upper- and lower-case letters, and the digits,
+     are typically word constituents.
+
+ - Syntax class: symbol constituent
+     "Symbol constituents" (designated with `_') are the extra
+     characters that are used in variable and command names along with
+     word constituents.  For example, the symbol constituents class is
+     used in Lisp mode to indicate that certain characters may be part
+     of symbol names even though they are not part of English words.
+     These characters are `$&*+-_<>'.  In standard C, the only
+     non-word-constituent character that is valid in symbols is
+     underscore (`_').
+
+ - Syntax class: punctuation character
+     "Punctuation characters" (`.') are those characters that are used
+     as punctuation in English, or are used in some way in a programming
+     language to separate symbols from one another.  Most programming
+     language modes, including Emacs Lisp mode, have no characters in
+     this class since the few characters that are not symbol or word
+     constituents all have other uses.
+
+ - Syntax class: open parenthesis character
+ - Syntax class: close parenthesis character
+     Open and close "parenthesis characters" are characters used in
+     dissimilar pairs to surround sentences or expressions.  Such a
+     grouping is begun with an open parenthesis character and
+     terminated with a close.  Each open parenthesis character matches
+     a particular close parenthesis character, and vice versa.
+     Normally, XEmacs indicates momentarily the matching open
+     parenthesis when you insert a close parenthesis.  *Note Blinking::.
+
+     The class of open parentheses is designated with `(', and that of
+     close parentheses with `)'.
+
+     In English text, and in C code, the parenthesis pairs are `()',
+     `[]', and `{}'.  In XEmacs Lisp, the delimiters for lists and
+     vectors (`()' and `[]') are classified as parenthesis characters.
+
+ - Syntax class: string quote
+     "String quote characters" (designated with `"') are used in many
+     languages, including Lisp and C, to delimit string constants.  The
+     same string quote character appears at the beginning and the end
+     of a string.  Such quoted strings do not nest.
+
+     The parsing facilities of XEmacs consider a string as a single
+     token.  The usual syntactic meanings of the characters in the
+     string are suppressed.
+
+     The Lisp modes have two string quote characters: double-quote (`"')
+     and vertical bar (`|').  `|' is not used in XEmacs Lisp, but it is
+     used in Common Lisp.  C also has two string quote characters:
+     double-quote for strings, and single-quote (`'') for character
+     constants.
+
+     English text has no string quote characters because English is not
+     a programming language.  Although quotation marks are used in
+     English, we do not want them to turn off the usual syntactic
+     properties of other characters in the quotation.
+
+ - Syntax class: escape
+     An "escape character" (designated with `\') starts an escape
+     sequence such as is used in C string and character constants.  The
+     character `\' belongs to this class in both C and Lisp.  (In C, it
+     is used thus only inside strings, but it turns out to cause no
+     trouble to treat it this way throughout C code.)
+
+     Characters in this class count as part of words if
+     `words-include-escapes' is non-`nil'.  *Note Word Motion::.
+
+ - Syntax class: character quote
+     A "character quote character" (designated with `/') quotes the
+     following character so that it loses its normal syntactic meaning.
+     This differs from an escape character in that only the character
+     immediately following is ever affected.
+
+     Characters in this class count as part of words if
+     `words-include-escapes' is non-`nil'.  *Note Word Motion::.
+
+     This class is used for backslash in TeX mode.
+
+ - Syntax class: paired delimiter
+     "Paired delimiter characters" (designated with `$') are like
+     string quote characters except that the syntactic properties of the
+     characters between the delimiters are not suppressed.  Only TeX
+     mode uses a paired delimiter presently--the `$' that both enters
+     and leaves math mode.
+
+ - Syntax class: expression prefix
+     An "expression prefix operator" (designated with `'') is used for
+     syntactic operators that are part of an expression if they appear
+     next to one.  These characters in Lisp include the apostrophe, `''
+     (used for quoting), the comma, `,' (used in macros), and `#' (used
+     in the read syntax for certain data types).
+
+ - Syntax class: comment starter
+ - Syntax class: comment ender
+     The "comment starter" and "comment ender" characters are used in
+     various languages to delimit comments.  These classes are
+     designated with `<' and `>', respectively.
+
+     English text has no comment characters.  In Lisp, the semicolon
+     (`;') starts a comment and a newline or formfeed ends one.
+
+ - Syntax class: inherit
+     This syntax class does not specify a syntax.  It says to look in
+     the standard syntax table to find the syntax of this character.
+     The designator for this syntax code is `@'.
+
+
+File: lispref.info,  Node: Syntax Flags,  Prev: Syntax Class Table,  Up: Syntax Descriptors
+
+Syntax Flags
+------------
+
+   In addition to the classes, entries for characters in a syntax table
+can include flags.  There are six possible flags, represented by the
+characters `1', `2', `3', `4', `b' and `p'.
+
+   All the flags except `p' are used to describe multi-character
+comment delimiters.  The digit flags indicate that a character can
+_also_ be part of a comment sequence, in addition to the syntactic
+properties associated with its character class.  The flags are
+independent of the class and each other for the sake of characters such
+as `*' in C mode, which is a punctuation character, _and_ the second
+character of a start-of-comment sequence (`/*'), _and_ the first
+character of an end-of-comment sequence (`*/').
+
+   The flags for a character C are:
+
+   * `1' means C is the start of a two-character comment-start sequence.
+
+   * `2' means C is the second character of such a sequence.
+
+   * `3' means C is the start of a two-character comment-end sequence.
+
+   * `4' means C is the second character of such a sequence.
+
+   * `b' means that C as a comment delimiter belongs to the alternative
+     "b" comment style.
+
+     Emacs supports two comment styles simultaneously in any one syntax
+     table.  This is for the sake of C++.  Each style of comment syntax
+     has its own comment-start sequence and its own comment-end
+     sequence.  Each comment must stick to one style or the other;
+     thus, if it starts with the comment-start sequence of style "b",
+     it must also end with the comment-end sequence of style "b".
+
+     The two comment-start sequences must begin with the same
+     character; only the second character may differ.  Mark the second
+     character of the "b"-style comment-start sequence with the `b'
+     flag.
+
+     A comment-end sequence (one or two characters) applies to the "b"
+     style if its first character has the `b' flag set; otherwise, it
+     applies to the "a" style.
+
+     The appropriate comment syntax settings for C++ are as follows:
+
+    `/'
+          `124b'
+
+    `*'
+          `23'
+
+    newline
+          `>b'
+
+     This defines four comment-delimiting sequences:
+
+    `/*'
+          This is a comment-start sequence for "a" style because the
+          second character, `*', does not have the `b' flag.
+
+    `//'
+          This is a comment-start sequence for "b" style because the
+          second character, `/', does have the `b' flag.
+
+    `*/'
+          This is a comment-end sequence for "a" style because the first
+          character, `*', does not have the `b' flag
+
+    newline
+          This is a comment-end sequence for "b" style, because the
+          newline character has the `b' flag.
+
+   * `p' identifies an additional "prefix character" for Lisp syntax.
+     These characters are treated as whitespace when they appear between
+     expressions.  When they appear within an expression, they are
+     handled according to their usual syntax codes.
+
+     The function `backward-prefix-chars' moves back over these
+     characters, as well as over characters whose primary syntax class
+     is prefix (`'').  *Note Motion and Syntax::.
+
+
+File: lispref.info,  Node: Syntax Table Functions,  Next: Motion and Syntax,  Prev: Syntax Descriptors,  Up: Syntax Tables
+
+Syntax Table Functions
+======================
+
+   In this section we describe functions for creating, accessing and
+altering syntax tables.
+
+ - Function: make-syntax-table &optional oldtable
+     This function creates a new syntax table.  Character codes 0
+     through 31 and 128 through 255 are set up to inherit from the
+     standard syntax table.  The other character codes are set up by
+     copying what the standard syntax table says about them.
+
+     Most major mode syntax tables are created in this way.
+
+ - Function: copy-syntax-table &optional syntax-table
+     This function constructs a copy of SYNTAX-TABLE and returns it.
+     If SYNTAX-TABLE is not supplied (or is `nil'), it returns a copy
+     of the current syntax table.  Otherwise, an error is signaled if
+     SYNTAX-TABLE is not a syntax table.
+
+ - Command: modify-syntax-entry char-range syntax-descriptor &optional
+          syntax-table
+     This function sets the syntax entry for CHAR-RANGE according to
+     SYNTAX-DESCRIPTOR.  CHAR-RANGE is either a single character or a
+     range of characters, as used with `put-char-table'. The syntax is
+     changed only for SYNTAX-TABLE, which defaults to the current
+     buffer's syntax table, and not in any other syntax table.  The
+     argument SYNTAX-DESCRIPTOR specifies the desired syntax; this is a
+     string beginning with a class designator character, and optionally
+     containing a matching character and flags as well.  *Note Syntax
+     Descriptors::.
+
+     This function always returns `nil'.  The old syntax information in
+     the table for CHAR-RANGE is discarded.
+
+     An error is signaled if the first character of the syntax
+     descriptor is not one of the twelve syntax class designator
+     characters.
+
+     Examples:
+
+          ;; Put the space character in class whitespace.
+          (modify-syntax-entry ?\  " ")
+               => nil
+          
+          ;; Make `$' an open parenthesis character,
+          ;;   with `^' as its matching close.
+          (modify-syntax-entry ?$ "(^")
+               => nil
+          
+          ;; Make `^' a close parenthesis character,
+          ;;   with `$' as its matching open.
+          (modify-syntax-entry ?^ ")$")
+               => nil
+          
+          ;; Make `/' a punctuation character,
+          ;;   the first character of a start-comment sequence,
+          ;;   and the second character of an end-comment sequence.
+          ;;   This is used in C mode.
+          (modify-syntax-entry ?/ ". 14")
+               => nil
+
+ - Function: char-syntax character &optional syntax-table
+     This function returns the syntax class of CHARACTER, represented
+     by its mnemonic designator character.  This _only_ returns the
+     class, not any matching parenthesis or flags.
+
+     An error is signaled if CHARACTER is not a character.
+
+     The characters that correspond to various syntax codes are listed
+     in the documentation of `modify-syntax-entry'.
+
+     Optional second argument SYNTAX-TABLE is the syntax table to be
+     used, and defaults to the current buffer's syntax table.
+
+     The following examples apply to C mode.  The first example shows
+     that the syntax class of space is whitespace (represented by a
+     space).  The second example shows that the syntax of `/' is
+     punctuation.  This does not show the fact that it is also part of
+     comment-start and -end sequences.  The third example shows that
+     open parenthesis is in the class of open parentheses.  This does
+     not show the fact that it has a matching character, `)'.
+
+          (char-to-string (char-syntax ?\ ))
+               => " "
+          
+          (char-to-string (char-syntax ?/))
+               => "."
+          
+          (char-to-string (char-syntax ?\())
+               => "("
+
+ - Function: set-syntax-table syntax-table &optional buffer
+     This function makes SYNTAX-TABLE the syntax table for BUFFER, which
+     defaults to the current buffer if omitted.  It returns
+     SYNTAX-TABLE.
+
+ - Function: syntax-table &optional buffer
+     This function returns the syntax table for BUFFER, which defaults
+     to the current buffer if omitted.
+
+
+File: lispref.info,  Node: Motion and Syntax,  Next: Parsing Expressions,  Prev: Syntax Table Functions,  Up: Syntax Tables
+
+Motion and Syntax
+=================
+
+   This section describes functions for moving across characters in
+certain syntax classes.  None of these functions exists in Emacs
+version 18 or earlier.
+
+ - Function: skip-syntax-forward syntaxes &optional limit buffer
+     This function moves point forward across characters having syntax
+     classes mentioned in SYNTAXES.  It stops when it encounters the
+     end of the buffer, or position LIMIT (if specified), or a
+     character it is not supposed to skip.  Optional argument BUFFER
+     defaults to the current buffer if omitted.
+
+ - Function: skip-syntax-backward syntaxes &optional limit buffer
+     This function moves point backward across characters whose syntax
+     classes are mentioned in SYNTAXES.  It stops when it encounters
+     the beginning of the buffer, or position LIMIT (if specified), or a
+     character it is not supposed to skip.  Optional argument BUFFER
+     defaults to the current buffer if omitted.
+
+
+ - Function: backward-prefix-chars &optional buffer
+     This function moves point backward over any number of characters
+     with expression prefix syntax.  This includes both characters in
+     the expression prefix syntax class, and characters with the `p'
+     flag.  Optional argument BUFFER defaults to the current buffer if
+     omitted.
+
+
 File: lispref.info,  Node: Parsing Expressions,  Next: Standard Syntax Tables,  Prev: Motion and Syntax,  Up: Syntax Tables
 
 Parsing Balanced Expressions
@@ -351,12 +1064,12 @@ Abbrev Tables
      This function undefines all the abbrevs in abbrev table TABLE,
      leaving it empty.  The function returns `nil'.
 
- - Function: define-abbrev-table tabname definitions
-     This function defines TABNAME (a symbol) as an abbrev table name,
-     i.e., as a variable whose value is an abbrev table.  It defines
-     abbrevs in the table according to DEFINITIONS, a list of elements
-     of the form `(ABBREVNAME EXPANSION HOOK USECOUNT)'.  The value is
-     always `nil'.
+ - Function: define-abbrev-table table-name definitions
+     This function defines TABLE-NAME (a symbol) as an abbrev table
+     name, i.e., as a variable whose value is an abbrev table.  It
+     defines abbrevs in the table according to DEFINITIONS, a list of
+     elements of the form `(ABBREVNAME EXPANSION HOOK USECOUNT)'.  The
+     value is always `nil'.
 
  - Variable: abbrev-table-name-list
      This is a list of symbols whose values are abbrev tables.
@@ -393,7 +1106,7 @@ used by commands that ask for information from the user.
      abbrev, or `nil' if the user declines to confirm redefining an
      existing abbrev.
 
- - Function: define-abbrev table name expansion hook
+ - Function: define-abbrev table name &optional expansion hook count
      This function defines an abbrev in TABLE named NAME, to expand to
      EXPANSION, and call HOOK.  The return value is an uninterned
      symbol that represents the abbrev inside XEmacs; its name is NAME.
@@ -433,7 +1146,7 @@ in a file automatically, under the control of variables described here.
  - User Option: abbrev-file-name
      This is the default file name for reading and saving abbrevs.
 
- - Function: quietly-read-abbrev-file filename
+ - Function: quietly-read-abbrev-file &optional filename
      This function reads abbrev definitions from a file named FILENAME,
      previously written with `write-abbrev-file'.  If FILENAME is
      `nil', the file specified in `abbrev-file-name' is used.
@@ -455,565 +1168,4 @@ in a file automatically, under the control of variables described here.
      Save all abbrev definitions, in all abbrev tables, in the file
      FILENAME, in the form of a Lisp program that when loaded will
      define the same abbrevs.  This function returns `nil'.
-
-
-File: lispref.info,  Node: Abbrev Expansion,  Next: Standard Abbrev Tables,  Prev: Abbrev Files,  Up: Abbrevs
-
-Looking Up and Expanding Abbreviations
-======================================
-
-   Abbrevs are usually expanded by commands for interactive use,
-including `self-insert-command'.  This section describes the
-subroutines used in writing such functions, as well as the variables
-they use for communication.
-
- - Function: abbrev-symbol abbrev &optional table
-     This function returns the symbol representing the abbrev named
-     ABBREV.  The value returned is `nil' if that abbrev is not
-     defined.  The optional second argument TABLE is the abbrev table
-     to look it up in.  If TABLE is `nil', this function tries first
-     the current buffer's local abbrev table, and second the global
-     abbrev table.
-
- - Function: abbrev-expansion abbrev &optional table
-     This function returns the string that ABBREV would expand into (as
-     defined by the abbrev tables used for the current buffer).  The
-     optional argument TABLE specifies the abbrev table to use, as in
-     `abbrev-symbol'.
-
- - Command: expand-abbrev
-     This command expands the abbrev before point, if any.  If point
-     does not follow an abbrev, this command does nothing.  The command
-     returns `t' if it did expansion, `nil' otherwise.
-
- - Command: abbrev-prefix-mark &optional arg
-     Mark current point as the beginning of an abbrev.  The next call to
-     `expand-abbrev' will use the text from here to point (where it is
-     then) as the abbrev to expand, rather than using the previous word
-     as usual.
-
- - User Option: abbrev-all-caps
-     When this is set non-`nil', an abbrev entered entirely in upper
-     case is expanded using all upper case.  Otherwise, an abbrev
-     entered entirely in upper case is expanded by capitalizing each
-     word of the expansion.
-
- - Variable: abbrev-start-location
-     This is the buffer position for `expand-abbrev' to use as the start
-     of the next abbrev to be expanded.  (`nil' means use the word
-     before point instead.)  `abbrev-start-location' is set to `nil'
-     each time `expand-abbrev' is called.  This variable is also set by
-     `abbrev-prefix-mark'.
-
- - Variable: abbrev-start-location-buffer
-     The value of this variable is the buffer for which
-     `abbrev-start-location' has been set.  Trying to expand an abbrev
-     in any other buffer clears `abbrev-start-location'.  This variable
-     is set by `abbrev-prefix-mark'.
-
- - Variable: last-abbrev
-     This is the `abbrev-symbol' of the last abbrev expanded.  This
-     information is left by `expand-abbrev' for the sake of the
-     `unexpand-abbrev' command.
-
- - Variable: last-abbrev-location
-     This is the location of the last abbrev expanded.  This contains
-     information left by `expand-abbrev' for the sake of the
-     `unexpand-abbrev' command.
-
- - Variable: last-abbrev-text
-     This is the exact expansion text of the last abbrev expanded,
-     after case conversion (if any).  Its value is `nil' if the abbrev
-     has already been unexpanded.  This contains information left by
-     `expand-abbrev' for the sake of the `unexpand-abbrev' command.
-
- - Variable: pre-abbrev-expand-hook
-     This is a normal hook whose functions are executed, in sequence,
-     just before any expansion of an abbrev.  *Note Hooks::.  Since it
-     is a normal hook, the hook functions receive no arguments.
-     However, they can find the abbrev to be expanded by looking in the
-     buffer before point.
-
-   The following sample code shows a simple use of
-`pre-abbrev-expand-hook'.  If the user terminates an abbrev with a
-punctuation character, the hook function asks for confirmation.  Thus,
-this hook allows the user to decide whether to expand the abbrev, and
-aborts expansion if it is not confirmed.
-
-     (add-hook 'pre-abbrev-expand-hook 'query-if-not-space)
-     
-     ;; This is the function invoked by `pre-abbrev-expand-hook'.
-     
-     ;; If the user terminated the abbrev with a space, the function does
-     ;; nothing (that is, it returns so that the abbrev can expand).  If the
-     ;; user entered some other character, this function asks whether
-     ;; expansion should continue.
-     
-     ;; If the user answers the prompt with `y', the function returns
-     ;; `nil' (because of the `not' function), but that is
-     ;; acceptable; the return value has no effect on expansion.
-     
-     (defun query-if-not-space ()
-       (if (/= ?\  (preceding-char))
-           (if (not (y-or-n-p "Do you want to expand this abbrev? "))
-               (error "Not expanding this abbrev"))))
-
-
-File: lispref.info,  Node: Standard Abbrev Tables,  Prev: Abbrev Expansion,  Up: Abbrevs
-
-Standard Abbrev Tables
-======================
-
-   Here we list the variables that hold the abbrev tables for the
-preloaded major modes of XEmacs.
-
- - Variable: global-abbrev-table
-     This is the abbrev table for mode-independent abbrevs.  The abbrevs
-     defined in it apply to all buffers.  Each buffer may also have a
-     local abbrev table, whose abbrev definitions take precedence over
-     those in the global table.
-
- - Variable: local-abbrev-table
-     The value of this buffer-local variable is the (mode-specific)
-     abbreviation table of the current buffer.
-
- - Variable: fundamental-mode-abbrev-table
-     This is the local abbrev table used in Fundamental mode; in other
-     words, it is the local abbrev table in all buffers in Fundamental
-     mode.
-
- - Variable: text-mode-abbrev-table
-     This is the local abbrev table used in Text mode.
-
- - Variable: c-mode-abbrev-table
-     This is the local abbrev table used in C mode.
-
- - Variable: lisp-mode-abbrev-table
-     This is the local abbrev table used in Lisp mode and Emacs Lisp
-     mode.
-
-
-File: lispref.info,  Node: Extents,  Next: Specifiers,  Prev: Abbrevs,  Up: Top
-
-Extents
-*******
-
-   An "extent" is a region of text (a start position and an end
-position) that is displayed in a particular face and can have certain
-other properties such as being read-only.  Extents can overlap each
-other.  XEmacs efficiently handles buffers with large numbers of
-extents in them.
-
- - Function: extentp object
-     This returns `t' if OBJECT is an extent.
-
-* Menu:
-
-* Intro to Extents::	   Extents are regions over a buffer or string.
-* Creating and Modifying Extents::
-			   Basic extent functions.
-* Extent Endpoints::	   Accessing and setting the bounds of an extent.
-* Finding Extents::	   Determining which extents are in an object.
-* Mapping Over Extents::   More sophisticated functions for extent scanning.
-* Extent Properties::	   Extents have built-in and user-definable properties.
-* Detached Extents::	   Extents that are not in a buffer.
-* Extent Parents::         Inheriting properties from another extent.
-* Duplicable Extents::	   Extents can be marked to be copied into strings.
-* Extents and Events::	   Extents can interact with the keyboard and mouse.
-* Atomic Extents::	   Treating a block of text as a single entity.
-
-
-File: lispref.info,  Node: Intro to Extents,  Next: Creating and Modifying Extents,  Up: Extents
-
-Introduction to Extents
-=======================
-
-   An extent is a region of text within a buffer or string that has
-certain properties associated with it.  The properties of an extent
-primarily affect the way the text contained in the extent is displayed.
-Extents can freely overlap each other in a buffer or string.  Extents
-are invisible to functions that merely examine the text of a buffer or
-string.
-
-   _Please note:_ An alternative way to add properties to a buffer or
-string is to use text properties.  *Note Text Properties::.
-
-   An extent is logically a Lisp object consisting of a start position,
-an end position, a buffer or string to which these positions refer, and
-a property list.  As text is inserted into a buffer, the start and end
-positions of the extent are automatically adjusted as necessary to keep
-the extent referring to the same text in the buffer.  If text is
-inserted at the boundary of an extent, the extent's `start-open' and
-`end-open' properties control whether the text is included as part of
-the extent.  If the text bounded by an extent is deleted, the extent
-becomes "detached"; its start and end positions are no longer
-meaningful, but it maintains all its other properties and can later be
-reinserted into a buffer. (None of these considerations apply to
-strings, because text cannot be inserted into or deleted from a string.)
-
-   Each extent has a face or list of faces associated with it, which
-controls the way in which the text bounded by the extent is displayed.
-If an extent's face is `nil' or its properties are partially undefined,
-the corresponding properties from the default face for the frame is
-used.  If two or more extents overlap, or if a list of more than one
-face is specified for a particular extent, the corresponding faces are
-merged to determine the text's displayed properties.  Every extent has
-a "priority" that determines which face takes precedence if the faces
-conflict. (If two extents have the same priority, the one that comes
-later in the display order takes precedence.  *Note display order:
-Extent Endpoints.) Higher-numbered priority values correspond to a
-higher priority, and priority values can be negative.  Every extent is
-created with a priority of 0, but this can be changed with
-`set-extent-priority'.  Within a single extent with a list of faces,
-faces earlier in the list have a higher priority than faces later in
-the list.
-
-   Extents can be set to respond specially to key and mouse events
-within the extent.  An extent's `keymap' property controls the effect of
-key and mouse strokes within the extent's text, and the `mouse-face'
-property controls whether the extent is highlighted when the mouse moves
-over it.  *Note Extents and Events::.
-
-   An extent can optionally have a "begin-glyph" or "end-glyph"
-associated with it.  A begin-glyph or end-glyph is a pixmap or string
-that will be displayed either at the start or end of an extent or in the
-margin of the line that the start or end of the extent lies in,
-depending on the extent's layout policy.  Begin-glyphs and end-glyphs
-are used to implement annotations, and you should use the annotation API
-functions in preference to the lower-level extent functions.  For more
-information, *Note Annotations::.
-
-   If an extent has its `detachable' property set, it will become
-"detached" (i.e. no longer in the buffer) when all its text is deleted.
-Otherwise, it will simply shrink down to zero-length and sit in the
-same place in the buffer.  By default, the `detachable' property is set
-on newly-created extents.  *Note Detached Extents::.
-
-   If an extent has its `duplicable' property set, it will be
-remembered when a string is created from text bounded by the extent.
-When the string is re-inserted into a buffer, the extent will also be
-re-inserted.  This mechanism is used in the kill, yank, and undo
-commands.  *Note Duplicable Extents::.
-
-
-File: lispref.info,  Node: Creating and Modifying Extents,  Next: Extent Endpoints,  Prev: Intro to Extents,  Up: Extents
-
-Creating and Modifying Extents
-==============================
-
- - Function: make-extent from to &optional object
-     This function makes an extent for the range [FROM, TO) in OBJECT
-     (a buffer or string).  OBJECT defaults to the current buffer.
-     Insertions at point TO will be outside of the extent; insertions
-     at FROM will be inside the extent, causing the extent to grow
-     (*note Extent Endpoints::).  This is the same way that markers
-     behave.  The extent is initially detached if both FROM and TO are
-     `nil', and in this case OBJECT defaults to `nil', meaning the
-     extent is in no buffer or string (*note Detached Extents::).
-
- - Function: delete-extent extent
-     This function removes EXTENT from its buffer and destroys it.
-     This does not modify the buffer's text, only its display
-     properties.  The extent cannot be used thereafter.  To remove an
-     extent in such a way that it can be re-inserted later, use
-     `detach-extent'.  *Note Detached Extents::.
-
- - Function: extent-object extent
-     This function returns the buffer or string that EXTENT is in.  If
-     the return value is `nil', this means that the extent is detached;
-     however, a detached extent will not necessarily return a value of
-     `nil'.
-
- - Function: extent-live-p extent
-     This function returns `nil' if EXTENT is deleted, and `t'
-     otherwise.
-
-
-File: lispref.info,  Node: Extent Endpoints,  Next: Finding Extents,  Prev: Creating and Modifying Extents,  Up: Extents
-
-Extent Endpoints
-================
-
-   Every extent has a start position and an end position, and logically
-affects the characters between those positions.  Normally the start and
-end positions must both be valid positions in the extent's buffer or
-string.  However, both endpoints can be `nil', meaning the extent is
-detached.  *Note Detached Extents::.
-
-   Whether the extent overlaps its endpoints is governed by its
-`start-open' and `end-open' properties.  Insertion of a character at a
-closed endpoint will expand the extent to include that character;
-insertion at an open endpoint will not.  Similarly, functions such as
-`extent-at' that scan over all extents overlapping a particular
-position will include extents with a closed endpoint at that position,
-but not extents with an open endpoint.
-
-   Note that the `start-closed' and `end-closed' properties are
-equivalent to `start-open' and `end-open' with the opposite sense.
-
-   Both endpoints can be equal, in which case the extent includes no
-characters but still exists in the buffer or string.  Zero-length
-extents are used to represent annotations (*note Annotations::) and can
-be used as a more powerful form of a marker.  Deletion of all the
-characters in an extent may or may not result in a zero-length extent;
-this depends on the `detachable' property (*note Detached Extents::).
-Insertion at the position of a zero-length extent expands the extent if
-both endpoints are closed; goes before the extent if it has the
-`start-open' property; and goes after the extent if it has the
-`end-open' property.  Zero-length extents with both the `start-open'
-and `end-open' properties are treated as if their starting point were
-closed.  Deletion of a character on a side of a zero-length extent
-whose corresponding endpoint is closed causes the extent to be detached
-if its `detachable' property is set; if the corresponding endpoint is
-open, the extent remains in the buffer, moving as necessary.
-
-   Extents are ordered within a buffer or string by increasing start
-position, and then by decreasing end position (this is called the
-"display order").
-
- - Function: extent-start-position extent
-     This function returns the start position of EXTENT.
-
- - Function: extent-end-position extent
-     This function returns the end position of EXTENT.
-
- - Function: extent-length extent
-     This function returns the length of EXTENT in characters.  If the
-     extent is detached, this returns `0'.  If the extent is not
-     detached, this is equivalent to
-          (- (extent-end-position EXTENT) (extent-start-position EXTENT))
-
- - Function: set-extent-endpoints extent start end &optional
-          buffer-or-string
-     This function sets the start and end position of EXTENT to START
-     and END.  If both are `nil', this is equivalent to `detach-extent'.
-
-     BUFFER-OR-STRING specifies the new buffer or string that the
-     extent should be in, and defaults to EXTENT's buffer or string.
-     (If `nil', and EXTENT is in no buffer and no string, it defaults
-     to the current buffer.)
-
-     See documentation on `detach-extent' for a discussion of undo
-     recording.
-
-
-File: lispref.info,  Node: Finding Extents,  Next: Mapping Over Extents,  Prev: Extent Endpoints,  Up: Extents
-
-Finding Extents
-===============
-
-   The following functions provide a simple way of determining the
-extents in a buffer or string.  A number of more sophisticated
-primitives for mapping over the extents in a range of a buffer or string
-are also provided (*note Mapping Over Extents::).  When reading through
-this section, keep in mind the way that extents are ordered (*note
-Extent Endpoints::).
-
- - Function: extent-list &optional buffer-or-string from to flags
-     This function returns a list of the extents in BUFFER-OR-STRING.
-     BUFFER-OR-STRING defaults to the current buffer if omitted.  FROM
-     and TO can be used to limit the range over which extents are
-     returned; if omitted, all extents in the buffer or string are
-     returned.
-
-     More specifically, if a range is specified using FROM and TO, only
-     extents that overlap the range (i.e. begin or end inside of the
-     range) are included in the list.  FROM and TO default to the
-     beginning and end of BUFFER-OR-STRING, respectively.
-
-     FLAGS controls how end cases are treated.  For a discussion of
-     this, and exactly what "overlap" means, see `map-extents'.
-
-   Functions that create extents must be prepared for the possibility
-that there are other extents in the same area, created by other
-functions.  To deal with this, functions typically mark their own
-extents by setting a particular property on them.  The following
-function makes it easier to locate those extents.
-
- - Function: extent-at pos &optional object property before at-flag
-     This function finds the "smallest" extent (i.e., the last one in
-     the display order) at (i.e., overlapping) POS in OBJECT (a buffer
-     or string) having PROPERTY set.  OBJECT defaults to the current
-     buffer.  PROPERTY defaults to `nil', meaning that any extent will
-     do.  Returns `nil' if there is no matching extent at POS.  If the
-     fourth argument BEFORE is not `nil', it must be an extent; any
-     returned extent will precede that extent.  This feature allows
-     `extent-at' to be used by a loop over extents.
-
-     AT-FLAG controls how end cases are handled (i.e. what "at" really
-     means), and should be one of:
-
-    `nil'
-
-    `after'
-          An extent is at POS if it covers the character after POS.
-          This is consistent with the way that text properties work.
-
-    `before'
-          An extent is at POS if it covers the character before POS.
-
-    `at'
-          An extent is at POS if it overlaps or abuts POS.  This
-          includes all zero-length extents at POS.
-
-     Note that in all cases, the start-openness and end-openness of the
-     extents considered is ignored.  If you want to pay attention to
-     those properties, you should use `map-extents', which gives you
-     more control.
-
-   The following low-level functions are provided for explicitly
-traversing the extents in a buffer according to the display order.
-These functions are mostly intended for debugging--in normal operation,
-you should probably use `mapcar-extents' or `map-extents', or loop
-using the BEFORE argument to `extent-at', rather than creating a loop
-using `next-extent'.
-
- - Function: next-extent extent
-     Given an extent EXTENT, this function returns the next extent in
-     the buffer or string's display order.  If EXTENT is a buffer or
-     string, this returns the first extent in the buffer or string.
-
- - Function: previous-extent extent
-     Given an extent EXTENT, this function returns the previous extent
-     in the buffer or string's display order.  If EXTENT is a buffer or
-     string, this returns the last extent in the buffer or string.
-
-
-File: lispref.info,  Node: Mapping Over Extents,  Next: Extent Properties,  Prev: Finding Extents,  Up: Extents
-
-Mapping Over Extents
-====================
-
-   The most basic and general function for mapping over extents is
-called `map-extents'.  You should read through the definition of this
-function to familiarize yourself with the concepts and optional
-arguments involved.  However, in practice you may find it more
-convenient to use the function `mapcar-extents' or to create a loop
-using the `before' argument to `extent-at' (*note Finding Extents::).
-
- - Function: map-extents function &optional object from to maparg flags
-          property value
-     This function maps FUNCTION over the extents which overlap a
-     region in OBJECT.  OBJECT is normally a buffer or string but could
-     be an extent (see below).  The region is normally bounded by
-     [FROM, TO) (i.e. the beginning of the region is closed and the end
-     of the region is open), but this can be changed with the FLAGS
-     argument (see below for a complete discussion).
-
-     FUNCTION is called with the arguments (extent, MAPARG).  The
-     arguments OBJECT, FROM, TO, MAPARG, and FLAGS are all optional and
-     default to the current buffer, the beginning of OBJECT, the end of
-     OBJECT, NIL, and NIL, respectively.  `map-extents' returns the
-     first non-`nil' result produced by FUNCTION, and no more calls to
-     FUNCTION are made after it returns non-`nil'.
-
-     If OBJECT is an extent, FROM and TO default to the extent's
-     endpoints, and the mapping omits that extent and its predecessors.
-     This feature supports restarting a loop based on `map-extents'.
-     Note: OBJECT must be attached to a buffer or string, and the
-     mapping is done over that buffer or string.
-
-     An extent overlaps the region if there is any point in the extent
-     that is also in the region. (For the purpose of overlap,
-     zero-length extents and regions are treated as closed on both ends
-     regardless of their endpoints' specified open/closedness.) Note
-     that the endpoints of an extent or region are considered to be in
-     that extent or region if and only if the corresponding end is
-     closed.  For example, the extent [5,7] overlaps the region [2,5]
-     because 5 is in both the extent and the region.  However, (5,7]
-     does not overlap [2,5] because 5 is not in the extent, and neither
-     [5,7] nor (5,7] overlaps the region [2,5) because 5 is not in the
-     region.
-
-     The optional FLAGS can be a symbol or a list of one or more
-     symbols, modifying the behavior of `map-extents'.  Allowed symbols
-     are:
-
-    `end-closed'
-          The region's end is closed.
-
-    `start-open'
-          The region's start is open.
-
-    `all-extents-closed'
-          Treat all extents as closed on both ends for the purpose of
-          determining whether they overlap the region, irrespective of
-          their actual open- or closedness.
-
-    `all-extents-open'
-          Treat all extents as open on both ends.
-
-    `all-extents-closed-open'
-          Treat all extents as start-closed, end-open.
-
-    `all-extents-open-closed'
-          Treat all extents as start-open, end-closed.
-
-    `start-in-region'
-          In addition to the above conditions for extent overlap, the
-          extent's start position must lie within the specified region.
-          Note that, for this condition, open start positions are
-          treated as if 0.5 was added to the endpoint's value, and open
-          end positions are treated as if 0.5 was subtracted from the
-          endpoint's value.
-
-    `end-in-region'
-          The extent's end position must lie within the region.
-
-    `start-and-end-in-region'
-          Both the extent's start and end positions must lie within the
-          region.
-
-    `start-or-end-in-region'
-          Either the extent's start or end position must lie within the
-          region.
-
-    `negate-in-region'
-          The condition specified by a `*-in-region' flag must _not_
-          hold for the extent to be considered.
-
-     At most one of `all-extents-closed', `all-extents-open',
-     `all-extents-closed-open', and `all-extents-open-closed' may be
-     specified.
-
-     At most one of `start-in-region', `end-in-region',
-     `start-and-end-in-region', and `start-or-end-in-region' may be
-     specified.
-
-     If optional arg PROPERTY is non-`nil', only extents with that
-     property set on them will be visited.  If optional arg VALUE is
-     non-`nil', only extents whose value for that property is `eq' to
-     VALUE will be visited.
-
-   If you want to map over extents and accumulate a list of results,
-the following function may be more convenient than `map-extents'.
-
- - Function: mapcar-extents function &optional predicate
-          buffer-or-string from to flags property value
-     This function applies FUNCTION to all extents which overlap a
-     region in BUFFER-OR-STRING.  The region is delimited by FROM and
-     TO.  FUNCTION is called with one argument, the extent.  A list of
-     the values returned by FUNCTION is returned.  An optional
-     PREDICATE may be used to further limit the extents over which
-     FUNCTION is mapped.  The optional arguments FLAGS, PROPERTY, and
-     VALUE may also be used to control the extents passed to PREDICATE
-     or FUNCTION, and have the same meaning as in `map-extents'.
-
- - Function: map-extent-children function &optional object from to
-          maparg flags property value
-     This function is similar to `map-extents', but differs in that:
-
-        * It only visits extents which start in the given region.
-
-        * After visiting an extent E, it skips all other extents which
-          start inside E but end before E's end.
-
-     Thus, this function may be used to walk a tree of extents in a
-     buffer:
-          (defun walk-extents (buffer &optional ignore)
-            (map-extent-children 'walk-extents buffer))
-
- - Function: extent-in-region-p extent &optional from to flags
-     This function returns T if `map-extents' would visit EXTENT if
-     called with the given arguments.
 

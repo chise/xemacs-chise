@@ -7,6 +7,89 @@ START-INFO-DIR-ENTRY
 END-INFO-DIR-ENTRY
 
 
+File: xemacs-faq.info,  Node: Q4.0.12,  Next: Q4.1.1,  Prev: Q4.0.11,  Up: Subsystems
+
+Q4.0.12: Customization of VM not covered in the manual, or here.
+----------------------------------------------------------------
+
+   giacomo boffi <boffi@hp735.stru.polimi.it> writes:
+
+     The meta-answer is to look into the file `vm-vars.el', in the vm
+     directory of the lisp library.
+
+     `vm-vars.el' contains, initializes and carefully describes, with
+     examples of usage, the plethora of user options that _fully_
+     control VM's behavior.
+
+     Enter vm-vars, `forward-search' for toolbar, find the variables
+     that control the toolbar placement, appearance, existence, copy to
+     your `.emacs' or `.vm' and modify according to the detailed
+     instructions.
+
+     The above also applies to all the various features of VM: search
+     for some keywords, maybe the first you conjure isn't appropriate,
+     find the appropriate variables, copy and experiment.
+
+
+File: xemacs-faq.info,  Node: Q4.1.1,  Next: Q4.1.2,  Prev: Q4.0.12,  Up: Subsystems
+
+4.1: Web browsing with W3
+=========================
+
+Q4.1.1: What is W3?
+-------------------
+
+   W3 is an advanced graphical browser written in Emacs lisp that runs
+on XEmacs.  It has full support for cascaded style sheets, and more...
+
+   It has a home web page at
+`http://www.cs.indiana.edu/elisp/w3/docs.html'.
+
+
+File: xemacs-faq.info,  Node: Q4.1.2,  Next: Q4.1.3,  Prev: Q4.1.1,  Up: Subsystems
+
+Q4.1.2: How do I run W3 from behind a firewall?
+-----------------------------------------------
+
+   There is a long, well-written, detailed section in the W3 manual that
+describes how to do this.  Look in the section entitled "Firewalls".
+
+
+File: xemacs-faq.info,  Node: Q4.1.3,  Next: Q4.2.1,  Prev: Q4.1.2,  Up: Subsystems
+
+Q4.1.3: Is it true that W3 supports style sheets and tables?
+------------------------------------------------------------
+
+   Yes, and much more.  W3, as distributed with the latest XEmacs is a
+full-featured web browser.
+
+
+File: xemacs-faq.info,  Node: Q4.2.1,  Next: Q4.2.2,  Prev: Q4.1.3,  Up: Subsystems
+
+4.2: Reading Netnews and Mail with Gnus
+=======================================
+
+Q4.2.1: GNUS, (ding) Gnus, Gnus 5, September Gnus, Red Gnus, Quassia Gnus, argh!
+--------------------------------------------------------------------------------
+
+   The Gnus numbering issues are not meant for mere mortals to know
+them.  If you feel you _must_ enter the muddy waters of Gnus, visit the
+excellent FAQ, maintained by Justin Sheehy, at:
+
+     `http://www.ccs.neu.edu/software/contrib/gnus/'
+
+   See also Gnus home page
+     `http://www.gnus.org/'
+
+
+File: xemacs-faq.info,  Node: Q4.2.2,  Next: Q4.2.3,  Prev: Q4.2.1,  Up: Subsystems
+
+Q4.2.2: This question intentionally left blank.
+-----------------------------------------------
+
+   Obsolete question, left blank to avoid renumbering.
+
+
 File: xemacs-faq.info,  Node: Q4.2.3,  Next: Q4.2.4,  Prev: Q4.2.2,  Up: Subsystems
 
 Q4.2.3: How do I make Gnus stay within a single frame?
@@ -1240,69 +1323,4 @@ fact that it is an interpreter.
 
    Please try not to make your code much uglier to gain a very small
 speed gain.  It's not usually worth it.
-
-
-File: xemacs-faq.info,  Node: Q5.1.9,  Next: Q5.1.10,  Prev: Q5.1.8,  Up: Miscellaneous
-
-Q5.1.9: How do I put a glyph as annotation in a buffer?
--------------------------------------------------------
-
-   Here is a solution that will insert the glyph annotation at the
-beginning of buffer:
-
-     (make-annotation (make-glyph '([FORMAT :file FILE]
-                                    [string :data "fallback-text"]))
-                      (point-min)
-                      'text
-                      (current-buffer))
-
-   Replace `FORMAT' with an unquoted symbol representing the format of
-the image (e.g. `xpm', `xbm', `gif', `jpeg', etc.)  Instead of `FILE',
-use the image file name (e.g.
-`/usr/local/lib/xemacs-20.2/etc/recycle.xpm').
-
-   You can turn this to a function (that optionally prompts you for a
-file name), and inserts the glyph at `(point)' instead of `(point-min)'.
-
-
-File: xemacs-faq.info,  Node: Q5.1.10,  Next: Q5.1.11,  Prev: Q5.1.9,  Up: Miscellaneous
-
-Q5.1.10: `map-extents' won't traverse all of my extents!
---------------------------------------------------------
-
-   I tried to use `map-extents' to do an operation on all the extents
-in a region.  However, it seems to quit after processing a random number
-of extents.  Is it buggy?
-
-   No.  The documentation of `map-extents' states that it will iterate
-across the extents as long as FUNCTION returns `nil'.  Unexperienced
-programmers often forget to return `nil' explicitly, which results in
-buggy code.  For instance, the following code is supposed to delete all
-the extents in a buffer, and issue as many `fubar!' messages.
-
-     (map-extents (lambda (ext ignore)
-                    (delete-extent ext)
-                    (message "fubar!")))
-
-   Instead, it will delete only the first extent, and stop right there -
-because `message' will return a non-nil value.  The correct code is:
-
-     (map-extents (lambda (ext ignore)
-                    (delete-extent ext)
-                    (message "fubar!")
-                    nil))
-
-
-File: xemacs-faq.info,  Node: Q5.1.11,  Next: Q5.2.1,  Prev: Q5.1.10,  Up: Miscellaneous
-
-Q5.1.11: My elisp program is horribly slow.  Is there
------------------------------------------------------
-
-   an easy way to find out where it spends time?
-
-   zHrvoje Niksic <hniksic@xemacs.org> writes:
-     Under XEmacs 20.4 and later  you can use `M-x
-     profile-key-sequence', press a key (say <RET> in the Gnus Group
-     buffer), and get the results using `M-x profile-results'.  It
-     should give you an idea of where the time is being spent.
 

@@ -50,15 +50,519 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Menu Format,  Next: Menubar Format,  Up: Menus
+
+Format of Menus
+===============
+
+   A menu is described using a "menu description", which is a list of
+menu items, keyword-value pairs, strings, and submenus.  The menu
+description specifies which items are present in the menu, what function
+each item invokes, and whether the item is selectable or not.  Pop-up
+menus are directly described with a menu description, while menubars are
+described slightly differently (see below).
+
+   The first element of a menu must be a string, which is the name of
+the menu.  This is the string that will be displayed in the parent menu
+or menubar, if any.  This string is not displayed in the menu itself,
+except in the case of the top level pop-up menu, where there is no
+parent.  In this case, the string will be displayed at the top of the
+menu if `popup-menu-titles' is non-`nil'.
+
+   Immediately following the first element there may optionally be up
+to four keyword-value pairs, as follows:
+
+`:included FORM'
+     This can be used to control the visibility of a menu.  The form is
+     evaluated and the menu will be omitted if the result is `nil'.
+
+`:config SYMBOL'
+     This is an efficient shorthand for `:included (memq SYMBOL
+     menubar-configuration)'.  See the variable `menubar-configuration'.
+
+`:filter FUNCTION'
+     A menu filter is used to sensitize or incrementally create a
+     submenu only when it is selected by the user and not every time
+     the menubar is activated.  The filter function is passed the list
+     of menu items in the submenu and must return a list of menu items
+     to be used for the menu.  It is called only when the menu is about
+     to be displayed, so other menus may already be displayed.  Vile
+     and terrible things will happen if a menu filter function changes
+     the current buffer, window, or frame.  It also should not raise,
+     lower, or iconify any frames.  Basically, the filter function
+     should have no side-effects.
+
+`:accelerator KEY'
+     A menu accelerator is a keystroke which can be pressed while the
+     menu is visible which will immediately activate the item.  KEY
+     must be a char or the symbol name of a key.  *Note Menu
+     Accelerators::.
+
+   The rest of the menu consists of elements as follows:
+
+   * A "menu item", which is a vector in the following form:
+
+          `[ NAME CALLBACK :KEYWORD VALUE :KEYWORD VALUE ... ]'
+
+     NAME is a string, the name of the menu item; it is the string to
+     display on the menu.  It is filtered through the resource
+     database, so it is possible for resources to override what string
+     is actually displayed.
+
+     CALLBACK is a form that will be invoked when the menu item is
+     selected.  If the callback of a menu item is a symbol, then it
+     must name a command.  It will be invoked with
+     `call-interactively'.  If it is a list, then it is evaluated with
+     `eval'.
+
+     The valid keywords and their meanings are described below.
+
+     Note that for compatibility purposes, the form
+
+          `[ NAME CALLBACK ACTIVE-P ]'
+
+     is also accepted and is equivalent to
+
+          `[ NAME CALLBACK :active ACTIVE-P ]'
+
+     and the form
+
+          `[ NAME CALLBACK ACTIVE-P SUFFIX]'
+
+     is accepted and is equivalent to
+
+          `[ NAME CALLBACK :active ACTIVE-P :suffix SUFFIX]'
+
+     However, these older forms are deprecated and should generally not
+     be used.
+
+   * If an element of a menu is a string, then that string will be
+     presented in the menu as unselectable text.
+
+   * If an element of a menu is a string consisting solely of hyphens,
+     then that item will be presented as a solid horizontal line.
+
+   * If an element of a menu is a string beginning with `--:', then a
+     particular sort of horizontal line will be displayed, as follows:
+
+    `"--:singleLine"'
+          A solid horizontal line.  This is equivalent to a string
+          consisting solely of hyphens.
+
+    `"--:doubleLine"'
+          A solid double horizontal line.
+
+    `"--:singleDashedLine"'
+          A dashed horizontal line.
+
+    `"--:doubleDashedLine"'
+          A dashed double horizontal line.
+
+    `"--:noLine"'
+          No line (but a small space is left).
+
+    `"--:shadowEtchedIn"'
+          A solid horizontal line with a 3-d recessed appearance.
+
+    `"--:shadowEtchedOut"'
+          A solid horizontal line with a 3-d pushed-out appearance.
+
+    `"--:shadowDoubleEtchedIn"'
+          A solid double horizontal line with a 3-d recessed appearance.
+
+    `"--:shadowDoubleEtchedOut"'
+          A solid double horizontal line with a 3-d pushed-out
+          appearance.
+
+    `"--:shadowEtchedInDash"'
+          A dashed horizontal line with a 3-d recessed appearance.
+
+    `"--:shadowEtchedOutDash"'
+          A dashed horizontal line with a 3-d pushed-out appearance.
+
+    `"--:shadowDoubleEtchedInDash"'
+          A dashed double horizontal line with a 3-d recessed
+          appearance.
+
+    `"--:shadowDoubleEtchedOutDash"'
+          A dashed double horizontal line with a 3-d pushed-out
+          appearance.
+
+   * If an element of a menu is a list, it is treated as a submenu.
+     The name of that submenu (the first element in the list) will be
+     used as the name of the item representing this menu on the parent.
+
+   The possible keywords are as follows:
+
+:active FORM
+     FORM will be evaluated when the menu that this item is a part of
+     is about to be displayed, and the item will be selectable only if
+     the result is non-`nil'.  If the item is unselectable, it will
+     usually be displayed grayed-out to indicate this.
+
+:suffix FORM
+     FORM will be evaluated when the menu that this item is a part of
+     is about to be displayed, and the resulting string is appended to
+     the displayed name.  This provides a convenient way of adding the
+     name of a command's "argument" to the menu, like `Kill Buffer
+     NAME'.
+
+:keys STRING
+     Normally, the keyboard equivalents of commands in menus are
+     displayed when the "callback" is a symbol.  This can be used to
+     specify keys for more complex menu items.  It is passed through
+     `substitute-command-keys' first.
+
+:style STYLE
+     Specifies what kind of object this menu item is.  STYLE be one of
+     the symbols
+
+    `nil'
+          A normal menu item.
+
+    `toggle'
+          A toggle button.
+
+    `radio'
+          A radio button.
+
+    `button'
+          A menubar button.
+
+     The only difference between toggle and radio buttons is how they
+     are displayed.  But for consistency, a toggle button should be
+     used when there is one option whose value can be turned on or off,
+     and radio buttons should be used when there is a set of mutually
+     exclusive options.  When using a group of radio buttons, you
+     should arrange for no more than one to be marked as selected at a
+     time.
+
+:selected FORM
+     Meaningful only when STYLE is `toggle', `radio' or `button'.  This
+     specifies whether the button will be in the selected or unselected
+     state.  FORM is evaluated, as for `:active'.
+
+:included FORM
+     This can be used to control the visibility of a menu item.  The
+     form is evaluated and the menu item is only displayed if the
+     result is non-`nil'.  Note that this is different from `:active':
+     If `:active' evaluates to `nil', the item will be displayed grayed
+     out, while if `:included' evaluates to `nil', the item will be
+     omitted entirely.
+
+:config SYMBOL
+     This is an efficient shorthand for `:included (memq SYMBOL
+     menubar-configuration)'.  See the variable `menubar-configuration'.
+
+:accelerator KEY
+     A menu accelerator is a keystroke which can be pressed while the
+     menu is visible which will immediately activate the item.  KEY
+     must be a char or the symbol name of a key.  *Note Menu
+     Accelerators::.
+
+ - Variable: menubar-configuration
+     This variable holds a list of symbols, against which the value of
+     the `:config' tag for each menubar item will be compared.  If a
+     menubar item has a `:config' tag, then it is omitted from the
+     menubar if that tag is not a member of the `menubar-configuration'
+     list.
+
+   For example:
+
+      ("File"
+       :filter file-menu-filter      ; file-menu-filter is a function that takes
+                                     ; one argument (a list of menu items) and
+                                     ; returns a list of menu items
+       [ "Save As..."    write-file]
+       [ "Revert Buffer" revert-buffer :active (buffer-modified-p) ]
+       [ "Read Only"     toggle-read-only :style toggle :selected buffer-read-only ]
+       )
+
+
+File: lispref.info,  Node: Menubar Format,  Next: Menubar,  Prev: Menu Format,  Up: Menus
+
+Format of the Menubar
+=====================
+
+   A menubar is a list of menus, menu items, and strings.  The format is
+similar to that of a menu, except:
+
+   * The first item need not be a string, and is not treated specially.
+
+   * A string consisting solely of hyphens is not treated specially.
+
+   * If an element of a menubar is `nil', then it is used to represent
+     the division between the set of menubar items which are flush-left
+     and those which are flush-right.  (Note: this isn't completely
+     implemented yet.)
+
+
+File: lispref.info,  Node: Menubar,  Next: Modifying Menus,  Prev: Menubar Format,  Up: Menus
+
+Menubar
+=======
+
+ - Variable: current-menubar
+     This variable holds the description of the current menubar.  This
+     may be buffer-local.  When the menubar is changed, the function
+     `set-menubar-dirty-flag' has to be called in order for the menubar
+     to be updated on the screen.
+
+ - Constant: default-menubar
+     This variable holds the menubar description of the menubar that is
+     visible at startup.  This is the value that `current-menubar' has
+     at startup.
+
+ - Function: set-menubar-dirty-flag
+     This function tells XEmacs that the menubar widget has to be
+     updated.  Changes to the menubar will generally not be visible
+     until this function is called.
+
+   The following convenience functions are provided for setting the
+menubar.  They are equivalent to doing the appropriate action to change
+`current-menubar', and then calling `set-menubar-dirty-flag'.  Note
+that these functions copy their argument using `copy-sequence'.
+
+ - Function: set-menubar menubar
+     This function sets the default menubar to be MENUBAR (*note Menu
+     Format::).  This is the menubar that will be visible in buffers
+     that have not defined their own, buffer-local menubar.
+
+ - Function: set-buffer-menubar menubar
+     This function sets the buffer-local menubar to be MENUBAR.  This
+     does not change the menubar in any buffers other than the current
+     one.
+
+   Miscellaneous:
+
+ - Variable: menubar-show-keybindings
+     If true, the menubar will display keyboard equivalents.  If false,
+     only the command names will be displayed.
+
+ - Variable: activate-menubar-hook
+     Function or functions called before a menubar menu is pulled down.
+     These functions are called with no arguments, and should
+     interrogate and modify the value of `current-menubar' as desired.
+
+     The functions on this hook are invoked after the mouse goes down,
+     but before the menu is mapped, and may be used to activate,
+     deactivate, add, or delete items from the menus.  However, using a
+     filter (with the `:filter' keyword in a menu description) is
+     generally a more efficient way of accomplishing the same thing,
+     because the filter is invoked only when the actual menu goes down.
+     With a complex menu, there can be a quite noticeable and
+     sometimes aggravating delay if all menu modification is
+     implemented using the `activate-menubar-hook'.  See above.
+
+     These functions may return the symbol `t' to assert that they have
+     made no changes to the menubar.  If any other value is returned,
+     the menubar is recomputed.  If `t' is returned but the menubar has
+     been changed, then the changes may not show up right away.
+     Returning `nil' when the menubar has not changed is not so bad;
+     more computation will be done, but redisplay of the menubar will
+     still be performed optimally.
+
+ - Variable: menu-no-selection-hook
+     Function or functions to call when a menu or dialog box is
+     dismissed without a selection having been made.
+
+
+File: lispref.info,  Node: Modifying Menus,  Next: Pop-Up Menus,  Prev: Menubar,  Up: Menus
+
+Modifying Menus
+===============
+
+   The following functions are provided to modify the menubar of one of
+its submenus.  Note that these functions modify the menu in-place,
+rather than copying it and making a new menu.
+
+   Some of these functions take a "menu path", which is a list of
+strings identifying the menu to be modified.  For example, `("File")'
+names the top-level "File" menu.  `("File" "Foo")' names a hypothetical
+submenu of "File".
+
+   Others take a "menu item path", which is similar to a menu path but
+also specifies a particular item to be modified.  For example, `("File"
+"Save")' means the menu item called "Save" under the top-level "File"
+menu.  `("Menu" "Foo" "Item")' means the menu item called "Item" under
+the "Foo" submenu of "Menu".
+
+ - Function: add-submenu menu-path submenu &optional before in-menu
+     This function adds a menu to the menubar or one of its submenus.
+     If the named menu exists already, it is changed.
+
+     MENU-PATH identifies the menu under which the new menu should be
+     inserted.  If MENU-PATH is `nil', then the menu will be added to
+     the menubar itself.
+
+     SUBMENU is the new menu to add (*note Menu Format::).
+
+     BEFORE, if provided, is the name of a menu before which this menu
+     should be added, if this menu is not on its parent already.  If
+     the menu is already present, it will not be moved.
+
+     If IN-MENU is present use that instead of `current-menubar' as the
+     menu to change.
+
+ - Function: add-menu-button menu-path menu-leaf &optional before
+          in-menu
+     This function adds a menu item to some menu, creating the menu
+     first if necessary.  If the named item exists already, it is
+     changed.
+
+     MENU-PATH identifies the menu under which the new menu item should
+     be inserted.
+
+     MENU-LEAF is a menubar leaf node (*note Menu Format::).
+
+     BEFORE, if provided, is the name of a menu before which this item
+     should be added, if this item is not on the menu already.  If the
+     item is already present, it will not be moved.
+
+     If IN-MENU is present use that instead of `current-menubar' as the
+     menu to change.
+
+ - Function: delete-menu-item menu-item-path &optional from-menu
+     This function removes the menu item specified by MENU-ITEM-PATH
+     from the menu hierarchy.
+
+     If FROM-MENU is present use that instead of `current-menubar' as
+     the menu to change.
+
+ - Function: enable-menu-item menu-item-path
+     This function makes the menu item specified by MENU-ITEM-PATH be
+     selectable.
+
+ - Function: disable-menu-item menu-item-path
+     This function makes the menu item specified by MENU-ITEM-PATH be
+     unselectable.
+
+ - Function: relabel-menu-item menu-item-path new-name
+     This function changes the string of the menu item specified by
+     MENU-ITEM-PATH.  NEW-NAME is the string that the menu item will be
+     printed as from now on.
+
+   The following function can be used to search for a particular item in
+a menubar specification, given a path to the item.
+
+ - Function: find-menu-item menubar menu-item-path &optional parent
+     This function searches MENUBAR for the item given by
+     MENU-ITEM-PATH starting from PARENT (`nil' means start at the top
+     of MENUBAR).  This function returns `(ITEM . PARENT)', where
+     PARENT is the immediate parent of the item found (a menu
+     description), and ITEM is either a vector, list, or string,
+     depending on the nature of the menu item.
+
+     This function signals an error if the item is not found.
+
+   The following deprecated functions are also documented, so that
+existing code can be understood.  You should not use these functions in
+new code.
+
+ - Function: add-menu menu-path menu-name menu-items &optional before
+     This function adds a menu to the menubar or one of its submenus.
+     If the named menu exists already, it is changed.  This is
+     obsolete; use `add-submenu' instead.
+
+     MENU-PATH identifies the menu under which the new menu should be
+     inserted.  If MENU-PATH is `nil', then the menu will be added to
+     the menubar itself.
+
+     MENU-NAME is the string naming the menu to be added; MENU-ITEMS is
+     a list of menu items, strings, and submenus.  These two arguments
+     are the same as the first and following elements of a menu
+     description (*note Menu Format::).
+
+     BEFORE, if provided, is the name of a menu before which this menu
+     should be added, if this menu is not on its parent already.  If the
+     menu is already present, it will not be moved.
+
+ - Function: add-menu-item menu-path item-name function enabled-p
+          &optional before
+     This function adds a menu item to some menu, creating the menu
+     first if necessary.  If the named item exists already, it is
+     changed.  This is obsolete; use `add-menu-button' instead.
+
+     MENU-PATH identifies the menu under which the new menu item should
+     be inserted. ITEM-NAME, FUNCTION, and ENABLED-P are the first,
+     second, and third elements of a menu item vector (*note Menu
+     Format::).
+
+     BEFORE, if provided, is the name of a menu item before which this
+     item should be added, if this item is not on the menu already.  If
+     the item is already present, it will not be moved.
+
+
+File: lispref.info,  Node: Menu Filters,  Next: Menu Accelerators,  Prev: Pop-Up Menus,  Up: Menus
+
+Menu Filters
+============
+
+   The following filter functions are provided for use in
+`default-menubar'.  You may want to use them in your own menubar
+description.
+
+ - Function: file-menu-filter menu-items
+     This function changes the arguments and sensitivity of these File
+     menu items:
+
+    `Delete Buffer'
+          Has the name of the current buffer appended to it.
+
+    `Print Buffer'
+          Has the name of the current buffer appended to it.
+
+    `Pretty-Print Buffer'
+          Has the name of the current buffer appended to it.
+
+    `Save Buffer'
+          Has the name of the current buffer appended to it, and is
+          sensitive only when the current buffer is modified.
+
+    `Revert Buffer'
+          Has the name of the current buffer appended to it, and is
+          sensitive only when the current buffer has a file.
+
+    `Delete Frame'
+          Sensitive only when there is more than one visible frame.
+
+ - Function: edit-menu-filter menu-items
+     This function changes the arguments and sensitivity of these Edit
+     menu items:
+
+    `Cut'
+          Sensitive only when XEmacs owns the primary X Selection (if
+          `zmacs-regions' is `t', this is equivalent to saying that
+          there is a region selected).
+
+    `Copy'
+          Sensitive only when XEmacs owns the primary X Selection.
+
+    `Clear'
+          Sensitive only when XEmacs owns the primary X Selection.
+
+    `Paste'
+          Sensitive only when there is an owner for the X Clipboard
+          Selection.
+
+    `Undo'
+          Sensitive only when there is undo information.  While in the
+          midst of an undo, this is changed to `Undo More'.
+
+ - Function: buffers-menu-filter menu-items
+     This function sets up the Buffers menu.  *Note Buffers Menu::, for
+     more information.
+
+
 File: lispref.info,  Node: Pop-Up Menus,  Next: Menu Filters,  Prev: Modifying Menus,  Up: Menus
 
 Pop-Up Menus
 ============
 
- - Function: popup-menu menu-desc
-     This function pops up a menu specified by MENU-DESC, which is a
-     menu description (*note Menu Format::).  The menu is displayed at
-     the current mouse position.
+ - Function: popup-menu menu-description &optional event
+     This function pops up a menu specified by MENU-DESCRIPTION, which
+     is a menu description (*note Menu Format::).  The menu is
+     displayed at the current mouse position.
 
  - Function: popup-menu-up-p
      This function returns `t' if a pop-up menu is up, `nil' otherwise.
@@ -100,13 +604,14 @@ the binding for button3.
    The following convenience functions are provided for displaying
 pop-up menus.
 
- - Function: popup-buffer-menu event
+ - Command: popup-buffer-menu event
      This function pops up a copy of the `Buffers' menu (from the
-     menubar) where the mouse is clicked.
+     menubar) where the mouse is clicked.  It should be bound to a
+     mouse button event.
 
- - Function: popup-menubar-menu event
+ - Command: popup-menubar-menu event
      This function pops up a copy of menu that also appears in the
-     menubar.
+     menubar.  It should be bound to a mouse button event.
 
 
 File: lispref.info,  Node: Menu Accelerators,  Next: Buffers Menu,  Prev: Menu Filters,  Up: Menus
@@ -180,7 +685,7 @@ File: lispref.info,  Node: Menu Accelerator Functions,  Prev: Keyboard Menu Trav
 Menu Accelerator Functions
 --------------------------
 
- - Function: accelerate-menu
+ - Command: accelerate-menu
      Make the menubar immediately active and place the cursor on the
      left most entry in the top level menu.  Menu items can be selected
      as usual.
@@ -593,7 +1098,7 @@ this position.
      Specifier for the toolbar at the right edge of the frame.
 
  - Function: toolbar-specifier-p object
-     This function returns non-nil if OBJECT is a toolbar specifier.
+     This function returns non-`nil' if OBJECT is a toolbar specifier.
      Toolbar specifiers are the actual objects contained in the toolbar
      variables described above, and their valid instantiators are
      toolbar descriptors (*note Toolbar Descriptor Format::).
@@ -680,8 +1185,8 @@ thickness or visibility that is used in frame geometry calculations.
 the left toolbar width for that frame to 68 pixels, then the frame will
 be sized to fit 80 characters plus a 68-pixel left toolbar.  If you then
 set the left toolbar width to 0 for a particular buffer (or if that
-buffer does not specify a left toolbar or has a nil value specified for
-`left-toolbar-visible-p'), you will find that, when that buffer is
+buffer does not specify a left toolbar or has a `nil' value specified
+for `left-toolbar-visible-p'), you will find that, when that buffer is
 displayed in the selected window, the window will have a width of 86 or
 87 characters--the frame is sized for a 68-pixel left toolbar but the
 selected window specifies that the left toolbar is not visible, so it is
@@ -716,495 +1221,4 @@ contain arbitrary text or graphics.
 * Specifying a Gutter::		Setting a gutter's contents.
 * Other Gutter Variables::	Controlling the size of gutters.
 * Common Gutter Widgets::       Things to put in gutters.
-
-
-File: lispref.info,  Node: Gutter Intro,  Next: Creating Gutter,  Prev: Gutter,  Up: Gutter
-
-Gutter Intro
-============
-
-   A "gutter" is a rectangle displayed along one edge of a frame.  It
-can contain arbitrary text or graphics.  It could be considered a
-generalization of a toolbar, although toolbars are not currently
-implemented using gutters.
-
-   In XEmacs, a gutter can be displayed along any of the four edges of
-the frame, and two or more different edges can be displaying gutters
-simultaneously.  The contents, thickness, and visibility of the gutters
-can be controlled separately, and the values can be per-buffer,
-per-frame, etc., using specifiers (*note Specifiers::).
-
-   Normally, there is one gutter displayed in a frame.  Usually, this is
-the default gutter, containing buffer tabs, but modes cab override this
-and substitute their own gutter.  This default gutter is usually
-positioned along the top of the frame, but this can be changed using
-`set-default-gutter-position'.
-
-   Note that, for each of the gutter properties (contents, thickness,
-and visibility), there is a separate specifier for each of the four
-gutter positions (top, bottom, left, and right), and an additional
-specifier for the "default" gutter, i.e. the gutter whose position is
-controlled by `set-default-gutter-position'.  The way this works is
-that `set-default-gutter-position' arranges things so that the
-appropriate position-specific specifiers for the default position
-inherit from the corresponding default specifiers.  That way, if the
-position-specific specifier does not give a value (which it usually
-doesn't), then the value from the default specifier applies.  If you
-want to control the default gutter, you just change the default
-specifiers, and everything works.  A package such as VM that wants to
-put its own gutter in a different location from the default just sets
-the position-specific specifiers, and if the user sets the default
-gutter to the same position, it will just not be visible.
-
-
-File: lispref.info,  Node: Creating Gutter,  Next: Gutter Descriptor Format,  Prev: Gutter Intro,  Up: Gutter
-
-Creating Gutter
-===============
-
- - Function: make-gutter-specifier spec-list
-     Return a new `gutter' specifier object with the given specification
-     list.  SPEC-LIST can be a list of specifications (each of which is
-     a cons of a locale and a list of instantiators), a single
-     instantiator, or a list of instantiators.  *Note Specifiers::, for
-     more information about specifiers.
-
-     Gutter specifiers are used to specify the format of a gutter.  The
-     values of the variables `default-gutter', `top-gutter',
-     `left-gutter', `right-gutter', and `bottom-gutter' are always
-     gutter specifiers.
-
-     Valid gutter instantiators are called "gutter descriptors" and are
-     either strings or property-lists of strings.  See `default-gutter'
-     for a description of the exact format.
-
- - Function: make-gutter-size-specifier spec-list
-     Return a new `gutter-size' specifier object with the given spec
-     list.  SPEC-LIST can be a list of specifications (each of which is
-     a cons of a locale and a list of instantiators), a single
-     instantiator, or a list of instantiators.  *Note Specifiers::, for
-     more information about specifiers.
-
-     Gutter-size specifiers are used to specify the size of a gutter.
-     The values of the variables `default-gutter-size',
-     `top-gutter-size', `left-gutter-size', `right-gutter-size', and
-     `bottom-gutter-size' are always gutter-size specifiers.
-
-     Valid gutter-size instantiators are either integers or the special
-     symbol `autodetect'. If a gutter-size is set to `autodetect' them
-     the size of the gutter will be adjusted to just accommodate the
-     gutters contents. `autodetect' only works for top and bottom
-     gutters.
-
- - Function: make-gutter-visible-specifier spec-list
-     Return a new `gutter-visible' specifier object with the given spec
-     list.  SPEC-LIST can be a list of specifications (each of which is
-     a cons of a locale and a list of instantiators), a single
-     instantiator, or a list of instantiators.  *Note Specifiers::, for
-     more information about specifiers.
-
-     Gutter-visible specifiers are used to specify the visibility of a
-     gutter.  The values of the variables `default-gutter-visible-p',
-     `top-gutter-visible-p', `left-gutter-visible-p',
-     `right-gutter-visible-p', and `bottom-gutter-visible-p' are always
-     gutter-visible specifiers.
-
-     Valid gutter-visible instantiators are t, nil or a list of
-     symbols.  If a gutter-visible instantiator is set to a list of
-     symbols, and the corresponding gutter specification is a
-     property-list strings, then elements of the gutter specification
-     will only be visible if the corresponding symbol occurs in the
-     gutter-visible instantiator.
-
-
-File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Creating Gutter,  Up: Gutter
-
-Gutter Descriptor Format
-========================
-
-   The contents of a gutter are specified using a "gutter descriptor".
-The format of a gutter descriptor is a list of "gutter button
-descriptors".  Each gutter button descriptor is a vector in one of the
-following formats:
-
-   * `[GLYPH-LIST FUNCTION ENABLED-P HELP]'
-
-   * `[:style 2D-OR-3D]'
-
-   * `[:style 2D-OR-3D :size WIDTH-OR-HEIGHT]'
-
-   * `[:size WIDTH-OR-HEIGHT :style 2D-OR-3D]'
-
-   Optionally, one of the gutter button descriptors may be `nil'
-instead of a vector; this signifies the division between the gutter
-buttons that are to be displayed flush-left, and the buttons to be
-displayed flush-right.
-
-   The first vector format above specifies a normal gutter button; the
-others specify blank areas in the gutter.
-
-   For the first vector format:
-
-   * GLYPH-LIST should be a list of one to six glyphs (as created by
-     `make-glyph') or a symbol whose value is such a list.  The first
-     glyph, which must be provided, is the glyph used to display the
-     gutter button when it is in the "up" (not pressed) state.  The
-     optional second glyph is for displaying the button when it is in
-     the "down" (pressed) state.  The optional third glyph is for when
-     the button is disabled.  The last three glyphs are for displaying
-     the button in the "up", "down", and "disabled" states,
-     respectively, but are used when the user has called for captioned
-     gutter buttons (using `gutter-buttons-captioned-p').  The function
-     `gutter-make-button-list' is useful in creating these glyph lists.
-
-   * Even if you do not provide separate down-state and disabled-state
-     glyphs, the user will still get visual feedback to indicate which
-     state the button is in.  Buttons in the up-state are displayed
-     with a shadowed border that gives a raised appearance to the
-     button.  Buttons in the down-state are displayed with shadows that
-     give a recessed appearance.  Buttons in the disabled state are
-     displayed with no shadows, giving a 2-d effect.
-
-   * If some of the gutter glyphs are not provided, they inherit as
-     follows:
-
-               UP:                up
-               DOWN:              down -> up
-               DISABLED:          disabled -> up
-               CAP-UP:            cap-up -> up
-               CAP-DOWN:          cap-down -> cap-up -> down -> up
-               CAP-DISABLED:      cap-disabled -> cap-up -> disabled -> up
-
-   * The second element FUNCTION is a function to be called when the
-     gutter button is activated (i.e. when the mouse is released over
-     the gutter button, if the press occurred in the gutter).  It can
-     be any form accepted by `call-interactively', since this is how it
-     is invoked.
-
-   * The third element ENABLED-P specifies whether the gutter button is
-     enabled (disabled buttons do nothing when they are activated, and
-     are displayed differently; see above).  It should be either a
-     boolean or a form that evaluates to a boolean.
-
-   * The fourth element HELP, if non-`nil', should be a string.  This
-     string is displayed in the echo area when the mouse passes over the
-     gutter button.
-
-   For the other vector formats (specifying blank areas of the gutter):
-
-   * 2D-OR-3D should be one of the symbols `2d' or `3d', indicating
-     whether the area is displayed with shadows (giving it a raised,
-     3-d appearance) or without shadows (giving it a flat appearance).
-
-   * WIDTH-OR-HEIGHT specifies the length, in pixels, of the blank
-     area.  If omitted, it defaults to a device-specific value (8
-     pixels for X devices).
-
- - Function: gutter-make-button-list up &optional down disabled cap-up
-          cap-down cap-disabled
-     This function calls `make-glyph' on each arg and returns a list of
-     the results.  This is useful for setting the first argument of a
-     gutter button descriptor (typically, the result of this function
-     is assigned to a symbol, which is specified as the first argument
-     of the gutter button descriptor).
-
- - Function: check-gutter-button-syntax button &optional noerror
-     Verify the syntax of entry BUTTON in a gutter description list.
-     If you want to verify the syntax of a gutter description list as a
-     whole, use `check-valid-instantiator' with a specifier type of
-     `gutter'.
-
-
-File: lispref.info,  Node: Specifying a Gutter,  Next: Other Gutter Variables,  Prev: Gutter Descriptor Format,  Up: Gutter
-
-Specifying a Gutter
-===================
-
-   In order to specify the contents of a gutter, set one of the
-specifier variables `default-gutter', `top-gutter', `bottom-gutter',
-`left-gutter', or `right-gutter'.  These are specifiers, which means
-you set them with `set-specifier' and query them with `specifier-specs'
-or `specifier-instance'.  You will get an error if you try to set them
-using `setq'.  The valid instantiators for these specifiers are gutter
-descriptors, as described above.  *Note Specifiers::, for more
-information.
-
-   Most of the time, you will set `default-gutter', which allows the
-user to choose where the gutter should go.
-
- - Specifier: default-gutter
-     The position of this gutter is specified in the function
-     `default-gutter-position'.  If the corresponding position-specific
-     gutter (e.g. `top-gutter' if `default-gutter-position' is `top')
-     does not specify a gutter in a particular domain, then the value
-     of `default-gutter' in that domain, of any, will be used instead.
-
-   Note that the gutter at any particular position will not be displayed
-unless its thickness (width or height, depending on orientation) is
-non-zero and its visibility status is true.  The thickness is controlled
-by the specifiers `top-gutter-height', `bottom-gutter-height',
-`left-gutter-width', and `right-gutter-width', and the visibility
-status is controlled by the specifiers `top-gutter-visible-p',
-`bottom-gutter-visible-p', `left-gutter-visible-p', and
-`right-gutter-visible-p' (*note Other Gutter Variables::).
-
- - Function: set-default-gutter-position position
-     This function sets the position that the `default-gutter' will be
-     displayed at.  Valid positions are the symbols `top', `bottom',
-     `left' and `right'.  What this actually does is set the fallback
-     specifier for the position-specific specifier corresponding to the
-     given position to `default-gutter', and set the fallbacks for the
-     other position-specific specifiers to `nil'.  It also does the
-     same thing for the position-specific thickness and visibility
-     specifiers, which inherit from one of `default-gutter-height' or
-     `default-gutter-width', and from `default-gutter-visible-p',
-     respectively (*note Other Gutter Variables::).
-
- - Function: default-gutter-position
-     This function returns the position that the `default-gutter' will
-     be displayed at.
-
-   You can also explicitly set a gutter at a particular position.  When
-redisplay determines what to display at a particular position in a
-particular domain (i.e. window), it first consults the position-specific
-gutter.  If that does not yield a gutter descriptor, the
-`default-gutter' is consulted if `default-gutter-position' indicates
-this position.
-
- - Specifier: top-gutter
-     Specifier for the gutter at the top of the frame.
-
- - Specifier: bottom-gutter
-     Specifier for the gutter at the bottom of the frame.
-
- - Specifier: left-gutter
-     Specifier for the gutter at the left edge of the frame.
-
- - Specifier: right-gutter
-     Specifier for the gutter at the right edge of the frame.
-
- - Function: gutter-specifier-p object
-     This function returns non-nil if OBJECT is a gutter specifier.
-     Gutter specifiers are the actual objects contained in the gutter
-     variables described above, and their valid instantiators are
-     gutter descriptors (*note Gutter Descriptor Format::).
-
-
-File: lispref.info,  Node: Other Gutter Variables,  Next: Common Gutter Widgets,  Prev: Specifying a Gutter,  Up: Gutter
-
-Other Gutter Variables
-======================
-
-   The variables to control the gutter thickness, visibility status, and
-captioned status are all specifiers.  *Note Specifiers::.
-
- - Specifier: default-gutter-height
-     This specifies the height of the default gutter, if it's oriented
-     horizontally.  The position of the default gutter is specified by
-     the function `set-default-gutter-position'.  If the corresponding
-     position-specific gutter thickness specifier (e.g.
-     `top-gutter-height' if `default-gutter-position' is `top') does
-     not specify a thickness in a particular domain (a window or a
-     frame), then the value of `default-gutter-height' or
-     `default-gutter-width' (depending on the gutter orientation) in
-     that domain, if any, will be used instead.
-
- - Specifier: default-gutter-width
-     This specifies the width of the default gutter, if it's oriented
-     vertically.  This behaves like `default-gutter-height'.
-
-   Note that `default-gutter-height' is only used when
-`default-gutter-position' is `top' or `bottom', and
-`default-gutter-width' is only used when `default-gutter-position' is
-`left' or `right'.
-
- - Specifier: top-gutter-height
-     This specifies the height of the top gutter.
-
- - Specifier: bottom-gutter-height
-     This specifies the height of the bottom gutter.
-
- - Specifier: left-gutter-width
-     This specifies the width of the left gutter.
-
- - Specifier: right-gutter-width
-     This specifies the width of the right gutter.
-
-   Note that all of the position-specific gutter thickness specifiers
-have a fallback value of zero when they do not correspond to the
-default gutter.  Therefore, you will have to set a non-zero thickness
-value if you want a position-specific gutter to be displayed.
-
- - Specifier: default-gutter-visible-p
-     This specifies whether the default gutter is visible.  The
-     position of the default gutter is specified by the function
-     `set-default-gutter-position'.  If the corresponding
-     position-specific gutter visibility specifier (e.g.
-     `top-gutter-visible-p' if `default-gutter-position' is `top') does
-     not specify a visible-p value in a particular domain (a window or
-     a frame), then the value of `default-gutter-visible-p' in that
-     domain, if any, will be used instead.
-
- - Specifier: top-gutter-visible-p
-     This specifies whether the top gutter is visible.
-
- - Specifier: bottom-gutter-visible-p
-     This specifies whether the bottom gutter is visible.
-
- - Specifier: left-gutter-visible-p
-     This specifies whether the left gutter is visible.
-
- - Specifier: right-gutter-visible-p
-     This specifies whether the right gutter is visible.
-
-   `default-gutter-visible-p' and all of the position-specific gutter
-visibility specifiers have a fallback value of true.
-
-   Internally, gutter thickness and visibility specifiers are
-instantiated in both window and frame domains, for different purposes.
-The value in the domain of a frame's selected window specifies the
-actual gutter thickness or visibility that you will see in that frame.
-The value in the domain of a frame itself specifies the gutter
-thickness or visibility that is used in frame geometry calculations.
-
-   Thus, for example, if you set the frame width to 80 characters and
-the left gutter width for that frame to 68 pixels, then the frame will
-be sized to fit 80 characters plus a 68-pixel left gutter.  If you then
-set the left gutter width to 0 for a particular buffer (or if that
-buffer does not specify a left gutter or has a nil value specified for
-`left-gutter-visible-p'), you will find that, when that buffer is
-displayed in the selected window, the window will have a width of 86 or
-87 characters - the frame is sized for a 68-pixel left gutter but the
-selected window specifies that the left gutter is not visible, so it is
-expanded to take up the slack.
-
- - Specifier: gutter-buttons-captioned-p
-     Whether gutter buttons are captioned.  This affects which glyphs
-     from a gutter button descriptor are chosen.  *Note Gutter
-     Descriptor Format::.
-
-   You can also reset the gutter to what it was when XEmacs started up.
-
- - Constant: initial-gutter-spec
-     The gutter descriptor used to initialize `default-gutter' at
-     startup.
-
-
-File: lispref.info,  Node: Common Gutter Widgets,  Prev: Other Gutter Variables,  Up: Gutter
-
-Common Gutter Widgets
-=====================
-
-   A gutter can contain arbitrary text.  So, for example, in an Info
-buffer you could put the title of the current node in the top gutter,
-and it would not scroll out of view in a long node.  (This is an
-artificial example, since usually the node name is sufficiently
-descriptive, and Info puts that in the mode line.)
-
-   A more common use for the gutter is to hold some kind of active
-widget.  The buffer-tab facility, available in all XEmacs frames,
-creates an array of file-folder-like tabs, which the user can click with
-the mouse to switch buffers.  W3 uses a progress-bar widget in the
-bottom gutter to give a visual indication of the progress of
-time-consuming operations like downloading.
-
-* Menu:
-
-* Buffer Tabs::         Tabbed divider index metaphor for switching buffers.
-* Progress Bars::       Visual indication of operation progress.
-
-
-File: lispref.info,  Node: Buffer Tabs,  Next: Progress Bars,  Up: Common Gutter Widgets
-
-Buffer Tabs
------------
-
-   Not documented yet.
-
-
-File: lispref.info,  Node: Progress Bars,  Prev: Buffer Tabs,  Up: Common Gutter Widgets
-
-Progress Bars
--------------
-
-   Not documented yet.
-
-
-File: lispref.info,  Node: Scrollbars,  Next: Drag and Drop,  Prev: Gutter,  Up: Top
-
-Scrollbars
-**********
-
-   Not yet documented.
-
-
-File: lispref.info,  Node: Drag and Drop,  Next: Modes,  Prev: Scrollbars,  Up: Top
-
-Drag and Drop
-*************
-
-   _WARNING_: the Drag'n'Drop API is still under development and the
-interface may change! The current implementation is considered
-experimental.
-
-   Drag'n'drop is a way to transfer information between multiple
-applications.  To do this several GUIs define their own protocols.
-Examples are OffiX, CDE, Motif, KDE, MSWindows, GNOME, and many more.
-To catch all these protocols, XEmacs provides a generic API.
-
-   One prime idea behind the API is to use a data interface that is
-transparent for all systems. The author thinks that this is best
-archived by using URL and MIME data, cause any internet enabled system
-must support these for email already. XEmacs also already provides
-powerful interfaces to support these types of data (tm and w3).
-
-* Menu:
-
-* Supported Protocols:: Which low-level protocols are supported.
-* Drop Interface::      How XEmacs handles a drop from another application.
-* Drag Interface::      Calls to initiate a drag from XEmacs.
-
-
-File: lispref.info,  Node: Supported Protocols,  Next: Drop Interface,  Up: Drag and Drop
-
-Supported Protocols
-===================
-
-   The current release of XEmacs only support a small set of Drag'n'drop
-protocols. Some of these only support limited options available in the
-API.
-
-* Menu:
-
-* OffiX DND::           A generic X based protocol.
-* CDE dt::              Common Desktop Environment used on suns.
-* MSWindows OLE::       Mr. Gates way of live.
-* Loose ends::          The other protocols.
-
-
-File: lispref.info,  Node: OffiX DND,  Next: CDE dt,  Up: Supported Protocols
-
-OffiX DND
----------
-
-   _WARNING_: If you compile in OffiX, you may not be able to use
-multiple X displays successfully.  If the two servers are from
-different vendors, the results may be unpredictable.
-
-   The OffiX Drag'n'Drop protocol is part of a X API/Widget library
-created by Cesar Crusius. It is based on X-Atoms and ClientMessage
-events, and works with any X platform supporting them.
-
-   OffiX is supported if 'offix is member of the variable
-dragdrop-protocols, or the feature 'offix is defined.
-
-   Unfortunately it uses it's own data types. Examples are: File, Files,
-Exe, Link, URL, MIME. The API tries to choose the right type for the
-data that is dragged from XEmacs (well, not yet...).
-
-   XEmacs supports both MIME and URL drags and drops using this API. No
-application interaction is possible while dragging is in progress.
-
-   For information about the OffiX project have a look at
-http://leb.net/~offix/
 

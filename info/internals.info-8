@@ -92,14 +92,14 @@ combination window.
      "hchild" (a list of horizontally-arrayed children), "vchild" (a
      list of vertically-arrayed children), and "buffer" (the buffer
      contained in a leaf window).  Exactly one of these will be
-     non-nil.  Remember that "horizontally-arrayed" means
+     non-`nil'.  Remember that "horizontally-arrayed" means
      "side-by-side" and "vertically-arrayed" means "one above the
      other".
 
   7. Leaf windows also have markers in their `start' (the first buffer
      position displayed in the window) and `pointm' (the window's
      stashed value of `point'--see above) fields, while combination
-     windows have nil in these fields.
+     windows have `nil' in these fields.
 
   8. The list of children for a window is threaded through the `next'
      and `prev' fields of each child window.
@@ -516,7 +516,7 @@ Zero-Length Extents
 
    Extents can be zero-length, and will end up that way if their
 endpoints are explicitly set that way or if their detachable property
-is nil and all the text in the extent is deleted. (The exception is
+is `nil' and all the text in the extent is deleted. (The exception is
 open-open zero-length extents, which are barred from existing because
 there is no sensible way to define their properties.  Deletion of the
 text in an open-open extent causes it to be converted into a closed-open
