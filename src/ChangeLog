@@ -1,3 +1,23 @@
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule.c (vars_of_mule): Use `HAVE_CHISE' instead of `CHISE' and
+	`HAVE_CHISE_CLIENT'.
+
+2003-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c: Use HAVE_LIBCHISE instead of CHISE.
+	(Fsave_charset_mapping_table): Don't use
+	`char_attribute_system_db_file' when HAVE_LIBCHISE is defined.
+
+	* config.h.in (HAVE_CHISE): Renamed from `CHISE'.
+	(HAVE_LIBCHISE): New macro.
+
+	* chartab.h: Use HAVE_LIBCHISE instead of CHISE.
+
+	* chartab.c: Use HAVE_LIBCHISE instead of CHISE.
+	(Fsave_char_attribute_table): Don't use
+	`char_attribute_system_db_file' when HAVE_LIBCHISE is defined.
+
 2003-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (save_uint8_byte_table): Use libchise when CHISE is
