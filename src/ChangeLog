@@ -1,3 +1,37 @@
+2000-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (byte_table_description): Use
+	`XD_LISP_OBJECT_ARRAY' instead of `XD_LISP_OBJECT'.
+	(char_id_table_description): Delete bogus `, 1'.
+	(Fget_char_attribute): Refer encoding_table of each coded-charset
+	to get value of coded-charset attribute of a character.
+	(Fput_char_attribute): Use `make_older_vector' instead of
+	`make_vector'; use encoding_table of each coded-charset to store
+	value of coded-charset attribute of a character.
+	(Fremove_char_attribute): Use encoding_table of each coded-charset
+	to store value of coded-charset attribute of a character.
+	(mark_charset): Mark `cs->encoding_table'; don't mark
+	`cs->decoding_table'.
+	(charset_description): Add description of new member
+	`encoding_table'.
+	(make_charset): Initialize `encoding_table'.
+
+	* char-ucs.h (struct Lisp_Charset): Add new member
+	`encoding_table'.
+	(CHARSET_ENCODING_TABLE): New macro.
+	(XCHARSET_ENCODING_TABLE): New macro.
+	(charset_code_point): New implementation.
+	(encode_char_1): Likewise.
+
+	* alloc.c (all_older_lcrecords): New variable in UTF-2000.
+	(disksave_object_finalization_1): Call finalizers of
+	`all_older_lcrecords' in UTF-2000.
+	(make_older_vector): New function in UTF-2000.
+	(reinit_alloc_once_early): Initialize `all_older_lcrecords' in
+	UTF-2000.
+
+	* lisp.h (make_older_vector): New prototype in UTF-2000.
+
 2000-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* unexelf.c: Sync up with Emacs 20.6.90 to fix problem with most
