@@ -1,3 +1,11 @@
+2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R007-Two.el (U+4E8C): Unify GT-K00054.
+
+	* Ideograph-R005-Second.el (U-000200CA): Unify GT-K00029.
+	(GT-K00027): New character.
+	(U-000200CC): Unify GT-K00023.
+
 2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R008-Lid.el (JC3-81C1): Unify GT-K02308.
