@@ -173,8 +173,8 @@ Additional features:
                         loaded libraries (Dynamic Shared Objects).
 --with-netinstall       Compile in support for installation over the internet.
                         Only functional on the MS Windows platforms.
---with-ipv6-cname=no    Don't try to get IPv6 information when canonicalizing
-                        host names.  This option has no effect unless system
+--with-ipv6-cname=yes   Try IPv6 information first when canonicalizing host
+                        names.  This option has no effect unless system
                         supports getaddrinfo(3) and getnameinfo(3).
 --with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy
                         searched before the installation packages.
@@ -204,6 +204,7 @@ Additional features:
                         imported from a Unix system to a Windows environment),
                         optionally including autodetection.  Defaults to ON
                         on Windows, OFF on Unix.
+
 
 Internationalization options:
 
@@ -247,6 +248,7 @@ Debugging options:
 --no-doc-file           Don't rebuild the DOC file unless it's explicitly
                         deleted.  Only use during development. (It speeds
                         up the compile-run-test cycle.)
+--quick-build           Don't GC when dumping.  Implies --no-doc-file.
 --use-union-type        Enable or disable use of a union, instead of an
                         int, for the fundamental Lisp_Object type; this
                         provides stricter type-checking.  Only works with
@@ -267,7 +269,7 @@ Other options:
 --with-clash-detection  Use lock files to detect multiple edits of the same
                         file.  The default is to do clash detection.
 
-You may also specify any of the `path' variables found in Makefile.in,
+You may also specify any of the `path' variables found in Makefile.in.in,
 including --bindir, --libdir, --docdir, --lispdir, --sitelispdir,
 --datadir, --infodir, --mandir and so on.  Note that we recommend
 against explicitly setting any of these variables.  See the INSTALL

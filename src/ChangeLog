@@ -1,3 +1,90 @@
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-16  Torsten Duwe  <duwe@caldera.de>
+
+	* search.c (Freplace_match): Add missing sub-expression functionality.
+
+	* buffer.c (decode_buffer): Add a check for pointer type to
+	decode_buffer, before gcc's CSE optimization reorders a
+	dereference in front of the allow_string test.
+
+2001-11-16  Darryl Okahata  <darrylo@xemacs.org>
+
+	* window.c (window_loop): Fix bug that sometimes prevented
+	window_loop() from iterating across multiple devices.  Also, at
+	Ben's request, changed infloop-detecting code to abort() instead
+	of silently terminating window_loop().
+
+2001-11-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	Based on analysis and patch by Simon Josefson <jas@extundo.com>.
+	* editfns.c (make_time): New function.
+	(Fencode_time): Use it instead of wasteful_word_to_lisp.
+	* lisp.h (make_time): Prototype and comment it.
+	* dired.c (wasteful_word_to_lisp): Deprecate.
+	(Ffile_attributes): Use make_time() instead of wasteful_word_to_lisp().
+
+2001-10-31  Kyle Jones  <kyle_jones@wonderworks.com>
+
+	* fileio.c (auto_save_1): Use current coding system, not
+	escape-quoted.
+
+2001-11-13  Ben Wing  <ben@xemacs.org>
+
+	* window.c:
+	* window.c (window_truncation_on):
+	* window.c (syms_of_window):
+	truncate-partial-width-windows should respect the buffer being
+	displayed, like other redisplay vars.
+
+2001-11-13  Hirokazu FUKUI  <hfukui@sannet.ne.jp>
+
+	* event-stream.c (Fread_key_sequence): save current buffer.
+
+2001-10-29  Andrew Begel  <abegel@eecs.berkeley.edu>
+
+	* ntheap.c (_heap_init): Don't redefine in VS.NET (MSC >= 1300).
+
+2001-10-29  Andrew Begel  <abegel@eecs.berkeley.edu>
+
+	* alloc.c (lcrecord_stats): Add space for types defined in modules.
+
+2001-10-26  Mike Alexander  <mta@arbortext.com>
+
+	* event-msw.c (slurper_free_shared_data_maybe): Free the pipe handle.
+
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* ChangeLog:
+	* dialog-msw.c (handle_directory_proc): new function.
+	 (handle_directory_dialog_box): new fucntion.
+	 (handle_file_dialog_box): use new directory dialog support.
+	 (mswindows_make_dialog_box_internal): ditto.
+	* event-msw.c (mswindows_wnd_proc): minor fix to scrollbar event
+	handling.
+	(mswindows_find_frame): make global.
+	* fileio.c (Fexpand_file_name): build fix.
+	* general-slots.h: add Qdirectory.
+	* scrollbar-msw.c (mswindows_handle_scrollbar_event): fix focus
+	handling.
+	* syswindows.h (LOCAL_TO_WIN32_FILE_FORMAT): fix problem with
+	cygwin not leaving win32 paths unchanged.
+	* win32.c (Fmswindows_cygwin_to_win32_path): new function. Use the
+	cygwin runtime to do path conversion.
+	(Fmswindows_shell_execute): fix cygwin handling of URLs.
+	(syms_of_win32): add new function.
+	* window.c (window_loop): build fix.
+
+2001-10-15  Andy Piper  <andy@xemacs.org>
+
+	(Fmswindows_shell_execute): fix handling of URL's under cygwin.
+
 2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.5 "Civil Service" is released.
@@ -216,8 +303,8 @@
 
 2001-04-24  Jerry James <james@xemacs.org>
 
-        * faces.h: pass parameters to Fadd_spec_to_specifier in the
-        correct order.
+	* faces.h: pass parameters to Fadd_spec_to_specifier in the
+	correct order.
 
 2001-06-01  Ben Wing  <ben@xemacs.org>
 

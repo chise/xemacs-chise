@@ -2,7 +2,7 @@
 
 Copyright (C) 2000 Andy Piper. */
 
-#define XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME "GNU"
+#define XEMACS_INFO_XEMACS_ORG_REGISTRY_NAME "XEmacs"
 #define XEMACS_INFO_XEMACS_REGISTRY_NAME "XEmacs"
 /* Keys */
 #define XEMACS_INFO_XEMACS_ROOT_KEY "emacs_dir"

@@ -356,7 +356,7 @@ get_buffer (Lisp_Object name, int error_if_deleted_or_does_not_exist)
 struct buffer *
 decode_buffer (Lisp_Object buffer, int allow_string)
 {
-  if (NILP (buffer))
+  if (NILP (buffer) || (!POINTER_TYPE_P( XTYPE(buffer))))
     return current_buffer;
 
   if (allow_string && STRINGP (buffer))

@@ -3,7 +3,7 @@
 @c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/objects.info
-@node Lisp Data Types, Numbers, Introduction, Top
+@node Lisp Data Types, Numbers, Packaging, Top
 @chapter Lisp Data Types
 @cindex object
 @cindex Lisp object

@@ -154,8 +154,11 @@ otherwise it is an integer representing a ShowWindow flag:
   /* Encode filename and current directory.  */
   Lisp_Object current_dir = Ffile_name_directory (document);
   char* path = NULL;
+#ifdef CYGWIN
+  char* fname1, *fname2;
+  int pos, sz;
+#endif
   char* doc = NULL;
-  Extbyte* f=0;
   int ret;
   struct gcpro gcpro1, gcpro2;
 
@@ -169,25 +172,31 @@ otherwise it is an integer representing a ShowWindow flag:
   /* Use mule and cygwin-safe APIs top get at file data. */
   if (STRINGP (current_dir))
     {
-      TO_EXTERNAL_FORMAT (LISP_STRING, current_dir,
-			  C_STRING_ALLOCA, f,
-			  Qfile_name);
-#ifdef CYGWIN
-      CYGWIN_WIN32_PATH (f, path);
-#else
-      path = f;
-#endif
+      LOCAL_TO_WIN32_FILE_FORMAT (current_dir, path);
     }
 
   if (STRINGP (document))
     {
-      TO_EXTERNAL_FORMAT (LISP_STRING, document,
-			  C_STRING_ALLOCA, f,
-			  Qfile_name);
+      doc = XSTRING_DATA (document);
 #ifdef CYGWIN
-      CYGWIN_WIN32_PATH (f, doc);
-#else
-      doc = f;
+      if ((fname1 = strchr (doc, ':')) != NULL 
+	  && *++fname1 == '/' && *++fname1 == '/')
+	{
+	  fname1++;
+	  pos = fname1 - doc;
+	  if (!(isalpha (fname1[0]) && (IS_DEVICE_SEP (fname1[1]))))
+	    {
+	      sz = cygwin_posix_to_win32_path_list_buf_size (fname1);
+	      fname2 = alloca (sz + pos);
+	      strncpy (fname2, doc, pos);
+	      doc = fname2;
+	      fname2 += pos;
+	      cygwin_posix_to_win32_path_list (fname1, fname2);
+	    }
+	}
+      else {
+	LOCAL_TO_WIN32_FILE_FORMAT (document, doc);
+      }
 #endif
     }
 
@@ -217,6 +226,29 @@ otherwise it is an integer representing a ShowWindow flag:
 
   return Qnil;
 }
+
+#ifdef CYGWIN
+DEFUN ("mswindows-cygwin-to-win32-path", Fmswindows_cygwin_to_win32_path, 1, 1, 0, /*
+Get the cygwin environment to convert the Unix PATH to win32 format.
+No expansion is performed, all conversion is done by the cygwin runtime.
+*/
+       (path))
+{
+  Extbyte* f;
+  Bufbyte* p;
+  CHECK_STRING (path);
+
+  /* There appears to be a bug in the cygwin conversion routines in
+     that they are not idempotent. */
+  p = XSTRING_DATA (path);
+  if (isalpha (p[0]) && (IS_DEVICE_SEP (p[1])))
+    return path;
+
+  /* Use mule and cygwin-safe APIs top get at file data. */
+  LOCAL_TO_WIN32_FILE_FORMAT (path, f);
+  return build_ext_string (f, Qnative);
+}
+#endif
 
 
 /*--------------------------------------------------------------------*/
@@ -357,6 +389,9 @@ void
 syms_of_win32 (void)
 {
   DEFSUBR (Fmswindows_shell_execute);
+#ifdef CYGWIN
+  DEFSUBR (Fmswindows_cygwin_to_win32_path);
+#endif
 }
 
 void

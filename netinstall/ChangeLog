@@ -1,3 +1,38 @@
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-10-27  Andy Piper  <andy@xemacs.org>
+
+	* localdir.cc (dialog_cmd): allow download directory to be
+	created.
+	* log.cc (exit_setup): cygwin -> XEmacs
+	* net.cc (dialog_cmd):
+	 (dialog_proc):
+	 (do_net): sync with cygwin installer.
+	* res.rc:
+	* resource.h (IDS_CREATE_DIR): new.
+	* source.cc (load_dialog):
+	(save_dialog):
+	(dialog_cmd):
+	(dialog_proc):
+	(do_source): sync with cygwin installer.
+	* uninstall.cc (progress): remove log message.
+	* Makefile.in.in: generated setup-bin.ini correctly.
+	
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* Merge 21.5 codeline.
+	
+2001-10-25  Andy Piper  <andy@xemacs.org>
+
+	* setup.mak (OBJS): minor build fixes.
+	(distclean):
+
 2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.5 "Civil Service" is released.
@@ -257,5 +292,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.10 2001/07/28 11:45:44 stephent Exp $
-$Revision: 1.2.2.10 $
+%%% $Id: ChangeLog,v 1.2.2.13 2001/12/17 08:45:59 stephent Exp $
+$Revision: 1.2.2.13 $

@@ -2473,7 +2473,8 @@ static struct
   int instances_freed;
   int bytes_freed;
   int instances_on_free_list;
-} lcrecord_stats [countof (lrecord_implementations_table)];
+} lcrecord_stats [countof (lrecord_implementations_table)
+		  + MODULE_DEFINABLE_TYPE_COUNT];
 
 static void
 tick_lcrecord_stats (const struct lrecord_header *h, int free_p)

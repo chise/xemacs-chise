@@ -359,7 +359,9 @@ If NO-REMOTE is non-nil never search remote locations."
 is non-nil."
   (or (package-get-locate-file package-get-base-filename t no-remote)
       (if (file-exists-p package-get-user-index-filename)
-	  package-get-user-index-filename)))
+	  package-get-user-index-filename)
+      (locate-data-file package-get-base-filename)
+      (error "Can't locate a package index file.")))
 
 (defun package-get-maybe-save-index (filename)
   "Offer to save the current buffer as the local package index file,

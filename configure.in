@@ -57,7 +57,7 @@ dnl Redefine some standard autoconf macros
 dnl here is how XEmacs is different:
 dnl - no cache file
 dnl - non-standard options
-dnl - suport for extra-verbosity
+dnl - support for extra-verbosity
 dnl - ordinary libs are handled separately from X libs (might be a mistake)
 dnl - various random kludges (e.g. -with-dnet=no)
 
@@ -126,7 +126,7 @@ EOF
 
 dnl redefine AC_CHECK_LIB in accordance with our own value of ac_link
 dnl Add in extra kludgy check to support with_dnet=no
-dnl Add in extra LDFLAGS arg, which PRECEDE libs
+dnl Add in extra LDFLAGS arg, which PRECEDES libs
 dnl Support --with-dnet=no
 
 dnl AC_CHECK_LIB(LIBRARY, FUNCTION [, ACTION-IF-FOUND [, ACTION-IF-NOT-FOUND
@@ -378,8 +378,8 @@ with_dnet=""
 pdump="no"
 dnl dragndrop is still experimental.  When it is stable, comment out the following line:
 with_dragndrop="no"
-dnl I think this is mandated by IPv6 standards.
-with_ipv6_cname="yes"
+dnl Too annoying, even if mandated by IPv6 (and I'm not even sure of that)
+with_ipv6_cname="no"
 
 dnl ------------------
 dnl Options Processing
@@ -2157,7 +2157,7 @@ dnl #### Unfortunately, there are horrible libc4 and libc5 libraries
 dnl listed in /etc/ld.so.conf on some systems, and including them on
 dnl the link path leads to linking in utterly broken libc's.
 dnl There are many clever ways of approaching this problem,
-dnl but finding out that actually works...
+dnl but finding one that actually works...
 
 dnl if test -z "$LD_RUN_PATH" -a -r "/etc/ld.so.conf"; then
 dnl   for dir in `cat /etc/ld.so.conf`; do
@@ -2495,6 +2495,10 @@ case "$opsys" in decosf*)
     c_switch_site="$c_switch_site -threads" ;;
 esac
 
+dnl ----------------------------------------------------------------
+dnl Miscellaneous flags
+dnl ----------------------------------------------------------------
+
 AC_MSG_CHECKING(whether the -xildoff compiler flag is required)
 if   ${CC-cc} '-###' -xildon  no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/null ; then
   if ${CC-cc} '-###' -xildoff no_such_file.c 2>&1 | grep '^[^ ]*/ild ' > /dev/null ;
@@ -2514,6 +2518,20 @@ if test "$opsys" = "sol2"; then
       *) AC_MSG_RESULT(no) ;;
     esac
   fi
+fi
+
+dnl GNU ld now defaults to combreloc, which screws up unexec, but not pdump.
+dnl Note that it's OK if the GNU style long option causes non-GNU ld to barf
+dnl a usage message, that's often good enough.  Please report it, though.
+dnl #### Should make this Solaris-friendly.
+dnl Link with -z nocombreloc for now.
+if test "$pdump" != "yes"; then
+  AC_MSG_CHECKING(for \"-z nocombreloc\" linker flag)
+  case "`ld --help 2>&1`" in
+    *-z\ nocombreloc* ) AC_MSG_RESULT(yes)
+      XE_PREPEND(-z nocombreloc, ld_switch_site) ;;
+    *) AC_MSG_RESULT(no) ;;
+  esac
 fi
 
 dnl ----------------------
@@ -4840,6 +4858,10 @@ fi
 echo "  Compiler:                          $CC $CFLAGS"
 echo "  Relocating allocator for buffers:  $rel_alloc"
 echo "  GNU version of malloc:             ${GNU_MALLOC}${GNU_MALLOC_reason}"
+case "$ld_switch_site" in
+  *nocombreloc*) echo "  Linking with \`-z nocombreloc'.
+    - Consider configuring with --pdump." ;;
+esac
 
 echo "
 Window System:"
@@ -4985,7 +5007,7 @@ test -n "$mail_locking" && echo "  Compiling in support for \"$mail_locking\" ma
 
 echo "
 Other Features:"
-test "with_ipv6_cname" = no && echo "  Inhibiting IPv6 canonicalization at startup."
+test "$with_ipv6_cname" = no && echo "  Inhibiting IPv6 canonicalization at startup."
 test "$with_tooltalk" = yes && echo "  Compiling in support for ToolTalk."
 test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
 test "$with_socks" = yes && echo "  Compiling in support for SOCKS."

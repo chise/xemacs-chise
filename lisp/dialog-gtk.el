@@ -180,7 +180,9 @@
 	(dialog nil)			; GtkDialog
 	(buttons nil)			; List of GtkButton objects
 	(activep t)
+	(callback nil)
 	(flushrightp nil)
+	(length nil)
 	(errp t))
     (if (not buttons-descr)
 	(error 'syntax-error
@@ -206,28 +208,29 @@
 		    (if (not (vectorp button))
 			(error "Button descriptor is not a vector: %S" button))
 
-		    (if (< (length button) 3)
-			(error "Button descriptor is too small: %S" button))
+		    (setq length (length button))
+
+		    (cond
+		     ((= length 1)	; [ "name" ]
+		      (setq callback nil
+			    activep nil))
+		     ((= length 2)	; [ "name" callback ]
+		      (setq callback (aref button 1)
+			    activep t))
+		     ((and (or (= length 3) (= length 4))
+			   (not (keywordp (aref button 2))))
+		      ;; [ "name" callback active-p ] or
+		      ;; [ "name" callback active-p suffix ]
+		      ;; We ignore the 'suffix' entry, because that is
+		      ;; what the X code does.
+		      (setq callback (aref button 1)
+			    activep (aref button 2)))
+		     (t			; 100% keyword specification
+		      (let ((plist (cdr (mapcar 'identity button))))
+			(setq activep (plist-get plist :active)
+			      callback (plist-get plist :callback)))))
 
 		    (push (gtk-button-new-with-label (aref button 0)) buttons)
-
-		    ;; Need to detect what flavor of descriptor it is.
-		    (if (not (keywordp (aref button 2)))
-			;; Simple style... just [ name callback activep ]
-			;; We ignore the 'suffix' entry, because that is what
-			;; the X code does.
-			(setq activep (aref button 2))
-		      (let ((ctr 2)
-			    (len (length button)))
-			(if (logand len 1)
-			    (error
-			     "Button descriptor has an odd number of keywords and values: %S"
-			     button))
-			(while (< ctr len)
-			  (if (eq (aref button ctr) :active)
-			      (setq activep (aref button (1+ ctr))
-				    ctr len))
-			  (setq ctr (+ ctr 2)))))
 		    (gtk-widget-set-sensitive (car buttons) (eval activep))
 		    
 		    ;; Apply the callback
@@ -243,7 +246,7 @@
 			     unread-command-events)
 		       (gtk-main-quit)
 		       t)
-		     (cons (aref button 1) dialog))
+		     (cons callback dialog))
 
 		    (gtk-widget-show (car buttons))
 		    (funcall (if flushrightp 'gtk-box-pack-end 'gtk-box-pack-start)

@@ -187,6 +187,33 @@ Valdis.Kletnieks@vt.edu writes:
 
 
 ** SunOS/Solaris
+*** Crashes when using Motif libraries, especially with multiple frames.
+
+Crashes that produce C-backtraces like this:
+
+#0  0xfec9a118 in _libc_kill () from /usr/lib/libc.so.1
+#1  0x77f48 in fatal_error_signal (sig=11)
+    at /codes/rpluim/xemacs-21.4/src/emacs.c:539
+#2  <signal handler called>
+#3  0xfee929f4 in XFindContext () from /usr/openwin/lib/libX11.so.4
+#4  0xfee92930 in XFindContext () from /usr/openwin/lib/libX11.so.4
+#5  0xff297e54 in DisplayDestroy () from /usr/dt/lib/libXm.so.4
+#6  0xfefbece0 in XtCallCallbackList () from /usr/openwin/lib/libXt.so.4
+#7  0xfefc486c in XtPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+#8  0xfefc45d0 in _XtDoPhase2Destroy () from /usr/openwin/lib/libXt.so.4
+#9  0xfefc43b4 in XtDestroyWidget () from /usr/openwin/lib/libXt.so.4
+#10 0x15cf9c in x_delete_device (d=0x523f00)
+
+are caused by buggy Motif libraries.  Installing the following patches
+has been reported to solve the problem on Solaris 2.7:
+
+107081-40 107656-07
+
+For information (although they have not been confirmed to work), the
+equivalent patches for Solaris 2.8 are:
+
+108940-33 108652-25
+
 *** Dumping error when using GNU binutils / GNU ld on a Sun.
 
 Errors similar to the following:

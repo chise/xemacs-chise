@@ -51,21 +51,29 @@ WinMain (HINSTANCE h,
 	 int cmd_show)
 {
   hinstance = h;
+  int pos = -1;
+  if ((pos = strcspn(command_line, "-")) >= 0
+      &&
+      command_line[pos+1] == 'u')
+    {
+      next_dialog = IDD_UNINSTALL;
+      log (LOG_TIMESTAMP, "Starting XEmacs uninstall");
+      uninstall = 1;
+    }
+  else
+    {
+      next_dialog = IDD_SPLASH;
+      log (LOG_TIMESTAMP, "Starting XEmacs install");
+    }
 
-  next_dialog = IDD_SPLASH;
-
-  log (LOG_TIMESTAMP, "Starting XEmacs install");
-
-  char cwd[_MAX_PATH];
-  GetCurrentDirectory (sizeof (cwd), cwd);
-  local_dir = strdup (cwd);
-  log (0, "Current Directory: %s", cwd);
+  do_init(h);
 
   while (next_dialog)
     {
       switch (next_dialog)
 	{
 	case IDD_SPLASH:	do_splash (h);	break;
+	case IDD_UNINSTALL:	do_uninstall (h);	break;
 	case IDD_SOURCE:	do_source (h);	break;
 	case IDD_LOCAL_DIR:	do_local_dir (h); break;
 	case IDD_ROOT:		do_root (h);	break;

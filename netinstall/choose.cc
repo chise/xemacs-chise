@@ -623,7 +623,7 @@ dialog_proc (HWND h, UINT message, WPARAM wParam, LPARAM lParam)
   return FALSE;
 }
 
-static char *
+char *
 base (char *s)
 {
   if (!s)

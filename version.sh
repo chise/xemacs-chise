@@ -2,8 +2,8 @@
 emacs_is_beta=
 emacs_major_version=21
 emacs_minor_version=4
-emacs_beta_version=5
-xemacs_codename="Civil Service"
+emacs_beta_version=6
+xemacs_codename="Common Lisp"
 infodock_major_version=4
 infodock_minor_version=0
 infodock_build_version=8

@@ -33,20 +33,20 @@ STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Next >",IDOK,199,176,45,15,WS_DISABLED
+    PUSHBUTTON      "Next >",IDOK,199,176,45,15, WS_GROUP
     PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
+    CONTROL         "Download from the Internet",IDC_SOURCE_DOWNLOAD,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,127,102,152,10
+    CONTROL         "Install from the Internet",IDC_SOURCE_NETINST,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,127,121,87,10
+    CONTROL         "Install from Local Directory",IDC_SOURCE_CWD,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,127,140,104,10
     LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "Setup will use the following installation method.",
                     IDC_STATIC,112,11,170,17
     LTEXT           "To exit setup click Cancel at any time.",IDC_STATIC,112,
                     32,166,17
-    CONTROL         "Download from the Internet",IDC_SOURCE_DOWNLOAD,"Button",
-                    BS_AUTORADIOBUTTON,127,102,152,10
-    CONTROL         "Install from the Internet",IDC_SOURCE_NETINST,"Button",
-                    BS_AUTORADIOBUTTON,127,121,87,10
-    CONTROL         "Install from Local Directory",IDC_SOURCE_CWD,"Button",
-                    BS_AUTORADIOBUTTON,127,140,104,10
     GROUPBOX        "Installation method",IDC_STATIC,113,84,188,77
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
@@ -142,26 +142,26 @@ BEGIN
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
-IDD_NET DIALOG 0, 0, 311, 201
+IDD_NET DIALOG DISCARDABLE  0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
 BEGIN
-    DEFPUSHBUTTON   "Next >",IDOK,199,176,45,15
+    PUSHBUTTON      "Next >",IDOK,199,176,45,15,WS_GROUP
     PUSHBUTTON      "< Back",IDC_BACK,154,176,45,15
     PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
     LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "Setup will use the following connection method.",
-                    IDC_STATIC,112,11,170,17
+                    IDC_STATIC,112,11,170,17,NOT WS_GROUP
     LTEXT           "To exit setup click Cancel at any time.",IDC_STATIC,112,
-                    32,166,17
+                    32,166,17,NOT WS_GROUP
     CONTROL         "Use IE5 Settings",IDC_NET_IE5,"Button",
-                    BS_AUTORADIOBUTTON,128,93,69,10
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,128,93,69,10
     CONTROL         "Direct Connection",IDC_NET_DIRECT,"Button",
-                    BS_AUTORADIOBUTTON,128,109,73,10
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,128,109,73,10
     CONTROL         "Use HTTP/FTP Proxy:",IDC_NET_PROXY,"Button",
-                    BS_AUTORADIOBUTTON,128,124,88,10
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,128,124,88,10
     EDITTEXT        IDC_PROXY_HOST,128,141,80,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
     LTEXT           "Proxy",IDC_STATIC,10,55,50,15,SS_CENTERIMAGE,
@@ -216,6 +216,30 @@ BEGIN
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
 END
 
+IDD_UNINSTALL DIALOG DISCARDABLE  0, 0, 311, 201
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Uninstall XEmacs"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,199,176,45,15
+    DEFPUSHBUTTON   "Uninstall",IDOK,256,176,45,15
+    LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "Uninstalling Packages",IDC_STATIC,112,10,170,17
+    LTEXT           "(PKG)",IDC_UNINS_PKG,112,26,170,11
+    LTEXT           "(FILE)",IDC_UNINS_FILE,112,41,166,11
+    CONTROL         "Progress1",IDC_UNINS_DISKFULL,"msctls_progress32",
+                    WS_BORDER,123,143,165,10
+    CONTROL         "Progress1",IDC_UNINS_IPROGRESS,"msctls_progress32",
+                    WS_BORDER,125,106,163,10
+    CONTROL         "Progress1",IDC_UNINS_PPROGRESS,"msctls_progress32",
+                    WS_BORDER,125,67,163,10
+    GROUPBOX        "Disk",IDC_STATIC,112,130,186,31
+    GROUPBOX        "Package",IDC_STATIC,112,54,186,31
+    GROUPBOX        "Total",IDC_STATIC,112,93,186,31
+    CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
+END
+
 IDD_PROXY_AUTH DIALOG DISCARDABLE  0, 0, 215, 95
 STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
@@ -250,7 +274,7 @@ BEGIN
     PUSHBUTTON      "Cancel",IDCANCEL,165,75,45,15
 END
 
-IDD_SPLASH DIALOG 0, 0, 311, 201
+IDD_SPLASH DIALOG DISCARDABLE  0, 0, 311, 201
 STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "XEmacs Setup"
 FONT 8, "MS Sans Serif"
@@ -301,17 +325,29 @@ BEGIN
     DEFPUSHBUTTON   "Finish",IDOK,199,176,45,15
     PUSHBUTTON      "< Back",IDC_BACK,154,176,45,15
     PUSHBUTTON      "Cancel",IDCANCEL,256,176,45,15
-    LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
-    LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
     LTEXT           "Setup has now finished. To create desktop shortcuts, please select from the following options.",
                     IDC_STATIC,112,11,170,17
     LTEXT           "To complete setup click Finish.",IDC_STATIC,112,32,166,
                     17
     CONTROL         "Create Desktop Icon",IDC_ROOT_DESKTOP,"Button",
-                    BS_AUTOCHECKBOX,113,76,100,8
+                    BS_AUTOCHECKBOX,113,50,100,8
     CONTROL         "Add to Start Menu",IDC_ROOT_MENU,"Button",
-                    BS_AUTOCHECKBOX,113,97,100,8
+                    BS_AUTOCHECKBOX,113,66,100,8
     CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
+    CONTROL         "Text",IDC_TXT_TYPE,"Button",BS_AUTOCHECKBOX,209,101,38,
+                    8
+    CONTROL         "Java",IDC_JAVA_TYPE,"Button",BS_AUTOCHECKBOX,113,100,50,
+                    8
+    CONTROL         "C",IDC_C_TYPE,"Button",BS_AUTOCHECKBOX,113,116,41,8
+    CONTROL         "C++",IDC_CPP_TYPE,"Button",BS_AUTOCHECKBOX,113,133,38,8
+    CONTROL         "E-Lisp",IDC_ELISP_TYPE,"Button",BS_AUTOCHECKBOX,113,148,
+                    38,8
+    LTEXT           "Register XEmacs for these file types:",IDC_STATIC,113,
+                    84,166,13
+    LTEXT           "",IDC_STATIC,10,169,291,1,SS_SUNKEN | NOT WS_GROUP
+    LTEXT           "",IDC_STATIC,10,10,87,151,SS_SUNKEN | NOT WS_GROUP
+    CONTROL         "GNU",IDC_STATIC,"Static",SS_BITMAP,19,36,69,62
+    CONTROL         "IDL",IDC_IDL_TYPE,"Button",BS_AUTOCHECKBOX,209,116,38,8
 END
 
 
@@ -433,6 +469,8 @@ BEGIN
     IDD_DESKTOP, DIALOG
     BEGIN
         VERTGUIDE, 113
+        VERTGUIDE, 209
+        HORZGUIDE, 124
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -449,7 +487,7 @@ IDB_RTARROW             BITMAP  DISCARDABLE     "choose-rtarrow.bmp"
 IDB_CHECK_YES           BITMAP  DISCARDABLE     "check-yes.bmp"
 IDB_CHECK_NO            BITMAP  DISCARDABLE     "check-no.bmp"
 IDB_CHECK_NA            BITMAP  DISCARDABLE     "check-na.bmp"
-GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
+GNU                     BITMAP  DISCARDABLE     "gnu.bmp"
 IDB_GNU                 BITMAP  DISCARDABLE     "gnu.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
@@ -478,11 +516,12 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.2 2001/04/12 18:22:53 michaels Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.2.2.1 2001/12/17 05:49:18 stephent Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"
     IDS_ERR_CHDIR           "Could not change dir to %s"
+    IDS_CREATE_DIR           "The directory %s does not exist, create it?"
     IDS_OLD_SETUP_VERSION   "This setup is version %s, but setup.ini claims version %s is available.\nYou might want to upgrade to get the latest features and bug fixes."
     IDS_DOWNLOAD_FAILED     "Unable to download %s"
     IDS_DOWNLOAD_INCOMPLETE "Download Incomplete.  Try again?"

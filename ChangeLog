@@ -1,3 +1,49 @@
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.6 "Common Lisp" is released.
+
+2001-12-04  Jan Vroonhof  <jan.vroonhof@ntlworld.com>
+
+	* etc/photos/jan.png: New photo.
+
+2001-11-21  Robert Pluim  <rpluim@bigfoot.com>
+
+	* PROBLEMS (Sun/Solaris): Document fix for Motif related crashes
+
+2001-12-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in (Miscellaneous Flags): test for -z nocombreloc,
+	instead of -z combreloc, to avoid confusing Solaris.
+
+2001-11-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.usage: Makefile.in -> Makefile.in.in.
+
+2001-11-21  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* Makefile.in.in: HP-UX needs LDFLAGS.  From Lutz Jaenicke
+	<Lutz.Jaenicke@aet.TU-Cottbus.DE>.
+
+2001-11-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Fix typos in comments.
+	* (Miscellaneous flags): Use -z nocombreloc if supported and !pdump.
+	* (Installation): Suggest pdump instead of -z nocomboreloc.
+	* configure.usage: Document --quick-build.
+
+2001-10-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Typo in reference to with_ipv6_cname.
+
+2001-10-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Initialize with_ipv6_cname=no.
+	* configure.usage: Document it.
+
 2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.5 "Civil Service" is released.

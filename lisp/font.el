@@ -103,8 +103,10 @@
     (mswindows . (mswindows-font-create-name mswindows-font-create-object))
     (pm        . (x-font-create-name x-font-create-object)) ; Change? FIXME
     (tty       . (tty-font-create-plist tty-font-create-object)))
-  "An assoc list mapping device types to the function used to create
-a font name from a font structure.")
+  "An assoc list mapping device types to a list of translations.
+
+The first function creates a font name from a font descriptor object.
+The second performs the reverse translation.")
 
 (defconst ns-font-weight-mappings
   '((:extra-light . "extralight")
@@ -141,6 +143,8 @@ for use in the 'weight' field of an X font string.")
 (defvar font-maximum-slippage "1pt"
   "How much a font is allowed to vary from the desired size.")
 
+;; Canonical (internal) sizes are in points.
+;; Registry
 (define-font-keywords :family :style :size :registry :encoding)
 
 (define-font-keywords
@@ -299,8 +303,16 @@ for use in the 'weight' field of an X font string.")
       w2))))
 
 (defun font-spatial-to-canonical (spec &optional device)
-  "Convert SPEC (in inches, millimeters, points, or picas) into points."
-  ;; 1 in = 6 pa = 25.4 mm = 72 pt
+  "Convert SPEC (in inches, millimeters, points, picas, or pixels) into points.
+
+Canonical sizes are in points.  If SPEC is null, nil is returned.  If SPEC is
+a number, it is interpreted as the desired point size and returned unchanged.
+Otherwise SPEC must be a string consisting of a number and an optional type.
+The type may be the strings \"px\", \"pix\", or \"pixel\" (pixels), \"pt\" or
+\"point\" (points), \"pa\" or \"pica\" (picas), \"in\" or \"inch\" (inches), \"cm\"
+(centimeters), or \"mm\" (millimeters).
+
+1 in = 2.54 cm = 6 pa = 25.4 mm = 72 pt.  Pixel size is device-dependent."
   (cond
    ((numberp spec)
     spec)
@@ -315,6 +327,8 @@ for use in the 'weight' field of an X font string.")
 	  (mm-width (float (or (device-mm-width device) 293)))
 	  (retval nil))
       (cond
+       ;; the following string-match is broken, there will never be a
+       ;; left operand detected
        ((string-match "^ *\\([-+*/]\\) *" spec) ; math!  whee!
 	(let ((math-func (intern (match-string 1 spec)))
 	      (other (font-spatial-to-canonical
@@ -374,12 +388,14 @@ for use in the 'weight' field of an X font string.")
 	  (plist-get args :encoding)))
 
 (defun font-create-name (fontobj &optional device)
+  "Return a font name constructed from FONTOBJ, appropriate for DEVICE."
   (let* ((type (device-type device))
 	 (func (car (cdr-safe (assq type font-window-system-mappings)))))
     (and func (fboundp func) (funcall func fontobj device))))
 
 ;;;###autoload
 (defun font-create-object (fontname &optional device)
+  "Return a font descriptor object for FONTNAME, appropriate for DEVICE."
   (let* ((type (device-type device))
 	 (func (car (cdr (cdr-safe (assq type font-window-system-mappings))))))
     (and func (fboundp func) (funcall func fontname device))))
@@ -431,9 +447,11 @@ for use in the 'weight' field of an X font string.")
 ;;; The window-system dependent code (TTY-style)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun tty-font-create-object (fontname &optional device)
+  "Return a font descriptor object for FONTNAME, appropriate for TTY devices."
   (make-font :size "12pt"))
 
 (defun tty-font-create-plist (fontobj &optional device)
+  "Return a font name constructed from FONTOBJ, appropriate for TTY devices."
   (list
    (cons 'underline (font-underline-p fontobj))
    (cons 'highlight (if (or (font-bold-p fontobj)
@@ -518,6 +536,7 @@ for use in the 'weight' field of an X font string.")
   "A list of font family mappings on X devices.")
 
 (defun x-font-create-object (fontname &optional device)
+  "Return a font descriptor object for FONTNAME, appropriate for X devices."
   (let ((case-fold-search t))
     (if (or (not (stringp fontname))
 	    (not (string-match font-x-font-regexp fontname)))
@@ -621,6 +640,7 @@ for use in the 'weight' field of an X font string.")
   (font-size (font-default-object-for-device (or device (selected-device)))))
 
 (defun x-font-create-name (fontobj &optional device)
+  "Return a font name constructed from FONTOBJ, appropriate for X devices."
   (if (and (not (or (font-family fontobj)
 		    (font-weight fontobj)
 		    (font-size fontobj)
@@ -713,6 +733,7 @@ for use in the 'weight' field of an X font string.")
 	    (sort (font-unique (nconc scaled normal)) 'string-lessp))))))
 
 (defun ns-font-create-name (fontobj &optional device)
+  "Return a font name constructed from FONTOBJ, appropriate for NextSTEP devices."
   (let ((family (or (font-family fontobj)
 		    (ns-font-families-for-device device)))
 	(weight (or (font-weight fontobj) :medium))
@@ -813,6 +834,7 @@ for use in the 'weight' field of an mswindows font string.")
   "A list of font family mappings on mswindows devices.")
 
 (defun mswindows-font-create-object (fontname &optional device)
+  "Return a font descriptor object for FONTNAME, appropriate for MS Windows devices."
   (let ((case-fold-search t)
 	(font (mswindows-font-canonicalize-name fontname)))
     (if (or (not (stringp font))
@@ -851,6 +873,7 @@ for use in the 'weight' field of an mswindows font string.")
 	retval))))
 
 (defun mswindows-font-create-name (fontobj &optional device)
+  "Return a font name constructed from FONTOBJ, appropriate for MS Windows devices."
   (if (and (not (or (font-family fontobj)
 		    (font-weight fontobj)
 		    (font-size fontobj)
