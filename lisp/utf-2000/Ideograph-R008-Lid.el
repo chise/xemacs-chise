@@ -2467,7 +2467,8 @@
 	   ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	    (=ucs		. #x2FF1)	; ⿱
 	    )
-	   ((=ucs		. #x4EA0)	; 亠
+	   ((=gb2312		. #x596F)	; &GT-00375; [57-79]
+	    (=daikanwa		. 00286)	; &I-M-00286;
 	    )
 	   ((=ucs		. #x53E3)	; 口
 	    ))
