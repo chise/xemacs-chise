@@ -7,12 +7,11 @@
     (shinjigen-2	. 480)
     (=jis-x0208		. #x467E)	; ø½Š­¯
     (=ks-x1001		. #x6C7D)	; ø»Š‰²
-    (=gt-pj-1		. #x467E)	; ý¡€€œº
+    (=gt-pj-1		. #x467E)	; ø½Š­¯
     (=big5		. #xA44A)	; ý¢€Š‘Š
     (=daikanwa		. 01415)	; ø¸€–‡
     (=gt-k		. 00050)	; ý¡„€€²
     (=ucs@jis		. #x5165)	; ø½Š­¯
-    (=gt		. 01850)	; ý¡€€œº
     ))
 (define-char
   '((morohashi-daikanwa	1415 0 0)
@@ -21,6 +20,7 @@
     (total-strokes	 . 2)
     (hanyu-dazidian	1 102 1)
     (=gb2312		. #x486B)	; ø»…€ 
+    (=iso-ir165		. #x486B)	; ø»¨°
     (=cns11643-1	. #x442B)	; ø»‘¶€
     (=ucs		. #x5165)	; å…¥
     ))
@@ -342,15 +342,15 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=gt		  . 00458)	; ý¡€€‡Š
+      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
       )
      ((=ucs		  . #x738B)	; çŽ‹
       ))
     (=gb2312		. #x482B)	; ø»„¿ 
     (=jis-x0208		. #x4134)	; ø½Š¥
-    (=gt-pj-1		. #x4134)	; ý¡€€ˆµ
+    (=iso-ir165		. #x482B)	; ø»§°
+    (=gt-pj-1		. #x4134)	; å…¨
     (=gt-k		. 01658)	; ý¡„€™º
-    (=gt		. 00565)	; ý¡€€ˆµ
     (=ucs		. #x5168)	; å…¨
     ))
 (define-char
@@ -661,12 +661,11 @@
     (shinjigen-2	. 484)
     (=jis-x0208		. #x5140)	; ø½Š¼»
     (=ks-x1001		. #x5557)	; ø»‰§š
-    (=gt-pj-1		. #x5140)	; ý¡€€
+    (=gt-pj-1		. #x5140)	; ø½Š¼»
     (=big5		. #xA8E2)	; ý¢€Š£¢
     (=daikanwa		. 01436)	; ø¸€–œ
     (=gt-k		. 03859)	; ý¡„€¼“
     (=ucs@jis		. #x5169)	; ø½Š¼»
-    (=gt		. 01871)	; ý¡€€
     ))
 (define-char
   '((morohashi-daikanwa	1436 0 0)
@@ -712,11 +711,10 @@
     (shinjigen-2	. 487)
     (=jis-x0208		. #x5141)	; ø½Š¼¼
     (=ks-x1001		. #x6A64)	; ø»Š†
-    (=gt-pj-1		. #x5141)	; ý¡€€‘
+    (=gt-pj-1		. #x5141)	; ø½Š¼¼
     (=daikanwa		. 01437)	; ø¸€–
     (=gt-k		. 05209)	; ý¡„‘™
     (=ucs@jis		. #x516A)	; ø½Š¼¼
-    (=gt		. 01873)	; ý¡€€‘
     ))
 (define-char
   '((=>ucs		. #x516A)	; å…ª
