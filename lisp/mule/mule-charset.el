@@ -276,12 +276,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
+	  =jis-x0208
 	  japanese-jisx0208
-	  japanese-jisx0208-1990
 	  japanese-jisx0212
-	  ucs-sip
-	  japanese-jisx0213-1
-	  japanese-jisx0213-2
 	  japanese-jisx0208-1978
 	  chinese-gb2312
 	  chinese-cns11643-1
@@ -291,6 +288,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-5
 	  chinese-cns11643-6
 	  chinese-cns11643-7
+	  japanese-jisx0208-1990
+	  japanese-jisx0213-1
+	  japanese-jisx0213-2
 	  korean-ksc5601
 	  ;; chinese-gb12345
 	  chinese-isoir165
@@ -318,11 +318,13 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
 	  ideograph-daikanwa-2
-	  ideograph-daikanwa
 	  chinese-big5-cdp
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
+	  ucs-sip
+	  ideograph-daikanwa
+	  china3-jef
 	  ideograph-cbeta
 	  ucs-bmp
 	  ideograph-hanziku-1
@@ -337,7 +339,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-hanziku-10
 	  ideograph-hanziku-11
 	  ideograph-hanziku-12
-	  china3-jef
 	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
