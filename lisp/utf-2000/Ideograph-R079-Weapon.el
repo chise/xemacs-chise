@@ -182,6 +182,13 @@
     ))
 (define-char
   '((ideographic-radical . 79)	; â½Ž
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (chinese-big5-cdp	. #x8AD4)	; ý¢€ˆ«”
+    (mojikyo		. 073351)	; ý €‘º‡
+    ))
+(define-char
+  '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 16624)	; ø¸„ƒ°
