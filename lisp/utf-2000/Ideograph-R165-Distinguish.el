@@ -122,6 +122,7 @@
 (define-char
   '((ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 5)
+    (total-strokes	 . 12)
     (=ucs		. #x91CA)	; é‡Š
     (=gb2312		. #x4A4D)	; ø»…‚¾
     ))
