@@ -1,3 +1,21 @@
+1999-08-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (LEADING_BYTE_COMPOSITE): Deleted.
+
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (LEADING_BYTE_*): Changed in UTF2000.
+	(NUM_LEADING_BYTES): Changed from 128 to 256.
+	(LEADING_BYTE_PRIVATE_P): Don't define in UTF2000.
+	(CHARSET_PRIVATE_P): Likewise.
+	(XCHARSET_PRIVATE_P): Likewise.
+	(REP_BYTES_BY_FIRST_BYTE): Change order of condition.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Change value to 0x80 in UTF2000.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Change value to 0x80 in
+	UTF2000.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Change value to 0x80 in UTF2000.
+	(MAKE_CHAR): Don't use XCHARSET_PRIVATE_P in UTF2000.
+
 1999-08-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c: Move setting for `leading-code-private-11' from
