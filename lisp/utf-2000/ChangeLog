@@ -1,3 +1,7 @@
+2003-06-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R006-Hook.el (U-00020114): Separate C6-2149.
+
 2003-06-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R019-Power.el (U-0002085D): New character.
