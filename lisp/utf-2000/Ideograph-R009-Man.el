@@ -18463,10 +18463,10 @@
       ))
     (<-same*sources
      shuowen yunhai-bei daikanwa)
-    (hanyu-dazidian	1 206 1)
     (=ucs		. #x202F4)	; 𠋴
     (->subsumptive
-     ((ideographic-structure
+     ((hanyu-dazidian	  1 206 1)
+      (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
