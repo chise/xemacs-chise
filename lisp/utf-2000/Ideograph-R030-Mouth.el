@@ -90,8 +90,8 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (comment		. "<variant> of R013:S1-0515")
     (shinjigen-1	. 516)
+    (variant-of-shinjigen-1 . 515)
     (japanese-jisx0212	. #x3462)	; ø»‹‹
     (chinese-cns11643-4 . #x216C)	; ø»—¡³
     (ideograph-daikanwa . 03236)	; ø¸€²¤
@@ -355,7 +355,7 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (comment		. "<ancient character> of R024:S1-0721")
+    (ancient-char-of-shinjigen-1 . 721)
     (shinjigen-1	. 722)
     (shinjigen-2	. 722)
     (japanese-jisx0208-1978	. #x3370)	; ø»‚—«
@@ -839,7 +839,7 @@
   '((ideographic-radical . 30)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (comment		. "<original character> of S1-1074")
+    (original-char-of-shinjigen-1 . 1074)
     (shinjigen-1	. 1075)
     (shinjigen-2	. 1074)
     (japanese-jisx0213-1	. #x2E75)	; ø»¢§–
