@@ -1,5 +1,9 @@
 2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R104-Sickness.el (G1-3B3E): Unify U+7613.
+
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el: Add some
 	`<-simplified@JP/Jouyou' features.
 
