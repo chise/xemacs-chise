@@ -191,6 +191,7 @@
     (=daikanwa		. 10054)	; ø¸‚†
     (=jef-china3	. #x4DAD)	; øº„¶­
     (=ucs@jis		. #x5F78)	; ø»‹œ
+    (=ucs@big5		. #x5F78)	; ø»‹œ
     ))
 (define-char
   '((morohashi-daikanwa	10054 0 0)
@@ -379,6 +380,7 @@
     (=daikanwa		. 10070)	; ø¸‚–
     (=jef-china3	. #x4DAE)	; øº„¶®
     (=ucs@jis		. #x5F7E)	; ø»‹Ÿ
+    (=ucs@big5		. #x5F7E)	; ø»‹Ÿ
     ))
 (define-char
   '((=>ucs		. #x5F7E)	; å½¾
@@ -1309,7 +1311,9 @@
     (shinjigen-2	. 2365)
     (=jis-x0208-1978	. #x5751)	; ø»ƒŒ„
     (=jis-x0208-1983	. #x5751)	; ø»‡ Œ
+    (=big5		. #xB172)	; ý¢€‹…²
     (=daikanwa		. 10141)	; ø¸‚ž
+    (=ucs@big5		. #x5F98)	; ø»ƒŒ„
     ))
 (define-char
   '((=>ucs		. #x5F98)	; å¾˜
@@ -1320,7 +1324,6 @@
     (=ks-x1001		. #x5B47)	; ø»‰¯¾
     (=jis-x0208-1990	. #x5751)	; ø½‹†€
     (=cns11643-1	. #x5A38)	; ø»’–¡
-    (=big5		. #xB172)	; ý¢€‹…²
     (=gt		. 12807)	; ý¡€ƒˆ‡
     (=gt-pj-1		. #x5751)	; ý¡€ƒˆ‡
     (=ucs@jis		. #x5F98)	; ø»‰¯¾
@@ -1416,6 +1419,7 @@
     (=daikanwa		. 10149)	; ø¸‚ž¥
     (=jef-china3	. #x4DB5)	; øº„¶µ
     (=ucs@jis		. #x5F9C)	; ø»‹¤
+    (=ucs@big5		. #x5F9C)	; ø»‹¤
     ))
 (define-char
   '((morohashi-daikanwa	10149 0 2)
@@ -2062,6 +2066,7 @@
     (=jis-x0212		. #x3D31)	; ø»‹¨
     (=big5		. #xD8F7)	; ý¢€£·
     (=ucs@jis		. #x5FAB)	; ø»‹¨
+    (=ucs@big5		. #x5FAB)	; ø»‹¨
     ))
 (define-char
   '((ideographic-radical . 60)	; â¼»
@@ -2195,6 +2200,7 @@
     (=big5		. #xB74B)	; ý¢€‹‹
     (=daikanwa		. 10200)	; ø¸‚Ÿ˜
     (=ucs@jis		. #x5FAC)	; ø»‹ª
+    (=ucs@big5		. #x5FAC)	; ø»‹ª
     ))
 (define-char
   '((morohashi-daikanwa	10200 0 0)
@@ -2242,6 +2248,7 @@
     (=daikanwa		. 10203)	; ø¸‚Ÿ›
     (=jef-china3	. #x4DBD)	; øº„¶½
     (=ucs@jis		. #x5FAE)	; ø½Š°¦
+    (=ucs@big5		. #x5FAE)	; ø½Š°¦
     ))
 (define-char
   '((morohashi-daikanwa	10203 0 3)
@@ -2263,6 +2270,7 @@
     (=daikanwa		. 10204)	; ø¸‚Ÿœ
     (=jef-china3	. #x4DBE)	; øº„¶¾
     (=ucs@jis		. #x5FAF)	; ø»‹«
+    (=ucs@big5		. #x5FAF)	; ø»‹«
     ))
 (define-char
   '((morohashi-daikanwa	10204 0 2)
@@ -2720,6 +2728,7 @@
     (total-strokes	 . 15)
     (=cns11643-1	. #x6C62)	; ø»’±§
     (=big5		. #xBC78)	; ý¢€‹±¸
+    (=ucs@big5		. #x5FB5)	; ø»’±§
     ))
 (define-char
   '((ideographic-radical . 60)	; â¼»
