@@ -3287,6 +3287,7 @@
      ((=ucs		  . #x4EB9)	; 亹
       ))
     (=big5		. #xF6D6)	; &B-F6D6;
+    (=ucs@big5		. #x4EB9)	; &B-F6D6;
     (->subsumptive
      ((ideographic-strokes@jis-x0213 . 19)
       (ideographic-structure
