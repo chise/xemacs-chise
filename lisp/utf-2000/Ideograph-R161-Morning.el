@@ -65,6 +65,7 @@
     (korean-ksc5601		. #x525C)	; ø»‰£…
     (chinese-cns11643-1		. #x6729)	; ø»’©˜
     (japanese-jisx0208-1990	. #x4740)	; ø½Š®
+    (chinese-gb12345		. #x4529)	; è¾²
     (ideograph-daikanwa		. 38688)	; ø¸‰œ 
     (ucs			. #x8FB2)	; è¾²
     ))
