@@ -2159,7 +2159,16 @@ Set mapping-table of CHARSET to TABLE.
     }
   else if (VECTORP (table))
     {
-      if (XVECTOR_LENGTH (table) > CHARSET_CHARS (cs))
+      int ccs_len;
+
+      /* ad-hoc method for `ascii' */
+      if ((CHARSET_CHARS (cs) == 94) &&
+	  (CHARSET_BYTE_OFFSET (cs) != 33))
+	ccs_len = 128 - CHARSET_BYTE_OFFSET (cs);
+      else
+	ccs_len = CHARSET_CHARS (cs);
+
+      if (XVECTOR_LENGTH (table) > ccs_len)
 	args_out_of_range (table, make_int (CHARSET_CHARS (cs)));
       old_table = CHARSET_DECODING_TABLE(cs);
       CHARSET_DECODING_TABLE(cs) = table;
