@@ -1,3 +1,7 @@
+2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* configure.in: Delete HAVE_CHISE_CLIENT.
+
 2003-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* configure.in: Use HAVE_LIBCHISE instead of CHISE; add HAVE_CHISE
