@@ -109,19 +109,6 @@
     (=daikanwa		. 34097)	; ø¸ˆ”±
     ))
 (define-char
-  '((=>ucs		. #x521D)	; åˆ
-    (ideographic-radical . 145)	; â¾
-    (ideographic-strokes . 2)
-    (total-strokes	 . 8)
-    (->same
-     ((=daikanwa	  . 01911)	; ø¸€·
-      )
-     ((=ucs		  . #x521D)	; åˆ
-      ))
-    (=cns11643-1	. #x4F4F)	; ø»’†®
-    (=big5		. #xAAEC)	; ý¢€Š«¬
-    ))
-(define-char
   '((ideographic-radical . 145)	; â¾
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
