@@ -3241,6 +3241,7 @@ static void
 encode_coding_big5 (Lstream *encoding, CONST unsigned char *src,
 		    unsigned_char_dynarr *dst, unsigned int n)
 {
+#ifndef UTF2000
   unsigned char c;
   struct encoding_stream *str = ENCODING_STREAM_DATA (encoding);
   unsigned int flags  = str->flags;
@@ -3295,6 +3296,7 @@ encode_coding_big5 (Lstream *encoding, CONST unsigned char *src,
 
   str->flags = flags;
   str->ch    = ch;
+#endif
 }
 
 
