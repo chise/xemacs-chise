@@ -297,7 +297,6 @@ Lisp_Object Qascii,
   Qchinese_gb2312,
   Qchinese_gb12345,
   Qjapanese_jisx0208,
-  Qjapanese_jisx0208_1990,
   Qkorean_ksc5601,
   Qjapanese_jisx0212,
   Qchinese_cns11643_1,
@@ -313,7 +312,8 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
-  Qjis_x0208,
+  Qmap_jis_x0208,
+  Qmap_jis_x0208_1990,
   Qchinese_big5,
   Qethiopic_ucs,
 #endif
@@ -1979,7 +1979,7 @@ Set mapping-table of CHARSET to TABLE.
        (charset, table))
 {
   struct Lisp_Charset *cs;
-  size_t i;
+  int i;
   int byte_offset;
 
   charset = Fget_charset (charset);
@@ -2032,7 +2032,7 @@ Set mapping-table of CHARSET to TABLE.
 
 	  if (VECTORP (v))
 	    {
-	      size_t j;
+	      int j;
 
 	      for (j = 0; j < XVECTOR_LENGTH (v); j++)
 		{
@@ -2642,7 +2642,6 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
   defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qjapanese_jisx0208, 	"japanese-jisx0208");
-  defsymbol (&Qjapanese_jisx0208_1990, 	"japanese-jisx0208-1990");
   defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
   defsymbol (&Qjapanese_jisx0212,	"japanese-jisx0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
@@ -2658,7 +2657,8 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
-  defsymbol (&Qjis_x0208, 		"=jis-x0208");
+  defsymbol (&Qmap_jis_x0208, 		"=jis-x0208");
+  defsymbol (&Qmap_jis_x0208_1990, 	"=jis-x0208-1990");
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qethiopic_ucs,		"ethiopic-ucs");
 #endif
@@ -2911,7 +2911,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_jis_x0208);
   Vcharset_jis_x0208 =
     make_charset (LEADING_BYTE_JIS_X0208,
-		  Qjis_x0208, 94, 2,
+		  Qmap_jis_x0208, 94, 2,
 		  2, 0, 'B', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JIS X0208"),
 		  build_string ("JIS X0208 Common"),
@@ -2976,7 +2976,7 @@ complex_vars_of_mule_charset (void)
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
-		  Qjapanese_jisx0208_1990, 94, 2,
+		  Qmap_jis_x0208_1990, 94, 2,
 		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("JISX0208-1990"),
 		  build_string ("JIS X0208:1990 (Japanese)"),
