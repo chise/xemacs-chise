@@ -1,3 +1,43 @@
+2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R200-Hemp.el (J83-4B7B): Unify J78-4B7B and J90-4B7B.
+
+	* Ideograph-R197-Salt.el (J83-3834): Unify J90-3834.
+
+	* Ideograph-R195-Fish.el: Merge and/or fix JIS X 0208 code points.
+
+2001-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el: Merge Big5-Eten code
+	points.
+
+	* u0E000-Private-Use.el: Delete Big5-Eten code points.
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el (PARENTHESIZED
+	IDEOGRAPH STOCK): Unify Big5-C8D1.
+
+	* u030A0-Katakana.el, u03040-Hiragana.el,
+	u02F00-Kangxi-Radicals.el: Merge Big5-Eten code points.
+
+	* u02700-Dingbats.el (HEAVY TEARDROP-SPOKED ASTERISK): Unify
+	Big5-C6E6.
+
+	* u02460-Enclosed-Alphanumerics.el, u02190-Arrows.el,
+	u02150-Number-Forms.el: Merge Big5-Eten code points.
+
+	* u02100-Letterlike-Symbols.el (NUMERO SIGN): Unify Big5-C8D2.
+	(TELEPHONE SIGN): Unify Big5-C8D3.
+
+	* u002B0-Spacing-Modifier-Letters.el (MODIFIER LETTER CIRCUMFLEX
+	ACCENT): Unify Big5-C6D9.
+
+	* u000A0-Latin-1-Supplement.el (fullwidth diaeresis): Unify
+	Big5-C6D8 instead of Big5-A14C.
+
+	* char-db-util.el (insert-char-attributes): Regard
+	`->ideographic-variants', `->radical' and `<-radical' as
+	character-references.
+
 2001-08-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R194-Ghost.el (J90-7233): Separate J78-7233, J83-7233
