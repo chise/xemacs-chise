@@ -413,6 +413,7 @@
 	(when-feature utf-2000 "Ideograph-R213-Turtle")
 	(when-feature utf-2000 "Ideograph-R214-Flute")
 	(when-feature utf-2000 "u0A000-Yi-Syllables")
+	(when-feature utf-2000 "u0A490-Yi-Radicals")
 	(when-feature utf-2000 "u0AC00-Hangul-Syllables")
 	(when-feature utf-2000 "u0E000-Private-Use")
 	(when-feature utf-2000 "u0FB00-Alphabetic-Presentation-Forms")
