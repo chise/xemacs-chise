@@ -1,5 +1,9 @@
 2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL PAW ONE): Add
+	`<-radical' for U+722B.
+	(CJK RADICAL PAW TWO): Add `<-radical' for M-19655.
+
 	* u0E000-Private-Use.el (U+F4A6): Revived.
 
 	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): Relate to
