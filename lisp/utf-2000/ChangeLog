@@ -1,5 +1,39 @@
 2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R205-Frog.el (U-0002FA18): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+9EFE): Use `ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+	* Ideograph-R089-Double-X.el (C7-476E): Unify U-00021109 and
+	H2-E2D9 instead of using `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead.
+	(U-00020442): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R060-Step.el (JC3-4DB3): Use
+	`->same-ideograph*sources' instead of char-ref in `->synonyms'.
+	(U+5F94): Modify strokes.
+	(U+8854): Moved to Ideograph-R144-Walk-Enclosure.el.
+	(U+5F9A): Add `total-strokes'.
+	(J0-4530): Separate U+5FB9 and G1-3339; fix `total-strokes'.
+	(U+5FB9): Likewise.
+	(U+5FBA): Add `total-strokes'.
+
+	* Ideograph-R009-Man.el (U-00020442): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+
+	* Ideograph-R001-One.el (U+4E0E): Use
+	`ideographic-strokes@{ucs|gt}', `total-strokes@{ucs|gt}' and
+	`{ideographic|total}-strokes@ucs*sources' instead of
+	`ideographic-'; use `->synonyms*sources' instead of char-ref in
+	`->synonyms'.
+
+2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R154-Shell.el (U+8D30): Moved from
 	Ideograph-R056-Shoot.el.
 
