@@ -1980,6 +1980,9 @@ typedef unsigned long uintptr_t;
 void release_breathing_space (void);
 Lisp_Object noseeum_cons (Lisp_Object, Lisp_Object);
 Lisp_Object make_vector (size_t, Lisp_Object);
+#ifdef UTF2000
+Lisp_Object make_older_vector (size_t, Lisp_Object);
+#endif
 Lisp_Object vector1 (Lisp_Object);
 Lisp_Object vector2 (Lisp_Object, Lisp_Object);
 Lisp_Object vector3 (Lisp_Object, Lisp_Object, Lisp_Object);
