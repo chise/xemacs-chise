@@ -1,3 +1,8 @@
+2001-10-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/chinese.el (big5-cdp): New coding-system in XEmacs
+	UTF-2000.
+
 2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
