@@ -3,7 +3,7 @@
 ;; Copyright (C) 1992 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1996 Sun Microsystems.
-;; Copyright (C) 1999,2000 MORIOKA Tomohiko
+;; Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 ;; Author: Unknown
 ;; Keywords: i18n, mule, internal
@@ -315,6 +315,9 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-10
 	  ideograph-gt-pj-11
 	  chinese-gb12345
+	  arabic-digit
+	  arabic-1-column
+	  arabic-2-column
 	  mojikyo
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
