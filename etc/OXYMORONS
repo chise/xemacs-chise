@@ -1,0 +1,42 @@
+The theme of the gamma series of 21.4 releases is "oxymoron", that is,
+contradiction in terms.  Each patchlevel will be assigned a unique
+codename from the list below.  The rationale for the first should be
+obvious.
+
+The second and third are my tributes to Richard Stallman and the early
+developers of Lucid Emacs/XEmacs (primarily Jamie Zawinski, but it
+also fits Ben Wing which is appropriate to the Mule theme), in
+chronological order.  I cannot list all the debts this release owes
+for individual contributions, but I must credit the fundamental
+excellence of the design of [X]Emacs for inspiring the audacious
+proposal to add both GTK and Windows/MULE to XEmacs over a period of
+two months, and for the success of the GTK merge.  Without the
+prospect of such a big win, I could not have justified trying to
+coordinate a release myself.
+
+The rest of the codenames are in alphabetical order.
+
+N.B. I expect that the Stable Release Maintainer will choose a new
+theme for the releases following the promotion of 21.4 from "gamma" to
+"stable".  So 15 should be enough....
+
+21.4.0: Solid Vapor
+21.4.1: Copyleft
+21.4.2: Developer-Friendly Unix APIs
+21.4.3: Academic Rigor
+21.4.3: Artificial Intelligence
+21.4.3: Civil Service
+21.4.3: Common Lisp
+21.4.3: Economic Science
+21.4.3: Honest Politician
+21.4.3: Informed Management
+21.4.3: Military Intelligence
+21.4.3: Portable Code
+21.4.3: Rational FORTRAN
+21.4.3: Reasonable Discussion
+21.4.3: Standard C
+
+N.B.  Suggestions welcome until shortly before the release.  (The
+non-incrementing version number is precisely to make it easy to add
+new oxymorons.)
+
