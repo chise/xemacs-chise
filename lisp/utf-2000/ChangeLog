@@ -1,3 +1,35 @@
+2004-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BC3): Separate C3-3541; define as an
+	abstract character.
+	(J83-5563): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'; use `<-denotational' for U+5BC3; use `->subsumptive'
+	to integrate with C3-3541.
+	(J78-5563): Use `<-denotational' for U+5BC3.
+	(K0-6A32): Likewise.
+	(JC3-4AB8): Moved into U-0002F86D.
+	(U-0002F86D): Use `<-denotational' for U+5BC3; use
+	`->subsumptive'.
+	(U+5BC4): Use `->subsumptive'.
+
+	* Ideograph-R015-Ice.el (U-000205B1): Use `<-vulgar*sources'
+	instead of char-ref in `<-vulgar'.
+	(U+51B2): Likewise.
+	(U+51B3): Likewise; use `->subsumptive'.
+	(C3-227D): Moved into U+51B3.
+	(U+51B5): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'.
+	(J0-515A): Likewise; moved into U+51C9.
+	(U+51C9): Use `->subsumptive'.
+	(J0-5245): Moved into U+51D6; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(U+51D6): Use `->subsumptive'.
+	(U+34D5): Use `->subsumptive'.
+	(J83-515B): Moved into U+51DB.
+	(C3-4B30): Likewise.
+	(J90-515B): Likewise.
+	(U+51DB): Use `->subsumptive'.
+
 2004-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R024-Ten.el (U+5346): Use `<-vulgar*sources' and
