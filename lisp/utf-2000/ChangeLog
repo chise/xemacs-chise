@@ -1,3 +1,20 @@
+2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00F00-Tibetan.el: Reformatted.
+
+2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00D80-Sinhala.el, u00D00-Malayalam.el, u00C80-Kannada.el,
+	u00C00-Telugu.el, u00B80-Tamil.el, u00B00-Oriya.el: Reformatted.
+
+2002-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00A80-Gujarati.el, u00A00-Gurmukhi.el, u00600-Arabic.el,
+	u00400-Cyrillic.el, u00370-Greek.el,
+	u002B0-Spacing-Modifier-Letters.el, u00250-IPA-Extensions.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, u00080-C1.el: Reformatted.
+
 2002-01-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R118-Bamboo.el (M-26243): Map to U+7BC0.
