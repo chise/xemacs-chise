@@ -737,6 +737,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 Lisp_Object Qucs;
 
 EXFUN (Fmake_char, 3);
+EXFUN (Fdecode_char, 2);
 
 DEFUN ("define-char", Fdefine_char, 1, 1, 0, /*
 Store character's ATTRIBUTES.
@@ -759,8 +760,10 @@ Store character's ATTRIBUTES.
 	  if (!NILP (ccs = Ffind_charset (Fcar (cell))))
 	    {
 	      cell = Fcdr (cell);
-	      character = Fmake_char (ccs, Fcar (cell),
-				      Fcar (Fcdr (cell)));
+	      if (CONSP (cell))
+		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
+	      else
+		character = Fdecode_char (ccs, cell);
 	      goto setup_attributes;
 	    }
 	  rest = Fcdr (rest);
@@ -2391,8 +2394,13 @@ Make a character from CHARSET and code-point CODE.
 */
        (charset, code))
 {
+  int c;
+
   charset = Fget_charset (charset);
-  return make_char (DECODE_CHAR (charset, XINT (code)));
+  c = XINT (code);
+  if (XCHARSET_GRAPHIC (charset) == 1)
+    c &= 0x7F7F7F7F;
+  return make_char (DECODE_CHAR (charset, c));
 }
 #endif
 
@@ -2972,7 +2980,9 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("iso8859-5"),
-		  Qnil, MIN_CHAR_CYRILLIC, MAX_CHAR_CYRILLIC, 0, 32);
+		  Qnil,
+		  0 /* MIN_CHAR_CYRILLIC */,
+		  0 /* MAX_CHAR_CYRILLIC */, 0, 32);
   staticpro (&Vcharset_latin_iso8859_9);
   Vcharset_latin_iso8859_9 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9, 96, 1,
