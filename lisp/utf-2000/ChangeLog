@@ -1,5 +1,10 @@
 2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R124-Feather.el: Add some missing mappings to
+	CHINA3-JEF code points.
+
+2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R140-Grass.el, Ideograph-R116-Cave.el,
 	Ideograph-R102-Field.el, Ideograph-R066-Rap.el: Reformatted.
 
