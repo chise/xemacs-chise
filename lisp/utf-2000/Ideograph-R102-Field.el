@@ -1933,6 +1933,19 @@
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
+    (hanyu-dazidian-vol	 . 4)
+    (hanyu-dazidian-page . 2552)
+    (hanyu-dazidian-char . 4)
+    (->identical
+     ((ideograph-daikanwa . 00065)	; ø¸€
+      ))
+    (ideograph-hanziku-7	. #xB974)	; ý¢»¥´
+    (ucs			. #x24CCF)	; ð¤³
+    ))
+(define-char
+  '((ideographic-radical . 102)	; â½¥
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
     (chinese-cns11643-4 . #x5143)	; ø»˜§ª
     ))
 (define-char
