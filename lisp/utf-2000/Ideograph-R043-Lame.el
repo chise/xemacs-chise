@@ -20,7 +20,7 @@
     (chinese-big5	. #xA471)	; ý¢€Š‘±
     (ideograph-daikanwa . 07539)	; ø¸µ³
     (=gt-k		. 00220)	; ý¡„€ƒœ
-    (ucs-gb		. #x5C22)	; ð¯¡µ
+    (=ucs@gb		. #x5C22)	; ð¯¡µ
     (ucs-jis		. #x5C22)	; ð¯¡µ
     (ucs-big5		. #x5C22)	; ð¯¡µ
     (=ucs		. #x2F875)	; ð¯¡µ
