@@ -70,7 +70,7 @@ typedef int Charset_ID;
 #define LEADING_BYTE_CONTROL_1		0x81 /* represent normal 80-9F */
 #define LEADING_BYTE_HIRAGANA_JISX0208	0x82
 #define LEADING_BYTE_KATAKANA_JISX0208	0x83
-
+#define LEADING_BYTE_LATIN_VISCII	0x84
 
 #define CHARSET_ID_OFFSET_94		0x55
 
@@ -249,12 +249,14 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
-#define CHARSET_TYPE_94      0 /* This charset includes 94    characters. */
-#define CHARSET_TYPE_96      1 /* This charset includes 96    characters. */
-#define CHARSET_TYPE_94X94   2 /* This charset includes 94x94 characters. */
-#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96 characters. */
-#define CHARSET_TYPE_128X128 4 /* This charset includes 128x128 characters. */
-#define CHARSET_TYPE_256X256 5 /* This charset includes 256x256 characters. */
+#define CHARSET_TYPE_94      0 /* This charset includes 94      characters. */
+#define CHARSET_TYPE_94X94   1 /* This charset includes 94x94   characters. */
+#define CHARSET_TYPE_96      2 /* This charset includes 96      characters. */
+#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96   characters. */
+#define CHARSET_TYPE_128     4 /* This charset includes 128     characters. */
+#define CHARSET_TYPE_128X128 5 /* This charset includes 128x128 characters. */
+#define CHARSET_TYPE_256     6 /* This charset includes 256     characters. */
+#define CHARSET_TYPE_256X256 7 /* This charset includes 256x256 characters. */
 
 #define CHARSET_LEFT_TO_RIGHT	0
 #define CHARSET_RIGHT_TO_LEFT	1
@@ -386,18 +388,17 @@ INLINE Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
-  int ofs, idx;
+  int idx;
   Lisp_Object ch;
 
   if (!EQ (decoding_table, Qnil)
-      && (0 <= (idx =
-		c1 - (ofs = (XCHARSET_CHARS (charset) == 94 ? 33 : 32))))
+      && (0 <= (idx = c1 - XCHARSET_BYTE_OFFSET (charset)))
       && (idx < XVECTOR_LENGTH (decoding_table))
       && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
     {
       if (VECTORP (ch))
 	{
-	  if ((0 <= (idx = c2 - ofs))
+	  if ((0 <= (idx = c2 - XCHARSET_BYTE_OFFSET (charset)))
 	      && (idx < XVECTOR_LENGTH (ch))
 	      && !EQ (ch = XVECTOR_DATA(ch)[idx], Qnil))
 	    return XCHAR (ch);
@@ -463,6 +464,7 @@ unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
 unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
+extern Lisp_Object Vdefault_coded_charset_priority_list_for_font;
 EXFUN (Ffind_charset, 1);
 
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
