@@ -181,6 +181,14 @@
     (=ucs		. #x5EF9)	; å»¹
     ))
 (define-char
+  '((=>ucs		. #x5EF9)	; å»¹
+    (ideographic-radical . 54)	; â¼µ
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (=jis-x0213-1-2000	. #x7430)	; ø»¤…
+    (=ucs@jis		. #x5EF9)	; ø»¤…
+    ))
+(define-char
   '((=>ucs		. #x5EFA)	; å»º
     (ideographic-radical . 54)	; â¼µ
     (ideographic-strokes . 6)
