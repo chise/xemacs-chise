@@ -1,3 +1,23 @@
+2002-03-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el, Ideograph-R059-Bristle.el,
+	Ideograph-R058-Snout.el, Ideograph-R057-Bow.el: Merge mapping to
+	CHINA3-JEF code points.
+
+	* Ideograph-R056-Shoot.el (JC3-41A7): New character.
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R051-Dry.el,
+	Ideograph-R050-Turban.el: Merge mapping to CHINA3-JEF code points.
+
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R049-Oneself.el: Merge mapping to CHINA3-JEF code
+	points.
+
+	* Ideograph-R047-River.el (M-08684): Unify JC3-67AA.
+	(U+5DE2): Unify JC3-52F1.
+
 2002-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el: Merge mapping to CHINA3-JEF code
