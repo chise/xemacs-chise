@@ -13250,6 +13250,7 @@
     (=ks-x1001		. #x6E4A)	; ø»Š‹»
     (=jis-x0213-1-2000	. #x7B27)	; ø»¤—Ž
     (=ucs@ks		. #x8457)	; ï©Ÿ
+    (mojikyo		. 058116)	; ý €ŽŒ„
     (=ucs		. #xFA5F)	; ï©Ÿ
     ))
 (define-char
