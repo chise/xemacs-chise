@@ -1150,6 +1150,7 @@
     (japanese-jisx0208		. #x4754)	; ø»‡ˆ¯
     (chinese-cns11643-1		. #x5A75)	; ø»’—ž
     (japanese-jisx0208-1990	. #x4754)	; ø½Š®£
+    (chinese-gb12345		. #x305C)	; æ•—
     (ideograph-daikanwa		. 13227)	; ø¸ƒŽ«
     (ucs			. #x6557)	; æ•—
     ))
@@ -2391,6 +2392,7 @@
     (japanese-jisx0208		. #x4528)	; ø»‡…‡
     (chinese-cns11643-1		. #x6D2E)	; ø»’²‘
     (japanese-jisx0208-1990	. #x4528)	; ø½Šª»
+    (chinese-gb12345		. #x3550)	; æ•µ
     (ideograph-daikanwa		. 13354)	; ø¸ƒª
     (ucs			. #x6575)	; æ•µ
     ))
@@ -2488,10 +2490,18 @@
     (shinjigen-2	. 3186)
     (japanese-jisx0208-1978	. #x5A4B)	; ø»ƒ˜
     (japanese-jisx0208		. #x5A4B)	; ø»‡¤ 
-    (chinese-cns11643-1		. #x6D30)	; ø»’²“
     (japanese-jisx0208-1990	. #x5A4B)	; ø½‹Š”
+    (chinese-gb12345		. #x4A7D)	; æ•¸
     (ideograph-daikanwa		. 13363)	; ø¸ƒ³
     (ucs			. #x6578)	; æ•¸
+    ))
+(define-char
+  '((=>ucs		. #x6578)	; æ•¸
+    (morohashi-daikanwa	13363 0 1)
+    (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (chinese-cns11643-1 . #x6D30)	; ø»’²“
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
@@ -2929,6 +2939,7 @@
     (japanese-jisx0208		. #x5A4C)	; ø»‡¤¡
     (chinese-cns11643-1		. #x736D)	; ø»’¼„
     (japanese-jisx0208-1990	. #x5A4C)	; ø½‹Š•
+    (chinese-gb12345		. #x4132)	; æ–‚
     (ideograph-daikanwa		. 13407)	; ø¸ƒ‘Ÿ
     (ucs			. #x6582)	; æ–‚
     ))
@@ -3040,11 +3051,19 @@
 (define-char
   '((morohashi-daikanwa	13417 0 2)
     (ideographic-radical . 66)	; â½
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (japanese-jisx0208-1978	. #x5A4D)	; ø»ƒš
+    (chinese-gb12345		. #x3150)	; æ–ƒ
+    (ucs			. #x6583)	; æ–ƒ
+    ))
+(define-char
+  '((=>ucs		. #x6583)	; æ–ƒ
+    (morohashi-daikanwa	13417 0 3)
+    (ideographic-radical . 66)	; â½
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (japanese-jisx0208-1978	. #x5A4D)	; ø»ƒš
-    (chinese-cns11643-1		. #x736E)	; ø»’¼…
-    (ucs			. #x6583)	; æ–ƒ
+    (chinese-cns11643-1 . #x736E)	; ø»’¼…
     ))
 (define-char
   '((ideographic-radical . 66)	; â½
