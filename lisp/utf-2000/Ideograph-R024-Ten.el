@@ -406,7 +406,9 @@
     (<-simplified
      ((=daikanwa	  . 07833)	; ø¸º™
       ))
+    (sources		bos=A016219-00020)
     (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ
+    (=ruimoku-v6	. #xE00E)	; øº€Ž
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
