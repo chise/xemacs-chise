@@ -5607,6 +5607,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
     (=jis-x0208		. #x315A)	; ø½ŠŽ•
+    (ideograph-cbeta	. 05919)	; ø¸¡œŸ
     (ucs-jis		. #x8B01)	; ø½ŠŽ•
     ))
 (define-char
