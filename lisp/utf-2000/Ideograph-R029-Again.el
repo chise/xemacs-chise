@@ -98,10 +98,19 @@
     (=big5-cdp		. #x8DDA)	; ý¢€ˆ·š
     ))
 (define-char
-  '((=>ucs		. #x53CA)	; åŠ
-    (ideographic-radical . 29)	; â¼œ
+  '((ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-radical*sources daikanwa jis-x0208 cns11643 ucs)
+    (sound@ja/kun	"oyo+b5" "oyobi")
+    (sound@ja/kun/name	"oi")
+    (sound@ja/on/kan	"kIHu")
+    (=ucs		. #x53CA)	; åŠ
+    ))
+(define-char
+  '((<-denotational
+     ((=ucs		  . #x53CA)	; åŠ
+      ))
     (shinjigen-1	. 901)
     (=ks-x1001		. #x5060)	; ø»‰ 
     (=cns11643-1	. #x452F)	; ø»‘·¢
@@ -113,24 +122,22 @@
     ))
 (define-char
   '((morohashi-daikanwa	3118 1)
-    (ideographic-radical@ucs . 29)	; â¼œ
-    (ideographic-strokes@ucs . 2)
-    (total-strokes@ucs	     . 4)
-    (ideographic-radical@ucs*sources
-     daikanwa jis-x0208 cns11643 ucs)
     (ideographic-radical@gt . 4)	; â¼ƒ
     (ideographic-strokes@gt . 2)
     (total-strokes@gt	    . 3)
+    (<-denotational
+     ((=ucs		  . #x53CA)	; åŠ
+      ))
     (hanyu-dazidian	1 35 1)
     (shinjigen-1	. 900)
     (shinjigen-2	. 900)
-    (=ucs		. #x53CA)	; åŠ
     (=jis-x0208		. #x355A)	; ø½Š”
     (=gb2312		. #x3C30)	; ø»„­½
     (=cns11643-6	. #x2161)	; ø»›µ°
     (=gt		. 00163)	; ý¡€€‚£
     (=gt-k		. 00257)	; ý¡„€„
     (=gt-pj-1		. #x355A)	; ý¡€€‚£
+    (=ucs@unicode	. #x53CA)	; ø½Š”
     ))
 (define-char
   '((ideographic-radical . 29)	; â¼œ
