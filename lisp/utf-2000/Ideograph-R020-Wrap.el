@@ -143,7 +143,8 @@
     (ucs		. #x52FC)	; å‹¼
     ))
 (define-char
-  '((ideographic-radical . 20)	; â¼“
+  '((=>ucs		. #x52FD)	; å‹½
+    (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (ideographic-structure
@@ -154,12 +155,11 @@
       )
      ((ucs		  . #x4EBA)	; äºº
       ))
-    (chinese-cns11643-3		. #x2155)	; ø»•—˜
-    (ideograph-daikanwa		. 02499)	; ø¸€§ƒ
-    (=>ucs			. #x52FD)	; å‹½
+    (chinese-cns11643-3 . #x2155)	; ø»•—˜
+    (ideograph-daikanwa . 02499)	; ø¸€§ƒ
     ))
 (define-char
-  '((morohashi-daikanwa	02499 0 0)
+  '((morohashi-daikanwa	2499 0 0)
     (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
