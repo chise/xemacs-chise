@@ -3939,6 +3939,19 @@
     (ucs			. #x582F)	; 堯
     ))
 (define-char
+  '((morohashi-daikanwa	5272 0 8)
+    (ideographic-radical . 32)	; ⼟
+    (kangxi-radical	 . 10)	; ⼉
+    (ideographic-strokes . 5)
+    (kangxi-strokes	 . 6)
+    (total-strokes	 . 8)
+    (unicode-radical	. 43)
+    (unicode-strokes	. 5)
+    (japanese-jisx0208		. #x3646)	; �����
+    (japanese-jisx0208-1990	. #x3646)	; 尭
+    (ucs			. #x5C2D)	; 尭
+    ))
+(define-char
   '((morohashi-daikanwa	5273)
     (ideographic-radical . 32)	; ⼟
     (total-strokes	. 12)
