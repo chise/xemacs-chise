@@ -3468,6 +3468,12 @@
   '((ideographic-radical . 40)	; â¼§
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (->unified
+     ((sources		  bos=A015412-00003)
+      (=ruimoku-v6	  . #xE009)	; øº€‰
+      )
+     ((=ucs@iso		  . #x21A5C)	; ó°€’
+      ))
     (=ucs		. #x21A5C)	; ð¡©œ
     ))
 (define-char
