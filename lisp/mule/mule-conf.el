@@ -167,6 +167,19 @@
 		  direction	l2r
 		  mother	ucs))
 
+  (make-charset 'ideograph-daikanwa
+		"Daikanwa"
+		`(long-name	"Morohashi's Daikanwa Rev.2"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	"Daikanwa\\(\\.[0-9]+\\)?-3"
+		  min-code	#xE00000
+		  max-code	,(+ #xE00000 50100)
+		  code-offset	#xE00000))
+
   (make-charset '=big5-pua
 		"Big5-PUA"
 		`(long-name	"Big5 with private used area"
@@ -228,6 +241,26 @@
 		  min-code	#x8140
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
+  (let* ((i 1)
+	 (hzk-min (+ (lsh #x6200 16) 65536))
+	 (hzk-max (+ hzk-min 65535)))
+    (while (<= i 12)
+      (make-charset
+       (intern (format "ideograph-hanziku-%d" i))
+       (format "HANZIKU-%d" i)
+       `(long-name ,(format "HANZIKU (pseudo BIG5 encoding) part %d" i)
+		   chars 256
+		   dimension 2
+		   columns 2
+		   graphic 2
+		   direction l2r
+		   registry ,(format "hanziku-%d$" i i)
+		   min-code ,hzk-min
+		   max-code ,hzk-max
+		   code-offset ,hzk-min))
+      (setq hzk-min (1+ hzk-max)
+	    hzk-max (+ hzk-min 65535))
+      (setq i (1+ i))))
 
   (make-charset '=gt
 		"GT"
