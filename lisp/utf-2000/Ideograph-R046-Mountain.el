@@ -2961,7 +2961,7 @@
 	)
        ((=ucs		    . #x5C71)	; 山
 	)
-       ((=ucs@unicode	    . #x542B)	; &UU+542B;
+       ((=gb2312	    . #x3A2C)	; &G0-3A2C; [26-12]
 	))
       (=ucs@unicode	  . #x37CF)	; &UU+37CF;
       ))
