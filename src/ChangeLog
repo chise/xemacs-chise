@@ -1,3 +1,36 @@
+2003-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (decode_add_er_char): Modify for `DECODE_CHAR'.
+	(char_encode_as_entity_reference): Likewise.
+	(decode_coding_big5): Modify for `decode_defined_char' and
+	`DECODE_CHAR'.
+	(decode_coding_utf8): Modify for `decode_defined_char'; modify to
+	avoid compiler warning.
+	(decode_coding_iso2022): Modify for `DECODE_CHAR'.
+
+	* mule-charset.c (decode_defined_char): Add new argument
+	`without_inheritance'.
+	(Fdecode_char): Add new optional argument `without_inheritance'.
+	(Fdecode_builtin_char): Modify for `Fdecode_char'.
+
+	* fns.c (ids_format_unit): Modify for `Fdecode_char'.
+	(simplify_char_spec): Likewise.
+
+	* chartab.h (Fdecode_char): Modify number of arguments of EXFUN
+	setting.
+
+	* chartab.c (put_char_table): Modify for `DECODE_CHAR'.
+	(map_char_table): Likewise.
+	(Fdefine_char): Use `Fdecode_char' without inheritance.
+	(Ffind_char): Modify for `Fdecode_char'.
+
+	* character.h (CHARC_TO_CHAR): Modify for `DECODE_CHAR'.
+
+	* char-ucs.h (decode_defined_char): Add new argument
+	`without_inheritance'.
+	(DECODE_CHAR): Likewise.
+	(MAKE_CHAR): Modify for `DECODE_CHAR'.
+
 2003-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Vchise_system_db_directory): New variable.
