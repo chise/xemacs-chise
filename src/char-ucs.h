@@ -18,8 +18,6 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
-
 #ifndef INCLUDED_char_ucs_h_
 #define INCLUDED_char_ucs_h_
 
@@ -650,6 +648,13 @@ CHAR_CHARSET (Emchar ch)
 
 #define CHAR_CHARSET_ID(c)  (XCHARSET_ID(CHAR_CHARSET(c)))
 #define CHAR_COLUMNS(c)     (CHARSET_COLUMNS(XCHARSET(CHAR_CHARSET(c))))
+
+
+typedef struct Charc
+{
+  Lisp_Object charset;
+  int code_point;
+} Charc;
 
 
 /************************************************************************/
