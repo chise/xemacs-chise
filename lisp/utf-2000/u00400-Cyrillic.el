@@ -38,7 +38,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0401)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER IO")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER IO")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IO")
       (ucs		  . #x0401)	; Ё
@@ -76,7 +77,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->decomposition	wide #x0402)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER DJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DJE")
       (ucs		  . #x0402)	; Ђ
@@ -108,7 +110,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0403)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER GJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER GJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GJE")
       (ucs		  . #x0403)	; Ѓ
@@ -121,7 +124,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
       (japanese-jisx0212  . #x2744)	; �����
       ))
     (->lowercase
@@ -132,14 +135,15 @@
     (ucs		. #x0404)	; Є
     ))
 (define-char
-  '((name		. "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
+  '((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
     (=>ucs		. #x0404)	; Є
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0404)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")))
+     ((name . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER UKRAINIAN IE")
       (ucs		  . #x0404)	; Є
@@ -170,7 +174,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0405)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER DZE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DZE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DZE")
       (ucs		  . #x0405)	; Ѕ
@@ -187,7 +192,7 @@
       (japanese-jisx0212  . #x2746)	; �����
       ))
     (->lowercase
-     ((name		  . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
+     ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
       (ucs		  . #x0456)	; і
       ))
     (cyrillic-iso8859-5 . #xA6)	; �����
@@ -201,7 +206,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0406)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")))
+     ((name . "FULLWIDTH CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
+      ))
     (<-fullwidth
      ((name . "CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
       (ucs		  . #x0406)	; І
@@ -235,7 +241,8 @@
     (iso-10646-comment	. "Ukrainian")
     (->decomposition	wide #x0407)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER YI")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YI")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YI")
       (ucs		  . #x0407)	; Ї
@@ -266,7 +273,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0408)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER JE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER JE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER JE")
       (ucs		  . #x0408)	; Ј
@@ -297,7 +305,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0409)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER LJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER LJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER LJE")
       (ucs		  . #x0409)	; Љ
@@ -328,7 +337,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x040A)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER NJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER NJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER NJE")
       (ucs		  . #x040A)	; Њ
@@ -356,7 +366,8 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Serbocroatian")
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER TSHE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TSHE")
+      ))
     (japanese-jisx0212	. #x274B)	; �����
     ))
 (define-char
@@ -384,7 +395,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x040C)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER KJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER KJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER KJE")
       (ucs		  . #x040C)	; Ќ
@@ -430,7 +442,8 @@
     (iso-10646-comment	. "Byelorussian")
     (->decomposition	wide #x040E)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHORT U")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHORT U")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT U")
       (ucs		  . #x040E)	; Ў
@@ -461,7 +474,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x040F)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER DZHE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DZHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DZHE")
       (ucs		  . #x040F)	; Џ
@@ -495,7 +509,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0410)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER A")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER A")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER A")
       (ucs		  . #x0410)	; А
@@ -534,7 +549,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0411)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER BE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER BE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER BE")
       (ucs		  . #x0411)	; Б
@@ -573,7 +589,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0412)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER VE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER VE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER VE")
       (ucs		  . #x0412)	; В
@@ -612,7 +629,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0413)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER GHE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER GHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER GHE")
       (ucs		  . #x0413)	; Г
@@ -651,7 +669,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0414)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER DE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER DE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER DE")
       (ucs		  . #x0414)	; Д
@@ -690,7 +709,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0415)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER IE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER IE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER IE")
       (ucs		  . #x0415)	; Е
@@ -729,7 +749,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0416)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER ZHE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ZHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZHE")
       (ucs		  . #x0416)	; Ж
@@ -768,7 +789,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0417)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER ZE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ZE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ZE")
       (ucs		  . #x0417)	; З
@@ -807,7 +829,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0418)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER I")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER I")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER I")
       (ucs		  . #x0418)	; И
@@ -847,7 +870,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0419)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHORT I")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHORT I")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHORT I")
       (ucs		  . #x0419)	; Й
@@ -886,7 +910,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041A)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER KA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER KA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER KA")
       (ucs		  . #x041A)	; К
@@ -925,7 +950,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041B)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER EL")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EL")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EL")
       (ucs		  . #x041B)	; Л
@@ -964,7 +990,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041C)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER EM")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EM")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EM")
       (ucs		  . #x041C)	; М
@@ -1003,7 +1030,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041D)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER EN")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EN")
       (ucs		  . #x041D)	; Н
@@ -1042,7 +1070,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041E)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER O")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER O")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER O")
       (ucs		  . #x041E)	; О
@@ -1081,7 +1110,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x041F)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER PE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER PE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER PE")
       (ucs		  . #x041F)	; П
@@ -1120,7 +1150,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0420)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER ER")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ER")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ER")
       (ucs		  . #x0420)	; Р
@@ -1159,7 +1190,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0421)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER ES")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER ES")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER ES")
       (ucs		  . #x0421)	; С
@@ -1198,7 +1230,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0422)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER TE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TE")
       (ucs		  . #x0422)	; Т
@@ -1237,7 +1270,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0423)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER U")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER U")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER U")
       (ucs		  . #x0423)	; У
@@ -1276,7 +1310,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0424)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER EF")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER EF")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER EF")
       (ucs		  . #x0424)	; Ф
@@ -1315,7 +1350,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0425)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER HA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER HA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HA")
       (ucs		  . #x0425)	; Х
@@ -1354,7 +1390,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0426)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER TSE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER TSE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER TSE")
       (ucs		  . #x0426)	; Ц
@@ -1393,7 +1430,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0427)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER CHE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER CHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER CHE")
       (ucs		  . #x0427)	; Ч
@@ -1432,7 +1470,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0428)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHA")
       (ucs		  . #x0428)	; Ш
@@ -1471,7 +1510,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0429)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER SHCHA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SHCHA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SHCHA")
       (ucs		  . #x0429)	; Щ
@@ -1489,7 +1529,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
       (japanese-jisx0208-1978	  . #x273C)	; �����
       (chinese-gb2312		  . #x273C)	; �����
       (japanese-jisx0208	  . #x273C)	; �����
@@ -1510,7 +1550,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042A)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")))
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER HARD SIGN")
       (ucs		  . #x042A)	; Ъ
@@ -1549,7 +1590,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042B)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER YERU")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YERU")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YERU")
       (ucs		  . #x042B)	; Ы
@@ -1567,7 +1609,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")
       (japanese-jisx0208-1978	  . #x273E)	; �����
       (chinese-gb2312		  . #x273E)	; �����
       (japanese-jisx0208	  . #x273E)	; �����
@@ -1588,7 +1630,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042C)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER SOFT SIGN")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER SOFT SIGN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER SOFT SIGN")
       (ucs		  . #x042C)	; Ь
@@ -1627,7 +1670,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042D)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER E")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER E")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER E")
       (ucs		  . #x042D)	; Э
@@ -1666,7 +1710,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042E)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER YU")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YU")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YU")
       (ucs		  . #x042E)	; Ю
@@ -1705,7 +1750,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x042F)
     (->lowercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER YA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC CAPITAL LETTER YA")
       (ucs		  . #x042F)	; Я
@@ -1744,7 +1790,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0430)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER A")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER A")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER A")
       (ucs		  . #x0430)	; а
@@ -1783,7 +1830,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0431)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER BE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER BE")
       (ucs		  . #x0431)	; б
@@ -1822,7 +1870,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0432)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER VE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER VE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER VE")
       (ucs		  . #x0432)	; в
@@ -1861,7 +1910,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0433)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER GHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GHE")
       (ucs		  . #x0433)	; г
@@ -1900,7 +1950,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0434)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DE")
       (ucs		  . #x0434)	; д
@@ -1939,7 +1990,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0435)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER IE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IE")
       (ucs		  . #x0435)	; е
@@ -1978,7 +2030,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0436)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ZHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZHE")
       (ucs		  . #x0436)	; ж
@@ -2017,7 +2070,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0437)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ZE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ZE")
       (ucs		  . #x0437)	; з
@@ -2056,7 +2110,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0438)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER I")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER I")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER I")
       (ucs		  . #x0438)	; и
@@ -2096,7 +2151,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0439)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT I")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT I")
       (ucs		  . #x0439)	; й
@@ -2135,7 +2191,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043A)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER KA")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER KA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KA")
       (ucs		  . #x043A)	; к
@@ -2174,7 +2231,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043B)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EL")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EL")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EL")
       (ucs		  . #x043B)	; л
@@ -2213,7 +2271,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043C)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EM")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EM")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EM")
       (ucs		  . #x043C)	; м
@@ -2252,7 +2311,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043D)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EN")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EN")
       (ucs		  . #x043D)	; н
@@ -2291,7 +2351,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043E)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER O")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER O")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER O")
       (ucs		  . #x043E)	; о
@@ -2330,7 +2391,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x043F)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER PE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER PE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER PE")
       (ucs		  . #x043F)	; п
@@ -2369,7 +2431,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0440)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ER")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ER")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ER")
       (ucs		  . #x0440)	; р
@@ -2408,7 +2471,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0441)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER ES")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER ES")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER ES")
       (ucs		  . #x0441)	; с
@@ -2447,7 +2511,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0442)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER TE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TE")
       (ucs		  . #x0442)	; т
@@ -2486,7 +2551,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0443)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER U")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER U")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER U")
       (ucs		  . #x0443)	; у
@@ -2525,7 +2591,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0444)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER EF")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER EF")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER EF")
       (ucs		  . #x0444)	; ф
@@ -2564,7 +2631,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0445)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HA")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER HA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HA")
       (ucs		  . #x0445)	; х
@@ -2603,7 +2671,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0446)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER TSE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TSE")
       (ucs		  . #x0446)	; ц
@@ -2642,7 +2711,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0447)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER CHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER CHE")
       (ucs		  . #x0447)	; ч
@@ -2681,7 +2751,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0448)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHA")
       (ucs		  . #x0448)	; ш
@@ -2720,7 +2791,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0449)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHCHA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHCHA")
       (ucs		  . #x0449)	; щ
@@ -2759,7 +2831,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044A)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")))
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER HARD SIGN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER HARD SIGN")
       (ucs		  . #x044A)	; ъ
@@ -2798,7 +2871,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044B)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YERU")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YERU")
       (ucs		  . #x044B)	; ы
@@ -2837,7 +2911,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044C)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")))
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SOFT SIGN")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SOFT SIGN")
       (ucs		  . #x044C)	; ь
@@ -2876,7 +2951,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044D)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER E")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER E")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER E")
       (ucs		  . #x044D)	; э
@@ -2915,7 +2991,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044E)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YU")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YU")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YU")
       (ucs		  . #x044E)	; ю
@@ -2954,7 +3031,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x044F)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER YA")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER YA")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YA")
       (ucs		  . #x044F)	; я
@@ -3006,7 +3084,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0451)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER IO")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER IO")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER IO")
       (ucs		  . #x0451)	; ё
@@ -3044,7 +3123,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->decomposition	wide #x0452)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DJE")
       (ucs		  . #x0452)	; ђ
@@ -3076,7 +3156,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0453)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER GJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER GJE")
       (ucs		  . #x0453)	; ѓ
@@ -3089,7 +3170,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")
+     ((name . "FULLWIDTH CYRILLIC SMALL LETTER UKRAINIAN IE")
       (japanese-jisx0212  . #x2774)	; �����
       ))
     (->uppercase
@@ -3107,7 +3188,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0454)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")))
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER UKRAINIAN IE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER UKRAINIAN IE")
       (ucs		  . #x0454)	; є
@@ -3138,7 +3220,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0455)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DZE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DZE")
       (ucs		  . #x0455)	; ѕ
@@ -3146,7 +3229,7 @@
     (japanese-jisx0212	. #x2775)	; �����
     ))
 (define-char
-  '((name		. "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
+  '((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -3169,9 +3252,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x0456)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")))
+     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER BYELORUSSIAN-UKRAINIAN I")
+      ))
     (<-fullwidth
-     ((name		  . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
+     ((name . "CYRILLIC SMALL LETTER BYELORUSSIAN-UKRAINIAN I")
       (ucs		  . #x0456)	; і
       ))
     (japanese-jisx0212	. #x2776)	; �����
@@ -3203,7 +3287,8 @@
     (iso-10646-comment	. "Ukrainian")
     (->decomposition	wide #x0457)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER YI")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER YI")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER YI")
       (ucs		  . #x0457)	; ї
@@ -3234,7 +3319,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0458)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER JE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER JE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER JE")
       (ucs		  . #x0458)	; ј
@@ -3265,7 +3351,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0459)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER LJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER LJE")
       (ucs		  . #x0459)	; љ
@@ -3296,7 +3383,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x045A)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER NJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER NJE")
       (ucs		  . #x045A)	; њ
@@ -3329,7 +3417,8 @@
     (iso-10646-comment	. "Serbocroatian")
     (->decomposition	wide #x045B)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER TSHE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER TSHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER TSHE")
       (ucs		  . #x045B)	; ћ
@@ -3361,7 +3450,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x045C)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC SMALL LETTER KJE")))
+     ((name		  . "FULLWIDTH CYRILLIC SMALL LETTER KJE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER KJE")
       (ucs		  . #x045C)	; ќ
@@ -3407,7 +3497,8 @@
     (iso-10646-comment	. "Byelorussian")
     (->decomposition	wide #x045E)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER SHORT U")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER SHORT U")
       (ucs		  . #x045E)	; ў
@@ -3438,7 +3529,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x045F)
     (->uppercase
-     ((name . "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")))
+     ((name		  . "FULLWIDTH CYRILLIC CAPITAL LETTER DZHE")
+      ))
     (<-fullwidth
      ((name		  . "CYRILLIC SMALL LETTER DZHE")
       (ucs		  . #x045F)	; џ
@@ -3550,7 +3642,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER IOTIFIED LITTLE YUS")
+     ((name . "CYRILLIC CAPITAL LETTER IOTIFIED LITTLE YUS")
       (ucs		  . #x0468)	; Ѩ
       ))
     (ucs		. #x0469)	; ѩ
@@ -3975,7 +4067,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER GHE WITH MIDDLE HOOK")
+     ((name . "CYRILLIC CAPITAL LETTER GHE WITH MIDDLE HOOK")
       (ucs		  . #x0494)	; Ҕ
       ))
     (ucs		. #x0495)	; ҕ
@@ -4047,23 +4139,23 @@
     (ucs		. #x049B)	; қ
     ))
 (define-char
-  '((name		. "CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE")
+  '((name . "CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase
-     ((name		  . "CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE")
+     ((name . "CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE")
       (ucs		  . #x049D)	; ҝ
       ))
     (ucs		. #x049C)	; Ҝ
     ))
 (define-char
-  '((name		. "CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE")
+  '((name . "CYRILLIC SMALL LETTER KA WITH VERTICAL STROKE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE")
+     ((name . "CYRILLIC CAPITAL LETTER KA WITH VERTICAL STROKE")
       (ucs		  . #x049C)	; Ҝ
       ))
     (ucs		. #x049D)	; ҝ
@@ -4175,7 +4267,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Abkhasian")
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER PE WITH MIDDLE HOOK")
+     ((name . "CYRILLIC CAPITAL LETTER PE WITH MIDDLE HOOK")
       (ucs		  . #x04A6)	; Ҧ
       ))
     (ucs		. #x04A7)	; ҧ
@@ -4269,12 +4361,12 @@
     (ucs		. #x04AF)	; ү
     ))
 (define-char
-  '((name		. "CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE")
+  '((name . "CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase
-     ((name		  . "CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE")
+     ((name . "CYRILLIC SMALL LETTER STRAIGHT U WITH STROKE")
       (ucs		  . #x04B1)	; ұ
       ))
     (ucs		. #x04B0)	; Ұ
@@ -4285,7 +4377,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE")
+     ((name . "CYRILLIC CAPITAL LETTER STRAIGHT U WITH STROKE")
       (ucs		  . #x04B0)	; Ұ
       ))
     (ucs		. #x04B1)	; ұ
@@ -4364,13 +4456,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->lowercase
-     ((name		  . "CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE")
+     ((name . "CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE")
       (ucs		  . #x04B9)	; ҹ
       ))
     (ucs		. #x04B8)	; Ҹ
     ))
 (define-char
-  '((name		. "CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE")
+  '((name . "CYRILLIC SMALL LETTER CHE WITH VERTICAL STROKE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -4678,7 +4770,7 @@
     (mirrored		. nil)
     (->decomposition	#x04D9 #x0308)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER SCHWA WITH DIAERESIS")
+     ((name . "CYRILLIC CAPITAL LETTER SCHWA WITH DIAERESIS")
       (ucs		  . #x04DA)	; Ӛ
       ))
     (ucs		. #x04DB)	; ӛ
@@ -4848,25 +4940,25 @@
     (ucs		. #x04E9)	; ө
     ))
 (define-char
-  '((name		. "CYRILLIC CAPITAL LETTER BARRED O WITH DIAERESIS")
+  '((name . "CYRILLIC CAPITAL LETTER BARRED O WITH DIAERESIS")
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x04E8 #x0308)
     (->lowercase
-     ((name		  . "CYRILLIC SMALL LETTER BARRED O WITH DIAERESIS")
+     ((name . "CYRILLIC SMALL LETTER BARRED O WITH DIAERESIS")
       (ucs		  . #x04EB)	; ӫ
       ))
     (ucs		. #x04EA)	; Ӫ
     ))
 (define-char
-  '((name		. "CYRILLIC SMALL LETTER BARRED O WITH DIAERESIS")
+  '((name . "CYRILLIC SMALL LETTER BARRED O WITH DIAERESIS")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x04E9 #x0308)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER BARRED O WITH DIAERESIS")
+     ((name . "CYRILLIC CAPITAL LETTER BARRED O WITH DIAERESIS")
       (ucs		  . #x04EA)	; Ӫ
       ))
     (ucs		. #x04EB)	; ӫ
@@ -4962,7 +5054,7 @@
     (mirrored		. nil)
     (->decomposition	#x0443 #x030B)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER U WITH DOUBLE ACUTE")
+     ((name . "CYRILLIC CAPITAL LETTER U WITH DOUBLE ACUTE")
       (ucs		  . #x04F2)	; Ӳ
       ))
     (ucs		. #x04F3)	; ӳ
@@ -5010,7 +5102,7 @@
     (mirrored		. nil)
     (->decomposition	#x044B #x0308)
     (->uppercase
-     ((name		  . "CYRILLIC CAPITAL LETTER YERU WITH DIAERESIS")
+     ((name . "CYRILLIC CAPITAL LETTER YERU WITH DIAERESIS")
       (ucs		  . #x04F8)	; Ӹ
       ))
     (ucs		. #x04F9)	; ӹ

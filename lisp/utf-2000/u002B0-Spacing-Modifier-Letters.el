@@ -321,7 +321,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth modifier letter low vertical line")
+     ((name . "fullwidth modifier letter low vertical line")
       (japanese-jisx0213-1	  . #x2B54)	; ø»¢¢›
       ))
     (ipa		. #xF1)	; øº’›±
@@ -393,13 +393,13 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth modifier letter half triangular colon")
+     ((name . "fullwidth modifier letter half triangular colon")
       (japanese-jisx0213-1	  . #x2B56)	; ø»¢¢
       ))
     (ucs		. #x02D1)	; Ë‘
     ))
 (define-char
-  '((name		. "fullwidth modifier letter half triangular colon")
+  '((name . "fullwidth modifier letter half triangular colon")
     (=>ucs		. #x02D1)	; Ë‘
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
@@ -693,13 +693,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth modifier letter extra-high tone bar")
+     ((name . "fullwidth modifier letter extra-high tone bar")
       (japanese-jisx0213-1	  . #x2B60)	; ø»¢¢§
       ))
     (ucs		. #x02E5)	; Ë¥
     ))
 (define-char
-  '((name		. "fullwidth modifier letter extra-high tone bar")
+  '((name . "fullwidth modifier letter extra-high tone bar")
     (=>ucs		. #x02E5)	; Ë¥
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
@@ -789,7 +789,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->fullwidth
-     ((name		  . "fullwidth modifier letter extra-low tone bar")
+     ((name . "fullwidth modifier letter extra-low tone bar")
       (japanese-jisx0213-1	  . #x2B64)	; ø»¢¢«
       ))
     (ucs		. #x02E9)	; Ë©

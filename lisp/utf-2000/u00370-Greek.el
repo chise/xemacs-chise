@@ -91,7 +91,7 @@
     (mirrored		. nil)
     (->decomposition	#x0391 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek capital letter alpha with tonos")
+     ((name . "fullwidth greek capital letter alpha with tonos")
       (japanese-jisx0212  . #x2661)	; �����
       ))
     (->lowercase
@@ -102,14 +102,15 @@
     (ucs		. #x0386)	; Ά
     ))
 (define-char
-  '((name		. "fullwidth greek capital letter alpha with tonos")
+  '((name . "fullwidth greek capital letter alpha with tonos")
     (=>ucs		. #x0386)	; Ά
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0386)
     (->lowercase
-     ((name . "fullwidth greek small letter alpha with tonos")))
+     ((name . "fullwidth greek small letter alpha with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER ALPHA WITH TONOS")
       (ucs		  . #x0386)	; Ά
@@ -149,7 +150,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0388)
     (->lowercase
-     ((name . "fullwidth greek small letter epsilon with tonos")))
+     ((name . "fullwidth greek small letter epsilon with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER EPSILON WITH TONOS")
       (ucs		  . #x0388)	; Έ
@@ -163,7 +165,7 @@
     (mirrored		. nil)
     (->decomposition	#x0397 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek capital letter eta with tonos")
+     ((name . "fullwidth greek capital letter eta with tonos")
       (japanese-jisx0212  . #x2663)	; �����
       ))
     (->lowercase
@@ -174,14 +176,15 @@
     (ucs		. #x0389)	; Ή
     ))
 (define-char
-  '((name		. "fullwidth greek capital letter eta with tonos")
+  '((name . "fullwidth greek capital letter eta with tonos")
     (=>ucs		. #x0389)	; Ή
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x0389)
     (->lowercase
-     ((name . "fullwidth greek small letter eta with tonos")))
+     ((name . "fullwidth greek small letter eta with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER ETA WITH TONOS")
       (ucs		  . #x0389)	; Ή
@@ -195,7 +198,7 @@
     (mirrored		. nil)
     (->decomposition	#x0399 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek capital letter iota with tonos")
+     ((name . "fullwidth greek capital letter iota with tonos")
       (japanese-jisx0212  . #x2664)	; �����
       ))
     (->lowercase
@@ -206,14 +209,15 @@
     (ucs		. #x038A)	; Ί
     ))
 (define-char
-  '((name		. "fullwidth greek capital letter iota with tonos")
+  '((name . "fullwidth greek capital letter iota with tonos")
     (=>ucs		. #x038A)	; Ί
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x038A)
     (->lowercase
-     ((name . "fullwidth greek small letter iota with tonos")))
+     ((name . "fullwidth greek small letter iota with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH TONOS")
       (ucs		  . #x038A)	; Ί
@@ -245,7 +249,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x038C)
     (->lowercase
-     ((name . "fullwidth greek small letter omicron with tonos")))
+     ((name . "fullwidth greek small letter omicron with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER OMICRON WITH TONOS")
       (ucs		  . #x038C)	; Ό
@@ -277,7 +282,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x038E)
     (->lowercase
-     ((name . "fullwidth greek small letter upsilon with tonos")))
+     ((name . "fullwidth greek small letter upsilon with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER UPSILON WITH TONOS")
       (ucs		  . #x038E)	; Ύ
@@ -291,7 +297,7 @@
     (mirrored		. nil)
     (->decomposition	#x03A9 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek capital letter omega with tonos")
+     ((name . "fullwidth greek capital letter omega with tonos")
       (japanese-jisx0212  . #x266C)	; �����
       ))
     (->lowercase
@@ -302,14 +308,15 @@
     (ucs		. #x038F)	; Ώ
     ))
 (define-char
-  '((name		. "fullwidth greek capital letter omega with tonos")
+  '((name . "fullwidth greek capital letter omega with tonos")
     (=>ucs		. #x038F)	; Ώ
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x038F)
     (->lowercase
-     ((name . "fullwidth greek small letter omega with tonos")))
+     ((name . "fullwidth greek small letter omega with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER OMEGA WITH TONOS")
       (ucs		  . #x038F)	; Ώ
@@ -370,7 +377,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0391)
     (->lowercase
-     ((name . "fullwidth greek small letter alpha")))
+     ((name		  . "fullwidth greek small letter alpha")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
       (ucs		  . #x0391)	; Α
@@ -411,7 +419,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0392)
     (->lowercase
-     ((name . "fullwidth greek small letter beta")))
+     ((name		  . "fullwidth greek small letter beta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER BETA")
       (ucs		  . #x0392)	; Β
@@ -452,7 +461,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0393)
     (->lowercase
-     ((name . "fullwidth greek small letter gamma")))
+     ((name		  . "fullwidth greek small letter gamma")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER GAMMA")
       (ucs		  . #x0393)	; Γ
@@ -493,7 +503,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0394)
     (->lowercase
-     ((name . "fullwidth greek small letter delta")))
+     ((name		  . "fullwidth greek small letter delta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER DELTA")
       (ucs		  . #x0394)	; Δ
@@ -534,7 +545,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0395)
     (->lowercase
-     ((name . "fullwidth greek small letter epsilon")))
+     ((name		  . "fullwidth greek small letter epsilon")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
       (ucs		  . #x0395)	; Ε
@@ -575,7 +587,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0396)
     (->lowercase
-     ((name . "fullwidth greek small letter zeta")))
+     ((name		  . "fullwidth greek small letter zeta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER ZETA")
       (ucs		  . #x0396)	; Ζ
@@ -616,7 +629,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0397)
     (->lowercase
-     ((name . "fullwidth greek small letter eta")))
+     ((name		  . "fullwidth greek small letter eta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER ETA")
       (ucs		  . #x0397)	; Η
@@ -657,7 +671,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0398)
     (->lowercase
-     ((name . "fullwidth greek small letter theta")))
+     ((name		  . "fullwidth greek small letter theta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER THETA")
       (ucs		  . #x0398)	; Θ
@@ -698,7 +713,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x0399)
     (->lowercase
-     ((name . "fullwidth greek small letter iota")))
+     ((name		  . "fullwidth greek small letter iota")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (ucs		  . #x0399)	; Ι
@@ -739,7 +755,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039A)
     (->lowercase
-     ((name . "fullwidth greek small letter kappa")))
+     ((name		  . "fullwidth greek small letter kappa")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
       (ucs		  . #x039A)	; Κ
@@ -780,7 +797,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039B)
     (->lowercase
-     ((name . "fullwidth greek small letter lamda")))
+     ((name		  . "fullwidth greek small letter lamda")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER LAMDA")
       (ucs		  . #x039B)	; Λ
@@ -821,7 +839,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039C)
     (->lowercase
-     ((name . "fullwidth greek small letter mu")))
+     ((name		  . "fullwidth greek small letter mu")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER MU")
       (ucs		  . #x039C)	; Μ
@@ -862,7 +881,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039D)
     (->lowercase
-     ((name . "fullwidth greek small letter nu")))
+     ((name		  . "fullwidth greek small letter nu")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER NU")
       (ucs		  . #x039D)	; Ν
@@ -903,7 +923,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039E)
     (->lowercase
-     ((name . "fullwidth greek small letter xi")))
+     ((name		  . "fullwidth greek small letter xi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER XI")
       (ucs		  . #x039E)	; Ξ
@@ -944,7 +965,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x039F)
     (->lowercase
-     ((name . "fullwidth greek small letter omicron")))
+     ((name		  . "fullwidth greek small letter omicron")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
       (ucs		  . #x039F)	; Ο
@@ -985,7 +1007,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A0)
     (->lowercase
-     ((name . "fullwidth greek small letter pi")))
+     ((name		  . "fullwidth greek small letter pi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER PI")
       (ucs		  . #x03A0)	; Π
@@ -1026,7 +1049,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A1)
     (->lowercase
-     ((name . "fullwidth greek small letter rho")))
+     ((name		  . "fullwidth greek small letter rho")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER RHO")
       (ucs		  . #x03A1)	; Ρ
@@ -1067,7 +1091,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A3)
     (->lowercase
-     ((name . "fullwidth greek small letter sigma")))
+     ((name		  . "fullwidth greek small letter sigma")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
       (ucs		  . #x03A3)	; Σ
@@ -1108,7 +1133,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A4)
     (->lowercase
-     ((name . "fullwidth greek small letter tau")))
+     ((name		  . "fullwidth greek small letter tau")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER TAU")
       (ucs		  . #x03A4)	; Τ
@@ -1149,7 +1175,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A5)
     (->lowercase
-     ((name . "fullwidth greek small letter upsilon")))
+     ((name		  . "fullwidth greek small letter upsilon")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (ucs		  . #x03A5)	; Υ
@@ -1190,7 +1217,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A6)
     (->lowercase
-     ((name . "fullwidth greek small letter phi")))
+     ((name		  . "fullwidth greek small letter phi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER PHI")
       (ucs		  . #x03A6)	; Φ
@@ -1231,7 +1259,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A7)
     (->lowercase
-     ((name . "fullwidth greek small letter chi")))
+     ((name		  . "fullwidth greek small letter chi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER CHI")
       (ucs		  . #x03A7)	; Χ
@@ -1272,7 +1301,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A8)
     (->lowercase
-     ((name . "fullwidth greek small letter psi")))
+     ((name		  . "fullwidth greek small letter psi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER PSI")
       (ucs		  . #x03A8)	; Ψ
@@ -1313,7 +1343,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03A9)
     (->lowercase
-     ((name . "fullwidth greek small letter omega")))
+     ((name		  . "fullwidth greek small letter omega")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (ucs		  . #x03A9)	; Ω
@@ -1351,7 +1382,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03AA)
     (->lowercase
-     ((name . "fullwidth greek small letter iota with dialytika")))
+     ((name . "fullwidth greek small letter iota with dialytika")
+      ))
     (<-fullwidth
      ((name		  . "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
       (ucs		  . #x03AA)	; Ϊ
@@ -1383,9 +1415,10 @@
     (mirrored		. nil)
     (->decomposition	wide #x03AB)
     (->lowercase
-     ((name . "fullwidth greek small letter upsilon with dialytika")))
+     ((name . "fullwidth greek small letter upsilon with dialytika")
+      ))
     (<-fullwidth
-     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
+     ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (ucs		  . #x03AB)	; Ϋ
       ))
     (japanese-jisx0212	. #x266A)	; �����
@@ -1397,7 +1430,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B1 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter alpha with tonos")
+     ((name . "fullwidth greek small letter alpha with tonos")
       (japanese-jisx0212  . #x2671)	; �����
       ))
     (->uppercase
@@ -1408,14 +1441,15 @@
     (ucs		. #x03AC)	; ά
     ))
 (define-char
-  '((name		. "fullwidth greek small letter alpha with tonos")
+  '((name . "fullwidth greek small letter alpha with tonos")
     (=>ucs		. #x03AC)	; ά
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x03AC)
     (->uppercase
-     ((name . "fullwidth greek capital letter alpha with tonos")))
+     ((name . "fullwidth greek capital letter alpha with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ALPHA WITH TONOS")
       (ucs		  . #x03AC)	; ά
@@ -1429,7 +1463,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B5 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter epsilon with tonos")
+     ((name . "fullwidth greek small letter epsilon with tonos")
       (japanese-jisx0212  . #x2672)	; �����
       ))
     (->uppercase
@@ -1440,14 +1474,15 @@
     (ucs		. #x03AD)	; έ
     ))
 (define-char
-  '((name		. "fullwidth greek small letter epsilon with tonos")
+  '((name . "fullwidth greek small letter epsilon with tonos")
     (=>ucs		. #x03AD)	; έ
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x03AD)
     (->uppercase
-     ((name . "fullwidth greek capital letter epsilon with tonos")))
+     ((name . "fullwidth greek capital letter epsilon with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER EPSILON WITH TONOS")
       (ucs		  . #x03AD)	; έ
@@ -1461,7 +1496,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B7 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter eta with tonos")
+     ((name . "fullwidth greek small letter eta with tonos")
       (japanese-jisx0212  . #x2673)	; �����
       ))
     (->uppercase
@@ -1479,7 +1514,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03AE)
     (->uppercase
-     ((name . "fullwidth greek capital letter eta with tonos")))
+     ((name . "fullwidth greek capital letter eta with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ETA WITH TONOS")
       (ucs		  . #x03AE)	; ή
@@ -1493,7 +1529,7 @@
     (mirrored		. nil)
     (->decomposition	#x03B9 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter iota with tonos")
+     ((name . "fullwidth greek small letter iota with tonos")
       (japanese-jisx0212  . #x2674)	; �����
       ))
     (->uppercase
@@ -1511,7 +1547,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03AF)
     (->uppercase
-     ((name . "fullwidth greek capital letter iota with tonos")))
+     ((name . "fullwidth greek capital letter iota with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER IOTA WITH TONOS")
       (ucs		  . #x03AF)	; ί
@@ -1572,7 +1609,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B1)
     (->uppercase
-     ((name . "fullwidth greek capital letter alpha")))
+     ((name		  . "fullwidth greek capital letter alpha")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ALPHA")
       (ucs		  . #x03B1)	; α
@@ -1613,7 +1651,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B2)
     (->uppercase
-     ((name . "fullwidth greek capital letter beta")))
+     ((name		  . "fullwidth greek capital letter beta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER BETA")
       (ucs		  . #x03B2)	; β
@@ -1654,7 +1693,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B3)
     (->uppercase
-     ((name . "fullwidth greek capital letter gamma")))
+     ((name		  . "fullwidth greek capital letter gamma")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER GAMMA")
       (ucs		  . #x03B3)	; γ
@@ -1695,7 +1735,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B4)
     (->uppercase
-     ((name . "fullwidth greek capital letter delta")))
+     ((name		  . "fullwidth greek capital letter delta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER DELTA")
       (ucs		  . #x03B4)	; δ
@@ -1736,7 +1777,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B5)
     (->uppercase
-     ((name . "fullwidth greek capital letter epsilon")))
+     ((name		  . "fullwidth greek capital letter epsilon")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER EPSILON")
       (ucs		  . #x03B5)	; ε
@@ -1777,7 +1819,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B6)
     (->uppercase
-     ((name . "fullwidth greek capital letter zeta")))
+     ((name		  . "fullwidth greek capital letter zeta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ZETA")
       (ucs		  . #x03B6)	; ζ
@@ -1818,7 +1861,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B7)
     (->uppercase
-     ((name . "fullwidth greek capital letter eta")))
+     ((name		  . "fullwidth greek capital letter eta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER ETA")
       (ucs		  . #x03B7)	; η
@@ -1860,7 +1904,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B8)
     (->uppercase
-     ((name . "fullwidth greek capital letter theta")))
+     ((name		  . "fullwidth greek capital letter theta")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER THETA")
       (ucs		  . #x03B8)	; θ
@@ -1901,7 +1946,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03B9)
     (->uppercase
-     ((name . "fullwidth greek capital letter iota")))
+     ((name		  . "fullwidth greek capital letter iota")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER IOTA")
       (ucs		  . #x03B9)	; ι
@@ -1985,7 +2031,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03BB)
     (->uppercase
-     ((name . "fullwidth greek capital letter lamda")))
+     ((name		  . "fullwidth greek capital letter lamda")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER LAMDA")
       (ucs		  . #x03BB)	; λ
@@ -2026,7 +2073,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03BC)
     (->uppercase
-     ((name . "fullwidth greek capital letter mu")))
+     ((name		  . "fullwidth greek capital letter mu")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER MU")
       (ucs		  . #x03BC)	; μ
@@ -2067,7 +2115,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03BD)
     (->uppercase
-     ((name . "fullwidth greek capital letter nu")))
+     ((name		  . "fullwidth greek capital letter nu")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER NU")
       (ucs		  . #x03BD)	; ν
@@ -2108,7 +2157,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03BE)
     (->uppercase
-     ((name . "fullwidth greek capital letter xi")))
+     ((name		  . "fullwidth greek capital letter xi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER XI")
       (ucs		  . #x03BE)	; ξ
@@ -2149,7 +2199,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03BF)
     (->uppercase
-     ((name . "fullwidth greek capital letter omicron")))
+     ((name		  . "fullwidth greek capital letter omicron")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMICRON")
       (ucs		  . #x03BF)	; ο
@@ -2190,7 +2241,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C0)
     (->uppercase
-     ((name . "fullwidth greek capital letter pi")))
+     ((name		  . "fullwidth greek capital letter pi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER PI")
       (ucs		  . #x03C0)	; π
@@ -2231,7 +2283,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C1)
     (->uppercase
-     ((name . "fullwidth greek capital letter rho")))
+     ((name		  . "fullwidth greek capital letter rho")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER RHO")
       (ucs		  . #x03C1)	; ρ
@@ -2269,7 +2322,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C2)
     (->uppercase
-     ((name . "fullwidth greek capital letter final sigma")))
+     ((name		  . "fullwidth greek capital letter final sigma")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (ucs		  . #x03C2)	; ς
@@ -2305,7 +2359,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C3)
     (->uppercase
-     ((name . "fullwidth greek capital letter sigma")))
+     ((name		  . "fullwidth greek capital letter sigma")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER SIGMA")
       (ucs		  . #x03C3)	; σ
@@ -2346,7 +2401,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C4)
     (->uppercase
-     ((name . "fullwidth greek capital letter tau")))
+     ((name		  . "fullwidth greek capital letter tau")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER TAU")
       (ucs		  . #x03C4)	; τ
@@ -2387,7 +2443,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C5)
     (->uppercase
-     ((name . "fullwidth greek capital letter upsilon")))
+     ((name		  . "fullwidth greek capital letter upsilon")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER UPSILON")
       (ucs		  . #x03C5)	; υ
@@ -2428,7 +2485,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C6)
     (->uppercase
-     ((name . "fullwidth greek capital letter phi")))
+     ((name		  . "fullwidth greek capital letter phi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER PHI")
       (ucs		  . #x03C6)	; φ
@@ -2469,7 +2527,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C7)
     (->uppercase
-     ((name . "fullwidth greek capital letter chi")))
+     ((name		  . "fullwidth greek capital letter chi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER CHI")
       (ucs		  . #x03C7)	; χ
@@ -2510,7 +2569,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C8)
     (->uppercase
-     ((name . "fullwidth greek capital letter psi")))
+     ((name		  . "fullwidth greek capital letter psi")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER PSI")
       (ucs		  . #x03C8)	; ψ
@@ -2551,7 +2611,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03C9)
     (->uppercase
-     ((name . "fullwidth greek capital letter omega")))
+     ((name		  . "fullwidth greek capital letter omega")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMEGA")
       (ucs		  . #x03C9)	; ω
@@ -2589,7 +2650,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03CA)
     (->uppercase
-     ((name . "fullwidth greek capital letter iota with dialytika")))
+     ((name . "fullwidth greek capital letter iota with dialytika")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER IOTA WITH DIALYTIKA")
       (ucs		  . #x03CA)	; ϊ
@@ -2607,7 +2669,7 @@
       (japanese-jisx0212  . #x267A)	; �����
       ))
     (->uppercase
-     ((name		  . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
+     ((name . "GREEK CAPITAL LETTER UPSILON WITH DIALYTIKA")
       (ucs		  . #x03AB)	; Ϋ
       ))
     (greek-iso8859-7	. #xFB)	; �����
@@ -2621,7 +2683,8 @@
     (mirrored		. nil)
     (->decomposition	wide #x03CB)
     (->uppercase
-     ((name . "fullwidth greek capital letter upsilon with dialytika")))
+     ((name . "fullwidth greek capital letter upsilon with dialytika")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER UPSILON WITH DIALYTIKA")
       (ucs		  . #x03CB)	; ϋ
@@ -2635,7 +2698,7 @@
     (mirrored		. nil)
     (->decomposition	#x03BF #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter omicron with tonos")
+     ((name . "fullwidth greek small letter omicron with tonos")
       (japanese-jisx0212  . #x2677)	; �����
       ))
     (->uppercase
@@ -2646,14 +2709,15 @@
     (ucs		. #x03CC)	; ό
     ))
 (define-char
-  '((name		. "fullwidth greek small letter omicron with tonos")
+  '((name . "fullwidth greek small letter omicron with tonos")
     (=>ucs		. #x03CC)	; ό
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x03CC)
     (->uppercase
-     ((name . "fullwidth greek capital letter omicron with tonos")))
+     ((name . "fullwidth greek capital letter omicron with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMICRON WITH TONOS")
       (ucs		  . #x03CC)	; ό
@@ -2667,7 +2731,7 @@
     (mirrored		. nil)
     (->decomposition	#x03C5 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter upsilon with tonos")
+     ((name . "fullwidth greek small letter upsilon with tonos")
       (japanese-jisx0212  . #x2679)	; �����
       ))
     (->uppercase
@@ -2678,14 +2742,15 @@
     (ucs		. #x03CD)	; ύ
     ))
 (define-char
-  '((name		. "fullwidth greek small letter upsilon with tonos")
+  '((name . "fullwidth greek small letter upsilon with tonos")
     (=>ucs		. #x03CD)	; ύ
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x03CD)
     (->uppercase
-     ((name . "fullwidth greek capital letter upsilon with tonos")))
+     ((name . "fullwidth greek capital letter upsilon with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER UPSILON WITH TONOS")
       (ucs		  . #x03CD)	; ύ
@@ -2699,7 +2764,7 @@
     (mirrored		. nil)
     (->decomposition	#x03C9 #x0301)
     (->fullwidth
-     ((name		  . "fullwidth greek small letter omega with tonos")
+     ((name . "fullwidth greek small letter omega with tonos")
       (japanese-jisx0212  . #x267C)	; �����
       ))
     (->uppercase
@@ -2710,14 +2775,15 @@
     (ucs		. #x03CE)	; ώ
     ))
 (define-char
-  '((name		. "fullwidth greek small letter omega with tonos")
+  '((name . "fullwidth greek small letter omega with tonos")
     (=>ucs		. #x03CE)	; ώ
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	wide #x03CE)
     (->uppercase
-     ((name . "fullwidth greek capital letter omega with tonos")))
+     ((name . "fullwidth greek capital letter omega with tonos")
+      ))
     (<-fullwidth
      ((name		  . "GREEK SMALL LETTER OMEGA WITH TONOS")
       (ucs		  . #x03CE)	; ώ
