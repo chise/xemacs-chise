@@ -532,6 +532,8 @@
     (japanese-jisx0212		. #x4D35)	; ø»‹¥Œ
     (chinese-cns11643-3		. #x2E26)	; ø»•©¯
     (japanese-jisx0213-2	. #x713B)	; ø»¦’º
+    (chinese-big5		. #x8BF0)	; ç•
+    (chinese-big5-cdp		. #x8BF0)	; ç•
     (ideograph-daikanwa		. 21787)	; ø¸…”›
     (ucs			. #x7550)	; ç•
     ))
