@@ -247,8 +247,8 @@
 (Assert (not (string-match "\\> " " ")))
 (Assert (not (string-match "a\\<" "a")))
 (Assert (not (string-match "\\>a" "a")))
-;; Expect these to fail :-(
-;; Added Known-Bug 2002-09-09
+;; Added Known-Bug 2002-09-09 sjt
+;; These are now fixed 2003-03-21 sjt
 (Assert (not (string-match "\\b" "")))
 (Assert (not (string-match " \\b" " ")))
 (Assert (not (string-match "\\b " " ")))
@@ -274,16 +274,31 @@
       (Assert (not (string-match "@?A" (string ?@ ch1))))))
 
 ;; More stale match data tests.
-;; Thanks to <bjacob@ca.metsci.com>.
-(Assert (not (progn (string-match "a" "a")
-		    (string-match "b" "a")
-		    (match-string 0 "a"))))
-(Assert (not (progn (string-match "a" "a")
-		    (string-match "b" "a")
-		    (match-string 1 "a"))))
-(Assert (not (progn (string-match "\\(a\\)" "a")
-		    (string-match "\\(b\\)" "a")
-		    (match-string 0 "a"))))
-(Assert (not (progn (string-match "\\(a\\)" "a")
-		    (string-match "\\(b\\)" "a")
-		    (match-string 1 "a"))))
+;; Thanks to <bjacob@ca.metsci.com> for drawing attention to this issue.
+;; Flying in the face of sanity, the Asserts with positive results below are
+;; correct.  Too much code depends on failed matches preserving match-data.
+(let ((a "a"))
+  (Assert (string= (progn (string-match "a" a)
+			  (string-match "b" a)
+			  (match-string 0 a))
+		   a))
+  (Assert (not (progn (string-match "a" a)
+		      (string-match "b" a)
+		      (match-string 1 a))))
+  ;; test both for the second match is a plain string match and a regexp match
+  (Assert (string= (progn (string-match "\\(a\\)" a)
+			  (string-match "\\(b\\)" a)
+			  (match-string 0 a))
+		   a))
+  (Assert (string= (progn (string-match "\\(a\\)" a)
+			  (string-match "b" a)
+			  (match-string 0 a))
+		   a))
+  (Assert (string= (progn (string-match "\\(a\\)" a)
+			  (string-match "\\(b\\)" a)
+			  (match-string 1 a))
+		   a))
+  (Assert (string= (progn (string-match "\\(a\\)" a)
+			  (string-match "b" a)
+			  (match-string 1 a))
+		   a)))
