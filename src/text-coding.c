@@ -3218,12 +3218,20 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
       Lisp_Object ret;
       Lisp_Object pat;
       Lisp_Object ccs;
+      Lisp_Object char_type;
       int base;
 
       while (!NILP (rest))
 	{		      
 	  cell = Fcar (rest);
 	  ccs = Fcar (cell);
+	  if (CONSP (ccs))
+	    {
+	      char_type = XCDR (ccs);
+	      ccs = XCAR (ccs);
+	    }
+	  else
+	    char_type = Qnil;
 	  if (NILP (ccs = Ffind_charset (ccs)))
 	    continue;
 
@@ -3266,8 +3274,12 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 				     Fmatch_beginning (make_int (1)),
 				     Fmatch_end (make_int (1))),
 			 make_int (base)));
+	      Emchar chr
+		= NILP (char_type)
+		? DECODE_CHAR (ccs, code)
+		: decode_builtin_char (ccs, code);
 
-	      DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code), dst);
+	      DECODE_ADD_UCS_CHAR (chr, dst);
 	      goto decoded;
 	    }
 	  rest = Fcdr (rest);
@@ -3309,6 +3321,7 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
   Lisp_Object rest = Vcoded_charset_entity_reference_alist;
   Lisp_Object cell;
   Lisp_Object ccs;
+  Lisp_Object char_type;
   int format_columns, idx;
   char format[18];
 
@@ -3316,11 +3329,20 @@ char_encode_as_entity_reference (Emchar ch, char* buf)
     {
       cell = Fcar (rest);
       ccs = Fcar (cell);
+      if (CONSP (ccs))
+	{
+	  char_type = XCDR (ccs);
+	  ccs = XCAR (ccs);
+	}
+      else
+	char_type = Qnil;
       if (!NILP (ccs = Ffind_charset (ccs)))
 	{
 	  int code_point = charset_code_point (ccs, ch);
 
-	  if ( code_point >= 0 )
+	  if ( (code_point >= 0)
+	       && (NILP (char_type)
+		   || DECODE_CHAR (ccs, code_point) != ch) )
 	    {
 	      Lisp_Object ret;
 
