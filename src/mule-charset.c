@@ -53,6 +53,7 @@ Lisp_Object Vcharset_latin_iso8859_9;
 Lisp_Object Vcharset_japanese_jisx0208_1978;
 Lisp_Object Vcharset_chinese_gb2312;
 Lisp_Object Vcharset_japanese_jisx0208;
+Lisp_Object Vcharset_japanese_jisx0208_1990;
 Lisp_Object Vcharset_korean_ksc5601;
 Lisp_Object Vcharset_japanese_jisx0212;
 Lisp_Object Vcharset_chinese_cns11643_1;
@@ -697,6 +698,14 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
+      if (!NILP (code = Fcdr (Fassq (Q_ucs, attributes))))
+	{
+	  if (!INTP (code))
+	    signal_simple_error ("Invalid argument", attributes);
+	  else
+	    character = make_char (XINT (code) + 0x100000);
+	  goto setup_attributes;
+	}
       return Qnil;
     }
   else if (!INTP (code))
@@ -752,6 +761,7 @@ Lisp_Object Qascii,
   Qjapanese_jisx0208_1978,
   Qchinese_gb2312,
   Qjapanese_jisx0208,
+  Qjapanese_jisx0208_1990,
   Qkorean_ksc5601,
   Qjapanese_jisx0212,
   Qchinese_cns11643_1,
@@ -2473,6 +2483,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qjapanese_jisx0208_1978,	"japanese-jisx0208-1978");
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
   defsymbol (&Qjapanese_jisx0208, 	"japanese-jisx0208");
+  defsymbol (&Qjapanese_jisx0208_1990, 	"japanese-jisx0208-1990");
   defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
   defsymbol (&Qjapanese_jisx0212,	"japanese-jisx0212");
   defsymbol (&Qchinese_cns11643_1,	"chinese-cns11643-1");
@@ -2757,6 +2768,18 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208:1983 Japanese Kanji"),
 		  build_string ("jisx0208\\.1983"),
 		  Qnil, 0, 0, 0, 33);
+  Vcharset_japanese_jisx0208_1990 =
+    make_charset (LEADING_BYTE_JAPANESE_JISX0208_1990,
+		  Qjapanese_jisx0208_1990,
+		  CHARSET_TYPE_94X94, 2, 0, 0,
+		  CHARSET_LEFT_TO_RIGHT,
+		  build_string ("JISX0208-1990"),
+		  build_string ("JIS X0208:1990 (Japanese)"),
+		  build_string ("JIS X0208:1990 Japanese Kanji"),
+		  build_string ("jisx0208\\.1990"),
+		  Qnil,
+		  MIN_CHAR_JIS_X0208_1990,
+		  MAX_CHAR_JIS_X0208_1990, 0, 33);
   Vcharset_korean_ksc5601 =
     make_charset (LEADING_BYTE_KOREAN_KSC5601, Qkorean_ksc5601,
 		  CHARSET_TYPE_94X94, 2, 0, 'C',
