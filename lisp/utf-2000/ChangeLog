@@ -1,4 +1,25 @@
+2003-06-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (U+53CA): Use
+	`ideographic-{radical|strokes}@{ucs|gt}', `total-strokes@{ucs|gt}'
+	and `ideographic-radical@ucs*sources' instead of `ideographic-'.
+
 2003-06-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R039-Child.el (M-06947): New character.
+	(U-00021946): Relate to M-06947.
+	(C6-2676): Likewise.
+	(U-00024605): Unify M-19911; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@ucs and
+	`ideographic-radical@ucs*sources'.
+	(U-0002194F): Use `ideographic-strokes@daikanwa' and
+	`total-strokes@daikanwa' instead of `ideographic-strokes' and
+	`total-strokes'; use `total-strokes@cns' instead of
+	`cns-total-strokes'; add `ideographic-strokes@cns'.
+	(M-07011): Unify C3-4072; map to U+5B76 instead of 5B73.
+	(U+5B76): Separate C3-4072; relate to M-07011.
 
 	* Ideograph-R092-Fang.el (M-19911): Unify C5-2368 and U-00024605;
 	use `ideographic-{radical|strokes}@ucs' instead of
