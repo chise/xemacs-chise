@@ -412,7 +412,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
     (=jis-x0213-1-2000	. #x2D6A)	; ø»¢¥­
-    (chinese-big5-eten	. #xC8D1)	; ý¢€Œ£‘
+    (=big5-eten		. #xC8D1)	; ý¢€Œ£‘
     (=jef-china3	. #x78D5)	; øº‡£•
     (ucs		. #x3231)	; ãˆ±
     ))

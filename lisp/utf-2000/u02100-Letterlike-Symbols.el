@@ -194,7 +194,7 @@
     (korean-ksc5601	. #x2260)	; ø»ˆœ©
     (japanese-jisx0212	. #x2271)	; ø»Š¦¾
     (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
-    (chinese-big5-eten	. #xC8D2)	; ý¢€Œ£’
+    (=big5-eten		. #xC8D2)	; ý¢€Œ£’
     (ucs		. #x2116)	; â„–
     ))
 (define-char
@@ -290,7 +290,7 @@
     (->decomposition	compat #x0054 #x0045 #x004C)
     (korean-ksc5601	. #x2265)	; ø»ˆœ®
     (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
-    (chinese-big5-eten	. #xC8D3)	; ý¢€Œ£“
+    (=big5-eten		. #xC8D3)	; ý¢€Œ£“
     (ucs		. #x2121)	; â„¡
     ))
 (define-char

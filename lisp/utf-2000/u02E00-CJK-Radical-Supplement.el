@@ -99,7 +99,7 @@
     (<-radical
      ((ucs		  . #x5202)	; åˆ‚
       ))
-    (chinese-big5-eten	. #xC87D)	; ý¢€Œ¡½
+    (=big5-eten		. #xC87D)	; ý¢€Œ¡½
     (ucs-big5		. #x5202)	; âº‰
     (ucs		. #x2E89)	; âº‰
     ))

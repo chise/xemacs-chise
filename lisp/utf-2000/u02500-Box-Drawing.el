@@ -802,14 +802,14 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F9)	; ý¢€§¹
+    (=big5-eten		. #xF9F9)	; ý¢€§¹
     ))
 (define-char
   '((name		. "BOX DRAWINGS DOUBLE VERTICAL")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F8)	; ý¢€§¸
+    (=big5-eten		. #xF9F8)	; ý¢€§¸
     (ucs		. #x2551)	; â•‘
     ))
 (define-char
@@ -817,7 +817,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E6)	; ý¢€§¦
+    (=big5-eten		. #xF9E6)	; ý¢€§¦
     (ucs		. #x2552)	; â•’
     ))
 (define-char
@@ -825,7 +825,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9EF)	; ý¢€§¯
+    (=big5-eten		. #xF9EF)	; ý¢€§¯
     (ucs		. #x2553)	; â•“
     ))
 (define-char
@@ -833,7 +833,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9DD)	; ý¢€§
+    (=big5-eten		. #xF9DD)	; ý¢€§
     (ucs		. #x2554)	; â•”
     ))
 (define-char
@@ -841,7 +841,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E8)	; ý¢€§¨
+    (=big5-eten		. #xF9E8)	; ý¢€§¨
     (ucs		. #x2555)	; â••
     ))
 (define-char
@@ -849,7 +849,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F1)	; ý¢€§±
+    (=big5-eten		. #xF9F1)	; ý¢€§±
     (ucs		. #x2556)	; â•–
     ))
 (define-char
@@ -857,7 +857,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9DF)	; ý¢€§Ÿ
+    (=big5-eten		. #xF9DF)	; ý¢€§Ÿ
     (ucs		. #x2557)	; â•—
     ))
 (define-char
@@ -865,7 +865,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9EC)	; ý¢€§¬
+    (=big5-eten		. #xF9EC)	; ý¢€§¬
     (ucs		. #x2558)	; â•˜
     ))
 (define-char
@@ -873,7 +873,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F5)	; ý¢€§µ
+    (=big5-eten		. #xF9F5)	; ý¢€§µ
     (ucs		. #x2559)	; â•™
     ))
 (define-char
@@ -881,7 +881,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E3)	; ý¢€§£
+    (=big5-eten		. #xF9E3)	; ý¢€§£
     (ucs		. #x255A)	; â•š
     ))
 (define-char
@@ -889,7 +889,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9EE)	; ý¢€§®
+    (=big5-eten		. #xF9EE)	; ý¢€§®
     (ucs		. #x255B)	; â•›
     ))
 (define-char
@@ -897,7 +897,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F7)	; ý¢€§·
+    (=big5-eten		. #xF9F7)	; ý¢€§·
     (ucs		. #x255C)	; â•œ
     ))
 (define-char
@@ -905,7 +905,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E5)	; ý¢€§¥
+    (=big5-eten		. #xF9E5)	; ý¢€§¥
     (ucs		. #x255D)	; â•
     ))
 (define-char
@@ -922,7 +922,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F2)	; ý¢€§²
+    (=big5-eten		. #xF9F2)	; ý¢€§²
     (ucs		. #x255F)	; â•Ÿ
     ))
 (define-char
@@ -930,7 +930,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E0)	; ý¢€§ 
+    (=big5-eten		. #xF9E0)	; ý¢€§ 
     (ucs		. #x2560)	; â• 
     ))
 (define-char
@@ -947,7 +947,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F4)	; ý¢€§´
+    (=big5-eten		. #xF9F4)	; ý¢€§´
     (ucs		. #x2562)	; â•¢
     ))
 (define-char
@@ -955,7 +955,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E2)	; ý¢€§¢
+    (=big5-eten		. #xF9E2)	; ý¢€§¢
     (ucs		. #x2563)	; â•£
     ))
 (define-char
@@ -963,7 +963,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E7)	; ý¢€§§
+    (=big5-eten		. #xF9E7)	; ý¢€§§
     (ucs		. #x2564)	; â•¤
     ))
 (define-char
@@ -971,7 +971,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F0)	; ý¢€§°
+    (=big5-eten		. #xF9F0)	; ý¢€§°
     (ucs		. #x2565)	; â•¥
     ))
 (define-char
@@ -979,7 +979,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9DE)	; ý¢€§ž
+    (=big5-eten		. #xF9DE)	; ý¢€§ž
     (ucs		. #x2566)	; â•¦
     ))
 (define-char
@@ -987,7 +987,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9ED)	; ý¢€§­
+    (=big5-eten		. #xF9ED)	; ý¢€§­
     (ucs		. #x2567)	; â•§
     ))
 (define-char
@@ -995,7 +995,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F6)	; ý¢€§¶
+    (=big5-eten		. #xF9F6)	; ý¢€§¶
     (ucs		. #x2568)	; â•¨
     ))
 (define-char
@@ -1003,7 +1003,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E4)	; ý¢€§¤
+    (=big5-eten		. #xF9E4)	; ý¢€§¤
     (ucs		. #x2569)	; â•©
     ))
 (define-char
@@ -1020,7 +1020,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9F3)	; ý¢€§³
+    (=big5-eten		. #xF9F3)	; ý¢€§³
     (ucs		. #x256B)	; â•«
     ))
 (define-char
@@ -1028,7 +1028,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9E1)	; ý¢€§¡
+    (=big5-eten		. #xF9E1)	; ý¢€§¡
     (ucs		. #x256C)	; â•¬
     ))
 (define-char
@@ -1046,7 +1046,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9FA)	; ý¢€§º
+    (=big5-eten		. #xF9FA)	; ý¢€§º
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC DOWN AND LEFT")
@@ -1063,7 +1063,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9FB)	; ý¢€§»
+    (=big5-eten		. #xF9FB)	; ý¢€§»
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND LEFT")
@@ -1080,7 +1080,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9FD)	; ý¢€§½
+    (=big5-eten		. #xF9FD)	; ý¢€§½
     ))
 (define-char
   '((name		. "BOX DRAWINGS LIGHT ARC UP AND RIGHT")
@@ -1097,7 +1097,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-eten	. #xF9FC)	; ý¢€§¼
+    (=big5-eten		. #xF9FC)	; ý¢€§¼
     ))
 (define-char
   '((name . "BOX DRAWINGS LIGHT DIAGONAL UPPER RIGHT TO LOWER LEFT")

@@ -1,3 +1,18 @@
+2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u03200-Enclosed-CJK-Letters-and-Months.el,
+	u0FF00-Halfwidth-and-Fullwidth-Forms.el, u03040-Hiragana.el,
+	u030A0-Katakana.el, u02F00-Kangxi-Radicals.el,
+	u03000-CJK-Symbols-and-Punctuation.el,
+	u02100-Letterlike-Symbols.el, u02150-Number-Forms.el,
+	u02190-Arrows.el, u02460-Enclosed-Alphanumerics.el,
+	u02500-Box-Drawing.el, u02580-Block-Elements.el,
+	u02700-Dingbats.el, u02E00-CJK-Radical-Supplement.el,
+	u002B0-Spacing-Modifier-Letters.el, u00400-Cyrillic.el,
+	Ideograph-R013-Down-Box.el, Ideograph-R122-Net.el,
+	u000A0-Latin-1-Supplement.el: Rename `chinese-big5-eten' to
+	`=big5-eten'.
+
 2003-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* ad-hoc-cdp.el: Rename `chinese-big5-pua' to `=big5-pua'.
