@@ -71,7 +71,7 @@ customized through the options menu."
   "If non-nil help is echoed for toolbar buttons.")
 
 (defvar toolbar-icon-directory nil
-  "Location of standard toolbar icon bitmaps.")
+  "Location of standard toolbar icon bitmaps, with trailing path separator.")
 
 (defun toolbar-make-button-list (up &optional down disabled cap-up cap-down cap-disabled)
   "Call make-glyph on each arg and return a list of the results."

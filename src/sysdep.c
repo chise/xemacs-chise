@@ -3158,9 +3158,11 @@ sys_rename (const char *old, const char *new)
   /* Windows rename fails if NEW exists */
   if (rename (old, new) == 0)
     return 0;
-  if (errno != EEXIST)
+  /* In some cases errno is EACCES if NEW exists */
+  if (errno != EEXIST && errno != EACCES)
     return -1;
-  unlink (new);
+  if (unlink (new) != 0)
+    return -1;
 #endif /* WIN32_NATIVE */
   return rename (old, new);
 }

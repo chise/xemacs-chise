@@ -1,6 +1,43 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-08-16  Jonathan Harris  <jonathan@xemacs.org>
+
+	* config.inc.samp (USE_PORTABLE_DUMPER): Default to on.
+	* config.inc.samp (USE_MINIMAL_TAGBITS): Removed.
+	* config.inc.samp (USE_INDEXED_LRECORD_IMPLEMENTATION): Removed.
+	* config.inc.samp (GUNG_HO): Removed.
+	* xemacs.mak (USE_MINIMAL_TAGBITS): Removed.
+	* xemacs.mak (USE_INDEXED_LRECORD_IMPLEMENTATION): Removed.
+	* xemacs.mak (GUNG_HO): Removed.
+	* xemacs.mak (TAGBITS_DEFINES): Removed.
+	* xemacs.mak (LRECORD_DEFINES): Removed.
+	* xpm.mak: Default to using MSVCRT as the C runtime
+
+	Remove all vestiges of USE_MINIMAL_TAGBITS,
+	USE_INDEXED_LRECORD_IMPLEMENTATION, and GUNG_HO, since those
+	ifdefs have long been removed.
+
+	Make pdump the default.
+
+2002-07-05  Jonathan Harris  <jonathan@xemacs.org>
+
+	* README: Document Visual Studio .NET setup
+
+2002-05-06  Jonathan Harris  <jonathan@xemacs.org>
+
+	* README:
+	* config.inc.samp:
+	Update PNG version to 1.0.9, zlib version to 1.1.14.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.
+
+2002-03-26  Vin Shelton  <acs@xemacs.org>
+
+	* xemacs.mak: Added special rule to build winclient.exe.
 
 2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 

@@ -2276,6 +2276,16 @@ mswindows_map_subwindow (Lisp_Image_Instance *p, int x, int y,
 		    0, 0, 0, 0,
 		    SWP_NOZORDER | SWP_NOSIZE | SWP_NOMOVE
 		    | SWP_SHOWWINDOW | SWP_NOCOPYBITS | SWP_NOACTIVATE);
+
+      /* Doing this once does not seem to be enough, for instance when
+	 mapping the search dialog this gets called four times. If we
+	 only set on the first time through then the subwindow never
+	 gets focus as intended. However, doing this everytime doesn't
+	 seem so bad, after all we only need to redo this after the
+	 focus changes - and if that happens resetting the initial
+	 focus doesn't seem so bad. */
+      if (IMAGE_INSTANCE_WANTS_INITIAL_FOCUS (p))
+	SetFocus (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p));
 #endif
     }
 }
@@ -2588,11 +2598,6 @@ mswindows_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
     SendMessage (wnd, WM_SETFONT,
 		 (WPARAM) mswindows_widget_hfont (ii, domain),
 		 MAKELPARAM (TRUE, 0));
-#if 0
-  /* #### doesn't work.  need to investigate more closely. */
-  if (IMAGE_INSTANCE_WANTS_INITIAL_FOCUS (ii))
-    SetFocus (wnd);
-#endif
 }
 
 /* Instantiate a native layout widget. */

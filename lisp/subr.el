@@ -301,16 +301,24 @@ See also `add-hook', `add-local-hook', and `add-local-one-shot-hook'."
   (make-local-hook hook)
   (add-one-shot-hook hook function append t))
 
-(defun add-to-list (list-var element)
+(defun add-to-list (list-var element &optional append)
   "Add to the value of LIST-VAR the element ELEMENT if it isn't there yet.
 The test for presence of ELEMENT is done with `equal'.
+If ELEMENT is added, it is added at the beginning of the list,
+unless the optional argument APPEND is non-nil, in which case
+ELEMENT is added at the end.
+
 If you want to use `add-to-list' on a variable that is not defined
 until a certain package is loaded, you should put the call to `add-to-list'
 into a hook function that will be run only after loading the package.
 `eval-after-load' provides one way to do this.  In some cases
 other hooks, such as major mode hooks, can do the job."
-  (or (member element (symbol-value list-var))
-      (set list-var (cons element (symbol-value list-var)))))
+  (if (member element (symbol-value list-var))
+      (symbol-value list-var)
+    (set list-var
+         (if append
+             (append (symbol-value list-var) (list element))
+           (cons element (symbol-value list-var))))))
 
 ;; XEmacs additions
 ;; called by Fkill_buffer()
@@ -380,12 +388,14 @@ Otherwise treat `\\' in NEWTEXT as special:
   (check-argument-type 'stringp str)
   (check-argument-type 'stringp newtext)
   (if (> (length str) 50)
-      (with-temp-buffer
-	(insert str)
-	(goto-char 1)
+      (let ((cfs case-fold-search))
+	(with-temp-buffer
+          (setq case-fold-search cfs)
+	  (insert str)
+	  (goto-char 1)
 	  (while (re-search-forward regexp nil t)
 	    (replace-match newtext t literal))
-	  (buffer-string))
+	  (buffer-string)))
   (let ((start 0) newstr)
     (while (string-match regexp str start)
       (setq newstr (replace-match newtext t literal str)

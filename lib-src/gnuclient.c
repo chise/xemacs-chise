@@ -329,11 +329,11 @@ main (int argc, char *argv[])
   char *remotearg;
   char thishost[HOSTNAMSZ];	/* this hostname */
   char remotepath[MAXPATHLEN+1]; /* remote pathname */
-  char *path;
   int rflg = 0;			/* pathname given on cmdline */
   char *portarg;
   unsigned short port = 0;	/* port to server */
 #endif /* INTERNET_DOMAIN_SOCKETS */
+  char *path;                   /* used indiscriminately */
 #ifdef SYSV_IPC
   struct msgbuf *msgp;		/* message */
 #endif /* SYSV_IPC */
@@ -470,13 +470,14 @@ main (int argc, char *argv[])
 	       progname);
       exit (1);
     }
+#if defined(INTERNET_DOMAIN_SOCKETS)
   if (suppress_windows_system && hostarg)
     {
       fprintf (stderr, "%s: Remote editing is available only on X\n",
 	       progname);
       exit (1);
     }
-
+#endif
   *result = '\0';
   if (eval_function || eval_form || load_library)
     {
@@ -568,7 +569,7 @@ main (int argc, char *argv[])
 	    }
       /* Don't do disconnect_from_server because we have already read
 	 data, and disconnect doesn't do anything else. */
-#ifndef INTERNET_DOMAIN_SOCKETS
+#ifdef SYSV_IPC
 	  if (connect_type == (int) CONN_IPC)
 	    disconnect_from_ipc_server (s, msgp, FALSE);
 #endif /* !SYSV_IPC */

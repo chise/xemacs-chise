@@ -231,7 +231,8 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
   if (vis->class == PseudoColor)
     {
       unsigned long pixarray[256];
-      int pixcount, n;
+      int pixcount;
+      unsigned int n;
       /* use our quantize table to allocate the colors */
       pixcount = 32;
       *pixtbl = xnew_array (unsigned long, pixcount);
@@ -432,7 +433,7 @@ x_finalize_image_instance (Lisp_Image_Instance *p)
 	}
       else
 	{
-	  int i;
+	  unsigned int i;
 	  if (IMAGE_INSTANCE_PIXMAP_TIMEOUT (p))
 	    disable_glyph_animated_timeout (IMAGE_INSTANCE_PIXMAP_TIMEOUT (p));
 

@@ -517,7 +517,7 @@ EmacsFrameSetValues (Widget cur_widget, Widget req_widget, Widget new_widget,
   if (cur->core.width == new->core.width
       && cur->core.height == new->core.height)
     {
-      int i;
+      Cardinal i;
       for (i=0; i<*argc; i++)
 	if (strcmp (argv[i].name, XtNwidth) == 0
 	    || strcmp (argv[i].name, XtNheight) == 0)

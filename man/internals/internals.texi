@@ -117,6 +117,7 @@ This Info file contains v1.4 of the XEmacs Internals Manual, March 2001.
 * The XEmacs Object System (Abstractly Speaking)::
 * How Lisp Objects Are Represented in C::
 * Rules When Writing New C Code::
+* Regression Testing XEmacs::
 * A Summary of the Various XEmacs Modules::
 * Allocation of Objects in XEmacs Lisp::
 * Dumping::
@@ -166,6 +167,8 @@ Coding for Mule
 * General Guidelines for Writing Mule-Aware Code::
 * An Example of Mule-Aware Code::
 
+Regression Testing XEmacs
+
 A Summary of the Various XEmacs Modules
 
 * Low-Level Modules::
@@ -180,6 +183,7 @@ A Summary of the Various XEmacs Modules
 * Modules for Interfacing with the Operating System::
 * Modules for Interfacing with X Windows::
 * Modules for Internationalization::
+* Modules for Regression Testing::
 
 Allocation of Objects in XEmacs Lisp
 
@@ -1893,7 +1897,7 @@ performance is an issue, use @code{type_checking_assert},
 nothing unless the corresponding configure error checking flag was
 specified.
 
-@node Rules When Writing New C Code, A Summary of the Various XEmacs Modules, How Lisp Objects Are Represented in C, Top
+@node Rules When Writing New C Code, Regression Testing XEmacs, How Lisp Objects Are Represented in C, Top
 @chapter Rules When Writing New C Code
 @cindex writing new C code, rules when
 @cindex C code, rules when writing new
@@ -3150,7 +3154,75 @@ add a DEFINE_LRECORD_IMPLEMENTATION call to @file{@var{foo}.c}
 add an INIT_LRECORD_IMPLEMENTATION call to @code{syms_of_@var{foo}.c}
 @end enumerate
 
-@node A Summary of the Various XEmacs Modules, Allocation of Objects in XEmacs Lisp, Rules When Writing New C Code, Top
+
+@node Regression Testing XEmacs, A Summary of the Various XEmacs Modules, Rules When Writing New C Code, Top
+@chapter Regression Testing XEmacs
+@cindex testing, regression
+
+The source directory @file{tests/automated} contains XEmacs' automated
+test suite.  The usual way of running all the tests is running
+@code{make check} from the top-level source directory.
+
+The test suite is unfinished and it's still lacking some essential
+features.  It is nevertheless recommended that you run the tests to
+confirm that XEmacs behaves correctly.
+
+If you want to run a specific test case, you can do it from the
+command-line like this:
+
+@example
+$ xemacs -batch -l test-harness.elc -f batch-test-emacs TEST-FILE
+@end example
+
+If something goes wrong, you can run the test suite interactively by
+loading @file{test-harness.el} into a running XEmacs and typing
+@kbd{M-x test-emacs-test-file RET <filename> RET}.  You will see a log of
+passed and failed tests, which should allow you to investigate the
+source of the error and ultimately fix the bug.
+
+Adding a new test file is trivial: just create a new file here and it
+will be run.  There is no need to byte-compile any of the files in
+this directory---the test-harness will take care of any necessary
+byte-compilation.
+
+Look at the existing test cases for the examples of coding test cases.
+It all boils down to your imagination and judicious use of the macros
+@code{Assert}, @code{Check-Error}, @code{Check-Error-Message}, and
+@code{Check-Message}.
+
+Here's a simple example checking case-sensitive and case-insensitive
+comparisons from @file{case-tests.el}.
+
+@example
+(with-temp-buffer
+  (insert "Test Buffer")
+  (let ((case-fold-search t))
+    (goto-char (point-min))
+    (Assert (eq (search-forward "test buffer" nil t) 12))
+    (goto-char (point-min))
+    (Assert (eq (search-forward "Test buffer" nil t) 12))
+    (goto-char (point-min))
+    (Assert (eq (search-forward "Test Buffer" nil t) 12))
+
+    (setq case-fold-search nil)
+    (goto-char (point-min))
+    (Assert (not (search-forward "test buffer" nil t)))
+    (goto-char (point-min))
+    (Assert (not (search-forward "Test buffer" nil t)))
+    (goto-char (point-min))
+    (Assert (eq (search-forward "Test Buffer" nil t) 12))))
+@end example
+
+This example could be inserted in a file in @file{tests/automated}, and
+it would be a complete test, automatically executed when you run
+@kbd{make check} after building XEmacs.  More complex tests may require
+substantial temporary scaffolding to create the environment that elicits
+the bugs, but the top-level Makefile and @file{test-harness.el} handle
+the running and collection of results from the @code{Assert},
+@code{Check-Error}, @code{Check-Error-Message}, and @code{Check-Message}
+macros.
+
+@node A Summary of the Various XEmacs Modules, Allocation of Objects in XEmacs Lisp, Regression Testing XEmacs, Top
 @chapter A Summary of the Various XEmacs Modules
 @cindex modules, a summary of the various XEmacs
 
@@ -3169,6 +3241,7 @@ add an INIT_LRECORD_IMPLEMENTATION call to @code{syms_of_@var{foo}.c}
 * Modules for Interfacing with the Operating System::
 * Modules for Interfacing with X Windows::
 * Modules for Internationalization::
+* Modules for Regression Testing::
 @end menu
 
 @node Low-Level Modules
@@ -4833,6 +4906,36 @@ Asian-language support, and is not currently used.
 
 
 
+@node Modules for Regression Testing
+@section Modules for Regression Testing
+@cindex modules for regression testing
+@cindex regression testing, modules for
+
+@example
+test-harness.el
+base64-tests.el
+byte-compiler-tests.el
+case-tests.el
+ccl-tests.el
+c-tests.el
+database-tests.el
+extent-tests.el
+hash-table-tests.el
+lisp-tests.el
+md5-tests.el
+mule-tests.el
+regexp-tests.el
+symbol-tests.el
+syntax-tests.el
+@end example
+
+@file{test-harness.el} defines the macros @code{Assert},
+@code{Check-Error}, @code{Check-Error-Message}, and
+@code{Check-Message}.  The other files are test files, testing various
+XEmacs modules.
+
+
+
 @node Allocation of Objects in XEmacs Lisp, Dumping, A Summary of the Various XEmacs Modules, Top
 @chapter Allocation of Objects in XEmacs Lisp
 @cindex allocation of objects in XEmacs Lisp
@@ -5099,6 +5202,10 @@ often showing up in crashes inside of @code{garbage-collect} or in
 weirdly corrupted objects or even in incorrect values in a totally
 different section of code.
 @end enumerate
+
+If you don't understand whether to @code{GCPRO} in a particular
+instance, ask on the mailing lists.  A general hint is that @code{prog1}
+is the canonical example
 
 @cindex garbage collection, conservative
 @cindex conservative garbage collection

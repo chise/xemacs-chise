@@ -805,7 +805,7 @@ well), or by use of shifting (affecting only the following character in
 the data stream) or locking (effective until the next designation or
 locking) control sequences.  An encoding conformant to ISO 2022 is
 typically defined by designating the initial contents of the G0-G3
-registers, specifying an 7 or 8 bit environment, and specifying whether
+registers, specifying a 7 or 8 bit environment, and specifying whether
 further designations will be recognized.
 
   Some examples of character sets and the registered final characters

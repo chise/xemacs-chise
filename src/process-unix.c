@@ -1331,12 +1331,15 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
       /* #### There is controversy over whether this might cause fd leakage */
       /*      my tests say no. -slb */
       XLSTREAM (p->pipe_outstream)->flags &= ~LSTREAM_FL_IS_OPEN;
+#ifdef FILE_CODING
+      XLSTREAM (p->coding_outstream)->flags &= ~LSTREAM_FL_IS_OPEN;
+#endif
       p->status_symbol = Qexit;
       p->exit_code = 256; /* #### SIGPIPE ??? */
       p->core_dumped = 0;
       p->tick++;
       process_tick++;
-      deactivate_process (*((Lisp_Object *) (&vol_proc)));
+      deactivate_process (vol_proc);
       invalid_operation ("SIGPIPE raised on process; closed it", p->name);
     }
 

@@ -167,17 +167,8 @@ USE_UNION_TYPE=0
 !if !defined(USE_MINITAR)
 USE_MINITAR=$(HAVE_ZLIB)
 !endif
-!if !defined(USE_MINIMAL_TAGBITS)
-USE_MINIMAL_TAGBITS=0
-!endif
-!if !defined(USE_INDEXED_LRECORD_IMPLEMENTATION)
-USE_INDEXED_LRECORD_IMPLEMENTATION=0
-!endif
 !if !defined(USE_PORTABLE_DUMPER)
 USE_PORTABLE_DUMPER=0
-!endif
-!if !defined(GUNG_HO)
-GUNG_HO=0
 !endif
 
 # A little bit of adhockery. Default to use system malloc and
@@ -302,14 +293,6 @@ CONFIG_ERROR=1
 !endif
 !if $(CONFIG_ERROR)
 !error Configuration error(s) found
-!endif
-
-#
-# Handle GUNG_HO
-#
-!if defined(GUNG_HO)
-USE_MINIMAL_TAGBITS=$(GUNG_HO)
-USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !endif
 
 #
@@ -461,12 +444,6 @@ DEBUG_FLAGS=-debug:full
 QUICK_DEFINES=-DQUICK_BUILD
 !endif
 
-!if $(USE_MINIMAL_TAGBITS)
-TAGBITS_DEFINES=-DUSE_MINIMAL_TAGBITS
-!endif
-!if $(USE_INDEXED_LRECORD_IMPLEMENTATION)
-LRECORD_DEFINES=-DUSE_INDEXED_LRECORD_IMPLEMENTATION
-!endif
 !if $(USE_UNION_TYPE)
 UNION_DEFINES=-DUSE_UNION_TYPE
 !endif
@@ -495,8 +472,7 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 
 INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(LWLIB_SRCDIR)
 
-DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
-	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
+DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) $(UNION_DEFINES) \
 	$(DUMPER_DEFINES) $(MALLOC_DEFINES) $(QUICK_DEFINES) \
 	-DWIN32_LEAN_AND_MEAN -DWIN32_NATIVE -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
@@ -565,6 +541,11 @@ $(LIB_SRC)/movemail.exe: $(LIB_SRC)/movemail.c $(LIB_SRC)/pop.c $(ETAGS_DEPS)
 	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** wsock32.lib -link -incremental:no
 	cd $(NT)
 
+$(LIB_SRC)/winclient.exe: $(LIB_SRC)/winclient.c
+	cd $(LIB_SRC)
+	$(CCV) -I. -I$(XEMACS)/src -I$(XEMACS)/nt/inc $(LIB_SRC_DEFINES) $(CFLAGS) -Fe$@ $** user32.lib -link -incremental:no
+	cd $(NT)
+
 $(LIB_SRC)/minitar.exe : $(NT)/minitar.c
 	$(CCV) $(CFLAGS) -I$(ZLIB_DIR) -Fe$@ $** $(ZLIB_DIR)\zlib.lib -link -incremental:no
 
@@ -572,6 +553,7 @@ LIB_SRC_TOOLS = \
 	$(LIB_SRC)/etags.exe		\
 	$(LIB_SRC)/hexl.exe		\
 	$(LIB_SRC)/i.exe		\
+	$(LIB_SRC)/winclient.exe	\
 	$(LIB_SRC)/make-docfile.exe	\
 	$(LIB_SRC)/mmencode.exe		\
 	$(LIB_SRC)/movemail.exe		\
@@ -1595,12 +1577,6 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
   WARNING: to use C primitives to significantly speed up dired, at the
   WARNING: expense of an additional ~4KB of code.
   --------------------------------------------------------------------
-!endif
-!if $(USE_MINIMAL_TAGBITS)
-  Using minimal tagbits.
-!endif
-!if $(USE_INDEXED_LRECORD_IMPLEMENTATION)
-  Using indexed lrecord implementation.
 !endif
 !if $(USE_UNION_TYPE)
   Using union type for Lisp object storage.

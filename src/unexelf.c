@@ -481,10 +481,20 @@ typedef struct {
 
 #ifndef ElfW
 # ifdef __STDC__
-#  define ElfW(type)	Elf32_##type
+#  define ElfBitsW(bits, type) Elf##bits##_##type
 # else
-#  define ElfW(type)	Elf32_/**/type
+#  define ElfBitsW(bits, type) Elf/**/bits/**/_/**/type
 # endif
+# ifndef ELFSIZE
+#  ifdef _LP64
+#   define ELFSIZE 64
+#  else
+#   define ELFSIZE 32
+#  endif
+# endif
+  /* This macro expands `bits' before invoking ElfBitsW.  */
+# define ElfExpandBitsW(bits, type) ElfBitsW (bits, type)
+# define ElfW(type) ElfExpandBitsW (ELFSIZE, type)
 #endif
 
 #ifndef ELF_BSS_SECTION_NAME

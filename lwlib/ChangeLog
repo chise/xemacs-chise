@@ -1,3 +1,30 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-06-07  Andy Piper  <andy@xemacs.org>
+
+	* lwlib-Xm.c: (xm_safe_update_label): new function. Call
+	xm_update_label if the class is appropriate.
+	(make_menu_in_widget): use it.
+	(update_one_menu_entry): ditto.
+	(xm_update_one_widget): ditto.
+
+2002-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib-Xm.c: revert Darryl's patch in favor of Andy's.
+	
+2002-07-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lwlib-utils.c (XtApplyUntilToWidgets):
+	* xlwmenu.c (close_to_reference_time):
+	Fix warnings.
+
+2002-05-14  Darryl Okahata  <darrylo@xemacs.org>
+
+	* lwlib-Xm.c: prevent non-label widgets from being treated as
+	labels and having their "labels" updated.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.

@@ -440,7 +440,7 @@ main (int argc, char *argv[])
 		errno = saved_errno;
 		pfatal_with_name (outname);
 	      }
-	    if (nread < sizeof buf)
+	    if (nread < (int) sizeof buf)
 	      break;
 	  }
       }

@@ -642,6 +642,9 @@ static void
 nt_finalize_process_data (Lisp_Process *p, int for_disksave)
 {
   assert (!for_disksave);
+  /* If it's still in the list of processes we are waiting on delete
+     it.  */
+  mswindows_unwait_process (p);
   if (NT_DATA (p)->h_process)
     CloseHandle (NT_DATA (p)->h_process);
 }

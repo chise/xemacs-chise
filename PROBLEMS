@@ -17,19 +17,48 @@ Use `C-c C-f' to move to the next equal level of outline, and
 `C-c C-b' to move to previous equal level.  `C-h m' will give more
 info about the Outline mode.
 
-Also, Try finding the things you need using one of the search commands
+Also, try finding the things you need using one of the search commands
 XEmacs provides (e.g. `C-s').
 
 General advice:
+
     WATCH OUT for your init file! (~/.xemacs/init.el or ~/.emacs)  If
     you observe strange problems, invoke XEmacs with the `-vanilla'
     option and see if you can repeat the problem.
+
+    Note that most of the problems described here manifest at RUN
+    time, even those described as BUILD problems.  It is quite unusual
+    for a released XEmacs to fail to build.  So a "build problem"
+    requires you to tweak the build environment, then rebuild XEmacs.
+    A "runtime problem" is one that can be fixed by proper
+    configuration of the existing build.  Compatibility problems and
+    Mule issues are generally runtime problems, but are treated
+    separately for convenience.
 
 
 * Problems with building XEmacs
 ===============================
 
 ** General
+    Much general information is in INSTALL.  If it's covered in
+    INSTALL, we don't repeat it here.
+
+*** How does I configure to get the buffer tabs/progress bars?
+
+These features depend on support for "native widgets".  Use the
+--with-widgets option to configure.  Configuration of widgets is
+automatic for "modern" toolkits (MS Windows, GTK, and Motif), but if
+you are using Xt and the Athena widgets, you will probably want to
+specify a "3d" widget set.  See configure --usage, and don't forget to
+install the corresponding development libraries.
+
+*** I know I have libfoo installed, but configure doesn't find it.
+
+Typical of Linux systems with package managers.  To link with a shared
+library, you only need the shared library.  To compile objects that
+link with it, you need the headers---and distros don't provide them with
+the libraries.  You need the additional "development" package, too.
+
 *** Don't use -O2 with gcc 2.8.1 and egcs 1.0 under SPARC architectures
 without also using `-fno-schedule-insns'.
 
@@ -1362,6 +1391,34 @@ affected virtually all ioctl() calls.
 
 
 ** Linux
+*** XEmacs crashes on startup, in make-frame.
+
+Typically the Lisp backtrace includes
+
+   make-frame(nil #<x-device on ":0.0" 0x2558>)
+
+somewhere near the top.  One problem is due to an improvement in GNU
+ld that sorts the ELF reloc sections in the executable, giving
+dramatic speedups in startup for large executables.  It also confuses
+the traditional unexec code in XEmacs, leading to the core dump.  The
+solution is to use either the `--ldflags="-z nocombreloc" or the
+"--pdump" option to configure.  "--pdump" is recommended.
+
+Recent 21.4 and 21.5 versions of XEmacs autodetect this feature of ld
+in configure.  Unfortunately, Red Hat and SuSE (at least) distributed
+prerelease versions of ld (numbered around 2.11.90.x.y, nicknamed
+"Hannibal Lecter" at XEmacs.ORG) where autodetection fails but the
+feature is enabled by default.  The recommended procedure is to
+upgrade to binutils >= 2.12 and rerun configure.  Otherwise you must
+apply the flags by hand.
+
+Andrew Jaffe reported a problem on Red Hat 7.3 with identical
+symptoms, except that ld was already being invoked with -z
+nocombreloc.  Switching dialogs and widgets from Motif to Athena
+eliminated the problem.  Both LessTif and OpenMotif were installed,
+and a bad interaction is suspected.  This problem has not yet been
+fully analyzed.
+
 *** Debian
 **** XEmacs warns "Symbol `toggleClassRec' has different size in shared
      object, consider re-linking / Symbol `labelClassRec' has different
@@ -1456,30 +1513,6 @@ http://www.geocities.com/kensanata/color-emacs.html#ansicolors
 This is written for the mainline GNU Emacs but the author has made
 efforts to adapt it to XEmacs.  YMMV.
 
-*** You get crashes in a non-C locale with Linux GNU Libc 2.0.
-
-Internationalization was not the top priority for GNU Libc 2.0.
-As of this writing (1998-12-28) you may get crashes while running
-XEmacs in a non-C locale.  For example, `LC_ALL=en_US xemacs' crashes
-while `LC_ALL=C xemacs' runs fine.  This happens for example with GNU
-libc 2.0.7.  Installing libintl.a and libintl.h built from gettext
-0.10.35 and re-building XEmacs solves the crashes.  Presumably soon
-everyone will upgrade to GNU Libc 2.1 and this problem will go away.
-
-*** `C-z', or `M-x suspend-emacs' hangs instead of suspending.
-
-If you build with `gpm' support on Linux, you cannot suspend XEmacs
-because gpm installs a buggy SIGTSTP handler.  Either compile with
-`--with-gpm=no', or don't suspend XEmacs on the Linux console until
-this bug is fixed.
-
-*** With certain fonts, when the cursor appears on a character, the
-character doesn't appear--you get a solid box instead.
-
-One user on a Linux system reported that this problem went away with
-installation of a new X server.  The failing server was XFree86 3.1.1.
-XFree86 3.1.2 works.
-
 *** Slow startup on Linux.
 
 People using systems based on the Linux kernel sometimes report that
@@ -1561,6 +1594,30 @@ second SIGUSR1 causes the default behavior of ending the process.
 The solution is either to build XEmacs with -sound=native,noesd or to make sure
 that esd is in fact running. 
 
+*** You get crashes in a non-C locale with Linux GNU Libc 2.0.
+
+Internationalization was not the top priority for GNU Libc 2.0.
+As of this writing (1998-12-28) you may get crashes while running
+XEmacs in a non-C locale.  For example, `LC_ALL=en_US xemacs' crashes
+while `LC_ALL=C xemacs' runs fine.  This happens for example with GNU
+libc 2.0.7.  Installing libintl.a and libintl.h built from gettext
+0.10.35 and re-building XEmacs solves the crashes.  Presumably soon
+everyone will upgrade to GNU Libc 2.1 and this problem will go away.
+
+*** `C-z', or `M-x suspend-emacs' hangs instead of suspending.
+
+If you build with `gpm' support on Linux, you cannot suspend XEmacs
+because gpm installs a buggy SIGTSTP handler.  Either compile with
+`--with-gpm=no', or don't suspend XEmacs on the Linux console until
+this bug is fixed.
+
+*** With certain fonts, when the cursor appears on a character, the
+character doesn't appear--you get a solid box instead.
+
+One user on a Linux system reported that this problem went away with
+installation of a new X server.  The failing server was XFree86 3.1.1.
+XFree86 3.1.2 works.
+ 
 ** IRIX
 *** On Irix, I don't see the toolbar icons and I'm getting lots of
 entries in the warnings buffer.

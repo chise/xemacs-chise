@@ -210,8 +210,9 @@ See `interprogram-cut-function' for more information."
   (own-selection string 'CLIPBOARD))
 
 (defun disown-selection (&optional secondary-p)
-  "Assuming we own the selection, disown it.  With an argument, discard the
-secondary selection instead of the primary selection."
+  "Assuming we own the selection, disown it.
+With an argument, discard the secondary selection instead of the
+primary selection."
   (disown-selection-internal (if secondary-p 'SECONDARY 'PRIMARY))
   (when (and selection-sets-clipboard
 	     (or (not secondary-p)

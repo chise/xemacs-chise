@@ -100,7 +100,7 @@ the XEmacs API, cause it also uses MIME types to encode dragged data.
 @cindex drop
 @cindex Drop API
 
-For each activated low-level protocol, a internal routine will catch
+For each activated low-level protocol, an internal routine will catch
 incoming drops and convert them to a dragdrop-drop type
 misc-user-event.
 

@@ -225,7 +225,7 @@ current_lock_owner (lock_info_type *owner, char *lfname)
   if (STRINGP (Fsystem_name ())
       && strcmp (owner->host, (char *) XSTRING_DATA (Fsystem_name ())) == 0)
     {
-      if (owner->pid == getpid ())
+      if (owner->pid == (unsigned long) getpid ())
         ret = 2; /* We own it.  */
       else if (owner->pid > 0
                && (kill (owner->pid, 0) >= 0 || errno == EPERM))

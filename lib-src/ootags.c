@@ -4411,7 +4411,7 @@ prolog_pred (s, last)
 
       /* Save only the first clause. */
       if (last == NULL
-	  || len != strlen (last)
+	  || len != (int) strlen (last)
 	  || !strneq (s, last, len))
 	{
 	  pfnote ((CTAGS) ? savenstr (s, len) : NULL, TRUE,
@@ -4565,7 +4565,7 @@ erlang_func (s, last)
   /* Save only the first clause. */
   if (s[pos++] == '('
       && (last == NULL
-	  || len != strlen (last)
+	  || len != (int) strlen (last)
 	  || !strneq (s, last, len)))
 	{
 	  pfnote ((CTAGS) ? savenstr (s, len) : NULL, TRUE,

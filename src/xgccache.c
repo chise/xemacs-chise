@@ -98,7 +98,7 @@ gc_cache_hash (const void *arg)
   const struct gcv_and_mask *gcvm = (const struct gcv_and_mask *) arg;
   unsigned long *longs = (unsigned long *) &gcvm->gcv;
   unsigned long hash = gcvm->mask;
-  int i;
+  size_t i;
   /* This could look at the mask and only use the used slots in the
      hash code.  That would win in that we wouldn't have to initialize
      every slot of the gcv when calling gc_cache_lookup.  But we need

@@ -573,6 +573,7 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
   /* !!#### This function has not been Mule-ized */
   Lisp_Object buffer, name, program, process, current_dir;
   Lisp_Object tem;
+  int i;
   int speccount = specpdl_depth ();
   struct gcpro gcpro1, gcpro2, gcpro3;
 
@@ -589,6 +590,8 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
 
   CHECK_STRING (name);
   CHECK_STRING (program);
+  for (i = 3; i < nargs; ++i)
+    CHECK_STRING (args[i]);
 
   /* Make sure that the child will be able to chdir to the current
      buffer's current directory, or its unhandled equivalent.  We

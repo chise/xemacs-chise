@@ -809,20 +809,20 @@ mswindows_get_default_margin (Lisp_Object prop)
 }
 
 static int
-plist_get_margin (Lisp_Object plist, Lisp_Object prop)
+plist_get_margin (Lisp_Object plist, Lisp_Object prop, int mm_p)
 {
   Lisp_Object val =
     Fplist_get (plist, prop, make_int (mswindows_get_default_margin (prop)));
   if (!INTP (val))
     invalid_argument ("Margin value must be an integer", val);
 
-  return MulDiv (XINT (val), 100, 144);
+  return MulDiv (XINT (val), mm_p ? 254 : 100, 144);
 }
 
 static Lisp_Object
 plist_set_margin (Lisp_Object plist, Lisp_Object prop, int margin, int mm_p)
 {
-  Lisp_Object val = make_int (MulDiv (margin, 144, mm_p ? 2450 : 100));
+  Lisp_Object val = make_int (MulDiv (margin, 144, mm_p ? 254 : 100));
   return Fcons (prop, Fcons (val, plist));
 }
 
@@ -866,15 +866,21 @@ mswindows_handle_page_setup_dialog_box (struct frame *f, Lisp_Object keys)
   {
     Lisp_Devmode *ldm = decode_devmode (device);
     PAGESETUPDLG pd;
+    TCHAR measure[2];
+    int data;
+ 
+    GetLocaleInfo (LOCALE_USER_DEFAULT, LOCALE_IMEASURE,
+		   measure, sizeof(measure));
+    data = (strcmp (measure, "0"));
 
     memset (&pd, 0, sizeof (pd));
     pd.lStructSize = sizeof (pd);
     pd.hwndOwner = mswindows_get_selected_frame_hwnd ();
     pd.Flags = PSD_MARGINS;
-    pd.rtMargin.left   = plist_get_margin (plist, Qleft_margin);
-    pd.rtMargin.top    = plist_get_margin (plist, Qtop_margin);
-    pd.rtMargin.right  = plist_get_margin (plist, Qright_margin);
-    pd.rtMargin.bottom = plist_get_margin (plist, Qbottom_margin);
+    pd.rtMargin.left   = plist_get_margin (plist, Qleft_margin, !data);
+    pd.rtMargin.top    = plist_get_margin (plist, Qtop_margin, !data);
+    pd.rtMargin.right  = plist_get_margin (plist, Qright_margin, !data);
+    pd.rtMargin.bottom = plist_get_margin (plist, Qbottom_margin, !data);
     pd.hDevMode = devmode_to_hglobal (ldm);
 
     if (!PageSetupDlg (&pd))

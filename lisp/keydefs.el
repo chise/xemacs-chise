@@ -340,6 +340,7 @@ Keymap for characters following C-c.")
 (define-key global-map "\C-xry" 'yank-rectangle)
 (define-key global-map "\C-xro" 'open-rectangle)
 (define-key global-map "\C-xrt" 'string-rectangle)
+(define-key global-map "\C-xrp" 'replace-rectangle)
 (define-key global-map "\C-xrw" 'window-configuration-to-register)
 ;(define-key global-map "\C-xrf" 'frame-configuration-to-register)
 

@@ -147,7 +147,7 @@ extern struct backtrace *backtrace_list;
 /* Most callers should simply use specbind() and unbind_to(), but if
    speed is REALLY IMPORTANT, you can use the faster macros below */
 void specbind_magic (Lisp_Object, Lisp_Object);
-void grow_specpdl (size_t reserved);
+void grow_specpdl (EMACS_INT reserved);
 void unbind_to_hairy (int);
 extern int specpdl_size;
 
@@ -214,8 +214,9 @@ extern int specpdl_size;
 } while (0)
 
 /* Request enough room for SIZE future entries on special binding stack */
+/* SR_size will typically be compared to an unsigned short */
 #define SPECPDL_RESERVE(size) do {			\
-  size_t SR_size = (size);				\
+  EMACS_INT SR_size = (size);				\
   if (specpdl_depth() + SR_size >= specpdl_size)	\
     grow_specpdl (SR_size);				\
 } while (0)

@@ -417,14 +417,14 @@ except for the Term escape character, normally @kbd{C-c}.
 
 To switch between line and char mode, use these commands:
 @table @kbd
-@kindex C-c C-k @r{(Term mode)}
+@kindex C-c C-j @r{(Term mode)}
 findex term-char-mode
-@item C-c C-k
+@item C-c C-j
 Switch to line mode.  Do nothing if already in line mode.
 
-@kindex C-c C-j @r{(Term mode)}
+@kindex C-c C-k @r{(Term mode)}
 @findex term-line-mode
-@item C-c C-j
+@item C-c C-k
 Switch to char mode.  Do nothing if already in char mode.
 @end table
 

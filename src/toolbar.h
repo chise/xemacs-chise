@@ -100,6 +100,7 @@ DECLARE_SPECIFIER_TYPE (toolbar);
 extern Lisp_Object Vtoolbar_size[4];
 extern Lisp_Object Vtoolbar_border_width[4];
 void update_frame_toolbars (struct frame *f);
+void update_frame_toolbars_geometry (struct frame *f);
 void init_frame_toolbars (struct frame *f);
 void init_device_toolbars (struct device *d);
 void init_global_toolbars (struct device *d);

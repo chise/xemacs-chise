@@ -210,7 +210,7 @@
     (marcpa     . "http://www.positron911.com/products/power.htm")
     (ograf      . "http://www.fga.de/~ograf/")
     (pez        . "http://cbs.sportsline.com/")
-    (piper      . "http://www.xemacs.freeserve.co.uk/")
+    (piper      . "http://www.andypiper.com/")
     (rossini    . "http://faculty.washington.edu/rossini/")
     (stigb      . "http://www.tihlde.hist.no/~stigb/")
     (vin        . "http://www.upa.org/")
@@ -1244,8 +1244,10 @@ for CBS SportsLine.  See ")
 My home page is here:\n")
      (about-url-link 'piper nil "Visit andy's home page")
      (widget-insert "\n
-Andy has recently rejoined the XEmacs team to help port XEmacs to
-MS Windows operating systems.\n"))
+ Andy has been active in the XEmacs team for a number of years,
+helping port XEmacs to MS Windows operating systems. He is also the
+current MS Windows release manager and maintains the MS Windows
+netinstaller.\n"))
     (pittman
      (widget-insert
       "\

@@ -1,3 +1,122 @@
+2002-08-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.9 "Informed Management" is released.
+
+2002-08-20  Simon Josefsson  <simon@xemacs.org>
+
+	* lispref/building.texi (Pure Storage): Deprecate purecopy.
+
+2002-08-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (Regression Testing XEmacs): Fix typo.
+
+2002-08-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* internals/internals.texi (GCPROing): Add comment on GCPRO.
+	(Regression Testing XEmacs): New node.
+	(Modules for Regression Testing): New node.
+
+2002-08-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/packages.texi (Installing Packages): Revert EFS patch.
+
+2002-07-13  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs/packages.texi (Installing Packages): Fix reference to
+	EFS.
+
+2002-08-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* packages.texi:  Replace with rev 1.16 (from 21.5 current).
+	Includes changes by Ville Skyttä, Adrian Aichner, Simon
+	Josefsson, and Steve Youngs.
+	
+2002-07-24  Ville Skyttä  <ville.skytta@xemacs.org>
+
+	* term.texi (Input to the inferior): Fix term line/char mode
+	switch keybindings.  Kudos to Jacob P. Burckhardt.
+	
+	* xemacs/misc.texi (Term Mode): Ditto.
+
+2002-07-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* new-users-guide/custom1.texi (Customizing key Bindings): Fix
+	improper use of indef. art. "a".
+
+2002-07-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/commands.texi (Peeking and Discarding): Ditto.
+	* lispref/customize.texi (Type Keywords): Ditto.
+	* lispref/dragndrop.texi (Drop Interface): Ditto.
+
+2002-07-06  Adrian Aichner  <adrian@xemacs.org>
+
+	* termcap.texi (Clearing): Ditto.
+	* widget.texi (User Interface): Ditto.
+	* widget.texi (Basic Types): Ditto.
+	* widget.texi (group): Ditto.
+
+2002-07-05  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs/menus.texi (Edit Menu): Typo fixes for incorrect use of
+	indef. art. "an".
+
+2002-07-05  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref/control.texi (Processing of Errors): Ditto.
+	* lispref/mule.texi (ISO 2022): Ditto.
+	* lispref/packaging.texi (Package Terminology): Ditto.
+	* lispref/text.texi (Transformations): Ditto.
+
+2002-07-05  Adrian Aichner  <adrian@xemacs.org>
+
+	* termcap.texi (Naming): Ditto.
+	* texinfo.texi (itemize): Ditto.
+	* texinfo.texi (Tips): Ditto.
+	* widget.texi (Introduction): Ditto.
+	* widget.texi (group): Ditto.
+
+2002-07-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs-faq.texi (Top, Customization, Q3.10.5, Q3.10.6):
+	New "killing is slow" FAQ and link updates..
+
+2002-06-17  Jerry James  <james@xemacs.org>
+
+	* emodules.texi (Loading other Modules): Describe why we do not
+	use RTLD_GLOBAL.
+
+2002-06-11  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q1.3.7): Update broken link to russian.el
+	(found by linklint) with Google's help.
+
+2002-05-25  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs/custom.texi (Syntax Entry): Deprecate ` ' in favor of `-'.
+
+2002-06-11  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/mule.texi (Mule Intro): Better title, explanation.
+
+2002-05-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lispref/packaging.texi (package-info.in Fields): Typo fix.
+
+2002-05-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/files.texi (Reverting): Mention use of prefix argument
+	and mode recalculation.
+
+2002-05-11  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Top): Add Q2.0.15 under "Installation and
+	Trouble Shooting".
+	* xemacs-faq.texi (Installation): Add Q2.0.15 to Installation
+	menu.
+	* xemacs-faq.texi (Q2.0.14): Fix unnumberedsubsec argument.
+	* xemacs-faq.texi (Q2.0.15): New.
+
 2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.8 "Honest Recruiter" is released.

@@ -236,7 +236,8 @@ If ENFORCE-VERSION is non-nil, the directory must contain the XEmacs version."
   (or
    ;; from more to less specific
    (paths-find-version-directory roots
-				 (concat base system-configuration)
+				 (paths-construct-path
+				  (list system-configuration base))
 				 envvar default)
    (paths-find-version-directory roots
 				 base

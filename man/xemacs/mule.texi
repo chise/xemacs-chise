@@ -38,18 +38,60 @@ Enhancement to GNU Emacs'').
 @end menu
 
 @node Mule Intro, Language Environments, Mule, Mule
-@section Introduction to world scripts
+@section What is Mule?
 
-  The users of these scripts have established many more-or-less standard
-coding systems for storing files.
-@c XEmacs internally uses a single multibyte character encoding, so that it
-@c can intermix characters from all these scripts in a single buffer or
-@c string.  This encoding represents each non-ASCII character as a sequence
-@c of bytes in the range 0200 through 0377.
+Mule is the MUltiLingual Extension to XEmacs.  It provides facilities
+not only for handling text written in many different languages, but in
+fact multilingual texts containing several languages in the same buffer.
+This goes beyond the simple facilities offered by Unicode for
+representation of multilingual text.  Mule also supports input methods,
+composing display using fonts in various different encodings, changing
+character syntax and other editing facilities to correspond to local
+language usage, and more.
+
+The most obvious problem is that of the different character coding
+systems used by different languages.  ASCII supplies all the characters
+needed for most computer programming languages and US English (it lacks
+the currency symbol for British English), but other Western European
+languages (French, Spanish, German) require more than 96 code positions
+for accented characters.  In fact, even with 8 bits to represent 96 more
+character (including accented characters and symbols such as currency
+symbols), some languages' alphabets remain incomplete (Croatian,
+Polish).  (The 64 "missing characters" are reserved for control
+characters.)  Furthermore, many European languages have their own
+alphabets, which must conflict with the accented characters since the
+ASCII characters are needed for computer interaction (error and log
+messages are typically in ASCII).
+
+For economy of space, historical practice has been for each language to
+establish its own encoding for the characters it needs.  This allows
+most European languages to represented with one octet (byte) per
+character.  However, many Asian languages have thousands of characters
+and require two or more octets per character.  For multilingual
+purposes, the ISO 2022 standard establishes escape codes that allow
+switching encodings in midstream.  (It's also ISO 2022 that establishes
+the standard that code points 0-31 and 128-159 are control codes.)
+
+However, this is error-prone and complex for internal processing.  For
+this reason XEmacs uses an internal coding system which can encode all
+of the world's scripts.  Unfortunately, for historical reasons, this
+code is not Unicode, although we are moving in that direction.
+
 XEmacs translates between the internal character encoding and various
 other coding systems when reading and writing files, when exchanging
 data with subprocesses, and (in some cases) in the @kbd{C-q} command
-(see below).
+(see below).  The internal encoding is never visible to the user in a
+production XEmacs, but unfortunately the process cannot be completely
+transparent to the user.  This is because the same ranges of octets may
+represent 1-octet ISO-8859-1 (which is satisfactory for most Western
+European use prior to the introduction of the Euro currency), 1-octet
+ISO-8859-15 (which substitutes the Euro for the rarely used "generic
+currency" symbol), 1-octet ISO-8859-5 (Cyrillic), or multioctet EUC-JP
+(Japanese).  There's no way to tell without being able to read!
+
+A number of heuristics are incorporated in Mule for automatic
+recognition, there are facilities for the user to set defaults, and
+where necessary (rarely, we hope) to set coding systems directly.
 
 @kindex C-h h
 @findex view-hello-file
@@ -422,6 +464,41 @@ the usual three variants to specify the kind of end-of-line conversion.
 
 @node Recognize Coding, Specify Coding, Coding Systems, Mule
 @section Recognizing Coding Systems
+
+@c #### This section is out of date.  The following set-*-coding-system
+@c functions are known:
+
+@c set-buffer-file-coding-system 
+@c set-buffer-file-coding-system-for-read
+@c set-buffer-process-coding-system
+@c set-console-tty-coding-system 
+@c set-console-tty-input-coding-system
+@c set-console-tty-output-coding-system
+@c set-default-buffer-file-coding-system
+@c set-default-coding-systems    
+@c set-default-file-coding-system
+@c set-file-coding-system        
+@c set-file-coding-system-for-read
+@c set-keyboard-coding-system    
+@c set-pathname-coding-system    
+@c set-process-coding-system     
+@c set-process-input-coding-system
+@c set-process-output-coding-system
+@c set-terminal-coding-system    
+
+@c Some are marked as broken.  Agenda: (1) Update this section using
+@c docstrings.  Note that they may be inaccurate.  (2) Correct the
+@c documentation here, updating docstrings at the same time.
+
+@c Document this.
+
+@c set-language-environment-coding-systems
+
+@c What are these?
+
+@c dontusethis-set-value-file-name-coding-system-handler
+@c dontusethis-set-value-keyboard-coding-system-handler
+@c dontusethis-set-value-terminal-coding-system-handler
 
   Most of the time, XEmacs can recognize which coding system to use for
 any given file--once you have specified your preferences.

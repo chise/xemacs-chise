@@ -40,6 +40,10 @@ Boston, MA 02111-1307, USA.  */
 
 #include <sys/stat.h>			/* for S_IFLNK */
 
+#if defined(WIN32_NATIVE) || defined(CYGWIN)
+#define WIN32_FILENAMES
+#endif
+
 /* First char after start of absolute filename. */
 #define ABS_START(name) (name + ABS_LENGTH (name))
 
@@ -51,8 +55,13 @@ static int win32_abs_start (const char * name);
 # define system_readlink win32_readlink
 #else
 # ifdef CYGWIN
-#  define ABS_LENGTH(name) (IS_DIRECTORY_SEP (*name) ? \
-                            (IS_DIRECTORY_SEP (name[1]) ? 2 : 1) : 0)
+#  ifdef WIN32_FILENAMES
+#   define ABS_LENGTH(name) (win32_abs_start (name))
+static int win32_abs_start (const char * name);
+#  else
+#   define ABS_LENGTH(name) (IS_DIRECTORY_SEP (*name) ? \
+                             (IS_DIRECTORY_SEP (name[1]) ? 2 : 1) : 0)
+#  endif
 #  define system_readlink cygwin_readlink
 # else
 #  define ABS_LENGTH(name) (IS_DIRECTORY_SEP (*name) ? 1 : 0)
@@ -149,7 +158,7 @@ cygwin_readlink (const char * name, char * buf, int size)
 }
 #endif /* CYGWIN */
 
-#ifdef WIN32_NATIVE
+#ifdef WIN32_FILENAMES
 #ifndef ELOOP
 #define ELOOP 10062 /* = WSAELOOP in winsock.h */
 #endif
@@ -203,17 +212,30 @@ xrealpath (const char *path, char resolved_path [])
   path = copy_path;
   max_path = copy_path + PATH_MAX - 2;
 
-#ifdef WIN32_NATIVE
+  if (0)
+    ;
+#ifdef WIN32_FILENAMES
   /* Check for c:/... or //server/... */
-  if (abslen == 2 || abslen == 3)
+  else if (abslen == 3 || abslen == 2)
     {
-      strncpy (new_path, path, abslen);
       /* Make sure drive letter is lowercased. */
-      if (abslen == 3)
-	*new_path = tolower (*new_path);
-      new_path += abslen;
-      path += abslen;
+      if (abslen == 3) {
+	*new_path = tolower (*path);
+	new_path++;
+	path++;
+	abslen--;
+      }
+      /* Coerce directory chars. */
+      while (abslen-- > 0) {
+	if (IS_DIRECTORY_SEP (*path))
+	  *new_path++ = DIRECTORY_SEP;
+	else
+	  *new_path++ = *path;
+	path++;
+      }
     }
+#endif
+#ifdef WIN32_NATIVE
   /* No drive letter, but a beginning slash? Prepend drive letter. */
   else if (abslen == 1)
     {
@@ -222,7 +244,7 @@ xrealpath (const char *path, char resolved_path [])
       path++;
     }
   /* Just a path name, prepend the current directory */
-  else
+  else if (1)
     {
       getcwd (new_path, PATH_MAX - 1);
       new_path += strlen (new_path);
@@ -231,7 +253,7 @@ xrealpath (const char *path, char resolved_path [])
     }
 #else
   /* If it's a relative pathname use getcwd for starters. */
-  if (abslen == 0)
+  else if (abslen == 0)
     {
       getcwd (new_path, PATH_MAX - 1);
       new_path += strlen (new_path);
