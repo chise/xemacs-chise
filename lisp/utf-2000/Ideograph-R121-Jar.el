@@ -489,10 +489,12 @@
     (total-strokes	 . 14)
     (chinese-cns11643-3 . #x4877)	; ø»–‘Œ
     (ideograph-daikanwa . 28158)	; ø¸†·¾
+    (ucs		. #x7F41)	; ç½
     ))
 (define-char
   '((ideographic-radical . 121)	; â½¸
     (ideographic-strokes . 8)
+    (total-strokes	 . 14)
     (chinese-gb2312	. #x733F)	; ø»…¾¾
     (chinese-isoir165	. #x733F)	; ø»Ž§Ž
     (ucs		. #x7F42)	; ç½‚

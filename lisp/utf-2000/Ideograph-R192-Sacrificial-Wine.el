@@ -134,9 +134,11 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 27)
     (ideograph-daikanwa . 49917)	; �����
+    (ucs		. #x9B30)	; 鬰
     ))
 (define-char
-  '((morohashi-daikanwa	49917 0 0)
+  '((=>ucs		. #x9B30)	; 鬰
+    (morohashi-daikanwa	49917 0 0)
     (ideographic-radical . 192)	; ⾿
     (ideographic-strokes . 17)
     (total-strokes	 . 27)
@@ -168,7 +170,7 @@
     (ucs			. #x9B31)	; 鬱
     ))
 (define-char
-  '((->ucs		. #x9B31)	; 鬱
+  '((=>ucs		. #x9B31)	; 鬱
     (morohashi-daikanwa	45671 0 0)
     (ideographic-radical . 192)	; ⾿
     (ideographic-strokes . 19)

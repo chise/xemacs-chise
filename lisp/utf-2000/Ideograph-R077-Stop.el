@@ -553,6 +553,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (chinese-cns11643-3 . #x3168)	; ø»•¯‹
+    (ucs		. #x6B6C)	; æ­¬
     ))
 (define-char
   '((ideographic-radical . 77)	; â½Œ

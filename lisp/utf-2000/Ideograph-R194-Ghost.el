@@ -1,5 +1,5 @@
 (define-char
-  '((->ucs		. #x9B3C)	; 鬼
+  '((=>ucs		. #x9B3C)	; 鬼
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
@@ -218,6 +218,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-3 . #x4A78)	; �����
     (ideograph-daikanwa . 45782)	; �����
+    (ucs		. #x9B40)	; 魀
     ))
 (define-char
   '((ideographic-radical . 194)	; ⿁
@@ -390,7 +391,7 @@
     (ideograph-daikanwa . 45805)	; �����
     ))
 (define-char
-  '((->ucs		. #x9B43)	; 魃
+  '((=>ucs		. #x9B43)	; 魃
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
@@ -679,7 +680,7 @@
     (ideograph-daikanwa . 45840)	; �����
     ))
 (define-char
-  '((->ucs		. #x9B48)	; 魈
+  '((=>ucs		. #x9B48)	; 魈
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
@@ -696,7 +697,7 @@
     (ucs		. #x9B48)	; 魈
     ))
 (define-char
-  '((->ucs		. #x9B48)	; 魈
+  '((=>ucs		. #x9B48)	; 魈
     (morohashi-daikanwa	45841 0 3)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 7)
@@ -873,7 +874,7 @@
     (ucs		. #x9B4A)	; 魊
     ))
 (define-char
-  '((->ucs		. #x9B4B)	; 魋
+  '((=>ucs		. #x9B4B)	; 魋
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
@@ -1023,7 +1024,7 @@
     (ucs			. #x9B4F)	; 魏
     ))
 (define-char
-  '((->ucs		. #x9B4F)	; 魏
+  '((=>ucs		. #x9B4F)	; 魏
     (morohashi-daikanwa	45872 0 0)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 8)
@@ -1115,7 +1116,7 @@
     (ucs		. #x4C28)	; 䰨
     ))
 (define-char
-  '((->ucs		. #x4C29)	; 䰩
+  '((=>ucs		. #x4C29)	; 䰩
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
@@ -1184,7 +1185,7 @@
     (ucs		. #x4C2A)	; 䰪
     ))
 (define-char
-  '((->ucs		. #x4C2A)	; 䰪
+  '((=>ucs		. #x4C2A)	; 䰪
     (morohashi-daikanwa	45891 0 0)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 10)
@@ -1232,7 +1233,8 @@
     (ideograph-daikanwa . 45895)	; �����
     ))
 (define-char
-  '((ideographic-radical . 194)	; ⿁
+  '((=>ucs		. #x9B50)	; 魐
+    (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
     (ideograph-daikanwa . 45896)	; �����
@@ -1243,6 +1245,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
     (chinese-cns11643-3 . #x5D64)	; �����
+    (ucs		. #x9B50)	; 魐
     ))
 (define-char
   '((ideographic-radical . 194)	; ⿁
@@ -1303,7 +1306,7 @@
     (ucs			. #x9B51)	; 魑
     ))
 (define-char
-  '((->ucs		. #x9B51)	; 魑
+  '((=>ucs		. #x9B51)	; 魑
     (morohashi-daikanwa	45901 0 3)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 11)
@@ -1332,7 +1335,7 @@
     (ucs		. #x9B52)	; 魒
     ))
 (define-char
-  '((->ucs		. #x9B52)	; 魒
+  '((=>ucs		. #x9B52)	; 魒
     (morohashi-daikanwa	45904 0 0)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 11)
@@ -1348,7 +1351,7 @@
     (ucs		. #x9B53)	; 魓
     ))
 (define-char
-  '((->ucs		. #x9B54)	; 魔
+  '((=>ucs		. #x9B54)	; 魔
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
@@ -1637,7 +1640,7 @@
     (ucs		. #x4C30)	; 䰰
     ))
 (define-char
-  '((->ucs		. #x4C30)	; 䰰
+  '((=>ucs		. #x4C30)	; 䰰
     (morohashi-daikanwa	45938 0 0)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 14)
@@ -1682,7 +1685,7 @@
     (ucs			. #x9B58)	; 魘
     ))
 (define-char
-  '((->ucs		. #x9B58)	; 魘
+  '((=>ucs		. #x9B58)	; 魘
     (morohashi-daikanwa	45941 0 0)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 14)
@@ -1836,7 +1839,7 @@
     (ucs		. #x4C31)	; 䰱
     ))
 (define-char
-  '((->ucs		. #x4C31)	; 䰱
+  '((=>ucs		. #x4C31)	; 䰱
     (morohashi-daikanwa	45955 0 1)
     (ideographic-radical . 194)	; ⿁
     (ideographic-strokes . 24)
