@@ -173,12 +173,16 @@
     ))
 (define-char
   '((morohashi-daikanwa	ho 48)
-    (ideographic-radical . 46)	; â¼­
-    (ideographic-strokes . 2)
+    (ideographic-radical@ucs . 46)	; â¼­
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@daikanwa . 18)	; â¼‘
+    (ideographic-strokes@daikanwa . 3)
     (total-strokes	 . 5)
     (=jis-x0208		. #x5627)	; ø½‹ƒ¸
-    (=gt-pj-1		. #x5627)	; å±¶
+    (=gt-pj-1		. #x5627)	; ý¡€‚š¾
     (=gt-k		. 01046)	; ý¡„€–
+    (=gt		. 09918)	; ý¡€‚š¾
+    (mojikyo		. 054547)	; ý €”“
     (=ucs		. #x5C76)	; å±¶
     ))
 (define-char
