@@ -100,6 +100,19 @@ With a prefix argument, choose the language."
 		    ;; Now, signal the error
 		    (signal (car error-data) (cdr error-data)))))))
 
+;; General Mule-compatibility stuffs
+(define-function 'string-width 'length)
+
+;; The following was originally in subr.el
+(defun make-char (charset &optional arg1 arg2)
+  "Make a character from CHARSET and octets ARG1 and ARG2.
+This function is available for compatibility with Mule-enabled XEmacsen.
+When CHARSET is `ascii', return (int-char ARG1).  Otherwise, return
+that value with the high bit set.  ARG2 is always ignored."
+  (int-char (if (eq charset 'ascii)
+		arg1
+	      (logior arg1 #x80))))
+
 
 (provide 'help-nomule)
 

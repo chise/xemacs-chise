@@ -190,34 +190,46 @@ It might be available for compatibility with Mule 2.3,
 because its `find-charset-string' ignores ASCII charset."
   (delq 'ascii (charsets-in-region start end)))
 
-(defun split-char (char)
-  "Return list of charset and one or two position-codes of CHAR."
-  (let ((charset (char-charset char)))
-    (if (eq charset 'ascii)
-	(list charset (char-int char))
-      (let ((i 0)
-	    (len (charset-dimension charset))
-	    (code (if (integerp char)
-		      char
-		    (char-int char)))
-	    dest)
-	(while (< i len)
-	  (setq dest (cons (logand code 127) dest)
-		code (lsh code -7)
-		i (1+ i)))
-	(cons charset dest)
-	))))
+;(defun split-char (char)
+;  "Return list of charset and one or two position-codes of CHAR."
+;  (let ((charset (char-charset char)))
+;    (if (eq charset 'ascii)
+;	(list charset (char-int char))
+;      (let ((i 0)
+;	    (len (charset-dimension charset))
+;	    (code (if (integerp char)
+;		      char
+;		    (char-int char)))
+;	    dest)
+;	(while (< i len)
+;	  (setq dest (cons (logand code 127) dest)
+;		code (lsh code -7)
+;		i (1+ i)))
+;	(cons charset dest)
+;	))))
 
-(defun split-char-or-char-int (char)
-  "Return list of charset and one or two position-codes of CHAR.
-CHAR must be character or integer."
-  (if (characterp char)
-      (split-char char)
-    (let ((c (int-char char)))
-      (if c
-	  (split-char c)
-	(list 'ascii c)
-	))))
+(defun char-octet (ch &optional n)
+  "Return the octet numbered N (should be 0 or 1) of char CH.
+N defaults to 0 if omitted."
+  (let ((split (split-char ch)))
+    (cond ((eq n 0)
+	   (nth 1 split))
+	  ((eq n 1)
+	   (nth 2 split))
+	  (t (error "n must be 0 or 1")))))
+;; Made obsolete June 15, 1999.  Delete ASAP.
+(make-obsolete 'char-octet "Use split-char")
+
+;(defun split-char-or-char-int (char)
+;  "Return list of charset and one or two position-codes of CHAR.
+;CHAR must be character or integer."
+;  (if (characterp char)
+;      (split-char char)
+;    (let ((c (int-char char)))
+;      (if c
+;	  (split-char c)
+;	(list 'ascii c)
+;	))))
 
 
 ;;; Commands

@@ -38,7 +38,7 @@
 ;; Last Modified By: Heiko M|nkel <muenkel@tnt.uni-hannover.de>
 ;; Additional XEmacs integration By: Chuck Thompson <cthomp@cs.uiuc.edu>
 ;; Last Modified On: Thu Jul 1 14:23:00 1994
-;; RCS Info        : $Revision: 1.3.2.1 $ $Locker:  $
+;; RCS Info        : $Revision: 1.3.2.2 $ $Locker:  $
 ;; ========================================================================
 ;; NOTE: XEmacs must be redumped if this file is changed.
 ;;

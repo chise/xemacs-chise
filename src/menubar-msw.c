@@ -123,7 +123,7 @@ static HMENU top_level_menu;
  * "Left Flush\tRight Flush"
  */
 static char*
-displayable_menu_item (struct gui_item* pgui_item, int bar_p)
+displayable_menu_item (Lisp_Object gui_item, int bar_p)
 {
   /* We construct the name in a static buffer. That's fine, because
      menu items longer than 128 chars are probably programming errors,
@@ -134,7 +134,7 @@ displayable_menu_item (struct gui_item* pgui_item, int bar_p)
   unsigned int ll, lr;
 
   /* Left flush part of the string */
-  ll = gui_item_display_flush_left (pgui_item, buf, MAX_MENUITEM_LENGTH);
+  ll = gui_item_display_flush_left (gui_item, buf, MAX_MENUITEM_LENGTH);
 
   /* Escape '&' as '&&' */
   ptr = buf;
@@ -142,7 +142,7 @@ displayable_menu_item (struct gui_item* pgui_item, int bar_p)
     {
       if (ll+2 >= MAX_MENUITEM_LENGTH)
 	signal_simple_error ("Menu item produces too long displayable string",
-			     pgui_item->name);
+			     XGUI_ITEM (gui_item)->name);
       memmove (ptr+1, ptr, (ll-(ptr-buf))+1);
       ll++;
       ptr+=2;
@@ -165,7 +165,7 @@ displayable_menu_item (struct gui_item* pgui_item, int bar_p)
   if (!bar_p)
     {
       assert (MAX_MENUITEM_LENGTH > ll + 1);
-      lr = gui_item_display_flush_right (pgui_item, buf + ll + 1,
+      lr = gui_item_display_flush_right (gui_item, buf + ll + 1,
 					 MAX_MENUITEM_LENGTH - ll - 1);
       if (lr)
 	buf [ll] = '\t';
@@ -279,21 +279,21 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
     {
       /* Submenu */
       HMENU submenu;
-      struct gui_item gui_item;
+      Lisp_Object gui_item = allocate_gui_item ();
+      struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
       struct gcpro gcpro1;
 
-      gui_item_init (&gui_item);
-      GCPRO_GUI_ITEM (&gui_item);
+      GCPRO1 (gui_item);
 
-      menu_parse_submenu_keywords (item, &gui_item);
+      menu_parse_submenu_keywords (item, gui_item);
 
-      if (!STRINGP (gui_item.name))
+      if (!STRINGP (pgui_item->name))
 	signal_simple_error ("Menu name (first element) must be a string", item);
 
-      if (!gui_item_included_p (&gui_item, Vmenubar_configuration))
+      if (!gui_item_included_p (gui_item, Vmenubar_configuration))
 	return;
 
-      if (!gui_item_active_p (&gui_item))
+      if (!gui_item_active_p (gui_item))
 	item_info.fState = MFS_GRAYED;
       /* Temptation is to put 'else' right here. Although, the
 	 displayed item won't have an arrow indicating that it is a
@@ -301,7 +301,7 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
       submenu = create_empty_popup_menu();
 
       item_info.fMask |= MIIM_SUBMENU;
-      item_info.dwTypeData = displayable_menu_item (&gui_item, bar_p);
+      item_info.dwTypeData = displayable_menu_item (gui_item, bar_p);
       item_info.hSubMenu = submenu;
 
       if (!(item_info.fState & MFS_GRAYED))
@@ -310,12 +310,12 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
 	     keyed by menu handle */
 	  if (NILP(path))
 	    /* list1 cannot GC */
-	    path = list1 (gui_item.name);
+	    path = list1 (pgui_item->name);
 	  else
 	    {
 	      Lisp_Object arg[2];
 	      arg[0] = path;
-	      arg[1] = list1 (gui_item.name);
+	      arg[1] = list1 (pgui_item->name);
 	      /* Fappend gcpro'es its arg */
 	      path = Fappend (2, arg);
 	    }
@@ -329,22 +329,20 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
     {
       /* An ordinary item */
       Lisp_Object style, id;
-      struct gui_item gui_item;
+      Lisp_Object gui_item = gui_parse_item_keywords (item);
+      struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
       struct gcpro gcpro1;
 
-      gui_item_init (&gui_item);
-      GCPRO_GUI_ITEM (&gui_item);
+      GCPRO1 (gui_item);
 
-      gui_parse_item_keywords (item, &gui_item);
-
-      if (!gui_item_included_p (&gui_item, Vmenubar_configuration))
+      if (!gui_item_included_p (gui_item, Vmenubar_configuration))
 	return;
 
-      if (!gui_item_active_p (&gui_item))
+      if (!gui_item_active_p (gui_item))
 	item_info.fState = MFS_GRAYED;
 
-      style = (NILP (gui_item.selected) || NILP (Feval (gui_item.selected))
-	       ? Qnil : gui_item.style);
+      style = (NILP (pgui_item->selected) || NILP (Feval (pgui_item->selected))
+	       ? Qnil : pgui_item->style);
 
       if (EQ (style, Qradio))
 	{
@@ -356,13 +354,13 @@ populate_menu_add_item (HMENU menu, Lisp_Object path,
 	  item_info.fState |= MFS_CHECKED;
 	}
 
-      id = allocate_menu_item_id (path, gui_item.name,
-				  gui_item.suffix);
-      Fputhash (id, gui_item.callback, hash_tab);
+      id = allocate_menu_item_id (path, pgui_item->name,
+				  pgui_item->suffix);
+      Fputhash (id, pgui_item->callback, hash_tab);
 
       item_info.wID = (UINT) XINT(id);
       item_info.fType |= MFT_STRING;
-      item_info.dwTypeData = displayable_menu_item (&gui_item, bar_p);
+      item_info.dwTypeData = displayable_menu_item (gui_item, bar_p);
 
       UNGCPRO; /* gui_item */
     }
@@ -396,10 +394,9 @@ populate_or_checksum_helper (HMENU menu, Lisp_Object path, Lisp_Object desc,
   int deep_p, flush_right;
   struct gcpro gcpro1;
   unsigned long checksum;
-  struct gui_item gui_item;
-
-  gui_item_init (&gui_item);
-  GCPRO_GUI_ITEM (&gui_item);
+  Lisp_Object gui_item = allocate_gui_item ();
+  struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
+  GCPRO1 (gui_item);
 
   /* We are sometimes called with the menubar unchanged, and with changed
      right flush. We have to update the menubar in this case,
@@ -414,15 +411,15 @@ populate_or_checksum_helper (HMENU menu, Lisp_Object path, Lisp_Object desc,
   deep_p = !NILP (path);
 
   /* Fetch keywords prepending the item list */
-  desc = menu_parse_submenu_keywords (desc, &gui_item);
+  desc = menu_parse_submenu_keywords (desc, gui_item);
 
   /* Check that menu name is specified when expected */
-  if (NILP (gui_item.name) && deep_p)
+  if (NILP (pgui_item->name) && deep_p)
     signal_simple_error ("Menu must have a name", desc);
 
   /* Apply filter if specified */
-  if (!NILP (gui_item.filter))
-    desc = call1 (gui_item.filter, desc);
+  if (!NILP (pgui_item->filter))
+    desc = call1 (pgui_item->filter, desc);
 
   /* Loop thru the desc's CDR and add items for each entry */
   flush_right = 0;
@@ -453,11 +450,11 @@ populate_or_checksum_helper (HMENU menu, Lisp_Object path, Lisp_Object desc,
       /* Add the header to the popup, if told so. The same as in X - an
 	 insensitive item, and a separator (Seems to me, there were
 	 two separators in X... In Windows this looks ugly, anyways. */
-      if (!bar_p && !deep_p && popup_menu_titles && !NILP(gui_item.name))
+      if (!bar_p && !deep_p && popup_menu_titles && !NILP(pgui_item->name))
 	{
-	  CHECK_STRING (gui_item.name);
+	  CHECK_STRING (pgui_item->name);
 	  InsertMenu (menu, 0, MF_BYPOSITION | MF_STRING | MF_DISABLED,
-		      0, XSTRING_DATA(gui_item.name));
+		      0, XSTRING_DATA(pgui_item->name));
 	  InsertMenu (menu, 1, MF_BYPOSITION | MF_SEPARATOR, 0, NULL);
 	  SetMenuDefaultItem (menu, 0, MF_BYPOSITION);
 	}
