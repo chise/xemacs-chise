@@ -1,3 +1,8 @@
+2003-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt: Add some mappings.
+	(JC3-82DA): Delete mapping for U+C815.
+
 2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* GT-RS.txt (GT-014706): Fixed.
