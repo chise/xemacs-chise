@@ -63,6 +63,7 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_latin_viscii;
+Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_ideograph_daikanwa;
@@ -725,35 +726,56 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     {
-      Lisp_Object rest = value;
-      Lisp_Object table = Vcharacter_composition_table;
-
       if (!CONSP (value))
 	signal_simple_error ("Invalid value for ->decomposition",
 			     value);
 
-      while (CONSP (rest))
+      if (CONSP (Fcdr (value)))
 	{
-	  Lisp_Object v = Fcar (rest);
-	  Lisp_Object ntable;
-	  Emchar c
-	    = to_char_code (v, "Invalid value for ->decomposition", value);
+	  Lisp_Object rest = value;
+	  Lisp_Object table = Vcharacter_composition_table;
 
-	  rest = Fcdr (rest);
-	  if (!CONSP (rest))
+	  while (CONSP (rest))
 	    {
-	      put_char_code_table (c, character, table);
-	      break;
-	    }
-	  else
-	    {
-	      ntable = get_char_code_table (c, table);
-	      if (!CHAR_CODE_TABLE_P (ntable))
+	      Lisp_Object v = Fcar (rest);
+	      Lisp_Object ntable;
+	      Emchar c
+		= to_char_code (v,
+				"Invalid value for ->decomposition", value);
+
+	      rest = Fcdr (rest);
+	      if (!CONSP (rest))
 		{
-		  ntable = make_char_code_table (Qnil);
-		  put_char_code_table (c, ntable, table);
+		  put_char_code_table (c, character, table);
+		  break;
 		}
-	      table = ntable;
+	      else
+		{
+		  ntable = get_char_code_table (c, table);
+		  if (!CHAR_CODE_TABLE_P (ntable))
+		    {
+		      ntable = make_char_code_table (Qnil);
+		      put_char_code_table (c, ntable, table);
+		    }
+		  table = ntable;
+		}
+	    }
+	}
+      else
+	{
+	  Lisp_Object v = Fcar (value);
+
+	  if (INTP (v))
+	    {
+	      Emchar c = XINT (v);
+	      Lisp_Object ret
+		= get_char_code_table (c, Vcharacter_variant_table);
+
+	      if (NILP (Fmemq (v, ret)))
+		{
+		  put_char_code_table (c, Fcons (character, ret),
+				       Vcharacter_variant_table);
+		}
 	    }
 	}
     }
@@ -935,6 +957,7 @@ Lisp_Object Qascii,
 #ifdef UTF2000
   Qucs_bmp,
   Qlatin_viscii,
+  Qlatin_tcvn5712,
   Qlatin_viscii_lower,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
@@ -2822,6 +2845,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
+  defsymbol (&Qlatin_tcvn5712,		"latin-tcvn5712");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
@@ -3174,6 +3198,15 @@ complex_vars_of_mule_charset (void)
 		  build_string (CHINESE_CNS_PLANE_RE("2")),
 		  Qnil, 0, 0, 0, 33);
 #ifdef UTF2000
+  staticpro (&Vcharset_latin_tcvn5712);
+  Vcharset_latin_tcvn5712 =
+    make_charset (LEADING_BYTE_LATIN_TCVN5712, Qlatin_tcvn5712, 96, 1,
+		  1, 1, 'Z', CHARSET_LEFT_TO_RIGHT,
+		  build_string ("TCVN 5712"),
+		  build_string ("TCVN 5712 (VSCII-2)"),
+		  build_string ("Vietnamese TCVN 5712:1983 (VSCII-2)"),
+		  build_string ("tcvn5712-1"),
+		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_viscii_lower);
   Vcharset_latin_viscii_lower =
     make_charset (LEADING_BYTE_LATIN_VISCII_LOWER, Qlatin_viscii_lower, 96, 1,
