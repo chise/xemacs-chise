@@ -3,6 +3,11 @@
 	* mule/chinese.el (big5-cdp): New coding-system in XEmacs
 	UTF-2000.
 
+2001-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`ideograph-hanziku-{1 .. 12}' in XEmacs UTF-2000.
+
 2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list):
