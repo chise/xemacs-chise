@@ -2778,7 +2778,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=cns11643-1	  . #x6971)	; ø»’­œ
+     ((=jis-x0208	  . #x3446)	; ø½Š’›
+      (=ks-x1001	  . #x4A78)	; ø»‰—±
+      (=cns11643-1	  . #x6971)	; ø»’­œ
       (=daikanwa	  . 23032)	; ø¸…§¸
       )
      ((=ucs		  . #x6BDB)	; æ¯›

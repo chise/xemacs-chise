@@ -38,6 +38,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (=iso-ir165		. #x2F7A)	; ø»„‘
+    (=jis-x0213-2-2000	. #x7845)	; ø»¦–
     (=ucs		. #x8980)	; è¦€
     ))
 (define-char

@@ -1015,7 +1015,6 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (ideograph-cdp	. -1659)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -1024,6 +1023,7 @@
       )
      ((=ucs		  . #x65E9)	; æ—©
       ))
+    (=jis-x0213-2-2000	. #x2353)	; ø»¤ ®
     (=big5-cdp		. #x8C49)	; ý¢€ˆ±‰
     (=jef-china3	. #x73FC)	; øº‡¼
     (mojikyo		. 058536)	; ý €Ž’¨

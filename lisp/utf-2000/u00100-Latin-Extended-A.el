@@ -3718,13 +3718,14 @@
     (->decomposition	wide #x016A)
     (->lowercase
      ((name		  . "fullwidth latin small letter u with macron")
+      (=jis-x0213-1-2000  . #x297C)	; ø»¢ ‡
       ))
     (<-fullwidth
      ((name		  . "LATIN CAPITAL LETTER U WITH MACRON")
       (=ucs		  . #x016A)	; Åª
       ))
-    (japanese-jisx0213	. 10615)
     (=jis-x0212		. #x2A69)	; ø»Š²¦
+    (=jis-x0213-1-2000	. #x2977)	; ø»¢ ‚
     (=jef-china3	. #x87B9)	; øºˆž¹
     (=ucs@jis		. #x016A)	; ø»Š²¦
     ))

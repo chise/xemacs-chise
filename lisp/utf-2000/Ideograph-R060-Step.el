@@ -2177,6 +2177,7 @@
       (=daikanwa	  . 09574)	; ø¸‚•¦
       ))
     (=jis-x0212		. #x3D32)	; ø»‹©
+    (=jis-x0213-2-2000	. #x2C38)	; ø»¤­¡
     (=ucs@jis		. #x5FA4)	; ø»‹©
     ))
 (define-char

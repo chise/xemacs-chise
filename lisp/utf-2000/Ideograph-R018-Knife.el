@@ -8207,6 +8207,15 @@
     ))
 (define-char
   '((=>ucs		. #x20807)	; ð  ‡
+    (morohashi-daikanwa	2256 0 0)
+    (ideographic-radical . 18)	; â¼‘
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (=jis-x0213-2-2000	. #x233F)	; ø»¤ š
+    (=ucs@jis		. #x20807)	; ø»¤ š
+    ))
+(define-char
+  '((=>ucs		. #x20807)	; ð  ‡
     (morohashi-daikanwa	2256 0 1)
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 13)

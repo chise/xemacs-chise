@@ -1485,14 +1485,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=ucs		  . #x7247)	; ç‰‡
+     ((=cns11643-1	  . #x455A)	; ø»‘¸
       )
-     ((=jis-x0208	  . #x4D47)	; ø½Š·Š
-      (=ks-x1001	  . #x693C)	; ø»Š„—
-      (=daikanwa	  . 09378)	; ø¸‚’¢
+     ((=ucs		  . #x5EB8)	; åº¸
       ))
-    (=cbeta		. 04523)	; ø¸¡†«
-    (mojikyo		. 054860)	; ý €™Œ
+    (=cns11643-3	. #x4D2D)	; ø»–—˜
     ))
 (define-char
   '((=>ucs		. #x7257)	; ç‰—
@@ -1503,11 +1500,16 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=cns11643-1	  . #x455A)	; ø»‘¸
+     ((=ucs		  . #x7247)	; ç‰‡
       )
-     ((=ucs		  . #x5EB8)	; åº¸
+     ((=jis-x0208	  . #x4D47)	; ø½Š·Š
+      (=ks-x1001	  . #x693C)	; ø»Š„—
+      (=daikanwa	  . 09378)	; ø¸‚’¢
       ))
-    (=cns11643-3	. #x4D2D)	; ø»–—˜
+    (=jis-x0213-2-2000	. #x7031)	; ø»¦‘’
+    (=cbeta		. 04523)	; ø¸¡†«
+    (=ucs@jis		. #x7257)	; ø»¦‘’
+    (mojikyo		. 054860)	; ý €™Œ
     ))
 (define-char
   '((ideographic-radical . 91)	; â½š

@@ -5306,13 +5306,13 @@
     (=ucs@jis		. #x9DB4)	; ø½Šª–
     ))
 (define-char
-  '((=>ucs		. #x9DB4)	; é¶´
-    (morohashi-daikanwa	47185 0 1)
+  '((morohashi-daikanwa	47185 0 1)
     (ideographic-radical . 196)	; â¿ƒ
     (ideographic-strokes . 10)
     (total-strokes	 . 21)
     (=cns11643-1	. #x7B4E)	; ø»“‡•
-    (=gb12345		. #x3A57)	; ø»“‡•
+    (=gb12345		. #x3A57)	; é¶´
+    (=ucs		. #x9DB4)	; é¶´
     ))
 (define-char
   '((ideographic-radical . 196)	; â¿ƒ

@@ -1,3 +1,321 @@
+2003-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00100-Latin-Extended-A.el (JSP-2A69): Fix typo.
+
+2003-07-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00180-Latin-Extended-B.el (LATIN CAPITAL LETTER N WITH GRAVE):
+	Add `->fullwidth' for JX1-2874.
+	(JC3-85BC): Unify JX1-2874.
+
+	* Ideograph-R184-Eat.el (GT-K04996): Unify JX2-7C4B.
+	(C6-6440): Separate U+4B3B.
+	(JX2-7C55): New character.
+	(JSP-686E): Unify JX2-7C68.
+	(C2-6A63): Separate U+994E.
+	(M-44392): Unify C3-5E7E.
+
+	* Ideograph-R178-Tanned-Leather.el (C2-6C5F): Separate JSP-676B
+	and U+97E1.
+	(JSP-676B): Unify JX2-7C30.
+
+	* Ideograph-R140-Grass.el (JX2-7575): Unify U+FA5E instead of <CJK
+	RADICAL GRASS TWO>; add `->ideographic-component-forms' for <CJK
+	RADICAL GRASS TWO>.
+	(U+FA5D): New character.
+	(JSP-576D): Unify JX2-762E.
+	(M-31008): Separate G0-5D31, J0-6838, GT-06636 and U+837C.
+	(M-31009): Separate all.
+	(JSP-5821): Unify JX2-7A75.
+	(M-31010): Separate all.
+	(M-31011): Likewise.
+	(U+837F): Unify JX2-7633.
+	(JSP-5849): Unify JX2-7642.
+	(M-31309): Unify H8-F5B2 and U-00026C73.
+	(JX2-7644): New character.
+	(C3-3E57): Delete `kangxi-radical'.
+	(JSP-5854): Unify JX2-7648.
+	(M-31399): Separate all.
+	(JSP-585A): Unify JX2-764C.
+	(JSP-586E): Unify JX2-7657.
+	(U+450D): Separate C3-4940; unify JX2-7654; add `total-strokes'.
+	(JSP-5921): Unify JX2-7655.
+	(U+8553): Unify JX2-7671.
+	(JSP-5952): Unify JX2-766C.
+	(U+4543): Separate C4-5331; unify JX2-766E.
+
+2003-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R195-Fish.el (U+9BF3): Separate JSP-6A7C.
+	(JSP-6A7C): Unify JX2-7D51.
+	(JSP-6B22): Unify JX2-7D5A.
+	(JX2-6B33): Unify JX2-7D64.
+	(U+9C27): Separate C4-683E.
+	(JSP-6B50): Unify JX2-7D6C.
+
+	* Ideograph-R145-Clothes.el (M-34581): Separate all.
+	(JSP-5C6F): Unify JX2-7841.
+
+	* Ideograph-R142-Insect.el (U+87A7): Unify JX2-7766.
+	(U+87F5): Unify JX2-7771; add `total-strokes'.
+
+2003-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL GRASS TWO): Don't
+	map to U+8279; separate C4-2153, JX2-7575, M-30639 and BC-8AFE;
+	add `<-radical' for U+FA5E.
+	(CJK RADICAL GRASS THREE): Separate JX2-7574; add `<-radical' for
+	U+FA5D.
+
+	* Ideograph-R162-Walk.el (JSP-6138): Unify JX2-796C.
+	(JSP-6139): Unify JX2-796D.
+	(JX2-615C): Unify JX2-797C.
+
+	* Ideograph-R146-West.el (U+8980): Unify JX2-7845.
+
+	* Ideograph-R119-Rice.el (JSP-5334): Separate C4-4574; unify
+	JX2-7378.
+
+	* Ideograph-R116-Cave.el (U+41B1): Separate C4-5222.
+	(U+41B4): New character.
+	(JX2-7333): New character.
+
+	* Ideograph-R115-Grain.el (U-000257B4): Unify JX2-7276.
+	(M-25135): New character.
+	(U-000257A9): Relate to M-25135; unify JX2-7275.
+
+	* Ideograph-R108-Dish.el (U+76C9): Unify JX2-7176.
+	(U+76E8): Unify JX2-7178.
+
+	* Ideograph-R106-White.el (C3-5176): Unify JX2-7170.
+
+	* Ideograph-R104-Sickness.el (U+7617): Add `total-strokes'.
+	(U+7618): Likewise.
+	(JX2-7159): New character.
+
+	* Ideograph-R075-Tree.el (U-000233D2): Unify JX2-2E3D.
+	(JSP-433D): Unify JX2-2E4F.
+	(M-14639): Unify JSP-4343, C4-2D4E, JC3-53BA and U+67E1.
+	(JX2-2E4B): New character.
+	(M-14683): Unify G0-4859, JX2-2E4A, H8-EEF9 and U+8363.
+	(U+3B77): New character.
+	(U+FA13): New character.
+	(M-15089): New character.
+	(U+3B8D): Relate to M-15089; separate C3-4166.
+	(JSP-447D): Unify JX2-2F41.
+	(U+6A31): Add `total-strokes'.
+	(U+6A74): Likewise.
+	(M-15527): Separate all.
+	(U+6A7A): Relate to M-15527; unify JX2-2F55.
+	(U+6A7B): Add `total-strokes'.
+	(U+6AD4): Unify JX2-2F65.
+	(U+6B17): Unify JX2-2F76.
+
+2003-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R018-Knife.el (JX2-233F): New character.
+
+2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R134-Mortar.el (U-00026951): Unify JX2-755A.
+
+	* Ideograph-R061-Heart.el (JX2-2C57): Unify JU+60EE.
+
+	* Ideograph-R046-Mountain.el (JX2-284F): Unify JU+5D1D.
+
+	* Ideograph-R040-Roof.el (JX2-2823): Unify JU+3761.
+
+	* Ideograph-R032-Earth.el (U-00021336): Unify JX2-2474.
+
+	* Ideograph-R030-Mouth.el (CB00070): Unify JX2-2431, H2-DBF0 and
+	U-00020E95.
+
+2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R129-Brush.el (C6-3B24): Separate U+8081.
+	(U+8082): Use `ideographic-radical@cns' instead of `cns-radical';
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources', `ideographic-strokes@cns' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R096-Jade.el (JSP-4B7B): Separate K0-607B and
+	JC3-59C9; use `=ucs@jis-1990' instead of `=ucs@jis'.
+	(U+73F9): Unify K0-607B, JX2-706A and JC3-59C9.
+	(U+7413): Separate K0-684D.
+	(K0-684D): Unify JX2-706B.
+	(U+7453): Unify JX2-7071.
+	(U+74A5): Unify JX2-7123.
+
+	* Ideograph-R091-Slice.el (CB04523): Unify JX2-7031.
+
+	* Ideograph-R086-Fire.el (U+70BB): Separate C3-2D5D; unify
+	JX2-6F60.
+	(U+70BC): Add `total-strokes'.
+	(U+70BD): Likewise.
+	(U+70EC): Unify JX2-6F65.
+	(U+3DD4): Unify JX2-6F77.
+	(CB04059): Unify JX2-6F78.
+	(JSP-4A2F): Use `=ucs@jis-1990' instead of `=ucs@jis'.
+	(U+71B3): Unify JX2-7021.
+
+	* Ideograph-R085-Water.el (JSP-465F): Unify JX2-6E37.
+	(JSP-4738): Unify JX2-6E50.
+	(U-00023D42): Fix `ideographic-strokes'.
+	(U+6E0F): Add `total-strokes'.
+	(U+6E14): Likewise.
+	(U+6E16): Likewise.
+	(U+6E17): Unify JX2-6E5D.
+	(U+988D): Add `total-strokes'.
+	(U+6E36): Unify JX2-6E6D.
+	(U+6F35): Unify JX2-6F28.
+	(U+3D9A): Unify JX2-6F54.
+
+	* Ideograph-R078-Death.el (U+8082): Copied from
+	Ideograph-R129-Brush.el.
+
+	* Ideograph-R072-Sun.el (U+3AD6): New character.
+	(U+65F7): Add `total-strokes'.
+	(U+65F8): Likewise.
+	(JSP-4177): Separate U+6608; unify JX2-2D76.
+	(M-13981): Separate U+666D and C3-3C25; unify JX2-2E28.
+	(U+6690): Separate B-DDC2.
+	(JSP-4250): Unify JX2-2E2B and B-DDC2.
+	(U+66B1): Add `<-original-ideograph' for S1-3299; add S{1|2}-3299;
+	unify JX2-2E30.
+
+	* Ideograph-R024-Ten.el (U-0002099D): Unify JX2-2353.
+
+2003-07-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (U+8363): Add `morohashi-daikanwa' for
+	M-14683 instead of using `->same-ideograph'.
+
+	* Ideograph-R102-Field.el (U+3F57): Unify JX2-7134.
+
+	* Ideograph-R098-Tile.el (U+74EF): Unify JX2-712C.
+
+	* Ideograph-R094-Dog.el (JSP-4B25): Unify JX2-7045.
+	(U+7339): Unify JX2-704A.
+
+	* Ideograph-R087-Claw.el (U+722B): Add JU+FA49.
+	(U+FA49): New character.
+
+	* Ideograph-R079-Weapon.el (JSP-4633): Unify JX2-6E25 and M-16650.
+
+	* Ideograph-R064-Hand.el (U+63F7): Unify JX2-2D3C.
+	(U+3A6E): New character.
+
+	* Ideograph-R050-Turban.el (U+3836): Unify JX2-2871.
+	(U+5E49): Unify JX2-2878.
+	(U+3861): New character.
+
+2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el (U+3917): New character.
+	(U+6112): Unify JX2-2C5B.
+	(JX2-2C57): New character.
+
+	* Ideograph-R060-Step.el (JSP-3D32): Unify JX2-2C38.
+
+	* Ideograph-R046-Mountain.el (JSP-3B2A): Unify JX2-283C.
+	(U+37C1): Unify JX2-283E.
+	(M-08196): Unify JX2-284F.
+	(JSP-3B68): Unify JX2-285F.
+	(JSP-3B6C): Unify JX2-2862.
+
+	* Ideograph-R040-Roof.el (MH-0132): Unify JX2-2823.
+
+	* Ideograph-R213-Turtle.el (J90-6354): Unify GT-32753; don't use
+	char-ref format in `<-ancient-ideograph'; use
+	`<-ancient-ideograph*sources' instead.
+
+	* Ideograph-R116-Cave.el: Add some GT code points.
+
+	* Ideograph-R181-Leaf.el (U+9834): Unify GT-31942.
+
+	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R112-Stone.el: Add some GT code points.
+
+2003-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (U-00026AFF): Unify JX1-7A5D; add
+	strokes.
+	(JX1-7A6D): New character.
+
+	* char-db-util.el (char-db-feature-domains): Add `jis', `jis/alt',
+	`jis/a' and `jis/b'.
+
+	* Ideograph-R055-Two-Hands.el, Ideograph-R051-Dry.el (U+5F00):
+	Delete `script'; use `ideographic-strokes@{ucs|cns}' instead of
+	`ideographic-strokes'; add `ideographic-radical@ucs*sources'; add
+	`ideographic-{radical|strokes}@jis/b' and
+	`ideographic-radical@jis/b*sources'; unify JX1-7431.
+
+	* Ideograph-R007-Two.el (U+5F00): Copied from
+	Ideograph-R055-Two-Hands.el and Ideograph-R051-Dry.el.
+
+	* Ideograph-R196-Bird.el (C1-7B4E): Unify U+9DB4.
+
+	* Ideograph-R195-Fish.el (M-46019): Separate U+9B72; unify
+	JX1-7E43.
+
+	* Ideograph-R181-Leaf.el (U+9834): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns' and
+	`ideographic-radical@cns*sources'; unify M-24824 instead of using
+	`->same-ideograph'.
+
+	* Ideograph-R142-Insect.el (U+459D): Unify JX1-7B51.
+
+	* Ideograph-R113-Spirit.el (U+9834): Copied from
+	Ideograph-R181-Leaf.el.
+
+	* Ideograph-R085-Water.el (JX1-7653): New character.
+	(U+6CFA): Add `total-strokes'.
+	(U+6CFB): Likewise.
+	(JX1-765A): New character.
+	(U+6CFC): Add `total-strokes'.
+	(U+6CFD): Likewise.
+	(U+6CFE): Likewise.
+
+	* Ideograph-R075-Tree.el (B-E256): Unify JX1-757D.
+
+	* Ideograph-R054-Long-Stride.el (JX1-7430): New character.
+
+	* Ideograph-R009-Man.el (U+346A): New character.
+	(JX2-2156): Likewise.
+
+	* Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el,
+	Ideograph-R108-Dish.el: Add some GT code points.
+
+	* Ideograph-R086-Fire.el (M-19561'): Unify JX1-7763.
+
+2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+37E2): Unify JX1-4F6F.
+	(MH-0149): Unify JX1-4F72 and U+FA11.
+
+	* Ideograph-R098-Tile.el, Ideograph-R107-Skin.el,
+	Ideograph-R096-Jade.el, Ideograph-R105-Dotted-Tent.el,
+	Ideograph-R097-Melon.el, Ideograph-R086-Fire.el: Add some GT code
+	points.
+
+2003-06-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R087-Claw.el (J0-602A): Unify BC-ACB0.
+
+2003-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R093-Cow.el, Ideograph-R090-Half-Tree-Trunk.el,
+	Ideograph-R085-Water.el, Ideograph-R083-Clan.el,
+	Ideograph-R076-Lack.el, Ideograph-R075-Tree.el: Add some GT code
+	points.
+
+	* Ideograph-R064-Hand.el (C3-5076): Separate JSP-4128 and CB02695.
+	(J0-5A22): Separate G0-475C and U+64D2; unify GT-20067.
+
 2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-db-util.el (insert-char-data-with-variant): Rename

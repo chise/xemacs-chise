@@ -1830,6 +1830,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x004E #x0300)
+    (->fullwidth
+     ((=jis-x0213-1-2000  . #x2874)	; ø»¢ž¡
+      ))
     (->lowercase
      ((name		  . "LATIN SMALL LETTER N WITH GRAVE")
       (=ucs		  . #x01F9)	; Ç¹
@@ -1837,7 +1840,18 @@
     (=ucs		. #x01F8)	; Ç¸
     ))
 (define-char
-  '((=>ucs		. #x01F8)	; Ç¸
+  '((name		. "fullwidth latin capital letter n with grave")
+    (=>ucs		. #x01F8)	; Ç¸
+    (general-category	letter uppercase) ; Normative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
+    (->lowercase
+     ((=jis-x0213-1-2000  . #x2875)	; ø»¢ž¢
+      ))
+    (<-fullwidth
+     ((=ucs		  . #x01F8)	; Ç¸
+      ))
+    (=jis-x0213-1-2000	. #x2874)	; ø»¢ž¡
     (=jef-china3	. #x85BC)	; øºˆ–¼
     ))
 (define-char
@@ -1864,7 +1878,7 @@
     (mirrored		. nil)
     (->decomposition	wide #x01F9)
     (->uppercase
-     ((name . "fullwidth latin capital letter n with grave")
+     ((=jis-x0213-1-2000  . #x2874)	; ø»¢ž¡
       ))
     (<-fullwidth
      ((name		  . "LATIN SMALL LETTER N WITH GRAVE")
