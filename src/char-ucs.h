@@ -26,6 +26,42 @@ Boston, MA 02111-1307, USA.  */
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
+struct Lisp_Uint8_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned char property[256];
+};
+typedef struct Lisp_Uint8_Byte_Table Lisp_Uint8_Byte_Table;
+
+DECLARE_LRECORD (uint8_byte_table, Lisp_Uint8_Byte_Table);
+#define XUINT8_BYTE_TABLE(x) \
+   XRECORD (x, uint8_byte_table, Lisp_Uint8_Byte_Table)
+#define XSETUINT8_BYTE_TABLE(x, p) XSETRECORD (x, p, uint8_byte_table)
+#define UINT8_BYTE_TABLE_P(x) RECORDP (x, uint8_byte_table)
+#define GC_UINT8_BYTE_TABLE_P(x) GC_RECORDP (x, uint8_byte_table)
+/* #define CHECK_UINT8_BYTE_TABLE(x) CHECK_RECORD (x, uint8_byte_table)
+   char table entries should never escape to Lisp */
+
+
+struct Lisp_Uint16_Byte_Table
+{
+  struct lcrecord_header header;
+
+  unsigned short property[256];
+};
+typedef struct Lisp_Uint16_Byte_Table Lisp_Uint16_Byte_Table;
+
+DECLARE_LRECORD (uint16_byte_table, Lisp_Uint16_Byte_Table);
+#define XUINT16_BYTE_TABLE(x) \
+   XRECORD (x, uint16_byte_table, Lisp_Uint16_Byte_Table)
+#define XSETUINT16_BYTE_TABLE(x, p) XSETRECORD (x, p, uint16_byte_table)
+#define UINT16_BYTE_TABLE_P(x) RECORDP (x, uint16_byte_table)
+#define GC_UINT16_BYTE_TABLE_P(x) GC_RECORDP (x, uint16_byte_table)
+/* #define CHECK_UINT16_BYTE_TABLE(x) CHECK_RECORD (x, uint16_byte_table)
+   char table entries should never escape to Lisp */
+
+
 struct Lisp_Byte_Table
 {
   struct lcrecord_header header;
