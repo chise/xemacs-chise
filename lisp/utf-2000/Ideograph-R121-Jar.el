@@ -148,6 +148,7 @@
 (define-char
   '((ideographic-radical . 121)	; â½¸
     (ideographic-strokes . 4)
+    (total-strokes	 . 10)
     (=ucs		. #x7F3C)	; ç¼¼
     (=jis-x0212		. #x546B)	; ø»‹°”
     (=jis-x0213-2-2000	. #x7462)	; ø»¦—»

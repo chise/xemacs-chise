@@ -406,13 +406,11 @@
     (=daikanwa		. 49283)	; ø¸Œ‚ƒ
     ))
 (define-char
-  '((ideographic-	(:radical	93 ; â½œ
-			 :strokes	4
-			 :total-strokes	8)
-			(:radical	93 ; â½œ
-			 :strokes	5
-			 :total-strokes	9
-			 :sources	(cns-11643)))
+  '((ideographic-radical . 93)	; â½œ
+    (ideographic-strokes@daikanwa . 4)
+    (total-strokes@daikanwa	  . 8)
+    (ideographic-strokes@cns . 5)
+    (total-strokes@cns	     . 9)
     (=ucs		. #x726C)	; ç‰¬
     (=cns11643-2	. #x2B7A)	; ø»“œ¥
     (=big5		. #xCFBA)	; ý¢€Œ¾º
@@ -1394,6 +1392,28 @@
     (=cns11643-2	. #x3D6C)	; ø»“¶³
     ))
 (define-char
+  '((=>ucs		. #x3E43)	; ã¹ƒ
+    (ideographic-radical . 93)	; â½œ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=daikanwa		. 20061)	; ø¸„¹
+    ))
+(define-char
+  '((=>ucs		. #x3E43)	; ã¹ƒ
+    (morohashi-daikanwa	20061 0 0)
+    (ideographic-radical . 93)	; â½œ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=cns11643-4	. #x3873)	; ø»˜ƒ¬
+    ))
+(define-char
+  '((morohashi-daikanwa	20061 0 1)
+    (ideographic-radical . 93)	; â½œ
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (=ucs		. #x3E43)	; ã¹ƒ
+    ))
+(define-char
   '((=>ucs		. #x7289)	; çŠ‰
     (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 8)
@@ -1437,12 +1457,6 @@
   '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (=ucs		. #x3E43)	; ã¹ƒ
-    (=cns11643-4	. #x3873)	; ø»˜ƒ¬
-    ))
-(define-char
-  '((ideographic-radical . 93)	; â½œ
-    (ideographic-strokes . 8)
     (=ucs		. #x728A)	; çŠŠ
     (=gb2312		. #x363F)	; ø»„¥˜
     ))
@@ -2625,6 +2639,7 @@
 (define-char
   '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 12)
+    (total-strokes	 . 16)
     (=ucs		. #x729F)	; çŠŸ
     (=gb2312		. #x6A71)	; ø»…²¢
     ))
@@ -2733,6 +2748,7 @@
   '((morohashi-daikanwa	20190 1)
     (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 13)
+    (total-strokes	 . 17)
     (=ucs		. #x72A0)	; çŠ 
     (=jis-x0208		. #x353E)	; ø½Š“±
     (=gt		. 25890)	; ý¡€†”¢

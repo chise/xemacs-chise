@@ -177,9 +177,10 @@
       (=daikanwa	  . 00360)	; ø¸€…¨
       ))
     (<-original-ideograph
-     (:char	((=daikanwa	     . 01612)	; ø¸€™Œ
-		 )
-      :sources	(morohashi-daikanwa)))
+     ((=daikanwa	  . 01612)	; ø¸€™Œ
+      ))
+    (<-original-ideograph*sources
+     daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±

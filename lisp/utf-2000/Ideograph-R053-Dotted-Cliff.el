@@ -3847,6 +3847,7 @@
 (define-char
   '((ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=ucs		. #x5ECD)	; å»
     (mojikyo		. 059582)	; ý €Ž¢¾
     ))

@@ -151,6 +151,7 @@
 (define-char
   '((ideographic-radical . 155)	; â¾š
     (ideographic-strokes . 6)
+    (total-strokes	 . 13)
     (=ucs		. #x8D6A)	; èµª
     (=iso-ir165		. #x7E5A)	; ø»Ž·³
     ))

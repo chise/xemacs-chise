@@ -75,6 +75,7 @@
 (define-char
   '((ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
+    (total-strokes	 . 7)
     (=ucs		. #x9F9F)	; é¾Ÿ
     (=gb2312		. #x396A)	; ø»„ª
     ))
@@ -200,12 +201,6 @@
     (total-strokes	 . 21)
     (=cns11643-7	. #x574A)	; ø»ŸŽ±
     (=daikanwa		. 48863)	; ø¸‹»Ÿ
-    ))
-(define-char
-  '((ideographic-radical . 213)	; â¿”
-    (ideographic-strokes . 4)
-    (=ucs		. #x9F0B)	; é¼‹
-    (=gb2312		. #x763D)	; ø»†ƒ–
     ))
 (define-char
   '((ideographic-radical . 213)	; â¿”

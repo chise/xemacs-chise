@@ -7771,6 +7771,7 @@
 (define-char
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 13)
+    (total-strokes	 . 15)
     (hanyu-dazidian	1 358 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

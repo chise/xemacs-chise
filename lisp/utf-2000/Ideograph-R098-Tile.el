@@ -26,6 +26,7 @@
 (define-char
   '((ideographic-radical . 98)	; â½¡
     (ideographic-strokes . 2)
+    (total-strokes	 . 7)
     (=ucs		. #x74E7)	; ç“§
     (=jis-x0208		. #x6123)	; ø½‹“¾
     (=gt		. 27548)	; ý¡€†®œ

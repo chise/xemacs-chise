@@ -265,6 +265,7 @@
 (define-char
   '((ideographic-radical . 146)	; ⾑
     (ideographic-strokes . 6)
+    (total-strokes	 . 12)
     (=ucs		. #x8984)	; 覄
     ))
 (define-char

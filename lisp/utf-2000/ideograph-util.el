@@ -1,24 +1,24 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
+;; Keywords: CHISE, Chaon model, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
-;; This file is part of XEmacs UTF-2000.
+;; This file is part of XEmacs CHISE.
 
-;; XEmacs UTF-2000 is free software; you can redistribute it and/or
+;; XEmacs CHISE is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation; either version 2, or (at
 ;; your option) any later version.
 
-;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
-;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; XEmacs CHISE is distributed in the hope that it will be useful, but
+;; WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
+;; along with XEmacs CHISE; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -85,25 +85,28 @@
    11 12 12 12 12 13 13 13 13 14
    14 15 16 16 17])
 
+;;;###autoload
 (defun char-ideographic-strokes-from-domains (char domains &optional radical)
-  (catch 'tag
-    (dolist (domain domains)
-      (if (and (setq ret (or (get-char-attribute
-			      char
-			      (intern
-			       (format "%s@%s"
-				       'ideographic-radical domain)))
-			     (get-char-attribute
-			      char 'ideographic-radical)))
-	       (or (eq ret radical)
-		   (null radical))
-	       (setq ret (get-char-attribute
-			  char
-			  (intern
-			   (format "%s@%s"
-				   'ideographic-strokes domain)))))
-	  (throw 'tag ret)))))
+  (let (ret)
+    (catch 'tag
+      (dolist (domain domains)
+	(if (and (setq ret (or (get-char-attribute
+				char
+				(intern
+				 (format "%s@%s"
+					 'ideographic-radical domain)))
+			       (get-char-attribute
+				char 'ideographic-radical)))
+		 (or (eq ret radical)
+		     (null radical))
+		 (setq ret (get-char-attribute
+			    char
+			    (intern
+			     (format "%s@%s"
+				     'ideographic-strokes domain)))))
+	    (throw 'tag ret))))))
 
+;;;###autoload
 (defun char-ideographic-strokes (char &optional radical preferred-domains)
   (let (ret)
     (or (char-ideographic-strokes-from-domains
@@ -130,6 +133,24 @@
 	  (when strokes
 	    (put-char-attribute char 'ideographic-strokes strokes)
 	    strokes)))))
+
+;;;###autoload
+(defun char-total-strokes-from-domains (char domains)
+  (let (ret)
+    (catch 'tag
+      (dolist (domain domains)
+	(if (setq ret (get-char-attribute
+		       char
+		       (intern
+			(format "%s@%s"
+				'total-strokes domain))))
+	    (throw 'tag ret))))))
+
+;;;###autoload
+(defun char-total-strokes (char &optional preferred-domains)
+  (or (char-total-strokes-from-domains char preferred-domains)
+      (get-char-attribute char 'total-strokes)
+      (char-total-strokes-from-domains char char-db-feature-domains)))
 
 ;;;###autoload
 (defun update-ideograph-radical-table ()
@@ -381,6 +402,40 @@
 			    (unless (or rest value)
 			      char)))
 			'ideographic-structure)))
+
+;;;###autoload
+(defun chise-string< (string1 string2 accessors)
+  (let ((len1 (length string1))
+	(len2 (length string2))
+	len
+	(i 0)
+	c1 c2
+	rest func
+	v1 v2)
+    (setq len (min len1 len2))
+    (catch 'tag
+      (while (< i len)
+	(setq c1 (aref string1 i)
+	      c2 (aref string2 i))
+	(setq rest accessors)
+	(while (and rest
+		    (setq func (car rest))
+		    (setq v1 (funcall func c1)
+			  v2 (funcall func c2))
+		    (eq v1 v2))
+	  (setq rest (cdr rest)))
+	(if v1
+	    (if v2
+		(cond ((< v1 v2)
+		       (throw 'tag t))
+		      ((> v1 v2)
+		       (throw 'tag nil)))
+	      (throw 'tag nil))
+	  (if v2
+	      (throw 'tag t)))
+	(setq i (1+ i)))
+      (< len1 len2))))
+
 
 (provide 'ideograph-util)
 

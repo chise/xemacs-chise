@@ -1873,6 +1873,7 @@
 (define-char
   '((ideographic-radical . 190)	; â¾½
     (ideographic-strokes . 10)
+    (total-strokes	 . 20)
     (=ucs		. #x9B13)	; é¬“
     (=gb2312		. #x775E)	; ø»†…•
     ))

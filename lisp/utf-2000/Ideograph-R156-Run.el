@@ -3170,6 +3170,7 @@
 (define-char
   '((ideographic-radical . 156)	; â¾›
     (ideographic-strokes . 14)
+    (total-strokes	 . 21)
     (=ucs		. #x8DB0)	; è¶°
     ))
 (define-char
@@ -3355,6 +3356,7 @@
 (define-char
   '((ideographic-radical . 156)	; â¾›
     (ideographic-strokes . 16)
+    (total-strokes	 . 23)
     (=ucs		. #x8DB1)	; è¶±
     (=gb2312		. #x7475)	; ø»†’
     ))

@@ -650,6 +650,7 @@
 (define-char
   '((ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 6)
+    (total-strokes	 . 18)
     (=ucs		. #x9EE1)	; é»¡
     (=iso-ir165		. #x7A26)	; ø»Ž±‡
     ))
@@ -977,12 +978,14 @@
 (define-char
   '((ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 8)
+    (total-strokes	 . 20)
     (=ucs		. #x9EE9)	; é»©
     (=gb2312		. #x7772)	; ø»†…©
     ))
 (define-char
   '((ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 8)
+    (total-strokes	 . 20)
     (=ucs		. #x9EEA)	; é»ª
     (=gb2312		. #x7775)	; ø»†…¬
     ))

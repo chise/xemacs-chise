@@ -32,6 +32,9 @@
     (ideographic-radical . 87)	; â½–
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (->identical
+     ((=ucs		  . #xFA49)	; ï©‰
+      ))
     (=ucs		. #x722B)	; çˆ«
     ))
 (define-char
@@ -40,9 +43,6 @@
     (ideographic-radical . 87)	; â½–
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (->identical
-     ((=ucs		  . #x722B)	; çˆ«
-      ))
     (=ucs		. #xFA49)	; ï©‰
     (=jis-x0213-2-2000	. #x7029)	; ø»¦‘Š
     (=ucs@gb		. #x722B)	; ï©‰
@@ -266,6 +266,7 @@
 (define-char
   '((ideographic-radical . 87)	; â½–
     (ideographic-strokes . 6)
+    (total-strokes	 . 10)
     (=ucs		. #x7231)	; çˆ±
     (=gb2312		. #x302E)	; ø»„œ“
     ))
