@@ -1,5 +1,8 @@
 2003-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R155-Red.el: Add some mappings between CNS 11643-5 and
+	CJK Ext-B code points.
+
 	* Ideograph-R173-Rain.el (U+4A0C): Unify M-42223; separate
 	C3-3F7D.
 	(M-42224): Separate U+96ED.
