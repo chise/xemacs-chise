@@ -1,3 +1,20 @@
+2002-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"u0A490-Yi-Radicals".
+
+2002-03-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u0A490-Yi-Radicals.el: New file.
+
+	* u0A000-Yi-Syllables.el: Separate <YI RADICAL *> (U+A490
+	.. U+A4C6) into u0A490-Yi-Radicals.el.
+
+2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el (GT-21862): New character.
+	(GT-40268): New character.
+
 2002-03-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u03300-CJK-Compatibility.el: Reformatted.
