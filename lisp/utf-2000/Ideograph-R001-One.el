@@ -366,8 +366,8 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (comment		. "<vulgar character> of S1-0009")
     (shinjigen-1	. 11)
+    (vulgar-char-of-shinjigen-1 . 9)
     (ideograph-daikanwa . 00026)	; ø¸€€š
     ))
 (define-char
@@ -376,8 +376,8 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (comment		. "<vulgar character> of S1-0009")
     (shinjigen-1	. 11)
+    (vulgar-char-of-shinjigen-1 . 9)
     (chinese-cns11643-3		. #x2144)	; ø»•—‡
     (japanese-jisx0213-1	. #x2E22)	; ø»¢¦ƒ
     ))
@@ -696,7 +696,7 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (comment		. "<original character> of R026:S1-0848")
+    (original-char-of-shinjigen-1 . 848)
     (shinjigen-1	. 849)
     (japanese-jisx0212	. #x3027)	; ø»Šº˜
     (chinese-cns11643-4 . #x2335)	; ø»—£¸
