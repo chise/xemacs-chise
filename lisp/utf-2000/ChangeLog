@@ -1,3 +1,20 @@
+2002-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el: Modify some `ideographic-structure'
+	properties.
+	(M-05163): Separate C3-346D and U+3648.
+	(U+58A2): Separate C3-4B46, JC3-48BC and CB-02390.
+
+2002-11-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R077-Stop.el: Add some missing mappings to CBETA
+	numbers.
+
+	* Ideograph-R072-Sun.el: Modify some `ideographic-structure'
+	properties.
+
+	* Ideograph-R052-Short-Thread.el (U-000221C7): Unify CB-05036.
+
 2002-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R131-Minister.el, Ideograph-R134-Mortar.el,
