@@ -106,7 +106,7 @@
        '(registry "jisx0213\\(\\.2000\\)-1"
 		  dimension 2
 		  chars 94
-		  mother japanese-jisx0208-1990
+		  mother =jis-x0208-1990
 		  final ?O
 		  graphic 0))
       (make-charset
@@ -139,6 +139,7 @@
   )
 
 (when (featurep 'utf-2000)
+  (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
   (make-charset 'ucs-gb
 		"UCS for GB"
 		`(long-name	"ISO/IEC 10646 for GB"
