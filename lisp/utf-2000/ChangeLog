@@ -1,5 +1,13 @@
 2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* update-cdb.el: Generate "../lisp/utf-2000/cid-conf.el" when
+	char-DB generating stage, and load it when dumping stage.
+
+	* Ideograph-R180-Sound.el, Ideograph-R173-Rain.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R170-Mound.el, Ideograph-R169-Gate.el,
 	Ideograph-R164-Wine.el, Ideograph-R165-Distinguish.el: Add some
 	`<-simplified@JP/Jouyou' features.
