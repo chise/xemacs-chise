@@ -491,6 +491,8 @@
      ((japanese-jisx0208-1990	  . #x7374)	; ø½‹¯«
       (ideograph-daikanwa	  . 48632)	; ø¸‹·¸
       ))
+    (japanese-jisx0208-1978	. #x4E70)	; ø»‚¿•
+    (japanese-jisx0208		. #x4E70)	; ø»‡“
     (japanese-jisx0208-1990	. #x4E70)	; ø½Š¹‘
     (mojikyo			. 050612)	; ý €Œ–´
     ))
