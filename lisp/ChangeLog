@@ -1,5 +1,21 @@
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/thai-xtis.el: Delete unused local variable `category'.
+
+	* mule/mule-cmds.el (coding-system-change-eol-conversion): New
+	function.
+	(prefer-coding-system): Don't call
+	`update-coding-systems-internal'; use function
+	`coding-category-list' instead of variable `coding-category-list';
+	use `set-coding-priority-list' instead of `set-coding-priority';
+	modify `eol-type' for XEmacs.
+
+	* mule/mule-misc.el (string-width): Use `charset-width' instead of
+	`charset-columns'.
+	(char-width): Likewise.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/thai-xtis.el: Specify `iso-8-1' as coding-category of
 	`tis-620'.
 
@@ -58,21 +74,6 @@
 
 	* mule/mule-cmds.el (current-language-environment): Doc fix.
 
-1999-03-17  Eli Zaretskii  <eliz@gnu.org>
-
-	* mule/mule-cmds.el (set-language-environment): Fix
-	previous change: don't use dos-codepage when unbound.
-
-1999-03-16  Eli Zaretskii  <eliz@gnu.org>
-
-	* mule/mule-cmds.el (set-language-environment): Don't use
-	cpNNN-nonascii-translation-table if it is unbound.
-
-1999-02-12  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/mule-cmds.el (language-info-alist): Remove
-	description about charset-origin-alist.
-
 1999-01-27  Dave Love  <fx@gnu.org>
 
 	* mule/mule-cmds.el (current-language-environment):
@@ -97,10 +98,8 @@
 
 1998-12-17  Eli Zaretskii  <eliz@mescaline.gnu.org>
 
-	* mule/mule-cmds.el (set-language-environment): On MS-DOS
-	terminals, install DOS-specific nonascii-translation-table if the
-	language info doesn't specify one.  Pass the default eol-type to
-	set-language-environment-coding-systems.
+	* mule/mule-cmds.el (set-language-environment): Pass the default
+	eol-type to set-language-environment-coding-systems.
 	(set-default-coding-systems): Copy the eol-type property for the
 	new default values of {buffer-file,process}-coding-system from the
 	old defaults.
@@ -131,12 +130,6 @@
 
 	* mule/mule-cmds.el (current-language-environment): Fix
 	setter function.
-
-1998-08-23  Kenichi HANDA  <handa@etl.go.jp>
-
-	* mule/mule-cmds.el
-	(set-language-environment-coding-systems): Set
-	default-sendmail-coding-system.
 
 1998-08-18  Kenichi Handa  <handa@etl.go.jp>
 
@@ -177,10 +170,6 @@
 
 	* mule/mule-cmds.el (language-info-alist): Doc-string
 	modified.
-	(set-language-environment): Setup nonascii-translation-table and
-	charset-origin-alist according to the property of the specified
-	language environment.
-	(set-language-environment-coding-systems): Likewise.
 
 1998-07-30  Ken'ichi Handa  <handa@delysid.gnu.org>
 
