@@ -1,3 +1,7 @@
+2003-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u00100-Latin-Extended-A.el (JSP-2A69): Fix typo.
+
 2003-07-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u00180-Latin-Extended-B.el (LATIN CAPITAL LETTER N WITH GRAVE):
