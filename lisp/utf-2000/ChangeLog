@@ -1,3 +1,29 @@
+2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R135-Tongue.el (M-30307): Moved into U-0002F98D; use
+	`->identical' instead of `->same' for M-38638; use
+	`<-vulgar@{jiyun|zhengzi-tong}' instead of `<-vulgar'.
+	(U-0002F98D): Use `->subsumptive'; use `<-denotational' for
+	U+8F9E.
+
+	* Ideograph-R086-Fire.el (U-00024183): Use `->subsumptive'.
+	(U+3DA1): Likewise.
+	(G0-3B52): Use `<-denotational' for U+7070; use `->subsumptive' to
+	integrate C1-4848.
+	(U+7070): Define as an abstract character.
+	(J0-3325): Use `<-denotational' for U+7070; moved into U-0002F835;
+	use `<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U-0002F835): Use `->subsumptive'; use `<-denotational' for
+	U+7070.
+	(U-000241BD): Use `->subsumptive'.
+	(U-000241BE): Likewise.
+	(U+3DAD): Likewise.
+	(J0-433A): Use `<-denotational' for U+70AD; use `->subsumptive' to
+	integrate C1-5237.
+	(U+70AD): Define as an abstract character.
+	(G0-4C3F): Use `<-denotational' for U+70AD; use `->subsumptive' to
+	integrate U-0002F91A.
+
 2004-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R177-Leather.el (J90-7057): Moved into U+9771; use
