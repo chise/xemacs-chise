@@ -813,11 +813,13 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 893)
-		 (=daikanwa	     . 03098)	; &I-M-03098;
-		 )
+     ((shinjigen-1	  . 893)
+      (=ucs		  . #x53C3)	; 參
+      (=jis-x0208	  . #x5254)	; &I-J90-5254;
+      (=daikanwa	  . 03098)	; &I-M-03098;
       ))
+    (<-vulgar*sources
+     guangyun daikanwa shinjigen-1)
     (hanyu-dazidian	1 389 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
