@@ -1,3 +1,25 @@
+2003-02-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R057-Bow.el (U+5F45): Separate JSP-3C74 and JC3-4CF6.
+	(JSP-3C74): Unify JX1-743A.
+
+	* Ideograph-R015-Ice.el (M-01721): Separate B-E8F9.
+
+2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R013-Down-Box.el (GT-K00079): New character.
+	(U+5187): Unify B-C94E.
+	(C2-212E): New character.
+
+	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el,
+	Ideograph-R003-Dot.el, Ideograph-R002-Line.el: Add some missing
+	`ucs-cns' and `ucs-big5' attributes.
+
+	* Ideograph-R001-One.el (GT-K00002): New character.
+	(C2-212E): Separate B-C94E; add CU+5187; use `ideographic-'
+	instead of `ideographic-radical' and `ideographic-strokes' to add
+	UCS's radical and strokes.
+
 2003-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R200-Hemp.el (K0-582B): Unify M-47887; separate
@@ -5,6 +27,8 @@
 	(C1-5E28): Relate to M-47887 instead of M-47888.
 	(C6-463E): Likewise.
 	(M-47888): Separate G0-4269 and U+9EBB.
+
+	* Ideograph-R009-Man.el: Reformatted.
 
 2003-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
