@@ -2744,7 +2744,6 @@ character set.  Recognized properties are:
 	  signal_simple_error ("Unrecognized property", keyword);
       }
   }
->>>>>>> 1.1.3.20
 
   if (!final)
     error ("'final must be specified");
