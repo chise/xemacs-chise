@@ -1,3 +1,10 @@
+2002-07-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R038-Woman.el (U-000218B7): Fixed.
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Ignore
+	non-Unicode UCS code-points.
+
 2002-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R123-Sheep.el, Ideograph-R135-Tongue.el,
