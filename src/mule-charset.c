@@ -737,6 +737,34 @@ decoding_table_remove_char (Lisp_Object v, int dim, int byte_offset,
     XVECTOR_DATA(v)[i] = Qnil;
 }
 
+INLINE_HEADER void
+decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+			 int code_point, Lisp_Object character);
+INLINE_HEADER void
+decoding_table_put_char (Lisp_Object v, int dim, int byte_offset,
+			 int code_point, Lisp_Object character)
+{
+  int i = -1;
+  Lisp_Object nv;
+  int ccs_len = XVECTOR_LENGTH (v);
+
+  while (dim > 0)
+    {
+      dim--;
+      i = ((code_point >> (8 * dim)) & 255) - byte_offset;
+      nv = XVECTOR_DATA(v)[i];
+      if (dim > 0)
+	{
+	  if (!VECTORP (nv))
+	    nv = (XVECTOR_DATA(v)[i] = make_older_vector (ccs_len, Qnil));
+	  v = nv;
+	}
+      else
+	break;
+    }
+  XVECTOR_DATA(v)[i] = character;
+}
+
 Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
@@ -746,10 +774,7 @@ put_char_ccs_code_point (Lisp_Object character,
   if (!EQ (XCHARSET_NAME (ccs), Qucs)
       || (XCHAR (character) != XINT (value)))
     {
-      Lisp_Object cpos, rest;
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
-      Lisp_Object nv;
-      int i = -1;
       int dim = XCHARSET_DIMENSION (ccs);
       int ccs_len = XCHARSET_BYTE_SIZE (ccs);
       int byte_offset = XCHARSET_BYTE_OFFSET (ccs);
@@ -758,6 +783,7 @@ put_char_ccs_code_point (Lisp_Object character,
       if (CONSP (value))
 	{ /* obsolete representation: value must be a list of bytes */
 	  Lisp_Object ret = Fcar (value);
+	  Lisp_Object rest;
 
 	  if (!INTP (ret))
 	    signal_simple_error ("Invalid value for coded-charset", value);
@@ -786,15 +812,19 @@ put_char_ccs_code_point (Lisp_Object character,
 	}
       else if (INTP (value))
 	{
+	  code_point = XINT (value);
 	  if (XCHARSET_GRAPHIC (ccs) == 1)
-	    value = make_int (XINT (value) & 0x7F7F7F7F);
+	    {
+	      code_point &= 0x7F7F7F7F;
+	      value = make_int (code_point);
+	    }
 	}
       else
 	signal_simple_error ("Invalid value for coded-charset", value);
 
-      cpos = Fget_char_attribute (character, ccs);
       if (VECTORP (v))
 	{
+	  Lisp_Object cpos = Fget_char_attribute (character, ccs);
 	  if (!NILP (cpos))
 	    {
 	      decoding_table_remove_char (v, dim, byte_offset, XINT (cpos));
@@ -802,33 +832,16 @@ put_char_ccs_code_point (Lisp_Object character,
 	}
       else
 	{
-	  XCHARSET_DECODING_TABLE (ccs) = v
-	    = make_older_vector (ccs_len, Qnil);
+	  XCHARSET_DECODING_TABLE (ccs)
+	    = v = make_older_vector (ccs_len, Qnil);
 	}
 
-      code_point = XINT (value);
-      i = -1;
-      while (dim > 0)
-	{
-	  dim--;
-	  i = ((code_point >> (8 * dim)) & 255) - byte_offset;
-	  nv = XVECTOR_DATA(v)[i];
-	  if (dim > 0)
-	    {
-	      if (!VECTORP (nv))
-		nv = (XVECTOR_DATA(v)[i]
-		      = make_older_vector (ccs_len, Qnil));
-	      v = nv;
-	    }
-	  else
-	    break;
-	}
-      XVECTOR_DATA(v)[i] = character;
+      decoding_table_put_char (v, dim, byte_offset, code_point, character);
     }
   if (NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
     {
-      XCHARSET_ENCODING_TABLE (ccs) = encoding_table
-	= make_char_id_table (Qnil, -1);
+      XCHARSET_ENCODING_TABLE (ccs)
+	= encoding_table = make_char_id_table (Qnil, -1);
     }
   put_char_id_table (XCHAR (character), value, encoding_table);
   return Qt;
