@@ -1228,9 +1228,7 @@ character set.  Recognized properties are:
   Lisp_Object rest, keyword, value;
   Lisp_Object ccl_program = Qnil;
   Lisp_Object short_name = Qnil, long_name = Qnil;
-#ifdef UTF2000
   unsigned char byte_offset = 0;
-#endif
 
   CHECK_SYMBOL (name);
   if (!NILP (doc_string))
