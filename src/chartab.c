@@ -3635,11 +3635,11 @@ open_chise_data_source_maybe ()
 {
   if (default_chise_data_source == NULL)
     {
-      Lisp_Object db_dir = Vexec_directory;
+      Lisp_Object db_dir = Vdata_directory;
       int modemask = 0755;		/* rwxr-xr-x */
 
       if (NILP (db_dir))
-	db_dir = build_string ("../lib-src");
+	db_dir = build_string ("../etc");
       db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
 
       default_chise_data_source
@@ -3743,10 +3743,10 @@ Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode)
 {
-  Lisp_Object db_dir = Vexec_directory;
+  Lisp_Object db_dir = Vdata_directory;
 
   if (NILP (db_dir))
-    db_dir = build_string ("../lib-src");
+    db_dir = build_string ("../etc");
 
   db_dir = Fexpand_file_name (build_string ("chise-db"), db_dir);
   if (writing_mode && NILP (Ffile_exists_p (db_dir)))
@@ -3829,7 +3829,9 @@ Save values of ATTRIBUTE into database file.
     {
       Lisp_Object (*filter)(Lisp_Object value);
 
-      if ( EQ (attribute, Qideographic_structure)
+      if ( !NILP (Ffind_charset (attribute)) )
+	filter = NULL;
+      else if ( EQ (attribute, Qideographic_structure)
 	   || EQ (attribute, Q_identical)
 	   || EQ (attribute, Q_identical_from)
 	   || !NILP (Fstring_match

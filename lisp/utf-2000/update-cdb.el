@@ -40,8 +40,8 @@
  ((featurep 'chise)
   (defvar system-char-database-directory
     (expand-file-name "chise-db"
-		      (or exec-directory
-			  "../lib-src/")))
+		      (or data-directory
+			  "../etc/")))
 
   (defun file-name-char-attribute-name (filename)
     (let ((i 0)
@@ -75,6 +75,7 @@
       (save-char-attribute-table attribute))
 
     (dolist (ccs (charset-list))
+      (save-charset-properties ccs)
       (save-charset-mapping-table ccs))
 
     (with-temp-buffer

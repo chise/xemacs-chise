@@ -2363,6 +2363,170 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
   return -1;
 #endif /* not HAVE_LIBCHISE */
 }
+
+#ifdef HAVE_LIBCHISE
+DEFUN ("save-charset-properties", Fsave_charset_properties, 1, 1, 0, /*
+Save properties of CHARSET.
+*/
+       (charset))
+{
+  struct Lisp_Charset *cs;
+  CHISE_Property property;
+  Lisp_Object ccs;
+  unsigned char* feature_name;
+
+  ccs = Fget_charset (charset);
+  cs = XCHARSET (ccs);
+
+  if ( open_chise_data_source_maybe () )
+    return -1;
+
+  if ( SYMBOLP (charset) && !EQ (charset, XCHARSET_NAME (ccs)) )
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"true-name");
+      feature_name = XSTRING_DATA (Fsymbol_name (charset));
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (CHARSET_NAME (cs),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+  charset = XCHARSET_NAME (ccs);
+  feature_name = XSTRING_DATA (Fsymbol_name (charset));
+
+  property = chise_ds_get_property (default_chise_data_source,
+				    "description");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string
+			     (CHARSET_DOC_STRING (cs), Qnil)));
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "type");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, "CCS");
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "chars");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_CHARS (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+
+  property = chise_ds_get_property (default_chise_data_source, "dimension");
+  chise_feature_set_property_value
+    (chise_ds_get_feature (default_chise_data_source, feature_name),
+     property, XSTRING_DATA (Fprin1_to_string (make_int
+					       (CHARSET_DIMENSION (cs)),
+					       Qnil)));
+  chise_property_sync (property);
+
+  if ( CHARSET_FINAL (cs) != 0 )
+    {
+      property = chise_ds_get_property (default_chise_data_source,
+					"final-byte");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (make_int
+						   (CHARSET_FINAL (cs)),
+						   Qnil)));
+      chise_property_sync (property);
+    }
+
+  if ( !NILP (CHARSET_MOTHER (cs)) )
+    {
+      Lisp_Object mother = CHARSET_MOTHER (cs);
+
+      if ( CHARSETP (mother) )
+	mother = XCHARSET_NAME (mother);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother");
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, XSTRING_DATA (Fprin1_to_string (mother, Qnil)));
+      chise_property_sync (property);
+    }
+
+  if ( CHARSET_MAX_CODE (cs) != 0 )
+    {
+      char str[16];
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-min");
+      if ( CHARSET_MIN_CODE (cs) == 0 )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "0");
+      else
+	{
+	  sprintf (str, "#x%X", CHARSET_MIN_CODE (cs));
+	  chise_feature_set_property_value
+	    (chise_ds_get_feature (default_chise_data_source, feature_name),
+	     property, str);
+	}
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-max");
+      sprintf (str, "#x%X", CHARSET_MAX_CODE (cs));
+      chise_feature_set_property_value
+	(chise_ds_get_feature (default_chise_data_source, feature_name),
+	 property, str);
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-offset");
+      if ( CHARSET_CODE_OFFSET (cs) == 0 )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "0");
+      else
+	{
+	  sprintf (str, "#x%X", CHARSET_CODE_OFFSET (cs));
+	  chise_feature_set_property_value
+	    (chise_ds_get_feature (default_chise_data_source, feature_name),
+	     property, str);
+	}
+      chise_property_sync (property);
+
+      property = chise_ds_get_property (default_chise_data_source,
+					"mother-code-conversion");
+      if ( CHARSET_CONVERSION (cs) == CONVERSION_IDENTICAL )
+	chise_feature_set_property_value
+	  (chise_ds_get_feature (default_chise_data_source, feature_name),
+	   property, "identical");
+      else
+	{
+	  Lisp_Object sym = Qnil;
+
+	  if ( CHARSET_CONVERSION (cs) == CONVERSION_94x60 )
+	    sym = Q94x60;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_94x94x60 )
+	    sym = Q94x94x60;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_BIG5_1 )
+	    sym = Qbig5_1;
+	  else if ( CHARSET_CONVERSION (cs) == CONVERSION_BIG5_2 )
+	    sym = Qbig5_2;
+	  if ( !NILP (sym) )
+	    chise_feature_set_property_value
+	      (chise_ds_get_feature (default_chise_data_source, feature_name),
+	       property, XSTRING_DATA (Fprin1_to_string (sym, Qnil)));
+	  else
+	    chise_feature_set_property_value
+	      (chise_ds_get_feature (default_chise_data_source, feature_name),
+	       property, "unknown");
+	}
+      chise_property_sync (property);
+    }
+  return Qnil;
+}
+#endif /* HAVE_LIBCHISE */
+
 #endif /* HAVE_CHISE */
 #endif /* UTF2000 */
 
@@ -2704,6 +2868,9 @@ syms_of_mule_charset (void)
 #ifdef HAVE_CHISE
   DEFSUBR (Fsave_charset_mapping_table);
   DEFSUBR (Freset_charset_mapping_table);
+#ifdef HAVE_LIBCHISE
+  DEFSUBR (Fsave_charset_properties);
+#endif /* HAVE_LIBCHISE */
 #endif /* HAVE_CHISE */
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
