@@ -1,3 +1,30 @@
+2000-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (make_byte_table): Add new argument `older'.
+	(make_char_id_table): Likewise.
+	(copy_char_id_table): Comment out because it is not used.
+	(put_char_id_table): Modify for `make_byte_table'.
+	(Fput_char_attribute): Make encoding_table as older object;
+	inherit older bit of `Vcharacter_composition_table'.
+	(mark_charset): Don't mark `cs->encoding_table'.
+	(vars_of_mule_charset): Make `Vcharacter_attribute_table' as a
+	normal object; make `Vcharacter_composition_table' as an older
+	object; delete staticpro for `Vcharacter_composition_table'; make
+	`Vcharacter_variant_table' as a normal object.
+
+	* alloc.c (alloc_older_lcrecord): New function in UTF-2000.
+	(mark_object): Don't check older object in UTF-2000.
+
+	* lrecord.h (struct lrecord_header): Add new member `older' in
+	UTF-2000.
+	(set_lheader_implementation): Setup `SLI_header->older' in
+	UTF-2000.
+	(set_lheader_older_implementation): New macro in UTF-2000.
+	(OLDER_RECORD_P): New macro in UTF-2000.
+	(OLDER_RECORD_HEADER_P): New macro in UTF-2000.
+	(alloc_older_lcrecord): New prototype in UTF-2000.
+	(alloc_older_lcrecord_type): New macro in UTF-2000.
+
 2000-05-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (byte_table_description): Use
