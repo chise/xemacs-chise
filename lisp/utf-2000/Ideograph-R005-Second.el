@@ -887,7 +887,9 @@
     (ideographic-structure
      (:cdp-combinator	4
       )
-     ((chinese-big5-cdp	  . #x8B58)	; ï“²
+     ((name		  . "CJK RADICAL PAW ONE")
+      (chinese-big5-cdp	  . #x8B58)	; âº¤
+      (ucs		  . #x2EA4)	; âº¤
       )
      ((chinese-big5-cdp	  . #x8AFB)	; ï“–
       )
@@ -1062,7 +1064,8 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-big5-cdp	  . #x8C7D)	; ï–´
+     ((chinese-cns11643-4 . #x386A)	; ø»˜ƒ£
+      (chinese-big5-cdp	  . #x8C7D)	; ø»˜ƒ£
       )
      ((name		  . "CJK RADICAL SECOND TWO")
       (chinese-big5-cdp	  . #x8C5D)	; âºƒ
