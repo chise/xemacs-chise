@@ -643,7 +643,7 @@
     (ucs		. #x5176)	; å…¶
     ))
 (define-char
-  '((=>ucs		. #x5177)	; å…·
+  '((=>ucs*		. #x5177)	; å…·
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
@@ -662,7 +662,8 @@
     (=jis-x0208		. #x3671)	; ø½Š–‚
     (chinese-cns11643-3 . #x2754)	; ø»• ‹
     (ideograph-daikanwa . 01473)	; ø¸€—
-    (ucs-jis		. #x5177)	; ø½Š–‚
+    (ucs-jis		. #x5177)	; ð¯ ‘
+    (ucs		. #x2F811)	; ð¯ ‘
     ))
 (define-char
   '((morohashi-daikanwa	1473 0 4)
