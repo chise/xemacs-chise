@@ -1046,23 +1046,6 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
 #define GET_C_STRING_CTEXT_DATA_ALLOCA(s, ptr_out)		\
   GET_C_STRING_EXT_DATA_ALLOCA (s, FORMAT_CTEXT, ptr_out)
 
-
-
-/************************************************************************/
-/*                                                                      */
-/*                          fake charset functions                      */
-/*                                                                      */
-/************************************************************************/
-
-/* used when MULE is not defined, so that Charset-type stuff can still
-   be done */
-
-#ifndef MULE
-
-#define REP_BYTES_BY_FIRST_BYTE(fb) 1
-#define BYTE_ASCII_P(byte) 1
-
-#endif /* ! MULE */
 
 /************************************************************************/
 /*                                                                      */
