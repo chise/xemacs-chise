@@ -1671,7 +1671,7 @@ char_table_hash (Lisp_Object obj, int depth)
 
 static const struct lrecord_description char_table_description[] = {
 #ifdef UTF2000
-  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table) },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
 #else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
@@ -3322,7 +3322,7 @@ the entire table.
        (function, attribute, range))
 {
   Lisp_Object ccs;
-  Lisp_Char_ID_Table *ct;
+  Lisp_Char_Table *ct;
   struct slow_map_char_table_arg slarg;
   struct gcpro gcpro1, gcpro2;
   struct chartab_range rainj;
