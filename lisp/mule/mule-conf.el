@@ -231,7 +231,7 @@
 		  mother	=ucs))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
 
-  (make-charset 'ideograph-daikanwa
+  (make-charset '=daikanwa
 		"Daikanwa"
 		`(long-name	"Daikanwa dictionary (revised version 2)"
 		  chars		256
@@ -243,6 +243,7 @@
 		  min-code	#xE00000
 		  max-code	,(+ #xE00000 50100)
 		  code-offset	#xE00000))
+  (define-charset-alias 'ideograph-daikanwa '=daikanwa)
 
   (make-charset '=daikanwa-rev1
 		"Daikanwa Rev."
