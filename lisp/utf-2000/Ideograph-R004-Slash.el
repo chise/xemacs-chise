@@ -1182,7 +1182,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
       (ucs		  . #x2FF4)	; â¿´
       )
-     ((chinese-big5	  . #x89CD)	; ý¢€ˆ§
+     ((chinese-big5-cdp	  . #x89CD)	; ý¢€ˆ§
       )
      ((ucs		  . #x4E00)	; ä¸€
       ))
