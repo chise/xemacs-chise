@@ -1,3 +1,10 @@
+2004-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qsystem_char_id): New variable.
+
+	* chartab.c (Qsystem_char_id): Deleted even if HAVE_CHISE is
+	defined and HAVE_LIBCHISE_LIBCHISE is not defined.
+
 2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): When processing a reference of
