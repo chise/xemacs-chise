@@ -1,7 +1,3 @@
-2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
-
-	* XEmacs 21.4.12 "Portable Code" is released.
-
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.11 "Native Windows TTY Support" is released.
@@ -358,6 +354,6 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.20 2003/01/03 10:49:30 stephent Exp $
-$Revision: 1.2.2.20 $
+%%% $Id: ChangeLog,v 1.2.2.19 2002/12/12 06:21:23 stephent Exp $
+$Revision: 1.2.2.19 $
 

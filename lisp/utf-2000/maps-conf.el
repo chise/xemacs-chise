@@ -21,17 +21,8 @@
 
 (map-char-attribute
  (lambda (c v)
-   (unless (memq v '(#x5C37 #x5C52 #x3521 #x5D62 #x5F4A
-		     #x5F5B #x6062 #x4849 #x6173 #x306B
-		     #x6328 #x6352 #x6362 #x6471 #x6524
-		     #x6530 #x6549 #x6628 #x4356 #x665C
-		     #x665D #x6661 #x6660 #x6663 #x4F38
-		     #x666B #x4C2E #x6724 #x3D58 #x682B
-		     #x427B #x4978 #x694A #x303A #x6A44
-		     #x6B43 #x6B78 #x6C2E #x6C57 #x6D36
-		     #x6D3A #x3D34 #x4A56 #x3063))
-     (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
-			 '=gt-pj-1 v))
+   (put-char-attribute (decode-char 'japanese-jisx0208-1990 v)
+		       '=gt-pj-1 v)
    nil)
  '=gt-pj-1)
 
@@ -58,23 +49,3 @@
       (when (setq chr (apply (function make-char) ret))
 	(put-char-attribute chr '=gt-k i)))
     (setq i (1+ i))))
-
-(let (gt)
-  (dolist (ccs '(=gt-pj-1
-		 =gt-pj-2
-		 =gt-pj-3
-		 =gt-pj-4
-		 =gt-pj-5
-		 =gt-pj-6
-		 =gt-pj-7
-		 =gt-pj-8
-		 =gt-pj-9
-		 =gt-pj-10
-		 =gt-pj-11))
-    (map-char-attribute
-     (lambda (c v)
-       (when (setq gt (encode-char c '=gt))
-	 (put-char-attribute c '=gt gt)
-	 (put-char-attribute (decode-char ccs v) '=gt gt))
-       nil)
-     ccs)))
