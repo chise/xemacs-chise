@@ -790,6 +790,7 @@
     (total-strokes	 . 13)
     (japanese-jisx0208-1978	. #x5D3B)	; ø»ƒ”¢
     (japanese-jisx0208		. #x5D3B)	; ø»‡¨ª
+    (korean-ksc5601		. #x6B66)	; ø»Š‡½
     (japanese-jisx0208-1990	. #x5D3B)	; ø½‹Žž
     (ideograph-daikanwa		. 44063)	; ø¸Š°Ÿ
     (mojikyo			. 044063)	; ý €Š°Ÿ
