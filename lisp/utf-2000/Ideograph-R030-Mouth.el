@@ -942,6 +942,9 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (<-original
+     ((=ucs		  . #x5B50)	; 子
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -1851,6 +1854,9 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
+    (<-original
+     ((=ucs		  . #x5B50)	; 子
+      ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
@@ -4148,14 +4154,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=big5-cdp	    . #x8957)	; &CDP-8957;
-	)
-       ((=ucs		    . #x4E59)	; 乙
-	))
+     ((=ucs		  . #x827A)	; 艺
       ))
     (=ucs		. #x5453)	; 呓
     (=gb2312		. #x5F3D)	; &I-G0-5F3D; [63-29]
