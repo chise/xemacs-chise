@@ -1,3 +1,84 @@
+2001-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-insert-alist): New function.
+	(insert-char-attributes): Use `char-db-insert-alist' to format
+	`ideograph=', `original-ideograph-of' and `vulgar-ideograph-of'.
+
+	* Ideograph-R172-Short-Tailed-Bird.el (C2-643E): New character;
+	relate to U+5DC2 and M-08595.
+
+	* Ideograph-R069-Axe.el (C4-3D63): Relate to U+65B1.
+
+	* Ideograph-R067-Script.el (M-13453): Add `total-strokes' property
+	and `vulgar-ideograph-of' property.
+
+	* Ideograph-R061-Heart.el (M-10506): Unify C4-2945.
+	(U+607C): Unify C3-2C5C.
+	(M-10850): Add `vulgar-ideograph-of' property.
+	(C3-3578): Relate to U+60E8 and M-10850.
+
+	* Ideograph-R040-Roof.el (M-07089): Use `original-ideograph-of'
+	property instead of `ideograph-original-char-of' property to
+	describe source.
+	(M-07112): Modify format of `ideograph=' to describe source.
+
+	* Ideograph-R032-Earth.el (U+578A): Unify M059295.
+	(U+580F): Unify M059309.
+	(U+5812): Unify M059311.
+	(U+5813): Unify M065088.
+	(U+5847): Unify M059320.
+	(M-05345): Unify EGB-2E32; unify U+585A instead of U+FA10.
+	(J83-444D): Separate EGB-2E32 and U+585A.
+	(U+589B): Unify M059336.
+	(M-05449): Separate C5-452B; fix strokes.
+
+	* Ideograph-R009-Man.el (M-00366'): Modify format of `ideograph='
+	to describe source.
+
+	* Ideograph-R004-Slash.el (M-00129): Modify format of `ideograph='
+	to describe source.
+
+2001-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (M-11959): Unify C1-4D60.
+	(U+62E4): Unify C3-2929; add `total-strokes'.
+	(U+631F): Unify C3-2C6B.
+	(U+6527): Unify C3-5F49.
+	(U+64B9): Unify C3-4C37.
+
+	* Ideograph-R039-Child.el (C3-2558): New character; relate to
+	U+6588 and M-13453.
+
+	* Ideograph-R066-Rap.el (U+655A): Unify C3-3634.
+	(M-13277): Unify C2-3C3C.
+	(U+6573): Unify C2-4A5B.
+
+	* Ideograph-R046-Mountain.el (U+5D8D): Unify C2-4974 and M053297.
+
+2001-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (M-31984): Separate C5-5D7A; fix
+	strokes.
+	(M-32048): Add `total-strokes' property.
+	(C7-3B36): Separate M-32048.
+	(M-32070): Separate JSP-5957, C3-562B, JX2-7678 and U+857F.
+	(JX2-7678): Unify JSP-5957 and M056335.
+	(C3-562B): Unify U+857F.
+	(M-32071): Separate J0-6925 and U+8580.
+	(J0-6925): Unify M055631 and U+8580.
+	(M-32072): Separate JSP-5958, JX2-7679 and U+8581.
+	(JX2-7679): Unify JSP-5958, M056336 and U+8581.
+	(M-32073): Separate C5-5766; fix strokes.
+	(M-32186): Separate C7-3259; fix strokes.
+	(C7-3A6E): Cancel relation for M-34013.
+
+	* Ideograph-R040-Roof.el (M-07089): Unify U+5B90; add
+	`ideograph-original-char-of' for M-07111.
+	(M-07112): Relate to U+5B90; add `ideograph=' property for
+	M-07111.
+	(U+5BF3): Unify C3-5A35 instead of C3-5A36.
+	(C3-5A36): Delete relation for U+5BF3.
+
 2001-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (ideograph-char<): Don't use daikanwa-strokes
