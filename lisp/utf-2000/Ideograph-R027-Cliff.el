@@ -2851,8 +2851,8 @@
     (hanyu-dazidian-page . 80)
     (hanyu-dazidian-char . 21)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; ⿱
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; ⿸
       )
      ((ucs		  . #x53AD)	; 厭
       )
