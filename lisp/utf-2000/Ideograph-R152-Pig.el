@@ -1402,6 +1402,14 @@
     (ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 17)
     (total-strokes	 . 24)
+    (mojikyo		. 050474)	; ø¸Œ”ª
+    ))
+(define-char
+  '((morohashi-daikanwa	36486 1 9)
+    (ideographic-radical . 152)	; â¾—
+    (ideographic-strokes . 17)
+    (total-strokes	 . 24)
+    (->mojikyo		. 050474)	; ø¸Œ”ª
     (chinese-cns11643-7 . #x5F5D)	; ø»Ÿš´
     ))
 (define-char
