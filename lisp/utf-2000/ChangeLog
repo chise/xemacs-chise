@@ -1,3 +1,13 @@
+2001-12-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R041-Inch.el: Add some CJK Ext-B code points.
+	(M-07456): Use C1-5C41 instead of U+7968 in the
+	`ideographic-structure' property.
+	(M-07468): Use `<-ancient-ideograph' instead of
+	`ancient-ideograph-of'.
+
+	* Ideograph-R038-Woman.el (C5-4532): Fixed.
+
 2001-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): New character.
