@@ -156,6 +156,8 @@ static void
 update_tab_widget_face (widget_value* wv,
 			Lisp_Image_Instance* ii, Lisp_Object domain);
 #endif
+void
+emacs_Xt_handle_widget_losing_focus (struct frame* f, Widget losing_widget);
 
 #include "bitmaps.h"
 
@@ -2130,6 +2132,12 @@ x_unmap_subwindow (Lisp_Image_Instance *p)
     }
   else				/* must be a widget */
     {
+      /* Since we are being unmapped we want the enclosing frame to
+	 get focus. The losing with simple scrolling but is the safest
+	 thing to do. */
+      emacs_Xt_handle_widget_losing_focus 
+	( XFRAME (IMAGE_INSTANCE_FRAME (p)),
+	  IMAGE_INSTANCE_X_WIDGET_ID (p));
       XtUnmapWidget (IMAGE_INSTANCE_X_CLIPWIDGET (p));
     }
 }
@@ -2261,7 +2269,7 @@ x_redisplay_widget (Lisp_Image_Instance *p)
     }
 
   /* Adjust offsets within the frame. */
-  if (XFRAME (IMAGE_INSTANCE_FRAME (p))->frame_changed)
+  if (XFRAME (IMAGE_INSTANCE_FRAME (p))->size_changed)
     {
       Arg al[2];
       XtSetArg (al [0], XtNx, &IMAGE_INSTANCE_X_WIDGET_XOFFSET (p));

@@ -41,6 +41,7 @@ enum hash_table_weakness
   HASH_TABLE_KEY_VALUE_WEAK,
   HASH_TABLE_KEY_CAR_WEAK,
   HASH_TABLE_VALUE_CAR_WEAK,
+  HASH_TABLE_KEY_CAR_VALUE_WEAK,
   HASH_TABLE_WEAK
 };
 
@@ -66,7 +67,14 @@ typedef unsigned long (*hash_table_hash_function_t) (Lisp_Object obj);
 typedef int (*maphash_function_t) (Lisp_Object key, Lisp_Object value,
 				   void* extra_arg);
 
-Lisp_Object make_general_lisp_hash_table (enum hash_table_test test,
+Lisp_Object make_standard_lisp_hash_table (enum hash_table_test test,
+					   size_t size,
+					   double rehash_size,
+					   double rehash_threshold,
+					   enum hash_table_weakness weakness);
+
+Lisp_Object make_general_lisp_hash_table (hash_table_hash_function_t hash_function,
+					  hash_table_test_function_t test_function,
 					  size_t size,
 					  double rehash_size,
 					  double rehash_threshold,

@@ -92,6 +92,7 @@ int debug_x_events;
 
 static int process_events_occurred;
 static int tty_events_occurred;
+static Widget widget_with_focus;
 
 /* Mask of bits indicating the descriptors that we wait for input on */
 extern SELECT_TYPE input_wait_mask, process_only_mask, tty_only_mask;
@@ -1536,11 +1537,12 @@ static void
 handle_focus_event_1 (struct frame *f, int in_p)
 {
 #if XtSpecificationRelease > 5
-  Widget focus_widget = XtGetKeyboardFocusWidget (FRAME_X_TEXT_WIDGET (f));
+  widget_with_focus = XtGetKeyboardFocusWidget (FRAME_X_TEXT_WIDGET (f));
 #endif
 #ifdef HAVE_XIM
   XIM_focus_event (f, in_p);
 #endif /* HAVE_XIM */
+
   /* On focus change, clear all memory of sticky modifiers
      to avoid non-intuitive behavior. */
   clear_sticky_modifiers (XDEVICE (FRAME_DEVICE (f)));
@@ -1564,13 +1566,19 @@ handle_focus_event_1 (struct frame *f, int in_p)
      click in the frame. Why is this?  */
   if (in_p
 #if XtSpecificationRelease > 5
-      && FRAME_X_TEXT_WIDGET (f) != focus_widget
+      && FRAME_X_TEXT_WIDGET (f) != widget_with_focus
 #endif
       )
     {
       lw_set_keyboard_focus (FRAME_X_SHELL_WIDGET (f),
 			     FRAME_X_TEXT_WIDGET (f));
     }
+
+  /* We have the focus now. See comment in
+     emacs_Xt_handle_widget_losing_focus (). */
+  if (in_p)
+    widget_with_focus = NULL;
+
   /* do the generic event-stream stuff. */
   {
     Lisp_Object frm;
@@ -1585,6 +1593,23 @@ handle_focus_event_1 (struct frame *f, int in_p)
 			      conser);
     UNGCPRO;
   }
+}
+
+/* The idea here is that when a widget glyph gets unmapped we don't
+   want the focus to stay with it if it has focus - because it may
+   well just get deleted next andthen we have lost the focus until the
+   user does something. So handle_focus_event_1 records the widget
+   with keyboard focus when FocusOut is processed, and then, when a
+   widget gets unmapped, it calls this function to restore focus if
+   appropriate. */
+void emacs_Xt_handle_widget_losing_focus (struct frame* f, Widget losing_widget);
+void
+emacs_Xt_handle_widget_losing_focus (struct frame* f, Widget losing_widget)
+{
+  if (losing_widget == widget_with_focus)
+    {
+      handle_focus_event_1 (f, 1);
+    }
 }
 
 /* This is called from the external-widget code */

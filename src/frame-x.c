@@ -2654,7 +2654,7 @@ x_focus_on_frame (struct frame *f)
   XFlush (XtDisplay (shell_widget)); /* hey, I'd like to DEBUG this... */
 }
 
-/* Destroy the X window of frame S.  */
+/* Destroy the X window of frame F.  */
 static void
 x_delete_frame (struct frame *f)
 {
