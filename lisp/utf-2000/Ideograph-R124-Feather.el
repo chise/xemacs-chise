@@ -405,16 +405,15 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ideograph-daikanwa . 01452)	; ø¸€–¬
       )
      ((ideograph-daikanwa . 28614)	; ø¸†¿†
       ))
     (korean-ksc5601	. #x683A)	; ø»Š‚·
+    (chinese-big5	. #xAFCE)	; øºŸ¿‚
     (ideograph-daikanwa . 28635)	; ø¸†¿›
     ))
 (define-char
@@ -424,10 +423,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x516C)	; å…¬
       )
@@ -443,10 +440,8 @@
     (total-strokes	 . 10)
     (->mojikyo		. 050359)	; ç¿
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((japanese-jisx0208-1978	  . #x3878)	; ø»‚Ÿ‰
       (japanese-jisx0208	  . #x3878)	; ø»†³‘
@@ -464,10 +459,8 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x516C)	; å…¬
       )
@@ -477,7 +470,6 @@
     (chinese-isoir165		. #x4E4C)	; ø»±…
     (chinese-cns11643-1		. #x5751)	; ø»’’ 
     (japanese-jisx0208-1990	. #x3227)	; ø½Š€
-    (chinese-big5		. #xAFCE)	; øºŸ¿‚
     (mojikyo			. 050359)	; ý €Œ’·
     (ucs			. #x7FC1)	; ç¿
     ))
