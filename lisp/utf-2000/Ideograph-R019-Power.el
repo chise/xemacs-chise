@@ -981,7 +981,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=jis-x0208-1990    . #x3872)	; &GT-00390; [24-82]
+       ((=jis-x0208@1990    . #x3872)	; &GT-00390; [24-82]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
@@ -1000,7 +1000,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs		    . #x4EA4)	; 交
+       ((=gb2312	    . #x3D3B)	; &C1-4728; [29-27]
+	(=cns11643-1	    . #x4728)	; &I-C1-4728; [39-08]
 	)
        ((=ucs		    . #x529B)	; 力
 	))
