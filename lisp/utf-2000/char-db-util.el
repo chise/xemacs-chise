@@ -173,7 +173,8 @@
 			value))
 	(setq attributes (delq 'bidi-category attributes))
 	)
-      (when (setq value (get-char-attribute char 'mirrored))
+      (unless (eq (setq value (get-char-attribute char 'mirrored 'empty))
+		  'empty)
 	(insert (format "(mirrored\t\t. %S)
     "
 			value))
@@ -517,7 +518,8 @@
 	    (insert (format "\t; %c" char)))
 	  )))))
 
-(defun insert-char-data-with-variant (char &optional script printable)
+(defun insert-char-data-with-variant (char &optional script printable
+					   no-ucs-variant)
   (insert-char-data char printable)
   (let ((variants (or (char-variants char)
 		      (let ((ucs (get-char-attribute char '->ucs)))
@@ -529,7 +531,8 @@
       (if (or (null script)
 	      (null (setq vs (get-char-attribute variant 'script)))
 	      (memq script vs))
-	  (insert-char-data variant printable))
+	  (or (and no-ucs-variant (get-char-attribute variant 'ucs))
+	      (insert-char-data variant printable)))
       (setq variants (cdr variants))
       )))
 
@@ -539,7 +542,7 @@
     (while (<= code max)
       (setq char (decode-char 'ucs code))
       (if (get-char-attribute char 'ucs)
-	  (insert-char-data-with-variant char script))
+	  (insert-char-data-with-variant char script nil 'no-ucs-variant))
       (setq code (1+ code))
       )))
 
