@@ -73,6 +73,7 @@
   '((ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 0)
     (=gb2312		. #x396A)	; ø»„ª
+    (=iso-ir165		. #x396A)	; ø»’­
     (=ucs		. #x9F9F)	; é¾Ÿ
     ))
 (define-char
@@ -201,6 +202,7 @@
   '((ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 4)
     (=gb2312		. #x763D)	; ø»†ƒ–
+    (=iso-ir165		. #x763D)	; ø»Ž«¦
     (=ucs		. #x9F0B)	; é¼‹
     ))
 (define-char
