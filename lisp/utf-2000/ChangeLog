@@ -1,5 +1,21 @@
 2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R032-Earth.el (M-05344): Delete J83-444D, J90-444D,
+	JC3-47C9 and JU+585A.
+	(JX1-2F57): Unify U+FA10 and KU+585A; map to GU+585A, CU+585A and
+	BU+585A.
+	(U+585A): Map to JU+FA10.
+	(C1-6356): Map to JU+FA10; add CU+585A and BU+585A.
+	(J90-444D): Map to U+585A.
+	(JC3-47C9): Likewise.
+
+2003-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add setting for
+	`=>ucs-big5'.
+
+2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R191-Fight.el, Ideograph-R172-Short-Tailed-Bird.el,
 	Ideograph-R162-Walk.el, Ideograph-R149-Speech.el,
 	Ideograph-R148-Horn.el, Ideograph-R140-Grass.el,
