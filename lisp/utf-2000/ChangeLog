@@ -1,3 +1,18 @@
+2004-02-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mojikyo-conf.el (default-coded-charset-priority-list): Add
+	`mojikyo' again.
+
+2003-01-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mojikyo-ccs.el: Use
+	"\\(MojikyoPJ\\|jisx0208\\.Mojikyo\\)-{1..21}" as the x-registry
+	of mojikyo-pj-{1..21}.
+
+2002-03-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mojikyo-ccs.el: Delete unused local variable `name'.
+
 2004-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (M-00882): Simplify
