@@ -122,8 +122,6 @@ Both tables are indexed by the position code of Vietnamese characters.")
 ;; where LEADING-CODE-EXTENDED-11 for Vietnamese is
 ;; `vietnamese-viscii-lower' or `vietnamese-viscii-upper'.
 
-(defvar leading-code-private-11 #x9E)
-
 (define-ccl-program ccl-encode-viscii
   `(1
      ((read r0)
