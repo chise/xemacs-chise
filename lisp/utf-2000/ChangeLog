@@ -1,6 +1,12 @@
+2002-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el: Add some missing mappings for CJK Ext-B
+	code points.
+
 2002-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R113-Spirit.el (JX1-793F): Delete `ucs-jis'.
+	(J0-3252): Separate C1-697E.
 
 	* Ideograph-R181-Leaf.el (JX1-7D7B): Delete `ucs-jis'.
 
