@@ -140,8 +140,8 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 393 8)
     (chinese-cns11643-3		. #x215F)	; ø»•—¢
-    (china3-jef			. #x45EE)	; øº„—®
     (ideograph-hanziku-1	. #xF6D7)	; ý¢€Ÿ›—
+    (china3-jef			. #x45EE)	; øº„—®
     (ucs			. #x355B)	; ã•›
     ))
 (define-char
@@ -1061,8 +1061,8 @@
     (chinese-cns11643-3		. #x276B)	; ø»• ¢
     (japanese-jisx0213-2	. #x235F)	; ø»¤ º
     (ideograph-daikanwa		. 03157)	; ø¸€±•
-    (china3-jef			. #x80CA)	; øºˆƒŠ
     (ideograph-hanziku-1	. #xF7B6)	; ý¢€Ÿž¶
+    (china3-jef			. #x80CA)	; øºˆƒŠ
     (ucs			. #x53D5)	; å•
     ))
 (define-char
@@ -1277,9 +1277,9 @@
     (chinese-cns11643-3		. #x2B4F)	; ø»•¥¾
     (japanese-jisx0213-2	. #x2360)	; ø»¤ »
     (ideograph-daikanwa		. 03165)	; ø¸€±
-    (china3-jef			. #x45F1)	; øº„—±
     (ideograph-cbeta		. 00556)	; ø¸ ˆ¬
     (chinese-big5-cdp		. #x8C77)	; ý¢€ˆ±·
+    (china3-jef			. #x45F1)	; øº„—±
     (ucs			. #x53DA)	; åš
     ))
 (define-char
@@ -1496,8 +1496,8 @@
     (japanese-jisx0212		. #x345E)	; ø»‹‡
     (chinese-cns11643-3		. #x2B4D)	; ø»•¥¼
     (ideograph-daikanwa		. 03170)	; ø¸€±¢
-    (china3-jef			. #x45F3)	; øº„—³
     (ideograph-hanziku-1	. #xF7BA)	; ý¢€Ÿžº
+    (china3-jef			. #x45F3)	; øº„—³
     (ucs			. #x53DD)	; å
     ))
 (define-char
@@ -1574,8 +1574,8 @@
      ((ucs		  . #x53C8)	; åˆ
       ))
     (japanese-jisx0212		. #x345F)	; ø»‹ˆ
-    (china3-jef			. #x45F0)	; øº„—°
     (ideograph-hanziku-1	. #xF7F5)	; ý¢€ŸŸµ
+    (china3-jef			. #x45F0)	; øº„—°
     (ucs			. #x53DE)	; åž
     ))
 (define-char

@@ -482,12 +482,12 @@
 		      line-breaking))
       (setq attributes (delq '=>ucs* attributes))
       )
-    (when (and (memq '=>ucs-jis attributes)
-	       (setq value (get-char-attribute char '=>ucs-jis)))
-      (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
-		      value (decode-char 'ucs-jis value)
+    (when (and (memq '=>ucs-gb attributes)
+	       (setq value (get-char-attribute char '=>ucs-gb)))
+      (insert (format "(=>ucs-gb\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs value)
 		      line-breaking))
-      (setq attributes (delq '=>ucs-jis attributes))
+      (setq attributes (delq '=>ucs-gb attributes))
       )
     (when (and (memq '=>ucs-cns attributes)
 	       (setq value (get-char-attribute char '=>ucs-cns)))
@@ -495,6 +495,20 @@
 		      value (decode-char 'ucs-cns value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-cns attributes))
+      )
+    (when (and (memq '=>ucs-jis attributes)
+	       (setq value (get-char-attribute char '=>ucs-jis)))
+      (insert (format "(=>ucs-jis\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs-jis value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs-jis attributes))
+      )
+    (when (and (memq '=>ucs-ks attributes)
+	       (setq value (get-char-attribute char '=>ucs-ks)))
+      (insert (format "(=>ucs-ks\t\t. #x%04X)\t; %c%s"
+		      value (decode-char 'ucs-ks value)
+		      line-breaking))
+      (setq attributes (delq '=>ucs-ks attributes))
       )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
@@ -587,13 +601,6 @@
 		      line-breaking))
       (setq attributes (delq 'morohashi-daikanwa attributes))
       )
-    ;; (when (and (memq 'hanyu-dazidian attributes)
-    ;;            (setq value (get-char-attribute char 'hanyu-dazidian)))
-    ;;   (insert (format "(hanyu-dazidian     %s)%s"
-    ;;                   (mapconcat #'number-to-string value " ")
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq 'hanyu-dazidian attributes))
-    ;;   )
     (setq radical nil
 	  strokes nil)
     (when (and (memq 'ideographic-radical attributes)
@@ -974,41 +981,6 @@
     (goto-char (point-max))
     (tabify (point-min)(point-max))
     ))
-
-;;;###autoload
-(defun char-db-update-comment ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (let (cdef table char)
-      (while (re-search-forward "^[ \t]*\\(([^.()]+)\\)" nil t)
-	(goto-char (match-beginning 1))
-	(setq cdef (read (current-buffer)))
-	(when (find-charset (car cdef))
-	  (goto-char (match-end 0))
-	  (setq char
-		(if (and
-		     (not (eq (car cdef) 'ideograph-daikanwa))
-		     (or (memq (car cdef) '(ascii latin-viscii-upper
-						  latin-viscii-lower
-						  arabic-iso8859-6
-						  japanese-jisx0213-1
-						  japanese-jisx0213-2))
-			 (= (char-int (charset-iso-final-char (car cdef)))
-			    0)))
-		    (apply (function make-char) cdef)
-		  (if (setq table (charset-mapping-table (car cdef)))
-		      (set-charset-mapping-table (car cdef) nil))
-		  (prog1
-		      (apply (function make-char) cdef)
-		    (if table
-			(set-charset-mapping-table (car cdef) table)))))
-	  (when (not (or (< (char-int char) 32)
-			 (and (<= 128 (char-int char))
-			      (< (char-int char) 160))))
-	    (delete-region (point) (point-at-eol))
-	    (insert (format "\t; %c" char)))
-	  )))))
 
 (defun insert-char-data-with-variant (char &optional printable
 					   no-ucs-variant

@@ -98,12 +98,13 @@
     (korean-ksc5601	. #x507E)	; ø»‰ «
     ))
 (define-char
-  '((=>ucs		. #x65E3)	; æ—£
+  '((=>ucs*		. #x65E3)	; æ—£
     (morohashi-daikanwa	13724 0 3)
     (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3640)	; ø»•µ¹
+    (ucs		. #x2F8CB)	; ð¯£‹
     ))
 (define-char
   '((=>ucs		. #x65E3)	; æ—£

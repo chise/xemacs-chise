@@ -78,8 +78,8 @@
       ))
     (japanese-jisx0212	. #x4146)	; ø»‹“µ
     (ideograph-daikanwa . 13067)	; ø¸ƒŒ‹
-    (china3-jef		. #x50BE)	; øº…‚¾
     (ideograph-cbeta	. 02050)	; ø¸  ‚
+    (china3-jef		. #x50BE)	; øº…‚¾
     ))
 (define-char
   '((morohashi-daikanwa	13067 0 0)

@@ -10,8 +10,8 @@
     (korean-ksc5601		. #x2867)	; ø»ˆ¥¤
     (chinese-cns11643-1		. #x2621)	; ø»‘‰²
     (japanese-jisx0213-1	. #x2D21)	; ø»¢¤¤
-    (china3-jef			. #x77C9)	; øº‡Ÿ‰
     (chinese-big5-eten		. #xC6A1)	; ý¢€Œš¡
+    (china3-jef			. #x77C9)	; øº‡Ÿ‰
     (ucs			. #x2460)	; â‘ 
     ))
 (define-char
@@ -26,8 +26,8 @@
     (korean-ksc5601		. #x2868)	; ø»ˆ¥¥
     (chinese-cns11643-1		. #x2622)	; ø»‘‰³
     (japanese-jisx0213-1	. #x2D22)	; ø»¢¤¥
-    (china3-jef			. #x77CA)	; øº‡ŸŠ
     (chinese-big5-eten		. #xC6A2)	; ý¢€Œš¢
+    (china3-jef			. #x77CA)	; øº‡ŸŠ
     (ucs			. #x2461)	; â‘¡
     ))
 (define-char
@@ -42,8 +42,8 @@
     (korean-ksc5601		. #x2869)	; ø»ˆ¥¦
     (chinese-cns11643-1		. #x2623)	; ø»‘‰´
     (japanese-jisx0213-1	. #x2D23)	; ø»¢¤¦
-    (china3-jef			. #x77CB)	; øº‡Ÿ‹
     (chinese-big5-eten		. #xC6A3)	; ý¢€Œš£
+    (china3-jef			. #x77CB)	; øº‡Ÿ‹
     (ucs			. #x2462)	; â‘¢
     ))
 (define-char
@@ -58,8 +58,8 @@
     (korean-ksc5601		. #x286A)	; ø»ˆ¥§
     (chinese-cns11643-1		. #x2624)	; ø»‘‰µ
     (japanese-jisx0213-1	. #x2D24)	; ø»¢¤§
-    (china3-jef			. #x77CC)	; øº‡ŸŒ
     (chinese-big5-eten		. #xC6A4)	; ý¢€Œš¤
+    (china3-jef			. #x77CC)	; øº‡ŸŒ
     (ucs			. #x2463)	; â‘£
     ))
 (define-char
@@ -74,8 +74,8 @@
     (korean-ksc5601		. #x286B)	; ø»ˆ¥¨
     (chinese-cns11643-1		. #x2625)	; ø»‘‰¶
     (japanese-jisx0213-1	. #x2D25)	; ø»¢¤¨
-    (china3-jef			. #x77CD)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A5)	; ý¢€Œš¥
+    (china3-jef			. #x77CD)	; øº‡Ÿ
     (ucs			. #x2464)	; â‘¤
     ))
 (define-char
@@ -90,8 +90,8 @@
     (korean-ksc5601		. #x286C)	; ø»ˆ¥©
     (chinese-cns11643-1		. #x2626)	; ø»‘‰·
     (japanese-jisx0213-1	. #x2D26)	; ø»¢¤©
-    (china3-jef			. #x77CE)	; øº‡ŸŽ
     (chinese-big5-eten		. #xC6A6)	; ý¢€Œš¦
+    (china3-jef			. #x77CE)	; øº‡ŸŽ
     (ucs			. #x2465)	; â‘¥
     ))
 (define-char
@@ -106,8 +106,8 @@
     (korean-ksc5601		. #x286D)	; ø»ˆ¥ª
     (chinese-cns11643-1		. #x2627)	; ø»‘‰¸
     (japanese-jisx0213-1	. #x2D27)	; ø»¢¤ª
-    (china3-jef			. #x77CF)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A7)	; ý¢€Œš§
+    (china3-jef			. #x77CF)	; øº‡Ÿ
     (ucs			. #x2466)	; â‘¦
     ))
 (define-char
@@ -122,8 +122,8 @@
     (korean-ksc5601		. #x286E)	; ø»ˆ¥«
     (chinese-cns11643-1		. #x2628)	; ø»‘‰¹
     (japanese-jisx0213-1	. #x2D28)	; ø»¢¤«
-    (china3-jef			. #x77D0)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A8)	; ý¢€Œš¨
+    (china3-jef			. #x77D0)	; øº‡Ÿ
     (ucs			. #x2467)	; â‘§
     ))
 (define-char
@@ -138,8 +138,8 @@
     (korean-ksc5601		. #x286F)	; ø»ˆ¥¬
     (chinese-cns11643-1		. #x2629)	; ø»‘‰º
     (japanese-jisx0213-1	. #x2D29)	; ø»¢¤¬
-    (china3-jef			. #x77D1)	; øº‡Ÿ‘
     (chinese-big5-eten		. #xC6A9)	; ý¢€Œš©
+    (china3-jef			. #x77D1)	; øº‡Ÿ‘
     (ucs			. #x2468)	; â‘¨
     ))
 (define-char
@@ -153,8 +153,8 @@
     (korean-ksc5601		. #x2870)	; ø»ˆ¥­
     (chinese-cns11643-1		. #x262A)	; ø»‘‰»
     (japanese-jisx0213-1	. #x2D2A)	; ø»¢¤­
-    (china3-jef			. #x77D2)	; øº‡Ÿ’
     (chinese-big5-eten		. #xC6AA)	; ý¢€Œšª
+    (china3-jef			. #x77D2)	; øº‡Ÿ’
     (ucs			. #x2469)	; â‘©
     ))
 (define-char

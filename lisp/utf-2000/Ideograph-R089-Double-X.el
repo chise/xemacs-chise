@@ -41,8 +41,8 @@
      ((ucs		  . #x723B)	; çˆ»
       ))
     (chinese-cns11643-3		. #x297B)	; ø»•£®
-    (china3-jef			. #x92AB)	; øº‰Š«
     (ideograph-hanziku-1	. #xABFA)	; ý¢€š¯º
+    (china3-jef			. #x92AB)	; øº‰Š«
     (mojikyo			. 019738)	; ý €„´š
     (ucs			. #x3E1A)	; ã¸š
     ))

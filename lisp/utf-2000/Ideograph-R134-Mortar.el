@@ -133,8 +133,7 @@
     (ucs		. #x26962)	; ð¦¥¢
     ))
 (define-char
-  '((=>ucs		. #x8200)	; èˆ€
-    (ideographic-radical . 134)	; â¾…
+  '((ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideographic-structure
@@ -147,7 +146,7 @@
       ))
     (chinese-cns11643-6 . #x3B41)	; ø»œ›œ
     (ideograph-daikanwa . 30183)	; ø¸‡—§
-    (ucs-cns		. #x2695D)	; ø»œ›œ
+    (ucs		. #x2695D)	; ð¦¥
     ))
 (define-char
   '((=>ucs		. #x8200)	; èˆ€
@@ -221,17 +220,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x81FC)	; è‡¼
       )
      ((ideograph-daikanwa . 09584)	; ø¸‚•°
       ))
     (chinese-cns11643-2 . #x3234)	; ø»“¥±
-    (chinese-big5	. #xD370)	; ý¢€°
     (ideograph-daikanwa . 30188)	; ø¸‡—¬
     ))
 (define-char
@@ -240,10 +236,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (ideographic-structure
-     (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; â¿±
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x81FC)	; è‡¼
       )
@@ -252,6 +246,7 @@
     (chinese-gb2312	. #x7428)	; ø»†€…
     (=jis-x0208		. #x674D)	; ø½‹œ
     (chinese-isoir165	. #x7428)	; ø»Ž¨•
+    (chinese-big5	. #xD370)	; ý¢€°
     (ucs		. #x8201)	; èˆ
     ))
 (define-char
@@ -285,12 +280,13 @@
     (ideograph-daikanwa . 30192)	; ø¸‡—°
     ))
 (define-char
-  '((=>ucs		. #x8201)	; èˆ
+  '((=>ucs*		. #x8201)	; èˆ
     (ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (chinese-cns11643-4 . #x3457)	; ø»—½˜
     (ideograph-daikanwa . 49560)	; ø¸Œ†˜
+    (ucs		. #x2F98B)	; ð¯¦‹
     ))
 (define-char
   '((ideographic-radical . 134)	; â¾…

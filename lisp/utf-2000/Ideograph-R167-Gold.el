@@ -5239,11 +5239,21 @@
     (chinese-cns11643-1 . #x726C)	; ø»’º¥
     ))
 (define-char
-  '((ideographic-radical . 167)	; â¾¦
+  '((=>ucs		. #x2F9EA)	; ð¯§ª
+    (ideographic-radical . 167)	; â¾¦
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
     (chinese-cns11643-4 . #x544A)	; ø»˜¬‹
     (ideograph-daikanwa . 40543)	; ø¸‰¹Ÿ
+    (ucs-cns		. #x2F9EA)	; ø»˜¬‹
+    ))
+(define-char
+  '((=>ucs*		. #x927C)	; é‰¼
+    (morohashi-daikanwa	40543 0 0)
+    (ideographic-radical . 167)	; â¾¦
+    (ideographic-strokes . 8)
+    (total-strokes	 . 16)
+    (ucs		. #x2F9EA)	; ð¯§ª
     ))
 (define-char
   '((ideographic-radical . 167)	; â¾¦

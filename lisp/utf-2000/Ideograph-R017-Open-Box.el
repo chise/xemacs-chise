@@ -387,8 +387,8 @@
       ))
     (chinese-gb2312		. #x5B4A)	; ø»…›¹
     (chinese-isoir165		. #x5B4A)	; ø»Ž„‰
-    (china3-jef			. #x80AC)	; øºˆ‚¬
     (ideograph-hanziku-4	. #xE8B5)	; ý¢Ž¢µ
+    (china3-jef			. #x80AC)	; øºˆ‚¬
     (ucs			. #x51FC)	; å‡¼
     ))
 (define-char

@@ -225,6 +225,7 @@
     (<-radical
      ((ucs		  . #x5FC4)	; å¿„
       ))
+    (chinese-big5-cdp	. #x8B51)	; ý¢€ˆ­‘
     (ucs		. #x2E96)	; âº–
     ))
 (define-char
@@ -368,9 +369,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (<-radical
-     ((ideograph-daikanwa . 19655)	; ø¸„³‡
-      ))
     (ucs		. #x2EA5)	; âº¥
     ))
 (define-char
@@ -385,6 +383,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5-cdp	. #x8B66)	; ý¢€ˆ­¦
     (ucs		. #x2EA7)	; âº§
     ))
 (define-char
@@ -572,6 +571,10 @@
      ((ideograph-daikanwa . 29237)	; ø¸‡ˆµ
       ))
     (ucs		. #x2EBC)	; âº¼
+    ))
+(define-char
+  '((=>ucs		. #x2EBC)	; âº¼
+    (chinese-big5-cdp	. #x8958)	; ý¢€ˆ¥˜
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")

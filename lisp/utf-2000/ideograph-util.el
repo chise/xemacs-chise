@@ -237,8 +237,7 @@
 ;;;###autoload
 (defun char-ucs (char)
   (or (get-char-attribute char 'ucs)
-      (get-char-attribute char '=>ucs)
-      (get-char-attribute char '->ucs)))
+      (get-char-attribute char '=>ucs)))
 
 (defun char-id (char)
   (logand (char-int char) #x3FFFFFFF))
@@ -291,7 +290,6 @@
 	       file))))
   (with-temp-buffer
     (insert-ideograph-radical-char-data radical)
-    (char-db-update-comment)
     (let ((coding-system-for-write 'utf-8))
       (write-region (point-min)(point-max) file)
       )))

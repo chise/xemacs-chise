@@ -10,7 +10,7 @@
     (ucs		. #x9F3B)	; é¼»
     ))
 (define-char
-  '((=>ucs		. #x9F3B)	; é¼»
+  '((=>ucs*		. #x9F3B)	; é¼»
     (morohashi-daikanwa	48498 1)
     (ideographic-radical . 209)	; â¿
     (ideographic-strokes . 0)
@@ -18,8 +18,10 @@
     (=jis-x0208		. #x4921)	; ø½Š°¬
     (korean-ksc5601	. #x5E2C)	; ø»‰³½
     (chinese-cns11643-4 . #x4877)	; ø»˜›
-    (ucs-jis		. #x9F3B)	; ø½Š°¬
+    (ucs-jis		. #x9F3B)	; ð¯¨œ
+    (ucs-ks		. #x9F3B)	; ð¯¨œ
     (mojikyo		. 050611)	; ý €Œ–³
+    (ucs		. #x2FA1C)	; ð¯¨œ
     ))
 (define-char
   '((ideographic-radical . 209)	; â¿

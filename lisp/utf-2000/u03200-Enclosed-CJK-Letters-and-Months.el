@@ -412,8 +412,8 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
     (japanese-jisx0213-1	. #x2D6A)	; ø»¢¥­
-    (china3-jef			. #x78D5)	; øº‡£•
     (chinese-big5-eten		. #xC8D1)	; ý¢€Œ£‘
+    (china3-jef			. #x78D5)	; øº‡£•
     (ucs			. #x3231)	; ãˆ±
     ))
 (define-char

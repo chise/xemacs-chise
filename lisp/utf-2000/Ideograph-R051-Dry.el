@@ -164,8 +164,8 @@
     (total-strokes	 . 8)
     (korean-ksc5601	. #x5C34)	; ø»‰±‰
     (ideograph-daikanwa . 09175)	; ø¸‚—
-    (china3-jef		. #x4CB2)	; øº„²²
     (chinese-big5-cdp	. #x88EB)	; ý¢€ˆ£«
+    (china3-jef		. #x4CB2)	; øº„²²
     ))
 (define-char
   '((=>ucs		. #x5E77)	; å¹·
