@@ -221,6 +221,9 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x4927)	; &J97-4927; [41-07]
+      ))
     (=ucs		. #x5F65)	; 彥
     (=big5		. #xABDB)	; &I-B-ABDB;
     (->subsumptive
@@ -236,6 +239,15 @@
   '((ideographic-radical . 59)	; ⼺
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
+    (=jis-x0208@1997	. #x4927)	; &J97-4927; [41-07]
+    ))
+(define-char
+  '((ideographic-radical . 59)	; ⼺
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
+    (<-denotational
+     ((=jis-x0208@1997	  . #x4927)	; &J97-4927; [41-07]
+      ))
     (=ucs		. #x5F66)	; 彦
     (->subsumptive
      ((shinjigen-2	  . 2312)
