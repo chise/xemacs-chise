@@ -782,6 +782,8 @@
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
+    (japanese-jisx0208-1978	. #x403B)	; ø»‚©¼
+    (japanese-jisx0208		. #x403B)	; ø»†¾„
     (japanese-jisx0208-1990	. #x403B)	; ø½Š£¸
     ))
 (define-char
