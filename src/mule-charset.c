@@ -610,7 +610,7 @@ byte_table_same_value_p (Lisp_Object obj)
 
   for (i = 1; i < 256; i++)
     {
-      if (!EQ (bte->property[i], v0))
+      if (!internal_equal (bte->property[i], v0, 0))
 	return 0;
     }
   return -1;
@@ -712,7 +712,7 @@ put_byte_table (Lisp_Object table, unsigned char idx, Lisp_Object value)
 	  return value;
 	}
     }
-  else if (!EQ (table, value))
+  else if (!internal_equal (table, value, 0))
     {
       if (UINT8_VALUE_P (table) && UINT8_VALUE_P (value))
 	{
@@ -766,10 +766,17 @@ print_char_id_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 static int
 char_id_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 {
-  Lisp_Char_ID_Table *cte1 = XCHAR_ID_TABLE (obj1);
-  Lisp_Char_ID_Table *cte2 = XCHAR_ID_TABLE (obj2);
+  Lisp_Object table1 = XCHAR_ID_TABLE (obj1)->table;
+  Lisp_Object table2 = XCHAR_ID_TABLE (obj2)->table;
+  int i;
 
-  return byte_table_equal (cte1->table, cte2->table, depth + 1);
+  for (i = 0; i < 256; i++)
+    {
+      if (!internal_equal (get_byte_table (table1, i),
+			  get_byte_table (table2, i), 0))
+	return 0;
+    }
+  return -1;
 }
 
 static unsigned long
