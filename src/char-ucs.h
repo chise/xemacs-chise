@@ -30,7 +30,7 @@ Boston, MA 02111-1307, USA.  */
 
 #define valid_char_p(ch) 1
 
-#define CHAR_ASCII_P(c) ((c) <= 0x7F)
+#define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 
 /************************************************************************/
@@ -353,12 +353,7 @@ REP_BYTES_BY_FIRST_BYTE (int fb)
 
 
 /* Return a character whose charset is CHARSET and position-codes
-   are C1 and C2.  TYPE9N character ignores C2.
-
-   NOTE: This takes advantage of the fact that
-   FIELD2_TO_OFFICIAL_LEADING_BYTE and
-   FIELD2_TO_PRIVATE_LEADING_BYTE are the same.
-   */
+   are C1 and C2.  TYPE9N character ignores C2. */
 
 INLINE Emchar MAKE_CHAR (Lisp_Object charset, int c1, int c2);
 INLINE Emchar
@@ -546,17 +541,17 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
     }
 }
 
-#define BREAKUP_CHAR(c, charset, c1, c2) \
-  breakup_char_1 (c, &(charset), &(c1), &(c2))
+#define BREAKUP_CHAR(ch, charset, b1, b2) \
+  breakup_char_1 (ch, &(charset), &(b1), &(b2))
 
-INLINE Lisp_Object CHAR_CHARSET (Emchar c);
+INLINE Lisp_Object CHAR_CHARSET (Emchar ch);
 INLINE Lisp_Object
-CHAR_CHARSET (Emchar c)
+CHAR_CHARSET (Emchar ch)
 {
   Lisp_Object charset;
-  int c1, c2;
+  int b1, b2;
 
-  BREAKUP_CHAR(c, charset, c1, c2);
+  BREAKUP_CHAR(ch, charset, b1, b2);
   return charset;
 }
 
