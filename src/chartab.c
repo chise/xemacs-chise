@@ -2569,6 +2569,50 @@ map_over_other_charset (Lisp_Char_Table *ct, Charset_ID lb,
 #endif /* MULE */
 #endif /* not UTF2000 */
 
+#ifdef UTF2000
+struct map_char_table_for_charset_arg
+{
+  int (*fn) (struct chartab_range *range, Lisp_Object val, void *arg);
+  Lisp_Char_Table *ct;
+  void *arg;
+};
+
+static int
+map_char_table_for_charset_fun (struct chartab_range *range,
+				Lisp_Object val, void *arg)
+{
+  struct map_char_table_for_charset_arg *closure =
+    (struct map_char_table_for_charset_arg *) arg;
+  Lisp_Object ret;
+
+  switch (range->type)
+    {
+    case CHARTAB_RANGE_ALL:
+      break;
+
+    case CHARTAB_RANGE_DEFAULT:
+      break;
+
+    case CHARTAB_RANGE_CHARSET:
+      break;
+
+    case CHARTAB_RANGE_ROW:
+      break;
+
+    case CHARTAB_RANGE_CHAR:
+      ret = get_char_table (range->ch, closure->ct);
+      if (!UNBOUNDP (ret))
+	return (closure->fn) (range, ret, closure->arg);
+      break;
+
+    default:
+      abort ();
+    }
+
+  return 0;
+}
+#endif
+
 /* Map FN (with client data ARG) over range RANGE in char table CT.
    Mapping stops the first time FN returns non-zero, and that value
    becomes the return value of map_char_table(). */
@@ -2661,38 +2705,25 @@ map_char_table (Lisp_Char_Table *ct,
 #ifdef MULE
     case CHARTAB_RANGE_CHARSET:
 #ifdef UTF2000
-      if (UINT8_BYTE_TABLE_P (ct->table))
-	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), 0, 3,
-					  range->charset, fn, arg);
-      else if (UINT16_BYTE_TABLE_P (ct->table))
-	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), 0, 3,
-					   range->charset, fn, arg);
-      else if (BYTE_TABLE_P (ct->table))
-	return map_over_byte_table (XBYTE_TABLE(ct->table), 0, 3,
-				    range->charset, fn, arg);
-      else if (!UNBOUNDP (ct->table))
-	{
-#if 0
-	  struct chartab_range rainj;
-	  int unit = 1 << 24;
-	  Emchar c = 0;
-	  Emchar c1 = c + unit;
-	  int retval;
+      {
+	Lisp_Object encoding_table
+	  = XCHARSET_ENCODING_TABLE (range->charset);
 
-	  rainj.type = CHARTAB_RANGE_CHAR;
+	if (!NILP (encoding_table))
+	  {
+	    struct chartab_range rainj;
+	    struct map_char_table_for_charset_arg mcarg;
 
-	  for (retval = 0; c < c1 && retval == 0; c++)
-	    {
-	      if ( charset_code_point (range->charset, c) >= 0 )
-		{
-		  rainj.ch = c;
-		  retval = (fn) (&rainj, ct->table, arg);
-		}
-	    }
-#else
-	  return (fn) (range, ct->table, arg);
-#endif
-	}
+	    mcarg.fn = fn;
+	    mcarg.ct = ct;
+	    mcarg.arg = arg;
+	    rainj.type = CHARTAB_RANGE_ALL;
+	    return map_char_table (XCHAR_TABLE(encoding_table),
+				   &rainj,
+				   &map_char_table_for_charset_fun,
+				   &mcarg);
+	  }
+      }
       return 0;
 #else
       return map_over_other_charset (ct,
