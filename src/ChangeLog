@@ -1,5 +1,13 @@
 2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (XCHARSET_CELL_RANGE): New inline function.
+	(decode_char_table_range): Use `XCHARSET_CELL_RANGE'; accept 94^3,
+	94^4, 96^3, 96^4, 128^n and 256^n set.
+	(put_char_table): Use `XCHARSET_CELL_RANGE'.
+	(map_char_table): Likewise.
+
+2001-09-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (get_char_table): Use `get_char_id_table' in XEmacs
 	UTF-2000.
 
