@@ -323,6 +323,7 @@
     (hanyu-dazidian-char . 3)
     (chinese-gb2312	. #x4F30)	; ø»…‰·
     (chinese-isoir165	. #x4F30)	; ø»²‡
+    (china3-jef		. #x81C9)	; øºˆ‡‰
     (chinese-big5-cdp	. #x8973)	; ý¢€ˆ¥³
     (ucs		. #x4E60)	; ä¹ 
     ))
@@ -471,6 +472,7 @@
     (hanyu-dazidian-char . 5)
     (chinese-gb2312	. #x4A69)	; ø»…ƒš
     (chinese-isoir165	. #x4A69)	; ø»«ª
+    (china3-jef		. #x81CD)	; øºˆ‡
     (chinese-big5-cdp	. #x8A4C)	; ý¢€ˆ©Œ
     (ucs		. #x4E66)	; ä¹¦
     ))
@@ -889,6 +891,7 @@
       ))
     (chinese-gb2312	. #x4272)	; ø»„·³
     (chinese-isoir165	. #x4272)	; ø» ƒ
+    (china3-jef		. #x81ED)	; øºˆ‡­
     (ucs		. #x4E70)	; ä¹°
     ))
 (define-char
