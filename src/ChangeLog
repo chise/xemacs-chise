@@ -1,3 +1,13 @@
+2004-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_component): New variable.
+	(Q_component_of): Likewise.
+	(Fput_char_attribute): Convert char-refs in value of
+	`{->|<-}ideographic-component-forms' to characters and put reverse
+	links.
+	(syms_of_chartab): Add new symbols
+	`{->|<-}ideographic-component-forms'.
+
 2004-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* chartab.c (Q_identical): New variable.
