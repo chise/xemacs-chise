@@ -76,6 +76,10 @@ extern Lisp_Object Qideographic_structure;
 
 EXFUN (Fmap_char_attribute, 3);
 
+#ifdef HAVE_LIBCHISE
+EXFUN (Fmount_char_attribute_table, 1);
+#endif
+
 #ifdef HAVE_CHISE
 EXFUN (Fload_char_attribute_table, 1);
 
@@ -1406,6 +1410,7 @@ symbol_to_char_table_type (Lisp_Object symbol)
   return CHAR_TABLE_TYPE_GENERIC; /* not reached */
 }
 
+#ifndef UTF2000
 static void
 print_chartab_range (Emchar first, Emchar last, Lisp_Object val,
 		     Lisp_Object printcharfun)
@@ -1426,6 +1431,7 @@ print_chartab_range (Emchar first, Emchar last, Lisp_Object val,
     }
   print_internal (val, printcharfun, 1);
 }
+#endif
 
 #if defined(MULE)&&!defined(UTF2000)
 
@@ -3432,7 +3438,7 @@ open_chise_data_source_maybe ()
 
       default_chise_data_source
 	= CHISE_DS_open (CHISE_DS_Berkeley_DB, XSTRING_DATA (db_dir),
-			 DB_HASH, modemask);
+			 0 /* DB_HASH */, modemask);
       if (default_chise_data_source == NULL)
 	return -1;
     }
