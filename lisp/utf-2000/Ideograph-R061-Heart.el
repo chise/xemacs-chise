@@ -10917,7 +10917,6 @@
     (total-strokes	 . 14)
     (korean-ksc5601		. #x4B46)	; ø»‰˜
     (japanese-jisx0213-1	. #x745C)	; ø»¤±
-    (ucs-jis			. #x6168)	; ø»‰˜
     ))
 (define-char
   '((morohashi-daikanwa	11122 0 3)
@@ -10952,7 +10951,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (japanese-jisx0208-1990	. #x3334)	; ø½Š«
-    (ucs-jis			. #x6168)	; ø»‰˜
+    (ucs-jis			. #x6168)	; ø½Š«
     ))
 (define-char
   '((=>ucs		. #x3980)	; ã¦€
