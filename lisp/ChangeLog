@@ -1,5 +1,11 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/korean.el: Use `define-coding-system-alias' instead of
+	`copy-coding-system'.
+	("Korean"): Add `input-method' and `features' keys.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/mule-cmds.el (set-language-environment-coding-systems):
 	Treat duplicated coding-categories.
 
@@ -65,58 +71,6 @@
 	- Register `chinese-gb-environment-setup-function' as a
 	  `setup-function' of "Chinese-GB" environment.
 	- Register input-method key in language-info-alist.
-
-1999-06-03  Ken'ichi Handa  <handa@gnu.org>
-
-	* mule/vietnamese.el (ccl-encode-vscii): Typo fixed
-	(viet-viscii-...->viet-vscii...).
-
-1998-10-26  Kenichi Handa <handa@etl.go.jp>
-
-	* mule/chinese.el (pre-write-encode-hz): Cancel previous change,
-	use generate-new-buffer instead of get-buffer-create.
-
-1998-10-21  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/chinese.el (pre-write-encode-hz): Use with-temp-buffer.
-
-1998-08-31  Paul Eggert  <eggert@twinsun.com>
-
-	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
-	mule/european.el, mule/hebrew.el, mule/japanese.el,
-	mule/vietnamese.el: Add coding: local variable, to avoid
-	bootstrapping problem if you need to recompile all the Lisp files
-	using interpreted code.
-
-1998-07-08  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/hebrew.el ("Hebrew"): Add coding-priority.
-
-	* mule/misc-lang.el ("IPA"): Add coding-priority and
-	coding-system.
-
-1998-04-06  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/japanese.el: Set exit-function to exit-japanese-environment
-	for Japanese environment.
-
-1998-01-21  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/chinese.el: Remove setting up of
-	describe-chinese-environment-map and
-	setup-chinese-environment-map.  Exclude them in args of calls to
-	set-language-info-alist.  Register coding-priority key in
-	language-info-alist.
-
-	* mule/japanese.el, mule/korean.el, mule/vietnamese.el: Register
-	coding-priority key in
-
-1997-10-21  Kenichi Handa  <handa@etl.go.jp>
-
-	* mule/chinese.el (post-read-decode-hz): Return the result of
-	decode-hz-region.
-	(pre-write-encode-hz): Do not change the value of
-	last-coding-system.
 
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -216,6 +170,24 @@
 	ported yet.
 	(read-input-method-name): Treat optional argument `default'.
 
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info): Don't set up menus at
+	all.
+	(set-language-info-alist): Set up menus here.
+	
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* minibuf.el (completing-read): Add new optional argument
+	`default'.
+	(read-coding-system): Add new optional argument
+	`default-coding-system'.
+
+1999-06-03  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule/vietnamese.el (ccl-encode-vscii): Typo fixed
+	(viet-viscii-...->viet-vscii...).
+
 1999-05-13  Ken'ichi Handa  <handa@gnu.org>
 
 	* mule/mule-cmds.el: Change MULE to Mule in docstrings
@@ -263,6 +235,15 @@
 	argument EOL-TYPE, and set the eol-type property of the default
 	coding systems accordingly.
 
+1998-10-26  Kenichi Handa <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Cancel previous change,
+	use generate-new-buffer instead of get-buffer-create.
+
+1998-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Use with-temp-buffer.
+
 1998-10-16  Markus Rost  <rost@delysid.gnu.org>
 
 	* mule/mule-cmds.el (default-input-method): Fix custom type.
@@ -286,6 +267,14 @@
 
 	* mule/mule-cmds.el (current-language-environment): Fix
 	setter function.
+
+1998-08-31  Paul Eggert  <eggert@twinsun.com>
+
+	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
+	mule/european.el, mule/hebrew.el, mule/japanese.el,
+	mule/korean.el, mule/vietnamese.el: Add coding: local variable, to
+	avoid bootstrapping problem if you need to recompile all the Lisp
+	files using interpreted code.
 
 1998-08-18  Kenichi Handa  <handa@etl.go.jp>
 
@@ -341,17 +330,18 @@
 	input method in the current buffer, but just bind
 	current-input-method.
 
+1998-07-08  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/hebrew.el ("Hebrew"): Add coding-priority.
+
+	* mule/misc-lang.el ("IPA"): Add coding-priority and
+	coding-system.
+
 1998-05-23  Richard Stallman  <rms@psilocin.ai.mit.edu>
 
 	* mule/mule-cmds.el (register-input-method): Rename arg ENV to
 	LANG-ENV.
 
-1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* mule/mule-cmds.el (set-language-info): Don't set up menus at
-	all.
-	(set-language-info-alist): Set up menus here.
-	
 1998-05-20  Richard Stallman  <rms@psilocin.ai.mit.edu>
 
 	* mule/mule-cmds.el (register-input-method): Fix previous change.
@@ -375,10 +365,19 @@
 	* mule/mule-cmds.el (universal-coding-system-argument):
 	Use buffer-file-coding-system as default.
 
+1998-04-14  Andreas Schwab  <schwab@mescaline.gnu.org>
+
+	* mule/korean.el ("Korean"): Doc fix.
+
 1998-04-11  Kenichi Handa  <handa@etl.go.jp>
 
 	* mule/mule-cmds.el (describe-language-environment): Print the
 	languge environment at the head.
+
+1998-04-06  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/japanese.el: Set exit-function to exit-japanese-environment
+	for Japanese environment.
 
 1998-03-20  Richard Stallman  <rms@psilocin.gnu.org>
 
@@ -402,6 +401,15 @@
 	(set-language-info-alist): New optionla arg PARENTS.  Call
 	set-language-info with apropriate DESCRIBE-MAP and SETUP-MAP args.
 	(set-language-environment-coding-systems): New function.
+
+	* mule/chinese.el: Remove setting up of
+	describe-chinese-environment-map and
+	setup-chinese-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.
+
+	* mule/japanese.el, mule/korean.el, mule/vietnamese.el: Register
+	coding-priority key in
 
 1997-12-19  Stephen Eglen  <stephen@cns.ed.ac.uk>
 
@@ -437,6 +445,10 @@
 	(activate-input-method): Check if we can run the registered
 	function to activate an input method.
 
+	* language/korean.el: Set exit-function for language environment
+	"Korean" to exit-korean-environment.
+	(setup-korean-environment): Moved to korea-util.el.
+
 1997-10-21  Kenichi Handa  <handa@etl.go.jp>
 
 	* mule/mule-cmds.el (read-multilingual-string): Use
@@ -448,12 +460,12 @@
 
 	* mule/mule-cmds.el (describe-language-environment): Fix prompt.
 
-1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1997-10-21  Kenichi Handa  <handa@etl.go.jp>
 
-	* minibuf.el (completing-read): Add new optional argument
-	`default'.
-	(read-coding-system): Add new optional argument
-	`default-coding-system'.
+	* mule/chinese.el (post-read-decode-hz): Return the result of
+	decode-hz-region.
+	(pre-write-encode-hz): Do not change the value of
+	last-coding-system.
 
 1998-09-06  Bill Richter  <richter@math.nwu.edu>
 
