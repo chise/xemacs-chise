@@ -578,7 +578,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother ucs-bmp
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
@@ -590,7 +590,7 @@
 	       columns 2
 	       graphic 2
 	       direction l2r
-	       registry "-zh-.*-ucs-0"
+	       registry "-zhRadicals-.*-ucs-0"
 	       mother =ucs@unicode
 	       min-code #x2E00 max-code #x2FFF))
   (make-charset
