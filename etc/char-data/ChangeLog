@@ -16,6 +16,10 @@
 
 	* JC3-to-UCS.txt: Modify some mappings.
 
+2003-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* jp-jouyou.txt: New file.
+
 2003-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* GT-fmap-K4.txt: New file.
