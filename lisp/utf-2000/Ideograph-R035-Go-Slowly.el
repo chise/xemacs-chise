@@ -62,6 +62,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (chinese-cns11643-3 . #x2546)	; ø»•
+    (chinese-big5-cdp	. #x8D64)	; ý¢€ˆµ¤
     ))
 (define-char
   '((morohashi-daikanwa	5711 0 2)
