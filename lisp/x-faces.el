@@ -506,7 +506,7 @@ Otherwise, it returns the next larger version of this font that is defined."
 	;; globally.  This means we should override global
 	;; defaults for all X device classes.
 	(remove-specifier (face-font face) locale x-tag-set nil))
-      (set-face-font face fn locale nil append))
+      (set-face-font face fn locale 'x append))
     ;; Kludge-o-rooni.  Set the foreground and background resources for
     ;; X devices only -- otherwise things tend to get all messed up
     ;; if you start up an X frame and then later create a TTY frame.

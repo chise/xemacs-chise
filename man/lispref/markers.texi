@@ -668,7 +668,7 @@ described here.
 concept of an @dfn{active region} exists.  The region is active when the
 corresponding mark is active.  Note that only one active region at a
 time can exist -- i.e. only one buffer's region is active at a time.
-@xref{The Mark} for more information about active regions.
+@xref{The Mark}, for more information about active regions.
 
 @defopt zmacs-regions
 If non-@code{nil} (the default), active regions are used.  @xref{The Mark},

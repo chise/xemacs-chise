@@ -47,7 +47,7 @@ struct Lisp_Hash_Table
   size_t rehash_count;
   double rehash_size;
   double rehash_threshold;
-  size_t golden;
+  size_t golden_ratio;
   hash_table_hash_function_t hash_function;
   hash_table_test_function_t test_function;
   hentry *hentries;
@@ -66,7 +66,7 @@ typedef struct Lisp_Hash_Table Lisp_Hash_Table;
 
 #define HASH_CODE(key, ht)							\
   (((((ht)->hash_function ? (ht)->hash_function (key) : LISP_HASH (key))	\
-     * (ht)->golden)								\
+     * (ht)->golden_ratio)								\
     % (ht)->size))
 
 #define KEYS_EQUAL_P(key1, key2, testfun) \
@@ -399,7 +399,7 @@ compute_hash_table_derived_values (Lisp_Hash_Table *ht)
 {
   ht->rehash_count = (size_t)
     ((double) ht->size * hash_table_rehash_threshold (ht));
-  ht->golden = (size_t)
+  ht->golden_ratio = (size_t)
     ((double) ht->size * (.6180339887 / (double) sizeof (Lisp_Object)));
 }
 

@@ -1536,7 +1536,12 @@ START should be at the beginning of a line."
 
 ;; If the buffer has just been reverted, normally that turns off
 ;; Font Lock mode.  So turn the mode back on if necessary.
-(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
+;; sb 1999-03-03 -- The above comment no longer appears to be operative as
+;; the first call to normal-mode *will* restore the font-lock state and
+;; this call forces a second font-locking to occur when reverting a buffer,
+;; which is wasteful at best.
+;(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
+(defun font-lock-revert-cleanup ())
 
 
 ;; Various functions.

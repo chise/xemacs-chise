@@ -115,7 +115,7 @@ If you are using XEmacs under the X window system, you can set
 the variable @code{zmacs-regions} to @code{t}. This makes the current
 region (defined by point and mark) highlight and makes it available as
 the X clipboard selection, which means you can use the menu bar items on
-it.  @xref{Active Regions} for more information.
+it.  @xref{Active Regions}, for more information.
  
   @kbd{C-x C-x} is also useful when you are satisfied with the location of
 point but want to move the mark; do @kbd{C-x C-x} to put point there and

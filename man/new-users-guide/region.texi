@@ -156,7 +156,7 @@ Indent it with @kbd{C-x @key{TAB}} or @kbd{C-M-\}
   The most common way to move or copy text in Emacs is through
 @dfn{killing} or @samp{cutting} it and then @dfn{yanking} or
 @samp{pasting} it. You can also use the @b{Cut} or @b{Copy} option from
-the @b{Edit} menu for killing and copying respectively. @xref{Edit menu} 
+the @b{Edit} menu for killing and copying respectively. @xref{Edit menu}, 
 for reviewing the commands for killing text. All the killed text
 in Emacs is recorded in the @dfn{kill ring}. Since there is only one
 kill ring in Emacs, you can kill text in one buffer and yank it in

@@ -198,7 +198,7 @@ extern char *sbrk ();
 extern void *sbrk ();
 #endif /* __STDC__ */
 
-extern char *start_of_data ();
+extern char *start_of_data (void);
 
 #ifdef BSD
 #ifndef DATA_SEG_BITS

@@ -972,7 +972,7 @@ are willing to fund the work, please mail to @email{xemacs-beta@@xemacs.org}.
 @node Q1.3.3, Q1.3.4, Q1.3.2, Introduction
 @unnumberedsubsec Q1.3.3: How do I type non-ASCII characters?
 
-See question 3.5.7 (@xref{Q3.5.7}) in part 3 of this FAQ.
+See question 3.5.7 (@pxref{Q3.5.7}) in part 3 of this FAQ.
 
 @node Q1.3.4, Q1.3.5, Q1.3.3, Introduction
 @unnumberedsubsec Q1.3.4: Can XEmacs messages come out in a different language?
@@ -1877,7 +1877,7 @@ your system administrator.
 
 It's possible that a core file didn't get produced, in which case you're
 out of luck.  Go complain to your system administrator and tell him not
-to disable core files by default.  Also @xref{Q2.1.15} for tips and
+to disable core files by default.  Also @xref{Q2.1.15}, for tips and
 techniques for dealing with a debugger.
 
 When making a problem report make sure that:
@@ -3304,7 +3304,7 @@ For the FAQ example you could use:
 
 This is fine if you only need a few functions within the lambda body.
 If you're doing more it's cleaner to define a separate function as in
-question 3.5.3 (@xref{Q3.5.3}).
+question 3.5.3 (@pxref{Q3.5.3}).
 
 @node Q3.5.2, Q3.5.3, Q3.5.1, Customization
 @unnumberedsubsec Q3.5.2: How can I stop down-arrow from adding empty lines to the bottom of my buffers?
@@ -3338,7 +3338,7 @@ Add the following (Thanks to @email{mly@@adoc.xerox.com, Richard Mlynarik} and
 
 The key point is that you can only bind simple functions to keys; you
 can not bind a key to a function that you're also passing arguments to.
-(@xref{Q3.5.1} for a better answer).
+(@pxref{Q3.5.1} for a better answer).
 
 @node Q3.5.4, Q3.5.5, Q3.5.3, Customization
 @unnumberedsubsec Q3.5.4: Globally binding @kbd{Delete}?
@@ -4413,7 +4413,7 @@ Set @code{user-mail-address} to @samp{gail.gurman@@sybase.com} or
 
 VM supports MIME natively.
 
-You probably want to use the Tools for MIME (tm).  @xref{Q4.3.2} for
+You probably want to use the Tools for MIME (tm).  @xref{Q4.3.2}, for
 details.
 
 @email{trey@@cs.berkeley.edu, Trey Jackson} has an Emacs & MIME web page at
@@ -5291,7 +5291,7 @@ been put in @file{bin/hppa1.1-hp-hpux9.0}?
 
 @quotation
 The standard TeX modes leave much to be desired, and are somewhat
-leniently maintained.  Serious TeX users use AUC TeX (@xref{Q4.7.1}).
+leniently maintained.  Serious TeX users use AUC TeX (@pxref{Q4.7.1}).
 @end quotation
 
 @node Q5.0.20, Q5.1.1, Q5.0.19, Miscellaneous
@@ -5740,7 +5740,7 @@ versions.
 @node Q5.2.3, Q5.2.4, Q5.2.2, Miscellaneous
 @unnumberedsubsec Q5.2.3: What's NAS, how do I get it?
 
-@xref{Q2.0.3} for an explanation of the @dfn{Network Audio System}.
+@xref{Q2.0.3}, for an explanation of the @dfn{Network Audio System}.
 
 @node Q5.2.4, Q5.3.1, Q5.2.3, Miscellaneous
 @unnumberedsubsec Q5.2.4: Sunsite sounds don't play.

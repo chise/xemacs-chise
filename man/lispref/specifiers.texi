@@ -325,7 +325,7 @@ or the symbol @code{nil}.
 @item toolbar
 The valid instantiators are toolbar descriptors, which are lists
 of toolbar-button descriptors (each of which is a vector of two
-or four elements).  @xref{Toolbar} for more information.
+or four elements).  @xref{Toolbar}, for more information.
 @end table
 
 Color and font instance objects can also be used in turn as
@@ -335,9 +335,9 @@ directly as the new instance object, but only if they are of the same
 device.  If the devices differ, the base color or font of the
 instantiating object is effectively used instead as the instantiator.
 
-@xref{Faces and Window-System Objects} for more information on fonts,
-colors, and face-boolean specifiers.  @xref{Glyphs} for more information
-about image specifiers.  @xref{Toolbar} for more information on toolbar
+@xref{Faces and Window-System Objects}, for more information on fonts,
+colors, and face-boolean specifiers.  @xref{Glyphs}, for more information
+about image specifiers.  @xref{Toolbar}, for more information on toolbar
 specifiers.
 
 @defun specifier-type specifier

@@ -82,7 +82,7 @@ omitted.
 This function returns the maximum accessible value of point in
 @var{buffer}.  This is @code{(1+ (buffer-size buffer))}, unless
 narrowing is in effect, in which case it is the position of the end of
-the region that you narrowed to. (@xref{Narrowing}).  @var{buffer}
+the region that you narrowed to. (@pxref{Narrowing}).  @var{buffer}
 defaults to the current buffer if omitted.
 @end defun
 

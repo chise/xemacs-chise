@@ -440,7 +440,7 @@ and some previously-unassigned modifier bit.
 @section Representation of Characters
 
 This section briefly discusses how characters are represented in Emacs
-buffers.  @xref{Key Sequences} for information on representing key
+buffers.  @xref{Key Sequences}, for information on representing key
 sequences to create key bindings. 
 
   ASCII graphic characters in Emacs buffers are displayed with their
@@ -481,8 +481,8 @@ names}.  More information on this subject will appear in the @i{XEmacs
 Lisp Reference Manual}.
 
   The bindings between keys and functions are recorded in various tables
-called @dfn{keymaps}.  @xref{Key Bindings} for more information on key
-sequences you can bind commands to.  @xref{Keymaps} for information on
+called @dfn{keymaps}.  @xref{Key Bindings}, for more information on key
+sequences you can bind commands to.  @xref{Keymaps}, for information on
 creating keymaps.
 
   When we say  ``@kbd{C-n} moves down vertically one line'' we are

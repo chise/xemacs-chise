@@ -24,12 +24,13 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
-#include <audio.h>
+#include <string.h>
 #include <sys/file.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include <string.h>
+#include <unistd.h>
+#include <audio.h>
 #include <netinet/in.h>		/* for ntohl() etc. */
 
 /* Configuration options */
@@ -201,17 +202,14 @@ static int parse_snd_header (void*, long, AudioContext);
   (!strncmp(".snd", (char *)(address), 4))
 
 static Lisp_Object
-close_sound_file (closure)
-     Lisp_Object closure;
+close_sound_file (Lisp_Object closure)
 {
   close (XINT (closure));
   return Qnil;
 }
 
 void
-play_sound_file (sound_file, volume)
-     char * sound_file;
-     int volume;
+play_sound_file (char *sound_file, int volume)
 {
   int count = specpdl_depth ();
   int input_fd;
@@ -255,8 +253,7 @@ saved_device_state[] = {
 };
 
 static Lisp_Object
-restore_audio_port (closure)
-     Lisp_Object closure;
+restore_audio_port (Lisp_Object closure)
 {
   Lisp_Object * contents = XVECTOR_DATA (closure);
   saved_device_state[1] = XINT (contents[0]);
@@ -267,10 +264,7 @@ restore_audio_port (closure)
 }
 
 void
-play_sound_data (data, length, volume)
-     unsigned char * data;
-     int length;
-     int volume;
+play_sound_data (unsigned char *data, int length, int volume)
 {
   int count = specpdl_depth ();
   AudioContext ac;
@@ -284,10 +278,7 @@ play_sound_data (data, length, volume)
 }
 
 static AudioContext
-audio_initialize (data, length, volume)
-     unsigned char * data;
-     int length;
-     int volume;
+audio_initialize (unsigned char *data, int length, int volume)
 {
   Lisp_Object audio_port_state[3];
   static AudioContextRec desc;
@@ -331,10 +322,7 @@ audio_initialize (data, length, volume)
 }
 
 static void
-play_internal (data, length, ac)
-     unsigned char * data;
-     int length;
-     AudioContext ac;
+play_internal (unsigned char *data, int length, AudioContext ac)
 {
   unsigned char * limit;
   if (ac == (AudioContext) 0)
@@ -357,8 +345,7 @@ play_internal (data, length, ac)
 }
 
 static void
-drain_audio_port (ac)
-     AudioContext ac;
+drain_audio_port (AudioContext ac)
 {
   while (ALgetfilled (ac->ac_port) > 0)
     sginap(1);
@@ -374,8 +361,7 @@ drain_audio_port (ac)
 #include "libst.h"
 #else /* not USE_MULAW_DECODE_TABLE */
 static int
-st_ulaw_to_linear (u)
-     int u;
+st_ulaw_to_linear (int u)
 {
   static CONST short table[] = {0,132,396,924,1980,4092,8316,16764};
   int u1 = ~u;
@@ -387,10 +373,7 @@ st_ulaw_to_linear (u)
 #endif /* not USE_MULAW_DECODE_TABLE */
 
 static void
-write_mulaw_8_chunk (buffer, chunklimit, ac)
-     void * buffer;
-     void * chunklimit;
-     AudioContext ac;
+write_mulaw_8_chunk (void *buffer, void *chunklimit, AudioContext ac)
 {
   unsigned char * data = (unsigned char *) buffer;
   unsigned char * limit = (unsigned char *) chunklimit;
@@ -408,10 +391,7 @@ write_mulaw_8_chunk (buffer, chunklimit, ac)
 
 #if HAVE_LINEAR
 static void
-write_linear_chunk (data, limit, ac)
-     void * data;
-     void * limit;
-     AudioContext ac;
+write_linear_chunk (void *data, void *limit, AudioContext ac)
 {
   unsigned n_samples;
 
@@ -426,10 +406,7 @@ write_linear_chunk (data, limit, ac)
 
 #if HAVE_LINEAR_32
 static void
-write_linear_32_chunk (buffer, chunklimit, ac)
-     void * buffer;
-     void * chunklimit;
-     AudioContext ac;
+write_linear_32_chunk (void *buffer, void *chunklimit, AudioContext ac)
 {
   long * data = (long *) buffer;
   long * limit = (long *) chunklimit;
@@ -447,8 +424,7 @@ write_linear_32_chunk (buffer, chunklimit, ac)
 #endif /* HAVE_LINEAR */
 
 static AudioContext
-initialize_audio_port (desc)
-     AudioContext desc;
+initialize_audio_port (AudioContext desc)
 {
   /* we can't use the same port for mono and stereo */
   static AudioContextRec mono_port_state
@@ -515,9 +491,7 @@ initialize_audio_port (desc)
 }
 
 static int
-open_audio_port (return_ac, desc)
-     AudioContext return_ac;
-     AudioContext desc;
+open_audio_port (AudioContext return_ac, AudioContext desc)
 {
   ALconfig config = ALnewconfig();
   long params[2];
@@ -547,9 +521,7 @@ open_audio_port (return_ac, desc)
 }
 
 static int
-set_channels (config, nchan)
-     ALconfig config;
-     unsigned nchan;
+set_channels (ALconfig config, unsigned int nchan)
 {
   switch (nchan)
     {
@@ -566,9 +538,7 @@ set_channels (config, nchan)
 }
 
 static int
-set_output_format (config, format)
-     ALconfig config;
-     AudioFormat format;
+set_output_format (ALconfig config, AudioFormat format)
 {
   long samplesize;
   long old_samplesize;
@@ -609,8 +579,7 @@ set_output_format (config, format)
 }
 
 static void
-adjust_audio_volume (device)
-     AudioDevice device;
+adjust_audio_volume (AudioDevice device)
 {
   long params[4];
   params[0] = AL_LEFT_SPEAKER_GAIN;
@@ -621,8 +590,7 @@ adjust_audio_volume (device)
 }
 
 static void
-get_current_volumes (device)
-     AudioDevice device;
+get_current_volumes (AudioDevice device)
 {
   long params[4];
   params[0] = AL_LEFT_SPEAKER_GAIN;
@@ -678,10 +646,7 @@ typedef enum
 SNDFormatCode;
 
 static int
-parse_snd_header (header, length, desc)
-     void * header;
-     long length;
-     AudioContext desc;
+parse_snd_header (void *header, long length, AudioContext desc)
 {
 #define hp ((SNDSoundStruct *) (header))
   long limit;

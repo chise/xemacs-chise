@@ -317,6 +317,136 @@ Dynarr_add_validified_lisp_string (char_dynarr *cda, Lisp_Object str)
   validify_resource_component (Dynarr_atp (cda, Dynarr_length (cda) - len), len);
 }
 
+#if 0
+/* compare visual info for qsorting */
+static int
+x_comp_visual_info (const void *elem1, const void *elem2)
+{
+  XVisualInfo *left, *right;
+
+  left = (XVisualInfo *)elem1;
+  right = (XVisualInfo *)elem2;
+
+  if ( left == NULL )
+    return -1;
+  if ( right == NULL )
+    return 1;
+
+  if ( left->depth > right->depth ) {
+    return 1;
+  }
+  else if ( left->depth == right->depth ) {
+    if ( left->colormap_size > right->colormap_size )
+      return 1;
+    if ( left->class > right->class )
+      return 1;
+    else if ( left->class < right->class )
+      return -1;
+    else
+      return 0;
+  }
+  else {
+    return -1;
+  }
+
+}
+#endif /* if 0 */
+
+#define XXX_IMAGE_LIBRARY_IS_SOMEWHAT_BROKEN
+static Visual *
+x_try_best_visual_class (Screen *screen, int scrnum, int visual_class)
+{
+  Display *dpy = DisplayOfScreen (screen);
+  XVisualInfo vi_in;
+  XVisualInfo *vi_out = NULL;
+  int out_count;
+
+  vi_in.class = visual_class;
+  vi_in.screen = scrnum;
+  vi_out = XGetVisualInfo (dpy, (VisualClassMask | VisualScreenMask),
+			   &vi_in, &out_count);
+  if ( vi_out )
+    {
+      int i, best;
+      Visual *visual;
+      for (i = 0, best = 0; i < out_count; i++)
+	/* It's better if it's deeper, or if it's the same depth with
+	   more cells (does that ever happen?  Well, it could...)
+	   NOTE: don't allow pseudo color to get larger than 8! */
+	if (((vi_out [i].depth > vi_out [best].depth) ||
+	     ((vi_out [i].depth == vi_out [best].depth) &&
+	      (vi_out [i].colormap_size > vi_out [best].colormap_size)))
+#ifdef XXX_IMAGE_LIBRARY_IS_SOMEWHAT_BROKEN
+	    /* For now, the image library doesn't like PseudoColor visuals
+	       of depths other than 1 or 8.  Depths greater than 8 only occur
+	       on machines which have TrueColor anyway, so probably we'll end
+	       up using that (it is the one that `Best' would pick) but if a
+	       PseudoColor visual is explicitly specified, pick the 8 bit one.
+	    */
+	    && (visual_class != PseudoColor ||
+		vi_out [i].depth == 1 ||
+		vi_out [i].depth == 8)
+#endif
+             
+	    /* SGI has 30-bit deep visuals.  Ignore them. 
+                (We only have 24-bit data anyway.)
+              */
+	    && (vi_out [i].depth <= 24)
+	    )
+	  best = i;
+      visual = vi_out[best].visual;
+      XFree ((char *) vi_out);
+      return visual;
+    }
+  else
+    return 0;
+}
+
+static int
+x_get_visual_depth (Display *dpy, Visual *visual)
+{
+  XVisualInfo vi_in;
+  XVisualInfo *vi_out;
+  int out_count, d;
+
+  vi_in.visualid = XVisualIDFromVisual (visual);
+  vi_out = XGetVisualInfo (dpy, /*VisualScreenMask|*/VisualIDMask,
+			   &vi_in, &out_count);
+  if (! vi_out) abort ();
+  d = vi_out [0].depth;
+  XFree ((char *) vi_out);
+  return d;
+}
+
+static Visual *
+x_try_best_visual (Display *dpy, int scrnum)
+{
+  Visual *visual = NULL;
+  Screen *screen = ScreenOfDisplay (dpy, scrnum);
+  if ((visual = x_try_best_visual_class (screen, scrnum, TrueColor))
+      && x_get_visual_depth (dpy, visual) >= 16 )
+    return visual;
+  if ((visual = x_try_best_visual_class (screen, scrnum, PseudoColor)))
+    return visual;
+  if ((visual = x_try_best_visual_class (screen, scrnum, TrueColor)))
+    return visual;
+#ifdef DIRECTCOLOR_WORKS
+  if ((visual = x_try_best_visual_class (screen, scrnum, DirectColor)))
+    return visual;
+#endif
+
+  visual = DefaultVisualOfScreen (screen);
+  if ( x_get_visual_depth (dpy, visual) >= 8 )
+    return visual;
+
+  if ((visual = x_try_best_visual_class (screen, scrnum, StaticGray)))
+    return visual;
+  if ((visual = x_try_best_visual_class (screen, scrnum, GrayScale)))
+    return visual;
+  return DefaultVisualOfScreen (screen);
+}
+
+
 static void
 x_init_device (struct device *d, Lisp_Object props)
 {
@@ -333,6 +463,8 @@ x_init_device (struct device *d, Lisp_Object props)
   int depth = 8;		/* shut up the compiler */
   Colormap cmap;
   int screen;
+  /* */
+  int best_visual_found = 0;
 
   XSETDEVICE (device, d);
   display = DEVICE_CONNECTION (d);
@@ -347,7 +479,7 @@ x_init_device (struct device *d, Lisp_Object props)
    * Break apart the old XtOpenDisplay call into XOpenDisplay and
    * XtDisplayInitialize so we can figure out whether there
    * are any XEmacs resources in the resource database before
-   * we intitialize Xt.  This is so we can automagically support
+   * we initialize Xt.  This is so we can automagically support
    * both `Emacs' and `XEmacs' application classes.
    */
   slow_down_interrupts ();
@@ -487,8 +619,13 @@ x_init_device (struct device *d, Lisp_Object props)
       }
     if (visual == NULL)
       {
-	visual = DefaultVisual (dpy, screen);
-	depth  = DefaultDepth  (dpy, screen);
+	/*
+	  visual = DefaultVisual(dpy, screen);
+	  depth = DefaultDepth(dpy, screen);
+	*/
+	visual = x_try_best_visual (dpy, screen);
+	depth = x_get_visual_depth (dpy, visual);
+	best_visual_found = (visual != DefaultVisual (dpy, screen));
       }
 
     /* If we've got the same visual as the default and it's PseudoColor,
@@ -509,10 +646,17 @@ x_init_device (struct device *d, Lisp_Object props)
       }
     else
       {
-	/* We have to create a matching colormap anyway...
-	   ### think about using standard colormaps (need the Xmu libs?) */
-	cmap = XCreateColormap (dpy, RootWindow(dpy, screen), visual, AllocNone);
-	XInstallColormap (dpy, cmap);
+	if ( best_visual_found )
+	  {
+	    cmap = XCreateColormap (dpy,  RootWindow (dpy, screen), visual, AllocNone);
+	  }
+	else
+	  {
+	    /* We have to create a matching colormap anyway...
+	       ### think about using standard colormaps (need the Xmu libs?) */
+	    cmap = XCreateColormap(dpy, RootWindow(dpy, screen), visual, AllocNone);
+	    XInstallColormap(dpy, cmap);
+	  }
       }
   }
 

@@ -69,8 +69,8 @@ situation, the command is disabled and its name appears faded.  You
 cannot invoke items that are faded.  For example, many commands on the
 @b{Edit} menu appear faded until you select text on which they are to
 operate; after you select a block of text, edit commands are enabled.
-@xref{Mouse Selection} for information on using the mouse to select
-text.  @xref{Using X Selections} for related information.
+@xref{Mouse Selection}, for information on using the mouse to select
+text.  @xref{Using X Selections}, for related information.
 
 There are also @kbd{M-x} equivalents for each menu item.  To find the
 equivalent for any left-button menu item, do the following:
@@ -398,7 +398,7 @@ menu to your @code{.emacs} file.
 @cindex Buffers menu
 The @b{Buffers} menu provides a selection of up to ten buffers and the
 item @b{List All Buffers}, which provides a Buffer List. @xref{List
-Buffers} for more information.  
+Buffers}, for more information.  
 
 @node Tools Menu
 @subsection The Tools Menu
@@ -417,7 +417,7 @@ there are sub-menus which you will need to select.
 
 The Help Menu gives you access to Emacs Info and provides a menu
 equivalent for each of the choices you have when using @kbd{C-h}. 
-@xref{Help} for more information. 
+@xref{Help}, for more information. 
 
 The Help menu also gives access to UNIX online manual pages via the
 @b{UNIX Manual Page} option.  

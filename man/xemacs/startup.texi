@@ -125,7 +125,7 @@ architecture it runs on and typically reside under
 During installation, all of these directories may also reside directly
 under @file{<root>}, because that is where they are in the XEmacs tarball.
 
-If XEmacs runs with the @code{-debug-paths} option (@xref{Command
+If XEmacs runs with the @code{-debug-paths} option (@pxref{Command
 Switches}), it will print the values of these variables, hopefully
 aiding in debugging any problems which come up.
 
