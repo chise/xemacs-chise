@@ -6220,7 +6220,7 @@
     (=hanziku-2		. #xCDFE)	; &I-HZK02-CDFE;
     ))
 (define-char
-  '((morohashi-daikanwa	48258 0 2)
+  '((=>daikanwa		. 48258)	; 黾
     (ideographic-radical@ucs . 205)	; ⿌
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@cns . 30)	; ⼝
