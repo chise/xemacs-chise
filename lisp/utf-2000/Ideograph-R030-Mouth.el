@@ -8484,6 +8484,7 @@
      ((=ucs		  . #x53E3)	; å£
       )
      ((=daikanwa	  . 30648)	; ø¸‡ž¸
+      (=gt		  . 39673)	; ý¡€‰«¹
       ))
     (=big5		. #xAB75)	; ý¢€Š­µ
     (=daikanwa		. 03628)	; ø¸€¸¬
@@ -32842,11 +32843,25 @@
       )
      ((=ucs		  . #x53E3)	; å£
       )
+     ((=daikanwa	  . 32519)	; ø¸‡¼‡
+      ))
+    (=daikanwa		. 04658)	; ø¸ˆ²
+    ))
+(define-char
+  '((=>ucs		. #x56D2)	; å›’
+    (morohashi-daikanwa	4658 0 0)
+    (ideographic-radical . 30)	; â¼
+    (ideographic-strokes . 21)
+    (total-strokes	 . 24)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x53E3)	; å£
+      )
      ((=cns11643-1	  . #x7B22)	; ø»“†©
-      (=daikanwa	  . 32519)	; ø¸‡¼‡
       ))
     (=cns11643-3	. #x6071)	; ø»–´–
-    (=daikanwa		. 04658)	; ø¸ˆ²
     (=cbeta		. 02258)	; ø¸ £’
     ))
 (define-char
