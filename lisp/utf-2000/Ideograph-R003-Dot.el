@@ -433,6 +433,15 @@
     (=gt		. 00145)	; ý¡€€‚‘
     ))
 (define-char
+  '((=>ucs		. #x4E3D)	; ä¸½
+    (morohashi-daikanwa	104 0 1)
+    (ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (=gt-pj-k1		. #x325C)	; ý¡„‡¥
+    (=gt-k		. 04581)	; ý¡„‡¥
+    ))
+(define-char
   '((morohashi-daikanwa	104 0 2)
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 6)
