@@ -1,3 +1,9 @@
+2005-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Makefile.in.in (install-arch-indep): As the symbolic link for
+	chise-db-directory/db, use relative directory instead of absolute
+	directory of ${etcdir}/chise-db.
+
 2004-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Makefile.in.in (COPYDIR): Delete ${srcdir}/lib-src/chise-db.
