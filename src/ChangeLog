@@ -1,5 +1,9 @@
 2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* mule-charset.c (decode_builtin_char): Support mother charsets.
+
+2001-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* mule-charset.c (Q94x94x60): New variable.
 	(charset_code_point): Support conversion `94x94x60'.
 	(Fmake_charset): Likewise.
