@@ -1547,5 +1547,5 @@ vars_of_elhash (void)
 {
   /* This must NOT be staticpro'd */
   Vall_weak_hash_tables = Qnil;
-  pdump_wire_list (&Vall_weak_hash_tables);
+  dump_add_weak_object_chain (&Vall_weak_hash_tables);
 }

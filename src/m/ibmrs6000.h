@@ -47,7 +47,11 @@ Boston, MA 02111-1307, USA.  */
 #ifndef USG5_4
 #define TEXT_START 0x10000000
 #define TEXT_END 0
+#ifdef __64BIT__
+#define DATA_START 0x110000000 /* empirically determined */
+#else
 #define DATA_START 0x20000000
+#endif
 #define DATA_END 0
 #endif
 

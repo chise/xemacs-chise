@@ -471,36 +471,6 @@ typedef struct {
 #define hdrNil ((pHDRR)0)
 #endif
 
-#ifdef __NetBSD__
-/*
- * NetBSD does not have normal-looking user-land ELF support.
- */
-# ifdef __alpha__
-#  define ELFSIZE	64
-# else
-#  define ELFSIZE	32
-# endif
-# include <sys/exec_elf.h>
-
-# define PT_LOAD	Elf_pt_load
-# define SHT_SYMTAB	Elf_sht_symtab
-# define SHT_DYNSYM	Elf_sht_dynsym
-# define SHT_NULL	Elf_sht_null
-# define SHT_NOBITS	Elf_sht_nobits
-# define SHT_REL	Elf_sht_rel
-# define SHT_RELA	Elf_sht_rela
-
-# define SHN_UNDEF	Elf_eshn_undefined
-# define SHN_ABS	Elf_eshn_absolute
-# define SHN_COMMON	Elf_eshn_common
-
-# ifdef __alpha__
-#  include <sys/exec_ecoff.h>
-#  define HDRR		struct ecoff_symhdr
-#  define pHDRR		HDRR *
-# endif
-#endif /* __NetBSD__ */
-
 #ifdef __OpenBSD__
 # include <sys/exec_elf.h>
 #endif

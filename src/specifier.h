@@ -300,14 +300,15 @@ extern struct specifier_methods * type##_specifier_methods
 #define DEFINE_SPECIFIER_TYPE(type)					\
 struct specifier_methods * type##_specifier_methods
 
-#define INITIALIZE_SPECIFIER_TYPE(type, obj_name, pred_sym) do {	\
-  type##_specifier_methods = xnew_and_zero (struct specifier_methods);	\
-  type##_specifier_methods->name = obj_name;				\
-  type##_specifier_methods->extra_description =				\
-    specifier_empty_extra_description;					\
-  defsymbol_nodump (&type##_specifier_methods->predicate_symbol, pred_sym); \
-  add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);	    \
-  dumpstruct (&type##_specifier_methods, &specifier_methods_description);   \
+#define INITIALIZE_SPECIFIER_TYPE(type, obj_name, pred_sym) do {		\
+  type##_specifier_methods = xnew_and_zero (struct specifier_methods);		\
+  type##_specifier_methods->name = obj_name;					\
+  type##_specifier_methods->extra_description =					\
+    specifier_empty_extra_description;						\
+  defsymbol_nodump (&type##_specifier_methods->predicate_symbol, pred_sym);	\
+  add_entry_to_specifier_type_list (Q##type, type##_specifier_methods);		\
+  dump_add_root_struct_ptr (&type##_specifier_methods,				\
+			    &specifier_methods_description);			\
 } while (0)
 
 #define REINITIALIZE_SPECIFIER_TYPE(type) do {				\

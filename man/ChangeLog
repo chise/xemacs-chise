@@ -1,3 +1,27 @@
+2001-01-17  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.41 "Polyhymnia" is released.
+
+2001-01-12  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi: A little post-pdump-rename fixup.
+
+2001-01-13  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi: See `pdump-rename' in src/ChangeLog.
+
+2001-01-10  Martin Buchholz  <martin@xemacs.org>
+
+	* internals/internals.texi: Update for pdump changes.
+
+2001-01-04  Adrian Aichner  <adrian@xemacs.org>
+
+	* texinfo.texi (Using Texinfo): Change reference from GNU Emacs to
+	XEmacs.
+	* texinfo.texi (First Node): Fixing grammar.
+	* texinfo.texi (Multitable Rows): Change reference from GNU Emacs
+	to XEmacs.
+
 2001-01-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.40 is released.

@@ -222,19 +222,19 @@ extern struct image_instantiator_methods *format##_image_instantiator_methods
 struct image_instantiator_methods *format##_image_instantiator_methods
 
 #define INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM(format, obj_name)	\
-do {								\
-  format##_image_instantiator_methods =				\
-    xnew_and_zero (struct image_instantiator_methods);		\
-  format##_image_instantiator_methods->symbol = Q##format;	\
-  format##_image_instantiator_methods->device = Qnil;		\
-  format##_image_instantiator_methods->keywords =		\
-    Dynarr_new (ii_keyword_entry);				\
-  format##_image_instantiator_methods->consoles =		\
-    Dynarr_new (console_type_entry);				\
-  add_entry_to_image_instantiator_format_list			\
-    (Q##format, format##_image_instantiator_methods);		\
-  dumpstruct (&format##_image_instantiator_methods,		\
-              &iim_description);				\
+do {									\
+  format##_image_instantiator_methods =					\
+    xnew_and_zero (struct image_instantiator_methods);			\
+  format##_image_instantiator_methods->symbol = Q##format;		\
+  format##_image_instantiator_methods->device = Qnil;			\
+  format##_image_instantiator_methods->keywords =			\
+    Dynarr_new (ii_keyword_entry);					\
+  format##_image_instantiator_methods->consoles =			\
+    Dynarr_new (console_type_entry);					\
+  add_entry_to_image_instantiator_format_list				\
+    (Q##format, format##_image_instantiator_methods);			\
+  dump_add_root_struct_ptr (&format##_image_instantiator_methods,	\
+			    &iim_description);				\
 } while (0)
 
 #define INITIALIZE_IMAGE_INSTANTIATOR_FORMAT(format, obj_name)	\
@@ -300,19 +300,19 @@ IIFORMAT_VALID_GENERIC_KEYWORD(format, keyw, validate_fun, 0, 0)
 DECLARE_IMAGE_INSTANTIATOR_FORMAT(format);	\
 struct image_instantiator_methods *type##_##format##_image_instantiator_methods
 
-#define INITIALIZE_DEVICE_IIFORMAT(type, format)			\
-do {									\
-  type##_##format##_image_instantiator_methods =			\
-    xnew_and_zero (struct image_instantiator_methods);			\
-  type##_##format##_image_instantiator_methods->symbol = Q##format;	\
-  type##_##format##_image_instantiator_methods->device = Q##type;	\
-  type##_##format##_image_instantiator_methods->keywords =		\
-    Dynarr_new (ii_keyword_entry);					\
-  add_entry_to_device_ii_format_list					\
-    (Q##type, Q##format, type##_##format##_image_instantiator_methods);	\
-  IIFORMAT_VALID_CONSOLE(type,format);					\
-  dumpstruct (&type##_##format##_image_instantiator_methods,		\
-              &iim_description);					\
+#define INITIALIZE_DEVICE_IIFORMAT(type, format)				\
+do {										\
+  type##_##format##_image_instantiator_methods =				\
+    xnew_and_zero (struct image_instantiator_methods);				\
+  type##_##format##_image_instantiator_methods->symbol = Q##format;		\
+  type##_##format##_image_instantiator_methods->device = Q##type;		\
+  type##_##format##_image_instantiator_methods->keywords =			\
+    Dynarr_new (ii_keyword_entry);						\
+  add_entry_to_device_ii_format_list						\
+    (Q##type, Q##format, type##_##format##_image_instantiator_methods);		\
+  IIFORMAT_VALID_CONSOLE(type,format);						\
+  dump_add_root_struct_ptr (&type##_##format##_image_instantiator_methods,	\
+			    &iim_description);					\
 } while (0)
 
 /* Declare that image-instantiator format FORMAT has method M; used in

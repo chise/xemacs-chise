@@ -635,8 +635,8 @@ void vars_of_gpmevent (void)
 	gpm_event_queue_tail = Qnil;
 	staticpro (&gpm_event_queue);
 	staticpro (&gpm_event_queue_tail);
-	pdump_wire (&gpm_event_queue);
-	pdump_wire (&gpm_event_queue_tail);
+	dump_add_root_object (&gpm_event_queue);
+	dump_add_root_object (&gpm_event_queue_tail);
 }
 
 void syms_of_gpmevent (void)

@@ -2204,7 +2204,7 @@ start_of_data (void)
 #ifdef DATA_START
   return ((char *) DATA_START);
 #else
-#ifdef ORDINARY_LINK
+#if defined (ORDINARY_LINK) || defined(PDUMP)
   /*
    * This is a hack.  Since we're not linking crt0.c or pre_crt0.c,
    * data_start isn't defined.  We take the address of environ, which

@@ -63,7 +63,7 @@
     (cthomp   "Chuck Thompson"    "cthomp@xemacs.org")
     (dmoore   "David Moore"       "dmoore@ucsd.edu")
     (dkindred "Darrell Kindred"	  "dkindred@cmu.edu")
-    (dv       "Didier Verna"      "verna@inf.enst.fr")
+    (dv       "Didier Verna"      "didier@xemacs.org")
     (hniksic  "Hrvoje Niksic"     "hniksic@xemacs.org")
     (jareth   "Jareth Hein"       "jareth@camelot.co.jp")
     (jason    "Jason Mastaler"	  "jason@xemacs.org")
@@ -108,6 +108,7 @@
     (chr        . "http://www.xemacs.org/faq/")
     (dkindred   . "http://www.cs.cmu.edu/People/dkindred/me.html")
     (dmoore     . "http://oj.egbt.org/dmoore/")
+    (dv         . "http://www.lrde.epita.fr/~didier/")
     (jason      . "http://www.mastaler.com/")
     (juhp       . "http://www.kurims.kyoto-u.ac.jp/~petersen/")
     (jwz        . "http://www.jwz.org/")
@@ -900,14 +901,23 @@ a software development firm.  See ")
      (widget-insert ".\n"))
     (dv
      (widget-insert "\
-I'm currently working (Ph.D.) on the cognitive aspects of
-Human-Machine Interaction in Virtual Environments, and especialy on
-the possibility of adding (artificial) intelligence between the system
-and the operator, in order to detect the intentions of the latter.
+I graduated at ENST (an engineering school in Paris) and have a Ph.D.
+in computer science. I'm currently a teacher at EPITA (another
+engineering school, still in Paris) and a researcher at LRDE (EPITA's
+research and development laboratory). Our research topics include
+generic programming and distributed virtual reality.
 
-Otherwise, I'm, say, 35.82% professional Jazz guitar player,
-which means that's not the way I earn my crust, but things may very
-well reverse in the future ...\n"))
+Apart from XEmacs, I'm also involved in other free software projects,
+including Gnus, BBDB, and the GNU \"autotools\". I also wrote some
+LaTeX packages (ugh :-).
+
+All of this, actually, is only 60% true. Two days per week, I'm also a
+semi-professional Jazz guitar player (and singer), which means that it
+is not the way I earn my crust, but things may very well reverse in
+the future ...\n\n")
+     (widget-insert "Visit Didier's home page: ")
+     (about-url-link 'dv "Visit Didier's home page")
+     (widget-insert "\n"))
     (rossini
      (widget-insert "\
 Author of the first XEmacs FAQ, as well as minor priest in the
@@ -1135,10 +1145,10 @@ XEmacs will speak Scheme.\n")
 Vin helps maintain the older, more mature (read: moldy) versions of
 XEmacs.  Vin has maintained the official XEmacs patch pages.\n")
     (about-show-linked-info 'thiessel "\
-Worked at University of Kaiserslautern where he took part in the 
+Worked at University of Kaiserslautern where he took part in the
 development and design of a CAD framework for analog integrated
-circuits with special emphasis on distributed software concepts. He 
-has now joined HP as technical consultant.  
+circuits with special emphasis on distributed software concepts. He
+has now joined HP as technical consultant.
 
 For XEmacs he does beta testing and tries to take care of XEmacs
 website at <http://www.xemacs.org>.\n")
@@ -1163,14 +1173,16 @@ Darrell is currently a doctoral student in computer science at
 Carnegie Mellon University, but he's trying hard to kick that
 habit.\n")
     (about-show-linked-info 'dv "\
-I'm currently working (Ph.D.) on the cognitive aspects of
-Human-Machine Interaction in Virtual Environments, and especialy on
-the possibility of adding (artificial) intelligence between the system
-and the operator, in order to detect the intentions of the latter.
+I joined the development of XEmacs in 1996, and have been one of the
+core maintainers since 1998. Although I'm mostly interested in the
+GUI, ergonomics, redisplay and autoconf issues, it's probably simpler
+to describe what I'm *not* involved in: I've never touched the Lisp
+implementation, and I probably never will...
 
-Otherwise, I'm, say, 35.82% professional Jazz guitar player,
-which means that's not the way I earn my crust, but things may very
-well reverse in the future ...\n")
+I'm the author of the multicast support, I wrote and maintain some
+external Emacs Lisp packages (including mchat) and I'm also
+responsible for some of the core Lisp code (including the rectangle
+library which I rewrote for both XEmacs and GNU Emacs).\n")
     (about-show-linked-info 'marcpa "\
 I work for Positron Industries Inc., Public Safety Division.\n")
     (about-show-linked-info 'pez "\
@@ -1259,9 +1271,9 @@ extensions.\n")
 Perennial Emacs hacker since 1986 or so, when he first started on GNU
 Emacs 17.something.  Over the years, he's developed \"OEmacs\", the first
 version of GNU Emacs 19 for MSDOS, and \"bigperl\", a 32-bit version of
-Perl4 for MSDOS.  In recent years, reality has intruded and he no longer 
+Perl4 for MSDOS.  In recent years, reality has intruded and he no longer
 has much time for playing with cool programs.  What little time he has
-now goes to XEmacs hacking, where he's worked on speeding up dired under 
+now goes to XEmacs hacking, where he's worked on speeding up dired under
 MS Windows, and to feeding his two cats.\n")
        "\n\
 In addition to those just mentioned, the following people have spent a

@@ -298,6 +298,14 @@ This is a Linux problem where you've compiled the XEmacs binary on a libc
 an earlier version.  The solution is to upgrade your old library.
 
 ** IRIX
+
+*** On Irix 6.5, the MIPSpro compiler gets an internal compiler error
+
+The MIPSpro Compiler (at least version 7.2.1) can't seem to handle the
+union type properly, and fails to compile src/glyphs.c.  To avoid this
+problem, always build ---use-union-type=no (but that's the default, so
+you should only see this problem if you're an XEmacs maintainer).
+
 *** Linking with -rpath on IRIX.
 
 Darrell Kindred <dkindred@cmu.edu> writes:
