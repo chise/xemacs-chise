@@ -4,8 +4,6 @@
 	when Mule is running; load "mule/thai-xtis" instead of "thai-xtis"
 	to avoid conflict with leim/quail/thai-xtis.
 
-1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
 	* mule/thai-xtis.el: Split definition of the charset `thai-xtis'
 	to thai-xtis-chars.el.
 
