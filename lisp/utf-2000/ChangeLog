@@ -1,3 +1,33 @@
+2002-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el, Ideograph-R140-Grass.el,
+	Ideograph-R125-Old.el: Add mappings between CNS 11643-4 and CJK
+	Compatibility Ideographs Supplement of UCS.
+
+	* char-db-util.el (insert-char-attributes): Add formatter for
+	`=>ucs-ks'.
+
+	* Ideograph-R134-Mortar.el (C6-3B41): Unify U-0002695D.
+	(C4-3457): Unify U-0002F98B.
+
+	* Ideograph-R130-Meat.el: Add mappings between CNS 11643-4 and CJK
+	Compatibility Ideographs Supplement of UCS.
+	(M-29927): Unify C5-5B64 and U-0002339C.
+
+	* Ideograph-R115-Grain.el: Add mappings between CNS 11643-4 and
+	CJK Compatibility Ideographs Supplement of UCS.
+
+	* Ideograph-R074-Moon.el (M-14394): Add `<-wrong-ideograph' for
+	M-29821.
+	(U-0002339C): Unify M-29927.
+
+	* Ideograph-R131-Minister.el (C4-2471): Unify U-000268DE.
+
+	* Ideograph-R096-Jade.el, Ideograph-R120-Silk.el,
+	Ideograph-R119-Rice.el, Ideograph-R079-Weapon.el,
+	Ideograph-R075-Tree.el: Add mappings between CNS 11643-4 and CJK
+	Compatibility Ideographs Supplement of UCS.
+
 2002-11-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R113-Spirit.el, Ideograph-R102-Field.el,
