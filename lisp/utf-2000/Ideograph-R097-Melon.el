@@ -300,6 +300,15 @@
     (japanese-jisx0208-1990	. #x6121)	; ø½‹“¼
     ))
 (define-char
+  '((->ucs		. #x74E0)	; ç“ 
+    (morohashi-daikanwa	21392 0 3)
+    (ideographic-radical . 97)	; â½ 
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x6121)	; ø»ƒš€
+    (japanese-jisx0208		. #x6121)	; ø»‡®ˆ
+    ))
+(define-char
   '((ideographic-radical . 97)	; â½ 
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
