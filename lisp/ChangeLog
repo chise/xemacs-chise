@@ -1,3 +1,11 @@
+1999-08-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* version.el ([constant] emacs-version): Don't add a space in the
+	preceding place of `xemacs-betaname' because it is duplicated.
+	(emacs-version): Add UTF-2000 version if `utf-2000' is provided.
+
+	* startup.el (splash-frame-body): Add ETL.
+
 1999-08-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/chinese.el (chinese-cns11643-3): Don't define if `utf-2000'
