@@ -175,15 +175,12 @@
     (ucs			. #x9B2A)	; é¬ª
     ))
 (define-char
-  '((morohashi-daikanwa	45649 1)
+  '((->ucs		. #x95D8)	; é—˜
+    (morohashi-daikanwa	45649 1)
     (ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 10)
-    (cns-radical	 . 169)	; â¾¨
     (total-strokes	 . 18)
-    (chinese-cns11643-3		. #x594A)	; ø»–©
-    (japanese-jisx0208-1990	. #x462E)	; ø½Š¬Ÿ
-    (mojikyo			. 050601)	; ø¸Œ–©
-    (ucs			. #x95D8)	; é—˜
+    (mojikyo		. 050601)	; ý €Œ–©
     ))
 (define-char
   '((ideographic-radical . 191)	; â¾¾
