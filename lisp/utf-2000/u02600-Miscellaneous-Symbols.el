@@ -84,7 +84,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xA1F3)	; øºŸ‘
     (ucs		. #x2609)	; â˜‰
     ))
 (define-char
@@ -465,7 +464,6 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xA1F2)	; øºŸ
     (ucs		. #x2641)	; â™
     ))
 (define-char
