@@ -1,3 +1,9 @@
+2001-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Modify registry
+	of latin-tcvn5712 to accept "tcvn5712.1993-1" as same as
+	"tcvn5712-1".
+
 2001-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_ucs_big5): New variable.
