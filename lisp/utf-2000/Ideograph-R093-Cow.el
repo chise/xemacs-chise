@@ -943,21 +943,20 @@
   '((morohashi-daikanwa	20190 1)
     (ideographic-radical . 93)	; â½œ
     (kangxi-strokes	. 13)
-    (ucs		. #x72A0)	; çŠ 
+    (japanese-jisx0208-1978	. #x353E)	; ø»‚™µ
+    (japanese-jisx0208		. #x353E)	; ø»†­½
+    (japanese-jisx0208-1990	. #x353E)	; çŠ 
+    (mojikyo			. 50275)	; ø¸Œ‘£
+    (ucs			. #x72A0)	; çŠ 
     ))
 (define-char
   '((morohashi-daikanwa	20195)
     (ideographic-radical . 93)	; â½œ
-    (kangxi-strokes	. 15)
-    (ideograph-daikanwa . 20195)	; ø¸„»£
-    (ucs		. #x72A1)	; çŠ¡
-    ))
-(define-char
-  '((morohashi-daikanwa	20195)
-    (ideographic-radical . 93)	; â½œ
-    (total-strokes	. 19)
+    (ideographic-strokes . 15)
+    (total-strokes	 . 19)
     (chinese-cns11643-2 . #x657C)	; ø»”±³
     (ideograph-daikanwa . 20195)	; ø¸„»£
+    (ucs		. #x72A1)	; çŠ¡
     ))
 (define-char
   '((morohashi-daikanwa	20196)
