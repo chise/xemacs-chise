@@ -33,6 +33,7 @@
 (define-char
   '((ideographic-radical . 139)	; â¾Š
     (ideographic-strokes . 4)
+    (total-strokes	 . 10)
     (=ucs		. #x8273)	; è‰³
     (=gb2312		. #x515E)	; ø»…¡
     ))
