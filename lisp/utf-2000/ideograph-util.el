@@ -191,9 +191,12 @@
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
 	 (sort (copy-list (aref ideograph-radical-chars-vector radical))
-	       (function ideograph-char<))))
+	       (function ideograph-char<)))
+	(attributes (sort (char-attribute-list) #'char-attribute-name<))
+	(ccs (sort (charset-list) #'char-attribute-name<)))
+    (aset ideograph-radical-chars-vector radical chars)
     (while chars
-      (insert-char-data (car chars))
+      (insert-char-data (car chars) nil attributes ccs)
       (setq chars (cdr chars)))))
 
 (defun write-ideograph-radical-char-data (radical file)
