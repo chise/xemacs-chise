@@ -1,5 +1,10 @@
 2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R113-Spirit.el (U+7962): Use `->subsumptive'; add
+	JC3-5CDB.
+
+2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R112-Stone.el (U+78CC): Use `->subsumptive'; add
 	JC3-5CB9.
 
