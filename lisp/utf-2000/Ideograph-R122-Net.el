@@ -25,9 +25,21 @@
   '((ideographic-radical . 122)	; â½¹
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 97)
+    (hanyu-dazidian-char . 3)
     (comment		. "= U+5188?")
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; â¿´
+      )
+     ((chinese-big5-cdp	  . #x8B46)	; ý¢€ˆ­†
+      )
+     ((ucs		  . #x3405)	; ã…
+      ))
     (japanese-jisx0212	. #x5475)	; ø»‹°ž
     (ideograph-daikanwa . 28201)	; ø¸†¸©
+    (chinese-big5-cdp	. #x85BE)	; ý¢€ˆ–¾
     (ucs		. #x7F53)	; ç½“
     ))
 (define-char
