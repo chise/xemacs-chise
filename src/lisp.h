@@ -2739,6 +2739,7 @@ EXFUN (Fprint, 2);
 EXFUN (Fprocess_status, 1);
 EXFUN (Fprogn, UNEVALLED);
 EXFUN (Fprovide, 1);
+EXFUN (Fprovide_on_console, 2);
 EXFUN (Fpurecopy, 1);
 EXFUN (Fput, 3);
 EXFUN (Fput_range_table, 4);

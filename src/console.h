@@ -272,6 +272,9 @@ struct console_methods
   /* dialog methods */
   void (*popup_dialog_box_method) (struct frame *, Lisp_Object dbox_desc);
 #endif
+
+  /* Console-specific features */ 
+  Lisp_Object features;
 };
 
 /*
@@ -283,7 +286,9 @@ struct console_methods
 
 #define CONSOLE_TYPE_NAME(c) ((c)->conmeths->name)
 #define CONSOLE_TYPE(c) ((c)->conmeths->symbol)
+#define CONSOLE_FEATURES(c) ((c)->conmeths->features)
 #define CONMETH_TYPE(meths) ((meths)->symbol)
+#define CONMETH_FEATURES(c) ((meths)->features)
 
 /******** Accessing / calling a console method *********/
 
@@ -349,6 +354,8 @@ struct console_methods * type##_console_methods
     add_entry_to_console_type_list (Q##type, type##_console_methods);	\
     type##_console_methods->image_conversion_list = Qnil;		\
     staticpro (&type##_console_methods->image_conversion_list);		\
+    type##_console_methods->features = Qnil;				\
+    staticpro (&type##_console_methods->features);			\
 } while (0)
 
 /* Declare that console-type TYPE has method M; used in

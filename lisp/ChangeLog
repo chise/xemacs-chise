@@ -1,3 +1,13 @@
+1999-06-25  Charles G Waldman <cgw@fnal.gov>
+
+        * cus-face.el (custom-face-italic): insert missing args
+        
+1999-06-24  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* packages.el (package-locations): Changed default early package
+	hierarchies to ~/.xemacs/mule-packages and
+	~/.xemacs/xemacs-packages.
+
 1999-06-23  SL Baur  <steve@miho.m17n.org>
 
 	* mule/mule-category.el (Top Level): ASCII is also latin-1.

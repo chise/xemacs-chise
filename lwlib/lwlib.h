@@ -148,9 +148,14 @@ typedef struct _widget_value
   scrollbar_values *scrollbar_data;
 
   /* we resource the widget_value structures; this points to the next
-     one on the free list if this one has been deallocated.
-   */
+     one on the free list if this one has been deallocated.  */
   struct _widget_value *free_list;
+
+  /* some things are only possible at creation time. args are applied
+     to widgets at creation time.  */
+  ArgList args;
+  int	nargs;
+  Boolean	free_args;
 } widget_value;
 
 
@@ -201,6 +206,7 @@ widget_value* lw_get_all_values (LWLIB_ID id);
 Boolean lw_get_some_values (LWLIB_ID id, widget_value* val);
 void lw_pop_up_all_widgets (LWLIB_ID id);
 void lw_pop_down_all_widgets (LWLIB_ID id);
+void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset);
 
 widget_value *malloc_widget_value (void);
 void free_widget_value (widget_value *);

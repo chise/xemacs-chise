@@ -1,5 +1,7 @@
 							-*- indented-text -*-
 to 21.2.18 "Toshima"
+-- console features implementation from Andy Piper.
+-- glyph widget support under X/Motif from Andy Piper
 -- Make docdir configurable, update package searching rules from Michael
    Sperber
 -- Fix for Japanese word/character movements from MORIOKA Tomohiko

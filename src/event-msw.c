@@ -72,6 +72,14 @@ typedef unsigned int SOCKET;
 #include <io.h>
 #include <errno.h>
 
+#if defined (__CYGWIN32__) && !defined (CYGWIN_VERSION_DLL_MAJOR)
+typedef struct tagNMHDR { 
+  HWND hwndFrom; 
+  UINT idFrom; 
+  UINT code; 
+} NMHDR, *PNMHDR, *LPNMHDR; 
+#endif
+
 #ifdef HAVE_MENUBARS
 #define ADJR_MENUFLAG TRUE
 #else
@@ -1929,7 +1937,6 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
   case WM_NOTIFY:
     {
       LPNMHDR nmhdr = (LPNMHDR)lParam;
-      int idCtrl = (int)wParam;
 
       if (nmhdr->code ==  TTN_NEEDTEXT)
 	{
