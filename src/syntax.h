@@ -1,5 +1,6 @@
 /* Declarations having to do with XEmacs syntax tables.
    Copyright (C) 1985, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -45,6 +46,10 @@ integers.  We can do this successfully because syntax tables are
 now an abstract type, where we control all access.
 */
 
+/* The standard syntax table is stored where it will automatically
+   be used in all new buffers.  */
+extern Lisp_Object Vstandard_syntax_table;
+
 enum syntaxcode
 {
   Swhitespace,	/* whitespace character */
@@ -69,8 +74,33 @@ enum syntaxcode charset_syntax (struct buffer *buf, Lisp_Object charset,
 
 /* Return the syntax code for a particular character and mirror table. */
 
+#ifdef UTF2000
+INLINE_HEADER int SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER int
+SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
+{
+  int code = CHAR_TABLE_VALUE_UNSAFE (table, c);
+  int ret = Spunct;
+
+  if (CONSP (code))
+    code = XCAR (code);
+  ret = XINT (code);
+
+  if (ret == Sinherit)
+    {
+      code = CHAR_TABLE_VALUE_UNSAFE (XCHAR_TABLE
+				      (Vstandard_syntax_table), c);
+      if (CONSP (code))
+	code = XCAR (code);
+      return XINT (code);
+    }
+  else
+    return ret;
+}
+#else
 #define SYNTAX_CODE_UNSAFE(table, c) \
    XINT (CHAR_TABLE_VALUE_UNSAFE (table, c))
+#endif
 
 INLINE_HEADER int SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
 INLINE_HEADER int
@@ -230,10 +260,6 @@ WORD_SYNTAX_P (Lisp_Char_Table *table, Emchar c)
 EXFUN (Fchar_syntax, 2);
 EXFUN (Fforward_word, 2);
 
-/* The standard syntax table is stored where it will automatically
-   be used in all new buffers.  */
-extern Lisp_Object Vstandard_syntax_table;
-
 /* This array, indexed by a character, contains the syntax code which
    that character signifies (as a char).
    For example, (enum syntaxcode) syntax_spec_code['w'] is Sword. */
@@ -256,6 +282,8 @@ extern int no_quit_in_re_search;
 extern struct buffer *regex_emacs_buffer;
 extern int regex_emacs_buffer_p;
 
+#ifndef UTF2000
 void update_syntax_table (Lisp_Char_Table *ct);
+#endif
 
 #endif /* INCLUDED_syntax_h_ */

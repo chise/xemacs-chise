@@ -1,3 +1,281 @@
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* syntax.h (SYNTAX_CODE_UNSAFE): New implementation in XEmacs
+	UTF-2000.
+	(update_syntax_table): Deleted in XEmacs UTF-2000.
+
+	* syntax.c (find_defun_start): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(Fset_syntax_table): Don't use `mirror_syntax_table' in XEmacs
+	UTF-2000.
+	(Fchar_syntax): Use `syntax_table' instead of `mirror_table' in
+	XEmacs UTF-2000.
+	(Fmatching_paren): Likewise.
+	(scan_words): Use `syntax_table' instead of `mirror_syntax_table'
+	in XEmacs UTF-2000.
+	(find_start_of_comment): Likewise.
+	(find_end_of_comment): Likewise.
+	(Fforward_comment): Likewise.
+	(scan_lists): Likewise.
+	(char_quoted): Likewise.
+	(Fbackward_prefix_chars): Likewise.
+	(scan_sexps_forward): Likewise.
+	(update_just_this_syntax_table): Deleted in XEmacs UTF-2000.
+	(update_syntax_table): Likewise.
+
+	* search.c (skip_chars): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(wordify): Likewise.
+	(Freplace_match): Likewise.
+
+	* regex.c (re_compile_fastmap): Use `syntax_table' instead of
+	`mirror_syntax_table' in XEmacs UTF-2000.
+	(WORDCHAR_P_UNSAFE): Likewise.
+	(re_match_2_internal): Likewise.
+
+	* font-lock.c (find_context): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+
+	* cmds.c (internal_self_insert): Use `buf->syntax_table' instead
+	of `buf->mirror_syntax_table' in XEmacs UTF-2000.
+
+	* chartab.h (struct Lisp_Char_Table): Delete `mirror_table' in
+	XEmacs UTF-2000.
+
+	* chartab.c (mark_char_table): Don't mark `mirror_table' in XEmacs
+	UTF-2000.
+	(print_char_table): Print `default_value' in XEmacs UTF-2000.
+	(char_table_description): Delete `mirror_table' in XEmacs
+	UTF-2000.
+	(fill_char_table): Don't call `update_syntax_table' in XEmacs
+	UTF-2000.
+	(Fmake_char_table): Don't use `mirror_table' in XEmacs UTF-2000.
+	(Fcopy_char_table): Likewise.
+	(put_char_table): Don't call `update_syntax_table' in XEmacs
+	UTF-2000.
+
+	* casefiddle.c (casify_object): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+	(casify_region_internal): Likewise.
+
+	* bufslots.h: Delete `mirror_syntax_table' in XEmacs UTF-2000.
+
+	* buffer.c (common_init_complex_vars_of_buffer): Don't use
+	`mirror_syntax_table' in XEmacs UTF-2000.
+
+	* abbrev.c (abbrev_match): Use `buf->syntax_table' instead of
+	`buf->mirror_syntax_table' in XEmacs UTF-2000.
+	(Fexpand_abbrev): Likewise.
+
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (vars_of_chartab): Update `utf-2000-version' to 0.18.
+
+2001-09-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Cancel temporary hack.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_id_table): Use `1 << 30' instead of `1 << 24' as number
+	of character-id ranges.
+	(mark_char_table): Mark `ct->default_value'.
+	(char_table_description): Add `default_value'.
+	(fill_char_table): Use `default_value'.
+	(decode_char_table_range): Decode `nil' as
+	`CHARTAB_RANGE_DEFAULT'.
+	(get_char_id_table): Refer `cit->default_value'.
+	(put_char_id_table): Support `CHARTAB_RANGE_DEFAULT'.
+	(map_char_table): Support `CHARTAB_RANGE_DEFAULT'; cancel
+	temporary hack; check value of char-table is bound or not.
+	(slow_map_char_table_fun): Support `CHARTAB_RANGE_DEFAULT'.
+
+	* chartab.h (struct Lisp_Char_Table): Add new member
+	`default_value' in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Use `default_value'.
+	(enum chartab_range_type): Add `CHARTAB_RANGE_DEFAULT' in XEmacs
+	UTF-2000.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.h (Lisp_Char_ID_Table): Deleted.
+
+	* chartab.c (char_table_description): Fix typo.
+	(Fmap_char_attribute): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* mule-charset.c (remove_char_ccs): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* chartab.h (XCHAR_ID_TABLE): Deleted.
+	(XSETCHAR_ID_TABLE): Deleted.
+	(CHAR_ID_TABLE_P): Deleted.
+
+	* chartab.c (put_char_id_table): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_composite_char): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Fixed.
+	(Fchar_attribute_alist): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_char_attribute): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+
+	* mule-charset.c (put_char_ccs_code_point): Use `XCHAR_TABLE'
+	instead of `XCHAR_ID_TABLE'.
+	(remove_char_ccs): Likewise.
+
+	* chartab.c (put_char_id_table): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fget_composite_char): Likewise.
+	(Fchar_variants): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Likewise.
+	(Fchar_attribute_alist): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(mark_char_id_table): Deleted.
+	(print_char_id_table): Likewise.
+	(char_id_table_equal): Likewise.
+	(char_id_table_hash): Likewise.
+	(char_id_table_description): Likewise.
+	(char_id_table): Likewise.
+	(make_char_id_table): Use `Fmake_char_table' and
+	`fill_char_table'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table): Likewise.
+	(Fput_char_attribute): Use `XCHAR_TABLE' instead of
+	`XCHAR_ID_TABLE'.
+	(Fremove_char_attribute): Likewise.
+	(syms_of_chartab): Don't define type `char-id-table'.
+
+	* chartab.h (struct Lisp_Char_ID_Table): Deleted.
+	(char_id_table): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(Lisp_Char_ID_Table): Use structure `Lisp_Char_Table'.
+	(XCHAR_ID_TABLE): Use `XCHAR_TABLE'.
+	(XSETCHAR_ID_TABLE): Use `XSETCHAR_TABLE'.
+	(CHAR_ID_TABLE_P): Use `CHAR_TABLEP'.
+	(get_char_id_table): Use `Lisp_Char_Table' instead of
+	`Lisp_Char_ID_Table'.
+	(put_char_id_table_0): Likewise.
+	(put_char_id_table): Likewise.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.h: Lisp_Byte_Table related codes are moved from
+	chartab.h.
+
+	* char-ucs.h: Move Lisp_Byte_Table related codes to chartab.h.
+
+2001-09-02  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.h: Don't include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved from char-ucs.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+	* char-ucs.h: Include "chartab.h".
+	(struct Lisp_Char_ID_Table): Moved to chartab.h.
+	(Lisp_Char_ID_Table): Likewise.
+	(char_id_table): Likewise.
+	(XCHAR_ID_TABLE): Likewise.
+	(XSETCHAR_ID_TABLE): Likewise.
+	(CHAR_ID_TABLE_P): Likewise.
+	(GC_CHAR_ID_TABLE_P): Likewise.
+	(get_char_id_table): Likewise.
+
+2001-09-01  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
+
+	* chartab.c (copy_uint8_byte_table): New function.
+	(copy_uint16_byte_table): New function.
+	(copy_byte_table): New function.
+	(map_over_uint8_byte_table): Modify to avoid huge numbers of
+	characters to call.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(get_byte_table): Move prototype to chartab.h.
+	(put_byte_table): Likewise.
+	(put_char_id_table_0): Moved to chartab.h.
+	(mark_char_table_entry): Don't define in XEmacs UTF-2000.
+	(char_table_entry_equal): Likewise.
+	(char_table_entry_hash): Likewise.
+	(char_table_entry_description): Likewise.
+	(char_table_entry): Likewise.
+	(make_char_table_entry): Likewise.
+	(copy_char_table_entry): Likewise.
+	(get_non_ascii_char_table_value): Likewise.
+	(map_over_charset_ascii): Likewise.
+	(map_over_charset_control_1): Likewise.
+	(map_over_charset_row): Likewise.
+	(map_over_other_charset): Likewise.
+	(mark_char_table): Modify for new structure in XEmacs UTF-2000.
+	(print_char_table): Likewise.
+	(char_table_equal): Likewise.
+	(char_table_hash): Likewise.
+	(char_table_description): Likewise.
+	(fill_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(get_char_table): Likewise.
+	(Fget_range_char_table): Likewise.
+	(put_char_table): Likewise.
+	(map_char_table): Likewise.
+	(syms_of_chartab): Don't define `char_table_entry' in XEmacs
+	UTF-2000.
+
+2001-08-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* cmds.c (vars_of_cmds): Use `put_char_id_table_0' for
+	`Vauto_fill_chars' in XEmacs UTF-2000.
+
+	* chartab.h (get_byte_table): New prototype [moved from
+	chartab.c].
+	(put_byte_table): Likewise [moved from chartab.c].
+	(put_char_id_table_0): New inline function [moved from chartab.c].
+	(struct Lisp_Char_Table_Entry): Don't define in XEmacs UTF-2000.
+	(Lisp_Char_Table_Entry): Likewise.
+	(char_table_entry): Likewise.
+	(XCHAR_TABLE_ENTRY): Likewise.
+	(XSETCHAR_TABLE_ENTRY): Likewise.
+	(CHAR_TABLE_ENTRYP): Likewise.
+	(CHECK_CHAR_TABLE_ENTRY): Likewise.
+	(NUM_ASCII_CHARS): Likewise.
+	(struct Lisp_Char_Table): New implementation in XEmacs UTF-2000.
+	(CHAR_TABLE_VALUE_UNSAFE): Likewise.
+
 2001-08-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (get_char_id_table): Change interface.
@@ -92,7 +370,7 @@
 	(put_char_ccs_code_point): New prototype.
 	(remove_char_ccs): Likewise.
 
-2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+2001-08-14  MORIOKA Tomohiko  <tomo@mousai.mahoroba.ne.jp>
 
 	* mule-charset.c (Vcharset_ucs_jis): New variable.
 	(Qucs_jis): Likewise.

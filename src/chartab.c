@@ -71,7 +71,7 @@ static void
 decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
 
 int
-map_char_id_table (Lisp_Char_ID_Table *ct,
+map_char_id_table (Lisp_Char_Table *ct,
 		   struct chartab_range *range,
 		   int (*fn) (struct chartab_range *range,
 			      Lisp_Object val, void *arg),
@@ -222,6 +222,25 @@ make_uint8_byte_table (unsigned char initval)
     cte->property[i] = initval;
 
   XSETUINT8_BYTE_TABLE (obj, cte);
+  return obj;
+}
+
+static Lisp_Object
+copy_uint8_byte_table (Lisp_Object entry)
+{
+  Lisp_Uint8_Byte_Table *cte = XUINT8_BYTE_TABLE (entry);
+  Lisp_Object obj;
+  int i;
+  Lisp_Uint8_Byte_Table *ctenew
+    = alloc_lcrecord_type (Lisp_Uint8_Byte_Table,
+			   &lrecord_uint8_byte_table);
+
+  for (i = 0; i < 256; i++)
+    {
+      ctenew->property[i] = cte->property[i];
+    }
+
+  XSETUINT8_BYTE_TABLE (obj, ctenew);
   return obj;
 }
 
@@ -436,6 +455,25 @@ make_uint16_byte_table (unsigned short initval)
 }
 
 static Lisp_Object
+copy_uint16_byte_table (Lisp_Object entry)
+{
+  Lisp_Uint16_Byte_Table *cte = XUINT16_BYTE_TABLE (entry);
+  Lisp_Object obj;
+  int i;
+  Lisp_Uint16_Byte_Table *ctenew
+    = alloc_lcrecord_type (Lisp_Uint16_Byte_Table,
+			   &lrecord_uint16_byte_table);
+
+  for (i = 0; i < 256; i++)
+    {
+      ctenew->property[i] = cte->property[i];
+    }
+
+  XSETUINT16_BYTE_TABLE (obj, ctenew);
+  return obj;
+}
+
+static Lisp_Object
 expand_uint8_byte_table_to_uint16 (Lisp_Object table)
 {
   Lisp_Object obj;
@@ -604,6 +642,37 @@ make_byte_table (Lisp_Object initval)
   return obj;
 }
 
+static Lisp_Object
+copy_byte_table (Lisp_Object entry)
+{
+  Lisp_Byte_Table *cte = XBYTE_TABLE (entry);
+  Lisp_Object obj;
+  int i;
+  Lisp_Byte_Table *ctnew
+    = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
+
+  for (i = 0; i < 256; i++)
+    {
+      if (UINT8_BYTE_TABLE_P (cte->property[i]))
+	{
+	  ctnew->property[i] = copy_uint8_byte_table (cte->property[i]);
+	}
+      else if (UINT16_BYTE_TABLE_P (cte->property[i]))
+	{
+	  ctnew->property[i] = copy_uint16_byte_table (cte->property[i]);
+	}
+      else if (BYTE_TABLE_P (cte->property[i]))
+	{
+	  ctnew->property[i] = copy_byte_table (cte->property[i]);
+	}
+      else
+	ctnew->property[i] = cte->property[i];
+    }
+
+  XSETBYTE_TABLE (obj, ctnew);
+  return obj;
+}
+
 static int
 byte_table_same_value_p (Lisp_Object obj)
 {
@@ -676,10 +745,6 @@ map_over_byte_table (Lisp_Byte_Table *ct, Emchar ofs, int place,
   return retval;
 }
 
-
-Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
-Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
-			    Lisp_Object value);
 
 Lisp_Object
 get_byte_table (Lisp_Object table, unsigned char idx)
@@ -787,123 +852,35 @@ put_byte_table (Lisp_Object table, unsigned char idx, Lisp_Object value)
   return table;
 }
 
-static Lisp_Object
-mark_char_id_table (Lisp_Object obj)
-{
-  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
-
-  return cte->table;
-}
-
-static void
-print_char_id_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
-{
-  Lisp_Object table = XCHAR_ID_TABLE (obj)->table;
-  int i;
-  struct gcpro gcpro1, gcpro2;
-  GCPRO2 (obj, printcharfun);
-
-  write_c_string ("#<char-id-table ", printcharfun);
-  for (i = 0; i < 256; i++)
-    {
-      Lisp_Object elt = get_byte_table (table, i);
-      if (i != 0) write_c_string ("\n  ", printcharfun);
-      if (EQ (elt, Qunbound))
-	write_c_string ("void", printcharfun);
-      else
-	print_internal (elt, printcharfun, escapeflag);
-    }
-  UNGCPRO;
-  write_c_string (">", printcharfun);
-}
-
-static int
-char_id_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
-{
-  Lisp_Object table1 = XCHAR_ID_TABLE (obj1)->table;
-  Lisp_Object table2 = XCHAR_ID_TABLE (obj2)->table;
-  int i;
-
-  for (i = 0; i < 256; i++)
-    {
-      if (!internal_equal (get_byte_table (table1, i),
-			  get_byte_table (table2, i), 0))
-	return 0;
-    }
-  return -1;
-}
-
-static unsigned long
-char_id_table_hash (Lisp_Object obj, int depth)
-{
-  Lisp_Char_ID_Table *cte = XCHAR_ID_TABLE (obj);
-
-  return char_id_table_hash (cte->table, depth + 1);
-}
-
-static const struct lrecord_description char_id_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table) },
-  { XD_END }
-};
-
-DEFINE_LRECORD_IMPLEMENTATION ("char-id-table", char_id_table,
-                               mark_char_id_table,
-			       print_char_id_table,
-			       0, char_id_table_equal,
-			       char_id_table_hash,
-			       char_id_table_description,
-			       Lisp_Char_ID_Table);
 
 Lisp_Object
 make_char_id_table (Lisp_Object initval)
 {
   Lisp_Object obj;
-  Lisp_Char_ID_Table *cte;
-
-  cte = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
-
-  cte->table = make_byte_table (initval);
-
-  XSETCHAR_ID_TABLE (obj, cte);
+  obj = Fmake_char_table (Qgeneric);
+  fill_char_table (XCHAR_TABLE (obj), initval);
   return obj;
 }
 
-
 Lisp_Object
-get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch)
+get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 {
-  unsigned int code = ch;
-
-  return get_byte_table (get_byte_table
-			 (get_byte_table
-			  (get_byte_table
-			   (cit->table,
-			    (unsigned char)(code >> 24)),
-			   (unsigned char) (code >> 16)),
-			  (unsigned char)  (code >> 8)),
-			 (unsigned char)    code);
-}
-
-INLINE_HEADER void
-put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value);
-INLINE_HEADER void
-put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value)
-{
-  Lisp_Object table1, table2, table3, table4;
-	
-  table1 = cit->table;
-  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
-  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
-  table4 = get_byte_table (table3, (unsigned char)(code >>  8));
-
-  table4     = put_byte_table (table4, (unsigned char) code, value);
-  table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
-  table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
-  cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (cit->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >> 8)),
+				    (unsigned char)    ch);
+  if (UNBOUNDP (val))
+    return cit->default_value;
+  else
+    return val;
 }
 
 void
-put_char_id_table (Lisp_Char_ID_Table* cit,
+put_char_id_table (Lisp_Char_Table* cit,
 		   Lisp_Object character, Lisp_Object value)
 {
   struct chartab_range range;
@@ -914,16 +891,19 @@ put_char_id_table (Lisp_Char_ID_Table* cit,
     case CHARTAB_RANGE_ALL:
       cit->table = value;
       break;
+    case CHARTAB_RANGE_DEFAULT:
+      cit->default_value = value;
+      break;
     case CHARTAB_RANGE_CHARSET:
       {
 	Emchar c;
 	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range.charset);
 
-	if ( CHAR_ID_TABLE_P (encoding_table) )
+	if ( CHAR_TABLEP (encoding_table) )
 	  {
 	    for (c = 0; c < 1 << 24; c++)
 	      {
-		if ( INTP (get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+		if ( INTP (get_char_id_table (XCHAR_TABLE(encoding_table),
 					      c)) )
 		  put_char_id_table_0 (cit, c, value);
 	      }
@@ -999,7 +979,7 @@ put_char_id_table (Lisp_Char_ID_Table* cit,
    Mapping stops the first time FN returns non-zero, and that value
    becomes the return value of map_char_id_table(). */
 int
-map_char_id_table (Lisp_Char_ID_Table *ct,
+map_char_id_table (Lisp_Char_Table *ct,
 		   struct chartab_range *range,
 		   int (*fn) (struct chartab_range *range,
 			      Lisp_Object val, void *arg),
@@ -1021,7 +1001,7 @@ map_char_id_table (Lisp_Char_ID_Table *ct,
       else if (!UNBOUNDP (v))
 	{
 	  struct chartab_range rainj;
-	  int unit = 1 << 24;
+	  int unit = 1 << 30;
 	  Emchar c = 0;
 	  Emchar c1 = c + unit;
 	  int retval;
@@ -1048,7 +1028,7 @@ map_char_id_table (Lisp_Char_ID_Table *ct,
       else if (!UNBOUNDP (v))
 	{
 	  struct chartab_range rainj;
-	  int unit = 1 << 24;
+	  int unit = 1 << 30;
 	  Emchar c = 0;
 	  Emchar c1 = c + unit;
 	  int retval;
@@ -1245,19 +1225,19 @@ Return character corresponding with list.
       Lisp_Object ret;
       Emchar c = to_char_id (v, "Invalid value for composition", list);
 
-      ret = get_char_id_table (XCHAR_ID_TABLE(table), c);
+      ret = get_char_id_table (XCHAR_TABLE(table), c);
 
       rest = Fcdr (rest);
       if (NILP (rest))
 	{
-	  if (!CHAR_ID_TABLE_P (ret))
+	  if (!CHAR_TABLEP (ret))
 	    return ret;
 	  else
 	    return Qt;
 	}
       else if (!CONSP (rest))
 	break;
-      else if (CHAR_ID_TABLE_P (ret))
+      else if (CHAR_TABLEP (ret))
 	table = ret;
       else
 	signal_simple_error ("Invalid table is found with", list);
@@ -1272,7 +1252,7 @@ Return variants of CHARACTER.
 {
   CHECK_CHAR (character);
   return Fcopy_list (get_char_id_table
-		     (XCHAR_ID_TABLE(Vcharacter_variant_table),
+		     (XCHAR_TABLE(Vcharacter_variant_table),
 		      XCHAR (character)));
 }
 
@@ -1313,7 +1293,7 @@ Return variants of CHARACTER.
 /*                         Char Table object                            */
 /************************************************************************/
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 static Lisp_Object
 mark_char_table_entry (Lisp_Object obj)
@@ -1367,6 +1347,10 @@ static Lisp_Object
 mark_char_table (Lisp_Object obj)
 {
   Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+#ifdef UTF2000
+
+  mark_object (ct->table);
+#else
   int i;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
@@ -1375,7 +1359,12 @@ mark_char_table (Lisp_Object obj)
   for (i = 0; i < NUM_LEADING_BYTES; i++)
     mark_object (ct->level1[i]);
 #endif
+#endif
+#ifdef UTF2000
+  return ct->default_value;
+#else
   return ct->mirror_table;
+#endif
 }
 
 /* WARNING: All functions of this nature need to be written extremely
@@ -1457,7 +1446,7 @@ print_chartab_range (Emchar first, Emchar last, Lisp_Object val,
   print_internal (val, printcharfun, 1);
 }
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 static void
 print_chartab_charset_row (Lisp_Object charset,
@@ -1541,6 +1530,30 @@ static void
 print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 {
   Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+#ifdef UTF2000
+  int i;
+  struct gcpro gcpro1, gcpro2;
+  GCPRO2 (obj, printcharfun);
+
+  write_c_string ("#s(char-table ", printcharfun);
+  write_c_string (" ", printcharfun);
+  write_c_string (string_data
+		  (symbol_name
+		   (XSYMBOL (char_table_type_to_symbol (ct->type)))),
+		  printcharfun);
+  write_c_string ("\n ", printcharfun);
+  print_internal (ct->default_value, printcharfun, escapeflag);
+  for (i = 0; i < 256; i++)
+    {
+      Lisp_Object elt = get_byte_table (ct->table, i);
+      if (i != 0) write_c_string ("\n  ", printcharfun);
+      if (EQ (elt, Qunbound))
+	write_c_string ("void", printcharfun);
+      else
+	print_internal (elt, printcharfun, escapeflag);
+    }
+  UNGCPRO;
+#else /* non UTF2000 */
   char buf[200];
 
   sprintf (buf, "#s(char-table type %s data (",
@@ -1607,6 +1620,7 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
       }
   }
 #endif /* MULE */
+#endif /* non UTF2000 */
 
   write_c_string ("))", printcharfun);
 }
@@ -1621,6 +1635,14 @@ char_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
   if (CHAR_TABLE_TYPE (ct1) != CHAR_TABLE_TYPE (ct2))
     return 0;
 
+#ifdef UTF2000
+  for (i = 0; i < 256; i++)
+    {
+      if (!internal_equal (get_byte_table (ct1->table, i),
+			   get_byte_table (ct2->table, i), 0))
+	return 0;
+    }
+#else
   for (i = 0; i < NUM_ASCII_CHARS; i++)
     if (!internal_equal (ct1->ascii[i], ct2->ascii[i], depth + 1))
       return 0;
@@ -1630,6 +1652,7 @@ char_table_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
     if (!internal_equal (ct1->level1[i], ct2->level1[i], depth + 1))
       return 0;
 #endif /* MULE */
+#endif /* non UTF2000 */
 
   return 1;
 }
@@ -1638,6 +1661,9 @@ static unsigned long
 char_table_hash (Lisp_Object obj, int depth)
 {
   Lisp_Char_Table *ct = XCHAR_TABLE (obj);
+#ifdef UTF2000
+    return byte_table_hash (ct->table, depth + 1);
+#else
   unsigned long hashval = internal_array_hash (ct->ascii, NUM_ASCII_CHARS,
 					       depth);
 #ifdef MULE
@@ -1645,14 +1671,22 @@ char_table_hash (Lisp_Object obj, int depth)
 		   internal_array_hash (ct->level1, NUM_LEADING_BYTES, depth));
 #endif /* MULE */
   return hashval;
+#endif
 }
 
 static const struct lrecord_description char_table_description[] = {
+#ifdef UTF2000
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
+#else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
 #ifdef MULE
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, level1), NUM_LEADING_BYTES },
 #endif
+#endif
+#ifndef UTF2000
   { XD_LISP_OBJECT, offsetof (Lisp_Char_Table, mirror_table) },
+#endif
   { XD_LO_LINK,     offsetof (Lisp_Char_Table, next_table) },
   { XD_END }
 };
@@ -1766,6 +1800,10 @@ See `valid-char-table-type-p'.
 void
 fill_char_table (Lisp_Char_Table *ct, Lisp_Object value)
 {
+#ifdef UTF2000
+  ct->table = Qunbound;
+  ct->default_value = value;
+#else
   int i;
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
@@ -1774,9 +1812,12 @@ fill_char_table (Lisp_Char_Table *ct, Lisp_Object value)
   for (i = 0; i < NUM_LEADING_BYTES; i++)
     ct->level1[i] = value;
 #endif /* MULE */
+#endif
 
+#ifndef UTF2000
   if (ct->type == CHAR_TABLE_TYPE_SYNTAX)
     update_syntax_table (ct);
+#endif
 }
 
 DEFUN ("reset-char-table", Freset_char_table, 1, 1, 0, /*
@@ -1826,6 +1867,7 @@ and 'syntax.  See `valid-char-table-type-p'.
 
   ct = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ct->type = ty;
+#ifndef UTF2000
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
     {
       ct->mirror_table = Fmake_char_table (Qgeneric);
@@ -1834,6 +1876,7 @@ and 'syntax.  See `valid-char-table-type-p'.
     }
   else
     ct->mirror_table = Qnil;
+#endif
   ct->next_table = Qnil;
   XSETCHAR_TABLE (obj, ct);
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
@@ -1845,7 +1888,7 @@ and 'syntax.  See `valid-char-table-type-p'.
   return obj;
 }
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 static Lisp_Object
 make_char_table_entry (Lisp_Object initval)
@@ -1895,12 +1938,32 @@ as CHAR-TABLE.  The values will not themselves be copied.
 {
   Lisp_Char_Table *ct, *ctnew;
   Lisp_Object obj;
+#ifndef UTF2000
   int i;
+#endif
 
   CHECK_CHAR_TABLE (char_table);
   ct = XCHAR_TABLE (char_table);
   ctnew = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ctnew->type = ct->type;
+#ifdef UTF2000
+  ctnew->default_value = ct->default_value;
+
+  if (UINT8_BYTE_TABLE_P (ct->table))
+    {
+      ctnew->table = copy_uint8_byte_table (ct->table);
+    }
+  else if (UINT16_BYTE_TABLE_P (ct->table))
+    {
+      ctnew->table = copy_uint16_byte_table (ct->table);
+    }
+  else if (BYTE_TABLE_P (ct->table))
+    {
+      ctnew->table = copy_byte_table (ct->table);
+    }
+  else if (!UNBOUNDP (ct->table))
+    ctnew->table = ct->table;
+#else /* non UTF2000 */
 
   for (i = 0; i < NUM_ASCII_CHARS; i++)
     {
@@ -1923,11 +1986,14 @@ as CHAR-TABLE.  The values will not themselves be copied.
     }
 
 #endif /* MULE */
+#endif /* non UTF2000 */
 
+#ifndef UTF2000
   if (CHAR_TABLEP (ct->mirror_table))
     ctnew->mirror_table = Fcopy_char_table (ct->mirror_table);
   else
     ctnew->mirror_table = ct->mirror_table;
+#endif
   ctnew->next_table = Qnil;
   XSETCHAR_TABLE (obj, ctnew);
   if (ctnew->type == CHAR_TABLE_TYPE_SYNTAX)
@@ -1943,6 +2009,8 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 {
   if (EQ (range, Qt))
     outrange->type = CHARTAB_RANGE_ALL;
+  else if (EQ (range, Qnil))
+    outrange->type = CHARTAB_RANGE_DEFAULT;
   else if (CHAR_OR_CHAR_INTP (range))
     {
       outrange->type = CHARTAB_RANGE_CHAR;
@@ -1992,7 +2060,7 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 #endif /* MULE */
 }
 
-#ifdef MULE
+#if defined(MULE)&&!defined(UTF2000)
 
 /* called from CHAR_TABLE_VALUE(). */
 Lisp_Object
@@ -2034,7 +2102,20 @@ get_non_ascii_char_table_value (Lisp_Char_Table *ct, Charset_ID leading_byte,
 Lisp_Object
 get_char_table (Emchar ch, Lisp_Char_Table *ct)
 {
-#ifdef MULE
+#ifdef UTF2000
+  Lisp_Object val = get_byte_table (get_byte_table
+				    (get_byte_table
+				     (get_byte_table
+				      (ct->table,
+				       (unsigned char)(ch >> 24)),
+				      (unsigned char) (ch >> 16)),
+				     (unsigned char)  (ch >>  8)),
+				    (unsigned char)    ch);
+  if (UNBOUNDP (val))
+    return ct->default_value;
+  else
+    return val;
+#elif defined(MULE)
   {
     Lisp_Object charset;
     int byte1, byte2;
@@ -2102,6 +2183,16 @@ If there is more than one value, return MULTI (defaults to nil).
     {
     case CHARTAB_RANGE_ALL:
       {
+#ifdef UTF2000
+	if (UINT8_BYTE_TABLE_P (ct->table))
+	  return multi;
+	else if (UINT16_BYTE_TABLE_P (ct->table))
+	  return multi;
+	else if (BYTE_TABLE_P (ct->table))
+	  return multi;
+	else
+	  return ct->table;
+#else /* non UTF2000 */
 	int i;
 	Lisp_Object first = ct->ascii[0];
 
@@ -2123,10 +2214,14 @@ If there is more than one value, return MULTI (defaults to nil).
 #endif /* MULE */
 
 	return first;
+#endif /* non UTF2000 */
       }
 
 #ifdef MULE
     case CHARTAB_RANGE_CHARSET:
+#ifdef UTF2000
+      return multi;
+#else
       if (EQ (rainj.charset, Vcharset_ascii))
 	{
 	  int i;
@@ -2156,8 +2251,12 @@ If there is more than one value, return MULTI (defaults to nil).
 	  return multi;
 	return val;
       }
+#endif
 
     case CHARTAB_RANGE_ROW:
+#ifdef UTF2000
+      return multi;
+#else
       {
 	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (rainj.charset) -
 				     MIN_LEADING_BYTE];
@@ -2168,6 +2267,7 @@ If there is more than one value, return MULTI (defaults to nil).
 	  return multi;
 	return val;
       }
+#endif /* not UTF2000 */
 #endif /* not MULE */
 
     default:
@@ -2280,12 +2380,46 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
   switch (range->type)
     {
     case CHARTAB_RANGE_ALL:
+      /* printf ("put-char-table: range = all\n"); */
       fill_char_table (ct, val);
       return; /* avoid the duplicate call to update_syntax_table() below,
 		 since fill_char_table() also did that. */
 
+#ifdef UTF2000
+    case CHARTAB_RANGE_DEFAULT:
+      ct->default_value = val;
+      return;
+#endif
+
 #ifdef MULE
     case CHARTAB_RANGE_CHARSET:
+#ifdef UTF2000
+      {
+	Emchar c;
+	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range->charset);
+
+	/* printf ("put-char-table: range = charset: %d\n",
+	   XCHARSET_LEADING_BYTE (range->charset));
+	*/
+	if ( CHAR_TABLEP (encoding_table) )
+	  {
+	    for (c = 0; c < 1 << 24; c++)
+	      {
+		if ( INTP (get_char_id_table (XCHAR_TABLE(encoding_table),
+					      c)) )
+		  put_char_id_table_0 (ct, c, val);
+	      }
+	  }
+	else
+	  {
+	    for (c = 0; c < 1 << 24; c++)
+	      {
+		if ( charset_code_point (range->charset, c) >= 0 )
+		  put_char_id_table_0 (ct, c, val);
+	      }
+	  }
+      }
+#else
       if (EQ (range->charset, Vcharset_ascii))
 	{
 	  int i;
@@ -2303,9 +2437,63 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	  int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
 	  ct->level1[lb] = val;
 	}
+#endif
       break;
 
     case CHARTAB_RANGE_ROW:
+#ifdef UTF2000
+      {
+	int cell_min, cell_max, i;
+
+	/* printf ("put-char-table: range = charset-row: %d, 0x%x\n",
+	   XCHARSET_LEADING_BYTE (range->charset), range->row); */
+	if (XCHARSET_DIMENSION (range->charset) < 2)
+	  signal_simple_error ("Charset in row vector must be multi-byte",
+			       range->charset);
+	else
+	  {
+	    switch (XCHARSET_CHARS (range->charset))
+	      {
+	      case 94:
+		cell_min = 33; cell_max = 126;
+		break;
+	      case 96:
+		cell_min = 32; cell_max = 127;
+		break;
+	      case 128:
+		cell_min = 0; cell_max = 127;
+		break;
+	      case 256:
+		cell_min = 0; cell_max = 255;
+		break;
+	      default:
+		abort ();
+	      }
+	  }
+	if (XCHARSET_DIMENSION (range->charset) == 2)
+	  check_int_range (range->row, cell_min, cell_max);
+	else if (XCHARSET_DIMENSION (range->charset) == 3)
+	  {
+	    check_int_range (range->row >> 8  , cell_min, cell_max);
+	    check_int_range (range->row & 0xFF, cell_min, cell_max);
+	  }
+	else if (XCHARSET_DIMENSION (range->charset) == 4)
+	  {
+	    check_int_range ( range->row >> 16       , cell_min, cell_max);
+	    check_int_range ((range->row >> 8) & 0xFF, cell_min, cell_max);
+	    check_int_range ( range->row       & 0xFF, cell_min, cell_max);
+	  }
+	else
+	  abort ();
+
+	for (i = cell_min; i <= cell_max; i++)
+	  {
+	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
+	    if ( charset_code_point (range->charset, ch) >= 0 )
+	      put_char_id_table_0 (ct, ch, val);
+	  }
+      }
+#else
       {
 	Lisp_Char_Table_Entry *cte;
 	int lb = XCHARSET_LEADING_BYTE (range->charset) - MIN_LEADING_BYTE;
@@ -2315,11 +2503,16 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	cte = XCHAR_TABLE_ENTRY (ct->level1[lb]);
 	cte->level2[range->row - 32] = val;
       }
+#endif /* not UTF2000 */
       break;
 #endif /* MULE */
 
     case CHARTAB_RANGE_CHAR:
-#ifdef MULE
+#ifdef UTF2000
+      /* printf ("put-char-table: range = char: 0x%x\n", range->ch); */
+      put_char_id_table_0 (ct, range->ch, val);
+      break;
+#elif defined(MULE)
       {
 	Lisp_Object charset;
 	int byte1, byte2;
@@ -2361,8 +2554,10 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 #endif /* not MULE */
     }
 
+#ifndef UTF2000
   if (ct->type == CHAR_TABLE_TYPE_SYNTAX)
     update_syntax_table (ct);
+#endif
 }
 
 DEFUN ("put-char-table", Fput_char_table, 3, 3, 0, /*
@@ -2394,6 +2589,7 @@ See `valid-char-table-type-p'.
   return Qnil;
 }
 
+#ifndef UTF2000
 /* Map FN over the ASCII chars in CT. */
 
 static int
@@ -2544,6 +2740,7 @@ map_over_other_charset (Lisp_Char_Table *ct, Charset_ID lb,
 }
 
 #endif /* MULE */
+#endif /* not UTF2000 */
 
 /* Map FN (with client data ARG) over range RANGE in char table CT.
    Mapping stops the first time FN returns non-zero, and that value
@@ -2559,6 +2756,49 @@ map_char_table (Lisp_Char_Table *ct,
   switch (range->type)
     {
     case CHARTAB_RANGE_ALL:
+#ifdef UTF2000
+      if (!UNBOUNDP (ct->default_value))
+	{
+	  struct chartab_range rainj;
+	  int retval;
+
+	  rainj.type = CHARTAB_RANGE_DEFAULT;
+	  retval = (fn) (&rainj, ct->default_value, arg);
+	  if (retval != 0)
+	    return retval;
+	}
+      if (UINT8_BYTE_TABLE_P (ct->table))
+	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), 0, 3,
+					  Qnil, fn, arg);
+      else if (UINT16_BYTE_TABLE_P (ct->table))
+	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), 0, 3,
+					   Qnil, fn, arg);
+      else if (BYTE_TABLE_P (ct->table))
+	return map_over_byte_table (XBYTE_TABLE(ct->table), 0, 3,
+				    Qnil, fn, arg);
+      else if (!UNBOUNDP (ct->table))
+#if 0
+	{
+	  struct chartab_range rainj;
+	  int unit = 1 << 30;
+	  Emchar c = 0;
+	  Emchar c1 = c + unit;
+	  int retval;
+
+	  rainj.type = CHARTAB_RANGE_CHAR;
+
+	  for (retval = 0; c < c1 && retval == 0; c++)
+	    {
+	      rainj.ch = c;
+	      retval = (fn) (&rainj, ct->table, arg);
+	    }
+	  return retval;
+	}
+#else
+      return (fn) (range, ct->table, arg);
+#endif
+      return 0;
+#else
       {
 	int retval;
 
@@ -2582,14 +2822,126 @@ map_char_table (Lisp_Char_Table *ct,
 #endif /* MULE */
 	return retval;
       }
+#endif
+
+#ifdef UTF2000
+    case CHARTAB_RANGE_DEFAULT:
+      if (!UNBOUNDP (ct->default_value))
+	return (fn) (range, ct->default_value, arg);
+      return 0;
+#endif
 
 #ifdef MULE
     case CHARTAB_RANGE_CHARSET:
+#ifdef UTF2000
+      if (UINT8_BYTE_TABLE_P (ct->table))
+	return map_over_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), 0, 3,
+					  range->charset, fn, arg);
+      else if (UINT16_BYTE_TABLE_P (ct->table))
+	return map_over_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), 0, 3,
+					   range->charset, fn, arg);
+      else if (BYTE_TABLE_P (ct->table))
+	return map_over_byte_table (XBYTE_TABLE(ct->table), 0, 3,
+				    range->charset, fn, arg);
+      else if (!UNBOUNDP (ct->table))
+	{
+#if 0
+	  struct chartab_range rainj;
+	  int unit = 1 << 24;
+	  Emchar c = 0;
+	  Emchar c1 = c + unit;
+	  int retval;
+
+	  rainj.type = CHARTAB_RANGE_CHAR;
+
+	  for (retval = 0; c < c1 && retval == 0; c++)
+	    {
+	      if ( charset_code_point (range->charset, c) >= 0 )
+		{
+		  rainj.ch = c;
+		  retval = (fn) (&rainj, ct->table, arg);
+		}
+	    }
+#else
+	  return (fn) (range, ct->table, arg);
+#endif
+	}
+      return 0;
+#else
       return map_over_other_charset (ct,
 				     XCHARSET_LEADING_BYTE (range->charset),
 				     fn, arg);
+#endif
 
     case CHARTAB_RANGE_ROW:
+#ifdef UTF2000
+      {
+	int cell_min, cell_max, i;
+	int retval;
+	struct chartab_range rainj;
+
+	if (XCHARSET_DIMENSION (range->charset) < 2)
+	  signal_simple_error ("Charset in row vector must be multi-byte",
+			       range->charset);
+	else
+	  {
+	    switch (XCHARSET_CHARS (range->charset))
+	      {
+	      case 94:
+		cell_min = 33; cell_max = 126;
+		break;
+	      case 96:
+		cell_min = 32; cell_max = 127;
+		break;
+	      case 128:
+		cell_min = 0; cell_max = 127;
+		break;
+	      case 256:
+		cell_min = 0; cell_max = 255;
+		break;
+	      default:
+		abort ();
+	      }
+	  }
+	if (XCHARSET_DIMENSION (range->charset) == 2)
+	  check_int_range (range->row, cell_min, cell_max);
+	else if (XCHARSET_DIMENSION (range->charset) == 3)
+	  {
+	    check_int_range (range->row >> 8  , cell_min, cell_max);
+	    check_int_range (range->row & 0xFF, cell_min, cell_max);
+	  }
+	else if (XCHARSET_DIMENSION (range->charset) == 4)
+	  {
+	    check_int_range ( range->row >> 16       , cell_min, cell_max);
+	    check_int_range ((range->row >> 8) & 0xFF, cell_min, cell_max);
+	    check_int_range ( range->row       & 0xFF, cell_min, cell_max);
+	  }
+	else
+	  abort ();
+
+	rainj.type = CHARTAB_RANGE_CHAR;
+	for (retval =0, i = cell_min; i <= cell_max && retval == 0; i++)
+	  {
+	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
+	    Lisp_Object val
+	      = get_byte_table (get_byte_table
+				(get_byte_table
+				 (get_byte_table
+				  (ct->table,
+				   (unsigned char)(ch >> 24)),
+				  (unsigned char) (ch >> 16)),
+				 (unsigned char)  (ch >> 8)),
+				(unsigned char)    ch);
+
+	    if (!UNBOUNDP (val))
+	      {
+		rainj.ch = ch;
+		retval = (fn) (&rainj, val, arg);
+	      }
+	  }
+	return retval;
+      }
+#else
       {
 	Lisp_Object val = ct->level1[XCHARSET_LEADING_BYTE (range->charset)
 				    - MIN_LEADING_BYTE];
@@ -2607,17 +2959,23 @@ map_char_table (Lisp_Char_Table *ct,
 				       range->charset, range->row,
 				       fn, arg);
       }
+#endif /* not UTF2000 */
 #endif /* MULE */
 
     case CHARTAB_RANGE_CHAR:
       {
 	Emchar ch = range->ch;
 	Lisp_Object val = CHAR_TABLE_VALUE_UNSAFE (ct, ch);
-	struct chartab_range rainj;
 
-	rainj.type = CHARTAB_RANGE_CHAR;
-	rainj.ch = ch;
-	return (fn) (&rainj, val, arg);
+	if (!UNBOUNDP (val))
+	  {
+	    struct chartab_range rainj;
+
+	    rainj.type = CHARTAB_RANGE_CHAR;
+	    rainj.ch = ch;
+	    return (fn) (&rainj, val, arg);
+	  }
+	return 0;
       }
 
     default:
@@ -2646,6 +3004,12 @@ slow_map_char_table_fun (struct chartab_range *range,
     case CHARTAB_RANGE_ALL:
       ranjarg = Qt;
       break;
+
+#ifdef UTF2000
+    case CHARTAB_RANGE_DEFAULT:
+      ranjarg = Qnil;
+      break;
+#endif
 
 #ifdef MULE
     case CHARTAB_RANGE_CHARSET:
@@ -2774,7 +3138,8 @@ add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
   /* This function can GC */
   struct char_attribute_alist_closure *caacl =
     (struct char_attribute_alist_closure*) char_attribute_alist_closure;
-  Lisp_Object ret = get_char_id_table (XCHAR_ID_TABLE(caacl->char_id), value);
+  Lisp_Object ret
+    = get_char_id_table (XCHAR_TABLE(value), caacl->char_id);
   if (!UNBOUNDP (ret))
     {
       Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
@@ -2815,9 +3180,9 @@ Return the alist of attributes of CHARACTER.
 	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 	  Lisp_Object cpos;
 
-	  if ( CHAR_ID_TABLE_P (encoding_table)
+	  if ( CHAR_TABLEP (encoding_table)
 	       && INTP (cpos
-			= get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+			= get_char_id_table (XCHAR_TABLE(encoding_table),
 					     XCHAR (character))) )
 	    {
 	      alist = Fcons (Fcons (ccs, cpos), alist);
@@ -2840,8 +3205,8 @@ Return DEFAULT-VALUE if the value is not exist.
     {
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-      if (CHAR_ID_TABLE_P (encoding_table))
-	return get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+      if (CHAR_TABLEP (encoding_table))
+	return get_char_id_table (XCHAR_TABLE(encoding_table),
 				  XCHAR (character));
     }
   else
@@ -2851,7 +3216,7 @@ Return DEFAULT-VALUE if the value is not exist.
 				    Qunbound);
       if (!UNBOUNDP (table))
 	{
-	  Lisp_Object ret = get_char_id_table (XCHAR_ID_TABLE(table),
+	  Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table),
 					       XCHAR (character));
 	  if (!UNBOUNDP (ret))
 	    return ret;
@@ -2906,17 +3271,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      rest = Fcdr (rest);
 	      if (!CONSP (rest))
 		{
-		  put_char_id_table (XCHAR_ID_TABLE(table),
+		  put_char_id_table (XCHAR_TABLE(table),
 				     make_char (c), character);
 		  break;
 		}
 	      else
 		{
-		  ntable = get_char_id_table (XCHAR_ID_TABLE(table), c);
-		  if (!CHAR_ID_TABLE_P (ntable))
+		  ntable = get_char_id_table (XCHAR_TABLE(table), c);
+		  if (!CHAR_TABLEP (ntable))
 		    {
 		      ntable = make_char_id_table (Qnil);
-		      put_char_id_table (XCHAR_ID_TABLE(table),
+		      put_char_id_table (XCHAR_TABLE(table),
 					 make_char (c), ntable);
 		    }
 		  table = ntable;
@@ -2931,12 +3296,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    {
 	      Emchar c = XINT (v);
 	      Lisp_Object ret
-		= get_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+		= get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 				     c);
 
 	      if (NILP (Fmemq (v, ret)))
 		{
-		  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+		  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 				     make_char (c), Fcons (character, ret));
 		}
 	    }
@@ -2955,10 +3320,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       c = XINT (value);
 
-      ret = get_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table), c);
+      ret = get_char_id_table (XCHAR_TABLE(Vcharacter_variant_table), c);
       if (NILP (Fmemq (character, ret)))
 	{
-	  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+	  put_char_id_table (XCHAR_TABLE(Vcharacter_variant_table),
 			     make_char (c), Fcons (character, ret));
 	}
 #if 0
@@ -2976,7 +3341,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
       }
-    put_char_id_table (XCHAR_ID_TABLE(table), character, value);
+    put_char_id_table (XCHAR_TABLE(table), character, value);
     return value;
   }
 }
@@ -3001,7 +3366,7 @@ Remove CHARACTER's ATTRIBUTE.
 				    Qunbound);
       if (!UNBOUNDP (table))
 	{
-	  put_char_id_table (XCHAR_ID_TABLE(table), character, Qunbound);
+	  put_char_id_table (XCHAR_TABLE(table), character, Qunbound);
 	  return Qt;
 	}
     }
@@ -3019,7 +3384,7 @@ the entire table.
        (function, attribute, range))
 {
   Lisp_Object ccs;
-  Lisp_Char_ID_Table *ct;
+  Lisp_Char_Table *ct;
   struct slow_map_char_table_arg slarg;
   struct gcpro gcpro1, gcpro2;
   struct chartab_range rainj;
@@ -3028,8 +3393,8 @@ the entire table.
     {
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-      if (CHAR_ID_TABLE_P (encoding_table))
-	ct = XCHAR_ID_TABLE (encoding_table);
+      if (CHAR_TABLEP (encoding_table))
+	ct = XCHAR_TABLE (encoding_table);
       else
 	return Qnil;
     }
@@ -3038,8 +3403,8 @@ the entire table.
       Lisp_Object table = Fgethash (attribute,
 				    Vchar_attribute_hash_table,
 				    Qunbound);
-      if (CHAR_ID_TABLE_P (table))
-	ct = XCHAR_ID_TABLE (table);
+      if (CHAR_TABLEP (table))
+	ct = XCHAR_TABLE (table);
       else
 	return Qnil;
     }
@@ -3499,7 +3864,6 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (uint8_byte_table);
   INIT_LRECORD_IMPLEMENTATION (uint16_byte_table);
   INIT_LRECORD_IMPLEMENTATION (byte_table);
-  INIT_LRECORD_IMPLEMENTATION (char_id_table);
 
   defsymbol (&Qto_ucs,			"=>ucs");
   defsymbol (&Q_ucs,			"->ucs");
@@ -3538,7 +3902,9 @@ syms_of_chartab (void)
   INIT_LRECORD_IMPLEMENTATION (char_table);
 
 #ifdef MULE
+#ifndef UTF2000
   INIT_LRECORD_IMPLEMENTATION (char_table_entry);
+#endif
 
   defsymbol (&Qcategory_table_p, "category-table-p");
   defsymbol (&Qcategory_designator_p, "category-designator-p");
@@ -3580,7 +3946,7 @@ void
 vars_of_chartab (void)
 {
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.17 (Hōryūji)");
+  Vutf_2000_version = build_string("0.18 (Yamato-Koizumi)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of XEmacs UTF-2000.
 */ );

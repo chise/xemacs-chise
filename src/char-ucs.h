@@ -21,87 +21,11 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_char_ucs_h_
 #define INCLUDED_char_ucs_h_
 
+#include "chartab.h"
+
 #define valid_char_p(ch) 1
 
 #define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
-
-
-/************************************************************************/
-/*                               Char-ID Tables                         */
-/************************************************************************/
-
-struct Lisp_Uint8_Byte_Table
-{
-  struct lcrecord_header header;
-
-  unsigned char property[256];
-};
-typedef struct Lisp_Uint8_Byte_Table Lisp_Uint8_Byte_Table;
-
-DECLARE_LRECORD (uint8_byte_table, Lisp_Uint8_Byte_Table);
-#define XUINT8_BYTE_TABLE(x) \
-   XRECORD (x, uint8_byte_table, Lisp_Uint8_Byte_Table)
-#define XSETUINT8_BYTE_TABLE(x, p) XSETRECORD (x, p, uint8_byte_table)
-#define UINT8_BYTE_TABLE_P(x) RECORDP (x, uint8_byte_table)
-#define GC_UINT8_BYTE_TABLE_P(x) GC_RECORDP (x, uint8_byte_table)
-/* #define CHECK_UINT8_BYTE_TABLE(x) CHECK_RECORD (x, uint8_byte_table)
-   char table entries should never escape to Lisp */
-
-
-struct Lisp_Uint16_Byte_Table
-{
-  struct lcrecord_header header;
-
-  unsigned short property[256];
-};
-typedef struct Lisp_Uint16_Byte_Table Lisp_Uint16_Byte_Table;
-
-DECLARE_LRECORD (uint16_byte_table, Lisp_Uint16_Byte_Table);
-#define XUINT16_BYTE_TABLE(x) \
-   XRECORD (x, uint16_byte_table, Lisp_Uint16_Byte_Table)
-#define XSETUINT16_BYTE_TABLE(x, p) XSETRECORD (x, p, uint16_byte_table)
-#define UINT16_BYTE_TABLE_P(x) RECORDP (x, uint16_byte_table)
-#define GC_UINT16_BYTE_TABLE_P(x) GC_RECORDP (x, uint16_byte_table)
-/* #define CHECK_UINT16_BYTE_TABLE(x) CHECK_RECORD (x, uint16_byte_table)
-   char table entries should never escape to Lisp */
-
-
-struct Lisp_Byte_Table
-{
-  struct lcrecord_header header;
-
-  Lisp_Object property[256];
-};
-typedef struct Lisp_Byte_Table Lisp_Byte_Table;
-
-DECLARE_LRECORD (byte_table, Lisp_Byte_Table);
-#define XBYTE_TABLE(x) XRECORD (x, byte_table, Lisp_Byte_Table)
-#define XSETBYTE_TABLE(x, p) XSETRECORD (x, p, byte_table)
-#define BYTE_TABLE_P(x) RECORDP (x, byte_table)
-#define GC_BYTE_TABLE_P(x) GC_RECORDP (x, byte_table)
-/* #define CHECK_BYTE_TABLE(x) CHECK_RECORD (x, byte_table)
-   char table entries should never escape to Lisp */
-
-
-struct Lisp_Char_ID_Table
-{
-  struct lcrecord_header header;
-
-  Lisp_Object table;
-};
-typedef struct Lisp_Char_ID_Table Lisp_Char_ID_Table;
-
-DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
-#define XCHAR_ID_TABLE(x) XRECORD (x, char_id_table, Lisp_Char_ID_Table)
-#define XSETCHAR_ID_TABLE(x, p) XSETRECORD (x, p, char_id_table)
-#define CHAR_ID_TABLE_P(x) RECORDP (x, char_id_table)
-#define GC_CHAR_ID_TABLE_P(x) GC_RECORDP (x, char_id_table)
-/* #define CHECK_CHAR_ID_TABLE(x) CHECK_RECORD (x, char_id_table)
-   char table entries should never escape to Lisp */
-
-
-Lisp_Object get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch);
-
 
 extern Lisp_Object Vcharset_mojikyo;
 extern Lisp_Object Vcharset_mojikyo_2022_1;
@@ -662,8 +586,8 @@ charset_code_point (Lisp_Object charset, Emchar ch)
   Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
   Lisp_Object ret;
 
-  if ( CHAR_ID_TABLE_P (encoding_table)
-       && INTP (ret = get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+  if ( CHAR_TABLEP (encoding_table)
+       && INTP (ret = get_char_id_table (XCHAR_TABLE(encoding_table),
 					 ch)) )
     return XINT (ret);
   else
@@ -687,9 +611,9 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
 	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (*charset);
 	  Lisp_Object ret;
 
-	  if ( CHAR_ID_TABLE_P (encoding_table)
+	  if ( CHAR_TABLEP (encoding_table)
 	       && INTP (ret
-			= get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+			= get_char_id_table (XCHAR_TABLE(encoding_table),
 					     ch)) )
 	    return XINT (ret);
 	  else

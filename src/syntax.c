@@ -1,6 +1,7 @@
 /* XEmacs routines to deal with syntax tables; also word and list parsing.
    Copyright (C) 1985-1994 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -120,7 +121,11 @@ static Bufpos
 find_defun_start (struct buffer *buf, Bufpos pos)
 {
   Bufpos tem;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   /* Use previous finding, if it's valid and applies to this inquiry.  */
   if (buf == find_start_buffer
@@ -217,7 +222,9 @@ BUFFER defaults to the current buffer if omitted.
   struct buffer *buf = decode_buffer (buffer, 0);
   syntax_table = check_syntax_table (syntax_table, Qnil);
   buf->syntax_table = syntax_table;
+#ifndef UTF2000
   buf->mirror_syntax_table = XCHAR_TABLE (syntax_table)->mirror_table;
+#endif
   /* Indicate that this buffer now has a specified syntax table.  */
   buf->local_var_flags |= XINT (buffer_local_flags.syntax_table);
   return syntax_table;
@@ -272,7 +279,9 @@ syntax table.
 */
        (character, syntax_table))
 {
+#ifndef UTF2000
   Lisp_Char_Table *mirrortab;
+#endif
 
   if (NILP (character))
     {
@@ -280,8 +289,13 @@ syntax table.
     }
   CHECK_CHAR_COERCE_INT (character);
   syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+#ifdef UTF2000
+  return make_char (syntax_code_spec[(int) SYNTAX (XCHAR_TABLE(syntax_table),
+						   XCHAR (character))]);
+#else
   mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
   return make_char (syntax_code_spec[(int) SYNTAX (mirrortab, XCHAR (character))]);
+#endif
 }
 
 #ifdef MULE
@@ -317,13 +331,19 @@ syntax table.
 */
        (character, syntax_table))
 {
+#ifndef UTF2000
   Lisp_Char_Table *mirrortab;
+#endif
   int code;
 
   CHECK_CHAR_COERCE_INT (character);
   syntax_table = check_syntax_table (syntax_table, current_buffer->syntax_table);
+#ifdef UTF2000
+  code = SYNTAX (XCHAR_TABLE (syntax_table), XCHAR (character));
+#else
   mirrortab = XCHAR_TABLE (XCHAR_TABLE (syntax_table)->mirror_table);
   code = SYNTAX (mirrortab, XCHAR (character));
+#endif
   if (code == Sopen || code == Sclose || code == Sstring)
     return syntax_match (syntax_table, XCHAR (character));
   return Qnil;
@@ -351,7 +371,11 @@ Bufpos
 scan_words (struct buffer *buf, Bufpos from, int count)
 {
   Bufpos limit = count > 0 ? BUF_ZV (buf) : BUF_BEGV (buf);
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
   Emchar ch0, ch1;
   enum syntaxcode code;
 
@@ -489,7 +513,11 @@ find_start_of_comment (struct buffer *buf, Bufpos from, Bufpos stop, int mask)
 {
   Emchar c;
   enum syntaxcode code;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   /* Look back, counting the parity of string-quotes,
      and recording the comment-starters seen.
@@ -623,7 +651,11 @@ static Bufpos
 find_end_of_comment (struct buffer *buf, Bufpos from, Bufpos stop, int mask)
 {
   int c;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   while (1)
     {
@@ -676,7 +708,11 @@ COUNT defaults to 1, and BUFFER defaults to the current buffer.
   enum syntaxcode code;
   EMACS_INT n;
   struct buffer *buf = decode_buffer (buffer, 0);
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   if (NILP (count))
     n = 1;
@@ -835,7 +871,11 @@ scan_lists (struct buffer *buf, Bufpos from, int count, int depth,
   enum syntaxcode code;
   int min_depth = depth;    /* Err out if depth gets less than this. */
   Lisp_Object syntaxtab = buf->syntax_table;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   if (depth > 0) min_depth = 0;
 
@@ -1154,7 +1194,11 @@ char_quoted (struct buffer *buf, Bufpos pos)
   enum syntaxcode code;
   Bufpos beg = BUF_BEGV (buf);
   int quoted = 0;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   while (pos > beg
 	 && ((code = SYNTAX (mirrortab, BUF_FETCH_CHAR (buf, pos - 1)))
@@ -1236,7 +1280,11 @@ Optional arg BUFFER defaults to the current buffer.
   struct buffer *buf = decode_buffer (buffer, 0);
   Bufpos beg = BUF_BEGV (buf);
   Bufpos pos = BUF_PT (buf);
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   while (pos > beg && !char_quoted (buf, pos - 1)
 	 && (SYNTAX (mirrortab, BUF_FETCH_CHAR (buf, pos - 1)) == Squote
@@ -1276,7 +1324,11 @@ scan_sexps_forward (struct buffer *buf, struct lisp_parse_state *stateptr,
   Lisp_Object tem;
   int mask;				     /* comment mask */
   Lisp_Object syntaxtab = buf->syntax_table;
+#ifdef UTF2000
+  Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->syntax_table);
+#else
   Lisp_Char_Table *mirrortab = XCHAR_TABLE (buf->mirror_syntax_table);
+#endif
 
   if (NILP (oldstate))
     {
@@ -1628,6 +1680,7 @@ cmst_mapfun (struct chartab_range *range, Lisp_Object val, void *arg)
   return 0;
 }
 
+#ifndef UTF2000
 static void
 update_just_this_syntax_table (Lisp_Char_Table *ct)
 {
@@ -1662,6 +1715,7 @@ update_syntax_table (Lisp_Char_Table *ct)
   else
     update_just_this_syntax_table (ct);
 }
+#endif
 
 
 /************************************************************************/

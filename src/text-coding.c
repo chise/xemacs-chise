@@ -2226,10 +2226,10 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
 {
   if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
     DECODE_ADD_UCS_CHAR (character, dst);
-  else if (!CHAR_ID_TABLE_P (str->combining_table))
+  else if (!CHAR_TABLEP (str->combining_table))
     {
       Lisp_Object ret
-	= get_char_id_table (XCHAR_ID_TABLE(Vcharacter_composition_table),
+	= get_char_id_table (XCHAR_TABLE(Vcharacter_composition_table),
 			     character);
 
       if (NILP (ret))
@@ -2244,14 +2244,14 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
   else
     {
       Lisp_Object ret
-	= get_char_id_table (XCHAR_ID_TABLE(str->combining_table),
+	= get_char_id_table (XCHAR_TABLE(str->combining_table),
 			     character);
 
       if (CHARP (ret))
 	{
 	  Emchar char2 = XCHARVAL (ret);
 	  ret =
-	    get_char_id_table (XCHAR_ID_TABLE(Vcharacter_composition_table),
+	    get_char_id_table (XCHAR_TABLE(Vcharacter_composition_table),
 			       char2);
 	  if (NILP (ret))
 	    {
@@ -2266,7 +2266,7 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
 	      str->combining_table = ret;
 	    }
 	}
-      else if (CHAR_ID_TABLE_P (ret))
+      else if (CHAR_TABLEP (ret))
 	{
 	  str->combined_chars[str->combined_char_count++] = character;
 	  str->combining_table = ret;
