@@ -1,5 +1,12 @@
 1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u031A0-Extended-Bopomofo" in UTF-2000.
+
+	* utf-2000/u031A0-Extended-Bopomofo.el: New file.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* dumped-lisp.el (preloaded-file-list): u02E00-CJK-Radicals was
 	renamed to u02E00-CJK-Radical-Supplement.
 
