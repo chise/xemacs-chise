@@ -30,14 +30,31 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef UTF2000
 
-#include "char-ucs.h"
-
 Lisp_Object get_byte_table (Lisp_Object table, unsigned char idx);
 
 Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
 			    Lisp_Object value);
 
+struct Lisp_Char_ID_Table
+{
+  struct lcrecord_header header;
+
+  Lisp_Object table;
+};
+typedef struct Lisp_Char_ID_Table Lisp_Char_ID_Table;
+
+DECLARE_LRECORD (char_id_table, Lisp_Char_ID_Table);
+#define XCHAR_ID_TABLE(x) XRECORD (x, char_id_table, Lisp_Char_ID_Table)
+#define XSETCHAR_ID_TABLE(x, p) XSETRECORD (x, p, char_id_table)
+#define CHAR_ID_TABLE_P(x) RECORDP (x, char_id_table)
+#define GC_CHAR_ID_TABLE_P(x) GC_RECORDP (x, char_id_table)
+/* #define CHECK_CHAR_ID_TABLE(x) CHECK_RECORD (x, char_id_table)
+   char table entries should never escape to Lisp */
+
+
 Lisp_Object make_char_id_table (Lisp_Object initval);
+
+Lisp_Object get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch);
 
 INLINE_HEADER void
 put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value);
