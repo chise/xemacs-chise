@@ -1908,14 +1908,21 @@
   '((morohashi-daikanwa	45240 1)
     (ideographic-radical . 188)	; â¾»
     (ideographic-strokes . 9)
-    (total-strokes	 . 20)
-    (daikanwa-radical	. 188)
-    (daikanwa-strokes	. 9)
+    (total-strokes	 . 19)
     (japanese-jisx0208-1978	. #x3F71)	; ø»‚©”
     (japanese-jisx0208		. #x3F71)	; ø»†½œ
-    (chinese-cns11643-3		. #x5D61)	; ø»–¯¬
     (japanese-jisx0208-1990	. #x3F71)	; ø½Š£
+    (mojikyo			. 050599)	; ø¸Œ–§
     (ucs			. #x9AC4)	; é«„
+    ))
+(define-char
+  '((->ucs		. #x9AC4)	; é«„
+    (morohashi-daikanwa	45240 1 1)
+    (ideographic-radical . 188)	; â¾»
+    (ideographic-strokes . 10)
+    (total-strokes	 . 20)
+    (->mojikyo		. 050599)	; é«„
+    (chinese-cns11643-3 . #x5D61)	; ø»–¯¬
     ))
 (define-char
   '((ideographic-radical . 188)	; â¾»
