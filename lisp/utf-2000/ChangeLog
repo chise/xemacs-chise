@@ -1,5 +1,13 @@
 2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R015-Ice.el (U+51B5): Separate CB00288.
+	(CB00288): Unify U+FA71.
+
+	* Ideograph-R010-Legs.el (M-01344): Unify U+FA74.
+	(U-00020496): Changed to abstract character.
+	(U-000204A8): Likewise.
+	(M-01398): Unify U-000204AE and H1-DEC9.
+
 	* Ideograph-R012-Eight.el (U+9FB9): New character.
 	(GT-K01769): Map to U+9FB9 instead of U-00020509.
 	(BC-8BFA): Likewise.
