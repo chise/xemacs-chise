@@ -1,3 +1,23 @@
+2003-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL REPEAT>): Add
+	`<-ideographic-component-forms' for U-00020120.
+	(<CJK RADICAL MEAT>): Add `<-ideographic-component-forms' for
+	U+8089.
+	(BC-8958): Likewise.
+	(BC-8A73): Likewise.
+	(<CJK RADICAL RAIN>): Add `<-ideographic-component-forms' for
+	U+96E8.
+
+	* Ideograph-R130-Meat.el (<CJK RADICAL MEAT>): Add
+	`<-ideographic-component-forms' for U+8089.
+	(BC-8A73): Likewise.
+	(BC-8958): Likewise.
+
+	* Ideograph-R040-Roof.el (J0-355C): Separate U+5BAE and C1-5527.
+	(J0-3A4B): Separate U+5BB0, G0-5457 and C1-5523.
+	(J0-3163): Separate U+5BB4 and G0-5167.
+
 2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (M-46875): Separate U+4CD0 and C3-5746.
