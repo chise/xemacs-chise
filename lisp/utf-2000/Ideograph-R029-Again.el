@@ -2125,12 +2125,10 @@
     (hanyu-dazidian-page . 402)
     (hanyu-dazidian-char . 15)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x4E1A)	; ä¸š
-      )
-     ((chinese-big5-cdp	  . #x8B75)	; ý¢€ˆ­µ
+     ((ucs		  . #x4E35)	; ä¸µ
       )
      ((japanese-jisx0208-1978	  . #x3C68)	; ø»‚¤±
       (japanese-jisx0208	  . #x3C68)	; ø»†¸¹
@@ -2154,12 +2152,10 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
-     ((ucs		  . #x4E1A)	; ä¸š
-      )
-     ((chinese-big5-cdp	  . #x8B75)	; ý¢€ˆ­µ
+     ((ucs		  . #x4E35)	; ä¸µ
       )
      ((ucs		  . #x53D6)	; å–
       ))
