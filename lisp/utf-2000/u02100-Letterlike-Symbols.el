@@ -199,8 +199,8 @@
     (ucs			. #x2116)	; â„–
     ))
 (define-char
-  '((name		. "HALFWIDTH NUMERO SIGN")
-    (->ucs		. #x2116)	; â„–
+  '((name		. "halfwidth numero sign")
+    (=>ucs		. #x2116)	; â„–
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -331,7 +331,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x03A9)
-    (->lowercase	#x03C9)
     (korean-ksc5601	. #x2759)	; ø»ˆ£¸
     (ucs		. #x2126)	; â„¦
     ))
@@ -364,7 +363,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x004B)
-    (->lowercase	#x006B)
     (ucs		. #x212A)	; â„ª
     ))
 (define-char
@@ -373,7 +371,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x00C5)
-    (->lowercase	#x00E5)
     (japanese-jisx0208		. #x2272)	; ø»†’·
     (korean-ksc5601		. #x214A)	; ø»ˆšµ
     (japanese-jisx0208-1990	. #x2272)	; ø½‰¸«
