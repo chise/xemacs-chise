@@ -1,3 +1,13 @@
+2004-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+6637): Add `<-same' for U-00025055; add
+	S1-5235.
+	(U+6638): Use `->subsumptive'.
+
+	* Ideograph-R008-Lid.el (U-00020186): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+
 2004-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (<CJK RADICAL GRASS ONE>): Unify
