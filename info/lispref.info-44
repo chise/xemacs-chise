@@ -1514,7 +1514,7 @@ Index
 * generate-new-buffer:                   Creating Buffers.
 * generate-new-buffer-name:              Buffer Names.
 * generic-specifier-p:                   Specifier Types.
-* get:                                   Symbol Plists.
+* get:                                   Object Plists.
 * get-buffer:                            Buffer Names.
 * get-buffer-create:                     Creating Buffers.
 * get-buffer-process:                    Process Buffers.
@@ -2247,6 +2247,7 @@ Index
 * objc-mode-map:                         Standard Keymaps.
 * object:                                Lisp Data Types.
 * object to string:                      Output Functions.
+* object-plist:                          Object Plists.
 * oblique:                               Font Instance Characteristics.
 * obsolete buffer:                       Modification Time.
 * occur-mode-map:                        Standard Keymaps.
@@ -2472,7 +2473,7 @@ Index
 * purecopy:                              Pure Storage.
 * purify-flag:                           Pure Storage.
 * push-mark:                             The Mark.
-* put:                                   Symbol Plists.
+* put:                                   Object Plists.
 * put-char-table:                        Working With Char Tables.
 * put-database:                          Working With a Database.
 * put-range-table:                       Working With Range Tables.
@@ -2587,6 +2588,7 @@ Index
 * remove-range-table:                    Working With Range Tables.
 * remove-specifier:                      Other Specification Functions.
 * remove-text-properties:                Changing Properties.
+* remprop:                               Object Plists.
 * remrassoc:                             Association Lists.
 * remrassq:                              Association Lists.
 * rename-auto-save-file:                 Auto-Saving.
@@ -2795,7 +2797,7 @@ Index
 * setcar:                                Setcar.
 * setcdr:                                Setcdr.
 * setenv:                                System Environment.
-* setplist:                              Symbol Plists.
+* setplist:                              Object Plists.
 * setprv:                                System Environment.
 * setq:                                  Setting Variables.
 * setq-default:                          Default Value.
@@ -2974,7 +2976,7 @@ Index
 * symbol name hashing:                   Creating Symbols.
 * symbol-function:                       Function Cells.
 * symbol-name:                           Creating Symbols.
-* symbol-plist:                          Symbol Plists.
+* symbol-plist:                          Object Plists.
 * symbol-value:                          Accessing Variables.
 * symbolp:                               Symbols.
 * symbol constituent:                    Syntax Class Table.

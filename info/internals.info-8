@@ -38,6 +38,424 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: internals.info,  Node: Lstream Functions,  Next: Lstream Methods,  Prev: Lstream Types,  Up: Lstreams
+
+Lstream Functions
+=================
+
+ - Function: Lstream * Lstream_new (Lstream_implementation *IMP, const
+          char *MODE)
+     Allocate and return a new Lstream.  This function is not really
+     meant to be called directly; rather, each stream type should
+     provide its own stream creation function, which creates the stream
+     and does any other necessary creation stuff (e.g. opening a file).
+
+ - Function: void Lstream_set_buffering (Lstream *LSTR,
+          Lstream_buffering BUFFERING, int BUFFERING_SIZE)
+     Change the buffering of a stream.  See `lstream.h'.  By default the
+     buffering is `STREAM_BLOCK_BUFFERED'.
+
+ - Function: int Lstream_flush (Lstream *LSTR)
+     Flush out any pending unwritten data in the stream.  Clear any
+     buffered input data.  Returns 0 on success, -1 on error.
+
+ - Macro: int Lstream_putc (Lstream *STREAM, int C)
+     Write out one byte to the stream.  This is a macro and so it is
+     very efficient.  The C argument is only evaluated once but the
+     STREAM argument is evaluated more than once.  Returns 0 on
+     success, -1 on error.
+
+ - Macro: int Lstream_getc (Lstream *STREAM)
+     Read one byte from the stream.  This is a macro and so it is very
+     efficient.  The STREAM argument is evaluated more than once.
+     Return value is -1 for EOF or error.
+
+ - Macro: void Lstream_ungetc (Lstream *STREAM, int C)
+     Push one byte back onto the input queue.  This will be the next
+     byte read from the stream.  Any number of bytes can be pushed back
+     and will be read in the reverse order they were pushed back--most
+     recent first. (This is necessary for consistency--if there are a
+     number of bytes that have been unread and I read and unread a
+     byte, it needs to be the first to be read again.) This is a macro
+     and so it is very efficient.  The C argument is only evaluated
+     once but the STREAM argument is evaluated more than once.
+
+ - Function: int Lstream_fputc (Lstream *STREAM, int C)
+ - Function: int Lstream_fgetc (Lstream *STREAM)
+ - Function: void Lstream_fungetc (Lstream *STREAM, int C)
+     Function equivalents of the above macros.
+
+ - Function: ssize_t Lstream_read (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Read SIZE bytes of DATA from the stream.  Return the number of
+     bytes read.  0 means EOF. -1 means an error occurred and no bytes
+     were read.
+
+ - Function: ssize_t Lstream_write (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Write SIZE bytes of DATA to the stream.  Return the number of
+     bytes written.  -1 means an error occurred and no bytes were
+     written.
+
+ - Function: void Lstream_unread (Lstream *STREAM, void *DATA, size_t
+          SIZE)
+     Push back SIZE bytes of DATA onto the input queue.  The next call
+     to `Lstream_read()' with the same size will read the same bytes
+     back.  Note that this will be the case even if there is other
+     pending unread data.
+
+ - Function: int Lstream_close (Lstream *STREAM)
+     Close the stream.  All data will be flushed out.
+
+ - Function: void Lstream_reopen (Lstream *STREAM)
+     Reopen a closed stream.  This enables I/O on it again.  This is not
+     meant to be called except from a wrapper routine that reinitializes
+     variables and such--the close routine may well have freed some
+     necessary storage structures, for example.
+
+ - Function: void Lstream_rewind (Lstream *STREAM)
+     Rewind the stream to the beginning.
+
+
+File: internals.info,  Node: Lstream Methods,  Prev: Lstream Functions,  Up: Lstreams
+
+Lstream Methods
+===============
+
+ - Lstream Method: ssize_t reader (Lstream *STREAM, unsigned char
+          *DATA, size_t SIZE)
+     Read some data from the stream's end and store it into DATA, which
+     can hold SIZE bytes.  Return the number of bytes read.  A return
+     value of 0 means no bytes can be read at this time.  This may be
+     because of an EOF, or because there is a granularity greater than
+     one byte that the stream imposes on the returned data, and SIZE is
+     less than this granularity. (This will happen frequently for
+     streams that need to return whole characters, because
+     `Lstream_read()' calls the reader function repeatedly until it has
+     the number of bytes it wants or until 0 is returned.)  The lstream
+     functions do not treat a 0 return as EOF or do anything special;
+     however, the calling function will interpret any 0 it gets back as
+     EOF.  This will normally not happen unless the caller calls
+     `Lstream_read()' with a very small size.
+
+     This function can be `NULL' if the stream is output-only.
+
+ - Lstream Method: ssize_t writer (Lstream *STREAM, const unsigned char
+          *DATA, size_t SIZE)
+     Send some data to the stream's end.  Data to be sent is in DATA
+     and is SIZE bytes.  Return the number of bytes sent.  This
+     function can send and return fewer bytes than is passed in; in that
+     case, the function will just be called again until there is no
+     data left or 0 is returned.  A return value of 0 means that no
+     more data can be currently stored, but there is no error; the data
+     will be squirreled away until the writer can accept data. (This is
+     useful, e.g., if you're dealing with a non-blocking file
+     descriptor and are getting `EWOULDBLOCK' errors.)  This function
+     can be `NULL' if the stream is input-only.
+
+ - Lstream Method: int rewinder (Lstream *STREAM)
+     Rewind the stream.  If this is `NULL', the stream is not seekable.
+
+ - Lstream Method: int seekable_p (Lstream *STREAM)
+     Indicate whether this stream is seekable--i.e. it can be rewound.
+     This method is ignored if the stream does not have a rewind
+     method.  If this method is not present, the result is determined
+     by whether a rewind method is present.
+
+ - Lstream Method: int flusher (Lstream *STREAM)
+     Perform any additional operations necessary to flush the data in
+     this stream.
+
+ - Lstream Method: int pseudo_closer (Lstream *STREAM)
+
+ - Lstream Method: int closer (Lstream *STREAM)
+     Perform any additional operations necessary to close this stream
+     down.  May be `NULL'.  This function is called when
+     `Lstream_close()' is called or when the stream is
+     garbage-collected.  When this function is called, all pending data
+     in the stream will already have been written out.
+
+ - Lstream Method: Lisp_Object marker (Lisp_Object LSTREAM, void
+          (*MARKFUN) (Lisp_Object))
+     Mark this object for garbage collection.  Same semantics as a
+     standard `Lisp_Object' marker.  This function can be `NULL'.
+
+
+File: internals.info,  Node: Consoles; Devices; Frames; Windows,  Next: The Redisplay Mechanism,  Prev: Lstreams,  Up: Top
+
+Consoles; Devices; Frames; Windows
+**********************************
+
+* Menu:
+
+* Introduction to Consoles; Devices; Frames; Windows::
+* Point::
+* Window Hierarchy::
+* The Window Object::
+
+
+File: internals.info,  Node: Introduction to Consoles; Devices; Frames; Windows,  Next: Point,  Prev: Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
+
+Introduction to Consoles; Devices; Frames; Windows
+==================================================
+
+   A window-system window that you see on the screen is called a
+"frame" in Emacs terminology.  Each frame is subdivided into one or
+more non-overlapping panes, called (confusingly) "windows".  Each
+window displays the text of a buffer in it. (See above on Buffers.) Note
+that buffers and windows are independent entities: Two or more windows
+can be displaying the same buffer (potentially in different locations),
+and a buffer can be displayed in no windows.
+
+   A single display screen that contains one or more frames is called a
+"display".  Under most circumstances, there is only one display.
+However, more than one display can exist, for example if you have a
+"multi-headed" console, i.e. one with a single keyboard but multiple
+displays. (Typically in such a situation, the various displays act like
+one large display, in that the mouse is only in one of them at a time,
+and moving the mouse off of one moves it into another.) In some cases,
+the different displays will have different characteristics, e.g. one
+color and one mono.
+
+   XEmacs can display frames on multiple displays.  It can even deal
+simultaneously with frames on multiple keyboards (called "consoles" in
+XEmacs terminology).  Here is one case where this might be useful: You
+are using XEmacs on your workstation at work, and leave it running.
+Then you go home and dial in on a TTY line, and you can use the
+already-running XEmacs process to display another frame on your local
+TTY.
+
+   Thus, there is a hierarchy console -> display -> frame -> window.
+There is a separate Lisp object type for each of these four concepts.
+Furthermore, there is logically a "selected console", "selected
+display", "selected frame", and "selected window".  Each of these
+objects is distinguished in various ways, such as being the default
+object for various functions that act on objects of that type.  Note
+that every containing object rememembers the "selected" object among
+the objects that it contains: e.g. not only is there a selected window,
+but every frame remembers the last window in it that was selected, and
+changing the selected frame causes the remembered window within it to
+become the selected window.  Similar relationships apply for consoles
+to devices and devices to frames.
+
+
+File: internals.info,  Node: Point,  Next: Window Hierarchy,  Prev: Introduction to Consoles; Devices; Frames; Windows,  Up: Consoles; Devices; Frames; Windows
+
+Point
+=====
+
+   Recall that every buffer has a current insertion position, called
+"point".  Now, two or more windows may be displaying the same buffer,
+and the text cursor in the two windows (i.e. `point') can be in two
+different places.  You may ask, how can that be, since each buffer has
+only one value of `point'?  The answer is that each window also has a
+value of `point' that is squirreled away in it.  There is only one
+selected window, and the value of "point" in that buffer corresponds to
+that window.  When the selected window is changed from one window to
+another displaying the same buffer, the old value of `point' is stored
+into the old window's "point" and the value of `point' from the new
+window is retrieved and made the value of `point' in the buffer.  This
+means that `window-point' for the selected window is potentially
+inaccurate, and if you want to retrieve the correct value of `point'
+for a window, you must special-case on the selected window and retrieve
+the buffer's point instead.  This is related to why
+`save-window-excursion' does not save the selected window's value of
+`point'.
+
+
+File: internals.info,  Node: Window Hierarchy,  Next: The Window Object,  Prev: Point,  Up: Consoles; Devices; Frames; Windows
+
+Window Hierarchy
+================
+
+   If a frame contains multiple windows (panes), they are always created
+by splitting an existing window along the horizontal or vertical axis.
+Terminology is a bit confusing here: to "split a window horizontally"
+means to create two side-by-side windows, i.e. to make a _vertical_ cut
+in a window.  Likewise, to "split a window vertically" means to create
+two windows, one above the other, by making a _horizontal_ cut.
+
+   If you split a window and then split again along the same axis, you
+will end up with a number of panes all arranged along the same axis.
+The precise way in which the splits were made should not be important,
+and this is reflected internally.  Internally, all windows are arranged
+in a tree, consisting of two types of windows, "combination" windows
+(which have children, and are covered completely by those children) and
+"leaf" windows, which have no children and are visible.  Every
+combination window has two or more children, all arranged along the same
+axis.  There are (logically) two subtypes of windows, depending on
+whether their children are horizontally or vertically arrayed.  There is
+always one root window, which is either a leaf window (if the frame
+contains only one window) or a combination window (if the frame contains
+more than one window).  In the latter case, the root window will have
+two or more children, either horizontally or vertically arrayed, and
+each of those children will be either a leaf window or another
+combination window.
+
+   Here are some rules:
+
+  1. Horizontal combination windows can never have children that are
+     horizontal combination windows; same for vertical.
+
+  2. Only leaf windows can be split (obviously) and this splitting does
+     one of two things: (a) turns the leaf window into a combination
+     window and creates two new leaf children, or (b) turns the leaf
+     window into one of the two new leaves and creates the other leaf.
+     Rule (1) dictates which of these two outcomes happens.
+
+  3. Every combination window must have at least two children.
+
+  4. Leaf windows can never become combination windows.  They can be
+     deleted, however.  If this results in a violation of (3), the
+     parent combination window also gets deleted.
+
+  5. All functions that accept windows must be prepared to accept
+     combination windows, and do something sane (e.g. signal an error
+     if so).  Combination windows _do_ escape to the Lisp level.
+
+  6. All windows have three fields governing their contents: these are
+     "hchild" (a list of horizontally-arrayed children), "vchild" (a
+     list of vertically-arrayed children), and "buffer" (the buffer
+     contained in a leaf window).  Exactly one of these will be
+     non-nil.  Remember that "horizontally-arrayed" means
+     "side-by-side" and "vertically-arrayed" means "one above the
+     other".
+
+  7. Leaf windows also have markers in their `start' (the first buffer
+     position displayed in the window) and `pointm' (the window's
+     stashed value of `point'--see above) fields, while combination
+     windows have nil in these fields.
+
+  8. The list of children for a window is threaded through the `next'
+     and `prev' fields of each child window.
+
+  9. *Deleted windows can be undeleted*.  This happens as a result of
+     restoring a window configuration, and is unlike frames, displays,
+     and consoles, which, once deleted, can never be restored.
+     Deleting a window does nothing except set a special `dead' bit to
+     1 and clear out the `next', `prev', `hchild', and `vchild' fields,
+     for GC purposes.
+
+ 10. Most frames actually have two top-level windows--one for the
+     minibuffer and one (the "root") for everything else.  The modeline
+     (if present) separates these two.  The `next' field of the root
+     points to the minibuffer, and the `prev' field of the minibuffer
+     points to the root.  The other `next' and `prev' fields are `nil',
+     and the frame points to both of these windows.  Minibuffer-less
+     frames have no minibuffer window, and the `next' and `prev' of the
+     root window are `nil'.  Minibuffer-only frames have no root
+     window, and the `next' of the minibuffer window is `nil' but the
+     `prev' points to itself. (#### This is an artifact that should be
+     fixed.)
+
+
+File: internals.info,  Node: The Window Object,  Prev: Window Hierarchy,  Up: Consoles; Devices; Frames; Windows
+
+The Window Object
+=================
+
+   Windows have the following accessible fields:
+
+`frame'
+     The frame that this window is on.
+
+`mini_p'
+     Non-`nil' if this window is a minibuffer window.
+
+`buffer'
+     The buffer that the window is displaying.  This may change often
+     during the life of the window.
+
+`dedicated'
+     Non-`nil' if this window is dedicated to its buffer.
+
+`pointm'
+     This is the value of point in the current buffer when this window
+     is selected; when it is not selected, it retains its previous
+     value.
+
+`start'
+     The position in the buffer that is the first character to be
+     displayed in the window.
+
+`force_start'
+     If this flag is non-`nil', it says that the window has been
+     scrolled explicitly by the Lisp program.  This affects what the
+     next redisplay does if point is off the screen: instead of
+     scrolling the window to show the text around point, it moves point
+     to a location that is on the screen.
+
+`last_modified'
+     The `modified' field of the window's buffer, as of the last time a
+     redisplay completed in this window.
+
+`last_point'
+     The buffer's value of point, as of the last time a redisplay
+     completed in this window.
+
+`left'
+     This is the left-hand edge of the window, measured in columns.
+     (The leftmost column on the screen is column 0.)
+
+`top'
+     This is the top edge of the window, measured in lines.  (The top
+     line on the screen is line 0.)
+
+`height'
+     The height of the window, measured in lines.
+
+`width'
+     The width of the window, measured in columns.
+
+`next'
+     This is the window that is the next in the chain of siblings.  It
+     is `nil' in a window that is the rightmost or bottommost of a
+     group of siblings.
+
+`prev'
+     This is the window that is the previous in the chain of siblings.
+     It is `nil' in a window that is the leftmost or topmost of a group
+     of siblings.
+
+`parent'
+     Internally, XEmacs arranges windows in a tree; each group of
+     siblings has a parent window whose area includes all the siblings.
+     This field points to a window's parent.
+
+     Parent windows do not display buffers, and play little role in
+     display except to shape their child windows.  Emacs Lisp programs
+     usually have no access to the parent windows; they operate on the
+     windows at the leaves of the tree, which actually display buffers.
+
+`hscroll'
+     This is the number of columns that the display in the window is
+     scrolled horizontally to the left.  Normally, this is 0.
+
+`use_time'
+     This is the last time that the window was selected.  The function
+     `get-lru-window' uses this field.
+
+`display_table'
+     The window's display table, or `nil' if none is specified for it.
+
+`update_mode_line'
+     Non-`nil' means this window's mode line needs to be updated.
+
+`base_line_number'
+     The line number of a certain position in the buffer, or `nil'.
+     This is used for displaying the line number of point in the mode
+     line.
+
+`base_line_pos'
+     The position in the buffer for which the line number is known, or
+     `nil' meaning none is known.
+
+`region_showing'
+     If the region (or part of it) is highlighted in this window, this
+     field holds the mark position that made one end of that region.
+     Otherwise, this field is `nil'.
+
+
 File: internals.info,  Node: The Redisplay Mechanism,  Next: Extents,  Prev: Consoles; Devices; Frames; Windows,  Up: Top
 
 The Redisplay Mechanism
@@ -65,7 +483,7 @@ of Redisplay:
 * Redisplay Piece by Piece::
 
 
-File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Up: The Redisplay Mechanism
+File: internals.info,  Node: Critical Redisplay Sections,  Next: Line Start Cache,  Prev: The Redisplay Mechanism,  Up: The Redisplay Mechanism
 
 Critical Redisplay Sections
 ===========================
@@ -218,11 +636,11 @@ Extents
 * Extent Ordering::             How extents are ordered internally.
 * Format of the Extent Info::   The extent information in a buffer or string.
 * Zero-Length Extents::         A weird special case.
-* Mathematics of Extent Ordering::      A rigorous foundation.
+* Mathematics of Extent Ordering::  A rigorous foundation.
 * Extent Fragments::            Cached information useful for redisplay.
 
 
-File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Up: Extents
+File: internals.info,  Node: Introduction to Extents,  Next: Extent Ordering,  Prev: Extents,  Up: Extents
 
 Introduction to Extents
 =======================
@@ -700,172 +1118,4 @@ Interface to X Windows
 **********************
 
    Not yet documented.
-
-
-File: internals.info,  Node: Index,  Prev: Interface to X Windows,  Up: Top
-
-Index
-*****
-
-* Menu:
-
-* Amdahl Corporation:                    XEmacs.
-* Andreessen, Marc:                      XEmacs.
-* asynchronous subprocesses:             Modules for Interfacing with the Operating System.
-* Baur, Steve:                           XEmacs.
-* Benson, Eric:                          Lucid Emacs.
-* bridge, playing:                       XEmacs From the Outside.
-* Buchholz, Martin:                      XEmacs.
-* Bufbyte:                               Character-Related Data Types.
-* Bufpos:                                Character-Related Data Types.
-* Bytecount:                             Character-Related Data Types.
-* bytecount_to_charcount:                Working With Character and Byte Positions.
-* Bytind:                                Character-Related Data Types.
-* C vs. Lisp:                            The Lisp Language.
-* caller-protects (GCPRO rule):          Writing Lisp Primitives.
-* case table:                            Modules for Other Aspects of the Lisp Interpreter and Object System.
-* Charcount:                             Character-Related Data Types.
-* charcount_to_bytecount:                Working With Character and Byte Positions.
-* charptr_emchar:                        Working With Character and Byte Positions.
-* charptr_n_addr:                        Working With Character and Byte Positions.
-* closer:                                Lstream Methods.
-* closure:                               The XEmacs Object System (Abstractly Speaking).
-* Coding for Mule:                       Coding for Mule.
-* Common Lisp:                           The Lisp Language.
-* compact_string_chars:                  compact_string_chars.
-* conservative garbage collection:       GCPROing.
-* copy-on-write:                         General Coding Rules.
-* critical redisplay sections:           Critical Redisplay Sections.
-* DEC_CHARPTR:                           Working With Character and Byte Positions.
-* Devin, Matthieu:                       Lucid Emacs.
-* display order of extents:              Mathematics of Extent Ordering.
-* dynamic array:                         Low-Level Modules.
-* dynamic scoping:                       The Lisp Language.
-* dynamic types:                         The Lisp Language.
-* Emchar:                                Character-Related Data Types.
-* Energize:                              Lucid Emacs.
-* Epoch <1>:                             XEmacs.
-* Epoch:                                 Lucid Emacs.
-* Extbyte:                               Character-Related Data Types.
-* Extcount:                              Character-Related Data Types.
-* extent fragment:                       Extent Fragments.
-* extent mathematics:                    Mathematics of Extent Ordering.
-* extent ordering:                       Mathematics of Extent Ordering.
-* extents, display order:                Mathematics of Extent Ordering.
-* external widget:                       Modules for Interfacing with X Windows.
-* flusher:                               Lstream Methods.
-* Free Software Foundation:              A History of Emacs.
-* frob block:                            Introduction to Allocation.
-* FSF:                                   A History of Emacs.
-* FSF Emacs <1>:                         GNU Emacs 20.
-* FSF Emacs:                             GNU Emacs 19.
-* garbage collection:                    Garbage Collection.
-* garbage collection protection:         Writing Lisp Primitives.
-* garbage collection step by step:       Garbage Collection - Step by Step.
-* garbage collection, conservative:      GCPROing.
-* garbage collection, invocation:        Invocation.
-* garbage_collect_1:                     garbage_collect_1.
-* gc_sweep:                              gc_sweep.
-* GNU Emacs 19:                          GNU Emacs 19.
-* GNU Emacs 20:                          GNU Emacs 20.
-* Gosling, James <1>:                    The Lisp Language.
-* Gosling, James:                        Through Version 18.
-* Great Usenet Renaming:                 Through Version 18.
-* Hackers (Steven Levy):                 A History of Emacs.
-* hierarchy of windows:                  Window Hierarchy.
-* history of Emacs:                      A History of Emacs.
-* Illinois, University of:               XEmacs.
-* INC_CHARPTR:                           Working With Character and Byte Positions.
-* interactive:                           Modules for Standard Editing Operations.
-* interning:                             The XEmacs Object System (Abstractly Speaking).
-* ITS (Incompatible Timesharing System): A History of Emacs.
-* Java:                                  The Lisp Language.
-* Java vs. Lisp:                         The Lisp Language.
-* Jones, Kyle:                           XEmacs.
-* Kaplan, Simon:                         XEmacs.
-* Levy, Steven:                          A History of Emacs.
-* line start cache:                      Line Start Cache.
-* Lisp vs. C:                            The Lisp Language.
-* Lisp vs. Java:                         The Lisp Language.
-* lstream:                               Modules for Interfacing with the File System.
-* Lstream_close:                         Lstream Functions.
-* Lstream_fgetc:                         Lstream Functions.
-* Lstream_flush:                         Lstream Functions.
-* Lstream_fputc:                         Lstream Functions.
-* Lstream_fungetc:                       Lstream Functions.
-* Lstream_getc:                          Lstream Functions.
-* Lstream_new:                           Lstream Functions.
-* Lstream_putc:                          Lstream Functions.
-* Lstream_read:                          Lstream Functions.
-* Lstream_reopen:                        Lstream Functions.
-* Lstream_rewind:                        Lstream Functions.
-* Lstream_set_buffering:                 Lstream Functions.
-* Lstream_ungetc:                        Lstream Functions.
-* Lstream_unread:                        Lstream Functions.
-* Lstream_write:                         Lstream Functions.
-* Lucid Emacs:                           Lucid Emacs.
-* Lucid Inc.:                            Lucid Emacs.
-* mark and sweep:                        Garbage Collection.
-* mark method <1>:                       lrecords.
-* mark method:                           Modules for Other Aspects of the Lisp Interpreter and Object System.
-* mark_object:                           mark_object.
-* marker:                                Lstream Methods.
-* mathematics of extents:                Mathematics of Extent Ordering.
-* MAX_EMCHAR_LEN:                        Working With Character and Byte Positions.
-* merging attempts:                      XEmacs.
-* MIT:                                   A History of Emacs.
-* Mlynarik, Richard:                     GNU Emacs 19.
-* MULE merged XEmacs appears:            XEmacs.
-* NAS:                                   Modules for Interfacing with the Operating System.
-* native sound:                          Modules for Interfacing with the Operating System.
-* network connections:                   Modules for Interfacing with the Operating System.
-* network sound:                         Modules for Interfacing with the Operating System.
-* Niksic, Hrvoje:                        XEmacs.
-* pane:                                  Modules for the Basic Displayable Lisp Objects.
-* permanent objects:                     The XEmacs Object System (Abstractly Speaking).
-* pi, calculating:                       XEmacs From the Outside.
-* pseudo_closer:                         Lstream Methods.
-* pure space:                            Basic Lisp Modules.
-* read syntax:                           The XEmacs Object System (Abstractly Speaking).
-* read-eval-print:                       XEmacs From the Outside.
-* reader:                                Lstream Methods.
-* record type:                           How Lisp Objects Are Represented in C.
-* Redisplay Piece by Piece:              Redisplay Piece by Piece.
-* relocating allocator:                  Low-Level Modules.
-* rename to XEmacs:                      XEmacs.
-* rewinder:                              Lstream Methods.
-* RMS:                                   A History of Emacs.
-* scanner:                               Modules for Other Aspects of the Lisp Interpreter and Object System.
-* scoping, dynamic:                      The Lisp Language.
-* seekable_p:                            Lstream Methods.
-* selections:                            Modules for Interfacing with X Windows.
-* set_charptr_emchar:                    Working With Character and Byte Positions.
-* Sexton, Harlan:                        Lucid Emacs.
-* sound, native:                         Modules for Interfacing with the Operating System.
-* sound, network:                        Modules for Interfacing with the Operating System.
-* SPARCWorks:                            XEmacs.
-* Stallman, Richard:                     A History of Emacs.
-* subprocesses, asynchronous:            Modules for Interfacing with the Operating System.
-* subprocesses, synchronous:             Modules for Interfacing with the Operating System.
-* Sun Microsystems:                      XEmacs.
-* sweep_bit_vectors_1:                   sweep_bit_vectors_1.
-* sweep_lcrecords_1:                     sweep_lcrecords_1.
-* sweep_strings:                         sweep_strings.
-* synchronous subprocesses:              Modules for Interfacing with the Operating System.
-* taxes, doing:                          XEmacs From the Outside.
-* TECO:                                  A History of Emacs.
-* temporary objects:                     The XEmacs Object System (Abstractly Speaking).
-* Thompson, Chuck:                       XEmacs.
-* types, dynamic:                        The Lisp Language.
-* University of Illinois:                XEmacs.
-* Win-Emacs:                             XEmacs.
-* window (in Emacs):                     Modules for the Basic Displayable Lisp Objects.
-* window hierarchy:                      Window Hierarchy.
-* window point internals:                The Window Object.
-* Wing, Ben:                             XEmacs.
-* writer:                                Lstream Methods.
-* XEmacs:                                XEmacs.
-* XEmacs goes it alone:                  XEmacs.
-* Zawinski, Jamie:                       Lucid Emacs.
-
 

@@ -597,7 +597,7 @@ method.  None of this code is currently working.
 Asian-language support, and is not currently used.
 
 
-File: internals.info,  Node: Allocation of Objects in XEmacs Lisp,  Next: Events and the Event Loop,  Prev: A Summary of the Various XEmacs Modules,  Up: Top
+File: internals.info,  Node: Allocation of Objects in XEmacs Lisp,  Next: Dumping,  Prev: A Summary of the Various XEmacs Modules,  Up: Top
 
 Allocation of Objects in XEmacs Lisp
 ************************************
@@ -622,7 +622,7 @@ Allocation of Objects in XEmacs Lisp
 * Compiled Function::
 
 
-File: internals.info,  Node: Introduction to Allocation,  Next: Garbage Collection,  Up: Allocation of Objects in XEmacs Lisp
+File: internals.info,  Node: Introduction to Allocation,  Next: Garbage Collection,  Prev: Allocation of Objects in XEmacs Lisp,  Up: Allocation of Objects in XEmacs Lisp
 
 Introduction to Allocation
 ==========================
@@ -937,7 +937,7 @@ Garbage Collection - Step by Step
 * sweep_bit_vectors_1::
 
 
-File: internals.info,  Node: Invocation,  Next: garbage_collect_1,  Up: Garbage Collection - Step by Step
+File: internals.info,  Node: Invocation,  Next: garbage_collect_1,  Prev: Garbage Collection - Step by Step,  Up: Garbage Collection - Step by Step
 
 Invocation
 ----------
