@@ -1,5 +1,12 @@
 2005-02-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R149-Speech.el (BC-8BE7): New character.
+
+	* Ideograph-R055-Two-Hands.el (U-0002F890): Unify BC-887D.
+
+	* Ideograph-R101-Use.el (U-00024C08): Use `->subsumptive'.
+	(CB08880): New character.
+
 	* Ideograph-R162-Walk.el (U+48A1): Changed to abstract character.
 	(U+9040): Changed to abstract character.
 	(C3-447D): Use `<-denotational' for U+9040; unify BC-8CBC.
