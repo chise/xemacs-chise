@@ -1,3 +1,42 @@
+1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Vcharset_hiragana_jisx0208): New variable.
+	(Vcharset_katakana_jisx0208): New variable.
+	(Qhiragana_jisx0208): New variable.
+	(Qkatakana_jisx0208): New variable.
+	(make_charset): Add new argument `byte_offset'.
+	(charset_get_byte1): Modify for new coded-charset definition; use
+	`XCHARSET_UCS_MIN', `XCHARSET_UCS_MAX', `XCHARSET_CODE_OFFSET' and
+	`XCHARSET_BYTE_OFFSET'.
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(syms_of_mule_charset): Add new symbols `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+	(complex_vars_of_mule_charset): Modify for `make_charset'; quote
+	`.'  in font registry of charset `katakana-jisx0201',
+	`latin-jisx0201', `vietnamese-viscii-lower' and
+	`vietnamese-viscii-upper'; modify DOC-string of charset
+	`japanese-jisx0208-1978' and `japanese-jisx0208'; modify font
+	registry of charset `japanese-jisx0208' not to use font for JIS
+	X0208:1990; add new charset `hiragana-jisx0208' and
+	`katakana-jisx0208'.
+
+	* char-ucs.h (LEADING_BYTE_HIRAGANA_JISX0208): New macro.
+	(LEADING_BYTE_KATAKANA_JISX0208): New macro.
+	(struct Lisp_Charset): Add `byte_offset'.
+	(CHARSET_BYTE_OFFSET): New macro.
+	(XCHARSET_UCS_MIN): New macro.
+	(XCHARSET_UCS_MAX): New macro.
+	(XCHARSET_CODE_OFFSET): New macro.
+	(XCHARSET_BYTE_OFFSET): New macro.
+	(MIN_CHAR_HIRAGANA): New macro.
+	(MAX_CHAR_HIRAGANA): New macro.
+	(MIN_CHAR_KATAKANA): New macro.
+	(MAX_CHAR_KATAKANA): New macro.
+	(MAKE_CHAR): Modify for new coded-charset definition; use
+	`XCHARSET_UCS_MIN', `XCHARSET_UCS_MAX', `XCHARSET_CODE_OFFSET' and
+	`XCHARSET_BYTE_OFFSET'.
+
 1999-09-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (CHAR96): Deleted.

@@ -1,3 +1,8 @@
+1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`hiragana-jisx0208' and `katakana-jisx0208'.
+
 1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/chinese.el (chinese-cns11643-3): Define it even if
