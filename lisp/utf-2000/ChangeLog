@@ -1,5 +1,24 @@
 2002-11-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R142-Insect.el (M-33682): Separate C3-5B2D; unify
+	JU+8801 and U-0002F9C1.
+	(C3-5B2D): Unify CU-0002F9C1; map to U-0002F9C1.
+
+	* Ideograph-R087-Claw.el (M-19711): Map to U-0002F921 instead of
+	U+7235; unify KU+7235.
+	(C3-5545): Unify U-0002F921.
+
+	* Ideograph-R064-Hand.el (M-12236): Map to U-0002F8BA; unify
+	BC-ABF7.
+	(C3-3628): Unify U-0002F8BA.
+
+	* Ideograph-R046-Mountain.el (C3-2C40): Unify U-0002F87A.
+
+	* Ideograph-R018-Knife.el (JSP-334A): Unify JU+5277.
+	(C1-6337): Unify CU+5277.
+	(U+5277): Add `->same-ideograph' for U-0002F823; separate C3-4043.
+	(C3-4043): Unify U-0002F823.
+
 	* char-db-util.el (insert-char-attributes): Add setting for
 	`=>ucs-gb'.
 
