@@ -3481,10 +3481,42 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   else if ( EQ (attribute, Q_subsumptive) ||
 	    EQ (attribute, Q_subsumptive_from) ||
 	    EQ (attribute, Q_denotational) ||
-	    EQ (attribute, Q_denotational_from) )
+	    EQ (attribute, Q_denotational_from) ||
+	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
+				  Fsymbol_name (attribute),
+				  Qnil, Qnil)) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
+      Lisp_Object rev_feature = Qnil;
+      struct gcpro gcpro1;
+      GCPRO1 (rev_feature);
+
+      if (EQ (attribute, Q_subsumptive))
+	rev_feature = Q_subsumptive_from;
+      else if (EQ (attribute, Q_subsumptive_from))
+	rev_feature = Q_subsumptive;
+      else if (EQ (attribute, Q_denotational))
+	rev_feature = Q_denotational_from;
+      else if (EQ (attribute, Q_denotational_from))
+	rev_feature = Q_denotational;
+      else
+	{
+	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
+	  Bufbyte *name_str = string_data (name);
+
+	  if (name_str[0] == '<' && name_str[1] == '-')
+	    {
+	      Bytecount length = string_length (name);
+	      Bufbyte *rev_name_str = alloca (length + 1);
+
+	      memcpy (rev_name_str + 2, name_str + 2, length - 2);
+	      rev_name_str[0] = '-';
+	      rev_name_str[1] = '>';
+	      rev_name_str[length] = 0;
+	      rev_feature = intern (rev_name_str);
+	    }
+	}
 
       while (CONSP (rest))
 	{
@@ -3495,17 +3527,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  
 	  if ( !NILP (ret) && !EQ (ret, character) )
 	    {
-	      Lisp_Object rev_feature;
 	      Lisp_Object ffv;
-
-	      if (EQ (attribute, Q_subsumptive))
-		rev_feature = Q_subsumptive_from;
-	      else if (EQ (attribute, Q_subsumptive_from))
-		rev_feature = Q_subsumptive;
-	      else if (EQ (attribute, Q_denotational))
-		rev_feature = Q_denotational_from;
-	      else /* if (EQ (attribute, Q_denotational_from)) */
-		rev_feature = Q_denotational;
 
 	      ffv = Fget_char_attribute (ret, rev_feature, Qnil);
 	      if (!CONSP (ffv))
@@ -3517,6 +3539,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    }
 	  rest = XCDR (rest);
 	}
+      UNGCPRO;
     }
 #if 0
   else if (EQ (attribute, Qideographic_structure))
