@@ -1895,6 +1895,12 @@
     (ideograph-hanziku-6	. #xEFB3)	; ý¢®¾³
     ))
 (define-char
+  '((ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
+    (ideograph-cbeta	. 00865)	; ø¸ ¡
+    ))
+(define-char
   '((=>ucs		. #x2566B)	; ð¥™«
     (ideographic-radical . 113)	; â½°
     (ideographic-strokes . 7)
