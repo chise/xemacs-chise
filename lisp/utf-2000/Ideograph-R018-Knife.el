@@ -3845,7 +3845,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; ⿱
       )
-     ((=big5-cdp	  . #x8DC8)	; &CDP-8DC8;
+     ((=ucs		  . #x25762)	; 𥝢
       )
      ((=ucs		  . #x5200)	; 刀
       ))
@@ -7726,7 +7726,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x6B72)	; &UU+6B72;
+       ((=cns11643-1	    . #x6459)	; &M-16326; [68-57]
+	(=daikanwa	    . 16326)	; &I-M-16326;
 	)
        ((=ucs		    . #x5202)	; 刂
 	))
