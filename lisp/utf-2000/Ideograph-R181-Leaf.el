@@ -2043,7 +2043,7 @@
     (=ucs			. #xFA6A)	; 頻
     ))
 (define-char
-  '((=>ucs-jis		. #xFA6A)	; 頻
+  '((=>ucs@jis		. #xFA6A)	; 頻
     (morohashi-daikanwa	43519 0 0)
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 7)

@@ -17,7 +17,7 @@
     (=ucs		. #x5315)	; 匕
     ))
 (define-char
-  '((=>ucs-jis		. #x5315)	; 匕
+  '((=>ucs@jis		. #x5315)	; 匕
     (ideographic-radical . 21)	; ⼔
     (ideographic-strokes . 0)
     (total-strokes	 . 2)

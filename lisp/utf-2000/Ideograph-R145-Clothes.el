@@ -3892,7 +3892,7 @@
     (=ucs		. #xFA60)	; 褐
     ))
 (define-char
-  '((=>ucs-jis		. #xFA60)	; 褐
+  '((=>ucs@jis		. #xFA60)	; 褐
     (morohashi-daikanwa	34435 0 0)
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 9)

@@ -256,7 +256,7 @@
 (define-char
   '((=>ucs*		. #x6BBA)	; æ®º
     (=>ucs@gb		. #x6BBA)	; æ®º
-    (=>ucs-jis		. #x6BBA)	; ø½Šœ
+    (=>ucs@jis		. #x6BBA)	; ø½Šœ
     (morohashi-daikanwa	16629 0 1)
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 6)

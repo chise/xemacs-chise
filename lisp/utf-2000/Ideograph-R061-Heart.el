@@ -15346,7 +15346,7 @@
     ))
 (define-char
   '((=>ucs		. #x61F2)	; 懲
-    (=>ucs-jis		. #xFA40)	; 懲
+    (=>ucs@jis		. #xFA40)	; 懲
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
@@ -15356,7 +15356,7 @@
     (ucs-ks		. #x61F2)	; �����
     ))
 (define-char
-  '((=>ucs-jis		. #xFA40)	; 懲
+  '((=>ucs@jis		. #xFA40)	; 懲
     (morohashi-daikanwa	11424 0 0)
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)
@@ -15378,7 +15378,7 @@
     ))
 (define-char
   '((=>ucs		. #x61F2)	; 懲
-    (=>ucs-jis		. #xFA40)	; 懲
+    (=>ucs@jis		. #xFA40)	; 懲
     (morohashi-daikanwa	11424 0 2)
     (ideographic-radical . 61)	; ⼼
     (ideographic-strokes . 15)

@@ -199,7 +199,7 @@
     ))
 (define-char
   '((=>ucs*		. #x8005)	; 者
-    (=>ucs-jis		. #xFA5B)	; 者
+    (=>ucs@jis		. #xFA5B)	; 者
     (=>ucs-ks		. #x8005)	; 者
     (morohashi-daikanwa	28853 0 0)
     (ideographic-radical . 125)	; ⽼

@@ -9468,7 +9468,7 @@
     (=ucs		. #xFA57)	; 練
     ))
 (define-char
-  '((=>ucs-jis		. #xFA57)	; 練
+  '((=>ucs@jis		. #xFA57)	; 練
     (morohashi-daikanwa	27689 0 1)
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 9)
@@ -12896,7 +12896,7 @@
     (=ucs		. #xFA59)	; 繁
     ))
 (define-char
-  '((=>ucs-jis		. #xFA59)	; 繁
+  '((=>ucs@jis		. #xFA59)	; 繁
     (morohashi-daikanwa	27849 0 1)
     (ideographic-radical . 120)	; ⽷
     (ideographic-strokes . 11)

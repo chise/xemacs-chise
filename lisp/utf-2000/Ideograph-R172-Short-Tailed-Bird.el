@@ -3200,7 +3200,7 @@
     (=ucs		. #xFA68)	; 難
     ))
 (define-char
-  '((=>ucs-jis		. #xFA68)	; 難
+  '((=>ucs@jis		. #xFA68)	; 難
     (morohashi-daikanwa	42145 0 1)
     (ideographic-radical . 172)	; ⾫
     (ideographic-strokes . 11)

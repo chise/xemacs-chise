@@ -21542,7 +21542,7 @@
     ))
 (define-char
   '((=>ucs		. #x5606)	; 嘆
-    (=>ucs-jis		. #xFA37)	; 嘆
+    (=>ucs@jis		. #xFA37)	; 嘆
     (morohashi-daikanwa	4171 0 1)
     (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 11)

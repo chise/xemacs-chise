@@ -7567,7 +7567,7 @@
     (=ucs			. #xFA10)	; 塚
     ))
 (define-char
-  '((=>ucs-jis		. #xFA10)	; 塚
+  '((=>ucs@jis		. #xFA10)	; 塚
     (morohashi-daikanwa	5345 0 0)
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)
@@ -7578,7 +7578,7 @@
     ))
 (define-char
   '((=>ucs		. #x585A)	; 塚
-    (=>ucs-jis		. #xFA10)	; 塚
+    (=>ucs@jis		. #xFA10)	; 塚
     (morohashi-daikanwa	5345 0 1)
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 10)

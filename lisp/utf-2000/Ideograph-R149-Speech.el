@@ -6761,7 +6761,7 @@
     (=ucs		. #xFA62)	; 謁
     ))
 (define-char
-  '((=>ucs-jis		. #xFA62)	; 謁
+  '((=>ucs@jis		. #xFA62)	; 謁
     (morohashi-daikanwa	35757 0 0)
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
@@ -8613,7 +8613,7 @@
     (=ucs		. #xFA63)	; 謹
     ))
 (define-char
-  '((=>ucs-jis		. #xFA63)	; 謹
+  '((=>ucs@jis		. #xFA63)	; 謹
     (morohashi-daikanwa	35900 0 0)
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 11)

@@ -1810,7 +1810,7 @@
     (=ucs		. #xFA64)	; 賓
     ))
 (define-char
-  '((=>ucs-jis		. #xFA64)	; 賓
+  '((=>ucs@jis		. #xFA64)	; 賓
     (morohashi-daikanwa	36788 0 0)
     (ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 7)

@@ -2251,7 +2251,7 @@
     ))
 (define-char
   '((=>ucs*		. #x8688)	; èšˆ
-    (=>ucs-jis		. #x8688)	; ø»‹¹Š
+    (=>ucs@jis		. #x8688)	; ø»‹¹Š
     (morohashi-daikanwa	33049 0 1)
     (ideographic-radical . 142)	; â¾
     (ideographic-strokes . 6)

@@ -412,7 +412,7 @@
     ))
 (define-char
   '((=>ucs		. #x865C)	; è™œ
-    (=>ucs-jis		. #xF936)	; ø»‰¨¸
+    (=>ucs@jis		. #xF936)	; ø»‰¨¸
     (morohashi-daikanwa	32710 0 1)
     (ideographic-radical . 141)	; â¾Œ
     (ideographic-strokes . 7)
@@ -522,7 +522,7 @@
 (define-char
   '((=>ucs*		. #x865C)	; è™œ
     (=>ucs@gb		. #x865C)	; è™œ
-    (=>ucs-jis		. #x865C)	; è™œ
+    (=>ucs@jis		. #x865C)	; è™œ
     (morohashi-daikanwa	32720 1 0)
     (ideographic-radical . 141)	; â¾Œ
     (ideographic-strokes . 7)
