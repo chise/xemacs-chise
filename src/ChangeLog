@@ -1,3 +1,9 @@
+2003-04-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-ucs.h: Change charset-id of ISO-IR sets from ISO-IR-number
+	n to -n; charset-id of non ISO-IR sets are changed to positive
+	numbers.
+
 2003-03-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (decode_add_er_char): Use XUINT instead of XINT
