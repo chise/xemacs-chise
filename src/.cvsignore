@@ -1,0 +1,12 @@
+Makefile.in
+paths.h
+config.h
+Emacs.ad.h
+Makefile
+GNUmakefile
+puresize-adjust.h
+sheap-adjust.h
+temacs
+xemacs
+SATISFIED
+update-elc.stamp

@@ -1,0 +1,665 @@
+1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.13 is released
+
+1999-03-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Don't link lib-src programs incrementally.
+	  Don't include debug info in release builds.
+	  Put intermediate files in the appropriate directories.
+	  Make "distclean" target delete all intermediate files.
+
+1999-03-07  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Fix building on Windows 95/98 by conditionalising escape
+	  character '^'.
+	  Only put mule-packages in package path on MULE builds.
+	  Only build source browser files on debug builds.
+	  Build source browser database before link so that it's
+	  available even if link fails.
+
+1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.12 is released
+
+1999-03-03  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* xemacs.mak (HAVE_XFACE): fix for building without X-Face support
+	provided by Brent B. Powers <bpowers@ms.com>.
+
+	* xemacs.mak (CONFIG_ERROR): Misc error detection for build with
+	X-Face.
+
+1999-02-01  Gleb Arshinov  <gleb@cs.stanford.edu>
+
+	* README: Document the X-Face build option.
+
+	* compface.mak: New file
+	  Makefile for building compface library under MSVC.  Build
+	  library only, not executables.  Should be extended to build
+	  executables and propagated upstream, if possible.
+
+	* xemacs.mak: Link in X-Face/Compface for NT native build.
+
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.10 is released
+
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (MODULES): Adding variable.
+	(update-elc): Setting EMACSBOOTSTRAPMODULEPATH.
+
+1998-12-17  Charles G. Waldman <cgw@pgt.com>
+
+	* minitar.c:  New file
+	* minitar.mak: New file
+
+1998-12-29  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Changed x86 EMACS_CONFIGURATION to i586-pc-win32 since we
+	  build optimised for Pentium.
+	  Created CFLAGS variable, used in building all objects and in
+	  constructing config.values.
+	  Added glyphs-widget.c and gui-msw.c to list of sources.
+	  Added PACKAGE_PATH to EMACSBOOTSTRAPLOADPATH for mule builds.
+
+1998-12-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.8 is released.
+
+1998-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.7 is released.
+
+1998-12-13  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Replaced PACKAGEPATH variable with PACKAGE_PREFIX. 
+	  configure-package-path is initialised to contain
+	  subdirectories of PACKAGE_PREFIX. The install target makes
+	  a skeleton package tree under PACKAGE_PREFIX.
+
+	* README, PROBLEMS:
+	  Documented the package path changes.
+	  Corrected the advice on a suitable minimal set of packages.
+
+1998-12-17  Andy Piper  <andy@xemacs.org>
+
+	* xemacs.mak ($(LIB_SRC)/movemail.exe): adapt make rule to build
+ 	with pop support.
+
+	* xemacs.mak: add gui-msw.c and glyphs-widget.c object lists.
+
+1998-12-16  Andy Piper  <andy@xemacs.org>
+
+	* XEmacs 21.2.6 is released
+
+1998-12-11  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (DOC_SRC2): CLASH_DETECTION is not supported under
+ 	native Windows NT.  Therefore src\filelock.c is not to be
+ 	compiled.
+	(TEMACS_OBJS): Consequently, don't link in $(OUTDIR)\filelock.obj.
+
+1998-12-10  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak ($(OUTDIR)\alloc.obj): add a dependency on
+ 	puresize-adjust.h to avoid infinite recursion.
+
+1998-12-09  Andy Piper  <andy@xemacs.org>
+
+	* config.h: remove clash detection stuff.
+
+1998-12-07  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs.mak (TEMACS_OBJS):
+	(DOC_SRC4): 
+	- Remove pure.c, pure.obj
+
+1998-11-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak: Creating minimal versions of Installation,
+ 	Installation.el, and config.values to make
+	(describe-installation) and (config-value ...) work in Windows NT
+ 	native builds.  Incorporating rule for movemail.exe courtesy of
+ 	Andy Piper.
+
+1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.5 is released
+
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-10-29  Andy Piper  <andyp@parallax.co.uk>
+
+	* xemacs.mak ($(LIB_SRC)/movemail.exe): add etags dependencies to
+	pull in getopt and friends.
+
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-19  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* tiff.mak: New file provided by Charles Wilson
+	  <cwilson@ee.gatech.edu>
+
+	* README: Update provided by Charles Wilson
+	  <cwilson@ee.gatech.edu>.  Documenting use of the newly
+	  introduced tiff.mak.  Renumbering subsequent build instruction
+	  items.
+
+1998-09-20  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* PROBLEMS: New file.
+
+	* xemacs.mak: Install the PROBLEMS file in the root directory of
+	  the XEmacs installation.
+
+1998-08-31  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak: Detect failure to supply PNG_DIR or XLIB_DIR
+	  when building with PNG support.
+
+1998-08-31  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: Document the PNG, ZLIB, JPEG, TIFF and GIF build
+	  options.
+
+1998-08-12  Jeff Sparkes  <jsparkes@internetivity.com>
+
+	* xemacs.mak: Link in GIF, fix HAVE_JPEG default.
+
+1998-08-09  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak (install): Win95 fixes:
+	  DOS mkdir doesn't create intermediate directories. xcopy does
+	  so use it to create the install and lock directories.
+	  Removed trailing backslashes from copy commands since DOS
+	  copy doesn't like them.
+
+1998-08-05  Charles G. Waldman <cgw@pgt.com>
+
+	* xemacs.mak: change "copy" to "xcopy" in install target
+
+1998-08-04  Jeff Sparkes  <jsparkes@internetivity.com> 
+
+	* xemacs.mak: Link in PNG, TIFF and JPEG in native build.
+
+1998-08-04  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: XEmacs has been successfully built with MSVC 4.0.
+	  Mention the vcvars32.bat file installed with the MSVC tools.
+
+1998-07-19  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta1 is released.
+
+1998-07-13  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak:
+	  Add path to xemacs.res dependency.
+
+1998-07-12  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.0-pre5 is released.
+
+1998-07-09  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.0-pre4 is released.
+
+1998-07-04  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* README: Documented the changed PACKAGEPATH option and the new
+	  INSTALL_DIR option, install target and runemacs executable.
+	  Added more debugging documentation.
+
+	* config.h: Don't undef EMACS_CONFIGURATION because it's now
+	  set in the makefile.
+
+	* xemacs.mak: Added an INSTALL_DIR option and install target.
+          Renamed the default package location option to PACKAGEPATH
+	  and made it cope with paths with spaces in them.
+	  Made non-debug build the default; DEBUG_XEMACS defaults to 0.
+	  System configuration (EMACS_CONFIGURATION) now correctly
+	  determined at build-time by this makefile.
+	  Compiles the runemacs executable as part of the all target.
+
+1998-06-29  SL Baur  <steve@altair.xemacs.org>
+
+	* config.h:
+	* xemacs.mak: NT native sound fixes
+	From Fabrice POPINEAU via Adrian Aichner <aichner@ecf.teradyne.com>
+
+1998-06-21  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs.mak: It's XEmacs, not Xemacs!
+
+1998-06-19  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* file.ico, lisp.ico:
+	  New icons to represent a generic file and a lisp file.
+
+	* xemacs.rc: Build file.ico and lisp.ico into the executable.
+
+1998-06-15  Peter Windle <peterw@sdl.ug.eds.com>
+
+	* xemacs.mak: Made XPM and X11 checks cope with case-sensitive
+	NFS. Also apply Sean MacLennan's change allowing
+	emacs_beta_version to be undefined.
+
+1998-06-19  SL Baur  <steve@altair.xemacs.org>
+
+	* xemacs.mak (distclean): Reorder when puresize-adjust.h gets
+	deleted.
+	From Adrian Aichner <aichner@ecf.teradyne.com>
+
+1998-06-08  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h: Undefined DONT_ENCAPSULATE.
+	Defined ENCAPSULATE_* for fopem, open, rename and mkdir.
+	Removed MS-DOS code remains.
+
+1998-06-03  Rick Rankin  <Rick_Rankin-P15254@email.mot.com>
+
+	* Makefile.cygwin: created to compile runemacs.c. This should
+	probably have a Makefile.in, but...
+
+	* runemacs.c: modified to check to see if xemacs is a symbolic
+	link when compiled under Cygwin.
+
+1998-05-31  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added lib-src/wakeup.exe
+
+1998-05-30  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added rules for hexl.exe, movemail.exe, mmencode.exe
+	sorted-doc.exe, etags.exe
+
+1998-05-30  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Support building InfoDock, with INFODOCK=1 macro
+	in the command line.
+
+1998-05-26  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* inc/sys/dir.h: Removed #ifndef WINDOWSNT around the code which
+	should be compiled in (sic!).
+	Removed 'extern' before function prototypes.
+
+1998-05-20  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Unified -nologo compiler switch handling and lib-src 
+	programs build (only make-docfile currently, adding other tools
+	soon). 
+
+1998-05-23  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added HAVE_DIALOGS macro, and dialog-*.* files to
+	docfile creation and compilation.
+	Defaulted HAVE_MSW to 1.
+	Changed lib-src references to be relative to $(XEMACS)/, not ../
+
+1998-05-16  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Removed inline.{c,obj}. It did buy nothing.
+
+1998-05-15  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Comment out dialog.{c,obj} from build.
+
+1998-05-11  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* nt/config.h:
+	Unconditionally define new HAVE_DRAGNDROP.
+
+1998-05-10  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added dragdrop.{c,obj}
+
+1998-05-08  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h (enum_field): Redefine to be unsigned int.
+
+1998-05-07  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Really honor minimal tagbits, indexed lrecord and
+	union type.
+
+1998-05-03  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* inc/sys/socket.h: Removed encapsulating definitions for Winsock
+	functions.
+
+1998-05-04  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Defined PATH_PROGNAME and	PATH_VERSION C macros.
+	Make _DEBUG defined only when DEBUG_XEMACS.
+
+1998-04-26  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added glyphs-eimage.{c,obj}
+
+1998-04-20  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Support "Don't panic, I will restart make" exit code.
+	Extra checks for externally specified X{PM,11}_DIR.
+	Proper quoting to allow spaces in these paths.
+	Conduct all config checks at once.
+	New option VERBOSECC. When non-zero, C compiler echoes its
+	commands. When zero, only name of the file being compiled is
+	echoed. Default is 0 (do not echo).
+
+1998-04-17  Jonathan Harris <jhar@tardis.ed.ac.uk>
+
+	* README: Documented new msvc build procedure, including XPM
+	support.
+
+	* xemacs.mak: Added XPM and TOOLBARS support for native msvc
+	build.
+
+	* xpm.mak: New file
+	Makefile for building xpm library under msvc. Hopefully this
+	will be part of future xpm distributions.
+
+1998-04-10  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h: Do not USE_ASSERTION when DEBUG_XEMACS is not
+	defined. 
+
+	* xemacs.mak: Added new file process-nt.c
+
+1998-04-07  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Added build options which can be defined in nmake
+	command line (defaults are parentheses):
+	HAVE_MSW=0/1	(0)	Build with native GUI
+	HAVE_X=0/1	(0)	Build with X-Windows
+				** At least one must be defined
+	X11_DIR=path	()	Path to the root dir of X11R6 installation
+				** Must be defined when HAVE_X=1
+	HAVE_MULE=0/1	(0)	Compile in MULE
+	HAVE_MSW_C_DIRED=0/1(1)	Compile in fast dired
+	PATH_PACKAGEPATH=path	Package search path
+			("~/.xemacs")
+	DEBUG_XEMACS=0/1 (1)	Compile with symbols, assertions and
+				extra debugging checks
+	USE_UNION_TYPE=0/1 (0)
+	USE_MINIMAL_TAGBITS=0/1 (0)
+	USE_INDEXED_LRECORD_IMPLEMENTATION=0/1 (0)
+	GUNG_HO=0/1 (none)	When specified, overrides the above two.
+	: Added output of a configuration report
+	: Added copyright notice.
+	: Deleted remains of ImageMagick.
+	(distclean): Do not use mskedepend
+	(install): echo "Not yet implmented".
+
+1998-04-05  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h (enum_field): Borrow new definition from config.h.in
+
+1998-04-01  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h: Patial sync-up with config.h.in
+
+1998-03-25  jhar@tardis.ed.ac.uk
+
+	* xemacs.mak: Adds glyphs-msw.c and imgproc.c and reflects
+	alterations to package_path in nt/xemacs.mak.
+
+1998-03-24  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak (dump-xemacs): Replaced use of `touch' with `echo'.
+
+1998-03-20  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Removed all references to deleted dgif_lib.{c,obj},
+	gif_err.{c,obj} and gifalloc.{c,obj}. New image support is not
+	compiled in yet.
+
+1998-03-19  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: HAVE_FILE_CODING removed: it is no longer an option, 
+	since file I/O depends on it, and defined unconditioanlly in
+	src/s/windowsnt.h.
+	Added -nologo switch to different tools here and there.
+	Suppressed some irrelevant make output.
+
+1998-02-28  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Defined HAVE_FILE_CODING variable, an equivalent of
+	--with-file-coding configure option. Default is yes.
+
+1998-03-13  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak (update-elc): Copy Installation.el to $(LISP)
+
+	* Installation.el: New file, copied by xemacs.mak during build.
+
+Fri Feb 20 21:22:34 1998  Darryl Okahata  <darrylo@sr.hp.com>
+
+	* xemacs.mak: Added entry for src/dired-msw.c.  Use of the
+	  dired-in-C enhancements is optional, and is determined by
+	  HAVE_MSW_C_DIRED.  See comments in xemacs.mak.
+
+1998-02-18  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: Fixed lost docstrings
+
+1998-01-28  Jonathon Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak: Updated accordingly.
+	Creates the MSVC browse info immediately after the link.
+
+1997-12-29  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* config.h: Suppressed MSVC warning 'relational' : signed/unsigned
+	mismatch
+
+	* config.h: INLINE defined to __inline for MSVC compilers >= 2.x
+
+1997-12-26  Kirill M. Katsnelson  <kkm@kis.ru>
+
+	* xemacs.mak: added menubar-msw.c, menubar.c
+
+	* xemacs.mak: scrollabrs and menubars are rearranged properly
+	  under different ifdef'd secions, so for example menubar.obj goes
+	  to always compiled section, and menubar-msw.obj is built only when
+	  HAVE_MSW.
+
+	* xemacs.mak: Compiler warning flag definition moved to a macro
+	  CPP_WARN_FLAGS. Redefined from -w to -W3 (Doh!).
+
+1997-12-11  David Hobley <davidh@wr.com.au>
+
+        * Added support for auto generation of puresize-adjust.h
+	  in xemacs.mak. Also created new file puresize-adjust.h to copy
+ 	  into src on initial build.
+
+Mon December 08 1997 kkm@kis.ru
+
+	* xemacs.mak: added profile.c, removed event-unixod.c
+	* xemacs.mak: removed dangerous defines _IX_86, _X86_,
+	  _MSC_VER
+	* config.h: removed #define HAVE_UNIXOID_EVENT_LOOP
+
+Thu December 04 1997 jhar@tardis.ed.ac.uk
+	
+	* xemacs.mak: Define DEBUG_XEMACS when compiling with debug.
+
+Tue November 29 12:29:33 1997 davidh
+
+	* xemacs.mak and config.h updated to provide ability to
+	  specify DEBUG mode from the xemacs.mak file.
+
+Mon December 01 1997 jhar
+
+	* msw-init.el: Provide default bindings for cut, paste, copy and undo
+
+	* event-msw.c, event-msw.h, frame-msw.c, msw-proc.c:
+	  - Implemeted simple emacs_mswindows_event_pending_p().
+	  - Fixed deleting frames.
+	  - Rewrote timeout code, eliminating "!NILP(rest)" bug.
+	  - Special processing for 'Ctrl-@' keystroke.
+	  - Support for some new keysyms.
+	
+Mon December 01 1997 jhar
+
+	* xemacs.mak:
+	  - Add PACKAGE_PATH and EMACS_BETA_VERSION defines.
+	  - Automatically copy changed include files from \nt to \src.
+	  - Corrected some DOC_SRC* lists.
+  
+Tue November 18 21:45:06 1997 davidh
+
+	* xemacs.mak updated to remove dependency on startup.elc
+	  HAVE_IMAGEMAGICK added for X build.
+
+Thu September 25 23:06:44 1997 davidh
+
+	* xemacs.mak updated to make the build as simple as typing
+	  nmake -f xemacs.mak. Also support for native gui included 
+	  which should mean the w32 directory is no longer required.
+
+	* config.h synced with config.h.in from 20.3-b2
+
+	* synced in changes to support native gui.
+
+Thu September 25 23:06:44 1997 davidh
+
+	* August Hill provided a patch to xemacs.mak to greatly simplify
+	  the build - the DOC file gets created correctly. 
+
+Tue September 22 23:06:44 1997 davidh
+
+	* August Hill provided some more patches - to expand ~ correctly
+          and to correctly deal with drive letters in the path.
+
+	* emacs.c patched to call init_ntproc()
+
+
+Tue July 15 19:32:21 1997 davidh
+
+        * August Hill provided some more patches to make things better
+          - there is a workaround for dired to make the ^M's disappear
+          - a patch to fix shell-command
+
+Tue July 08 22:01:36 1997 davidh
+
+        * #ifdef'd call to vfork and replaced with spawn as per GNU Emacs;
+          as a result, removed /force - XEmacs now links normally.
+
+Thu June 31 21:16:21 1997 davidh
+
+	* nt/TODO created.
+
+	* nt/X11.patch created to help with the X build.
+	
+	* August Hill provided:
+ 	  a patch to fix the _WRETCODE undefined symbol,
+	  a patch to fix a problem with dired
+
+	  and generally helped clarify the build instructions.
+
+ 	* Synced with 20.3b10 (Athens).
+
+	* Made DIRECTORY_SEP be '\\'. Until I can change all code to
+          use the macro, I decided this would be easiest.
+
+	* Modified src/fileio.c to only open files in O_BINARY. This
+	  causes files to be opened and written without automatically 
+	  writing ^M 's to the end of each line. MULE ought to sort this
+          in theory, but I am less than convinced.
+
+	* Updated the nt/README to provide a little more help.
+
+Thu May 29 23:11:21 1997 davidh
+
+	* Synced with 20.3b2.
+
+	* Removed nt/README.src, nt/src.m.windowsnt.h nt/src.s.windowsnt.h.
+
+	* Updated README from marcpa.
+
+	* Added example Win32.cf and site.def files for X.
+
+	* Added sed.exe into nt/.
+
+	* Modified nt/xemacs.mak to pass correct flags to lwlib compile.
+
+	* Added extra .elc files to ensure make-docfile gets all symbols.
+
+	* Modified balloon_help.c to compile (#if'd max definition)
+
+	* Modified src/event-Xt.c so as not to add signal_event_pipe to
+          be selected on - this is a hack until I can work out a better
+          way. Thanks to Ben Wing for help on this.
+
+Thu Mar 27 20:56:21 1997  marcpa  (marcpa at MARCPA)
+
+	* Synced with 20.1b9.
+
+Sun Mar 16 00:32:15 1997  marcpa  (marcpa at MARCPA)
+
+	* lisp/eterm/README.term is truncated: is it just me (because
+	I'm on NT) or everyone else sees this ?
+	Answer: it is because it contains a ^Z embedded in it, therefore
+	it needs to be inserted in binary mode in CVS.
+
+Thu Mar 13 00:19:25 1997  marcpa  (marcpa at MARCPA)
+
+	* At end of compilation, there are some unresolved symbols: 
+
+link.exe @C:\TEMP\nma00115.
+sysdep.obj : error LNK2001: unresolved external symbol _vfork
+../src/temacs.exe : warning LNK4088: image being generated due to /FORCE
+option; image may not run
+
+
+Wed Mar 12 23:18:53 1997  marcpa  (marcpa at MARCPA)
+
+	* Need to copy the nt/inc directory David originally submitted or
+	NT code won't compile.
+
+	* Need to copy nt/{config.h,paths.h,ad2c.sed,xemacs.mak} in src.
+
+	* Had to modify XEmacs sources here and there : see the diffs
+	between NT_FIRST_COMPILE and V20_1_beta9.
+
+	* Needed to patch X11R6.3 sources: (include/x11/Xmd.h:155) BOOL is
+	already defined by Windows and is a long, while X wants it to be
+	an unsigned char.
+
+--- Xmd.h~	Thu Jun 08 23:20:40 1995
++++ Xmd.h	Sun Mar 16 13:09:10 1997
+@@ -150,8 +150,9 @@
+ typedef CARD16		BITS16;
+ typedef CARD8		BYTE;
+ 
++#ifndef WIN32
+ typedef CARD8           BOOL;
+-
++#endif
+
+	* cpp.exe not used: cl.exe from VC++4.2 seems to handle everything
+	properly. 
+

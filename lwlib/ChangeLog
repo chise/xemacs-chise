@@ -1,0 +1,12 @@
+1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.13 is released
+
+1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.12 is released
+
+1999-02-18  Martin Buchholz  <martin@xemacs.org>
+
+	* lwlib/xlwmenu.c (massage_resource_name): Fix compiler warning
+	- Have to toupper ((int) (unsigned char) x) to be portable.

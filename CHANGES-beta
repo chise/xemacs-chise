@@ -1,0 +1,134 @@
+							-*- indented-text -*-
+to 21.2.13 "Demeter"
+-- Build fixes from Martin Buchholz
+-- experimental splash screen rewrite from Didier Verna
+-- Various patches from Jan Vroonhof and Andy Piper
+-- alist.el synched up with APEL 9.13 from MORIOKA Tomohiko
+-- MS Window build fixes from Jonathan Harris
+-- UCS-4/UTF-8 support from MORIOKA Tomohiko
+
+to 21.2.12 "Clio"
+-- event-stream unification for MS Windows from Andy Piper
+-- Determine best visual to use to avoid flashing from IENAGA Kazuyuki
+-- Fix for new Berkeley DB library from Paul Keusemann/Gregory Neil Shapiro
+-- Various package-ui fixes from Jan Vroonhof
+-- Fix for doubled font-locking during buffer reversion
+-- KFM browsing support from Neal Becker
+-- info fix from Didier Verna
+-- Build bug fixes from Martin Buchholz
+-- Various Documentation updates
+-- X-Face support for MS Windows native build from Gleb Arshinov
+
+to 21.2 beta11 "Calliope"
+-- Dialog box fix from Jan Vroonhof
+-- unified mswindows and tty event loops from Andy Piper
+-- miscellaneous patches from Gleb Arshinov
+-- miscellaneous patches from Charles Waldman and Adrian Aichner
+-- Mule dump time files remerged from mule-base package
+-- Documentation fixes from Jan Vroonhof
+-- 24bit color image fix from Kazuo OISHI
+-- various build fixes from Martin Buchholz
+
+to 21.2 beta10 "Boreas"
+-- package UI fix from Jan Vroonhof
+-- MS Windows NT process fix from Gleb Arshinov
+
+to 21.2 beta9 "Athena"
+-- parameterize replace-match function from Didier Verna
+-- X-Face support under mswindows from Andy Piper
+-- doc fixes from Adrian Aichner
+-- about patchlet from Marcus Thiessel
+-- isearch doc fixes from Didier Verna
+-- interlaced gif fix from Gunnar Evermann
+-- isearch improvements from Didier Verna
+-- eldap connection fix from William Perry
+-- package-get site fix from Robert Pluim
+-- loadable modules fix from Damon Lipparelli
+-- ldap fixes from Oscar Figueiredo
+-- loadable modules from J. Kean Johnston
+-- runwhatever from Charles Wilson
+-- redisplay fixes for glyphs from Andy Piper
+-- progress gauge widgets implentation from Andy Piper
+-- W3 works again due to font.el being fixed
+-- Another mule xemacs crash fixed
+-- Images in widgets, warning fixes and gui_item cleanup from Andy Piper
+-- package admin fixes under mswindows from Charles Waldman
+-- miscellaneous mswindows build fixes from Jonathan Harris
+-- help-echo fix from Hrvoje Niksic
+-- x font path support from Jim Radford
+-- MSVC compile fixes from Damon Lipparelli
+
+to 21.2 beta8 "Artemis"
+-- A bunch of Mule fixes from Martin Buchholz
+
+to 21.2 beta7 "Ares"
+-- mswindows modeline crash fix from Jonathan Harris
+-- picon glyph fix from Gunnar Evermann
+-- widgets-in-buffers and subwindow support from Andy Piper
+-- movemail pop support under mswindows from Fabrice Popineau
+-- ldap fixes from Oscar Figueiredo
+-- fns cleanup from Hrvoje Niksic
+-- menubar fixes from Didier Verna
+-- mswindows accelerator fix from Jonathan Harris
+-- dired mule fix from Didier Verna
+-- sound doc cleanup from Charles Waldman
+-- new display table functionality from Hrvoje Niksic
+-- minor cleanups
+-- package fixes from Jan Vroonhof
+-- subwindow support fixes from Martin Buchholz
+
+to 21.2 beta6 "Apollo"
+-- mswindows compile fixes from Martin Buchholz, Andy Piper, Greg
+   Klanderman and Adrian Aichner
+-- Synch with XEmacs 21.0.60
+-- mega-patch fixes from Martin Buchholz
+-- md5 fixes and testsuite from Hrvoje Niksic
+-- database fix from Hrvoje Niksic
+
+to 21.2 beta5 "Aphrodite"
+-- synch with XEmacs 21.0.58
+-- bytecode interpreter rewritten
+-- byte compiler fixes
+-- hash table implementation rewritten
+-- basic lisp functions rewritten
+-- spelling fixes
+-- garbage collector tuned a little
+-- various global code changes for consistency
+-- automated test suite
+-- major internals manual updates
+-- lisp reference updates
+
+to 21.2 beta4 "Aglaophonos"
+-- isearch keymap fix from Katsumi Yamaoka
+-- directory_files cleanup from Hrvoje Niksic
+-- C implementation of base64 from Hrvoje Niksic
+-- C implementation of `buffer-substring-no-properties' from Hrvoje Niksic
+-- Experimental fix for spurious `file has changed on disk' message from
+   Charles Waldman
+-- Fix for etags.el hook calling from Malcolm Box
+-- User-name-completion fix for MS Windows NT from Greg Klanderman
+
+to 21.2 beta3 "Aglaia"
+-- case sensitiveness improvements from Didier Verna
+-- Bug fixes from 21.0
+-- Word selection on mouse click on quotes from Hrvoje Niksic
+-- WAVE support for NAS from Raymond Toy
+
+to 21.2 beta2 "Aether"
+-- Synched with 21.0-pre14 "Poitou"
+-- isearch improvements from Hrvoje Niksic
+-- bytecompiler fix from Martin Buccholz
+-- shadow.el speedup from Martin Buchholz
+-- clash detection update from Jan Vroonhof
+-- Indirect buffers from Hrvoje Niksic
+-- ~user completion cleanup from Greg Klanderman
+-- New face property from Didier Verna
+-- ~user completion and fixes from Greg Klanderman
+-- casefiddle.c speedup from Martin Buchholz
+
+to 21.2 beta1 "Aeolus"
+-- Synch with 21.0-pre6
+-- Removal of ancient obsolete symbols courtesy of Altrasoft
+-- Fix version numbers
+
+Fork at 21.0 pre5 "Zhong Wei"
