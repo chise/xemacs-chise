@@ -1,3 +1,14 @@
+1999-11-17  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* utf-2000/ideograph-util.el: New file.
+
+1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R001-One"
+	in UTF-2000.
+
+	* utf-2000/Ideograph-R001-One.el: New file.
+
 1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-conf.el (sisheng): Moved from mule/chinese.el.

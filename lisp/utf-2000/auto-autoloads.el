@@ -10,3 +10,9 @@
 (autoload 'what-char-definition "char-db-util" nil t nil)
 
 ;;;***
+
+;;;### (autoloads (update-ideograph-radical-table) "ideograph-util" "utf-2000/ideograph-util.el")
+
+(autoload 'update-ideograph-radical-table "ideograph-util" nil t nil)
+
+;;;***
