@@ -81,11 +81,11 @@ extern void tputs (const char *, int, void (*)(int));
   } while (0)
 #define OUTPUT1_IF(c, a) OUTPUTN_IF (c, a, 1)
 
-static void tty_output_emchar_dynarr (struct window *w,
-				      struct display_line *dl,
-				      Emchar_dynarr *buf, int xpos,
-				      face_index findex,
-				      int cursor);
+static void tty_output_charc_dynarr (struct window *w,
+				     struct display_line *dl,
+				     Charc_dynarr *buf, int xpos,
+				     face_index findex,
+				     int cursor);
 static void tty_output_bufbyte_string (struct window *w,
 				       struct display_line *dl,
 				       Bufbyte *str, Bytecount len,
@@ -104,13 +104,13 @@ static void term_get_fkeys (Lisp_Object keymap, char **address);
  Non-Mule tty's don't have fonts (that we use at least), so everything
  is considered to be fixed width -- in other words, we return LEN.
  Under Mule, however, a character can still cover more than one
- column, so we use emchar_string_displayed_columns().
+ column, so we use charc_string_displayed_columns().
  ****************************************************************************/
 static int
-tty_text_width (struct frame *f, struct face_cachel *cachel, const Emchar *str,
-		Charcount len)
+tty_text_width (struct frame *f, struct face_cachel *cachel,
+		const Charc *str, Charcount len)
 {
-  return emchar_string_displayed_columns (str, len);
+  return charc_string_displayed_columns (str, len);
 }
 
 /*****************************************************************************
@@ -202,7 +202,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 			  int cursor_height)
 {
   struct frame *f = XFRAME (w->frame);
-  Emchar_dynarr *buf = Dynarr_new (Emchar);
+  Charc_dynarr *buf = Dynarr_new (Charc);
 
   struct display_block *db = Dynarr_atp (dl->display_blocks, block);
   rune_dynarr *rba = db->runes;
@@ -242,18 +242,19 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
       rb = Dynarr_atp (rba, elt);
 
       if (rb->findex == findex && rb->type == RUNE_CHAR
-	  && rb->object.chr.ch != '\n'
+	  && (!EQ (rb->object.cglyph.charset, Vcharset_ascii)
+	      || (rb->object.cglyph.code_point != '\n'))
 	  && (rb->cursor_type != CURSOR_ON
 	      || NILP (w->text_cursor_visible_p)))
 	{
-	  Dynarr_add (buf, rb->object.chr.ch);
+	  Dynarr_add (buf, rb->object.cglyph);
 	  elt++;
 	}
       else
 	{
 	  if (Dynarr_length (buf))
 	    {
-	      tty_output_emchar_dynarr (w, dl, buf, xpos, findex, 0);
+	      tty_output_charc_dynarr (w, dl, buf, xpos, findex, 0);
 	      xpos = rb->xpos;
 	    }
 	  Dynarr_reset (buf);
@@ -263,13 +264,17 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 	      findex = rb->findex;
 	      xpos = rb->xpos;
 
-	      if (rb->object.chr.ch == '\n')
+	      if (EQ (rb->object.cglyph.charset, Vcharset_ascii)
+		  && (rb->object.cglyph.code_point == '\n'))
 		{
 		  /* Clear in case a cursor was formerly here. */
+		  Charc ec_space;
 
-		  Dynarr_add (buf, ' ');
-		  tty_output_emchar_dynarr (w, dl, buf, rb->xpos,
-					    DEFAULT_INDEX, 0);
+		  ec_space.charset = Vcharset_ascii;
+		  ec_space.code_point = ' ';
+		  Dynarr_add (buf, ec_space);
+		  tty_output_charc_dynarr (w, dl, buf, rb->xpos,
+					   DEFAULT_INDEX, 0);
 		  Dynarr_reset (buf);
 
 		  cmgoto (f, dl->ypos - 1, rb->xpos);
@@ -280,8 +285,8 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
 		{
 		  /* There is not a distinct eol cursor on tty's. */
 
-		  Dynarr_add (buf, rb->object.chr.ch);
-		  tty_output_emchar_dynarr (w, dl, buf, xpos, findex, 0);
+		  Dynarr_add (buf, rb->object.cglyph);
+		  tty_output_charc_dynarr (w, dl, buf, xpos, findex, 0);
 		  Dynarr_reset (buf);
 
 		  cmgoto (f, dl->ypos - 1, xpos);
@@ -295,17 +300,18 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
              modeline and this will suffice for that. */
 	  else if (rb->type == RUNE_BLANK || rb->type == RUNE_HLINE)
 	    {
-	      Emchar ch_to_add;
+	      Charc ec_to_add;
 	      int size = rb->width;
 
+	      ec_to_add.charset = Vcharset_ascii;
 	      if (rb->type == RUNE_BLANK)
-		ch_to_add = ' ';
+		ec_to_add.code_point = ' ';
 	      else
-		ch_to_add = '-';
+		ec_to_add.code_point = '-';
 
 	      while (size--)
-		Dynarr_add (buf, ch_to_add);
-	      tty_output_emchar_dynarr (w, dl, buf, rb->xpos, findex, 0);
+		Dynarr_add (buf, ec_to_add);
+	      tty_output_charc_dynarr (w, dl, buf, rb->xpos, findex, 0);
 
 	      if (xpos >= cursor_start
 		  && cursor_start < xpos + Dynarr_length (buf))
@@ -366,7 +372,7 @@ tty_output_display_block (struct window *w, struct display_line *dl, int block,
     }
 
   if (Dynarr_length (buf))
-    tty_output_emchar_dynarr (w, dl, buf, xpos, findex, 0);
+    tty_output_charc_dynarr (w, dl, buf, xpos, findex, 0);
   Dynarr_free (buf);
 
 }
@@ -543,31 +549,31 @@ tty_output_bufbyte_string (struct window *w, struct display_line *dl,
   tty_turn_off_face (w, findex);
 }
 
-static Bufbyte_dynarr *tty_output_emchar_dynarr_dynarr;
+static Bufbyte_dynarr *tty_output_charc_dynarr_dynarr;
 
 /*****************************************************************************
- tty_output_emchar_dynarr
+ tty_output_charc_dynarr
 
  Given a string and a starting position, output that string in the
  given face.  If cursor is true, draw a cursor around the string.
  ****************************************************************************/
 static void
-tty_output_emchar_dynarr (struct window *w, struct display_line *dl,
-			  Emchar_dynarr *buf, int xpos, face_index findex,
-			  int cursor)
+tty_output_charc_dynarr (struct window *w, struct display_line *dl,
+			 Charc_dynarr *buf, int xpos, face_index findex,
+			 int cursor)
 {
-  if (!tty_output_emchar_dynarr_dynarr)
-    tty_output_emchar_dynarr_dynarr = Dynarr_new (Bufbyte);
+  if (!tty_output_charc_dynarr_dynarr)
+    tty_output_charc_dynarr_dynarr = Dynarr_new (Bufbyte);
   else
-    Dynarr_reset (tty_output_emchar_dynarr_dynarr);
+    Dynarr_reset (tty_output_charc_dynarr_dynarr);
 
-  convert_emchar_string_into_bufbyte_dynarr (Dynarr_atp (buf, 0),
+  convert_charc_string_into_bufbyte_dynarr (Dynarr_atp (buf, 0),
 					    Dynarr_length (buf),
-					    tty_output_emchar_dynarr_dynarr);
+					    tty_output_charc_dynarr_dynarr);
 
   tty_output_bufbyte_string (w, dl,
-			     Dynarr_atp (tty_output_emchar_dynarr_dynarr, 0),
-			     Dynarr_length (tty_output_emchar_dynarr_dynarr),
+			     Dynarr_atp (tty_output_charc_dynarr_dynarr, 0),
+			     Dynarr_length (tty_output_charc_dynarr_dynarr),
 			     xpos, findex, cursor);
 }
 
