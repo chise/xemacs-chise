@@ -1,3 +1,17 @@
+2000-01-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (split_builtin_char): Use `MAX_CHAR_BMP'.
+
+	* char-ucs.h (MAX_CHAR_BMP): New macro.
+
+2000-01-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c: Sync with r21-2-24.
+
+2000-01-08  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c: Modify for UTF-2000.
+
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule-charset.c (Qsquare): New variable.
