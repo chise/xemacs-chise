@@ -306,6 +306,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
+	  =big5-cdp
+	  chinese-big5
 	  ideograph-gt-pj-1
 	  ideograph-gt-pj-2
 	  ideograph-gt-pj-3
@@ -320,14 +322,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-k1
 	  ideograph-gt-pj-k2
 	  ideograph-daikanwa-2
-	  chinese-big5-cdp
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
-	  chinese-big5
 	  ucs-sip
 	  ideograph-daikanwa
-	  china3-jef
-	  ideograph-cbeta
+	  =jef-china3
+	  =cbeta
 	  ucs-bmp
 	  ideograph-hanziku-1
 	  ideograph-hanziku-2
