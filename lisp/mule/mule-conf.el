@@ -171,77 +171,7 @@
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
-  (make-charset '=ucs@gb
-		"UCS for GB"
-		`(long-name	"ISO/IEC 10646 for GB"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-gb '=ucs@gb)
-  (make-charset '=ucs@cns
-		"UCS for CNS"
-		`(long-name	"ISO/IEC 10646 for CNS 11643"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-cns '=ucs@cns)
-  (make-charset '=ucs@jis
-		"UCS for JIS"
-		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-jis '=ucs@jis)
-  (make-charset '=ucs@jis-1990
-		"UCS for JIS:1990"
-		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
-  (make-charset '=ucs@jis-2000
-		"UCS for JIS:2000"
-		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	ucs-jis))
-  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
-  (make-charset '=ucs@ks
-		"UCS for KS"
-		`(long-name	"ISO/IEC 10646 for Korean Standards"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-ks '=ucs@ks)
-  (make-charset '=ucs@big5
-		"UCS for Big5"
-		`(long-name	"ISO/IEC 10646 for Big5"
-		  chars		256
-		  dimension	3
-		  columns	2
-		  graphic	2
-		  direction	l2r
-		  mother	=ucs))
-  (define-charset-alias 'ucs-big5 '=ucs@big5)
-
+  
   (make-charset '=daikanwa
 		"Daikanwa"
 		`(long-name	"Daikanwa dictionary (revised version 2)"
@@ -454,6 +384,77 @@
 		  max-code	#xE8FFFF
 		  code-offset	#xE80000))
   (define-charset-alias 'china3-jef '=jef-china3)
+
+  (make-charset '=ucs@gb
+		"UCS for GB"
+		`(long-name	"ISO/IEC 10646 for GB"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-gb '=ucs@gb)
+  (make-charset '=ucs@cns
+		"UCS for CNS"
+		`(long-name	"ISO/IEC 10646 for CNS 11643"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-cns '=ucs@cns)
+  (make-charset '=ucs@jis
+		"UCS for JIS"
+		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-jis '=ucs@jis)
+  (make-charset '=ucs@jis-1990
+		"UCS for JIS:1990"
+		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
+  (make-charset '=ucs@jis-2000
+		"UCS for JIS:2000"
+		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs-jis))
+  (define-charset-alias '=ucs-jis-2000 '=ucs@jis-2000)
+  (make-charset '=ucs@ks
+		"UCS for KS"
+		`(long-name	"ISO/IEC 10646 for Korean Standards"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-ks '=ucs@ks)
+  (make-charset '=ucs@big5
+		"UCS for Big5"
+		`(long-name	"ISO/IEC 10646 for Big5"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs))
+  (define-charset-alias 'ucs-big5 '=ucs@big5)
   )
 
 ;;; mule-conf.el ends here

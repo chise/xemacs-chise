@@ -29,12 +29,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
+    (=ucs		. #x2103)	; â„ƒ
+    (=cns11643-1	. #x226A)	; ø»‘…ƒ
+    (=ks-x1001		. #x2149)	; ø»ˆš´
     (=gb2312		. #x2166)	; ø»„‡‰
     (=jis-x0208		. #x216E)	; ø½‰·‰
-    (=ks-x1001		. #x2149)	; ø»ˆš´
-    (=cns11643-1	. #x226A)	; ø»‘…ƒ
     (=big5		. #xA24A)	; ý¢€Š‰Š
-    (=ucs		. #x2103)	; â„ƒ
     ))
 (define-char
   '((name		. "CENTRE LINE SYMBOL")
@@ -49,9 +49,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
+    (=ucs		. #x2105)	; â„…
     (=cns11643-1	. #x2222)	; ø»‘ƒ»
     (=big5		. #xA1C1)	; ý¢€Š‡
-    (=ucs		. #x2105)	; â„…
     ))
 (define-char
   '((name		. "CADA UNA")
@@ -82,10 +82,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
-    (=ks-x1001		. #x2235)	; ø»ˆ›¾
-    (=cns11643-1	. #x226B)	; ø»‘…„
-    (=big5		. #xA24B)	; ý¢€Š‰‹
     (=ucs		. #x2109)	; â„‰
+    (=cns11643-1	. #x226B)	; ø»‘…„
+    (=ks-x1001		. #x2235)	; ø»ˆ›¾
+    (=big5		. #xA24B)	; ý¢€Š‰‹
     ))
 (define-char
   '((name		. "SCRIPT SMALL G")
@@ -133,8 +133,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0127)
-    (=jis-x0213-1-2000	. #x235D)	; ø»¢–´
     (=ucs		. #x210F)	; â„
+    (=jis-x0213-1-2000	. #x235D)	; ø»¢–´
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
@@ -166,9 +166,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006C)
-    (=ks-x1001		. #x2724)	; ø»ˆ£ƒ
-    (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
     (=ucs		. #x2113)	; â„“
+    (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
+    (=ks-x1001		. #x2724)	; ø»ˆ£ƒ
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -191,12 +191,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
-    (=gb2312		. #x216D)	; ø»„‡
-    (=ks-x1001		. #x2260)	; ø»ˆœ©
-    (=jis-x0212		. #x2271)	; ø»Š¦¾
-    (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
-    (=big5-eten		. #xC8D2)	; ý¢€Œ£’
     (=ucs		. #x2116)	; â„–
+    (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
+    (=jis-x0212		. #x2271)	; ø»Š¦¾
+    (=ks-x1001		. #x2260)	; ø»ˆœ©
+    (=gb2312		. #x216D)	; ø»„‡
+    (=big5-eten		. #xC8D2)	; ý¢€Œ£’
     ))
 (define-char
   '((name		. "halfwidth numero sign")
@@ -289,10 +289,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
-    (=ks-x1001		. #x2265)	; ø»ˆœ®
-    (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
-    (=big5-eten		. #xC8D3)	; ý¢€Œ£“
     (=ucs		. #x2121)	; â„¡
+    (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
+    (=ks-x1001		. #x2265)	; ø»ˆœ®
+    (=big5-eten		. #xC8D3)	; ý¢€Œ£“
     ))
 (define-char
   '((name		. "TRADE MARK SIGN")
@@ -300,9 +300,9 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
-    (=ks-x1001		. #x2262)	; ø»ˆœ«
-    (=jis-x0212		. #x226F)	; ø»Š¦¼
     (=ucs		. #x2122)	; â„¢
+    (=jis-x0212		. #x226F)	; ø»Š¦¼
+    (=ks-x1001		. #x2262)	; ø»ˆœ«
     ))
 (define-char
   '((name		. "VERSICLE")
@@ -332,16 +332,16 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x03A9)
-    (=ks-x1001		. #x2759)	; ø»ˆ£¸
     (=ucs		. #x2126)	; â„¦
+    (=ks-x1001		. #x2759)	; ø»ˆ£¸
     ))
 (define-char
   '((name		. "INVERTED OHM SIGN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x2360)	; ø»¢–·
     (=ucs		. #x2127)	; â„§
+    (=jis-x0213-1-2000	. #x2360)	; ø»¢–·
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
@@ -372,10 +372,10 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x00C5)
-    (=jis-x0208-1983	. #x2272)	; ø»†’·
-    (=ks-x1001		. #x214A)	; ø»ˆšµ
-    (=jis-x0208-1990	. #x2272)	; ø½‰¸«
     (=ucs		. #x212B)	; â„«
+    (=jis-x0208-1990	. #x2272)	; ø½‰¸«
+    (=ks-x1001		. #x214A)	; ø»ˆšµ
+    (=jis-x0208-1983	. #x2272)	; ø»†’·
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")
@@ -453,8 +453,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
-    (=jis-x0213-1-2000	. #x235C)	; ø»¢–³
     (=ucs		. #x2135)	; â„µ
+    (=jis-x0213-1-2000	. #x235C)	; ø»¢–³
     ))
 (define-char
   '((name		. "BET SYMBOL")

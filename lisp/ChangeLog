@@ -1,3 +1,8 @@
+2003-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el: Define =ucs@DOMAIN at the end of CCS
+	definition codes when `utf-2000' is provided.
+
 2003-11-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-coding.el (utf-8-mcs): New alias for utf-8 when

@@ -4,32 +4,32 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x2668)	; ø»¢›™
     (=ucs		. #x2600)	; â˜€
+    (=jis-x0213-1-2000	. #x2668)	; ø»¢›™
     ))
 (define-char
   '((name		. "CLOUD")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x2669)	; ø»¢›š
     (=ucs		. #x2601)	; â˜
+    (=jis-x0213-1-2000	. #x2669)	; ø»¢›š
     ))
 (define-char
   '((name		. "UMBRELLA")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x266A)	; ø»¢››
     (=ucs		. #x2602)	; â˜‚
+    (=jis-x0213-1-2000	. #x266A)	; ø»¢››
     ))
 (define-char
   '((name		. "SNOWMAN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x266B)	; ø»¢›œ
     (=ucs		. #x2603)	; â˜ƒ
+    (=jis-x0213-1-2000	. #x266B)	; ø»¢›œ
     ))
 (define-char
   '((name		. "COMET")
@@ -43,24 +43,24 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2605)	; â˜…
+    (=cns11643-1	. #x2178)	; ø»‘ƒ³
+    (=ks-x1001		. #x215A)	; ø»ˆ›…
     (=gb2312		. #x216F)	; ø»„‡’
     (=jis-x0208		. #x217A)	; ø½‰·•
-    (=ks-x1001		. #x215A)	; ø»ˆ›…
-    (=cns11643-1	. #x2178)	; ø»‘ƒ³
     (=big5		. #xA1B9)	; ý¢€Š†¹
-    (=ucs		. #x2605)	; â˜…
     ))
 (define-char
   '((name		. "WHITE STAR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2606)	; â˜†
+    (=cns11643-1	. #x2177)	; ø»‘ƒ²
+    (=ks-x1001		. #x2159)	; ø»ˆ›„
     (=gb2312		. #x216E)	; ø»„‡‘
     (=jis-x0208		. #x2179)	; ø½‰·”
-    (=ks-x1001		. #x2159)	; ø»ˆ›„
-    (=cns11643-1	. #x2177)	; ø»‘ƒ²
     (=big5		. #xA1B8)	; ý¢€Š†¸
-    (=ucs		. #x2606)	; â˜†
     ))
 (define-char
   '((name		. "LIGHTNING")
@@ -116,25 +116,25 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x224F)	; ø»ˆœ˜
-    (=jis-x0213-1-2000	. #x2667)	; ø»¢›˜
     (=ucs		. #x260E)	; â˜Ž
+    (=jis-x0213-1-2000	. #x2667)	; ø»¢›˜
+    (=ks-x1001		. #x224F)	; ø»ˆœ˜
     ))
 (define-char
   '((name		. "WHITE TELEPHONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x224E)	; ø»ˆœ—
     (=ucs		. #x260F)	; â˜
+    (=ks-x1001		. #x224E)	; ø»ˆœ—
     ))
 (define-char
   '((name		. "BALLOT BOX")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jef-china3	. #x76B4)	; øº‡š´
     (=ucs		. #x2610)	; â˜
+    (=jef-china3	. #x76B4)	; øº‡š´
     ))
 (define-char
   '((name		. "BALLOT BOX WITH CHECK")
@@ -159,13 +159,13 @@
     ))
 (define-char
   '((name		. "WHITE SHOGI PIECE")
-    (=jis-x0213-1-2000	. #x2664)	; ø»¢›•
     (=ucs		. #x2616)	; â˜–
+    (=jis-x0213-1-2000	. #x2664)	; ø»¢›•
     ))
 (define-char
   '((name		. "BLACK SHOGI PIECE")
-    (=jis-x0213-1-2000	. #x2665)	; ø»¢›–
     (=ucs		. #x2617)	; â˜—
+    (=jis-x0213-1-2000	. #x2665)	; ø»¢›–
     ))
 (define-char
   '((name		. "REVERSED ROTATED FLORAL HEART BULLET")
@@ -193,8 +193,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x2250)	; ø»ˆœ™
     (=ucs		. #x261C)	; â˜œ
+    (=ks-x1001		. #x2250)	; ø»ˆœ™
     ))
 (define-char
   '((name		. "WHITE UP POINTING INDEX")
@@ -208,9 +208,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x2251)	; ø»ˆœš
-    (=jis-x0213-1-2000	. #x2D7E)	; ø»¢¦
     (=ucs		. #x261E)	; â˜ž
+    (=jis-x0213-1-2000	. #x2D7E)	; ø»¢¦
+    (=ks-x1001		. #x2251)	; ø»ˆœš
     ))
 (define-char
   '((name		. "WHITE DOWN POINTING INDEX")
@@ -448,12 +448,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2640)	; â™€
+    (=cns11643-1	. #x2251)	; ø»‘„ª
+    (=ks-x1001		. #x214F)	; ø»ˆšº
     (=gb2312		. #x2162)	; ø»„‡…
     (=jis-x0208		. #x216A)	; ø½‰·…
-    (=ks-x1001		. #x214F)	; ø»ˆšº
-    (=cns11643-1	. #x2251)	; ø»‘„ª
     (=big5		. #xA1F0)	; ý¢€Š‡°
-    (=ucs		. #x2640)	; â™€
     ))
 (define-char
   '((name		. "EARTH")
@@ -467,12 +467,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2642)	; â™‚
+    (=cns11643-1	. #x2252)	; ø»‘„«
+    (=ks-x1001		. #x214E)	; ø»ˆš¹
     (=gb2312		. #x2161)	; ø»„‡„
     (=jis-x0208		. #x2169)	; ø½‰·„
-    (=ks-x1001		. #x214E)	; ø»ˆš¹
-    (=cns11643-1	. #x2252)	; ø»‘„«
     (=big5		. #xA1F1)	; ý¢€Š‡±
-    (=ucs		. #x2642)	; â™‚
     ))
 (define-char
   '((name		. "JUPITER")
@@ -682,146 +682,146 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x223C)	; ø»ˆœ…
-    (=jis-x0213-1-2000	. #x263A)	; ø»¢š«
     (=ucs		. #x2660)	; â™ 
+    (=jis-x0213-1-2000	. #x263A)	; ø»¢š«
+    (=ks-x1001		. #x223C)	; ø»ˆœ…
     ))
 (define-char
   '((name		. "WHITE HEART SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x223D)	; ø»ˆœ†
-    (=jis-x0213-1-2000	. #x263D)	; ø»¢š®
-    (=jef-china3	. #x76B6)	; øº‡š¶
     (=ucs		. #x2661)	; â™¡
+    (=jis-x0213-1-2000	. #x263D)	; ø»¢š®
+    (=ks-x1001		. #x223D)	; ø»ˆœ†
+    (=jef-china3	. #x76B6)	; øº‡š¶
     ))
 (define-char
   '((name		. "WHITE DIAMOND SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (=ucs		. #x2662)	; â™¢
     (=jis-x0213-1-2000	. #x263B)	; ø»¢š¬
     (=jef-china3	. #x76B8)	; øº‡š¸
-    (=ucs		. #x2662)	; â™¢
     ))
 (define-char
   '((name		. "BLACK CLUB SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x2240)	; ø»ˆœ‰
-    (=jis-x0213-1-2000	. #x2640)	; ø»¢š±
     (=ucs		. #x2663)	; â™£
+    (=jis-x0213-1-2000	. #x2640)	; ø»¢š±
+    (=ks-x1001		. #x2240)	; ø»ˆœ‰
     ))
 (define-char
   '((name		. "WHITE SPADE SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x223B)	; ø»ˆœ„
-    (=jis-x0213-1-2000	. #x2639)	; ø»¢šª
-    (=jef-china3	. #x76B7)	; øº‡š·
     (=ucs		. #x2664)	; â™¤
+    (=jis-x0213-1-2000	. #x2639)	; ø»¢šª
+    (=ks-x1001		. #x223B)	; ø»ˆœ„
+    (=jef-china3	. #x76B7)	; øº‡š·
     ))
 (define-char
   '((name		. "BLACK HEART SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x223E)	; ø»ˆœ‡
-    (=jis-x0213-1-2000	. #x263E)	; ø»¢š¯
     (=ucs		. #x2665)	; â™¥
+    (=jis-x0213-1-2000	. #x263E)	; ø»¢š¯
+    (=ks-x1001		. #x223E)	; ø»ˆœ‡
     ))
 (define-char
   '((name		. "BLACK DIAMOND SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x263C)	; ø»¢š­
     (=ucs		. #x2666)	; â™¦
+    (=jis-x0213-1-2000	. #x263C)	; ø»¢š­
     ))
 (define-char
   '((name		. "WHITE CLUB SUIT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x223F)	; ø»ˆœˆ
-    (=jis-x0213-1-2000	. #x263F)	; ø»¢š°
-    (=jef-china3	. #x76B5)	; øº‡šµ
     (=ucs		. #x2667)	; â™§
+    (=jis-x0213-1-2000	. #x263F)	; ø»¢š°
+    (=ks-x1001		. #x223F)	; ø»ˆœˆ
+    (=jef-china3	. #x76B5)	; øº‡šµ
     ))
 (define-char
   '((name		. "HOT SPRINGS")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x224D)	; ø»ˆœ–
-    (=jis-x0213-1-2000	. #x266C)	; ø»¢›
     (=ucs		. #x2668)	; â™¨
+    (=jis-x0213-1-2000	. #x266C)	; ø»¢›
+    (=ks-x1001		. #x224D)	; ø»ˆœ–
     ))
 (define-char
   '((name		. "QUARTER NOTE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x225B)	; ø»ˆœ¤
-    (=jis-x0213-1-2000	. #x227D)	; ø»¢•¶
     (=ucs		. #x2669)	; â™©
+    (=jis-x0213-1-2000	. #x227D)	; ø»¢•¶
+    (=ks-x1001		. #x225B)	; ø»ˆœ¤
     ))
 (define-char
   '((name		. "EIGHTH NOTE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0208-1983	. #x2276)	; ø»†’»
-    (=ks-x1001		. #x225C)	; ø»ˆœ¥
-    (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
     (=ucs		. #x266A)	; â™ª
+    (=jis-x0208-1990	. #x2276)	; ø½‰¸¯
+    (=ks-x1001		. #x225C)	; ø»ˆœ¥
+    (=jis-x0208-1983	. #x2276)	; ø»†’»
     ))
 (define-char
   '((name		. "BEAMED EIGHTH NOTES")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x227B)	; ø»¢•´
     (=ucs		. #x266B)	; â™«
+    (=jis-x0213-1-2000	. #x227B)	; ø»¢•´
     ))
 (define-char
   '((name		. "BEAMED SIXTEENTH NOTES")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ks-x1001		. #x225D)	; ø»ˆœ¦
-    (=jis-x0213-1-2000	. #x227C)	; ø»¢•µ
     (=ucs		. #x266C)	; â™¬
+    (=jis-x0213-1-2000	. #x227C)	; ø»¢•µ
+    (=ks-x1001		. #x225D)	; ø»ˆœ¦
     ))
 (define-char
   '((name		. "MUSIC FLAT SIGN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0208-1983	. #x2275)	; ø»†’º
-    (=ks-x1001		. #x225A)	; ø»ˆœ£
-    (=jis-x0208-1990	. #x2275)	; ø½‰¸®
     (=ucs		. #x266D)	; â™­
+    (=jis-x0208-1990	. #x2275)	; ø½‰¸®
+    (=ks-x1001		. #x225A)	; ø»ˆœ£
+    (=jis-x0208-1983	. #x2275)	; ø»†’º
     ))
 (define-char
   '((name		. "MUSIC NATURAL SIGN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-1-2000	. #x227A)	; ø»¢•³
     (=ucs		. #x266E)	; â™®
+    (=jis-x0213-1-2000	. #x227A)	; ø»¢•³
     ))
 (define-char
   '((name		. "MUSIC SHARP SIGN")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0208-1983	. #x2274)	; ø»†’¹
-    (=jis-x0208-1990	. #x2274)	; ø½‰¸­
     (=ucs		. #x266F)	; â™¯
+    (=jis-x0208-1990	. #x2274)	; ø½‰¸­
+    (=jis-x0208-1983	. #x2274)	; ø»†’¹
     ))
 (define-char
   '((name		. "WEST SYRIAC CROSS")

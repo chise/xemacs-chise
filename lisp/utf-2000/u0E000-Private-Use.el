@@ -1,23601 +1,23601 @@
 ;; -*- coding: utf-8-mcs -*-
 (define-char
-  '((=big5-pua		. #xFA40)	; 
-    (=ucs		. #xE000)	; 
+  '((=ucs		. #xE000)	; 
+    (=big5-pua		. #xFA40)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA41)	; 
-    (=ucs		. #xE001)	; 
+  '((=ucs		. #xE001)	; 
+    (=big5-pua		. #xFA41)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA42)	; 
-    (=ucs		. #xE002)	; 
+  '((=ucs		. #xE002)	; 
+    (=big5-pua		. #xFA42)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA43)	; 
-    (=ucs		. #xE003)	; 
+  '((=ucs		. #xE003)	; 
+    (=big5-pua		. #xFA43)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA44)	; 
-    (=ucs		. #xE004)	; 
+  '((=ucs		. #xE004)	; 
+    (=big5-pua		. #xFA44)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA45)	; 
-    (=ucs		. #xE005)	; 
+  '((=ucs		. #xE005)	; 
+    (=big5-pua		. #xFA45)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA46)	; 
-    (=ucs		. #xE006)	; 
+  '((=ucs		. #xE006)	; 
+    (=big5-pua		. #xFA46)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA47)	; 
-    (=ucs		. #xE007)	; 
+  '((=ucs		. #xE007)	; 
+    (=big5-pua		. #xFA47)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA48)	; 
-    (=ucs		. #xE008)	; 
+  '((=ucs		. #xE008)	; 
+    (=big5-pua		. #xFA48)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA49)	; 
-    (=ucs		. #xE009)	; 
+  '((=ucs		. #xE009)	; 
+    (=big5-pua		. #xFA49)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4A)	; 
-    (=ucs		. #xE00A)	; 
+  '((=ucs		. #xE00A)	; 
+    (=big5-pua		. #xFA4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4B)	; 
-    (=ucs		. #xE00B)	; 
+  '((=ucs		. #xE00B)	; 
+    (=big5-pua		. #xFA4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4C)	; 
-    (=ucs		. #xE00C)	; 
+  '((=ucs		. #xE00C)	; 
+    (=big5-pua		. #xFA4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4D)	; 
-    (=ucs		. #xE00D)	; 
+  '((=ucs		. #xE00D)	; 
+    (=big5-pua		. #xFA4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4E)	; 
-    (=ucs		. #xE00E)	; 
+  '((=ucs		. #xE00E)	; 
+    (=big5-pua		. #xFA4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA4F)	; 
-    (=ucs		. #xE00F)	; 
+  '((=ucs		. #xE00F)	; 
+    (=big5-pua		. #xFA4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA50)	; 
-    (=ucs		. #xE010)	; 
+  '((=ucs		. #xE010)	; 
+    (=big5-pua		. #xFA50)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA51)	; 
-    (=ucs		. #xE011)	; 
+  '((=ucs		. #xE011)	; 
+    (=big5-pua		. #xFA51)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA52)	; 
-    (=ucs		. #xE012)	; 
+  '((=ucs		. #xE012)	; 
+    (=big5-pua		. #xFA52)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA53)	; 
-    (=ucs		. #xE013)	; 
+  '((=ucs		. #xE013)	; 
+    (=big5-pua		. #xFA53)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA54)	; 
-    (=ucs		. #xE014)	; 
+  '((=ucs		. #xE014)	; 
+    (=big5-pua		. #xFA54)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA55)	; 
-    (=ucs		. #xE015)	; 
+  '((=ucs		. #xE015)	; 
+    (=big5-pua		. #xFA55)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA56)	; 
-    (=ucs		. #xE016)	; 
+  '((=ucs		. #xE016)	; 
+    (=big5-pua		. #xFA56)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA57)	; 
-    (=ucs		. #xE017)	; 
+  '((=ucs		. #xE017)	; 
+    (=big5-pua		. #xFA57)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA58)	; 
-    (=ucs		. #xE018)	; 
+  '((=ucs		. #xE018)	; 
+    (=big5-pua		. #xFA58)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA59)	; 
-    (=ucs		. #xE019)	; 
+  '((=ucs		. #xE019)	; 
+    (=big5-pua		. #xFA59)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5A)	; 
-    (=ucs		. #xE01A)	; 
+  '((=ucs		. #xE01A)	; 
+    (=big5-pua		. #xFA5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5B)	; 
-    (=ucs		. #xE01B)	; 
+  '((=ucs		. #xE01B)	; 
+    (=big5-pua		. #xFA5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5C)	; 
-    (=ucs		. #xE01C)	; 
+  '((=ucs		. #xE01C)	; 
+    (=big5-pua		. #xFA5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5D)	; 
-    (=ucs		. #xE01D)	; 
+  '((=ucs		. #xE01D)	; 
+    (=big5-pua		. #xFA5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5E)	; 
-    (=ucs		. #xE01E)	; 
+  '((=ucs		. #xE01E)	; 
+    (=big5-pua		. #xFA5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA5F)	; 
-    (=ucs		. #xE01F)	; 
+  '((=ucs		. #xE01F)	; 
+    (=big5-pua		. #xFA5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA60)	; 
-    (=ucs		. #xE020)	; 
+  '((=ucs		. #xE020)	; 
+    (=big5-pua		. #xFA60)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA61)	; 
-    (=ucs		. #xE021)	; 
+  '((=ucs		. #xE021)	; 
+    (=big5-pua		. #xFA61)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA62)	; 
-    (=ucs		. #xE022)	; 
+  '((=ucs		. #xE022)	; 
+    (=big5-pua		. #xFA62)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA63)	; 
-    (=ucs		. #xE023)	; 
+  '((=ucs		. #xE023)	; 
+    (=big5-pua		. #xFA63)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA64)	; 
-    (=ucs		. #xE024)	; 
+  '((=ucs		. #xE024)	; 
+    (=big5-pua		. #xFA64)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA65)	; 
-    (=ucs		. #xE025)	; 
+  '((=ucs		. #xE025)	; 
+    (=big5-pua		. #xFA65)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA66)	; 
-    (=ucs		. #xE026)	; 
+  '((=ucs		. #xE026)	; 
+    (=big5-pua		. #xFA66)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA67)	; 
-    (=ucs		. #xE027)	; 
+  '((=ucs		. #xE027)	; 
+    (=big5-pua		. #xFA67)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA68)	; 
-    (=ucs		. #xE028)	; 
+  '((=ucs		. #xE028)	; 
+    (=big5-pua		. #xFA68)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA69)	; 
-    (=ucs		. #xE029)	; 
+  '((=ucs		. #xE029)	; 
+    (=big5-pua		. #xFA69)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6A)	; 
-    (=ucs		. #xE02A)	; 
+  '((=ucs		. #xE02A)	; 
+    (=big5-pua		. #xFA6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6B)	; 
-    (=ucs		. #xE02B)	; 
+  '((=ucs		. #xE02B)	; 
+    (=big5-pua		. #xFA6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6C)	; 
-    (=ucs		. #xE02C)	; 
+  '((=ucs		. #xE02C)	; 
+    (=big5-pua		. #xFA6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6D)	; 
-    (=ucs		. #xE02D)	; 
+  '((=ucs		. #xE02D)	; 
+    (=big5-pua		. #xFA6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6E)	; 
-    (=ucs		. #xE02E)	; 
+  '((=ucs		. #xE02E)	; 
+    (=big5-pua		. #xFA6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA6F)	; 
-    (=ucs		. #xE02F)	; 
+  '((=ucs		. #xE02F)	; 
+    (=big5-pua		. #xFA6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA70)	; 
-    (=ucs		. #xE030)	; 
+  '((=ucs		. #xE030)	; 
+    (=big5-pua		. #xFA70)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA71)	; 
-    (=ucs		. #xE031)	; 
+  '((=ucs		. #xE031)	; 
+    (=big5-pua		. #xFA71)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA72)	; 
-    (=ucs		. #xE032)	; 
+  '((=ucs		. #xE032)	; 
+    (=big5-pua		. #xFA72)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA73)	; 
-    (=ucs		. #xE033)	; 
+  '((=ucs		. #xE033)	; 
+    (=big5-pua		. #xFA73)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA74)	; 
-    (=ucs		. #xE034)	; 
+  '((=ucs		. #xE034)	; 
+    (=big5-pua		. #xFA74)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA75)	; 
-    (=ucs		. #xE035)	; 
+  '((=ucs		. #xE035)	; 
+    (=big5-pua		. #xFA75)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA76)	; 
-    (=ucs		. #xE036)	; 
+  '((=ucs		. #xE036)	; 
+    (=big5-pua		. #xFA76)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA77)	; 
-    (=ucs		. #xE037)	; 
+  '((=ucs		. #xE037)	; 
+    (=big5-pua		. #xFA77)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA78)	; 
-    (=ucs		. #xE038)	; 
+  '((=ucs		. #xE038)	; 
+    (=big5-pua		. #xFA78)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA79)	; 
-    (=ucs		. #xE039)	; 
+  '((=ucs		. #xE039)	; 
+    (=big5-pua		. #xFA79)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA7A)	; 
-    (=ucs		. #xE03A)	; 
+  '((=ucs		. #xE03A)	; 
+    (=big5-pua		. #xFA7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA7B)	; 
-    (=ucs		. #xE03B)	; 
+  '((=ucs		. #xE03B)	; 
+    (=big5-pua		. #xFA7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA7C)	; 
-    (=ucs		. #xE03C)	; 
+  '((=ucs		. #xE03C)	; 
+    (=big5-pua		. #xFA7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA7D)	; 
-    (=ucs		. #xE03D)	; 
+  '((=ucs		. #xE03D)	; 
+    (=big5-pua		. #xFA7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFA7E)	; 
-    (=ucs		. #xE03E)	; 
+  '((=ucs		. #xE03E)	; 
+    (=big5-pua		. #xFA7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA1)	; 
-    (=ucs		. #xE03F)	; 
+  '((=ucs		. #xE03F)	; 
+    (=big5-pua		. #xFAA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA2)	; 
-    (=ucs		. #xE040)	; 
+  '((=ucs		. #xE040)	; 
+    (=big5-pua		. #xFAA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA3)	; 
-    (=ucs		. #xE041)	; 
+  '((=ucs		. #xE041)	; 
+    (=big5-pua		. #xFAA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA4)	; 
-    (=ucs		. #xE042)	; 
+  '((=ucs		. #xE042)	; 
+    (=big5-pua		. #xFAA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA5)	; 
-    (=ucs		. #xE043)	; 
+  '((=ucs		. #xE043)	; 
+    (=big5-pua		. #xFAA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA6)	; 
-    (=ucs		. #xE044)	; 
+  '((=ucs		. #xE044)	; 
+    (=big5-pua		. #xFAA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA7)	; 
-    (=ucs		. #xE045)	; 
+  '((=ucs		. #xE045)	; 
+    (=big5-pua		. #xFAA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA8)	; 
-    (=ucs		. #xE046)	; 
+  '((=ucs		. #xE046)	; 
+    (=big5-pua		. #xFAA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAA9)	; 
-    (=ucs		. #xE047)	; 
+  '((=ucs		. #xE047)	; 
+    (=big5-pua		. #xFAA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAA)	; 
-    (=ucs		. #xE048)	; 
+  '((=ucs		. #xE048)	; 
+    (=big5-pua		. #xFAAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAB)	; 
-    (=ucs		. #xE049)	; 
+  '((=ucs		. #xE049)	; 
+    (=big5-pua		. #xFAAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAC)	; 
-    (=ucs		. #xE04A)	; 
+  '((=ucs		. #xE04A)	; 
+    (=big5-pua		. #xFAAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAD)	; 
-    (=ucs		. #xE04B)	; 
+  '((=ucs		. #xE04B)	; 
+    (=big5-pua		. #xFAAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAE)	; 
-    (=ucs		. #xE04C)	; 
+  '((=ucs		. #xE04C)	; 
+    (=big5-pua		. #xFAAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAAF)	; 
-    (=ucs		. #xE04D)	; 
+  '((=ucs		. #xE04D)	; 
+    (=big5-pua		. #xFAAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB0)	; 
-    (=ucs		. #xE04E)	; 
+  '((=ucs		. #xE04E)	; 
+    (=big5-pua		. #xFAB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB1)	; 
-    (=ucs		. #xE04F)	; 
+  '((=ucs		. #xE04F)	; 
+    (=big5-pua		. #xFAB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB2)	; 
-    (=ucs		. #xE050)	; 
+  '((=ucs		. #xE050)	; 
+    (=big5-pua		. #xFAB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB3)	; 
-    (=ucs		. #xE051)	; 
+  '((=ucs		. #xE051)	; 
+    (=big5-pua		. #xFAB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB4)	; 
-    (=ucs		. #xE052)	; 
+  '((=ucs		. #xE052)	; 
+    (=big5-pua		. #xFAB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB5)	; 
-    (=ucs		. #xE053)	; 
+  '((=ucs		. #xE053)	; 
+    (=big5-pua		. #xFAB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB6)	; 
-    (=ucs		. #xE054)	; 
+  '((=ucs		. #xE054)	; 
+    (=big5-pua		. #xFAB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB7)	; 
-    (=ucs		. #xE055)	; 
+  '((=ucs		. #xE055)	; 
+    (=big5-pua		. #xFAB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB8)	; 
-    (=ucs		. #xE056)	; 
+  '((=ucs		. #xE056)	; 
+    (=big5-pua		. #xFAB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAB9)	; 
-    (=ucs		. #xE057)	; 
+  '((=ucs		. #xE057)	; 
+    (=big5-pua		. #xFAB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABA)	; 
-    (=ucs		. #xE058)	; 
+  '((=ucs		. #xE058)	; 
+    (=big5-pua		. #xFABA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABB)	; 
-    (=ucs		. #xE059)	; 
+  '((=ucs		. #xE059)	; 
+    (=big5-pua		. #xFABB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABC)	; 
-    (=ucs		. #xE05A)	; 
+  '((=ucs		. #xE05A)	; 
+    (=big5-pua		. #xFABC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABD)	; 
-    (=ucs		. #xE05B)	; 
+  '((=ucs		. #xE05B)	; 
+    (=big5-pua		. #xFABD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABE)	; 
-    (=ucs		. #xE05C)	; 
+  '((=ucs		. #xE05C)	; 
+    (=big5-pua		. #xFABE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFABF)	; 
-    (=ucs		. #xE05D)	; 
+  '((=ucs		. #xE05D)	; 
+    (=big5-pua		. #xFABF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC0)	; 
-    (=ucs		. #xE05E)	; 
+  '((=ucs		. #xE05E)	; 
+    (=big5-pua		. #xFAC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC1)	; 
-    (=ucs		. #xE05F)	; 
+  '((=ucs		. #xE05F)	; 
+    (=big5-pua		. #xFAC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC2)	; 
-    (=ucs		. #xE060)	; 
+  '((=ucs		. #xE060)	; 
+    (=big5-pua		. #xFAC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC3)	; 
-    (=ucs		. #xE061)	; 
+  '((=ucs		. #xE061)	; 
+    (=big5-pua		. #xFAC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC4)	; 
-    (=ucs		. #xE062)	; 
+  '((=ucs		. #xE062)	; 
+    (=big5-pua		. #xFAC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC5)	; 
-    (=ucs		. #xE063)	; 
+  '((=ucs		. #xE063)	; 
+    (=big5-pua		. #xFAC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC6)	; 
-    (=ucs		. #xE064)	; 
+  '((=ucs		. #xE064)	; 
+    (=big5-pua		. #xFAC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC7)	; 
-    (=ucs		. #xE065)	; 
+  '((=ucs		. #xE065)	; 
+    (=big5-pua		. #xFAC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC8)	; 
-    (=ucs		. #xE066)	; 
+  '((=ucs		. #xE066)	; 
+    (=big5-pua		. #xFAC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAC9)	; 
-    (=ucs		. #xE067)	; 
+  '((=ucs		. #xE067)	; 
+    (=big5-pua		. #xFAC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACA)	; 
-    (=ucs		. #xE068)	; 
+  '((=ucs		. #xE068)	; 
+    (=big5-pua		. #xFACA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACB)	; 
-    (=ucs		. #xE069)	; 
+  '((=ucs		. #xE069)	; 
+    (=big5-pua		. #xFACB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACC)	; 
-    (=ucs		. #xE06A)	; 
+  '((=ucs		. #xE06A)	; 
+    (=big5-pua		. #xFACC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACD)	; 
-    (=ucs		. #xE06B)	; 
+  '((=ucs		. #xE06B)	; 
+    (=big5-pua		. #xFACD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACE)	; 
-    (=ucs		. #xE06C)	; 
+  '((=ucs		. #xE06C)	; 
+    (=big5-pua		. #xFACE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFACF)	; 
-    (=ucs		. #xE06D)	; 
+  '((=ucs		. #xE06D)	; 
+    (=big5-pua		. #xFACF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD0)	; 
-    (=ucs		. #xE06E)	; 
+  '((=ucs		. #xE06E)	; 
+    (=big5-pua		. #xFAD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD1)	; 
-    (=ucs		. #xE06F)	; 
+  '((=ucs		. #xE06F)	; 
+    (=big5-pua		. #xFAD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD2)	; 
-    (=ucs		. #xE070)	; 
+  '((=ucs		. #xE070)	; 
+    (=big5-pua		. #xFAD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD3)	; 
-    (=ucs		. #xE071)	; 
+  '((=ucs		. #xE071)	; 
+    (=big5-pua		. #xFAD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD4)	; 
-    (=ucs		. #xE072)	; 
+  '((=ucs		. #xE072)	; 
+    (=big5-pua		. #xFAD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD5)	; 
-    (=ucs		. #xE073)	; 
+  '((=ucs		. #xE073)	; 
+    (=big5-pua		. #xFAD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD6)	; 
-    (=ucs		. #xE074)	; 
+  '((=ucs		. #xE074)	; 
+    (=big5-pua		. #xFAD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD7)	; 
-    (=ucs		. #xE075)	; 
+  '((=ucs		. #xE075)	; 
+    (=big5-pua		. #xFAD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD8)	; 
-    (=ucs		. #xE076)	; 
+  '((=ucs		. #xE076)	; 
+    (=big5-pua		. #xFAD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAD9)	; 
-    (=ucs		. #xE077)	; 
+  '((=ucs		. #xE077)	; 
+    (=big5-pua		. #xFAD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADA)	; 
-    (=ucs		. #xE078)	; 
+  '((=ucs		. #xE078)	; 
+    (=big5-pua		. #xFADA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADB)	; 
-    (=ucs		. #xE079)	; 
+  '((=ucs		. #xE079)	; 
+    (=big5-pua		. #xFADB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADC)	; 
-    (=ucs		. #xE07A)	; 
+  '((=ucs		. #xE07A)	; 
+    (=big5-pua		. #xFADC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADD)	; 
-    (=ucs		. #xE07B)	; 
+  '((=ucs		. #xE07B)	; 
+    (=big5-pua		. #xFADD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADE)	; 
-    (=ucs		. #xE07C)	; 
+  '((=ucs		. #xE07C)	; 
+    (=big5-pua		. #xFADE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFADF)	; 
-    (=ucs		. #xE07D)	; 
+  '((=ucs		. #xE07D)	; 
+    (=big5-pua		. #xFADF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE0)	; 
-    (=ucs		. #xE07E)	; 
+  '((=ucs		. #xE07E)	; 
+    (=big5-pua		. #xFAE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE1)	; 
-    (=ucs		. #xE07F)	; 
+  '((=ucs		. #xE07F)	; 
+    (=big5-pua		. #xFAE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE2)	; 
-    (=ucs		. #xE080)	; 
+  '((=ucs		. #xE080)	; 
+    (=big5-pua		. #xFAE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE3)	; 
-    (=ucs		. #xE081)	; 
+  '((=ucs		. #xE081)	; 
+    (=big5-pua		. #xFAE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE4)	; 
-    (=ucs		. #xE082)	; 
+  '((=ucs		. #xE082)	; 
+    (=big5-pua		. #xFAE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE5)	; 
-    (=ucs		. #xE083)	; 
+  '((=ucs		. #xE083)	; 
+    (=big5-pua		. #xFAE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE6)	; 
-    (=ucs		. #xE084)	; 
+  '((=ucs		. #xE084)	; 
+    (=big5-pua		. #xFAE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE7)	; 
-    (=ucs		. #xE085)	; 
+  '((=ucs		. #xE085)	; 
+    (=big5-pua		. #xFAE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE8)	; 
-    (=ucs		. #xE086)	; 
+  '((=ucs		. #xE086)	; 
+    (=big5-pua		. #xFAE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAE9)	; 
-    (=ucs		. #xE087)	; 
+  '((=ucs		. #xE087)	; 
+    (=big5-pua		. #xFAE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAEA)	; 
-    (=ucs		. #xE088)	; 
+  '((=ucs		. #xE088)	; 
+    (=big5-pua		. #xFAEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAEB)	; 
-    (=ucs		. #xE089)	; 
+  '((=ucs		. #xE089)	; 
+    (=big5-pua		. #xFAEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAEC)	; 
-    (=ucs		. #xE08A)	; 
+  '((=ucs		. #xE08A)	; 
+    (=big5-pua		. #xFAEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAED)	; 
-    (=ucs		. #xE08B)	; 
+  '((=ucs		. #xE08B)	; 
+    (=big5-pua		. #xFAED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAEE)	; 
-    (=ucs		. #xE08C)	; 
+  '((=ucs		. #xE08C)	; 
+    (=big5-pua		. #xFAEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAEF)	; 
-    (=ucs		. #xE08D)	; 
+  '((=ucs		. #xE08D)	; 
+    (=big5-pua		. #xFAEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF0)	; 
-    (=ucs		. #xE08E)	; 
+  '((=ucs		. #xE08E)	; 
+    (=big5-pua		. #xFAF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF1)	; 
-    (=ucs		. #xE08F)	; 
+  '((=ucs		. #xE08F)	; 
+    (=big5-pua		. #xFAF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF2)	; 
-    (=ucs		. #xE090)	; 
+  '((=ucs		. #xE090)	; 
+    (=big5-pua		. #xFAF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF3)	; 
-    (=ucs		. #xE091)	; 
+  '((=ucs		. #xE091)	; 
+    (=big5-pua		. #xFAF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF4)	; 
-    (=ucs		. #xE092)	; 
+  '((=ucs		. #xE092)	; 
+    (=big5-pua		. #xFAF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF5)	; 
-    (=ucs		. #xE093)	; 
+  '((=ucs		. #xE093)	; 
+    (=big5-pua		. #xFAF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF6)	; 
-    (=ucs		. #xE094)	; 
+  '((=ucs		. #xE094)	; 
+    (=big5-pua		. #xFAF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF7)	; 
-    (=ucs		. #xE095)	; 
+  '((=ucs		. #xE095)	; 
+    (=big5-pua		. #xFAF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF8)	; 
-    (=ucs		. #xE096)	; 
+  '((=ucs		. #xE096)	; 
+    (=big5-pua		. #xFAF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAF9)	; 
-    (=ucs		. #xE097)	; 
+  '((=ucs		. #xE097)	; 
+    (=big5-pua		. #xFAF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAFA)	; 
-    (=ucs		. #xE098)	; 
+  '((=ucs		. #xE098)	; 
+    (=big5-pua		. #xFAFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAFB)	; 
-    (=ucs		. #xE099)	; 
+  '((=ucs		. #xE099)	; 
+    (=big5-pua		. #xFAFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAFC)	; 
-    (=ucs		. #xE09A)	; 
+  '((=ucs		. #xE09A)	; 
+    (=big5-pua		. #xFAFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAFD)	; 
-    (=ucs		. #xE09B)	; 
+  '((=ucs		. #xE09B)	; 
+    (=big5-pua		. #xFAFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFAFE)	; 
-    (=ucs		. #xE09C)	; 
+  '((=ucs		. #xE09C)	; 
+    (=big5-pua		. #xFAFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB40)	; 
-    (=ucs		. #xE09D)	; 
+  '((=ucs		. #xE09D)	; 
+    (=big5-pua		. #xFB40)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB41)	; 
-    (=ucs		. #xE09E)	; 
+  '((=ucs		. #xE09E)	; 
+    (=big5-pua		. #xFB41)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB42)	; 
-    (=ucs		. #xE09F)	; 
+  '((=ucs		. #xE09F)	; 
+    (=big5-pua		. #xFB42)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB43)	; 
-    (=ucs		. #xE0A0)	; 
+  '((=ucs		. #xE0A0)	; 
+    (=big5-pua		. #xFB43)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB44)	; 
-    (=ucs		. #xE0A1)	; 
+  '((=ucs		. #xE0A1)	; 
+    (=big5-pua		. #xFB44)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB45)	; 
-    (=ucs		. #xE0A2)	; 
+  '((=ucs		. #xE0A2)	; 
+    (=big5-pua		. #xFB45)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB46)	; 
-    (=ucs		. #xE0A3)	; 
+  '((=ucs		. #xE0A3)	; 
+    (=big5-pua		. #xFB46)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB47)	; 
-    (=ucs		. #xE0A4)	; 
+  '((=ucs		. #xE0A4)	; 
+    (=big5-pua		. #xFB47)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB48)	; 
-    (=ucs		. #xE0A5)	; 
+  '((=ucs		. #xE0A5)	; 
+    (=big5-pua		. #xFB48)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB49)	; 
-    (=ucs		. #xE0A6)	; 
+  '((=ucs		. #xE0A6)	; 
+    (=big5-pua		. #xFB49)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4A)	; 
-    (=ucs		. #xE0A7)	; 
+  '((=ucs		. #xE0A7)	; 
+    (=big5-pua		. #xFB4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4B)	; 
-    (=ucs		. #xE0A8)	; 
+  '((=ucs		. #xE0A8)	; 
+    (=big5-pua		. #xFB4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4C)	; 
-    (=ucs		. #xE0A9)	; 
+  '((=ucs		. #xE0A9)	; 
+    (=big5-pua		. #xFB4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4D)	; 
-    (=ucs		. #xE0AA)	; 
+  '((=ucs		. #xE0AA)	; 
+    (=big5-pua		. #xFB4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4E)	; 
-    (=ucs		. #xE0AB)	; 
+  '((=ucs		. #xE0AB)	; 
+    (=big5-pua		. #xFB4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB4F)	; 
-    (=ucs		. #xE0AC)	; 
+  '((=ucs		. #xE0AC)	; 
+    (=big5-pua		. #xFB4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB50)	; 
-    (=ucs		. #xE0AD)	; 
+  '((=ucs		. #xE0AD)	; 
+    (=big5-pua		. #xFB50)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB51)	; 
-    (=ucs		. #xE0AE)	; 
+  '((=ucs		. #xE0AE)	; 
+    (=big5-pua		. #xFB51)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB52)	; 
-    (=ucs		. #xE0AF)	; 
+  '((=ucs		. #xE0AF)	; 
+    (=big5-pua		. #xFB52)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB53)	; 
-    (=ucs		. #xE0B0)	; 
+  '((=ucs		. #xE0B0)	; 
+    (=big5-pua		. #xFB53)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB54)	; 
-    (=ucs		. #xE0B1)	; 
+  '((=ucs		. #xE0B1)	; 
+    (=big5-pua		. #xFB54)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB55)	; 
-    (=ucs		. #xE0B2)	; 
+  '((=ucs		. #xE0B2)	; 
+    (=big5-pua		. #xFB55)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB56)	; 
-    (=ucs		. #xE0B3)	; 
+  '((=ucs		. #xE0B3)	; 
+    (=big5-pua		. #xFB56)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB57)	; 
-    (=ucs		. #xE0B4)	; 
+  '((=ucs		. #xE0B4)	; 
+    (=big5-pua		. #xFB57)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB58)	; 
-    (=ucs		. #xE0B5)	; 
+  '((=ucs		. #xE0B5)	; 
+    (=big5-pua		. #xFB58)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB59)	; 
-    (=ucs		. #xE0B6)	; 
+  '((=ucs		. #xE0B6)	; 
+    (=big5-pua		. #xFB59)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5A)	; 
-    (=ucs		. #xE0B7)	; 
+  '((=ucs		. #xE0B7)	; 
+    (=big5-pua		. #xFB5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5B)	; 
-    (=ucs		. #xE0B8)	; 
+  '((=ucs		. #xE0B8)	; 
+    (=big5-pua		. #xFB5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5C)	; 
-    (=ucs		. #xE0B9)	; 
+  '((=ucs		. #xE0B9)	; 
+    (=big5-pua		. #xFB5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5D)	; 
-    (=ucs		. #xE0BA)	; 
+  '((=ucs		. #xE0BA)	; 
+    (=big5-pua		. #xFB5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5E)	; 
-    (=ucs		. #xE0BB)	; 
+  '((=ucs		. #xE0BB)	; 
+    (=big5-pua		. #xFB5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB5F)	; 
-    (=ucs		. #xE0BC)	; 
+  '((=ucs		. #xE0BC)	; 
+    (=big5-pua		. #xFB5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB60)	; 
-    (=ucs		. #xE0BD)	; 
+  '((=ucs		. #xE0BD)	; 
+    (=big5-pua		. #xFB60)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB61)	; 
-    (=ucs		. #xE0BE)	; 
+  '((=ucs		. #xE0BE)	; 
+    (=big5-pua		. #xFB61)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB62)	; 
-    (=ucs		. #xE0BF)	; 
+  '((=ucs		. #xE0BF)	; 
+    (=big5-pua		. #xFB62)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB63)	; 
-    (=ucs		. #xE0C0)	; 
+  '((=ucs		. #xE0C0)	; 
+    (=big5-pua		. #xFB63)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB64)	; 
-    (=ucs		. #xE0C1)	; 
+  '((=ucs		. #xE0C1)	; 
+    (=big5-pua		. #xFB64)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB65)	; 
-    (=ucs		. #xE0C2)	; 
+  '((=ucs		. #xE0C2)	; 
+    (=big5-pua		. #xFB65)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB66)	; 
-    (=ucs		. #xE0C3)	; 
+  '((=ucs		. #xE0C3)	; 
+    (=big5-pua		. #xFB66)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB67)	; 
-    (=ucs		. #xE0C4)	; 
+  '((=ucs		. #xE0C4)	; 
+    (=big5-pua		. #xFB67)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB68)	; 
-    (=ucs		. #xE0C5)	; 
+  '((=ucs		. #xE0C5)	; 
+    (=big5-pua		. #xFB68)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB69)	; 
-    (=ucs		. #xE0C6)	; 
+  '((=ucs		. #xE0C6)	; 
+    (=big5-pua		. #xFB69)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6A)	; 
-    (=ucs		. #xE0C7)	; 
+  '((=ucs		. #xE0C7)	; 
+    (=big5-pua		. #xFB6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6B)	; 
-    (=ucs		. #xE0C8)	; 
+  '((=ucs		. #xE0C8)	; 
+    (=big5-pua		. #xFB6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6C)	; 
-    (=ucs		. #xE0C9)	; 
+  '((=ucs		. #xE0C9)	; 
+    (=big5-pua		. #xFB6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6D)	; 
-    (=ucs		. #xE0CA)	; 
+  '((=ucs		. #xE0CA)	; 
+    (=big5-pua		. #xFB6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6E)	; 
-    (=ucs		. #xE0CB)	; 
+  '((=ucs		. #xE0CB)	; 
+    (=big5-pua		. #xFB6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB6F)	; 
-    (=ucs		. #xE0CC)	; 
+  '((=ucs		. #xE0CC)	; 
+    (=big5-pua		. #xFB6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB70)	; 
-    (=ucs		. #xE0CD)	; 
+  '((=ucs		. #xE0CD)	; 
+    (=big5-pua		. #xFB70)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB71)	; 
-    (=ucs		. #xE0CE)	; 
+  '((=ucs		. #xE0CE)	; 
+    (=big5-pua		. #xFB71)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB72)	; 
-    (=ucs		. #xE0CF)	; 
+  '((=ucs		. #xE0CF)	; 
+    (=big5-pua		. #xFB72)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB73)	; 
-    (=ucs		. #xE0D0)	; 
+  '((=ucs		. #xE0D0)	; 
+    (=big5-pua		. #xFB73)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB74)	; 
-    (=ucs		. #xE0D1)	; 
+  '((=ucs		. #xE0D1)	; 
+    (=big5-pua		. #xFB74)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB75)	; 
-    (=ucs		. #xE0D2)	; 
+  '((=ucs		. #xE0D2)	; 
+    (=big5-pua		. #xFB75)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB76)	; 
-    (=ucs		. #xE0D3)	; 
+  '((=ucs		. #xE0D3)	; 
+    (=big5-pua		. #xFB76)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB77)	; 
-    (=ucs		. #xE0D4)	; 
+  '((=ucs		. #xE0D4)	; 
+    (=big5-pua		. #xFB77)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB78)	; 
-    (=ucs		. #xE0D5)	; 
+  '((=ucs		. #xE0D5)	; 
+    (=big5-pua		. #xFB78)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB79)	; 
-    (=ucs		. #xE0D6)	; 
+  '((=ucs		. #xE0D6)	; 
+    (=big5-pua		. #xFB79)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB7A)	; 
-    (=ucs		. #xE0D7)	; 
+  '((=ucs		. #xE0D7)	; 
+    (=big5-pua		. #xFB7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB7B)	; 
-    (=ucs		. #xE0D8)	; 
+  '((=ucs		. #xE0D8)	; 
+    (=big5-pua		. #xFB7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB7C)	; 
-    (=ucs		. #xE0D9)	; 
+  '((=ucs		. #xE0D9)	; 
+    (=big5-pua		. #xFB7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB7D)	; 
-    (=ucs		. #xE0DA)	; 
+  '((=ucs		. #xE0DA)	; 
+    (=big5-pua		. #xFB7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFB7E)	; 
-    (=ucs		. #xE0DB)	; 
+  '((=ucs		. #xE0DB)	; 
+    (=big5-pua		. #xFB7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA1)	; 
-    (=ucs		. #xE0DC)	; 
+  '((=ucs		. #xE0DC)	; 
+    (=big5-pua		. #xFBA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA2)	; 
-    (=ucs		. #xE0DD)	; 
+  '((=ucs		. #xE0DD)	; 
+    (=big5-pua		. #xFBA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA3)	; 
-    (=ucs		. #xE0DE)	; 
+  '((=ucs		. #xE0DE)	; 
+    (=big5-pua		. #xFBA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA4)	; 
-    (=ucs		. #xE0DF)	; 
+  '((=ucs		. #xE0DF)	; 
+    (=big5-pua		. #xFBA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA5)	; 
-    (=ucs		. #xE0E0)	; 
+  '((=ucs		. #xE0E0)	; 
+    (=big5-pua		. #xFBA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA6)	; 
-    (=ucs		. #xE0E1)	; 
+  '((=ucs		. #xE0E1)	; 
+    (=big5-pua		. #xFBA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA7)	; 
-    (=ucs		. #xE0E2)	; 
+  '((=ucs		. #xE0E2)	; 
+    (=big5-pua		. #xFBA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA8)	; 
-    (=ucs		. #xE0E3)	; 
+  '((=ucs		. #xE0E3)	; 
+    (=big5-pua		. #xFBA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBA9)	; 
-    (=ucs		. #xE0E4)	; 
+  '((=ucs		. #xE0E4)	; 
+    (=big5-pua		. #xFBA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAA)	; 
-    (=ucs		. #xE0E5)	; 
+  '((=ucs		. #xE0E5)	; 
+    (=big5-pua		. #xFBAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAB)	; 
-    (=ucs		. #xE0E6)	; 
+  '((=ucs		. #xE0E6)	; 
+    (=big5-pua		. #xFBAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAC)	; 
-    (=ucs		. #xE0E7)	; 
+  '((=ucs		. #xE0E7)	; 
+    (=big5-pua		. #xFBAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAD)	; 
-    (=ucs		. #xE0E8)	; 
+  '((=ucs		. #xE0E8)	; 
+    (=big5-pua		. #xFBAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAE)	; 
-    (=ucs		. #xE0E9)	; 
+  '((=ucs		. #xE0E9)	; 
+    (=big5-pua		. #xFBAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBAF)	; 
-    (=ucs		. #xE0EA)	; 
+  '((=ucs		. #xE0EA)	; 
+    (=big5-pua		. #xFBAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB0)	; 
-    (=ucs		. #xE0EB)	; 
+  '((=ucs		. #xE0EB)	; 
+    (=big5-pua		. #xFBB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB1)	; 
-    (=ucs		. #xE0EC)	; 
+  '((=ucs		. #xE0EC)	; 
+    (=big5-pua		. #xFBB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB2)	; 
-    (=ucs		. #xE0ED)	; 
+  '((=ucs		. #xE0ED)	; 
+    (=big5-pua		. #xFBB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB3)	; 
-    (=ucs		. #xE0EE)	; 
+  '((=ucs		. #xE0EE)	; 
+    (=big5-pua		. #xFBB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB4)	; 
-    (=ucs		. #xE0EF)	; 
+  '((=ucs		. #xE0EF)	; 
+    (=big5-pua		. #xFBB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB5)	; 
-    (=ucs		. #xE0F0)	; 
+  '((=ucs		. #xE0F0)	; 
+    (=big5-pua		. #xFBB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB6)	; 
-    (=ucs		. #xE0F1)	; 
+  '((=ucs		. #xE0F1)	; 
+    (=big5-pua		. #xFBB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB7)	; 
-    (=ucs		. #xE0F2)	; 
+  '((=ucs		. #xE0F2)	; 
+    (=big5-pua		. #xFBB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB8)	; 
-    (=ucs		. #xE0F3)	; 
+  '((=ucs		. #xE0F3)	; 
+    (=big5-pua		. #xFBB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBB9)	; 
-    (=ucs		. #xE0F4)	; 
+  '((=ucs		. #xE0F4)	; 
+    (=big5-pua		. #xFBB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBA)	; 
-    (=ucs		. #xE0F5)	; 
+  '((=ucs		. #xE0F5)	; 
+    (=big5-pua		. #xFBBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBB)	; 
-    (=ucs		. #xE0F6)	; 
+  '((=ucs		. #xE0F6)	; 
+    (=big5-pua		. #xFBBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBC)	; 
-    (=ucs		. #xE0F7)	; 
+  '((=ucs		. #xE0F7)	; 
+    (=big5-pua		. #xFBBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBD)	; 
-    (=ucs		. #xE0F8)	; 
+  '((=ucs		. #xE0F8)	; 
+    (=big5-pua		. #xFBBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBE)	; 
-    (=ucs		. #xE0F9)	; 
+  '((=ucs		. #xE0F9)	; 
+    (=big5-pua		. #xFBBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBBF)	; 
-    (=ucs		. #xE0FA)	; 
+  '((=ucs		. #xE0FA)	; 
+    (=big5-pua		. #xFBBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC0)	; 
-    (=ucs		. #xE0FB)	; 
+  '((=ucs		. #xE0FB)	; 
+    (=big5-pua		. #xFBC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC1)	; 
-    (=ucs		. #xE0FC)	; 
+  '((=ucs		. #xE0FC)	; 
+    (=big5-pua		. #xFBC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC2)	; 
-    (=ucs		. #xE0FD)	; 
+  '((=ucs		. #xE0FD)	; 
+    (=big5-pua		. #xFBC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC3)	; 
-    (=ucs		. #xE0FE)	; 
+  '((=ucs		. #xE0FE)	; 
+    (=big5-pua		. #xFBC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC4)	; 
-    (=ucs		. #xE0FF)	; 
+  '((=ucs		. #xE0FF)	; 
+    (=big5-pua		. #xFBC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC5)	; 
-    (=ucs		. #xE100)	; 
+  '((=ucs		. #xE100)	; 
+    (=big5-pua		. #xFBC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC6)	; 
-    (=ucs		. #xE101)	; 
+  '((=ucs		. #xE101)	; 
+    (=big5-pua		. #xFBC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC7)	; 
-    (=ucs		. #xE102)	; 
+  '((=ucs		. #xE102)	; 
+    (=big5-pua		. #xFBC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC8)	; 
-    (=ucs		. #xE103)	; 
+  '((=ucs		. #xE103)	; 
+    (=big5-pua		. #xFBC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBC9)	; 
-    (=ucs		. #xE104)	; 
+  '((=ucs		. #xE104)	; 
+    (=big5-pua		. #xFBC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCA)	; 
-    (=ucs		. #xE105)	; 
+  '((=ucs		. #xE105)	; 
+    (=big5-pua		. #xFBCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCB)	; 
-    (=ucs		. #xE106)	; 
+  '((=ucs		. #xE106)	; 
+    (=big5-pua		. #xFBCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCC)	; 
-    (=ucs		. #xE107)	; 
+  '((=ucs		. #xE107)	; 
+    (=big5-pua		. #xFBCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCD)	; 
-    (=ucs		. #xE108)	; 
+  '((=ucs		. #xE108)	; 
+    (=big5-pua		. #xFBCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCE)	; 
-    (=ucs		. #xE109)	; 
+  '((=ucs		. #xE109)	; 
+    (=big5-pua		. #xFBCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBCF)	; 
-    (=ucs		. #xE10A)	; 
+  '((=ucs		. #xE10A)	; 
+    (=big5-pua		. #xFBCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD0)	; 
-    (=ucs		. #xE10B)	; 
+  '((=ucs		. #xE10B)	; 
+    (=big5-pua		. #xFBD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD1)	; 
-    (=ucs		. #xE10C)	; 
+  '((=ucs		. #xE10C)	; 
+    (=big5-pua		. #xFBD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD2)	; 
-    (=ucs		. #xE10D)	; 
+  '((=ucs		. #xE10D)	; 
+    (=big5-pua		. #xFBD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD3)	; 
-    (=ucs		. #xE10E)	; 
+  '((=ucs		. #xE10E)	; 
+    (=big5-pua		. #xFBD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD4)	; 
-    (=ucs		. #xE10F)	; 
+  '((=ucs		. #xE10F)	; 
+    (=big5-pua		. #xFBD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD5)	; 
-    (=ucs		. #xE110)	; 
+  '((=ucs		. #xE110)	; 
+    (=big5-pua		. #xFBD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD6)	; 
-    (=ucs		. #xE111)	; 
+  '((=ucs		. #xE111)	; 
+    (=big5-pua		. #xFBD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD7)	; 
-    (=ucs		. #xE112)	; 
+  '((=ucs		. #xE112)	; 
+    (=big5-pua		. #xFBD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD8)	; 
-    (=ucs		. #xE113)	; 
+  '((=ucs		. #xE113)	; 
+    (=big5-pua		. #xFBD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBD9)	; 
-    (=ucs		. #xE114)	; 
+  '((=ucs		. #xE114)	; 
+    (=big5-pua		. #xFBD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDA)	; 
-    (=ucs		. #xE115)	; 
+  '((=ucs		. #xE115)	; 
+    (=big5-pua		. #xFBDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDB)	; 
-    (=ucs		. #xE116)	; 
+  '((=ucs		. #xE116)	; 
+    (=big5-pua		. #xFBDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDC)	; 
-    (=ucs		. #xE117)	; 
+  '((=ucs		. #xE117)	; 
+    (=big5-pua		. #xFBDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDD)	; 
-    (=ucs		. #xE118)	; 
+  '((=ucs		. #xE118)	; 
+    (=big5-pua		. #xFBDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDE)	; 
-    (=ucs		. #xE119)	; 
+  '((=ucs		. #xE119)	; 
+    (=big5-pua		. #xFBDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBDF)	; 
-    (=ucs		. #xE11A)	; 
+  '((=ucs		. #xE11A)	; 
+    (=big5-pua		. #xFBDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE0)	; 
-    (=ucs		. #xE11B)	; 
+  '((=ucs		. #xE11B)	; 
+    (=big5-pua		. #xFBE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE1)	; 
-    (=ucs		. #xE11C)	; 
+  '((=ucs		. #xE11C)	; 
+    (=big5-pua		. #xFBE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE2)	; 
-    (=ucs		. #xE11D)	; 
+  '((=ucs		. #xE11D)	; 
+    (=big5-pua		. #xFBE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE3)	; 
-    (=ucs		. #xE11E)	; 
+  '((=ucs		. #xE11E)	; 
+    (=big5-pua		. #xFBE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE4)	; 
-    (=ucs		. #xE11F)	; 
+  '((=ucs		. #xE11F)	; 
+    (=big5-pua		. #xFBE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE5)	; 
-    (=ucs		. #xE120)	; 
+  '((=ucs		. #xE120)	; 
+    (=big5-pua		. #xFBE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE6)	; 
-    (=ucs		. #xE121)	; 
+  '((=ucs		. #xE121)	; 
+    (=big5-pua		. #xFBE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE7)	; 
-    (=ucs		. #xE122)	; 
+  '((=ucs		. #xE122)	; 
+    (=big5-pua		. #xFBE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE8)	; 
-    (=ucs		. #xE123)	; 
+  '((=ucs		. #xE123)	; 
+    (=big5-pua		. #xFBE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBE9)	; 
-    (=ucs		. #xE124)	; 
+  '((=ucs		. #xE124)	; 
+    (=big5-pua		. #xFBE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBEA)	; 
-    (=ucs		. #xE125)	; 
+  '((=ucs		. #xE125)	; 
+    (=big5-pua		. #xFBEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBEB)	; 
-    (=ucs		. #xE126)	; 
+  '((=ucs		. #xE126)	; 
+    (=big5-pua		. #xFBEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBEC)	; 
-    (=ucs		. #xE127)	; 
+  '((=ucs		. #xE127)	; 
+    (=big5-pua		. #xFBEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBED)	; 
-    (=ucs		. #xE128)	; 
+  '((=ucs		. #xE128)	; 
+    (=big5-pua		. #xFBED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBEE)	; 
-    (=ucs		. #xE129)	; 
+  '((=ucs		. #xE129)	; 
+    (=big5-pua		. #xFBEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBEF)	; 
-    (=ucs		. #xE12A)	; 
+  '((=ucs		. #xE12A)	; 
+    (=big5-pua		. #xFBEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF0)	; 
-    (=ucs		. #xE12B)	; 
+  '((=ucs		. #xE12B)	; 
+    (=big5-pua		. #xFBF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF1)	; 
-    (=ucs		. #xE12C)	; 
+  '((=ucs		. #xE12C)	; 
+    (=big5-pua		. #xFBF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF2)	; 
-    (=ucs		. #xE12D)	; 
+  '((=ucs		. #xE12D)	; 
+    (=big5-pua		. #xFBF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF3)	; 
-    (=ucs		. #xE12E)	; 
+  '((=ucs		. #xE12E)	; 
+    (=big5-pua		. #xFBF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF4)	; 
-    (=ucs		. #xE12F)	; 
+  '((=ucs		. #xE12F)	; 
+    (=big5-pua		. #xFBF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF5)	; 
-    (=ucs		. #xE130)	; 
+  '((=ucs		. #xE130)	; 
+    (=big5-pua		. #xFBF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF6)	; 
-    (=ucs		. #xE131)	; 
+  '((=ucs		. #xE131)	; 
+    (=big5-pua		. #xFBF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF7)	; 
-    (=ucs		. #xE132)	; 
+  '((=ucs		. #xE132)	; 
+    (=big5-pua		. #xFBF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF8)	; 
-    (=ucs		. #xE133)	; 
+  '((=ucs		. #xE133)	; 
+    (=big5-pua		. #xFBF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBF9)	; 
-    (=ucs		. #xE134)	; 
+  '((=ucs		. #xE134)	; 
+    (=big5-pua		. #xFBF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBFA)	; 
-    (=ucs		. #xE135)	; 
+  '((=ucs		. #xE135)	; 
+    (=big5-pua		. #xFBFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBFB)	; 
-    (=ucs		. #xE136)	; 
+  '((=ucs		. #xE136)	; 
+    (=big5-pua		. #xFBFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBFC)	; 
-    (=ucs		. #xE137)	; 
+  '((=ucs		. #xE137)	; 
+    (=big5-pua		. #xFBFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBFD)	; 
-    (=ucs		. #xE138)	; 
+  '((=ucs		. #xE138)	; 
+    (=big5-pua		. #xFBFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFBFE)	; 
-    (=ucs		. #xE139)	; 
+  '((=ucs		. #xE139)	; 
+    (=big5-pua		. #xFBFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC40)	; 
-    (=ucs		. #xE13A)	; 
+  '((=ucs		. #xE13A)	; 
+    (=big5-pua		. #xFC40)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC41)	; 
-    (=ucs		. #xE13B)	; 
+  '((=ucs		. #xE13B)	; 
+    (=big5-pua		. #xFC41)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC42)	; 
-    (=ucs		. #xE13C)	; 
+  '((=ucs		. #xE13C)	; 
+    (=big5-pua		. #xFC42)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC43)	; 
-    (=ucs		. #xE13D)	; 
+  '((=ucs		. #xE13D)	; 
+    (=big5-pua		. #xFC43)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC44)	; 
-    (=ucs		. #xE13E)	; 
+  '((=ucs		. #xE13E)	; 
+    (=big5-pua		. #xFC44)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC45)	; 
-    (=ucs		. #xE13F)	; 
+  '((=ucs		. #xE13F)	; 
+    (=big5-pua		. #xFC45)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC46)	; 
-    (=ucs		. #xE140)	; 
+  '((=ucs		. #xE140)	; 
+    (=big5-pua		. #xFC46)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC47)	; 
-    (=ucs		. #xE141)	; 
+  '((=ucs		. #xE141)	; 
+    (=big5-pua		. #xFC47)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC48)	; 
-    (=ucs		. #xE142)	; 
+  '((=ucs		. #xE142)	; 
+    (=big5-pua		. #xFC48)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC49)	; 
-    (=ucs		. #xE143)	; 
+  '((=ucs		. #xE143)	; 
+    (=big5-pua		. #xFC49)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4A)	; 
-    (=ucs		. #xE144)	; 
+  '((=ucs		. #xE144)	; 
+    (=big5-pua		. #xFC4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4B)	; 
-    (=ucs		. #xE145)	; 
+  '((=ucs		. #xE145)	; 
+    (=big5-pua		. #xFC4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4C)	; 
-    (=ucs		. #xE146)	; 
+  '((=ucs		. #xE146)	; 
+    (=big5-pua		. #xFC4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4D)	; 
-    (=ucs		. #xE147)	; 
+  '((=ucs		. #xE147)	; 
+    (=big5-pua		. #xFC4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4E)	; 
-    (=ucs		. #xE148)	; 
+  '((=ucs		. #xE148)	; 
+    (=big5-pua		. #xFC4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC4F)	; 
-    (=ucs		. #xE149)	; 
+  '((=ucs		. #xE149)	; 
+    (=big5-pua		. #xFC4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC50)	; 
-    (=ucs		. #xE14A)	; 
+  '((=ucs		. #xE14A)	; 
+    (=big5-pua		. #xFC50)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC51)	; 
-    (=ucs		. #xE14B)	; 
+  '((=ucs		. #xE14B)	; 
+    (=big5-pua		. #xFC51)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC52)	; 
-    (=ucs		. #xE14C)	; 
+  '((=ucs		. #xE14C)	; 
+    (=big5-pua		. #xFC52)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC53)	; 
-    (=ucs		. #xE14D)	; 
+  '((=ucs		. #xE14D)	; 
+    (=big5-pua		. #xFC53)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC54)	; 
-    (=ucs		. #xE14E)	; 
+  '((=ucs		. #xE14E)	; 
+    (=big5-pua		. #xFC54)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC55)	; 
-    (=ucs		. #xE14F)	; 
+  '((=ucs		. #xE14F)	; 
+    (=big5-pua		. #xFC55)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC56)	; 
-    (=ucs		. #xE150)	; 
+  '((=ucs		. #xE150)	; 
+    (=big5-pua		. #xFC56)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC57)	; 
-    (=ucs		. #xE151)	; 
+  '((=ucs		. #xE151)	; 
+    (=big5-pua		. #xFC57)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC58)	; 
-    (=ucs		. #xE152)	; 
+  '((=ucs		. #xE152)	; 
+    (=big5-pua		. #xFC58)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC59)	; 
-    (=ucs		. #xE153)	; 
+  '((=ucs		. #xE153)	; 
+    (=big5-pua		. #xFC59)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5A)	; 
-    (=ucs		. #xE154)	; 
+  '((=ucs		. #xE154)	; 
+    (=big5-pua		. #xFC5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5B)	; 
-    (=ucs		. #xE155)	; 
+  '((=ucs		. #xE155)	; 
+    (=big5-pua		. #xFC5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5C)	; 
-    (=ucs		. #xE156)	; 
+  '((=ucs		. #xE156)	; 
+    (=big5-pua		. #xFC5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5D)	; 
-    (=ucs		. #xE157)	; 
+  '((=ucs		. #xE157)	; 
+    (=big5-pua		. #xFC5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5E)	; 
-    (=ucs		. #xE158)	; 
+  '((=ucs		. #xE158)	; 
+    (=big5-pua		. #xFC5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC5F)	; 
-    (=ucs		. #xE159)	; 
+  '((=ucs		. #xE159)	; 
+    (=big5-pua		. #xFC5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC60)	; 
-    (=ucs		. #xE15A)	; 
+  '((=ucs		. #xE15A)	; 
+    (=big5-pua		. #xFC60)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC61)	; 
-    (=ucs		. #xE15B)	; 
+  '((=ucs		. #xE15B)	; 
+    (=big5-pua		. #xFC61)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC62)	; 
-    (=ucs		. #xE15C)	; 
+  '((=ucs		. #xE15C)	; 
+    (=big5-pua		. #xFC62)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC63)	; 
-    (=ucs		. #xE15D)	; 
+  '((=ucs		. #xE15D)	; 
+    (=big5-pua		. #xFC63)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC64)	; 
-    (=ucs		. #xE15E)	; 
+  '((=ucs		. #xE15E)	; 
+    (=big5-pua		. #xFC64)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC65)	; 
-    (=ucs		. #xE15F)	; 
+  '((=ucs		. #xE15F)	; 
+    (=big5-pua		. #xFC65)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC66)	; 
-    (=ucs		. #xE160)	; 
+  '((=ucs		. #xE160)	; 
+    (=big5-pua		. #xFC66)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC67)	; 
-    (=ucs		. #xE161)	; 
+  '((=ucs		. #xE161)	; 
+    (=big5-pua		. #xFC67)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC68)	; 
-    (=ucs		. #xE162)	; 
+  '((=ucs		. #xE162)	; 
+    (=big5-pua		. #xFC68)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC69)	; 
-    (=ucs		. #xE163)	; 
+  '((=ucs		. #xE163)	; 
+    (=big5-pua		. #xFC69)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6A)	; 
-    (=ucs		. #xE164)	; 
+  '((=ucs		. #xE164)	; 
+    (=big5-pua		. #xFC6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6B)	; 
-    (=ucs		. #xE165)	; 
+  '((=ucs		. #xE165)	; 
+    (=big5-pua		. #xFC6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6C)	; 
-    (=ucs		. #xE166)	; 
+  '((=ucs		. #xE166)	; 
+    (=big5-pua		. #xFC6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6D)	; 
-    (=ucs		. #xE167)	; 
+  '((=ucs		. #xE167)	; 
+    (=big5-pua		. #xFC6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6E)	; 
-    (=ucs		. #xE168)	; 
+  '((=ucs		. #xE168)	; 
+    (=big5-pua		. #xFC6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC6F)	; 
-    (=ucs		. #xE169)	; 
+  '((=ucs		. #xE169)	; 
+    (=big5-pua		. #xFC6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC70)	; 
-    (=ucs		. #xE16A)	; 
+  '((=ucs		. #xE16A)	; 
+    (=big5-pua		. #xFC70)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC71)	; 
-    (=ucs		. #xE16B)	; 
+  '((=ucs		. #xE16B)	; 
+    (=big5-pua		. #xFC71)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC72)	; 
-    (=ucs		. #xE16C)	; 
+  '((=ucs		. #xE16C)	; 
+    (=big5-pua		. #xFC72)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC73)	; 
-    (=ucs		. #xE16D)	; 
+  '((=ucs		. #xE16D)	; 
+    (=big5-pua		. #xFC73)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC74)	; 
-    (=ucs		. #xE16E)	; 
+  '((=ucs		. #xE16E)	; 
+    (=big5-pua		. #xFC74)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC75)	; 
-    (=ucs		. #xE16F)	; 
+  '((=ucs		. #xE16F)	; 
+    (=big5-pua		. #xFC75)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC76)	; 
-    (=ucs		. #xE170)	; 
+  '((=ucs		. #xE170)	; 
+    (=big5-pua		. #xFC76)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC77)	; 
-    (=ucs		. #xE171)	; 
+  '((=ucs		. #xE171)	; 
+    (=big5-pua		. #xFC77)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC78)	; 
-    (=ucs		. #xE172)	; 
+  '((=ucs		. #xE172)	; 
+    (=big5-pua		. #xFC78)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC79)	; 
-    (=ucs		. #xE173)	; 
+  '((=ucs		. #xE173)	; 
+    (=big5-pua		. #xFC79)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC7A)	; 
-    (=ucs		. #xE174)	; 
+  '((=ucs		. #xE174)	; 
+    (=big5-pua		. #xFC7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC7B)	; 
-    (=ucs		. #xE175)	; 
+  '((=ucs		. #xE175)	; 
+    (=big5-pua		. #xFC7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC7C)	; 
-    (=ucs		. #xE176)	; 
+  '((=ucs		. #xE176)	; 
+    (=big5-pua		. #xFC7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC7D)	; 
-    (=ucs		. #xE177)	; 
+  '((=ucs		. #xE177)	; 
+    (=big5-pua		. #xFC7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFC7E)	; 
-    (=ucs		. #xE178)	; 
+  '((=ucs		. #xE178)	; 
+    (=big5-pua		. #xFC7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA1)	; 
-    (=ucs		. #xE179)	; 
+  '((=ucs		. #xE179)	; 
+    (=big5-pua		. #xFCA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA2)	; 
-    (=ucs		. #xE17A)	; 
+  '((=ucs		. #xE17A)	; 
+    (=big5-pua		. #xFCA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA3)	; 
-    (=ucs		. #xE17B)	; 
+  '((=ucs		. #xE17B)	; 
+    (=big5-pua		. #xFCA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA4)	; 
-    (=ucs		. #xE17C)	; 
+  '((=ucs		. #xE17C)	; 
+    (=big5-pua		. #xFCA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA5)	; 
-    (=ucs		. #xE17D)	; 
+  '((=ucs		. #xE17D)	; 
+    (=big5-pua		. #xFCA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA6)	; 
-    (=ucs		. #xE17E)	; 
+  '((=ucs		. #xE17E)	; 
+    (=big5-pua		. #xFCA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA7)	; 
-    (=ucs		. #xE17F)	; 
+  '((=ucs		. #xE17F)	; 
+    (=big5-pua		. #xFCA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA8)	; 
-    (=ucs		. #xE180)	; 
+  '((=ucs		. #xE180)	; 
+    (=big5-pua		. #xFCA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCA9)	; 
-    (=ucs		. #xE181)	; 
+  '((=ucs		. #xE181)	; 
+    (=big5-pua		. #xFCA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAA)	; 
-    (=ucs		. #xE182)	; 
+  '((=ucs		. #xE182)	; 
+    (=big5-pua		. #xFCAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAB)	; 
-    (=ucs		. #xE183)	; 
+  '((=ucs		. #xE183)	; 
+    (=big5-pua		. #xFCAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAC)	; 
-    (=ucs		. #xE184)	; 
+  '((=ucs		. #xE184)	; 
+    (=big5-pua		. #xFCAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAD)	; 
-    (=ucs		. #xE185)	; 
+  '((=ucs		. #xE185)	; 
+    (=big5-pua		. #xFCAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAE)	; 
-    (=ucs		. #xE186)	; 
+  '((=ucs		. #xE186)	; 
+    (=big5-pua		. #xFCAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCAF)	; 
-    (=ucs		. #xE187)	; 
+  '((=ucs		. #xE187)	; 
+    (=big5-pua		. #xFCAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB0)	; 
-    (=ucs		. #xE188)	; 
+  '((=ucs		. #xE188)	; 
+    (=big5-pua		. #xFCB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB1)	; 
-    (=ucs		. #xE189)	; 
+  '((=ucs		. #xE189)	; 
+    (=big5-pua		. #xFCB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB2)	; 
-    (=ucs		. #xE18A)	; 
+  '((=ucs		. #xE18A)	; 
+    (=big5-pua		. #xFCB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB3)	; 
-    (=ucs		. #xE18B)	; 
+  '((=ucs		. #xE18B)	; 
+    (=big5-pua		. #xFCB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB4)	; 
-    (=ucs		. #xE18C)	; 
+  '((=ucs		. #xE18C)	; 
+    (=big5-pua		. #xFCB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB5)	; 
-    (=ucs		. #xE18D)	; 
+  '((=ucs		. #xE18D)	; 
+    (=big5-pua		. #xFCB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB6)	; 
-    (=ucs		. #xE18E)	; 
+  '((=ucs		. #xE18E)	; 
+    (=big5-pua		. #xFCB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB7)	; 
-    (=ucs		. #xE18F)	; 
+  '((=ucs		. #xE18F)	; 
+    (=big5-pua		. #xFCB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB8)	; 
-    (=ucs		. #xE190)	; 
+  '((=ucs		. #xE190)	; 
+    (=big5-pua		. #xFCB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCB9)	; 
-    (=ucs		. #xE191)	; 
+  '((=ucs		. #xE191)	; 
+    (=big5-pua		. #xFCB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBA)	; 
-    (=ucs		. #xE192)	; 
+  '((=ucs		. #xE192)	; 
+    (=big5-pua		. #xFCBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBB)	; 
-    (=ucs		. #xE193)	; 
+  '((=ucs		. #xE193)	; 
+    (=big5-pua		. #xFCBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBC)	; 
-    (=ucs		. #xE194)	; 
+  '((=ucs		. #xE194)	; 
+    (=big5-pua		. #xFCBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBD)	; 
-    (=ucs		. #xE195)	; 
+  '((=ucs		. #xE195)	; 
+    (=big5-pua		. #xFCBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBE)	; 
-    (=ucs		. #xE196)	; 
+  '((=ucs		. #xE196)	; 
+    (=big5-pua		. #xFCBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCBF)	; 
-    (=ucs		. #xE197)	; 
+  '((=ucs		. #xE197)	; 
+    (=big5-pua		. #xFCBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC0)	; 
-    (=ucs		. #xE198)	; 
+  '((=ucs		. #xE198)	; 
+    (=big5-pua		. #xFCC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC1)	; 
-    (=ucs		. #xE199)	; 
+  '((=ucs		. #xE199)	; 
+    (=big5-pua		. #xFCC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC2)	; 
-    (=ucs		. #xE19A)	; 
+  '((=ucs		. #xE19A)	; 
+    (=big5-pua		. #xFCC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC3)	; 
-    (=ucs		. #xE19B)	; 
+  '((=ucs		. #xE19B)	; 
+    (=big5-pua		. #xFCC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC4)	; 
-    (=ucs		. #xE19C)	; 
+  '((=ucs		. #xE19C)	; 
+    (=big5-pua		. #xFCC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC5)	; 
-    (=ucs		. #xE19D)	; 
+  '((=ucs		. #xE19D)	; 
+    (=big5-pua		. #xFCC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC6)	; 
-    (=ucs		. #xE19E)	; 
+  '((=ucs		. #xE19E)	; 
+    (=big5-pua		. #xFCC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC7)	; 
-    (=ucs		. #xE19F)	; 
+  '((=ucs		. #xE19F)	; 
+    (=big5-pua		. #xFCC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC8)	; 
-    (=ucs		. #xE1A0)	; 
+  '((=ucs		. #xE1A0)	; 
+    (=big5-pua		. #xFCC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCC9)	; 
-    (=ucs		. #xE1A1)	; 
+  '((=ucs		. #xE1A1)	; 
+    (=big5-pua		. #xFCC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCA)	; 
-    (=ucs		. #xE1A2)	; 
+  '((=ucs		. #xE1A2)	; 
+    (=big5-pua		. #xFCCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCB)	; 
-    (=ucs		. #xE1A3)	; 
+  '((=ucs		. #xE1A3)	; 
+    (=big5-pua		. #xFCCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCC)	; 
-    (=ucs		. #xE1A4)	; 
+  '((=ucs		. #xE1A4)	; 
+    (=big5-pua		. #xFCCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCD)	; 
-    (=ucs		. #xE1A5)	; 
+  '((=ucs		. #xE1A5)	; 
+    (=big5-pua		. #xFCCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCE)	; 
-    (=ucs		. #xE1A6)	; 
+  '((=ucs		. #xE1A6)	; 
+    (=big5-pua		. #xFCCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCCF)	; 
-    (=ucs		. #xE1A7)	; 
+  '((=ucs		. #xE1A7)	; 
+    (=big5-pua		. #xFCCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD0)	; 
-    (=ucs		. #xE1A8)	; 
+  '((=ucs		. #xE1A8)	; 
+    (=big5-pua		. #xFCD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD1)	; 
-    (=ucs		. #xE1A9)	; 
+  '((=ucs		. #xE1A9)	; 
+    (=big5-pua		. #xFCD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD2)	; 
-    (=ucs		. #xE1AA)	; 
+  '((=ucs		. #xE1AA)	; 
+    (=big5-pua		. #xFCD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD3)	; 
-    (=ucs		. #xE1AB)	; 
+  '((=ucs		. #xE1AB)	; 
+    (=big5-pua		. #xFCD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD4)	; 
-    (=ucs		. #xE1AC)	; 
+  '((=ucs		. #xE1AC)	; 
+    (=big5-pua		. #xFCD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD5)	; 
-    (=ucs		. #xE1AD)	; 
+  '((=ucs		. #xE1AD)	; 
+    (=big5-pua		. #xFCD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD6)	; 
-    (=ucs		. #xE1AE)	; 
+  '((=ucs		. #xE1AE)	; 
+    (=big5-pua		. #xFCD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD7)	; 
-    (=ucs		. #xE1AF)	; 
+  '((=ucs		. #xE1AF)	; 
+    (=big5-pua		. #xFCD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD8)	; 
-    (=ucs		. #xE1B0)	; 
+  '((=ucs		. #xE1B0)	; 
+    (=big5-pua		. #xFCD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCD9)	; 
-    (=ucs		. #xE1B1)	; 
+  '((=ucs		. #xE1B1)	; 
+    (=big5-pua		. #xFCD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDA)	; 
-    (=ucs		. #xE1B2)	; 
+  '((=ucs		. #xE1B2)	; 
+    (=big5-pua		. #xFCDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDB)	; 
-    (=ucs		. #xE1B3)	; 
+  '((=ucs		. #xE1B3)	; 
+    (=big5-pua		. #xFCDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDC)	; 
-    (=ucs		. #xE1B4)	; 
+  '((=ucs		. #xE1B4)	; 
+    (=big5-pua		. #xFCDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDD)	; 
-    (=ucs		. #xE1B5)	; 
+  '((=ucs		. #xE1B5)	; 
+    (=big5-pua		. #xFCDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDE)	; 
-    (=ucs		. #xE1B6)	; 
+  '((=ucs		. #xE1B6)	; 
+    (=big5-pua		. #xFCDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCDF)	; 
-    (=ucs		. #xE1B7)	; 
+  '((=ucs		. #xE1B7)	; 
+    (=big5-pua		. #xFCDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE0)	; 
-    (=ucs		. #xE1B8)	; 
+  '((=ucs		. #xE1B8)	; 
+    (=big5-pua		. #xFCE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE1)	; 
-    (=ucs		. #xE1B9)	; 
+  '((=ucs		. #xE1B9)	; 
+    (=big5-pua		. #xFCE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE2)	; 
-    (=ucs		. #xE1BA)	; 
+  '((=ucs		. #xE1BA)	; 
+    (=big5-pua		. #xFCE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE3)	; 
-    (=ucs		. #xE1BB)	; 
+  '((=ucs		. #xE1BB)	; 
+    (=big5-pua		. #xFCE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE4)	; 
-    (=ucs		. #xE1BC)	; 
+  '((=ucs		. #xE1BC)	; 
+    (=big5-pua		. #xFCE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE5)	; 
-    (=ucs		. #xE1BD)	; 
+  '((=ucs		. #xE1BD)	; 
+    (=big5-pua		. #xFCE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE6)	; 
-    (=ucs		. #xE1BE)	; 
+  '((=ucs		. #xE1BE)	; 
+    (=big5-pua		. #xFCE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE7)	; 
-    (=ucs		. #xE1BF)	; 
+  '((=ucs		. #xE1BF)	; 
+    (=big5-pua		. #xFCE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE8)	; 
-    (=ucs		. #xE1C0)	; 
+  '((=ucs		. #xE1C0)	; 
+    (=big5-pua		. #xFCE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCE9)	; 
-    (=ucs		. #xE1C1)	; 
+  '((=ucs		. #xE1C1)	; 
+    (=big5-pua		. #xFCE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCEA)	; 
-    (=ucs		. #xE1C2)	; 
+  '((=ucs		. #xE1C2)	; 
+    (=big5-pua		. #xFCEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCEB)	; 
-    (=ucs		. #xE1C3)	; 
+  '((=ucs		. #xE1C3)	; 
+    (=big5-pua		. #xFCEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCEC)	; 
-    (=ucs		. #xE1C4)	; 
+  '((=ucs		. #xE1C4)	; 
+    (=big5-pua		. #xFCEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCED)	; 
-    (=ucs		. #xE1C5)	; 
+  '((=ucs		. #xE1C5)	; 
+    (=big5-pua		. #xFCED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCEE)	; 
-    (=ucs		. #xE1C6)	; 
+  '((=ucs		. #xE1C6)	; 
+    (=big5-pua		. #xFCEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCEF)	; 
-    (=ucs		. #xE1C7)	; 
+  '((=ucs		. #xE1C7)	; 
+    (=big5-pua		. #xFCEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF0)	; 
-    (=ucs		. #xE1C8)	; 
+  '((=ucs		. #xE1C8)	; 
+    (=big5-pua		. #xFCF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF1)	; 
-    (=ucs		. #xE1C9)	; 
+  '((=ucs		. #xE1C9)	; 
+    (=big5-pua		. #xFCF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF2)	; 
-    (=ucs		. #xE1CA)	; 
+  '((=ucs		. #xE1CA)	; 
+    (=big5-pua		. #xFCF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF3)	; 
-    (=ucs		. #xE1CB)	; 
+  '((=ucs		. #xE1CB)	; 
+    (=big5-pua		. #xFCF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF4)	; 
-    (=ucs		. #xE1CC)	; 
+  '((=ucs		. #xE1CC)	; 
+    (=big5-pua		. #xFCF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF5)	; 
-    (=ucs		. #xE1CD)	; 
+  '((=ucs		. #xE1CD)	; 
+    (=big5-pua		. #xFCF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF6)	; 
-    (=ucs		. #xE1CE)	; 
+  '((=ucs		. #xE1CE)	; 
+    (=big5-pua		. #xFCF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF7)	; 
-    (=ucs		. #xE1CF)	; 
+  '((=ucs		. #xE1CF)	; 
+    (=big5-pua		. #xFCF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF8)	; 
-    (=ucs		. #xE1D0)	; 
+  '((=ucs		. #xE1D0)	; 
+    (=big5-pua		. #xFCF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCF9)	; 
-    (=ucs		. #xE1D1)	; 
+  '((=ucs		. #xE1D1)	; 
+    (=big5-pua		. #xFCF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCFA)	; 
-    (=ucs		. #xE1D2)	; 
+  '((=ucs		. #xE1D2)	; 
+    (=big5-pua		. #xFCFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCFB)	; 
-    (=ucs		. #xE1D3)	; 
+  '((=ucs		. #xE1D3)	; 
+    (=big5-pua		. #xFCFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCFC)	; 
-    (=ucs		. #xE1D4)	; 
+  '((=ucs		. #xE1D4)	; 
+    (=big5-pua		. #xFCFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCFD)	; 
-    (=ucs		. #xE1D5)	; 
+  '((=ucs		. #xE1D5)	; 
+    (=big5-pua		. #xFCFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFCFE)	; 
-    (=ucs		. #xE1D6)	; 
+  '((=ucs		. #xE1D6)	; 
+    (=big5-pua		. #xFCFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD40)	; 
-    (=ucs		. #xE1D7)	; 
+  '((=ucs		. #xE1D7)	; 
+    (=big5-pua		. #xFD40)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD41)	; 
-    (=ucs		. #xE1D8)	; 
+  '((=ucs		. #xE1D8)	; 
+    (=big5-pua		. #xFD41)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD42)	; 
-    (=ucs		. #xE1D9)	; 
+  '((=ucs		. #xE1D9)	; 
+    (=big5-pua		. #xFD42)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD43)	; 
-    (=ucs		. #xE1DA)	; 
+  '((=ucs		. #xE1DA)	; 
+    (=big5-pua		. #xFD43)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD44)	; 
-    (=ucs		. #xE1DB)	; 
+  '((=ucs		. #xE1DB)	; 
+    (=big5-pua		. #xFD44)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD45)	; 
-    (=ucs		. #xE1DC)	; 
+  '((=ucs		. #xE1DC)	; 
+    (=big5-pua		. #xFD45)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD46)	; 
-    (=ucs		. #xE1DD)	; 
+  '((=ucs		. #xE1DD)	; 
+    (=big5-pua		. #xFD46)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD47)	; 
-    (=ucs		. #xE1DE)	; 
+  '((=ucs		. #xE1DE)	; 
+    (=big5-pua		. #xFD47)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD48)	; 
-    (=ucs		. #xE1DF)	; 
+  '((=ucs		. #xE1DF)	; 
+    (=big5-pua		. #xFD48)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD49)	; 
-    (=ucs		. #xE1E0)	; 
+  '((=ucs		. #xE1E0)	; 
+    (=big5-pua		. #xFD49)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4A)	; 
-    (=ucs		. #xE1E1)	; 
+  '((=ucs		. #xE1E1)	; 
+    (=big5-pua		. #xFD4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4B)	; 
-    (=ucs		. #xE1E2)	; 
+  '((=ucs		. #xE1E2)	; 
+    (=big5-pua		. #xFD4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4C)	; 
-    (=ucs		. #xE1E3)	; 
+  '((=ucs		. #xE1E3)	; 
+    (=big5-pua		. #xFD4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4D)	; 
-    (=ucs		. #xE1E4)	; 
+  '((=ucs		. #xE1E4)	; 
+    (=big5-pua		. #xFD4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4E)	; 
-    (=ucs		. #xE1E5)	; 
+  '((=ucs		. #xE1E5)	; 
+    (=big5-pua		. #xFD4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD4F)	; 
-    (=ucs		. #xE1E6)	; 
+  '((=ucs		. #xE1E6)	; 
+    (=big5-pua		. #xFD4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD50)	; 
-    (=ucs		. #xE1E7)	; 
+  '((=ucs		. #xE1E7)	; 
+    (=big5-pua		. #xFD50)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD51)	; 
-    (=ucs		. #xE1E8)	; 
+  '((=ucs		. #xE1E8)	; 
+    (=big5-pua		. #xFD51)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD52)	; 
-    (=ucs		. #xE1E9)	; 
+  '((=ucs		. #xE1E9)	; 
+    (=big5-pua		. #xFD52)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD53)	; 
-    (=ucs		. #xE1EA)	; 
+  '((=ucs		. #xE1EA)	; 
+    (=big5-pua		. #xFD53)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD54)	; 
-    (=ucs		. #xE1EB)	; 
+  '((=ucs		. #xE1EB)	; 
+    (=big5-pua		. #xFD54)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD55)	; 
-    (=ucs		. #xE1EC)	; 
+  '((=ucs		. #xE1EC)	; 
+    (=big5-pua		. #xFD55)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD56)	; 
-    (=ucs		. #xE1ED)	; 
+  '((=ucs		. #xE1ED)	; 
+    (=big5-pua		. #xFD56)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD57)	; 
-    (=ucs		. #xE1EE)	; 
+  '((=ucs		. #xE1EE)	; 
+    (=big5-pua		. #xFD57)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD58)	; 
-    (=ucs		. #xE1EF)	; 
+  '((=ucs		. #xE1EF)	; 
+    (=big5-pua		. #xFD58)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD59)	; 
-    (=ucs		. #xE1F0)	; 
+  '((=ucs		. #xE1F0)	; 
+    (=big5-pua		. #xFD59)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5A)	; 
-    (=ucs		. #xE1F1)	; 
+  '((=ucs		. #xE1F1)	; 
+    (=big5-pua		. #xFD5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5B)	; 
-    (=ucs		. #xE1F2)	; 
+  '((=ucs		. #xE1F2)	; 
+    (=big5-pua		. #xFD5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5C)	; 
-    (=ucs		. #xE1F3)	; 
+  '((=ucs		. #xE1F3)	; 
+    (=big5-pua		. #xFD5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5D)	; 
-    (=ucs		. #xE1F4)	; 
+  '((=ucs		. #xE1F4)	; 
+    (=big5-pua		. #xFD5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5E)	; 
-    (=ucs		. #xE1F5)	; 
+  '((=ucs		. #xE1F5)	; 
+    (=big5-pua		. #xFD5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD5F)	; 
-    (=ucs		. #xE1F6)	; 
+  '((=ucs		. #xE1F6)	; 
+    (=big5-pua		. #xFD5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD60)	; 
-    (=ucs		. #xE1F7)	; 
+  '((=ucs		. #xE1F7)	; 
+    (=big5-pua		. #xFD60)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD61)	; 
-    (=ucs		. #xE1F8)	; 
+  '((=ucs		. #xE1F8)	; 
+    (=big5-pua		. #xFD61)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD62)	; 
-    (=ucs		. #xE1F9)	; 
+  '((=ucs		. #xE1F9)	; 
+    (=big5-pua		. #xFD62)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD63)	; 
-    (=ucs		. #xE1FA)	; 
+  '((=ucs		. #xE1FA)	; 
+    (=big5-pua		. #xFD63)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD64)	; 
-    (=ucs		. #xE1FB)	; 
+  '((=ucs		. #xE1FB)	; 
+    (=big5-pua		. #xFD64)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD65)	; 
-    (=ucs		. #xE1FC)	; 
+  '((=ucs		. #xE1FC)	; 
+    (=big5-pua		. #xFD65)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD66)	; 
-    (=ucs		. #xE1FD)	; 
+  '((=ucs		. #xE1FD)	; 
+    (=big5-pua		. #xFD66)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD67)	; 
-    (=ucs		. #xE1FE)	; 
+  '((=ucs		. #xE1FE)	; 
+    (=big5-pua		. #xFD67)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD68)	; 
-    (=ucs		. #xE1FF)	; 
+  '((=ucs		. #xE1FF)	; 
+    (=big5-pua		. #xFD68)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD69)	; 
-    (=ucs		. #xE200)	; 
+  '((=ucs		. #xE200)	; 
+    (=big5-pua		. #xFD69)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6A)	; 
-    (=ucs		. #xE201)	; 
+  '((=ucs		. #xE201)	; 
+    (=big5-pua		. #xFD6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6B)	; 
-    (=ucs		. #xE202)	; 
+  '((=ucs		. #xE202)	; 
+    (=big5-pua		. #xFD6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6C)	; 
-    (=ucs		. #xE203)	; 
+  '((=ucs		. #xE203)	; 
+    (=big5-pua		. #xFD6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6D)	; 
-    (=ucs		. #xE204)	; 
+  '((=ucs		. #xE204)	; 
+    (=big5-pua		. #xFD6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6E)	; 
-    (=ucs		. #xE205)	; 
+  '((=ucs		. #xE205)	; 
+    (=big5-pua		. #xFD6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD6F)	; 
-    (=ucs		. #xE206)	; 
+  '((=ucs		. #xE206)	; 
+    (=big5-pua		. #xFD6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD70)	; 
-    (=ucs		. #xE207)	; 
+  '((=ucs		. #xE207)	; 
+    (=big5-pua		. #xFD70)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD71)	; 
-    (=ucs		. #xE208)	; 
+  '((=ucs		. #xE208)	; 
+    (=big5-pua		. #xFD71)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD72)	; 
-    (=ucs		. #xE209)	; 
+  '((=ucs		. #xE209)	; 
+    (=big5-pua		. #xFD72)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD73)	; 
-    (=ucs		. #xE20A)	; 
+  '((=ucs		. #xE20A)	; 
+    (=big5-pua		. #xFD73)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD74)	; 
-    (=ucs		. #xE20B)	; 
+  '((=ucs		. #xE20B)	; 
+    (=big5-pua		. #xFD74)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD75)	; 
-    (=ucs		. #xE20C)	; 
+  '((=ucs		. #xE20C)	; 
+    (=big5-pua		. #xFD75)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD76)	; 
-    (=ucs		. #xE20D)	; 
+  '((=ucs		. #xE20D)	; 
+    (=big5-pua		. #xFD76)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD77)	; 
-    (=ucs		. #xE20E)	; 
+  '((=ucs		. #xE20E)	; 
+    (=big5-pua		. #xFD77)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD78)	; 
-    (=ucs		. #xE20F)	; 
+  '((=ucs		. #xE20F)	; 
+    (=big5-pua		. #xFD78)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD79)	; 
-    (=ucs		. #xE210)	; 
+  '((=ucs		. #xE210)	; 
+    (=big5-pua		. #xFD79)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD7A)	; 
-    (=ucs		. #xE211)	; 
+  '((=ucs		. #xE211)	; 
+    (=big5-pua		. #xFD7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD7B)	; 
-    (=ucs		. #xE212)	; 
+  '((=ucs		. #xE212)	; 
+    (=big5-pua		. #xFD7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD7C)	; 
-    (=ucs		. #xE213)	; 
+  '((=ucs		. #xE213)	; 
+    (=big5-pua		. #xFD7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD7D)	; 
-    (=ucs		. #xE214)	; 
+  '((=ucs		. #xE214)	; 
+    (=big5-pua		. #xFD7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFD7E)	; 
-    (=ucs		. #xE215)	; 
+  '((=ucs		. #xE215)	; 
+    (=big5-pua		. #xFD7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA1)	; 
-    (=ucs		. #xE216)	; 
+  '((=ucs		. #xE216)	; 
+    (=big5-pua		. #xFDA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA2)	; 
-    (=ucs		. #xE217)	; 
+  '((=ucs		. #xE217)	; 
+    (=big5-pua		. #xFDA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA3)	; 
-    (=ucs		. #xE218)	; 
+  '((=ucs		. #xE218)	; 
+    (=big5-pua		. #xFDA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA4)	; 
-    (=ucs		. #xE219)	; 
+  '((=ucs		. #xE219)	; 
+    (=big5-pua		. #xFDA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA5)	; 
-    (=ucs		. #xE21A)	; 
+  '((=ucs		. #xE21A)	; 
+    (=big5-pua		. #xFDA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA6)	; 
-    (=ucs		. #xE21B)	; 
+  '((=ucs		. #xE21B)	; 
+    (=big5-pua		. #xFDA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA7)	; 
-    (=ucs		. #xE21C)	; 
+  '((=ucs		. #xE21C)	; 
+    (=big5-pua		. #xFDA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA8)	; 
-    (=ucs		. #xE21D)	; 
+  '((=ucs		. #xE21D)	; 
+    (=big5-pua		. #xFDA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDA9)	; 
-    (=ucs		. #xE21E)	; 
+  '((=ucs		. #xE21E)	; 
+    (=big5-pua		. #xFDA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAA)	; 
-    (=ucs		. #xE21F)	; 
+  '((=ucs		. #xE21F)	; 
+    (=big5-pua		. #xFDAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAB)	; 
-    (=ucs		. #xE220)	; 
+  '((=ucs		. #xE220)	; 
+    (=big5-pua		. #xFDAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAC)	; 
-    (=ucs		. #xE221)	; 
+  '((=ucs		. #xE221)	; 
+    (=big5-pua		. #xFDAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAD)	; 
-    (=ucs		. #xE222)	; 
+  '((=ucs		. #xE222)	; 
+    (=big5-pua		. #xFDAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAE)	; 
-    (=ucs		. #xE223)	; 
+  '((=ucs		. #xE223)	; 
+    (=big5-pua		. #xFDAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDAF)	; 
-    (=ucs		. #xE224)	; 
+  '((=ucs		. #xE224)	; 
+    (=big5-pua		. #xFDAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB0)	; 
-    (=ucs		. #xE225)	; 
+  '((=ucs		. #xE225)	; 
+    (=big5-pua		. #xFDB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB1)	; 
-    (=ucs		. #xE226)	; 
+  '((=ucs		. #xE226)	; 
+    (=big5-pua		. #xFDB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB2)	; 
-    (=ucs		. #xE227)	; 
+  '((=ucs		. #xE227)	; 
+    (=big5-pua		. #xFDB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB3)	; 
-    (=ucs		. #xE228)	; 
+  '((=ucs		. #xE228)	; 
+    (=big5-pua		. #xFDB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB4)	; 
-    (=ucs		. #xE229)	; 
+  '((=ucs		. #xE229)	; 
+    (=big5-pua		. #xFDB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB5)	; 
-    (=ucs		. #xE22A)	; 
+  '((=ucs		. #xE22A)	; 
+    (=big5-pua		. #xFDB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB6)	; 
-    (=ucs		. #xE22B)	; 
+  '((=ucs		. #xE22B)	; 
+    (=big5-pua		. #xFDB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB7)	; 
-    (=ucs		. #xE22C)	; 
+  '((=ucs		. #xE22C)	; 
+    (=big5-pua		. #xFDB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB8)	; 
-    (=ucs		. #xE22D)	; 
+  '((=ucs		. #xE22D)	; 
+    (=big5-pua		. #xFDB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDB9)	; 
-    (=ucs		. #xE22E)	; 
+  '((=ucs		. #xE22E)	; 
+    (=big5-pua		. #xFDB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBA)	; 
-    (=ucs		. #xE22F)	; 
+  '((=ucs		. #xE22F)	; 
+    (=big5-pua		. #xFDBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBB)	; 
-    (=ucs		. #xE230)	; 
+  '((=ucs		. #xE230)	; 
+    (=big5-pua		. #xFDBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBC)	; 
-    (=ucs		. #xE231)	; 
+  '((=ucs		. #xE231)	; 
+    (=big5-pua		. #xFDBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBD)	; 
-    (=ucs		. #xE232)	; 
+  '((=ucs		. #xE232)	; 
+    (=big5-pua		. #xFDBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBE)	; 
-    (=ucs		. #xE233)	; 
+  '((=ucs		. #xE233)	; 
+    (=big5-pua		. #xFDBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDBF)	; 
-    (=ucs		. #xE234)	; 
+  '((=ucs		. #xE234)	; 
+    (=big5-pua		. #xFDBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC0)	; 
-    (=ucs		. #xE235)	; 
+  '((=ucs		. #xE235)	; 
+    (=big5-pua		. #xFDC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC1)	; 
-    (=ucs		. #xE236)	; 
+  '((=ucs		. #xE236)	; 
+    (=big5-pua		. #xFDC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC2)	; 
-    (=ucs		. #xE237)	; 
+  '((=ucs		. #xE237)	; 
+    (=big5-pua		. #xFDC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC3)	; 
-    (=ucs		. #xE238)	; 
+  '((=ucs		. #xE238)	; 
+    (=big5-pua		. #xFDC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC4)	; 
-    (=ucs		. #xE239)	; 
+  '((=ucs		. #xE239)	; 
+    (=big5-pua		. #xFDC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC5)	; 
-    (=ucs		. #xE23A)	; 
+  '((=ucs		. #xE23A)	; 
+    (=big5-pua		. #xFDC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC6)	; 
-    (=ucs		. #xE23B)	; 
+  '((=ucs		. #xE23B)	; 
+    (=big5-pua		. #xFDC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC7)	; 
-    (=ucs		. #xE23C)	; 
+  '((=ucs		. #xE23C)	; 
+    (=big5-pua		. #xFDC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC8)	; 
-    (=ucs		. #xE23D)	; 
+  '((=ucs		. #xE23D)	; 
+    (=big5-pua		. #xFDC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDC9)	; 
-    (=ucs		. #xE23E)	; 
+  '((=ucs		. #xE23E)	; 
+    (=big5-pua		. #xFDC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCA)	; 
-    (=ucs		. #xE23F)	; 
+  '((=ucs		. #xE23F)	; 
+    (=big5-pua		. #xFDCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCB)	; 
-    (=ucs		. #xE240)	; 
+  '((=ucs		. #xE240)	; 
+    (=big5-pua		. #xFDCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCC)	; 
-    (=ucs		. #xE241)	; 
+  '((=ucs		. #xE241)	; 
+    (=big5-pua		. #xFDCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCD)	; 
-    (=ucs		. #xE242)	; 
+  '((=ucs		. #xE242)	; 
+    (=big5-pua		. #xFDCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCE)	; 
-    (=ucs		. #xE243)	; 
+  '((=ucs		. #xE243)	; 
+    (=big5-pua		. #xFDCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDCF)	; 
-    (=ucs		. #xE244)	; 
+  '((=ucs		. #xE244)	; 
+    (=big5-pua		. #xFDCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD0)	; 
-    (=ucs		. #xE245)	; 
+  '((=ucs		. #xE245)	; 
+    (=big5-pua		. #xFDD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD1)	; 
-    (=ucs		. #xE246)	; 
+  '((=ucs		. #xE246)	; 
+    (=big5-pua		. #xFDD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD2)	; 
-    (=ucs		. #xE247)	; 
+  '((=ucs		. #xE247)	; 
+    (=big5-pua		. #xFDD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD3)	; 
-    (=ucs		. #xE248)	; 
+  '((=ucs		. #xE248)	; 
+    (=big5-pua		. #xFDD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD4)	; 
-    (=ucs		. #xE249)	; 
+  '((=ucs		. #xE249)	; 
+    (=big5-pua		. #xFDD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD5)	; 
-    (=ucs		. #xE24A)	; 
+  '((=ucs		. #xE24A)	; 
+    (=big5-pua		. #xFDD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD6)	; 
-    (=ucs		. #xE24B)	; 
+  '((=ucs		. #xE24B)	; 
+    (=big5-pua		. #xFDD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD7)	; 
-    (=ucs		. #xE24C)	; 
+  '((=ucs		. #xE24C)	; 
+    (=big5-pua		. #xFDD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD8)	; 
-    (=ucs		. #xE24D)	; 
+  '((=ucs		. #xE24D)	; 
+    (=big5-pua		. #xFDD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDD9)	; 
-    (=ucs		. #xE24E)	; 
+  '((=ucs		. #xE24E)	; 
+    (=big5-pua		. #xFDD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDA)	; 
-    (=ucs		. #xE24F)	; 
+  '((=ucs		. #xE24F)	; 
+    (=big5-pua		. #xFDDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDB)	; 
-    (=ucs		. #xE250)	; 
+  '((=ucs		. #xE250)	; 
+    (=big5-pua		. #xFDDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDC)	; 
-    (=ucs		. #xE251)	; 
+  '((=ucs		. #xE251)	; 
+    (=big5-pua		. #xFDDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDD)	; 
-    (=ucs		. #xE252)	; 
+  '((=ucs		. #xE252)	; 
+    (=big5-pua		. #xFDDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDE)	; 
-    (=ucs		. #xE253)	; 
+  '((=ucs		. #xE253)	; 
+    (=big5-pua		. #xFDDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDDF)	; 
-    (=ucs		. #xE254)	; 
+  '((=ucs		. #xE254)	; 
+    (=big5-pua		. #xFDDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE0)	; 
-    (=ucs		. #xE255)	; 
+  '((=ucs		. #xE255)	; 
+    (=big5-pua		. #xFDE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE1)	; 
-    (=ucs		. #xE256)	; 
+  '((=ucs		. #xE256)	; 
+    (=big5-pua		. #xFDE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE2)	; 
-    (=ucs		. #xE257)	; 
+  '((=ucs		. #xE257)	; 
+    (=big5-pua		. #xFDE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE3)	; 
-    (=ucs		. #xE258)	; 
+  '((=ucs		. #xE258)	; 
+    (=big5-pua		. #xFDE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE4)	; 
-    (=ucs		. #xE259)	; 
+  '((=ucs		. #xE259)	; 
+    (=big5-pua		. #xFDE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE5)	; 
-    (=ucs		. #xE25A)	; 
+  '((=ucs		. #xE25A)	; 
+    (=big5-pua		. #xFDE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE6)	; 
-    (=ucs		. #xE25B)	; 
+  '((=ucs		. #xE25B)	; 
+    (=big5-pua		. #xFDE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE7)	; 
-    (=ucs		. #xE25C)	; 
+  '((=ucs		. #xE25C)	; 
+    (=big5-pua		. #xFDE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE8)	; 
-    (=ucs		. #xE25D)	; 
+  '((=ucs		. #xE25D)	; 
+    (=big5-pua		. #xFDE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDE9)	; 
-    (=ucs		. #xE25E)	; 
+  '((=ucs		. #xE25E)	; 
+    (=big5-pua		. #xFDE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDEA)	; 
-    (=ucs		. #xE25F)	; 
+  '((=ucs		. #xE25F)	; 
+    (=big5-pua		. #xFDEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDEB)	; 
-    (=ucs		. #xE260)	; 
+  '((=ucs		. #xE260)	; 
+    (=big5-pua		. #xFDEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDEC)	; 
-    (=ucs		. #xE261)	; 
+  '((=ucs		. #xE261)	; 
+    (=big5-pua		. #xFDEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDED)	; 
-    (=ucs		. #xE262)	; 
+  '((=ucs		. #xE262)	; 
+    (=big5-pua		. #xFDED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDEE)	; 
-    (=ucs		. #xE263)	; 
+  '((=ucs		. #xE263)	; 
+    (=big5-pua		. #xFDEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDEF)	; 
-    (=ucs		. #xE264)	; 
+  '((=ucs		. #xE264)	; 
+    (=big5-pua		. #xFDEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF0)	; 
-    (=ucs		. #xE265)	; 
+  '((=ucs		. #xE265)	; 
+    (=big5-pua		. #xFDF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF1)	; 
-    (=ucs		. #xE266)	; 
+  '((=ucs		. #xE266)	; 
+    (=big5-pua		. #xFDF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF2)	; 
-    (=ucs		. #xE267)	; 
+  '((=ucs		. #xE267)	; 
+    (=big5-pua		. #xFDF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF3)	; 
-    (=ucs		. #xE268)	; 
+  '((=ucs		. #xE268)	; 
+    (=big5-pua		. #xFDF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF4)	; 
-    (=ucs		. #xE269)	; 
+  '((=ucs		. #xE269)	; 
+    (=big5-pua		. #xFDF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF5)	; 
-    (=ucs		. #xE26A)	; 
+  '((=ucs		. #xE26A)	; 
+    (=big5-pua		. #xFDF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF6)	; 
-    (=ucs		. #xE26B)	; 
+  '((=ucs		. #xE26B)	; 
+    (=big5-pua		. #xFDF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF7)	; 
-    (=ucs		. #xE26C)	; 
+  '((=ucs		. #xE26C)	; 
+    (=big5-pua		. #xFDF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF8)	; 
-    (=ucs		. #xE26D)	; 
+  '((=ucs		. #xE26D)	; 
+    (=big5-pua		. #xFDF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDF9)	; 
-    (=ucs		. #xE26E)	; 
+  '((=ucs		. #xE26E)	; 
+    (=big5-pua		. #xFDF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDFA)	; 
-    (=ucs		. #xE26F)	; 
+  '((=ucs		. #xE26F)	; 
+    (=big5-pua		. #xFDFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDFB)	; 
-    (=ucs		. #xE270)	; 
+  '((=ucs		. #xE270)	; 
+    (=big5-pua		. #xFDFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDFC)	; 
-    (=ucs		. #xE271)	; 
+  '((=ucs		. #xE271)	; 
+    (=big5-pua		. #xFDFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDFD)	; 
-    (=ucs		. #xE272)	; 
+  '((=ucs		. #xE272)	; 
+    (=big5-pua		. #xFDFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFDFE)	; 
-    (=ucs		. #xE273)	; 
+  '((=ucs		. #xE273)	; 
+    (=big5-pua		. #xFDFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE40)	; 
-    (=ucs		. #xE274)	; 
+  '((=ucs		. #xE274)	; 
+    (=big5-pua		. #xFE40)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE41)	; 
-    (=ucs		. #xE275)	; 
+  '((=ucs		. #xE275)	; 
+    (=big5-pua		. #xFE41)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE42)	; 
-    (=ucs		. #xE276)	; 
+  '((=ucs		. #xE276)	; 
+    (=big5-pua		. #xFE42)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE43)	; 
-    (=ucs		. #xE277)	; 
+  '((=ucs		. #xE277)	; 
+    (=big5-pua		. #xFE43)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE44)	; 
-    (=ucs		. #xE278)	; 
+  '((=ucs		. #xE278)	; 
+    (=big5-pua		. #xFE44)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE45)	; 
-    (=ucs		. #xE279)	; 
+  '((=ucs		. #xE279)	; 
+    (=big5-pua		. #xFE45)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE46)	; 
-    (=ucs		. #xE27A)	; 
+  '((=ucs		. #xE27A)	; 
+    (=big5-pua		. #xFE46)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE47)	; 
-    (=ucs		. #xE27B)	; 
+  '((=ucs		. #xE27B)	; 
+    (=big5-pua		. #xFE47)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE48)	; 
-    (=ucs		. #xE27C)	; 
+  '((=ucs		. #xE27C)	; 
+    (=big5-pua		. #xFE48)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE49)	; 
-    (=ucs		. #xE27D)	; 
+  '((=ucs		. #xE27D)	; 
+    (=big5-pua		. #xFE49)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4A)	; 
-    (=ucs		. #xE27E)	; 
+  '((=ucs		. #xE27E)	; 
+    (=big5-pua		. #xFE4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4B)	; 
-    (=ucs		. #xE27F)	; 
+  '((=ucs		. #xE27F)	; 
+    (=big5-pua		. #xFE4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4C)	; 
-    (=ucs		. #xE280)	; 
+  '((=ucs		. #xE280)	; 
+    (=big5-pua		. #xFE4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4D)	; 
-    (=ucs		. #xE281)	; 
+  '((=ucs		. #xE281)	; 
+    (=big5-pua		. #xFE4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4E)	; 
-    (=ucs		. #xE282)	; 
+  '((=ucs		. #xE282)	; 
+    (=big5-pua		. #xFE4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE4F)	; 
-    (=ucs		. #xE283)	; 
+  '((=ucs		. #xE283)	; 
+    (=big5-pua		. #xFE4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE50)	; 
-    (=ucs		. #xE284)	; 
+  '((=ucs		. #xE284)	; 
+    (=big5-pua		. #xFE50)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE51)	; 
-    (=ucs		. #xE285)	; 
+  '((=ucs		. #xE285)	; 
+    (=big5-pua		. #xFE51)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE52)	; 
-    (=ucs		. #xE286)	; 
+  '((=ucs		. #xE286)	; 
+    (=big5-pua		. #xFE52)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE53)	; 
-    (=ucs		. #xE287)	; 
+  '((=ucs		. #xE287)	; 
+    (=big5-pua		. #xFE53)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE54)	; 
-    (=ucs		. #xE288)	; 
+  '((=ucs		. #xE288)	; 
+    (=big5-pua		. #xFE54)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE55)	; 
-    (=ucs		. #xE289)	; 
+  '((=ucs		. #xE289)	; 
+    (=big5-pua		. #xFE55)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE56)	; 
-    (=ucs		. #xE28A)	; 
+  '((=ucs		. #xE28A)	; 
+    (=big5-pua		. #xFE56)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE57)	; 
-    (=ucs		. #xE28B)	; 
+  '((=ucs		. #xE28B)	; 
+    (=big5-pua		. #xFE57)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE58)	; 
-    (=ucs		. #xE28C)	; 
+  '((=ucs		. #xE28C)	; 
+    (=big5-pua		. #xFE58)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE59)	; 
-    (=ucs		. #xE28D)	; 
+  '((=ucs		. #xE28D)	; 
+    (=big5-pua		. #xFE59)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5A)	; 
-    (=ucs		. #xE28E)	; 
+  '((=ucs		. #xE28E)	; 
+    (=big5-pua		. #xFE5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5B)	; 
-    (=ucs		. #xE28F)	; 
+  '((=ucs		. #xE28F)	; 
+    (=big5-pua		. #xFE5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5C)	; 
-    (=ucs		. #xE290)	; 
+  '((=ucs		. #xE290)	; 
+    (=big5-pua		. #xFE5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5D)	; 
-    (=ucs		. #xE291)	; 
+  '((=ucs		. #xE291)	; 
+    (=big5-pua		. #xFE5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5E)	; 
-    (=ucs		. #xE292)	; 
+  '((=ucs		. #xE292)	; 
+    (=big5-pua		. #xFE5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE5F)	; 
-    (=ucs		. #xE293)	; 
+  '((=ucs		. #xE293)	; 
+    (=big5-pua		. #xFE5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE60)	; 
-    (=ucs		. #xE294)	; 
+  '((=ucs		. #xE294)	; 
+    (=big5-pua		. #xFE60)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE61)	; 
-    (=ucs		. #xE295)	; 
+  '((=ucs		. #xE295)	; 
+    (=big5-pua		. #xFE61)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE62)	; 
-    (=ucs		. #xE296)	; 
+  '((=ucs		. #xE296)	; 
+    (=big5-pua		. #xFE62)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE63)	; 
-    (=ucs		. #xE297)	; 
+  '((=ucs		. #xE297)	; 
+    (=big5-pua		. #xFE63)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE64)	; 
-    (=ucs		. #xE298)	; 
+  '((=ucs		. #xE298)	; 
+    (=big5-pua		. #xFE64)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE65)	; 
-    (=ucs		. #xE299)	; 
+  '((=ucs		. #xE299)	; 
+    (=big5-pua		. #xFE65)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE66)	; 
-    (=ucs		. #xE29A)	; 
+  '((=ucs		. #xE29A)	; 
+    (=big5-pua		. #xFE66)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE67)	; 
-    (=ucs		. #xE29B)	; 
+  '((=ucs		. #xE29B)	; 
+    (=big5-pua		. #xFE67)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE68)	; 
-    (=ucs		. #xE29C)	; 
+  '((=ucs		. #xE29C)	; 
+    (=big5-pua		. #xFE68)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE69)	; 
-    (=ucs		. #xE29D)	; 
+  '((=ucs		. #xE29D)	; 
+    (=big5-pua		. #xFE69)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6A)	; 
-    (=ucs		. #xE29E)	; 
+  '((=ucs		. #xE29E)	; 
+    (=big5-pua		. #xFE6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6B)	; 
-    (=ucs		. #xE29F)	; 
+  '((=ucs		. #xE29F)	; 
+    (=big5-pua		. #xFE6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6C)	; 
-    (=ucs		. #xE2A0)	; 
+  '((=ucs		. #xE2A0)	; 
+    (=big5-pua		. #xFE6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6D)	; 
-    (=ucs		. #xE2A1)	; 
+  '((=ucs		. #xE2A1)	; 
+    (=big5-pua		. #xFE6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6E)	; 
-    (=ucs		. #xE2A2)	; 
+  '((=ucs		. #xE2A2)	; 
+    (=big5-pua		. #xFE6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE6F)	; 
-    (=ucs		. #xE2A3)	; 
+  '((=ucs		. #xE2A3)	; 
+    (=big5-pua		. #xFE6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE70)	; 
-    (=ucs		. #xE2A4)	; 
+  '((=ucs		. #xE2A4)	; 
+    (=big5-pua		. #xFE70)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE71)	; 
-    (=ucs		. #xE2A5)	; 
+  '((=ucs		. #xE2A5)	; 
+    (=big5-pua		. #xFE71)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE72)	; 
-    (=ucs		. #xE2A6)	; 
+  '((=ucs		. #xE2A6)	; 
+    (=big5-pua		. #xFE72)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE73)	; 
-    (=ucs		. #xE2A7)	; 
+  '((=ucs		. #xE2A7)	; 
+    (=big5-pua		. #xFE73)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE74)	; 
-    (=ucs		. #xE2A8)	; 
+  '((=ucs		. #xE2A8)	; 
+    (=big5-pua		. #xFE74)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE75)	; 
-    (=ucs		. #xE2A9)	; 
+  '((=ucs		. #xE2A9)	; 
+    (=big5-pua		. #xFE75)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE76)	; 
-    (=ucs		. #xE2AA)	; 
+  '((=ucs		. #xE2AA)	; 
+    (=big5-pua		. #xFE76)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE77)	; 
-    (=ucs		. #xE2AB)	; 
+  '((=ucs		. #xE2AB)	; 
+    (=big5-pua		. #xFE77)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE78)	; 
-    (=ucs		. #xE2AC)	; 
+  '((=ucs		. #xE2AC)	; 
+    (=big5-pua		. #xFE78)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE79)	; 
-    (=ucs		. #xE2AD)	; 
+  '((=ucs		. #xE2AD)	; 
+    (=big5-pua		. #xFE79)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE7A)	; 
-    (=ucs		. #xE2AE)	; 
+  '((=ucs		. #xE2AE)	; 
+    (=big5-pua		. #xFE7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE7B)	; 
-    (=ucs		. #xE2AF)	; 
+  '((=ucs		. #xE2AF)	; 
+    (=big5-pua		. #xFE7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE7C)	; 
-    (=ucs		. #xE2B0)	; 
+  '((=ucs		. #xE2B0)	; 
+    (=big5-pua		. #xFE7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE7D)	; 
-    (=ucs		. #xE2B1)	; 
+  '((=ucs		. #xE2B1)	; 
+    (=big5-pua		. #xFE7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFE7E)	; 
-    (=ucs		. #xE2B2)	; 
+  '((=ucs		. #xE2B2)	; 
+    (=big5-pua		. #xFE7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA1)	; 
-    (=ucs		. #xE2B3)	; 
+  '((=ucs		. #xE2B3)	; 
+    (=big5-pua		. #xFEA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA2)	; 
-    (=ucs		. #xE2B4)	; 
+  '((=ucs		. #xE2B4)	; 
+    (=big5-pua		. #xFEA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA3)	; 
-    (=ucs		. #xE2B5)	; 
+  '((=ucs		. #xE2B5)	; 
+    (=big5-pua		. #xFEA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA4)	; 
-    (=ucs		. #xE2B6)	; 
+  '((=ucs		. #xE2B6)	; 
+    (=big5-pua		. #xFEA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA5)	; 
-    (=ucs		. #xE2B7)	; 
+  '((=ucs		. #xE2B7)	; 
+    (=big5-pua		. #xFEA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA6)	; 
-    (=ucs		. #xE2B8)	; 
+  '((=ucs		. #xE2B8)	; 
+    (=big5-pua		. #xFEA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA7)	; 
-    (=ucs		. #xE2B9)	; 
+  '((=ucs		. #xE2B9)	; 
+    (=big5-pua		. #xFEA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA8)	; 
-    (=ucs		. #xE2BA)	; 
+  '((=ucs		. #xE2BA)	; 
+    (=big5-pua		. #xFEA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEA9)	; 
-    (=ucs		. #xE2BB)	; 
+  '((=ucs		. #xE2BB)	; 
+    (=big5-pua		. #xFEA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAA)	; 
-    (=ucs		. #xE2BC)	; 
+  '((=ucs		. #xE2BC)	; 
+    (=big5-pua		. #xFEAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAB)	; 
-    (=ucs		. #xE2BD)	; 
+  '((=ucs		. #xE2BD)	; 
+    (=big5-pua		. #xFEAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAC)	; 
-    (=ucs		. #xE2BE)	; 
+  '((=ucs		. #xE2BE)	; 
+    (=big5-pua		. #xFEAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAD)	; 
-    (=ucs		. #xE2BF)	; 
+  '((=ucs		. #xE2BF)	; 
+    (=big5-pua		. #xFEAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAE)	; 
-    (=ucs		. #xE2C0)	; 
+  '((=ucs		. #xE2C0)	; 
+    (=big5-pua		. #xFEAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEAF)	; 
-    (=ucs		. #xE2C1)	; 
+  '((=ucs		. #xE2C1)	; 
+    (=big5-pua		. #xFEAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB0)	; 
-    (=ucs		. #xE2C2)	; 
+  '((=ucs		. #xE2C2)	; 
+    (=big5-pua		. #xFEB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB1)	; 
-    (=ucs		. #xE2C3)	; 
+  '((=ucs		. #xE2C3)	; 
+    (=big5-pua		. #xFEB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB2)	; 
-    (=ucs		. #xE2C4)	; 
+  '((=ucs		. #xE2C4)	; 
+    (=big5-pua		. #xFEB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB3)	; 
-    (=ucs		. #xE2C5)	; 
+  '((=ucs		. #xE2C5)	; 
+    (=big5-pua		. #xFEB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB4)	; 
-    (=ucs		. #xE2C6)	; 
+  '((=ucs		. #xE2C6)	; 
+    (=big5-pua		. #xFEB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB5)	; 
-    (=ucs		. #xE2C7)	; 
+  '((=ucs		. #xE2C7)	; 
+    (=big5-pua		. #xFEB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB6)	; 
-    (=ucs		. #xE2C8)	; 
+  '((=ucs		. #xE2C8)	; 
+    (=big5-pua		. #xFEB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB7)	; 
-    (=ucs		. #xE2C9)	; 
+  '((=ucs		. #xE2C9)	; 
+    (=big5-pua		. #xFEB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB8)	; 
-    (=ucs		. #xE2CA)	; 
+  '((=ucs		. #xE2CA)	; 
+    (=big5-pua		. #xFEB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEB9)	; 
-    (=ucs		. #xE2CB)	; 
+  '((=ucs		. #xE2CB)	; 
+    (=big5-pua		. #xFEB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBA)	; 
-    (=ucs		. #xE2CC)	; 
+  '((=ucs		. #xE2CC)	; 
+    (=big5-pua		. #xFEBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBB)	; 
-    (=ucs		. #xE2CD)	; 
+  '((=ucs		. #xE2CD)	; 
+    (=big5-pua		. #xFEBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBC)	; 
-    (=ucs		. #xE2CE)	; 
+  '((=ucs		. #xE2CE)	; 
+    (=big5-pua		. #xFEBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBD)	; 
-    (=ucs		. #xE2CF)	; 
+  '((=ucs		. #xE2CF)	; 
+    (=big5-pua		. #xFEBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBE)	; 
-    (=ucs		. #xE2D0)	; 
+  '((=ucs		. #xE2D0)	; 
+    (=big5-pua		. #xFEBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEBF)	; 
-    (=ucs		. #xE2D1)	; 
+  '((=ucs		. #xE2D1)	; 
+    (=big5-pua		. #xFEBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC0)	; 
-    (=ucs		. #xE2D2)	; 
+  '((=ucs		. #xE2D2)	; 
+    (=big5-pua		. #xFEC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC1)	; 
-    (=ucs		. #xE2D3)	; 
+  '((=ucs		. #xE2D3)	; 
+    (=big5-pua		. #xFEC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC2)	; 
-    (=ucs		. #xE2D4)	; 
+  '((=ucs		. #xE2D4)	; 
+    (=big5-pua		. #xFEC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC3)	; 
-    (=ucs		. #xE2D5)	; 
+  '((=ucs		. #xE2D5)	; 
+    (=big5-pua		. #xFEC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC4)	; 
-    (=ucs		. #xE2D6)	; 
+  '((=ucs		. #xE2D6)	; 
+    (=big5-pua		. #xFEC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC5)	; 
-    (=ucs		. #xE2D7)	; 
+  '((=ucs		. #xE2D7)	; 
+    (=big5-pua		. #xFEC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC6)	; 
-    (=ucs		. #xE2D8)	; 
+  '((=ucs		. #xE2D8)	; 
+    (=big5-pua		. #xFEC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC7)	; 
-    (=ucs		. #xE2D9)	; 
+  '((=ucs		. #xE2D9)	; 
+    (=big5-pua		. #xFEC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC8)	; 
-    (=ucs		. #xE2DA)	; 
+  '((=ucs		. #xE2DA)	; 
+    (=big5-pua		. #xFEC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEC9)	; 
-    (=ucs		. #xE2DB)	; 
+  '((=ucs		. #xE2DB)	; 
+    (=big5-pua		. #xFEC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECA)	; 
-    (=ucs		. #xE2DC)	; 
+  '((=ucs		. #xE2DC)	; 
+    (=big5-pua		. #xFECA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECB)	; 
-    (=ucs		. #xE2DD)	; 
+  '((=ucs		. #xE2DD)	; 
+    (=big5-pua		. #xFECB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECC)	; 
-    (=ucs		. #xE2DE)	; 
+  '((=ucs		. #xE2DE)	; 
+    (=big5-pua		. #xFECC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECD)	; 
-    (=ucs		. #xE2DF)	; 
+  '((=ucs		. #xE2DF)	; 
+    (=big5-pua		. #xFECD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECE)	; 
-    (=ucs		. #xE2E0)	; 
+  '((=ucs		. #xE2E0)	; 
+    (=big5-pua		. #xFECE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFECF)	; 
-    (=ucs		. #xE2E1)	; 
+  '((=ucs		. #xE2E1)	; 
+    (=big5-pua		. #xFECF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED0)	; 
-    (=ucs		. #xE2E2)	; 
+  '((=ucs		. #xE2E2)	; 
+    (=big5-pua		. #xFED0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED1)	; 
-    (=ucs		. #xE2E3)	; 
+  '((=ucs		. #xE2E3)	; 
+    (=big5-pua		. #xFED1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED2)	; 
-    (=ucs		. #xE2E4)	; 
+  '((=ucs		. #xE2E4)	; 
+    (=big5-pua		. #xFED2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED3)	; 
-    (=ucs		. #xE2E5)	; 
+  '((=ucs		. #xE2E5)	; 
+    (=big5-pua		. #xFED3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED4)	; 
-    (=ucs		. #xE2E6)	; 
+  '((=ucs		. #xE2E6)	; 
+    (=big5-pua		. #xFED4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED5)	; 
-    (=ucs		. #xE2E7)	; 
+  '((=ucs		. #xE2E7)	; 
+    (=big5-pua		. #xFED5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED6)	; 
-    (=ucs		. #xE2E8)	; 
+  '((=ucs		. #xE2E8)	; 
+    (=big5-pua		. #xFED6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED7)	; 
-    (=ucs		. #xE2E9)	; 
+  '((=ucs		. #xE2E9)	; 
+    (=big5-pua		. #xFED7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED8)	; 
-    (=ucs		. #xE2EA)	; 
+  '((=ucs		. #xE2EA)	; 
+    (=big5-pua		. #xFED8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFED9)	; 
-    (=ucs		. #xE2EB)	; 
+  '((=ucs		. #xE2EB)	; 
+    (=big5-pua		. #xFED9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDA)	; 
-    (=ucs		. #xE2EC)	; 
+  '((=ucs		. #xE2EC)	; 
+    (=big5-pua		. #xFEDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDB)	; 
-    (=ucs		. #xE2ED)	; 
+  '((=ucs		. #xE2ED)	; 
+    (=big5-pua		. #xFEDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDC)	; 
-    (=ucs		. #xE2EE)	; 
+  '((=ucs		. #xE2EE)	; 
+    (=big5-pua		. #xFEDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDD)	; 
-    (=ucs		. #xE2EF)	; 
+  '((=ucs		. #xE2EF)	; 
+    (=big5-pua		. #xFEDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDE)	; 
-    (=ucs		. #xE2F0)	; 
+  '((=ucs		. #xE2F0)	; 
+    (=big5-pua		. #xFEDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEDF)	; 
-    (=ucs		. #xE2F1)	; 
+  '((=ucs		. #xE2F1)	; 
+    (=big5-pua		. #xFEDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE0)	; 
-    (=ucs		. #xE2F2)	; 
+  '((=ucs		. #xE2F2)	; 
+    (=big5-pua		. #xFEE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE1)	; 
-    (=ucs		. #xE2F3)	; 
+  '((=ucs		. #xE2F3)	; 
+    (=big5-pua		. #xFEE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE2)	; 
-    (=ucs		. #xE2F4)	; 
+  '((=ucs		. #xE2F4)	; 
+    (=big5-pua		. #xFEE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE3)	; 
-    (=ucs		. #xE2F5)	; 
+  '((=ucs		. #xE2F5)	; 
+    (=big5-pua		. #xFEE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE4)	; 
-    (=ucs		. #xE2F6)	; 
+  '((=ucs		. #xE2F6)	; 
+    (=big5-pua		. #xFEE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE5)	; 
-    (=ucs		. #xE2F7)	; 
+  '((=ucs		. #xE2F7)	; 
+    (=big5-pua		. #xFEE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE6)	; 
-    (=ucs		. #xE2F8)	; 
+  '((=ucs		. #xE2F8)	; 
+    (=big5-pua		. #xFEE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE7)	; 
-    (=ucs		. #xE2F9)	; 
+  '((=ucs		. #xE2F9)	; 
+    (=big5-pua		. #xFEE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE8)	; 
-    (=ucs		. #xE2FA)	; 
+  '((=ucs		. #xE2FA)	; 
+    (=big5-pua		. #xFEE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEE9)	; 
-    (=ucs		. #xE2FB)	; 
+  '((=ucs		. #xE2FB)	; 
+    (=big5-pua		. #xFEE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEEA)	; 
-    (=ucs		. #xE2FC)	; 
+  '((=ucs		. #xE2FC)	; 
+    (=big5-pua		. #xFEEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEEB)	; 
-    (=ucs		. #xE2FD)	; 
+  '((=ucs		. #xE2FD)	; 
+    (=big5-pua		. #xFEEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEEC)	; 
-    (=ucs		. #xE2FE)	; 
+  '((=ucs		. #xE2FE)	; 
+    (=big5-pua		. #xFEEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEED)	; 
-    (=ucs		. #xE2FF)	; 
+  '((=ucs		. #xE2FF)	; 
+    (=big5-pua		. #xFEED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEEE)	; 
-    (=ucs		. #xE300)	; 
+  '((=ucs		. #xE300)	; 
+    (=big5-pua		. #xFEEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEEF)	; 
-    (=ucs		. #xE301)	; 
+  '((=ucs		. #xE301)	; 
+    (=big5-pua		. #xFEEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF0)	; 
-    (=ucs		. #xE302)	; 
+  '((=ucs		. #xE302)	; 
+    (=big5-pua		. #xFEF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF1)	; 
-    (=ucs		. #xE303)	; 
+  '((=ucs		. #xE303)	; 
+    (=big5-pua		. #xFEF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF2)	; 
-    (=ucs		. #xE304)	; 
+  '((=ucs		. #xE304)	; 
+    (=big5-pua		. #xFEF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF3)	; 
-    (=ucs		. #xE305)	; 
+  '((=ucs		. #xE305)	; 
+    (=big5-pua		. #xFEF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF4)	; 
-    (=ucs		. #xE306)	; 
+  '((=ucs		. #xE306)	; 
+    (=big5-pua		. #xFEF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF5)	; 
-    (=ucs		. #xE307)	; 
+  '((=ucs		. #xE307)	; 
+    (=big5-pua		. #xFEF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF6)	; 
-    (=ucs		. #xE308)	; 
+  '((=ucs		. #xE308)	; 
+    (=big5-pua		. #xFEF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF7)	; 
-    (=ucs		. #xE309)	; 
+  '((=ucs		. #xE309)	; 
+    (=big5-pua		. #xFEF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF8)	; 
-    (=ucs		. #xE30A)	; 
+  '((=ucs		. #xE30A)	; 
+    (=big5-pua		. #xFEF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEF9)	; 
-    (=ucs		. #xE30B)	; 
+  '((=ucs		. #xE30B)	; 
+    (=big5-pua		. #xFEF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEFA)	; 
-    (=ucs		. #xE30C)	; 
+  '((=ucs		. #xE30C)	; 
+    (=big5-pua		. #xFEFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEFB)	; 
-    (=ucs		. #xE30D)	; 
+  '((=ucs		. #xE30D)	; 
+    (=big5-pua		. #xFEFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEFC)	; 
-    (=ucs		. #xE30E)	; 
+  '((=ucs		. #xE30E)	; 
+    (=big5-pua		. #xFEFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEFD)	; 
-    (=ucs		. #xE30F)	; 
+  '((=ucs		. #xE30F)	; 
+    (=big5-pua		. #xFEFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xFEFE)	; 
-    (=ucs		. #xE310)	; 
+  '((=ucs		. #xE310)	; 
+    (=big5-pua		. #xFEFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E40)	; 
-    (=ucs		. #xE311)	; 
+  '((=ucs		. #xE311)	; 
+    (=big5-pua		. #x8E40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E41)	; 
-    (=ucs		. #xE312)	; 
+  '((=ucs		. #xE312)	; 
+    (=big5-pua		. #x8E41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E42)	; 
-    (=ucs		. #xE313)	; 
+  '((=ucs		. #xE313)	; 
+    (=big5-pua		. #x8E42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E43)	; 
-    (=ucs		. #xE314)	; 
+  '((=ucs		. #xE314)	; 
+    (=big5-pua		. #x8E43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E44)	; 
-    (=ucs		. #xE315)	; 
+  '((=ucs		. #xE315)	; 
+    (=big5-pua		. #x8E44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E45)	; 
-    (=ucs		. #xE316)	; 
+  '((=ucs		. #xE316)	; 
+    (=big5-pua		. #x8E45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E46)	; 
-    (=ucs		. #xE317)	; 
+  '((=ucs		. #xE317)	; 
+    (=big5-pua		. #x8E46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E47)	; 
-    (=ucs		. #xE318)	; 
+  '((=ucs		. #xE318)	; 
+    (=big5-pua		. #x8E47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E48)	; 
-    (=ucs		. #xE319)	; 
+  '((=ucs		. #xE319)	; 
+    (=big5-pua		. #x8E48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E49)	; 
-    (=ucs		. #xE31A)	; 
+  '((=ucs		. #xE31A)	; 
+    (=big5-pua		. #x8E49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4A)	; 
-    (=ucs		. #xE31B)	; 
+  '((=ucs		. #xE31B)	; 
+    (=big5-pua		. #x8E4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4B)	; 
-    (=ucs		. #xE31C)	; 
+  '((=ucs		. #xE31C)	; 
+    (=big5-pua		. #x8E4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4C)	; 
-    (=ucs		. #xE31D)	; 
+  '((=ucs		. #xE31D)	; 
+    (=big5-pua		. #x8E4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4D)	; 
-    (=ucs		. #xE31E)	; 
+  '((=ucs		. #xE31E)	; 
+    (=big5-pua		. #x8E4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4E)	; 
-    (=ucs		. #xE31F)	; 
+  '((=ucs		. #xE31F)	; 
+    (=big5-pua		. #x8E4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E4F)	; 
-    (=ucs		. #xE320)	; 
+  '((=ucs		. #xE320)	; 
+    (=big5-pua		. #x8E4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E50)	; 
-    (=ucs		. #xE321)	; 
+  '((=ucs		. #xE321)	; 
+    (=big5-pua		. #x8E50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E51)	; 
-    (=ucs		. #xE322)	; 
+  '((=ucs		. #xE322)	; 
+    (=big5-pua		. #x8E51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E52)	; 
-    (=ucs		. #xE323)	; 
+  '((=ucs		. #xE323)	; 
+    (=big5-pua		. #x8E52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E53)	; 
-    (=ucs		. #xE324)	; 
+  '((=ucs		. #xE324)	; 
+    (=big5-pua		. #x8E53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E54)	; 
-    (=ucs		. #xE325)	; 
+  '((=ucs		. #xE325)	; 
+    (=big5-pua		. #x8E54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E55)	; 
-    (=ucs		. #xE326)	; 
+  '((=ucs		. #xE326)	; 
+    (=big5-pua		. #x8E55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E56)	; 
-    (=ucs		. #xE327)	; 
+  '((=ucs		. #xE327)	; 
+    (=big5-pua		. #x8E56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E57)	; 
-    (=ucs		. #xE328)	; 
+  '((=ucs		. #xE328)	; 
+    (=big5-pua		. #x8E57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E58)	; 
-    (=ucs		. #xE329)	; 
+  '((=ucs		. #xE329)	; 
+    (=big5-pua		. #x8E58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E59)	; 
-    (=ucs		. #xE32A)	; 
+  '((=ucs		. #xE32A)	; 
+    (=big5-pua		. #x8E59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5A)	; 
-    (=ucs		. #xE32B)	; 
+  '((=ucs		. #xE32B)	; 
+    (=big5-pua		. #x8E5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5B)	; 
-    (=ucs		. #xE32C)	; 
+  '((=ucs		. #xE32C)	; 
+    (=big5-pua		. #x8E5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5C)	; 
-    (=ucs		. #xE32D)	; 
+  '((=ucs		. #xE32D)	; 
+    (=big5-pua		. #x8E5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5D)	; 
-    (=ucs		. #xE32E)	; 
+  '((=ucs		. #xE32E)	; 
+    (=big5-pua		. #x8E5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5E)	; 
-    (=ucs		. #xE32F)	; 
+  '((=ucs		. #xE32F)	; 
+    (=big5-pua		. #x8E5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E5F)	; 
-    (=ucs		. #xE330)	; 
+  '((=ucs		. #xE330)	; 
+    (=big5-pua		. #x8E5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E60)	; 
-    (=ucs		. #xE331)	; 
+  '((=ucs		. #xE331)	; 
+    (=big5-pua		. #x8E60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E61)	; 
-    (=ucs		. #xE332)	; 
+  '((=ucs		. #xE332)	; 
+    (=big5-pua		. #x8E61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E62)	; 
-    (=ucs		. #xE333)	; 
+  '((=ucs		. #xE333)	; 
+    (=big5-pua		. #x8E62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E63)	; 
-    (=ucs		. #xE334)	; 
+  '((=ucs		. #xE334)	; 
+    (=big5-pua		. #x8E63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E64)	; 
-    (=ucs		. #xE335)	; 
+  '((=ucs		. #xE335)	; 
+    (=big5-pua		. #x8E64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E65)	; 
-    (=ucs		. #xE336)	; 
+  '((=ucs		. #xE336)	; 
+    (=big5-pua		. #x8E65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E66)	; 
-    (=ucs		. #xE337)	; 
+  '((=ucs		. #xE337)	; 
+    (=big5-pua		. #x8E66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E67)	; 
-    (=ucs		. #xE338)	; 
+  '((=ucs		. #xE338)	; 
+    (=big5-pua		. #x8E67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E68)	; 
-    (=ucs		. #xE339)	; 
+  '((=ucs		. #xE339)	; 
+    (=big5-pua		. #x8E68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E69)	; 
-    (=ucs		. #xE33A)	; 
+  '((=ucs		. #xE33A)	; 
+    (=big5-pua		. #x8E69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6A)	; 
-    (=ucs		. #xE33B)	; 
+  '((=ucs		. #xE33B)	; 
+    (=big5-pua		. #x8E6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6B)	; 
-    (=ucs		. #xE33C)	; 
+  '((=ucs		. #xE33C)	; 
+    (=big5-pua		. #x8E6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6C)	; 
-    (=ucs		. #xE33D)	; 
+  '((=ucs		. #xE33D)	; 
+    (=big5-pua		. #x8E6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6D)	; 
-    (=ucs		. #xE33E)	; 
+  '((=ucs		. #xE33E)	; 
+    (=big5-pua		. #x8E6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6E)	; 
-    (=ucs		. #xE33F)	; 
+  '((=ucs		. #xE33F)	; 
+    (=big5-pua		. #x8E6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E6F)	; 
-    (=ucs		. #xE340)	; 
+  '((=ucs		. #xE340)	; 
+    (=big5-pua		. #x8E6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E70)	; 
-    (=ucs		. #xE341)	; 
+  '((=ucs		. #xE341)	; 
+    (=big5-pua		. #x8E70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E71)	; 
-    (=ucs		. #xE342)	; 
+  '((=ucs		. #xE342)	; 
+    (=big5-pua		. #x8E71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E72)	; 
-    (=ucs		. #xE343)	; 
+  '((=ucs		. #xE343)	; 
+    (=big5-pua		. #x8E72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E73)	; 
-    (=ucs		. #xE344)	; 
+  '((=ucs		. #xE344)	; 
+    (=big5-pua		. #x8E73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E74)	; 
-    (=ucs		. #xE345)	; 
+  '((=ucs		. #xE345)	; 
+    (=big5-pua		. #x8E74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E75)	; 
-    (=ucs		. #xE346)	; 
+  '((=ucs		. #xE346)	; 
+    (=big5-pua		. #x8E75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E76)	; 
-    (=ucs		. #xE347)	; 
+  '((=ucs		. #xE347)	; 
+    (=big5-pua		. #x8E76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E77)	; 
-    (=ucs		. #xE348)	; 
+  '((=ucs		. #xE348)	; 
+    (=big5-pua		. #x8E77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E78)	; 
-    (=ucs		. #xE349)	; 
+  '((=ucs		. #xE349)	; 
+    (=big5-pua		. #x8E78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E79)	; 
-    (=ucs		. #xE34A)	; 
+  '((=ucs		. #xE34A)	; 
+    (=big5-pua		. #x8E79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E7A)	; 
-    (=ucs		. #xE34B)	; 
+  '((=ucs		. #xE34B)	; 
+    (=big5-pua		. #x8E7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E7B)	; 
-    (=ucs		. #xE34C)	; 
+  '((=ucs		. #xE34C)	; 
+    (=big5-pua		. #x8E7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E7C)	; 
-    (=ucs		. #xE34D)	; 
+  '((=ucs		. #xE34D)	; 
+    (=big5-pua		. #x8E7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E7D)	; 
-    (=ucs		. #xE34E)	; 
+  '((=ucs		. #xE34E)	; 
+    (=big5-pua		. #x8E7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8E7E)	; 
-    (=ucs		. #xE34F)	; 
+  '((=ucs		. #xE34F)	; 
+    (=big5-pua		. #x8E7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA1)	; 
-    (=ucs		. #xE350)	; 
+  '((=ucs		. #xE350)	; 
+    (=big5-pua		. #x8EA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA2)	; 
-    (=ucs		. #xE351)	; 
+  '((=ucs		. #xE351)	; 
+    (=big5-pua		. #x8EA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA3)	; 
-    (=ucs		. #xE352)	; 
+  '((=ucs		. #xE352)	; 
+    (=big5-pua		. #x8EA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA4)	; 
-    (=ucs		. #xE353)	; 
+  '((=ucs		. #xE353)	; 
+    (=big5-pua		. #x8EA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA5)	; 
-    (=ucs		. #xE354)	; 
+  '((=ucs		. #xE354)	; 
+    (=big5-pua		. #x8EA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA6)	; 
-    (=ucs		. #xE355)	; 
+  '((=ucs		. #xE355)	; 
+    (=big5-pua		. #x8EA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA7)	; 
-    (=ucs		. #xE356)	; 
+  '((=ucs		. #xE356)	; 
+    (=big5-pua		. #x8EA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA8)	; 
-    (=ucs		. #xE357)	; 
+  '((=ucs		. #xE357)	; 
+    (=big5-pua		. #x8EA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EA9)	; 
-    (=ucs		. #xE358)	; 
+  '((=ucs		. #xE358)	; 
+    (=big5-pua		. #x8EA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAA)	; 
-    (=ucs		. #xE359)	; 
+  '((=ucs		. #xE359)	; 
+    (=big5-pua		. #x8EAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAB)	; 
-    (=ucs		. #xE35A)	; 
+  '((=ucs		. #xE35A)	; 
+    (=big5-pua		. #x8EAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAC)	; 
-    (=ucs		. #xE35B)	; 
+  '((=ucs		. #xE35B)	; 
+    (=big5-pua		. #x8EAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAD)	; 
-    (=ucs		. #xE35C)	; 
+  '((=ucs		. #xE35C)	; 
+    (=big5-pua		. #x8EAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAE)	; 
-    (=ucs		. #xE35D)	; 
+  '((=ucs		. #xE35D)	; 
+    (=big5-pua		. #x8EAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EAF)	; 
-    (=ucs		. #xE35E)	; 
+  '((=ucs		. #xE35E)	; 
+    (=big5-pua		. #x8EAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB0)	; 
-    (=ucs		. #xE35F)	; 
+  '((=ucs		. #xE35F)	; 
+    (=big5-pua		. #x8EB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB1)	; 
-    (=ucs		. #xE360)	; 
+  '((=ucs		. #xE360)	; 
+    (=big5-pua		. #x8EB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB2)	; 
-    (=ucs		. #xE361)	; 
+  '((=ucs		. #xE361)	; 
+    (=big5-pua		. #x8EB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB3)	; 
-    (=ucs		. #xE362)	; 
+  '((=ucs		. #xE362)	; 
+    (=big5-pua		. #x8EB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB4)	; 
-    (=ucs		. #xE363)	; 
+  '((=ucs		. #xE363)	; 
+    (=big5-pua		. #x8EB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB5)	; 
-    (=ucs		. #xE364)	; 
+  '((=ucs		. #xE364)	; 
+    (=big5-pua		. #x8EB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB6)	; 
-    (=ucs		. #xE365)	; 
+  '((=ucs		. #xE365)	; 
+    (=big5-pua		. #x8EB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB7)	; 
-    (=ucs		. #xE366)	; 
+  '((=ucs		. #xE366)	; 
+    (=big5-pua		. #x8EB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB8)	; 
-    (=ucs		. #xE367)	; 
+  '((=ucs		. #xE367)	; 
+    (=big5-pua		. #x8EB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EB9)	; 
-    (=ucs		. #xE368)	; 
+  '((=ucs		. #xE368)	; 
+    (=big5-pua		. #x8EB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBA)	; 
-    (=ucs		. #xE369)	; 
+  '((=ucs		. #xE369)	; 
+    (=big5-pua		. #x8EBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBB)	; 
-    (=ucs		. #xE36A)	; 
+  '((=ucs		. #xE36A)	; 
+    (=big5-pua		. #x8EBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBC)	; 
-    (=ucs		. #xE36B)	; 
+  '((=ucs		. #xE36B)	; 
+    (=big5-pua		. #x8EBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBD)	; 
-    (=ucs		. #xE36C)	; 
+  '((=ucs		. #xE36C)	; 
+    (=big5-pua		. #x8EBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBE)	; 
-    (=ucs		. #xE36D)	; 
+  '((=ucs		. #xE36D)	; 
+    (=big5-pua		. #x8EBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EBF)	; 
-    (=ucs		. #xE36E)	; 
+  '((=ucs		. #xE36E)	; 
+    (=big5-pua		. #x8EBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC0)	; 
-    (=ucs		. #xE36F)	; 
+  '((=ucs		. #xE36F)	; 
+    (=big5-pua		. #x8EC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC1)	; 
-    (=ucs		. #xE370)	; 
+  '((=ucs		. #xE370)	; 
+    (=big5-pua		. #x8EC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC2)	; 
-    (=ucs		. #xE371)	; 
+  '((=ucs		. #xE371)	; 
+    (=big5-pua		. #x8EC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC3)	; 
-    (=ucs		. #xE372)	; 
+  '((=ucs		. #xE372)	; 
+    (=big5-pua		. #x8EC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC4)	; 
-    (=ucs		. #xE373)	; 
+  '((=ucs		. #xE373)	; 
+    (=big5-pua		. #x8EC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC5)	; 
-    (=ucs		. #xE374)	; 
+  '((=ucs		. #xE374)	; 
+    (=big5-pua		. #x8EC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC6)	; 
-    (=ucs		. #xE375)	; 
+  '((=ucs		. #xE375)	; 
+    (=big5-pua		. #x8EC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC7)	; 
-    (=ucs		. #xE376)	; 
+  '((=ucs		. #xE376)	; 
+    (=big5-pua		. #x8EC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC8)	; 
-    (=ucs		. #xE377)	; 
+  '((=ucs		. #xE377)	; 
+    (=big5-pua		. #x8EC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EC9)	; 
-    (=ucs		. #xE378)	; 
+  '((=ucs		. #xE378)	; 
+    (=big5-pua		. #x8EC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECA)	; 
-    (=ucs		. #xE379)	; 
+  '((=ucs		. #xE379)	; 
+    (=big5-pua		. #x8ECA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECB)	; 
-    (=ucs		. #xE37A)	; 
+  '((=ucs		. #xE37A)	; 
+    (=big5-pua		. #x8ECB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECC)	; 
-    (=ucs		. #xE37B)	; 
+  '((=ucs		. #xE37B)	; 
+    (=big5-pua		. #x8ECC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECD)	; 
-    (=ucs		. #xE37C)	; 
+  '((=ucs		. #xE37C)	; 
+    (=big5-pua		. #x8ECD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECE)	; 
-    (=ucs		. #xE37D)	; 
+  '((=ucs		. #xE37D)	; 
+    (=big5-pua		. #x8ECE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ECF)	; 
-    (=ucs		. #xE37E)	; 
+  '((=ucs		. #xE37E)	; 
+    (=big5-pua		. #x8ECF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED0)	; 
-    (=ucs		. #xE37F)	; 
+  '((=ucs		. #xE37F)	; 
+    (=big5-pua		. #x8ED0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED1)	; 
-    (=ucs		. #xE380)	; 
+  '((=ucs		. #xE380)	; 
+    (=big5-pua		. #x8ED1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED2)	; 
-    (=ucs		. #xE381)	; 
+  '((=ucs		. #xE381)	; 
+    (=big5-pua		. #x8ED2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED3)	; 
-    (=ucs		. #xE382)	; 
+  '((=ucs		. #xE382)	; 
+    (=big5-pua		. #x8ED3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED4)	; 
-    (=ucs		. #xE383)	; 
+  '((=ucs		. #xE383)	; 
+    (=big5-pua		. #x8ED4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED5)	; 
-    (=ucs		. #xE384)	; 
+  '((=ucs		. #xE384)	; 
+    (=big5-pua		. #x8ED5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED6)	; 
-    (=ucs		. #xE385)	; 
+  '((=ucs		. #xE385)	; 
+    (=big5-pua		. #x8ED6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED7)	; 
-    (=ucs		. #xE386)	; 
+  '((=ucs		. #xE386)	; 
+    (=big5-pua		. #x8ED7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED8)	; 
-    (=ucs		. #xE387)	; 
+  '((=ucs		. #xE387)	; 
+    (=big5-pua		. #x8ED8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ED9)	; 
-    (=ucs		. #xE388)	; 
+  '((=ucs		. #xE388)	; 
+    (=big5-pua		. #x8ED9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDA)	; 
-    (=ucs		. #xE389)	; 
+  '((=ucs		. #xE389)	; 
+    (=big5-pua		. #x8EDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDB)	; 
-    (=ucs		. #xE38A)	; 
+  '((=ucs		. #xE38A)	; 
+    (=big5-pua		. #x8EDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDC)	; 
-    (=ucs		. #xE38B)	; 
+  '((=ucs		. #xE38B)	; 
+    (=big5-pua		. #x8EDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDD)	; 
-    (=ucs		. #xE38C)	; 
+  '((=ucs		. #xE38C)	; 
+    (=big5-pua		. #x8EDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDE)	; 
-    (=ucs		. #xE38D)	; 
+  '((=ucs		. #xE38D)	; 
+    (=big5-pua		. #x8EDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EDF)	; 
-    (=ucs		. #xE38E)	; 
+  '((=ucs		. #xE38E)	; 
+    (=big5-pua		. #x8EDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE0)	; 
-    (=ucs		. #xE38F)	; 
+  '((=ucs		. #xE38F)	; 
+    (=big5-pua		. #x8EE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE1)	; 
-    (=ucs		. #xE390)	; 
+  '((=ucs		. #xE390)	; 
+    (=big5-pua		. #x8EE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE2)	; 
-    (=ucs		. #xE391)	; 
+  '((=ucs		. #xE391)	; 
+    (=big5-pua		. #x8EE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE3)	; 
-    (=ucs		. #xE392)	; 
+  '((=ucs		. #xE392)	; 
+    (=big5-pua		. #x8EE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE4)	; 
-    (=ucs		. #xE393)	; 
+  '((=ucs		. #xE393)	; 
+    (=big5-pua		. #x8EE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE5)	; 
-    (=ucs		. #xE394)	; 
+  '((=ucs		. #xE394)	; 
+    (=big5-pua		. #x8EE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE6)	; 
-    (=ucs		. #xE395)	; 
+  '((=ucs		. #xE395)	; 
+    (=big5-pua		. #x8EE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE7)	; 
-    (=ucs		. #xE396)	; 
+  '((=ucs		. #xE396)	; 
+    (=big5-pua		. #x8EE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE8)	; 
-    (=ucs		. #xE397)	; 
+  '((=ucs		. #xE397)	; 
+    (=big5-pua		. #x8EE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EE9)	; 
-    (=ucs		. #xE398)	; 
+  '((=ucs		. #xE398)	; 
+    (=big5-pua		. #x8EE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EEA)	; 
-    (=ucs		. #xE399)	; 
+  '((=ucs		. #xE399)	; 
+    (=big5-pua		. #x8EEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EEB)	; 
-    (=ucs		. #xE39A)	; 
+  '((=ucs		. #xE39A)	; 
+    (=big5-pua		. #x8EEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EEC)	; 
-    (=ucs		. #xE39B)	; 
+  '((=ucs		. #xE39B)	; 
+    (=big5-pua		. #x8EEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EED)	; 
-    (=ucs		. #xE39C)	; 
+  '((=ucs		. #xE39C)	; 
+    (=big5-pua		. #x8EED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EEE)	; 
-    (=ucs		. #xE39D)	; 
+  '((=ucs		. #xE39D)	; 
+    (=big5-pua		. #x8EEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EEF)	; 
-    (=ucs		. #xE39E)	; 
+  '((=ucs		. #xE39E)	; 
+    (=big5-pua		. #x8EEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF0)	; 
-    (=ucs		. #xE39F)	; 
+  '((=ucs		. #xE39F)	; 
+    (=big5-pua		. #x8EF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF1)	; 
-    (=ucs		. #xE3A0)	; 
+  '((=ucs		. #xE3A0)	; 
+    (=big5-pua		. #x8EF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF2)	; 
-    (=ucs		. #xE3A1)	; 
+  '((=ucs		. #xE3A1)	; 
+    (=big5-pua		. #x8EF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF3)	; 
-    (=ucs		. #xE3A2)	; 
+  '((=ucs		. #xE3A2)	; 
+    (=big5-pua		. #x8EF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF4)	; 
-    (=ucs		. #xE3A3)	; 
+  '((=ucs		. #xE3A3)	; 
+    (=big5-pua		. #x8EF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF5)	; 
-    (=ucs		. #xE3A4)	; 
+  '((=ucs		. #xE3A4)	; 
+    (=big5-pua		. #x8EF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF6)	; 
-    (=ucs		. #xE3A5)	; 
+  '((=ucs		. #xE3A5)	; 
+    (=big5-pua		. #x8EF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF7)	; 
-    (=ucs		. #xE3A6)	; 
+  '((=ucs		. #xE3A6)	; 
+    (=big5-pua		. #x8EF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF8)	; 
-    (=ucs		. #xE3A7)	; 
+  '((=ucs		. #xE3A7)	; 
+    (=big5-pua		. #x8EF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EF9)	; 
-    (=ucs		. #xE3A8)	; 
+  '((=ucs		. #xE3A8)	; 
+    (=big5-pua		. #x8EF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EFA)	; 
-    (=ucs		. #xE3A9)	; 
+  '((=ucs		. #xE3A9)	; 
+    (=big5-pua		. #x8EFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EFB)	; 
-    (=ucs		. #xE3AA)	; 
+  '((=ucs		. #xE3AA)	; 
+    (=big5-pua		. #x8EFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EFC)	; 
-    (=ucs		. #xE3AB)	; 
+  '((=ucs		. #xE3AB)	; 
+    (=big5-pua		. #x8EFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EFD)	; 
-    (=ucs		. #xE3AC)	; 
+  '((=ucs		. #xE3AC)	; 
+    (=big5-pua		. #x8EFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8EFE)	; 
-    (=ucs		. #xE3AD)	; 
+  '((=ucs		. #xE3AD)	; 
+    (=big5-pua		. #x8EFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F40)	; 
-    (=ucs		. #xE3AE)	; 
+  '((=ucs		. #xE3AE)	; 
+    (=big5-pua		. #x8F40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F41)	; 
-    (=ucs		. #xE3AF)	; 
+  '((=ucs		. #xE3AF)	; 
+    (=big5-pua		. #x8F41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F42)	; 
-    (=ucs		. #xE3B0)	; 
+  '((=ucs		. #xE3B0)	; 
+    (=big5-pua		. #x8F42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F43)	; 
-    (=ucs		. #xE3B1)	; 
+  '((=ucs		. #xE3B1)	; 
+    (=big5-pua		. #x8F43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F44)	; 
-    (=ucs		. #xE3B2)	; 
+  '((=ucs		. #xE3B2)	; 
+    (=big5-pua		. #x8F44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F45)	; 
-    (=ucs		. #xE3B3)	; 
+  '((=ucs		. #xE3B3)	; 
+    (=big5-pua		. #x8F45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F46)	; 
-    (=ucs		. #xE3B4)	; 
+  '((=ucs		. #xE3B4)	; 
+    (=big5-pua		. #x8F46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F47)	; 
-    (=ucs		. #xE3B5)	; 
+  '((=ucs		. #xE3B5)	; 
+    (=big5-pua		. #x8F47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F48)	; 
-    (=ucs		. #xE3B6)	; 
+  '((=ucs		. #xE3B6)	; 
+    (=big5-pua		. #x8F48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F49)	; 
-    (=ucs		. #xE3B7)	; 
+  '((=ucs		. #xE3B7)	; 
+    (=big5-pua		. #x8F49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4A)	; 
-    (=ucs		. #xE3B8)	; 
+  '((=ucs		. #xE3B8)	; 
+    (=big5-pua		. #x8F4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4B)	; 
-    (=ucs		. #xE3B9)	; 
+  '((=ucs		. #xE3B9)	; 
+    (=big5-pua		. #x8F4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4C)	; 
-    (=ucs		. #xE3BA)	; 
+  '((=ucs		. #xE3BA)	; 
+    (=big5-pua		. #x8F4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4D)	; 
-    (=ucs		. #xE3BB)	; 
+  '((=ucs		. #xE3BB)	; 
+    (=big5-pua		. #x8F4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4E)	; 
-    (=ucs		. #xE3BC)	; 
+  '((=ucs		. #xE3BC)	; 
+    (=big5-pua		. #x8F4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F4F)	; 
-    (=ucs		. #xE3BD)	; 
+  '((=ucs		. #xE3BD)	; 
+    (=big5-pua		. #x8F4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F50)	; 
-    (=ucs		. #xE3BE)	; 
+  '((=ucs		. #xE3BE)	; 
+    (=big5-pua		. #x8F50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F51)	; 
-    (=ucs		. #xE3BF)	; 
+  '((=ucs		. #xE3BF)	; 
+    (=big5-pua		. #x8F51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F52)	; 
-    (=ucs		. #xE3C0)	; 
+  '((=ucs		. #xE3C0)	; 
+    (=big5-pua		. #x8F52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F53)	; 
-    (=ucs		. #xE3C1)	; 
+  '((=ucs		. #xE3C1)	; 
+    (=big5-pua		. #x8F53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F54)	; 
-    (=ucs		. #xE3C2)	; 
+  '((=ucs		. #xE3C2)	; 
+    (=big5-pua		. #x8F54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F55)	; 
-    (=ucs		. #xE3C3)	; 
+  '((=ucs		. #xE3C3)	; 
+    (=big5-pua		. #x8F55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F56)	; 
-    (=ucs		. #xE3C4)	; 
+  '((=ucs		. #xE3C4)	; 
+    (=big5-pua		. #x8F56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F57)	; 
-    (=ucs		. #xE3C5)	; 
+  '((=ucs		. #xE3C5)	; 
+    (=big5-pua		. #x8F57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F58)	; 
-    (=ucs		. #xE3C6)	; 
+  '((=ucs		. #xE3C6)	; 
+    (=big5-pua		. #x8F58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F59)	; 
-    (=ucs		. #xE3C7)	; 
+  '((=ucs		. #xE3C7)	; 
+    (=big5-pua		. #x8F59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5A)	; 
-    (=ucs		. #xE3C8)	; 
+  '((=ucs		. #xE3C8)	; 
+    (=big5-pua		. #x8F5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5B)	; 
-    (=ucs		. #xE3C9)	; 
+  '((=ucs		. #xE3C9)	; 
+    (=big5-pua		. #x8F5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5C)	; 
-    (=ucs		. #xE3CA)	; 
+  '((=ucs		. #xE3CA)	; 
+    (=big5-pua		. #x8F5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5D)	; 
-    (=ucs		. #xE3CB)	; 
+  '((=ucs		. #xE3CB)	; 
+    (=big5-pua		. #x8F5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5E)	; 
-    (=ucs		. #xE3CC)	; 
+  '((=ucs		. #xE3CC)	; 
+    (=big5-pua		. #x8F5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F5F)	; 
-    (=ucs		. #xE3CD)	; 
+  '((=ucs		. #xE3CD)	; 
+    (=big5-pua		. #x8F5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F60)	; 
-    (=ucs		. #xE3CE)	; 
+  '((=ucs		. #xE3CE)	; 
+    (=big5-pua		. #x8F60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F61)	; 
-    (=ucs		. #xE3CF)	; 
+  '((=ucs		. #xE3CF)	; 
+    (=big5-pua		. #x8F61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F62)	; 
-    (=ucs		. #xE3D0)	; 
+  '((=ucs		. #xE3D0)	; 
+    (=big5-pua		. #x8F62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F63)	; 
-    (=ucs		. #xE3D1)	; 
+  '((=ucs		. #xE3D1)	; 
+    (=big5-pua		. #x8F63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F64)	; 
-    (=ucs		. #xE3D2)	; 
+  '((=ucs		. #xE3D2)	; 
+    (=big5-pua		. #x8F64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F65)	; 
-    (=ucs		. #xE3D3)	; 
+  '((=ucs		. #xE3D3)	; 
+    (=big5-pua		. #x8F65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F66)	; 
-    (=ucs		. #xE3D4)	; 
+  '((=ucs		. #xE3D4)	; 
+    (=big5-pua		. #x8F66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F67)	; 
-    (=ucs		. #xE3D5)	; 
+  '((=ucs		. #xE3D5)	; 
+    (=big5-pua		. #x8F67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F68)	; 
-    (=ucs		. #xE3D6)	; 
+  '((=ucs		. #xE3D6)	; 
+    (=big5-pua		. #x8F68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F69)	; 
-    (=ucs		. #xE3D7)	; 
+  '((=ucs		. #xE3D7)	; 
+    (=big5-pua		. #x8F69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6A)	; 
-    (=ucs		. #xE3D8)	; 
+  '((=ucs		. #xE3D8)	; 
+    (=big5-pua		. #x8F6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6B)	; 
-    (=ucs		. #xE3D9)	; 
+  '((=ucs		. #xE3D9)	; 
+    (=big5-pua		. #x8F6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6C)	; 
-    (=ucs		. #xE3DA)	; 
+  '((=ucs		. #xE3DA)	; 
+    (=big5-pua		. #x8F6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6D)	; 
-    (=ucs		. #xE3DB)	; 
+  '((=ucs		. #xE3DB)	; 
+    (=big5-pua		. #x8F6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6E)	; 
-    (=ucs		. #xE3DC)	; 
+  '((=ucs		. #xE3DC)	; 
+    (=big5-pua		. #x8F6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F6F)	; 
-    (=ucs		. #xE3DD)	; 
+  '((=ucs		. #xE3DD)	; 
+    (=big5-pua		. #x8F6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F70)	; 
-    (=ucs		. #xE3DE)	; 
+  '((=ucs		. #xE3DE)	; 
+    (=big5-pua		. #x8F70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F71)	; 
-    (=ucs		. #xE3DF)	; 
+  '((=ucs		. #xE3DF)	; 
+    (=big5-pua		. #x8F71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F72)	; 
-    (=ucs		. #xE3E0)	; 
+  '((=ucs		. #xE3E0)	; 
+    (=big5-pua		. #x8F72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F73)	; 
-    (=ucs		. #xE3E1)	; 
+  '((=ucs		. #xE3E1)	; 
+    (=big5-pua		. #x8F73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F74)	; 
-    (=ucs		. #xE3E2)	; 
+  '((=ucs		. #xE3E2)	; 
+    (=big5-pua		. #x8F74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F75)	; 
-    (=ucs		. #xE3E3)	; 
+  '((=ucs		. #xE3E3)	; 
+    (=big5-pua		. #x8F75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F76)	; 
-    (=ucs		. #xE3E4)	; 
+  '((=ucs		. #xE3E4)	; 
+    (=big5-pua		. #x8F76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F77)	; 
-    (=ucs		. #xE3E5)	; 
+  '((=ucs		. #xE3E5)	; 
+    (=big5-pua		. #x8F77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F78)	; 
-    (=ucs		. #xE3E6)	; 
+  '((=ucs		. #xE3E6)	; 
+    (=big5-pua		. #x8F78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F79)	; 
-    (=ucs		. #xE3E7)	; 
+  '((=ucs		. #xE3E7)	; 
+    (=big5-pua		. #x8F79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F7A)	; 
-    (=ucs		. #xE3E8)	; 
+  '((=ucs		. #xE3E8)	; 
+    (=big5-pua		. #x8F7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F7B)	; 
-    (=ucs		. #xE3E9)	; 
+  '((=ucs		. #xE3E9)	; 
+    (=big5-pua		. #x8F7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F7C)	; 
-    (=ucs		. #xE3EA)	; 
+  '((=ucs		. #xE3EA)	; 
+    (=big5-pua		. #x8F7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F7D)	; 
-    (=ucs		. #xE3EB)	; 
+  '((=ucs		. #xE3EB)	; 
+    (=big5-pua		. #x8F7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8F7E)	; 
-    (=ucs		. #xE3EC)	; 
+  '((=ucs		. #xE3EC)	; 
+    (=big5-pua		. #x8F7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA1)	; 
-    (=ucs		. #xE3ED)	; 
+  '((=ucs		. #xE3ED)	; 
+    (=big5-pua		. #x8FA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA2)	; 
-    (=ucs		. #xE3EE)	; 
+  '((=ucs		. #xE3EE)	; 
+    (=big5-pua		. #x8FA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA3)	; 
-    (=ucs		. #xE3EF)	; 
+  '((=ucs		. #xE3EF)	; 
+    (=big5-pua		. #x8FA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA4)	; 
-    (=ucs		. #xE3F0)	; 
+  '((=ucs		. #xE3F0)	; 
+    (=big5-pua		. #x8FA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA5)	; 
-    (=ucs		. #xE3F1)	; 
+  '((=ucs		. #xE3F1)	; 
+    (=big5-pua		. #x8FA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA6)	; 
-    (=ucs		. #xE3F2)	; 
+  '((=ucs		. #xE3F2)	; 
+    (=big5-pua		. #x8FA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA7)	; 
-    (=ucs		. #xE3F3)	; 
+  '((=ucs		. #xE3F3)	; 
+    (=big5-pua		. #x8FA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA8)	; 
-    (=ucs		. #xE3F4)	; 
+  '((=ucs		. #xE3F4)	; 
+    (=big5-pua		. #x8FA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FA9)	; 
-    (=ucs		. #xE3F5)	; 
+  '((=ucs		. #xE3F5)	; 
+    (=big5-pua		. #x8FA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAA)	; 
-    (=ucs		. #xE3F6)	; 
+  '((=ucs		. #xE3F6)	; 
+    (=big5-pua		. #x8FAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAB)	; 
-    (=ucs		. #xE3F7)	; 
+  '((=ucs		. #xE3F7)	; 
+    (=big5-pua		. #x8FAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAC)	; 
-    (=ucs		. #xE3F8)	; 
+  '((=ucs		. #xE3F8)	; 
+    (=big5-pua		. #x8FAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAD)	; 
-    (=ucs		. #xE3F9)	; 
+  '((=ucs		. #xE3F9)	; 
+    (=big5-pua		. #x8FAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAE)	; 
-    (=ucs		. #xE3FA)	; 
+  '((=ucs		. #xE3FA)	; 
+    (=big5-pua		. #x8FAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FAF)	; 
-    (=ucs		. #xE3FB)	; 
+  '((=ucs		. #xE3FB)	; 
+    (=big5-pua		. #x8FAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB0)	; 
-    (=ucs		. #xE3FC)	; 
+  '((=ucs		. #xE3FC)	; 
+    (=big5-pua		. #x8FB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB1)	; 
-    (=ucs		. #xE3FD)	; 
+  '((=ucs		. #xE3FD)	; 
+    (=big5-pua		. #x8FB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB2)	; 
-    (=ucs		. #xE3FE)	; 
+  '((=ucs		. #xE3FE)	; 
+    (=big5-pua		. #x8FB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB3)	; 
-    (=ucs		. #xE3FF)	; 
+  '((=ucs		. #xE3FF)	; 
+    (=big5-pua		. #x8FB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB4)	; 
-    (=ucs		. #xE400)	; 
+  '((=ucs		. #xE400)	; 
+    (=big5-pua		. #x8FB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB5)	; 
-    (=ucs		. #xE401)	; 
+  '((=ucs		. #xE401)	; 
+    (=big5-pua		. #x8FB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB6)	; 
-    (=ucs		. #xE402)	; 
+  '((=ucs		. #xE402)	; 
+    (=big5-pua		. #x8FB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB7)	; 
-    (=ucs		. #xE403)	; 
+  '((=ucs		. #xE403)	; 
+    (=big5-pua		. #x8FB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB8)	; 
-    (=ucs		. #xE404)	; 
+  '((=ucs		. #xE404)	; 
+    (=big5-pua		. #x8FB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FB9)	; 
-    (=ucs		. #xE405)	; 
+  '((=ucs		. #xE405)	; 
+    (=big5-pua		. #x8FB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBA)	; 
-    (=ucs		. #xE406)	; 
+  '((=ucs		. #xE406)	; 
+    (=big5-pua		. #x8FBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBB)	; 
-    (=ucs		. #xE407)	; 
+  '((=ucs		. #xE407)	; 
+    (=big5-pua		. #x8FBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBC)	; 
-    (=ucs		. #xE408)	; 
+  '((=ucs		. #xE408)	; 
+    (=big5-pua		. #x8FBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBD)	; 
-    (=ucs		. #xE409)	; 
+  '((=ucs		. #xE409)	; 
+    (=big5-pua		. #x8FBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBE)	; 
-    (=ucs		. #xE40A)	; 
+  '((=ucs		. #xE40A)	; 
+    (=big5-pua		. #x8FBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FBF)	; 
-    (=ucs		. #xE40B)	; 
+  '((=ucs		. #xE40B)	; 
+    (=big5-pua		. #x8FBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC0)	; 
-    (=ucs		. #xE40C)	; 
+  '((=ucs		. #xE40C)	; 
+    (=big5-pua		. #x8FC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC1)	; 
-    (=ucs		. #xE40D)	; 
+  '((=ucs		. #xE40D)	; 
+    (=big5-pua		. #x8FC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC2)	; 
-    (=ucs		. #xE40E)	; 
+  '((=ucs		. #xE40E)	; 
+    (=big5-pua		. #x8FC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC3)	; 
-    (=ucs		. #xE40F)	; 
+  '((=ucs		. #xE40F)	; 
+    (=big5-pua		. #x8FC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC4)	; 
-    (=ucs		. #xE410)	; 
+  '((=ucs		. #xE410)	; 
+    (=big5-pua		. #x8FC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC5)	; 
-    (=ucs		. #xE411)	; 
+  '((=ucs		. #xE411)	; 
+    (=big5-pua		. #x8FC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC6)	; 
-    (=ucs		. #xE412)	; 
+  '((=ucs		. #xE412)	; 
+    (=big5-pua		. #x8FC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC7)	; 
-    (=ucs		. #xE413)	; 
+  '((=ucs		. #xE413)	; 
+    (=big5-pua		. #x8FC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC8)	; 
-    (=ucs		. #xE414)	; 
+  '((=ucs		. #xE414)	; 
+    (=big5-pua		. #x8FC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FC9)	; 
-    (=ucs		. #xE415)	; 
+  '((=ucs		. #xE415)	; 
+    (=big5-pua		. #x8FC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCA)	; 
-    (=ucs		. #xE416)	; 
+  '((=ucs		. #xE416)	; 
+    (=big5-pua		. #x8FCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCB)	; 
-    (=ucs		. #xE417)	; 
+  '((=ucs		. #xE417)	; 
+    (=big5-pua		. #x8FCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCC)	; 
-    (=ucs		. #xE418)	; 
+  '((=ucs		. #xE418)	; 
+    (=big5-pua		. #x8FCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCD)	; 
-    (=ucs		. #xE419)	; 
+  '((=ucs		. #xE419)	; 
+    (=big5-pua		. #x8FCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCE)	; 
-    (=ucs		. #xE41A)	; 
+  '((=ucs		. #xE41A)	; 
+    (=big5-pua		. #x8FCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FCF)	; 
-    (=ucs		. #xE41B)	; 
+  '((=ucs		. #xE41B)	; 
+    (=big5-pua		. #x8FCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD0)	; 
-    (=ucs		. #xE41C)	; 
+  '((=ucs		. #xE41C)	; 
+    (=big5-pua		. #x8FD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD1)	; 
-    (=ucs		. #xE41D)	; 
+  '((=ucs		. #xE41D)	; 
+    (=big5-pua		. #x8FD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD2)	; 
-    (=ucs		. #xE41E)	; 
+  '((=ucs		. #xE41E)	; 
+    (=big5-pua		. #x8FD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD3)	; 
-    (=ucs		. #xE41F)	; 
+  '((=ucs		. #xE41F)	; 
+    (=big5-pua		. #x8FD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD4)	; 
-    (=ucs		. #xE420)	; 
+  '((=ucs		. #xE420)	; 
+    (=big5-pua		. #x8FD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD5)	; 
-    (=ucs		. #xE421)	; 
+  '((=ucs		. #xE421)	; 
+    (=big5-pua		. #x8FD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD6)	; 
-    (=ucs		. #xE422)	; 
+  '((=ucs		. #xE422)	; 
+    (=big5-pua		. #x8FD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD7)	; 
-    (=ucs		. #xE423)	; 
+  '((=ucs		. #xE423)	; 
+    (=big5-pua		. #x8FD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD8)	; 
-    (=ucs		. #xE424)	; 
+  '((=ucs		. #xE424)	; 
+    (=big5-pua		. #x8FD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FD9)	; 
-    (=ucs		. #xE425)	; 
+  '((=ucs		. #xE425)	; 
+    (=big5-pua		. #x8FD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDA)	; 
-    (=ucs		. #xE426)	; 
+  '((=ucs		. #xE426)	; 
+    (=big5-pua		. #x8FDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDB)	; 
-    (=ucs		. #xE427)	; 
+  '((=ucs		. #xE427)	; 
+    (=big5-pua		. #x8FDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDC)	; 
-    (=ucs		. #xE428)	; 
+  '((=ucs		. #xE428)	; 
+    (=big5-pua		. #x8FDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDD)	; 
-    (=ucs		. #xE429)	; 
+  '((=ucs		. #xE429)	; 
+    (=big5-pua		. #x8FDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDE)	; 
-    (=ucs		. #xE42A)	; 
+  '((=ucs		. #xE42A)	; 
+    (=big5-pua		. #x8FDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FDF)	; 
-    (=ucs		. #xE42B)	; 
+  '((=ucs		. #xE42B)	; 
+    (=big5-pua		. #x8FDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE0)	; 
-    (=ucs		. #xE42C)	; 
+  '((=ucs		. #xE42C)	; 
+    (=big5-pua		. #x8FE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE1)	; 
-    (=ucs		. #xE42D)	; 
+  '((=ucs		. #xE42D)	; 
+    (=big5-pua		. #x8FE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE2)	; 
-    (=ucs		. #xE42E)	; 
+  '((=ucs		. #xE42E)	; 
+    (=big5-pua		. #x8FE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE3)	; 
-    (=ucs		. #xE42F)	; 
+  '((=ucs		. #xE42F)	; 
+    (=big5-pua		. #x8FE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE4)	; 
-    (=ucs		. #xE430)	; 
+  '((=ucs		. #xE430)	; 
+    (=big5-pua		. #x8FE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE5)	; 
-    (=ucs		. #xE431)	; 
+  '((=ucs		. #xE431)	; 
+    (=big5-pua		. #x8FE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE6)	; 
-    (=ucs		. #xE432)	; 
+  '((=ucs		. #xE432)	; 
+    (=big5-pua		. #x8FE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE7)	; 
-    (=ucs		. #xE433)	; 
+  '((=ucs		. #xE433)	; 
+    (=big5-pua		. #x8FE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE8)	; 
-    (=ucs		. #xE434)	; 
+  '((=ucs		. #xE434)	; 
+    (=big5-pua		. #x8FE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FE9)	; 
-    (=ucs		. #xE435)	; 
+  '((=ucs		. #xE435)	; 
+    (=big5-pua		. #x8FE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FEA)	; 
-    (=ucs		. #xE436)	; 
+  '((=ucs		. #xE436)	; 
+    (=big5-pua		. #x8FEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FEB)	; 
-    (=ucs		. #xE437)	; 
+  '((=ucs		. #xE437)	; 
+    (=big5-pua		. #x8FEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FEC)	; 
-    (=ucs		. #xE438)	; 
+  '((=ucs		. #xE438)	; 
+    (=big5-pua		. #x8FEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FED)	; 
-    (=ucs		. #xE439)	; 
+  '((=ucs		. #xE439)	; 
+    (=big5-pua		. #x8FED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FEE)	; 
-    (=ucs		. #xE43A)	; 
+  '((=ucs		. #xE43A)	; 
+    (=big5-pua		. #x8FEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FEF)	; 
-    (=ucs		. #xE43B)	; 
+  '((=ucs		. #xE43B)	; 
+    (=big5-pua		. #x8FEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF0)	; 
-    (=ucs		. #xE43C)	; 
+  '((=ucs		. #xE43C)	; 
+    (=big5-pua		. #x8FF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF1)	; 
-    (=ucs		. #xE43D)	; 
+  '((=ucs		. #xE43D)	; 
+    (=big5-pua		. #x8FF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF2)	; 
-    (=ucs		. #xE43E)	; 
+  '((=ucs		. #xE43E)	; 
+    (=big5-pua		. #x8FF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF3)	; 
-    (=ucs		. #xE43F)	; 
+  '((=ucs		. #xE43F)	; 
+    (=big5-pua		. #x8FF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF4)	; 
-    (=ucs		. #xE440)	; 
+  '((=ucs		. #xE440)	; 
+    (=big5-pua		. #x8FF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF5)	; 
-    (=ucs		. #xE441)	; 
+  '((=ucs		. #xE441)	; 
+    (=big5-pua		. #x8FF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF6)	; 
-    (=ucs		. #xE442)	; 
+  '((=ucs		. #xE442)	; 
+    (=big5-pua		. #x8FF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF7)	; 
-    (=ucs		. #xE443)	; 
+  '((=ucs		. #xE443)	; 
+    (=big5-pua		. #x8FF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF8)	; 
-    (=ucs		. #xE444)	; 
+  '((=ucs		. #xE444)	; 
+    (=big5-pua		. #x8FF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FF9)	; 
-    (=ucs		. #xE445)	; 
+  '((=ucs		. #xE445)	; 
+    (=big5-pua		. #x8FF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FFA)	; 
-    (=ucs		. #xE446)	; 
+  '((=ucs		. #xE446)	; 
+    (=big5-pua		. #x8FFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FFB)	; 
-    (=ucs		. #xE447)	; 
+  '((=ucs		. #xE447)	; 
+    (=big5-pua		. #x8FFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FFC)	; 
-    (=ucs		. #xE448)	; 
+  '((=ucs		. #xE448)	; 
+    (=big5-pua		. #x8FFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FFD)	; 
-    (=ucs		. #xE449)	; 
+  '((=ucs		. #xE449)	; 
+    (=big5-pua		. #x8FFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8FFE)	; 
-    (=ucs		. #xE44A)	; 
+  '((=ucs		. #xE44A)	; 
+    (=big5-pua		. #x8FFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9040)	; 
-    (=ucs		. #xE44B)	; 
+  '((=ucs		. #xE44B)	; 
+    (=big5-pua		. #x9040)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9041)	; 
-    (=ucs		. #xE44C)	; 
+  '((=ucs		. #xE44C)	; 
+    (=big5-pua		. #x9041)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9042)	; 
-    (=ucs		. #xE44D)	; 
+  '((=ucs		. #xE44D)	; 
+    (=big5-pua		. #x9042)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9043)	; 
-    (=ucs		. #xE44E)	; 
+  '((=ucs		. #xE44E)	; 
+    (=big5-pua		. #x9043)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9044)	; 
-    (=ucs		. #xE44F)	; 
+  '((=ucs		. #xE44F)	; 
+    (=big5-pua		. #x9044)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9045)	; 
-    (=ucs		. #xE450)	; 
+  '((=ucs		. #xE450)	; 
+    (=big5-pua		. #x9045)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9046)	; 
-    (=ucs		. #xE451)	; 
+  '((=ucs		. #xE451)	; 
+    (=big5-pua		. #x9046)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9047)	; 
-    (=ucs		. #xE452)	; 
+  '((=ucs		. #xE452)	; 
+    (=big5-pua		. #x9047)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9048)	; 
-    (=ucs		. #xE453)	; 
+  '((=ucs		. #xE453)	; 
+    (=big5-pua		. #x9048)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9049)	; 
-    (=ucs		. #xE454)	; 
+  '((=ucs		. #xE454)	; 
+    (=big5-pua		. #x9049)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904A)	; 
-    (=ucs		. #xE455)	; 
+  '((=ucs		. #xE455)	; 
+    (=big5-pua		. #x904A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904B)	; 
-    (=ucs		. #xE456)	; 
+  '((=ucs		. #xE456)	; 
+    (=big5-pua		. #x904B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904C)	; 
-    (=ucs		. #xE457)	; 
+  '((=ucs		. #xE457)	; 
+    (=big5-pua		. #x904C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904D)	; 
-    (=ucs		. #xE458)	; 
+  '((=ucs		. #xE458)	; 
+    (=big5-pua		. #x904D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904E)	; 
-    (=ucs		. #xE459)	; 
+  '((=ucs		. #xE459)	; 
+    (=big5-pua		. #x904E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x904F)	; 
-    (=ucs		. #xE45A)	; 
+  '((=ucs		. #xE45A)	; 
+    (=big5-pua		. #x904F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9050)	; 
-    (=ucs		. #xE45B)	; 
+  '((=ucs		. #xE45B)	; 
+    (=big5-pua		. #x9050)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9051)	; 
-    (=ucs		. #xE45C)	; 
+  '((=ucs		. #xE45C)	; 
+    (=big5-pua		. #x9051)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9052)	; 
-    (=ucs		. #xE45D)	; 
+  '((=ucs		. #xE45D)	; 
+    (=big5-pua		. #x9052)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9053)	; 
-    (=ucs		. #xE45E)	; 
+  '((=ucs		. #xE45E)	; 
+    (=big5-pua		. #x9053)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9054)	; 
-    (=ucs		. #xE45F)	; 
+  '((=ucs		. #xE45F)	; 
+    (=big5-pua		. #x9054)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9055)	; 
-    (=ucs		. #xE460)	; 
+  '((=ucs		. #xE460)	; 
+    (=big5-pua		. #x9055)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9056)	; 
-    (=ucs		. #xE461)	; 
+  '((=ucs		. #xE461)	; 
+    (=big5-pua		. #x9056)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9057)	; 
-    (=ucs		. #xE462)	; 
+  '((=ucs		. #xE462)	; 
+    (=big5-pua		. #x9057)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9058)	; 
-    (=ucs		. #xE463)	; 
+  '((=ucs		. #xE463)	; 
+    (=big5-pua		. #x9058)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9059)	; 
-    (=ucs		. #xE464)	; 
+  '((=ucs		. #xE464)	; 
+    (=big5-pua		. #x9059)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905A)	; 
-    (=ucs		. #xE465)	; 
+  '((=ucs		. #xE465)	; 
+    (=big5-pua		. #x905A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905B)	; 
-    (=ucs		. #xE466)	; 
+  '((=ucs		. #xE466)	; 
+    (=big5-pua		. #x905B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905C)	; 
-    (=ucs		. #xE467)	; 
+  '((=ucs		. #xE467)	; 
+    (=big5-pua		. #x905C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905D)	; 
-    (=ucs		. #xE468)	; 
+  '((=ucs		. #xE468)	; 
+    (=big5-pua		. #x905D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905E)	; 
-    (=ucs		. #xE469)	; 
+  '((=ucs		. #xE469)	; 
+    (=big5-pua		. #x905E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x905F)	; 
-    (=ucs		. #xE46A)	; 
+  '((=ucs		. #xE46A)	; 
+    (=big5-pua		. #x905F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9060)	; 
-    (=ucs		. #xE46B)	; 
+  '((=ucs		. #xE46B)	; 
+    (=big5-pua		. #x9060)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9061)	; 
-    (=ucs		. #xE46C)	; 
+  '((=ucs		. #xE46C)	; 
+    (=big5-pua		. #x9061)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9062)	; 
-    (=ucs		. #xE46D)	; 
+  '((=ucs		. #xE46D)	; 
+    (=big5-pua		. #x9062)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9063)	; 
-    (=ucs		. #xE46E)	; 
+  '((=ucs		. #xE46E)	; 
+    (=big5-pua		. #x9063)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9064)	; 
-    (=ucs		. #xE46F)	; 
+  '((=ucs		. #xE46F)	; 
+    (=big5-pua		. #x9064)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9065)	; 
-    (=ucs		. #xE470)	; 
+  '((=ucs		. #xE470)	; 
+    (=big5-pua		. #x9065)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9066)	; 
-    (=ucs		. #xE471)	; 
+  '((=ucs		. #xE471)	; 
+    (=big5-pua		. #x9066)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9067)	; 
-    (=ucs		. #xE472)	; 
+  '((=ucs		. #xE472)	; 
+    (=big5-pua		. #x9067)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9068)	; 
-    (=ucs		. #xE473)	; 
+  '((=ucs		. #xE473)	; 
+    (=big5-pua		. #x9068)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9069)	; 
-    (=ucs		. #xE474)	; 
+  '((=ucs		. #xE474)	; 
+    (=big5-pua		. #x9069)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906A)	; 
-    (=ucs		. #xE475)	; 
+  '((=ucs		. #xE475)	; 
+    (=big5-pua		. #x906A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906B)	; 
-    (=ucs		. #xE476)	; 
+  '((=ucs		. #xE476)	; 
+    (=big5-pua		. #x906B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906C)	; 
-    (=ucs		. #xE477)	; 
+  '((=ucs		. #xE477)	; 
+    (=big5-pua		. #x906C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906D)	; 
-    (=ucs		. #xE478)	; 
+  '((=ucs		. #xE478)	; 
+    (=big5-pua		. #x906D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906E)	; 
-    (=ucs		. #xE479)	; 
+  '((=ucs		. #xE479)	; 
+    (=big5-pua		. #x906E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x906F)	; 
-    (=ucs		. #xE47A)	; 
+  '((=ucs		. #xE47A)	; 
+    (=big5-pua		. #x906F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9070)	; 
-    (=ucs		. #xE47B)	; 
+  '((=ucs		. #xE47B)	; 
+    (=big5-pua		. #x9070)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9071)	; 
-    (=ucs		. #xE47C)	; 
+  '((=ucs		. #xE47C)	; 
+    (=big5-pua		. #x9071)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9072)	; 
-    (=ucs		. #xE47D)	; 
+  '((=ucs		. #xE47D)	; 
+    (=big5-pua		. #x9072)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9073)	; 
-    (=ucs		. #xE47E)	; 
+  '((=ucs		. #xE47E)	; 
+    (=big5-pua		. #x9073)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9074)	; 
-    (=ucs		. #xE47F)	; 
+  '((=ucs		. #xE47F)	; 
+    (=big5-pua		. #x9074)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9075)	; 
-    (=ucs		. #xE480)	; 
+  '((=ucs		. #xE480)	; 
+    (=big5-pua		. #x9075)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9076)	; 
-    (=ucs		. #xE481)	; 
+  '((=ucs		. #xE481)	; 
+    (=big5-pua		. #x9076)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9077)	; 
-    (=ucs		. #xE482)	; 
+  '((=ucs		. #xE482)	; 
+    (=big5-pua		. #x9077)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9078)	; 
-    (=ucs		. #xE483)	; 
+  '((=ucs		. #xE483)	; 
+    (=big5-pua		. #x9078)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9079)	; 
-    (=ucs		. #xE484)	; 
+  '((=ucs		. #xE484)	; 
+    (=big5-pua		. #x9079)	; 
     ))
 (define-char
-  '((=big5-pua		. #x907A)	; 
-    (=ucs		. #xE485)	; 
+  '((=ucs		. #xE485)	; 
+    (=big5-pua		. #x907A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x907B)	; 
-    (=ucs		. #xE486)	; 
+  '((=ucs		. #xE486)	; 
+    (=big5-pua		. #x907B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x907C)	; 
-    (=ucs		. #xE487)	; 
+  '((=ucs		. #xE487)	; 
+    (=big5-pua		. #x907C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x907D)	; 
-    (=ucs		. #xE488)	; 
+  '((=ucs		. #xE488)	; 
+    (=big5-pua		. #x907D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x907E)	; 
-    (=ucs		. #xE489)	; 
+  '((=ucs		. #xE489)	; 
+    (=big5-pua		. #x907E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A1)	; 
-    (=ucs		. #xE48A)	; 
+  '((=ucs		. #xE48A)	; 
+    (=big5-pua		. #x90A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A2)	; 
-    (=ucs		. #xE48B)	; 
+  '((=ucs		. #xE48B)	; 
+    (=big5-pua		. #x90A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A3)	; 
-    (=ucs		. #xE48C)	; 
+  '((=ucs		. #xE48C)	; 
+    (=big5-pua		. #x90A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A4)	; 
-    (=ucs		. #xE48D)	; 
+  '((=ucs		. #xE48D)	; 
+    (=big5-pua		. #x90A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A5)	; 
-    (=ucs		. #xE48E)	; 
+  '((=ucs		. #xE48E)	; 
+    (=big5-pua		. #x90A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A6)	; 
-    (=ucs		. #xE48F)	; 
+  '((=ucs		. #xE48F)	; 
+    (=big5-pua		. #x90A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A7)	; 
-    (=ucs		. #xE490)	; 
+  '((=ucs		. #xE490)	; 
+    (=big5-pua		. #x90A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A8)	; 
-    (=ucs		. #xE491)	; 
+  '((=ucs		. #xE491)	; 
+    (=big5-pua		. #x90A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90A9)	; 
-    (=ucs		. #xE492)	; 
+  '((=ucs		. #xE492)	; 
+    (=big5-pua		. #x90A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AA)	; 
-    (=ucs		. #xE493)	; 
+  '((=ucs		. #xE493)	; 
+    (=big5-pua		. #x90AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AB)	; 
-    (=ucs		. #xE494)	; 
+  '((=ucs		. #xE494)	; 
+    (=big5-pua		. #x90AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AC)	; 
-    (=ucs		. #xE495)	; 
+  '((=ucs		. #xE495)	; 
+    (=big5-pua		. #x90AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AD)	; 
-    (=ucs		. #xE496)	; 
+  '((=ucs		. #xE496)	; 
+    (=big5-pua		. #x90AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AE)	; 
-    (=ucs		. #xE497)	; 
+  '((=ucs		. #xE497)	; 
+    (=big5-pua		. #x90AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90AF)	; 
-    (=ucs		. #xE498)	; 
+  '((=ucs		. #xE498)	; 
+    (=big5-pua		. #x90AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B0)	; 
-    (=ucs		. #xE499)	; 
+  '((=ucs		. #xE499)	; 
+    (=big5-pua		. #x90B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B1)	; 
-    (=ucs		. #xE49A)	; 
+  '((=ucs		. #xE49A)	; 
+    (=big5-pua		. #x90B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B2)	; 
-    (=ucs		. #xE49B)	; 
+  '((=ucs		. #xE49B)	; 
+    (=big5-pua		. #x90B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B3)	; 
-    (=ucs		. #xE49C)	; 
+  '((=ucs		. #xE49C)	; 
+    (=big5-pua		. #x90B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B4)	; 
-    (=ucs		. #xE49D)	; 
+  '((=ucs		. #xE49D)	; 
+    (=big5-pua		. #x90B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B5)	; 
-    (=ucs		. #xE49E)	; 
+  '((=ucs		. #xE49E)	; 
+    (=big5-pua		. #x90B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B6)	; 
-    (=ucs		. #xE49F)	; 
+  '((=ucs		. #xE49F)	; 
+    (=big5-pua		. #x90B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B7)	; 
-    (=ucs		. #xE4A0)	; 
+  '((=ucs		. #xE4A0)	; 
+    (=big5-pua		. #x90B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B8)	; 
-    (=ucs		. #xE4A1)	; 
+  '((=ucs		. #xE4A1)	; 
+    (=big5-pua		. #x90B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90B9)	; 
-    (=ucs		. #xE4A2)	; 
+  '((=ucs		. #xE4A2)	; 
+    (=big5-pua		. #x90B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BA)	; 
-    (=ucs		. #xE4A3)	; 
+  '((=ucs		. #xE4A3)	; 
+    (=big5-pua		. #x90BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BB)	; 
-    (=ucs		. #xE4A4)	; 
+  '((=ucs		. #xE4A4)	; 
+    (=big5-pua		. #x90BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BC)	; 
-    (=ucs		. #xE4A5)	; 
+  '((=ucs		. #xE4A5)	; 
+    (=big5-pua		. #x90BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BD)	; 
-    (=ucs		. #xE4A6)	; 
+  '((=ucs		. #xE4A6)	; 
+    (=big5-pua		. #x90BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BE)	; 
-    (=ucs		. #xE4A7)	; 
+  '((=ucs		. #xE4A7)	; 
+    (=big5-pua		. #x90BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90BF)	; 
-    (=ucs		. #xE4A8)	; 
+  '((=ucs		. #xE4A8)	; 
+    (=big5-pua		. #x90BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C0)	; 
-    (=ucs		. #xE4A9)	; 
+  '((=ucs		. #xE4A9)	; 
+    (=big5-pua		. #x90C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C1)	; 
-    (=ucs		. #xE4AA)	; 
+  '((=ucs		. #xE4AA)	; 
+    (=big5-pua		. #x90C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C2)	; 
-    (=ucs		. #xE4AB)	; 
+  '((=ucs		. #xE4AB)	; 
+    (=big5-pua		. #x90C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C3)	; 
-    (=ucs		. #xE4AC)	; 
+  '((=ucs		. #xE4AC)	; 
+    (=big5-pua		. #x90C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C4)	; 
-    (=ucs		. #xE4AD)	; 
+  '((=ucs		. #xE4AD)	; 
+    (=big5-pua		. #x90C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C5)	; 
-    (=ucs		. #xE4AE)	; 
+  '((=ucs		. #xE4AE)	; 
+    (=big5-pua		. #x90C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C6)	; 
-    (=ucs		. #xE4AF)	; 
+  '((=ucs		. #xE4AF)	; 
+    (=big5-pua		. #x90C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C7)	; 
-    (=ucs		. #xE4B0)	; 
+  '((=ucs		. #xE4B0)	; 
+    (=big5-pua		. #x90C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C8)	; 
-    (=ucs		. #xE4B1)	; 
+  '((=ucs		. #xE4B1)	; 
+    (=big5-pua		. #x90C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90C9)	; 
-    (=ucs		. #xE4B2)	; 
+  '((=ucs		. #xE4B2)	; 
+    (=big5-pua		. #x90C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CA)	; 
-    (=ucs		. #xE4B3)	; 
+  '((=ucs		. #xE4B3)	; 
+    (=big5-pua		. #x90CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CB)	; 
-    (=ucs		. #xE4B4)	; 
+  '((=ucs		. #xE4B4)	; 
+    (=big5-pua		. #x90CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CC)	; 
-    (=ucs		. #xE4B5)	; 
+  '((=ucs		. #xE4B5)	; 
+    (=big5-pua		. #x90CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CD)	; 
-    (=ucs		. #xE4B6)	; 
+  '((=ucs		. #xE4B6)	; 
+    (=big5-pua		. #x90CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CE)	; 
-    (=ucs		. #xE4B7)	; 
+  '((=ucs		. #xE4B7)	; 
+    (=big5-pua		. #x90CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90CF)	; 
-    (=ucs		. #xE4B8)	; 
+  '((=ucs		. #xE4B8)	; 
+    (=big5-pua		. #x90CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D0)	; 
-    (=ucs		. #xE4B9)	; 
+  '((=ucs		. #xE4B9)	; 
+    (=big5-pua		. #x90D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D1)	; 
-    (=ucs		. #xE4BA)	; 
+  '((=ucs		. #xE4BA)	; 
+    (=big5-pua		. #x90D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D2)	; 
-    (=ucs		. #xE4BB)	; 
+  '((=ucs		. #xE4BB)	; 
+    (=big5-pua		. #x90D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D3)	; 
-    (=ucs		. #xE4BC)	; 
+  '((=ucs		. #xE4BC)	; 
+    (=big5-pua		. #x90D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D4)	; 
-    (=ucs		. #xE4BD)	; 
+  '((=ucs		. #xE4BD)	; 
+    (=big5-pua		. #x90D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D5)	; 
-    (=ucs		. #xE4BE)	; 
+  '((=ucs		. #xE4BE)	; 
+    (=big5-pua		. #x90D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D6)	; 
-    (=ucs		. #xE4BF)	; 
+  '((=ucs		. #xE4BF)	; 
+    (=big5-pua		. #x90D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D7)	; 
-    (=ucs		. #xE4C0)	; 
+  '((=ucs		. #xE4C0)	; 
+    (=big5-pua		. #x90D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D8)	; 
-    (=ucs		. #xE4C1)	; 
+  '((=ucs		. #xE4C1)	; 
+    (=big5-pua		. #x90D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90D9)	; 
-    (=ucs		. #xE4C2)	; 
+  '((=ucs		. #xE4C2)	; 
+    (=big5-pua		. #x90D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DA)	; 
-    (=ucs		. #xE4C3)	; 
+  '((=ucs		. #xE4C3)	; 
+    (=big5-pua		. #x90DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DB)	; 
-    (=ucs		. #xE4C4)	; 
+  '((=ucs		. #xE4C4)	; 
+    (=big5-pua		. #x90DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DC)	; 
-    (=ucs		. #xE4C5)	; 
+  '((=ucs		. #xE4C5)	; 
+    (=big5-pua		. #x90DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DD)	; 
-    (=ucs		. #xE4C6)	; 
+  '((=ucs		. #xE4C6)	; 
+    (=big5-pua		. #x90DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DE)	; 
-    (=ucs		. #xE4C7)	; 
+  '((=ucs		. #xE4C7)	; 
+    (=big5-pua		. #x90DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90DF)	; 
-    (=ucs		. #xE4C8)	; 
+  '((=ucs		. #xE4C8)	; 
+    (=big5-pua		. #x90DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E0)	; 
-    (=ucs		. #xE4C9)	; 
+  '((=ucs		. #xE4C9)	; 
+    (=big5-pua		. #x90E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E1)	; 
-    (=ucs		. #xE4CA)	; 
+  '((=ucs		. #xE4CA)	; 
+    (=big5-pua		. #x90E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E2)	; 
-    (=ucs		. #xE4CB)	; 
+  '((=ucs		. #xE4CB)	; 
+    (=big5-pua		. #x90E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E3)	; 
-    (=ucs		. #xE4CC)	; 
+  '((=ucs		. #xE4CC)	; 
+    (=big5-pua		. #x90E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E4)	; 
-    (=ucs		. #xE4CD)	; 
+  '((=ucs		. #xE4CD)	; 
+    (=big5-pua		. #x90E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E5)	; 
-    (=ucs		. #xE4CE)	; 
+  '((=ucs		. #xE4CE)	; 
+    (=big5-pua		. #x90E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E6)	; 
-    (=ucs		. #xE4CF)	; 
+  '((=ucs		. #xE4CF)	; 
+    (=big5-pua		. #x90E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E7)	; 
-    (=ucs		. #xE4D0)	; 
+  '((=ucs		. #xE4D0)	; 
+    (=big5-pua		. #x90E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E8)	; 
-    (=ucs		. #xE4D1)	; 
+  '((=ucs		. #xE4D1)	; 
+    (=big5-pua		. #x90E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90E9)	; 
-    (=ucs		. #xE4D2)	; 
+  '((=ucs		. #xE4D2)	; 
+    (=big5-pua		. #x90E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90EA)	; 
-    (=ucs		. #xE4D3)	; 
+  '((=ucs		. #xE4D3)	; 
+    (=big5-pua		. #x90EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90EB)	; 
-    (=ucs		. #xE4D4)	; 
+  '((=ucs		. #xE4D4)	; 
+    (=big5-pua		. #x90EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90EC)	; 
-    (=ucs		. #xE4D5)	; 
+  '((=ucs		. #xE4D5)	; 
+    (=big5-pua		. #x90EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90ED)	; 
-    (=ucs		. #xE4D6)	; 
+  '((=ucs		. #xE4D6)	; 
+    (=big5-pua		. #x90ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90EE)	; 
-    (=ucs		. #xE4D7)	; 
+  '((=ucs		. #xE4D7)	; 
+    (=big5-pua		. #x90EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90EF)	; 
-    (=ucs		. #xE4D8)	; 
+  '((=ucs		. #xE4D8)	; 
+    (=big5-pua		. #x90EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F0)	; 
-    (=ucs		. #xE4D9)	; 
+  '((=ucs		. #xE4D9)	; 
+    (=big5-pua		. #x90F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F1)	; 
-    (=ucs		. #xE4DA)	; 
+  '((=ucs		. #xE4DA)	; 
+    (=big5-pua		. #x90F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F2)	; 
-    (=ucs		. #xE4DB)	; 
+  '((=ucs		. #xE4DB)	; 
+    (=big5-pua		. #x90F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F3)	; 
-    (=ucs		. #xE4DC)	; 
+  '((=ucs		. #xE4DC)	; 
+    (=big5-pua		. #x90F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F4)	; 
-    (=ucs		. #xE4DD)	; 
+  '((=ucs		. #xE4DD)	; 
+    (=big5-pua		. #x90F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F5)	; 
-    (=ucs		. #xE4DE)	; 
+  '((=ucs		. #xE4DE)	; 
+    (=big5-pua		. #x90F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F6)	; 
-    (=ucs		. #xE4DF)	; 
+  '((=ucs		. #xE4DF)	; 
+    (=big5-pua		. #x90F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F7)	; 
-    (=ucs		. #xE4E0)	; 
+  '((=ucs		. #xE4E0)	; 
+    (=big5-pua		. #x90F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F8)	; 
-    (=ucs		. #xE4E1)	; 
+  '((=ucs		. #xE4E1)	; 
+    (=big5-pua		. #x90F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90F9)	; 
-    (=ucs		. #xE4E2)	; 
+  '((=ucs		. #xE4E2)	; 
+    (=big5-pua		. #x90F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90FA)	; 
-    (=ucs		. #xE4E3)	; 
+  '((=ucs		. #xE4E3)	; 
+    (=big5-pua		. #x90FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90FB)	; 
-    (=ucs		. #xE4E4)	; 
+  '((=ucs		. #xE4E4)	; 
+    (=big5-pua		. #x90FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90FC)	; 
-    (=ucs		. #xE4E5)	; 
+  '((=ucs		. #xE4E5)	; 
+    (=big5-pua		. #x90FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90FD)	; 
-    (=ucs		. #xE4E6)	; 
+  '((=ucs		. #xE4E6)	; 
+    (=big5-pua		. #x90FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x90FE)	; 
-    (=ucs		. #xE4E7)	; 
+  '((=ucs		. #xE4E7)	; 
+    (=big5-pua		. #x90FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9140)	; 
-    (=ucs		. #xE4E8)	; 
+  '((=ucs		. #xE4E8)	; 
+    (=big5-pua		. #x9140)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9141)	; 
-    (=ucs		. #xE4E9)	; 
+  '((=ucs		. #xE4E9)	; 
+    (=big5-pua		. #x9141)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9142)	; 
-    (=ucs		. #xE4EA)	; 
+  '((=ucs		. #xE4EA)	; 
+    (=big5-pua		. #x9142)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9143)	; 
-    (=ucs		. #xE4EB)	; 
+  '((=ucs		. #xE4EB)	; 
+    (=big5-pua		. #x9143)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9144)	; 
-    (=ucs		. #xE4EC)	; 
+  '((=ucs		. #xE4EC)	; 
+    (=big5-pua		. #x9144)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9145)	; 
-    (=ucs		. #xE4ED)	; 
+  '((=ucs		. #xE4ED)	; 
+    (=big5-pua		. #x9145)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9146)	; 
-    (=ucs		. #xE4EE)	; 
+  '((=ucs		. #xE4EE)	; 
+    (=big5-pua		. #x9146)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9147)	; 
-    (=ucs		. #xE4EF)	; 
+  '((=ucs		. #xE4EF)	; 
+    (=big5-pua		. #x9147)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9148)	; 
-    (=ucs		. #xE4F0)	; 
+  '((=ucs		. #xE4F0)	; 
+    (=big5-pua		. #x9148)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9149)	; 
-    (=ucs		. #xE4F1)	; 
+  '((=ucs		. #xE4F1)	; 
+    (=big5-pua		. #x9149)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914A)	; 
-    (=ucs		. #xE4F2)	; 
+  '((=ucs		. #xE4F2)	; 
+    (=big5-pua		. #x914A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914B)	; 
-    (=ucs		. #xE4F3)	; 
+  '((=ucs		. #xE4F3)	; 
+    (=big5-pua		. #x914B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914C)	; 
-    (=ucs		. #xE4F4)	; 
+  '((=ucs		. #xE4F4)	; 
+    (=big5-pua		. #x914C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914D)	; 
-    (=ucs		. #xE4F5)	; 
+  '((=ucs		. #xE4F5)	; 
+    (=big5-pua		. #x914D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914E)	; 
-    (=ucs		. #xE4F6)	; 
+  '((=ucs		. #xE4F6)	; 
+    (=big5-pua		. #x914E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x914F)	; 
-    (=ucs		. #xE4F7)	; 
+  '((=ucs		. #xE4F7)	; 
+    (=big5-pua		. #x914F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9150)	; 
-    (=ucs		. #xE4F8)	; 
+  '((=ucs		. #xE4F8)	; 
+    (=big5-pua		. #x9150)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9151)	; 
-    (=ucs		. #xE4F9)	; 
+  '((=ucs		. #xE4F9)	; 
+    (=big5-pua		. #x9151)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9152)	; 
-    (=ucs		. #xE4FA)	; 
+  '((=ucs		. #xE4FA)	; 
+    (=big5-pua		. #x9152)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9153)	; 
-    (=ucs		. #xE4FB)	; 
+  '((=ucs		. #xE4FB)	; 
+    (=big5-pua		. #x9153)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9154)	; 
-    (=ucs		. #xE4FC)	; 
+  '((=ucs		. #xE4FC)	; 
+    (=big5-pua		. #x9154)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9155)	; 
-    (=ucs		. #xE4FD)	; 
+  '((=ucs		. #xE4FD)	; 
+    (=big5-pua		. #x9155)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9156)	; 
-    (=ucs		. #xE4FE)	; 
+  '((=ucs		. #xE4FE)	; 
+    (=big5-pua		. #x9156)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9157)	; 
-    (=ucs		. #xE4FF)	; 
+  '((=ucs		. #xE4FF)	; 
+    (=big5-pua		. #x9157)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9158)	; 
-    (=ucs		. #xE500)	; 
+  '((=ucs		. #xE500)	; 
+    (=big5-pua		. #x9158)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9159)	; 
-    (=ucs		. #xE501)	; 
+  '((=ucs		. #xE501)	; 
+    (=big5-pua		. #x9159)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915A)	; 
-    (=ucs		. #xE502)	; 
+  '((=ucs		. #xE502)	; 
+    (=big5-pua		. #x915A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915B)	; 
-    (=ucs		. #xE503)	; 
+  '((=ucs		. #xE503)	; 
+    (=big5-pua		. #x915B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915C)	; 
-    (=ucs		. #xE504)	; 
+  '((=ucs		. #xE504)	; 
+    (=big5-pua		. #x915C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915D)	; 
-    (=ucs		. #xE505)	; 
+  '((=ucs		. #xE505)	; 
+    (=big5-pua		. #x915D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915E)	; 
-    (=ucs		. #xE506)	; 
+  '((=ucs		. #xE506)	; 
+    (=big5-pua		. #x915E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x915F)	; 
-    (=ucs		. #xE507)	; 
+  '((=ucs		. #xE507)	; 
+    (=big5-pua		. #x915F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9160)	; 
-    (=ucs		. #xE508)	; 
+  '((=ucs		. #xE508)	; 
+    (=big5-pua		. #x9160)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9161)	; 
-    (=ucs		. #xE509)	; 
+  '((=ucs		. #xE509)	; 
+    (=big5-pua		. #x9161)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9162)	; 
-    (=ucs		. #xE50A)	; 
+  '((=ucs		. #xE50A)	; 
+    (=big5-pua		. #x9162)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9163)	; 
-    (=ucs		. #xE50B)	; 
+  '((=ucs		. #xE50B)	; 
+    (=big5-pua		. #x9163)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9164)	; 
-    (=ucs		. #xE50C)	; 
+  '((=ucs		. #xE50C)	; 
+    (=big5-pua		. #x9164)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9165)	; 
-    (=ucs		. #xE50D)	; 
+  '((=ucs		. #xE50D)	; 
+    (=big5-pua		. #x9165)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9166)	; 
-    (=ucs		. #xE50E)	; 
+  '((=ucs		. #xE50E)	; 
+    (=big5-pua		. #x9166)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9167)	; 
-    (=ucs		. #xE50F)	; 
+  '((=ucs		. #xE50F)	; 
+    (=big5-pua		. #x9167)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9168)	; 
-    (=ucs		. #xE510)	; 
+  '((=ucs		. #xE510)	; 
+    (=big5-pua		. #x9168)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9169)	; 
-    (=ucs		. #xE511)	; 
+  '((=ucs		. #xE511)	; 
+    (=big5-pua		. #x9169)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916A)	; 
-    (=ucs		. #xE512)	; 
+  '((=ucs		. #xE512)	; 
+    (=big5-pua		. #x916A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916B)	; 
-    (=ucs		. #xE513)	; 
+  '((=ucs		. #xE513)	; 
+    (=big5-pua		. #x916B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916C)	; 
-    (=ucs		. #xE514)	; 
+  '((=ucs		. #xE514)	; 
+    (=big5-pua		. #x916C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916D)	; 
-    (=ucs		. #xE515)	; 
+  '((=ucs		. #xE515)	; 
+    (=big5-pua		. #x916D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916E)	; 
-    (=ucs		. #xE516)	; 
+  '((=ucs		. #xE516)	; 
+    (=big5-pua		. #x916E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x916F)	; 
-    (=ucs		. #xE517)	; 
+  '((=ucs		. #xE517)	; 
+    (=big5-pua		. #x916F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9170)	; 
-    (=ucs		. #xE518)	; 
+  '((=ucs		. #xE518)	; 
+    (=big5-pua		. #x9170)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9171)	; 
-    (=ucs		. #xE519)	; 
+  '((=ucs		. #xE519)	; 
+    (=big5-pua		. #x9171)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9172)	; 
-    (=ucs		. #xE51A)	; 
+  '((=ucs		. #xE51A)	; 
+    (=big5-pua		. #x9172)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9173)	; 
-    (=ucs		. #xE51B)	; 
+  '((=ucs		. #xE51B)	; 
+    (=big5-pua		. #x9173)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9174)	; 
-    (=ucs		. #xE51C)	; 
+  '((=ucs		. #xE51C)	; 
+    (=big5-pua		. #x9174)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9175)	; 
-    (=ucs		. #xE51D)	; 
+  '((=ucs		. #xE51D)	; 
+    (=big5-pua		. #x9175)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9176)	; 
-    (=ucs		. #xE51E)	; 
+  '((=ucs		. #xE51E)	; 
+    (=big5-pua		. #x9176)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9177)	; 
-    (=ucs		. #xE51F)	; 
+  '((=ucs		. #xE51F)	; 
+    (=big5-pua		. #x9177)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9178)	; 
-    (=ucs		. #xE520)	; 
+  '((=ucs		. #xE520)	; 
+    (=big5-pua		. #x9178)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9179)	; 
-    (=ucs		. #xE521)	; 
+  '((=ucs		. #xE521)	; 
+    (=big5-pua		. #x9179)	; 
     ))
 (define-char
-  '((=big5-pua		. #x917A)	; 
-    (=ucs		. #xE522)	; 
+  '((=ucs		. #xE522)	; 
+    (=big5-pua		. #x917A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x917B)	; 
-    (=ucs		. #xE523)	; 
+  '((=ucs		. #xE523)	; 
+    (=big5-pua		. #x917B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x917C)	; 
-    (=ucs		. #xE524)	; 
+  '((=ucs		. #xE524)	; 
+    (=big5-pua		. #x917C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x917D)	; 
-    (=ucs		. #xE525)	; 
+  '((=ucs		. #xE525)	; 
+    (=big5-pua		. #x917D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x917E)	; 
-    (=ucs		. #xE526)	; 
+  '((=ucs		. #xE526)	; 
+    (=big5-pua		. #x917E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A1)	; 
-    (=ucs		. #xE527)	; 
+  '((=ucs		. #xE527)	; 
+    (=big5-pua		. #x91A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A2)	; 
-    (=ucs		. #xE528)	; 
+  '((=ucs		. #xE528)	; 
+    (=big5-pua		. #x91A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A3)	; 
-    (=ucs		. #xE529)	; 
+  '((=ucs		. #xE529)	; 
+    (=big5-pua		. #x91A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A4)	; 
-    (=ucs		. #xE52A)	; 
+  '((=ucs		. #xE52A)	; 
+    (=big5-pua		. #x91A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A5)	; 
-    (=ucs		. #xE52B)	; 
+  '((=ucs		. #xE52B)	; 
+    (=big5-pua		. #x91A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A6)	; 
-    (=ucs		. #xE52C)	; 
+  '((=ucs		. #xE52C)	; 
+    (=big5-pua		. #x91A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A7)	; 
-    (=ucs		. #xE52D)	; 
+  '((=ucs		. #xE52D)	; 
+    (=big5-pua		. #x91A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A8)	; 
-    (=ucs		. #xE52E)	; 
+  '((=ucs		. #xE52E)	; 
+    (=big5-pua		. #x91A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91A9)	; 
-    (=ucs		. #xE52F)	; 
+  '((=ucs		. #xE52F)	; 
+    (=big5-pua		. #x91A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AA)	; 
-    (=ucs		. #xE530)	; 
+  '((=ucs		. #xE530)	; 
+    (=big5-pua		. #x91AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AB)	; 
-    (=ucs		. #xE531)	; 
+  '((=ucs		. #xE531)	; 
+    (=big5-pua		. #x91AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AC)	; 
-    (=ucs		. #xE532)	; 
+  '((=ucs		. #xE532)	; 
+    (=big5-pua		. #x91AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AD)	; 
-    (=ucs		. #xE533)	; 
+  '((=ucs		. #xE533)	; 
+    (=big5-pua		. #x91AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AE)	; 
-    (=ucs		. #xE534)	; 
+  '((=ucs		. #xE534)	; 
+    (=big5-pua		. #x91AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91AF)	; 
-    (=ucs		. #xE535)	; 
+  '((=ucs		. #xE535)	; 
+    (=big5-pua		. #x91AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B0)	; 
-    (=ucs		. #xE536)	; 
+  '((=ucs		. #xE536)	; 
+    (=big5-pua		. #x91B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B1)	; 
-    (=ucs		. #xE537)	; 
+  '((=ucs		. #xE537)	; 
+    (=big5-pua		. #x91B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B2)	; 
-    (=ucs		. #xE538)	; 
+  '((=ucs		. #xE538)	; 
+    (=big5-pua		. #x91B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B3)	; 
-    (=ucs		. #xE539)	; 
+  '((=ucs		. #xE539)	; 
+    (=big5-pua		. #x91B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B4)	; 
-    (=ucs		. #xE53A)	; 
+  '((=ucs		. #xE53A)	; 
+    (=big5-pua		. #x91B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B5)	; 
-    (=ucs		. #xE53B)	; 
+  '((=ucs		. #xE53B)	; 
+    (=big5-pua		. #x91B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B6)	; 
-    (=ucs		. #xE53C)	; 
+  '((=ucs		. #xE53C)	; 
+    (=big5-pua		. #x91B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B7)	; 
-    (=ucs		. #xE53D)	; 
+  '((=ucs		. #xE53D)	; 
+    (=big5-pua		. #x91B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B8)	; 
-    (=ucs		. #xE53E)	; 
+  '((=ucs		. #xE53E)	; 
+    (=big5-pua		. #x91B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91B9)	; 
-    (=ucs		. #xE53F)	; 
+  '((=ucs		. #xE53F)	; 
+    (=big5-pua		. #x91B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BA)	; 
-    (=ucs		. #xE540)	; 
+  '((=ucs		. #xE540)	; 
+    (=big5-pua		. #x91BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BB)	; 
-    (=ucs		. #xE541)	; 
+  '((=ucs		. #xE541)	; 
+    (=big5-pua		. #x91BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BC)	; 
-    (=ucs		. #xE542)	; 
+  '((=ucs		. #xE542)	; 
+    (=big5-pua		. #x91BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BD)	; 
-    (=ucs		. #xE543)	; 
+  '((=ucs		. #xE543)	; 
+    (=big5-pua		. #x91BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BE)	; 
-    (=ucs		. #xE544)	; 
+  '((=ucs		. #xE544)	; 
+    (=big5-pua		. #x91BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91BF)	; 
-    (=ucs		. #xE545)	; 
+  '((=ucs		. #xE545)	; 
+    (=big5-pua		. #x91BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C0)	; 
-    (=ucs		. #xE546)	; 
+  '((=ucs		. #xE546)	; 
+    (=big5-pua		. #x91C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C1)	; 
-    (=ucs		. #xE547)	; 
+  '((=ucs		. #xE547)	; 
+    (=big5-pua		. #x91C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C2)	; 
-    (=ucs		. #xE548)	; 
+  '((=ucs		. #xE548)	; 
+    (=big5-pua		. #x91C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C3)	; 
-    (=ucs		. #xE549)	; 
+  '((=ucs		. #xE549)	; 
+    (=big5-pua		. #x91C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C4)	; 
-    (=ucs		. #xE54A)	; 
+  '((=ucs		. #xE54A)	; 
+    (=big5-pua		. #x91C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C5)	; 
-    (=ucs		. #xE54B)	; 
+  '((=ucs		. #xE54B)	; 
+    (=big5-pua		. #x91C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C6)	; 
-    (=ucs		. #xE54C)	; 
+  '((=ucs		. #xE54C)	; 
+    (=big5-pua		. #x91C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C7)	; 
-    (=ucs		. #xE54D)	; 
+  '((=ucs		. #xE54D)	; 
+    (=big5-pua		. #x91C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C8)	; 
-    (=ucs		. #xE54E)	; 
+  '((=ucs		. #xE54E)	; 
+    (=big5-pua		. #x91C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91C9)	; 
-    (=ucs		. #xE54F)	; 
+  '((=ucs		. #xE54F)	; 
+    (=big5-pua		. #x91C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CA)	; 
-    (=ucs		. #xE550)	; 
+  '((=ucs		. #xE550)	; 
+    (=big5-pua		. #x91CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CB)	; 
-    (=ucs		. #xE551)	; 
+  '((=ucs		. #xE551)	; 
+    (=big5-pua		. #x91CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CC)	; 
-    (=ucs		. #xE552)	; 
+  '((=ucs		. #xE552)	; 
+    (=big5-pua		. #x91CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CD)	; 
-    (=ucs		. #xE553)	; 
+  '((=ucs		. #xE553)	; 
+    (=big5-pua		. #x91CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CE)	; 
-    (=ucs		. #xE554)	; 
+  '((=ucs		. #xE554)	; 
+    (=big5-pua		. #x91CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91CF)	; 
-    (=ucs		. #xE555)	; 
+  '((=ucs		. #xE555)	; 
+    (=big5-pua		. #x91CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D0)	; 
-    (=ucs		. #xE556)	; 
+  '((=ucs		. #xE556)	; 
+    (=big5-pua		. #x91D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D1)	; 
-    (=ucs		. #xE557)	; 
+  '((=ucs		. #xE557)	; 
+    (=big5-pua		. #x91D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D2)	; 
-    (=ucs		. #xE558)	; 
+  '((=ucs		. #xE558)	; 
+    (=big5-pua		. #x91D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D3)	; 
-    (=ucs		. #xE559)	; 
+  '((=ucs		. #xE559)	; 
+    (=big5-pua		. #x91D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D4)	; 
-    (=ucs		. #xE55A)	; 
+  '((=ucs		. #xE55A)	; 
+    (=big5-pua		. #x91D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D5)	; 
-    (=ucs		. #xE55B)	; 
+  '((=ucs		. #xE55B)	; 
+    (=big5-pua		. #x91D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D6)	; 
-    (=ucs		. #xE55C)	; 
+  '((=ucs		. #xE55C)	; 
+    (=big5-pua		. #x91D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D7)	; 
-    (=ucs		. #xE55D)	; 
+  '((=ucs		. #xE55D)	; 
+    (=big5-pua		. #x91D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D8)	; 
-    (=ucs		. #xE55E)	; 
+  '((=ucs		. #xE55E)	; 
+    (=big5-pua		. #x91D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91D9)	; 
-    (=ucs		. #xE55F)	; 
+  '((=ucs		. #xE55F)	; 
+    (=big5-pua		. #x91D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DA)	; 
-    (=ucs		. #xE560)	; 
+  '((=ucs		. #xE560)	; 
+    (=big5-pua		. #x91DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DB)	; 
-    (=ucs		. #xE561)	; 
+  '((=ucs		. #xE561)	; 
+    (=big5-pua		. #x91DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DC)	; 
-    (=ucs		. #xE562)	; 
+  '((=ucs		. #xE562)	; 
+    (=big5-pua		. #x91DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DD)	; 
-    (=ucs		. #xE563)	; 
+  '((=ucs		. #xE563)	; 
+    (=big5-pua		. #x91DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DE)	; 
-    (=ucs		. #xE564)	; 
+  '((=ucs		. #xE564)	; 
+    (=big5-pua		. #x91DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91DF)	; 
-    (=ucs		. #xE565)	; 
+  '((=ucs		. #xE565)	; 
+    (=big5-pua		. #x91DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E0)	; 
-    (=ucs		. #xE566)	; 
+  '((=ucs		. #xE566)	; 
+    (=big5-pua		. #x91E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E1)	; 
-    (=ucs		. #xE567)	; 
+  '((=ucs		. #xE567)	; 
+    (=big5-pua		. #x91E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E2)	; 
-    (=ucs		. #xE568)	; 
+  '((=ucs		. #xE568)	; 
+    (=big5-pua		. #x91E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E3)	; 
-    (=ucs		. #xE569)	; 
+  '((=ucs		. #xE569)	; 
+    (=big5-pua		. #x91E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E4)	; 
-    (=ucs		. #xE56A)	; 
+  '((=ucs		. #xE56A)	; 
+    (=big5-pua		. #x91E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E5)	; 
-    (=ucs		. #xE56B)	; 
+  '((=ucs		. #xE56B)	; 
+    (=big5-pua		. #x91E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E6)	; 
-    (=ucs		. #xE56C)	; 
+  '((=ucs		. #xE56C)	; 
+    (=big5-pua		. #x91E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E7)	; 
-    (=ucs		. #xE56D)	; 
+  '((=ucs		. #xE56D)	; 
+    (=big5-pua		. #x91E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E8)	; 
-    (=ucs		. #xE56E)	; 
+  '((=ucs		. #xE56E)	; 
+    (=big5-pua		. #x91E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91E9)	; 
-    (=ucs		. #xE56F)	; 
+  '((=ucs		. #xE56F)	; 
+    (=big5-pua		. #x91E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91EA)	; 
-    (=ucs		. #xE570)	; 
+  '((=ucs		. #xE570)	; 
+    (=big5-pua		. #x91EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91EB)	; 
-    (=ucs		. #xE571)	; 
+  '((=ucs		. #xE571)	; 
+    (=big5-pua		. #x91EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91EC)	; 
-    (=ucs		. #xE572)	; 
+  '((=ucs		. #xE572)	; 
+    (=big5-pua		. #x91EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91ED)	; 
-    (=ucs		. #xE573)	; 
+  '((=ucs		. #xE573)	; 
+    (=big5-pua		. #x91ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91EE)	; 
-    (=ucs		. #xE574)	; 
+  '((=ucs		. #xE574)	; 
+    (=big5-pua		. #x91EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91EF)	; 
-    (=ucs		. #xE575)	; 
+  '((=ucs		. #xE575)	; 
+    (=big5-pua		. #x91EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F0)	; 
-    (=ucs		. #xE576)	; 
+  '((=ucs		. #xE576)	; 
+    (=big5-pua		. #x91F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F1)	; 
-    (=ucs		. #xE577)	; 
+  '((=ucs		. #xE577)	; 
+    (=big5-pua		. #x91F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F2)	; 
-    (=ucs		. #xE578)	; 
+  '((=ucs		. #xE578)	; 
+    (=big5-pua		. #x91F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F3)	; 
-    (=ucs		. #xE579)	; 
+  '((=ucs		. #xE579)	; 
+    (=big5-pua		. #x91F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F4)	; 
-    (=ucs		. #xE57A)	; 
+  '((=ucs		. #xE57A)	; 
+    (=big5-pua		. #x91F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F5)	; 
-    (=ucs		. #xE57B)	; 
+  '((=ucs		. #xE57B)	; 
+    (=big5-pua		. #x91F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F6)	; 
-    (=ucs		. #xE57C)	; 
+  '((=ucs		. #xE57C)	; 
+    (=big5-pua		. #x91F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F7)	; 
-    (=ucs		. #xE57D)	; 
+  '((=ucs		. #xE57D)	; 
+    (=big5-pua		. #x91F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F8)	; 
-    (=ucs		. #xE57E)	; 
+  '((=ucs		. #xE57E)	; 
+    (=big5-pua		. #x91F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91F9)	; 
-    (=ucs		. #xE57F)	; 
+  '((=ucs		. #xE57F)	; 
+    (=big5-pua		. #x91F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91FA)	; 
-    (=ucs		. #xE580)	; 
+  '((=ucs		. #xE580)	; 
+    (=big5-pua		. #x91FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91FB)	; 
-    (=ucs		. #xE581)	; 
+  '((=ucs		. #xE581)	; 
+    (=big5-pua		. #x91FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91FC)	; 
-    (=ucs		. #xE582)	; 
+  '((=ucs		. #xE582)	; 
+    (=big5-pua		. #x91FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91FD)	; 
-    (=ucs		. #xE583)	; 
+  '((=ucs		. #xE583)	; 
+    (=big5-pua		. #x91FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x91FE)	; 
-    (=ucs		. #xE584)	; 
+  '((=ucs		. #xE584)	; 
+    (=big5-pua		. #x91FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9240)	; 
-    (=ucs		. #xE585)	; 
+  '((=ucs		. #xE585)	; 
+    (=big5-pua		. #x9240)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9241)	; 
-    (=ucs		. #xE586)	; 
+  '((=ucs		. #xE586)	; 
+    (=big5-pua		. #x9241)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9242)	; 
-    (=ucs		. #xE587)	; 
+  '((=ucs		. #xE587)	; 
+    (=big5-pua		. #x9242)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9243)	; 
-    (=ucs		. #xE588)	; 
+  '((=ucs		. #xE588)	; 
+    (=big5-pua		. #x9243)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9244)	; 
-    (=ucs		. #xE589)	; 
+  '((=ucs		. #xE589)	; 
+    (=big5-pua		. #x9244)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9245)	; 
-    (=ucs		. #xE58A)	; 
+  '((=ucs		. #xE58A)	; 
+    (=big5-pua		. #x9245)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9246)	; 
-    (=ucs		. #xE58B)	; 
+  '((=ucs		. #xE58B)	; 
+    (=big5-pua		. #x9246)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9247)	; 
-    (=ucs		. #xE58C)	; 
+  '((=ucs		. #xE58C)	; 
+    (=big5-pua		. #x9247)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9248)	; 
-    (=ucs		. #xE58D)	; 
+  '((=ucs		. #xE58D)	; 
+    (=big5-pua		. #x9248)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9249)	; 
-    (=ucs		. #xE58E)	; 
+  '((=ucs		. #xE58E)	; 
+    (=big5-pua		. #x9249)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924A)	; 
-    (=ucs		. #xE58F)	; 
+  '((=ucs		. #xE58F)	; 
+    (=big5-pua		. #x924A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924B)	; 
-    (=ucs		. #xE590)	; 
+  '((=ucs		. #xE590)	; 
+    (=big5-pua		. #x924B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924C)	; 
-    (=ucs		. #xE591)	; 
+  '((=ucs		. #xE591)	; 
+    (=big5-pua		. #x924C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924D)	; 
-    (=ucs		. #xE592)	; 
+  '((=ucs		. #xE592)	; 
+    (=big5-pua		. #x924D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924E)	; 
-    (=ucs		. #xE593)	; 
+  '((=ucs		. #xE593)	; 
+    (=big5-pua		. #x924E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x924F)	; 
-    (=ucs		. #xE594)	; 
+  '((=ucs		. #xE594)	; 
+    (=big5-pua		. #x924F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9250)	; 
-    (=ucs		. #xE595)	; 
+  '((=ucs		. #xE595)	; 
+    (=big5-pua		. #x9250)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9251)	; 
-    (=ucs		. #xE596)	; 
+  '((=ucs		. #xE596)	; 
+    (=big5-pua		. #x9251)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9252)	; 
-    (=ucs		. #xE597)	; 
+  '((=ucs		. #xE597)	; 
+    (=big5-pua		. #x9252)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9253)	; 
-    (=ucs		. #xE598)	; 
+  '((=ucs		. #xE598)	; 
+    (=big5-pua		. #x9253)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9254)	; 
-    (=ucs		. #xE599)	; 
+  '((=ucs		. #xE599)	; 
+    (=big5-pua		. #x9254)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9255)	; 
-    (=ucs		. #xE59A)	; 
+  '((=ucs		. #xE59A)	; 
+    (=big5-pua		. #x9255)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9256)	; 
-    (=ucs		. #xE59B)	; 
+  '((=ucs		. #xE59B)	; 
+    (=big5-pua		. #x9256)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9257)	; 
-    (=ucs		. #xE59C)	; 
+  '((=ucs		. #xE59C)	; 
+    (=big5-pua		. #x9257)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9258)	; 
-    (=ucs		. #xE59D)	; 
+  '((=ucs		. #xE59D)	; 
+    (=big5-pua		. #x9258)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9259)	; 
-    (=ucs		. #xE59E)	; 
+  '((=ucs		. #xE59E)	; 
+    (=big5-pua		. #x9259)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925A)	; 
-    (=ucs		. #xE59F)	; 
+  '((=ucs		. #xE59F)	; 
+    (=big5-pua		. #x925A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925B)	; 
-    (=ucs		. #xE5A0)	; 
+  '((=ucs		. #xE5A0)	; 
+    (=big5-pua		. #x925B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925C)	; 
-    (=ucs		. #xE5A1)	; 
+  '((=ucs		. #xE5A1)	; 
+    (=big5-pua		. #x925C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925D)	; 
-    (=ucs		. #xE5A2)	; 
+  '((=ucs		. #xE5A2)	; 
+    (=big5-pua		. #x925D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925E)	; 
-    (=ucs		. #xE5A3)	; 
+  '((=ucs		. #xE5A3)	; 
+    (=big5-pua		. #x925E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x925F)	; 
-    (=ucs		. #xE5A4)	; 
+  '((=ucs		. #xE5A4)	; 
+    (=big5-pua		. #x925F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9260)	; 
-    (=ucs		. #xE5A5)	; 
+  '((=ucs		. #xE5A5)	; 
+    (=big5-pua		. #x9260)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9261)	; 
-    (=ucs		. #xE5A6)	; 
+  '((=ucs		. #xE5A6)	; 
+    (=big5-pua		. #x9261)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9262)	; 
-    (=ucs		. #xE5A7)	; 
+  '((=ucs		. #xE5A7)	; 
+    (=big5-pua		. #x9262)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9263)	; 
-    (=ucs		. #xE5A8)	; 
+  '((=ucs		. #xE5A8)	; 
+    (=big5-pua		. #x9263)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9264)	; 
-    (=ucs		. #xE5A9)	; 
+  '((=ucs		. #xE5A9)	; 
+    (=big5-pua		. #x9264)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9265)	; 
-    (=ucs		. #xE5AA)	; 
+  '((=ucs		. #xE5AA)	; 
+    (=big5-pua		. #x9265)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9266)	; 
-    (=ucs		. #xE5AB)	; 
+  '((=ucs		. #xE5AB)	; 
+    (=big5-pua		. #x9266)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9267)	; 
-    (=ucs		. #xE5AC)	; 
+  '((=ucs		. #xE5AC)	; 
+    (=big5-pua		. #x9267)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9268)	; 
-    (=ucs		. #xE5AD)	; 
+  '((=ucs		. #xE5AD)	; 
+    (=big5-pua		. #x9268)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9269)	; 
-    (=ucs		. #xE5AE)	; 
+  '((=ucs		. #xE5AE)	; 
+    (=big5-pua		. #x9269)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926A)	; 
-    (=ucs		. #xE5AF)	; 
+  '((=ucs		. #xE5AF)	; 
+    (=big5-pua		. #x926A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926B)	; 
-    (=ucs		. #xE5B0)	; 
+  '((=ucs		. #xE5B0)	; 
+    (=big5-pua		. #x926B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926C)	; 
-    (=ucs		. #xE5B1)	; 
+  '((=ucs		. #xE5B1)	; 
+    (=big5-pua		. #x926C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926D)	; 
-    (=ucs		. #xE5B2)	; 
+  '((=ucs		. #xE5B2)	; 
+    (=big5-pua		. #x926D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926E)	; 
-    (=ucs		. #xE5B3)	; 
+  '((=ucs		. #xE5B3)	; 
+    (=big5-pua		. #x926E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x926F)	; 
-    (=ucs		. #xE5B4)	; 
+  '((=ucs		. #xE5B4)	; 
+    (=big5-pua		. #x926F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9270)	; 
-    (=ucs		. #xE5B5)	; 
+  '((=ucs		. #xE5B5)	; 
+    (=big5-pua		. #x9270)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9271)	; 
-    (=ucs		. #xE5B6)	; 
+  '((=ucs		. #xE5B6)	; 
+    (=big5-pua		. #x9271)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9272)	; 
-    (=ucs		. #xE5B7)	; 
+  '((=ucs		. #xE5B7)	; 
+    (=big5-pua		. #x9272)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9273)	; 
-    (=ucs		. #xE5B8)	; 
+  '((=ucs		. #xE5B8)	; 
+    (=big5-pua		. #x9273)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9274)	; 
-    (=ucs		. #xE5B9)	; 
+  '((=ucs		. #xE5B9)	; 
+    (=big5-pua		. #x9274)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9275)	; 
-    (=ucs		. #xE5BA)	; 
+  '((=ucs		. #xE5BA)	; 
+    (=big5-pua		. #x9275)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9276)	; 
-    (=ucs		. #xE5BB)	; 
+  '((=ucs		. #xE5BB)	; 
+    (=big5-pua		. #x9276)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9277)	; 
-    (=ucs		. #xE5BC)	; 
+  '((=ucs		. #xE5BC)	; 
+    (=big5-pua		. #x9277)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9278)	; 
-    (=ucs		. #xE5BD)	; 
+  '((=ucs		. #xE5BD)	; 
+    (=big5-pua		. #x9278)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9279)	; 
-    (=ucs		. #xE5BE)	; 
+  '((=ucs		. #xE5BE)	; 
+    (=big5-pua		. #x9279)	; 
     ))
 (define-char
-  '((=big5-pua		. #x927A)	; 
-    (=ucs		. #xE5BF)	; 
+  '((=ucs		. #xE5BF)	; 
+    (=big5-pua		. #x927A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x927B)	; 
-    (=ucs		. #xE5C0)	; 
+  '((=ucs		. #xE5C0)	; 
+    (=big5-pua		. #x927B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x927C)	; 
-    (=ucs		. #xE5C1)	; 
+  '((=ucs		. #xE5C1)	; 
+    (=big5-pua		. #x927C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x927D)	; 
-    (=ucs		. #xE5C2)	; 
+  '((=ucs		. #xE5C2)	; 
+    (=big5-pua		. #x927D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x927E)	; 
-    (=ucs		. #xE5C3)	; 
+  '((=ucs		. #xE5C3)	; 
+    (=big5-pua		. #x927E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A1)	; 
-    (=ucs		. #xE5C4)	; 
+  '((=ucs		. #xE5C4)	; 
+    (=big5-pua		. #x92A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A2)	; 
-    (=ucs		. #xE5C5)	; 
+  '((=ucs		. #xE5C5)	; 
+    (=big5-pua		. #x92A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A3)	; 
-    (=ucs		. #xE5C6)	; 
+  '((=ucs		. #xE5C6)	; 
+    (=big5-pua		. #x92A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A4)	; 
-    (=ucs		. #xE5C7)	; 
+  '((=ucs		. #xE5C7)	; 
+    (=big5-pua		. #x92A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A5)	; 
-    (=ucs		. #xE5C8)	; 
+  '((=ucs		. #xE5C8)	; 
+    (=big5-pua		. #x92A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A6)	; 
-    (=ucs		. #xE5C9)	; 
+  '((=ucs		. #xE5C9)	; 
+    (=big5-pua		. #x92A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A7)	; 
-    (=ucs		. #xE5CA)	; 
+  '((=ucs		. #xE5CA)	; 
+    (=big5-pua		. #x92A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A8)	; 
-    (=ucs		. #xE5CB)	; 
+  '((=ucs		. #xE5CB)	; 
+    (=big5-pua		. #x92A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92A9)	; 
-    (=ucs		. #xE5CC)	; 
+  '((=ucs		. #xE5CC)	; 
+    (=big5-pua		. #x92A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AA)	; 
-    (=ucs		. #xE5CD)	; 
+  '((=ucs		. #xE5CD)	; 
+    (=big5-pua		. #x92AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AB)	; 
-    (=ucs		. #xE5CE)	; 
+  '((=ucs		. #xE5CE)	; 
+    (=big5-pua		. #x92AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AC)	; 
-    (=ucs		. #xE5CF)	; 
+  '((=ucs		. #xE5CF)	; 
+    (=big5-pua		. #x92AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AD)	; 
-    (=ucs		. #xE5D0)	; 
+  '((=ucs		. #xE5D0)	; 
+    (=big5-pua		. #x92AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AE)	; 
-    (=ucs		. #xE5D1)	; 
+  '((=ucs		. #xE5D1)	; 
+    (=big5-pua		. #x92AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92AF)	; 
-    (=ucs		. #xE5D2)	; 
+  '((=ucs		. #xE5D2)	; 
+    (=big5-pua		. #x92AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B0)	; 
-    (=ucs		. #xE5D3)	; 
+  '((=ucs		. #xE5D3)	; 
+    (=big5-pua		. #x92B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B1)	; 
-    (=ucs		. #xE5D4)	; 
+  '((=ucs		. #xE5D4)	; 
+    (=big5-pua		. #x92B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B2)	; 
-    (=ucs		. #xE5D5)	; 
+  '((=ucs		. #xE5D5)	; 
+    (=big5-pua		. #x92B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B3)	; 
-    (=ucs		. #xE5D6)	; 
+  '((=ucs		. #xE5D6)	; 
+    (=big5-pua		. #x92B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B4)	; 
-    (=ucs		. #xE5D7)	; 
+  '((=ucs		. #xE5D7)	; 
+    (=big5-pua		. #x92B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B5)	; 
-    (=ucs		. #xE5D8)	; 
+  '((=ucs		. #xE5D8)	; 
+    (=big5-pua		. #x92B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B6)	; 
-    (=ucs		. #xE5D9)	; 
+  '((=ucs		. #xE5D9)	; 
+    (=big5-pua		. #x92B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B7)	; 
-    (=ucs		. #xE5DA)	; 
+  '((=ucs		. #xE5DA)	; 
+    (=big5-pua		. #x92B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B8)	; 
-    (=ucs		. #xE5DB)	; 
+  '((=ucs		. #xE5DB)	; 
+    (=big5-pua		. #x92B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92B9)	; 
-    (=ucs		. #xE5DC)	; 
+  '((=ucs		. #xE5DC)	; 
+    (=big5-pua		. #x92B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BA)	; 
-    (=ucs		. #xE5DD)	; 
+  '((=ucs		. #xE5DD)	; 
+    (=big5-pua		. #x92BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BB)	; 
-    (=ucs		. #xE5DE)	; 
+  '((=ucs		. #xE5DE)	; 
+    (=big5-pua		. #x92BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BC)	; 
-    (=ucs		. #xE5DF)	; 
+  '((=ucs		. #xE5DF)	; 
+    (=big5-pua		. #x92BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BD)	; 
-    (=ucs		. #xE5E0)	; 
+  '((=ucs		. #xE5E0)	; 
+    (=big5-pua		. #x92BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BE)	; 
-    (=ucs		. #xE5E1)	; 
+  '((=ucs		. #xE5E1)	; 
+    (=big5-pua		. #x92BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92BF)	; 
-    (=ucs		. #xE5E2)	; 
+  '((=ucs		. #xE5E2)	; 
+    (=big5-pua		. #x92BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C0)	; 
-    (=ucs		. #xE5E3)	; 
+  '((=ucs		. #xE5E3)	; 
+    (=big5-pua		. #x92C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C1)	; 
-    (=ucs		. #xE5E4)	; 
+  '((=ucs		. #xE5E4)	; 
+    (=big5-pua		. #x92C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C2)	; 
-    (=ucs		. #xE5E5)	; 
+  '((=ucs		. #xE5E5)	; 
+    (=big5-pua		. #x92C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C3)	; 
-    (=ucs		. #xE5E6)	; 
+  '((=ucs		. #xE5E6)	; 
+    (=big5-pua		. #x92C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C4)	; 
-    (=ucs		. #xE5E7)	; 
+  '((=ucs		. #xE5E7)	; 
+    (=big5-pua		. #x92C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C5)	; 
-    (=ucs		. #xE5E8)	; 
+  '((=ucs		. #xE5E8)	; 
+    (=big5-pua		. #x92C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C6)	; 
-    (=ucs		. #xE5E9)	; 
+  '((=ucs		. #xE5E9)	; 
+    (=big5-pua		. #x92C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C7)	; 
-    (=ucs		. #xE5EA)	; 
+  '((=ucs		. #xE5EA)	; 
+    (=big5-pua		. #x92C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C8)	; 
-    (=ucs		. #xE5EB)	; 
+  '((=ucs		. #xE5EB)	; 
+    (=big5-pua		. #x92C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92C9)	; 
-    (=ucs		. #xE5EC)	; 
+  '((=ucs		. #xE5EC)	; 
+    (=big5-pua		. #x92C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CA)	; 
-    (=ucs		. #xE5ED)	; 
+  '((=ucs		. #xE5ED)	; 
+    (=big5-pua		. #x92CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CB)	; 
-    (=ucs		. #xE5EE)	; 
+  '((=ucs		. #xE5EE)	; 
+    (=big5-pua		. #x92CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CC)	; 
-    (=ucs		. #xE5EF)	; 
+  '((=ucs		. #xE5EF)	; 
+    (=big5-pua		. #x92CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CD)	; 
-    (=ucs		. #xE5F0)	; 
+  '((=ucs		. #xE5F0)	; 
+    (=big5-pua		. #x92CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CE)	; 
-    (=ucs		. #xE5F1)	; 
+  '((=ucs		. #xE5F1)	; 
+    (=big5-pua		. #x92CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92CF)	; 
-    (=ucs		. #xE5F2)	; 
+  '((=ucs		. #xE5F2)	; 
+    (=big5-pua		. #x92CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D0)	; 
-    (=ucs		. #xE5F3)	; 
+  '((=ucs		. #xE5F3)	; 
+    (=big5-pua		. #x92D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D1)	; 
-    (=ucs		. #xE5F4)	; 
+  '((=ucs		. #xE5F4)	; 
+    (=big5-pua		. #x92D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D2)	; 
-    (=ucs		. #xE5F5)	; 
+  '((=ucs		. #xE5F5)	; 
+    (=big5-pua		. #x92D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D3)	; 
-    (=ucs		. #xE5F6)	; 
+  '((=ucs		. #xE5F6)	; 
+    (=big5-pua		. #x92D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D4)	; 
-    (=ucs		. #xE5F7)	; 
+  '((=ucs		. #xE5F7)	; 
+    (=big5-pua		. #x92D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D5)	; 
-    (=ucs		. #xE5F8)	; 
+  '((=ucs		. #xE5F8)	; 
+    (=big5-pua		. #x92D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D6)	; 
-    (=ucs		. #xE5F9)	; 
+  '((=ucs		. #xE5F9)	; 
+    (=big5-pua		. #x92D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D7)	; 
-    (=ucs		. #xE5FA)	; 
+  '((=ucs		. #xE5FA)	; 
+    (=big5-pua		. #x92D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D8)	; 
-    (=ucs		. #xE5FB)	; 
+  '((=ucs		. #xE5FB)	; 
+    (=big5-pua		. #x92D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92D9)	; 
-    (=ucs		. #xE5FC)	; 
+  '((=ucs		. #xE5FC)	; 
+    (=big5-pua		. #x92D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DA)	; 
-    (=ucs		. #xE5FD)	; 
+  '((=ucs		. #xE5FD)	; 
+    (=big5-pua		. #x92DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DB)	; 
-    (=ucs		. #xE5FE)	; 
+  '((=ucs		. #xE5FE)	; 
+    (=big5-pua		. #x92DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DC)	; 
-    (=ucs		. #xE5FF)	; 
+  '((=ucs		. #xE5FF)	; 
+    (=big5-pua		. #x92DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DD)	; 
-    (=ucs		. #xE600)	; 
+  '((=ucs		. #xE600)	; 
+    (=big5-pua		. #x92DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DE)	; 
-    (=ucs		. #xE601)	; 
+  '((=ucs		. #xE601)	; 
+    (=big5-pua		. #x92DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92DF)	; 
-    (=ucs		. #xE602)	; 
+  '((=ucs		. #xE602)	; 
+    (=big5-pua		. #x92DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E0)	; 
-    (=ucs		. #xE603)	; 
+  '((=ucs		. #xE603)	; 
+    (=big5-pua		. #x92E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E1)	; 
-    (=ucs		. #xE604)	; 
+  '((=ucs		. #xE604)	; 
+    (=big5-pua		. #x92E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E2)	; 
-    (=ucs		. #xE605)	; 
+  '((=ucs		. #xE605)	; 
+    (=big5-pua		. #x92E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E3)	; 
-    (=ucs		. #xE606)	; 
+  '((=ucs		. #xE606)	; 
+    (=big5-pua		. #x92E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E4)	; 
-    (=ucs		. #xE607)	; 
+  '((=ucs		. #xE607)	; 
+    (=big5-pua		. #x92E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E5)	; 
-    (=ucs		. #xE608)	; 
+  '((=ucs		. #xE608)	; 
+    (=big5-pua		. #x92E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E6)	; 
-    (=ucs		. #xE609)	; 
+  '((=ucs		. #xE609)	; 
+    (=big5-pua		. #x92E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E7)	; 
-    (=ucs		. #xE60A)	; 
+  '((=ucs		. #xE60A)	; 
+    (=big5-pua		. #x92E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E8)	; 
-    (=ucs		. #xE60B)	; 
+  '((=ucs		. #xE60B)	; 
+    (=big5-pua		. #x92E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92E9)	; 
-    (=ucs		. #xE60C)	; 
+  '((=ucs		. #xE60C)	; 
+    (=big5-pua		. #x92E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92EA)	; 
-    (=ucs		. #xE60D)	; 
+  '((=ucs		. #xE60D)	; 
+    (=big5-pua		. #x92EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92EB)	; 
-    (=ucs		. #xE60E)	; 
+  '((=ucs		. #xE60E)	; 
+    (=big5-pua		. #x92EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92EC)	; 
-    (=ucs		. #xE60F)	; 
+  '((=ucs		. #xE60F)	; 
+    (=big5-pua		. #x92EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92ED)	; 
-    (=ucs		. #xE610)	; 
+  '((=ucs		. #xE610)	; 
+    (=big5-pua		. #x92ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92EE)	; 
-    (=ucs		. #xE611)	; 
+  '((=ucs		. #xE611)	; 
+    (=big5-pua		. #x92EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92EF)	; 
-    (=ucs		. #xE612)	; 
+  '((=ucs		. #xE612)	; 
+    (=big5-pua		. #x92EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F0)	; 
-    (=ucs		. #xE613)	; 
+  '((=ucs		. #xE613)	; 
+    (=big5-pua		. #x92F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F1)	; 
-    (=ucs		. #xE614)	; 
+  '((=ucs		. #xE614)	; 
+    (=big5-pua		. #x92F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F2)	; 
-    (=ucs		. #xE615)	; 
+  '((=ucs		. #xE615)	; 
+    (=big5-pua		. #x92F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F3)	; 
-    (=ucs		. #xE616)	; 
+  '((=ucs		. #xE616)	; 
+    (=big5-pua		. #x92F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F4)	; 
-    (=ucs		. #xE617)	; 
+  '((=ucs		. #xE617)	; 
+    (=big5-pua		. #x92F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F5)	; 
-    (=ucs		. #xE618)	; 
+  '((=ucs		. #xE618)	; 
+    (=big5-pua		. #x92F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F6)	; 
-    (=ucs		. #xE619)	; 
+  '((=ucs		. #xE619)	; 
+    (=big5-pua		. #x92F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F7)	; 
-    (=ucs		. #xE61A)	; 
+  '((=ucs		. #xE61A)	; 
+    (=big5-pua		. #x92F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F8)	; 
-    (=ucs		. #xE61B)	; 
+  '((=ucs		. #xE61B)	; 
+    (=big5-pua		. #x92F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92F9)	; 
-    (=ucs		. #xE61C)	; 
+  '((=ucs		. #xE61C)	; 
+    (=big5-pua		. #x92F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92FA)	; 
-    (=ucs		. #xE61D)	; 
+  '((=ucs		. #xE61D)	; 
+    (=big5-pua		. #x92FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92FB)	; 
-    (=ucs		. #xE61E)	; 
+  '((=ucs		. #xE61E)	; 
+    (=big5-pua		. #x92FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92FC)	; 
-    (=ucs		. #xE61F)	; 
+  '((=ucs		. #xE61F)	; 
+    (=big5-pua		. #x92FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92FD)	; 
-    (=ucs		. #xE620)	; 
+  '((=ucs		. #xE620)	; 
+    (=big5-pua		. #x92FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x92FE)	; 
-    (=ucs		. #xE621)	; 
+  '((=ucs		. #xE621)	; 
+    (=big5-pua		. #x92FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9340)	; 
-    (=ucs		. #xE622)	; 
+  '((=ucs		. #xE622)	; 
+    (=big5-pua		. #x9340)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9341)	; 
-    (=ucs		. #xE623)	; 
+  '((=ucs		. #xE623)	; 
+    (=big5-pua		. #x9341)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9342)	; 
-    (=ucs		. #xE624)	; 
+  '((=ucs		. #xE624)	; 
+    (=big5-pua		. #x9342)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9343)	; 
-    (=ucs		. #xE625)	; 
+  '((=ucs		. #xE625)	; 
+    (=big5-pua		. #x9343)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9344)	; 
-    (=ucs		. #xE626)	; 
+  '((=ucs		. #xE626)	; 
+    (=big5-pua		. #x9344)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9345)	; 
-    (=ucs		. #xE627)	; 
+  '((=ucs		. #xE627)	; 
+    (=big5-pua		. #x9345)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9346)	; 
-    (=ucs		. #xE628)	; 
+  '((=ucs		. #xE628)	; 
+    (=big5-pua		. #x9346)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9347)	; 
-    (=ucs		. #xE629)	; 
+  '((=ucs		. #xE629)	; 
+    (=big5-pua		. #x9347)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9348)	; 
-    (=ucs		. #xE62A)	; 
+  '((=ucs		. #xE62A)	; 
+    (=big5-pua		. #x9348)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9349)	; 
-    (=ucs		. #xE62B)	; 
+  '((=ucs		. #xE62B)	; 
+    (=big5-pua		. #x9349)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934A)	; 
-    (=ucs		. #xE62C)	; 
+  '((=ucs		. #xE62C)	; 
+    (=big5-pua		. #x934A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934B)	; 
-    (=ucs		. #xE62D)	; 
+  '((=ucs		. #xE62D)	; 
+    (=big5-pua		. #x934B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934C)	; 
-    (=ucs		. #xE62E)	; 
+  '((=ucs		. #xE62E)	; 
+    (=big5-pua		. #x934C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934D)	; 
-    (=ucs		. #xE62F)	; 
+  '((=ucs		. #xE62F)	; 
+    (=big5-pua		. #x934D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934E)	; 
-    (=ucs		. #xE630)	; 
+  '((=ucs		. #xE630)	; 
+    (=big5-pua		. #x934E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x934F)	; 
-    (=ucs		. #xE631)	; 
+  '((=ucs		. #xE631)	; 
+    (=big5-pua		. #x934F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9350)	; 
-    (=ucs		. #xE632)	; 
+  '((=ucs		. #xE632)	; 
+    (=big5-pua		. #x9350)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9351)	; 
-    (=ucs		. #xE633)	; 
+  '((=ucs		. #xE633)	; 
+    (=big5-pua		. #x9351)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9352)	; 
-    (=ucs		. #xE634)	; 
+  '((=ucs		. #xE634)	; 
+    (=big5-pua		. #x9352)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9353)	; 
-    (=ucs		. #xE635)	; 
+  '((=ucs		. #xE635)	; 
+    (=big5-pua		. #x9353)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9354)	; 
-    (=ucs		. #xE636)	; 
+  '((=ucs		. #xE636)	; 
+    (=big5-pua		. #x9354)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9355)	; 
-    (=ucs		. #xE637)	; 
+  '((=ucs		. #xE637)	; 
+    (=big5-pua		. #x9355)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9356)	; 
-    (=ucs		. #xE638)	; 
+  '((=ucs		. #xE638)	; 
+    (=big5-pua		. #x9356)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9357)	; 
-    (=ucs		. #xE639)	; 
+  '((=ucs		. #xE639)	; 
+    (=big5-pua		. #x9357)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9358)	; 
-    (=ucs		. #xE63A)	; 
+  '((=ucs		. #xE63A)	; 
+    (=big5-pua		. #x9358)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9359)	; 
-    (=ucs		. #xE63B)	; 
+  '((=ucs		. #xE63B)	; 
+    (=big5-pua		. #x9359)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935A)	; 
-    (=ucs		. #xE63C)	; 
+  '((=ucs		. #xE63C)	; 
+    (=big5-pua		. #x935A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935B)	; 
-    (=ucs		. #xE63D)	; 
+  '((=ucs		. #xE63D)	; 
+    (=big5-pua		. #x935B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935C)	; 
-    (=ucs		. #xE63E)	; 
+  '((=ucs		. #xE63E)	; 
+    (=big5-pua		. #x935C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935D)	; 
-    (=ucs		. #xE63F)	; 
+  '((=ucs		. #xE63F)	; 
+    (=big5-pua		. #x935D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935E)	; 
-    (=ucs		. #xE640)	; 
+  '((=ucs		. #xE640)	; 
+    (=big5-pua		. #x935E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x935F)	; 
-    (=ucs		. #xE641)	; 
+  '((=ucs		. #xE641)	; 
+    (=big5-pua		. #x935F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9360)	; 
-    (=ucs		. #xE642)	; 
+  '((=ucs		. #xE642)	; 
+    (=big5-pua		. #x9360)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9361)	; 
-    (=ucs		. #xE643)	; 
+  '((=ucs		. #xE643)	; 
+    (=big5-pua		. #x9361)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9362)	; 
-    (=ucs		. #xE644)	; 
+  '((=ucs		. #xE644)	; 
+    (=big5-pua		. #x9362)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9363)	; 
-    (=ucs		. #xE645)	; 
+  '((=ucs		. #xE645)	; 
+    (=big5-pua		. #x9363)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9364)	; 
-    (=ucs		. #xE646)	; 
+  '((=ucs		. #xE646)	; 
+    (=big5-pua		. #x9364)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9365)	; 
-    (=ucs		. #xE647)	; 
+  '((=ucs		. #xE647)	; 
+    (=big5-pua		. #x9365)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9366)	; 
-    (=ucs		. #xE648)	; 
+  '((=ucs		. #xE648)	; 
+    (=big5-pua		. #x9366)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9367)	; 
-    (=ucs		. #xE649)	; 
+  '((=ucs		. #xE649)	; 
+    (=big5-pua		. #x9367)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9368)	; 
-    (=ucs		. #xE64A)	; 
+  '((=ucs		. #xE64A)	; 
+    (=big5-pua		. #x9368)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9369)	; 
-    (=ucs		. #xE64B)	; 
+  '((=ucs		. #xE64B)	; 
+    (=big5-pua		. #x9369)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936A)	; 
-    (=ucs		. #xE64C)	; 
+  '((=ucs		. #xE64C)	; 
+    (=big5-pua		. #x936A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936B)	; 
-    (=ucs		. #xE64D)	; 
+  '((=ucs		. #xE64D)	; 
+    (=big5-pua		. #x936B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936C)	; 
-    (=ucs		. #xE64E)	; 
+  '((=ucs		. #xE64E)	; 
+    (=big5-pua		. #x936C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936D)	; 
-    (=ucs		. #xE64F)	; 
+  '((=ucs		. #xE64F)	; 
+    (=big5-pua		. #x936D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936E)	; 
-    (=ucs		. #xE650)	; 
+  '((=ucs		. #xE650)	; 
+    (=big5-pua		. #x936E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x936F)	; 
-    (=ucs		. #xE651)	; 
+  '((=ucs		. #xE651)	; 
+    (=big5-pua		. #x936F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9370)	; 
-    (=ucs		. #xE652)	; 
+  '((=ucs		. #xE652)	; 
+    (=big5-pua		. #x9370)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9371)	; 
-    (=ucs		. #xE653)	; 
+  '((=ucs		. #xE653)	; 
+    (=big5-pua		. #x9371)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9372)	; 
-    (=ucs		. #xE654)	; 
+  '((=ucs		. #xE654)	; 
+    (=big5-pua		. #x9372)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9373)	; 
-    (=ucs		. #xE655)	; 
+  '((=ucs		. #xE655)	; 
+    (=big5-pua		. #x9373)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9374)	; 
-    (=ucs		. #xE656)	; 
+  '((=ucs		. #xE656)	; 
+    (=big5-pua		. #x9374)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9375)	; 
-    (=ucs		. #xE657)	; 
+  '((=ucs		. #xE657)	; 
+    (=big5-pua		. #x9375)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9376)	; 
-    (=ucs		. #xE658)	; 
+  '((=ucs		. #xE658)	; 
+    (=big5-pua		. #x9376)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9377)	; 
-    (=ucs		. #xE659)	; 
+  '((=ucs		. #xE659)	; 
+    (=big5-pua		. #x9377)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9378)	; 
-    (=ucs		. #xE65A)	; 
+  '((=ucs		. #xE65A)	; 
+    (=big5-pua		. #x9378)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9379)	; 
-    (=ucs		. #xE65B)	; 
+  '((=ucs		. #xE65B)	; 
+    (=big5-pua		. #x9379)	; 
     ))
 (define-char
-  '((=big5-pua		. #x937A)	; 
-    (=ucs		. #xE65C)	; 
+  '((=ucs		. #xE65C)	; 
+    (=big5-pua		. #x937A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x937B)	; 
-    (=ucs		. #xE65D)	; 
+  '((=ucs		. #xE65D)	; 
+    (=big5-pua		. #x937B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x937C)	; 
-    (=ucs		. #xE65E)	; 
+  '((=ucs		. #xE65E)	; 
+    (=big5-pua		. #x937C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x937D)	; 
-    (=ucs		. #xE65F)	; 
+  '((=ucs		. #xE65F)	; 
+    (=big5-pua		. #x937D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x937E)	; 
-    (=ucs		. #xE660)	; 
+  '((=ucs		. #xE660)	; 
+    (=big5-pua		. #x937E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A1)	; 
-    (=ucs		. #xE661)	; 
+  '((=ucs		. #xE661)	; 
+    (=big5-pua		. #x93A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A2)	; 
-    (=ucs		. #xE662)	; 
+  '((=ucs		. #xE662)	; 
+    (=big5-pua		. #x93A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A3)	; 
-    (=ucs		. #xE663)	; 
+  '((=ucs		. #xE663)	; 
+    (=big5-pua		. #x93A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A4)	; 
-    (=ucs		. #xE664)	; 
+  '((=ucs		. #xE664)	; 
+    (=big5-pua		. #x93A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A5)	; 
-    (=ucs		. #xE665)	; 
+  '((=ucs		. #xE665)	; 
+    (=big5-pua		. #x93A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A6)	; 
-    (=ucs		. #xE666)	; 
+  '((=ucs		. #xE666)	; 
+    (=big5-pua		. #x93A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A7)	; 
-    (=ucs		. #xE667)	; 
+  '((=ucs		. #xE667)	; 
+    (=big5-pua		. #x93A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A8)	; 
-    (=ucs		. #xE668)	; 
+  '((=ucs		. #xE668)	; 
+    (=big5-pua		. #x93A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93A9)	; 
-    (=ucs		. #xE669)	; 
+  '((=ucs		. #xE669)	; 
+    (=big5-pua		. #x93A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AA)	; 
-    (=ucs		. #xE66A)	; 
+  '((=ucs		. #xE66A)	; 
+    (=big5-pua		. #x93AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AB)	; 
-    (=ucs		. #xE66B)	; 
+  '((=ucs		. #xE66B)	; 
+    (=big5-pua		. #x93AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AC)	; 
-    (=ucs		. #xE66C)	; 
+  '((=ucs		. #xE66C)	; 
+    (=big5-pua		. #x93AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AD)	; 
-    (=ucs		. #xE66D)	; 
+  '((=ucs		. #xE66D)	; 
+    (=big5-pua		. #x93AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AE)	; 
-    (=ucs		. #xE66E)	; 
+  '((=ucs		. #xE66E)	; 
+    (=big5-pua		. #x93AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93AF)	; 
-    (=ucs		. #xE66F)	; 
+  '((=ucs		. #xE66F)	; 
+    (=big5-pua		. #x93AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B0)	; 
-    (=ucs		. #xE670)	; 
+  '((=ucs		. #xE670)	; 
+    (=big5-pua		. #x93B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B1)	; 
-    (=ucs		. #xE671)	; 
+  '((=ucs		. #xE671)	; 
+    (=big5-pua		. #x93B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B2)	; 
-    (=ucs		. #xE672)	; 
+  '((=ucs		. #xE672)	; 
+    (=big5-pua		. #x93B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B3)	; 
-    (=ucs		. #xE673)	; 
+  '((=ucs		. #xE673)	; 
+    (=big5-pua		. #x93B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B4)	; 
-    (=ucs		. #xE674)	; 
+  '((=ucs		. #xE674)	; 
+    (=big5-pua		. #x93B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B5)	; 
-    (=ucs		. #xE675)	; 
+  '((=ucs		. #xE675)	; 
+    (=big5-pua		. #x93B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B6)	; 
-    (=ucs		. #xE676)	; 
+  '((=ucs		. #xE676)	; 
+    (=big5-pua		. #x93B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B7)	; 
-    (=ucs		. #xE677)	; 
+  '((=ucs		. #xE677)	; 
+    (=big5-pua		. #x93B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B8)	; 
-    (=ucs		. #xE678)	; 
+  '((=ucs		. #xE678)	; 
+    (=big5-pua		. #x93B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93B9)	; 
-    (=ucs		. #xE679)	; 
+  '((=ucs		. #xE679)	; 
+    (=big5-pua		. #x93B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BA)	; 
-    (=ucs		. #xE67A)	; 
+  '((=ucs		. #xE67A)	; 
+    (=big5-pua		. #x93BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BB)	; 
-    (=ucs		. #xE67B)	; 
+  '((=ucs		. #xE67B)	; 
+    (=big5-pua		. #x93BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BC)	; 
-    (=ucs		. #xE67C)	; 
+  '((=ucs		. #xE67C)	; 
+    (=big5-pua		. #x93BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BD)	; 
-    (=ucs		. #xE67D)	; 
+  '((=ucs		. #xE67D)	; 
+    (=big5-pua		. #x93BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BE)	; 
-    (=ucs		. #xE67E)	; 
+  '((=ucs		. #xE67E)	; 
+    (=big5-pua		. #x93BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93BF)	; 
-    (=ucs		. #xE67F)	; 
+  '((=ucs		. #xE67F)	; 
+    (=big5-pua		. #x93BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C0)	; 
-    (=ucs		. #xE680)	; 
+  '((=ucs		. #xE680)	; 
+    (=big5-pua		. #x93C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C1)	; 
-    (=ucs		. #xE681)	; 
+  '((=ucs		. #xE681)	; 
+    (=big5-pua		. #x93C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C2)	; 
-    (=ucs		. #xE682)	; 
+  '((=ucs		. #xE682)	; 
+    (=big5-pua		. #x93C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C3)	; 
-    (=ucs		. #xE683)	; 
+  '((=ucs		. #xE683)	; 
+    (=big5-pua		. #x93C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C4)	; 
-    (=ucs		. #xE684)	; 
+  '((=ucs		. #xE684)	; 
+    (=big5-pua		. #x93C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C5)	; 
-    (=ucs		. #xE685)	; 
+  '((=ucs		. #xE685)	; 
+    (=big5-pua		. #x93C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C6)	; 
-    (=ucs		. #xE686)	; 
+  '((=ucs		. #xE686)	; 
+    (=big5-pua		. #x93C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C7)	; 
-    (=ucs		. #xE687)	; 
+  '((=ucs		. #xE687)	; 
+    (=big5-pua		. #x93C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C8)	; 
-    (=ucs		. #xE688)	; 
+  '((=ucs		. #xE688)	; 
+    (=big5-pua		. #x93C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93C9)	; 
-    (=ucs		. #xE689)	; 
+  '((=ucs		. #xE689)	; 
+    (=big5-pua		. #x93C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CA)	; 
-    (=ucs		. #xE68A)	; 
+  '((=ucs		. #xE68A)	; 
+    (=big5-pua		. #x93CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CB)	; 
-    (=ucs		. #xE68B)	; 
+  '((=ucs		. #xE68B)	; 
+    (=big5-pua		. #x93CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CC)	; 
-    (=ucs		. #xE68C)	; 
+  '((=ucs		. #xE68C)	; 
+    (=big5-pua		. #x93CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CD)	; 
-    (=ucs		. #xE68D)	; 
+  '((=ucs		. #xE68D)	; 
+    (=big5-pua		. #x93CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CE)	; 
-    (=ucs		. #xE68E)	; 
+  '((=ucs		. #xE68E)	; 
+    (=big5-pua		. #x93CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93CF)	; 
-    (=ucs		. #xE68F)	; 
+  '((=ucs		. #xE68F)	; 
+    (=big5-pua		. #x93CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D0)	; 
-    (=ucs		. #xE690)	; 
+  '((=ucs		. #xE690)	; 
+    (=big5-pua		. #x93D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D1)	; 
-    (=ucs		. #xE691)	; 
+  '((=ucs		. #xE691)	; 
+    (=big5-pua		. #x93D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D2)	; 
-    (=ucs		. #xE692)	; 
+  '((=ucs		. #xE692)	; 
+    (=big5-pua		. #x93D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D3)	; 
-    (=ucs		. #xE693)	; 
+  '((=ucs		. #xE693)	; 
+    (=big5-pua		. #x93D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D4)	; 
-    (=ucs		. #xE694)	; 
+  '((=ucs		. #xE694)	; 
+    (=big5-pua		. #x93D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D5)	; 
-    (=ucs		. #xE695)	; 
+  '((=ucs		. #xE695)	; 
+    (=big5-pua		. #x93D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D6)	; 
-    (=ucs		. #xE696)	; 
+  '((=ucs		. #xE696)	; 
+    (=big5-pua		. #x93D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D7)	; 
-    (=ucs		. #xE697)	; 
+  '((=ucs		. #xE697)	; 
+    (=big5-pua		. #x93D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D8)	; 
-    (=ucs		. #xE698)	; 
+  '((=ucs		. #xE698)	; 
+    (=big5-pua		. #x93D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93D9)	; 
-    (=ucs		. #xE699)	; 
+  '((=ucs		. #xE699)	; 
+    (=big5-pua		. #x93D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DA)	; 
-    (=ucs		. #xE69A)	; 
+  '((=ucs		. #xE69A)	; 
+    (=big5-pua		. #x93DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DB)	; 
-    (=ucs		. #xE69B)	; 
+  '((=ucs		. #xE69B)	; 
+    (=big5-pua		. #x93DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DC)	; 
-    (=ucs		. #xE69C)	; 
+  '((=ucs		. #xE69C)	; 
+    (=big5-pua		. #x93DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DD)	; 
-    (=ucs		. #xE69D)	; 
+  '((=ucs		. #xE69D)	; 
+    (=big5-pua		. #x93DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DE)	; 
-    (=ucs		. #xE69E)	; 
+  '((=ucs		. #xE69E)	; 
+    (=big5-pua		. #x93DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93DF)	; 
-    (=ucs		. #xE69F)	; 
+  '((=ucs		. #xE69F)	; 
+    (=big5-pua		. #x93DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E0)	; 
-    (=ucs		. #xE6A0)	; 
+  '((=ucs		. #xE6A0)	; 
+    (=big5-pua		. #x93E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E1)	; 
-    (=ucs		. #xE6A1)	; 
+  '((=ucs		. #xE6A1)	; 
+    (=big5-pua		. #x93E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E2)	; 
-    (=ucs		. #xE6A2)	; 
+  '((=ucs		. #xE6A2)	; 
+    (=big5-pua		. #x93E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E3)	; 
-    (=ucs		. #xE6A3)	; 
+  '((=ucs		. #xE6A3)	; 
+    (=big5-pua		. #x93E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E4)	; 
-    (=ucs		. #xE6A4)	; 
+  '((=ucs		. #xE6A4)	; 
+    (=big5-pua		. #x93E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E5)	; 
-    (=ucs		. #xE6A5)	; 
+  '((=ucs		. #xE6A5)	; 
+    (=big5-pua		. #x93E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E6)	; 
-    (=ucs		. #xE6A6)	; 
+  '((=ucs		. #xE6A6)	; 
+    (=big5-pua		. #x93E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E7)	; 
-    (=ucs		. #xE6A7)	; 
+  '((=ucs		. #xE6A7)	; 
+    (=big5-pua		. #x93E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E8)	; 
-    (=ucs		. #xE6A8)	; 
+  '((=ucs		. #xE6A8)	; 
+    (=big5-pua		. #x93E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93E9)	; 
-    (=ucs		. #xE6A9)	; 
+  '((=ucs		. #xE6A9)	; 
+    (=big5-pua		. #x93E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93EA)	; 
-    (=ucs		. #xE6AA)	; 
+  '((=ucs		. #xE6AA)	; 
+    (=big5-pua		. #x93EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93EB)	; 
-    (=ucs		. #xE6AB)	; 
+  '((=ucs		. #xE6AB)	; 
+    (=big5-pua		. #x93EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93EC)	; 
-    (=ucs		. #xE6AC)	; 
+  '((=ucs		. #xE6AC)	; 
+    (=big5-pua		. #x93EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93ED)	; 
-    (=ucs		. #xE6AD)	; 
+  '((=ucs		. #xE6AD)	; 
+    (=big5-pua		. #x93ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93EE)	; 
-    (=ucs		. #xE6AE)	; 
+  '((=ucs		. #xE6AE)	; 
+    (=big5-pua		. #x93EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93EF)	; 
-    (=ucs		. #xE6AF)	; 
+  '((=ucs		. #xE6AF)	; 
+    (=big5-pua		. #x93EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F0)	; 
-    (=ucs		. #xE6B0)	; 
+  '((=ucs		. #xE6B0)	; 
+    (=big5-pua		. #x93F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F1)	; 
-    (=ucs		. #xE6B1)	; 
+  '((=ucs		. #xE6B1)	; 
+    (=big5-pua		. #x93F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F2)	; 
-    (=ucs		. #xE6B2)	; 
+  '((=ucs		. #xE6B2)	; 
+    (=big5-pua		. #x93F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F3)	; 
-    (=ucs		. #xE6B3)	; 
+  '((=ucs		. #xE6B3)	; 
+    (=big5-pua		. #x93F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F4)	; 
-    (=ucs		. #xE6B4)	; 
+  '((=ucs		. #xE6B4)	; 
+    (=big5-pua		. #x93F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F5)	; 
-    (=ucs		. #xE6B5)	; 
+  '((=ucs		. #xE6B5)	; 
+    (=big5-pua		. #x93F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F6)	; 
-    (=ucs		. #xE6B6)	; 
+  '((=ucs		. #xE6B6)	; 
+    (=big5-pua		. #x93F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F7)	; 
-    (=ucs		. #xE6B7)	; 
+  '((=ucs		. #xE6B7)	; 
+    (=big5-pua		. #x93F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F8)	; 
-    (=ucs		. #xE6B8)	; 
+  '((=ucs		. #xE6B8)	; 
+    (=big5-pua		. #x93F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93F9)	; 
-    (=ucs		. #xE6B9)	; 
+  '((=ucs		. #xE6B9)	; 
+    (=big5-pua		. #x93F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93FA)	; 
-    (=ucs		. #xE6BA)	; 
+  '((=ucs		. #xE6BA)	; 
+    (=big5-pua		. #x93FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93FB)	; 
-    (=ucs		. #xE6BB)	; 
+  '((=ucs		. #xE6BB)	; 
+    (=big5-pua		. #x93FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93FC)	; 
-    (=ucs		. #xE6BC)	; 
+  '((=ucs		. #xE6BC)	; 
+    (=big5-pua		. #x93FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93FD)	; 
-    (=ucs		. #xE6BD)	; 
+  '((=ucs		. #xE6BD)	; 
+    (=big5-pua		. #x93FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x93FE)	; 
-    (=ucs		. #xE6BE)	; 
+  '((=ucs		. #xE6BE)	; 
+    (=big5-pua		. #x93FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9440)	; 
-    (=ucs		. #xE6BF)	; 
+  '((=ucs		. #xE6BF)	; 
+    (=big5-pua		. #x9440)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9441)	; 
-    (=ucs		. #xE6C0)	; 
+  '((=ucs		. #xE6C0)	; 
+    (=big5-pua		. #x9441)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9442)	; 
-    (=ucs		. #xE6C1)	; 
+  '((=ucs		. #xE6C1)	; 
+    (=big5-pua		. #x9442)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9443)	; 
-    (=ucs		. #xE6C2)	; 
+  '((=ucs		. #xE6C2)	; 
+    (=big5-pua		. #x9443)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9444)	; 
-    (=ucs		. #xE6C3)	; 
+  '((=ucs		. #xE6C3)	; 
+    (=big5-pua		. #x9444)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9445)	; 
-    (=ucs		. #xE6C4)	; 
+  '((=ucs		. #xE6C4)	; 
+    (=big5-pua		. #x9445)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9446)	; 
-    (=ucs		. #xE6C5)	; 
+  '((=ucs		. #xE6C5)	; 
+    (=big5-pua		. #x9446)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9447)	; 
-    (=ucs		. #xE6C6)	; 
+  '((=ucs		. #xE6C6)	; 
+    (=big5-pua		. #x9447)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9448)	; 
-    (=ucs		. #xE6C7)	; 
+  '((=ucs		. #xE6C7)	; 
+    (=big5-pua		. #x9448)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9449)	; 
-    (=ucs		. #xE6C8)	; 
+  '((=ucs		. #xE6C8)	; 
+    (=big5-pua		. #x9449)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944A)	; 
-    (=ucs		. #xE6C9)	; 
+  '((=ucs		. #xE6C9)	; 
+    (=big5-pua		. #x944A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944B)	; 
-    (=ucs		. #xE6CA)	; 
+  '((=ucs		. #xE6CA)	; 
+    (=big5-pua		. #x944B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944C)	; 
-    (=ucs		. #xE6CB)	; 
+  '((=ucs		. #xE6CB)	; 
+    (=big5-pua		. #x944C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944D)	; 
-    (=ucs		. #xE6CC)	; 
+  '((=ucs		. #xE6CC)	; 
+    (=big5-pua		. #x944D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944E)	; 
-    (=ucs		. #xE6CD)	; 
+  '((=ucs		. #xE6CD)	; 
+    (=big5-pua		. #x944E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x944F)	; 
-    (=ucs		. #xE6CE)	; 
+  '((=ucs		. #xE6CE)	; 
+    (=big5-pua		. #x944F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9450)	; 
-    (=ucs		. #xE6CF)	; 
+  '((=ucs		. #xE6CF)	; 
+    (=big5-pua		. #x9450)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9451)	; 
-    (=ucs		. #xE6D0)	; 
+  '((=ucs		. #xE6D0)	; 
+    (=big5-pua		. #x9451)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9452)	; 
-    (=ucs		. #xE6D1)	; 
+  '((=ucs		. #xE6D1)	; 
+    (=big5-pua		. #x9452)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9453)	; 
-    (=ucs		. #xE6D2)	; 
+  '((=ucs		. #xE6D2)	; 
+    (=big5-pua		. #x9453)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9454)	; 
-    (=ucs		. #xE6D3)	; 
+  '((=ucs		. #xE6D3)	; 
+    (=big5-pua		. #x9454)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9455)	; 
-    (=ucs		. #xE6D4)	; 
+  '((=ucs		. #xE6D4)	; 
+    (=big5-pua		. #x9455)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9456)	; 
-    (=ucs		. #xE6D5)	; 
+  '((=ucs		. #xE6D5)	; 
+    (=big5-pua		. #x9456)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9457)	; 
-    (=ucs		. #xE6D6)	; 
+  '((=ucs		. #xE6D6)	; 
+    (=big5-pua		. #x9457)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9458)	; 
-    (=ucs		. #xE6D7)	; 
+  '((=ucs		. #xE6D7)	; 
+    (=big5-pua		. #x9458)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9459)	; 
-    (=ucs		. #xE6D8)	; 
+  '((=ucs		. #xE6D8)	; 
+    (=big5-pua		. #x9459)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945A)	; 
-    (=ucs		. #xE6D9)	; 
+  '((=ucs		. #xE6D9)	; 
+    (=big5-pua		. #x945A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945B)	; 
-    (=ucs		. #xE6DA)	; 
+  '((=ucs		. #xE6DA)	; 
+    (=big5-pua		. #x945B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945C)	; 
-    (=ucs		. #xE6DB)	; 
+  '((=ucs		. #xE6DB)	; 
+    (=big5-pua		. #x945C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945D)	; 
-    (=ucs		. #xE6DC)	; 
+  '((=ucs		. #xE6DC)	; 
+    (=big5-pua		. #x945D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945E)	; 
-    (=ucs		. #xE6DD)	; 
+  '((=ucs		. #xE6DD)	; 
+    (=big5-pua		. #x945E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x945F)	; 
-    (=ucs		. #xE6DE)	; 
+  '((=ucs		. #xE6DE)	; 
+    (=big5-pua		. #x945F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9460)	; 
-    (=ucs		. #xE6DF)	; 
+  '((=ucs		. #xE6DF)	; 
+    (=big5-pua		. #x9460)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9461)	; 
-    (=ucs		. #xE6E0)	; 
+  '((=ucs		. #xE6E0)	; 
+    (=big5-pua		. #x9461)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9462)	; 
-    (=ucs		. #xE6E1)	; 
+  '((=ucs		. #xE6E1)	; 
+    (=big5-pua		. #x9462)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9463)	; 
-    (=ucs		. #xE6E2)	; 
+  '((=ucs		. #xE6E2)	; 
+    (=big5-pua		. #x9463)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9464)	; 
-    (=ucs		. #xE6E3)	; 
+  '((=ucs		. #xE6E3)	; 
+    (=big5-pua		. #x9464)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9465)	; 
-    (=ucs		. #xE6E4)	; 
+  '((=ucs		. #xE6E4)	; 
+    (=big5-pua		. #x9465)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9466)	; 
-    (=ucs		. #xE6E5)	; 
+  '((=ucs		. #xE6E5)	; 
+    (=big5-pua		. #x9466)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9467)	; 
-    (=ucs		. #xE6E6)	; 
+  '((=ucs		. #xE6E6)	; 
+    (=big5-pua		. #x9467)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9468)	; 
-    (=ucs		. #xE6E7)	; 
+  '((=ucs		. #xE6E7)	; 
+    (=big5-pua		. #x9468)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9469)	; 
-    (=ucs		. #xE6E8)	; 
+  '((=ucs		. #xE6E8)	; 
+    (=big5-pua		. #x9469)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946A)	; 
-    (=ucs		. #xE6E9)	; 
+  '((=ucs		. #xE6E9)	; 
+    (=big5-pua		. #x946A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946B)	; 
-    (=ucs		. #xE6EA)	; 
+  '((=ucs		. #xE6EA)	; 
+    (=big5-pua		. #x946B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946C)	; 
-    (=ucs		. #xE6EB)	; 
+  '((=ucs		. #xE6EB)	; 
+    (=big5-pua		. #x946C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946D)	; 
-    (=ucs		. #xE6EC)	; 
+  '((=ucs		. #xE6EC)	; 
+    (=big5-pua		. #x946D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946E)	; 
-    (=ucs		. #xE6ED)	; 
+  '((=ucs		. #xE6ED)	; 
+    (=big5-pua		. #x946E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x946F)	; 
-    (=ucs		. #xE6EE)	; 
+  '((=ucs		. #xE6EE)	; 
+    (=big5-pua		. #x946F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9470)	; 
-    (=ucs		. #xE6EF)	; 
+  '((=ucs		. #xE6EF)	; 
+    (=big5-pua		. #x9470)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9471)	; 
-    (=ucs		. #xE6F0)	; 
+  '((=ucs		. #xE6F0)	; 
+    (=big5-pua		. #x9471)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9472)	; 
-    (=ucs		. #xE6F1)	; 
+  '((=ucs		. #xE6F1)	; 
+    (=big5-pua		. #x9472)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9473)	; 
-    (=ucs		. #xE6F2)	; 
+  '((=ucs		. #xE6F2)	; 
+    (=big5-pua		. #x9473)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9474)	; 
-    (=ucs		. #xE6F3)	; 
+  '((=ucs		. #xE6F3)	; 
+    (=big5-pua		. #x9474)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9475)	; 
-    (=ucs		. #xE6F4)	; 
+  '((=ucs		. #xE6F4)	; 
+    (=big5-pua		. #x9475)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9476)	; 
-    (=ucs		. #xE6F5)	; 
+  '((=ucs		. #xE6F5)	; 
+    (=big5-pua		. #x9476)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9477)	; 
-    (=ucs		. #xE6F6)	; 
+  '((=ucs		. #xE6F6)	; 
+    (=big5-pua		. #x9477)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9478)	; 
-    (=ucs		. #xE6F7)	; 
+  '((=ucs		. #xE6F7)	; 
+    (=big5-pua		. #x9478)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9479)	; 
-    (=ucs		. #xE6F8)	; 
+  '((=ucs		. #xE6F8)	; 
+    (=big5-pua		. #x9479)	; 
     ))
 (define-char
-  '((=big5-pua		. #x947A)	; 
-    (=ucs		. #xE6F9)	; 
+  '((=ucs		. #xE6F9)	; 
+    (=big5-pua		. #x947A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x947B)	; 
-    (=ucs		. #xE6FA)	; 
+  '((=ucs		. #xE6FA)	; 
+    (=big5-pua		. #x947B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x947C)	; 
-    (=ucs		. #xE6FB)	; 
+  '((=ucs		. #xE6FB)	; 
+    (=big5-pua		. #x947C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x947D)	; 
-    (=ucs		. #xE6FC)	; 
+  '((=ucs		. #xE6FC)	; 
+    (=big5-pua		. #x947D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x947E)	; 
-    (=ucs		. #xE6FD)	; 
+  '((=ucs		. #xE6FD)	; 
+    (=big5-pua		. #x947E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A1)	; 
-    (=ucs		. #xE6FE)	; 
+  '((=ucs		. #xE6FE)	; 
+    (=big5-pua		. #x94A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A2)	; 
-    (=ucs		. #xE6FF)	; 
+  '((=ucs		. #xE6FF)	; 
+    (=big5-pua		. #x94A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A3)	; 
-    (=ucs		. #xE700)	; 
+  '((=ucs		. #xE700)	; 
+    (=big5-pua		. #x94A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A4)	; 
-    (=ucs		. #xE701)	; 
+  '((=ucs		. #xE701)	; 
+    (=big5-pua		. #x94A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A5)	; 
-    (=ucs		. #xE702)	; 
+  '((=ucs		. #xE702)	; 
+    (=big5-pua		. #x94A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A6)	; 
-    (=ucs		. #xE703)	; 
+  '((=ucs		. #xE703)	; 
+    (=big5-pua		. #x94A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A7)	; 
-    (=ucs		. #xE704)	; 
+  '((=ucs		. #xE704)	; 
+    (=big5-pua		. #x94A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A8)	; 
-    (=ucs		. #xE705)	; 
+  '((=ucs		. #xE705)	; 
+    (=big5-pua		. #x94A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94A9)	; 
-    (=ucs		. #xE706)	; 
+  '((=ucs		. #xE706)	; 
+    (=big5-pua		. #x94A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AA)	; 
-    (=ucs		. #xE707)	; 
+  '((=ucs		. #xE707)	; 
+    (=big5-pua		. #x94AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AB)	; 
-    (=ucs		. #xE708)	; 
+  '((=ucs		. #xE708)	; 
+    (=big5-pua		. #x94AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AC)	; 
-    (=ucs		. #xE709)	; 
+  '((=ucs		. #xE709)	; 
+    (=big5-pua		. #x94AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AD)	; 
-    (=ucs		. #xE70A)	; 
+  '((=ucs		. #xE70A)	; 
+    (=big5-pua		. #x94AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AE)	; 
-    (=ucs		. #xE70B)	; 
+  '((=ucs		. #xE70B)	; 
+    (=big5-pua		. #x94AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94AF)	; 
-    (=ucs		. #xE70C)	; 
+  '((=ucs		. #xE70C)	; 
+    (=big5-pua		. #x94AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B0)	; 
-    (=ucs		. #xE70D)	; 
+  '((=ucs		. #xE70D)	; 
+    (=big5-pua		. #x94B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B1)	; 
-    (=ucs		. #xE70E)	; 
+  '((=ucs		. #xE70E)	; 
+    (=big5-pua		. #x94B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B2)	; 
-    (=ucs		. #xE70F)	; 
+  '((=ucs		. #xE70F)	; 
+    (=big5-pua		. #x94B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B3)	; 
-    (=ucs		. #xE710)	; 
+  '((=ucs		. #xE710)	; 
+    (=big5-pua		. #x94B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B4)	; 
-    (=ucs		. #xE711)	; 
+  '((=ucs		. #xE711)	; 
+    (=big5-pua		. #x94B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B5)	; 
-    (=ucs		. #xE712)	; 
+  '((=ucs		. #xE712)	; 
+    (=big5-pua		. #x94B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B6)	; 
-    (=ucs		. #xE713)	; 
+  '((=ucs		. #xE713)	; 
+    (=big5-pua		. #x94B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B7)	; 
-    (=ucs		. #xE714)	; 
+  '((=ucs		. #xE714)	; 
+    (=big5-pua		. #x94B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B8)	; 
-    (=ucs		. #xE715)	; 
+  '((=ucs		. #xE715)	; 
+    (=big5-pua		. #x94B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94B9)	; 
-    (=ucs		. #xE716)	; 
+  '((=ucs		. #xE716)	; 
+    (=big5-pua		. #x94B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BA)	; 
-    (=ucs		. #xE717)	; 
+  '((=ucs		. #xE717)	; 
+    (=big5-pua		. #x94BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BB)	; 
-    (=ucs		. #xE718)	; 
+  '((=ucs		. #xE718)	; 
+    (=big5-pua		. #x94BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BC)	; 
-    (=ucs		. #xE719)	; 
+  '((=ucs		. #xE719)	; 
+    (=big5-pua		. #x94BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BD)	; 
-    (=ucs		. #xE71A)	; 
+  '((=ucs		. #xE71A)	; 
+    (=big5-pua		. #x94BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BE)	; 
-    (=ucs		. #xE71B)	; 
+  '((=ucs		. #xE71B)	; 
+    (=big5-pua		. #x94BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94BF)	; 
-    (=ucs		. #xE71C)	; 
+  '((=ucs		. #xE71C)	; 
+    (=big5-pua		. #x94BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C0)	; 
-    (=ucs		. #xE71D)	; 
+  '((=ucs		. #xE71D)	; 
+    (=big5-pua		. #x94C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C1)	; 
-    (=ucs		. #xE71E)	; 
+  '((=ucs		. #xE71E)	; 
+    (=big5-pua		. #x94C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C2)	; 
-    (=ucs		. #xE71F)	; 
+  '((=ucs		. #xE71F)	; 
+    (=big5-pua		. #x94C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C3)	; 
-    (=ucs		. #xE720)	; 
+  '((=ucs		. #xE720)	; 
+    (=big5-pua		. #x94C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C4)	; 
-    (=ucs		. #xE721)	; 
+  '((=ucs		. #xE721)	; 
+    (=big5-pua		. #x94C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C5)	; 
-    (=ucs		. #xE722)	; 
+  '((=ucs		. #xE722)	; 
+    (=big5-pua		. #x94C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C6)	; 
-    (=ucs		. #xE723)	; 
+  '((=ucs		. #xE723)	; 
+    (=big5-pua		. #x94C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C7)	; 
-    (=ucs		. #xE724)	; 
+  '((=ucs		. #xE724)	; 
+    (=big5-pua		. #x94C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C8)	; 
-    (=ucs		. #xE725)	; 
+  '((=ucs		. #xE725)	; 
+    (=big5-pua		. #x94C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94C9)	; 
-    (=ucs		. #xE726)	; 
+  '((=ucs		. #xE726)	; 
+    (=big5-pua		. #x94C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CA)	; 
-    (=ucs		. #xE727)	; 
+  '((=ucs		. #xE727)	; 
+    (=big5-pua		. #x94CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CB)	; 
-    (=ucs		. #xE728)	; 
+  '((=ucs		. #xE728)	; 
+    (=big5-pua		. #x94CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CC)	; 
-    (=ucs		. #xE729)	; 
+  '((=ucs		. #xE729)	; 
+    (=big5-pua		. #x94CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CD)	; 
-    (=ucs		. #xE72A)	; 
+  '((=ucs		. #xE72A)	; 
+    (=big5-pua		. #x94CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CE)	; 
-    (=ucs		. #xE72B)	; 
+  '((=ucs		. #xE72B)	; 
+    (=big5-pua		. #x94CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94CF)	; 
-    (=ucs		. #xE72C)	; 
+  '((=ucs		. #xE72C)	; 
+    (=big5-pua		. #x94CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D0)	; 
-    (=ucs		. #xE72D)	; 
+  '((=ucs		. #xE72D)	; 
+    (=big5-pua		. #x94D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D1)	; 
-    (=ucs		. #xE72E)	; 
+  '((=ucs		. #xE72E)	; 
+    (=big5-pua		. #x94D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D2)	; 
-    (=ucs		. #xE72F)	; 
+  '((=ucs		. #xE72F)	; 
+    (=big5-pua		. #x94D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D3)	; 
-    (=ucs		. #xE730)	; 
+  '((=ucs		. #xE730)	; 
+    (=big5-pua		. #x94D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D4)	; 
-    (=ucs		. #xE731)	; 
+  '((=ucs		. #xE731)	; 
+    (=big5-pua		. #x94D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D5)	; 
-    (=ucs		. #xE732)	; 
+  '((=ucs		. #xE732)	; 
+    (=big5-pua		. #x94D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D6)	; 
-    (=ucs		. #xE733)	; 
+  '((=ucs		. #xE733)	; 
+    (=big5-pua		. #x94D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D7)	; 
-    (=ucs		. #xE734)	; 
+  '((=ucs		. #xE734)	; 
+    (=big5-pua		. #x94D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D8)	; 
-    (=ucs		. #xE735)	; 
+  '((=ucs		. #xE735)	; 
+    (=big5-pua		. #x94D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94D9)	; 
-    (=ucs		. #xE736)	; 
+  '((=ucs		. #xE736)	; 
+    (=big5-pua		. #x94D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DA)	; 
-    (=ucs		. #xE737)	; 
+  '((=ucs		. #xE737)	; 
+    (=big5-pua		. #x94DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DB)	; 
-    (=ucs		. #xE738)	; 
+  '((=ucs		. #xE738)	; 
+    (=big5-pua		. #x94DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DC)	; 
-    (=ucs		. #xE739)	; 
+  '((=ucs		. #xE739)	; 
+    (=big5-pua		. #x94DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DD)	; 
-    (=ucs		. #xE73A)	; 
+  '((=ucs		. #xE73A)	; 
+    (=big5-pua		. #x94DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DE)	; 
-    (=ucs		. #xE73B)	; 
+  '((=ucs		. #xE73B)	; 
+    (=big5-pua		. #x94DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94DF)	; 
-    (=ucs		. #xE73C)	; 
+  '((=ucs		. #xE73C)	; 
+    (=big5-pua		. #x94DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E0)	; 
-    (=ucs		. #xE73D)	; 
+  '((=ucs		. #xE73D)	; 
+    (=big5-pua		. #x94E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E1)	; 
-    (=ucs		. #xE73E)	; 
+  '((=ucs		. #xE73E)	; 
+    (=big5-pua		. #x94E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E2)	; 
-    (=ucs		. #xE73F)	; 
+  '((=ucs		. #xE73F)	; 
+    (=big5-pua		. #x94E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E3)	; 
-    (=ucs		. #xE740)	; 
+  '((=ucs		. #xE740)	; 
+    (=big5-pua		. #x94E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E4)	; 
-    (=ucs		. #xE741)	; 
+  '((=ucs		. #xE741)	; 
+    (=big5-pua		. #x94E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E5)	; 
-    (=ucs		. #xE742)	; 
+  '((=ucs		. #xE742)	; 
+    (=big5-pua		. #x94E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E6)	; 
-    (=ucs		. #xE743)	; 
+  '((=ucs		. #xE743)	; 
+    (=big5-pua		. #x94E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E7)	; 
-    (=ucs		. #xE744)	; 
+  '((=ucs		. #xE744)	; 
+    (=big5-pua		. #x94E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E8)	; 
-    (=ucs		. #xE745)	; 
+  '((=ucs		. #xE745)	; 
+    (=big5-pua		. #x94E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94E9)	; 
-    (=ucs		. #xE746)	; 
+  '((=ucs		. #xE746)	; 
+    (=big5-pua		. #x94E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94EA)	; 
-    (=ucs		. #xE747)	; 
+  '((=ucs		. #xE747)	; 
+    (=big5-pua		. #x94EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94EB)	; 
-    (=ucs		. #xE748)	; 
+  '((=ucs		. #xE748)	; 
+    (=big5-pua		. #x94EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94EC)	; 
-    (=ucs		. #xE749)	; 
+  '((=ucs		. #xE749)	; 
+    (=big5-pua		. #x94EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94ED)	; 
-    (=ucs		. #xE74A)	; 
+  '((=ucs		. #xE74A)	; 
+    (=big5-pua		. #x94ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94EE)	; 
-    (=ucs		. #xE74B)	; 
+  '((=ucs		. #xE74B)	; 
+    (=big5-pua		. #x94EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94EF)	; 
-    (=ucs		. #xE74C)	; 
+  '((=ucs		. #xE74C)	; 
+    (=big5-pua		. #x94EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F0)	; 
-    (=ucs		. #xE74D)	; 
+  '((=ucs		. #xE74D)	; 
+    (=big5-pua		. #x94F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F1)	; 
-    (=ucs		. #xE74E)	; 
+  '((=ucs		. #xE74E)	; 
+    (=big5-pua		. #x94F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F2)	; 
-    (=ucs		. #xE74F)	; 
+  '((=ucs		. #xE74F)	; 
+    (=big5-pua		. #x94F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F3)	; 
-    (=ucs		. #xE750)	; 
+  '((=ucs		. #xE750)	; 
+    (=big5-pua		. #x94F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F4)	; 
-    (=ucs		. #xE751)	; 
+  '((=ucs		. #xE751)	; 
+    (=big5-pua		. #x94F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F5)	; 
-    (=ucs		. #xE752)	; 
+  '((=ucs		. #xE752)	; 
+    (=big5-pua		. #x94F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F6)	; 
-    (=ucs		. #xE753)	; 
+  '((=ucs		. #xE753)	; 
+    (=big5-pua		. #x94F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F7)	; 
-    (=ucs		. #xE754)	; 
+  '((=ucs		. #xE754)	; 
+    (=big5-pua		. #x94F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F8)	; 
-    (=ucs		. #xE755)	; 
+  '((=ucs		. #xE755)	; 
+    (=big5-pua		. #x94F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94F9)	; 
-    (=ucs		. #xE756)	; 
+  '((=ucs		. #xE756)	; 
+    (=big5-pua		. #x94F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94FA)	; 
-    (=ucs		. #xE757)	; 
+  '((=ucs		. #xE757)	; 
+    (=big5-pua		. #x94FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94FB)	; 
-    (=ucs		. #xE758)	; 
+  '((=ucs		. #xE758)	; 
+    (=big5-pua		. #x94FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94FC)	; 
-    (=ucs		. #xE759)	; 
+  '((=ucs		. #xE759)	; 
+    (=big5-pua		. #x94FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94FD)	; 
-    (=ucs		. #xE75A)	; 
+  '((=ucs		. #xE75A)	; 
+    (=big5-pua		. #x94FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x94FE)	; 
-    (=ucs		. #xE75B)	; 
+  '((=ucs		. #xE75B)	; 
+    (=big5-pua		. #x94FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9540)	; 
-    (=ucs		. #xE75C)	; 
+  '((=ucs		. #xE75C)	; 
+    (=big5-pua		. #x9540)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9541)	; 
-    (=ucs		. #xE75D)	; 
+  '((=ucs		. #xE75D)	; 
+    (=big5-pua		. #x9541)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9542)	; 
-    (=ucs		. #xE75E)	; 
+  '((=ucs		. #xE75E)	; 
+    (=big5-pua		. #x9542)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9543)	; 
-    (=ucs		. #xE75F)	; 
+  '((=ucs		. #xE75F)	; 
+    (=big5-pua		. #x9543)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9544)	; 
-    (=ucs		. #xE760)	; 
+  '((=ucs		. #xE760)	; 
+    (=big5-pua		. #x9544)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9545)	; 
-    (=ucs		. #xE761)	; 
+  '((=ucs		. #xE761)	; 
+    (=big5-pua		. #x9545)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9546)	; 
-    (=ucs		. #xE762)	; 
+  '((=ucs		. #xE762)	; 
+    (=big5-pua		. #x9546)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9547)	; 
-    (=ucs		. #xE763)	; 
+  '((=ucs		. #xE763)	; 
+    (=big5-pua		. #x9547)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9548)	; 
-    (=ucs		. #xE764)	; 
+  '((=ucs		. #xE764)	; 
+    (=big5-pua		. #x9548)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9549)	; 
-    (=ucs		. #xE765)	; 
+  '((=ucs		. #xE765)	; 
+    (=big5-pua		. #x9549)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954A)	; 
-    (=ucs		. #xE766)	; 
+  '((=ucs		. #xE766)	; 
+    (=big5-pua		. #x954A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954B)	; 
-    (=ucs		. #xE767)	; 
+  '((=ucs		. #xE767)	; 
+    (=big5-pua		. #x954B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954C)	; 
-    (=ucs		. #xE768)	; 
+  '((=ucs		. #xE768)	; 
+    (=big5-pua		. #x954C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954D)	; 
-    (=ucs		. #xE769)	; 
+  '((=ucs		. #xE769)	; 
+    (=big5-pua		. #x954D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954E)	; 
-    (=ucs		. #xE76A)	; 
+  '((=ucs		. #xE76A)	; 
+    (=big5-pua		. #x954E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x954F)	; 
-    (=ucs		. #xE76B)	; 
+  '((=ucs		. #xE76B)	; 
+    (=big5-pua		. #x954F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9550)	; 
-    (=ucs		. #xE76C)	; 
+  '((=ucs		. #xE76C)	; 
+    (=big5-pua		. #x9550)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9551)	; 
-    (=ucs		. #xE76D)	; 
+  '((=ucs		. #xE76D)	; 
+    (=big5-pua		. #x9551)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9552)	; 
-    (=ucs		. #xE76E)	; 
+  '((=ucs		. #xE76E)	; 
+    (=big5-pua		. #x9552)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9553)	; 
-    (=ucs		. #xE76F)	; 
+  '((=ucs		. #xE76F)	; 
+    (=big5-pua		. #x9553)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9554)	; 
-    (=ucs		. #xE770)	; 
+  '((=ucs		. #xE770)	; 
+    (=big5-pua		. #x9554)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9555)	; 
-    (=ucs		. #xE771)	; 
+  '((=ucs		. #xE771)	; 
+    (=big5-pua		. #x9555)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9556)	; 
-    (=ucs		. #xE772)	; 
+  '((=ucs		. #xE772)	; 
+    (=big5-pua		. #x9556)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9557)	; 
-    (=ucs		. #xE773)	; 
+  '((=ucs		. #xE773)	; 
+    (=big5-pua		. #x9557)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9558)	; 
-    (=ucs		. #xE774)	; 
+  '((=ucs		. #xE774)	; 
+    (=big5-pua		. #x9558)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9559)	; 
-    (=ucs		. #xE775)	; 
+  '((=ucs		. #xE775)	; 
+    (=big5-pua		. #x9559)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955A)	; 
-    (=ucs		. #xE776)	; 
+  '((=ucs		. #xE776)	; 
+    (=big5-pua		. #x955A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955B)	; 
-    (=ucs		. #xE777)	; 
+  '((=ucs		. #xE777)	; 
+    (=big5-pua		. #x955B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955C)	; 
-    (=ucs		. #xE778)	; 
+  '((=ucs		. #xE778)	; 
+    (=big5-pua		. #x955C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955D)	; 
-    (=ucs		. #xE779)	; 
+  '((=ucs		. #xE779)	; 
+    (=big5-pua		. #x955D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955E)	; 
-    (=ucs		. #xE77A)	; 
+  '((=ucs		. #xE77A)	; 
+    (=big5-pua		. #x955E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x955F)	; 
-    (=ucs		. #xE77B)	; 
+  '((=ucs		. #xE77B)	; 
+    (=big5-pua		. #x955F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9560)	; 
-    (=ucs		. #xE77C)	; 
+  '((=ucs		. #xE77C)	; 
+    (=big5-pua		. #x9560)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9561)	; 
-    (=ucs		. #xE77D)	; 
+  '((=ucs		. #xE77D)	; 
+    (=big5-pua		. #x9561)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9562)	; 
-    (=ucs		. #xE77E)	; 
+  '((=ucs		. #xE77E)	; 
+    (=big5-pua		. #x9562)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9563)	; 
-    (=ucs		. #xE77F)	; 
+  '((=ucs		. #xE77F)	; 
+    (=big5-pua		. #x9563)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9564)	; 
-    (=ucs		. #xE780)	; 
+  '((=ucs		. #xE780)	; 
+    (=big5-pua		. #x9564)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9565)	; 
-    (=ucs		. #xE781)	; 
+  '((=ucs		. #xE781)	; 
+    (=big5-pua		. #x9565)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9566)	; 
-    (=ucs		. #xE782)	; 
+  '((=ucs		. #xE782)	; 
+    (=big5-pua		. #x9566)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9567)	; 
-    (=ucs		. #xE783)	; 
+  '((=ucs		. #xE783)	; 
+    (=big5-pua		. #x9567)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9568)	; 
-    (=ucs		. #xE784)	; 
+  '((=ucs		. #xE784)	; 
+    (=big5-pua		. #x9568)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9569)	; 
-    (=ucs		. #xE785)	; 
+  '((=ucs		. #xE785)	; 
+    (=big5-pua		. #x9569)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956A)	; 
-    (=ucs		. #xE786)	; 
+  '((=ucs		. #xE786)	; 
+    (=big5-pua		. #x956A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956B)	; 
-    (=ucs		. #xE787)	; 
+  '((=ucs		. #xE787)	; 
+    (=big5-pua		. #x956B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956C)	; 
-    (=ucs		. #xE788)	; 
+  '((=ucs		. #xE788)	; 
+    (=big5-pua		. #x956C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956D)	; 
-    (=ucs		. #xE789)	; 
+  '((=ucs		. #xE789)	; 
+    (=big5-pua		. #x956D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956E)	; 
-    (=ucs		. #xE78A)	; 
+  '((=ucs		. #xE78A)	; 
+    (=big5-pua		. #x956E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x956F)	; 
-    (=ucs		. #xE78B)	; 
+  '((=ucs		. #xE78B)	; 
+    (=big5-pua		. #x956F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9570)	; 
-    (=ucs		. #xE78C)	; 
+  '((=ucs		. #xE78C)	; 
+    (=big5-pua		. #x9570)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9571)	; 
-    (=ucs		. #xE78D)	; 
+  '((=ucs		. #xE78D)	; 
+    (=big5-pua		. #x9571)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9572)	; 
-    (=ucs		. #xE78E)	; 
+  '((=ucs		. #xE78E)	; 
+    (=big5-pua		. #x9572)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9573)	; 
-    (=ucs		. #xE78F)	; 
+  '((=ucs		. #xE78F)	; 
+    (=big5-pua		. #x9573)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9574)	; 
-    (=ucs		. #xE790)	; 
+  '((=ucs		. #xE790)	; 
+    (=big5-pua		. #x9574)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9575)	; 
-    (=ucs		. #xE791)	; 
+  '((=ucs		. #xE791)	; 
+    (=big5-pua		. #x9575)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9576)	; 
-    (=ucs		. #xE792)	; 
+  '((=ucs		. #xE792)	; 
+    (=big5-pua		. #x9576)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9577)	; 
-    (=ucs		. #xE793)	; 
+  '((=ucs		. #xE793)	; 
+    (=big5-pua		. #x9577)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9578)	; 
-    (=ucs		. #xE794)	; 
+  '((=ucs		. #xE794)	; 
+    (=big5-pua		. #x9578)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9579)	; 
-    (=ucs		. #xE795)	; 
+  '((=ucs		. #xE795)	; 
+    (=big5-pua		. #x9579)	; 
     ))
 (define-char
-  '((=big5-pua		. #x957A)	; 
-    (=ucs		. #xE796)	; 
+  '((=ucs		. #xE796)	; 
+    (=big5-pua		. #x957A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x957B)	; 
-    (=ucs		. #xE797)	; 
+  '((=ucs		. #xE797)	; 
+    (=big5-pua		. #x957B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x957C)	; 
-    (=ucs		. #xE798)	; 
+  '((=ucs		. #xE798)	; 
+    (=big5-pua		. #x957C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x957D)	; 
-    (=ucs		. #xE799)	; 
+  '((=ucs		. #xE799)	; 
+    (=big5-pua		. #x957D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x957E)	; 
-    (=ucs		. #xE79A)	; 
+  '((=ucs		. #xE79A)	; 
+    (=big5-pua		. #x957E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A1)	; 
-    (=ucs		. #xE79B)	; 
+  '((=ucs		. #xE79B)	; 
+    (=big5-pua		. #x95A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A2)	; 
-    (=ucs		. #xE79C)	; 
+  '((=ucs		. #xE79C)	; 
+    (=big5-pua		. #x95A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A3)	; 
-    (=ucs		. #xE79D)	; 
+  '((=ucs		. #xE79D)	; 
+    (=big5-pua		. #x95A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A4)	; 
-    (=ucs		. #xE79E)	; 
+  '((=ucs		. #xE79E)	; 
+    (=big5-pua		. #x95A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A5)	; 
-    (=ucs		. #xE79F)	; 
+  '((=ucs		. #xE79F)	; 
+    (=big5-pua		. #x95A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A6)	; 
-    (=ucs		. #xE7A0)	; 
+  '((=ucs		. #xE7A0)	; 
+    (=big5-pua		. #x95A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A7)	; 
-    (=ucs		. #xE7A1)	; 
+  '((=ucs		. #xE7A1)	; 
+    (=big5-pua		. #x95A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A8)	; 
-    (=ucs		. #xE7A2)	; 
+  '((=ucs		. #xE7A2)	; 
+    (=big5-pua		. #x95A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95A9)	; 
-    (=ucs		. #xE7A3)	; 
+  '((=ucs		. #xE7A3)	; 
+    (=big5-pua		. #x95A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AA)	; 
-    (=ucs		. #xE7A4)	; 
+  '((=ucs		. #xE7A4)	; 
+    (=big5-pua		. #x95AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AB)	; 
-    (=ucs		. #xE7A5)	; 
+  '((=ucs		. #xE7A5)	; 
+    (=big5-pua		. #x95AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AC)	; 
-    (=ucs		. #xE7A6)	; 
+  '((=ucs		. #xE7A6)	; 
+    (=big5-pua		. #x95AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AD)	; 
-    (=ucs		. #xE7A7)	; 
+  '((=ucs		. #xE7A7)	; 
+    (=big5-pua		. #x95AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AE)	; 
-    (=ucs		. #xE7A8)	; 
+  '((=ucs		. #xE7A8)	; 
+    (=big5-pua		. #x95AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95AF)	; 
-    (=ucs		. #xE7A9)	; 
+  '((=ucs		. #xE7A9)	; 
+    (=big5-pua		. #x95AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B0)	; 
-    (=ucs		. #xE7AA)	; 
+  '((=ucs		. #xE7AA)	; 
+    (=big5-pua		. #x95B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B1)	; 
-    (=ucs		. #xE7AB)	; 
+  '((=ucs		. #xE7AB)	; 
+    (=big5-pua		. #x95B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B2)	; 
-    (=ucs		. #xE7AC)	; 
+  '((=ucs		. #xE7AC)	; 
+    (=big5-pua		. #x95B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B3)	; 
-    (=ucs		. #xE7AD)	; 
+  '((=ucs		. #xE7AD)	; 
+    (=big5-pua		. #x95B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B4)	; 
-    (=ucs		. #xE7AE)	; 
+  '((=ucs		. #xE7AE)	; 
+    (=big5-pua		. #x95B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B5)	; 
-    (=ucs		. #xE7AF)	; 
+  '((=ucs		. #xE7AF)	; 
+    (=big5-pua		. #x95B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B6)	; 
-    (=ucs		. #xE7B0)	; 
+  '((=ucs		. #xE7B0)	; 
+    (=big5-pua		. #x95B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B7)	; 
-    (=ucs		. #xE7B1)	; 
+  '((=ucs		. #xE7B1)	; 
+    (=big5-pua		. #x95B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B8)	; 
-    (=ucs		. #xE7B2)	; 
+  '((=ucs		. #xE7B2)	; 
+    (=big5-pua		. #x95B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95B9)	; 
-    (=ucs		. #xE7B3)	; 
+  '((=ucs		. #xE7B3)	; 
+    (=big5-pua		. #x95B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BA)	; 
-    (=ucs		. #xE7B4)	; 
+  '((=ucs		. #xE7B4)	; 
+    (=big5-pua		. #x95BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BB)	; 
-    (=ucs		. #xE7B5)	; 
+  '((=ucs		. #xE7B5)	; 
+    (=big5-pua		. #x95BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BC)	; 
-    (=ucs		. #xE7B6)	; 
+  '((=ucs		. #xE7B6)	; 
+    (=big5-pua		. #x95BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BD)	; 
-    (=ucs		. #xE7B7)	; 
+  '((=ucs		. #xE7B7)	; 
+    (=big5-pua		. #x95BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BE)	; 
-    (=ucs		. #xE7B8)	; 
+  '((=ucs		. #xE7B8)	; 
+    (=big5-pua		. #x95BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95BF)	; 
-    (=ucs		. #xE7B9)	; 
+  '((=ucs		. #xE7B9)	; 
+    (=big5-pua		. #x95BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C0)	; 
-    (=ucs		. #xE7BA)	; 
+  '((=ucs		. #xE7BA)	; 
+    (=big5-pua		. #x95C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C1)	; 
-    (=ucs		. #xE7BB)	; 
+  '((=ucs		. #xE7BB)	; 
+    (=big5-pua		. #x95C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C2)	; 
-    (=ucs		. #xE7BC)	; 
+  '((=ucs		. #xE7BC)	; 
+    (=big5-pua		. #x95C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C3)	; 
-    (=ucs		. #xE7BD)	; 
+  '((=ucs		. #xE7BD)	; 
+    (=big5-pua		. #x95C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C4)	; 
-    (=ucs		. #xE7BE)	; 
+  '((=ucs		. #xE7BE)	; 
+    (=big5-pua		. #x95C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C5)	; 
-    (=ucs		. #xE7BF)	; 
+  '((=ucs		. #xE7BF)	; 
+    (=big5-pua		. #x95C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C6)	; 
-    (=ucs		. #xE7C0)	; 
+  '((=ucs		. #xE7C0)	; 
+    (=big5-pua		. #x95C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C7)	; 
-    (=ucs		. #xE7C1)	; 
+  '((=ucs		. #xE7C1)	; 
+    (=big5-pua		. #x95C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C8)	; 
-    (=ucs		. #xE7C2)	; 
+  '((=ucs		. #xE7C2)	; 
+    (=big5-pua		. #x95C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95C9)	; 
-    (=ucs		. #xE7C3)	; 
+  '((=ucs		. #xE7C3)	; 
+    (=big5-pua		. #x95C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CA)	; 
-    (=ucs		. #xE7C4)	; 
+  '((=ucs		. #xE7C4)	; 
+    (=big5-pua		. #x95CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CB)	; 
-    (=ucs		. #xE7C5)	; 
+  '((=ucs		. #xE7C5)	; 
+    (=big5-pua		. #x95CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CC)	; 
-    (=ucs		. #xE7C6)	; 
+  '((=ucs		. #xE7C6)	; 
+    (=big5-pua		. #x95CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CD)	; 
-    (=ucs		. #xE7C7)	; 
+  '((=ucs		. #xE7C7)	; 
+    (=big5-pua		. #x95CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CE)	; 
-    (=ucs		. #xE7C8)	; 
+  '((=ucs		. #xE7C8)	; 
+    (=big5-pua		. #x95CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95CF)	; 
-    (=ucs		. #xE7C9)	; 
+  '((=ucs		. #xE7C9)	; 
+    (=big5-pua		. #x95CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D0)	; 
-    (=ucs		. #xE7CA)	; 
+  '((=ucs		. #xE7CA)	; 
+    (=big5-pua		. #x95D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D1)	; 
-    (=ucs		. #xE7CB)	; 
+  '((=ucs		. #xE7CB)	; 
+    (=big5-pua		. #x95D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D2)	; 
-    (=ucs		. #xE7CC)	; 
+  '((=ucs		. #xE7CC)	; 
+    (=big5-pua		. #x95D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D3)	; 
-    (=ucs		. #xE7CD)	; 
+  '((=ucs		. #xE7CD)	; 
+    (=big5-pua		. #x95D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D4)	; 
-    (=ucs		. #xE7CE)	; 
+  '((=ucs		. #xE7CE)	; 
+    (=big5-pua		. #x95D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D5)	; 
-    (=ucs		. #xE7CF)	; 
+  '((=ucs		. #xE7CF)	; 
+    (=big5-pua		. #x95D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D6)	; 
-    (=ucs		. #xE7D0)	; 
+  '((=ucs		. #xE7D0)	; 
+    (=big5-pua		. #x95D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D7)	; 
-    (=ucs		. #xE7D1)	; 
+  '((=ucs		. #xE7D1)	; 
+    (=big5-pua		. #x95D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D8)	; 
-    (=ucs		. #xE7D2)	; 
+  '((=ucs		. #xE7D2)	; 
+    (=big5-pua		. #x95D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95D9)	; 
-    (=ucs		. #xE7D3)	; 
+  '((=ucs		. #xE7D3)	; 
+    (=big5-pua		. #x95D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DA)	; 
-    (=ucs		. #xE7D4)	; 
+  '((=ucs		. #xE7D4)	; 
+    (=big5-pua		. #x95DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DB)	; 
-    (=ucs		. #xE7D5)	; 
+  '((=ucs		. #xE7D5)	; 
+    (=big5-pua		. #x95DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DC)	; 
-    (=ucs		. #xE7D6)	; 
+  '((=ucs		. #xE7D6)	; 
+    (=big5-pua		. #x95DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DD)	; 
-    (=ucs		. #xE7D7)	; 
+  '((=ucs		. #xE7D7)	; 
+    (=big5-pua		. #x95DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DE)	; 
-    (=ucs		. #xE7D8)	; 
+  '((=ucs		. #xE7D8)	; 
+    (=big5-pua		. #x95DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95DF)	; 
-    (=ucs		. #xE7D9)	; 
+  '((=ucs		. #xE7D9)	; 
+    (=big5-pua		. #x95DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E0)	; 
-    (=ucs		. #xE7DA)	; 
+  '((=ucs		. #xE7DA)	; 
+    (=big5-pua		. #x95E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E1)	; 
-    (=ucs		. #xE7DB)	; 
+  '((=ucs		. #xE7DB)	; 
+    (=big5-pua		. #x95E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E2)	; 
-    (=ucs		. #xE7DC)	; 
+  '((=ucs		. #xE7DC)	; 
+    (=big5-pua		. #x95E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E3)	; 
-    (=ucs		. #xE7DD)	; 
+  '((=ucs		. #xE7DD)	; 
+    (=big5-pua		. #x95E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E4)	; 
-    (=ucs		. #xE7DE)	; 
+  '((=ucs		. #xE7DE)	; 
+    (=big5-pua		. #x95E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E5)	; 
-    (=ucs		. #xE7DF)	; 
+  '((=ucs		. #xE7DF)	; 
+    (=big5-pua		. #x95E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E6)	; 
-    (=ucs		. #xE7E0)	; 
+  '((=ucs		. #xE7E0)	; 
+    (=big5-pua		. #x95E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E7)	; 
-    (=ucs		. #xE7E1)	; 
+  '((=ucs		. #xE7E1)	; 
+    (=big5-pua		. #x95E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E8)	; 
-    (=ucs		. #xE7E2)	; 
+  '((=ucs		. #xE7E2)	; 
+    (=big5-pua		. #x95E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95E9)	; 
-    (=ucs		. #xE7E3)	; 
+  '((=ucs		. #xE7E3)	; 
+    (=big5-pua		. #x95E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95EA)	; 
-    (=ucs		. #xE7E4)	; 
+  '((=ucs		. #xE7E4)	; 
+    (=big5-pua		. #x95EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95EB)	; 
-    (=ucs		. #xE7E5)	; 
+  '((=ucs		. #xE7E5)	; 
+    (=big5-pua		. #x95EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95EC)	; 
-    (=ucs		. #xE7E6)	; 
+  '((=ucs		. #xE7E6)	; 
+    (=big5-pua		. #x95EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95ED)	; 
-    (=ucs		. #xE7E7)	; 
+  '((=ucs		. #xE7E7)	; 
+    (=big5-pua		. #x95ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95EE)	; 
-    (=ucs		. #xE7E8)	; 
+  '((=ucs		. #xE7E8)	; 
+    (=big5-pua		. #x95EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95EF)	; 
-    (=ucs		. #xE7E9)	; 
+  '((=ucs		. #xE7E9)	; 
+    (=big5-pua		. #x95EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F0)	; 
-    (=ucs		. #xE7EA)	; 
+  '((=ucs		. #xE7EA)	; 
+    (=big5-pua		. #x95F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F1)	; 
-    (=ucs		. #xE7EB)	; 
+  '((=ucs		. #xE7EB)	; 
+    (=big5-pua		. #x95F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F2)	; 
-    (=ucs		. #xE7EC)	; 
+  '((=ucs		. #xE7EC)	; 
+    (=big5-pua		. #x95F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F3)	; 
-    (=ucs		. #xE7ED)	; 
+  '((=ucs		. #xE7ED)	; 
+    (=big5-pua		. #x95F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F4)	; 
-    (=ucs		. #xE7EE)	; 
+  '((=ucs		. #xE7EE)	; 
+    (=big5-pua		. #x95F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F5)	; 
-    (=ucs		. #xE7EF)	; 
+  '((=ucs		. #xE7EF)	; 
+    (=big5-pua		. #x95F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F6)	; 
-    (=ucs		. #xE7F0)	; 
+  '((=ucs		. #xE7F0)	; 
+    (=big5-pua		. #x95F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F7)	; 
-    (=ucs		. #xE7F1)	; 
+  '((=ucs		. #xE7F1)	; 
+    (=big5-pua		. #x95F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F8)	; 
-    (=ucs		. #xE7F2)	; 
+  '((=ucs		. #xE7F2)	; 
+    (=big5-pua		. #x95F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95F9)	; 
-    (=ucs		. #xE7F3)	; 
+  '((=ucs		. #xE7F3)	; 
+    (=big5-pua		. #x95F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95FA)	; 
-    (=ucs		. #xE7F4)	; 
+  '((=ucs		. #xE7F4)	; 
+    (=big5-pua		. #x95FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95FB)	; 
-    (=ucs		. #xE7F5)	; 
+  '((=ucs		. #xE7F5)	; 
+    (=big5-pua		. #x95FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95FC)	; 
-    (=ucs		. #xE7F6)	; 
+  '((=ucs		. #xE7F6)	; 
+    (=big5-pua		. #x95FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95FD)	; 
-    (=ucs		. #xE7F7)	; 
+  '((=ucs		. #xE7F7)	; 
+    (=big5-pua		. #x95FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x95FE)	; 
-    (=ucs		. #xE7F8)	; 
+  '((=ucs		. #xE7F8)	; 
+    (=big5-pua		. #x95FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9640)	; 
-    (=ucs		. #xE7F9)	; 
+  '((=ucs		. #xE7F9)	; 
+    (=big5-pua		. #x9640)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9641)	; 
-    (=ucs		. #xE7FA)	; 
+  '((=ucs		. #xE7FA)	; 
+    (=big5-pua		. #x9641)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9642)	; 
-    (=ucs		. #xE7FB)	; 
+  '((=ucs		. #xE7FB)	; 
+    (=big5-pua		. #x9642)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9643)	; 
-    (=ucs		. #xE7FC)	; 
+  '((=ucs		. #xE7FC)	; 
+    (=big5-pua		. #x9643)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9644)	; 
-    (=ucs		. #xE7FD)	; 
+  '((=ucs		. #xE7FD)	; 
+    (=big5-pua		. #x9644)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9645)	; 
-    (=ucs		. #xE7FE)	; 
+  '((=ucs		. #xE7FE)	; 
+    (=big5-pua		. #x9645)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9646)	; 
-    (=ucs		. #xE7FF)	; 
+  '((=ucs		. #xE7FF)	; 
+    (=big5-pua		. #x9646)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9647)	; 
-    (=ucs		. #xE800)	; 
+  '((=ucs		. #xE800)	; 
+    (=big5-pua		. #x9647)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9648)	; 
-    (=ucs		. #xE801)	; 
+  '((=ucs		. #xE801)	; 
+    (=big5-pua		. #x9648)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9649)	; 
-    (=ucs		. #xE802)	; 
+  '((=ucs		. #xE802)	; 
+    (=big5-pua		. #x9649)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964A)	; 
-    (=ucs		. #xE803)	; 
+  '((=ucs		. #xE803)	; 
+    (=big5-pua		. #x964A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964B)	; 
-    (=ucs		. #xE804)	; 
+  '((=ucs		. #xE804)	; 
+    (=big5-pua		. #x964B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964C)	; 
-    (=ucs		. #xE805)	; 
+  '((=ucs		. #xE805)	; 
+    (=big5-pua		. #x964C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964D)	; 
-    (=ucs		. #xE806)	; 
+  '((=ucs		. #xE806)	; 
+    (=big5-pua		. #x964D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964E)	; 
-    (=ucs		. #xE807)	; 
+  '((=ucs		. #xE807)	; 
+    (=big5-pua		. #x964E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x964F)	; 
-    (=ucs		. #xE808)	; 
+  '((=ucs		. #xE808)	; 
+    (=big5-pua		. #x964F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9650)	; 
-    (=ucs		. #xE809)	; 
+  '((=ucs		. #xE809)	; 
+    (=big5-pua		. #x9650)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9651)	; 
-    (=ucs		. #xE80A)	; 
+  '((=ucs		. #xE80A)	; 
+    (=big5-pua		. #x9651)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9652)	; 
-    (=ucs		. #xE80B)	; 
+  '((=ucs		. #xE80B)	; 
+    (=big5-pua		. #x9652)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9653)	; 
-    (=ucs		. #xE80C)	; 
+  '((=ucs		. #xE80C)	; 
+    (=big5-pua		. #x9653)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9654)	; 
-    (=ucs		. #xE80D)	; 
+  '((=ucs		. #xE80D)	; 
+    (=big5-pua		. #x9654)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9655)	; 
-    (=ucs		. #xE80E)	; 
+  '((=ucs		. #xE80E)	; 
+    (=big5-pua		. #x9655)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9656)	; 
-    (=ucs		. #xE80F)	; 
+  '((=ucs		. #xE80F)	; 
+    (=big5-pua		. #x9656)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9657)	; 
-    (=ucs		. #xE810)	; 
+  '((=ucs		. #xE810)	; 
+    (=big5-pua		. #x9657)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9658)	; 
-    (=ucs		. #xE811)	; 
+  '((=ucs		. #xE811)	; 
+    (=big5-pua		. #x9658)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9659)	; 
-    (=ucs		. #xE812)	; 
+  '((=ucs		. #xE812)	; 
+    (=big5-pua		. #x9659)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965A)	; 
-    (=ucs		. #xE813)	; 
+  '((=ucs		. #xE813)	; 
+    (=big5-pua		. #x965A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965B)	; 
-    (=ucs		. #xE814)	; 
+  '((=ucs		. #xE814)	; 
+    (=big5-pua		. #x965B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965C)	; 
-    (=ucs		. #xE815)	; 
+  '((=ucs		. #xE815)	; 
+    (=big5-pua		. #x965C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965D)	; 
-    (=ucs		. #xE816)	; 
+  '((=ucs		. #xE816)	; 
+    (=big5-pua		. #x965D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965E)	; 
-    (=ucs		. #xE817)	; 
+  '((=ucs		. #xE817)	; 
+    (=big5-pua		. #x965E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x965F)	; 
-    (=ucs		. #xE818)	; 
+  '((=ucs		. #xE818)	; 
+    (=big5-pua		. #x965F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9660)	; 
-    (=ucs		. #xE819)	; 
+  '((=ucs		. #xE819)	; 
+    (=big5-pua		. #x9660)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9661)	; 
-    (=ucs		. #xE81A)	; 
+  '((=ucs		. #xE81A)	; 
+    (=big5-pua		. #x9661)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9662)	; 
-    (=ucs		. #xE81B)	; 
+  '((=ucs		. #xE81B)	; 
+    (=big5-pua		. #x9662)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9663)	; 
-    (=ucs		. #xE81C)	; 
+  '((=ucs		. #xE81C)	; 
+    (=big5-pua		. #x9663)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9664)	; 
-    (=ucs		. #xE81D)	; 
+  '((=ucs		. #xE81D)	; 
+    (=big5-pua		. #x9664)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9665)	; 
-    (=ucs		. #xE81E)	; 
+  '((=ucs		. #xE81E)	; 
+    (=big5-pua		. #x9665)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9666)	; 
-    (=ucs		. #xE81F)	; 
+  '((=ucs		. #xE81F)	; 
+    (=big5-pua		. #x9666)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9667)	; 
-    (=ucs		. #xE820)	; 
+  '((=ucs		. #xE820)	; 
+    (=big5-pua		. #x9667)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9668)	; 
-    (=ucs		. #xE821)	; 
+  '((=ucs		. #xE821)	; 
+    (=big5-pua		. #x9668)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9669)	; 
-    (=ucs		. #xE822)	; 
+  '((=ucs		. #xE822)	; 
+    (=big5-pua		. #x9669)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966A)	; 
-    (=ucs		. #xE823)	; 
+  '((=ucs		. #xE823)	; 
+    (=big5-pua		. #x966A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966B)	; 
-    (=ucs		. #xE824)	; 
+  '((=ucs		. #xE824)	; 
+    (=big5-pua		. #x966B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966C)	; 
-    (=ucs		. #xE825)	; 
+  '((=ucs		. #xE825)	; 
+    (=big5-pua		. #x966C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966D)	; 
-    (=ucs		. #xE826)	; 
+  '((=ucs		. #xE826)	; 
+    (=big5-pua		. #x966D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966E)	; 
-    (=ucs		. #xE827)	; 
+  '((=ucs		. #xE827)	; 
+    (=big5-pua		. #x966E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x966F)	; 
-    (=ucs		. #xE828)	; 
+  '((=ucs		. #xE828)	; 
+    (=big5-pua		. #x966F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9670)	; 
-    (=ucs		. #xE829)	; 
+  '((=ucs		. #xE829)	; 
+    (=big5-pua		. #x9670)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9671)	; 
-    (=ucs		. #xE82A)	; 
+  '((=ucs		. #xE82A)	; 
+    (=big5-pua		. #x9671)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9672)	; 
-    (=ucs		. #xE82B)	; 
+  '((=ucs		. #xE82B)	; 
+    (=big5-pua		. #x9672)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9673)	; 
-    (=ucs		. #xE82C)	; 
+  '((=ucs		. #xE82C)	; 
+    (=big5-pua		. #x9673)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9674)	; 
-    (=ucs		. #xE82D)	; 
+  '((=ucs		. #xE82D)	; 
+    (=big5-pua		. #x9674)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9675)	; 
-    (=ucs		. #xE82E)	; 
+  '((=ucs		. #xE82E)	; 
+    (=big5-pua		. #x9675)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9676)	; 
-    (=ucs		. #xE82F)	; 
+  '((=ucs		. #xE82F)	; 
+    (=big5-pua		. #x9676)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9677)	; 
-    (=ucs		. #xE830)	; 
+  '((=ucs		. #xE830)	; 
+    (=big5-pua		. #x9677)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9678)	; 
-    (=ucs		. #xE831)	; 
+  '((=ucs		. #xE831)	; 
+    (=big5-pua		. #x9678)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9679)	; 
-    (=ucs		. #xE832)	; 
+  '((=ucs		. #xE832)	; 
+    (=big5-pua		. #x9679)	; 
     ))
 (define-char
-  '((=big5-pua		. #x967A)	; 
-    (=ucs		. #xE833)	; 
+  '((=ucs		. #xE833)	; 
+    (=big5-pua		. #x967A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x967B)	; 
-    (=ucs		. #xE834)	; 
+  '((=ucs		. #xE834)	; 
+    (=big5-pua		. #x967B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x967C)	; 
-    (=ucs		. #xE835)	; 
+  '((=ucs		. #xE835)	; 
+    (=big5-pua		. #x967C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x967D)	; 
-    (=ucs		. #xE836)	; 
+  '((=ucs		. #xE836)	; 
+    (=big5-pua		. #x967D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x967E)	; 
-    (=ucs		. #xE837)	; 
+  '((=ucs		. #xE837)	; 
+    (=big5-pua		. #x967E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A1)	; 
-    (=ucs		. #xE838)	; 
+  '((=ucs		. #xE838)	; 
+    (=big5-pua		. #x96A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A2)	; 
-    (=ucs		. #xE839)	; 
+  '((=ucs		. #xE839)	; 
+    (=big5-pua		. #x96A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A3)	; 
-    (=ucs		. #xE83A)	; 
+  '((=ucs		. #xE83A)	; 
+    (=big5-pua		. #x96A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A4)	; 
-    (=ucs		. #xE83B)	; 
+  '((=ucs		. #xE83B)	; 
+    (=big5-pua		. #x96A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A5)	; 
-    (=ucs		. #xE83C)	; 
+  '((=ucs		. #xE83C)	; 
+    (=big5-pua		. #x96A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A6)	; 
-    (=ucs		. #xE83D)	; 
+  '((=ucs		. #xE83D)	; 
+    (=big5-pua		. #x96A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A7)	; 
-    (=ucs		. #xE83E)	; 
+  '((=ucs		. #xE83E)	; 
+    (=big5-pua		. #x96A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A8)	; 
-    (=ucs		. #xE83F)	; 
+  '((=ucs		. #xE83F)	; 
+    (=big5-pua		. #x96A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96A9)	; 
-    (=ucs		. #xE840)	; 
+  '((=ucs		. #xE840)	; 
+    (=big5-pua		. #x96A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AA)	; 
-    (=ucs		. #xE841)	; 
+  '((=ucs		. #xE841)	; 
+    (=big5-pua		. #x96AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AB)	; 
-    (=ucs		. #xE842)	; 
+  '((=ucs		. #xE842)	; 
+    (=big5-pua		. #x96AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AC)	; 
-    (=ucs		. #xE843)	; 
+  '((=ucs		. #xE843)	; 
+    (=big5-pua		. #x96AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AD)	; 
-    (=ucs		. #xE844)	; 
+  '((=ucs		. #xE844)	; 
+    (=big5-pua		. #x96AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AE)	; 
-    (=ucs		. #xE845)	; 
+  '((=ucs		. #xE845)	; 
+    (=big5-pua		. #x96AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96AF)	; 
-    (=ucs		. #xE846)	; 
+  '((=ucs		. #xE846)	; 
+    (=big5-pua		. #x96AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B0)	; 
-    (=ucs		. #xE847)	; 
+  '((=ucs		. #xE847)	; 
+    (=big5-pua		. #x96B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B1)	; 
-    (=ucs		. #xE848)	; 
+  '((=ucs		. #xE848)	; 
+    (=big5-pua		. #x96B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B2)	; 
-    (=ucs		. #xE849)	; 
+  '((=ucs		. #xE849)	; 
+    (=big5-pua		. #x96B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B3)	; 
-    (=ucs		. #xE84A)	; 
+  '((=ucs		. #xE84A)	; 
+    (=big5-pua		. #x96B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B4)	; 
-    (=ucs		. #xE84B)	; 
+  '((=ucs		. #xE84B)	; 
+    (=big5-pua		. #x96B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B5)	; 
-    (=ucs		. #xE84C)	; 
+  '((=ucs		. #xE84C)	; 
+    (=big5-pua		. #x96B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B6)	; 
-    (=ucs		. #xE84D)	; 
+  '((=ucs		. #xE84D)	; 
+    (=big5-pua		. #x96B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B7)	; 
-    (=ucs		. #xE84E)	; 
+  '((=ucs		. #xE84E)	; 
+    (=big5-pua		. #x96B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B8)	; 
-    (=ucs		. #xE84F)	; 
+  '((=ucs		. #xE84F)	; 
+    (=big5-pua		. #x96B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96B9)	; 
-    (=ucs		. #xE850)	; 
+  '((=ucs		. #xE850)	; 
+    (=big5-pua		. #x96B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BA)	; 
-    (=ucs		. #xE851)	; 
+  '((=ucs		. #xE851)	; 
+    (=big5-pua		. #x96BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BB)	; 
-    (=ucs		. #xE852)	; 
+  '((=ucs		. #xE852)	; 
+    (=big5-pua		. #x96BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BC)	; 
-    (=ucs		. #xE853)	; 
+  '((=ucs		. #xE853)	; 
+    (=big5-pua		. #x96BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BD)	; 
-    (=ucs		. #xE854)	; 
+  '((=ucs		. #xE854)	; 
+    (=big5-pua		. #x96BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BE)	; 
-    (=ucs		. #xE855)	; 
+  '((=ucs		. #xE855)	; 
+    (=big5-pua		. #x96BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96BF)	; 
-    (=ucs		. #xE856)	; 
+  '((=ucs		. #xE856)	; 
+    (=big5-pua		. #x96BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C0)	; 
-    (=ucs		. #xE857)	; 
+  '((=ucs		. #xE857)	; 
+    (=big5-pua		. #x96C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C1)	; 
-    (=ucs		. #xE858)	; 
+  '((=ucs		. #xE858)	; 
+    (=big5-pua		. #x96C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C2)	; 
-    (=ucs		. #xE859)	; 
+  '((=ucs		. #xE859)	; 
+    (=big5-pua		. #x96C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C3)	; 
-    (=ucs		. #xE85A)	; 
+  '((=ucs		. #xE85A)	; 
+    (=big5-pua		. #x96C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C4)	; 
-    (=ucs		. #xE85B)	; 
+  '((=ucs		. #xE85B)	; 
+    (=big5-pua		. #x96C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C5)	; 
-    (=ucs		. #xE85C)	; 
+  '((=ucs		. #xE85C)	; 
+    (=big5-pua		. #x96C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C6)	; 
-    (=ucs		. #xE85D)	; 
+  '((=ucs		. #xE85D)	; 
+    (=big5-pua		. #x96C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C7)	; 
-    (=ucs		. #xE85E)	; 
+  '((=ucs		. #xE85E)	; 
+    (=big5-pua		. #x96C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C8)	; 
-    (=ucs		. #xE85F)	; 
+  '((=ucs		. #xE85F)	; 
+    (=big5-pua		. #x96C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96C9)	; 
-    (=ucs		. #xE860)	; 
+  '((=ucs		. #xE860)	; 
+    (=big5-pua		. #x96C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CA)	; 
-    (=ucs		. #xE861)	; 
+  '((=ucs		. #xE861)	; 
+    (=big5-pua		. #x96CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CB)	; 
-    (=ucs		. #xE862)	; 
+  '((=ucs		. #xE862)	; 
+    (=big5-pua		. #x96CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CC)	; 
-    (=ucs		. #xE863)	; 
+  '((=ucs		. #xE863)	; 
+    (=big5-pua		. #x96CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CD)	; 
-    (=ucs		. #xE864)	; 
+  '((=ucs		. #xE864)	; 
+    (=big5-pua		. #x96CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CE)	; 
-    (=ucs		. #xE865)	; 
+  '((=ucs		. #xE865)	; 
+    (=big5-pua		. #x96CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96CF)	; 
-    (=ucs		. #xE866)	; 
+  '((=ucs		. #xE866)	; 
+    (=big5-pua		. #x96CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D0)	; 
-    (=ucs		. #xE867)	; 
+  '((=ucs		. #xE867)	; 
+    (=big5-pua		. #x96D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D1)	; 
-    (=ucs		. #xE868)	; 
+  '((=ucs		. #xE868)	; 
+    (=big5-pua		. #x96D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D2)	; 
-    (=ucs		. #xE869)	; 
+  '((=ucs		. #xE869)	; 
+    (=big5-pua		. #x96D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D3)	; 
-    (=ucs		. #xE86A)	; 
+  '((=ucs		. #xE86A)	; 
+    (=big5-pua		. #x96D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D4)	; 
-    (=ucs		. #xE86B)	; 
+  '((=ucs		. #xE86B)	; 
+    (=big5-pua		. #x96D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D5)	; 
-    (=ucs		. #xE86C)	; 
+  '((=ucs		. #xE86C)	; 
+    (=big5-pua		. #x96D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D6)	; 
-    (=ucs		. #xE86D)	; 
+  '((=ucs		. #xE86D)	; 
+    (=big5-pua		. #x96D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D7)	; 
-    (=ucs		. #xE86E)	; 
+  '((=ucs		. #xE86E)	; 
+    (=big5-pua		. #x96D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D8)	; 
-    (=ucs		. #xE86F)	; 
+  '((=ucs		. #xE86F)	; 
+    (=big5-pua		. #x96D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96D9)	; 
-    (=ucs		. #xE870)	; 
+  '((=ucs		. #xE870)	; 
+    (=big5-pua		. #x96D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DA)	; 
-    (=ucs		. #xE871)	; 
+  '((=ucs		. #xE871)	; 
+    (=big5-pua		. #x96DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DB)	; 
-    (=ucs		. #xE872)	; 
+  '((=ucs		. #xE872)	; 
+    (=big5-pua		. #x96DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DC)	; 
-    (=ucs		. #xE873)	; 
+  '((=ucs		. #xE873)	; 
+    (=big5-pua		. #x96DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DD)	; 
-    (=ucs		. #xE874)	; 
+  '((=ucs		. #xE874)	; 
+    (=big5-pua		. #x96DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DE)	; 
-    (=ucs		. #xE875)	; 
+  '((=ucs		. #xE875)	; 
+    (=big5-pua		. #x96DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96DF)	; 
-    (=ucs		. #xE876)	; 
+  '((=ucs		. #xE876)	; 
+    (=big5-pua		. #x96DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E0)	; 
-    (=ucs		. #xE877)	; 
+  '((=ucs		. #xE877)	; 
+    (=big5-pua		. #x96E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E1)	; 
-    (=ucs		. #xE878)	; 
+  '((=ucs		. #xE878)	; 
+    (=big5-pua		. #x96E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E2)	; 
-    (=ucs		. #xE879)	; 
+  '((=ucs		. #xE879)	; 
+    (=big5-pua		. #x96E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E3)	; 
-    (=ucs		. #xE87A)	; 
+  '((=ucs		. #xE87A)	; 
+    (=big5-pua		. #x96E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E4)	; 
-    (=ucs		. #xE87B)	; 
+  '((=ucs		. #xE87B)	; 
+    (=big5-pua		. #x96E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E5)	; 
-    (=ucs		. #xE87C)	; 
+  '((=ucs		. #xE87C)	; 
+    (=big5-pua		. #x96E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E6)	; 
-    (=ucs		. #xE87D)	; 
+  '((=ucs		. #xE87D)	; 
+    (=big5-pua		. #x96E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E7)	; 
-    (=ucs		. #xE87E)	; 
+  '((=ucs		. #xE87E)	; 
+    (=big5-pua		. #x96E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E8)	; 
-    (=ucs		. #xE87F)	; 
+  '((=ucs		. #xE87F)	; 
+    (=big5-pua		. #x96E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96E9)	; 
-    (=ucs		. #xE880)	; 
+  '((=ucs		. #xE880)	; 
+    (=big5-pua		. #x96E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96EA)	; 
-    (=ucs		. #xE881)	; 
+  '((=ucs		. #xE881)	; 
+    (=big5-pua		. #x96EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96EB)	; 
-    (=ucs		. #xE882)	; 
+  '((=ucs		. #xE882)	; 
+    (=big5-pua		. #x96EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96EC)	; 
-    (=ucs		. #xE883)	; 
+  '((=ucs		. #xE883)	; 
+    (=big5-pua		. #x96EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96ED)	; 
-    (=ucs		. #xE884)	; 
+  '((=ucs		. #xE884)	; 
+    (=big5-pua		. #x96ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96EE)	; 
-    (=ucs		. #xE885)	; 
+  '((=ucs		. #xE885)	; 
+    (=big5-pua		. #x96EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96EF)	; 
-    (=ucs		. #xE886)	; 
+  '((=ucs		. #xE886)	; 
+    (=big5-pua		. #x96EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F0)	; 
-    (=ucs		. #xE887)	; 
+  '((=ucs		. #xE887)	; 
+    (=big5-pua		. #x96F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F1)	; 
-    (=ucs		. #xE888)	; 
+  '((=ucs		. #xE888)	; 
+    (=big5-pua		. #x96F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F2)	; 
-    (=ucs		. #xE889)	; 
+  '((=ucs		. #xE889)	; 
+    (=big5-pua		. #x96F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F3)	; 
-    (=ucs		. #xE88A)	; 
+  '((=ucs		. #xE88A)	; 
+    (=big5-pua		. #x96F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F4)	; 
-    (=ucs		. #xE88B)	; 
+  '((=ucs		. #xE88B)	; 
+    (=big5-pua		. #x96F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F5)	; 
-    (=ucs		. #xE88C)	; 
+  '((=ucs		. #xE88C)	; 
+    (=big5-pua		. #x96F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F6)	; 
-    (=ucs		. #xE88D)	; 
+  '((=ucs		. #xE88D)	; 
+    (=big5-pua		. #x96F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F7)	; 
-    (=ucs		. #xE88E)	; 
+  '((=ucs		. #xE88E)	; 
+    (=big5-pua		. #x96F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F8)	; 
-    (=ucs		. #xE88F)	; 
+  '((=ucs		. #xE88F)	; 
+    (=big5-pua		. #x96F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96F9)	; 
-    (=ucs		. #xE890)	; 
+  '((=ucs		. #xE890)	; 
+    (=big5-pua		. #x96F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96FA)	; 
-    (=ucs		. #xE891)	; 
+  '((=ucs		. #xE891)	; 
+    (=big5-pua		. #x96FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96FB)	; 
-    (=ucs		. #xE892)	; 
+  '((=ucs		. #xE892)	; 
+    (=big5-pua		. #x96FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96FC)	; 
-    (=ucs		. #xE893)	; 
+  '((=ucs		. #xE893)	; 
+    (=big5-pua		. #x96FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96FD)	; 
-    (=ucs		. #xE894)	; 
+  '((=ucs		. #xE894)	; 
+    (=big5-pua		. #x96FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x96FE)	; 
-    (=ucs		. #xE895)	; 
+  '((=ucs		. #xE895)	; 
+    (=big5-pua		. #x96FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9740)	; 
-    (=ucs		. #xE896)	; 
+  '((=ucs		. #xE896)	; 
+    (=big5-pua		. #x9740)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9741)	; 
-    (=ucs		. #xE897)	; 
+  '((=ucs		. #xE897)	; 
+    (=big5-pua		. #x9741)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9742)	; 
-    (=ucs		. #xE898)	; 
+  '((=ucs		. #xE898)	; 
+    (=big5-pua		. #x9742)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9743)	; 
-    (=ucs		. #xE899)	; 
+  '((=ucs		. #xE899)	; 
+    (=big5-pua		. #x9743)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9744)	; 
-    (=ucs		. #xE89A)	; 
+  '((=ucs		. #xE89A)	; 
+    (=big5-pua		. #x9744)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9745)	; 
-    (=ucs		. #xE89B)	; 
+  '((=ucs		. #xE89B)	; 
+    (=big5-pua		. #x9745)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9746)	; 
-    (=ucs		. #xE89C)	; 
+  '((=ucs		. #xE89C)	; 
+    (=big5-pua		. #x9746)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9747)	; 
-    (=ucs		. #xE89D)	; 
+  '((=ucs		. #xE89D)	; 
+    (=big5-pua		. #x9747)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9748)	; 
-    (=ucs		. #xE89E)	; 
+  '((=ucs		. #xE89E)	; 
+    (=big5-pua		. #x9748)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9749)	; 
-    (=ucs		. #xE89F)	; 
+  '((=ucs		. #xE89F)	; 
+    (=big5-pua		. #x9749)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974A)	; 
-    (=ucs		. #xE8A0)	; 
+  '((=ucs		. #xE8A0)	; 
+    (=big5-pua		. #x974A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974B)	; 
-    (=ucs		. #xE8A1)	; 
+  '((=ucs		. #xE8A1)	; 
+    (=big5-pua		. #x974B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974C)	; 
-    (=ucs		. #xE8A2)	; 
+  '((=ucs		. #xE8A2)	; 
+    (=big5-pua		. #x974C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974D)	; 
-    (=ucs		. #xE8A3)	; 
+  '((=ucs		. #xE8A3)	; 
+    (=big5-pua		. #x974D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974E)	; 
-    (=ucs		. #xE8A4)	; 
+  '((=ucs		. #xE8A4)	; 
+    (=big5-pua		. #x974E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x974F)	; 
-    (=ucs		. #xE8A5)	; 
+  '((=ucs		. #xE8A5)	; 
+    (=big5-pua		. #x974F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9750)	; 
-    (=ucs		. #xE8A6)	; 
+  '((=ucs		. #xE8A6)	; 
+    (=big5-pua		. #x9750)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9751)	; 
-    (=ucs		. #xE8A7)	; 
+  '((=ucs		. #xE8A7)	; 
+    (=big5-pua		. #x9751)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9752)	; 
-    (=ucs		. #xE8A8)	; 
+  '((=ucs		. #xE8A8)	; 
+    (=big5-pua		. #x9752)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9753)	; 
-    (=ucs		. #xE8A9)	; 
+  '((=ucs		. #xE8A9)	; 
+    (=big5-pua		. #x9753)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9754)	; 
-    (=ucs		. #xE8AA)	; 
+  '((=ucs		. #xE8AA)	; 
+    (=big5-pua		. #x9754)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9755)	; 
-    (=ucs		. #xE8AB)	; 
+  '((=ucs		. #xE8AB)	; 
+    (=big5-pua		. #x9755)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9756)	; 
-    (=ucs		. #xE8AC)	; 
+  '((=ucs		. #xE8AC)	; 
+    (=big5-pua		. #x9756)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9757)	; 
-    (=ucs		. #xE8AD)	; 
+  '((=ucs		. #xE8AD)	; 
+    (=big5-pua		. #x9757)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9758)	; 
-    (=ucs		. #xE8AE)	; 
+  '((=ucs		. #xE8AE)	; 
+    (=big5-pua		. #x9758)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9759)	; 
-    (=ucs		. #xE8AF)	; 
+  '((=ucs		. #xE8AF)	; 
+    (=big5-pua		. #x9759)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975A)	; 
-    (=ucs		. #xE8B0)	; 
+  '((=ucs		. #xE8B0)	; 
+    (=big5-pua		. #x975A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975B)	; 
-    (=ucs		. #xE8B1)	; 
+  '((=ucs		. #xE8B1)	; 
+    (=big5-pua		. #x975B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975C)	; 
-    (=ucs		. #xE8B2)	; 
+  '((=ucs		. #xE8B2)	; 
+    (=big5-pua		. #x975C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975D)	; 
-    (=ucs		. #xE8B3)	; 
+  '((=ucs		. #xE8B3)	; 
+    (=big5-pua		. #x975D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975E)	; 
-    (=ucs		. #xE8B4)	; 
+  '((=ucs		. #xE8B4)	; 
+    (=big5-pua		. #x975E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x975F)	; 
-    (=ucs		. #xE8B5)	; 
+  '((=ucs		. #xE8B5)	; 
+    (=big5-pua		. #x975F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9760)	; 
-    (=ucs		. #xE8B6)	; 
+  '((=ucs		. #xE8B6)	; 
+    (=big5-pua		. #x9760)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9761)	; 
-    (=ucs		. #xE8B7)	; 
+  '((=ucs		. #xE8B7)	; 
+    (=big5-pua		. #x9761)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9762)	; 
-    (=ucs		. #xE8B8)	; 
+  '((=ucs		. #xE8B8)	; 
+    (=big5-pua		. #x9762)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9763)	; 
-    (=ucs		. #xE8B9)	; 
+  '((=ucs		. #xE8B9)	; 
+    (=big5-pua		. #x9763)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9764)	; 
-    (=ucs		. #xE8BA)	; 
+  '((=ucs		. #xE8BA)	; 
+    (=big5-pua		. #x9764)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9765)	; 
-    (=ucs		. #xE8BB)	; 
+  '((=ucs		. #xE8BB)	; 
+    (=big5-pua		. #x9765)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9766)	; 
-    (=ucs		. #xE8BC)	; 
+  '((=ucs		. #xE8BC)	; 
+    (=big5-pua		. #x9766)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9767)	; 
-    (=ucs		. #xE8BD)	; 
+  '((=ucs		. #xE8BD)	; 
+    (=big5-pua		. #x9767)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9768)	; 
-    (=ucs		. #xE8BE)	; 
+  '((=ucs		. #xE8BE)	; 
+    (=big5-pua		. #x9768)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9769)	; 
-    (=ucs		. #xE8BF)	; 
+  '((=ucs		. #xE8BF)	; 
+    (=big5-pua		. #x9769)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976A)	; 
-    (=ucs		. #xE8C0)	; 
+  '((=ucs		. #xE8C0)	; 
+    (=big5-pua		. #x976A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976B)	; 
-    (=ucs		. #xE8C1)	; 
+  '((=ucs		. #xE8C1)	; 
+    (=big5-pua		. #x976B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976C)	; 
-    (=ucs		. #xE8C2)	; 
+  '((=ucs		. #xE8C2)	; 
+    (=big5-pua		. #x976C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976D)	; 
-    (=ucs		. #xE8C3)	; 
+  '((=ucs		. #xE8C3)	; 
+    (=big5-pua		. #x976D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976E)	; 
-    (=ucs		. #xE8C4)	; 
+  '((=ucs		. #xE8C4)	; 
+    (=big5-pua		. #x976E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x976F)	; 
-    (=ucs		. #xE8C5)	; 
+  '((=ucs		. #xE8C5)	; 
+    (=big5-pua		. #x976F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9770)	; 
-    (=ucs		. #xE8C6)	; 
+  '((=ucs		. #xE8C6)	; 
+    (=big5-pua		. #x9770)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9771)	; 
-    (=ucs		. #xE8C7)	; 
+  '((=ucs		. #xE8C7)	; 
+    (=big5-pua		. #x9771)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9772)	; 
-    (=ucs		. #xE8C8)	; 
+  '((=ucs		. #xE8C8)	; 
+    (=big5-pua		. #x9772)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9773)	; 
-    (=ucs		. #xE8C9)	; 
+  '((=ucs		. #xE8C9)	; 
+    (=big5-pua		. #x9773)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9774)	; 
-    (=ucs		. #xE8CA)	; 
+  '((=ucs		. #xE8CA)	; 
+    (=big5-pua		. #x9774)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9775)	; 
-    (=ucs		. #xE8CB)	; 
+  '((=ucs		. #xE8CB)	; 
+    (=big5-pua		. #x9775)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9776)	; 
-    (=ucs		. #xE8CC)	; 
+  '((=ucs		. #xE8CC)	; 
+    (=big5-pua		. #x9776)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9777)	; 
-    (=ucs		. #xE8CD)	; 
+  '((=ucs		. #xE8CD)	; 
+    (=big5-pua		. #x9777)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9778)	; 
-    (=ucs		. #xE8CE)	; 
+  '((=ucs		. #xE8CE)	; 
+    (=big5-pua		. #x9778)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9779)	; 
-    (=ucs		. #xE8CF)	; 
+  '((=ucs		. #xE8CF)	; 
+    (=big5-pua		. #x9779)	; 
     ))
 (define-char
-  '((=big5-pua		. #x977A)	; 
-    (=ucs		. #xE8D0)	; 
+  '((=ucs		. #xE8D0)	; 
+    (=big5-pua		. #x977A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x977B)	; 
-    (=ucs		. #xE8D1)	; 
+  '((=ucs		. #xE8D1)	; 
+    (=big5-pua		. #x977B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x977C)	; 
-    (=ucs		. #xE8D2)	; 
+  '((=ucs		. #xE8D2)	; 
+    (=big5-pua		. #x977C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x977D)	; 
-    (=ucs		. #xE8D3)	; 
+  '((=ucs		. #xE8D3)	; 
+    (=big5-pua		. #x977D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x977E)	; 
-    (=ucs		. #xE8D4)	; 
+  '((=ucs		. #xE8D4)	; 
+    (=big5-pua		. #x977E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A1)	; 
-    (=ucs		. #xE8D5)	; 
+  '((=ucs		. #xE8D5)	; 
+    (=big5-pua		. #x97A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A2)	; 
-    (=ucs		. #xE8D6)	; 
+  '((=ucs		. #xE8D6)	; 
+    (=big5-pua		. #x97A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A3)	; 
-    (=ucs		. #xE8D7)	; 
+  '((=ucs		. #xE8D7)	; 
+    (=big5-pua		. #x97A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A4)	; 
-    (=ucs		. #xE8D8)	; 
+  '((=ucs		. #xE8D8)	; 
+    (=big5-pua		. #x97A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A5)	; 
-    (=ucs		. #xE8D9)	; 
+  '((=ucs		. #xE8D9)	; 
+    (=big5-pua		. #x97A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A6)	; 
-    (=ucs		. #xE8DA)	; 
+  '((=ucs		. #xE8DA)	; 
+    (=big5-pua		. #x97A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A7)	; 
-    (=ucs		. #xE8DB)	; 
+  '((=ucs		. #xE8DB)	; 
+    (=big5-pua		. #x97A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A8)	; 
-    (=ucs		. #xE8DC)	; 
+  '((=ucs		. #xE8DC)	; 
+    (=big5-pua		. #x97A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97A9)	; 
-    (=ucs		. #xE8DD)	; 
+  '((=ucs		. #xE8DD)	; 
+    (=big5-pua		. #x97A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AA)	; 
-    (=ucs		. #xE8DE)	; 
+  '((=ucs		. #xE8DE)	; 
+    (=big5-pua		. #x97AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AB)	; 
-    (=ucs		. #xE8DF)	; 
+  '((=ucs		. #xE8DF)	; 
+    (=big5-pua		. #x97AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AC)	; 
-    (=ucs		. #xE8E0)	; 
+  '((=ucs		. #xE8E0)	; 
+    (=big5-pua		. #x97AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AD)	; 
-    (=ucs		. #xE8E1)	; 
+  '((=ucs		. #xE8E1)	; 
+    (=big5-pua		. #x97AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AE)	; 
-    (=ucs		. #xE8E2)	; 
+  '((=ucs		. #xE8E2)	; 
+    (=big5-pua		. #x97AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97AF)	; 
-    (=ucs		. #xE8E3)	; 
+  '((=ucs		. #xE8E3)	; 
+    (=big5-pua		. #x97AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B0)	; 
-    (=ucs		. #xE8E4)	; 
+  '((=ucs		. #xE8E4)	; 
+    (=big5-pua		. #x97B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B1)	; 
-    (=ucs		. #xE8E5)	; 
+  '((=ucs		. #xE8E5)	; 
+    (=big5-pua		. #x97B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B2)	; 
-    (=ucs		. #xE8E6)	; 
+  '((=ucs		. #xE8E6)	; 
+    (=big5-pua		. #x97B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B3)	; 
-    (=ucs		. #xE8E7)	; 
+  '((=ucs		. #xE8E7)	; 
+    (=big5-pua		. #x97B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B4)	; 
-    (=ucs		. #xE8E8)	; 
+  '((=ucs		. #xE8E8)	; 
+    (=big5-pua		. #x97B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B5)	; 
-    (=ucs		. #xE8E9)	; 
+  '((=ucs		. #xE8E9)	; 
+    (=big5-pua		. #x97B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B6)	; 
-    (=ucs		. #xE8EA)	; 
+  '((=ucs		. #xE8EA)	; 
+    (=big5-pua		. #x97B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B7)	; 
-    (=ucs		. #xE8EB)	; 
+  '((=ucs		. #xE8EB)	; 
+    (=big5-pua		. #x97B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B8)	; 
-    (=ucs		. #xE8EC)	; 
+  '((=ucs		. #xE8EC)	; 
+    (=big5-pua		. #x97B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97B9)	; 
-    (=ucs		. #xE8ED)	; 
+  '((=ucs		. #xE8ED)	; 
+    (=big5-pua		. #x97B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BA)	; 
-    (=ucs		. #xE8EE)	; 
+  '((=ucs		. #xE8EE)	; 
+    (=big5-pua		. #x97BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BB)	; 
-    (=ucs		. #xE8EF)	; 
+  '((=ucs		. #xE8EF)	; 
+    (=big5-pua		. #x97BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BC)	; 
-    (=ucs		. #xE8F0)	; 
+  '((=ucs		. #xE8F0)	; 
+    (=big5-pua		. #x97BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BD)	; 
-    (=ucs		. #xE8F1)	; 
+  '((=ucs		. #xE8F1)	; 
+    (=big5-pua		. #x97BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BE)	; 
-    (=ucs		. #xE8F2)	; 
+  '((=ucs		. #xE8F2)	; 
+    (=big5-pua		. #x97BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97BF)	; 
-    (=ucs		. #xE8F3)	; 
+  '((=ucs		. #xE8F3)	; 
+    (=big5-pua		. #x97BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C0)	; 
-    (=ucs		. #xE8F4)	; 
+  '((=ucs		. #xE8F4)	; 
+    (=big5-pua		. #x97C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C1)	; 
-    (=ucs		. #xE8F5)	; 
+  '((=ucs		. #xE8F5)	; 
+    (=big5-pua		. #x97C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C2)	; 
-    (=ucs		. #xE8F6)	; 
+  '((=ucs		. #xE8F6)	; 
+    (=big5-pua		. #x97C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C3)	; 
-    (=ucs		. #xE8F7)	; 
+  '((=ucs		. #xE8F7)	; 
+    (=big5-pua		. #x97C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C4)	; 
-    (=ucs		. #xE8F8)	; 
+  '((=ucs		. #xE8F8)	; 
+    (=big5-pua		. #x97C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C5)	; 
-    (=ucs		. #xE8F9)	; 
+  '((=ucs		. #xE8F9)	; 
+    (=big5-pua		. #x97C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C6)	; 
-    (=ucs		. #xE8FA)	; 
+  '((=ucs		. #xE8FA)	; 
+    (=big5-pua		. #x97C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C7)	; 
-    (=ucs		. #xE8FB)	; 
+  '((=ucs		. #xE8FB)	; 
+    (=big5-pua		. #x97C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C8)	; 
-    (=ucs		. #xE8FC)	; 
+  '((=ucs		. #xE8FC)	; 
+    (=big5-pua		. #x97C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97C9)	; 
-    (=ucs		. #xE8FD)	; 
+  '((=ucs		. #xE8FD)	; 
+    (=big5-pua		. #x97C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CA)	; 
-    (=ucs		. #xE8FE)	; 
+  '((=ucs		. #xE8FE)	; 
+    (=big5-pua		. #x97CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CB)	; 
-    (=ucs		. #xE8FF)	; 
+  '((=ucs		. #xE8FF)	; 
+    (=big5-pua		. #x97CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CC)	; 
-    (=ucs		. #xE900)	; 
+  '((=ucs		. #xE900)	; 
+    (=big5-pua		. #x97CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CD)	; 
-    (=ucs		. #xE901)	; 
+  '((=ucs		. #xE901)	; 
+    (=big5-pua		. #x97CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CE)	; 
-    (=ucs		. #xE902)	; 
+  '((=ucs		. #xE902)	; 
+    (=big5-pua		. #x97CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97CF)	; 
-    (=ucs		. #xE903)	; 
+  '((=ucs		. #xE903)	; 
+    (=big5-pua		. #x97CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D0)	; 
-    (=ucs		. #xE904)	; 
+  '((=ucs		. #xE904)	; 
+    (=big5-pua		. #x97D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D1)	; 
-    (=ucs		. #xE905)	; 
+  '((=ucs		. #xE905)	; 
+    (=big5-pua		. #x97D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D2)	; 
-    (=ucs		. #xE906)	; 
+  '((=ucs		. #xE906)	; 
+    (=big5-pua		. #x97D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D3)	; 
-    (=ucs		. #xE907)	; 
+  '((=ucs		. #xE907)	; 
+    (=big5-pua		. #x97D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D4)	; 
-    (=ucs		. #xE908)	; 
+  '((=ucs		. #xE908)	; 
+    (=big5-pua		. #x97D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D5)	; 
-    (=ucs		. #xE909)	; 
+  '((=ucs		. #xE909)	; 
+    (=big5-pua		. #x97D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D6)	; 
-    (=ucs		. #xE90A)	; 
+  '((=ucs		. #xE90A)	; 
+    (=big5-pua		. #x97D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D7)	; 
-    (=ucs		. #xE90B)	; 
+  '((=ucs		. #xE90B)	; 
+    (=big5-pua		. #x97D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D8)	; 
-    (=ucs		. #xE90C)	; 
+  '((=ucs		. #xE90C)	; 
+    (=big5-pua		. #x97D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97D9)	; 
-    (=ucs		. #xE90D)	; 
+  '((=ucs		. #xE90D)	; 
+    (=big5-pua		. #x97D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DA)	; 
-    (=ucs		. #xE90E)	; 
+  '((=ucs		. #xE90E)	; 
+    (=big5-pua		. #x97DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DB)	; 
-    (=ucs		. #xE90F)	; 
+  '((=ucs		. #xE90F)	; 
+    (=big5-pua		. #x97DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DC)	; 
-    (=ucs		. #xE910)	; 
+  '((=ucs		. #xE910)	; 
+    (=big5-pua		. #x97DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DD)	; 
-    (=ucs		. #xE911)	; 
+  '((=ucs		. #xE911)	; 
+    (=big5-pua		. #x97DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DE)	; 
-    (=ucs		. #xE912)	; 
+  '((=ucs		. #xE912)	; 
+    (=big5-pua		. #x97DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97DF)	; 
-    (=ucs		. #xE913)	; 
+  '((=ucs		. #xE913)	; 
+    (=big5-pua		. #x97DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E0)	; 
-    (=ucs		. #xE914)	; 
+  '((=ucs		. #xE914)	; 
+    (=big5-pua		. #x97E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E1)	; 
-    (=ucs		. #xE915)	; 
+  '((=ucs		. #xE915)	; 
+    (=big5-pua		. #x97E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E2)	; 
-    (=ucs		. #xE916)	; 
+  '((=ucs		. #xE916)	; 
+    (=big5-pua		. #x97E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E3)	; 
-    (=ucs		. #xE917)	; 
+  '((=ucs		. #xE917)	; 
+    (=big5-pua		. #x97E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E4)	; 
-    (=ucs		. #xE918)	; 
+  '((=ucs		. #xE918)	; 
+    (=big5-pua		. #x97E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E5)	; 
-    (=ucs		. #xE919)	; 
+  '((=ucs		. #xE919)	; 
+    (=big5-pua		. #x97E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E6)	; 
-    (=ucs		. #xE91A)	; 
+  '((=ucs		. #xE91A)	; 
+    (=big5-pua		. #x97E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E7)	; 
-    (=ucs		. #xE91B)	; 
+  '((=ucs		. #xE91B)	; 
+    (=big5-pua		. #x97E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E8)	; 
-    (=ucs		. #xE91C)	; 
+  '((=ucs		. #xE91C)	; 
+    (=big5-pua		. #x97E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97E9)	; 
-    (=ucs		. #xE91D)	; 
+  '((=ucs		. #xE91D)	; 
+    (=big5-pua		. #x97E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97EA)	; 
-    (=ucs		. #xE91E)	; 
+  '((=ucs		. #xE91E)	; 
+    (=big5-pua		. #x97EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97EB)	; 
-    (=ucs		. #xE91F)	; 
+  '((=ucs		. #xE91F)	; 
+    (=big5-pua		. #x97EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97EC)	; 
-    (=ucs		. #xE920)	; 
+  '((=ucs		. #xE920)	; 
+    (=big5-pua		. #x97EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97ED)	; 
-    (=ucs		. #xE921)	; 
+  '((=ucs		. #xE921)	; 
+    (=big5-pua		. #x97ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97EE)	; 
-    (=ucs		. #xE922)	; 
+  '((=ucs		. #xE922)	; 
+    (=big5-pua		. #x97EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97EF)	; 
-    (=ucs		. #xE923)	; 
+  '((=ucs		. #xE923)	; 
+    (=big5-pua		. #x97EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F0)	; 
-    (=ucs		. #xE924)	; 
+  '((=ucs		. #xE924)	; 
+    (=big5-pua		. #x97F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F1)	; 
-    (=ucs		. #xE925)	; 
+  '((=ucs		. #xE925)	; 
+    (=big5-pua		. #x97F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F2)	; 
-    (=ucs		. #xE926)	; 
+  '((=ucs		. #xE926)	; 
+    (=big5-pua		. #x97F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F3)	; 
-    (=ucs		. #xE927)	; 
+  '((=ucs		. #xE927)	; 
+    (=big5-pua		. #x97F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F4)	; 
-    (=ucs		. #xE928)	; 
+  '((=ucs		. #xE928)	; 
+    (=big5-pua		. #x97F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F5)	; 
-    (=ucs		. #xE929)	; 
+  '((=ucs		. #xE929)	; 
+    (=big5-pua		. #x97F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F6)	; 
-    (=ucs		. #xE92A)	; 
+  '((=ucs		. #xE92A)	; 
+    (=big5-pua		. #x97F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F7)	; 
-    (=ucs		. #xE92B)	; 
+  '((=ucs		. #xE92B)	; 
+    (=big5-pua		. #x97F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F8)	; 
-    (=ucs		. #xE92C)	; 
+  '((=ucs		. #xE92C)	; 
+    (=big5-pua		. #x97F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97F9)	; 
-    (=ucs		. #xE92D)	; 
+  '((=ucs		. #xE92D)	; 
+    (=big5-pua		. #x97F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97FA)	; 
-    (=ucs		. #xE92E)	; 
+  '((=ucs		. #xE92E)	; 
+    (=big5-pua		. #x97FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97FB)	; 
-    (=ucs		. #xE92F)	; 
+  '((=ucs		. #xE92F)	; 
+    (=big5-pua		. #x97FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97FC)	; 
-    (=ucs		. #xE930)	; 
+  '((=ucs		. #xE930)	; 
+    (=big5-pua		. #x97FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97FD)	; 
-    (=ucs		. #xE931)	; 
+  '((=ucs		. #xE931)	; 
+    (=big5-pua		. #x97FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x97FE)	; 
-    (=ucs		. #xE932)	; 
+  '((=ucs		. #xE932)	; 
+    (=big5-pua		. #x97FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9840)	; 
-    (=ucs		. #xE933)	; 
+  '((=ucs		. #xE933)	; 
+    (=big5-pua		. #x9840)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9841)	; 
-    (=ucs		. #xE934)	; 
+  '((=ucs		. #xE934)	; 
+    (=big5-pua		. #x9841)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9842)	; 
-    (=ucs		. #xE935)	; 
+  '((=ucs		. #xE935)	; 
+    (=big5-pua		. #x9842)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9843)	; 
-    (=ucs		. #xE936)	; 
+  '((=ucs		. #xE936)	; 
+    (=big5-pua		. #x9843)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9844)	; 
-    (=ucs		. #xE937)	; 
+  '((=ucs		. #xE937)	; 
+    (=big5-pua		. #x9844)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9845)	; 
-    (=ucs		. #xE938)	; 
+  '((=ucs		. #xE938)	; 
+    (=big5-pua		. #x9845)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9846)	; 
-    (=ucs		. #xE939)	; 
+  '((=ucs		. #xE939)	; 
+    (=big5-pua		. #x9846)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9847)	; 
-    (=ucs		. #xE93A)	; 
+  '((=ucs		. #xE93A)	; 
+    (=big5-pua		. #x9847)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9848)	; 
-    (=ucs		. #xE93B)	; 
+  '((=ucs		. #xE93B)	; 
+    (=big5-pua		. #x9848)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9849)	; 
-    (=ucs		. #xE93C)	; 
+  '((=ucs		. #xE93C)	; 
+    (=big5-pua		. #x9849)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984A)	; 
-    (=ucs		. #xE93D)	; 
+  '((=ucs		. #xE93D)	; 
+    (=big5-pua		. #x984A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984B)	; 
-    (=ucs		. #xE93E)	; 
+  '((=ucs		. #xE93E)	; 
+    (=big5-pua		. #x984B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984C)	; 
-    (=ucs		. #xE93F)	; 
+  '((=ucs		. #xE93F)	; 
+    (=big5-pua		. #x984C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984D)	; 
-    (=ucs		. #xE940)	; 
+  '((=ucs		. #xE940)	; 
+    (=big5-pua		. #x984D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984E)	; 
-    (=ucs		. #xE941)	; 
+  '((=ucs		. #xE941)	; 
+    (=big5-pua		. #x984E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x984F)	; 
-    (=ucs		. #xE942)	; 
+  '((=ucs		. #xE942)	; 
+    (=big5-pua		. #x984F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9850)	; 
-    (=ucs		. #xE943)	; 
+  '((=ucs		. #xE943)	; 
+    (=big5-pua		. #x9850)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9851)	; 
-    (=ucs		. #xE944)	; 
+  '((=ucs		. #xE944)	; 
+    (=big5-pua		. #x9851)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9852)	; 
-    (=ucs		. #xE945)	; 
+  '((=ucs		. #xE945)	; 
+    (=big5-pua		. #x9852)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9853)	; 
-    (=ucs		. #xE946)	; 
+  '((=ucs		. #xE946)	; 
+    (=big5-pua		. #x9853)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9854)	; 
-    (=ucs		. #xE947)	; 
+  '((=ucs		. #xE947)	; 
+    (=big5-pua		. #x9854)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9855)	; 
-    (=ucs		. #xE948)	; 
+  '((=ucs		. #xE948)	; 
+    (=big5-pua		. #x9855)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9856)	; 
-    (=ucs		. #xE949)	; 
+  '((=ucs		. #xE949)	; 
+    (=big5-pua		. #x9856)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9857)	; 
-    (=ucs		. #xE94A)	; 
+  '((=ucs		. #xE94A)	; 
+    (=big5-pua		. #x9857)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9858)	; 
-    (=ucs		. #xE94B)	; 
+  '((=ucs		. #xE94B)	; 
+    (=big5-pua		. #x9858)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9859)	; 
-    (=ucs		. #xE94C)	; 
+  '((=ucs		. #xE94C)	; 
+    (=big5-pua		. #x9859)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985A)	; 
-    (=ucs		. #xE94D)	; 
+  '((=ucs		. #xE94D)	; 
+    (=big5-pua		. #x985A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985B)	; 
-    (=ucs		. #xE94E)	; 
+  '((=ucs		. #xE94E)	; 
+    (=big5-pua		. #x985B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985C)	; 
-    (=ucs		. #xE94F)	; 
+  '((=ucs		. #xE94F)	; 
+    (=big5-pua		. #x985C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985D)	; 
-    (=ucs		. #xE950)	; 
+  '((=ucs		. #xE950)	; 
+    (=big5-pua		. #x985D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985E)	; 
-    (=ucs		. #xE951)	; 
+  '((=ucs		. #xE951)	; 
+    (=big5-pua		. #x985E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x985F)	; 
-    (=ucs		. #xE952)	; 
+  '((=ucs		. #xE952)	; 
+    (=big5-pua		. #x985F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9860)	; 
-    (=ucs		. #xE953)	; 
+  '((=ucs		. #xE953)	; 
+    (=big5-pua		. #x9860)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9861)	; 
-    (=ucs		. #xE954)	; 
+  '((=ucs		. #xE954)	; 
+    (=big5-pua		. #x9861)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9862)	; 
-    (=ucs		. #xE955)	; 
+  '((=ucs		. #xE955)	; 
+    (=big5-pua		. #x9862)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9863)	; 
-    (=ucs		. #xE956)	; 
+  '((=ucs		. #xE956)	; 
+    (=big5-pua		. #x9863)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9864)	; 
-    (=ucs		. #xE957)	; 
+  '((=ucs		. #xE957)	; 
+    (=big5-pua		. #x9864)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9865)	; 
-    (=ucs		. #xE958)	; 
+  '((=ucs		. #xE958)	; 
+    (=big5-pua		. #x9865)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9866)	; 
-    (=ucs		. #xE959)	; 
+  '((=ucs		. #xE959)	; 
+    (=big5-pua		. #x9866)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9867)	; 
-    (=ucs		. #xE95A)	; 
+  '((=ucs		. #xE95A)	; 
+    (=big5-pua		. #x9867)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9868)	; 
-    (=ucs		. #xE95B)	; 
+  '((=ucs		. #xE95B)	; 
+    (=big5-pua		. #x9868)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9869)	; 
-    (=ucs		. #xE95C)	; 
+  '((=ucs		. #xE95C)	; 
+    (=big5-pua		. #x9869)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986A)	; 
-    (=ucs		. #xE95D)	; 
+  '((=ucs		. #xE95D)	; 
+    (=big5-pua		. #x986A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986B)	; 
-    (=ucs		. #xE95E)	; 
+  '((=ucs		. #xE95E)	; 
+    (=big5-pua		. #x986B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986C)	; 
-    (=ucs		. #xE95F)	; 
+  '((=ucs		. #xE95F)	; 
+    (=big5-pua		. #x986C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986D)	; 
-    (=ucs		. #xE960)	; 
+  '((=ucs		. #xE960)	; 
+    (=big5-pua		. #x986D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986E)	; 
-    (=ucs		. #xE961)	; 
+  '((=ucs		. #xE961)	; 
+    (=big5-pua		. #x986E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x986F)	; 
-    (=ucs		. #xE962)	; 
+  '((=ucs		. #xE962)	; 
+    (=big5-pua		. #x986F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9870)	; 
-    (=ucs		. #xE963)	; 
+  '((=ucs		. #xE963)	; 
+    (=big5-pua		. #x9870)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9871)	; 
-    (=ucs		. #xE964)	; 
+  '((=ucs		. #xE964)	; 
+    (=big5-pua		. #x9871)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9872)	; 
-    (=ucs		. #xE965)	; 
+  '((=ucs		. #xE965)	; 
+    (=big5-pua		. #x9872)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9873)	; 
-    (=ucs		. #xE966)	; 
+  '((=ucs		. #xE966)	; 
+    (=big5-pua		. #x9873)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9874)	; 
-    (=ucs		. #xE967)	; 
+  '((=ucs		. #xE967)	; 
+    (=big5-pua		. #x9874)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9875)	; 
-    (=ucs		. #xE968)	; 
+  '((=ucs		. #xE968)	; 
+    (=big5-pua		. #x9875)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9876)	; 
-    (=ucs		. #xE969)	; 
+  '((=ucs		. #xE969)	; 
+    (=big5-pua		. #x9876)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9877)	; 
-    (=ucs		. #xE96A)	; 
+  '((=ucs		. #xE96A)	; 
+    (=big5-pua		. #x9877)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9878)	; 
-    (=ucs		. #xE96B)	; 
+  '((=ucs		. #xE96B)	; 
+    (=big5-pua		. #x9878)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9879)	; 
-    (=ucs		. #xE96C)	; 
+  '((=ucs		. #xE96C)	; 
+    (=big5-pua		. #x9879)	; 
     ))
 (define-char
-  '((=big5-pua		. #x987A)	; 
-    (=ucs		. #xE96D)	; 
+  '((=ucs		. #xE96D)	; 
+    (=big5-pua		. #x987A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x987B)	; 
-    (=ucs		. #xE96E)	; 
+  '((=ucs		. #xE96E)	; 
+    (=big5-pua		. #x987B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x987C)	; 
-    (=ucs		. #xE96F)	; 
+  '((=ucs		. #xE96F)	; 
+    (=big5-pua		. #x987C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x987D)	; 
-    (=ucs		. #xE970)	; 
+  '((=ucs		. #xE970)	; 
+    (=big5-pua		. #x987D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x987E)	; 
-    (=ucs		. #xE971)	; 
+  '((=ucs		. #xE971)	; 
+    (=big5-pua		. #x987E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A1)	; 
-    (=ucs		. #xE972)	; 
+  '((=ucs		. #xE972)	; 
+    (=big5-pua		. #x98A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A2)	; 
-    (=ucs		. #xE973)	; 
+  '((=ucs		. #xE973)	; 
+    (=big5-pua		. #x98A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A3)	; 
-    (=ucs		. #xE974)	; 
+  '((=ucs		. #xE974)	; 
+    (=big5-pua		. #x98A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A4)	; 
-    (=ucs		. #xE975)	; 
+  '((=ucs		. #xE975)	; 
+    (=big5-pua		. #x98A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A5)	; 
-    (=ucs		. #xE976)	; 
+  '((=ucs		. #xE976)	; 
+    (=big5-pua		. #x98A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A6)	; 
-    (=ucs		. #xE977)	; 
+  '((=ucs		. #xE977)	; 
+    (=big5-pua		. #x98A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A7)	; 
-    (=ucs		. #xE978)	; 
+  '((=ucs		. #xE978)	; 
+    (=big5-pua		. #x98A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A8)	; 
-    (=ucs		. #xE979)	; 
+  '((=ucs		. #xE979)	; 
+    (=big5-pua		. #x98A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98A9)	; 
-    (=ucs		. #xE97A)	; 
+  '((=ucs		. #xE97A)	; 
+    (=big5-pua		. #x98A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AA)	; 
-    (=ucs		. #xE97B)	; 
+  '((=ucs		. #xE97B)	; 
+    (=big5-pua		. #x98AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AB)	; 
-    (=ucs		. #xE97C)	; 
+  '((=ucs		. #xE97C)	; 
+    (=big5-pua		. #x98AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AC)	; 
-    (=ucs		. #xE97D)	; 
+  '((=ucs		. #xE97D)	; 
+    (=big5-pua		. #x98AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AD)	; 
-    (=ucs		. #xE97E)	; 
+  '((=ucs		. #xE97E)	; 
+    (=big5-pua		. #x98AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AE)	; 
-    (=ucs		. #xE97F)	; 
+  '((=ucs		. #xE97F)	; 
+    (=big5-pua		. #x98AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98AF)	; 
-    (=ucs		. #xE980)	; 
+  '((=ucs		. #xE980)	; 
+    (=big5-pua		. #x98AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B0)	; 
-    (=ucs		. #xE981)	; 
+  '((=ucs		. #xE981)	; 
+    (=big5-pua		. #x98B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B1)	; 
-    (=ucs		. #xE982)	; 
+  '((=ucs		. #xE982)	; 
+    (=big5-pua		. #x98B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B2)	; 
-    (=ucs		. #xE983)	; 
+  '((=ucs		. #xE983)	; 
+    (=big5-pua		. #x98B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B3)	; 
-    (=ucs		. #xE984)	; 
+  '((=ucs		. #xE984)	; 
+    (=big5-pua		. #x98B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B4)	; 
-    (=ucs		. #xE985)	; 
+  '((=ucs		. #xE985)	; 
+    (=big5-pua		. #x98B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B5)	; 
-    (=ucs		. #xE986)	; 
+  '((=ucs		. #xE986)	; 
+    (=big5-pua		. #x98B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B6)	; 
-    (=ucs		. #xE987)	; 
+  '((=ucs		. #xE987)	; 
+    (=big5-pua		. #x98B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B7)	; 
-    (=ucs		. #xE988)	; 
+  '((=ucs		. #xE988)	; 
+    (=big5-pua		. #x98B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B8)	; 
-    (=ucs		. #xE989)	; 
+  '((=ucs		. #xE989)	; 
+    (=big5-pua		. #x98B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98B9)	; 
-    (=ucs		. #xE98A)	; 
+  '((=ucs		. #xE98A)	; 
+    (=big5-pua		. #x98B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BA)	; 
-    (=ucs		. #xE98B)	; 
+  '((=ucs		. #xE98B)	; 
+    (=big5-pua		. #x98BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BB)	; 
-    (=ucs		. #xE98C)	; 
+  '((=ucs		. #xE98C)	; 
+    (=big5-pua		. #x98BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BC)	; 
-    (=ucs		. #xE98D)	; 
+  '((=ucs		. #xE98D)	; 
+    (=big5-pua		. #x98BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BD)	; 
-    (=ucs		. #xE98E)	; 
+  '((=ucs		. #xE98E)	; 
+    (=big5-pua		. #x98BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BE)	; 
-    (=ucs		. #xE98F)	; 
+  '((=ucs		. #xE98F)	; 
+    (=big5-pua		. #x98BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98BF)	; 
-    (=ucs		. #xE990)	; 
+  '((=ucs		. #xE990)	; 
+    (=big5-pua		. #x98BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C0)	; 
-    (=ucs		. #xE991)	; 
+  '((=ucs		. #xE991)	; 
+    (=big5-pua		. #x98C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C1)	; 
-    (=ucs		. #xE992)	; 
+  '((=ucs		. #xE992)	; 
+    (=big5-pua		. #x98C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C2)	; 
-    (=ucs		. #xE993)	; 
+  '((=ucs		. #xE993)	; 
+    (=big5-pua		. #x98C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C3)	; 
-    (=ucs		. #xE994)	; 
+  '((=ucs		. #xE994)	; 
+    (=big5-pua		. #x98C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C4)	; 
-    (=ucs		. #xE995)	; 
+  '((=ucs		. #xE995)	; 
+    (=big5-pua		. #x98C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C5)	; 
-    (=ucs		. #xE996)	; 
+  '((=ucs		. #xE996)	; 
+    (=big5-pua		. #x98C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C6)	; 
-    (=ucs		. #xE997)	; 
+  '((=ucs		. #xE997)	; 
+    (=big5-pua		. #x98C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C7)	; 
-    (=ucs		. #xE998)	; 
+  '((=ucs		. #xE998)	; 
+    (=big5-pua		. #x98C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C8)	; 
-    (=ucs		. #xE999)	; 
+  '((=ucs		. #xE999)	; 
+    (=big5-pua		. #x98C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98C9)	; 
-    (=ucs		. #xE99A)	; 
+  '((=ucs		. #xE99A)	; 
+    (=big5-pua		. #x98C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CA)	; 
-    (=ucs		. #xE99B)	; 
+  '((=ucs		. #xE99B)	; 
+    (=big5-pua		. #x98CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CB)	; 
-    (=ucs		. #xE99C)	; 
+  '((=ucs		. #xE99C)	; 
+    (=big5-pua		. #x98CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CC)	; 
-    (=ucs		. #xE99D)	; 
+  '((=ucs		. #xE99D)	; 
+    (=big5-pua		. #x98CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CD)	; 
-    (=ucs		. #xE99E)	; 
+  '((=ucs		. #xE99E)	; 
+    (=big5-pua		. #x98CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CE)	; 
-    (=ucs		. #xE99F)	; 
+  '((=ucs		. #xE99F)	; 
+    (=big5-pua		. #x98CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98CF)	; 
-    (=ucs		. #xE9A0)	; 
+  '((=ucs		. #xE9A0)	; 
+    (=big5-pua		. #x98CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D0)	; 
-    (=ucs		. #xE9A1)	; 
+  '((=ucs		. #xE9A1)	; 
+    (=big5-pua		. #x98D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D1)	; 
-    (=ucs		. #xE9A2)	; 
+  '((=ucs		. #xE9A2)	; 
+    (=big5-pua		. #x98D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D2)	; 
-    (=ucs		. #xE9A3)	; 
+  '((=ucs		. #xE9A3)	; 
+    (=big5-pua		. #x98D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D3)	; 
-    (=ucs		. #xE9A4)	; 
+  '((=ucs		. #xE9A4)	; 
+    (=big5-pua		. #x98D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D4)	; 
-    (=ucs		. #xE9A5)	; 
+  '((=ucs		. #xE9A5)	; 
+    (=big5-pua		. #x98D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D5)	; 
-    (=ucs		. #xE9A6)	; 
+  '((=ucs		. #xE9A6)	; 
+    (=big5-pua		. #x98D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D6)	; 
-    (=ucs		. #xE9A7)	; 
+  '((=ucs		. #xE9A7)	; 
+    (=big5-pua		. #x98D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D7)	; 
-    (=ucs		. #xE9A8)	; 
+  '((=ucs		. #xE9A8)	; 
+    (=big5-pua		. #x98D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D8)	; 
-    (=ucs		. #xE9A9)	; 
+  '((=ucs		. #xE9A9)	; 
+    (=big5-pua		. #x98D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98D9)	; 
-    (=ucs		. #xE9AA)	; 
+  '((=ucs		. #xE9AA)	; 
+    (=big5-pua		. #x98D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DA)	; 
-    (=ucs		. #xE9AB)	; 
+  '((=ucs		. #xE9AB)	; 
+    (=big5-pua		. #x98DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DB)	; 
-    (=ucs		. #xE9AC)	; 
+  '((=ucs		. #xE9AC)	; 
+    (=big5-pua		. #x98DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DC)	; 
-    (=ucs		. #xE9AD)	; 
+  '((=ucs		. #xE9AD)	; 
+    (=big5-pua		. #x98DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DD)	; 
-    (=ucs		. #xE9AE)	; 
+  '((=ucs		. #xE9AE)	; 
+    (=big5-pua		. #x98DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DE)	; 
-    (=ucs		. #xE9AF)	; 
+  '((=ucs		. #xE9AF)	; 
+    (=big5-pua		. #x98DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98DF)	; 
-    (=ucs		. #xE9B0)	; 
+  '((=ucs		. #xE9B0)	; 
+    (=big5-pua		. #x98DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E0)	; 
-    (=ucs		. #xE9B1)	; 
+  '((=ucs		. #xE9B1)	; 
+    (=big5-pua		. #x98E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E1)	; 
-    (=ucs		. #xE9B2)	; 
+  '((=ucs		. #xE9B2)	; 
+    (=big5-pua		. #x98E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E2)	; 
-    (=ucs		. #xE9B3)	; 
+  '((=ucs		. #xE9B3)	; 
+    (=big5-pua		. #x98E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E3)	; 
-    (=ucs		. #xE9B4)	; 
+  '((=ucs		. #xE9B4)	; 
+    (=big5-pua		. #x98E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E4)	; 
-    (=ucs		. #xE9B5)	; 
+  '((=ucs		. #xE9B5)	; 
+    (=big5-pua		. #x98E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E5)	; 
-    (=ucs		. #xE9B6)	; 
+  '((=ucs		. #xE9B6)	; 
+    (=big5-pua		. #x98E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E6)	; 
-    (=ucs		. #xE9B7)	; 
+  '((=ucs		. #xE9B7)	; 
+    (=big5-pua		. #x98E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E7)	; 
-    (=ucs		. #xE9B8)	; 
+  '((=ucs		. #xE9B8)	; 
+    (=big5-pua		. #x98E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E8)	; 
-    (=ucs		. #xE9B9)	; 
+  '((=ucs		. #xE9B9)	; 
+    (=big5-pua		. #x98E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98E9)	; 
-    (=ucs		. #xE9BA)	; 
+  '((=ucs		. #xE9BA)	; 
+    (=big5-pua		. #x98E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98EA)	; 
-    (=ucs		. #xE9BB)	; 
+  '((=ucs		. #xE9BB)	; 
+    (=big5-pua		. #x98EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98EB)	; 
-    (=ucs		. #xE9BC)	; 
+  '((=ucs		. #xE9BC)	; 
+    (=big5-pua		. #x98EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98EC)	; 
-    (=ucs		. #xE9BD)	; 
+  '((=ucs		. #xE9BD)	; 
+    (=big5-pua		. #x98EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98ED)	; 
-    (=ucs		. #xE9BE)	; 
+  '((=ucs		. #xE9BE)	; 
+    (=big5-pua		. #x98ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98EE)	; 
-    (=ucs		. #xE9BF)	; 
+  '((=ucs		. #xE9BF)	; 
+    (=big5-pua		. #x98EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98EF)	; 
-    (=ucs		. #xE9C0)	; 
+  '((=ucs		. #xE9C0)	; 
+    (=big5-pua		. #x98EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F0)	; 
-    (=ucs		. #xE9C1)	; 
+  '((=ucs		. #xE9C1)	; 
+    (=big5-pua		. #x98F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F1)	; 
-    (=ucs		. #xE9C2)	; 
+  '((=ucs		. #xE9C2)	; 
+    (=big5-pua		. #x98F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F2)	; 
-    (=ucs		. #xE9C3)	; 
+  '((=ucs		. #xE9C3)	; 
+    (=big5-pua		. #x98F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F3)	; 
-    (=ucs		. #xE9C4)	; 
+  '((=ucs		. #xE9C4)	; 
+    (=big5-pua		. #x98F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F4)	; 
-    (=ucs		. #xE9C5)	; 
+  '((=ucs		. #xE9C5)	; 
+    (=big5-pua		. #x98F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F5)	; 
-    (=ucs		. #xE9C6)	; 
+  '((=ucs		. #xE9C6)	; 
+    (=big5-pua		. #x98F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F6)	; 
-    (=ucs		. #xE9C7)	; 
+  '((=ucs		. #xE9C7)	; 
+    (=big5-pua		. #x98F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F7)	; 
-    (=ucs		. #xE9C8)	; 
+  '((=ucs		. #xE9C8)	; 
+    (=big5-pua		. #x98F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F8)	; 
-    (=ucs		. #xE9C9)	; 
+  '((=ucs		. #xE9C9)	; 
+    (=big5-pua		. #x98F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98F9)	; 
-    (=ucs		. #xE9CA)	; 
+  '((=ucs		. #xE9CA)	; 
+    (=big5-pua		. #x98F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98FA)	; 
-    (=ucs		. #xE9CB)	; 
+  '((=ucs		. #xE9CB)	; 
+    (=big5-pua		. #x98FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98FB)	; 
-    (=ucs		. #xE9CC)	; 
+  '((=ucs		. #xE9CC)	; 
+    (=big5-pua		. #x98FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98FC)	; 
-    (=ucs		. #xE9CD)	; 
+  '((=ucs		. #xE9CD)	; 
+    (=big5-pua		. #x98FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98FD)	; 
-    (=ucs		. #xE9CE)	; 
+  '((=ucs		. #xE9CE)	; 
+    (=big5-pua		. #x98FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x98FE)	; 
-    (=ucs		. #xE9CF)	; 
+  '((=ucs		. #xE9CF)	; 
+    (=big5-pua		. #x98FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9940)	; 
-    (=ucs		. #xE9D0)	; 
+  '((=ucs		. #xE9D0)	; 
+    (=big5-pua		. #x9940)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9941)	; 
-    (=ucs		. #xE9D1)	; 
+  '((=ucs		. #xE9D1)	; 
+    (=big5-pua		. #x9941)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9942)	; 
-    (=ucs		. #xE9D2)	; 
+  '((=ucs		. #xE9D2)	; 
+    (=big5-pua		. #x9942)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9943)	; 
-    (=ucs		. #xE9D3)	; 
+  '((=ucs		. #xE9D3)	; 
+    (=big5-pua		. #x9943)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9944)	; 
-    (=ucs		. #xE9D4)	; 
+  '((=ucs		. #xE9D4)	; 
+    (=big5-pua		. #x9944)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9945)	; 
-    (=ucs		. #xE9D5)	; 
+  '((=ucs		. #xE9D5)	; 
+    (=big5-pua		. #x9945)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9946)	; 
-    (=ucs		. #xE9D6)	; 
+  '((=ucs		. #xE9D6)	; 
+    (=big5-pua		. #x9946)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9947)	; 
-    (=ucs		. #xE9D7)	; 
+  '((=ucs		. #xE9D7)	; 
+    (=big5-pua		. #x9947)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9948)	; 
-    (=ucs		. #xE9D8)	; 
+  '((=ucs		. #xE9D8)	; 
+    (=big5-pua		. #x9948)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9949)	; 
-    (=ucs		. #xE9D9)	; 
+  '((=ucs		. #xE9D9)	; 
+    (=big5-pua		. #x9949)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994A)	; 
-    (=ucs		. #xE9DA)	; 
+  '((=ucs		. #xE9DA)	; 
+    (=big5-pua		. #x994A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994B)	; 
-    (=ucs		. #xE9DB)	; 
+  '((=ucs		. #xE9DB)	; 
+    (=big5-pua		. #x994B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994C)	; 
-    (=ucs		. #xE9DC)	; 
+  '((=ucs		. #xE9DC)	; 
+    (=big5-pua		. #x994C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994D)	; 
-    (=ucs		. #xE9DD)	; 
+  '((=ucs		. #xE9DD)	; 
+    (=big5-pua		. #x994D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994E)	; 
-    (=ucs		. #xE9DE)	; 
+  '((=ucs		. #xE9DE)	; 
+    (=big5-pua		. #x994E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x994F)	; 
-    (=ucs		. #xE9DF)	; 
+  '((=ucs		. #xE9DF)	; 
+    (=big5-pua		. #x994F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9950)	; 
-    (=ucs		. #xE9E0)	; 
+  '((=ucs		. #xE9E0)	; 
+    (=big5-pua		. #x9950)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9951)	; 
-    (=ucs		. #xE9E1)	; 
+  '((=ucs		. #xE9E1)	; 
+    (=big5-pua		. #x9951)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9952)	; 
-    (=ucs		. #xE9E2)	; 
+  '((=ucs		. #xE9E2)	; 
+    (=big5-pua		. #x9952)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9953)	; 
-    (=ucs		. #xE9E3)	; 
+  '((=ucs		. #xE9E3)	; 
+    (=big5-pua		. #x9953)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9954)	; 
-    (=ucs		. #xE9E4)	; 
+  '((=ucs		. #xE9E4)	; 
+    (=big5-pua		. #x9954)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9955)	; 
-    (=ucs		. #xE9E5)	; 
+  '((=ucs		. #xE9E5)	; 
+    (=big5-pua		. #x9955)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9956)	; 
-    (=ucs		. #xE9E6)	; 
+  '((=ucs		. #xE9E6)	; 
+    (=big5-pua		. #x9956)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9957)	; 
-    (=ucs		. #xE9E7)	; 
+  '((=ucs		. #xE9E7)	; 
+    (=big5-pua		. #x9957)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9958)	; 
-    (=ucs		. #xE9E8)	; 
+  '((=ucs		. #xE9E8)	; 
+    (=big5-pua		. #x9958)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9959)	; 
-    (=ucs		. #xE9E9)	; 
+  '((=ucs		. #xE9E9)	; 
+    (=big5-pua		. #x9959)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995A)	; 
-    (=ucs		. #xE9EA)	; 
+  '((=ucs		. #xE9EA)	; 
+    (=big5-pua		. #x995A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995B)	; 
-    (=ucs		. #xE9EB)	; 
+  '((=ucs		. #xE9EB)	; 
+    (=big5-pua		. #x995B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995C)	; 
-    (=ucs		. #xE9EC)	; 
+  '((=ucs		. #xE9EC)	; 
+    (=big5-pua		. #x995C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995D)	; 
-    (=ucs		. #xE9ED)	; 
+  '((=ucs		. #xE9ED)	; 
+    (=big5-pua		. #x995D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995E)	; 
-    (=ucs		. #xE9EE)	; 
+  '((=ucs		. #xE9EE)	; 
+    (=big5-pua		. #x995E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x995F)	; 
-    (=ucs		. #xE9EF)	; 
+  '((=ucs		. #xE9EF)	; 
+    (=big5-pua		. #x995F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9960)	; 
-    (=ucs		. #xE9F0)	; 
+  '((=ucs		. #xE9F0)	; 
+    (=big5-pua		. #x9960)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9961)	; 
-    (=ucs		. #xE9F1)	; 
+  '((=ucs		. #xE9F1)	; 
+    (=big5-pua		. #x9961)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9962)	; 
-    (=ucs		. #xE9F2)	; 
+  '((=ucs		. #xE9F2)	; 
+    (=big5-pua		. #x9962)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9963)	; 
-    (=ucs		. #xE9F3)	; 
+  '((=ucs		. #xE9F3)	; 
+    (=big5-pua		. #x9963)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9964)	; 
-    (=ucs		. #xE9F4)	; 
+  '((=ucs		. #xE9F4)	; 
+    (=big5-pua		. #x9964)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9965)	; 
-    (=ucs		. #xE9F5)	; 
+  '((=ucs		. #xE9F5)	; 
+    (=big5-pua		. #x9965)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9966)	; 
-    (=ucs		. #xE9F6)	; 
+  '((=ucs		. #xE9F6)	; 
+    (=big5-pua		. #x9966)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9967)	; 
-    (=ucs		. #xE9F7)	; 
+  '((=ucs		. #xE9F7)	; 
+    (=big5-pua		. #x9967)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9968)	; 
-    (=ucs		. #xE9F8)	; 
+  '((=ucs		. #xE9F8)	; 
+    (=big5-pua		. #x9968)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9969)	; 
-    (=ucs		. #xE9F9)	; 
+  '((=ucs		. #xE9F9)	; 
+    (=big5-pua		. #x9969)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996A)	; 
-    (=ucs		. #xE9FA)	; 
+  '((=ucs		. #xE9FA)	; 
+    (=big5-pua		. #x996A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996B)	; 
-    (=ucs		. #xE9FB)	; 
+  '((=ucs		. #xE9FB)	; 
+    (=big5-pua		. #x996B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996C)	; 
-    (=ucs		. #xE9FC)	; 
+  '((=ucs		. #xE9FC)	; 
+    (=big5-pua		. #x996C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996D)	; 
-    (=ucs		. #xE9FD)	; 
+  '((=ucs		. #xE9FD)	; 
+    (=big5-pua		. #x996D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996E)	; 
-    (=ucs		. #xE9FE)	; 
+  '((=ucs		. #xE9FE)	; 
+    (=big5-pua		. #x996E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x996F)	; 
-    (=ucs		. #xE9FF)	; 
+  '((=ucs		. #xE9FF)	; 
+    (=big5-pua		. #x996F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9970)	; 
-    (=ucs		. #xEA00)	; 
+  '((=ucs		. #xEA00)	; 
+    (=big5-pua		. #x9970)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9971)	; 
-    (=ucs		. #xEA01)	; 
+  '((=ucs		. #xEA01)	; 
+    (=big5-pua		. #x9971)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9972)	; 
-    (=ucs		. #xEA02)	; 
+  '((=ucs		. #xEA02)	; 
+    (=big5-pua		. #x9972)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9973)	; 
-    (=ucs		. #xEA03)	; 
+  '((=ucs		. #xEA03)	; 
+    (=big5-pua		. #x9973)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9974)	; 
-    (=ucs		. #xEA04)	; 
+  '((=ucs		. #xEA04)	; 
+    (=big5-pua		. #x9974)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9975)	; 
-    (=ucs		. #xEA05)	; 
+  '((=ucs		. #xEA05)	; 
+    (=big5-pua		. #x9975)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9976)	; 
-    (=ucs		. #xEA06)	; 
+  '((=ucs		. #xEA06)	; 
+    (=big5-pua		. #x9976)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9977)	; 
-    (=ucs		. #xEA07)	; 
+  '((=ucs		. #xEA07)	; 
+    (=big5-pua		. #x9977)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9978)	; 
-    (=ucs		. #xEA08)	; 
+  '((=ucs		. #xEA08)	; 
+    (=big5-pua		. #x9978)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9979)	; 
-    (=ucs		. #xEA09)	; 
+  '((=ucs		. #xEA09)	; 
+    (=big5-pua		. #x9979)	; 
     ))
 (define-char
-  '((=big5-pua		. #x997A)	; 
-    (=ucs		. #xEA0A)	; 
+  '((=ucs		. #xEA0A)	; 
+    (=big5-pua		. #x997A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x997B)	; 
-    (=ucs		. #xEA0B)	; 
+  '((=ucs		. #xEA0B)	; 
+    (=big5-pua		. #x997B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x997C)	; 
-    (=ucs		. #xEA0C)	; 
+  '((=ucs		. #xEA0C)	; 
+    (=big5-pua		. #x997C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x997D)	; 
-    (=ucs		. #xEA0D)	; 
+  '((=ucs		. #xEA0D)	; 
+    (=big5-pua		. #x997D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x997E)	; 
-    (=ucs		. #xEA0E)	; 
+  '((=ucs		. #xEA0E)	; 
+    (=big5-pua		. #x997E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A1)	; 
-    (=ucs		. #xEA0F)	; 
+  '((=ucs		. #xEA0F)	; 
+    (=big5-pua		. #x99A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A2)	; 
-    (=ucs		. #xEA10)	; 
+  '((=ucs		. #xEA10)	; 
+    (=big5-pua		. #x99A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A3)	; 
-    (=ucs		. #xEA11)	; 
+  '((=ucs		. #xEA11)	; 
+    (=big5-pua		. #x99A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A4)	; 
-    (=ucs		. #xEA12)	; 
+  '((=ucs		. #xEA12)	; 
+    (=big5-pua		. #x99A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A5)	; 
-    (=ucs		. #xEA13)	; 
+  '((=ucs		. #xEA13)	; 
+    (=big5-pua		. #x99A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A6)	; 
-    (=ucs		. #xEA14)	; 
+  '((=ucs		. #xEA14)	; 
+    (=big5-pua		. #x99A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A7)	; 
-    (=ucs		. #xEA15)	; 
+  '((=ucs		. #xEA15)	; 
+    (=big5-pua		. #x99A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A8)	; 
-    (=ucs		. #xEA16)	; 
+  '((=ucs		. #xEA16)	; 
+    (=big5-pua		. #x99A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99A9)	; 
-    (=ucs		. #xEA17)	; 
+  '((=ucs		. #xEA17)	; 
+    (=big5-pua		. #x99A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AA)	; 
-    (=ucs		. #xEA18)	; 
+  '((=ucs		. #xEA18)	; 
+    (=big5-pua		. #x99AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AB)	; 
-    (=ucs		. #xEA19)	; 
+  '((=ucs		. #xEA19)	; 
+    (=big5-pua		. #x99AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AC)	; 
-    (=ucs		. #xEA1A)	; 
+  '((=ucs		. #xEA1A)	; 
+    (=big5-pua		. #x99AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AD)	; 
-    (=ucs		. #xEA1B)	; 
+  '((=ucs		. #xEA1B)	; 
+    (=big5-pua		. #x99AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AE)	; 
-    (=ucs		. #xEA1C)	; 
+  '((=ucs		. #xEA1C)	; 
+    (=big5-pua		. #x99AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99AF)	; 
-    (=ucs		. #xEA1D)	; 
+  '((=ucs		. #xEA1D)	; 
+    (=big5-pua		. #x99AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B0)	; 
-    (=ucs		. #xEA1E)	; 
+  '((=ucs		. #xEA1E)	; 
+    (=big5-pua		. #x99B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B1)	; 
-    (=ucs		. #xEA1F)	; 
+  '((=ucs		. #xEA1F)	; 
+    (=big5-pua		. #x99B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B2)	; 
-    (=ucs		. #xEA20)	; 
+  '((=ucs		. #xEA20)	; 
+    (=big5-pua		. #x99B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B3)	; 
-    (=ucs		. #xEA21)	; 
+  '((=ucs		. #xEA21)	; 
+    (=big5-pua		. #x99B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B4)	; 
-    (=ucs		. #xEA22)	; 
+  '((=ucs		. #xEA22)	; 
+    (=big5-pua		. #x99B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B5)	; 
-    (=ucs		. #xEA23)	; 
+  '((=ucs		. #xEA23)	; 
+    (=big5-pua		. #x99B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B6)	; 
-    (=ucs		. #xEA24)	; 
+  '((=ucs		. #xEA24)	; 
+    (=big5-pua		. #x99B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B7)	; 
-    (=ucs		. #xEA25)	; 
+  '((=ucs		. #xEA25)	; 
+    (=big5-pua		. #x99B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B8)	; 
-    (=ucs		. #xEA26)	; 
+  '((=ucs		. #xEA26)	; 
+    (=big5-pua		. #x99B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99B9)	; 
-    (=ucs		. #xEA27)	; 
+  '((=ucs		. #xEA27)	; 
+    (=big5-pua		. #x99B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BA)	; 
-    (=ucs		. #xEA28)	; 
+  '((=ucs		. #xEA28)	; 
+    (=big5-pua		. #x99BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BB)	; 
-    (=ucs		. #xEA29)	; 
+  '((=ucs		. #xEA29)	; 
+    (=big5-pua		. #x99BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BC)	; 
-    (=ucs		. #xEA2A)	; 
+  '((=ucs		. #xEA2A)	; 
+    (=big5-pua		. #x99BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BD)	; 
-    (=ucs		. #xEA2B)	; 
+  '((=ucs		. #xEA2B)	; 
+    (=big5-pua		. #x99BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BE)	; 
-    (=ucs		. #xEA2C)	; 
+  '((=ucs		. #xEA2C)	; 
+    (=big5-pua		. #x99BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99BF)	; 
-    (=ucs		. #xEA2D)	; 
+  '((=ucs		. #xEA2D)	; 
+    (=big5-pua		. #x99BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C0)	; 
-    (=ucs		. #xEA2E)	; 
+  '((=ucs		. #xEA2E)	; 
+    (=big5-pua		. #x99C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C1)	; 
-    (=ucs		. #xEA2F)	; 
+  '((=ucs		. #xEA2F)	; 
+    (=big5-pua		. #x99C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C2)	; 
-    (=ucs		. #xEA30)	; 
+  '((=ucs		. #xEA30)	; 
+    (=big5-pua		. #x99C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C3)	; 
-    (=ucs		. #xEA31)	; 
+  '((=ucs		. #xEA31)	; 
+    (=big5-pua		. #x99C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C4)	; 
-    (=ucs		. #xEA32)	; 
+  '((=ucs		. #xEA32)	; 
+    (=big5-pua		. #x99C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C5)	; 
-    (=ucs		. #xEA33)	; 
+  '((=ucs		. #xEA33)	; 
+    (=big5-pua		. #x99C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C6)	; 
-    (=ucs		. #xEA34)	; 
+  '((=ucs		. #xEA34)	; 
+    (=big5-pua		. #x99C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C7)	; 
-    (=ucs		. #xEA35)	; 
+  '((=ucs		. #xEA35)	; 
+    (=big5-pua		. #x99C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C8)	; 
-    (=ucs		. #xEA36)	; 
+  '((=ucs		. #xEA36)	; 
+    (=big5-pua		. #x99C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99C9)	; 
-    (=ucs		. #xEA37)	; 
+  '((=ucs		. #xEA37)	; 
+    (=big5-pua		. #x99C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CA)	; 
-    (=ucs		. #xEA38)	; 
+  '((=ucs		. #xEA38)	; 
+    (=big5-pua		. #x99CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CB)	; 
-    (=ucs		. #xEA39)	; 
+  '((=ucs		. #xEA39)	; 
+    (=big5-pua		. #x99CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CC)	; 
-    (=ucs		. #xEA3A)	; 
+  '((=ucs		. #xEA3A)	; 
+    (=big5-pua		. #x99CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CD)	; 
-    (=ucs		. #xEA3B)	; 
+  '((=ucs		. #xEA3B)	; 
+    (=big5-pua		. #x99CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CE)	; 
-    (=ucs		. #xEA3C)	; 
+  '((=ucs		. #xEA3C)	; 
+    (=big5-pua		. #x99CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99CF)	; 
-    (=ucs		. #xEA3D)	; 
+  '((=ucs		. #xEA3D)	; 
+    (=big5-pua		. #x99CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D0)	; 
-    (=ucs		. #xEA3E)	; 
+  '((=ucs		. #xEA3E)	; 
+    (=big5-pua		. #x99D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D1)	; 
-    (=ucs		. #xEA3F)	; 
+  '((=ucs		. #xEA3F)	; 
+    (=big5-pua		. #x99D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D2)	; 
-    (=ucs		. #xEA40)	; 
+  '((=ucs		. #xEA40)	; 
+    (=big5-pua		. #x99D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D3)	; 
-    (=ucs		. #xEA41)	; 
+  '((=ucs		. #xEA41)	; 
+    (=big5-pua		. #x99D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D4)	; 
-    (=ucs		. #xEA42)	; 
+  '((=ucs		. #xEA42)	; 
+    (=big5-pua		. #x99D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D5)	; 
-    (=ucs		. #xEA43)	; 
+  '((=ucs		. #xEA43)	; 
+    (=big5-pua		. #x99D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D6)	; 
-    (=ucs		. #xEA44)	; 
+  '((=ucs		. #xEA44)	; 
+    (=big5-pua		. #x99D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D7)	; 
-    (=ucs		. #xEA45)	; 
+  '((=ucs		. #xEA45)	; 
+    (=big5-pua		. #x99D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D8)	; 
-    (=ucs		. #xEA46)	; 
+  '((=ucs		. #xEA46)	; 
+    (=big5-pua		. #x99D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99D9)	; 
-    (=ucs		. #xEA47)	; 
+  '((=ucs		. #xEA47)	; 
+    (=big5-pua		. #x99D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DA)	; 
-    (=ucs		. #xEA48)	; 
+  '((=ucs		. #xEA48)	; 
+    (=big5-pua		. #x99DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DB)	; 
-    (=ucs		. #xEA49)	; 
+  '((=ucs		. #xEA49)	; 
+    (=big5-pua		. #x99DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DC)	; 
-    (=ucs		. #xEA4A)	; 
+  '((=ucs		. #xEA4A)	; 
+    (=big5-pua		. #x99DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DD)	; 
-    (=ucs		. #xEA4B)	; 
+  '((=ucs		. #xEA4B)	; 
+    (=big5-pua		. #x99DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DE)	; 
-    (=ucs		. #xEA4C)	; 
+  '((=ucs		. #xEA4C)	; 
+    (=big5-pua		. #x99DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99DF)	; 
-    (=ucs		. #xEA4D)	; 
+  '((=ucs		. #xEA4D)	; 
+    (=big5-pua		. #x99DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E0)	; 
-    (=ucs		. #xEA4E)	; 
+  '((=ucs		. #xEA4E)	; 
+    (=big5-pua		. #x99E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E1)	; 
-    (=ucs		. #xEA4F)	; 
+  '((=ucs		. #xEA4F)	; 
+    (=big5-pua		. #x99E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E2)	; 
-    (=ucs		. #xEA50)	; 
+  '((=ucs		. #xEA50)	; 
+    (=big5-pua		. #x99E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E3)	; 
-    (=ucs		. #xEA51)	; 
+  '((=ucs		. #xEA51)	; 
+    (=big5-pua		. #x99E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E4)	; 
-    (=ucs		. #xEA52)	; 
+  '((=ucs		. #xEA52)	; 
+    (=big5-pua		. #x99E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E5)	; 
-    (=ucs		. #xEA53)	; 
+  '((=ucs		. #xEA53)	; 
+    (=big5-pua		. #x99E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E6)	; 
-    (=ucs		. #xEA54)	; 
+  '((=ucs		. #xEA54)	; 
+    (=big5-pua		. #x99E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E7)	; 
-    (=ucs		. #xEA55)	; 
+  '((=ucs		. #xEA55)	; 
+    (=big5-pua		. #x99E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E8)	; 
-    (=ucs		. #xEA56)	; 
+  '((=ucs		. #xEA56)	; 
+    (=big5-pua		. #x99E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99E9)	; 
-    (=ucs		. #xEA57)	; 
+  '((=ucs		. #xEA57)	; 
+    (=big5-pua		. #x99E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99EA)	; 
-    (=ucs		. #xEA58)	; 
+  '((=ucs		. #xEA58)	; 
+    (=big5-pua		. #x99EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99EB)	; 
-    (=ucs		. #xEA59)	; 
+  '((=ucs		. #xEA59)	; 
+    (=big5-pua		. #x99EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99EC)	; 
-    (=ucs		. #xEA5A)	; 
+  '((=ucs		. #xEA5A)	; 
+    (=big5-pua		. #x99EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99ED)	; 
-    (=ucs		. #xEA5B)	; 
+  '((=ucs		. #xEA5B)	; 
+    (=big5-pua		. #x99ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99EE)	; 
-    (=ucs		. #xEA5C)	; 
+  '((=ucs		. #xEA5C)	; 
+    (=big5-pua		. #x99EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99EF)	; 
-    (=ucs		. #xEA5D)	; 
+  '((=ucs		. #xEA5D)	; 
+    (=big5-pua		. #x99EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F0)	; 
-    (=ucs		. #xEA5E)	; 
+  '((=ucs		. #xEA5E)	; 
+    (=big5-pua		. #x99F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F1)	; 
-    (=ucs		. #xEA5F)	; 
+  '((=ucs		. #xEA5F)	; 
+    (=big5-pua		. #x99F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F2)	; 
-    (=ucs		. #xEA60)	; 
+  '((=ucs		. #xEA60)	; 
+    (=big5-pua		. #x99F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F3)	; 
-    (=ucs		. #xEA61)	; 
+  '((=ucs		. #xEA61)	; 
+    (=big5-pua		. #x99F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F4)	; 
-    (=ucs		. #xEA62)	; 
+  '((=ucs		. #xEA62)	; 
+    (=big5-pua		. #x99F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F5)	; 
-    (=ucs		. #xEA63)	; 
+  '((=ucs		. #xEA63)	; 
+    (=big5-pua		. #x99F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F6)	; 
-    (=ucs		. #xEA64)	; 
+  '((=ucs		. #xEA64)	; 
+    (=big5-pua		. #x99F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F7)	; 
-    (=ucs		. #xEA65)	; 
+  '((=ucs		. #xEA65)	; 
+    (=big5-pua		. #x99F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F8)	; 
-    (=ucs		. #xEA66)	; 
+  '((=ucs		. #xEA66)	; 
+    (=big5-pua		. #x99F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99F9)	; 
-    (=ucs		. #xEA67)	; 
+  '((=ucs		. #xEA67)	; 
+    (=big5-pua		. #x99F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99FA)	; 
-    (=ucs		. #xEA68)	; 
+  '((=ucs		. #xEA68)	; 
+    (=big5-pua		. #x99FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99FB)	; 
-    (=ucs		. #xEA69)	; 
+  '((=ucs		. #xEA69)	; 
+    (=big5-pua		. #x99FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99FC)	; 
-    (=ucs		. #xEA6A)	; 
+  '((=ucs		. #xEA6A)	; 
+    (=big5-pua		. #x99FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99FD)	; 
-    (=ucs		. #xEA6B)	; 
+  '((=ucs		. #xEA6B)	; 
+    (=big5-pua		. #x99FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x99FE)	; 
-    (=ucs		. #xEA6C)	; 
+  '((=ucs		. #xEA6C)	; 
+    (=big5-pua		. #x99FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A40)	; 
-    (=ucs		. #xEA6D)	; 
+  '((=ucs		. #xEA6D)	; 
+    (=big5-pua		. #x9A40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A41)	; 
-    (=ucs		. #xEA6E)	; 
+  '((=ucs		. #xEA6E)	; 
+    (=big5-pua		. #x9A41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A42)	; 
-    (=ucs		. #xEA6F)	; 
+  '((=ucs		. #xEA6F)	; 
+    (=big5-pua		. #x9A42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A43)	; 
-    (=ucs		. #xEA70)	; 
+  '((=ucs		. #xEA70)	; 
+    (=big5-pua		. #x9A43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A44)	; 
-    (=ucs		. #xEA71)	; 
+  '((=ucs		. #xEA71)	; 
+    (=big5-pua		. #x9A44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A45)	; 
-    (=ucs		. #xEA72)	; 
+  '((=ucs		. #xEA72)	; 
+    (=big5-pua		. #x9A45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A46)	; 
-    (=ucs		. #xEA73)	; 
+  '((=ucs		. #xEA73)	; 
+    (=big5-pua		. #x9A46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A47)	; 
-    (=ucs		. #xEA74)	; 
+  '((=ucs		. #xEA74)	; 
+    (=big5-pua		. #x9A47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A48)	; 
-    (=ucs		. #xEA75)	; 
+  '((=ucs		. #xEA75)	; 
+    (=big5-pua		. #x9A48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A49)	; 
-    (=ucs		. #xEA76)	; 
+  '((=ucs		. #xEA76)	; 
+    (=big5-pua		. #x9A49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4A)	; 
-    (=ucs		. #xEA77)	; 
+  '((=ucs		. #xEA77)	; 
+    (=big5-pua		. #x9A4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4B)	; 
-    (=ucs		. #xEA78)	; 
+  '((=ucs		. #xEA78)	; 
+    (=big5-pua		. #x9A4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4C)	; 
-    (=ucs		. #xEA79)	; 
+  '((=ucs		. #xEA79)	; 
+    (=big5-pua		. #x9A4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4D)	; 
-    (=ucs		. #xEA7A)	; 
+  '((=ucs		. #xEA7A)	; 
+    (=big5-pua		. #x9A4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4E)	; 
-    (=ucs		. #xEA7B)	; 
+  '((=ucs		. #xEA7B)	; 
+    (=big5-pua		. #x9A4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A4F)	; 
-    (=ucs		. #xEA7C)	; 
+  '((=ucs		. #xEA7C)	; 
+    (=big5-pua		. #x9A4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A50)	; 
-    (=ucs		. #xEA7D)	; 
+  '((=ucs		. #xEA7D)	; 
+    (=big5-pua		. #x9A50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A51)	; 
-    (=ucs		. #xEA7E)	; 
+  '((=ucs		. #xEA7E)	; 
+    (=big5-pua		. #x9A51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A52)	; 
-    (=ucs		. #xEA7F)	; 
+  '((=ucs		. #xEA7F)	; 
+    (=big5-pua		. #x9A52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A53)	; 
-    (=ucs		. #xEA80)	; 
+  '((=ucs		. #xEA80)	; 
+    (=big5-pua		. #x9A53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A54)	; 
-    (=ucs		. #xEA81)	; 
+  '((=ucs		. #xEA81)	; 
+    (=big5-pua		. #x9A54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A55)	; 
-    (=ucs		. #xEA82)	; 
+  '((=ucs		. #xEA82)	; 
+    (=big5-pua		. #x9A55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A56)	; 
-    (=ucs		. #xEA83)	; 
+  '((=ucs		. #xEA83)	; 
+    (=big5-pua		. #x9A56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A57)	; 
-    (=ucs		. #xEA84)	; 
+  '((=ucs		. #xEA84)	; 
+    (=big5-pua		. #x9A57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A58)	; 
-    (=ucs		. #xEA85)	; 
+  '((=ucs		. #xEA85)	; 
+    (=big5-pua		. #x9A58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A59)	; 
-    (=ucs		. #xEA86)	; 
+  '((=ucs		. #xEA86)	; 
+    (=big5-pua		. #x9A59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5A)	; 
-    (=ucs		. #xEA87)	; 
+  '((=ucs		. #xEA87)	; 
+    (=big5-pua		. #x9A5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5B)	; 
-    (=ucs		. #xEA88)	; 
+  '((=ucs		. #xEA88)	; 
+    (=big5-pua		. #x9A5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5C)	; 
-    (=ucs		. #xEA89)	; 
+  '((=ucs		. #xEA89)	; 
+    (=big5-pua		. #x9A5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5D)	; 
-    (=ucs		. #xEA8A)	; 
+  '((=ucs		. #xEA8A)	; 
+    (=big5-pua		. #x9A5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5E)	; 
-    (=ucs		. #xEA8B)	; 
+  '((=ucs		. #xEA8B)	; 
+    (=big5-pua		. #x9A5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A5F)	; 
-    (=ucs		. #xEA8C)	; 
+  '((=ucs		. #xEA8C)	; 
+    (=big5-pua		. #x9A5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A60)	; 
-    (=ucs		. #xEA8D)	; 
+  '((=ucs		. #xEA8D)	; 
+    (=big5-pua		. #x9A60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A61)	; 
-    (=ucs		. #xEA8E)	; 
+  '((=ucs		. #xEA8E)	; 
+    (=big5-pua		. #x9A61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A62)	; 
-    (=ucs		. #xEA8F)	; 
+  '((=ucs		. #xEA8F)	; 
+    (=big5-pua		. #x9A62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A63)	; 
-    (=ucs		. #xEA90)	; 
+  '((=ucs		. #xEA90)	; 
+    (=big5-pua		. #x9A63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A64)	; 
-    (=ucs		. #xEA91)	; 
+  '((=ucs		. #xEA91)	; 
+    (=big5-pua		. #x9A64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A65)	; 
-    (=ucs		. #xEA92)	; 
+  '((=ucs		. #xEA92)	; 
+    (=big5-pua		. #x9A65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A66)	; 
-    (=ucs		. #xEA93)	; 
+  '((=ucs		. #xEA93)	; 
+    (=big5-pua		. #x9A66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A67)	; 
-    (=ucs		. #xEA94)	; 
+  '((=ucs		. #xEA94)	; 
+    (=big5-pua		. #x9A67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A68)	; 
-    (=ucs		. #xEA95)	; 
+  '((=ucs		. #xEA95)	; 
+    (=big5-pua		. #x9A68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A69)	; 
-    (=ucs		. #xEA96)	; 
+  '((=ucs		. #xEA96)	; 
+    (=big5-pua		. #x9A69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6A)	; 
-    (=ucs		. #xEA97)	; 
+  '((=ucs		. #xEA97)	; 
+    (=big5-pua		. #x9A6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6B)	; 
-    (=ucs		. #xEA98)	; 
+  '((=ucs		. #xEA98)	; 
+    (=big5-pua		. #x9A6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6C)	; 
-    (=ucs		. #xEA99)	; 
+  '((=ucs		. #xEA99)	; 
+    (=big5-pua		. #x9A6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6D)	; 
-    (=ucs		. #xEA9A)	; 
+  '((=ucs		. #xEA9A)	; 
+    (=big5-pua		. #x9A6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6E)	; 
-    (=ucs		. #xEA9B)	; 
+  '((=ucs		. #xEA9B)	; 
+    (=big5-pua		. #x9A6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A6F)	; 
-    (=ucs		. #xEA9C)	; 
+  '((=ucs		. #xEA9C)	; 
+    (=big5-pua		. #x9A6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A70)	; 
-    (=ucs		. #xEA9D)	; 
+  '((=ucs		. #xEA9D)	; 
+    (=big5-pua		. #x9A70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A71)	; 
-    (=ucs		. #xEA9E)	; 
+  '((=ucs		. #xEA9E)	; 
+    (=big5-pua		. #x9A71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A72)	; 
-    (=ucs		. #xEA9F)	; 
+  '((=ucs		. #xEA9F)	; 
+    (=big5-pua		. #x9A72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A73)	; 
-    (=ucs		. #xEAA0)	; 
+  '((=ucs		. #xEAA0)	; 
+    (=big5-pua		. #x9A73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A74)	; 
-    (=ucs		. #xEAA1)	; 
+  '((=ucs		. #xEAA1)	; 
+    (=big5-pua		. #x9A74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A75)	; 
-    (=ucs		. #xEAA2)	; 
+  '((=ucs		. #xEAA2)	; 
+    (=big5-pua		. #x9A75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A76)	; 
-    (=ucs		. #xEAA3)	; 
+  '((=ucs		. #xEAA3)	; 
+    (=big5-pua		. #x9A76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A77)	; 
-    (=ucs		. #xEAA4)	; 
+  '((=ucs		. #xEAA4)	; 
+    (=big5-pua		. #x9A77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A78)	; 
-    (=ucs		. #xEAA5)	; 
+  '((=ucs		. #xEAA5)	; 
+    (=big5-pua		. #x9A78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A79)	; 
-    (=ucs		. #xEAA6)	; 
+  '((=ucs		. #xEAA6)	; 
+    (=big5-pua		. #x9A79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A7A)	; 
-    (=ucs		. #xEAA7)	; 
+  '((=ucs		. #xEAA7)	; 
+    (=big5-pua		. #x9A7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A7B)	; 
-    (=ucs		. #xEAA8)	; 
+  '((=ucs		. #xEAA8)	; 
+    (=big5-pua		. #x9A7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A7C)	; 
-    (=ucs		. #xEAA9)	; 
+  '((=ucs		. #xEAA9)	; 
+    (=big5-pua		. #x9A7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A7D)	; 
-    (=ucs		. #xEAAA)	; 
+  '((=ucs		. #xEAAA)	; 
+    (=big5-pua		. #x9A7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9A7E)	; 
-    (=ucs		. #xEAAB)	; 
+  '((=ucs		. #xEAAB)	; 
+    (=big5-pua		. #x9A7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA1)	; 
-    (=ucs		. #xEAAC)	; 
+  '((=ucs		. #xEAAC)	; 
+    (=big5-pua		. #x9AA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA2)	; 
-    (=ucs		. #xEAAD)	; 
+  '((=ucs		. #xEAAD)	; 
+    (=big5-pua		. #x9AA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA3)	; 
-    (=ucs		. #xEAAE)	; 
+  '((=ucs		. #xEAAE)	; 
+    (=big5-pua		. #x9AA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA4)	; 
-    (=ucs		. #xEAAF)	; 
+  '((=ucs		. #xEAAF)	; 
+    (=big5-pua		. #x9AA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA5)	; 
-    (=ucs		. #xEAB0)	; 
+  '((=ucs		. #xEAB0)	; 
+    (=big5-pua		. #x9AA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA6)	; 
-    (=ucs		. #xEAB1)	; 
+  '((=ucs		. #xEAB1)	; 
+    (=big5-pua		. #x9AA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA7)	; 
-    (=ucs		. #xEAB2)	; 
+  '((=ucs		. #xEAB2)	; 
+    (=big5-pua		. #x9AA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA8)	; 
-    (=ucs		. #xEAB3)	; 
+  '((=ucs		. #xEAB3)	; 
+    (=big5-pua		. #x9AA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AA9)	; 
-    (=ucs		. #xEAB4)	; 
+  '((=ucs		. #xEAB4)	; 
+    (=big5-pua		. #x9AA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAA)	; 
-    (=ucs		. #xEAB5)	; 
+  '((=ucs		. #xEAB5)	; 
+    (=big5-pua		. #x9AAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAB)	; 
-    (=ucs		. #xEAB6)	; 
+  '((=ucs		. #xEAB6)	; 
+    (=big5-pua		. #x9AAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAC)	; 
-    (=ucs		. #xEAB7)	; 
+  '((=ucs		. #xEAB7)	; 
+    (=big5-pua		. #x9AAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAD)	; 
-    (=ucs		. #xEAB8)	; 
+  '((=ucs		. #xEAB8)	; 
+    (=big5-pua		. #x9AAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAE)	; 
-    (=ucs		. #xEAB9)	; 
+  '((=ucs		. #xEAB9)	; 
+    (=big5-pua		. #x9AAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AAF)	; 
-    (=ucs		. #xEABA)	; 
+  '((=ucs		. #xEABA)	; 
+    (=big5-pua		. #x9AAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB0)	; 
-    (=ucs		. #xEABB)	; 
+  '((=ucs		. #xEABB)	; 
+    (=big5-pua		. #x9AB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB1)	; 
-    (=ucs		. #xEABC)	; 
+  '((=ucs		. #xEABC)	; 
+    (=big5-pua		. #x9AB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB2)	; 
-    (=ucs		. #xEABD)	; 
+  '((=ucs		. #xEABD)	; 
+    (=big5-pua		. #x9AB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB3)	; 
-    (=ucs		. #xEABE)	; 
+  '((=ucs		. #xEABE)	; 
+    (=big5-pua		. #x9AB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB4)	; 
-    (=ucs		. #xEABF)	; 
+  '((=ucs		. #xEABF)	; 
+    (=big5-pua		. #x9AB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB5)	; 
-    (=ucs		. #xEAC0)	; 
+  '((=ucs		. #xEAC0)	; 
+    (=big5-pua		. #x9AB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB6)	; 
-    (=ucs		. #xEAC1)	; 
+  '((=ucs		. #xEAC1)	; 
+    (=big5-pua		. #x9AB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB7)	; 
-    (=ucs		. #xEAC2)	; 
+  '((=ucs		. #xEAC2)	; 
+    (=big5-pua		. #x9AB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB8)	; 
-    (=ucs		. #xEAC3)	; 
+  '((=ucs		. #xEAC3)	; 
+    (=big5-pua		. #x9AB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AB9)	; 
-    (=ucs		. #xEAC4)	; 
+  '((=ucs		. #xEAC4)	; 
+    (=big5-pua		. #x9AB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABA)	; 
-    (=ucs		. #xEAC5)	; 
+  '((=ucs		. #xEAC5)	; 
+    (=big5-pua		. #x9ABA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABB)	; 
-    (=ucs		. #xEAC6)	; 
+  '((=ucs		. #xEAC6)	; 
+    (=big5-pua		. #x9ABB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABC)	; 
-    (=ucs		. #xEAC7)	; 
+  '((=ucs		. #xEAC7)	; 
+    (=big5-pua		. #x9ABC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABD)	; 
-    (=ucs		. #xEAC8)	; 
+  '((=ucs		. #xEAC8)	; 
+    (=big5-pua		. #x9ABD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABE)	; 
-    (=ucs		. #xEAC9)	; 
+  '((=ucs		. #xEAC9)	; 
+    (=big5-pua		. #x9ABE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ABF)	; 
-    (=ucs		. #xEACA)	; 
+  '((=ucs		. #xEACA)	; 
+    (=big5-pua		. #x9ABF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC0)	; 
-    (=ucs		. #xEACB)	; 
+  '((=ucs		. #xEACB)	; 
+    (=big5-pua		. #x9AC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC1)	; 
-    (=ucs		. #xEACC)	; 
+  '((=ucs		. #xEACC)	; 
+    (=big5-pua		. #x9AC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC2)	; 
-    (=ucs		. #xEACD)	; 
+  '((=ucs		. #xEACD)	; 
+    (=big5-pua		. #x9AC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC3)	; 
-    (=ucs		. #xEACE)	; 
+  '((=ucs		. #xEACE)	; 
+    (=big5-pua		. #x9AC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC4)	; 
-    (=ucs		. #xEACF)	; 
+  '((=ucs		. #xEACF)	; 
+    (=big5-pua		. #x9AC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC5)	; 
-    (=ucs		. #xEAD0)	; 
+  '((=ucs		. #xEAD0)	; 
+    (=big5-pua		. #x9AC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC6)	; 
-    (=ucs		. #xEAD1)	; 
+  '((=ucs		. #xEAD1)	; 
+    (=big5-pua		. #x9AC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC7)	; 
-    (=ucs		. #xEAD2)	; 
+  '((=ucs		. #xEAD2)	; 
+    (=big5-pua		. #x9AC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC8)	; 
-    (=ucs		. #xEAD3)	; 
+  '((=ucs		. #xEAD3)	; 
+    (=big5-pua		. #x9AC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AC9)	; 
-    (=ucs		. #xEAD4)	; 
+  '((=ucs		. #xEAD4)	; 
+    (=big5-pua		. #x9AC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACA)	; 
-    (=ucs		. #xEAD5)	; 
+  '((=ucs		. #xEAD5)	; 
+    (=big5-pua		. #x9ACA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACB)	; 
-    (=ucs		. #xEAD6)	; 
+  '((=ucs		. #xEAD6)	; 
+    (=big5-pua		. #x9ACB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACC)	; 
-    (=ucs		. #xEAD7)	; 
+  '((=ucs		. #xEAD7)	; 
+    (=big5-pua		. #x9ACC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACD)	; 
-    (=ucs		. #xEAD8)	; 
+  '((=ucs		. #xEAD8)	; 
+    (=big5-pua		. #x9ACD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACE)	; 
-    (=ucs		. #xEAD9)	; 
+  '((=ucs		. #xEAD9)	; 
+    (=big5-pua		. #x9ACE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ACF)	; 
-    (=ucs		. #xEADA)	; 
+  '((=ucs		. #xEADA)	; 
+    (=big5-pua		. #x9ACF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD0)	; 
-    (=ucs		. #xEADB)	; 
+  '((=ucs		. #xEADB)	; 
+    (=big5-pua		. #x9AD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD1)	; 
-    (=ucs		. #xEADC)	; 
+  '((=ucs		. #xEADC)	; 
+    (=big5-pua		. #x9AD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD2)	; 
-    (=ucs		. #xEADD)	; 
+  '((=ucs		. #xEADD)	; 
+    (=big5-pua		. #x9AD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD3)	; 
-    (=ucs		. #xEADE)	; 
+  '((=ucs		. #xEADE)	; 
+    (=big5-pua		. #x9AD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD4)	; 
-    (=ucs		. #xEADF)	; 
+  '((=ucs		. #xEADF)	; 
+    (=big5-pua		. #x9AD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD5)	; 
-    (=ucs		. #xEAE0)	; 
+  '((=ucs		. #xEAE0)	; 
+    (=big5-pua		. #x9AD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD6)	; 
-    (=ucs		. #xEAE1)	; 
+  '((=ucs		. #xEAE1)	; 
+    (=big5-pua		. #x9AD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD7)	; 
-    (=ucs		. #xEAE2)	; 
+  '((=ucs		. #xEAE2)	; 
+    (=big5-pua		. #x9AD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD8)	; 
-    (=ucs		. #xEAE3)	; 
+  '((=ucs		. #xEAE3)	; 
+    (=big5-pua		. #x9AD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AD9)	; 
-    (=ucs		. #xEAE4)	; 
+  '((=ucs		. #xEAE4)	; 
+    (=big5-pua		. #x9AD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADA)	; 
-    (=ucs		. #xEAE5)	; 
+  '((=ucs		. #xEAE5)	; 
+    (=big5-pua		. #x9ADA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADB)	; 
-    (=ucs		. #xEAE6)	; 
+  '((=ucs		. #xEAE6)	; 
+    (=big5-pua		. #x9ADB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADC)	; 
-    (=ucs		. #xEAE7)	; 
+  '((=ucs		. #xEAE7)	; 
+    (=big5-pua		. #x9ADC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADD)	; 
-    (=ucs		. #xEAE8)	; 
+  '((=ucs		. #xEAE8)	; 
+    (=big5-pua		. #x9ADD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADE)	; 
-    (=ucs		. #xEAE9)	; 
+  '((=ucs		. #xEAE9)	; 
+    (=big5-pua		. #x9ADE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ADF)	; 
-    (=ucs		. #xEAEA)	; 
+  '((=ucs		. #xEAEA)	; 
+    (=big5-pua		. #x9ADF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE0)	; 
-    (=ucs		. #xEAEB)	; 
+  '((=ucs		. #xEAEB)	; 
+    (=big5-pua		. #x9AE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE1)	; 
-    (=ucs		. #xEAEC)	; 
+  '((=ucs		. #xEAEC)	; 
+    (=big5-pua		. #x9AE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE2)	; 
-    (=ucs		. #xEAED)	; 
+  '((=ucs		. #xEAED)	; 
+    (=big5-pua		. #x9AE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE3)	; 
-    (=ucs		. #xEAEE)	; 
+  '((=ucs		. #xEAEE)	; 
+    (=big5-pua		. #x9AE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE4)	; 
-    (=ucs		. #xEAEF)	; 
+  '((=ucs		. #xEAEF)	; 
+    (=big5-pua		. #x9AE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE5)	; 
-    (=ucs		. #xEAF0)	; 
+  '((=ucs		. #xEAF0)	; 
+    (=big5-pua		. #x9AE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE6)	; 
-    (=ucs		. #xEAF1)	; 
+  '((=ucs		. #xEAF1)	; 
+    (=big5-pua		. #x9AE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE7)	; 
-    (=ucs		. #xEAF2)	; 
+  '((=ucs		. #xEAF2)	; 
+    (=big5-pua		. #x9AE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE8)	; 
-    (=ucs		. #xEAF3)	; 
+  '((=ucs		. #xEAF3)	; 
+    (=big5-pua		. #x9AE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AE9)	; 
-    (=ucs		. #xEAF4)	; 
+  '((=ucs		. #xEAF4)	; 
+    (=big5-pua		. #x9AE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AEA)	; 
-    (=ucs		. #xEAF5)	; 
+  '((=ucs		. #xEAF5)	; 
+    (=big5-pua		. #x9AEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AEB)	; 
-    (=ucs		. #xEAF6)	; 
+  '((=ucs		. #xEAF6)	; 
+    (=big5-pua		. #x9AEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AEC)	; 
-    (=ucs		. #xEAF7)	; 
+  '((=ucs		. #xEAF7)	; 
+    (=big5-pua		. #x9AEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AED)	; 
-    (=ucs		. #xEAF8)	; 
+  '((=ucs		. #xEAF8)	; 
+    (=big5-pua		. #x9AED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AEE)	; 
-    (=ucs		. #xEAF9)	; 
+  '((=ucs		. #xEAF9)	; 
+    (=big5-pua		. #x9AEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AEF)	; 
-    (=ucs		. #xEAFA)	; 
+  '((=ucs		. #xEAFA)	; 
+    (=big5-pua		. #x9AEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF0)	; 
-    (=ucs		. #xEAFB)	; 
+  '((=ucs		. #xEAFB)	; 
+    (=big5-pua		. #x9AF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF1)	; 
-    (=ucs		. #xEAFC)	; 
+  '((=ucs		. #xEAFC)	; 
+    (=big5-pua		. #x9AF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF2)	; 
-    (=ucs		. #xEAFD)	; 
+  '((=ucs		. #xEAFD)	; 
+    (=big5-pua		. #x9AF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF3)	; 
-    (=ucs		. #xEAFE)	; 
+  '((=ucs		. #xEAFE)	; 
+    (=big5-pua		. #x9AF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF4)	; 
-    (=ucs		. #xEAFF)	; 
+  '((=ucs		. #xEAFF)	; 
+    (=big5-pua		. #x9AF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF5)	; 
-    (=ucs		. #xEB00)	; 
+  '((=ucs		. #xEB00)	; 
+    (=big5-pua		. #x9AF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF6)	; 
-    (=ucs		. #xEB01)	; 
+  '((=ucs		. #xEB01)	; 
+    (=big5-pua		. #x9AF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF7)	; 
-    (=ucs		. #xEB02)	; 
+  '((=ucs		. #xEB02)	; 
+    (=big5-pua		. #x9AF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF8)	; 
-    (=ucs		. #xEB03)	; 
+  '((=ucs		. #xEB03)	; 
+    (=big5-pua		. #x9AF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AF9)	; 
-    (=ucs		. #xEB04)	; 
+  '((=ucs		. #xEB04)	; 
+    (=big5-pua		. #x9AF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AFA)	; 
-    (=ucs		. #xEB05)	; 
+  '((=ucs		. #xEB05)	; 
+    (=big5-pua		. #x9AFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AFB)	; 
-    (=ucs		. #xEB06)	; 
+  '((=ucs		. #xEB06)	; 
+    (=big5-pua		. #x9AFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AFC)	; 
-    (=ucs		. #xEB07)	; 
+  '((=ucs		. #xEB07)	; 
+    (=big5-pua		. #x9AFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AFD)	; 
-    (=ucs		. #xEB08)	; 
+  '((=ucs		. #xEB08)	; 
+    (=big5-pua		. #x9AFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9AFE)	; 
-    (=ucs		. #xEB09)	; 
+  '((=ucs		. #xEB09)	; 
+    (=big5-pua		. #x9AFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B40)	; 
-    (=ucs		. #xEB0A)	; 
+  '((=ucs		. #xEB0A)	; 
+    (=big5-pua		. #x9B40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B41)	; 
-    (=ucs		. #xEB0B)	; 
+  '((=ucs		. #xEB0B)	; 
+    (=big5-pua		. #x9B41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B42)	; 
-    (=ucs		. #xEB0C)	; 
+  '((=ucs		. #xEB0C)	; 
+    (=big5-pua		. #x9B42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B43)	; 
-    (=ucs		. #xEB0D)	; 
+  '((=ucs		. #xEB0D)	; 
+    (=big5-pua		. #x9B43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B44)	; 
-    (=ucs		. #xEB0E)	; 
+  '((=ucs		. #xEB0E)	; 
+    (=big5-pua		. #x9B44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B45)	; 
-    (=ucs		. #xEB0F)	; 
+  '((=ucs		. #xEB0F)	; 
+    (=big5-pua		. #x9B45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B46)	; 
-    (=ucs		. #xEB10)	; 
+  '((=ucs		. #xEB10)	; 
+    (=big5-pua		. #x9B46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B47)	; 
-    (=ucs		. #xEB11)	; 
+  '((=ucs		. #xEB11)	; 
+    (=big5-pua		. #x9B47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B48)	; 
-    (=ucs		. #xEB12)	; 
+  '((=ucs		. #xEB12)	; 
+    (=big5-pua		. #x9B48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B49)	; 
-    (=ucs		. #xEB13)	; 
+  '((=ucs		. #xEB13)	; 
+    (=big5-pua		. #x9B49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4A)	; 
-    (=ucs		. #xEB14)	; 
+  '((=ucs		. #xEB14)	; 
+    (=big5-pua		. #x9B4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4B)	; 
-    (=ucs		. #xEB15)	; 
+  '((=ucs		. #xEB15)	; 
+    (=big5-pua		. #x9B4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4C)	; 
-    (=ucs		. #xEB16)	; 
+  '((=ucs		. #xEB16)	; 
+    (=big5-pua		. #x9B4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4D)	; 
-    (=ucs		. #xEB17)	; 
+  '((=ucs		. #xEB17)	; 
+    (=big5-pua		. #x9B4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4E)	; 
-    (=ucs		. #xEB18)	; 
+  '((=ucs		. #xEB18)	; 
+    (=big5-pua		. #x9B4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B4F)	; 
-    (=ucs		. #xEB19)	; 
+  '((=ucs		. #xEB19)	; 
+    (=big5-pua		. #x9B4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B50)	; 
-    (=ucs		. #xEB1A)	; 
+  '((=ucs		. #xEB1A)	; 
+    (=big5-pua		. #x9B50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B51)	; 
-    (=ucs		. #xEB1B)	; 
+  '((=ucs		. #xEB1B)	; 
+    (=big5-pua		. #x9B51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B52)	; 
-    (=ucs		. #xEB1C)	; 
+  '((=ucs		. #xEB1C)	; 
+    (=big5-pua		. #x9B52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B53)	; 
-    (=ucs		. #xEB1D)	; 
+  '((=ucs		. #xEB1D)	; 
+    (=big5-pua		. #x9B53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B54)	; 
-    (=ucs		. #xEB1E)	; 
+  '((=ucs		. #xEB1E)	; 
+    (=big5-pua		. #x9B54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B55)	; 
-    (=ucs		. #xEB1F)	; 
+  '((=ucs		. #xEB1F)	; 
+    (=big5-pua		. #x9B55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B56)	; 
-    (=ucs		. #xEB20)	; 
+  '((=ucs		. #xEB20)	; 
+    (=big5-pua		. #x9B56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B57)	; 
-    (=ucs		. #xEB21)	; 
+  '((=ucs		. #xEB21)	; 
+    (=big5-pua		. #x9B57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B58)	; 
-    (=ucs		. #xEB22)	; 
+  '((=ucs		. #xEB22)	; 
+    (=big5-pua		. #x9B58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B59)	; 
-    (=ucs		. #xEB23)	; 
+  '((=ucs		. #xEB23)	; 
+    (=big5-pua		. #x9B59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5A)	; 
-    (=ucs		. #xEB24)	; 
+  '((=ucs		. #xEB24)	; 
+    (=big5-pua		. #x9B5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5B)	; 
-    (=ucs		. #xEB25)	; 
+  '((=ucs		. #xEB25)	; 
+    (=big5-pua		. #x9B5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5C)	; 
-    (=ucs		. #xEB26)	; 
+  '((=ucs		. #xEB26)	; 
+    (=big5-pua		. #x9B5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5D)	; 
-    (=ucs		. #xEB27)	; 
+  '((=ucs		. #xEB27)	; 
+    (=big5-pua		. #x9B5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5E)	; 
-    (=ucs		. #xEB28)	; 
+  '((=ucs		. #xEB28)	; 
+    (=big5-pua		. #x9B5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B5F)	; 
-    (=ucs		. #xEB29)	; 
+  '((=ucs		. #xEB29)	; 
+    (=big5-pua		. #x9B5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B60)	; 
-    (=ucs		. #xEB2A)	; 
+  '((=ucs		. #xEB2A)	; 
+    (=big5-pua		. #x9B60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B61)	; 
-    (=ucs		. #xEB2B)	; 
+  '((=ucs		. #xEB2B)	; 
+    (=big5-pua		. #x9B61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B62)	; 
-    (=ucs		. #xEB2C)	; 
+  '((=ucs		. #xEB2C)	; 
+    (=big5-pua		. #x9B62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B63)	; 
-    (=ucs		. #xEB2D)	; 
+  '((=ucs		. #xEB2D)	; 
+    (=big5-pua		. #x9B63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B64)	; 
-    (=ucs		. #xEB2E)	; 
+  '((=ucs		. #xEB2E)	; 
+    (=big5-pua		. #x9B64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B65)	; 
-    (=ucs		. #xEB2F)	; 
+  '((=ucs		. #xEB2F)	; 
+    (=big5-pua		. #x9B65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B66)	; 
-    (=ucs		. #xEB30)	; 
+  '((=ucs		. #xEB30)	; 
+    (=big5-pua		. #x9B66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B67)	; 
-    (=ucs		. #xEB31)	; 
+  '((=ucs		. #xEB31)	; 
+    (=big5-pua		. #x9B67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B68)	; 
-    (=ucs		. #xEB32)	; 
+  '((=ucs		. #xEB32)	; 
+    (=big5-pua		. #x9B68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B69)	; 
-    (=ucs		. #xEB33)	; 
+  '((=ucs		. #xEB33)	; 
+    (=big5-pua		. #x9B69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6A)	; 
-    (=ucs		. #xEB34)	; 
+  '((=ucs		. #xEB34)	; 
+    (=big5-pua		. #x9B6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6B)	; 
-    (=ucs		. #xEB35)	; 
+  '((=ucs		. #xEB35)	; 
+    (=big5-pua		. #x9B6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6C)	; 
-    (=ucs		. #xEB36)	; 
+  '((=ucs		. #xEB36)	; 
+    (=big5-pua		. #x9B6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6D)	; 
-    (=ucs		. #xEB37)	; 
+  '((=ucs		. #xEB37)	; 
+    (=big5-pua		. #x9B6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6E)	; 
-    (=ucs		. #xEB38)	; 
+  '((=ucs		. #xEB38)	; 
+    (=big5-pua		. #x9B6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B6F)	; 
-    (=ucs		. #xEB39)	; 
+  '((=ucs		. #xEB39)	; 
+    (=big5-pua		. #x9B6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B70)	; 
-    (=ucs		. #xEB3A)	; 
+  '((=ucs		. #xEB3A)	; 
+    (=big5-pua		. #x9B70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B71)	; 
-    (=ucs		. #xEB3B)	; 
+  '((=ucs		. #xEB3B)	; 
+    (=big5-pua		. #x9B71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B72)	; 
-    (=ucs		. #xEB3C)	; 
+  '((=ucs		. #xEB3C)	; 
+    (=big5-pua		. #x9B72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B73)	; 
-    (=ucs		. #xEB3D)	; 
+  '((=ucs		. #xEB3D)	; 
+    (=big5-pua		. #x9B73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B74)	; 
-    (=ucs		. #xEB3E)	; 
+  '((=ucs		. #xEB3E)	; 
+    (=big5-pua		. #x9B74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B75)	; 
-    (=ucs		. #xEB3F)	; 
+  '((=ucs		. #xEB3F)	; 
+    (=big5-pua		. #x9B75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B76)	; 
-    (=ucs		. #xEB40)	; 
+  '((=ucs		. #xEB40)	; 
+    (=big5-pua		. #x9B76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B77)	; 
-    (=ucs		. #xEB41)	; 
+  '((=ucs		. #xEB41)	; 
+    (=big5-pua		. #x9B77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B78)	; 
-    (=ucs		. #xEB42)	; 
+  '((=ucs		. #xEB42)	; 
+    (=big5-pua		. #x9B78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B79)	; 
-    (=ucs		. #xEB43)	; 
+  '((=ucs		. #xEB43)	; 
+    (=big5-pua		. #x9B79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B7A)	; 
-    (=ucs		. #xEB44)	; 
+  '((=ucs		. #xEB44)	; 
+    (=big5-pua		. #x9B7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B7B)	; 
-    (=ucs		. #xEB45)	; 
+  '((=ucs		. #xEB45)	; 
+    (=big5-pua		. #x9B7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B7C)	; 
-    (=ucs		. #xEB46)	; 
+  '((=ucs		. #xEB46)	; 
+    (=big5-pua		. #x9B7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B7D)	; 
-    (=ucs		. #xEB47)	; 
+  '((=ucs		. #xEB47)	; 
+    (=big5-pua		. #x9B7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9B7E)	; 
-    (=ucs		. #xEB48)	; 
+  '((=ucs		. #xEB48)	; 
+    (=big5-pua		. #x9B7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA1)	; 
-    (=ucs		. #xEB49)	; 
+  '((=ucs		. #xEB49)	; 
+    (=big5-pua		. #x9BA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA2)	; 
-    (=ucs		. #xEB4A)	; 
+  '((=ucs		. #xEB4A)	; 
+    (=big5-pua		. #x9BA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA3)	; 
-    (=ucs		. #xEB4B)	; 
+  '((=ucs		. #xEB4B)	; 
+    (=big5-pua		. #x9BA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA4)	; 
-    (=ucs		. #xEB4C)	; 
+  '((=ucs		. #xEB4C)	; 
+    (=big5-pua		. #x9BA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA5)	; 
-    (=ucs		. #xEB4D)	; 
+  '((=ucs		. #xEB4D)	; 
+    (=big5-pua		. #x9BA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA6)	; 
-    (=ucs		. #xEB4E)	; 
+  '((=ucs		. #xEB4E)	; 
+    (=big5-pua		. #x9BA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA7)	; 
-    (=ucs		. #xEB4F)	; 
+  '((=ucs		. #xEB4F)	; 
+    (=big5-pua		. #x9BA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA8)	; 
-    (=ucs		. #xEB50)	; 
+  '((=ucs		. #xEB50)	; 
+    (=big5-pua		. #x9BA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BA9)	; 
-    (=ucs		. #xEB51)	; 
+  '((=ucs		. #xEB51)	; 
+    (=big5-pua		. #x9BA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAA)	; 
-    (=ucs		. #xEB52)	; 
+  '((=ucs		. #xEB52)	; 
+    (=big5-pua		. #x9BAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAB)	; 
-    (=ucs		. #xEB53)	; 
+  '((=ucs		. #xEB53)	; 
+    (=big5-pua		. #x9BAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAC)	; 
-    (=ucs		. #xEB54)	; 
+  '((=ucs		. #xEB54)	; 
+    (=big5-pua		. #x9BAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAD)	; 
-    (=ucs		. #xEB55)	; 
+  '((=ucs		. #xEB55)	; 
+    (=big5-pua		. #x9BAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAE)	; 
-    (=ucs		. #xEB56)	; 
+  '((=ucs		. #xEB56)	; 
+    (=big5-pua		. #x9BAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BAF)	; 
-    (=ucs		. #xEB57)	; 
+  '((=ucs		. #xEB57)	; 
+    (=big5-pua		. #x9BAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB0)	; 
-    (=ucs		. #xEB58)	; 
+  '((=ucs		. #xEB58)	; 
+    (=big5-pua		. #x9BB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB1)	; 
-    (=ucs		. #xEB59)	; 
+  '((=ucs		. #xEB59)	; 
+    (=big5-pua		. #x9BB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB2)	; 
-    (=ucs		. #xEB5A)	; 
+  '((=ucs		. #xEB5A)	; 
+    (=big5-pua		. #x9BB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB3)	; 
-    (=ucs		. #xEB5B)	; 
+  '((=ucs		. #xEB5B)	; 
+    (=big5-pua		. #x9BB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB4)	; 
-    (=ucs		. #xEB5C)	; 
+  '((=ucs		. #xEB5C)	; 
+    (=big5-pua		. #x9BB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB5)	; 
-    (=ucs		. #xEB5D)	; 
+  '((=ucs		. #xEB5D)	; 
+    (=big5-pua		. #x9BB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB6)	; 
-    (=ucs		. #xEB5E)	; 
+  '((=ucs		. #xEB5E)	; 
+    (=big5-pua		. #x9BB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB7)	; 
-    (=ucs		. #xEB5F)	; 
+  '((=ucs		. #xEB5F)	; 
+    (=big5-pua		. #x9BB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB8)	; 
-    (=ucs		. #xEB60)	; 
+  '((=ucs		. #xEB60)	; 
+    (=big5-pua		. #x9BB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BB9)	; 
-    (=ucs		. #xEB61)	; 
+  '((=ucs		. #xEB61)	; 
+    (=big5-pua		. #x9BB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBA)	; 
-    (=ucs		. #xEB62)	; 
+  '((=ucs		. #xEB62)	; 
+    (=big5-pua		. #x9BBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBB)	; 
-    (=ucs		. #xEB63)	; 
+  '((=ucs		. #xEB63)	; 
+    (=big5-pua		. #x9BBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBC)	; 
-    (=ucs		. #xEB64)	; 
+  '((=ucs		. #xEB64)	; 
+    (=big5-pua		. #x9BBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBD)	; 
-    (=ucs		. #xEB65)	; 
+  '((=ucs		. #xEB65)	; 
+    (=big5-pua		. #x9BBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBE)	; 
-    (=ucs		. #xEB66)	; 
+  '((=ucs		. #xEB66)	; 
+    (=big5-pua		. #x9BBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BBF)	; 
-    (=ucs		. #xEB67)	; 
+  '((=ucs		. #xEB67)	; 
+    (=big5-pua		. #x9BBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC0)	; 
-    (=ucs		. #xEB68)	; 
+  '((=ucs		. #xEB68)	; 
+    (=big5-pua		. #x9BC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC1)	; 
-    (=ucs		. #xEB69)	; 
+  '((=ucs		. #xEB69)	; 
+    (=big5-pua		. #x9BC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC2)	; 
-    (=ucs		. #xEB6A)	; 
+  '((=ucs		. #xEB6A)	; 
+    (=big5-pua		. #x9BC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC3)	; 
-    (=ucs		. #xEB6B)	; 
+  '((=ucs		. #xEB6B)	; 
+    (=big5-pua		. #x9BC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC4)	; 
-    (=ucs		. #xEB6C)	; 
+  '((=ucs		. #xEB6C)	; 
+    (=big5-pua		. #x9BC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC5)	; 
-    (=ucs		. #xEB6D)	; 
+  '((=ucs		. #xEB6D)	; 
+    (=big5-pua		. #x9BC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC6)	; 
-    (=ucs		. #xEB6E)	; 
+  '((=ucs		. #xEB6E)	; 
+    (=big5-pua		. #x9BC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC7)	; 
-    (=ucs		. #xEB6F)	; 
+  '((=ucs		. #xEB6F)	; 
+    (=big5-pua		. #x9BC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC8)	; 
-    (=ucs		. #xEB70)	; 
+  '((=ucs		. #xEB70)	; 
+    (=big5-pua		. #x9BC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BC9)	; 
-    (=ucs		. #xEB71)	; 
+  '((=ucs		. #xEB71)	; 
+    (=big5-pua		. #x9BC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCA)	; 
-    (=ucs		. #xEB72)	; 
+  '((=ucs		. #xEB72)	; 
+    (=big5-pua		. #x9BCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCB)	; 
-    (=ucs		. #xEB73)	; 
+  '((=ucs		. #xEB73)	; 
+    (=big5-pua		. #x9BCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCC)	; 
-    (=ucs		. #xEB74)	; 
+  '((=ucs		. #xEB74)	; 
+    (=big5-pua		. #x9BCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCD)	; 
-    (=ucs		. #xEB75)	; 
+  '((=ucs		. #xEB75)	; 
+    (=big5-pua		. #x9BCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCE)	; 
-    (=ucs		. #xEB76)	; 
+  '((=ucs		. #xEB76)	; 
+    (=big5-pua		. #x9BCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BCF)	; 
-    (=ucs		. #xEB77)	; 
+  '((=ucs		. #xEB77)	; 
+    (=big5-pua		. #x9BCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD0)	; 
-    (=ucs		. #xEB78)	; 
+  '((=ucs		. #xEB78)	; 
+    (=big5-pua		. #x9BD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD1)	; 
-    (=ucs		. #xEB79)	; 
+  '((=ucs		. #xEB79)	; 
+    (=big5-pua		. #x9BD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD2)	; 
-    (=ucs		. #xEB7A)	; 
+  '((=ucs		. #xEB7A)	; 
+    (=big5-pua		. #x9BD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD3)	; 
-    (=ucs		. #xEB7B)	; 
+  '((=ucs		. #xEB7B)	; 
+    (=big5-pua		. #x9BD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD4)	; 
-    (=ucs		. #xEB7C)	; 
+  '((=ucs		. #xEB7C)	; 
+    (=big5-pua		. #x9BD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD5)	; 
-    (=ucs		. #xEB7D)	; 
+  '((=ucs		. #xEB7D)	; 
+    (=big5-pua		. #x9BD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD6)	; 
-    (=ucs		. #xEB7E)	; 
+  '((=ucs		. #xEB7E)	; 
+    (=big5-pua		. #x9BD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD7)	; 
-    (=ucs		. #xEB7F)	; 
+  '((=ucs		. #xEB7F)	; 
+    (=big5-pua		. #x9BD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD8)	; 
-    (=ucs		. #xEB80)	; 
+  '((=ucs		. #xEB80)	; 
+    (=big5-pua		. #x9BD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BD9)	; 
-    (=ucs		. #xEB81)	; 
+  '((=ucs		. #xEB81)	; 
+    (=big5-pua		. #x9BD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDA)	; 
-    (=ucs		. #xEB82)	; 
+  '((=ucs		. #xEB82)	; 
+    (=big5-pua		. #x9BDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDB)	; 
-    (=ucs		. #xEB83)	; 
+  '((=ucs		. #xEB83)	; 
+    (=big5-pua		. #x9BDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDC)	; 
-    (=ucs		. #xEB84)	; 
+  '((=ucs		. #xEB84)	; 
+    (=big5-pua		. #x9BDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDD)	; 
-    (=ucs		. #xEB85)	; 
+  '((=ucs		. #xEB85)	; 
+    (=big5-pua		. #x9BDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDE)	; 
-    (=ucs		. #xEB86)	; 
+  '((=ucs		. #xEB86)	; 
+    (=big5-pua		. #x9BDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BDF)	; 
-    (=ucs		. #xEB87)	; 
+  '((=ucs		. #xEB87)	; 
+    (=big5-pua		. #x9BDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE0)	; 
-    (=ucs		. #xEB88)	; 
+  '((=ucs		. #xEB88)	; 
+    (=big5-pua		. #x9BE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE1)	; 
-    (=ucs		. #xEB89)	; 
+  '((=ucs		. #xEB89)	; 
+    (=big5-pua		. #x9BE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE2)	; 
-    (=ucs		. #xEB8A)	; 
+  '((=ucs		. #xEB8A)	; 
+    (=big5-pua		. #x9BE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE3)	; 
-    (=ucs		. #xEB8B)	; 
+  '((=ucs		. #xEB8B)	; 
+    (=big5-pua		. #x9BE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE4)	; 
-    (=ucs		. #xEB8C)	; 
+  '((=ucs		. #xEB8C)	; 
+    (=big5-pua		. #x9BE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE5)	; 
-    (=ucs		. #xEB8D)	; 
+  '((=ucs		. #xEB8D)	; 
+    (=big5-pua		. #x9BE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE6)	; 
-    (=ucs		. #xEB8E)	; 
+  '((=ucs		. #xEB8E)	; 
+    (=big5-pua		. #x9BE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE7)	; 
-    (=ucs		. #xEB8F)	; 
+  '((=ucs		. #xEB8F)	; 
+    (=big5-pua		. #x9BE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE8)	; 
-    (=ucs		. #xEB90)	; 
+  '((=ucs		. #xEB90)	; 
+    (=big5-pua		. #x9BE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BE9)	; 
-    (=ucs		. #xEB91)	; 
+  '((=ucs		. #xEB91)	; 
+    (=big5-pua		. #x9BE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BEA)	; 
-    (=ucs		. #xEB92)	; 
+  '((=ucs		. #xEB92)	; 
+    (=big5-pua		. #x9BEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BEB)	; 
-    (=ucs		. #xEB93)	; 
+  '((=ucs		. #xEB93)	; 
+    (=big5-pua		. #x9BEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BEC)	; 
-    (=ucs		. #xEB94)	; 
+  '((=ucs		. #xEB94)	; 
+    (=big5-pua		. #x9BEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BED)	; 
-    (=ucs		. #xEB95)	; 
+  '((=ucs		. #xEB95)	; 
+    (=big5-pua		. #x9BED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BEE)	; 
-    (=ucs		. #xEB96)	; 
+  '((=ucs		. #xEB96)	; 
+    (=big5-pua		. #x9BEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BEF)	; 
-    (=ucs		. #xEB97)	; 
+  '((=ucs		. #xEB97)	; 
+    (=big5-pua		. #x9BEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF0)	; 
-    (=ucs		. #xEB98)	; 
+  '((=ucs		. #xEB98)	; 
+    (=big5-pua		. #x9BF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF1)	; 
-    (=ucs		. #xEB99)	; 
+  '((=ucs		. #xEB99)	; 
+    (=big5-pua		. #x9BF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF2)	; 
-    (=ucs		. #xEB9A)	; 
+  '((=ucs		. #xEB9A)	; 
+    (=big5-pua		. #x9BF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF3)	; 
-    (=ucs		. #xEB9B)	; 
+  '((=ucs		. #xEB9B)	; 
+    (=big5-pua		. #x9BF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF4)	; 
-    (=ucs		. #xEB9C)	; 
+  '((=ucs		. #xEB9C)	; 
+    (=big5-pua		. #x9BF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF5)	; 
-    (=ucs		. #xEB9D)	; 
+  '((=ucs		. #xEB9D)	; 
+    (=big5-pua		. #x9BF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF6)	; 
-    (=ucs		. #xEB9E)	; 
+  '((=ucs		. #xEB9E)	; 
+    (=big5-pua		. #x9BF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF7)	; 
-    (=ucs		. #xEB9F)	; 
+  '((=ucs		. #xEB9F)	; 
+    (=big5-pua		. #x9BF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF8)	; 
-    (=ucs		. #xEBA0)	; 
+  '((=ucs		. #xEBA0)	; 
+    (=big5-pua		. #x9BF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BF9)	; 
-    (=ucs		. #xEBA1)	; 
+  '((=ucs		. #xEBA1)	; 
+    (=big5-pua		. #x9BF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BFA)	; 
-    (=ucs		. #xEBA2)	; 
+  '((=ucs		. #xEBA2)	; 
+    (=big5-pua		. #x9BFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BFB)	; 
-    (=ucs		. #xEBA3)	; 
+  '((=ucs		. #xEBA3)	; 
+    (=big5-pua		. #x9BFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BFC)	; 
-    (=ucs		. #xEBA4)	; 
+  '((=ucs		. #xEBA4)	; 
+    (=big5-pua		. #x9BFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BFD)	; 
-    (=ucs		. #xEBA5)	; 
+  '((=ucs		. #xEBA5)	; 
+    (=big5-pua		. #x9BFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9BFE)	; 
-    (=ucs		. #xEBA6)	; 
+  '((=ucs		. #xEBA6)	; 
+    (=big5-pua		. #x9BFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C40)	; 
-    (=ucs		. #xEBA7)	; 
+  '((=ucs		. #xEBA7)	; 
+    (=big5-pua		. #x9C40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C41)	; 
-    (=ucs		. #xEBA8)	; 
+  '((=ucs		. #xEBA8)	; 
+    (=big5-pua		. #x9C41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C42)	; 
-    (=ucs		. #xEBA9)	; 
+  '((=ucs		. #xEBA9)	; 
+    (=big5-pua		. #x9C42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C43)	; 
-    (=ucs		. #xEBAA)	; 
+  '((=ucs		. #xEBAA)	; 
+    (=big5-pua		. #x9C43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C44)	; 
-    (=ucs		. #xEBAB)	; 
+  '((=ucs		. #xEBAB)	; 
+    (=big5-pua		. #x9C44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C45)	; 
-    (=ucs		. #xEBAC)	; 
+  '((=ucs		. #xEBAC)	; 
+    (=big5-pua		. #x9C45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C46)	; 
-    (=ucs		. #xEBAD)	; 
+  '((=ucs		. #xEBAD)	; 
+    (=big5-pua		. #x9C46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C47)	; 
-    (=ucs		. #xEBAE)	; 
+  '((=ucs		. #xEBAE)	; 
+    (=big5-pua		. #x9C47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C48)	; 
-    (=ucs		. #xEBAF)	; 
+  '((=ucs		. #xEBAF)	; 
+    (=big5-pua		. #x9C48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C49)	; 
-    (=ucs		. #xEBB0)	; 
+  '((=ucs		. #xEBB0)	; 
+    (=big5-pua		. #x9C49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4A)	; 
-    (=ucs		. #xEBB1)	; 
+  '((=ucs		. #xEBB1)	; 
+    (=big5-pua		. #x9C4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4B)	; 
-    (=ucs		. #xEBB2)	; 
+  '((=ucs		. #xEBB2)	; 
+    (=big5-pua		. #x9C4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4C)	; 
-    (=ucs		. #xEBB3)	; 
+  '((=ucs		. #xEBB3)	; 
+    (=big5-pua		. #x9C4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4D)	; 
-    (=ucs		. #xEBB4)	; 
+  '((=ucs		. #xEBB4)	; 
+    (=big5-pua		. #x9C4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4E)	; 
-    (=ucs		. #xEBB5)	; 
+  '((=ucs		. #xEBB5)	; 
+    (=big5-pua		. #x9C4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C4F)	; 
-    (=ucs		. #xEBB6)	; 
+  '((=ucs		. #xEBB6)	; 
+    (=big5-pua		. #x9C4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C50)	; 
-    (=ucs		. #xEBB7)	; 
+  '((=ucs		. #xEBB7)	; 
+    (=big5-pua		. #x9C50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C51)	; 
-    (=ucs		. #xEBB8)	; 
+  '((=ucs		. #xEBB8)	; 
+    (=big5-pua		. #x9C51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C52)	; 
-    (=ucs		. #xEBB9)	; 
+  '((=ucs		. #xEBB9)	; 
+    (=big5-pua		. #x9C52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C53)	; 
-    (=ucs		. #xEBBA)	; 
+  '((=ucs		. #xEBBA)	; 
+    (=big5-pua		. #x9C53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C54)	; 
-    (=ucs		. #xEBBB)	; 
+  '((=ucs		. #xEBBB)	; 
+    (=big5-pua		. #x9C54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C55)	; 
-    (=ucs		. #xEBBC)	; 
+  '((=ucs		. #xEBBC)	; 
+    (=big5-pua		. #x9C55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C56)	; 
-    (=ucs		. #xEBBD)	; 
+  '((=ucs		. #xEBBD)	; 
+    (=big5-pua		. #x9C56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C57)	; 
-    (=ucs		. #xEBBE)	; 
+  '((=ucs		. #xEBBE)	; 
+    (=big5-pua		. #x9C57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C58)	; 
-    (=ucs		. #xEBBF)	; 
+  '((=ucs		. #xEBBF)	; 
+    (=big5-pua		. #x9C58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C59)	; 
-    (=ucs		. #xEBC0)	; 
+  '((=ucs		. #xEBC0)	; 
+    (=big5-pua		. #x9C59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5A)	; 
-    (=ucs		. #xEBC1)	; 
+  '((=ucs		. #xEBC1)	; 
+    (=big5-pua		. #x9C5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5B)	; 
-    (=ucs		. #xEBC2)	; 
+  '((=ucs		. #xEBC2)	; 
+    (=big5-pua		. #x9C5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5C)	; 
-    (=ucs		. #xEBC3)	; 
+  '((=ucs		. #xEBC3)	; 
+    (=big5-pua		. #x9C5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5D)	; 
-    (=ucs		. #xEBC4)	; 
+  '((=ucs		. #xEBC4)	; 
+    (=big5-pua		. #x9C5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5E)	; 
-    (=ucs		. #xEBC5)	; 
+  '((=ucs		. #xEBC5)	; 
+    (=big5-pua		. #x9C5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C5F)	; 
-    (=ucs		. #xEBC6)	; 
+  '((=ucs		. #xEBC6)	; 
+    (=big5-pua		. #x9C5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C60)	; 
-    (=ucs		. #xEBC7)	; 
+  '((=ucs		. #xEBC7)	; 
+    (=big5-pua		. #x9C60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C61)	; 
-    (=ucs		. #xEBC8)	; 
+  '((=ucs		. #xEBC8)	; 
+    (=big5-pua		. #x9C61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C62)	; 
-    (=ucs		. #xEBC9)	; 
+  '((=ucs		. #xEBC9)	; 
+    (=big5-pua		. #x9C62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C63)	; 
-    (=ucs		. #xEBCA)	; 
+  '((=ucs		. #xEBCA)	; 
+    (=big5-pua		. #x9C63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C64)	; 
-    (=ucs		. #xEBCB)	; 
+  '((=ucs		. #xEBCB)	; 
+    (=big5-pua		. #x9C64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C65)	; 
-    (=ucs		. #xEBCC)	; 
+  '((=ucs		. #xEBCC)	; 
+    (=big5-pua		. #x9C65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C66)	; 
-    (=ucs		. #xEBCD)	; 
+  '((=ucs		. #xEBCD)	; 
+    (=big5-pua		. #x9C66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C67)	; 
-    (=ucs		. #xEBCE)	; 
+  '((=ucs		. #xEBCE)	; 
+    (=big5-pua		. #x9C67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C68)	; 
-    (=ucs		. #xEBCF)	; 
+  '((=ucs		. #xEBCF)	; 
+    (=big5-pua		. #x9C68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C69)	; 
-    (=ucs		. #xEBD0)	; 
+  '((=ucs		. #xEBD0)	; 
+    (=big5-pua		. #x9C69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6A)	; 
-    (=ucs		. #xEBD1)	; 
+  '((=ucs		. #xEBD1)	; 
+    (=big5-pua		. #x9C6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6B)	; 
-    (=ucs		. #xEBD2)	; 
+  '((=ucs		. #xEBD2)	; 
+    (=big5-pua		. #x9C6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6C)	; 
-    (=ucs		. #xEBD3)	; 
+  '((=ucs		. #xEBD3)	; 
+    (=big5-pua		. #x9C6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6D)	; 
-    (=ucs		. #xEBD4)	; 
+  '((=ucs		. #xEBD4)	; 
+    (=big5-pua		. #x9C6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6E)	; 
-    (=ucs		. #xEBD5)	; 
+  '((=ucs		. #xEBD5)	; 
+    (=big5-pua		. #x9C6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C6F)	; 
-    (=ucs		. #xEBD6)	; 
+  '((=ucs		. #xEBD6)	; 
+    (=big5-pua		. #x9C6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C70)	; 
-    (=ucs		. #xEBD7)	; 
+  '((=ucs		. #xEBD7)	; 
+    (=big5-pua		. #x9C70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C71)	; 
-    (=ucs		. #xEBD8)	; 
+  '((=ucs		. #xEBD8)	; 
+    (=big5-pua		. #x9C71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C72)	; 
-    (=ucs		. #xEBD9)	; 
+  '((=ucs		. #xEBD9)	; 
+    (=big5-pua		. #x9C72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C73)	; 
-    (=ucs		. #xEBDA)	; 
+  '((=ucs		. #xEBDA)	; 
+    (=big5-pua		. #x9C73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C74)	; 
-    (=ucs		. #xEBDB)	; 
+  '((=ucs		. #xEBDB)	; 
+    (=big5-pua		. #x9C74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C75)	; 
-    (=ucs		. #xEBDC)	; 
+  '((=ucs		. #xEBDC)	; 
+    (=big5-pua		. #x9C75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C76)	; 
-    (=ucs		. #xEBDD)	; 
+  '((=ucs		. #xEBDD)	; 
+    (=big5-pua		. #x9C76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C77)	; 
-    (=ucs		. #xEBDE)	; 
+  '((=ucs		. #xEBDE)	; 
+    (=big5-pua		. #x9C77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C78)	; 
-    (=ucs		. #xEBDF)	; 
+  '((=ucs		. #xEBDF)	; 
+    (=big5-pua		. #x9C78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C79)	; 
-    (=ucs		. #xEBE0)	; 
+  '((=ucs		. #xEBE0)	; 
+    (=big5-pua		. #x9C79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C7A)	; 
-    (=ucs		. #xEBE1)	; 
+  '((=ucs		. #xEBE1)	; 
+    (=big5-pua		. #x9C7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C7B)	; 
-    (=ucs		. #xEBE2)	; 
+  '((=ucs		. #xEBE2)	; 
+    (=big5-pua		. #x9C7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C7C)	; 
-    (=ucs		. #xEBE3)	; 
+  '((=ucs		. #xEBE3)	; 
+    (=big5-pua		. #x9C7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C7D)	; 
-    (=ucs		. #xEBE4)	; 
+  '((=ucs		. #xEBE4)	; 
+    (=big5-pua		. #x9C7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9C7E)	; 
-    (=ucs		. #xEBE5)	; 
+  '((=ucs		. #xEBE5)	; 
+    (=big5-pua		. #x9C7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA1)	; 
-    (=ucs		. #xEBE6)	; 
+  '((=ucs		. #xEBE6)	; 
+    (=big5-pua		. #x9CA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA2)	; 
-    (=ucs		. #xEBE7)	; 
+  '((=ucs		. #xEBE7)	; 
+    (=big5-pua		. #x9CA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA3)	; 
-    (=ucs		. #xEBE8)	; 
+  '((=ucs		. #xEBE8)	; 
+    (=big5-pua		. #x9CA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA4)	; 
-    (=ucs		. #xEBE9)	; 
+  '((=ucs		. #xEBE9)	; 
+    (=big5-pua		. #x9CA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA5)	; 
-    (=ucs		. #xEBEA)	; 
+  '((=ucs		. #xEBEA)	; 
+    (=big5-pua		. #x9CA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA6)	; 
-    (=ucs		. #xEBEB)	; 
+  '((=ucs		. #xEBEB)	; 
+    (=big5-pua		. #x9CA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA7)	; 
-    (=ucs		. #xEBEC)	; 
+  '((=ucs		. #xEBEC)	; 
+    (=big5-pua		. #x9CA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA8)	; 
-    (=ucs		. #xEBED)	; 
+  '((=ucs		. #xEBED)	; 
+    (=big5-pua		. #x9CA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CA9)	; 
-    (=ucs		. #xEBEE)	; 
+  '((=ucs		. #xEBEE)	; 
+    (=big5-pua		. #x9CA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAA)	; 
-    (=ucs		. #xEBEF)	; 
+  '((=ucs		. #xEBEF)	; 
+    (=big5-pua		. #x9CAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAB)	; 
-    (=ucs		. #xEBF0)	; 
+  '((=ucs		. #xEBF0)	; 
+    (=big5-pua		. #x9CAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAC)	; 
-    (=ucs		. #xEBF1)	; 
+  '((=ucs		. #xEBF1)	; 
+    (=big5-pua		. #x9CAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAD)	; 
-    (=ucs		. #xEBF2)	; 
+  '((=ucs		. #xEBF2)	; 
+    (=big5-pua		. #x9CAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAE)	; 
-    (=ucs		. #xEBF3)	; 
+  '((=ucs		. #xEBF3)	; 
+    (=big5-pua		. #x9CAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CAF)	; 
-    (=ucs		. #xEBF4)	; 
+  '((=ucs		. #xEBF4)	; 
+    (=big5-pua		. #x9CAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB0)	; 
-    (=ucs		. #xEBF5)	; 
+  '((=ucs		. #xEBF5)	; 
+    (=big5-pua		. #x9CB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB1)	; 
-    (=ucs		. #xEBF6)	; 
+  '((=ucs		. #xEBF6)	; 
+    (=big5-pua		. #x9CB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB2)	; 
-    (=ucs		. #xEBF7)	; 
+  '((=ucs		. #xEBF7)	; 
+    (=big5-pua		. #x9CB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB3)	; 
-    (=ucs		. #xEBF8)	; 
+  '((=ucs		. #xEBF8)	; 
+    (=big5-pua		. #x9CB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB4)	; 
-    (=ucs		. #xEBF9)	; 
+  '((=ucs		. #xEBF9)	; 
+    (=big5-pua		. #x9CB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB5)	; 
-    (=ucs		. #xEBFA)	; 
+  '((=ucs		. #xEBFA)	; 
+    (=big5-pua		. #x9CB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB6)	; 
-    (=ucs		. #xEBFB)	; 
+  '((=ucs		. #xEBFB)	; 
+    (=big5-pua		. #x9CB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB7)	; 
-    (=ucs		. #xEBFC)	; 
+  '((=ucs		. #xEBFC)	; 
+    (=big5-pua		. #x9CB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB8)	; 
-    (=ucs		. #xEBFD)	; 
+  '((=ucs		. #xEBFD)	; 
+    (=big5-pua		. #x9CB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CB9)	; 
-    (=ucs		. #xEBFE)	; 
+  '((=ucs		. #xEBFE)	; 
+    (=big5-pua		. #x9CB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBA)	; 
-    (=ucs		. #xEBFF)	; 
+  '((=ucs		. #xEBFF)	; 
+    (=big5-pua		. #x9CBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBB)	; 
-    (=ucs		. #xEC00)	; 
+  '((=ucs		. #xEC00)	; 
+    (=big5-pua		. #x9CBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBC)	; 
-    (=ucs		. #xEC01)	; 
+  '((=ucs		. #xEC01)	; 
+    (=big5-pua		. #x9CBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBD)	; 
-    (=ucs		. #xEC02)	; 
+  '((=ucs		. #xEC02)	; 
+    (=big5-pua		. #x9CBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBE)	; 
-    (=ucs		. #xEC03)	; 
+  '((=ucs		. #xEC03)	; 
+    (=big5-pua		. #x9CBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CBF)	; 
-    (=ucs		. #xEC04)	; 
+  '((=ucs		. #xEC04)	; 
+    (=big5-pua		. #x9CBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC0)	; 
-    (=ucs		. #xEC05)	; 
+  '((=ucs		. #xEC05)	; 
+    (=big5-pua		. #x9CC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC1)	; 
-    (=ucs		. #xEC06)	; 
+  '((=ucs		. #xEC06)	; 
+    (=big5-pua		. #x9CC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC2)	; 
-    (=ucs		. #xEC07)	; 
+  '((=ucs		. #xEC07)	; 
+    (=big5-pua		. #x9CC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC3)	; 
-    (=ucs		. #xEC08)	; 
+  '((=ucs		. #xEC08)	; 
+    (=big5-pua		. #x9CC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC4)	; 
-    (=ucs		. #xEC09)	; 
+  '((=ucs		. #xEC09)	; 
+    (=big5-pua		. #x9CC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC5)	; 
-    (=ucs		. #xEC0A)	; 
+  '((=ucs		. #xEC0A)	; 
+    (=big5-pua		. #x9CC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC6)	; 
-    (=ucs		. #xEC0B)	; 
+  '((=ucs		. #xEC0B)	; 
+    (=big5-pua		. #x9CC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC7)	; 
-    (=ucs		. #xEC0C)	; 
+  '((=ucs		. #xEC0C)	; 
+    (=big5-pua		. #x9CC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC8)	; 
-    (=ucs		. #xEC0D)	; 
+  '((=ucs		. #xEC0D)	; 
+    (=big5-pua		. #x9CC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CC9)	; 
-    (=ucs		. #xEC0E)	; 
+  '((=ucs		. #xEC0E)	; 
+    (=big5-pua		. #x9CC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCA)	; 
-    (=ucs		. #xEC0F)	; 
+  '((=ucs		. #xEC0F)	; 
+    (=big5-pua		. #x9CCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCB)	; 
-    (=ucs		. #xEC10)	; 
+  '((=ucs		. #xEC10)	; 
+    (=big5-pua		. #x9CCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCC)	; 
-    (=ucs		. #xEC11)	; 
+  '((=ucs		. #xEC11)	; 
+    (=big5-pua		. #x9CCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCD)	; 
-    (=ucs		. #xEC12)	; 
+  '((=ucs		. #xEC12)	; 
+    (=big5-pua		. #x9CCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCE)	; 
-    (=ucs		. #xEC13)	; 
+  '((=ucs		. #xEC13)	; 
+    (=big5-pua		. #x9CCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CCF)	; 
-    (=ucs		. #xEC14)	; 
+  '((=ucs		. #xEC14)	; 
+    (=big5-pua		. #x9CCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD0)	; 
-    (=ucs		. #xEC15)	; 
+  '((=ucs		. #xEC15)	; 
+    (=big5-pua		. #x9CD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD1)	; 
-    (=ucs		. #xEC16)	; 
+  '((=ucs		. #xEC16)	; 
+    (=big5-pua		. #x9CD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD2)	; 
-    (=ucs		. #xEC17)	; 
+  '((=ucs		. #xEC17)	; 
+    (=big5-pua		. #x9CD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD3)	; 
-    (=ucs		. #xEC18)	; 
+  '((=ucs		. #xEC18)	; 
+    (=big5-pua		. #x9CD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD4)	; 
-    (=ucs		. #xEC19)	; 
+  '((=ucs		. #xEC19)	; 
+    (=big5-pua		. #x9CD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD5)	; 
-    (=ucs		. #xEC1A)	; 
+  '((=ucs		. #xEC1A)	; 
+    (=big5-pua		. #x9CD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD6)	; 
-    (=ucs		. #xEC1B)	; 
+  '((=ucs		. #xEC1B)	; 
+    (=big5-pua		. #x9CD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD7)	; 
-    (=ucs		. #xEC1C)	; 
+  '((=ucs		. #xEC1C)	; 
+    (=big5-pua		. #x9CD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD8)	; 
-    (=ucs		. #xEC1D)	; 
+  '((=ucs		. #xEC1D)	; 
+    (=big5-pua		. #x9CD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CD9)	; 
-    (=ucs		. #xEC1E)	; 
+  '((=ucs		. #xEC1E)	; 
+    (=big5-pua		. #x9CD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDA)	; 
-    (=ucs		. #xEC1F)	; 
+  '((=ucs		. #xEC1F)	; 
+    (=big5-pua		. #x9CDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDB)	; 
-    (=ucs		. #xEC20)	; 
+  '((=ucs		. #xEC20)	; 
+    (=big5-pua		. #x9CDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDC)	; 
-    (=ucs		. #xEC21)	; 
+  '((=ucs		. #xEC21)	; 
+    (=big5-pua		. #x9CDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDD)	; 
-    (=ucs		. #xEC22)	; 
+  '((=ucs		. #xEC22)	; 
+    (=big5-pua		. #x9CDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDE)	; 
-    (=ucs		. #xEC23)	; 
+  '((=ucs		. #xEC23)	; 
+    (=big5-pua		. #x9CDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CDF)	; 
-    (=ucs		. #xEC24)	; 
+  '((=ucs		. #xEC24)	; 
+    (=big5-pua		. #x9CDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE0)	; 
-    (=ucs		. #xEC25)	; 
+  '((=ucs		. #xEC25)	; 
+    (=big5-pua		. #x9CE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE1)	; 
-    (=ucs		. #xEC26)	; 
+  '((=ucs		. #xEC26)	; 
+    (=big5-pua		. #x9CE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE2)	; 
-    (=ucs		. #xEC27)	; 
+  '((=ucs		. #xEC27)	; 
+    (=big5-pua		. #x9CE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE3)	; 
-    (=ucs		. #xEC28)	; 
+  '((=ucs		. #xEC28)	; 
+    (=big5-pua		. #x9CE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE4)	; 
-    (=ucs		. #xEC29)	; 
+  '((=ucs		. #xEC29)	; 
+    (=big5-pua		. #x9CE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE5)	; 
-    (=ucs		. #xEC2A)	; 
+  '((=ucs		. #xEC2A)	; 
+    (=big5-pua		. #x9CE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE6)	; 
-    (=ucs		. #xEC2B)	; 
+  '((=ucs		. #xEC2B)	; 
+    (=big5-pua		. #x9CE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE7)	; 
-    (=ucs		. #xEC2C)	; 
+  '((=ucs		. #xEC2C)	; 
+    (=big5-pua		. #x9CE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE8)	; 
-    (=ucs		. #xEC2D)	; 
+  '((=ucs		. #xEC2D)	; 
+    (=big5-pua		. #x9CE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CE9)	; 
-    (=ucs		. #xEC2E)	; 
+  '((=ucs		. #xEC2E)	; 
+    (=big5-pua		. #x9CE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CEA)	; 
-    (=ucs		. #xEC2F)	; 
+  '((=ucs		. #xEC2F)	; 
+    (=big5-pua		. #x9CEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CEB)	; 
-    (=ucs		. #xEC30)	; 
+  '((=ucs		. #xEC30)	; 
+    (=big5-pua		. #x9CEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CEC)	; 
-    (=ucs		. #xEC31)	; 
+  '((=ucs		. #xEC31)	; 
+    (=big5-pua		. #x9CEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CED)	; 
-    (=ucs		. #xEC32)	; 
+  '((=ucs		. #xEC32)	; 
+    (=big5-pua		. #x9CED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CEE)	; 
-    (=ucs		. #xEC33)	; 
+  '((=ucs		. #xEC33)	; 
+    (=big5-pua		. #x9CEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CEF)	; 
-    (=ucs		. #xEC34)	; 
+  '((=ucs		. #xEC34)	; 
+    (=big5-pua		. #x9CEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF0)	; 
-    (=ucs		. #xEC35)	; 
+  '((=ucs		. #xEC35)	; 
+    (=big5-pua		. #x9CF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF1)	; 
-    (=ucs		. #xEC36)	; 
+  '((=ucs		. #xEC36)	; 
+    (=big5-pua		. #x9CF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF2)	; 
-    (=ucs		. #xEC37)	; 
+  '((=ucs		. #xEC37)	; 
+    (=big5-pua		. #x9CF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF3)	; 
-    (=ucs		. #xEC38)	; 
+  '((=ucs		. #xEC38)	; 
+    (=big5-pua		. #x9CF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF4)	; 
-    (=ucs		. #xEC39)	; 
+  '((=ucs		. #xEC39)	; 
+    (=big5-pua		. #x9CF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF5)	; 
-    (=ucs		. #xEC3A)	; 
+  '((=ucs		. #xEC3A)	; 
+    (=big5-pua		. #x9CF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF6)	; 
-    (=ucs		. #xEC3B)	; 
+  '((=ucs		. #xEC3B)	; 
+    (=big5-pua		. #x9CF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF7)	; 
-    (=ucs		. #xEC3C)	; 
+  '((=ucs		. #xEC3C)	; 
+    (=big5-pua		. #x9CF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF8)	; 
-    (=ucs		. #xEC3D)	; 
+  '((=ucs		. #xEC3D)	; 
+    (=big5-pua		. #x9CF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CF9)	; 
-    (=ucs		. #xEC3E)	; 
+  '((=ucs		. #xEC3E)	; 
+    (=big5-pua		. #x9CF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CFA)	; 
-    (=ucs		. #xEC3F)	; 
+  '((=ucs		. #xEC3F)	; 
+    (=big5-pua		. #x9CFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CFB)	; 
-    (=ucs		. #xEC40)	; 
+  '((=ucs		. #xEC40)	; 
+    (=big5-pua		. #x9CFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CFC)	; 
-    (=ucs		. #xEC41)	; 
+  '((=ucs		. #xEC41)	; 
+    (=big5-pua		. #x9CFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CFD)	; 
-    (=ucs		. #xEC42)	; 
+  '((=ucs		. #xEC42)	; 
+    (=big5-pua		. #x9CFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9CFE)	; 
-    (=ucs		. #xEC43)	; 
+  '((=ucs		. #xEC43)	; 
+    (=big5-pua		. #x9CFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D40)	; 
-    (=ucs		. #xEC44)	; 
+  '((=ucs		. #xEC44)	; 
+    (=big5-pua		. #x9D40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D41)	; 
-    (=ucs		. #xEC45)	; 
+  '((=ucs		. #xEC45)	; 
+    (=big5-pua		. #x9D41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D42)	; 
-    (=ucs		. #xEC46)	; 
+  '((=ucs		. #xEC46)	; 
+    (=big5-pua		. #x9D42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D43)	; 
-    (=ucs		. #xEC47)	; 
+  '((=ucs		. #xEC47)	; 
+    (=big5-pua		. #x9D43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D44)	; 
-    (=ucs		. #xEC48)	; 
+  '((=ucs		. #xEC48)	; 
+    (=big5-pua		. #x9D44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D45)	; 
-    (=ucs		. #xEC49)	; 
+  '((=ucs		. #xEC49)	; 
+    (=big5-pua		. #x9D45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D46)	; 
-    (=ucs		. #xEC4A)	; 
+  '((=ucs		. #xEC4A)	; 
+    (=big5-pua		. #x9D46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D47)	; 
-    (=ucs		. #xEC4B)	; 
+  '((=ucs		. #xEC4B)	; 
+    (=big5-pua		. #x9D47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D48)	; 
-    (=ucs		. #xEC4C)	; 
+  '((=ucs		. #xEC4C)	; 
+    (=big5-pua		. #x9D48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D49)	; 
-    (=ucs		. #xEC4D)	; 
+  '((=ucs		. #xEC4D)	; 
+    (=big5-pua		. #x9D49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4A)	; 
-    (=ucs		. #xEC4E)	; 
+  '((=ucs		. #xEC4E)	; 
+    (=big5-pua		. #x9D4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4B)	; 
-    (=ucs		. #xEC4F)	; 
+  '((=ucs		. #xEC4F)	; 
+    (=big5-pua		. #x9D4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4C)	; 
-    (=ucs		. #xEC50)	; 
+  '((=ucs		. #xEC50)	; 
+    (=big5-pua		. #x9D4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4D)	; 
-    (=ucs		. #xEC51)	; 
+  '((=ucs		. #xEC51)	; 
+    (=big5-pua		. #x9D4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4E)	; 
-    (=ucs		. #xEC52)	; 
+  '((=ucs		. #xEC52)	; 
+    (=big5-pua		. #x9D4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D4F)	; 
-    (=ucs		. #xEC53)	; 
+  '((=ucs		. #xEC53)	; 
+    (=big5-pua		. #x9D4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D50)	; 
-    (=ucs		. #xEC54)	; 
+  '((=ucs		. #xEC54)	; 
+    (=big5-pua		. #x9D50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D51)	; 
-    (=ucs		. #xEC55)	; 
+  '((=ucs		. #xEC55)	; 
+    (=big5-pua		. #x9D51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D52)	; 
-    (=ucs		. #xEC56)	; 
+  '((=ucs		. #xEC56)	; 
+    (=big5-pua		. #x9D52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D53)	; 
-    (=ucs		. #xEC57)	; 
+  '((=ucs		. #xEC57)	; 
+    (=big5-pua		. #x9D53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D54)	; 
-    (=ucs		. #xEC58)	; 
+  '((=ucs		. #xEC58)	; 
+    (=big5-pua		. #x9D54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D55)	; 
-    (=ucs		. #xEC59)	; 
+  '((=ucs		. #xEC59)	; 
+    (=big5-pua		. #x9D55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D56)	; 
-    (=ucs		. #xEC5A)	; 
+  '((=ucs		. #xEC5A)	; 
+    (=big5-pua		. #x9D56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D57)	; 
-    (=ucs		. #xEC5B)	; 
+  '((=ucs		. #xEC5B)	; 
+    (=big5-pua		. #x9D57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D58)	; 
-    (=ucs		. #xEC5C)	; 
+  '((=ucs		. #xEC5C)	; 
+    (=big5-pua		. #x9D58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D59)	; 
-    (=ucs		. #xEC5D)	; 
+  '((=ucs		. #xEC5D)	; 
+    (=big5-pua		. #x9D59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5A)	; 
-    (=ucs		. #xEC5E)	; 
+  '((=ucs		. #xEC5E)	; 
+    (=big5-pua		. #x9D5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5B)	; 
-    (=ucs		. #xEC5F)	; 
+  '((=ucs		. #xEC5F)	; 
+    (=big5-pua		. #x9D5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5C)	; 
-    (=ucs		. #xEC60)	; 
+  '((=ucs		. #xEC60)	; 
+    (=big5-pua		. #x9D5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5D)	; 
-    (=ucs		. #xEC61)	; 
+  '((=ucs		. #xEC61)	; 
+    (=big5-pua		. #x9D5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5E)	; 
-    (=ucs		. #xEC62)	; 
+  '((=ucs		. #xEC62)	; 
+    (=big5-pua		. #x9D5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D5F)	; 
-    (=ucs		. #xEC63)	; 
+  '((=ucs		. #xEC63)	; 
+    (=big5-pua		. #x9D5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D60)	; 
-    (=ucs		. #xEC64)	; 
+  '((=ucs		. #xEC64)	; 
+    (=big5-pua		. #x9D60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D61)	; 
-    (=ucs		. #xEC65)	; 
+  '((=ucs		. #xEC65)	; 
+    (=big5-pua		. #x9D61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D62)	; 
-    (=ucs		. #xEC66)	; 
+  '((=ucs		. #xEC66)	; 
+    (=big5-pua		. #x9D62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D63)	; 
-    (=ucs		. #xEC67)	; 
+  '((=ucs		. #xEC67)	; 
+    (=big5-pua		. #x9D63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D64)	; 
-    (=ucs		. #xEC68)	; 
+  '((=ucs		. #xEC68)	; 
+    (=big5-pua		. #x9D64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D65)	; 
-    (=ucs		. #xEC69)	; 
+  '((=ucs		. #xEC69)	; 
+    (=big5-pua		. #x9D65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D66)	; 
-    (=ucs		. #xEC6A)	; 
+  '((=ucs		. #xEC6A)	; 
+    (=big5-pua		. #x9D66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D67)	; 
-    (=ucs		. #xEC6B)	; 
+  '((=ucs		. #xEC6B)	; 
+    (=big5-pua		. #x9D67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D68)	; 
-    (=ucs		. #xEC6C)	; 
+  '((=ucs		. #xEC6C)	; 
+    (=big5-pua		. #x9D68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D69)	; 
-    (=ucs		. #xEC6D)	; 
+  '((=ucs		. #xEC6D)	; 
+    (=big5-pua		. #x9D69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6A)	; 
-    (=ucs		. #xEC6E)	; 
+  '((=ucs		. #xEC6E)	; 
+    (=big5-pua		. #x9D6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6B)	; 
-    (=ucs		. #xEC6F)	; 
+  '((=ucs		. #xEC6F)	; 
+    (=big5-pua		. #x9D6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6C)	; 
-    (=ucs		. #xEC70)	; 
+  '((=ucs		. #xEC70)	; 
+    (=big5-pua		. #x9D6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6D)	; 
-    (=ucs		. #xEC71)	; 
+  '((=ucs		. #xEC71)	; 
+    (=big5-pua		. #x9D6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6E)	; 
-    (=ucs		. #xEC72)	; 
+  '((=ucs		. #xEC72)	; 
+    (=big5-pua		. #x9D6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D6F)	; 
-    (=ucs		. #xEC73)	; 
+  '((=ucs		. #xEC73)	; 
+    (=big5-pua		. #x9D6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D70)	; 
-    (=ucs		. #xEC74)	; 
+  '((=ucs		. #xEC74)	; 
+    (=big5-pua		. #x9D70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D71)	; 
-    (=ucs		. #xEC75)	; 
+  '((=ucs		. #xEC75)	; 
+    (=big5-pua		. #x9D71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D72)	; 
-    (=ucs		. #xEC76)	; 
+  '((=ucs		. #xEC76)	; 
+    (=big5-pua		. #x9D72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D73)	; 
-    (=ucs		. #xEC77)	; 
+  '((=ucs		. #xEC77)	; 
+    (=big5-pua		. #x9D73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D74)	; 
-    (=ucs		. #xEC78)	; 
+  '((=ucs		. #xEC78)	; 
+    (=big5-pua		. #x9D74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D75)	; 
-    (=ucs		. #xEC79)	; 
+  '((=ucs		. #xEC79)	; 
+    (=big5-pua		. #x9D75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D76)	; 
-    (=ucs		. #xEC7A)	; 
+  '((=ucs		. #xEC7A)	; 
+    (=big5-pua		. #x9D76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D77)	; 
-    (=ucs		. #xEC7B)	; 
+  '((=ucs		. #xEC7B)	; 
+    (=big5-pua		. #x9D77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D78)	; 
-    (=ucs		. #xEC7C)	; 
+  '((=ucs		. #xEC7C)	; 
+    (=big5-pua		. #x9D78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D79)	; 
-    (=ucs		. #xEC7D)	; 
+  '((=ucs		. #xEC7D)	; 
+    (=big5-pua		. #x9D79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D7A)	; 
-    (=ucs		. #xEC7E)	; 
+  '((=ucs		. #xEC7E)	; 
+    (=big5-pua		. #x9D7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D7B)	; 
-    (=ucs		. #xEC7F)	; 
+  '((=ucs		. #xEC7F)	; 
+    (=big5-pua		. #x9D7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D7C)	; 
-    (=ucs		. #xEC80)	; 
+  '((=ucs		. #xEC80)	; 
+    (=big5-pua		. #x9D7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D7D)	; 
-    (=ucs		. #xEC81)	; 
+  '((=ucs		. #xEC81)	; 
+    (=big5-pua		. #x9D7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9D7E)	; 
-    (=ucs		. #xEC82)	; 
+  '((=ucs		. #xEC82)	; 
+    (=big5-pua		. #x9D7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA1)	; 
-    (=ucs		. #xEC83)	; 
+  '((=ucs		. #xEC83)	; 
+    (=big5-pua		. #x9DA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA2)	; 
-    (=ucs		. #xEC84)	; 
+  '((=ucs		. #xEC84)	; 
+    (=big5-pua		. #x9DA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA3)	; 
-    (=ucs		. #xEC85)	; 
+  '((=ucs		. #xEC85)	; 
+    (=big5-pua		. #x9DA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA4)	; 
-    (=ucs		. #xEC86)	; 
+  '((=ucs		. #xEC86)	; 
+    (=big5-pua		. #x9DA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA5)	; 
-    (=ucs		. #xEC87)	; 
+  '((=ucs		. #xEC87)	; 
+    (=big5-pua		. #x9DA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA6)	; 
-    (=ucs		. #xEC88)	; 
+  '((=ucs		. #xEC88)	; 
+    (=big5-pua		. #x9DA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA7)	; 
-    (=ucs		. #xEC89)	; 
+  '((=ucs		. #xEC89)	; 
+    (=big5-pua		. #x9DA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA8)	; 
-    (=ucs		. #xEC8A)	; 
+  '((=ucs		. #xEC8A)	; 
+    (=big5-pua		. #x9DA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DA9)	; 
-    (=ucs		. #xEC8B)	; 
+  '((=ucs		. #xEC8B)	; 
+    (=big5-pua		. #x9DA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAA)	; 
-    (=ucs		. #xEC8C)	; 
+  '((=ucs		. #xEC8C)	; 
+    (=big5-pua		. #x9DAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAB)	; 
-    (=ucs		. #xEC8D)	; 
+  '((=ucs		. #xEC8D)	; 
+    (=big5-pua		. #x9DAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAC)	; 
-    (=ucs		. #xEC8E)	; 
+  '((=ucs		. #xEC8E)	; 
+    (=big5-pua		. #x9DAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAD)	; 
-    (=ucs		. #xEC8F)	; 
+  '((=ucs		. #xEC8F)	; 
+    (=big5-pua		. #x9DAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAE)	; 
-    (=ucs		. #xEC90)	; 
+  '((=ucs		. #xEC90)	; 
+    (=big5-pua		. #x9DAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DAF)	; 
-    (=ucs		. #xEC91)	; 
+  '((=ucs		. #xEC91)	; 
+    (=big5-pua		. #x9DAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB0)	; 
-    (=ucs		. #xEC92)	; 
+  '((=ucs		. #xEC92)	; 
+    (=big5-pua		. #x9DB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB1)	; 
-    (=ucs		. #xEC93)	; 
+  '((=ucs		. #xEC93)	; 
+    (=big5-pua		. #x9DB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB2)	; 
-    (=ucs		. #xEC94)	; 
+  '((=ucs		. #xEC94)	; 
+    (=big5-pua		. #x9DB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB3)	; 
-    (=ucs		. #xEC95)	; 
+  '((=ucs		. #xEC95)	; 
+    (=big5-pua		. #x9DB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB4)	; 
-    (=ucs		. #xEC96)	; 
+  '((=ucs		. #xEC96)	; 
+    (=big5-pua		. #x9DB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB5)	; 
-    (=ucs		. #xEC97)	; 
+  '((=ucs		. #xEC97)	; 
+    (=big5-pua		. #x9DB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB6)	; 
-    (=ucs		. #xEC98)	; 
+  '((=ucs		. #xEC98)	; 
+    (=big5-pua		. #x9DB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB7)	; 
-    (=ucs		. #xEC99)	; 
+  '((=ucs		. #xEC99)	; 
+    (=big5-pua		. #x9DB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB8)	; 
-    (=ucs		. #xEC9A)	; 
+  '((=ucs		. #xEC9A)	; 
+    (=big5-pua		. #x9DB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DB9)	; 
-    (=ucs		. #xEC9B)	; 
+  '((=ucs		. #xEC9B)	; 
+    (=big5-pua		. #x9DB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBA)	; 
-    (=ucs		. #xEC9C)	; 
+  '((=ucs		. #xEC9C)	; 
+    (=big5-pua		. #x9DBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBB)	; 
-    (=ucs		. #xEC9D)	; 
+  '((=ucs		. #xEC9D)	; 
+    (=big5-pua		. #x9DBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBC)	; 
-    (=ucs		. #xEC9E)	; 
+  '((=ucs		. #xEC9E)	; 
+    (=big5-pua		. #x9DBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBD)	; 
-    (=ucs		. #xEC9F)	; 
+  '((=ucs		. #xEC9F)	; 
+    (=big5-pua		. #x9DBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBE)	; 
-    (=ucs		. #xECA0)	; 
+  '((=ucs		. #xECA0)	; 
+    (=big5-pua		. #x9DBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DBF)	; 
-    (=ucs		. #xECA1)	; 
+  '((=ucs		. #xECA1)	; 
+    (=big5-pua		. #x9DBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC0)	; 
-    (=ucs		. #xECA2)	; 
+  '((=ucs		. #xECA2)	; 
+    (=big5-pua		. #x9DC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC1)	; 
-    (=ucs		. #xECA3)	; 
+  '((=ucs		. #xECA3)	; 
+    (=big5-pua		. #x9DC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC2)	; 
-    (=ucs		. #xECA4)	; 
+  '((=ucs		. #xECA4)	; 
+    (=big5-pua		. #x9DC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC3)	; 
-    (=ucs		. #xECA5)	; 
+  '((=ucs		. #xECA5)	; 
+    (=big5-pua		. #x9DC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC4)	; 
-    (=ucs		. #xECA6)	; 
+  '((=ucs		. #xECA6)	; 
+    (=big5-pua		. #x9DC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC5)	; 
-    (=ucs		. #xECA7)	; 
+  '((=ucs		. #xECA7)	; 
+    (=big5-pua		. #x9DC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC6)	; 
-    (=ucs		. #xECA8)	; 
+  '((=ucs		. #xECA8)	; 
+    (=big5-pua		. #x9DC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC7)	; 
-    (=ucs		. #xECA9)	; 
+  '((=ucs		. #xECA9)	; 
+    (=big5-pua		. #x9DC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC8)	; 
-    (=ucs		. #xECAA)	; 
+  '((=ucs		. #xECAA)	; 
+    (=big5-pua		. #x9DC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DC9)	; 
-    (=ucs		. #xECAB)	; 
+  '((=ucs		. #xECAB)	; 
+    (=big5-pua		. #x9DC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCA)	; 
-    (=ucs		. #xECAC)	; 
+  '((=ucs		. #xECAC)	; 
+    (=big5-pua		. #x9DCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCB)	; 
-    (=ucs		. #xECAD)	; 
+  '((=ucs		. #xECAD)	; 
+    (=big5-pua		. #x9DCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCC)	; 
-    (=ucs		. #xECAE)	; 
+  '((=ucs		. #xECAE)	; 
+    (=big5-pua		. #x9DCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCD)	; 
-    (=ucs		. #xECAF)	; 
+  '((=ucs		. #xECAF)	; 
+    (=big5-pua		. #x9DCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCE)	; 
-    (=ucs		. #xECB0)	; 
+  '((=ucs		. #xECB0)	; 
+    (=big5-pua		. #x9DCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DCF)	; 
-    (=ucs		. #xECB1)	; 
+  '((=ucs		. #xECB1)	; 
+    (=big5-pua		. #x9DCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD0)	; 
-    (=ucs		. #xECB2)	; 
+  '((=ucs		. #xECB2)	; 
+    (=big5-pua		. #x9DD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD1)	; 
-    (=ucs		. #xECB3)	; 
+  '((=ucs		. #xECB3)	; 
+    (=big5-pua		. #x9DD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD2)	; 
-    (=ucs		. #xECB4)	; 
+  '((=ucs		. #xECB4)	; 
+    (=big5-pua		. #x9DD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD3)	; 
-    (=ucs		. #xECB5)	; 
+  '((=ucs		. #xECB5)	; 
+    (=big5-pua		. #x9DD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD4)	; 
-    (=ucs		. #xECB6)	; 
+  '((=ucs		. #xECB6)	; 
+    (=big5-pua		. #x9DD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD5)	; 
-    (=ucs		. #xECB7)	; 
+  '((=ucs		. #xECB7)	; 
+    (=big5-pua		. #x9DD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD6)	; 
-    (=ucs		. #xECB8)	; 
+  '((=ucs		. #xECB8)	; 
+    (=big5-pua		. #x9DD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD7)	; 
-    (=ucs		. #xECB9)	; 
+  '((=ucs		. #xECB9)	; 
+    (=big5-pua		. #x9DD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD8)	; 
-    (=ucs		. #xECBA)	; 
+  '((=ucs		. #xECBA)	; 
+    (=big5-pua		. #x9DD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DD9)	; 
-    (=ucs		. #xECBB)	; 
+  '((=ucs		. #xECBB)	; 
+    (=big5-pua		. #x9DD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDA)	; 
-    (=ucs		. #xECBC)	; 
+  '((=ucs		. #xECBC)	; 
+    (=big5-pua		. #x9DDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDB)	; 
-    (=ucs		. #xECBD)	; 
+  '((=ucs		. #xECBD)	; 
+    (=big5-pua		. #x9DDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDC)	; 
-    (=ucs		. #xECBE)	; 
+  '((=ucs		. #xECBE)	; 
+    (=big5-pua		. #x9DDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDD)	; 
-    (=ucs		. #xECBF)	; 
+  '((=ucs		. #xECBF)	; 
+    (=big5-pua		. #x9DDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDE)	; 
-    (=ucs		. #xECC0)	; 
+  '((=ucs		. #xECC0)	; 
+    (=big5-pua		. #x9DDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DDF)	; 
-    (=ucs		. #xECC1)	; 
+  '((=ucs		. #xECC1)	; 
+    (=big5-pua		. #x9DDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE0)	; 
-    (=ucs		. #xECC2)	; 
+  '((=ucs		. #xECC2)	; 
+    (=big5-pua		. #x9DE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE1)	; 
-    (=ucs		. #xECC3)	; 
+  '((=ucs		. #xECC3)	; 
+    (=big5-pua		. #x9DE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE2)	; 
-    (=ucs		. #xECC4)	; 
+  '((=ucs		. #xECC4)	; 
+    (=big5-pua		. #x9DE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE3)	; 
-    (=ucs		. #xECC5)	; 
+  '((=ucs		. #xECC5)	; 
+    (=big5-pua		. #x9DE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE4)	; 
-    (=ucs		. #xECC6)	; 
+  '((=ucs		. #xECC6)	; 
+    (=big5-pua		. #x9DE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE5)	; 
-    (=ucs		. #xECC7)	; 
+  '((=ucs		. #xECC7)	; 
+    (=big5-pua		. #x9DE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE6)	; 
-    (=ucs		. #xECC8)	; 
+  '((=ucs		. #xECC8)	; 
+    (=big5-pua		. #x9DE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE7)	; 
-    (=ucs		. #xECC9)	; 
+  '((=ucs		. #xECC9)	; 
+    (=big5-pua		. #x9DE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE8)	; 
-    (=ucs		. #xECCA)	; 
+  '((=ucs		. #xECCA)	; 
+    (=big5-pua		. #x9DE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DE9)	; 
-    (=ucs		. #xECCB)	; 
+  '((=ucs		. #xECCB)	; 
+    (=big5-pua		. #x9DE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DEA)	; 
-    (=ucs		. #xECCC)	; 
+  '((=ucs		. #xECCC)	; 
+    (=big5-pua		. #x9DEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DEB)	; 
-    (=ucs		. #xECCD)	; 
+  '((=ucs		. #xECCD)	; 
+    (=big5-pua		. #x9DEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DEC)	; 
-    (=ucs		. #xECCE)	; 
+  '((=ucs		. #xECCE)	; 
+    (=big5-pua		. #x9DEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DED)	; 
-    (=ucs		. #xECCF)	; 
+  '((=ucs		. #xECCF)	; 
+    (=big5-pua		. #x9DED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DEE)	; 
-    (=ucs		. #xECD0)	; 
+  '((=ucs		. #xECD0)	; 
+    (=big5-pua		. #x9DEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DEF)	; 
-    (=ucs		. #xECD1)	; 
+  '((=ucs		. #xECD1)	; 
+    (=big5-pua		. #x9DEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF0)	; 
-    (=ucs		. #xECD2)	; 
+  '((=ucs		. #xECD2)	; 
+    (=big5-pua		. #x9DF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF1)	; 
-    (=ucs		. #xECD3)	; 
+  '((=ucs		. #xECD3)	; 
+    (=big5-pua		. #x9DF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF2)	; 
-    (=ucs		. #xECD4)	; 
+  '((=ucs		. #xECD4)	; 
+    (=big5-pua		. #x9DF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF3)	; 
-    (=ucs		. #xECD5)	; 
+  '((=ucs		. #xECD5)	; 
+    (=big5-pua		. #x9DF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF4)	; 
-    (=ucs		. #xECD6)	; 
+  '((=ucs		. #xECD6)	; 
+    (=big5-pua		. #x9DF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF5)	; 
-    (=ucs		. #xECD7)	; 
+  '((=ucs		. #xECD7)	; 
+    (=big5-pua		. #x9DF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF6)	; 
-    (=ucs		. #xECD8)	; 
+  '((=ucs		. #xECD8)	; 
+    (=big5-pua		. #x9DF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF7)	; 
-    (=ucs		. #xECD9)	; 
+  '((=ucs		. #xECD9)	; 
+    (=big5-pua		. #x9DF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF8)	; 
-    (=ucs		. #xECDA)	; 
+  '((=ucs		. #xECDA)	; 
+    (=big5-pua		. #x9DF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DF9)	; 
-    (=ucs		. #xECDB)	; 
+  '((=ucs		. #xECDB)	; 
+    (=big5-pua		. #x9DF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DFA)	; 
-    (=ucs		. #xECDC)	; 
+  '((=ucs		. #xECDC)	; 
+    (=big5-pua		. #x9DFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DFB)	; 
-    (=ucs		. #xECDD)	; 
+  '((=ucs		. #xECDD)	; 
+    (=big5-pua		. #x9DFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DFC)	; 
-    (=ucs		. #xECDE)	; 
+  '((=ucs		. #xECDE)	; 
+    (=big5-pua		. #x9DFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DFD)	; 
-    (=ucs		. #xECDF)	; 
+  '((=ucs		. #xECDF)	; 
+    (=big5-pua		. #x9DFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9DFE)	; 
-    (=ucs		. #xECE0)	; 
+  '((=ucs		. #xECE0)	; 
+    (=big5-pua		. #x9DFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E40)	; 
-    (=ucs		. #xECE1)	; 
+  '((=ucs		. #xECE1)	; 
+    (=big5-pua		. #x9E40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E41)	; 
-    (=ucs		. #xECE2)	; 
+  '((=ucs		. #xECE2)	; 
+    (=big5-pua		. #x9E41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E42)	; 
-    (=ucs		. #xECE3)	; 
+  '((=ucs		. #xECE3)	; 
+    (=big5-pua		. #x9E42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E43)	; 
-    (=ucs		. #xECE4)	; 
+  '((=ucs		. #xECE4)	; 
+    (=big5-pua		. #x9E43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E44)	; 
-    (=ucs		. #xECE5)	; 
+  '((=ucs		. #xECE5)	; 
+    (=big5-pua		. #x9E44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E45)	; 
-    (=ucs		. #xECE6)	; 
+  '((=ucs		. #xECE6)	; 
+    (=big5-pua		. #x9E45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E46)	; 
-    (=ucs		. #xECE7)	; 
+  '((=ucs		. #xECE7)	; 
+    (=big5-pua		. #x9E46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E47)	; 
-    (=ucs		. #xECE8)	; 
+  '((=ucs		. #xECE8)	; 
+    (=big5-pua		. #x9E47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E48)	; 
-    (=ucs		. #xECE9)	; 
+  '((=ucs		. #xECE9)	; 
+    (=big5-pua		. #x9E48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E49)	; 
-    (=ucs		. #xECEA)	; 
+  '((=ucs		. #xECEA)	; 
+    (=big5-pua		. #x9E49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4A)	; 
-    (=ucs		. #xECEB)	; 
+  '((=ucs		. #xECEB)	; 
+    (=big5-pua		. #x9E4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4B)	; 
-    (=ucs		. #xECEC)	; 
+  '((=ucs		. #xECEC)	; 
+    (=big5-pua		. #x9E4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4C)	; 
-    (=ucs		. #xECED)	; 
+  '((=ucs		. #xECED)	; 
+    (=big5-pua		. #x9E4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4D)	; 
-    (=ucs		. #xECEE)	; 
+  '((=ucs		. #xECEE)	; 
+    (=big5-pua		. #x9E4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4E)	; 
-    (=ucs		. #xECEF)	; 
+  '((=ucs		. #xECEF)	; 
+    (=big5-pua		. #x9E4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E4F)	; 
-    (=ucs		. #xECF0)	; 
+  '((=ucs		. #xECF0)	; 
+    (=big5-pua		. #x9E4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E50)	; 
-    (=ucs		. #xECF1)	; 
+  '((=ucs		. #xECF1)	; 
+    (=big5-pua		. #x9E50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E51)	; 
-    (=ucs		. #xECF2)	; 
+  '((=ucs		. #xECF2)	; 
+    (=big5-pua		. #x9E51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E52)	; 
-    (=ucs		. #xECF3)	; 
+  '((=ucs		. #xECF3)	; 
+    (=big5-pua		. #x9E52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E53)	; 
-    (=ucs		. #xECF4)	; 
+  '((=ucs		. #xECF4)	; 
+    (=big5-pua		. #x9E53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E54)	; 
-    (=ucs		. #xECF5)	; 
+  '((=ucs		. #xECF5)	; 
+    (=big5-pua		. #x9E54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E55)	; 
-    (=ucs		. #xECF6)	; 
+  '((=ucs		. #xECF6)	; 
+    (=big5-pua		. #x9E55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E56)	; 
-    (=ucs		. #xECF7)	; 
+  '((=ucs		. #xECF7)	; 
+    (=big5-pua		. #x9E56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E57)	; 
-    (=ucs		. #xECF8)	; 
+  '((=ucs		. #xECF8)	; 
+    (=big5-pua		. #x9E57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E58)	; 
-    (=ucs		. #xECF9)	; 
+  '((=ucs		. #xECF9)	; 
+    (=big5-pua		. #x9E58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E59)	; 
-    (=ucs		. #xECFA)	; 
+  '((=ucs		. #xECFA)	; 
+    (=big5-pua		. #x9E59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5A)	; 
-    (=ucs		. #xECFB)	; 
+  '((=ucs		. #xECFB)	; 
+    (=big5-pua		. #x9E5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5B)	; 
-    (=ucs		. #xECFC)	; 
+  '((=ucs		. #xECFC)	; 
+    (=big5-pua		. #x9E5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5C)	; 
-    (=ucs		. #xECFD)	; 
+  '((=ucs		. #xECFD)	; 
+    (=big5-pua		. #x9E5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5D)	; 
-    (=ucs		. #xECFE)	; 
+  '((=ucs		. #xECFE)	; 
+    (=big5-pua		. #x9E5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5E)	; 
-    (=ucs		. #xECFF)	; 
+  '((=ucs		. #xECFF)	; 
+    (=big5-pua		. #x9E5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E5F)	; 
-    (=ucs		. #xED00)	; 
+  '((=ucs		. #xED00)	; 
+    (=big5-pua		. #x9E5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E60)	; 
-    (=ucs		. #xED01)	; 
+  '((=ucs		. #xED01)	; 
+    (=big5-pua		. #x9E60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E61)	; 
-    (=ucs		. #xED02)	; 
+  '((=ucs		. #xED02)	; 
+    (=big5-pua		. #x9E61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E62)	; 
-    (=ucs		. #xED03)	; 
+  '((=ucs		. #xED03)	; 
+    (=big5-pua		. #x9E62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E63)	; 
-    (=ucs		. #xED04)	; 
+  '((=ucs		. #xED04)	; 
+    (=big5-pua		. #x9E63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E64)	; 
-    (=ucs		. #xED05)	; 
+  '((=ucs		. #xED05)	; 
+    (=big5-pua		. #x9E64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E65)	; 
-    (=ucs		. #xED06)	; 
+  '((=ucs		. #xED06)	; 
+    (=big5-pua		. #x9E65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E66)	; 
-    (=ucs		. #xED07)	; 
+  '((=ucs		. #xED07)	; 
+    (=big5-pua		. #x9E66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E67)	; 
-    (=ucs		. #xED08)	; 
+  '((=ucs		. #xED08)	; 
+    (=big5-pua		. #x9E67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E68)	; 
-    (=ucs		. #xED09)	; 
+  '((=ucs		. #xED09)	; 
+    (=big5-pua		. #x9E68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E69)	; 
-    (=ucs		. #xED0A)	; 
+  '((=ucs		. #xED0A)	; 
+    (=big5-pua		. #x9E69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6A)	; 
-    (=ucs		. #xED0B)	; 
+  '((=ucs		. #xED0B)	; 
+    (=big5-pua		. #x9E6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6B)	; 
-    (=ucs		. #xED0C)	; 
+  '((=ucs		. #xED0C)	; 
+    (=big5-pua		. #x9E6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6C)	; 
-    (=ucs		. #xED0D)	; 
+  '((=ucs		. #xED0D)	; 
+    (=big5-pua		. #x9E6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6D)	; 
-    (=ucs		. #xED0E)	; 
+  '((=ucs		. #xED0E)	; 
+    (=big5-pua		. #x9E6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6E)	; 
-    (=ucs		. #xED0F)	; 
+  '((=ucs		. #xED0F)	; 
+    (=big5-pua		. #x9E6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E6F)	; 
-    (=ucs		. #xED10)	; 
+  '((=ucs		. #xED10)	; 
+    (=big5-pua		. #x9E6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E70)	; 
-    (=ucs		. #xED11)	; 
+  '((=ucs		. #xED11)	; 
+    (=big5-pua		. #x9E70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E71)	; 
-    (=ucs		. #xED12)	; 
+  '((=ucs		. #xED12)	; 
+    (=big5-pua		. #x9E71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E72)	; 
-    (=ucs		. #xED13)	; 
+  '((=ucs		. #xED13)	; 
+    (=big5-pua		. #x9E72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E73)	; 
-    (=ucs		. #xED14)	; 
+  '((=ucs		. #xED14)	; 
+    (=big5-pua		. #x9E73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E74)	; 
-    (=ucs		. #xED15)	; 
+  '((=ucs		. #xED15)	; 
+    (=big5-pua		. #x9E74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E75)	; 
-    (=ucs		. #xED16)	; 
+  '((=ucs		. #xED16)	; 
+    (=big5-pua		. #x9E75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E76)	; 
-    (=ucs		. #xED17)	; 
+  '((=ucs		. #xED17)	; 
+    (=big5-pua		. #x9E76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E77)	; 
-    (=ucs		. #xED18)	; 
+  '((=ucs		. #xED18)	; 
+    (=big5-pua		. #x9E77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E78)	; 
-    (=ucs		. #xED19)	; 
+  '((=ucs		. #xED19)	; 
+    (=big5-pua		. #x9E78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E79)	; 
-    (=ucs		. #xED1A)	; 
+  '((=ucs		. #xED1A)	; 
+    (=big5-pua		. #x9E79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E7A)	; 
-    (=ucs		. #xED1B)	; 
+  '((=ucs		. #xED1B)	; 
+    (=big5-pua		. #x9E7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E7B)	; 
-    (=ucs		. #xED1C)	; 
+  '((=ucs		. #xED1C)	; 
+    (=big5-pua		. #x9E7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E7C)	; 
-    (=ucs		. #xED1D)	; 
+  '((=ucs		. #xED1D)	; 
+    (=big5-pua		. #x9E7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E7D)	; 
-    (=ucs		. #xED1E)	; 
+  '((=ucs		. #xED1E)	; 
+    (=big5-pua		. #x9E7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9E7E)	; 
-    (=ucs		. #xED1F)	; 
+  '((=ucs		. #xED1F)	; 
+    (=big5-pua		. #x9E7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA1)	; 
-    (=ucs		. #xED20)	; 
+  '((=ucs		. #xED20)	; 
+    (=big5-pua		. #x9EA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA2)	; 
-    (=ucs		. #xED21)	; 
+  '((=ucs		. #xED21)	; 
+    (=big5-pua		. #x9EA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA3)	; 
-    (=ucs		. #xED22)	; 
+  '((=ucs		. #xED22)	; 
+    (=big5-pua		. #x9EA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA4)	; 
-    (=ucs		. #xED23)	; 
+  '((=ucs		. #xED23)	; 
+    (=big5-pua		. #x9EA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA5)	; 
-    (=ucs		. #xED24)	; 
+  '((=ucs		. #xED24)	; 
+    (=big5-pua		. #x9EA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA6)	; 
-    (=ucs		. #xED25)	; 
+  '((=ucs		. #xED25)	; 
+    (=big5-pua		. #x9EA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA7)	; 
-    (=ucs		. #xED26)	; 
+  '((=ucs		. #xED26)	; 
+    (=big5-pua		. #x9EA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA8)	; 
-    (=ucs		. #xED27)	; 
+  '((=ucs		. #xED27)	; 
+    (=big5-pua		. #x9EA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EA9)	; 
-    (=ucs		. #xED28)	; 
+  '((=ucs		. #xED28)	; 
+    (=big5-pua		. #x9EA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAA)	; 
-    (=ucs		. #xED29)	; 
+  '((=ucs		. #xED29)	; 
+    (=big5-pua		. #x9EAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAB)	; 
-    (=ucs		. #xED2A)	; 
+  '((=ucs		. #xED2A)	; 
+    (=big5-pua		. #x9EAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAC)	; 
-    (=ucs		. #xED2B)	; 
+  '((=ucs		. #xED2B)	; 
+    (=big5-pua		. #x9EAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAD)	; 
-    (=ucs		. #xED2C)	; 
+  '((=ucs		. #xED2C)	; 
+    (=big5-pua		. #x9EAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAE)	; 
-    (=ucs		. #xED2D)	; 
+  '((=ucs		. #xED2D)	; 
+    (=big5-pua		. #x9EAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EAF)	; 
-    (=ucs		. #xED2E)	; 
+  '((=ucs		. #xED2E)	; 
+    (=big5-pua		. #x9EAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB0)	; 
-    (=ucs		. #xED2F)	; 
+  '((=ucs		. #xED2F)	; 
+    (=big5-pua		. #x9EB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB1)	; 
-    (=ucs		. #xED30)	; 
+  '((=ucs		. #xED30)	; 
+    (=big5-pua		. #x9EB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB2)	; 
-    (=ucs		. #xED31)	; 
+  '((=ucs		. #xED31)	; 
+    (=big5-pua		. #x9EB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB3)	; 
-    (=ucs		. #xED32)	; 
+  '((=ucs		. #xED32)	; 
+    (=big5-pua		. #x9EB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB4)	; 
-    (=ucs		. #xED33)	; 
+  '((=ucs		. #xED33)	; 
+    (=big5-pua		. #x9EB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB5)	; 
-    (=ucs		. #xED34)	; 
+  '((=ucs		. #xED34)	; 
+    (=big5-pua		. #x9EB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB6)	; 
-    (=ucs		. #xED35)	; 
+  '((=ucs		. #xED35)	; 
+    (=big5-pua		. #x9EB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB7)	; 
-    (=ucs		. #xED36)	; 
+  '((=ucs		. #xED36)	; 
+    (=big5-pua		. #x9EB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB8)	; 
-    (=ucs		. #xED37)	; 
+  '((=ucs		. #xED37)	; 
+    (=big5-pua		. #x9EB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EB9)	; 
-    (=ucs		. #xED38)	; 
+  '((=ucs		. #xED38)	; 
+    (=big5-pua		. #x9EB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBA)	; 
-    (=ucs		. #xED39)	; 
+  '((=ucs		. #xED39)	; 
+    (=big5-pua		. #x9EBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBB)	; 
-    (=ucs		. #xED3A)	; 
+  '((=ucs		. #xED3A)	; 
+    (=big5-pua		. #x9EBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBC)	; 
-    (=ucs		. #xED3B)	; 
+  '((=ucs		. #xED3B)	; 
+    (=big5-pua		. #x9EBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBD)	; 
-    (=ucs		. #xED3C)	; 
+  '((=ucs		. #xED3C)	; 
+    (=big5-pua		. #x9EBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBE)	; 
-    (=ucs		. #xED3D)	; 
+  '((=ucs		. #xED3D)	; 
+    (=big5-pua		. #x9EBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EBF)	; 
-    (=ucs		. #xED3E)	; 
+  '((=ucs		. #xED3E)	; 
+    (=big5-pua		. #x9EBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC0)	; 
-    (=ucs		. #xED3F)	; 
+  '((=ucs		. #xED3F)	; 
+    (=big5-pua		. #x9EC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC1)	; 
-    (=ucs		. #xED40)	; 
+  '((=ucs		. #xED40)	; 
+    (=big5-pua		. #x9EC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC2)	; 
-    (=ucs		. #xED41)	; 
+  '((=ucs		. #xED41)	; 
+    (=big5-pua		. #x9EC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC3)	; 
-    (=ucs		. #xED42)	; 
+  '((=ucs		. #xED42)	; 
+    (=big5-pua		. #x9EC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC4)	; 
-    (=ucs		. #xED43)	; 
+  '((=ucs		. #xED43)	; 
+    (=big5-pua		. #x9EC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC5)	; 
-    (=ucs		. #xED44)	; 
+  '((=ucs		. #xED44)	; 
+    (=big5-pua		. #x9EC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC6)	; 
-    (=ucs		. #xED45)	; 
+  '((=ucs		. #xED45)	; 
+    (=big5-pua		. #x9EC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC7)	; 
-    (=ucs		. #xED46)	; 
+  '((=ucs		. #xED46)	; 
+    (=big5-pua		. #x9EC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC8)	; 
-    (=ucs		. #xED47)	; 
+  '((=ucs		. #xED47)	; 
+    (=big5-pua		. #x9EC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EC9)	; 
-    (=ucs		. #xED48)	; 
+  '((=ucs		. #xED48)	; 
+    (=big5-pua		. #x9EC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECA)	; 
-    (=ucs		. #xED49)	; 
+  '((=ucs		. #xED49)	; 
+    (=big5-pua		. #x9ECA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECB)	; 
-    (=ucs		. #xED4A)	; 
+  '((=ucs		. #xED4A)	; 
+    (=big5-pua		. #x9ECB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECC)	; 
-    (=ucs		. #xED4B)	; 
+  '((=ucs		. #xED4B)	; 
+    (=big5-pua		. #x9ECC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECD)	; 
-    (=ucs		. #xED4C)	; 
+  '((=ucs		. #xED4C)	; 
+    (=big5-pua		. #x9ECD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECE)	; 
-    (=ucs		. #xED4D)	; 
+  '((=ucs		. #xED4D)	; 
+    (=big5-pua		. #x9ECE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ECF)	; 
-    (=ucs		. #xED4E)	; 
+  '((=ucs		. #xED4E)	; 
+    (=big5-pua		. #x9ECF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED0)	; 
-    (=ucs		. #xED4F)	; 
+  '((=ucs		. #xED4F)	; 
+    (=big5-pua		. #x9ED0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED1)	; 
-    (=ucs		. #xED50)	; 
+  '((=ucs		. #xED50)	; 
+    (=big5-pua		. #x9ED1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED2)	; 
-    (=ucs		. #xED51)	; 
+  '((=ucs		. #xED51)	; 
+    (=big5-pua		. #x9ED2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED3)	; 
-    (=ucs		. #xED52)	; 
+  '((=ucs		. #xED52)	; 
+    (=big5-pua		. #x9ED3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED4)	; 
-    (=ucs		. #xED53)	; 
+  '((=ucs		. #xED53)	; 
+    (=big5-pua		. #x9ED4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED5)	; 
-    (=ucs		. #xED54)	; 
+  '((=ucs		. #xED54)	; 
+    (=big5-pua		. #x9ED5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED6)	; 
-    (=ucs		. #xED55)	; 
+  '((=ucs		. #xED55)	; 
+    (=big5-pua		. #x9ED6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED7)	; 
-    (=ucs		. #xED56)	; 
+  '((=ucs		. #xED56)	; 
+    (=big5-pua		. #x9ED7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED8)	; 
-    (=ucs		. #xED57)	; 
+  '((=ucs		. #xED57)	; 
+    (=big5-pua		. #x9ED8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9ED9)	; 
-    (=ucs		. #xED58)	; 
+  '((=ucs		. #xED58)	; 
+    (=big5-pua		. #x9ED9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDA)	; 
-    (=ucs		. #xED59)	; 
+  '((=ucs		. #xED59)	; 
+    (=big5-pua		. #x9EDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDB)	; 
-    (=ucs		. #xED5A)	; 
+  '((=ucs		. #xED5A)	; 
+    (=big5-pua		. #x9EDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDC)	; 
-    (=ucs		. #xED5B)	; 
+  '((=ucs		. #xED5B)	; 
+    (=big5-pua		. #x9EDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDD)	; 
-    (=ucs		. #xED5C)	; 
+  '((=ucs		. #xED5C)	; 
+    (=big5-pua		. #x9EDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDE)	; 
-    (=ucs		. #xED5D)	; 
+  '((=ucs		. #xED5D)	; 
+    (=big5-pua		. #x9EDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EDF)	; 
-    (=ucs		. #xED5E)	; 
+  '((=ucs		. #xED5E)	; 
+    (=big5-pua		. #x9EDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE0)	; 
-    (=ucs		. #xED5F)	; 
+  '((=ucs		. #xED5F)	; 
+    (=big5-pua		. #x9EE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE1)	; 
-    (=ucs		. #xED60)	; 
+  '((=ucs		. #xED60)	; 
+    (=big5-pua		. #x9EE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE2)	; 
-    (=ucs		. #xED61)	; 
+  '((=ucs		. #xED61)	; 
+    (=big5-pua		. #x9EE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE3)	; 
-    (=ucs		. #xED62)	; 
+  '((=ucs		. #xED62)	; 
+    (=big5-pua		. #x9EE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE4)	; 
-    (=ucs		. #xED63)	; 
+  '((=ucs		. #xED63)	; 
+    (=big5-pua		. #x9EE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE5)	; 
-    (=ucs		. #xED64)	; 
+  '((=ucs		. #xED64)	; 
+    (=big5-pua		. #x9EE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE6)	; 
-    (=ucs		. #xED65)	; 
+  '((=ucs		. #xED65)	; 
+    (=big5-pua		. #x9EE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE7)	; 
-    (=ucs		. #xED66)	; 
+  '((=ucs		. #xED66)	; 
+    (=big5-pua		. #x9EE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE8)	; 
-    (=ucs		. #xED67)	; 
+  '((=ucs		. #xED67)	; 
+    (=big5-pua		. #x9EE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EE9)	; 
-    (=ucs		. #xED68)	; 
+  '((=ucs		. #xED68)	; 
+    (=big5-pua		. #x9EE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EEA)	; 
-    (=ucs		. #xED69)	; 
+  '((=ucs		. #xED69)	; 
+    (=big5-pua		. #x9EEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EEB)	; 
-    (=ucs		. #xED6A)	; 
+  '((=ucs		. #xED6A)	; 
+    (=big5-pua		. #x9EEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EEC)	; 
-    (=ucs		. #xED6B)	; 
+  '((=ucs		. #xED6B)	; 
+    (=big5-pua		. #x9EEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EED)	; 
-    (=ucs		. #xED6C)	; 
+  '((=ucs		. #xED6C)	; 
+    (=big5-pua		. #x9EED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EEE)	; 
-    (=ucs		. #xED6D)	; 
+  '((=ucs		. #xED6D)	; 
+    (=big5-pua		. #x9EEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EEF)	; 
-    (=ucs		. #xED6E)	; 
+  '((=ucs		. #xED6E)	; 
+    (=big5-pua		. #x9EEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF0)	; 
-    (=ucs		. #xED6F)	; 
+  '((=ucs		. #xED6F)	; 
+    (=big5-pua		. #x9EF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF1)	; 
-    (=ucs		. #xED70)	; 
+  '((=ucs		. #xED70)	; 
+    (=big5-pua		. #x9EF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF2)	; 
-    (=ucs		. #xED71)	; 
+  '((=ucs		. #xED71)	; 
+    (=big5-pua		. #x9EF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF3)	; 
-    (=ucs		. #xED72)	; 
+  '((=ucs		. #xED72)	; 
+    (=big5-pua		. #x9EF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF4)	; 
-    (=ucs		. #xED73)	; 
+  '((=ucs		. #xED73)	; 
+    (=big5-pua		. #x9EF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF5)	; 
-    (=ucs		. #xED74)	; 
+  '((=ucs		. #xED74)	; 
+    (=big5-pua		. #x9EF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF6)	; 
-    (=ucs		. #xED75)	; 
+  '((=ucs		. #xED75)	; 
+    (=big5-pua		. #x9EF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF7)	; 
-    (=ucs		. #xED76)	; 
+  '((=ucs		. #xED76)	; 
+    (=big5-pua		. #x9EF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF8)	; 
-    (=ucs		. #xED77)	; 
+  '((=ucs		. #xED77)	; 
+    (=big5-pua		. #x9EF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EF9)	; 
-    (=ucs		. #xED78)	; 
+  '((=ucs		. #xED78)	; 
+    (=big5-pua		. #x9EF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EFA)	; 
-    (=ucs		. #xED79)	; 
+  '((=ucs		. #xED79)	; 
+    (=big5-pua		. #x9EFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EFB)	; 
-    (=ucs		. #xED7A)	; 
+  '((=ucs		. #xED7A)	; 
+    (=big5-pua		. #x9EFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EFC)	; 
-    (=ucs		. #xED7B)	; 
+  '((=ucs		. #xED7B)	; 
+    (=big5-pua		. #x9EFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EFD)	; 
-    (=ucs		. #xED7C)	; 
+  '((=ucs		. #xED7C)	; 
+    (=big5-pua		. #x9EFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9EFE)	; 
-    (=ucs		. #xED7D)	; 
+  '((=ucs		. #xED7D)	; 
+    (=big5-pua		. #x9EFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F40)	; 
-    (=ucs		. #xED7E)	; 
+  '((=ucs		. #xED7E)	; 
+    (=big5-pua		. #x9F40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F41)	; 
-    (=ucs		. #xED7F)	; 
+  '((=ucs		. #xED7F)	; 
+    (=big5-pua		. #x9F41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F42)	; 
-    (=ucs		. #xED80)	; 
+  '((=ucs		. #xED80)	; 
+    (=big5-pua		. #x9F42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F43)	; 
-    (=ucs		. #xED81)	; 
+  '((=ucs		. #xED81)	; 
+    (=big5-pua		. #x9F43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F44)	; 
-    (=ucs		. #xED82)	; 
+  '((=ucs		. #xED82)	; 
+    (=big5-pua		. #x9F44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F45)	; 
-    (=ucs		. #xED83)	; 
+  '((=ucs		. #xED83)	; 
+    (=big5-pua		. #x9F45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F46)	; 
-    (=ucs		. #xED84)	; 
+  '((=ucs		. #xED84)	; 
+    (=big5-pua		. #x9F46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F47)	; 
-    (=ucs		. #xED85)	; 
+  '((=ucs		. #xED85)	; 
+    (=big5-pua		. #x9F47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F48)	; 
-    (=ucs		. #xED86)	; 
+  '((=ucs		. #xED86)	; 
+    (=big5-pua		. #x9F48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F49)	; 
-    (=ucs		. #xED87)	; 
+  '((=ucs		. #xED87)	; 
+    (=big5-pua		. #x9F49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4A)	; 
-    (=ucs		. #xED88)	; 
+  '((=ucs		. #xED88)	; 
+    (=big5-pua		. #x9F4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4B)	; 
-    (=ucs		. #xED89)	; 
+  '((=ucs		. #xED89)	; 
+    (=big5-pua		. #x9F4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4C)	; 
-    (=ucs		. #xED8A)	; 
+  '((=ucs		. #xED8A)	; 
+    (=big5-pua		. #x9F4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4D)	; 
-    (=ucs		. #xED8B)	; 
+  '((=ucs		. #xED8B)	; 
+    (=big5-pua		. #x9F4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4E)	; 
-    (=ucs		. #xED8C)	; 
+  '((=ucs		. #xED8C)	; 
+    (=big5-pua		. #x9F4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F4F)	; 
-    (=ucs		. #xED8D)	; 
+  '((=ucs		. #xED8D)	; 
+    (=big5-pua		. #x9F4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F50)	; 
-    (=ucs		. #xED8E)	; 
+  '((=ucs		. #xED8E)	; 
+    (=big5-pua		. #x9F50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F51)	; 
-    (=ucs		. #xED8F)	; 
+  '((=ucs		. #xED8F)	; 
+    (=big5-pua		. #x9F51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F52)	; 
-    (=ucs		. #xED90)	; 
+  '((=ucs		. #xED90)	; 
+    (=big5-pua		. #x9F52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F53)	; 
-    (=ucs		. #xED91)	; 
+  '((=ucs		. #xED91)	; 
+    (=big5-pua		. #x9F53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F54)	; 
-    (=ucs		. #xED92)	; 
+  '((=ucs		. #xED92)	; 
+    (=big5-pua		. #x9F54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F55)	; 
-    (=ucs		. #xED93)	; 
+  '((=ucs		. #xED93)	; 
+    (=big5-pua		. #x9F55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F56)	; 
-    (=ucs		. #xED94)	; 
+  '((=ucs		. #xED94)	; 
+    (=big5-pua		. #x9F56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F57)	; 
-    (=ucs		. #xED95)	; 
+  '((=ucs		. #xED95)	; 
+    (=big5-pua		. #x9F57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F58)	; 
-    (=ucs		. #xED96)	; 
+  '((=ucs		. #xED96)	; 
+    (=big5-pua		. #x9F58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F59)	; 
-    (=ucs		. #xED97)	; 
+  '((=ucs		. #xED97)	; 
+    (=big5-pua		. #x9F59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5A)	; 
-    (=ucs		. #xED98)	; 
+  '((=ucs		. #xED98)	; 
+    (=big5-pua		. #x9F5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5B)	; 
-    (=ucs		. #xED99)	; 
+  '((=ucs		. #xED99)	; 
+    (=big5-pua		. #x9F5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5C)	; 
-    (=ucs		. #xED9A)	; 
+  '((=ucs		. #xED9A)	; 
+    (=big5-pua		. #x9F5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5D)	; 
-    (=ucs		. #xED9B)	; 
+  '((=ucs		. #xED9B)	; 
+    (=big5-pua		. #x9F5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5E)	; 
-    (=ucs		. #xED9C)	; 
+  '((=ucs		. #xED9C)	; 
+    (=big5-pua		. #x9F5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F5F)	; 
-    (=ucs		. #xED9D)	; 
+  '((=ucs		. #xED9D)	; 
+    (=big5-pua		. #x9F5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F60)	; 
-    (=ucs		. #xED9E)	; 
+  '((=ucs		. #xED9E)	; 
+    (=big5-pua		. #x9F60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F61)	; 
-    (=ucs		. #xED9F)	; 
+  '((=ucs		. #xED9F)	; 
+    (=big5-pua		. #x9F61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F62)	; 
-    (=ucs		. #xEDA0)	; 
+  '((=ucs		. #xEDA0)	; 
+    (=big5-pua		. #x9F62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F63)	; 
-    (=ucs		. #xEDA1)	; 
+  '((=ucs		. #xEDA1)	; 
+    (=big5-pua		. #x9F63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F64)	; 
-    (=ucs		. #xEDA2)	; 
+  '((=ucs		. #xEDA2)	; 
+    (=big5-pua		. #x9F64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F65)	; 
-    (=ucs		. #xEDA3)	; 
+  '((=ucs		. #xEDA3)	; 
+    (=big5-pua		. #x9F65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F66)	; 
-    (=ucs		. #xEDA4)	; 
+  '((=ucs		. #xEDA4)	; 
+    (=big5-pua		. #x9F66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F67)	; 
-    (=ucs		. #xEDA5)	; 
+  '((=ucs		. #xEDA5)	; 
+    (=big5-pua		. #x9F67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F68)	; 
-    (=ucs		. #xEDA6)	; 
+  '((=ucs		. #xEDA6)	; 
+    (=big5-pua		. #x9F68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F69)	; 
-    (=ucs		. #xEDA7)	; 
+  '((=ucs		. #xEDA7)	; 
+    (=big5-pua		. #x9F69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6A)	; 
-    (=ucs		. #xEDA8)	; 
+  '((=ucs		. #xEDA8)	; 
+    (=big5-pua		. #x9F6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6B)	; 
-    (=ucs		. #xEDA9)	; 
+  '((=ucs		. #xEDA9)	; 
+    (=big5-pua		. #x9F6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6C)	; 
-    (=ucs		. #xEDAA)	; 
+  '((=ucs		. #xEDAA)	; 
+    (=big5-pua		. #x9F6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6D)	; 
-    (=ucs		. #xEDAB)	; 
+  '((=ucs		. #xEDAB)	; 
+    (=big5-pua		. #x9F6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6E)	; 
-    (=ucs		. #xEDAC)	; 
+  '((=ucs		. #xEDAC)	; 
+    (=big5-pua		. #x9F6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F6F)	; 
-    (=ucs		. #xEDAD)	; 
+  '((=ucs		. #xEDAD)	; 
+    (=big5-pua		. #x9F6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F70)	; 
-    (=ucs		. #xEDAE)	; 
+  '((=ucs		. #xEDAE)	; 
+    (=big5-pua		. #x9F70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F71)	; 
-    (=ucs		. #xEDAF)	; 
+  '((=ucs		. #xEDAF)	; 
+    (=big5-pua		. #x9F71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F72)	; 
-    (=ucs		. #xEDB0)	; 
+  '((=ucs		. #xEDB0)	; 
+    (=big5-pua		. #x9F72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F73)	; 
-    (=ucs		. #xEDB1)	; 
+  '((=ucs		. #xEDB1)	; 
+    (=big5-pua		. #x9F73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F74)	; 
-    (=ucs		. #xEDB2)	; 
+  '((=ucs		. #xEDB2)	; 
+    (=big5-pua		. #x9F74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F75)	; 
-    (=ucs		. #xEDB3)	; 
+  '((=ucs		. #xEDB3)	; 
+    (=big5-pua		. #x9F75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F76)	; 
-    (=ucs		. #xEDB4)	; 
+  '((=ucs		. #xEDB4)	; 
+    (=big5-pua		. #x9F76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F77)	; 
-    (=ucs		. #xEDB5)	; 
+  '((=ucs		. #xEDB5)	; 
+    (=big5-pua		. #x9F77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F78)	; 
-    (=ucs		. #xEDB6)	; 
+  '((=ucs		. #xEDB6)	; 
+    (=big5-pua		. #x9F78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F79)	; 
-    (=ucs		. #xEDB7)	; 
+  '((=ucs		. #xEDB7)	; 
+    (=big5-pua		. #x9F79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F7A)	; 
-    (=ucs		. #xEDB8)	; 
+  '((=ucs		. #xEDB8)	; 
+    (=big5-pua		. #x9F7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F7B)	; 
-    (=ucs		. #xEDB9)	; 
+  '((=ucs		. #xEDB9)	; 
+    (=big5-pua		. #x9F7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F7C)	; 
-    (=ucs		. #xEDBA)	; 
+  '((=ucs		. #xEDBA)	; 
+    (=big5-pua		. #x9F7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F7D)	; 
-    (=ucs		. #xEDBB)	; 
+  '((=ucs		. #xEDBB)	; 
+    (=big5-pua		. #x9F7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9F7E)	; 
-    (=ucs		. #xEDBC)	; 
+  '((=ucs		. #xEDBC)	; 
+    (=big5-pua		. #x9F7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA1)	; 
-    (=ucs		. #xEDBD)	; 
+  '((=ucs		. #xEDBD)	; 
+    (=big5-pua		. #x9FA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA2)	; 
-    (=ucs		. #xEDBE)	; 
+  '((=ucs		. #xEDBE)	; 
+    (=big5-pua		. #x9FA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA3)	; 
-    (=ucs		. #xEDBF)	; 
+  '((=ucs		. #xEDBF)	; 
+    (=big5-pua		. #x9FA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA4)	; 
-    (=ucs		. #xEDC0)	; 
+  '((=ucs		. #xEDC0)	; 
+    (=big5-pua		. #x9FA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA5)	; 
-    (=ucs		. #xEDC1)	; 
+  '((=ucs		. #xEDC1)	; 
+    (=big5-pua		. #x9FA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA6)	; 
-    (=ucs		. #xEDC2)	; 
+  '((=ucs		. #xEDC2)	; 
+    (=big5-pua		. #x9FA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA7)	; 
-    (=ucs		. #xEDC3)	; 
+  '((=ucs		. #xEDC3)	; 
+    (=big5-pua		. #x9FA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA8)	; 
-    (=ucs		. #xEDC4)	; 
+  '((=ucs		. #xEDC4)	; 
+    (=big5-pua		. #x9FA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FA9)	; 
-    (=ucs		. #xEDC5)	; 
+  '((=ucs		. #xEDC5)	; 
+    (=big5-pua		. #x9FA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAA)	; 
-    (=ucs		. #xEDC6)	; 
+  '((=ucs		. #xEDC6)	; 
+    (=big5-pua		. #x9FAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAB)	; 
-    (=ucs		. #xEDC7)	; 
+  '((=ucs		. #xEDC7)	; 
+    (=big5-pua		. #x9FAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAC)	; 
-    (=ucs		. #xEDC8)	; 
+  '((=ucs		. #xEDC8)	; 
+    (=big5-pua		. #x9FAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAD)	; 
-    (=ucs		. #xEDC9)	; 
+  '((=ucs		. #xEDC9)	; 
+    (=big5-pua		. #x9FAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAE)	; 
-    (=ucs		. #xEDCA)	; 
+  '((=ucs		. #xEDCA)	; 
+    (=big5-pua		. #x9FAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FAF)	; 
-    (=ucs		. #xEDCB)	; 
+  '((=ucs		. #xEDCB)	; 
+    (=big5-pua		. #x9FAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB0)	; 
-    (=ucs		. #xEDCC)	; 
+  '((=ucs		. #xEDCC)	; 
+    (=big5-pua		. #x9FB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB1)	; 
-    (=ucs		. #xEDCD)	; 
+  '((=ucs		. #xEDCD)	; 
+    (=big5-pua		. #x9FB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB2)	; 
-    (=ucs		. #xEDCE)	; 
+  '((=ucs		. #xEDCE)	; 
+    (=big5-pua		. #x9FB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB3)	; 
-    (=ucs		. #xEDCF)	; 
+  '((=ucs		. #xEDCF)	; 
+    (=big5-pua		. #x9FB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB4)	; 
-    (=ucs		. #xEDD0)	; 
+  '((=ucs		. #xEDD0)	; 
+    (=big5-pua		. #x9FB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB5)	; 
-    (=ucs		. #xEDD1)	; 
+  '((=ucs		. #xEDD1)	; 
+    (=big5-pua		. #x9FB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB6)	; 
-    (=ucs		. #xEDD2)	; 
+  '((=ucs		. #xEDD2)	; 
+    (=big5-pua		. #x9FB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB7)	; 
-    (=ucs		. #xEDD3)	; 
+  '((=ucs		. #xEDD3)	; 
+    (=big5-pua		. #x9FB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB8)	; 
-    (=ucs		. #xEDD4)	; 
+  '((=ucs		. #xEDD4)	; 
+    (=big5-pua		. #x9FB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FB9)	; 
-    (=ucs		. #xEDD5)	; 
+  '((=ucs		. #xEDD5)	; 
+    (=big5-pua		. #x9FB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBA)	; 
-    (=ucs		. #xEDD6)	; 
+  '((=ucs		. #xEDD6)	; 
+    (=big5-pua		. #x9FBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBB)	; 
-    (=ucs		. #xEDD7)	; 
+  '((=ucs		. #xEDD7)	; 
+    (=big5-pua		. #x9FBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBC)	; 
-    (=ucs		. #xEDD8)	; 
+  '((=ucs		. #xEDD8)	; 
+    (=big5-pua		. #x9FBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBD)	; 
-    (=ucs		. #xEDD9)	; 
+  '((=ucs		. #xEDD9)	; 
+    (=big5-pua		. #x9FBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBE)	; 
-    (=ucs		. #xEDDA)	; 
+  '((=ucs		. #xEDDA)	; 
+    (=big5-pua		. #x9FBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FBF)	; 
-    (=ucs		. #xEDDB)	; 
+  '((=ucs		. #xEDDB)	; 
+    (=big5-pua		. #x9FBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC0)	; 
-    (=ucs		. #xEDDC)	; 
+  '((=ucs		. #xEDDC)	; 
+    (=big5-pua		. #x9FC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC1)	; 
-    (=ucs		. #xEDDD)	; 
+  '((=ucs		. #xEDDD)	; 
+    (=big5-pua		. #x9FC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC2)	; 
-    (=ucs		. #xEDDE)	; 
+  '((=ucs		. #xEDDE)	; 
+    (=big5-pua		. #x9FC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC3)	; 
-    (=ucs		. #xEDDF)	; 
+  '((=ucs		. #xEDDF)	; 
+    (=big5-pua		. #x9FC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC4)	; 
-    (=ucs		. #xEDE0)	; 
+  '((=ucs		. #xEDE0)	; 
+    (=big5-pua		. #x9FC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC5)	; 
-    (=ucs		. #xEDE1)	; 
+  '((=ucs		. #xEDE1)	; 
+    (=big5-pua		. #x9FC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC6)	; 
-    (=ucs		. #xEDE2)	; 
+  '((=ucs		. #xEDE2)	; 
+    (=big5-pua		. #x9FC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC7)	; 
-    (=ucs		. #xEDE3)	; 
+  '((=ucs		. #xEDE3)	; 
+    (=big5-pua		. #x9FC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC8)	; 
-    (=ucs		. #xEDE4)	; 
+  '((=ucs		. #xEDE4)	; 
+    (=big5-pua		. #x9FC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FC9)	; 
-    (=ucs		. #xEDE5)	; 
+  '((=ucs		. #xEDE5)	; 
+    (=big5-pua		. #x9FC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCA)	; 
-    (=ucs		. #xEDE6)	; 
+  '((=ucs		. #xEDE6)	; 
+    (=big5-pua		. #x9FCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCB)	; 
-    (=ucs		. #xEDE7)	; 
+  '((=ucs		. #xEDE7)	; 
+    (=big5-pua		. #x9FCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCC)	; 
-    (=ucs		. #xEDE8)	; 
+  '((=ucs		. #xEDE8)	; 
+    (=big5-pua		. #x9FCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCD)	; 
-    (=ucs		. #xEDE9)	; 
+  '((=ucs		. #xEDE9)	; 
+    (=big5-pua		. #x9FCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCE)	; 
-    (=ucs		. #xEDEA)	; 
+  '((=ucs		. #xEDEA)	; 
+    (=big5-pua		. #x9FCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FCF)	; 
-    (=ucs		. #xEDEB)	; 
+  '((=ucs		. #xEDEB)	; 
+    (=big5-pua		. #x9FCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD0)	; 
-    (=ucs		. #xEDEC)	; 
+  '((=ucs		. #xEDEC)	; 
+    (=big5-pua		. #x9FD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD1)	; 
-    (=ucs		. #xEDED)	; 
+  '((=ucs		. #xEDED)	; 
+    (=big5-pua		. #x9FD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD2)	; 
-    (=ucs		. #xEDEE)	; 
+  '((=ucs		. #xEDEE)	; 
+    (=big5-pua		. #x9FD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD3)	; 
-    (=ucs		. #xEDEF)	; 
+  '((=ucs		. #xEDEF)	; 
+    (=big5-pua		. #x9FD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD4)	; 
-    (=ucs		. #xEDF0)	; 
+  '((=ucs		. #xEDF0)	; 
+    (=big5-pua		. #x9FD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD5)	; 
-    (=ucs		. #xEDF1)	; 
+  '((=ucs		. #xEDF1)	; 
+    (=big5-pua		. #x9FD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD6)	; 
-    (=ucs		. #xEDF2)	; 
+  '((=ucs		. #xEDF2)	; 
+    (=big5-pua		. #x9FD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD7)	; 
-    (=ucs		. #xEDF3)	; 
+  '((=ucs		. #xEDF3)	; 
+    (=big5-pua		. #x9FD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD8)	; 
-    (=ucs		. #xEDF4)	; 
+  '((=ucs		. #xEDF4)	; 
+    (=big5-pua		. #x9FD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FD9)	; 
-    (=ucs		. #xEDF5)	; 
+  '((=ucs		. #xEDF5)	; 
+    (=big5-pua		. #x9FD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDA)	; 
-    (=ucs		. #xEDF6)	; 
+  '((=ucs		. #xEDF6)	; 
+    (=big5-pua		. #x9FDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDB)	; 
-    (=ucs		. #xEDF7)	; 
+  '((=ucs		. #xEDF7)	; 
+    (=big5-pua		. #x9FDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDC)	; 
-    (=ucs		. #xEDF8)	; 
+  '((=ucs		. #xEDF8)	; 
+    (=big5-pua		. #x9FDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDD)	; 
-    (=ucs		. #xEDF9)	; 
+  '((=ucs		. #xEDF9)	; 
+    (=big5-pua		. #x9FDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDE)	; 
-    (=ucs		. #xEDFA)	; 
+  '((=ucs		. #xEDFA)	; 
+    (=big5-pua		. #x9FDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FDF)	; 
-    (=ucs		. #xEDFB)	; 
+  '((=ucs		. #xEDFB)	; 
+    (=big5-pua		. #x9FDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE0)	; 
-    (=ucs		. #xEDFC)	; 
+  '((=ucs		. #xEDFC)	; 
+    (=big5-pua		. #x9FE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE1)	; 
-    (=ucs		. #xEDFD)	; 
+  '((=ucs		. #xEDFD)	; 
+    (=big5-pua		. #x9FE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE2)	; 
-    (=ucs		. #xEDFE)	; 
+  '((=ucs		. #xEDFE)	; 
+    (=big5-pua		. #x9FE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE3)	; 
-    (=ucs		. #xEDFF)	; 
+  '((=ucs		. #xEDFF)	; 
+    (=big5-pua		. #x9FE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE4)	; 
-    (=ucs		. #xEE00)	; 
+  '((=ucs		. #xEE00)	; 
+    (=big5-pua		. #x9FE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE5)	; 
-    (=ucs		. #xEE01)	; 
+  '((=ucs		. #xEE01)	; 
+    (=big5-pua		. #x9FE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE6)	; 
-    (=ucs		. #xEE02)	; 
+  '((=ucs		. #xEE02)	; 
+    (=big5-pua		. #x9FE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE7)	; 
-    (=ucs		. #xEE03)	; 
+  '((=ucs		. #xEE03)	; 
+    (=big5-pua		. #x9FE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE8)	; 
-    (=ucs		. #xEE04)	; 
+  '((=ucs		. #xEE04)	; 
+    (=big5-pua		. #x9FE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FE9)	; 
-    (=ucs		. #xEE05)	; 
+  '((=ucs		. #xEE05)	; 
+    (=big5-pua		. #x9FE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FEA)	; 
-    (=ucs		. #xEE06)	; 
+  '((=ucs		. #xEE06)	; 
+    (=big5-pua		. #x9FEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FEB)	; 
-    (=ucs		. #xEE07)	; 
+  '((=ucs		. #xEE07)	; 
+    (=big5-pua		. #x9FEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FEC)	; 
-    (=ucs		. #xEE08)	; 
+  '((=ucs		. #xEE08)	; 
+    (=big5-pua		. #x9FEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FED)	; 
-    (=ucs		. #xEE09)	; 
+  '((=ucs		. #xEE09)	; 
+    (=big5-pua		. #x9FED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FEE)	; 
-    (=ucs		. #xEE0A)	; 
+  '((=ucs		. #xEE0A)	; 
+    (=big5-pua		. #x9FEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FEF)	; 
-    (=ucs		. #xEE0B)	; 
+  '((=ucs		. #xEE0B)	; 
+    (=big5-pua		. #x9FEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF0)	; 
-    (=ucs		. #xEE0C)	; 
+  '((=ucs		. #xEE0C)	; 
+    (=big5-pua		. #x9FF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF1)	; 
-    (=ucs		. #xEE0D)	; 
+  '((=ucs		. #xEE0D)	; 
+    (=big5-pua		. #x9FF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF2)	; 
-    (=ucs		. #xEE0E)	; 
+  '((=ucs		. #xEE0E)	; 
+    (=big5-pua		. #x9FF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF3)	; 
-    (=ucs		. #xEE0F)	; 
+  '((=ucs		. #xEE0F)	; 
+    (=big5-pua		. #x9FF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF4)	; 
-    (=ucs		. #xEE10)	; 
+  '((=ucs		. #xEE10)	; 
+    (=big5-pua		. #x9FF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF5)	; 
-    (=ucs		. #xEE11)	; 
+  '((=ucs		. #xEE11)	; 
+    (=big5-pua		. #x9FF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF6)	; 
-    (=ucs		. #xEE12)	; 
+  '((=ucs		. #xEE12)	; 
+    (=big5-pua		. #x9FF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF7)	; 
-    (=ucs		. #xEE13)	; 
+  '((=ucs		. #xEE13)	; 
+    (=big5-pua		. #x9FF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF8)	; 
-    (=ucs		. #xEE14)	; 
+  '((=ucs		. #xEE14)	; 
+    (=big5-pua		. #x9FF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FF9)	; 
-    (=ucs		. #xEE15)	; 
+  '((=ucs		. #xEE15)	; 
+    (=big5-pua		. #x9FF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FFA)	; 
-    (=ucs		. #xEE16)	; 
+  '((=ucs		. #xEE16)	; 
+    (=big5-pua		. #x9FFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FFB)	; 
-    (=ucs		. #xEE17)	; 
+  '((=ucs		. #xEE17)	; 
+    (=big5-pua		. #x9FFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FFC)	; 
-    (=ucs		. #xEE18)	; 
+  '((=ucs		. #xEE18)	; 
+    (=big5-pua		. #x9FFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FFD)	; 
-    (=ucs		. #xEE19)	; 
+  '((=ucs		. #xEE19)	; 
+    (=big5-pua		. #x9FFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x9FFE)	; 
-    (=ucs		. #xEE1A)	; 
+  '((=ucs		. #xEE1A)	; 
+    (=big5-pua		. #x9FFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA040)	; 
-    (=ucs		. #xEE1B)	; 
+  '((=ucs		. #xEE1B)	; 
+    (=big5-pua		. #xA040)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA041)	; 
-    (=ucs		. #xEE1C)	; 
+  '((=ucs		. #xEE1C)	; 
+    (=big5-pua		. #xA041)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA042)	; 
-    (=ucs		. #xEE1D)	; 
+  '((=ucs		. #xEE1D)	; 
+    (=big5-pua		. #xA042)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA043)	; 
-    (=ucs		. #xEE1E)	; 
+  '((=ucs		. #xEE1E)	; 
+    (=big5-pua		. #xA043)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA044)	; 
-    (=ucs		. #xEE1F)	; 
+  '((=ucs		. #xEE1F)	; 
+    (=big5-pua		. #xA044)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA045)	; 
-    (=ucs		. #xEE20)	; 
+  '((=ucs		. #xEE20)	; 
+    (=big5-pua		. #xA045)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA046)	; 
-    (=ucs		. #xEE21)	; 
+  '((=ucs		. #xEE21)	; 
+    (=big5-pua		. #xA046)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA047)	; 
-    (=ucs		. #xEE22)	; 
+  '((=ucs		. #xEE22)	; 
+    (=big5-pua		. #xA047)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA048)	; 
-    (=ucs		. #xEE23)	; 
+  '((=ucs		. #xEE23)	; 
+    (=big5-pua		. #xA048)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA049)	; 
-    (=ucs		. #xEE24)	; 
+  '((=ucs		. #xEE24)	; 
+    (=big5-pua		. #xA049)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04A)	; 
-    (=ucs		. #xEE25)	; 
+  '((=ucs		. #xEE25)	; 
+    (=big5-pua		. #xA04A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04B)	; 
-    (=ucs		. #xEE26)	; 
+  '((=ucs		. #xEE26)	; 
+    (=big5-pua		. #xA04B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04C)	; 
-    (=ucs		. #xEE27)	; 
+  '((=ucs		. #xEE27)	; 
+    (=big5-pua		. #xA04C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04D)	; 
-    (=ucs		. #xEE28)	; 
+  '((=ucs		. #xEE28)	; 
+    (=big5-pua		. #xA04D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04E)	; 
-    (=ucs		. #xEE29)	; 
+  '((=ucs		. #xEE29)	; 
+    (=big5-pua		. #xA04E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA04F)	; 
-    (=ucs		. #xEE2A)	; 
+  '((=ucs		. #xEE2A)	; 
+    (=big5-pua		. #xA04F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA050)	; 
-    (=ucs		. #xEE2B)	; 
+  '((=ucs		. #xEE2B)	; 
+    (=big5-pua		. #xA050)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA051)	; 
-    (=ucs		. #xEE2C)	; 
+  '((=ucs		. #xEE2C)	; 
+    (=big5-pua		. #xA051)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA052)	; 
-    (=ucs		. #xEE2D)	; 
+  '((=ucs		. #xEE2D)	; 
+    (=big5-pua		. #xA052)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA053)	; 
-    (=ucs		. #xEE2E)	; 
+  '((=ucs		. #xEE2E)	; 
+    (=big5-pua		. #xA053)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA054)	; 
-    (=ucs		. #xEE2F)	; 
+  '((=ucs		. #xEE2F)	; 
+    (=big5-pua		. #xA054)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA055)	; 
-    (=ucs		. #xEE30)	; 
+  '((=ucs		. #xEE30)	; 
+    (=big5-pua		. #xA055)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA056)	; 
-    (=ucs		. #xEE31)	; 
+  '((=ucs		. #xEE31)	; 
+    (=big5-pua		. #xA056)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA057)	; 
-    (=ucs		. #xEE32)	; 
+  '((=ucs		. #xEE32)	; 
+    (=big5-pua		. #xA057)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA058)	; 
-    (=ucs		. #xEE33)	; 
+  '((=ucs		. #xEE33)	; 
+    (=big5-pua		. #xA058)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA059)	; 
-    (=ucs		. #xEE34)	; 
+  '((=ucs		. #xEE34)	; 
+    (=big5-pua		. #xA059)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05A)	; 
-    (=ucs		. #xEE35)	; 
+  '((=ucs		. #xEE35)	; 
+    (=big5-pua		. #xA05A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05B)	; 
-    (=ucs		. #xEE36)	; 
+  '((=ucs		. #xEE36)	; 
+    (=big5-pua		. #xA05B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05C)	; 
-    (=ucs		. #xEE37)	; 
+  '((=ucs		. #xEE37)	; 
+    (=big5-pua		. #xA05C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05D)	; 
-    (=ucs		. #xEE38)	; 
+  '((=ucs		. #xEE38)	; 
+    (=big5-pua		. #xA05D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05E)	; 
-    (=ucs		. #xEE39)	; 
+  '((=ucs		. #xEE39)	; 
+    (=big5-pua		. #xA05E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA05F)	; 
-    (=ucs		. #xEE3A)	; 
+  '((=ucs		. #xEE3A)	; 
+    (=big5-pua		. #xA05F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA060)	; 
-    (=ucs		. #xEE3B)	; 
+  '((=ucs		. #xEE3B)	; 
+    (=big5-pua		. #xA060)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA061)	; 
-    (=ucs		. #xEE3C)	; 
+  '((=ucs		. #xEE3C)	; 
+    (=big5-pua		. #xA061)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA062)	; 
-    (=ucs		. #xEE3D)	; 
+  '((=ucs		. #xEE3D)	; 
+    (=big5-pua		. #xA062)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA063)	; 
-    (=ucs		. #xEE3E)	; 
+  '((=ucs		. #xEE3E)	; 
+    (=big5-pua		. #xA063)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA064)	; 
-    (=ucs		. #xEE3F)	; 
+  '((=ucs		. #xEE3F)	; 
+    (=big5-pua		. #xA064)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA065)	; 
-    (=ucs		. #xEE40)	; 
+  '((=ucs		. #xEE40)	; 
+    (=big5-pua		. #xA065)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA066)	; 
-    (=ucs		. #xEE41)	; 
+  '((=ucs		. #xEE41)	; 
+    (=big5-pua		. #xA066)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA067)	; 
-    (=ucs		. #xEE42)	; 
+  '((=ucs		. #xEE42)	; 
+    (=big5-pua		. #xA067)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA068)	; 
-    (=ucs		. #xEE43)	; 
+  '((=ucs		. #xEE43)	; 
+    (=big5-pua		. #xA068)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA069)	; 
-    (=ucs		. #xEE44)	; 
+  '((=ucs		. #xEE44)	; 
+    (=big5-pua		. #xA069)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06A)	; 
-    (=ucs		. #xEE45)	; 
+  '((=ucs		. #xEE45)	; 
+    (=big5-pua		. #xA06A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06B)	; 
-    (=ucs		. #xEE46)	; 
+  '((=ucs		. #xEE46)	; 
+    (=big5-pua		. #xA06B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06C)	; 
-    (=ucs		. #xEE47)	; 
+  '((=ucs		. #xEE47)	; 
+    (=big5-pua		. #xA06C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06D)	; 
-    (=ucs		. #xEE48)	; 
+  '((=ucs		. #xEE48)	; 
+    (=big5-pua		. #xA06D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06E)	; 
-    (=ucs		. #xEE49)	; 
+  '((=ucs		. #xEE49)	; 
+    (=big5-pua		. #xA06E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA06F)	; 
-    (=ucs		. #xEE4A)	; 
+  '((=ucs		. #xEE4A)	; 
+    (=big5-pua		. #xA06F)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA070)	; 
-    (=ucs		. #xEE4B)	; 
+  '((=ucs		. #xEE4B)	; 
+    (=big5-pua		. #xA070)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA071)	; 
-    (=ucs		. #xEE4C)	; 
+  '((=ucs		. #xEE4C)	; 
+    (=big5-pua		. #xA071)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA072)	; 
-    (=ucs		. #xEE4D)	; 
+  '((=ucs		. #xEE4D)	; 
+    (=big5-pua		. #xA072)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA073)	; 
-    (=ucs		. #xEE4E)	; 
+  '((=ucs		. #xEE4E)	; 
+    (=big5-pua		. #xA073)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA074)	; 
-    (=ucs		. #xEE4F)	; 
+  '((=ucs		. #xEE4F)	; 
+    (=big5-pua		. #xA074)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA075)	; 
-    (=ucs		. #xEE50)	; 
+  '((=ucs		. #xEE50)	; 
+    (=big5-pua		. #xA075)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA076)	; 
-    (=ucs		. #xEE51)	; 
+  '((=ucs		. #xEE51)	; 
+    (=big5-pua		. #xA076)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA077)	; 
-    (=ucs		. #xEE52)	; 
+  '((=ucs		. #xEE52)	; 
+    (=big5-pua		. #xA077)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA078)	; 
-    (=ucs		. #xEE53)	; 
+  '((=ucs		. #xEE53)	; 
+    (=big5-pua		. #xA078)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA079)	; 
-    (=ucs		. #xEE54)	; 
+  '((=ucs		. #xEE54)	; 
+    (=big5-pua		. #xA079)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA07A)	; 
-    (=ucs		. #xEE55)	; 
+  '((=ucs		. #xEE55)	; 
+    (=big5-pua		. #xA07A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA07B)	; 
-    (=ucs		. #xEE56)	; 
+  '((=ucs		. #xEE56)	; 
+    (=big5-pua		. #xA07B)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA07C)	; 
-    (=ucs		. #xEE57)	; 
+  '((=ucs		. #xEE57)	; 
+    (=big5-pua		. #xA07C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA07D)	; 
-    (=ucs		. #xEE58)	; 
+  '((=ucs		. #xEE58)	; 
+    (=big5-pua		. #xA07D)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA07E)	; 
-    (=ucs		. #xEE59)	; 
+  '((=ucs		. #xEE59)	; 
+    (=big5-pua		. #xA07E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A1)	; 
-    (=ucs		. #xEE5A)	; 
+  '((=ucs		. #xEE5A)	; 
+    (=big5-pua		. #xA0A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A2)	; 
-    (=ucs		. #xEE5B)	; 
+  '((=ucs		. #xEE5B)	; 
+    (=big5-pua		. #xA0A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A3)	; 
-    (=ucs		. #xEE5C)	; 
+  '((=ucs		. #xEE5C)	; 
+    (=big5-pua		. #xA0A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A4)	; 
-    (=ucs		. #xEE5D)	; 
+  '((=ucs		. #xEE5D)	; 
+    (=big5-pua		. #xA0A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A5)	; 
-    (=ucs		. #xEE5E)	; 
+  '((=ucs		. #xEE5E)	; 
+    (=big5-pua		. #xA0A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A6)	; 
-    (=ucs		. #xEE5F)	; 
+  '((=ucs		. #xEE5F)	; 
+    (=big5-pua		. #xA0A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A7)	; 
-    (=ucs		. #xEE60)	; 
+  '((=ucs		. #xEE60)	; 
+    (=big5-pua		. #xA0A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A8)	; 
-    (=ucs		. #xEE61)	; 
+  '((=ucs		. #xEE61)	; 
+    (=big5-pua		. #xA0A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0A9)	; 
-    (=ucs		. #xEE62)	; 
+  '((=ucs		. #xEE62)	; 
+    (=big5-pua		. #xA0A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AA)	; 
-    (=ucs		. #xEE63)	; 
+  '((=ucs		. #xEE63)	; 
+    (=big5-pua		. #xA0AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AB)	; 
-    (=ucs		. #xEE64)	; 
+  '((=ucs		. #xEE64)	; 
+    (=big5-pua		. #xA0AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AC)	; 
-    (=ucs		. #xEE65)	; 
+  '((=ucs		. #xEE65)	; 
+    (=big5-pua		. #xA0AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AD)	; 
-    (=ucs		. #xEE66)	; 
+  '((=ucs		. #xEE66)	; 
+    (=big5-pua		. #xA0AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AE)	; 
-    (=ucs		. #xEE67)	; 
+  '((=ucs		. #xEE67)	; 
+    (=big5-pua		. #xA0AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0AF)	; 
-    (=ucs		. #xEE68)	; 
+  '((=ucs		. #xEE68)	; 
+    (=big5-pua		. #xA0AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B0)	; 
-    (=ucs		. #xEE69)	; 
+  '((=ucs		. #xEE69)	; 
+    (=big5-pua		. #xA0B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B1)	; 
-    (=ucs		. #xEE6A)	; 
+  '((=ucs		. #xEE6A)	; 
+    (=big5-pua		. #xA0B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B2)	; 
-    (=ucs		. #xEE6B)	; 
+  '((=ucs		. #xEE6B)	; 
+    (=big5-pua		. #xA0B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B3)	; 
-    (=ucs		. #xEE6C)	; 
+  '((=ucs		. #xEE6C)	; 
+    (=big5-pua		. #xA0B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B4)	; 
-    (=ucs		. #xEE6D)	; 
+  '((=ucs		. #xEE6D)	; 
+    (=big5-pua		. #xA0B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B5)	; 
-    (=ucs		. #xEE6E)	; 
+  '((=ucs		. #xEE6E)	; 
+    (=big5-pua		. #xA0B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B6)	; 
-    (=ucs		. #xEE6F)	; 
+  '((=ucs		. #xEE6F)	; 
+    (=big5-pua		. #xA0B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B7)	; 
-    (=ucs		. #xEE70)	; 
+  '((=ucs		. #xEE70)	; 
+    (=big5-pua		. #xA0B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B8)	; 
-    (=ucs		. #xEE71)	; 
+  '((=ucs		. #xEE71)	; 
+    (=big5-pua		. #xA0B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0B9)	; 
-    (=ucs		. #xEE72)	; 
+  '((=ucs		. #xEE72)	; 
+    (=big5-pua		. #xA0B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BA)	; 
-    (=ucs		. #xEE73)	; 
+  '((=ucs		. #xEE73)	; 
+    (=big5-pua		. #xA0BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BB)	; 
-    (=ucs		. #xEE74)	; 
+  '((=ucs		. #xEE74)	; 
+    (=big5-pua		. #xA0BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BC)	; 
-    (=ucs		. #xEE75)	; 
+  '((=ucs		. #xEE75)	; 
+    (=big5-pua		. #xA0BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BD)	; 
-    (=ucs		. #xEE76)	; 
+  '((=ucs		. #xEE76)	; 
+    (=big5-pua		. #xA0BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BE)	; 
-    (=ucs		. #xEE77)	; 
+  '((=ucs		. #xEE77)	; 
+    (=big5-pua		. #xA0BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0BF)	; 
-    (=ucs		. #xEE78)	; 
+  '((=ucs		. #xEE78)	; 
+    (=big5-pua		. #xA0BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C0)	; 
-    (=ucs		. #xEE79)	; 
+  '((=ucs		. #xEE79)	; 
+    (=big5-pua		. #xA0C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C1)	; 
-    (=ucs		. #xEE7A)	; 
+  '((=ucs		. #xEE7A)	; 
+    (=big5-pua		. #xA0C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C2)	; 
-    (=ucs		. #xEE7B)	; 
+  '((=ucs		. #xEE7B)	; 
+    (=big5-pua		. #xA0C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C3)	; 
-    (=ucs		. #xEE7C)	; 
+  '((=ucs		. #xEE7C)	; 
+    (=big5-pua		. #xA0C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C4)	; 
-    (=ucs		. #xEE7D)	; 
+  '((=ucs		. #xEE7D)	; 
+    (=big5-pua		. #xA0C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C5)	; 
-    (=ucs		. #xEE7E)	; 
+  '((=ucs		. #xEE7E)	; 
+    (=big5-pua		. #xA0C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C6)	; 
-    (=ucs		. #xEE7F)	; 
+  '((=ucs		. #xEE7F)	; 
+    (=big5-pua		. #xA0C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C7)	; 
-    (=ucs		. #xEE80)	; 
+  '((=ucs		. #xEE80)	; 
+    (=big5-pua		. #xA0C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C8)	; 
-    (=ucs		. #xEE81)	; 
+  '((=ucs		. #xEE81)	; 
+    (=big5-pua		. #xA0C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0C9)	; 
-    (=ucs		. #xEE82)	; 
+  '((=ucs		. #xEE82)	; 
+    (=big5-pua		. #xA0C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CA)	; 
-    (=ucs		. #xEE83)	; 
+  '((=ucs		. #xEE83)	; 
+    (=big5-pua		. #xA0CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CB)	; 
-    (=ucs		. #xEE84)	; 
+  '((=ucs		. #xEE84)	; 
+    (=big5-pua		. #xA0CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CC)	; 
-    (=ucs		. #xEE85)	; 
+  '((=ucs		. #xEE85)	; 
+    (=big5-pua		. #xA0CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CD)	; 
-    (=ucs		. #xEE86)	; 
+  '((=ucs		. #xEE86)	; 
+    (=big5-pua		. #xA0CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CE)	; 
-    (=ucs		. #xEE87)	; 
+  '((=ucs		. #xEE87)	; 
+    (=big5-pua		. #xA0CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0CF)	; 
-    (=ucs		. #xEE88)	; 
+  '((=ucs		. #xEE88)	; 
+    (=big5-pua		. #xA0CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D0)	; 
-    (=ucs		. #xEE89)	; 
+  '((=ucs		. #xEE89)	; 
+    (=big5-pua		. #xA0D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D1)	; 
-    (=ucs		. #xEE8A)	; 
+  '((=ucs		. #xEE8A)	; 
+    (=big5-pua		. #xA0D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D2)	; 
-    (=ucs		. #xEE8B)	; 
+  '((=ucs		. #xEE8B)	; 
+    (=big5-pua		. #xA0D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D3)	; 
-    (=ucs		. #xEE8C)	; 
+  '((=ucs		. #xEE8C)	; 
+    (=big5-pua		. #xA0D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D4)	; 
-    (=ucs		. #xEE8D)	; 
+  '((=ucs		. #xEE8D)	; 
+    (=big5-pua		. #xA0D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D5)	; 
-    (=ucs		. #xEE8E)	; 
+  '((=ucs		. #xEE8E)	; 
+    (=big5-pua		. #xA0D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D6)	; 
-    (=ucs		. #xEE8F)	; 
+  '((=ucs		. #xEE8F)	; 
+    (=big5-pua		. #xA0D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D7)	; 
-    (=ucs		. #xEE90)	; 
+  '((=ucs		. #xEE90)	; 
+    (=big5-pua		. #xA0D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D8)	; 
-    (=ucs		. #xEE91)	; 
+  '((=ucs		. #xEE91)	; 
+    (=big5-pua		. #xA0D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0D9)	; 
-    (=ucs		. #xEE92)	; 
+  '((=ucs		. #xEE92)	; 
+    (=big5-pua		. #xA0D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DA)	; 
-    (=ucs		. #xEE93)	; 
+  '((=ucs		. #xEE93)	; 
+    (=big5-pua		. #xA0DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DB)	; 
-    (=ucs		. #xEE94)	; 
+  '((=ucs		. #xEE94)	; 
+    (=big5-pua		. #xA0DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DC)	; 
-    (=ucs		. #xEE95)	; 
+  '((=ucs		. #xEE95)	; 
+    (=big5-pua		. #xA0DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DD)	; 
-    (=ucs		. #xEE96)	; 
+  '((=ucs		. #xEE96)	; 
+    (=big5-pua		. #xA0DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DE)	; 
-    (=ucs		. #xEE97)	; 
+  '((=ucs		. #xEE97)	; 
+    (=big5-pua		. #xA0DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0DF)	; 
-    (=ucs		. #xEE98)	; 
+  '((=ucs		. #xEE98)	; 
+    (=big5-pua		. #xA0DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E0)	; 
-    (=ucs		. #xEE99)	; 
+  '((=ucs		. #xEE99)	; 
+    (=big5-pua		. #xA0E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E1)	; 
-    (=ucs		. #xEE9A)	; 
+  '((=ucs		. #xEE9A)	; 
+    (=big5-pua		. #xA0E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E2)	; 
-    (=ucs		. #xEE9B)	; 
+  '((=ucs		. #xEE9B)	; 
+    (=big5-pua		. #xA0E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E3)	; 
-    (=ucs		. #xEE9C)	; 
+  '((=ucs		. #xEE9C)	; 
+    (=big5-pua		. #xA0E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E4)	; 
-    (=ucs		. #xEE9D)	; 
+  '((=ucs		. #xEE9D)	; 
+    (=big5-pua		. #xA0E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E5)	; 
-    (=ucs		. #xEE9E)	; 
+  '((=ucs		. #xEE9E)	; 
+    (=big5-pua		. #xA0E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E6)	; 
-    (=ucs		. #xEE9F)	; 
+  '((=ucs		. #xEE9F)	; 
+    (=big5-pua		. #xA0E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E7)	; 
-    (=ucs		. #xEEA0)	; 
+  '((=ucs		. #xEEA0)	; 
+    (=big5-pua		. #xA0E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E8)	; 
-    (=ucs		. #xEEA1)	; 
+  '((=ucs		. #xEEA1)	; 
+    (=big5-pua		. #xA0E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0E9)	; 
-    (=ucs		. #xEEA2)	; 
+  '((=ucs		. #xEEA2)	; 
+    (=big5-pua		. #xA0E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0EA)	; 
-    (=ucs		. #xEEA3)	; 
+  '((=ucs		. #xEEA3)	; 
+    (=big5-pua		. #xA0EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0EB)	; 
-    (=ucs		. #xEEA4)	; 
+  '((=ucs		. #xEEA4)	; 
+    (=big5-pua		. #xA0EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0EC)	; 
-    (=ucs		. #xEEA5)	; 
+  '((=ucs		. #xEEA5)	; 
+    (=big5-pua		. #xA0EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0ED)	; 
-    (=ucs		. #xEEA6)	; 
+  '((=ucs		. #xEEA6)	; 
+    (=big5-pua		. #xA0ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0EE)	; 
-    (=ucs		. #xEEA7)	; 
+  '((=ucs		. #xEEA7)	; 
+    (=big5-pua		. #xA0EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0EF)	; 
-    (=ucs		. #xEEA8)	; 
+  '((=ucs		. #xEEA8)	; 
+    (=big5-pua		. #xA0EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F0)	; 
-    (=ucs		. #xEEA9)	; 
+  '((=ucs		. #xEEA9)	; 
+    (=big5-pua		. #xA0F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F1)	; 
-    (=ucs		. #xEEAA)	; 
+  '((=ucs		. #xEEAA)	; 
+    (=big5-pua		. #xA0F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F2)	; 
-    (=ucs		. #xEEAB)	; 
+  '((=ucs		. #xEEAB)	; 
+    (=big5-pua		. #xA0F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F3)	; 
-    (=ucs		. #xEEAC)	; 
+  '((=ucs		. #xEEAC)	; 
+    (=big5-pua		. #xA0F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F4)	; 
-    (=ucs		. #xEEAD)	; 
+  '((=ucs		. #xEEAD)	; 
+    (=big5-pua		. #xA0F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F5)	; 
-    (=ucs		. #xEEAE)	; 
+  '((=ucs		. #xEEAE)	; 
+    (=big5-pua		. #xA0F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F6)	; 
-    (=ucs		. #xEEAF)	; 
+  '((=ucs		. #xEEAF)	; 
+    (=big5-pua		. #xA0F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F7)	; 
-    (=ucs		. #xEEB0)	; 
+  '((=ucs		. #xEEB0)	; 
+    (=big5-pua		. #xA0F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F8)	; 
-    (=ucs		. #xEEB1)	; 
+  '((=ucs		. #xEEB1)	; 
+    (=big5-pua		. #xA0F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0F9)	; 
-    (=ucs		. #xEEB2)	; 
+  '((=ucs		. #xEEB2)	; 
+    (=big5-pua		. #xA0F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0FA)	; 
-    (=ucs		. #xEEB3)	; 
+  '((=ucs		. #xEEB3)	; 
+    (=big5-pua		. #xA0FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0FB)	; 
-    (=ucs		. #xEEB4)	; 
+  '((=ucs		. #xEEB4)	; 
+    (=big5-pua		. #xA0FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0FC)	; 
-    (=ucs		. #xEEB5)	; 
+  '((=ucs		. #xEEB5)	; 
+    (=big5-pua		. #xA0FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0FD)	; 
-    (=ucs		. #xEEB6)	; 
+  '((=ucs		. #xEEB6)	; 
+    (=big5-pua		. #xA0FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xA0FE)	; 
-    (=ucs		. #xEEB7)	; 
+  '((=ucs		. #xEEB7)	; 
+    (=big5-pua		. #xA0FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8140)	; 
-    (=ucs		. #xEEB8)	; 
+  '((=ucs		. #xEEB8)	; 
+    (=big5-pua		. #x8140)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8141)	; 
-    (=ucs		. #xEEB9)	; 
+  '((=ucs		. #xEEB9)	; 
+    (=big5-pua		. #x8141)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8142)	; 
-    (=ucs		. #xEEBA)	; 
+  '((=ucs		. #xEEBA)	; 
+    (=big5-pua		. #x8142)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8143)	; 
-    (=ucs		. #xEEBB)	; 
+  '((=ucs		. #xEEBB)	; 
+    (=big5-pua		. #x8143)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8144)	; 
-    (=ucs		. #xEEBC)	; 
+  '((=ucs		. #xEEBC)	; 
+    (=big5-pua		. #x8144)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8145)	; 
-    (=ucs		. #xEEBD)	; 
+  '((=ucs		. #xEEBD)	; 
+    (=big5-pua		. #x8145)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8146)	; 
-    (=ucs		. #xEEBE)	; 
+  '((=ucs		. #xEEBE)	; 
+    (=big5-pua		. #x8146)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8147)	; 
-    (=ucs		. #xEEBF)	; 
+  '((=ucs		. #xEEBF)	; 
+    (=big5-pua		. #x8147)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8148)	; 
-    (=ucs		. #xEEC0)	; 
+  '((=ucs		. #xEEC0)	; 
+    (=big5-pua		. #x8148)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8149)	; 
-    (=ucs		. #xEEC1)	; 
+  '((=ucs		. #xEEC1)	; 
+    (=big5-pua		. #x8149)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814A)	; 
-    (=ucs		. #xEEC2)	; 
+  '((=ucs		. #xEEC2)	; 
+    (=big5-pua		. #x814A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814B)	; 
-    (=ucs		. #xEEC3)	; 
+  '((=ucs		. #xEEC3)	; 
+    (=big5-pua		. #x814B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814C)	; 
-    (=ucs		. #xEEC4)	; 
+  '((=ucs		. #xEEC4)	; 
+    (=big5-pua		. #x814C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814D)	; 
-    (=ucs		. #xEEC5)	; 
+  '((=ucs		. #xEEC5)	; 
+    (=big5-pua		. #x814D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814E)	; 
-    (=ucs		. #xEEC6)	; 
+  '((=ucs		. #xEEC6)	; 
+    (=big5-pua		. #x814E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x814F)	; 
-    (=ucs		. #xEEC7)	; 
+  '((=ucs		. #xEEC7)	; 
+    (=big5-pua		. #x814F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8150)	; 
-    (=ucs		. #xEEC8)	; 
+  '((=ucs		. #xEEC8)	; 
+    (=big5-pua		. #x8150)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8151)	; 
-    (=ucs		. #xEEC9)	; 
+  '((=ucs		. #xEEC9)	; 
+    (=big5-pua		. #x8151)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8152)	; 
-    (=ucs		. #xEECA)	; 
+  '((=ucs		. #xEECA)	; 
+    (=big5-pua		. #x8152)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8153)	; 
-    (=ucs		. #xEECB)	; 
+  '((=ucs		. #xEECB)	; 
+    (=big5-pua		. #x8153)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8154)	; 
-    (=ucs		. #xEECC)	; 
+  '((=ucs		. #xEECC)	; 
+    (=big5-pua		. #x8154)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8155)	; 
-    (=ucs		. #xEECD)	; 
+  '((=ucs		. #xEECD)	; 
+    (=big5-pua		. #x8155)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8156)	; 
-    (=ucs		. #xEECE)	; 
+  '((=ucs		. #xEECE)	; 
+    (=big5-pua		. #x8156)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8157)	; 
-    (=ucs		. #xEECF)	; 
+  '((=ucs		. #xEECF)	; 
+    (=big5-pua		. #x8157)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8158)	; 
-    (=ucs		. #xEED0)	; 
+  '((=ucs		. #xEED0)	; 
+    (=big5-pua		. #x8158)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8159)	; 
-    (=ucs		. #xEED1)	; 
+  '((=ucs		. #xEED1)	; 
+    (=big5-pua		. #x8159)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815A)	; 
-    (=ucs		. #xEED2)	; 
+  '((=ucs		. #xEED2)	; 
+    (=big5-pua		. #x815A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815B)	; 
-    (=ucs		. #xEED3)	; 
+  '((=ucs		. #xEED3)	; 
+    (=big5-pua		. #x815B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815C)	; 
-    (=ucs		. #xEED4)	; 
+  '((=ucs		. #xEED4)	; 
+    (=big5-pua		. #x815C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815D)	; 
-    (=ucs		. #xEED5)	; 
+  '((=ucs		. #xEED5)	; 
+    (=big5-pua		. #x815D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815E)	; 
-    (=ucs		. #xEED6)	; 
+  '((=ucs		. #xEED6)	; 
+    (=big5-pua		. #x815E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x815F)	; 
-    (=ucs		. #xEED7)	; 
+  '((=ucs		. #xEED7)	; 
+    (=big5-pua		. #x815F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8160)	; 
-    (=ucs		. #xEED8)	; 
+  '((=ucs		. #xEED8)	; 
+    (=big5-pua		. #x8160)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8161)	; 
-    (=ucs		. #xEED9)	; 
+  '((=ucs		. #xEED9)	; 
+    (=big5-pua		. #x8161)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8162)	; 
-    (=ucs		. #xEEDA)	; 
+  '((=ucs		. #xEEDA)	; 
+    (=big5-pua		. #x8162)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8163)	; 
-    (=ucs		. #xEEDB)	; 
+  '((=ucs		. #xEEDB)	; 
+    (=big5-pua		. #x8163)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8164)	; 
-    (=ucs		. #xEEDC)	; 
+  '((=ucs		. #xEEDC)	; 
+    (=big5-pua		. #x8164)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8165)	; 
-    (=ucs		. #xEEDD)	; 
+  '((=ucs		. #xEEDD)	; 
+    (=big5-pua		. #x8165)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8166)	; 
-    (=ucs		. #xEEDE)	; 
+  '((=ucs		. #xEEDE)	; 
+    (=big5-pua		. #x8166)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8167)	; 
-    (=ucs		. #xEEDF)	; 
+  '((=ucs		. #xEEDF)	; 
+    (=big5-pua		. #x8167)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8168)	; 
-    (=ucs		. #xEEE0)	; 
+  '((=ucs		. #xEEE0)	; 
+    (=big5-pua		. #x8168)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8169)	; 
-    (=ucs		. #xEEE1)	; 
+  '((=ucs		. #xEEE1)	; 
+    (=big5-pua		. #x8169)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816A)	; 
-    (=ucs		. #xEEE2)	; 
+  '((=ucs		. #xEEE2)	; 
+    (=big5-pua		. #x816A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816B)	; 
-    (=ucs		. #xEEE3)	; 
+  '((=ucs		. #xEEE3)	; 
+    (=big5-pua		. #x816B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816C)	; 
-    (=ucs		. #xEEE4)	; 
+  '((=ucs		. #xEEE4)	; 
+    (=big5-pua		. #x816C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816D)	; 
-    (=ucs		. #xEEE5)	; 
+  '((=ucs		. #xEEE5)	; 
+    (=big5-pua		. #x816D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816E)	; 
-    (=ucs		. #xEEE6)	; 
+  '((=ucs		. #xEEE6)	; 
+    (=big5-pua		. #x816E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x816F)	; 
-    (=ucs		. #xEEE7)	; 
+  '((=ucs		. #xEEE7)	; 
+    (=big5-pua		. #x816F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8170)	; 
-    (=ucs		. #xEEE8)	; 
+  '((=ucs		. #xEEE8)	; 
+    (=big5-pua		. #x8170)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8171)	; 
-    (=ucs		. #xEEE9)	; 
+  '((=ucs		. #xEEE9)	; 
+    (=big5-pua		. #x8171)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8172)	; 
-    (=ucs		. #xEEEA)	; 
+  '((=ucs		. #xEEEA)	; 
+    (=big5-pua		. #x8172)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8173)	; 
-    (=ucs		. #xEEEB)	; 
+  '((=ucs		. #xEEEB)	; 
+    (=big5-pua		. #x8173)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8174)	; 
-    (=ucs		. #xEEEC)	; 
+  '((=ucs		. #xEEEC)	; 
+    (=big5-pua		. #x8174)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8175)	; 
-    (=ucs		. #xEEED)	; 
+  '((=ucs		. #xEEED)	; 
+    (=big5-pua		. #x8175)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8176)	; 
-    (=ucs		. #xEEEE)	; 
+  '((=ucs		. #xEEEE)	; 
+    (=big5-pua		. #x8176)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8177)	; 
-    (=ucs		. #xEEEF)	; 
+  '((=ucs		. #xEEEF)	; 
+    (=big5-pua		. #x8177)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8178)	; 
-    (=ucs		. #xEEF0)	; 
+  '((=ucs		. #xEEF0)	; 
+    (=big5-pua		. #x8178)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8179)	; 
-    (=ucs		. #xEEF1)	; 
+  '((=ucs		. #xEEF1)	; 
+    (=big5-pua		. #x8179)	; 
     ))
 (define-char
-  '((=big5-pua		. #x817A)	; 
-    (=ucs		. #xEEF2)	; 
+  '((=ucs		. #xEEF2)	; 
+    (=big5-pua		. #x817A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x817B)	; 
-    (=ucs		. #xEEF3)	; 
+  '((=ucs		. #xEEF3)	; 
+    (=big5-pua		. #x817B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x817C)	; 
-    (=ucs		. #xEEF4)	; 
+  '((=ucs		. #xEEF4)	; 
+    (=big5-pua		. #x817C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x817D)	; 
-    (=ucs		. #xEEF5)	; 
+  '((=ucs		. #xEEF5)	; 
+    (=big5-pua		. #x817D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x817E)	; 
-    (=ucs		. #xEEF6)	; 
+  '((=ucs		. #xEEF6)	; 
+    (=big5-pua		. #x817E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A1)	; 
-    (=ucs		. #xEEF7)	; 
+  '((=ucs		. #xEEF7)	; 
+    (=big5-pua		. #x81A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A2)	; 
-    (=ucs		. #xEEF8)	; 
+  '((=ucs		. #xEEF8)	; 
+    (=big5-pua		. #x81A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A3)	; 
-    (=ucs		. #xEEF9)	; 
+  '((=ucs		. #xEEF9)	; 
+    (=big5-pua		. #x81A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A4)	; 
-    (=ucs		. #xEEFA)	; 
+  '((=ucs		. #xEEFA)	; 
+    (=big5-pua		. #x81A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A5)	; 
-    (=ucs		. #xEEFB)	; 
+  '((=ucs		. #xEEFB)	; 
+    (=big5-pua		. #x81A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A6)	; 
-    (=ucs		. #xEEFC)	; 
+  '((=ucs		. #xEEFC)	; 
+    (=big5-pua		. #x81A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A7)	; 
-    (=ucs		. #xEEFD)	; 
+  '((=ucs		. #xEEFD)	; 
+    (=big5-pua		. #x81A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A8)	; 
-    (=ucs		. #xEEFE)	; 
+  '((=ucs		. #xEEFE)	; 
+    (=big5-pua		. #x81A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81A9)	; 
-    (=ucs		. #xEEFF)	; 
+  '((=ucs		. #xEEFF)	; 
+    (=big5-pua		. #x81A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AA)	; 
-    (=ucs		. #xEF00)	; 
+  '((=ucs		. #xEF00)	; 
+    (=big5-pua		. #x81AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AB)	; 
-    (=ucs		. #xEF01)	; 
+  '((=ucs		. #xEF01)	; 
+    (=big5-pua		. #x81AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AC)	; 
-    (=ucs		. #xEF02)	; 
+  '((=ucs		. #xEF02)	; 
+    (=big5-pua		. #x81AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AD)	; 
-    (=ucs		. #xEF03)	; 
+  '((=ucs		. #xEF03)	; 
+    (=big5-pua		. #x81AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AE)	; 
-    (=ucs		. #xEF04)	; 
+  '((=ucs		. #xEF04)	; 
+    (=big5-pua		. #x81AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81AF)	; 
-    (=ucs		. #xEF05)	; 
+  '((=ucs		. #xEF05)	; 
+    (=big5-pua		. #x81AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B0)	; 
-    (=ucs		. #xEF06)	; 
+  '((=ucs		. #xEF06)	; 
+    (=big5-pua		. #x81B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B1)	; 
-    (=ucs		. #xEF07)	; 
+  '((=ucs		. #xEF07)	; 
+    (=big5-pua		. #x81B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B2)	; 
-    (=ucs		. #xEF08)	; 
+  '((=ucs		. #xEF08)	; 
+    (=big5-pua		. #x81B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B3)	; 
-    (=ucs		. #xEF09)	; 
+  '((=ucs		. #xEF09)	; 
+    (=big5-pua		. #x81B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B4)	; 
-    (=ucs		. #xEF0A)	; 
+  '((=ucs		. #xEF0A)	; 
+    (=big5-pua		. #x81B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B5)	; 
-    (=ucs		. #xEF0B)	; 
+  '((=ucs		. #xEF0B)	; 
+    (=big5-pua		. #x81B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B6)	; 
-    (=ucs		. #xEF0C)	; 
+  '((=ucs		. #xEF0C)	; 
+    (=big5-pua		. #x81B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B7)	; 
-    (=ucs		. #xEF0D)	; 
+  '((=ucs		. #xEF0D)	; 
+    (=big5-pua		. #x81B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B8)	; 
-    (=ucs		. #xEF0E)	; 
+  '((=ucs		. #xEF0E)	; 
+    (=big5-pua		. #x81B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81B9)	; 
-    (=ucs		. #xEF0F)	; 
+  '((=ucs		. #xEF0F)	; 
+    (=big5-pua		. #x81B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BA)	; 
-    (=ucs		. #xEF10)	; 
+  '((=ucs		. #xEF10)	; 
+    (=big5-pua		. #x81BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BB)	; 
-    (=ucs		. #xEF11)	; 
+  '((=ucs		. #xEF11)	; 
+    (=big5-pua		. #x81BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BC)	; 
-    (=ucs		. #xEF12)	; 
+  '((=ucs		. #xEF12)	; 
+    (=big5-pua		. #x81BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BD)	; 
-    (=ucs		. #xEF13)	; 
+  '((=ucs		. #xEF13)	; 
+    (=big5-pua		. #x81BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BE)	; 
-    (=ucs		. #xEF14)	; 
+  '((=ucs		. #xEF14)	; 
+    (=big5-pua		. #x81BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81BF)	; 
-    (=ucs		. #xEF15)	; 
+  '((=ucs		. #xEF15)	; 
+    (=big5-pua		. #x81BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C0)	; 
-    (=ucs		. #xEF16)	; 
+  '((=ucs		. #xEF16)	; 
+    (=big5-pua		. #x81C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C1)	; 
-    (=ucs		. #xEF17)	; 
+  '((=ucs		. #xEF17)	; 
+    (=big5-pua		. #x81C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C2)	; 
-    (=ucs		. #xEF18)	; 
+  '((=ucs		. #xEF18)	; 
+    (=big5-pua		. #x81C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C3)	; 
-    (=ucs		. #xEF19)	; 
+  '((=ucs		. #xEF19)	; 
+    (=big5-pua		. #x81C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C4)	; 
-    (=ucs		. #xEF1A)	; 
+  '((=ucs		. #xEF1A)	; 
+    (=big5-pua		. #x81C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C5)	; 
-    (=ucs		. #xEF1B)	; 
+  '((=ucs		. #xEF1B)	; 
+    (=big5-pua		. #x81C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C6)	; 
-    (=ucs		. #xEF1C)	; 
+  '((=ucs		. #xEF1C)	; 
+    (=big5-pua		. #x81C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C7)	; 
-    (=ucs		. #xEF1D)	; 
+  '((=ucs		. #xEF1D)	; 
+    (=big5-pua		. #x81C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C8)	; 
-    (=ucs		. #xEF1E)	; 
+  '((=ucs		. #xEF1E)	; 
+    (=big5-pua		. #x81C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81C9)	; 
-    (=ucs		. #xEF1F)	; 
+  '((=ucs		. #xEF1F)	; 
+    (=big5-pua		. #x81C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CA)	; 
-    (=ucs		. #xEF20)	; 
+  '((=ucs		. #xEF20)	; 
+    (=big5-pua		. #x81CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CB)	; 
-    (=ucs		. #xEF21)	; 
+  '((=ucs		. #xEF21)	; 
+    (=big5-pua		. #x81CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CC)	; 
-    (=ucs		. #xEF22)	; 
+  '((=ucs		. #xEF22)	; 
+    (=big5-pua		. #x81CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CD)	; 
-    (=ucs		. #xEF23)	; 
+  '((=ucs		. #xEF23)	; 
+    (=big5-pua		. #x81CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CE)	; 
-    (=ucs		. #xEF24)	; 
+  '((=ucs		. #xEF24)	; 
+    (=big5-pua		. #x81CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81CF)	; 
-    (=ucs		. #xEF25)	; 
+  '((=ucs		. #xEF25)	; 
+    (=big5-pua		. #x81CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D0)	; 
-    (=ucs		. #xEF26)	; 
+  '((=ucs		. #xEF26)	; 
+    (=big5-pua		. #x81D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D1)	; 
-    (=ucs		. #xEF27)	; 
+  '((=ucs		. #xEF27)	; 
+    (=big5-pua		. #x81D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D2)	; 
-    (=ucs		. #xEF28)	; 
+  '((=ucs		. #xEF28)	; 
+    (=big5-pua		. #x81D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D3)	; 
-    (=ucs		. #xEF29)	; 
+  '((=ucs		. #xEF29)	; 
+    (=big5-pua		. #x81D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D4)	; 
-    (=ucs		. #xEF2A)	; 
+  '((=ucs		. #xEF2A)	; 
+    (=big5-pua		. #x81D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D5)	; 
-    (=ucs		. #xEF2B)	; 
+  '((=ucs		. #xEF2B)	; 
+    (=big5-pua		. #x81D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D6)	; 
-    (=ucs		. #xEF2C)	; 
+  '((=ucs		. #xEF2C)	; 
+    (=big5-pua		. #x81D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D7)	; 
-    (=ucs		. #xEF2D)	; 
+  '((=ucs		. #xEF2D)	; 
+    (=big5-pua		. #x81D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D8)	; 
-    (=ucs		. #xEF2E)	; 
+  '((=ucs		. #xEF2E)	; 
+    (=big5-pua		. #x81D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81D9)	; 
-    (=ucs		. #xEF2F)	; 
+  '((=ucs		. #xEF2F)	; 
+    (=big5-pua		. #x81D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DA)	; 
-    (=ucs		. #xEF30)	; 
+  '((=ucs		. #xEF30)	; 
+    (=big5-pua		. #x81DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DB)	; 
-    (=ucs		. #xEF31)	; 
+  '((=ucs		. #xEF31)	; 
+    (=big5-pua		. #x81DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DC)	; 
-    (=ucs		. #xEF32)	; 
+  '((=ucs		. #xEF32)	; 
+    (=big5-pua		. #x81DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DD)	; 
-    (=ucs		. #xEF33)	; 
+  '((=ucs		. #xEF33)	; 
+    (=big5-pua		. #x81DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DE)	; 
-    (=ucs		. #xEF34)	; 
+  '((=ucs		. #xEF34)	; 
+    (=big5-pua		. #x81DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81DF)	; 
-    (=ucs		. #xEF35)	; 
+  '((=ucs		. #xEF35)	; 
+    (=big5-pua		. #x81DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E0)	; 
-    (=ucs		. #xEF36)	; 
+  '((=ucs		. #xEF36)	; 
+    (=big5-pua		. #x81E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E1)	; 
-    (=ucs		. #xEF37)	; 
+  '((=ucs		. #xEF37)	; 
+    (=big5-pua		. #x81E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E2)	; 
-    (=ucs		. #xEF38)	; 
+  '((=ucs		. #xEF38)	; 
+    (=big5-pua		. #x81E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E3)	; 
-    (=ucs		. #xEF39)	; 
+  '((=ucs		. #xEF39)	; 
+    (=big5-pua		. #x81E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E4)	; 
-    (=ucs		. #xEF3A)	; 
+  '((=ucs		. #xEF3A)	; 
+    (=big5-pua		. #x81E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E5)	; 
-    (=ucs		. #xEF3B)	; 
+  '((=ucs		. #xEF3B)	; 
+    (=big5-pua		. #x81E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E6)	; 
-    (=ucs		. #xEF3C)	; 
+  '((=ucs		. #xEF3C)	; 
+    (=big5-pua		. #x81E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E7)	; 
-    (=ucs		. #xEF3D)	; 
+  '((=ucs		. #xEF3D)	; 
+    (=big5-pua		. #x81E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E8)	; 
-    (=ucs		. #xEF3E)	; 
+  '((=ucs		. #xEF3E)	; 
+    (=big5-pua		. #x81E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81E9)	; 
-    (=ucs		. #xEF3F)	; 
+  '((=ucs		. #xEF3F)	; 
+    (=big5-pua		. #x81E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81EA)	; 
-    (=ucs		. #xEF40)	; 
+  '((=ucs		. #xEF40)	; 
+    (=big5-pua		. #x81EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81EB)	; 
-    (=ucs		. #xEF41)	; 
+  '((=ucs		. #xEF41)	; 
+    (=big5-pua		. #x81EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81EC)	; 
-    (=ucs		. #xEF42)	; 
+  '((=ucs		. #xEF42)	; 
+    (=big5-pua		. #x81EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81ED)	; 
-    (=ucs		. #xEF43)	; 
+  '((=ucs		. #xEF43)	; 
+    (=big5-pua		. #x81ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81EE)	; 
-    (=ucs		. #xEF44)	; 
+  '((=ucs		. #xEF44)	; 
+    (=big5-pua		. #x81EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81EF)	; 
-    (=ucs		. #xEF45)	; 
+  '((=ucs		. #xEF45)	; 
+    (=big5-pua		. #x81EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F0)	; 
-    (=ucs		. #xEF46)	; 
+  '((=ucs		. #xEF46)	; 
+    (=big5-pua		. #x81F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F1)	; 
-    (=ucs		. #xEF47)	; 
+  '((=ucs		. #xEF47)	; 
+    (=big5-pua		. #x81F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F2)	; 
-    (=ucs		. #xEF48)	; 
+  '((=ucs		. #xEF48)	; 
+    (=big5-pua		. #x81F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F3)	; 
-    (=ucs		. #xEF49)	; 
+  '((=ucs		. #xEF49)	; 
+    (=big5-pua		. #x81F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F4)	; 
-    (=ucs		. #xEF4A)	; 
+  '((=ucs		. #xEF4A)	; 
+    (=big5-pua		. #x81F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F5)	; 
-    (=ucs		. #xEF4B)	; 
+  '((=ucs		. #xEF4B)	; 
+    (=big5-pua		. #x81F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F6)	; 
-    (=ucs		. #xEF4C)	; 
+  '((=ucs		. #xEF4C)	; 
+    (=big5-pua		. #x81F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F7)	; 
-    (=ucs		. #xEF4D)	; 
+  '((=ucs		. #xEF4D)	; 
+    (=big5-pua		. #x81F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F8)	; 
-    (=ucs		. #xEF4E)	; 
+  '((=ucs		. #xEF4E)	; 
+    (=big5-pua		. #x81F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81F9)	; 
-    (=ucs		. #xEF4F)	; 
+  '((=ucs		. #xEF4F)	; 
+    (=big5-pua		. #x81F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81FA)	; 
-    (=ucs		. #xEF50)	; 
+  '((=ucs		. #xEF50)	; 
+    (=big5-pua		. #x81FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81FB)	; 
-    (=ucs		. #xEF51)	; 
+  '((=ucs		. #xEF51)	; 
+    (=big5-pua		. #x81FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81FC)	; 
-    (=ucs		. #xEF52)	; 
+  '((=ucs		. #xEF52)	; 
+    (=big5-pua		. #x81FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81FD)	; 
-    (=ucs		. #xEF53)	; 
+  '((=ucs		. #xEF53)	; 
+    (=big5-pua		. #x81FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x81FE)	; 
-    (=ucs		. #xEF54)	; 
+  '((=ucs		. #xEF54)	; 
+    (=big5-pua		. #x81FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8240)	; 
-    (=ucs		. #xEF55)	; 
+  '((=ucs		. #xEF55)	; 
+    (=big5-pua		. #x8240)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8241)	; 
-    (=ucs		. #xEF56)	; 
+  '((=ucs		. #xEF56)	; 
+    (=big5-pua		. #x8241)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8242)	; 
-    (=ucs		. #xEF57)	; 
+  '((=ucs		. #xEF57)	; 
+    (=big5-pua		. #x8242)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8243)	; 
-    (=ucs		. #xEF58)	; 
+  '((=ucs		. #xEF58)	; 
+    (=big5-pua		. #x8243)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8244)	; 
-    (=ucs		. #xEF59)	; 
+  '((=ucs		. #xEF59)	; 
+    (=big5-pua		. #x8244)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8245)	; 
-    (=ucs		. #xEF5A)	; 
+  '((=ucs		. #xEF5A)	; 
+    (=big5-pua		. #x8245)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8246)	; 
-    (=ucs		. #xEF5B)	; 
+  '((=ucs		. #xEF5B)	; 
+    (=big5-pua		. #x8246)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8247)	; 
-    (=ucs		. #xEF5C)	; 
+  '((=ucs		. #xEF5C)	; 
+    (=big5-pua		. #x8247)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8248)	; 
-    (=ucs		. #xEF5D)	; 
+  '((=ucs		. #xEF5D)	; 
+    (=big5-pua		. #x8248)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8249)	; 
-    (=ucs		. #xEF5E)	; 
+  '((=ucs		. #xEF5E)	; 
+    (=big5-pua		. #x8249)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824A)	; 
-    (=ucs		. #xEF5F)	; 
+  '((=ucs		. #xEF5F)	; 
+    (=big5-pua		. #x824A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824B)	; 
-    (=ucs		. #xEF60)	; 
+  '((=ucs		. #xEF60)	; 
+    (=big5-pua		. #x824B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824C)	; 
-    (=ucs		. #xEF61)	; 
+  '((=ucs		. #xEF61)	; 
+    (=big5-pua		. #x824C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824D)	; 
-    (=ucs		. #xEF62)	; 
+  '((=ucs		. #xEF62)	; 
+    (=big5-pua		. #x824D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824E)	; 
-    (=ucs		. #xEF63)	; 
+  '((=ucs		. #xEF63)	; 
+    (=big5-pua		. #x824E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x824F)	; 
-    (=ucs		. #xEF64)	; 
+  '((=ucs		. #xEF64)	; 
+    (=big5-pua		. #x824F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8250)	; 
-    (=ucs		. #xEF65)	; 
+  '((=ucs		. #xEF65)	; 
+    (=big5-pua		. #x8250)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8251)	; 
-    (=ucs		. #xEF66)	; 
+  '((=ucs		. #xEF66)	; 
+    (=big5-pua		. #x8251)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8252)	; 
-    (=ucs		. #xEF67)	; 
+  '((=ucs		. #xEF67)	; 
+    (=big5-pua		. #x8252)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8253)	; 
-    (=ucs		. #xEF68)	; 
+  '((=ucs		. #xEF68)	; 
+    (=big5-pua		. #x8253)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8254)	; 
-    (=ucs		. #xEF69)	; 
+  '((=ucs		. #xEF69)	; 
+    (=big5-pua		. #x8254)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8255)	; 
-    (=ucs		. #xEF6A)	; 
+  '((=ucs		. #xEF6A)	; 
+    (=big5-pua		. #x8255)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8256)	; 
-    (=ucs		. #xEF6B)	; 
+  '((=ucs		. #xEF6B)	; 
+    (=big5-pua		. #x8256)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8257)	; 
-    (=ucs		. #xEF6C)	; 
+  '((=ucs		. #xEF6C)	; 
+    (=big5-pua		. #x8257)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8258)	; 
-    (=ucs		. #xEF6D)	; 
+  '((=ucs		. #xEF6D)	; 
+    (=big5-pua		. #x8258)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8259)	; 
-    (=ucs		. #xEF6E)	; 
+  '((=ucs		. #xEF6E)	; 
+    (=big5-pua		. #x8259)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825A)	; 
-    (=ucs		. #xEF6F)	; 
+  '((=ucs		. #xEF6F)	; 
+    (=big5-pua		. #x825A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825B)	; 
-    (=ucs		. #xEF70)	; 
+  '((=ucs		. #xEF70)	; 
+    (=big5-pua		. #x825B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825C)	; 
-    (=ucs		. #xEF71)	; 
+  '((=ucs		. #xEF71)	; 
+    (=big5-pua		. #x825C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825D)	; 
-    (=ucs		. #xEF72)	; 
+  '((=ucs		. #xEF72)	; 
+    (=big5-pua		. #x825D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825E)	; 
-    (=ucs		. #xEF73)	; 
+  '((=ucs		. #xEF73)	; 
+    (=big5-pua		. #x825E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x825F)	; 
-    (=ucs		. #xEF74)	; 
+  '((=ucs		. #xEF74)	; 
+    (=big5-pua		. #x825F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8260)	; 
-    (=ucs		. #xEF75)	; 
+  '((=ucs		. #xEF75)	; 
+    (=big5-pua		. #x8260)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8261)	; 
-    (=ucs		. #xEF76)	; 
+  '((=ucs		. #xEF76)	; 
+    (=big5-pua		. #x8261)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8262)	; 
-    (=ucs		. #xEF77)	; 
+  '((=ucs		. #xEF77)	; 
+    (=big5-pua		. #x8262)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8263)	; 
-    (=ucs		. #xEF78)	; 
+  '((=ucs		. #xEF78)	; 
+    (=big5-pua		. #x8263)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8264)	; 
-    (=ucs		. #xEF79)	; 
+  '((=ucs		. #xEF79)	; 
+    (=big5-pua		. #x8264)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8265)	; 
-    (=ucs		. #xEF7A)	; 
+  '((=ucs		. #xEF7A)	; 
+    (=big5-pua		. #x8265)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8266)	; 
-    (=ucs		. #xEF7B)	; 
+  '((=ucs		. #xEF7B)	; 
+    (=big5-pua		. #x8266)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8267)	; 
-    (=ucs		. #xEF7C)	; 
+  '((=ucs		. #xEF7C)	; 
+    (=big5-pua		. #x8267)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8268)	; 
-    (=ucs		. #xEF7D)	; 
+  '((=ucs		. #xEF7D)	; 
+    (=big5-pua		. #x8268)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8269)	; 
-    (=ucs		. #xEF7E)	; 
+  '((=ucs		. #xEF7E)	; 
+    (=big5-pua		. #x8269)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826A)	; 
-    (=ucs		. #xEF7F)	; 
+  '((=ucs		. #xEF7F)	; 
+    (=big5-pua		. #x826A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826B)	; 
-    (=ucs		. #xEF80)	; 
+  '((=ucs		. #xEF80)	; 
+    (=big5-pua		. #x826B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826C)	; 
-    (=ucs		. #xEF81)	; 
+  '((=ucs		. #xEF81)	; 
+    (=big5-pua		. #x826C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826D)	; 
-    (=ucs		. #xEF82)	; 
+  '((=ucs		. #xEF82)	; 
+    (=big5-pua		. #x826D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826E)	; 
-    (=ucs		. #xEF83)	; 
+  '((=ucs		. #xEF83)	; 
+    (=big5-pua		. #x826E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x826F)	; 
-    (=ucs		. #xEF84)	; 
+  '((=ucs		. #xEF84)	; 
+    (=big5-pua		. #x826F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8270)	; 
-    (=ucs		. #xEF85)	; 
+  '((=ucs		. #xEF85)	; 
+    (=big5-pua		. #x8270)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8271)	; 
-    (=ucs		. #xEF86)	; 
+  '((=ucs		. #xEF86)	; 
+    (=big5-pua		. #x8271)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8272)	; 
-    (=ucs		. #xEF87)	; 
+  '((=ucs		. #xEF87)	; 
+    (=big5-pua		. #x8272)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8273)	; 
-    (=ucs		. #xEF88)	; 
+  '((=ucs		. #xEF88)	; 
+    (=big5-pua		. #x8273)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8274)	; 
-    (=ucs		. #xEF89)	; 
+  '((=ucs		. #xEF89)	; 
+    (=big5-pua		. #x8274)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8275)	; 
-    (=ucs		. #xEF8A)	; 
+  '((=ucs		. #xEF8A)	; 
+    (=big5-pua		. #x8275)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8276)	; 
-    (=ucs		. #xEF8B)	; 
+  '((=ucs		. #xEF8B)	; 
+    (=big5-pua		. #x8276)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8277)	; 
-    (=ucs		. #xEF8C)	; 
+  '((=ucs		. #xEF8C)	; 
+    (=big5-pua		. #x8277)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8278)	; 
-    (=ucs		. #xEF8D)	; 
+  '((=ucs		. #xEF8D)	; 
+    (=big5-pua		. #x8278)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8279)	; 
-    (=ucs		. #xEF8E)	; 
+  '((=ucs		. #xEF8E)	; 
+    (=big5-pua		. #x8279)	; 
     ))
 (define-char
-  '((=big5-pua		. #x827A)	; 
-    (=ucs		. #xEF8F)	; 
+  '((=ucs		. #xEF8F)	; 
+    (=big5-pua		. #x827A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x827B)	; 
-    (=ucs		. #xEF90)	; 
+  '((=ucs		. #xEF90)	; 
+    (=big5-pua		. #x827B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x827C)	; 
-    (=ucs		. #xEF91)	; 
+  '((=ucs		. #xEF91)	; 
+    (=big5-pua		. #x827C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x827D)	; 
-    (=ucs		. #xEF92)	; 
+  '((=ucs		. #xEF92)	; 
+    (=big5-pua		. #x827D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x827E)	; 
-    (=ucs		. #xEF93)	; 
+  '((=ucs		. #xEF93)	; 
+    (=big5-pua		. #x827E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A1)	; 
-    (=ucs		. #xEF94)	; 
+  '((=ucs		. #xEF94)	; 
+    (=big5-pua		. #x82A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A2)	; 
-    (=ucs		. #xEF95)	; 
+  '((=ucs		. #xEF95)	; 
+    (=big5-pua		. #x82A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A3)	; 
-    (=ucs		. #xEF96)	; 
+  '((=ucs		. #xEF96)	; 
+    (=big5-pua		. #x82A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A4)	; 
-    (=ucs		. #xEF97)	; 
+  '((=ucs		. #xEF97)	; 
+    (=big5-pua		. #x82A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A5)	; 
-    (=ucs		. #xEF98)	; 
+  '((=ucs		. #xEF98)	; 
+    (=big5-pua		. #x82A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A6)	; 
-    (=ucs		. #xEF99)	; 
+  '((=ucs		. #xEF99)	; 
+    (=big5-pua		. #x82A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A7)	; 
-    (=ucs		. #xEF9A)	; 
+  '((=ucs		. #xEF9A)	; 
+    (=big5-pua		. #x82A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A8)	; 
-    (=ucs		. #xEF9B)	; 
+  '((=ucs		. #xEF9B)	; 
+    (=big5-pua		. #x82A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82A9)	; 
-    (=ucs		. #xEF9C)	; 
+  '((=ucs		. #xEF9C)	; 
+    (=big5-pua		. #x82A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AA)	; 
-    (=ucs		. #xEF9D)	; 
+  '((=ucs		. #xEF9D)	; 
+    (=big5-pua		. #x82AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AB)	; 
-    (=ucs		. #xEF9E)	; 
+  '((=ucs		. #xEF9E)	; 
+    (=big5-pua		. #x82AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AC)	; 
-    (=ucs		. #xEF9F)	; 
+  '((=ucs		. #xEF9F)	; 
+    (=big5-pua		. #x82AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AD)	; 
-    (=ucs		. #xEFA0)	; 
+  '((=ucs		. #xEFA0)	; 
+    (=big5-pua		. #x82AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AE)	; 
-    (=ucs		. #xEFA1)	; 
+  '((=ucs		. #xEFA1)	; 
+    (=big5-pua		. #x82AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82AF)	; 
-    (=ucs		. #xEFA2)	; 
+  '((=ucs		. #xEFA2)	; 
+    (=big5-pua		. #x82AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B0)	; 
-    (=ucs		. #xEFA3)	; 
+  '((=ucs		. #xEFA3)	; 
+    (=big5-pua		. #x82B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B1)	; 
-    (=ucs		. #xEFA4)	; 
+  '((=ucs		. #xEFA4)	; 
+    (=big5-pua		. #x82B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B2)	; 
-    (=ucs		. #xEFA5)	; 
+  '((=ucs		. #xEFA5)	; 
+    (=big5-pua		. #x82B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B3)	; 
-    (=ucs		. #xEFA6)	; 
+  '((=ucs		. #xEFA6)	; 
+    (=big5-pua		. #x82B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B4)	; 
-    (=ucs		. #xEFA7)	; 
+  '((=ucs		. #xEFA7)	; 
+    (=big5-pua		. #x82B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B5)	; 
-    (=ucs		. #xEFA8)	; 
+  '((=ucs		. #xEFA8)	; 
+    (=big5-pua		. #x82B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B6)	; 
-    (=ucs		. #xEFA9)	; 
+  '((=ucs		. #xEFA9)	; 
+    (=big5-pua		. #x82B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B7)	; 
-    (=ucs		. #xEFAA)	; 
+  '((=ucs		. #xEFAA)	; 
+    (=big5-pua		. #x82B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B8)	; 
-    (=ucs		. #xEFAB)	; 
+  '((=ucs		. #xEFAB)	; 
+    (=big5-pua		. #x82B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82B9)	; 
-    (=ucs		. #xEFAC)	; 
+  '((=ucs		. #xEFAC)	; 
+    (=big5-pua		. #x82B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BA)	; 
-    (=ucs		. #xEFAD)	; 
+  '((=ucs		. #xEFAD)	; 
+    (=big5-pua		. #x82BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BB)	; 
-    (=ucs		. #xEFAE)	; 
+  '((=ucs		. #xEFAE)	; 
+    (=big5-pua		. #x82BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BC)	; 
-    (=ucs		. #xEFAF)	; 
+  '((=ucs		. #xEFAF)	; 
+    (=big5-pua		. #x82BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BD)	; 
-    (=ucs		. #xEFB0)	; 
+  '((=ucs		. #xEFB0)	; 
+    (=big5-pua		. #x82BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BE)	; 
-    (=ucs		. #xEFB1)	; 
+  '((=ucs		. #xEFB1)	; 
+    (=big5-pua		. #x82BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82BF)	; 
-    (=ucs		. #xEFB2)	; 
+  '((=ucs		. #xEFB2)	; 
+    (=big5-pua		. #x82BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C0)	; 
-    (=ucs		. #xEFB3)	; 
+  '((=ucs		. #xEFB3)	; 
+    (=big5-pua		. #x82C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C1)	; 
-    (=ucs		. #xEFB4)	; 
+  '((=ucs		. #xEFB4)	; 
+    (=big5-pua		. #x82C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C2)	; 
-    (=ucs		. #xEFB5)	; 
+  '((=ucs		. #xEFB5)	; 
+    (=big5-pua		. #x82C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C3)	; 
-    (=ucs		. #xEFB6)	; 
+  '((=ucs		. #xEFB6)	; 
+    (=big5-pua		. #x82C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C4)	; 
-    (=ucs		. #xEFB7)	; 
+  '((=ucs		. #xEFB7)	; 
+    (=big5-pua		. #x82C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C5)	; 
-    (=ucs		. #xEFB8)	; 
+  '((=ucs		. #xEFB8)	; 
+    (=big5-pua		. #x82C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C6)	; 
-    (=ucs		. #xEFB9)	; 
+  '((=ucs		. #xEFB9)	; 
+    (=big5-pua		. #x82C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C7)	; 
-    (=ucs		. #xEFBA)	; 
+  '((=ucs		. #xEFBA)	; 
+    (=big5-pua		. #x82C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C8)	; 
-    (=ucs		. #xEFBB)	; 
+  '((=ucs		. #xEFBB)	; 
+    (=big5-pua		. #x82C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82C9)	; 
-    (=ucs		. #xEFBC)	; 
+  '((=ucs		. #xEFBC)	; 
+    (=big5-pua		. #x82C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CA)	; 
-    (=ucs		. #xEFBD)	; 
+  '((=ucs		. #xEFBD)	; 
+    (=big5-pua		. #x82CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CB)	; 
-    (=ucs		. #xEFBE)	; 
+  '((=ucs		. #xEFBE)	; 
+    (=big5-pua		. #x82CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CC)	; 
-    (=ucs		. #xEFBF)	; 
+  '((=ucs		. #xEFBF)	; 
+    (=big5-pua		. #x82CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CD)	; 
-    (=ucs		. #xEFC0)	; 
+  '((=ucs		. #xEFC0)	; 
+    (=big5-pua		. #x82CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CE)	; 
-    (=ucs		. #xEFC1)	; 
+  '((=ucs		. #xEFC1)	; 
+    (=big5-pua		. #x82CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82CF)	; 
-    (=ucs		. #xEFC2)	; 
+  '((=ucs		. #xEFC2)	; 
+    (=big5-pua		. #x82CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D0)	; 
-    (=ucs		. #xEFC3)	; 
+  '((=ucs		. #xEFC3)	; 
+    (=big5-pua		. #x82D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D1)	; 
-    (=ucs		. #xEFC4)	; 
+  '((=ucs		. #xEFC4)	; 
+    (=big5-pua		. #x82D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D2)	; 
-    (=ucs		. #xEFC5)	; 
+  '((=ucs		. #xEFC5)	; 
+    (=big5-pua		. #x82D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D3)	; 
-    (=ucs		. #xEFC6)	; 
+  '((=ucs		. #xEFC6)	; 
+    (=big5-pua		. #x82D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D4)	; 
-    (=ucs		. #xEFC7)	; 
+  '((=ucs		. #xEFC7)	; 
+    (=big5-pua		. #x82D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D5)	; 
-    (=ucs		. #xEFC8)	; 
+  '((=ucs		. #xEFC8)	; 
+    (=big5-pua		. #x82D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D6)	; 
-    (=ucs		. #xEFC9)	; 
+  '((=ucs		. #xEFC9)	; 
+    (=big5-pua		. #x82D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D7)	; 
-    (=ucs		. #xEFCA)	; 
+  '((=ucs		. #xEFCA)	; 
+    (=big5-pua		. #x82D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D8)	; 
-    (=ucs		. #xEFCB)	; 
+  '((=ucs		. #xEFCB)	; 
+    (=big5-pua		. #x82D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82D9)	; 
-    (=ucs		. #xEFCC)	; 
+  '((=ucs		. #xEFCC)	; 
+    (=big5-pua		. #x82D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DA)	; 
-    (=ucs		. #xEFCD)	; 
+  '((=ucs		. #xEFCD)	; 
+    (=big5-pua		. #x82DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DB)	; 
-    (=ucs		. #xEFCE)	; 
+  '((=ucs		. #xEFCE)	; 
+    (=big5-pua		. #x82DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DC)	; 
-    (=ucs		. #xEFCF)	; 
+  '((=ucs		. #xEFCF)	; 
+    (=big5-pua		. #x82DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DD)	; 
-    (=ucs		. #xEFD0)	; 
+  '((=ucs		. #xEFD0)	; 
+    (=big5-pua		. #x82DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DE)	; 
-    (=ucs		. #xEFD1)	; 
+  '((=ucs		. #xEFD1)	; 
+    (=big5-pua		. #x82DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82DF)	; 
-    (=ucs		. #xEFD2)	; 
+  '((=ucs		. #xEFD2)	; 
+    (=big5-pua		. #x82DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E0)	; 
-    (=ucs		. #xEFD3)	; 
+  '((=ucs		. #xEFD3)	; 
+    (=big5-pua		. #x82E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E1)	; 
-    (=ucs		. #xEFD4)	; 
+  '((=ucs		. #xEFD4)	; 
+    (=big5-pua		. #x82E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E2)	; 
-    (=ucs		. #xEFD5)	; 
+  '((=ucs		. #xEFD5)	; 
+    (=big5-pua		. #x82E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E3)	; 
-    (=ucs		. #xEFD6)	; 
+  '((=ucs		. #xEFD6)	; 
+    (=big5-pua		. #x82E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E4)	; 
-    (=ucs		. #xEFD7)	; 
+  '((=ucs		. #xEFD7)	; 
+    (=big5-pua		. #x82E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E5)	; 
-    (=ucs		. #xEFD8)	; 
+  '((=ucs		. #xEFD8)	; 
+    (=big5-pua		. #x82E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E6)	; 
-    (=ucs		. #xEFD9)	; 
+  '((=ucs		. #xEFD9)	; 
+    (=big5-pua		. #x82E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E7)	; 
-    (=ucs		. #xEFDA)	; 
+  '((=ucs		. #xEFDA)	; 
+    (=big5-pua		. #x82E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E8)	; 
-    (=ucs		. #xEFDB)	; 
+  '((=ucs		. #xEFDB)	; 
+    (=big5-pua		. #x82E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82E9)	; 
-    (=ucs		. #xEFDC)	; 
+  '((=ucs		. #xEFDC)	; 
+    (=big5-pua		. #x82E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82EA)	; 
-    (=ucs		. #xEFDD)	; 
+  '((=ucs		. #xEFDD)	; 
+    (=big5-pua		. #x82EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82EB)	; 
-    (=ucs		. #xEFDE)	; 
+  '((=ucs		. #xEFDE)	; 
+    (=big5-pua		. #x82EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82EC)	; 
-    (=ucs		. #xEFDF)	; 
+  '((=ucs		. #xEFDF)	; 
+    (=big5-pua		. #x82EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82ED)	; 
-    (=ucs		. #xEFE0)	; 
+  '((=ucs		. #xEFE0)	; 
+    (=big5-pua		. #x82ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82EE)	; 
-    (=ucs		. #xEFE1)	; 
+  '((=ucs		. #xEFE1)	; 
+    (=big5-pua		. #x82EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82EF)	; 
-    (=ucs		. #xEFE2)	; 
+  '((=ucs		. #xEFE2)	; 
+    (=big5-pua		. #x82EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F0)	; 
-    (=ucs		. #xEFE3)	; 
+  '((=ucs		. #xEFE3)	; 
+    (=big5-pua		. #x82F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F1)	; 
-    (=ucs		. #xEFE4)	; 
+  '((=ucs		. #xEFE4)	; 
+    (=big5-pua		. #x82F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F2)	; 
-    (=ucs		. #xEFE5)	; 
+  '((=ucs		. #xEFE5)	; 
+    (=big5-pua		. #x82F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F3)	; 
-    (=ucs		. #xEFE6)	; 
+  '((=ucs		. #xEFE6)	; 
+    (=big5-pua		. #x82F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F4)	; 
-    (=ucs		. #xEFE7)	; 
+  '((=ucs		. #xEFE7)	; 
+    (=big5-pua		. #x82F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F5)	; 
-    (=ucs		. #xEFE8)	; 
+  '((=ucs		. #xEFE8)	; 
+    (=big5-pua		. #x82F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F6)	; 
-    (=ucs		. #xEFE9)	; 
+  '((=ucs		. #xEFE9)	; 
+    (=big5-pua		. #x82F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F7)	; 
-    (=ucs		. #xEFEA)	; 
+  '((=ucs		. #xEFEA)	; 
+    (=big5-pua		. #x82F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F8)	; 
-    (=ucs		. #xEFEB)	; 
+  '((=ucs		. #xEFEB)	; 
+    (=big5-pua		. #x82F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82F9)	; 
-    (=ucs		. #xEFEC)	; 
+  '((=ucs		. #xEFEC)	; 
+    (=big5-pua		. #x82F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82FA)	; 
-    (=ucs		. #xEFED)	; 
+  '((=ucs		. #xEFED)	; 
+    (=big5-pua		. #x82FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82FB)	; 
-    (=ucs		. #xEFEE)	; 
+  '((=ucs		. #xEFEE)	; 
+    (=big5-pua		. #x82FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82FC)	; 
-    (=ucs		. #xEFEF)	; 
+  '((=ucs		. #xEFEF)	; 
+    (=big5-pua		. #x82FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82FD)	; 
-    (=ucs		. #xEFF0)	; 
+  '((=ucs		. #xEFF0)	; 
+    (=big5-pua		. #x82FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x82FE)	; 
-    (=ucs		. #xEFF1)	; 
+  '((=ucs		. #xEFF1)	; 
+    (=big5-pua		. #x82FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8340)	; 
-    (=ucs		. #xEFF2)	; 
+  '((=ucs		. #xEFF2)	; 
+    (=big5-pua		. #x8340)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8341)	; 
-    (=ucs		. #xEFF3)	; 
+  '((=ucs		. #xEFF3)	; 
+    (=big5-pua		. #x8341)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8342)	; 
-    (=ucs		. #xEFF4)	; 
+  '((=ucs		. #xEFF4)	; 
+    (=big5-pua		. #x8342)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8343)	; 
-    (=ucs		. #xEFF5)	; 
+  '((=ucs		. #xEFF5)	; 
+    (=big5-pua		. #x8343)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8344)	; 
-    (=ucs		. #xEFF6)	; 
+  '((=ucs		. #xEFF6)	; 
+    (=big5-pua		. #x8344)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8345)	; 
-    (=ucs		. #xEFF7)	; 
+  '((=ucs		. #xEFF7)	; 
+    (=big5-pua		. #x8345)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8346)	; 
-    (=ucs		. #xEFF8)	; 
+  '((=ucs		. #xEFF8)	; 
+    (=big5-pua		. #x8346)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8347)	; 
-    (=ucs		. #xEFF9)	; 
+  '((=ucs		. #xEFF9)	; 
+    (=big5-pua		. #x8347)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8348)	; 
-    (=ucs		. #xEFFA)	; 
+  '((=ucs		. #xEFFA)	; 
+    (=big5-pua		. #x8348)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8349)	; 
-    (=ucs		. #xEFFB)	; 
+  '((=ucs		. #xEFFB)	; 
+    (=big5-pua		. #x8349)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834A)	; 
-    (=ucs		. #xEFFC)	; 
+  '((=ucs		. #xEFFC)	; 
+    (=big5-pua		. #x834A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834B)	; 
-    (=ucs		. #xEFFD)	; 
+  '((=ucs		. #xEFFD)	; 
+    (=big5-pua		. #x834B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834C)	; 
-    (=ucs		. #xEFFE)	; 
+  '((=ucs		. #xEFFE)	; 
+    (=big5-pua		. #x834C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834D)	; 
-    (=ucs		. #xEFFF)	; 
+  '((=ucs		. #xEFFF)	; 
+    (=big5-pua		. #x834D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834E)	; 
-    (=ucs		. #xF000)	; 
+  '((=ucs		. #xF000)	; 
+    (=big5-pua		. #x834E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x834F)	; 
-    (=ucs		. #xF001)	; 
+  '((=ucs		. #xF001)	; 
+    (=big5-pua		. #x834F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8350)	; 
-    (=ucs		. #xF002)	; 
+  '((=ucs		. #xF002)	; 
+    (=big5-pua		. #x8350)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8351)	; 
-    (=ucs		. #xF003)	; 
+  '((=ucs		. #xF003)	; 
+    (=big5-pua		. #x8351)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8352)	; 
-    (=ucs		. #xF004)	; 
+  '((=ucs		. #xF004)	; 
+    (=big5-pua		. #x8352)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8353)	; 
-    (=ucs		. #xF005)	; 
+  '((=ucs		. #xF005)	; 
+    (=big5-pua		. #x8353)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8354)	; 
-    (=ucs		. #xF006)	; 
+  '((=ucs		. #xF006)	; 
+    (=big5-pua		. #x8354)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8355)	; 
-    (=ucs		. #xF007)	; 
+  '((=ucs		. #xF007)	; 
+    (=big5-pua		. #x8355)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8356)	; 
-    (=ucs		. #xF008)	; 
+  '((=ucs		. #xF008)	; 
+    (=big5-pua		. #x8356)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8357)	; 
-    (=ucs		. #xF009)	; 
+  '((=ucs		. #xF009)	; 
+    (=big5-pua		. #x8357)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8358)	; 
-    (=ucs		. #xF00A)	; 
+  '((=ucs		. #xF00A)	; 
+    (=big5-pua		. #x8358)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8359)	; 
-    (=ucs		. #xF00B)	; 
+  '((=ucs		. #xF00B)	; 
+    (=big5-pua		. #x8359)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835A)	; 
-    (=ucs		. #xF00C)	; 
+  '((=ucs		. #xF00C)	; 
+    (=big5-pua		. #x835A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835B)	; 
-    (=ucs		. #xF00D)	; 
+  '((=ucs		. #xF00D)	; 
+    (=big5-pua		. #x835B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835C)	; 
-    (=ucs		. #xF00E)	; 
+  '((=ucs		. #xF00E)	; 
+    (=big5-pua		. #x835C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835D)	; 
-    (=ucs		. #xF00F)	; 
+  '((=ucs		. #xF00F)	; 
+    (=big5-pua		. #x835D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835E)	; 
-    (=ucs		. #xF010)	; 
+  '((=ucs		. #xF010)	; 
+    (=big5-pua		. #x835E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x835F)	; 
-    (=ucs		. #xF011)	; 
+  '((=ucs		. #xF011)	; 
+    (=big5-pua		. #x835F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8360)	; 
-    (=ucs		. #xF012)	; 
+  '((=ucs		. #xF012)	; 
+    (=big5-pua		. #x8360)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8361)	; 
-    (=ucs		. #xF013)	; 
+  '((=ucs		. #xF013)	; 
+    (=big5-pua		. #x8361)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8362)	; 
-    (=ucs		. #xF014)	; 
+  '((=ucs		. #xF014)	; 
+    (=big5-pua		. #x8362)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8363)	; 
-    (=ucs		. #xF015)	; 
+  '((=ucs		. #xF015)	; 
+    (=big5-pua		. #x8363)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8364)	; 
-    (=ucs		. #xF016)	; 
+  '((=ucs		. #xF016)	; 
+    (=big5-pua		. #x8364)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8365)	; 
-    (=ucs		. #xF017)	; 
+  '((=ucs		. #xF017)	; 
+    (=big5-pua		. #x8365)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8366)	; 
-    (=ucs		. #xF018)	; 
+  '((=ucs		. #xF018)	; 
+    (=big5-pua		. #x8366)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8367)	; 
-    (=ucs		. #xF019)	; 
+  '((=ucs		. #xF019)	; 
+    (=big5-pua		. #x8367)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8368)	; 
-    (=ucs		. #xF01A)	; 
+  '((=ucs		. #xF01A)	; 
+    (=big5-pua		. #x8368)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8369)	; 
-    (=ucs		. #xF01B)	; 
+  '((=ucs		. #xF01B)	; 
+    (=big5-pua		. #x8369)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836A)	; 
-    (=ucs		. #xF01C)	; 
+  '((=ucs		. #xF01C)	; 
+    (=big5-pua		. #x836A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836B)	; 
-    (=ucs		. #xF01D)	; 
+  '((=ucs		. #xF01D)	; 
+    (=big5-pua		. #x836B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836C)	; 
-    (=ucs		. #xF01E)	; 
+  '((=ucs		. #xF01E)	; 
+    (=big5-pua		. #x836C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836D)	; 
-    (=ucs		. #xF01F)	; 
+  '((=ucs		. #xF01F)	; 
+    (=big5-pua		. #x836D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836E)	; 
-    (=ucs		. #xF020)	; 
+  '((=ucs		. #xF020)	; 
+    (=big5-pua		. #x836E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x836F)	; 
-    (=ucs		. #xF021)	; 
+  '((=ucs		. #xF021)	; 
+    (=big5-pua		. #x836F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8370)	; 
-    (=ucs		. #xF022)	; 
+  '((=ucs		. #xF022)	; 
+    (=big5-pua		. #x8370)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8371)	; 
-    (=ucs		. #xF023)	; 
+  '((=ucs		. #xF023)	; 
+    (=big5-pua		. #x8371)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8372)	; 
-    (=ucs		. #xF024)	; 
+  '((=ucs		. #xF024)	; 
+    (=big5-pua		. #x8372)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8373)	; 
-    (=ucs		. #xF025)	; 
+  '((=ucs		. #xF025)	; 
+    (=big5-pua		. #x8373)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8374)	; 
-    (=ucs		. #xF026)	; 
+  '((=ucs		. #xF026)	; 
+    (=big5-pua		. #x8374)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8375)	; 
-    (=ucs		. #xF027)	; 
+  '((=ucs		. #xF027)	; 
+    (=big5-pua		. #x8375)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8376)	; 
-    (=ucs		. #xF028)	; 
+  '((=ucs		. #xF028)	; 
+    (=big5-pua		. #x8376)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8377)	; 
-    (=ucs		. #xF029)	; 
+  '((=ucs		. #xF029)	; 
+    (=big5-pua		. #x8377)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8378)	; 
-    (=ucs		. #xF02A)	; 
+  '((=ucs		. #xF02A)	; 
+    (=big5-pua		. #x8378)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8379)	; 
-    (=ucs		. #xF02B)	; 
+  '((=ucs		. #xF02B)	; 
+    (=big5-pua		. #x8379)	; 
     ))
 (define-char
-  '((=big5-pua		. #x837A)	; 
-    (=ucs		. #xF02C)	; 
+  '((=ucs		. #xF02C)	; 
+    (=big5-pua		. #x837A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x837B)	; 
-    (=ucs		. #xF02D)	; 
+  '((=ucs		. #xF02D)	; 
+    (=big5-pua		. #x837B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x837C)	; 
-    (=ucs		. #xF02E)	; 
+  '((=ucs		. #xF02E)	; 
+    (=big5-pua		. #x837C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x837D)	; 
-    (=ucs		. #xF02F)	; 
+  '((=ucs		. #xF02F)	; 
+    (=big5-pua		. #x837D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x837E)	; 
-    (=ucs		. #xF030)	; 
+  '((=ucs		. #xF030)	; 
+    (=big5-pua		. #x837E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A1)	; 
-    (=ucs		. #xF031)	; 
+  '((=ucs		. #xF031)	; 
+    (=big5-pua		. #x83A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A2)	; 
-    (=ucs		. #xF032)	; 
+  '((=ucs		. #xF032)	; 
+    (=big5-pua		. #x83A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A3)	; 
-    (=ucs		. #xF033)	; 
+  '((=ucs		. #xF033)	; 
+    (=big5-pua		. #x83A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A4)	; 
-    (=ucs		. #xF034)	; 
+  '((=ucs		. #xF034)	; 
+    (=big5-pua		. #x83A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A5)	; 
-    (=ucs		. #xF035)	; 
+  '((=ucs		. #xF035)	; 
+    (=big5-pua		. #x83A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A6)	; 
-    (=ucs		. #xF036)	; 
+  '((=ucs		. #xF036)	; 
+    (=big5-pua		. #x83A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A7)	; 
-    (=ucs		. #xF037)	; 
+  '((=ucs		. #xF037)	; 
+    (=big5-pua		. #x83A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A8)	; 
-    (=ucs		. #xF038)	; 
+  '((=ucs		. #xF038)	; 
+    (=big5-pua		. #x83A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83A9)	; 
-    (=ucs		. #xF039)	; 
+  '((=ucs		. #xF039)	; 
+    (=big5-pua		. #x83A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AA)	; 
-    (=ucs		. #xF03A)	; 
+  '((=ucs		. #xF03A)	; 
+    (=big5-pua		. #x83AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AB)	; 
-    (=ucs		. #xF03B)	; 
+  '((=ucs		. #xF03B)	; 
+    (=big5-pua		. #x83AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AC)	; 
-    (=ucs		. #xF03C)	; 
+  '((=ucs		. #xF03C)	; 
+    (=big5-pua		. #x83AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AD)	; 
-    (=ucs		. #xF03D)	; 
+  '((=ucs		. #xF03D)	; 
+    (=big5-pua		. #x83AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AE)	; 
-    (=ucs		. #xF03E)	; 
+  '((=ucs		. #xF03E)	; 
+    (=big5-pua		. #x83AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83AF)	; 
-    (=ucs		. #xF03F)	; 
+  '((=ucs		. #xF03F)	; 
+    (=big5-pua		. #x83AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B0)	; 
-    (=ucs		. #xF040)	; 
+  '((=ucs		. #xF040)	; 
+    (=big5-pua		. #x83B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B1)	; 
-    (=ucs		. #xF041)	; 
+  '((=ucs		. #xF041)	; 
+    (=big5-pua		. #x83B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B2)	; 
-    (=ucs		. #xF042)	; 
+  '((=ucs		. #xF042)	; 
+    (=big5-pua		. #x83B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B3)	; 
-    (=ucs		. #xF043)	; 
+  '((=ucs		. #xF043)	; 
+    (=big5-pua		. #x83B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B4)	; 
-    (=ucs		. #xF044)	; 
+  '((=ucs		. #xF044)	; 
+    (=big5-pua		. #x83B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B5)	; 
-    (=ucs		. #xF045)	; 
+  '((=ucs		. #xF045)	; 
+    (=big5-pua		. #x83B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B6)	; 
-    (=ucs		. #xF046)	; 
+  '((=ucs		. #xF046)	; 
+    (=big5-pua		. #x83B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B7)	; 
-    (=ucs		. #xF047)	; 
+  '((=ucs		. #xF047)	; 
+    (=big5-pua		. #x83B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B8)	; 
-    (=ucs		. #xF048)	; 
+  '((=ucs		. #xF048)	; 
+    (=big5-pua		. #x83B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83B9)	; 
-    (=ucs		. #xF049)	; 
+  '((=ucs		. #xF049)	; 
+    (=big5-pua		. #x83B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BA)	; 
-    (=ucs		. #xF04A)	; 
+  '((=ucs		. #xF04A)	; 
+    (=big5-pua		. #x83BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BB)	; 
-    (=ucs		. #xF04B)	; 
+  '((=ucs		. #xF04B)	; 
+    (=big5-pua		. #x83BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BC)	; 
-    (=ucs		. #xF04C)	; 
+  '((=ucs		. #xF04C)	; 
+    (=big5-pua		. #x83BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BD)	; 
-    (=ucs		. #xF04D)	; 
+  '((=ucs		. #xF04D)	; 
+    (=big5-pua		. #x83BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BE)	; 
-    (=ucs		. #xF04E)	; 
+  '((=ucs		. #xF04E)	; 
+    (=big5-pua		. #x83BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83BF)	; 
-    (=ucs		. #xF04F)	; 
+  '((=ucs		. #xF04F)	; 
+    (=big5-pua		. #x83BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C0)	; 
-    (=ucs		. #xF050)	; 
+  '((=ucs		. #xF050)	; 
+    (=big5-pua		. #x83C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C1)	; 
-    (=ucs		. #xF051)	; 
+  '((=ucs		. #xF051)	; 
+    (=big5-pua		. #x83C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C2)	; 
-    (=ucs		. #xF052)	; 
+  '((=ucs		. #xF052)	; 
+    (=big5-pua		. #x83C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C3)	; 
-    (=ucs		. #xF053)	; 
+  '((=ucs		. #xF053)	; 
+    (=big5-pua		. #x83C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C4)	; 
-    (=ucs		. #xF054)	; 
+  '((=ucs		. #xF054)	; 
+    (=big5-pua		. #x83C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C5)	; 
-    (=ucs		. #xF055)	; 
+  '((=ucs		. #xF055)	; 
+    (=big5-pua		. #x83C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C6)	; 
-    (=ucs		. #xF056)	; 
+  '((=ucs		. #xF056)	; 
+    (=big5-pua		. #x83C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C7)	; 
-    (=ucs		. #xF057)	; 
+  '((=ucs		. #xF057)	; 
+    (=big5-pua		. #x83C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C8)	; 
-    (=ucs		. #xF058)	; 
+  '((=ucs		. #xF058)	; 
+    (=big5-pua		. #x83C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83C9)	; 
-    (=ucs		. #xF059)	; 
+  '((=ucs		. #xF059)	; 
+    (=big5-pua		. #x83C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CA)	; 
-    (=ucs		. #xF05A)	; 
+  '((=ucs		. #xF05A)	; 
+    (=big5-pua		. #x83CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CB)	; 
-    (=ucs		. #xF05B)	; 
+  '((=ucs		. #xF05B)	; 
+    (=big5-pua		. #x83CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CC)	; 
-    (=ucs		. #xF05C)	; 
+  '((=ucs		. #xF05C)	; 
+    (=big5-pua		. #x83CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CD)	; 
-    (=ucs		. #xF05D)	; 
+  '((=ucs		. #xF05D)	; 
+    (=big5-pua		. #x83CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CE)	; 
-    (=ucs		. #xF05E)	; 
+  '((=ucs		. #xF05E)	; 
+    (=big5-pua		. #x83CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83CF)	; 
-    (=ucs		. #xF05F)	; 
+  '((=ucs		. #xF05F)	; 
+    (=big5-pua		. #x83CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D0)	; 
-    (=ucs		. #xF060)	; 
+  '((=ucs		. #xF060)	; 
+    (=big5-pua		. #x83D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D1)	; 
-    (=ucs		. #xF061)	; 
+  '((=ucs		. #xF061)	; 
+    (=big5-pua		. #x83D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D2)	; 
-    (=ucs		. #xF062)	; 
+  '((=ucs		. #xF062)	; 
+    (=big5-pua		. #x83D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D3)	; 
-    (=ucs		. #xF063)	; 
+  '((=ucs		. #xF063)	; 
+    (=big5-pua		. #x83D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D4)	; 
-    (=ucs		. #xF064)	; 
+  '((=ucs		. #xF064)	; 
+    (=big5-pua		. #x83D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D5)	; 
-    (=ucs		. #xF065)	; 
+  '((=ucs		. #xF065)	; 
+    (=big5-pua		. #x83D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D6)	; 
-    (=ucs		. #xF066)	; 
+  '((=ucs		. #xF066)	; 
+    (=big5-pua		. #x83D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D7)	; 
-    (=ucs		. #xF067)	; 
+  '((=ucs		. #xF067)	; 
+    (=big5-pua		. #x83D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D8)	; 
-    (=ucs		. #xF068)	; 
+  '((=ucs		. #xF068)	; 
+    (=big5-pua		. #x83D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83D9)	; 
-    (=ucs		. #xF069)	; 
+  '((=ucs		. #xF069)	; 
+    (=big5-pua		. #x83D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DA)	; 
-    (=ucs		. #xF06A)	; 
+  '((=ucs		. #xF06A)	; 
+    (=big5-pua		. #x83DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DB)	; 
-    (=ucs		. #xF06B)	; 
+  '((=ucs		. #xF06B)	; 
+    (=big5-pua		. #x83DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DC)	; 
-    (=ucs		. #xF06C)	; 
+  '((=ucs		. #xF06C)	; 
+    (=big5-pua		. #x83DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DD)	; 
-    (=ucs		. #xF06D)	; 
+  '((=ucs		. #xF06D)	; 
+    (=big5-pua		. #x83DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DE)	; 
-    (=ucs		. #xF06E)	; 
+  '((=ucs		. #xF06E)	; 
+    (=big5-pua		. #x83DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83DF)	; 
-    (=ucs		. #xF06F)	; 
+  '((=ucs		. #xF06F)	; 
+    (=big5-pua		. #x83DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E0)	; 
-    (=ucs		. #xF070)	; 
+  '((=ucs		. #xF070)	; 
+    (=big5-pua		. #x83E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E1)	; 
-    (=ucs		. #xF071)	; 
+  '((=ucs		. #xF071)	; 
+    (=big5-pua		. #x83E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E2)	; 
-    (=ucs		. #xF072)	; 
+  '((=ucs		. #xF072)	; 
+    (=big5-pua		. #x83E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E3)	; 
-    (=ucs		. #xF073)	; 
+  '((=ucs		. #xF073)	; 
+    (=big5-pua		. #x83E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E4)	; 
-    (=ucs		. #xF074)	; 
+  '((=ucs		. #xF074)	; 
+    (=big5-pua		. #x83E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E5)	; 
-    (=ucs		. #xF075)	; 
+  '((=ucs		. #xF075)	; 
+    (=big5-pua		. #x83E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E6)	; 
-    (=ucs		. #xF076)	; 
+  '((=ucs		. #xF076)	; 
+    (=big5-pua		. #x83E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E7)	; 
-    (=ucs		. #xF077)	; 
+  '((=ucs		. #xF077)	; 
+    (=big5-pua		. #x83E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E8)	; 
-    (=ucs		. #xF078)	; 
+  '((=ucs		. #xF078)	; 
+    (=big5-pua		. #x83E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83E9)	; 
-    (=ucs		. #xF079)	; 
+  '((=ucs		. #xF079)	; 
+    (=big5-pua		. #x83E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83EA)	; 
-    (=ucs		. #xF07A)	; 
+  '((=ucs		. #xF07A)	; 
+    (=big5-pua		. #x83EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83EB)	; 
-    (=ucs		. #xF07B)	; 
+  '((=ucs		. #xF07B)	; 
+    (=big5-pua		. #x83EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83EC)	; 
-    (=ucs		. #xF07C)	; 
+  '((=ucs		. #xF07C)	; 
+    (=big5-pua		. #x83EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83ED)	; 
-    (=ucs		. #xF07D)	; 
+  '((=ucs		. #xF07D)	; 
+    (=big5-pua		. #x83ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83EE)	; 
-    (=ucs		. #xF07E)	; 
+  '((=ucs		. #xF07E)	; 
+    (=big5-pua		. #x83EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83EF)	; 
-    (=ucs		. #xF07F)	; 
+  '((=ucs		. #xF07F)	; 
+    (=big5-pua		. #x83EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F0)	; 
-    (=ucs		. #xF080)	; 
+  '((=ucs		. #xF080)	; 
+    (=big5-pua		. #x83F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F1)	; 
-    (=ucs		. #xF081)	; 
+  '((=ucs		. #xF081)	; 
+    (=big5-pua		. #x83F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F2)	; 
-    (=ucs		. #xF082)	; 
+  '((=ucs		. #xF082)	; 
+    (=big5-pua		. #x83F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F3)	; 
-    (=ucs		. #xF083)	; 
+  '((=ucs		. #xF083)	; 
+    (=big5-pua		. #x83F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F4)	; 
-    (=ucs		. #xF084)	; 
+  '((=ucs		. #xF084)	; 
+    (=big5-pua		. #x83F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F5)	; 
-    (=ucs		. #xF085)	; 
+  '((=ucs		. #xF085)	; 
+    (=big5-pua		. #x83F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F6)	; 
-    (=ucs		. #xF086)	; 
+  '((=ucs		. #xF086)	; 
+    (=big5-pua		. #x83F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F7)	; 
-    (=ucs		. #xF087)	; 
+  '((=ucs		. #xF087)	; 
+    (=big5-pua		. #x83F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F8)	; 
-    (=ucs		. #xF088)	; 
+  '((=ucs		. #xF088)	; 
+    (=big5-pua		. #x83F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83F9)	; 
-    (=ucs		. #xF089)	; 
+  '((=ucs		. #xF089)	; 
+    (=big5-pua		. #x83F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83FA)	; 
-    (=ucs		. #xF08A)	; 
+  '((=ucs		. #xF08A)	; 
+    (=big5-pua		. #x83FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83FB)	; 
-    (=ucs		. #xF08B)	; 
+  '((=ucs		. #xF08B)	; 
+    (=big5-pua		. #x83FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83FC)	; 
-    (=ucs		. #xF08C)	; 
+  '((=ucs		. #xF08C)	; 
+    (=big5-pua		. #x83FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83FD)	; 
-    (=ucs		. #xF08D)	; 
+  '((=ucs		. #xF08D)	; 
+    (=big5-pua		. #x83FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x83FE)	; 
-    (=ucs		. #xF08E)	; 
+  '((=ucs		. #xF08E)	; 
+    (=big5-pua		. #x83FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8440)	; 
-    (=ucs		. #xF08F)	; 
+  '((=ucs		. #xF08F)	; 
+    (=big5-pua		. #x8440)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8441)	; 
-    (=ucs		. #xF090)	; 
+  '((=ucs		. #xF090)	; 
+    (=big5-pua		. #x8441)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8442)	; 
-    (=ucs		. #xF091)	; 
+  '((=ucs		. #xF091)	; 
+    (=big5-pua		. #x8442)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8443)	; 
-    (=ucs		. #xF092)	; 
+  '((=ucs		. #xF092)	; 
+    (=big5-pua		. #x8443)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8444)	; 
-    (=ucs		. #xF093)	; 
+  '((=ucs		. #xF093)	; 
+    (=big5-pua		. #x8444)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8445)	; 
-    (=ucs		. #xF094)	; 
+  '((=ucs		. #xF094)	; 
+    (=big5-pua		. #x8445)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8446)	; 
-    (=ucs		. #xF095)	; 
+  '((=ucs		. #xF095)	; 
+    (=big5-pua		. #x8446)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8447)	; 
-    (=ucs		. #xF096)	; 
+  '((=ucs		. #xF096)	; 
+    (=big5-pua		. #x8447)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8448)	; 
-    (=ucs		. #xF097)	; 
+  '((=ucs		. #xF097)	; 
+    (=big5-pua		. #x8448)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8449)	; 
-    (=ucs		. #xF098)	; 
+  '((=ucs		. #xF098)	; 
+    (=big5-pua		. #x8449)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844A)	; 
-    (=ucs		. #xF099)	; 
+  '((=ucs		. #xF099)	; 
+    (=big5-pua		. #x844A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844B)	; 
-    (=ucs		. #xF09A)	; 
+  '((=ucs		. #xF09A)	; 
+    (=big5-pua		. #x844B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844C)	; 
-    (=ucs		. #xF09B)	; 
+  '((=ucs		. #xF09B)	; 
+    (=big5-pua		. #x844C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844D)	; 
-    (=ucs		. #xF09C)	; 
+  '((=ucs		. #xF09C)	; 
+    (=big5-pua		. #x844D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844E)	; 
-    (=ucs		. #xF09D)	; 
+  '((=ucs		. #xF09D)	; 
+    (=big5-pua		. #x844E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x844F)	; 
-    (=ucs		. #xF09E)	; 
+  '((=ucs		. #xF09E)	; 
+    (=big5-pua		. #x844F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8450)	; 
-    (=ucs		. #xF09F)	; 
+  '((=ucs		. #xF09F)	; 
+    (=big5-pua		. #x8450)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8451)	; 
-    (=ucs		. #xF0A0)	; 
+  '((=ucs		. #xF0A0)	; 
+    (=big5-pua		. #x8451)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8452)	; 
-    (=ucs		. #xF0A1)	; 
+  '((=ucs		. #xF0A1)	; 
+    (=big5-pua		. #x8452)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8453)	; 
-    (=ucs		. #xF0A2)	; 
+  '((=ucs		. #xF0A2)	; 
+    (=big5-pua		. #x8453)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8454)	; 
-    (=ucs		. #xF0A3)	; 
+  '((=ucs		. #xF0A3)	; 
+    (=big5-pua		. #x8454)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8455)	; 
-    (=ucs		. #xF0A4)	; 
+  '((=ucs		. #xF0A4)	; 
+    (=big5-pua		. #x8455)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8456)	; 
-    (=ucs		. #xF0A5)	; 
+  '((=ucs		. #xF0A5)	; 
+    (=big5-pua		. #x8456)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8457)	; 
-    (=ucs		. #xF0A6)	; 
+  '((=ucs		. #xF0A6)	; 
+    (=big5-pua		. #x8457)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8458)	; 
-    (=ucs		. #xF0A7)	; 
+  '((=ucs		. #xF0A7)	; 
+    (=big5-pua		. #x8458)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8459)	; 
-    (=ucs		. #xF0A8)	; 
+  '((=ucs		. #xF0A8)	; 
+    (=big5-pua		. #x8459)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845A)	; 
-    (=ucs		. #xF0A9)	; 
+  '((=ucs		. #xF0A9)	; 
+    (=big5-pua		. #x845A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845B)	; 
-    (=ucs		. #xF0AA)	; 
+  '((=ucs		. #xF0AA)	; 
+    (=big5-pua		. #x845B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845C)	; 
-    (=ucs		. #xF0AB)	; 
+  '((=ucs		. #xF0AB)	; 
+    (=big5-pua		. #x845C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845D)	; 
-    (=ucs		. #xF0AC)	; 
+  '((=ucs		. #xF0AC)	; 
+    (=big5-pua		. #x845D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845E)	; 
-    (=ucs		. #xF0AD)	; 
+  '((=ucs		. #xF0AD)	; 
+    (=big5-pua		. #x845E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x845F)	; 
-    (=ucs		. #xF0AE)	; 
+  '((=ucs		. #xF0AE)	; 
+    (=big5-pua		. #x845F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8460)	; 
-    (=ucs		. #xF0AF)	; 
+  '((=ucs		. #xF0AF)	; 
+    (=big5-pua		. #x8460)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8461)	; 
-    (=ucs		. #xF0B0)	; 
+  '((=ucs		. #xF0B0)	; 
+    (=big5-pua		. #x8461)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8462)	; 
-    (=ucs		. #xF0B1)	; 
+  '((=ucs		. #xF0B1)	; 
+    (=big5-pua		. #x8462)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8463)	; 
-    (=ucs		. #xF0B2)	; 
+  '((=ucs		. #xF0B2)	; 
+    (=big5-pua		. #x8463)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8464)	; 
-    (=ucs		. #xF0B3)	; 
+  '((=ucs		. #xF0B3)	; 
+    (=big5-pua		. #x8464)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8465)	; 
-    (=ucs		. #xF0B4)	; 
+  '((=ucs		. #xF0B4)	; 
+    (=big5-pua		. #x8465)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8466)	; 
-    (=ucs		. #xF0B5)	; 
+  '((=ucs		. #xF0B5)	; 
+    (=big5-pua		. #x8466)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8467)	; 
-    (=ucs		. #xF0B6)	; 
+  '((=ucs		. #xF0B6)	; 
+    (=big5-pua		. #x8467)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8468)	; 
-    (=ucs		. #xF0B7)	; 
+  '((=ucs		. #xF0B7)	; 
+    (=big5-pua		. #x8468)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8469)	; 
-    (=ucs		. #xF0B8)	; 
+  '((=ucs		. #xF0B8)	; 
+    (=big5-pua		. #x8469)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846A)	; 
-    (=ucs		. #xF0B9)	; 
+  '((=ucs		. #xF0B9)	; 
+    (=big5-pua		. #x846A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846B)	; 
-    (=ucs		. #xF0BA)	; 
+  '((=ucs		. #xF0BA)	; 
+    (=big5-pua		. #x846B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846C)	; 
-    (=ucs		. #xF0BB)	; 
+  '((=ucs		. #xF0BB)	; 
+    (=big5-pua		. #x846C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846D)	; 
-    (=ucs		. #xF0BC)	; 
+  '((=ucs		. #xF0BC)	; 
+    (=big5-pua		. #x846D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846E)	; 
-    (=ucs		. #xF0BD)	; 
+  '((=ucs		. #xF0BD)	; 
+    (=big5-pua		. #x846E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x846F)	; 
-    (=ucs		. #xF0BE)	; 
+  '((=ucs		. #xF0BE)	; 
+    (=big5-pua		. #x846F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8470)	; 
-    (=ucs		. #xF0BF)	; 
+  '((=ucs		. #xF0BF)	; 
+    (=big5-pua		. #x8470)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8471)	; 
-    (=ucs		. #xF0C0)	; 
+  '((=ucs		. #xF0C0)	; 
+    (=big5-pua		. #x8471)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8472)	; 
-    (=ucs		. #xF0C1)	; 
+  '((=ucs		. #xF0C1)	; 
+    (=big5-pua		. #x8472)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8473)	; 
-    (=ucs		. #xF0C2)	; 
+  '((=ucs		. #xF0C2)	; 
+    (=big5-pua		. #x8473)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8474)	; 
-    (=ucs		. #xF0C3)	; 
+  '((=ucs		. #xF0C3)	; 
+    (=big5-pua		. #x8474)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8475)	; 
-    (=ucs		. #xF0C4)	; 
+  '((=ucs		. #xF0C4)	; 
+    (=big5-pua		. #x8475)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8476)	; 
-    (=ucs		. #xF0C5)	; 
+  '((=ucs		. #xF0C5)	; 
+    (=big5-pua		. #x8476)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8477)	; 
-    (=ucs		. #xF0C6)	; 
+  '((=ucs		. #xF0C6)	; 
+    (=big5-pua		. #x8477)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8478)	; 
-    (=ucs		. #xF0C7)	; 
+  '((=ucs		. #xF0C7)	; 
+    (=big5-pua		. #x8478)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8479)	; 
-    (=ucs		. #xF0C8)	; 
+  '((=ucs		. #xF0C8)	; 
+    (=big5-pua		. #x8479)	; 
     ))
 (define-char
-  '((=big5-pua		. #x847A)	; 
-    (=ucs		. #xF0C9)	; 
+  '((=ucs		. #xF0C9)	; 
+    (=big5-pua		. #x847A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x847B)	; 
-    (=ucs		. #xF0CA)	; 
+  '((=ucs		. #xF0CA)	; 
+    (=big5-pua		. #x847B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x847C)	; 
-    (=ucs		. #xF0CB)	; 
+  '((=ucs		. #xF0CB)	; 
+    (=big5-pua		. #x847C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x847D)	; 
-    (=ucs		. #xF0CC)	; 
+  '((=ucs		. #xF0CC)	; 
+    (=big5-pua		. #x847D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x847E)	; 
-    (=ucs		. #xF0CD)	; 
+  '((=ucs		. #xF0CD)	; 
+    (=big5-pua		. #x847E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A1)	; 
-    (=ucs		. #xF0CE)	; 
+  '((=ucs		. #xF0CE)	; 
+    (=big5-pua		. #x84A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A2)	; 
-    (=ucs		. #xF0CF)	; 
+  '((=ucs		. #xF0CF)	; 
+    (=big5-pua		. #x84A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A3)	; 
-    (=ucs		. #xF0D0)	; 
+  '((=ucs		. #xF0D0)	; 
+    (=big5-pua		. #x84A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A4)	; 
-    (=ucs		. #xF0D1)	; 
+  '((=ucs		. #xF0D1)	; 
+    (=big5-pua		. #x84A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A5)	; 
-    (=ucs		. #xF0D2)	; 
+  '((=ucs		. #xF0D2)	; 
+    (=big5-pua		. #x84A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A6)	; 
-    (=ucs		. #xF0D3)	; 
+  '((=ucs		. #xF0D3)	; 
+    (=big5-pua		. #x84A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A7)	; 
-    (=ucs		. #xF0D4)	; 
+  '((=ucs		. #xF0D4)	; 
+    (=big5-pua		. #x84A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A8)	; 
-    (=ucs		. #xF0D5)	; 
+  '((=ucs		. #xF0D5)	; 
+    (=big5-pua		. #x84A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84A9)	; 
-    (=ucs		. #xF0D6)	; 
+  '((=ucs		. #xF0D6)	; 
+    (=big5-pua		. #x84A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AA)	; 
-    (=ucs		. #xF0D7)	; 
+  '((=ucs		. #xF0D7)	; 
+    (=big5-pua		. #x84AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AB)	; 
-    (=ucs		. #xF0D8)	; 
+  '((=ucs		. #xF0D8)	; 
+    (=big5-pua		. #x84AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AC)	; 
-    (=ucs		. #xF0D9)	; 
+  '((=ucs		. #xF0D9)	; 
+    (=big5-pua		. #x84AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AD)	; 
-    (=ucs		. #xF0DA)	; 
+  '((=ucs		. #xF0DA)	; 
+    (=big5-pua		. #x84AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AE)	; 
-    (=ucs		. #xF0DB)	; 
+  '((=ucs		. #xF0DB)	; 
+    (=big5-pua		. #x84AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84AF)	; 
-    (=ucs		. #xF0DC)	; 
+  '((=ucs		. #xF0DC)	; 
+    (=big5-pua		. #x84AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B0)	; 
-    (=ucs		. #xF0DD)	; 
+  '((=ucs		. #xF0DD)	; 
+    (=big5-pua		. #x84B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B1)	; 
-    (=ucs		. #xF0DE)	; 
+  '((=ucs		. #xF0DE)	; 
+    (=big5-pua		. #x84B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B2)	; 
-    (=ucs		. #xF0DF)	; 
+  '((=ucs		. #xF0DF)	; 
+    (=big5-pua		. #x84B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B3)	; 
-    (=ucs		. #xF0E0)	; 
+  '((=ucs		. #xF0E0)	; 
+    (=big5-pua		. #x84B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B4)	; 
-    (=ucs		. #xF0E1)	; 
+  '((=ucs		. #xF0E1)	; 
+    (=big5-pua		. #x84B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B5)	; 
-    (=ucs		. #xF0E2)	; 
+  '((=ucs		. #xF0E2)	; 
+    (=big5-pua		. #x84B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B6)	; 
-    (=ucs		. #xF0E3)	; 
+  '((=ucs		. #xF0E3)	; 
+    (=big5-pua		. #x84B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B7)	; 
-    (=ucs		. #xF0E4)	; 
+  '((=ucs		. #xF0E4)	; 
+    (=big5-pua		. #x84B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B8)	; 
-    (=ucs		. #xF0E5)	; 
+  '((=ucs		. #xF0E5)	; 
+    (=big5-pua		. #x84B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84B9)	; 
-    (=ucs		. #xF0E6)	; 
+  '((=ucs		. #xF0E6)	; 
+    (=big5-pua		. #x84B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BA)	; 
-    (=ucs		. #xF0E7)	; 
+  '((=ucs		. #xF0E7)	; 
+    (=big5-pua		. #x84BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BB)	; 
-    (=ucs		. #xF0E8)	; 
+  '((=ucs		. #xF0E8)	; 
+    (=big5-pua		. #x84BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BC)	; 
-    (=ucs		. #xF0E9)	; 
+  '((=ucs		. #xF0E9)	; 
+    (=big5-pua		. #x84BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BD)	; 
-    (=ucs		. #xF0EA)	; 
+  '((=ucs		. #xF0EA)	; 
+    (=big5-pua		. #x84BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BE)	; 
-    (=ucs		. #xF0EB)	; 
+  '((=ucs		. #xF0EB)	; 
+    (=big5-pua		. #x84BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84BF)	; 
-    (=ucs		. #xF0EC)	; 
+  '((=ucs		. #xF0EC)	; 
+    (=big5-pua		. #x84BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C0)	; 
-    (=ucs		. #xF0ED)	; 
+  '((=ucs		. #xF0ED)	; 
+    (=big5-pua		. #x84C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C1)	; 
-    (=ucs		. #xF0EE)	; 
+  '((=ucs		. #xF0EE)	; 
+    (=big5-pua		. #x84C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C2)	; 
-    (=ucs		. #xF0EF)	; 
+  '((=ucs		. #xF0EF)	; 
+    (=big5-pua		. #x84C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C3)	; 
-    (=ucs		. #xF0F0)	; 
+  '((=ucs		. #xF0F0)	; 
+    (=big5-pua		. #x84C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C4)	; 
-    (=ucs		. #xF0F1)	; 
+  '((=ucs		. #xF0F1)	; 
+    (=big5-pua		. #x84C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C5)	; 
-    (=ucs		. #xF0F2)	; 
+  '((=ucs		. #xF0F2)	; 
+    (=big5-pua		. #x84C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C6)	; 
-    (=ucs		. #xF0F3)	; 
+  '((=ucs		. #xF0F3)	; 
+    (=big5-pua		. #x84C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C7)	; 
-    (=ucs		. #xF0F4)	; 
+  '((=ucs		. #xF0F4)	; 
+    (=big5-pua		. #x84C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C8)	; 
-    (=ucs		. #xF0F5)	; 
+  '((=ucs		. #xF0F5)	; 
+    (=big5-pua		. #x84C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84C9)	; 
-    (=ucs		. #xF0F6)	; 
+  '((=ucs		. #xF0F6)	; 
+    (=big5-pua		. #x84C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CA)	; 
-    (=ucs		. #xF0F7)	; 
+  '((=ucs		. #xF0F7)	; 
+    (=big5-pua		. #x84CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CB)	; 
-    (=ucs		. #xF0F8)	; 
+  '((=ucs		. #xF0F8)	; 
+    (=big5-pua		. #x84CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CC)	; 
-    (=ucs		. #xF0F9)	; 
+  '((=ucs		. #xF0F9)	; 
+    (=big5-pua		. #x84CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CD)	; 
-    (=ucs		. #xF0FA)	; 
+  '((=ucs		. #xF0FA)	; 
+    (=big5-pua		. #x84CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CE)	; 
-    (=ucs		. #xF0FB)	; 
+  '((=ucs		. #xF0FB)	; 
+    (=big5-pua		. #x84CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84CF)	; 
-    (=ucs		. #xF0FC)	; 
+  '((=ucs		. #xF0FC)	; 
+    (=big5-pua		. #x84CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D0)	; 
-    (=ucs		. #xF0FD)	; 
+  '((=ucs		. #xF0FD)	; 
+    (=big5-pua		. #x84D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D1)	; 
-    (=ucs		. #xF0FE)	; 
+  '((=ucs		. #xF0FE)	; 
+    (=big5-pua		. #x84D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D2)	; 
-    (=ucs		. #xF0FF)	; 
+  '((=ucs		. #xF0FF)	; 
+    (=big5-pua		. #x84D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D3)	; 
-    (=ucs		. #xF100)	; 
+  '((=ucs		. #xF100)	; 
+    (=big5-pua		. #x84D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D4)	; 
-    (=ucs		. #xF101)	; 
+  '((=ucs		. #xF101)	; 
+    (=big5-pua		. #x84D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D5)	; 
-    (=ucs		. #xF102)	; 
+  '((=ucs		. #xF102)	; 
+    (=big5-pua		. #x84D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D6)	; 
-    (=ucs		. #xF103)	; 
+  '((=ucs		. #xF103)	; 
+    (=big5-pua		. #x84D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D7)	; 
-    (=ucs		. #xF104)	; 
+  '((=ucs		. #xF104)	; 
+    (=big5-pua		. #x84D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D8)	; 
-    (=ucs		. #xF105)	; 
+  '((=ucs		. #xF105)	; 
+    (=big5-pua		. #x84D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84D9)	; 
-    (=ucs		. #xF106)	; 
+  '((=ucs		. #xF106)	; 
+    (=big5-pua		. #x84D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DA)	; 
-    (=ucs		. #xF107)	; 
+  '((=ucs		. #xF107)	; 
+    (=big5-pua		. #x84DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DB)	; 
-    (=ucs		. #xF108)	; 
+  '((=ucs		. #xF108)	; 
+    (=big5-pua		. #x84DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DC)	; 
-    (=ucs		. #xF109)	; 
+  '((=ucs		. #xF109)	; 
+    (=big5-pua		. #x84DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DD)	; 
-    (=ucs		. #xF10A)	; 
+  '((=ucs		. #xF10A)	; 
+    (=big5-pua		. #x84DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DE)	; 
-    (=ucs		. #xF10B)	; 
+  '((=ucs		. #xF10B)	; 
+    (=big5-pua		. #x84DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84DF)	; 
-    (=ucs		. #xF10C)	; 
+  '((=ucs		. #xF10C)	; 
+    (=big5-pua		. #x84DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E0)	; 
-    (=ucs		. #xF10D)	; 
+  '((=ucs		. #xF10D)	; 
+    (=big5-pua		. #x84E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E1)	; 
-    (=ucs		. #xF10E)	; 
+  '((=ucs		. #xF10E)	; 
+    (=big5-pua		. #x84E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E2)	; 
-    (=ucs		. #xF10F)	; 
+  '((=ucs		. #xF10F)	; 
+    (=big5-pua		. #x84E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E3)	; 
-    (=ucs		. #xF110)	; 
+  '((=ucs		. #xF110)	; 
+    (=big5-pua		. #x84E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E4)	; 
-    (=ucs		. #xF111)	; 
+  '((=ucs		. #xF111)	; 
+    (=big5-pua		. #x84E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E5)	; 
-    (=ucs		. #xF112)	; 
+  '((=ucs		. #xF112)	; 
+    (=big5-pua		. #x84E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E6)	; 
-    (=ucs		. #xF113)	; 
+  '((=ucs		. #xF113)	; 
+    (=big5-pua		. #x84E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E7)	; 
-    (=ucs		. #xF114)	; 
+  '((=ucs		. #xF114)	; 
+    (=big5-pua		. #x84E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E8)	; 
-    (=ucs		. #xF115)	; 
+  '((=ucs		. #xF115)	; 
+    (=big5-pua		. #x84E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84E9)	; 
-    (=ucs		. #xF116)	; 
+  '((=ucs		. #xF116)	; 
+    (=big5-pua		. #x84E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84EA)	; 
-    (=ucs		. #xF117)	; 
+  '((=ucs		. #xF117)	; 
+    (=big5-pua		. #x84EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84EB)	; 
-    (=ucs		. #xF118)	; 
+  '((=ucs		. #xF118)	; 
+    (=big5-pua		. #x84EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84EC)	; 
-    (=ucs		. #xF119)	; 
+  '((=ucs		. #xF119)	; 
+    (=big5-pua		. #x84EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84ED)	; 
-    (=ucs		. #xF11A)	; 
+  '((=ucs		. #xF11A)	; 
+    (=big5-pua		. #x84ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84EE)	; 
-    (=ucs		. #xF11B)	; 
+  '((=ucs		. #xF11B)	; 
+    (=big5-pua		. #x84EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84EF)	; 
-    (=ucs		. #xF11C)	; 
+  '((=ucs		. #xF11C)	; 
+    (=big5-pua		. #x84EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F0)	; 
-    (=ucs		. #xF11D)	; 
+  '((=ucs		. #xF11D)	; 
+    (=big5-pua		. #x84F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F1)	; 
-    (=ucs		. #xF11E)	; 
+  '((=ucs		. #xF11E)	; 
+    (=big5-pua		. #x84F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F2)	; 
-    (=ucs		. #xF11F)	; 
+  '((=ucs		. #xF11F)	; 
+    (=big5-pua		. #x84F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F3)	; 
-    (=ucs		. #xF120)	; 
+  '((=ucs		. #xF120)	; 
+    (=big5-pua		. #x84F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F4)	; 
-    (=ucs		. #xF121)	; 
+  '((=ucs		. #xF121)	; 
+    (=big5-pua		. #x84F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F5)	; 
-    (=ucs		. #xF122)	; 
+  '((=ucs		. #xF122)	; 
+    (=big5-pua		. #x84F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F6)	; 
-    (=ucs		. #xF123)	; 
+  '((=ucs		. #xF123)	; 
+    (=big5-pua		. #x84F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F7)	; 
-    (=ucs		. #xF124)	; 
+  '((=ucs		. #xF124)	; 
+    (=big5-pua		. #x84F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F8)	; 
-    (=ucs		. #xF125)	; 
+  '((=ucs		. #xF125)	; 
+    (=big5-pua		. #x84F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84F9)	; 
-    (=ucs		. #xF126)	; 
+  '((=ucs		. #xF126)	; 
+    (=big5-pua		. #x84F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84FA)	; 
-    (=ucs		. #xF127)	; 
+  '((=ucs		. #xF127)	; 
+    (=big5-pua		. #x84FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84FB)	; 
-    (=ucs		. #xF128)	; 
+  '((=ucs		. #xF128)	; 
+    (=big5-pua		. #x84FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84FC)	; 
-    (=ucs		. #xF129)	; 
+  '((=ucs		. #xF129)	; 
+    (=big5-pua		. #x84FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84FD)	; 
-    (=ucs		. #xF12A)	; 
+  '((=ucs		. #xF12A)	; 
+    (=big5-pua		. #x84FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x84FE)	; 
-    (=ucs		. #xF12B)	; 
+  '((=ucs		. #xF12B)	; 
+    (=big5-pua		. #x84FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8540)	; 
-    (=ucs		. #xF12C)	; 
+  '((=ucs		. #xF12C)	; 
+    (=big5-pua		. #x8540)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8541)	; 
-    (=ucs		. #xF12D)	; 
+  '((=ucs		. #xF12D)	; 
+    (=big5-pua		. #x8541)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8542)	; 
-    (=ucs		. #xF12E)	; 
+  '((=ucs		. #xF12E)	; 
+    (=big5-pua		. #x8542)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8543)	; 
-    (=ucs		. #xF12F)	; 
+  '((=ucs		. #xF12F)	; 
+    (=big5-pua		. #x8543)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8544)	; 
-    (=ucs		. #xF130)	; 
+  '((=ucs		. #xF130)	; 
+    (=big5-pua		. #x8544)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8545)	; 
-    (=ucs		. #xF131)	; 
+  '((=ucs		. #xF131)	; 
+    (=big5-pua		. #x8545)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8546)	; 
-    (=ucs		. #xF132)	; 
+  '((=ucs		. #xF132)	; 
+    (=big5-pua		. #x8546)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8547)	; 
-    (=ucs		. #xF133)	; 
+  '((=ucs		. #xF133)	; 
+    (=big5-pua		. #x8547)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8548)	; 
-    (=ucs		. #xF134)	; 
+  '((=ucs		. #xF134)	; 
+    (=big5-pua		. #x8548)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8549)	; 
-    (=ucs		. #xF135)	; 
+  '((=ucs		. #xF135)	; 
+    (=big5-pua		. #x8549)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854A)	; 
-    (=ucs		. #xF136)	; 
+  '((=ucs		. #xF136)	; 
+    (=big5-pua		. #x854A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854B)	; 
-    (=ucs		. #xF137)	; 
+  '((=ucs		. #xF137)	; 
+    (=big5-pua		. #x854B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854C)	; 
-    (=ucs		. #xF138)	; 
+  '((=ucs		. #xF138)	; 
+    (=big5-pua		. #x854C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854D)	; 
-    (=ucs		. #xF139)	; 
+  '((=ucs		. #xF139)	; 
+    (=big5-pua		. #x854D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854E)	; 
-    (=ucs		. #xF13A)	; 
+  '((=ucs		. #xF13A)	; 
+    (=big5-pua		. #x854E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x854F)	; 
-    (=ucs		. #xF13B)	; 
+  '((=ucs		. #xF13B)	; 
+    (=big5-pua		. #x854F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8550)	; 
-    (=ucs		. #xF13C)	; 
+  '((=ucs		. #xF13C)	; 
+    (=big5-pua		. #x8550)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8551)	; 
-    (=ucs		. #xF13D)	; 
+  '((=ucs		. #xF13D)	; 
+    (=big5-pua		. #x8551)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8552)	; 
-    (=ucs		. #xF13E)	; 
+  '((=ucs		. #xF13E)	; 
+    (=big5-pua		. #x8552)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8553)	; 
-    (=ucs		. #xF13F)	; 
+  '((=ucs		. #xF13F)	; 
+    (=big5-pua		. #x8553)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8554)	; 
-    (=ucs		. #xF140)	; 
+  '((=ucs		. #xF140)	; 
+    (=big5-pua		. #x8554)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8555)	; 
-    (=ucs		. #xF141)	; 
+  '((=ucs		. #xF141)	; 
+    (=big5-pua		. #x8555)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8556)	; 
-    (=ucs		. #xF142)	; 
+  '((=ucs		. #xF142)	; 
+    (=big5-pua		. #x8556)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8557)	; 
-    (=ucs		. #xF143)	; 
+  '((=ucs		. #xF143)	; 
+    (=big5-pua		. #x8557)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8558)	; 
-    (=ucs		. #xF144)	; 
+  '((=ucs		. #xF144)	; 
+    (=big5-pua		. #x8558)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8559)	; 
-    (=ucs		. #xF145)	; 
+  '((=ucs		. #xF145)	; 
+    (=big5-pua		. #x8559)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855A)	; 
-    (=ucs		. #xF146)	; 
+  '((=ucs		. #xF146)	; 
+    (=big5-pua		. #x855A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855B)	; 
-    (=ucs		. #xF147)	; 
+  '((=ucs		. #xF147)	; 
+    (=big5-pua		. #x855B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855C)	; 
-    (=ucs		. #xF148)	; 
+  '((=ucs		. #xF148)	; 
+    (=big5-pua		. #x855C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855D)	; 
-    (=ucs		. #xF149)	; 
+  '((=ucs		. #xF149)	; 
+    (=big5-pua		. #x855D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855E)	; 
-    (=ucs		. #xF14A)	; 
+  '((=ucs		. #xF14A)	; 
+    (=big5-pua		. #x855E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x855F)	; 
-    (=ucs		. #xF14B)	; 
+  '((=ucs		. #xF14B)	; 
+    (=big5-pua		. #x855F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8560)	; 
-    (=ucs		. #xF14C)	; 
+  '((=ucs		. #xF14C)	; 
+    (=big5-pua		. #x8560)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8561)	; 
-    (=ucs		. #xF14D)	; 
+  '((=ucs		. #xF14D)	; 
+    (=big5-pua		. #x8561)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8562)	; 
-    (=ucs		. #xF14E)	; 
+  '((=ucs		. #xF14E)	; 
+    (=big5-pua		. #x8562)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8563)	; 
-    (=ucs		. #xF14F)	; 
+  '((=ucs		. #xF14F)	; 
+    (=big5-pua		. #x8563)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8564)	; 
-    (=ucs		. #xF150)	; 
+  '((=ucs		. #xF150)	; 
+    (=big5-pua		. #x8564)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8565)	; 
-    (=ucs		. #xF151)	; 
+  '((=ucs		. #xF151)	; 
+    (=big5-pua		. #x8565)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8566)	; 
-    (=ucs		. #xF152)	; 
+  '((=ucs		. #xF152)	; 
+    (=big5-pua		. #x8566)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8567)	; 
-    (=ucs		. #xF153)	; 
+  '((=ucs		. #xF153)	; 
+    (=big5-pua		. #x8567)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8568)	; 
-    (=ucs		. #xF154)	; 
+  '((=ucs		. #xF154)	; 
+    (=big5-pua		. #x8568)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8569)	; 
-    (=ucs		. #xF155)	; 
+  '((=ucs		. #xF155)	; 
+    (=big5-pua		. #x8569)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856A)	; 
-    (=ucs		. #xF156)	; 
+  '((=ucs		. #xF156)	; 
+    (=big5-pua		. #x856A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856B)	; 
-    (=ucs		. #xF157)	; 
+  '((=ucs		. #xF157)	; 
+    (=big5-pua		. #x856B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856C)	; 
-    (=ucs		. #xF158)	; 
+  '((=ucs		. #xF158)	; 
+    (=big5-pua		. #x856C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856D)	; 
-    (=ucs		. #xF159)	; 
+  '((=ucs		. #xF159)	; 
+    (=big5-pua		. #x856D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856E)	; 
-    (=ucs		. #xF15A)	; 
+  '((=ucs		. #xF15A)	; 
+    (=big5-pua		. #x856E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x856F)	; 
-    (=ucs		. #xF15B)	; 
+  '((=ucs		. #xF15B)	; 
+    (=big5-pua		. #x856F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8570)	; 
-    (=ucs		. #xF15C)	; 
+  '((=ucs		. #xF15C)	; 
+    (=big5-pua		. #x8570)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8571)	; 
-    (=ucs		. #xF15D)	; 
+  '((=ucs		. #xF15D)	; 
+    (=big5-pua		. #x8571)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8572)	; 
-    (=ucs		. #xF15E)	; 
+  '((=ucs		. #xF15E)	; 
+    (=big5-pua		. #x8572)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8573)	; 
-    (=ucs		. #xF15F)	; 
+  '((=ucs		. #xF15F)	; 
+    (=big5-pua		. #x8573)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8574)	; 
-    (=ucs		. #xF160)	; 
+  '((=ucs		. #xF160)	; 
+    (=big5-pua		. #x8574)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8575)	; 
-    (=ucs		. #xF161)	; 
+  '((=ucs		. #xF161)	; 
+    (=big5-pua		. #x8575)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8576)	; 
-    (=ucs		. #xF162)	; 
+  '((=ucs		. #xF162)	; 
+    (=big5-pua		. #x8576)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8577)	; 
-    (=ucs		. #xF163)	; 
+  '((=ucs		. #xF163)	; 
+    (=big5-pua		. #x8577)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8578)	; 
-    (=ucs		. #xF164)	; 
+  '((=ucs		. #xF164)	; 
+    (=big5-pua		. #x8578)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8579)	; 
-    (=ucs		. #xF165)	; 
+  '((=ucs		. #xF165)	; 
+    (=big5-pua		. #x8579)	; 
     ))
 (define-char
-  '((=big5-pua		. #x857A)	; 
-    (=ucs		. #xF166)	; 
+  '((=ucs		. #xF166)	; 
+    (=big5-pua		. #x857A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x857B)	; 
-    (=ucs		. #xF167)	; 
+  '((=ucs		. #xF167)	; 
+    (=big5-pua		. #x857B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x857C)	; 
-    (=ucs		. #xF168)	; 
+  '((=ucs		. #xF168)	; 
+    (=big5-pua		. #x857C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x857D)	; 
-    (=ucs		. #xF169)	; 
+  '((=ucs		. #xF169)	; 
+    (=big5-pua		. #x857D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x857E)	; 
-    (=ucs		. #xF16A)	; 
+  '((=ucs		. #xF16A)	; 
+    (=big5-pua		. #x857E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A1)	; 
-    (=ucs		. #xF16B)	; 
+  '((=ucs		. #xF16B)	; 
+    (=big5-pua		. #x85A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A2)	; 
-    (=ucs		. #xF16C)	; 
+  '((=ucs		. #xF16C)	; 
+    (=big5-pua		. #x85A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A3)	; 
-    (=ucs		. #xF16D)	; 
+  '((=ucs		. #xF16D)	; 
+    (=big5-pua		. #x85A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A4)	; 
-    (=ucs		. #xF16E)	; 
+  '((=ucs		. #xF16E)	; 
+    (=big5-pua		. #x85A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A5)	; 
-    (=ucs		. #xF16F)	; 
+  '((=ucs		. #xF16F)	; 
+    (=big5-pua		. #x85A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A6)	; 
-    (=ucs		. #xF170)	; 
+  '((=ucs		. #xF170)	; 
+    (=big5-pua		. #x85A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A7)	; 
-    (=ucs		. #xF171)	; 
+  '((=ucs		. #xF171)	; 
+    (=big5-pua		. #x85A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A8)	; 
-    (=ucs		. #xF172)	; 
+  '((=ucs		. #xF172)	; 
+    (=big5-pua		. #x85A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85A9)	; 
-    (=ucs		. #xF173)	; 
+  '((=ucs		. #xF173)	; 
+    (=big5-pua		. #x85A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AA)	; 
-    (=ucs		. #xF174)	; 
+  '((=ucs		. #xF174)	; 
+    (=big5-pua		. #x85AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AB)	; 
-    (=ucs		. #xF175)	; 
+  '((=ucs		. #xF175)	; 
+    (=big5-pua		. #x85AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AC)	; 
-    (=ucs		. #xF176)	; 
+  '((=ucs		. #xF176)	; 
+    (=big5-pua		. #x85AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AD)	; 
-    (=ucs		. #xF177)	; 
+  '((=ucs		. #xF177)	; 
+    (=big5-pua		. #x85AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AE)	; 
-    (=ucs		. #xF178)	; 
+  '((=ucs		. #xF178)	; 
+    (=big5-pua		. #x85AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85AF)	; 
-    (=ucs		. #xF179)	; 
+  '((=ucs		. #xF179)	; 
+    (=big5-pua		. #x85AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B0)	; 
-    (=ucs		. #xF17A)	; 
+  '((=ucs		. #xF17A)	; 
+    (=big5-pua		. #x85B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B1)	; 
-    (=ucs		. #xF17B)	; 
+  '((=ucs		. #xF17B)	; 
+    (=big5-pua		. #x85B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B2)	; 
-    (=ucs		. #xF17C)	; 
+  '((=ucs		. #xF17C)	; 
+    (=big5-pua		. #x85B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B3)	; 
-    (=ucs		. #xF17D)	; 
+  '((=ucs		. #xF17D)	; 
+    (=big5-pua		. #x85B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B4)	; 
-    (=ucs		. #xF17E)	; 
+  '((=ucs		. #xF17E)	; 
+    (=big5-pua		. #x85B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B5)	; 
-    (=ucs		. #xF17F)	; 
+  '((=ucs		. #xF17F)	; 
+    (=big5-pua		. #x85B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B6)	; 
-    (=ucs		. #xF180)	; 
+  '((=ucs		. #xF180)	; 
+    (=big5-pua		. #x85B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B7)	; 
-    (=ucs		. #xF181)	; 
+  '((=ucs		. #xF181)	; 
+    (=big5-pua		. #x85B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B8)	; 
-    (=ucs		. #xF182)	; 
+  '((=ucs		. #xF182)	; 
+    (=big5-pua		. #x85B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85B9)	; 
-    (=ucs		. #xF183)	; 
+  '((=ucs		. #xF183)	; 
+    (=big5-pua		. #x85B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BA)	; 
-    (=ucs		. #xF184)	; 
+  '((=ucs		. #xF184)	; 
+    (=big5-pua		. #x85BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BB)	; 
-    (=ucs		. #xF185)	; 
+  '((=ucs		. #xF185)	; 
+    (=big5-pua		. #x85BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BC)	; 
-    (=ucs		. #xF186)	; 
+  '((=ucs		. #xF186)	; 
+    (=big5-pua		. #x85BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BD)	; 
-    (=ucs		. #xF187)	; 
+  '((=ucs		. #xF187)	; 
+    (=big5-pua		. #x85BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BE)	; 
-    (=ucs		. #xF188)	; 
+  '((=ucs		. #xF188)	; 
+    (=big5-pua		. #x85BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85BF)	; 
-    (=ucs		. #xF189)	; 
+  '((=ucs		. #xF189)	; 
+    (=big5-pua		. #x85BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C0)	; 
-    (=ucs		. #xF18A)	; 
+  '((=ucs		. #xF18A)	; 
+    (=big5-pua		. #x85C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C1)	; 
-    (=ucs		. #xF18B)	; 
+  '((=ucs		. #xF18B)	; 
+    (=big5-pua		. #x85C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C2)	; 
-    (=ucs		. #xF18C)	; 
+  '((=ucs		. #xF18C)	; 
+    (=big5-pua		. #x85C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C3)	; 
-    (=ucs		. #xF18D)	; 
+  '((=ucs		. #xF18D)	; 
+    (=big5-pua		. #x85C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C4)	; 
-    (=ucs		. #xF18E)	; 
+  '((=ucs		. #xF18E)	; 
+    (=big5-pua		. #x85C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C5)	; 
-    (=ucs		. #xF18F)	; 
+  '((=ucs		. #xF18F)	; 
+    (=big5-pua		. #x85C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C6)	; 
-    (=ucs		. #xF190)	; 
+  '((=ucs		. #xF190)	; 
+    (=big5-pua		. #x85C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C7)	; 
-    (=ucs		. #xF191)	; 
+  '((=ucs		. #xF191)	; 
+    (=big5-pua		. #x85C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C8)	; 
-    (=ucs		. #xF192)	; 
+  '((=ucs		. #xF192)	; 
+    (=big5-pua		. #x85C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85C9)	; 
-    (=ucs		. #xF193)	; 
+  '((=ucs		. #xF193)	; 
+    (=big5-pua		. #x85C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CA)	; 
-    (=ucs		. #xF194)	; 
+  '((=ucs		. #xF194)	; 
+    (=big5-pua		. #x85CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CB)	; 
-    (=ucs		. #xF195)	; 
+  '((=ucs		. #xF195)	; 
+    (=big5-pua		. #x85CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CC)	; 
-    (=ucs		. #xF196)	; 
+  '((=ucs		. #xF196)	; 
+    (=big5-pua		. #x85CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CD)	; 
-    (=ucs		. #xF197)	; 
+  '((=ucs		. #xF197)	; 
+    (=big5-pua		. #x85CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CE)	; 
-    (=ucs		. #xF198)	; 
+  '((=ucs		. #xF198)	; 
+    (=big5-pua		. #x85CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85CF)	; 
-    (=ucs		. #xF199)	; 
+  '((=ucs		. #xF199)	; 
+    (=big5-pua		. #x85CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D0)	; 
-    (=ucs		. #xF19A)	; 
+  '((=ucs		. #xF19A)	; 
+    (=big5-pua		. #x85D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D1)	; 
-    (=ucs		. #xF19B)	; 
+  '((=ucs		. #xF19B)	; 
+    (=big5-pua		. #x85D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D2)	; 
-    (=ucs		. #xF19C)	; 
+  '((=ucs		. #xF19C)	; 
+    (=big5-pua		. #x85D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D3)	; 
-    (=ucs		. #xF19D)	; 
+  '((=ucs		. #xF19D)	; 
+    (=big5-pua		. #x85D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D4)	; 
-    (=ucs		. #xF19E)	; 
+  '((=ucs		. #xF19E)	; 
+    (=big5-pua		. #x85D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D5)	; 
-    (=ucs		. #xF19F)	; 
+  '((=ucs		. #xF19F)	; 
+    (=big5-pua		. #x85D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D6)	; 
-    (=ucs		. #xF1A0)	; 
+  '((=ucs		. #xF1A0)	; 
+    (=big5-pua		. #x85D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D7)	; 
-    (=ucs		. #xF1A1)	; 
+  '((=ucs		. #xF1A1)	; 
+    (=big5-pua		. #x85D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D8)	; 
-    (=ucs		. #xF1A2)	; 
+  '((=ucs		. #xF1A2)	; 
+    (=big5-pua		. #x85D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85D9)	; 
-    (=ucs		. #xF1A3)	; 
+  '((=ucs		. #xF1A3)	; 
+    (=big5-pua		. #x85D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DA)	; 
-    (=ucs		. #xF1A4)	; 
+  '((=ucs		. #xF1A4)	; 
+    (=big5-pua		. #x85DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DB)	; 
-    (=ucs		. #xF1A5)	; 
+  '((=ucs		. #xF1A5)	; 
+    (=big5-pua		. #x85DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DC)	; 
-    (=ucs		. #xF1A6)	; 
+  '((=ucs		. #xF1A6)	; 
+    (=big5-pua		. #x85DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DD)	; 
-    (=ucs		. #xF1A7)	; 
+  '((=ucs		. #xF1A7)	; 
+    (=big5-pua		. #x85DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DE)	; 
-    (=ucs		. #xF1A8)	; 
+  '((=ucs		. #xF1A8)	; 
+    (=big5-pua		. #x85DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85DF)	; 
-    (=ucs		. #xF1A9)	; 
+  '((=ucs		. #xF1A9)	; 
+    (=big5-pua		. #x85DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E0)	; 
-    (=ucs		. #xF1AA)	; 
+  '((=ucs		. #xF1AA)	; 
+    (=big5-pua		. #x85E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E1)	; 
-    (=ucs		. #xF1AB)	; 
+  '((=ucs		. #xF1AB)	; 
+    (=big5-pua		. #x85E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E2)	; 
-    (=ucs		. #xF1AC)	; 
+  '((=ucs		. #xF1AC)	; 
+    (=big5-pua		. #x85E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E3)	; 
-    (=ucs		. #xF1AD)	; 
+  '((=ucs		. #xF1AD)	; 
+    (=big5-pua		. #x85E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E4)	; 
-    (=ucs		. #xF1AE)	; 
+  '((=ucs		. #xF1AE)	; 
+    (=big5-pua		. #x85E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E5)	; 
-    (=ucs		. #xF1AF)	; 
+  '((=ucs		. #xF1AF)	; 
+    (=big5-pua		. #x85E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E6)	; 
-    (=ucs		. #xF1B0)	; 
+  '((=ucs		. #xF1B0)	; 
+    (=big5-pua		. #x85E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E7)	; 
-    (=ucs		. #xF1B1)	; 
+  '((=ucs		. #xF1B1)	; 
+    (=big5-pua		. #x85E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E8)	; 
-    (=ucs		. #xF1B2)	; 
+  '((=ucs		. #xF1B2)	; 
+    (=big5-pua		. #x85E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85E9)	; 
-    (=ucs		. #xF1B3)	; 
+  '((=ucs		. #xF1B3)	; 
+    (=big5-pua		. #x85E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85EA)	; 
-    (=ucs		. #xF1B4)	; 
+  '((=ucs		. #xF1B4)	; 
+    (=big5-pua		. #x85EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85EB)	; 
-    (=ucs		. #xF1B5)	; 
+  '((=ucs		. #xF1B5)	; 
+    (=big5-pua		. #x85EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85EC)	; 
-    (=ucs		. #xF1B6)	; 
+  '((=ucs		. #xF1B6)	; 
+    (=big5-pua		. #x85EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85ED)	; 
-    (=ucs		. #xF1B7)	; 
+  '((=ucs		. #xF1B7)	; 
+    (=big5-pua		. #x85ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85EE)	; 
-    (=ucs		. #xF1B8)	; 
+  '((=ucs		. #xF1B8)	; 
+    (=big5-pua		. #x85EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85EF)	; 
-    (=ucs		. #xF1B9)	; 
+  '((=ucs		. #xF1B9)	; 
+    (=big5-pua		. #x85EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F0)	; 
-    (=ucs		. #xF1BA)	; 
+  '((=ucs		. #xF1BA)	; 
+    (=big5-pua		. #x85F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F1)	; 
-    (=ucs		. #xF1BB)	; 
+  '((=ucs		. #xF1BB)	; 
+    (=big5-pua		. #x85F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F2)	; 
-    (=ucs		. #xF1BC)	; 
+  '((=ucs		. #xF1BC)	; 
+    (=big5-pua		. #x85F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F3)	; 
-    (=ucs		. #xF1BD)	; 
+  '((=ucs		. #xF1BD)	; 
+    (=big5-pua		. #x85F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F4)	; 
-    (=ucs		. #xF1BE)	; 
+  '((=ucs		. #xF1BE)	; 
+    (=big5-pua		. #x85F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F5)	; 
-    (=ucs		. #xF1BF)	; 
+  '((=ucs		. #xF1BF)	; 
+    (=big5-pua		. #x85F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F6)	; 
-    (=ucs		. #xF1C0)	; 
+  '((=ucs		. #xF1C0)	; 
+    (=big5-pua		. #x85F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F7)	; 
-    (=ucs		. #xF1C1)	; 
+  '((=ucs		. #xF1C1)	; 
+    (=big5-pua		. #x85F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F8)	; 
-    (=ucs		. #xF1C2)	; 
+  '((=ucs		. #xF1C2)	; 
+    (=big5-pua		. #x85F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85F9)	; 
-    (=ucs		. #xF1C3)	; 
+  '((=ucs		. #xF1C3)	; 
+    (=big5-pua		. #x85F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85FA)	; 
-    (=ucs		. #xF1C4)	; 
+  '((=ucs		. #xF1C4)	; 
+    (=big5-pua		. #x85FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85FB)	; 
-    (=ucs		. #xF1C5)	; 
+  '((=ucs		. #xF1C5)	; 
+    (=big5-pua		. #x85FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85FC)	; 
-    (=ucs		. #xF1C6)	; 
+  '((=ucs		. #xF1C6)	; 
+    (=big5-pua		. #x85FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85FD)	; 
-    (=ucs		. #xF1C7)	; 
+  '((=ucs		. #xF1C7)	; 
+    (=big5-pua		. #x85FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x85FE)	; 
-    (=ucs		. #xF1C8)	; 
+  '((=ucs		. #xF1C8)	; 
+    (=big5-pua		. #x85FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8640)	; 
-    (=ucs		. #xF1C9)	; 
+  '((=ucs		. #xF1C9)	; 
+    (=big5-pua		. #x8640)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8641)	; 
-    (=ucs		. #xF1CA)	; 
+  '((=ucs		. #xF1CA)	; 
+    (=big5-pua		. #x8641)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8642)	; 
-    (=ucs		. #xF1CB)	; 
+  '((=ucs		. #xF1CB)	; 
+    (=big5-pua		. #x8642)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8643)	; 
-    (=ucs		. #xF1CC)	; 
+  '((=ucs		. #xF1CC)	; 
+    (=big5-pua		. #x8643)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8644)	; 
-    (=ucs		. #xF1CD)	; 
+  '((=ucs		. #xF1CD)	; 
+    (=big5-pua		. #x8644)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8645)	; 
-    (=ucs		. #xF1CE)	; 
+  '((=ucs		. #xF1CE)	; 
+    (=big5-pua		. #x8645)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8646)	; 
-    (=ucs		. #xF1CF)	; 
+  '((=ucs		. #xF1CF)	; 
+    (=big5-pua		. #x8646)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8647)	; 
-    (=ucs		. #xF1D0)	; 
+  '((=ucs		. #xF1D0)	; 
+    (=big5-pua		. #x8647)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8648)	; 
-    (=ucs		. #xF1D1)	; 
+  '((=ucs		. #xF1D1)	; 
+    (=big5-pua		. #x8648)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8649)	; 
-    (=ucs		. #xF1D2)	; 
+  '((=ucs		. #xF1D2)	; 
+    (=big5-pua		. #x8649)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864A)	; 
-    (=ucs		. #xF1D3)	; 
+  '((=ucs		. #xF1D3)	; 
+    (=big5-pua		. #x864A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864B)	; 
-    (=ucs		. #xF1D4)	; 
+  '((=ucs		. #xF1D4)	; 
+    (=big5-pua		. #x864B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864C)	; 
-    (=ucs		. #xF1D5)	; 
+  '((=ucs		. #xF1D5)	; 
+    (=big5-pua		. #x864C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864D)	; 
-    (=ucs		. #xF1D6)	; 
+  '((=ucs		. #xF1D6)	; 
+    (=big5-pua		. #x864D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864E)	; 
-    (=ucs		. #xF1D7)	; 
+  '((=ucs		. #xF1D7)	; 
+    (=big5-pua		. #x864E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x864F)	; 
-    (=ucs		. #xF1D8)	; 
+  '((=ucs		. #xF1D8)	; 
+    (=big5-pua		. #x864F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8650)	; 
-    (=ucs		. #xF1D9)	; 
+  '((=ucs		. #xF1D9)	; 
+    (=big5-pua		. #x8650)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8651)	; 
-    (=ucs		. #xF1DA)	; 
+  '((=ucs		. #xF1DA)	; 
+    (=big5-pua		. #x8651)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8652)	; 
-    (=ucs		. #xF1DB)	; 
+  '((=ucs		. #xF1DB)	; 
+    (=big5-pua		. #x8652)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8653)	; 
-    (=ucs		. #xF1DC)	; 
+  '((=ucs		. #xF1DC)	; 
+    (=big5-pua		. #x8653)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8654)	; 
-    (=ucs		. #xF1DD)	; 
+  '((=ucs		. #xF1DD)	; 
+    (=big5-pua		. #x8654)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8655)	; 
-    (=ucs		. #xF1DE)	; 
+  '((=ucs		. #xF1DE)	; 
+    (=big5-pua		. #x8655)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8656)	; 
-    (=ucs		. #xF1DF)	; 
+  '((=ucs		. #xF1DF)	; 
+    (=big5-pua		. #x8656)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8657)	; 
-    (=ucs		. #xF1E0)	; 
+  '((=ucs		. #xF1E0)	; 
+    (=big5-pua		. #x8657)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8658)	; 
-    (=ucs		. #xF1E1)	; 
+  '((=ucs		. #xF1E1)	; 
+    (=big5-pua		. #x8658)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8659)	; 
-    (=ucs		. #xF1E2)	; 
+  '((=ucs		. #xF1E2)	; 
+    (=big5-pua		. #x8659)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865A)	; 
-    (=ucs		. #xF1E3)	; 
+  '((=ucs		. #xF1E3)	; 
+    (=big5-pua		. #x865A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865B)	; 
-    (=ucs		. #xF1E4)	; 
+  '((=ucs		. #xF1E4)	; 
+    (=big5-pua		. #x865B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865C)	; 
-    (=ucs		. #xF1E5)	; 
+  '((=ucs		. #xF1E5)	; 
+    (=big5-pua		. #x865C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865D)	; 
-    (=ucs		. #xF1E6)	; 
+  '((=ucs		. #xF1E6)	; 
+    (=big5-pua		. #x865D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865E)	; 
-    (=ucs		. #xF1E7)	; 
+  '((=ucs		. #xF1E7)	; 
+    (=big5-pua		. #x865E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x865F)	; 
-    (=ucs		. #xF1E8)	; 
+  '((=ucs		. #xF1E8)	; 
+    (=big5-pua		. #x865F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8660)	; 
-    (=ucs		. #xF1E9)	; 
+  '((=ucs		. #xF1E9)	; 
+    (=big5-pua		. #x8660)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8661)	; 
-    (=ucs		. #xF1EA)	; 
+  '((=ucs		. #xF1EA)	; 
+    (=big5-pua		. #x8661)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8662)	; 
-    (=ucs		. #xF1EB)	; 
+  '((=ucs		. #xF1EB)	; 
+    (=big5-pua		. #x8662)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8663)	; 
-    (=ucs		. #xF1EC)	; 
+  '((=ucs		. #xF1EC)	; 
+    (=big5-pua		. #x8663)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8664)	; 
-    (=ucs		. #xF1ED)	; 
+  '((=ucs		. #xF1ED)	; 
+    (=big5-pua		. #x8664)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8665)	; 
-    (=ucs		. #xF1EE)	; 
+  '((=ucs		. #xF1EE)	; 
+    (=big5-pua		. #x8665)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8666)	; 
-    (=ucs		. #xF1EF)	; 
+  '((=ucs		. #xF1EF)	; 
+    (=big5-pua		. #x8666)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8667)	; 
-    (=ucs		. #xF1F0)	; 
+  '((=ucs		. #xF1F0)	; 
+    (=big5-pua		. #x8667)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8668)	; 
-    (=ucs		. #xF1F1)	; 
+  '((=ucs		. #xF1F1)	; 
+    (=big5-pua		. #x8668)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8669)	; 
-    (=ucs		. #xF1F2)	; 
+  '((=ucs		. #xF1F2)	; 
+    (=big5-pua		. #x8669)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866A)	; 
-    (=ucs		. #xF1F3)	; 
+  '((=ucs		. #xF1F3)	; 
+    (=big5-pua		. #x866A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866B)	; 
-    (=ucs		. #xF1F4)	; 
+  '((=ucs		. #xF1F4)	; 
+    (=big5-pua		. #x866B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866C)	; 
-    (=ucs		. #xF1F5)	; 
+  '((=ucs		. #xF1F5)	; 
+    (=big5-pua		. #x866C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866D)	; 
-    (=ucs		. #xF1F6)	; 
+  '((=ucs		. #xF1F6)	; 
+    (=big5-pua		. #x866D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866E)	; 
-    (=ucs		. #xF1F7)	; 
+  '((=ucs		. #xF1F7)	; 
+    (=big5-pua		. #x866E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x866F)	; 
-    (=ucs		. #xF1F8)	; 
+  '((=ucs		. #xF1F8)	; 
+    (=big5-pua		. #x866F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8670)	; 
-    (=ucs		. #xF1F9)	; 
+  '((=ucs		. #xF1F9)	; 
+    (=big5-pua		. #x8670)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8671)	; 
-    (=ucs		. #xF1FA)	; 
+  '((=ucs		. #xF1FA)	; 
+    (=big5-pua		. #x8671)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8672)	; 
-    (=ucs		. #xF1FB)	; 
+  '((=ucs		. #xF1FB)	; 
+    (=big5-pua		. #x8672)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8673)	; 
-    (=ucs		. #xF1FC)	; 
+  '((=ucs		. #xF1FC)	; 
+    (=big5-pua		. #x8673)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8674)	; 
-    (=ucs		. #xF1FD)	; 
+  '((=ucs		. #xF1FD)	; 
+    (=big5-pua		. #x8674)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8675)	; 
-    (=ucs		. #xF1FE)	; 
+  '((=ucs		. #xF1FE)	; 
+    (=big5-pua		. #x8675)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8676)	; 
-    (=ucs		. #xF1FF)	; 
+  '((=ucs		. #xF1FF)	; 
+    (=big5-pua		. #x8676)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8677)	; 
-    (=ucs		. #xF200)	; 
+  '((=ucs		. #xF200)	; 
+    (=big5-pua		. #x8677)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8678)	; 
-    (=ucs		. #xF201)	; 
+  '((=ucs		. #xF201)	; 
+    (=big5-pua		. #x8678)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8679)	; 
-    (=ucs		. #xF202)	; 
+  '((=ucs		. #xF202)	; 
+    (=big5-pua		. #x8679)	; 
     ))
 (define-char
-  '((=big5-pua		. #x867A)	; 
-    (=ucs		. #xF203)	; 
+  '((=ucs		. #xF203)	; 
+    (=big5-pua		. #x867A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x867B)	; 
-    (=ucs		. #xF204)	; 
+  '((=ucs		. #xF204)	; 
+    (=big5-pua		. #x867B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x867C)	; 
-    (=ucs		. #xF205)	; 
+  '((=ucs		. #xF205)	; 
+    (=big5-pua		. #x867C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x867D)	; 
-    (=ucs		. #xF206)	; 
+  '((=ucs		. #xF206)	; 
+    (=big5-pua		. #x867D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x867E)	; 
-    (=ucs		. #xF207)	; 
+  '((=ucs		. #xF207)	; 
+    (=big5-pua		. #x867E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A1)	; 
-    (=ucs		. #xF208)	; 
+  '((=ucs		. #xF208)	; 
+    (=big5-pua		. #x86A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A2)	; 
-    (=ucs		. #xF209)	; 
+  '((=ucs		. #xF209)	; 
+    (=big5-pua		. #x86A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A3)	; 
-    (=ucs		. #xF20A)	; 
+  '((=ucs		. #xF20A)	; 
+    (=big5-pua		. #x86A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A4)	; 
-    (=ucs		. #xF20B)	; 
+  '((=ucs		. #xF20B)	; 
+    (=big5-pua		. #x86A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A5)	; 
-    (=ucs		. #xF20C)	; 
+  '((=ucs		. #xF20C)	; 
+    (=big5-pua		. #x86A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A6)	; 
-    (=ucs		. #xF20D)	; 
+  '((=ucs		. #xF20D)	; 
+    (=big5-pua		. #x86A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A7)	; 
-    (=ucs		. #xF20E)	; 
+  '((=ucs		. #xF20E)	; 
+    (=big5-pua		. #x86A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A8)	; 
-    (=ucs		. #xF20F)	; 
+  '((=ucs		. #xF20F)	; 
+    (=big5-pua		. #x86A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86A9)	; 
-    (=ucs		. #xF210)	; 
+  '((=ucs		. #xF210)	; 
+    (=big5-pua		. #x86A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AA)	; 
-    (=ucs		. #xF211)	; 
+  '((=ucs		. #xF211)	; 
+    (=big5-pua		. #x86AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AB)	; 
-    (=ucs		. #xF212)	; 
+  '((=ucs		. #xF212)	; 
+    (=big5-pua		. #x86AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AC)	; 
-    (=ucs		. #xF213)	; 
+  '((=ucs		. #xF213)	; 
+    (=big5-pua		. #x86AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AD)	; 
-    (=ucs		. #xF214)	; 
+  '((=ucs		. #xF214)	; 
+    (=big5-pua		. #x86AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AE)	; 
-    (=ucs		. #xF215)	; 
+  '((=ucs		. #xF215)	; 
+    (=big5-pua		. #x86AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86AF)	; 
-    (=ucs		. #xF216)	; 
+  '((=ucs		. #xF216)	; 
+    (=big5-pua		. #x86AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B0)	; 
-    (=ucs		. #xF217)	; 
+  '((=ucs		. #xF217)	; 
+    (=big5-pua		. #x86B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B1)	; 
-    (=ucs		. #xF218)	; 
+  '((=ucs		. #xF218)	; 
+    (=big5-pua		. #x86B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B2)	; 
-    (=ucs		. #xF219)	; 
+  '((=ucs		. #xF219)	; 
+    (=big5-pua		. #x86B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B3)	; 
-    (=ucs		. #xF21A)	; 
+  '((=ucs		. #xF21A)	; 
+    (=big5-pua		. #x86B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B4)	; 
-    (=ucs		. #xF21B)	; 
+  '((=ucs		. #xF21B)	; 
+    (=big5-pua		. #x86B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B5)	; 
-    (=ucs		. #xF21C)	; 
+  '((=ucs		. #xF21C)	; 
+    (=big5-pua		. #x86B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B6)	; 
-    (=ucs		. #xF21D)	; 
+  '((=ucs		. #xF21D)	; 
+    (=big5-pua		. #x86B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B7)	; 
-    (=ucs		. #xF21E)	; 
+  '((=ucs		. #xF21E)	; 
+    (=big5-pua		. #x86B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B8)	; 
-    (=ucs		. #xF21F)	; 
+  '((=ucs		. #xF21F)	; 
+    (=big5-pua		. #x86B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86B9)	; 
-    (=ucs		. #xF220)	; 
+  '((=ucs		. #xF220)	; 
+    (=big5-pua		. #x86B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BA)	; 
-    (=ucs		. #xF221)	; 
+  '((=ucs		. #xF221)	; 
+    (=big5-pua		. #x86BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BB)	; 
-    (=ucs		. #xF222)	; 
+  '((=ucs		. #xF222)	; 
+    (=big5-pua		. #x86BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BC)	; 
-    (=ucs		. #xF223)	; 
+  '((=ucs		. #xF223)	; 
+    (=big5-pua		. #x86BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BD)	; 
-    (=ucs		. #xF224)	; 
+  '((=ucs		. #xF224)	; 
+    (=big5-pua		. #x86BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BE)	; 
-    (=ucs		. #xF225)	; 
+  '((=ucs		. #xF225)	; 
+    (=big5-pua		. #x86BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86BF)	; 
-    (=ucs		. #xF226)	; 
+  '((=ucs		. #xF226)	; 
+    (=big5-pua		. #x86BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C0)	; 
-    (=ucs		. #xF227)	; 
+  '((=ucs		. #xF227)	; 
+    (=big5-pua		. #x86C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C1)	; 
-    (=ucs		. #xF228)	; 
+  '((=ucs		. #xF228)	; 
+    (=big5-pua		. #x86C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C2)	; 
-    (=ucs		. #xF229)	; 
+  '((=ucs		. #xF229)	; 
+    (=big5-pua		. #x86C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C3)	; 
-    (=ucs		. #xF22A)	; 
+  '((=ucs		. #xF22A)	; 
+    (=big5-pua		. #x86C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C4)	; 
-    (=ucs		. #xF22B)	; 
+  '((=ucs		. #xF22B)	; 
+    (=big5-pua		. #x86C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C5)	; 
-    (=ucs		. #xF22C)	; 
+  '((=ucs		. #xF22C)	; 
+    (=big5-pua		. #x86C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C6)	; 
-    (=ucs		. #xF22D)	; 
+  '((=ucs		. #xF22D)	; 
+    (=big5-pua		. #x86C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C7)	; 
-    (=ucs		. #xF22E)	; 
+  '((=ucs		. #xF22E)	; 
+    (=big5-pua		. #x86C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C8)	; 
-    (=ucs		. #xF22F)	; 
+  '((=ucs		. #xF22F)	; 
+    (=big5-pua		. #x86C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86C9)	; 
-    (=ucs		. #xF230)	; 
+  '((=ucs		. #xF230)	; 
+    (=big5-pua		. #x86C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CA)	; 
-    (=ucs		. #xF231)	; 
+  '((=ucs		. #xF231)	; 
+    (=big5-pua		. #x86CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CB)	; 
-    (=ucs		. #xF232)	; 
+  '((=ucs		. #xF232)	; 
+    (=big5-pua		. #x86CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CC)	; 
-    (=ucs		. #xF233)	; 
+  '((=ucs		. #xF233)	; 
+    (=big5-pua		. #x86CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CD)	; 
-    (=ucs		. #xF234)	; 
+  '((=ucs		. #xF234)	; 
+    (=big5-pua		. #x86CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CE)	; 
-    (=ucs		. #xF235)	; 
+  '((=ucs		. #xF235)	; 
+    (=big5-pua		. #x86CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86CF)	; 
-    (=ucs		. #xF236)	; 
+  '((=ucs		. #xF236)	; 
+    (=big5-pua		. #x86CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D0)	; 
-    (=ucs		. #xF237)	; 
+  '((=ucs		. #xF237)	; 
+    (=big5-pua		. #x86D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D1)	; 
-    (=ucs		. #xF238)	; 
+  '((=ucs		. #xF238)	; 
+    (=big5-pua		. #x86D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D2)	; 
-    (=ucs		. #xF239)	; 
+  '((=ucs		. #xF239)	; 
+    (=big5-pua		. #x86D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D3)	; 
-    (=ucs		. #xF23A)	; 
+  '((=ucs		. #xF23A)	; 
+    (=big5-pua		. #x86D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D4)	; 
-    (=ucs		. #xF23B)	; 
+  '((=ucs		. #xF23B)	; 
+    (=big5-pua		. #x86D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D5)	; 
-    (=ucs		. #xF23C)	; 
+  '((=ucs		. #xF23C)	; 
+    (=big5-pua		. #x86D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D6)	; 
-    (=ucs		. #xF23D)	; 
+  '((=ucs		. #xF23D)	; 
+    (=big5-pua		. #x86D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D7)	; 
-    (=ucs		. #xF23E)	; 
+  '((=ucs		. #xF23E)	; 
+    (=big5-pua		. #x86D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D8)	; 
-    (=ucs		. #xF23F)	; 
+  '((=ucs		. #xF23F)	; 
+    (=big5-pua		. #x86D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86D9)	; 
-    (=ucs		. #xF240)	; 
+  '((=ucs		. #xF240)	; 
+    (=big5-pua		. #x86D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DA)	; 
-    (=ucs		. #xF241)	; 
+  '((=ucs		. #xF241)	; 
+    (=big5-pua		. #x86DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DB)	; 
-    (=ucs		. #xF242)	; 
+  '((=ucs		. #xF242)	; 
+    (=big5-pua		. #x86DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DC)	; 
-    (=ucs		. #xF243)	; 
+  '((=ucs		. #xF243)	; 
+    (=big5-pua		. #x86DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DD)	; 
-    (=ucs		. #xF244)	; 
+  '((=ucs		. #xF244)	; 
+    (=big5-pua		. #x86DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DE)	; 
-    (=ucs		. #xF245)	; 
+  '((=ucs		. #xF245)	; 
+    (=big5-pua		. #x86DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86DF)	; 
-    (=ucs		. #xF246)	; 
+  '((=ucs		. #xF246)	; 
+    (=big5-pua		. #x86DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E0)	; 
-    (=ucs		. #xF247)	; 
+  '((=ucs		. #xF247)	; 
+    (=big5-pua		. #x86E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E1)	; 
-    (=ucs		. #xF248)	; 
+  '((=ucs		. #xF248)	; 
+    (=big5-pua		. #x86E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E2)	; 
-    (=ucs		. #xF249)	; 
+  '((=ucs		. #xF249)	; 
+    (=big5-pua		. #x86E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E3)	; 
-    (=ucs		. #xF24A)	; 
+  '((=ucs		. #xF24A)	; 
+    (=big5-pua		. #x86E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E4)	; 
-    (=ucs		. #xF24B)	; 
+  '((=ucs		. #xF24B)	; 
+    (=big5-pua		. #x86E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E5)	; 
-    (=ucs		. #xF24C)	; 
+  '((=ucs		. #xF24C)	; 
+    (=big5-pua		. #x86E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E6)	; 
-    (=ucs		. #xF24D)	; 
+  '((=ucs		. #xF24D)	; 
+    (=big5-pua		. #x86E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E7)	; 
-    (=ucs		. #xF24E)	; 
+  '((=ucs		. #xF24E)	; 
+    (=big5-pua		. #x86E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E8)	; 
-    (=ucs		. #xF24F)	; 
+  '((=ucs		. #xF24F)	; 
+    (=big5-pua		. #x86E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86E9)	; 
-    (=ucs		. #xF250)	; 
+  '((=ucs		. #xF250)	; 
+    (=big5-pua		. #x86E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86EA)	; 
-    (=ucs		. #xF251)	; 
+  '((=ucs		. #xF251)	; 
+    (=big5-pua		. #x86EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86EB)	; 
-    (=ucs		. #xF252)	; 
+  '((=ucs		. #xF252)	; 
+    (=big5-pua		. #x86EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86EC)	; 
-    (=ucs		. #xF253)	; 
+  '((=ucs		. #xF253)	; 
+    (=big5-pua		. #x86EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86ED)	; 
-    (=ucs		. #xF254)	; 
+  '((=ucs		. #xF254)	; 
+    (=big5-pua		. #x86ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86EE)	; 
-    (=ucs		. #xF255)	; 
+  '((=ucs		. #xF255)	; 
+    (=big5-pua		. #x86EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86EF)	; 
-    (=ucs		. #xF256)	; 
+  '((=ucs		. #xF256)	; 
+    (=big5-pua		. #x86EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F0)	; 
-    (=ucs		. #xF257)	; 
+  '((=ucs		. #xF257)	; 
+    (=big5-pua		. #x86F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F1)	; 
-    (=ucs		. #xF258)	; 
+  '((=ucs		. #xF258)	; 
+    (=big5-pua		. #x86F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F2)	; 
-    (=ucs		. #xF259)	; 
+  '((=ucs		. #xF259)	; 
+    (=big5-pua		. #x86F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F3)	; 
-    (=ucs		. #xF25A)	; 
+  '((=ucs		. #xF25A)	; 
+    (=big5-pua		. #x86F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F4)	; 
-    (=ucs		. #xF25B)	; 
+  '((=ucs		. #xF25B)	; 
+    (=big5-pua		. #x86F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F5)	; 
-    (=ucs		. #xF25C)	; 
+  '((=ucs		. #xF25C)	; 
+    (=big5-pua		. #x86F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F6)	; 
-    (=ucs		. #xF25D)	; 
+  '((=ucs		. #xF25D)	; 
+    (=big5-pua		. #x86F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F7)	; 
-    (=ucs		. #xF25E)	; 
+  '((=ucs		. #xF25E)	; 
+    (=big5-pua		. #x86F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F8)	; 
-    (=ucs		. #xF25F)	; 
+  '((=ucs		. #xF25F)	; 
+    (=big5-pua		. #x86F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86F9)	; 
-    (=ucs		. #xF260)	; 
+  '((=ucs		. #xF260)	; 
+    (=big5-pua		. #x86F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86FA)	; 
-    (=ucs		. #xF261)	; 
+  '((=ucs		. #xF261)	; 
+    (=big5-pua		. #x86FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86FB)	; 
-    (=ucs		. #xF262)	; 
+  '((=ucs		. #xF262)	; 
+    (=big5-pua		. #x86FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86FC)	; 
-    (=ucs		. #xF263)	; 
+  '((=ucs		. #xF263)	; 
+    (=big5-pua		. #x86FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86FD)	; 
-    (=ucs		. #xF264)	; 
+  '((=ucs		. #xF264)	; 
+    (=big5-pua		. #x86FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x86FE)	; 
-    (=ucs		. #xF265)	; 
+  '((=ucs		. #xF265)	; 
+    (=big5-pua		. #x86FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8740)	; 
-    (=ucs		. #xF266)	; 
+  '((=ucs		. #xF266)	; 
+    (=big5-pua		. #x8740)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8741)	; 
-    (=ucs		. #xF267)	; 
+  '((=ucs		. #xF267)	; 
+    (=big5-pua		. #x8741)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8742)	; 
-    (=ucs		. #xF268)	; 
+  '((=ucs		. #xF268)	; 
+    (=big5-pua		. #x8742)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8743)	; 
-    (=ucs		. #xF269)	; 
+  '((=ucs		. #xF269)	; 
+    (=big5-pua		. #x8743)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8744)	; 
-    (=ucs		. #xF26A)	; 
+  '((=ucs		. #xF26A)	; 
+    (=big5-pua		. #x8744)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8745)	; 
-    (=ucs		. #xF26B)	; 
+  '((=ucs		. #xF26B)	; 
+    (=big5-pua		. #x8745)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8746)	; 
-    (=ucs		. #xF26C)	; 
+  '((=ucs		. #xF26C)	; 
+    (=big5-pua		. #x8746)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8747)	; 
-    (=ucs		. #xF26D)	; 
+  '((=ucs		. #xF26D)	; 
+    (=big5-pua		. #x8747)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8748)	; 
-    (=ucs		. #xF26E)	; 
+  '((=ucs		. #xF26E)	; 
+    (=big5-pua		. #x8748)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8749)	; 
-    (=ucs		. #xF26F)	; 
+  '((=ucs		. #xF26F)	; 
+    (=big5-pua		. #x8749)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874A)	; 
-    (=ucs		. #xF270)	; 
+  '((=ucs		. #xF270)	; 
+    (=big5-pua		. #x874A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874B)	; 
-    (=ucs		. #xF271)	; 
+  '((=ucs		. #xF271)	; 
+    (=big5-pua		. #x874B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874C)	; 
-    (=ucs		. #xF272)	; 
+  '((=ucs		. #xF272)	; 
+    (=big5-pua		. #x874C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874D)	; 
-    (=ucs		. #xF273)	; 
+  '((=ucs		. #xF273)	; 
+    (=big5-pua		. #x874D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874E)	; 
-    (=ucs		. #xF274)	; 
+  '((=ucs		. #xF274)	; 
+    (=big5-pua		. #x874E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x874F)	; 
-    (=ucs		. #xF275)	; 
+  '((=ucs		. #xF275)	; 
+    (=big5-pua		. #x874F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8750)	; 
-    (=ucs		. #xF276)	; 
+  '((=ucs		. #xF276)	; 
+    (=big5-pua		. #x8750)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8751)	; 
-    (=ucs		. #xF277)	; 
+  '((=ucs		. #xF277)	; 
+    (=big5-pua		. #x8751)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8752)	; 
-    (=ucs		. #xF278)	; 
+  '((=ucs		. #xF278)	; 
+    (=big5-pua		. #x8752)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8753)	; 
-    (=ucs		. #xF279)	; 
+  '((=ucs		. #xF279)	; 
+    (=big5-pua		. #x8753)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8754)	; 
-    (=ucs		. #xF27A)	; 
+  '((=ucs		. #xF27A)	; 
+    (=big5-pua		. #x8754)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8755)	; 
-    (=ucs		. #xF27B)	; 
+  '((=ucs		. #xF27B)	; 
+    (=big5-pua		. #x8755)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8756)	; 
-    (=ucs		. #xF27C)	; 
+  '((=ucs		. #xF27C)	; 
+    (=big5-pua		. #x8756)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8757)	; 
-    (=ucs		. #xF27D)	; 
+  '((=ucs		. #xF27D)	; 
+    (=big5-pua		. #x8757)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8758)	; 
-    (=ucs		. #xF27E)	; 
+  '((=ucs		. #xF27E)	; 
+    (=big5-pua		. #x8758)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8759)	; 
-    (=ucs		. #xF27F)	; 
+  '((=ucs		. #xF27F)	; 
+    (=big5-pua		. #x8759)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875A)	; 
-    (=ucs		. #xF280)	; 
+  '((=ucs		. #xF280)	; 
+    (=big5-pua		. #x875A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875B)	; 
-    (=ucs		. #xF281)	; 
+  '((=ucs		. #xF281)	; 
+    (=big5-pua		. #x875B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875C)	; 
-    (=ucs		. #xF282)	; 
+  '((=ucs		. #xF282)	; 
+    (=big5-pua		. #x875C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875D)	; 
-    (=ucs		. #xF283)	; 
+  '((=ucs		. #xF283)	; 
+    (=big5-pua		. #x875D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875E)	; 
-    (=ucs		. #xF284)	; 
+  '((=ucs		. #xF284)	; 
+    (=big5-pua		. #x875E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x875F)	; 
-    (=ucs		. #xF285)	; 
+  '((=ucs		. #xF285)	; 
+    (=big5-pua		. #x875F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8760)	; 
-    (=ucs		. #xF286)	; 
+  '((=ucs		. #xF286)	; 
+    (=big5-pua		. #x8760)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8761)	; 
-    (=ucs		. #xF287)	; 
+  '((=ucs		. #xF287)	; 
+    (=big5-pua		. #x8761)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8762)	; 
-    (=ucs		. #xF288)	; 
+  '((=ucs		. #xF288)	; 
+    (=big5-pua		. #x8762)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8763)	; 
-    (=ucs		. #xF289)	; 
+  '((=ucs		. #xF289)	; 
+    (=big5-pua		. #x8763)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8764)	; 
-    (=ucs		. #xF28A)	; 
+  '((=ucs		. #xF28A)	; 
+    (=big5-pua		. #x8764)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8765)	; 
-    (=ucs		. #xF28B)	; 
+  '((=ucs		. #xF28B)	; 
+    (=big5-pua		. #x8765)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8766)	; 
-    (=ucs		. #xF28C)	; 
+  '((=ucs		. #xF28C)	; 
+    (=big5-pua		. #x8766)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8767)	; 
-    (=ucs		. #xF28D)	; 
+  '((=ucs		. #xF28D)	; 
+    (=big5-pua		. #x8767)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8768)	; 
-    (=ucs		. #xF28E)	; 
+  '((=ucs		. #xF28E)	; 
+    (=big5-pua		. #x8768)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8769)	; 
-    (=ucs		. #xF28F)	; 
+  '((=ucs		. #xF28F)	; 
+    (=big5-pua		. #x8769)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876A)	; 
-    (=ucs		. #xF290)	; 
+  '((=ucs		. #xF290)	; 
+    (=big5-pua		. #x876A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876B)	; 
-    (=ucs		. #xF291)	; 
+  '((=ucs		. #xF291)	; 
+    (=big5-pua		. #x876B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876C)	; 
-    (=ucs		. #xF292)	; 
+  '((=ucs		. #xF292)	; 
+    (=big5-pua		. #x876C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876D)	; 
-    (=ucs		. #xF293)	; 
+  '((=ucs		. #xF293)	; 
+    (=big5-pua		. #x876D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876E)	; 
-    (=ucs		. #xF294)	; 
+  '((=ucs		. #xF294)	; 
+    (=big5-pua		. #x876E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x876F)	; 
-    (=ucs		. #xF295)	; 
+  '((=ucs		. #xF295)	; 
+    (=big5-pua		. #x876F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8770)	; 
-    (=ucs		. #xF296)	; 
+  '((=ucs		. #xF296)	; 
+    (=big5-pua		. #x8770)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8771)	; 
-    (=ucs		. #xF297)	; 
+  '((=ucs		. #xF297)	; 
+    (=big5-pua		. #x8771)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8772)	; 
-    (=ucs		. #xF298)	; 
+  '((=ucs		. #xF298)	; 
+    (=big5-pua		. #x8772)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8773)	; 
-    (=ucs		. #xF299)	; 
+  '((=ucs		. #xF299)	; 
+    (=big5-pua		. #x8773)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8774)	; 
-    (=ucs		. #xF29A)	; 
+  '((=ucs		. #xF29A)	; 
+    (=big5-pua		. #x8774)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8775)	; 
-    (=ucs		. #xF29B)	; 
+  '((=ucs		. #xF29B)	; 
+    (=big5-pua		. #x8775)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8776)	; 
-    (=ucs		. #xF29C)	; 
+  '((=ucs		. #xF29C)	; 
+    (=big5-pua		. #x8776)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8777)	; 
-    (=ucs		. #xF29D)	; 
+  '((=ucs		. #xF29D)	; 
+    (=big5-pua		. #x8777)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8778)	; 
-    (=ucs		. #xF29E)	; 
+  '((=ucs		. #xF29E)	; 
+    (=big5-pua		. #x8778)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8779)	; 
-    (=ucs		. #xF29F)	; 
+  '((=ucs		. #xF29F)	; 
+    (=big5-pua		. #x8779)	; 
     ))
 (define-char
-  '((=big5-pua		. #x877A)	; 
-    (=ucs		. #xF2A0)	; 
+  '((=ucs		. #xF2A0)	; 
+    (=big5-pua		. #x877A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x877B)	; 
-    (=ucs		. #xF2A1)	; 
+  '((=ucs		. #xF2A1)	; 
+    (=big5-pua		. #x877B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x877C)	; 
-    (=ucs		. #xF2A2)	; 
+  '((=ucs		. #xF2A2)	; 
+    (=big5-pua		. #x877C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x877D)	; 
-    (=ucs		. #xF2A3)	; 
+  '((=ucs		. #xF2A3)	; 
+    (=big5-pua		. #x877D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x877E)	; 
-    (=ucs		. #xF2A4)	; 
+  '((=ucs		. #xF2A4)	; 
+    (=big5-pua		. #x877E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A1)	; 
-    (=ucs		. #xF2A5)	; 
+  '((=ucs		. #xF2A5)	; 
+    (=big5-pua		. #x87A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A2)	; 
-    (=ucs		. #xF2A6)	; 
+  '((=ucs		. #xF2A6)	; 
+    (=big5-pua		. #x87A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A3)	; 
-    (=ucs		. #xF2A7)	; 
+  '((=ucs		. #xF2A7)	; 
+    (=big5-pua		. #x87A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A4)	; 
-    (=ucs		. #xF2A8)	; 
+  '((=ucs		. #xF2A8)	; 
+    (=big5-pua		. #x87A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A5)	; 
-    (=ucs		. #xF2A9)	; 
+  '((=ucs		. #xF2A9)	; 
+    (=big5-pua		. #x87A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A6)	; 
-    (=ucs		. #xF2AA)	; 
+  '((=ucs		. #xF2AA)	; 
+    (=big5-pua		. #x87A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A7)	; 
-    (=ucs		. #xF2AB)	; 
+  '((=ucs		. #xF2AB)	; 
+    (=big5-pua		. #x87A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A8)	; 
-    (=ucs		. #xF2AC)	; 
+  '((=ucs		. #xF2AC)	; 
+    (=big5-pua		. #x87A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87A9)	; 
-    (=ucs		. #xF2AD)	; 
+  '((=ucs		. #xF2AD)	; 
+    (=big5-pua		. #x87A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AA)	; 
-    (=ucs		. #xF2AE)	; 
+  '((=ucs		. #xF2AE)	; 
+    (=big5-pua		. #x87AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AB)	; 
-    (=ucs		. #xF2AF)	; 
+  '((=ucs		. #xF2AF)	; 
+    (=big5-pua		. #x87AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AC)	; 
-    (=ucs		. #xF2B0)	; 
+  '((=ucs		. #xF2B0)	; 
+    (=big5-pua		. #x87AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AD)	; 
-    (=ucs		. #xF2B1)	; 
+  '((=ucs		. #xF2B1)	; 
+    (=big5-pua		. #x87AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AE)	; 
-    (=ucs		. #xF2B2)	; 
+  '((=ucs		. #xF2B2)	; 
+    (=big5-pua		. #x87AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87AF)	; 
-    (=ucs		. #xF2B3)	; 
+  '((=ucs		. #xF2B3)	; 
+    (=big5-pua		. #x87AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B0)	; 
-    (=ucs		. #xF2B4)	; 
+  '((=ucs		. #xF2B4)	; 
+    (=big5-pua		. #x87B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B1)	; 
-    (=ucs		. #xF2B5)	; 
+  '((=ucs		. #xF2B5)	; 
+    (=big5-pua		. #x87B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B2)	; 
-    (=ucs		. #xF2B6)	; 
+  '((=ucs		. #xF2B6)	; 
+    (=big5-pua		. #x87B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B3)	; 
-    (=ucs		. #xF2B7)	; 
+  '((=ucs		. #xF2B7)	; 
+    (=big5-pua		. #x87B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B4)	; 
-    (=ucs		. #xF2B8)	; 
+  '((=ucs		. #xF2B8)	; 
+    (=big5-pua		. #x87B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B5)	; 
-    (=ucs		. #xF2B9)	; 
+  '((=ucs		. #xF2B9)	; 
+    (=big5-pua		. #x87B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B6)	; 
-    (=ucs		. #xF2BA)	; 
+  '((=ucs		. #xF2BA)	; 
+    (=big5-pua		. #x87B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B7)	; 
-    (=ucs		. #xF2BB)	; 
+  '((=ucs		. #xF2BB)	; 
+    (=big5-pua		. #x87B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B8)	; 
-    (=ucs		. #xF2BC)	; 
+  '((=ucs		. #xF2BC)	; 
+    (=big5-pua		. #x87B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87B9)	; 
-    (=ucs		. #xF2BD)	; 
+  '((=ucs		. #xF2BD)	; 
+    (=big5-pua		. #x87B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BA)	; 
-    (=ucs		. #xF2BE)	; 
+  '((=ucs		. #xF2BE)	; 
+    (=big5-pua		. #x87BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BB)	; 
-    (=ucs		. #xF2BF)	; 
+  '((=ucs		. #xF2BF)	; 
+    (=big5-pua		. #x87BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BC)	; 
-    (=ucs		. #xF2C0)	; 
+  '((=ucs		. #xF2C0)	; 
+    (=big5-pua		. #x87BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BD)	; 
-    (=ucs		. #xF2C1)	; 
+  '((=ucs		. #xF2C1)	; 
+    (=big5-pua		. #x87BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BE)	; 
-    (=ucs		. #xF2C2)	; 
+  '((=ucs		. #xF2C2)	; 
+    (=big5-pua		. #x87BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87BF)	; 
-    (=ucs		. #xF2C3)	; 
+  '((=ucs		. #xF2C3)	; 
+    (=big5-pua		. #x87BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C0)	; 
-    (=ucs		. #xF2C4)	; 
+  '((=ucs		. #xF2C4)	; 
+    (=big5-pua		. #x87C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C1)	; 
-    (=ucs		. #xF2C5)	; 
+  '((=ucs		. #xF2C5)	; 
+    (=big5-pua		. #x87C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C2)	; 
-    (=ucs		. #xF2C6)	; 
+  '((=ucs		. #xF2C6)	; 
+    (=big5-pua		. #x87C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C3)	; 
-    (=ucs		. #xF2C7)	; 
+  '((=ucs		. #xF2C7)	; 
+    (=big5-pua		. #x87C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C4)	; 
-    (=ucs		. #xF2C8)	; 
+  '((=ucs		. #xF2C8)	; 
+    (=big5-pua		. #x87C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C5)	; 
-    (=ucs		. #xF2C9)	; 
+  '((=ucs		. #xF2C9)	; 
+    (=big5-pua		. #x87C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C6)	; 
-    (=ucs		. #xF2CA)	; 
+  '((=ucs		. #xF2CA)	; 
+    (=big5-pua		. #x87C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C7)	; 
-    (=ucs		. #xF2CB)	; 
+  '((=ucs		. #xF2CB)	; 
+    (=big5-pua		. #x87C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C8)	; 
-    (=ucs		. #xF2CC)	; 
+  '((=ucs		. #xF2CC)	; 
+    (=big5-pua		. #x87C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87C9)	; 
-    (=ucs		. #xF2CD)	; 
+  '((=ucs		. #xF2CD)	; 
+    (=big5-pua		. #x87C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CA)	; 
-    (=ucs		. #xF2CE)	; 
+  '((=ucs		. #xF2CE)	; 
+    (=big5-pua		. #x87CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CB)	; 
-    (=ucs		. #xF2CF)	; 
+  '((=ucs		. #xF2CF)	; 
+    (=big5-pua		. #x87CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CC)	; 
-    (=ucs		. #xF2D0)	; 
+  '((=ucs		. #xF2D0)	; 
+    (=big5-pua		. #x87CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CD)	; 
-    (=ucs		. #xF2D1)	; 
+  '((=ucs		. #xF2D1)	; 
+    (=big5-pua		. #x87CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CE)	; 
-    (=ucs		. #xF2D2)	; 
+  '((=ucs		. #xF2D2)	; 
+    (=big5-pua		. #x87CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87CF)	; 
-    (=ucs		. #xF2D3)	; 
+  '((=ucs		. #xF2D3)	; 
+    (=big5-pua		. #x87CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D0)	; 
-    (=ucs		. #xF2D4)	; 
+  '((=ucs		. #xF2D4)	; 
+    (=big5-pua		. #x87D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D1)	; 
-    (=ucs		. #xF2D5)	; 
+  '((=ucs		. #xF2D5)	; 
+    (=big5-pua		. #x87D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D2)	; 
-    (=ucs		. #xF2D6)	; 
+  '((=ucs		. #xF2D6)	; 
+    (=big5-pua		. #x87D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D3)	; 
-    (=ucs		. #xF2D7)	; 
+  '((=ucs		. #xF2D7)	; 
+    (=big5-pua		. #x87D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D4)	; 
-    (=ucs		. #xF2D8)	; 
+  '((=ucs		. #xF2D8)	; 
+    (=big5-pua		. #x87D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D5)	; 
-    (=ucs		. #xF2D9)	; 
+  '((=ucs		. #xF2D9)	; 
+    (=big5-pua		. #x87D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D6)	; 
-    (=ucs		. #xF2DA)	; 
+  '((=ucs		. #xF2DA)	; 
+    (=big5-pua		. #x87D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D7)	; 
-    (=ucs		. #xF2DB)	; 
+  '((=ucs		. #xF2DB)	; 
+    (=big5-pua		. #x87D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D8)	; 
-    (=ucs		. #xF2DC)	; 
+  '((=ucs		. #xF2DC)	; 
+    (=big5-pua		. #x87D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87D9)	; 
-    (=ucs		. #xF2DD)	; 
+  '((=ucs		. #xF2DD)	; 
+    (=big5-pua		. #x87D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DA)	; 
-    (=ucs		. #xF2DE)	; 
+  '((=ucs		. #xF2DE)	; 
+    (=big5-pua		. #x87DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DB)	; 
-    (=ucs		. #xF2DF)	; 
+  '((=ucs		. #xF2DF)	; 
+    (=big5-pua		. #x87DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DC)	; 
-    (=ucs		. #xF2E0)	; 
+  '((=ucs		. #xF2E0)	; 
+    (=big5-pua		. #x87DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DD)	; 
-    (=ucs		. #xF2E1)	; 
+  '((=ucs		. #xF2E1)	; 
+    (=big5-pua		. #x87DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DE)	; 
-    (=ucs		. #xF2E2)	; 
+  '((=ucs		. #xF2E2)	; 
+    (=big5-pua		. #x87DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87DF)	; 
-    (=ucs		. #xF2E3)	; 
+  '((=ucs		. #xF2E3)	; 
+    (=big5-pua		. #x87DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E0)	; 
-    (=ucs		. #xF2E4)	; 
+  '((=ucs		. #xF2E4)	; 
+    (=big5-pua		. #x87E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E1)	; 
-    (=ucs		. #xF2E5)	; 
+  '((=ucs		. #xF2E5)	; 
+    (=big5-pua		. #x87E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E2)	; 
-    (=ucs		. #xF2E6)	; 
+  '((=ucs		. #xF2E6)	; 
+    (=big5-pua		. #x87E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E3)	; 
-    (=ucs		. #xF2E7)	; 
+  '((=ucs		. #xF2E7)	; 
+    (=big5-pua		. #x87E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E4)	; 
-    (=ucs		. #xF2E8)	; 
+  '((=ucs		. #xF2E8)	; 
+    (=big5-pua		. #x87E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E5)	; 
-    (=ucs		. #xF2E9)	; 
+  '((=ucs		. #xF2E9)	; 
+    (=big5-pua		. #x87E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E6)	; 
-    (=ucs		. #xF2EA)	; 
+  '((=ucs		. #xF2EA)	; 
+    (=big5-pua		. #x87E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E7)	; 
-    (=ucs		. #xF2EB)	; 
+  '((=ucs		. #xF2EB)	; 
+    (=big5-pua		. #x87E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E8)	; 
-    (=ucs		. #xF2EC)	; 
+  '((=ucs		. #xF2EC)	; 
+    (=big5-pua		. #x87E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87E9)	; 
-    (=ucs		. #xF2ED)	; 
+  '((=ucs		. #xF2ED)	; 
+    (=big5-pua		. #x87E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87EA)	; 
-    (=ucs		. #xF2EE)	; 
+  '((=ucs		. #xF2EE)	; 
+    (=big5-pua		. #x87EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87EB)	; 
-    (=ucs		. #xF2EF)	; 
+  '((=ucs		. #xF2EF)	; 
+    (=big5-pua		. #x87EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87EC)	; 
-    (=ucs		. #xF2F0)	; 
+  '((=ucs		. #xF2F0)	; 
+    (=big5-pua		. #x87EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87ED)	; 
-    (=ucs		. #xF2F1)	; 
+  '((=ucs		. #xF2F1)	; 
+    (=big5-pua		. #x87ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87EE)	; 
-    (=ucs		. #xF2F2)	; 
+  '((=ucs		. #xF2F2)	; 
+    (=big5-pua		. #x87EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87EF)	; 
-    (=ucs		. #xF2F3)	; 
+  '((=ucs		. #xF2F3)	; 
+    (=big5-pua		. #x87EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F0)	; 
-    (=ucs		. #xF2F4)	; 
+  '((=ucs		. #xF2F4)	; 
+    (=big5-pua		. #x87F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F1)	; 
-    (=ucs		. #xF2F5)	; 
+  '((=ucs		. #xF2F5)	; 
+    (=big5-pua		. #x87F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F2)	; 
-    (=ucs		. #xF2F6)	; 
+  '((=ucs		. #xF2F6)	; 
+    (=big5-pua		. #x87F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F3)	; 
-    (=ucs		. #xF2F7)	; 
+  '((=ucs		. #xF2F7)	; 
+    (=big5-pua		. #x87F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F4)	; 
-    (=ucs		. #xF2F8)	; 
+  '((=ucs		. #xF2F8)	; 
+    (=big5-pua		. #x87F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F5)	; 
-    (=ucs		. #xF2F9)	; 
+  '((=ucs		. #xF2F9)	; 
+    (=big5-pua		. #x87F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F6)	; 
-    (=ucs		. #xF2FA)	; 
+  '((=ucs		. #xF2FA)	; 
+    (=big5-pua		. #x87F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F7)	; 
-    (=ucs		. #xF2FB)	; 
+  '((=ucs		. #xF2FB)	; 
+    (=big5-pua		. #x87F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F8)	; 
-    (=ucs		. #xF2FC)	; 
+  '((=ucs		. #xF2FC)	; 
+    (=big5-pua		. #x87F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87F9)	; 
-    (=ucs		. #xF2FD)	; 
+  '((=ucs		. #xF2FD)	; 
+    (=big5-pua		. #x87F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87FA)	; 
-    (=ucs		. #xF2FE)	; 
+  '((=ucs		. #xF2FE)	; 
+    (=big5-pua		. #x87FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87FB)	; 
-    (=ucs		. #xF2FF)	; 
+  '((=ucs		. #xF2FF)	; 
+    (=big5-pua		. #x87FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87FC)	; 
-    (=ucs		. #xF300)	; 
+  '((=ucs		. #xF300)	; 
+    (=big5-pua		. #x87FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87FD)	; 
-    (=ucs		. #xF301)	; 
+  '((=ucs		. #xF301)	; 
+    (=big5-pua		. #x87FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x87FE)	; 
-    (=ucs		. #xF302)	; 
+  '((=ucs		. #xF302)	; 
+    (=big5-pua		. #x87FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8840)	; 
-    (=ucs		. #xF303)	; 
+  '((=ucs		. #xF303)	; 
+    (=big5-pua		. #x8840)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8841)	; 
-    (=ucs		. #xF304)	; 
+  '((=ucs		. #xF304)	; 
+    (=big5-pua		. #x8841)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8842)	; 
-    (=ucs		. #xF305)	; 
+  '((=ucs		. #xF305)	; 
+    (=big5-pua		. #x8842)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8843)	; 
-    (=ucs		. #xF306)	; 
+  '((=ucs		. #xF306)	; 
+    (=big5-pua		. #x8843)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8844)	; 
-    (=ucs		. #xF307)	; 
+  '((=ucs		. #xF307)	; 
+    (=big5-pua		. #x8844)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8845)	; 
-    (=ucs		. #xF308)	; 
+  '((=ucs		. #xF308)	; 
+    (=big5-pua		. #x8845)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8846)	; 
-    (=ucs		. #xF309)	; 
+  '((=ucs		. #xF309)	; 
+    (=big5-pua		. #x8846)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8847)	; 
-    (=ucs		. #xF30A)	; 
+  '((=ucs		. #xF30A)	; 
+    (=big5-pua		. #x8847)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8848)	; 
-    (=ucs		. #xF30B)	; 
+  '((=ucs		. #xF30B)	; 
+    (=big5-pua		. #x8848)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8849)	; 
-    (=ucs		. #xF30C)	; 
+  '((=ucs		. #xF30C)	; 
+    (=big5-pua		. #x8849)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884A)	; 
-    (=ucs		. #xF30D)	; 
+  '((=ucs		. #xF30D)	; 
+    (=big5-pua		. #x884A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884B)	; 
-    (=ucs		. #xF30E)	; 
+  '((=ucs		. #xF30E)	; 
+    (=big5-pua		. #x884B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884C)	; 
-    (=ucs		. #xF30F)	; 
+  '((=ucs		. #xF30F)	; 
+    (=big5-pua		. #x884C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884D)	; 
-    (=ucs		. #xF310)	; 
+  '((=ucs		. #xF310)	; 
+    (=big5-pua		. #x884D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884E)	; 
-    (=ucs		. #xF311)	; 
+  '((=ucs		. #xF311)	; 
+    (=big5-pua		. #x884E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x884F)	; 
-    (=ucs		. #xF312)	; 
+  '((=ucs		. #xF312)	; 
+    (=big5-pua		. #x884F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8850)	; 
-    (=ucs		. #xF313)	; 
+  '((=ucs		. #xF313)	; 
+    (=big5-pua		. #x8850)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8851)	; 
-    (=ucs		. #xF314)	; 
+  '((=ucs		. #xF314)	; 
+    (=big5-pua		. #x8851)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8852)	; 
-    (=ucs		. #xF315)	; 
+  '((=ucs		. #xF315)	; 
+    (=big5-pua		. #x8852)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8853)	; 
-    (=ucs		. #xF316)	; 
+  '((=ucs		. #xF316)	; 
+    (=big5-pua		. #x8853)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8854)	; 
-    (=ucs		. #xF317)	; 
+  '((=ucs		. #xF317)	; 
+    (=big5-pua		. #x8854)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8855)	; 
-    (=ucs		. #xF318)	; 
+  '((=ucs		. #xF318)	; 
+    (=big5-pua		. #x8855)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8856)	; 
-    (=ucs		. #xF319)	; 
+  '((=ucs		. #xF319)	; 
+    (=big5-pua		. #x8856)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8857)	; 
-    (=ucs		. #xF31A)	; 
+  '((=ucs		. #xF31A)	; 
+    (=big5-pua		. #x8857)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8858)	; 
-    (=ucs		. #xF31B)	; 
+  '((=ucs		. #xF31B)	; 
+    (=big5-pua		. #x8858)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8859)	; 
-    (=ucs		. #xF31C)	; 
+  '((=ucs		. #xF31C)	; 
+    (=big5-pua		. #x8859)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885A)	; 
-    (=ucs		. #xF31D)	; 
+  '((=ucs		. #xF31D)	; 
+    (=big5-pua		. #x885A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885B)	; 
-    (=ucs		. #xF31E)	; 
+  '((=ucs		. #xF31E)	; 
+    (=big5-pua		. #x885B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885C)	; 
-    (=ucs		. #xF31F)	; 
+  '((=ucs		. #xF31F)	; 
+    (=big5-pua		. #x885C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885D)	; 
-    (=ucs		. #xF320)	; 
+  '((=ucs		. #xF320)	; 
+    (=big5-pua		. #x885D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885E)	; 
-    (=ucs		. #xF321)	; 
+  '((=ucs		. #xF321)	; 
+    (=big5-pua		. #x885E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x885F)	; 
-    (=ucs		. #xF322)	; 
+  '((=ucs		. #xF322)	; 
+    (=big5-pua		. #x885F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8860)	; 
-    (=ucs		. #xF323)	; 
+  '((=ucs		. #xF323)	; 
+    (=big5-pua		. #x8860)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8861)	; 
-    (=ucs		. #xF324)	; 
+  '((=ucs		. #xF324)	; 
+    (=big5-pua		. #x8861)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8862)	; 
-    (=ucs		. #xF325)	; 
+  '((=ucs		. #xF325)	; 
+    (=big5-pua		. #x8862)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8863)	; 
-    (=ucs		. #xF326)	; 
+  '((=ucs		. #xF326)	; 
+    (=big5-pua		. #x8863)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8864)	; 
-    (=ucs		. #xF327)	; 
+  '((=ucs		. #xF327)	; 
+    (=big5-pua		. #x8864)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8865)	; 
-    (=ucs		. #xF328)	; 
+  '((=ucs		. #xF328)	; 
+    (=big5-pua		. #x8865)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8866)	; 
-    (=ucs		. #xF329)	; 
+  '((=ucs		. #xF329)	; 
+    (=big5-pua		. #x8866)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8867)	; 
-    (=ucs		. #xF32A)	; 
+  '((=ucs		. #xF32A)	; 
+    (=big5-pua		. #x8867)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8868)	; 
-    (=ucs		. #xF32B)	; 
+  '((=ucs		. #xF32B)	; 
+    (=big5-pua		. #x8868)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8869)	; 
-    (=ucs		. #xF32C)	; 
+  '((=ucs		. #xF32C)	; 
+    (=big5-pua		. #x8869)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886A)	; 
-    (=ucs		. #xF32D)	; 
+  '((=ucs		. #xF32D)	; 
+    (=big5-pua		. #x886A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886B)	; 
-    (=ucs		. #xF32E)	; 
+  '((=ucs		. #xF32E)	; 
+    (=big5-pua		. #x886B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886C)	; 
-    (=ucs		. #xF32F)	; 
+  '((=ucs		. #xF32F)	; 
+    (=big5-pua		. #x886C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886D)	; 
-    (=ucs		. #xF330)	; 
+  '((=ucs		. #xF330)	; 
+    (=big5-pua		. #x886D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886E)	; 
-    (=ucs		. #xF331)	; 
+  '((=ucs		. #xF331)	; 
+    (=big5-pua		. #x886E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x886F)	; 
-    (=ucs		. #xF332)	; 
+  '((=ucs		. #xF332)	; 
+    (=big5-pua		. #x886F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8870)	; 
-    (=ucs		. #xF333)	; 
+  '((=ucs		. #xF333)	; 
+    (=big5-pua		. #x8870)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8871)	; 
-    (=ucs		. #xF334)	; 
+  '((=ucs		. #xF334)	; 
+    (=big5-pua		. #x8871)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8872)	; 
-    (=ucs		. #xF335)	; 
+  '((=ucs		. #xF335)	; 
+    (=big5-pua		. #x8872)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8873)	; 
-    (=ucs		. #xF336)	; 
+  '((=ucs		. #xF336)	; 
+    (=big5-pua		. #x8873)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8874)	; 
-    (=ucs		. #xF337)	; 
+  '((=ucs		. #xF337)	; 
+    (=big5-pua		. #x8874)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8875)	; 
-    (=ucs		. #xF338)	; 
+  '((=ucs		. #xF338)	; 
+    (=big5-pua		. #x8875)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8876)	; 
-    (=ucs		. #xF339)	; 
+  '((=ucs		. #xF339)	; 
+    (=big5-pua		. #x8876)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8877)	; 
-    (=ucs		. #xF33A)	; 
+  '((=ucs		. #xF33A)	; 
+    (=big5-pua		. #x8877)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8878)	; 
-    (=ucs		. #xF33B)	; 
+  '((=ucs		. #xF33B)	; 
+    (=big5-pua		. #x8878)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8879)	; 
-    (=ucs		. #xF33C)	; 
+  '((=ucs		. #xF33C)	; 
+    (=big5-pua		. #x8879)	; 
     ))
 (define-char
-  '((=big5-pua		. #x887A)	; 
-    (=ucs		. #xF33D)	; 
+  '((=ucs		. #xF33D)	; 
+    (=big5-pua		. #x887A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x887B)	; 
-    (=ucs		. #xF33E)	; 
+  '((=ucs		. #xF33E)	; 
+    (=big5-pua		. #x887B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x887C)	; 
-    (=ucs		. #xF33F)	; 
+  '((=ucs		. #xF33F)	; 
+    (=big5-pua		. #x887C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x887D)	; 
-    (=ucs		. #xF340)	; 
+  '((=ucs		. #xF340)	; 
+    (=big5-pua		. #x887D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x887E)	; 
-    (=ucs		. #xF341)	; 
+  '((=ucs		. #xF341)	; 
+    (=big5-pua		. #x887E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A1)	; 
-    (=ucs		. #xF342)	; 
+  '((=ucs		. #xF342)	; 
+    (=big5-pua		. #x88A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A2)	; 
-    (=ucs		. #xF343)	; 
+  '((=ucs		. #xF343)	; 
+    (=big5-pua		. #x88A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A3)	; 
-    (=ucs		. #xF344)	; 
+  '((=ucs		. #xF344)	; 
+    (=big5-pua		. #x88A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A4)	; 
-    (=ucs		. #xF345)	; 
+  '((=ucs		. #xF345)	; 
+    (=big5-pua		. #x88A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A5)	; 
-    (=ucs		. #xF346)	; 
+  '((=ucs		. #xF346)	; 
+    (=big5-pua		. #x88A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A6)	; 
-    (=ucs		. #xF347)	; 
+  '((=ucs		. #xF347)	; 
+    (=big5-pua		. #x88A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A7)	; 
-    (=ucs		. #xF348)	; 
+  '((=ucs		. #xF348)	; 
+    (=big5-pua		. #x88A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A8)	; 
-    (=ucs		. #xF349)	; 
+  '((=ucs		. #xF349)	; 
+    (=big5-pua		. #x88A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88A9)	; 
-    (=ucs		. #xF34A)	; 
+  '((=ucs		. #xF34A)	; 
+    (=big5-pua		. #x88A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AA)	; 
-    (=ucs		. #xF34B)	; 
+  '((=ucs		. #xF34B)	; 
+    (=big5-pua		. #x88AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AB)	; 
-    (=ucs		. #xF34C)	; 
+  '((=ucs		. #xF34C)	; 
+    (=big5-pua		. #x88AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AC)	; 
-    (=ucs		. #xF34D)	; 
+  '((=ucs		. #xF34D)	; 
+    (=big5-pua		. #x88AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AD)	; 
-    (=ucs		. #xF34E)	; 
+  '((=ucs		. #xF34E)	; 
+    (=big5-pua		. #x88AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AE)	; 
-    (=ucs		. #xF34F)	; 
+  '((=ucs		. #xF34F)	; 
+    (=big5-pua		. #x88AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88AF)	; 
-    (=ucs		. #xF350)	; 
+  '((=ucs		. #xF350)	; 
+    (=big5-pua		. #x88AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B0)	; 
-    (=ucs		. #xF351)	; 
+  '((=ucs		. #xF351)	; 
+    (=big5-pua		. #x88B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B1)	; 
-    (=ucs		. #xF352)	; 
+  '((=ucs		. #xF352)	; 
+    (=big5-pua		. #x88B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B2)	; 
-    (=ucs		. #xF353)	; 
+  '((=ucs		. #xF353)	; 
+    (=big5-pua		. #x88B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B3)	; 
-    (=ucs		. #xF354)	; 
+  '((=ucs		. #xF354)	; 
+    (=big5-pua		. #x88B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B4)	; 
-    (=ucs		. #xF355)	; 
+  '((=ucs		. #xF355)	; 
+    (=big5-pua		. #x88B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B5)	; 
-    (=ucs		. #xF356)	; 
+  '((=ucs		. #xF356)	; 
+    (=big5-pua		. #x88B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B6)	; 
-    (=ucs		. #xF357)	; 
+  '((=ucs		. #xF357)	; 
+    (=big5-pua		. #x88B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B7)	; 
-    (=ucs		. #xF358)	; 
+  '((=ucs		. #xF358)	; 
+    (=big5-pua		. #x88B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B8)	; 
-    (=ucs		. #xF359)	; 
+  '((=ucs		. #xF359)	; 
+    (=big5-pua		. #x88B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88B9)	; 
-    (=ucs		. #xF35A)	; 
+  '((=ucs		. #xF35A)	; 
+    (=big5-pua		. #x88B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BA)	; 
-    (=ucs		. #xF35B)	; 
+  '((=ucs		. #xF35B)	; 
+    (=big5-pua		. #x88BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BB)	; 
-    (=ucs		. #xF35C)	; 
+  '((=ucs		. #xF35C)	; 
+    (=big5-pua		. #x88BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BC)	; 
-    (=ucs		. #xF35D)	; 
+  '((=ucs		. #xF35D)	; 
+    (=big5-pua		. #x88BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BD)	; 
-    (=ucs		. #xF35E)	; 
+  '((=ucs		. #xF35E)	; 
+    (=big5-pua		. #x88BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BE)	; 
-    (=ucs		. #xF35F)	; 
+  '((=ucs		. #xF35F)	; 
+    (=big5-pua		. #x88BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88BF)	; 
-    (=ucs		. #xF360)	; 
+  '((=ucs		. #xF360)	; 
+    (=big5-pua		. #x88BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C0)	; 
-    (=ucs		. #xF361)	; 
+  '((=ucs		. #xF361)	; 
+    (=big5-pua		. #x88C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C1)	; 
-    (=ucs		. #xF362)	; 
+  '((=ucs		. #xF362)	; 
+    (=big5-pua		. #x88C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C2)	; 
-    (=ucs		. #xF363)	; 
+  '((=ucs		. #xF363)	; 
+    (=big5-pua		. #x88C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C3)	; 
-    (=ucs		. #xF364)	; 
+  '((=ucs		. #xF364)	; 
+    (=big5-pua		. #x88C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C4)	; 
-    (=ucs		. #xF365)	; 
+  '((=ucs		. #xF365)	; 
+    (=big5-pua		. #x88C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C5)	; 
-    (=ucs		. #xF366)	; 
+  '((=ucs		. #xF366)	; 
+    (=big5-pua		. #x88C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C6)	; 
-    (=ucs		. #xF367)	; 
+  '((=ucs		. #xF367)	; 
+    (=big5-pua		. #x88C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C7)	; 
-    (=ucs		. #xF368)	; 
+  '((=ucs		. #xF368)	; 
+    (=big5-pua		. #x88C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C8)	; 
-    (=ucs		. #xF369)	; 
+  '((=ucs		. #xF369)	; 
+    (=big5-pua		. #x88C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88C9)	; 
-    (=ucs		. #xF36A)	; 
+  '((=ucs		. #xF36A)	; 
+    (=big5-pua		. #x88C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CA)	; 
-    (=ucs		. #xF36B)	; 
+  '((=ucs		. #xF36B)	; 
+    (=big5-pua		. #x88CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CB)	; 
-    (=ucs		. #xF36C)	; 
+  '((=ucs		. #xF36C)	; 
+    (=big5-pua		. #x88CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CC)	; 
-    (=ucs		. #xF36D)	; 
+  '((=ucs		. #xF36D)	; 
+    (=big5-pua		. #x88CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CD)	; 
-    (=ucs		. #xF36E)	; 
+  '((=ucs		. #xF36E)	; 
+    (=big5-pua		. #x88CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CE)	; 
-    (=ucs		. #xF36F)	; 
+  '((=ucs		. #xF36F)	; 
+    (=big5-pua		. #x88CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88CF)	; 
-    (=ucs		. #xF370)	; 
+  '((=ucs		. #xF370)	; 
+    (=big5-pua		. #x88CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D0)	; 
-    (=ucs		. #xF371)	; 
+  '((=ucs		. #xF371)	; 
+    (=big5-pua		. #x88D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D1)	; 
-    (=ucs		. #xF372)	; 
+  '((=ucs		. #xF372)	; 
+    (=big5-pua		. #x88D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D2)	; 
-    (=ucs		. #xF373)	; 
+  '((=ucs		. #xF373)	; 
+    (=big5-pua		. #x88D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D3)	; 
-    (=ucs		. #xF374)	; 
+  '((=ucs		. #xF374)	; 
+    (=big5-pua		. #x88D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D4)	; 
-    (=ucs		. #xF375)	; 
+  '((=ucs		. #xF375)	; 
+    (=big5-pua		. #x88D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D5)	; 
-    (=ucs		. #xF376)	; 
+  '((=ucs		. #xF376)	; 
+    (=big5-pua		. #x88D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D6)	; 
-    (=ucs		. #xF377)	; 
+  '((=ucs		. #xF377)	; 
+    (=big5-pua		. #x88D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D7)	; 
-    (=ucs		. #xF378)	; 
+  '((=ucs		. #xF378)	; 
+    (=big5-pua		. #x88D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D8)	; 
-    (=ucs		. #xF379)	; 
+  '((=ucs		. #xF379)	; 
+    (=big5-pua		. #x88D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88D9)	; 
-    (=ucs		. #xF37A)	; 
+  '((=ucs		. #xF37A)	; 
+    (=big5-pua		. #x88D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DA)	; 
-    (=ucs		. #xF37B)	; 
+  '((=ucs		. #xF37B)	; 
+    (=big5-pua		. #x88DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DB)	; 
-    (=ucs		. #xF37C)	; 
+  '((=ucs		. #xF37C)	; 
+    (=big5-pua		. #x88DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DC)	; 
-    (=ucs		. #xF37D)	; 
+  '((=ucs		. #xF37D)	; 
+    (=big5-pua		. #x88DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DD)	; 
-    (=ucs		. #xF37E)	; 
+  '((=ucs		. #xF37E)	; 
+    (=big5-pua		. #x88DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DE)	; 
-    (=ucs		. #xF37F)	; 
+  '((=ucs		. #xF37F)	; 
+    (=big5-pua		. #x88DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88DF)	; 
-    (=ucs		. #xF380)	; 
+  '((=ucs		. #xF380)	; 
+    (=big5-pua		. #x88DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E0)	; 
-    (=ucs		. #xF381)	; 
+  '((=ucs		. #xF381)	; 
+    (=big5-pua		. #x88E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E1)	; 
-    (=ucs		. #xF382)	; 
+  '((=ucs		. #xF382)	; 
+    (=big5-pua		. #x88E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E2)	; 
-    (=ucs		. #xF383)	; 
+  '((=ucs		. #xF383)	; 
+    (=big5-pua		. #x88E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E3)	; 
-    (=ucs		. #xF384)	; 
+  '((=ucs		. #xF384)	; 
+    (=big5-pua		. #x88E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E4)	; 
-    (=ucs		. #xF385)	; 
+  '((=ucs		. #xF385)	; 
+    (=big5-pua		. #x88E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E5)	; 
-    (=ucs		. #xF386)	; 
+  '((=ucs		. #xF386)	; 
+    (=big5-pua		. #x88E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E6)	; 
-    (=ucs		. #xF387)	; 
+  '((=ucs		. #xF387)	; 
+    (=big5-pua		. #x88E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E7)	; 
-    (=ucs		. #xF388)	; 
+  '((=ucs		. #xF388)	; 
+    (=big5-pua		. #x88E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E8)	; 
-    (=ucs		. #xF389)	; 
+  '((=ucs		. #xF389)	; 
+    (=big5-pua		. #x88E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88E9)	; 
-    (=ucs		. #xF38A)	; 
+  '((=ucs		. #xF38A)	; 
+    (=big5-pua		. #x88E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88EA)	; 
-    (=ucs		. #xF38B)	; 
+  '((=ucs		. #xF38B)	; 
+    (=big5-pua		. #x88EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88EB)	; 
-    (=ucs		. #xF38C)	; 
+  '((=ucs		. #xF38C)	; 
+    (=big5-pua		. #x88EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88EC)	; 
-    (=ucs		. #xF38D)	; 
+  '((=ucs		. #xF38D)	; 
+    (=big5-pua		. #x88EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88ED)	; 
-    (=ucs		. #xF38E)	; 
+  '((=ucs		. #xF38E)	; 
+    (=big5-pua		. #x88ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88EE)	; 
-    (=ucs		. #xF38F)	; 
+  '((=ucs		. #xF38F)	; 
+    (=big5-pua		. #x88EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88EF)	; 
-    (=ucs		. #xF390)	; 
+  '((=ucs		. #xF390)	; 
+    (=big5-pua		. #x88EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F0)	; 
-    (=ucs		. #xF391)	; 
+  '((=ucs		. #xF391)	; 
+    (=big5-pua		. #x88F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F1)	; 
-    (=ucs		. #xF392)	; 
+  '((=ucs		. #xF392)	; 
+    (=big5-pua		. #x88F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F2)	; 
-    (=ucs		. #xF393)	; 
+  '((=ucs		. #xF393)	; 
+    (=big5-pua		. #x88F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F3)	; 
-    (=ucs		. #xF394)	; 
+  '((=ucs		. #xF394)	; 
+    (=big5-pua		. #x88F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F4)	; 
-    (=ucs		. #xF395)	; 
+  '((=ucs		. #xF395)	; 
+    (=big5-pua		. #x88F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F5)	; 
-    (=ucs		. #xF396)	; 
+  '((=ucs		. #xF396)	; 
+    (=big5-pua		. #x88F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F6)	; 
-    (=ucs		. #xF397)	; 
+  '((=ucs		. #xF397)	; 
+    (=big5-pua		. #x88F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F7)	; 
-    (=ucs		. #xF398)	; 
+  '((=ucs		. #xF398)	; 
+    (=big5-pua		. #x88F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F8)	; 
-    (=ucs		. #xF399)	; 
+  '((=ucs		. #xF399)	; 
+    (=big5-pua		. #x88F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88F9)	; 
-    (=ucs		. #xF39A)	; 
+  '((=ucs		. #xF39A)	; 
+    (=big5-pua		. #x88F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88FA)	; 
-    (=ucs		. #xF39B)	; 
+  '((=ucs		. #xF39B)	; 
+    (=big5-pua		. #x88FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88FB)	; 
-    (=ucs		. #xF39C)	; 
+  '((=ucs		. #xF39C)	; 
+    (=big5-pua		. #x88FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88FC)	; 
-    (=ucs		. #xF39D)	; 
+  '((=ucs		. #xF39D)	; 
+    (=big5-pua		. #x88FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88FD)	; 
-    (=ucs		. #xF39E)	; 
+  '((=ucs		. #xF39E)	; 
+    (=big5-pua		. #x88FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x88FE)	; 
-    (=ucs		. #xF39F)	; 
+  '((=ucs		. #xF39F)	; 
+    (=big5-pua		. #x88FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8940)	; 
-    (=ucs		. #xF3A0)	; 
+  '((=ucs		. #xF3A0)	; 
+    (=big5-pua		. #x8940)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8941)	; 
-    (=ucs		. #xF3A1)	; 
+  '((=ucs		. #xF3A1)	; 
+    (=big5-pua		. #x8941)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8942)	; 
-    (=ucs		. #xF3A2)	; 
+  '((=ucs		. #xF3A2)	; 
+    (=big5-pua		. #x8942)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8943)	; 
-    (=ucs		. #xF3A3)	; 
+  '((=ucs		. #xF3A3)	; 
+    (=big5-pua		. #x8943)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8944)	; 
-    (=ucs		. #xF3A4)	; 
+  '((=ucs		. #xF3A4)	; 
+    (=big5-pua		. #x8944)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8945)	; 
-    (=ucs		. #xF3A5)	; 
+  '((=ucs		. #xF3A5)	; 
+    (=big5-pua		. #x8945)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8946)	; 
-    (=ucs		. #xF3A6)	; 
+  '((=ucs		. #xF3A6)	; 
+    (=big5-pua		. #x8946)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8947)	; 
-    (=ucs		. #xF3A7)	; 
+  '((=ucs		. #xF3A7)	; 
+    (=big5-pua		. #x8947)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8948)	; 
-    (=ucs		. #xF3A8)	; 
+  '((=ucs		. #xF3A8)	; 
+    (=big5-pua		. #x8948)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8949)	; 
-    (=ucs		. #xF3A9)	; 
+  '((=ucs		. #xF3A9)	; 
+    (=big5-pua		. #x8949)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894A)	; 
-    (=ucs		. #xF3AA)	; 
+  '((=ucs		. #xF3AA)	; 
+    (=big5-pua		. #x894A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894B)	; 
-    (=ucs		. #xF3AB)	; 
+  '((=ucs		. #xF3AB)	; 
+    (=big5-pua		. #x894B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894C)	; 
-    (=ucs		. #xF3AC)	; 
+  '((=ucs		. #xF3AC)	; 
+    (=big5-pua		. #x894C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894D)	; 
-    (=ucs		. #xF3AD)	; 
+  '((=ucs		. #xF3AD)	; 
+    (=big5-pua		. #x894D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894E)	; 
-    (=ucs		. #xF3AE)	; 
+  '((=ucs		. #xF3AE)	; 
+    (=big5-pua		. #x894E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x894F)	; 
-    (=ucs		. #xF3AF)	; 
+  '((=ucs		. #xF3AF)	; 
+    (=big5-pua		. #x894F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8950)	; 
-    (=ucs		. #xF3B0)	; 
+  '((=ucs		. #xF3B0)	; 
+    (=big5-pua		. #x8950)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8951)	; 
-    (=ucs		. #xF3B1)	; 
+  '((=ucs		. #xF3B1)	; 
+    (=big5-pua		. #x8951)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8952)	; 
-    (=ucs		. #xF3B2)	; 
+  '((=ucs		. #xF3B2)	; 
+    (=big5-pua		. #x8952)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8953)	; 
-    (=ucs		. #xF3B3)	; 
+  '((=ucs		. #xF3B3)	; 
+    (=big5-pua		. #x8953)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8954)	; 
-    (=ucs		. #xF3B4)	; 
+  '((=ucs		. #xF3B4)	; 
+    (=big5-pua		. #x8954)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8955)	; 
-    (=ucs		. #xF3B5)	; 
+  '((=ucs		. #xF3B5)	; 
+    (=big5-pua		. #x8955)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8956)	; 
-    (=ucs		. #xF3B6)	; 
+  '((=ucs		. #xF3B6)	; 
+    (=big5-pua		. #x8956)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8957)	; 
-    (=ucs		. #xF3B7)	; 
+  '((=ucs		. #xF3B7)	; 
+    (=big5-pua		. #x8957)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8958)	; 
-    (=ucs		. #xF3B8)	; 
+  '((=ucs		. #xF3B8)	; 
+    (=big5-pua		. #x8958)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8959)	; 
-    (=ucs		. #xF3B9)	; 
+  '((=ucs		. #xF3B9)	; 
+    (=big5-pua		. #x8959)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895A)	; 
-    (=ucs		. #xF3BA)	; 
+  '((=ucs		. #xF3BA)	; 
+    (=big5-pua		. #x895A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895B)	; 
-    (=ucs		. #xF3BB)	; 
+  '((=ucs		. #xF3BB)	; 
+    (=big5-pua		. #x895B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895C)	; 
-    (=ucs		. #xF3BC)	; 
+  '((=ucs		. #xF3BC)	; 
+    (=big5-pua		. #x895C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895D)	; 
-    (=ucs		. #xF3BD)	; 
+  '((=ucs		. #xF3BD)	; 
+    (=big5-pua		. #x895D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895E)	; 
-    (=ucs		. #xF3BE)	; 
+  '((=ucs		. #xF3BE)	; 
+    (=big5-pua		. #x895E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x895F)	; 
-    (=ucs		. #xF3BF)	; 
+  '((=ucs		. #xF3BF)	; 
+    (=big5-pua		. #x895F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8960)	; 
-    (=ucs		. #xF3C0)	; 
+  '((=ucs		. #xF3C0)	; 
+    (=big5-pua		. #x8960)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8961)	; 
-    (=ucs		. #xF3C1)	; 
+  '((=ucs		. #xF3C1)	; 
+    (=big5-pua		. #x8961)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8962)	; 
-    (=ucs		. #xF3C2)	; 
+  '((=ucs		. #xF3C2)	; 
+    (=big5-pua		. #x8962)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8963)	; 
-    (=ucs		. #xF3C3)	; 
+  '((=ucs		. #xF3C3)	; 
+    (=big5-pua		. #x8963)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8964)	; 
-    (=ucs		. #xF3C4)	; 
+  '((=ucs		. #xF3C4)	; 
+    (=big5-pua		. #x8964)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8965)	; 
-    (=ucs		. #xF3C5)	; 
+  '((=ucs		. #xF3C5)	; 
+    (=big5-pua		. #x8965)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8966)	; 
-    (=ucs		. #xF3C6)	; 
+  '((=ucs		. #xF3C6)	; 
+    (=big5-pua		. #x8966)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8967)	; 
-    (=ucs		. #xF3C7)	; 
+  '((=ucs		. #xF3C7)	; 
+    (=big5-pua		. #x8967)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8968)	; 
-    (=ucs		. #xF3C8)	; 
+  '((=ucs		. #xF3C8)	; 
+    (=big5-pua		. #x8968)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8969)	; 
-    (=ucs		. #xF3C9)	; 
+  '((=ucs		. #xF3C9)	; 
+    (=big5-pua		. #x8969)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896A)	; 
-    (=ucs		. #xF3CA)	; 
+  '((=ucs		. #xF3CA)	; 
+    (=big5-pua		. #x896A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896B)	; 
-    (=ucs		. #xF3CB)	; 
+  '((=ucs		. #xF3CB)	; 
+    (=big5-pua		. #x896B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896C)	; 
-    (=ucs		. #xF3CC)	; 
+  '((=ucs		. #xF3CC)	; 
+    (=big5-pua		. #x896C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896D)	; 
-    (=ucs		. #xF3CD)	; 
+  '((=ucs		. #xF3CD)	; 
+    (=big5-pua		. #x896D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896E)	; 
-    (=ucs		. #xF3CE)	; 
+  '((=ucs		. #xF3CE)	; 
+    (=big5-pua		. #x896E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x896F)	; 
-    (=ucs		. #xF3CF)	; 
+  '((=ucs		. #xF3CF)	; 
+    (=big5-pua		. #x896F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8970)	; 
-    (=ucs		. #xF3D0)	; 
+  '((=ucs		. #xF3D0)	; 
+    (=big5-pua		. #x8970)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8971)	; 
-    (=ucs		. #xF3D1)	; 
+  '((=ucs		. #xF3D1)	; 
+    (=big5-pua		. #x8971)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8972)	; 
-    (=ucs		. #xF3D2)	; 
+  '((=ucs		. #xF3D2)	; 
+    (=big5-pua		. #x8972)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8973)	; 
-    (=ucs		. #xF3D3)	; 
+  '((=ucs		. #xF3D3)	; 
+    (=big5-pua		. #x8973)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8974)	; 
-    (=ucs		. #xF3D4)	; 
+  '((=ucs		. #xF3D4)	; 
+    (=big5-pua		. #x8974)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8975)	; 
-    (=ucs		. #xF3D5)	; 
+  '((=ucs		. #xF3D5)	; 
+    (=big5-pua		. #x8975)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8976)	; 
-    (=ucs		. #xF3D6)	; 
+  '((=ucs		. #xF3D6)	; 
+    (=big5-pua		. #x8976)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8977)	; 
-    (=ucs		. #xF3D7)	; 
+  '((=ucs		. #xF3D7)	; 
+    (=big5-pua		. #x8977)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8978)	; 
-    (=ucs		. #xF3D8)	; 
+  '((=ucs		. #xF3D8)	; 
+    (=big5-pua		. #x8978)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8979)	; 
-    (=ucs		. #xF3D9)	; 
+  '((=ucs		. #xF3D9)	; 
+    (=big5-pua		. #x8979)	; 
     ))
 (define-char
-  '((=big5-pua		. #x897A)	; 
-    (=ucs		. #xF3DA)	; 
+  '((=ucs		. #xF3DA)	; 
+    (=big5-pua		. #x897A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x897B)	; 
-    (=ucs		. #xF3DB)	; 
+  '((=ucs		. #xF3DB)	; 
+    (=big5-pua		. #x897B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x897C)	; 
-    (=ucs		. #xF3DC)	; 
+  '((=ucs		. #xF3DC)	; 
+    (=big5-pua		. #x897C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x897D)	; 
-    (=ucs		. #xF3DD)	; 
+  '((=ucs		. #xF3DD)	; 
+    (=big5-pua		. #x897D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x897E)	; 
-    (=ucs		. #xF3DE)	; 
+  '((=ucs		. #xF3DE)	; 
+    (=big5-pua		. #x897E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A1)	; 
-    (=ucs		. #xF3DF)	; 
+  '((=ucs		. #xF3DF)	; 
+    (=big5-pua		. #x89A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A2)	; 
-    (=ucs		. #xF3E0)	; 
+  '((=ucs		. #xF3E0)	; 
+    (=big5-pua		. #x89A2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A3)	; 
-    (=ucs		. #xF3E1)	; 
+  '((=ucs		. #xF3E1)	; 
+    (=big5-pua		. #x89A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A4)	; 
-    (=ucs		. #xF3E2)	; 
+  '((=ucs		. #xF3E2)	; 
+    (=big5-pua		. #x89A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A5)	; 
-    (=ucs		. #xF3E3)	; 
+  '((=ucs		. #xF3E3)	; 
+    (=big5-pua		. #x89A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A6)	; 
-    (=ucs		. #xF3E4)	; 
+  '((=ucs		. #xF3E4)	; 
+    (=big5-pua		. #x89A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A7)	; 
-    (=ucs		. #xF3E5)	; 
+  '((=ucs		. #xF3E5)	; 
+    (=big5-pua		. #x89A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A8)	; 
-    (=ucs		. #xF3E6)	; 
+  '((=ucs		. #xF3E6)	; 
+    (=big5-pua		. #x89A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89A9)	; 
-    (=ucs		. #xF3E7)	; 
+  '((=ucs		. #xF3E7)	; 
+    (=big5-pua		. #x89A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AA)	; 
-    (=ucs		. #xF3E8)	; 
+  '((=ucs		. #xF3E8)	; 
+    (=big5-pua		. #x89AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AB)	; 
-    (=ucs		. #xF3E9)	; 
+  '((=ucs		. #xF3E9)	; 
+    (=big5-pua		. #x89AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AC)	; 
-    (=ucs		. #xF3EA)	; 
+  '((=ucs		. #xF3EA)	; 
+    (=big5-pua		. #x89AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AD)	; 
-    (=ucs		. #xF3EB)	; 
+  '((=ucs		. #xF3EB)	; 
+    (=big5-pua		. #x89AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AE)	; 
-    (=ucs		. #xF3EC)	; 
+  '((=ucs		. #xF3EC)	; 
+    (=big5-pua		. #x89AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89AF)	; 
-    (=ucs		. #xF3ED)	; 
+  '((=ucs		. #xF3ED)	; 
+    (=big5-pua		. #x89AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B0)	; 
-    (=ucs		. #xF3EE)	; 
+  '((=ucs		. #xF3EE)	; 
+    (=big5-pua		. #x89B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B1)	; 
-    (=ucs		. #xF3EF)	; 
+  '((=ucs		. #xF3EF)	; 
+    (=big5-pua		. #x89B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B2)	; 
-    (=ucs		. #xF3F0)	; 
+  '((=ucs		. #xF3F0)	; 
+    (=big5-pua		. #x89B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B3)	; 
-    (=ucs		. #xF3F1)	; 
+  '((=ucs		. #xF3F1)	; 
+    (=big5-pua		. #x89B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B4)	; 
-    (=ucs		. #xF3F2)	; 
+  '((=ucs		. #xF3F2)	; 
+    (=big5-pua		. #x89B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B5)	; 
-    (=ucs		. #xF3F3)	; 
+  '((=ucs		. #xF3F3)	; 
+    (=big5-pua		. #x89B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B6)	; 
-    (=ucs		. #xF3F4)	; 
+  '((=ucs		. #xF3F4)	; 
+    (=big5-pua		. #x89B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B7)	; 
-    (=ucs		. #xF3F5)	; 
+  '((=ucs		. #xF3F5)	; 
+    (=big5-pua		. #x89B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B8)	; 
-    (=ucs		. #xF3F6)	; 
+  '((=ucs		. #xF3F6)	; 
+    (=big5-pua		. #x89B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89B9)	; 
-    (=ucs		. #xF3F7)	; 
+  '((=ucs		. #xF3F7)	; 
+    (=big5-pua		. #x89B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BA)	; 
-    (=ucs		. #xF3F8)	; 
+  '((=ucs		. #xF3F8)	; 
+    (=big5-pua		. #x89BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BB)	; 
-    (=ucs		. #xF3F9)	; 
+  '((=ucs		. #xF3F9)	; 
+    (=big5-pua		. #x89BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BC)	; 
-    (=ucs		. #xF3FA)	; 
+  '((=ucs		. #xF3FA)	; 
+    (=big5-pua		. #x89BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BD)	; 
-    (=ucs		. #xF3FB)	; 
+  '((=ucs		. #xF3FB)	; 
+    (=big5-pua		. #x89BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BE)	; 
-    (=ucs		. #xF3FC)	; 
+  '((=ucs		. #xF3FC)	; 
+    (=big5-pua		. #x89BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89BF)	; 
-    (=ucs		. #xF3FD)	; 
+  '((=ucs		. #xF3FD)	; 
+    (=big5-pua		. #x89BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C0)	; 
-    (=ucs		. #xF3FE)	; 
+  '((=ucs		. #xF3FE)	; 
+    (=big5-pua		. #x89C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C1)	; 
-    (=ucs		. #xF3FF)	; 
+  '((=ucs		. #xF3FF)	; 
+    (=big5-pua		. #x89C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C2)	; 
-    (=ucs		. #xF400)	; 
+  '((=ucs		. #xF400)	; 
+    (=big5-pua		. #x89C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C3)	; 
-    (=ucs		. #xF401)	; 
+  '((=ucs		. #xF401)	; 
+    (=big5-pua		. #x89C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C4)	; 
-    (=ucs		. #xF402)	; 
+  '((=ucs		. #xF402)	; 
+    (=big5-pua		. #x89C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C5)	; 
-    (=ucs		. #xF403)	; 
+  '((=ucs		. #xF403)	; 
+    (=big5-pua		. #x89C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C6)	; 
-    (=ucs		. #xF404)	; 
+  '((=ucs		. #xF404)	; 
+    (=big5-pua		. #x89C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C7)	; 
-    (=ucs		. #xF405)	; 
+  '((=ucs		. #xF405)	; 
+    (=big5-pua		. #x89C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C8)	; 
-    (=ucs		. #xF406)	; 
+  '((=ucs		. #xF406)	; 
+    (=big5-pua		. #x89C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89C9)	; 
-    (=ucs		. #xF407)	; 
+  '((=ucs		. #xF407)	; 
+    (=big5-pua		. #x89C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CA)	; 
-    (=ucs		. #xF408)	; 
+  '((=ucs		. #xF408)	; 
+    (=big5-pua		. #x89CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CB)	; 
-    (=ucs		. #xF409)	; 
+  '((=ucs		. #xF409)	; 
+    (=big5-pua		. #x89CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CC)	; 
-    (=ucs		. #xF40A)	; 
+  '((=ucs		. #xF40A)	; 
+    (=big5-pua		. #x89CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CD)	; 
-    (=ucs		. #xF40B)	; 
+  '((=ucs		. #xF40B)	; 
+    (=big5-pua		. #x89CD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CE)	; 
-    (=ucs		. #xF40C)	; 
+  '((=ucs		. #xF40C)	; 
+    (=big5-pua		. #x89CE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89CF)	; 
-    (=ucs		. #xF40D)	; 
+  '((=ucs		. #xF40D)	; 
+    (=big5-pua		. #x89CF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D0)	; 
-    (=ucs		. #xF40E)	; 
+  '((=ucs		. #xF40E)	; 
+    (=big5-pua		. #x89D0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D1)	; 
-    (=ucs		. #xF40F)	; 
+  '((=ucs		. #xF40F)	; 
+    (=big5-pua		. #x89D1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D2)	; 
-    (=ucs		. #xF410)	; 
+  '((=ucs		. #xF410)	; 
+    (=big5-pua		. #x89D2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D3)	; 
-    (=ucs		. #xF411)	; 
+  '((=ucs		. #xF411)	; 
+    (=big5-pua		. #x89D3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D4)	; 
-    (=ucs		. #xF412)	; 
+  '((=ucs		. #xF412)	; 
+    (=big5-pua		. #x89D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D5)	; 
-    (=ucs		. #xF413)	; 
+  '((=ucs		. #xF413)	; 
+    (=big5-pua		. #x89D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D6)	; 
-    (=ucs		. #xF414)	; 
+  '((=ucs		. #xF414)	; 
+    (=big5-pua		. #x89D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D7)	; 
-    (=ucs		. #xF415)	; 
+  '((=ucs		. #xF415)	; 
+    (=big5-pua		. #x89D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D8)	; 
-    (=ucs		. #xF416)	; 
+  '((=ucs		. #xF416)	; 
+    (=big5-pua		. #x89D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89D9)	; 
-    (=ucs		. #xF417)	; 
+  '((=ucs		. #xF417)	; 
+    (=big5-pua		. #x89D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DA)	; 
-    (=ucs		. #xF418)	; 
+  '((=ucs		. #xF418)	; 
+    (=big5-pua		. #x89DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DB)	; 
-    (=ucs		. #xF419)	; 
+  '((=ucs		. #xF419)	; 
+    (=big5-pua		. #x89DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DC)	; 
-    (=ucs		. #xF41A)	; 
+  '((=ucs		. #xF41A)	; 
+    (=big5-pua		. #x89DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DD)	; 
-    (=ucs		. #xF41B)	; 
+  '((=ucs		. #xF41B)	; 
+    (=big5-pua		. #x89DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DE)	; 
-    (=ucs		. #xF41C)	; 
+  '((=ucs		. #xF41C)	; 
+    (=big5-pua		. #x89DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89DF)	; 
-    (=ucs		. #xF41D)	; 
+  '((=ucs		. #xF41D)	; 
+    (=big5-pua		. #x89DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E0)	; 
-    (=ucs		. #xF41E)	; 
+  '((=ucs		. #xF41E)	; 
+    (=big5-pua		. #x89E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E1)	; 
-    (=ucs		. #xF41F)	; 
+  '((=ucs		. #xF41F)	; 
+    (=big5-pua		. #x89E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E2)	; 
-    (=ucs		. #xF420)	; 
+  '((=ucs		. #xF420)	; 
+    (=big5-pua		. #x89E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E3)	; 
-    (=ucs		. #xF421)	; 
+  '((=ucs		. #xF421)	; 
+    (=big5-pua		. #x89E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E4)	; 
-    (=ucs		. #xF422)	; 
+  '((=ucs		. #xF422)	; 
+    (=big5-pua		. #x89E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E5)	; 
-    (=ucs		. #xF423)	; 
+  '((=ucs		. #xF423)	; 
+    (=big5-pua		. #x89E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E6)	; 
-    (=ucs		. #xF424)	; 
+  '((=ucs		. #xF424)	; 
+    (=big5-pua		. #x89E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E7)	; 
-    (=ucs		. #xF425)	; 
+  '((=ucs		. #xF425)	; 
+    (=big5-pua		. #x89E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E8)	; 
-    (=ucs		. #xF426)	; 
+  '((=ucs		. #xF426)	; 
+    (=big5-pua		. #x89E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89E9)	; 
-    (=ucs		. #xF427)	; 
+  '((=ucs		. #xF427)	; 
+    (=big5-pua		. #x89E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89EA)	; 
-    (=ucs		. #xF428)	; 
+  '((=ucs		. #xF428)	; 
+    (=big5-pua		. #x89EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89EB)	; 
-    (=ucs		. #xF429)	; 
+  '((=ucs		. #xF429)	; 
+    (=big5-pua		. #x89EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89EC)	; 
-    (=ucs		. #xF42A)	; 
+  '((=ucs		. #xF42A)	; 
+    (=big5-pua		. #x89EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89ED)	; 
-    (=ucs		. #xF42B)	; 
+  '((=ucs		. #xF42B)	; 
+    (=big5-pua		. #x89ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89EE)	; 
-    (=ucs		. #xF42C)	; 
+  '((=ucs		. #xF42C)	; 
+    (=big5-pua		. #x89EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89EF)	; 
-    (=ucs		. #xF42D)	; 
+  '((=ucs		. #xF42D)	; 
+    (=big5-pua		. #x89EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F0)	; 
-    (=ucs		. #xF42E)	; 
+  '((=ucs		. #xF42E)	; 
+    (=big5-pua		. #x89F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F1)	; 
-    (=ucs		. #xF42F)	; 
+  '((=ucs		. #xF42F)	; 
+    (=big5-pua		. #x89F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F2)	; 
-    (=ucs		. #xF430)	; 
+  '((=ucs		. #xF430)	; 
+    (=big5-pua		. #x89F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F3)	; 
-    (=ucs		. #xF431)	; 
+  '((=ucs		. #xF431)	; 
+    (=big5-pua		. #x89F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F4)	; 
-    (=ucs		. #xF432)	; 
+  '((=ucs		. #xF432)	; 
+    (=big5-pua		. #x89F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F5)	; 
-    (=ucs		. #xF433)	; 
+  '((=ucs		. #xF433)	; 
+    (=big5-pua		. #x89F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F6)	; 
-    (=ucs		. #xF434)	; 
+  '((=ucs		. #xF434)	; 
+    (=big5-pua		. #x89F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F7)	; 
-    (=ucs		. #xF435)	; 
+  '((=ucs		. #xF435)	; 
+    (=big5-pua		. #x89F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F8)	; 
-    (=ucs		. #xF436)	; 
+  '((=ucs		. #xF436)	; 
+    (=big5-pua		. #x89F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89F9)	; 
-    (=ucs		. #xF437)	; 
+  '((=ucs		. #xF437)	; 
+    (=big5-pua		. #x89F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89FA)	; 
-    (=ucs		. #xF438)	; 
+  '((=ucs		. #xF438)	; 
+    (=big5-pua		. #x89FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89FB)	; 
-    (=ucs		. #xF439)	; 
+  '((=ucs		. #xF439)	; 
+    (=big5-pua		. #x89FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89FC)	; 
-    (=ucs		. #xF43A)	; 
+  '((=ucs		. #xF43A)	; 
+    (=big5-pua		. #x89FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89FD)	; 
-    (=ucs		. #xF43B)	; 
+  '((=ucs		. #xF43B)	; 
+    (=big5-pua		. #x89FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x89FE)	; 
-    (=ucs		. #xF43C)	; 
+  '((=ucs		. #xF43C)	; 
+    (=big5-pua		. #x89FE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A40)	; 
-    (=ucs		. #xF43D)	; 
+  '((=ucs		. #xF43D)	; 
+    (=big5-pua		. #x8A40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A41)	; 
-    (=ucs		. #xF43E)	; 
+  '((=ucs		. #xF43E)	; 
+    (=big5-pua		. #x8A41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A42)	; 
-    (=ucs		. #xF43F)	; 
+  '((=ucs		. #xF43F)	; 
+    (=big5-pua		. #x8A42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A43)	; 
-    (=ucs		. #xF440)	; 
+  '((=ucs		. #xF440)	; 
+    (=big5-pua		. #x8A43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A44)	; 
-    (=ucs		. #xF441)	; 
+  '((=ucs		. #xF441)	; 
+    (=big5-pua		. #x8A44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A45)	; 
-    (=ucs		. #xF442)	; 
+  '((=ucs		. #xF442)	; 
+    (=big5-pua		. #x8A45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A46)	; 
-    (=ucs		. #xF443)	; 
+  '((=ucs		. #xF443)	; 
+    (=big5-pua		. #x8A46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A47)	; 
-    (=ucs		. #xF444)	; 
+  '((=ucs		. #xF444)	; 
+    (=big5-pua		. #x8A47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A48)	; 
-    (=ucs		. #xF445)	; 
+  '((=ucs		. #xF445)	; 
+    (=big5-pua		. #x8A48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A49)	; 
-    (=ucs		. #xF446)	; 
+  '((=ucs		. #xF446)	; 
+    (=big5-pua		. #x8A49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4A)	; 
-    (=ucs		. #xF447)	; 
+  '((=ucs		. #xF447)	; 
+    (=big5-pua		. #x8A4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4B)	; 
-    (=ucs		. #xF448)	; 
+  '((=ucs		. #xF448)	; 
+    (=big5-pua		. #x8A4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4C)	; 
-    (=ucs		. #xF449)	; 
+  '((=ucs		. #xF449)	; 
+    (=big5-pua		. #x8A4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4D)	; 
-    (=ucs		. #xF44A)	; 
+  '((=ucs		. #xF44A)	; 
+    (=big5-pua		. #x8A4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4E)	; 
-    (=ucs		. #xF44B)	; 
+  '((=ucs		. #xF44B)	; 
+    (=big5-pua		. #x8A4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A4F)	; 
-    (=ucs		. #xF44C)	; 
+  '((=ucs		. #xF44C)	; 
+    (=big5-pua		. #x8A4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A50)	; 
-    (=ucs		. #xF44D)	; 
+  '((=ucs		. #xF44D)	; 
+    (=big5-pua		. #x8A50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A51)	; 
-    (=ucs		. #xF44E)	; 
+  '((=ucs		. #xF44E)	; 
+    (=big5-pua		. #x8A51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A52)	; 
-    (=ucs		. #xF44F)	; 
+  '((=ucs		. #xF44F)	; 
+    (=big5-pua		. #x8A52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A53)	; 
-    (=ucs		. #xF450)	; 
+  '((=ucs		. #xF450)	; 
+    (=big5-pua		. #x8A53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A54)	; 
-    (=ucs		. #xF451)	; 
+  '((=ucs		. #xF451)	; 
+    (=big5-pua		. #x8A54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A55)	; 
-    (=ucs		. #xF452)	; 
+  '((=ucs		. #xF452)	; 
+    (=big5-pua		. #x8A55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A56)	; 
-    (=ucs		. #xF453)	; 
+  '((=ucs		. #xF453)	; 
+    (=big5-pua		. #x8A56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A57)	; 
-    (=ucs		. #xF454)	; 
+  '((=ucs		. #xF454)	; 
+    (=big5-pua		. #x8A57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A58)	; 
-    (=ucs		. #xF455)	; 
+  '((=ucs		. #xF455)	; 
+    (=big5-pua		. #x8A58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A59)	; 
-    (=ucs		. #xF456)	; 
+  '((=ucs		. #xF456)	; 
+    (=big5-pua		. #x8A59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5A)	; 
-    (=ucs		. #xF457)	; 
+  '((=ucs		. #xF457)	; 
+    (=big5-pua		. #x8A5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5B)	; 
-    (=ucs		. #xF458)	; 
+  '((=ucs		. #xF458)	; 
+    (=big5-pua		. #x8A5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5C)	; 
-    (=ucs		. #xF459)	; 
+  '((=ucs		. #xF459)	; 
+    (=big5-pua		. #x8A5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5D)	; 
-    (=ucs		. #xF45A)	; 
+  '((=ucs		. #xF45A)	; 
+    (=big5-pua		. #x8A5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5E)	; 
-    (=ucs		. #xF45B)	; 
+  '((=ucs		. #xF45B)	; 
+    (=big5-pua		. #x8A5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A5F)	; 
-    (=ucs		. #xF45C)	; 
+  '((=ucs		. #xF45C)	; 
+    (=big5-pua		. #x8A5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A60)	; 
-    (=ucs		. #xF45D)	; 
+  '((=ucs		. #xF45D)	; 
+    (=big5-pua		. #x8A60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A61)	; 
-    (=ucs		. #xF45E)	; 
+  '((=ucs		. #xF45E)	; 
+    (=big5-pua		. #x8A61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A62)	; 
-    (=ucs		. #xF45F)	; 
+  '((=ucs		. #xF45F)	; 
+    (=big5-pua		. #x8A62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A63)	; 
-    (=ucs		. #xF460)	; 
+  '((=ucs		. #xF460)	; 
+    (=big5-pua		. #x8A63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A64)	; 
-    (=ucs		. #xF461)	; 
+  '((=ucs		. #xF461)	; 
+    (=big5-pua		. #x8A64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A65)	; 
-    (=ucs		. #xF462)	; 
+  '((=ucs		. #xF462)	; 
+    (=big5-pua		. #x8A65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A66)	; 
-    (=ucs		. #xF463)	; 
+  '((=ucs		. #xF463)	; 
+    (=big5-pua		. #x8A66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A67)	; 
-    (=ucs		. #xF464)	; 
+  '((=ucs		. #xF464)	; 
+    (=big5-pua		. #x8A67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A68)	; 
-    (=ucs		. #xF465)	; 
+  '((=ucs		. #xF465)	; 
+    (=big5-pua		. #x8A68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A69)	; 
-    (=ucs		. #xF466)	; 
+  '((=ucs		. #xF466)	; 
+    (=big5-pua		. #x8A69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6A)	; 
-    (=ucs		. #xF467)	; 
+  '((=ucs		. #xF467)	; 
+    (=big5-pua		. #x8A6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6B)	; 
-    (=ucs		. #xF468)	; 
+  '((=ucs		. #xF468)	; 
+    (=big5-pua		. #x8A6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6C)	; 
-    (=ucs		. #xF469)	; 
+  '((=ucs		. #xF469)	; 
+    (=big5-pua		. #x8A6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6D)	; 
-    (=ucs		. #xF46A)	; 
+  '((=ucs		. #xF46A)	; 
+    (=big5-pua		. #x8A6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6E)	; 
-    (=ucs		. #xF46B)	; 
+  '((=ucs		. #xF46B)	; 
+    (=big5-pua		. #x8A6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A6F)	; 
-    (=ucs		. #xF46C)	; 
+  '((=ucs		. #xF46C)	; 
+    (=big5-pua		. #x8A6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A70)	; 
-    (=ucs		. #xF46D)	; 
+  '((=ucs		. #xF46D)	; 
+    (=big5-pua		. #x8A70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A71)	; 
-    (=ucs		. #xF46E)	; 
+  '((=ucs		. #xF46E)	; 
+    (=big5-pua		. #x8A71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A72)	; 
-    (=ucs		. #xF46F)	; 
+  '((=ucs		. #xF46F)	; 
+    (=big5-pua		. #x8A72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A73)	; 
-    (=ucs		. #xF470)	; 
+  '((=ucs		. #xF470)	; 
+    (=big5-pua		. #x8A73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A74)	; 
-    (=ucs		. #xF471)	; 
+  '((=ucs		. #xF471)	; 
+    (=big5-pua		. #x8A74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A75)	; 
-    (=ucs		. #xF472)	; 
+  '((=ucs		. #xF472)	; 
+    (=big5-pua		. #x8A75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A76)	; 
-    (=ucs		. #xF473)	; 
+  '((=ucs		. #xF473)	; 
+    (=big5-pua		. #x8A76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A77)	; 
-    (=ucs		. #xF474)	; 
+  '((=ucs		. #xF474)	; 
+    (=big5-pua		. #x8A77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A79)	; 
-    (=ucs		. #xF476)	; 
+  '((=ucs		. #xF476)	; 
+    (=big5-pua		. #x8A79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A7A)	; 
-    (=ucs		. #xF477)	; 
+  '((=ucs		. #xF477)	; 
+    (=big5-pua		. #x8A7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A7B)	; 
-    (=ucs		. #xF478)	; 
+  '((=ucs		. #xF478)	; 
+    (=big5-pua		. #x8A7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A7C)	; 
-    (=ucs		. #xF479)	; 
+  '((=ucs		. #xF479)	; 
+    (=big5-pua		. #x8A7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A7D)	; 
-    (=ucs		. #xF47A)	; 
+  '((=ucs		. #xF47A)	; 
+    (=big5-pua		. #x8A7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8A7E)	; 
-    (=ucs		. #xF47B)	; 
+  '((=ucs		. #xF47B)	; 
+    (=big5-pua		. #x8A7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA1)	; 
-    (=ucs		. #xF47C)	; 
+  '((=ucs		. #xF47C)	; 
+    (=big5-pua		. #x8AA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA2)	; 
-    (=ucs		. #xF47D)	; 
+  '((=ucs		. #xF47D)	; 
+    (=big5-pua		. #x8AA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA3)	; 
-    (=ucs		. #xF47E)	; 
+  '((=ucs		. #xF47E)	; 
+    (=big5-pua		. #x8AA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA4)	; 
-    (=ucs		. #xF47F)	; 
+  '((=ucs		. #xF47F)	; 
+    (=big5-pua		. #x8AA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA5)	; 
-    (=ucs		. #xF480)	; 
+  '((=ucs		. #xF480)	; 
+    (=big5-pua		. #x8AA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA6)	; 
-    (=ucs		. #xF481)	; 
+  '((=ucs		. #xF481)	; 
+    (=big5-pua		. #x8AA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA7)	; 
-    (=ucs		. #xF482)	; 
+  '((=ucs		. #xF482)	; 
+    (=big5-pua		. #x8AA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA8)	; 
-    (=ucs		. #xF483)	; 
+  '((=ucs		. #xF483)	; 
+    (=big5-pua		. #x8AA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AA9)	; 
-    (=ucs		. #xF484)	; 
+  '((=ucs		. #xF484)	; 
+    (=big5-pua		. #x8AA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAA)	; 
-    (=ucs		. #xF485)	; 
+  '((=ucs		. #xF485)	; 
+    (=big5-pua		. #x8AAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAB)	; 
-    (=ucs		. #xF486)	; 
+  '((=ucs		. #xF486)	; 
+    (=big5-pua		. #x8AAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAC)	; 
-    (=ucs		. #xF487)	; 
+  '((=ucs		. #xF487)	; 
+    (=big5-pua		. #x8AAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAD)	; 
-    (=ucs		. #xF488)	; 
+  '((=ucs		. #xF488)	; 
+    (=big5-pua		. #x8AAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAE)	; 
-    (=ucs		. #xF489)	; 
+  '((=ucs		. #xF489)	; 
+    (=big5-pua		. #x8AAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AAF)	; 
-    (=ucs		. #xF48A)	; 
+  '((=ucs		. #xF48A)	; 
+    (=big5-pua		. #x8AAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB0)	; 
-    (=ucs		. #xF48B)	; 
+  '((=ucs		. #xF48B)	; 
+    (=big5-pua		. #x8AB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB1)	; 
-    (=ucs		. #xF48C)	; 
+  '((=ucs		. #xF48C)	; 
+    (=big5-pua		. #x8AB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB2)	; 
-    (=ucs		. #xF48D)	; 
+  '((=ucs		. #xF48D)	; 
+    (=big5-pua		. #x8AB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB3)	; 
-    (=ucs		. #xF48E)	; 
+  '((=ucs		. #xF48E)	; 
+    (=big5-pua		. #x8AB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB4)	; 
-    (=ucs		. #xF48F)	; 
+  '((=ucs		. #xF48F)	; 
+    (=big5-pua		. #x8AB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB5)	; 
-    (=ucs		. #xF490)	; 
+  '((=ucs		. #xF490)	; 
+    (=big5-pua		. #x8AB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB6)	; 
-    (=ucs		. #xF491)	; 
+  '((=ucs		. #xF491)	; 
+    (=big5-pua		. #x8AB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB7)	; 
-    (=ucs		. #xF492)	; 
+  '((=ucs		. #xF492)	; 
+    (=big5-pua		. #x8AB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB8)	; 
-    (=ucs		. #xF493)	; 
+  '((=ucs		. #xF493)	; 
+    (=big5-pua		. #x8AB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AB9)	; 
-    (=ucs		. #xF494)	; 
+  '((=ucs		. #xF494)	; 
+    (=big5-pua		. #x8AB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABA)	; 
-    (=ucs		. #xF495)	; 
+  '((=ucs		. #xF495)	; 
+    (=big5-pua		. #x8ABA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABB)	; 
-    (=ucs		. #xF496)	; 
+  '((=ucs		. #xF496)	; 
+    (=big5-pua		. #x8ABB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABC)	; 
-    (=ucs		. #xF497)	; 
+  '((=ucs		. #xF497)	; 
+    (=big5-pua		. #x8ABC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABD)	; 
-    (=ucs		. #xF498)	; 
+  '((=ucs		. #xF498)	; 
+    (=big5-pua		. #x8ABD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABE)	; 
-    (=ucs		. #xF499)	; 
+  '((=ucs		. #xF499)	; 
+    (=big5-pua		. #x8ABE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ABF)	; 
-    (=ucs		. #xF49A)	; 
+  '((=ucs		. #xF49A)	; 
+    (=big5-pua		. #x8ABF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC0)	; 
-    (=ucs		. #xF49B)	; 
+  '((=ucs		. #xF49B)	; 
+    (=big5-pua		. #x8AC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC1)	; 
-    (=ucs		. #xF49C)	; 
+  '((=ucs		. #xF49C)	; 
+    (=big5-pua		. #x8AC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC2)	; 
-    (=ucs		. #xF49D)	; 
+  '((=ucs		. #xF49D)	; 
+    (=big5-pua		. #x8AC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC3)	; 
-    (=ucs		. #xF49E)	; 
+  '((=ucs		. #xF49E)	; 
+    (=big5-pua		. #x8AC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC4)	; 
-    (=ucs		. #xF49F)	; 
+  '((=ucs		. #xF49F)	; 
+    (=big5-pua		. #x8AC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC5)	; 
-    (=ucs		. #xF4A0)	; 
+  '((=ucs		. #xF4A0)	; 
+    (=big5-pua		. #x8AC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC6)	; 
-    (=ucs		. #xF4A1)	; 
+  '((=ucs		. #xF4A1)	; 
+    (=big5-pua		. #x8AC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC7)	; 
-    (=ucs		. #xF4A2)	; 
+  '((=ucs		. #xF4A2)	; 
+    (=big5-pua		. #x8AC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC8)	; 
-    (=ucs		. #xF4A3)	; 
+  '((=ucs		. #xF4A3)	; 
+    (=big5-pua		. #x8AC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AC9)	; 
-    (=ucs		. #xF4A4)	; 
+  '((=ucs		. #xF4A4)	; 
+    (=big5-pua		. #x8AC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACA)	; 
-    (=ucs		. #xF4A5)	; 
+  '((=ucs		. #xF4A5)	; 
+    (=big5-pua		. #x8ACA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACB)	; 
-    (=ucs		. #xF4A6)	; 
+  '((=ucs		. #xF4A6)	; 
+    (=big5-pua		. #x8ACB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACC)	; 
-    (=ucs		. #xF4A7)	; 
+  '((=ucs		. #xF4A7)	; 
+    (=big5-pua		. #x8ACC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACD)	; 
-    (=ucs		. #xF4A8)	; 
+  '((=ucs		. #xF4A8)	; 
+    (=big5-pua		. #x8ACD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACE)	; 
-    (=ucs		. #xF4A9)	; 
+  '((=ucs		. #xF4A9)	; 
+    (=big5-pua		. #x8ACE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ACF)	; 
-    (=ucs		. #xF4AA)	; 
+  '((=ucs		. #xF4AA)	; 
+    (=big5-pua		. #x8ACF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD0)	; 
-    (=ucs		. #xF4AB)	; 
+  '((=ucs		. #xF4AB)	; 
+    (=big5-pua		. #x8AD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD1)	; 
-    (=ucs		. #xF4AC)	; 
+  '((=ucs		. #xF4AC)	; 
+    (=big5-pua		. #x8AD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD2)	; 
-    (=ucs		. #xF4AD)	; 
+  '((=ucs		. #xF4AD)	; 
+    (=big5-pua		. #x8AD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD3)	; 
-    (=ucs		. #xF4AE)	; 
+  '((=ucs		. #xF4AE)	; 
+    (=big5-pua		. #x8AD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD4)	; 
-    (=ucs		. #xF4AF)	; 
+  '((=ucs		. #xF4AF)	; 
+    (=big5-pua		. #x8AD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD5)	; 
-    (=ucs		. #xF4B0)	; 
+  '((=ucs		. #xF4B0)	; 
+    (=big5-pua		. #x8AD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD6)	; 
-    (=ucs		. #xF4B1)	; 
+  '((=ucs		. #xF4B1)	; 
+    (=big5-pua		. #x8AD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD7)	; 
-    (=ucs		. #xF4B2)	; 
+  '((=ucs		. #xF4B2)	; 
+    (=big5-pua		. #x8AD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD8)	; 
-    (=ucs		. #xF4B3)	; 
+  '((=ucs		. #xF4B3)	; 
+    (=big5-pua		. #x8AD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AD9)	; 
-    (=ucs		. #xF4B4)	; 
+  '((=ucs		. #xF4B4)	; 
+    (=big5-pua		. #x8AD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADA)	; 
-    (=ucs		. #xF4B5)	; 
+  '((=ucs		. #xF4B5)	; 
+    (=big5-pua		. #x8ADA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADB)	; 
-    (=ucs		. #xF4B6)	; 
+  '((=ucs		. #xF4B6)	; 
+    (=big5-pua		. #x8ADB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADC)	; 
-    (=ucs		. #xF4B7)	; 
+  '((=ucs		. #xF4B7)	; 
+    (=big5-pua		. #x8ADC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADD)	; 
-    (=ucs		. #xF4B8)	; 
+  '((=ucs		. #xF4B8)	; 
+    (=big5-pua		. #x8ADD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADE)	; 
-    (=ucs		. #xF4B9)	; 
+  '((=ucs		. #xF4B9)	; 
+    (=big5-pua		. #x8ADE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8ADF)	; 
-    (=ucs		. #xF4BA)	; 
+  '((=ucs		. #xF4BA)	; 
+    (=big5-pua		. #x8ADF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE0)	; 
-    (=ucs		. #xF4BB)	; 
+  '((=ucs		. #xF4BB)	; 
+    (=big5-pua		. #x8AE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE1)	; 
-    (=ucs		. #xF4BC)	; 
+  '((=ucs		. #xF4BC)	; 
+    (=big5-pua		. #x8AE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE2)	; 
-    (=ucs		. #xF4BD)	; 
+  '((=ucs		. #xF4BD)	; 
+    (=big5-pua		. #x8AE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE3)	; 
-    (=ucs		. #xF4BE)	; 
+  '((=ucs		. #xF4BE)	; 
+    (=big5-pua		. #x8AE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE4)	; 
-    (=ucs		. #xF4BF)	; 
+  '((=ucs		. #xF4BF)	; 
+    (=big5-pua		. #x8AE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE5)	; 
-    (=ucs		. #xF4C0)	; 
+  '((=ucs		. #xF4C0)	; 
+    (=big5-pua		. #x8AE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE6)	; 
-    (=ucs		. #xF4C1)	; 
+  '((=ucs		. #xF4C1)	; 
+    (=big5-pua		. #x8AE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE7)	; 
-    (=ucs		. #xF4C2)	; 
+  '((=ucs		. #xF4C2)	; 
+    (=big5-pua		. #x8AE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE8)	; 
-    (=ucs		. #xF4C3)	; 
+  '((=ucs		. #xF4C3)	; 
+    (=big5-pua		. #x8AE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AE9)	; 
-    (=ucs		. #xF4C4)	; 
+  '((=ucs		. #xF4C4)	; 
+    (=big5-pua		. #x8AE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AEA)	; 
-    (=ucs		. #xF4C5)	; 
+  '((=ucs		. #xF4C5)	; 
+    (=big5-pua		. #x8AEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AEB)	; 
-    (=ucs		. #xF4C6)	; 
+  '((=ucs		. #xF4C6)	; 
+    (=big5-pua		. #x8AEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AEC)	; 
-    (=ucs		. #xF4C7)	; 
+  '((=ucs		. #xF4C7)	; 
+    (=big5-pua		. #x8AEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AED)	; 
-    (=ucs		. #xF4C8)	; 
+  '((=ucs		. #xF4C8)	; 
+    (=big5-pua		. #x8AED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AEE)	; 
-    (=ucs		. #xF4C9)	; 
+  '((=ucs		. #xF4C9)	; 
+    (=big5-pua		. #x8AEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AEF)	; 
-    (=ucs		. #xF4CA)	; 
+  '((=ucs		. #xF4CA)	; 
+    (=big5-pua		. #x8AEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF0)	; 
-    (=ucs		. #xF4CB)	; 
+  '((=ucs		. #xF4CB)	; 
+    (=big5-pua		. #x8AF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF1)	; 
-    (=ucs		. #xF4CC)	; 
+  '((=ucs		. #xF4CC)	; 
+    (=big5-pua		. #x8AF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF2)	; 
-    (=ucs		. #xF4CD)	; 
+  '((=ucs		. #xF4CD)	; 
+    (=big5-pua		. #x8AF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF3)	; 
-    (=ucs		. #xF4CE)	; 
+  '((=ucs		. #xF4CE)	; 
+    (=big5-pua		. #x8AF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF4)	; 
-    (=ucs		. #xF4CF)	; 
+  '((=ucs		. #xF4CF)	; 
+    (=big5-pua		. #x8AF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF5)	; 
-    (=ucs		. #xF4D0)	; 
+  '((=ucs		. #xF4D0)	; 
+    (=big5-pua		. #x8AF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF6)	; 
-    (=ucs		. #xF4D1)	; 
+  '((=ucs		. #xF4D1)	; 
+    (=big5-pua		. #x8AF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF7)	; 
-    (=ucs		. #xF4D2)	; 
+  '((=ucs		. #xF4D2)	; 
+    (=big5-pua		. #x8AF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF8)	; 
-    (=ucs		. #xF4D3)	; 
+  '((=ucs		. #xF4D3)	; 
+    (=big5-pua		. #x8AF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AF9)	; 
-    (=ucs		. #xF4D4)	; 
+  '((=ucs		. #xF4D4)	; 
+    (=big5-pua		. #x8AF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AFA)	; 
-    (=ucs		. #xF4D5)	; 
+  '((=ucs		. #xF4D5)	; 
+    (=big5-pua		. #x8AFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AFB)	; 
-    (=ucs		. #xF4D6)	; 
+  '((=ucs		. #xF4D6)	; 
+    (=big5-pua		. #x8AFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AFC)	; 
-    (=ucs		. #xF4D7)	; 
+  '((=ucs		. #xF4D7)	; 
+    (=big5-pua		. #x8AFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AFD)	; 
-    (=ucs		. #xF4D8)	; 
+  '((=ucs		. #xF4D8)	; 
+    (=big5-pua		. #x8AFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8AFE)	; 
-    (=ucs		. #xF4D9)	; 
+  '((=ucs		. #xF4D9)	; 
+    (=big5-pua		. #x8AFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B40)	; 
-    (=ucs		. #xF4DA)	; 
+  '((=ucs		. #xF4DA)	; 
+    (=big5-pua		. #x8B40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B41)	; 
-    (=ucs		. #xF4DB)	; 
+  '((=ucs		. #xF4DB)	; 
+    (=big5-pua		. #x8B41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B42)	; 
-    (=ucs		. #xF4DC)	; 
+  '((=ucs		. #xF4DC)	; 
+    (=big5-pua		. #x8B42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B43)	; 
-    (=ucs		. #xF4DD)	; 
+  '((=ucs		. #xF4DD)	; 
+    (=big5-pua		. #x8B43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B44)	; 
-    (=ucs		. #xF4DE)	; 
+  '((=ucs		. #xF4DE)	; 
+    (=big5-pua		. #x8B44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B45)	; 
-    (=ucs		. #xF4DF)	; 
+  '((=ucs		. #xF4DF)	; 
+    (=big5-pua		. #x8B45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B46)	; 
-    (=ucs		. #xF4E0)	; 
+  '((=ucs		. #xF4E0)	; 
+    (=big5-pua		. #x8B46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B47)	; 
-    (=ucs		. #xF4E1)	; 
+  '((=ucs		. #xF4E1)	; 
+    (=big5-pua		. #x8B47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B48)	; 
-    (=ucs		. #xF4E2)	; 
+  '((=ucs		. #xF4E2)	; 
+    (=big5-pua		. #x8B48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B49)	; 
-    (=ucs		. #xF4E3)	; 
+  '((=ucs		. #xF4E3)	; 
+    (=big5-pua		. #x8B49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4A)	; 
-    (=ucs		. #xF4E4)	; 
+  '((=ucs		. #xF4E4)	; 
+    (=big5-pua		. #x8B4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4B)	; 
-    (=ucs		. #xF4E5)	; 
+  '((=ucs		. #xF4E5)	; 
+    (=big5-pua		. #x8B4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4C)	; 
-    (=ucs		. #xF4E6)	; 
+  '((=ucs		. #xF4E6)	; 
+    (=big5-pua		. #x8B4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4D)	; 
-    (=ucs		. #xF4E7)	; 
+  '((=ucs		. #xF4E7)	; 
+    (=big5-pua		. #x8B4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4E)	; 
-    (=ucs		. #xF4E8)	; 
+  '((=ucs		. #xF4E8)	; 
+    (=big5-pua		. #x8B4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B4F)	; 
-    (=ucs		. #xF4E9)	; 
+  '((=ucs		. #xF4E9)	; 
+    (=big5-pua		. #x8B4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B50)	; 
-    (=ucs		. #xF4EA)	; 
+  '((=ucs		. #xF4EA)	; 
+    (=big5-pua		. #x8B50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B51)	; 
-    (=ucs		. #xF4EB)	; 
+  '((=ucs		. #xF4EB)	; 
+    (=big5-pua		. #x8B51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B52)	; 
-    (=ucs		. #xF4EC)	; 
+  '((=ucs		. #xF4EC)	; 
+    (=big5-pua		. #x8B52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B53)	; 
-    (=ucs		. #xF4ED)	; 
+  '((=ucs		. #xF4ED)	; 
+    (=big5-pua		. #x8B53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B54)	; 
-    (=ucs		. #xF4EE)	; 
+  '((=ucs		. #xF4EE)	; 
+    (=big5-pua		. #x8B54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B55)	; 
-    (=ucs		. #xF4EF)	; 
+  '((=ucs		. #xF4EF)	; 
+    (=big5-pua		. #x8B55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B56)	; 
-    (=ucs		. #xF4F0)	; 
+  '((=ucs		. #xF4F0)	; 
+    (=big5-pua		. #x8B56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B57)	; 
-    (=ucs		. #xF4F1)	; 
+  '((=ucs		. #xF4F1)	; 
+    (=big5-pua		. #x8B57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B58)	; 
-    (=ucs		. #xF4F2)	; 
+  '((=ucs		. #xF4F2)	; 
+    (=big5-pua		. #x8B58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B59)	; 
-    (=ucs		. #xF4F3)	; 
+  '((=ucs		. #xF4F3)	; 
+    (=big5-pua		. #x8B59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5A)	; 
-    (=ucs		. #xF4F4)	; 
+  '((=ucs		. #xF4F4)	; 
+    (=big5-pua		. #x8B5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5B)	; 
-    (=ucs		. #xF4F5)	; 
+  '((=ucs		. #xF4F5)	; 
+    (=big5-pua		. #x8B5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5C)	; 
-    (=ucs		. #xF4F6)	; 
+  '((=ucs		. #xF4F6)	; 
+    (=big5-pua		. #x8B5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5D)	; 
-    (=ucs		. #xF4F7)	; 
+  '((=ucs		. #xF4F7)	; 
+    (=big5-pua		. #x8B5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5E)	; 
-    (=ucs		. #xF4F8)	; 
+  '((=ucs		. #xF4F8)	; 
+    (=big5-pua		. #x8B5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B5F)	; 
-    (=ucs		. #xF4F9)	; 
+  '((=ucs		. #xF4F9)	; 
+    (=big5-pua		. #x8B5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B60)	; 
-    (=ucs		. #xF4FA)	; 
+  '((=ucs		. #xF4FA)	; 
+    (=big5-pua		. #x8B60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B61)	; 
-    (=ucs		. #xF4FB)	; 
+  '((=ucs		. #xF4FB)	; 
+    (=big5-pua		. #x8B61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B62)	; 
-    (=ucs		. #xF4FC)	; 
+  '((=ucs		. #xF4FC)	; 
+    (=big5-pua		. #x8B62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B63)	; 
-    (=ucs		. #xF4FD)	; 
+  '((=ucs		. #xF4FD)	; 
+    (=big5-pua		. #x8B63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B64)	; 
-    (=ucs		. #xF4FE)	; 
+  '((=ucs		. #xF4FE)	; 
+    (=big5-pua		. #x8B64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B65)	; 
-    (=ucs		. #xF4FF)	; 
+  '((=ucs		. #xF4FF)	; 
+    (=big5-pua		. #x8B65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B66)	; 
-    (=ucs		. #xF500)	; 
+  '((=ucs		. #xF500)	; 
+    (=big5-pua		. #x8B66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B67)	; 
-    (=ucs		. #xF501)	; 
+  '((=ucs		. #xF501)	; 
+    (=big5-pua		. #x8B67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B68)	; 
-    (=ucs		. #xF502)	; 
+  '((=ucs		. #xF502)	; 
+    (=big5-pua		. #x8B68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B69)	; 
-    (=ucs		. #xF503)	; 
+  '((=ucs		. #xF503)	; 
+    (=big5-pua		. #x8B69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6A)	; 
-    (=ucs		. #xF504)	; 
+  '((=ucs		. #xF504)	; 
+    (=big5-pua		. #x8B6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6B)	; 
-    (=ucs		. #xF505)	; 
+  '((=ucs		. #xF505)	; 
+    (=big5-pua		. #x8B6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6C)	; 
-    (=ucs		. #xF506)	; 
+  '((=ucs		. #xF506)	; 
+    (=big5-pua		. #x8B6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6D)	; 
-    (=ucs		. #xF507)	; 
+  '((=ucs		. #xF507)	; 
+    (=big5-pua		. #x8B6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6E)	; 
-    (=ucs		. #xF508)	; 
+  '((=ucs		. #xF508)	; 
+    (=big5-pua		. #x8B6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B6F)	; 
-    (=ucs		. #xF509)	; 
+  '((=ucs		. #xF509)	; 
+    (=big5-pua		. #x8B6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B70)	; 
-    (=ucs		. #xF50A)	; 
+  '((=ucs		. #xF50A)	; 
+    (=big5-pua		. #x8B70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B71)	; 
-    (=ucs		. #xF50B)	; 
+  '((=ucs		. #xF50B)	; 
+    (=big5-pua		. #x8B71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B72)	; 
-    (=ucs		. #xF50C)	; 
+  '((=ucs		. #xF50C)	; 
+    (=big5-pua		. #x8B72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B73)	; 
-    (=ucs		. #xF50D)	; 
+  '((=ucs		. #xF50D)	; 
+    (=big5-pua		. #x8B73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B74)	; 
-    (=ucs		. #xF50E)	; 
+  '((=ucs		. #xF50E)	; 
+    (=big5-pua		. #x8B74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B75)	; 
-    (=ucs		. #xF50F)	; 
+  '((=ucs		. #xF50F)	; 
+    (=big5-pua		. #x8B75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B76)	; 
-    (=ucs		. #xF510)	; 
+  '((=ucs		. #xF510)	; 
+    (=big5-pua		. #x8B76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B77)	; 
-    (=ucs		. #xF511)	; 
+  '((=ucs		. #xF511)	; 
+    (=big5-pua		. #x8B77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B78)	; 
-    (=ucs		. #xF512)	; 
+  '((=ucs		. #xF512)	; 
+    (=big5-pua		. #x8B78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B79)	; 
-    (=ucs		. #xF513)	; 
+  '((=ucs		. #xF513)	; 
+    (=big5-pua		. #x8B79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B7A)	; 
-    (=ucs		. #xF514)	; 
+  '((=ucs		. #xF514)	; 
+    (=big5-pua		. #x8B7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B7B)	; 
-    (=ucs		. #xF515)	; 
+  '((=ucs		. #xF515)	; 
+    (=big5-pua		. #x8B7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B7C)	; 
-    (=ucs		. #xF516)	; 
+  '((=ucs		. #xF516)	; 
+    (=big5-pua		. #x8B7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B7D)	; 
-    (=ucs		. #xF517)	; 
+  '((=ucs		. #xF517)	; 
+    (=big5-pua		. #x8B7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8B7E)	; 
-    (=ucs		. #xF518)	; 
+  '((=ucs		. #xF518)	; 
+    (=big5-pua		. #x8B7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA1)	; 
-    (=ucs		. #xF519)	; 
+  '((=ucs		. #xF519)	; 
+    (=big5-pua		. #x8BA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA2)	; 
-    (=ucs		. #xF51A)	; 
+  '((=ucs		. #xF51A)	; 
+    (=big5-pua		. #x8BA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA3)	; 
-    (=ucs		. #xF51B)	; 
+  '((=ucs		. #xF51B)	; 
+    (=big5-pua		. #x8BA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA4)	; 
-    (=ucs		. #xF51C)	; 
+  '((=ucs		. #xF51C)	; 
+    (=big5-pua		. #x8BA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA5)	; 
-    (=ucs		. #xF51D)	; 
+  '((=ucs		. #xF51D)	; 
+    (=big5-pua		. #x8BA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA6)	; 
-    (=ucs		. #xF51E)	; 
+  '((=ucs		. #xF51E)	; 
+    (=big5-pua		. #x8BA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA7)	; 
-    (=ucs		. #xF51F)	; 
+  '((=ucs		. #xF51F)	; 
+    (=big5-pua		. #x8BA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA8)	; 
-    (=ucs		. #xF520)	; 
+  '((=ucs		. #xF520)	; 
+    (=big5-pua		. #x8BA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BA9)	; 
-    (=ucs		. #xF521)	; 
+  '((=ucs		. #xF521)	; 
+    (=big5-pua		. #x8BA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAA)	; 
-    (=ucs		. #xF522)	; 
+  '((=ucs		. #xF522)	; 
+    (=big5-pua		. #x8BAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAB)	; 
-    (=ucs		. #xF523)	; 
+  '((=ucs		. #xF523)	; 
+    (=big5-pua		. #x8BAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAC)	; 
-    (=ucs		. #xF524)	; 
+  '((=ucs		. #xF524)	; 
+    (=big5-pua		. #x8BAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAD)	; 
-    (=ucs		. #xF525)	; 
+  '((=ucs		. #xF525)	; 
+    (=big5-pua		. #x8BAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAE)	; 
-    (=ucs		. #xF526)	; 
+  '((=ucs		. #xF526)	; 
+    (=big5-pua		. #x8BAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BAF)	; 
-    (=ucs		. #xF527)	; 
+  '((=ucs		. #xF527)	; 
+    (=big5-pua		. #x8BAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB0)	; 
-    (=ucs		. #xF528)	; 
+  '((=ucs		. #xF528)	; 
+    (=big5-pua		. #x8BB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB1)	; 
-    (=ucs		. #xF529)	; 
+  '((=ucs		. #xF529)	; 
+    (=big5-pua		. #x8BB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB2)	; 
-    (=ucs		. #xF52A)	; 
+  '((=ucs		. #xF52A)	; 
+    (=big5-pua		. #x8BB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB3)	; 
-    (=ucs		. #xF52B)	; 
+  '((=ucs		. #xF52B)	; 
+    (=big5-pua		. #x8BB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB4)	; 
-    (=ucs		. #xF52C)	; 
+  '((=ucs		. #xF52C)	; 
+    (=big5-pua		. #x8BB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB5)	; 
-    (=ucs		. #xF52D)	; 
+  '((=ucs		. #xF52D)	; 
+    (=big5-pua		. #x8BB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB6)	; 
-    (=ucs		. #xF52E)	; 
+  '((=ucs		. #xF52E)	; 
+    (=big5-pua		. #x8BB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB7)	; 
-    (=ucs		. #xF52F)	; 
+  '((=ucs		. #xF52F)	; 
+    (=big5-pua		. #x8BB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB8)	; 
-    (=ucs		. #xF530)	; 
+  '((=ucs		. #xF530)	; 
+    (=big5-pua		. #x8BB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BB9)	; 
-    (=ucs		. #xF531)	; 
+  '((=ucs		. #xF531)	; 
+    (=big5-pua		. #x8BB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBA)	; 
-    (=ucs		. #xF532)	; 
+  '((=ucs		. #xF532)	; 
+    (=big5-pua		. #x8BBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBB)	; 
-    (=ucs		. #xF533)	; 
+  '((=ucs		. #xF533)	; 
+    (=big5-pua		. #x8BBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBC)	; 
-    (=ucs		. #xF534)	; 
+  '((=ucs		. #xF534)	; 
+    (=big5-pua		. #x8BBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBD)	; 
-    (=ucs		. #xF535)	; 
+  '((=ucs		. #xF535)	; 
+    (=big5-pua		. #x8BBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBE)	; 
-    (=ucs		. #xF536)	; 
+  '((=ucs		. #xF536)	; 
+    (=big5-pua		. #x8BBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BBF)	; 
-    (=ucs		. #xF537)	; 
+  '((=ucs		. #xF537)	; 
+    (=big5-pua		. #x8BBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC0)	; 
-    (=ucs		. #xF538)	; 
+  '((=ucs		. #xF538)	; 
+    (=big5-pua		. #x8BC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC1)	; 
-    (=ucs		. #xF539)	; 
+  '((=ucs		. #xF539)	; 
+    (=big5-pua		. #x8BC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC2)	; 
-    (=ucs		. #xF53A)	; 
+  '((=ucs		. #xF53A)	; 
+    (=big5-pua		. #x8BC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC3)	; 
-    (=ucs		. #xF53B)	; 
+  '((=ucs		. #xF53B)	; 
+    (=big5-pua		. #x8BC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC4)	; 
-    (=ucs		. #xF53C)	; 
+  '((=ucs		. #xF53C)	; 
+    (=big5-pua		. #x8BC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC5)	; 
-    (=ucs		. #xF53D)	; 
+  '((=ucs		. #xF53D)	; 
+    (=big5-pua		. #x8BC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC6)	; 
-    (=ucs		. #xF53E)	; 
+  '((=ucs		. #xF53E)	; 
+    (=big5-pua		. #x8BC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC7)	; 
-    (=ucs		. #xF53F)	; 
+  '((=ucs		. #xF53F)	; 
+    (=big5-pua		. #x8BC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC8)	; 
-    (=ucs		. #xF540)	; 
+  '((=ucs		. #xF540)	; 
+    (=big5-pua		. #x8BC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BC9)	; 
-    (=ucs		. #xF541)	; 
+  '((=ucs		. #xF541)	; 
+    (=big5-pua		. #x8BC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCA)	; 
-    (=ucs		. #xF542)	; 
+  '((=ucs		. #xF542)	; 
+    (=big5-pua		. #x8BCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCB)	; 
-    (=ucs		. #xF543)	; 
+  '((=ucs		. #xF543)	; 
+    (=big5-pua		. #x8BCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCC)	; 
-    (=ucs		. #xF544)	; 
+  '((=ucs		. #xF544)	; 
+    (=big5-pua		. #x8BCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCD)	; 
-    (=ucs		. #xF545)	; 
+  '((=ucs		. #xF545)	; 
+    (=big5-pua		. #x8BCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCE)	; 
-    (=ucs		. #xF546)	; 
+  '((=ucs		. #xF546)	; 
+    (=big5-pua		. #x8BCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BCF)	; 
-    (=ucs		. #xF547)	; 
+  '((=ucs		. #xF547)	; 
+    (=big5-pua		. #x8BCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD0)	; 
-    (=ucs		. #xF548)	; 
+  '((=ucs		. #xF548)	; 
+    (=big5-pua		. #x8BD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD1)	; 
-    (=ucs		. #xF549)	; 
+  '((=ucs		. #xF549)	; 
+    (=big5-pua		. #x8BD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD2)	; 
-    (=ucs		. #xF54A)	; 
+  '((=ucs		. #xF54A)	; 
+    (=big5-pua		. #x8BD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD3)	; 
-    (=ucs		. #xF54B)	; 
+  '((=ucs		. #xF54B)	; 
+    (=big5-pua		. #x8BD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD4)	; 
-    (=ucs		. #xF54C)	; 
+  '((=ucs		. #xF54C)	; 
+    (=big5-pua		. #x8BD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD5)	; 
-    (=ucs		. #xF54D)	; 
+  '((=ucs		. #xF54D)	; 
+    (=big5-pua		. #x8BD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD6)	; 
-    (=ucs		. #xF54E)	; 
+  '((=ucs		. #xF54E)	; 
+    (=big5-pua		. #x8BD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD7)	; 
-    (=ucs		. #xF54F)	; 
+  '((=ucs		. #xF54F)	; 
+    (=big5-pua		. #x8BD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD8)	; 
-    (=ucs		. #xF550)	; 
+  '((=ucs		. #xF550)	; 
+    (=big5-pua		. #x8BD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BD9)	; 
-    (=ucs		. #xF551)	; 
+  '((=ucs		. #xF551)	; 
+    (=big5-pua		. #x8BD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDA)	; 
-    (=ucs		. #xF552)	; 
+  '((=ucs		. #xF552)	; 
+    (=big5-pua		. #x8BDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDB)	; 
-    (=ucs		. #xF553)	; 
+  '((=ucs		. #xF553)	; 
+    (=big5-pua		. #x8BDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDC)	; 
-    (=ucs		. #xF554)	; 
+  '((=ucs		. #xF554)	; 
+    (=big5-pua		. #x8BDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDD)	; 
-    (=ucs		. #xF555)	; 
+  '((=ucs		. #xF555)	; 
+    (=big5-pua		. #x8BDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDE)	; 
-    (=ucs		. #xF556)	; 
+  '((=ucs		. #xF556)	; 
+    (=big5-pua		. #x8BDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BDF)	; 
-    (=ucs		. #xF557)	; 
+  '((=ucs		. #xF557)	; 
+    (=big5-pua		. #x8BDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE0)	; 
-    (=ucs		. #xF558)	; 
+  '((=ucs		. #xF558)	; 
+    (=big5-pua		. #x8BE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE1)	; 
-    (=ucs		. #xF559)	; 
+  '((=ucs		. #xF559)	; 
+    (=big5-pua		. #x8BE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE2)	; 
-    (=ucs		. #xF55A)	; 
+  '((=ucs		. #xF55A)	; 
+    (=big5-pua		. #x8BE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE3)	; 
-    (=ucs		. #xF55B)	; 
+  '((=ucs		. #xF55B)	; 
+    (=big5-pua		. #x8BE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE4)	; 
-    (=ucs		. #xF55C)	; 
+  '((=ucs		. #xF55C)	; 
+    (=big5-pua		. #x8BE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE5)	; 
-    (=ucs		. #xF55D)	; 
+  '((=ucs		. #xF55D)	; 
+    (=big5-pua		. #x8BE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE6)	; 
-    (=ucs		. #xF55E)	; 
+  '((=ucs		. #xF55E)	; 
+    (=big5-pua		. #x8BE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE7)	; 
-    (=ucs		. #xF55F)	; 
+  '((=ucs		. #xF55F)	; 
+    (=big5-pua		. #x8BE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE8)	; 
-    (=ucs		. #xF560)	; 
+  '((=ucs		. #xF560)	; 
+    (=big5-pua		. #x8BE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BE9)	; 
-    (=ucs		. #xF561)	; 
+  '((=ucs		. #xF561)	; 
+    (=big5-pua		. #x8BE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BEA)	; 
-    (=ucs		. #xF562)	; 
+  '((=ucs		. #xF562)	; 
+    (=big5-pua		. #x8BEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BEB)	; 
-    (=ucs		. #xF563)	; 
+  '((=ucs		. #xF563)	; 
+    (=big5-pua		. #x8BEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BEC)	; 
-    (=ucs		. #xF564)	; 
+  '((=ucs		. #xF564)	; 
+    (=big5-pua		. #x8BEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BED)	; 
-    (=ucs		. #xF565)	; 
+  '((=ucs		. #xF565)	; 
+    (=big5-pua		. #x8BED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BEE)	; 
-    (=ucs		. #xF566)	; 
+  '((=ucs		. #xF566)	; 
+    (=big5-pua		. #x8BEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BEF)	; 
-    (=ucs		. #xF567)	; 
+  '((=ucs		. #xF567)	; 
+    (=big5-pua		. #x8BEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF0)	; 
-    (=ucs		. #xF568)	; 
+  '((=ucs		. #xF568)	; 
+    (=big5-pua		. #x8BF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF1)	; 
-    (=ucs		. #xF569)	; 
+  '((=ucs		. #xF569)	; 
+    (=big5-pua		. #x8BF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF2)	; 
-    (=ucs		. #xF56A)	; 
+  '((=ucs		. #xF56A)	; 
+    (=big5-pua		. #x8BF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF3)	; 
-    (=ucs		. #xF56B)	; 
+  '((=ucs		. #xF56B)	; 
+    (=big5-pua		. #x8BF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF4)	; 
-    (=ucs		. #xF56C)	; 
+  '((=ucs		. #xF56C)	; 
+    (=big5-pua		. #x8BF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF5)	; 
-    (=ucs		. #xF56D)	; 
+  '((=ucs		. #xF56D)	; 
+    (=big5-pua		. #x8BF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF6)	; 
-    (=ucs		. #xF56E)	; 
+  '((=ucs		. #xF56E)	; 
+    (=big5-pua		. #x8BF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF7)	; 
-    (=ucs		. #xF56F)	; 
+  '((=ucs		. #xF56F)	; 
+    (=big5-pua		. #x8BF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF8)	; 
-    (=ucs		. #xF570)	; 
+  '((=ucs		. #xF570)	; 
+    (=big5-pua		. #x8BF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BF9)	; 
-    (=ucs		. #xF571)	; 
+  '((=ucs		. #xF571)	; 
+    (=big5-pua		. #x8BF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BFA)	; 
-    (=ucs		. #xF572)	; 
+  '((=ucs		. #xF572)	; 
+    (=big5-pua		. #x8BFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BFB)	; 
-    (=ucs		. #xF573)	; 
+  '((=ucs		. #xF573)	; 
+    (=big5-pua		. #x8BFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BFC)	; 
-    (=ucs		. #xF574)	; 
+  '((=ucs		. #xF574)	; 
+    (=big5-pua		. #x8BFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BFD)	; 
-    (=ucs		. #xF575)	; 
+  '((=ucs		. #xF575)	; 
+    (=big5-pua		. #x8BFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8BFE)	; 
-    (=ucs		. #xF576)	; 
+  '((=ucs		. #xF576)	; 
+    (=big5-pua		. #x8BFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C40)	; 
-    (=ucs		. #xF577)	; 
+  '((=ucs		. #xF577)	; 
+    (=big5-pua		. #x8C40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C41)	; 
-    (=ucs		. #xF578)	; 
+  '((=ucs		. #xF578)	; 
+    (=big5-pua		. #x8C41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C42)	; 
-    (=ucs		. #xF579)	; 
+  '((=ucs		. #xF579)	; 
+    (=big5-pua		. #x8C42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C43)	; 
-    (=ucs		. #xF57A)	; 
+  '((=ucs		. #xF57A)	; 
+    (=big5-pua		. #x8C43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C44)	; 
-    (=ucs		. #xF57B)	; 
+  '((=ucs		. #xF57B)	; 
+    (=big5-pua		. #x8C44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C45)	; 
-    (=ucs		. #xF57C)	; 
+  '((=ucs		. #xF57C)	; 
+    (=big5-pua		. #x8C45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C46)	; 
-    (=ucs		. #xF57D)	; 
+  '((=ucs		. #xF57D)	; 
+    (=big5-pua		. #x8C46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C47)	; 
-    (=ucs		. #xF57E)	; 
+  '((=ucs		. #xF57E)	; 
+    (=big5-pua		. #x8C47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C48)	; 
-    (=ucs		. #xF57F)	; 
+  '((=ucs		. #xF57F)	; 
+    (=big5-pua		. #x8C48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C49)	; 
-    (=ucs		. #xF580)	; 
+  '((=ucs		. #xF580)	; 
+    (=big5-pua		. #x8C49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4A)	; 
-    (=ucs		. #xF581)	; 
+  '((=ucs		. #xF581)	; 
+    (=big5-pua		. #x8C4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4B)	; 
-    (=ucs		. #xF582)	; 
+  '((=ucs		. #xF582)	; 
+    (=big5-pua		. #x8C4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4C)	; 
-    (=ucs		. #xF583)	; 
+  '((=ucs		. #xF583)	; 
+    (=big5-pua		. #x8C4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4D)	; 
-    (=ucs		. #xF584)	; 
+  '((=ucs		. #xF584)	; 
+    (=big5-pua		. #x8C4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4E)	; 
-    (=ucs		. #xF585)	; 
+  '((=ucs		. #xF585)	; 
+    (=big5-pua		. #x8C4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C4F)	; 
-    (=ucs		. #xF586)	; 
+  '((=ucs		. #xF586)	; 
+    (=big5-pua		. #x8C4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C50)	; 
-    (=ucs		. #xF587)	; 
+  '((=ucs		. #xF587)	; 
+    (=big5-pua		. #x8C50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C51)	; 
-    (=ucs		. #xF588)	; 
+  '((=ucs		. #xF588)	; 
+    (=big5-pua		. #x8C51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C52)	; 
-    (=ucs		. #xF589)	; 
+  '((=ucs		. #xF589)	; 
+    (=big5-pua		. #x8C52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C53)	; 
-    (=ucs		. #xF58A)	; 
+  '((=ucs		. #xF58A)	; 
+    (=big5-pua		. #x8C53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C54)	; 
-    (=ucs		. #xF58B)	; 
+  '((=ucs		. #xF58B)	; 
+    (=big5-pua		. #x8C54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C55)	; 
-    (=ucs		. #xF58C)	; 
+  '((=ucs		. #xF58C)	; 
+    (=big5-pua		. #x8C55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C56)	; 
-    (=ucs		. #xF58D)	; 
+  '((=ucs		. #xF58D)	; 
+    (=big5-pua		. #x8C56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C57)	; 
-    (=ucs		. #xF58E)	; 
+  '((=ucs		. #xF58E)	; 
+    (=big5-pua		. #x8C57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C58)	; 
-    (=ucs		. #xF58F)	; 
+  '((=ucs		. #xF58F)	; 
+    (=big5-pua		. #x8C58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C59)	; 
-    (=ucs		. #xF590)	; 
+  '((=ucs		. #xF590)	; 
+    (=big5-pua		. #x8C59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5A)	; 
-    (=ucs		. #xF591)	; 
+  '((=ucs		. #xF591)	; 
+    (=big5-pua		. #x8C5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5B)	; 
-    (=ucs		. #xF592)	; 
+  '((=ucs		. #xF592)	; 
+    (=big5-pua		. #x8C5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5C)	; 
-    (=ucs		. #xF593)	; 
+  '((=ucs		. #xF593)	; 
+    (=big5-pua		. #x8C5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5D)	; 
-    (=ucs		. #xF594)	; 
+  '((=ucs		. #xF594)	; 
+    (=big5-pua		. #x8C5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5E)	; 
-    (=ucs		. #xF595)	; 
+  '((=ucs		. #xF595)	; 
+    (=big5-pua		. #x8C5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C5F)	; 
-    (=ucs		. #xF596)	; 
+  '((=ucs		. #xF596)	; 
+    (=big5-pua		. #x8C5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C60)	; 
-    (=ucs		. #xF597)	; 
+  '((=ucs		. #xF597)	; 
+    (=big5-pua		. #x8C60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C61)	; 
-    (=ucs		. #xF598)	; 
+  '((=ucs		. #xF598)	; 
+    (=big5-pua		. #x8C61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C62)	; 
-    (=ucs		. #xF599)	; 
+  '((=ucs		. #xF599)	; 
+    (=big5-pua		. #x8C62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C63)	; 
-    (=ucs		. #xF59A)	; 
+  '((=ucs		. #xF59A)	; 
+    (=big5-pua		. #x8C63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C64)	; 
-    (=ucs		. #xF59B)	; 
+  '((=ucs		. #xF59B)	; 
+    (=big5-pua		. #x8C64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C65)	; 
-    (=ucs		. #xF59C)	; 
+  '((=ucs		. #xF59C)	; 
+    (=big5-pua		. #x8C65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C66)	; 
-    (=ucs		. #xF59D)	; 
+  '((=ucs		. #xF59D)	; 
+    (=big5-pua		. #x8C66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C67)	; 
-    (=ucs		. #xF59E)	; 
+  '((=ucs		. #xF59E)	; 
+    (=big5-pua		. #x8C67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C68)	; 
-    (=ucs		. #xF59F)	; 
+  '((=ucs		. #xF59F)	; 
+    (=big5-pua		. #x8C68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C69)	; 
-    (=ucs		. #xF5A0)	; 
+  '((=ucs		. #xF5A0)	; 
+    (=big5-pua		. #x8C69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6A)	; 
-    (=ucs		. #xF5A1)	; 
+  '((=ucs		. #xF5A1)	; 
+    (=big5-pua		. #x8C6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6B)	; 
-    (=ucs		. #xF5A2)	; 
+  '((=ucs		. #xF5A2)	; 
+    (=big5-pua		. #x8C6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6C)	; 
-    (=ucs		. #xF5A3)	; 
+  '((=ucs		. #xF5A3)	; 
+    (=big5-pua		. #x8C6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6D)	; 
-    (=ucs		. #xF5A4)	; 
+  '((=ucs		. #xF5A4)	; 
+    (=big5-pua		. #x8C6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6E)	; 
-    (=ucs		. #xF5A5)	; 
+  '((=ucs		. #xF5A5)	; 
+    (=big5-pua		. #x8C6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C6F)	; 
-    (=ucs		. #xF5A6)	; 
+  '((=ucs		. #xF5A6)	; 
+    (=big5-pua		. #x8C6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C70)	; 
-    (=ucs		. #xF5A7)	; 
+  '((=ucs		. #xF5A7)	; 
+    (=big5-pua		. #x8C70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C71)	; 
-    (=ucs		. #xF5A8)	; 
+  '((=ucs		. #xF5A8)	; 
+    (=big5-pua		. #x8C71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C72)	; 
-    (=ucs		. #xF5A9)	; 
+  '((=ucs		. #xF5A9)	; 
+    (=big5-pua		. #x8C72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C73)	; 
-    (=ucs		. #xF5AA)	; 
+  '((=ucs		. #xF5AA)	; 
+    (=big5-pua		. #x8C73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C74)	; 
-    (=ucs		. #xF5AB)	; 
+  '((=ucs		. #xF5AB)	; 
+    (=big5-pua		. #x8C74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C75)	; 
-    (=ucs		. #xF5AC)	; 
+  '((=ucs		. #xF5AC)	; 
+    (=big5-pua		. #x8C75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C76)	; 
-    (=ucs		. #xF5AD)	; 
+  '((=ucs		. #xF5AD)	; 
+    (=big5-pua		. #x8C76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C77)	; 
-    (=ucs		. #xF5AE)	; 
+  '((=ucs		. #xF5AE)	; 
+    (=big5-pua		. #x8C77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C78)	; 
-    (=ucs		. #xF5AF)	; 
+  '((=ucs		. #xF5AF)	; 
+    (=big5-pua		. #x8C78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C79)	; 
-    (=ucs		. #xF5B0)	; 
+  '((=ucs		. #xF5B0)	; 
+    (=big5-pua		. #x8C79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C7A)	; 
-    (=ucs		. #xF5B1)	; 
+  '((=ucs		. #xF5B1)	; 
+    (=big5-pua		. #x8C7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C7B)	; 
-    (=ucs		. #xF5B2)	; 
+  '((=ucs		. #xF5B2)	; 
+    (=big5-pua		. #x8C7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C7C)	; 
-    (=ucs		. #xF5B3)	; 
+  '((=ucs		. #xF5B3)	; 
+    (=big5-pua		. #x8C7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C7D)	; 
-    (=ucs		. #xF5B4)	; 
+  '((=ucs		. #xF5B4)	; 
+    (=big5-pua		. #x8C7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8C7E)	; 
-    (=ucs		. #xF5B5)	; 
+  '((=ucs		. #xF5B5)	; 
+    (=big5-pua		. #x8C7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA1)	; 
-    (=ucs		. #xF5B6)	; 
+  '((=ucs		. #xF5B6)	; 
+    (=big5-pua		. #x8CA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA2)	; 
-    (=ucs		. #xF5B7)	; 
+  '((=ucs		. #xF5B7)	; 
+    (=big5-pua		. #x8CA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA3)	; 
-    (=ucs		. #xF5B8)	; 
+  '((=ucs		. #xF5B8)	; 
+    (=big5-pua		. #x8CA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA4)	; 
-    (=ucs		. #xF5B9)	; 
+  '((=ucs		. #xF5B9)	; 
+    (=big5-pua		. #x8CA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA5)	; 
-    (=ucs		. #xF5BA)	; 
+  '((=ucs		. #xF5BA)	; 
+    (=big5-pua		. #x8CA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA6)	; 
-    (=ucs		. #xF5BB)	; 
+  '((=ucs		. #xF5BB)	; 
+    (=big5-pua		. #x8CA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA7)	; 
-    (=ucs		. #xF5BC)	; 
+  '((=ucs		. #xF5BC)	; 
+    (=big5-pua		. #x8CA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA8)	; 
-    (=ucs		. #xF5BD)	; 
+  '((=ucs		. #xF5BD)	; 
+    (=big5-pua		. #x8CA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CA9)	; 
-    (=ucs		. #xF5BE)	; 
+  '((=ucs		. #xF5BE)	; 
+    (=big5-pua		. #x8CA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAA)	; 
-    (=ucs		. #xF5BF)	; 
+  '((=ucs		. #xF5BF)	; 
+    (=big5-pua		. #x8CAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAB)	; 
-    (=ucs		. #xF5C0)	; 
+  '((=ucs		. #xF5C0)	; 
+    (=big5-pua		. #x8CAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAC)	; 
-    (=ucs		. #xF5C1)	; 
+  '((=ucs		. #xF5C1)	; 
+    (=big5-pua		. #x8CAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAD)	; 
-    (=ucs		. #xF5C2)	; 
+  '((=ucs		. #xF5C2)	; 
+    (=big5-pua		. #x8CAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAE)	; 
-    (=ucs		. #xF5C3)	; 
+  '((=ucs		. #xF5C3)	; 
+    (=big5-pua		. #x8CAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CAF)	; 
-    (=ucs		. #xF5C4)	; 
+  '((=ucs		. #xF5C4)	; 
+    (=big5-pua		. #x8CAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB0)	; 
-    (=ucs		. #xF5C5)	; 
+  '((=ucs		. #xF5C5)	; 
+    (=big5-pua		. #x8CB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB1)	; 
-    (=ucs		. #xF5C6)	; 
+  '((=ucs		. #xF5C6)	; 
+    (=big5-pua		. #x8CB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB2)	; 
-    (=ucs		. #xF5C7)	; 
+  '((=ucs		. #xF5C7)	; 
+    (=big5-pua		. #x8CB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB3)	; 
-    (=ucs		. #xF5C8)	; 
+  '((=ucs		. #xF5C8)	; 
+    (=big5-pua		. #x8CB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB4)	; 
-    (=ucs		. #xF5C9)	; 
+  '((=ucs		. #xF5C9)	; 
+    (=big5-pua		. #x8CB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB5)	; 
-    (=ucs		. #xF5CA)	; 
+  '((=ucs		. #xF5CA)	; 
+    (=big5-pua		. #x8CB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB6)	; 
-    (=ucs		. #xF5CB)	; 
+  '((=ucs		. #xF5CB)	; 
+    (=big5-pua		. #x8CB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB7)	; 
-    (=ucs		. #xF5CC)	; 
+  '((=ucs		. #xF5CC)	; 
+    (=big5-pua		. #x8CB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB8)	; 
-    (=ucs		. #xF5CD)	; 
+  '((=ucs		. #xF5CD)	; 
+    (=big5-pua		. #x8CB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CB9)	; 
-    (=ucs		. #xF5CE)	; 
+  '((=ucs		. #xF5CE)	; 
+    (=big5-pua		. #x8CB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBA)	; 
-    (=ucs		. #xF5CF)	; 
+  '((=ucs		. #xF5CF)	; 
+    (=big5-pua		. #x8CBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBB)	; 
-    (=ucs		. #xF5D0)	; 
+  '((=ucs		. #xF5D0)	; 
+    (=big5-pua		. #x8CBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBC)	; 
-    (=ucs		. #xF5D1)	; 
+  '((=ucs		. #xF5D1)	; 
+    (=big5-pua		. #x8CBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBD)	; 
-    (=ucs		. #xF5D2)	; 
+  '((=ucs		. #xF5D2)	; 
+    (=big5-pua		. #x8CBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBE)	; 
-    (=ucs		. #xF5D3)	; 
+  '((=ucs		. #xF5D3)	; 
+    (=big5-pua		. #x8CBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CBF)	; 
-    (=ucs		. #xF5D4)	; 
+  '((=ucs		. #xF5D4)	; 
+    (=big5-pua		. #x8CBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC0)	; 
-    (=ucs		. #xF5D5)	; 
+  '((=ucs		. #xF5D5)	; 
+    (=big5-pua		. #x8CC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC1)	; 
-    (=ucs		. #xF5D6)	; 
+  '((=ucs		. #xF5D6)	; 
+    (=big5-pua		. #x8CC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC2)	; 
-    (=ucs		. #xF5D7)	; 
+  '((=ucs		. #xF5D7)	; 
+    (=big5-pua		. #x8CC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC3)	; 
-    (=ucs		. #xF5D8)	; 
+  '((=ucs		. #xF5D8)	; 
+    (=big5-pua		. #x8CC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC4)	; 
-    (=ucs		. #xF5D9)	; 
+  '((=ucs		. #xF5D9)	; 
+    (=big5-pua		. #x8CC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC5)	; 
-    (=ucs		. #xF5DA)	; 
+  '((=ucs		. #xF5DA)	; 
+    (=big5-pua		. #x8CC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC6)	; 
-    (=ucs		. #xF5DB)	; 
+  '((=ucs		. #xF5DB)	; 
+    (=big5-pua		. #x8CC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC7)	; 
-    (=ucs		. #xF5DC)	; 
+  '((=ucs		. #xF5DC)	; 
+    (=big5-pua		. #x8CC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC8)	; 
-    (=ucs		. #xF5DD)	; 
+  '((=ucs		. #xF5DD)	; 
+    (=big5-pua		. #x8CC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CC9)	; 
-    (=ucs		. #xF5DE)	; 
+  '((=ucs		. #xF5DE)	; 
+    (=big5-pua		. #x8CC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCA)	; 
-    (=ucs		. #xF5DF)	; 
+  '((=ucs		. #xF5DF)	; 
+    (=big5-pua		. #x8CCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCB)	; 
-    (=ucs		. #xF5E0)	; 
+  '((=ucs		. #xF5E0)	; 
+    (=big5-pua		. #x8CCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCC)	; 
-    (=ucs		. #xF5E1)	; 
+  '((=ucs		. #xF5E1)	; 
+    (=big5-pua		. #x8CCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCD)	; 
-    (=ucs		. #xF5E2)	; 
+  '((=ucs		. #xF5E2)	; 
+    (=big5-pua		. #x8CCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCE)	; 
-    (=ucs		. #xF5E3)	; 
+  '((=ucs		. #xF5E3)	; 
+    (=big5-pua		. #x8CCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CCF)	; 
-    (=ucs		. #xF5E4)	; 
+  '((=ucs		. #xF5E4)	; 
+    (=big5-pua		. #x8CCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD0)	; 
-    (=ucs		. #xF5E5)	; 
+  '((=ucs		. #xF5E5)	; 
+    (=big5-pua		. #x8CD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD1)	; 
-    (=ucs		. #xF5E6)	; 
+  '((=ucs		. #xF5E6)	; 
+    (=big5-pua		. #x8CD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD2)	; 
-    (=ucs		. #xF5E7)	; 
+  '((=ucs		. #xF5E7)	; 
+    (=big5-pua		. #x8CD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD3)	; 
-    (=ucs		. #xF5E8)	; 
+  '((=ucs		. #xF5E8)	; 
+    (=big5-pua		. #x8CD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD4)	; 
-    (=ucs		. #xF5E9)	; 
+  '((=ucs		. #xF5E9)	; 
+    (=big5-pua		. #x8CD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD5)	; 
-    (=ucs		. #xF5EA)	; 
+  '((=ucs		. #xF5EA)	; 
+    (=big5-pua		. #x8CD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD6)	; 
-    (=ucs		. #xF5EB)	; 
+  '((=ucs		. #xF5EB)	; 
+    (=big5-pua		. #x8CD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD7)	; 
-    (=ucs		. #xF5EC)	; 
+  '((=ucs		. #xF5EC)	; 
+    (=big5-pua		. #x8CD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD8)	; 
-    (=ucs		. #xF5ED)	; 
+  '((=ucs		. #xF5ED)	; 
+    (=big5-pua		. #x8CD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CD9)	; 
-    (=ucs		. #xF5EE)	; 
+  '((=ucs		. #xF5EE)	; 
+    (=big5-pua		. #x8CD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDA)	; 
-    (=ucs		. #xF5EF)	; 
+  '((=ucs		. #xF5EF)	; 
+    (=big5-pua		. #x8CDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDB)	; 
-    (=ucs		. #xF5F0)	; 
+  '((=ucs		. #xF5F0)	; 
+    (=big5-pua		. #x8CDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDC)	; 
-    (=ucs		. #xF5F1)	; 
+  '((=ucs		. #xF5F1)	; 
+    (=big5-pua		. #x8CDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDD)	; 
-    (=ucs		. #xF5F2)	; 
+  '((=ucs		. #xF5F2)	; 
+    (=big5-pua		. #x8CDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDE)	; 
-    (=ucs		. #xF5F3)	; 
+  '((=ucs		. #xF5F3)	; 
+    (=big5-pua		. #x8CDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CDF)	; 
-    (=ucs		. #xF5F4)	; 
+  '((=ucs		. #xF5F4)	; 
+    (=big5-pua		. #x8CDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE0)	; 
-    (=ucs		. #xF5F5)	; 
+  '((=ucs		. #xF5F5)	; 
+    (=big5-pua		. #x8CE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE1)	; 
-    (=ucs		. #xF5F6)	; 
+  '((=ucs		. #xF5F6)	; 
+    (=big5-pua		. #x8CE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE2)	; 
-    (=ucs		. #xF5F7)	; 
+  '((=ucs		. #xF5F7)	; 
+    (=big5-pua		. #x8CE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE3)	; 
-    (=ucs		. #xF5F8)	; 
+  '((=ucs		. #xF5F8)	; 
+    (=big5-pua		. #x8CE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE4)	; 
-    (=ucs		. #xF5F9)	; 
+  '((=ucs		. #xF5F9)	; 
+    (=big5-pua		. #x8CE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE5)	; 
-    (=ucs		. #xF5FA)	; 
+  '((=ucs		. #xF5FA)	; 
+    (=big5-pua		. #x8CE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE6)	; 
-    (=ucs		. #xF5FB)	; 
+  '((=ucs		. #xF5FB)	; 
+    (=big5-pua		. #x8CE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE7)	; 
-    (=ucs		. #xF5FC)	; 
+  '((=ucs		. #xF5FC)	; 
+    (=big5-pua		. #x8CE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE8)	; 
-    (=ucs		. #xF5FD)	; 
+  '((=ucs		. #xF5FD)	; 
+    (=big5-pua		. #x8CE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CE9)	; 
-    (=ucs		. #xF5FE)	; 
+  '((=ucs		. #xF5FE)	; 
+    (=big5-pua		. #x8CE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CEA)	; 
-    (=ucs		. #xF5FF)	; 
+  '((=ucs		. #xF5FF)	; 
+    (=big5-pua		. #x8CEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CEB)	; 
-    (=ucs		. #xF600)	; 
+  '((=ucs		. #xF600)	; 
+    (=big5-pua		. #x8CEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CEC)	; 
-    (=ucs		. #xF601)	; 
+  '((=ucs		. #xF601)	; 
+    (=big5-pua		. #x8CEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CED)	; 
-    (=ucs		. #xF602)	; 
+  '((=ucs		. #xF602)	; 
+    (=big5-pua		. #x8CED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CEE)	; 
-    (=ucs		. #xF603)	; 
+  '((=ucs		. #xF603)	; 
+    (=big5-pua		. #x8CEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CEF)	; 
-    (=ucs		. #xF604)	; 
+  '((=ucs		. #xF604)	; 
+    (=big5-pua		. #x8CEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF0)	; 
-    (=ucs		. #xF605)	; 
+  '((=ucs		. #xF605)	; 
+    (=big5-pua		. #x8CF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF1)	; 
-    (=ucs		. #xF606)	; 
+  '((=ucs		. #xF606)	; 
+    (=big5-pua		. #x8CF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF2)	; 
-    (=ucs		. #xF607)	; 
+  '((=ucs		. #xF607)	; 
+    (=big5-pua		. #x8CF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF3)	; 
-    (=ucs		. #xF608)	; 
+  '((=ucs		. #xF608)	; 
+    (=big5-pua		. #x8CF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF4)	; 
-    (=ucs		. #xF609)	; 
+  '((=ucs		. #xF609)	; 
+    (=big5-pua		. #x8CF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF5)	; 
-    (=ucs		. #xF60A)	; 
+  '((=ucs		. #xF60A)	; 
+    (=big5-pua		. #x8CF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF6)	; 
-    (=ucs		. #xF60B)	; 
+  '((=ucs		. #xF60B)	; 
+    (=big5-pua		. #x8CF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF7)	; 
-    (=ucs		. #xF60C)	; 
+  '((=ucs		. #xF60C)	; 
+    (=big5-pua		. #x8CF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF8)	; 
-    (=ucs		. #xF60D)	; 
+  '((=ucs		. #xF60D)	; 
+    (=big5-pua		. #x8CF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CF9)	; 
-    (=ucs		. #xF60E)	; 
+  '((=ucs		. #xF60E)	; 
+    (=big5-pua		. #x8CF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CFA)	; 
-    (=ucs		. #xF60F)	; 
+  '((=ucs		. #xF60F)	; 
+    (=big5-pua		. #x8CFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CFB)	; 
-    (=ucs		. #xF610)	; 
+  '((=ucs		. #xF610)	; 
+    (=big5-pua		. #x8CFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CFC)	; 
-    (=ucs		. #xF611)	; 
+  '((=ucs		. #xF611)	; 
+    (=big5-pua		. #x8CFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CFD)	; 
-    (=ucs		. #xF612)	; 
+  '((=ucs		. #xF612)	; 
+    (=big5-pua		. #x8CFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8CFE)	; 
-    (=ucs		. #xF613)	; 
+  '((=ucs		. #xF613)	; 
+    (=big5-pua		. #x8CFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D40)	; 
-    (=ucs		. #xF614)	; 
+  '((=ucs		. #xF614)	; 
+    (=big5-pua		. #x8D40)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D41)	; 
-    (=ucs		. #xF615)	; 
+  '((=ucs		. #xF615)	; 
+    (=big5-pua		. #x8D41)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D42)	; 
-    (=ucs		. #xF616)	; 
+  '((=ucs		. #xF616)	; 
+    (=big5-pua		. #x8D42)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D43)	; 
-    (=ucs		. #xF617)	; 
+  '((=ucs		. #xF617)	; 
+    (=big5-pua		. #x8D43)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D44)	; 
-    (=ucs		. #xF618)	; 
+  '((=ucs		. #xF618)	; 
+    (=big5-pua		. #x8D44)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D45)	; 
-    (=ucs		. #xF619)	; 
+  '((=ucs		. #xF619)	; 
+    (=big5-pua		. #x8D45)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D46)	; 
-    (=ucs		. #xF61A)	; 
+  '((=ucs		. #xF61A)	; 
+    (=big5-pua		. #x8D46)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D47)	; 
-    (=ucs		. #xF61B)	; 
+  '((=ucs		. #xF61B)	; 
+    (=big5-pua		. #x8D47)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D48)	; 
-    (=ucs		. #xF61C)	; 
+  '((=ucs		. #xF61C)	; 
+    (=big5-pua		. #x8D48)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D49)	; 
-    (=ucs		. #xF61D)	; 
+  '((=ucs		. #xF61D)	; 
+    (=big5-pua		. #x8D49)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4A)	; 
-    (=ucs		. #xF61E)	; 
+  '((=ucs		. #xF61E)	; 
+    (=big5-pua		. #x8D4A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4B)	; 
-    (=ucs		. #xF61F)	; 
+  '((=ucs		. #xF61F)	; 
+    (=big5-pua		. #x8D4B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4C)	; 
-    (=ucs		. #xF620)	; 
+  '((=ucs		. #xF620)	; 
+    (=big5-pua		. #x8D4C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4D)	; 
-    (=ucs		. #xF621)	; 
+  '((=ucs		. #xF621)	; 
+    (=big5-pua		. #x8D4D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4E)	; 
-    (=ucs		. #xF622)	; 
+  '((=ucs		. #xF622)	; 
+    (=big5-pua		. #x8D4E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D4F)	; 
-    (=ucs		. #xF623)	; 
+  '((=ucs		. #xF623)	; 
+    (=big5-pua		. #x8D4F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D50)	; 
-    (=ucs		. #xF624)	; 
+  '((=ucs		. #xF624)	; 
+    (=big5-pua		. #x8D50)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D51)	; 
-    (=ucs		. #xF625)	; 
+  '((=ucs		. #xF625)	; 
+    (=big5-pua		. #x8D51)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D52)	; 
-    (=ucs		. #xF626)	; 
+  '((=ucs		. #xF626)	; 
+    (=big5-pua		. #x8D52)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D53)	; 
-    (=ucs		. #xF627)	; 
+  '((=ucs		. #xF627)	; 
+    (=big5-pua		. #x8D53)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D54)	; 
-    (=ucs		. #xF628)	; 
+  '((=ucs		. #xF628)	; 
+    (=big5-pua		. #x8D54)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D55)	; 
-    (=ucs		. #xF629)	; 
+  '((=ucs		. #xF629)	; 
+    (=big5-pua		. #x8D55)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D56)	; 
-    (=ucs		. #xF62A)	; 
+  '((=ucs		. #xF62A)	; 
+    (=big5-pua		. #x8D56)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D57)	; 
-    (=ucs		. #xF62B)	; 
+  '((=ucs		. #xF62B)	; 
+    (=big5-pua		. #x8D57)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D58)	; 
-    (=ucs		. #xF62C)	; 
+  '((=ucs		. #xF62C)	; 
+    (=big5-pua		. #x8D58)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D59)	; 
-    (=ucs		. #xF62D)	; 
+  '((=ucs		. #xF62D)	; 
+    (=big5-pua		. #x8D59)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5A)	; 
-    (=ucs		. #xF62E)	; 
+  '((=ucs		. #xF62E)	; 
+    (=big5-pua		. #x8D5A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5B)	; 
-    (=ucs		. #xF62F)	; 
+  '((=ucs		. #xF62F)	; 
+    (=big5-pua		. #x8D5B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5C)	; 
-    (=ucs		. #xF630)	; 
+  '((=ucs		. #xF630)	; 
+    (=big5-pua		. #x8D5C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5D)	; 
-    (=ucs		. #xF631)	; 
+  '((=ucs		. #xF631)	; 
+    (=big5-pua		. #x8D5D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5E)	; 
-    (=ucs		. #xF632)	; 
+  '((=ucs		. #xF632)	; 
+    (=big5-pua		. #x8D5E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D5F)	; 
-    (=ucs		. #xF633)	; 
+  '((=ucs		. #xF633)	; 
+    (=big5-pua		. #x8D5F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D60)	; 
-    (=ucs		. #xF634)	; 
+  '((=ucs		. #xF634)	; 
+    (=big5-pua		. #x8D60)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D61)	; 
-    (=ucs		. #xF635)	; 
+  '((=ucs		. #xF635)	; 
+    (=big5-pua		. #x8D61)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D62)	; 
-    (=ucs		. #xF636)	; 
+  '((=ucs		. #xF636)	; 
+    (=big5-pua		. #x8D62)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D63)	; 
-    (=ucs		. #xF637)	; 
+  '((=ucs		. #xF637)	; 
+    (=big5-pua		. #x8D63)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D64)	; 
-    (=ucs		. #xF638)	; 
+  '((=ucs		. #xF638)	; 
+    (=big5-pua		. #x8D64)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D65)	; 
-    (=ucs		. #xF639)	; 
+  '((=ucs		. #xF639)	; 
+    (=big5-pua		. #x8D65)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D66)	; 
-    (=ucs		. #xF63A)	; 
+  '((=ucs		. #xF63A)	; 
+    (=big5-pua		. #x8D66)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D67)	; 
-    (=ucs		. #xF63B)	; 
+  '((=ucs		. #xF63B)	; 
+    (=big5-pua		. #x8D67)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D68)	; 
-    (=ucs		. #xF63C)	; 
+  '((=ucs		. #xF63C)	; 
+    (=big5-pua		. #x8D68)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D69)	; 
-    (=ucs		. #xF63D)	; 
+  '((=ucs		. #xF63D)	; 
+    (=big5-pua		. #x8D69)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6A)	; 
-    (=ucs		. #xF63E)	; 
+  '((=ucs		. #xF63E)	; 
+    (=big5-pua		. #x8D6A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6B)	; 
-    (=ucs		. #xF63F)	; 
+  '((=ucs		. #xF63F)	; 
+    (=big5-pua		. #x8D6B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6C)	; 
-    (=ucs		. #xF640)	; 
+  '((=ucs		. #xF640)	; 
+    (=big5-pua		. #x8D6C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6D)	; 
-    (=ucs		. #xF641)	; 
+  '((=ucs		. #xF641)	; 
+    (=big5-pua		. #x8D6D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6E)	; 
-    (=ucs		. #xF642)	; 
+  '((=ucs		. #xF642)	; 
+    (=big5-pua		. #x8D6E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D6F)	; 
-    (=ucs		. #xF643)	; 
+  '((=ucs		. #xF643)	; 
+    (=big5-pua		. #x8D6F)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D70)	; 
-    (=ucs		. #xF644)	; 
+  '((=ucs		. #xF644)	; 
+    (=big5-pua		. #x8D70)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D71)	; 
-    (=ucs		. #xF645)	; 
+  '((=ucs		. #xF645)	; 
+    (=big5-pua		. #x8D71)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D72)	; 
-    (=ucs		. #xF646)	; 
+  '((=ucs		. #xF646)	; 
+    (=big5-pua		. #x8D72)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D73)	; 
-    (=ucs		. #xF647)	; 
+  '((=ucs		. #xF647)	; 
+    (=big5-pua		. #x8D73)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D74)	; 
-    (=ucs		. #xF648)	; 
+  '((=ucs		. #xF648)	; 
+    (=big5-pua		. #x8D74)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D75)	; 
-    (=ucs		. #xF649)	; 
+  '((=ucs		. #xF649)	; 
+    (=big5-pua		. #x8D75)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D76)	; 
-    (=ucs		. #xF64A)	; 
+  '((=ucs		. #xF64A)	; 
+    (=big5-pua		. #x8D76)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D77)	; 
-    (=ucs		. #xF64B)	; 
+  '((=ucs		. #xF64B)	; 
+    (=big5-pua		. #x8D77)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D78)	; 
-    (=ucs		. #xF64C)	; 
+  '((=ucs		. #xF64C)	; 
+    (=big5-pua		. #x8D78)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D79)	; 
-    (=ucs		. #xF64D)	; 
+  '((=ucs		. #xF64D)	; 
+    (=big5-pua		. #x8D79)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D7A)	; 
-    (=ucs		. #xF64E)	; 
+  '((=ucs		. #xF64E)	; 
+    (=big5-pua		. #x8D7A)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D7B)	; 
-    (=ucs		. #xF64F)	; 
+  '((=ucs		. #xF64F)	; 
+    (=big5-pua		. #x8D7B)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D7C)	; 
-    (=ucs		. #xF650)	; 
+  '((=ucs		. #xF650)	; 
+    (=big5-pua		. #x8D7C)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D7D)	; 
-    (=ucs		. #xF651)	; 
+  '((=ucs		. #xF651)	; 
+    (=big5-pua		. #x8D7D)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8D7E)	; 
-    (=ucs		. #xF652)	; 
+  '((=ucs		. #xF652)	; 
+    (=big5-pua		. #x8D7E)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA1)	; 
-    (=ucs		. #xF653)	; 
+  '((=ucs		. #xF653)	; 
+    (=big5-pua		. #x8DA1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA2)	; 
-    (=ucs		. #xF654)	; 
+  '((=ucs		. #xF654)	; 
+    (=big5-pua		. #x8DA2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA3)	; 
-    (=ucs		. #xF655)	; 
+  '((=ucs		. #xF655)	; 
+    (=big5-pua		. #x8DA3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA4)	; 
-    (=ucs		. #xF656)	; 
+  '((=ucs		. #xF656)	; 
+    (=big5-pua		. #x8DA4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA5)	; 
-    (=ucs		. #xF657)	; 
+  '((=ucs		. #xF657)	; 
+    (=big5-pua		. #x8DA5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA6)	; 
-    (=ucs		. #xF658)	; 
+  '((=ucs		. #xF658)	; 
+    (=big5-pua		. #x8DA6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA7)	; 
-    (=ucs		. #xF659)	; 
+  '((=ucs		. #xF659)	; 
+    (=big5-pua		. #x8DA7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA8)	; 
-    (=ucs		. #xF65A)	; 
+  '((=ucs		. #xF65A)	; 
+    (=big5-pua		. #x8DA8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DA9)	; 
-    (=ucs		. #xF65B)	; 
+  '((=ucs		. #xF65B)	; 
+    (=big5-pua		. #x8DA9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAA)	; 
-    (=ucs		. #xF65C)	; 
+  '((=ucs		. #xF65C)	; 
+    (=big5-pua		. #x8DAA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAB)	; 
-    (=ucs		. #xF65D)	; 
+  '((=ucs		. #xF65D)	; 
+    (=big5-pua		. #x8DAB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAC)	; 
-    (=ucs		. #xF65E)	; 
+  '((=ucs		. #xF65E)	; 
+    (=big5-pua		. #x8DAC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAD)	; 
-    (=ucs		. #xF65F)	; 
+  '((=ucs		. #xF65F)	; 
+    (=big5-pua		. #x8DAD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAE)	; 
-    (=ucs		. #xF660)	; 
+  '((=ucs		. #xF660)	; 
+    (=big5-pua		. #x8DAE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DAF)	; 
-    (=ucs		. #xF661)	; 
+  '((=ucs		. #xF661)	; 
+    (=big5-pua		. #x8DAF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB0)	; 
-    (=ucs		. #xF662)	; 
+  '((=ucs		. #xF662)	; 
+    (=big5-pua		. #x8DB0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB1)	; 
-    (=ucs		. #xF663)	; 
+  '((=ucs		. #xF663)	; 
+    (=big5-pua		. #x8DB1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB2)	; 
-    (=ucs		. #xF664)	; 
+  '((=ucs		. #xF664)	; 
+    (=big5-pua		. #x8DB2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB3)	; 
-    (=ucs		. #xF665)	; 
+  '((=ucs		. #xF665)	; 
+    (=big5-pua		. #x8DB3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB4)	; 
-    (=ucs		. #xF666)	; 
+  '((=ucs		. #xF666)	; 
+    (=big5-pua		. #x8DB4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB5)	; 
-    (=ucs		. #xF667)	; 
+  '((=ucs		. #xF667)	; 
+    (=big5-pua		. #x8DB5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB6)	; 
-    (=ucs		. #xF668)	; 
+  '((=ucs		. #xF668)	; 
+    (=big5-pua		. #x8DB6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB7)	; 
-    (=ucs		. #xF669)	; 
+  '((=ucs		. #xF669)	; 
+    (=big5-pua		. #x8DB7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB8)	; 
-    (=ucs		. #xF66A)	; 
+  '((=ucs		. #xF66A)	; 
+    (=big5-pua		. #x8DB8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DB9)	; 
-    (=ucs		. #xF66B)	; 
+  '((=ucs		. #xF66B)	; 
+    (=big5-pua		. #x8DB9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBA)	; 
-    (=ucs		. #xF66C)	; 
+  '((=ucs		. #xF66C)	; 
+    (=big5-pua		. #x8DBA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBB)	; 
-    (=ucs		. #xF66D)	; 
+  '((=ucs		. #xF66D)	; 
+    (=big5-pua		. #x8DBB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBC)	; 
-    (=ucs		. #xF66E)	; 
+  '((=ucs		. #xF66E)	; 
+    (=big5-pua		. #x8DBC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBD)	; 
-    (=ucs		. #xF66F)	; 
+  '((=ucs		. #xF66F)	; 
+    (=big5-pua		. #x8DBD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBE)	; 
-    (=ucs		. #xF670)	; 
+  '((=ucs		. #xF670)	; 
+    (=big5-pua		. #x8DBE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DBF)	; 
-    (=ucs		. #xF671)	; 
+  '((=ucs		. #xF671)	; 
+    (=big5-pua		. #x8DBF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC0)	; 
-    (=ucs		. #xF672)	; 
+  '((=ucs		. #xF672)	; 
+    (=big5-pua		. #x8DC0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC1)	; 
-    (=ucs		. #xF673)	; 
+  '((=ucs		. #xF673)	; 
+    (=big5-pua		. #x8DC1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC2)	; 
-    (=ucs		. #xF674)	; 
+  '((=ucs		. #xF674)	; 
+    (=big5-pua		. #x8DC2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC3)	; 
-    (=ucs		. #xF675)	; 
+  '((=ucs		. #xF675)	; 
+    (=big5-pua		. #x8DC3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC4)	; 
-    (=ucs		. #xF676)	; 
+  '((=ucs		. #xF676)	; 
+    (=big5-pua		. #x8DC4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC5)	; 
-    (=ucs		. #xF677)	; 
+  '((=ucs		. #xF677)	; 
+    (=big5-pua		. #x8DC5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC6)	; 
-    (=ucs		. #xF678)	; 
+  '((=ucs		. #xF678)	; 
+    (=big5-pua		. #x8DC6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC7)	; 
-    (=ucs		. #xF679)	; 
+  '((=ucs		. #xF679)	; 
+    (=big5-pua		. #x8DC7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC8)	; 
-    (=ucs		. #xF67A)	; 
+  '((=ucs		. #xF67A)	; 
+    (=big5-pua		. #x8DC8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DC9)	; 
-    (=ucs		. #xF67B)	; 
+  '((=ucs		. #xF67B)	; 
+    (=big5-pua		. #x8DC9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCA)	; 
-    (=ucs		. #xF67C)	; 
+  '((=ucs		. #xF67C)	; 
+    (=big5-pua		. #x8DCA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCB)	; 
-    (=ucs		. #xF67D)	; 
+  '((=ucs		. #xF67D)	; 
+    (=big5-pua		. #x8DCB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCC)	; 
-    (=ucs		. #xF67E)	; 
+  '((=ucs		. #xF67E)	; 
+    (=big5-pua		. #x8DCC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCD)	; 
-    (=ucs		. #xF67F)	; 
+  '((=ucs		. #xF67F)	; 
+    (=big5-pua		. #x8DCD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCE)	; 
-    (=ucs		. #xF680)	; 
+  '((=ucs		. #xF680)	; 
+    (=big5-pua		. #x8DCE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DCF)	; 
-    (=ucs		. #xF681)	; 
+  '((=ucs		. #xF681)	; 
+    (=big5-pua		. #x8DCF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD0)	; 
-    (=ucs		. #xF682)	; 
+  '((=ucs		. #xF682)	; 
+    (=big5-pua		. #x8DD0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD1)	; 
-    (=ucs		. #xF683)	; 
+  '((=ucs		. #xF683)	; 
+    (=big5-pua		. #x8DD1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD2)	; 
-    (=ucs		. #xF684)	; 
+  '((=ucs		. #xF684)	; 
+    (=big5-pua		. #x8DD2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD3)	; 
-    (=ucs		. #xF685)	; 
+  '((=ucs		. #xF685)	; 
+    (=big5-pua		. #x8DD3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD4)	; 
-    (=ucs		. #xF686)	; 
+  '((=ucs		. #xF686)	; 
+    (=big5-pua		. #x8DD4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD5)	; 
-    (=ucs		. #xF687)	; 
+  '((=ucs		. #xF687)	; 
+    (=big5-pua		. #x8DD5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD6)	; 
-    (=ucs		. #xF688)	; 
+  '((=ucs		. #xF688)	; 
+    (=big5-pua		. #x8DD6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD7)	; 
-    (=ucs		. #xF689)	; 
+  '((=ucs		. #xF689)	; 
+    (=big5-pua		. #x8DD7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD8)	; 
-    (=ucs		. #xF68A)	; 
+  '((=ucs		. #xF68A)	; 
+    (=big5-pua		. #x8DD8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DD9)	; 
-    (=ucs		. #xF68B)	; 
+  '((=ucs		. #xF68B)	; 
+    (=big5-pua		. #x8DD9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDA)	; 
-    (=ucs		. #xF68C)	; 
+  '((=ucs		. #xF68C)	; 
+    (=big5-pua		. #x8DDA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDB)	; 
-    (=ucs		. #xF68D)	; 
+  '((=ucs		. #xF68D)	; 
+    (=big5-pua		. #x8DDB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDC)	; 
-    (=ucs		. #xF68E)	; 
+  '((=ucs		. #xF68E)	; 
+    (=big5-pua		. #x8DDC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDD)	; 
-    (=ucs		. #xF68F)	; 
+  '((=ucs		. #xF68F)	; 
+    (=big5-pua		. #x8DDD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDE)	; 
-    (=ucs		. #xF690)	; 
+  '((=ucs		. #xF690)	; 
+    (=big5-pua		. #x8DDE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DDF)	; 
-    (=ucs		. #xF691)	; 
+  '((=ucs		. #xF691)	; 
+    (=big5-pua		. #x8DDF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE0)	; 
-    (=ucs		. #xF692)	; 
+  '((=ucs		. #xF692)	; 
+    (=big5-pua		. #x8DE0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE1)	; 
-    (=ucs		. #xF693)	; 
+  '((=ucs		. #xF693)	; 
+    (=big5-pua		. #x8DE1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE2)	; 
-    (=ucs		. #xF694)	; 
+  '((=ucs		. #xF694)	; 
+    (=big5-pua		. #x8DE2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE3)	; 
-    (=ucs		. #xF695)	; 
+  '((=ucs		. #xF695)	; 
+    (=big5-pua		. #x8DE3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE4)	; 
-    (=ucs		. #xF696)	; 
+  '((=ucs		. #xF696)	; 
+    (=big5-pua		. #x8DE4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE5)	; 
-    (=ucs		. #xF697)	; 
+  '((=ucs		. #xF697)	; 
+    (=big5-pua		. #x8DE5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE6)	; 
-    (=ucs		. #xF698)	; 
+  '((=ucs		. #xF698)	; 
+    (=big5-pua		. #x8DE6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE7)	; 
-    (=ucs		. #xF699)	; 
+  '((=ucs		. #xF699)	; 
+    (=big5-pua		. #x8DE7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE8)	; 
-    (=ucs		. #xF69A)	; 
+  '((=ucs		. #xF69A)	; 
+    (=big5-pua		. #x8DE8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DE9)	; 
-    (=ucs		. #xF69B)	; 
+  '((=ucs		. #xF69B)	; 
+    (=big5-pua		. #x8DE9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DEA)	; 
-    (=ucs		. #xF69C)	; 
+  '((=ucs		. #xF69C)	; 
+    (=big5-pua		. #x8DEA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DEB)	; 
-    (=ucs		. #xF69D)	; 
+  '((=ucs		. #xF69D)	; 
+    (=big5-pua		. #x8DEB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DEC)	; 
-    (=ucs		. #xF69E)	; 
+  '((=ucs		. #xF69E)	; 
+    (=big5-pua		. #x8DEC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DED)	; 
-    (=ucs		. #xF69F)	; 
+  '((=ucs		. #xF69F)	; 
+    (=big5-pua		. #x8DED)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DEE)	; 
-    (=ucs		. #xF6A0)	; 
+  '((=ucs		. #xF6A0)	; 
+    (=big5-pua		. #x8DEE)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DEF)	; 
-    (=ucs		. #xF6A1)	; 
+  '((=ucs		. #xF6A1)	; 
+    (=big5-pua		. #x8DEF)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF0)	; 
-    (=ucs		. #xF6A2)	; 
+  '((=ucs		. #xF6A2)	; 
+    (=big5-pua		. #x8DF0)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF1)	; 
-    (=ucs		. #xF6A3)	; 
+  '((=ucs		. #xF6A3)	; 
+    (=big5-pua		. #x8DF1)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF2)	; 
-    (=ucs		. #xF6A4)	; 
+  '((=ucs		. #xF6A4)	; 
+    (=big5-pua		. #x8DF2)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF3)	; 
-    (=ucs		. #xF6A5)	; 
+  '((=ucs		. #xF6A5)	; 
+    (=big5-pua		. #x8DF3)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF4)	; 
-    (=ucs		. #xF6A6)	; 
+  '((=ucs		. #xF6A6)	; 
+    (=big5-pua		. #x8DF4)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF5)	; 
-    (=ucs		. #xF6A7)	; 
+  '((=ucs		. #xF6A7)	; 
+    (=big5-pua		. #x8DF5)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF6)	; 
-    (=ucs		. #xF6A8)	; 
+  '((=ucs		. #xF6A8)	; 
+    (=big5-pua		. #x8DF6)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF7)	; 
-    (=ucs		. #xF6A9)	; 
+  '((=ucs		. #xF6A9)	; 
+    (=big5-pua		. #x8DF7)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF8)	; 
-    (=ucs		. #xF6AA)	; 
+  '((=ucs		. #xF6AA)	; 
+    (=big5-pua		. #x8DF8)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DF9)	; 
-    (=ucs		. #xF6AB)	; 
+  '((=ucs		. #xF6AB)	; 
+    (=big5-pua		. #x8DF9)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DFA)	; 
-    (=ucs		. #xF6AC)	; 
+  '((=ucs		. #xF6AC)	; 
+    (=big5-pua		. #x8DFA)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DFB)	; 
-    (=ucs		. #xF6AD)	; 
+  '((=ucs		. #xF6AD)	; 
+    (=big5-pua		. #x8DFB)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DFC)	; 
-    (=ucs		. #xF6AE)	; 
+  '((=ucs		. #xF6AE)	; 
+    (=big5-pua		. #x8DFC)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DFD)	; 
-    (=ucs		. #xF6AF)	; 
+  '((=ucs		. #xF6AF)	; 
+    (=big5-pua		. #x8DFD)	; 
     ))
 (define-char
-  '((=big5-pua		. #x8DFE)	; 
-    (=ucs		. #xF6B0)	; 
+  '((=ucs		. #xF6B0)	; 
+    (=big5-pua		. #x8DFE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC6DE)	; 
-    (=ucs		. #xF6EE)	; 
+  '((=ucs		. #xF6EE)	; 
+    (=big5-pua		. #xC6DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC6DF)	; 
-    (=ucs		. #xF6EF)	; 
+  '((=ucs		. #xF6EF)	; 
+    (=big5-pua		. #xC6DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC879)	; 
-    (=ucs		. #xF7E5)	; 
+  '((=ucs		. #xF7E5)	; 
+    (=big5-pua		. #xC879)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC87A)	; 
-    (=ucs		. #xF7E6)	; 
+  '((=ucs		. #xF7E6)	; 
+    (=big5-pua		. #xC87A)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC87C)	; 
-    (=ucs		. #xF7E8)	; 
+  '((=ucs		. #xF7E8)	; 
+    (=big5-pua		. #xC87C)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC87E)	; 
-    (=ucs		. #xF7EA)	; 
+  '((=ucs		. #xF7EA)	; 
+    (=big5-pua		. #xC87E)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A1)	; 
-    (=ucs		. #xF7EB)	; 
+  '((=ucs		. #xF7EB)	; 
+    (=big5-pua		. #xC8A1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A3)	; 
-    (=ucs		. #xF7ED)	; 
+  '((=ucs		. #xF7ED)	; 
+    (=big5-pua		. #xC8A3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A4)	; 
-    (=ucs		. #xF7EE)	; 
+  '((=ucs		. #xF7EE)	; 
+    (=big5-pua		. #xC8A4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A5)	; 
-    (=ucs		. #xF7EF)	; 
+  '((=ucs		. #xF7EF)	; 
+    (=big5-pua		. #xC8A5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A6)	; 
-    (=ucs		. #xF7F0)	; 
+  '((=ucs		. #xF7F0)	; 
+    (=big5-pua		. #xC8A6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A7)	; 
-    (=ucs		. #xF7F1)	; 
+  '((=ucs		. #xF7F1)	; 
+    (=big5-pua		. #xC8A7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A8)	; 
-    (=ucs		. #xF7F2)	; 
+  '((=ucs		. #xF7F2)	; 
+    (=big5-pua		. #xC8A8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8A9)	; 
-    (=ucs		. #xF7F3)	; 
+  '((=ucs		. #xF7F3)	; 
+    (=big5-pua		. #xC8A9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AA)	; 
-    (=ucs		. #xF7F4)	; 
+  '((=ucs		. #xF7F4)	; 
+    (=big5-pua		. #xC8AA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AB)	; 
-    (=ucs		. #xF7F5)	; 
+  '((=ucs		. #xF7F5)	; 
+    (=big5-pua		. #xC8AB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AC)	; 
-    (=ucs		. #xF7F6)	; 
+  '((=ucs		. #xF7F6)	; 
+    (=big5-pua		. #xC8AC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AD)	; 
-    (=ucs		. #xF7F7)	; 
+  '((=ucs		. #xF7F7)	; 
+    (=big5-pua		. #xC8AD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AE)	; 
-    (=ucs		. #xF7F8)	; 
+  '((=ucs		. #xF7F8)	; 
+    (=big5-pua		. #xC8AE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8AF)	; 
-    (=ucs		. #xF7F9)	; 
+  '((=ucs		. #xF7F9)	; 
+    (=big5-pua		. #xC8AF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B0)	; 
-    (=ucs		. #xF7FA)	; 
+  '((=ucs		. #xF7FA)	; 
+    (=big5-pua		. #xC8B0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B1)	; 
-    (=ucs		. #xF7FB)	; 
+  '((=ucs		. #xF7FB)	; 
+    (=big5-pua		. #xC8B1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B2)	; 
-    (=ucs		. #xF7FC)	; 
+  '((=ucs		. #xF7FC)	; 
+    (=big5-pua		. #xC8B2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B3)	; 
-    (=ucs		. #xF7FD)	; 
+  '((=ucs		. #xF7FD)	; 
+    (=big5-pua		. #xC8B3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B4)	; 
-    (=ucs		. #xF7FE)	; 
+  '((=ucs		. #xF7FE)	; 
+    (=big5-pua		. #xC8B4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B5)	; 
-    (=ucs		. #xF7FF)	; 
+  '((=ucs		. #xF7FF)	; 
+    (=big5-pua		. #xC8B5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B6)	; 
-    (=ucs		. #xF800)	; 
+  '((=ucs		. #xF800)	; 
+    (=big5-pua		. #xC8B6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B7)	; 
-    (=ucs		. #xF801)	; 
+  '((=ucs		. #xF801)	; 
+    (=big5-pua		. #xC8B7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B8)	; 
-    (=ucs		. #xF802)	; 
+  '((=ucs		. #xF802)	; 
+    (=big5-pua		. #xC8B8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8B9)	; 
-    (=ucs		. #xF803)	; 
+  '((=ucs		. #xF803)	; 
+    (=big5-pua		. #xC8B9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BA)	; 
-    (=ucs		. #xF804)	; 
+  '((=ucs		. #xF804)	; 
+    (=big5-pua		. #xC8BA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BB)	; 
-    (=ucs		. #xF805)	; 
+  '((=ucs		. #xF805)	; 
+    (=big5-pua		. #xC8BB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BC)	; 
-    (=ucs		. #xF806)	; 
+  '((=ucs		. #xF806)	; 
+    (=big5-pua		. #xC8BC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BD)	; 
-    (=ucs		. #xF807)	; 
+  '((=ucs		. #xF807)	; 
+    (=big5-pua		. #xC8BD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BE)	; 
-    (=ucs		. #xF808)	; 
+  '((=ucs		. #xF808)	; 
+    (=big5-pua		. #xC8BE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8BF)	; 
-    (=ucs		. #xF809)	; 
+  '((=ucs		. #xF809)	; 
+    (=big5-pua		. #xC8BF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C0)	; 
-    (=ucs		. #xF80A)	; 
+  '((=ucs		. #xF80A)	; 
+    (=big5-pua		. #xC8C0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C1)	; 
-    (=ucs		. #xF80B)	; 
+  '((=ucs		. #xF80B)	; 
+    (=big5-pua		. #xC8C1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C2)	; 
-    (=ucs		. #xF80C)	; 
+  '((=ucs		. #xF80C)	; 
+    (=big5-pua		. #xC8C2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C3)	; 
-    (=ucs		. #xF80D)	; 
+  '((=ucs		. #xF80D)	; 
+    (=big5-pua		. #xC8C3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C4)	; 
-    (=ucs		. #xF80E)	; 
+  '((=ucs		. #xF80E)	; 
+    (=big5-pua		. #xC8C4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C5)	; 
-    (=ucs		. #xF80F)	; 
+  '((=ucs		. #xF80F)	; 
+    (=big5-pua		. #xC8C5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C6)	; 
-    (=ucs		. #xF810)	; 
+  '((=ucs		. #xF810)	; 
+    (=big5-pua		. #xC8C6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C7)	; 
-    (=ucs		. #xF811)	; 
+  '((=ucs		. #xF811)	; 
+    (=big5-pua		. #xC8C7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C8)	; 
-    (=ucs		. #xF812)	; 
+  '((=ucs		. #xF812)	; 
+    (=big5-pua		. #xC8C8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8C9)	; 
-    (=ucs		. #xF813)	; 
+  '((=ucs		. #xF813)	; 
+    (=big5-pua		. #xC8C9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8CA)	; 
-    (=ucs		. #xF814)	; 
+  '((=ucs		. #xF814)	; 
+    (=big5-pua		. #xC8CA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8CB)	; 
-    (=ucs		. #xF815)	; 
+  '((=ucs		. #xF815)	; 
+    (=big5-pua		. #xC8CB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8CC)	; 
-    (=ucs		. #xF816)	; 
+  '((=ucs		. #xF816)	; 
+    (=big5-pua		. #xC8CC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D4)	; 
-    (=ucs		. #xF81E)	; 
+  '((=ucs		. #xF81E)	; 
+    (=big5-pua		. #xC8D4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D5)	; 
-    (=ucs		. #xF81F)	; 
+  '((=ucs		. #xF81F)	; 
+    (=big5-pua		. #xC8D5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D6)	; 
-    (=ucs		. #xF820)	; 
+  '((=ucs		. #xF820)	; 
+    (=big5-pua		. #xC8D6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D7)	; 
-    (=ucs		. #xF821)	; 
+  '((=ucs		. #xF821)	; 
+    (=big5-pua		. #xC8D7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D8)	; 
-    (=ucs		. #xF822)	; 
+  '((=ucs		. #xF822)	; 
+    (=big5-pua		. #xC8D8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8D9)	; 
-    (=ucs		. #xF823)	; 
+  '((=ucs		. #xF823)	; 
+    (=big5-pua		. #xC8D9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DA)	; 
-    (=ucs		. #xF824)	; 
+  '((=ucs		. #xF824)	; 
+    (=big5-pua		. #xC8DA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DB)	; 
-    (=ucs		. #xF825)	; 
+  '((=ucs		. #xF825)	; 
+    (=big5-pua		. #xC8DB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DC)	; 
-    (=ucs		. #xF826)	; 
+  '((=ucs		. #xF826)	; 
+    (=big5-pua		. #xC8DC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DD)	; 
-    (=ucs		. #xF827)	; 
+  '((=ucs		. #xF827)	; 
+    (=big5-pua		. #xC8DD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DE)	; 
-    (=ucs		. #xF828)	; 
+  '((=ucs		. #xF828)	; 
+    (=big5-pua		. #xC8DE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8DF)	; 
-    (=ucs		. #xF829)	; 
+  '((=ucs		. #xF829)	; 
+    (=big5-pua		. #xC8DF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E0)	; 
-    (=ucs		. #xF82A)	; 
+  '((=ucs		. #xF82A)	; 
+    (=big5-pua		. #xC8E0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E1)	; 
-    (=ucs		. #xF82B)	; 
+  '((=ucs		. #xF82B)	; 
+    (=big5-pua		. #xC8E1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E2)	; 
-    (=ucs		. #xF82C)	; 
+  '((=ucs		. #xF82C)	; 
+    (=big5-pua		. #xC8E2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E3)	; 
-    (=ucs		. #xF82D)	; 
+  '((=ucs		. #xF82D)	; 
+    (=big5-pua		. #xC8E3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E4)	; 
-    (=ucs		. #xF82E)	; 
+  '((=ucs		. #xF82E)	; 
+    (=big5-pua		. #xC8E4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E5)	; 
-    (=ucs		. #xF82F)	; 
+  '((=ucs		. #xF82F)	; 
+    (=big5-pua		. #xC8E5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E6)	; 
-    (=ucs		. #xF830)	; 
+  '((=ucs		. #xF830)	; 
+    (=big5-pua		. #xC8E6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E7)	; 
-    (=ucs		. #xF831)	; 
+  '((=ucs		. #xF831)	; 
+    (=big5-pua		. #xC8E7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E8)	; 
-    (=ucs		. #xF832)	; 
+  '((=ucs		. #xF832)	; 
+    (=big5-pua		. #xC8E8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8E9)	; 
-    (=ucs		. #xF833)	; 
+  '((=ucs		. #xF833)	; 
+    (=big5-pua		. #xC8E9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8EA)	; 
-    (=ucs		. #xF834)	; 
+  '((=ucs		. #xF834)	; 
+    (=big5-pua		. #xC8EA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8EB)	; 
-    (=ucs		. #xF835)	; 
+  '((=ucs		. #xF835)	; 
+    (=big5-pua		. #xC8EB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8EC)	; 
-    (=ucs		. #xF836)	; 
+  '((=ucs		. #xF836)	; 
+    (=big5-pua		. #xC8EC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8ED)	; 
-    (=ucs		. #xF837)	; 
+  '((=ucs		. #xF837)	; 
+    (=big5-pua		. #xC8ED)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8EE)	; 
-    (=ucs		. #xF838)	; 
+  '((=ucs		. #xF838)	; 
+    (=big5-pua		. #xC8EE)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8EF)	; 
-    (=ucs		. #xF839)	; 
+  '((=ucs		. #xF839)	; 
+    (=big5-pua		. #xC8EF)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F0)	; 
-    (=ucs		. #xF83A)	; 
+  '((=ucs		. #xF83A)	; 
+    (=big5-pua		. #xC8F0)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F1)	; 
-    (=ucs		. #xF83B)	; 
+  '((=ucs		. #xF83B)	; 
+    (=big5-pua		. #xC8F1)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F2)	; 
-    (=ucs		. #xF83C)	; 
+  '((=ucs		. #xF83C)	; 
+    (=big5-pua		. #xC8F2)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F3)	; 
-    (=ucs		. #xF83D)	; 
+  '((=ucs		. #xF83D)	; 
+    (=big5-pua		. #xC8F3)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F4)	; 
-    (=ucs		. #xF83E)	; 
+  '((=ucs		. #xF83E)	; 
+    (=big5-pua		. #xC8F4)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F5)	; 
-    (=ucs		. #xF83F)	; 
+  '((=ucs		. #xF83F)	; 
+    (=big5-pua		. #xC8F5)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F6)	; 
-    (=ucs		. #xF840)	; 
+  '((=ucs		. #xF840)	; 
+    (=big5-pua		. #xC8F6)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F7)	; 
-    (=ucs		. #xF841)	; 
+  '((=ucs		. #xF841)	; 
+    (=big5-pua		. #xC8F7)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F8)	; 
-    (=ucs		. #xF842)	; 
+  '((=ucs		. #xF842)	; 
+    (=big5-pua		. #xC8F8)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8F9)	; 
-    (=ucs		. #xF843)	; 
+  '((=ucs		. #xF843)	; 
+    (=big5-pua		. #xC8F9)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8FA)	; 
-    (=ucs		. #xF844)	; 
+  '((=ucs		. #xF844)	; 
+    (=big5-pua		. #xC8FA)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8FB)	; 
-    (=ucs		. #xF845)	; 
+  '((=ucs		. #xF845)	; 
+    (=big5-pua		. #xC8FB)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8FC)	; 
-    (=ucs		. #xF846)	; 
+  '((=ucs		. #xF846)	; 
+    (=big5-pua		. #xC8FC)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8FD)	; 
-    (=ucs		. #xF847)	; 
+  '((=ucs		. #xF847)	; 
+    (=big5-pua		. #xC8FD)	; 
     ))
 (define-char
-  '((=big5-pua		. #xC8FE)	; 
-    (=ucs		. #xF848)	; 
+  '((=ucs		. #xF848)	; 
+    (=big5-pua		. #xC8FE)	; 
     ))

@@ -105,28 +105,9 @@
       (cond
        ((= (charset-dimension ka)
 	   (charset-dimension kb))
-	(cond ((= (charset-chars ka)(charset-chars kb))
-	       (if (charset-iso-final-char ka)
-		   (cond
-		    ((>= (charset-iso-final-char ka) ?@)
-		     (if (and (charset-iso-final-char kb)
-			      (>= (charset-iso-final-char kb) ?@))
-			 (< (charset-iso-final-char ka)
-			    (charset-iso-final-char kb))
-		       t))
-		    (t
-		     (if (charset-iso-final-char kb)
-			 (if (>= (charset-iso-final-char kb) ?@)
-			     nil
-			   (< (charset-iso-final-char ka)
-			      (charset-iso-final-char kb)))
-		       t)))
-		 (if (charset-iso-final-char kb)
-		     nil
-		   (< (charset-id ka)(charset-id kb)))))
-	      ((<= (charset-chars ka)(charset-chars kb)))))
+	(< (charset-id ka)(charset-id kb)))
        (t
-	(< (charset-dimension ka)
+	(> (charset-dimension ka)
 	   (charset-dimension kb))
 	)))
      ((symbolp kb)

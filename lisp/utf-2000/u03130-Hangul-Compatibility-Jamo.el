@@ -5,8 +5,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1100)
-    (=ks-x1001		. #x2421)	; ø»ˆž¦
     (=ucs		. #x3131)	; ã„±
+    (=ks-x1001		. #x2421)	; ø»ˆž¦
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGKIYEOK")
@@ -14,8 +14,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1101)
-    (=ks-x1001		. #x2422)	; ø»ˆž§
     (=ucs		. #x3132)	; ã„²
+    (=ks-x1001		. #x2422)	; ø»ˆž§
     ))
 (define-char
   '((name		. "HANGUL LETTER KIYEOK-SIOS")
@@ -23,8 +23,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AA)
-    (=ks-x1001		. #x2423)	; ø»ˆž¨
     (=ucs		. #x3133)	; ã„³
+    (=ks-x1001		. #x2423)	; ø»ˆž¨
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN")
@@ -32,8 +32,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1102)
-    (=ks-x1001		. #x2424)	; ø»ˆž©
     (=ucs		. #x3134)	; ã„´
+    (=ks-x1001		. #x2424)	; ø»ˆž©
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-CIEUC")
@@ -41,8 +41,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AC)
-    (=ks-x1001		. #x2425)	; ø»ˆžª
     (=ucs		. #x3135)	; ã„µ
+    (=ks-x1001		. #x2425)	; ø»ˆžª
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-HIEUH")
@@ -50,8 +50,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AD)
-    (=ks-x1001		. #x2426)	; ø»ˆž«
     (=ucs		. #x3136)	; ã„¶
+    (=ks-x1001		. #x2426)	; ø»ˆž«
     ))
 (define-char
   '((name		. "HANGUL LETTER TIKEUT")
@@ -59,8 +59,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1103)
-    (=ks-x1001		. #x2427)	; ø»ˆž¬
     (=ucs		. #x3137)	; ã„·
+    (=ks-x1001		. #x2427)	; ø»ˆž¬
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGTIKEUT")
@@ -68,8 +68,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1104)
-    (=ks-x1001		. #x2428)	; ø»ˆž­
     (=ucs		. #x3138)	; ã„¸
+    (=ks-x1001		. #x2428)	; ø»ˆž­
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL")
@@ -77,8 +77,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1105)
-    (=ks-x1001		. #x2429)	; ø»ˆž®
     (=ucs		. #x3139)	; ã„¹
+    (=ks-x1001		. #x2429)	; ø»ˆž®
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK")
@@ -86,8 +86,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B0)
-    (=ks-x1001		. #x242A)	; ø»ˆž¯
     (=ucs		. #x313A)	; ã„º
+    (=ks-x1001		. #x242A)	; ø»ˆž¯
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-MIEUM")
@@ -95,8 +95,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B1)
-    (=ks-x1001		. #x242B)	; ø»ˆž°
     (=ucs		. #x313B)	; ã„»
+    (=ks-x1001		. #x242B)	; ø»ˆž°
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP")
@@ -104,8 +104,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B2)
-    (=ks-x1001		. #x242C)	; ø»ˆž±
     (=ucs		. #x313C)	; ã„¼
+    (=ks-x1001		. #x242C)	; ø»ˆž±
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-SIOS")
@@ -113,8 +113,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B3)
-    (=ks-x1001		. #x242D)	; ø»ˆž²
     (=ucs		. #x313D)	; ã„½
+    (=ks-x1001		. #x242D)	; ø»ˆž²
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-THIEUTH")
@@ -122,8 +122,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B4)
-    (=ks-x1001		. #x242E)	; ø»ˆž³
     (=ucs		. #x313E)	; ã„¾
+    (=ks-x1001		. #x242E)	; ø»ˆž³
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PHIEUPH")
@@ -131,8 +131,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B5)
-    (=ks-x1001		. #x242F)	; ø»ˆž´
     (=ucs		. #x313F)	; ã„¿
+    (=ks-x1001		. #x242F)	; ø»ˆž´
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-HIEUH")
@@ -140,8 +140,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111A)
-    (=ks-x1001		. #x2430)	; ø»ˆžµ
     (=ucs		. #x3140)	; ã…€
+    (=ks-x1001		. #x2430)	; ø»ˆžµ
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM")
@@ -149,8 +149,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1106)
-    (=ks-x1001		. #x2431)	; ø»ˆž¶
     (=ucs		. #x3141)	; ã…
+    (=ks-x1001		. #x2431)	; ø»ˆž¶
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP")
@@ -158,8 +158,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1107)
-    (=ks-x1001		. #x2432)	; ø»ˆž·
     (=ucs		. #x3142)	; ã…‚
+    (=ks-x1001		. #x2432)	; ø»ˆž·
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGPIEUP")
@@ -167,8 +167,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1108)
-    (=ks-x1001		. #x2433)	; ø»ˆž¸
     (=ucs		. #x3143)	; ã…ƒ
+    (=ks-x1001		. #x2433)	; ø»ˆž¸
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS")
@@ -176,8 +176,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1121)
-    (=ks-x1001		. #x2434)	; ø»ˆž¹
     (=ucs		. #x3144)	; ã…„
+    (=ks-x1001		. #x2434)	; ø»ˆž¹
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS")
@@ -185,8 +185,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1109)
-    (=ks-x1001		. #x2435)	; ø»ˆžº
     (=ucs		. #x3145)	; ã……
+    (=ks-x1001		. #x2435)	; ø»ˆžº
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGSIOS")
@@ -194,8 +194,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110A)
-    (=ks-x1001		. #x2436)	; ø»ˆž»
     (=ucs		. #x3146)	; ã…†
+    (=ks-x1001		. #x2436)	; ø»ˆž»
     ))
 (define-char
   '((name		. "HANGUL LETTER IEUNG")
@@ -203,8 +203,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110B)
-    (=ks-x1001		. #x2437)	; ø»ˆž¼
     (=ucs		. #x3147)	; ã…‡
+    (=ks-x1001		. #x2437)	; ø»ˆž¼
     ))
 (define-char
   '((name		. "HANGUL LETTER CIEUC")
@@ -212,8 +212,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110C)
-    (=ks-x1001		. #x2438)	; ø»ˆž½
     (=ucs		. #x3148)	; ã…ˆ
+    (=ks-x1001		. #x2438)	; ø»ˆž½
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGCIEUC")
@@ -221,8 +221,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110D)
-    (=ks-x1001		. #x2439)	; ø»ˆž¾
     (=ucs		. #x3149)	; ã…‰
+    (=ks-x1001		. #x2439)	; ø»ˆž¾
     ))
 (define-char
   '((name		. "HANGUL LETTER CHIEUCH")
@@ -230,8 +230,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110E)
-    (=ks-x1001		. #x243A)	; ø»ˆž¿
     (=ucs		. #x314A)	; ã…Š
+    (=ks-x1001		. #x243A)	; ø»ˆž¿
     ))
 (define-char
   '((name		. "HANGUL LETTER KHIEUKH")
@@ -239,8 +239,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110F)
-    (=ks-x1001		. #x243B)	; ø»ˆŸ€
     (=ucs		. #x314B)	; ã…‹
+    (=ks-x1001		. #x243B)	; ø»ˆŸ€
     ))
 (define-char
   '((name		. "HANGUL LETTER THIEUTH")
@@ -248,8 +248,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1110)
-    (=ks-x1001		. #x243C)	; ø»ˆŸ
     (=ucs		. #x314C)	; ã…Œ
+    (=ks-x1001		. #x243C)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER PHIEUPH")
@@ -257,8 +257,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1111)
-    (=ks-x1001		. #x243D)	; ø»ˆŸ‚
     (=ucs		. #x314D)	; ã…
+    (=ks-x1001		. #x243D)	; ø»ˆŸ‚
     ))
 (define-char
   '((name		. "HANGUL LETTER HIEUH")
@@ -266,8 +266,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1112)
-    (=ks-x1001		. #x243E)	; ø»ˆŸƒ
     (=ucs		. #x314E)	; ã…Ž
+    (=ks-x1001		. #x243E)	; ø»ˆŸƒ
     ))
 (define-char
   '((name		. "HANGUL LETTER A")
@@ -275,8 +275,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1161)
-    (=ks-x1001		. #x243F)	; ø»ˆŸ„
     (=ucs		. #x314F)	; ã…
+    (=ks-x1001		. #x243F)	; ø»ˆŸ„
     ))
 (define-char
   '((name		. "HANGUL LETTER AE")
@@ -284,8 +284,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1162)
-    (=ks-x1001		. #x2440)	; ø»ˆŸ…
     (=ucs		. #x3150)	; ã…
+    (=ks-x1001		. #x2440)	; ø»ˆŸ…
     ))
 (define-char
   '((name		. "HANGUL LETTER YA")
@@ -293,8 +293,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1163)
-    (=ks-x1001		. #x2441)	; ø»ˆŸ†
     (=ucs		. #x3151)	; ã…‘
+    (=ks-x1001		. #x2441)	; ø»ˆŸ†
     ))
 (define-char
   '((name		. "HANGUL LETTER YAE")
@@ -302,8 +302,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1164)
-    (=ks-x1001		. #x2442)	; ø»ˆŸ‡
     (=ucs		. #x3152)	; ã…’
+    (=ks-x1001		. #x2442)	; ø»ˆŸ‡
     ))
 (define-char
   '((name		. "HANGUL LETTER EO")
@@ -311,8 +311,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1165)
-    (=ks-x1001		. #x2443)	; ø»ˆŸˆ
     (=ucs		. #x3153)	; ã…“
+    (=ks-x1001		. #x2443)	; ø»ˆŸˆ
     ))
 (define-char
   '((name		. "HANGUL LETTER E")
@@ -320,8 +320,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1166)
-    (=ks-x1001		. #x2444)	; ø»ˆŸ‰
     (=ucs		. #x3154)	; ã…”
+    (=ks-x1001		. #x2444)	; ø»ˆŸ‰
     ))
 (define-char
   '((name		. "HANGUL LETTER YEO")
@@ -329,8 +329,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1167)
-    (=ks-x1001		. #x2445)	; ø»ˆŸŠ
     (=ucs		. #x3155)	; ã…•
+    (=ks-x1001		. #x2445)	; ø»ˆŸŠ
     ))
 (define-char
   '((name		. "HANGUL LETTER YE")
@@ -338,8 +338,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1168)
-    (=ks-x1001		. #x2446)	; ø»ˆŸ‹
     (=ucs		. #x3156)	; ã…–
+    (=ks-x1001		. #x2446)	; ø»ˆŸ‹
     ))
 (define-char
   '((name		. "HANGUL LETTER O")
@@ -347,8 +347,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1169)
-    (=ks-x1001		. #x2447)	; ø»ˆŸŒ
     (=ucs		. #x3157)	; ã…—
+    (=ks-x1001		. #x2447)	; ø»ˆŸŒ
     ))
 (define-char
   '((name		. "HANGUL LETTER WA")
@@ -356,8 +356,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116A)
-    (=ks-x1001		. #x2448)	; ø»ˆŸ
     (=ucs		. #x3158)	; ã…˜
+    (=ks-x1001		. #x2448)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER WAE")
@@ -365,8 +365,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116B)
-    (=ks-x1001		. #x2449)	; ø»ˆŸŽ
     (=ucs		. #x3159)	; ã…™
+    (=ks-x1001		. #x2449)	; ø»ˆŸŽ
     ))
 (define-char
   '((name		. "HANGUL LETTER OE")
@@ -374,8 +374,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116C)
-    (=ks-x1001		. #x244A)	; ø»ˆŸ
     (=ucs		. #x315A)	; ã…š
+    (=ks-x1001		. #x244A)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER YO")
@@ -383,8 +383,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116D)
-    (=ks-x1001		. #x244B)	; ø»ˆŸ
     (=ucs		. #x315B)	; ã…›
+    (=ks-x1001		. #x244B)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER U")
@@ -392,8 +392,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116E)
-    (=ks-x1001		. #x244C)	; ø»ˆŸ‘
     (=ucs		. #x315C)	; ã…œ
+    (=ks-x1001		. #x244C)	; ø»ˆŸ‘
     ))
 (define-char
   '((name		. "HANGUL LETTER WEO")
@@ -401,8 +401,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116F)
-    (=ks-x1001		. #x244D)	; ø»ˆŸ’
     (=ucs		. #x315D)	; ã…
+    (=ks-x1001		. #x244D)	; ø»ˆŸ’
     ))
 (define-char
   '((name		. "HANGUL LETTER WE")
@@ -410,8 +410,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1170)
-    (=ks-x1001		. #x244E)	; ø»ˆŸ“
     (=ucs		. #x315E)	; ã…ž
+    (=ks-x1001		. #x244E)	; ø»ˆŸ“
     ))
 (define-char
   '((name		. "HANGUL LETTER WI")
@@ -419,8 +419,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1171)
-    (=ks-x1001		. #x244F)	; ø»ˆŸ”
     (=ucs		. #x315F)	; ã…Ÿ
+    (=ks-x1001		. #x244F)	; ø»ˆŸ”
     ))
 (define-char
   '((name		. "HANGUL LETTER YU")
@@ -428,8 +428,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1172)
-    (=ks-x1001		. #x2450)	; ø»ˆŸ•
     (=ucs		. #x3160)	; ã… 
+    (=ks-x1001		. #x2450)	; ø»ˆŸ•
     ))
 (define-char
   '((name		. "HANGUL LETTER EU")
@@ -437,8 +437,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1173)
-    (=ks-x1001		. #x2451)	; ø»ˆŸ–
     (=ucs		. #x3161)	; ã…¡
+    (=ks-x1001		. #x2451)	; ø»ˆŸ–
     ))
 (define-char
   '((name		. "HANGUL LETTER YI")
@@ -446,8 +446,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1174)
-    (=ks-x1001		. #x2452)	; ø»ˆŸ—
     (=ucs		. #x3162)	; ã…¢
+    (=ks-x1001		. #x2452)	; ø»ˆŸ—
     ))
 (define-char
   '((name		. "HANGUL LETTER I")
@@ -455,8 +455,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1175)
-    (=ks-x1001		. #x2453)	; ø»ˆŸ˜
     (=ucs		. #x3163)	; ã…£
+    (=ks-x1001		. #x2453)	; ø»ˆŸ˜
     ))
 (define-char
   '((name		. "HANGUL FILLER")
@@ -464,8 +464,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1160)
-    (=ks-x1001		. #x2454)	; ø»ˆŸ™
     (=ucs		. #x3164)	; ã…¤
+    (=ks-x1001		. #x2454)	; ø»ˆŸ™
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGNIEUN")
@@ -473,8 +473,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1114)
-    (=ks-x1001		. #x2455)	; ø»ˆŸš
     (=ucs		. #x3165)	; ã…¥
+    (=ks-x1001		. #x2455)	; ø»ˆŸš
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-TIKEUT")
@@ -482,8 +482,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1115)
-    (=ks-x1001		. #x2456)	; ø»ˆŸ›
     (=ucs		. #x3166)	; ã…¦
+    (=ks-x1001		. #x2456)	; ø»ˆŸ›
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-SIOS")
@@ -491,8 +491,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C7)
-    (=ks-x1001		. #x2457)	; ø»ˆŸœ
     (=ucs		. #x3167)	; ã…§
+    (=ks-x1001		. #x2457)	; ø»ˆŸœ
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-PANSIOS")
@@ -500,8 +500,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C8)
-    (=ks-x1001		. #x2458)	; ø»ˆŸ
     (=ucs		. #x3168)	; ã…¨
+    (=ks-x1001		. #x2458)	; ø»ˆŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK-SIOS")
@@ -509,8 +509,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CC)
-    (=ks-x1001		. #x2459)	; ø»ˆŸž
     (=ucs		. #x3169)	; ã…©
+    (=ks-x1001		. #x2459)	; ø»ˆŸž
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-TIKEUT")
@@ -518,8 +518,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CE)
-    (=ks-x1001		. #x245A)	; ø»ˆŸŸ
     (=ucs		. #x316A)	; ã…ª
+    (=ks-x1001		. #x245A)	; ø»ˆŸŸ
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP-SIOS")
@@ -527,8 +527,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D3)
-    (=ks-x1001		. #x245B)	; ø»ˆŸ 
     (=ucs		. #x316B)	; ã…«
+    (=ks-x1001		. #x245B)	; ø»ˆŸ 
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PANSIOS")
@@ -536,8 +536,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D7)
-    (=ks-x1001		. #x245C)	; ø»ˆŸ¡
     (=ucs		. #x316C)	; ã…¬
+    (=ks-x1001		. #x245C)	; ø»ˆŸ¡
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-YEORINHIEUH")
@@ -545,8 +545,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D9)
-    (=ks-x1001		. #x245D)	; ø»ˆŸ¢
     (=ucs		. #x316D)	; ã…­
+    (=ks-x1001		. #x245D)	; ø»ˆŸ¢
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PIEUP")
@@ -554,8 +554,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111C)
-    (=ks-x1001		. #x245E)	; ø»ˆŸ£
     (=ucs		. #x316E)	; ã…®
+    (=ks-x1001		. #x245E)	; ø»ˆŸ£
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-SIOS")
@@ -563,8 +563,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DD)
-    (=ks-x1001		. #x245F)	; ø»ˆŸ¤
     (=ucs		. #x316F)	; ã…¯
+    (=ks-x1001		. #x245F)	; ø»ˆŸ¤
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PANSIOS")
@@ -572,8 +572,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DF)
-    (=ks-x1001		. #x2460)	; ø»ˆŸ¥
     (=ucs		. #x3170)	; ã…°
+    (=ks-x1001		. #x2460)	; ø»ˆŸ¥
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNMIEUM")
@@ -581,8 +581,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111D)
-    (=ks-x1001		. #x2461)	; ø»ˆŸ¦
     (=ucs		. #x3171)	; ã…±
+    (=ks-x1001		. #x2461)	; ø»ˆŸ¦
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-KIYEOK")
@@ -590,8 +590,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111E)
-    (=ks-x1001		. #x2462)	; ø»ˆŸ§
     (=ucs		. #x3172)	; ã…²
+    (=ks-x1001		. #x2462)	; ø»ˆŸ§
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-TIKEUT")
@@ -599,8 +599,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1120)
-    (=ks-x1001		. #x2463)	; ø»ˆŸ¨
     (=ucs		. #x3173)	; ã…³
+    (=ks-x1001		. #x2463)	; ø»ˆŸ¨
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-KIYEOK")
@@ -608,8 +608,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1122)
-    (=ks-x1001		. #x2464)	; ø»ˆŸ©
     (=ucs		. #x3174)	; ã…´
+    (=ks-x1001		. #x2464)	; ø»ˆŸ©
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-TIKEUT")
@@ -617,8 +617,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1123)
-    (=ks-x1001		. #x2465)	; ø»ˆŸª
     (=ucs		. #x3175)	; ã…µ
+    (=ks-x1001		. #x2465)	; ø»ˆŸª
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-CIEUC")
@@ -626,8 +626,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1127)
-    (=ks-x1001		. #x2466)	; ø»ˆŸ«
     (=ucs		. #x3176)	; ã…¶
+    (=ks-x1001		. #x2466)	; ø»ˆŸ«
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-THIEUTH")
@@ -635,8 +635,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1129)
-    (=ks-x1001		. #x2467)	; ø»ˆŸ¬
     (=ucs		. #x3177)	; ã…·
+    (=ks-x1001		. #x2467)	; ø»ˆŸ¬
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPIEUP")
@@ -644,8 +644,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112B)
-    (=ks-x1001		. #x2468)	; ø»ˆŸ­
     (=ucs		. #x3178)	; ã…¸
+    (=ks-x1001		. #x2468)	; ø»ˆŸ­
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNSSANGPIEUP")
@@ -653,8 +653,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112C)
-    (=ks-x1001		. #x2469)	; ø»ˆŸ®
     (=ucs		. #x3179)	; ã…¹
+    (=ks-x1001		. #x2469)	; ø»ˆŸ®
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-KIYEOK")
@@ -662,8 +662,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112D)
-    (=ks-x1001		. #x246A)	; ø»ˆŸ¯
     (=ucs		. #x317A)	; ã…º
+    (=ks-x1001		. #x246A)	; ø»ˆŸ¯
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-NIEUN")
@@ -671,8 +671,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112E)
-    (=ks-x1001		. #x246B)	; ø»ˆŸ°
     (=ucs		. #x317B)	; ã…»
+    (=ks-x1001		. #x246B)	; ø»ˆŸ°
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-TIKEUT")
@@ -680,8 +680,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112F)
-    (=ks-x1001		. #x246C)	; ø»ˆŸ±
     (=ucs		. #x317C)	; ã…¼
+    (=ks-x1001		. #x246C)	; ø»ˆŸ±
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-PIEUP")
@@ -689,8 +689,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1132)
-    (=ks-x1001		. #x246D)	; ø»ˆŸ²
     (=ucs		. #x317D)	; ã…½
+    (=ks-x1001		. #x246D)	; ø»ˆŸ²
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-CIEUC")
@@ -698,8 +698,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1136)
-    (=ks-x1001		. #x246E)	; ø»ˆŸ³
     (=ucs		. #x317E)	; ã…¾
+    (=ks-x1001		. #x246E)	; ø»ˆŸ³
     ))
 (define-char
   '((name		. "HANGUL LETTER PANSIOS")
@@ -707,8 +707,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1140)
-    (=ks-x1001		. #x246F)	; ø»ˆŸ´
     (=ucs		. #x317F)	; ã…¿
+    (=ks-x1001		. #x246F)	; ø»ˆŸ´
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGIEUNG")
@@ -716,8 +716,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1147)
-    (=ks-x1001		. #x2470)	; ø»ˆŸµ
     (=ucs		. #x3180)	; ã†€
+    (=ks-x1001		. #x2470)	; ø»ˆŸµ
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG")
@@ -725,8 +725,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x114C)
-    (=ks-x1001		. #x2471)	; ø»ˆŸ¶
     (=ucs		. #x3181)	; ã†
+    (=ks-x1001		. #x2471)	; ø»ˆŸ¶
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-SIOS")
@@ -734,8 +734,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F1)
-    (=ks-x1001		. #x2472)	; ø»ˆŸ·
     (=ucs		. #x3182)	; ã†‚
+    (=ks-x1001		. #x2472)	; ø»ˆŸ·
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-PANSIOS")
@@ -743,8 +743,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F2)
-    (=ks-x1001		. #x2473)	; ø»ˆŸ¸
     (=ucs		. #x3183)	; ã†ƒ
+    (=ks-x1001		. #x2473)	; ø»ˆŸ¸
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPHIEUPH")
@@ -752,8 +752,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1157)
-    (=ks-x1001		. #x2474)	; ø»ˆŸ¹
     (=ucs		. #x3184)	; ã†„
+    (=ks-x1001		. #x2474)	; ø»ˆŸ¹
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGHIEUH")
@@ -761,8 +761,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1158)
-    (=ks-x1001		. #x2475)	; ø»ˆŸº
     (=ucs		. #x3185)	; ã†…
+    (=ks-x1001		. #x2475)	; ø»ˆŸº
     ))
 (define-char
   '((name		. "HANGUL LETTER YEORINHIEUH")
@@ -770,8 +770,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1159)
-    (=ks-x1001		. #x2476)	; ø»ˆŸ»
     (=ucs		. #x3186)	; ã††
+    (=ks-x1001		. #x2476)	; ø»ˆŸ»
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YA")
@@ -779,8 +779,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1184)
-    (=ks-x1001		. #x2477)	; ø»ˆŸ¼
     (=ucs		. #x3187)	; ã†‡
+    (=ks-x1001		. #x2477)	; ø»ˆŸ¼
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YAE")
@@ -788,8 +788,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1185)
-    (=ks-x1001		. #x2478)	; ø»ˆŸ½
     (=ucs		. #x3188)	; ã†ˆ
+    (=ks-x1001		. #x2478)	; ø»ˆŸ½
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-I")
@@ -797,8 +797,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1188)
-    (=ks-x1001		. #x2479)	; ø»ˆŸ¾
     (=ucs		. #x3189)	; ã†‰
+    (=ks-x1001		. #x2479)	; ø»ˆŸ¾
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YEO")
@@ -806,8 +806,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1191)
-    (=ks-x1001		. #x247A)	; ø»ˆŸ¿
     (=ucs		. #x318A)	; ã†Š
+    (=ks-x1001		. #x247A)	; ø»ˆŸ¿
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YE")
@@ -815,8 +815,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1192)
-    (=ks-x1001		. #x247B)	; ø»ˆ €
     (=ucs		. #x318B)	; ã†‹
+    (=ks-x1001		. #x247B)	; ø»ˆ €
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-I")
@@ -824,8 +824,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1194)
-    (=ks-x1001		. #x247C)	; ø»ˆ 
     (=ucs		. #x318C)	; ã†Œ
+    (=ks-x1001		. #x247C)	; ø»ˆ 
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEA")
@@ -833,8 +833,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x119E)
-    (=ks-x1001		. #x247D)	; ø»ˆ ‚
     (=ucs		. #x318D)	; ã†
+    (=ks-x1001		. #x247D)	; ø»ˆ ‚
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEAE")
@@ -842,6 +842,6 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11A1)
-    (=ks-x1001		. #x247E)	; ø»ˆ ƒ
     (=ucs		. #x318E)	; ã†Ž
+    (=ks-x1001		. #x247E)	; ø»ˆ ƒ
     ))
