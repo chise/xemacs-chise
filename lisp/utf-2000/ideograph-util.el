@@ -1,6 +1,6 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -190,7 +190,7 @@
 	(b-m-m (get-char-attribute b 'ideograph-daikanwa))
 	a-m-r b-m-r
 	a-s b-s
-	a-u b-u m)
+	a-u b-u m ret)
     (if a-m-m
 	(setq a-s (char-ideographic-strokes a))
       (setq a-m-r (get-char-attribute a 'morohashi-daikanwa))
@@ -199,8 +199,12 @@
 	    (setq a-m-m (car a-m-r)
 		  a-m-r (cdr a-m-r))
 	    (if (= (car a-m-r) 0)
-		(setq a-s (char-ideographic-strokes
-			   (decode-char 'ideograph-daikanwa a-m-m)))
+		(progn
+		  (setq ret (decode-char 'ideograph-daikanwa a-m-m))
+		  (if (= (get-char-attribute ret 'ideographic-radical)
+			 (get-char-attribute a 'ideographic-radical))
+		      (setq a-s (char-ideographic-strokes ret))
+		    (setq a-s (char-ideographic-strokes a))))
 	      (if (setq m (get-char-attribute a '->mojikyo))
 		  (setq a-s (char-ideographic-strokes
 			     (decode-char 'mojikyo m)))
@@ -214,8 +218,12 @@
 	    (setq b-m-m (car b-m-r)
 		  b-m-r (cdr b-m-r))
 	    (if (= (car b-m-r) 0)
-		(setq b-s (char-ideographic-strokes
-			   (decode-char 'ideograph-daikanwa b-m-m)))
+		(progn
+		  (setq ret (decode-char 'ideograph-daikanwa b-m-m))
+		  (if (= (get-char-attribute ret 'ideographic-radical)
+			 (get-char-attribute b 'ideographic-radical))
+		      (setq b-s (char-ideographic-strokes ret))
+		    (setq b-s (char-ideographic-strokes b))))
 	      (if (setq m (get-char-attribute b '->mojikyo))
 		  (setq b-s (char-ideographic-strokes
 			     (decode-char 'mojikyo m)))
