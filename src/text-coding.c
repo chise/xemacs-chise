@@ -2980,16 +2980,16 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      Lisp_Object charset, value;
+      Lisp_Object charset;
       unsigned int c1, c2, s1, s2;
-      
 #ifdef UTF2000
-      if (INTP (value =
-		get_char_code_table
-		(ch, XCHARSET_ENCODING_TABLE (Vcharset_latin_jisx0201))))
+      Lisp_Object value = charset_code_point (Vcharset_latin_jisx0201, ch);
+      Lisp_Object ret = Fcar (value);
+
+      if (INTP (ret))
 	{
 	  charset = Vcharset_latin_jisx0201;
-	  c1 = XINT (value);
+	  c1 = XINT (ret);
 	  c2 = 0;
 	}
       else
