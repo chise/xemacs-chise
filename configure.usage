@@ -2,21 +2,49 @@ Usage: configure [--OPTION[=VALUE] ...] [CONFIGURATION]
 
 Set compilation and installation parameters for XEmacs, and report.
 
-Note that for most of the following options, you can explicitly enable
-them using `--OPTION=yes' and explicitly disable them using `--OPTION=no'.
-This is especially useful for auto-detected options.
-The option `--without-FEATURE' is a synonym for `--with-FEATURE=no'.
+CONFIGURATION is an optional architecture-vendor-os triple, such as
+`sparc-sun-solaris2.7'.  When possible, omit it; configure will detect it.
 
-Options marked with a (*) are auto-detected.
+Conventions for options:
+- Boolean options may be explicitly enabled by using `--OPTION=yes' and
+  explicitly disabled by using `--OPTION=no'.  `--OPTION' (with no argument)
+  is equivalent to `--OPTION=yes'.  `--without-FEATURE' is a synonym for
+  `--with-FEATURE=no'.  Denoted `(Bool)' below.
+- Enumerated options accept one type from a specified list.  These usually
+  accept `--OPTION=no' to disable it entirely, and `--OPTION=yes' often has a
+  useful default.  Denoted `(Enum)'.
+- Set options accept one or more types from a list of implementations of the
+  feature.  All specified implementations will be included.  Prefix a type
+  with `no' to disable only that implementation (e.g., `--with-sound=noesd'
+  to disable ESD).  The special values `none' and `all' must be first in the
+  list if used.  They change the defaults for all types individually from
+  autodetect to `no' or `yes' respectively.  `--with-sound=none,native' and
+  `--with-sound=noesd,nonas,native' have the same effect.  Denoted `(Set)'.
+- Other options have special, option-specific formats.
 
-Many features require external packages to be installed first.
-Get them from ftp://ftp.xemacs.org/pub/xemacs/aux.
+Options marked with a (*) are auto-detected.  If auto-detected and not
+explicitly specified, normally
+- Boolean options default to `yes'.
+- Enumerated options default to the first detected type in an option-specific
+  priority.  Possible defaults are marked with (*) and listed in order.
+- Set options default to all detected types.
+
+Some options are provided mainly to disable features which are on by default.
+These are indicated by specifying `--OPTION=no'.  Explicitly specifying an
+autodetected option which defaults to `yes' makes a failure to detect signal
+a fatal configure error.
 
 Use colons (or quoted spaces) to separate directory names in option
 values which are PATHs (i.e. lists of directories).
 
+Many features require external packages to be installed.  configure will fail
+if an explicitly requested feature depends on an uninstalled package.  On many
+Linux systems, you must install -devel versions of the package.
+
 The results of configure tests are saved in config.log, which is useful
-for diagnosing problems.
+for diagnosing problems.  Caching of configure results is disabled.
+If successful, configure leaves its status in config.status.  If
+unsuccessful after disturbing the status quo, it removes config.status.
 
 
 General options:
@@ -29,115 +57,121 @@ General options:
 Compilation options:
 
 --compiler=PROG         C compiler to use
---with-gcc (*)          Use GCC to compile XEmacs.
---cflags=FLAGS          Compiler flags (such as -O)
---cpp=PROG              C preprocessor to use (e.g. /usr/ccs/lib/cpp or cc -E)
---cppflags=FLAGS        C preprocessor flags (e.g. -I/foo or -Dfoo=bar)
---libs=LIBS             Additional libraries (e.g. -lfoo)
---ldflags=FLAGS         Additional linker flags (e.g. -L/foo)
+--with-gcc (*)          (Bool) Use GCC to compile XEmacs.
+--cflags=FLAGS          Compiler flags (such as `-O')
+--cpp=PROG              Set C preprocessor (e.g. `/usr/ccs/lib/cpp', `cc -E')
+--cppflags=FLAGS        C preprocessor flags (e.g. `-I/foo' or `-Dfoo=bar')
+--libs=LIBS             Additional libraries (e.g. `-lfoo')
+--ldflags=FLAGS         Additional linker flags (e.g. `-L/foo')
 --site-includes=PATH    List of directories to search first for header files
 --site-libraries=PATH   List of directories to search first for libraries
 --site-prefixes=PATH    List of directories to search for include/ and lib/
                         subdirectories, just after 'site-includes' and
                         'site-libraries'
---site-runtime-libraries=PATH
-                        List of ALL directories to search for dynamically
-                        linked libraries at run time
---dynamic=yes           Link dynamically if supported by system.
---dynamic=no            Force static linking on systems where dynamic
-                        linking is the default.
---srcdir=DIR            Look for the XEmacs source files in DIR.
-                        Works best when using GNU Make.
+--site-runtime-libraries=PATH  List of ALL directories to search for
+                        dynamically linked libraries at run time
+--dynamic (*)           (Bool) Link dynamically if supported by system.
+                        The default is system-dependent.
+--srcdir=DIR            Use the XEmacs source files in DIR.  Requires a Make
+                        with VPATH; GNU Make is recommended.
 
 
 Installation options:
 
 --prefix=DIR            Install files below DIR.  Defaults to `/usr/local'.
---with-prefix=no        Don't compile the value of --prefix into the
-                        executable.
+--with-prefix=no        (Bool) Compile the value of `--prefix' into XEmacs.
+--infodir=DIR           Install XEmacs Info manuals and dir in DIR.
+--moduledir=DIR         Install dynamic modules in DIR.
+
+You may also specify any of the `path' variables found in Makefile.in.in,
+including `--bindir', `--libdir', `--docdir', `--lispdir', `--sitelispdir',
+`--datadir', `--mandir' and so on.  These options are DEPRECATED; see INSTALL.
+
+
+Runtime search path options:
+
+--with-site-modules=no  (Bool) Search directories in the XEmacs hierarchy named
+                        `site-modules' before the installed module directories.
+--with-site-lisp        (Bool) Search a site-lisp directory in the XEmacs
+                        hierarchy before the packaged Lisp.  DEPRECATED.
+--package-path=PATH     Directories to search for packages to dump with xemacs.
+                        PATH splits into three parts separated by double
+                        colons (::), an `early', a `late', and a `last' part,
+                        corresponding to their position in the various
+                        system paths:  The `early' part is always first,
+                        the `late' part somewhere in the middle, and the
+                        `last' part at the very back.
+                        Only the `late' part gets seen at dump time.
+                        If PATH has only one component, it is `late'.  With two
+                        components, the first is `early', the second is `late'.
+--infopath=PATH         Directories to search for Info documents, info dir
+                        and localdir files if run-time searching fails.
 
 
 Window-system options:
 
---with-gtk              Support GTK on the X Window System. (EXPERIMENTAL)
---with-gnome            Support GNOME on the X Window System. (EXPERIMENTAL)
---with-x11 (*)          Support the X Window System.
+--with-gtk              (Bool) Use GTK on the X Window System. (EXPERIMENTAL)
+--with-gnome            (Bool) Use GNOME on the X Window System. (EXPERIMENTAL)
+--with-x11 (*)          (Bool) Support the X Window System.
 --x-includes=DIR        Search for X header files in DIR.
 --x-libraries=DIR       Search for X libraries in DIR.
---with-msw (*)          Support MS Windows as a window system (only under
-                        Cygwin and MinGW).  `--with-msw=no' may be needed on
-                        *nix systems with Wine installed.
---with-toolbars=no      Don't compile with any toolbar support.
---with-wmcommand=no     Compile without realized leader window which will
-                        keep the WM_COMMAND property.
---with-athena=TYPE      Use TYPE Athena widgets
-                        (xaw, 3d, next, 95, or xpm)
---with-menubars=TYPE    Use TYPE menubars (lucid, motif, or no).  The Lucid
-                        widgets emulate Motif (mostly) but are faster.
+--with-msw (*)          (Bool) Support MS Windows as a window system (only
+                        under Cygwin and MinGW).  `--with-msw=no' may be needed
+                        on *nix systems with Wine installed.
+--with-wmcommand=no     (Bool) Compile without realized leader window which
+                        will keep the WM_COMMAND property.
+--with-xmu=no (*)       (Bool) For systems whose vendors don't ship Xmu.
+
+
+GUI component options:
+
+Select the widget set used to implement components, Lucid, Motif, or Athena.
+If `--with-gtk', `--with-gnome', or `--with-msw' are used or implied, treat
+component options as Bool.  The `lucid' widgets are a homebrew set, emulating
+Motif but faster.  Lucid toolbars, menubars, and scrollbars are implemented
+in Xt.  Lucid dialogs and misc widgets wrap and enhance Athena (maybe Motif;
+platform-dependent).  Several enhanced (eg, 3d) Athena libraries may be used,
+but the default is the X11R6 `libXaw' (flat) widgets.  Use `--with-athena' to
+explicitly specify which library to link against.
+
+--with-toolbars=no      (Bool) Don't compile with any toolbar support.
+--with-menubars=TYPE    (Enum) Types: `lucid'(*), `motif', or `no'.
                         *WARNING*  The Motif menubar is currently broken.
---with-scrollbars=TYPE  Use TYPE scrollbars
-                        (lucid, motif, athena, or no).
---with-dialogs=TYPE     Use TYPE dialog boxes (lucid, motif, athena, or no).
-                        Lucid menubars and scrollbars are the default.
-                        Motif dialog boxes will be used if Motif can be found.
---with-widgets=TYPE     Use TYPE widgets (lucid, motif, athena, or no).
-                        Motif widgets will be used if Motif can be found.
-                        Other widget types are currently unsupported.
---with-dragndrop        Compile in the generic drag and drop API. This is
-                        automatically added if one of the drag and drop
-                        protocols is found (currently CDE, OffiX, MSWindows,
-                        and GTK).
-                        *WARNING*  The Drag'n'drop support is under development
-                                   and is considered experimental.
---with-cde              Compile in support for CDE drag and drop.
---with-offix            Compile in support for OffiX drag and drop.
-                        *WARNING*  If you compile in OffiX, you may not be
-                                   able to use multiple X displays success-
-                                   fully.  If the two servers are from
-                                   different vendors, the results may be
-                                   unpredictable.
---with-xmu=no (*)       For those unfortunates whose vendors don't ship Xmu.
---external-widget       Compile with external widget support.
+--with-scrollbars=TYPE  (Enum) Types: `lucid'(*), `motif', `athena', or `no'.
+--with-dialogs=TYPE     (Enum) Types: `motif'(*), `lucid'(*), `athena', or `no'.
+--with-widgets=TYPE     (Enum) Types: `motif'(*), `lucid', `athena', or `no'.
+--with-athena=TYPE      (Enum) Link with the TYPE Athena library.  Types:
+                        `xaw' [flat], `3d', `next', `95', or `xpm'.
+--with-dragndrop (*)    Support generic drag and drop API. (EXPERIMENTAL)
+--with-cde              Support CDE drag and drop API (requires dragndrop).
+--with-offix            Support OffiX drag and drop API (requires dragndrop).
+                        *WARNING*  OffiX support may interfere with use of
+                        multiple X displays.  If the two servers are from
+                        different vendors, the results may be unpredictable.
 
 
 TTY (character terminal) options:
 
 --with-tty=no           Don't support ttys.
 --with-ncurses (*)      Use the ncurses library for tty support.
---with-gpm (*)          Compile in GPM mouse support for ttys.
+--with-gpm (*)          Support the GPM mouse library for ttys.
 
 
 Image options:
 
---with-xpm (*)          Compile with support for XPM images.  PRACTICALLY
-                        REQUIRED.  Although this library is nonstandard and
-                        a real hassle to build, many basic things (e.g.
-                        toolbars) depend on it, and you will run into
-                        many problems without it.
---with-png (*)          Compile with support for PNG images.  Recommended
-                        because the images on the About page are not viewable
-                        without it.
---with-jpeg (*)         Compile with support for JPEG images.  Useful if
-                        you are using a mail, news reader, or web browser
-                        in XEmacs, so that JPEG images can be displayed.
---with-tiff (*)         Compile with support for TIFF images.  Possibly
-                        useful, for the same reason as JPEG images.
---with-xface (*)        Compile with support for X-Face mail headers.
-                        Requires the compface package.  Of doubtful
-                        usefulness.
---with-gif=no           Compile without the (builtin) support for GIF images.
+--with-xpm (*)          Support XPM images.  Toolbars depend on it.
+--with-png (*)          Support PNG images.  Strongly recommended.
+--with-jpeg (*)         Support JPEG images.
+--with-tiff (*)         Support TIFF images.
+--with-xface (*)        Support X-Face mail headers.  Requires libcompface.
+--with-gif=no           Omit the (builtin) support for GIF images.
 
 
 Sound options:
 
---with-sound=TYPE[,TYPE[,...]] (*) Compile with sound support.
-                        Valid types are `native', `nas' and `esd'.
-                        Prefix a type with 'no' to disable.
-                        The first type can be `none' or `all'.  `none' means
-                        `nonative,nonas,noesd'.  `all' means `native,nas,esd'.
-                        Later options override earlier ones for the same TYPE.
-                        Autodetect native and NAS sound unless specified.
-                        ESD must be explicitly requested.
+--with-sound=TYPES (*)  (Set) Compile with sound support.
+                        Types: `native', `nas' and `esd'.
+                        Defaults to `noesd', the others are autodetected.
 --native-sound-lib=LIB  Native sound support library.  Needed on Suns
                         with `--with-sound=native,nas' because both sound
                         libraries are called libaudio.
@@ -145,138 +179,86 @@ Sound options:
 
 Database options:
 
---with-database=TYPE (*) Compile with database support.  Valid types are
-                        `no' or a comma-separated list of one or more
-                        of `berkdb' and either `dbm' or `gnudbm'.
---with-ldap (*)         Compile with support for the LDAP protocol.
---with-postgresql (*)   Compile with support for the PostgreSQL RDBMS.
+--with-database=TYPES (*)  (Set) Support key:value databases.
+                        Types: `berkdb', `dbm', or `gnudbm'.  `dbm' and
+                        `gnudbm' are incompatible with each other.
+--with-ldap (*)         (Bool) Support the LDAP protocol.
+--with-postgresql (*)   (Bool) Support the PostgreSQL RDBMS.
 
 
 Mail options:
 
---mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
-                        concurrent updates of mail spool files. Valid types
-                        are `lockf', `flock', `dot', `locking' or `mmdf'.
---with-pop              Support POP for mail retrieval.
---with-kerberos         Support Kerberos-authenticated POP.
---with-hesiod           Support Hesiod to get the POP server host.
-
-
-Additional features:
-
---with-tooltalk (*)     Support the ToolTalk IPC protocol.
---with-workshop         Support the Sun WorkShop (formerly Sparcworks)
-                        development environment.
---with-socks            Compile with support for SOCKS (an Internet proxy).
---with-dnet (*)         Compile with support for DECnet.
---with-modules (*)      Compile in experimental support for dynamically
-                        loaded libraries (Dynamic Shared Objects).
---with-netinstall       Compile in support for installation over the internet.
-                        Only functional on the MS Windows platforms.
---with-ipv6-cname=yes   Try IPv6 information first when canonicalizing host
-                        names.  This option has no effect unless system
-                        supports getaddrinfo(3) and getnameinfo(3).
---with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy
-                        searched before the installation packages.
---with-site-modules=no  Disable site-modules directory in the XEmacs hierarchy,
-                        which is searched before the installation modules.
---package-path=PATH     Directories to search for packages to dump with xemacs.
-                        PATH splits into three parts separated by double
-                        colons (::), an early, a late, and a last part,
-                        corresponding to their position in the various
-                        system paths:  The early part is always first,
-                        the late part somewhere in the middle, and the
-                        last part at the very back.
-                        Only the late part gets seen at dump time.
-                        If PATH has only one component, that component
-                        is late.
-                        If PATH has two components, the first is
-                        early, the second is late.
---infodir=DIR           Directory to install XEmacs Info manuals and dir in.
---infopath=PATH         Directories to search for Info documents, info dir
-                        and localdir files in case run-time searching
-                        for them fails.
---moduledir=DIR         Directory to install dynamic modules in.
---pdump                 New, experimental, don't-sue-me-if-your-house-
-                        collapses-and-your-wife-leaves-you, portable dumper.
---with-file-coding      Allows transparent use of "foreign" line break
-                        conventions in text files (such as LF-delimited text
-                        imported from a Unix system to a Windows environment),
-                        optionally including autodetection.  Defaults to ON
-                        on Windows, OFF on Unix.
+--mail-locking=TYPE (*) (Enum) Specify the locking method used by movemail.
+                        Types: `lockf', `flock', `dot', `locking' or `mmdf'.
+--with-pop              (Bool) Support POP for mail retrieval.
+--with-kerberos         (Bool) Support Kerberos-authenticated POP.
+--with-hesiod           (Bool) Support Hesiod to get the POP server host.
 
 
 Internationalization options:
 
---with-mule             Compile with Mule (MUlti-Lingual Emacs) support,
-                        needed to support non-Latin-1 (including Asian)
-                        languages.
---with-xim=xlib         Compile with support for X input methods,
---with-xim=motif (*)    Used in conjunction with Mule support.
-                        Use either raw Xlib to provide XIM support, or
-                        the Motif XmIm* routines (when available).
-                        NOTE:  On some systems bugs in X11's XIM support
-                        will cause XEmacs to crash, so by default,
-                        no XIM support is compiled in, unless running
-                        on Solaris and the XmIm* routines are detected.
---with-canna (*)        Compile with support for Canna (a Japanese input method
-                        used in conjunction with Mule support).
---with-wnn (*)          Compile with support for Wnn (a multi-language input
-                        method used in conjunction with Mule support).
---with-wnn6 (*)         Compile with support for the commercial package Wnn6.
---with-i18n3            Compile with I18N level 3 (support for message
-                        translation).  This doesn't currently work.
---with-xfs              Compile with XFontSet support for internationalized
-                        menubar.  Incompatible with `--with-xim=motif'.
+--with-mule             (Bool) Support non-Latin-1 (including Asian) languages.
+--with-xim=TYPE         (Enum) Support X Input Method protocol.  Types:
+                        `motif'(*), `xlib', `no'.  Requires Mule.
+--with-canna (*)        (Bool) Support the Canna input method.  Requires Mule.
+--with-wnn (*)          (Bool) Support the Wnn input methods.  Requires Mule.
+--with-wnn6 (*)         (Bool) Support the commercial version of Wnn.
+--with-xfs              (Bool) Support internationalized menubar via XFontSets.
                         `--with-menubars=lucid' (the default) is desirable.
+                        Incompatible with `--with-xim=motif'.
+
+
+Additional features:
+
+--with-workshop         (Bool) Support the Sun WorkShop (formerly Sparcworks)
+                        development environment.
+--with-tooltalk (*)     (Bool) Support the ToolTalk IPC protocol.
+--with-socks            (Bool) Support SOCKS (an Internet proxy).
+--with-dnet (*)         (Bool) Support DECnet.
+--with-netinstall       (Bool) Support installation over the internet.
+                        Only functional on MS Windows platforms.
+--with-ipv6-cname       (Bool) IPv6-ly correct host name canonicalization.
+                        IPv6 is always supported if detected; this option
+                        prevents blocking and unwanted dialup for CNAME lookup.
+--external-widget       (Bool) Export XEmacs as a text widget. (EXPERIMENTAL)
+--with-modules (*)      (Bool) Support for dynamically loaded libraries
+                        (Dynamic Shared Objects). (EXPERIMENTAL)
+--pdump                 (Bool) Somewhat experimental portable dumper.
+--with-file-coding      (Bool) Support detection and translation of newline
+                        conventions.  Default:  `yes' on Windows, `no' on Unix.
+--with-clash-detection=no  (Bool) Detect other instances editing the same file.
+
+
+Memory allocation options:
+
+--rel-alloc             (Bool) Use the relocating allocator (default for this
+                        option is system-dependent).
+--with-dlmalloc=no      (Bool) Don't use Doug Lea malloc on systems that have
+                        it in the standard C library.
+--with-system-malloc    (Bool) Use the system malloc, instead of GNU malloc.
+--with-debug-malloc     (Bool) Use the debugging malloc package.
 
 
 Debugging options:
 
---debug                 Compile with support for debugging XEmacs.
+--debug                 (Bool) Compile with support for debugging XEmacs.
                         (Causes code-size increase and little loss of speed.)
---error-checking=TYPE[,TYPE]...
-                        Compile with internal error-checking added.
-                        Causes noticeable loss of speed.  Valid types
-                        are extents, bufpos, malloc, gc, typecheck.
---error-checking=none   Disable all internal error-checking (the default).
---error-checking=all    Enable all internal error-checking.
---memory-usage-stats    Compile with additional code to allow you to
+--memory-usage-stats    (Bool) Compile with additional code to allow you to
                         determine what XEmacs's memory is being used
                         for.  Causes a small code increase but no loss
-                        of speed.  Normally enabled when --debug is given.
---no-doc-file           Don't rebuild the DOC file unless it's explicitly
-                        deleted.  Only use during development. (It speeds
-                        up the compile-run-test cycle.)
---quick-build           Don't GC when dumping.  Implies --no-doc-file.
---use-union-type        Enable or disable use of a union, instead of an
-                        int, for the fundamental Lisp_Object type; this
-                        provides stricter type-checking.  Only works with
-                        some systems and compilers.
---with-quantify         Add support for performance debugging using Quantify.
---with-purify           Add support for memory debugging using Purify.
+                        of speed.  Normally enabled when `--debug' is given.
+--error-checking=TYPES  (Set) Compile with internal error-checking added.
+                        Causes noticeable loss of speed.  Types: `bufpos',
+                        `byte-code', `extents', `gc', `glyphs', `malloc', and
+                        `typecheck'.  The default value is `none'.
+--use-union-type        (Bool) Define Lisp_Object as a union, not an int.
+                        Provides stricter type-checking.  System-dependent.
+--no-doc-file           (Bool) Don't rebuild the DOC file unless it's missing.
+                        Only use during development.
+--quick-build           (Bool) Don't GC when dumping.  Implies `--no-doc-file'.
+--with-quantify         (Bool) Support performance debugging using Quantify.
+--with-purify           (Bool) Support memory debugging using Purify.
 
-
-Other options:
-
---rel-alloc             Use the relocating allocator (default for this option
-                        is system-dependent).
---with-dlmalloc         Control usage of Doug Lea malloc on systems that have
-                        it in the standard C library (default is to use it if
-                        it is available).
---with-system-malloc    Force use of the system malloc, rather than GNU malloc.
---with-debug-malloc     Use the debugging malloc package.
---with-clash-detection  Use lock files to detect multiple edits of the same
-                        file.  The default is to do clash detection.
-
-You may also specify any of the `path' variables found in Makefile.in.in,
-including --bindir, --libdir, --docdir, --lispdir, --sitelispdir,
---datadir, --infodir, --mandir and so on.  Note that we recommend
-against explicitly setting any of these variables.  See the INSTALL
-file for a complete list plus the reasons we advise not changing them.
-
-If successful, configure leaves its status in config.status.  If
-unsuccessful after disturbing the status quo, it removes config.status.
 
 The configure script also recognizes some environment variables, each
 of which is equivalent to a corresponding configure flag.  Configure

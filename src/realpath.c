@@ -90,9 +90,16 @@ win32_readlink (const char * name, char * buf, int size)
   assert (*name);
   
   /* Sort of check we have a valid filename. */
-  if (strpbrk (name, "*?|<>\"") || strlen (name) >= MAX_PATH)
+  /* #### can we have escaped shell operators in a Windows filename? */
+  if (strpbrk (name, "|<>\"") || strlen (name) >= MAX_PATH)
     {
       errno = EIO;
+      return -1;
+    }
+  /* #### can we have escaped wildcards in a Windows filename? */
+  else if (strpbrk (name, "*?"))
+    {
+      errno = EINVAL;		/* this valid path can't be a symlink */
       return -1;
     }
   

@@ -828,7 +828,7 @@ msprinter_init_frame_3 (struct frame *f)
   DOCINFO di;
   struct device *device = XDEVICE (FRAME_DEVICE (f));
   int frame_left, frame_top, frame_width, frame_height;
-
+  
   /* DC might be recreated in msprinter_apply_devmode,
      so do not initialize until now */
   HDC hdc = DEVICE_MSPRINTER_HDC (device);

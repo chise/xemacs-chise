@@ -19,22 +19,32 @@ and coding discussion, takes place on the XEmacs Beta mailing list.
 Only patches and administrative actions regarding patches are sent
 elsewhere (to the XEmacs Patches list).
 
-** XEmacs Patches Mailing List
-==============================
+*** XEmacs Patches Mailing List
+-------------------------------
 
 XEmacs Patches records proposed changes to XEmacs, and their
-disposition.  It is open subscription, but only patches and actions by
-members of the XEmacs Review Board should be posted to this list.  You
+disposition.  It is open subscription, and all patches that are
+seriously proposed for inclusion in XEmacs should be posted here.  You
 can follow progress of your patch by subscribing to the mailing list
 or in the archives.
 
-** List Administrivia
-=====================
+Besides patches, only actions by members of the XEmacs Review Board
+should be posted to this list.  All discussion should be redirected to
+XEmacs Beta or XEmacs Design.
+
+*** XEmacs Design Mailing List
+------------------------------
+
+XEmacs Design is for design discussions such as adding major features
+or whole modules, or reimplementation of existing functions, to XEmacs.
+
+*** List Administrivia
+----------------------
 
 In the descriptions below, the word LIST (all uppercase) is a
-variable.  Substitute "beta" or "patches" as appropriate (to get
-"xemacs-beta" as the mailbox for the XEmacs Beta mailing list, or
-http://www.xemacs.org/Lists/#xemacs-beta for its URL).
+variable.  Substitute "beta", "design", or "patches" as appropriate
+(to get "xemacs-beta" as the mailbox for the XEmacs Beta mailing list,
+or http://www.xemacs.org/Lists/#xemacs-beta for its URL).
 
 The XEmacs mailing lists are managed by the Mailman mailing list
 package, and the usual Mailman commands work.  Do not send mailing
@@ -46,6 +56,9 @@ mailbox, "list-manager", for all lists).  All public mailing lists
 have searchable archives.  The URL is
 
 	     http://list-archive.xemacs.org/xemacs-LIST
+
+Note that the xemacs-LIST-admin address is used internally by the
+Mailman software; it is NOT a synonym for xemacs-LIST-request.
 
 *** Managing your subscription via the Web
 ------------------------------------------
@@ -362,11 +375,15 @@ Note that this is in essence what `make all-elc' has always done.
 ** Creating patches for submission
 ==================================
 
-Patches to XEmacs should be mailed to <xemacs-patches@xemacs.org>.
-Each patch will be reviewed by the patches review board, and will be
+All patches to XEmacs that are seriously proposed for inclusion (eg,
+bug fixes) should be mailed to <xemacs-patches@xemacs.org>.  Each
+patch will be reviewed by the patches review board, and will be
 acknowledged and added to the distribution, or rejected with an
 explanation.  Progress of the patch is tracked on the XEmacs Patches
-mailing list, which is open subscription.
+mailing list, which is open subscription.  (If a patch is simply
+intended to facilitate discussion, "I mean something that works like
+this but this is really rough", a CC to XEmacs Patches is optional,
+but doesn't hurt.)
 
 Patches to XEmacs Lisp packages should be sent to the maintainer of
 the package.  If the maintainer is listed as `XEmacs Development Team'
@@ -446,10 +463,9 @@ on the side of posting to xemacs-patches.
 
 Discussion of the _content_ of the patch (ie responses to reviewer
 comments beyond "that's right, ok, I'll do it your way") should _always_
-be posted to xemacs-beta.  (We may split xemacs-beta into code
-discussion and stuff that is more relevant to non-developer testers at
-some point, but at this point xemacs-beta is the correct place for
-this.)
+be posted to xemacs-beta or to xemacs-design.  If you're not sure
+which is more appropriate, send it to xemacs-beta.  That is the most
+widely read channel.
 
 If discussion results in a bright idea and you come up with a new
 patch, normally you should post it to both mailing lists.  The people
@@ -461,7 +477,7 @@ as usual.  If it has not been applied, then it is best to submit a new
 patch against CVS.  If possible do this as a reply to the original
 patch post, or something following it in the thread.  (The point is to
 get the original patch post's Message-ID in your References header.)
-In this case, also use the keyword SUPERCEDES in the Subject header to
+In this case, also use the keyword SUPERSEDES in the Subject header to
 indicate that the old patch is no longer valid, and that this one
 replaces it.
 

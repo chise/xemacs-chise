@@ -2,8 +2,8 @@
 emacs_is_beta=
 emacs_major_version=21
 emacs_minor_version=4
-emacs_beta_version=9
-xemacs_codename="Informed Management"
+emacs_beta_version=10
+xemacs_codename="Military Intelligence"
 emacs_kit_version=
 infodock_major_version=4
 infodock_minor_version=0

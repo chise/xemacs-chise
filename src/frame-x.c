@@ -2673,14 +2673,14 @@ x_delete_frame (struct frame *f)
   dpy = XtDisplay (FRAME_X_SHELL_WIDGET (f));
 
 #ifdef EXTERNAL_WIDGET
-  expect_x_error (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+  expect_x_error (dpy);
   /* for obscure reasons having (I think) to do with the internal
      window-to-widget hierarchy maintained by Xt, we have to call
      XtUnrealizeWidget() here.  Xt can really suck. */
   if (f->being_deleted)
     XtUnrealizeWidget (FRAME_X_SHELL_WIDGET (f));
   XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
-  x_error_occurred_p (XtDisplay (FRAME_X_SHELL_WIDGET (f)));
+  x_error_occurred_p (dpy);
 #else
   XtDestroyWidget (FRAME_X_SHELL_WIDGET (f));
   /* make sure the windows are really gone! */
