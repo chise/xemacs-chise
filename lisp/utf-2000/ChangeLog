@@ -1,3 +1,29 @@
+2001-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el: Add missing JIS X 0208:1990 and JIS X
+	0212 code points.
+
+	* Ideograph-R187-Horse.el (U+99F2): Unify J90-7152; add
+	`total-strokes'.
+	(U+9A12): Unify J90-417B.
+
+	* Ideograph-R182-Wind.el (U+98C5): Unify JSP-6845; add
+	`total-strokes'.
+
+2001-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R010-Legs.el (U+5149): Modify `ideographic-structure'.
+
+	* Ideograph-R169-Gate.el (U+9596): Unify J90-6F5D.
+	(U+95A0): Unify J90-6F60; add `total-strokes'.
+	(U+95E6): Unify JSP-6643; add `total-strokes'.
+
+	* Ideograph-R032-Earth.el (J83-4446): Unify J90-4446.
+
+2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R194-Ghost.el (M-45906'): Unify J90-4B62.
+
 2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R213-Turtle.el (M-48848): Separate U+9F9C.
