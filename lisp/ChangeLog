@@ -1,5 +1,11 @@
 1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R017-Open-Box.el,
+	utf-2000/Ideograph-R016-Table.el: Merge CJK Unified Ideographs
+	Extension A.
+
+1999-12-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R015-Ice.el,
 	utf-2000/Ideograph-R014-Cover.el,
 	utf-2000/Ideograph-R013-Down-Box.el,
