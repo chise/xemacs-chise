@@ -1420,8 +1420,12 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=ucs		. #x7568)	; 畨
-    (=cns11643-3	. #x3747)	; &I-C3-3747; [23-39]
-    (=daikanwa		. 21855)	; &I-M-21855;
+    (->subsumptive
+     ((=daikanwa	  . 21855)	; &M-21855;
+      (=ucs@unicode	  . #x7568)	; &M-21855;
+      )
+     ((=cns11643-3	  . #x3747)	; &C3-3747; [23-39]
+      ))
     ))
 (define-char
   '((ideographic-radical . 102)	; ⽥
@@ -1704,13 +1708,14 @@
     (=iso-ir165		. #x7D51)	; &I-EGB-7D51; [93-49]
     ))
 (define-char
-  '((=>ucs		. #x7570)	; 異
+  '((=>ucs*		. #x7570)	; 異
     (ideographic-radical . 102)	; ⽥
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (shinjigen-1	. 5055)
     (shinjigen-2	. 5055)
-    (=cns11643-6	. #x4B56)	; &M-21866; [43-54]
+    (=ucs		. #x2F938)	; 異
+    (=cns11643-6	. #x4B56)	; &I-C6-4B56; [43-54]
     (=daikanwa		. 21866)	; &I-M-21866;
     ))
 (define-char
