@@ -5411,7 +5411,14 @@
     (ucs		. #x8AF0)	; è«°
     ))
 (define-char
-  '((morohashi-daikanwa	35732 6)
+  '((->ucs		. #x46FC)	; ä›¼
+    (ideographic-radical . 149)	; â¾”
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (ideograph-daikanwa . 35732)	; ø¸ˆ®”
+    ))
+(define-char
+  '((morohashi-daikanwa	35732 0 5)
     (ideographic-radical . 149)	; â¾”
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
