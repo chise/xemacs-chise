@@ -9,6 +9,7 @@
     (korean-ksc5601	. #x7D62)	; ø»Š¢•
     (chinese-cns11643-1 . #x454E)	; ø»‘¸
     (ideograph-daikanwa . 15991)	; ø¸ƒ¹·
+    (ucs-jis		. #x6B20)	; ø½Š—–
     ))
 (define-char
   '((morohashi-daikanwa	15991 0 0)
@@ -296,6 +297,7 @@
     (japanese-jisx0212	. #x4568)	; ø»‹š
     (chinese-cns11643-4 . #x2671)	; ø»—©Ž
     (ideograph-daikanwa . 16012)	; ø¸ƒºŒ
+    (ucs-jis		. #x6B24)	; ø»‹š
     ))
 (define-char
   '((morohashi-daikanwa	16012 0 4)
@@ -612,6 +614,7 @@
     (chinese-big5		. #xD1F5)	; ý¢€‡µ
     (ideograph-daikanwa		. 16061)	; ø¸ƒº½
     (china3-jef			. #x54CB)	; øº…“‹
+    (ucs-jis			. #x6B2C)	; ø»‹š’
     ))
 (define-char
   '((morohashi-daikanwa	16061 0 0)
@@ -1126,6 +1129,7 @@
     (japanese-jisx0212	. #x4570)	; ø»‹š—
     (chinese-big5	. #xD9DC)	; ý¢€§œ
     (ideograph-daikanwa . 16111)	; ø¸ƒ»¯
+    (ucs-jis		. #x6B3F)	; ø»‹š—
     (mojikyo		. 016111)	; ý €ƒ»¯
     ))
 (define-char
@@ -1361,6 +1365,7 @@
     (chinese-big5		. #xDDF5)	; ý¢€·µ
     (ideograph-daikanwa		. 16139)	; ø¸ƒ¼‹
     (china3-jef			. #x54D1)	; øº…“‘
+    (ucs-jis			. #x6B46)	; ø»Š¢—
     ))
 (define-char
   '((morohashi-daikanwa	16139 0 0)
@@ -1624,6 +1629,7 @@
     (chinese-big5		. #xE263)	; ý¢€Ž‰£
     (ideograph-daikanwa		. 16161)	; ø¸ƒ¼¡
     (china3-jef			. #x54D2)	; øº…“’
+    (ucs-jis			. #x6B4A)	; ø»‹š™
     ))
 (define-char
   '((morohashi-daikanwa	16161 0 0)
@@ -1903,6 +1909,7 @@
     (japanese-jisx0212	. #x4574)	; ø»‹š›
     (ideograph-daikanwa . 16190)	; ø¸ƒ¼¾
     (ideograph-cbeta	. 02584)	; ø¸ ¨˜
+    (ucs-jis		. #x6B52)	; ø»‹š›
     ))
 (define-char
   '((morohashi-daikanwa	16190 0 0)
@@ -2090,6 +2097,7 @@
     (japanese-jisx0212		. #x4576)	; ø»‹š
     (japanese-jisx0213-2	. #x2F7A)	; ø»¤²½
     (ideograph-daikanwa		. 16202)	; ø¸ƒ½Š
+    (ucs-jis			. #x6B58)	; ø»‹š
     ))
 (define-char
   '((=>ucs		. #x6B58)	; æ­˜
@@ -2269,6 +2277,7 @@
     (total-strokes	 . 17)
     (japanese-jisx0212	. #x4577)	; ø»‹šž
     (china3-jef		. #x54D8)	; øº…“˜
+    (ucs-jis		. #x6B5D)	; ø»‹šž
     ))
 (define-char
   '((=>ucs		. #x6B5D)	; æ­

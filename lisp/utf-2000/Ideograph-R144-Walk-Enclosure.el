@@ -143,6 +143,7 @@
     (total-strokes	 . 11)
     (japanese-jisx0212	. #x5C2B)	; ø»‹»„
     (ideograph-daikanwa . 34044)	; ø¸ˆ“¼
+    (ucs-jis		. #x8851)	; ø»‹»„
     ))
 (define-char
   '((morohashi-daikanwa	34044 0 1)

@@ -599,10 +599,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
     (<-vulgar-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((ideograph-daikanwa . 00011)	; ø¸€€‹
+     (:char	((ideograph-daikanwa . 00011)	; ø¸€€‹
 		 )
-      ))
+      :sources	(morohashi-daikanwa)))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
       (ucs		  . #x2FFA)	; â¿º
@@ -617,6 +616,7 @@
     (japanese-jisx0213-1	. #x2E22)	; ø»¢¦ƒ
     (ideograph-gt-pj-2		. #x3030)	; ý¡€€€Ÿ
     (ideograph-daikanwa		. 00026)	; ø¸€€š
+    (ucs-jis			. #x2000B)	; ø»¢¦ƒ
     (ideograph-gt		. 00031)	; ý¡€€€Ÿ
     (mojikyo			. 000026)	; ý €€€š
     ))

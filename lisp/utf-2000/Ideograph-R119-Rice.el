@@ -342,6 +342,7 @@
     (japanese-jisx0212	. #x532C)	; ø»‹­·
     (ideograph-daikanwa . 26868)	; ø¸†£´
     (china3-jef		. #x5ECA)	; øº…»Š
+    (ucs-jis		. #x7C86)	; ø»‹­·
     ))
 (define-char
   '((morohashi-daikanwa	26868 0 0)
@@ -1102,6 +1103,7 @@
     (japanese-jisx0212		. #x5332)	; ø»‹­½
     (japanese-jisx0213-2	. #x7376)	; ø»¦–±
     (china3-jef			. #x5EC7)	; øº…»‡
+    (ucs-jis			. #x7CA6)	; ø»‹­½
     ))
 (define-char
   '((ideographic-radical . 119)	; â½¶
@@ -1389,6 +1391,7 @@
     (total-strokes	 . 13)
     (japanese-jisx0212	. #x5333)	; ø»‹­¾
     (ideograph-daikanwa . 26960)	; ø¸†¥
+    (ucs-jis		. #x7CB0)	; ø»‹­¾
     ))
 (define-char
   '((morohashi-daikanwa	26960 0 2)
@@ -1635,6 +1638,7 @@
     (chinese-cns11643-4 . #x4574)	; ø»˜–³
     (ideograph-daikanwa . 26979)	; ø¸†¥£
     (china3-jef		. #x5ED0)	; øº…»
+    (ucs-jis		. #x7CB6)	; ø»‹­¿
     ))
 (define-char
   '((morohashi-daikanwa	26979 0 5)
@@ -2615,6 +2619,7 @@
     (total-strokes	 . 16)
     (japanese-jisx0212	. #x533F)	; ø»‹®Š
     (ideograph-daikanwa . 27061)	; ø¸†¦µ
+    (ucs-jis		. #x7CCF)	; ø»‹®Š
     ))
 (define-char
   '((morohashi-daikanwa	27061 0 2)
@@ -2694,6 +2699,7 @@
     (total-strokes	 . 16)
     (japanese-jisx0213-2	. #x7422)	; ø»¦–»
     (ideograph-daikanwa		. 27066)	; ø¸†¦º
+    (ucs-jis			. #x25EE8)	; ø»¦–»
     ))
 (define-char
   '((morohashi-daikanwa	27066 0 0)
@@ -2760,6 +2766,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (=jis-x0208		. #x457C)	; ø½Š¬
+    (ucs-jis		. #x7CD6)	; ø½Š¬
     ))
 (define-char
   '((ideographic-radical . 119)	; â½¶
@@ -3017,6 +3024,7 @@
     (japanese-jisx0212	. #x5344)	; ø»‹®
     (ideograph-daikanwa . 27087)	; ø¸†§
     (china3-jef		. #x5ED8)	; øº…»˜
+    (ucs-jis		. #x7CD9)	; ø»‹®
     ))
 (define-char
   '((=>ucs		. #x7CD9)	; ç³™
@@ -3193,6 +3201,7 @@
     (japanese-jisx0212		. #x5346)	; ø»‹®‘
     (japanese-jisx0213-1	. #x7978)	; ø»¤•£
     (ideograph-daikanwa		. 27101)	; ø¸†§
+    (ucs-jis			. #x7CDD)	; ø»‹®‘
     ))
 (define-char
   '((morohashi-daikanwa	27101 0 1)

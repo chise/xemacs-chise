@@ -941,7 +941,7 @@
 		   (if has-long-ccs-name
 		       "(%-26s . %06d)\t; %c%s"
 		     "(%-18s . %06d)\t; %c%s"))
-		  ((eq name 'ucs)
+		  ((>= (charset-dimension name) 2)
 		   (if has-long-ccs-name
 		       "(%-26s . #x%04X)\t; %c%s"
 		     "(%-18s . #x%04X)\t; %c%s"))

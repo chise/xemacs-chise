@@ -30,6 +30,7 @@
     (chinese-big5		. #xCFC6)	; ý¢€Œ¿†
     (ideograph-daikanwa		. 20815)	; ø¸……
     (china3-jef			. #x58FE)	; øº…£¾
+    (ucs-jis			. #x7385)	; ø»‹¢«
     ))
 (define-char
   '((morohashi-daikanwa	20815 0 0)
@@ -49,6 +50,7 @@
     (chinese-big5	. #xAF59)	; ý¢€Š½™
     (ideograph-daikanwa . 20816)	; ø¸……
     (china3-jef		. #x58FC)	; øº…£¼
+    (ucs-jis		. #x7386)	; ø»ŠŠˆ
     ))
 (define-char
   '((morohashi-daikanwa	20816 0 0)

@@ -521,6 +521,7 @@
     (japanese-jisx0212		. #x3424)	; ø»‹€
     (ideograph-daikanwa		. 02589)	; ø¸€¨
     (ideograph-hanziku-1	. #xDC63)	; ý¢€±£
+    (ucs-jis			. #x5318)	; ø»‹€
     ))
 (define-char
   '((=>ucs		. #x5318)	; åŒ˜

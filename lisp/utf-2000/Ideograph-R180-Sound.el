@@ -28,6 +28,7 @@
     (shinjigen-2	. 9132)
     (=jis-x0208		. #x323B)	; ø½Š”
     (korean-ksc5601	. #x6B65)	; ø»Š‡¼
+    (ucs-jis		. #x97F3)	; ø½Š”
     (mojikyo		. 043265)	; ý €Š¤
     ))
 (define-char
@@ -531,7 +532,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (=jis-x0208		. #x3641)	; ø½Š•’
-    (ucs-jis		. #x97FF)	; ø½Š•’
+    (ucs-jis		. #x97FF)	; ø»¤›™
     (mojikyo		. 050573)	; ý €Œ–
     ))
 (define-char
@@ -604,6 +605,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
     (japanese-jisx0213-1	. #x7D76)	; ø»¤›™
+    (ucs-jis			. #x97FF)	; ø»¤›™
     ))
 (define-char
   '((morohashi-daikanwa	43325 0 3)

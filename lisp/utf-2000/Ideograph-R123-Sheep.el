@@ -390,6 +390,7 @@
     (japanese-jisx0212		. #x552B)	; ø»‹°²
     (japanese-jisx0213-2	. #x7476)	; ø»¦˜
     (ideograph-daikanwa		. 28450)	; ø¸†¼¢
+    (ucs-jis			. #x7F96)	; ø»‹°²
     ))
 (define-char
   '((=>ucs		. #x7F96)	; ç¾–
@@ -566,6 +567,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (japanese-jisx0213-2	. #x7474)	; ø»¦˜
+    (ucs-jis			. #x517B)	; ø»¦˜
     ))
 (define-char
   '((=>ucs		. #x2635B)	; ð¦›
@@ -762,6 +764,7 @@
     (japanese-jisx0213-2	. #x7477)	; ø»¦˜
     (chinese-big5		. #xD6F3)	; ý¢€›³
     (ideograph-daikanwa		. 28467)	; ø¸†¼³
+    (ucs-jis			. #x7F9C)	; ø»‹°´
     ))
 (define-char
   '((morohashi-daikanwa	28467 0 0)
@@ -1107,6 +1110,7 @@
     (total-strokes	 . 12)
     (japanese-jisx0212	. #x552E)	; ø»‹°µ
     (ideograph-daikanwa . 28493)	; ø¸†½
+    (ucs-jis		. #x7FA1)	; ø»‹°µ
     ))
 (define-char
   '((=>ucs		. #x7FA1)	; ç¾¡
@@ -1135,6 +1139,7 @@
     (chinese-big5	. #xDB41)	; ý¢€­
     (ideograph-daikanwa . 28494)	; ø¸†½Ž
     (china3-jef		. #x5FF9)	; øº…¿¹
+    (ucs-jis		. #x7FA2)	; ø»‹°¶
     ))
 (define-char
   '((morohashi-daikanwa	28494 0 0)
@@ -1225,6 +1230,7 @@
     (japanese-jisx0212	. #x5530)	; ø»‹°·
     (chinese-big5	. #xDF6C)	; ý¢€½¬
     (ideograph-daikanwa . 28500)	; ø¸†½”
+    (ucs-jis		. #x7FA6)	; ø»‹°·
     ))
 (define-char
   '((morohashi-daikanwa	28500 0 0)
@@ -1812,6 +1818,7 @@
     (japanese-jisx0213-2	. #x7478)	; ø»¦˜‘
     (ideograph-daikanwa		. 28533)	; ø¸†½µ
     (china3-jef			. #x5FFA)	; øº…¿º
+    (ucs-jis			. #x7FAD)	; ø»‹°¹
     ))
 (define-char
   '((=>ucs		. #x7FAD)	; ç¾­
@@ -2579,6 +2586,7 @@
     (=jis-x0208		. #x663F)	; ø½‹›°
     (chinese-big5	. #xC3BB)	; ý¢€ŒŽ»
     (ideograph-daikanwa . 28581)	; ø¸†¾¥
+    (ucs-jis		. #x7FB6)	; ø½‹›°
     ))
 (define-char
   '((morohashi-daikanwa	28581 0 0)
@@ -2849,6 +2857,7 @@
     (chinese-cns11643-1 . #x7A7E)	; ø»“†§
     (chinese-big5	. #xC4F3)	; ý¢€Œ“³
     (ideograph-daikanwa . 28594)	; ø¸†¾²
+    (ucs-jis		. #x7FBC)	; ø»‹°»
     ))
 (define-char
   '((morohashi-daikanwa	28594 0 0)

@@ -1401,6 +1401,7 @@
     (total-strokes	 . 13)
     (japanese-jisx0212	. #x5F2F)	; ø»‹¿¢
     (ideograph-daikanwa . 36761)	; ø¸ˆ¾™
+    (ucs-jis		. #x8CCB)	; ø»‹¿¢
     ))
 (define-char
   '((morohashi-daikanwa	36761 0 0)
@@ -1980,6 +1981,7 @@
     (japanese-jisx0212		. #x5F33)	; ø»‹¿¦
     (japanese-jisx0213-2	. #x792E)	; ø»¦ž
     (ideograph-daikanwa		. 36804)	; ø¸ˆ¿„
+    (ucs-jis			. #x8CD9)	; ø»‹¿¦
     ))
 (define-char
   '((morohashi-daikanwa	36804 0 2)
@@ -2623,6 +2625,7 @@
     (japanese-jisx0212	. #x5F3A)	; ø»‹¿­
     (chinese-cns11643-3 . #x5273)	; ø»–Ÿ´
     (ideograph-daikanwa . 36859)	; ø¸ˆ¿»
+    (ucs-jis		. #x8CF2)	; ø»‹¿­
     ))
 (define-char
   '((morohashi-daikanwa	36859 0 0)
@@ -2650,6 +2653,7 @@
     (chinese-cns11643-1		. #x724A)	; ø»’ºƒ
     (japanese-jisx0213-1	. #x7C3A)	; ø»¤˜¿
     (ideograph-daikanwa		. 36861)	; ø¸ˆ¿½
+    (ucs-jis			. #x8CF4)	; ø»‰©”
     ))
 (define-char
   '((morohashi-daikanwa	36861 0 5)
@@ -2967,6 +2971,7 @@
     (japanese-jisx0212		. #x5F3E)	; ø»‹¿±
     (japanese-jisx0213-1	. #x7C3C)	; ø»¤™
     (ideograph-daikanwa		. 36887)	; ø¸‰€—
+    (ucs-jis			. #x8CFE)	; ø»‹¿±
     ))
 (define-char
   '((morohashi-daikanwa	36887 0 3)
@@ -3088,6 +3093,7 @@
     (japanese-jisx0212		. #x5F3F)	; ø»‹¿²
     (ideograph-daikanwa		. 36896)	; ø¸‰€ 
     (ideograph-hanziku-9	. #xF6EB)	; ý¢‚Ÿ›«
+    (ucs-jis			. #x8CFF)	; ø»‹¿²
     ))
 (define-char
   '((morohashi-daikanwa	36896 0 2)
@@ -3311,7 +3317,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 18)
     (=jis-x0208		. #x4223)	; ø½Š¦œ
-    (ucs-jis		. #x8D08)	; ø½Š¦œ
+    (ucs-jis		. #x8D08)	; ø»Š‘‡
     (mojikyo		. 050478)	; ý €Œ”®
     ))
 (define-char
@@ -3414,6 +3420,7 @@
     (korean-ksc5601		. #x717C)	; ø»Š‘‡
     (japanese-jisx0213-1	. #x7C3D)	; ø»¤™‚
     (ideograph-daikanwa		. 36929)	; ø¸‰
+    (ucs-jis			. #x8D08)	; ø»Š‘‡
     ))
 (define-char
   '((morohashi-daikanwa	36929 0 2)
@@ -3452,6 +3459,7 @@
     (japanese-jisx0212		. #x5F42)	; ø»‹¿µ
     (japanese-jisx0213-2	. #x7933)	; ø»¦ž¢
     (ideograph-daikanwa		. 36932)	; ø¸‰„
+    (ucs-jis			. #x8D09)	; ø»‹¿µ
     ))
 (define-char
   '((morohashi-daikanwa	36932 0 2)

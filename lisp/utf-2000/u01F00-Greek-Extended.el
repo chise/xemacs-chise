@@ -1202,6 +1202,7 @@
     (mirrored		. nil)
     (->decomposition	#x0251 #x0300)
     (japanese-jisx0213-1	. #x2B46)	; ø»¢¢
+    (ucs-jis			. #x1F70)	; ø»¢¢
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ALPHA WITH OXIA")
@@ -1223,6 +1224,7 @@
     (mirrored		. nil)
     (->decomposition	#x0251 #x0301)
     (japanese-jisx0213-1	. #x2B47)	; ø»¢¢Ž
+    (ucs-jis			. #x1F71)	; ø»¢¢Ž
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH VARIA")
@@ -1247,6 +1249,7 @@
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH GRAVE")
       ))
     (japanese-jisx0213-1	. #x2B50)	; ø»¢¢—
+    (ucs-jis			. #x1F72)	; ø»¢¢—
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON WITH OXIA")
@@ -1271,6 +1274,7 @@
      ((name		  . "LATIN CAPITAL LETTER OPEN E WITH ACUTE")
       ))
     (japanese-jisx0213-1	. #x2B51)	; ø»¢¢˜
+    (ucs-jis			. #x1F73)	; ø»¢¢˜
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ETA WITH VARIA")

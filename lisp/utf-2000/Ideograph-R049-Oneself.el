@@ -87,6 +87,7 @@
     (hanyu-dazidian	1 29 2)
     (japanese-jisx0213-2	. #x286F)	; ø»¤¨ 
     (chinese-big5-cdp		. #x8BAD)	; ý¢€ˆ®­
+    (ucs-jis			. #x382F)	; ø»¤¨ 
     ))
 (define-char
   '((ideographic-radical . 49)	; â¼°
@@ -178,6 +179,7 @@
     (japanese-jisx0212	. #x3C22)	; ø»‹‹»
     (ideograph-daikanwa . 08757)	; ø¸‚ˆµ
     (china3-jef		. #x4BF3)	; øº„¯³
+    (ucs-jis		. #x5DF8)	; ø»‹‹»
     ))
 (define-char
   '((morohashi-daikanwa	8757 0 1)

@@ -7,6 +7,7 @@
     (chinese-cns11643-3 . #x2140)	; ø»•—ƒ
     (ideograph-daikanwa . 09908)	; ø¸‚š´
     (china3-jef		. #x4CF9)	; øº„³¹
+    (ucs-jis		. #x5F50)	; ø»‹
     ))
 (define-char
   '((morohashi-daikanwa	9908 0 0)

@@ -1157,6 +1157,7 @@
     (total-strokes	 . 18)
     (japanese-jisx0212	. #x5A45)	; ø»‹¸¢
     (ideograph-daikanwa . 32782)	; ø¸ˆ€Ž
+    (ucs-jis		. #x8669)	; ø»‹¸¢
     ))
 (define-char
   '((=>ucs		. #x8669)	; è™©

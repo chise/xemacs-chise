@@ -868,6 +868,7 @@
     (ideograph-daikanwa		. 01792)	; ø¸€œ€
     (ideograph-hanziku-1	. #xDF76)	; ý¢€½¶
     (china3-jef			. #x44A9)	; øº„’©
+    (ucs-jis			. #x51F2)	; ø»Š¾·
     ))
 (define-char
   '((morohashi-daikanwa	1792 0 2)

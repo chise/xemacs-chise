@@ -1256,6 +1256,7 @@
     (total-strokes	 . 22)
     (japanese-jisx0212	. #x6C7B)	; ø»Œ“´
     (ideograph-daikanwa . 48178)	; ø¸‹°²
+    (ucs-jis		. #x9EF0)	; ø»Œ“´
     ))
 (define-char
   '((morohashi-daikanwa	48178 0 5)
@@ -1287,6 +1288,7 @@
     (total-strokes	 . 22)
     (japanese-jisx0212	. #x6C7C)	; ø»Œ“µ
     (ideograph-daikanwa . 48180)	; ø¸‹°´
+    (ucs-jis		. #x9EF1)	; ø»Œ“µ
     ))
 (define-char
   '((morohashi-daikanwa	48180 0 2)
@@ -1344,6 +1346,7 @@
     (total-strokes	 . 23)
     (japanese-jisx0212	. #x6C7D)	; ø»Œ“¶
     (ideograph-daikanwa . 48189)	; ø¸‹°½
+    (ucs-jis		. #x9EF2)	; ø»Œ“¶
     ))
 (define-char
   '((morohashi-daikanwa	48189 0 1)

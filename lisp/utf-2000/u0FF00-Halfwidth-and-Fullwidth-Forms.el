@@ -1205,7 +1205,7 @@
     (mirrored		. nil)
     (chinese-cns11643-1 . #x2226)	; ø»‘ƒ¿
     (chinese-big5	. #xA1C5)	; ý¢€Š‡…
-    (ucs-big5		. #x2CD)	; ø»‘ƒ¿
+    (ucs-big5		. #x02CD)	; ø»‘ƒ¿
     ))
 (define-char
   '((name		. "FULLWIDTH GRAVE ACCENT")

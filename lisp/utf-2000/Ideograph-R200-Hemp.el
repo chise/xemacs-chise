@@ -68,6 +68,7 @@
     (chinese-cns11643-3		. #x4B22)	; ø»–”‘
     (japanese-jisx0213-2	. #x7E59)	; ø»¦¦ž
     (ideograph-daikanwa		. 47893)	; ø¸‹¬•
+    (ucs-jis			. #x9EBD)	; ø»–”‘
     (mojikyo			. 047893)	; ý €‹¬•
     ))
 (define-char

@@ -884,6 +884,7 @@
     (total-strokes	 . 6)
     (japanese-jisx0213-2	. #x212B)	; ø»¤Š
     (ideograph-gt-pj-9		. #x4D49)	; ý¡€€ƒ†
+    (ucs-jis			. #x200A2)	; ø»¤Š
     (ideograph-gt		. 00198)	; ý¡€€ƒ†
     ))
 (define-char

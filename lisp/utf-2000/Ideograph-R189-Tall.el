@@ -90,6 +90,7 @@
     (total-strokes	 . 13)
     (japanese-jisx0213-2	. #x7D31)	; ø»¦¤˜
     (ideograph-daikanwa		. 45317)	; ø¸‹„…
+    (ucs-jis			. #x4BE8)	; ø»¦¤˜
     ))
 (define-char
   '((=>ucs		. #x4BE8)	; ä¯¨
@@ -201,6 +202,7 @@
     (total-strokes	 . 15)
     (japanese-jisx0212	. #x696C)	; ø»Œ‹
     (ideograph-daikanwa . 45325)	; ø¸‹„
+    (ucs-jis		. #x9ADB)	; ø»Œ‹
     ))
 (define-char
   '((morohashi-daikanwa	45325 0 0)

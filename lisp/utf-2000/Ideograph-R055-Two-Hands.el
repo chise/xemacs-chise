@@ -396,6 +396,7 @@
     (chinese-big5		. #xABD9)	; ý¢€Š¯™
     (ideograph-daikanwa		. 09611)	; ø¸‚–‹
     (china3-jef			. #x4CDD)	; øº„³
+    (ucs-jis			. #x5F08)	; ø»‹Œ¸
     ))
 (define-char
   '((morohashi-daikanwa	9611 0 0)

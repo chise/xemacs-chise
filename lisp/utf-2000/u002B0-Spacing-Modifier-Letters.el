@@ -208,6 +208,7 @@
     (japanese-jisx0213-1	. #x2A31)	; ø»¢ š
     (chinese-big5		. #xA3BE)	; ý¢€ŠŽ¾
     (china3-jef			. #x81AB)	; øºˆ†«
+    (ucs-jis			. #x02C7)	; ø»„†‰
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -233,6 +234,7 @@
       (ucs		  . #x02C8)	; Ëˆ
       ))
     (japanese-jisx0213-1	. #x2B53)	; ø»¢¢š
+    (ucs-jis			. #x02C8)	; ø»¢¢š
     ))
 (define-char
   '((name		. "MODIFIER LETTER MACRON")
@@ -339,6 +341,7 @@
       (ucs		  . #x02CC)	; ËŒ
       ))
     (japanese-jisx0213-1	. #x2B54)	; ø»¢¢›
+    (ucs-jis			. #x02CC)	; ø»¢¢›
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW MACRON")
@@ -387,6 +390,7 @@
       ))
     (korean-ksc5601		. #x2230)	; ø»ˆ›¹
     (japanese-jisx0213-1	. #x2B55)	; ø»¢¢œ
+    (ucs-jis			. #x02D0)	; ø»ˆ›¹
     ))
 (define-char
   '((name		. "MODIFIER LETTER HALF TRIANGULAR COLON")
@@ -411,6 +415,7 @@
       (ucs		  . #x02D1)	; Ë‘
       ))
     (japanese-jisx0213-1	. #x2B56)	; ø»¢¢
+    (ucs-jis			. #x02D1)	; ø»¢¢
     ))
 (define-char
   '((name		. "MODIFIER LETTER CENTRED RIGHT HALF RING")
@@ -485,6 +490,7 @@
     (japanese-jisx0212		. #x222F)	; ø»Š¥¼
     (japanese-jisx0213-1	. #x2A22)	; ø»¢ ‹
     (china3-jef			. #x81A8)	; øºˆ†¨
+    (ucs-jis			. #x02D8)	; ø»ˆ›±
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -523,6 +529,7 @@
     (japanese-jisx0213-1	. #x2A58)	; ø»¢¡
     (chinese-big5		. #xA3BB)	; ý¢€ŠŽ»
     (china3-jef			. #x81A9)	; øºˆ†©
+    (ucs-jis			. #x02D9)	; ø»ˆ›´
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -551,6 +558,7 @@
     (korean-ksc5601	. #x222A)	; ø»ˆ›³
     (japanese-jisx0212	. #x2236)	; ø»Š¦ƒ
     (china3-jef		. #x81AC)	; øºˆ†¬
+    (ucs-jis		. #x02DA)	; ø»ˆ›³
     ))
 (define-char
   '((name		. "OGONEK")
@@ -582,6 +590,7 @@
     (japanese-jisx0212		. #x2235)	; ø»Š¦‚
     (japanese-jisx0213-1	. #x2A2D)	; ø»¢ –
     (china3-jef			. #x81B3)	; øºˆ†³
+    (ucs-jis			. #x02DB)	; ø»ˆ›¶
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -621,6 +630,7 @@
     (japanese-jisx0212		. #x2233)	; ø»Š¦€
     (japanese-jisx0213-1	. #x2A36)	; ø»¢ Ÿ
     (china3-jef			. #x81B0)	; øºˆ†°
+    (ucs-jis			. #x02DD)	; ø»ˆ›²
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")
@@ -645,6 +655,7 @@
       (ucs		  . #x02DE)	; Ëž
       ))
     (japanese-jisx0213-1	. #x2B71)	; ø»¢¢¸
+    (ucs-jis			. #x02DE)	; ø»¢¢¸
     ))
 (define-char
   '((name		. "MODIFIER LETTER CROSS ACCENT")
@@ -716,6 +727,7 @@
       (ucs		  . #x02E5)	; Ë¥
       ))
     (japanese-jisx0213-1	. #x2B60)	; ø»¢¢§
+    (ucs-jis			. #x02E5)	; ø»¢¢§
     ))
 (define-char
   '((name		. "MODIFIER LETTER HIGH TONE BAR")
@@ -740,6 +752,7 @@
       (ucs		  . #x02E6)	; Ë¦
       ))
     (japanese-jisx0213-1	. #x2B61)	; ø»¢¢¨
+    (ucs-jis			. #x02E6)	; ø»¢¢¨
     ))
 (define-char
   '((name		. "MODIFIER LETTER MID TONE BAR")
@@ -764,6 +777,7 @@
       (ucs		  . #x02E7)	; Ë§
       ))
     (japanese-jisx0213-1	. #x2B62)	; ø»¢¢©
+    (ucs-jis			. #x02E7)	; ø»¢¢©
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW TONE BAR")
@@ -788,6 +802,7 @@
       (ucs		  . #x02E8)	; Ë¨
       ))
     (japanese-jisx0213-1	. #x2B63)	; ø»¢¢ª
+    (ucs-jis			. #x02E8)	; ø»¢¢ª
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-LOW TONE BAR")
@@ -812,6 +827,7 @@
       (ucs		  . #x02E9)	; Ë©
       ))
     (japanese-jisx0213-1	. #x2B64)	; ø»¢¢«
+    (ucs-jis			. #x02E9)	; ø»¢¢«
     ))
 (define-char
   '((name		. "MODIFIER LETTER YIN DEPARTING TONE MARK")
