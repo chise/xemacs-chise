@@ -1,3 +1,11 @@
+2002-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el, Ideograph-R117-Stand.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R116-Cave.el: Add some missing
+	mappings to CHINA3-JEF code points.
+
+	* README.en (Character Reference): Add `jikai'.
+
 2002-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R114-Track.el, Ideograph-R115-Grain.el,
