@@ -166,8 +166,7 @@
 (define-char
   '((ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 2)
-    (kangxi-radical	 . 29)	; â¼œ
-    (kangxi-strokes	 . 8)
+    (total-strokes	 . 10)
     (=ucs		. #x96BE)	; éš¾
     (=gb2312		. #x4451)	; ø»„ºŽ
     ))
@@ -2997,6 +2996,7 @@
 (define-char
   '((ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 10)
+    (total-strokes	 . 18)
     (=ucs		. #x96E0)	; é› 
     (=gb2312		. #x7645)	; ø»†ƒž
     ))
