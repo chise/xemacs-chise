@@ -1,5 +1,58 @@
 1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* text-coding.c (char_encode_ucs4): New function.
+	(char_finish_ucs4): New function.
+	(encode_coding_ucs4): Deleted.
+	(mule_encode): Use generic encoder for `CODESYS_UCS4'.
+	(text_encode_generic): Delete local variable `charset' and `half'.
+	(ucs_to_mule_table): Deleted.
+	(mule_to_ucs_table): Deleted.
+	(Fset_ucs_char): Deleted.
+	(ucs_to_char): Deleted.
+	(Fucs_char): Deleted.
+	(Fset_char_ucs): Deleted.
+	(Fchar_ucs): Deleted.
+	(decode_ucs4): Deleted.
+	(mule_char_to_ucs4): Deleted.
+	(encode_ucs4): Deleted.
+	(decode_coding_ucs4): Use `DECODE_ADD_UCS_CHAR'.
+	(decode_coding_utf8): Likewise.
+	(decode_coding_iso2022): Likewise; don't use `XCHARSET_REP_BYTES'.
+	(char_encode_iso2022): Fixed.
+	(syms_of_file_coding): Delete `Fset_ucs_char', `Fucs_char',
+	`Fset_char_ucs' and `Fchar_ucs'.
+	(complex_vars_of_file_coding): Don't initialize
+	`ucs_to_mule_table'.
+
+	* objects-tty.c (tty_initialize_font_instance): Don't use
+	`XCHARSET_COLUMNS'.
+
+	* mule-charset.c (make_charset): Don't set up CHARSET_REP_BYTES in
+	UTF-2000.
+
+	* redisplay-tty.c (tty_output_display_block): Use `CHAR_COLUMNS'
+	instead of `XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+
+	* insdel.c (bufbyte_string_displayed_columns): Use `CHAR_COLUMNS'
+	instead of `XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+	(emchar_string_displayed_columns): Likewise.
+
+	* indent.c (column_at_point): Use `CHAR_COLUMNS' instead of
+	`XCHARSET_COLUMNS' and `CHAR_CHARSET'.
+	(string_column_at_point): Likewise.
+	(Fmove_to_column): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Delete `rep_bytes'; add
+	`encoding_table' and `decoding_table'.
+	(CHARSET_REP_BYTES): Deleted.
+	(XCHARSET_REP_BYTES): Deleted.
+	(XCHARSET_COLUMNS): Deleted.
+	(CHAR_COLUMNS): New macro.
+	(lookup_composite_char): Deleted unconditionally.
+	(composite_char_string): Likewise.
+
+1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* char-ucs.h (Emchar_to_byte_table): New type.
 	(get_byte_from_character_table): New function interface.
 	(Vcharset_latin_jisx0201): New variable.
