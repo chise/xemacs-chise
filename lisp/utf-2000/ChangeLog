@@ -1,3 +1,11 @@
+2003-04-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+FA10): Rename `=>ucs-big5' to
+	`=>ucs@big5'.
+
+	* char-db-util.el (insert-char-attributes): Convert `=>ucs-big5'
+	to `=>ucs@big5'.
+
 2003-03-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
@@ -16,7 +24,7 @@
 
 	* Ideograph-R125-Old.el, Ideograph-R140-Grass.el,
 	Ideograph-R085-Water.el, Ideograph-R072-Sun.el,
-	Ideograph-R061-Heart.el: Convert `=>ucs-ks' to `=>ucs@ks'.
+	Ideograph-R061-Heart.el: Rename `=>ucs-ks' to `=>ucs@ks'.
 
 	* char-db-util.el (insert-char-attributes): New implementation to
 	convert `=>ucs-FOO' to `=>ucs@FOO'; convert `=>ucs-ks' to
