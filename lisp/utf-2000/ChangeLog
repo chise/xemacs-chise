@@ -1,3 +1,129 @@
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R157-Foot.el (J78-6C69): Separate J83-6C69, C1-6243
+	and J90-6C69.
+	(J83-4437): Separate G0-4C78, K0-542F, C1-667C, J90-4437 and
+	U+8DF3.
+	(J83-4129): Unify J78-4129 and J83-4129.
+	(J83-6C74): Separate J78-6C74.
+	(J83-6D36): Separate J90-6D36.
+	(J83-6D3A): Separate J90-6D3A, C1-7D29 and U+8EA1.
+
+2001-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (J83-494F): Separate C1-5D4E and
+	J90-494F.
+	(M-36885): Separate J78-3958, J83-3958, U+8CFC, K0-4F45, C1-7555
+	and J90-3958.
+	(J83-6C54): Separate J90-6C54.
+	(M-36950): Separate J90-6C57, J78-6C57, J83-6C57 and U+8D0F.
+
+	* Ideograph-R152-Pig.el (J90-6C35): Separate J78-6C35, J83-6C35,
+	C1-4B49, G0-7539 and U+8C55.
+
+2001-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FE50-Small-Form-Variants.el: Unify BIG5 code points.
+
+2001-07-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el (FULLWIDTH QUOTATION
+	MARK): Delete Big5-A1A8; unify JX1-2230.
+	(FULLWIDTH APOSTROPHE): Delete Big5-A1A6; unify JX1-222F.
+	(FULLWIDTH HYPHEN-MINUS): Unify JX1-2231.
+	(FULLWIDTH LEFT SQUARE BRACKET): Delete Big5-A165.
+	(FULLWIDTH RIGHT SQUARE BRACKET): Delete Big5-A166.
+	(FULLWIDTH CIRCUMFLEX ACCENT): Delete Big5-A173.
+	(heavy low line): New character; unify C1-2226 and Big5-A1C5.
+	(FULLWIDTH GRAVE ACCENT): Delete Big5-A1A5.
+	(FULLWIDTH TILDE): Delete Big5-A1E3; unify JX1-2232.
+	(HALFWIDTH IDEOGRAPHIC COMMA): Delete Big5-A14E.
+	(FULLWIDTH MACRON): Delete G0-237E, K0-237E and Big5-A1C2.
+
+	* u00180-Latin-Extended-B.el:
+	- Merge `latin-tcvn5712' code points.
+	- Fix JIS X 0213 code points.
+	(fullwidth *): Renamed from `FULLWIDTH *'; unify JIS X 0213 code
+	points.
+
+	* u00100-Latin-Extended-A.el (U+****): Separate JIS X 0213 code
+	points if there are 1-column CCS code points.
+	(fullwidth *): Renamed from `FULLWIDTH *'; unify JIS X 0213 code
+	points.
+
+	* u000A0-Latin-1-Supplement.el (fullwidth cedilla): Delete
+	Big5-A14D.
+
+	* Ideograph-R149-Speech.el: Merge missing JIS X 0208 code points.
+	(M-35260): Separate J90-6B43, J78-6B43, J83-6B43 and K0-6438.
+	(J83-3E59): Separate S2-7560, C1-5D44, J90-3E59 and U+8A1F.
+	(J78-4370): Separate J83-4370, C1-6221, J90-4370 and U+8A3B.
+	(J78-4127): Separate J83-4127, C1-6667, J90-4127 and U+8A6E.
+	(J83-4870): Separate K0-5E26, J90-4870, C1-6F25 and U+8AB9.
+	(J83-4342): Separate J90-4342, M050462, C1-6E78 and U+8A95.
+	(JSP-5E2F): Separate C2-5A51.
+	(J78-6B66): Separate C2-5A57, J83-6B66, J90-6B66 and U+8ADE.
+	(J78-3841): Separate C1-7238, J83-3841, J90-3841 and U+8AFA.
+	(J78-4666): Separate C1-7547, J83-4666, J90-4666 and U+8B0E.
+	(J83-3C55): Separate S2-7728, K0-5E73, J90-3C55 and C1-754D.
+	(M-35928): Separate C1-787A, J78-6B76, J83-6B76, K0-7C26, J90-6B76
+	and U+8B41.
+
+	* u00020-Basic-Latin.el (QUOTATION MARK): Separate JX1-2230.
+	(APOSTROPHE): Separate JX1-222F.
+	(HYPHEN-MINUS): Separate JX1-2231.
+	(TILDE): Separate JX1-2232.
+	(U+007F): Add `name' as "DELETE".
+
+	* Ideograph-R142-Insect.el: Merge missing JIS X 0208 code points.
+	(J83-6961): Separate J78-6961 and K0-7148.
+	(J78-427D): Separate G0-7259, J83-427D, C2-4731, J90-427D and
+	U+86F8.
+	(J83-6974): Separate G0-7263, K0-5E24, J90-6974, C2-4D79 and
+	U+871A.
+	(J83-6A27): Separate J78-6A27.
+	(M-33572): Separate C1-753A, J78-6A3D, G0-727E, U+87D2, J83-6A3D
+	and J90-6A3D; fix strokes.
+	(M-33724): Separate C3-5877, J0-6A3C and U+880E; fix strokes.
+	(M-33890): Separate C1-7C66, J90-6A44, J78-6A44, J83-6A44 and
+	K0-6D59.
+
+2001-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03000-CJK-Symbols-and-Punctuation.el (WAVE DASH): Delete
+	C1-2244 and Big5-A1E3.
+	(HANGZHOU NUMERAL TEN): Unify C1-243E.
+	(HANGZHOU NUMERAL TWENTY): Unify C1-243F.
+	(HANGZHOU NUMERAL THIRTY): Unify C1-2440.
+
+	* u02200-Mathematical-Operators.el (TILDE OPERATOR): Unify C1-2244
+	and Big5-A1E3.
+	(STRICTLY EQUIVALENT TO): Delete Big5-A1DD.
+
+	* Ideograph-R147-See.el (M-34918): Separate S2-7496, K0-7651,
+	C1-7235 and J90-3F46.
+	(J78-6B32): Separate J83-6B32, C2-5F48, J90-6B32 and U+89AF.
+
+	* u02600-Miscellaneous-Symbols.el (SUN): Delete Big5-A1F3.
+	(EARTH): Delete Big5-A1F2.
+
+	* u02000-General-Punctuation.el (HORIZONTAL BAR): Delete
+	Big5-A277.
+	(DOUBLE VERTICAL LINE): Delete Big5-A1FC.
+	(BULLET): Delete Big5-A145.
+	(DOUBLE PRIME): Delete Big5-A1B2.
+	(FULLWIDTH OVERLINE): Unify G0-237E and K0-237E; unify Big5-A1C2
+	instead of Big5-A1C3.
+
+	* u00300-Combining-Diacritical-Marks.el (COMBINING OVERLINE):
+	Delete BIG5-A1C2.
+
+	* u002B0-Spacing-Modifier-Letters.el (MODIFIER LETTER LOW MACRON):
+	Delete BIG5-A1C5.
+
+	* Ideograph-R140-Grass.el: Merge and/or fix missing JIS X 0208
+	code points.
+
 2001-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Fix formating for
