@@ -3500,7 +3500,7 @@ if test "$with_mule" = "yes" ; then
     if test "$with_xfs" = "yes" && test "$with_menubars" = "lucid"; then
       AC_DEFINE(USE_XFONTSET)
       if test "$with_xim" = "no" ; then
-        XE_ADD_OBJS(input-method-xfs.o)
+        XE_ADD_OBJS(input-method-xlib.o)
       fi
     fi
   fi dnl with_xfs

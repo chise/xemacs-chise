@@ -1,3 +1,12 @@
+to 21.2.40 "Persephone"
+-- various doc fixes -- Stephen Turnbull
+-- more widget bug fixes -- Andy Piper
+-- Introduce yet another hash table weakness type -- Andy Piper
+-- SCO 5 fixes -- Golubev I. N.
+-- SunOS 4 works again -- MIYASHITA Hisashi
+-- Make peace with Mandrake's Alt-Meta hacks -- Stephen Turnbull
+-- Remove input-method-xfs.o -- Kazuyuki IENAGA
+
 to 21.2.39 "Millennium"
 -- Safer coding-priority-list -- Stephen Turnbull
 -- Andreas Jaeger resigns as core maintainer :-(
