@@ -1,3 +1,26 @@
+2000-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table):
+	Ignore non `Ideograph' characters.
+
+	* utf-2000/char-db-util.el (insert-char-data): Change order for
+	`script'.
+	(insert-char-data-with-variant): Add optional argument `script'.
+	(insert-char-range-data): Likewise.
+	(write-char-range-data-to-file): Likewise.
+
+	* utf-2000/Ideograph-R001-One.el (BOPOMOFO LETTER K): Deleted.
+	(U+4E02): Add `->bopomofo-letter'.
+	(BOPOMOFO LETTER O): Deleted.
+	(M00004): Add `script', `->ucs' and `->bopomofo-letter'.
+	(M00005): Separate <BOPOMOFO LETTER E>.
+	(M00009): Separate <BOPOMOFO LETTER C>.
+
+	* utf-2000/u03100-Bopomofo.el (BOPOMOFO LETTER K): Add script.
+	(BOPOMOFO LETTER C): Likewise.
+	(BOPOMOFO LETTER O): Likewise.
+	(BOPOMOFO LETTER E): Likewise.
+
 2000-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Support
