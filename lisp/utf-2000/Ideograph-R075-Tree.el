@@ -3447,13 +3447,15 @@
     (ucs		. #x6800)	; 栀
     ))
 (define-char
-  '((ideographic-radical . 75)	; ⽊
+  '((->ucs		. #x8363)	; 荣
+    (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 14683)	; �����
     ))
 (define-char
-  '((morohashi-daikanwa	14683 0 1)
+  '((->ucs		. #x8363)	; 荣
+    (morohashi-daikanwa	14683 0 1)
     (ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
