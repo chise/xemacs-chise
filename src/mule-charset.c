@@ -25,7 +25,7 @@ Boston, MA 02111-1307, USA.  */
 /* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs CHISE. */
 
 #include <config.h>
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 #include <chise.h>
 #endif
 #ifdef UTF2000
@@ -2078,7 +2078,7 @@ Save mapping-table of CHARSET.
 {
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_CCS dt_ccs;
 #else
   Lisp_Object db;
@@ -2088,11 +2088,10 @@ Save mapping-table of CHARSET.
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
 
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   if ( open_chise_data_source_maybe () )
     return -1;
 
-  char_attribute_system_db_file (CHARSET_NAME (cs), Qsystem_char_id, 1);
   dt_ccs
     = chise_ds_get_ccs (default_chise_data_source,
 			XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
@@ -2123,7 +2122,7 @@ Save mapping-table of CHARSET.
 
 	    if (CHARP (c))
 	      {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 		chise_ccs_set_decoded_char (dt_ccs, cell, XCHAR (c));
 #else
 		Fput_database (Fprin1_to_string (make_int (cell), Qnil),
@@ -2150,7 +2149,7 @@ Save mapping-table of CHARSET.
 
 		if (CHARP (c))
 		  {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 		    chise_ccs_set_decoded_char
 		      (dt_ccs,
 		       (row << 8) | cell, XCHAR (c));
@@ -2190,7 +2189,7 @@ Save mapping-table of CHARSET.
 
 		    if (CHARP (c))
 		      {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			chise_ccs_set_decoded_char
 			  (dt_ccs,
 			   (plane << 16)
@@ -2241,7 +2240,7 @@ Save mapping-table of CHARSET.
 
 			if (CHARP (c))
 			  {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
 			    chise_ccs_set_decoded_char
 			      (dt_ccs,
 			       (  group << 24)
@@ -2265,7 +2264,7 @@ Save mapping-table of CHARSET.
 	  }
       }
     }
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   chise_ccs_sync (dt_ccs);
   return Qnil;
 #else
@@ -2295,7 +2294,7 @@ Reset mapping-table of CCS with database file.
 Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
-#ifdef CHISE
+#ifdef HAVE_LIBCHISE
   CHISE_Char_ID char_id;
 
   if ( open_chise_data_source_maybe () )
