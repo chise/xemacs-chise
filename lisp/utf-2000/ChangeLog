@@ -1,5 +1,17 @@
 2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R037-Big.el:
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.
+
+	* Ideograph-R009-Man.el (CB-05718): New character; relate to M-441
+	and U-000201B8.
+	(C3-456B): Unify CB-04736.
+	(CB-04186): New character; relate to M-1283 and U-00020427.
+
+2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R172-Short-Tailed-Bird.el (J0-3D38): Separate
 	EGB-3C2F.
 	(G0-3C2F): Unify EGB-3C2F.
