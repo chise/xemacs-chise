@@ -31,7 +31,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (shinjigen-2	. 4734)
+    (japanese-jisx0208-1978	. #x4C46)	; ø»‚»¯
     (chinese-gb2312		. #x6A72)	; ø»…²£
+    (japanese-jisx0208		. #x4C46)	; ø»‡·
     (chinese-isoir165		. #x6A72)	; ø»Žš³
     (chinese-cns11643-1		. #x484A)	; ø»‘¼—
     (japanese-jisx0208-1990	. #x4C46)	; ø½Šµ«
@@ -67,7 +69,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (shinjigen-2	. 4735)
+    (japanese-jisx0208-1978	. #x4C36)	; ø»‚»Ÿ
     (chinese-gb2312		. #x4432)	; ø»„¹¯
+    (japanese-jisx0208		. #x4C36)	; ø»‡§
     (chinese-isoir165		. #x4432)	; ø»¡¿
     (chinese-cns11643-1		. #x4849)	; ø»‘¼–
     (japanese-jisx0208-1990	. #x4C36)	; ø½Šµ›
@@ -125,7 +129,9 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (shinjigen-2	. 4737)
+    (japanese-jisx0208-1978	. #x4F34)	; ø»‚¿·
     (chinese-gb2312		. #x404E)	; ø»„´“
+    (japanese-jisx0208		. #x4F34)	; ø»‡“¿
     (chinese-isoir165		. #x404E)	; ø»œ£
     (chinese-cns11643-1		. #x4B26)	; ø»’€
     (japanese-jisx0208-1990	. #x4F34)	; ø½Š¹³
@@ -208,7 +214,9 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (shinjigen-2	. 4738)
+    (japanese-jisx0208-1978	. #x4B52)	; ø»‚º
     (chinese-gb2312		. #x4441)	; ø»„¹¾
+    (japanese-jisx0208		. #x4B52)	; ø»‡Ž¥
     (chinese-isoir165		. #x4441)	; ø»¢Ž
     (chinese-cns11643-1		. #x4E6B)	; ø»’…¬
     (japanese-jisx0208-1990	. #x4B52)	; ø½Š´™
@@ -271,7 +279,9 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (shinjigen-2	. 4739)
+    (japanese-jisx0208-1978	. #x4A2A)	; ø»‚¸—
     (chinese-gb2312		. #x4E6F)	; ø»…‰˜
+    (japanese-jisx0208		. #x4A2A)	; ø»‡ŒŸ
     (chinese-isoir165		. #x4E6F)	; ø»±¨
     (chinese-cns11643-1		. #x4E6C)	; ø»’…­
     (japanese-jisx0208-1990	. #x4A2A)	; ø½Š²“
@@ -513,7 +523,9 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (shinjigen-2	. 4740)
+    (japanese-jisx0208-1978	. #x4037)	; ø»‚©¸
     (chinese-gb2312		. #x497C)	; ø»…‚
+    (japanese-jisx0208		. #x4037)	; ø»†¾€
     (chinese-isoir165		. #x497C)	; ø»ªŸ
     (chinese-cns11643-1		. #x523C)	; ø»’Šµ
     (japanese-jisx0208-1990	. #x4037)	; ø½Š£´
@@ -533,6 +545,8 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (shinjigen-2	. 4741)
+    (japanese-jisx0208-1978	. #x6032)	; ø»ƒ˜³
+    (japanese-jisx0208		. #x6032)	; ø»‡¬»
     (chinese-cns11643-1		. #x523E)	; ø»’Š·
     (japanese-jisx0208-1990	. #x6032)	; ø½‹’¯
     (ideograph-daikanwa		. 19988)	; ø¸„¸”
@@ -749,7 +763,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (shinjigen-2	. 4744)
+    (japanese-jisx0208-1978	. #x4643)	; ø»‚²¸
     (chinese-gb2312		. #x4C58)	; ø»…†…
+    (japanese-jisx0208		. #x4643)	; ø»‡‡€
     (chinese-isoir165		. #x4C58)	; ø»®•
     (japanese-jisx0208-1990	. #x4643)	; ø½Š¬´
     (ideograph-daikanwa		. 20013)	; ø¸„¸­
@@ -889,6 +905,8 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (shinjigen-2	. 4745)
+    (japanese-jisx0208-1978	. #x3823)	; ø»‚´
+    (japanese-jisx0208		. #x3823)	; ø»†±¼
     (chinese-cns11643-1		. #x5B74)	; ø»’˜»
     (japanese-jisx0208-1990	. #x3823)	; ø½Š—°
     (ideograph-daikanwa		. 20025)	; ø¸„¸¹
@@ -898,7 +916,9 @@
   '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x6033)	; ø»ƒ˜´
     (chinese-gb2312		. #x6A75)	; ø»…²¦
+    (japanese-jisx0208		. #x6033)	; ø»‡¬¼
     (chinese-isoir165		. #x6A75)	; ø»Žš¶
     (chinese-cns11643-2		. #x3721)	; ø»“¬´
     (japanese-jisx0208-1990	. #x6033)	; ø½‹’°
@@ -957,7 +977,9 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (shinjigen-2	. 4752)
+    (japanese-jisx0208-1978	. #x6035)	; ø»ƒ˜¶
     (chinese-gb2312		. #x4067)	; ø»„´¬
+    (japanese-jisx0208		. #x6035)	; ø»‡¬¾
     (chinese-isoir165		. #x4067)	; ø»œ¼
     (chinese-cns11643-1		. #x5B75)	; ø»’˜¼
     (japanese-jisx0208-1990	. #x6035)	; ø½‹’²
@@ -1057,6 +1079,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 4748)
+    (japanese-jisx0208-1978	. #x3A54)	; ø»‚¡¡
+    (japanese-jisx0208		. #x3A54)	; ø»†µ©
     (japanese-jisx0208-1990	. #x3A54)	; ø½Š›
     (ideograph-daikanwa		. 20045)	; ø¸„¹
     ))
@@ -1075,6 +1099,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 4751)
+    (japanese-jisx0208-1978	. #x6034)	; ø»ƒ˜µ
+    (japanese-jisx0208		. #x6034)	; ø»‡¬½
     (chinese-cns11643-3		. #x3D24)	; ø»•¿¯
     (japanese-jisx0208-1990	. #x6034)	; ø½‹’±
     (ideograph-daikanwa		. 20048)	; ø¸„¹
@@ -1127,6 +1153,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (shinjigen-2	. 4750)
+    (japanese-jisx0208-1978	. #x6036)	; ø»ƒ˜·
+    (japanese-jisx0208		. #x6036)	; ø»‡¬¿
     (chinese-isoir165		. #x2F73)	; ø»„Š
     (chinese-cns11643-3		. #x3D25)	; ø»•¿°
     (japanese-jisx0208-1990	. #x6036)	; ø½‹’³
@@ -1575,7 +1603,9 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (shinjigen-2	. 4753)
+    (japanese-jisx0208-1978	. #x6037)	; ø»ƒ˜¸
     (chinese-gb2312		. #x6A7B)	; ø»…²¬
+    (japanese-jisx0208		. #x6037)	; ø»‡­€
     (chinese-isoir165		. #x6A7B)	; ø»Žš¼
     (chinese-cns11643-1		. #x6960)	; ø»’­‹
     (japanese-jisx0208-1990	. #x6037)	; ø½‹’´
@@ -1626,6 +1656,8 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (shinjigen-2	. 4754)
+    (japanese-jisx0208-1978	. #x6038)	; ø»ƒ˜¹
+    (japanese-jisx0208		. #x6038)	; ø»‡­
     (chinese-cns11643-1		. #x6961)	; ø»’­Œ
     (japanese-jisx0208-1990	. #x6038)	; ø½‹’µ
     (ideograph-daikanwa		. 20126)	; ø¸„ºž
@@ -2278,6 +2310,8 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
     (shinjigen-2	. 4758)
+    (japanese-jisx0208-1978	. #x6039)	; ø»ƒ˜º
+    (japanese-jisx0208		. #x6039)	; ø»‡­‚
     (japanese-jisx0208-1990	. #x6039)	; ø½‹’¶
     (ideograph-daikanwa		. 20196)	; ø¸„»¤
     ))
@@ -2378,6 +2412,8 @@
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
     (shinjigen-2	. 4757)
+    (japanese-jisx0208-1978	. #x603A)	; ø»ƒ˜»
+    (japanese-jisx0208		. #x603A)	; ø»‡­ƒ
     (chinese-cns11643-1		. #x7A76)	; ø»“†Ÿ
     (japanese-jisx0208-1990	. #x603A)	; ø½‹’·
     (ideograph-daikanwa		. 20209)	; ø¸„»±
