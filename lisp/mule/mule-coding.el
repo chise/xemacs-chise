@@ -284,7 +284,7 @@
    'utf-8-jis 'utf-8
    "Coding-system of UTF-8 using JIS mapping."
    '(mnemonic "UTF8J"
-	      charset-g0 ucs-jis
+	      charset-g0 =ucs@jis-2000
 	      charset-g1 =>ucs-jis
 	      charset-g2 =>ucs))
 
@@ -292,7 +292,24 @@
    'utf-8-jis-er 'utf-8
    "Coding-system of UTF-8 using JIS mapping with entity-reference."
    '(mnemonic "UTF8Jr"
-	      charset-g0 ucs-jis
+	      charset-g0 =ucs@jis-2000
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-jp 'utf-8
+   "Coding-system of UTF-8 for common glyphs used in Japan."
+   '(mnemonic "UTF8J"
+	      charset-g0 =ucs@jp
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-jp-er 'utf-8
+   "Coding-system of UTF-8 using =ucs@jp mapping with entity-reference."
+   '(mnemonic "UTF8Jr"
+	      charset-g0 =ucs@jp
 	      charset-g1 =>ucs-jis
 	      charset-g2 =>ucs
 	      use-entity-reference t))
