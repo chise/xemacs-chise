@@ -1,3 +1,59 @@
+2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R129-Brush.el (C6-3B24): Separate U+8081.
+	(U+8082): Use `ideographic-radical@cns' instead of `cns-radical';
+	use `ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources', `ideographic-strokes@cns' and
+	`ideographic-radical@cns*sources'.
+
+	* Ideograph-R096-Jade.el (JSP-4B7B): Separate K0-607B and
+	JC3-59C9; use `=ucs@jis-1990' instead of `=ucs@jis'.
+	(U+73F9): Unify K0-607B, JX2-706A and JC3-59C9.
+	(U+7413): Separate K0-684D.
+	(K0-684D): Unify JX2-706B.
+	(U+7453): Unify JX2-7071.
+	(U+74A5): Unify JX2-7123.
+
+	* Ideograph-R091-Slice.el (CB04523): Unify JX2-7031.
+
+	* Ideograph-R086-Fire.el (U+70BB): Separate C3-2D5D; unify
+	JX2-6F60.
+	(U+70BC): Add `total-strokes'.
+	(U+70BD): Likewise.
+	(U+70EC): Unify JX2-6F65.
+	(U+3DD4): Unify JX2-6F77.
+	(CB04059): Unify JX2-6F78.
+	(JSP-4A2F): Use `=ucs@jis-1990' instead of `=ucs@jis'.
+	(U+71B3): Unify JX2-7021.
+
+	* Ideograph-R085-Water.el (JSP-465F): Unify JX2-6E37.
+	(JSP-4738): Unify JX2-6E50.
+	(U-00023D42): Fix `ideographic-strokes'.
+	(U+6E0F): Add `total-strokes'.
+	(U+6E14): Likewise.
+	(U+6E16): Likewise.
+	(U+6E17): Unify JX2-6E5D.
+	(U+988D): Add `total-strokes'.
+	(U+6E36): Unify JX2-6E6D.
+	(U+6F35): Unify JX2-6F28.
+	(U+3D9A): Unify JX2-6F54.
+
+	* Ideograph-R078-Death.el (U+8082): Copied from
+	Ideograph-R129-Brush.el.
+
+	* Ideograph-R072-Sun.el (U+3AD6): New character.
+	(U+65F7): Add `total-strokes'.
+	(U+65F8): Likewise.
+	(JSP-4177): Separate U+6608; unify JX2-2D76.
+	(M-13981): Separate U+666D and C3-3C25; unify JX2-2E28.
+	(U+6690): Separate B-DDC2.
+	(JSP-4250): Unify JX2-2E2B and B-DDC2.
+	(U+66B1): Add `<-original-ideograph' for S1-3299; add S{1|2}-3299;
+	unify JX2-2E30.
+
+	* Ideograph-R024-Ten.el (U-0002099D): Unify JX2-2353.
+
 2003-07-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R140-Grass.el (U+8363): Add `morohashi-daikanwa' for
