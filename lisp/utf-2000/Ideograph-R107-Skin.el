@@ -649,6 +649,8 @@
   '((ideographic-radical . 107)	; â½ª
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
+    (japanese-jisx0208-1978	. #x6231)	; ø»ƒ›®
+    (japanese-jisx0208		. #x6231)	; ø»‡¯¶
     (chinese-cns11643-3		. #x482E)	; ø»–ƒ
     (japanese-jisx0208-1990	. #x6231)	; ø½‹•ª
     (ucs			. #x76B9)	; çš¹
