@@ -22,6 +22,69 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
+to 21.4.9 "Informed Management"
+
+-- (**) (MS Windows) new winclient -- Andy Piper, others
+-- (**) Mule auto-decompresses in find-library -- Steve Youngs
+-- (**) PUI displays author and package versions, balloon-help -- Steve Youngs
+-- (**) autoload and bind `replace-rectangle -- Didier Verna
+-- Crash fix: (HP/UX) in Motif on updating non-labels -- Darryl Okahata,
+   Andy Piper
+-- Crash fix: (MS Windows) on bogus time -- Nick Pakoulin, Stephen Turnbull
+-- Crash fix: in handling of dead consoles -- Ben Wing
+-- Crash fix: in process handling (several) -- Mike Sperber
+-- Crash fix: in skip-chars -- Ben Wing, Stephen Turnbull
+-- Crash fix: on finding non-existent XML file -- Stephen Turnbull, Ben Wing,
+   Michael Sperber
+-- Fix: URL handling (Cygwin) -- Andy Piper
+-- Fix: bogus arguments in custom-theme-set-variables -- Andy Piper
+-- Fix: bogus reinitialization breaking ru-keys.el -- Dmitry Astapov
+-- Fix: call-process-region deletes region after use -- Mike Alexander
+-- Fix: case (in)sensitivity in replace-in-string -- Didier Verna
+-- Fix: completion refers to correct history -- Christoph Wedler
+-- Fix: don't use RTLD_GLOBAL in DSOs -- Jerry James
+-- Fix: failures to redisplay (MS Windows) -- Mike Alexander, Andy Piper,
+   Adrian Aichner
+-- Fix: file renaming (MS Windows) -- Mathias Grimmberger
+-- Fix: find architecture directory correctly -- Jerry James
+-- Fix: freeze on virtual desktop switch (MS Windows) -- Rick Rankin
+-- Fix: glyph handling, especially baselines -- Andy Piper, Nix
+-- Fix: handle popup dialogs correlcty (MS Windows) -- Andy Piper
+-- Fix: mousewheel handling (MS Windows) -- Andy Piper
+-- Fix: short file name handling (MS Windows) -- Andy Piper, Peter Arius
+-- Fix: shrink to fit windows work -- Jerry James
+-- Fix: toolbar doesn't update if gutters move bug -- Andy Piper
+-- Fix: uneven horizontal window splits -- Jerry James
+-- Improve: GNU synchs in Lisp API: join-line, :set-after, add-to-list,
+   custom-local-buffer, font-lock-doc-face, font-lock-builtin-face,
+   font-lock-constant-face, custom-set-default
+   -- Ville Skyttä, John Paul Wallington, Andy Piper
+-- Improve: revert-buffer omits expensive operations if no change -- Andy Piper
+-- Improve: change registry key to XEmacs (MS Windows) -- Andy Piper
+-- Improve: 2d arg of split-string-by-char is required -- Brian A Palmer
+-- Improve: printer handling on MS (native and Cygwin) -- Andy Piper
+-- Fix: (Build) allow disabling Internet sockets in gnuserv -- Gregory Steuck
+-- Fix: (Build) unsigned-signed compare warnings -- Stephen Turnbull
+-- Fix: (Build/Cygwin) X + Windows build gets widgets -- Andy Piper
+-- Fix: (Build/Unix) configure --usage -- Jerry James
+-- Fix: (Build/Unix) protect linker args for PPC -- Malcolm Purvis
+-- Improve: (Build) make-autoload supports define-derived-mode
+   -- Stephen Turnbull and Didier Verna
+-- Improve: (Build/MS Windows) Maintainer build process -- Andy Piper
+-- Improve: (Build/MS Windows) default to pdump -- Jonathan Harris
+-- Improve: (Build/MS Windows) update documentation -- Jonathan Harris
+-- Improve: (Build/Unix) 64-bit ELF support -- Gregory Steuck
+-- Improve: (Build/Unix) OpenBSD support -- Gregory Steuck
+-- Docs: "vanity" updates -- Andy Piper
+-- Docs: Info minor updates -- Simon Josefsson, Ville Skyttä, Adrian Aichner,
+   Steve Youngs, Jerry James
+-- Docs: Info new nodes: Regression Testing XEmacs -- Stephen Turnbull
+-- Docs: Info typo fixes -- Adrian Aichner (many!)
+-- Docs: docstring typo fixes -- John Paul Wallington, Stephen Turnbull,
+   Ville Skyttä, Andy Piper, Jerry James, Adrian Aichner
+-- Docs: new FAQs: Killing is slow, Q2.0.15 -- Stephen Turnbull, Adrian Aichner
+-- Docs: new PROBLEMS -- Stephen Turnbull
+
 to XEmacs 21.4.8 "Honest Recruiter"
 
 -- Fix: "yank-pop twice" bug -- Jerry James, Stephen J. Turnbull

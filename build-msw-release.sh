@@ -7,6 +7,7 @@
 # configuration
 NATIVE_ZLIB_DIR=/usr/local/mingw/lib
 PROGRAM_FILES='c:/Program Files/XEmacs'
+TMPINSTALL=/tmp/local
 # no configuration past this point
 
 INSTALL=
@@ -29,13 +30,9 @@ done
 
 # decide on names
 emacs_ver=${emacs_major_version}.${emacs_minor_version}.${emacs_beta_version}
-cygwin_tarball=xemacs-i686-pc-cygwin-${emacs_ver}.tar.gz
-win32_tarball=xemacs-i586-pc-win32-${emacs_ver}.tar.gz
+cygwin_tarball=xemacs-i686-pc-cygwin-${emacs_ver}${emacs_kit_version}.tar.gz
+win32_tarball=xemacs-i586-pc-win32-${emacs_ver}${emacs_kit_version}.tar.gz
 
-# create a dist directory 
-mkdir -p windows/cygwin32
-mkdir -p windows/win32
-mkdir -p /usr/local
 DISTDIR=`pwd`/windows
 
 # check to see if we should build
@@ -49,8 +46,18 @@ if [ -f Makefile ] ; then
     make distclean
 fi
 
+# nuke the dist dir.
+rm -rf windows
+
+# create a dist directory 
+mkdir -p windows/cygwin32
+mkdir -p windows/win32
+mkdir -p /usr/local
+mkdir -p ${TMPINSTALL}
+
 # first build win32
 (cd nt;
+  nmake -f xemacs.mak clean;
   nmake -f xemacs.mak)
 (cd "${PROGRAM_FILES}";
     rm -rf ./XEmacs-${emacs_ver})
@@ -79,8 +86,8 @@ cp netinstall/setup.exe \
 	./XEmacs-${emacs_ver})
 
 # make the tarball
-make install
-(cd /usr/local;
+make prefix=${TMPINSTALL} bindir=${TMPINSTALL}/bin/i686-pc-cygwin install
+(cd ${TMPINSTALL};
     tar czvf ${DISTDIR}/cygwin32/${cygwin_tarball} \
     ./bin/i686-pc-cygwin \
     ./lib/xemacs-${emacs_ver} \
@@ -91,7 +98,8 @@ make install
     ./man/man1/gnuclient.1 \
     ./man/man1/gnudoit.1 \
     ./man/man1/gnuserv.1 \
-    ./man/man1/xemacs.1)
+    ./man/man1/xemacs.1;
+    rm -rf bin lib man)
 
 # figure out the ini file.
 cygwin_tarball_size=`ls -l windows/cygwin32/${cygwin_tarball} | awk '{ print $5; }'`
@@ -99,7 +107,8 @@ win32_tarball_size=`ls -l windows/win32/${win32_tarball} | awk '{ print $5; }'`
 
 (cd netinstall;
     make CYGWIN_SIZE=${cygwin_tarball_size} \
-	WIN32_SIZE=${win32_tarball_size} setup-bin.ini )
+	WIN32_SIZE=${win32_tarball_size} \
+	KIT_VERSION=${emacs_kit_version} setup-bin.ini )
 cp netinstall/setup-bin.ini windows
 
 # tidy up

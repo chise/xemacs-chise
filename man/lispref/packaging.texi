@@ -461,7 +461,7 @@ safely remove any of the component libraries.
 
 @item Single-File Packages
 @cindex single-file package
-A single-file package is an collection of thematically related but
+A single-file package is a collection of thematically related but
 otherwise independent Lisp libraries.  These libraries are bundled
 together for convenience of the maintainers.  Usually individual
 libraries may be deleted at will without any loss of functionality of
@@ -905,7 +905,7 @@ for obsolete fields.
 The @file{package-info.in} literals provided by the maintainer generally
 should not change over the life of the package.  (The exception is the
 @samp{provides} field, which should be generated, but isn't yet.)
-Values described as ``literal'' below are unquoted literal test.  These
+Values described as ``literal'' below are unquoted literal text.  These
 are normally interpreted as symbols by the package build process.  The
 maintainer literals are
 
