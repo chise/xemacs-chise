@@ -1,3 +1,8 @@
+2004-11-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Modify the
+	X-registry of `ucs-bmp'.
+
 2004-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (char-variants): Refer `->subsumptive',
