@@ -76,7 +76,6 @@ EXFUN (Fchar_refs_simplify_char_specs, 1);
 extern Lisp_Object Qideographic_structure;
 
 Lisp_Object Vnext_defined_char_id;
-EXFUN (Fdefine_char, 1);
 
 EXFUN (Fmap_char_attribute, 3);
 
