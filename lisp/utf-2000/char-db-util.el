@@ -141,19 +141,17 @@
     chinese-cns11643-5
     chinese-cns11643-6
     chinese-cns11643-7
+    =jis-x0208-1990
     =jis-x0213-1-2000
     =jis-x0213-2-2000
     korean-ksc5601
     chinese-isoir165
     katakana-jisx0201
     hebrew-iso8859-8
-    =jis-x0208-1990
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
     =gt
-    =big5-cdp
-    =gt-k
     ideograph-daikanwa-2
     ideograph-daikanwa
     =cbeta
@@ -169,10 +167,11 @@
     ideograph-hanziku-10
     ideograph-hanziku-11
     ideograph-hanziku-12
-    =cbeta
-    =jef-china3
+    =big5
     =big5-eten
-    =big5))
+    =big5-cdp
+    =gt-k
+    =jef-china3))
 
 (defun char-db-make-char-spec (char)
   (let (ret char-spec)
@@ -189,11 +188,15 @@
 		  )
 		 ((setq ret
 			(catch 'tag
-			  (let ((rest char-db-coded-charset-priority-list))
+			  (let ((rest char-db-coded-charset-priority-list)
+				ccs)
 			    (while rest
+			      (setq ccs (charset-name
+					 (find-charset (car rest))))
 			      (if (setq ret
-					(get-char-attribute char (car rest)))
-				  (throw 'tag (cons (car rest) ret)))
+					(encode-char char ccs
+						     'defined-only))
+				  (throw 'tag (cons ccs ret)))
 			      (setq rest (cdr rest))))))
 		  (setq char-spec (list ret))
 		  (dolist (ccs (delq (car ret) (charset-list)))
@@ -203,7 +206,7 @@
 					 =daikanwa-rev2
 					 ;; =gt-k
 					 )))
-			     (setq ret (get-char-attribute char ccs)))
+			     (setq ret (encode-char char ccs 'defined-only)))
 			(setq char-spec (cons (cons ccs ret) char-spec))))
 		  (if (null char-spec)
 		      (setq char-spec (split-char char)))
@@ -239,7 +242,7 @@
       (setq key (car (car char-spec)))
       (unless (memq key char-db-ignored-attributes)
 	(if (find-charset key)
-	    (if (get-char-attribute char key)
+	    (if (encode-char char key 'defined-only)
 		(setq cal (cons key cal)))
 	  (setq al (cons key al))))
       (setq char-spec (cdr char-spec)))
@@ -393,7 +396,7 @@
 				  =gt-pj-10
 				  =gt-pj-11))
 		      (setq ret (decode-char ccs code-point))
-		      (setq ret (get-char-attribute ret '=gt)))
+		      (setq ret (encode-char ret '=gt 'defined-only)))
 		 (decode-builtin-char '=gt ret))
 		(t
 		 (decode-builtin-char ccs code-point))))
