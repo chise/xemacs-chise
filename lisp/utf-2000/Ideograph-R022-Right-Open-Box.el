@@ -845,11 +845,32 @@
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
+    (<-vulgar-ideograph
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 796)
+		 (ideograph-daikanwa . 02655)	; ø¸€©Ÿ
+		 )
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
+      )
+     ((ucs		  . #x531A)	; åŒš
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x5927)	; å¤§
+	)
+       ((ucs		    . #x54C1)	; å“
+	))
+      ))
     (shinjigen-1	. 798)
-    (vulgar-char-of-shinjigen-1 . 796)
     (japanese-jisx0212	. #x3431)	; ø»‹€š
     (chinese-cns11643-3 . #x4623)	; ø»–Œ¼
     (ideograph-daikanwa . 02652)	; ø¸€©œ
+    (ideograph-cbeta	. 02324)	; ø¸ ¤”
     (ucs		. #x5332)	; åŒ²
     ))
 (define-char
@@ -870,6 +891,14 @@
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
+      )
+     ((ucs		  . #x531A)	; åŒš
+      )
+     ((ucs		  . #x50C9)	; åƒ‰
+      ))
     (shinjigen-1	. 796)
     (shinjigen-2	. 796)
     (japanese-jisx0208-1978	. #x523D)	; ø»ƒ„š
@@ -877,6 +906,7 @@
     (chinese-cns11643-3		. #x4B34)	; ø»–”£
     (japanese-jisx0208-1990	. #x523D)	; ø½Š¾–
     (ideograph-daikanwa		. 02655)	; ø¸€©Ÿ
+    (ideograph-cbeta		. 00633)	; ø¸ ‰¹
     (ucs			. #x5333)	; åŒ³
     ))
 (define-char
@@ -943,10 +973,19 @@
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
+      )
+     ((ucs		  . #x531A)	; åŒš
+      )
+     ((ucs		  . #x8CE3)	; è³£
+      ))
     (japanese-jisx0212		. #x3432)	; ø»‹€›
     (chinese-cns11643-3		. #x5444)	; ø»–¢
     (japanese-jisx0213-2	. #x234F)	; ø»¤ ª
     (ideograph-daikanwa		. 02662)	; ø¸€©¦
+    (ideograph-cbeta		. 05235)	; ø¸¡‘³
     (ucs			. #x5335)	; åŒµ
     ))
 (define-char
