@@ -1275,7 +1275,6 @@ mark_char_table (Lisp_Object obj)
 
   mark_object (ct->table);
   mark_object (ct->name);
-  mark_object (ct->db_file);
   mark_object (ct->db);
 #else
   int i;
@@ -1606,7 +1605,6 @@ static const struct lrecord_description char_table_description[] = {
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, table) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, default_value) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, name) },
-  { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db_file) },
   { XD_LISP_OBJECT, offsetof(Lisp_Char_Table, db) },
 #else
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, ascii), NUM_ASCII_CHARS },
@@ -1809,7 +1807,6 @@ and 'syntax.  See `valid-char-table-type-p'.
     ct->mirror_table = Qnil;
 #else
   ct->name = Qnil;
-  ct->db_file = Qnil;
   ct->db = Qnil;
 #endif
   ct->next_table = Qnil;
@@ -1885,7 +1882,6 @@ as CHAR-TABLE.  The values will not themselves be copied.
   ctnew->default_value = ct->default_value;
   /* [tomo:2002-01-21] Perhaps this code seems wrong */
   ctnew->name = ct->name;
-  ctnew->db_file = ct->db_file;
   ctnew->db = ct->db;
 
   if (UINT8_BYTE_TABLE_P (ct->table))
@@ -3384,10 +3380,9 @@ Save values of ATTRIBUTE into database file.
 
   if (NILP (Fdatabase_live_p (ct->db)))
     {
-      if (NILP (ct->db_file))
-	ct->db_file
-	  = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
-      ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
+      Lisp_Object db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+
+      ct->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
     }
   if (!NILP (ct->db))
     {
@@ -3429,7 +3424,6 @@ Close database of ATTRIBUTE.
 	Fclose_database (ct->db);
       ct->db = Qnil;
     }
-  ct->db_file = Qnil;
 #endif
   return Qnil;
 }
@@ -3456,7 +3450,6 @@ Reset values of ATTRIBUTE with database file.
 	}
       ct = XCHAR_TABLE (table);
       ct->table = Qunloaded;
-      ct->db_file = db_file;
       if (!NILP (Fdatabase_live_p (ct->db)))
 	Fclose_database (ct->db);
       ct->db = Qnil;
@@ -3477,11 +3470,10 @@ load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch)
     {
       if (NILP (Fdatabase_live_p (cit->db)))
 	{
-	  if (NILP (cit->db_file))
-	    cit->db_file
-	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
-	  cit->db = Fopen_database (cit->db_file, Qnil, Qnil, Qnil, Qnil);
-	  cit->db_file = Qnil;
+	  Lisp_Object db_file
+	    = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
+
+	  cit->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
 	}
       if (!NILP (cit->db))
 	{
@@ -3533,11 +3525,10 @@ Load values of ATTRIBUTE into database file.
 
       if (NILP (Fdatabase_live_p (ct->db)))
 	{
-	  if (NILP (ct->db_file))
-	    ct->db_file
+	  Lisp_Object db_file
 	      = char_attribute_system_db_file (Qsystem_char_id, attribute, 0);
-	  ct->db = Fopen_database (ct->db_file, Qnil, Qnil, Qnil, Qnil);
-	  ct->db_file = Qnil;
+
+	  ct->db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
 	}
       if (!NILP (ct->db))
 	{
