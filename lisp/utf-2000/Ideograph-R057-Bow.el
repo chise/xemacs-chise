@@ -307,7 +307,7 @@
     (ideograph-daikanwa . 09721)	; �����
     ))
 (define-char
-  '((->ucs		. #x38A9)	; 㢩
+  '((=>ucs		. #x38A9)	; 㢩
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -749,7 +749,7 @@
     (ucs		. #x5F2C)	; 弬
     ))
 (define-char
-  '((->ucs		. #x5F2C)	; 弬
+  '((=>ucs		. #x5F2C)	; 弬
     (morohashi-daikanwa	9766 0 2)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
@@ -764,7 +764,7 @@
     (ideograph-daikanwa . 09767)	; �����
     ))
 (define-char
-  '((->ucs		. #x5F2D)	; 弭
+  '((=>ucs		. #x5F2D)	; 弭
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -787,7 +787,7 @@
     (ucs			. #x5F2D)	; 弭
     ))
 (define-char
-  '((->ucs		. #x5F2E)	; 弮
+  '((=>ucs		. #x5F2E)	; 弮
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -973,7 +973,7 @@
     (ideograph-daikanwa . 09788)	; �����
     ))
 (define-char
-  '((->ucs		. #x5F30)	; 弰
+  '((=>ucs		. #x5F30)	; 弰
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -996,7 +996,7 @@
     (ideograph-daikanwa . 09790)	; �����
     ))
 (define-char
-  '((->ucs		. #x5F31)	; 弱
+  '((=>ucs		. #x5F31)	; 弱
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -1026,7 +1026,7 @@
     (ucs		. #x5F32)	; 弲
     ))
 (define-char
-  '((->ucs		. #x5F32)	; 弲
+  '((=>ucs		. #x5F32)	; 弲
     (morohashi-daikanwa	9792 0 0)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 7)
@@ -1166,7 +1166,7 @@
     (ucs		. #x38BB)	; 㢻
     ))
 (define-char
-  '((->ucs		. #x38BB)	; 㢻
+  '((=>ucs		. #x38BB)	; 㢻
     (morohashi-daikanwa	9806 0 1)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
@@ -1314,7 +1314,7 @@
     (ideograph-daikanwa . 09821)	; �����
     ))
 (define-char
-  '((->ucs		. #x38BA)	; 㢺
+  '((=>ucs		. #x38BA)	; 㢺
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -1430,7 +1430,7 @@
     (ucs			. #x5F3D)	; 弽
     ))
 (define-char
-  '((->ucs		. #x5F3D)	; 弽
+  '((=>ucs		. #x5F3D)	; 弽
     (morohashi-daikanwa	9833 0 0)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 9)
@@ -1526,7 +1526,7 @@
     (ideograph-daikanwa . 09840)	; �����
     ))
 (define-char
-  '((->ucs		. #x38C0)	; 㣀
+  '((=>ucs		. #x38C0)	; 㣀
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -1549,7 +1549,7 @@
     (ucs		. #x38C1)	; 㣁
     ))
 (define-char
-  '((->ucs		. #x38C2)	; 㣂
+  '((=>ucs		. #x38C2)	; 㣂
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -1655,7 +1655,7 @@
     (ucs		. #x38C3)	; 㣃
     ))
 (define-char
-  '((->ucs		. #x38C3)	; 㣃
+  '((=>ucs		. #x38C3)	; 㣃
     (morohashi-daikanwa	9852 0 1)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 10)
@@ -1752,7 +1752,7 @@
     (ucs		. #x38C4)	; 㣄
     ))
 (define-char
-  '((->ucs		. #x38C4)	; 㣄
+  '((=>ucs		. #x38C4)	; 㣄
     (morohashi-daikanwa	9860 0 0)
     (ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 12)
