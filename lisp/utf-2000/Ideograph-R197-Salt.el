@@ -141,12 +141,6 @@
     (ideograph-daikanwa . 49943)	; ø¸ŒŒ—
     ))
 (define-char
-  '((ideographic-radical . 197)	; â¿„
-    (ideographic-strokes . 6)
-    (total-strokes	 . 17)
-    (ideograph-daikanwa . 49944)	; ø¸ŒŒ˜
-    ))
-(define-char
   '((->ucs		. #x4D1B)	; ä´›
     (ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 7)
