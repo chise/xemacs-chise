@@ -76,6 +76,7 @@ Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_chinese_big5;
 Lisp_Object Vcharset_chinese_big5_cdp;
 Lisp_Object Vcharset_japanese_jef_china3;
+Lisp_Object Vcharset_ideograph_cbeta;
 Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
 Lisp_Object Vcharset_ideograph_gt_pj_2;
@@ -436,6 +437,7 @@ Lisp_Object Qascii,
   Qchinese_big5,
   Qchinese_big5_cdp,
   Qjapanese_jef_china3,
+  Qideograph_cbeta,
   Qideograph_daikanwa,
   Qideograph_gt,
   Qideograph_gt_pj_1,
@@ -1302,6 +1304,7 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 	  return c;
 	}
     }
+  /*
   else if (c < MIN_CHAR_MOJIKYO)
     {
       *charset = Vcharset_ucs;
@@ -1320,8 +1323,14 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
   else if (c <= MAX_CHAR_JEF_CHINA3)
     {
       *charset = Vcharset_japanese_jef_china3;
-      return c - MAX_CHAR_JEF_CHINA3;
+      return c - MIN_CHAR_JEF_CHINA3;
     }
+  else if (c <= MAX_CHAR_CBETA)
+    {
+      *charset = Vcharset_ideograph_cbeta;
+      return c - MIN_CHAR_CBETA;
+    }
+  */
   else
     {
       *charset = Vcharset_ucs;
@@ -2364,6 +2373,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_big5,		"chinese-big5");
   defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp");
   defsymbol (&Qjapanese_jef_china3,	"japanese-jef-china3");
+  defsymbol (&Qideograph_cbeta,		"ideograph-cbeta");
   defsymbol (&Qmojikyo,			"mojikyo");
   defsymbol (&Qmojikyo_2022_1,		"mojikyo-2022-1");
   defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
@@ -2795,6 +2805,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JEF + CHINA3 private characters"),
 		  build_string ("china3jef-0"),
 		  Qnil, MIN_CHAR_JEF_CHINA3, MAX_CHAR_JEF_CHINA3, 0, 0);
+  staticpro (&Vcharset_ideograph_cbeta);
+  Vcharset_ideograph_cbeta =
+    make_charset (LEADING_BYTE_CBETA, Qideograph_cbeta, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("CB"),
+		  build_string ("CBETA"),
+		  build_string ("CBETA private characters"),
+		  build_string ("cbeta-0"),
+		  Qnil, MIN_CHAR_CBETA, MAX_CHAR_CBETA, 0, 0);
   staticpro (&Vcharset_ideograph_gt);
   Vcharset_ideograph_gt =
     make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
