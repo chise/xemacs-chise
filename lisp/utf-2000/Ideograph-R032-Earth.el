@@ -11223,9 +11223,7 @@
       )
      ((ucs		  . #x571F)	; åœŸ
       )
-     ((korean-ksc5601		  . #x5E39)	; ø»‰´Š
-      (japanese-jisx0213-1	  . #x7C38)	; ø»¤˜½
-      (ideograph-daikanwa	  . 36788)	; ø¸ˆ¾´
+     ((ucs		  . #xFA64)	; ï©¤
       ))
     (ideograph-daikanwa . 05570)	; ø¸—‚
     (ideograph-cbeta	. 01242)	; ø¸ “š
