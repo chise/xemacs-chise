@@ -444,6 +444,7 @@
      ((ucs		  . #x4E87)	; äº‡
       ))
     (chinese-cns11643-3 . #x212D)	; ø»•–°
+    (china3-jef		. #x8FC2)	; øºˆ¿‚
     (mojikyo		. 059024)	; ý €Žš
     ))
 (define-char

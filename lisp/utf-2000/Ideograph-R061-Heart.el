@@ -920,11 +920,30 @@
     (japanese-jisx0212		. #x3D46)	; ø»‹½
     (japanese-jisx0213-1	. #x7449)	; ø»¤ž
     (ideograph-daikanwa		. 10366)	; ø¸‚¡¾
-    (china3-jef			. #x4DC9)	; øº„·‰
-    (ideograph-cbeta		. 00784)	; ø¸ Œ
+    (china3-jef			. #x90ED)	; øº‰ƒ­
     ))
 (define-char
-  '((morohashi-daikanwa	10366 0 0)
+  '((=>ucs		. #x5FE9)	; å¿©
+    (morohashi-daikanwa	10366 0 0)
+    (ideographic-radical . 61)	; â¼¼
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((japanese-jisx0208-1978	  . #x3878)	; ø»‚Ÿ‰
+      (japanese-jisx0208	  . #x3878)	; ø»†³‘
+      (korean-ksc5601		  . #x4D6B)	; ø»‰›¾
+      (ideograph-daikanwa	  . 01452)	; ø¸€–¬
+      )
+     ((ucs		  . #x5FC3)	; å¿ƒ
+      ))
+    (china3-jef		. #x4DC9)	; øº„·‰
+    (ideograph-cbeta	. 00784)	; ø¸ Œ
+    ))
+(define-char
+  '((morohashi-daikanwa	10366 0 1)
     (ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
@@ -937,6 +956,7 @@
      ((ucs		  . #x5FC3)	; å¿ƒ
       ))
     (chinese-cns11643-3 . #x287E)	; ø»•¢“
+    (mojikyo		. 010366)	; ý €‚¡¾
     (ucs		. #x5FE9)	; å¿©
     ))
 (define-char
@@ -1342,15 +1362,24 @@
     (ucs		. #x225F9)	; ð¢—¹
     ))
 (define-char
-  '((ideographic-radical . 61)	; â¼¼
+  '((=>ucs		. #x5FFC)	; å¿¼
+    (ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (japanese-jisx0212		. #x3D50)	; ø»‹Ž‡
-    (chinese-cns11643-3		. #x257A)	; ø»•µ
     (japanese-jisx0213-2	. #x2C45)	; ø»¤­®
     (ideograph-daikanwa		. 10403)	; ø¸‚¢£
+    (china3-jef			. #x91D3)	; øº‰‡“
     (ideograph-cbeta		. 02638)	; ø¸ ©Ž
-    (ucs			. #x5FFC)	; å¿¼
+    (mojikyo			. 010403)	; ý €‚¢£
+    ))
+(define-char
+  '((morohashi-daikanwa	10403 0 0)
+    (ideographic-radical . 61)	; â¼¼
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (chinese-cns11643-3 . #x257A)	; ø»•µ
+    (ucs		. #x5FFC)	; å¿¼
     ))
 (define-char
   '((ideographic-radical . 61)	; â¼¼

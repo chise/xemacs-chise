@@ -961,6 +961,8 @@
     (japanese-jisx0213-2	. #x2333)	; ø»¤ Ž
     (chinese-big5		. #xB9B9)	; ý¢€‹¦¹
     (ideograph-daikanwa		. 01797)	; ø¸€œ…
+    (china3-jef			. #x98DF)	; øº‰£Ÿ
+    (mojikyo			. 001797)	; ý €€œ…
     (ucs			. #x51F3)	; å‡³
     ))
 (define-char

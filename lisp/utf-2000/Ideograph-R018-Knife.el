@@ -2178,6 +2178,8 @@
     (chinese-cns11643-2 . #x2551)	; ø»““ˆ
     (chinese-big5	. #xCBD1)	; ý¢€Œ¯‘
     (ideograph-daikanwa . 01955)	; ø¸€ž£
+    (china3-jef		. #x8FCB)	; øºˆ¿‹
+    (mojikyo		. 001955)	; ý €€ž£
     (ucs		. #x5232)	; åˆ²
     ))
 (define-char
