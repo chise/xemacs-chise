@@ -1,5 +1,20 @@
 2005-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R052-Short-Thread.el (C1-5E7D): Unify BC-85A6.
+
+	* Ideograph-R045-Sprout.el (U+5C6E): Use `->denotational'.
+	(U+FA3C): Add `<-denotational' for U+5C6E; use `=ucs@unicode'
+	instead of `=ucs@{gb|cns|big5}' for U+5C6E; add `=ucs@jis/2000'
+	for U+FA3C.
+	(U-0002F878): Add `<-denotational' for U+5C6E; unify BC-8D6A.
+	(U+37A2): Unify H3-D0A8.
+
+	* Ideograph-R009-Man.el (U+4FEE): Use `ideographic-radical@cns'
+	and `ideographic-radical@cns*sources' instead of
+	`ideographic-radical'; use `ideographic-radical@shinjigen' instead
+	of `shinjigen-1-radical'; use `->subsumptive'.
+	(U+4FEF): Use `->subsumptive'.
+
 	* Ideograph-R005-Second.el (U+4E7E): Delete
 	`ideographic-structure'.
 
