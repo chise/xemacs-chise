@@ -609,11 +609,13 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (<-ancient
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 721)
-		 (=daikanwa	     . 02742)	; &I-M-02742;
-		 )
+     ((shinjigen-1	  . 721)
+      (=ucs		  . #x5354)	; 協
+      (=jis-x0208	  . #x3628)	; &I-J90-3628; [22-08]
+      (=daikanwa	  . 02742)	; &I-M-02742;
       ))
+    (<-ancient*sources
+     shuowen jiyun daikanwa shinjigen-1)
     (hanyu-dazidian	1 568 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -3621,31 +3623,28 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x53E3)	; 口
-      )
-     ((=ucs		  . #x6728)	; 木
-      ))
-    (shinjigen-2	. 1009)
     (=ucs		. #x5446)	; 呆
-    (=jis-x0208		. #x4A72)	; &I-J90-4A72; [42-82]
-    (=gb2312		. #x3474)	; &I-G0-3474; [20-84]
-    (=big5		. #xA762)	; &I-B-A762;
-    (=gt		. 04295)	; &I-GT-04295;
-    (=gt-k		. 02647)	; &I-GT-K02647;
-    (=gt-pj-1		. #x4A72)	; &I-GT-04295; [42-82]
-    (=daikanwa		. 03395)	; &I-M-03395;
-    ))
-(define-char
-  '((=>ucs		. #x5446)	; 呆
-    (morohashi-daikanwa	3395 0 1)
-    (ideographic-radical . 30)	; ⼝
-    (ideographic-strokes . 4)
-    (total-strokes	 . 7)
-    (=cns11643-1	. #x4944)	; &C1-4944; [41-36]
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=ucs		    . #x6728)	; 木
+	))
+      (shinjigen-2	  . 1009)
+      (=jis-x0208	  . #x4A72)	; &GT-04295; [42-82]
+      (=gb2312		  . #x3474)	; &I-G0-3474; [20-84]
+      (=big5		  . #xA762)	; &I-B-A762;
+      (=gt		  . 04295)	; &I-GT-04295;
+      (=gt-k		  . 02647)	; &I-GT-K02647;
+      (=gt-pj-1		  . #x4A72)	; &I-GT-04295; [42-82]
+      (=daikanwa	  . 03395)	; &I-M-03395;
+      (=ucs@unicode	  . #x5446)	; &GT-04295;
+      )
+     ((=cns11643-1	  . #x4944)	; &C1-4944; [41-36]
+      ))
     ))
 (define-char
   '((ideographic-radical . 30)	; ⼝
