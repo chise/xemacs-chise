@@ -132,13 +132,18 @@
   '((ideographic-radical . 57)	; â¼¸
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (original-ideograph-of
-     ((sources		  morohashi-daikanwa)
-      (char . ((ideograph-daikanwa . 09698)	; ø¸‚—¢
-	       ))
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 37)
+    (hanyu-dazidian-char . 4)
+    (<-original-ideograph
+     (:sources	(morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 09698)	; ø¸‚—¢
+		 )
       ))
     (chinese-cns11643-6 . #x2322)	; ø»›·­
     (ideograph-daikanwa . 09706)	; ø¸‚—ª
+    (chinese-big5-cdp	. #x87DB)	; ý¢€ˆŸ›
+    (ucs		. #x223A3)	; ð¢Ž£
     ))
 (define-char
   '((morohashi-daikanwa	9706 0 2)
