@@ -140,7 +140,11 @@ CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_NON_ASCII_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch)
 {
-  unsigned char lb = CHAR_LEADING_BYTE (ch);
+#ifdef UTF2000
+  Charset_ID lb = CHAR_CHARSET_ID (ch);
+#else
+  Charset_ID lb = CHAR_LEADING_BYTE (ch);
+#endif
   if (!CHAR_TABLE_ENTRYP ((ct)->level1[lb - MIN_LEADING_BYTE]))
     return (ct)->level1[lb - MIN_LEADING_BYTE];
   else

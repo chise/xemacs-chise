@@ -1743,29 +1743,75 @@ With argument, insert value in current buffer after the form."
   ;; file if under Mule.  If there are any extended characters in the
   ;; input file, use `escape-quoted' to make sure that both binary and
   ;; extended characters are output properly and distinguished properly.
-  ;; Otherwise, use `raw-text' for maximum portability with non-Mule
+  ;; Otherwise, use `binary' for maximum portability with non-Mule
   ;; Emacsen.
   (when (featurep '(or mule file-coding))
     (defvar buffer-file-coding-system)
-    (if (or (featurep '(not mule)) ;; Don't scan buffer if we are not muleized
-	    (save-excursion
-	      (set-buffer byte-compile-inbuffer)
+    (let (ces)
+      (if (featurep 'mule)
+	  (save-excursion
+	    (set-buffer byte-compile-inbuffer)
+	    (goto-char (point-min))
+	    ;; mrb- There must be a better way than skip-chars-forward
+	    (skip-chars-forward (concat (char-to-string 0) "-"
+					(char-to-string 255)))
+	    (if (eq (point) (point-max))
+		(setq ces 'binary)
 	      (goto-char (point-min))
-	      ;; mrb- There must be a better way than skip-chars-forward
+	      (while (< (point)(point-max))
+		(cond ((eq (char-after) ?\;)
+		       (delete-region (point)(point-at-eol))
+		       (if (eq (char-after) ?\n)
+			   (delete-char 1)
+			 (forward-char))
+		       )
+		      ((eq (char-after) ?\?)
+		       (forward-char 2)
+		       )
+		      ((eq (char-after) ?\n)
+		       (forward-char)
+		       )
+		      ((eq (char-after) ?\")
+		       (forward-char)
+		       (while (and (< (point)(point-max))
+				   (not (when (eq (char-after) ?\")
+					  (forward-char)
+					  t)))
+			 (if (eq (char-after) ?\\)
+			     (forward-char 2)
+			   (forward-char)))
+		       )
+		      (t
+		       (forward-char))))
+	      (goto-char (point-min))
 	      (skip-chars-forward (concat (char-to-string 0) "-"
-					  (char-to-string 255)))
-	      (eq (point) (point-max))))
-	(setq buffer-file-coding-system 'raw-text-unix)
-      (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
-      (setq buffer-file-coding-system 'escape-quoted)
-      ;; #### Lazy loading not yet implemented for MULE files
-      ;; mrb - Fix this someday.
-      (save-excursion
-	(set-buffer byte-compile-inbuffer)
-	(setq byte-compile-dynamic nil
-	      byte-compile-dynamic-docstrings nil))
-      ;;(external-debugging-output (prin1-to-string (buffer-local-variables))))
-      ))
+					  (char-to-string 255))))
+	    (setq ces
+		  (if (eq (point) (point-max))
+		      (if (and (featurep 'utf-2000)
+			       (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
+			  'utf-8-unix
+			'binary))))
+	(setq ces 'binary))
+      (if (eq ces 'binary)
+	  (setq buffer-file-coding-system 'binary)
+	(cond ((eq ces 'utf-8-unix)
+	       (insert "(require 'mule)\n;;;###coding system: utf-8-unix\n")
+	       (setq buffer-file-coding-system 'utf-8-unix)
+	       )
+	      (t
+	       (insert "(require 'mule)\n;;;###coding system: escape-quoted\n")
+	       (setq buffer-file-coding-system 'escape-quoted)
+	       ))
+	;; #### Lazy loading not yet implemented for MULE files
+	;; mrb - Fix this someday.
+	(save-excursion
+	  (set-buffer byte-compile-inbuffer)
+	  (setq byte-compile-dynamic nil
+		byte-compile-dynamic-docstrings nil))
+        ;; (external-debugging-output
+        ;;  (prin1-to-string (buffer-local-variables)))
+	)))
   )
 
 

@@ -871,14 +871,17 @@ If there is no such live buffer, return nil."
 	  found))))
 
 (defun insert-file-contents-literally (filename &optional visit beg end replace)
-  "Like `insert-file-contents', q.v., but only reads in the file.
+  "Like `insert-file-contents', q.v., but only reads in the file literally.
 A buffer may be modified in several ways after reading into the buffer due
-to advanced Emacs features, such as file-name-handlers, format decoding,
-find-file-hooks, etc.
-  This function ensures that none of these modifications will take place."
-  (let ((file-name-handler-alist nil)
-	(format-alist nil)
+to advanced Emacs features, such as format decoding, character code
+conversion,find-file-hooks, automatic uncompression, etc.
+
+This function ensures that none of these modifications will take place."
+  (let ((format-alist nil)
 	(after-insert-file-functions nil)
+	(coding-system-for-read 'binary)
+	(coding-system-for-write 'binary)
+	(jka-compr-compression-info-list nil)
 	(find-buffer-file-type-function
 	 (if (fboundp 'find-buffer-file-type)
 	     (symbol-function 'find-buffer-file-type)
