@@ -1,5 +1,7 @@
 2002-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R082-Fur.el: Add mappings to CBETA numbers.
+
 	* Ideograph-R148-Horn.el (CB00976): Unify J0-5A4F; moved to
 	Ideograph-R068-Dipper.el.
 
