@@ -18,7 +18,25 @@
      ((=gb2312		  . #x4122)	; &C1-4721; [33-02]
       (=cns11643-1	  . #x4721)	; &I-C1-4721; [39-01]
       (=ucs@unicode	  . #x7ACB)	; &C1-4721;
+      )
+     ((=gt-k		  . 01020)	; &GT-K01020;
+      (=gt-pj-k1	  . #x3D79)	; &GT-K01020; [29-89]
       ))
+    ))
+(define-char
+  '((ideographic-radical . 117)	; ⽴
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-denotational
+     ((=ucs		  . #x7ACB)	; 立
+      ))
+    (<-ideographic-component-forms
+     ((=jis-x0208	  . #x4E29)	; &GT-33181; [46-09]
+      (=ks-x1001	  . #x5821)	; &I-K0-5821; [56-01]
+      (=daikanwa	  . 25721)	; &I-M-25721;
+      ))
+    (=gt-k		. 01019)	; &GT-K01019;
+    (=gt-pj-k1		. #x3478)	; &GT-K01019; [20-88]
     ))
 (define-char
   '((ideographic-radical . 117)	; ⽴
