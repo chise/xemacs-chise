@@ -1,3 +1,25 @@
+2002-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el: Add some missing mappings between CNS
+	11643 plain 5 and UCS.
+
+2002-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (M-16014): Add mapping for U+3C20.
+	(C4-2970): Add mapping for U+3C24.
+	(M-16102): Add mapping for U-000238CB.
+	(CB00654): Likewise.
+
+	* Ideograph-R074-Moon.el (C5-2E24): Unify U-000266B9 to avoid to
+	use `->identical'.
+
+	* Ideograph-R066-Rap.el (M-13341): Unify U+3AA2; separate C5-462E.
+
+	* Ideograph-R088-Father.el (M-19731): Add mapping for U+3E18.
+
+	* ideograph-util.el (char-representative-of-daikanwa): Add
+	autoload cookie.
+
 2002-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R082-Fur.el: Add mappings to CBETA numbers.
