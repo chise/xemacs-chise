@@ -1,3 +1,7 @@
+1999-10-08   Daiki Ueno  <ueno@ueda.info.waseda.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Fix regexp.
+
 1999-10-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/ccs-viscii.el: Rename `vietnamese-viscii-*' to
