@@ -1,3 +1,23 @@
+1999-10-03  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MAKE_CHAR): Allow nested decoding-table.
+
+	* mule-charset.c (destroy_byte_from_character_table): New macro.
+	(latin_jisx0201_to_ucs): Deleted.
+	(latin_iso8859_2_to_ucs): Deleted.
+	(latin_iso8859_3_to_ucs): Deleted.
+	(latin_iso8859_4_to_ucs): Deleted.
+	(latin_iso8859_9_to_ucs): Deleted.
+	(latin_viscii_lower_to_ucs): Deleted.
+	(latin_viscii_upper_to_ucs): Deleted.
+	(mark_charset): Mark `cs->decoding_table'.
+	(Fcharset_mapping_table): Fix DOC-string.
+	(Fset_charset_mapping_table): New function.
+	(syms_of_mule_charset): Add nwe function
+	`set-charset-mapping-table'.
+	(complex_vars_of_mule_charset): Don't setup and use
+	`latin_*_to_ucs'.
+
 1999-10-01  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* char-ucs.h (MAKE_CHAR): Check the result for range-represented
