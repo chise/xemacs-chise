@@ -1,3 +1,9 @@
+2004-02-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Use
+	`<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+
 2004-02-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R134-Mortar.el (U+81FD): Use `->subsumptive'.
