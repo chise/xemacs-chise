@@ -1,6 +1,6 @@
 ;;; ideograph-util.el --- Ideographic Character Database utility
 
-;; Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko.
+;; Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -266,13 +266,12 @@
 	  ccss (sort ccss #'char-attribute-name<))
     (aset ideograph-radical-chars-vector radical chars)
     (dolist (char chars)
-      (when (some (lambda (ccs)
-		    (let ((code (encode-char char ccs)))
-		      (and code
-			   ;;(not (memq ccs char-db-ignored-attributes))
-			   ;;(or (not (memq ccs '(ucs))
-			   (and (<= 0 code)(<= code #x10FFFF)))))
-		  ccss)
+      (when (or (not (some (lambda (atr)
+			     (get-char-attribute char atr))
+			   char-db-ignored-attributes))
+		(some (lambda (ccs)
+			(encode-char char ccs 'defined-only))
+		      ccss))
 	(insert-char-data char nil attributes ccss)))))
 
 (defun write-ideograph-radical-char-data (radical file)
