@@ -37,6 +37,14 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x4E36)	; ä¸¶
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      ))
     (chinese-gb12345	. #x7D65)	; ä¸·
     (mojikyo		. 059001)	; ý €Ž™¹
     (ucs		. #x4E37)	; ä¸·
@@ -364,6 +372,35 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 21)
     (hanyu-dazidian-char . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	  (ucs		      . #x2FF5)	; â¿µ
+	  )
+	 ((ucs		      . #x5182)	; å†‚
+	  )
+	 ((ucs		      . #x4E36)	; ä¸¶
+	  ))
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+	  (ucs		      . #x2FF5)	; â¿µ
+	  )
+	 ((ucs		      . #x5182)	; å†‚
+	  )
+	 ((ucs		      . #x4E36)	; ä¸¶
+	  ))
+	))
+      ))
     (chinese-gb2312	. #x4076)	; ø»„´»
     (chinese-isoir165	. #x4076)	; ø»‹
     (ucs		. #x4E3D)	; ä¸½
@@ -375,6 +412,23 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 47)
     (hanyu-dazidian-char . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+	(ucs		    . #x2FF3)	; â¿³
+	)
+       ((chinese-big5-cdp   . #x89B2)	; ý¢€ˆ¦²
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	)
+       ((ucs		    . #x516B)	; å…«
+	))
+      )
+     ((chinese-big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+      ))
     (chinese-gb2312	. #x3E59)	; ø»„±¢
     (chinese-isoir165	. #x3E59)	; ø»™²
     (ucs		. #x4E3E)	; ä¸¾
