@@ -389,6 +389,7 @@
 	(when-feature utf-2000 "u0FF00-Halfwidth-and-Fullwidth-Forms")
 	(when-feature utf-2000 "u0FFF0-Specials")
 	(when-feature utf-2000 "mojikyo")
+	(when-feature utf-2000 "ccs-tcvn5712.el")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
@@ -436,7 +437,8 @@
 	(when-feature mule "thai-xtis-chars")
 	(when-feature mule "mule/thai-xtis") ; overloaded in leim/quail
 	(when-feature mule "viet-chars")
-	(when-feature (and mule (not utf-2000)) "vietnamese")
+	(when-feature (and mule (not utf-2000)) "viet-ccl")
+	(when-feature mule "vietnamese")
 
 	;; Specialized language support
 	(when-feature (and mule CANNA) "canna-leim")
