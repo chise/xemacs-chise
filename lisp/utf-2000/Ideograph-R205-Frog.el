@@ -34,7 +34,8 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
     (<-vulgar
-     ((=daikanwa	  . 48257)	; &I-M-48257;
+     ((=jis-x0208	  . #x7366)	; &M-48257;
+      (=daikanwa	  . 48257)	; &I-M-48257;
       ))
     (<-vulgar*sources
      zhengzi-tong daikanwa)
@@ -43,7 +44,7 @@
     (=daikanwa		. 48258)	; &I-M-48258;
     ))
 (define-char
-  '((morohashi-daikanwa	48258 0 2)
+  '((=>daikanwa		. 48258)	; 黾
     (ideographic-radical@ucs . 205)	; ⿌
     (ideographic-strokes@ucs . 0)
     (ideographic-radical@cns . 30)	; ⼝
