@@ -107,14 +107,14 @@
     ))
 (define-char
   '((morohashi-daikanwa	3118 1)
-    (ideographic-	(:radical	29 ; ⼜
-			 :strokes	2
-			 :total-strokes	4
-			 :sources	(morohashi-daikanwa jis-x0208 cns-11643 ucs))
-			(:radical	4 ; ⼃
-			 :strokes	2
-			 :total-strokes	3
-			 :sources	(gt)))
+    (ideographic-radical@ucs . 29)	; ⼜
+    (ideographic-strokes@ucs . 2)
+    (total-strokes@ucs	     . 4)
+    (ideographic-radical@ucs*sources
+     daikanwa jis-x0208 cns11643 ucs)
+    (ideographic-radical@gt . 4)	; ⼃
+    (ideographic-strokes@gt . 2)
+    (total-strokes@gt	    . 3)
     (hanyu-dazidian	1 35 1)
     (shinjigen-1	. 900)
     (shinjigen-2	. 900)
