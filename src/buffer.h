@@ -532,11 +532,11 @@ charptr_copy_char (CONST Bufbyte *ptr, Bufbyte *ptr2)
 
 #ifdef MULE
 
-int non_ascii_valid_char_p (Emchar ch);
-
 #ifdef UTF2000
 #define valid_char_p(ch) 1
 #else
+int non_ascii_valid_char_p (Emchar ch);
+
 INLINE int valid_char_p (Emchar ch);
 INLINE int
 valid_char_p (Emchar ch)
