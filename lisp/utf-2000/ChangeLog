@@ -1,3 +1,10 @@
+2003-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R170-Mound.el (M-41836): Unify GT-56167.
+	(M-41858'): Unify GT-56222.
+	(GT-56223): New character.
+	(M-41859): Unify GT-56217.
+
 2003-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el, u030A0-Katakana.el,
