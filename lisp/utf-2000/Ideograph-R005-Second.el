@@ -395,7 +395,6 @@
      ((ucs		  . #x5360)	; å 
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (chinese-gb2312		. #x5840)	; ø»…—•
@@ -575,7 +574,6 @@
       (ideograph-daikanwa	  . 06948)	; ø¸¬¤
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (shinjigen-1	. 63)
@@ -600,7 +598,6 @@
      ((ucs		  . #x5B5A)	; å­š
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (shinjigen-1	. 62)
@@ -888,13 +885,11 @@
      (:cdp-combinator	4
       )
      ((name		  . "CJK RADICAL PAW ONE")
-      (chinese-big5-cdp	  . #x8B58)	; âº¤
       (ucs		  . #x2EA4)	; âº¤
       )
      ((chinese-big5-cdp	  . #x8AFB)	; ï“–
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (chinese-cns11643-2 . #x334E)	; ø»“§©
@@ -1065,10 +1060,8 @@
 		 )
       )
      ((chinese-cns11643-4 . #x386A)	; ø»˜ƒ£
-      (chinese-big5-cdp	  . #x8C7D)	; ø»˜ƒ£
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (chinese-cns11643-1 . #x632A)	; ø»’£¡
@@ -1088,11 +1081,9 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-big5-cdp	  . #x8CB9)	; ç²¦
-      (ucs		  . #x7CA6)	; ç²¦
+     ((ucs		  . #x7CA6)	; ç²¦
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (ideograph-gt-pj-2	. #x316F)	; ý¡€€„Ÿ
@@ -1131,7 +1122,6 @@
      ((ucs		  . #x58F9)	; å£¹
       )
      ((name		  . "CJK RADICAL SECOND TWO")
-      (chinese-big5-cdp	  . #x8C5D)	; âºƒ
       (ucs		  . #x2E83)	; âºƒ
       ))
     (chinese-cns11643-2 . #x4157)	; ø»“¼–
