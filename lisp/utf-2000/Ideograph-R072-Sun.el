@@ -530,7 +530,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((korean-ksc5601	  . #x546A)	; ø»‰¦
+     ((=jis-x0208	  . #x4656)	; ø½Š­‡
+      (korean-ksc5601	  . #x546A)	; ø»‰¦
       (ideograph-daikanwa . 07828)	; ø¸º”
       )
      ((ucs		  . #x65E5)	; æ—¥
@@ -4019,7 +4020,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((korean-ksc5601	  . #x7C31)	; ø»Š †
+     ((=jis-x0208	  . #x5476)	; ø½‹‚‹
+      (korean-ksc5601	  . #x7C31)	; ø»Š †
       (ideograph-daikanwa . 05916)	; ø¸œœ
       ))
     (ideograph-daikanwa . 14060)	; ø¸ƒ›¬
@@ -4540,7 +4542,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((ideograph-daikanwa . 16629)	; ø¸„ƒµ
+     ((=jis-x0208	  . #x3B26)	; ø½Šœ
+      (ideograph-daikanwa . 16629)	; ø¸„ƒµ
       ))
     (ideograph-daikanwa . 14104)	; ø¸ƒœ˜
     (ideograph-cbeta	. 02842)	; ø¸ ¬š
@@ -5453,7 +5456,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((korean-ksc5601	  . #x5E6A)	; ø»‰´»
+     ((=jis-x0208	  . #x652F)	; ø½‹š‚
+      (korean-ksc5601	  . #x5E6A)	; ø»‰´»
       (ideograph-daikanwa . 27448)	; ø¸†¬¸
       ))
     (ideograph-daikanwa . 14174)	; ø¸ƒž
@@ -6496,7 +6500,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((korean-ksc5601	  . #x4E46)	; ø»‰œ·
+     ((=jis-x0208	  . #x5722)	; ø½‹…‘
+      (korean-ksc5601	  . #x4E46)	; ø»‰œ·
       (ideograph-daikanwa . 09493)	; ø¸‚”•
       ))
     (ideograph-daikanwa . 14246)	; ø¸ƒž¦
@@ -6924,7 +6929,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((korean-ksc5601	  . #x547E)	; ø»‰¦£
+     ((=jis-x0208	  . #x4D65)	; ø½Š·¨
+      (korean-ksc5601	  . #x547E)	; ø»‰¦£
       (ideograph-daikanwa . 28397)	; ø¸†»­
       ))
     (ideograph-daikanwa . 14264)	; ø¸ƒž¸
@@ -7105,7 +7111,8 @@
       )
      ((ucs		  . #x65E5)	; æ—¥
       )
-     ((korean-ksc5601	  . #x6155)	; ø»‰¹€
+     ((=jis-x0208	  . #x5624)	; ø½‹ƒµ
+      (korean-ksc5601	  . #x6155)	; ø»‰¹€
       (ideograph-daikanwa . 07821)	; ø¸º
       ))
     (ideograph-daikanwa . 14274)	; ø¸ƒŸ‚
