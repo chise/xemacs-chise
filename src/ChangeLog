@@ -1,3 +1,50 @@
+2000-06-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* character.h (CHARC_CHARSET): New macro.
+	(CHARC_CHARSET_ID): New macro.
+	(CHARC_CODE_POINT): New macro.
+	(CHARC_COLUMNS): New macro.
+	(CHARC_TO_CHAR): New inline function.
+	(CHARC_EQ): New inline function.
+	(CHARC_ASCII_EQ): New inline function.
+	(CHARC_IS_SPACE): New inline function.
+	(ASCII_TO_CHARC): New inline function.
+
+	* char-ucs.h (encode_char_2): Deleted.
+	(ENCODE_CHAR): Use `encode_char_1' again.
+	(breakup_char_1): Likewise.
+	(CHAR_TO_CHARC): New inline function.
+
+	* char-lb.h, char-1byte.h (CHAR_TO_CHARC): New inline function.
+
+2000-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* redisplay.c (add_emchar_rune): Use `ASCII_TO_CHARC',
+	`CHAR_TO_CHARC' and `CHARC_CHARSET'.
+	(create_text_block): Use `CHARC_ASCII_EQ' and `CHARC_IS_SPACE'.
+	(generate_formatted_string_db): Use `CHARC_TO_CHAR'.
+	(create_string_text_block): Use `CHARC_ASCII_EQ' and
+	`CHARC_IS_SPACE'.
+	(pixel_to_glyph_translation): Use `CHARC_ASCII_EQ'.
+
+	* redisplay-x.c (separate_textual_runs): Use `CHARC_CHARSET' and
+	`CHARC_CODE_POINT'.
+	(x_output_display_block): Use `CHARC_CHARSET' and
+	`CHARC_ASCII_EQ'.
+
+	* redisplay-tty.c (tty_output_display_block): Use
+	`CHARC_ASCII_EQ'.
+	(tty_output_display_block): Likewise; use `ASCII_TO_CHARC'.
+
+	* redisplay-output.c (compare_runes): Use `CHARC_EQ'.
+
+	* insdel.c (find_charsets_in_charc_string): Use
+	`CHARC_CHARSET_ID'.
+	(charc_string_displayed_columns): Use `CHARC_COLUMNS'.
+	(convert_bufbyte_string_into_charc_dynarr): Use `CHAR_TO_CHARC'.
+	(convert_charc_string_into_bufbyte_dynarr): Use `CHARC_TO_CHAR'.
+	(convert_charc_string_into_malloced_string): Likewise.
+
 2000-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* toolbar-x.c (x_output_toolbar_button): Use <Charc_dynarr *>
