@@ -1306,11 +1306,11 @@
   '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (korean-ksc5601		. #x6E64)	; ø»ŠŒ•
-    (chinese-cns11643-1		. #x6670)	; ø»’©
-    (chinese-gb12345		. #x5474)	; è³Š
-    (ideograph-daikanwa		. 36759)	; ø¸ˆ¾—
-    (ucs			. #x8CCA)	; è³Š
+    (korean-ksc5601	. #x6E64)	; ø»ŠŒ•
+    (chinese-cns11643-1 . #x6670)	; ø»’©
+    (chinese-gb12345	. #x5474)	; è³Š
+    (ideograph-daikanwa . 36759)	; ø¸ˆ¾—
+    (ucs		. #x8CCA)	; è³Š
     ))
 (define-char
   '((=>ucs		. #x8CCA)	; è³Š
