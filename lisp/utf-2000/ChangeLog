@@ -1,3 +1,8 @@
+2003-07-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* read-maps.el (mapping-table-read-file): Accept C1-HHHH and
+	C2-HHHH; don't regard `=>ucs' as substitution for `=ucs-jis-1990'.
+
 2003-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
