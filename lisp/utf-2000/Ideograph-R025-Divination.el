@@ -69,7 +69,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B41)	; ä¸¶
+     ((chinese-big5-cdp	  . #x8B41)	; ý¢€ˆ­
       (ucs		  . #x4E36)	; ä¸¶
       )
      ((ucs		  . #x4E0B)	; ä¸‹
@@ -103,7 +103,7 @@
 		 )
       )
      ((name		  . "CJK RADICAL DIVINATION")
-      (chinese-big5-cdp	  . #x8B78)	; âºŠ
+      (chinese-big5-cdp	  . #x8B78)	; ý¢€ˆ­¸
       (ucs		  . #x2E8A)	; âºŠ
       )
      ((ucs		  . #x53E3)	; å£
@@ -238,10 +238,10 @@
 		 )
       )
      ((name		  . "CJK RADICAL DIVINATION")
-      (chinese-big5-cdp	  . #x8B78)	; âºŠ
+      (chinese-big5-cdp	  . #x8B78)	; ý¢€ˆ­¸
       (ucs		  . #x2E8A)	; âºŠ
       )
-     ((chinese-big5-cdp	  . #x8DE5)	; ïš—
+     ((chinese-big5-cdp	  . #x8DE5)	; ý¢€ˆ·¥
       ))
     (shinjigen-1	. 839)
     (shinjigen-2	. 839)

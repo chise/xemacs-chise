@@ -34,7 +34,7 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; âº…
+      (chinese-big5-cdp	  . #x8AF5)	; ý¢€ˆ«µ
       (ucs		  . #x2E85)	; âº…
       )
      ((ideograph-daikanwa . 02571)	; ø¸€¨‹
@@ -59,7 +59,7 @@
 		 )
       )
      ((name		  . "CJK RADICAL PERSON")
-      (chinese-big5-cdp	  . #x8AF5)	; âº…
+      (chinese-big5-cdp	  . #x8AF5)	; ý¢€ˆ«µ
       (ucs		  . #x2E85)	; âº…
       )
      ((ucs		  . #x5315)	; åŒ•
@@ -90,7 +90,7 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BC5)	; ï”½
+     ((chinese-big5-cdp	  . #x8BC5)	; ý¢€ˆ¯…
       )
      ((ucs		  . #x5315)	; åŒ•
       ))
@@ -118,7 +118,7 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BC5)	; ï”½
+     ((chinese-big5-cdp	  . #x8BC5)	; ý¢€ˆ¯…
       )
      ((ucs		  . #x5315)	; åŒ•
       ))
