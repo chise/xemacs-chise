@@ -16,10 +16,21 @@
     (=daikanwa		. 19653)	; &I-M-19653;
     ))
 (define-char
-  '((=>ucs		. #x722B)	; 爫
-    (ideographic-radical . 87)	; ⽖
+  '((ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x722A)	; 爪
+      ))
+    (=ucs		. #x722B)	; 爫
+    ))
+(define-char
+  '((ideographic-radical . 87)	; ⽖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
     (=jis-x0212		. #x4A48)	; &M-19655; [42-40]
     (=cns11643-4	. #x2151)	; &I-C4-2151; [01-49]
     (=jis-x0213-2-2000	. #x702A)	; &I-JX2-702A; [80-10]
@@ -27,25 +38,38 @@
     (=ucs@jis		. #x722B)	; &M-19655;
     ))
 (define-char
-  '((=>ucs@jis		. #xFA49)	; 爫
-    (morohashi-daikanwa	19655 0 2)
-    (ideographic-radical . 87)	; ⽖
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (->identical
-     ((=ucs		  . #xFA49)	; 爫
+  '((name		. "CJK RADICAL PAW TWO")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (<-denotational
+     ((=ucs		  . #x722B)	; 爫
       ))
-    (=ucs		. #x722B)	; 爫
+    (<-radical
+     ((=ucs		  . #x722A)	; 爪
+      ))
+    (=ucs		. #x2EA5)	; ⺥
     ))
 (define-char
-  '((=>ucs*		. #x722B)	; 爫
-    (morohashi-daikanwa	19655 0 3)
+  '((name		. "CJK RADICAL PAW ONE")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (=ucs		. #xFA49)	; 爫
+    (<-denotational
+     ((=ucs		  . #x722B)	; 爫
+      ))
+    (=ucs		. #x2EA4)	; ⺤
     (=jis-x0213-2-2000	. #x7029)	; &I-JX2-7029; [80-09]
-    (=ucs@gb		. #x722B)	; 爫
+    (=big5-cdp		. #x8B58)	; &I-CDP-8B58;
+    (=ucs@unicode	. #x722B)	; ⺤
+    (=ucs@jis		. #xFA49)	; ⺤
+    (->subsumptive
+     ((=>ucs*		  . #x722B)	; 爫
+      (=ucs		  . #xFA49)	; 爫
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
