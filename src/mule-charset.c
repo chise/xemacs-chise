@@ -2070,6 +2070,162 @@ Set mapping-table of CHARSET to TABLE.
     }
   return table;
 }
+
+DEFUN ("save-charset-mapping-table", Fsave_charset_mapping_table, 1, 1, 0, /*
+Save mapping-table of CHARSET.
+*/
+       (charset))
+{
+#ifdef HAVE_DATABASE
+  struct Lisp_Charset *cs;
+  int byte_offset, chars;
+  Lisp_Object db;
+  Lisp_Object db_dir = Vexec_directory;
+  Lisp_Object db_file;
+
+  charset = Fget_charset (charset);
+  cs = XCHARSET (charset);
+
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
+  db_dir = Fexpand_file_name (Fsymbol_name (CHARSET_NAME (cs)), db_dir);
+  if (NILP (Ffile_exists_p (db_dir)))
+    Fmake_directory_internal (db_dir);
+
+  db_file = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+      
+  byte_offset = CHARSET_BYTE_OFFSET (cs);
+  chars = CHARSET_CHARS (cs);
+  switch (CHARSET_DIMENSION (cs))
+    {
+    case 1:
+      {
+	Lisp_Object table_c = XCHARSET_DECODING_TABLE (charset);
+	int cell;
+
+	for (cell = byte_offset; cell < byte_offset + chars; cell++)
+	{
+	  Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
+
+	  if (CHARP (c))
+	    Fput_database (Fprin1_to_string (make_int (cell), Qnil),
+			   Fprin1_to_string (c, Qnil),
+			   db, Qt);
+	}
+      }
+      break;
+    case 2:
+      {
+	Lisp_Object table_r = XCHARSET_DECODING_TABLE (charset);
+	int row;
+
+	for (row = byte_offset; row < byte_offset + chars; row++)
+	  {
+	    Lisp_Object table_c = get_ccs_octet_table (table_r, charset, row);
+	    int cell;
+
+	    for (cell = byte_offset; cell < byte_offset + chars; cell++)
+	      {
+		Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
+
+		if (CHARP (c))
+		  Fput_database (Fprin1_to_string (make_int ((row << 8)
+							     | cell),
+						   Qnil),
+				 Fprin1_to_string (c, Qnil),
+				 db, Qt);
+	      }
+	  }
+      }
+      break;
+    case 3:
+      {
+	Lisp_Object table_p = XCHARSET_DECODING_TABLE (charset);
+	int plane;
+
+	for (plane = byte_offset; plane < byte_offset + chars; plane++)
+	  {
+	    Lisp_Object table_r
+	      = get_ccs_octet_table (table_p, charset, plane);
+	    int row;
+
+	    for (row = byte_offset; row < byte_offset + chars; row++)
+	      {
+		Lisp_Object table_c
+		  = get_ccs_octet_table (table_r, charset, row);
+		int cell;
+
+		for (cell = byte_offset; cell < byte_offset + chars; cell++)
+		  {
+		    Lisp_Object c = get_ccs_octet_table (table_c, charset,
+							 cell);
+
+		    if (CHARP (c))
+		      Fput_database (Fprin1_to_string (make_int ((plane << 16)
+								 | (row <<  8)
+								 | cell),
+						       Qnil),
+				     Fprin1_to_string (c, Qnil),
+				     db, Qt);
+		  }
+	      }
+	  }
+      }
+    default:
+      {
+	Lisp_Object table_g = XCHARSET_DECODING_TABLE (charset);
+	int group;
+
+	for (group = byte_offset; group < byte_offset + chars; group++)
+	  {
+	    Lisp_Object table_p
+	      = get_ccs_octet_table (table_g, charset, group);
+	    int plane;
+
+	    for (plane = byte_offset; plane < byte_offset + chars; plane++)
+	      {
+		Lisp_Object table_r
+		  = get_ccs_octet_table (table_p, charset, plane);
+		int row;
+
+		for (row = byte_offset; row < byte_offset + chars; row++)
+		  {
+		    Lisp_Object table_c
+		      = get_ccs_octet_table (table_r, charset, row);
+		    int cell;
+
+		    for (cell = byte_offset; cell < byte_offset + chars;
+			 cell++)
+		      {
+			Lisp_Object c
+			  = get_ccs_octet_table (table_c, charset, cell);
+
+			if (CHARP (c))
+			  Fput_database (Fprin1_to_string
+					 (make_int ((  group << 24)
+						    | (plane << 16)
+						    | (row   <<  8)
+						    |  cell),
+					  Qnil),
+					 Fprin1_to_string (c, Qnil),
+					 db, Qt);
+		      }
+		  }
+	      }
+	  }
+      }
+    }
+  return Fclose_database (db);
+#else
+  return Qnil;
+#endif
+}
 #endif
 
 
@@ -2409,6 +2565,7 @@ syms_of_mule_charset (void)
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
   DEFSUBR (Fencode_char);
+  DEFSUBR (Fsave_charset_mapping_table);
 #endif
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
