@@ -635,7 +635,7 @@
     (ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F22)	; ø»žª¹
+    (=cns11643-7	. #x3F22)	; ø»žª¹
     ))
 (define-char
   '((=>ucs		. #x2092A)	; ð ¤ª

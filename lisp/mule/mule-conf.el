@@ -106,11 +106,12 @@
   (make-chinese-cns11643-charset '=cns11643-4 184 "4" ?J)
   (make-chinese-cns11643-charset '=cns11643-5 185 "5" ?K)
   (make-chinese-cns11643-charset '=cns11643-6 186 "6" ?L)
-  (make-chinese-cns11643-charset 'chinese-cns11643-7 187 "7" ?M)
+  (make-chinese-cns11643-charset '=cns11643-7 187 "7" ?M)
   (define-charset-alias 'chinese-cns11643-3	'=cns11643-3)
   (define-charset-alias 'chinese-cns11643-4	'=cns11643-4)
   (define-charset-alias 'chinese-cns11643-5	'=cns11643-5)
   (define-charset-alias 'chinese-cns11643-6	'=cns11643-6)
+  (define-charset-alias 'chinese-cns11643-7	'=cns11643-7)
   )
 
 ;; JIS X 0213:2000

@@ -454,7 +454,7 @@
 			 :sources	(morohashi-daikanwa ucs)))
     (total-strokes	 . 16)
     (hanyu-dazidian	1 360 8)
-    (chinese-cns11643-7 . #x2C3C)	; ø»ž™
+    (=cns11643-7	. #x2C3C)	; ø»ž™
     (ideograph-daikanwa . 00246)	; ø¸€ƒ¶
     (=hanziku-1		. #xF043)	; ý¢€Ÿƒ
     (mojikyo		. 000246)	; ý €€ƒ¶

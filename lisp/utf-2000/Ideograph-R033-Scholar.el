@@ -731,7 +731,7 @@
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x217A)	; ø»ž€
+    (=cns11643-7	. #x217A)	; ø»ž€
     (ideograph-daikanwa . 05679)	; ø¸˜¯
     (=ucs		. #x2153C)	; ð¡”¼
     ))
@@ -752,7 +752,7 @@
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2179)	; ø»ž€Œ
+    (=cns11643-7	. #x2179)	; ø»ž€Œ
     (mojikyo		. 071379)	; ý €‘›“
     (=ucs		. #x2153D)	; ð¡”½
     ))
@@ -778,7 +778,7 @@
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2C75)	; ø»ž’
+    (=cns11643-7	. #x2C75)	; ø»ž’
     (ideograph-daikanwa . 05681)	; ø¸˜±
     (=ucs		. #x2153E)	; ð¡”¾
     ))
@@ -786,7 +786,7 @@
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F36)	; ø»ž«
+    (=cns11643-7	. #x3F36)	; ø»ž«
     (ideograph-daikanwa . 05683)	; ø¸˜³
     (=ucs		. #x21545)	; ð¡•…
     ))
@@ -794,7 +794,7 @@
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F37)	; ø»ž«Ž
+    (=cns11643-7	. #x3F37)	; ø»ž«Ž
     (ideograph-daikanwa . 05685)	; ø¸˜µ
     (=ucs		. #x2154B)	; ð¡•‹
     ))
@@ -810,14 +810,14 @@
     (ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x4648)	; ø»žµ±
+    (=cns11643-7	. #x4648)	; ø»žµ±
     (=ucs		. #x2154C)	; ð¡•Œ
     ))
 (define-char
   '((ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x4649)	; ø»žµ²
+    (=cns11643-7	. #x4649)	; ø»žµ²
     (ideograph-daikanwa . 05688)	; ø¸˜¸
     (=ucs		. #x2154D)	; ð¡•
     ))
@@ -833,6 +833,6 @@
     (ideographic-radical . 33)	; â¼ 
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
-    (chinese-cns11643-7 . #x575E)	; ø»Ÿ…
+    (=cns11643-7	. #x575E)	; ø»Ÿ…
     (=ucs		. #x21551)	; ð¡•‘
     ))

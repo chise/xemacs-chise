@@ -865,7 +865,7 @@
     (ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2141)	; ø»¿”
+    (=cns11643-7	. #x2141)	; ø»¿”
     (=ucs		. #x20A08)	; ð ¨ˆ
     ))
 (define-char
@@ -878,7 +878,7 @@
   '((ideographic-radical . 25)	; â¼˜
     (ideographic-strokes . 25)
     (total-strokes	 . 27)
-    (chinese-cns11643-7 . #x634B)	; ø»Ÿ š
+    (=cns11643-7	. #x634B)	; ø»Ÿ š
     (ideograph-daikanwa . 02834)	; ø¸€¬’
     (=ucs		. #x20A0B)	; ð ¨‹
     ))

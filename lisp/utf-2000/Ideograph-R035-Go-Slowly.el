@@ -540,7 +540,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2C77)	; ø»ž”
+    (=cns11643-7	. #x2C77)	; ø»ž”
     (=ucs		. #x2157A)	; ð¡•º
     ))
 (define-char
@@ -555,7 +555,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2C76)	; ø»ž“
+    (=cns11643-7	. #x2C76)	; ø»ž“
     (=ucs		. #x21579)	; ð¡•¹
     ))
 (define-char
@@ -570,7 +570,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3746)	; ø»žŸ­
+    (=cns11643-7	. #x3746)	; ø»žŸ­
     (=ucs		. #x2157B)	; ð¡•»
     ))
 (define-char
@@ -585,7 +585,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F38)	; ø»ž«
+    (=cns11643-7	. #x3F38)	; ø»ž«
     (=ucs		. #x2157E)	; ð¡•¾
     ))
 (define-char
@@ -600,7 +600,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F39)	; ø»ž«
+    (=cns11643-7	. #x3F39)	; ø»ž«
     (=ucs		. #x2157F)	; ð¡•¿
     ))
 (define-char
@@ -615,7 +615,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x464A)	; ø»žµ³
+    (=cns11643-7	. #x464A)	; ø»žµ³
     (=ucs		. #x2157C)	; ð¡•¼
     ))
 (define-char
@@ -630,7 +630,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F3A)	; ø»ž«‘
+    (=cns11643-7	. #x3F3A)	; ø»ž«‘
     (=ucs		. #x2157D)	; ð¡•½
     ))
 (define-char
@@ -655,7 +655,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x464B)	; ø»žµ´
+    (=cns11643-7	. #x464B)	; ø»žµ´
     (=ucs		. #x21580)	; ð¡–€
     ))
 (define-char
@@ -680,7 +680,7 @@
     (ideographic-radical . 35)	; â¼¢
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (chinese-cns11643-7 . #x4D4F)	; ø»Ÿ€Š
+    (=cns11643-7	. #x4D4F)	; ø»Ÿ€Š
     (=ucs		. #x21581)	; ð¡–
     ))
 (define-char

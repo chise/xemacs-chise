@@ -2500,7 +2500,7 @@
       )
      ((=ucs		  . #x4E9E)	; äºž
       ))
-    (chinese-cns11643-7 . #x2121)	; ø»¾´
+    (=cns11643-7	. #x2121)	; ø»¾´
     (=gt-pj-2		. #x3050)	; ý¡€€¡
     (=hanziku-1		. #xA9B4)	; ý¢€š¦´
     (=gt		. 00097)	; ý¡€€¡
@@ -2522,7 +2522,7 @@
     (->identical
      ((=ucs		  . #x24CCF)	; ð¤³
       ))
-    (chinese-cns11643-7 . #x2C3B)	; ø»ž˜
+    (=cns11643-7	. #x2C3B)	; ø»ž˜
     (=gt-pj-2		. #x3051)	; ý¡€€¢
     (ideograph-daikanwa . 00065)	; ø¸€
     (=gt		. 00098)	; ý¡€€¢

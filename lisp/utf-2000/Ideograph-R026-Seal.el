@@ -1027,7 +1027,7 @@
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F24)	; ø»žª»
+    (=cns11643-7	. #x3F24)	; ø»žª»
     (ideograph-daikanwa . 02889)	; ø¸€­‰
     (=ucs		. #x20A27)	; ð ¨§
     ))

@@ -352,7 +352,7 @@
     (ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2265)	; ø»ž–
+    (=cns11643-7	. #x2265)	; ø»ž–
     (=ucs		. #x22392)	; ð¢Ž’
     ))
 (define-char
@@ -367,7 +367,7 @@
     (ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D5D)	; ø»ž‘˜
+    (=cns11643-7	. #x2D5D)	; ø»ž‘˜
     (=ucs		. #x22393)	; ð¢Ž“
     ))
 (define-char
