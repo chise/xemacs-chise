@@ -138,11 +138,11 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (->ideographic-variants
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 515)
-		 (=daikanwa	     . 01525)	; ø¸€—µ
-		 )
+     ((shinjigen-1	  . 515)
+      (=daikanwa	  . 01525)	; ø¸€—µ
       ))
+    (->ideographic-variants*sources
+     shinjigen-1)
     (hanyu-dazidian	1 574 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -156,6 +156,9 @@
     (=ucs		. #x53E7)	; å§
     (=jis-x0212		. #x3462)	; ø»‹‹
     (=cns11643-4	. #x216C)	; ø»—¡³
+    (=gt		. 04102)	; ý¡€€†
+    (=gt-k		. 01162)	; ý¡„€’Š
+    (=gt-pj-2		. #x4D4D)	; ý¡€€†
     (=daikanwa		. 03236)	; ø¸€²¤
     (=hanziku-2		. #xC5E9)	; ý¢€¬—©
     (=jef-china3	. #x91AE)	; øº‰†®
@@ -693,6 +696,9 @@
     (=ucs		. #x20BA0)	; ð ® 
     (=cns11643-5	. #x2161)	; ø»™«¬
     (=big5-cdp		. #x8BF7)	; ý¢€ˆ¯·
+    (=gt		. 04135)	; ý¡€€§
+    (=gt-k		. 01063)	; ý¡„€§
+    (=gt-pj-2		. #x4D56)	; ý¡€€§
     (=daikanwa		. 03258)	; ø¸€²º
     (=jef-china3	. #x91AF)	; øº‰†¯
     ))
