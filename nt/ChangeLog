@@ -1,3 +1,13 @@
+2001-02-23  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.45 "Thelxepeia" is released.
+
+2001-02-09  Martin Buchholz  <martin@xemacs.org>
+
+	* config.h (HAVE_UTIME): New.
+	* config.h (HAVE_UTIME_H): Remove.
+	* config.h (HAVE_STRUCT_UTIMBUF): Remove.
+
 2001-02-08  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.44 "Thalia" is released.

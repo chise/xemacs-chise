@@ -130,12 +130,14 @@ Any other non-nil value means search all devices."
   (eq window (active-minibuffer-window)))
 
 (defmacro save-selected-window (&rest body)
-  "Execute BODY, then select the window that was selected before BODY."
-  `(let ((save-selected-window-window (selected-window)))
+  "Execute BODY, then select the window that was selected before BODY.
+The value returned is the value of the last form in BODY."
+  (let ((old-window (gensym "ssw")))
+  `(let ((,old-window (selected-window)))
      (unwind-protect
 	 (progn ,@body)
-       (when (window-live-p save-selected-window-window)
-	 (select-window save-selected-window-window)))))
+       (when (window-live-p ,old-window)
+	 (select-window ,old-window))))))
 
 (defmacro with-selected-window (window &rest body)
   "Execute forms in BODY with WINDOW as the selected window.

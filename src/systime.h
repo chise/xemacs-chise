@@ -63,7 +63,7 @@ void gettimeofday (struct timeval *, struct timezone *);
 
 #endif /* WIN32_NATIVE */
 
-#ifdef HAVE_UTIME_H
+#ifdef HAVE_UTIME
 # include <utime.h>
 #endif
 

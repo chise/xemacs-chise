@@ -140,22 +140,6 @@ static void hft_reset (struct console *c);
 #include <sys/termio.h>
 #endif
 
-/* ------------------------------- */
-/*          miscellaneous          */
-/* ------------------------------- */
-
-#ifndef HAVE_UTIMES
-#ifndef HAVE_STRUCT_UTIMBUF
-/* We want to use utime rather than utimes, but we couldn't find the
-   structure declaration.  We'll use the traditional one.  */
-struct utimbuf
-{
-  long actime;
-  long modtime;
-};
-#endif
-#endif
-
 
 /************************************************************************/
 /*                         subprocess control                           */
@@ -3364,17 +3348,20 @@ gettimeofday (struct timeval *tp, struct timezone *tzp)
 int
 set_file_times (char *filename, EMACS_TIME atime, EMACS_TIME mtime)
 {
-#ifdef HAVE_UTIMES
-  struct timeval tv[2];
-  tv[0] = atime;
-  tv[1] = mtime;
-  return utimes (filename, tv);
-#else /* not HAVE_UTIMES */
+#if defined (HAVE_UTIME)
   struct utimbuf utb;
   utb.actime = EMACS_SECS (atime);
   utb.modtime = EMACS_SECS (mtime);
   return utime (filename, &utb);
-#endif /* not HAVE_UTIMES */
+#elif defined (HAVE_UTIMES)
+  struct timeval tv[2];
+  tv[0] = atime;
+  tv[1] = mtime;
+  return utimes (filename, tv);
+#else
+  /* No file times setting function available. */
+  return -1;
+#endif
 }
 
 /* */

@@ -31,11 +31,10 @@ PROGNAME=@PROGNAME@
 #ifdef PDUMP
 DUMP_TARGET = ${PROGNAME}.dmp
 EXE_TARGET  = ${PROGNAME}
-ID_FILE     = dump-id.c
+DUMP_ID     = dump-id.o
 #else
 DUMP_TARGET = ${PROGNAME}
 EXE_TARGET  = temacs
-ID_FILE     =
 #endif
 
 all: ${DUMP_TARGET}
@@ -450,12 +449,11 @@ link_deps=\
  $(start_files) ${objs} ${otherobjs}\
  $(lwlib_deps) $(dynodump_deps)
 
-temacs_deps=\
- $(link_deps) $(ID_FILE)
+temacs_deps = $(link_deps) ${DUMP_ID}
 
 temacs_link_args=\
- ${start_flags} ${ldflags} -I${srcdir} \
- -o $@ ${start_files} ${objs} ${otherobjs} ${ID_FILE} ${LIBES}
+ ${start_flags} ${ldflags}\
+ -o $@ ${start_files} ${objs} ${otherobjs} ${DUMP_ID} ${LIBES}
 
 ${EXE_TARGET}: $(temacs_deps)
 	$(LD) $(temacs_link_args)
@@ -512,14 +510,14 @@ debug-temacs: ${EXE_TARGET}
 ##
 ## Purify
 PURIFY_PROG  = purify
+PURIFY_LIBS  =
 PURIFY_FLAGS =\
 #ifdef PDUMP
  -search-mmaps=yes\
 #endif
- -chain-length=32 -ignore-signals=SIGPOLL -threads=yes\
- -cache-dir=${srcdir}/purecache -always-use-cache-dir=yes
+ -chain-length=32 -ignore-signals=SIGPOLL\
+ -cache-dir=${blddir}/purecache -always-use-cache-dir=yes
 
-PURIFY_LIBS  = -lpthread
 puremacs: $(temacs_deps)
 	$(PURIFY_PROG) $(PURIFY_FLAGS) $(LD) $(temacs_link_args) $(PURIFY_LIBS)
 	cp $@ ${EXE_TARGET}

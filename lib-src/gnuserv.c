@@ -458,8 +458,6 @@ permitted (unsigned long host_addr, int fd)
   char auth_protocol[128];
   char buf[1024];
   int  auth_data_len;
-  int  auth_data_pos;
-  int  auth_mismatches;
 
   if (fd > 0)
     {
@@ -505,7 +503,8 @@ permitted (unsigned long host_addr, int fd)
 	  {
 	    /* Do a compare without comprising info about
 	       the size of the cookie */
-	    auth_mismatches =
+	    int auth_data_pos;
+	    int auth_mismatches =
 	      ( auth_data_len ^
 		server_xauth->data_length );
 
