@@ -337,6 +337,8 @@
 			  (mapconcat (lambda (code)
 				       (cond ((symbolp code)
 					      (symbol-name code))
+					     ((characterp code)
+					      (format "%S" code))
 					     ((integerp code)
 					      (format "#x%04X" code))
 					     (t
