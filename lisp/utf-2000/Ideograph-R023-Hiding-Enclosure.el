@@ -114,11 +114,11 @@
       ))
     (shinjigen-1	. 801)
     (shinjigen-2	. 801)
-    (chinese-gb2312		. #x4778)	; ø»„¿
-    (=jis-x0208			. #x3668)	; ø½Š•¹
-    (chinese-isoir165		. #x4778)	; ø»§Ÿ
-    (ideograph-hanziku-1	. #xB4B6)	; ý¢€›’¶
-    (ucs			. #x533A)	; åŒº
+    (chinese-gb2312	. #x4778)	; ø»„¿
+    (=jis-x0208		. #x3668)	; ø½Š•¹
+    (chinese-isoir165	. #x4778)	; ø»§Ÿ
+    (=hanziku-1		. #xB4B6)	; ý¢€›’¶
+    (ucs		. #x533A)	; åŒº
     ))
 (define-char
   '((=>ucs		. #x20504)	; ð ”„

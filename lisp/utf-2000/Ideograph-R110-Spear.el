@@ -736,10 +736,10 @@
      ((ideograph-daikanwa . 01841)	; ø¸€œ±
       ))
     (hanyu-dazidian	4 2768 16)
-    (ideograph-daikanwa		. 23906)	; ø¸…µ¢
-    (ideograph-hanziku-7	. #xE845)	; ý¢¾¡…
-    (mojikyo			. 023906)	; ý €…µ¢
-    (ucs			. #x25390)	; ð¥Ž
+    (ideograph-daikanwa . 23906)	; ø¸…µ¢
+    (=hanziku-7		. #xE845)	; ý¢¾¡…
+    (mojikyo		. 023906)	; ý €…µ¢
+    (ucs		. #x25390)	; ð¥Ž
     ))
 (define-char
   '((ideographic-radical . 110)	; â½­

@@ -41,11 +41,11 @@
       )
      ((ucs		  . #x723B)	; çˆ»
       ))
-    (chinese-cns11643-3		. #x297B)	; ø»•£®
-    (ideograph-hanziku-1	. #xABFA)	; ý¢€š¯º
-    (=jef-china3		. #x92AB)	; øº‰Š«
-    (mojikyo			. 019738)	; ý €„´š
-    (ucs			. #x3E1A)	; ã¸š
+    (chinese-cns11643-3 . #x297B)	; ø»•£®
+    (=hanziku-1		. #xABFA)	; ý¢€š¯º
+    (=jef-china3	. #x92AB)	; øº‰Š«
+    (mojikyo		. 019738)	; ý €„´š
+    (ucs		. #x3E1A)	; ã¸š
     ))
 (define-char
   '((=>ucs		. #x2455E)	; ð¤•ž
@@ -84,12 +84,12 @@
      ((ucs		  . #x4E14)	; ä¸”
       ))
     (shinjigen-2	. 260)
-    (=jis-x0208			. #x602C)	; ø½‹’©
-    (chinese-cns11643-3		. #x2D6B)	; ø»•©–
-    (ideograph-daikanwa		. 19743)	; ø¸„´Ÿ
-    (ideograph-hanziku-1	. #xAC46)	; ý¢€š±†
-    (=cbeta			. 01131)	; ø¸ ‘«
-    (ucs			. #x723C)	; çˆ¼
+    (=jis-x0208		. #x602C)	; ø½‹’©
+    (chinese-cns11643-3 . #x2D6B)	; ø»•©–
+    (ideograph-daikanwa . 19743)	; ø¸„´Ÿ
+    (=hanziku-1		. #xAC46)	; ý¢€š±†
+    (=cbeta		. 01131)	; ø¸ ‘«
+    (ucs		. #x723C)	; çˆ¼
     ))
 (define-char
   '((=>ucs		. #x24560)	; ð¤• 
@@ -206,10 +206,10 @@
       )
      ((ucs		  . #x5140)	; å…€
       ))
-    (chinese-cns11643-6		. #x5E57)	; ø»Œ
-    (ideograph-daikanwa		. 19751)	; ø¸„´§
-    (ideograph-hanziku-1	. #xD2C7)	; ý¢€‹‡
-    (ucs			. #x2039B)	; ð Ž›
+    (chinese-cns11643-6 . #x5E57)	; ø»Œ
+    (ideograph-daikanwa . 19751)	; ø¸„´§
+    (=hanziku-1		. #xD2C7)	; ý¢€‹‡
+    (ucs		. #x2039B)	; ð Ž›
     ))
 (define-char
   '((ideographic-radical . 89)	; â½˜
@@ -270,10 +270,10 @@
       )
      ((ucs		  . #x3E1A)	; ã¸š
       ))
-    (chinese-cns11643-7		. #x247C)	; ø»ž„©
-    (ideograph-daikanwa		. 19753)	; ø¸„´©
-    (ideograph-hanziku-1	. #xD44E)	; ý¢€‘Ž
-    (ucs			. #x24568)	; ð¤•¨
+    (chinese-cns11643-7 . #x247C)	; ø»ž„©
+    (ideograph-daikanwa . 19753)	; ø¸„´©
+    (=hanziku-1		. #xD44E)	; ý¢€‘Ž
+    (ucs		. #x24568)	; ð¤•¨
     ))
 (define-char
   '((=>ucs		. #x24566)	; ð¤•¦
@@ -358,8 +358,8 @@
       )
      ((ucs		  . #x3E1A)	; ã¸š
       ))
-    (chinese-cns11643-7		. #x476F)	; ø»ž·¶
-    (ideograph-daikanwa		. 19757)	; ø¸„´­
-    (ideograph-hanziku-1	. #xD6F4)	; ý¢€›´
-    (ucs			. #x20442)	; ð ‘‚
+    (chinese-cns11643-7 . #x476F)	; ø»ž·¶
+    (ideograph-daikanwa . 19757)	; ø¸„´­
+    (=hanziku-1		. #xD6F4)	; ý¢€›´
+    (ucs		. #x20442)	; ð ‘‚
     ))

@@ -199,7 +199,7 @@
     (ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (ideograph-hanziku-1	. #xA875)	; ý¢€š¡µ
+    (=hanziku-1		. #xA875)	; ý¢€š¡µ
     ))
 (define-char
   '((ideographic-radical . 48)	; â¼¯

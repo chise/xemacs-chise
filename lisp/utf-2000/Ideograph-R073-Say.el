@@ -434,8 +434,8 @@
       )
      ((ucs		  . #x4E9A)	; äºš
       ))
-    (ideograph-daikanwa		. 14304)	; ø¸ƒŸ 
-    (ideograph-hanziku-1	. #xA97A)	; ý¢€š¥º
+    (ideograph-daikanwa . 14304)	; ø¸ƒŸ 
+    (=hanziku-1		. #xA97A)	; ý¢€š¥º
     ))
 (define-char
   '((morohashi-daikanwa	14304 0 2)

@@ -1286,8 +1286,8 @@
      ((ideograph-daikanwa . 01726)	; ø¸€š¾
       ))
     (hanyu-dazidian	4 2571 15)
-    (ideograph-hanziku-7	. #xBD6B)	; ý¢»µ«
-    (ucs			. #x250B3)	; ð¥‚³
+    (=hanziku-7		. #xBD6B)	; ý¢»µ«
+    (ucs		. #x250B3)	; ð¥‚³
     ))
 (define-char
   '((ideographic-radical . 108)	; â½«

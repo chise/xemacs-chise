@@ -2750,8 +2750,8 @@
        ((ucs		    . #x866B)	; è™«
 	))
       ))
-    (ideograph-hanziku-1	. #xCFE7)	; ý¢€œ¿§
-    (ucs			. #x45BA)	; ä–º
+    (=hanziku-1		. #xCFE7)	; ý¢€œ¿§
+    (ucs		. #x45BA)	; ä–º
     ))
 (define-char
   '((ideographic-radical . 142)	; â¾

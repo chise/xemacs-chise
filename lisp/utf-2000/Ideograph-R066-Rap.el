@@ -3177,8 +3177,8 @@
        ((=big5-cdp	    . #x8B6B)	; ý¢€ˆ­«
 	))
       ))
-    (ideograph-hanziku-1	. #xD34B)	; ý¢€‹
-    (ucs			. #x22FC5)	; ð¢¿…
+    (=hanziku-1		. #xD34B)	; ý¢€‹
+    (ucs		. #x22FC5)	; ð¢¿…
     ))
 (define-char
   '((ideographic-radical . 66)	; â½

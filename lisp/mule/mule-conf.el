@@ -246,7 +246,7 @@
 	 (hzk-max (+ hzk-min 65535)))
     (while (<= i 12)
       (make-charset
-       (intern (format "ideograph-hanziku-%d" i))
+       (intern (format "=hanziku-%d" i))
        (format "HANZIKU-%d" i)
        `(long-name ,(format "HANZIKU (pseudo BIG5 encoding) part %d" i)
 		   chars 256
@@ -258,6 +258,9 @@
 		   min-code ,hzk-min
 		   max-code ,hzk-max
 		   code-offset ,hzk-min))
+      (define-charset-alias
+	(intern (format "ideograph-hanziku-%d" i))
+	(intern (format "=hanziku-%d" i)))
       (setq hzk-min (1+ hzk-max)
 	    hzk-max (+ hzk-min 65535))
       (setq i (1+ i))))

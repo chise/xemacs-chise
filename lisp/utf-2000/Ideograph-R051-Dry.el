@@ -121,8 +121,8 @@
       )
      ((ucs		  . #x4E01)	; ä¸
       ))
-    (ideograph-daikanwa		. 09171)	; ø¸‚“
-    (ideograph-hanziku-1	. #xA872)	; ý¢€š¡²
+    (ideograph-daikanwa . 09171)	; ø¸‚“
+    (=hanziku-1		. #xA872)	; ý¢€š¡²
     ))
 (define-char
   '((morohashi-daikanwa	9171 0 2)

@@ -95,9 +95,9 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (hanyu-dazidian	2 1420 7)
-    (ideograph-daikanwa		. 19914)	; ø¸„·Š
-    (ideograph-hanziku-4	. #xCEC7)	; ý¢Œ»‡
-    (ucs			. #x3E27)	; ã¸§
+    (ideograph-daikanwa . 19914)	; ø¸„·Š
+    (=hanziku-4		. #xCEC7)	; ý¢Œ»‡
+    (ucs		. #x3E27)	; ã¸§
     ))
 (define-char
   '((=>ucs		. #x3E27)	; ã¸§

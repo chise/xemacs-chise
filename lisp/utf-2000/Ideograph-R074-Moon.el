@@ -409,9 +409,9 @@
 			 :sources	(ucs)))
     (total-strokes	 . 10)
     (hanyu-dazidian	3 2067 2)
-    (chinese-cns11643-5		. #x2E24)	; ø»™½µ
-    (ideograph-hanziku-6	. #xA9C1)	; ý¢ª§
-    (ucs			. #x266B9)	; ð¦š¹
+    (chinese-cns11643-5 . #x2E24)	; ø»™½µ
+    (=hanziku-6		. #xA9C1)	; ý¢ª§
+    (ucs		. #x266B9)	; ð¦š¹
     ))
 (define-char
   '((=>ucs		. #x6716)	; æœ–
