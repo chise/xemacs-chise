@@ -626,12 +626,12 @@
     (->subsumptive
      ((ideographic-radical . 36)	; â¼£
       (ideographic-strokes . 8)
-      (ideographic-radical*sources cns11643 gt jis daikanwa=05784)
+      (ideographic-radical*sources cns11643 gt jis daikanwa)
       (=daikanwa	  . 05784)	; ø¸š˜
       )
      ((ideographic-radical . 75)	; â½Š
       (ideographic-strokes . 7)
-      (ideographic-radical*sources ucs jis/b daikanwa=14871)
+      (ideographic-radical*sources ucs jis/b daikanwa)
       (=daikanwa	  . 14871)	; ø¸ƒ¨—
       ))
     ))
