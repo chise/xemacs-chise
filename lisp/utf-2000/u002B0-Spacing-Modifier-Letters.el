@@ -178,26 +178,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese third tone")
-    (->fullwidth
-     ((name		  . "fullwidth caron")
-      (=gb2312		  . #x2126)	; &JX1-2A31; [01-06]
-      (=ks-x1001	  . #x2227)	; &I-K0-2227; [02-07]
-      (=jis-x0212	  . #x2230)	; &I-JSP-2230; [02-16]
-      (=cns11643-1	  . #x256F)	; &I-C1-256F; [05-79]
-      (=jis-x0213-1-2000  . #x2A31)	; &I-JX1-2A31; [10-17]
-      ))
     (=ucs		. #x02C7)	; ˇ
     (latin-iso8859-2	. #xB7)	; &I-LATIN2-37;
     (latin-iso8859-4	. #xB7)	; &I-LATIN4-37;
     ))
 (define-char
-  '((name		. "fullwidth caron")
-    (=>ucs		. #x02C7)	; ˇ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (iso-10646-comment	. "Mandarin Chinese third tone")
-    (->decomposition	wide #x02C7)
+  '((<-denotational
+     ((name		  . "CARON")
+      (=ucs		  . #x02C7)	; ˇ
+      ))
     (<-fullwidth
      ((name		  . "CARON")
       (=ucs		  . #x02C7)	; ˇ
@@ -209,33 +198,27 @@
     (=jis-x0213-1-2000	. #x2A31)	; &I-JX1-2A31; [10-17]
     (=big5		. #xA3BE)	; &I-B-A3BE;
     (=jef-china3	. #x81AB)	; &I-JC3-81AB;
-    (=ucs@jis		. #x02C7)	; &JX1-2A31;
+    (=ucs@jis/fw	. #x02C7)	; &JX1-2A31;
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter vertical line")
-      (=jis-x0213-1-2000  . #x2B53)	; &JX1-2B53; [11-51]
-      ))
     (=ucs		. #x02C8)	; ˈ
     (ipa		. #xF0)	; &I-MULE-IPA-70;
     ))
 (define-char
-  '((name		. "fullwidth modifier letter vertical line")
-    (=>ucs		. #x02C8)	; ˈ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02C8)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER VERTICAL LINE")
+      (=ucs		  . #x02C8)	; ˈ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER VERTICAL LINE")
       (=ucs		  . #x02C8)	; ˈ
       ))
     (=jis-x0213-1-2000	. #x2B53)	; &JX1-2B53; [11-51]
-    (=ucs@jis		. #x02C8)	; &JX1-2B53;
+    (=ucs@jis/fw	. #x02C8)	; &JX1-2B53;
     ))
 (define-char
   '((name		. "MODIFIER LETTER MACRON")
@@ -243,20 +226,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese first tone")
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter macron")
-      (=gb2312		  . #x2125)	; &I-C1-256D; [01-05]
-      ))
     (=ucs		. #x02C9)	; ˉ
     ))
 (define-char
-  '((name		. "fullwidth modifier letter macron")
-    (=>ucs		. #x02C9)	; ˉ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (iso-10646-comment	. "Mandarin Chinese first tone")
-    (->decomposition	wide #x02C9)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER MACRON")
+      (=ucs		  . #x02C9)	; ˉ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER MACRON")
       (=ucs		  . #x02C9)	; ˉ
@@ -271,21 +247,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese second tone")
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter acute accent")
-      (=cns11643-1	  . #x256E)	; &C1-256E; [05-78]
-      (=big5		  . #xA3BD)	; &I-B-A3BD;
-      ))
     (=ucs		. #x02CA)	; ˊ
     ))
 (define-char
-  '((name		. "fullwidth modifier letter acute accent")
-    (=>ucs		. #x02CA)	; ˊ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (iso-10646-comment	. "Mandarin Chinese second tone")
-    (->decomposition	wide #x02CA)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER ACUTE ACCENT")
+      (=ucs		  . #x02CA)	; ˊ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER ACUTE ACCENT")
       (=ucs		  . #x02CA)	; ˊ
@@ -299,21 +267,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese fourth tone")
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter grave accent")
-      (=cns11643-1	  . #x2570)	; &C1-2570; [05-80]
-      (=big5		  . #xA3BF)	; &I-B-A3BF;
-      ))
     (=ucs		. #x02CB)	; ˋ
     ))
 (define-char
-  '((name		. "fullwidth modifier letter grave accent")
-    (=>ucs		. #x02CB)	; ˋ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (iso-10646-comment	. "Mandarin Chinese fourth tone")
-    (->decomposition	wide #x02CB)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER GRAVE ACCENT")
+      (=ucs		  . #x02CB)	; ˋ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER GRAVE ACCENT")
       (=ucs		  . #x02CB)	; ˋ
@@ -326,25 +286,20 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name . "fullwidth modifier letter low vertical line")
-      (=jis-x0213-1-2000  . #x2B54)	; &JX1-2B54; [11-52]
-      ))
     (=ucs		. #x02CC)	; ˌ
     (ipa		. #xF1)	; &I-MULE-IPA-71;
     ))
 (define-char
-  '((name		. "fullwidth modifier letter low vertical line")
-    (=>ucs		. #x02CC)	; ˌ
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
+      (=ucs		  . #x02CC)	; ˌ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER LOW VERTICAL LINE")
       (=ucs		  . #x02CC)	; ˌ
       ))
     (=jis-x0213-1-2000	. #x2B54)	; &JX1-2B54; [11-52]
-    (=ucs@jis		. #x02CC)	; &JX1-2B54;
+    (=ucs@jis/fw	. #x02CC)	; &JX1-2B54;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW MACRON")
@@ -352,6 +307,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x02CD)	; ˍ
+    ))
+(define-char
+  '((name		. "heavy low line")
+    (=>ucs		. #x02CD)	; ˍ
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (=cns11643-1	. #x2226)	; &C1-2226; [02-06]
+    (=big5		. #xA1C5)	; &I-B-A1C5;
+    (=ucs@big5		. #x02CD)	; &C1-2226;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW GRAVE ACCENT")
@@ -372,53 +336,40 @@
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter triangular colon")
-      (=ks-x1001	  . #x2230)	; &JX1-2B55; [02-16]
-      (=jis-x0213-1-2000  . #x2B55)	; &I-JX1-2B55; [11-53]
-      ))
     (=ucs		. #x02D0)	; ː
     (ipa		. #xF2)	; &I-MULE-IPA-72;
     ))
 (define-char
-  '((name		. "fullwidth modifier letter triangular colon")
-    (=>ucs		. #x02D0)	; ː
-    (general-category	letter modifier) ; Informative Category
-    (bidi-category	. "L")
-    (mirrored		. nil)
-    (->decomposition	wide #x02D0)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER TRIANGULAR COLON")
+      (=ucs		  . #x02D0)	; ː
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER TRIANGULAR COLON")
       (=ucs		  . #x02D0)	; ː
       ))
     (=ks-x1001		. #x2230)	; &JX1-2B55; [02-16]
     (=jis-x0213-1-2000	. #x2B55)	; &I-JX1-2B55; [11-53]
-    (=ucs@jis		. #x02D0)	; &JX1-2B55;
+    (=ucs@jis/fw	. #x02D0)	; &JX1-2B55;
     ))
 (define-char
   '((name		. "MODIFIER LETTER HALF TRIANGULAR COLON")
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (->fullwidth
-     ((name . "fullwidth modifier letter half triangular colon")
-      (=jis-x0213-1-2000  . #x2B56)	; &JX1-2B56; [11-54]
-      ))
     (=ucs		. #x02D1)	; ˑ
     ))
 (define-char
-  '((name . "fullwidth modifier letter half triangular colon")
-    (=>ucs		. #x02D1)	; ˑ
-    (general-category	letter modifier) ; Informative Category
-    (bidi-category	. "L")
-    (mirrored		. nil)
-    (->decomposition	wide #x02D1)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
+      (=ucs		  . #x02D1)	; ˑ
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER HALF TRIANGULAR COLON")
       (=ucs		  . #x02D1)	; ˑ
       ))
     (=jis-x0213-1-2000	. #x2B56)	; &JX1-2B56; [11-54]
-    (=ucs@jis		. #x02D1)	; &JX1-2B56;
+    (=ucs@jis/fw	. #x02D1)	; &JX1-2B56;
     ))
 (define-char
   '((name		. "MODIFIER LETTER CENTRED RIGHT HALF RING")
@@ -468,23 +419,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0306)
-    (->fullwidth
-     ((name		  . "fullwidth breve")
-      (=ks-x1001	  . #x2228)	; &JX1-2A22; [02-08]
-      (=jis-x0212	  . #x222F)	; &I-JSP-222F; [02-15]
-      (=jis-x0213-1-2000  . #x2A22)	; &I-JX1-2A22; [10-02]
-      ))
     (=ucs		. #x02D8)	; ˘
     (latin-iso8859-2	. #xA2)	; &I-LATIN2-22;
     (latin-iso8859-3	. #xA2)	; &I-LATIN3-22;
     ))
 (define-char
-  '((name		. "fullwidth breve")
-    (=>ucs		. #x02D8)	; ˘
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02D8)
+  '((<-denotational
+     ((name		  . "BREVE")
+      (=ucs		  . #x02D8)	; ˘
+      ))
     (<-fullwidth
      ((name		  . "BREVE")
       (=ucs		  . #x02D8)	; ˘
@@ -493,7 +436,7 @@
     (=jis-x0212		. #x222F)	; &I-JSP-222F; [02-15]
     (=jis-x0213-1-2000	. #x2A22)	; &I-JX1-2A22; [10-02]
     (=jef-china3	. #x81A8)	; &I-JC3-81A8;
-    (=ucs@jis		. #x02D8)	; &JX1-2A22;
+    (=ucs@jis/fw	. #x02D8)	; &JX1-2A22;
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -502,26 +445,16 @@
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
     (->decomposition	compat #x0020 #x0307)
-    (->fullwidth
-     ((name		  . "fullwidth dot above")
-      (=ks-x1001	  . #x222B)	; &JX1-2A58; [02-11]
-      (=jis-x0212	  . #x2232)	; &I-JSP-2232; [02-18]
-      (=cns11643-1	  . #x256C)	; &I-C1-256C; [05-76]
-      (=jis-x0213-1-2000  . #x2A58)	; &I-JX1-2A58; [10-56]
-      ))
     (=ucs		. #x02D9)	; ˙
     (latin-iso8859-2	. #xFF)	; &I-LATIN2-7F;
     (latin-iso8859-3	. #xFF)	; &I-LATIN3-7F;
     (latin-iso8859-4	. #xFF)	; &I-LATIN4-7F;
     ))
 (define-char
-  '((name		. "fullwidth dot above")
-    (=>ucs		. #x02D9)	; ˙
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (iso-10646-comment	. "Mandarin Chinese light tone")
-    (->decomposition	wide #x02D9)
+  '((<-denotational
+     ((name		  . "DOT ABOVE")
+      (=ucs		  . #x02D9)	; ˙
+      ))
     (<-fullwidth
      ((name		  . "DOT ABOVE")
       (=ucs		  . #x02D9)	; ˙
@@ -532,7 +465,7 @@
     (=jis-x0213-1-2000	. #x2A58)	; &I-JX1-2A58; [10-56]
     (=big5		. #xA3BB)	; &I-B-A3BB;
     (=jef-china3	. #x81A9)	; &I-JC3-81A9;
-    (=ucs@jis		. #x02D9)	; &JX1-2A58;
+    (=ucs@jis/fw	. #x02D9)	; &JX1-2A58;
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -540,21 +473,13 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x030A)
-    (->fullwidth
-     ((name		  . "fullwidth ring above")
-      (=ks-x1001	  . #x222A)	; &JSP-2236; [02-10]
-      (=jis-x0212	  . #x2236)	; &I-JSP-2236; [02-22]
-      (=jef-china3	  . #x81AC)	; &I-JC3-81AC;
-      ))
     (=ucs		. #x02DA)	; ˚
     ))
 (define-char
-  '((name		. "fullwidth ring above")
-    (=>ucs		. #x02DA)	; ˚
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02DA)
+  '((<-denotational
+     ((name		  . "RING ABOVE")
+      (=ucs		  . #x02DA)	; ˚
+      ))
     (<-fullwidth
      ((name		  . "RING ABOVE")
       (=ucs		  . #x02DA)	; ˚
@@ -562,7 +487,7 @@
     (=ks-x1001		. #x222A)	; &JSP-2236; [02-10]
     (=jis-x0212		. #x2236)	; &I-JSP-2236; [02-22]
     (=jef-china3	. #x81AC)	; &I-JC3-81AC;
-    (=ucs@jis		. #x02DA)	; &JSP-2236;
+    (=ucs@jis/fw	. #x02DA)	; &JSP-2236;
     ))
 (define-char
   '((name		. "OGONEK")
@@ -570,22 +495,15 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x0328)
-    (->fullwidth
-     ((name		  . "fullwidth ogonek")
-      (=ks-x1001	  . #x222D)	; &JX1-2A2D; [02-13]
-      (=jis-x0212	  . #x2235)	; &I-JSP-2235; [02-21]
-      (=jis-x0213-1-2000  . #x2A2D)	; &I-JX1-2A2D; [10-13]
-      ))
     (=ucs		. #x02DB)	; ˛
     (latin-iso8859-2	. #xB2)	; &I-LATIN2-32;
     (latin-iso8859-4	. #xB2)	; &I-LATIN4-32;
     ))
 (define-char
-  '((name		. "fullwidth ogonek")
-    (=>ucs		. #x02DB)	; ˛
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (->decomposition	wide #x02DB)
+  '((<-denotational
+     ((name		  . "OGONEK")
+      (=ucs		  . #x02DB)	; ˛
+      ))
     (<-fullwidth
      ((name		  . "OGONEK")
       (=ucs		  . #x02DB)	; ˛
@@ -594,7 +512,7 @@
     (=jis-x0212		. #x2235)	; &I-JSP-2235; [02-21]
     (=jis-x0213-1-2000	. #x2A2D)	; &I-JX1-2A2D; [10-13]
     (=jef-china3	. #x81B3)	; &I-JC3-81B3;
-    (=ucs@jis		. #x02DB)	; &JX1-2A2D;
+    (=ucs@jis/fw	. #x02DB)	; &JX1-2A2D;
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -610,22 +528,14 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x030B)
-    (->fullwidth
-     ((name		  . "fullwidth double acute accent")
-      (=ks-x1001	  . #x2229)	; &JX1-2A36; [02-09]
-      (=jis-x0212	  . #x2233)	; &I-JSP-2233; [02-19]
-      (=jis-x0213-1-2000  . #x2A36)	; &I-JX1-2A36; [10-22]
-      ))
     (=ucs		. #x02DD)	; ˝
     (latin-iso8859-2	. #xBD)	; &I-LATIN2-3D;
     ))
 (define-char
-  '((name		. "fullwidth double acute accent")
-    (=>ucs		. #x02DD)	; ˝
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02DD)
+  '((<-denotational
+     ((name		  . "DOUBLE ACUTE ACCENT")
+      (=ucs		  . #x02DD)	; ˝
+      ))
     (<-fullwidth
      ((name		  . "DOUBLE ACUTE ACCENT")
       (=ucs		  . #x02DD)	; ˝
@@ -634,32 +544,26 @@
     (=jis-x0212		. #x2233)	; &I-JSP-2233; [02-19]
     (=jis-x0213-1-2000	. #x2A36)	; &I-JX1-2A36; [10-22]
     (=jef-china3	. #x81B0)	; &I-JC3-81B0;
-    (=ucs@jis		. #x02DD)	; &JX1-2A36;
+    (=ucs@jis/fw	. #x02DD)	; &JX1-2A36;
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter rhotic hook")
-      (=jis-x0213-1-2000  . #x2B71)	; &JX1-2B71; [11-81]
-      ))
     (=ucs		. #x02DE)	; ˞
     ))
 (define-char
-  '((name		. "fullwidth modifier letter rhotic hook")
-    (=>ucs		. #x02DE)	; ˞
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02DE)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER RHOTIC HOOK")
+      (=ucs		  . #x02DE)	; ˞
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER RHOTIC HOOK")
       (=ucs		  . #x02DE)	; ˞
       ))
     (=jis-x0213-1-2000	. #x2B71)	; &JX1-2B71; [11-81]
-    (=ucs@jis		. #x02DE)	; &JX1-2B71;
+    (=ucs@jis/fw	. #x02DE)	; &JX1-2B71;
     ))
 (define-char
   '((name		. "MODIFIER LETTER CROSS ACCENT")
@@ -713,125 +617,95 @@
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name . "fullwidth modifier letter extra-high tone bar")
-      (=jis-x0213-1-2000  . #x2B60)	; &JX1-2B60; [11-64]
-      ))
     (=ucs		. #x02E5)	; ˥
     ))
 (define-char
-  '((name . "fullwidth modifier letter extra-high tone bar")
-    (=>ucs		. #x02E5)	; ˥
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02E5)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
+      (=ucs		  . #x02E5)	; ˥
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER EXTRA-HIGH TONE BAR")
       (=ucs		  . #x02E5)	; ˥
       ))
     (=jis-x0213-1-2000	. #x2B60)	; &JX1-2B60; [11-64]
-    (=ucs@jis		. #x02E5)	; &JX1-2B60;
+    (=ucs@jis/fw	. #x02E5)	; &JX1-2B60;
     ))
 (define-char
   '((name		. "MODIFIER LETTER HIGH TONE BAR")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter high tone bar")
-      (=jis-x0213-1-2000  . #x2B61)	; &JX1-2B61; [11-65]
-      ))
     (=ucs		. #x02E6)	; ˦
     ))
 (define-char
-  '((name		. "fullwidth modifier letter high tone bar")
-    (=>ucs		. #x02E6)	; ˦
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02E6)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER HIGH TONE BAR")
+      (=ucs		  . #x02E6)	; ˦
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER HIGH TONE BAR")
       (=ucs		  . #x02E6)	; ˦
       ))
     (=jis-x0213-1-2000	. #x2B61)	; &JX1-2B61; [11-65]
-    (=ucs@jis		. #x02E6)	; &JX1-2B61;
+    (=ucs@jis/fw	. #x02E6)	; &JX1-2B61;
     ))
 (define-char
   '((name		. "MODIFIER LETTER MID TONE BAR")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter mid tone bar")
-      (=jis-x0213-1-2000  . #x2B62)	; &JX1-2B62; [11-66]
-      ))
     (=ucs		. #x02E7)	; ˧
     ))
 (define-char
-  '((name		. "fullwidth modifier letter mid tone bar")
-    (=>ucs		. #x02E7)	; ˧
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02E7)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER MID TONE BAR")
+      (=ucs		  . #x02E7)	; ˧
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER MID TONE BAR")
       (=ucs		  . #x02E7)	; ˧
       ))
     (=jis-x0213-1-2000	. #x2B62)	; &JX1-2B62; [11-66]
-    (=ucs@jis		. #x02E7)	; &JX1-2B62;
+    (=ucs@jis/fw	. #x02E7)	; &JX1-2B62;
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW TONE BAR")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name		  . "fullwidth modifier letter low tone bar")
-      (=jis-x0213-1-2000  . #x2B63)	; &JX1-2B63; [11-67]
-      ))
     (=ucs		. #x02E8)	; ˨
     ))
 (define-char
-  '((name		. "fullwidth modifier letter low tone bar")
-    (=>ucs		. #x02E8)	; ˨
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02E8)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER LOW TONE BAR")
+      (=ucs		  . #x02E8)	; ˨
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER LOW TONE BAR")
       (=ucs		  . #x02E8)	; ˨
       ))
     (=jis-x0213-1-2000	. #x2B63)	; &JX1-2B63; [11-67]
-    (=ucs@jis		. #x02E8)	; &JX1-2B63;
+    (=ucs@jis/fw	. #x02E8)	; &JX1-2B63;
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-LOW TONE BAR")
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (->fullwidth
-     ((name . "fullwidth modifier letter extra-low tone bar")
-      (=jis-x0213-1-2000  . #x2B64)	; &JX1-2B64; [11-68]
-      ))
     (=ucs		. #x02E9)	; ˩
     ))
 (define-char
-  '((name		. "fullwidth modifier letter extra-low tone bar")
-    (=>ucs		. #x02E9)	; ˩
-    (general-category	symbol modifier) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	wide #x02E9)
+  '((<-denotational
+     ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")
+      (=ucs		  . #x02E9)	; ˩
+      ))
     (<-fullwidth
      ((name		  . "MODIFIER LETTER EXTRA-LOW TONE BAR")
       (=ucs		  . #x02E9)	; ˩
       ))
     (=jis-x0213-1-2000	. #x2B64)	; &JX1-2B64; [11-68]
-    (=ucs@jis		. #x02E9)	; &JX1-2B64;
+    (=ucs@jis/fw	. #x02E9)	; &JX1-2B64;
     ))
 (define-char
   '((name		. "MODIFIER LETTER YIN DEPARTING TONE MARK")
