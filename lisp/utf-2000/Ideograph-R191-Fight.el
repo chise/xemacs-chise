@@ -272,11 +272,6 @@
     (ideographic-radical@daikanwa . 191)	; â¾¾
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x9B2D)	; é¬­
-      (=jis-x0212	  . #x6A32)	; ø»Œ¯
-      (=jis-x0213-1-2000  . #x7E3F)	; ø»¤œ€
-      ))
     (=ucs		. #x95D8)	; é—˜
     (=jis-x0208		. #x462E)	; ø½Š¬Ÿ
     (=cns11643-3	. #x594A)	; ø»–©

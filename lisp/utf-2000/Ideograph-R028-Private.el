@@ -590,14 +590,12 @@
     (ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-simplified@JP/Jouyou
-     ((shinjigen-1	  . 893)
-      (=ucs		  . #x53C3)	; åƒ
-      (=jis-x0208	  . #x5254)	; ø½Š¾­
-      (=daikanwa	  . 03098)	; ø¸€°š
+    (<-simplified-ideograph
+     (:sources	(morohashi-daikanwa shinjigen-1)
+      :char	((shinjigen-1	     . 893)
+		 (=daikanwa	     . 03098)	; ø¸€°š
+		 )
       ))
-    (<-simplified@JP/Jouyou*sources
-     daikanwa shinjigen-1 JP/Jouyou)
     (hanyu-dazidian	1 386 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -972,7 +970,6 @@
 (define-char
   '((ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 11)
-    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (=ucs		  . #x2FF3)	; â¿³

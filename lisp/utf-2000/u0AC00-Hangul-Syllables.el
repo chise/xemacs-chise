@@ -5720,7 +5720,6 @@
 (define-char
   '((=ucs		. #xC5EC)	; ì—¬
     (=ks-x1001		. #x3F29)	; ø»‰†˜
-    (=jef-china3	. #x94B6)	; øº‰’¶
     ))
 (define-char
   '((=ucs		. #xC5ED)	; ì—­

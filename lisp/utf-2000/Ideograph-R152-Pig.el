@@ -552,27 +552,16 @@
     (=cns11643-2	. #x475B)	; ø»”…Ž
     ))
 (define-char
-  '((=>ucs		. #x8C66)	; è±¦
-    (ideographic-radical . 152)	; â¾—
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=jis-x0212		. #x5E75)	; ø»‹¿Š
-    (=gt		. 48799)	; ý¡€‹ºŸ
-    (=gt-k		. 10720)	; ý¡„‚§ 
-    (=gt-pj-7		. #x3D7C)	; ý¡€‹ºŸ
-    (=daikanwa		. 36391)	; ø¸ˆ¸§
-    (=ucs@jis		. #x8C66)	; ø»‹¿Š
-    ))
-(define-char
-  '((morohashi-daikanwa	36391 0 0)
-    (ideographic-radical . 152)	; â¾—
+  '((ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x8C66)	; è±¦
+    (=jis-x0212		. #x5E75)	; ø»‹¿Š
+    (=daikanwa		. 36391)	; ø¸ˆ¸§
     ))
 (define-char
   '((=>ucs		. #x8C66)	; è±¦
-    (morohashi-daikanwa	36391 0 1)
+    (morohashi-daikanwa	36391 0 0)
     (ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
@@ -583,8 +572,6 @@
   '((ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=gt		. 48778)	; ý¡€‹ºŠ
-    (=gt-pj-7		. #x3D7D)	; ý¡€‹ºŠ
     (=daikanwa		. 36392)	; ø¸ˆ¸¨
     ))
 (define-char
@@ -599,8 +586,6 @@
     (ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=gt		. 48792)	; ý¡€‹º˜
-    (=gt-pj-7		. #x3D7E)	; ý¡€‹º˜
     (=daikanwa		. 36393)	; ø¸ˆ¸©
     ))
 (define-char
@@ -623,8 +608,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=ucs		. #x27C4A)	; ð§±Š
-    (=gt		. 48791)	; ý¡€‹º—
-    (=gt-pj-7		. #x3E21)	; ý¡€‹º—
     (=daikanwa		. 36394)	; ø¸ˆ¸ª
     ))
 (define-char
@@ -634,13 +617,6 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (=cns11643-5	. #x4328)	; ø»šœ¯
-    ))
-(define-char
-  '((ideographic-radical . 152)	; â¾—
-    (ideographic-strokes . 6)
-    (total-strokes	 . 13)
-    (=ucs		. #x27C4C)	; ð§±Œ
-    (=hanziku-12	. #xF041)	; ý¢ƒ
     ))
 (define-char
   '((ideographic-radical . 152)	; â¾—
@@ -1160,7 +1136,6 @@
 (define-char
   '((ideographic-radical . 152)	; â¾—
     (ideographic-strokes . 9)
-    (total-strokes	 . 16)
     (=ucs		. #x8C6E)	; è±®
     (=iso-ir165		. #x7E5D)	; ø»Ž·¶
     ))

@@ -124,10 +124,6 @@
   '((ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x8CB3)	; è²³
-      (=jis-x0208	  . #x6C48)	; ø½‹¤­
-      ))
     (=ucs		. #x5F10)	; å¼
     (=jis-x0208		. #x4675)	; ø½Š­¦
     (=gt		. 12179)	; ý¡€‚¾“
@@ -195,7 +191,6 @@
 (define-char
   '((ideographic-radical . 56)	; â¼·
     (ideographic-strokes . 5)
-    (total-strokes	 . 8)
     (=ucs		. #x7519)	; ç”™
     (=gb2312		. #x5F30)	; ø»…¡—
     ))
@@ -249,6 +244,13 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=daikanwa		. 09677)	; ø¸‚—
+    ))
+(define-char
+  '((script		Chinese Simplified Ideograph)
+    (ideographic-radical . 56)	; â¼·
+    (ideographic-strokes . 6)
+    (=ucs		. #x8D30)	; è´°
+    (=gb2312		. #x3721)	; ø»„¦˜
     ))
 (define-char
   '((ideographic-radical . 56)	; â¼·

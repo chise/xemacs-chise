@@ -1214,7 +1214,6 @@
 (define-char
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 7)
-    (total-strokes	 . 9)
     (hanyu-dazidian	8 7 16)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2156,11 +2155,11 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (<-vulgar-ideograph
-     ((shinjigen-1	  . 2207)
-      (=gt		  . 11902)	; ý¡€‚¹¾
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 2207)
+		 (=gt		     . 11902)	; ý¡€‚¹¾
+		 )
       ))
-    (<-vulgar-ideograph*sources
-     shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸
@@ -2177,8 +2176,8 @@
 (define-char
   '((morohashi-daikanwa	3006 0 3)
     (ideographic-radical . 27)	; â¼š
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
+    (ideographic-strokes . 10)
+    (total-strokes	 . 12)
     (hanyu-dazidian	1 75 21)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -2259,7 +2258,6 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (hanyu-dazidian	1 77 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸
@@ -2269,13 +2267,13 @@
      ((=cns11643-1	  . #x5A72)	; ø»’—›
       ))
     (=cns11643-3	. #x4048)	; ø»–„­
-    (=hanziku-1		. #xB3D0)	; ý¢€›
     ))
 (define-char
   '((morohashi-daikanwa	3008 0 1)
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
+    (hanyu-dazidian	1 77 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸
@@ -2285,6 +2283,7 @@
      ((=ucs		  . #x6556)	; æ•–
       ))
     (=ucs		. #x53AB)	; åŽ«
+    (=hanziku-1		. #xB3D0)	; ý¢€›
     ))
 (define-char
   '((=>ucs		. #x20A91)	; ð ª‘
@@ -2388,6 +2387,8 @@
 (define-char
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 11)
+    (kangxi-radical	 . 61)	; â¼¼
+    (kangxi-strokes	 . 10)
     (total-strokes	 . 13)
     (=ucs		. #x53AF)	; åŽ¯
     (=jis-x0212		. #x344F)	; ø»‹€¸
@@ -2522,18 +2523,18 @@
     (=hanziku-1		. #xB3DD)	; ý¢€›
     ))
 (define-char
-  '((ideographic-radical . 27)	; â¼š
+  '((=>ucs		. #x3550)	; ã•
+    (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
-    (=ucs		. #x3550)	; ã•
     (=daikanwa		. 03024)	; ø¸€¯
     ))
 (define-char
-  '((=>ucs		. #x3550)	; ã•
-    (morohashi-daikanwa	3024 0 3)
+  '((morohashi-daikanwa	3024 0 3)
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (=ucs		. #x3550)	; ã•
     (=cns11643-5	. #x4C31)	; ø»šª†
     ))
 (define-char
@@ -2886,6 +2887,7 @@
   '((morohashi-daikanwa	3041 0 2)
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 12)
+    (kangxi-strokes	 . 13)
     (total-strokes	 . 14)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
@@ -3028,15 +3030,13 @@
     (ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (<-simplified@JP/Jouyou
-     ((shinjigen-1	  . 1286)
-      (=jis-x0208	  . #x536E)	; ø½‹€¥
-      (=ks-x1001	  . #x6571)	; ø»‰¿”
-      (=cns11643-1	  . #x7964)	; ø»“„¯
-      (=daikanwa	  . 04589)	; ø¸‡­
+    (<-simplified-ideograph
+     (:sources	(morohashi-daikanwa shinjigen-1)
+      :char	((ideographic-radical . 30)	; â¼
+		 (shinjigen-1	     . 1286)
+		 (=daikanwa	     . 04589)	; ø¸‡­
+		 )
       ))
-    (<-simplified@JP/Jouyou*sources
-     daikanwa shinjigen-1 JP/Jouyou)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
       (=ucs		  . #x2FF8)	; â¿¸
