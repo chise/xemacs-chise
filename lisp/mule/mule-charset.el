@@ -321,7 +321,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-gt-pj-k2
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
-	  chinese-big5-cdp
+	  =big5-cdp
 	  ideograph-hanziku-1
 	  ideograph-hanziku-2
 	  ideograph-hanziku-3
@@ -334,12 +334,12 @@ DESCRIPTION (string) is the description string of the charset."
 	  ideograph-hanziku-10
 	  ideograph-hanziku-11
 	  ideograph-hanziku-12
-	  ideograph-cbeta
+	  =cbeta
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
 	  ucs-bmp
-	  china3-jef
+	  =jef-china3
 	  arabic-iso8859-6
 	  chinese-big5-1
 	  chinese-big5-2
