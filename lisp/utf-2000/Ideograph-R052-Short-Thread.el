@@ -3,15 +3,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (shinjigen-2	. 2160)
-    (japanese-jisx0208-1978	. #x5676)	; ø»ƒ‹‹
-    (chinese-gb2312		. #x675B)	; ø»…­²
-    (japanese-jisx0208		. #x5676)	; ø»‡Ÿ“
-    (chinese-isoir165		. #x675B)	; ø»Ž–‚
-    (chinese-cns11643-3		. #x213D)	; ø»•—€
-    (japanese-jisx0208-1990	. #x5676)	; ø½‹…‡
-    (ideograph-daikanwa		. 09189)	; ø¸‚¥
-    (chinese-big5-cdp		. #x8B44)	; ý¢€ˆ­„
-    (ucs			. #x5E7A)	; å¹º
+    (chinese-gb2312	. #x675B)	; ø»…­²
+    (=jis-x0208		. #x5676)	; ø½‹…‡
+    (chinese-isoir165	. #x675B)	; ø»Ž–‚
+    (chinese-cns11643-3 . #x213D)	; ø»•—€
+    (ideograph-daikanwa . 09189)	; ø¸‚¥
+    (chinese-big5-cdp	. #x8B44)	; ý¢€ˆ­„
+    (ucs		. #x5E7A)	; å¹º
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³
@@ -27,16 +25,14 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
     (shinjigen-2	. 2161)
-    (japanese-jisx0208-1978	. #x3838)	; ø»‚ž‰
-    (chinese-gb2312		. #x3B43)	; ø»„¬²
-    (japanese-jisx0208		. #x3838)	; ø»†²‘
-    (korean-ksc5601		. #x7C33)	; ø»Š ˆ
-    (chinese-isoir165		. #x3B43)	; ø»•‚
-    (chinese-cns11643-1		. #x453C)	; ø»‘·¯
-    (japanese-jisx0208-1990	. #x3838)	; ø½Š˜…
-    (chinese-big5		. #xA4DB)	; ý¢€Š“›
-    (ideograph-daikanwa		. 09190)	; ø¸‚¦
-    (ucs			. #x5E7B)	; å¹»
+    (chinese-gb2312	. #x3B43)	; ø»„¬²
+    (=jis-x0208		. #x3838)	; ø½Š˜…
+    (korean-ksc5601	. #x7C33)	; ø»Š ˆ
+    (chinese-isoir165	. #x3B43)	; ø»•‚
+    (chinese-cns11643-1 . #x453C)	; ø»‘·¯
+    (chinese-big5	. #xA4DB)	; ý¢€Š“›
+    (ideograph-daikanwa . 09190)	; ø¸‚¦
+    (ucs		. #x5E7B)	; å¹»
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³
@@ -63,16 +59,14 @@
   '((ideographic-radical . 52)	; â¼³
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (japanese-jisx0208-1978	. #x4D44)	; ø»‚½‹
-    (chinese-gb2312		. #x5357)	; ø»…–
-    (japanese-jisx0208		. #x4D44)	; ø»‡‘“
-    (korean-ksc5601		. #x6A6A)	; ø»Š†£
-    (chinese-isoir165		. #x5357)	; ø»¸¦
-    (chinese-cns11643-1		. #x464E)	; ø»‘¹Ÿ
-    (japanese-jisx0208-1990	. #x4D44)	; ø½Š·‡
-    (chinese-big5		. #xA5AE)	; ý¢€Š–®
-    (ideograph-daikanwa		. 09193)	; ø¸‚©
-    (ucs			. #x5E7C)	; å¹¼
+    (chinese-gb2312	. #x5357)	; ø»…–
+    (=jis-x0208		. #x4D44)	; ø½Š·‡
+    (korean-ksc5601	. #x6A6A)	; ø»Š†£
+    (chinese-isoir165	. #x5357)	; ø»¸¦
+    (chinese-cns11643-1 . #x464E)	; ø»‘¹Ÿ
+    (chinese-big5	. #xA5AE)	; ý¢€Š–®
+    (ideograph-daikanwa . 09193)	; ø¸‚©
+    (ucs		. #x5E7C)	; å¹¼
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³
@@ -179,16 +173,14 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (shinjigen-2	. 2162)
-    (japanese-jisx0208-1978	. #x4D29)	; ø»‚¼°
-    (chinese-gb2312		. #x5344)	; ø»…ƒ
-    (japanese-jisx0208		. #x4D29)	; ø»‡¸
-    (korean-ksc5601		. #x6A6B)	; ø»Š†¤
-    (chinese-isoir165		. #x5344)	; ø»¸“
-    (chinese-cns11643-1		. #x5077)	; ø»’ˆ´
-    (japanese-jisx0208-1990	. #x4D29)	; ø½Š¶¬
-    (chinese-big5		. #xABD5)	; ý¢€Š¯•
-    (ideograph-daikanwa		. 09205)	; ø¸‚µ
-    (ucs			. #x5E7D)	; å¹½
+    (chinese-gb2312	. #x5344)	; ø»…ƒ
+    (=jis-x0208		. #x4D29)	; ø½Š¶¬
+    (korean-ksc5601	. #x6A6B)	; ø»Š†¤
+    (chinese-isoir165	. #x5344)	; ø»¸“
+    (chinese-cns11643-1 . #x5077)	; ø»’ˆ´
+    (chinese-big5	. #xABD5)	; ý¢€Š¯•
+    (ideograph-daikanwa . 09205)	; ø¸‚µ
+    (ucs		. #x5E7D)	; å¹½
     ))
 (define-char
   '((ideographic-radical . 52)	; â¼³
@@ -219,13 +211,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (shinjigen-2	. 2163)
-    (japanese-jisx0208-1978	. #x3476)	; ø»‚™
-    (japanese-jisx0208		. #x3476)	; ø»†­—
-    (korean-ksc5601		. #x507A)	; ø»‰ §
-    (japanese-jisx0208-1990	. #x3476)	; ø½Š“‹
-    (chinese-big5		. #xB458)	; ý¢€‹‘˜
-    (ideograph-daikanwa		. 09208)	; ø¸‚¸
-    (ucs-jis			. #x5E7E)	; ø»‚™
+    (=jis-x0208		. #x3476)	; ø½Š“‹
+    (korean-ksc5601	. #x507A)	; ø»‰ §
+    (chinese-big5	. #xB458)	; ý¢€‹‘˜
+    (ideograph-daikanwa . 09208)	; ø¸‚¸
+    (ucs-jis		. #x5E7E)	; ø½Š“‹
     ))
 (define-char
   '((=>ucs		. #x5E7E)	; å¹¾

@@ -3,15 +3,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (shinjigen-2	. 6669)
-    (japanese-jisx0208-1978	. #x3A31)	; ø»‚ ¾
-    (chinese-gb2312		. #x745E)	; ø»†€»
-    (japanese-jisx0208		. #x3A31)	; ø»†µ†
-    (korean-ksc5601		. #x4A5D)	; ø»‰—–
-    (chinese-isoir165		. #x745E)	; ø»Ž©‹
-    (chinese-cns11643-1		. #x4862)	; ø»‘¼¯
-    (japanese-jisx0208-1990	. #x3A31)	; ø½Ššº
-    (ideograph-daikanwa		. 30596)	; ø¸‡ž„
-    (ucs			. #x826E)	; è‰®
+    (chinese-gb2312	. #x745E)	; ø»†€»
+    (=jis-x0208		. #x3A31)	; ø½Ššº
+    (korean-ksc5601	. #x4A5D)	; ø»‰—–
+    (chinese-isoir165	. #x745E)	; ø»Ž©‹
+    (chinese-cns11643-1 . #x4862)	; ø»‘¼¯
+    (ideograph-daikanwa . 30596)	; ø¸‡ž„
+    (ucs		. #x826E)	; è‰®
     ))
 (define-char
   '((=>ucs		. #x826F)	; è‰¯
@@ -19,12 +17,10 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 7)
     (shinjigen-2	. 6671)
-    (japanese-jisx0208-1978	. #x4E49)	; ø»‚¾®
-    (japanese-jisx0208		. #x4E49)	; ø»‡’¶
-    (korean-ksc5601		. #x555E)	; ø»‰§¡
-    (japanese-jisx0208-1990	. #x4E49)	; ø½Š¸ª
-    (ideograph-daikanwa		. 30597)	; ø¸‡ž…
-    (ucs-jis			. #x826F)	; ø»‚¾®
+    (=jis-x0208		. #x4E49)	; ø½Š¸ª
+    (korean-ksc5601	. #x555E)	; ø»‰§¡
+    (ideograph-daikanwa . 30597)	; ø¸‡ž…
+    (ucs-jis		. #x826F)	; ø½Š¸ª
     ))
 (define-char
   '((morohashi-daikanwa	30597 0 0)
@@ -86,14 +82,12 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (shinjigen-2	. 6672)
-    (japanese-jisx0208-1978	. #x6765)	; ø»ƒ£¸
-    (japanese-jisx0208		. #x6765)	; ø»‡¸€
-    (korean-ksc5601		. #x4A5E)	; ø»‰——
-    (chinese-cns11643-1		. #x7529)	; ø»’½¼
-    (japanese-jisx0208-1990	. #x6765)	; ø½‹´
-    (chinese-gb12345		. #x3C68)	; è‰±
-    (ideograph-daikanwa		. 30600)	; ø¸‡žˆ
-    (ucs			. #x8271)	; è‰±
+    (=jis-x0208		. #x6765)	; ø½‹´
+    (korean-ksc5601	. #x4A5E)	; ø»‰——
+    (chinese-cns11643-1 . #x7529)	; ø»’½¼
+    (chinese-gb12345	. #x3C68)	; è‰±
+    (ideograph-daikanwa . 30600)	; ø¸‡žˆ
+    (ucs		. #x8271)	; è‰±
     ))
 (define-char
   '((ideographic-radical . 138)	; â¾‰

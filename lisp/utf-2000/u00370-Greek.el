@@ -356,11 +356,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter alpha")
-      (japanese-jisx0208-1978	  . #x2621)	; ø»‚ƒ–
-      (chinese-gb2312		  . #x2621)	; ø»„š
-      (japanese-jisx0208	  . #x2621)	; ø»†—ž
-      (korean-ksc5601		  . #x2541)	; ø»ˆ ¤
-      (chinese-cns11643-1	  . #x2475)	; ø»‘ˆŠ
+      (chinese-gb2312	  . #x2621)	; ø»„š
+      (korean-ksc5601	  . #x2541)	; ø»ˆ ¤
+      (chinese-cns11643-1 . #x2475)	; ø»‘ˆŠ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ALPHA")
@@ -383,13 +381,11 @@
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
       (ucs		  . #x0391)	; Î‘
       ))
-    (japanese-jisx0208-1978	. #x2621)	; ø»‚ƒ–
-    (chinese-gb2312		. #x2621)	; ø»„š
-    (japanese-jisx0208		. #x2621)	; ø»†—ž
-    (korean-ksc5601		. #x2541)	; ø»ˆ ¤
-    (chinese-cns11643-1		. #x2475)	; ø»‘ˆŠ
-    (japanese-jisx0208-1990	. #x2621)	; ø½‰½’
-    (chinese-big5		. #xA344)	; ý¢€Š„
+    (chinese-gb2312	. #x2621)	; ø»„š
+    (=jis-x0208		. #x2621)	; ø½‰½’
+    (korean-ksc5601	. #x2541)	; ø»ˆ ¤
+    (chinese-cns11643-1 . #x2475)	; ø»‘ˆŠ
+    (chinese-big5	. #xA344)	; ý¢€Š„
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER BETA")
@@ -398,11 +394,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter beta")
-      (japanese-jisx0208-1978	  . #x2622)	; ø»‚ƒ—
-      (chinese-gb2312		  . #x2622)	; ø»„›
-      (japanese-jisx0208	  . #x2622)	; ø»†—Ÿ
-      (korean-ksc5601		  . #x2542)	; ø»ˆ ¥
-      (chinese-cns11643-1	  . #x2476)	; ø»‘ˆ‹
+      (chinese-gb2312	  . #x2622)	; ø»„›
+      (korean-ksc5601	  . #x2542)	; ø»ˆ ¥
+      (chinese-cns11643-1 . #x2476)	; ø»‘ˆ‹
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER BETA")
@@ -425,13 +419,11 @@
      ((name		  . "GREEK CAPITAL LETTER BETA")
       (ucs		  . #x0392)	; Î’
       ))
-    (japanese-jisx0208-1978	. #x2622)	; ø»‚ƒ—
-    (chinese-gb2312		. #x2622)	; ø»„›
-    (japanese-jisx0208		. #x2622)	; ø»†—Ÿ
-    (korean-ksc5601		. #x2542)	; ø»ˆ ¥
-    (chinese-cns11643-1		. #x2476)	; ø»‘ˆ‹
-    (japanese-jisx0208-1990	. #x2622)	; ø½‰½“
-    (chinese-big5		. #xA345)	; ý¢€Š…
+    (chinese-gb2312	. #x2622)	; ø»„›
+    (=jis-x0208		. #x2622)	; ø½‰½“
+    (korean-ksc5601	. #x2542)	; ø»ˆ ¥
+    (chinese-cns11643-1 . #x2476)	; ø»‘ˆ‹
+    (chinese-big5	. #xA345)	; ý¢€Š…
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER GAMMA")
@@ -440,11 +432,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter gamma")
-      (japanese-jisx0208-1978	  . #x2623)	; ø»‚ƒ˜
-      (chinese-gb2312		  . #x2623)	; ø»„œ
-      (japanese-jisx0208	  . #x2623)	; ø»†— 
-      (korean-ksc5601		  . #x2543)	; ø»ˆ ¦
-      (chinese-cns11643-1	  . #x2477)	; ø»‘ˆŒ
+      (chinese-gb2312	  . #x2623)	; ø»„œ
+      (korean-ksc5601	  . #x2543)	; ø»ˆ ¦
+      (chinese-cns11643-1 . #x2477)	; ø»‘ˆŒ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER GAMMA")
@@ -467,13 +457,11 @@
      ((name		  . "GREEK CAPITAL LETTER GAMMA")
       (ucs		  . #x0393)	; Î“
       ))
-    (japanese-jisx0208-1978	. #x2623)	; ø»‚ƒ˜
-    (chinese-gb2312		. #x2623)	; ø»„œ
-    (japanese-jisx0208		. #x2623)	; ø»†— 
-    (korean-ksc5601		. #x2543)	; ø»ˆ ¦
-    (chinese-cns11643-1		. #x2477)	; ø»‘ˆŒ
-    (japanese-jisx0208-1990	. #x2623)	; ø½‰½”
-    (chinese-big5		. #xA346)	; ý¢€Š†
+    (chinese-gb2312	. #x2623)	; ø»„œ
+    (=jis-x0208		. #x2623)	; ø½‰½”
+    (korean-ksc5601	. #x2543)	; ø»ˆ ¦
+    (chinese-cns11643-1 . #x2477)	; ø»‘ˆŒ
+    (chinese-big5	. #xA346)	; ý¢€Š†
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER DELTA")
@@ -482,11 +470,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter delta")
-      (japanese-jisx0208-1978	  . #x2624)	; ø»‚ƒ™
-      (chinese-gb2312		  . #x2624)	; ø»„
-      (japanese-jisx0208	  . #x2624)	; ø»†—¡
-      (korean-ksc5601		  . #x2544)	; ø»ˆ §
-      (chinese-cns11643-1	  . #x2478)	; ø»‘ˆ
+      (chinese-gb2312	  . #x2624)	; ø»„
+      (korean-ksc5601	  . #x2544)	; ø»ˆ §
+      (chinese-cns11643-1 . #x2478)	; ø»‘ˆ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER DELTA")
@@ -509,13 +495,11 @@
      ((name		  . "GREEK CAPITAL LETTER DELTA")
       (ucs		  . #x0394)	; Î”
       ))
-    (japanese-jisx0208-1978	. #x2624)	; ø»‚ƒ™
-    (chinese-gb2312		. #x2624)	; ø»„
-    (japanese-jisx0208		. #x2624)	; ø»†—¡
-    (korean-ksc5601		. #x2544)	; ø»ˆ §
-    (chinese-cns11643-1		. #x2478)	; ø»‘ˆ
-    (japanese-jisx0208-1990	. #x2624)	; ø½‰½•
-    (chinese-big5		. #xA347)	; ý¢€Š‡
+    (chinese-gb2312	. #x2624)	; ø»„
+    (=jis-x0208		. #x2624)	; ø½‰½•
+    (korean-ksc5601	. #x2544)	; ø»ˆ §
+    (chinese-cns11643-1 . #x2478)	; ø»‘ˆ
+    (chinese-big5	. #xA347)	; ý¢€Š‡
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER EPSILON")
@@ -524,11 +508,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter epsilon")
-      (japanese-jisx0208-1978	  . #x2625)	; ø»‚ƒš
-      (chinese-gb2312		  . #x2625)	; ø»„ž
-      (japanese-jisx0208	  . #x2625)	; ø»†—¢
-      (korean-ksc5601		  . #x2545)	; ø»ˆ ¨
-      (chinese-cns11643-1	  . #x2479)	; ø»‘ˆŽ
+      (chinese-gb2312	  . #x2625)	; ø»„ž
+      (korean-ksc5601	  . #x2545)	; ø»ˆ ¨
+      (chinese-cns11643-1 . #x2479)	; ø»‘ˆŽ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER EPSILON")
@@ -551,13 +533,11 @@
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
       (ucs		  . #x0395)	; Î•
       ))
-    (japanese-jisx0208-1978	. #x2625)	; ø»‚ƒš
-    (chinese-gb2312		. #x2625)	; ø»„ž
-    (japanese-jisx0208		. #x2625)	; ø»†—¢
-    (korean-ksc5601		. #x2545)	; ø»ˆ ¨
-    (chinese-cns11643-1		. #x2479)	; ø»‘ˆŽ
-    (japanese-jisx0208-1990	. #x2625)	; ø½‰½–
-    (chinese-big5		. #xA348)	; ý¢€Šˆ
+    (chinese-gb2312	. #x2625)	; ø»„ž
+    (=jis-x0208		. #x2625)	; ø½‰½–
+    (korean-ksc5601	. #x2545)	; ø»ˆ ¨
+    (chinese-cns11643-1 . #x2479)	; ø»‘ˆŽ
+    (chinese-big5	. #xA348)	; ý¢€Šˆ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ZETA")
@@ -566,11 +546,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter zeta")
-      (japanese-jisx0208-1978	  . #x2626)	; ø»‚ƒ›
-      (chinese-gb2312		  . #x2626)	; ø»„Ÿ
-      (japanese-jisx0208	  . #x2626)	; ø»†—£
-      (korean-ksc5601		  . #x2546)	; ø»ˆ ©
-      (chinese-cns11643-1	  . #x247A)	; ø»‘ˆ
+      (chinese-gb2312	  . #x2626)	; ø»„Ÿ
+      (korean-ksc5601	  . #x2546)	; ø»ˆ ©
+      (chinese-cns11643-1 . #x247A)	; ø»‘ˆ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ZETA")
@@ -593,13 +571,11 @@
      ((name		  . "GREEK CAPITAL LETTER ZETA")
       (ucs		  . #x0396)	; Î–
       ))
-    (japanese-jisx0208-1978	. #x2626)	; ø»‚ƒ›
-    (chinese-gb2312		. #x2626)	; ø»„Ÿ
-    (japanese-jisx0208		. #x2626)	; ø»†—£
-    (korean-ksc5601		. #x2546)	; ø»ˆ ©
-    (chinese-cns11643-1		. #x247A)	; ø»‘ˆ
-    (japanese-jisx0208-1990	. #x2626)	; ø½‰½—
-    (chinese-big5		. #xA349)	; ý¢€Š‰
+    (chinese-gb2312	. #x2626)	; ø»„Ÿ
+    (=jis-x0208		. #x2626)	; ø½‰½—
+    (korean-ksc5601	. #x2546)	; ø»ˆ ©
+    (chinese-cns11643-1 . #x247A)	; ø»‘ˆ
+    (chinese-big5	. #xA349)	; ý¢€Š‰
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER ETA")
@@ -608,11 +584,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter eta")
-      (japanese-jisx0208-1978	  . #x2627)	; ø»‚ƒœ
-      (chinese-gb2312		  . #x2627)	; ø»„ 
-      (japanese-jisx0208	  . #x2627)	; ø»†—¤
-      (korean-ksc5601		  . #x2547)	; ø»ˆ ª
-      (chinese-cns11643-1	  . #x247B)	; ø»‘ˆ
+      (chinese-gb2312	  . #x2627)	; ø»„ 
+      (korean-ksc5601	  . #x2547)	; ø»ˆ ª
+      (chinese-cns11643-1 . #x247B)	; ø»‘ˆ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER ETA")
@@ -635,13 +609,11 @@
      ((name		  . "GREEK CAPITAL LETTER ETA")
       (ucs		  . #x0397)	; Î—
       ))
-    (japanese-jisx0208-1978	. #x2627)	; ø»‚ƒœ
-    (chinese-gb2312		. #x2627)	; ø»„ 
-    (japanese-jisx0208		. #x2627)	; ø»†—¤
-    (korean-ksc5601		. #x2547)	; ø»ˆ ª
-    (chinese-cns11643-1		. #x247B)	; ø»‘ˆ
-    (japanese-jisx0208-1990	. #x2627)	; ø½‰½˜
-    (chinese-big5		. #xA34A)	; ý¢€ŠŠ
+    (chinese-gb2312	. #x2627)	; ø»„ 
+    (=jis-x0208		. #x2627)	; ø½‰½˜
+    (korean-ksc5601	. #x2547)	; ø»ˆ ª
+    (chinese-cns11643-1 . #x247B)	; ø»‘ˆ
+    (chinese-big5	. #xA34A)	; ý¢€ŠŠ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER THETA")
@@ -650,11 +622,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter theta")
-      (japanese-jisx0208-1978	  . #x2628)	; ø»‚ƒ
-      (chinese-gb2312		  . #x2628)	; ø»„¡
-      (japanese-jisx0208	  . #x2628)	; ø»†—¥
-      (korean-ksc5601		  . #x2548)	; ø»ˆ «
-      (chinese-cns11643-1	  . #x247C)	; ø»‘ˆ‘
+      (chinese-gb2312	  . #x2628)	; ø»„¡
+      (korean-ksc5601	  . #x2548)	; ø»ˆ «
+      (chinese-cns11643-1 . #x247C)	; ø»‘ˆ‘
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER THETA")
@@ -677,13 +647,11 @@
      ((name		  . "GREEK CAPITAL LETTER THETA")
       (ucs		  . #x0398)	; Î˜
       ))
-    (japanese-jisx0208-1978	. #x2628)	; ø»‚ƒ
-    (chinese-gb2312		. #x2628)	; ø»„¡
-    (japanese-jisx0208		. #x2628)	; ø»†—¥
-    (korean-ksc5601		. #x2548)	; ø»ˆ «
-    (chinese-cns11643-1		. #x247C)	; ø»‘ˆ‘
-    (japanese-jisx0208-1990	. #x2628)	; ø½‰½™
-    (chinese-big5		. #xA34B)	; ý¢€Š‹
+    (chinese-gb2312	. #x2628)	; ø»„¡
+    (=jis-x0208		. #x2628)	; ø½‰½™
+    (korean-ksc5601	. #x2548)	; ø»ˆ «
+    (chinese-cns11643-1 . #x247C)	; ø»‘ˆ‘
+    (chinese-big5	. #xA34B)	; ý¢€Š‹
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER IOTA")
@@ -692,11 +660,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter iota")
-      (japanese-jisx0208-1978	  . #x2629)	; ø»‚ƒž
-      (chinese-gb2312		  . #x2629)	; ø»„¢
-      (japanese-jisx0208	  . #x2629)	; ø»†—¦
-      (korean-ksc5601		  . #x2549)	; ø»ˆ ¬
-      (chinese-cns11643-1	  . #x247D)	; ø»‘ˆ’
+      (chinese-gb2312	  . #x2629)	; ø»„¢
+      (korean-ksc5601	  . #x2549)	; ø»ˆ ¬
+      (chinese-cns11643-1 . #x247D)	; ø»‘ˆ’
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER IOTA")
@@ -719,13 +685,11 @@
      ((name		  . "GREEK CAPITAL LETTER IOTA")
       (ucs		  . #x0399)	; Î™
       ))
-    (japanese-jisx0208-1978	. #x2629)	; ø»‚ƒž
-    (chinese-gb2312		. #x2629)	; ø»„¢
-    (japanese-jisx0208		. #x2629)	; ø»†—¦
-    (korean-ksc5601		. #x2549)	; ø»ˆ ¬
-    (chinese-cns11643-1		. #x247D)	; ø»‘ˆ’
-    (japanese-jisx0208-1990	. #x2629)	; ø½‰½š
-    (chinese-big5		. #xA34C)	; ý¢€ŠŒ
+    (chinese-gb2312	. #x2629)	; ø»„¢
+    (=jis-x0208		. #x2629)	; ø½‰½š
+    (korean-ksc5601	. #x2549)	; ø»ˆ ¬
+    (chinese-cns11643-1 . #x247D)	; ø»‘ˆ’
+    (chinese-big5	. #xA34C)	; ý¢€ŠŒ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER KAPPA")
@@ -734,11 +698,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter kappa")
-      (japanese-jisx0208-1978	  . #x262A)	; ø»‚ƒŸ
-      (chinese-gb2312		  . #x262A)	; ø»„£
-      (japanese-jisx0208	  . #x262A)	; ø»†—§
-      (korean-ksc5601		  . #x254A)	; ø»ˆ ­
-      (chinese-cns11643-1	  . #x247E)	; ø»‘ˆ“
+      (chinese-gb2312	  . #x262A)	; ø»„£
+      (korean-ksc5601	  . #x254A)	; ø»ˆ ­
+      (chinese-cns11643-1 . #x247E)	; ø»‘ˆ“
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER KAPPA")
@@ -761,13 +723,11 @@
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
       (ucs		  . #x039A)	; Îš
       ))
-    (japanese-jisx0208-1978	. #x262A)	; ø»‚ƒŸ
-    (chinese-gb2312		. #x262A)	; ø»„£
-    (japanese-jisx0208		. #x262A)	; ø»†—§
-    (korean-ksc5601		. #x254A)	; ø»ˆ ­
-    (chinese-cns11643-1		. #x247E)	; ø»‘ˆ“
-    (japanese-jisx0208-1990	. #x262A)	; ø½‰½›
-    (chinese-big5		. #xA34D)	; ý¢€Š
+    (chinese-gb2312	. #x262A)	; ø»„£
+    (=jis-x0208		. #x262A)	; ø½‰½›
+    (korean-ksc5601	. #x254A)	; ø»ˆ ­
+    (chinese-cns11643-1 . #x247E)	; ø»‘ˆ“
+    (chinese-big5	. #xA34D)	; ý¢€Š
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER LAMDA")
@@ -776,11 +736,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter lamda")
-      (japanese-jisx0208-1978	  . #x262B)	; ø»‚ƒ 
-      (chinese-gb2312		  . #x262B)	; ø»„¤
-      (japanese-jisx0208	  . #x262B)	; ø»†—¨
-      (korean-ksc5601		  . #x254B)	; ø»ˆ ®
-      (chinese-cns11643-1	  . #x2521)	; ø»‘ˆ”
+      (chinese-gb2312	  . #x262B)	; ø»„¤
+      (korean-ksc5601	  . #x254B)	; ø»ˆ ®
+      (chinese-cns11643-1 . #x2521)	; ø»‘ˆ”
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER LAMDA")
@@ -803,13 +761,11 @@
      ((name		  . "GREEK CAPITAL LETTER LAMDA")
       (ucs		  . #x039B)	; Î›
       ))
-    (japanese-jisx0208-1978	. #x262B)	; ø»‚ƒ 
-    (chinese-gb2312		. #x262B)	; ø»„¤
-    (japanese-jisx0208		. #x262B)	; ø»†—¨
-    (korean-ksc5601		. #x254B)	; ø»ˆ ®
-    (chinese-cns11643-1		. #x2521)	; ø»‘ˆ”
-    (japanese-jisx0208-1990	. #x262B)	; ø½‰½œ
-    (chinese-big5		. #xA34E)	; ý¢€ŠŽ
+    (chinese-gb2312	. #x262B)	; ø»„¤
+    (=jis-x0208		. #x262B)	; ø½‰½œ
+    (korean-ksc5601	. #x254B)	; ø»ˆ ®
+    (chinese-cns11643-1 . #x2521)	; ø»‘ˆ”
+    (chinese-big5	. #xA34E)	; ý¢€ŠŽ
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER MU")
@@ -818,11 +774,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter mu")
-      (japanese-jisx0208-1978	  . #x262C)	; ø»‚ƒ¡
-      (chinese-gb2312		  . #x262C)	; ø»„¥
-      (japanese-jisx0208	  . #x262C)	; ø»†—©
-      (korean-ksc5601		  . #x254C)	; ø»ˆ ¯
-      (chinese-cns11643-1	  . #x2522)	; ø»‘ˆ•
+      (chinese-gb2312	  . #x262C)	; ø»„¥
+      (korean-ksc5601	  . #x254C)	; ø»ˆ ¯
+      (chinese-cns11643-1 . #x2522)	; ø»‘ˆ•
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER MU")
@@ -845,13 +799,11 @@
      ((name		  . "GREEK CAPITAL LETTER MU")
       (ucs		  . #x039C)	; Îœ
       ))
-    (japanese-jisx0208-1978	. #x262C)	; ø»‚ƒ¡
-    (chinese-gb2312		. #x262C)	; ø»„¥
-    (japanese-jisx0208		. #x262C)	; ø»†—©
-    (korean-ksc5601		. #x254C)	; ø»ˆ ¯
-    (chinese-cns11643-1		. #x2522)	; ø»‘ˆ•
-    (japanese-jisx0208-1990	. #x262C)	; ø½‰½
-    (chinese-big5		. #xA34F)	; ý¢€Š
+    (chinese-gb2312	. #x262C)	; ø»„¥
+    (=jis-x0208		. #x262C)	; ø½‰½
+    (korean-ksc5601	. #x254C)	; ø»ˆ ¯
+    (chinese-cns11643-1 . #x2522)	; ø»‘ˆ•
+    (chinese-big5	. #xA34F)	; ý¢€Š
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER NU")
@@ -860,11 +812,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter nu")
-      (japanese-jisx0208-1978	  . #x262D)	; ø»‚ƒ¢
-      (chinese-gb2312		  . #x262D)	; ø»„¦
-      (japanese-jisx0208	  . #x262D)	; ø»†—ª
-      (korean-ksc5601		  . #x254D)	; ø»ˆ °
-      (chinese-cns11643-1	  . #x2523)	; ø»‘ˆ–
+      (chinese-gb2312	  . #x262D)	; ø»„¦
+      (korean-ksc5601	  . #x254D)	; ø»ˆ °
+      (chinese-cns11643-1 . #x2523)	; ø»‘ˆ–
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER NU")
@@ -887,13 +837,11 @@
      ((name		  . "GREEK CAPITAL LETTER NU")
       (ucs		  . #x039D)	; Î
       ))
-    (japanese-jisx0208-1978	. #x262D)	; ø»‚ƒ¢
-    (chinese-gb2312		. #x262D)	; ø»„¦
-    (japanese-jisx0208		. #x262D)	; ø»†—ª
-    (korean-ksc5601		. #x254D)	; ø»ˆ °
-    (chinese-cns11643-1		. #x2523)	; ø»‘ˆ–
-    (japanese-jisx0208-1990	. #x262D)	; ø½‰½ž
-    (chinese-big5		. #xA350)	; ý¢€Š
+    (chinese-gb2312	. #x262D)	; ø»„¦
+    (=jis-x0208		. #x262D)	; ø½‰½ž
+    (korean-ksc5601	. #x254D)	; ø»ˆ °
+    (chinese-cns11643-1 . #x2523)	; ø»‘ˆ–
+    (chinese-big5	. #xA350)	; ý¢€Š
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER XI")
@@ -902,11 +850,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter xi")
-      (japanese-jisx0208-1978	  . #x262E)	; ø»‚ƒ£
-      (chinese-gb2312		  . #x262E)	; ø»„§
-      (japanese-jisx0208	  . #x262E)	; ø»†—«
-      (korean-ksc5601		  . #x254E)	; ø»ˆ ±
-      (chinese-cns11643-1	  . #x2524)	; ø»‘ˆ—
+      (chinese-gb2312	  . #x262E)	; ø»„§
+      (korean-ksc5601	  . #x254E)	; ø»ˆ ±
+      (chinese-cns11643-1 . #x2524)	; ø»‘ˆ—
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER XI")
@@ -929,13 +875,11 @@
      ((name		  . "GREEK CAPITAL LETTER XI")
       (ucs		  . #x039E)	; Îž
       ))
-    (japanese-jisx0208-1978	. #x262E)	; ø»‚ƒ£
-    (chinese-gb2312		. #x262E)	; ø»„§
-    (japanese-jisx0208		. #x262E)	; ø»†—«
-    (korean-ksc5601		. #x254E)	; ø»ˆ ±
-    (chinese-cns11643-1		. #x2524)	; ø»‘ˆ—
-    (japanese-jisx0208-1990	. #x262E)	; ø½‰½Ÿ
-    (chinese-big5		. #xA351)	; ý¢€Š‘
+    (chinese-gb2312	. #x262E)	; ø»„§
+    (=jis-x0208		. #x262E)	; ø½‰½Ÿ
+    (korean-ksc5601	. #x254E)	; ø»ˆ ±
+    (chinese-cns11643-1 . #x2524)	; ø»‘ˆ—
+    (chinese-big5	. #xA351)	; ý¢€Š‘
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMICRON")
@@ -944,11 +888,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter omicron")
-      (japanese-jisx0208-1978	  . #x262F)	; ø»‚ƒ¤
-      (chinese-gb2312		  . #x262F)	; ø»„¨
-      (japanese-jisx0208	  . #x262F)	; ø»†—¬
-      (korean-ksc5601		  . #x254F)	; ø»ˆ ²
-      (chinese-cns11643-1	  . #x2525)	; ø»‘ˆ˜
+      (chinese-gb2312	  . #x262F)	; ø»„¨
+      (korean-ksc5601	  . #x254F)	; ø»ˆ ²
+      (chinese-cns11643-1 . #x2525)	; ø»‘ˆ˜
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMICRON")
@@ -971,13 +913,11 @@
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
       (ucs		  . #x039F)	; ÎŸ
       ))
-    (japanese-jisx0208-1978	. #x262F)	; ø»‚ƒ¤
-    (chinese-gb2312		. #x262F)	; ø»„¨
-    (japanese-jisx0208		. #x262F)	; ø»†—¬
-    (korean-ksc5601		. #x254F)	; ø»ˆ ²
-    (chinese-cns11643-1		. #x2525)	; ø»‘ˆ˜
-    (japanese-jisx0208-1990	. #x262F)	; ø½‰½ 
-    (chinese-big5		. #xA352)	; ý¢€Š’
+    (chinese-gb2312	. #x262F)	; ø»„¨
+    (=jis-x0208		. #x262F)	; ø½‰½ 
+    (korean-ksc5601	. #x254F)	; ø»ˆ ²
+    (chinese-cns11643-1 . #x2525)	; ø»‘ˆ˜
+    (chinese-big5	. #xA352)	; ý¢€Š’
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PI")
@@ -986,11 +926,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter pi")
-      (japanese-jisx0208-1978	  . #x2630)	; ø»‚ƒ¥
-      (chinese-gb2312		  . #x2630)	; ø»„©
-      (japanese-jisx0208	  . #x2630)	; ø»†—­
-      (korean-ksc5601		  . #x2550)	; ø»ˆ ³
-      (chinese-cns11643-1	  . #x2526)	; ø»‘ˆ™
+      (chinese-gb2312	  . #x2630)	; ø»„©
+      (korean-ksc5601	  . #x2550)	; ø»ˆ ³
+      (chinese-cns11643-1 . #x2526)	; ø»‘ˆ™
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER PI")
@@ -1013,13 +951,11 @@
      ((name		  . "GREEK CAPITAL LETTER PI")
       (ucs		  . #x03A0)	; Î 
       ))
-    (japanese-jisx0208-1978	. #x2630)	; ø»‚ƒ¥
-    (chinese-gb2312		. #x2630)	; ø»„©
-    (japanese-jisx0208		. #x2630)	; ø»†—­
-    (korean-ksc5601		. #x2550)	; ø»ˆ ³
-    (chinese-cns11643-1		. #x2526)	; ø»‘ˆ™
-    (japanese-jisx0208-1990	. #x2630)	; ø½‰½¡
-    (chinese-big5		. #xA353)	; ý¢€Š“
+    (chinese-gb2312	. #x2630)	; ø»„©
+    (=jis-x0208		. #x2630)	; ø½‰½¡
+    (korean-ksc5601	. #x2550)	; ø»ˆ ³
+    (chinese-cns11643-1 . #x2526)	; ø»‘ˆ™
+    (chinese-big5	. #xA353)	; ý¢€Š“
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER RHO")
@@ -1028,11 +964,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter rho")
-      (japanese-jisx0208-1978	  . #x2631)	; ø»‚ƒ¦
-      (chinese-gb2312		  . #x2631)	; ø»„ª
-      (japanese-jisx0208	  . #x2631)	; ø»†—®
-      (korean-ksc5601		  . #x2551)	; ø»ˆ ´
-      (chinese-cns11643-1	  . #x2527)	; ø»‘ˆš
+      (chinese-gb2312	  . #x2631)	; ø»„ª
+      (korean-ksc5601	  . #x2551)	; ø»ˆ ´
+      (chinese-cns11643-1 . #x2527)	; ø»‘ˆš
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER RHO")
@@ -1055,13 +989,11 @@
      ((name		  . "GREEK CAPITAL LETTER RHO")
       (ucs		  . #x03A1)	; Î¡
       ))
-    (japanese-jisx0208-1978	. #x2631)	; ø»‚ƒ¦
-    (chinese-gb2312		. #x2631)	; ø»„ª
-    (japanese-jisx0208		. #x2631)	; ø»†—®
-    (korean-ksc5601		. #x2551)	; ø»ˆ ´
-    (chinese-cns11643-1		. #x2527)	; ø»‘ˆš
-    (japanese-jisx0208-1990	. #x2631)	; ø½‰½¢
-    (chinese-big5		. #xA354)	; ý¢€Š”
+    (chinese-gb2312	. #x2631)	; ø»„ª
+    (=jis-x0208		. #x2631)	; ø½‰½¢
+    (korean-ksc5601	. #x2551)	; ø»ˆ ´
+    (chinese-cns11643-1 . #x2527)	; ø»‘ˆš
+    (chinese-big5	. #xA354)	; ý¢€Š”
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER SIGMA")
@@ -1070,11 +1002,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter sigma")
-      (japanese-jisx0208-1978	  . #x2632)	; ø»‚ƒ§
-      (chinese-gb2312		  . #x2632)	; ø»„«
-      (japanese-jisx0208	  . #x2632)	; ø»†—¯
-      (korean-ksc5601		  . #x2552)	; ø»ˆ µ
-      (chinese-cns11643-1	  . #x2528)	; ø»‘ˆ›
+      (chinese-gb2312	  . #x2632)	; ø»„«
+      (korean-ksc5601	  . #x2552)	; ø»ˆ µ
+      (chinese-cns11643-1 . #x2528)	; ø»‘ˆ›
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER SIGMA")
@@ -1097,13 +1027,11 @@
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
       (ucs		  . #x03A3)	; Î£
       ))
-    (japanese-jisx0208-1978	. #x2632)	; ø»‚ƒ§
-    (chinese-gb2312		. #x2632)	; ø»„«
-    (japanese-jisx0208		. #x2632)	; ø»†—¯
-    (korean-ksc5601		. #x2552)	; ø»ˆ µ
-    (chinese-cns11643-1		. #x2528)	; ø»‘ˆ›
-    (japanese-jisx0208-1990	. #x2632)	; ø½‰½£
-    (chinese-big5		. #xA355)	; ý¢€Š•
+    (chinese-gb2312	. #x2632)	; ø»„«
+    (=jis-x0208		. #x2632)	; ø½‰½£
+    (korean-ksc5601	. #x2552)	; ø»ˆ µ
+    (chinese-cns11643-1 . #x2528)	; ø»‘ˆ›
+    (chinese-big5	. #xA355)	; ý¢€Š•
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER TAU")
@@ -1112,11 +1040,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter tau")
-      (japanese-jisx0208-1978	  . #x2633)	; ø»‚ƒ¨
-      (chinese-gb2312		  . #x2633)	; ø»„¬
-      (japanese-jisx0208	  . #x2633)	; ø»†—°
-      (korean-ksc5601		  . #x2553)	; ø»ˆ ¶
-      (chinese-cns11643-1	  . #x2529)	; ø»‘ˆœ
+      (chinese-gb2312	  . #x2633)	; ø»„¬
+      (korean-ksc5601	  . #x2553)	; ø»ˆ ¶
+      (chinese-cns11643-1 . #x2529)	; ø»‘ˆœ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER TAU")
@@ -1139,13 +1065,11 @@
      ((name		  . "GREEK CAPITAL LETTER TAU")
       (ucs		  . #x03A4)	; Î¤
       ))
-    (japanese-jisx0208-1978	. #x2633)	; ø»‚ƒ¨
-    (chinese-gb2312		. #x2633)	; ø»„¬
-    (japanese-jisx0208		. #x2633)	; ø»†—°
-    (korean-ksc5601		. #x2553)	; ø»ˆ ¶
-    (chinese-cns11643-1		. #x2529)	; ø»‘ˆœ
-    (japanese-jisx0208-1990	. #x2633)	; ø½‰½¤
-    (chinese-big5		. #xA356)	; ý¢€Š–
+    (chinese-gb2312	. #x2633)	; ø»„¬
+    (=jis-x0208		. #x2633)	; ø½‰½¤
+    (korean-ksc5601	. #x2553)	; ø»ˆ ¶
+    (chinese-cns11643-1 . #x2529)	; ø»‘ˆœ
+    (chinese-big5	. #xA356)	; ý¢€Š–
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER UPSILON")
@@ -1154,11 +1078,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter upsilon")
-      (japanese-jisx0208-1978	  . #x2634)	; ø»‚ƒ©
-      (chinese-gb2312		  . #x2634)	; ø»„­
-      (japanese-jisx0208	  . #x2634)	; ø»†—±
-      (korean-ksc5601		  . #x2554)	; ø»ˆ ·
-      (chinese-cns11643-1	  . #x252A)	; ø»‘ˆ
+      (chinese-gb2312	  . #x2634)	; ø»„­
+      (korean-ksc5601	  . #x2554)	; ø»ˆ ·
+      (chinese-cns11643-1 . #x252A)	; ø»‘ˆ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER UPSILON")
@@ -1181,13 +1103,11 @@
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
       (ucs		  . #x03A5)	; Î¥
       ))
-    (japanese-jisx0208-1978	. #x2634)	; ø»‚ƒ©
-    (chinese-gb2312		. #x2634)	; ø»„­
-    (japanese-jisx0208		. #x2634)	; ø»†—±
-    (korean-ksc5601		. #x2554)	; ø»ˆ ·
-    (chinese-cns11643-1		. #x252A)	; ø»‘ˆ
-    (japanese-jisx0208-1990	. #x2634)	; ø½‰½¥
-    (chinese-big5		. #xA357)	; ý¢€Š—
+    (chinese-gb2312	. #x2634)	; ø»„­
+    (=jis-x0208		. #x2634)	; ø½‰½¥
+    (korean-ksc5601	. #x2554)	; ø»ˆ ·
+    (chinese-cns11643-1 . #x252A)	; ø»‘ˆ
+    (chinese-big5	. #xA357)	; ý¢€Š—
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PHI")
@@ -1196,11 +1116,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter phi")
-      (japanese-jisx0208-1978	  . #x2635)	; ø»‚ƒª
-      (chinese-gb2312		  . #x2635)	; ø»„®
-      (japanese-jisx0208	  . #x2635)	; ø»†—²
-      (korean-ksc5601		  . #x2555)	; ø»ˆ ¸
-      (chinese-cns11643-1	  . #x252B)	; ø»‘ˆž
+      (chinese-gb2312	  . #x2635)	; ø»„®
+      (korean-ksc5601	  . #x2555)	; ø»ˆ ¸
+      (chinese-cns11643-1 . #x252B)	; ø»‘ˆž
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER PHI")
@@ -1223,13 +1141,11 @@
      ((name		  . "GREEK CAPITAL LETTER PHI")
       (ucs		  . #x03A6)	; Î¦
       ))
-    (japanese-jisx0208-1978	. #x2635)	; ø»‚ƒª
-    (chinese-gb2312		. #x2635)	; ø»„®
-    (japanese-jisx0208		. #x2635)	; ø»†—²
-    (korean-ksc5601		. #x2555)	; ø»ˆ ¸
-    (chinese-cns11643-1		. #x252B)	; ø»‘ˆž
-    (japanese-jisx0208-1990	. #x2635)	; ø½‰½¦
-    (chinese-big5		. #xA358)	; ý¢€Š˜
+    (chinese-gb2312	. #x2635)	; ø»„®
+    (=jis-x0208		. #x2635)	; ø½‰½¦
+    (korean-ksc5601	. #x2555)	; ø»ˆ ¸
+    (chinese-cns11643-1 . #x252B)	; ø»‘ˆž
+    (chinese-big5	. #xA358)	; ý¢€Š˜
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER CHI")
@@ -1238,11 +1154,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter chi")
-      (japanese-jisx0208-1978	  . #x2636)	; ø»‚ƒ«
-      (chinese-gb2312		  . #x2636)	; ø»„¯
-      (japanese-jisx0208	  . #x2636)	; ø»†—³
-      (korean-ksc5601		  . #x2556)	; ø»ˆ ¹
-      (chinese-cns11643-1	  . #x252C)	; ø»‘ˆŸ
+      (chinese-gb2312	  . #x2636)	; ø»„¯
+      (korean-ksc5601	  . #x2556)	; ø»ˆ ¹
+      (chinese-cns11643-1 . #x252C)	; ø»‘ˆŸ
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER CHI")
@@ -1265,13 +1179,11 @@
      ((name		  . "GREEK CAPITAL LETTER CHI")
       (ucs		  . #x03A7)	; Î§
       ))
-    (japanese-jisx0208-1978	. #x2636)	; ø»‚ƒ«
-    (chinese-gb2312		. #x2636)	; ø»„¯
-    (japanese-jisx0208		. #x2636)	; ø»†—³
-    (korean-ksc5601		. #x2556)	; ø»ˆ ¹
-    (chinese-cns11643-1		. #x252C)	; ø»‘ˆŸ
-    (japanese-jisx0208-1990	. #x2636)	; ø½‰½§
-    (chinese-big5		. #xA359)	; ý¢€Š™
+    (chinese-gb2312	. #x2636)	; ø»„¯
+    (=jis-x0208		. #x2636)	; ø½‰½§
+    (korean-ksc5601	. #x2556)	; ø»ˆ ¹
+    (chinese-cns11643-1 . #x252C)	; ø»‘ˆŸ
+    (chinese-big5	. #xA359)	; ý¢€Š™
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER PSI")
@@ -1280,11 +1192,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter psi")
-      (japanese-jisx0208-1978	  . #x2637)	; ø»‚ƒ¬
-      (chinese-gb2312		  . #x2637)	; ø»„°
-      (japanese-jisx0208	  . #x2637)	; ø»†—´
-      (korean-ksc5601		  . #x2557)	; ø»ˆ º
-      (chinese-cns11643-1	  . #x252D)	; ø»‘ˆ 
+      (chinese-gb2312	  . #x2637)	; ø»„°
+      (korean-ksc5601	  . #x2557)	; ø»ˆ º
+      (chinese-cns11643-1 . #x252D)	; ø»‘ˆ 
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER PSI")
@@ -1307,13 +1217,11 @@
      ((name		  . "GREEK CAPITAL LETTER PSI")
       (ucs		  . #x03A8)	; Î¨
       ))
-    (japanese-jisx0208-1978	. #x2637)	; ø»‚ƒ¬
-    (chinese-gb2312		. #x2637)	; ø»„°
-    (japanese-jisx0208		. #x2637)	; ø»†—´
-    (korean-ksc5601		. #x2557)	; ø»ˆ º
-    (chinese-cns11643-1		. #x252D)	; ø»‘ˆ 
-    (japanese-jisx0208-1990	. #x2637)	; ø½‰½¨
-    (chinese-big5		. #xA35A)	; ý¢€Šš
+    (chinese-gb2312	. #x2637)	; ø»„°
+    (=jis-x0208		. #x2637)	; ø½‰½¨
+    (korean-ksc5601	. #x2557)	; ø»ˆ º
+    (chinese-cns11643-1 . #x252D)	; ø»‘ˆ 
+    (chinese-big5	. #xA35A)	; ý¢€Šš
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER OMEGA")
@@ -1322,11 +1230,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek capital letter omega")
-      (japanese-jisx0208-1978	  . #x2638)	; ø»‚ƒ­
-      (chinese-gb2312		  . #x2638)	; ø»„±
-      (japanese-jisx0208	  . #x2638)	; ø»†—µ
-      (korean-ksc5601		  . #x2558)	; ø»ˆ »
-      (chinese-cns11643-1	  . #x252E)	; ø»‘ˆ¡
+      (chinese-gb2312	  . #x2638)	; ø»„±
+      (korean-ksc5601	  . #x2558)	; ø»ˆ »
+      (chinese-cns11643-1 . #x252E)	; ø»‘ˆ¡
       ))
     (->lowercase
      ((name		  . "GREEK SMALL LETTER OMEGA")
@@ -1349,13 +1255,11 @@
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
       (ucs		  . #x03A9)	; Î©
       ))
-    (japanese-jisx0208-1978	. #x2638)	; ø»‚ƒ­
-    (chinese-gb2312		. #x2638)	; ø»„±
-    (japanese-jisx0208		. #x2638)	; ø»†—µ
-    (korean-ksc5601		. #x2558)	; ø»ˆ »
-    (chinese-cns11643-1		. #x252E)	; ø»‘ˆ¡
-    (japanese-jisx0208-1990	. #x2638)	; ø½‰½©
-    (chinese-big5		. #xA35B)	; ý¢€Š›
+    (chinese-gb2312	. #x2638)	; ø»„±
+    (=jis-x0208		. #x2638)	; ø½‰½©
+    (korean-ksc5601	. #x2558)	; ø»ˆ »
+    (chinese-cns11643-1 . #x252E)	; ø»‘ˆ¡
+    (chinese-big5	. #xA35B)	; ý¢€Š›
     ))
 (define-char
   '((name		. "GREEK CAPITAL LETTER IOTA WITH DIALYTIKA")
@@ -1588,11 +1492,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter alpha")
-      (japanese-jisx0208-1978	  . #x2641)	; ø»‚ƒ¶
-      (chinese-gb2312		  . #x2641)	; ø»„º
-      (japanese-jisx0208	  . #x2641)	; ø»†—¾
-      (korean-ksc5601		  . #x2561)	; ø»ˆ¡„
-      (chinese-cns11643-1	  . #x252F)	; ø»‘ˆ¢
+      (chinese-gb2312	  . #x2641)	; ø»„º
+      (korean-ksc5601	  . #x2561)	; ø»ˆ¡„
+      (chinese-cns11643-1 . #x252F)	; ø»‘ˆ¢
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ALPHA")
@@ -1615,13 +1517,11 @@
      ((name		  . "GREEK SMALL LETTER ALPHA")
       (ucs		  . #x03B1)	; Î±
       ))
-    (japanese-jisx0208-1978	. #x2641)	; ø»‚ƒ¶
-    (chinese-gb2312		. #x2641)	; ø»„º
-    (japanese-jisx0208		. #x2641)	; ø»†—¾
-    (korean-ksc5601		. #x2561)	; ø»ˆ¡„
-    (chinese-cns11643-1		. #x252F)	; ø»‘ˆ¢
-    (japanese-jisx0208-1990	. #x2641)	; ø½‰½²
-    (chinese-big5		. #xA35C)	; ý¢€Šœ
+    (chinese-gb2312	. #x2641)	; ø»„º
+    (=jis-x0208		. #x2641)	; ø½‰½²
+    (korean-ksc5601	. #x2561)	; ø»ˆ¡„
+    (chinese-cns11643-1 . #x252F)	; ø»‘ˆ¢
+    (chinese-big5	. #xA35C)	; ý¢€Šœ
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER BETA")
@@ -1630,11 +1530,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter beta")
-      (japanese-jisx0208-1978	  . #x2642)	; ø»‚ƒ·
-      (chinese-gb2312		  . #x2642)	; ø»„»
-      (japanese-jisx0208	  . #x2642)	; ø»†—¿
-      (korean-ksc5601		  . #x2562)	; ø»ˆ¡…
-      (chinese-cns11643-1	  . #x2530)	; ø»‘ˆ£
+      (chinese-gb2312	  . #x2642)	; ø»„»
+      (korean-ksc5601	  . #x2562)	; ø»ˆ¡…
+      (chinese-cns11643-1 . #x2530)	; ø»‘ˆ£
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER BETA")
@@ -1657,13 +1555,11 @@
      ((name		  . "GREEK SMALL LETTER BETA")
       (ucs		  . #x03B2)	; Î²
       ))
-    (japanese-jisx0208-1978	. #x2642)	; ø»‚ƒ·
-    (chinese-gb2312		. #x2642)	; ø»„»
-    (japanese-jisx0208		. #x2642)	; ø»†—¿
-    (korean-ksc5601		. #x2562)	; ø»ˆ¡…
-    (chinese-cns11643-1		. #x2530)	; ø»‘ˆ£
-    (japanese-jisx0208-1990	. #x2642)	; ø½‰½³
-    (chinese-big5		. #xA35D)	; ý¢€Š
+    (chinese-gb2312	. #x2642)	; ø»„»
+    (=jis-x0208		. #x2642)	; ø½‰½³
+    (korean-ksc5601	. #x2562)	; ø»ˆ¡…
+    (chinese-cns11643-1 . #x2530)	; ø»‘ˆ£
+    (chinese-big5	. #xA35D)	; ý¢€Š
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER GAMMA")
@@ -1672,11 +1568,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter gamma")
-      (japanese-jisx0208-1978	  . #x2643)	; ø»‚ƒ¸
-      (chinese-gb2312		  . #x2643)	; ø»„¼
-      (japanese-jisx0208	  . #x2643)	; ø»†˜€
-      (korean-ksc5601		  . #x2563)	; ø»ˆ¡†
-      (chinese-cns11643-1	  . #x2531)	; ø»‘ˆ¤
+      (chinese-gb2312	  . #x2643)	; ø»„¼
+      (korean-ksc5601	  . #x2563)	; ø»ˆ¡†
+      (chinese-cns11643-1 . #x2531)	; ø»‘ˆ¤
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER GAMMA")
@@ -1699,13 +1593,11 @@
      ((name		  . "GREEK SMALL LETTER GAMMA")
       (ucs		  . #x03B3)	; Î³
       ))
-    (japanese-jisx0208-1978	. #x2643)	; ø»‚ƒ¸
-    (chinese-gb2312		. #x2643)	; ø»„¼
-    (japanese-jisx0208		. #x2643)	; ø»†˜€
-    (korean-ksc5601		. #x2563)	; ø»ˆ¡†
-    (chinese-cns11643-1		. #x2531)	; ø»‘ˆ¤
-    (japanese-jisx0208-1990	. #x2643)	; ø½‰½´
-    (chinese-big5		. #xA35E)	; ý¢€Šž
+    (chinese-gb2312	. #x2643)	; ø»„¼
+    (=jis-x0208		. #x2643)	; ø½‰½´
+    (korean-ksc5601	. #x2563)	; ø»ˆ¡†
+    (chinese-cns11643-1 . #x2531)	; ø»‘ˆ¤
+    (chinese-big5	. #xA35E)	; ý¢€Šž
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER DELTA")
@@ -1714,11 +1606,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter delta")
-      (japanese-jisx0208-1978	  . #x2644)	; ø»‚ƒ¹
-      (chinese-gb2312		  . #x2644)	; ø»„½
-      (japanese-jisx0208	  . #x2644)	; ø»†˜
-      (korean-ksc5601		  . #x2564)	; ø»ˆ¡‡
-      (chinese-cns11643-1	  . #x2532)	; ø»‘ˆ¥
+      (chinese-gb2312	  . #x2644)	; ø»„½
+      (korean-ksc5601	  . #x2564)	; ø»ˆ¡‡
+      (chinese-cns11643-1 . #x2532)	; ø»‘ˆ¥
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER DELTA")
@@ -1741,13 +1631,11 @@
      ((name		  . "GREEK SMALL LETTER DELTA")
       (ucs		  . #x03B4)	; Î´
       ))
-    (japanese-jisx0208-1978	. #x2644)	; ø»‚ƒ¹
-    (chinese-gb2312		. #x2644)	; ø»„½
-    (japanese-jisx0208		. #x2644)	; ø»†˜
-    (korean-ksc5601		. #x2564)	; ø»ˆ¡‡
-    (chinese-cns11643-1		. #x2532)	; ø»‘ˆ¥
-    (japanese-jisx0208-1990	. #x2644)	; ø½‰½µ
-    (chinese-big5		. #xA35F)	; ý¢€ŠŸ
+    (chinese-gb2312	. #x2644)	; ø»„½
+    (=jis-x0208		. #x2644)	; ø½‰½µ
+    (korean-ksc5601	. #x2564)	; ø»ˆ¡‡
+    (chinese-cns11643-1 . #x2532)	; ø»‘ˆ¥
+    (chinese-big5	. #xA35F)	; ý¢€ŠŸ
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER EPSILON")
@@ -1756,11 +1644,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter epsilon")
-      (japanese-jisx0208-1978	  . #x2645)	; ø»‚ƒº
-      (chinese-gb2312		  . #x2645)	; ø»„¾
-      (japanese-jisx0208	  . #x2645)	; ø»†˜‚
-      (korean-ksc5601		  . #x2565)	; ø»ˆ¡ˆ
-      (chinese-cns11643-1	  . #x2533)	; ø»‘ˆ¦
+      (chinese-gb2312	  . #x2645)	; ø»„¾
+      (korean-ksc5601	  . #x2565)	; ø»ˆ¡ˆ
+      (chinese-cns11643-1 . #x2533)	; ø»‘ˆ¦
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER EPSILON")
@@ -1783,13 +1669,11 @@
      ((name		  . "GREEK SMALL LETTER EPSILON")
       (ucs		  . #x03B5)	; Îµ
       ))
-    (japanese-jisx0208-1978	. #x2645)	; ø»‚ƒº
-    (chinese-gb2312		. #x2645)	; ø»„¾
-    (japanese-jisx0208		. #x2645)	; ø»†˜‚
-    (korean-ksc5601		. #x2565)	; ø»ˆ¡ˆ
-    (chinese-cns11643-1		. #x2533)	; ø»‘ˆ¦
-    (japanese-jisx0208-1990	. #x2645)	; ø½‰½¶
-    (chinese-big5		. #xA360)	; ý¢€Š 
+    (chinese-gb2312	. #x2645)	; ø»„¾
+    (=jis-x0208		. #x2645)	; ø½‰½¶
+    (korean-ksc5601	. #x2565)	; ø»ˆ¡ˆ
+    (chinese-cns11643-1 . #x2533)	; ø»‘ˆ¦
+    (chinese-big5	. #xA360)	; ý¢€Š 
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ZETA")
@@ -1798,11 +1682,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter zeta")
-      (japanese-jisx0208-1978	  . #x2646)	; ø»‚ƒ»
-      (chinese-gb2312		  . #x2646)	; ø»„¿
-      (japanese-jisx0208	  . #x2646)	; ø»†˜ƒ
-      (korean-ksc5601		  . #x2566)	; ø»ˆ¡‰
-      (chinese-cns11643-1	  . #x2534)	; ø»‘ˆ§
+      (chinese-gb2312	  . #x2646)	; ø»„¿
+      (korean-ksc5601	  . #x2566)	; ø»ˆ¡‰
+      (chinese-cns11643-1 . #x2534)	; ø»‘ˆ§
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ZETA")
@@ -1825,13 +1707,11 @@
      ((name		  . "GREEK SMALL LETTER ZETA")
       (ucs		  . #x03B6)	; Î¶
       ))
-    (japanese-jisx0208-1978	. #x2646)	; ø»‚ƒ»
-    (chinese-gb2312		. #x2646)	; ø»„¿
-    (japanese-jisx0208		. #x2646)	; ø»†˜ƒ
-    (korean-ksc5601		. #x2566)	; ø»ˆ¡‰
-    (chinese-cns11643-1		. #x2534)	; ø»‘ˆ§
-    (japanese-jisx0208-1990	. #x2646)	; ø½‰½·
-    (chinese-big5		. #xA361)	; ý¢€Š¡
+    (chinese-gb2312	. #x2646)	; ø»„¿
+    (=jis-x0208		. #x2646)	; ø½‰½·
+    (korean-ksc5601	. #x2566)	; ø»ˆ¡‰
+    (chinese-cns11643-1 . #x2534)	; ø»‘ˆ§
+    (chinese-big5	. #xA361)	; ý¢€Š¡
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER ETA")
@@ -1840,11 +1720,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter eta")
-      (japanese-jisx0208-1978	  . #x2647)	; ø»‚ƒ¼
-      (chinese-gb2312		  . #x2647)	; ø»„Ž€
-      (japanese-jisx0208	  . #x2647)	; ø»†˜„
-      (korean-ksc5601		  . #x2567)	; ø»ˆ¡Š
-      (chinese-cns11643-1	  . #x2535)	; ø»‘ˆ¨
+      (chinese-gb2312	  . #x2647)	; ø»„Ž€
+      (korean-ksc5601	  . #x2567)	; ø»ˆ¡Š
+      (chinese-cns11643-1 . #x2535)	; ø»‘ˆ¨
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER ETA")
@@ -1867,13 +1745,11 @@
      ((name		  . "GREEK SMALL LETTER ETA")
       (ucs		  . #x03B7)	; Î·
       ))
-    (japanese-jisx0208-1978	. #x2647)	; ø»‚ƒ¼
-    (chinese-gb2312		. #x2647)	; ø»„Ž€
-    (japanese-jisx0208		. #x2647)	; ø»†˜„
-    (korean-ksc5601		. #x2567)	; ø»ˆ¡Š
-    (chinese-cns11643-1		. #x2535)	; ø»‘ˆ¨
-    (japanese-jisx0208-1990	. #x2647)	; ø½‰½¸
-    (chinese-big5		. #xA362)	; ý¢€Š¢
+    (chinese-gb2312	. #x2647)	; ø»„Ž€
+    (=jis-x0208		. #x2647)	; ø½‰½¸
+    (korean-ksc5601	. #x2567)	; ø»ˆ¡Š
+    (chinese-cns11643-1 . #x2535)	; ø»‘ˆ¨
+    (chinese-big5	. #xA362)	; ý¢€Š¢
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER THETA")
@@ -1882,11 +1758,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter theta")
-      (japanese-jisx0208-1978	  . #x2648)	; ø»‚ƒ½
-      (chinese-gb2312		  . #x2648)	; ø»„Ž
-      (japanese-jisx0208	  . #x2648)	; ø»†˜…
-      (korean-ksc5601		  . #x2568)	; ø»ˆ¡‹
-      (chinese-cns11643-1	  . #x2536)	; ø»‘ˆ©
+      (chinese-gb2312	  . #x2648)	; ø»„Ž
+      (korean-ksc5601	  . #x2568)	; ø»ˆ¡‹
+      (chinese-cns11643-1 . #x2536)	; ø»‘ˆ©
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER THETA")
@@ -1910,13 +1784,11 @@
      ((name		  . "GREEK SMALL LETTER THETA")
       (ucs		  . #x03B8)	; Î¸
       ))
-    (japanese-jisx0208-1978	. #x2648)	; ø»‚ƒ½
-    (chinese-gb2312		. #x2648)	; ø»„Ž
-    (japanese-jisx0208		. #x2648)	; ø»†˜…
-    (korean-ksc5601		. #x2568)	; ø»ˆ¡‹
-    (chinese-cns11643-1		. #x2536)	; ø»‘ˆ©
-    (japanese-jisx0208-1990	. #x2648)	; ø½‰½¹
-    (chinese-big5		. #xA363)	; ý¢€Š£
+    (chinese-gb2312	. #x2648)	; ø»„Ž
+    (=jis-x0208		. #x2648)	; ø½‰½¹
+    (korean-ksc5601	. #x2568)	; ø»ˆ¡‹
+    (chinese-cns11643-1 . #x2536)	; ø»‘ˆ©
+    (chinese-big5	. #xA363)	; ý¢€Š£
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER IOTA")
@@ -1925,11 +1797,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter iota")
-      (japanese-jisx0208-1978	  . #x2649)	; ø»‚ƒ¾
-      (chinese-gb2312		  . #x2649)	; ø»„Ž‚
-      (japanese-jisx0208	  . #x2649)	; ø»†˜†
-      (korean-ksc5601		  . #x2569)	; ø»ˆ¡Œ
-      (chinese-cns11643-1	  . #x2537)	; ø»‘ˆª
+      (chinese-gb2312	  . #x2649)	; ø»„Ž‚
+      (korean-ksc5601	  . #x2569)	; ø»ˆ¡Œ
+      (chinese-cns11643-1 . #x2537)	; ø»‘ˆª
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER IOTA")
@@ -1952,13 +1822,11 @@
      ((name		  . "GREEK SMALL LETTER IOTA")
       (ucs		  . #x03B9)	; Î¹
       ))
-    (japanese-jisx0208-1978	. #x2649)	; ø»‚ƒ¾
-    (chinese-gb2312		. #x2649)	; ø»„Ž‚
-    (japanese-jisx0208		. #x2649)	; ø»†˜†
-    (korean-ksc5601		. #x2569)	; ø»ˆ¡Œ
-    (chinese-cns11643-1		. #x2537)	; ø»‘ˆª
-    (japanese-jisx0208-1990	. #x2649)	; ø½‰½º
-    (chinese-big5		. #xA364)	; ý¢€Š¤
+    (chinese-gb2312	. #x2649)	; ø»„Ž‚
+    (=jis-x0208		. #x2649)	; ø½‰½º
+    (korean-ksc5601	. #x2569)	; ø»ˆ¡Œ
+    (chinese-cns11643-1 . #x2537)	; ø»‘ˆª
+    (chinese-big5	. #xA364)	; ý¢€Š¤
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER KAPPA")
@@ -1967,11 +1835,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter kappa")
-      (japanese-jisx0208-1978	  . #x264A)	; ø»‚ƒ¿
-      (chinese-gb2312		  . #x264A)	; ø»„Žƒ
-      (japanese-jisx0208	  . #x264A)	; ø»†˜‡
-      (korean-ksc5601		  . #x256A)	; ø»ˆ¡
-      (chinese-cns11643-1	  . #x2538)	; ø»‘ˆ«
+      (chinese-gb2312	  . #x264A)	; ø»„Žƒ
+      (korean-ksc5601	  . #x256A)	; ø»ˆ¡
+      (chinese-cns11643-1 . #x2538)	; ø»‘ˆ«
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER KAPPA")
@@ -1995,13 +1861,11 @@
      ((name		  . "GREEK SMALL LETTER KAPPA")
       (ucs		  . #x03BA)	; Îº
       ))
-    (japanese-jisx0208-1978	. #x264A)	; ø»‚ƒ¿
-    (chinese-gb2312		. #x264A)	; ø»„Žƒ
-    (japanese-jisx0208		. #x264A)	; ø»†˜‡
-    (korean-ksc5601		. #x256A)	; ø»ˆ¡
-    (chinese-cns11643-1		. #x2538)	; ø»‘ˆ«
-    (japanese-jisx0208-1990	. #x264A)	; ø½‰½»
-    (chinese-big5		. #xA365)	; ý¢€Š¥
+    (chinese-gb2312	. #x264A)	; ø»„Žƒ
+    (=jis-x0208		. #x264A)	; ø½‰½»
+    (korean-ksc5601	. #x256A)	; ø»ˆ¡
+    (chinese-cns11643-1 . #x2538)	; ø»‘ˆ«
+    (chinese-big5	. #xA365)	; ý¢€Š¥
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER LAMDA")
@@ -2010,11 +1874,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter lamda")
-      (japanese-jisx0208-1978	  . #x264B)	; ø»‚„€
-      (chinese-gb2312		  . #x264B)	; ø»„Ž„
-      (japanese-jisx0208	  . #x264B)	; ø»†˜ˆ
-      (korean-ksc5601		  . #x256B)	; ø»ˆ¡Ž
-      (chinese-cns11643-1	  . #x2539)	; ø»‘ˆ¬
+      (chinese-gb2312	  . #x264B)	; ø»„Ž„
+      (korean-ksc5601	  . #x256B)	; ø»ˆ¡Ž
+      (chinese-cns11643-1 . #x2539)	; ø»‘ˆ¬
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER LAMDA")
@@ -2037,13 +1899,11 @@
      ((name		  . "GREEK SMALL LETTER LAMDA")
       (ucs		  . #x03BB)	; Î»
       ))
-    (japanese-jisx0208-1978	. #x264B)	; ø»‚„€
-    (chinese-gb2312		. #x264B)	; ø»„Ž„
-    (japanese-jisx0208		. #x264B)	; ø»†˜ˆ
-    (korean-ksc5601		. #x256B)	; ø»ˆ¡Ž
-    (chinese-cns11643-1		. #x2539)	; ø»‘ˆ¬
-    (japanese-jisx0208-1990	. #x264B)	; ø½‰½¼
-    (chinese-big5		. #xA366)	; ý¢€Š¦
+    (chinese-gb2312	. #x264B)	; ø»„Ž„
+    (=jis-x0208		. #x264B)	; ø½‰½¼
+    (korean-ksc5601	. #x256B)	; ø»ˆ¡Ž
+    (chinese-cns11643-1 . #x2539)	; ø»‘ˆ¬
+    (chinese-big5	. #xA366)	; ý¢€Š¦
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER MU")
@@ -2052,11 +1912,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter mu")
-      (japanese-jisx0208-1978	  . #x264C)	; ø»‚„
-      (chinese-gb2312		  . #x264C)	; ø»„Ž…
-      (japanese-jisx0208	  . #x264C)	; ø»†˜‰
-      (korean-ksc5601		  . #x256C)	; ø»ˆ¡
-      (chinese-cns11643-1	  . #x253A)	; ø»‘ˆ­
+      (chinese-gb2312	  . #x264C)	; ø»„Ž…
+      (korean-ksc5601	  . #x256C)	; ø»ˆ¡
+      (chinese-cns11643-1 . #x253A)	; ø»‘ˆ­
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER MU")
@@ -2079,13 +1937,11 @@
      ((name		  . "GREEK SMALL LETTER MU")
       (ucs		  . #x03BC)	; Î¼
       ))
-    (japanese-jisx0208-1978	. #x264C)	; ø»‚„
-    (chinese-gb2312		. #x264C)	; ø»„Ž…
-    (japanese-jisx0208		. #x264C)	; ø»†˜‰
-    (korean-ksc5601		. #x256C)	; ø»ˆ¡
-    (chinese-cns11643-1		. #x253A)	; ø»‘ˆ­
-    (japanese-jisx0208-1990	. #x264C)	; ø½‰½½
-    (chinese-big5		. #xA367)	; ý¢€Š§
+    (chinese-gb2312	. #x264C)	; ø»„Ž…
+    (=jis-x0208		. #x264C)	; ø½‰½½
+    (korean-ksc5601	. #x256C)	; ø»ˆ¡
+    (chinese-cns11643-1 . #x253A)	; ø»‘ˆ­
+    (chinese-big5	. #xA367)	; ý¢€Š§
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER NU")
@@ -2094,11 +1950,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter nu")
-      (japanese-jisx0208-1978	  . #x264D)	; ø»‚„‚
-      (chinese-gb2312		  . #x264D)	; ø»„Ž†
-      (japanese-jisx0208	  . #x264D)	; ø»†˜Š
-      (korean-ksc5601		  . #x256D)	; ø»ˆ¡
-      (chinese-cns11643-1	  . #x253B)	; ø»‘ˆ®
+      (chinese-gb2312	  . #x264D)	; ø»„Ž†
+      (korean-ksc5601	  . #x256D)	; ø»ˆ¡
+      (chinese-cns11643-1 . #x253B)	; ø»‘ˆ®
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER NU")
@@ -2121,13 +1975,11 @@
      ((name		  . "GREEK SMALL LETTER NU")
       (ucs		  . #x03BD)	; Î½
       ))
-    (japanese-jisx0208-1978	. #x264D)	; ø»‚„‚
-    (chinese-gb2312		. #x264D)	; ø»„Ž†
-    (japanese-jisx0208		. #x264D)	; ø»†˜Š
-    (korean-ksc5601		. #x256D)	; ø»ˆ¡
-    (chinese-cns11643-1		. #x253B)	; ø»‘ˆ®
-    (japanese-jisx0208-1990	. #x264D)	; ø½‰½¾
-    (chinese-big5		. #xA368)	; ý¢€Š¨
+    (chinese-gb2312	. #x264D)	; ø»„Ž†
+    (=jis-x0208		. #x264D)	; ø½‰½¾
+    (korean-ksc5601	. #x256D)	; ø»ˆ¡
+    (chinese-cns11643-1 . #x253B)	; ø»‘ˆ®
+    (chinese-big5	. #xA368)	; ý¢€Š¨
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER XI")
@@ -2136,11 +1988,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter xi")
-      (japanese-jisx0208-1978	  . #x264E)	; ø»‚„ƒ
-      (chinese-gb2312		  . #x264E)	; ø»„Ž‡
-      (japanese-jisx0208	  . #x264E)	; ø»†˜‹
-      (korean-ksc5601		  . #x256E)	; ø»ˆ¡‘
-      (chinese-cns11643-1	  . #x253C)	; ø»‘ˆ¯
+      (chinese-gb2312	  . #x264E)	; ø»„Ž‡
+      (korean-ksc5601	  . #x256E)	; ø»ˆ¡‘
+      (chinese-cns11643-1 . #x253C)	; ø»‘ˆ¯
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER XI")
@@ -2163,13 +2013,11 @@
      ((name		  . "GREEK SMALL LETTER XI")
       (ucs		  . #x03BE)	; Î¾
       ))
-    (japanese-jisx0208-1978	. #x264E)	; ø»‚„ƒ
-    (chinese-gb2312		. #x264E)	; ø»„Ž‡
-    (japanese-jisx0208		. #x264E)	; ø»†˜‹
-    (korean-ksc5601		. #x256E)	; ø»ˆ¡‘
-    (chinese-cns11643-1		. #x253C)	; ø»‘ˆ¯
-    (japanese-jisx0208-1990	. #x264E)	; ø½‰½¿
-    (chinese-big5		. #xA369)	; ý¢€Š©
+    (chinese-gb2312	. #x264E)	; ø»„Ž‡
+    (=jis-x0208		. #x264E)	; ø½‰½¿
+    (korean-ksc5601	. #x256E)	; ø»ˆ¡‘
+    (chinese-cns11643-1 . #x253C)	; ø»‘ˆ¯
+    (chinese-big5	. #xA369)	; ý¢€Š©
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMICRON")
@@ -2178,11 +2026,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter omicron")
-      (japanese-jisx0208-1978	  . #x264F)	; ø»‚„„
-      (chinese-gb2312		  . #x264F)	; ø»„Žˆ
-      (japanese-jisx0208	  . #x264F)	; ø»†˜Œ
-      (korean-ksc5601		  . #x256F)	; ø»ˆ¡’
-      (chinese-cns11643-1	  . #x253D)	; ø»‘ˆ°
+      (chinese-gb2312	  . #x264F)	; ø»„Žˆ
+      (korean-ksc5601	  . #x256F)	; ø»ˆ¡’
+      (chinese-cns11643-1 . #x253D)	; ø»‘ˆ°
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMICRON")
@@ -2205,13 +2051,11 @@
      ((name		  . "GREEK SMALL LETTER OMICRON")
       (ucs		  . #x03BF)	; Î¿
       ))
-    (japanese-jisx0208-1978	. #x264F)	; ø»‚„„
-    (chinese-gb2312		. #x264F)	; ø»„Žˆ
-    (japanese-jisx0208		. #x264F)	; ø»†˜Œ
-    (korean-ksc5601		. #x256F)	; ø»ˆ¡’
-    (chinese-cns11643-1		. #x253D)	; ø»‘ˆ°
-    (japanese-jisx0208-1990	. #x264F)	; ø½‰¾€
-    (chinese-big5		. #xA36A)	; ý¢€Šª
+    (chinese-gb2312	. #x264F)	; ø»„Žˆ
+    (=jis-x0208		. #x264F)	; ø½‰¾€
+    (korean-ksc5601	. #x256F)	; ø»ˆ¡’
+    (chinese-cns11643-1 . #x253D)	; ø»‘ˆ°
+    (chinese-big5	. #xA36A)	; ý¢€Šª
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PI")
@@ -2220,11 +2064,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter pi")
-      (japanese-jisx0208-1978	  . #x2650)	; ø»‚„…
-      (chinese-gb2312		  . #x2650)	; ø»„Ž‰
-      (japanese-jisx0208	  . #x2650)	; ø»†˜
-      (korean-ksc5601		  . #x2570)	; ø»ˆ¡“
-      (chinese-cns11643-1	  . #x253E)	; ø»‘ˆ±
+      (chinese-gb2312	  . #x2650)	; ø»„Ž‰
+      (korean-ksc5601	  . #x2570)	; ø»ˆ¡“
+      (chinese-cns11643-1 . #x253E)	; ø»‘ˆ±
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER PI")
@@ -2247,13 +2089,11 @@
      ((name		  . "GREEK SMALL LETTER PI")
       (ucs		  . #x03C0)	; Ï€
       ))
-    (japanese-jisx0208-1978	. #x2650)	; ø»‚„…
-    (chinese-gb2312		. #x2650)	; ø»„Ž‰
-    (japanese-jisx0208		. #x2650)	; ø»†˜
-    (korean-ksc5601		. #x2570)	; ø»ˆ¡“
-    (chinese-cns11643-1		. #x253E)	; ø»‘ˆ±
-    (japanese-jisx0208-1990	. #x2650)	; ø½‰¾
-    (chinese-big5		. #xA36B)	; ý¢€Š«
+    (chinese-gb2312	. #x2650)	; ø»„Ž‰
+    (=jis-x0208		. #x2650)	; ø½‰¾
+    (korean-ksc5601	. #x2570)	; ø»ˆ¡“
+    (chinese-cns11643-1 . #x253E)	; ø»‘ˆ±
+    (chinese-big5	. #xA36B)	; ý¢€Š«
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER RHO")
@@ -2262,11 +2102,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter rho")
-      (japanese-jisx0208-1978	  . #x2651)	; ø»‚„†
-      (chinese-gb2312		  . #x2651)	; ø»„ŽŠ
-      (japanese-jisx0208	  . #x2651)	; ø»†˜Ž
-      (korean-ksc5601		  . #x2571)	; ø»ˆ¡”
-      (chinese-cns11643-1	  . #x253F)	; ø»‘ˆ²
+      (chinese-gb2312	  . #x2651)	; ø»„ŽŠ
+      (korean-ksc5601	  . #x2571)	; ø»ˆ¡”
+      (chinese-cns11643-1 . #x253F)	; ø»‘ˆ²
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER RHO")
@@ -2289,13 +2127,11 @@
      ((name		  . "GREEK SMALL LETTER RHO")
       (ucs		  . #x03C1)	; Ï
       ))
-    (japanese-jisx0208-1978	. #x2651)	; ø»‚„†
-    (chinese-gb2312		. #x2651)	; ø»„ŽŠ
-    (japanese-jisx0208		. #x2651)	; ø»†˜Ž
-    (korean-ksc5601		. #x2571)	; ø»ˆ¡”
-    (chinese-cns11643-1		. #x253F)	; ø»‘ˆ²
-    (japanese-jisx0208-1990	. #x2651)	; ø½‰¾‚
-    (chinese-big5		. #xA36C)	; ý¢€Š¬
+    (chinese-gb2312	. #x2651)	; ø»„ŽŠ
+    (=jis-x0208		. #x2651)	; ø½‰¾‚
+    (korean-ksc5601	. #x2571)	; ø»ˆ¡”
+    (chinese-cns11643-1 . #x253F)	; ø»‘ˆ²
+    (chinese-big5	. #xA36C)	; ý¢€Š¬
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER FINAL SIGMA")
@@ -2338,11 +2174,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter sigma")
-      (japanese-jisx0208-1978	  . #x2652)	; ø»‚„‡
-      (chinese-gb2312		  . #x2652)	; ø»„Ž‹
-      (japanese-jisx0208	  . #x2652)	; ø»†˜
-      (korean-ksc5601		  . #x2572)	; ø»ˆ¡•
-      (chinese-cns11643-1	  . #x2540)	; ø»‘ˆ³
+      (chinese-gb2312	  . #x2652)	; ø»„Ž‹
+      (korean-ksc5601	  . #x2572)	; ø»ˆ¡•
+      (chinese-cns11643-1 . #x2540)	; ø»‘ˆ³
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
@@ -2365,13 +2199,11 @@
      ((name		  . "GREEK SMALL LETTER SIGMA")
       (ucs		  . #x03C3)	; Ïƒ
       ))
-    (japanese-jisx0208-1978	. #x2652)	; ø»‚„‡
-    (chinese-gb2312		. #x2652)	; ø»„Ž‹
-    (japanese-jisx0208		. #x2652)	; ø»†˜
-    (korean-ksc5601		. #x2572)	; ø»ˆ¡•
-    (chinese-cns11643-1		. #x2540)	; ø»‘ˆ³
-    (japanese-jisx0208-1990	. #x2652)	; ø½‰¾ƒ
-    (chinese-big5		. #xA36D)	; ý¢€Š­
+    (chinese-gb2312	. #x2652)	; ø»„Ž‹
+    (=jis-x0208		. #x2652)	; ø½‰¾ƒ
+    (korean-ksc5601	. #x2572)	; ø»ˆ¡•
+    (chinese-cns11643-1 . #x2540)	; ø»‘ˆ³
+    (chinese-big5	. #xA36D)	; ý¢€Š­
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER TAU")
@@ -2380,11 +2212,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter tau")
-      (japanese-jisx0208-1978	  . #x2653)	; ø»‚„ˆ
-      (chinese-gb2312		  . #x2653)	; ø»„ŽŒ
-      (japanese-jisx0208	  . #x2653)	; ø»†˜
-      (korean-ksc5601		  . #x2573)	; ø»ˆ¡–
-      (chinese-cns11643-1	  . #x2541)	; ø»‘ˆ´
+      (chinese-gb2312	  . #x2653)	; ø»„ŽŒ
+      (korean-ksc5601	  . #x2573)	; ø»ˆ¡–
+      (chinese-cns11643-1 . #x2541)	; ø»‘ˆ´
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER TAU")
@@ -2407,13 +2237,11 @@
      ((name		  . "GREEK SMALL LETTER TAU")
       (ucs		  . #x03C4)	; Ï„
       ))
-    (japanese-jisx0208-1978	. #x2653)	; ø»‚„ˆ
-    (chinese-gb2312		. #x2653)	; ø»„ŽŒ
-    (japanese-jisx0208		. #x2653)	; ø»†˜
-    (korean-ksc5601		. #x2573)	; ø»ˆ¡–
-    (chinese-cns11643-1		. #x2541)	; ø»‘ˆ´
-    (japanese-jisx0208-1990	. #x2653)	; ø½‰¾„
-    (chinese-big5		. #xA36E)	; ý¢€Š®
+    (chinese-gb2312	. #x2653)	; ø»„ŽŒ
+    (=jis-x0208		. #x2653)	; ø½‰¾„
+    (korean-ksc5601	. #x2573)	; ø»ˆ¡–
+    (chinese-cns11643-1 . #x2541)	; ø»‘ˆ´
+    (chinese-big5	. #xA36E)	; ý¢€Š®
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER UPSILON")
@@ -2422,11 +2250,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter upsilon")
-      (japanese-jisx0208-1978	  . #x2654)	; ø»‚„‰
-      (chinese-gb2312		  . #x2654)	; ø»„Ž
-      (japanese-jisx0208	  . #x2654)	; ø»†˜‘
-      (korean-ksc5601		  . #x2574)	; ø»ˆ¡—
-      (chinese-cns11643-1	  . #x2542)	; ø»‘ˆµ
+      (chinese-gb2312	  . #x2654)	; ø»„Ž
+      (korean-ksc5601	  . #x2574)	; ø»ˆ¡—
+      (chinese-cns11643-1 . #x2542)	; ø»‘ˆµ
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER UPSILON")
@@ -2449,13 +2275,11 @@
      ((name		  . "GREEK SMALL LETTER UPSILON")
       (ucs		  . #x03C5)	; Ï…
       ))
-    (japanese-jisx0208-1978	. #x2654)	; ø»‚„‰
-    (chinese-gb2312		. #x2654)	; ø»„Ž
-    (japanese-jisx0208		. #x2654)	; ø»†˜‘
-    (korean-ksc5601		. #x2574)	; ø»ˆ¡—
-    (chinese-cns11643-1		. #x2542)	; ø»‘ˆµ
-    (japanese-jisx0208-1990	. #x2654)	; ø½‰¾…
-    (chinese-big5		. #xA36F)	; ý¢€Š¯
+    (chinese-gb2312	. #x2654)	; ø»„Ž
+    (=jis-x0208		. #x2654)	; ø½‰¾…
+    (korean-ksc5601	. #x2574)	; ø»ˆ¡—
+    (chinese-cns11643-1 . #x2542)	; ø»‘ˆµ
+    (chinese-big5	. #xA36F)	; ý¢€Š¯
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PHI")
@@ -2464,11 +2288,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter phi")
-      (japanese-jisx0208-1978	  . #x2655)	; ø»‚„Š
-      (chinese-gb2312		  . #x2655)	; ø»„ŽŽ
-      (japanese-jisx0208	  . #x2655)	; ø»†˜’
-      (korean-ksc5601		  . #x2575)	; ø»ˆ¡˜
-      (chinese-cns11643-1	  . #x2543)	; ø»‘ˆ¶
+      (chinese-gb2312	  . #x2655)	; ø»„ŽŽ
+      (korean-ksc5601	  . #x2575)	; ø»ˆ¡˜
+      (chinese-cns11643-1 . #x2543)	; ø»‘ˆ¶
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER PHI")
@@ -2491,13 +2313,11 @@
      ((name		  . "GREEK SMALL LETTER PHI")
       (ucs		  . #x03C6)	; Ï†
       ))
-    (japanese-jisx0208-1978	. #x2655)	; ø»‚„Š
-    (chinese-gb2312		. #x2655)	; ø»„ŽŽ
-    (japanese-jisx0208		. #x2655)	; ø»†˜’
-    (korean-ksc5601		. #x2575)	; ø»ˆ¡˜
-    (chinese-cns11643-1		. #x2543)	; ø»‘ˆ¶
-    (japanese-jisx0208-1990	. #x2655)	; ø½‰¾†
-    (chinese-big5		. #xA370)	; ý¢€Š°
+    (chinese-gb2312	. #x2655)	; ø»„ŽŽ
+    (=jis-x0208		. #x2655)	; ø½‰¾†
+    (korean-ksc5601	. #x2575)	; ø»ˆ¡˜
+    (chinese-cns11643-1 . #x2543)	; ø»‘ˆ¶
+    (chinese-big5	. #xA370)	; ý¢€Š°
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER CHI")
@@ -2506,11 +2326,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter chi")
-      (japanese-jisx0208-1978	  . #x2656)	; ø»‚„‹
-      (chinese-gb2312		  . #x2656)	; ø»„Ž
-      (japanese-jisx0208	  . #x2656)	; ø»†˜“
-      (korean-ksc5601		  . #x2576)	; ø»ˆ¡™
-      (chinese-cns11643-1	  . #x2544)	; ø»‘ˆ·
+      (chinese-gb2312	  . #x2656)	; ø»„Ž
+      (korean-ksc5601	  . #x2576)	; ø»ˆ¡™
+      (chinese-cns11643-1 . #x2544)	; ø»‘ˆ·
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER CHI")
@@ -2533,13 +2351,11 @@
      ((name		  . "GREEK SMALL LETTER CHI")
       (ucs		  . #x03C7)	; Ï‡
       ))
-    (japanese-jisx0208-1978	. #x2656)	; ø»‚„‹
-    (chinese-gb2312		. #x2656)	; ø»„Ž
-    (japanese-jisx0208		. #x2656)	; ø»†˜“
-    (korean-ksc5601		. #x2576)	; ø»ˆ¡™
-    (chinese-cns11643-1		. #x2544)	; ø»‘ˆ·
-    (japanese-jisx0208-1990	. #x2656)	; ø½‰¾‡
-    (chinese-big5		. #xA371)	; ý¢€Š±
+    (chinese-gb2312	. #x2656)	; ø»„Ž
+    (=jis-x0208		. #x2656)	; ø½‰¾‡
+    (korean-ksc5601	. #x2576)	; ø»ˆ¡™
+    (chinese-cns11643-1 . #x2544)	; ø»‘ˆ·
+    (chinese-big5	. #xA371)	; ý¢€Š±
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER PSI")
@@ -2548,11 +2364,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter psi")
-      (japanese-jisx0208-1978	  . #x2657)	; ø»‚„Œ
-      (chinese-gb2312		  . #x2657)	; ø»„Ž
-      (japanese-jisx0208	  . #x2657)	; ø»†˜”
-      (korean-ksc5601		  . #x2577)	; ø»ˆ¡š
-      (chinese-cns11643-1	  . #x2545)	; ø»‘ˆ¸
+      (chinese-gb2312	  . #x2657)	; ø»„Ž
+      (korean-ksc5601	  . #x2577)	; ø»ˆ¡š
+      (chinese-cns11643-1 . #x2545)	; ø»‘ˆ¸
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER PSI")
@@ -2575,13 +2389,11 @@
      ((name		  . "GREEK SMALL LETTER PSI")
       (ucs		  . #x03C8)	; Ïˆ
       ))
-    (japanese-jisx0208-1978	. #x2657)	; ø»‚„Œ
-    (chinese-gb2312		. #x2657)	; ø»„Ž
-    (japanese-jisx0208		. #x2657)	; ø»†˜”
-    (korean-ksc5601		. #x2577)	; ø»ˆ¡š
-    (chinese-cns11643-1		. #x2545)	; ø»‘ˆ¸
-    (japanese-jisx0208-1990	. #x2657)	; ø½‰¾ˆ
-    (chinese-big5		. #xA372)	; ý¢€Š²
+    (chinese-gb2312	. #x2657)	; ø»„Ž
+    (=jis-x0208		. #x2657)	; ø½‰¾ˆ
+    (korean-ksc5601	. #x2577)	; ø»ˆ¡š
+    (chinese-cns11643-1 . #x2545)	; ø»‘ˆ¸
+    (chinese-big5	. #xA372)	; ý¢€Š²
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER OMEGA")
@@ -2590,11 +2402,9 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter omega")
-      (japanese-jisx0208-1978	  . #x2658)	; ø»‚„
-      (chinese-gb2312		  . #x2658)	; ø»„Ž‘
-      (japanese-jisx0208	  . #x2658)	; ø»†˜•
-      (korean-ksc5601		  . #x2578)	; ø»ˆ¡›
-      (chinese-cns11643-1	  . #x2546)	; ø»‘ˆ¹
+      (chinese-gb2312	  . #x2658)	; ø»„Ž‘
+      (korean-ksc5601	  . #x2578)	; ø»ˆ¡›
+      (chinese-cns11643-1 . #x2546)	; ø»‘ˆ¹
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER OMEGA")
@@ -2617,13 +2427,11 @@
      ((name		  . "GREEK SMALL LETTER OMEGA")
       (ucs		  . #x03C9)	; Ï‰
       ))
-    (japanese-jisx0208-1978	. #x2658)	; ø»‚„
-    (chinese-gb2312		. #x2658)	; ø»„Ž‘
-    (japanese-jisx0208		. #x2658)	; ø»†˜•
-    (korean-ksc5601		. #x2578)	; ø»ˆ¡›
-    (chinese-cns11643-1		. #x2546)	; ø»‘ˆ¹
-    (japanese-jisx0208-1990	. #x2658)	; ø½‰¾‰
-    (chinese-big5		. #xA373)	; ý¢€Š³
+    (chinese-gb2312	. #x2658)	; ø»„Ž‘
+    (=jis-x0208		. #x2658)	; ø½‰¾‰
+    (korean-ksc5601	. #x2578)	; ø»ˆ¡›
+    (chinese-cns11643-1 . #x2546)	; ø»‘ˆ¹
+    (chinese-big5	. #xA373)	; ý¢€Š³
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER IOTA WITH DIALYTIKA")

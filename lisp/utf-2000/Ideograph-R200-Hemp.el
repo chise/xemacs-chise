@@ -4,13 +4,11 @@
     (total-strokes	 . 11)
     (shinjigen-1	. 9804)
     (shinjigen-2	. 9804)
-    (japanese-jisx0208-1978	. #x4B63)	; ø»‚º®
-    (chinese-gb2312		. #x4269)	; ø»„·ª
-    (japanese-jisx0208		. #x4B63)	; ø»‡Ž¶
-    (chinese-isoir165		. #x4269)	; ø»Ÿº
-    (japanese-jisx0208-1990	. #x4B63)	; ø½Š´ª
-    (ideograph-daikanwa		. 47888)	; ø¸‹¬
-    (ucs			. #x9EBB)	; éº»
+    (chinese-gb2312	. #x4269)	; ø»„·ª
+    (=jis-x0208		. #x4B63)	; ø½Š´ª
+    (chinese-isoir165	. #x4269)	; ø»Ÿº
+    (ideograph-daikanwa . 47888)	; ø¸‹¬
+    (ucs		. #x9EBB)	; éº»
     ))
 (define-char
   '((morohashi-daikanwa	47888 0 0)
@@ -48,12 +46,10 @@
     (ideographic-radical . 200)	; â¿‡
     (ideographic-strokes . 3)
     (total-strokes	 . 14)
-    (japanese-jisx0208-1978	. #x5677)	; ø»ƒ‹Œ
-    (japanese-jisx0208		. #x5677)	; ø»‡Ÿ”
-    (chinese-cns11643-1		. #x6B7B)	; ø»’°¢
-    (japanese-jisx0208-1990	. #x5677)	; ø½‹…ˆ
-    (ideograph-daikanwa		. 47892)	; ø¸‹¬”
-    (ucs-jis			. #x9EBC)	; ø»ƒ‹Œ
+    (=jis-x0208		. #x5677)	; ø½‹…ˆ
+    (chinese-cns11643-1 . #x6B7B)	; ø»’°¢
+    (ideograph-daikanwa . 47892)	; ø¸‹¬”
+    (ucs-jis		. #x9EBC)	; ø½‹…ˆ
     ))
 (define-char
   '((morohashi-daikanwa	47892 0 2)
@@ -136,13 +132,11 @@
     (ideographic-radical . 200)	; â¿‡
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
-    (japanese-jisx0208-1978	. #x5D60)	; ø»ƒ•‡
-    (japanese-jisx0208		. #x5D60)	; ø»‡©
-    (korean-ksc5601		. #x7D4B)	; ø»Š¡¾
-    (chinese-cns11643-1		. #x702C)	; ø»’¶©
-    (japanese-jisx0208-1990	. #x5D60)	; ø½‹ƒ
-    (ideograph-daikanwa		. 47899)	; ø¸‹¬›
-    (ucs-jis			. #x9EBE)	; ø»ƒ•‡
+    (=jis-x0208		. #x5D60)	; ø½‹ƒ
+    (korean-ksc5601	. #x7D4B)	; ø»Š¡¾
+    (chinese-cns11643-1 . #x702C)	; ø»’¶©
+    (ideograph-daikanwa . 47899)	; ø¸‹¬›
+    (ucs-jis		. #x9EBE)	; ø½‹ƒ
     ))
 (define-char
   '((morohashi-daikanwa	47899 0 2)
@@ -240,10 +234,8 @@
     (ideographic-radical . 200)	; â¿‡
     (ideographic-strokes . 7)
     (total-strokes	 . 18)
-    (japanese-jisx0208-1978	. #x4B7B)	; ø»‚»†
-    (japanese-jisx0208		. #x4B7B)	; ø»‡Ž
-    (japanese-jisx0208-1990	. #x4B7B)	; ø½Šµ‚
-    (ucs			. #x9EBF)	; éº¿
+    (=jis-x0208		. #x4B7B)	; ø½Šµ‚
+    (ucs		. #x9EBF)	; éº¿
     ))
 (define-char
   '((ideographic-radical . 200)	; â¿‡

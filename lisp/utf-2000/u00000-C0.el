@@ -3,7 +3,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x00)	; øº¾»
+    (ascii		. #x00)	; â€
     (ucs		. #x0000)	; â€
     ))
 (define-char
@@ -11,7 +11,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x01)	; øº¾¼
+    (ascii		. #x01)	; â
     (ucs		. #x0001)	; â
     ))
 (define-char
@@ -19,7 +19,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x02)	; øº¾½
+    (ascii		. #x02)	; â‚
     (ucs		. #x0002)	; â‚
     ))
 (define-char
@@ -27,7 +27,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x03)	; øº¾¾
+    (ascii		. #x03)	; âƒ
     (ucs		. #x0003)	; âƒ
     ))
 (define-char
@@ -35,7 +35,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x04)	; øº¾¿
+    (ascii		. #x04)	; â„
     (ucs		. #x0004)	; â„
     ))
 (define-char
@@ -43,7 +43,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x05)	; øº¿€
+    (ascii		. #x05)	; â…
     (ucs		. #x0005)	; â…
     ))
 (define-char
@@ -51,7 +51,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x06)	; øº¿
+    (ascii		. #x06)	; â†
     (ucs		. #x0006)	; â†
     ))
 (define-char
@@ -59,7 +59,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x07)	; øº¿‚
+    (ascii		. #x07)	; â‡
     (ucs		. #x0007)	; â‡
     ))
 (define-char
@@ -67,7 +67,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x08)	; øº¿ƒ
+    (ascii		. #x08)	; âˆ
     (ucs		. #x0008)	; âˆ
     ))
 (define-char
@@ -75,7 +75,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (ascii		. #x09)	; øº¿„
+    (ascii		. #x09)	; â‰
     (ucs		. #x0009)	; â‰
     ))
 (define-char
@@ -83,7 +83,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (ascii		. #x0A)	; øº¿…
+    (ascii		. #x0A)	; âŠ
     (ucs		. #x000A)	; âŠ
     ))
 (define-char
@@ -91,7 +91,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (ascii		. #x0B)	; øº¿†
+    (ascii		. #x0B)	; â‹
     (ucs		. #x000B)	; â‹
     ))
 (define-char
@@ -99,7 +99,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "WS")
     (mirrored		. nil)
-    (ascii		. #x0C)	; øº¿‡
+    (ascii		. #x0C)	; âŒ
     (ucs		. #x000C)	; âŒ
     ))
 (define-char
@@ -107,7 +107,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (ascii		. #x0D)	; øº¿ˆ
+    (ascii		. #x0D)	; â
     (ucs		. #x000D)	; â
     ))
 (define-char
@@ -115,7 +115,7 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x0E)	; øº¿‰
+    (ascii		. #x0E)	; âŽ
     (ucs		. #x000E)	; âŽ
     ))
 (define-char
@@ -123,118 +123,118 @@
     (general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x0F)	; øº¿Š
+    (ascii		. #x0F)	; â
     (ucs		. #x000F)	; â
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x10)	; øº¿‹
+    (ascii		. #x10)	; â
     (ucs		. #x0010)	; â
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x11)	; øº¿Œ
+    (ascii		. #x11)	; â‘
     (ucs		. #x0011)	; â‘
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x12)	; øº¿
+    (ascii		. #x12)	; â’
     (ucs		. #x0012)	; â’
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x13)	; øº¿Ž
+    (ascii		. #x13)	; â“
     (ucs		. #x0013)	; â“
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x14)	; øº¿
+    (ascii		. #x14)	; â”
     (ucs		. #x0014)	; â”
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x15)	; øº¿
+    (ascii		. #x15)	; â•
     (ucs		. #x0015)	; â•
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x16)	; øº¿‘
+    (ascii		. #x16)	; â–
     (ucs		. #x0016)	; â–
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x17)	; øº¿’
+    (ascii		. #x17)	; â—
     (ucs		. #x0017)	; â—
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x18)	; øº¿“
+    (ascii		. #x18)	; â˜
     (ucs		. #x0018)	; â˜
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x19)	; øº¿”
+    (ascii		. #x19)	; â™
     (ucs		. #x0019)	; â™
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x1A)	; øº¿•
+    (ascii		. #x1A)	; âš
     (ucs		. #x001A)	; âš
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
-    (ascii		. #x1B)	; øº¿–
+    (ascii		. #x1B)	; â›
     (ucs		. #x001B)	; â›
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (ascii		. #x1C)	; øº¿—
+    (ascii		. #x1C)	; âœ
     (ucs		. #x001C)	; âœ
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (ascii		. #x1D)	; øº¿˜
+    (ascii		. #x1D)	; â
     (ucs		. #x001D)	; â
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
-    (ascii		. #x1E)	; øº¿™
+    (ascii		. #x1E)	; âž
     (ucs		. #x001E)	; âž
     ))
 (define-char
   '((general-category	other control) ; Normative Category
     (bidi-category	. "S")
     (mirrored		. nil)
-    (ascii		. #x1F)	; øº¿š
+    (ascii		. #x1F)	; âŸ
     (ucs		. #x001F)	; âŸ
     ))

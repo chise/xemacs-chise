@@ -2211,6 +2211,10 @@
     (ucs		. #x0142)	; Å‚
     ))
 (define-char
+  '((=>ucs		. #x0142)	; Å‚
+    (china3-jef		. #x83AC)	; øºˆŽ¬
+    ))
+(define-char
   '((name		. "fullwidth latin small letter l with stroke")
     (=>ucs		. #x0142)	; Å‚
     (general-category	letter lowercase) ; Normative Category
