@@ -1,5 +1,29 @@
 2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* u02E00-CJK-Radical-Supplement.el, Ideograph-R184-Eat.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R162-Walk.el,
+	Ideograph-R152-Pig.el, Ideograph-R140-Grass.el,
+	Ideograph-R135-Tongue.el, Ideograph-R134-Mortar.el,
+	Ideograph-R124-Feather.el, Ideograph-R123-Sheep.el,
+	Ideograph-R122-Net.el, Ideograph-R121-Jar.el,
+	Ideograph-R114-Track.el, Ideograph-R089-Double-X.el,
+	Ideograph-R064-Hand.el, Ideograph-R062-Halberd.el,
+	Ideograph-R061-Heart.el, Ideograph-R059-Bristle.el,
+	Ideograph-R056-Shoot.el, Ideograph-R050-Turban.el,
+	Ideograph-R040-Roof.el, Ideograph-R037-Big.el,
+	Ideograph-R030-Mouth.el, Ideograph-R029-Again.el,
+	Ideograph-R028-Private.el, Ideograph-R025-Divination.el,
+	Ideograph-R024-Ten.el, Ideograph-R018-Knife.el,
+	Ideograph-R016-Table.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R011-Enter.el,
+	Ideograph-R009-Man.el, Ideograph-R008-Lid.el,
+	Ideograph-R007-Two.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R003-Dot.el,
+	Ideograph-R002-Line.el, Ideograph-R001-One.el, char-db-util.el,
+	isolated-char.el: Rename `ideograph-gt-k' to `=gt-k'.
+
+2003-02-16  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* ad-hoc-cdp.el: Rename `chinese-big5-cdp' to `=big5-cdp'.
 
 2003-02-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>

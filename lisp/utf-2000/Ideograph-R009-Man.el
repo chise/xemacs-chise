@@ -13,7 +13,7 @@
     (ideograph-gt-pj-1	. #x3F4D)	; äºº
     (chinese-big5	. #xA448)	; ý¢€Š‘ˆ
     (ideograph-daikanwa . 00344)	; ø¸€…˜
-    (ideograph-gt-k	. 00048)	; ý¡„€€°
+    (=gt-k		. 00048)	; ý¡„€€°
     (mojikyo		. 000344)	; ý €€…˜
     (ucs		. #x4EBA)	; äºº
     ))
@@ -24,7 +24,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (ideograph-gt-pj-k1 . #x3357)	; ý¡„€€±
-    (ideograph-gt-k	. 00049)	; ý¡„€€±
+    (=gt-k		. 00049)	; ý¡„€€±
     ))
 (define-char
   '((name*		. "ideographic component person as roof")
@@ -36,7 +36,7 @@
     (ideograph-cdp	. -70)
     (ideograph-gt-pj-9	. #x4D4C)	; ý¢€ˆ­
     (=big5-cdp		. #x8B5D)	; ý¢€ˆ­
-    (ideograph-gt-k	. 00057)	; ý¡„€€¹
+    (=gt-k		. 00057)	; ý¡„€€¹
     (=jef-china3	. #x71FA)	; øº‡‡º
     (mojikyo		. 050926)	; ý €Œ›®
     ))
@@ -48,7 +48,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (ideograph-gt-pj-k1 . #x3C53)	; ý¡„€€º
-    (ideograph-gt-k	. 00058)	; ý¡„€€º
+    (=gt-k		. 00058)	; ý¡„€€º
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
@@ -94,7 +94,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -119,7 +118,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -139,7 +137,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -180,7 +177,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -529,7 +525,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -579,7 +574,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -776,7 +770,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -821,7 +814,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -843,7 +835,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -866,7 +857,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -1046,7 +1036,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -1120,7 +1109,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -1187,7 +1175,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -1419,7 +1406,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -1456,7 +1442,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -1723,7 +1708,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -1839,7 +1823,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -2375,7 +2358,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -2615,7 +2597,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3133,7 +3114,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3455,7 +3435,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3483,7 +3462,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3503,7 +3481,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3587,7 +3564,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -3736,7 +3712,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -4023,7 +3998,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -4044,7 +4018,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -5489,7 +5462,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -5522,7 +5494,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -5822,7 +5793,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -5876,7 +5846,6 @@
 	)
        ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -6267,7 +6236,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -6643,7 +6611,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -7999,7 +7966,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -8481,7 +8447,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -8787,7 +8752,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -9168,7 +9132,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -9410,7 +9373,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -9451,7 +9413,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -9491,7 +9452,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -11136,7 +11096,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -11372,7 +11331,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -12893,7 +12851,6 @@
 	 ((name*	      . "ideographic component person as roof")
 	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
-	  (ideograph-gt-k     . 00057)	; ý¡„€€¹
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  (mojikyo	      . 050926)	; ý €Œ›®
 	  )
@@ -14852,7 +14809,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -15086,7 +15042,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -17696,7 +17651,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -17984,7 +17938,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -18021,7 +17974,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -19734,7 +19686,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -20504,7 +20455,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -21002,7 +20952,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((ideograph-gt-k	    . 00064)	; ý¡„€€
+       ((ideograph-gt-pj-k1 . #x345A)	; ý¡„€€
+	(=gt-k		    . 00064)	; ý¡„€€
 	)
        ((ucs		    . #x96B9)	; éš¹
 	))
@@ -22647,7 +22598,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -22693,7 +22643,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -22704,7 +22653,7 @@
      ((=big5-cdp	  . #x89F4)	; ý¢€ˆ§´
       ))
     (ideograph-gt-pj-9	. #x515F)	; ý¡€€‹¿
-    (ideograph-gt-k	. 03991)	; ý¡„€¾—
+    (=gt-k		. 03991)	; ý¡„€¾—
     (ideograph-gt	. 00767)	; ý¡€€‹¿
     (mojikyo		. 050933)	; ý €Œ›µ
     ))
@@ -22714,7 +22663,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
     (ideograph-gt-pj-k1 . #x3521)	; ý¡„€¾˜
-    (ideograph-gt-k	. 03992)	; ý¡„€¾˜
+    (=gt-k		. 03992)	; ý¡„€¾˜
     ))
 (define-char
   '((=>ucs		. #x50CA)	; åƒŠ
@@ -22870,7 +22819,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -23281,7 +23229,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -23381,7 +23328,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       ))
@@ -24116,13 +24062,11 @@
 	)
        ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
        ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	))
@@ -25172,7 +25116,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -25719,7 +25662,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -25873,7 +25815,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -27361,7 +27302,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -27761,7 +27701,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -30779,13 +30718,13 @@
 	 ((name*	      . "ideographic component person as roof")
 	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
-	  (ideograph-gt-k     . 00057)	; ý¡„€€¹
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  (mojikyo	      . 050926)	; ý €Œ›®
 	  )
 	 ((ucs		      . #x6B62)	; æ­¢
 	  )
-	 ((ideograph-gt-k     . 00305)	; ý¡„€„±
+	 ((ideograph-gt-pj-k1 . #x324E)	; ý¡„€„±
+	  (=gt-k	      . 00305)	; ý¡„€„±
 	  ))
 	)
        ((ucs		    . #x5182)	; å†‚
@@ -31861,7 +31800,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32069,7 +32007,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -32092,7 +32029,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32111,7 +32047,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32130,7 +32065,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32354,7 +32288,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32417,7 +32350,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -32440,7 +32372,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -32553,7 +32484,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -33358,7 +33288,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -33419,7 +33348,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -33527,7 +33455,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -33551,7 +33478,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )
@@ -33592,7 +33518,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -33621,7 +33546,6 @@
        ((name*		    . "ideographic component person as roof")
 	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
 	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
-	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	(mojikyo	    . 050926)	; ý €Œ›®
 	)
@@ -33644,7 +33568,6 @@
      ((name*		  . "ideographic component person as roof")
       (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
       (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
       (=jef-china3	  . #x71FA)	; øº‡‡º
       (mojikyo		  . 050926)	; ý €Œ›®
       )

@@ -2281,7 +2281,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (ideograph-gt-pj-k1 . #x3072)	; ý¡„·€
-    (ideograph-gt-k	. 07616)	; ý¡„·€
+    (=gt-k		. 07616)	; ý¡„·€
     ))
 (define-char
   '((=>ucs		. #x5BB7)	; å®·

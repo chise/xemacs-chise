@@ -218,19 +218,19 @@
 		  min-code	#x8140
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
-  (make-charset
-   'ideograph-gt-k
-   "GT parts"
-   `(long-name "Ideographic parts of GT"
-	       chars 256
-	       dimension 2
-	       columns 2
-	       graphic 2
-	       direction l2r
-	       registry ""
-	       min-code ,(lsh #x6110 16)
-	       max-code ,(+ (lsh #x6110 16) 17090)
-	       code-offset ,(lsh #x6110 16)))
+  (make-charset '=gt-k
+		"GT parts"
+		`(long-name	"Ideographic parts of GT"
+		  chars		256
+		  dimension	2
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  registry	""
+		  min-code	,(lsh #x6110 16)
+		  max-code	,(+ (lsh #x6110 16) 17090)
+		  code-offset	,(lsh #x6110 16)))
+  (define-charset-alias 'ideograph-gt-k '=gt-k)
   (make-charset
    'ideograph-gt-pj-k1
    "GT K1"

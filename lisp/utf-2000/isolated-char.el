@@ -199,7 +199,7 @@
 	    gt-code (string-to-int (match-string 3)))
       (if (eq (aref plane 0) ?0)
 	  (setq plane (substring plane 1)))
-      (put-char-attribute (decode-builtin-char 'ideograph-gt-k gt-code)
+      (put-char-attribute (decode-builtin-char '=gt-k gt-code)
 			  (intern (format "ideograph-gt-pj-%s" plane))
 			  (encode-char
 			   (decode-shift-jis-char (cons (/ code 256)

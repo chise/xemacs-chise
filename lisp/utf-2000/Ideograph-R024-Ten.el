@@ -13,7 +13,7 @@
     (ideograph-gt-pj-1	. #x3D3D)	; å
     (chinese-big5	. #xA451)	; ý¢€Š‘‘
     (ideograph-daikanwa . 02695)	; ø¸€ª‡
-    (ideograph-gt-k	. 00047)	; ý¡„€€¯
+    (=gt-k		. 00047)	; ý¡„€€¯
     (ucs		. #x5341)	; å
     ))
 (define-char
