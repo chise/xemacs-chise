@@ -1,3 +1,11 @@
+2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Refer Hanziku to CBETA, Big5 variants, UCS-BMP and JEF-CHINA3.
+
+	* mule/mule-conf.el (ucs-jis-1990): Deleted.
+	(ucs-jis-2000): Deleted.
+
 2003-02-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=ucs-jis-1990): New coded-charset for
