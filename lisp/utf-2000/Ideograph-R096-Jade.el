@@ -1255,28 +1255,26 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (<-vulgar
-     (:sources	(jiyun morohashi-daikanwa)
-      :char	((=daikanwa	     . 20920)	; &I-M-20920;
-		 )
-      ))
     (=ucs		. #x73CE)	; 珎
-    (=jis-x0208-1978	. #x605F)	; &I-J78-605F;
-    (=daikanwa		. 20921)	; &I-M-20921;
-    ))
-(define-char
-  '((=>ucs		. #x73CE)	; 珎
-    (morohashi-daikanwa	20921 0 0)
-    (ideographic-radical . 96)	; ⽟
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (=jis-x0208-1983	. #x605F)	; &GT-26769;
-    (=jis-x0208-1990	. #x605F)	; &I-J90-605F;
-    (=cns11643-3	. #x2D7E)	; &I-C3-2D7E;
-    (=gt		. 26769)	; &I-GT-26769;
-    (=gt-pj-1		. #x605F)	; &I-GT-26769;
-    (=jef-china3	. #x5AAB)	; &I-JC3-5AAB;
-    (=ucs@jis		. #x73CE)	; &GT-26769;
+    (->subsumptive
+     ((<-vulgar
+       ((=ucs		    . #x73CD)	; 珍
+	(=daikanwa	    . 20920)	; &I-M-20920;
+	))
+      (<-vulgar*sources
+       jiyun daikanwa)
+      (=jis-x0208-1978	  . #x605F)	; &M-20921;
+      (=daikanwa	  . 20921)	; &I-M-20921;
+      (=ucs@unicode	  . #x73CE)	; &M-20921;
+      )
+     ((=jis-x0208-1983	  . #x605F)	; &GT-26769;
+      (=jis-x0208-1990	  . #x605F)	; &I-J90-605F;
+      (=cns11643-3	  . #x2D7E)	; &I-C3-2D7E;
+      (=gt		  . 26769)	; &I-GT-26769;
+      (=gt-pj-1		  . #x605F)	; &I-GT-26769;
+      (=jef-china3	  . #x5AAB)	; &I-JC3-5AAB;
+      (=ucs@jis		  . #x73CE)	; &GT-26769;
+      ))
     ))
 (define-char
   '((ideographic-radical . 96)	; ⽟
