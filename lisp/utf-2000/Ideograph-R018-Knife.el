@@ -5825,13 +5825,22 @@
     (ucs-cns		. #x5277)	; �����
     ))
 (define-char
-  '((morohashi-daikanwa	2143 0 2)
+  '((=>ucs-cns		. #x2F823)	; 剷
+    (morohashi-daikanwa	2143 0 2)
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
     (->same-ideograph
      ((ucs		  . #x2F823)	; 剷
       ))
+    (ucs		. #x5277)	; 剷
+    ))
+(define-char
+  '((=>ucs*		. #x5277)	; 剷
+    (morohashi-daikanwa	2143 0 3)
+    (ideographic-radical . 18)	; ⼑
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; ⿰
@@ -5841,19 +5850,7 @@
      ((ucs		  . #x5202)	; 刂
       ))
     (chinese-cns11643-3 . #x4043)	; �����
-    (ucs-cns		. #x2F823)	; 剷
-    (ucs		. #x5277)	; 剷
-    ))
-(define-char
-  '((=>ucs*		. #x5277)	; 剷
-    (=>ucs-gb		. #x5277)	; 剷
-    (morohashi-daikanwa	2143 0 3)
-    (ideographic-radical . 18)	; ⼑
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (->same-ideograph
-     ((ucs		  . #x5277)	; 剷
-      ))
+    (ucs-gb		. #x5277)	; 剷
     (ucs		. #x2F823)	; 剷
     ))
 (define-char
