@@ -190,14 +190,16 @@
 				    attributes ccs-attributes
 				    column)
   (setq attributes
-	(if attributes
-	    (if (consp attributes)
-		(copy-sequence attributes))
-	  (sort (char-attribute-list) #'char-attribute-name<)))
+	(sort (if attributes
+		  (if (consp attributes)
+		      (copy-sequence attributes))
+		(char-attribute-list))
+	      #'char-attribute-name<))
   (setq ccs-attributes
-	(if ccs-attributes
-	    (copy-sequence ccs-attributes)
-	  (sort (charset-list) #'char-attribute-name<)))
+	(sort (if ccs-attributes
+		  (copy-sequence ccs-attributes)
+		(charset-list))
+	      #'char-attribute-name<))
   (unless column
     (setq column (current-column)))
   (let (name value has-long-ccs-name rest
@@ -532,7 +534,8 @@
 			      vulgar-ideograph-of
 			      wrong-ideograph-of
 			      simplified-ideograph-of
-			      ideographic-variants))
+			      ideographic-variants
+			      ideographic-different-form-of))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
 		       separator nil)
