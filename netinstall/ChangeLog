@@ -1,3 +1,7 @@
+2002-05-09  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.8 "Honest Recruiter" is released.
+
 2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.7 "Economic Science" is released.
@@ -292,5 +296,5 @@
 
 	* all: port from cygwin setup.
 
-%%% $Id: ChangeLog,v 1.2.2.13 2001/12/17 08:45:59 stephent Exp $
-$Revision: 1.2.2.13 $
+%%% $Id: ChangeLog,v 1.2.2.15 2002/05/09 12:02:35 stephent Exp $
+$Revision: 1.2.2.15 $

@@ -58,7 +58,7 @@ Boston, MA 02111-1307, USA.  */
 #include "systty.h"
 #include "syswait.h"
 
-Lisp_Object Qprocessp, Qprocess_live_p;
+Lisp_Object Qprocessp, Qprocess_live_p, Qprocess_readable_p;
 
 /* Process methods */
 struct process_methods the_process_methods;
@@ -265,6 +265,29 @@ Return t if OBJECT is a process that is alive.
   return PROCESSP (object) && PROCESS_LIVE_P (XPROCESS (object))
     ? Qt : Qnil;
 }
+
+#if 0
+/* This is a reasonable definition for this new primitive.  Kyle sez:
+
+   "The patch looks OK to me except for the creation and exporting of the
+   Fprocess_readable_p function.  I don't think a new Lisp function
+   should be created until we know something actually needs it.  If
+   we later want to give process-readable-p different semantics it
+   may be hard to do it and stay compatible with what we hastily
+   create today."
+
+   He's right, not yet.  Let's discuss the semantics on XEmacs Design
+   before enabling this.
+*/
+DEFUN ("process-readable-p", Fprocess_readable_p, 1, 1, 0, /*
+Return t if OBJECT is a process from which input may be available.
+*/
+       (object))
+{
+  return PROCESSP (object) && PROCESS_READABLE_P (XPROCESS (object))
+    ? Qt : Qnil;
+}
+#endif
 
 DEFUN ("process-list", Fprocess_list, 0, 0, 0, /*
 Return a list of all processes.
@@ -512,7 +535,7 @@ create_process (Lisp_Object process, Lisp_Object *argv, int nargv,
   pid = PROCMETH (create_process, (p, argv, nargv, program, cur_dir));
 
   p->pid = make_int (pid);
-  if (PROCESS_LIVE_P (p))
+  if (PROCESS_READABLE_P (p))
     event_stream_select_process (p);
 }
 
@@ -842,7 +865,7 @@ read_process_output (Lisp_Object process)
      Really, the loop in execute_internal_event() should check itself
      for a process-filter change, like in status_notify(); but the
      struct Lisp_Process is not exported outside of this file. */
-  if (!PROCESS_LIVE_P (p))
+  if (!PROCESS_READABLE_P (p))
     return -1; /* already closed */
 
   if (!NILP (p->filter) && (p->filter_does_read))
@@ -1051,7 +1074,7 @@ void
 set_process_filter (Lisp_Object process, Lisp_Object filter, int filter_does_read)
 {
   CHECK_PROCESS (process);
-  if (PROCESS_LIVE_P (XPROCESS (process))) {
+  if (PROCESS_READABLE_P (XPROCESS (process))) {
     if (EQ (filter, Qt))
       event_stream_unselect_process (XPROCESS (process));
     else
@@ -1142,7 +1165,7 @@ Return PROCESS's input coding system.
        (process))
 {
   process = get_process (process);
-  CHECK_LIVE_PROCESS (process);
+  CHECK_READABLE_PROCESS (process);
   return decoding_stream_coding_system (XLSTREAM (XPROCESS (process)->coding_instream) );
 }
 
@@ -1162,7 +1185,7 @@ Return a pair of coding-system for decoding and encoding of PROCESS.
        (process))
 {
   process = get_process (process);
-  CHECK_LIVE_PROCESS (process);
+  CHECK_READABLE_PROCESS (process);
   return Fcons (decoding_stream_coding_system
 		(XLSTREAM (XPROCESS (process)->coding_instream)),
 		encoding_stream_coding_system
@@ -1177,7 +1200,7 @@ Set PROCESS's input coding system to CODESYS.
 {
   codesys = Fget_coding_system (codesys);
   process = get_process (process);
-  CHECK_LIVE_PROCESS (process);
+  CHECK_READABLE_PROCESS (process);
 
   set_decoding_stream_coding_system
     (XLSTREAM (XPROCESS (process)->coding_instream), codesys);
@@ -2023,6 +2046,10 @@ syms_of_process (void)
 
   defsymbol (&Qprocessp, "processp");
   defsymbol (&Qprocess_live_p, "process-live-p");
+#if 0
+  /* see comment at Fprocess_readable_p */
+  defsymbol (&Qprocess_readable_p, "process-readable-p");
+#endif
   defsymbol (&Qrun, "run");
   defsymbol (&Qstop, "stop");
   defsymbol (&Qopen, "open");
@@ -2037,6 +2064,10 @@ syms_of_process (void)
 
   DEFSUBR (Fprocessp);
   DEFSUBR (Fprocess_live_p);
+#if 0
+  /* see comment at Fprocess_readable_p */
+  DEFSUBR (Fprocess_readable_p);
+#endif
   DEFSUBR (Fget_process);
   DEFSUBR (Fget_buffer_process);
   DEFSUBR (Fdelete_process);
