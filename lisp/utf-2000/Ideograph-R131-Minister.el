@@ -28,6 +28,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (chinese-cns11643-4 . #x2471)	; ø»—¦’
+    (chinese-big5-cdp	. #x8DDB)	; ý¢€ˆ·›
     ))
 (define-char
   '((ideographic-radical . 131)	; â¾‚
