@@ -923,9 +923,7 @@ decode_defined_char (Lisp_Object ccs, int code_point)
   if (CHARP (decoding_table))
     return XCHAR (decoding_table);
 #ifdef HAVE_DATABASE
-  if (EQ (decoding_table, Qunloaded) ||
-      EQ (decoding_table, Qunbound) ||
-      NILP (decoding_table) )
+  if (EQ (decoding_table, Qunloaded))
     {
       char_id = load_char_decoding_entry_maybe (ccs, code_point);
     }
@@ -2143,12 +2141,12 @@ Set mapping-table of CHARSET to TABLE.
   return table;
 }
 
+#ifdef HAVE_CHISE_CLIENT
 DEFUN ("save-charset-mapping-table", Fsave_charset_mapping_table, 1, 1, 0, /*
 Save mapping-table of CHARSET.
 */
        (charset))
 {
-#ifdef HAVE_DATABASE
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
   Lisp_Object db;
@@ -2283,12 +2281,27 @@ Save mapping-table of CHARSET.
       }
     }
   return Fclose_database (db);
-#else
-  return Qnil;
-#endif
 }
 
-#ifdef HAVE_CHISE_CLIENT
+DEFUN ("reset-charset-mapping-table", Freset_charset_mapping_table, 1, 1, 0, /*
+Reset mapping-table of CCS with database file.
+*/
+       (ccs))
+{
+  Lisp_Object db_file;
+
+  ccs = Fget_charset (ccs);
+  db_file = char_attribute_system_db_file (XCHARSET_NAME(ccs),
+					   Qsystem_char_id, 0);
+
+  if (!NILP (Ffile_exists_p (db_file)))
+    {
+      XCHARSET_DECODING_TABLE(ccs) = Qunloaded;
+      return Qt;
+    }
+  return Qnil;
+}
+
 Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
@@ -2313,6 +2326,7 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 	      return XCHAR (ret);
 	    }
 	}
+      decoding_table_put_char (ccs, code_point, Qnil);
       Fclose_database (db);
     }
   return -1;
@@ -2651,13 +2665,14 @@ syms_of_mule_charset (void)
 #ifdef UTF2000
   DEFSUBR (Fcharset_mapping_table);
   DEFSUBR (Fset_charset_mapping_table);
+#ifdef HAVE_CHISE_CLIENT
+  DEFSUBR (Fsave_charset_mapping_table);
+  DEFSUBR (Freset_charset_mapping_table);
 #endif
 
-#ifdef UTF2000
   DEFSUBR (Fdecode_char);
   DEFSUBR (Fdecode_builtin_char);
   DEFSUBR (Fencode_char);
-  DEFSUBR (Fsave_charset_mapping_table);
 #endif
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
