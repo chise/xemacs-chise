@@ -289,8 +289,7 @@
     (=ucs		. #x7C82)	; ç²‚
     ))
 (define-char
-  '((=ucs		. #x7C83)	; ç²ƒ
-    (ideographic-radical . 119)	; â½¶
+  '((ideographic-radical . 119)	; â½¶
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (shinjigen-2	. 5601)
@@ -299,6 +298,7 @@
     (=gt-pj-1		. #x6463)	; ý¡€ˆ
     (=daikanwa		. 26861)	; ø¸†£­
     (=gt		. 34637)	; ý¡€ˆ
+    (=ucs		. #x7C83)	; ç²ƒ
     ))
 (define-char
   '((=>ucs		. #x7C83)	; ç²ƒ
