@@ -432,9 +432,11 @@ gui_item_display_flush_right (Lisp_Object gui_item,
   struct Lisp_Gui_Item* pgui_item = XGUI_ITEM (gui_item);
   *buf = 0;
 
+#ifdef HAVE_MENUBARS
   /* Have keys? */
   if (!menubar_show_keybindings)
     return 0;
+#endif
 
   /* Try :keys first */
   if (!NILP (pgui_item->keys))

@@ -374,9 +374,6 @@ with the file contents.  This is better than simply deleting and inserting
 the whole thing because (1) it preserves some marker positions
 and (2) it puts less data in the undo list.
 
-NOTE: When Mule support is enabled, the REPLACE argument is
-currently ignored.
-
 The coding system used for decoding the file is determined as follows:
 
 1. `coding-system-for-read', if non-nil.

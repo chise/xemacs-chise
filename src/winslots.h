@@ -97,6 +97,29 @@ Boston, MA 02111-1307, USA.  */
   WINDOW_SLOT (default_toolbar_visible_p, EQ);
   WINDOW_SLOT (default_toolbar_border_width, EQ);
 #endif /* HAVE_TOOLBARS */
+
+  /* Gutter specification for each of the four positions.
+     This is not a size hog because the value here is not copied,
+     and will be shared with the specs in the specifier. */
+  WINDOW_SLOT_ARRAY (gutter, 4, EQUAL_WRAPPED);
+  /* Gutter size for each of the four positions. */
+  WINDOW_SLOT_ARRAY (gutter_size, 4, EQUAL_WRAPPED);
+  /* Real (pre-calculated) gutter size for each of the four positions.
+     This is not a specifier, it is calculated by the specifier change
+     functions. */
+  WINDOW_SLOT_ARRAY (real_gutter_size, 4, EQUAL_WRAPPED);
+  /* Gutter border width for each of the four positions. */
+  WINDOW_SLOT_ARRAY (gutter_border_width, 4, EQUAL_WRAPPED);
+  /* Gutter visibility status for each of the four positions. */
+  WINDOW_SLOT_ARRAY (gutter_visible_p, 4, EQUAL_WRAPPED);
+  /* The following five don't really need to be cached except
+     that we need to know when they've changed. */
+  WINDOW_SLOT (default_gutter, EQUAL_WRAPPED);
+  WINDOW_SLOT (default_gutter_width, EQ);
+  WINDOW_SLOT (default_gutter_height, EQ);
+  WINDOW_SLOT (default_gutter_visible_p, EQ);
+  WINDOW_SLOT (default_gutter_border_width, EQ);
+/* margins */
   WINDOW_SLOT (left_margin_width, EQ);
   WINDOW_SLOT (right_margin_width, EQ);
   WINDOW_SLOT (minimum_line_ascent, EQ);

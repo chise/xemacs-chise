@@ -1,10 +1,12 @@
+(setq str "Hello There")
 (set-extent-begin-glyph 
- (make-extent (point) (point))
- (setq icon (make-glyph [xpm :file "../etc/xemacs-icon.xpm"])))
+ (make-extent 0 0 str)
+ (make-glyph [xpm :file "../etc/xemacs-icon.xpm"]))
 
 (defun foo ()
   (interactive) 
-  (setq ok-select (not ok-select)))
+  (ding))
+;  (setq ok-select (not ok-select)))
 
 ;; button in a group
 (setq ok-select nil)

@@ -2132,9 +2132,19 @@ Subwindows are not currently implemented.
 static void 
 x_resize_subwindow (struct Lisp_Image_Instance* ii, int w, int h)
 {
-  XResizeWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (ii)),
-		 IMAGE_INSTANCE_X_SUBWINDOW_ID (ii),
-		 w, h);
+  if (IMAGE_INSTANCE_TYPE (ii) == IMAGE_SUBWINDOW)
+    {
+      XResizeWindow (DisplayOfScreen (IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (ii)),
+		     IMAGE_INSTANCE_X_SUBWINDOW_ID (ii),
+		     w, h);
+    }
+  else				/* must be a widget */
+    {
+      Arg al[2];
+      XtSetArg (al [0], XtNwidth, (Dimension)w);
+      XtSetArg (al [1], XtNheight, (Dimension)h);
+      XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 2);
+    }
 }
 
 /************************************************************************/
@@ -2158,6 +2168,9 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Arg al [32];
   int ac = 0;
   int id = new_lwlib_id ();
+#ifdef LWLIB_USES_MOTIF
+  XmFontList fontList;
+#endif
 
   if (!DEVICE_X_P (d))
     signal_simple_error ("Not an mswindows device", device);
@@ -2188,11 +2201,20 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   XtSetArg (al [ac], XtNbackground, bcolor.pixel);		ac++;
   XtSetArg (al [ac], XtNforeground, fcolor.pixel);		ac++;
+#ifdef LWLIB_USES_MOTIF
+  fontList = XmFontListCreate 
+    ((void*)FONT_INSTANCE_X_FONT 
+     (XFONT_INSTANCE (widget_face_font_info 
+		      (domain, IMAGE_INSTANCE_WIDGET_FACE (ii),
+		       0, 0))), XmSTRING_DEFAULT_CHARSET);
+  XtSetArg (al [ac], XmNfontList, fontList );				ac++;
+#else
   XtSetArg (al [ac], XtNfont, (void*)FONT_INSTANCE_X_FONT 
 	    (XFONT_INSTANCE (widget_face_font_info 
 			     (domain, 
 			      IMAGE_INSTANCE_WIDGET_FACE (ii),
 			      0, 0))));			ac++;
+#endif
 
   wv->nargs = ac;
   wv->args = al;
@@ -2201,7 +2223,9 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			  False, 0, popup_selection_callback, 0);
 
   IMAGE_INSTANCE_X_WIDGET_LWID (ii) = id;
-
+#ifdef LWLIB_USES_MOTIF
+  XmFontListFree (fontList);
+#endif
   /* because the EmacsManager is the widgets parent we have to
      offset the redisplay of the widget by the amount the text
      widget is inside the manager. */
@@ -2453,7 +2477,7 @@ image_instantiator_format_create_glyphs_x (void)
 
   INITIALIZE_DEVICE_IIFORMAT (x, subwindow);
   IIFORMAT_HAS_DEVMETHOD (x, subwindow, instantiate);
-
+#ifdef LWLIB_USES_MOTIF
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (x, button);
   IIFORMAT_HAS_DEVMETHOD (x, button, property);
@@ -2469,10 +2493,12 @@ image_instantiator_format_create_glyphs_x (void)
   /* text field */
   INITIALIZE_DEVICE_IIFORMAT (x, edit_field);
   IIFORMAT_HAS_DEVMETHOD (x, edit_field, instantiate);
+#if 0 /* XmVERSION > 1*/
   /* combo box */
   INITIALIZE_DEVICE_IIFORMAT (x, combo_box);
   IIFORMAT_HAS_DEVMETHOD (x, combo_box, instantiate);
-
+#endif
+#endif
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (cursor_font, "cursor-font");
   IIFORMAT_VALID_CONSOLE (x, cursor_font);
 

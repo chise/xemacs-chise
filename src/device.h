@@ -173,6 +173,7 @@ struct device
   unsigned int modeline_changed :1;
   unsigned int point_changed :1;
   unsigned int size_changed :1;
+  unsigned int gutter_changed :1;
   unsigned int toolbar_changed :1;
   unsigned int windows_changed :1;
   unsigned int windows_structure_changed :1;
@@ -349,6 +350,9 @@ int valid_device_class_p (Lisp_Object class);
 
 #define MARK_DEVICE_TOOLBARS_CHANGED(d)			\
   ((void) (toolbar_changed = (d)->toolbar_changed = 1))
+
+#define MARK_DEVICE_GUTTERS_CHANGED(d)		\
+  ((void) (gutter_changed = (d)->gutter_changed = 1))
 
 #define MARK_DEVICE_SIZE_CHANGED(d)			\
   ((void) (size_changed = (d)->size_changed = 1))

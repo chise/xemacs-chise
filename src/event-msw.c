@@ -1970,6 +1970,8 @@ mswindows_wnd_proc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 	  TC_ITEM item;
 	  int index = SendMessage (nmhdr->hwndFrom, TCM_GETCURSEL, 0, 0);
 	  frame = XFRAME (mswindows_find_frame (hwnd));
+
+	  item.mask = TCIF_PARAM;
 	  SendMessage (nmhdr->hwndFrom, TCM_GETITEM, (WPARAM)index,
 		       (LPARAM)&item);
 	  

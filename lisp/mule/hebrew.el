@@ -1,4 +1,4 @@
-;;; hebrew.el --- Support for Hebrew
+;;; hebrew.el --- Support for Hebrew -*- coding: iso-2022-7bit; -*-
 
 ;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
@@ -37,8 +37,10 @@
 ;; (make-coding-system
 ;;  'hebrew-iso-8bit 2 ?8
 ;;  "ISO 2022 based 8-bit encoding for Hebrew (MIME:ISO-8859-8)"
-;;  '((ascii t) (hebrew-iso8859-8 t) nil nil
-;;    nil ascii-eol ascii-cntl nil nil nil nil nil t))
+;;  '(ascii hebrew-iso8859-8 nil nil
+;;    nil ascii-eol ascii-cntl nil nil nil nil nil t)
+;;  '((safe-charsets ascii hebrew-iso8859-8)
+;;    (mime-charset . iso-8859-8)))
 
 ;; (define-coding-system-alias 'iso-8859-8 'hebrew-iso-8bit)
 
@@ -51,7 +53,7 @@
    charset-g3 t
    no-iso6429 t
    mnemonic "MIME/Hbrw"
-))
+   ))
 
 (make-coding-system
  'ctext-hebrew 'iso2022
@@ -67,26 +69,14 @@
   "Setup multilingual environment (MULE) for Hebrew.
 But, please note that right-to-left writing is not yet supported."
   (interactive)
-  (setup-8-bit-environment "Hebrew" 'hebrew-iso8859-8 'iso-8859-8
-			   "hebrew")
-  (set-coding-category-system 'iso-8-designate 'iso-8859-8)
-  (set-coding-priority-list
-   '(iso-8-designate
-     iso-8-1
-     iso-7
-     iso-8-2
-     iso-lock-shift
-     no-conversion
-     shift-jis
-     big5))
-  )
+  (set-language-environment "Hebrew"))
 
 (set-language-info-alist
- "Hebrew" '((setup-function . setup-hebrew-environment)
-	    (describe-function . describe-hebrew-support)
-	    (charset . (hebrew-iso8859-8))
-	    (coding-system . (iso-8859-8))
-	    (sample-text . "Hebrew	,Hylem(B")
+ "Hebrew" '((charset hebrew-iso8859-8)
+	    (coding-system iso-8859-8)
+	    (coding-priority iso-8859-8)
+	    (input-method . "hebrew")
+	    (sample-text . "Hebrew	[2],Hylem[0](B")
 	    (documentation . "Right-to-left writing is not yet supported.")
 	    ))
 
