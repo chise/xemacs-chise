@@ -32,6 +32,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 48)
+    (hanyu-dazidian-char . 6)
     (shinjigen-1	. 66)
     (shinjigen-2	. 66)
     (japanese-jisx0208-1978	. #x4E3B)	; ø»‚¾ 
@@ -50,6 +53,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 49)
+    (hanyu-dazidian-char . 3)
     (chinese-cns11643-5 . #x2127)	; ø»™ª²
     (ideograph-daikanwa . 00227)	; ø¸€ƒ£
     (mojikyo		. 000227)	; ý €€ƒ£
@@ -86,6 +92,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 51)
+    (hanyu-dazidian-char . 4)
     (chinese-cns11643-5 . #x212C)	; ø»™ª·
     (ideograph-daikanwa . 00230)	; ø¸€ƒ¦
     (mojikyo		. 000230)	; ý €€ƒ¦
@@ -102,6 +111,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 52)
+    (hanyu-dazidian-char . 2)
     (shinjigen-1	. 67)
     (shinjigen-2	. 67)
     (japanese-jisx0208-1978	. #x4D3D)	; ø»‚½„
@@ -120,6 +132,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 33)
+    (hanyu-dazidian-char . 4)
     (chinese-cns11643-6 . #x2147)	; ø»›µ–
     (ideograph-daikanwa . 00232)	; ø¸€ƒ¨
     (ucs		. #x20112)	; ð „’
@@ -157,6 +172,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 53)
+    (hanyu-dazidian-char . 8)
     (chinese-cns11643-6 . #x2347)	; ø»›¸’
     (ideograph-daikanwa . 00235)	; ø¸€ƒ«
     (mojikyo		. 000235)	; ý €€ƒ«
@@ -166,6 +184,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 324)
+    (hanyu-dazidian-char . 12)
     (shinjigen-1	. 4698)
     (shinjigen-2	. 4698)
     (japanese-jisx0208-1978	. #x4168)	; ø»‚¬‡
@@ -191,6 +212,9 @@
     (ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 128)
+    (hanyu-dazidian-char . 12)
     (chinese-cns11643-5 . #x2330)	; ø»™­·
     (ucs		. #x20116)	; ð „–
     ))
@@ -198,6 +222,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 100)
+    (hanyu-dazidian-char . 6)
     (chinese-cns11643-6 . #x2564)	; ø»›»«
     (ideograph-daikanwa . 00238)	; ø¸€ƒ®
     (mojikyo		. 000238)	; ý €€ƒ®
@@ -207,6 +234,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 553)
+    (hanyu-dazidian-char . 5)
     (chinese-cns11643-6 . #x2563)	; ø»›»ª
     (ideograph-daikanwa . 00239)	; ø¸€ƒ¯
     (mojikyo		. 000239)	; ý €€ƒ¯
@@ -233,6 +263,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 55)
+    (hanyu-dazidian-char . 6)
     (chinese-cns11643-3 . #x2741)	; ø»•Ÿ¸
     (ideograph-daikanwa . 00240)	; ø¸€ƒ°
     (mojikyo		. 000240)	; ý €€ƒ°
@@ -242,6 +275,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 23)
+    (hanyu-dazidian-char . 3)
     (shinjigen-1	. 69)
     (shinjigen-2	. 69)
     (japanese-jisx0208-1978	. #x3B76)	; ø»‚£¡
@@ -286,6 +322,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
+    (hanyu-dazidian-vol	 . 6)
+    (hanyu-dazidian-page . 3899)
+    (hanyu-dazidian-char . 2)
     (chinese-cns11643-5 . #x3074)	; ø»š‚
     (ideograph-daikanwa . 00244)	; ø¸€ƒ´
     (mojikyo		. 000244)	; ý €€ƒ´
@@ -295,6 +334,9 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 11)
     (total-strokes	 . 12)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 749)
+    (hanyu-dazidian-char . 1)
     (chinese-cns11643-6 . #x4642)	; ø»œ«§
     (ideograph-daikanwa . 00245)	; ø¸€ƒµ
     (mojikyo		. 000245)	; ý €€ƒµ
