@@ -17493,10 +17493,10 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian	1 203 15)
     (<-denotational
      ((=ucs		  . #x202BB)	; 𠊻
       ))
+    (hanyu-dazidian	1 203 15)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
