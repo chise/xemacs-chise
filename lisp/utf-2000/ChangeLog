@@ -1,3 +1,55 @@
+2001-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R190-Hair.el (C7-2B5A): Delete M-45389.
+
+	* Ideograph-R195-Fish.el (C5-6F26): Add `ideographic-strokes'.
+	(C5-6B38): Likewise.
+
+	* Ideograph-R187-Horse.el (C7-2B43): Add `ideographic-strokes'.
+	(C7-564E): Seems equivalent to C5-7234.
+
+	* Ideograph-R189-Tall.el (C4-4866): Add `ideographic-strokes'.
+	(C3-6063): Likewise.
+	(C7-657C): Likewise.
+
+	* Ideograph-R188-Bone.el (C2-486F): Add `ideographic-strokes'.
+
+	* Ideograph-R184-Eat.el (C2-5569): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+	(JSP-6862): Use `ideographic-strokes' instead of
+	`japanese-strokes'.
+	(K0-7A44): Use `ideographic-strokes' instead of `kangxi-strokes'.
+	(J0-3642): Likewise.
+
+	* Ideograph-R177-Leather.el (C5-524B): Add `ideographic-strokes'.
+
+	* Ideograph-R167-Gold.el (C7-3D22): Delete M-40682.
+
+	* Ideograph-R163-City.el (C5-3065): Delete M-39417.
+
+	* Ideograph-R173-Rain.el (C1-7B3D): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+
+	* Ideograph-R169-Gate.el (C6-4F7D): Add `ideographic-strokes'.
+	(C7-4444): Likewise.
+
+2001-08-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (C*-****): Add missing
+	`ideographic-strokes'.
+	(C1-6B40): Use `ideographic-strokes' instead of `kangxi-strokes'.
+	(C1-6B47): Likewise.
+	(C1-6B41): Likewise.
+	(C1-6B46): Likewise.
+	(C1-6B45): Likewise.
+	(C1-6B42): Likewise.
+
+2001-08-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R154-Shell.el (C6-6267): Delete M-36791.
+	(C5-4A28): Delete M-36803.
+	(C7-503F): Delete M-36948.
+
 2001-08-15  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
 
 	* Ideograph-R149-Speech.el (C5-694E): Delete M-35963.
