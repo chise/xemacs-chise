@@ -1,3 +1,11 @@
+2004-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el: Add some Japanese vocal sounds.
+
+2004-03-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el: Add some Japanese vocal sounds.
+
 2004-03-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R072-Sun.el (U+663C): Use `->subsumptive' for M-07705,
