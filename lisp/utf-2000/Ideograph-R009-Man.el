@@ -17919,42 +17919,39 @@
     (=hanziku-1		. #xCD5C)	; &I-HZK01-CD5C;
     ))
 (define-char
-  '((=>ucs		. #x503B)	; 倻
-    (morohashi-daikanwa	ho 19)
-    (ideographic-radical . 9)	; ⼈
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 9)
     (total-strokes	 . 10)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EBB)	; 亻
-      )
-     ((=cns11643-1	  . #x5326)	; &I-M-29008; [51-06]
-      (=daikanwa	  . 29008)	; &I-M-29008;
-      ))
-    (=jis-x0212		. #x3176)	; &JX1-2E42; [17-86]
-    (=jis-x0213-1-2000	. #x2E42)	; &I-JX1-2E42; [14-34]
-    (=jef-china3	. #x93DE)	; &I-JC3-93DE;
-    (=ucs@jis		. #x503B)	; &JX1-2E42;
-    ))
-(define-char
-  '((morohashi-daikanwa	ho 19 0)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 9)
-    (total-strokes	 . 10)
-    (hanyu-dazidian	1 171 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EBB)	; 亻
-      )
-     ((=ucs		  . #x8036)	; 耶
-      ))
     (=ucs		. #x503B)	; 倻
-    (=ks-x1001		. #x6526)	; &I-K0-6526; [69-06]
-    (=hanziku-1		. #xC9AB)	; &I-HZK01-C9AB;
+    (->subsumptive
+     ((morohashi-daikanwa	ho 19)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4EBB)	; 亻
+	)
+       ((=cns11643-1	    . #x5326)	; &I-C1-5326; [51-06]
+	(=daikanwa	    . 29008)	; &I-M-29008;
+	))
+      (=jis-x0212	  . #x3176)	; &JX1-2E42; [17-86]
+      (=jis-x0213-1-2000  . #x2E42)	; &I-JX1-2E42; [14-34]
+      (=jef-china3	  . #x93DE)	; &I-JC3-93DE;
+      (=ucs@jis		  . #x503B)	; &JX1-2E42;
+      )
+     ((hanyu-dazidian	  1 171 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4EBB)	; 亻
+	)
+       ((=ucs@unicode	    . #x8036)	; &J83-4C6D;
+	))
+      (=ks-x1001	  . #x6526)	; &HZK01-C9AB; [69-06]
+      (=hanziku-1	  . #xC9AB)	; &I-HZK01-C9AB;
+      (=ucs@unicode	  . #x503B)	; &HZK01-C9AB;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	ho 20)
