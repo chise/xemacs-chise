@@ -1,5 +1,17 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/hebrew.el (setup-hebrew-environment): Just call
+	`set-language-environment'.	
+	- Specify `coding-priority' and `input-method' properties of each
+	  language environment.
+
+	* mule/greek.el (setup-greek-environment): Just call
+	`set-language-environment'.
+	- Specify `coding-priority' and `input-method' properties of each
+	  language environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/european.el (setup-latin1-environment): Just call
 	`set-language-environment'.
 	- Specify `coding-priority' and `input-method' properties of each
@@ -42,9 +54,9 @@
 1998-08-31  Paul Eggert  <eggert@twinsun.com>
 
 	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
-	mule/european.el: Add coding: local variable, to avoid
-	bootstrapping problem if you need to recompile all the Lisp files
-	using interpreted code.
+	mule/european.el, mule/hebrew.el: Add coding: local variable, to
+	avoid bootstrapping problem if you need to recompile all the Lisp
+	files using interpreted code.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
 
