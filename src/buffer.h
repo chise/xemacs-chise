@@ -1575,10 +1575,10 @@ int beginning_of_line_p (struct buffer *b, Bufpos pt);
 
 /* from insdel.c */
 void set_buffer_point (struct buffer *buf, Bufpos pos, Bytind bipos);
-void find_charsets_in_bufbyte_string (unsigned char *charsets,
+void find_charsets_in_bufbyte_string (Charset_ID *charsets,
 				      const Bufbyte *str,
 				      Bytecount len);
-void find_charsets_in_emchar_string (unsigned char *charsets,
+void find_charsets_in_emchar_string (Charset_ID *charsets,
 				     const Emchar *str,
 				     Charcount len);
 int bufbyte_string_displayed_columns (const Bufbyte *str, Bytecount len);
