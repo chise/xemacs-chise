@@ -1,5 +1,14 @@
 2001-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R140-Grass.el: Merge KS X 1001 code points.
+
+	* Ideograph-R125-Old.el (U+8009): Separate C4-2B25; unify K0-4F3E.
+
+	* Ideograph-R012-Eight.el (BC-8BFA): New character; relate to
+	U-00020509 and M-48931.
+
+2001-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R031-Enclosure.el:
 	- Merge some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
 	  `hanyu-dazidian-char' properties.
