@@ -19,10 +19,10 @@
     (ideographic-radical . 156)	; â¾›
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 37034)	; ø¸‰‚ª
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=ucs		. #x8D71)	; èµ±
     (=jis-x0208		. #x6C61)	; ø½‹¥†

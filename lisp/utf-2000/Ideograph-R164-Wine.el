@@ -2631,7 +2631,7 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x91AC)	; 醬
       ))
     (=ucs		. #x91A4)	; 醤
@@ -2931,7 +2931,7 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x91B1)	; 醱
       ))
     (=ucs		. #x9197)	; 醗
@@ -3142,7 +3142,7 @@
     (ideographic-radical . 164)	; ⾣
     (ideographic-strokes . 13)
     (total-strokes	 . 20)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 40099)	; �����
       ))
     (=ucs		. #x91B8)	; 醸

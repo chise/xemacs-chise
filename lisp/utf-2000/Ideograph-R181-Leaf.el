@@ -1868,7 +1868,7 @@
     (ideographic-radical . 181)	; ⾴
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x9830)	; 頰
       ))
     (=ucs		. #x982C)	; 頬

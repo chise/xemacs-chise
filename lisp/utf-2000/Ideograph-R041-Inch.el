@@ -684,7 +684,7 @@
     (ideographic-radical . 41)	; â¼¨
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 07465)	; ø¸´©
 		 )

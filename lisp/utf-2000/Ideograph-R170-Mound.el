@@ -2146,7 +2146,7 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 41874)	; ø¸ŠŽ’
       ))
     (=ucs		. #x967A)	; é™º
@@ -3467,10 +3467,10 @@
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 41891)	; ø¸ŠŽ£
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      songyuan-yilai-suzipu daikanwa)
     (=gt		. 56167)	; ý¡€­§
     (=gt-pj-7		. #x7426)	; ý¡€­§

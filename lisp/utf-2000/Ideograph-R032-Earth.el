@@ -3135,7 +3135,7 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 05120)	; ø¸€
       ))
     (hanyu-dazidian	1 438 7)
@@ -6909,10 +6909,10 @@
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 05574)	; ø¸—†
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=ucs		. #x5841)	; å¡
     (=jis-x0208		. #x4E5D)	; ø½Š¸¾
@@ -7041,7 +7041,7 @@
   '((ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 05423)	; ø¸”¯
       ))
     (hanyu-dazidian	1 468 4)

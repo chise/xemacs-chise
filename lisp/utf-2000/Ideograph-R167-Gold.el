@@ -472,7 +472,7 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x91F0)	; 釰
       ))
     (=ucs		. #x91FC)	; 釼
@@ -483,7 +483,7 @@
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x91F0)	; 釰
       ))
     (=jis-x0208		. #x6E5F)	; �����
@@ -1368,7 +1368,7 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x9438)	; 鐸
       ))
     (=ucs		. #x922C)	; 鈬

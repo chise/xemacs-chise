@@ -742,7 +742,7 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(sougen-irai-zokujifu morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 716)
 		 (=daikanwa	     . 02472)	; ø¸€¦¨
@@ -2774,10 +2774,10 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 02424)	; ø¸€¥¸
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (<-vulgar-ideograph
      ((shinjigen-1	  . 744)
@@ -3185,7 +3185,7 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 751)
 		 (=daikanwa	     . 02486)	; ø¸€¦¶
 		 )

@@ -90,7 +90,7 @@
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 40129)	; ø¸‰³
       ))
     (=ucs		. #x91C8)	; é‡ˆ

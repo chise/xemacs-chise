@@ -779,10 +779,10 @@
     (ideographic-radical . 108)	; â½«
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 23005)	; ø¸…§
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=ucs		. #x76DB)	; ç››
     (=jis-x0208		. #x4039)	; ø½Š£¶

@@ -4604,7 +4604,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 653)
 		 (=daikanwa	     . 02228)	; ø¸€¢´
 		 )
@@ -4636,7 +4636,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 659)
 		 (=jis-x0208	     . #x517D)	; ø½Š½¸
@@ -5348,7 +5348,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x5294)	; åŠ”
       ))
     (=jef-china3	. #x44CF)	; øº„“
@@ -5358,7 +5358,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x5294)	; åŠ”
       ))
     (ideographic-structure
@@ -5377,7 +5377,7 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=jis-x0208	  . #x5179)	; ø½Š½´
       (=daikanwa	  . 02245)	; ø¸€£…
       ))

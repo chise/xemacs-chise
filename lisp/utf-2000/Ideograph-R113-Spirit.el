@@ -3241,10 +3241,10 @@
     (ideographic-radical . 113)	; â½°
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 24835)	; ø¸†„ƒ
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=jis-x0208		. #x4135)	; ø½Š¥
     (=gt		. 31813)	; ý¡€‡±…

@@ -1185,7 +1185,7 @@
     (ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (<-simplified-ideograph
+    (<-simplified
      ((=ucs		  . #x5707)	; 圇
       ))
     (hanyu-dazidian	1 715 8)

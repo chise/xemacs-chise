@@ -371,7 +371,7 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 07833)	; ø¸º™
       ))
     (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ
@@ -1094,7 +1094,7 @@
     (ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 1170)
 		 (=daikanwa	     . 03993)	; ø¸€¾™
 		 )

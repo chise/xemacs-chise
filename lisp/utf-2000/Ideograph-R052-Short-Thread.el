@@ -18,7 +18,7 @@
   '((ideographic-radical . 52)	; â¼³
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 09189)	; ø¸‚¥
       ))
     (=big5-cdp		. #x895C)	; ý¢€ˆ¥œ

@@ -4865,10 +4865,10 @@
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 17503)	; ø¸„‘Ÿ
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (shinjigen-2	. 4166)
     (=ucs		. #x2F901)	; ð¯¤
@@ -6500,10 +6500,10 @@
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 17644)	; ø¸„“¬
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=jis-x0208		. #x4E5E)	; ø½Š¸¿
     (=cns11643-3	. #x317D)	; ø»•¯ 
@@ -6639,7 +6639,7 @@
   '((ideographic-radical . 85)	; â½”
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (<-simplified-ideograph
+    (<-simplified
      ((=jis-x0208-1978	  . #x4642)	; ø»‚²·
       (=jis-x0213-1-2000  . #x773D)	; ø»¤‘¬
       (=daikanwa	  . 18591)	; ø¸„¢Ÿ
@@ -8755,10 +8755,10 @@
   '((ideographic-radical . 85)	; â½”
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 17788)	; ø¸„•¼
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (shinjigen-2	. 4263)
     (=ucs		. #x6E07)	; æ¸‡
@@ -14270,10 +14270,10 @@
     (ideographic-radical . 85)	; â½”
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 18153)	; ø¸„›©
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=jis-x0208		. #x3441)	; ø½Š’–
     (=gt		. 22918)	; ý¡€…¦†

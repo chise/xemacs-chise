@@ -7974,7 +7974,7 @@
     (ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-simplified-ideograph
+    (<-simplified
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 12389)	; ø¸ƒ¥
 		 )
@@ -10084,7 +10084,7 @@
     (ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (<-simplified-ideograph
+    (<-simplified
      (:char	((shinjigen-1	     . 3023)
 		 (=jis-x0208	     . #x596A)	; ø½‹‰•
 		 (=daikanwa	     . 12479)	; ø¸ƒ‚¿

@@ -29823,10 +29823,10 @@
     (ideographic-radical . 30)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
-    (<-simplified-ideograph
+    (<-simplified
      ((=daikanwa	  . 04633)	; ø¸ˆ™
       ))
-    (<-simplified-ideograph*sources
+    (<-simplified*sources
      daikanwa)
     (=ucs		. #x56A2)	; åš¢
     (=jis-x0208-1983	. #x4739)	; ø»‡ˆ”
