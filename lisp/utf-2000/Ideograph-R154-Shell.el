@@ -560,9 +560,25 @@
 (define-char
   '((ideographic-radical . 154)	; â¾™
     (ideographic-strokes . 4)
-    (chinese-gb2312	. #x4C30)	; ø»……
-    (chinese-isoir165	. #x4C30)	; ø»­­
-    (ucs		. #x8D2A)	; è´ª
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 143)
+    (hanyu-dazidian-char . 11)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((japanese-jisx0208-1978	  . #x3A23)	; ø»‚ °
+      (japanese-jisx0208	  . #x3A23)	; ø»†´¸
+      (korean-ksc5601		  . #x5051)	; ø»‰Ÿ¾
+      (chinese-cns11643-1	  . #x4474)	; ø»‘·‰
+      (ideograph-daikanwa	  . 00358)	; ø¸€…¦
+      )
+     ((chinese-big5-cdp	  . #x895D)	; ý¢€ˆ¥
+      ))
+    (chinese-gb2312		. #x4C30)	; ø»……
+    (chinese-isoir165		. #x4C30)	; ø»­­
+    (ideograph-hanziku-1	. #xC161)	; ý¢€œ…¡
+    (ucs			. #x8D2A)	; è´ª
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™
