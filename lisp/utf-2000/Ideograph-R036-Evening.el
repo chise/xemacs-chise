@@ -1024,21 +1024,7 @@
     (ucs			. #x215C8)	; ð¡—ˆ
     ))
 (define-char
-  '((ideographic-radical . 36)	; â¼£
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (ucs		  . #x2FF0)	; â¿°
-      )
-     ((ucs		  . #x4EAD)	; äº­
-      )
-     ((ideograph-daikanwa . 05763)	; ø¸šƒ
-      ))
-    (ideograph-daikanwa . 05824)	; ø¸›€
-    ))
-(define-char
-  '((morohashi-daikanwa	5824 0 2)
+  '((=>ucs		. #x20199)	; ð †™
     (ideographic-radical . 36)	; â¼£
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
@@ -1046,11 +1032,53 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs		  . #x4EAD)	; äº­
+     ((=jis-x0208	  . #x4462)	; ø½Šª—
+      (korean-ksc5601	  . #x6F4D)	; ø»Šœ
+      (ideograph-daikanwa . 00303)	; ø¸€„¯
       )
-     ((korean-ksc5601	  . #x6528)	; ø»‰¾‹
+     ((ideograph-daikanwa . 05763)	; ø¸šƒ
+      ))
+    (ideograph-daikanwa . 05824)	; ø¸›€
+    ))
+(define-char
+  '((=>ucs		. #x20199)	; ð †™
+    (morohashi-daikanwa	5824 0 1)
+    (ideographic-radical . 36)	; â¼£
+    (ideographic-strokes . 14)
+    (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((=jis-x0208	  . #x4462)	; ø½Šª—
+      (korean-ksc5601	  . #x6F4D)	; ø»Šœ
+      (ideograph-daikanwa . 00303)	; ø¸€„¯
+      )
+     ((=jis-x0208	  . #x4C6B)	; ø½Š¶
+      (korean-ksc5601	  . #x6528)	; ø»‰¾‹
       ))
     (ideograph-cbeta	. 00833)	; ø¸ 
+    ))
+(define-char
+  '((morohashi-daikanwa	5824 0 2)
+    (ideographic-	(:radical	8 ; â¼‡
+			 :strokes	15
+			 :sources	(ucs))
+			(:radical	36 ; â¼£
+			 :strokes	14
+			 :strokes	(morohashi-daikanwa)))
+    (total-strokes	 . 17)
+    (hanyu-dazidian	1 294 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x4EAD)	; äº­
+      )
+     ((ucs		  . #x591C)	; å¤œ
+      ))
+    (ideograph-hanziku-1	. #xE2B7)	; ý¢€žŠ·
+    (ucs			. #x20199)	; ð †™
     ))
 (define-char
   '((ideographic-radical . 36)	; â¼£
