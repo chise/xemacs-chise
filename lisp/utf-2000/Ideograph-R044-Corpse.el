@@ -24,9 +24,12 @@
     (=ucs		. #x5C38)	; å°¸
     ))
 (define-char
-  '((ideographic-radical . 44)	; â¼«
-    (ideographic-strokes . 1)
-    (cns-radical	 . 4)	; â¼ƒ
+  '((ideographic-radical@ucs . 44)	; â¼«
+    (ideographic-strokes@ucs . 1)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 4)	; â¼ƒ
+    (ideographic-strokes@cns . 3)
     (total-strokes	 . 4)
     (shinjigen-2	. 1919)
     (=gb2312		. #x527C)	; ø»…
