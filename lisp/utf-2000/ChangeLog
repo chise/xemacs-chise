@@ -30,6 +30,10 @@
 	* Ideograph-R152-Pig.el (U+8C69): Use `->subsumptive'.
 	(U+8C6A): Likewise.
 
+	* Ideograph-R141-Tiger.el (U+8653): Changed to abstract character.
+	(JX2-7739): Unify JC3-63AD.
+	(U-000271AC): Use `->subsumptive'.
+
 2005-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el (U+8C9F): Add `<-vulgar' for U+54E1.
