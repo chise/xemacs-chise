@@ -1,3 +1,58 @@
+2001-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el, Ideograph-R050-Turban.el,
+	Ideograph-R048-Work.el, Ideograph-R062-Halberd.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R057-Bow.el: Merge GB
+	12345 code points.
+
+2001-08-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R052-Short-Thread.el (U+5E7E): Unify G1-3C38.
+
+	* Ideograph-R049-Oneself.el (U+5DFC): Unify G1-7D60.
+
+	* Ideograph-R046-Mountain.el: Merge GB 12345 code points.
+
+	* Ideograph-R032-Earth.el: Merge GB 12345 code points.
+	(M-05556): Separate C7-373F.
+
+	* Ideograph-R040-Roof.el, Ideograph-R038-Woman.el,
+	Ideograph-R039-Child.el: Merge GB 12345 code points.
+
+2001-08-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (U+5F59): Unify G1-783D.
+
+	* Ideograph-R051-Dry.el (U+5E79): Unify G1-3849.
+
+	* README.en (Character Reference): Add `sougen-irai-zokujifu'.
+
+	* Ideograph-R043-Lame.el, Ideograph-R041-Inch.el: Add GB 12345
+	code points.
+
+	* Ideograph-R037-Big.el (JX2-253F): Add `total-strokes'.
+	(U+593B): Delete `kangxi-radical'; unify G1-7D6D.
+	- Add GB 12345 code points.
+
+	* Ideograph-R075-Tree.el (M-14871): Add `->same-ideograph' for
+	M-05784; add `<-vulgar-ideograph' for M-05802; separate J0-546D
+	and C3-3478.
+
+	* Ideograph-R044-Corpse.el: Add GB 12345 code points.
+
+	* Ideograph-R036-Evening.el (U+591E): Unify G1-7D7E; fix
+	`ideographic-strokes'; delete `kangxi-radical'.
+	(M-05784): Add `->same-ideograph' for M-14871; add
+	`<-vulgar-ideograph' for M-05802; unify J78-546D and J83-546D.
+	(U+5922): Unify G1-434E.
+
+	* Ideograph-R033-Scholar.el: Add GB 12345 code points.
+
+2001-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SECOND THREE):
+	Unify Big5-8D43 and Big5-CDP-8D43.
+
 2001-08-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R002-Line.el: Use Big5-CDP code point instead of
