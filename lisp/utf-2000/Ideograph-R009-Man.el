@@ -3760,14 +3760,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x4E5D)	; ä¹
-	)
-       ((ucs		    . #x5341)	; å
-	))
+     ((ucs		  . #x5346)	; å†
       ))
     (shinjigen-1	. 299)
     (shinjigen-2	. 299)
@@ -3972,8 +3965,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((name		    . "cjk radical person for top")
-	(chinese-big5-cdp   . #x8B4A)	; ý¢€ˆ­Š
+       ((ucs		    . #x20089)	; ð ‚‰
 	)
        ((ucs		    . #x529B)	; åŠ›
 	))
@@ -16464,7 +16456,8 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideograph-daikanwa . 09980)	; ø¸‚›¼
+     ((chinese-big5	  . #xABDB)	; øºŸµ›
+      (ideograph-daikanwa . 09980)	; ø¸‚›¼
       ))
     (shinjigen-1	. 331)
     (shinjigen-2	. 331)
@@ -27360,10 +27353,10 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((ideograph-daikanwa . 13303)	; ø¸ƒ·
+     ((chinese-cns11643-1 . #x6439)	; ø»’¥Ž
+      (ideograph-daikanwa . 13303)	; ø¸ƒ·
       ))
     (chinese-cns11643-2 . #x4F52)	; ø»”µ
-    (chinese-big5	. #xE4EA)	; øº¢©›
     (ideograph-daikanwa . 01187)	; ø¸€’£
     (mojikyo		. 001187)	; ý €€’£
     ))
@@ -27388,6 +27381,7 @@
     (japanese-jisx0212		. #x324A)	; ø»Š½·
     (chinese-isoir165		. #x5953)	; ø»Ž–
     (japanese-jisx0213-1	. #x2E4A)	; ø»¢¦«
+    (chinese-big5		. #xE4EA)	; øº¢©›
     (china3-jef			. #x43BE)	; øº„Ž¾
     (ucs			. #x5106)	; å„†
     ))
