@@ -2116,6 +2116,7 @@ mule_decode (Lstream *decoding, CONST unsigned char *src,
       decode_coding_utf8 (decoding, src, dst, n);
       break;
     case CODESYS_CCL:
+      str->ccl.last_block = str->flags & CODING_STATE_END;
       ccl_driver (&str->ccl, src, dst, n, 0, CCL_MODE_DECODING);
       break;
     case CODESYS_ISO2022:
@@ -2528,6 +2529,7 @@ mule_encode (Lstream *encoding, CONST unsigned char *src,
       encode_coding_utf8 (encoding, src, dst, n);
       break;
     case CODESYS_CCL:
+      str->ccl.last_block = str->flags & CODING_STATE_END;
       ccl_driver (&str->ccl, src, dst, n, 0, CCL_MODE_ENCODING);
       break;
     case CODESYS_ISO2022:
