@@ -1,5 +1,52 @@
 2001-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R195-Fish.el (M-46091): Unify J78-723C.
+	(J90-723C): Unify JIS X 0208:1983 code points.
+	(J90-7240): Unify JIS X 0208:1978 and 1983 code points.
+	(M-46287): Unify J78-724E.
+	(J90-724E): Unify JIS X 0208:1983 code points.
+	(J90-725C): Unify JIS X 0208:1978 and 1983 code points.
+
+	* Ideograph-R182-Wind.el (M-43946): Separate J78-7128 and
+	J83-7128.
+	(J90-7128): Separate J78-7128 and J83-7128.
+
+	* Ideograph-R169-Gate.el (J90-6F5D): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-6F60): Likewise.
+
+	* Ideograph-R167-Gold.el (J90-6E5F): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-6F4F): Likewise.
+	(J90-6E65): Likewise.
+	(J90-395B): Likewise.
+	(J90-6F25): Likewise.
+	(J90-6E7D): Likewise.
+	(J90-6F45): Likewise.
+	(J90-6F47): Likewise.
+	(M-40998): Unify J78-4C7A.
+	(J90-4C7A): Unify JIS X 0208:1983 code point.
+
+	* Ideograph-R164-Wine.el (J90-3E5F): Unify JIS X 0208:1983 code
+	point.
+	(J90-4830): Likewise.
+	(J90-3E7A): Unify JIS X 0208:1978 and 1983 code points.
+
+	* Ideograph-R158-Body.el (J90-6D40): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R154-Shell.el (J90-6C49): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-4128): Unify J78-6C4D and J83-4128.
+
+	* Ideograph-R142-Insect.el (J90-4F39): Unify JIS X 0208:1983 code
+	point.
+	(J90-4066): Likewise.
+	(J90-4768): Unify J78-6A24 and J83-4768.
+	(J90-6A2C): Unify JIS X 0208:1978 and 1983 code points.
+
+2001-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R211-Tooth.el (J90-4E70): Unify JIS X 0208:1978 and
 	1983 code points.
 
