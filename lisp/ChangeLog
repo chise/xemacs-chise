@@ -1,3 +1,7 @@
+1999-07-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* code-files.el (insert-file-contents): fixed.
+
 1999-07-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* code-files.el (insert-file-contents): Regard
