@@ -1,7 +1,60 @@
+2004-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02700-Dingbats.el: Separate *fullwidth characters* from UCS
+	characters.
+
+	* u02600-Miscellaneous-Symbols.el:
+	- Separate *fullwidth characters* from UCS characters.
+	- Use `=jis-x0208@{1983|1990}' instead of `=jis-x0208-{1983|1990}'.
+
+2004-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u025A0-Geometric-Shapes.el:
+	- Separate *fullwidth characters* from UCS characters.
+	- Use `=jis-x0208@{1983|1990}' instead of `=jis-x0208-{1983|1990}'.
+
+2004-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02580-Block-Elements.el: Separate *fullwidth characters* from
+	UCS characters.
+
+2004-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02460-Enclosed-Alphanumerics.el: Separate *fullwidth
+	characters* from UCS characters.
+
+	* u02300-Miscellaneous-Technical.el (<DENTISTRY SYMBOL *>): Add
+	missing `general-category'.
+	(<RETURN SYMBOL>): Likewise.
+	- Separate *fullwidth characters* from UCS characters.
+	- Use `=jis-x0208@{1983|1990}' instead of `=jis-x0208-{1983|1990}'.
+
 2004-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02200-Mathematical-Operators.el:
+	- Use `=jis-x0208@{1983|1990}' instead of
+	  `=jis-x0208-{1983|1990}'.
+	- Separate CJK characters from UCS characters.
+	(<fullwidth LOGICAL AND>): Unify JC3-7FD8.
+	(<N-ARY LOGICAL AND>): Separate JC3-7FD8.
+	(<fullwidth LOGICAL OR>): Unify JC3-7FD9.
+	(<N-ARY LOGICAL OR>): Separate JC3-7FD9.
+	(<fullwidth INTERSECTION>): Unify JC3-7FD7.
+	(<N-ARY INTERSECTION>): Separate JC3-7FD7.
+	(<fullwidth UNION>): Unify JC3-7FD6.
+	(<N-ARY UNION>): Separate JC3-7FD6.
+
+2004-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00100-Latin-Extended-A.el (<LATIN SMALL LETTER S WITH ACUTE>):
+	Separate JX1-2A30.
+	(JSP-2B5C): Unify JX1-2A30.
 
 	* u02400-Control-Pictures.el: Separate CJK characters from UCS
 	characters.
+
+	* u02100-Letterlike-Symbols.el (<CARE OF>): Separate C1-2222 and
+	B-A1C1.
 
 	* additional-precomposed.el: Omit `bidi-category' and `mirrored'.
 
