@@ -6575,6 +6575,13 @@
   '((ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 8)
     (total-strokes	 . 16)
+    (=ucs		. #x9FAC)	; 龬
+    (=cbeta		. 02156)	; &I-CB02156;
+    ))
+(define-char
+  '((ideographic-radical . 167)	; ⾦
+    (ideographic-strokes . 8)
+    (total-strokes	 . 16)
     (=ucs		. #x289FE)	; 𨧾
     (->subsumptive
      ((=ucs@iso		  . #x289FE)	; &UU+289FE;
