@@ -1,3 +1,10 @@
+1999-03-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/HELLO (Amharic): New language.
+	(Slovak): Likewise.
+	(Thai): Likewise (by Virach Sornlertlamvanich).
+	(Greek): Fixed (by Yannis Haralambous).
+
 1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
 
 	* configure.in: Delete mule-coding.o.
