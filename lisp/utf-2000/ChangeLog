@@ -1,6 +1,9 @@
 2004-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R060-Step.el, Ideograph-R048-Work.el,
+	* Ideograph-R040-Roof.el, Ideograph-R059-Bristle.el,
+	Ideograph-R057-Bow.el, Ideograph-R050-Turban.el,
+	Ideograph-R046-Mountain.el, Ideograph-R037-Big.el,
+	Ideograph-R060-Step.el, Ideograph-R048-Work.el,
 	Ideograph-R042-Small.el, Ideograph-R038-Woman.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
