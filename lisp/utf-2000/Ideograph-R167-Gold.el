@@ -4665,7 +4665,7 @@
     (ucs		. #x92F5)	; 鋵
     ))
 (define-char
-  '((->ucs		. #x92F5)	; 鋵
+  '((=>ucs		. #x92F5)	; 鋵
     (ideographic-radical . 167)	; ⾦
     (ideographic-strokes . 7)
     (total-strokes	 . 15)
