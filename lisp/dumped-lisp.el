@@ -139,6 +139,9 @@
 	(when-feature utf-2000 "u020A0-Currency-Symbols.el")
 	(when-feature utf-2000
 		      "u020D0-Combining-Diacritical-Marks-for-Symbols.el")
+	(when-feature utf-2000 "u02100-Letterlike-Symbols.el")
+	(when-feature utf-2000 "u02150-Number-Forms.el")
+	(when-feature utf-2000 "u02190-Arrows.el")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
