@@ -626,10 +626,10 @@
     (=cns11643-5	. #x3D55)	; ø»š”¨
     ))
 (define-char
-  '((ideographic-	(:radical	30 ; â¼
-			 :strokes	11)
-			(:radical	2 ; â¼
-			 :strokes	13))
+  '((ideographic-radical@ucs . 2)	; â¼
+    (ideographic-strokes@ucs . 13)
+    (ideographic-radical@cns . 30)	; â¼
+    (ideographic-strokes@cns . 11)
     (total-strokes	 . 14)
     (hanyu-dazidian	1 31 1)
     (ideographic-structure
