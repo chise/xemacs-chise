@@ -2437,7 +2437,8 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
 	  (=ucs		      . #x2FF8)	; ⿸
 	  )
-	 ((=ucs@unicode	      . #x5E7F)	; &UU+5E7F;
+	 ((=gb2312	      . #x3963)	; &C3-213E; [25-67]
+	  (=cns11643-3	      . #x213E)	; &I-C3-213E; [01-30]
 	  )
 	 ((=ucs@unicode	      . #x9EC3)	; &UU+9EC3;
 	  ))
