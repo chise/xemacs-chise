@@ -852,7 +852,6 @@
     (total-strokes	 . 10)
     (chinese-gb2312	. #x3346)	; ø»„¡…
     (chinese-isoir165	. #x3346)	; ø»‰•
-    (chinese-cns11643-3 . #x327C)	; ø»•°½
     (ideograph-daikanwa . 25016)	; ø¸††¸
     (mojikyo		. 025016)	; ý €††¸
     (ucs		. #x79F0)	; ç§°
@@ -865,7 +864,9 @@
     (total-strokes	 . 10)
     (japanese-jisx0208-1978	. #x3E4E)	; ø»‚§“
     (japanese-jisx0208		. #x3E4E)	; ø»†»›
+    (chinese-cns11643-3		. #x327C)	; ø»•°½
     (japanese-jisx0208-1990	. #x3E4E)	; ø½Š¡
+    (ideograph-cbeta		. 00379)	; ø¸ …»
     (mojikyo			. 050318)	; ý €Œ’Ž
     ))
 (define-char
