@@ -218,6 +218,41 @@ get_gutter_coords (struct frame *f, enum gutter_pos pos, int *x, int *y,
     }
 }
 
+/*
+ display_boxes_in_gutter_p
+
+ Determine whether the required display_glyph_area is completely
+ inside the gutter. -1 means the display_box is not in the gutter. 1
+ means the display_box and the display_glyph_area are in the
+ window. 0 means the display_box is in the gutter but the
+ display_glyph_area is not. */
+int display_boxes_in_gutter_p (struct frame *f, struct display_box* db,
+			       struct display_glyph_area* dga)
+{
+  enum gutter_pos pos;
+  GUTTER_POS_LOOP (pos)
+    {
+      if (FRAME_GUTTER_VISIBLE (f, pos))
+	{
+	  int x, y, width, height;
+	  get_gutter_coords (f, pos, &x, &y, &width, &height);
+	  if (db->xpos + dga->xoffset >= x
+	      &&
+	      db->ypos + dga->yoffset >= y
+	      &&
+	      db->xpos + dga->xoffset + dga->width <= x + width
+	      &&
+	      db->ypos + dga->yoffset + dga->height <= y + height)
+	    return 1;
+	  else if (db->xpos >= x && db->ypos >= y
+		   && db->xpos + db->width <= x + width
+		   && db->ypos + db->height <= y + height)
+	    return 0;
+	}
+    }
+  return -1;
+}
+
 /* Convert the gutter specifier into something we can actually
    display. */
 static Lisp_Object construct_window_gutter_spec (struct window* w,
@@ -389,7 +424,8 @@ output_gutter (struct frame *f, enum gutter_pos pos, int force)
       (f->extents_changed && w->gutter_extent_modiff[pos]))
     {
 #ifdef DEBUG_GUTTERS
-      printf ("gutter redisplay triggered by %s\n", force ? "force" :
+      printf ("gutter redisplay [%dx%d@%d+%d] triggered by %s,\n", 
+	      width, height, x, y, force ? "force" :
 	      f->faces_changed ? "f->faces_changed" :
 	      f->frame_changed ? "f->frame_changed" :
 	      f->gutter_changed ? "f->gutter_changed" :

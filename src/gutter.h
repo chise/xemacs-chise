@@ -65,6 +65,8 @@ void redraw_exposed_gutters (struct frame *f, int x, int y, int width,
 void reset_gutter_display_lines (struct frame* f);
 void gutter_extent_signal_changed_region_maybe (Lisp_Object obj,
 						Bufpos start, Bufpos end);
+int display_boxes_in_gutter_p (struct frame *f, struct display_box* db,
+			       struct display_glyph_area* dga);
 
 #define WINDOW_GUTTER_BORDER_WIDTH(w, pos) \
   (INTP ((w)->gutter_border_width[pos]) ? XINT ((w)->gutter_border_width[pos]) : 0)

@@ -491,6 +491,8 @@ log_gcpro (char *file, int line, struct gcpro *value, blocktype type)
       if (value == gcprolist->next->next) goto OK;
       if (! gcprolist->next->next) abort ();
       if (value == gcprolist->next->next->next) goto OK;
+      if (! gcprolist->next->next->next) abort ();
+      if (value == gcprolist->next->next->next->next) goto OK;
       abort ();
     OK:;
     }
@@ -587,6 +589,7 @@ show_gcprohist (void)
 	       gcprohist[j].type == gcpro2_type ? "GCPRO2" :
 	       gcprohist[j].type == gcpro3_type ? "GCPRO3" :
 	       gcprohist[j].type == gcpro4_type ? "GCPRO4" :
+	       gcprohist[j].type == gcpro5_type ? "GCPRO5" :
 	       gcprohist[j].type == ungcpro_type ? "UNGCPRO" : "???"),
 	      gcprohist[j].value);
     }

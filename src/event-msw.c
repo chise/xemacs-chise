@@ -2794,8 +2794,6 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  case CBN_SELCHANGE:
 	    if (!NILP (mswindows_handle_gui_wm_command (frame, cid, id)))
 	      return 0;
-	  case BN_SETFOCUS:
-	    
 	  }
 	/* menubars always must come last since the hashtables do not
 	   always exist*/

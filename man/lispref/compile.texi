@@ -46,6 +46,7 @@ byte compilation.
 * Eval During Compile::  	Code to be evaluated when you compile.
 * Compiled-Function Objects::	The data type used for byte-compiled functions.
 * Disassembly::                 Disassembling byte-code; how to read byte-code.
+* Different Behavior::          When compiled code gives different results.
 @end menu
 
 @node Speed of Byte-Code
@@ -784,3 +785,33 @@ The @code{silly-loop} function is somewhat more complex:
 @end example
 
 
+@node Different Behavior
+@section Different Behavior
+
+The intent is that compiled byte-code and the corresponding code
+executed by the Lisp interpreter produce identical results.  However,
+there are some circumstances where the results will differ.
+
+@itemize @bullet
+@item
+Arithmetic operations may be rearranged for efficiency or compile-time
+evaluation.  When floating point numbers are involved, this may produce
+different values or an overflow.
+@item
+Some arithmetic operations may be optimized away.  For example, the
+expression @code{(+ x)} may be optimized to simply @code{x}.  If the
+value of @code{x} is a marker, then the value will be a marker instead
+of an integer.  If the value of @samp{x} is a cons cell, then the
+interpreter will issue an error, while the bytecode will not.
+
+If you're trying to use @samp{(+ @var{object} 0)} to convert
+@var{object} to integer, consider using an explicit conversion function,
+which is clearer and guaranteed to work.
+Instead of @samp{(+ @var{marker} 0)}, use @samp{(marker-position @var{marker})}.
+Instead of @samp{(+ @var{char} 0)}, use @samp{(char-int @var{char})}.
+@end itemize
+
+For maximal equivalence between interpreted and compiled code, the
+variables @code{byte-compile-delete-errors} and
+@code{byte-compile-optimize} can be set to @code{nil}, but this is not
+recommended.

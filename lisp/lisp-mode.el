@@ -545,7 +545,7 @@ rigidly along with this one."
       (if (and (looking-at "\\s<") (not (looking-at "\\s<\\s<")))
 	  ;; Single-semicolon comment lines should be indented
 	  ;; as comment lines, not as code.
-	  (progn (indent-for-comment) (forward-char -1))
+	  (progn (indent-for-comment) (backward-char 1))
 	(if (listp indent) (setq indent (car indent)))
 	(setq shift-amt (- indent (current-column)))
 	(if (zerop shift-amt)

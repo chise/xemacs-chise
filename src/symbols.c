@@ -995,8 +995,10 @@ static const struct lrecord_description symbol_value_forward_description[] = {
 };
 
 static const struct lrecord_description symbol_value_buffer_local_description[] = {
-  { XD_LISP_OBJECT,  offsetof (struct symbol_value_buffer_local, default_value) },
-  { XD_LO_RESET_NIL, offsetof (struct symbol_value_buffer_local, current_value), 3 },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, default_value) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_value) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_buffer) },
+  { XD_LISP_OBJECT, offsetof (struct symbol_value_buffer_local, current_alist_element) },
   { XD_END }
 };
 
@@ -1393,6 +1395,71 @@ set_up_buffer_local_cache (Lisp_Object sym,
 
      So instead, we call this function. */
   store_symval_forwarding (sym, bfwd->current_value, new_val);
+}
+
+
+/* SYM is a buffer-local variable, and BFWD is its buffer-local structure.
+   Flush the cache.  BFWD->CURRENT_BUFFER will be nil after this operation.
+*/
+
+static void
+flush_buffer_local_cache (Lisp_Object sym,
+			  struct symbol_value_buffer_local *bfwd)
+{
+  if (NILP (bfwd->current_buffer))
+    /* Cache is already flushed. */
+    return;
+
+  /* Flush out the old cache. */
+  write_out_buffer_local_cache (sym, bfwd);
+
+  bfwd->current_alist_element = Qnil;
+  bfwd->current_buffer = Qnil;
+
+  /* Now store default the value into the current-value slot.
+     We don't simply write it there, because the current-value
+     slot might be a forwarding pointer, in which case we need
+     to instead write the value into the C variable.
+
+     We might also want to call a magic function.
+
+     So instead, we call this function. */
+  store_symval_forwarding (sym, bfwd->current_value, bfwd->default_value);
+}
+
+/* Flush all the buffer-local variable caches.  Whoever has a
+   non-interned buffer-local variable will be spanked.  Whoever has a
+   magic variable that interns or uninterns symbols... I don't even
+   want to think about it.
+*/
+
+void
+flush_all_buffer_local_cache (void)
+{
+  Lisp_Object *syms = XVECTOR_DATA (Vobarray);
+  long count = XVECTOR_LENGTH (Vobarray);
+  long i;
+
+  for (i=0; i<count; i++)
+    {
+      Lisp_Object sym = syms[i];
+      Lisp_Object value;
+
+      if (!ZEROP (sym))
+	for(;;)
+	  {
+	    Lisp_Symbol *next;
+	    assert (SYMBOLP (sym));
+	    value = fetch_value_maybe_past_magic (sym, Qt);
+	    if (SYMBOL_VALUE_BUFFER_LOCAL_P (value))
+	      flush_buffer_local_cache (sym, XSYMBOL_VALUE_BUFFER_LOCAL (value));
+
+	    next = symbol_next (XSYMBOL (sym));
+	    if (!next)
+	      break;
+	    XSETSYMBOL (sym, next);
+	  }
+    }
 }
 
 

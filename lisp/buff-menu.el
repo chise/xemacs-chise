@@ -303,7 +303,7 @@ and then move up one line.  Prefix arg means move that many lines."
     (let ((buff-menu-buffer (current-buffer))
 	  (buffer-read-only nil))
       (while (search-forward "\nD" nil t)
-	(forward-char -1)
+	(backward-char 1)
 	(let ((buf (Buffer-menu-buffer nil)))
 	  (or (eq buf nil)
 	      (eq buf buff-menu-buffer)
@@ -312,7 +312,7 @@ and then move up one line.  Prefix arg means move that many lines."
 	    (progn (delete-char 1)
 		   (insert ? ))
 	  (delete-region (point) (progn (forward-line 1) (point)))
- 	  (forward-char -1))))))
+ 	  (backward-char 1))))))
 
 (defun Buffer-menu-select ()
   "Select this line's buffer; also display buffers marked with `>'.

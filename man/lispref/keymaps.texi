@@ -1520,8 +1520,8 @@ If @var{noindirect} is non-@code{nil}, @code{where-is-internal} doesn't
 follow indirect keymap bindings.  This makes it possible to search for
 an indirect definition itself.
 
-This function is used by @code{where-is} (@pxref{Help, , Help, emacs,
-The XEmacs Reference Manual}).
+This function is used by @code{where-is} (@pxref{Help, , Help, xemacs,
+The XEmacs Lisp Reference Manual}).
 
 @smallexample
 @group

@@ -280,17 +280,16 @@ void assert_failed (const char *, int, const char *);
 /*     basic char/int typedefs     */
 /* ------------------------------- */
 
-/* The definitions we put here use typedefs to convey additional meaning to
-   types that by themselves are pretty general.  Stuff pointed to by a
+/* The definitions we put here use typedefs to attribute specific meaning
+   to types that by themselves are pretty general.  Stuff pointed to by a
    char * or unsigned char * will nearly always be one of four types:
    a) pointer to internally-formatted text; b) pointer to text in some
    external format, which can be defined as all formats other than the
    internal one; c) pure ASCII text; d) binary data that is not meant to
    be interpreted as text. [A fifth possible type "e) a general pointer
-   to memory" should be replaced with void *.] By using these more specific
-   types in lieu of the general ones, you clear up greatly the confusions
-   that inevitably will occur when it's not clearly known the semantics of
-   a char * argument being studied. */
+   to memory" should be replaced with void *.]  Using these more specific
+   types rather than the general ones helps avoid the confusions that
+   occur when the semantics of a char * argument being studied are unclear. */
 
 typedef unsigned char UChar;
 
@@ -2734,7 +2733,7 @@ void write_string_1 (const Bufbyte *, Bytecount, Lisp_Object);
 void print_cons (Lisp_Object, Lisp_Object, int);
 void print_vector (Lisp_Object, Lisp_Object, int);
 void print_string (Lisp_Object, Lisp_Object, int);
-void long_to_string (char *, long);
+char *long_to_string (char *, long);
 void print_internal (Lisp_Object, Lisp_Object, int);
 void print_symbol (Lisp_Object, Lisp_Object, int);
 void print_float (Lisp_Object, Lisp_Object, int);
@@ -2772,7 +2771,7 @@ Bytind bi_find_next_newline_no_quit (struct buffer *, Bytind, int);
 Bytind bi_find_next_emchar_in_string (Lisp_String*, Emchar, Bytind, EMACS_INT);
 Bufpos find_before_next_newline (struct buffer *, Bufpos, Bufpos, int);
 struct re_pattern_buffer *compile_pattern (Lisp_Object, struct re_registers *,
-					   char *, int, Error_behavior);
+					   Lisp_Object, int, Error_behavior);
 Bytecount fast_string_match (Lisp_Object,  const Bufbyte *,
 			     Lisp_Object, Bytecount,
 			     Bytecount, int, Error_behavior, int);
@@ -3186,9 +3185,8 @@ extern Lisp_Object Qwrong_type_argument, Qyes_or_no_p;
 
 /*--------------- prototypes for variables of type Lisp_Object  ------------*/
 
-extern Lisp_Object Vactivate_menubar_hook, Vascii_canon_table;
-extern Lisp_Object Vascii_downcase_table, Vascii_eqv_table;
-extern Lisp_Object Vascii_upcase_table, Vautoload_queue, Vblank_menubar;
+extern Lisp_Object Vactivate_menubar_hook;
+extern Lisp_Object Vautoload_queue, Vblank_menubar;
 extern Lisp_Object Vcharset_ascii, Vcharset_composite, Vcharset_control_1;
 extern Lisp_Object Vcharset_latin_iso8859_1, Vcharset_greek_iso8859_7;
 extern Lisp_Object Vcharset_cyrillic_iso8859_5, Vcharset_hebrew_iso8859_8;
@@ -3213,8 +3211,6 @@ extern Lisp_Object Vload_file_name_internal;
 extern Lisp_Object Vload_file_name_internal_the_purecopy, Vload_history;
 extern Lisp_Object Vload_path, Vmark_even_if_inactive, Vmenubar_configuration;
 extern Lisp_Object Vminibuf_preprompt, Vminibuf_prompt, Vminibuffer_zero;
-extern Lisp_Object Vmirror_ascii_canon_table, Vmirror_ascii_downcase_table;
-extern Lisp_Object Vmirror_ascii_eqv_table, Vmirror_ascii_upcase_table;
 extern Lisp_Object Vmodule_directory, Vmswindows_downcase_file_names;
 extern Lisp_Object Vmswindows_get_true_file_attributes, Vobarray;
 extern Lisp_Object Vprint_length, Vprint_level, Vprocess_environment;

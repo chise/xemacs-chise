@@ -208,6 +208,7 @@ void *alloca ();
    configure.in. */
 #undef HAVE_MCHECK_H
 #undef HAVE_A_OUT_H
+#undef HAVE_ELF_H
 #undef HAVE_CYGWIN_VERSION_H
 #undef HAVE_FCNTL_H
 #undef HAVE_INTTYPES_H

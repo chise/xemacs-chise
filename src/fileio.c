@@ -748,7 +748,7 @@ See also the function `substitute-in-file-name'.
 */
        (name, default_directory))
 {
-  /* This function can GC.  GC-checked 2000-07-11 ben */
+  /* This function can GC.  GC-checked 2000-11-18 */
   Bufbyte *nm;
 
   Bufbyte *newdir, *p, *o;
@@ -761,14 +761,14 @@ See also the function `substitute-in-file-name'.
   struct passwd *pw;
 #endif /* WIN32_NATIVE */
   int length;
-  Lisp_Object handler;
+  Lisp_Object handler = Qnil;
 #ifdef CYGWIN
   char *user;
 #endif
-  struct gcpro gcpro1, gcpro2;
+  struct gcpro gcpro1, gcpro2, gcpro3;
 
   /* both of these get set below */
-  GCPRO2 (name, default_directory);
+  GCPRO3 (name, default_directory, handler);
 
   CHECK_STRING (name);
 
@@ -776,11 +776,8 @@ See also the function `substitute-in-file-name'.
      call the corresponding file handler.  */
   handler = Ffind_file_name_handler (name, Qexpand_file_name);
   if (!NILP (handler))
-    {
-      UNGCPRO;
-      return call3_check_string (handler, Qexpand_file_name, name,
-				 default_directory);
-    }
+    RETURN_UNGCPRO (call3_check_string (handler, Qexpand_file_name,
+					name, default_directory));
 
   /* Use the buffer's default-directory if DEFAULT_DIRECTORY is omitted.  */
   if (NILP (default_directory))
@@ -792,10 +789,8 @@ See also the function `substitute-in-file-name'.
     {
       handler = Ffind_file_name_handler (default_directory, Qexpand_file_name);
       if (!NILP (handler))
-	{
-	  UNGCPRO;
-	  return call3 (handler, Qexpand_file_name, name, default_directory);
-	}
+	RETURN_UNGCPRO (call3 (handler, Qexpand_file_name,
+			       name, default_directory));
     }
 
   o = XSTRING_DATA (default_directory);
@@ -1322,14 +1317,30 @@ No component of the resulting pathname will be a symbolic link, as
 	   we just use our own version in realpath.c. */
 	for (;;)
 	  {
-	    p = (Extbyte *) memchr (p + 1, '/', elen - (p + 1 - path));
-	    if (p)
-	      *p = 0;
+	    Extbyte *pos;
+
+#ifdef WIN32_NATIVE
+	    if (IS_DRIVE (p[0]) && IS_DEVICE_SEP (p[1]) 
+		&& IS_DIRECTORY_SEP (p[2]))
+	      /* don't test c: on windows */
+	      p = p+2;
+	    else if (IS_DIRECTORY_SEP (p[0]) && IS_DIRECTORY_SEP (p[1]))
+	      /* start after // */
+	      p = p+1;
+#endif
+	    for (pos = p + 1; pos < path + elen; pos++)
+	      if (IS_DIRECTORY_SEP (*pos))
+		{
+		  *(p = pos) = 0;
+		  break;
+		}
+	    if (p != pos)
+	      p = 0;
 
 	    if (xrealpath ((char *) path, resolved_path))
 	      {
 		if (p)
-		  *p = '/';
+		  *p = DIRECTORY_SEP;
 		else
 		  break;
 
@@ -1348,13 +1359,13 @@ No component of the resulting pathname will be a symbolic link, as
 		  {
 		    int plen = elen - (p - path);
 
-		    if (rlen > 1 && resolved_path[rlen - 1] == '/')
+		    if (rlen > 1 && IS_DIRECTORY_SEP (resolved_path[rlen - 1]))
 		      rlen = rlen - 1;
 
 		    if (plen + rlen + 1 > countof (resolved_path))
 		      goto toolong;
 
-		    resolved_path[rlen] = '/';
+		    resolved_path[rlen] = DIRECTORY_SEP;
 		    memcpy (resolved_path + rlen + 1, p + 1, plen + 1 - 1);
 		  }
 		break;
@@ -1367,12 +1378,12 @@ No component of the resulting pathname will be a symbolic link, as
     {
       Lisp_Object resolved_name;
       int rlen = strlen (resolved_path);
-      if (elen > 0 && XSTRING_BYTE (expanded_name, elen - 1) == '/'
-          && !(rlen > 0 && resolved_path[rlen - 1] == '/'))
+      if (elen > 0 && IS_DIRECTORY_SEP (XSTRING_BYTE (expanded_name, elen - 1))
+          && !(rlen > 0 && IS_DIRECTORY_SEP (resolved_path[rlen - 1])))
 	{
 	  if (rlen + 1 > countof (resolved_path))
 	    goto toolong;
-	  resolved_path[rlen++] = '/';
+	  resolved_path[rlen++] = DIRECTORY_SEP;
 	  resolved_path[rlen] = '\0';
 	}
       TO_INTERNAL_FORMAT (DATA, (resolved_path, rlen),
@@ -3394,7 +3405,7 @@ to the value of CODESYS.  If this is nil, no code conversion occurs.
         message ("Wrote %s", XSTRING_DATA (visit_file));
       else
 	{
-	  Lisp_Object fsp;
+	  Lisp_Object fsp = Qnil;
 	  struct gcpro nngcpro1;
 
 	  NNGCPRO1 (fsp);
@@ -3735,7 +3746,7 @@ An argument specifies the modification time value to use
     }
   else
     {
-      Lisp_Object filename;
+      Lisp_Object filename = Qnil;
       struct stat st;
       Lisp_Object handler;
       struct gcpro gcpro1, gcpro2, gcpro3;

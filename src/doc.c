@@ -168,7 +168,6 @@ get_doc_string (Lisp_Object filepos)
   /* !!#### This function has not been Mule-ized */
   REGISTER int fd;
   REGISTER char *name_nonreloc = 0;
-  int minsize;
   EMACS_INT position;
   Lisp_Object file, tem;
   Lisp_Object name_reloc = Qnil;
@@ -197,6 +196,7 @@ get_doc_string (Lisp_Object filepos)
   tem = Ffile_name_absolute_p (file);
   if (NILP (tem))
     {
+      size_t minsize;
       /* XEmacs: Move this check here.  OK if called during loadup to
 	 load byte code instructions. */
       if (!STRINGP (Vdoc_directory))

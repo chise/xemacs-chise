@@ -206,7 +206,7 @@ the open-parenthesis that starts a defun; see `beginning-of-defun'."
 			  (end-of-line 1)
 			  (beginning-of-defun-raw 1)))
 		    nil
-		  (or (bobp) (forward-char -1))
+		  (or (bobp) (backward-char 1))
 		  (beginning-of-defun-raw -1))
 		(setq first nil)
 		(forward-list 1)
@@ -279,7 +279,7 @@ before and after, depending on the surrounding characters."
   "Move past next `)', delete indentation before it, then indent after it."
   (interactive)
   (up-list 1)
-  (forward-char -1)
+  (backward-char 1)
   (while (save-excursion		; this is my contribution
 	   (let ((before-paren (point)))
 	     (back-to-indentation)

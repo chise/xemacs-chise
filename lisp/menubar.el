@@ -361,8 +361,7 @@ the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
 under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\".
 NEW-NAME is the string that the menu item will be printed as from now on."
-  (or (stringp new-name)
-      (setq new-name (wrong-type-argument 'stringp new-name)))
+  (check-type new-name string)
   (let* ((menubar current-menubar)
          (pair (find-menu-item menubar path))
          (item (car pair))

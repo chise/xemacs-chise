@@ -335,6 +335,39 @@
     (Assert (= two (max one two two)))
     (Assert (= two (max two two one)))))
 
+;; The byte compiler has special handling for these constructs:
+(let ((three 3) (five 5))
+  (Assert (= (+ three five 1) 9))
+  (Assert (= (+ 1 three five) 9))
+  (Assert (= (+ three five -1) 7))
+  (Assert (= (+ -1 three five) 7))
+  (Assert (= (+ three 1) 4))
+  (Assert (= (+ three -1) 2))
+  (Assert (= (+ -1 three) 2))
+  (Assert (= (+ -1 three) 2))
+  (Assert (= (- three five 1) -3))
+  (Assert (= (- 1 three five) -7))
+  (Assert (= (- three five -1) -1))
+  (Assert (= (- -1 three five) -9))
+  (Assert (= (- three 1) 2))
+  (Assert (= (- three 2 1) 0))
+  (Assert (= (- 2 three 1) -2))
+  (Assert (= (- three -1) 4))
+  (Assert (= (- three 0) 3))
+  (Assert (= (- three 0 five) -2))
+  (Assert (= (- 0 three 0 five) -8))
+  (Assert (= (- 0 three five) -8))
+  (Assert (= (* three 2) 6))
+  (Assert (= (* three -1 five) -15))
+  (Assert (= (* three 1 five) 15))
+  (Assert (= (* three 0 five) 0))
+  (Assert (= (* three 2 five) 30))
+  (Assert (= (/ three 1) 3))
+  (Assert (= (/ three -1) -3))
+  (Assert (= (/ (* five five) 2 2) 6))
+  (Assert (= (/ 64 five 2) 6)))
+
+
 ;;-----------------------------------------------------
 ;; Logical bit-twiddling operations
 ;;-----------------------------------------------------
@@ -757,7 +790,7 @@
 
 ;; The following 2 functions used to crash XEmacs via mapcar1().
 ;; We don't test the actual values of the mapcar, since they're undefined.
-(Assert 
+(Assert
  (let ((x (list (cons 1 1) (cons 2 2) (cons 3 3))))
    (mapcar
     (lambda (y)
@@ -768,7 +801,7 @@
       (car y))             ; sorry, hard landing
     x)))
 
-(Assert 
+(Assert
  (let ((x (list (cons 1 1) (cons 2 2) (cons 3 3))))
    (mapcar
     (lambda (y)
@@ -832,7 +865,7 @@
 (Assert (equal (split-string ",foo,,bar," ",+") '("" "foo" "bar" "")))
 
 (Assert (not (string-match "\\(\\.\\=\\)" ".")))
-(Assert (string= "" (let ((str "test string"))  
+(Assert (string= "" (let ((str "test string"))
 		      (if (string-match "^.*$" str)
 			  (replace-match "\\U" t nil str)))))
 (with-temp-buffer
@@ -946,9 +979,9 @@
 (Assert (equal (subseq '(1 2 3) 0) '(1 2 3)))
 (Assert (equal (subseq '(1 2 3 4) -3 nil) '(2 3 4)))
 
-(Check-Error 'wrong-type-argument (subseq 3 2))
-(Check-Error 'args-out-of-range (subseq [1 2 3] -42))
-(Check-Error 'args-out-of-range (subseq [1 2 3] 0 42))
+(Check-Error wrong-type-argument (subseq 3 2))
+(Check-Error args-out-of-range (subseq [1 2 3] -42))
+(Check-Error args-out-of-range (subseq [1 2 3] 0 42))
 
 ;;-----------------------------------------------------
 ;; Time-related tests
@@ -1023,3 +1056,18 @@
 (Assert (string= (format "%01.3d" 10) "10"))
 (Assert (string= (format "%1.3d" 10) "10"))
 (Assert (string= (format "%3.1d" 10) " 10"))
+
+;;; Check for 64-bit cleanness on LP64 platforms.
+(Assert (= (read (format "%d"  most-positive-fixnum)) most-positive-fixnum))
+(Assert (= (read (format "%ld" most-positive-fixnum)) most-positive-fixnum))
+(Assert (= (read (format "%u"  most-positive-fixnum)) most-positive-fixnum))
+(Assert (= (read (format "%lu" most-positive-fixnum)) most-positive-fixnum))
+(Assert (= (read (format "%d"  most-negative-fixnum)) most-negative-fixnum))
+(Assert (= (read (format "%ld" most-negative-fixnum)) most-negative-fixnum))
+
+;;; "%u" is undocumented, and Emacs Lisp has no unsigned type.
+;;; What to do if "%u" is used with a negative number?
+;;; The most reasonable thing seems to be to print an un-read-able number.
+;;; The printed value might be useful to a human, if not to Emacs Lisp.
+(Check-Error invalid-read-syntax (read (format "%u" most-negative-fixnum)))
+(Check-Error invalid-read-syntax (read (format "%u" -1)))

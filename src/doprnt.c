@@ -31,13 +31,12 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "lstream.h"
 
-static const char *valid_flags = "-+ #0";
-
-static const char *valid_converters = "diouxXfeEgGcsS";
-static const char *int_converters = "dic";
-static const char *unsigned_int_converters = "ouxX";
-static const char *double_converters = "feEgG";
-static const char *string_converters = "sS";
+static const char * const valid_flags = "-+ #0";
+static const char * const valid_converters = "dic" "ouxX" "feEgG" "sS";
+static const char * const int_converters = "dic";
+static const char * const unsigned_int_converters = "ouxX";
+static const char * const double_converters = "feEgG";
+static const char * const string_converters = "sS";
 
 typedef struct printf_spec printf_spec;
 struct printf_spec
@@ -66,8 +65,6 @@ struct printf_spec
 typedef union printf_arg printf_arg;
 union printf_arg
 {
-  int i;
-  unsigned int ui;
   long l;
   unsigned long ul;
   double d;
@@ -237,11 +234,11 @@ parse_doprnt_spec (const Bufbyte *format, Bytecount format_length)
 	    {
 	      switch (ch)
 		{
-		case '-': spec.minus_flag = 1; break;
-		case '+': spec.plus_flag = 1; break;
-		case ' ': spec.space_flag = 1; break;
+		case '-': spec.minus_flag  = 1; break;
+		case '+': spec.plus_flag   = 1; break;
+		case ' ': spec.space_flag  = 1; break;
 		case '#': spec.number_flag = 1; break;
-		case '0': spec.zero_flag = 1; break;
+		case '0': spec.zero_flag   = 1; break;
 		default: abort ();
 		}
 	      NEXT_ASCII_BYTE (ch);
@@ -380,26 +377,24 @@ get_doprnt_args (printf_spec_dynarr *specs, va_list vargs)
 
       ch = spec->converter;
 
-      /* int even if ch == 'c': "the type used in va_arg is supposed to
-	 match the actual type **after default promotions**." */
-
       if (strchr (int_converters, ch))
 	{
-	  if (spec->h_flag)
-	    arg.i = va_arg (vargs, int /* short */);
-	  else if (spec->l_flag)
+	  if (spec->l_flag)
 	    arg.l = va_arg (vargs, long);
 	  else
-	    arg.i = va_arg (vargs, int);
+	    /* int even if ch == 'c' or spec->h_flag:
+	       "the type used in va_arg is supposed to match the
+	       actual type **after default promotions**."
+	       Hence we read an int, not a short, if spec->h_flag. */
+	    arg.l = va_arg (vargs, int);
 	}
       else if (strchr (unsigned_int_converters, ch))
 	{
-	  if (spec->h_flag)
-	    arg.ui = va_arg (vargs, unsigned int /* unsigned short */);
-	  else if (spec->l_flag)
+	  if (spec->l_flag)
 	    arg.ul = va_arg (vargs, unsigned long);
 	  else
-	    arg.ui = va_arg (vargs, unsigned int);
+	    /* unsigned int even if ch == 'c' or spec->h_flag */
+	    arg.ul = (unsigned long) va_arg (vargs, unsigned int);
 	}
       else if (strchr (double_converters, ch))
 	arg.d = va_arg (vargs, double);
@@ -445,7 +440,7 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
   specs = parse_doprnt_spec (format_nonreloc, format_length);
   if (largs)
     {
-	/* allow too many args for string, but not too few */
+      /* allow too many args for string, but not too few */
       if (nargs < get_args_needed (specs))
 	signal_error (Qwrong_number_of_arguments,
 		      list3 (Qformat,
@@ -466,8 +461,9 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
       /* Copy the text before */
       if (!NILP (format_reloc)) /* refetch in case of GC below */
 	format_nonreloc = XSTRING_DATA (format_reloc);
-       doprnt_1 (stream, format_nonreloc + spec->text_before,
-		 spec->text_before_len, 0, -1, 0, 0);
+
+      doprnt_1 (stream, format_nonreloc + spec->text_before,
+		spec->text_before_len, 0, -1, 0, 0);
 
       ch = spec->converter;
 
@@ -498,17 +494,17 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	      else
 		{
 		  nextspec->minwidth = XINT (obj);
-		  if (XINT(obj) < 0)
+		  if (XINT (obj) < 0)
 		    {
 		      spec->minus_flag = 1;
 		      nextspec->minwidth = - nextspec->minwidth;
 		    }
 		}
-	      nextspec->minus_flag = spec->minus_flag;
-	      nextspec->plus_flag = spec->plus_flag;
-	      nextspec->space_flag = spec->space_flag;
+	      nextspec->minus_flag  = spec->minus_flag;
+	      nextspec->plus_flag   = spec->plus_flag;
+	      nextspec->space_flag  = spec->space_flag;
 	      nextspec->number_flag = spec->number_flag;
-	      nextspec->zero_flag = spec->zero_flag;
+	      nextspec->zero_flag   = spec->zero_flag;
 	    }
 	  continue;
 	}
@@ -586,26 +582,13 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		arg.d = XFLOATINT (obj);
 	      else
 		{
-		  int val;
-
 		  if (FLOATP (obj))
-		    val = XINT (Ftruncate (obj));
-		  else
-		    val = XINT (obj);
+		    obj = Ftruncate (obj);
+
 		  if (strchr (unsigned_int_converters, ch))
-		    {
-		      if (spec->l_flag)
-			arg.ul = (unsigned long) val;
-		      else
-			arg.ui = (unsigned int) val;
-		    }
+		    arg.ul = (unsigned long) XINT (obj);
 		  else
-		    {
-		      if (spec->l_flag)
-			arg.l = (long) val;
-		      else
-			arg.i = val;
-		    }
+		    arg.l = XINT (obj);
 		}
 	    }
 
@@ -616,10 +599,7 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	      Bytecount charlen;
 	      Bufbyte charbuf[MAX_EMCHAR_LEN];
 
-	      if (spec->l_flag)
-		a = (Emchar) arg.l;
-	      else
-		a = (Emchar) arg.i;
+	      a = (Emchar) arg.l;
 
 	      if (!valid_char_p (a))
 		error ("invalid character value %d to %%c spec", a);
@@ -628,11 +608,11 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	      doprnt_1 (stream, charbuf, charlen, spec->minwidth,
 			-1, spec->minus_flag, spec->zero_flag);
 	    }
-
 	  else
 	    {
 	      char text_to_print[500];
 	      char constructed_spec[100];
+	      char *p = constructed_spec;
 
 	      /* Partially reconstruct the spec and use sprintf() to
 		 format the string. */
@@ -643,23 +623,16 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 	      spec->precision = min (spec->precision,
 				     (int) (sizeof (text_to_print) - 50));
 
-	      constructed_spec[0] = 0;
-	      strcat (constructed_spec, "%");
-	      if (spec->plus_flag)
-		strcat (constructed_spec, "+");
-	      if (spec->space_flag)
-		strcat (constructed_spec, " ");
-	      if (spec->number_flag)
-		strcat (constructed_spec, "#");
+	      *p++ = '%';
+	      if (spec->plus_flag)   *p++ = '+';
+	      if (spec->space_flag)  *p++ = ' ';
+	      if (spec->number_flag) *p++ = '#';
+
 	      if (spec->precision >= 0 && !spec->minwidth)
 		{
-		  strcat (constructed_spec, ".");
-		  long_to_string (constructed_spec + strlen (constructed_spec),
-				  spec->precision);
+		  *p++ = '.';
+		  p = long_to_string (p, spec->precision);
 		}
-#if 0
-	      sprintf (constructed_spec + strlen (constructed_spec), "%c", ch);
-#endif
 
 	      /* sprintf the mofo */
 	      /* we have to use separate calls to sprintf(), rather than
@@ -667,31 +640,21 @@ emacs_doprnt_1 (Lisp_Object stream, const Bufbyte *format_nonreloc,
 		 of the arguments */
 	      if (strchr (double_converters, ch))
 		{
-		  sprintf (constructed_spec + strlen (constructed_spec),
-			   "%c", ch);
+		  *p++ = ch;
+		  *p++ = '\0';
 		  sprintf (text_to_print, constructed_spec, arg.d);
-		}
-	      else if (strchr (unsigned_int_converters, ch))
-		{
-		  sprintf (constructed_spec + strlen (constructed_spec),
-			   "%c", ch);
-		  if (spec->l_flag)
-		    sprintf (text_to_print, constructed_spec, arg.ul);
-		  else
-		    sprintf (text_to_print, constructed_spec, arg.ui);
 		}
 	      else
 		{
 		  if (spec->zero_flag && spec->minwidth)
-		    sprintf (constructed_spec + strlen (constructed_spec),
-			     "0%d%c", spec->minwidth, ch);
+		    sprintf (p, "0%dl%c", spec->minwidth, ch);
 		  else
-		    sprintf (constructed_spec + strlen (constructed_spec),
-			     "%c", ch);
-		  if (spec->l_flag)
+		    sprintf (p, "l%c", ch);
+
+		  if (strchr (unsigned_int_converters, ch))
+		    sprintf (text_to_print, constructed_spec, arg.ul);
+		  else
 		    sprintf (text_to_print, constructed_spec, arg.l);
-		  else
-		    sprintf (text_to_print, constructed_spec, arg.i);
 		}
 
 	      doprnt_1 (stream, (Bufbyte *) text_to_print,

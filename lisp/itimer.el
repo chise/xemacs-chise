@@ -167,7 +167,7 @@ This is a macro."
 (defun itimer-live-p (object)
   "Return non-nil if OBJECT is an itimer and is active.
 ``Active'' means Emacs will run it when it expires.
-`activate-timer' must be called on an itimer to make it active.
+`activate-itimer' must be called on an itimer to make it active.
 Itimers started with `start-itimer' are automatically active."
   (and (itimerp object) (memq object itimer-list)))
 

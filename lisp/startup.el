@@ -227,6 +227,9 @@ command line options plus the following:
 In addition, the")
        "The"))
     (princ " following options are accepted:
+  -sd                   Show dump ID.  Ignored when configured without --pdump.
+  -nd                   Don't load the dump file.  Roughly like old temacs.
+                        Ignored when configured without --pdump.
   -t <device>           Use TTY <device> instead of the terminal for input
                         and output.  This implies the -nw option.
   -nw                   Inhibit the use of any window-system-specific
@@ -242,7 +245,7 @@ In addition, the")
   -vanilla		Equivalent to -q -no-site-file -no-early-packages.
   -q                    Same as -no-init-file.
   -user-init-file <file> Use <file> as init file.
-  -user-init-directory <directory> use <directory> as init directory.
+  -user-init-directory <directory> Use <directory> as init directory.
   -user <user>          Load user's init file instead of your own.
                         Equivalent to -user-init-file ~<user>/.emacs
                                       -user-init-directory ~<user>/.xemacs/

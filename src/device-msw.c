@@ -1019,6 +1019,7 @@ Return value is the currently selected settings object.
       ldm_current->printer_name = xstrdup (ldm_new->printer_name);
     }
 
+  UNGCPRO;
   return DEVICE_MSPRINTER_DEVMODE (d);
 }
 

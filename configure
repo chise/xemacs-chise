@@ -3426,7 +3426,7 @@ done
 test -n "$YACC" || YACC="yacc"
 
 
-for ac_hdr in   a.out.h   cygwin/version.h   fcntl.h   inttypes.h   libgen.h   locale.h   mach/mach.h   sys/param.h   sys/pstat.h   sys/time.h   sys/timeb.h   sys/un.h   ulimit.h   unistd.h   utime.h 
+for ac_hdr in   a.out.h   elf.h   cygwin/version.h   fcntl.h   inttypes.h   libgen.h   locale.h   mach/mach.h   sys/param.h   sys/pstat.h   sys/time.h   sys/timeb.h   sys/un.h   ulimit.h   unistd.h   utime.h 
 do
 ac_safe=`echo "$ac_hdr" | sed 'y%./+-%__p_%'`
 echo $ac_n "checking for $ac_hdr""... $ac_c" 1>&6
@@ -7035,9 +7035,9 @@ EOF
   dragndrop_proto="$dragndrop_proto OffiX" &&  if test "$extra_verbose" = "yes"; then echo "    Appending \"OffiX\" to \$dragndrop_proto"; fi
 fi
 
-echo $ac_n "checking if drag and drop API is needed""... $ac_c" 1>&6
-echo "configure:7040: checking if drag and drop API is needed" >&5
 if test "$with_dragndrop" != "no" ; then
+  echo $ac_n "checking if drag and drop API is needed""... $ac_c" 1>&6
+echo "configure:7041: checking if drag and drop API is needed" >&5
   if test -n "$dragndrop_proto" ; then
     with_dragndrop=yes
     echo "$ac_t""yes (${dragndrop_proto} )" 1>&6

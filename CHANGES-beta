@@ -1,3 +1,25 @@
+to 21.2.38 "Peisino,Ak(B"
+-- Keyboard commands to set code system now work in file-coding
+   Emacsen! -- Jan Vroonhof (actually in 21.2.37)
+-- Calls to the following functions are now better optimized:
+   backward-char backward-word plusp, minusp oddp evenp -- Martin Buchholz
+-- COUNT argument to following functions is now optional:
+   forward-word backward-word mark-word kill-word backward-kill-word 
+   forward-comment delete-char backward-delete-char -- Martin Buchholz
+-- Don't put gutters/tabs on popup windows -- Andy Piper
+-- Fix up info file cross references -- Adrian Aichner
+-- Make `format' 64-bit clean -- Martin Buchholz
+-- unexec changes on Windows -- Martin Buchholz
+-- Make ptys work again on Cygwin -- Philip Aston
+-- GCPRO fixes -- Yoshiki Hayashi, Gunnar Evermann, Martin Buchholz
+-- Fix dumping problems on SGI Irix 6 -- Max Matveev, Martin Buchholz
+-- Make DEBUG_GCPRO work again -- Gunnar Evermann
+-- Pdump fixes -- Olivier Galibert
+-- Case table changes -- Yoshiki Hayashi
+-- Fix remaining tab oddities -- Andy Piper
+-- Fix Windows unexec -- Andy Piper
+-- byte-compiler arithmetic improvements -- Martin Buchholz
+
 to 21.2.37 "Pan"
 -- etags fix -- Stephen Carney
 -- more gutters and tab changes -- Andy Piper
@@ -19,7 +41,7 @@ to 21.2.37 "Pan"
 -- Detect _getpty correctly (for SGIs) -- Martin Buchholz
 -- Several GCPRO bugs found -- Yoshiki Hayashi
 -- `replace-buffer-in-windows' now has the same WHICH-FRAMES and
-   WHICH-DEVICES paratmeters as `delete-windows-on' -- Martin Buchholz
+   WHICH-DEVICES parameters as `delete-windows-on' -- Martin Buchholz
 -- Add support for Compaq C on Alpha Linux -- Martin Buchholz
 -- auto-save fixes -- Yoshiki Hayashi
 -- Removed unused C vars detected by Compaq C -- Martin Buchholz

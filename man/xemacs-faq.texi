@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/11/02 21:51:16 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2000/11/14 23:29:27 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -713,7 +713,7 @@ XEmacs port, but never went any farther.
 No, but Alexander Nikolaev <avn_1251@@mail.ru> is working on it.
 
 @node Q1.0.14, Q1.1.1, Q1.0.13, Introduction
-@unnumberedsubsec Q1.0.14: Where can I obtain a printed copy of the XEmacs users manual?
+@unnumberedsubsec Q1.0.14: Where can I obtain a printed copy of the XEmacs User's Manual?
 
 Pre-printed manuals are not available.  If you are familiar with
 TeX, you can generate your own manual from the XEmacs sources.

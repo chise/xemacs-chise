@@ -36,6 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #include "frame.h"
 #include "insdel.h"
 #include "window.h"
+#include "casetab.h"
 #include "chartab.h"
 #include "line-number.h"
 
@@ -1717,7 +1718,7 @@ determines whether case is significant or ignored.
   REGISTER Charcount len1, len2, length, i;
   struct buffer *bp1, *bp2;
   Lisp_Object trt = ((!NILP (current_buffer->case_fold_search)) ?
-		     current_buffer->case_canon_table : Qnil);
+		     XCASE_TABLE_CANON (current_buffer->case_table) : Qnil);
 
   /* Find the first buffer and its substring.  */
 

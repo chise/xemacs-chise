@@ -15,7 +15,7 @@ mode is Calendar mode.
 particular date; @kbd{Buttons3} brings up a menu of commonly used
 calendar features that are independent of any particular date.  To exit
 the calendar, type @kbd{q}.  @xref{Calendar, Customizing the Calendar
-and Diary,, elisp, The Emacs Lisp Reference Manual}, for customization
+and Diary,, lispref, The XEmacs Lisp Reference Manual}, for customization
 information about the calendar and diary.
  
 @menu

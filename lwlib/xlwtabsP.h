@@ -93,7 +93,7 @@ typedef struct {
     Dimension	child_width, child_height; /* child size, including borders */
     Dimension	max_cw, max_ch ;	/* max child preferred size */
     Cardinal	numRows ;
-    Cardinal	displayChildren ;
+    Cardinal	realRows;		/* XEmacs addition */
     XtGeometryMask last_query_mode;
     Boolean	needs_layout ;
     Pixmap	grey50 ;		/* TODO: cache this elsewhere */
@@ -129,6 +129,7 @@ typedef	struct _TabsConstraintsPart {
 	/* private state */
 	Pixel		grey ;
 	Boolean		greyAlloc ;
+  	Boolean		visible; /* XEmacs change */
 	Dimension	width ;		/* tab width */
 	Position	x,y ;		/* tab base position */
 	short		row ;		/* tab row */

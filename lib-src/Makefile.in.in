@@ -160,7 +160,7 @@ ld_libs_general=@ld_libs_general@
 ## Where will the generated files like config.h be included from?
 ## This is also why you _must_ use <...> instead of "..." 
 ## when #include'ing generated files.
-cppflags = -Demacs -I. -I../src -I$(srcdir) -I$(top_srcdir)/src $(CPPFLAGS)
+cppflags = -I. -I../src -I$(srcdir) -I$(top_srcdir)/src $(CPPFLAGS)
 cflags   = $(CFLAGS) $(cppflags) $(c_switch_general)
 ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 
@@ -281,7 +281,7 @@ alloca.o: ${top_srcdir}/src/alloca.c
 	${CC} -c $(cflags) ${srcdir}/../src/alloca.c
 
 regex.o: ${srcdir}/../src/regex.c ${top_srcdir}/src/regex.h
-	$(CC) -c `echo $(cflags) | sed 's/-Demacs/ /'` \
+	$(CC) -c $(cflags) \
 	-DINHIBIT_STRING_HEADER ${top_srcdir}/src/regex.c
 
 etags_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/etags.c \
@@ -319,7 +319,7 @@ make-docfile: ${srcdir}/make-docfile.c
 	$(CC) $(cflags) ${srcdir}/make-docfile.c $(ldflags) -o $@
 
 digest-doc: ${srcdir}/digest-doc.c
-	$(CC) $(cflags) ${srcdir}/digest-doc.c $(ldflags) -o $@
+	$(CC) -Demacs $(cflags) ${srcdir}/digest-doc.c $(ldflags) -o $@
 
 sorted-doc: ${srcdir}/sorted-doc.c
 	$(CC) $(cflags) ${srcdir}/sorted-doc.c $(ldflags) -o $@
@@ -378,7 +378,7 @@ mmencode : ${srcdir}/mmencode.c
 ## because XEmacs provides built-in timer facilities.
 
 make-path: ${srcdir}/make-path.c ../src/config.h
-	$(CC) $(cflags) ${srcdir}/make-path.c -o $@
+	$(CC) -Demacs $(cflags) ${srcdir}/make-path.c -o $@
 
 ## These are NOT included in INSTALLABLES or UTILITIES.
 ## See ../src/Makefile.in.in.

@@ -1350,7 +1350,7 @@ With optional ARG, move across that many fields."
 	  (t
 	   (when (and (null arg)
 		      (= last-non-space (point)))
-	     (forward-char -1))
+	     (backward-char 1))
 	   (transpose-chars arg)))))
 
 (defcustom widget-complete-field (lookup-key global-map "\M-\t")

@@ -3372,7 +3372,7 @@ modify them.
     {
       Vrecent_keys_ring = make_vector (recent_keys_ring_size, Qnil);
       /* And return nothing in particular. */
-      return make_vector (0, Qnil);
+      RETURN_UNGCPRO (make_vector (0, Qnil));
     }
 
   if (NILP (XVECTOR_DATA (Vrecent_keys_ring)[recent_keys_ring_index]))
@@ -3430,7 +3430,6 @@ Set the maximum number of events to be stored internally.
   Lisp_Object new_vector = Qnil;
   int i, j, nkeys, start, min;
   struct gcpro gcpro1;
-  GCPRO1 (new_vector);
 
   CHECK_INT (size);
   if (XINT (size) <= 0)
@@ -3438,12 +3437,13 @@ Set the maximum number of events to be stored internally.
   if (XINT (size) == recent_keys_ring_size)
     return size;
 
+  GCPRO1 (new_vector);
   new_vector = make_vector (XINT (size), Qnil);
 
   if (NILP (Vrecent_keys_ring))
     {
       Vrecent_keys_ring = new_vector;
-      return size;
+      RETURN_UNGCPRO (size);
     }
 
   if (NILP (XVECTOR_DATA (Vrecent_keys_ring)[recent_keys_ring_index]))

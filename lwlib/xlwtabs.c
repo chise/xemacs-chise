@@ -18,7 +18,12 @@
  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
  Boston, MA 02111-1307, USA.  */
 
- /* Synched up with: Tabs.c 1.27 */
+ /* Synched up with: Tabs.c 1.27.  
+
+ #### This file contains essential XEmacs related fixes to the original
+ verison of the Tabs widget. Be VERY careful about syncing if you ever
+ update to a more recent version. In general this is probably now a
+ bad idea. */
 
  /*
  * Tabs.c - Index Tabs composite widget
@@ -122,7 +127,7 @@ static	char	accelTable[] = "	#augment\n\
 	<Key>KP_Down:		highlight(down)	\n\
 	<Key> :			page(select)	\n\
 	 " ;
-static	XtAccelerators	defaultAccelerators ;
+static	XtAccelerators	defaultAccelerators ; /* #### Never used */
 
 #define	offset(field)	XtOffsetOf(TabsRec, tabs.field)
 static XtResource resources[] = {
@@ -401,7 +406,10 @@ WidgetClass tabsWidgetClass = (WidgetClass)&tabsClassRec;
 #define	assert(e)
 #endif
 
-
+#define TabsNumChildren(tw) (((TabsWidget)tw)->composite.num_children)
+#define TabVisible(tab) \
+	(XtIsManaged(tab) && \
+	 ((TabsConstraints)((tab)->core.constraints))->tabs.visible)
 
 
 /****************************************************************
@@ -430,7 +438,7 @@ TabsInit(Widget request, Widget new, ArgList args, Cardinal *num_args)
     TabsWidget newTw = (TabsWidget)new;
 
     newTw->tabs.numRows = 0 ;
-    newTw->tabs.displayChildren = 0;
+    newTw->tabs.realRows = 0;
 
     GetPreferredSizes(newTw) ;
 
@@ -486,6 +494,7 @@ TabsConstraintInitialize(Widget request, Widget new,
 {
 	TabsConstraints tab = (TabsConstraints) new->core.constraints ;
 	tab->tabs.greyAlloc = False ;	/* defer allocation of pixel */
+	tab->tabs.visible = False ;
 
 	getBitmapInfo((TabsWidget)XtParent(new), tab) ;
 	TabWidth(new) ;
@@ -530,7 +539,7 @@ TabsResize(Widget w)
 	int		i ;
 	int		num_children = tw->composite.num_children ;
 	Widget		*childP ;
-	TabsConstraints tab ;
+	TabsConstraints tab ; /* #### unused */
 	Dimension	cw,ch,bw ;
 
 	/* Our size has now been dictated by the parent.  Lay out the
@@ -550,7 +559,7 @@ TabsResize(Widget w)
 	{
 	  /* Loop through the tabs and assign rows & x positions */
 	  (void) TabLayout(tw, tw->core.width, tw->core.height, NULL, False) ;
-	  num_children = tw->tabs.displayChildren;
+	  num_children = TabsNumChildren (tw);
 
 	  /* assign a top widget, bring it to bottom row. */
 	  TabsShuffleRows(tw) ;
@@ -567,7 +576,7 @@ TabsResize(Widget w)
 	  for(i=0, childP=tw->composite.children;
 		i < num_children;
 		++i, ++childP)
-	    if( XtIsManaged(*childP) )
+	    if( TabVisible(*childP) )
 	    {
 	      tab = (TabsConstraints) (*childP)->core.constraints ;
 	      bw = (*childP)->core.border_width ;
@@ -932,8 +941,8 @@ TabsGeometryManager(Widget w, XtWidgetGeometry *req, XtWidgetGeometry *reply)
 	      Widget	*childP = tw->composite.children ;
 	      int	i,bw ;
 	      w->core.border_width = req->border_width ;
-	      for(i=tw->tabs.displayChildren; --i >= 0; ++childP)
-		if( XtIsManaged(*childP) )
+	      for(i=TabsNumChildren (tw); --i >= 0; ++childP)
+		if( TabVisible(*childP) )
 		{
 		  bw = (*childP)->core.border_width ;
 		  XtConfigureWidget(*childP, s,tw->tabs.tab_total+s,
@@ -1001,7 +1010,7 @@ TabsChangeManaged(Widget w)
        */
       if( tw->tabs.topWidget != NULL && XtIsRealized(tw->tabs.topWidget) )
       {
-	for(i=tw->tabs.displayChildren; --i >= 0; ++childP)
+	for(i=TabsNumChildren (tw); --i >= 0; ++childP)
 	  if( !XtIsRealized(*childP) )
 	    XtRealizeWidget(*childP) ;
 
@@ -1066,9 +1075,9 @@ TabsSelect(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	 * widget to be top of stacking order with XawTabsSetTop().
 	 */
 	for(i=0, childP=tw->composite.children;
-	      i < tw->tabs.displayChildren;
+	      i < TabsNumChildren (tw);
 	      ++i, ++childP)
-	  if( XtIsManaged(*childP) )
+	  if( TabVisible(*childP) )
 	  {
 	    TabsConstraints tab = (TabsConstraints)(*childP)->core.constraints;
 	    if( x > tab->tabs.x  &&  x < tab->tabs.x + tab->tabs.width  &&
@@ -1092,7 +1101,7 @@ TabsPage(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newtop = NULL;
 	Widget		*childP ;
 	int		idx ;
-	int		nc = tw->tabs.displayChildren ;
+	int		nc = TabsNumChildren (tw) ;
 
 	if( nc <= 0 )
 	  return ;
@@ -1156,7 +1165,7 @@ TabsHighlight(Widget w, XEvent *event, String *params, Cardinal *num_params)
 	Widget		newhl = NULL;
 	Widget		*childP ;
 	int		idx ;
-	int		nc = tw->tabs.displayChildren ;
+	int		nc = TabsNumChildren (tw) ;
 
 	if( nc <= 0 )
 	  return ;
@@ -1394,9 +1403,9 @@ DrawTabs(TabsWidget tw, Bool labels)
 	y = tw->tabs.numRows == 1 ? TABDELTA : 0 ;
 	for(i=0; i<tw->tabs.numRows; ++i, y += th)
 	{
- 	  for( j=tw->tabs.displayChildren, childP=tw->composite.children;
+ 	  for( j=TabsNumChildren (tw), childP=tw->composite.children;
   	      --j >= 0; ++childP )
-	    if( XtIsManaged(*childP) )
+	    if( TabVisible(*childP) )
 	    {
 	      tab = (TabsConstraints)(*childP)->core.constraints;
 	      if( tab->tabs.row == i && *childP != tw->tabs.topWidget )
@@ -1705,15 +1714,12 @@ TabWidth(Widget w)
 static	int
 TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_only)
 {
-	int		i, row ;
+	int		i, row, done = 0, display_rows = 0 ;
 	int		num_children = tw->composite.num_children ;
 	Widget		*childP ;
 	Dimension	w ;
 	Position	x,y ;
 	TabsConstraints	tab ;
-
-	if (!query_only)
-	  tw->tabs.displayChildren = 0;
 
 	/* Algorithm: loop through children, assign X positions.  If a tab
 	 * would extend beyond the right edge, start a new row.  After all
@@ -1733,10 +1739,14 @@ TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_o
 	    {
 	      tab = (TabsConstraints) (*childP)->core.constraints ;
 	      w = tab->tabs.width ;
+
 	      if( x + w > wid ) {			/* new row */
-		if (y + tw->tabs.tab_height > hgt)
-		  break;
-		++row ;
+ 		if (y + tw->tabs.tab_height > hgt && !done)
+		  {
+		    display_rows = row;
+		    done = 1;
+		  }
+		++row;
 		x = INDENT ;
 		y += tw->tabs.tab_height ;
 	      }
@@ -1746,12 +1756,14 @@ TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_o
 		tab->tabs.row = row ;
 	      }
 	      x += w + SPACING ;
-	      if (!query_only)
-		tw->tabs.displayChildren++;
+	      if (!query_only && !done)
+		tab->tabs.visible = 1;
+
 	    }
 	  /* If there was only one row, increase the height by TABDELTA */
-	  if( ++row == 1 )
+	  if( ++display_rows == 1 )
 	  {
+	    row++;
 	    y = TABDELTA ;
 	    if( !query_only )
 	      for(i=num_children, childP=tw->composite.children;
@@ -1765,17 +1777,18 @@ TabLayout(TabsWidget tw, int wid, int hgt, Dimension *reply_height, Bool query_o
 	  y += tw->tabs.tab_height ;
 	}
 	else
-	  row = y = 0 ;
+	  display_rows = row = y = 0 ;
 
 	if( !query_only ) {
 	  tw->tabs.tab_total = y ;
-	  tw->tabs.numRows = row ;
+	  tw->tabs.numRows = display_rows ;
+	  tw->tabs.realRows = row;
 	}
 
 	if( reply_height != NULL )
 	  *reply_height = y ;
 
-	return row ;
+	return display_rows ;
 }
 
 
@@ -1826,7 +1839,7 @@ TabsShuffleRows(TabsWidget tw)
 {
 	TabsConstraints	tab ;
 	int		move ;
-	int		nrows ;
+	int		real_rows, display_rows ;
 	Widget		*childP ;
 	Dimension	th = tw->tabs.tab_height ;
 	Position	bottom ;
@@ -1834,7 +1847,7 @@ TabsShuffleRows(TabsWidget tw)
 
 	/* There must be a top widget.  If not, assign one. */
 	if( tw->tabs.topWidget == NULL && tw->composite.children != NULL )
-	  for(i=tw->composite.num_children, childP=tw->composite.children;
+	  for(i=TabsNumChildren (tw), childP=tw->composite.children;
 	      --i >= 0;
 	      ++childP)
 	    if( XtIsManaged(*childP) ) {
@@ -1844,26 +1857,31 @@ TabsShuffleRows(TabsWidget tw)
 
 	if( tw->tabs.topWidget != NULL )
 	{
-	  nrows = tw->tabs.numRows ;
-	  assert( nrows > 0 ) ;
+	  display_rows = tw->tabs.numRows ;
+	  real_rows = tw->tabs.realRows ;
+	  assert( display_rows >= real_rows ) ;
 
-	  if( nrows > 1 )
+	  if( real_rows > 1 )
 	  {
 	    tab = (TabsConstraints) tw->tabs.topWidget->core.constraints ;
 	    assert( tab != NULL ) ;
 
-	    /* how far to move top row */
-	    move = nrows - tab->tabs.row ;
+	    /* How far to move top row. The selected tab must be on
+	       the bottom row of the *visible* rows. */
+	    move = (real_rows + 1 - display_rows) - tab->tabs.row ;
+	    if (move < 0) 
+	      move = real_rows - move;
 	    bottom = tw->tabs.tab_total - th ;
 
-	    for(i=tw->tabs.displayChildren, childP=tw->composite.children;
+	    for(i=tw->composite.num_children, childP=tw->composite.children;
 		  --i >= 0;
 		  ++childP)
 	      if( XtIsManaged(*childP) )
 	      {
 		tab = (TabsConstraints) (*childP)->core.constraints ;
-		tab->tabs.row = (tab->tabs.row + move) % nrows ;
+		tab->tabs.row = (tab->tabs.row + move) % real_rows ;
 		tab->tabs.y = bottom - tab->tabs.row * th ;
+		tab->tabs.visible = (tab->tabs.row < display_rows);
 	      }
 	  }
 	}
@@ -1877,7 +1895,6 @@ TabsShuffleRows(TabsWidget tw)
 	 *
 	 * This function requires that max_cw, max_ch already be set.
 	 */
-
 static	int
 PreferredSize(
 	TabsWidget	tw,

@@ -1154,22 +1154,6 @@ face_cachel_charset_font_metric_info (struct face_cachel *cachel,
     }
 }
 
-/* Called when the updated flag has been cleared on a cachel. */
-
-void
-update_face_cachel_data (struct face_cachel *cachel,
-			 Lisp_Object domain,
-			 Lisp_Object face)
-{
-  if (XFACE (face)->dirty || UNBOUNDP (cachel->face))
-    {
-      int default_face = EQ (face, Vdefault_face);
-      cachel->face = face;
-
-      /* We normally only set the _specified flags if the value was
-         actually bound.  The exception is for the default face where
-         we always set it since it is the ultimate fallback. */
-
 #define FROB(field)							     \
   do {									     \
     Lisp_Object new_val =						     \
@@ -1188,31 +1172,125 @@ update_face_cachel_data (struct face_cachel *cachel,
     cachel->field##_specified = (bound || default_face);		     \
   } while (0)
 
+/*
+ * A face's background pixmap will override the face's
+ * background color.  But the background pixmap of the
+ * default face should not override the background color of
+ * a face if the background color has been specified or
+ * inherited.
+ *
+ * To accomplish this we remove the background pixmap of the
+ * cachel and mark it as having been specified so that cachel
+ * merging won't override it later.
+ */
+#define MAYBE_UNFROB_BACKGROUND_PIXMAP          \
+do                                              \
+{                                               \
+  if (! default_face                            \
+      && cachel->background_specified           \
+      && ! cachel->background_pixmap_specified) \
+    {                                           \
+      cachel->background_pixmap = Qunbound;     \
+      cachel->background_pixmap_specified = 1;  \
+    }                                           \
+} while (0)
+
+
+/* Add a cachel for the given face to the given window's cache. */
+
+static void
+add_face_cachel (struct window *w, Lisp_Object face)
+{
+  int must_finish_frobbing = ! WINDOW_FACE_CACHEL (w, DEFAULT_INDEX);
+  struct face_cachel new_cachel;
+  Lisp_Object domain;
+
+  reset_face_cachel (&new_cachel);
+  XSETWINDOW (domain, w);
+  update_face_cachel_data (&new_cachel, domain, face);
+  Dynarr_add (w->face_cachels, new_cachel);
+
+  /* The face's background pixmap have not yet been frobbed (see comment
+     int update_face_cachel_data), so we have to do it now */
+  if (must_finish_frobbing)
+    {
+      int default_face = EQ (face, Vdefault_face);
+      struct face_cachel *cachel
+	= Dynarr_atp (w->face_cachels, Dynarr_length (w->face_cachels) - 1);
+
+      FROB (background_pixmap);
+      MAYBE_UNFROB_BACKGROUND_PIXMAP;
+    }
+}
+
+/* Called when the updated flag has been cleared on a cachel.
+   This function returns 1 if the caller must finish the update (see comment
+   below), 0 otherwise.
+*/
+
+void
+update_face_cachel_data (struct face_cachel *cachel,
+			 Lisp_Object domain,
+			 Lisp_Object face)
+{
+  if (XFACE (face)->dirty || UNBOUNDP (cachel->face))
+    {
+      int default_face = EQ (face, Vdefault_face);
+      cachel->face = face;
+
+      /* We normally only set the _specified flags if the value was
+         actually bound.  The exception is for the default face where
+         we always set it since it is the ultimate fallback. */
+
       FROB (foreground);
       FROB (background);
       FROB (display_table);
-      FROB (background_pixmap);
 
-      /*
-       * A face's background pixmap will override the face's
-       * background color.  But the background pixmap of the
-       * default face should not override the background color of
-       * a face if the background color has been specified or
-       * inherited.
-       *
-       * To accomplish this we remove the background pixmap of the
-       * cachel and mark it as having been specified so that cachel
-       * merging won't override it later.
-       */
-      if (! default_face
-	  && cachel->background_specified
-	  && ! cachel->background_pixmap_specified)
+      /* #### WARNING: the background pixmap property of faces is currently
+	 the only one dealing with images. The problem we have here is that
+	 frobbing the background pixmap might lead to image instantiation
+	 which in turn might require that the cache we're building be up to
+	 date, hence a crash. Here's a typical scenario of this:
+
+	 - a new window is created and it's face cache elements are
+	 initialized through a call to reset_face_cachels[1]. At that point,
+	 the cache for the default and modeline faces (normaly taken care of
+	 by redisplay itself) are null.
+	 - the default face has a background pixmap which needs to be
+	 instantiated right here, as a consequence of cache initialization.
+	 - the background pixmap image happens to be instantiated as a string
+	 (this happens on tty's for instance).
+	 - In order to do this, we need to compute the string geometry.
+	 - In order to do this, we might have to access the window's default
+	 face cache. But this is the cache we're building right now, it is
+	 null.
+	 - BARF !!!!!
+
+	 To sum up, this means that it is in general unsafe to instantiate
+	 images before face cache updating is complete (appart from image
+	 related face attributes). The solution we use below is to actually
+	 detect whether we're building the window's face_cachels for the first
+	 time, and simply NOT frob the background pixmap in that case. If
+	 other image-related face attributes are ever implemented, they should
+	 be protected the same way right here.
+
+	 One note:
+	 * See comment in `default_face_font_info' in face.c. Who wrote it ?
+	 Maybe we have the begining of an answer here ?
+
+	 Footnotes:
+	 [1] See comment at the top of `allocate_window' in window.c.
+
+	 -- didier
+      */
+      if (! WINDOWP (domain)
+	  || WINDOW_FACE_CACHEL (DOMAIN_XWINDOW (domain), DEFAULT_INDEX))
 	{
-	  cachel->background_pixmap = Qunbound;
-	  cachel->background_pixmap_specified = 1;
+	  FROB (background_pixmap);
+	  MAYBE_UNFROB_BACKGROUND_PIXMAP;
 	}
-
 #undef FROB
+#undef MAYBE_UNFROB_BACKGROUND_PIXMAP
 
       ensure_face_cachel_contains_charset (cachel, domain, Vcharset_ascii);
 
@@ -1315,20 +1393,6 @@ reset_face_cachel (struct face_cachel *cachel)
   }
   cachel->display_table = Qunbound;
   cachel->background_pixmap = Qunbound;
-}
-
-/* Add a cachel for the given face to the given window's cache. */
-
-static void
-add_face_cachel (struct window *w, Lisp_Object face)
-{
-  struct face_cachel new_cachel;
-  Lisp_Object window;
-
-  reset_face_cachel (&new_cachel);
-  XSETWINDOW (window, w);
-  update_face_cachel_data (&new_cachel, window, face);
-  Dynarr_add (w->face_cachels, new_cachel);
 }
 
 /* Retrieve the index to a cachel for window W that corresponds to

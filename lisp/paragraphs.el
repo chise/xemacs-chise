@@ -188,7 +188,7 @@ to which the end of the previous line belongs, or the end of the buffer."
 	  nil
 	(setq start (point))
 	;; Move back over paragraph-separating lines.
-	(forward-char -1) (beginning-of-line)
+	(backward-char 1) (beginning-of-line)
 	(while (and (not (bobp))
 		    (progn (move-to-left-margin)
 			   (looking-at paragraph-separate)))
@@ -335,7 +335,7 @@ negative arg -N means kill forward to Nth end of paragraph."
 (defun end-of-paragraph-text ()
   (let ((opoint (point)))
     (forward-paragraph 1)
-    (if (eq (char-before (point)) ?\n) (forward-char -1))
+    (if (eq (char-before (point)) ?\n) (backward-char 1))
     (if (<= (point) opoint)
 	(progn
 	  (forward-char 1)

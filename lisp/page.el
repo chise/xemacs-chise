@@ -53,7 +53,7 @@ A page boundary is any line whose beginning matches the regexp
     (and (save-excursion (re-search-backward page-delimiter nil t))
 	 (= (match-end 0) (point))
 	 (goto-char (match-beginning 0)))
-    (forward-char -1)
+    (backward-char 1)
     (if (re-search-backward page-delimiter nil t)
 	;; We found one--move to the end of it.
 	(goto-char (match-end 0))

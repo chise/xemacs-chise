@@ -168,7 +168,6 @@ typedef struct
 static pdump_entry_list pdump_object_table[256];
 static pdump_entry_list pdump_opaque_data_list;
 static pdump_struct_list pdump_struct_table;
-static pdump_entry_list_elmt *pdump_qnil;
 
 static int pdump_alert_undump_object[256];
 
@@ -357,7 +356,6 @@ pdump_register_sub (const void *data, const struct lrecord_description *desc, in
 	case XD_INT:
 	case XD_LONG:
 	case XD_BYTECOUNT:
-	case XD_LO_RESET_NIL:
 	case XD_INT_RESET:
 	case XD_LO_LINK:
 	  break;
@@ -542,16 +540,6 @@ pdump_dump_data (pdump_entry_list_elmt *elmt, const struct lrecord_description *
 		case XD_LONG:
 		case XD_BYTECOUNT:
 		  break;
-		case XD_LO_RESET_NIL:
-		  {
-		    EMACS_INT num = desc[pos].data1;
-		    int j;
-		    if (XD_IS_INDIRECT (num))
-		      num = pdump_get_indirect_count (num, desc, elmt->obj);
-		    for (j=0; j<num; j++)
-		      ((EMACS_INT *)rdata)[j] = pdump_qnil->save_offset;
-		    break;
-		  }
 		case XD_INT_RESET:
 		  {
 		    EMACS_INT val = desc[pos].data1;
@@ -673,7 +661,6 @@ pdump_reloc_one (void *data, EMACS_INT delta, const struct lrecord_description *
 	    break;
 	  }
 	case XD_LISP_OBJECT_ARRAY:
-	case XD_LO_RESET_NIL:
 	  {
 	    EMACS_INT num = desc[pos].data1;
 	    int j;
@@ -905,6 +892,8 @@ pdump (void)
   int none;
   dump_header hd;
 
+  flush_all_buffer_local_cache ();
+
   /* These appear in a DEFVAR_LISP, which does a staticpro() */
   t_console = Vterminal_console;
   t_frame   = Vterminal_frame;
@@ -962,7 +951,6 @@ pdump (void)
   max_size = 0;
 
   pdump_scan_by_alignment (pdump_allocate_offset);
-  pdump_qnil = pdump_get_entry (XRECORD_LHEADER (Qnil));
 
   pdump_buf = xmalloc (max_size);
   /* Avoid use of the `open' macro.  We want the real function. */
@@ -1238,9 +1226,9 @@ static int pdump_file_get(const char *path)
   pdump_mallocadr = xmalloc(pdump_length+255);
   pdump_free = pdump_file_free;
   pdump_start = (char *)((255 + (unsigned long)pdump_mallocadr) & ~255);
-  read (pdump_fd, pdump_start, pdump_length);
+  read (fd, pdump_start, pdump_length);
 
-  close (pdump_fd);
+  close (fd);
   return 1;
 }
 #endif /* !WIN32_NATIVE */

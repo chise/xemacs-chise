@@ -666,13 +666,13 @@ end of a comment.  This limitation no longer exists.
 You can use @code{forward-comment} to move forward or backward over
 one comment or several comments.
 
-@defun forward-comment count &optional buffer
+@defun forward-comment &optional count buffer
 This function moves point forward across @var{count} comments (backward,
 if @var{count} is negative).  If it finds anything other than a comment
 or whitespace, it stops, leaving point at the place where it stopped.
-It also stops after satisfying @var{count}.
+It also stops after satisfying @var{count}.  @var{count} defaults to @code{1}.
 
-  Optional argument @var{buffer} defaults to the current buffer.
+Optional argument @var{buffer} defaults to the current buffer.
 @end defun
 
 To move forward over all comments and whitespace following point, use

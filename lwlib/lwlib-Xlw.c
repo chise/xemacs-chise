@@ -549,7 +549,7 @@ xlw_update_one_widget (widget_instance* instance, Widget widget,
       else
 	mw = (XlwMenuWidget)widget;
       XtSetArg (al [0], XtNmenu, val);
-      XtSetValues (widget, al, 1);
+      XtSetValues (widget, al, 1); /* #### mw unused! */
     }
 #endif
 #ifdef LWLIB_SCROLLBARS_LUCID
