@@ -1,3 +1,96 @@
+2001-10-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): New
+	variable.
+	(char-db-insert-char-spec): Use
+	`char-db-coded-charset-priority-list' to split a character.
+
+	* Ideograph-R053-Dotted-Cliff.el: Merge KS X 1001 code points.
+	(M-09454): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R007-Two.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	(C*-****): Merge CJK Ext-B code points.
+	(U+4E8F): Use `<-original-ideograph' instead of
+	`original-char-of-shinjigen-1'; add `ideographic-structure'; unify
+	BC-8CF1.
+	(U+4E90): Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; use `->ideographic-variants' instead of
+	`variant-of-shinjigen-1'; add `ideographic-structure'; unify
+	BC-8A42.
+
+	* Ideograph-R008-Lid.el (U-000*****): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'.
+
+2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R212-Dragon.el (JX1-7E76): Separate G1-4553 and
+	U+9F90; unify K0-5B42.
+
+	* Ideograph-R006-Hook.el, Ideograph-R004-Slash.el (U-000*****):
+	Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R003-Dot.el (U-0002007D): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'.
+
+	* Ideograph-R002-Line.el (U+4E2A): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'.
+
+2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R209-Nose.el (J0-4921): Unify K0-5E2C.
+
+	* Ideograph-R194-Ghost.el (M-45906): Unify K0-582A.
+	(M-45906'): Separate U+9B54, G0-4427 and M057627; fix
+	`total-strokes'; unify M050602.
+	(U+9B54): Unify M057627.
+
+	* Ideograph-R187-Horse.el (M-44795): Separate C3-596A and U+9A08;
+	unify K0-5C40.
+
+	* Ideograph-R184-Eat.el (J0-5D3B): Unify K0-6B66.
+
+	* Ideograph-R163-City.el (JX1-7C6A): Add `ucs-ks' for U+90FD.
+
+	* Ideograph-R149-Speech.el: Merge KS X 1001 code points.
+
+	* Ideograph-R034-Go.el (M-05692): Relate to U-00021552; delete
+	`cns-radical'.
+	(BC-8874): New character; unify U-00021552.
+	(M-05693): Separate C2-213A and U+5903.
+	(C6-2263): Delete `cns-radical'.
+	(U+5904): Delete `non-morohashi'.
+
+	* Ideograph-R020-Wrap.el: Merge CBETA numbers.
+	(U+52F9): Delete Big5.
+	(C3-2225): Use `->ideographic-variants' instead of
+	`ideographic-variants'.
+	(JX1-2E6C): Use `->ideographic-variants' instead of
+	`ideographic-different-form-of'; separate C3-2224 and M054897;
+	unify CB-05526.
+
+	* Ideograph-R009-Man.el (M070276): Relate to U-00020089; add
+	`<-radical' for U-00020089; delete Big5.
+
+	* Ideograph-R001-One.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge CJK Ext-B code points.
+	(GT-8): Add `->identical' for U-00020089.
+	(GT-10): Unify M051101.
+	(GT-22): Unify M050071.
+	(C2-212E): Use <IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM
+	UPPER LEFT> instead of <IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO
+	BELOW> in the operator of `ideographic-structure'.
+	(M-00038): Separate C6-222A; relate to U-000200E0.
+
 2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R195-Fish.el (U+9C47): Unify K0-4B3E.
