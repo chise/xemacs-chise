@@ -777,13 +777,13 @@
     (ucs			. #x20131)	; ð „±
     ))
 (define-char
-  '((ideographic-radical . 7)	; â¼†
-    (ideographic-strokes . 7)
+  '((ideographic-	(:radical	57 ; â¼¸
+			 :strokes	6)
+			(:radical	7 ; â¼†
+			 :strokes	7))
     (total-strokes	 . 9)
-    (->identical
-     ((chinese-cns11643-6 . #x307C)	; ø»œŒ
-      (ideograph-daikanwa . 09782)	; ø¸‚˜¶
-      ))
+    (chinese-cns11643-6		. #x307C)	; ø»œŒ
+    (ideograph-daikanwa		. 09782)	; ø¸‚˜¶
     (ideograph-hanziku-1	. #xF5B0)	; ý¢€Ÿ–°
     (ucs			. #x20134)	; ð „´
     ))

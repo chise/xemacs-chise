@@ -186,16 +186,16 @@
     (ucs			. #x51E1)	; å‡¡
     ))
 (define-char
-  '((ideographic-radical . 3)	; â¼‚
-    (ideographic-strokes . 2)
+  '((ideographic-	(:radical	26 ; â¼™
+			 :strokes	1)
+			(:radical	3 ; â¼‚
+			 :strokes	2))
     (total-strokes	 . 3)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 52)
     (hanyu-dazidian-char . 1)
-    (->identical
-     ((chinese-cns11643-5 . #x212D)	; ø»™ª¸
-      (ideograph-daikanwa . 02840)	; ø¸€¬˜
-      ))
+    (chinese-cns11643-5 . #x212D)	; ø»™ª¸
+    (ideograph-daikanwa . 02840)	; ø¸€¬˜
     (ucs		. #x2007E)	; ð ¾
     ))
 (define-char

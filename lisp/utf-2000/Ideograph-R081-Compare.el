@@ -35,15 +35,17 @@
     (ideograph-daikanwa . 16744)	; ø¸„…¨
     ))
 (define-char
-  '((=>ucs		. #x200B1)	; ð ‚±
-    (morohashi-daikanwa	16744 0 0)
-    (ideographic-radical . 81)	; â½
-    (ideographic-strokes . 3)
+  '((morohashi-daikanwa	16744 0 0)
+    (ideographic-	(:radical	81 ; â½
+			 :strokes	3)
+			(:radical	4 ; â¼ƒ
+			 :strokes	7))
     (total-strokes	 . 8)
-    (->identical
-     ((ucs		  . #x200B1)	; ð ‚±
+    (->same-ideograph
+     ((ideograph-daikanwa . 16744)	; ø¸„…¨
       ))
     (chinese-cns11643-6 . #x2C43)	; ø»œ…œ
+    (ucs		. #x200B1)	; ð ‚±
     ))
 (define-char
   '((ideographic-radical . 81)	; â½

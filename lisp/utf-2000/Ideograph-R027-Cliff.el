@@ -1403,8 +1403,7 @@
     (ucs		. #x20A72)	; ð ©²
     ))
 (define-char
-  '((=>ucs		. #x20A78)	; ð ©¸
-    (ideographic-radical . 27)	; â¼š
+  '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (chinese-cns11643-6 . #x3D60)	; ø»œž·

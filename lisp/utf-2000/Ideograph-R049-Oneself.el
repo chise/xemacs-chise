@@ -99,15 +99,16 @@
     (ucs		. #x22036)	; ð¢€¶
     ))
 (define-char
-  '((=>ucs		. #x200AC)	; ð ‚¬
-    (ideographic-radical . 49)	; â¼°
-    (ideographic-strokes . 3)
+  '((ideographic-	(:radical	49 ; â¼°
+			 :strokes	3)
+			(:radical	4 ; â¼ƒ
+			 :strokes	5))
     (total-strokes	 . 6)
-    (->identical
-     ((ucs		  . #x200AC)	; ð ‚¬
-      ))
-    (chinese-cns11643-6 . #x245D)	; ø»›º†
-    (ideograph-daikanwa . 08750)	; ø¸‚ˆ®
+    (hanyu-dazidian	1 69 21)
+    (chinese-cns11643-6		. #x245D)	; ø»›º†
+    (ideograph-daikanwa		. 08750)	; ø¸‚ˆ®
+    (ideograph-hanziku-1	. #xB25E)	; ý¢€›‰ž
+    (ucs			. #x200AC)	; ð ‚¬
     ))
 (define-char
   '((ideographic-radical . 49)	; â¼°

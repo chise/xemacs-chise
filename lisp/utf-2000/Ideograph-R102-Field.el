@@ -1079,13 +1079,12 @@
     (ucs			. #x7560)	; ç• 
     ))
 (define-char
-  '((=>ucs		. #x200BD)	; ð ‚½
-    (ideographic-radical . 102)	; â½¥
-    (ideographic-strokes . 5)
+  '((ideographic-	(:radical	102 ; â½¥
+			 :strokes	5)
+			(:radical	4 ; â¼ƒ
+			 :strokes	9))
     (total-strokes	 . 10)
-    (->identical
-     ((ucs		  . #x200BD)	; ð ‚½
-      ))
+    (hanyu-dazidian	1 41 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
@@ -1096,8 +1095,10 @@
       )
      ((chinese-big5-cdp	  . #x8CC6)	; ý¢€ˆ³†
       ))
-    (chinese-cns11643-6 . #x3964)	; ø»œ™ƒ
-    (ideograph-daikanwa . 49333)	; ø¸Œ‚µ
+    (chinese-cns11643-6		. #x3964)	; ø»œ™ƒ
+    (ideograph-daikanwa		. 49333)	; ø¸Œ‚µ
+    (ideograph-hanziku-1	. #xAC7B)	; ý¢€š±»
+    (ucs			. #x200BD)	; ð ‚½
     ))
 (define-char
   '((ideographic-radical . 102)	; â½¥
