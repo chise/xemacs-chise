@@ -4409,6 +4409,7 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (=jis-x0213-1-2000	. #x4F6F)	; ø»£—®
     (=ucs		. #x37E2)	; ãŸ¢
     ))
 (define-char
@@ -5402,8 +5403,10 @@
     (ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=jis-x0213-1-2000	. #x4F72)	; ø»£—±
     (=gt-pj-9		. #x3374)	; ý¡€‚¢›
     (=gt		. 10395)	; ý¡€‚¢›
+    (=ucs		. #xFA11)	; ï¨‘
     ))
 (define-char
   '((=>ucs		. #x5D5C)	; åµœ
