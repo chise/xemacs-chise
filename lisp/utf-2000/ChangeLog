@@ -1,5 +1,7 @@
 2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R075-Tree.el (M-49176): Unify U+699D.
+
 	* Ideograph-R037-Big.el (M-05898): Map to U-000215FE.
 	(C6-2A58): Separate M-05898.
 
