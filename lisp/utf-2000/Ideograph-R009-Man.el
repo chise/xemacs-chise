@@ -1442,8 +1442,9 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (cns-total-strokes	. 5)
     (chinese-cns11643-6 . #x2236)	; ø»›¶£
     (ideograph-daikanwa . 00458)	; ø¸€‡Š
     ))
