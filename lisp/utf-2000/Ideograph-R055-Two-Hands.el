@@ -59,13 +59,16 @@
     ))
 (define-char
   '((script		Chinese Simplified Ideograph)
-    (ideographic-radical . 55)	; â¼¶
     (ideographic-strokes . 1)
-    (cns-radical	 . 51)	; â¼²
+    (ideographic-	(:radical	55 ; â¼¶
+			 )
+			(:radical	51 ; â¼²
+			 :sources	(cns-11643)))
     (total-strokes	 . 4)
     (chinese-gb2312	. #x3F2A)	; ø»„²‘
     (chinese-isoir165	. #x3F2A)	; ø»š¡
     (chinese-cns11643-4 . #x214D)	; ø»—¡”
+    (chinese-big5-cdp	. #x8B6F)	; ý¢€ˆ­¯
     (ucs		. #x5F00)	; å¼€
     ))
 (define-char

@@ -161,9 +161,7 @@
 			(:radical	16 ; ⼏
 			 :strokes	1))
     (total-strokes	 . 3)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 276)
-    (hanyu-dazidian-char . 3)
+    (hanyu-dazidian	1 276 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
       (ucs		  . #x2FF5)	; ⿵

@@ -266,7 +266,6 @@
     (ideograph-daikanwa		. 00011)	; ø¸€€‹
     (china3-jef			. #x41A5)	; øº„†¥
     (ideograph-gt		. 00018)	; ý¡€€€’
-    (mojikyo			. 000011)	; ý €€€‹
     ))
 (define-char
   '((morohashi-daikanwa	11 0 0)
@@ -282,6 +281,7 @@
     (japanese-jisx0208-1990	. #x3E66)	; ø½Š¡§
     (ideograph-gt-pj-1		. #x3E66)	; ý¡€€€”
     (ideograph-gt		. 00020)	; ý¡€€€”
+    (mojikyo			. 000011)	; ý €€€‹
     (ucs			. #x4E08)	; ä¸ˆ
     ))
 (define-char
@@ -1014,9 +1014,7 @@
 			(:radical	5 ; â¼„
 			 :strokes	4))
     (total-strokes	 . 5)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 52)
-    (hanyu-dazidian-char . 9)
+    (hanyu-dazidian	1 52 9)
     (chinese-cns11643-6 . #x222A)	; ø»›¶—
     (chinese-big5-cdp	. #x87CF)	; ý¢€ˆŸ
     (ucs		. #x200E0)	; ð ƒ 

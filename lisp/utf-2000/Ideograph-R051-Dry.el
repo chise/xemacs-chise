@@ -15,6 +15,20 @@
     (ucs			. #x5E72)	; å¹²
     ))
 (define-char
+  '((script		Chinese Simplified Ideograph)
+    (ideographic-strokes . 1)
+    (ideographic-	(:radical	55 ; â¼¶
+			 )
+			(:radical	51 ; â¼²
+			 :sources	(cns-11643)))
+    (total-strokes	 . 4)
+    (chinese-gb2312	. #x3F2A)	; ø»„²‘
+    (chinese-isoir165	. #x3F2A)	; ø»š¡
+    (chinese-cns11643-4 . #x214D)	; ø»—¡”
+    (chinese-big5-cdp	. #x8B6F)	; ý¢€ˆ­¯
+    (ucs		. #x5F00)	; å¼€
+    ))
+(define-char
   '((=>ucs		. #x5E73)	; å¹³
     (ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 2)
@@ -161,6 +175,7 @@
     (korean-ksc5601	. #x5C34)	; ø»‰±‰
     (ideograph-daikanwa . 09175)	; ø¸‚—
     (china3-jef		. #x4CB2)	; øº„²²
+    (chinese-big5-cdp	. #x88EB)	; ý¢€ˆ£«
     ))
 (define-char
   '((=>ucs		. #x5E77)	; å¹·
@@ -169,12 +184,6 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
     (chinese-cns11643-3 . #x2863)	; ø»•¡¸
-    ))
-(define-char
-  '((morohashi-daikanwa	9175 0 2)
-    (ideographic-radical . 51)	; â¼²
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
     (ucs		. #x5E77)	; å¹·
     ))
 (define-char

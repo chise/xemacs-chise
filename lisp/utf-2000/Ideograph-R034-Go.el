@@ -137,6 +137,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (chinese-cns11643-3 . #x2344)	; ø»•šƒ
+    (chinese-big5-cdp	. #x8D5F)	; ý¢€ˆµŸ
     ))
 (define-char
   '((=>ucs		. #x5905)	; å¤…

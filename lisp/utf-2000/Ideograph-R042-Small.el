@@ -107,6 +107,7 @@
     (total-strokes	 . 5)
     (chinese-cns11643-3 . #x223F)	; ø»•˜ 
     (china3-jef		. #x81C4)	; øºˆ‡„
+    (chinese-big5-cdp	. #x88C2)	; ý¢€ˆ£‚
     ))
 (define-char
   '((ideographic-radical . 42)	; â¼©
