@@ -1,3 +1,67 @@
+2001-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el: Add some CHINA3-JEF code points.
+
+	* Ideograph-R010-Legs.el (U+5156): Unify H1-E0CF.
+
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R052-Short-Thread.el (U+5E7A): Unify BC-8B44.
+
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Format
+	`ideograph-daikanwa-2' as same as `ideograph-daikanwa'.
+
+	* Ideograph-R006-Hook.el, Ideograph-R004-Slash.el:
+	- Add some missing `ideographic-structure' properties.
+	- Add some Hanziku-1 code points.
+
+2001-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Add some CHINA3-JEF code points.
+
+2001-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el, Ideograph-R016-Table.el: Add some
+	missing `ideographic-structure' properties.
+
+	* Ideograph-R014-Cover.el: Add some missing
+	`ideographic-structure' properties.
+	(M-01592): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R013-Down-Box.el, Ideograph-R012-Eight.el,
+	Ideograph-R011-Enter.el: Add some missing `ideographic-structure'
+	properties.
+
+	* Ideograph-R010-Legs.el (JX1-2E50): Unify JC3-43D5.
+	(U+514F): Use U-00020086 instead of U+5382 in the
+	`ideographic-structure' property; use U-00020477 instead of
+	U+4E0A/U+513F in the `ideographic-structure' property.
+
+	* Ideograph-R006-Hook.el (U-00020112): Add
+	`ideographic-structure'; unify H1-AAD7.
+
+2001-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R036-Evening.el, Ideograph-R035-Go-Slowly.el,
+	Ideograph-R034-Go.el: Add some CHINA3-JEF code points.
+
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some `ideographic-structure' properties.
+	- Add some CBETA numbers.
+
+	* Ideograph-R028-Private.el, Ideograph-R023-Hiding-Enclosure.el:
+	Add some CJK Ext-B code points.
+
+	* Ideograph-R005-Second.el (U-000200E4): Add
+	`ideographic-structure'; unify H1-ABE1.
+
 2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R059-Bristle.el: Use `=>ucs' instead of `->ucs'.
