@@ -3,14 +3,17 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (korean-ksc5601	. #x3021)	; ø»ˆ°Ž
+    (china3-jef		. #x95F2)	; øº‰—²
     (ucs		. #xAC00)	; ê°€
     ))
 (define-char
   '((korean-ksc5601	. #x3022)	; ø»ˆ°
+    (china3-jef		. #x95F3)	; øº‰—³
     (ucs		. #xAC01)	; ê°
     ))
 (define-char
   '((korean-ksc5601	. #x3023)	; ø»ˆ°
+    (china3-jef		. #x95F4)	; øº‰—´
     (ucs		. #xAC04)	; ê°„
     ))
 (define-char
@@ -75,6 +78,7 @@
     ))
 (define-char
   '((korean-ksc5601	. #x3033)	; ø»ˆ° 
+    (china3-jef		. #x95F5)	; øº‰—µ
     (ucs		. #xAC1C)	; ê°œ
     ))
 (define-char
@@ -5767,10 +5771,12 @@
     ))
 (define-char
   '((korean-ksc5601	. #x3F40)	; ø»‰†¯
+    (china3-jef		. #x96CB)	; øº‰›‹
     (ucs		. #xC624)	; ì˜¤
     ))
 (define-char
   '((korean-ksc5601	. #x3F41)	; ø»‰†°
+    (china3-jef		. #x96CD)	; øº‰›
     (ucs		. #xC625)	; ì˜¥
     ))
 (define-char
@@ -5799,6 +5805,7 @@
     ))
 (define-char
   '((korean-ksc5601	. #x3F48)	; ø»‰†·
+    (china3-jef		. #x96D0)	; øº‰›
     (ucs		. #xC634)	; ì˜´
     ))
 (define-char

@@ -1,3 +1,24 @@
+2002-09-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u0AC00-Hangul-Syllables.el, u03300-CJK-Compatibility.el,
+	u030A0-Katakana.el, u03200-Enclosed-CJK-Letters-and-Months.el,
+	u03040-Hiragana.el, u02600-Miscellaneous-Symbols.el,
+	u02460-Enclosed-Alphanumerics.el, u02190-Arrows.el,
+	u02200-Mathematical-Operators.el,
+	u002B0-Spacing-Modifier-Letters.el, u02150-Number-Forms.el,
+	u00180-Latin-Extended-B.el, u00100-Latin-Extended-A.el,
+	u000A0-Latin-1-Supplement.el, Ideograph-R120-Silk.el,
+	Ideograph-R115-Grain.el, Ideograph-R112-Stone.el,
+	Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R076-Lack.el, Ideograph-R075-Tree.el,
+	Ideograph-R064-Hand.el, Ideograph-R061-Heart.el,
+	Ideograph-R060-Step.el, Ideograph-R045-Sprout.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R042-Small.el,
+	Ideograph-R040-Roof.el, Ideograph-R038-Woman.el: Add some missing
+	mappings to CHINA3-JEF code points.
+
 2002-09-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R106-White.el (U+76A1): Separate C3-5176.

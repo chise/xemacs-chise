@@ -907,6 +907,7 @@
       ))
     (japanese-jisx0212		. #x2A26)	; ø»Š±£
     (japanese-jisx0213-1	. #x286F)	; ø»¢žœ
+    (china3-jef			. #x88DF)	; øºˆ£Ÿ
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER A WITH CARON")
@@ -943,6 +944,7 @@
     (chinese-gb2312		. #x2823)	; ø»„˜
     (japanese-jisx0212		. #x2B26)	; ø»Š³
     (japanese-jisx0213-1	. #x2870)	; ø»¢ž
+    (china3-jef			. #x88EE)	; øºˆ£®
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER I WITH CARON")
@@ -975,6 +977,7 @@
       (ucs		  . #x01CF)	; Ç
       ))
     (japanese-jisx0212	. #x2A43)	; ø»Š²€
+    (china3-jef		. #x88E4)	; øºˆ£¤
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER I WITH CARON")
@@ -1045,6 +1048,7 @@
       ))
     (japanese-jisx0212		. #x2A55)	; ø»Š²’
     (japanese-jisx0213-1	. #x2876)	; ø»¢ž£
+    (china3-jef			. #x88E8)	; øºˆ£¨
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH CARON")
@@ -1081,6 +1085,7 @@
     (chinese-gb2312		. #x282F)	; ø»„¤
     (japanese-jisx0212		. #x2B55)	; ø»Š³°
     (japanese-jisx0213-1	. #x2877)	; ø»¢ž¤
+    (china3-jef			. #x88F7)	; øºˆ£·
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER U WITH CARON")
@@ -1113,6 +1118,7 @@
       (ucs		  . #x01D3)	; Ç“
       ))
     (japanese-jisx0212	. #x2A67)	; ø»Š²¤
+    (china3-jef		. #x88EC)	; øºˆ£¬
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH CARON")
@@ -1149,6 +1155,7 @@
     (chinese-gb2312		. #x2833)	; ø»„¨
     (japanese-jisx0212		. #x2B67)	; ø»Š´‚
     (japanese-jisx0213-1	. #x2878)	; ø»¢ž¥
+    (china3-jef			. #x88FB)	; øºˆ£»
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
@@ -1748,6 +1755,7 @@
       (ucs		  . #x01F5)	; Çµ
       ))
     (japanese-jisx0212	. #x2B39)	; ø»Š³”
+    (china3-jef		. #x85EF)	; øºˆ—¯
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER HWAIR")

@@ -862,9 +862,17 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (japanese-jisx0212		. #x5125)	; ø»‹ª´
-    (chinese-cns11643-2		. #x3150)	; ø»“¤¯
     (japanese-jisx0213-1	. #x794A)	; ø»¤”µ
     (ideograph-daikanwa		. 25001)	; ø¸††©
+    (china3-jef			. #x98E7)	; øº‰£§
+    ))
+(define-char
+  '((=>ucs		. #x79EB)	; ç§«
+    (morohashi-daikanwa	25001 0 0)
+    (ideographic-radical . 115)	; â½²
+    (ideographic-strokes . 5)
+    (total-strokes	 . 10)
+    (chinese-cns11643-2 . #x3150)	; ø»“¤¯
     ))
 (define-char
   '((morohashi-daikanwa	25001 0 3)

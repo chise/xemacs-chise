@@ -1950,12 +1950,20 @@
     (ucs		. #x2223D)	; ð¢ˆ½
     ))
 (define-char
-  '((ideographic-radical . 53)	; â¼´
+  '((=>ucs		. #x5EB4)	; åº´
+    (ideographic-radical . 53)	; â¼´
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
+    (chinese-big5	. #xD548)	; ý¢€•ˆ
+    (ideograph-daikanwa . 09367)	; ø¸‚’—
+    (china3-jef		. #x97F0)	; øº‰Ÿ°
+    ))
+(define-char
+  '((morohashi-daikanwa	9367 0 0)
+    (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (chinese-cns11643-2 . #x352C)	; ø»“ªƒ
-    (chinese-big5	. #xD548)	; ý¢€•ˆ
-    (ideograph-daikanwa . 09367)	; ø¸‚’—
     (ucs		. #x5EB4)	; åº´
     ))
 (define-char
