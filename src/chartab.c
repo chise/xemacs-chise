@@ -1142,6 +1142,8 @@ Lisp_Object Q_denotational;
 Lisp_Object Q_denotational_from;
 Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
+Lisp_Object Q_component;
+Lisp_Object Q_component_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3491,6 +3493,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_denotational_from) ||
 	    EQ (attribute, Q_identical) ||
 	    EQ (attribute, Q_identical_from) ||
+	    EQ (attribute, Q_component) ||
+	    EQ (attribute, Q_component_of) ||
 	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
 				  Fsymbol_name (attribute),
 				  Qnil, Qnil)) )
@@ -3513,6 +3517,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_denotational_from;
       else if (EQ (attribute, Q_denotational_from))
 	rev_feature = Q_denotational;
+      else if (EQ (attribute, Q_component))
+	rev_feature = Q_component_of;
+      else if (EQ (attribute, Q_component_of))
+	rev_feature = Q_component;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
@@ -4576,6 +4584,8 @@ syms_of_chartab (void)
   defsymbol (&Q_denotational_from,	"<-denotational");
   defsymbol (&Q_identical,		"->identical");
   defsymbol (&Q_identical_from,		"<-identical");
+  defsymbol (&Q_component,		"->ideographic-component-forms");
+  defsymbol (&Q_component_of,		"<-ideographic-component-forms");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
