@@ -6,11 +6,12 @@
     (shinjigen-2	. 4867)
     (=jis-x0208		. #x383C)	; ø½Š˜‰
     (=ks-x1001		. #x7A5C)	; ø»Šµ
-    (=gt-pj-1		. #x383C)	; ø½Š˜‰
+    (=gt-pj-1		. #x383C)	; ý¡€† —
     (=big5		. #xA5C8)	; ý¢€Š—ˆ
     (=daikanwa		. 20814)	; ø¸……Ž
     (=gt-k		. 00923)	; ý¡„€Ž›
     (=ucs@jis		. #x7384)	; ø½Š˜‰
+    (=gt		. 26647)	; ý¡€† —
     ))
 (define-char
   '((morohashi-daikanwa	20814 0 0)
@@ -79,10 +80,11 @@
     (total-strokes	 . 11)
     (=jis-x0208		. #x4E28)	; ø½Š¸‰
     (=ks-x1001		. #x6163)	; ø»‰¹Ž
-    (=gt-pj-1		. #x4E28)	; ø½Š¸‰
+    (=gt-pj-1		. #x4E28)	; ý¡€† ›
     (=big5		. #xB276)	; ý¢€‹‰¶
     (=gt-k		. 07893)	; ý¡„»•
     (=ucs@jis		. #x7387)	; ø½Š¸‰
+    (=gt		. 26651)	; ý¡€† ›
     ))
 (define-char
   '((morohashi-daikanwa	20817 1 0)
