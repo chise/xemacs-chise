@@ -20,26 +20,23 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (hanyu-dazidian	1 49 2)
-    (shinjigen-1	. 31)
     (=ucs		. #x4E29)	; 丩
-    (=jis-x0213-2-2000	. #x2125)	; &I-JX2-2125; [01-05]
-    (=big5-cdp		. #x8BA3)	; &I-CDP-8BA3;
-    (=gt		. 00102)	; &I-GT-00102;
-    (=gt-k		. 00069)	; &I-GT-K00069;
-    (=gt-pj-2		. #x3054)	; &I-GT-00102; [16-52]
-    (=daikanwa		. 00068)	; &I-M-00068;
-    ))
-(define-char
-  '((=>ucs		. #x4E29)	; 丩
-    (morohashi-daikanwa	68 0 0)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (=cns11643-4	. #x2127)	; &GT-K00068; [01-07]
-    (=gt-k		. 00068)	; &I-GT-K00068;
-    (=gt-pj-k1		. #x735C)	; &GT-K00068; [83-60]
-    (=ucs@cns		. #x4E29)	; &GT-K00068;
+    (->subsumptive
+     ((hanyu-dazidian	  1 49 2)
+      (shinjigen-1	  . 31)
+      (=jis-x0213-2-2000  . #x2125)	; &GT-00102; [01-05]
+      (=big5-cdp	  . #x8BA3)	; &I-CDP-8BA3;
+      (=gt		  . 00102)	; &I-GT-00102;
+      (=gt-k		  . 00069)	; &I-GT-K00069;
+      (=gt-pj-2		  . #x3054)	; &I-GT-00102; [16-52]
+      (=daikanwa	  . 00068)	; &I-M-00068;
+      (=ucs@unicode	  . #x4E29)	; &GT-00102;
+      )
+     ((=cns11643-4	  . #x2127)	; &GT-K00068; [01-07]
+      (=gt-k		  . 00068)	; &I-GT-K00068;
+      (=gt-pj-k1	  . #x735C)	; &GT-K00068; [83-60]
+      (=ucs@cns		  . #x4E29)	; &GT-K00068;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁
@@ -52,7 +49,8 @@
     (->same*sources
      daikanwa)
     (<-ancient
-     ((=daikanwa	  . 02774)	; &I-M-02774;
+     ((=ucs		  . #x535C)	; 卜
+      (=daikanwa	  . 02774)	; &I-M-02774;
       ))
     (<-ancient*sources
      daikanwa)
