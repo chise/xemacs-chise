@@ -81,6 +81,13 @@
 		     ucs-ccs 'ucs-big5)
 	       (goto-char (match-end 0))
 	       )
+	      ((looking-at "^JC3-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
+	       (setq ccs 'china3-jef
+		     code (string-to-int (match-string 1) 16)
+		     ucs-pat nil
+		     ucs-ccs nil)
+	       (goto-char (match-end 0))
+	       )
 	      (t
 	       (setq ccs nil
 		     code nil
@@ -88,7 +95,8 @@
 		     ucs-ccs nil)
 	       ))
 	(setq ucs-code
-	      (if (looking-at ucs-pat)
+	      (if (and ucs-pat
+		       (looking-at ucs-pat))
 		  (prog1
 		      (string-to-int (match-string 1) 16)
 		    (goto-char (match-end 0)))))
@@ -102,24 +110,25 @@
 	  (when (and ucs-code
 		     (not (eq (or (get-char-attribute chr ucs-ccs)
 				  (get-char-attribute chr 'ucs)
-				  (get-char-attribute chr '=>ucs)
-				  (get-char-attribute chr '->ucs))
+				  (get-char-attribute chr '=>ucs))
 			      ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
 		     (not (eq (or (get-char-attribute chr 'ucs)
-				  (get-char-attribute chr '=>ucs)
-				  (get-char-attribute chr '->ucs))
+				  (get-char-attribute chr '=>ucs))
 			      ucs)))
-	    (put-char-attribute chr (if ucs-code
-					'=>ucs
-				      ucs-ccs) ucs)))
+	    (put-char-attribute chr
+				(if ucs-code
+				    '=>ucs
+				  (or ucs-ccs
+				      '=>ucs))
+				ucs)))
 	(forward-line)))))
 
 (dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
 		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
 		;; "C3-to-UCS.txt" ; "C4-to-UCS.txt"
-		"B-to-UCS.txt"))
+		"B-to-UCS.txt" "JC3-to-UCS.txt"))
   (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
 ;;; read-maps.el ends here
