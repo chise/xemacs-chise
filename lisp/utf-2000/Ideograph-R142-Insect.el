@@ -12525,6 +12525,8 @@
     (ideographic-radical . 142)	; â¾
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
+    (=gt-pj-6		. #x6A22)	; ý¡€‹Š˜
+    (=gt		. 45720)	; ý¡€‹Š˜
     (mojikyo		. 050435)	; ý €Œ”ƒ
     ))
 (define-char
@@ -12545,7 +12547,10 @@
     (ideographic-radical . 142)	; â¾
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
+    (=gt-pj-6		. #x6A24)	; ý¡€‹Š¹
+    (=gt		. 45753)	; ý¡€‹Š¹
     (mojikyo		. 050436)	; ý €Œ”„
+    (=ucs		. #x27553)	; ð§•“
     ))
 (define-char
   '((=>ucs		. #x2756E)	; ð§•®
