@@ -3100,7 +3100,8 @@ Store character's ATTRIBUTES.
 	    signal_simple_error ("Invalid argument", attributes);
 	  if (!NILP (ccs = Ffind_charset (Fcar (cell)))
 	      && ((XCHARSET_FINAL (ccs) != 0) ||
-		  (XCHARSET_UCS_MAX (ccs) > 0)) )
+		  (XCHARSET_MAX_CODE (ccs) > 0) ||
+		  (EQ (ccs, Vcharset_chinese_big5))) )
 	    {
 	      cell = Fcdr (cell);
 	      if (CONSP (cell))
