@@ -1,3 +1,13 @@
+2003-12-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (JC3-67E6): New character.
+
+	* Ideograph-R061-Heart.el (JC3-4DD6): New character.
+
+	* Ideograph-R140-Grass.el (JC3-62B3): New character.
+
+	* Ideograph-R164-Wine.el (JX2-7A45): Unify JC3-95B2.
+
 2003-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el: Add mappings for Big5 code points.
