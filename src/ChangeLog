@@ -1,3 +1,19 @@
+2002-07-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* lisp.h: Add an EXFUN for `Fchar_ref_p'.
+
+	* fns.c (Qideographic_structure): New variable.
+	(Qkeyword_char): New variable.
+	(ids_format_unit): New function.
+	(Fideographic_structure_to_ids): New function.
+	(syms_of_fns): Add new symbols `ideographic-structure' and
+	`:char'; add new builtin function `ideographic-structure-to-ids'.
+
+	* data.c (Fchar_ref_p): New function.
+	(syms_of_data): Add new builtin function `char-ref-p'.
+
+	* chartab.h: Add an EXFUN for `Ffind_char'.
+
 2002-07-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (Vcharacter_composition_table): Deleted.
