@@ -1,3 +1,57 @@
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule.c (vars_of_mule): Provide `utf-2000' in UTF2000.
+
+	* mule-charset.h (BUFBYTE_FIRST_BYTE_P): Modify for UTF-8 in
+	UTF2000.
+	(REP_BYTES_BY_FIRST_BYTE): Likewise.
+
+	* buffer.h (non_ascii_valid_char_p): Don't define in UTF2000.
+
+	* mule-charset.c (non_ascii_set_charptr_emchar): Don't define
+	local variables `lb', `c1', `c2' and `charset' in UTF2000; encode
+	as UTF-8 in UTF2000.
+	(non_ascii_charptr_emchar): Decode as UTF-8 in UTF2000.
+	(non_ascii_valid_char_p): Don't define in UTF2000.
+	(non_ascii_charptr_copy_char): Add case 5 and 6 in UTF2000.
+	(Lstream_get_emchar_1): Likewise.
+	(utf-2000-version): New variable in UTF2000.
+
+	* lread.c (read_escape): Add new reader `u'.
+
+	* insdel.c (three_to_one_table): Don't define in UTF2000.
+	(bufpos_to_bytind_func): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+	(bytind_to_bufpos_func): Likewise.
+	(buffer_mule_signal_inserted_region): Likewise.
+	(vars_of_insdel): Don't initialize `three_to_one_table'.
+	(init_buffer_text): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+
+	* file-coding.c (DECODE_ADD_BINARY_CHAR): New implementation for
+	UTF-8 representation in UTF2000.
+	(DECODE_ADD_UCS_CHAR): New macro in UTF2000.
+	(decode_ucs4): Use `DECODE_ADD_UCS_CHAR' in UTF2000.
+	(decode_coding_iso2022): Don't define local variable `lb' in
+	UTF2000; don't use LEADING_BYTE in UTF2000; use
+	`DECODE_ADD_UCS_CHAR' in UTF2000.
+	(convert_to_external_format): Decode as UTF-8 in UTF2000.
+
+	* config.h.in (UTF2000): New macro.
+
+	* buffer.h (struct buffer_text): Add new member `mule_size' and
+	don't add `mule_shifter' and `mule_three_p' in UTF2000.
+	(valid_char_p): Return always 1 in UTF2000.
+	(MAX_EMCHAR_LEN): 6 in UTF2000.
+	(three_to_one_table): Don't define in UTF2000.
+	(real_bufpos_to_bytind): Modify for UTF-8 representation in
+	UTF2000.
+	(real_bytind_to_bufpos): Likewise.
+
+	* alloc.c (Fmake_string): Add case 5 and 6 for UTF2000.
+
 1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (rep_bytes_by_first_byte): Modified for character

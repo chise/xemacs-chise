@@ -1,3 +1,8 @@
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Don't load vietnamese.el
+	if utf-2000 is provided temporally.
+
 1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/vietnamese.el (leading-code-private-11): Deleted [defined
