@@ -1,3 +1,293 @@
+2000-03-17  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R023-Hiding-Enclosure.el (U+533A): Add
+	J90-3668.
+
+	* utf-2000/Ideograph-R009-Man.el (M724): Add
+	`jisx0208-difference'.
+	(U+4FF1): Add `jisx0208-1978/4X'.
+
+	* utf-2000/Ideograph-R145-Clothes.el (M34646): Add
+	`ideographic-strokes'.
+	(M34647): Add J{78|83}-365F.
+	(M34648): Add `ideographic-strokes'.
+
+	* utf-2000/Ideograph-R145-Clothes.el (M34148): Add
+	`ideographic-strokes'.
+	(M34149): Separate U+887F.
+	(M34150): Separate C2-3277.
+	(M34151): Add `ideographic-strokes'.
+
+	* utf-2000/Ideograph-R076-Lack.el (M16104): Unify U+6B3D.
+
+2000-03-16  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R076-Lack.el (M16008): Unify U+6B23.
+	(M16012): Separate U+6B24.
+	(M16017): Unify U+6B25.
+	(M16019): Unify U+6B26.
+
+	* utf-2000/Ideograph-R069-Axe.el (M13534): Unify U+65A4.
+
+	* utf-2000/Ideograph-R019-Power.el (M2415'): Add J90-3650 and
+	Mojikyo-50112.
+
+2000-03-15  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R009-Man.el (M899): Add J90-3676.
+	(J83-364F): Add J90-364F.
+
+	* utf-2000/Ideograph-R032-Earth.el (U+5C2D): Moved from
+	Ideograph-R043-Lame.el; add J90-3646.
+
+	* utf-2000/Ideograph-R043-Lame.el (U+5C2D): Moved to
+	Ideograph-R032-Earth.el.
+
+	* utf-2000/Ideograph-R064-Hand.el (U+631F): Add J{78|83|90}-3634.
+
+	* utf-2000/Ideograph-R026-Seal.el (U+537F): Add J90-362A.
+
+	* utf-2000/Ideograph-R044-Corpse.el (M7709): Separate U+5C51 and
+	C1-552C.
+
+	* utf-2000/Ideograph-R032-Earth.el (M4916): Separate
+	J{78|83}-3651.
+	(U+5747): Unify J{78|83}-3651.
+
+2000-03-14  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R093-Cow.el (M19922): Unify U+725B.
+	(M19923): Add total-strokes.
+
+	* utf-2000/Ideograph-R029-Again.el (M3118'): Add J90-355A and
+	Mojikyo-50116.
+
+	* utf-2000/Ideograph-R123-Sheep.el (M28504): Add J{78|83}-3541 and
+	K0-6B79.
+
+	* utf-2000/Ideograph-R103-Bolt-Of-Cloth.el (M22007): Unify U+7591.
+
+	* utf-2000/Ideograph-R093-Cow.el (M20190'): Add J{78|83|90}-353E
+	and Mojikyo-50275.
+	(M20195): Unify U+72A1.
+
+	* utf-2000/Ideograph-R076-Lack.el (M16097): Unify U+6B3A.
+	(M16099): Unify U+6B3B.
+	(M16103): Unify U+6B3C.
+
+	* utf-2000/Ideograph-R084-Steam.el (M17046): Separate U+6C18; add
+	C6-2529.
+	(U+6C18): Unify C2-2258.
+	(M17046'): Add J{78|83|90}-3524 and Mojikyo-50245.
+
+	* utf-2000/Ideograph-R009-Man.el (M927'): Add J90-3536 and
+	Mojikyo-50104.
+
+	* utf-2000/Ideograph-R079-Weapon.el (M16668): Unify U+6BC4.
+	(M16673): Unify U+6BC5.
+
+2000-03-13  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R116-Cave.el (M25593): Separate U+7AAE.
+
+2000-03-09  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R113-Spirit.el (M24639): Separate U+7947.
+
+2000-03-08  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R050-Turban.el (M8930): Separate J90-3522 and
+	C3-3067.
+
+2000-03-06  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R074-Moon.el (M14378): Add J{78|83}-347C.
+
+	* utf-2000/Ideograph-R071-Not.el (M13721): Unify U+65E2.
+
+	* utf-2000/Ideograph-R070-Square.el (M13687): Unify U+65D7.
+	(M13694): Unify U+65D8.
+	(M13698): Unify U+65DA.
+
+	* utf-2000/Ideograph-R026-Seal.el (U+5371): Add J90-346D.
+
+2000-03-03  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R104-Sickness.el (M22538): Unify U+764C.
+	(M22542): Unify U+7650.
+
+	* utf-2000/Ideograph-R170-Mound.el (M41676'): Add
+	J{78|83|90}-3459.
+
+	* utf-2000/Ideograph-R108-Dish.el (M23031): Unify U+76E2.
+	(M23032): Unify C1-6971.
+	(J90-3446): Add J{78|83}-3446 and K0-4A78.
+
+	* utf-2000/Ideograph-R099-Sweet.el (M21643): Unify U+7518.
+
+	* utf-2000/Ideograph-R085-Water.el (M18253): New character.
+	(U+6F97): Unify C1-6D58; add J{83|90}-3442 and K0-4A55.
+
+	* utf-2000/Ideograph-R076-Lack.el (M16190): Unify U+6B52.
+	(M16197): Unify U+6B53.
+
+2000-03-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R076-Lack.el (M16107): Unify U+6B3E.
+	(M16111): Unify U+6B3F.
+	(M16125): Unify U+6B40.
+	(M16126): Unify U+6B41.
+	(M16127): Unify U+6B42.
+
+	* utf-2000/Ideograph-R066-Rap.el (M13260): Add J{78|83}-343A;
+	separate C1-5F56 and J90-343A.
+
+	* utf-2000/Ideograph-R098-Tile.el (J90-3424): Add J{78|83}-3424.
+
+	* utf-2000/Ideograph-R140-Grass.el (M30771): New character.
+	(U+82C5): Add J90-3423.
+	(U+85F2): Delete M15811; add C2-665A.
+
+	* utf-2000/Ideograph-R181-Leaf.el (M43374): Separate U+9811.
+
+2000-03-01  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R124-Feather.el (M28766): Separate U+7FEB.
+
+	* utf-2000/Ideograph-R046-Mountain.el (M8624'): Separate
+	J{78|83}-3460.
+
+	* utf-2000/Ideograph-R154-Shell.el (M36681): Separate
+	J{78|83}-3453 and C1-5D4B.
+
+	* utf-2000/Ideograph-R124-Feather.el (M28780): Separate U+7FF0.
+
+	* utf-2000/Ideograph-R030-Mouth.el (U+565B): Add J90-337A.
+
+	* utf-2000/Ideograph-R116-Cave.el (U+7AC3): Add J78-635E and
+	J{83|90}-3376.
+
+	* utf-2000/Ideograph-R075-Tree.el (M15065): Separate U+691B.
+	(U+691B): Add J{78|83|90}-3371.
+
+	* utf-2000/Ideograph-R018-Knife.el (M2112'): Add J90-3364.
+
+	* utf-2000/Ideograph-R075-Tree.el (M15485): Add J{78|83}-335F.
+
+2000-02-29  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R079-Weapon.el (U+6BBB): Unify C3-3665; add
+	J{78|83}-334C.
+	(J90-334C): New character.
+
+	* utf-2000/Ideograph-R064-Hand.el (U+64B9): Add J78-5978 and
+	J{83|90}-3349.
+
+	* utf-2000/Ideograph-R142-Insect.el (U+86CE): Add J78-695A and
+	J{83|90}-3342.
+
+	* utf-2000/Ideograph-R075-Tree.el (M15217'): Add J78-3335;
+	separate U+6982.
+	(U+6982): Separate J83-3335, J90-3335 and C1-644D.
+
+2000-02-28  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R106-White.el (M22699): Unify U+7686.
+
+	* utf-2000/Ideograph-R177-Leather.el (M42781): Separate
+	J{83|90}-3373.
+
+	* utf-2000/Ideograph-R140-Grass.el (M31170): Separate U+83D4.
+	(M32601): Separate C5-7940; add mapping to U+8641.
+
+	* utf-2000/Ideograph-R061-Heart.el (M10617'): Remove C1-554E.
+
+	* utf-2000/Ideograph-R140-Grass.el (M31000): New character.
+	(M31000'): Add J90-3259; move C1-5D23 to M31000.
+	(M31168): New character.
+	(M31168'): Add J90-325B; move C3-3E59 to M31168.
+
+2000-02-26  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R021-Spoon.el (J{78|83}-323D): Add J90-323D.
+
+	* utf-2000/Ideograph-R026-Seal.el (J{78|83}-3237): Add J90-3237.
+
+	* utf-2000/Ideograph-R009-Man.el (M628'): Add J90-3241.
+	(M1178): Add J90-322F.
+
+2000-02-25  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R092-Fang.el (M19909): Unify C1-455B.
+	(J90-3267): Unify J{78|83}-3267.
+
+	* utf-2000/Ideograph-R076-Lack.el (M16167): Unify U+6B4C.
+	(M16168): Unify U+6B4D.
+
+	* utf-2000/Ideograph-R093-Cow.el (M19933): Unify U+7261.
+
+	* utf-2000/Ideograph-R124-Feather.el (M28614): New character.
+	(M28614'): Separate K0-6962 to M28614.
+	(M28616): Separate C6-3375.
+	(M28617): Separate C6-3372.
+	(M28618): Separate C6-3376.
+	(M28619): Separate C5-2B2B.
+	(M28620): Separate C4-2B22.
+	(M28621): Separate C4-2B21.
+	(M28622): Separate C4-2B24.
+	(M28623): Separate U+7FBE.
+	(M28624): Separate C4-2B23.
+	(M28625): Separate U+7FBF.
+	(M28626): Separate C6-3374.
+	(M28627): Separate C4-2F33.
+	(M28628): Separate U+437E.
+	(M28629): Separate C5-2F61.
+	(M28631): Separate C5-2F63.
+	(M28632): Separate U+7FC0.
+	(M28633): Separate C5-2F60.
+	(M28634): Separate C4-2F31.
+	(M28800): Moved from Ideograph-R196-Bird.el.
+
+	* utf-2000/Ideograph-R195-Fish.el (U+9BF5): Add J90-3033.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule/mule-conf.el (japanese-jisx0213-1): Allow
+	"jisx0213.2000-1".
+	(japanese-jisx0213-2): Allow "jisx0213.2000-2".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `japanese-jisx0213-1' and `japanese-jisx0213-2' to
+	`japanese-jisx0208-1978' and `japanese-jisx0208-1990'.
+
+2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* utf-2000/Ideograph-R196-Bird.el: Move M28800 and U+7FF5 to
+	Ideograph-R124-Feather.el.
+	(U+9D0E): Add J{83|90}-322A.
+
+	* utf-2000/Ideograph-R196-Bird.el (U+9D2C): Add J78-7274 and
+	J{83|90}-3229.
+
+	* utf-2000/Ideograph-R145-Clothes.el (M34629): Separate U+8956;
+	unify J78-3228.
+
+	* utf-2000/Ideograph-R079-Weapon.el (M16618'): Unify U+6BB4;
+	separate C3-2959.
+
+	* utf-2000/u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	utf-2000/u030A0-Katakana.el, utf-2000/u03040-Hiragana.el,
+	utf-2000/u03000-CJK-Symbols-and-Punctuation.el,
+	utf-2000/u02600-Miscellaneous-Symbols.el,
+	utf-2000/u025A0-Geometric-Shapes.el,
+	utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02300-Miscellaneous-Technical.el,
+	utf-2000/u02200-Mathematical-Operators.el,
+	utf-2000/u02190-Arrows.el, utf-2000/u02100-Letterlike-Symbols.el,
+	utf-2000/u02000-General-Punctuation.el,
+	utf-2000/u00400-Cyrillic.el, utf-2000/u00370-Greek.el,
+	utf-2000/u000A0-Latin-1-Supplement.el: Add japanese-jisx0208-1990.
+
 2000-02-24  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* utf-2000/Ideograph-R076-Lack.el (M16024'): Unify U+6B27;
