@@ -3579,8 +3579,29 @@
   '((ideographic-radical . 116)	; â½³
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (=cns11643-4	. #x5222)	; ø»˜¨§
     (=ucs		. #x41B1)	; ä†±
+    ))
+(define-char
+  '((=>ucs		. #x41B1)	; ä†±
+    (ideographic-radical . 116)	; â½³
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (=cns11643-4	. #x5222)	; ø»˜¨§
+    (=ucs@cns		. #x41B1)	; ø»˜¨§
+    ))
+(define-char
+  '((ideographic-radical . 116)	; â½³
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (=ucs		. #x41B4)	; ä†´
+    ))
+(define-char
+  '((=>ucs		. #x41B4)	; ä†´
+    (ideographic-radical . 116)	; â½³
+    (ideographic-strokes . 11)
+    (total-strokes	 . 16)
+    (=jis-x0213-2-2000	. #x7333)	; ø»¦•®
+    (=ucs@jis		. #x41B4)	; ø»¦•®
     ))
 (define-char
   '((ideographic-radical . 116)	; â½³
