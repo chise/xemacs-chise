@@ -1105,8 +1105,6 @@
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (daikanwa-radical	. 108)
-    (daikanwa-strokes	. 6)
     (japanese-jisx0212		. #x5223)	; ø»‹¬
     (japanese-jisx0213-2	. #x7341)	; ø»¦•¼
     (ucs			. #x7B3D)	; ç¬½
