@@ -6,6 +6,15 @@
 	(CJK RADICAL SMALL TWO): Unify GT-K00325.
 	(CJK RADICAL HEART ONE): Unify GT-K00302.
 
+2003-01-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R075-Tree.el (GT-19861): Unify JX1-7624, JU+69EA and
+	KU+69EA.
+
+	* Ideograph-R038-Woman.el (J90-3247): Unify J78-3247, J83-3247 and
+	K0-4A2A; separate C1-6360.
+	(B-B6F9): Separate S2-1716, G0-3C5E, J0-3247, K0-4A2A and U+5AC1.
+
 2003-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el (U+4E47): Separate C2-2128; modify
