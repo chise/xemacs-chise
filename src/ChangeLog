@@ -1,5 +1,15 @@
 2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (CHARSET_BYTE_SIZE): New inline function.
+	(XCHARSET_BYTE_SIZE): New macro.
+	(decoding_table_remove_char): New inline function.
+	(put_char_ccs_code_point): Use `XCHARSET_BYTE_SIZE'; use
+	`decoding_table_remove_char'.
+	(remove_char_ccs): Use `decoding_table_remove_char'.
+	(Fset_charset_mapping_table): Use `CHARSET_BYTE_SIZE'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Vcharacter_name_table): New variable.
 	(Qname): New variable.
 	(Fget_char_attribute): Use `Vcharacter_name_table' for `name'
