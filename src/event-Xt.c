@@ -808,7 +808,8 @@ x_to_emacs_keysym (XKeyPressedEvent *event, int simple_p)
   len = XmImMbLookupString (XtWindowToWidget (event->display, event->window),
 			    event, bufptr, bufsiz, &keysym, &status);
 #else /* XIM_XLIB */
-  len = XmbLookupString (xic, event, bufptr, bufsiz, &keysym, &status);
+  if (xic)
+    len = XmbLookupString (xic, event, bufptr, bufsiz, &keysym, &status);
 #endif /* HAVE_XIM */
 
 #ifdef DEBUG_XEMACS
@@ -1313,8 +1314,9 @@ handle_focus_event_1 (struct frame *f, int in_p)
 #if XtSpecificationRelease > 5
   Widget focus_widget = XtGetKeyboardFocusWidget (FRAME_X_TEXT_WIDGET (f));
 #endif
-#ifdef HAVE_XIM
-  XIM_focus_event (f, in_p);
+#if defined(HAVE_XIM) && defined(XIM_XLIB)
+  if (FRAME_X_XIC(f))
+    XIM_focus_event (f, in_p);
 #endif /* HAVE_XIM */
 
   /* On focus change, clear all memory of sticky modifiers
@@ -1642,8 +1644,9 @@ emacs_Xt_handle_magic_event (struct Lisp_Event *emacs_event)
       break;
 
     case ConfigureNotify:
-#ifdef HAVE_XIM
-      XIM_SetGeometry (f);
+#if defined(HAVE_XIM) && defined(XIM_XLIB)
+      if (FRAME_X_XIC(f))
+	XIM_SetGeometry (f);
 #endif
       break;
 

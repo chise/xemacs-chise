@@ -32,7 +32,7 @@
  * Mountain View, California 94043
  */
 
-#pragma ident	"@(#) $Id: _dynodump.h,v 1.3 1997/05/29 04:22:29 steve Exp $ - SMI"
+#pragma ident	"@(#) $Id: _dynodump.h,v 1.5 1996/05/23 18:39:07 georgn Exp $ - SMI"
 
 #ifndef	_DYNODUMP_DOT_H
 #define	_DYNODUMP_DOT_H

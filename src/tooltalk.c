@@ -1256,7 +1256,28 @@ init_tooltalk (void)
   Lisp_Object lp;
   Lisp_Object fil;
 
+
+  /* tt_open() messes with our signal handler flags (at least when no 
+     ttsessions is running on the machine), therefore we save the 
+     actions and restore them after the call */
+#ifdef HAVE_SIGPROCMASK
+  {
+    struct sigaction ActSIGQUIT;
+    struct sigaction ActSIGINT;
+    struct sigaction ActSIGCHLD;
+    sigaction (SIGQUIT, NULL, &ActSIGQUIT);
+    sigaction (SIGINT, NULL, &ActSIGINT);
+    sigaction (SIGCHLD, NULL, &ActSIGCHLD);
+#endif
   retval = tt_open ();
+#ifdef HAVE_SIGPROCMASK
+    sigaction (SIGQUIT, &ActSIGQUIT, NULL);
+    sigaction (SIGINT, &ActSIGINT, NULL);
+    sigaction (SIGCHLD, &ActSIGCHLD, NULL);
+  }
+#endif
+
+
   if (tt_ptr_error (retval) != TT_OK)
     return;
 

@@ -104,25 +104,24 @@ If optional fourth argument FAST is non-nil, don't sort the completions,
 
 ;;=== Utilities ===========================================================
 
-(defmacro progn-with-message (MESSAGE &rest FORMS)
+(defmacro progn-with-message (message &rest forms)
   "(progn-with-message MESSAGE FORMS ...)
 Display MESSAGE and evaluate FORMS, returning value of the last one."
   ;; based on Hallvard Furuseth's funcall-with-message
-  (` 
-   (if (eq (selected-window) (minibuffer-window))
+  `(if (eq (selected-window) (minibuffer-window))
        (save-excursion
 	 (goto-char (point-max))
 	 (let ((orig-pmax (point-max)))
 	   (unwind-protect
 	       (progn
-		 (insert " " (, MESSAGE)) (goto-char orig-pmax)
+		 (insert " " ,message) (goto-char orig-pmax)
 		 (sit-for 0)		; Redisplay
-		 (,@ FORMS))
+		 ,@forms)
 	     (delete-region orig-pmax (point-max)))))
      (prog2
-	 (message "%s" (, MESSAGE))
-	 (progn (,@ FORMS))
-       (message "")))))
+	 (message "%s" ,message)
+	 (progn ,@forms)
+       (message ""))))
 
 (put 'progn-with-message 'lisp-indent-hook 1)
 
@@ -255,10 +254,7 @@ Optional sixth argument FILTER can be used to provide a function to
     (cond 
      ((equal library "") DEFAULT)
      (FULL (locate-file library read-library-internal-search-path
-			;; decompression doesn't work with Mule -slb
-			(if (featurep 'mule)
-			    ".el:.elc"
-			  ".el:.el.gz:.el.Z:.elc")))
+			 '(".el" ".el.gz" ".elc")))
      (t library))))
 
 (defun read-library-name (prompt)
@@ -269,10 +265,7 @@ Optional sixth argument FILTER can be used to provide a function to
 		     'read-library-internal 
 		     (lambda (fn) 
 		       (cond
-			;; decompression doesn't work with mule -slb
-			((string-match (if (featurep 'mule)
-					   "\\.el$"
-					 "\\.el\\(\\.gz\\|\\.Z\\)?$") fn)
+			((string-match "\\.el\\(\\.gz\\|\\.Z\\)?$" fn)
 			 (substring fn 0 (match-beginning 0)))))
 		     t nil)))
 
