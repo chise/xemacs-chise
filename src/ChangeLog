@@ -1,6 +1,6 @@
-1998-09-13  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
+1999-03-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* file-coding.c (decode_coding_sjis): fixed.
+	* file-coding.c (DECODE_HANDLE_END_OF_CONVERSION): fixed.
 
 1998-09-04  MORIOKA Tomohiko  <morioka@jaist.ac.jp>
 
