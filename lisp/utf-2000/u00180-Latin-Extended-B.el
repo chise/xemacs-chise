@@ -1954,10 +1954,6 @@
     (ucs		. #x0200)	; È€
     ))
 (define-char
-  '((=>ucs		. #x0200)	; È€
-    (china3-jef		. #x85B1)	; øºˆ–±
-    ))
-(define-char
   '((name		. "LATIN SMALL LETTER A WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -1968,10 +1964,6 @@
       (ucs		  . #x0200)	; È€
       ))
     (ucs		. #x0201)	; È
-    ))
-(define-char
-  '((=>ucs		. #x0201)	; È
-    (china3-jef		. #x85B4)	; øºˆ–´
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER A WITH INVERTED BREVE")
@@ -2010,10 +2002,6 @@
     (ucs		. #x0204)	; È„
     ))
 (define-char
-  '((=>ucs		. #x0204)	; È„
-    (china3-jef		. #x85B2)	; øºˆ–²
-    ))
-(define-char
   '((name		. "LATIN SMALL LETTER E WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2024,10 +2012,6 @@
       (ucs		  . #x0204)	; È„
       ))
     (ucs		. #x0205)	; È…
-    ))
-(define-char
-  '((=>ucs		. #x0205)	; È…
-    (china3-jef		. #x85B5)	; øºˆ–µ
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER E WITH INVERTED BREVE")
@@ -2114,10 +2098,6 @@
     (ucs		. #x020C)	; ÈŒ
     ))
 (define-char
-  '((=>ucs		. #x020C)	; ÈŒ
-    (china3-jef		. #x85B3)	; øºˆ–³
-    ))
-(define-char
   '((name		. "LATIN SMALL LETTER O WITH DOUBLE GRAVE")
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
@@ -2128,10 +2108,6 @@
       (ucs		  . #x020C)	; ÈŒ
       ))
     (ucs		. #x020D)	; È
-    ))
-(define-char
-  '((=>ucs		. #x020D)	; È
-    (china3-jef		. #x85B6)	; øºˆ–¶
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER O WITH INVERTED BREVE")
