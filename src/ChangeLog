@@ -1,3 +1,8 @@
+1999-10-01  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MAKE_CHAR): Check the result for range-represented
+	charset.
+
 1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule-charset.c (Vcharset_hiragana_jisx0208): New variable.
