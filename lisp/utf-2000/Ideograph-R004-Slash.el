@@ -1112,6 +1112,13 @@
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
+    (chinese-big5-cdp	. #x8856)	; ý¢€ˆ¡–
+    (mojikyo		. 072260)	; ý €‘©„
+    ))
+(define-char
+  '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (hanyu-dazidian-vol	 . 1)
