@@ -1,6 +1,6 @@
 2002-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R137-Boat.el: Add some missing mappings for CJK Ex-B
+	* Ideograph-R137-Boat.el: Add some missing mappings for CJK Ext-B
 	code points.
 
 2002-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
