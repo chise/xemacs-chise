@@ -341,6 +341,25 @@
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (<-simplified-ideograph
+     ((ideograph-daikanwa . 07833)	; ø¸º™
+      ))
+    (mojikyo		. 071896)	; ý €‘£˜
+    ))
+(define-char
+  '((ideographic-radical . 24)	; â¼—
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (->mojikyo		. 071896)	; ý €‘£˜
+    (<-simplified-ideograph
+     ((ideograph-daikanwa . 07833)	; ø¸º™
+      ))
+    (chinese-big5-cdp	. #x8B75)	; ý¢€ˆ­µ
+    ))
+(define-char
+  '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (chinese-cns11643-6 . #x2371)	; ø»›¸¼
