@@ -15,6 +15,8 @@
 	U+4E7F.
 	(M059022): Separate B-D44B.
 
+2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R035-Go-Slowly.el (JX2-253A): Separate U+590B.
 
 	* Ideograph-R028-Private.el (M-03088): Add
