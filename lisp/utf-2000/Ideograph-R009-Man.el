@@ -592,11 +592,12 @@
       )
      ((=>ucs*		  . #x4ECC)	; 仌
       (ideographic-radical@cns . 15)	; ⼎
-      (hanyu-dazidian	  1 105 2)
       (=ucs		  . #x2F819)	; 仌
       (=cns11643-4	  . #x213F)	; &I-C4-213F; [01-31]
-      (=hanziku-1	  . #xB9A2)	; &I-HZK01-B9A2;
-      (=ucs@unicode	  . #x4ECC)	; 仌
+      )
+     ((hanyu-dazidian	  1 105 2)
+      (=hanziku-1	  . #xB9A2)	; &HZK01-B9A2;
+      (=ucs@unicode	  . #x4ECC)	; &HZK01-B9A2;
       ))
     ))
 (define-char
