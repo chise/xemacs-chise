@@ -222,6 +222,14 @@
     (japanese-jisx0208-1990	. #x3A63)	; ø½Š›¬
     ))
 (define-char
+  '((=>ucs		. #x51B4)	; å†´
+    (morohashi-daikanwa	1615 0 3)
+    (ideographic-radical . 15)	; â¼Ž
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (ideograph-cbeta	. 06339)	; ø¸¡£ƒ
+    ))
+(define-char
   '((ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
@@ -240,6 +248,7 @@
     (chinese-cns11643-3		. #x227E)	; ø»•™Ÿ
     (japanese-jisx0208-1990	. #x5155)	; ø½Š½
     (ideograph-daikanwa		. 01616)	; ø¸€™
+    (ideograph-cbeta		. 00287)	; ø¸ „Ÿ
     (mojikyo			. 001616)	; ý €€™
     (ucs			. #x51B2)	; å†²
     ))
@@ -262,6 +271,7 @@
     (chinese-cns11643-3		. #x227D)	; ø»•™ž
     (japanese-jisx0208-1990	. #x5153)	; ø½Š½Ž
     (ideograph-daikanwa		. 01617)	; ø¸€™‘
+    (ideograph-cbeta		. 00804)	; ø¸ Œ¤
     (mojikyo			. 001617)	; ý €€™‘
     (ucs			. #x51B3)	; å†³
     ))
@@ -305,6 +315,7 @@
     (chinese-cns11643-3		. #x2459)	; ø»•›¶
     (japanese-jisx0208-1990	. #x5157)	; ø½Š½’
     (ideograph-daikanwa		. 01620)	; ø¸€™”
+    (ideograph-cbeta		. 00288)	; ø¸ „ 
     (mojikyo			. 001620)	; ý €€™”
     (ucs			. #x51B5)	; å†µ
     ))
@@ -410,6 +421,7 @@
     (total-strokes	 . 7)
     (japanese-jisx0212	. #x3279)	; ø»Š¾¦
     (ideograph-daikanwa . 01623)	; ø¸€™—
+    (ideograph-cbeta	. 05819)	; ø¸¡š»
     (mojikyo		. 001623)	; ý €€™—
     ))
 (define-char
@@ -973,6 +985,7 @@
     (korean-ksc5601		. #x5558)	; ø»‰§›
     (japanese-jisx0208-1990	. #x515A)	; ø½Š½•
     (ideograph-daikanwa		. 01665)	; ø¸€š
+    (ideograph-cbeta		. 00289)	; ø¸ „¡
     (mojikyo			. 001665)	; ý €€š
     ))
 (define-char
@@ -1210,6 +1223,7 @@
     (total-strokes	 . 11)
     (chinese-cns11643-6 . #x3D3F)	; ø»œž–
     (ideograph-daikanwa . 01677)	; ø¸€š
+    (ideograph-cbeta	. 02712)	; ø¸ ª˜
     (mojikyo		. 001677)	; ý €€š
     ))
 (define-char
@@ -1252,6 +1266,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 01681)	; ø¸€š‘
+    (ideograph-cbeta	. 04910)	; ø¸¡Œ®
     (mojikyo		. 001681)	; ý €€š‘
     ))
 (define-char
