@@ -1,7 +1,8 @@
 1999-09-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Vcharset_chinese_cns11643_3): Deleted [defined
- 	in lisp again].  (Vcharset_chinese_cns11643_4): Likewise.
+	in lisp again].
+  	(Vcharset_chinese_cns11643_4): Likewise.
   	(Vcharset_chinese_cns11643_5): Likewise.
   	(Vcharset_chinese_cns11643_6): Likewise.
   	(Vcharset_chinese_cns11643_7): Likewise.
@@ -11,8 +12,8 @@
   	(Qchinese_cns11643_6): Likewise.
   	(Qchinese_cns11643_7): Likewise.
   	(syms_of_mule_charset): Move definitions for `chinese-cns11643-3',
- 	`chinese-cns11643-4', `chinese-cns11643-5', `chinese-cns11643-6'
- 	and `chinese-cns11643-7' to lisp/mule/chinese.el.
+	`chinese-cns11643-4', `chinese-cns11643-5', `chinese-cns11643-6'
+	and `chinese-cns11643-7' to lisp/mule/chinese.el.
   	(complex_vars_of_mule_charset): Likewise.
 
 1999-09-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
