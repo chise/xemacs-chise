@@ -278,8 +278,11 @@ struct Lisp_Charset
   /* Which half of font to be used to display this character set */
   unsigned int graphic;
 
-  /* Byte->character mapping table */
+  /* Code-point->character mapping table */
   Lisp_Object decoding_table;
+
+  /* Character->code-point mapping table */
+  Lisp_Object encoding_table;
 
   /* Range of character code */
   Emchar ucs_min, ucs_max;
@@ -329,6 +332,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
+#define CHARSET_ENCODING_TABLE(cs) ((cs)->encoding_table)
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
@@ -351,6 +355,7 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
+#define XCHARSET_ENCODING_TABLE(cs) CHARSET_ENCODING_TABLE(XCHARSET(cs))
 #define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
 #define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
@@ -529,51 +534,50 @@ INLINE_HEADER int charset_code_point (Lisp_Object charset, Emchar ch);
 INLINE_HEADER int
 charset_code_point (Lisp_Object charset, Emchar ch)
 {
-  Lisp_Object cdef = get_char_id_table (ch, Vcharacter_attribute_table);
+  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
+  Lisp_Object ret;
 
-  if (!NILP (cdef))
-    {
-      Lisp_Object field = Fassq (charset, cdef);
-
-      if (!NILP (field))
-	return XINT (Fcdr (field));
-    }
-  return range_charset_code_point (charset, ch);
+  if ( CHAR_ID_TABLE_P (encoding_table)
+       && INTP (ret = get_char_id_table (ch, encoding_table)) )
+    return XINT (ret);
+  else
+    return range_charset_code_point (charset, ch);
 }
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
 
-INLINE_HEADER int encode_char_1 (Emchar c, Lisp_Object* charset);
+INLINE_HEADER int encode_char_1 (Emchar ch, Lisp_Object* charset);
 INLINE_HEADER int
-encode_char_1 (Emchar c, Lisp_Object* charset)
+encode_char_1 (Emchar ch, Lisp_Object* charset)
 {
-  Lisp_Object cdef = get_char_id_table (c, Vcharacter_attribute_table);
+  Lisp_Object charsets = Vdefault_coded_charset_priority_list;
 
-  if (!EQ (cdef, Qnil))
+  while (!NILP (charsets))
     {
-      Lisp_Object charsets = Vdefault_coded_charset_priority_list;
-      Lisp_Object field;
-
-      while (!EQ (charsets, Qnil))
+      *charset = Ffind_charset (Fcar (charsets));
+      if (!NILP (*charset))
 	{
-	  *charset = Ffind_charset (Fcar (charsets));
-	  if (!EQ (*charset, Qnil))
+	  Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (*charset);
+	  Lisp_Object ret;
+
+	  if ( CHAR_ID_TABLE_P (encoding_table)
+	       && INTP (ret = get_char_id_table (ch, encoding_table)) )
+	    return XINT (ret);
+	  else
 	    {
 	      int code_point;
 
-	      if (!NILP (field = Fassq (*charset, cdef)))
-		return XINT (Fcdr (field));
-	      else if ((code_point
-			= range_charset_code_point (*charset, c)) >= 0)
+	      if ((code_point
+		   = range_charset_code_point (*charset, ch)) >= 0)
 		return code_point;
 	    }
-	  charsets = Fcdr (charsets);	      
 	}
+      charsets = Fcdr (charsets);	      
     }
   
   /* otherwise --- maybe for bootstrap */
-  return encode_builtin_char_1 (c, charset);
+  return encode_builtin_char_1 (ch, charset);
 }
 
 INLINE_HEADER int encode_char_2 (Emchar ch, Lisp_Object* charset);
