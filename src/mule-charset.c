@@ -2078,15 +2078,59 @@ Save mapping-table of CHARSET.
 {
   struct Lisp_Charset *cs;
   int byte_min, byte_max;
+#ifdef CHISE
+  Lisp_Object db_dir = Vexec_directory;
+  CHISE_DS ds;
+  CHISE_Decoding_Table *dt_ccs;
+  int modemask;
+  int accessmask = 0;
+  DBTYPE real_subtype;
+  int status;
+#else
   Lisp_Object db;
   Lisp_Object db_file;
+#endif
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
 
+#ifdef CHISE
+  if (NILP (db_dir))
+    db_dir = build_string ("../lib-src");
+  db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
+
+  status = chise_open_data_source (&ds, CHISE_DS_Berkeley_DB,
+				   XSTRING_DATA (db_dir));
+  if (status)
+    {
+      chise_close_data_source (&ds);
+      return -1;
+    }
+
+  modemask = 0755;		/* rwxr-xr-x */
+  real_subtype = DB_HASH;
+  accessmask = DB_CREATE;
+
+  char_attribute_system_db_file (CHARSET_NAME (cs), Qsystem_char_id, 1);
+  status
+    = chise_open_decoding_table (&dt_ccs, &ds,
+				 XSTRING_DATA (Fsymbol_name
+					       (XCHARSET_NAME(charset))),
+				 real_subtype,
+				 accessmask, modemask);
+  if (status)
+    {
+      printf ("Can't open decoding-table %s\n",
+	      XSTRING_DATA (Fsymbol_name (XCHARSET_NAME(charset))));
+      chise_close_decoding_table (dt_ccs);
+      chise_close_data_source (&ds);
+      return -1;
+    }
+#else
   db_file = char_attribute_system_db_file (CHARSET_NAME (cs),
 					   Qsystem_char_id, 1);
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
+#endif
 
   byte_min = CHARSET_BYTE_OFFSET (cs);
   byte_max = byte_min + CHARSET_BYTE_SIZE (cs);
@@ -2102,9 +2146,15 @@ Save mapping-table of CHARSET.
 	    Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
 	    if (CHARP (c))
-	      Fput_database (Fprin1_to_string (make_int (cell), Qnil),
-			     Fprin1_to_string (c, Qnil),
-			     db, Qt);
+	      {
+#ifdef CHISE
+		chise_dt_put_char (dt_ccs, cell, XCHAR (c));
+#else
+		Fput_database (Fprin1_to_string (make_int (cell), Qnil),
+			       Fprin1_to_string (c, Qnil),
+			       db, Qt);
+#endif
+	      }
 	  }
       }
       break;
@@ -2123,11 +2173,18 @@ Save mapping-table of CHARSET.
 		Lisp_Object c = get_ccs_octet_table (table_c, charset, cell);
 
 		if (CHARP (c))
-		  Fput_database (Fprin1_to_string (make_int ((row << 8)
-							     | cell),
-						   Qnil),
-				 Fprin1_to_string (c, Qnil),
-				 db, Qt);
+		  {
+#ifdef CHISE
+		    chise_dt_put_char (dt_ccs,
+				       (row << 8) | cell, XCHAR (c));
+#else
+		    Fput_database (Fprin1_to_string (make_int ((row << 8)
+							       | cell),
+						     Qnil),
+				   Fprin1_to_string (c, Qnil),
+				   db, Qt);
+#endif
+		  }
 	      }
 	  }
       }
@@ -2155,12 +2212,22 @@ Save mapping-table of CHARSET.
 							 cell);
 
 		    if (CHARP (c))
-		      Fput_database (Fprin1_to_string (make_int ((plane << 16)
-								 | (row <<  8)
-								 | cell),
-						       Qnil),
-				     Fprin1_to_string (c, Qnil),
-				     db, Qt);
+		      {
+#ifdef CHISE
+			chise_dt_put_char (dt_ccs,
+					   (plane << 16)
+					   | (row <<  8)
+					   | cell, XCHAR (c));
+#else
+			Fput_database (Fprin1_to_string
+				       (make_int ((plane << 16)
+						  | (row <<  8)
+						  | cell),
+					Qnil),
+				       Fprin1_to_string (c, Qnil),
+				       db, Qt);
+#endif
+		      }
 		  }
 	      }
 	  }
@@ -2195,21 +2262,37 @@ Save mapping-table of CHARSET.
 			  = get_ccs_octet_table (table_c, charset, cell);
 
 			if (CHARP (c))
-			  Fput_database (Fprin1_to_string
-					 (make_int ((  group << 24)
-						    | (plane << 16)
-						    | (row   <<  8)
-						    |  cell),
-					  Qnil),
-					 Fprin1_to_string (c, Qnil),
-					 db, Qt);
+			  {
+#ifdef CHISE
+			    chise_dt_put_char (dt_ccs,
+					       (  group << 24)
+					       | (plane << 16)
+					       | (row   <<  8)
+					       |  cell, XCHAR (c));
+#else
+			    Fput_database (Fprin1_to_string
+					   (make_int ((  group << 24)
+						      | (plane << 16)
+						      | (row   <<  8)
+						      |  cell),
+					    Qnil),
+					   Fprin1_to_string (c, Qnil),
+					   db, Qt);
+#endif
+			  }
 		      }
 		  }
 	      }
 	  }
       }
     }
+#ifdef CHISE
+  chise_close_decoding_table (dt_ccs);
+  chise_close_data_source (&ds);
+  return Qnil;
+#else
   return Fclose_database (db);
+#endif
 }
 
 DEFUN ("reset-charset-mapping-table", Freset_charset_mapping_table, 1, 1, 0, /*

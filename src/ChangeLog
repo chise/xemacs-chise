@@ -1,3 +1,88 @@
+2003-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule-charset.c (Fsave_charset_mapping_table): Use libchise when
+	`CHISE' is defined.
+
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_table_open_db_maybe): Defined even if `CHISE' is
+	not defined; add code for non-libchise setting.
+	(char_table_close_db_maybe): Likewise.
+	(char_table_get_db): New function when `HAVE_CHISE_CLIENT' is
+	defined.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'
+	even if `CHISE' is not defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined; use
+	`char_table_get_db'.
+	(Fload_char_attribute_table): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe' even if `CHISE' is not defined.
+
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_table_open_db_maybe): New function.
+	(char_table_close_db_maybe): New function.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe'.
+	(Fload_char_attribute_table): Likewise.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c: Don't include <chise.h> because it is included in
+	chartab.h.
+	(Fmake_char_table): Initialize `ct->feature_table' when `CHISE' is
+	defined.
+	(Fcopy_char_table): Copy `ct->ds' and `ct->feature_table' when
+	`CHISE' is defined.
+	(Fmount_char_attribute_table): Initialize `ct->feature_table' when
+	`CHISE' is defined.
+	(Fclose_char_attribute_table): Close `ct->feature_table' and
+	`ct->ds' when `CHISE' is defined.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `cit->ds' and
+	`cit->feature_table' when `CHISE' is defined.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h: Include <chise.h> when `CHISE' is defined.
+	(struct Lisp_Char_Table): Add new member `ds' and `feature_table'
+	when `CHISE' is defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (mark_char_table): Member `db' is deleted when `CHISE'
+	is defined.
+	(char_table_description): Likewise.
+	(Fmake_char_table): Likewise.
+	(Fcopy_char_table): Likewise.
+	(Fmount_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Delete `db' when `CHISE' is
+	defined.
+
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (load_char_attribute_table_map_func): New function
+	when CHISE is defined.
+	(Qload_char_attribute_table_map_function): Don't define when CHISE
+	is defined.
+	(Fload_char_attribute_table_map_function): Likewise.
+	(Fload_char_attribute_table): Use libchise when `CHISE' is
+	defined.
+	(syms_of_chartab): Don't define
+	`load-char-attribute-table-map-function' when CHISE is defined.
+
+2003-08-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c: Include <chise.h> when `CHISE' is defined.
+	(load_char_attribute_maybe): Use libchise when `CHISE' is defined.
+
 2003-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): Fix problem when searching
