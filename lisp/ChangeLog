@@ -1,3 +1,30 @@
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R002-Line",
+	"Ideograph-R003-Dot", "Ideograph-R004-Slash",
+	"Ideograph-R005-Second", "Ideograph-R006-Hook",
+	"Ideograph-R007-Two", "Ideograph-R008-Lid", "Ideograph-R009-Man",
+	"Ideograph-R010-Legs" and "Ideograph-R011-Enter".
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208-1990' and `japanese-jisx0208-1978'.
+
+	* utf-2000/Ideograph-R002-Line.el, utf-2000/Ideograph-R003-Dot.el,
+	utf-2000/Ideograph-R004-Slash.el,
+	utf-2000/Ideograph-R005-Second.el,
+	utf-2000/Ideograph-R006-Hook.el, utf-2000/Ideograph-R007-Two.el,
+	utf-2000/Ideograph-R008-Lid.el, utf-2000/Ideograph-R009-Man.el,
+	utf-2000/Ideograph-R010-Legs.el, utf-2000/Ideograph-R011-Enter.el:
+	New files.
+
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0208-1978' and `japanese-jisx0208-1990'; check Group
+	00 Plane 10.
+	(ideograph-char<): Prefer minor code of `morohashi-daikanwa'
+	number.
+
+	* utf-2000/Ideograph-R001-One.el: Changed to utf-8 encoding.
+
 1999-11-17  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* utf-2000/ideograph-util.el: New file.

@@ -1,3 +1,17 @@
+1999-11-18  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Vcharset_japanese_jisx0208_1990): New variable.
+	(Fdefine_char): Use Group 00 Plane 10 for non-coded variants of
+	BMP.
+	(Qjapanese_jisx0208_1990): New variable.
+	(syms_of_mule_charset): Add new symbol `Qjapanese_jisx0208_1990'.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`japanese-jisx0208-1990'.
+
+	* char-ucs.h (LEADING_BYTE_JAPANESE_JISX0208_1990): New macro.
+	(MIN_CHAR_JIS_X0208_1990): New macro.
+	(MAX_CHAR_JIS_X0208_1990): New macro.
+
 1999-11-16  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* text-coding.c (char_encode_iso2022): Output `~' if ISO 2022
