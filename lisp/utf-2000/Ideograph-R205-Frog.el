@@ -322,7 +322,8 @@
     (ucs		. #x9F05)	; é¼…
     ))
 (define-char
-  '((ideographic-radical . 205)	; â¿Œ
+  '((=>ucs		. #x2FA19)	; ð¯¨™
+    (ideographic-radical . 205)	; â¿Œ
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
     (ideograph-daikanwa . 48286)	; ø¸‹²ž
@@ -333,6 +334,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
     (chinese-cns11643-3 . #x5C2F)	; ø»–­œ
+    (ucs		. #x2FA19)	; ð¯¨™
     ))
 (define-char
   '((ideographic-radical . 205)	; â¿Œ
