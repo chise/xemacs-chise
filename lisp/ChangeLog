@@ -1,5 +1,18 @@
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/thai-xtis.el: Specify `iso-8-1' as coding-category of
+	`tis-620'.
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems): Use
+	`set-coding-priority-list' instead of `set-coding-priority'; don't
+	call `update-coding-systems-internal'.
+
+	* mule/mule-misc.el (coding-system-get): New function.
+	(coding-system-put): New function.
+	(coding-system-category): New function.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* dumped-lisp.el (preloaded-file-list): Load "thai-xtis-chars"
 	when Mule is running; load "mule/thai-xtis" instead of "thai-xtis"
 	to avoid conflict with leim/quail/thai-xtis.
