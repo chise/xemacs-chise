@@ -1,5 +1,17 @@
 2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R055-Two-Hands.el: Add some mappings into CJK Ext-B
+	code points.
+	(C6-2467): Add `->identical' for U-00020020; add
+	`ideographic-structure'.
+
+	* Ideograph-R005-Second.el (BC-8871): Don't unify U-00022398.
+
+	* Ideograph-R001-One.el (U-00020020): Add `->identical' for
+	C6-2467.
+
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R056-Shoot.el, Ideograph-R054-Long-Stride.el: Add some
 	mappings into CJK Ext-B code points.
 
