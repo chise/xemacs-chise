@@ -50,7 +50,7 @@ There are three of such tables, `file-coding-system-alist',
 TARGET-TYPE specifies which of them to modify.
 If it is `file', it affects `file-coding-system-alist' (which see).
 If it is `process', it affects `process-coding-system-alist' (which see).
-If it is `network', it affects `network-codign-system-alist' (which see).
+If it is `network', it affects `network-coding-system-alist' (which see).
 
 REGEXP is a regular expression matching a target of I/O operation.
 The target is a file name if TARGET-TYPE is `file', a program name if

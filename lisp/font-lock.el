@@ -904,15 +904,12 @@ See the variable `font-lock-keywords' for customization."
 			  font-lock-maximum-size
 			(cdr (or (assq major-mode font-lock-maximum-size)
 				 (assq t font-lock-maximum-size))))))
-    ;; Font-lock mode will refuse to turn itself on if in batch mode, or if
-    ;; the current buffer is "invisible".  The latter is because packages
-    ;; sometimes put their temporary buffers into some particular major mode
-    ;; to get syntax tables and variables and whatnot, but we don't want the
-    ;; fact that the user has font-lock-mode on a mode hook to slow these
-    ;; things down.
-    (if (or noninteractive (eq (aref (buffer-name) 0) ?\ ))
-	(setq on-p nil))
-    (if (equal (buffer-name) " *Compiler Input*") ; hack for bytecomp...
+    ;; Font-lock mode will refuse to turn itself on if in batch mode
+    ;; to avoid potential (probably not actual, though) slowdown.  We
+    ;; used to try to "be nice" by avoiding doing this in temporary
+    ;; buffers.  But with the deferral code we don't need this, and it
+    ;; definitely screws some things up.
+    (if (noninteractive)
 	(setq on-p nil))
     (cond (on-p
 	   (make-local-hook 'after-change-functions)

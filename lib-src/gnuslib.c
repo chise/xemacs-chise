@@ -320,6 +320,8 @@ connect_to_internet_server (char *serverhost, unsigned short port)
   struct sockaddr_in peeraddr_in;	/* for peer socket address */
   char buf[512];                        /* temporary buffer */
 
+  int t;
+
   /* clear out address structures */
   memset((char *)&peeraddr_in,0,sizeof(struct sockaddr_in));
   
@@ -327,10 +329,12 @@ connect_to_internet_server (char *serverhost, unsigned short port)
   peeraddr_in.sin_family = AF_INET;
 
   /* look up the server host's internet address */
-  if ((peeraddr_in.sin_addr.s_addr = internet_addr(serverhost)) == -1) {
+  if ((t = internet_addr(serverhost)) == -1) {
     fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP\n",
 	    progname,serverhost);
     exit(1);
+  } else {
+    peeraddr_in.sin_addr.s_addr = t;
   }; /* if */
   
   if (port == 0) {

@@ -28,6 +28,7 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #define getwd _getwd
 #include "lisp.h"
 #undef getwd
+#include "buffer.h"
 
 #include "systime.h"
 #include "syssignal.h"
@@ -1177,11 +1178,10 @@ sys_rename (const char * oldname, const char * newname)
 #endif /* 0 */
 
 static FILETIME utc_base_ft;
+static long double utc_base;
 static int init = 0;
 
 #if 0
-
-static long double utc_base;
 
 time_t
 convert_time (FILETIME ft)
@@ -1215,11 +1215,6 @@ convert_time (FILETIME ft)
   return (time_t) (ret * 1e-7);
 }
 #else
-
-#if defined(MINGW) && CYGWIN_VERSION_DLL_MAJOR <= 21
-#define LowPart u.LowPart
-#define HighPart u.HighPart
-#endif
 
 static LARGE_INTEGER utc_base_li;
 
@@ -2240,6 +2235,83 @@ mswindows_executable_type (const char * filename, int * is_dos_app,
 
  unwind:
   close_file_data (&executable);
+}
+
+static void
+convert_from_time_t (time_t time, FILETIME * pft)
+{
+  long double tmp;
+
+  if (!init)
+    {
+      /* Determine the delta between 1-Jan-1601 and 1-Jan-1970. */
+      SYSTEMTIME st;
+
+      st.wYear = 1970;
+      st.wMonth = 1;
+      st.wDay = 1;
+      st.wHour = 0;
+      st.wMinute = 0;
+      st.wSecond = 0;
+      st.wMilliseconds = 0;
+
+      SystemTimeToFileTime (&st, &utc_base_ft);
+      utc_base = (long double) utc_base_ft.dwHighDateTime
+	* 4096 * 1024 * 1024 + utc_base_ft.dwLowDateTime;
+      init = 1;
+    }
+
+  /* time in 100ns units since 1-Jan-1601 */
+  tmp = (long double) time * 1e7 + utc_base;
+  pft->dwHighDateTime = (DWORD) (tmp / (4096.0 * 1024 * 1024));
+  pft->dwLowDateTime = (DWORD) (tmp - (4096.0 * 1024 * 1024) *
+                                pft->dwHighDateTime);
+}
+
+int
+mswindows_utime (Lisp_Object path, struct utimbuf *times)
+{
+  struct utimbuf deftime;
+#if 0
+  HANDLE fh;
+#endif
+  static FILETIME mtime;
+  static FILETIME atime;
+  Extbyte *filename;
+
+  if (times == NULL)
+    {
+      deftime.modtime = deftime.actime = time (NULL);
+      times = &deftime;
+    }
+
+  LISP_STRING_TO_EXTERNAL (path, filename, Qmswindows_tstr);
+  /* APA: SetFileTime fails to set mtime correctly (always 1-Jan-1970) */
+#if 0
+  /* Need write access to set times.  */
+  fh = CreateFile (filename, GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE,
+		   0, OPEN_EXISTING, 0, NULL);
+  if (fh)
+    {
+      convert_from_time_t (times->actime, &atime);
+      convert_from_time_t (times->modtime, &mtime);
+      if (!SetFileTime (fh, NULL, &atime, &mtime))
+	{
+	  CloseHandle (fh);
+	  errno = EACCES;
+	  return -1;
+	}
+      CloseHandle (fh);
+    }
+  else
+    {
+      errno = EINVAL;
+      return -1;
+    }
+  return 0;
+#else
+  return utime (filename, times);
+#endif
 }
 
 /* Close the system structures associated with the given file.  */

@@ -178,7 +178,7 @@ Boston, MA 02111-1307, USA.  */
 #define lstat xemacs_stat
 #endif
 
-#if !S_IRUSR
+#ifndef S_IRUSR
 # if S_IREAD
 #  define S_IRUSR S_IREAD
 # else
@@ -186,7 +186,7 @@ Boston, MA 02111-1307, USA.  */
 # endif
 #endif
 
-#if !S_IWUSR
+#ifndef S_IWUSR
 # if S_IWRITE
 #  define S_IWUSR S_IWRITE
 # else
@@ -194,7 +194,7 @@ Boston, MA 02111-1307, USA.  */
 # endif
 #endif
 
-#if !S_IXUSR
+#ifndef S_IXUSR
 # if S_IEXEC
 #  define S_IXUSR S_IEXEC
 # else

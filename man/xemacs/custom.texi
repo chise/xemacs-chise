@@ -179,7 +179,8 @@ except where explicitly stated, affects only the current Emacs session.
 @findex customize
 @cindex customization buffer
   A convenient way to find the user option variables that you want to
-change, and then change them, is with @kbd{M-x customize}.  This command
+change, and then change them, is with @kbd{M-x customize} (or use a
+keyboard shortcut, @kbd{C-h C}.  This command
 creates a @dfn{customization buffer} with which you can browse through
 the Emacs user options in a logically organized structure, then edit and
 set their values.  You can also use the customization buffer to save
@@ -203,8 +204,8 @@ structure as of yet, but we are adding the rest.)
 @dfn{groups} to help you find them.  Groups are collected into bigger
 groups, all the way up to a master group called @code{Emacs}.
 
-  @kbd{M-x customize} creates a customization buffer that shows the
-top-level @code{Emacs} group and the second-level groups immediately
+  @kbd{M-x customize} (or @kbd{C-h C}) creates a customization buffer that
+shows the top-level @code{Emacs} group and the second-level groups immediately
 under it.  It looks like this, in part:
 
 @smallexample

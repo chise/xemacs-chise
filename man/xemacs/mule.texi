@@ -13,8 +13,9 @@
 @cindex IPA
 @cindex Japanese
 @cindex Korean
+@cindex Cyrillic
 @cindex Russian
-  If you compile XEmacs with mule option, it supports a wide variety of
+  If you compile XEmacs with Mule option, it supports a wide variety of
 world scripts, including Latin script, as well as Arabic script,
 Simplified Chinese script (for mainland of China), Traditional Chinese
 script (for Taiwan and Hong-Kong), Greek script, Hebrew script, IPA
@@ -29,6 +30,7 @@ Enhancement to GNU Emacs'').
 * Language Environments::   Setting things up for the language you use.
 * Input Methods::           Entering text characters not on your keyboard.
 * Select Input Method::     Specifying your choice of input methods.
+* Mule and Fonts::          Additional font-related issues
 * Coding Systems::          Character set conversion when you read and
                               write files, and so on.
 * Recognize Coding::        How XEmacs figures out which conversion to use.
@@ -70,7 +72,7 @@ to world scripts, coding systems, and input methods.
 @cindex language environments
 
   All supported character sets are supported in XEmacs buffers if it is
-compile with mule; there is no need to select a particular language in
+compiled with Mule; there is no need to select a particular language in
 order to display its characters in an XEmacs buffer.  However, it is
 important to select a @dfn{language environment} in order to set various
 defaults.  The language environment really represents a choice of
@@ -89,8 +91,10 @@ current when you use this command, because the effects apply globally to
 the XEmacs session.  The supported language environments include:
 
 @quotation
-Chinese-BIG5, Chinese-CNS, Chinese-GB, Cyrillic-ISO, English, Ethiopic,
-Greek, Japanese, Korean, Latin-1, Latin-2, Latin-3, Latin-4, Latin-5.
+ASCII, Chinese-BIG5, Chinese-GB, Croatian, Cyrillic-ALT, Cyrillic-ISO, 
+Cyrillic-KOI8, Cyrillic-Win, Czech, English, Ethiopic, French, German,
+Greek, Hebrew, IPA, Japanese, Korean, Latin-1, Latin-2, Latin-3, Latin-4,
+Latin-5, Norwegian, Polish, Romanian, Slovenian, Thai-XTIS, Vietnamese.
 @end quotation
 
   Some operating systems let you specify the language you are using by
@@ -187,7 +191,7 @@ the partial sequence is highlighted in the buffer.  If
 characters to type next is displayed in the echo area (but not when you
 are in the minibuffer).
 
-@node Select Input Method, Coding Systems, Input Methods, Mule
+@node Select Input Method, Mule and Fonts, Input Methods, Mule
 @section Selecting an Input Method
 
 @table @kbd
@@ -249,7 +253,71 @@ the command @kbd{M-x quail-set-keyboard-layout}.
 list-input-methods}.  The list gives information about each input
 method, including the string that stands for it in the mode line.
 
-@node Coding Systems, Recognize Coding, Select Input Method, Mule
+@node Mule and Fonts, Coding Systems, Select Input Method, Mule
+@section Mule and Fonts
+@cindex fonts
+@cindex font registry
+@cindex font encoding
+@cindex CCL programs
+
+(This section is X11-specific.)
+
+Text in XEmacs buffers is displayed using various faces.  In addition to
+specifying properties of a face, such as font and color, there are some
+additional properties of Mule charsets that are used in text.
+
+There is currently two properties of a charset that could be adjusted by
+user: font registry and so called @dfn{ccl-program}.
+
+Font registry is a regular expression matching the font registry field
+for this character set.  For example, both the @code{ascii} and
+@w{@code{latin-iso8859-1}} charsets use the registry @code{"ISO8859-1"}.
+This field is used to choose an appropriate font when the user gives a
+general font specification such as @w{@samp{-*-courier-medium-r-*-140-*}},
+i.e. a 14-point upright medium-weight Courier font.
+
+You can set font registry for a charset using
+@samp{set-charset-registry} function in one of your startup files.  This
+function takes two arguments: character set (as a symbol) and font
+registry (as a string).
+
+E.@w{ }g., for Cyrillic texts Mule uses @w{@code{cyrillic-iso8859-5}}
+charset with @samp{"ISO8859-5"} as a default registry, and we want to
+use @samp{"koi8-r"} instead, because fonts in that encoding are
+installed on our system.  Use:
+
+@example
+(set-charset-registry 'cyrillic-iso8859-5 "koi8-r")
+@end example
+
+(Please note that you probably also want to set font registry for
+@samp{ascii} charset so that mixed English/Cyrillic texts be displayed
+using the same font.)
+
+"CCL-programs" are a little special-purpose scripts defined within
+XEmacs or in some package.  Those scripts allow XEmacs to use fonts that
+are in different encoding from the encoding that is used by Mule for
+text in buffer.  Returning to the above example, we need to somehow tell
+XEmacs that we have different encodings of fonts and text and so it
+needs to convert characters between those encodings when displaying.
+That's what @samp{set-charset-ccl-program} function is used for.  There
+are quite a few various CCL programs defined within XEmacs, and there is
+no comprehensive list of them, so you currently have to consult sources.
+@c FIXME: there must be a list of CCL programs
+
+We know that there is a CCL program called @samp{ccl-encode-koi8-r-font}
+that is used exactly for needed purpose: to convert characters between
+@samp{ISO8859-5} encoding and @samp{koi8-r}.  Use:
+
+@example
+(set-charset-ccl-program 'cyrillic-iso8859-5 'ccl-encode-koi8-r-font)
+@end example
+
+There are several more uses for CCL programs, not related to fonts, but
+those uses are not described here.
+
+
+@node Coding Systems, Recognize Coding, Mule and Fonts, Mule
 @section Coding Systems
 @cindex coding systems
 
@@ -282,11 +350,15 @@ Describe the coding systems currently in use.
 
 @item M-x list-coding-systems
 Display a list of all the supported coding systems.
+
+@item C-u M-x list-coding-systems
+Display comprehensive list of specific details of all supported coding
+systems.
 @end table
 
-@kindex C-h C
+@kindex C-x @key{RET} C
 @findex describe-coding-system
-  The command @kbd{C-h C} (@code{describe-coding-system}) displays
+  The command @kbd{C-x RET C} (@code{describe-coding-system}) displays
 information about particular coding systems.  You can specify a coding
 system name as argument; alternatively, with an empty argument, it
 describes the coding systems currently selected for various purposes,
@@ -435,7 +507,8 @@ Specify coding system @var{coding} for the immediately following
 command.
 
 @item C-x @key{RET} k @var{coding} @key{RET}
-Use coding system @var{coding} for keyboard input.
+Use coding system @var{coding} for keyboard input.  (This feature is
+non-functional and is temporarily disabled.)
 
 @item C-x @key{RET} t @var{coding} @key{RET}
 Use coding system @var{coding} for terminal output.
@@ -517,6 +590,8 @@ methods are designed to be convenient for interactive use by humans, and
 the sequences that are translated are typically sequences of ASCII
 printing characters.  Coding systems typically translate sequences of
 non-graphic characters.
+
+(This feature is non-functional and is temporarily disabled.)
 
 @kindex C-x RET p
 @findex set-buffer-process-coding-system

@@ -49,31 +49,31 @@ Boston, MA 02111-1307, USA.  */
 # include "dragdrop.h"
 #endif
 
+#include "buffer.h"
 #include "device.h"
 #include "events.h"
-#include "frame.h"
-#include "buffer.h"
 #include "faces.h"
+#include "frame.h"
 #include "lstream.h"
+#include "objects-msw.h"
 #include "process.h"
 #include "redisplay.h"
 #include "select.h"
-#include "window.h"
-#include "sysproc.h"
-#include "syswait.h"
-#include "systime.h"
 #include "sysdep.h"
-#include "objects-msw.h"
+#include "window.h"
+
+#include "sysfile.h"
+#include "sysproc.h"
+#include "systime.h"
+#include "syswait.h"
 
 #include "events-mod.h"
+
 #ifdef HAVE_MSG_SELECT
-#include "sysfile.h"
 #include "console-tty.h"
 #elif defined(CYGWIN)
 typedef unsigned int SOCKET;
 #endif
-#include <io.h>
-#include <errno.h>
 
 #if !(defined(CYGWIN) || defined(MINGW))
 # include <shlobj.h>	/* For IShellLink */
@@ -154,6 +154,9 @@ Fixnum mswindows_mouse_button_tolerance;
 
 #ifdef DEBUG_XEMACS
 Fixnum debug_mswindows_events;
+
+static void debug_output_mswin_message (HWND hwnd, UINT message_,
+					WPARAM wParam, LPARAM lParam);
 #endif
 
 /* This is the event signaled by the event pump.
@@ -666,7 +669,7 @@ struct winsock_stream
   LPARAM user_data;		/* Any user data stored in the stream object */
   SOCKET s;			/* Socket handle (which is a Win32 handle)   */
   OVERLAPPED ov;		/* Overlapped I/O structure		     */
-  void* buffer;			/* Buffer. Allocated for input stream only   */
+  void* buffer;			/* Buffer.                                   */
   unsigned long bufsize;	/* Number of bytes last read		     */
   unsigned long bufpos;		/* Position in buffer for next fetch	     */
   unsigned int error_p :1;	/* I/O Error seen			     */
@@ -776,18 +779,24 @@ winsock_writer (Lstream *stream, const unsigned char *data,
   if (size == 0)
     return 0;
 
-  {
-    ResetEvent (str->ov.hEvent);
+  ResetEvent (str->ov.hEvent);
 
-    /* Docs indicate that 4th parameter to WriteFile can be NULL since this is
-     * an overlapped operation. This fails on Win95 with winsock 1.x so we
-     * supply a spare address which is ignored by Win95 anyway. Sheesh. */
-    if (WriteFile ((HANDLE)str->s, data, size, (LPDWORD)&str->buffer, &str->ov)
-	|| GetLastError() == ERROR_IO_PENDING)
-      str->pending_p = 1;
-    else
-      str->error_p = 1;
-  }
+  /* According to WriteFile docs, we must hold onto the data we pass to it
+     and not make any changes until it finishes -- which may not be until
+     the next time we get here, since we use asynchronous I/O.  We have
+     in fact seen data loss as a result of not doing this. */
+  str->buffer = xrealloc (str->buffer, size);
+  memcpy (str->buffer, data, size);
+
+  /* According to MSDN WriteFile docs, the fourth parameter cannot be NULL
+     on Win95 even when doing an overlapped operation, as we are, where
+     the return value through that parameter is not meaningful. */
+  if (WriteFile ((HANDLE)str->s, str->buffer, size, &str->bufsize,
+		 &str->ov)
+      || GetLastError() == ERROR_IO_PENDING)
+    str->pending_p = 1;
+  else
+    str->error_p = 1;
 
   return str->error_p ? -1 : size;
 }
@@ -806,8 +815,11 @@ winsock_closer (Lstream *lstr)
   if (str->pending_p)
     WaitForSingleObject (str->ov.hEvent, INFINITE);
 
-  if (lstr->flags & LSTREAM_FL_READ)
-    xfree (str->buffer);
+  if (str->buffer)
+    {
+      xfree (str->buffer);
+      str->buffer = 0;
+    }
 
   CloseHandle (str->ov.hEvent);
   return 0;
@@ -827,14 +839,10 @@ make_winsock_stream_1 (SOCKET s, LPARAM param, const char *mode)
   Lstream *lstr = Lstream_new (lstream_winsock, mode);
   struct winsock_stream *str = WINSOCK_STREAM_DATA (lstr);
 
+  xzero (*str);
   str->s = s;
-  str->blocking_p = 0;
-  str->error_p = 0;
-  str->eof_p = 0;
-  str->pending_p = 0;
   str->user_data = param;
 
-  xzero (str->ov);
   str->ov.hEvent = CreateEvent (NULL, TRUE, FALSE, NULL);
 
   if (lstr->flags & LSTREAM_FL_READ)
@@ -1045,14 +1053,11 @@ mswindows_dequeue_dispatch_event (void)
 			 &mswindows_s_dispatch_event_queue_tail :
 			 &mswindows_u_dispatch_event_queue_tail);
 
-  sevt = XEVENT(event);
+  sevt = XEVENT (event);
   if (sevt->event_type == key_press_event
       && (sevt->event.key.modifiers & FAKE_MOD_QUIT))
-    {
-      sevt->event.key.modifiers &=
-	~(FAKE_MOD_QUIT | FAKE_MOD_QUIT_CRITICAL);
-      --mswindows_quit_chars_count;
-    }
+    sevt->event.key.modifiers &=
+      ~(FAKE_MOD_QUIT | FAKE_MOD_QUIT_CRITICAL);
 
   return event;
 }
@@ -1674,9 +1679,9 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	    return DDE_FNOTPROCESSED;
 
 #ifdef CYGWIN
-	  filename = alloca (cygwin32_win32_to_posix_path_list_buf_size (cmd) + 5);
+	  filename = alloca (cygwin_win32_to_posix_path_list_buf_size (cmd) + 5);
 	  strcpy (filename, "file:");
-	  cygwin32_win32_to_posix_path_list (cmd, filename+5);
+	  cygwin_win32_to_posix_path_list (cmd, filename+5);
 #else
 	  dostounix_filename (cmd);
 	  filename = alloca (strlen (cmd)+6);
@@ -2062,7 +2067,19 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
   /* Not perfect but avoids crashes. There is potential for wierd
      behavior here. */
   if (gc_in_progress)
-    goto defproc;
+    {
+      mswindows_output_console_string ("Window procedure called during GC???????\n", 41);
+      /* Yes, this assert always triggers in a --debug XEmacs.  But
+	 --debug=no is default in the stable branches.
+         #### How about patch in <200106081225.IAA31075@gwyn.tux.org>? */
+      assert (!gc_in_progress);
+      goto defproc;
+    }
+
+#ifdef DEBUG_XEMACS
+  if (debug_mswindows_events)
+    debug_output_mswin_message (hwnd, message_, wParam, lParam);
+#endif /* DEBUG_XEMACS */
 
   assert (!GetWindowLong (hwnd, GWL_USERDATA));
   switch (message_)
@@ -2098,13 +2115,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int should_set_keymap = 0;
 
 #ifdef DEBUG_XEMACS
-	if (debug_mswindows_events)
-	  {
-	    stderr_out ("%s wparam=%d lparam=%d\n",
-			message_ == WM_KEYUP ? "WM_KEYUP" : "WM_SYSKEYUP",
-			wParam, (int)lParam);
-	    output_alt_keyboard_state ();
-	  }
+	if (debug_mswindows_events > 2)
+	  output_alt_keyboard_state ();
 #endif /* DEBUG_XEMACS */
 
 	mswindows_handle_sticky_modifiers (wParam, lParam, 0, 1);
@@ -2155,13 +2167,8 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int sticky_changed;
 
 #ifdef DEBUG_XEMACS
-	if (debug_mswindows_events)
-	  {
-	    stderr_out ("%s wparam=%d lparam=%d\n",
-			message_ == WM_KEYDOWN ? "WM_KEYDOWN" : "WM_SYSKEYDOWN",
-			wParam, (int)lParam);
-	    output_alt_keyboard_state ();
-	  }
+	if (debug_mswindows_events > 2)
+	  output_alt_keyboard_state ();
 #endif /* DEBUG_XEMACS */
 
 	GetKeyboardState (keymap_orig);
@@ -2256,6 +2263,16 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 		int mods_with_quit = mods;
 		WPARAM ch = tranmsg.wParam;
 
+#ifdef DEBUG_XEMACS
+		if (debug_mswindows_events)
+		  {
+		    stderr_out ("-> ");
+		    debug_output_mswin_message (tranmsg.hwnd, tranmsg.message,
+						tranmsg.wParam,
+						tranmsg.lParam);
+		  }
+#endif /* DEBUG_XEMACS */
+
 		/* If a quit char with no modifiers other than control and
 		   shift, then mark it with a fake modifier, which is removed
 		   upon dequeueing the event */
@@ -2274,7 +2291,7 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 		    mods_with_quit |= FAKE_MOD_QUIT;
 		    if (mods_with_shift & XEMACS_MOD_SHIFT)
 		      mods_with_quit |= FAKE_MOD_QUIT_CRITICAL;
-		    ++mswindows_quit_chars_count;
+		    mswindows_quit_chars_count++;
 		  }
 		else if (potential_accelerator && !got_accelerator &&
 			 mswindows_char_is_accelerator (frame, ch))
@@ -2604,6 +2621,33 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
       mswindows_handle_paint (XFRAME (mswindows_find_frame (hwnd)));
       break;
 
+    case WM_WINDOWPOSCHANGED:
+      /* This is sent before WM_SIZE; in fact, the processing of this
+	 by DefWindowProc() sends WM_SIZE.  But WM_SIZE is not sent when
+	 a window is hidden (make-frame-invisible), so we need to process
+	 this and update the state flags. */
+      {
+	fobj = mswindows_find_frame (hwnd);
+	frame = XFRAME (fobj);
+	if (IsIconic (hwnd))
+	  {
+	    FRAME_VISIBLE_P (frame) = 0;
+	    FRAME_ICONIFIED_P (frame) = 1;
+	  }
+	else if (IsWindowVisible (hwnd))
+	  {
+	    FRAME_VISIBLE_P (frame) = 1;
+	    FRAME_ICONIFIED_P (frame) = 0;
+	  }
+	else
+	  {
+	    FRAME_VISIBLE_P (frame) = 0;
+	    FRAME_ICONIFIED_P (frame) = 0;
+	  }	    
+
+	return DefWindowProc (hwnd, message_, wParam, lParam);
+      }
+
     case WM_SIZE:
       /* We only care about this message if our size has really changed */
       if (wParam==SIZE_RESTORED || wParam==SIZE_MAXIMIZED || wParam==SIZE_MINIMIZED)
@@ -2622,7 +2666,6 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	  if (wParam==SIZE_MINIMIZED)
 	    {
 	      /* Iconified */
-	      FRAME_VISIBLE_P (frame) = 0;
 	      mswindows_enqueue_magic_event (hwnd, XM_UNMAPFRAME);
 	    }
 	  else
@@ -2658,7 +2701,6 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 		{
 		  if (!msframe->sizing && !FRAME_VISIBLE_P (frame))
 		    mswindows_enqueue_magic_event (hwnd, XM_MAPFRAME);
-		  FRAME_VISIBLE_P (frame) = 1;
 
 		  if (!msframe->sizing || mswindows_dynamic_frame_resize)
 		    redisplay ();
@@ -2960,14 +3002,14 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 		    if (psl->lpVtbl->QueryInterface (psl, &IID_IPersistFile,
 						     &ppf) == S_OK)
 		      {
-			WORD wsz[MAX_PATH];
+			OLECHAR wsz[PATH_MAX];
 			WIN32_FIND_DATA wfd;
-			LPSTR resolved = (char *) xmalloc (MAX_PATH+1);
+			LPSTR resolved = (char *) xmalloc (PATH_MAX+1);
 
-			MultiByteToWideChar (CP_ACP,0, fname, -1, wsz, MAX_PATH);
+			MultiByteToWideChar (CP_ACP,0, fname, -1, wsz, PATH_MAX);
 
 			if ((ppf->lpVtbl->Load (ppf, wsz, STGM_READ) == S_OK) &&
-			    (psl->lpVtbl->GetPath (psl, resolved, MAX_PATH,
+			    (psl->lpVtbl->GetPath (psl, resolved, PATH_MAX,
 						   &wfd, 0)==S_OK))
 			  {
 			    xfree (fname);
@@ -2984,9 +3026,9 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 #endif
 
 #ifdef CYGWIN
-	    filename = xmalloc (cygwin32_win32_to_posix_path_list_buf_size (fname) + 5);
+	    filename = xmalloc (cygwin_win32_to_posix_path_list_buf_size (fname) + 5);
 	    strcpy (filename, "file:");
-	    cygwin32_win32_to_posix_path_list (fname, filename+5);
+	    cygwin_win32_to_posix_path_list (fname, filename+5);
 #else
 	    filename = (char *)xmalloc (len+6);
 	    strcat (strcpy (filename, "file:"), fname);
@@ -3473,6 +3515,7 @@ emacs_mswindows_quit_p (void)
   if (mswindows_in_modal_loop)
     return;
 
+  mswindows_quit_chars_count = 0;
   /* Drain windows queue.  This sets up number of quit characters in
      the queue. */
   mswindows_drain_windows_queue ();
@@ -3487,7 +3530,7 @@ emacs_mswindows_quit_p (void)
       match_against.event_type = key_press_event;
       match_against.event.key.modifiers = FAKE_MOD_QUIT;
 
-      while (mswindows_quit_chars_count-- > 0)
+      while (mswindows_quit_chars_count > 0)
 	{
 	  emacs_event = mswindows_cancel_dispatch_event (&match_against);
 	  assert (!NILP (emacs_event));
@@ -3497,6 +3540,7 @@ emacs_mswindows_quit_p (void)
 	    critical_p = 1;
 
 	  Fdeallocate_event (emacs_event);
+	  mswindows_quit_chars_count--;
 	}
 
       Vquit_flag = critical_p ? Qcritical : Qt;
@@ -3632,6 +3676,318 @@ debug_process_finalization (Lisp_Process *p)
 }
 #endif
 
+#ifdef DEBUG_XEMACS
+
+struct mswin_message_debug
+{
+  int mess;
+  char *string;
+};
+
+#define FROB(val) { val, #val, },
+
+struct mswin_message_debug debug_mswin_messages[] =
+{
+FROB (WM_NULL)
+FROB (WM_CREATE)
+FROB (WM_DESTROY)
+FROB (WM_MOVE)
+FROB (WM_SIZE)
+
+FROB (WM_ACTIVATE)
+
+FROB (WM_SETFOCUS)
+FROB (WM_KILLFOCUS)
+FROB (WM_ENABLE)
+FROB (WM_SETREDRAW)
+FROB (WM_SETTEXT)
+FROB (WM_GETTEXT)
+FROB (WM_GETTEXTLENGTH)
+FROB (WM_PAINT)
+FROB (WM_CLOSE)
+FROB (WM_QUERYENDSESSION)
+FROB (WM_QUIT)
+FROB (WM_QUERYOPEN)
+FROB (WM_ERASEBKGND)
+FROB (WM_SYSCOLORCHANGE)
+FROB (WM_ENDSESSION)
+FROB (WM_SHOWWINDOW)
+FROB (WM_WININICHANGE)
+#if(WINVER >= 0x0400)
+FROB (WM_SETTINGCHANGE)
+#endif /* WINVER >= 0x0400 */
+
+FROB (WM_DEVMODECHANGE)
+FROB (WM_ACTIVATEAPP)
+FROB (WM_FONTCHANGE)
+FROB (WM_TIMECHANGE)
+FROB (WM_CANCELMODE)
+FROB (WM_SETCURSOR)
+FROB (WM_MOUSEACTIVATE)
+FROB (WM_CHILDACTIVATE)
+FROB (WM_QUEUESYNC)
+
+FROB (WM_GETMINMAXINFO)
+
+FROB (WM_PAINTICON)
+FROB (WM_ICONERASEBKGND)
+FROB (WM_NEXTDLGCTL)
+FROB (WM_SPOOLERSTATUS)
+FROB (WM_DRAWITEM)
+FROB (WM_MEASUREITEM)
+FROB (WM_DELETEITEM)
+FROB (WM_VKEYTOITEM)
+FROB (WM_CHARTOITEM)
+FROB (WM_SETFONT)
+FROB (WM_GETFONT)
+FROB (WM_SETHOTKEY)
+FROB (WM_GETHOTKEY)
+FROB (WM_QUERYDRAGICON)
+FROB (WM_COMPAREITEM)
+#if(WINVER >= 0x0500)
+FROB (WM_GETOBJECT)
+#endif /* WINVER >= 0x0500 */
+FROB (WM_COMPACTING)
+FROB (WM_COMMNOTIFY)
+FROB (WM_WINDOWPOSCHANGING)
+FROB (WM_WINDOWPOSCHANGED)
+
+FROB (WM_POWER)
+
+FROB (WM_COPYDATA)
+FROB (WM_CANCELJOURNAL)
+
+#if(WINVER >= 0x0400)
+FROB (WM_NOTIFY)
+FROB (WM_INPUTLANGCHANGEREQUEST)
+FROB (WM_INPUTLANGCHANGE)
+FROB (WM_TCARD)
+FROB (WM_HELP)
+FROB (WM_USERCHANGED)
+FROB (WM_NOTIFYFORMAT)
+
+FROB (WM_CONTEXTMENU)
+FROB (WM_STYLECHANGING)
+FROB (WM_STYLECHANGED)
+FROB (WM_DISPLAYCHANGE)
+FROB (WM_GETICON)
+FROB (WM_SETICON)
+#endif /* WINVER >= 0x0400 */
+
+FROB (WM_NCCREATE)
+FROB (WM_NCDESTROY)
+FROB (WM_NCCALCSIZE)
+FROB (WM_NCHITTEST)
+FROB (WM_NCPAINT)
+FROB (WM_NCACTIVATE)
+FROB (WM_GETDLGCODE)
+FROB (WM_SYNCPAINT)
+FROB (WM_NCMOUSEMOVE)
+FROB (WM_NCLBUTTONDOWN)
+FROB (WM_NCLBUTTONUP)
+FROB (WM_NCLBUTTONDBLCLK)
+FROB (WM_NCRBUTTONDOWN)
+FROB (WM_NCRBUTTONUP)
+FROB (WM_NCRBUTTONDBLCLK)
+FROB (WM_NCMBUTTONDOWN)
+FROB (WM_NCMBUTTONUP)
+FROB (WM_NCMBUTTONDBLCLK)
+
+/* FROB (WM_KEYFIRST) */
+FROB (WM_KEYDOWN)
+FROB (WM_KEYUP)
+FROB (WM_CHAR)
+FROB (WM_DEADCHAR)
+FROB (WM_SYSKEYDOWN)
+FROB (WM_SYSKEYUP)
+FROB (WM_SYSCHAR)
+FROB (WM_SYSDEADCHAR)
+FROB (WM_KEYLAST)
+
+#if(WINVER >= 0x0400) && !defined(CYGWIN)
+FROB (WM_IME_STARTCOMPOSITION)
+FROB (WM_IME_ENDCOMPOSITION)
+FROB (WM_IME_COMPOSITION)
+FROB (WM_IME_KEYLAST)
+#endif /* WINVER >= 0x0400 */
+
+FROB (WM_INITDIALOG)
+FROB (WM_COMMAND)
+FROB (WM_SYSCOMMAND)
+FROB (WM_TIMER)
+FROB (WM_HSCROLL)
+FROB (WM_VSCROLL)
+FROB (WM_INITMENU)
+FROB (WM_INITMENUPOPUP)
+FROB (WM_MENUSELECT)
+FROB (WM_MENUCHAR)
+FROB (WM_ENTERIDLE)
+#if(WINVER >= 0x0500)
+FROB (WM_MENURBUTTONUP)
+FROB (WM_MENUDRAG)
+FROB (WM_MENUGETOBJECT)
+FROB (WM_UNINITMENUPOPUP)
+FROB (WM_MENUCOMMAND)
+#endif /* WINVER >= 0x0500 */
+
+
+FROB (WM_CTLCOLORMSGBOX)
+FROB (WM_CTLCOLOREDIT)
+FROB (WM_CTLCOLORLISTBOX)
+FROB (WM_CTLCOLORBTN)
+FROB (WM_CTLCOLORDLG)
+FROB (WM_CTLCOLORSCROLLBAR)
+FROB (WM_CTLCOLORSTATIC)
+
+
+/* FROB (WM_MOUSEFIRST) */
+FROB (WM_MOUSEMOVE)
+FROB (WM_LBUTTONDOWN)
+FROB (WM_LBUTTONUP)
+FROB (WM_LBUTTONDBLCLK)
+FROB (WM_RBUTTONDOWN)
+FROB (WM_RBUTTONUP)
+FROB (WM_RBUTTONDBLCLK)
+FROB (WM_MBUTTONDOWN)
+FROB (WM_MBUTTONUP)
+FROB (WM_MBUTTONDBLCLK)
+
+#if (_WIN32_WINNT >= 0x0400) || (_WIN32_WINDOWS > 0x0400)
+FROB (WM_MOUSEWHEEL)
+FROB (WM_MOUSELAST)
+#else
+FROB (WM_MOUSELAST)
+#endif /* if (_WIN32_WINNT < 0x0400) */
+
+FROB (WM_PARENTNOTIFY)
+FROB (WM_ENTERMENULOOP)
+FROB (WM_EXITMENULOOP)
+
+#if(WINVER >= 0x0400)
+FROB (WM_NEXTMENU)
+
+FROB (WM_SIZING)
+FROB (WM_CAPTURECHANGED)
+FROB (WM_MOVING)
+FROB (WM_POWERBROADCAST)
+
+FROB (WM_DEVICECHANGE)
+
+#endif /* WINVER >= 0x0400 */
+
+FROB (WM_MDICREATE)
+FROB (WM_MDIDESTROY)
+FROB (WM_MDIACTIVATE)
+FROB (WM_MDIRESTORE)
+FROB (WM_MDINEXT)
+FROB (WM_MDIMAXIMIZE)
+FROB (WM_MDITILE)
+FROB (WM_MDICASCADE)
+FROB (WM_MDIICONARRANGE)
+FROB (WM_MDIGETACTIVE)
+
+
+FROB (WM_MDISETMENU)
+FROB (WM_ENTERSIZEMOVE)
+FROB (WM_EXITSIZEMOVE)
+FROB (WM_DROPFILES)
+FROB (WM_MDIREFRESHMENU)
+
+
+#if(WINVER >= 0x0400) && !defined(CYGWIN)
+FROB (WM_IME_SETCONTEXT)
+FROB (WM_IME_NOTIFY)
+FROB (WM_IME_CONTROL)
+FROB (WM_IME_COMPOSITIONFULL)
+FROB (WM_IME_SELECT)
+FROB (WM_IME_CHAR)
+#endif /* WINVER >= 0x0400 */
+#if(WINVER >= 0x0500)
+FROB (WM_IME_REQUEST)
+#endif /* WINVER >= 0x0500 */
+#if(WINVER >= 0x0400) && !defined(CYGWIN)
+FROB (WM_IME_KEYDOWN)
+FROB (WM_IME_KEYUP)
+#endif /* WINVER >= 0x0400 */
+
+
+#if(_WIN32_WINNT >= 0x0400)
+FROB (WM_MOUSEHOVER)
+FROB (WM_MOUSELEAVE)
+#endif /* _WIN32_WINNT >= 0x0400 */
+
+FROB (WM_CUT)
+FROB (WM_COPY)
+FROB (WM_PASTE)
+FROB (WM_CLEAR)
+FROB (WM_UNDO)
+FROB (WM_RENDERFORMAT)
+FROB (WM_RENDERALLFORMATS)
+FROB (WM_DESTROYCLIPBOARD)
+FROB (WM_DRAWCLIPBOARD)
+FROB (WM_PAINTCLIPBOARD)
+FROB (WM_VSCROLLCLIPBOARD)
+FROB (WM_SIZECLIPBOARD)
+FROB (WM_ASKCBFORMATNAME)
+FROB (WM_CHANGECBCHAIN)
+FROB (WM_HSCROLLCLIPBOARD)
+FROB (WM_QUERYNEWPALETTE)
+FROB (WM_PALETTEISCHANGING)
+FROB (WM_PALETTECHANGED)
+FROB (WM_HOTKEY)
+
+#if(WINVER >= 0x0400)
+FROB (WM_PRINT)
+FROB (WM_PRINTCLIENT)
+
+FROB (WM_HANDHELDFIRST)
+FROB (WM_HANDHELDLAST)
+
+FROB (WM_AFXFIRST)
+FROB (WM_AFXLAST)
+#endif /* WINVER >= 0x0400 */
+
+FROB (WM_PENWINFIRST)
+FROB (WM_PENWINLAST)
+};
+
+#undef FROB
+
+static void
+debug_output_mswin_message (HWND hwnd, UINT message_, WPARAM wParam,
+			    LPARAM lParam)
+{
+  Lisp_Object frame = mswindows_find_frame (hwnd);
+  int i;
+  char *str = 0;
+  /* struct mswin_message_debug *i_hate_cranking_out_code_like_this; */
+
+  for (i = 0; i < countof (debug_mswin_messages); i++)
+    {
+      if (debug_mswin_messages[i].mess == message_)
+	{
+	  str = debug_mswin_messages[i].string;
+	  break;
+	}
+    }
+
+  if (str)
+    stderr_out ("%s", str);
+  else
+    stderr_out ("%x", message_);
+
+  if (debug_mswindows_events > 1)
+    {
+      stderr_out (" wparam=%d lparam=%d hwnd=%x frame: ",
+		  wParam, (int) lParam, (unsigned int) hwnd);
+      debug_print (frame);
+    }
+  else
+    stderr_out ("\n");
+}
+
+#endif /* DEBUG_XEMACS */
+
 /************************************************************************/
 /*                            initialization                            */
 /************************************************************************/
@@ -3691,13 +4047,12 @@ vars_of_event_mswindows (void)
 
 #ifdef DEBUG_XEMACS
   DEFVAR_INT ("debug-mswindows-events", &debug_mswindows_events /*
-If non-zero, display debug information about Windows events that XEmacs sees.
+If non-zero, display debug information about Windows messages that XEmacs sees.
 Information is displayed in a console window.  Currently defined values are:
 
-1 == non-verbose output
-2 == verbose output
-
-#### Unfortunately, not yet implemented.
+1 == non-verbose output (just the message name)
+2 == verbose output (all parameters)
+3 == even more verbose output (extra debugging info)
 */ );
   debug_mswindows_events = 0;
 #endif

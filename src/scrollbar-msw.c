@@ -114,7 +114,13 @@ mswindows_update_scrollbar_instance_values (struct window *w,
 					    int new_scrollbar_y)
 {
   int pos_changed = 0;
-  int vert = GetWindowLong (SCROLLBAR_MSW_HANDLE (sb), GWL_STYLE) & SBS_VERT;
+  long styles = GetWindowLong (SCROLLBAR_MSW_HANDLE (sb), GWL_STYLE);
+  int vert = styles & SBS_VERT;
+
+  if (styles == 0) {
+    mswindows_output_last_error("GetWindowLong");
+    return;
+  }
 
 #if 0
   stderr_out ("[%d, %d], page = %d, pos = %d, inhibit = %d\n", new_minimum, new_maximum,
@@ -176,12 +182,16 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
   struct frame *f;
   Lisp_Object win, frame;
   struct scrollbar_instance *sb;
-  SCROLLINFO scrollinfo;
-  int vert = GetWindowLong (hwnd, GWL_STYLE) & SBS_VERT;
-  int value;
+  long styles = GetWindowLong (hwnd, GWL_STYLE);
+  int vert = styles & SBS_VERT;
+
+  if (styles == 0) {
+    mswindows_output_last_error("GetWindowLong");
+    return;
+  }
 
   sb = (struct scrollbar_instance *)GetWindowLong (hwnd, GWL_USERDATA);
-  win = real_window (sb->mirror, 1);
+  win = real_window ((sb==NULL) ? GetFocus() : sb->mirror, 1);
   frame = XWINDOW (win)->frame;
   f = XFRAME (frame);
 
@@ -226,10 +236,13 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 
     case SB_THUMBTRACK:
     case SB_THUMBPOSITION:
-      scrollinfo.cbSize = sizeof(SCROLLINFO);
-      scrollinfo.fMask = SIF_ALL;
-      GetScrollInfo (hwnd, SB_CTL, &scrollinfo);
-      vertical_drag_in_progress = vert;
+      {
+	int pos;
+	SCROLLINFO scrollinfo;
+	scrollinfo.cbSize = sizeof(SCROLLINFO);
+	scrollinfo.fMask = SIF_ALL;
+	GetScrollInfo (hwnd, SB_CTL, &scrollinfo);
+	vertical_drag_in_progress = vert;
 #ifdef VERTICAL_SCROLLBAR_DRAG_HACK
       if (vert && (scrollinfo.nTrackPos > scrollinfo.nPos))
         /* new buffer position =
@@ -237,7 +250,7 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 	 *   ((text remaining in buffer at start of drag) *
 	 *    (amount that the thumb has been moved) /
 	 *    (space that remained past end of the thumb at start of drag)) */
-	value = (int)
+	pos = (int)
 	  (scrollinfo.nPos
 	   + (((double)
 	      (scrollinfo.nMax - scrollinfo.nPos)
@@ -246,16 +259,17 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 	  - 2;	/* ensure that the last line doesn't disappear off screen */
       else
 #endif
-        value = scrollinfo.nTrackPos;
+        pos = scrollinfo.nTrackPos;
       mswindows_enqueue_misc_user_event
 	(frame,
 	 vert ? Qscrollbar_vertical_drag : Qscrollbar_horizontal_drag,
-	 Fcons (win, make_int (value)));
+	 Fcons (win, make_int (pos)));
+      }
       break;
 
     case SB_ENDSCROLL:
 #ifdef VERTICAL_SCROLLBAR_DRAG_HACK
-      if (vertical_drag_in_progress)
+      if (vertical_drag_in_progress && sb)
 	/* User has just dropped the thumb - finally update it */
 	SetScrollInfo (SCROLLBAR_MSW_HANDLE (sb), SB_CTL,
 		       &SCROLLBAR_MSW_INFO (sb), TRUE);

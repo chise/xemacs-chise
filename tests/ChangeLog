@@ -1,3 +1,12 @@
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-05-29  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/mule-tests.el:
+	Avoid test failure if (temp-directory) is a symlink.
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

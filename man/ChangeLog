@@ -1,3 +1,106 @@
+2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.4 "Artificial Intelligence" is released.
+
+2001-06-06  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* xemacs/mule.texi: Typo fixes and describe CCL and fonts.
+	* lispref/mule.texi: Typo fixes and describe set-charset-registry.
+
+2001-05-30  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Top):
+	* xemacs-faq.texi (MS Windows):
+	* xemacs-faq.texi (Q6.0.1):
+	* xemacs-faq.texi (Q6.0.2):
+	* xemacs-faq.texi (Q6.0.3):
+	* xemacs-faq.texi (Q6.0.4):
+	* xemacs-faq.texi (Q6.1.1):
+	* xemacs-faq.texi (Q6.1.4):
+	* xemacs-faq.texi (Q6.1.5):
+	* xemacs-faq.texi (Q6.1.6):
+	* xemacs-faq.texi (Q6.2.1):
+	* xemacs-faq.texi (Q6.2.2):
+	* xemacs-faq.texi (Q6.3.1):
+	* xemacs-faq.texi (Q6.3.2):
+	* xemacs-faq.texi (Q6.3.3):
+	* xemacs-faq.texi (Q6.4.1):
+	* xemacs-faq.texi (Current Events):
+	Major rewrite.
+	Update all MS Windows info to current.
+	Redo section 6.1 almost completely.
+	Incorporate sections 1 and 2 of Hrvoje's FAQ.
+
+2001-05-16  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Top):
+	* xemacs-faq.texi (Installation):
+	* xemacs-faq.texi (Q2.1.15):
+	* xemacs-faq.texi (Q2.1.18):
+	* xemacs-faq.texi (Q2.1.19):
+	document how to debug X errors
+	
+2001-06-24  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/programs.texi: Add node name (Top) to Ebrowse xref.
+
+2001-07-02  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.14): Update information following a
+	request by Tom Mostyn.
+
+2001-07-02  Adrian Aichner  <adrian@xemacs.org>
+
+	* lispref\windows.texi (Window Configurations): Fix typos.
+	* lispref\x-windows.texi (Resources): Ditto.
+	* internals\internals.texi (XEmacs From the Inside): Ditto.
+	* emodules.texi (Initialization Mode): Ditto.
+	* xemacs-faq.texi (Q6.3.2): Ditto.
+
+2001-06-10  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.10):
+	* xemacs-faq.texi (Q1.0.11):
+	* xemacs-faq.texi (Q1.0.12):
+	Update sections on Windows and MacOS availability.
+
+2001-06-08  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Top):
+	* xemacs-faq.texi (MS Windows):
+	* xemacs-faq.texi (Q6.2.1):
+	* xemacs-faq.texi (Q6.2.2):
+	* xemacs-faq.texi (Q6.2.3):
+	* xemacs-faq.texi (Q6.2.4):
+	* xemacs-faq.texi (Q6.2.5):
+	* xemacs-faq.texi (Q6.3.1):
+	* xemacs-faq.texi (Q6.3.2):
+	* xemacs-faq.texi (Q6.3.3):
+	* xemacs-faq.texi (Q6.3.4):
+	* xemacs-faq.texi (Q6.4.1):
+	* xemacs-faq.texi (Q6.4.2):
+	* xemacs-faq.texi (Current Events):
+	* xemacs-faq.texi (Q7.0.1):
+	* xemacs-faq.texi (Q7.0.2):
+	* xemacs-faq.texi (Q7.0.3):
+	* xemacs-faq.texi (Q7.0.4):
+	* xemacs-faq.texi (Q7.0.5):
+	* xemacs-faq.texi (Q7.0.6):
+	Merge in the rest of Hrvoje's Windows FAQ.  Redo section 7
+	to update current reality and add condensed versions of
+	new changes for 21.1 and 21.4. (Not quite done for 21.4.)
+	Lots more Windows updates.
+
+2001-05-29  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* xemacs/custom.texi: Documented keyboard shortcut.
+	* xemacs/mule.texi: Updated to match reality; tiny fixes.
+
+2001-06-02  Simon Josefsson  <simon@josefsson.org>
+
+	* man/internals.texi (Techniques for XEmacs Developers): Fix
+	typo in ./configure line.
+
 2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.3 "Academic Rigor" is released.

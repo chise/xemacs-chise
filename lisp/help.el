@@ -1183,6 +1183,7 @@ part of the documentation of internal subroutines."
 			 (documentation sym t))))
 	  (when (or var fun)
 	    (let ((ex (make-extent b e)))
+	      (require 'hyper-apropos)
 	      (set-extent-property ex 'mouse-face 'highlight)
 	      (set-extent-property ex 'help-symbol sym)
 	      (set-extent-property ex 'face 'hyper-apropos-hyperlink)

@@ -597,6 +597,7 @@ setup_table (void)
   char hostname[HOSTNAMSZ];
   unsigned int host_addr;
   int i, hosts=0;
+  int t;
 
   /* Make sure every entry is null */
   for (i=0; i<TABLE_SIZE; i++)
@@ -604,13 +605,14 @@ setup_table (void)
 
   gethostname(hostname,HOSTNAMSZ);
 
-  if ((host_addr = internet_addr(hostname)) == -1)
-    {
+  if ((t = internet_addr(hostname)) == -1)  {
       fprintf(stderr,"%s: unable to find %s in /etc/hosts or from YP",
 	      progname,hostname);
       exit(1);
-    } /* if */
-
+  } else  {
+    host_addr = t;
+  } /* if */
+  
 #ifdef AUTH_MAGIC_COOKIE
 
   server_xauth = XauGetAuthByAddr (FamilyInternet,
@@ -629,12 +631,15 @@ setup_table (void)
   if (((file_name = getenv("GNU_SECURE")) != NULL &&    /* security file  */
        (host_file = fopen(file_name,"r")) != NULL))	/* opened ok */
     {
-      while ((fscanf(host_file,"%s",hostname) != EOF))	/* find a host */
-	if ((host_addr = internet_addr(hostname)) != -1)/* get its addr */
+      while ((fscanf(host_file,"%s",hostname) != EOF))	{ /* find a host */
+	t = internet_addr(hostname);
+	if (t != -1)/* get its addr */
 	  {
+	    host_addr = t;
 	    add_host(host_addr);				/* add the addr */
 	    hosts++;
 	  }
+      }
       fclose(host_file);
     } /* if */
 

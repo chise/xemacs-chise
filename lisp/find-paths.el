@@ -69,7 +69,8 @@ from the search."
 		     (directory-files directory nil "^[^.-]")))
 		  (reverse-dirs '()))
 	      (while raw-entries
-		(if (null (string-match exclude-regexp (car raw-entries)))
+		(if (not (and exclude-regexp
+			      (string-match exclude-regexp (car raw-entries))))
 		    (setq reverse-dirs
 			  (cons (expand-file-name (car raw-entries) directory)
 				reverse-dirs)))

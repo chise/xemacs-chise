@@ -612,7 +612,7 @@ when the action is chosen.")
   (interactive)
   (let ((children custom-options))
     (mapc (lambda (child)
-	    (when (eq (widget-get child :custom-state) 'modified)
+	    (when (memq (widget-get child :custom-state) '(modified set saved))
 	      (widget-apply child :custom-reset-standard)))
 	  children)))
 

@@ -33,7 +33,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WIN32_NATIVE
 #ifdef MINGW
-#include <mingw/process.h>
+#include <../mingw/process.h>
 #else
 /* <process.h> should not conflict with "process.h", as per ANSI definition.
    This is not true with visual c though. The trick below works with
@@ -2337,7 +2337,11 @@ init_system_name (void)
 
 	xzero (hints);
 	hints.ai_flags = AI_CANONNAME;
+#ifdef IPV6_CANONICALIZE
 	hints.ai_family = AF_UNSPEC;
+#else
+	hints.ai_family = PF_INET;
+#endif
 	hints.ai_socktype = SOCK_STREAM;
 	hints.ai_protocol = 0;
 	if (!getaddrinfo (hostname, NULL, &hints, &res))
@@ -3342,17 +3346,26 @@ gettimeofday (struct timeval *tp, struct timezone *tzp)
    access to those functions goes through the following. */
 
 int
-set_file_times (char *filename, EMACS_TIME atime, EMACS_TIME mtime)
+set_file_times (Lisp_Object path, EMACS_TIME atime, EMACS_TIME mtime)
 {
-#if defined (HAVE_UTIME)
+#if defined (WIN32_NATIVE)
   struct utimbuf utb;
   utb.actime = EMACS_SECS (atime);
   utb.modtime = EMACS_SECS (mtime);
+  return mswindows_utime (path, &utb);
+#elif defined (HAVE_UTIME)
+  struct utimbuf utb;
+  Extbyte *filename;
+  utb.actime = EMACS_SECS (atime);
+  utb.modtime = EMACS_SECS (mtime);
+  LISP_STRING_TO_EXTERNAL (path, filename, Qfile_name);
   return utime (filename, &utb);
 #elif defined (HAVE_UTIMES)
   struct timeval tv[2];
+  Extbyte *filename;
   tv[0] = atime;
   tv[1] = mtime;
+  LISP_STRING_TO_EXTERNAL (path, filename, Qfile_name);
   return utimes (filename, tv);
 #else
   /* No file times setting function available. */
