@@ -1,6 +1,6 @@
 ;;; cyrillic.el --- Support for languages which use Cyrillic characters
 
-;; Copyright (C) 1995 Electrotechnical Laboratory, JAPAN.
+;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1997 MORIOKA Tomohiko
 
@@ -32,9 +32,9 @@
 
 ;; For syntax of Cyrillic
 (modify-syntax-entry 'cyrillic-iso8859-5 "w")
-(modify-syntax-entry ?,L-(B ".")
-(modify-syntax-entry ?,Lp(B ".")
-(modify-syntax-entry ?,L}(B ".")
+(modify-syntax-entry ?.LN- ".")
+(modify-syntax-entry ?.LNp ".")
+(modify-syntax-entry ?.LN} ".")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; CYRILLIC
@@ -77,53 +77,68 @@
 		  (charset . (cyrillic-iso8859-5))
 		  (tutorial . "TUTORIAL.ru")
 		  (coding-system . (iso-8859-5))
-		  (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
+		  (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
 		  (documentation . ("Support for Cyrillic ISO-8859-5."
 				    . describe-cyrillic-environment-map))))
 
 ;; KOI-8 staff
 
+(eval-and-compile
+
+(defvar cyrillic-koi8-r-decode-table
+  [
+   0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+   16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+   32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
+   48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
+   64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
+   80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95
+   96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111
+   112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
+   ?$B(!(B ?$B("(B ?$B(#(B ?$B($(B ?$B(&(B ?$B(%(B ?$B('(B ?$B()(B ?$B(((B ?$B(*(B ?$B(+(B 32  ?$(G#'(B ?$(G#+(B ?$(G#/(B 32
+   144 ?$(C"F(B 146 147 ?$B"#(B 149 ?$B"e(B ?$A!V(B ?$A!\(B ?$A!](B ?.AN   32  ?N0  ?N2  ?N7  ?Nw
+   ?$(G#D(B 32  32  ?.LNq  32  32  32  32  32  32  32  32  32  32  32  ?$(G#E(B
+   32  32  ?$(G#G(B ?.LN!  32  32  32  32  32  32  32  32  ?$(G#F(B 32  32  ?.AN)
+   ?.LNn  ?NP  ?NQ  ?Nf  ?NT  ?NU  ?Nd  ?NS  ?Ne  ?NX  ?NY  ?NZ  ?N[  ?N\  ?N]  ?N^ 
+   ?.LN_  ?No  ?N`  ?Na  ?Nb  ?Nc  ?NV  ?NR  ?Nl  ?Nk  ?NW  ?Nh  ?Nm  ?Ni  ?Ng  ?Nj 
+   ?.LNN  ?N0  ?N1  ?NF  ?N4  ?N5  ?ND  ?N3  ?NE  ?N8  ?N9  ?N:  ?N;  ?N<  ?N=  ?N> 
+   ?.LN?  ?NO  ?N@  ?NA  ?NB  ?NC  ?N6  ?N2  ?NL  ?NK  ?N7  ?NH  ?NM  ?NI  ?NG  ?NJ ]
+  "Cyrillic KOI8-R decoding table.")
+
+(defvar cyrillic-koi8-r-encode-table
+  (let ((table (make-vector 256 32))
+	(i 0))
+    (while (< i 256)
+      (let* ((ch (aref cyrillic-koi8-r-decode-table i))
+	     (split (split-char-or-char-int ch)))
+	(cond ((eq (car split) 'cyrillic-iso8859-5)
+	       (aset table (logior (nth 1 split) 128) i)
+	       )
+	      ((eq ch 32))
+	      ((eq (car split) 'ascii)
+	       (aset table ch i)
+	       )))
+      (setq i (1+ i)))
+    table)
+  "Cyrillic KOI8-R encoding table.")
+
+)
+
 (define-ccl-program ccl-decode-koi8
-  '(3
+  `(3
     ((read r0)
      (loop
-       (write-read-repeat
-	r0
-	[0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
-	   16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
-	   32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
-	   48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63
-	   64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79
-	   80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95
-	   96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111
-	   112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
-	   128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143
-	   144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159
-	    32  32  32 ?,Lq(B   32  32  32  32  32  32  32  32  32  32  32  32
-	    32  32  32 ?,L!(B   32  32  32  32  32  32  32  32  32  32  32  32
-	   ?,Ln(B  ?,LP(B  ?,LQ(B  ?,Lf(B  ?,LT(B  ?,LU(B  ?,Ld(B  ?,LS(B  ?,Le(B  ?,LX(B  ?,LY(B  ?,LZ(B  ?,L[(B  ?,L\(B  ?,L](B  ?,L^(B 
-	   ?,L_(B  ?,Lo(B  ?,L`(B  ?,La(B  ?,Lb(B  ?,Lc(B  ?,LV(B  ?,LR(B  ?,Ll(B  ?,Lk(B  ?,LW(B  ?,Lh(B  ?,Lm(B  ?,Li(B  ?,Lg(B  ?,Lj(B 
-	   ?,LN(B  ?,L0(B  ?,L1(B  ?,LF(B  ?,L4(B  ?,L5(B  ?,LD(B  ?,L3(B  ?,LE(B  ?,L8(B  ?,L9(B  ?,L:(B  ?,L;(B  ?,L<(B  ?,L=(B  ?,L>(B 
-	   ?,L?(B  ?,LO(B  ?,L@(B  ?,LA(B  ?,LB(B  ?,LC(B  ?,L6(B  ?,L2(B  ?,LL(B  ?,LK(B  ?,L7(B  ?,LH(B  ?,LM(B  ?,LI(B  ?,LG(B  ?,LJ(B ]))))
+      (write-read-repeat r0 ,cyrillic-koi8-r-decode-table))))
   "CCL program to decode KOI8.")
 
 (define-ccl-program ccl-encode-koi8
   `(1
     ((read r0)
      (loop
-       (if (r0 != ,(charset-id 'cyrillic-iso8859-5))
-	   (write-read-repeat r0)
-	 ((read r0)
-	  (r0 -= 160)
-	  (write-read-repeat
-	   r0
-	   [ 32 179  32  32  32  32  32  32  32  32  32  32  32  32  32  32
-		225 226 247 231 228 229 246 250 233 234 235 236 237 238 239 240
-		242 243 244 245 230 232 227 254 251 253 255 249 248 252 224 241
-		193 194 215 199 196 197 214 218 201 202 203 204 205 206 207 208
-		210 211 212 213 198 200 195 222 219 221 223 217 216 220 192 209
-		32 163  32  32  32  32  32  32  32  32  32  32  32  32  32  32])
-	  )))))
+      (if (r0 != ,(charset-id 'cyrillic-iso8859-5))
+	  (write-read-repeat r0)
+	((read r0)
+	 (write-read-repeat r0 , cyrillic-koi8-r-encode-table))))))
   "CCL program to encode KOI8.")
 
 ;(make-coding-system
@@ -169,7 +184,7 @@
 		   (charset . (cyrillic-iso8859-5))
 		   (coding-system . (koi8-r))
 		   (tutorial . "TUTORIAL.ru")
-		   (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
+		   (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
 		   (documentation . ("Support for Cyrillic KOI-8."
 				     . describe-cyrillic-environment-map))))
 
@@ -189,14 +204,14 @@
 	       80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95
 	       96  97  98  99 100 101 102 103 104 105 106 107 108 109 110 111
 	       112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127
-	       ?,L0(B  ?,L1(B  ?,L2(B  ?,L3(B  ?,L4(B  ?,L5(B  ?,L6(B  ?,L7(B  ?,L8(B  ?,L9(B  ?,L:(B  ?,L;(B  ?,L<(B  ?,L=(B  ?,L>(B  ?,L?(B
-	       ?,L@(B  ?,LA(B  ?,LB(B  ?,LC(B  ?,LD(B  ?,LE(B  ?,LF(B  ?,LG(B  ?,LH(B  ?,LI(B  ?,LJ(B  ?,LK(B  ?,LL(B  ?,LM(B  ?,LN(B  ?,LO(B
-	       ?,LP(B  ?,LQ(B  ?,LR(B  ?,LS(B  ?,LT(B  ?,LU(B  ?,LV(B  ?,LW(B  ?,LX(B  ?,LY(B  ?,LZ(B  ?,L[(B  ?,L\(B  ?,L](B  ?,L^(B  ?,L_(B
+	       ?.LN0  ?N1  ?N2  ?N3  ?N4  ?N5  ?N6  ?N7  ?N8  ?N9  ?N:  ?N;  ?N<  ?N=  ?N>  ?N?
+	       ?.LN@  ?NA  ?NB  ?NC  ?ND  ?NE  ?NF  ?NG  ?NH  ?NI  ?NJ  ?NK  ?NL  ?NM  ?NN  ?NO
+	       ?.LNP  ?NQ  ?NR  ?NS  ?NT  ?NU  ?NV  ?NW  ?NX  ?NY  ?NZ  ?N[  ?N\  ?N]  ?N^  ?N_
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
 	       32  32  32  32  32  32  32  32  32  32  32  32  32  32  32  32
-	       ?,L`(B  ?,La(B  ?,Lb(B  ?,Lc(B  ?,Ld(B  ?,Le(B  ?,Lf(B  ?,Lg(B  ?,Lh(B  ?,Li(B  ?,Lj(B  ?,Lk(B  ?,Ll(B  ?,Lm(B  ?,Ln(B  ?,Lo(B
-	       ?,L!(B  ?,Lq(B   32  32  32  32  32  32  32  32  32  32  32  32  32 ?,Lp(B]))))
+	       ?.LN`  ?Na  ?Nb  ?Nc  ?Nd  ?Ne  ?Nf  ?Ng  ?Nh  ?Ni  ?Nj  ?Nk  ?Nl  ?Nm  ?Nn  ?No
+	       ?.LN!  ?Nq   32  32  32  32  32  32  32  32  32  32  32  32  32 ?Np]))))
   "CCL program to decode Alternativnyj.")
 
 (define-ccl-program ccl-encode-alternativnyj
@@ -253,7 +268,7 @@
 		  (charset . (cyrillic-iso8859-5))
 		  (coding-system . (alternativnyj))
 		  (tutorial . "TUTORIAL.ru")
-		  (sample-text . "Russian (,L@caaZXY(B)	,L7T`PRabRcYbU(B!")
+		  (sample-text . "Russian (.LN@NcNaNaNZNXNY)	N7NTN`NPNRNaNbNRNcNYNbNU!")
 		  (documentation . ("Support for Cyrillic ALTERNATIVNYJ."
 				    . describe-cyrillic-environment-map))))
 
@@ -288,7 +303,7 @@
               (charset . (cyrillic-iso8859-5))
 	      (tutorial . "TUTORIAL.ru")
               (coding-system . (iso-8859-5 koi8-r alternativnyj))
-              (sample-text . "Russian (,L@caaZXY(B) ,L7T`PRabRcYbU(B!")
+              (sample-text . "Russian (.LN@NcNaNaNZNXNY) N7NTN`NPNRNaNbNRNcNYNbNU!")
               (documentation . nil)))
 
 ;;; cyrillic.el ends here
