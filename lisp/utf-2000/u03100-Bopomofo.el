@@ -208,7 +208,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (<-bopomofo
-     ((ideograph-daikanwa . 00009)	; ø¸€€‰
+     ((=daikanwa	  . 00009)	; ø¸€€‰
       ))
     (=gb2312		. #x2858)	; ø»„‘
     (=iso-ir165		. #x2858)	; ø»Œ¹
@@ -247,7 +247,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (<-bopomofo
-     ((ideograph-daikanwa . 00004)	; ø¸€€„
+     ((=daikanwa	  . 00004)	; ø¸€€„
       ))
     (=gb2312		. #x285B)	; ø»„‘
     (=iso-ir165		. #x285B)	; ø»Œ¹ 
@@ -266,7 +266,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (<-bopomofo
-     ((ideograph-daikanwa . 00005)	; ø¸€€…
+     ((=daikanwa	  . 00005)	; ø¸€€…
       ))
     (=gb2312		. #x285C)	; ø»„‘‘
     (=iso-ir165		. #x285C)	; ø»Œ¹¡
