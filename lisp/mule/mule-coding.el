@@ -318,6 +318,17 @@
   (define-coding-system-alias 'utf-8-er 'utf-8-mcs-er)
   )
 
+(make-coding-system
+ 'euc-jisx0213 'iso2022
+ "Coding-system of Japanese EUC based on JIS X 0213."
+ '(charset-g0 ascii
+   charset-g1 japanese-jisx0213-1
+   charset-g2 katakana-jisx0201
+   charset-g3 japanese-jisx0213-2
+   short t
+   mnemonic "Ja/EUC0213"
+   ))
+
 ;; initialize the coding categories to something semi-reasonable
 ;; so that the remaining Lisp files can contain extended characters.
 ;; (They will be in ISO-7 format)
