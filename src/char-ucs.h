@@ -64,15 +64,8 @@ struct Lisp_Char_Code_Table
 Lisp_Object get_char_code_table (Emchar ch, Lisp_Object table);
 
 
-extern Lisp_Object Vcharset_ucs;
-extern Lisp_Object Vcharset_ucs_bmp;
+extern Lisp_Object Vcharset_mojikyo;
 extern Lisp_Object Vcharset_latin_jisx0201;
-extern Lisp_Object Vcharset_latin_iso8859_2;
-extern Lisp_Object Vcharset_latin_iso8859_3;
-extern Lisp_Object Vcharset_latin_iso8859_4;
-extern Lisp_Object Vcharset_latin_iso8859_9;
-extern Lisp_Object Vcharset_latin_viscii_lower;
-extern Lisp_Object Vcharset_latin_viscii_upper;
 
 
 /************************************************************************/
@@ -474,7 +467,36 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
   if (XCHARSET_DIMENSION (charset) == 1)
     return make_builtin_char (charset, code_point, 0);
   else
-    return make_builtin_char (charset, code_point >> 8, code_point & 255);
+    {
+      int plane = LEADING_BYTE_MOJIKYO_PJ_1 - XCHARSET_ID (charset);
+
+      if ( (0 <= plane) && (plane <= 21) )
+	{
+	  int c1 = code_point >> 8;
+	  int c2 = code_point & 255;
+
+	  if (c1 < 16 + 32)
+	    return ' ';
+	  else if (c1 < 16 + 32 + 30)
+	    return DECODE_CHAR (Vcharset_mojikyo,
+				plane * (94 * 60)
+				+ (c1 - (16 + 32)) * 94
+				+ (c2 - 33)
+				+ 1);
+	  else if (c1 < 18 + 32 + 30)
+	    return ' ';
+	  else if (c1 < 18 + 32 + 60)
+	    return DECODE_CHAR (Vcharset_mojikyo,
+				plane * (94 * 60)
+				+ (c1 - (18 + 32)) * 94
+				+ (c2 - 33)
+				+ 1);
+	  else
+	    return ' ';
+	}
+      else
+	return make_builtin_char (charset, code_point >> 8, code_point & 255);
+    }
 }
 
 /* Return a character whose charset is CHARSET and position-codes
@@ -527,11 +549,11 @@ encode_char_1 (Emchar c, Lisp_Object* charset)
 
       while (!EQ (charsets, Qnil))
 	{
-	  int code_point;
-
 	  *charset = Ffind_charset (Fcar (charsets));
 	  if (!EQ (*charset, Qnil))
 	    {
+	      int code_point;
+
 	      if (!NILP (field = Fassq (*charset, cdef)))
 		return XINT (Fcdr (field));
 	      else if ((code_point
@@ -546,13 +568,39 @@ encode_char_1 (Emchar c, Lisp_Object* charset)
   return encode_builtin_char_1 (c, charset);
 }
 
-#define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
+INLINE int encode_char_2 (Emchar ch, Lisp_Object* charset);
+INLINE int
+encode_char_2 (Emchar ch, Lisp_Object* charset)
+{
+  int code_point = encode_char_1 (ch, charset);
+
+  if (EQ (*charset, Vcharset_mojikyo))
+    {
+      int plane, byte1, byte2;
+
+      code_point--;
+      plane = code_point / (94 * 60);
+      byte1 = (code_point % (94 * 60)) / 94;
+      if (byte1 < 30)
+	byte1 += 16 + 32;
+      else
+	byte1 += 18 + 32;
+      byte2 = code_point % 94 + 33;
+      *charset
+	= CHARSET_BY_LEADING_BYTE (LEADING_BYTE_MOJIKYO_PJ_1 - plane);
+      return (byte1 << 8) | byte2;
+    }
+  else
+    return code_point;
+}
+
+#define ENCODE_CHAR(ch, charset)	encode_char_2 (ch, &(charset))
 
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  int code_point = encode_char_1 (c, charset);
+  int code_point = encode_char_2 (c, charset);
 
   if (code_point >= 0)
     {
@@ -582,9 +630,8 @@ INLINE Lisp_Object
 CHAR_CHARSET (Emchar ch)
 {
   Lisp_Object charset;
-  int b1, b2;
-
-  BREAKUP_CHAR(ch, charset, b1, b2);
+ 
+  ENCODE_CHAR (ch, charset);
   return charset;
 }
 
