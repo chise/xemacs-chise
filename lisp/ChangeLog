@@ -1,7 +1,3 @@
-1999-07-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
-
-	* code-files.el (insert-file-contents): fixed.
-
 1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* files.el (insert-file-contents-literally): Treat file as binary;
