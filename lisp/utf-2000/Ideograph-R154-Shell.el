@@ -116,6 +116,15 @@
     (total-strokes	 . 10)
     (chinese-cns11643-4 . #x3026)	; ø»—¶¯
     (ideograph-daikanwa . 36663)	; ø¸ˆ¼·
+    (ucs		. #x27D2A)	; ð§´ª
+    ))
+(define-char
+  '((=>ucs		. #x27D2A)	; ð§´ª
+    (morohashi-daikanwa	36663 0 2)
+    (ideographic-radical . 154)	; â¾™
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
+    (chinese-big5-cdp	. #x8ACC)	; ý¢€ˆ«Œ
     ))
 (define-char
   '((ideographic-radical . 154)	; â¾™
