@@ -1,5 +1,13 @@
 2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R124-Feather.el (M-28841): Copied from
+	Ideograph-R040-Roof.el.
+
+	* Ideograph-R119-Rice.el, Ideograph-R118-Bamboo.el: Add some
+	`total-strokes' features.
+
+2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R096-Jade.el: Add some `total-strokes' features.
 	(M-21218): New character.
 	(C3-4D34): Separate U+3EF1; map to M-21218.
