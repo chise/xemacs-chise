@@ -416,37 +416,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x4E00)	; 一
-	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	  (=ucs		      . #x2FF5)	; ⿵
-	  )
-	 ((=ucs		      . #x5182)	; 冂
-	  )
-	 ((=ucs		      . #x4E36)	; 丶
-	  ))
-	))
+     ((=gt-k		  . 00616)	; &GT-K00616;
       ))
     (=cns11643-3	. #x2740)	; &GT-00145; [07-32]
     (=big5-cdp		. #x8CB7)	; &I-CDP-8CB7;
