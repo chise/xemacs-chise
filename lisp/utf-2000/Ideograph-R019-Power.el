@@ -4234,19 +4234,19 @@
     (ideograph-daikanwa . 02491)	; ø¸€¦»
     ))
 (define-char
-  '((=>ucs		. #x208CA)	; ð £Š
-    (morohashi-daikanwa	2491 0 0)
-    (ideographic-radical . 19)	; â¼’
-    (ideographic-strokes . 23)
-    (total-strokes	 . 25)
-    (chinese-cns11643-4 . #x6C6B)	; ø»™¼
-    ))
-(define-char
   '((morohashi-daikanwa	2491 0 0)
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 23)
     (total-strokes	 . 25)
     (ucs		. #x208CA)	; ð £Š
+    ))
+(define-char
+  '((=>ucs		. #x208CA)	; ð £Š
+    (morohashi-daikanwa	2491 0 1)
+    (ideographic-radical . 19)	; â¼’
+    (ideographic-strokes . 23)
+    (total-strokes	 . 25)
+    (chinese-cns11643-4 . #x6C6B)	; ø»™¼
     ))
 (define-char
   '((=>ucs		. #x208CB)	; ð £‹

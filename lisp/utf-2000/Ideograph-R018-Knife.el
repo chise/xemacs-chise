@@ -2134,7 +2134,7 @@
     ))
 (define-char
   '((=>ucs		. #x5231)	; 刱
-    (morohashi-daikanwa	1953 0 1)
+    (morohashi-daikanwa	1953 0 2)
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)

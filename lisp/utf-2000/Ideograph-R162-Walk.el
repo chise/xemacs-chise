@@ -8053,7 +8053,7 @@
     (chinese-cns11643-1 . #x7566)	; ø»’¾¹
     ))
 (define-char
-  '((morohashi-daikanwa	39173 0 2)
+  '((morohashi-daikanwa	39173 0 3)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 13)
     (total-strokes	 . 16)

@@ -562,14 +562,14 @@
     ))
 (define-char
   '((->ucs		. #x97FF)	; éŸ¿
-    (morohashi-daikanwa	43325 0 2)
+    (morohashi-daikanwa	43325 0 1)
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
     (japanese-jisx0213-1	. #x7D76)	; ø»¤›™
     ))
 (define-char
-  '((morohashi-daikanwa	43325 0 2)
+  '((morohashi-daikanwa	43325 0 3)
     (ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 12)
     (total-strokes	 . 21)

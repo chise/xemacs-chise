@@ -344,7 +344,7 @@
     ))
 (define-char
   '((=>ucs		. #x24BF7)	; 𤯷
-    (morohashi-daikanwa	21699 0 2)
+    (morohashi-daikanwa	21699 0 0)
     (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 12)
     (total-strokes	 . 17)

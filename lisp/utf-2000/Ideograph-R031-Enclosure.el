@@ -813,7 +813,7 @@
     (chinese-cns11643-2 . #x2347)	; ø»“‚
     ))
 (define-char
-  '((morohashi-daikanwa	4715 0 0)
+  '((morohashi-daikanwa	4715 0 1)
     (ideographic-radical . 31)	; â¼ž
     (ideographic-strokes . 4)
     (total-strokes	 . 7)

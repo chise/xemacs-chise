@@ -248,9 +248,9 @@
     ))
 (define-char
   '((ideographic-radical . 136)	; â¾‡
-    (hanyu-dazidian	5 3165 4)
-    (ideograph-hanziku-8	. #xE5D5)	; ý¢‚Ž—•
-    (ucs			. #x26A06)	; ð¦¨†
+    (hanyu-dazidian	3 2037 12)
+    (ideograph-hanziku-5	. #xF96E)	; ý¢Ÿ¥®
+    (ucs			. #x26A01)	; ð¦¨
     ))
 (define-char
   '((ideographic-radical . 136)	; â¾‡
@@ -260,7 +260,7 @@
     ))
 (define-char
   '((ideographic-radical . 136)	; â¾‡
-    (hanyu-dazidian	3 2037 12)
-    (ideograph-hanziku-5	. #xF96E)	; ý¢Ÿ¥®
-    (ucs			. #x26A01)	; ð¦¨
+    (hanyu-dazidian	5 3165 4)
+    (ideograph-hanziku-8	. #xE5D5)	; ý¢‚Ž—•
+    (ucs			. #x26A06)	; ð¦¨†
     ))

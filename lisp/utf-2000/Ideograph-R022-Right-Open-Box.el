@@ -623,10 +623,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
     (ideographic-structure
-     (:cdp-combinator	3
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
-		 (ucs		     . #x2FF7)	; â¿·
-		 )
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
+      (ucs		  . #x2FF7)	; â¿·
       )
      ((ucs		  . #x531A)	; åŒš
       )
@@ -635,7 +633,7 @@
     (korean-ksc5601	. #x5D63)	; ø»‰³–
     ))
 (define-char
-  '((morohashi-daikanwa	2629 0 1)
+  '((morohashi-daikanwa	2629 0 2)
     (ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 8)
     (total-strokes	 . 10)

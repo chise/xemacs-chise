@@ -2879,39 +2879,9 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	8 10 5)
-    (ideograph-hanziku-12	. #xEBAF)	; ý¢ƒŽ®¯
-    (ucs			. #x20615)	; ð ˜•
-    ))
-(define-char
-  '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	8 10 4)
-    (ideograph-hanziku-12	. #xEBAE)	; ý¢ƒŽ®®
-    (ucs			. #x20610)	; ð ˜
-    ))
-(define-char
-  '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	1 301 10)
-    (ideograph-hanziku-1	. #xE441)	; ý¢€ž‘
-    (ucs			. #x2060F)	; ð ˜
-    ))
-(define-char
-  '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	1 300 13)
-    (ideograph-hanziku-1	. #xE3E3)	; ý¢€ž£
-    (ucs			. #x20602)	; ð ˜‚
-    ))
-(define-char
-  '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	1 300 9)
-    (ideograph-hanziku-1	. #xE3DF)	; ý¢€žŸ
-    (ucs			. #x20601)	; ð ˜
-    ))
-(define-char
-  '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	1 299 21)
-    (ideograph-hanziku-1	. #xE3CB)	; ý¢€ž‹
-    (ucs			. #x205E9)	; ð —©
+    (hanyu-dazidian	1 295 10)
+    (ideograph-hanziku-1	. #xE2DD)	; ý¢€ž‹
+    (ucs			. #x205B5)	; ð –µ
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
@@ -2921,7 +2891,37 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
-    (hanyu-dazidian	1 295 10)
-    (ideograph-hanziku-1	. #xE2DD)	; ý¢€ž‹
-    (ucs			. #x205B5)	; ð –µ
+    (hanyu-dazidian	1 299 21)
+    (ideograph-hanziku-1	. #xE3CB)	; ý¢€ž‹
+    (ucs			. #x205E9)	; ð —©
+    ))
+(define-char
+  '((ideographic-radical . 15)	; â¼Ž
+    (hanyu-dazidian	1 300 9)
+    (ideograph-hanziku-1	. #xE3DF)	; ý¢€žŸ
+    (ucs			. #x20601)	; ð ˜
+    ))
+(define-char
+  '((ideographic-radical . 15)	; â¼Ž
+    (hanyu-dazidian	1 300 13)
+    (ideograph-hanziku-1	. #xE3E3)	; ý¢€ž£
+    (ucs			. #x20602)	; ð ˜‚
+    ))
+(define-char
+  '((ideographic-radical . 15)	; â¼Ž
+    (hanyu-dazidian	1 301 10)
+    (ideograph-hanziku-1	. #xE441)	; ý¢€ž‘
+    (ucs			. #x2060F)	; ð ˜
+    ))
+(define-char
+  '((ideographic-radical . 15)	; â¼Ž
+    (hanyu-dazidian	8 10 4)
+    (ideograph-hanziku-12	. #xEBAE)	; ý¢ƒŽ®®
+    (ucs			. #x20610)	; ð ˜
+    ))
+(define-char
+  '((ideographic-radical . 15)	; â¼Ž
+    (hanyu-dazidian	8 10 5)
+    (ideograph-hanziku-12	. #xEBAF)	; ý¢ƒŽ®¯
+    (ucs			. #x20615)	; ð ˜•
     ))

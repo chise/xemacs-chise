@@ -1596,6 +1596,12 @@
   '((ideographic-radical . 27)	; â¼š
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideograph-cbeta	. 01395)	; ø¸ •³
+    ))
+(define-char
+  '((ideographic-radical . 27)	; â¼š
+    (ideographic-strokes . 9)
+    (total-strokes	 . 11)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 75)
     (hanyu-dazidian-char . 6)
@@ -1609,12 +1615,6 @@
      ((ucs		  . #x5382)	; åŽ‚
       ))
     (chinese-big5-cdp	. #x8AD2)	; ý¢€ˆ«’
-    ))
-(define-char
-  '((ideographic-radical . 27)	; â¼š
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (ideograph-cbeta	. 01395)	; ø¸ •³
     ))
 (define-char
   '((ideographic-radical . 27)	; â¼š

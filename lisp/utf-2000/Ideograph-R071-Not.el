@@ -23,6 +23,7 @@
     (japanese-jisx0208		. #x5A5C)	; ø»‡¤±
     (chinese-cns11643-2		. #x213E)	; ø»“Œ½
     (japanese-jisx0208-1990	. #x5A5C)	; ø½‹Š¥
+    (chinese-big5		. #xC95E)	; ý¢€Œ¥ž
     (ideograph-daikanwa		. 13717)	; ø¸ƒ–•
     (ucs			. #x65E1)	; æ—¡
     ))
@@ -59,6 +60,7 @@
     (chinese-isoir165		. #x3C48)	; ø»–¥
     (chinese-cns11643-1		. #x514D)	; ø»’‰¨
     (japanese-jisx0208-1990	. #x347B)	; ø½Š“
+    (chinese-big5		. #xAC4A)	; ý¢€Š±Š
     (ideograph-daikanwa		. 13721)	; ø¸ƒ–™
     (ucs			. #x65E2)	; æ—¢
     ))

@@ -1829,7 +1829,7 @@
     ))
 (define-char
   '((=>ucs		. #x2128D)	; 𡊍
-    (morohashi-daikanwa	5017 0 1)
+    (morohashi-daikanwa	5017 0 0)
     (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 5)
     (total-strokes	 . 8)

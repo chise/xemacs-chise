@@ -9578,7 +9578,7 @@
     (chinese-cns11643-6 . #x5B78)	; ø»‹“
     ))
 (define-char
-  '((morohashi-daikanwa	6696 0 0)
+  '((morohashi-daikanwa	6696 0 1)
     (ideographic-radical . 38)	; â¼¥
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -11992,7 +11992,7 @@
     (chinese-cns11643-5 . #x614B)	; ø»›‰–
     ))
 (define-char
-  '((morohashi-daikanwa	6850 0 2)
+  '((morohashi-daikanwa	6850 0 3)
     (ideographic-radical . 38)	; â¼¥
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
