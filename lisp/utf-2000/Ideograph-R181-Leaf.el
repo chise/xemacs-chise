@@ -713,6 +713,13 @@
     ))
 (define-char
   '((ideographic-radical . 181)	; â¾´
+    (ideographic-strokes . 4)
+    (total-strokes	 . 13)
+    (china3-jef		. #x8CE9)	; øºˆ³©
+    (mojikyo		. 068913)	; ý €´±
+    ))
+(define-char
+  '((ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (japanese-jisx0212		. #x6778)	; ø»ŒŒ›
