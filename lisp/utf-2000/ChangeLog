@@ -1,5 +1,13 @@
 2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R027-Cliff.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+53A9): Changed to abstract character.
+	(M-03006): Use `<-denotational' for U+53A9; use `->subsumptive'.
+	(GT-03811): Use `<-denotational' for U+53A9.
+	(G0-3E47): Use `<-denotational' for U+53A9; use `->subsumptive'.
+	(U+53B3): Use `->subsumptive'.
+
 	* Ideograph-R041-Inch.el (U+5C0A): Changed to abstract character.
 	(K0-706E): Use `<-denotational' for U+5C0A; use `->subsumptive';
 	unify GT-09378 and GT-K09091.
