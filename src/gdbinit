@@ -122,9 +122,23 @@ define xtype
   end
 end
 
-define run-temacs
+define lisp-shadows
+  run -batch -vanilla -f list-load-path-shadows
+end
+
+document lisp-shadows
+Usage: lisp-shadows
+Run xemacs to check for lisp shadows
+end
+
+define environment-to-run-temacs
   unset env EMACSLOADPATH
-  set env EMACSBOOTSTRAPLOADPATH ../lisp/:..
+  set env EMACSBOOTSTRAPLOADPATH   = ../lisp/:..
+  set env EMACSBOOTSTRAPMODULEPATH = ../lisp/
+end
+
+define run-temacs
+  environment-to-run-temacs
   run -batch -l ../lisp/loadup.el run-temacs -q
 end
 
@@ -136,8 +150,7 @@ or when temacs builds successfully, but xemacs does not.
 end
 
 define update-elc
-  unset env EMACSLOADPATH
-  set env EMACSBOOTSTRAPLOADPATH ../lisp/:..
+  environment-to-run-temacs
   run -batch -l ../lisp/update-elc.el
 end
 
@@ -149,8 +162,7 @@ Use this when temacs builds successfully, but xemacs does not.
 end
 
 define dump-temacs
-  unset env EMACSLOADPATH
-  set env EMACSBOOTSTRAPLOADPATH ../lisp/:..
+  environment-to-run-temacs
   run -batch -l ../lisp/loadup.el dump
 end
 

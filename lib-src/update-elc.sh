@@ -60,12 +60,24 @@ else
   }
 fi
 
-REAL=`cd \`dirname $EMACS\` ; pwd | sed 's|^/tmp_mnt||'`/`basename $EMACS`
-BYTECOMP="$REAL -batch -vanilla "
-echo "Recompiling in `pwd|sed 's|^/tmp_mnt||'`"
+EMACS_DIR=`cd \`dirname $EMACS\` && pwd`;
+CANON_PWD=`pwd`
+# Account for various system automounter configurations
+if test -d "/net"; then
+  if test -d "/tmp_mnt/net"; then tdir="/tmp_mnt/net"; else tdir="/tmp_mnt"; fi
+  EMACS_DIR=`echo "$EMACS_DIR" | \
+   sed -e "s|^${tdir}/|/net/|" -e "s|^/a/|/net/|" -e "s|^/amd/|/net/|"`
+  CANON_PWD=`echo "$CANON_PWD" | \
+   sed -e "s|^${tdir}/|/net/|" -e "s|^/a/|/net/|" -e "s|^/amd/|/net/|"`
+fi
+REAL="$EMACS_DIR/`basename $EMACS`"
+
+echo "Recompiling in $CANON_PWD"
 echo "          with $REAL..."
 
-$EMACS -batch -vanilla -l `pwd`/lisp/cleantree -f batch-remove-old-elc lisp
+BYTECOMP="$REAL -batch -vanilla "
+
+$EMACS -batch -vanilla -l $CANON_PWD/lisp/cleantree -f batch-remove-old-elc lisp
 
 prune_vc="( -name '.*' -o -name SCCS -o -name RCS -o -name CVS ) -prune -o"
 
@@ -94,11 +106,7 @@ lisp_prog='(princ (featurep (quote mule)))'
 mule_p="`$EMACS -batch -vanilla -eval \"$lisp_prog\"`"
 if test "$mule_p" = nil ; then
 	echo No
-	ignore_dirs="$ignore_dirs its egg mule language leim skk"
-	ignore_pattern='\!/tl/char-table.el$!d
-\!/tl/chartblxmas.el$!d
-\!/mu/latex-math-symbol.el$!d
-'
+	ignore_dirs="$ignore=dirs mule"
 else
   echo Yes
 fi
