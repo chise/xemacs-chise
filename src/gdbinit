@@ -228,151 +228,151 @@ define pobj
       printf "Char: %d\n", $val
     end
   else
-  if $type == Lisp_Type_String || $imp == lrecord_string
+  if $type == Lisp_Type_String || $imp == &lrecord_string
     pstruct Lisp_String
   else
-  if $type == Lisp_Type_Cons   || $imp == lrecord_cons
+  if $type == Lisp_Type_Cons   || $imp == &lrecord_cons
     pstruct Lisp_Cons
   else
-  if $type == Lisp_Type_Symbol || $imp == lrecord_symbol
+  if $type == Lisp_Type_Symbol || $imp == &lrecord_symbol
     pstruct Lisp_Symbol
     printf "Symbol name: %s\n", $xstruct->name->data
   else
-  if $type == Lisp_Type_Vector || $imp == lrecord_vector
+  if $type == Lisp_Type_Vector || $imp == &lrecord_vector
     pstruct Lisp_Vector
     printf "Vector of length %d\n", $xstruct->size
     #print *($xstruct->data) @ $xstruct->size
   else
-  if $imp == lrecord_bit_vector
+  if $imp == &lrecord_bit_vector
     pstruct Lisp_Bit_Vector
   else
-  if $imp == lrecord_buffer
+  if $imp == &lrecord_buffer
     pstruct buffer
   else
-  if $imp == lrecord_char_table
+  if $imp == &lrecord_char_table
     pstruct Lisp_Char_Table
   else
-  if $imp == lrecord_char_table_entry
+  if $imp == &lrecord_char_table_entry
     pstruct Lisp_Char_Table_Entry
   else
-  if $imp == lrecord_charset
+  if $imp == &lrecord_charset
     pstruct Lisp_Charset
   else
-  if $imp == lrecord_coding_system
+  if $imp == &lrecord_coding_system
     pstruct Lisp_Coding_System
   else
-  if $imp == lrecord_color_instance
+  if $imp == &lrecord_color_instance
     pstruct Lisp_Color_Instance
   else
-  if $imp == lrecord_command_builder
+  if $imp == &lrecord_command_builder
     pstruct command_builder
   else
-  if $imp == lrecord_compiled_function
+  if $imp == &lrecord_compiled_function
     pstruct Lisp_Compiled_Function
   else
-  if $imp == lrecord_console
+  if $imp == &lrecord_console
     pstruct console
   else
-  if $imp == lrecord_database
+  if $imp == &lrecord_database
     pstruct Lisp_Database
   else
-  if $imp == lrecord_device
+  if $imp == &lrecord_device
     pstruct device
   else
-  if $imp == lrecord_event
+  if $imp == &lrecord_event
     pstruct Lisp_Event
   else
-  if $imp == lrecord_extent
+  if $imp == &lrecord_extent
     pstruct extent
   else
-  if $imp == lrecord_extent_auxiliary
+  if $imp == &lrecord_extent_auxiliary
     pstruct extent_auxiliary
   else
-  if $imp == lrecord_extent_info
+  if $imp == &lrecord_extent_info
     pstruct extent_info
   else
-  if $imp == lrecord_face
+  if $imp == &lrecord_face
     pstruct Lisp_Face
   else
-  if $imp == lrecord_float
+  if $imp == &lrecord_float
     pstruct Lisp_Float
   else
-  if $imp == lrecord_font_instance
+  if $imp == &lrecord_font_instance
     pstruct Lisp_Font_Instance
   else
-  if $imp == lrecord_frame
+  if $imp == &lrecord_frame
     pstruct frame
   else
-  if $imp == lrecord_glyph
+  if $imp == &lrecord_glyph
     pstruct Lisp_Glyph
   else
-  if $imp == lrecord_hash_table
+  if $imp == &lrecord_hash_table
     pstruct Lisp_Hash_Table
   else
-  if $imp == lrecord_image_instance
+  if $imp == &lrecord_image_instance
     pstruct Lisp_Image_Instance
   else
-  if $imp == lrecord_keymap
+  if $imp == &lrecord_keymap
     pstruct Lisp_Keymap
   else
-  if $imp == lrecord_lcrecord_list
+  if $imp == &lrecord_lcrecord_list
     pstruct lcrecord_list
   else
-  if $imp == lrecord_lstream
+  if $imp == &lrecord_lstream
     pstruct lstream
   else
-  if $imp == lrecord_marker
+  if $imp == &lrecord_marker
     pstruct Lisp_Marker
   else
-  if $imp == lrecord_opaque
+  if $imp == &lrecord_opaque
     pstruct Lisp_Opaque
   else
-  if $imp == lrecord_opaque_list
+  if $imp == &lrecord_opaque_list
     pstruct Lisp_Opaque_List
   else
-  if $imp == lrecord_popup_data
+  if $imp == &lrecord_popup_data
     pstruct popup_data
   else
-  if $imp == lrecord_process
+  if $imp == &lrecord_process
     pstruct Lisp_Process
   else
-  if $imp == lrecord_range_table
+  if $imp == &lrecord_range_table
     pstruct Lisp_Range_Table
   else
-  if $imp == lrecord_specifier
+  if $imp == &lrecord_specifier
     pstruct Lisp_Specifier
   else
-  if $imp == lrecord_subr
+  if $imp == &lrecord_subr
     pstruct Lisp_Subr
   else
-  if $imp == lrecord_symbol_value_buffer_local
+  if $imp == &lrecord_symbol_value_buffer_local
     pstruct symbol_value_buffer_local
   else
-  if $imp == lrecord_symbol_value_forward
+  if $imp == &lrecord_symbol_value_forward
     pstruct symbol_value_forward
   else
-  if $imp == lrecord_symbol_value_lisp_magic
+  if $imp == &lrecord_symbol_value_lisp_magic
     pstruct symbol_value_lisp_magic
   else
-  if $imp == lrecord_symbol_value_varalias
+  if $imp == &lrecord_symbol_value_varalias
     pstruct symbol_value_varalias
   else
-  if $imp == lrecord_toolbar_button
+  if $imp == &lrecord_toolbar_button
     pstruct toolbar_button
   else
-  if $imp == lrecord_tooltalk_message
+  if $imp == &lrecord_tooltalk_message
     pstruct Lisp_Tooltalk_Message
   else
-  if $imp == lrecord_tooltalk_pattern
+  if $imp == &lrecord_tooltalk_pattern
     pstruct Lisp_Tooltalk_Pattern
   else
-  if $imp == lrecord_weak_list
+  if $imp == &lrecord_weak_list
     pstruct weak_list
   else
-  if $imp == lrecord_window
+  if $imp == &lrecord_window
     pstruct window
   else
-  if $imp == lrecord_window_configuration
+  if $imp == &lrecord_window_configuration
     pstruct window_config
   else
     echo Unknown Lisp Object type\n
