@@ -98,30 +98,45 @@
   )
 
 ;; JIS X 0213:2000
-(make-charset
- 'japanese-jisx0213-1
- "JIS X 0213:2000 Plain 1"
- (if (featurep 'utf-2000)
-     '(registry "jisx0213\\(\\.2000\\)-1"
-       dimension 2
-       chars 94
-       mother japanese-jisx0208-1990
-       final ?O
-       graphic 0)
+(if (featurep 'utf-2000)
+    (progn
+      (make-charset
+       '=jis-x0213-1-2000
+       "JIS X 0213:2000 Plain 1"
+       '(registry "jisx0213\\(\\.2000\\)-1"
+		  dimension 2
+		  chars 94
+		  mother japanese-jisx0208-1990
+		  final ?O
+		  graphic 0))
+      (make-charset
+       '=jis-x0213-2-2000
+       "JIS X 0213:2000 Plain 2"
+       '(registry "jisx0213\\(\\.2000\\)-2"
+		  dimension 2
+		  chars 94
+		  final ?P
+		  graphic 0))
+      (define-charset-alias 'japanese-jisx0213-1 '=jis-x0213-1-2000)
+      (define-charset-alias 'japanese-jisx0213-2 '=jis-x0213-2-2000)
+      )
+  (make-charset
+   'japanese-jisx0213-1
+   "JIS X 0213:2000 Plain 1"
    '(registry "jisx0213\\(\\.2000\\)-1"
-     dimension 2
-     chars 94
-     final ?O
-     graphic 0)))
-
-(make-charset
- 'japanese-jisx0213-2
- "JIS X 0213:2000 Plain 2"
- '(registry "jisx0213\\(\\.2000\\)-2"
-   dimension 2
-   chars 94
-   final ?P
-   graphic 0))
+	      dimension 2
+	      chars 94
+	      final ?O
+	      graphic 0))
+  (make-charset
+   'japanese-jisx0213-2
+   "JIS X 0213:2000 Plain 2"
+   '(registry "jisx0213\\(\\.2000\\)-2"
+	      dimension 2
+	      chars 94
+	      final ?P
+	      graphic 0))
+  )
 
 (when (featurep 'utf-2000)
   (make-charset
