@@ -296,9 +296,8 @@
 (define-char
   '((ideographic-radical . 87)	; â½–
     (ideographic-strokes . 10)
-    (kangxi-radical	 . 6)	; â¼…
-    (kangxi-strokes	 . 13)
-    (non-morohashi	19686 9)
+    (total-strokes	 . 14)
+    (mojikyo		. 059770)	; ý €Ž¥º
     (ucs		. #x7233)	; çˆ³
     ))
 (define-char
@@ -447,7 +446,7 @@
     (chinese-isoir165		. #x3E74)	; ø»š
     (chinese-cns11643-1		. #x743A)	; ø»’¼¯
     (japanese-jisx0208-1990	. #x3C5F)	; ø½Šž¤
-    (mojikyo			. 050273)	; ø¸Œ‘¡
+    (mojikyo			. 050273)	; ý €Œ‘¡
     (ucs			. #x7235)	; çˆµ
     ))
 (define-char
@@ -456,6 +455,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
     (ideograph-daikanwa . 19711)	; ø¸„³¿
+    (mojikyo		. 019711)	; ý €„³¿
     ))
 (define-char
   '((->ucs		. #x7235)	; çˆµ
