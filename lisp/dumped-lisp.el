@@ -142,6 +142,8 @@
 	(when-feature utf-2000 "u02100-Letterlike-Symbols.el")
 	(when-feature utf-2000 "u02150-Number-Forms.el")
 	(when-feature utf-2000 "u02190-Arrows.el")
+	(when-feature utf-2000 "u02200-Mathematical-Operators.el")
+	(when-feature utf-2000 "u02300-Miscellaneous-Technical.el")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
