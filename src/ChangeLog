@@ -1,5 +1,9 @@
 1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* file-coding.c (encode_coding_no_conversion): Modify for UTF2000.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* file-coding.c (reset_encoding_stream): Set 0 to
 	`str->iso2022.current_char_boundary' in UTF2000.
 	(encode_utf8): Don't define in UTF2000.
