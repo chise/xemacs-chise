@@ -3339,7 +3339,7 @@
     (korean-ksc5601	. #x4F7C)	; ø»‰Ÿ‹
     (japanese-jisx0212	. #x4247)	; ø»‹•”
     (ideograph-daikanwa . 14005)	; ø¸ƒšµ
-    (=ucs-jis-1990	. #x6677)	; ø»‰Ÿ‹
+    (=ucs@jis-1990	. #x6677)	; ø»‰Ÿ‹
     (ucs-ks		. #x6677)	; ø»‰Ÿ‹
     ))
 (define-char
@@ -3364,7 +3364,7 @@
     (chinese-big5	. #xB4BE)	; ý¢€‹’¾
     (=jef-china3	. #x51A7)	; øº…†§
     (=ucs@cns		. #x6677)	; ø»’ž¢
-    (=ucs-jis-2000	. #x6677)	; ø»’ž¢
+    (=ucs@jis-2000	. #x6677)	; ø»’ž¢
     (ucs-big5		. #x6677)	; ø»’ž¢
     (mojikyo		. 014005)	; ý €ƒšµ
     ))
