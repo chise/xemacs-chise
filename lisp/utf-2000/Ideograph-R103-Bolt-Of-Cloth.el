@@ -6,12 +6,11 @@
     (=gb2312		. #x7162)	; ø»…¼¥
     (=jis-x0208		. #x4925)	; ø½Š°°
     (=ks-x1001		. #x7935)	; ø»Š›°
+    (=iso-ir165		. #x7162)	; ø»Ž¤µ
     (=cns11643-1	. #x4674)	; ø»‘º…
-    (=gt-pj-1		. #x4925)	; ý¡€†¹†
-    (=big5		. #xA5D4)	; ý¢€Š—”
+    (=gt-pj-1		. #x4925)	; ç–‹
     (=daikanwa		. 21994)	; ø¸…—ª
     (=gt-k		. 00991)	; ý¡„€Ÿ
-    (=gt		. 28230)	; ý¡€†¹†
     (=ucs		. #x758B)	; ç–‹
     ))
 (define-char
@@ -41,7 +40,6 @@
     (total-strokes	 . 8)
     (=cns11643-2	. #x2835)	; ø»“—†
     (=jis-x0213-2-2000	. #x7145)	; ø»¦“„
-    (=big5		. #xCD73)	; ý¢€Œµ³
     (=daikanwa		. 21997)	; ø¸…—­
     (=ucs		. #x758C)	; ç–Œ
     ))
@@ -90,11 +88,9 @@
     (total-strokes	 . 11)
     (=jis-x0208		. #x4141)	; ø½Š¥œ
     (=ks-x1001		. #x6142)	; ø»‰¸­
-    (=gt-pj-1		. #x4141)	; ý¡€†¹Ž
-    (=big5		. #xB2A8)	; ý¢€‹Š¨
+    (=gt-pj-1		. #x4141)	; ø½Š¥œ
     (=gt-k		. 09086)	; ý¡„‚¾
     (=ucs@jis		. #x758F)	; ø½Š¥œ
-    (=gt		. 28238)	; ý¡€†¹Ž
     ))
 (define-char
   '((morohashi-daikanwa	22000 0 2)
@@ -102,6 +98,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=gb2312		. #x4A68)	; ø»…ƒ™
+    (=iso-ir165		. #x4A68)	; ø»«©
     (=ucs		. #x758F)	; ç–
     ))
 (define-char
@@ -127,9 +124,7 @@
     (=jis-x0208		. #x4142)	; ø½Š¥
     (=ks-x1001		. #x6143)	; ø»‰¸®
     (=cns11643-3	. #x3D45)	; ø»–€
-    (=gt-pj-1		. #x4142)	; ý¡€†¹
     (=daikanwa		. 22002)	; ø¸…—²
-    (=gt		. 28239)	; ý¡€†¹
     (=ucs		. #x758E)	; ç–Ž
     ))
 (define-char
@@ -180,7 +175,6 @@
     (total-strokes	 . 14)
     (=jis-x0212		. #x4D45)	; ø»‹¥œ
     (=cns11643-2	. #x4C21)	; ø»”‹ª
-    (=big5		. #xE2D9)	; ý¢€Ž‹™
     (=daikanwa		. 22006)	; ø¸…—¶
     (=ucs		. #x7590)	; ç–
     ))
@@ -192,11 +186,10 @@
     (=gb2312		. #x5249)	; ø»…Žª
     (=jis-x0208		. #x353F)	; ø½Š“²
     (=ks-x1001		. #x6B77)	; ø»ŠˆŽ
-    (=gt-pj-1		. #x353F)	; ý¡€†¹—
-    (=big5		. #xBAC3)	; ý¢€‹«ƒ
+    (=iso-ir165		. #x5249)	; ø»¶º
+    (=gt-pj-1		. #x353F)	; ç–‘
     (=daikanwa		. 22007)	; ø¸…—·
     (=gt-k		. 11111)	; ý¡„‚­§
-    (=gt		. 28247)	; ý¡€†¹—
     (=ucs		. #x7591)	; ç–‘
     ))
 (define-char
