@@ -190,12 +190,16 @@ uint8_byte_table_hash (Lisp_Object obj, int depth)
   return hash;
 }
 
+static const struct lrecord_description uint8_byte_table_description[] = {
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("uint8-byte-table", uint8_byte_table,
                                mark_uint8_byte_table,
 			       print_uint8_byte_table,
 			       0, uint8_byte_table_equal,
 			       uint8_byte_table_hash,
-			       0 /* uint8_byte_table_description */,
+			       uint8_byte_table_description,
 			       Lisp_Uint8_Byte_Table);
 
 static Lisp_Object
@@ -415,12 +419,16 @@ uint16_byte_table_hash (Lisp_Object obj, int depth)
   return hash;
 }
 
+static const struct lrecord_description uint16_byte_table_description[] = {
+  { XD_END }
+};
+
 DEFINE_LRECORD_IMPLEMENTATION ("uint16-byte-table", uint16_byte_table,
                                mark_uint16_byte_table,
 			       print_uint16_byte_table,
 			       0, uint16_byte_table_equal,
 			       uint16_byte_table_hash,
-			       0 /* uint16_byte_table_description */,
+			       uint16_byte_table_description,
 			       Lisp_Uint16_Byte_Table);
 
 static Lisp_Object
