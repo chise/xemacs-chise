@@ -1,4 +1,27 @@
+2004-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (mapping-table-read-file): Modify to support
+	`=ucs@gb/fw'.
+
+	* u00400-Cyrillic.el, u00370-Greek.el,
+	u002B0-Spacing-Modifier-Letters.el, u00180-Latin-Extended-B.el,
+	u00100-Latin-Extended-A.el: Add missing `=ucs@gb/fw' features.
+
+	* u000A0-Latin-1-Supplement.el: Add missing `=ucs@gb' or
+	`=ucs@gb/fw' features.
+	(JX1-2924): Use `=ucs@jis' instead of `=ucs@jis/fw'.
+
 2004-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02100-Letterlike-Symbols.el (G0-2166): Add GU+2103.
+
+2004-11-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R096-Jade.el: Use `->subsumptive' or
+	`{<-|->}denotational' for some character definitions.
+	(U+3EFD): Add M-21275.
+	(U+3EFE): Add M-21281.
+	(U+3EFF): Unify M-21289.
 
 	* Ideograph-R075-Tree.el (U+6949): Changed to abstract character.
 	(C2-435E): Add `<-denotational' for U+6949.
@@ -28,6 +51,8 @@
 	* Ideograph-R009-Man.el (U+503B): Use `->subsumptive'.
 
 2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02000-General-Punctuation.el (G0-237E): Add GU+FFE3.
 
 	* read-maps.el (mapping-table-ccs-setting-alist): Add setting for
 	G0-hhhh.
