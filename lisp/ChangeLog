@@ -1,5 +1,11 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/chinese.el ("Chinese-GB"): Rename
+	`chinese-gb-environment-setup-function' to
+	`setup-chinese-gb-environment-internal'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/korean.el: Use `define-coding-system-alias' instead of
 	`copy-coding-system'.
 
