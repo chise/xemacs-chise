@@ -1,3 +1,17 @@
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* code-files.el (buffer-file-coding-system): Use `raw-text' as
+	default value.
+	(load): Use `raw-text' instead of `no-conversion'.
+	(insert-file-contents): Likewise.
+
+	* bytecomp.el (byte-compile-insert-header): Use `raw-text' instead
+	of `no-conversion'.
+
+1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* coding.el: Don't copy `no-conversion' to `raw-text'.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released
