@@ -680,6 +680,14 @@
     (=big5-cdp		. #x88FE)	; ý¢€ˆ£¾
     ))
 (define-char
+  '((=>ucs		. #x20992)	; ð ¦’
+    (morohashi-daikanwa	2733 0 3)
+    (ideographic-radical . 24)	; â¼—
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (=big5-cdp		. #x8BF8)	; ý¢€ˆ¯¸
+    ))
+(define-char
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
