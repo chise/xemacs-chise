@@ -2274,11 +2274,11 @@ decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
     }
 }
 
-void decode_add_er_char(struct decoding_stream *str, Emchar character,
-			unsigned_char_dynarr* dst);
+void decode_add_er_char (struct decoding_stream *str, Emchar character,
+			 unsigned_char_dynarr* dst);
 void
-decode_add_er_char(struct decoding_stream *str, Emchar c,
-		   unsigned_char_dynarr* dst)
+decode_add_er_char (struct decoding_stream *str, Emchar c,
+		    unsigned_char_dynarr* dst)
 {
   if (str->er_counter == 0)
     {
@@ -2392,19 +2392,19 @@ COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst)
   unsigned i;
 
   for (i = 0; i < str->combined_char_count; i++)
-    DECODE_ADD_UCS_CHAR (str->combined_chars[i], dst);
+    decode_add_er_char (str, str->combined_chars[i], dst);
   str->combined_char_count = 0;
   str->combining_table = Qnil;
 }
 
-void COMPOSE_ADD_CHAR(struct decoding_stream *str, Emchar character,
-		      unsigned_char_dynarr* dst);
+void COMPOSE_ADD_CHAR (struct decoding_stream *str, Emchar character,
+		       unsigned_char_dynarr* dst);
 void
-COMPOSE_ADD_CHAR(struct decoding_stream *str,
-		 Emchar character, unsigned_char_dynarr* dst)
+COMPOSE_ADD_CHAR (struct decoding_stream *str,
+		  Emchar character, unsigned_char_dynarr* dst)
 {
   if (CODING_SYSTEM_DISABLE_COMPOSITION (str->codesys))
-    DECODE_ADD_UCS_CHAR (character, dst);
+    decode_add_er_char (str, character, dst);
   else if (!CHAR_TABLEP (str->combining_table))
     {
       Lisp_Object ret
@@ -2412,7 +2412,7 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
 			     character);
 
       if (NILP (ret))
-	DECODE_ADD_UCS_CHAR (character, dst);
+	decode_add_er_char (str, character, dst);
       else
 	{
 	  str->combined_chars[0] = character;
@@ -2434,7 +2434,7 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
 			       char2);
 	  if (NILP (ret))
 	    {
-	      DECODE_ADD_UCS_CHAR (char2, dst);
+	      decode_add_er_char (str, character, dst);
 	      str->combined_char_count = 0;
 	      str->combining_table = Qnil;
 	    }
@@ -2453,7 +2453,7 @@ COMPOSE_ADD_CHAR(struct decoding_stream *str,
       else
 	{
 	  COMPOSE_FLUSH_CHARS (str, dst);
-	  DECODE_ADD_UCS_CHAR (character, dst);
+	  decode_add_er_char (str, character, dst);
 	}
     }
 }
