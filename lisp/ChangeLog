@@ -1,5 +1,12 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/thai-xtis.el: Don't setup `setup-function' and
+	`exit-function'.
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems): Use
+	`set-coding-category-system' to set up coding-system for
+	coding-category.
+
 	* mule/mule-cmds.el (prefer-coding-system): Use
 	`set-coding-category-system' to set up coding-system for
 	coding-category.
