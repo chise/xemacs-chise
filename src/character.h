@@ -1,6 +1,5 @@
 /* Header for character representation.
-   Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
-   Licensed to the Free Software Foundation.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -18,8 +17,6 @@ You should have received a copy of the GNU General Public License
 along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
-
-/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org>. */
 
 #ifndef _XEMACS_CHARACTER_H
 #define _XEMACS_CHARACTER_H
@@ -99,5 +96,11 @@ XCHAR_OR_CHAR_INT (Lisp_Object obj)
   else						\
     x = wrong_type_argument (Qcharacterp, x);	\
 } while (0)
+
+
+typedef struct
+{
+  Dynarr_declare (Charc);
+} Charc_dynarr;
 
 #endif /* _XEMACS_CHARACTER_H */
