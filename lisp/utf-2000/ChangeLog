@@ -1,3 +1,13 @@
+2004-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el, Ideograph-R160-Bitter.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el, Ideograph-R064-Hand.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
 2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R157-Foot.el, Ideograph-R151-Bean.el,
