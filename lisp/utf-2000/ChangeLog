@@ -1,3 +1,22 @@
+2002-11-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R007-Two.el, Ideograph-R014-Cover.el,
+	Ideograph-R018-Knife.el, Ideograph-R024-Ten.el,
+	Ideograph-R026-Seal.el, Ideograph-R030-Mouth.el,
+	Ideograph-R032-Earth.el, Ideograph-R040-Roof.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R060-Step.el,
+	Ideograph-R061-Heart.el, Ideograph-R062-Halberd.el,
+	Ideograph-R075-Tree.el, Ideograph-R130-Meat.el: Add mappings
+	between CNS 11643-3 and UCS CJK Compatibility Ideographs
+	Supplement.
+
+2002-10-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* read-maps.el (mapping-table-read-file): Use `encode-char' with
+	`defined-only' mode instead of `get-char-attribute' to support
+	inheritance of coded-charsets.
+	- Add C3-to-UCS.txt to the check list.
+
 2002-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
