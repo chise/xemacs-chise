@@ -1,3 +1,58 @@
+2002-04-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R080-Do-Not.el: Use `=>ucs' instead of `->ucs'.
+	(U+6BCF): Unify JC3-54F4.
+
+	* Ideograph-R040-Roof.el (JX2-257C): Unify JC3-4AA1.
+
+	* Ideograph-R030-Mouth.el: Add some missing
+	`ideographic-structure' properties.
+
+2002-04-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el (GT-56364): Add
+	`ideographic-structure'.
+
+	* Ideograph-R149-Speech.el (J0-3840): Separate G0-5154, C1-4B46
+	and U+8A00.
+
+	* Ideograph-R141-Tiger.el (J0-3857): Separate C1-4F4D, G0-3B22 and
+	U+864E.
+
+	* Ideograph-R117-Stand.el (J0-4E29): Separate G0-4122, C1-4721 and
+	U+7ACB.
+
+	* Ideograph-R112-Stone.el (M-24056): Separate G0-6D39, C2-2C53 and
+	U+7809.
+
+	* Ideograph-R066-Rap.el (M-13145): Unify BC-8CB6; map to
+	U-00022F04.
+	(U-00022F04): New character.
+
+	* Ideograph-R042-Small.el (J0-3E2F): Separate G0-4959, C1-4537 and
+	U+5C11.
+
+	* Ideograph-R035-Go-Slowly.el (C3-2546): Unify BC-8D64.
+
+	* Ideograph-R019-Power.el (M-02308): Modify
+	`ideographic-structure'.
+	(U+52CB): Simplify `ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (C3-2325): Add `ideographic-structure'.
+	(U+522B): Simplify `ideographic-structure'.
+	(J0-516B): Add `ideographic-structure'.
+	(U+5250): Simplify `ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (C3-227B): Use char-spec instead of
+	char-ref in the `ideographic-structure'.
+	(JSP-3273): Separate U+518E.
+
+	* Ideograph-R009-Man.el (J0-4E61): Modify `ideographic-structure';
+	unify B-A54F.
+	(C1-456F): Separate B-A54F.
+
+	* Ideograph-R008-Lid.el (J0-4E3C): Separate C1-4F69.
+
 2002-04-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R030-Mouth.el, Ideograph-R027-Cliff.el,
