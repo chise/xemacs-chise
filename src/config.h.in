@@ -578,9 +578,6 @@ void *alloca ();
 
 #undef CHAR_IS_UCS4
 
-/* Compile in support for external character database. */
-#undef HAVE_CHISE_CLIENT
-
 /* Define this if you want file coding support */
 #undef FILE_CODING
 
