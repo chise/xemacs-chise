@@ -621,19 +621,18 @@
       )
     (let (key)
       (dolist (domain
-	       ;; char-db-feature-domains
-	       (let* ((dest char-db-feature-domains)
-		      (dlast (last dest))
-		      domain)
-		 (dolist (feature (char-attribute-list))
-		   (setq feature (symbol-name feature))
-		   (when (string-match
-			  "\\(radical\\|strokes\\)@\\([^@*]+\\)\\(\\*\\|$\\)"
-			  feature)
-		     (setq domain (intern (match-string 2 feature)))
+	       (append
+		char-db-feature-domains
+		(let (dest domain)
+		  (dolist (feature (char-attribute-list))
+		    (setq feature (symbol-name feature))
+		    (when (string-match
+			   "\\(radical\\|strokes\\)@\\([^@*]+\\)\\(\\*\\|$\\)"
+			   feature)
+		      (setq domain (intern (match-string 2 feature)))
 		     (unless (memq domain dest)
-		       (setcdr dlast (setq dlast (list domain))))))
-		 dest))
+		       (setq dest (cons domain dest)))))
+		  (sort dest #'string<))))
 	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
 	(when (and (memq key attributes)
 		   (setq value (get-char-attribute char key)))
