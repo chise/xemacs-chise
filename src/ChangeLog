@@ -1,5 +1,19 @@
 2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (mark_char_table): Don't refer `ct->db_file'.
+	(char_table_description): Delete member `db_file'.
+	(Fmake_char_table): Don't refer `ct->db_file'.
+	(Fcopy_char_table): Likewise.
+	(Fsave_char_attribute_table): Likewise.
+	(Fclose_char_attribute_table): Likewise.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Likewise.
+	(Fload_char_attribute_table): Likewise.
+
+	* chartab.h (struct Lisp_Char_Table): Delete member `db_file'.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c: Add an EXFUN for `Fmap_char_attribute'.
 	(Fsave_char_attribute_table): Don't check `ct->db_file' if
 	`ct->db' is living.
