@@ -1,3 +1,7 @@
+2001-08-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R060-Step.el: Merge GB 12345 code points.
+
 2001-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R061-Heart.el, Ideograph-R050-Turban.el,
