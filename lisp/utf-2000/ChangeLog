@@ -1,3 +1,31 @@
+2003-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R169-Gate.el (M-41484): Separate all.
+	(U+95DE): Fix strokes.
+
+	* Ideograph-R041-Inch.el (U-00020B8A): Unify MH-0063; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of
+	`ideographic-{radical|strokes}'.
+
+	* Ideograph-R029-Again.el (MH-0063): New character; unify
+	U-00020B8A [copied from `Ideograph-R041-Inch.el'].
+	(M085484): New character.
+
+	* Ideograph-R027-Cliff.el (U-00020A33): Unify MH-0059 and M085201;
+	add strokes.
+	(M-02978): Unify U-00020A77.
+	(MH-0060): New character.
+	(U+53A2): Unify MH-0061 and M050950.
+
+	* Ideograph-R022-Right-Open-Box.el (U-00020967): Unify MH-0058;
+	add strokes.
+
+	* Ideograph-R105-Dotted-Tent.el, Ideograph-R103-Bolt-Of-Cloth.el:
+	Add mappings for Big5 code points.
+
+	* Ideograph-R021-Spoon.el (MH-0057): New character.
+
 2003-06-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R142-Insect.el (M-33859): Unify B-F7D7.
