@@ -1,5 +1,12 @@
 2004-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R039-Child.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R040-Roof.el, Ideograph-R059-Bristle.el,
 	Ideograph-R057-Bow.el, Ideograph-R050-Turban.el,
 	Ideograph-R046-Mountain.el, Ideograph-R037-Big.el,
