@@ -47,8 +47,7 @@
 	Ideograph-R007-Two.el, Ideograph-R008-Lid.el,
 	Ideograph-R005-Second.el, Ideograph-R003-Dot.el,
 	Ideograph-R004-Slash.el, Ideograph-R002-Line.el,
-	Ideograph-R001-One.el: Sync up with Rename `ideograph-gt' to
-	`=gt'.
+	Ideograph-R001-One.el: Rename `ideograph-gt' to `=gt'.
 
 2003-02-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
