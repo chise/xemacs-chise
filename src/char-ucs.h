@@ -464,7 +464,6 @@ unsigned char charset_get_byte1 (Lisp_Object charset, Emchar ch);
 unsigned char charset_get_byte2 (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
-extern Lisp_Object Vdefault_coded_charset_priority_list_for_font;
 EXFUN (Ffind_charset, 1);
 
 INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
