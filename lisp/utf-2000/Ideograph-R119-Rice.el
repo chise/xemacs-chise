@@ -3009,10 +3009,11 @@
     (ideographic-radical . 119)	; â½¶
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
-    (japanese-jisx0212	. #x5344)	; ø»‹®
-    (ideograph-daikanwa . 27087)	; ø¸†§
-    (china3-jef		. #x5ED8)	; øº…»˜
-    (ucs-jis		. #x7CD9)	; ø»‹®
+    (japanese-jisx0212		. #x5344)	; ø»‹®
+    (japanese-jisx0213-1	. #x7977)	; ø»¤•¢
+    (ideograph-daikanwa		. 27087)	; ø¸†§
+    (china3-jef			. #x5ED8)	; øº…»˜
+    (ucs-jis			. #x7CD9)	; ø»‹®
     ))
 (define-char
   '((=>ucs		. #x7CD9)	; ç³™
