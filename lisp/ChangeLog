@@ -1,3 +1,9 @@
+2003-01-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `korean-ksc5601' to CNS 11643; prefer Big5-CDP to
+	`ideograph-cbeta'.
+
 2003-01-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el: Add new coded-charset when UTF-2000 [was a
