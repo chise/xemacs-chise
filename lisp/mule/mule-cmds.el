@@ -614,7 +614,7 @@ ALIST is an alist of KEY and INFO values.  See the documentation of
 	    `(add-menu-button
 	      '("Mule" "Describe Language Support")
 	      (vector ,lang-env
-		      '(describe-specific-language-support ,lang-env)
+		      '(describe-language-environment ,lang-env)
 		      t))))
 	))
     ;; (define-key-after setup-map (vector (intern lang-env))
