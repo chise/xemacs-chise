@@ -153,9 +153,9 @@
 	  )
 	(when (setq cell (assq '->ucs data))
 	  (setq cell (cdr cell))
-	  (insert (format "(->ucs\t\t. #x%04X)
+	  (insert (format "(->ucs\t\t. #x%04X)\t; %c
     "
-			  cell))
+			  cell (decode-char 'ucs cell)))
 	  (setq data (del-alist '->ucs data))
 	  )
 	(when (setq cell (assq 'general-category data))
@@ -398,15 +398,15 @@
 		  (format
 		   (if has-long-ccs-name
 		       (if (eq ret (find-charset 'ideograph-daikanwa))
-			   "(%-26s . %d)
+			   "(%-26s . %05d)\t; %c
     "
-			 "(%-26s . #x%X)
+			 "(%-26s . #x%X)\t; %c
     "
 			 )
 		     (if (eq ret (find-charset 'ideograph-daikanwa))
-			 "(%-18s . %d)
+			 "(%-18s . %05d)\t; %c
     "
-		       "(%-18s . #x%X)
+		       "(%-18s . #x%X)\t; %c
     "
 		       ))
 		   (charset-name ret)
@@ -419,7 +419,8 @@
 				     ((= (charset-dimension ret) 3)
 				      #x808080)
 				     (t 0)))
-		     (cdr cell)))))
+		     (cdr cell))
+		   (decode-builtin-char ret (cdr cell)))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
@@ -546,7 +547,7 @@
     (condition-case err
 	(progn
 	  (insert-char-data-with-variant char)
-	  (char-db-update-comment)
+          ;; (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
 			       (set-window-configuration
