@@ -1,3 +1,37 @@
+2002-03-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R025-Divination.el: Add some missing
+	`ideographic-structure' properties.
+
+	* Ideograph-R021-Spoon.el (U+52E7): Use U-0002090E instead of
+	M-02571 in the `ideographic-structure'.
+
+	* Ideograph-R019-Power.el (U+52B1): Simplify
+	`ideographic-structure'.
+	(U+52E7): Use U-00020089 instead of BC-8B4A in the
+	`ideographic-structure'.
+
+	* Ideograph-R007-Two.el (U+4E9D): Simplify
+	`ideographic-structure'.
+
+2002-03-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R102-Field.el (U+7545): Moved from
+	Ideograph-R072-Sun.el.
+
+	* Ideograph-R013-Down-Box.el (U+5192): Unify JC3-5BBC.
+
+	* Ideograph-R074-Moon.el, Ideograph-R073-Say.el,
+	Ideograph-R071-Not.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R072-Sun.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+	(J0-4B41): Separate M-01538.
+	(U+7545): Moved to Ideograph-R102-Field.el.
+
 2002-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R065-Branch.el, Ideograph-R067-Script.el: Merge
