@@ -13010,12 +13010,20 @@
     (=cns11643-3	. #x4167)	; &I-C3-4167; [33-71]
     ))
 (define-char
-  '((ideographic-radical . 75)	; ⽊
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
+  '((total-strokes	 . 13)
     (=ucs		. #x6983)	; 榃
-    (=iso-ir165		. #x7D52)	; &I-EGB-7D52; [93-50]
-    (=big5		. #xDEC6)	; &I-B-DEC6;
+    (->subsumptive
+     ((ideographic-radical . 75)	; ⽊
+      (ideographic-strokes . 9)
+      (=iso-ir165	  . #x7D52)	; &EGB-7D52; [93-50]
+      (=big5		  . #xDEC6)	; &I-B-DEC6;
+      (=ucs@unicode	  . #x6983)	; &EGB-7D52;
+      )
+     ((ideographic-radical . 102)	; ⽥
+      (ideographic-strokes . 8)
+      (=cns11643-2	  . #x452C)	; &C2-452C; [37-12]
+      (=ucs@cns		  . #x6983)	; &C2-452C;
+      ))
     ))
 (define-char
   '((ideographic-radical . 75)	; ⽊
@@ -17114,13 +17122,21 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x6A1B)	; 樛
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
+    (=ucs		. #x6A1B)	; 樛
+    (=big5		. #xE5D6)	; &I-B-E5D6;
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x6A1B)	; 樛
+      ))
     (shinjigen-2	. 3785)
     (=jis-x0208		. #x5C5C)	; &GT-19671; [60-60]
-    (=big5		. #xE5D6)	; &I-B-E5D6;
     (=gt		. 19671)	; &I-GT-19671;
     (=gt-pj-1		. #x5C5C)	; &I-GT-19671; [60-60]
     (=daikanwa		. 15445)	; &I-M-15445;
@@ -17128,12 +17144,17 @@
     (=ucs@big5		. #x6A1B)	; &GT-19671;
     ))
 (define-char
-  '((morohashi-daikanwa	15445 0 2)
-    (ideographic-radical . 75)	; ⽊
+  '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (=ucs		. #x6A1B)	; 樛
-    (=cns11643-2	. #x507D)	; &I-C2-507D; [48-93]
+    (<-denotational
+     ((=ucs		  . #x6A1B)	; 樛
+      ))
+    (->subsumptive
+     ((=ucs@unicode	  . #x6A1B)	; &UU+6A1B;
+      )
+     ((=cns11643-2	  . #x507D)	; &C2-507D; [48-93]
+      ))
     ))
 (define-char
   '((=>ucs		. #x6A1C)	; 樜
