@@ -1350,7 +1350,6 @@ mark_char_table (Lisp_Object obj)
 #ifdef UTF2000
 
   mark_object (ct->table);
-  mark_object (ct->default_value);
 #else
   int i;
 
@@ -1361,7 +1360,11 @@ mark_char_table (Lisp_Object obj)
     mark_object (ct->level1[i]);
 #endif
 #endif
+#ifdef UTF2000
+  return ct->default_value;
+#else
   return ct->mirror_table;
+#endif
 }
 
 /* WARNING: All functions of this nature need to be written extremely
@@ -1538,6 +1541,8 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 		  (symbol_name
 		   (XSYMBOL (char_table_type_to_symbol (ct->type)))),
 		  printcharfun);
+  write_c_string ("\n ", printcharfun);
+  print_internal (ct->default_value, printcharfun, escapeflag);
   for (i = 0; i < 256; i++)
     {
       Lisp_Object elt = get_byte_table (ct->table, i);
@@ -1679,7 +1684,9 @@ static const struct lrecord_description char_table_description[] = {
   { XD_LISP_OBJECT_ARRAY, offsetof (Lisp_Char_Table, level1), NUM_LEADING_BYTES },
 #endif
 #endif
+#ifndef UTF2000
   { XD_LISP_OBJECT, offsetof (Lisp_Char_Table, mirror_table) },
+#endif
   { XD_LO_LINK,     offsetof (Lisp_Char_Table, next_table) },
   { XD_END }
 };
@@ -1807,8 +1814,10 @@ fill_char_table (Lisp_Char_Table *ct, Lisp_Object value)
 #endif /* MULE */
 #endif
 
+#ifndef UTF2000
   if (ct->type == CHAR_TABLE_TYPE_SYNTAX)
     update_syntax_table (ct);
+#endif
 }
 
 DEFUN ("reset-char-table", Freset_char_table, 1, 1, 0, /*
@@ -1858,6 +1867,7 @@ and 'syntax.  See `valid-char-table-type-p'.
 
   ct = alloc_lcrecord_type (Lisp_Char_Table, &lrecord_char_table);
   ct->type = ty;
+#ifndef UTF2000
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
     {
       ct->mirror_table = Fmake_char_table (Qgeneric);
@@ -1866,6 +1876,7 @@ and 'syntax.  See `valid-char-table-type-p'.
     }
   else
     ct->mirror_table = Qnil;
+#endif
   ct->next_table = Qnil;
   XSETCHAR_TABLE (obj, ct);
   if (ty == CHAR_TABLE_TYPE_SYNTAX)
@@ -1977,10 +1988,12 @@ as CHAR-TABLE.  The values will not themselves be copied.
 #endif /* MULE */
 #endif /* non UTF2000 */
 
+#ifndef UTF2000
   if (CHAR_TABLEP (ct->mirror_table))
     ctnew->mirror_table = Fcopy_char_table (ct->mirror_table);
   else
     ctnew->mirror_table = ct->mirror_table;
+#endif
   ctnew->next_table = Qnil;
   XSETCHAR_TABLE (obj, ctnew);
   if (ctnew->type == CHAR_TABLE_TYPE_SYNTAX)
@@ -2541,8 +2554,10 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 #endif /* not MULE */
     }
 
+#ifndef UTF2000
   if (ct->type == CHAR_TABLE_TYPE_SYNTAX)
     update_syntax_table (ct);
+#endif
 }
 
 DEFUN ("put-char-table", Fput_char_table, 3, 3, 0, /*
@@ -2762,7 +2777,7 @@ map_char_table (Lisp_Char_Table *ct,
 	return map_over_byte_table (XBYTE_TABLE(ct->table), 0, 3,
 				    Qnil, fn, arg);
       else if (!UNBOUNDP (ct->table))
-#if 1
+#if 0
 	{
 	  struct chartab_range rainj;
 	  int unit = 1 << 30;
