@@ -1,3 +1,42 @@
+1999-09-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-ccl.c (ccl_driver): Don't define `CCL_WriteMultibyteChar2'
+	in UTF-2000 because it is not ported yet and not to use
+	`FIELD2_TO_OFFICIAL_LEADING_BYTE', `MIN_LEADING_BYTE_OFFICIAL_2',
+	`FIELD1_TO_OFFICIAL_LEADING_BYTE' and
+	`FIELD1_TO_PRIVATE_LEADING_BYTE'.
+
+	* mb-utf-8.h (CHAR_MULTIBYTE_P): Moved from character.h.
+	(CHAR_ASCII_P): Moved from character.h.
+
+	* character.h (CHAR_MULTIBYTE_P): Moved to mb-utf-8.h.
+	(CHAR_ASCII_P): Likewise.
+	(CHAR_FIELD1_MASK): Deleted.
+	(CHAR_FIELD2_MASK): Deleted.
+	(CHAR_FIELD3_MASK): Deleted.
+	(MAX_CHAR_BASIC_LATIN): New macro.
+	(CHAR_FIELD1): Deleted.
+	(CHAR_FIELD2_INTERNAL): Deleted.
+	(CHAR_FIELD3_INTERNAL): Deleted.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Deleted.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Deleted.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Deleted.
+	(FIELD2_TO_OFFICIAL_LEADING_BYTE): Deleted.
+	(MIN_CHAR_FIELD1_OFFICIAL): Deleted.
+	(MAX_CHAR_FIELD1_OFFICIAL): Deleted.
+	(MIN_CHAR_FIELD2_PRIVATE): Deleted.
+	(MAX_CHAR_FIELD2_PRIVATE): Deleted.
+	(MIN_CHAR_FIELD1_PRIVATE): Deleted.
+	(MAX_CHAR_FIELD1_PRIVATE): Deleted.
+	(MULE_CHAR_PRIVATE_OFFSET): Deleted.
+	(MIN_CHAR_PRIVATE_TYPE9N): Deleted.
+	(MAX_CHAR_PRIVATE_TYPE9N): Deleted.
+	(MIN_CHAR_PRIVATE_TYPE9NX9N): Deleted.
+	(MIN_CHAR_OFFICIAL_TYPE9NX9N): Deleted.
+	(MIN_CHAR_COMPOSITION): Deleted.
+	(breakup_char_1): Use `MAX_CHAR_BASIC_LATIN' instead of
+	`CHAR_ASCII_P'; use `0x7f' instead of `CHAR_FIELD3_INTERNAL'.
+
 1999-09-02  MORIOKA Tomohiko  <tomo@m17n.org>
 
 	* buffer.h: Include mb-utf-8.h in UTF-2000.
