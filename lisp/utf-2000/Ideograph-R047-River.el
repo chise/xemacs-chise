@@ -2,6 +2,7 @@
   '((ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (hanyu-dazidian	2 1097 8)
     (japanese-jisx0208-1978	. #x565F)	; ø»ƒŠ´
     (chinese-gb2312		. #x675D)	; ø»…­´
     (japanese-jisx0208		. #x565F)	; ø»‡ž¼
@@ -10,6 +11,7 @@
     (japanese-jisx0208-1990	. #x565F)	; ø½‹„°
     (ideograph-daikanwa		. 08669)	; ø¸‚‡
     (ideograph-cbeta		. 02655)	; ø¸ ©Ÿ
+    (chinese-big5-cdp		. #x8B74)	; ý¢€ˆ­´
     (ucs			. #x5DDB)	; å·›
     ))
 (define-char
@@ -28,9 +30,7 @@
   '((ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 49)
-    (hanyu-dazidian-char . 7)
+    (hanyu-dazidian	1 49 7)
     (chinese-cns11643-4 . #x212C)	; ø»— ³
     (ideograph-daikanwa . 08672)	; ø¸‚‡ 
     (chinese-big5-cdp	. #x8978)	; ý¢€ˆ¥¸
@@ -329,10 +329,12 @@
     (ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (hanyu-dazidian	2 1221 1)
     (japanese-jisx0208-1978	. #x4163)	; ø»‚¬‚
     (japanese-jisx0208		. #x4163)	; ø»‡€Š
     (chinese-cns11643-3		. #x3557)	; ø»•´²
     (japanese-jisx0208-1990	. #x4163)	; ø½Š¥¾
+    (ideograph-hanziku-3	. #xF95D)	; ý¢€¿¥
     (mojikyo			. 050161)	; ý €Œ±
     (ucs			. #x5DE3)	; å·£
     ))
@@ -377,14 +379,30 @@
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
-    (ideographic-strokes . 11)
-    (kangxi-strokes	 . 12)
+    (ideographic-strokes . 12)
     (total-strokes	 . 15)
+    (hanyu-dazidian	2 1098 18)
     (japanese-jisx0212		. #x3B7E)	; ø»‹‹¹
-    (chinese-cns11643-3		. #x4B6C)	; ø»–•›
     (japanese-jisx0213-2	. #x286D)	; ø»¤¨ž
     (ideograph-daikanwa		. 08702)	; ø¸‚‡¾
     (ucs			. #x5DE4)	; å·¤
+    ))
+(define-char
+  '((=>ucs		. #x5DE4)	; å·¤
+    (morohashi-daikanwa	8702 0 0)
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (chinese-cns11643-3 . #x4B6C)	; ø»–•›
+    ))
+(define-char
+  '((=>ucs		. #x5DE4)	; å·¤
+    (morohashi-daikanwa	8702 0 3)
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (hanyu-dazidian	2 1098 18)
+    (chinese-big5-cdp	. #x8D47)	; ý¢€ˆµ‡
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
