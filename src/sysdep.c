@@ -93,11 +93,6 @@ Boston, MA 02111-1307, USA.  */
 #include "ntheap.h"
 #endif
 
-#ifdef HAVE_MMAP
-#include <unistd.h>
-#include <sys/mman.h>
-#endif
-
 /* ------------------------------- */
 /*         TTY definitions         */
 /* ------------------------------- */
@@ -767,23 +762,31 @@ sys_suspend_process (int process)
 
 
 /* Given FD, obtain pty buffer size. When no luck, a good guess is made,
-   so that the function works even fd is not a pty. */
+   so that the function works even when fd is not a pty. */
 
 int
 get_pty_max_bytes (int fd)
 {
-  int pty_max_bytes;
-
+  /* DEC OSF 4.0 fpathconf returns 255, but xemacs hangs on long shell
+     input lines if we return 253.  252 is OK!.  So let's leave a bit
+     of slack for the newline that xemacs will insert, and for those
+     inevitable vendor off-by-one-or-two-or-three bugs. */
+#define MAX_CANON_SLACK 10
+#define SAFE_MAX_CANON (127 - MAX_CANON_SLACK)
 #if defined (HAVE_FPATHCONF) && defined (_PC_MAX_CANON)
-  pty_max_bytes = fpathconf (fd, _PC_MAX_CANON);
-  if (pty_max_bytes < 0)
+  {
+    int max_canon = fpathconf (fd, _PC_MAX_CANON);
+    return (max_canon < 0 ? SAFE_MAX_CANON :
+	    max_canon > SAFE_MAX_CANON ? max_canon - MAX_CANON_SLACK :
+	    max_canon);
+  }
+#elif defined (_POSIX_MAX_CANON)
+  return (_POSIX_MAX_CANON > SAFE_MAX_CANON ?
+	  _POSIX_MAX_CANON - MAX_CANON_SLACK :
+	  _POSIX_MAX_CANON);
+#else
+  return SAFE_MAX_CANON;
 #endif
-    pty_max_bytes = 250;
-
-  /* Deduct one, to leave space for the eof.  */
-  pty_max_bytes--;
-
-  return pty_max_bytes;
 }
 
 /* Figure out the eof character for the FD. */

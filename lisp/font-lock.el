@@ -1496,17 +1496,22 @@ LIMIT can be modified by the value of its PRE-MATCH-FORM."
 START should be at the beginning of a line."
   (let ((loudly (and font-lock-verbose
 		     (>= (- end start) font-lock-message-threshold))))
-    (let ((case-fold-search font-lock-keywords-case-fold-search)
-	  (keywords (cdr (if (eq (car-safe font-lock-keywords) t)
-			     font-lock-keywords
-			   (font-lock-compile-keywords))))
-	  (bufname (buffer-name)) (count 5)
-	  keyword matcher highlights)
+    (let* ((case-fold-search font-lock-keywords-case-fold-search)
+	   (keywords (cdr (if (eq (car-safe font-lock-keywords) t)
+			      font-lock-keywords
+			    (font-lock-compile-keywords))))
+	   (bufname (buffer-name)) 
+	   (progress 5) (old-progress 5)
+	   (iter 0)
+	   (nkeywords (length keywords))
+	   keyword matcher highlights)
       ;;
       ;; Fontify each item in `font-lock-keywords' from `start' to `end'.
+      ;; In order to measure progress accurately we need to know how
+      ;; many keywords we have and how big the region is. Then progress
+      ;; is ((pos - start)/ (end - start) * nkeywords 
+      ;; 	+ iteration / nkeywords) * 100
       (while keywords
-	(when loudly (lprogress-display 'font-lock "Fontifying %s... (regexps)"
-				(setq count (+ count 5)) bufname))
 	;;
 	;; Find an occurrence of `matcher' from `start' to `end'.
 	(setq keyword (car keywords) matcher (car keyword))
@@ -1515,6 +1520,14 @@ START should be at the beginning of a line."
 		    (if (stringp matcher)
 			(re-search-forward matcher end t)
 		      (funcall matcher end)))
+	  ;; calculate progress
+	  (setq progress
+		(+ (/ (* (- (point) start) 95) (* (- end start) nkeywords))
+		   (/ (* iter 95) nkeywords) 5))
+	  (when (and loudly (> progress old-progress))
+	    (lprogress-display 'font-lock "Fontifying %s... (regexps)"
+			       progress bufname))
+	  (setq old-progress progress)
 	  ;; Apply each highlight to this instance of `matcher', which may be
 	  ;; specific highlights or more keywords anchored to `matcher'.
 	  (setq highlights (cdr keyword))
@@ -1528,6 +1541,7 @@ START should be at the beginning of a line."
 		  (and end (goto-char end)))
 	      (font-lock-fontify-anchored-keywords (car highlights) end))
 	    (setq highlights (cdr highlights))))
+	(setq iter (1+ iter))
 	(setq keywords (cdr keywords))))
     (if loudly (lprogress-display 'font-lock "Fontifying %s... " 100 (buffer-name)))))
 

@@ -118,11 +118,11 @@ tty_init_console (struct console *con, Lisp_Object props)
 #ifdef FILE_CODING
   tty_con->instream =
     make_decoding_input_stream (XLSTREAM (tty_con->instream),
-				Fget_coding_system (Vkeyboard_coding_system));
+				Fget_coding_system (Qkeyboard));
   Lstream_set_character_mode (XLSTREAM (tty_con->instream));
   tty_con->outstream =
     make_encoding_output_stream (XLSTREAM (tty_con->outstream),
-				 Fget_coding_system (Vterminal_coding_system));
+				 Fget_coding_system (Qterminal));
 #endif /* FILE_CODING */
   tty_con->terminal_type = terminal_type;
   tty_con->controlling_process = controlling_process;
@@ -253,7 +253,7 @@ CODESYS defaults to the value of `keyboard-coding-system'.
 {
   set_decoding_stream_coding_system
     (XLSTREAM (CONSOLE_TTY_DATA (decode_tty_console (console))->instream),
-     Fget_coding_system (NILP (codesys) ? Vkeyboard_coding_system : codesys));
+     Fget_coding_system (NILP (codesys) ? Qkeyboard : codesys));
   return Qnil;
 }
 
@@ -277,7 +277,7 @@ CODESYS defaults to the value of `terminal-coding-system'.
 {
   set_encoding_stream_coding_system
     (XLSTREAM (CONSOLE_TTY_DATA (decode_tty_console (console))->outstream),
-     Fget_coding_system (NILP (codesys) ? Vterminal_coding_system : codesys));
+     Fget_coding_system (NILP (codesys) ? Qterminal : codesys));
   /* Redraw tty */
   face_property_was_changed (Vdefault_face, Qfont, Qtty);
   return Qnil;

@@ -1,7 +1,7 @@
 ;;; process.el --- commands for subprocesses; split out of simple.el
 
 ;; Copyright (C) 1985-7, 1993,4, 1997 Free Software Foundation, Inc.
-;; Copyright (C) 1995 Ben Wing.
+;; Copyright (C) 1995, 2000 Ben Wing.
 
 ;; Author: Ben Wing
 ;; Maintainer: XEmacs Development Team
@@ -25,6 +25,13 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;;; Synched up with: FSF 19.30.
+
+;;; Authorship:
+
+;; Created 1995 by Ben Wing during Mule work -- some commands split out
+;; of simple.el and wrappers of *-internal functions created so they could
+;; be redefined in a Mule world.
+;; Lisp definition of call-process-internal added Mar. 2000 by Ben Wing.
 
 ;;; Commentary:
 
@@ -66,6 +73,108 @@ Wildcards and redirection are handled as usual in the shell."
   ;; but that failed to handle (...) and semicolon, etc.
   (start-process name buffer shell-file-name shell-command-switch
 		 (mapconcat #'identity args " ")))
+
+(defun call-process-internal (program &optional infile buffer display &rest args)
+  "Call PROGRAM synchronously in separate process, with coding-system specified.
+Arguments are
+ (PROGRAM &optional INFILE BUFFER DISPLAY &rest ARGS).
+The program's input comes from file INFILE (nil means `/dev/null').
+Insert output in BUFFER before point; t means current buffer;
+ nil for BUFFER means discard it; 0 means discard and don't wait.
+BUFFER can also have the form (REAL-BUFFER STDERR-FILE); in that case,
+REAL-BUFFER says what to do with standard output, as above,
+while STDERR-FILE says what to do with standard error in the child.
+STDERR-FILE may be nil (discard standard error output),
+t (mix it with ordinary output), or a file name string.
+
+Fourth arg DISPLAY non-nil means redisplay buffer as output is inserted.
+Remaining arguments are strings passed as command arguments to PROGRAM.
+
+If BUFFER is 0, `call-process' returns immediately with value nil.
+Otherwise it waits for PROGRAM to terminate and returns a numeric exit status
+ or a signal description string.
+If you quit, the process is killed with SIGINT, or SIGKILL if you
+ quit again."
+  ;; #### remove windows-nt check when this is ready for prime time.
+  (if (or (noninteractive) (not (eq 'windows-nt system-type)))
+      (apply 'old-call-process-internal program infile buffer display args)
+    (let (proc inbuf errbuf discard)
+      (unwind-protect
+	  (progn
+	    (when infile
+	      (setq infile (expand-file-name infile))
+	      (setq inbuf (generate-new-buffer "*call-process*"))
+	      (with-current-buffer inbuf
+		(insert-file-contents-internal infile nil nil nil nil
+					       coding-system-for-read)))
+	    (let ((stderr (if (consp buffer) (second buffer) t)))
+	      (if (consp buffer) (setq buffer (car buffer)))
+	      (setq buffer
+		    (cond ((null buffer) nil)
+			  ((eq buffer t) (current-buffer))
+			  ;; use integerp for compatibility with existing
+			  ;; call-process rmsism.
+			  ((integerp buffer) (setq discard t) nil)
+			  (t (get-buffer-create buffer))))
+	      (when (and stderr (not (eq t stderr)))
+		(setq stderr (expand-file-name stderr))
+		(setq errbuf (generate-new-buffer "*call-process*")))
+	      (setq proc
+		    (apply 'start-process-internal "*call-process*"
+			   buffer
+			   ;#### not implemented until my new process
+			   ;changes go in.
+			   ;(if (eq t stderr) buffer (list buffer errbuf))
+			   program args))
+	      (if buffer
+		  (set-marker (process-mark proc) (point buffer) buffer))
+	      (unwind-protect
+		  (progn
+		    (catch 'call-process-done
+		      (when (not discard)
+			(set-process-sentinel
+			 proc
+			 #'(lambda (proc status)
+			     (cond ((eq 'exit (process-status proc))
+				    (set-process-sentinel proc nil)
+				    (throw 'call-process-done
+					   (process-exit-status proc)))
+				   ((eq 'signal (process-status proc))
+				    (set-process-sentinel proc nil)
+				    (throw 'call-process-done status))))))
+		      (when inbuf
+			(process-send-region proc 1
+					     (1+ (buffer-size inbuf)) inbuf))
+		      (process-send-eof proc)
+		      (when discard
+			;; we're trying really really hard to emulate
+			;; the old call-process.
+			(if errbuf
+			    (set-process-sentinel
+			     proc
+			     `(lambda (proc status)
+				(write-region-internal
+				 1 (1+ (buffer-size))
+				 ,stderr
+				 nil 'major-rms-kludge-city nil
+				 coding-system-for-write))))
+			(setq errbuf nil)
+			(setq proc nil)
+			(throw 'call-process-done nil))
+		      (while t
+			(accept-process-output proc)
+			(if display (sit-for 0))))
+		    (when errbuf
+		      (with-current-buffer errbuf
+			(write-region-internal 1 (1+ (buffer-size)) stderr
+					       nil 'major-rms-kludge-city nil
+					       coding-system-for-write))))
+		(if proc (set-process-sentinel proc nil)))))
+	(if inbuf (kill-buffer inbuf))
+	(if errbuf (kill-buffer errbuf))
+	(condition-case nil
+	    (if (and proc (process-live-p proc)) (kill-process proc))
+	  (error nil))))))
 
 (defun call-process (program &optional infile buffer displayp &rest args)
   "Call PROGRAM synchronously in separate process.

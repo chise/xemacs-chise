@@ -121,7 +121,7 @@ pass_signal_to_emacs (int sig)
 }
 
 void
-initialize_signals ()
+initialize_signals (void)
 {
   /* Set up signal handler to pass relevant signals to emacs process.
      We used to send SIGSEGV, SIGBUS, SIGPIPE, SIGILL and others to

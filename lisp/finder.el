@@ -167,7 +167,7 @@ arguments compiles from `load-path'."
        (lambda (d)
 	 (mapcar
 	  (lambda (f) 
-	    (when (not (member f processed))
+	    (when (and (not (member f processed)) (file-readable-p f))
 	      (let (summary keystart keywords)
 		(setq processed (cons f processed))
 		(if (not finder-compile-keywords-quiet)

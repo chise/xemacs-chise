@@ -139,9 +139,10 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
   else if (VECTORP (desc))
     {
       Lisp_Object gui_item = gui_parse_item_keywords (desc);
-      if (!button_item_to_widget_value (gui_item, wv, 1,
+      if (!button_item_to_widget_value (Qmenubar,
+					gui_item, wv, 1,
 					(menu_type == MENUBAR_TYPE
-					 && depth <= 1)))
+					 && depth <= 1), 1))
 	{
 	  /* :included form was nil */
 	  wv = NULL;

@@ -1099,12 +1099,18 @@ XEmacs LDAP API
 * LDAP Variables::              Lisp variables related to LDAP
 * The High-Level LDAP API::     High-level LDAP lisp functions 
 * The Low-Level LDAP API::      Low-level LDAP lisp primitives
+* LDAP Internationalization::   I18n variables and functions
 
 The Low-Level LDAP API
 
 * The LDAP Lisp Object::        
 * Opening and Closing a LDAP Connection::  
-* Searching on a LDAP Server (Low-level)::  
+* Low-level Operations on a LDAP Server::  
+
+LDAP Internationalization
+
+* LDAP Internationalization Variables::  
+* Encoder/Decoder Functions::   
 
 Internationalization
 

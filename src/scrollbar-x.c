@@ -406,6 +406,9 @@ x_update_vertical_scrollbar_callback (Widget widget, LWLIB_ID id,
     return;
 
   mirror = find_scrollbar_window_mirror (f, id);
+  if (!mirror)
+    return;
+  
   win = real_window (mirror, 1);
 
   if (NILP (win))
@@ -609,6 +612,9 @@ x_update_horizontal_scrollbar_callback (Widget widget, LWLIB_ID id,
     return;
 
   mirror = find_scrollbar_window_mirror (f, id);
+  if (!mirror)
+    return;
+  
   win = real_window (mirror, 1);
 
   if (NILP (win))

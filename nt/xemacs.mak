@@ -24,6 +24,8 @@
 # Synched up with: Not in FSF.
 #
 
+default: all
+
 XEMACS=..
 LISP=$(XEMACS)\lisp
 LIB_SRC=$(XEMACS)\lib-src
@@ -31,6 +33,7 @@ MODULES=$(XEMACS)\modules
 NT=$(XEMACS)\nt
 OUTDIR=$(NT)\obj
 SRC=$(XEMACS)\src
+LWLIB_SRCDIR=$(XEMACS)\lwlib
 MAKEDIRSTRING=$(MAKEDIR:\=\\)
 XEMACSDIRSTRING=$(MAKEDIRSTRING:\\nt=)
 
@@ -40,7 +43,7 @@ DEL=-del
 
 # Program name and version
 
-!include "..\version.sh"
+!include "$(XEMACS)\version.sh"
 
 !include "config.inc"
 
@@ -53,6 +56,8 @@ INFODOCK_VERSION_STRING=$(infodock_major_version).$(infodock_minor_version).$(in
 PROGRAM_DEFINES=-DINFODOCK 					\
 	-DPATH_VERSION=\"$(INFODOCK_VERSION_STRING)\"		\
 	-DPATH_PROGNAME=\"infodock\" 				\
+	-DEMACS_PROGNAME=\"infodock\"				\
+	-DEMACS_VERSION=\"$(INFODOCK_VERSION_STRING)\"		\
 	-DINFODOCK_MAJOR_VERSION=$(infodock_major_version)	\
 	-DINFODOCK_MINOR_VERSION=$(infodock_minor_version)	\
 	-DINFODOCK_BUILD_VERSION=$(infodock_build_version)
@@ -64,7 +69,9 @@ XEMACS_VERSION_STRING=$(emacs_major_version).$(emacs_minor_version)
 !endif
 PROGRAM_DEFINES=						\
 	-DPATH_VERSION=\"$(XEMACS_VERSION_STRING)\"		\
-	-DPATH_PROGNAME=\"xemacs\"
+	-DPATH_PROGNAME=\"xemacs\"				\
+	-DEMACS_VERSION=\"$(XEMACS_VERSION_STRING)\"		\
+	-DEMACS_PROGNAME=\"xemacs\"
 !endif
 
 #
@@ -91,11 +98,11 @@ PACKAGE_PATH=~\.xemacs;;$(PACKAGE_PREFIX)\site-packages;$(PACKAGE_PREFIX)\xemacs
 ! endif
 !endif
 PATH_PACKAGEPATH="$(PACKAGE_PATH:\=\\)"
-!if !defined(HAVE_MSW)
-HAVE_MSW=1
+!if !defined(HAVE_MS_WINDOWS)
+HAVE_MS_WINDOWS=1
 !endif
-!if !defined(HAVE_X)
-HAVE_X=0
+!if !defined(HAVE_X_WINDOWS)
+HAVE_X_WINDOWS=0
 !endif
 !if !defined(HAVE_XPM)
 HAVE_XPM=0
@@ -132,6 +139,9 @@ HAVE_WIDGETS=1
 !endif
 !if !defined(DEBUG_XEMACS)
 DEBUG_XEMACS=0
+!endif
+!if !defined(QUICK_BUILD)
+QUICK_BUILD=0
 !endif
 !if !defined(USE_UNION_TYPE)
 USE_UNION_TYPE=0
@@ -201,67 +211,67 @@ CONFIG_ERROR=1
 !message [[[Developer note: If you want to fix it, read Q112297 first]]]  ####
 CONFIG_ERROR=1
 !endif
-!if !$(HAVE_MSW) && !$(HAVE_X)
-!message Please specify at least one HAVE_MSW=1 and/or HAVE_X=1
+!if !$(HAVE_MS_WINDOWS) && !$(HAVE_X_WINDOWS)
+!message Please specify at least one HAVE_MS_WINDOWS=1 and/or HAVE_X_WINDOWS=1
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_X) && !defined(X11_DIR)
+!if $(HAVE_X_WINDOWS) && !defined(X11_DIR)
 !message Please specify root directory for your X11 installation: X11_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_X) && defined(X11_DIR) && !exist("$(X11_DIR)\LIB\X11.LIB")
+!if $(HAVE_X_WINDOWS) && defined(X11_DIR) && !exist("$(X11_DIR)\LIB\X11.LIB")
 !message Specified X11 directory does not contain "$(X11_DIR)\LIB\X11.LIB"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XPM) && !defined(XPM_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XPM) && !defined(XPM_DIR)
 !message Please specify root directory for your XPM installation: XPM_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XPM) && defined(XPM_DIR) && !exist("$(XPM_DIR)\lib\Xpm.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XPM) && defined(XPM_DIR) && !exist("$(XPM_DIR)\lib\Xpm.lib")
 !message Specified XPM directory does not contain "$(XPM_DIR)\lib\Xpm.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(PNG_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && !defined(PNG_DIR)
 !message Please specify root directory for your PNG installation: PNG_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && defined(PNG_DIR) && !exist("$(PNG_DIR)\libpng.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && defined(PNG_DIR) && !exist("$(PNG_DIR)\libpng.lib")
 !message Specified PNG directory does not contain "$(PNG_DIR)\libpng.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(ZLIB_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && !defined(ZLIB_DIR)
 !message Please specify root directory for your ZLIB installation: ZLIB_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_PNG) && defined(ZLIB_DIR) && !exist("$(ZLIB_DIR)\zlib.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_PNG) && defined(ZLIB_DIR) && !exist("$(ZLIB_DIR)\zlib.lib")
 !message Specified ZLIB directory does not contain "$(ZLIB_DIR)\zlib.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TIFF) && !defined(TIFF_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TIFF) && !defined(TIFF_DIR)
 !message Please specify root directory for your TIFF installation: TIFF_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TIFF) && !exist("$(TIFF_DIR)\libtiff\libtiff.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TIFF) && !exist("$(TIFF_DIR)\libtiff\libtiff.lib")
 !message Specified TIFF directory does not contain "$(TIFF_DIR)\libtiff\libtiff.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_JPEG) && !defined(JPEG_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_JPEG) && !defined(JPEG_DIR)
 !message Please specify root directory for your JPEG installation: JPEG_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_JPEG) && !exist("$(JPEG_DIR)\libjpeg.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_JPEG) && !exist("$(JPEG_DIR)\libjpeg.lib")
 !message Specified JPEG directory does not contain "$(JPEG_DIR)\libjpeg.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XFACE) && !defined(COMPFACE_DIR)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XFACE) && !defined(COMPFACE_DIR)
 !message Please specify root directory for your COMPFACE installation: COMPFACE_DIR=path
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_XFACE) && !exist("$(COMPFACE_DIR)\libcompface.lib")
+!if $(HAVE_MS_WINDOWS) && $(HAVE_XFACE) && !exist("$(COMPFACE_DIR)\libcompface.lib")
 !message Specified COMPFACE directory does not contain "$(COMPFACE_DIR)\libcompface.lib"
 CONFIG_ERROR=1
 !endif
-!if $(HAVE_MSW) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
+!if $(HAVE_MS_WINDOWS) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
 !message Toolbars require XPM support
 CONFIG_ERROR=1
 !endif
@@ -275,6 +285,27 @@ CONFIG_ERROR=1
 !if defined(GUNG_HO)
 USE_MINIMAL_TAGBITS=$(GUNG_HO)
 USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
+!endif
+
+#
+# Whether to use dependency information generated by make-src-depend
+#
+!if !defined(DEPEND)
+DEPEND=0
+!endif
+!if $(DEPEND)
+! if [if not exist $(OUTDIR)\nul mkdir "$(OUTDIR)"]
+! endif
+# generate an nmake-readable version of depend
+! if [perl -p -e "s/^\x23ifdef (.+)/!if defined($$1)/; s/^\x23e/!e/;" \
+	-e "s/([\s=^])([\w\d\.\-^]+\.[ch^])/$$1$(SRC:\=\\)\\$$2/g;" \
+	-e "s/^(.+)\.o:(.+)/$(OUTDIR:\=\\)\\$$1.obj:$$2 $(NT:\=\\)\\config.inc/;" \
+	< $(SRC)\depend > $(OUTDIR)\depend.tmp]
+! endif
+! include "$(OUTDIR)\depend.tmp"
+!else
+! if [echo   WARNING: Compiling without dependency information.]
+! endif
 !endif
 
 #
@@ -310,13 +341,13 @@ LIBC_LIB=libc.lib
 
 CFLAGS=-nologo -W3 $(OPT) $(C_LIBFLAG)
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 X_DEFINES=-DHAVE_X_WINDOWS
 X_INCLUDES=-I$(X11_DIR)\include
 X_LIBS=-libpath:$(X11_DIR)\lib Xaw.lib Xmu.lib Xt.lib SM.lib ICE.lib Xext.lib X11.lib
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 MSW_DEFINES=-DHAVE_MS_WINDOWS -DHAVE_SCROLLBARS -DHAVE_MENUBARS
 MSW_INCLUDES=
 MSW_LIBS=
@@ -383,6 +414,10 @@ DEBUG_DEFINES=-DDEBUG_XEMACS -D_DEBUG
 DEBUG_FLAGS=-debug:full
 !endif
 
+!if $(QUICK_BUILD)
+QUICK_DEFINES=-DQUICK_BUILD
+!endif
+
 !if $(USE_MINIMAL_TAGBITS)
 TAGBITS_DEFINES=-DUSE_MINIMAL_TAGBITS
 !endif
@@ -415,17 +450,15 @@ PATH_DEFINES=-DPATH_PREFIX=\"$(PATH_PREFIX)\"
 
 # Generic variables
 
-INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(XEMACS)\lwlib
+INCLUDES=$(X_INCLUDES) $(MSW_INCLUDES) -I$(NT)\inc -I$(SRC) -I$(LWLIB_SRCDIR)
 
 DEFINES=$(X_DEFINES) $(MSW_DEFINES) $(MULE_DEFINES) \
 	$(TAGBITS_DEFINES) $(LRECORD_DEFINES) $(UNION_DEFINES) \
-	$(DUMPER_DEFINES) $(MALLOC_DEFINES) \
+	$(DUMPER_DEFINES) $(MALLOC_DEFINES) $(QUICK_DEFINES) \
 	-DWIN32 -D_WIN32 -DWIN32_LEAN_AND_MEAN -DWINDOWSNT -Demacs \
 	-DHAVE_CONFIG_H $(PROGRAM_DEFINES) $(PATH_DEFINES)
 
 #------------------------------------------------------------------------------
-
-default: $(OUTDIR)\nul all 
 
 $(OUTDIR)\nul:
 	-@mkdir $(OUTDIR)
@@ -491,13 +524,14 @@ $(LIB_SRC)/minitar.exe : $(NT)/minitar.mak $(NT)/minitar.c
 	nmake -nologo -f minitar.mak ZLIB="$(ZLIB_DIR)" NT="$(NT)" LIB_SRC="$(LIB_SRC)"
 
 LIB_SRC_TOOLS = \
-	$(LIB_SRC)/make-docfile.exe	\
+	$(LIB_SRC)/etags.exe		\
 	$(LIB_SRC)/hexl.exe		\
-	$(LIB_SRC)/movemail.exe		\
+	$(LIB_SRC)/i.exe		\
+	$(LIB_SRC)/make-docfile.exe	\
 	$(LIB_SRC)/mmencode.exe		\
+	$(LIB_SRC)/movemail.exe		\
 	$(LIB_SRC)/sorted-doc.exe	\
-	$(LIB_SRC)/wakeup.exe		\
-	$(LIB_SRC)/etags.exe		
+	$(LIB_SRC)/wakeup.exe
 !if $(USE_MINITAR)
 LIB_SRC_TOOLS = \
 	$(LIB_SRC_TOOLS) \
@@ -506,6 +540,7 @@ LIB_SRC_TOOLS = \
 !if $(USE_PORTABLE_DUMPER)
 LIB_SRC_TOOLS = \
 	$(XEMACS_INCLUDES) \
+	$(LIB_SRC)/make-dump-id.exe \
 	$(LIB_SRC_TOOLS)
 !endif
 
@@ -523,6 +558,15 @@ $(RUNEMACS): $(LIB_SRC)\run.c $(LIB_SRC)\run.res
 
 $(LIB_SRC)\run.res: $(LIB_SRC)\run.rc
 	rc -I$(LIB_SRC) -Fo$@ $**
+
+#------------------------------------------------------------------------------
+
+# dump-id.c file that contains the dump id
+
+$(SRC)\dump-id.c : $(LIB_SRC)/make-dump-id.exe 
+	cd $(SRC)
+	$(LIB_SRC)\make-dump-id.exe 
+	cd $(NT)
 
 #------------------------------------------------------------------------------
 
@@ -546,12 +590,11 @@ $(OUTDIR)\lastfile.obj:	$(LASTFILE_SRC)\lastfile.c
 
 #------------------------------------------------------------------------------
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 
 # LWLIB Library
 
 LWLIB=$(OUTDIR)\lwlib.lib
-LWLIB_SRC=$(XEMACS)\lwlib
 LWLIB_FLAGS=$(CFLAGS) $(INCLUDES) $(DEFINES) \
  -DNEED_ATHENA -DNEED_LUCID \
  -D_WINDOWS -DMENUBARS_LUCID -DSCROLLBARS_LUCID -DDIALOGS_ATHENA \
@@ -568,25 +611,25 @@ LWLIB_OBJS= \
 $(LWLIB): $(LWLIB_OBJS)
 	link.exe -lib -nologo -out:$@ $(LWLIB_OBJS)
 
-$(OUTDIR)\lwlib-config.obj:	$(LWLIB_SRC)\lwlib-config.c
+$(OUTDIR)\lwlib-config.obj:	$(LWLIB_SRCDIR)\lwlib-config.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-utils.obj:	$(LWLIB_SRC)\lwlib-utils.c
+$(OUTDIR)\lwlib-utils.obj:	$(LWLIB_SRCDIR)\lwlib-utils.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-Xaw.obj:	$(LWLIB_SRC)\lwlib-Xaw.c
+$(OUTDIR)\lwlib-Xaw.obj:	$(LWLIB_SRCDIR)\lwlib-Xaw.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib-Xlw.obj:	$(LWLIB_SRC)\lwlib-Xlw.c
+$(OUTDIR)\lwlib-Xlw.obj:	$(LWLIB_SRCDIR)\lwlib-Xlw.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\lwlib.obj:		$(LWLIB_SRC)\lwlib.c
+$(OUTDIR)\lwlib.obj:		$(LWLIB_SRCDIR)\lwlib.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\xlwmenu.obj:		$(LWLIB_SRC)\xlwmenu.c
+$(OUTDIR)\xlwmenu.obj:		$(LWLIB_SRCDIR)\xlwmenu.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
-$(OUTDIR)\xlwscrollbar.obj:	$(LWLIB_SRC)\xlwscrollbar.c
+$(OUTDIR)\xlwscrollbar.obj:	$(LWLIB_SRCDIR)\xlwscrollbar.c
 	 $(CCV) $(LWLIB_FLAGS) $**
 
 !endif
@@ -685,7 +728,7 @@ DOC_SRC5=\
  $(SRC)\window.c \
  $(SRC)\widget.c
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 DOC_SRC6=\
  $(SRC)\balloon_help.c \
  $(SRC)\console-x.c \
@@ -710,7 +753,7 @@ DOC_SRC6=\
  $(SRC)\select-x.c 
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 DOC_SRC7=\
  $(SRC)\console-msw.c \
  $(SRC)\device-msw.c  \
@@ -734,7 +777,7 @@ DOC_SRC8=\
  $(SRC)\mule.c \
  $(SRC)\mule-charset.c \
  $(SRC)\mule-ccl.c
-! if $(HAVE_X)
+! if $(HAVE_X_WINDOWS)
  DOC_SRC8=$(DOC_SRC8) $(SRC)\input-method-xlib.c
 ! endif
 !endif
@@ -756,6 +799,9 @@ DOC_SRC10=\
 !if !$(USE_PORTABLE_DUMPER)
 DOC_SRC11=\
  $(SRC)\unexnt.c
+!else
+DOC_SRC11=\
+ $(SRC)\dumper.c
 !endif
 
 #------------------------------------------------------------------------------
@@ -789,11 +835,11 @@ TEMACS_CPP_FLAGS=-c \
  -DEMACS_MAJOR_VERSION=$(emacs_major_version) \
  -DEMACS_MINOR_VERSION=$(emacs_minor_version) \
  $(EMACS_BETA_VERSION) \
- -DXEMACS_CODENAME=\"$(xemacs_codename)\" \
+ -DXEMACS_CODENAME=\"$(xemacs_codename:&=and)\" \
  -DEMACS_CONFIGURATION=\"$(EMACS_CONFIGURATION)\" \
  -DPATH_PACKAGEPATH=\"$(PATH_PACKAGEPATH)\"
 
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
 TEMACS_X_OBJS=\
 	$(OUTDIR)\balloon-x.obj \
 	$(OUTDIR)\balloon_help.obj \
@@ -818,7 +864,7 @@ TEMACS_X_OBJS=\
 	$(OUTDIR)\select-x.obj
 !endif
 
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
 TEMACS_MSW_OBJS=\
 	$(OUTDIR)\console-msw.obj \
 	$(OUTDIR)\device-msw.obj \
@@ -842,7 +888,7 @@ TEMACS_MULE_OBJS=\
 	$(OUTDIR)\mule.obj \
 	$(OUTDIR)\mule-charset.obj \
 	$(OUTDIR)\mule-ccl.obj
-! if $(HAVE_X)
+! if $(HAVE_X_WINDOWS)
 TEMACS_MULE_OBJS=\
 	$(TEMACS_MULE_OBJS) $(OUTDIR)\input-method-xlib.obj
 ! endif
@@ -865,6 +911,9 @@ TEMACS_ALLOC_OBJS=\
 !if !$(USE_PORTABLE_DUMPER)
 TEMACS_DUMP_OBJS=\
 	$(OUTDIR)\unexnt.obj
+!else
+TEMACS_DUMP_OBJS=\
+	$(OUTDIR)\dumper.obj
 !endif
 
 TEMACS_OBJS= \
@@ -975,6 +1024,8 @@ TEMACS_OBJS= \
 	$(CCV) $(TEMACS_CPP_FLAGS) $< -Fo$@
 !endif
 
+$(OUTDIR)\emacs.obj:	$(XEMACS)\version.sh
+
 $(OUTDIR)\TopLevelEmacsShell.obj:	$(TEMACS_SRC)\EmacsShell-sub.c
 	$(CCV) $(TEMACS_CPP_FLAGS) -DDEFINE_TOP_LEVEL_EMACS_SHELL $** -Fo$@
 
@@ -996,9 +1047,12 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS) $(OUTDIR)\xemacs.res
 	@$(DEL) bscmake.tmp
 !endif
 !if $(USE_PORTABLE_DUMPER)
-	@if exist $(TEMACS_DIR)\xemacs.dmp del $(TEMACS_DIR)\xemacs.dmp
+	@if exist $(SRC)\dump-id.c del $(SRC)\dump-id.c
+# make a new dump id file.  There is probably a better way to do this, but this works
+	@if exist $(OUTDIR)\dump-id.obj del $(OUTDIR)\dump-id.obj
+	nmake -nologo -f xemacs.mak OUTDIR=$(OUTDIR) $(OUTDIR)\dump-id.obj
 	link.exe @<<
-  $(TEMACS_LFLAGS) -out:$@ $(TEMACS_OBJS) $(TEMACS_LIBS)
+  $(TEMACS_LFLAGS) -out:$@ $(TEMACS_OBJS) $(TEMACS_LIBS) $(OUTDIR)\dump-id.obj
 <<
 !else
 	link.exe @<<
@@ -1009,11 +1063,15 @@ $(TEMACS): $(TEMACS_INCLUDES) $(TEMACS_OBJS) $(OUTDIR)\xemacs.res
 $(OUTDIR)\xemacs.res: xemacs.rc
 	rc -Fo$@ xemacs.rc
 
-# Section handling automated tests starts here
 
 PROGNAME=$(SRC)\xemacs.exe
+TEMACS_BATCH="$(LIB_SRC)\i" "$(TEMACS)" -batch
+XEMACS_BATCH="$(LIB_SRC)\i" "$(PROGNAME)" -vanilla -batch
+
+# Section handling automated tests starts here
+
 blddir=$(MAKEDIR:\=\\)\\..
-temacs_loadup=$(TEMACS) -batch -l $(LISP)/loadup.el
+temacs_loadup=$(TEMACS_BATCH) -l $(LISP)/loadup.el
 dump_temacs   = $(temacs_loadup) dump
 run_temacs    = $(temacs_loadup) run-temacs
 ## We have automated tests!!
@@ -1056,7 +1114,7 @@ tags:
 # Section handling info starts here
 
 !if !defined(MAKEINFO)
-MAKEINFO=$(PROGNAME) -vanilla -batch -l texinfmt -f batch-texinfo-format
+MAKEINFO=$(XEMACS_BATCH) -l texinfmt -f batch-texinfo-format
 !endif
 
 MANDIR = $(XEMACS)\man
@@ -1237,7 +1295,7 @@ makeinfo-test:
 	@<<makeinfo_test.bat
 @echo off
 if exist "$(MAKEINFO)" goto test_done
-@"$(PROGNAME)" -batch -vanilla -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
+@$(XEMACS_BATCH) -eval "(condition-case nil (require (quote texinfo)) (t (kill-emacs 1)))"
 @if not errorlevel 1 goto suggest_makeinfo
 @echo XEmacs `info' cannot be built!
 @echo Install XEmacs package `texinfo' (see README.packages).
@@ -1261,11 +1319,11 @@ docfile ::
 	if exist $(DOC) del $(DOC)
 docfile :: $(DOC)
 
-$(DOC): $(LIB_SRC)\make-docfile.exe
+$(DOC): $(LIB_SRC)\make-docfile.exe $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(DOC_SRC10) $(DOC_SRC11)
 	if exist $(DOC) del $(DOC)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
+	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\make-docfile.el -- -o $(DOC) -i $(XEMACS)\site-packages
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC1)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC2)
 	$(LIB_SRC)\make-docfile.exe -a $(DOC) -d $(TEMACS_SRC) $(DOC_SRC3)
@@ -1281,20 +1339,25 @@ $(DOC): $(LIB_SRC)\make-docfile.exe
 update-elc:
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
+	$(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\update-elc.el
+
+# This file is touched by update-elc.el when redumping is necessary.
+$(TEMACS_DIR)\NEEDTODUMP :
+	@echo >$(TEMACS_DIR)\NEEDTODUMP
 
 # This rule dumps xemacs and then possibly spawns sub-make if PURESPACE
 # requirements have changed.
-dump-xemacs: temacs
+
+$(PROGNAME) : $(TEMACS) $(TEMACS_DIR)\NEEDTODUMP
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
 	set EMACSBOOTSTRAPLOADPATH=$(LISP);$(PACKAGE_PATH)
 	set EMACSBOOTSTRAPMODULEPATH=$(MODULES)
-	-1 $(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\loadup.el dump
+	-1 $(TEMACS_BATCH) -l $(TEMACS_DIR)\..\lisp\loadup.el dump
 !if $(USE_PORTABLE_DUMPER)
 	rc -d INCLUDE_DUMP -Fo $(OUTDIR)\xemacs.res $(NT)\xemacs.rc
 	link.exe @<<
-  $(TEMACS_LFLAGS) -out:xemacs.exe $(TEMACS_OBJS) $(OUTDIR)\xemacs.res $(TEMACS_LIBS)
+  $(TEMACS_LFLAGS) -out:xemacs.exe $(TEMACS_OBJS) $(OUTDIR)\xemacs.res $(TEMACS_LIBS) $(OUTDIR)\dump-id.obj
 <<
 # Make the resource section read/write since almost all of it is the dump
 # data which needs to be writable.  This avoids having to copy it.
@@ -1307,8 +1370,8 @@ dump-xemacs: temacs
 
 # use this rule to build the complete system
 all:	installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) \
-	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) dump-xemacs \
-	$(LISP)/auto-autoloads.el $(LISP)/custom-load.el info
+	$(LIB_SRC_TOOLS) $(RUNEMACS) $(TEMACS) update-elc $(DOC) $(PROGNAME) \
+	update-auto-and-custom info
 
 temacs: $(LASTFILE) $(TEMACS)
 
@@ -1376,7 +1439,7 @@ distclean:
 	$(DEL) *.info*
 
 depend:
-	cd $(SRCDIR)
+	cd $(SRC)
 	perl ./make-src-depend > depend.tmp
 	perl -MFile::Compare -e "compare('depend.tmp', 'depend') && rename('depend.tmp', 'depend') or unlink('depend.tmp')"
 
@@ -1399,10 +1462,10 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !if $(INFODOCK)
   Building InfoDock.
 !endif
-!if $(HAVE_MSW)
+!if $(HAVE_MS_WINDOWS)
   Compiling in support for Microsoft Windows native GUI.
 !endif
-!if $(HAVE_X)
+!if $(HAVE_X_WINDOWS)
   Compiling in support for X-Windows.
 !endif
 !if $(HAVE_MULE)
@@ -1482,6 +1545,9 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !if $(DEBUG_XEMACS)
   Compiling in extra debug checks. XEmacs will be slow!
 !endif
+!if $(QUICK_BUILD)
+  Disabling non-essential build actions.  Use with care!
+!endif
 <<NOKEEP
 	@echo --------------------------------------------------------------------
 	@type $(XEMACS)\Installation
@@ -1489,19 +1555,14 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 
 # Update auto-autoloads.el and custom-load.el similar to what
 # XEmacs.rules does for xemacs-packages.
-VANILLA=-vanilla
-FORCE:
-$(LISP)\auto-autoloads.el:	FORCE
-	@$(DEL) $(LISP)\auto-autoloads.el
-	$(PROGNAME) $(VANILLA) -batch \
-		-l autoload -f batch-update-directory $(LISP)
-	$(PROGNAME) $(VANILLA) -batch \
-		-f batch-byte-compile $@
+update-auto-and-custom:
+#       Don't delete this, because it forces rebuilding from scratch,
+#       which is time-consuming; and the autoload code is specifically
+#       written to do in-place updating.
+#	@$(DEL) $(LISP)\auto-autoloads.el
+#       Combine into one invocation to avoid repeated startup penalty.
+	$(XEMACS_BATCH) -l autoload -f batch-update-one-directory $(LISP) -f batch-byte-compile-one-file $(LISP)\auto-autoloads.el -l cus-dep -f Custom-make-dependencies $(LISP)
 	@$(DEL) $(LISP)\auto-autoloads.el~
-
-$(LISP)\custom-load.el:	FORCE
-	$(PROGNAME) $(VANILLA) -batch -l cus-dep \
-		-f Custom-make-dependencies $(LISP)
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

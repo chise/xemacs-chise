@@ -2071,7 +2071,8 @@ raw_lookup_key_mapper (Lisp_Object k, void *arg)
 	    {
 	      struct key_data metified;
 	      metified.keysym = raw_keys[1].keysym;
-	      metified.modifiers = raw_keys[1].modifiers | XEMACS_MOD_META;
+	      metified.modifiers = raw_keys[1].modifiers |
+		(unsigned char) XEMACS_MOD_META;
 
 	      /* Search for meta-next-char sequence directly */
 	      cmd = keymap_lookup_1 (k, &metified, accept_default);

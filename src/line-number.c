@@ -293,7 +293,7 @@ buffer_line_number (struct buffer *b, Bufpos pos, int cachep)
       get_nearest_line_number (b, &beg, pos, &cached_lines);
     }
 
-  scan_buffer (b, '\n', beg, pos, pos > beg ? EMACS_INT_MAX : EMACS_INT_MIN,
+  scan_buffer (b, '\n', beg, pos, pos > beg ? EMACS_INT_MAX : -EMACS_INT_MAX,
 	       &shortage, 0);
 
   line = EMACS_INT_MAX - shortage;

@@ -18,7 +18,8 @@
  (make-extent (point) (point))
  (setq radio-button1 
        (make-glyph 
-	[button :descriptor ["ok1" (setq ok-select t)
+	[button :face widget
+		:descriptor ["ok1" (setq ok-select t)
 			     :style radio :selected ok-select]])))
 ;; button in a group
 (set-extent-begin-glyph 
@@ -48,7 +49,7 @@
  (setq push-button 
        (make-glyph [button :width 10 :height 2
 			   :face modeline-mousable
-			   :descriptor "ok" :callback foo 
+			   :descriptor "ok" :callback foo
 			   :selected t])))
 ;; tree view
 (set-extent-begin-glyph 
@@ -82,7 +83,7 @@
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pgauge) :percent x)
+    (set-image-instance-property (glyph-image-instance pgauge) :value x)
     (setq x (+ x 5))
     (sit-for 0.1)))
 
@@ -95,7 +96,7 @@
 ;; progress the progress ...
 (let ((x 0))
   (while (<= x 100)
-    (set-image-instance-property (glyph-image-instance pg) :percent x)
+    (set-image-instance-property (glyph-image-instance pg) :value x)
     (setq x (+ x 5))
     (sit-for 0.1)))
 

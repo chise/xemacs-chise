@@ -870,7 +870,7 @@ mswindows_user_event_p (Lisp_Event* sevt)
 /*
  * Add an emacs event to the proper dispatch queue
  */
-static void
+void
 mswindows_enqueue_dispatch_event (Lisp_Object event)
 {
   int user_p = mswindows_user_event_p (XEVENT(event));
@@ -1472,9 +1472,21 @@ mswindows_need_event (int badly_p)
 	      mswindows_waitable_handles [ix] =
 		mswindows_waitable_handles [--mswindows_waitable_count];
 	      kick_status_notify ();
-	      /* Have to return something: there may be no accompanying
-		 process event */
-	      mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
+	      /* We need to return a process event here so that
+		 (1) accept-process-output will return when called on this
+		 process, and (2) status notifications will happen in
+		 accept-process-output, sleep-for, and sit-for. */
+	      /* #### horrible kludge till my real process fixes go in.
+	       */
+	      if (!NILP (Vprocess_list))
+		{
+		  Lisp_Object vaffanculo = XCAR (Vprocess_list);
+		  mswindows_enqueue_process_event (XPROCESS (vaffanculo));
+		}
+	      else /* trash me soon. */
+		/* Have to return something: there may be no accompanying
+		   process event */
+		mswindows_enqueue_magic_event (NULL, XM_BUMPQUEUE);
 	    }
 	}
 #endif

@@ -31,17 +31,10 @@ Boston, MA 02111-1307, USA.  */
 
 /* The path to the Athena widgets - the usual value is `X11/Xaw' */
 #undef ATHENA_H_PATH
-
-/* For use in #include statements.
-   You can't use macros directly within the <> of a #include statement.
-   The multiply nested macros are necessary to make old gcc's happy.
-   However, those nested macros are too much for AIX xlc to deal with. */
-#if defined(_AIX) && !defined(__GNUC__)
-#define ATHENA_INCLUDE(header_file) <ATHENA_H_PATH/header_file>
+#ifdef ATHENA_H_PATH
+# define ATHENA_INCLUDE(file) SMART_INCLUDE (ATHENA_H_PATH,file)
 #else
-#define INCLUDE_GLUE_2(dirname,basename) <##dirname##/##basename##>
-#define INCLUDE_GLUE_1(dirname,basename) INCLUDE_GLUE_2(dirname,basename)
-#define ATHENA_INCLUDE(header_file) INCLUDE_GLUE_1(ATHENA_H_PATH,header_file)
+# define ATHENA_INCLUDE(file) <file>
 #endif
 
 #endif /* _LWLIB_CONFIG_H_ */

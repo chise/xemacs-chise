@@ -152,7 +152,7 @@ report_fork_error (char *string, Lisp_Object data)
 }
 #endif /* unused */
 
-DEFUN ("call-process-internal", Fcall_process_internal, 1, MANY, 0, /*
+DEFUN ("old-call-process-internal", Fold_call_process_internal, 1, MANY, 0, /*
 Call PROGRAM synchronously in separate process, with coding-system specified.
 Arguments are
  (PROGRAM &optional INFILE BUFFER DISPLAY &rest ARGS).
@@ -906,7 +906,7 @@ set_process_environment (void)
 void
 syms_of_callproc (void)
 {
-  DEFSUBR (Fcall_process_internal);
+  DEFSUBR (Fold_call_process_internal);
   DEFSUBR (Fgetenv);
 }
 

@@ -116,10 +116,6 @@ VPATH=@srcdir@
 
 RM = rm -f
 
-#ifdef HAVE_NATIVE_SOUND
-sound_cflags=@sound_cflags@
-#endif
-
 LWLIB_SRCDIR = ${srcdir}/../lwlib
 
 #ifdef HAVE_X_WINDOWS
@@ -686,6 +682,7 @@ alloca.o : ${srcdir}/alloca.s config.h
 #endif /* ! defined (C_ALLOCA) */
 
 #ifdef HAVE_NATIVE_SOUND
+sound_cflags=@sound_cflags@
 sunplay.o: ${srcdir}/sunplay.c
 	$(CC) -c  $(sound_cflags) $(cflags) ${srcdir}/sunplay.c
 hpplay.o: ${srcdir}/hpplay.c

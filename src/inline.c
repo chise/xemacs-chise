@@ -69,7 +69,7 @@ Boston, MA 02111-1307, USA.  */
 #endif
 
 #ifdef HAVE_POSTGRESQL
-#include <libpq-fe.h>
+#include POSTGRES_INCLUDE (libpq-fe.h)
 #include "postgresql.h"
 #endif
 

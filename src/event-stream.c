@@ -4117,10 +4117,10 @@ Magic events are handled as necessary.
 	       be done without an undo boundary.  This counter is reset as
 	       soon as a command other than self-insert-command is executed.
 
-	       Programmers can also use the `self-insert-undo-magic'
+	       Programmers can also use the `self-insert-defer-undo'
 	       property to install that behaviour on functions other
 	       than `self-insert-command', or to change the magic
-	       number 20 to something else.  */
+	       number 20 to something else.  #### DOCUMENT THIS!  */
 
 	    if (SYMBOLP (leaf))
 	      {

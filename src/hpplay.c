@@ -51,6 +51,8 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
+#include "nativesound.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #ifdef HPUX10
@@ -60,6 +62,7 @@ Boston, MA 02111-1307, USA.  */
 #include <audio/Alib.h>
 #include <audio/CUlib.h>
 #endif /* !HPUX 10 */
+
 
 Lisp_Object Vhp_play_server;
 Lisp_Object Vhp_play_speaker;
@@ -202,11 +205,11 @@ play_sound_file (sound_file, volume)
 
     play_bucket_internal(audio, pSBucket, volume);
 
-    ASetErrorHandler(prevHandler);
+    ASetErrorHandler(prevHandler);    
 }
 
 
-void
+int
 play_sound_data (data, length, volume)
      unsigned char * data;
      int length;
@@ -218,7 +221,17 @@ play_sound_data (data, length, volume)
     SunHeader       *header;
     long            status;
     char            *server;
+    int             result;
 
+    /* #### Finish this to return an error code.
+       This function signal a lisp error. How consistent with the rest.
+       What if this function is needed in doing the beep for the error?
+
+       Apparently the author of this didn't read the comment in
+       Fplay_sound.
+    */
+       
+    
     if (STRINGP (Vhp_play_server))
       server = (char *) XSTRING_DATA (Vhp_play_server);
     server = "";
@@ -250,6 +263,8 @@ play_sound_data (data, length, volume)
     ASetErrorHandler(prevHandler);
     if (status)
       player_error_internal( audio, "Audio data copy failed", status );
+
+    return 1;
 }
 
 void

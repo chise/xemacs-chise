@@ -48,7 +48,7 @@ char *UP, *BC, PC;
    format is different too.
 */
 
-#include CURSES_H_PATH
+#include CURSES_H_FILE
 /* Sun, in their infinite lameness, supplies (possibly) broken headers
    even under Solaris.  GCC feels it necessary to correct things by
    supplying its own headers.  Unfortunately, if you build GCC under
@@ -59,7 +59,7 @@ char *UP, *BC, PC;
    but not term.h.) However, it seems to work to just not include
    term.h under Solaris, so we try that.  KLUDGE! */
 #if !(defined (__GNUC__) && defined (SOLARIS2))
-#include TERM_H_PATH
+#include TERM_H_FILE
 #endif
 
 extern void *xmalloc (int size);

@@ -465,6 +465,10 @@ Lisp_Object Vdefault_text_properties;
 EXFUN (Fextent_properties, 1);
 EXFUN (Fset_extent_property, 3);
 
+/* if true, we don't want to set any redisplay flags on modeline extent
+   changes */
+int in_modeline_generation;
+
 
 /************************************************************************/
 /*                       Generalized gap array                          */
@@ -1612,7 +1616,8 @@ extent_changed_for_redisplay (EXTENT extent, int descendants_too,
        when we need it. (b) we don't have to update the gutters when
        only extents attached to buffers have changed. */
 
-      MARK_EXTENTS_CHANGED;
+      if (!in_modeline_generation)
+	MARK_EXTENTS_CHANGED;
       gutter_extent_signal_changed_region_maybe (object,
 						 extent_endpoint_bufpos (extent, 0),
 						 extent_endpoint_bufpos (extent, 1));

@@ -55,6 +55,9 @@ GetDlgItem(FRAME_MSWINDOWS_HANDLE(f), TOOLBAR_ID_BIAS + p)
 #ifndef TB_SETPADDING
 #define TB_SETPADDING   (WM_USER + 87)
 #endif
+#ifndef TBSTYLE_FLAT
+#define TBSTYLE_FLAT 0x800
+#endif
 #define MSWINDOWS_BUTTON_SHADOW_THICKNESS 2
 #define MSWINDOWS_BLANK_SIZE 5
 #define MSWINDOWS_MINIMUM_TOOLBAR_SIZE 8
@@ -131,7 +134,7 @@ mswindows_clear_toolbar (struct frame *f, enum toolbar_pos pos,
       ShowWindow(toolbarwnd, SW_HIDE);
     }
 
-  FRAME_MSWINDOWS_TOOLBAR_CHECKSUM(f,pos)=0;
+  FRAME_MSWINDOWS_TOOLBAR_CHECKSUM (f, pos) = 0;
   SET_TOOLBAR_WAS_VISIBLE_FLAG (f, pos, 0);
 }
 
@@ -223,7 +226,7 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
       /* remove the old one */
       mswindows_clear_toolbar (f, pos, 0);
 
-      FRAME_MSWINDOWS_TOOLBAR_CHECKSUM(f,pos)=checksum;
+      FRAME_MSWINDOWS_TOOLBAR_CHECKSUM (f, pos)=checksum;
 
       /* build up the data required by win32 fns. */
       button_tbl = xnew_array_and_zero (TBBUTTON, nbuttons);
@@ -384,10 +387,12 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
 	   CreateWindowEx ( WS_EX_WINDOWEDGE,
 			    TOOLBARCLASSNAME,
 			    NULL,
-			    WS_CHILD | WS_VISIBLE 
+			    WS_CHILD 
 			    | (style_3d ? WS_DLGFRAME : 0)
-			    | TBSTYLE_TOOLTIPS | CCS_NORESIZE 
-			    | CCS_NOPARENTALIGN | CCS_NODIVIDER,
+			    | TBSTYLE_TOOLTIPS 
+			    | CCS_NORESIZE 
+			    | CCS_NOPARENTALIGN | CCS_NODIVIDER
+			    | CCS_ADJUSTABLE,
 			    x, y, bar_width, bar_height,
 			    FRAME_MSWINDOWS_HANDLE (f),
 			    (HMENU)(TOOLBAR_ID_BIAS + pos),

@@ -1688,7 +1688,7 @@ xm_create_text_field (widget_instance *instance)
   Widget text = 0;
   widget_value* val = instance->info->val;
 
-  XtSetArg (al [ac], XmNsensitive, val->enabled && val->call_data);		ac++;
+  XtSetArg (al [ac], XmNsensitive, val->enabled);		ac++;
   XtSetArg (al [ac], XmNalignment, XmALIGNMENT_BEGINNING);	ac++;
   XtSetArg (al [ac], XmNuserData, val->call_data);		ac++;
   XtSetArg (al [ac], XmNmappedWhenManaged, FALSE);	ac++;

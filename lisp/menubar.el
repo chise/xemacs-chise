@@ -30,7 +30,7 @@
 
 ;; This file is dumped with XEmacs (when menubar support is compiled in).
 
-;; Some stuff in FSF menu-bar.el is in x-menubar.el
+;; Some stuff in FSF menu-bar.el is in menubar-items.el
 
 ;;; Code:
 

@@ -264,7 +264,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
 	      gr = *ip++;
 	      bl = *ip++;
 	      conv.val = pixarray[QUANT_GET_COLOR(qtable,rd,gr,bl)];
-#if WORDS_BIGENDIAN
+#ifdef WORDS_BIGENDIAN
 	      if (outimg->byte_order == MSBFirst)
 		for (q = 4-byte_cnt; q < 4; q++) *dp++ = conv.cp[q];
 	      else
@@ -339,7 +339,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
 		bl = *ip++ >> (8 - bbits);
 
 	      conv.val = (rd << rshift) | (gr << gshift) | (bl << bshift);
-#if WORDS_BIGENDIAN
+#ifdef WORDS_BIGENDIAN
 	      if (outimg->byte_order == MSBFirst)
 		for (q = 4-byte_cnt; q < 4; q++) *dp++ = conv.cp[q];
 	      else
@@ -2189,14 +2189,11 @@ x_update_widget (Lisp_Image_Instance *p)
      need to update most other things after the items have changed.*/
   if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
-      /* Pick up the items we recorded earlier. We do this here so
-         that the callbacks get set up with the new items. */
-      IMAGE_INSTANCE_WIDGET_ITEMS (p) =
-	IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p);
-      IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p) = Qnil;
+      Lisp_Object image_instance;
 
+      XSETIMAGE_INSTANCE (image_instance, p);
       wv = gui_items_to_widget_values
-	(IMAGE_INSTANCE_WIDGET_ITEMS (p));
+	(image_instance, IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (p));
       wv->change = STRUCTURAL_CHANGE;
       /* now modify the widget */
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
@@ -2211,7 +2208,7 @@ x_update_widget (Lisp_Image_Instance *p)
     return;
 
   /* Possibly update the colors and font */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p) 
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
       ||
       XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (p))->faces_changed
       ||
@@ -2234,7 +2231,9 @@ x_update_widget (Lisp_Image_Instance *p)
   /* Possibly update the size. */
   if (IMAGE_INSTANCE_SIZE_CHANGED (p)
       ||
-      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
+      IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p)
+      ||
+      IMAGE_INSTANCE_TEXT_CHANGED (p))
     {
       assert (IMAGE_INSTANCE_X_WIDGET_ID (p) &&
 	      IMAGE_INSTANCE_X_CLIPWIDGET (p)) ;
@@ -2503,16 +2502,6 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
   IMAGE_INSTANCE_SUBWINDOW_ID (ii) = (void*)wid;
   IMAGE_INSTANCE_X_WIDGET_LWID (ii) = id;
-#if 0
-  /* Resize the widget here so that the values do not get copied by
-     lwlib. */
-  ac = 0;
-  XtSetArg (al [ac], XtNwidth,
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii)); ac++;
-  XtSetArg (al [ac], XtNheight,
-	    (Dimension)IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii)); ac++;
-  XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, ac);
-#endif
   /* because the EmacsManager is the widgets parent we have to
      offset the redisplay of the widget by the amount the text
      widget is inside the manager. */
@@ -2554,9 +2543,7 @@ x_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
   Lisp_Object glyph = find_keyword_in_vector (instantiator, Q_image);
-  widget_value* wv = xmalloc_widget_value ();
-
-  button_item_to_widget_value (gui, wv, 1, 1);
+  widget_value* wv = gui_items_to_widget_values (image_instance, gui);
 
   if (!NILP (glyph))
     {
@@ -2581,6 +2568,30 @@ x_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 #endif
       XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, ac);
     }
+}
+
+/* Update a button's clicked state.
+
+   #### This is overkill, but it works. Right now this causes all
+   button instances to flash for some reason buried deep in lwlib. In
+   theory this should be the Right Thing to do since lwlib should only
+   merge in changed values - and if nothing has changed then nothing
+   should get done. This may be because of the args stuff,
+   i.e. although the arg contents may be the same the args look
+   different and so are re-applied to the widget. */
+static void
+x_button_update (Lisp_Object image_instance)
+{
+  /* This function can GC if IN_REDISPLAY is false. */
+  Lisp_Image_Instance *p = XIMAGE_INSTANCE (image_instance);
+  widget_value* wv =
+    gui_items_to_widget_values (image_instance,
+				IMAGE_INSTANCE_WIDGET_ITEMS (p));
+
+  /* now modify the widget */
+  lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (p),
+			 wv, True);
+  free_widget_value_tree (wv);
 }
 
 /* get properties of a button */
@@ -2609,9 +2620,7 @@ x_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  widget_value* wv = xmalloc_widget_value ();
-
-  button_item_to_widget_value (gui, wv, 1, 1);
+  widget_value* wv = gui_items_to_widget_values (image_instance, gui);
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "progress", wv);
@@ -2623,12 +2632,14 @@ x_progress_gauge_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
-  if (IMAGE_INSTANCE_WIDGET_PERCENT_CHANGED (ii))
+  if (IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
       Arg al [1];
-      /* #### I'm not convinced we should store this in the plist. */
-      Lisp_Object val = Fplist_get (IMAGE_INSTANCE_WIDGET_PROPS (ii),
-				    Q_percent, Qnil);
+      Lisp_Object val;
+#ifdef ERROR_CHECK_GLYPHS
+      assert (GUI_ITEMP (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii)));
+#endif
+      val = XGUI_ITEM (IMAGE_INSTANCE_WIDGET_PENDING_ITEMS (ii))->value;
       XtSetArg (al[0], XtNvalue, XINT (val));
       XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 1);
     }
@@ -2642,9 +2653,7 @@ x_edit_field_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  widget_value* wv = xmalloc_widget_value ();
-
-  button_item_to_widget_value (gui, wv, 1, 1);
+  widget_value* wv = gui_items_to_widget_values (image_instance, gui);
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "text-field", wv);
@@ -2664,7 +2673,8 @@ x_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   widget_instantiate (image_instance, instantiator, pointer_fg,
 		      pointer_bg, dest_mask, domain);
 
-  wv = gui_items_to_widget_values (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
+  wv = gui_items_to_widget_values (image_instance,
+				   IMAGE_INSTANCE_WIDGET_ITEMS (ii));
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "combo-box", wv);
@@ -2678,7 +2688,8 @@ x_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   widget_value * wv =
-    gui_items_to_widget_values (IMAGE_INSTANCE_WIDGET_ITEMS (ii));
+    gui_items_to_widget_values (image_instance,
+				IMAGE_INSTANCE_WIDGET_ITEMS (ii));
 
   update_tab_widget_face (wv, ii,
 			  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
@@ -2689,12 +2700,12 @@ x_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
 /* set the properties of a tab control */
 static void
-x_tab_control_update (Lisp_Object image_instance) 
+x_tab_control_update (Lisp_Object image_instance)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
 
   /* Possibly update the face. */
-  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii) 
+  if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii)
       ||
       XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii))->faces_changed
       ||
@@ -2721,9 +2732,7 @@ x_label_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object gui = IMAGE_INSTANCE_WIDGET_ITEM (ii);
-  widget_value* wv = xmalloc_widget_value ();
-
-  button_item_to_widget_value (gui, wv, 1, 1);
+  widget_value* wv = gui_items_to_widget_values (image_instance, gui);
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "button", wv);
@@ -2795,6 +2804,7 @@ image_instantiator_format_create_glyphs_x (void)
   INITIALIZE_DEVICE_IIFORMAT (x, button);
   IIFORMAT_HAS_DEVMETHOD (x, button, property);
   IIFORMAT_HAS_DEVMETHOD (x, button, instantiate);
+  IIFORMAT_HAS_DEVMETHOD (x, button, update);
 
   INITIALIZE_DEVICE_IIFORMAT (x, widget);
   IIFORMAT_HAS_DEVMETHOD (x, widget, property);

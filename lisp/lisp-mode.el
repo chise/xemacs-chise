@@ -90,8 +90,9 @@
 
 ;Don't have a menubar entry in Lisp Interaction mode.  Otherwise, the
 ;*scratch* buffer has a Lisp menubar item!  Very confusing.
-;(defvar lisp-interaction-mode-menubar-menu
-;  (purecopy (cons "Lisp" (cdr lisp-interaction-mode-popup-menu))))
+;Jan Vroonhof really wants this, so it's back.  --ben
+(defvar lisp-interaction-mode-menubar-menu
+  (purecopy (cons "%_Lisp" (cdr lisp-interaction-mode-popup-menu))))
 
 (defvar emacs-lisp-mode-menubar-menu
   (purecopy (cons "%_Lisp" (cdr emacs-lisp-mode-popup-menu))))
@@ -363,7 +364,13 @@ if that value is non-nil."
   (setq major-mode 'lisp-interaction-mode)
   (setq mode-name "Lisp Interaction")
   (setq mode-popup-menu lisp-interaction-mode-popup-menu)
-
+  (if (and (featurep 'menubar)
+           current-menubar)
+      (progn
+	;; make a local copy of the menubar, so our modes don't
+	;; change the global menubar
+	(set-buffer-menubar current-menubar)
+	(add-submenu nil lisp-interaction-mode-menubar-menu)))
   (set-syntax-table emacs-lisp-mode-syntax-table)
   (lisp-mode-variables nil)
   (run-hooks 'lisp-interaction-mode-hook))

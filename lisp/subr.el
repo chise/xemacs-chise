@@ -319,12 +319,6 @@ other hooks, such as major mode hooks, can do the job."
 The value of this variable may be buffer-local.
 The buffer about to be killed is current when this hook is run.")
 
-;; called by Frecord_buffer()
-(defvar record-buffer-hook nil
-  "Function or functions to be called when a buffer is recorded.
-The value of this variable may be buffer-local.
-The buffer being recorded is passed as an argument to the hook.")
-
 ;; in C in FSFmacs
 (defvar kill-emacs-hook nil
   "Function or functions to be called when `kill-emacs' is called,
@@ -727,6 +721,12 @@ If FUNCTION is not interactive, nil will be returned."
 		spec)))
 	(t
 	 (error "Non-funcallable object: %s" function))))
+
+(defun function-allows-args (function n)
+  "Return whether FUNCTION can be called with N arguments."
+  (and (<= (function-min-args function) n)
+       (or (null (function-max-args function))
+	   (<= n (function-max-args function)))))
 
 ;; This function used to be an alias to `buffer-substring', except
 ;; that FSF Emacs 20.4 added a BUFFER argument in an incompatible way.

@@ -22,9 +22,11 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include "gui.h"
 #include "redisplay.h"
+#include "gui.h"
+#include "glyphs.h"
 #include "frame.h"
+#include "events.h"
 #include "elhash.h"
 #include "console-msw.h"
 #include "buffer.h"
@@ -39,26 +41,58 @@ Lisp_Object
 mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, LPARAM id)
 {
   /* Try to map the command id through the proper hash table */
-  Lisp_Object data, fn, arg, frame;
+  Lisp_Object callback, callback_ex, image_instance, frame, event;
+
+  XSETFRAME (frame, f);
 
   /* #### make_int should assert that --kkm */
   assert (XINT (make_int (id)) == id);
 
-  data = Fgethash (make_int (id), 
-		   FRAME_MSWINDOWS_WIDGET_HASH_TABLE (f), Qnil);
-  
-  if (NILP (data) || UNBOUNDP (data))
+  image_instance = Fgethash (make_int (id), 
+			     FRAME_MSWINDOWS_WIDGET_HASH_TABLE1 (f), Qnil);
+  callback = Fgethash (make_int (id), 
+		       FRAME_MSWINDOWS_WIDGET_HASH_TABLE2 (f), Qnil);
+  callback_ex = Fgethash (make_int (id), 
+			  FRAME_MSWINDOWS_WIDGET_HASH_TABLE3 (f), Qnil);
+
+  if (!NILP (callback_ex) && !UNBOUNDP (callback_ex))
+    {
+      event = Fmake_event (Qnil, Qnil);
+
+      XEVENT (event)->event_type = misc_user_event;
+      XEVENT (event)->channel = frame;
+      XEVENT (event)->timestamp = GetTickCount ();
+      XEVENT (event)->event.eval.function = Qeval;
+      XEVENT (event)->event.eval.object =
+	list4 (Qfuncall, callback_ex, image_instance, event);
+    }
+  else if (NILP (callback) || UNBOUNDP (callback))
     return Qnil;
+  else
+    {
+      Lisp_Object fn, arg;
 
-  /* Ok, this is our one. Enqueue it. */
-  get_gui_callback (data, &fn, &arg);
-  XSETFRAME (frame, f);
-  mswindows_enqueue_misc_user_event (frame, fn, arg);
+      event = Fmake_event (Qnil, Qnil);
+
+      get_gui_callback (callback, &fn, &arg);
+      XEVENT (event)->event_type = misc_user_event;
+      XEVENT (event)->channel = frame;
+      XEVENT (event)->timestamp = GetTickCount ();
+      XEVENT (event)->event.eval.function = fn;
+      XEVENT (event)->event.eval.object = arg;
+    }
+
+  mswindows_enqueue_dispatch_event (event);
   /* The result of this evaluation could cause other instances to change so 
-     enqueue an update callback to check this. */
-  mswindows_enqueue_misc_user_event (frame, Qeval, 
-				     list2 (Qupdate_widget_instances, frame));
-
+     enqueue an update callback to check this. We also have to make sure that
+     the function does not appear in the command history.
+     #### I'm sure someone can tell me how to optimize this. */
+  mswindows_enqueue_misc_user_event
+    (frame, Qeval, 
+     list3 (Qlet,
+	    list2 (Qthis_command,
+		   Qlast_command),
+	    list2 (Qupdate_widget_instances, frame)));
   return Qt;
 }
 

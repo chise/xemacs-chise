@@ -4641,12 +4641,12 @@ unbind_to_hairy (int count)
 {
   int quitf;
 
+  ++specpdl_ptr;
+  ++specpdl_depth_counter;
+
   check_quit (); /* make Vquit_flag accurate */
   quitf = !NILP (Vquit_flag);
   Vquit_flag = Qnil;
-
-  ++specpdl_ptr;
-  ++specpdl_depth_counter;
 
   while (specpdl_depth_counter != count)
     {

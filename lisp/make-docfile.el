@@ -86,6 +86,8 @@
 (load "packages.el")
 (load "setup-paths.el")
 (load "dump-paths.el")
+(require 'custom)
+(load "process")
 
 (let (preloaded-file-list)
   (load (expand-file-name "../lisp/dumped-lisp.el"))

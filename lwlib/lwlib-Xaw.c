@@ -69,8 +69,8 @@ lw_xaw_widget_p (Widget widget)
 	  || XtIsSubclass (widget, labelWidgetClass)
 	  || XtIsSubclass (widget, toggleWidgetClass)
 	  || XtIsSubclass (widget, gaugeWidgetClass)
-#if 0
-	  || XtIsSubclass (widget, textWidgetClass)
+#ifndef NEED_MOTIF
+	  || XtIsSubclass (widget, asciiTextWidgetClass)
 #endif
 #endif
 	  );
@@ -133,6 +133,13 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
     {
       xaw_update_scrollbar (instance, widget, val);
     }
+#endif
+#ifdef LWLIB_WIDGETS_ATHENA
+#ifndef NEED_MOTIF
+  else if (XtIsSubclass (widget, asciiTextWidgetClass))
+      {
+      }
+#endif
 #endif
 #ifdef LWLIB_DIALOGS_ATHENA
   else if (XtIsSubclass (widget, dialogWidgetClass))
@@ -220,11 +227,19 @@ xaw_update_one_value (widget_instance *instance, Widget widget,
 #ifndef NEED_MOTIF
   else if (XtIsSubclass (widget, asciiTextWidgetClass))
     {
-      Arg al [1];
+      Arg al [2];
+      String buf = 0;
+      XtSetArg (al [0], XtNstring, &buf);
+      XtGetValues (widget, al, 2);
+
       if (val->value)
-	free (val->value);
-      XtSetArg (al [0], XtNstring, &val->value);
-      XtGetValues (widget, al, 1);
+	{
+	  free (val->value);
+	  val->value = 0;
+	}
+      /* I don't think this causes a leak. */
+      if (buf)
+	val->value = strdup (buf);
       val->edited = True;
     }
 #endif
@@ -821,6 +836,7 @@ xaw_create_progress (widget_instance *instance)
 }
 
 #ifndef NEED_MOTIF
+#define TEXT_BUFFER_SIZE 128
 static Widget
 xaw_create_text_field (widget_instance *instance)
 {
@@ -829,22 +845,36 @@ xaw_create_text_field (widget_instance *instance)
   Widget text = 0;
   widget_value* val = instance->info->val;
 
-  XtSetArg (al [ac], XtNsensitive, val->enabled && val->call_data);		ac++;
+  XtSetArg (al [ac], XtNsensitive, val->enabled);		ac++;
   XtSetArg (al [ac], XtNmappedWhenManaged, FALSE);	ac++;
   XtSetArg (al [ac], XtNhighlightThickness, (Dimension)0);	ac++;
   XtSetArg (al [ac], XtNtype, XawAsciiString);		ac++;
   XtSetArg (al [ac], XtNeditType, XawtextEdit);		ac++;
+  XtSetArg (al [ac], XtNuseStringInPlace, False);		ac++;
+#if 0
+  XtSetArg (al [ac], XtNlength, TEXT_BUFFER_SIZE);	ac++;
+#endif
+  if (val->value)
+    {
+      XtSetArg (al [ac], XtNstring, val->value);		ac++;
+    }
 
   /* add any args the user supplied for creation time */
   lw_add_value_args_to_args (val, al, &ac);
 
   text = XtCreateManagedWidget (val->name, asciiTextWidgetClass,
 				      instance->parent, al, ac);
+
+  /* add the callback */
+  if (val->call_data)
+    XtAddCallback (text, XtNgetValue, xaw_generic_callback, (XtPointer)instance);
+
   XtManageChild (text);
 
   return text;
 }
 #endif
+
 #endif /* LWLIB_WIDGETS_ATHENA */
 
 widget_creation_entry
