@@ -1,3 +1,11 @@
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el, Ideograph-R036-Evening.el,
+	Ideograph-R035-Go-Slowly.el, Ideograph-R033-Scholar.el: Merge
+	missing KS X 1001 code points.
+
+	* Ideograph-R009-Man.el: Merge CBETA numbers.
+
 2001-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R083-Clan.el (J83-5D62): New character; unify
