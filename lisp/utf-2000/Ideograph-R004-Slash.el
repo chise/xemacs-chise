@@ -574,7 +574,7 @@
     (total-strokes	 . 4)
     (->same-ideograph
      ((ideographic-radical . 20)	; â¼“
-      (=daikanwa	     . 02502)	; ø¸€§†
+      (=daikanwa	  . 02502)	; ø¸€§†
       ))
     (->same-ideograph*sources
      daikanwa)
