@@ -10093,6 +10093,7 @@
     (chinese-cns11643-5		. #x3E28)	; ø»š•™
     (japanese-jisx0213-2	. #x243A)	; ø»¤¡³
     (ideograph-daikanwa		. 04115)	; ø¸€“
+    (ucs			. #x20E64)	; ð ¹¤
     ))
 (define-char
   '((ideographic-radical . 30)	; â¼
