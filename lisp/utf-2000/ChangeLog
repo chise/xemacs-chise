@@ -1,3 +1,129 @@
+2001-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R211-Tooth.el (J90-4E70): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R199-Wheat.el (J90-7350): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R196-Bird.el (J90-375C): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R194-Ghost.el (J90-4B62): Unify JIS X 0208:1978 and
+	1983 code points.
+
+	* Ideograph-R187-Horse.el (J90-7152): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-417B): Likewise.
+
+	* Ideograph-R181-Leaf.el (J90-4B4B): Unify JIS X 0208:1983 code
+	point.
+	(J90-7078): Unify JIS X 0208:1978 and 1983 code points.
+	(J90-453F): Unify JIS X 0208:1983 code point.
+
+	* Ideograph-R170-Mound.el (J90-7023): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-3831): Likewise.
+
+	* Ideograph-R165-Distinguish.el (J90-3C61): Unify JIS X 0208:1978
+	and 1983 code points.
+
+	* Ideograph-R159-Cart.el (J90-453E): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-6D44): Likewise.
+	(J90-6D5A): Likewise.
+
+	* Ideograph-R145-Clothes.el (J90-6A59): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-6A5E): Likewise.
+	(J90-6A7C): Likewise.
+
+	* Ideograph-R140-Grass.el (J90-4D69): Unify JIS X 0208:1983 code
+	point.
+	(J90-6839): Unify JIS X 0208:1978 and 1983 code points.
+	(JSP-5847): Unify J78-4D69.
+	(J90-684E): Unify JIS X 0208:1978 and 1983 code points.
+	(J90-684D): Likewise.
+	(J90-6868): Likewise.
+	(J90-3E55): Unify JIS X 0208:1983 code point.
+	(JX1-7B36): Unify J78-3E55.
+	(J90-4C79): Unify J78-692E and J83-4C79.
+	(J90-693F): Unify JIS X 0208:1978 and 1983 code points.
+	(J90-6946): Likewise.
+
+	* Ideograph-R075-Tree.el (J90-5B35): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-5B3D): Likewise.
+	(J90-3A79): Likewise.
+	(J90-5B63): Likewise.
+	(J90-4930): Likewise.
+	(U+6868): Add `total-strokes'.
+	(U+6869): Likewise.
+	(J90-456E): Unify J78-5B6D and J83-456E.
+	(J90-4B6A): Unify JIS X 0208:1983 code point.
+	(J90-5C4F): Unify JIS X 0208:1978 and 1983 code points.
+	(J90-5C59): Likewise.
+	(J90-5C53): Likewise.
+	(J90-5C71): Likewise.
+	(J90-5D2C): Likewise.
+	(J90-5D36): Likewise.
+
+	* Ideograph-R015-Ice.el (M-01615): Use `<-wrong-ideograph' instead
+	of `wrong-char-of-shinjigen-1'; unify M001615.
+	(M-01616): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify M001616.
+	(M-01617): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify M001617.
+	(M-01620): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify M001620.
+	(M-01623): Unify M001623.
+	(M-01665): Unify M001665.
+	(M-01677): Unify M001677.
+	(M-01681): Unify M001681.
+
+	* Ideograph-R014-Cover.el (U+519D): Delete `non-morohashi'; unify
+	M050003.
+	(M-01584): Unify M001584.
+	(M-01591): Unify M001591.
+
+	* Ideograph-R004-Slash.el (M-00148): Relate to U-000200B0 instead
+	of U+4E55.
+	(C6-2562): Unify U-000200B0.
+
+	* Ideograph-R003-Dot.el (M-00096): Use `<-original-ideograph'
+	instead of `original-char-of-shinjigen-1'; unify U-0002007D.
+	(C*-****): Unify CJK Ext-B code points.
+
+	* Ideograph-R002-Line.el (M-00069): Add `->same-ideograph' and
+	`<-ancient-ideograph'; unify U-00020061.
+	(C*-****): Unify CJK Ext-B code points.
+
+	* Ideograph-R001-One.el (C*-****): Unify or relate CJK Unified
+	Ext-B code points.
+
+	* Ideograph-R149-Speech.el (J90-4C75): Unify JIS X 0208:1978 and
+	1983 code points.
+	(J90-4649): Likewise.
+	(J90-4D58): Likewise.
+	(J90-6B7C): Likewise.
+	(J90-3E79): Likewise.
+
+	* Ideograph-R113-Spirit.el (M-24754): Add `<-vulgar-ideograph'.
+	(J90-4135): Unify JIS X 0208:1978 and 1983 code points.
+	(U+7977): Relate to M-24852.
+	(J90-4578): Unify JIS X 0208:1983 code point; relate to M-24852.
+
+	* Ideograph-R025-Divination.el (M-02775): Add `->same-ideograph'
+	and `<-ancient-ideograph'; relate to U-00020061.
+
+	* Ideograph-R085-Water.el (J90-4573): Unify J78-5E39 and J83-4573.
+	(J90-4642): Unify JIS X 0208:1983 code point.
+	(J90-5E3C): Unify JIS X 0208:1978 and 1983 code points.
+	(J90-5E63): Likewise.
+	(J90-482E): Unify JIS X 0208:1983 code point.
+	(J90-425A): Unify JIS X 0208:1978 and 1983 code points.
+	(U+6EDE): Delete `->mojikyo'.
+
 2001-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R137-Boat.el (J90-6764): Unify JIS X 0208:1983 code
