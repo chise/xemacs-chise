@@ -1,3 +1,35 @@
+1999-05-25  Jan Vroonhof  <jan@xemacs.org>
+
+	* configure.in: For non-beta's use x.y.z format for version strings.
+
+1999-06-03  SL Baur  <steve@xemacs.org>
+
+	* version.sh: add emacs_is_beta initialization
+
+	* configure.in: Implement patch levels in version number
+	From Jan Vroonhof <vroonhof@math.ethz.ch>
+
+	* configure.in:
+	* configure.usage:
+	* config.h.in: Rename session option to wmcommand.
+	From Oliver Graf <ograf@rhein-zeitung.de>
+
+1999-05-16  Mike McEwan  <mike@lotusland.demon.co.uk>
+
+	* info/dir: Add `emodules.info' entry to the top info dir.
+
+1999-05-31  SL Baur  <steve@steve1.m17n.org>
+
+	* configure.in (CPP): Don't check for include subdirectories in
+	site-prefix directories.  This check loses in valid configurations 
+	like /usr/jp in TurboLinux.  Conditionally add include directory to
+	site switches.
+
+1999-05-14  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* configure.in (quoted_arguments): Support
+ 	--error-checking=byte-code.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released

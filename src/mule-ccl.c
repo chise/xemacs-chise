@@ -1097,6 +1097,14 @@ Return index number of the registered CCL program.
 void
 syms_of_mule_ccl (void)
 {
+  DEFSUBR (Fccl_execute);
+  DEFSUBR (Fccl_execute_on_string);
+  DEFSUBR (Fregister_ccl_program);
+}
+
+void
+vars_of_mule_ccl (void)
+{
   staticpro (&Vccl_program_table);
   Vccl_program_table = Fmake_vector (make_int (32), Qnil);
 
@@ -1113,10 +1121,6 @@ The code point in the font is set in CCL registers R1 and R2
 If the font is single-byte font, the register R2 is not used.
 */ );
   Vfont_ccl_encoder_alist = Qnil;
-
-  DEFSUBR (Fccl_execute);
-  DEFSUBR (Fccl_execute_on_string);
-  DEFSUBR (Fregister_ccl_program);
 }
 
 #endif  /* emacs */

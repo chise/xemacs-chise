@@ -43,6 +43,7 @@ INFODIR = ../info
 info_files = \
 	$(INFODIR)/cl.info \
 	$(INFODIR)/custom.info \
+	$(INFODIR)/emodules.info \
 	$(INFODIR)/external-widget.info \
 	$(INFODIR)/info.info \
 	$(INFODIR)/standards.info \
@@ -55,6 +56,7 @@ info_files = \
 dvi_files = \
 	cl.dvi \
 	custom.dvi \
+	emodules.dvi \
 	external-widget.dvi \
 	info.dvi \
 	standards.dvi \
@@ -69,6 +71,9 @@ dvi_files = \
 
 ../info/custom.info : custom.texi
 	-$(MAKEINFO) custom.texi -o ../info/custom.info
+
+../info/emodules.info : emodules.texi
+	-$(MAKEINFO) emodules.texi -o ../info/emodules.info
 
 ../info/external-widget.info : external-widget.texi
 	-$(MAKEINFO) external-widget.texi -o ../info/external-widget.info

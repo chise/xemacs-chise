@@ -696,7 +696,7 @@ x_init_device (struct device *d, Lisp_Object props)
     XtRealizeWidget (app_shell);
   }
 
-#ifdef HAVE_SESSION
+#ifdef HAVE_WMCOMMAND
   {
     int new_argc;
     char **new_argv;
@@ -704,7 +704,7 @@ x_init_device (struct device *d, Lisp_Object props)
     XSetCommand (XtDisplay (app_shell), XtWindow (app_shell), new_argv, new_argc);
     free_argc_argv (new_argv);
   }
-#endif /* HAVE_SESSION */
+#endif /* HAVE_WMCOMMAND */
 
 
 #ifdef HAVE_OFFIX_DND

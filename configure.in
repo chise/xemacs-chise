@@ -482,7 +482,7 @@ while test $# != 0; do
 	with_jpeg	| \
 	with_png	| \
 	with_tiff	| \
-	with_session	| \
+	with_wmcommand	| \
 	with_xmu	| \
 	with_purify	| \
 	with_quantify	| \
@@ -661,14 +661,17 @@ while test $# != 0; do
 	      malloc )	      error_check_malloc=yes ;;
 	      nomalloc )      error_check_malloc=no ;;
 
+	      byte_code )     error_check_byte_code=yes ;;
+	      nobyte_code )   error_check_byte_code=no ;;
+
 	      * ) bogus_error_check=yes ;;
 	    esac
 	    if test "$bogus_error_check" -o \
 	         \( -n "$new_default" -a -n "$echeck_notfirst" \) ; then
 		if test "$error_check_default" = yes ; then
-		  types="\`all' (default), \`none', \`noextents', \`notypecheck', \`nobufpos', \`nogc', and \`nomalloc'."
+		  types="\`all' (default), \`none', \`noextents', \`notypecheck', \`nobufpos', \`nogc', \`nomalloc', and \`nobyte-code'."
 		else
-		  types="\`all', \`none' (default), \`extents', \`typecheck', \`bufpos', \`gc', and \`malloc'."
+		  types="\`all', \`none' (default), \`extents', \`typecheck', \`bufpos', \`gc', \`malloc', and \`byte-code'."
 		fi
 		USAGE_ERROR(["Valid types for the \`--$optname' option are:
   $types."])
@@ -678,6 +681,7 @@ while test $# != 0; do
 		error_check_bufpos=$new_default
 		error_check_gc=$new_default
 		error_check_malloc=$new_default
+		error_check_byte_code=$new_default
 		new_default=	# reset this
 	    fi
 	    echeck_notfirst=true
@@ -909,14 +913,19 @@ dnl Find out which version of XEmacs this is
 dnl ----------------------------------------
 . "$srcdir/version.sh" || exit 1;
 dnl Must do the following first to determine verbosity for AC_DEFINE
-if test -n "$emacs_beta_version"; then beta=yes; else beta=no; fi
+if test -n "$emacs_is_beta"; then beta=yes; else beta=no; fi
 : "${extra_verbose=$beta}"
 version="${emacs_major_version}.${emacs_minor_version}"
 AC_DEFINE_UNQUOTED(EMACS_MAJOR_VERSION, $emacs_major_version)
 AC_DEFINE_UNQUOTED(EMACS_MINOR_VERSION, $emacs_minor_version)
-if test -n "$emacs_beta_version"; then
-  version="${version}-b${emacs_beta_version}"
-  AC_DEFINE_UNQUOTED(EMACS_BETA_VERSION, $emacs_beta_version)
+if test -n "$emacs_beta_version" ; then
+  if test "$beta" = "yes"; then
+  	version="${version}-b${emacs_beta_version}"
+  	AC_DEFINE_UNQUOTED(EMACS_BETA_VERSION, $emacs_beta_version)
+  else
+	version="${version}.${emacs_beta_version}"
+	AC_DEFINE_UNQUOTED(EMACS_PATCH_LEVEL, $emacs_beta_version)
+  fi
 fi
 AC_DEFINE_UNQUOTED(XEMACS_CODENAME, "$xemacs_codename")
 AC_DEFINE_UNQUOTED(EMACS_VERSION, "$version")
@@ -946,12 +955,13 @@ dnl Error checking and debugging flags
 dnl ----------------------------------
 dnl Error checking default to "yes" in beta versions, to "no" in releases.
 dnl Same goes for --debug and --extra-verbosity.
-if test -n "$emacs_beta_version"; then beta=yes; else beta=no; fi
+if test -n "$emacs_is_beta"; then beta=yes; else beta=no; fi
 test "${error_check_extents=$beta}"   = yes && AC_DEFINE(ERROR_CHECK_EXTENTS)
 test "${error_check_typecheck=$beta}" = yes && AC_DEFINE(ERROR_CHECK_TYPECHECK)
 test "${error_check_bufpos=$beta}"    = yes && AC_DEFINE(ERROR_CHECK_BUFPOS)
 test "${error_check_gc=$beta}"        = yes && AC_DEFINE(ERROR_CHECK_GC)
 test "${error_check_malloc=$beta}"    = yes && AC_DEFINE(ERROR_CHECK_MALLOC)
+test "${error_check_byte_code=$beta}" = yes && AC_DEFINE(ERROR_CHECK_BYTE_CODE)
 dnl debug=yes must be set when error checking is present.  This should be
 dnl fixed up.
 dnl debug implies other options
@@ -1882,16 +1892,15 @@ dnl site-includes and site-libraries.
 COLON_TO_SPACE(site_prefixes)
 if test -n "$site_prefixes"; then
   for dir in $site_prefixes; do
-    inc_dir="${dir}/include"
     lib_dir="${dir}/lib"
     if test ! -d "$dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory")
-    elif test ! -d "$inc_dir"; then
-      XE_DIE("Invalid site prefix \`$dir': no such directory \`$inc_dir'")
     elif test ! -d "$lib_dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory \`$lib_dir'")
     else
-      XE_APPEND("-I$inc_dir", c_switch_site)
+      if test -d "$inc_dir"; then
+	XE_APPEND("-I$inc_dir", c_switch_site)
+      fi
       XE_APPEND("-L$lib_dir", ld_switch_site)
     fi
   done
@@ -2519,7 +2528,7 @@ if test "$with_x11" != "yes"; then
   dnl if test "$with_tty" = "no" ; then
   dnl   AC_MSG_ERROR([No window system support and no TTY support - Unable to proceed.])
   dnl fi
-  for feature in tooltalk cde offix session xim xmu
+  for feature in tooltalk cde offix wmcommand xim xmu
   do
     if eval "test -n \"\$with_${feature}\" -a \"\$with_${feature}\" != no" ; then
        AC_MSG_WARN([--with-$feature ignored:  Not valid without X support])
@@ -2542,11 +2551,11 @@ case "$x_libraries" in *X11R4* )
   test "$opsys" = "hpux9-shr" && opsysfile="s/hpux9shxr4.h"
 esac
 
-dnl Enable or disable proper session-management
-AC_CHECKING(for session-management option);
-dnl if test "$with_session" = "yes"; then
-if test "$with_session" != "no"; then
-  AC_DEFINE(HAVE_SESSION)
+dnl Enable or disable proper handling of WM_COMMAND
+AC_CHECKING(for WM_COMMAND option);
+dnl if test "$with_wmcommand" = "yes"; then
+if test "$with_wmcommand" != "no"; then
+  AC_DEFINE(HAVE_WMCOMMAND)
 fi
 
 dnl Autodetect Xauth
@@ -3963,8 +3972,15 @@ echo ""
 echo "$0 $quoted_arguments"
 ) > Installation
 
-xemacs_betaname=""
-test ! -z "${emacs_beta_version}" && xemacs_betaname="-b${emacs_beta_version}"
+if test ! -z ${emacs_beta_version} ; then
+  if test -z "${emacs_is_beta}" ; then
+	xemacs_betaname=".${emacs_beta_version}"
+  else
+	xemacs_betaname="-b${emacs_beta_version}"
+  fi
+else
+  xemacs_betaname=""	
+fi
 
 dnl Start stdout redirection to '| tee -a Installation'
 (
@@ -4069,7 +4085,7 @@ test "$with_tooltalk" = yes && echo "  Compiling in support for ToolTalk."
 test "$with_offix"    = yes && echo "  Compiling in support for OffiX."
 test "$with_dragndrop" = yes && echo "  Compiling in EXPERIMENTAL support for Drag'n'Drop ($dragndrop_proto )."
 test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
-test "$with_session"  != no && echo "  Compiling in support for proper session-management."
+test "$with_wmcommand"  != no && echo "  Compiling in support for proper WM_COMMAND handling."
 case "$with_menubars" in
   lucid ) echo "  Using Lucid menubars." ;;
   motif ) echo "  Using Motif menubars."

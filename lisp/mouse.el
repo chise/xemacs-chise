@@ -84,11 +84,48 @@ If set to `symbol', double-click will always attempt to highlight a
   "Function that is called upon by `mouse-yank' to actually insert text.")
 
 (defun mouse-consolidated-yank ()
+  "Insert the current selection or, if there is none under X insert the X cutbuffer.
+A mark is pushed, so that the inserted text lies between point and mark."
   (interactive)
-  (case (device-type)
-    (x (x-yank-function))
-    (tty (yank))
-    (otherwise (yank))))
+  (if (not (console-on-window-system-p))
+      (yank)
+    (push-mark)
+    (if (region-active-p)
+	(if (consp zmacs-region-extent)
+	    ;; pirated code from insert-rectangle in rect.el
+	    ;; perhaps that code should be modified to handle a list of extents
+	    ;; as the rectangle to be inserted?
+	    (let ((lines zmacs-region-extent)
+		  (insertcolumn (current-column))
+		  (first t))
+	      (push-mark)
+	      (while lines
+		(or first
+		    (progn
+		      (forward-line 1)
+		      (or (bolp) (insert ?\n))
+		      (move-to-column insertcolumn t)))
+		(setq first nil)
+		(insert (extent-string (car lines)))
+		(setq lines (cdr lines))))
+	  (insert (extent-string zmacs-region-extent)))
+      (insert-selection t))))
+
+(defun insert-selection (&optional check-cutbuffer-p move-point-event)
+  "Insert the current selection into buffer at point."
+  (interactive "P")
+  (let ((text (if check-cutbuffer-p
+		  (or (condition-case () (get-selection) (error ()))
+		      (get-cutbuffer)
+		      (error "No selection or cut buffer available"))
+		(get-selection))))
+    (cond (move-point-event
+	   (mouse-set-point move-point-event)
+	   (push-mark (point)))
+	  ((interactive-p)
+	   (push-mark (point))))
+    (insert text)
+    ))
 
 
 (defun mouse-select ()

@@ -94,7 +94,6 @@
 	(when-feature mule "mule-coding")
 ;; Handle I/O of files with extended characters.
 	(when-feature file-coding "code-files")
-	(when-feature mule "mule-files")
 ;; Handle process with encoding/decoding non-ascii coding-system.
 	(when-feature file-coding "code-process")
 	(when-feature mule "mule-help")

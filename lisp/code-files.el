@@ -6,8 +6,6 @@
 
 ;; This file is part of XEmacs.
 
-;; This file is very similar to mule-files.el
-
 ;; XEmacs is free software; you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
@@ -23,12 +21,17 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
+;;; Synched up with: Not synched.
+
 ;;; Commentary:
 
-;;; Derived from mule.el in the original Mule but heavily modified
-;;; by Ben Wing.
+;; Derived from mule.el in the original Mule but heavily modified
+;; by Ben Wing.
 
 ;; 1997/3/11 modified by MORIOKA Tomohiko to sync with Emacs 20 API.
+
+;; This file was derived from the former mule-files.el which has been removed
+;; as of XEmacs 21.2.15.
 
 ;;; Code:
 
@@ -555,4 +558,9 @@ See also `write-region-pre-hook' and `write-region-post-hook'."
 			start end filename append visit lockname
 			coding-system)))
 
-;;; mule-files.el ends here
+;;; The following was all that remained in mule-files.el, so I moved it
+;;; here for neatness.  -sb
+(when (featurep 'mule)
+  (setq-default buffer-file-coding-system 'iso-2022-8))
+
+;;; code-files.el ends here

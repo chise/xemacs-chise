@@ -390,6 +390,8 @@ The return value is a string."
 					nil t nil 'input-method-history)
 		       ;;default)
 		       ))
+    (if (string-equal input-method "")
+	(setq input-method default))
     (if (> (length input-method) 0)
 	input-method
       (if inhibit-null

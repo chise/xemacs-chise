@@ -1057,6 +1057,30 @@ This can take a while for large buffers." t nil)
 
 ;;;***
 
+;;;### (autoloads (mswindows-font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "font-menu" "lisp/font-menu.el")
+
+(defcustom font-menu-ignore-scaled-fonts nil "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'x)
+
+(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'x)
+
+(fset 'install-font-menus 'reset-device-font-menus)
+
+(autoload 'reset-device-font-menus "font-menu" "\
+Generates the `Font', `Size', and `Weight' submenus for the Options menu.
+This is run the first time that a font-menu is needed for each device.
+If you don't like the lazy invocation of this function, you can add it to
+`create-device-hook' and that will make the font menus respond more quickly
+when they are selected for the first time.  If you add fonts to your system, 
+or if you change your font path, you can call this to re-initialize the menus." nil nil)
+
+(autoload 'font-menu-family-constructor "font-menu" nil nil nil)
+
+(autoload 'font-menu-size-constructor "font-menu" nil nil nil)
+
+(autoload 'mswindows-font-menu-weight-constructor "font-menu" nil nil nil)
+
+;;;***
+
 ;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp/font.el")
 
 (autoload 'font-create-object "font" nil nil nil)
@@ -1225,6 +1249,20 @@ This command is designed to be used whether you are already in Info or not." t n
 ;;;***
 
 ;;;### (autoloads nil "loadhist" "lisp/loadhist.el")
+
+;;;***
+
+;;;### (autoloads (mswindows-reset-device-font-menus) "msw-font-menu" "lisp/msw-font-menu.el")
+
+(autoload 'mswindows-reset-device-font-menus "msw-font-menu" "\
+Generates the `Font', `Size', and `Weight' submenus for the Options menu.
+This is run the first time that a font-menu is needed for each device.
+If you don't like the lazy invocation of this function, you can add it to
+`create-device-hook' and that will make the font menus respond more quickly
+when they are selected for the first time.  If you add fonts to your system, 
+or if you change your font path, you can call this to re-initialize the menus." nil nil)
+
+(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (capitalize (match-string 2 name))) (setq size (string-to-int (match-string 4 name)))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 2 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 4 truename)))) (setq slant (capitalize (match-string 5 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 
@@ -1719,15 +1757,9 @@ Delete WIDGET." nil nil)
 
 ;;;***
 
-;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "x-font-menu" "lisp/x-font-menu.el")
+;;;### (autoloads (x-reset-device-font-menus) "x-font-menu" "lisp/x-font-menu.el")
 
-(defcustom font-menu-ignore-scaled-fonts t "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
-
-(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
-
-(fset 'install-font-menus 'reset-device-font-menus)
-
-(autoload 'reset-device-font-menus "x-font-menu" "\
+(autoload 'x-reset-device-font-menus "x-font-menu" "\
 Generates the `Font', `Size', and `Weight' submenus for the Options menu.
 This is run the first time that a font-menu is needed for each device.
 If you don't like the lazy invocation of this function, you can add it to
@@ -1735,11 +1767,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(autoload 'font-menu-family-constructor "x-font-menu" nil nil nil)
-
-(autoload 'font-menu-size-constructor "x-font-menu" nil nil nil)
-
-(autoload 'font-menu-weight-constructor "x-font-menu" nil nil nil)
+(defun* x-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match x-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match x-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from font-menu-font-data (make-vector 5 nil))) (when (string-match x-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match x-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
 
 ;;;***
 

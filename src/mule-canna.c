@@ -1022,9 +1022,6 @@ Lisp_Object VCANNA; /* by MORIOKA Tomohiko <morioka@jaist.ac.jp>
 void
 syms_of_mule_canna (void)
 {
-  DEFVAR_LISP ("CANNA", &VCANNA);		/* hir@nec, 1992.5.21 */
-  VCANNA = Qt;					/* hir@nec, 1992.5.21 */
-
   DEFSUBR (Fcanna_key_proc);
   DEFSUBR (Fcanna_initialize);
   DEFSUBR (Fcanna_finalize);
@@ -1048,6 +1045,9 @@ syms_of_mule_canna (void)
 void
 vars_of_mule_canna (void)
 {
+  DEFVAR_LISP ("CANNA", &VCANNA);		/* hir@nec, 1992.5.21 */
+  VCANNA = Qt;					/* hir@nec, 1992.5.21 */
+
   DEFVAR_LISP ("canna-kakutei-string", &Vcanna_kakutei_string /*
 
 */ );

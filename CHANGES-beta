@@ -1,6 +1,42 @@
 							-*- indented-text -*-
-to 21.2.14 ""
+to 21.2.15 "Sakuragawa"
+-- Miscellaneous fixes from Hrvoje Niksic
+-- Documentation updates from Hrvoje Niksic
+-- mule-charset.el synch with Mule from Steve Baur
+-- miscellaneous build and cosmetic fixes from Steve Baur
+-- font-menu for mswindows from Andy Piper
+-- select rationalisation for window systems from Andy Piper
+-- reinstate sheap adjustment + mingw32 fixes from Andy Piper
+
+to 21.2.14 "Dionysos"
 -- mingw32 port from Andy Piper
+-- fix for Solaris build lossage from Hrvoje Niksic
+-- THAI/Cyrillic-KOI8, Vietnamese, Ethiopic support from MORIOKA Tomohiko
+-- miscellaneous bug fixes from Gunnar Evermann
+-- Internal purespace cleanup from Olivier Galibert
+-- documentation updates from Hrvoje Niksic
+-- dump time tuning from Hrvoje Niksic
+-- miscellaneous bug fixes from Giacomo Boffi
+-- font hacking from Jan Vroonhof
+-- Czech language support from David Sauer
+-- `delete-key-deletes-forward' now defaults to t
+-- `locate-file' update from Hrvoje Niksic
+-- MS Windows build fixes from Adrian Aichner
+-- LDAP updates from Oscar Figueiredo
+-- miscellaneous bug fixes from Colin Rafferty and Kai Haberzettl
+-- disable display of images in buffers by file format
+-- miscellaneous Mule fixes from Olivier Galibert
+-- documentation updates from Albert Chin-A-Young
+-- documentation updates from Gunnar Evermann and Stephen Turnbull
+-- MS Windows build fix from Norbert Koch
+-- miscellaneous MS Windows fixes from Andy Piper
+-- redisplay bug fixes from Jan Vroonhof
+-- miscellaneous bug fixes from Robert Pluim, MORIOKA Tomohiko
+-- many, many bug fixes and enhancements from Hrvoje Niksic and Olivier
+   Galibert
+-- miscellaneous bug fixes from Martin Buchholz
+-- Miscellaneous MS Windows fixes from Philip Aston
+-- lots of new tests from Hrvoje Niksic
 
 to 21.2.13 "Demeter"
 -- Build fixes from Martin Buchholz

@@ -176,10 +176,6 @@ extern
 /* Non-zero means we're in the process of doing the dump */
 int purify_flag;
 
-#ifdef HEAP_IN_DATA
-extern void sheap_adjust_h();
-#endif
-
 #ifdef ERROR_CHECK_TYPECHECK
 
 Error_behavior ERROR_ME, ERROR_ME_NOT, ERROR_ME_WARN;

@@ -1067,7 +1067,11 @@ Make a multi-byte character from CHARSET and octets ARG1 and ARG2.
   else	/* CHARSET_CHARS (cs) == 96) */	     lowlim = 32, highlim = 127;
 
   CHECK_INT (arg1);
-  a1 = XINT (arg1);
+  /* It is useful (and safe, according to Olivier Galibert) to strip
+     the 8th bit off ARG1 and ARG2 becaue it allows programmers to
+     write (make-char 'latin-iso8859-2 CODE) where code is the actual
+     Latin 2 code of the character.  */
+  a1 = XINT (arg1) & 0x7f;
   if (a1 < lowlim || a1 > highlim)
     args_out_of_range_3 (arg1, make_int (lowlim), make_int (highlim));
 
@@ -1080,7 +1084,7 @@ Make a multi-byte character from CHARSET and octets ARG1 and ARG2.
     }
 
   CHECK_INT (arg2);
-  a2 = XINT (arg2);
+  a2 = XINT (arg2) & 0x7f;
   if (a2 < lowlim || a2 > highlim)
     args_out_of_range_3 (arg2, make_int (lowlim), make_int (highlim));
 

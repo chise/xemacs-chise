@@ -806,37 +806,52 @@ float_to_string (char *buf, double data)
    faster.
 
    BUFFER should accept 24 bytes.  This should suffice for the longest
-   numbers on 64-bit machines.  */
+   numbers on 64-bit machines, including the `-' sign and the trailing
+   \0.  */
 void
 long_to_string (char *buffer, long number)
 {
-  char *p;
-  int i, len;
+#if (SIZEOF_LONG != 4) && (SIZEOF_LONG != 8)
+  /* Huh? */
+  sprintf (buffer, "%ld", number);
+#else /* (SIZEOF_LONG == 4) || (SIZEOF_LONG == 8) */
+  char *p = buffer;
+  int force = 0;
 
   if (number < 0)
     {
-      *buffer++ = '-';
+      *p++ = '-';
       number = -number;
     }
-  p = buffer;
 
-  /* Print the digits to the string.  */
-  do
-    {
-      *p++ = number % 10 + '0';
-      number /= 10;
-    }
-  while (number);
-
-  /* And reverse them.  */
-  len = p - buffer - 1;
-  for (i = len / 2; i >= 0; i--)
-    {
-      char c = buffer[i];
-      buffer[i] = buffer[len - i];
-      buffer[len - i] = c;
-    }
-  buffer[len + 1] = '\0';
+#define FROB(figure) do {						\
+    if (force || number >= figure)					\
+      *p++ = number / figure + '0', number %= figure, force = 1;	\
+    } while (0)
+#if SIZEOF_LONG == 8
+  FROB (1000000000000000000L);
+  FROB (100000000000000000L);
+  FROB (10000000000000000L);
+  FROB (1000000000000000L);
+  FROB (100000000000000L);
+  FROB (10000000000000L);
+  FROB (1000000000000L);
+  FROB (100000000000L);
+  FROB (10000000000L);
+#endif /* SIZEOF_LONG == 8 */
+  FROB (1000000000);
+  FROB (100000000);
+  FROB (10000000);
+  FROB (1000000);
+  FROB (100000);
+  FROB (10000);
+  FROB (1000);
+  FROB (100);
+  FROB (10);
+#undef FROB
+  *p++ = number + '0';
+  *p = '\0';
+#endif /* (SIZEOF_LONG == 4) || (SIZEOF_LONG == 8) */
 }
 
 static void

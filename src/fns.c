@@ -881,7 +881,7 @@ Relevant parts of the string-extent-data are copied in the new string.
        (string, from, to))
 {
   Charcount ccfr, ccto;
-  Bytecount bfr, bto;
+  Bytecount bfr, blen;
   Lisp_Object val;
 
   CHECK_STRING (string);
@@ -889,10 +889,10 @@ Relevant parts of the string-extent-data are copied in the new string.
   get_string_range_char (string, from, to, &ccfr, &ccto,
 			 GB_HISTORICAL_STRING_BEHAVIOR);
   bfr = charcount_to_bytecount (XSTRING_DATA (string), ccfr);
-  bto = charcount_to_bytecount (XSTRING_DATA (string), ccto);
-  val = make_string (XSTRING_DATA (string) + bfr, bto - bfr);
+  blen = charcount_to_bytecount (XSTRING_DATA (string) + bfr, ccto - ccfr);
+  val = make_string (XSTRING_DATA (string) + bfr, blen);
   /* Copy any applicable extent information into the new string: */
-  copy_string_extents (val, string, 0, bfr, bto - bfr);
+  copy_string_extents (val, string, 0, bfr, blen);
   return val;
 }
 
@@ -3440,11 +3440,11 @@ static short base64_char_to_value[128] =
    base64 characters.  */
 
 #define ADVANCE_INPUT(c, stream)				\
- (ec = Lstream_get_emchar (stream),				\
-  ec == -1 ? 0 :						\
+ ((ec = Lstream_get_emchar (stream)) == -1 ? 0 :		\
   ((ec > 255) ?							\
-   (error ("Non-ascii character detected in base64 input"), 0)	\
-   : (c = (Bufbyte)ec, 1)))
+   (signal_simple_error ("Non-ascii character in base64 input",	\
+			 make_char (ec)), 0)			\
+   : (c = (Bufbyte)ec), 1))
 
 static Bytind
 base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
@@ -3504,9 +3504,23 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
 }
 #undef ADVANCE_INPUT
 
+/* Semantically identical to ADVANCE_INPUT above, only no >255
+   checking is needed for decoding -- checking is covered by IS_BASE64
+   below.  */
 #define ADVANCE_INPUT(c, stream)		\
  (ec = Lstream_get_emchar (stream),		\
   ec == -1 ? 0 : (c = (Bufbyte)ec, 1))
+
+/* Get next character from the stream, but ignore it if it's
+   whitespace.  ENDP is set to 1 if EOF is hit.  */
+#define ADVANCE_INPUT_IGNORE_WHITESPACE(c, endp, stream) do {		\
+  endp = 0;								\
+  do {									\
+    if (!ADVANCE_INPUT (c, stream))					\
+      endp = 1;								\
+  } while (!endp && (c == ' ' || c == '\t' || c == '\r' || c == '\n'	\
+		     || c == '\f' || c == '\v'));			\
+} while (0)
 
 #define STORE_BYTE(pos, val) do {					\
   pos += set_charptr_emchar (pos, (Emchar)((unsigned char)(val)));	\
@@ -3516,7 +3530,6 @@ base64_encode_1 (Lstream *istream, Bufbyte *to, int line_break)
 static Bytind
 base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
 {
-  Emchar ec;
   Bufbyte *e = to;
   unsigned long value;
 
@@ -3524,25 +3537,12 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
   while (1)
     {
       Bufbyte c;
+      Emchar ec;
+      int endp;
 
-      if (!ADVANCE_INPUT (c, istream))
+      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
+      if (endp)
 	break;
-
-      /* Accept wrapping lines.  */
-      if (c == '\r')
-	{
-	  if (!ADVANCE_INPUT (c, istream)
-	      || c != '\n')
-	    return -1;
-	}
-      if (c == '\n')
-	{
-	  if (!ADVANCE_INPUT (c, istream))
-	    break;
-	  /* FSF checks for end of text here, but that's wrong. */
-	  /* FSF checks for correct line length here; that's also
-             wrong; some MIME encoders use different line lengths.  */
-	}
 
       /* Process first byte of a quadruplet.  */
       if (!IS_BASE64 (c))
@@ -3550,7 +3550,8 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
       value = base64_char_to_value[c] << 18;
 
       /* Process second byte of a quadruplet.  */
-      if (!ADVANCE_INPUT (c, istream))
+      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
+      if (endp)
 	return -1;
 
       if (!IS_BASE64 (c))
@@ -3560,12 +3561,14 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
       STORE_BYTE (e, value >> 16);
 
       /* Process third byte of a quadruplet.  */
-      if (!ADVANCE_INPUT (c, istream))
+      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
+      if (endp)
 	return -1;
 
       if (c == '=')
 	{
-	  if (!ADVANCE_INPUT (c, istream))
+	  ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
+	  if (endp)
 	    return -1;
 	  if (c != '=')
 	    return -1;
@@ -3579,7 +3582,8 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
       STORE_BYTE (e, 0xff & value >> 8);
 
       /* Process fourth byte of a quadruplet.  */
-      if (!ADVANCE_INPUT (c, istream))
+      ADVANCE_INPUT_IGNORE_WHITESPACE (c, endp, istream);
+      if (endp)
 	return -1;
 
       if (c == '=')
@@ -3595,7 +3599,8 @@ base64_decode_1 (Lstream *istream, Bufbyte *to, Charcount *ccptr)
   return e - to;
 }
 #undef ADVANCE_INPUT
-#undef INPUT_EOF_P
+#undef ADVANCE_INPUT_IGNORE_WHITESPACE
+#undef STORE_BYTE
 
 static Lisp_Object
 free_malloced_ptr (Lisp_Object unwind_obj)

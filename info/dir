@@ -44,6 +44,7 @@ XEmacs 21.2
 * New-Users-Guide::  XEmacs New User's Guide for XEmacs 21.2.
 * XEmacs-FAQ::	     XEmacs Frequently Asked Questions for 21.2.
 * Internals::	     Guide to the internals of XEmacs.
+* Emodules::	     XEmacs dynamic loadable module support.
 
 
 Local Packages:

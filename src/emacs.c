@@ -73,6 +73,10 @@ Boston, MA 02111-1307, USA.  */
 /* For PATH_EXEC */
 #include <paths.h>
 
+#ifdef HEAP_IN_DATA
+void report_sheap_usage (int die_if_pure_storage_exceeded);
+#endif
+
 #if !defined SYSTEM_MALLOC && !defined DOUG_LEA_MALLOC
 extern void *(*__malloc_hook)(size_t);
 extern void *(*__realloc_hook)(void *, size_t);
@@ -111,6 +115,7 @@ Lisp_Object Vsystem_configuration_options;
 /* Version numbers and strings */
 Lisp_Object Vemacs_major_version;
 Lisp_Object Vemacs_minor_version;
+Lisp_Object Vemacs_patch_level;
 Lisp_Object Vemacs_beta_version;
 Lisp_Object Vxemacs_codename;
 #ifdef INFODOCK
@@ -970,6 +975,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_rangetab ();
       syms_of_redisplay ();
       syms_of_search ();
+      syms_of_select ();
       syms_of_signal ();
       syms_of_sound ();
       syms_of_specifier ();
@@ -1035,7 +1041,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       syms_of_mule_charset ();
 #endif
 #ifdef FILE_CODING
-      syms_of_mule_coding ();
+      syms_of_file_coding ();
 #endif
 #ifdef MULE
 #ifdef HAVE_WNN
@@ -1107,6 +1113,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       console_type_create_device_x ();
       console_type_create_frame_x ();
       console_type_create_glyphs_x ();
+      console_type_create_select_x ();
 #ifdef HAVE_MENUBARS
       console_type_create_menubar_x ();
 #endif
@@ -1130,6 +1137,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       console_type_create_objects_mswindows ();
       console_type_create_redisplay_mswindows ();
       console_type_create_glyphs_mswindows ();
+      console_type_create_select_mswindows ();
 # ifdef HAVE_SCROLLBARS
       console_type_create_scrollbar_mswindows ();
 # endif
@@ -1209,7 +1217,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
       lstream_type_create ();
 #ifdef FILE_CODING
-      lstream_type_create_mule_coding ();
+      lstream_type_create_file_coding ();
 #endif
 #if defined (HAVE_MS_WINDOWS) && !defined(HAVE_MSG_SELECT)
       lstream_type_create_mswindows_selectable ();
@@ -1280,6 +1288,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_bytecode ();
       vars_of_callint ();
       vars_of_callproc ();
+      vars_of_chartab ();
       vars_of_cmdloop ();
       vars_of_cmds ();
       vars_of_console ();
@@ -1351,6 +1360,9 @@ main_1 (int argc, char **argv, char **envp, int restart)
 #ifdef HAVE_SHLIB
       vars_of_module ();
 #endif
+#ifdef WINDOWSNT
+      vars_of_ntproc ();
+#endif
       vars_of_objects ();
       vars_of_print ();
 
@@ -1373,6 +1385,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       vars_of_scrollbar ();
 #endif
       vars_of_search ();
+      vars_of_select ();
       vars_of_sound ();
       vars_of_specifier ();
       vars_of_symbols ();
@@ -1432,10 +1445,11 @@ main_1 (int argc, char **argv, char **envp, int restart)
 
 #ifdef MULE
       vars_of_mule ();
+      vars_of_mule_ccl ();
       vars_of_mule_charset ();
 #endif
 #ifdef FILE_CODING
-      vars_of_mule_coding ();
+      vars_of_file_coding ();
 #endif
 #ifdef MULE
 #ifdef HAVE_WNN
@@ -1507,7 +1521,7 @@ main_1 (int argc, char **argv, char **envp, int restart)
       complex_vars_of_mule_charset ();
 #endif
 #if defined(FILE_CODING)
-      complex_vars_of_mule_coding ();
+      complex_vars_of_file_coding ();
 #endif
 
       /* This calls allocate_glyph(), which creates specifiers
@@ -2037,6 +2051,9 @@ Do not call this.  It will reinitialize your XEmacs.  You'll be sorry.
   unbind_to (0, Qnil); /* this closes loadup.el */
   purify_flag = 0;
   run_temacs_argc = nargs + 1;
+#ifdef HEAP_IN_DATA
+  report_sheap_usage (0);
+#endif
   LONGJMP (run_temacs_catch, 1);
   return Qnil; /* not reached; warning suppression */
 }
@@ -2445,6 +2462,10 @@ and announce itself normally when it is run.
   opurify = purify_flag;
   purify_flag = 0;
 
+#ifdef HEAP_IN_DATA
+  report_sheap_usage (1);
+#endif
+
   fflush (stderr);
   fflush (stdout);
 
@@ -2781,7 +2802,20 @@ Warning: this variable did not exist in Emacs versions earlier than:
 */ );
   Vemacs_minor_version = make_int (EMACS_MINOR_VERSION);
 
-  DEFVAR_LISP ("emacs-beta-version", &Vemacs_beta_version /*
+  DEFVAR_LISP ("emacs-patch-level", &Vemacs_patch_level /*
+The patch level of this version of Emacs, as an integer.
+The value is non-nil if this version of XEmacs is part of a series of
+stable XEmacsen, but has bug fixes applied.
+Warning: this variable does not exist in FSF Emacs or in XEmacs versions
+earlier than 21.1.1
+*/ );
+#ifdef EMACS_PATCH_LEVEL
+  Vemacs_patch_level = make_int (EMACS_PATCH_LEVEL);
+#else
+  Vemacs_patch_level = Qnil;
+#endif
+
+    DEFVAR_LISP ("emacs-beta-version", &Vemacs_beta_version /*
 Beta number of this version of Emacs, as an integer.
 The value is nil if this is an officially released version of XEmacs.
 Warning: this variable does not exist in FSF Emacs or in XEmacs versions

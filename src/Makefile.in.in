@@ -117,7 +117,7 @@ $(lwlib_libs) :
 	cd ../lwlib && $(RECURSIVE_MAKE)
 
 x_objs=balloon_help.o balloon-x.o console-x.o device-x.o event-Xt.o frame-x.o\
- glyphs-x.o objects-x.o redisplay-x.o xgccache.o xselect.o 
+ glyphs-x.o objects-x.o redisplay-x.o select-x.o xgccache.o  
 
 #ifdef AIX4
 LIBI18N = -li18n
@@ -181,7 +181,7 @@ objs=\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
  print.o process.o profile.o\
  rangetab.o redisplay.o redisplay-output.o regex.o\
- search.o $(sheap_obj) signal.o sound.o\
+ search.o select.o $(sheap_obj) signal.o sound.o\
  specifier.o strftime.o symbols.o syntax.o sysdep.o\
  undo.o $(x_objs) widget.o window.o
 
@@ -340,10 +340,21 @@ release: temacs ${libsrc}DOC $(mo_file) ${other_files}
 #endif /* ! defined (CANNOT_DUMP) */
 
 ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
+#ifdef HEAP_IN_DATA
+	@$(RM) $@ $@.exe && touch SATISFIED
+	-${dump_temacs}
+	@if test -f $@;        then if test -f SATISFIED; then \
+		echo "Testing for Lisp shadows ..."; \
+		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
+		$(RM) SATISFIED; exit 0; fi; \
+	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi; \
+	$(RECURSIVE_MAKE) $@;
+#else
 	@$(RM) $@
 	-${dump_temacs}
 	@echo "Testing for Lisp shadows ..."
 	@./${PROGNAME} -batch -vanilla -f list-load-path-shadows
+#endif
 
 fastdump: temacs 
 	@$(RM) ${PROGNAME} && touch SATISFIED

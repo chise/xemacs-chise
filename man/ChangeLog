@@ -1,3 +1,27 @@
+1999-05-30  Albert Chin-A-Young <china@thewrittenword.com>
+
+	* custom.texi, external-widget.texi: Minor
+	fix to get info DIR entry correct.
+
+1999-05-22  Vin Shelton <acs@xemacs.org>
+
+	* xemacs/cmdargs.texi:
+	Document -private.
+
+1999-05-16  Mike McEwan  <mike@lotusland.demon.co.uk>
+
+	* Makefile: Added `emodules.info' to info targets.
+
+1999-05-20  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* internals/internals.texi (The XEmacs Object System
+	  (Abstractly Speaking)): typo.
+
+1999-05-16  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* lispref/text.texi (Substitution): Document improvements in
+ 	`translate-region'.
+
 1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.14 is released

@@ -582,6 +582,7 @@ DOC_SRC4=\
  $(XEMACS)\src\regex.c \
  $(XEMACS)\src\scrollbar.c \
  $(XEMACS)\src\search.c \
+ $(XEMACS)\src\select.c \
  $(XEMACS)\src\signal.c \
  $(XEMACS)\src\sound.c 
 DOC_SRC5=\
@@ -620,7 +621,7 @@ DOC_SRC6=\
  $(XEMACS)\src\balloon-x.c \
  $(XEMACS)\src\xgccache.c \
  $(XEMACS)\src\xmu.c \
- $(XEMACS)\src\xselect.c 
+ $(XEMACS)\src\select-x.c 
 !endif
 
 !if $(HAVE_MSW)
@@ -709,7 +710,7 @@ TEMACS_X_OBJS=\
 	$(OUTDIR)\scrollbar-x.obj \
 	$(OUTDIR)\xgccache.obj \
 	$(OUTDIR)\xmu.obj \
-	$(OUTDIR)\xselect.obj
+	$(OUTDIR)\select-x.obj
 !endif
 
 !if $(HAVE_MSW)
@@ -829,6 +830,7 @@ TEMACS_OBJS= \
 	$(OUTDIR)\regex.obj \
 	$(OUTDIR)\scrollbar.obj \
 	$(OUTDIR)\search.obj \
+	$(OUTDIR)\select.obj \
 	$(OUTDIR)\signal.obj \
 	$(OUTDIR)\sound.obj \
 	$(OUTDIR)\specifier.obj \
