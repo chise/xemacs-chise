@@ -1,5 +1,12 @@
 2005-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u02E00-CJK-Radical-Supplement.el (U+2E81): Add
+	`<-ideographic-component-forms' for U+5382.
+	(<CJK RADICAL GRASS TWO>): Use `->subsumptive' to integrate
+	U+FA5E.
+	(<CJK RADICAL GRASS THREE>): Use `->subsumptive' to integrate
+	U+FA5D.
+
 	* Ideograph-R140-Grass.el (<CJK RADICAL GRASS TWO>): Use
 	`->subsumptive' to integrate U+FA5E.
 	(U+FA5E): Use `<-subsumptive' instead of `->identical'.
