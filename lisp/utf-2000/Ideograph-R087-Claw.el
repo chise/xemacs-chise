@@ -123,7 +123,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x3E12)	; 㸒
-    (=cns11643-4	. #x272C)	; &I-C4-272C; [07-12]
+    (->subsumptive
+     ((=daikanwa	  . 19664)	; &M-19664;
+      (=hanziku-5	  . #xF7E7)	; &I-HZK05-F7E7;
+      )
+     ((=ucs@unicode	  . #x3E12)	; &UU+3E12;
+      )
+     ((=cns11643-4	  . #x272C)	; &C4-272C; [07-12]
+      ))
     ))
 (define-char
   '((ideographic-radical . 87)	; ⽖
