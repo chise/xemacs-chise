@@ -1145,7 +1145,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	  (=ucs		      . #x2FF0)	; ⿰
 	  )
-	 ((=gb2312	      . #x5041)	; &I-G0-5041; [48-33]
+	 ((=gb2312	      . #x5041)	; &C1-4B50; [48-33]
 	  (=cns11643-1	      . #x4B50)	; &I-C1-4B50; [43-48]
 	  )
 	 ((=ucs		      . #x4E5A)	; 乚
