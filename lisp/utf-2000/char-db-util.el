@@ -1,6 +1,6 @@
 ;;; char-db-util.el --- Character Database utility
 
-;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004 MORIOKA Tomohiko.
+;; Copyright (C) 1998,1999,2000,2001,2002,2003,2004,2005 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
@@ -1109,14 +1109,14 @@
 					   no-ucs-unified
 					   script excluded-script)
   (insert-char-data char printable)
-  (let ((variants (or (char-variants char)
-		      (let ((ucs (get-char-attribute char '->ucs)))
-			(if ucs
-			    (delete char (char-variants (int-char ucs)))))))
+  (let ((variants (char-variants char))
+	rest
 	variant vs ret)
     (setq variants (sort variants #'<))
-    (while variants
-      (setq variant (car variants))
+    (setq rest variants)
+    (setq variants (cons char variants))
+    (while rest
+      (setq variant (car rest))
       (unless (get-char-attribute variant '<-subsumptive)
 	(if (and (or (null script)
 		     (null (setq vs (get-char-attribute variant 'script)))
@@ -1130,9 +1130,9 @@
 		  (while ret
 		    (or (memq (car ret) variants)
                         ;; (get-char-attribute (car ret) '<-subsumptive)
-			(setq variants (append variants (list (car ret)))))
+			(setq rest (nconc rest (list (car ret)))))
 		    (setq ret (cdr ret)))))))
-      (setq variants (cdr variants)))))
+      (setq rest (cdr rest)))))
 
 (defun insert-char-range-data (min max &optional script excluded-script)
   (let ((code min)
