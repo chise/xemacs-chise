@@ -1,5 +1,17 @@
 1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c, character.h (Bytecount rep_bytes_by_first_byte):
+	Don't define in UTF2000.
+
+	* character.h: Include mule-charset.h if CHAR_IS_UCS4 is not
+	defined.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Include character.h in every
+	MULE.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* config.h.in (CHAR_IS_UCS4): New macro.
 
 	* mule-charset.c (rep_bytes_by_first_byte): Modify for
