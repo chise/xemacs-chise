@@ -299,6 +299,7 @@
   '((ideographic-radical . 197)	; â¿„
     (ideographic-strokes . 9)
     (=gb2312		. #x753A)	; ø»†µ
+    (=iso-ir165		. #x753A)	; ø»Žª…
     (=ucs		. #x9E7E)	; é¹¾
     ))
 (define-char

@@ -6,6 +6,7 @@
     (=gb2312		. #x4366)	; ø»„¹…
     (=jis-x0208		. #x4C4C)	; ø½Šµ±
     (=ks-x1001		. #x587C)	; ø»‰¬™
+    (=iso-ir165		. #x4366)	; ø»¡•
     (=cns11643-1	. #x5372)	; ø»’‰
     (=gt-pj-1		. #x4C4C)	; é¢
     (=daikanwa		. 42618)	; ø¸Š™º
@@ -303,6 +304,7 @@
     (kangxi-radical	 . 27)	; â¼š
     (kangxi-strokes	 . 13)
     (=gb2312		. #x584C)	; ø»…—¡
+    (=iso-ir165		. #x584C)	; ø»¿±
     (=ucs		. #x9765)	; é¥
     ))
 (define-char
