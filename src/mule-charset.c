@@ -2378,22 +2378,12 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       return c & 0x7F;
     }
   /*
-  else if ((MIN_CHAR_GREEK <= c) && (c <= MAX_CHAR_GREEK))
-    {
-      *charset = Vcharset_greek_iso8859_7;
-      return c - MIN_CHAR_GREEK + 0x20;
-    }
-  else if ((MIN_CHAR_CYRILLIC <= c) && (c <= MAX_CHAR_CYRILLIC))
-    {
-      *charset = Vcharset_cyrillic_iso8859_5;
-      return c - MIN_CHAR_CYRILLIC + 0x20;
-    }
-  */
   else if ((MIN_CHAR_HEBREW <= c) && (c <= MAX_CHAR_HEBREW))
     {
       *charset = Vcharset_hebrew_iso8859_8;
       return c - MIN_CHAR_HEBREW + 0x20;
     }
+  */
   else if ((MIN_CHAR_THAI <= c) && (c <= MAX_CHAR_THAI))
     {
       *charset = Vcharset_thai_tis620;
@@ -3719,8 +3709,8 @@ complex_vars_of_mule_charset (void)
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
-# define MIN_CHAR_HEBREW 0
-# define MAX_CHAR_HEBREW 0
+  /* # define MIN_CHAR_HEBREW 0 */
+  /* # define MAX_CHAR_HEBREW 0 */
 # define MIN_CHAR_HALFWIDTH_KATAKANA 0
 # define MAX_CHAR_HALFWIDTH_KATAKANA 0
 #endif
@@ -3795,9 +3785,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("ISO8859-7 (Greek)"),
 		  build_string ("iso8859-7"),
-		  Qnil,
-		  0 /* MIN_CHAR_GREEK */,
-		  0 /* MAX_CHAR_GREEK */, 0, 32);
+		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_arabic_iso8859_6);
   Vcharset_arabic_iso8859_6 =
     make_charset (LEADING_BYTE_ARABIC_ISO8859_6, Qarabic_iso8859_6, 96, 1,
@@ -3815,7 +3803,9 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("ISO8859-8 (Hebrew)"),
 		  build_string ("iso8859-8"),
-		  Qnil, MIN_CHAR_HEBREW, MAX_CHAR_HEBREW, 0, 32);
+		  Qnil,
+		  0 /* MIN_CHAR_HEBREW */,
+		  0 /* MAX_CHAR_HEBREW */, 0, 32);
   staticpro (&Vcharset_katakana_jisx0201);
   Vcharset_katakana_jisx0201 =
     make_charset (LEADING_BYTE_KATAKANA_JISX0201, Qkatakana_jisx0201, 94, 1,
@@ -3842,9 +3832,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("ISO8859-5 (Cyrillic)"),
 		  build_string ("iso8859-5"),
-		  Qnil,
-		  0 /* MIN_CHAR_CYRILLIC */,
-		  0 /* MAX_CHAR_CYRILLIC */, 0, 32);
+		  Qnil, 0, 0, 0, 32);
   staticpro (&Vcharset_latin_iso8859_9);
   Vcharset_latin_iso8859_9 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_9, Qlatin_iso8859_9, 96, 1,
