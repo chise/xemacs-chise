@@ -1,3 +1,10 @@
+2002-03-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R064-Hand.el (M-12235): Separate G0-3560, C2-354D and
+	U+6382.
+	(M-12977): Separate JSP-413C, C1-796F, JX2-2D5D, G1-4039, B-C464
+	and U+6514.
+
 2002-03-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el, Ideograph-R063-Door.el,
