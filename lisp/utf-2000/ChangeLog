@@ -1,3 +1,33 @@
+2005-01-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R038-Woman.el (U+5A67): Unify B-D4D1.
+	(G0-663A): Separate B-D4D1.
+	(U+5AB5): Unify B-DCF9.
+	(G0-6B74): Separate B-DCF9.
+
+	* Ideograph-R030-Mouth.el (U+540F): Unify B-A64F.
+	(G0-4074): Separate B-A64F.
+	(M-04303): Use `<-denotational' for B-E4F8 instead of
+	`<-subsumptive' for U+564C.
+	(B-E4F8): Separated from G0-6061; add `<-denotational' for U+564C.
+	(G0-6061): Separate B-E4F8; use `<-denotational' for B-E4F8
+	instead of `<-subsumptive' for U+564C.
+	(J83-4139): Use `<-denotational' instead of `<-subsumptive' for
+	U+564C.
+
+	* Ideograph-R132-Self.el (C1-5768): Unify B-AFE4.
+
+	* Ideograph-R108-Dish.el (U+76CA): Use `->denotational' instead of
+	`->subsumptive'.
+	(U+76E8): Delete `=ucs@unicode'.
+
+	* Ideograph-R085-Water.el (C1-5B5F): Separate B-B25A.
+	(U+6F82): Use `->denotational' instead of `->subsumptive'.
+	(JSP-486D): Use `=ucs@jis' instead of `=ucs@jis/1990' and
+	`=ucs@jis/2000'.
+
+	* Ideograph-R008-Lid.el (B-F6D6): Add `=ucs@big5'.
+
 2005-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R172-Short-Tailed-Bird.el (U+5DC2): Use
