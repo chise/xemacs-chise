@@ -125,6 +125,9 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 for CNS */
 #define LEADING_BYTE_UCS_CNS		(CHARSET_ID_OFFSET - 5)
 
+/* ISO/IEC 10646 for JIS */
+#define LEADING_BYTE_UCS_JIS		(CHARSET_ID_OFFSET - 6)
+
 /* ISO/IEC 10646 for Big5 */
 #define LEADING_BYTE_UCS_BIG5		(CHARSET_ID_OFFSET - 9)
 
