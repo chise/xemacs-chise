@@ -236,9 +236,6 @@ struct Lisp_Charset
   /* Byte->character mapping table */
   Lisp_Object decoding_table;
 
-  /* Character->byte mapping table */
-  Lisp_Object encoding_table;
-
   /* Range of character code */
   Emchar ucs_min, ucs_max;
 
@@ -287,7 +284,6 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define CHARSET_CHARS(cs)	 ((cs)->chars)
 #define CHARSET_REVERSE_DIRECTION_CHARSET(cs) ((cs)->reverse_direction_charset)
 #define CHARSET_DECODING_TABLE(cs) ((cs)->decoding_table)
-#define CHARSET_ENCODING_TABLE(cs) ((cs)->encoding_table)
 #define CHARSET_UCS_MIN(cs)	 ((cs)->ucs_min)
 #define CHARSET_UCS_MAX(cs)	 ((cs)->ucs_max)
 #define CHARSET_CODE_OFFSET(cs)	 ((cs)->code_offset)
@@ -311,7 +307,6 @@ DECLARE_LRECORD (charset, struct Lisp_Charset);
 #define XCHARSET_REVERSE_DIRECTION_CHARSET(cs) \
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 #define XCHARSET_DECODING_TABLE(cs) CHARSET_DECODING_TABLE(XCHARSET(cs))
-#define XCHARSET_ENCODING_TABLE(cs) CHARSET_ENCODING_TABLE(XCHARSET(cs))
 #define XCHARSET_UCS_MIN(cs)	  CHARSET_UCS_MIN(XCHARSET(cs))
 #define XCHARSET_UCS_MAX(cs)	  CHARSET_UCS_MAX(XCHARSET(cs))
 #define XCHARSET_CODE_OFFSET(cs)  CHARSET_CODE_OFFSET(XCHARSET(cs))
@@ -471,6 +466,7 @@ MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 extern Lisp_Object Vcharacter_attribute_table;
 
 Lisp_Object range_charset_code_point (Lisp_Object charset, Emchar ch);
+Lisp_Object charset_code_point (Lisp_Object charset, Emchar ch);
 
 extern Lisp_Object Vdefault_coded_charset_priority_list;
 EXFUN (Ffind_charset, 1);
