@@ -10843,7 +10843,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (=gt		  . 00458)	; ý¡€€‡Š
       )
      ((=ucs		  . #x8349)	; è‰
       ))

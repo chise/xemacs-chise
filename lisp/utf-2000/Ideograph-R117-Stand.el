@@ -223,9 +223,10 @@
     (total-strokes	 . 9)
     (=jis-x0208		. #x5474)	; ø½‹‚‰
     (=cns11643-3	. #x2E4F)	; ø»•ª˜
-    (=gt-pj-1		. #x5474)	; ç«’
+    (=gt-pj-1		. #x5474)	; ý¡€€†
     (=daikanwa		. 25736)	; ø¸†’ˆ
     (=gt-k		. 05227)	; ý¡„‘«
+    (=gt		. 00400)	; ý¡€€†
     (=ucs		. #x7AD2)	; ç«’
     ))
 (define-char

@@ -30,10 +30,11 @@
     (comment		. "M-07825 is a different char.")
     (=jis-x0208		. #x5625)	; ø½‹ƒ¶
     (=cns11643-4	. #x2135)	; ø»— ¼
-    (=gt-pj-1		. #x5625)	; ð¯¡¸
+    (=gt-pj-1		. #x5625)	; ý¡€‚™º
     (=daikanwa		. 07826)	; ø¸º’
     (=gt-k		. 00270)	; ý¡„€„Ž
     (=ucs@jis		. #x5C6E)	; ð¯¡¸
+    (=gt		. 09850)	; ý¡€‚™º
     (=ucs		. #x2F878)	; ð¯¡¸
     ))
 (define-char
@@ -54,10 +55,11 @@
     (shinjigen-2	. 1953)
     (=jis-x0208		. #x4656)	; ø½Š­‡
     (=ks-x1001		. #x546A)	; ø»‰¦
-    (=gt-pj-1		. #x4656)	; ø½Š­‡
+    (=gt-pj-1		. #x4656)	; ý¡€‚™¾
     (=daikanwa		. 07828)	; ø¸º”
     (=gt-k		. 00470)	; ý¡„€‡–
     (=ucs@jis		. #x5C6F)	; ø½Š­‡
+    (=gt		. 09854)	; ý¡€‚™¾
     ))
 (define-char
   '((morohashi-daikanwa	7828 0 0)

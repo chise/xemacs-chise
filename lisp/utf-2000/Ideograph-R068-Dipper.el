@@ -8,10 +8,11 @@
     (=ks-x1001		. #x5460)	; ø»‰¦…
     (=iso-ir165		. #x3637)	; ø» 
     (=cns11643-1	. #x4547)	; ø»‘·º
-    (=gt-pj-1		. #x454D)	; æ–—
+    (=gt-pj-1		. #x454D)	; ý¡€„Š¡
     (=big5		. #xA4E6)	; ý¢€Š“¦
     (=daikanwa		. 13489)	; ø¸ƒ’±
     (=gt-k		. 00469)	; ý¡„€‡•
+    (=gt		. 17057)	; ý¡€„Š¡
     (=ucs		. #x6597)	; æ–—
     ))
 (define-char
@@ -101,10 +102,11 @@
     (=ks-x1001		. #x5679)	; ø»‰©š
     (=iso-ir165		. #x414F)	; ø»ž‚
     (=cns11643-1	. #x5568)	; ø»’»
-    (=gt-pj-1		. #x4E41)	; æ–™
+    (=gt-pj-1		. #x4E41)	; ý¡€„Š°
     (=big5		. #xAEC6)	; ý¢€Š»†
     (=daikanwa		. 13501)	; ø¸ƒ’½
     (=gt-k		. 06562)	; ý¡„¦¢
+    (=gt		. 17072)	; ý¡€„Š°
     (=ucs		. #x6599)	; æ–™
     ))
 (define-char
@@ -211,12 +213,13 @@
     (=jis-x0208		. #x5A4F)	; ø½‹Š˜
     (=ks-x1001		. #x4D57)	; ø»‰›ª
     (=cns11643-1	. #x5A7C)	; ø»’—¥
-    (=gt-pj-1		. #x5A4F)	; ø½‹Š˜
+    (=gt-pj-1		. #x5A4F)	; ý¡€„Š²
     (=big5		. #xB1D8)	; ý¢€‹‡˜
     (=daikanwa		. 13508)	; ø¸ƒ“„
     (=gt-k		. 07937)	; ý¡„¼
     (=ucs@cns		. #x659B)	; ø½‹Š˜
     (=ucs@jis		. #x659B)	; ø½‹Š˜
+    (=gt		. 17074)	; ý¡€„Š²
     ))
 (define-char
   '((morohashi-daikanwa	13508 0 2)
@@ -244,10 +247,11 @@
     (=ks-x1001		. #x5E58)	; ø»‰´©
     (=iso-ir165		. #x5031)	; ø»³¦
     (=cns11643-1	. #x5A7B)	; ø»’—¤
-    (=gt-pj-1		. #x3C50)	; æ–œ
+    (=gt-pj-1		. #x3C50)	; ý¡€„Š³
     (=big5		. #xB1D7)	; ý¢€‹‡—
     (=daikanwa		. 13509)	; ø¸ƒ“…
     (=gt-k		. 07778)	; ý¡„¹¢
+    (=gt		. 17075)	; ý¡€„Š³
     (=ucs		. #x659C)	; æ–œ
     ))
 (define-char
@@ -334,9 +338,10 @@
     (=ks-x1001		. #x7278)	; ø»Š’¡
     (=iso-ir165		. #x5565)	; ø»»°
     (=cns11643-1	. #x643A)	; ø»’¥
-    (=gt-pj-1		. #x5A50)	; æ–Ÿ
+    (=gt-pj-1		. #x5A50)	; ý¡€„Š¾
     (=big5		. #xB772)	; ý¢€‹²
     (=daikanwa		. 13517)	; ø¸ƒ“
+    (=gt		. 17086)	; ý¡€„Š¾
     (=ucs		. #x659F)	; æ–Ÿ
     ))
 (define-char
@@ -406,9 +411,10 @@
     (=ks-x1001		. #x6456)	; ø»‰½›
     (=iso-ir165		. #x4E53)	; ø»±Œ
     (=cns11643-1	. #x687E)	; ø»’¬‹
-    (=gt-pj-1		. #x3036)	; æ–¡
+    (=gt-pj-1		. #x3036)	; ý¡€„‹
     (=big5		. #xBA57)	; ý¢€‹©—
     (=daikanwa		. 13522)	; ø¸ƒ“’
+    (=gt		. 17089)	; ý¡€„‹
     (=ucs		. #x65A1)	; æ–¡
     ))
 (define-char

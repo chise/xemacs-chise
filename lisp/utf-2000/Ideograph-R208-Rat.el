@@ -28,8 +28,9 @@
     (ideographic-strokes@daikanwa . 6)
     (total-strokes	 . 8)
     (=jis-x0208		. #x736B)	; ø½‹¯¢
-    (=gt-pj-1		. #x736B)	; é¼¡
+    (=gt-pj-1		. #x736B)	; ý¡€ƒŠ¸
     (=gt-k		. 03927)	; ý¡„€½—
+    (=gt		. 12984)	; ý¡€ƒŠ¸
     (mojikyo		. 054751)	; ý €—Ÿ
     (=ucs		. #x9F21)	; é¼¡
     ))
