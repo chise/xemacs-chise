@@ -1,3 +1,23 @@
+2003-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R111-Arrow.el (U+77E3): Separate C1-4B32.
+
+	* Ideograph-R106-White.el (U+7686): Separate C1-5255.
+
+	* Ideograph-R105-Dotted-Tent.el (M-22661): Separate C2-2C40 and
+	U+7679.
+
+	* Ideograph-R096-Jade.el (U+7422): Unify JU+FA4A.
+	(U+FA4A): New character.
+
+	* Ideograph-R095-Profound.el: Reformatted.
+
+	* Ideograph-R009-Man.el (U-000202DC): Add `ideographic-strokes'
+	and `total-strokes'.
+	(U-00020442): Unify C7-476F and M-19757; don't use `->identical'
+	for M-19757; use `ideographic-' instead of `ideographic-radical'
+	and `ideographic-strokes'; modify `ideographic-structure'.
+
 2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R089-Double-X.el (U-00024568): Modify
@@ -17,6 +37,11 @@
 	(GT-K00305): New character.
 	(CJK RADICAL SMALL TWO): Unify GT-K00325.
 	(CJK RADICAL HEART ONE): Unify GT-K00302.
+
+	* Ideograph-R086-Fire.el: Reformatted.
+	(U+716E): Unify B-B54E.
+	(JX1-7755): Unify U+FA48 and KU+716E; unify BC-B54E instead of
+	B-B54E.
 
 2003-01-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
