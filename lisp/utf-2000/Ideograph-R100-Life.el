@@ -25,27 +25,31 @@
     ))
 (define-char
   '((ideographic-radical . 100)	; ⽣
+    (ideographic-radical@unicode . 32)	; ⼟
+    (ideographic-strokes@unicode . 1)
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x751F)	; 生
+      ))
+    (=ucs		. #x9FB6)	; 龶
+    (=big5-cdp		. #x8B77)	; &I-CDP-8B77;
+    (=gt-k		. 00586)	; &I-GT-K00586;
+    (=gt-pj-k1		. #x323F)	; 龶 [18-31]
+    (=jef-china3	. #x72FD)	; &I-JC3-72FD;
+    ))
+(define-char
+  '((=>ucs		. #x9FB6)	; 龶
+    (ideographic-radical . 100)	; ⽣
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (<-ideographic-component-forms
      ((=ucs		  . #x751F)	; 生
       )
-     ((=gt-k		  . 00586)	; &I-GT-K00586;
+     ((=ucs		  . #x9FB6)	; 龶
       ))
     (=gt-k		. 00587)	; &GT-K00587;
     (=gt-pj-k1		. #x347B)	; &GT-K00587; [20-91]
-    ))
-(define-char
-  '((ideographic-radical . 100)	; ⽣
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (<-ideographic-component-forms
-     ((=ucs		  . #x751F)	; 生
-      ))
-    (=big5-cdp		. #x8B77)	; &CDP-8B77;
-    (=gt-k		. 00586)	; &I-GT-K00586;
-    (=gt-pj-k1		. #x323F)	; &CDP-8B77; [18-31]
-    (=jef-china3	. #x72FD)	; &I-JC3-72FD;
     ))
 (define-char
   '((ideographic-radical . 100)	; ⽣
