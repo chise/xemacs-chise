@@ -1,4 +1,27 @@
+2002-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SPIRIT TWO): Unify
+	BC-8B70.
+	(CJK RADICAL GRASS TWO): Unify C4-2153, JX2-7575, M-30639 and
+	BC-8AFE; add `ucs-cns' for U+8279.
+	(CJK RADICAL GRASS THREE): Unify JX2-7574.
+	(CJK RADICAL SIMPLIFIED WALK): Unify JX2-7969.
+	(CJK RADICAL WALK ONE): Unify JSP-6134 and JX2-796A; add `ucs-jis'
+	for U+8FB6.
+	(CJK RADICAL WALK TWO): Unify C4-2154 and BC-8AF7; add `ucs-cns'
+	for U+8FB6.
+
+	* Ideograph-R140-Grass.el (JX2-7575): Unify BC-8AFE and U+2EBF;
+	add `ucs-cns' for U+8279.
+	(U+8279): Unify JX2-7576; add `->ideographic-component-forms' for
+	U+2EBE.
+
 2002-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R162-Walk.el (JX2-796A): Unify U+2ECD; add `ucs-jis'
+	for U+8FB6.
+	(C4-2154): Unify BC-8AF7 and U+2ECE; add `ucs-cns' for U+8FB6.
+	(U+8FB6): Add `->ideographic-component-forms' for U+2ECC.
 
 	* Ideograph-R184-Eat.el (C1-537A): Add `ideographic-structure'.
 	(U+98DF): Likewise.
