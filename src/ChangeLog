@@ -1,3 +1,10 @@
+1999-09-07  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* char-ucs.h (Vcharset_ucs_bmp): New variable.
+	(MAKE_CHAR): Modify for `ucs-bmp'.
+	(breakup_char_1): Return `ucs-bmp' and code point of BMP for
+	non-MULE characters of BMP.
+
 1999-09-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (vars_of_mule_charset):
