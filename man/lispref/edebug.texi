@@ -147,7 +147,7 @@ much as it can of the bottom of the buffer, but I think it scrolls off
 sometimes.
 
 There is a bug in window updating when there is both a trace buffer
-and an evaluation list - the source buffer doesnt get displayed.
+and an evaluation list - the source buffer doesn't get displayed.
 
 @item 
 Killing and reinserting an instrumented definition or parts of

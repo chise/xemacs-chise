@@ -263,7 +263,7 @@ all three strings.
 @cindex @samp{?} in regexp
 is a quantifying suffix operator similar to @samp{*}, except that the
 preceding expression can match either once or not at all.  For example,
-@samp{ca?r} matches @samp{car} or @samp{cr}, but does not match anyhing
+@samp{ca?r} matches @samp{car} or @samp{cr}, but does not match anything
 else.
 
 @item *?
@@ -1096,7 +1096,7 @@ last regular expression searched for, or a subexpression of it.
 
 If @var{count} is zero, then the value is the position of the start of
 the entire match.  Otherwise, @var{count} specifies a subexpression in
-the regular expresion, and the value of the function is the starting
+the regular expression, and the value of the function is the starting
 position of the match for that subexpression.
 
 The value is @code{nil} for a subexpression inside a @samp{\|}

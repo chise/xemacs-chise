@@ -8,7 +8,7 @@
 XEmacs deals with a multitude of files during operation.  These files
 are spread over many directories, and XEmacs determines the location of
 most of these directories at startup and organizes them into various
-paths.  (A @emph{path},
+paths.  (A @dfn{path},
 @cindex path
 for the purposes of this section, is simply a list of directories which
 XEmacs searches successively in order to locate a file.)
@@ -30,12 +30,12 @@ matter where they may be hidden.
 XEmacs will always respect directory options passed to @code{configure}.
 However, if it cannot locate a directory at the configured place, it
 will initiate a search for the directory in any of a number of
-@emph{hierachies} rooted under a directory which XEmacs assumes contain
+@dfn{hierachies} rooted under a directory which XEmacs assumes contain
 parts of the XEmacs installation; it may locate several such hierarchies
 and search across them.  (Typically, there are just one or two
 hierarchies: the hierarchy where XEmacs was or will be installed, and
 the one where it is being built.)  Such a directory containing a
-hierarchy is called a @emph{root}.
+hierarchy is called a @dfn{root}.
 @cindex root of a hierarchy
 Whenever this section refers to a directory using the shorthand
 @code{<root>}, it means that XEmacs searches for it under all
@@ -53,8 +53,8 @@ usually installed on top of an XEmacs installation.  (@xref{Packages}.)
 Hence, they play a prominent role in the various paths XEmacs sets up.
 
 XEmacs locates packages in any of a number of package hierarchies.
-Package hierarchies fall into three groups: @emph{early}, @emph{late},
-and @emph{last},
+Package hierarchies fall into three groups: @dfn{early}, @dfn{late},
+and @dfn{last},
 @cindex early package hierarchies
 @cindex late package hierarchies
 @cindex last package hierarchies
@@ -69,16 +69,16 @@ subdirectory @file{.xemacs} of the user's home directory.
 Moreover, XEmacs expects late hierarchies in the subdirectories
 @file{site-packages}, @file{mule-packages}, and @file{xemacs-packages}
 (in that order) of the @file{<root>/lib/xemacs} subdirectory of one of
-the installation hierarchies.  (If you run in-place, these are directr
+the installation hierarchies.  (If you run in-place, these are direct
 subdirectories of the build directory.)  Furthermore, XEmacs will also
 search these subdirectories in the @file{<root>/lib/xemacs-<VERSION>}
 subdirectory and prefer directories found there.
 
 By default, XEmacs does not have a pre-configured last package
-hierarchy.  Last hierarchies are primarily for using package
-hierarchies of outdated versions of XEmacs as a fallback option.  For
-example, it is possible to run XEmacs with the 20.4 package hierarchy
-as a last hierarchy.
+hierarchy.  Last hierarchies are primarily for using package hierarchies
+of outdated versions of XEmacs as a fallback option.  For example, it is
+possible to run XEmacs 21.0 with the 20.4 package hierarchy as a last
+hierarchy.
 
 It is possible to specify at configure-time the location of the various
 package hierarchies with the @code{--package-path} option to configure.
@@ -103,17 +103,20 @@ There may be any number of package hierarchy directories.
 
 Here is a list of the various directories and paths XEmacs tries to
 locate during startup.  XEmacs distinguishes between directories and
-paths specific to @emph{version}, @emph{site}, and @emph{architecture}
+paths specific to @dfn{version}, @dfn{site}, and @dfn{architecture}
 when looking for them.
 
 @table @code
 @item version-specific
+@cindex version-specific directories
 directories are specific to the version of XEmacs they belong to and
 typically reside under @file{<root>/lib/xemacs-<VERSION>}.
 @item site-specific
+@cindex site-specific directories
 directories are independent of the version of XEmacs they belong to and
 typically reside under @file{<root>/lib/xemacs}
 @item architecture-specific
+@cindex architecture-specific directories
 directories are specific both to the version of XEmacs and the
 architecture it runs on and typically reside under
 @file{<root>/lib/xemacs-<VERSION>/<ARCHITECTURE>}.
@@ -177,7 +180,7 @@ the package executable paths as well as @code{exec-directory}, and the
 directories of the environment variables @code{PATH}
 @vindex PATH
 and @code{EMACSPATH}.
-@vindex EMCSPATH
+@vindex EMACSPATH
 
 @item doc-directory
 @vindex doc-directory

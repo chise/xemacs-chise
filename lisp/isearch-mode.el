@@ -459,10 +459,9 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 	  isearch-opoint (point)
 	  isearch-window-configuration (current-window-configuration)
 
-	  ;; #### - don't do this statically: isearch-mode must be FIRST in
-	  ;; the minor-mode-map-alist -- Stig
-	  minor-mode-map-alist (cons (cons 'isearch-mode isearch-mode-map)
-				     minor-mode-map-alist)
+	  ;; #### Should we remember the old value of
+	  ;; overriding-local-map?
+	  overriding-local-map isearch-mode-map
 	  isearch-selected-frame (selected-frame)
 
 	  isearch-mode (gettext " Isearch")
@@ -541,8 +540,9 @@ is treated as a regexp.  See \\[isearch-forward] for more info."
 	  ;; in the buffer we frobbed them in.  But only if the buffer
 	  ;; is still alive.
 	  (set-buffer isearch-buffer)
-	  (setq minor-mode-map-alist (delq (assoc 'isearch-mode minor-mode-map-alist)
-					   minor-mode-map-alist))
+	  ;; #### Should we restore the old value of
+	  ;; overriding-local-map?
+	  (setq overriding-local-map nil)
 	  ;; Use remove-hook instead of just setting it to our saved value
 	  ;; in case some process filter has created a buffer and modified
 	  ;; the pre-command-hook in that buffer...  yeah, this is obscure,
@@ -936,6 +936,20 @@ backwards."
   (interactive)
   (isearch-yank (x-get-clipboard)))
 
+(defun isearch-fix-case ()
+  (if (and isearch-case-fold-search search-caps-disable-folding)
+      (setq isearch-case-fold-search (isearch-no-upper-case-p isearch-string)))
+  (setq isearch-mode (if case-fold-search
+                         (if isearch-case-fold-search
+                             " Isearch"  ;As God Intended Mode
+			   " ISeARch") ;Warn about evil case via StuDLYcAps.
+		       "Isearch"
+;		         (if isearch-case-fold-search
+;                            " isearch"    ;Presumably case-sensitive losers
+;                                          ;will notice this 1-char difference.
+;                            " Isearch")   ;Weenie mode.
+			 )))
+
 (defun isearch-search-and-update ()
   ;; Do the search and update the display.
   (if (and (not isearch-success)
@@ -951,12 +965,15 @@ backwards."
     ;; long as the match does not extend past search origin.
     (if (and (not isearch-forward) (not isearch-adjusted)
 	     (condition-case ()
-		 (looking-at (if isearch-regexp isearch-string
-			       (regexp-quote isearch-string)))
+		 (progn
+		   (isearch-fix-case)
+		   (let ((case-fold-search isearch-case-fold-search))
+		     (looking-at (if isearch-regexp isearch-string
+				   (regexp-quote isearch-string)))))
 	       (error nil))
-	       (or isearch-yank-flag
-		   (<= (match-end 0) 
-		       (min isearch-opoint isearch-barrier))))
+	     (or isearch-yank-flag
+		 (<= (match-end 0) 
+		     (min isearch-opoint isearch-barrier))))
 	(setq isearch-success t 
 	      isearch-invalid-regexp nil
 	      isearch-other-end (match-end 0))
@@ -1460,12 +1477,9 @@ currently matches the search-string.")
   (if (null isearch-highlight)
       nil
     ;; make sure isearch-extent is in the current buffer
-    (cond ((not (extentp isearch-extent))
-	   (isearch-make-extent begin end))
-	  ((not (eq (extent-object isearch-extent) (current-buffer)))
-	   (delete-extent isearch-extent)
-	   (isearch-make-extent begin end)))
-    (set-extent-endpoints isearch-extent begin end)))
+    (or (extentp isearch-extent)
+	(isearch-make-extent begin end))
+    (set-extent-endpoints isearch-extent begin end (current-buffer))))
 
 (defun isearch-dehighlight (totally)
   (if (and isearch-highlight isearch-extent)
@@ -1485,19 +1499,7 @@ currently matches the search-string.")
 (defun isearch-search ()
   ;; Do the search with the current search string.
   (isearch-message nil t)
-  (if (and isearch-case-fold-search search-caps-disable-folding)
-      (setq isearch-case-fold-search (isearch-no-upper-case-p isearch-string)))
-
-  (setq isearch-mode (if case-fold-search
-                         (if isearch-case-fold-search
-                             " Isearch"  ;As God Intended Mode
-                             " ISeARch") ;Warn about evil case via StuDLYcAps.
-		         "Isearch"
-;		         (if isearch-case-fold-search
-;                            " isearch"    ;Presumably case-sensitive losers
-;                                          ;will notice this 1-char difference.
-;                            " Isearch")   ;Weenie mode.
-			 ))
+  (isearch-fix-case)
   (condition-case lossage
       (let ((inhibit-quit nil)
 	    (case-fold-search isearch-case-fold-search))

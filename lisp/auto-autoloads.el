@@ -1214,7 +1214,9 @@ Fetch PACKAGE with VERSION and all other required packages.
 Uses `package-get-base' to determine just what is required and what
 package provides that functionality.  If VERSION is nil, retrieves
 latest version.  Optional argument FETCHED-PACKAGES is used to keep
-track of packages already fetched." t nil)
+track of packages already fetched.
+
+Returns nil upon error." t nil)
 
 (autoload 'package-get "package-get" "\
 Fetch PACKAGE from remote site.
@@ -1223,6 +1225,8 @@ means most recent version.  CONFLICT indicates what happens if the
 package is already installed.  Valid values for CONFLICT are:
 'always	always retrieve the package even if it is already installed
 'never	do not retrieve the package if it is installed.
+INSTALL-DIR, if non-nil, specifies the package directory where
+fetched packages should be installed.
 
 The value of `package-get-base' is used to determine what files should 
 be retrieved.  The value of `package-get-remote' is used to determine
@@ -1231,7 +1235,11 @@ order so one is better off listing easily reached sites first.
 
 Once the package is retrieved, its md5 checksum is computed.  If that
 sum does not match that stored in `package-get-base' for this version
-of the package, an error is signalled." t nil)
+of the package, an error is signalled.
+
+Returns `t' upon success, the symbol `error' if the package was
+successfully installed but errors occurred during initialization, or
+`nil' upon error." t nil)
 
 (autoload 'package-get-package-provider "package-get" "\
 Search for a package that provides SYM and return the name and
@@ -1241,6 +1249,23 @@ Search for a package that provides SYM and return the name and
 
 (autoload 'package-get-custom "package-get" "\
 Fetch and install the latest versions of all customized packages." t nil)
+
+;;;***
+
+;;;### (autoloads (pui-list-packages pui-add-install-directory) "package-ui" "lisp/package-ui.el")
+
+(autoload 'pui-add-install-directory "package-ui" "\
+Add a new package binary directory to the head of `package-get-remote'.
+Note that no provision is made for saving any changes made by this function.
+It exists mainly as a convenience for one-time package installations from
+disk." t nil)
+
+(autoload 'pui-list-packages "package-ui" "\
+List all packages and package information.
+The package name, version, and description are displayed.  From the displayed
+buffer, the user can see which packages are installed, which are not, and
+which are out-of-date (a newer version is available).  The user can then
+select packages for installation via the keyboard or mouse." t nil)
 
 ;;;***
 

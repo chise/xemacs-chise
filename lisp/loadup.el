@@ -64,7 +64,6 @@
 	;; the package path.
 	;; #### This code is duplicated in two other places.
 	(let ((temp-path (expand-file-name "." (car load-path))))
-	  (setq source-directory temp-path)
 	  (setq load-path (nconc (mapcar
 				  #'(lambda (i) (concat i "/"))
 				  (directory-files temp-path t "^[^-.]"
@@ -183,18 +182,15 @@
     (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
     (kill-emacs))
 
+;; Avoid error if user loads some more libraries now.
+(setq purify-flag nil)
+
 (when (member "run-temacs" command-line-args)
   (message "\nBootstrapping from temacs...")
-  (setq purify-flag nil)
-  (setq inhibit-early-packages t)
-  (setq inhibit-autoloads t)
   ;; Remove all args up to and including "run-temacs"
   (apply #'run-emacs-from-temacs (cdr (member "run-temacs" command-line-args)))
   ;; run-emacs-from-temacs doesn't actually return anyway.
   (kill-emacs))
-
-;; Avoid error if user loads some more libraries now.
-(setq purify-flag nil)
 
 ;; XEmacs change
 ;; If you are using 'recompile', then you should have used -l loadup-el.el

@@ -93,7 +93,7 @@ The XEmacs Editor
 XEmacs is the extensible, customizable, self-documenting real-time
 display editor.  This Info file describes how to edit with Emacs
 and some of how to customize it, but not how to extend it.  It
-corresponds to XEmacs version 20.0.
+corresponds to XEmacs version 21.0.
 
 This manual is intended as a detailed reference to XEmacs.  If
 you are looking for an introductory manual, see the New User's
@@ -497,7 +497,11 @@ Lisp Libraries
 * Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
 
 Packages
+
 * Packages::            Introduction to XEmacs Packages.
+* Package Terminology:: Understanding different kinds of packages.
+* Using Packages::      How to install and use packages.
+* Building Packages::   Building packages from sources.
 
 Abbrevs
 

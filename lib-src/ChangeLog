@@ -1,3 +1,13 @@
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-08  Raymond Toy  <toy@rtp.ericsson.se>
+
+	* gnuclient.c (filename_expand): Added better recognition of
+	absolute pathnames for CYGWIN.  Convert absolute pathnames with
+	drive letters to something xemacs can handle.
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

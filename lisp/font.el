@@ -776,7 +776,7 @@ for use in the 'weight' field of an X font string.")
 ;;; A maximal mswindows font spec looks like:
 ;;;	Courier New:Bold Italic:10:underline strikeout:western
 ;;; Missing parts of the font spec should be filled in with these values:
-;;;	Courier New:Normal:10::western
+;;;	Courier New:Regular:10::western
 ;;  "^[a-zA-Z ]+:[a-zA-Z ]*:[0-9]+:[a-zA-Z ]*:[a-zA-Z 0-9]*$"
 (defvar font-mswindows-font-regexp 
   (let

@@ -1073,8 +1073,9 @@ This can take a while for large buffers."
   ;; region as fontified; otherwise, the same error might get signaled
   ;; after every command.
   (unwind-protect
-      ;; buffer may be deleted.
-      (if (buffer-live-p (extent-object font-lock-old-extent))
+      ;; buffer/extent may be deleted.
+      (if (and (extent-live-p font-lock-old-extent)
+	       (buffer-live-p (extent-object font-lock-old-extent)))
 	  (save-excursion
 	    (set-buffer (extent-object font-lock-old-extent))
 	    (font-lock-after-change-function-1

@@ -466,15 +466,18 @@ or if you change your font path, you can call this to re-initialize the menus."
 	 (from-size   (aref font-data 2))
 	 (from-weight (aref font-data 3))
 	 (from-slant  (aref font-data 4))
-	 new-default-face-font)
+	 new-default-face-font
+	 new-props)
     (unless from-family
       (signal 'error '("couldn't parse font name for default face")))
-    (setq new-default-face-font
-	  (font-menu-load-font (or family from-family)
-			       (or weight from-weight)
-			       (or size   from-size)
-			       from-slant
-			       font-menu-preferred-resolution))
+    (when weight
+      (signal 'error '("Setting weight currently not supported")))
+;    (setq new-default-face-font
+;	  (font-menu-load-font (or family from-family)
+;			       (or weight from-weight)
+;			       (or size   from-size)
+;			       from-slant
+;			       font-menu-preferred-resolution))
     (dolist (face (delq 'default (face-list)))
       (when (face-font-instance face)
 	(message "Changing font of `%s'..." face)
@@ -487,10 +490,16 @@ or if you change your font path, you can call this to re-initialize the menus."
 	   (sit-for 1)))))
     ;; Set the default face's font after hacking the other faces, so that
     ;; the frame size doesn't change until we are all done.
-
-    ;;; WMP - we need to honor font-menu-this-frame-only-p here!
-    (set-face-font 'default new-default-face-font
-		   (and font-menu-this-frame-only-p (selected-frame)))
+    
+    (when (and family (not (equal family from-family)))
+      (setq new-props (append (list :family family) new-props)))
+    (when (and size (not (equal size from-size)))
+      (setq new-props (append (list :size (concat (int-to-string
+					  (/ size 10)) "pt")) new-props)))
+    (custom-set-face-update-spec 'default '((type x)) new-props)
+    ;;; WMP - we need to honor font-menu-this-frame-only-p here!      
+;    (set-face-font 'default new-default-face-font
+;		   (and font-menu-this-frame-only-p (selected-frame)))
     (message "Font %s" (face-font-name 'default))))
 
 

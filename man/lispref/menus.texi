@@ -644,7 +644,7 @@ keys, the return key and the escape key are defined to traverse the menus in a
 way that should be familiar to users of any of a certain family of popular PC
 operating systems.
 
-This behaviour can be changed by modifying the bindings in
+This behavior can be changed by modifying the bindings in
 menu-accelerator-map.  At this point, the online help is your best bet
 for more information about how to modify the menu traversal keys.
 
@@ -685,7 +685,7 @@ occurring while the menubar is active.  @xref{Keyboard Menu Traversal}.
 @defvar menu-accelerator-modifiers
 A list of modifier keys which must be pressed in addition to a valid menu
 accelerator in order for the top level menu to be activated in response to
-a keystroke.  The default value of @code{(meta)} mirrors the useage of the alt key
+a keystroke.  The default value of @code{(meta)} mirrors the usage of the alt key
 as a menu accelerator in popular PC operating systems.
 
 The modifier keys in @var{menu-accelerator-modifiers} must match exactly the

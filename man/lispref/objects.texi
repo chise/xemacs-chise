@@ -2202,7 +2202,7 @@ the same name are not @code{eq}.  @xref{Creating Symbols}.)
 
 NOTE: Under XEmacs 19, characters are really just integers, and thus
 characters and integers are @code{eq}.  Under XEmacs 20, it was
-necessary to preserve remants of this in function such as @code{old-eq}
+necessary to preserve remnants of this in function such as @code{old-eq}
 in order to maintain byte-code compatibility.  Byte code compiled
 under any Emacs 19 will automatically have calls to @code{eq} mapped
 to @code{old-eq} when executed under XEmacs 20.

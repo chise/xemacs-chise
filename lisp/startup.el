@@ -402,10 +402,10 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
     
     (if (not inhibit-autoloads)
 	(progn
-	  (packages-load-package-auto-autoloads last-package-load-path)
-	  (packages-load-package-auto-autoloads late-package-load-path)
 	  (if (not inhibit-early-packages)
-	      (packages-load-package-auto-autoloads early-package-load-path))))
+	      (packages-load-package-auto-autoloads early-package-load-path))
+	  (packages-load-package-auto-autoloads late-package-load-path)
+	  (packages-load-package-auto-autoloads last-package-load-path)))
 
     (unwind-protect
 	(command-line)
@@ -680,7 +680,7 @@ If this is nil, no message will be displayed.")
 	   (message "Error in init file: %s" (error-message-string error))
 	   (display-warning 'initialization
 	     (format "\
-An error has occured while loading %s:
+An error has occurred while loading %s:
 
 %s
 
@@ -935,7 +935,7 @@ a new format, when variables have changed, etc."
 				 " to see what this means.\n")))
 	`( "\n"))
     (face bold-italic "\
-Copyright (C) 1985-1997 Free Software Foundation, Inc.
+Copyright (C) 1985-1998 Free Software Foundation, Inc.
 Copyright (C) 1990-1994 Lucid, Inc.
 Copyright (C) 1993-1997 Sun Microsystems, Inc. All Rights Reserved.
 Copyright (C) 1994-1996 Board of Trustees, University of Illinois

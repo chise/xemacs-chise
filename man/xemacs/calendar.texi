@@ -194,7 +194,7 @@ then centers the three-month calendar around that month.
 
 @kindex . @r{(Calendar mode)}
 @findex calendar-goto-today
-  You can return to today's date with @kbd{.}
+  You can return to today's date with @kbd{.}@:
 (@code{calendar-goto-today}).
 
 @node Scroll Calendar, Mark and Region, Calendar Motion, Calendar/Diary
@@ -393,7 +393,7 @@ Generate a calendar for one year
 (@code{cal-tex-cursor-year}).
 @item t Y
 Generate a sideways-printing calendar for one year
-(@code{cal-tex-cursor-landscape-year}).
+(@code{cal-tex-cursor-year-landscape}).
 @item t f y
 Generate a Filofax-style calendar for one year
 (@code{cal-tex-cursor-filofax-year}).
@@ -480,7 +480,7 @@ equinoxes.
 @findex list-holidays
    The command @kbd{M-x list-holidays} displays the list of holidays for
 a range of years.  This function asks you for the starting and stopping
-years, and allows you to chose all the holidays or one of several
+years, and allows you to choose all the holidays or one of several
 categories of holidays.  You can use this command even if you don't have
 a calendar window.
 
@@ -998,6 +998,8 @@ Unmark the calendar window (@code{calendar-unmark}).
 Print hard copy of the diary display as it appears.
 @item M-x diary
 Display all diary entries for today's date.
+@item M-x diary-mail-entries
+Mail yourself email reminders about upcoming diary entries.
 @end table
 
 @kindex d @r{(Calendar mode)}
@@ -1053,6 +1055,14 @@ how many days to include (@pxref{Customization}).
 automatically displays a window with the day's diary entries, when you
 enter Emacs.  The mode line of the displayed window shows the date and
 any holidays that fall on that date.
+
+@findex diary-mail-entries
+@vindex diary-mail-days
+  Many users like to receive notice of events in their diary as email.
+To send such mail to yourself, use the command @kbd{M-x
+diary-mail-entries}.  A prefix argument specifies how many days
+(starting with today) to check; otherwise, the variable
+@code{diary-mail-days} says how many days.
 
 @node Format of Diary File, Date Formats, Diary Commands, Diary
 @subsection The Diary File
@@ -1216,10 +1226,6 @@ diary entry with the @kbd{i y} command.
   All of the above commands make marking diary entries by default.  To
 make a nonmarking diary entry, give a numeric argument to the command.
 For example, @kbd{C-u i w} makes a nonmarking weekly diary entry.
- 
-  All of the above commands make marking diary entries.  If you want the diary
-entry to be nonmarking, give a prefix argument to the command.  For example,
-@kbd{C-u i w} makes a nonmarking, weekly diary entry.
 
   When you modify the diary file, be sure to save the file before
 exiting Emacs.
@@ -1760,9 +1766,9 @@ ends, in the form of a list @code{(@var{month} @var{day} @var{year})}.
 The values should be @code{nil} if your area does not use daylight
 savings time.
 
-  Emacs uses these expressions to determine the start and end dates of
-daylight savings time as holidays and for correcting times of day in the
-solar and lunar calculations.
+  Emacs uses these expressions to determine the starting date of
+daylight savings time for the holiday list  and for correcting times of
+day in the solar and lunar calculations.
  
   The values for Cambridge, Massachusetts are as follows:
 
@@ -1774,7 +1780,7 @@ solar and lunar calculations.
 @end example
 
 @noindent
-i.e., the first 0th day (Sunday) of the fourth month (April) in
+That is, the first 0th day (Sunday) of the fourth month (April) in
 the year specified by @code{year}, and the last Sunday of the tenth month
 (October) of that year.  If daylight savings time were
 changed to start on October 1, you would set
@@ -1809,10 +1815,10 @@ minutes.  The value for Cambridge, Massachusetts is 60.
 
 @c @vindex calendar-daylight-savings-starts-time  too long!
 @vindex calendar-daylight-savings-ends-time
-  The variable @code{calendar-daylight-savings-starts-time} and the
-variable @code{calendar-daylight-savings-ends-time} specify the number
-of minutes after midnight local time when the transition to and from
-daylight savings time should occur.  For Cambridge, both variables'
+  The two variables @code{calendar-daylight-savings-starts-time} and
+@code{calendar-daylight-savings-ends-time} specify the number of minutes
+after midnight local time when the transition to and from daylight
+savings time should occur.  For Cambridge, Massachusetts both variables'
 values are 120.
  
 @node Diary Customizing

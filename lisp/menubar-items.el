@@ -232,6 +232,7 @@
        ["Set..." customize-customized]
        ["Apropos..." customize-apropos]
        ["Browse..." customize-browse]
+       ["List Packages" pui-list-packages]
        ["Update Packages" package-get-custom])
       ("Editing Options"
        ["Overstrike"
@@ -800,10 +801,10 @@
 		     (fboundp 'browse-url-grail))]
        )
       "-----"
-      ["Browse Faces..." (customize-face nil)]
+      ["Edit Faces..." (customize-face nil)]
       ("Font"   :filter font-menu-family-constructor)
       ("Size"	:filter font-menu-size-constructor)
-      ("Weight"	:filter font-menu-weight-constructor)
+;      ("Weight"	:filter font-menu-weight-constructor)
       "-----"
       ["Save Options" customize-save-customized]
       )

@@ -63,6 +63,9 @@
 (defvar packages-load-path-depth 1
   "Depth of load-path search in package hierarchies.")
 
+(defvar packages-data-path-depth 1
+  "Depth of data-path search in package hierarchies.")
+
 (defvar early-packages nil
   "Packages early in the load path.")
 
@@ -132,6 +135,18 @@ the directory to be ignored.")
 	   (error "Need version %g of package %s, got version %g"
 		  version name (cdr pkg)))
 	  (t t))))
+
+(defun package-delete-name (name)
+  (let (pkg)
+    ;; Delete ALL versions of package.
+    ;; This is pretty memory-intensive, as we use copy-alist when deleting
+    ;; package entries, to prevent side-effects in functions that call this
+    ;; one.
+    (while (setq pkg (assq name packages-package-list))
+      (setq packages-package-list (delete pkg (copy-alist
+					       packages-package-list)))
+      )
+    ))
 
 ;;; Build time stuff
 
@@ -220,14 +235,10 @@ is used instead of `load-path'."
       (setq path (cdr path)))
     autoloads))
 
-(defun packages-list-autoloads ()
+(defun packages-list-autoloads (source-directory)
   "List autoload files in (what will be) the normal lisp search path.
 This function is used during build to find where the global symbol files so
 they can be perused for their useful information."
-  ;; Source directory may not be initialized yet.
-  ;; (print (prin1-to-string load-path))
-  (if (null source-directory)
-      (setq source-directory (car load-path)))
   (let ((files (directory-files (file-name-as-directory source-directory)
 				t ".*"))
 	file autolist)
@@ -294,6 +305,23 @@ is run.  Don't call it or you'll be sorry."
 ;; Data-directory is really a list now.  Provide something to search it for
 ;; directories.
 
+(defun locate-data-directory-list (name &optional dir-list)
+  "Locate the matching list of directories in a search path DIR-LIST.
+If no DIR-LIST is supplied, it defaults to `data-directory-list'."
+  (unless dir-list
+    (setq dir-list data-directory-list))
+  (let (found found-dir found-dir-list)
+    (while dir-list
+      (setq found (file-name-as-directory (concat (car dir-list) name))
+	    found-dir (file-directory-p found))
+      (and found-dir
+	   (setq found-dir-list (cons found found-dir-list)))
+      (setq dir-list (cdr dir-list)))
+    (nreverse found-dir-list)))
+
+;; Data-directory is really a list now.  Provide something to search it for
+;; a directory.
+
 (defun locate-data-directory (name &optional dir-list)
   "Locate a directory in a search path DIR-LIST (a list of directories).
 If no DIR-LIST is supplied, it defaults to `data-directory-list'."
@@ -331,7 +359,7 @@ This function is basically a wrapper over `locate-file'."
      (and version-directory (list version-directory))
      (and site-directory (list site-directory)))))
 
-(defvar packages-special-base-regexp "^\\(etc\\|info\\|lisp\\|lib-src\\|bin\\)$"
+(defvar packages-special-base-regexp "^\\(etc\\|info\\|lisp\\|lib-src\\|bin\\|pkginfo\\)$"
   "Special subdirectories of packages.")
 
 (defvar packages-no-package-hierarchy-regexp
@@ -445,16 +473,25 @@ PACKAGES is a list of package directories."
    packages-load-path-depth))
 
 (defun packages-find-package-exec-path (packages)
+  "Construct the exec-path component for packages.
+PACKAGES is a list of package directories."
   (packages-find-package-library-path packages
 				      (list (paths-construct-path
 					     (list "bin" system-configuration))
 					    "lib-src")))
 
 (defun packages-find-package-info-path (packages)
+  "Construct the info-path component for packages.
+PACKAGES is a list of package directories."
   (packages-find-package-library-path packages '("info")))
 
 (defun packages-find-package-data-path (packages)
-  (packages-find-package-library-path packages '("etc")))
+  "Construct the data-path component for packages.
+PACKAGES is a list of package directories."
+  (paths-find-recursive-load-path
+   (packages-find-package-library-path packages
+				       '("etc"))
+   packages-data-path-depth))
 
 ;; Loading package initialization files
 

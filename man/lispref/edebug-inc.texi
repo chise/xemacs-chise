@@ -355,7 +355,7 @@ Step into the function or macro after point after first ensuring that it
 is instrumented.  It does this by calling @code{edebug-on-entry} and
 then switching to @code{go} mode.
 
-Although the automatic instrumentating is convenient, it is not
+Although the automatic instrumentation is convenient, it is not
 later automatically uninstrumented.
 
 @item h
@@ -1411,7 +1411,7 @@ no higher alternatives may apply.
 @cindex backquote (Edebug)
 Backquote (@kbd{`}) is a macro that results in an expression that may or
 may not be evaluated.  It is often used to simplify the definition of a
-macro to return an expression that is evaluted, but Edebug does not know
+macro to return an expression that is evaluated, but Edebug does not know
 when this is the case.  However, the forms inside unquotes (@code{,} and
 @code{,@@}) are evaluated and Edebug instruments them.
 

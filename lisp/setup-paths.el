@@ -137,12 +137,12 @@
 	 (paths-decode-directory-path path-envval 'drop-empties)))
    (packages-find-package-exec-path early-packages)
    (packages-find-package-exec-path late-packages)
-   (packages-find-package-exec-path last-packages)
    (let ((emacspath-envval (getenv "EMACSPATH")))
      (and emacspath-envval
 	  (split-path emacspath-envval)))
    (and exec-directory
-	(list exec-directory))))
+	(list exec-directory))
+   (packages-find-package-exec-path last-packages)))
 
 (defun paths-find-data-directory (roots)
   "Find the data directory."
@@ -154,7 +154,7 @@
   (append
    (packages-find-package-data-path early-packages)
    (packages-find-package-data-path late-packages)
-   (packages-find-package-data-path last-packages)
-   (list data-directory)))
+   (list data-directory)
+   (packages-find-package-data-path last-packages)))
 
 ;;; setup-paths.el ends here

@@ -3125,15 +3125,15 @@ If FORM is a lambda or a macro, byte-compile it as a function."
 	  (t (byte-compile-normal-call form)))))
 
 (defun byte-compile-buffer-substring (form)
-  (let ((len (length form)))
-    ;; buffer-substring used to take exactly two args, but now takes 0-3.
-    ;; convert 0-2 to two args and use special bytecode operand.
-    ;; convert 3 args to a normal call.
-    (cond ((= len 1) (setq form (append form '(nil nil)))
-	   (= len 2) (setq form (append form '(nil)))))
-    (cond ((= len 3) (byte-compile-two-args form))
-	  ((= len 4) (byte-compile-normal-call form))
-	  (t (byte-compile-subr-wrong-args form "0-3")))))
+  ;; buffer-substring used to take exactly two args, but now takes 0-3.
+  ;; convert 0-2 to two args and use special bytecode operand.
+  ;; convert 3 args to a normal call.
+  (case (length (cdr form))
+    (0 (byte-compile-two-args (append form '(nil nil))))
+    (1 (byte-compile-two-args (append form '(nil))))
+    (2 (byte-compile-two-args form))
+    (3 (byte-compile-normal-call form))
+    (t (byte-compile-subr-wrong-args form "0-3"))))
 
 (defun byte-compile-list (form)
   (let ((count (length (cdr form))))

@@ -890,27 +890,28 @@ when set for any reason.  @xref{Buffer-Local Variables}.
   An @dfn{indirect buffer} shares the text of some other buffer, which
 is called the @dfn{base buffer} of the indirect buffer.  In some ways it
 is the analogue, for buffers, of a symbolic link among files.  The base
-buffer may not itself be an indirect buffer.
+buffer may not itself be an indirect buffer.  One base buffer may have
+several @dfn{indirect children}.
 
   The text of the indirect buffer is always identical to the text of its
 base buffer; changes made by editing either one are visible immediately
-in the other.  This includes the text properties as well as the characters
-themselves.
+in the other.
 
   But in all other respects, the indirect buffer and its base buffer are
 completely separate.  They have different names, different values of
-point, different narrowing, different markers and overlays (though
-inserting or deleting text in either buffer relocates the markers and
-overlays for both), different major modes, and different local
-variables.
+point and mark, different narrowing, different markers and extents
+(though inserting or deleting text in either buffer relocates the
+markers and extents for both), different major modes, and different
+local variables.  Unlike in FSF Emacs, XEmacs indirect buffers do not
+automatically share text properties among themselves and their base
+buffer.
 
   An indirect buffer cannot visit a file, but its base buffer can.  If
 you try to save the indirect buffer, that actually works by saving the
 base buffer.
 
   Killing an indirect buffer has no effect on its base buffer.  Killing
-the base buffer effectively kills the indirect buffer in that it cannot
-ever again be the current buffer.
+the base buffer kills all its indirect children.
 
 @deffn Command make-indirect-buffer base-buffer name
 This creates an indirect buffer named @var{name} whose base buffer
@@ -919,11 +920,39 @@ or a string.
  
 If @var{base-buffer} is an indirect buffer, its base buffer is used as
 the base for the new buffer.
+
+@example
+@group
+(make-indirect-buffer "*scratch*" "indirect")
+     @result{} #<buffer "indirect">
+@end group
+@end example
 @end deffn
 
-@defun buffer-base-buffer buffer
+@defun buffer-base-buffer &optional buffer
 This function returns the base buffer of @var{buffer}.  If @var{buffer}
 is not indirect, the value is @code{nil}.  Otherwise, the value is
-another buffer, which is never an indirect buffer.
+another buffer, which is never an indirect buffer.  If @var{buffer} is
+not supplied, it defaults to the current buffer.
+
+@example
+@group
+(buffer-base-buffer (get-buffer "indirect"))
+     @result{} #<buffer "*scratch*">
+@end group
+@end example
 @end defun
 
+@defun buffer-indirect-children &optional buffer
+This function returns a list of all indirect buffers whose base buffer
+is @var{buffer}.  If @var{buffer} is indirect, the return value will
+always be nil; see @code{make-indirect-buffer}.  If @var{buffer} is not
+supplied, it defaults to the current buffer.
+
+@example
+@group
+(buffer-indirect-children (get-buffer "*scratch*"))
+     @result{} (#<buffer "indirect">)
+@end group
+@end example
+@end defun

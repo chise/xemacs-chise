@@ -81,8 +81,6 @@
 
 ;; Then process the autoloads
 (setq autoload-file-name "auto-autoloads.elc")
-(setq source-directory (concat default-directory "../lisp"))
-;; (print (concat "Source directory: " source-directory))
 (load "find-paths.el")
 (load "packages.el")
 (load "setup-paths.el")

@@ -82,6 +82,18 @@ HAVE_MULE=0
 !if !defined(HAVE_XPM)
 HAVE_XPM=0
 !endif
+!if !defined(HAVE_PNG)
+HAVE_PNG=0
+!endif
+!if !defined(HAVE_TIFF)
+HAVE_TIFF=0
+!endif
+!if !defined(HAVE_JPEG)
+HAVE_JPEG=0
+!endif
+!if !defined(HAVE_GIF)
+HAVE_GIF=1
+!endif
 !if !defined(HAVE_TOOLBARS)
 HAVE_TOOLBARS=$(HAVE_XPM)
 !endif
@@ -152,6 +164,38 @@ CONFIG_ERROR=1
 !message Specified XPM directory does not contain "$(XPM_DIR)\lib\Xpm.lib"
 CONFIG_ERROR=1
 !endif
+!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(PNG_DIR)
+!message Please specify root directory for your PNG installation: PNG_DIR=path
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_PNG) && defined(PNG_DIR) && !exist("$(PNG_DIR)\libpng.lib")
+!message Specified PNG directory does not contain "$(PNG_DIR)\libpng.lib"
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_PNG) && !defined(ZLIB_DIR)
+!message Please specify root directory for your ZLIB installation: ZLIB_DIR=path
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_PNG) && defined(ZLIB_DIR) && !exist("$(ZLIB_DIR)\zlib.lib")
+!message Specified ZLIB directory does not contain "$(ZLIB_DIR)\zlib.lib"
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_TIFF) && !defined(TIFF_DIR)
+!message Please specify root directory for your TIFF installation: TIFF_DIR=path
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_TIFF) && !exist("$(TIFF_DIR)\libtiff\libtiff.lib")
+!message Specified TIFF directory does not contain "$(TIFF_DIR)\libtiff\libtiff.lib"
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_JPEG) && !defined(JPEG_DIR)
+!message Please specify root directory for your JPEG installation: JPEG_DIR=path
+CONFIG_ERROR=1
+!endif
+!if $(HAVE_MSW) && $(HAVE_JPEG) && !exist("$(JPEG_DIR)\libjpeg.lib")
+!message Specified JPEG directory does not contain "$(JPEG_DIR)\libjpeg.lib"
+CONFIG_ERROR=1
+!endif
 !if $(HAVE_MSW) && $(HAVE_TOOLBARS) && !$(HAVE_XPM)
 !error Toolbars require XPM support
 CONFIG_ERROR=1
@@ -194,6 +238,18 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !endif
 !if $(HAVE_XPM)
 !message Compiling in support for XPM images.
+!endif
+!if $(HAVE_GIF)
+!message Compiling in support for GIF images.
+!endif
+!if $(HAVE_PNG)
+!message Compiling in support for PNG images.
+!endif
+!if $(HAVE_TIFF)
+!message Compiling in support for TIFF images.
+!endif
+!if $(HAVE_JPEG)
+!message Compiling in support for JPEG images.
 !endif
 !if $(HAVE_TOOLBARS)
 !message Compiling in support for toolbars.
@@ -265,6 +321,26 @@ MSW_C_DIRED_OBJ=$(OUTDIR)\dired-msw.obj
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_XPM -DFOR_MSW
 MSW_INCLUDES=$(MSW_INCLUDES) -I"$(XPM_DIR)" -I"$(XPM_DIR)\lib"
 MSW_LIBS=$(MSW_LIBS) "$(XPM_DIR)\lib\Xpm.lib"
+!endif
+!if $(HAVE_GIF)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_GIF
+MSW_GIF_SRC=$(XEMACS)\src\dgif_lib.c $(XEMACS)\src\gif_io.c
+MSW_GIF_OBJ=$(OUTDIR)\dgif_lib.obj $(OUTDIR)\gif_io.obj
+!endif
+!if $(HAVE_PNG)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_PNG
+MSW_INCLUDES=$(MSW_INCLUDES) -I"$(PNG_DIR)" -I"$(ZLIB_DIR)"
+MSW_LIBS=$(MSW_LIBS) "$(PNG_DIR)\libpng.lib" "$(ZLIB_DIR)\zlib.lib"
+!endif
+!if $(HAVE_TIFF)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_TIFF
+MSW_INCLUDES=$(MSW_INCLUDES) -I"$(TIFF_DIR)\libtiff"
+MSW_LIBS=$(MSW_LIBS) "$(TIFF_DIR)\libtiff\libtiff.lib"
+!endif
+!if $(HAVE_JPEG)
+MSW_DEFINES=$(MSW_DEFINES) -DHAVE_JPEG
+MSW_INCLUDES=$(MSW_INCLUDES) -I"$(JPEG_DIR)"
+MSW_LIBS=$(MSW_LIBS) "$(JPEG_DIR)\libjpeg.lib"
 !endif
 !if $(HAVE_TOOLBARS)
 MSW_DEFINES=$(MSW_DEFINES) -DHAVE_TOOLBARS
@@ -584,7 +660,8 @@ DOC_SRC7=\
  $(XEMACS)\src\select-msw.c \
  $(MSW_C_DIRED_SRC) \
  $(MSW_TOOLBAR_SRC) \
- $(MSW_DIALOG_SRC)
+ $(MSW_DIALOG_SRC) \
+ $(MSW_GIF_SRC)
 !endif
 
 !if $(HAVE_MULE)
@@ -670,9 +747,9 @@ TEMACS_MSW_OBJS=\
 	$(OUTDIR)\select-msw.obj \
 	$(MSW_C_DIRED_OBJ) \
 	$(MSW_TOOLBAR_OBJ) \
-	$(MSW_DIALOG_OBJ)
+	$(MSW_DIALOG_OBJ) \
+	$(MSW_GIF_OBJ)
 !endif
-
 
 !if $(HAVE_MULE)
 TEMACS_MULE_OBJS=\
@@ -867,20 +944,18 @@ all:	$(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
 temacs: $(TEMACS)
 
 # use this rule to install the system
-install:	all "$(INSTALL_DIR)\nul" "$(INSTALL_DIR)\lock\nul"
+install:	all
+	@echo Installing in $(INSTALL_DIR) ...
+	@xcopy /q PROBLEMS "$(INSTALL_DIR)\"
+	@xcopy /q README "$(INSTALL_DIR)\lock\"
+	@del "$(INSTALL_DIR)\lock\README"
 	@xcopy /q $(LIB_SRC)\*.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
-	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
-	@copy $(XEMACS)\src\xemacs.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
-	@copy $(RUNEMACS) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)\"
+	@copy $(LIB_SRC)\DOC "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
+	@copy $(XEMACS)\src\xemacs.exe "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
+	@copy $(RUNEMACS) "$(INSTALL_DIR)\$(EMACS_CONFIGURATION)"
 	@xcopy /e /q $(XEMACS)\etc  "$(INSTALL_DIR)\etc\"
 	@xcopy /e /q $(XEMACS)\info "$(INSTALL_DIR)\info\"
 	@xcopy /e /q $(XEMACS)\lisp "$(INSTALL_DIR)\lisp\"
-
-"$(INSTALL_DIR)\nul":
-	-@mkdir "$(INSTALL_DIR)"
-
-"$(INSTALL_DIR)\lock\nul":	"$(INSTALL_DIR)\nul"
-	-@mkdir "$(INSTALL_DIR)\lock"
 
 distclean:
 	del *.bak

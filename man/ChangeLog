@@ -1,3 +1,52 @@
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-20  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* lispref/customize.texi: New file.
+
+1998-09-09  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* internals/internals.texi (Coding for Mule): New node and
+	section.
+
+1998-09-03  Darryl Okahata  <darrylo@sr.hp.com>
+
+	* xemacs/packages.texi: Document manually installing binary packages.
+
+1998-09-02  Jeff Miller <jmiller@smart.net>
+
+	* Synch calendar.texi with Emacs 20.3
+
+1998-09-03  Darryl Okahata  <darrylo@sr.hp.com>
+
+	* xemacs/packages.texi: Correct and update package documentation.
+	  Updated the package installation section to mention the visual 
+	  package browser/installer.
+
+1998-08-31  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* lispref/buffers.texi (Indirect Buffers): Update with XEmacs
+	specifics.
+
+1998-08-21  Greg Klanderman  <greg@alphatech.com>
+
+	* lispref/files.texi (User Name Completion): new section.
+
+1998-07-23  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs/packages.texi (Packages): Changing @itemize @emph to
+	@itemize @bullet (this is what all other files included in
+	xemacs.texi use) to fix error in texi2dvi (GNU Texinfo 3.12) 0.8.
+
+1998-07-20  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* xemacs/startup.texi: Small fixes, suggested by Hrvoje.
+
+	* xemacs/xemacs.texi: 
+	* xemacs/packages.texi: More packages documentation.
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

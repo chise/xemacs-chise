@@ -452,10 +452,10 @@ Keymap for characters following C-c.")
 
 
 
-
-
-
 (define-key global-map "\M-%" 'query-replace)
+
+;; FSF v20 binding
+(define-key global-map [(control meta %)] 'query-replace-regexp)
 
 
 ; autoloaded

@@ -359,7 +359,7 @@ in a separate buffer, and include an explanatory message that may span
 across several lines.  Here is an example of how a warning is displayed:
 
 @example
-(1) (initialization/error) An error has occured while loading ~/.emacs:
+(1) (initialization/error) An error has occurred while loading ~/.emacs:
 
 Symbol's value as variable is void: bogus-variable
 
@@ -499,11 +499,11 @@ applies to it.  The list can have two kinds of elements:
 
 @table @code
 @item @var{atom}
-A character is invisible if its @code{invisible} propery value
+A character is invisible if its @code{invisible} property value
 is @var{atom} or if it is a list with @var{atom} as a member.
 
 @item (@var{atom} . t)
-A character is invisible if its @code{invisible} propery value
+A character is invisible if its @code{invisible} property value
 is @var{atom} or if it is a list with @var{atom} as a member.
 Moreover, if this character is at the end of a line and is followed
 by a visible newline, it displays an ellipsis.

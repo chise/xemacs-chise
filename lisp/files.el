@@ -976,65 +976,69 @@ If RAWFILE is non-nil, the file is read literally."
 ;;;		(message "Symbolic link to file in buffer %s"
 ;;;			 (buffer-name linked-buf))))
 	  (setq buf (create-file-buffer filename))
-	  (set-buffer-major-mode buf)
-	  (set-buffer buf)
-	  (erase-buffer)
-	  (if rawfile
-	      (condition-case ()
-		  (insert-file-contents-literally filename t)
-		(file-error
-		 (when (and (file-exists-p filename)
-			    (not (file-readable-p filename)))
-		   (kill-buffer buf)
-		   (signal 'file-error (list "File is not readable" filename)))
-		 ;; Unconditionally set error
-		 (setq error t)))
-	    (condition-case ()
-		(insert-file-contents filename t)
-	      (file-error
-	       (when (and (file-exists-p filename)
-			  (not (file-readable-p filename)))
-		 (kill-buffer buf)
-		 (signal 'file-error (list "File is not readable" filename)))
-	       ;; Run find-file-not-found-hooks until one returns non-nil.
-	       (or (run-hook-with-args-until-success 'find-file-not-found-hooks)
-		   ;; If they fail too, set error.
-		   (setq error t)))))
-	  ;; Find the file's truename, and maybe use that as visited name.
-	  ;; automatically computed in XEmacs, unless jka-compr was used!
-	  (unless buffer-file-truename
-	    (setq buffer-file-truename truename))
-	  (setq buffer-file-number number)
-	  ;; On VMS, we may want to remember which directory in a search list
-	  ;; the file was found in.
-	  (and (eq system-type 'vax-vms)
-	       (let (logical)
-		 (if (string-match ":" (file-name-directory filename))
-		     (setq logical (substring (file-name-directory filename)
-					      0 (match-beginning 0))))
-		 (not (member logical find-file-not-true-dirname-list)))
-	       (setq buffer-file-name buffer-file-truename))
-	  (and find-file-use-truenames
-	       ;; This should be in C.  Put pathname abbreviations that have
-	       ;; been explicitly requested back into the pathname.  Most
-	       ;; importantly, strip out automounter /tmp_mnt directories so
-	       ;; that auto-save will work
-	       (setq buffer-file-name (abbreviate-file-name buffer-file-name)))
-	  ;; Set buffer's default directory to that of the file.
-	  (setq default-directory (file-name-directory buffer-file-name))
-	  ;; Turn off backup files for certain file names.  Since
-	  ;; this is a permanent local, the major mode won't eliminate it.
-	  (and (not (funcall backup-enable-predicate buffer-file-name))
-	       (progn
-		 (make-local-variable 'backup-inhibited)
-		 (setq backup-inhibited t)))
-	  (if rawfile
-	      ;; #### FSF 20.3 sets buffer-file-coding-system to
-	      ;; `no-conversion' here.  Should we copy?  It also makes
-	      ;; `find-file-literally' a local variable and sets it to t.
-	      nil
-	    (after-find-file error (not nowarn))
-	    (setq buf (current-buffer)))))
+	  ;; Catch various signals, such as QUIT, and kill the buffer
+	  ;; in that case.
+	  (condition-case data
+	      (progn
+		(set-buffer-major-mode buf)
+		(set-buffer buf)
+		(erase-buffer)
+		(condition-case ()
+		    (if rawfile
+			(insert-file-contents-literally filename t)
+		      (insert-file-contents filename t))
+		  (file-error
+		   (when (and (file-exists-p filename)
+			      (not (file-readable-p filename)))
+		     (signal 'file-error (list "File is not readable" filename)))
+		   (if rawfile
+		       ;; Unconditionally set error
+		       (setq error t)
+		     (or
+		      ;; Run find-file-not-found-hooks until one returns non-nil.
+		      (run-hook-with-args-until-success 'find-file-not-found-hooks)
+		      ;; If they fail too, set error.
+		      (setq error t)))))
+		;; Find the file's truename, and maybe use that as visited name.
+		;; automatically computed in XEmacs, unless jka-compr was used!
+		(unless buffer-file-truename
+		  (setq buffer-file-truename truename))
+		(setq buffer-file-number number)
+		;; On VMS, we may want to remember which directory in
+		;; a search list the file was found in.
+		(and (eq system-type 'vax-vms)
+		     (let (logical)
+		       (if (string-match ":" (file-name-directory filename))
+			   (setq logical (substring (file-name-directory filename)
+						    0 (match-beginning 0))))
+		       (not (member logical find-file-not-true-dirname-list)))
+		     (setq buffer-file-name buffer-file-truename))
+		(and find-file-use-truenames
+		     ;; This should be in C.  Put pathname
+		     ;; abbreviations that have been explicitly
+		     ;; requested back into the pathname.  Most
+		     ;; importantly, strip out automounter /tmp_mnt
+		     ;; directories so that auto-save will work
+		     (setq buffer-file-name (abbreviate-file-name buffer-file-name)))
+		;; Set buffer's default directory to that of the file.
+		(setq default-directory (file-name-directory buffer-file-name))
+		;; Turn off backup files for certain file names.  Since
+		;; this is a permanent local, the major mode won't eliminate it.
+		(and (not (funcall backup-enable-predicate buffer-file-name))
+		     (progn
+		       (make-local-variable 'backup-inhibited)
+		       (setq backup-inhibited t)))
+		(if rawfile
+		    ;; #### FSF 20.3 sets buffer-file-coding-system to
+		    ;; `no-conversion' here.  Should we copy?  It also
+		    ;; makes `find-file-literally' a local variable
+		    ;; and sets it to t.
+		    nil
+		  (after-find-file error (not nowarn))
+		  (setq buf (current-buffer))))
+	    (t
+	     (kill-buffer buf)
+	     (signal (car data) (cdr data))))))
       buf)))
 
 ;; FSF has `insert-file-literally' and `find-file-literally' here.
@@ -1154,7 +1158,7 @@ run `normal-mode' explicitly."
     ("\\.[fF]90\\'" . f90-mode)
 ;;; Less common extensions come here
 ;;; so more common ones above are found faster.
-    ("\\.p[lm]\\'" . perl-mode)
+    ("\\.\\([pP][Llm]\\|al\\)\\'" . perl-mode)
     ("\\.py\\'" . python-mode)
     ("\\.texi\\(nfo\\)?\\'" . texinfo-mode)
     ("\\.ad[abs]\\'" . ada-mode)

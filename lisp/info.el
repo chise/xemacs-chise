@@ -2614,39 +2614,20 @@ At end of the node's text, moves to the next node."
   (if (/= click-count 2)
       ;; Return nil so any other hooks are performed.
       nil
-      (let* ((x (event-x-pixel event))
-	     (y (event-y-pixel event))
-	     (w (window-pixel-width (event-window event)))
-	     (h (window-pixel-height (event-window event)))
-	     (w/3 (/ w 3))
-	     (w/2 (/ w 2))
-	     (h/4 (/ h 4)))
+      (let* ((fw (face-width 'default))
+	     (fh (face-height 'default))
+	     (x (/ (event-x-pixel event) fw))
+	     (y (/ (event-y-pixel event) fw))
+	     (w (/ (window-pixel-width (event-window event)) fw))
+	     (h (/ (window-pixel-height (event-window event)) fh))
+	     (bx 3)
+	     (by 2))
 	(cond
-	  ;; In the top 1/4 and inside the middle 1/3
-	  ((and (<= y h/4)
-		(and (>= x w/3) (<= x (+ w/3 w/3))))
-	   (Info-up)
-	   t)
-	  ;; In the bottom 1/4 and inside the middle 1/3
-	  ((and (>= y (+ h/4 h/4 h/4))
-		(and (>= x w/3) (<= x (+ w/3 w/3))))
-	   (Info-nth-menu-item 1)
-	   t)
-	  ;; In the lower 3/4 and the right 1/2
-	  ;; OR in the upper 1/4 and the right 1/3
-	  ((or (and (>= y h/4) (>= x w/2))
-	       (and (< y h/4) (>= x (+ w/3 w/3))))
-	   (Info-next)
-	   t)
-	  ;; In the lower 3/4 and the left 1/2
-	  ;; OR in the upper 1/4 and the left 1/3
-	  ((or (and (>= y h/4) (< x w/2))
-	       (and (< y h/4) (<= x w/3)))
-	   (Info-prev)
-	   t)
-	  ;; This shouldn't happen.
-	  (t
-	   (error "event out of bounds: %s %s" x y))))))
+	  ((<= y by) (Info-up) t)
+	  ((>= y (- h by)) (Info-nth-menu-item 1) t)
+	  ((<= x bx) (Info-prev) t)
+	  ((>= x (- w bx)) (Info-next) t)
+	  (t nil)))))
 
 (defvar Info-mode-map nil
   "Keymap containing Info commands.")
@@ -2742,9 +2723,15 @@ b	Go to beginning of node.        Meta->    Go to end of node.
 TAB	Go to next cross-reference.     Meta-TAB  Go to previous ref.
 
 Mouse commands:
-Left Button	Set point.
+Left Button	Set point (usual text-mode functionality)
 Middle Button	Click on a highlighted node reference to go to it.
 Right Button	Pop up a menu of applicable Info commands.
+
+Left Button Double Click in window edges:
+ Top edge:    Go up to the parent node, like `u'.
+ Left edge:   Go to the previous node, like `p'.
+ Right edge:  Go to the next node, like `n'.
+ Bottom edge: Follow first menu item, like `1'.
 
 Advanced commands:
 g	Move to node, file, or annotation tag specified by name.
