@@ -195,7 +195,7 @@ separate_textual_runs (unsigned char *text_storage,
 	  char_converter.reg[0] = XCHARSET_ID (charset);
 	  char_converter.reg[1] = byte1;
 	  char_converter.reg[2] = byte2;
-	  ccl_driver (&char_converter, 0, 0, 0, 0);
+	  ccl_driver (&char_converter, 0, 0, 0, 0, CCL_MODE_ENCODING);
 	  byte1 = char_converter.reg[1];
 	  byte2 = char_converter.reg[2];
 	}

@@ -1,3 +1,24 @@
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in:
+	- Add new option `--with-ucs4'; define `CHAR_IS_UCS4' if it is
+	  specified.
+	- Define `CHAR_IS_UCS4' if `--with-utf-2000' is specified.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
+	if it is specified.
+
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-06-04  SL Baur  <steve@steve1.m17n.org>
+
+	* configure.in (CPP): Correct test for locating $site_prefix
+	include directories.
+
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.15 is released

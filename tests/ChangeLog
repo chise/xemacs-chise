@@ -1,3 +1,20 @@
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/base64-tests.el: Check for error instead for nil where 
+	error conditions are expected.
+
+	* automated/base64-tests.el: Comment out (for now) the code that
+	causes crashes.
+
+1999-06-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* automated/base64-tests.el: Check that the decoder handles
+	arbitrary characters.  Cut down on the number of tests.
+
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.15 is released

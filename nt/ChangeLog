@@ -1,3 +1,14 @@
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-05-14  Adrian Aichner  &lt;aichner@ecf.teradyne.com&gt;
+
+	* xemacs.mak (GUNG_HO): Explicitly default to 0.
+	Fix some comment typos.
+	($(XEMACS)\Installation): Create it in the toplevel-directory,
+ 	where it is expected by loadup.el
+
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.15 is released

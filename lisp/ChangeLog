@@ -1,7 +1,90 @@
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use utf-8 as
+	coding-system if `utf-2000' is provided.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-coding.el: Add `utf-8' to coding-priority-list if
+	`utf-2000' is provided.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Don't load vietnamese.el
+	if utf-2000 is provided temporally.
+
+1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/vietnamese.el (leading-code-private-11): Deleted [defined
+	as builtin variable].
+
+1999-06-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Set 32 for
+ 	missing characters to avoid crash.
+
 1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Specify `columns' of the charset `thai-xtis'
+	is 1.
+
+1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Use NBSP of ISO
+	8859-5 instead of ISO 8859-1.
+
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* files.el (insert-file-contents-literally): Treat file as binary;
+	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-06-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Set 32 for
+ 	missing characters to avoid crash.
+
+1999-06-09  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* coding.el (set-terminal-coding-system): Only set the console
+	coding system on the selected console if it is a tty.
+
+1999-06-10  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* cus-face.el: 
+	* cus-edit.el: 
+	* faces.el: 
+	(custom): 
+	(face-spec-set): 
+	* faces.el (frob-face-property): 
+	* font-menu.el (font-menu-set-font): 
+	          Actually apply changes from 1999-03-17
+
+1999-06-10  Andy Piper  <andy@xemacs.org>
+
+	* select.el (get-selection): abstract out non error-signalling
+ 	part.
+	(get-selection-no-error): get-selection without signalling an
+ 	error.
+	(selection-is-clipboard-p): new variable. controls whether the
+ 	selection sets the clipboard.
+	(own-selection): use it.
+
+	* mouse.el (insert-selection): fallback to clipboard after trying
+ 	primary selection and cutbuffer.
+
+1999-06-05  Andy Piper  <andy@xemacs.org>
+
+	* x-select.el (xselect-kill-buffer-hook-1): use generalised
+ 	selection functions.
 
 1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
@@ -16,6 +99,18 @@
 1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* coding.el: Don't copy `no-conversion' to `raw-text'.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (make-char): Define it if Mule is not around.
+
+1999-06-07  SL Baur  <steve@steve1.m17n.org>
+
+	* mule/mule-help.el: Add trailing newline.  Use mule keyword.
+
+	* x-select.el (x-disown-selection-internal): Restore symbol as an
+	obsolete alias.
+	(xselect-kill-buffer-hook-1): Use disown-selection-internal.
 
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 

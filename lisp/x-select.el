@@ -50,6 +50,8 @@
   'select-make-extent-for-selection)
 (define-obsolete-function-alias 'x-cut-copy-clear-internal 'cut-copy-clear-internal)
 (define-obsolete-function-alias 'x-get-selection 'get-selection)
+(define-obsolete-function-alias 'x-disown-selection-internal
+  'disown-selection-internal)
 
 (defun x-get-secondary-selection ()
   "Return text selected from some X window."
@@ -68,7 +70,7 @@ be the text between those markers)."
 		 (list (cons ;; these need not be ordered.
 			(copy-marker (point-marker))
 			(copy-marker (mark-marker))))))
-  (x-own-selection selection 'SECONDARY))
+  (own-selection selection 'SECONDARY))
 
 (defun x-notice-selection-requests (selection type successful)
   "for possible use as the value of x-sent-selection-hooks."
@@ -101,7 +103,7 @@ be the text between those markers)."
 
 (defun xselect-kill-buffer-hook-1 (selection)
   (let (value)
-    (if (and (x-selection-owner-p selection)
+    (if (and (selection-owner-p selection)
 	     (setq value (get-selection-internal selection '_EMACS_INTERNAL))
 	     ;; The _EMACS_INTERNAL selection type has a converter registered
 	     ;; for it that does no translation.  This only works if emacs is
@@ -114,7 +116,7 @@ be the text between those markers)."
 		 (and (extent-live-p value)
 		      (eq (current-buffer) (extent-object value)))
                  (and (extentp value) (not (extent-live-p value)))))
-	(x-disown-selection-internal selection))))
+	(disown-selection-internal selection))))
 
 
 ;;; Cut Buffer support

@@ -114,11 +114,14 @@ A mark is pushed, so that the inserted text lies between point and mark."
 (defun insert-selection (&optional check-cutbuffer-p move-point-event)
   "Insert the current selection into buffer at point."
   (interactive "P")
+  ;; we fallback to the clipboard if the current selection is not existent
   (let ((text (if check-cutbuffer-p
-		  (or (condition-case () (get-selection) (error ()))
+		  (or (get-selection-no-error) 
 		      (get-cutbuffer)
-		      (error "No selection or cut buffer available"))
-		(get-selection))))
+		      (get-selection-no-error 'CLIPBOARD)
+		      (error "No selection, clipboard or cut buffer available"))
+		(or (get-selection-no-error)
+		    (get-selection 'CLIPBOARD)))))
     (cond (move-point-event
 	   (mouse-set-point move-point-event)
 	   (push-mark (point)))

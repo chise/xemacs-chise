@@ -1,3 +1,201 @@
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c, character.h (Bytecount rep_bytes_by_first_byte):
+	Don't define in UTF2000.
+
+	* character.h: Include mule-charset.h if CHAR_IS_UCS4 is not
+	defined.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Include character.h in every
+	MULE.
+
+1999-06-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* config.h.in (CHAR_IS_UCS4): New macro.
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modify for
+	conventional MULE representation.
+	(syms_of_mule_charset): Update to 0.3 (Imamiya).
+
+	* mule-charset.h: Reverted to original.
+
+	* redisplay-msw.c, objects-tty.c, objects-msw.c, mule-wnnfns.c,
+	mule-ccl.c, lstream.h, buffer.h: Use "character.h" instead of
+	"mule-charset.h" if CHAR_IS_UCS4 is defined.
+
+	* character.h: New file.
+
+	* file-coding.c (Fmake_coding_system): Set 1 to
+	`codesys->fixed.size' if TYPE is `no-conversion' and UTF2000 is
+	defined.
+	(encode_coding_no_conversion): New implementation for UTF2000.
+
+	* file-coding.h (struct Lisp_Coding_System): Add new member
+	`fixed.size'.
+
+1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (decode_coding_iso2022): Code-point arguments of
+	`MAKE_CHAR' must be smaller than 0x80 in UTF2000.
+	(encode_coding_iso2022): New implementation for UTF2000.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-canna.c (c2mu): New implementation for UTF2000.
+	(m2c): Likewise.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (encode_coding_no_conversion): Modify for UTF2000.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (reset_encoding_stream): Set 0 to
+	`str->iso2022.current_char_boundary' in UTF2000.
+	(encode_utf8): Don't define in UTF2000.
+	(encode_coding_utf8): New implementation for UTF-8 representation
+	of UTF2000.
+	(complex_vars_of_file_coding): Define coding-system `utf-8'.
+
+1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule.c (vars_of_mule): Provide `utf-2000' in UTF2000.
+
+	* mule-charset.h (BUFBYTE_FIRST_BYTE_P): Modify for UTF-8 in
+	UTF2000.
+	(REP_BYTES_BY_FIRST_BYTE): Likewise.
+
+	* buffer.h (non_ascii_valid_char_p): Don't define in UTF2000.
+
+	* mule-charset.c (non_ascii_set_charptr_emchar): Don't define
+	local variables `lb', `c1', `c2' and `charset' in UTF2000; encode
+	as UTF-8 in UTF2000.
+	(non_ascii_charptr_emchar): Decode as UTF-8 in UTF2000.
+	(non_ascii_valid_char_p): Don't define in UTF2000.
+	(non_ascii_charptr_copy_char): Add case 5 and 6 in UTF2000.
+	(Lstream_get_emchar_1): Likewise.
+	(utf-2000-version): New variable in UTF2000.
+
+	* lread.c (read_escape): Add new reader `u'.
+
+	* insdel.c (three_to_one_table): Don't define in UTF2000.
+	(bufpos_to_bytind_func): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+	(bytind_to_bufpos_func): Likewise.
+	(buffer_mule_signal_inserted_region): Likewise.
+	(vars_of_insdel): Don't initialize `three_to_one_table'.
+	(init_buffer_text): Use `buf->text->mule_size' instead of
+	`buf->text->mule_shifter' and `buf->text->mule_three_p' in
+	UTF2000.
+
+	* file-coding.c (DECODE_ADD_BINARY_CHAR): New implementation for
+	UTF-8 representation in UTF2000.
+	(DECODE_ADD_UCS_CHAR): New macro in UTF2000.
+	(decode_ucs4): Use `DECODE_ADD_UCS_CHAR' in UTF2000.
+	(decode_coding_iso2022): Don't define local variable `lb' in
+	UTF2000; don't use LEADING_BYTE in UTF2000; use
+	`DECODE_ADD_UCS_CHAR' in UTF2000.
+	(convert_to_external_format): Decode as UTF-8 in UTF2000.
+
+	* config.h.in (UTF2000): New macro.
+
+	* buffer.h (struct buffer_text): Add new member `mule_size' and
+	don't add `mule_shifter' and `mule_three_p' in UTF2000.
+	(valid_char_p): Return always 1 in UTF2000.
+	(MAX_EMCHAR_LEN): 6 in UTF2000.
+	(three_to_one_table): Don't define in UTF2000.
+	(real_bufpos_to_bytind): Modify for UTF-8 representation in
+	UTF2000.
+	(real_bytind_to_bufpos): Likewise.
+
+	* alloc.c (Fmake_string): Add case 5 and 6 for UTF2000.
+
+1999-06-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (rep_bytes_by_first_byte): Modified for character
+	representation change.
+	(Vutf_2000_version): New variable.
+	(leading_code_private_11): New variable.
+	(syms_of_mule_charset): Add new variables `utf-2000-version' and
+	`leading-code-private-11'.
+
+	* mule-charset.h (LEADING_BYTE_CHINESE_CCITT_GB): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to 0x96 temporally.
+	(LEADING_BYTE_CHINESE_CNS11643_1): Changed to 0x97.
+	(LEADING_BYTE_CHINESE_CNS11643_2): Changed to 0x98.
+	(LEADING_BYTE_CHINESE_CNS11643_3): New macro.
+	(LEADING_BYTE_CHINESE_CNS11643_4): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_5): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_6): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_7): Likewise [but not used].
+	(LEADING_BYTE_CHINESE_BIG5_2): Changed to 0x9D temporally.
+	(LEADING_BYTE_KOREAN_KPS9566): New macro [but not used].
+	(CHAR_FIELD1_MASK): Changed to (0x7F << 14).
+	(MIN_CHAR_GREEK): New macro.
+	(MAX_CHAR_GREEK): New macro.
+	(MIN_CHAR_CYRILLIC): New macro.
+	(MAX_CHAR_CYRILLIC): New macro.
+	(MIN_CHAR_HEBREW): New macro.
+	(MAX_CHAR_HEBREW): New macro.
+	(MIN_CHAR_THAI): New macro.
+	(MAX_CHAR_THAI): New macro.
+	(MIN_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(MAX_CHAR_HALFWIDTH_KATAKANA): New macro.
+	(CHAR_FIELD2_INTERNAL): New macro [renamed from `CHAR_FIELD2'.
+	(CHAR_FIELD3_INTERNAL): New macro [renamed from `CHAR_FIELD3'.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Changed to 0xc0.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Changed to 0x50.
+	(CHAR_FIELD2): New inline function.
+	(CHAR_FIELD3): New inline function.
+	(MULE_CHAR_PRIVATE_OFFSET): New macro.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Shifted to `MULE_CHAR_PRIVATE_OFFSET'.
+	(MIN_CHAR_PRIVATE_TYPE9N): Likewise.
+	(MIN_CHAR_PRIVATE_TYPE9NX9N): Likewise.
+	(MIN_CHAR_OFFICIAL_TYPE9NX9N): Likewise.
+	(MIN_CHAR_COMPOSITION): Likewise.
+	(CHAR_LEADING_BYTE): Modified for character representation change.
+	(MAKE_CHAR): Likewise.
+
+	* lisp.h (Vcharset_latin_iso8859_1): New variable.
+	(Vcharset_greek_iso8859_7): Likewise.
+	(Vcharset_cyrillic_iso8859_5): Likewise.
+	(Vcharset_hebrew_iso8859_8): Likewise.
+	(Vcharset_thai_tis620): Likewise.
+	(Vcharset_katakana_jisx0201): Likewise.
+
+1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* redisplay-x.c (separate_textual_runs): Run `ccl_driver' with
+	`CCL_MODE_ENCODING'.
+
+	* file-coding.c (mule_decode): Run `ccl_driver' with
+	`CCL_MODE_DECODING'.
+	(mule_encode): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+
+	* mule-ccl.c (CCL_WRITE_CHAR): Refer `conversion_mode'.
+	(ccl_driver): Add new argument `conversion_mode'.
+	(Fccl_execute): Run `ccl_driver' with `CCL_MODE_ENCODING'.
+	(Fccl_execute_on_string): Likewise [perhaps it is better to add
+	new optional argument].
+
+	* mule-ccl.h (CCL_MODE_ENCODING): New macro.
+	(CCL_MODE_DECODING): New macro.
+	(ccl_driver): Add new argument `conversion_mode'.
+
+1999-06-11  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.16 is released
+
+1999-06-10  Andy Piper  <andy@xemacs.org>
+
+	* select-msw.c (mswindows_own_selection): only set the clipboard
+ 	if asked.
+	(mswindows_get_foreign_selection): only get the clipboard if
+ 	asked.
+	(mswindows_disown_selection): only disown the clipboard if asked.
+
 1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (coding_system_from_mask): Use `raw-text' instead
@@ -14,6 +212,44 @@
 	`no-conversion' as an alias for `raw-text'.
 
 	* file-coding.h (Qraw_text): New variable.
+
+1999-05-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (complex_vars_of_mule_charset): Registry of
+	japanese-jisx0208-1978 should not match with "jisx0208.1983" nor
+	"jisc6226.1983".
+
+1999-06-08  SL Baur  <steve@xemacs.org>
+
+	* s/decosf4-0.h: Explicitly #undef SYSTEM_MALLOC.
+
+1999-06-06  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (MIME_LINE_LENGTH): Default to 72, as in mimencode and
+ 	base64.el.
+	(base64_decode_1): Signal errors instead of returning -1.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* mule-charset.c (Fmake_char): Update docstring.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fstring_lessp): Actually increment the Bufbyte pointers.
+
+1999-06-05  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (base64_decode_1): Allow and ignore any non-base64
+ 	characters in input.
+
+1999-05-27  Olivier Galibert  <galibert@pobox.com>
+
+	* emacs.c (Fdump_emacs): Add clear_message() lost with the removal
+	of report_pure_usage().
+
+1999-06-04  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* fns.c (Fstring_lessp): Remove O(n^2) under Mule.
 
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 

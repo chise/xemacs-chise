@@ -491,6 +491,8 @@ while test $# != 0; do
 	with_xfs	| \
 	with_i18n3	| \
 	with_mule	| \
+	with_utf_2000	| \
+	with_ucs4	| \
 	with_file_coding| \
 	with_canna	| \
 	with_wnn	| \
@@ -1893,6 +1895,7 @@ COLON_TO_SPACE(site_prefixes)
 if test -n "$site_prefixes"; then
   for dir in $site_prefixes; do
     lib_dir="${dir}/lib"
+    inc_dir="${dir}/include"
     if test ! -d "$dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory")
     elif test ! -d "$lib_dir"; then
@@ -2967,6 +2970,13 @@ if test "$with_mule" = "yes" ; then
   dnl Use -lintl to get internationalized strerror for Mule
   AC_CHECK_HEADERS(libintl.h)
   AC_CHECK_LIB(intl, strerror)
+
+  if test "$with_utf_2000" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
+    AC_DEFINE(UTF2000)
+  elif test "$with_ucs4" = "yes" ; then
+    AC_DEFINE(CHAR_IS_UCS4)
+  fi
 
   AC_CHECKING(for Mule input methods)
   dnl Do we have the XmIm* routines?  And if so, do we want to use them?

@@ -39,12 +39,12 @@
 	    frame)
 	;; Create global face.
 	(make-empty-face face)
-	(face-display-set face value)
+	(face-display-set face value nil '(custom))
 	;; Create frame local faces
 	(while frames
 	  (setq frame (car frames)
 		frames (cdr frames))
-	  (face-display-set face value frame))
+	  (face-display-set face value frame '(custom)))
 	(init-face-from-resources face)))
     (when (and doc (null (face-doc-string face)))
       (set-face-doc-string face doc))
@@ -110,7 +110,7 @@ be changed.
 The GET function should take two arguments, the face to examine, and
 optonally the frame where the face should be examined.")
 
-(defun face-custom-attributes-set (face frame &rest atts)
+(defun face-custom-attributes-set (face frame tags &rest atts)
   "For FACE on FRAME set the attributes [KEYWORD VALUE]....
 Each keyword should be listed in `custom-face-attributes'.
 
@@ -121,7 +121,7 @@ If FRAME is nil, set the default face."
 	   (fun (nth 2 (assq name custom-face-attributes))))
       (setq atts (cdr (cdr atts)))
       (condition-case nil
-	  (funcall fun face value frame)
+	  (funcall fun face value frame tags)
 	(error nil)))))
 
 (defun face-custom-attributes-get (face frame)
@@ -157,11 +157,11 @@ If FRAME is nil, use the default face."
       (list (list t (face-custom-attributes-get
 		     symbol (selected-frame))))))
 
-(defun custom-set-face-bold (face value &optional frame)
+(defun custom-set-face-bold (face value &optional frame tags)
   "Set the bold property of FACE to VALUE."
   (if value
-      (make-face-bold face frame)
-    (make-face-unbold face frame)))
+      (make-face-bold face frame tags)
+    (make-face-unbold face frame tags)))
 
 ;; Really, we should get rid of these font.el dependencies...  They
 ;; are still presenting a problem with dumping the faces (font.el is
@@ -176,15 +176,15 @@ If FRAME is nil, use the default face."
 	 (fontobj (font-create-object font)))
     (font-bold-p fontobj)))
 
-(defun custom-set-face-italic (face value &optional frame)
+(defun custom-set-face-italic (face value &optional frame tags)
   "Set the italic property of FACE to VALUE."
   (if value
-      (make-face-italic face frame)
-    (make-face-unitalic face frame)))
+      (make-face-italic face frame tags)
+    (make-face-unitalic face frame tags)))
 
 (defun custom-face-italic (face &rest args)
   "Return non-nil if the font of FACE is italic."
-  (let* ((font (apply 'face-font-name face args))
+  (let* ((font (apply 'face-font-name face))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (font-italic-p fontobj)))
@@ -196,13 +196,13 @@ If FRAME is nil, use the default face."
     (and image 
 	 (image-instance-file-name image))))
 
-(defun custom-set-face-font-size (face size &rest args)
+(defun custom-set-face-font-size (face size &optional locale tags)
   "Set the font of FACE to SIZE"
-  (let* ((font (apply 'face-font-name face args))
+  (let* ((font (apply 'face-font-name face locale))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (set-font-size fontobj size)
-    (apply 'font-set-face-font face fontobj args)))
+    (apply 'font-set-face-font face fontobj locale tags)))
 
 (defun custom-face-font-size (face &rest args)
   "Return the size of the font of FACE as a string."
@@ -211,13 +211,13 @@ If FRAME is nil, use the default face."
 	 (fontobj (font-create-object font)))
     (format "%s" (font-size fontobj))))
 
-(defun custom-set-face-font-family (face family &rest args)
+(defun custom-set-face-font-family (face family &optional locale tags)
   "Set the font of FACE to FAMILY."
-  (let* ((font (apply 'face-font-name face args))
+  (let* ((font (apply 'face-font-name face locale))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (set-font-family fontobj family)
-    (apply 'font-set-face-font face fontobj args)))
+    (apply 'font-set-face-font face fontobj locale tags)))
 
 (defun custom-face-font-family (face &rest args)
   "Return the name of the font family of FACE."
@@ -233,7 +233,7 @@ If FRAME is nil, use the default face."
   (let ((spec (face-spec-update-all-matching (custom-face-get-spec face)
 					     display plist)))
     (put face 'customized-face spec)
-    (face-spec-set face spec)))
+    (face-spec-set face spec nil '(custom))))
 
 ;;; Initializing.
 
@@ -260,7 +260,7 @@ See `defface' for the format of SPEC."
 	    (when (or now (find-face face))
 	      (unless (find-face face)
 		(make-empty-face face))
-	      (face-spec-set face spec))
+	      (face-spec-set face spec nil '(custom)))
 	    (setq args (cdr args)))
 	;; Old format, a plist of FACE SPEC pairs.
 	(let ((face (nth 0 args))
