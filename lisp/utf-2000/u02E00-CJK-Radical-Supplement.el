@@ -631,18 +631,12 @@
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS TWO")
-    (=>ucs		. #x8279)	; è‰¹
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (ideographic-radical . 140)	; â¾‹
-    (ideographic-strokes . 0)
-    (total-strokes	 . 4)
-    (=cns11643-4	. #x2153)	; ø»—¡š
-    (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
-    (=daikanwa		. 30639)	; ø¸‡ž¯
-    (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
-    (=ucs@cns		. #x8279)	; âº¿
+    (<-radical
+     ((=ucs		  . #xFA5E)	; ï©ž
+      ))
     (=ucs		. #x2EBF)	; âº¿
     ))
 (define-char
@@ -650,7 +644,9 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=jis-x0213-2-2000	. #x7574)	; ø»¦™«
+    (<-radical
+     ((=ucs		  . #xFA5D)	; ï©
+      ))
     (=ucs		. #x2EC0)	; â»€
     ))
 (define-char
