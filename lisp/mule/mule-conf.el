@@ -229,7 +229,7 @@
 		  max-code	#x8DFE))
   (define-charset-alias 'chinese-big5-cdp '=big5-cdp)
 
-  (make-charset 'ideograph-gt
+  (make-charset '=gt
 		"GT"
 		`(long-name	"GT 2000"
 		  chars		256
@@ -241,6 +241,7 @@
 		  min-code	,(lsh #x6100 16)
 		  max-code	,(+ (lsh #x6100 16) 67547)
 		  code-offset	,(lsh #x6100 16)))
+  (define-charset-alias 'ideograph-gt '=gt)
   (make-charset '=gt-k
 		"GT parts"
 		`(long-name	"Ideographic parts of GT"
