@@ -73,26 +73,15 @@
 ;; ISO-IR-165 (CCITT Extended GB)
 ;;    It is based on CCITT Recommendation T.101, includes GB 2312-80 +
 ;;    GB 8565-88 table A4 + 293 characters.
-(if (featurep 'utf-2000)
-    (progn
-      (make-charset '=iso-ir165
-		    "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
-		    '(iso-ir 165
-			     dimension 2
-			     chars 94
-			     mother =gb2312
-			     final ?E
-			     registry "isoir165"
-			     graphic 0))
-      (define-charset-alias 'chinese-isoir165 '=iso-ir165))
-  (make-charset 'chinese-isoir165
-		"ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
-		'(iso-ir 165
-			 dimension 2
-			 chars 94
-			 final ?E
-			 registry "isoir165"
-			 graphic 0)))
+(make-charset '=iso-ir165
+	      "ISO-IR-165 (CCITT Extended GB; Chinese simplified)"
+	      '(iso-ir 165
+		       dimension 2
+		       chars 94
+		       final ?E
+		       registry "isoir165"
+		       graphic 0))
+(define-charset-alias 'chinese-isoir165 '=iso-ir165)
 
 ;; CNS11643 Plane3 thru Plane7
 ;; These represent more and more obscure Chinese characters.
@@ -242,7 +231,7 @@
 		  mother	=ucs))
   (define-charset-alias 'ucs-big5 '=ucs@big5)
 
-  (make-charset '=daikanwa
+  (make-charset 'ideograph-daikanwa
 		"Daikanwa"
 		`(long-name	"Daikanwa dictionary (revised version 2)"
 		  chars		256
@@ -254,7 +243,6 @@
 		  min-code	#xE00000
 		  max-code	,(+ #xE00000 50100)
 		  code-offset	#xE00000))
-  (define-charset-alias 'ideograph-daikanwa '=daikanwa)
 
   (make-charset '=daikanwa-rev1
 		"Daikanwa Rev."
