@@ -1,3 +1,13 @@
+2001-12-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R124-Feather.el (M-28635): Use char-spec instead of
+	char-ref for the operator of the `ideographic-structure'; unify
+	B-AFCE.
+	(M028635): Use char-spec instead of char-ref for the operator of
+	the `ideographic-structure'.
+	(J83-3227): Likewise.
+	(U+7FC1): Likewise; separate B-AFCE.
+
 2001-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R052-Short-Thread.el: Add some CJK Ext-B code points.
