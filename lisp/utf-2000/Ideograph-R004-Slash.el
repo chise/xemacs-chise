@@ -673,9 +673,11 @@
     (ideograph-daikanwa . 00138)	; ø¸€‚Š
     (ideograph-gt	. 00195)	; ý¡€€ƒƒ
     (mojikyo		. 000138)	; ý €€‚Š
+    (ucs		. #x200A2)	; ð ‚¢
     ))
 (define-char
-  '((morohashi-daikanwa	138 0 2)
+  '((=>ucs		. #x200A2)	; ð ‚¢
+    (morohashi-daikanwa	138 0 2)
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
@@ -725,6 +727,7 @@
     (ideograph-daikanwa		. 00141)	; ø¸€‚
     (ideograph-gt		. 00192)	; ý¡€€ƒ€
     (mojikyo			. 000141)	; ý €€‚
+    (ucs			. #x200A4)	; ð ‚¤
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
