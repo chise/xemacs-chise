@@ -24,13 +24,11 @@
 
 ;;; Code:
 
-(with-temp-buffer
-  (buffer-disable-undo)
-  (dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
-		  "JX1-to-UCS.txt" "JX2-to-UCS.txt"
-		  ;; "C3-to-UCS.txt" ; "C4-to-UCS.txt"
-		  "B-to-UCS.txt"))
-    (insert-file-contents (expand-file-name file "../etc/char-data/"))
+(defun mapping-table-read-file (filename)
+  (interactive "fMapping table : ")
+  (with-temp-buffer
+    (buffer-disable-undo)
+    (insert-file-contents filename)
     (goto-char (point-min))
     (let (line ccs code ucs ucs-pat ucs-ccs ucs-code chr)
       (while (not (eobp))
@@ -116,7 +114,12 @@
 	    (put-char-attribute chr (if ucs-code
 					'=>ucs
 				      ucs-ccs) ucs)))
-	(forward-line)))
-    (erase-buffer)))
+	(forward-line)))))
+
+(dolist (file '("J90-to-UCS.txt" "JSP-to-UCS.txt"
+		"JX1-to-UCS.txt" "JX2-to-UCS.txt"
+		;; "C3-to-UCS.txt" ; "C4-to-UCS.txt"
+		"B-to-UCS.txt"))
+  (mapping-table-read-file (expand-file-name file "../etc/char-data/")))
 
 ;;; read-maps.el ends here
