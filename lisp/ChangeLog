@@ -1,3 +1,16 @@
+1999-11-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R019-Power.el,
+	utf-2000/Ideograph-R018-Knife.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R017-Open-Box.el (M01814): Separate C6-2365.
+	(M01815): Separate C6-2361.
+	(M01817): Separate C6-2363.
+	(M01822): Separate C6-2323.
+	(M01836): Separate C5-365D.
+	(M01839): Separate C7-367B.
+
 1999-11-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R016-Table.el,
