@@ -230,6 +230,7 @@
     (shinjigen-2	. 4042)
     (japanese-jisx0208-1978	. #x5D66)	; ø»ƒ•
     (japanese-jisx0208		. #x5D66)	; ø»‡©•
+    (korean-ksc5601		. #x5128)	; ø»‰ ³
     (japanese-jisx0208-1990	. #x5D66)	; ø½‹‰
     (chinese-gb12345		. #x4678)	; æ°£
     (ideograph-daikanwa		. 17059)	; ø¸„Š£
