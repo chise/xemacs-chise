@@ -2169,6 +2169,7 @@ Save mapping-table of CHARSET.
 #endif
 }
 
+#ifdef HAVE_CHISE_CLIENT
 Emchar
 load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
 {
@@ -2197,7 +2198,8 @@ load_char_decoding_entry_maybe (Lisp_Object ccs, int code_point)
     }
   return -1;
 }
-#endif
+#endif /* HAVE_CHISE_CLIENT */
+#endif /* UTF2000 */
 
 
 /************************************************************************/
