@@ -82,11 +82,35 @@
     ))
 (define-char
   '((ideographic-radical . 17)	; â¼
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (ucs		  . #x2FF6)	; â¿¶
+      )
+     ((ucs		  . #x51F5)	; å‡µ
+      )
+     ((ucs		  . #x53C8)	; åˆ
+      ))
+    (ideograph-cbeta	. 04552)	; ø¸¡‡ˆ
+    (mojikyo		. 070631)	; ý €‘§
+    ))
+(define-char
+  '((ideographic-radical . 17)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (ucs		  . #x2FF6)	; â¿¶
+      )
+     ((ucs		  . #x51F5)	; å‡µ
+      )
+     ((ucs		  . #x571F)	; åœŸ
+      ))
     (japanese-jisx0212	. #x332F)	; ø»Š¾º
     (chinese-cns11643-4 . #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
+    (ideograph-cbeta	. 00631)	; ø¸ ‰·
     (ucs		. #x51F7)	; å‡·
     ))
 (define-char
@@ -344,13 +368,27 @@
   '((ideographic-radical . 17)	; â¼
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (<-vulgar-ideograph
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 584)
+		 (ideograph-daikanwa . 01826)	; ø¸€œ¢
+		 )
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (ucs		  . #x2FF6)	; â¿¶
+      )
+     ((ucs		  . #x51F5)	; å‡µ
+      )
+     ((ucs		  . #x4E9F)	; äºŸ
+      ))
     (shinjigen-1	. 586)
     (shinjigen-2	. 586)
-    (vulgar-char-of-shinjigen-1 . 584)
     (japanese-jisx0208-1978	. #x5162)	; ø»ƒƒ¡
     (japanese-jisx0208		. #x5162)	; ø»‡—©
     (japanese-jisx0208-1990	. #x5162)	; ø½Š½
     (ideograph-daikanwa		. 01830)	; ø¸€œ¦
+    (ideograph-cbeta		. 00630)	; ø¸ ‰¶
     (ucs			. #x51FE)	; å‡¾
     ))
 (define-char
@@ -359,6 +397,14 @@
     (ideographic-radical . 17)	; â¼
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
+      (ucs		  . #x2FF6)	; â¿¶
+      )
+     ((ucs		  . #x51F5)	; å‡µ
+      )
+     ((ucs		  . #x4E9F)	; äºŸ
+      ))
     (chinese-cns11643-3 . #x275A)	; ø»• ‘
     ))
 (define-char
