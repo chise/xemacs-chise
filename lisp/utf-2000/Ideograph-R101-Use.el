@@ -333,9 +333,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((ucs		  . #x4EAB)	; äº«
+     ((=jis-x0208	  . #x357D)	; ø½Š”°
+      (korean-ksc5601	  . #x7A3D)	; ø»Š–
+      (ideograph-daikanwa . 00298)	; ø¸€„ª
       )
-     ((korean-ksc5601	  . #x693C)	; ø»Š„—
+     ((=jis-x0208	  . #x4D47)	; ø½Š·Š
+      (korean-ksc5601	  . #x693C)	; ø»Š„—
       (ideograph-daikanwa . 09378)	; ø¸‚’¢
       ))
     (ideograph-daikanwa . 21720)	; ø¸…“˜
