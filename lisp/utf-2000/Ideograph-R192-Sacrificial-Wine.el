@@ -153,14 +153,13 @@
   '((ideographic-radical . 192)	; ⾿
     (ideographic-strokes . 18)
     (total-strokes	 . 28)
-    (=daikanwa		. 45670)	; &M-45670;
-    ))
-(define-char
-  '((morohashi-daikanwa	45670 0 0)
-    (ideographic-radical . 192)	; ⾿
-    (ideographic-strokes . 18)
-    (total-strokes	 . 28)
-    (=cns11643-5	. #x7B50)	; &C5-7B50; [91-48]
+    (=ucs		. #x29C2A)	; 𩰪
+    (->subsumptive
+     ((=daikanwa	  . 45670)	; &M-45670;
+      )
+     ((=cns11643-5	  . #x7B50)	; &C5-7B50; [91-48]
+      (=ucs@iso		  . #x29C2A)	; &C5-7B50;
+      ))
     ))
 (define-char
   '((ideographic-radical . 192)	; ⾿
