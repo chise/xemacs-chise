@@ -1,3 +1,15 @@
+2002-04-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_builtin_char): Use `decode_builtin_char'
+	instead of `DECODE_CHAR' for mother; don't use special code for
+	chinese-big5 to use code space of chinese-big5-1 and
+	chinese-big5-2.
+	(complex_vars_of_mule_charset): Use `MIN_CHAR_BIG5_CDP' and
+	`MAX_CHAR_BIG5_CDP' for chinese-big5.
+
+	* char-ucs.h (MIN_CHAR_BIG5_CDP): Revival.
+	(MAX_CHAR_BIG5_CDP): Revival.
+
 2002-04-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (complex_vars_of_mule_charset): Use "big5-0" as
