@@ -152,16 +152,16 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-vulgar
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 823)
-		 (=daikanwa	     . 02740)	; &I-M-02740;
-		 )
+     ((shinjigen-1	  . 823)
+      (=daikanwa	  . 02740)	; &I-M-02740;
       ))
+    (<-vulgar*sources
+     shinjigen-1)
     (<-wrong-ideograph
-     (:sources	(henkai morohashi-daikanwa)
-      :char	((=daikanwa	     . 02740)	; &I-M-02740;
-		 )
+     ((=daikanwa	  . 02740)	; &I-M-02740;
       ))
+    (<-wrong-ideograph*sources
+     pianhai daikanwa)
     (hanyu-dazidian	1 59 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -677,10 +677,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
     (<-vulgar
-     (:char	((shinjigen-1	     . 910)
-		 (=daikanwa	     . 03154)	; &I-M-03154;
-		 )
-      :sources	(gyokuhen morohashi-daikanwa shinjigen-1)))
+     ((shinjigen-1	  . 910)
+      (=daikanwa	  . 03154)	; &I-M-03154;
+      ))
+    (<-vulgar*sources
+     yupian daikanwa shinjigen-1)
     (hanyu-dazidian	1 515 9)
     (shinjigen-1	. 911)
     (=ucs		. #x20991)	; 𠦑
@@ -762,10 +763,17 @@
     (=cns11643-5	. #x2540)	; &I-C5-2540;
     ))
 (define-char
+  '((ideographic-radical . 24)	; ⼗
+    (=ucs		. #x5351)	; 卑
+    ))
+(define-char
   '((=>ucs*		. #x5351)	; 卑
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (<-denotational
+     ((=ucs		  . #x5351)	; 卑
+      ))
     (hanyu-dazidian	1 63 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
@@ -791,30 +799,21 @@
     (=ucs@big5		. #x5351)	; 卑
     ))
 (define-char
-  '((=>ucs@jis		. #xFA35)	; 卑
-    (morohashi-daikanwa	2738 0 0)
-    (ideographic-radical . 24)	; ⼗
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (->identical
-     ((=ucs		  . #xFA35)	; 卑
-      ))
-    (=ucs		. #x5351)	; 卑
-    ))
-(define-char
   '((script		JP Jouyou Ideograph)
-    (=>ucs		. #x5351)	; 卑
-    (morohashi-daikanwa	2738 0 1)
     (ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
+    (<-denotational
+     ((=ucs		  . #x5351)	; 卑
+      ))
     (<-simplified@JP/Jouyou
      ((=ucs		  . #xFA35)	; 卑
       (=jis-x0213-1-2000  . #x2E6E)	; &I-JX1-2E6E;
       ))
     (<-vulgar
      ((shinjigen-1	  . 830)
-      (=daikanwa	  . 02738)	; &I-M-02738;
+      (=ucs		  . #xFA35)	; 卑
+      (=jis-x0213-1-2000  . #x2E6E)	; &I-JX1-2E6E;
       ))
     (<-vulgar*sources
      shinjigen-1)
@@ -833,6 +832,8 @@
     (total-strokes	 . 8)
     (<-vulgar
      ((shinjigen-1	  . 830)
+      (=ucs		  . #xFA35)	; 卑
+      (=jis-x0213-1-2000  . #x2E6E)	; &I-JX1-2E6E;
       (=daikanwa	  . 02738)	; &I-M-02738;
       ))
     (<-vulgar*sources
@@ -1191,11 +1192,19 @@
   '((ideographic-radical . 24)	; ⼗
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
+    (<-simplified@misc
+     ((=ucs		  . #x55AE)	; 單
+      (=daikanwa	  . 03993)	; &I-M-03993;
+      ))
+    (<-simplified@misc*sources
+     daikanwa)
     (<-vulgar
-     (:char	((shinjigen-1	     . 1170)
-		 (=daikanwa	     . 03993)	; &I-M-03993;
-		 )
-      :sources	(shinjigen-1)))
+     ((shinjigen-1	  . 1170)
+      (=ucs		  . #x55AE)	; 單
+      (=jis-x0208	  . #x5345)	; &I-J90-5345;
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (shinjigen-1	. 1171)
     (=ucs		. #x209A4)	; 𠦤
     (=cns11643-6	. #x3566)	; &I-C6-3566;
