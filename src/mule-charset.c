@@ -775,7 +775,6 @@ mark_charset (Lisp_Object obj, void (*markobj) (Lisp_Object))
   markobj (cs->ccl_program);
 #ifdef UTF2000
   markobj (cs->decoding_table);
-  markobj (cs->encoding_table);
 #endif
   return cs->name;
 }
@@ -859,7 +858,6 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
   CHARSET_DECODING_TABLE(cs) = Qnil;
-  CHARSET_ENCODING_TABLE(cs) = Qnil;
   CHARSET_UCS_MIN(cs) = ucs_min;
   CHARSET_UCS_MAX(cs) = ucs_max;
   CHARSET_CODE_OFFSET(cs) = code_offset;
@@ -1652,14 +1650,13 @@ Set mapping-table of CHARSET to TABLE.
   if (EQ (table, Qnil))
     {
       CHARSET_DECODING_TABLE(cs) = table;
-      CHARSET_ENCODING_TABLE(cs) = Qnil;
       return table;
     }
   else if (VECTORP (table))
     {
       if (XVECTOR_LENGTH (table) > CHARSET_CHARS (cs))
 	args_out_of_range (table, make_int (CHARSET_CHARS (cs)));
-      old_table = CHARSET_ENCODING_TABLE(cs);
+      old_table = CHARSET_DECODING_TABLE(cs);
       CHARSET_DECODING_TABLE(cs) = table;
     }
   else
@@ -1671,24 +1668,17 @@ Set mapping-table of CHARSET to TABLE.
   switch (CHARSET_DIMENSION (cs))
     {
     case 1:
-      CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
       for (i = 0; i < XVECTOR_LENGTH (table); i++)
 	{
 	  Lisp_Object c = XVECTOR_DATA(table)[i];
 
 	  if (CHARP (c))
-	    {
-	      put_char_code_table (XCHAR (c),
-				   make_int (i + CHARSET_BYTE_OFFSET (cs)),
-				   CHARSET_ENCODING_TABLE(cs));
-	      Fput_char_attribute (c, charset,
-				   list1
-				   (make_int (i + CHARSET_BYTE_OFFSET (cs))));
-	    }
+	    Fput_char_attribute
+	      (c, charset,
+	       list1 (make_int (i + CHARSET_BYTE_OFFSET (cs))));
 	}
       break;
     case 2:
-      CHARSET_ENCODING_TABLE(cs) = make_char_code_table (Qnil);
       for (i = 0; i < XVECTOR_LENGTH (table); i++)
 	{
 	  Lisp_Object v = XVECTOR_DATA(table)[i];
@@ -1707,30 +1697,18 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    {
-		      put_char_code_table
-			(XCHAR (c),
-			 make_int (( (i + CHARSET_BYTE_OFFSET (cs)) << 8)
-				   | (j + CHARSET_BYTE_OFFSET (cs))),
-			 CHARSET_ENCODING_TABLE(cs));
-		      Fput_char_attribute (c, charset,
-					   list2
-					   (make_int
-					    (i + CHARSET_BYTE_OFFSET (cs)),
-					    make_int
-					    (j + CHARSET_BYTE_OFFSET (cs))));
-		    }
+		    Fput_char_attribute (c, charset,
+					 list2
+					 (make_int
+					  (i + CHARSET_BYTE_OFFSET (cs)),
+					  make_int
+					  (j + CHARSET_BYTE_OFFSET (cs))));
 		}
 	    }
 	  else if (CHARP (v))
-	    {
-	      put_char_code_table (XCHAR (v),
-				   make_int (i + CHARSET_BYTE_OFFSET (cs)),
-				   CHARSET_ENCODING_TABLE(cs));
-	      Fput_char_attribute (v, charset,
-				   list1
-				   (make_int (i + CHARSET_BYTE_OFFSET (cs))));
-	    }
+	    Fput_char_attribute (v, charset,
+				 list1
+				 (make_int (i + CHARSET_BYTE_OFFSET (cs))));
 	}
       break;
     }
