@@ -1,5 +1,9 @@
 2003-07-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R140-Grass.el (U-00026AFF): Unify JX1-7A5D; add
+	strokes.
+	(JX1-7A6D): New character.
+
 	* char-db-util.el (char-db-feature-domains): Add `jis', `jis/alt',
 	`jis/a' and `jis/b'.
 
