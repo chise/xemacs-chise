@@ -338,6 +338,7 @@
     (japanese-jisx0208		. #x6766)	; ø»‡¸
     (chinese-cns11643-1		. #x7C6C)	; ø»“‰‘
     (japanese-jisx0208-1990	. #x6766)	; ø½‹µ
+    (chinese-gb12345		. #x515E)	; è‰·
     (ideograph-daikanwa		. 30637)	; ø¸‡ž­
     (ucs			. #x8277)	; è‰·
     ))
