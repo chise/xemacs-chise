@@ -1822,7 +1822,11 @@ With argument, insert value in current buffer after the form."
 		      (if (and (featurep 'utf-2000)
 			       (re-search-backward "\\\\u[0-9A-Fa-f]+" nil t))
 			  'utf-8-mcs-unix
-			'binary))))
+			'binary)
+		    (when (featurep 'utf-2000)
+		      (goto-char (point-min))
+		      (if (re-search-forward "\\\\u[0-9A-Fa-f]+" nil t)
+			  'utf-8-mcs-unix)))))
 	(setq ces 'binary))
       (if (eq ces 'binary)
 	  (setq buffer-file-coding-system 'binary)
