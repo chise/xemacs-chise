@@ -1,3 +1,11 @@
+2002-03-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u01100-Hangul-Jamo.el: Reformatted.
+
+2002-03-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u010A0-Georgian.el: Reformatted.
+
 2002-03-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* update-cdb.el: When feature `chise' is not provided, just load
