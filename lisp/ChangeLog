@@ -1,3 +1,25 @@
+2002-08-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/chinese.el: Add new coding-systems `big5-er', `big5-eten',
+	`big5-eten-er' in UTF-2000.
+	(big5-cdp): Modify DOC-string and mnemonic.
+
+2002-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (utf-8-mcs-er): New coding-system in
+	UTF-2000 [renamed from utf-8-er].
+	(utf-8-gb): New coding-system in UTF-2000.
+	(utf-8-gb-er): Likewise.
+	(utf-8-cns): Likewise.
+	(utf-8-cns-er): Likewise.
+	(utf-8-big5): Likewise.
+	(utf-8-big5-er): Likewise.
+	(utf-8-jis): Likewise.
+	(utf-8-jis-er): Likewise.
+	(utf-8-ks): Likewise.
+	(utf-8-ks-er): Likewise.
+	(utf-8-er): Likewise.
+
 2002-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* bytecomp.el (byte-compile-insert-header): Use `utf-8-mcs-unix'
