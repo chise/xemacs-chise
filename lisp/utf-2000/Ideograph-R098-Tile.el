@@ -195,6 +195,7 @@
     (total-strokes	 . 9)
     (=gb2312		. #x6A31)	; ø»…±¢
     (=iso-ir165		. #x6A31)	; ø»Ž™²
+    (=jis-x0213-2-2000	. #x712C)	; ø»¦’«
     (=ucs		. #x74EF)	; ç“¯
     ))
 (define-char
