@@ -201,6 +201,7 @@
     (total-strokes	 . 7)
     (korean-ksc5601	. #x625E)	; ø»‰º§
     (ideograph-daikanwa . 08684)	; ø¸‚‡¬
+    (china3-jef		. #x67AA)	; øº†žª
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
@@ -320,6 +321,7 @@
     (japanese-jisx0213-1	. #x7428)	; ø»¤Œ½
     (chinese-big5		. #xB15F)	; øº ‚¯
     (ideograph-daikanwa		. 08696)	; ø¸‚‡¸
+    (china3-jef			. #x52F1)	; øº…‹±
     (ucs			. #x5DE2)	; å·¢
     ))
 (define-char
