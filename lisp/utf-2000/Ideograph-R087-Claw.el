@@ -323,6 +323,7 @@
     (=ks-x1001		. #x6A53)	; ø»Š†Œ
     (=gt-pj-1		. #x602A)	; ý¡€†Š¶
     (=daikanwa		. 19686)	; ø¸„³¦
+    (=big5-cdp		. #xACB0)	; ý¢€Š²°
     (=gt-k		. 09209)	; ý¡„‚¹
     (=ucs@jis		. #x7232)	; ø½‹’§
     (=gt		. 25270)	; ý¡€†Š¶
