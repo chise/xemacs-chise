@@ -1,3 +1,13 @@
+2001-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R167-Gold.el (M-40733): Fix strokes; separate C2-6761.
+	(C5-6555): Delete invalid `morohashi-daikanwa' property; delete
+	relation to M-40831.
+	(M-49823): Separate C7-443C.
+	(M-49824): Separate C7-443B.
+	(M-40768): Delete `japanese-strokes' property; separate C2-6756.
+	(M-40831): New character.
+
 2001-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (M-47028): Fix strokes; separate C4-6561.
