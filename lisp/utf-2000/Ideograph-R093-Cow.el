@@ -13,10 +13,18 @@
     (ucs			. #x725B)	; ç‰›
     ))
 (define-char
-  '((ideographic-radical . 93)	; â½œ
+  '((=>ucs		. #x725C)	; ç‰œ
+    (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (ideograph-daikanwa . 19923)	; ø¸„·“
+    ))
+(define-char
+  '((morohashi-daikanwa	19923 0 0)
+    (ideographic-radical . 93)	; â½œ
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (japanese-jisx0212	. #x4A58)	; ø»‹¡•
     (ucs		. #x725C)	; ç‰œ
     ))
 (define-char
