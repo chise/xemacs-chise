@@ -1,3 +1,10 @@
+2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R140-Grass.el (MH-521): Use `=>ucs' instead of
+	`->ucs'; unify GT-40268.
+	(C3-4E52): Delete `->mojikyo'.
+	(M066163): Use `=>ucs' instead of `->ucs'; Delete `->mojikyo'.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R162-Walk.el (M055104): Use `=>ucs' instead of
