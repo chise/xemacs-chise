@@ -1,3 +1,9 @@
+2002-03-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-cdb.el: Delete system-char-database-directory before
+	loading system-char-db-source-file-list when updating database
+	files.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R001-One.el (U-00023944): Moved to
