@@ -4,6 +4,7 @@
 	`charset_code_point'.
 	(char_encode_shift_jis): Likewise.
 	(char_encode_big5): Likewise.
+	(char_encode_utf8): Likewise.
 	(char_encode_iso2022): Likewise.
 
 	* mule-charset.c (charset_code_point): Add new argument
