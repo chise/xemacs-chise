@@ -20435,6 +20435,17 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x6728)	; æœ¨
+      )
+     ((=jis-x0213-1-2000  . #x7462)	; ø»¤·
+      (=cns11643-1	  . #x6429)	; ø»’¤¾
+      (=jis-x0212	  . #x3F2C)	; ø»‹Ÿ
+      (=daikanwa	  . 11617)	; ø¸‚µ¡
+      ))
     (=jis-x0213-1-2000	. #x7635)	; ø»¤†
     (=jis-x0212		. #x453F)	; ø»‹™¦
     (=daikanwa		. 15677)	; ø¸ƒ´½
@@ -20449,19 +20460,8 @@
     (ideographic-radical . 75)	; â½Š
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x6728)	; æœ¨
-      )
-     ((=jis-x0213-1-2000  . #x7462)	; ø»¤·
-      (=cns11643-1	  . #x6429)	; ø»’¤¾
-      (=jis-x0212	  . #x3F2C)	; ø»‹Ÿ
-      (=daikanwa	  . 11617)	; ø¸‚µ¡
-      ))
     (=cns11643-3	. #x5524)	; ø»–¢¿
-    (=jef-china3	. #x54B4)	; øº…’´
+    (=ucs@cns		. #x6A9D)	; ø»–¢¿
     ))
 (define-char
   '((morohashi-daikanwa	15677 0 1)
