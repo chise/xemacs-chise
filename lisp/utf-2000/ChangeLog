@@ -4,6 +4,9 @@
 
 2002-10-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R001-One.el (U+4E06): Unify BC-896C.
+	(C4-2155): Add `ideographic-structure'.
+
 	* u02E00-CJK-Radical-Supplement.el (U+2EA1): Unify BC-8AF6.
 
 2002-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
