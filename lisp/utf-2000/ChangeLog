@@ -1,5 +1,7 @@
 2004-03-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R055-Two-Hands.el (U-0002233D): Use `->subsumptive'.
+
 	* ideograph-util.el (update-ideograph-radical-table): Fix problems
 	about `->subsumptive' and `<-subsumptive'.
 	(char-representative-of-daikanwa): Add new optional argument
