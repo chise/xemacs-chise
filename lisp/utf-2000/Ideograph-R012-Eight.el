@@ -278,6 +278,7 @@
     (hanyu-dazidian-char . 2)
     (chinese-gb2312	. #x403C)	; ø»„´
     (chinese-isoir165	. #x403C)	; ø»œ‘
+    (china3-jef		. #x82AB)	; øºˆŠ«
     (ucs		. #x5170)	; å…°
     ))
 (define-char
@@ -814,6 +815,7 @@
     (hanyu-dazidian-char . 6)
     (chinese-gb2312	. #x5178)	; ø»…»
     (chinese-isoir165	. #x5178)	; ø»¶‹
+    (china3-jef		. #x82AA)	; øºˆŠª
     (ucs		. #x517B)	; å…»
     ))
 (define-char
