@@ -13,6 +13,14 @@
     (ucs		. #x5DF1)	; å·±
     ))
 (define-char
+  '((=>ucs		. #x5DF1)	; å·±
+    (morohashi-daikanwa	8742 0 2)
+    (ideographic-radical . 49)	; â¼°
+    (ideographic-strokes . 0)
+    (total-strokes	 . 3)
+    (chinese-big5-cdp	. #x896D)	; ý¢€ˆ¥­
+    ))
+(define-char
   '((ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
@@ -105,14 +113,6 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (hanyu-dazidian	1 69 27)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x20086)	; ð ‚†
-      )
-     ((ucs		  . #x4E00)	; ä¸€
-      )
-     ((ucs		  . #x5DF4)	; å·´
-      ))
     (shinjigen-2	. 847)
     (=jis-x0208		. #x5662)	; ø½‹„³
     (chinese-cns11643-3 . #x2567)	; ø»•¢

@@ -17,27 +17,44 @@
     (ideograph-daikanwa . 38701)	; ø¸‰œ­
     ))
 (define-char
-  '((=>ucs		. #x8FB6)	; è¾¶
+  '((name		. "CJK RADICAL WALK ONE")
+    (=>ucs		. #x8FB6)	; è¾¶
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (japanese-jisx0212		. #x6134)	; ø»Œ‚£
     (japanese-jisx0213-2	. #x796A)	; ø»¦Ÿ™
     (ideograph-daikanwa		. 38702)	; ø¸‰œ®
+    (ucs-jis			. #x8FB6)	; â»
+    (ucs			. #x2ECD)	; â»
     ))
 (define-char
-  '((=>ucs		. #x8FB6)	; è¾¶
+  '((name		. "CJK RADICAL WALK TWO")
+    (=>ucs		. #x8FB6)	; è¾¶
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
     (morohashi-daikanwa	38702 0 2)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-cns11643-4 . #x2154)	; ø»—¡›
+    (chinese-big5-cdp	. #x8AF7)	; ý¢€ˆ«·
+    (ucs-cns		. #x8FB6)	; â»Ž
+    (ucs		. #x2ECE)	; â»Ž
     ))
 (define-char
   '((morohashi-daikanwa	38702 0 3)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
+    (->ideographic-component-forms
+     ((name		  . "CJK RADICAL SIMPLIFIED WALK")
+      (ucs		  . #x2ECC)	; â»Œ
+      ))
     (chinese-gb2312	. #x6541)	; ø»…ªœ
     (chinese-isoir165	. #x6541)	; ø»Ž’¬
     (ucs		. #x8FB6)	; è¾¶

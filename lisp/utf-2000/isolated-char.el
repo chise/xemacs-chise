@@ -185,6 +185,26 @@
 			    code)
 	)))
 
+(with-temp-buffer
+  (buffer-disable-undo)
+  (insert-file-contents "../etc/char-data/GT-fmap-K1.txt")
+  (insert-file-contents "../etc/char-data/GT-fmap-K2.txt")
+  (goto-char (point-min))
+  (let (plane code gt-code)
+    (while (re-search-forward "^GTps-\\([0-9k][0-9]\\)-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)\tGT-K\\([0-9]+\\)" nil t)
+      (setq plane (match-string 1)
+	    code (string-to-int (match-string 2) 16)
+	    gt-code (string-to-int (match-string 3)))
+      (if (eq (aref plane 0) ?0)
+	  (setq plane (substring plane 1)))
+      (put-char-attribute (decode-builtin-char 'ideograph-gt-k gt-code)
+			  (intern (format "ideograph-gt-pj-%s" plane))
+			  (encode-char
+			   (decode-shift-jis-char (cons (/ code 256)
+							(% code 256)))
+			   'japanese-jisx0208))
+      )))
+
 (define-char
   '((ideograph-gt-pj-4	. #x3844)
     (ideograph-gt	. 19655)

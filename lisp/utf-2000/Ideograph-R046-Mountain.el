@@ -2215,14 +2215,7 @@
       )
      ((ucs		  . #x5C71)	; å±±
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(ucs		    . #x2FF1)	; â¿±
-	)
-       ((ucs		    . #x4E0A)	; ä¸Š
-	)
-       ((ucs		    . #x4E0B)	; ä¸‹
-	))
+     ((ucs		  . #x209D7)	; ð §—
       ))
     (shinjigen-2	. 1980)
     (=jis-x0208		. #x463D)	; ø½Š¬®
