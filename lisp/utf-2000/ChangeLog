@@ -1,3 +1,18 @@
+2001-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (M-22972'): Unify M050293.
+	(M-23001'): Unify M050294.
+
+	* Ideograph-R100-Life.el (M-21684'): Unify M050288.
+
+2001-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R095-Profound.el (M-20817'): Unify M050282.
+
+	* Ideograph-R094-Dog.el: Add missing mappings between Morohashi's
+	Daikanwa numbers with dash and Mojikyo numbers.
+	(M-20405): Fix `ideographic-strokes'.
+
 2001-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el (M-*****): Separate C*-****.
