@@ -3177,6 +3177,14 @@
     (=daikanwa		. 49778)	; ø¸Œ‰²
     ))
 (define-char
+  '((morohashi-daikanwa	39542 1)
+    (ideographic-radical . 163)	; â¾¢
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (=gt		. 53191)	; ý¡€Œ¿‡
+    (=gt-pj-7		. #x5D60)	; ý¡€Œ¿‡
+    ))
+(define-char
   '((ideographic-radical . 163)	; â¾¢
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
