@@ -2390,6 +2390,14 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x6740)	; æ€
+      )
+     ((ucs		  . #x5202)	; åˆ‚
+      ))
     (chinese-gb2312	. #x4932)	; ø»……
     (chinese-isoir165	. #x4932)	; ø»©•
     (ucs		. #x5239)	; åˆ¹
@@ -7382,6 +7390,14 @@
     (ideographic-radical . 18)	; â¼‘
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x84A6)	; è’¦
+      )
+     ((ucs		  . #x5202)	; åˆ‚
+      ))
     (chinese-gb2312	. #x5865)	; ø»…—º
     (chinese-isoir165	. #x5865)	; ø»Ž€Š
     (ucs		. #x5290)	; åŠ
