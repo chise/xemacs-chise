@@ -7087,8 +7087,6 @@
 (define-char
   '((ideographic-radical . 61)	; â¼¼
     (ideographic-strokes . 8)
-    (kangxi-radical	 . 34)	; å¤‚
-    (kangxi-strokes	 . 9)
     (total-strokes	 . 12)
     (chinese-gb2312	. #x3139)	; ø»„¼
     (chinese-isoir165	. #x3139)	; ø»†Œ

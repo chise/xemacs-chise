@@ -65,10 +65,8 @@
   (let ((v (make-vector 215 nil))
 	(i 1))
     (while (< i 215)
-      (aset v i (int-char (+ #x2EFF i)))
+      (aset v i (decode-char 'ucs (+ #x2EFF i)))
       (setq i (1+ i)))
-    (unless (charset-iso-final-char (car (split-char (aref v 34))))
-      (aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
 (defvar char-db-ignored-attributes nil)
