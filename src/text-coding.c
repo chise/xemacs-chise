@@ -3652,7 +3652,7 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 	    {
 #ifdef UTF2000
 	      int code_point = (cpos << 8) | c;
-	      Emchar char_id = DECODE_DEFINED_CHAR (ccs, code_point);
+	      Emchar char_id = decode_defined_char (ccs, code_point);
 
 	      if (char_id < 0)
 		char_id = DECODE_CHAR (Vcharset_chinese_big5, code_point);
