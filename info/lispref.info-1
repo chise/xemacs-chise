@@ -403,8 +403,14 @@ Loading
 
 Byte Compilation
 
-* Compilation Functions::   Byte compilation functions.
-* Disassembly::             Disassembling byte-code; how to read byte-code.
+* Speed of Byte-Code::          An example of speedup from byte compilation.
+* Compilation Functions::       Byte compilation functions.
+* Docs and Compilation::        Dynamic loading of documentation strings.
+* Dynamic Loading::             Dynamic loading of individual functions.
+* Eval During Compile::  	Code to be evaluated when you compile.
+* Compiled-Function Objects::	The data type used for byte-compiled functions.
+* Disassembly::                 Disassembling byte-code; how to read byte-code.
+* Different Behavior::          When compiled code gives different results.
 
 Debugging Lisp Programs
 

@@ -939,41 +939,23 @@
 	(byte-optimize-predicate form)
       (nth 1 form))))
 
+;;; For the byte optimizer, `cond' is just overly sweet syntactic sugar.
+;;; So we rewrite (cond ...) in terms of `if' and `or',
+;;; which are easier to optimize.
 (defun byte-optimize-cond (form)
-  ;; if any clauses have a literal nil as their test, throw them away.
-  ;; if any clause has a literal non-nil constant as its test, throw
-  ;; away all following clauses.
-  (let (rest)
-    ;; This must be first, to reduce (cond (t ...) (nil)) to (progn t ...)
-    (while (setq rest (assq nil (cdr form)))
-      (setq form (delq rest (copy-sequence form))))
-    (if (memq nil (cdr form))
-	(setq form (delq nil (copy-sequence form))))
-    (setq rest form)
-    (while (setq rest (cdr rest))
-      (cond ((byte-compile-trueconstp (car-safe (car rest)))
-	     (cond ((eq rest (cdr form))
-		    (setq form
-			  (if (cdr (car rest))
-			      (if (cdr (cdr (car rest)))
-				  (cons 'progn (cdr (car rest)))
-				(nth 1 (car rest)))
-			    (car (car rest)))))
-		   ((cdr rest)
-		    (setq form (copy-sequence form))
-		    (setcdr (memq (car rest) form) nil)))
-	     (setq rest nil)))))
-  ;;
-  ;; Turn (cond (( <x> )) ... ) into (or <x> (cond ... ))
-  (if (eq 'cond (car-safe form))
-      (let ((clauses (cdr form)))
-	(if (and (consp (car clauses))
-		 (null (cdr (car clauses))))
-	    (list 'or (car (car clauses))
-		  (byte-optimize-cond
-		   (cons (car form) (cdr (cdr form)))))
-	  form))
-    form))
+  (byte-optimize-cond-1 (cdr form)))
+
+(defun byte-optimize-cond-1 (clauses)
+  (cond
+   ((null clauses) nil)
+   ((consp (car clauses))
+    (nconc
+     (case (length (car clauses))
+       (1 `(or ,(nth 0 (car clauses))))
+       (2 `(if ,(nth 0 (car clauses)) ,(nth 1 (car clauses))))
+       (t `(if ,(nth 0 (car clauses)) (progn ,@(cdr (car clauses))))))
+     (when (cdr clauses) (list (byte-optimize-cond-1 (cdr clauses))))))
+   (t (error "malformed cond clause %s" (car clauses)))))
 
 (defun byte-optimize-if (form)
   ;; (if <true-constant> <then> <else...>) ==> <then>

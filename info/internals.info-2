@@ -507,21 +507,6 @@ been found by compiling with C++.  The ability to use both C and C++
 tools means that a greater variety of development tools are available to
 the developer.
 
-   Almost every module contains a `syms_of_*()' function and a
-`vars_of_*()' function.  The former declares any Lisp primitives you
-have defined and defines any symbols you will be using.  The latter
-declares any global Lisp variables you have added and initializes global
-C variables in the module.  For each such function, declare it in
-`symsinit.h' and make sure it's called in the appropriate place in
-`emacs.c'.  *Important*: There are stringent requirements on exactly
-what can go into these functions.  See the comment in `emacs.c'.  The
-reason for this is to avoid obscure unwanted interactions during
-initialization.  If you don't follow these rules, you'll be sorry!  If
-you want to do anything that isn't allowed, create a
-`complex_vars_of_*()' function for it.  Doing this is tricky, though:
-You have to make sure your function is called at the right time so that
-all the initialization dependencies work out.
-
    Every module includes `<config.h>' (angle brackets so that
 `--srcdir' works correctly; `config.h' may or may not be in the same
 directory as the C sources) and `lisp.h'.  `config.h' must always be
@@ -537,6 +522,23 @@ have this rule, imagine what happens when you do a build in the source
 directory using `./configure' and another build in another directory
 using `../work/configure'.  There will be two different `config.h'
 files.  Which one will be used if you `#include "config.h"'?
+
+   Almost every module contains a `syms_of_*()' function and a
+`vars_of_*()' function.  The former declares any Lisp primitives you
+have defined and defines any symbols you will be using.  The latter
+declares any global Lisp variables you have added and initializes global
+C variables in the module.  *Important*: There are stringent
+requirements on exactly what can go into these functions.  See the
+comment in `emacs.c'.  The reason for this is to avoid obscure unwanted
+interactions during initialization.  If you don't follow these rules,
+you'll be sorry!  If you want to do anything that isn't allowed, create
+a `complex_vars_of_*()' function for it.  Doing this is tricky, though:
+you have to make sure your function is called at the right time so that
+all the initialization dependencies work out.
+
+   Declare each function of these kinds in `symsinit.h'.  Make sure
+it's called in the appropriate place in `emacs.c'.  You never need to
+include `symsinit.h' directly, because it is included by `lisp.h'.
 
    *All global and static variables that are to be modifiable must be
 declared uninitialized.*  This means that you may not use the "declare

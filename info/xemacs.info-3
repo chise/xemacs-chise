@@ -30,6 +30,298 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Apps Menu,  Up: Pull-down Menus
+
+The Options Menu
+----------------
+
+   The Options pull-down menu contains the Read Only, Case Sensitive
+Search, Overstrike, Auto Delete Selection, Teach Extended Commands,
+Syntax Highlighting, Paren Highlighting, Font, Size, Weight, Buffers
+Menu Length..., Buffers Sub-Menus and Save Options menu items.  When
+you select a menu item, Emacs executes the equivalent command.  For
+some of the menu items, there are sub-menus which you will need to
+select.
+
+Read Only
+     Selecting this item will cause the buffer to visit the file in a
+     read-only mode. Changes to the file will not be allowed. This is
+     equivalent to the Emacs command `toggle-read-only' (`C-x C-q').
+
+Case Sensitive Search
+     Selecting this item will cause searches to be case-sensitive. If
+     its not selected then searches will ignore case. This option is
+     local to the buffer.
+
+Overstrike
+     After selecting this item, when you type letters they will replace
+     existing text on a one-to-one basis, rather than pushing it to the
+     right. At the end of a line, such characters extend the line.
+     Before a tab, such characters insert until the tab is filled in.
+     This is the same as Emacs command `quoted-insert' (`C-q').
+
+Auto Delete Selection
+     Selecting this item will cause automatic deletion of the selected
+     region. The typed text will replace the selection if the selection
+     is active (i.e. if its highlighted). If the option is not selected
+     then the typed text is just inserted at the point.
+
+Teach Extended Commands
+     After you  select this item, any time you execute a command with
+     `M-x'which has a shorter keybinding, you will be shown the
+     alternate binding before the command executes.
+
+Syntax Highlighting
+     You can customize your init file to include the font-lock mode so
+     that when you select this item, the comments will be displayed in
+     one face, strings in another, reserved words in another, and so
+     on. *Note Init File::.  When Fonts is selected, different parts of
+     the program will appear in different Fonts. When Colors is
+     selected, then the program will be displayed in different colors.
+     Selecting None causes the program to appear in just one Font and
+     Color. Selecting Less resets the Fonts and Colors to a fast,
+     minimal set of decorations. Selecting More resets the Fonts and
+     Colors to a larger set of decorations. For example, if Less is
+     selected (which is the default setting) then you might have all
+     comments in green color.  Whereas, if More is selected then a
+     function name in the comments themselves might appear in a
+     different Color or Font.
+
+Paren Highlighting
+     After selecting Blink from this item, if you place the cursor on a
+     parenthesis, the matching parenthesis will blink. If you select
+     Highlight and place the cursor on a parenthesis, the whole
+     expression of the parenthesis under the cursor will be highlighted.
+     Selecting None will turn off the options (regarding Paren
+     Highlighting) which you had selected earlier.
+
+Font
+     You can select any Font for your program by choosing from one of
+     the available Fonts.
+
+Size
+     You can select any size ranging from 2 to 24 by selecting the
+     appropriate option.
+
+Weight
+     You can choose either Bold or Medium for the weight.
+
+Buffers Menu Length...
+     Prompts you for the number of buffers to display. Then it will
+     display that number of most recently selected buffers.
+
+Buffers Sub-Menus
+     After selection of this item the Buffers menu will contain several
+     commands, as submenus of each buffer line. If this item is
+     unselected, then there are no submenus for each buffer line, the
+     only command available will be selecting that buffer.
+
+Save Options
+     Selecting this item will save the current settings of your Options
+     menu to your init file.  *Note Init File::.
+
+
+File: xemacs.info,  Node: Buffers Menu,  Next: Tools Menu,  Prev: Options Menu,  Up: Pull-down Menus
+
+The Buffers Menu
+----------------
+
+   The Buffers menu provides a selection of up to ten buffers and the
+item List All Buffers, which provides a Buffer List. *Note List
+Buffers::, for more information.
+
+
+File: xemacs.info,  Node: Tools Menu,  Next: Help Menu,  Prev: Buffers Menu,  Up: Pull-down Menus
+
+The Tools Menu
+--------------
+
+   The Tools pull-down menu contains the Grep..., Compile..., Shell
+Command..., Shell Command on Region..., Debug(GDB)...  and
+Debug(DBX)... menu items, and the Compare, Merge, Apply Patch and Tags
+sub-menus.  When you select a menu item, Emacs executes the equivalent
+command.  For some of the menu items, there are sub-menus which you
+will need to select.
+
+
+File: xemacs.info,  Node: Help Menu,  Next: Menu Customization,  Prev: Tools Menu,  Up: Pull-down Menus
+
+The Help Menu
+-------------
+
+   The Help Menu gives you access to Emacs Info and provides a menu
+equivalent for each of the choices you have when using `C-h'.  *Note
+Help::, for more information.
+
+   The Help menu also gives access to UNIX online manual pages via the
+UNIX Manual Page option.
+
+
+File: xemacs.info,  Node: Menu Customization,  Prev: Help Menu,  Up: Pull-down Menus
+
+Customizing XEmacs Menus
+------------------------
+
+   You can customize any of the pull-down menus by adding or removing
+menu items and disabling or enabling existing menu items.
+
+   The following functions are available:
+`add-menu: (MENU-PATH MENU-NAME MENU-ITEMS &optional BEFORE)'
+     Add a menu to the menu bar or one of its submenus.
+
+`add-menu-item: (MENU-PATH ITEM-NAME FUNCTION'
+     ENABLED-P &optional BEFORE) Add a menu item to a menu, creating
+     the menu first if necessary.
+
+`delete-menu-item: (PATH)'
+     Remove the menu item defined by PATH from the menu hierarchy.
+
+`disable-menu-item: (PATH)'
+     Disable the specified menu item.
+
+`enable-menu-item: (PATH)'
+     Enable the specified previously disabled menu item.
+
+`relabel-menu-item: (PATH NEW-NAME)'
+     Change the string of the menu item specified by PATH to NEW-NAME.
+
+   Use the function `add-menu' to add a new menu or submenu.  If a menu
+or submenu of the given name exists already, it is changed.
+
+   MENU-PATH identifies the menu under which the new menu should be
+inserted.  It is a list of strings; for example, `("File")' names the
+top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
+File.  If MENU-PATH is `nil', the menu is added to the menu bar itself.
+
+   MENU-NAME is the string naming the menu to be added.
+
+   MENU-ITEMS is a list of menu item descriptions.  Each menu item
+should be a vector of three elements:
+
+   * A string, which is the name of the menu item
+
+   * A symbol naming a command, or a form to evaluate
+
+   * `t' or `nil' to indicate whether the item is selectable
+
+   The optional argument BEFORE is the name of the menu before which
+the new menu or submenu should be added.  If the menu is already
+present, it is not moved.
+
+   The function `add-menu-item' adds a menu item to the specified menu,
+creating the menu first if necessary.  If the named item already
+exists, the menu remains unchanged.
+
+   MENU-PATH identifies the menu into which the new menu item should be
+inserted.  It is a list of strings; for example, `("File")' names the
+top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
+File.
+
+   ITEM-NAME is the string naming the menu item to add.
+
+   FUNCTION is the command to invoke when this menu item is selected.
+If it is a symbol, it is invoked with `call-interactively', in the same
+way that functions bound to keys are invoked.  If it is a list, the
+list is simply evaluated.
+
+   ENABLED-P controls whether the item is selectable or not.  It should
+be `t', `nil', or a form to evaluate to decide.  This form will be
+evaluated just before the menu is displayed, and the menu item will be
+selectable if that form returns non-`nil'.
+
+   For example, to make the `rename-file' command available from the
+File menu, use the following code:
+
+     (add-menu-item '("File") "Rename File" 'rename-file t)
+
+   To add a submenu of file management commands using a File Management
+item, use the following code:
+
+     (add-menu-item '("File" "File Management") "Copy File" 'copy-file t)
+     (add-menu-item '("File" "File Management") "Delete File" 'delete-file t)
+     (add-menu-item '("File" "File Management") "Rename File" 'rename-file t)
+
+   The optional BEFORE argument is the name of a menu item before which
+the new item should be added.  If the item is already present, it is
+not moved.
+
+   To remove a specified menu item from the menu hierarchy, use
+`delete-menu-item'.
+
+   PATH is a list of strings that identify the position of the menu
+item in the menu hierarchy.  `("File" "Save")' means the menu item
+called Save under the top level File menu.  `("Menu" "Foo" "Item")'
+means the menu item called Item under the Foo submenu of Menu.
+
+   To disable a menu item, use `disable-menu-item'.  The disabled menu
+item is grayed and can no longer be selected.  To make the item
+selectable again, use `enable-menu-item'.  `disable-menu-item' and
+`enable-menu-item' both have the argument PATH.
+
+   To change the string of the specified menu item, use
+`relabel-menu-item'. This function also takes the argument PATH.
+
+   NEW-NAME is the string to which the menu item will be changed.
+
+
+File: xemacs.info,  Node: Entering Emacs,  Next: Exiting,  Prev: Pull-down Menus,  Up: Top
+
+Entering and Exiting Emacs
+**************************
+
+   The usual way to invoke XEmacs is to type `xemacs <RET>' at the
+shell.  XEmacs clears the screen and then displays an initial advisory
+message and copyright notice.  You can begin typing XEmacs commands
+immediately afterward.
+
+   Some operating systems insist on discarding all type-ahead when
+XEmacs starts up; they give XEmacs no way to prevent this.  Therefore,
+it is advisable to wait until XEmacs clears the screen before typing
+your first editing command.
+
+   If you run XEmacs from a shell window under the X Window System, run
+it in the background with `xemacs&'.  This way, XEmacs does not tie up
+the shell window, so you can use that to run other shell commands while
+XEmacs operates its own X windows.  You can begin typing XEmacs commands
+as soon as you direct your keyboard input to the XEmacs frame.
+
+   Before Emacs reads the first command, you have not had a chance to
+give a command to specify a file to edit.  Since Emacs must always have
+a current buffer for editing, it presents a buffer, by default, a buffer
+named `*scratch*'.  The buffer is in Lisp Interaction mode; you can use
+it to type Lisp expressions and evaluate them, or you can ignore that
+capability and simply doodle.  (You can specify a different major mode
+for this buffer by setting the variable `initial-major-mode' in your
+init file.  *Note Init File::.)
+
+   It is possible to specify files to be visited, Lisp files to be
+loaded, and functions to be called, by giving Emacs arguments in the
+shell command line.  *Note Command Switches::.  But we don't recommend
+doing this.  The feature exists mainly for compatibility with other
+editors.
+
+   Many other editors are designed to be started afresh each time you
+want to edit.  You edit one file and then exit the editor.  The next
+time you want to edit either another file or the same one, you must run
+the editor again.  With these editors, it makes sense to use a
+command-line argument to say which file to edit.
+
+   But starting a new Emacs each time you want to edit a different file
+does not make sense.  For one thing, this would be annoyingly slow.  For
+another, this would fail to take advantage of Emacs's ability to visit
+more than one file in a single editing session.  And it would lose the
+other accumulated context, such as registers, undo history, and the mark
+ring.
+
+   The recommended way to use XEmacs is to start it only once, just
+after you log in, and do all your editing in the same Emacs session.
+Each time you want to edit a different file, you visit it with the
+existing Emacs, which eventually comes to have many files in it ready
+for editing.  Usually you do not kill the Emacs until you are about to
+log out.  *Note Files::, for more information on visiting more than one
+file.
+
+
 File: xemacs.info,  Node: Exiting,  Next: Command Switches,  Prev: Entering Emacs,  Up: Top
 
 Exiting Emacs
@@ -150,9 +442,14 @@ command line arguments for specifying a file when Emacs is started are
 seldom needed.
 
    Emacs accepts command-line arguments that specify files to visit,
-functions to call, and other activities and operating modes.  If you are
-running XEmacs under the X window system, a number of standard Xt
-command line arguments are available as well.
+functions to call, and other activities and operating modes.  If you
+are running XEmacs under the X window system, a number of standard Xt
+command line arguments are available, as well as a few X parameters
+that are XEmacs-specific.
+
+   Options with long names with a single initial hyphen are also
+recognized with the GNU double initial hyphen syntax.  (The reverse is
+not true.)
 
    The following subsections list:
    * Command line arguments that you can always use
@@ -197,7 +494,8 @@ must be at the front of the list if they are used.
      what `M-x insert-buffer' does; *Note Misc File Ops::.
 
 `-kill'
-     Exit from Emacs without asking for confirmation.
+     Exit from Emacs without asking for confirmation.  Always the last
+     argument processed, no matter where it appears in the command line.
 
 `-version'
 `-V'
@@ -216,6 +514,18 @@ Command Line Arguments (Beginning of Line Only)
 command line.  If more than one of them appears, they must appear in the
 order in which they appear in this table.
 
+`--show-dump-id'
+`-sd'
+     Print the ID for the new portable dumper's dump file on the
+     terminal and exit.  (Prints an error message and exits if XEmacs
+     was not configured `--pdump'.)
+
+`--no-dump-file'
+`-nd'
+     Don't load the dump file.  Roughly equivalent to old temacs.
+     (Ignored if XEmacs was not configured `--pdump'.)
+
+`--terminal FILE'
 `-t FILE'
      Use FILE instead of the terminal for input and output.  This
      implies the `-nw' option, documented below.
@@ -237,6 +547,7 @@ order in which they appear in this table.
      processed.  In addition, auto-saving is not done except in buffers
      for which it has been explicitly requested.
 
+`--no-windows'
 `-nw'
      Start up XEmacs in TTY mode (using the TTY XEmacs was started
      from), rather than trying to connect to an X display.  Note that
@@ -285,7 +596,7 @@ order in which they appear in this table.
 `-u USER'
      Equivalent to `-user-init-file ~USER/.xemacs/init.el
      -user-init-directory ~USER/.xemacs', or `-user-init-file
-     ~USER/.emacs -user-init-directory ~USER/.xemacs'.  whichever init
+     ~USER/.emacs -user-init-directory ~USER/.xemacs', whichever init
      file comes first.  *Note Init File::.
 
    Note that the init file can get access to the command line argument
@@ -932,289 +1243,4 @@ effect.  The default is initially `nil'.  *Note Locals::.
 
    *Note Display Vars::, for additional variables that affect how text
 is displayed.
-
-
-File: xemacs.info,  Node: Position Info,  Next: Arguments,  Prev: Continuation Lines,  Up: Basic
-
-Cursor Position Information
-===========================
-
-   If you are accustomed to other display editors, you may be surprised
-that Emacs does not always display the page number or line number of
-point in the mode line.  In Emacs, this information is only rarely
-needed, and a number of commands are available to compute and print it.
-Since text is stored in a way that makes it difficult to compute the
-information, it is not displayed all the time.
-
-`M-x what-page'
-     Print page number of point, and line number within page.
-
-`M-x what-line'
-     Print line number of point in the buffer.
-
-`M-x line-number-mode'
-     Toggle automatic display of current line number.
-
-`M-='
-     Print number of lines and characters in the current region
-     (`count-lines-region').  *Note Mark::, for information about the
-     region.
-
-`C-x ='
-     Print character code of character after point, character position
-     of point, and column of point (`what-cursor-position').
-
-   There are several commands for printing line numbers:
-
-   * `M-x what-line' counts lines from the beginning of the file and
-     prints the line number point is on.  The first line of the file is
-     line number 1.  You can use these numbers as arguments to `M-x
-     goto-line'.
-
-   * `M-x what-page' counts pages from the beginning of the file, and
-     counts lines within the page, printing both of them.  *Note
-     Pages::, for the command `C-x l', which counts the lines in the
-     current page.
-
-   * `M-=' (`count-lines-region') prints the number of lines in the
-     region (*note Mark::).  *Note Pages::, for the command `C-x l'
-     which counts the lines in the
-
-   The command `C-x =' (`what-cursor-position') can be used to find out
-the column that the cursor is in, and other miscellaneous information
-about point.  It prints a line in the echo area that looks like this:
-
-     Char: c (0143, 99, 0x63)  point=18862 of 24800(76%)  column 53
-
-(In fact, this is the output produced when point is before `column 53'
-in the example.)
-
-   The four values after `Char:' describe the character that follows
-point, first by showing it and then by giving its character code in
-octal, decimal and hex.
-
-   `point=' is followed by the position of point expressed as a
-character count.  The front of the buffer counts as position 1, one
-character later as 2, and so on.  The next, larger number is the total
-number of characters in the buffer.  Afterward in parentheses comes the
-position expressed as a percentage of the total size.
-
-   `column' is followed by the horizontal position of point, in columns
-from the left edge of the window.
-
-   If the buffer has been narrowed, making some of the text at the
-beginning and the end temporarily invisible, `C-x =' prints additional
-text describing the current visible range.  For example, it might say:
-
-     Char: c (0143, 99, 0x63)  point=19674 of 24575(80%) <19591 - 19703>  column 69
-
-where the two extra numbers give the smallest and largest character
-position that point is allowed to assume.  The characters between those
-two positions are the visible ones.  *Note Narrowing::.
-
-   If point is at the end of the buffer (or the end of the visible
-part), `C-x =' omits any description of the character after point.  The
-output looks like
-
-     point=563026 of 563025(100%)  column 0
-
-
-File: xemacs.info,  Node: Arguments,  Prev: Position Info,  Up: Basic
-
-Numeric Arguments
-=================
-
-   In mathematics and computer usage, the word "argument" means "data
-provided to a function or operation."  Any Emacs command can be given a
-"numeric argument" (also called a "prefix argument").  Some commands
-interpret the argument as a repetition count.  For example, giving an
-argument of ten to the key `C-f' (the command `forward-char', move
-forward one character) moves forward ten characters.  With these
-commands, no argument is equivalent to an argument of one.  Negative
-arguments are allowed.  Often they tell a command to move or act  in
-the opposite direction.
-
-   If your keyboard has a <META> key (labelled with a diamond on
-Sun-type keyboards and labelled `Alt' on some other keyboards), the
-easiest way to specify a numeric argument is to type digits and/or a
-minus sign while holding down the <META> key.  For example,
-     M-5 C-n
-
-would move down five lines.  The characters `Meta-1', `Meta-2', and so
-on, as well as `Meta--', do this because they are keys bound to
-commands (`digit-argument' and `negative-argument') that are defined to
-contribute to an argument for the next command.  Digits and `-'
-modified with Control, or Control and Meta, also specify numeric
-arguments.
-
-   Another way of specifying an argument is to use the `C-u'
-(`universal-argument') command followed by the digits of the argument.
-With `C-u', you can type the argument digits without holding down
-modifier keys; `C-u' works on all terminals.  To type a negative
-argument, type a minus sign after `C-u'.  Just a minus sign without
-digits normally means -1.
-
-   `C-u' followed by a character which is neither a digit nor a minus
-sign has the special meaning of "multiply by four".  It multiplies the
-argument for the next command by four.  `C-u' twice multiplies it by
-sixteen.  Thus, `C-u C-u C-f' moves forward sixteen characters.  This
-is a good way to move forward "fast", since it moves about 1/5 of a line
-in the usual size frame.  Other useful combinations are `C-u C-n', `C-u
-C-u C-n' (move down a good fraction of a frame), `C-u C-u C-o' (make "a
-lot" of blank lines), and `C-u C-k' (kill four lines).
-
-   Some commands care only about whether there is an argument and not
-about its value.  For example, the command `M-q' (`fill-paragraph') with
-no argument fills text; with an argument, it justifies the text as well.
-(*Note Filling::, for more information on `M-q'.)  Just `C-u' is a
-handy way of providing an argument for such commands.
-
-   Some commands use the value of the argument as a repeat count, but do
-something peculiar when there is no argument.  For example, the command
-`C-k' (`kill-line') with argument N kills N lines, including their
-terminating newlines.  But `C-k' with no argument is special: it kills
-the text up to the next newline, or, if point is right at the end of
-the line, it kills the newline itself.  Thus, two `C-k' commands with
-no arguments can kill a non-blank line, just like `C-k' with an
-argument of one.  (*Note Killing::, for more information on `C-k'.)
-
-   A few commands treat a plain `C-u' differently from an ordinary
-argument.  A few others may treat an argument of just a minus sign
-differently from an argument of -1.  These unusual cases are described
-when they come up; they are always for reasons of convenience of use of
-the individual command.
-
-   You can use a numeric argument to insert multiple copies of a
-character.  This is straightforward unless the character is a digit; for
-example, `C-u 6 4 a' inserts 64 copies of the character `a'.  But this
-does not work for inserting digits; `C-u 6 4 1' specifies an argument
-of 641, rather than inserting anything.  To separate the digit to
-insert from the argument, type another `C-u'; for example, `C-u 6 4 C-u
-1' does insert 64 copies of the character `1'.
-
-   We use the term "prefix argument" as well as "numeric argument" to
-emphasize that you type the argument before the command, and to
-distinguish these arguments from minibuffer arguments that come after
-the command.
-
-
-File: xemacs.info,  Node: Undo,  Next: Minibuffer,  Prev: Basic,  Up: Top
-
-Undoing Changes
-***************
-
-   Emacs allows you to undo all changes you make to the text of a
-buffer, up to a certain amount of change (8000 characters).  Each
-buffer records changes individually, and the undo command always
-applies to the current buffer.  Usually each editing command makes a
-separate entry in the undo records, but some commands such as
-`query-replace' make many entries, and very simple commands such as
-self-inserting characters are often grouped to make undoing less
-tedious.
-
-`C-x u'
-     Undo one batch of changes (usually, one command's worth) (`undo').
-
-`C-_'
-     The same.
-
-   The command `C-x u' or `C-_' allows you to undo changes.  The first
-time you give this command, it undoes the last change.  Point moves to
-the text affected by the undo, so you can see what was undone.
-
-   Consecutive repetitions of the `C-_' or `C-x u' commands undo
-earlier and earlier changes, back to the limit of what has been
-recorded.  If all recorded changes have already been undone, the undo
-command prints an error message and does nothing.
-
-   Any command other than an undo command breaks the sequence of undo
-commands.  Starting at this moment, the previous undo commands are
-considered ordinary changes that can themselves be undone.  Thus, you
-can redo changes you have undone by typing `C-f' or any other command
-that have no important effect, and then using more undo commands.
-
-   If you notice that a buffer has been modified accidentally, the
-easiest way to recover is to type `C-_' repeatedly until the stars
-disappear from the front of the mode line.  When that happens, all the
-modifications you made have been canceled.  If you do not remember
-whether you changed the buffer deliberately, type `C-_' once. When you
-see Emacs undo the last change you made, you probably remember why you
-made it.  If the change was an accident, leave it undone.  If it was
-deliberate, redo the change as described in the preceding paragraph.
-
-   Whenever an undo command makes the stars disappear from the mode
-line, the buffer contents is the same as it was when the file was last
-read in or saved.
-
-   Not all buffers record undo information.  Buffers whose names start
-with spaces don't; these buffers are used internally by Emacs and its
-extensions to hold text that users don't normally look at or edit.
-Minibuffers, help buffers, and documentation buffers also don't record
-undo information.
-
-   Emacs can remember at most 8000 or so characters of deleted or
-modified text in any one buffer for reinsertion by the undo command.
-There is also a limit on the number of individual insert, delete, or
-change actions that Emacs can remember.
-
-   There are two keys to run the `undo' command, `C-x u' and `C-_',
-because on some keyboards, it is not obvious how to type `C-_'. `C-x u'
-is an alternative you can type in the same fashion on any terminal.
-
-
-File: xemacs.info,  Node: Minibuffer,  Next: M-x,  Prev: Undo,  Up: Top
-
-The Minibuffer
-**************
-
-   The "minibuffer" is the facility used by XEmacs commands to read
-arguments more complicated than a single number.  Minibuffer arguments
-can be file names, buffer names, Lisp function names, XEmacs command
-names, Lisp expressions, and many other things, depending on the command
-reading the argument.  You can use the usual XEmacs editing commands in
-the minibuffer to edit the argument text.
-
-   When the minibuffer is in use, it appears in the echo area, and the
-cursor moves there.  The beginning of the minibuffer line displays a
-"prompt" which says what kind of input you should supply and how it
-will be used.  Often this prompt is derived from the name of the command
-that the argument is for.  The prompt normally ends with a colon.
-
-   Sometimes a "default argument" appears in parentheses after the
-colon; it, too, is part of the prompt.  The default is used as the
-argument value if you enter an empty argument (e.g., by just typing
-<RET>).  For example, commands that read buffer names always show a
-default, which is the name of the buffer that will be used if you type
-just <RET>.
-
-   The simplest way to enter a minibuffer argument is to type the text
-you want, terminated by <RET> which exits the minibuffer.  You can
-cancel the command that wants the argument, and get out of the
-minibuffer, by typing `C-g'.
-
-   Since the minibuffer uses the screen space of the echo area, it can
-conflict with other ways XEmacs customarily uses the echo area.  Here is
-how XEmacs handles such conflicts:
-
-   * If a command gets an error while you are in the minibuffer, this
-     does not cancel the minibuffer.  However, the echo area is needed
-     for the error message and therefore the minibuffer itself is
-     hidden for a while.  It comes back after a few seconds, or as soon
-     as you type anything.
-
-   * If in the minibuffer you use a command whose purpose is to print a
-     message in the echo area, such as `C-x =', the message is printed
-     normally, and the minibuffer is hidden for a while.  It comes back
-     after a few seconds, or as soon as you type anything.
-
-   * Echoing of keystrokes does not take place while the minibuffer is
-     in use.
-
-* Menu:
-
-* File: Minibuffer File.  Entering file names with the minibuffer.
-* Edit: Minibuffer Edit.  How to edit in the minibuffer.
-* Completion::		  An abbreviation facility for minibuffer input.
-* Minibuffer History::    Reusing recent minibuffer arguments.
-* Repetition::		  Re-executing commands that used the minibuffer.
 

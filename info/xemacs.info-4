@@ -30,6 +30,291 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Position Info,  Next: Arguments,  Prev: Continuation Lines,  Up: Basic
+
+Cursor Position Information
+===========================
+
+   If you are accustomed to other display editors, you may be surprised
+that Emacs does not always display the page number or line number of
+point in the mode line.  In Emacs, this information is only rarely
+needed, and a number of commands are available to compute and print it.
+Since text is stored in a way that makes it difficult to compute the
+information, it is not displayed all the time.
+
+`M-x what-page'
+     Print page number of point, and line number within page.
+
+`M-x what-line'
+     Print line number of point in the buffer.
+
+`M-x line-number-mode'
+     Toggle automatic display of current line number.
+
+`M-='
+     Print number of lines and characters in the current region
+     (`count-lines-region').  *Note Mark::, for information about the
+     region.
+
+`C-x ='
+     Print character code of character after point, character position
+     of point, and column of point (`what-cursor-position').
+
+   There are several commands for printing line numbers:
+
+   * `M-x what-line' counts lines from the beginning of the file and
+     prints the line number point is on.  The first line of the file is
+     line number 1.  You can use these numbers as arguments to `M-x
+     goto-line'.
+
+   * `M-x what-page' counts pages from the beginning of the file, and
+     counts lines within the page, printing both of them.  *Note
+     Pages::, for the command `C-x l', which counts the lines in the
+     current page.
+
+   * `M-=' (`count-lines-region') prints the number of lines in the
+     region (*note Mark::).  *Note Pages::, for the command `C-x l'
+     which counts the lines in the
+
+   The command `C-x =' (`what-cursor-position') can be used to find out
+the column that the cursor is in, and other miscellaneous information
+about point.  It prints a line in the echo area that looks like this:
+
+     Char: c (0143, 99, 0x63)  point=18862 of 24800(76%)  column 53
+
+(In fact, this is the output produced when point is before `column 53'
+in the example.)
+
+   The four values after `Char:' describe the character that follows
+point, first by showing it and then by giving its character code in
+octal, decimal and hex.
+
+   `point=' is followed by the position of point expressed as a
+character count.  The front of the buffer counts as position 1, one
+character later as 2, and so on.  The next, larger number is the total
+number of characters in the buffer.  Afterward in parentheses comes the
+position expressed as a percentage of the total size.
+
+   `column' is followed by the horizontal position of point, in columns
+from the left edge of the window.
+
+   If the buffer has been narrowed, making some of the text at the
+beginning and the end temporarily invisible, `C-x =' prints additional
+text describing the current visible range.  For example, it might say:
+
+     Char: c (0143, 99, 0x63)  point=19674 of 24575(80%) <19591 - 19703>  column 69
+
+where the two extra numbers give the smallest and largest character
+position that point is allowed to assume.  The characters between those
+two positions are the visible ones.  *Note Narrowing::.
+
+   If point is at the end of the buffer (or the end of the visible
+part), `C-x =' omits any description of the character after point.  The
+output looks like
+
+     point=563026 of 563025(100%)  column 0
+
+
+File: xemacs.info,  Node: Arguments,  Prev: Position Info,  Up: Basic
+
+Numeric Arguments
+=================
+
+   In mathematics and computer usage, the word "argument" means "data
+provided to a function or operation."  Any Emacs command can be given a
+"numeric argument" (also called a "prefix argument").  Some commands
+interpret the argument as a repetition count.  For example, giving an
+argument of ten to the key `C-f' (the command `forward-char', move
+forward one character) moves forward ten characters.  With these
+commands, no argument is equivalent to an argument of one.  Negative
+arguments are allowed.  Often they tell a command to move or act  in
+the opposite direction.
+
+   If your keyboard has a <META> key (labelled with a diamond on
+Sun-type keyboards and labelled `Alt' on some other keyboards), the
+easiest way to specify a numeric argument is to type digits and/or a
+minus sign while holding down the <META> key.  For example,
+     M-5 C-n
+
+would move down five lines.  The characters `Meta-1', `Meta-2', and so
+on, as well as `Meta--', do this because they are keys bound to
+commands (`digit-argument' and `negative-argument') that are defined to
+contribute to an argument for the next command.  Digits and `-'
+modified with Control, or Control and Meta, also specify numeric
+arguments.
+
+   Another way of specifying an argument is to use the `C-u'
+(`universal-argument') command followed by the digits of the argument.
+With `C-u', you can type the argument digits without holding down
+modifier keys; `C-u' works on all terminals.  To type a negative
+argument, type a minus sign after `C-u'.  Just a minus sign without
+digits normally means -1.
+
+   `C-u' followed by a character which is neither a digit nor a minus
+sign has the special meaning of "multiply by four".  It multiplies the
+argument for the next command by four.  `C-u' twice multiplies it by
+sixteen.  Thus, `C-u C-u C-f' moves forward sixteen characters.  This
+is a good way to move forward "fast", since it moves about 1/5 of a line
+in the usual size frame.  Other useful combinations are `C-u C-n', `C-u
+C-u C-n' (move down a good fraction of a frame), `C-u C-u C-o' (make "a
+lot" of blank lines), and `C-u C-k' (kill four lines).
+
+   Some commands care only about whether there is an argument and not
+about its value.  For example, the command `M-q' (`fill-paragraph') with
+no argument fills text; with an argument, it justifies the text as well.
+(*Note Filling::, for more information on `M-q'.)  Just `C-u' is a
+handy way of providing an argument for such commands.
+
+   Some commands use the value of the argument as a repeat count, but do
+something peculiar when there is no argument.  For example, the command
+`C-k' (`kill-line') with argument N kills N lines, including their
+terminating newlines.  But `C-k' with no argument is special: it kills
+the text up to the next newline, or, if point is right at the end of
+the line, it kills the newline itself.  Thus, two `C-k' commands with
+no arguments can kill a non-blank line, just like `C-k' with an
+argument of one.  (*Note Killing::, for more information on `C-k'.)
+
+   A few commands treat a plain `C-u' differently from an ordinary
+argument.  A few others may treat an argument of just a minus sign
+differently from an argument of -1.  These unusual cases are described
+when they come up; they are always for reasons of convenience of use of
+the individual command.
+
+   You can use a numeric argument to insert multiple copies of a
+character.  This is straightforward unless the character is a digit; for
+example, `C-u 6 4 a' inserts 64 copies of the character `a'.  But this
+does not work for inserting digits; `C-u 6 4 1' specifies an argument
+of 641, rather than inserting anything.  To separate the digit to
+insert from the argument, type another `C-u'; for example, `C-u 6 4 C-u
+1' does insert 64 copies of the character `1'.
+
+   We use the term "prefix argument" as well as "numeric argument" to
+emphasize that you type the argument before the command, and to
+distinguish these arguments from minibuffer arguments that come after
+the command.
+
+
+File: xemacs.info,  Node: Undo,  Next: Minibuffer,  Prev: Basic,  Up: Top
+
+Undoing Changes
+***************
+
+   Emacs allows you to undo all changes you make to the text of a
+buffer, up to a certain amount of change (8000 characters).  Each
+buffer records changes individually, and the undo command always
+applies to the current buffer.  Usually each editing command makes a
+separate entry in the undo records, but some commands such as
+`query-replace' make many entries, and very simple commands such as
+self-inserting characters are often grouped to make undoing less
+tedious.
+
+`C-x u'
+     Undo one batch of changes (usually, one command's worth) (`undo').
+
+`C-_'
+     The same.
+
+   The command `C-x u' or `C-_' allows you to undo changes.  The first
+time you give this command, it undoes the last change.  Point moves to
+the text affected by the undo, so you can see what was undone.
+
+   Consecutive repetitions of the `C-_' or `C-x u' commands undo
+earlier and earlier changes, back to the limit of what has been
+recorded.  If all recorded changes have already been undone, the undo
+command prints an error message and does nothing.
+
+   Any command other than an undo command breaks the sequence of undo
+commands.  Starting at this moment, the previous undo commands are
+considered ordinary changes that can themselves be undone.  Thus, you
+can redo changes you have undone by typing `C-f' or any other command
+that have no important effect, and then using more undo commands.
+
+   If you notice that a buffer has been modified accidentally, the
+easiest way to recover is to type `C-_' repeatedly until the stars
+disappear from the front of the mode line.  When that happens, all the
+modifications you made have been canceled.  If you do not remember
+whether you changed the buffer deliberately, type `C-_' once. When you
+see Emacs undo the last change you made, you probably remember why you
+made it.  If the change was an accident, leave it undone.  If it was
+deliberate, redo the change as described in the preceding paragraph.
+
+   Whenever an undo command makes the stars disappear from the mode
+line, the buffer contents is the same as it was when the file was last
+read in or saved.
+
+   Not all buffers record undo information.  Buffers whose names start
+with spaces don't; these buffers are used internally by Emacs and its
+extensions to hold text that users don't normally look at or edit.
+Minibuffers, help buffers, and documentation buffers also don't record
+undo information.
+
+   Emacs can remember at most 8000 or so characters of deleted or
+modified text in any one buffer for reinsertion by the undo command.
+There is also a limit on the number of individual insert, delete, or
+change actions that Emacs can remember.
+
+   There are two keys to run the `undo' command, `C-x u' and `C-_',
+because on some keyboards, it is not obvious how to type `C-_'. `C-x u'
+is an alternative you can type in the same fashion on any terminal.
+
+
+File: xemacs.info,  Node: Minibuffer,  Next: M-x,  Prev: Undo,  Up: Top
+
+The Minibuffer
+**************
+
+   The "minibuffer" is the facility used by XEmacs commands to read
+arguments more complicated than a single number.  Minibuffer arguments
+can be file names, buffer names, Lisp function names, XEmacs command
+names, Lisp expressions, and many other things, depending on the command
+reading the argument.  You can use the usual XEmacs editing commands in
+the minibuffer to edit the argument text.
+
+   When the minibuffer is in use, it appears in the echo area, and the
+cursor moves there.  The beginning of the minibuffer line displays a
+"prompt" which says what kind of input you should supply and how it
+will be used.  Often this prompt is derived from the name of the command
+that the argument is for.  The prompt normally ends with a colon.
+
+   Sometimes a "default argument" appears in parentheses after the
+colon; it, too, is part of the prompt.  The default is used as the
+argument value if you enter an empty argument (e.g., by just typing
+<RET>).  For example, commands that read buffer names always show a
+default, which is the name of the buffer that will be used if you type
+just <RET>.
+
+   The simplest way to enter a minibuffer argument is to type the text
+you want, terminated by <RET> which exits the minibuffer.  You can
+cancel the command that wants the argument, and get out of the
+minibuffer, by typing `C-g'.
+
+   Since the minibuffer uses the screen space of the echo area, it can
+conflict with other ways XEmacs customarily uses the echo area.  Here is
+how XEmacs handles such conflicts:
+
+   * If a command gets an error while you are in the minibuffer, this
+     does not cancel the minibuffer.  However, the echo area is needed
+     for the error message and therefore the minibuffer itself is
+     hidden for a while.  It comes back after a few seconds, or as soon
+     as you type anything.
+
+   * If in the minibuffer you use a command whose purpose is to print a
+     message in the echo area, such as `C-x =', the message is printed
+     normally, and the minibuffer is hidden for a while.  It comes back
+     after a few seconds, or as soon as you type anything.
+
+   * Echoing of keystrokes does not take place while the minibuffer is
+     in use.
+
+* Menu:
+
+* File: Minibuffer File.  Entering file names with the minibuffer.
+* Edit: Minibuffer Edit.  How to edit in the minibuffer.
+* Completion::		  An abbreviation facility for minibuffer input.
+* Minibuffer History::    Reusing recent minibuffer arguments.
+* Repetition::		  Re-executing commands that used the minibuffer.
+
+
 File: xemacs.info,  Node: Minibuffer File,  Next: Minibuffer Edit,  Prev: Minibuffer,  Up: Minibuffer
 
 Minibuffers for File Names
@@ -907,323 +1192,4 @@ all behave as if they had been given a prefix argument.
    If you want more information about a function definition, variable or
 symbol property listed in the Apropos buffer, you can click on it with
 `Mouse-2' or move there and type <RET>.
-
-
-File: xemacs.info,  Node: Library Keywords,  Next: Help Mode,  Prev: Apropos,  Up: Help
-
-Keyword Search for Lisp Libraries
-=================================
-
-   The `C-h p' command lets you search the standard Emacs Lisp
-libraries by topic keywords.  Here is a partial list of keywords you can
-use:
-
-     abbrev        abbreviation handling, typing shortcuts, macros
-     bib           code related to the `bib' bibliography processor
-     c             C, C++, and Objective-C language support
-     calendar      calendar and time management support
-     comm          communications, networking, remote access to files
-     data          support for editing files of data
-     docs          support for Emacs documentation
-     dumped        files preloaded into Emacs
-     emulations    emulations of other editors
-     extensions    Emacs Lisp language extensions
-     faces         support for multiple fonts
-     frames        support for Emacs frames and window systems
-     games         games, jokes and amusements
-     hardware      support for interfacing with exotic hardware
-     help          support for on-line help systems
-     hypermedia    support for links between text or other media types
-     i18n          internationalization and alternate character-set support
-     internal      code for Emacs internals, build process, defaults
-     languages     specialized modes for editing programming languages
-     lisp          Lisp support, including Emacs Lisp
-     local         code local to your site
-     maint         maintenance aids for the Emacs development group
-     mail          modes for electronic-mail handling
-     matching      various sorts of searching and matching
-     mouse         mouse support
-     mule          multi-language extensions
-     news          support for netnews reading and posting
-     oop           support for object-oriented programming
-     outlines      support for hierarchical outlining
-     processes     process, subshell, compilation, and job control support
-     terminals     support for terminal types
-     tex           code related to the TeX formatter
-     tools         programming tools
-     unix          front-ends/assistants for, or emulators of, UNIX features
-     vms           support code for vms
-     wp            word processing
-
-
-File: xemacs.info,  Node: Help Mode,  Next: Misc Help,  Prev: Library Keywords,  Up: Help
-
-Help Mode Commands
-==================
-
-   Help buffers provide the commands of View mode (*note Misc File
-Ops::), plus a few special commands of their own.
-
-`<SPC>'
-     Scroll forward.
-
-`<DEL>'
-`<BS>'
-     Scroll backward.
-
-   When a command name (*note Running Commands by Name: M-x.) or
-variable name (*note Variables::) appears in the documentation, it
-normally appears inside paired single-quotes.
-
-
-File: xemacs.info,  Node: Misc Help,  Prev: Help Mode,  Up: Help
-
-Other Help Commands
-===================
-
-   `C-h i' (`info') runs the Info program, which is used for browsing
-through structured documentation files.  The entire XEmacs manual is
-available within Info.  Eventually all the documentation of the GNU
-system will be available.  Type `h' after entering Info to run a
-tutorial on using Info.
-
-   If you specify a numeric argument, `C-h i' prompts for the name of a
-documentation file.  This way, you can browse a file which doesn't have
-an entry in the top-level Info menu.  It is also handy when you need to
-get to the documentation quickly, and you know the exact name of the
-file.
-
-   There are two special help commands for accessing XEmacs
-documentation through Info.  `C-h C-f FUNCTION <RET>' enters Info and
-goes straight to the documentation of the XEmacs function FUNCTION.
-`C-h C-k KEY' enters Info and goes straight to the documentation of the
-key KEY.  These two keys run the commands `Info-elisp-ref' and
-`Info-goto-emacs-key-command-node'.
-
-   If something surprising happens, and you are not sure what commands
-you typed, use `C-h l' (`view-lossage').  `C-h l' prints the last 100
-command characters you typed in.  If you see commands that you don't
-know, you can use `C-h c' to find out what they do.
-
-   XEmacs has several major modes.  Each mode redefines a few keys and
-makes a few other changes in how editing works.  `C-h m'
-(`describe-mode') prints documentation on the current major mode, which
-normally describes all the commands that are changed in this mode.
-
-   `C-h b' (`describe-bindings') and `C-h s' (`describe-syntax')
-present information about the current XEmacs mode that is not covered
-by `C-h m'.  `C-h b' displays a list of all the key bindings currently
-in effect, with the local bindings of the current major mode first,
-followed by the global bindings (*note Key Bindings::).  `C-h s'
-displays the contents of the syntax table with explanations of each
-character's syntax (*note Syntax::).
-
-   You can get a similar list for a particular prefix key by typing
-`C-h' after the prefix key.  (There are a few prefix keys for which
-this does not work--those that provide their own bindings for `C-h'.
-One of these is <ESC>, because `<ESC> C-h' is actually `C-M-h', which
-marks a defun.)
-
-   The other `C-h' options display various files of useful information.
-`C-h C-w' (`describe-no-warranty') displays the full details on the
-complete absence of warranty for XEmacs.  `C-h n' (`view-emacs-news')
-displays the file `xemacs/etc/NEWS', which contains documentation on
-XEmacs changes arranged chronologically.  `C-h F' (`xemacs-local-faq')
-displays local version of the XEmacs
-frequently-answered-questions-list.  `C-h t' (`help-with-tutorial')
-displays the learn-by-doing XEmacs tutorial. `C-h C-c'
-(`describe-copying') displays the file `xemacs/etc/COPYING', which
-tells you the conditions you must obey in distributing copies of
-XEmacs.  `C-h C-d' (`describe-distribution') displays another file named
-`xemacs/etc/DISTRIB', which tells you how you can order a copy of the
-latest version of XEmacs.
-
-
-File: xemacs.info,  Node: Mark,  Next: Mouse Selection,  Prev: Help,  Up: Top
-
-Selecting Text
-**************
-
-   Many Emacs commands operate on an arbitrary contiguous part of the
-current buffer. You can select text in two ways:
-
-   * You use special keys to select text by defining a region between
-     point and the mark.
-
-   * If you are running XEmacs under X, you can also select text with
-     the mouse.
-
-The Mark and the Region
-=======================
-
-   To specify the text for a command to operate on, set "the mark" at
-one end of it, and move point to the other end.  The text between point
-and the mark is called "the region".  You can move point or the mark to
-adjust the boundaries of the region.  It doesn't matter which one is
-set first chronologically, or which one comes earlier in the text.
-
-   Once the mark has been set, it remains until it is set again at
-another place.  The mark remains fixed with respect to the preceding
-character if text is inserted or deleted in a buffer.  Each Emacs
-buffer has its own mark; when you return to a buffer that had been
-selected previously, it has the same mark it had before.
-
-   Many commands that insert text, such as `C-y' (`yank') and `M-x
-insert-buffer', position the mark at one end of the inserted text--the
-opposite end from where point is positioned, so that the region
-contains the text just inserted.
-
-   Aside from delimiting the region, the mark is useful for marking a
-spot that you may want to go back to.  To make this feature more useful,
-Emacs remembers 16 previous locations of the mark in the `mark ring'.
-
-* Menu:
-
-* Setting Mark::	Commands to set the mark.
-* Using Region::	Summary of ways to operate on contents of the region.
-* Marking Objects::	Commands to put region around textual units.
-* Mark Ring::   	Previous mark positions saved so you can go back there.
-
-
-File: xemacs.info,  Node: Setting Mark,  Next: Using Region,  Prev: Mark,  Up: Mark
-
-Setting the Mark
-----------------
-
-   Here are some commands for setting the mark:
-
-`C-<SPC>'
-     Set the mark where point is (`set-mark-command').
-
-`C-@'
-     The same.
-
-`C-x C-x'
-     Interchange mark and point (`exchange-point-and-mark').
-
-`C-<'
-     Pushes a mark at the beginning of the buffer.
-
-`C->'
-     Pushes a mark at the end of the buffer.
-
-   For example, to convert part of the buffer to all upper-case, you
-can use the `C-x C-u' (`upcase-region') command, which operates on the
-text in the region.  First go to the beginning of the text you want to
-capitalize and type `C-<SPC>' to put the mark there, then move to the
-end, and then type `C-x C-u' to capitalize the selected region.  You
-can also set the mark at the end of the text, move to the beginning,
-and then type `C-x C-u'.  Most commands that operate on the text in the
-region have the word `region' in their names.
-
-   The most common way to set the mark is with the `C-<SPC>' command
-(`set-mark-command').  This command sets the mark where point is. You
-can then move point away, leaving the mark behind.  It is actually
-incorrect to speak of the character `C-<SPC>'; there is no such
-character.  When you type <SPC> while holding down <CTRL>, you get the
-character `C-@' on most terminals. This character is actually bound to
-`set-mark-command'.  But unless you are unlucky enough to have a
-terminal where typing `C-<SPC>' does not produce `C-@', you should
-think of this character as `C-<SPC>'.
-
-   Since terminals have only one cursor, Emacs cannot show you where the
-mark is located. Most people use the mark soon after they set it, before
-they forget where it is. But you can see where the mark is with the
-command `C-x C-x' (`exchange-point-and-mark') which puts the mark where
-point was and point where the mark was.  The extent of the region is
-unchanged, but the cursor and point are now at the previous location of
-the mark.
-
-   Another way to set the mark is to push the mark to the beginning of a
-buffer while leaving point at its original location. If you supply an
-argument to `C-<' (`mark-beginning-of-buffer'), the mark is pushed N/10
-of the way from the true beginning of the buffer. You can also set the
-mark at the end of a buffer with `C->' (`mark-end-of-buffer'). It
-pushes the mark to the end of the buffer, leaving point alone.
-Supplying an argument to the command pushes the mark N/10 of the way
-from the true end of the buffer.
-
-   If you are using XEmacs under the X window system, you can set the
-variable `zmacs-regions' to `t'. This makes the current region (defined
-by point and mark) highlight and makes it available as the X clipboard
-selection, which means you can use the menu bar items on it.  *Note
-Active Regions::, for more information.
-
-   `C-x C-x' is also useful when you are satisfied with the location of
-point but want to move the mark; do `C-x C-x' to put point there and
-then you can move it.  A second use of `C-x C-x', if necessary, puts
-the mark at the new location with point back at its original location.
-
-
-File: xemacs.info,  Node: Using Region,  Next: Marking Objects,  Prev: Setting Mark,  Up: Mark
-
-Operating on the Region
------------------------
-
-   Once you have created an active region, you can do many things to
-the text in it:
-   * Kill it with `C-w' (*note Killing::).
-
-   * Save it in a register with `C-x r s' (*note Registers::).
-
-   * Save it in a buffer or a file (*note Accumulating Text::).
-
-   * Convert case with `C-x C-l' or `C-x C-u'
-     (*note Case::).
-
-   * Evaluate it as Lisp code with `M-x eval-region' (*note Lisp
-     Eval::).
-
-   * Fill it as text with `M-q' (*note Filling::).
-
-   * Print hardcopy with `M-x print-region' (*note Hardcopy::).
-
-   * Indent it with `C-x <TAB>' or `C-M-\' (*note Indentation::).
-
-
-File: xemacs.info,  Node: Marking Objects,  Next: Mark Ring,  Prev: Using Region,  Up: Mark
-
-Commands to Mark Textual Objects
---------------------------------
-
-   There are commands for placing point and the mark around a textual
-object such as a word, list, paragraph or page.
-
-`M-@'
-     Set mark after end of next word (`mark-word').  This command and
-     the following one do not move point.
-
-`C-M-@'
-     Set mark after end of next Lisp expression (`mark-sexp').
-
-`M-h'
-     Put region around current paragraph (`mark-paragraph').
-
-`C-M-h'
-     Put region around current Lisp defun (`mark-defun').
-
-`C-x h'
-     Put region around entire buffer (`mark-whole-buffer').
-
-`C-x C-p'
-     Put region around current page (`mark-page').
-
-   `M-@' (`mark-word') puts the mark at the end of the next word, while
-`C-M-@' (`mark-sexp') puts it at the end of the next Lisp expression.
-These characters sometimes save you some typing.
-
-   A number of commands are available that set both point and mark and
-thus delimit an object in the buffer.  `M-h' (`mark-paragraph') moves
-point to the beginning of the paragraph that surrounds or follows
-point, and puts the mark at the end of that paragraph (*note
-Paragraphs::).  You can then indent, case-convert, or kill the whole
-paragraph.  In the same fashion, `C-M-h' (`mark-defun') puts point
-before and the mark after the current or following defun (*note
-Defuns::).  `C-x C-p' (`mark-page') puts point before the current page
-(or the next or previous, depending on the argument), and mark at the
-end (*note Pages::).  The mark goes after the terminating page
-delimiter (to include it), while point goes after the preceding page
-delimiter (to exclude it).  Finally, `C-x h' (`mark-whole-buffer') sets
-up the entire buffer as the region by putting point at the beginning
-and the mark at the end.
 

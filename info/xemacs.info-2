@@ -30,7 +30,7 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
-File: xemacs.info,  Node: Mode Line,  Next: XEmacs under X,  Prev: Echo Area,  Up: Frame
+File: xemacs.info,  Node: Mode Line,  Next: GUI Components,  Prev: Echo Area,  Up: Frame
 
 The Mode Line
 =============
@@ -122,7 +122,198 @@ terminal supports it); `nil' means no inverse video.  The default is
 appropriately.
 
 
-File: xemacs.info,  Node: XEmacs under X,  Prev: Mode Line,  Up: Frame
+File: xemacs.info,  Node: GUI Components,  Next: XEmacs under X,  Prev: Mode Line,  Up: Frame
+
+GUI Components
+==============
+
+   When executed in a graphical windowing environment such as the X
+Window System or Microsoft Windows, XEmacs displays several graphical
+user interface components such as scrollbars, menubars, toolbars, and
+gutters.  By default there is a vertical scrollbar at the right of each
+frame, and at the top of the frame there is a menubar, a toolbar, and a
+gutter, in that order.  Gutters can contain any of several widgets, but
+the default configuration puts a set of "notebook tabs" which you can
+use as a shortcut for selecting any of several related buffers in a
+given frame.  Operating the GUI components is "obvious":  click on the
+menubar to pull down a menu, on a button in the toolbar to invoke a
+function, and on a tab in the gutter to switch buffers.
+
+* Menu:
+
+* Menubar Basics::      How XEmacs uses the menubar.
+* Scrollbar Basics::    How XEmacs uses scrollbars.
+* Toolbar Basics::      How XEmacs uses toolbars.
+* Gutter Basics::       How XEmacs uses gutters.
+* Inhibiting::          What if you don't like GUI?
+* Customizing::         Position, orientation, and appearance of GUI objects.
+
+
+File: xemacs.info,  Node: Menubar Basics,  Next: Scrollbar Basics,  Up: GUI Components
+
+The XEmacs Menubar
+==================
+
+   The XEmacs menubar is intended to be conformant to the usual
+conventions for menubars, although conformance is not yet perfect.  The
+menu at the extreme right is the `Help' menu, which should always be
+available.  It provides access to all the XEmacs help facilities
+available through `C-h', as well as samples of various configuration
+files like `~/.Xdefaults' and `~/.emacs'.  At the extreme left is the
+`Files' menu, which provides the usual file reading, writing, and
+printing operations, as well as operations like revert buffer from most
+recent save.  The next menu from the left is the `Edit' menu, which
+provides the `Undo' operation as well as cutting and pasting,
+searching, and keyboard macro definition and execution.
+
+   XEmacs provides a very dynamic environment, and the Lisp language
+makes for highly flexible applications.  The menubar reflects this:
+many menus (eg, the `Buffers' menu, *note Buffers Menu::) contain items
+determined by the current state of XEmacs, and most major modes and many
+minor modes add items to menus and even whole menus to the menubar.  In
+fact, some applications like w3.el and VM provide so many menus that
+they define a whole new menubar and add a button that allows convenient
+switching between the "XEmacs menubar" and the "application menubar".
+Such applications normally bind themselves to a particular frame, and
+this switching only takes place on frames where such an application is
+active (ie, the current window of the frame is displaying a buffer in
+the appropriate major mode).
+
+   Other menus which are typically available are the `Options',
+`Tools', `Buffers', `Apps', and `Mule' menus.  For detailed
+descriptions of these menus, *Note Pull-down Menus::.  (In 21.2
+XEmacsen, the `Mule' menu will be moved under `Options'.)
+
+
+File: xemacs.info,  Node: Scrollbar Basics,  Next: Toolbar Basics,  Prev: Menubar Basics,  Up: GUI Components
+
+XEmacs Scrollbars
+=================
+
+   XEmacs scrollbars provide the usual interface.  Arrow buttons at
+either end allow for line by line scrolling, including autorepeat.
+Clicking in the scrollbar itself provides scrolling by windowsfull,
+depending on which side of the slider is clicked.  The slider itself
+may be dragged for smooth scrolling.
+
+   The position of the slider corresponds to the position of the window
+in the buffer.  In particular, the length of the slider is proportional
+to the fraction of the buffer which appears in the window.
+
+   The presence of the scrollbars is under control of the application or
+may be customized by the user.  By default a vertical scrollbar is
+present in all windows (except the minibuffer), and there is no
+horizontal scrollbar.
+
+
+File: xemacs.info,  Node: Toolbar Basics,  Next: Gutter Basics,  Prev: Scrollbar Basics,  Up: GUI Components
+
+XEmacs Toolbars
+===============
+
+   XEmacs has a default toolbar which provides shortcuts for some of the
+commonly used operations (such as opening files) and applications (such
+as the Info manual reader).  Operations which require arguments will pop
+up dialogs to get them.
+
+   The position of the default toolbar can be customized.  Also, several
+toolbars may be present simultaneously (in different positions).  VM,
+for example, provides an application toolbar which shortcuts for
+mail-specific operations like sending, saving, and deleting messages.
+
+
+File: xemacs.info,  Node: Gutter Basics,  Next: Inhibiting,  Prev: Toolbar Basics,  Up: GUI Components
+
+XEmacs Gutters
+==============
+
+   Gutters are the most flexible of the GUI components described in this
+section.  In theory, the other GUI components could be implemented by
+customizing a gutter, but in practice the other components were
+introduced earlier and have their own special implementations.  Gutters
+tend to be more transient than the other components.  Buffer tabs, for
+example, change every time the selected buffer in the frame changes.
+And for progress gauges a gutter to contain the gauge is typically
+created on the fly when needed, then destroyed when the operation whose
+staus is being displayed is completed.
+
+   Buffer tabs, having somewhat complex behavior, deserve a closer look.
+By default, a row of buffer tabs is displayed at the top of every frame.
+(The tabs could be placed in the bottom gutter, but would be oriented
+the same way and look rather odd.  The horizontal orientation makes
+putting them in a side gutter utterly impractical.)  The buffer
+displayed in the current window of a frame can be changed to a specific
+buffer by clicking [mouse-1] on the corresponding tab in the gutter.
+
+   Each tab contains the name of its buffer.  The tab for the current
+buffer in each frame is displayed in raised relief.  The list of buffers
+chosen for display in the buffer tab row is derived by filtering the
+buffer list (like the `Buffers' menu).  The list starts out with all
+existing buffers, with more recently selected buffers coming earlier in
+the list.
+
+   Then "uninteresting" buffers, like internal XEmacs buffers, the
+`*Message Log*' buffer, and so on are deleted from the list.  Next, the
+frame's selected buffer is determined.  Buffers with a different major
+mode from the selected buffer are removed from the list.  Finally, if
+the list is too long, the least recently used buffers are deleted from
+the list.  By default up to 6 most recently used buffers with the same
+mode are displayed on tabs in the gutter.
+
+
+File: xemacs.info,  Node: Inhibiting,  Next: Customizing,  Prev: Gutter Basics,  Up: GUI Components
+
+Inhibiting Display of GUI Components
+====================================
+
+   Use of GUI facilities is a personal thing.  Almost everyone agrees
+that drawing via keyboard-based "turtle graphics" is acceptable to
+hardly anyone if a mouse is available, but conversely emulating a
+keyboard with a screenful of buttons is a painful experience.  But
+between those extremes the complete novice will require a fair amount
+of time before toolbars and menus become dispensable, but many an
+"Ancien Haquer" sees them as a complete waste of precious frame space
+that could be filled with text.
+
+   Display of all of the GUI components created by XEmacs can be
+inhibited through the use of Customize.  Customize can be accessed
+through `Options | Customize' in the menu bar, or via `M-x customize'.
+Then navigate through the Customize tree to `Emacs | Environment'.
+Scrollbar and toolbar visibility is controlled via the `Display' group,
+options `Scrollbars visible' and  `Toolbar visible' respectively.
+Gutter visibility is controlled by group `Gutter', option `Visible'.
+
+   Or they can be controlled directly by `M-x customize-variable', by
+changing the values of the variables `menubar-visible-p',
+`scrollbars-visible-p', `toolbar-visible-p', or
+`gutter-buffers-tab-visible-p' respectively.  (The strange form of the
+last variable is due to the fact that gutters are often used to display
+transient widgets like progress gauges, which you probably don't want
+to inhibit.  It is more likely that you want to inhibit the default
+display of the buffers tab widget, which is what that variable controls.
+This interface is subject to change depending on developer experience
+and user feedback.)
+
+   Control of frame configuration can controlled automatically
+according to various parameters such as buffer or frame because these
+are "specifiers" *Note Specifiers: (lispref)Specifiers.  Using these
+features requires programming in Lisp; Customize is not yet that
+sophisticated.  Also, components that appear in various positions and
+orientations can have display suppressed according to position.  `C-h a
+visible-p' gives a list of variables which can be customized.  E.g., to
+control the visibility of specifically the left-side toolbar only,
+customize `left-toolbar-visible-p'.
+
+
+File: xemacs.info,  Node: Customizing,  Prev: Inhibiting,  Up: GUI Components
+
+Changing the Position, Orientation, and Appearance of GUI Components
+====================================================================
+
+   #### Not documented yet.
+
+
+File: xemacs.info,  Node: XEmacs under X,  Next: XEmacs under MS Windows,  Prev: GUI Components,  Up: Frame
 
 Using XEmacs Under the X Window System
 ======================================
@@ -189,6 +380,19 @@ applies:
      to the name of the current frame (a frame's name is distinct from
      its title; the name is used for resource lookup, among other
      things, and the title is simply what appears above the window.)
+
+
+File: xemacs.info,  Node: XEmacs under MS Windows,  Prev: XEmacs under X,  Up: Frame
+
+Using XEmacs Under Microsoft Windows
+====================================
+
+   Use of XEmacs under MS Windows is not separately documented here, but
+most operations available under the X Window System are also available
+with MS Windows.
+
+   Where possible, native MS Windows GUI components and capabilities are
+used in XEmacs.
 
 
 File: xemacs.info,  Node: Keystrokes,  Next: Pull-down Menus,  Prev: Frame,  Up: Top
@@ -884,296 +1088,4 @@ Buffer and Emulate VI menu items, and the Calendar and Games sub-menus.
 When you select a menu item, Emacs executes the equivalent command.
 For some of the menu items, there are sub-menus which you will need to
 select.
-
-
-File: xemacs.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Apps Menu,  Up: Pull-down Menus
-
-The Options Menu
-----------------
-
-   The Options pull-down menu contains the Read Only, Case Sensitive
-Search, Overstrike, Auto Delete Selection, Teach Extended Commands,
-Syntax Highlighting, Paren Highlighting, Font, Size, Weight, Buffers
-Menu Length..., Buffers Sub-Menus and Save Options menu items.  When
-you select a menu item, Emacs executes the equivalent command.  For
-some of the menu items, there are sub-menus which you will need to
-select.
-
-Read Only
-     Selecting this item will cause the buffer to visit the file in a
-     read-only mode. Changes to the file will not be allowed. This is
-     equivalent to the Emacs command `toggle-read-only' (`C-x C-q').
-
-Case Sensitive Search
-     Selecting this item will cause searches to be case-sensitive. If
-     its not selected then searches will ignore case. This option is
-     local to the buffer.
-
-Overstrike
-     After selecting this item, when you type letters they will replace
-     existing text on a one-to-one basis, rather than pushing it to the
-     right. At the end of a line, such characters extend the line.
-     Before a tab, such characters insert until the tab is filled in.
-     This is the same as Emacs command `quoted-insert' (`C-q').
-
-Auto Delete Selection
-     Selecting this item will cause automatic deletion of the selected
-     region. The typed text will replace the selection if the selection
-     is active (i.e. if its highlighted). If the option is not selected
-     then the typed text is just inserted at the point.
-
-Teach Extended Commands
-     After you  select this item, any time you execute a command with
-     `M-x'which has a shorter keybinding, you will be shown the
-     alternate binding before the command executes.
-
-Syntax Highlighting
-     You can customize your init file to include the font-lock mode so
-     that when you select this item, the comments will be displayed in
-     one face, strings in another, reserved words in another, and so
-     on. *Note Init File::.  When Fonts is selected, different parts of
-     the program will appear in different Fonts. When Colors is
-     selected, then the program will be displayed in different colors.
-     Selecting None causes the program to appear in just one Font and
-     Color. Selecting Less resets the Fonts and Colors to a fast,
-     minimal set of decorations. Selecting More resets the Fonts and
-     Colors to a larger set of decorations. For example, if Less is
-     selected (which is the default setting) then you might have all
-     comments in green color.  Whereas, if More is selected then a
-     function name in the comments themselves might appear in a
-     different Color or Font.
-
-Paren Highlighting
-     After selecting Blink from this item, if you place the cursor on a
-     parenthesis, the matching parenthesis will blink. If you select
-     Highlight and place the cursor on a parenthesis, the whole
-     expression of the parenthesis under the cursor will be highlighted.
-     Selecting None will turn off the options (regarding Paren
-     Highlighting) which you had selected earlier.
-
-Font
-     You can select any Font for your program by choosing from one of
-     the available Fonts.
-
-Size
-     You can select any size ranging from 2 to 24 by selecting the
-     appropriate option.
-
-Weight
-     You can choose either Bold or Medium for the weight.
-
-Buffers Menu Length...
-     Prompts you for the number of buffers to display. Then it will
-     display that number of most recently selected buffers.
-
-Buffers Sub-Menus
-     After selection of this item the Buffers menu will contain several
-     commands, as submenus of each buffer line. If this item is
-     unselected, then there are no submenus for each buffer line, the
-     only command available will be selecting that buffer.
-
-Save Options
-     Selecting this item will save the current settings of your Options
-     menu to your init file.  *Note Init File::.
-
-
-File: xemacs.info,  Node: Buffers Menu,  Next: Tools Menu,  Prev: Options Menu,  Up: Pull-down Menus
-
-The Buffers Menu
-----------------
-
-   The Buffers menu provides a selection of up to ten buffers and the
-item List All Buffers, which provides a Buffer List. *Note List
-Buffers::, for more information.
-
-
-File: xemacs.info,  Node: Tools Menu,  Next: Help Menu,  Prev: Buffers Menu,  Up: Pull-down Menus
-
-The Tools Menu
---------------
-
-   The Tools pull-down menu contains the Grep..., Compile..., Shell
-Command..., Shell Command on Region..., Debug(GDB)...  and
-Debug(DBX)... menu items, and the Compare, Merge, Apply Patch and Tags
-sub-menus.  When you select a menu item, Emacs executes the equivalent
-command.  For some of the menu items, there are sub-menus which you
-will need to select.
-
-
-File: xemacs.info,  Node: Help Menu,  Next: Menu Customization,  Prev: Tools Menu,  Up: Pull-down Menus
-
-The Help Menu
--------------
-
-   The Help Menu gives you access to Emacs Info and provides a menu
-equivalent for each of the choices you have when using `C-h'.  *Note
-Help::, for more information.
-
-   The Help menu also gives access to UNIX online manual pages via the
-UNIX Manual Page option.
-
-
-File: xemacs.info,  Node: Menu Customization,  Prev: Help Menu,  Up: Pull-down Menus
-
-Customizing XEmacs Menus
-------------------------
-
-   You can customize any of the pull-down menus by adding or removing
-menu items and disabling or enabling existing menu items.
-
-   The following functions are available:
-`add-menu: (MENU-PATH MENU-NAME MENU-ITEMS &optional BEFORE)'
-     Add a menu to the menu bar or one of its submenus.
-
-`add-menu-item: (MENU-PATH ITEM-NAME FUNCTION'
-     ENABLED-P &optional BEFORE) Add a menu item to a menu, creating
-     the menu first if necessary.
-
-`delete-menu-item: (PATH)'
-     Remove the menu item defined by PATH from the menu hierarchy.
-
-`disable-menu-item: (PATH)'
-     Disable the specified menu item.
-
-`enable-menu-item: (PATH)'
-     Enable the specified previously disabled menu item.
-
-`relabel-menu-item: (PATH NEW-NAME)'
-     Change the string of the menu item specified by PATH to NEW-NAME.
-
-   Use the function `add-menu' to add a new menu or submenu.  If a menu
-or submenu of the given name exists already, it is changed.
-
-   MENU-PATH identifies the menu under which the new menu should be
-inserted.  It is a list of strings; for example, `("File")' names the
-top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
-File.  If MENU-PATH is `nil', the menu is added to the menu bar itself.
-
-   MENU-NAME is the string naming the menu to be added.
-
-   MENU-ITEMS is a list of menu item descriptions.  Each menu item
-should be a vector of three elements:
-
-   * A string, which is the name of the menu item
-
-   * A symbol naming a command, or a form to evaluate
-
-   * `t' or `nil' to indicate whether the item is selectable
-
-   The optional argument BEFORE is the name of the menu before which
-the new menu or submenu should be added.  If the menu is already
-present, it is not moved.
-
-   The function `add-menu-item' adds a menu item to the specified menu,
-creating the menu first if necessary.  If the named item already
-exists, the menu remains unchanged.
-
-   MENU-PATH identifies the menu into which the new menu item should be
-inserted.  It is a list of strings; for example, `("File")' names the
-top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
-File.
-
-   ITEM-NAME is the string naming the menu item to add.
-
-   FUNCTION is the command to invoke when this menu item is selected.
-If it is a symbol, it is invoked with `call-interactively', in the same
-way that functions bound to keys are invoked.  If it is a list, the
-list is simply evaluated.
-
-   ENABLED-P controls whether the item is selectable or not.  It should
-be `t', `nil', or a form to evaluate to decide.  This form will be
-evaluated just before the menu is displayed, and the menu item will be
-selectable if that form returns non-`nil'.
-
-   For example, to make the `rename-file' command available from the
-File menu, use the following code:
-
-     (add-menu-item '("File") "Rename File" 'rename-file t)
-
-   To add a submenu of file management commands using a File Management
-item, use the following code:
-
-     (add-menu-item '("File" "File Management") "Copy File" 'copy-file t)
-     (add-menu-item '("File" "File Management") "Delete File" 'delete-file t)
-     (add-menu-item '("File" "File Management") "Rename File" 'rename-file t)
-
-   The optional BEFORE argument is the name of a menu item before which
-the new item should be added.  If the item is already present, it is
-not moved.
-
-   To remove a specified menu item from the menu hierarchy, use
-`delete-menu-item'.
-
-   PATH is a list of strings that identify the position of the menu
-item in the menu hierarchy.  `("File" "Save")' means the menu item
-called Save under the top level File menu.  `("Menu" "Foo" "Item")'
-means the menu item called Item under the Foo submenu of Menu.
-
-   To disable a menu item, use `disable-menu-item'.  The disabled menu
-item is grayed and can no longer be selected.  To make the item
-selectable again, use `enable-menu-item'.  `disable-menu-item' and
-`enable-menu-item' both have the argument PATH.
-
-   To change the string of the specified menu item, use
-`relabel-menu-item'. This function also takes the argument PATH.
-
-   NEW-NAME is the string to which the menu item will be changed.
-
-
-File: xemacs.info,  Node: Entering Emacs,  Next: Exiting,  Prev: Pull-down Menus,  Up: Top
-
-Entering and Exiting Emacs
-**************************
-
-   The usual way to invoke XEmacs is to type `xemacs <RET>' at the
-shell.  XEmacs clears the screen and then displays an initial advisory
-message and copyright notice.  You can begin typing XEmacs commands
-immediately afterward.
-
-   Some operating systems insist on discarding all type-ahead when
-XEmacs starts up; they give XEmacs no way to prevent this.  Therefore,
-it is advisable to wait until XEmacs clears the screen before typing
-your first editing command.
-
-   If you run XEmacs from a shell window under the X Window System, run
-it in the background with `xemacs&'.  This way, XEmacs does not tie up
-the shell window, so you can use that to run other shell commands while
-XEmacs operates its own X windows.  You can begin typing XEmacs commands
-as soon as you direct your keyboard input to the XEmacs frame.
-
-   Before Emacs reads the first command, you have not had a chance to
-give a command to specify a file to edit.  Since Emacs must always have
-a current buffer for editing, it presents a buffer, by default, a buffer
-named `*scratch*'.  The buffer is in Lisp Interaction mode; you can use
-it to type Lisp expressions and evaluate them, or you can ignore that
-capability and simply doodle.  (You can specify a different major mode
-for this buffer by setting the variable `initial-major-mode' in your
-init file.  *Note Init File::.)
-
-   It is possible to specify files to be visited, Lisp files to be
-loaded, and functions to be called, by giving Emacs arguments in the
-shell command line.  *Note Command Switches::.  But we don't recommend
-doing this.  The feature exists mainly for compatibility with other
-editors.
-
-   Many other editors are designed to be started afresh each time you
-want to edit.  You edit one file and then exit the editor.  The next
-time you want to edit either another file or the same one, you must run
-the editor again.  With these editors, it makes sense to use a
-command-line argument to say which file to edit.
-
-   But starting a new Emacs each time you want to edit a different file
-does not make sense.  For one thing, this would be annoyingly slow.  For
-another, this would fail to take advantage of Emacs's ability to visit
-more than one file in a single editing session.  And it would lose the
-other accumulated context, such as registers, undo history, and the mark
-ring.
-
-   The recommended way to use XEmacs is to start it only once, just
-after you log in, and do all your editing in the same Emacs session.
-Each time you want to edit a different file, you visit it with the
-existing Emacs, which eventually comes to have many files in it ready
-for editing.  Usually you do not kill the Emacs until you are about to
-log out.  *Note Files::, for more information on visiting more than one
-file.
 

@@ -1,3 +1,23 @@
+2000-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.39 is released.
+
+2000-12-30  Andy Piper  <andy@xemacs.org>
+
+	* xlwtabs.c: remove assertion definitions and put them in
+	lwlib-internal.h. This has the effect of enabling assertions which
+	should have been done from the very start.
+	(TabsShuffleRows): fix duff assertion.
+	(PreferredSize3): use dimensions throughout.
+	(PreferredSize2): ditto.
+	(TabLayout): ditto.
+	(DrawFrame): be clever about the enclosing frame if the child
+	height is 0.
+	(TabsResize): don't configure children that are no visible
+	anyway. Make sure geometry calculations don't end up negative.
+
+	* lwlib-internal.h: put in assertion definitions.
+
 2000-12-05  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.38 is released.

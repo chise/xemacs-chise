@@ -394,8 +394,8 @@ default is t.")
 
 If a match spreads across multiple lines, all those lines are shown.
 
-If variable `list-matching-lines-whole-buffer' is non-nil, the entire buffer is
-searched, otherwise search begins at point.
+If variable `list-matching-lines-whole-buffer' is non-nil, the entire
+buffer is searched, otherwise search begins at point.
 
 Each line is displayed with NLINES lines before and after, or -NLINES
 before if NLINES is negative.

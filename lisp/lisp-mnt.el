@@ -343,7 +343,7 @@ The return value has the form (NAME . ADDRESS)."
 
 (defun lm-version (&optional file)
   "Return the version listed in file FILE, or current buffer if FILE is nil.
-This can befound in an RCS or SCCS header to crack it out of."
+This can be found in an RCS or SCCS header to crack it out of."
   (save-excursion 
     (if file
 	(find-file file))

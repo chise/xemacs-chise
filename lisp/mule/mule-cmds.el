@@ -689,52 +689,68 @@ The default status is as follows:
   bound to each category are as follows
 	coding category		coding system
 	--------------------------------------------------
-	iso-8-2			iso-8859-1
-	iso-8-1			iso-8859-1
 	iso-7			iso-2022-7bit
-	iso-lock-shift		iso-2022-lock
-	iso-8-designate		iso-2022-8bit-ss2
 	no-conversion		raw-text
+	utf-8			utf-8
+	iso-8-1			iso-8859-1
+	iso-8-2			ctext (iso-8859-1 alias)
+	iso-8-designate		ctext (iso-8859-1 alias)
+	iso-lock-shift		iso-2022-lock
 	shift-jis		shift_jis
 	big5			big5
-	ucs-4			----
-	utf-8			----
+	ucs-4			iso-10646-ucs-4
 "
+;; The old table (from FSF synch?) was not what we use (cf mule-coding.el),
+;; and as documented iso-8-designate is inconsistent with iso-2022-8bit-ss2.
+;;  The order of priorities of coding categories and the coding system
+;;  bound to each category are as follows
+;;	coding category		coding system
+;;	--------------------------------------------------
+;;	iso-8-2			iso-8859-1
+;;	iso-8-1			iso-8859-1
+;;	iso-7			iso-2022-7bit
+;;	iso-lock-shift		iso-2022-lock
+;;	iso-8-designate		iso-2022-8bit-ss2
+;;	no-conversion		raw-text
+;;	shift-jis		shift_jis
+;;	big5			big5
+;;	ucs-4			----
+;;	utf-8			----
   (interactive)
-  ;; This function formerly set default-enable-multibyte-characters to t,
-  ;; but that is incorrect.  It should not alter the unibyte/multibyte choice.
 
-  (set-coding-category-system 'iso-7		'iso-2022-7bit)
+  (set-coding-category-system 'iso-7		'iso-2022-7)
   (set-coding-category-system 'iso-8-1		'iso-8859-1)
-  (set-coding-category-system 'iso-8-2		'iso-8859-1)
+  (set-coding-category-system 'iso-8-2		'ctext)
   (set-coding-category-system 'iso-lock-shift	'iso-2022-lock)
-  (set-coding-category-system 'iso-8-designate	'iso-2022-8bit-ss2)
+  (set-coding-category-system 'iso-8-designate	'ctext)
   (set-coding-category-system 'no-conversion	'raw-text)
   (set-coding-category-system 'shift-jis	'shift_jis)
   (set-coding-category-system 'big5		'big5)
+  ;; #### Can we now assume the existence of the 10646 coding systems?
+  ;; #### These lists need to be synched with the ones in mule-coding.el.
   (cond ((eq (coding-system-type (coding-category-system 'utf-8)) 'utf-8)
 	 (set-coding-category-system 'ucs-4 'iso-10646-ucs-4)
 	 (set-coding-category-system 'utf-8 'utf-8)
 	 (set-coding-priority-list
-	  '(iso-8-1
-	    iso-8-2
-	    iso-7
-	    iso-lock-shift
-	    iso-8-designate
-	    utf-8
-	    ucs-4
+	  '(iso-7
 	    no-conversion
+	    utf-8
+	    iso-8-1
+	    iso-8-2
+	    iso-8-designate
+	    iso-lock-shift
 	    shift-jis
-	    big5))
+	    big5
+	    ucs-4))
 	 )
 	(t
 	 (set-coding-priority-list
-	  '(iso-8-1
-	    iso-8-2
-	    iso-7
-	    iso-lock-shift
-	    iso-8-designate
+	  '(iso-7
 	    no-conversion
+	    iso-8-1
+	    iso-8-2
+	    iso-8-designate
+	    iso-lock-shift
 	    shift-jis
 	    big5))
 	 ))
@@ -867,7 +883,17 @@ specifies the character set for the major languages of Western Europe."
   "Do various coding system setups for language environment LANGUAGE-NAME.
 
 The optional arg EOL-TYPE specifies the eol-type of the default value
-of buffer-file-coding-system set by this function."
+of buffer-file-coding-system set by this function.
+
+Note that `coding-priority-list' is not reset first; thus changing language
+environment allows recognition of coding systems from previously set language
+environments.  (This will not work if the desired coding systems are from the
+same category.  E.g., starting with a Hebrew language environment, ISO 8859-8
+will be recognized.  If you shift to Russian, ISO 8859-8 will be shadowed by
+ISO 8859-5, and cannot be automatically recognized without resetting the
+language environment to Hebrew.  However, if you shift from Japanese to
+Russian, ISO-2022-JP will continue to be automatically recognized, since
+ISO-8859-5 and ISO-2022-JP are different coding categories.)"
   (let* ((priority (get-language-info language-name 'coding-priority))
 	 (default-coding (car priority)))
     (if priority

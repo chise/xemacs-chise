@@ -1721,21 +1721,6 @@ been found by compiling with C++.  The ability to use both C and C++
 tools means that a greater variety of development tools are available to
 the developer.
 
-Almost every module contains a @code{syms_of_*()} function and a
-@code{vars_of_*()} function.  The former declares any Lisp primitives
-you have defined and defines any symbols you will be using.  The latter
-declares any global Lisp variables you have added and initializes global
-C variables in the module.  For each such function, declare it in
-@file{symsinit.h} and make sure it's called in the appropriate place in
-@file{emacs.c}.  @strong{Important}: There are stringent requirements on
-exactly what can go into these functions.  See the comment in
-@file{emacs.c}.  The reason for this is to avoid obscure unwanted
-interactions during initialization.  If you don't follow these rules,
-you'll be sorry!  If you want to do anything that isn't allowed, create
-a @code{complex_vars_of_*()} function for it.  Doing this is tricky,
-though: You have to make sure your function is called at the right time
-so that all the initialization dependencies work out.
-
 Every module includes @file{<config.h>} (angle brackets so that
 @samp{--srcdir} works correctly; @file{config.h} may or may not be in
 the same directory as the C sources) and @file{lisp.h}.  @file{config.h}
@@ -1752,6 +1737,24 @@ directory using @samp{./configure} and another build in another
 directory using @samp{../work/configure}.  There will be two different
 @file{config.h} files.  Which one will be used if you @samp{#include
 "config.h"}?
+
+Almost every module contains a @code{syms_of_*()} function and a
+@code{vars_of_*()} function.  The former declares any Lisp primitives
+you have defined and defines any symbols you will be using.  The latter
+declares any global Lisp variables you have added and initializes global
+C variables in the module.  @strong{Important}: There are stringent
+requirements on exactly what can go into these functions.  See the
+comment in @file{emacs.c}.  The reason for this is to avoid obscure
+unwanted interactions during initialization.  If you don't follow these
+rules, you'll be sorry!  If you want to do anything that isn't allowed,
+create a @code{complex_vars_of_*()} function for it.  Doing this is
+tricky, though: you have to make sure your function is called at the
+right time so that all the initialization dependencies work out.
+
+Declare each function of these kinds in @file{symsinit.h}.  Make sure
+it's called in the appropriate place in @file{emacs.c}.  You never need
+to include @file{symsinit.h} directly, because it is included by
+@file{lisp.h}.
 
 @strong{All global and static variables that are to be modifiable must
 be declared uninitialized.}  This means that you may not use the
@@ -5865,7 +5868,7 @@ differences though:
 @enumerate
 @item
 We do not use the mark bit (which does not exist for C structures
-anyway), we use a big hash table instead.
+anyway); we use a big hash table instead.
 
 @item
 We do not use the mark function of lrecords but instead rely on the
@@ -5882,7 +5885,7 @@ The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
 allows us to look up a pdump_entry_list_elmt with the object it points
 to).  Entries are added with @code{pdump_add_entry()} and looked up with
 @code{pdump_get_entry()}.  There is no need for entry removal.  The hash
-value is computed quite basically from the object pointer by
+value is computed quite simply from the object pointer by
 @code{pdump_make_hash()}.
 
 The roots for the marking are:
@@ -5893,7 +5896,7 @@ the @code{staticpro}'ed variables (there is a special @code{staticpro_nodump()}
 call for protected variables we do not want to dump).
 
 @item
-the @code{pdump_wire}'d variables (@code{staticpro} is equivalent to
+the @code{pdump_wire}'d variables (@code{staticpro()} is equivalent to
 @code{staticpro_nodump()} + @code{pdump_wire()}).
 
 @item
@@ -5925,7 +5928,7 @@ real world alignment requirements are powers of two.
 
 @item
 the C compiler is required to adjust the size of a struct so that you
-can have an array of them next to each other.  This means you can have a
+can have an array of them next to each other.  This means you can have an
 upper bound of the alignment requirements of a given structure by
 looking at which power of two its size is a multiple.
 
@@ -5943,14 +5946,14 @@ first.  This ensures the best packing.
 The maximum alignment requirement we take into account is 2^8.
 
 @code{pdump_allocate_offset()} only has to do a linear allocation,
-starting at offset 256 (this leaves room for the header and keep the
+starting at offset 256 (this leaves room for the header and keeps the
 alignments happy).
 
 @node The header, Data dumping, Address allocation, Dumping phase
 @subsection The header
 
 The next step creates the file and writes a header with a signature and
-some random informations in it (number of staticpro, number of assigned
+some random information in it (number of staticpro, number of assigned
 lrecord types, etc...).  The reloc_address field, which indicates at
 which address the file should be loaded if we want to avoid post-reload
 relocation, is set to 0.  It then seeks to offset 256 (base offset for
@@ -5985,7 +5988,7 @@ the lrecord_implementation_table array
 a vector of all the offsets to the objects in the file that include a
 description (for faster relocation at reload time)
 @item
-the pdump_wired and pdump_wired_list arrays
+the pdump_wire and pdump_wire_list arrays
 @end enumerate
 
 For each of the arrays we write both the pointer to the variables and
@@ -5993,7 +5996,7 @@ the relocated offset of the object they point to.  Since these variables
 are global, the pointers are still valid when restarting the program and
 are used to regenerate the global pointers.
 
-The @code{pdump_wired_list} array is a special case.  The variables it
+The @code{pdump_wire_list} array is a special case.  The variables it
 points to are the head of weak linked lists of lisp objects of the same
 type.  Not all objects of this list are dumped so the relocated pointer
 we associate with them points to the first dumped object of the list, or
