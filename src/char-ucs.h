@@ -359,6 +359,9 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define MIN_CHAR_HALFWIDTH_KATAKANA	0xFF61
 #define MAX_CHAR_HALFWIDTH_KATAKANA	0xFF9F
 
+#define MIN_CHAR_OBS_94x94	0xE00000
+#define MAX_CHAR_OBS_94x94	(0xE00000 + 94 * 94 * 14 - 1)
+
 #define MIN_CHAR_94		0xE90940
 #define MAX_CHAR_94		(MIN_CHAR_94 + 94 * 80 - 1)
 #define MIN_CHAR_96		(MIN_CHAR_94 + 94 * 80)
@@ -461,7 +464,7 @@ INLINE void breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2);
 INLINE void
 breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 {
-  if (c < MIN_CHAR_94)
+  if (c < MIN_CHAR_OBS_94x94)
     {
       Lisp_Object charsets = Vdefault_coded_charset_priority_list;
       while (!EQ (charsets, Qnil))
@@ -531,6 +534,15 @@ breakup_char_1 (Emchar c, Lisp_Object *charset, int *c1, int *c2)
 	  *c1 = c >> 8;
 	  *c2 = c & 0xff;
 	}
+    }
+  else if (c <= MAX_CHAR_OBS_94x94)
+    {
+      *charset
+	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
+				 ((c - MIN_CHAR_OBS_94x94) / (94 * 94)) + '@',
+				 CHARSET_LEFT_TO_RIGHT);
+      *c1 = (((c - MIN_CHAR_OBS_94x94) / 94) % 94) + 33;
+      *c2 = ((c - MIN_CHAR_OBS_94x94) % 94) + 33;
     }
   else if (c <= MAX_CHAR_94)
     {
