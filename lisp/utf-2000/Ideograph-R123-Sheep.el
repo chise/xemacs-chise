@@ -1011,6 +1011,8 @@
 (define-char
   '((ideographic-radical . 123)	; â½º
     (ideographic-strokes . 7)
+    (total-strokes	 . 13)
+    (japanese-jisx0212	. #x5531)	; ø»‹°¸
     (ucs		. #x7FAA)	; ç¾ª
     ))
 (define-char
