@@ -1,5 +1,11 @@
 2004-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R008-Lid.el (U-00020179): Use `->subsumptive';
+	integrate M-09212; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+2004-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R134-Mortar.el (U+8201): Use `->subsumptive'.
 
 2004-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
