@@ -1629,7 +1629,8 @@
     (=ucs		. #x20B61)	; 𠭡
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((morohashi-daikanwa	ho 5)
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 10)
     (total-strokes	 . 11)
     (hanyu-dazidian	1 41 7)

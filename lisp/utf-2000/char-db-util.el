@@ -607,6 +607,41 @@
       )
     (setq radical nil
 	  strokes nil)
+    (let (key)
+      (dolist (domain '(ucs daikanwa cns))
+	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
+	(when (and (memq key attributes)
+		   (setq value (get-char-attribute char key)))
+	  (setq radical value)
+	  (insert (format "(%s . %S)\t; %c%s"
+			  key
+			  radical
+			  (aref ideographic-radicals radical)
+			  line-breaking))
+	  (setq attributes (delq key attributes))
+	  )
+	(setq key (intern (format "%s@%s" 'ideographic-strokes domain)))
+	(when (and (memq key attributes)
+		   (setq value (get-char-attribute char key)))
+	  (setq strokes value)
+	  (insert (format "(%s . %S)%s"
+			  key
+			  strokes
+			  line-breaking))
+	  (setq attributes (delq key attributes))
+	  )
+	(setq key (intern (format "%s@%s*sources"
+				  'ideographic-radical domain)))
+	(when (and (memq key attributes)
+		   (setq value (get-char-attribute char key)))
+	  (insert (format "(%s%s" key line-breaking))
+	  (dolist (cell value)
+	    (insert (format " %s" cell)))
+	  (insert ")")
+	  (insert line-breaking)
+	  (setq attributes (delq key attributes))
+	  )
+	))
     (when (and (memq 'ideographic-radical attributes)
 	       (setq value (get-char-attribute char 'ideographic-radical)))
       (setq radical value)

@@ -1,3 +1,62 @@
+2003-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R114-Track.el (U-00020398): Use
+	ideographic-{radical|strokes}@{ucs|cns} and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+
+	* Ideograph-R009-Man.el: Add some missing mappings to Daikanwa's
+	HO numbers.
+	(U-00020398): Use ideographic-{radical|strokes}@{ucs|cns} and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-'.
+
+2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R070-Square.el (M-13627): New character.
+	(U+3AC4): Relate to M-13627.
+
+2003-05-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R006-Hook.el (MH-0006): New character.
+	(U+4E8A): Unify MH-0007.
+
+	* Ideograph-R005-Second.el (U-000200CC): Unify GT-00301 and
+	MH-0006.
+
+2003-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Add settings for
+	`ideographic-{radicals|strokes}@{ucs|daikanwa|cns}' and
+	`ideographic-radicals@{ucs|daikanwa|cns}*sources'.
+
+	* Ideograph-R017-Open-Box.el (M-01822): Add
+	`ideographic-structure'.
+	(U+342B): Relate to MH-0008 instead of M-01822; moved to
+	Ideograph-R008-Lid.el.
+
+	* Ideograph-R008-Lid.el (BC-8C5E): Unify MH-0008.
+	(U+342B): Relate to MH-0008.
+
+	* ideograph-util.el (char-ideographic-radical): Support
+	`ideographic-radical@{ucs|daikanwa|cns}'.
+	(char-ideographic-strokes): Support
+	`ideographic-strokes@{ucs|daikanwa|cns}'.
+	(update-ideograph-radical-table): Search
+	`ideographic-radical@{ucs|daikanwa|cns}'.
+
+2003-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (U-000200C0): Unify MH-0005.
+
+2003-05-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R001-One.el (GT-00081): Unify MH-0002; map to
+	U-00020030.
+	(U-00020030): Relate to MH-0002.
+	(GT-00088): Unify MH-0003.
+	(U-0002003C): Map to MH-0003.
+	(U-00020050): Unify MH-0004.
+	(GT-00096): Map to U-00020050 and MH-0004.
+
 2003-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R212-Dragon.el, Ideograph-R213-Turtle.el,
