@@ -4687,6 +4687,7 @@
     (jisx0208-difference . 78err)
     (=jis-x0208		. #x5672)	; ø½‹…ƒ
     (=gt-pj-1		. #x5672)	; ý¡€‚²¹
+    (=ucs@jis		. #x5E64)	; ø½‹…ƒ
     (=gt		. 11449)	; ý¡€‚²¹
     ))
 (define-char
