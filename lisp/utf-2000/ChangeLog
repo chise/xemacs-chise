@@ -1,5 +1,76 @@
 2001-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R163-City.el (U+909C): Add `total-strokes'; unify
+	M059962.
+	(U+90BA): Add `total-strokes'.
+
+	* Ideograph-R159-Cart.el (M-38234): Separate JX2-795C; unify
+	M038234.
+	(JX2-795C): Unify M079777.
+	(M-38234'): Add `total-strokes'.
+	(U+65A9): Moved to Ideograph-R069-Axe.el.
+	(U+8EE3): Add `total-strokes'; unify M054697.
+	(M-38438): Unify M038438.
+	(M-38473): Unify M038473.
+	(M-38482): Unify M038482.
+	(M086337): New character; relate to U+8F44 and M-38482.
+	(C1-755D): Relate to M086337.
+
+	* Ideograph-R158-Body.el (M-38110): Separate G0-4C49, JSP-6052,
+	C1-6F41 and U+8EBA; unify M038110.
+	(U+8EBA): Unify G0-4C49, JSP-6052, C1-6F41 and M057438.
+	(M-38111): Add `total-strokes'; unify M038111.
+
+	* Ideograph-R069-Axe.el (U+65A9): Moved from
+	Ideograph-R159-Cart.el.
+
+	* Ideograph-R157-Foot.el (U+8DF6): Add `script'; add
+	`total-strokes'; unify M053969.
+	(U+8DF7): Add `total-strokes'.
+	(U+8DF8): Likewise.
+	(U+8DF9): Likewise.
+	(U+8DFA): Likewise.
+	(M-37672): Unify M037672.
+	(M-37955): Unify M037955.
+	(M-38026): Unify M038026.
+
+	* Ideograph-R149-Speech.el (U+8BDD): Add `total-strokes'.
+	(U+8BDE): Likewise; fix `ideographic-strokes'.
+	(U+8BEB): Add `total-strokes'.
+	(M-35640): Unify M035640.
+	(U+8BF7): Add `total-strokes'.
+	(U+8BF8): Likewise.
+	(U+8BF9): Likewise.
+	(U+8BFA): Likewise.
+	(U+8BFB): Likewise.
+	(U+8BFC): Likewise.
+	(U+8BFD): Likewise.
+	(U+8BFE): Likewise.
+	(U+8BFF): Likewise.
+	(U+8C00): Likewise.
+	(U+8C01): Likewise.
+	(U+8C02): Likewise.
+	(U+8C03): Likewise.
+	(U+8C04): Likewise.
+	(U+8C05): Likewise.
+	(U+8C06): Likewise.
+	(U+8C07): Likewise.
+	(U+8C08): Likewise.
+	(U+8C09): Likewise.
+	(U+8C0A): Likewise.
+	(M-35727): Unify M035727.
+	(M-35779'): Fix `ideographic-strokes'; add `total-strokes'.
+	(U+8B03): Add `total-strokes'; unify M059933.
+	(U+8C0B): Add `total-strokes'.
+	(M-35780): Unify M035780.
+	(M-35821): Unify M035821.
+	(M-35850): Unify M035850.
+	(U+8C33): Add `total-strokes'.
+	(U+8C34): Likewise.
+	(U+8C35): Likewise.
+
+2001-06-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R156-Run.el (M-37034'): Add `simplified-ideograph-of'
 	for M-37034.
 	(M-37035): Add `original-ideograph-of' for M-37034.
