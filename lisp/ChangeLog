@@ -1,3 +1,9 @@
+2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* update-elc.el: Load lisp/utf-2000/dumped-chars.el in UTF-2000;
+	append `system-char-db-source-file-list' into
+	`preloaded-file-list' in UTF-2000.
+
 2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Delete
