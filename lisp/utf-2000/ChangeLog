@@ -1,5 +1,8 @@
 2002-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R160-Bitter.el (M-38638): Add `<-vulgar-ideograph' for
+	M-38671 and M-38649; delete `kangxi-radical' and `kangxi-strokes'.
+
 	* Ideograph-R135-Tongue.el (M-30307): Separate J90-3C2D; map to
 	U+8F9E; add `->identical' for M-38638; add `<-vulgar-ideograph'
 	for M-38671 and M-38649.
