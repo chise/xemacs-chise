@@ -308,6 +308,7 @@ Lisp_Object Qascii,
   Qmap_cns11643_1,
   Qmap_cns11643_2,
 #ifdef UTF2000
+  Qsystem_char_id,
   Qmap_ucs, Qucs,
   Qucs_bmp,
   Qucs_smp,
