@@ -974,86 +974,89 @@ decode_builtin_char (Lisp_Object charset, int code_point)
   Lisp_Object mother = XCHARSET_MOTHER (charset);
   int final;
 
-  if ( CHARSETP (mother) && (XCHARSET_MAX_CODE (charset) > 0) )
+  if ( XCHARSET_MAX_CODE (charset) > 0 )
     {
-      int code = code_point;
-
-      if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
+      if ( CHARSETP (mother) )
 	{
-	  int row = code_point >> 8;
-	  int cell = code_point & 255;	  
+	  int code = code_point;
 
-	  if (row < 16 + 32)
-	    return -1;
-	  else if (row < 16 + 32 + 30)
-	    code = (row - (16 + 32)) * 94 + cell - 33;
-	  else if (row < 18 + 32 + 30)
-	    return -1;
-	  else if (row < 18 + 32 + 60)
-	    code = (row - (18 + 32)) * 94 + cell - 33;
+	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
+	    {
+	      int row = code_point >> 8;
+	      int cell = code_point & 255;	  
+
+	      if (row < 16 + 32)
+		return -1;
+	      else if (row < 16 + 32 + 30)
+		code = (row - (16 + 32)) * 94 + cell - 33;
+	      else if (row < 18 + 32 + 30)
+		return -1;
+	      else if (row < 18 + 32 + 60)
+		code = (row - (18 + 32)) * 94 + cell - 33;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
+	    {
+	      int plane = code_point >> 16;
+	      int row = (code_point >> 8) & 255;
+	      int cell = code_point & 255;	  
+
+	      if (row < 16 + 32)
+		return -1;
+	      else if (row < 16 + 32 + 30)
+		code
+		  = (plane - 33) * 94 * 60
+		  + (row - (16 + 32)) * 94
+		  + cell - 33;
+	      else if (row < 18 + 32 + 30)
+		return -1;
+	      else if (row < 18 + 32 + 60)
+		code
+		  = (plane - 33) * 94 * 60
+		  + (row - (18 + 32)) * 94
+		  + cell - 33;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_1 )
+	    {
+	      unsigned int I
+		= (((code_point >> 8) & 0x7F) - 33) * 94
+		+ (( code_point       & 0x7F) - 33);
+	      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	      b2 += b2 < 0x3F ? 0x40 : 0x62;
+	      code = (b1 << 8) | b2;
+	    }
+	  else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_2 )
+	    {
+	      unsigned int I
+		= (((code_point >> 8) & 0x7F) - 33) * 94
+		+ (( code_point       & 0x7F) - 33)
+		+ BIG5_SAME_ROW * (0xC9 - 0xA1);
+	      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+	      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+	      b2 += b2 < 0x3F ? 0x40 : 0x62;
+	      code = (b1 << 8) | b2;
+	    }
+	  return
+	    decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
 	}
-      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x94x60 )
+      else
 	{
-	  int plane = code_point >> 16;
-	  int row = (code_point >> 8) & 255;
-	  int cell = code_point & 255;	  
-
-	  if (row < 16 + 32)
+	  Emchar cid
+	    = (XCHARSET_DIMENSION (charset) == 1
+	       ?
+	       code_point - XCHARSET_BYTE_OFFSET (charset)
+	       :
+	       ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
+	       * XCHARSET_CHARS (charset)
+	       + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
+	    + XCHARSET_CODE_OFFSET (charset);
+	  if ((cid < XCHARSET_MIN_CODE (charset))
+	      || (XCHARSET_MAX_CODE (charset) < cid))
 	    return -1;
-	  else if (row < 16 + 32 + 30)
-	    code
-	      = (plane - 33) * 94 * 60
-	      + (row - (16 + 32)) * 94
-	      + cell - 33;
-	  else if (row < 18 + 32 + 30)
-	    return -1;
-	  else if (row < 18 + 32 + 60)
-	    code
-	      = (plane - 33) * 94 * 60
-	      + (row - (18 + 32)) * 94
-	      + cell - 33;
+	  return cid;
 	}
-      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_1 )
-	{
-	  unsigned int I
-	    = (((code_point >> 8) & 0x7F) - 33) * 94
-	    + (( code_point       & 0x7F) - 33);
-	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-
-	  b2 += b2 < 0x3F ? 0x40 : 0x62;
-	  code = (b1 << 8) | b2;
-	}
-      else if ( XCHARSET_CONVERSION (charset) == CONVERSION_BIG5_2 )
-	{
-	  unsigned int I
-	    = (((code_point >> 8) & 0x7F) - 33) * 94
-	    + (( code_point       & 0x7F) - 33)
-	    + BIG5_SAME_ROW * (0xC9 - 0xA1);
-	  unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
-	  unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
-
-	  b2 += b2 < 0x3F ? 0x40 : 0x62;
-	  code = (b1 << 8) | b2;
-	}
-      return
-	decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
-    }
-  if (XCHARSET_MAX_CODE (charset))
-    {
-      Emchar cid
-	= (XCHARSET_DIMENSION (charset) == 1
-	   ?
-	   code_point - XCHARSET_BYTE_OFFSET (charset)
-	   :
-	   ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
-	   * XCHARSET_CHARS (charset)
-	   + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
-	+ XCHARSET_CODE_OFFSET (charset);
-      if ((cid < XCHARSET_MIN_CODE (charset))
-	  || (XCHARSET_MAX_CODE (charset) < cid))
-	return -1;
-      return cid;
     }
   else if ((final = XCHARSET_FINAL (charset)) >= '0')
     {
@@ -1111,16 +1114,18 @@ charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
       Lisp_Object mother = XCHARSET_MOTHER (charset);
       int min = XCHARSET_MIN_CODE (charset);
       int max = XCHARSET_MAX_CODE (charset);
-      int code;
+      int code = -1;
 
       if ( CHARSETP (mother) )
 	code = charset_code_point (mother, ch, defined_only);
       else if (defined_only)
 	return -1;
-      else
+      else if ( ((max == 0) && CHARSETP (mother)
+		 && (XCHARSET_FINAL (charset) == 0))
+		|| ((min <= ch) && (ch <= max)) )
 	code = ch;
-      if ( ((max == 0) && CHARSETP (mother)) ||
-	   ((min <= code) && (code <= max)) )
+      if ( ((max == 0) && CHARSETP (mother) && (code >= 0))
+	   || ((min <= code) && (code <= max)) )
 	{
 	  int d = code - XCHARSET_CODE_OFFSET (charset);
 
