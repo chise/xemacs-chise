@@ -1,4 +1,45 @@
+2003-06-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R050-Turban.el (MH-0159): New character.
+	(U+5E49): Unify MH-0160 and M050011.
+	(MH-0161): New character.
+	(J0-5672): Unify MH-0162 and M050987; separate U+5E64.
+	(MH-0163): New character.
+
+	* Ideograph-R048-Work.el (MH-0158): New character.
+
 2003-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5CC5): Unify M054550.
+	(U+5CBE): Unify M054551.
+	(J0-5630): Separate U+5CBC; unify M054549.
+	(U+5D01): Unify MH-0145 and M050009.
+	(U-00021E02): New character.
+	(U+37E2): New character.
+	(U-00021E48): New character.
+	(MH-0149): New character.
+	(J0-563F): Unify MH-0150 and M054552; separate U+5D5C.
+	(U+5D59): Unify MH-0151 and M050010; separate C2-3B4C.
+	(U-00021ECA): New character.
+	(J0-564E): Unify MH-0153 and M054553; separate U+5D76.
+	(MH-0154): New character.
+	(U-00021F04): New character.
+	(U+381C): Unify MH-0155 and M083544; separate C3-5458.
+	(U+5DBF): Add `total-strokes'.
+	(MH-0156): New character.
+	(GT-10851): New character.
+	(M-08613): Separate C2-6870 and U+5DC6.
+	(U+5DC6): Fix strokes.
+	(MH-0157): New character.
+	(U-00021FC0): New character.
+	(M-08636): Separate all; fix strokes.
+	(M-08667): Separate all; fix strokes.
+
+	* Ideograph-R043-Lame.el (U+5C23): Separate C4-214B.
+	(BC-8DEF): New character.
+	(U-00021BCB): New character.
+	(U+5C27): Fix strokes.
+	(U-00021BF1): New character.
 
 	* Ideograph-R044-Corpse.el (U-00021C5D): Unify MH-0141.
 
