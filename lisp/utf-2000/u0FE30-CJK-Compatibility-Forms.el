@@ -1,5 +1,5 @@
 (define-char
-  '((name		. "PRESENTATION FORM FOR VERTICAL TWO DOT LEADER")
+  '((name . "PRESENTATION FORM FOR VERTICAL TWO DOT LEADER")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -45,7 +45,7 @@
     (ucs		. #xFE34)	; ï¸´
     ))
 (define-char
-  '((name		. "presentation form for vertical book name mark")
+  '((name . "presentation form for vertical book name mark")
     (=>ucs		. #xFE34)	; ï¸´
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
@@ -54,7 +54,7 @@
     (chinese-big5	. #xA15B)	; øºŸ››
     ))
 (define-char
-  '((name		. "PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS")
+  '((name . "PRESENTATION FORM FOR VERTICAL LEFT PARENTHESIS")
     (general-category	punctuation open) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)

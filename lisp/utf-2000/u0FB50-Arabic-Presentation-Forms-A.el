@@ -685,7 +685,7 @@
     (ucs		. #xFBA3)	; ﮣ
     ))
 (define-char
-  '((name		. "ARABIC LETTER HEH WITH YEH ABOVE ISOLATED FORM")
+  '((name . "ARABIC LETTER HEH WITH YEH ABOVE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -877,7 +877,7 @@
     (ucs		. #xFBDC)	; ﯜ
     ))
 (define-char
-  '((name		. "ARABIC LETTER U WITH HAMZA ABOVE ISOLATED FORM")
+  '((name . "ARABIC LETTER U WITH HAMZA ABOVE ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -1501,7 +1501,7 @@
     (ucs		. #xFC2A)	; ﰪ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE GHAIN WITH JEEM ISOLATED FORM")
+  '((name . "ARABIC LIGATURE GHAIN WITH JEEM ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -1509,7 +1509,7 @@
     (ucs		. #xFC2B)	; ﰫ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE GHAIN WITH MEEM ISOLATED FORM")
+  '((name . "ARABIC LIGATURE GHAIN WITH MEEM ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -1925,7 +1925,7 @@
     (ucs		. #xFC5F)	; ﱟ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH FATHA ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH FATHA ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -1933,7 +1933,7 @@
     (ucs		. #xFC60)	; ﱠ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH DAMMA ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH DAMMA ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -1941,7 +1941,7 @@
     (ucs		. #xFC61)	; ﱡ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH KASRA ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH KASRA ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3093,7 +3093,7 @@
     (ucs		. #xFCF1)	; ﳱ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH FATHA MEDIAL FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH FATHA MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3101,7 +3101,7 @@
     (ucs		. #xFCF2)	; ﳲ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH DAMMA MEDIAL FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH DAMMA MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3109,7 +3109,7 @@
     (ucs		. #xFCF3)	; ﳳ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHADDA WITH KASRA MEDIAL FORM")
+  '((name . "ARABIC LIGATURE SHADDA WITH KASRA MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3277,7 +3277,7 @@
     (ucs		. #xFD08)	; ﴈ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHEEN WITH JEEM ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHEEN WITH JEEM ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3293,7 +3293,7 @@
     (ucs		. #xFD0A)	; ﴊ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHEEN WITH KHAH ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHEEN WITH KHAH ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3301,7 +3301,7 @@
     (ucs		. #xFD0B)	; ﴋ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE SHEEN WITH MEEM ISOLATED FORM")
+  '((name . "ARABIC LIGATURE SHEEN WITH MEEM ISOLATED FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -3685,7 +3685,7 @@
     (ucs		. #xFD3B)	; ﴻ
     ))
 (define-char
-  '((name		. "ARABIC LIGATURE ALEF WITH FATHATAN FINAL FORM")
+  '((name . "ARABIC LIGATURE ALEF WITH FATHATAN FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
