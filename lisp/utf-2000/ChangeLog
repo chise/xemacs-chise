@@ -1,5 +1,10 @@
 2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (insert-char-attributes): Check each character
+	specified in `->subsumptive' with `char-db-ignored-attributes'.
+
+2004-02-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-attribute-name<): Fixed.
 
 2004-02-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
