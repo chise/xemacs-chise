@@ -12,6 +12,7 @@
     (chinese-big5		. #x8B47)	; ä¸¿
     (chinese-big5-cdp		. #x8B47)	; ä¸¿
     (ideograph-daikanwa		. 00106)	; ø¸€ª
+    (ideograph-cbeta		. 06875)	; ø¸¡«›
     (ideograph-gt		. 00151)	; ý¡€€‚—
     (mojikyo			. 000106)	; ý €€ª
     (ucs			. #x4E3F)	; ä¸¿
@@ -322,6 +323,7 @@
     (total-strokes	 . 3)
     (ideograph-gt-pj-2	. #x3122)	; ý¡€€‚ 
     (ideograph-daikanwa . 00124)	; ø¸€¼
+    (ideograph-cbeta	. 01415)	; ø¸ –‡
     (ideograph-gt	. 00160)	; ý¡€€‚ 
     (mojikyo		. 000124)	; ý €€¼
     ))
