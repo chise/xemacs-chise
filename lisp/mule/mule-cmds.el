@@ -567,7 +567,7 @@ see `language-info-alist'."
 	  (setcdr lang-slot (cons key-slot (cdr lang-slot)))))
     (setcdr key-slot info)))
 
-(defun set-language-info-alist (lang-env alist)
+(defun set-language-info-alist (lang-env alist &optional parents)
   "Store ALIST as the definition of language environment LANG-ENV.
 ALIST is an alist of KEY and INFO values.  See the documentation of
 `set-language-info' for the meanings of KEY and INFO."
