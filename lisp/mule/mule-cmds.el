@@ -70,34 +70,40 @@
 ;;; ;; Here's an alternative key binding for X users (Shift-SPACE).
 ;;; (define-key global-map [?\S- ] 'toggle-input-method)
 
-;; (defun coding-system-change-eol-conversion (coding-system eol-type)
-;;   "Return a coding system which differs from CODING-SYSTEM in eol conversion.
-;; The returned coding system converts end-of-line by EOL-TYPE
-;; but text as the same way as CODING-SYSTEM.
-;; EOL-TYPE should be `unix', `dos', `mac', or nil.
-;; If EOL-TYPE is nil, the returned coding system detects
-;; how end-of-line is formatted automatically while decoding.
-;; 
-;; EOL-TYPE can be specified by an integer 0, 1, or 2.
-;; They means `unix', `dos', and `mac' respectively."
-;;   (if (symbolp eol-type)
-;;       (setq eol-type (cond ((eq eol-type 'unix) 0)
-;;                            ((eq eol-type 'dos) 1)
-;;                            ((eq eol-type 'mac) 2)
-;;                            (t eol-type))))
-;;   (let ((orig-eol-type (coding-system-eol-type coding-system)))
-;;     (if (vectorp orig-eol-type)
-;;         (if (not eol-type)
-;;             coding-system
-;;           (aref orig-eol-type eol-type))
-;;       (let ((base (coding-system-base coding-system)))
-;;         (if (not eol-type)
-;;             base
-;;           (if (= eol-type orig-eol-type)
-;;               coding-system
-;;             (setq orig-eol-type (coding-system-eol-type base))
-;;             (if (vectorp orig-eol-type)
-;;                 (aref orig-eol-type eol-type))))))))
+(defun coding-system-change-eol-conversion (coding-system eol-type)
+  "Return a coding system which differs from CODING-SYSTEM in eol conversion.
+The returned coding system converts end-of-line by EOL-TYPE
+but text as the same way as CODING-SYSTEM.
+EOL-TYPE should be `unix', `lf', `dos', `crlf', `mac', `cr' or nil.
+If EOL-TYPE is nil, the returned coding system detects
+how end-of-line is formatted automatically while decoding.
+
+EOL-TYPE can be specified by an integer 0, 1, or 2.
+They means `unix', `dos', and `mac' respectively."
+  (if (symbolp eol-type)
+      (setq eol-type (cond ((or (eq eol-type 'unix)
+				(eq eol-type 'lf))
+			    'eol-lf)
+                           ((or (eq eol-type 'dos)
+				(eq eol-type 'crlf))
+			    'eol-crlf)
+                           ((or (eq eol-type 'mac)
+				(eq eol-type 'cr))
+			    'eol-cr)
+                           (t eol-type))))
+  (let ((orig-eol-type (coding-system-eol-type coding-system)))
+    (if (null orig-eol-type)
+        (if (not eol-type)
+            coding-system
+          (coding-system-property coding-system eol-type))
+      (let ((base (coding-system-base coding-system)))
+        (if (not eol-type)
+            base
+          (if (= eol-type orig-eol-type)
+              coding-system
+            (setq orig-eol-type (coding-system-eol-type base))
+            (if (null orig-eol-type)
+                (coding-system-property base eol-type))))))))
 
 ;; (defun coding-system-change-text-conversion (coding-system coding)
 ;;   "Return a coding system which differs from CODING-SYSTEM in text conversion.
@@ -198,15 +204,15 @@ startup."
 	;; CODING-SYSTEM is no-conversion or undecided.
 	(error "Can't prefer the coding system `%s'" coding-system))
     (set coding-category (or base coding-system))
-    (update-coding-systems-internal)
-    (or (eq coding-category (car coding-category-list))
+    ;; (update-coding-systems-internal)
+    (or (eq coding-category (car (coding-category-list)))
 	;; We must change the order.
-	(set-coding-priority (list coding-category)))
+	(set-coding-priority-list (list coding-category)))
     (if (and base (interactive-p))
 	(message "Highest priority is set to %s (base of %s)"
 		 base coding-system))
     ;; If they asked for specific EOL conversion, honor that.
-    (if (memq eol-type '(0 1 2))
+    (if (memq eol-type '(lf crlf mac))
 	(setq coding-system
 	      (coding-system-change-eol-conversion base eol-type))
       (setq coding-system base))
@@ -521,11 +527,6 @@ Meaningful values for KEY include
 			environment, in order of decreasing priority.
 			This is used to set up the coding system priority
 			list when you switch to this language environment.
-  nonascii-translation
-		     value is a translation table to be set in the
-			variable `nonascii-translation-table' in this
-			language environment, or a character set from
-			which `nonascii-insert-offset' is calculated.
   input-method       value is a default input method for this language
 			environment.
   features           value is a list of features requested in this
@@ -1142,23 +1143,23 @@ specifies the character set for the major languages of Western Europe."
 	  (setq input-method-history
 		(cons input-method
 		      (delete input-method input-method-history))))))
-  (let ((nonascii (get-language-info language-name 'nonascii-translation))
-	(dos-table
-	 (if (eq window-system 'pc)
-	     (intern
-	      (concat "cp" dos-codepage "-nonascii-translation-table")))))
-    (cond
-     ((char-table-p nonascii)
-      (setq nonascii-translation-table nonascii))
-     ((and (eq window-system 'pc) (boundp dos-table))
-      ;; DOS terminals' default is to use a special non-ASCII translation
-      ;; table as appropriate for the installed codepage.
-      (setq nonascii-translation-table (symbol-value dos-table)))
-     ((charsetp nonascii)
-      (setq nonascii-insert-offset (- (make-char nonascii) 128)))))
+  ;; (let ((nonascii (get-language-info language-name 'nonascii-translation))
+  ;;       (dos-table
+  ;;        (if (eq window-system 'pc)
+  ;;            (intern
+  ;;             (concat "cp" dos-codepage "-nonascii-translation-table")))))
+  ;;   (cond
+  ;;    ((char-table-p nonascii)
+  ;;     (setq nonascii-translation-table nonascii))
+  ;;    ((and (eq window-system 'pc) (boundp dos-table))
+  ;;     ;; DOS terminals' default is to use a special non-ASCII translation
+  ;;     ;; table as appropriate for the installed codepage.
+  ;;     (setq nonascii-translation-table (symbol-value dos-table)))
+  ;;    ((charsetp nonascii)
+  ;;     (setq nonascii-insert-offset (- (make-char nonascii) 128)))))
 
-  (setq charset-origin-alist
-	(get-language-info language-name 'charset-origin-alist))
+  ;; (setq charset-origin-alist
+  ;;       (get-language-info language-name 'charset-origin-alist))
 
   ;; Unibyte setups if necessary.
   ;; (unless default-enable-multibyte-characters
@@ -1233,7 +1234,7 @@ of buffer-file-coding-system set by this function."
 	   (if (memq eol-type '(0 1 2 unix dos mac))
 	       (coding-system-change-eol-conversion default-coding eol-type)
 	     default-coding))
-	  (setq default-sendmail-coding-system default-coding)
+          ;; (setq default-sendmail-coding-system default-coding)
 	  (set-coding-priority-list categories)
 	  (while priority
 	    (set (car categories) (car priority))
