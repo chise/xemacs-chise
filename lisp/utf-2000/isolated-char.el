@@ -181,6 +181,8 @@
 	      plane (string-to-int (match-string 4))
 	      code (string-to-int (match-string 5) 16))
 	(put-char-attribute (decode-builtin-char '=gt gt-code)
+			    '=gt gt-code)
+	(put-char-attribute (decode-builtin-char '=gt gt-code)
 			    (intern (format "=gt-pj-%d" plane))
 			    code)
 	)))
