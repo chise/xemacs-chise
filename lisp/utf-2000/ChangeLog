@@ -1,3 +1,11 @@
+2001-12-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el:
+	- Merge Big5 code points.
+	- Add some CBETA numbers.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some `ideographic-structure' properties.
+
 2001-12-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R002-Line.el (BC-8BF1): New character.
