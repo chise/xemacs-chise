@@ -5915,6 +5915,7 @@
     (=ks-x1001		. #x6B34)	; ø»Š‡‹
     (=big5		. #xB943)	; ý¢€‹¥ƒ
     (=daikanwa		. 38994)	; ø¸‰¡’
+    (=jef-china3	. #x67DB)	; øº†Ÿ›
     ))
 (define-char
   '((morohashi-daikanwa	38994 1)
@@ -6301,6 +6302,7 @@
     (=ks-x1001		. #x5433)	; ø»‰¥˜
     (=big5		. #xB944)	; ý¢€‹¥„
     (=daikanwa		. 39010)	; ø¸‰¡¢
+    (=jef-china3	. #x67DF)	; øº†ŸŸ
     ))
 (define-char
   '((morohashi-daikanwa	39010 1)

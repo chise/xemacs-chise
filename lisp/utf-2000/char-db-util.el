@@ -165,6 +165,7 @@
     chinese-gb12345
     latin-viscii
     ethiopic-ucs
+    =big5-cdp
     =gt
     ideograph-daikanwa-2
     ideograph-daikanwa
@@ -183,7 +184,6 @@
     ideograph-hanziku-12
     =big5
     =big5-eten
-    =big5-cdp
     =gt-k
     =jef-china3))
 

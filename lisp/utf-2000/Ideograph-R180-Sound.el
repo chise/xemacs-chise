@@ -482,6 +482,14 @@
     (=cns11643-1	. #x794A)	; ø»“„•
     ))
 (define-char
+  '((=>ucs		. #x97FB)	; éŸ»
+    (morohashi-daikanwa	43307 0 1)
+    (ideographic-radical . 180)	; â¾³
+    (ideographic-strokes . 10)
+    (total-strokes	 . 19)
+    (=jef-china3	. #x6CDC)	; øº†³œ
+    ))
+(define-char
   '((ideographic-radical . 180)	; â¾³
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
