@@ -121,7 +121,7 @@
     (total-strokes	 . 5)
     (shinjigen-1	. 42)
     (shinjigen-2	. 42)
-    (ideograph-daikanwa		#x00 #x64)	; ø¹¤
+    (ideograph-daikanwa #x00 #x64)	; ø¹¤
     ))
 (define-char
   '((ucs		. #x4E3B)
@@ -174,8 +174,7 @@
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (comment
-     . "<ancient character> of R198:M47663.0 [= R001:M00059.0]")
+    (comment		. "<ancient character> of R198:M47663.0 [= R001:M00059.0]")
     (chinese-cns11643-3 #x27 #x40)	; ø»•Ÿ·
     (ideograph-daikanwa #x00 #x68)	; ø¹¨
     ))
