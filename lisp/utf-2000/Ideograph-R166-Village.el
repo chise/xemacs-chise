@@ -229,7 +229,7 @@
     (->subsumptive
      ((=daikanwa	  . 40150)	; ø¸‰³–
       )
-     ((=ucs@iso		  . #x28939)	; ó°‚˜
+     ((=ucs@iso		  . #x28939)	; ó°‚
       )
      ((=cns11643-5	  . #x7154)	; ø»› ¿
       ))
