@@ -26,6 +26,7 @@
     (chinese-isoir165		. #x3B46)	; ø»•…
     (chinese-cns11643-3		. #x396A)	; ø»•º½
     (japanese-jisx0208-1990	. #x322B)	; ø½Š„
+    (mojikyo			. 050608)	; ø¸Œ–°
     (ucs			. #x9EC4)	; é»„
     ))
 (define-char
