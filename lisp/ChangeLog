@@ -1,5 +1,13 @@
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/thai-xtis.el: Split definition of the charset `thai-xtis'
+	to thai-xtis-chars.el.
+
+	* mule/thai-xtis-chars.el: New file (split from
+	mule/thai-xtis.el).
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/thai-xtis.el:
 	- Change category for the charset `thai-xtis' to `?x' from `?T'.
 	- Add syntax entries.
