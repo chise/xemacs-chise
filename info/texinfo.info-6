@@ -159,7 +159,8 @@ not special within the table body, and you may break input lines in
 your source file as necessary.
 
   Here is a complete example of a multi-column table (the text is from
-`The GNU Emacs Manual', *note Splitting Windows: (xemacs)Split Window.):
+`The XEmacs Users' Manual', *note Splitting Windows: (xemacs)Split
+Window.):
 
      @multitable @columnfractions .15 .45 .4
      @item Key @tab Command @tab Description

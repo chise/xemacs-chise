@@ -887,9 +887,10 @@ differences though:
      follow pointers to C structures and opaque data in addition to
      Lisp_Object members.
 
-   This is done by `pdump_register_object', which handles Lisp_Object
-variables, and pdump_register_struct which handles C structures, which
-both delegate the description management to pdump_register_sub.
+   This is done by `pdump_register_object()', which handles Lisp_Object
+variables, and `pdump_register_struct()' which handles C structures,
+which both delegate the description management to
+`pdump_register_sub()'.
 
    The hash table doubles as a map object to pdump_entry_list_elmt (i.e.
 allows us to look up a pdump_entry_list_elmt with the object it points
@@ -904,10 +905,11 @@ value is computed quite simply from the object pointer by
      `staticpro_nodump()' call for protected variables we do not want
      to dump).
 
-  2. the `pdump_wire''d variables (`staticpro()' is equivalent to
-     `staticpro_nodump()' + `pdump_wire()').
+  2. the variables registered via `dump_add_root_object' (`staticpro()'
+     is equivalent to `staticpro_nodump()' + `dump_add_root_object()').
 
-  3. the `dumpstruct''ed variables, which points to C structures.
+  3. the variables registered via `dump_add_root_struct_ptr', each of
+     which points to a C structure.
 
    This does not include the GCPRO'ed variables, the specbinds, the
 catchtags, the backlist, the redisplay or the profiling info, since we
@@ -959,11 +961,10 @@ The header
 ----------
 
    The next step creates the file and writes a header with a signature
-and some random information in it (number of staticpro, number of
-assigned lrecord types, etc...).  The reloc_address field, which
-indicates at which address the file should be loaded if we want to
-avoid post-reload relocation, is set to 0.  It then seeks to offset 256
-(base offset for the objects).
+and some random information in it.  The `reloc_address' field, which
+indicates at which address the file should be loaded if we want to avoid
+post-reload relocation, is set to 0.  It then seeks to offset 256 (base
+offset for the objects).
 
 
 File: internals.info,  Node: Data dumping,  Next: Pointers dumping,  Prev: The header,  Up: Dumping phase
@@ -989,28 +990,31 @@ Pointers dumping
    A bunch of tables needed to reassign properly the global pointers are
 then written.  They are:
 
-  1. the staticpro array
+  1. the pdump_root_struct_ptrs dynarr
 
-  2. the dumpstruct array
+  2. the pdump_opaques dynarr
 
-  3. the lrecord_implementation_table array
-
-  4. a vector of all the offsets to the objects in the file that
+  3. a vector of all the offsets to the objects in the file that
      include a description (for faster relocation at reload time)
 
-  5. the pdump_wire and pdump_wire_list arrays
+  4. the pdump_root_objects and pdump_weak_object_chains dynarrs.
 
-   For each of the arrays we write both the pointer to the variables and
-the relocated offset of the object they point to.  Since these variables
-are global, the pointers are still valid when restarting the program and
-are used to regenerate the global pointers.
+   For each of the dynarrs we write both the pointer to the variables
+and the relocated offset of the object they point to.  Since these
+variables are global, the pointers are still valid when restarting the
+program and are used to regenerate the global pointers.
 
-   The `pdump_wire_list' array is a special case.  The variables it
-points to are the head of weak linked lists of lisp objects of the same
-type.  Not all objects of this list are dumped so the relocated pointer
-we associate with them points to the first dumped object of the list, or
-Qnil if none is available.  This is also the reason why they are not
-used as roots for the purpose of object enumeration.
+   The `pdump_weak_object_chains' dynarr is a special case.  The
+variables it points to are the head of weak linked lists of lisp objects
+of the same type.  Not all objects of this list are dumped so the
+relocated pointer we associate with them points to the first dumped
+object of the list, or Qnil if none is available.  This is also the
+reason why they are not used as roots for the purpose of object
+enumeration.
+
+   Some very important information like the `staticpros' and
+`lrecord_implementations_table' are handled indirectly using
+`dump_add_opaque' or `dump_add_root_struct_ptr'.
 
    This is the end of the dumping part.
 
@@ -1032,23 +1036,16 @@ malloc is done and the file is loaded.
    The difference between the actual loading address and the
 reloc_address is computed and will be used for all the relocations.
 
-Putting back the staticvec
---------------------------
+Putting back the pdump_opaques
+------------------------------
 
-   The staticvec array is memcpy'd from the file and the variables it
-points to are reset to the relocated objects addresses.
+   The memory contents are restored in the obvious and trivial way.
 
-Putting back the dumpstructed variables
+Putting back the pdump_root_struct_ptrs
 ---------------------------------------
 
-   The variables pointed to by dumpstruct in the dump phase are reset to
-the right relocated object addresses.
-
-lrecord_implementations_table
------------------------------
-
-   The lrecord_implementations_table is reset to its dump time state and
-the right lrecord_type_index values are put in.
+   The variables pointed to by pdump_root_struct_ptrs in the dump phase
+are reset to the right relocated object addresses.
 
 Object relocation
 -----------------
@@ -1057,10 +1054,10 @@ Object relocation
 offset by `pdump_reloc_one'.  This step is unnecessary if the
 reloc_address is equal to the file loading address.
 
-Putting back the pdump_wire and pdump_wire_list variables
----------------------------------------------------------
+Putting back the pdump_root_objects and pdump_weak_object_chains
+----------------------------------------------------------------
 
-   Same as Putting back the dumpstructed variables.
+   Same as Putting back the pdump_root_struct_ptrs.
 
 Reorganize the hash tables
 --------------------------
