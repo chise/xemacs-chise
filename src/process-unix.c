@@ -1344,7 +1344,7 @@ unix_send_process (Lisp_Object proc, struct lstream* lstream)
       p->core_dumped = 0;
       p->tick++;
       process_tick++;
-      deactivate_process (vol_proc);
+      deactivate_process (*((Lisp_Object *) (&vol_proc)));
       invalid_operation ("SIGPIPE raised on process; closed it", p->name);
     }
 

@@ -26,4 +26,8 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/IntrinsicP.h>
 #include <X11/ObjectP.h>     /* apparently some IntrinsicP.h don't have this */
 
+#ifndef XtExposeNoRegion
+#define XtExposeNoRegion 0
+#endif
+
 #endif /* INCLUDED_xintrinsicp_h_ */

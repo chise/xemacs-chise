@@ -197,7 +197,7 @@ XlwMenuClassRec xlwMenuClassRec =
     XtNumber(xlwMenuResources),		/* resource_count	  */
     NULLQUARK,				/* xrm_class		  */
     TRUE,				/* compress_motion	  */
-    TRUE,				/* compress_exposure	  */
+    XtExposeCompressMaximal,		/* compress_exposure	  */
     TRUE,				/* compress_enterleave    */
     FALSE,				/* visible_interest	  */
     XlwMenuDestroy,			/* destroy		  */

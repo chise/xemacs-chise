@@ -468,53 +468,63 @@ Remove all created files.
 @cindex local.rules
 @heading The Local.rules File:
 This file is used when building and installing packages from source.  In
-the top level of the CVS module, @file{xemacs-packages}, contains the
+the top level of the CVS module, @file{packages}, contains the
 file, @file{Local.rules.template}.  Simply copy that to
 @file{Local.rules} and edit it to suit your needs.
 
 These are the variables in 'Local.rules' that you will need to
-address. 
+address. Items that have default settings have those defaults shown. 
 
 @table @var
-@item symlink = 
-Set this to 't' if you want to do a "run in place".
-Setting this doesn't work well with 'make bindist'
-
-@item XEMACS_PACKAGES =
-This is where you set the normal packages that you
-want to install. eg:
-@example
-      XEMACS_PACKAGES = xemacs-packages/xemacs-base xemacs-packages/bbdb
-@end example
-
-@item XEMACS_STAGING = $@{XEMACS_PACKAGES_BASE@}/../Packages
-Set this to where you want normal packages to be
-installed to.
-
-@item PACKAGE_INDEX = package-index
-If you want the package-index file to have a different
-name, change this.
+@item XEMACS = xemacs
+If your XEmacs isn't in your path, change this.  Native MS Windows users
+should double quote this if the path has embedded spaces.
 
 @item BUILD_WITHOUT_MULE =
 Building from CVS defaults to building the Mule
 packages.  Set this to 't' if you don't want/have Mule
 
-@item MULE_PACKAGES =
+@item XEMACS_NATIVE_NT =
+Set this to 't' if you are building on WinNT.  NT users should note that
+you still need the Cygwin environment to build the packages.
+
+@item XEMACS_INSTALLED_PACKAGES_ROOT = /usr/local/lib/xemacs
+This is the directory tree under which the installed packages go.  Under
+this directory there would normally be @file{xemacs-packages/} for
+standard (non-Mule) packages, @file{mule-packages/} for Mule packages
+(if you built XEmacs with Mule), and possibly @file{site-packages/} for
+3rd party packages that aren't distributed by XEmacs.org.
+
+@item symlink = 
+Set this to 't' if you want to do a "run in place".
+Setting this doesn't work well with 'make bindist'
+
+@item NONMULE_INSTALLED_PACKAGES_ROOT = $@{XEMACS_INSTALLED_PACKAGES_ROOT@}/xemacs-packages
+This is where the non-Mule packages are installed to.  You probably
+don't want to change this.
+
+@item MULE_INSTALLED_PACKAGES_ROOT = $@{XEMACS_INSTALLED_PACKAGES_ROOT@}/mule-packages
+This is where the Mule packages are installed to.  You probably don't
+want to change this.  Please note that @code{make bindist} does
+@emph{not} use this variable.  When doing a @code{make bindist}
+@emph{everything} goes into @var{NONMULE_INSTALLED_PACKAGES_ROOT}.
+
+@item NONMULE_PACKAGES = xemacs-packages
+This is where you set the non-Mule packages that you want to install. eg:
+@example
+      XEMACS_PACKAGES = xemacs-packages/xemacs-base xemacs-packages/bbdb
+@end example
+
+@item MULE_PACKAGES = mule-packages
 Same as for 'XEMACS_PACKAGES' except you list the Mule
 packages you want to install here. eg:
 @example
       MULE_PACKAGES = mule-packages/mule-base mule-packages/skk
 @end example
 
-@item MULE_STAGING = $@{XEMACS_PACKAGES_BASE@}/../Mule-Packages
-Set this to where you want Mule packages installed
-to.  Note:  'make bindist' does not use this variable.
-
-@item XEMACS = xemacs
-If your XEmacs isn't in your path, change this.
-
-@item XEMACS_NATIVE_NT =
-Set this to 't' if you are building on WinNT.
+@item PACKAGE_INDEX = package-index
+If you want the package-index file to have a different
+name, change this.
 
 @item INSTALL = install -c
 The path to your BSD compatible install program.

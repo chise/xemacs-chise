@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1985-7, 1993-5, 1997 Free Software Foundation, Inc.
 ;; Copyright (C) 1995 Tinker Systems and INS Engineering Corp.
-;; Copyright (C) 2000 Ben Wing.
+;; Copyright (C) 2000, 2001, 2002, 2003 Ben Wing.
 
 ;; Maintainer: XEmacs Development Team
 ;; Keywords: lisp, extensions, internal, dumped
@@ -1988,8 +1988,12 @@ nil."
   :group 'editing-basics)
 
 (defcustom motion-keys-for-shifted-motion
-  '(left right up down home end prior next
-	 kp-left kp-right kp-up kp-down kp-home kp-end kp-prior kp-next)
+  ;; meta-shift-home/end are NOT shifted motion commands.
+  '(left right up down (home) (control home) (meta control home)
+    (end) (control end) (meta control end) prior next
+    kp-left kp-right kp-up kp-down (kp-home) (control kp-home)
+    (meta control kp-home) (kp-end) (control kp-end) (meta control kp-end)
+    kp-prior kp-next)
   "*List of keys considered motion keys for the purpose of shifted selection.
 When one of these keys is pressed along with the Shift key, and the
 command invoked moves the cursor and preserves the active region (see
@@ -2010,11 +2014,20 @@ alphabetic key without problem, and you can specify the key using
 either a character or a symbol, uppercase or lowercase."
   :type '(repeat (choice (const :tag "normal cursor-pad (\"gray\") keys"
 				:inline t
-				(left right up down home end prior next))
+				(left
+				 right up down
+				 (home) (control home) (meta control home)
+				 (end) (control end) (meta control end)
+				 prior next))
 			 (const :tag "keypad motion keys"
 				:inline t
-				(kp-left kp-right kp-up kp-down
-					 kp-home kp-end kp-prior kp-next))
+				(kp-left
+				 kp-right kp-up kp-down
+				 (kp-home) (control kp-home)
+				 (meta control kp-home)
+				 (kp-end) (control kp-end)
+				 (meta control kp-end)
+				 kp-prior kp-next))
 			 (const :tag "alphabetic motion keys"
 				:inline t
 				((control b) (control f)
