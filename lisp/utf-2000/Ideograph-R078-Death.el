@@ -477,7 +477,9 @@
      ((ucs		  . #x6B79)	; æ­¹
       )
      ((=jis-x0208	  . #x3627)	; ø½Š”¸
+      (korean-ksc5601	  . #x7D55)	; ø»Š¢ˆ
       (chinese-cns11643-1 . #x447E)	; ø»‘·“
+      (ideograph-daikanwa . 01803)	; ø¸€œ‹
       ))
     (chinese-cns11643-4 . #x2677)	; ø»—©”
     (ideograph-daikanwa . 16396)	; ø¸„€Œ
