@@ -23,6 +23,7 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
+    (ideograph-cdp	. 299)
     (shinjigen-1	. 66)
     (shinjigen-2	. 66)
     (japanese-jisx0208-1978	. #x4E3B)	; ø»‚¾ 
@@ -80,6 +81,7 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
+    (ideograph-cdp	. 332)
     (shinjigen-1	. 67)
     (shinjigen-2	. 67)
     (japanese-jisx0208-1978	. #x4D3D)	; ø»‚½„
@@ -208,6 +210,7 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideograph-cdp	. 112)
     (shinjigen-1	. 69)
     (shinjigen-2	. 69)
     (japanese-jisx0208-1978	. #x3B76)	; ø»‚£¡
