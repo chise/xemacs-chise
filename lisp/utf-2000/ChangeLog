@@ -1,3 +1,58 @@
+2001-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R052-Short-Thread.el: Add some CJK Ext-B code points.
+	(C5-2169): Unify M-09195 and U-000221B3.
+	(C4-2267): Unify M-09196 and U-000221B6.
+	(M-09197): New character.
+	(C4-2427): Relate to M-09197; unify U-000221B7.
+	(C5-2427): Unify M-09198 and U-000221B8.
+	(M-09201): New character.
+	(C6-2B25): Relate to M-09201; unify U-000221BC.
+	(M-09202): New character.
+	(C5-2624): Relate to M-09202; unify U-000221BD.
+	(C5-2625): Unify M-09203 and U-000221BE.
+	(C6-306A): Unify M-09204 and U-000221BF.
+	(C6-3736): Unify M-09206 and U-000221C6.
+	(U-000221C7): New character.
+	(C4-314A): Relate to M-09207; map to U-000221C7.
+	(C6-4843): Unify U-000221CA.
+	(U-000221CB): New character.
+	(C5-3E7C): Relate to M-09211; map to U-000221CB.
+	(C6-5C4E): Unify M-09213 and U-000221CF.
+	(C5-455B): Unify M-09214 and U-000221CC.
+	(M-09215): New character.
+	(C3-465E): Relate to M-09215.
+	(M-09216): New character.
+	(C7-225B): Relate to M-09216; unify U-000221CD.
+	(C7-225D): Unify M-09217 and U-000221D2.
+	(C7-225C): Unify M-09218 and U-000221D1.
+	(M-09220): New character.
+	(C7-576D): Relate to M-09220; unify U-000221D6.
+
+	* Ideograph-R049-Oneself.el: Add some CJK Ext-B code points.
+	(C6-245D): Add `->identical' for U-000200AC; map to U-000200AC.
+
+	* Ideograph-R051-Dry.el, Ideograph-R048-Work.el: Add some CJK
+	Ext-B code points.
+
+	* Ideograph-R047-River.el: Add some CJK Ext-B code points.
+	(M-08671): Unify BC-8DEA and U-00021FE8.
+
+	* Ideograph-R045-Sprout.el: Add some CJK Ext-B code points.
+	(M-07827): Unify BC-88B2 and U-00021CFE.
+
+	* Ideograph-R044-Corpse.el: Add some CJK Ext-B code points.
+
+	* Ideograph-R005-Second.el (U-00021FE8): Moved to
+	Ideograph-R047-River.el.
+	(U-00021CFE): Moved to Ideograph-R045-Sprout.el.
+
+	* Ideograph-R004-Slash.el (U-000200AC): Add `->identical' for
+	C6-245D.
+
+	* Ideograph-R025-Divination.el (U+535D): Delete
+	`ideographic-structure'.
+
 2001-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R008-Lid.el: Add some relations between Hanziku and
