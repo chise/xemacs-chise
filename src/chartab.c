@@ -3520,9 +3520,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_same_of) ||
 	    EQ (attribute, Q_vulgar) ||
 	    EQ (attribute, Q_vulgar_of) ||
-	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
-				  Fsymbol_name (attribute),
-				  Qnil, Qnil)) )
+	    !NILP (Fstring_match
+		   (build_string ("^<-\\(simplified"
+				  "\\|wrong\\)[^*]*$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil)) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3841,7 +3843,8 @@ Save values of ATTRIBUTE into database file.
 	   || EQ (attribute, Q_same)
 	   || EQ (attribute, Q_same_of)
 	   || !NILP (Fstring_match
-		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
+		     (build_string ("^\\(<-\\|->\\)\\("
+				    "simplified\\|wrong\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
