@@ -3623,7 +3623,7 @@ ucs_to_char (unsigned long code)
       c = code % (94 * 94);
       return make_char
 	(MAKE_CHAR (CHARSET_BY_ATTRIBUTES
-		    (CHARSET_TYPE_94X94, code / (94 * 94) + '@',
+		    (94, 2, code / (94 * 94) + '@',
 		     CHARSET_LEFT_TO_RIGHT),
 		    c / 94 + 33, c % 94 + 33));
     }
@@ -4744,7 +4744,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	}
       if (0x40 <= c && c <= 0x42)
 	{
-	  cs = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94, c,
+	  cs = CHARSET_BY_ATTRIBUTES (94, 2, c,
 				      *flags & CODING_STATE_R2L ?
 				      CHARSET_RIGHT_TO_LEFT :
 				      CHARSET_LEFT_TO_RIGHT);
@@ -4755,7 +4755,9 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 
     default:
       {
-	int type =-1;
+	/* int type =-1; */
+	int chars = 0;
+	int single = 0;
 
 	if (c < '0' || c > '~')
 	  return 0; /* bad final byte */
@@ -4763,15 +4765,15 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	if (iso->esc >= ISO_ESC_2_8 &&
 	    iso->esc <= ISO_ESC_2_15)
 	  {
-	    type = ((iso->esc >= ISO_ESC_2_12) ?
-		    CHARSET_TYPE_96 : CHARSET_TYPE_94);
+	    chars = (iso->esc >= ISO_ESC_2_12) ? 96 : 94;
+	    single = 1; /* single-byte */
 	    reg = (iso->esc - ISO_ESC_2_8) & 3;
 	  }
 	else if (iso->esc >= ISO_ESC_2_4_8 &&
 		 iso->esc <= ISO_ESC_2_4_15)
 	  {
-	    type = ((iso->esc >= ISO_ESC_2_4_12) ?
-		    CHARSET_TYPE_96X96 : CHARSET_TYPE_94X94);
+	    chars = (iso->esc >= ISO_ESC_2_4_12) ? 96 : 94;
+	    single = -1; /* multi-byte */
 	    reg = (iso->esc - ISO_ESC_2_4_8) & 3;
 	  }
 	else
@@ -4780,7 +4782,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	    abort();
 	  }
 
-	cs = CHARSET_BY_ATTRIBUTES (type, c,
+	cs = CHARSET_BY_ATTRIBUTES (chars, single, c,
 				    *flags & CODING_STATE_R2L ?
 				    CHARSET_RIGHT_TO_LEFT :
 				    CHARSET_LEFT_TO_RIGHT);
