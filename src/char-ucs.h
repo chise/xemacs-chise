@@ -48,6 +48,7 @@ extern Lisp_Object Vcharset_japanese_jisx0212;
 
 EXFUN (Fget_charset, 1);
 
+extern Lisp_Object Qsystem_char_id;
 extern Lisp_Object Qmap_ucs, Qucs;
 
 Lisp_Object put_char_ccs_code_point (Lisp_Object character,
@@ -70,38 +71,40 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 BMP */
 #define LEADING_BYTE_UCS_BMP		-176
 
+#define LEADING_BYTE_SYSTEM_CHAR_ID	0
+
 /* Japanese JIS X0208 Common	2/4 2/{(8),9,10,11} 4/2 (B) */
-#define LEADING_BYTE_JIS_X0208 		0
+#define LEADING_BYTE_JIS_X0208 		1
 
 /* Chinese GB 12345-1990 */
-#define LEADING_BYTE_CHINESE_GB12345	1
+#define LEADING_BYTE_CHINESE_GB12345	2
 
-#define LEADING_BYTE_CHINESE_BIG5	2
+#define LEADING_BYTE_CHINESE_BIG5	3
 
 /* Big5 Level 1			2/4 2/{(8),9,10,11} 4/0 '0' */
-#define LEADING_BYTE_CHINESE_BIG5_1	3
+#define LEADING_BYTE_CHINESE_BIG5_1	4
 
 /* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
-#define LEADING_BYTE_CHINESE_BIG5_2	4
+#define LEADING_BYTE_CHINESE_BIG5_2	5
 
 /* VISCII 1.1 */
-#define LEADING_BYTE_LATIN_VISCII	5
+#define LEADING_BYTE_LATIN_VISCII	6
 
 /* MULE VISCII-LOWER			(CHARSET_ID_OFFSET_96 + '1') */
-#define LEADING_BYTE_LATIN_VISCII_LOWER	6
+#define LEADING_BYTE_LATIN_VISCII_LOWER	7
 
 /* MULE VISCII-UPPER			(CHARSET_ID_OFFSET_96 + '2') */
-#define LEADING_BYTE_LATIN_VISCII_UPPER	7
+#define LEADING_BYTE_LATIN_VISCII_UPPER	8
 
-#define LEADING_BYTE_ETHIOPIC_UCS	8
+#define LEADING_BYTE_ETHIOPIC_UCS	9
 
 /* ISO/IEC 10646 SMP */
-#define LEADING_BYTE_UCS_SMP		9
+#define LEADING_BYTE_UCS_SMP		10
 
 /* ISO/IEC 10646 SIP */
-#define LEADING_BYTE_UCS_SIP		10
+#define LEADING_BYTE_UCS_SIP		11
 
-#define MIN_LEADING_BYTE_PRIVATE	11
+#define MIN_LEADING_BYTE_PRIVATE	12
 #define MAX_LEADING_BYTE_PRIVATE	512
 
 

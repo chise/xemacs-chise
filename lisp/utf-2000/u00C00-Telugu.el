@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "TELUGU SIGN CANDRABINDU")
     (general-category	mark spacing-combining) ; Normative Category

@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "ARABIC LETTER ALEF WASLA ISOLATED FORM")
     (general-category	letter other) ; Informative Category
@@ -54,7 +54,7 @@
     (mirrored		. nil)
     (->decomposition	isolated #x067E)
     (=ucs		. #xFB56)	; ï­–
-    (arabic-2-column	. #x65)	; øº«¼
+    (arabic-2-column	. #x65)	; &I-MULE-ARB2-65;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH FINAL FORM")
@@ -63,7 +63,7 @@
     (mirrored		. nil)
     (->decomposition	final #x067E)
     (=ucs		. #xFB57)	; ï­—
-    (arabic-2-column	. #x66)	; øº«½
+    (arabic-2-column	. #x66)	; &I-MULE-ARB2-66;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH INITIAL FORM")
@@ -72,7 +72,7 @@
     (mirrored		. nil)
     (->decomposition	initial #x067E)
     (=ucs		. #xFB58)	; ï­˜
-    (arabic-1-column	. #x66)	; øºªŸ
+    (arabic-1-column	. #x66)	; &I-MULE-ARB1-66;
     ))
 (define-char
   '((name		. "ARABIC LETTER PEH MEDIAL FORM")
@@ -81,7 +81,7 @@
     (mirrored		. nil)
     (->decomposition	medial #x067E)
     (=ucs		. #xFB59)	; ï­™
-    (arabic-1-column	. #x67)	; øºª 
+    (arabic-1-column	. #x67)	; &I-MULE-ARB1-67;
     ))
 (define-char
   '((name		. "ARABIC LETTER BEHEH ISOLATED FORM")
@@ -346,7 +346,7 @@
     (mirrored		. nil)
     (->decomposition	isolated #x0686)
     (=ucs		. #xFB7A)	; ï­º
-    (arabic-2-column	. #x67)	; øº«¾
+    (arabic-2-column	. #x67)	; &I-MULE-ARB2-67;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH FINAL FORM")
@@ -355,7 +355,7 @@
     (mirrored		. nil)
     (->decomposition	final #x0686)
     (=ucs		. #xFB7B)	; ï­»
-    (arabic-2-column	. #x6A)	; øº¬
+    (arabic-2-column	. #x6A)	; &I-MULE-ARB2-6A;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH INITIAL FORM")
@@ -364,7 +364,7 @@
     (mirrored		. nil)
     (->decomposition	initial #x0686)
     (=ucs		. #xFB7C)	; ï­¼
-    (arabic-2-column	. #x68)	; øº«¿
+    (arabic-2-column	. #x68)	; &I-MULE-ARB2-68;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEH MEDIAL FORM")
@@ -373,7 +373,7 @@
     (mirrored		. nil)
     (->decomposition	medial #x0686)
     (=ucs		. #xFB7D)	; ï­½
-    (arabic-2-column	. #x69)	; øº¬€
+    (arabic-2-column	. #x69)	; &I-MULE-ARB2-69;
     ))
 (define-char
   '((name		. "ARABIC LETTER TCHEHEH ISOLATED FORM")
@@ -478,7 +478,7 @@
     (mirrored		. nil)
     (->decomposition	isolated #x0698)
     (=ucs		. #xFB8A)	; ï®Š
-    (arabic-1-column	. #x68)	; øºª¡
+    (arabic-1-column	. #x68)	; &I-MULE-ARB1-68;
     ))
 (define-char
   '((name		. "ARABIC LETTER JEH FINAL FORM")
@@ -487,7 +487,7 @@
     (mirrored		. nil)
     (->decomposition	final #x0698)
     (=ucs		. #xFB8B)	; ï®‹
-    (arabic-1-column	. #x69)	; øºª¢
+    (arabic-1-column	. #x69)	; &I-MULE-ARB1-69;
     ))
 (define-char
   '((name		. "ARABIC LETTER RREH ISOLATED FORM")
@@ -544,7 +544,7 @@
     (mirrored		. nil)
     (->decomposition	isolated #x06AF)
     (=ucs		. #xFB92)	; ï®’
-    (arabic-2-column	. #x6B)	; øº¬‚
+    (arabic-2-column	. #x6B)	; &I-MULE-ARB2-6B;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF FINAL FORM")
@@ -553,7 +553,7 @@
     (mirrored		. nil)
     (->decomposition	final #x06AF)
     (=ucs		. #xFB93)	; ï®“
-    (arabic-2-column	. #x6E)	; øº¬…
+    (arabic-2-column	. #x6E)	; &I-MULE-ARB2-6E;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF INITIAL FORM")
@@ -562,7 +562,7 @@
     (mirrored		. nil)
     (->decomposition	initial #x06AF)
     (=ucs		. #xFB94)	; ï®”
-    (arabic-2-column	. #x6C)	; øº¬ƒ
+    (arabic-2-column	. #x6C)	; &I-MULE-ARB2-6C;
     ))
 (define-char
   '((name		. "ARABIC LETTER GAF MEDIAL FORM")
@@ -571,7 +571,7 @@
     (mirrored		. nil)
     (->decomposition	medial #x06AF)
     (=ucs		. #xFB95)	; ï®•
-    (arabic-2-column	. #x6D)	; øº¬„
+    (arabic-2-column	. #x6D)	; &I-MULE-ARB2-6D;
     ))
 (define-char
   '((name		. "ARABIC LETTER GUEH ISOLATED FORM")
