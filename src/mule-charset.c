@@ -1061,7 +1061,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	   ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
 	   * XCHARSET_CHARS (charset)
 	   + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
-	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_MIN_CODE (charset);
+	+ XCHARSET_CODE_OFFSET (charset);
       if ((cid < XCHARSET_MIN_CODE (charset))
 	  || (XCHARSET_MAX_CODE (charset) < cid))
 	return -1;
@@ -1106,7 +1106,7 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 		  return (row << 8) | cell;
 		}
 	      else
-		return code - min + XCHARSET_CODE_OFFSET (charset);
+		return code - XCHARSET_CODE_OFFSET (charset);
 	    }
 	}
     }
@@ -1121,7 +1121,7 @@ range_charset_code_point (Lisp_Object charset, Emchar ch)
   if ((XCHARSET_MIN_CODE (charset) <= ch)
       && (ch <= XCHARSET_MAX_CODE (charset)))
     {
-      d = ch - XCHARSET_MIN_CODE (charset) + XCHARSET_CODE_OFFSET (charset);
+      d = ch - XCHARSET_CODE_OFFSET (charset);
 
       if (XCHARSET_CHARS (charset) == 256)
 	return d;
@@ -2570,8 +2570,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS-SMP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 1 (SMP)"),
 		  build_string ("UCS00-1"),
-		  Qnil, MIN_CHAR_SMP, MAX_CHAR_SMP, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_SMP, MAX_CHAR_SMP,
+		  MIN_CHAR_SMP, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_sip);
   Vcharset_ucs_sip =
     make_charset (LEADING_BYTE_UCS_SIP, Qucs_sip, 256, 2,
@@ -2580,8 +2580,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS-SIP"),
 		  build_string ("ISO/IEC 10646 Group 0 Plane 2 (SIP)"),
 		  build_string ("\\(ISO10646.*-2\\|UCS00-2\\)"),
-		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP,
+		  MIN_CHAR_SIP, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_cns);
   Vcharset_ucs_cns =
     make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 3,
@@ -2644,7 +2644,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Control characters"),
 		  build_string ("Control characters 128-191"),
 		  build_string (""),
-		  Qnil, 0x80, 0x9F, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0x80, 0x9F, 0x80, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_latin_iso8859_1);
   Vcharset_latin_iso8859_1 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_1, Qlatin_iso8859_1, 96, 1,
@@ -2653,7 +2653,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("ISO8859-1 (Latin-1)"),
 		  build_string ("iso8859-1"),
-		  Qnil, 0xA0, 0xFF, 0, 32, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_latin_iso8859_2);
   Vcharset_latin_iso8859_2 =
     make_charset (LEADING_BYTE_LATIN_ISO8859_2, Qlatin_iso8859_2, 96, 1,
@@ -2689,8 +2689,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("TIS620 (Thai)"),
 		  build_string ("TIS620.2529 (Thai)"),
 		  build_string ("tis620"),
-		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI, 0, 32,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_THAI, MAX_CHAR_THAI,
+		  MIN_CHAR_THAI, 32, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_greek_iso8859_7);
   Vcharset_greek_iso8859_7 =
     make_charset (LEADING_BYTE_GREEK_ISO8859_7, Qgreek_iso8859_7, 96, 1,
@@ -2807,7 +2807,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("jisx0208\\.1990"),
 		  Qnil,
 		  MIN_CHAR_JIS_X0208_1990,
-		  MAX_CHAR_JIS_X0208_1990, 0, 33,
+		  MAX_CHAR_JIS_X0208_1990, MIN_CHAR_JIS_X0208_1990, 33,
 		  Qnil, CONVERSION_IDENTICAL);
 #endif
   staticpro (&Vcharset_korean_ksc5601);
@@ -2907,8 +2907,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5 + CDP extension"),
 		  build_string ("Big5 with CDP extension"),
 		  build_string ("big5\\.cdp-0"),
-		  Qnil, MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_BIG5_CDP, MAX_CHAR_BIG5_CDP,
+		  MIN_CHAR_BIG5_CDP, 0, Qnil, CONVERSION_IDENTICAL);
 #define DEF_HANZIKU(n)							\
   staticpro (&Vcharset_ideograph_hanziku_##n);				\
   Vcharset_ideograph_hanziku_##n =					\
@@ -2919,8 +2919,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("HANZIKU (pseudo BIG5 encoding) part "#n), \
 		  build_string						\
 		  ("hanziku-"#n"$"),					\
-		  Qnil, MIN_CHAR_HANZIKU_##n, MAX_CHAR_HANZIKU_##n, 0, 0, \
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_HANZIKU_##n, MAX_CHAR_HANZIKU_##n, 	\
+		  MIN_CHAR_HANZIKU_##n, 0, Qnil, CONVERSION_IDENTICAL);
   DEF_HANZIKU (1);
   DEF_HANZIKU (2);
   DEF_HANZIKU (3);
@@ -2941,8 +2941,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JEF + CHINA3"),
 		  build_string ("JEF + CHINA3 private characters"),
 		  build_string ("china3jef-0"),
-		  Qnil, MIN_CHAR_CHINA3_JEF, MAX_CHAR_CHINA3_JEF, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_CHINA3_JEF, MAX_CHAR_CHINA3_JEF,
+		  MIN_CHAR_CHINA3_JEF, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ideograph_cbeta);
   Vcharset_ideograph_cbeta =
     make_charset (LEADING_BYTE_CBETA, Qideograph_cbeta, 256, 2,
@@ -2951,8 +2951,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("CBETA"),
 		  build_string ("CBETA private characters"),
 		  build_string ("cbeta-0"),
-		  Qnil, MIN_CHAR_CBETA, MAX_CHAR_CBETA, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_CBETA, MAX_CHAR_CBETA,
+		  MIN_CHAR_CBETA, 0, Qnil, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ideograph_gt);
   Vcharset_ideograph_gt =
     make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
@@ -2961,8 +2961,8 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GT"),
 		  build_string ("GT"),
 		  build_string (""),
-		  Qnil, MIN_CHAR_GT, MAX_CHAR_GT, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_GT, MAX_CHAR_GT,
+		  MIN_CHAR_GT, 0, Qnil, CONVERSION_IDENTICAL);
 #define DEF_GT_PJ(n)							\
   staticpro (&Vcharset_ideograph_gt_pj_##n);				\
   Vcharset_ideograph_gt_pj_##n =					\
@@ -3005,8 +3005,8 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("Daikanwa dictionary (second revised version)"),
 		  build_string ("Daikanwa\\(\\.[0-9]+\\)?-3"),
-		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, MIN_CHAR_DAIKANWA, MAX_CHAR_DAIKANWA,
+		  MIN_CHAR_DAIKANWA, 0, Qnil, CONVERSION_IDENTICAL);
 
   staticpro (&Vcharset_ethiopic_ucs);
   Vcharset_ethiopic_ucs =
@@ -3016,7 +3016,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Ethiopic (UCS)"),
 		  build_string ("Ethiopic of UCS"),
 		  build_string ("Ethiopic-Unicode"),
-		  Qnil, 0x1200, 0x137F, 0x1200, 0,
+		  Qnil, 0x1200, 0x137F, 0, 0,
 		  Qnil, CONVERSION_IDENTICAL);
 #endif
   staticpro (&Vcharset_chinese_big5_1);
