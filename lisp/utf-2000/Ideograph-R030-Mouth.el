@@ -25543,10 +25543,11 @@
     (=ucs		. #x5674)	; 噴
     (->subsumptive
      ((<-vulgar
-       ((=daikanwa	    . 04409)	; &I-M-04409;
+       ((=ucs		    . #x2F84F)	; 噴
+	(=daikanwa	    . 04409)	; &I-M-04409;
 	))
       (<-vulgar*sources
-       daikanwa)
+       kangxi daikanwa)
       (ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
@@ -27013,24 +27014,51 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x53E3)	; 口
-      )
-     ((=ucs		  . #x865E)	; 虞
-      ))
     (=ucs		. #x5673)	; 噳
-    (=cns11643-2	. #x564A)	; &I-C2-564A;
-    (=big5		. #xE940)	; &I-B-E940;
-    (=daikanwa		. 04408)	; &I-M-04408;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=ks-x1001	    . #x6965)	; &M-32723;
+	(=daikanwa	    . 32723)	; &I-M-32723;
+	))
+      (=big5		  . #xE940)	; &M-04408;
+      (=daikanwa	  . 04408)	; &I-M-04408;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=cns11643-1	    . #x663E)	; &C1-663E;
+	))
+      (=cns11643-2	  . #x564A)	; &C2-564A;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x53E3)	; 口
+	)
+       ((=gb2312	    . #x535D)	; &G0-535D;
+	))
+      (=ucs@unicode	  . #x5673)	; &UU+5673;
+      ))
     ))
 (define-char
-  '((ideographic-radical . 30)	; ⼝
+  '((=>ucs*		. #x5674)	; 噴
+    (ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (=cns11643-7	. #x2C65)	; &M-04409;
+    (<-denotational
+     ((=ucs		  . #x5674)	; 噴
+      ))
+    (=ucs		. #x2F84F)	; 噴
+    (=cns11643-7	. #x2C65)	; &I-C7-2C65;
     (=daikanwa		. 04409)	; &I-M-04409;
     ))
 (define-char
