@@ -1,3 +1,25 @@
+2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Set Qunbound if an
+	element is Qunloaded.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Likewise for CHARTAB_RANGE_ALL in UTF-2000; when
+	CHARTAB_RANGE_CHARSET is specified in UTF-2000 with external
+	database support, load encoding-table of the specified
+	coded-charset if it is not loaded yet.
+	(save_uint8_byte_table): New function of UTF-2000 with external
+	database support.
+	(save_uint16_byte_table): Likewise.
+	(save_byte_table): Likewise.
+	(Fput_char_attribute): Don't store value into external database
+	even if the external database feature is supported in UTF-2000;
+	set `attribute' as name of char-table if the external database
+	feature is supported.
+	(Fsave_char_attribute_table): New function in UTF-2000.
+	(syms_of_chartab): Add new builtin function
+	`save-char-attribute-table' in UTF-2000.
+
 2002-02-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (char_attribute_table_to_put): New variable in
