@@ -122,7 +122,11 @@
   (let (char-spec ret al cal key)
     (cond ((characterp char)
 	   (cond ((setq ret (get-char-attribute char 'ucs))
-		  (setq char-spec (list (cons 'ucs ret)))
+		  (unless (and (<= #xE000 ret)(<= ret #xF8FF))
+		    (setq char-spec (list (cons 'ucs ret))))
+		  (if (setq ret (get-char-attribute char 'chinese-big5-cdp))
+		      (setq char-spec (cons (cons 'chinese-big5-cdp ret)
+					    char-spec)))
 		  (if (setq ret (get-char-attribute char 'name))
 		      (setq char-spec (cons (cons 'name ret) char-spec)))
 		  )
@@ -140,7 +144,7 @@
 	   (setq char nil)))
     (if (or char
 	    (setq char (condition-case nil
-			   (define-char char-spec)
+			   (find-char char-spec)
 			 (error nil))))
 	(progn
 	  (setq al nil
@@ -171,7 +175,7 @@
       (cond ((eq name 'char)
 	     (insert "(char . ")
 	     (if (setq ret (condition-case nil
-			       (define-char value)
+			       (find-char value)
 			     (error nil)))
 		 (progn
 		   (setq al nil
@@ -196,7 +200,7 @@
 	       (if (and (consp cell)
 			(consp (car cell))
 			(setq ret (condition-case nil
-				      (define-char cell)
+				      (find-char cell)
 				    (error nil)))
 			)
 		   (progn
@@ -673,7 +677,7 @@
 		   (if (and (consp cell)
 			    (consp (car cell))
 			    (setq ret (condition-case nil
-					  (define-char cell)
+					  (find-char cell)
 					(error nil))))
 		       (progn
 			 (setq rest cell
