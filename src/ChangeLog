@@ -1,3 +1,10 @@
+2000-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fget_char_attribute): Add new optional argument
+	`default-value'.
+	(put_char_ccs_code_point): Modify for `Fget_char_attribute'.
+	(remove_char_ccs): Likewise.
+
 2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (char_encode_shift_jis): New implementation in
