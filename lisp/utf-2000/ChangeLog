@@ -1,4 +1,11 @@
+2003-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0AC00-Hangul-Syllables.el (U+C5EC): Unify JC3-94B6.
+
 2003-12-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (U+5361): Separate JC3-82B5; unify
+	JC3-45CB.
 
 	* Ideograph-R030-Mouth.el (U+53FE): Add `total-strokes'.
 	(U+549E): Use `->identical' instead of `->same-ideograph' for
