@@ -478,7 +478,23 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
     (=ucs		. #x2EAB)	; âº«
+    ))
+(define-char
+  '((=>ucs		. #x2EAB)	; âº«
+    (ideographic-radical . 109)	; â½¬
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x76EE)	; ç›®
+      ))
+    (=big5-cdp		. #x8B48)	; ý¢€ˆ­ˆ
+    (=gt		. 36329)	; ý¡€ˆ·©
+    (=gt-k		. 01549)	; ý¡„€˜
+    (=gt-pj-5		. #x7264)	; ý¡€ˆ·©
     ))
 (define-char
   '((name		. "CJK RADICAL SPIRIT ONE")
