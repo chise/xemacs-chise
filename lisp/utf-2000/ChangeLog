@@ -1,5 +1,20 @@
 2004-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R121-Jar.el: Use `->subsumptive' for some character
+	definitions.
+	(GT-K01231): Use `=>daikanwa' instead of `morohashi-daikanwa'; use
+	`<-denotational' and `<-ideographic-component-forms' for U+7F36.
+	(U+7F37): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' to integrate C4-2557.
+	(U+4343): Define as an abstract character.
+	(JX2-7461): Use `<-denotational' for U+4343.
+	(GT-36228): Likewise; add `<-ideographic-component-forms' for
+	U+4343; fix `total-strokes'.
+
+	* maps-conf.el: Don't add `=gt-pj-1' for J90-657E.
+
+2004-07-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* maps-conf.el: Don't add `=gt-pj-1' for J90-657D.
 
 	* Ideograph-R026-Seal.el (U-00020A13): Use `->subsumptive'.
