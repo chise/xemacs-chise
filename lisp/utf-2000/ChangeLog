@@ -1,5 +1,37 @@
 2004-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R032-Earth.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+5747): Use `->subsumptive'.
+	(U-0002F853): New character.
+	(M-05187): Moved into U-0002F853; separate C6-3E2C.
+	(C6-3E2C): Add IU-0002F853; moved into U-0002F853.
+	(U+57F4): Use `->subsumptive'.
+	(U+580B): Likewise.
+	(U+5C2D): Use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(U+5835): Changed to abstract character.
+	(J78-4548): Use `<-denotational' for U+5835.
+	(G0-3642): Likewise; add `<-simplified@JP' for J78-4548.
+	(U+365B): Use `->subsumptive'.
+	(U+365C): Likewise.
+	(U+5858): Changed to abstract character.
+	(B-B6ED): Use `<-denotational' for U+5858; use `->subsumptive'.
+	(J83-4564): Use `<-denotational' for U+5858; add `<-simplified@JP'
+	for J78-4564.
+	(U+585A): Changed to abstract character.
+	(B-B6EF): Use `<-denotational' for U+585A; use `->subsumptive'.
+	(J83-444D): Likewise.
+	(U+5861): Use `->subsumptive'; use `<-denotational' for B-B6F1.
+	(B-B6F1): Changed to abstract character.
+	(U+586B): Use `->subsumptive'; use `<-denotational' for B-B6F1.
+	(U+58AB): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 	* Ideograph-R040-Roof.el: Use `=jis-x0208@{1978|1983|1990}'
 	instead of `=jis-x0208-{1978|1983|1990}'.
 	(U+5BC3): Add J97-5563.
