@@ -43,6 +43,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (chinese-gb2312	#x28 #x4E)	; ø»„‘ƒ
+    (chinese-isoir165	#x28 #x4E)	; ø»Œ¹“
     (chinese-cns11643-1 #x25 #x50)	; ø»‘‰ƒ
     (ideograph-daikanwa #x00 #x03)	; ø¹€ƒ
     ))
@@ -68,6 +69,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (chinese-gb2312	#x28 #x5B)	; ø»„‘
+    (chinese-isoir165	#x28 #x5B)	; ø»Œ¹ 
     (chinese-cns11643-1 #x25 #x5D)	; ø»‘‰
     (ideograph-daikanwa #x00 #x04)	; ø¹€„
     ))
@@ -90,6 +92,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (chinese-gb2312	#x28 #x5C)	; ø»„‘‘
+    (chinese-isoir165	#x28 #x5C)	; ø»Œ¹¡
     (chinese-cns11643-1 #x25 #x5E)	; ø»‘‰‘
     (ideograph-daikanwa #x00 #x05)	; ø¹€…
     ))
@@ -141,6 +144,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
     (chinese-gb2312	#x28 #x58)	; ø»„‘
+    (chinese-isoir165	#x28 #x58)	; ø»Œ¹
     (chinese-cns11643-1 #x25 #x5A)	; ø»‘‰
     (ideograph-daikanwa #x00 #x09)	; ø¹€‰
     ))
@@ -278,7 +282,7 @@
   '((ucs		. #x536B)
     (morohashi-daikanwa	17 0 1)
     (ideographic-radical . 1)	; â¼€
-    (kangxi-radical . 5)	; â¼„
+    (kangxi-radical	 . 5)	; â¼„
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (chinese-gb2312	#x4E #x40)	; ø»…ˆ©
@@ -288,7 +292,7 @@
   '((->ucs		. #x536B)
     (morohashi-daikanwa	17 0 2)
     (ideographic-radical . 1)	; â¼€
-    (kangxi-radical . 5)	; â¼„
+    (kangxi-radical	 . 5)	; â¼„
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (chinese-cns11643-6 #x21 #x2D)	; ø»›´¼
@@ -889,7 +893,7 @@
 (define-char
   '((ucs		. #x4E27)
     (ideographic-radical . 1)	; â¼€
-    (kangxi-radical . 24)	; â¼—
+    (kangxi-radical	 . 24)	; â¼—
     (ideographic-strokes . 7)
     (kangxi-strokes	 . 6)
     (total-strokes	 . 8)

@@ -84,6 +84,7 @@
     (japanese-jisx0208-1978	#x21 #x39)	; ø»¼˜
     (chinese-gb2312		#x21 #x29)	; ø»„†Œ
     (japanese-jisx0208		#x21 #x39)	; ø»† 
+    (chinese-isoir165		#x21 #x29)	; ø»Œ®œ
     (ideograph-daikanwa		#x00 #x61)	; ø¹¡
     ))
 (define-char
@@ -187,6 +188,7 @@
   '((->ucs		. #x4E3D)
     (morohashi-daikanwa	104)
     (ideographic-radical . 3)	; â¼‚
+    (cns-radical	 . 1)	; â¼€
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (comment		. "<ancient character> of R198:M47663.0 [= R001:M00059.0]")
@@ -195,7 +197,7 @@
     ))
 (define-char
   '((ucs		. #x4E3D)
-    (morohashi-daikanwa	104 0 5)
+    (morohashi-daikanwa	104 0 2)
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
