@@ -1,3 +1,18 @@
+2002-02-12  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el (system-char-database-directory): New variable.
+	- Load character-definition files if
+	  `system-char-database-directory' is not found or
+	  `load-ignore-elc-files' is non-nil.
+	- Call `reset-char-attribute-table' for each character-attribute
+	  corresponding with each file in
+	  `system-char-database-directory'/system-char-id.
+
+2002-02-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* make-cdbs.el: Use `save-charset-mapping-table' for all
+	coded-charsets.
+
 2002-02-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* make-cdbs.el: New file.
