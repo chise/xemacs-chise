@@ -969,7 +969,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
       (ucs		  . #x2FF7)	; ⿷
       )
-     ((ucs		  . #x2F80E)	; 免
+     ((ucs		  . #xFA32)	; 免
       )
      ((ucs		  . #x4E36)	; 丶
       ))
