@@ -3,22 +3,22 @@
 ;; Copyright (C) 1998,1999,2000,2001,2002,2003 MORIOKA Tomohiko.
 
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
-;; Keywords: CHISE, Character Database, ISO/IEC 10646, Unicode, UCS-4, MULE.
+;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
-;; This file is part of XEmacs CHISE.
+;; This file is part of XEmacs UTF-2000.
 
-;; XEmacs CHISE is free software; you can redistribute it and/or
+;; XEmacs UTF-2000 is free software; you can redistribute it and/or
 ;; modify it under the terms of the GNU General Public License as
 ;; published by the Free Software Foundation; either version 2, or (at
 ;; your option) any later version.
 
-;; XEmacs CHISE is distributed in the hope that it will be useful,
+;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs CHISE; see the file COPYING.  If not, write to
+;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
 ;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -68,9 +68,6 @@
       (aset v i (decode-char '=ucs (+ #x2EFF i)))
       (setq i (1+ i)))
     v))
-
-(defvar char-db-feature-domains
-  '(ucs daikanwa cns gt jis jis/alt jis/a jis/b misc unknown))
 
 (defvar char-db-ignored-attributes nil)
 
@@ -453,8 +450,7 @@
 	(line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
 	lbs cell separator ret
-	key al cal
-	dest-ccss)
+	key al cal)
     (insert "(")
     (when (and (memq 'name attributes)
 	       (setq value (get-char-attribute char 'name)))
@@ -489,6 +485,13 @@
 			name value (decode-char '=ucs value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
+    ;; (when (and (memq '=>ucs* attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs*)))
+    ;;   (insert (format "(=>ucs*\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char '=ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs* attributes))
+    ;;   )
     (dolist (name '(=>ucs@gb =>ucs@cns =>ucs@jis =>ucs@ks =>ucs@big5))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -517,6 +520,41 @@
 				     value)
 			line-breaking))
 	(setq attributes (delq name attributes))))
+    ;; (when (and (memq '=>ucs-gb attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs-gb)))
+    ;;   (insert (format "(=>ucs@gb\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char '=ucs@gb value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs-gb attributes))
+    ;;   )
+    ;; (when (and (memq '=>ucs-cns attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs-cns)))
+    ;;   (insert (format "(=>ucs@cns\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char '=ucs@cns value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs-cns attributes))
+    ;;   )
+    ;; (when (and (memq '=>ucs-big5 attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs-big5)))
+    ;;   (insert (format "(=>ucs-big5\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char 'ucs-big5 value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs-big5 attributes))
+    ;;   )
+    ;; (when (and (memq '=>ucs-jis attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs-jis)))
+    ;;   (insert (format "(=>ucs@jis\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char '=ucs@jis value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs-jis attributes))
+    ;;   )
+    ;; (when (and (memq '=>ucs-ks attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs-ks)))
+    ;;   (insert (format "(=>ucs-ks\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char 'ucs-ks value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs-ks attributes))
+    ;;   )
     (when (and (memq '->ucs attributes)
 	       (setq value (get-char-attribute char '->ucs)))
       (insert (format (if char-db-convert-obsolete-format
@@ -619,52 +657,6 @@
 		      line-breaking))
       (setq attributes (delq 'ideographic-radical attributes))
       )
-    (let (key)
-      (dolist (domain char-db-feature-domains)
-	(setq key (intern (format "%s@%s" 'ideographic-radical domain)))
-	(when (and (memq key attributes)
-		   (setq value (get-char-attribute char key)))
-	  (setq radical value)
-	  (insert (format "(%s . %S)\t; %c%s"
-			  key
-			  radical
-			  (aref ideographic-radicals radical)
-			  line-breaking))
-	  (setq attributes (delq key attributes))
-	  )
-	(setq key (intern (format "%s@%s" 'ideographic-strokes domain)))
-	(when (and (memq key attributes)
-		   (setq value (get-char-attribute char key)))
-	  (setq strokes value)
-	  (insert (format "(%s . %S)%s"
-			  key
-			  strokes
-			  line-breaking))
-	  (setq attributes (delq key attributes))
-	  )
-	(setq key (intern (format "%s@%s" 'total-strokes domain)))
-	(when (and (memq key attributes)
-		   (setq value (get-char-attribute char key)))
-	  (insert (format "(%s       . %S)%s"
-			  key
-			  value
-			  line-breaking))
-	  (setq attributes (delq key attributes))
-	  )
-	(dolist (feature '(ideographic-radical
-			   ideographic-strokes
-			   total-strokes))
-	  (setq key (intern (format "%s@%s*sources" feature domain)))
-	  (when (and (memq key attributes)
-		     (setq value (get-char-attribute char key)))
-	    (insert (format "(%s%s" key line-breaking))
-	    (dolist (cell value)
-	      (insert (format " %s" cell)))
-	    (insert ")")
-	    (insert line-breaking)
-	    (setq attributes (delq key attributes))
-	    ))
-	))
     (when (and (memq 'ideographic-strokes attributes)
 	       (setq value (get-char-attribute char 'ideographic-strokes)))
       (setq strokes value)
@@ -847,8 +839,8 @@
       (setq attributes (delq 'hanyu-dazidian-char attributes))
       )
     (unless readable
-      (when (memq '->ucs-unified attributes)
-	(setq attributes (delq '->ucs-unified attributes))
+      (when (memq '->ucs-variants attributes)
+	(setq attributes (delq '->ucs-variants attributes))
 	)
       (when (memq 'composition attributes)
 	(setq attributes (delq 'composition attributes))
@@ -991,15 +983,14 @@
 		))
       (setq attributes (cdr attributes)))
     (while ccs-attributes
-      (setq name (charset-name (car ccs-attributes)))
-      (if (and (not (memq name dest-ccss))
-	       (prog1
-		   (setq value (get-char-attribute char name))
-		 (setq dest-ccss (cons name dest-ccss))))
+      (setq name (car ccs-attributes))
+      (if (and (eq name (charset-name name))
+	       (setq value (get-char-attribute char name)))
 	  (insert
 	   (format
-	    (cond ((memq name '(=daikanwa
-				=daikanwa-rev1 =daikanwa-rev2
+	    (cond ((memq name '(ideograph-daikanwa
+				=daikanwa-rev1
+				=daikanwa-rev2
 				=gt =gt-k =cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
@@ -1056,7 +1047,7 @@
     ))
 
 (defun insert-char-data-with-variant (char &optional printable
-					   no-ucs-unified
+					   no-ucs-variant
 					   script excluded-script)
   (insert-char-data char printable)
   (let ((variants (or (char-variants char)
@@ -1073,7 +1064,7 @@
 	       (or (null excluded-script)
 		   (null (setq vs (get-char-attribute variant 'script)))
 		   (not (memq excluded-script vs))))
-	  (or (and no-ucs-unified (get-char-attribute variant '=ucs))
+	  (or (and no-ucs-variant (get-char-attribute variant '=ucs))
 	      (insert-char-data variant printable)))
       (setq variants (cdr variants))
       )))
@@ -1084,7 +1075,7 @@
     (while (<= code max)
       (setq char (decode-char '=ucs code))
       (if (encode-char char '=ucs 'defined-only)
-	  (insert-char-data-with-variant char nil 'no-ucs-unified
+	  (insert-char-data-with-variant char nil 'no-ucs-variant
 					 script excluded-script))
       (setq code (1+ code)))))
 
