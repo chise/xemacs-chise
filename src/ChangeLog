@@ -1,13 +1,5 @@
 2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* chartab.c (Q_ucs_unified): Renamed from `Q_ucs_variants'.
-	(Fchar_variants): Rename `Q_ucs_variants' to `Q_ucs_unified'.
-	(put_char_composition): Likewise.
-	(Fput_char_attribute): Likewise.
-	(syms_of_chartab): Rename `->ucs-variants' to `->ucs-unified'.
-
-2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
-
 	* chartab.c (Q_ucs): Deleted.
 	(Fput_char_attribute): Don't refer `->ucs'.
 	(Fdefine_char): Likewise.
