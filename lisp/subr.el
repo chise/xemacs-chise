@@ -334,7 +334,7 @@ it as a string."
        (erase-buffer))))
 
 (defmacro with-current-buffer (buffer &rest body)
-  "Execute the forms in BODY with BUFFER as the current buffer.
+  "Temporarily make BUFFER the current buffer and execute the forms in BODY.
 The value returned is the value of the last form in BODY.
 See also `with-temp-buffer'."
   `(save-current-buffer
