@@ -1,3 +1,65 @@
+2001-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (U+8FC7): Fix `total-strokes'.
+	(C1-4B56): Use `->ideographic-variants' instead of
+	`morohashi-daikanwa'; unify B-A8B5.
+	(U+8FC8): Add `total-strokes'.
+
+	* Ideograph-R094-Dog.el (J0-605B): Separate G1-4F57 and U+737B.
+
+	* Ideograph-R020-Wrap.el:
+	- Merge some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Add some missing `ideographic-structure' properties.
+	- Merge some missing Big5-CDP code points.
+
+2001-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el (C4-2471): Unify BC-8DDB.
+
+	* Ideograph-R049-Oneself.el, Ideograph-R048-Work.el:
+	- Merge Big5 code points.
+	- Merge some CBETA numbers.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R047-River.el:
+	- Merge some CBETA numbers.
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R021-Spoon.el: Add some `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char' properties.
+	(M-02571): Unify BC-8BBA.
+	(U+5316): Use char-spec instead of char-ref as the operator in the
+	`ideographic-structure' property.
+	(J0-323D): Likewise.
+	(M-02573): Add `ideographic-structure'; separate C4-2142; unify
+	BC-8AB1.
+	(U+5317): Use char-spec instead of char-ref as the operator in the
+	`ideographic-structure' property.
+	(M-02577): Add `ideographic-structure'.
+	(BC-8CCA): New character.
+	(C6-2632): Add `ideographic-structure'.
+	(U+5319): Use char-spec instead of char-ref as the operator in the
+	`ideographic-structure' property.
+
+	* Ideograph-R012-Eight.el (BC-8BFA): Add `ideograph-cdp'.
+
+	* Ideograph-R015-Ice.el: Merge some CHINA3-JEF code points.
+
+	* Ideograph-R040-Roof.el (C4-3130): Unify JC3-4AB8.
+
+	* Ideograph-R009-Man.el (U+4EEC): Unify JC3-82BB.
+	(U+505F): Unify JC3-42EE.
+	(U+503B): Unify JC3-93DE.
+	(U+50A5): Unify JC3-43A8.
+
+	* Ideograph-R008-Lid.el (JC3-81C1): New character.
+
+	* Ideograph-R014-Cover.el: Merge some CHINA3-JEF code points.
+
 2001-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R043-Lame.el:
