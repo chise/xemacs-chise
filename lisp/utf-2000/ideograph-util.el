@@ -61,6 +61,8 @@
 		    japanese-jisx0208
 		    japanese-jisx0208-1990
 		    japanese-jisx0212
+		    japanese-jisx0213-1
+		    japanese-jisx0213-2
 		    chinese-cns11643-1
 		    chinese-cns11643-2
 		    chinese-cns11643-3
@@ -192,7 +194,10 @@
 	       file))))
   (with-temp-buffer
     (insert-ideograph-radical-char-data radical)
-    (write-region (point-min)(point-max) file)))
+    (char-db-update-comment)
+    (let ((coding-system-for-write 'utf-8))
+      (write-region (point-min)(point-max) file)
+      )))
 
 (provide 'ideograph-util)
 
