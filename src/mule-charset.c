@@ -423,6 +423,7 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 
 Lisp_Object Vcharacter_attribute_table;
 Lisp_Object Vcharacter_name_table;
+Lisp_Object Vcharacter_decomposition_table;
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
 
@@ -551,9 +552,22 @@ Return the alist of attributes of CHARACTER.
 */
        (character))
 {
+  Lisp_Object alist, ret;
+
   CHECK_CHAR (character);
-  return Fcopy_alist (get_char_id_table (XCHAR (character),
-					 Vcharacter_attribute_table));
+  alist = Fcopy_alist (get_char_id_table (XCHAR (character),
+					  Vcharacter_attribute_table));
+
+  ret = get_char_id_table (XCHAR (character), Vcharacter_name_table);
+  if (!NILP (ret))
+    alist = Fcons (Fcons (Qname, ret), alist);
+
+  ret = get_char_id_table (XCHAR (character),
+			   Vcharacter_decomposition_table);
+  if (!NILP (ret))
+    alist = Fcons (Fcons (Q_decomposition, ret), alist);
+
+  return alist;
 }
 
 DEFUN ("get-char-attribute", Fget_char_attribute, 2, 2, 0, /*
@@ -576,6 +590,11 @@ Return the value of CHARACTER's ATTRIBUTE.
   else if (EQ (attribute, Qname))
     {
       return get_char_id_table (XCHAR (character), Vcharacter_name_table);
+    }
+  else if (EQ (attribute, Q_decomposition))
+    {
+      return get_char_id_table (XCHAR (character),
+				Vcharacter_decomposition_table);
     }
   else
     {
@@ -610,6 +629,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     {
+      Lisp_Object seq;
+
       if (!CONSP (value))
 	signal_simple_error ("Invalid value for ->decomposition",
 			     value);
@@ -618,6 +639,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	{
 	  Lisp_Object rest = value;
 	  Lisp_Object table = Vcharacter_composition_table;
+	  size_t len;
+	  int i = 0;
+
+	  GET_EXTERNAL_LIST_LENGTH (rest, len);
+	  seq = make_older_vector (len, Qnil);
 
 	  while (CONSP (rest))
 	    {
@@ -626,6 +652,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      Emchar c
 		= to_char_id (v, "Invalid value for ->decomposition", value);
 
+	      if (c < 0)
+		XVECTOR_DATA(seq)[i++] = v;
+	      else
+		XVECTOR_DATA(seq)[i++] = make_char (c);
 	      rest = Fcdr (rest);
 	      if (!CONSP (rest))
 		{
@@ -661,7 +691,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				     Vcharacter_variant_table);
 		}
 	    }
+	  seq = make_older_vector (1, v);
 	}
+      put_char_id_table (XCHAR (character), seq,
+			 Vcharacter_decomposition_table);
+      return value;
     }
   else if (EQ (attribute, Q_ucs))
     {
@@ -3049,6 +3083,9 @@ Version number of UTF-2000.
 
   staticpro (&Vcharacter_name_table);
   Vcharacter_name_table = make_char_id_table (Qnil, 0);
+
+  /* staticpro (&Vcharacter_decomposition_table); */
+  Vcharacter_decomposition_table = make_char_id_table (Qnil, -1);
 
   /* staticpro (&Vcharacter_composition_table); */
   Vcharacter_composition_table = make_char_id_table (Qnil, -1);
