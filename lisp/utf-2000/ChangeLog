@@ -1,3 +1,10 @@
+2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el: Add some missing `=ucs@jis'
+	features.
+
+	* Ideograph-R040-Roof.el (J0-3B21): Unify JU+5BDF.
+
 2003-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R104-Sickness.el: Add mappings for Big5 code points.

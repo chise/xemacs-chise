@@ -3821,6 +3821,7 @@
     (=gt-pj-1		. #x3B21)	; ø½Šœˆ
     (=big5		. #xB9EE)	; ý¢€‹§®
     (=gt-k		. 11123)	; ý¡„‚­³
+    (=ucs@jis		. #x5BDF)	; ø½Šœˆ
     ))
 (define-char
   '((morohashi-daikanwa	7283 0 2)
