@@ -1,3 +1,24 @@
+2002-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el, Ideograph-R190-Hair.el,
+	Ideograph-R192-Sacrificial-Wine.el, Ideograph-R194-Ghost.el,
+	Ideograph-R196-Bird.el, Ideograph-R184-Eat.el,
+	Ideograph-R187-Horse.el, Ideograph-R169-Gate.el,
+	Ideograph-R181-Leaf.el, Ideograph-R163-City.el,
+	Ideograph-R164-Wine.el, Ideograph-R167-Gold.el,
+	Ideograph-R159-Cart.el, Ideograph-R162-Walk.el,
+	Ideograph-R157-Foot.el, Ideograph-R150-Valley.el,
+	Ideograph-R154-Shell.el, Ideograph-R147-See.el,
+	Ideograph-R149-Speech.el, Ideograph-R145-Clothes.el,
+	Ideograph-R142-Insect.el, Ideograph-R137-Boat.el,
+	Ideograph-R121-Jar.el, Ideograph-R127-Plow.el,
+	Ideograph-R128-Ear.el, Ideograph-R130-Meat.el,
+	Ideograph-R116-Cave.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R112-Stone.el, Ideograph-R077-Stop.el,
+	Ideograph-R087-Claw.el, Ideograph-R093-Cow.el,
+	Ideograph-R104-Sickness.el: Add some missing mapping between CNS
+	11643 plain 3 and UCS.
+
 2002-07-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R188-Bone.el (G0-3947): Fix `total-strokes'.
