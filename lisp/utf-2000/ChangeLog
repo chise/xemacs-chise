@@ -1,5 +1,12 @@
 2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R160-Bitter.el (U+8F9E): Changed to abstract
+	character.
+	(M-38638): Add `<-denotational' for U+8F9E; use
+	`<-vulgar@{jiyun|zhengzi-tong}' instead of
+	`<-vulgar-ideograph@{jiyun|zhengzi-tong}'; use `->subsumptive' to
+	integrate G0-3447.
+
 	* Ideograph-R135-Tongue.el (M-30307): Moved into U-0002F98D; use
 	`->identical' instead of `->same' for M-38638; use
 	`<-vulgar@{jiyun|zhengzi-tong}' instead of `<-vulgar'.
