@@ -1649,7 +1649,7 @@ define_key_alternate_name (struct key_data *key,
   returned_value->modifiers = 0;
   if (modifiers_sans_meta == XEMACS_MOD_CONTROL)
     {
-      if EQ (keysym, QKspace)
+      if (EQ (keysym, QKspace))
         MACROLET (make_char ('@'), modifiers);
       else if (!CHARP (keysym))
         return;

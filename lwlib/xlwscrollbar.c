@@ -30,7 +30,8 @@ Boston, MA 02111-1307, USA.  */
  *
  * Emacs*XlwScrollBar.translations: #override \n\
  *   <Btn1Down>:     PageDownOrRight()	  \n\
- *   <Btn3Down>:     PageUpOrLeft()
+ *   <Btn3Down>:     PageUpOrLeft()	\n\
+ *   <Btn3Up>:	Release()
  *
  */
 

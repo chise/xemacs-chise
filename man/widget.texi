@@ -1058,8 +1058,8 @@ available.  These basically fall in the following categories.
 @subsection The Constant Widgets.
 
 The @code{const} widget can contain any lisp expression, but the user is
-prohibited from editing edit it, which is mainly useful as a component
-of one of the composite widgets.
+prohibited from editing it, which is mainly useful as a component of one
+of the composite widgets.
 
 The syntax for the @code{const} widget is
 

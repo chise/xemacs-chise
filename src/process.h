@@ -45,7 +45,7 @@ DECLARE_LRECORD (process, Lisp_Process);
 #define XSETPROCESS(x, p) XSETRECORD (x, p, process)
 #define PROCESSP(x) RECORDP (x, process)
 #define CHECK_PROCESS(x) CHECK_RECORD (x, process)
-#define PROCESS_LIVE_P(x) (!NILP ((x)->pipe_instream))
+#define PROCESS_LIVE_P(x) (EQ ((x)->status_symbol, Qrun))
 
 #define CHECK_LIVE_PROCESS(x) do {			\
   CHECK_PROCESS (x);					\

@@ -22,6 +22,55 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
+to XEmacs 21.4.7 "Economic Science"
+
+  - Fix: prevent migration code from trashing .emacs -- Stephen J. Turnbull
+  - Fix: XmProcessTraversal crash -- Stephen J. Turnbull
+  - Fix: crash in GTK popup menu -- William M. Perry
+  - Fix: dll_load to avoid incorrect symbol binding -- Andrew Begel
+  - Fix: emodules_load to avoid multiple loading of same module -- Jerry James
+  - Fix: recover gracefully from XOpenDevice failure -- Mike Sperber
+
+  - (**) Fix: write-region-pre-hook obeys coding-system argument -- Stephen J.
+    Turnbull
+  - (**) Improve: GTK selection handling -- Eric Gillespie, Jr.
+  - (**) New: auto-modes: .siv, .sieve, GNUmakefile, Xdefaults -- Ville Skyttä,
+    Simon Josefsson
+  - Fix: default Info-auto-generate-directory to 'if-outdated. -- Adrian
+    Aichner
+  - Fix: generic-print-region passes correct arguments Nevin Kapur, Björn
+    Torkelsson, Adrian Aichner
+  - Fix: regenerate info dir when missing -- Mike Sperber
+  - Fix: truncate menu item to width -- Adrian Aichner
+  - Update: GNU synchs: assq-delete-all, function-interactive, describe-mode
+    -- John Paul Wallington
+
+  - Fix: "--with-widgets" means "=yes", and autodetect athena. -- Jan Vroonhof
+  - Fix: add -Wno-shadow for GTK -- William M. Perry
+  - Fix: make moduledir option work -- Mike Fabian
+  - Fix: native Windows build dependencies with pdump -- Adrian Aichner
+  - Fix: clean up name space after automated tests -- Stephen J. Turnbull
+  - Improve: native Windows build -- Jonathan Harris
+  - Fix: typo in macro definition -- Martin Buchholz
+
+  - Fix: typos -- Adrian Aichner, Steve Youngs, Charles Waldman
+  - Improve: Packages node -- Stephen J. Turnbull
+  - Improve: comments and docstrings -- Stephen J. Turnbull, Christoph Wedler,
+    Valdis Kletnieks, John H. Palmieri
+  - Improve: etc/BETA -- Stephen J. Turnbull, Jarl Friis
+  - New: External Client Widget Internals node -- Stephen J. Turnbull
+  - New: FAQ: Unicode support via Mule-UCS. -- Stephen J. Turnbull
+  - New: FAQ: remote files -- Stephen J. Turnbull
+  - New: Glyph, graphics examples node -- Darryl Okahata
+  - New: TUTORIAL.se -- Mats Lidell
+  - New: The User's View [of packages] node -- Stephen J. Turnbull
+  - New: autoconfiscate MacOS/X "Darwin" -- Greg Parker, Martin Buchholz
+  - New: s/linux.h for 64-bit libs -- Andreas Jaeger
+  - Update: photos -- Hrvoje Niksic
+  - Update: Files node: remote file editing, EFS, TRAMP -- Stephen J. Turnbull
+  - Update: URLs in FAQ -- Adrian Aichner, Stephen J. Turnbull
+  - Update: package-index.LATEST.pgp -- Steve Youngs
+
 to XEmacs 21.4.6 "Common Lisp"
 
   - Changing coding system marks buffer as modified.

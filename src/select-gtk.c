@@ -209,6 +209,40 @@ emacs_gtk_selection_handle (GtkWidget *widget,
 }
 
 
+void
+emacs_gtk_selection_clear_event_handle (GtkWidget *widget,
+                                        GdkEventSelection *event,
+                                        gpointer data)
+{
+  GdkAtom selection = event->selection;
+  guint32 changed_owner_time = event->time;
+  struct device *d = decode_gtk_device (Qnil);
+
+  Lisp_Object selection_symbol, local_selection_time_lisp;
+  guint32 local_selection_time;
+
+  selection_symbol = atom_to_symbol (d, selection);
+
+  local_selection_time_lisp = Fget_selection_timestamp (selection_symbol);
+
+  /* We don't own the selection, so that's fine. */
+  if (NILP (local_selection_time_lisp))
+    return;
+
+  local_selection_time = *(guint32 *) XOPAQUE_DATA (local_selection_time_lisp);
+
+  /* This SelectionClear is for a selection that we no longer own, so we can
+     disregard it.  (That is, we have reasserted the selection since this
+     request was generated.)
+   */
+  if (changed_owner_time != GDK_CURRENT_TIME &&
+      local_selection_time > changed_owner_time)
+    return;
+
+  handle_selection_clear (selection_symbol);
+}
+
+
 
 static GtkWidget *reading_selection_reply;
 static GdkAtom reading_which_selection;

@@ -24,16 +24,20 @@
 ;; Boston, MA 02111-1307, USA.
 
 ;; #### to do:
-;; -- #### figure out how init.el and custom.el interact and put
-;;         documentation about it here. (perhaps it already exists
-;;         elsewhere?)
+;; -- scan for #### markers and fix the problems noted there.
+;; -- #### maybe the setqs in this file should be changed to defvars
+;;    to avoid tromping on customizations when custom.el is loaded
+;;    early (dv and sjt at least favor making this the default)
+;; -- #### update documentation in (lispref)Starting Up XEmacs, in
+;;    (xemacs)Entering Emacs, and in (custom), then point to them
+;;    instead of going into detail here.
 
-;;; This is a sample init.el file.  It can be used without
-;;; modification as your init.el or .emacs.  In older versions of
-;;; XEmacs, this file was called .emacs and placed in your home
-;;; directory. (Under MS Windows, that directory is controlled by the
-;;; HOME environment variable and defaults to C:\.  You can find out
-;;; where XEmacs thinks your home directory is using
+;;; This is a sample init file.  It can be used without modification
+;;; as your init.el or .emacs.  In older versions of XEmacs, this file
+;;; was called .emacs and placed in your home directory. (Under MS
+;;; Windows, that directory is controlled by the HOME environment
+;;; variable and defaults to C:\.  You can find out where XEmacs
+;;; thinks your home directory is using
 ;;;
 ;;;   ESC : (expand-file-name "~")
 ;;;
@@ -52,7 +56,9 @@
 ;;; The language that this file (and most other XEmacs init files) is
 ;;; written in is called "XEmacs Lisp" or more commonly "Elisp".
 
-;;; There are many sources of further information:
+;;; Brief descriptions of how the init process works and how to
+;;; accomplish many useful customizations are given below in this
+;;; file.  There are many sources of further information:
 
 ;;; -- the XEmacs User's Manual (Access using the online Info browser:
 ;;;       Use `Help->Info (Online Docs)->XEmacs User's Manual' (if
@@ -118,6 +124,130 @@
 ;;;       the XEmacs C code. (Available through Info.)
 
 ;;; -- `Help->About XEmacs' to find out who the maintainers are.
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                       Theory of Operation                        ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; XEmacs allows you to make persistent changes to editor behavior by
+;;; saving code in files which are by default loaded at startup.
+
+;; These files are just Lisp libraries with names built in to XEmacs.
+;; There are files for the use of the user (the init file and the
+;; custom file), for the site administrator (default.el and
+;; site-start.el), and for the XEmacs maintainers (auto-autoloads
+;; files).  See the Lispref for user and site files (node Starting Up
+;; XEmacs, currently inaccurate (it doesn't describe the custom
+;; file)).  Interactions among the files are complex; see
+;; lisp/startup.el for details.
+
+;; Briefly, after very basic initializations including processing a
+;; special command line options (including GUI toolkit options),
+;; setting up the terminal, and setting up `load-path', it executes
+;; customization code as follows:
+
+;; 1. It runs the normal hook `before-init-hook'.
+;; 2. It loads the library `site-start' (by default `site-start.el').
+;; 3. It loads the init file (by default `~/.xemacs/init.el').
+;; 4. It loads the custom file (by default `~/.xemacs/custom.el').
+;; 5. It loads the library `default' (by default `default.el').
+;; 6. It runs the normal hook `after-init-hook'.
+
+;; After this the *scratch* buffer is set up and the remaining command
+;; line arguments (actions and file names) are processed.
+
+;; N.B. Switching the order of steps 3 and 4 is under discussion and
+;; favored by several core developers.
+
+;; Step 2 is inhibited by the -no-site-file command line switch.
+;; Steps 3 and 4 are inhibited (as a unit) by the -no-init-file
+;; command line switch (-q is a convenient synonym).  Step 5 is
+;; inhibited by -no-init-file or a non-nil value of
+;; `inhibit-default-init' (set it in the init file).  From now on the
+;; hooks and the site initialization files will be ignored.
+
+;; The custom file and the init file contain customizations managed by
+;; XEmacs itself via the Custom subsystem and manual customizations,
+;; respectively.  Originally both were placed in the same file,
+;; usually ~/.emacs, but occasionally XEmacs would trash user settings
+;; when automatically changing options, and more frequently users
+;; would trash the automatically generated code.  So these functions
+;; have been reallocated to separate files, usually named custom.el
+;; and init.el, respectively.
+
+;; The Custom system is accessed most conveniently from the
+;; Options->Advanced (Customize) menu (also, the Options->Fonts and
+;; Options->Sizes menus are implicitly managed by Custom, and
+;; Options->Edit Faces explicitly invokes Custom).  You can also use
+;; the suite of customize commands directly (cf C-h a customize RET).
+;; Currently, Custom possesses specialized facilities for setting
+;; ordinary variables of many types, and for customizing faces.  As a
+;; general rule, variable and face initialization should be done using
+;; Custom, and other initializations should be done in the init file.
+
+;; A possible exception is a subsystem with its own complex init file,
+;; eg, Gnus and .gnus.  In these cases it is often preferable to keep
+;; even simple variable initializations together, and you may wish to
+;; maintain these configurations by hand.
+
+;; You should avoid editing the custom file by hand.  The syntax used
+;; is complex but concise, and it is easy to silently break the whole
+;; file with a single error that happens to result in a valid Lisp
+;; form.  On the other hand, the init file is just a Lisp library that
+;; is loaded before starting the read-eval-redisplay loop.
+
+;; The interactions between the custom file and other init files are
+;; governed by a simple idea:
+
+;; Custom to User:  ALL VARIABLES YOURS OURS NOW ARE.
+
+;; To be precise, Custom is pretty good about noticing and respecting
+;; existing settings in interactive use.  However, it is weak in
+;; understanding advanced use of specifier variables (these are used
+;; for customizations which depend on display characteristics and
+;; configuration in complex ways), and can be quite brutal at
+;; initialization.
+
+;; Normal practice for Custom at initialization is to (1) reset all
+;; customized faces before applying customizations and (2) force all
+;; variables to the values specified in custom.el.  For this reason,
+;; and because it is generally the case that the init file can
+;; usefully depend on customized variables, but Custom pays no
+;; attention to behavior of the init file, it is probably a good idea
+;; to force custom.el to be loaded before the init file.  (As
+;; mentioned, this will probably become the default in future versions
+;; of XEmacs.)
+
+;; To enable early loading of custom.el, uncomment the following line:
+;(setq Init-inhibit-custom-file-p (not (assoc custom-file load-history)))
+
+;; Code to implement early loading where late loading is the default.
+;; A crucial snippet of code must be the last thing in this file.
+
+;; defvars only initialize uninitialized variables; if the setq above
+;; is active, the variable below is defined but the value will not be
+;; altered.
+(defvar Init-inhibit-custom-file-p nil
+  "Internal user init flag.  Don't use this yourself.
+
+Non-nil if we need to inhibit XEmacs from loading custom.el after init.el.")
+
+(when Init-inhibit-custom-file-p
+  ;; This is the default custom-file.
+  (let ((file (expand-file-name "~/.xemacs/custom.el")))
+    (add-one-shot-hook 'after-init-hook
+		       `(lambda () (setq custom-file ,file)))
+    (cond ((file-readable-p file)
+	   (load file))
+	  ((file-exists-p file)
+	   (warn "Existing custom file \"%s\" is not readable!" file)))
+    (cond ((not (file-exists-p file))
+	   (display-warning ' resource
+	     (format "Custom file \"%s\" not found." file)
+	     'info))
+	  ((not (file-writable-p file))
+	   (warn "Existing custom file \"%s\" is not writable!" file)))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1399,7 +1529,7 @@ previous with \\[backward-sexp]."
 
 ;;; ********************
 ;;; resize-minibuffer-mode makes the minibuffer automatically
-;;; resize as necessary when it's too big to hold its contents.
+;;; resize as necessary when it's too small to hold its contents.
 
 (when (fboundp 'resize-minibuffer-mode)
   (resize-minibuffer-mode)
@@ -1429,3 +1559,11 @@ previous with \\[backward-sexp]."
 ;      ;; of the session, specify the number of lines here.
 ;      w3-telnet-header-length 4
 ;      )
+
+;;; Inhibit loading of custom-file
+
+;; make-temp-name returns a name which does not refer to an existing file,
+;; and thus the named file is unreadable.
+(when Init-inhibit-custom-file-p
+  (setq custom-file (make-temp-name "/tmp/non-existent-")))
+

@@ -71,9 +71,65 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* XEmacs 21.4.6 "Common Lisp" is released.
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/sample.init.el: Fix comment typo about resize-minibuffer.
+
+	* etc/sample.init.el: Add description of initialization process,
+	the custom.el file, and code to load custom.el early instead of
+	late.
+
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS (General): Decribe failed AUTH with EFS.
+
+2002-04-22  Hrvoje Niksic  <hniksic@xemacs.org>
+
+	* etc/photos/hniksic.png, etc/photos/hniksic.png: Update.
+
+2002-04-25  Mike Fabian  <mfabian@suse.de>
+
+	* configure.in: add option moduledir as mentioned
+        in ./configure --help
+
+2001-04-21  Martin Buchholz  <martin@xemacs.org>
+
+	* configure.in: Detect MacOS/X "Darwin".
+	Thanks to Greg Parker <gparker@cs.stanford.edu>.
+	
+2002-03-30  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/package-index.LATEST.pgp: Update to current reality.
+
+2002-02-28  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/TUTORIAL.se: New from Mats Lidell.
+
+2002-01-07  Jan Vroonhof  <jan@xemacs.org>
+
+	* configure.in: Make explicit "--with-widgets" mean "=yes".
+	If "--with-widgets=yes" autodetect athena.
+
+2001-12-29  Steve Youngs  <youngs@xemacs.org>
+
+	* etc/package-index.LATEST.pgp: Update.
+
+2001-12-13  William M. Perry  <wmperry@gnu.org>
+
+	* configure.in (GTK): add -Wno-shadow.
+	
+2002-02-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/BETA: Synch to 21.5.
+
+2002-01-23  Jarl Friis  <jarl@diku.dk>
+
+	* etc/BETA (http): Informing of xemacs-patches mailing list. Added
+	note on patch etiquette.
 
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 

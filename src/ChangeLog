@@ -4364,9 +4364,84 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
-2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
+2002-05-04  Stephen J. Turnbull  <stephen@xemacs.org>
 
-	* XEmacs 21.4.6 "Common Lisp" is released.
+	* XEmacs 21.4.7 "Economic Science" is released.
+
+2002-04-17  Nix  <nix@esperi.demon.co.uk>
+
+	* process.h (PROCESS_LIVE_P): Use the process status as
+	evidence of health, not the state of the input stream.
+
+2002-04-30  Charles G. Waldman <cgw@xemacs.org>
+
+        * sysdep.c (sys_siglist): change "signum" to "signal"
+
+2001-04-21  Martin Buchholz  <martin@xemacs.org>
+
+	* s/darwin.h: New file.
+	Thanks to Greg Parker <gparker@cs.stanford.edu>.
+	
+2002-04-23  Andreas Jaeger  <aj@suse.de>
+
+	* s/linux.h (LIB_STANDARD): Define correctly for x86-64 and s390x
+	which use lib64 for 64-bit libs.
+        (START_FILES): Likewise.
+
+2002-02-11  Mike Sperber  <mike@xemacs.org>
+
+	* device-x.c: 
+	(x_IO_error_handler):
+	(x_init_device): Temporarily keep device in static variable
+	`device_being_initialized' so we can recover gracefully from
+	internal XOpenDevice failure.  (XOpenDevice is documented to
+	return NULL on failure, but sometimes calls the IO error handler
+	instead.)
+
+2002-01-31  John H. Palmieri  <palmieri@math.washington.edu>
+
+	* dired.c (Ffile_name_all_completions): Change documentation --
+	remove reference to completion-ignored-extensions.
+	* dired.c (vars_of_dired): Change documentation for
+	completion-ignored-extensions -- remove reference to
+	file-name-all-completions.
+
+2002-03-06  Jerry James  <james@xemacs.org>
+
+	* emodules.c (emodules_load): Fix multiple loading of same module.
+
+2002-01-25  Andrew Begel <abegel@cs.berkeley.edu>
+	* sysdll.c (dll_open): Changed to use RTLD_NOW instead of
+	RTLD_LAZY to avoid incorrect symbol binding when using nested
+	shared libraries on Solaris.
+
+2002-02-12  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* fileio.c (Ffind_file_name_handler): Improve docstring.
+
+2002-01-20  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* fns.c (Fmapconcat): Improve docstring.
+
+2002-01-03  Eric Gillespie, Jr.  <epg@pretzelnet.org>
+
+	* device-gtk.c: Add prototype for
+	emacs_gtk_selection_clear_event_handle.
+	(gtk_init_device): Call gtk_selection_add_target for CLIPBOARD
+	selection.  Setup signal handler for "selection_clear_event"
+	(emacs_gtk_selection_clear_event_handle).
+
+	* select-gtk.c (emacs_gtk_selection_clear_event_handle): Handle
+	other applications owning the clipboard (based on
+	x_handle_selection_clear).
+
+2001-12-23  William M. Perry  <wmperry@gnu.org>
+
+	* menubar-gtk.c (gtk_popup_menu)  Add sanity checks, fix crash.
+	
+2002-01-04  Martin Buchholz  <martin@xemacs.org>
+
+	* keymap.c (define_key_alternate_name): Parenthesize EQ.
 
 2001-12-17  Stephen J. Turnbull  <stephen@xemacs.org>
 
@@ -4470,13 +4545,13 @@
 2001-09-10  Nix  <nix@esperi.demon.co.uk>
 
 	* src/buffer.c (kill_buffer): Undedicate windows showing BUF
-        before replacing them.
+	before replacing them.
 
-        * src/window.c (window_loop): Implement new UNDEDICATE_BUFFER
-        operation.
+	* src/window.c (window_loop): Implement new UNDEDICATE_BUFFER
+	operation.
 
-        * src/window.c (undedicate_windows): Use it.
-        * src/window.h: Add prototype.
+	* src/window.c (undedicate_windows): Use it.
+	* src/window.h: Add prototype.
 
 2001-09-17  Ben Wing  <ben@xemacs.org>
 
@@ -7781,8 +7856,8 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-04-26  IKEYAMA Tomonori  <tomonori@suiyokai.org>
 
-        * redisplay-msw.c (mswindows_output_dibitmap): Set foreground
-        color if the image is a mono pixmap.
+	* redisplay-msw.c (mswindows_output_dibitmap): Set foreground
+	color if the image is a mono pixmap.
 
 2000-07-30  Ben Wing  <ben@xemacs.org>
 
@@ -8402,12 +8477,12 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-07-15  Ben Wing  <ben@xemacs.org>
 
-        * s/cygwin32.h:
-        * s/cygwin32.h (CYGWIN_CONV_PATH):
-        Add missing logb prototype for v1.1.
-        Use post-b20 names and alias to pre-b20 names when pre-b20.
+	* s/cygwin32.h:
+	* s/cygwin32.h (CYGWIN_CONV_PATH):
+	Add missing logb prototype for v1.1.
+	Use post-b20 names and alias to pre-b20 names when pre-b20.
 
-        * s/windowsnt.h: [5].
+	* s/windowsnt.h: [5].
 
 2000-07-15  Ben Wing  <ben@xemacs.org>
 
@@ -8416,624 +8491,624 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* Makefile.in.in (objs):
 	added win32.o, cosmetic cleanups.
 
-        * alloc.c (Fmake_byte_code):
-        [[[1]]]: Changes for new LIST_LOOP, EXTERNAL_LIST_LOOP,
-        etc. macros which declare their own args now.
+	* alloc.c (Fmake_byte_code):
+	[[[1]]]: Changes for new LIST_LOOP, EXTERNAL_LIST_LOOP,
+	etc. macros which declare their own args now.
 
-        * alloc.c (syms_of_alloc):
-        [[[2]]]: Use DEFSYMBOL, DEFKEYWORD, DEFERROR and friends.
+	* alloc.c (syms_of_alloc):
+	[[[2]]]: Use DEFSYMBOL, DEFKEYWORD, DEFERROR and friends.
 
-        * buffer.c:
-        Moved buffer-dedicated-frame, set-buffer-dedicated-frame into lisp.
+	* buffer.c:
+	Moved buffer-dedicated-frame, set-buffer-dedicated-frame into lisp.
 
-        * buffer.c (Fget_file_buffer):
-        Fixed GCPRO problem.
+	* buffer.c (Fget_file_buffer):
+	Fixed GCPRO problem.
 
-        * buffer.c (get_truename_buffer):
-        Fixed comment about GC checking.
+	* buffer.c (get_truename_buffer):
+	Fixed comment about GC checking.
 
-        * buffer.c (syms_of_buffer):
-        Undeclared those dedicated frame funs.
-        [2].
+	* buffer.c (syms_of_buffer):
+	Undeclared those dedicated frame funs.
+	[2].
 
-        * buffer.h:
-        Define convenience macros for internal/external conversions.
+	* buffer.h:
+	Define convenience macros for internal/external conversions.
 	[[[3]]]: Define codesys aliases Qcommand_argument_encoding
-        and Qenvironment_variable_encoding for cleaner code.
+	and Qenvironment_variable_encoding for cleaner code.
 
-        * bufslots.h:
-        Remove dedicated-frame; in lisp.
+	* bufslots.h:
+	Remove dedicated-frame; in lisp.
 
-        * bytecode.c (funcall_compiled_function):
-        [1].
+	* bytecode.c (funcall_compiled_function):
+	[1].
 
-        * bytecode.c (syms_of_bytecode):
-        [2].
+	* bytecode.c (syms_of_bytecode):
+	[2].
 
-        * console-msw.c:
-        * console-msw.c (mswindows_show_console): Rewrote.
+	* console-msw.c:
+	* console-msw.c (mswindows_show_console): Rewrote.
 
-        * console-msw.c (Fmswindows_debugging_output): New.
-        Sends to OutputDebugString (special MSWin debugger interface).
+	* console-msw.c (Fmswindows_debugging_output): New.
+	Sends to OutputDebugString (special MSWin debugger interface).
 
-        * console-msw.c (Fmswindows_message_box):
-        Fixed stupid bugs so it works when called from kill-emacs.
+	* console-msw.c (Fmswindows_message_box):
+	Fixed stupid bugs so it works when called from kill-emacs.
 
-        * console-msw.c (syms_of_console_mswindows):
-        Declare Fmswindows_debugging_output.
+	* console-msw.c (syms_of_console_mswindows):
+	Declare Fmswindows_debugging_output.
 
-        * console-msw.h:
-        New MSWin prototypes.
+	* console-msw.h:
+	New MSWin prototypes.
 
-        * console-msw.h (struct mswindows_frame):
-        New entry last-click-mods for improved button-modifier support.
+	* console-msw.h (struct mswindows_frame):
+	New entry last-click-mods for improved button-modifier support.
 
-        * console-msw.h (FRAME_MSWINDOWS_POPUP):
-        New struct entry `popup' with corresponding accessor.
+	* console-msw.h (FRAME_MSWINDOWS_POPUP):
+	New struct entry `popup' with corresponding accessor.
 
-        * console-x.c:
-        * console-x.c (split_up_display_spec):
-        * console-x.c (get_display_arg_connection):
-        * console-x.c (x_semi_canonicalize_console_connection):
-        * console-x.c (x_canonicalize_device_connection):
-        [[[6]]]: Change char to more specific type.
-        [[[8]]]: Make use of abstracting codesys aliases defined in [3], [4];
+	* console-x.c:
+	* console-x.c (split_up_display_spec):
+	* console-x.c (get_display_arg_connection):
+	* console-x.c (x_semi_canonicalize_console_connection):
+	* console-x.c (x_canonicalize_device_connection):
+	[[[6]]]: Change char to more specific type.
+	[[[8]]]: Make use of abstracting codesys aliases defined in [3], [4];
 
-        * console-x.c (x_semi_canonicalize_console_connection):
-        * console-x.c (x_canonicalize_device_connection):
-        [[[9]]]: Fix up error signalling to use new structured error system.
+	* console-x.c (x_semi_canonicalize_console_connection):
+	* console-x.c (x_canonicalize_device_connection):
+	[[[9]]]: Fix up error signalling to use new structured error system.
 
-        * console-x.h:
-        [[[4]]]: Define codesys aliases:
-        Qlwlib_encoding, Qx_atom_name_encoding, Qx_font_name_encoding,
-        Qx_color_name_encoding, Qx_display_name_encoding.
+	* console-x.h:
+	[[[4]]]: Define codesys aliases:
+	Qlwlib_encoding, Qx_atom_name_encoding, Qx_font_name_encoding,
+	Qx_color_name_encoding, Qx_display_name_encoding.
 
-        * console.h (struct console_methods):
-        New method make_dialog_box_internal supersedes older
-        popup_dialog_box method.
+	* console.h (struct console_methods):
+	New method make_dialog_box_internal supersedes older
+	popup_dialog_box method.
 
-        * data.c:
-        Define many new errors, part of new structured errors.
+	* data.c:
+	Define many new errors, part of new structured errors.
 
-        * data.c (init_errors_once_early):
-        * data.c (syms_of_data):
-        [2].
+	* data.c (init_errors_once_early):
+	* data.c (syms_of_data):
+	[2].
 
-        * device-msw.c (mswindows_init_device):
-        [[[5]]]: Cleanup to support NT 3.51.
+	* device-msw.c (mswindows_init_device):
+	[[[5]]]: Cleanup to support NT 3.51.
 
-        * device-msw.c (decode_devmode): Cleanup.
+	* device-msw.c (decode_devmode): Cleanup.
 
-        * device-msw.c (mswindows_handle_print_setup_dialog_box):
-        * device-msw.c (mswindows_handle_print_dialog_box):
-        * device-msw.c (mswindows_handle_page_setup_dialog_box):
-        * device-msw.c (syms_of_device_mswindows):
-        Delete the dialog box primitives recently introduced by Kirill and
+	* device-msw.c (mswindows_handle_print_setup_dialog_box):
+	* device-msw.c (mswindows_handle_print_dialog_box):
+	* device-msw.c (mswindows_handle_page_setup_dialog_box):
+	* device-msw.c (syms_of_device_mswindows):
+	Delete the dialog box primitives recently introduced by Kirill and
 	instead interface to general dialog box interface.
 
-        * device-x.c:
-        * device-x.c (compute_x_app_name):
-        * device-x.c (x_init_device):
-        * device-x.c (Fx_valid_keysym_name_p):
-        * device-x.c (Fx_set_font_path):
-        [6].
-        [7].
+	* device-x.c:
+	* device-x.c (compute_x_app_name):
+	* device-x.c (x_init_device):
+	* device-x.c (Fx_valid_keysym_name_p):
+	* device-x.c (Fx_set_font_path):
+	[6].
+	[7].
 
-        * device.h (wrap_device): New.
-        First of its kind; meant to replace XSETDEVICE.
+	* device.h (wrap_device): New.
+	First of its kind; meant to replace XSETDEVICE.
 
-        * dialog-msw.c: Many file-dialog symbols.
+	* dialog-msw.c: Many file-dialog symbols.
 
-        * dialog-msw.c (mswindows_register_popup_frame): New.
-        * dialog-msw.c (mswindows_is_dialog_msg): New.
-        For supporting kbd traversal in dialog boxes.
+	* dialog-msw.c (mswindows_register_popup_frame): New.
+	* dialog-msw.c (mswindows_is_dialog_msg): New.
+	For supporting kbd traversal in dialog boxes.
 
-        * dialog-msw.c (dialog_proc):
-        Support hitting ESC in dialogs.
+	* dialog-msw.c (dialog_proc):
+	Support hitting ESC in dialogs.
 
-        * dialog-msw.c (struct):
-        Common dialog box errors.
+	* dialog-msw.c (struct):
+	Common dialog box errors.
 
-        * dialog-msw.c (handle_file_dialog_box): New.
-        Add file dialog code.
+	* dialog-msw.c (handle_file_dialog_box): New.
+	Add file dialog code.
 
-        * dialog-msw.c (handle_question_dialog_box):
-        Redo existing code to support new question dialog syntax.
+	* dialog-msw.c (handle_question_dialog_box):
+	Redo existing code to support new question dialog syntax.
 
-        * dialog-msw.c (console_type_create_dialog_mswindows):
-        We support new dialog console method.
+	* dialog-msw.c (console_type_create_dialog_mswindows):
+	We support new dialog console method.
 
-        * dialog-msw.c (syms_of_dialog_mswindows):
-        * dialog-msw.c (vars_of_dialog_mswindows):
-        New file dialog symbols, vars.
+	* dialog-msw.c (syms_of_dialog_mswindows):
+	* dialog-msw.c (vars_of_dialog_mswindows):
+	New file dialog symbols, vars.
 
-        * dialog-x.c:
-        * dialog-x.c (maybe_run_dbox_text_callback):
-        * dialog-x.c (dbox_descriptor_to_widget_value):
-        * dialog-x.c (x_make_dialog_box_internal):
-        * dialog-x.c (console_type_create_dialog_x):
-        Mule-ize entire file.
-        Redo to support question dialog syntax.
-        [6].
+	* dialog-x.c:
+	* dialog-x.c (maybe_run_dbox_text_callback):
+	* dialog-x.c (dbox_descriptor_to_widget_value):
+	* dialog-x.c (x_make_dialog_box_internal):
+	* dialog-x.c (console_type_create_dialog_x):
+	Mule-ize entire file.
+	Redo to support question dialog syntax.
+	[6].
 
-        * dialog.c:
-        * dialog.c (Fmake_dialog_box_internal):
-        * dialog.c (syms_of_dialog):
-        Kill old popup-dialog-box, replace with new primitive.
-        Just call device method or signal error.
+	* dialog.c:
+	* dialog.c (Fmake_dialog_box_internal):
+	* dialog.c (syms_of_dialog):
+	Kill old popup-dialog-box, replace with new primitive.
+	Just call device method or signal error.
 
-        * eldap.c (Fldap_open):
-        * eldap.c (Fldap_search_basic):
-        * eldap.c (Fldap_add):
-        * eldap.c (Fldap_modify):
-        [1].
-        [7].
+	* eldap.c (Fldap_open):
+	* eldap.c (Fldap_search_basic):
+	* eldap.c (Fldap_add):
+	* eldap.c (Fldap_modify):
+	[1].
+	[7].
 
-        * emacs.c:
-        * emacs.c (make_arg_list_1):
-        * emacs.c (make_arg_list):
-        Mule-ize call to dll_init().
-        [6].
-        [8].
+	* emacs.c:
+	* emacs.c (make_arg_list_1):
+	* emacs.c (make_arg_list):
+	Mule-ize call to dll_init().
+	[6].
+	[8].
 
-        * emacs.c (make_argc_argv):
-        * emacs.c (free_argc_argv):
-        * emacs.c (init_cmdargs):
-        * emacs.c (main_1):
-        * emacs.c (Fkill_emacs):
-        * emacs.c (Fdump_emacs):
-        Update comments about what can be used in syms_* etc.
-        Call init_win32() when necessary.
-        Fix up MS Win dialog box in kill-buffer to actually work right.
-        [7].
+	* emacs.c (make_argc_argv):
+	* emacs.c (free_argc_argv):
+	* emacs.c (init_cmdargs):
+	* emacs.c (main_1):
+	* emacs.c (Fkill_emacs):
+	* emacs.c (Fdump_emacs):
+	Update comments about what can be used in syms_* etc.
+	Call init_win32() when necessary.
+	Fix up MS Win dialog box in kill-buffer to actually work right.
+	[7].
 
-        * eval.c:
-        * eval.c (For):
-        * eval.c (Fand):
-        * eval.c (Fprogn):
-        * eval.c (Fprog1):
-        * eval.c (Fprog2):
-        * eval.c (FletX):
-        * eval.c (Flet):
-        * eval.c (condition_case_3):
-        * eval.c (Feval):
-        * eval.c (function_argcount):
-        * eval.c (funcall_lambda):
-        [1].
+	* eval.c:
+	* eval.c (For):
+	* eval.c (Fand):
+	* eval.c (Fprogn):
+	* eval.c (Fprog1):
+	* eval.c (Fprog2):
+	* eval.c (FletX):
+	* eval.c (Flet):
+	* eval.c (condition_case_3):
+	* eval.c (Feval):
+	* eval.c (function_argcount):
+	* eval.c (funcall_lambda):
+	[1].
 
-        * eval.c (type_error): New.
-        * eval.c (maybe_type_error): New.
-        * eval.c (continuable_type_error): New.
-        * eval.c (maybe_continuable_type_error): New.
-        * eval.c (type_error_with_frob): New.
-        * eval.c (maybe_type_error_with_frob): New.
-        * eval.c (continuable_type_error_with_frob): New.
-        * eval.c (maybe_continuable_type_error_with_frob): New.
-        New functions for use with structured errors.
+	* eval.c (type_error): New.
+	* eval.c (maybe_type_error): New.
+	* eval.c (continuable_type_error): New.
+	* eval.c (maybe_continuable_type_error): New.
+	* eval.c (type_error_with_frob): New.
+	* eval.c (maybe_type_error_with_frob): New.
+	* eval.c (continuable_type_error_with_frob): New.
+	* eval.c (maybe_continuable_type_error_with_frob): New.
+	New functions for use with structured errors.
 
-        * event-Xt.c:
-        * event-Xt.c (x_event_to_emacs_event):
-        Buttons are now modifiers too.
+	* event-Xt.c:
+	* event-Xt.c (x_event_to_emacs_event):
+	Buttons are now modifiers too.
 
-        * event-Xt.c (emacs_Xt_current_event_timestamp):
-        Implement new event method.
-        * event-Xt.c (reinit_vars_of_event_Xt): Set it.
+	* event-Xt.c (emacs_Xt_current_event_timestamp):
+	Implement new event method.
+	* event-Xt.c (reinit_vars_of_event_Xt): Set it.
 
-        * event-msw.c:
-        * event-msw.c (ntpipe_shove_writer): [5].
-        * event-msw.c (mswindows_enqueue_mouse_button_event):
-        * event-msw.c (mswindows_drain_windows_queue):
-        * event-msw.c (mswindows_wnd_proc): [7].
-        * event-msw.c (mswindows_current_layout_has_AltGr): [5].
-        * event-msw.c (mswindows_modifier_state):
-        Throughout: support new button modifiers.
+	* event-msw.c:
+	* event-msw.c (ntpipe_shove_writer): [5].
+	* event-msw.c (mswindows_enqueue_mouse_button_event):
+	* event-msw.c (mswindows_drain_windows_queue):
+	* event-msw.c (mswindows_wnd_proc): [7].
+	* event-msw.c (mswindows_current_layout_has_AltGr): [5].
+	* event-msw.c (mswindows_modifier_state):
+	Throughout: support new button modifiers.
 
-        * event-msw.c (emacs_mswindows_current_event_timestamp):
-        Implement new event method.
-        * event-msw.c (reinit_vars_of_event_mswindows): Set it.
+	* event-msw.c (emacs_mswindows_current_event_timestamp):
+	Implement new event method.
+	* event-msw.c (reinit_vars_of_event_mswindows): Set it.
 
-        * event-stream.c:
-        * event-stream.c (event_stream_current_event_timestamp): New.
-        * event-stream.c (maybe_kbd_translate): New functionality.
-        * event-stream.c (vars_of_event_stream):
-        Document new kbd-translate-table functionality.
+	* event-stream.c:
+	* event-stream.c (event_stream_current_event_timestamp): New.
+	* event-stream.c (maybe_kbd_translate): New functionality.
+	* event-stream.c (vars_of_event_stream):
+	Document new kbd-translate-table functionality.
 
-        * event-stream.c (Fcurrent_event_timestamp): New.
-        New primitive for use in fabricated events.
-        * event-stream.c (syms_of_event_stream): [2]. Declare new primitive.
+	* event-stream.c (Fcurrent_event_timestamp): New.
+	New primitive for use in fabricated events.
+	* event-stream.c (syms_of_event_stream): [2]. Declare new primitive.
 
-        * events-mod.h (XEMACS_MOD_BUTTON1): new button modifiers.
+	* events-mod.h (XEMACS_MOD_BUTTON1): new button modifiers.
 
-        * events.c:
-        * events.c (Fmake_event):
-        * events.c (WRONG_EVENT_TYPE_FOR_PROPERTY):
-        [1].
-        [9].
+	* events.c:
+	* events.c (Fmake_event):
+	* events.c (WRONG_EVENT_TYPE_FOR_PROPERTY):
+	[1].
+	[9].
 
-        * events.c (format_event_object): fix gcc warnings.
+	* events.c (format_event_object): fix gcc warnings.
 
-        * events.c (Fevent_timestamp): Document new primitives.
+	* events.c (Fevent_timestamp): Document new primitives.
 
-        * events.c (TIMESTAMP_HALFSPACE): New.
+	* events.c (TIMESTAMP_HALFSPACE): New.
 
-        * events.c (Fevent_timestamp_lessp): New.  New primitive for
+	* events.c (Fevent_timestamp_lessp): New.  New primitive for
 	comparing timestamps correctly (half-space algorithm).
 
-        * events.c (Fevent_modifier_bits): Doc fix.
+	* events.c (Fevent_modifier_bits): Doc fix.
 
-        * events.c (Fevent_modifiers): Major doc addition.
-        * events.c (event_x_y_pixel_internal): Typo fix.
-        * events.c (syms_of_events): Declare new primitives.
+	* events.c (Fevent_modifiers): Major doc addition.
+	* events.c (event_x_y_pixel_internal): Typo fix.
+	* events.c (syms_of_events): Declare new primitives.
 
-        * events.h:
-        Update long comment for button modifiers, timestamps.
+	* events.h:
+	Update long comment for button modifiers, timestamps.
 
-        * events.h (struct event_stream):
-        New current_event_timestamp method.
+	* events.h (struct event_stream):
+	New current_event_timestamp method.
 
-        * extents.c:
-        * extents.c (extent_in_region_p):
-        * extents.c (decode_extent):
-        * extents.c (Fset_extent_parent):
-        * extents.c (decode_map_extents_flags):
-        Fix gcc warnings.
-        [9].
+	* extents.c:
+	* extents.c (extent_in_region_p):
+	* extents.c (decode_extent):
+	* extents.c (Fset_extent_parent):
+	* extents.c (decode_map_extents_flags):
+	Fix gcc warnings.
+	[9].
 
-        * extents.c (struct extent_at_arg):
-        * extents.c (decode_extent_at_flag):
-        * extents.c (extent_at_mapper):
-        * extents.c (extent_at_bytind):
-        * extents.c (Fextent_at): Adapt to new lower-level interface. [9].
-        * extents.c (Fextents_at): New primitive. [9].
-        * extents.c (symbol_to_glyph_layout): [9].
-        Support new primitive `extents-at'.
+	* extents.c (struct extent_at_arg):
+	* extents.c (decode_extent_at_flag):
+	* extents.c (extent_at_mapper):
+	* extents.c (extent_at_bytind):
+	* extents.c (Fextent_at): Adapt to new lower-level interface. [9].
+	* extents.c (Fextents_at): New primitive. [9].
+	* extents.c (symbol_to_glyph_layout): [9].
+	Support new primitive `extents-at'.
 
 
-        * extents.c (get_text_property_bytind):
-        extent_at_bytind has another arg.
-        [9].
+	* extents.c (get_text_property_bytind):
+	extent_at_bytind has another arg.
+	[9].
 
-        * extents.c (syms_of_extents): New primitive.
+	* extents.c (syms_of_extents): New primitive.
 
-        * file-coding.c (Fmake_coding_system): [1].
-        * file-coding.c (subsidiary_coding_system): fix gcc warning
-        * file-coding.c (syms_of_file_coding): [2].
+	* file-coding.c (Fmake_coding_system): [1].
+	* file-coding.c (subsidiary_coding_system): fix gcc warning
+	* file-coding.c (syms_of_file_coding): [2].
 
-        * fileio.c (Fexpand_file_name):
-        * fileio.c (Fsysnetunam):
-        * fileio.c (Ffile_exists_p):
-        * fileio.c (Ffile_executable_p):
-        * fileio.c (Fverify_visited_file_modtime):
-        Clean up GCPROing.
+	* fileio.c (Fexpand_file_name):
+	* fileio.c (Fsysnetunam):
+	* fileio.c (Ffile_exists_p):
+	* fileio.c (Ffile_executable_p):
+	* fileio.c (Fverify_visited_file_modtime):
+	Clean up GCPROing.
 
-        * fileio.c (syms_of_fileio): [2].
+	* fileio.c (syms_of_fileio): [2].
 
-        * filelock.c (lock_file_1):
-        * filelock.c (current_lock_owner):
-        * filelock.c (lock_if_free):
-        * filelock.c (lock_file):
-        * filelock.c (unlock_file):
-        Clean up GCPROing.
+	* filelock.c (lock_file_1):
+	* filelock.c (current_lock_owner):
+	* filelock.c (lock_if_free):
+	* filelock.c (lock_file):
+	* filelock.c (unlock_file):
+	Clean up GCPROing.
 
-        * fns.c (concat): Fix gcc warning.
+	* fns.c (concat): Fix gcc warning.
 
-        * fns.c (Fmember):
-        * fns.c (Fold_member):
-        * fns.c (Fmemq):
-        * fns.c (Fold_memq):
-        * fns.c (memq_no_quit):
-        * fns.c (Fassoc):
-        * fns.c (Fold_assoc):
-        * fns.c (Fassq):
-        * fns.c (Fold_assq):
-        * fns.c (assq_no_quit):
-        * fns.c (Frassoc):
-        * fns.c (Fold_rassoc):
-        * fns.c (Frassq):
-        * fns.c (Fold_rassq):
-        * fns.c (rassq_no_quit):
-        * fns.c (Fdelete):
-        * fns.c (Fold_delete):
-        * fns.c (Fdelq):
-        * fns.c (Fold_delq):
-        * fns.c (delq_no_quit):
-        * fns.c (Fremassoc):
-        * fns.c (Fremassq):
-        * fns.c (remassq_no_quit):
-        * fns.c (Fremrassoc):
-        * fns.c (Fremrassq):
-        * fns.c (remrassq_no_quit):
-        * fns.c (Freverse):
-        * fns.c (mapcar1):
-        [1].
+	* fns.c (Fmember):
+	* fns.c (Fold_member):
+	* fns.c (Fmemq):
+	* fns.c (Fold_memq):
+	* fns.c (memq_no_quit):
+	* fns.c (Fassoc):
+	* fns.c (Fold_assoc):
+	* fns.c (Fassq):
+	* fns.c (Fold_assq):
+	* fns.c (assq_no_quit):
+	* fns.c (Frassoc):
+	* fns.c (Fold_rassoc):
+	* fns.c (Frassq):
+	* fns.c (Fold_rassq):
+	* fns.c (rassq_no_quit):
+	* fns.c (Fdelete):
+	* fns.c (Fold_delete):
+	* fns.c (Fdelq):
+	* fns.c (Fold_delq):
+	* fns.c (delq_no_quit):
+	* fns.c (Fremassoc):
+	* fns.c (Fremassq):
+	* fns.c (remassq_no_quit):
+	* fns.c (Fremrassoc):
+	* fns.c (Fremrassq):
+	* fns.c (remrassq_no_quit):
+	* fns.c (Freverse):
+	* fns.c (mapcar1):
+	[1].
 
-        * frame-msw.c (mswindows_init_frame_1):
-        * frame-msw.c (mswindows_delete_frame):
-        Register popups with dialog code so keyboard traversing works.
+	* frame-msw.c (mswindows_init_frame_1):
+	* frame-msw.c (mswindows_delete_frame):
+	Register popups with dialog code so keyboard traversing works.
 
-        * frame-tty.c (tty_raise_frame_no_select): [1].
+	* frame-tty.c (tty_raise_frame_no_select): [1].
 
-        * frame-x.c:
-        * frame-x.c (x_set_frame_text_value):
-        * frame-x.c (x_set_frame_properties):
-        * frame-x.c (x_create_widgets):
-        [7].
+	* frame-x.c:
+	* frame-x.c (x_set_frame_text_value):
+	* frame-x.c (x_set_frame_properties):
+	* frame-x.c (x_create_widgets):
+	[7].
 
-        * frame.c:
-        * frame.c (Fmouse_pixel_position): Minor doc fixes.
+	* frame.c:
+	* frame.c (Fmouse_pixel_position): Minor doc fixes.
 
-        * frame.h (wrap_frame): New.
-        Macro like wrap_device.
+	* frame.h (wrap_frame): New.
+	Macro like wrap_device.
 
-        * general.c:
-        * general.c (SYMBOL):
-        * general.c (syms_of_general):
-        Major reorg.  This is now just a wrapper and symbols themselves
-        are listed in general-slots.h.
+	* general.c:
+	* general.c (SYMBOL):
+	* general.c (syms_of_general):
+	Major reorg.  This is now just a wrapper and symbols themselves
+	are listed in general-slots.h.
 
-        * glyphs-eimage.c (tiff_instantiate): Need cast to fix warning.
-        * glyphs-msw.c (mswindows_resource_instantiate): [5].
+	* glyphs-eimage.c (tiff_instantiate): Need cast to fix warning.
+	* glyphs-msw.c (mswindows_resource_instantiate): [5].
 
-        * glyphs-msw.c (mswindows_native_layout_instantiate):
-        Add DS_CONTROL so keyboard traversal will work.
+	* glyphs-msw.c (mswindows_native_layout_instantiate):
+	Add DS_CONTROL so keyboard traversal will work.
 
-        * glyphs-widget.c:
-        * glyphs-widget.c (syms_of_glyphs_widget):
-        Move some symbols to general-slots.h.
+	* glyphs-widget.c:
+	* glyphs-widget.c (syms_of_glyphs_widget):
+	Move some symbols to general-slots.h.
 
-        * glyphs-x.c:
-        * glyphs-x.c (xbm_instantiate_1):
-        * glyphs-x.c (x_xbm_instantiate):
-        * glyphs-x.c (x_xface_instantiate):
-        * glyphs-x.c (autodetect_instantiate):
-        * glyphs-x.c (cursor_font_instantiate):
-        * glyphs-x.c (x_update_widget):
-        * glyphs-x.c (x_widget_instantiate):
-        * glyphs.c (bitmap_to_lisp_data):
-        * glyphs.c (pixmap_to_lisp_data):
-        [7].
+	* glyphs-x.c:
+	* glyphs-x.c (xbm_instantiate_1):
+	* glyphs-x.c (x_xbm_instantiate):
+	* glyphs-x.c (x_xface_instantiate):
+	* glyphs-x.c (autodetect_instantiate):
+	* glyphs-x.c (cursor_font_instantiate):
+	* glyphs-x.c (x_update_widget):
+	* glyphs-x.c (x_widget_instantiate):
+	* glyphs.c (bitmap_to_lisp_data):
+	* glyphs.c (pixmap_to_lisp_data):
+	[7].
 
-        * glyphs.c (syms_of_glyphs):
-        [2].
+	* glyphs.c (syms_of_glyphs):
+	[2].
 
-        * gui-x.c:
-        * gui-x.c (print_widget_value):
-        * gui-x.c (menu_separator_style_and_to_external):
-        * gui-x.c (add_accel_and_to_external):
-        * gui-x.c (button_item_to_widget_value):
-        * gui-x.c (gui_items_to_widget_values_1):
-        * gui-x.c (gui_items_to_widget_values):
-        * gui-x.c (syms_of_gui_x):
-        * gui-x.c (vars_of_gui_x):
-        Mule-ize entire file.  Move menu-no-selection-hook to gui.c.
-        [9].
+	* gui-x.c:
+	* gui-x.c (print_widget_value):
+	* gui-x.c (menu_separator_style_and_to_external):
+	* gui-x.c (add_accel_and_to_external):
+	* gui-x.c (button_item_to_widget_value):
+	* gui-x.c (gui_items_to_widget_values_1):
+	* gui-x.c (gui_items_to_widget_values):
+	* gui-x.c (syms_of_gui_x):
+	* gui-x.c (vars_of_gui_x):
+	Mule-ize entire file.  Move menu-no-selection-hook to gui.c.
+	[9].
 
-        * gui-x.h:
-        Muleize, prototype changes matching gui-x.c.
+	* gui-x.h:
+	Muleize, prototype changes matching gui-x.c.
 
-        * gui.c:
-        * gui.c (separator_string_p):
-        * gui.c (gui_item_add_keyval_pair):
-        * gui.c (make_gui_item_from_keywords_internal):
-        * gui.c (signal_too_long_error):
-        * gui.c (parse_gui_item_tree_item):
-        * gui.c (syms_of_gui):
-        * gui.c (vars_of_gui):
-        * gui.h:
-        menu-no-selection-hook moved here (used by MSWin).
-        Move some symbols to general-slots.h.
-        [6].
-        [9].
+	* gui.c:
+	* gui.c (separator_string_p):
+	* gui.c (gui_item_add_keyval_pair):
+	* gui.c (make_gui_item_from_keywords_internal):
+	* gui.c (signal_too_long_error):
+	* gui.c (parse_gui_item_tree_item):
+	* gui.c (syms_of_gui):
+	* gui.c (vars_of_gui):
+	* gui.h:
+	menu-no-selection-hook moved here (used by MSWin).
+	Move some symbols to general-slots.h.
+	[6].
+	[9].
 
-        * insdel.c (get_buffer_pos_char):
-        * insdel.c (get_buffer_range_char):
-        Add GC comments.
+	* insdel.c (get_buffer_pos_char):
+	* insdel.c (get_buffer_range_char):
+	Add GC comments.
 
-        * keymap.c (keymap_lookup_directly):
-        * keymap.c (keymap_store):
-        * keymap.c (ensure_meta_prefix_char_keymapp):
-        * keymap.c (describe_map):
-        * keymap.h:
-        Support new button modifiers.
+	* keymap.c (keymap_lookup_directly):
+	* keymap.c (keymap_store):
+	* keymap.c (ensure_meta_prefix_char_keymapp):
+	* keymap.c (describe_map):
+	* keymap.h:
+	Support new button modifiers.
 
-        * lisp-disunion.h (wrap_object):
-        * lisp-disunion.h (XSETOBJ):
-        Rename make_obj to wrap_object.
+	* lisp-disunion.h (wrap_object):
+	* lisp-disunion.h (XSETOBJ):
+	Rename make_obj to wrap_object.
 
-        * lisp-union.h:
-        * lisp-union.h (make_int):
-        * lisp-union.h (make_char):
-        Support wrap_object.
+	* lisp-union.h:
+	* lisp-union.h (make_int):
+	* lisp-union.h (make_char):
+	Support wrap_object.
 
-        * lisp.h:
-        * lisp.h (LIST_LOOP):
-        * lisp.h (EXTERNAL_LIST_LOOP):
-        * lisp.h (LIST_LOOP_2):
-        * lisp.h (EXTERNAL_LIST_LOOP_1):
-        * lisp.h (EXTERNAL_LIST_LOOP_2):
-        * lisp.h (EXTERNAL_LIST_LOOP_3):
-        * lisp.h (EXTERNAL_LIST_LOOP_4_NO_DECLARE):
-        * lisp.h (PRIVATE_EXTERNAL_LIST_LOOP_6):
-        * lisp.h (GET_EXTERNAL_LIST_LENGTH):
-        * lisp.h (EXTERNAL_ALIST_LOOP_5):
-        * lisp.h (EXTERNAL_ALIST_LOOP_6):
-        * lisp.h (EXTERNAL_ALIST_LOOP_6_NO_DECLARE):
-        * lisp.h (EXTERNAL_PROPERTY_LIST_LOOP_5_NO_DECLARE):
-        * lisp.h (EXTERNAL_PROPERTY_LIST_LOOP_7):
-        * lisp.h (struct Lisp_Symbol):
-        * lisp.h (maybe_continuable_error_with_frob):
-        Fix up section comments.
-        Add new types for char to indicate usage.
-        Delete symbols auto-generated from general-slots.h.
-        Add prototypes for structured error functions.
-        Add long comments describing looping macros and change interface
-        so that lvalues are automatically declared.
+	* lisp.h:
+	* lisp.h (LIST_LOOP):
+	* lisp.h (EXTERNAL_LIST_LOOP):
+	* lisp.h (LIST_LOOP_2):
+	* lisp.h (EXTERNAL_LIST_LOOP_1):
+	* lisp.h (EXTERNAL_LIST_LOOP_2):
+	* lisp.h (EXTERNAL_LIST_LOOP_3):
+	* lisp.h (EXTERNAL_LIST_LOOP_4_NO_DECLARE):
+	* lisp.h (PRIVATE_EXTERNAL_LIST_LOOP_6):
+	* lisp.h (GET_EXTERNAL_LIST_LENGTH):
+	* lisp.h (EXTERNAL_ALIST_LOOP_5):
+	* lisp.h (EXTERNAL_ALIST_LOOP_6):
+	* lisp.h (EXTERNAL_ALIST_LOOP_6_NO_DECLARE):
+	* lisp.h (EXTERNAL_PROPERTY_LIST_LOOP_5_NO_DECLARE):
+	* lisp.h (EXTERNAL_PROPERTY_LIST_LOOP_7):
+	* lisp.h (struct Lisp_Symbol):
+	* lisp.h (maybe_continuable_error_with_frob):
+	Fix up section comments.
+	Add new types for char to indicate usage.
+	Delete symbols auto-generated from general-slots.h.
+	Add prototypes for structured error functions.
+	Add long comments describing looping macros and change interface
+	so that lvalues are automatically declared.
 	Add NO_DECLARE macro in case callers want to declare lvalues
 	themselves.
 
-        * lread.c (read_syntax_error):
-        * lread.c (continuable_read_syntax_error):
-        * lread.c (read_structure):
-        * lread.c (sequence_reader):
-        * lread.c (read_list_conser):
-        * lread.c (read_compiled_function):
-        Rename syntax_error and continuable_syntax_error to avoid clash
-        with same-named structured error functions.
+	* lread.c (read_syntax_error):
+	* lread.c (continuable_read_syntax_error):
+	* lread.c (read_structure):
+	* lread.c (sequence_reader):
+	* lread.c (read_list_conser):
+	* lread.c (read_compiled_function):
+	Rename syntax_error and continuable_syntax_error to avoid clash
+	with same-named structured error functions.
 
-        * menubar-msw.c (mswindows_translate_menu_or_dialog_item):
-        * menubar-msw.c (populate_menu_add_item):
-        * menubar-msw.c (populate_or_checksum_helper):
-        [5].
-        [9].
+	* menubar-msw.c (mswindows_translate_menu_or_dialog_item):
+	* menubar-msw.c (populate_menu_add_item):
+	* menubar-msw.c (populate_or_checksum_helper):
+	[5].
+	[9].
 
-        * menubar-x.c:
-        * menubar-x.c (menu_item_descriptor_to_widget_value_1):
-        Mule-ize whole file.
+	* menubar-x.c:
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1):
+	Mule-ize whole file.
 
-        * menubar.c (Fnormalize_menu_item_name): Add optimization.
+	* menubar.c (Fnormalize_menu_item_name): Add optimization.
 
-        * mule-charset.c (Fmake_charset):
-        * mule-wnnfns.c (Fwnn_set_param):
-        [1].
+	* mule-charset.c (Fmake_charset):
+	* mule-wnnfns.c (Fwnn_set_param):
+	[1].
 
-        * ntproc.c (create_child):
-        * ntproc.c (Fwin32_set_current_locale):
-        Add comments portending doom.
+	* ntproc.c (create_child):
+	* ntproc.c (Fwin32_set_current_locale):
+	Add comments portending doom.
 
-        * objects-msw.c:
-        * objects-msw.c (old_font_enum_callback_2):
-        * objects-msw.c (font_enum_callback_1):
-        * objects-msw.c (mswindows_enumerate_fonts):
-        [5].
+	* objects-msw.c:
+	* objects-msw.c (old_font_enum_callback_2):
+	* objects-msw.c (font_enum_callback_1):
+	* objects-msw.c (mswindows_enumerate_fonts):
+	[5].
 
-        * objects-x.c:
-        * objects-x.c (allocate_nearest_color):
-        * objects-x.c (x_parse_nearest_color):
-        * objects-x.c (x_initialize_color_instance):
-        * objects-x.c (x_print_color_instance):
-        * objects-x.c (x_finalize_color_instance):
-        * objects-x.c (x_valid_color_name_p):
-        * objects-x.c (x_initialize_font_instance):
-        * objects-x.c (x_print_font_instance):
-        * objects-x.c (valid_x_font_name_p):
-        * objects-x.c (truename_via_FONT_prop):
-        * objects-x.c (truename_via_random_props):
-        * objects-x.c (truename_via_XListFonts):
-        * objects-x.c (x_font_truename):
-        * objects-x.c (x_font_instance_truename):
-        * objects-x.c (x_font_instance_properties):
-        * objects-x.c (x_list_fonts):
-        * objects-x.c (x_find_charset_font):
-        Mule-ize entire file.
-        [7].
+	* objects-x.c:
+	* objects-x.c (allocate_nearest_color):
+	* objects-x.c (x_parse_nearest_color):
+	* objects-x.c (x_initialize_color_instance):
+	* objects-x.c (x_print_color_instance):
+	* objects-x.c (x_finalize_color_instance):
+	* objects-x.c (x_valid_color_name_p):
+	* objects-x.c (x_initialize_font_instance):
+	* objects-x.c (x_print_font_instance):
+	* objects-x.c (valid_x_font_name_p):
+	* objects-x.c (truename_via_FONT_prop):
+	* objects-x.c (truename_via_random_props):
+	* objects-x.c (truename_via_XListFonts):
+	* objects-x.c (x_font_truename):
+	* objects-x.c (x_font_instance_truename):
+	* objects-x.c (x_font_instance_properties):
+	* objects-x.c (x_list_fonts):
+	* objects-x.c (x_find_charset_font):
+	Mule-ize entire file.
+	[7].
 
-        * objects-x.h:
-        Mule-verify.
+	* objects-x.h:
+	Mule-verify.
 
-        * print.c:
-        * print.c (std_handle_out_external):
-        * print.c (debug_print_no_newline):
-        * print.c (syms_of_print):
-        Output to all debugger kinds in debug-print.
-        Fix console-output code under MSWin to actually work.
+	* print.c:
+	* print.c (std_handle_out_external):
+	* print.c (debug_print_no_newline):
+	* print.c (syms_of_print):
+	Output to all debugger kinds in debug-print.
+	Fix console-output code under MSWin to actually work.
 
-        * process-nt.c (send_signal):
-        * process-nt.c (nt_create_process):
-        Use newer Unicode macros.
+	* process-nt.c (send_signal):
+	* process-nt.c (nt_create_process):
+	Use newer Unicode macros.
 
-        * process-unix.c (unix_create_process):
-        * process-unix.c (unix_canonicalize_host_name):
-        * process-unix.c (unix_open_network_stream):
-        [7].
+	* process-unix.c (unix_create_process):
+	* process-unix.c (unix_canonicalize_host_name):
+	* process-unix.c (unix_open_network_stream):
+	[7].
 
-        * scrollbar-x.c:
-        Mule-verify.
+	* scrollbar-x.c:
+	Mule-verify.
 
-        * search.c (syms_of_search):
-        [2].
+	* search.c (syms_of_search):
+	[2].
 
-        * select-msw.c (mswindows_destroy_selection):
-        Use LIST_LOOP_2.
+	* select-msw.c (mswindows_destroy_selection):
+	Use LIST_LOOP_2.
 
-        * select-x.c (symbol_to_x_atom):
-        [7].
+	* select-x.c (symbol_to_x_atom):
+	[7].
 
-        * select.c (syms_of_select):
-        [2].
+	* select.c (syms_of_select):
+	[2].
 
-        * sound.c (Fplay_sound_file):
-        [7].
+	* sound.c (Fplay_sound_file):
+	[7].
 
-        * specifier.c:
-        * specifier.c (decode_specifier_type):
-        * specifier.c (Fvalid_specifier_locale_type_p):
-        * specifier.c (check_valid_locale_or_locale_type):
-        * specifier.c (decode_locale):
-        * specifier.c (decode_locale_type):
-        * specifier.c (decode_locale_list):
-        * specifier.c (check_valid_domain):
-        * specifier.c (decode_specifier_tag_set):
-        * specifier.c (Fcanonicalize_tag_set):
-        * specifier.c (Fdefine_specifier_tag):
-        * specifier.c (Fspecifier_tag_predicate):
-        * specifier.c (check_valid_inst_list):
-        * specifier.c (check_valid_spec_list):
-        * specifier.c (decode_how_to_add_specification):
-        * specifier.c (check_modifiable_specifier):
-        * specifier.c (specifier_add_spec):
-        * specifier.c (boolean_validate):
-        * specifier.c (display_table_validate):
-        [9].
+	* specifier.c:
+	* specifier.c (decode_specifier_type):
+	* specifier.c (Fvalid_specifier_locale_type_p):
+	* specifier.c (check_valid_locale_or_locale_type):
+	* specifier.c (decode_locale):
+	* specifier.c (decode_locale_type):
+	* specifier.c (decode_locale_list):
+	* specifier.c (check_valid_domain):
+	* specifier.c (decode_specifier_tag_set):
+	* specifier.c (Fcanonicalize_tag_set):
+	* specifier.c (Fdefine_specifier_tag):
+	* specifier.c (Fspecifier_tag_predicate):
+	* specifier.c (check_valid_inst_list):
+	* specifier.c (check_valid_spec_list):
+	* specifier.c (decode_how_to_add_specification):
+	* specifier.c (check_modifiable_specifier):
+	* specifier.c (specifier_add_spec):
+	* specifier.c (boolean_validate):
+	* specifier.c (display_table_validate):
+	[9].
 
-        * specifier.c (syms_of_specifier):
-        Move some symbols to general-slots.h.
-        [2].
+	* specifier.c (syms_of_specifier):
+	Move some symbols to general-slots.h.
+	[2].
 
-        * symbols.c:
-        * symbols.c (Fmapatoms):
-        * symbols.c (Fapropos_internal):
-        Add GCPROs.
+	* symbols.c:
+	* symbols.c (Fmapatoms):
+	* symbols.c (Fapropos_internal):
+	Add GCPROs.
 
-        * symbols.c (set_default_buffer_slot_variable):
-        * symbols.c (set_default_console_slot_variable):
-        [1].
+	* symbols.c (set_default_buffer_slot_variable):
+	* symbols.c (set_default_console_slot_variable):
+	[1].
 
-        * symbols.c (defsymbol_massage_name_1):
-        * symbols.c (defkeyword_massage_name):
-        * symbols.c (deferror_1):
-        * symbols.c (deferror):
-        * symbols.c (deferror_massage_name_and_message):
-        * symeval.h:
-        * symeval.h (DEFSYMBOL):
-        Support DEFSYMBOL*, DEFKEYWORD, DEFERROR
+	* symbols.c (defsymbol_massage_name_1):
+	* symbols.c (defkeyword_massage_name):
+	* symbols.c (deferror_1):
+	* symbols.c (deferror):
+	* symbols.c (deferror_massage_name_and_message):
+	* symeval.h:
+	* symeval.h (DEFSYMBOL):
+	Support DEFSYMBOL*, DEFKEYWORD, DEFERROR
 
-        * symbols.c (syms_of_symbols):
-        [2].
+	* symbols.c (syms_of_symbols):
+	[2].
 
-        * symsinit.h:
-        * symsinit.h (init_win32): New.
-        Also new is syms_of_dialog_mswindows.
+	* symsinit.h:
+	* symsinit.h (init_win32): New.
+	Also new is syms_of_dialog_mswindows.
 
-        * syswindows.h:
+	* syswindows.h:
 	Add new Unicode macros, missing Cygwin wide-char functions,
 	convenience conversion macros for Qmswindows_tstr, macros for
 	encapsulating required MSWin <-> Cygwin filename conversions,
 	prototype for dynamically-extracted (not in NT 3.51) functions.
 
-        * toolbar-x.c:
-        Mule-verify.
+	* toolbar-x.c:
+	Mule-verify.
 
-        * tooltalk.c (Fadd_tooltalk_message_arg):
-        * tooltalk.c (Fadd_tooltalk_pattern_attribute):
-        * tooltalk.c (Fadd_tooltalk_pattern_arg):
-        [7].
+	* tooltalk.c (Fadd_tooltalk_message_arg):
+	* tooltalk.c (Fadd_tooltalk_pattern_attribute):
+	* tooltalk.c (Fadd_tooltalk_pattern_arg):
+	[7].
 
-        * tooltalk.c (syms_of_tooltalk):
-        [2].
+	* tooltalk.c (syms_of_tooltalk):
+	[2].
 
-        * unexnt.c:
-        * unexnt.c (unexec):
-        Fix up headers, declaration of unexec() to be more standard.
+	* unexnt.c:
+	* unexnt.c (unexec):
+	Fix up headers, declaration of unexec() to be more standard.
 
 2000-07-20  Martin Buchholz  <martin@xemacs.org>
 
@@ -9331,36 +9406,36 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-07-05  Craig Lanning  <lanning@scra.org>
 
-        * Makefile.in.in: Add support for including the Windows resources
-        when building with the cygwin and mingw targets.
+	* Makefile.in.in: Add support for including the Windows resources
+	when building with the cygwin and mingw targets.
 
-        * buffer.c: from Dan Holmsand, on Windows $PWD is most likely either
-        not set or not correct.
-        (directory_is_current_directory): Don't compile for WIN32_NATIVE.
-        (init_initial_directory): Don't try to use $PWD on the
-        WIN32_NATIVE target.
+	* buffer.c: from Dan Holmsand, on Windows $PWD is most likely either
+	not set or not correct.
+	(directory_is_current_directory): Don't compile for WIN32_NATIVE.
+	(init_initial_directory): Don't try to use $PWD on the
+	WIN32_NATIVE target.
 
-        * s\cygwin32.h:
+	* s\cygwin32.h:
 	[[Add -mwindows to eliminate console window.]] not required --ben
-        (HAVE_NATIVE_SOUND): removed; now handled by configure.
-        (MAIL_USE_POP): removed; now handled by configure.
+	(HAVE_NATIVE_SOUND): removed; now handled by configure.
+	(MAIL_USE_POP): removed; now handled by configure.
 
-        * s\mingw32.h: [[Add -mwindows to eliminate console window.]] not in
+	* s\mingw32.h: [[Add -mwindows to eliminate console window.]] not in
 	C_SWITCH_SYSTEM or it will affect lib-src progs. --ben
-        (HAVE_NATIVE_SOUND): removed; now handled by configure.
-        (MAIL_USE_POP): removed; now handled by configure.
-        (ENCAPSULATE_STAT): from Dan Holmsand, added.
-        (ENCAPSULATE_FSTAT): from Dan Holmsand, added.
-        (DIRECTORY_SEP): from Dan Holmsand, use lisp variable instead of
-        constant string.
-        (HAVE_TIMEVAL): from Dan Holmsand, added; struct timeval is picked
-        up from <winsock.h> via systime.h.
-        (HAVE_GETPAGESIZE): from Dan Holmsand, added.
-        (getpagesize): from Dan Holmsand, added.
-        Added #endif which was left dangling by Ben's mega patch; added
-        comment to help prevent this in the future.
+	(HAVE_NATIVE_SOUND): removed; now handled by configure.
+	(MAIL_USE_POP): removed; now handled by configure.
+	(ENCAPSULATE_STAT): from Dan Holmsand, added.
+	(ENCAPSULATE_FSTAT): from Dan Holmsand, added.
+	(DIRECTORY_SEP): from Dan Holmsand, use lisp variable instead of
+	constant string.
+	(HAVE_TIMEVAL): from Dan Holmsand, added; struct timeval is picked
+	up from <winsock.h> via systime.h.
+	(HAVE_GETPAGESIZE): from Dan Holmsand, added.
+	(getpagesize): from Dan Holmsand, added.
+	Added #endif which was left dangling by Ben's mega patch; added
+	comment to help prevent this in the future.
 
-        * sysdll.c: added #include <windows.h> for WIN32_NATIVE case.
+	* sysdll.c: added #include <windows.h> for WIN32_NATIVE case.
 
 2000-07-05  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
 
@@ -9458,13 +9533,13 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 2000-06-08  Mike Alexander  <mta@arbortext.com>
 
-        (MAX_SHOVE_BUFFER_SIZE): Change to 512 to match stream buffer size
-        (shove_thread): Don't write the same output twice
-        (make_ntpipe_output_stream): Increase priority of shove thread
-        (ntpipe_shove_writer): Call SwitchToThread to give shove thread a
-        chance to run
-        (ntpipe_shove_closer): Don't delete the pipe until we're done with
-        it.
+	(MAX_SHOVE_BUFFER_SIZE): Change to 512 to match stream buffer size
+	(shove_thread): Don't write the same output twice
+	(make_ntpipe_output_stream): Increase priority of shove thread
+	(ntpipe_shove_writer): Call SwitchToThread to give shove thread a
+	chance to run
+	(ntpipe_shove_closer): Don't delete the pipe until we're done with
+	it.
 
 2000-06-12  Ben Wing  <ben@xemacs.org>
 
@@ -11255,12 +11330,12 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* redisplay.c (add_glyph_rune): Don't set 0 to bufpos for text
 	image glyph if allow_cursor.
-        (add_hscroll_rune): Don't allow cursor to border glyph.
-        (create_text_block): Ditto.
+	(add_hscroll_rune): Don't allow cursor to border glyph.
+	(create_text_block): Ditto.
 
 	* redisplay-output.c (redisplay_move_cursor): Do nothing even if
 	text not in buffer.
-        (redisplay_output_layout): Call ensure_face_cachel_complete for
+	(redisplay_output_layout): Call ensure_face_cachel_complete for
 	text image glyph.
 
 
@@ -11839,7 +11914,7 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* alloc.c (pdump_register_struct):
 	* alloc.c (pdump_dump_data):
 	* alloc.c (pdump_reloc_one):
-        Minor cleanups.
+	Minor cleanups.
 
  	* console-msw.c:
 	* console-msw.c (GetConsoleHwnd):
@@ -11849,16 +11924,16 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* console-msw.c (msw_output_console_string):
 	* console-msw.c (console_type_create_mswindows):
 
-        a) Added functions to manipulate the console window for use with
-        shell support.
+	a) Added functions to manipulate the console window for use with
+	shell support.
 
-        b) Added support for writing text to the console, which is now
-        used under Windows when xemacs is not being run non-interactively,
-        to write text that would otherwise be destined for stdout because
-        under these circumstances, text written to stdout tends to
-        disappear and not be seen.
+	b) Added support for writing text to the console, which is now
+	used under Windows when xemacs is not being run non-interactively,
+	to write text that would otherwise be destined for stdout because
+	under these circumstances, text written to stdout tends to
+	disappear and not be seen.
 
-        * console-msw.h:
+	* console-msw.h:
 	* event-Xt.c:
 	* event-Xt.c (x_event_to_emacs_event):
 	* event-Xt.c (describe_event_window):
@@ -11912,20 +11987,20 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* device-msw.c (msw_get_workspace_coords):
 	* device-msw.c (mswindows_device_system_metrics):
 	and various other files, added support for a new
-        device property called offset-workspace which returns the position
-        of the upper left corner of the workspace area and goes along with
-        the existing size-workspace property.
+	device property called offset-workspace which returns the position
+	of the upper left corner of the workspace area and goes along with
+	the existing size-workspace property.
 
 	* dialog-msw.c:
 	* dialog-msw.c (push_bufbyte_string_as_unicode):
 	* dialog-msw.c (mswindows_popup_dialog_box):
-        Added support for XEmacs-style accelerator specifications in
-        button text.  Note: I didn't add support for this under X Windows,
-        and somebody needs to do this.
+	Added support for XEmacs-style accelerator specifications in
+	button text.  Note: I didn't add support for this under X Windows,
+	and somebody needs to do this.
 
 	* dialog.c:
 	* dialog.c (Fpopup_dialog_box):
-        Documented the support for accelerators that was just mentioned.
+	Documented the support for accelerators that was just mentioned.
 
 	editfns.c (get_home_directory): Changed behavior under Windows
 	when HOME not defined; former behavior was irretrievably broken.
@@ -11944,9 +12019,9 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* print.c (debug_print):
 	* print.c (debug_backtrace):
 	* print.c (debug_short_backtrace):
-        Cleaned up the code that prints text to stdout so that this can be
-        changed to output into a console window instead under MS Windows,
-        as described above.
+	Cleaned up the code that prints text to stdout so that this can be
+	changed to output into a console window instead under MS Windows,
+	as described above.
 
 	* eval.c:
 	* eval.c (DEFEND_AGAINST_THROW_RECURSION):
@@ -11968,14 +12043,14 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-msw.c (mswindows_modifier_state):
 	* event-msw.c (emacs_mswindows_quit_p):
 	* event-msw.c (vars_of_event_mswindows):
-        a) Added support for using the alt key to select menu items as is
-        standard under MS Windows.  This is controlled using the variable
-        menu-accelerator-enabled, just like under X Windows.  There is an
-        option on the options menu to turn this support on.  I really
-        think that it should be on by default under Windows, but I'm not
-        going to make this change yet.
+	a) Added support for using the alt key to select menu items as is
+	standard under MS Windows.  This is controlled using the variable
+	menu-accelerator-enabled, just like under X Windows.  There is an
+	option on the options menu to turn this support on.  I really
+	think that it should be on by default under Windows, but I'm not
+	going to make this change yet.
 
-        b)  Added support for dynamic display size changes under Windows.
+	b)  Added support for dynamic display size changes under Windows.
 
 	* event-stream.c:
 	* event-stream.c (maybe_echo_keys):
@@ -11990,30 +12065,30 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* event-stream.c (complex_vars_of_event_stream):
 	* events.h (struct command_builder):
 
-        a) Tried to clean up a little bit the horribly written x-specific
-        accelerator code that crept into this file.  I moved this code
-        into menubar-x.c where it belongs. I also needed to move the
-        command builder structure into the file events.h because it is
-        accessed directly by this accelerator code.  What I didn't do, but
-        which should be done at some point, is to properly abstract this
-        code using device methods instead of the kludgy way that it
-        currently hooks into the event code.
+	a) Tried to clean up a little bit the horribly written x-specific
+	accelerator code that crept into this file.  I moved this code
+	into menubar-x.c where it belongs. I also needed to move the
+	command builder structure into the file events.h because it is
+	accessed directly by this accelerator code.  What I didn't do, but
+	which should be done at some point, is to properly abstract this
+	code using device methods instead of the kludgy way that it
+	currently hooks into the event code.
 
-        b) Added the lisp variables this-command-properties and
-        last-command- properties, which should be used to synchronize two
-        adjacent commands in preference to playing games with the variable
-        this-command, which is typically what happens.
+	b) Added the lisp variables this-command-properties and
+	last-command- properties, which should be used to synchronize two
+	adjacent commands in preference to playing games with the variable
+	this-command, which is typically what happens.
 
-        c) Added some slightly nasty code to hook into the lisp support
-        for shifted- motion-key selection.  This is actually necessary for
-        somewhat complicated reasons, which are described in
-        simple.el. (NB: I think the proper thing would be to have the code
-        that calls the pre and post command hooks also call out to generic
-        lisp functions in simple.el, where all built-in stuff could be
-        added.  I will think about this more.)
+	c) Added some slightly nasty code to hook into the lisp support
+	for shifted- motion-key selection.  This is actually necessary for
+	somewhat complicated reasons, which are described in
+	simple.el. (NB: I think the proper thing would be to have the code
+	that calls the pre and post command hooks also call out to generic
+	lisp functions in simple.el, where all built-in stuff could be
+	added.  I will think about this more.)
 
 	* event-unixoid.c (poll_fds_for_input):
-        * lread.c (readchar):
+	* lread.c (readchar):
 	* redisplay-tty.c (tty_clear_frame):
 	* redisplay-x.c (x_get_gc):
 	* signal.c (interrupt_signal):
@@ -12026,33 +12101,33 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 
 	* frame-msw.c:
 	* frame-msw.c (mswindows_size_frame_internal):
-        Fixed the computation of frame size and position to keep the frame
-        within the workspace area, rather than within the physical
-        dimensions of the screen, so that the frame doesn't overlap window
-        manager decorations, such as the start menu and toolbar, typically
-        at the bottom of the screen.
+	Fixed the computation of frame size and position to keep the frame
+	within the workspace area, rather than within the physical
+	dimensions of the screen, so that the frame doesn't overlap window
+	manager decorations, such as the start menu and toolbar, typically
+	at the bottom of the screen.
 
 	* frame.c (vars_of_frame):
-        Changed the default frame title format under MS Windows to consist
-        of buffername-XEmacs, which is standard under MS Windows.  I think
-        it might be a good idea to change this everywhere because I think
-        it is superior to the current frame title format, but this is the
-        kind of change that is likely to cause some people to get annoyed,
-        so I'm not making it.
+	Changed the default frame title format under MS Windows to consist
+	of buffername-XEmacs, which is standard under MS Windows.  I think
+	it might be a good idea to change this everywhere because I think
+	it is superior to the current frame title format, but this is the
+	kind of change that is likely to cause some people to get annoyed,
+	so I'm not making it.
 
 	* glyphs-eimage.c (png_instantiate): Fixed some compile warnings.
 
 	* gui-msw.c (mswindows_handle_gui_wm_command):
-        Fixed compile warnings.
+	Fixed compile warnings.
 
 	* gui-x.c:
 	* gui-x.c (strdup_and_add_accel):
 	* gui-x.c (button_item_to_widget_value):
 	* gui-x.h:
-        Added code to automatically put an accelerator onto the beginning
-        of menu items that don't have one as is now the standard, and is
-        described more later.  Also fixed things so that the menu item
-        name can be an evaluated expression, again a new standard.
+	Added code to automatically put an accelerator onto the beginning
+	of menu items that don't have one as is now the standard, and is
+	described more later.  Also fixed things so that the menu item
+	name can be an evaluated expression, again a new standard.
 
 	* gui.c:
 	* gui.c (gui_item_add_keyval_pair):
@@ -12071,9 +12146,9 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* line-number.c (buffer_line_number):
 	* lisp.h:
 	* lisp.h (EMACS_INT_MAX):
-        Added the manifest constant EMACS_INT_MIN corresponding to the
-        existing constant EMACS_INT_MAX.  This is partially to fix compile
-        warnings under Windows, and partly for cleanliness.
+	Added the manifest constant EMACS_INT_MIN corresponding to the
+	existing constant EMACS_INT_MAX.  This is partially to fix compile
+	warnings under Windows, and partly for cleanliness.
 
 	* menubar-msw.c:
 	* menubar-msw.c (REPLACE_ME_WITH_GLOBAL_VARIABLE_WHICH_CONTROLS_RIGHT_FLUSH):
@@ -12092,15 +12167,15 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* menubar-msw.c (mswindows_update_frame_menubars):
 	* menubar-msw.c (mswindows_free_frame_menubars):
 	* menubar-msw.c (mswindows_popup_menu):
-        Fixed a bug in handling accelerators where an extra character
-        would be displayed in the menu item.  Also generalized the
-        function displayable_menu_item because it is now used by the
-        dialog box code as well.  And finally, added code in the functions
-        that create the menubar to extract a list of accelerators for the
-        top level menubar, which is used in the event code to determine
-        whether a particular alt-key combination should be used to invoke
-        a menu item, or should be passed through to access the standard
-        XEmacs keymap binding for this key combination.
+	Fixed a bug in handling accelerators where an extra character
+	would be displayed in the menu item.  Also generalized the
+	function displayable_menu_item because it is now used by the
+	dialog box code as well.  And finally, added code in the functions
+	that create the menubar to extract a list of accelerators for the
+	top level menubar, which is used in the event code to determine
+	whether a particular alt-key combination should be used to invoke
+	a menu item, or should be passed through to access the standard
+	XEmacs keymap binding for this key combination.
 
 	Much needed GCPROing.
 
@@ -12119,10 +12194,10 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* menubar-x.c (command_builder_find_menu_accelerator):
 	* menubar-x.c (Faccelerate_menu):
 	* menubar.h:
-        Moved a whole bunch of code here that was previously in
-        event-stream.c as described above.  There is also code connected
-        to the new standard of adding an accelerator to the beginning of
-        menu items that don't have one as described above and below.
+	Moved a whole bunch of code here that was previously in
+	event-stream.c as described above.  There is also code connected
+	to the new standard of adding an accelerator to the beginning of
+	menu items that don't have one as described above and below.
 
 	* menubar.c:
 	* menubar.c (menu_parse_submenu_keywords):
@@ -12132,31 +12207,31 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* menubar.c (vars_of_menubar):
 	* menubar.c (complex_vars_of_menubar):
 
-        a) Cleaned up a bunch of documentation and improved it.
+	a) Cleaned up a bunch of documentation and improved it.
 
-        b) XEmacs now automatically adds an accelerator onto the beginning
-        of any menu items that don't have one.  I did this because there
-        will inevitably be some menu items on the main menubar that don't
-        have accelerators on them because the package that adds that
-        particular menu item hasn't yet been fixed up to have accelerators
-        in them and it looked rather strange to have some items with and
-        some items without accelerators, especially since even in items
-        without accelerators, you can, at least under windows, still
-        access the item through an accelerator corresponding to the first
-        character in the item's name.  If people don't like this behavior,
-        I can add a variable to turn it off optionally, but I'm not sure
-        this is a good idea because we really do need to have accelerators
-        on all of the menu items, and if a package doesn't like the
-        accelerators being put on the first character, then it should put
-        the accelerators where they belong.
+	b) XEmacs now automatically adds an accelerator onto the beginning
+	of any menu items that don't have one.  I did this because there
+	will inevitably be some menu items on the main menubar that don't
+	have accelerators on them because the package that adds that
+	particular menu item hasn't yet been fixed up to have accelerators
+	in them and it looked rather strange to have some items with and
+	some items without accelerators, especially since even in items
+	without accelerators, you can, at least under windows, still
+	access the item through an accelerator corresponding to the first
+	character in the item's name.  If people don't like this behavior,
+	I can add a variable to turn it off optionally, but I'm not sure
+	this is a good idea because we really do need to have accelerators
+	on all of the menu items, and if a package doesn't like the
+	accelerators being put on the first character, then it should put
+	the accelerators where they belong.
 
-        c) I made a behavior change, which is that the descriptor that
-        specifies the text of the menu item, which formerly was just a
-        string, can now also be an evaluated expression.  This makes this
-        descriptor parallel with all of the others, which could also be
-        evaluated expressions.  This also obviates the need for the
-        keyword :label, which was previously listed in the documentation
-        as unimplemented, and which was for the same purpose.
+	c) I made a behavior change, which is that the descriptor that
+	specifies the text of the menu item, which formerly was just a
+	string, can now also be an evaluated expression.  This makes this
+	descriptor parallel with all of the others, which could also be
+	evaluated expressions.  This also obviates the need for the
+	keyword :label, which was previously listed in the documentation
+	as unimplemented, and which was for the same purpose.
 
 	d) GCPROing.
 
@@ -12165,10 +12240,10 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* ntproc.c (sys_spawnve):
 	* ntproc.c (find_child_console):
 	* ntproc.c (sys_kill):
-        Fixed compile warnings.  By the way, this file should really go
-        away entirely, and this will happen as soon as Kirill makes his
-        final round of process cleanups, which affect the function
-        call-process.
+	Fixed compile warnings.  By the way, this file should really go
+	away entirely, and this will happen as soon as Kirill makes his
+	final round of process cleanups, which affect the function
+	call-process.
 
 	* process-nt.c:
 	* process-nt.c (struct nt_process_data):
@@ -12184,17 +12259,17 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* process-nt.c (nt_kill_process_by_pid):
 	* process-nt.c (nt_open_network_stream):
 	* process-nt.c (vars_of_process_nt):
-        Copied over code from Emacs 20.5 to correctly send signals to sub-
-        processes under Windows 95.  Also added code to automatically
-        create and hide console window when a sub-process is created under
-        Windows 95, which obviates the need for the separate runemacs.exe
-        executable, and finally implemented some variables that were
-        implemented in Emacs 20.5, but previously not in XEmacs.  These
-        include mswindows- start-process-share-console and
-        mswindows-start-process-inherit-error-mode. (Both of these only
-        apply to Windows 95.)
+	Copied over code from Emacs 20.5 to correctly send signals to sub-
+	processes under Windows 95.  Also added code to automatically
+	create and hide console window when a sub-process is created under
+	Windows 95, which obviates the need for the separate runemacs.exe
+	executable, and finally implemented some variables that were
+	implemented in Emacs 20.5, but previously not in XEmacs.  These
+	include mswindows- start-process-share-console and
+	mswindows-start-process-inherit-error-mode. (Both of these only
+	apply to Windows 95.)
 
-        * regex.c (regex_compile): Fixed a compile warning.
+	* regex.c (regex_compile): Fixed a compile warning.
 
 	* select-msw.c:
 	* select-msw.c (mswindows_own_selection):
@@ -12202,20 +12277,20 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* select-msw.c (mswindows_disown_selection):
 	* select-msw.c (console_type_create_select_mswindows):
 	* select-msw.c (syms_of_select_mswindows):
-        Cleaned up the file and implemented the device method
-        selection_exists_p, which had accidentally been left out.  Also
-        removed four lisp functions that were remnants from before the
-        time when the selection code was properly device abstracted.
-        These functions are no longer needed because there are generic
-        equivalents, and because they were added recently and don't exist
-        in FSF Emacs, I don't think there's any problem with just deleting
-        them.
+	Cleaned up the file and implemented the device method
+	selection_exists_p, which had accidentally been left out.  Also
+	removed four lisp functions that were remnants from before the
+	time when the selection code was properly device abstracted.
+	These functions are no longer needed because there are generic
+	equivalents, and because they were added recently and don't exist
+	in FSF Emacs, I don't think there's any problem with just deleting
+	them.
 
 	* sysdep.c:
 	* sysdep.c (sys_subshell):
-        Fixed a compile warning, although in this case there's probably
-        something wrong with this code, and it ought to be looked into
-        more thoroughly by somebody who understands it.
+	Fixed a compile warning, although in this case there's probably
+	something wrong with this code, and it ought to be looked into
+	more thoroughly by somebody who understands it.
 
 	* window.c:
 	* window.c (Fwindow_text_area_height):
@@ -12224,13 +12299,13 @@ Fatal error: assertion failed, file /project/xemacs/ws/dev/src/frame.h, line 245
 	* window.c (Fwindow_pixel_width):
 	* window.c (debug_print_window):
 	* window.c (syms_of_window):
-        Added functions window-text-area-height and window-full-width,
-        which are functions for returning various width and height
-        characteristics of a window. (One of these functions is necessary
-        for making the file dialog box work correctly, and the other one
-        was added for completeness.)  Also added a table to the
-        documentation for window-height which describes the entire scheme
-        for accessing width and height characteristics of a window.
+	Added functions window-text-area-height and window-full-width,
+	which are functions for returning various width and height
+	characteristics of a window. (One of these functions is necessary
+	for making the file dialog box work correctly, and the other one
+	was added for completeness.)  Also added a table to the
+	documentation for window-height which describes the entire scheme
+	for accessing width and height characteristics of a window.
 
 2000-03-12  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
 

@@ -3028,10 +3028,12 @@ mapcar1 (size_t leni, Lisp_Object *vals,
 }
 
 DEFUN ("mapconcat", Fmapconcat, 3, 3, 0, /*
-Apply FUNCTION to each element of SEQUENCE, and concat the results as strings.
-In between each pair of results, insert SEPARATOR.  Thus, using " " as
-SEPARATOR results in spaces between the values returned by FUNCTION.
-SEQUENCE may be a list, a vector, a bit vector, or a string.
+Apply FUNCTION to each element of SEQUENCE, and concat the results to a string.
+Between each pair of results, insert SEPARATOR.
+
+Each result, and SEPARATOR, should be strings.  Thus, using " " as SEPARATOR
+results in spaces between the values returned by FUNCTION.  SEQUENCE itself
+may be a list, a vector, a bit vector, or a string.
 */
        (function, sequence, separator))
 {

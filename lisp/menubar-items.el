@@ -54,12 +54,18 @@
 
 ;;; Code:
 
-(defun Menubar-items-truncate-list (list n)
+(defun Menubar-items-truncate-history (list count label-length)
+  "Truncate a history LIST to first COUNT items.
+Return a list of (label value) lists with labels truncated to last
+LABEL-LENGTH characters of value."
   (mapcar #'(lambda (x)
-	      (if (<= (length x) 50) x (concat "..." (substring x -50))))
-	  (if (<= (length list) n)
+	      (if (<= (length x) label-length)
+                  (list x x)
+                (list
+                 (concat "..." (substring x (- label-length))) x)))
+	  (if (<= (length list) count)
 	      list
-	    (butlast list (- (length list) n)))))
+	    (butlast list (- (length list) count)))))
 
 (defun submenu-generate-accelerator-spec (list &optional omit-chars-list)
   "Add auto-generated accelerator specifications to a submenu.
@@ -435,10 +441,11 @@ which will not be used as accelerators."
 	     menu
 	   (let ((items
 		  (submenu-generate-accelerator-spec
-		   (mapcar #'(lambda (string)
-			       (vector string
-				       (list 'grep string)))
-			   (Menubar-items-truncate-list grep-history 10)))))
+                   (mapcar #'(lambda (label-value)
+			       (vector (first label-value)
+				       (list 'grep (second label-value))))
+			   (Menubar-items-truncate-history
+                            grep-history 10 50)))))
 	     (append menu '("---") items))))
        ["%_Grep..." grep :active (fboundp 'grep)]
        ["%_Kill Grep" kill-compilation
@@ -543,10 +550,11 @@ which will not be used as accelerators."
 	     menu
 	   (let ((items
 		  (submenu-generate-accelerator-spec
-		   (mapcar #'(lambda (string)
-			       (vector string
-				       (list 'compile string)))
-			   (Menubar-items-truncate-list compile-history 10)))))
+		   (mapcar #'(lambda (label-value)
+			       (vector (first label-value)
+				       (list 'compile (second label-value))))
+			   (Menubar-items-truncate-history
+                            compile-history 10 50)))))
 	     (append menu '("---") items))))
        ["%_Compile..." compile :active (fboundp 'compile)]
        ["%_Repeat Compilation" recompile :active (fboundp 'recompile)]

@@ -1186,6 +1186,7 @@ run `normal-mode' explicitly."
     ("\\.icn\\'" . icon-mode)
     ("\\.\\(?:[ckz]?sh\\|shar\\)\\'" . sh-mode)
     ("\\.[Pp][Rr][Oo]\\'" . idlwave-mode)
+    ("\\.si\\(v\\|eve\\)\\'" . sieve-mode)
     ;; #### Unix-specific!
     ("/\\.\\(?:bash_\\|z\\)?\\(profile\\|login\\|logout\\)\\'" . sh-mode)
     ("/\\.\\(?:[ckz]sh\\|bash\\|tcsh\\|es\\|xinit\\|startx\\)rc\\'" . sh-mode)
@@ -1227,8 +1228,8 @@ run `normal-mode' explicitly."
     ("configure\\(\\.in\\|\\.ac\\)\\'" . autoconf-mode)
     ("\\.ml\\'" . lisp-mode)
     ("\\.ma?ke?\\'" . makefile-mode)
-    ("[Mm]akefile\\(\\.\\|\\'\\)" . makefile-mode)
-    ("\\.X\\(defaults\\|environment\\|resources\\|modmap\\)\\'" . xrdb-mode)
+    ("\\(GNU\\)?[Mm]akefile\\(\\.\\|\\'\\)" . makefile-mode)
+    ("[./\\]X\\(defaults\\|environment\\|resources\\|modmap\\)\\'" . xrdb-mode)
     ;; #### The following three are Unix-specific (but do we care?)
     ("/app-defaults/" . xrdb-mode)
     ("\\.[^/]*wm2?\\(?:rc\\)?\\'" . winmgr-mode)
