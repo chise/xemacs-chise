@@ -1,15 +1,39 @@
 2003-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for some JIS X 0208:1990 code
+	points.
+
+	* Ideograph-R183-Fly.el (U+98DB): Unify GT-59007.
+	(U+98DC): Unify GT-59018.
+
+	* Ideograph-R181-Leaf.el, Ideograph-R180-Sound.el,
+	Ideograph-R179-Leek.el, Ideograph-R178-Tanned-Leather.el,
+	Ideograph-R177-Leather.el, Ideograph-R176-Face.el,
+	Ideograph-R175-Wrong.el, Ideograph-R174-Blue.el,
+	Ideograph-R173-Rain.el: Add some GT code points.
+
 	* Ideograph-R170-Mound.el (M-41676): Use
 	`->same-ideograph{*sources}' instead of `ideograph='.
 	(M-41836): Use `<-simplified-ideograph{*sources}' instead of
-	`simplified-ideograph-of'.	
+	`simplified-ideograph-of'.
 	- Add some GT code points.
 	- Add some `total-strokes'.
 
 	* Ideograph-R167-Gold.el:
 	- Add some GT code points.
 	- Add some `total-strokes'.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R058-Snout.el (GT-K00267): Refer GT-67403 instead of
+	GT-60403 as the value of `->identical'.
+
+2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add some GT code points.
+
+	* Ideograph-R074-Moon.el (U+9738): Copied from
+	Ideograph-R173-Rain.el.
 
 2003-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
