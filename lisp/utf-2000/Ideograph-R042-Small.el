@@ -670,13 +670,15 @@
     (=cns11643-3	. #x4078)	; ø»–…
     ))
 (define-char
-  '((ideographic-radical . 42)	; â¼©
+  '((morohashi-daikanwa	ho 138)
+    (ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x21B99)	; ð¡®™
     ))
 (define-char
   '((=>ucs		. #x21B99)	; ð¡®™
+    (morohashi-daikanwa	ho 138 0)
     (ideographic-radical . 42)	; â¼©
     (ideographic-strokes . 10)
     (total-strokes	 . 13)

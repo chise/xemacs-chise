@@ -169,6 +169,14 @@
     (=ucs		. #x5DE9)	; å·©
     ))
 (define-char
+  '((morohashi-daikanwa	ho 158)
+    (ideographic-radical . 48)	; â¼¯
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=gt-pj-11		. #x4335)	; ý¡€‚«¼
+    (=gt		. 11004)	; ý¡€‚«¼
+    ))
+(define-char
   '((ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
