@@ -1,3 +1,12 @@
+2002-02-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Fchar_variants): Check Vcharacter_variant_table is
+	CONSP.
+	(Fput_char_attribute): Likewise.
+	(char_attribute_system_db_file): Encode file-name of attribute.
+	(vars_of_chartab): Set Qunbound into Vcharacter_variant_table as
+	the initial value.
+
 2002-02-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule-charset.c (put_char_ccs_code_point): Delete unused codes.
