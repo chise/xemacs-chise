@@ -3,72 +3,72 @@
     (ucs		. #x02B0)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0068)
     (mirrored		. nil)
+    (->decomposition	super #x0068)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL H WITH HOOK")
     (ucs		. #x02B1)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0266)
     (mirrored		. nil)
+    (->decomposition	super #x0266)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL J")
     (ucs		. #x02B2)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x006A)
     (mirrored		. nil)
+    (->decomposition	super #x006A)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL R")
     (ucs		. #x02B3)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0072)
     (mirrored		. nil)
+    (->decomposition	super #x0072)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL TURNED R")
     (ucs		. #x02B4)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0279)
     (mirrored		. nil)
+    (->decomposition	super #x0279)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL TURNED R WITH HOOK")
     (ucs		. #x02B5)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x027B)
     (mirrored		. nil)
+    (->decomposition	super #x027B)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL CAPITAL INVERTED R")
     (ucs		. #x02B6)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0281)
     (mirrored		. nil)
+    (->decomposition	super #x0281)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL W")
     (ucs		. #x02B7)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0077)
     (mirrored		. nil)
+    (->decomposition	super #x0077)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL Y")
     (ucs		. #x02B8)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0079)
     (mirrored		. nil)
+    (->decomposition	super #x0079)
     ))
 (define-char
   '((name		. "MODIFIER LETTER PRIME")
@@ -185,13 +185,13 @@
     (->ucs		. #x02C7)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x02C7)
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese third tone")
+    (->decomposition	wide #x02C7)
     (chinese-gb2312	#x21 #x26)	; $(D"0(B
     (korean-ksc5601	#x22 #x27)	; $(C"'(B
     (japanese-jisx0212	#x22 #x30)	; $(D"0(B
-    (chinese-cns11643-1	#x25 #x6F)	; $(G%o(B
+    (chinese-cns11643-1 #x25 #x6F)	; $(G%o(B
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -217,7 +217,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese second tone")
-    (chinese-cns11643-1	#x25 #x6E)	; $(G%n(B
+    (chinese-cns11643-1 #x25 #x6E)	; $(G%n(B
     ))
 (define-char
   '((name		. "MODIFIER LETTER GRAVE ACCENT")
@@ -226,7 +226,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese fourth tone")
-    (chinese-cns11643-1	#x25 #x70)	; $(G%p(B
+    (chinese-cns11643-1 #x25 #x70)	; $(G%p(B
     ))
 (define-char
   '((name		. "MODIFIER LETTER LOW VERTICAL LINE")
@@ -270,8 +270,8 @@
     (->ucs		. #x02D0)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x02D0)
     (mirrored		. nil)
+    (->decomposition	wide #x02D0)
     (korean-ksc5601	#x22 #x30)	; $(C"0(B
     ))
 (define-char
@@ -328,8 +328,8 @@
     (ucs		. #x02D8)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x0306)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x0306)
     (latin-iso8859-2	#x22)	; -B¢-A
     (latin-iso8859-3	#x22)	; -C¢-A
     ))
@@ -338,8 +338,8 @@
     (->ucs		. #x02D8)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x02D8)
     (mirrored		. nil)
+    (->decomposition	wide #x02D8)
     (korean-ksc5601	#x22 #x28)	; $(D"/(B
     (japanese-jisx0212	#x22 #x2F)	; $(D"/(B
     ))
@@ -348,9 +348,9 @@
     (ucs		. #x02D9)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x0307)
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
+    (->decomposition	compat #x0020 #x0307)
     (latin-iso8859-2	#x7F)	; -Bÿ-A
     (latin-iso8859-3	#x7F)	; -Cÿ-A
     (latin-iso8859-4	#x7F)	; -Dÿ-A
@@ -360,20 +360,20 @@
     (->ucs		. #x02D9)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x02D9)
     (mirrored		. nil)
     (iso-10646-comment	. "Mandarin Chinese light tone")
+    (->decomposition	wide #x02D9)
     (korean-ksc5601	#x22 #x2B)	; $(D"2(B
     (japanese-jisx0212	#x22 #x32)	; $(D"2(B
-    (chinese-cns11643-1	#x25 #x6C)	; $(G%l(B
+    (chinese-cns11643-1 #x25 #x6C)	; $(G%l(B
     ))
 (define-char
   '((name		. "RING ABOVE")
     (ucs		. #x02DA)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x030A)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x030A)
     (korean-ksc5601	#x22 #x2A)	; $(C"*(B
     (japanese-jisx0212	#x22 #x36)	; $(D"6(B
     ))
@@ -382,8 +382,8 @@
     (ucs		. #x02DB)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x0328)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x0328)
     (latin-iso8859-2	#x32)	; -B²-A
     (latin-iso8859-4	#x32)	; -D²-A
     ))
@@ -401,16 +401,16 @@
     (ucs		. #x02DC)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x0303)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x0303)
     ))
 (define-char
   '((name		. "DOUBLE ACUTE ACCENT")
     (ucs		. #x02DD)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	compat #x0020 #x030B)
     (mirrored		. nil)
+    (->decomposition	compat #x0020 #x030B)
     (latin-iso8859-2	#x3D)	; -B½-A
     ))
 (define-char
@@ -418,8 +418,8 @@
     (->ucs		. #x02DD)
     (general-category	symbol modifier) ; Informative Category
     (bidi-category	. "ON")
-    (->decomposition	wide #x02DD)
     (mirrored		. nil)
+    (->decomposition	wide #x02DD)
     (korean-ksc5601	#x22 #x29)	; $(D"3(B
     (japanese-jisx0212	#x22 #x33)	; $(D"3(B
     ))
@@ -442,40 +442,40 @@
     (ucs		. #x02E0)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0263)
     (mirrored		. nil)
+    (->decomposition	super #x0263)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL L")
     (ucs		. #x02E1)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x006C)
     (mirrored		. nil)
+    (->decomposition	super #x006C)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL S")
     (ucs		. #x02E2)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0073)
     (mirrored		. nil)
+    (->decomposition	super #x0073)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL X")
     (ucs		. #x02E3)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0078)
     (mirrored		. nil)
+    (->decomposition	super #x0078)
     ))
 (define-char
   '((name		. "MODIFIER LETTER SMALL REVERSED GLOTTAL STOP")
     (ucs		. #x02E4)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
-    (->decomposition	super #x0295)
     (mirrored		. nil)
+    (->decomposition	super #x0295)
     ))
 (define-char
   '((name		. "MODIFIER LETTER EXTRA-HIGH TONE BAR")
