@@ -160,13 +160,15 @@
 		       arabic-1-column
 		       arabic-2-column)))
 	      ((string-match "^mojikyo-" (symbol-name (car rest))))
+	      ((string-match "^chinese-big5" (symbol-name (car rest))))
 	      ((string-match "^ideograph-gt-pj-" (symbol-name (car rest)))
 	       (unless (memq 'ideograph-gt dest)
 		 (setq dest (cons 'ideograph-gt dest))))
 	      (t
 	       (setq dest (cons (car rest) dest)))))
       (setq rest (cdr rest)))
-    (sort dest #'char-attribute-name<)))
+    (append (sort dest #'char-attribute-name<)
+	    '(chinese-big5-cdp chinese-big5-eten chinese-big5))))
 
 (defun char-db-insert-char-spec (char &optional readable column)
   (unless column
