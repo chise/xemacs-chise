@@ -1,4 +1,57 @@
+2004-11-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02000-General-Punctuation.el:
+	- Use `=jis-x0208@{1983|1990}' instead of
+	  `=jis-x0208-{1983|1990}'.
+	-  Separate CJK characters from UCS characters.
+	In each *fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' except if the character
+	  has `=jis-x0208' or `=jis-x0208@1990' feature or it is a circled
+	  character.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+	(B-A145): Unify C1-2126 instead of C1-2131.
+	(C1-2224): Unify U+FFE3; don't map to U+203E; moved into
+	u0FF00-Halfwidth-and-Fullwidth-Forms.el.
+	(<FRACTION SLASH>): Separate C1-225F.
+
+	* additional-precomposed.el: New file.
+
 2004-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* dumped-chars.el (system-char-db-source-file-list): Add
+	"additional-precomposed".
+
+2004-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (U+9ED1): Add S1-9818.
+
+	* Ideograph-R072-Sun.el (U+65E7): Unify H4-DBA9.
+
+	* Ideograph-R055-Two-Hands.el (U-00022344): Unify H2-BA52.
+
+	* Ideograph-R141-Tiger.el (U+8658): Add CB08841.
+
+	* Ideograph-R081-Compare.el (U-00023B09): Use `->subsumptive'.
+	(M-16755): Unify H4-CE65 and CB08541.
+
+2004-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u00100-Latin-Extended-A.el: In each *fullwidth* variant:
+	- Use `<-denotational' instead of `=>ucs'.
+	- Omit features defined in the mother.
+	- Use `=ucs@jis/fw' instead of `=ucs@jis' in principle.
+	In each ucs character:
+	- Omit `->fullwidth' for non-UCS objects.
+	(JX1-2A27): Use `->subsumptive' to add JC3-8BCB.
+
+	* char-db-util.el (insert-char-data-with-variant): Don't insert
+	characters which have `<-subsumptive' feature.
+
+	* Ideograph-R105-Dotted-Tent.el (U-00024F29): Use `->subsumptive';
+	add H7-E676.
 
 	* u02100-Letterlike-Symbols.el: In each *fullwidth* variant:
 	- Use `<-denotational' instead of `=>ucs'.
