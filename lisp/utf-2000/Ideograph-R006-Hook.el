@@ -162,9 +162,15 @@
     (total-strokes	 . 7)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
-    (vulgar-char-of-shinjigen-1 . 69)
+    (vulgar-ideograph-of
+     ((sources		  shinjigen-1)
+      (char . ((shinjigen-1	   . 69)
+	       (ideograph-daikanwa . 00241)	; ø¸€ƒ±
+	       ))
+      ))
     (japanese-jisx0208-1978	. #x502F)	; ø»ƒ
     (japanese-jisx0208		. #x502F)	; ø»‡•˜
+    (japanese-jisx0208-1990	. #x502F)	; ø½Š»Œ
     (ucs			. #x4E8A)	; äºŠ
     ))
 (define-char
