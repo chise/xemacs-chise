@@ -1,5 +1,13 @@
 1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R015-Ice.el (M01612.07): Separate U+4ECC and
+	C3-214C to M00360.
+
+	* utf-2000/Ideograph-R013-Down-Box.el (M001512): Separate C3-2148
+	to M00366'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R009-Man.el: Delete wrong? C6-XXXX
 	code-points.
 
