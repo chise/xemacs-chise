@@ -365,7 +365,8 @@
     (ucs		. #x2008D)	; 𠂍
     ))
 (define-char
-  '((ideographic-radical . 4)	; ⼃
+  '((=>ucs		. #x51E2)	; 凢
+    (ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
     (->same-ideograph
