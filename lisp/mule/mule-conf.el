@@ -267,7 +267,7 @@
 		  columns	2
 		  direction	l2r))
   (make-charset
-   'china3-jef
+   '=jef-china3
    "JEF + CHINA3"
    `(long-name "JEF + CHINA3 private characters"
 	       chars 256
@@ -279,6 +279,7 @@
 	       min-code #xE80000
 	       max-code #xE8FFFF
 	       code-offset #xE80000))
+  (define-charset-alias 'china3-jef '=jef-china3)
   )
 
 ;;; mule-conf.el ends here
