@@ -1,4 +1,4 @@
-1999-08-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+1999-08-17  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (determine_real_coding_system): Treat `coding:'
 	cookie.
