@@ -2982,6 +2982,7 @@
     (japanese-jisx0213-2	. #x2825)	; ø»¤§–
     (ideograph-daikanwa		. 07242)	; ø¸±Š
     (ideograph-cbeta		. 00716)	; ø¸ ‹Œ
+    (mojikyo			. 007242)	; ý €±Š
     ))
 (define-char
   '((morohashi-daikanwa	7242 0 0)
@@ -2989,6 +2990,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (chinese-cns11643-3 . #x3B21)	; ø»•¼°
+    (china3-jef		. #x97E9)	; øº‰Ÿ©
     (ucs		. #x3762)	; ã¢
     ))
 (define-char

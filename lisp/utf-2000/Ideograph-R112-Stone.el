@@ -1310,6 +1310,7 @@
     (chinese-isoir165	. #x5452)	; ø»¹¿
     (chinese-cns11643-1 . #x567E)	; ø»’‘¯
     (ideograph-daikanwa . 24143)	; ø¸…¹
+    (china3-jef		. #x9AA9)	; øº‰ª©
     (ucs		. #x7838)	; ç ¸
     ))
 (define-char
@@ -3488,6 +3489,8 @@
     (chinese-isoir165		. #x357A)	; ø»…
     (japanese-jisx0213-2	. #x724E)	; ø»¦”«
     (ideograph-daikanwa		. 24316)	; ø¸…»¼
+    (china3-jef			. #x9FD9)	; øº‰¿™
+    (mojikyo			. 024316)	; ý €…»¼
     (ucs			. #x789F)	; ç¢Ÿ
     ))
 (define-char

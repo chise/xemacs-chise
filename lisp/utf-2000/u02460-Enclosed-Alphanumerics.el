@@ -10,6 +10,7 @@
     (korean-ksc5601		. #x2867)	; ø»ˆ¥¤
     (chinese-cns11643-1		. #x2621)	; ø»‘‰²
     (japanese-jisx0213-1	. #x2D21)	; ø»¢¤¤
+    (china3-jef			. #x77C9)	; øº‡Ÿ‰
     (chinese-big5-eten		. #xC6A1)	; ý¢€Œš¡
     (ucs			. #x2460)	; â‘ 
     ))
@@ -25,6 +26,7 @@
     (korean-ksc5601		. #x2868)	; ø»ˆ¥¥
     (chinese-cns11643-1		. #x2622)	; ø»‘‰³
     (japanese-jisx0213-1	. #x2D22)	; ø»¢¤¥
+    (china3-jef			. #x77CA)	; øº‡ŸŠ
     (chinese-big5-eten		. #xC6A2)	; ý¢€Œš¢
     (ucs			. #x2461)	; â‘¡
     ))
@@ -40,6 +42,7 @@
     (korean-ksc5601		. #x2869)	; ø»ˆ¥¦
     (chinese-cns11643-1		. #x2623)	; ø»‘‰´
     (japanese-jisx0213-1	. #x2D23)	; ø»¢¤¦
+    (china3-jef			. #x77CB)	; øº‡Ÿ‹
     (chinese-big5-eten		. #xC6A3)	; ý¢€Œš£
     (ucs			. #x2462)	; â‘¢
     ))
@@ -55,6 +58,7 @@
     (korean-ksc5601		. #x286A)	; ø»ˆ¥§
     (chinese-cns11643-1		. #x2624)	; ø»‘‰µ
     (japanese-jisx0213-1	. #x2D24)	; ø»¢¤§
+    (china3-jef			. #x77CC)	; øº‡ŸŒ
     (chinese-big5-eten		. #xC6A4)	; ý¢€Œš¤
     (ucs			. #x2463)	; â‘£
     ))
@@ -70,6 +74,7 @@
     (korean-ksc5601		. #x286B)	; ø»ˆ¥¨
     (chinese-cns11643-1		. #x2625)	; ø»‘‰¶
     (japanese-jisx0213-1	. #x2D25)	; ø»¢¤¨
+    (china3-jef			. #x77CD)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A5)	; ý¢€Œš¥
     (ucs			. #x2464)	; â‘¤
     ))
@@ -85,6 +90,7 @@
     (korean-ksc5601		. #x286C)	; ø»ˆ¥©
     (chinese-cns11643-1		. #x2626)	; ø»‘‰·
     (japanese-jisx0213-1	. #x2D26)	; ø»¢¤©
+    (china3-jef			. #x77CE)	; øº‡ŸŽ
     (chinese-big5-eten		. #xC6A6)	; ý¢€Œš¦
     (ucs			. #x2465)	; â‘¥
     ))
@@ -100,6 +106,7 @@
     (korean-ksc5601		. #x286D)	; ø»ˆ¥ª
     (chinese-cns11643-1		. #x2627)	; ø»‘‰¸
     (japanese-jisx0213-1	. #x2D27)	; ø»¢¤ª
+    (china3-jef			. #x77CF)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A7)	; ý¢€Œš§
     (ucs			. #x2466)	; â‘¦
     ))
@@ -115,6 +122,7 @@
     (korean-ksc5601		. #x286E)	; ø»ˆ¥«
     (chinese-cns11643-1		. #x2628)	; ø»‘‰¹
     (japanese-jisx0213-1	. #x2D28)	; ø»¢¤«
+    (china3-jef			. #x77D0)	; øº‡Ÿ
     (chinese-big5-eten		. #xC6A8)	; ý¢€Œš¨
     (ucs			. #x2467)	; â‘§
     ))
@@ -130,6 +138,7 @@
     (korean-ksc5601		. #x286F)	; ø»ˆ¥¬
     (chinese-cns11643-1		. #x2629)	; ø»‘‰º
     (japanese-jisx0213-1	. #x2D29)	; ø»¢¤¬
+    (china3-jef			. #x77D1)	; øº‡Ÿ‘
     (chinese-big5-eten		. #xC6A9)	; ý¢€Œš©
     (ucs			. #x2468)	; â‘¨
     ))
@@ -144,6 +153,7 @@
     (korean-ksc5601		. #x2870)	; ø»ˆ¥­
     (chinese-cns11643-1		. #x262A)	; ø»‘‰»
     (japanese-jisx0213-1	. #x2D2A)	; ø»¢¤­
+    (china3-jef			. #x77D2)	; øº‡Ÿ’
     (chinese-big5-eten		. #xC6AA)	; ý¢€Œšª
     (ucs			. #x2469)	; â‘©
     ))
@@ -156,6 +166,7 @@
     (->decomposition	circle #x0031 #x0031)
     (korean-ksc5601		. #x2871)	; ø»ˆ¥®
     (japanese-jisx0213-1	. #x2D2B)	; ø»¢¤®
+    (china3-jef			. #x77D3)	; øº‡Ÿ“
     (ucs			. #x246A)	; â‘ª
     ))
 (define-char
@@ -167,6 +178,7 @@
     (->decomposition	circle #x0031 #x0032)
     (korean-ksc5601		. #x2872)	; ø»ˆ¥¯
     (japanese-jisx0213-1	. #x2D2C)	; ø»¢¤¯
+    (china3-jef			. #x77D4)	; øº‡Ÿ”
     (ucs			. #x246B)	; â‘«
     ))
 (define-char
@@ -178,6 +190,7 @@
     (->decomposition	circle #x0031 #x0033)
     (korean-ksc5601		. #x2873)	; ø»ˆ¥°
     (japanese-jisx0213-1	. #x2D2D)	; ø»¢¤°
+    (china3-jef			. #x77D5)	; øº‡Ÿ•
     (ucs			. #x246C)	; â‘¬
     ))
 (define-char
@@ -189,6 +202,7 @@
     (->decomposition	circle #x0031 #x0034)
     (korean-ksc5601		. #x2874)	; ø»ˆ¥±
     (japanese-jisx0213-1	. #x2D2E)	; ø»¢¤±
+    (china3-jef			. #x77D6)	; øº‡Ÿ–
     (ucs			. #x246D)	; â‘­
     ))
 (define-char
@@ -200,6 +214,7 @@
     (->decomposition	circle #x0031 #x0035)
     (korean-ksc5601		. #x2875)	; ø»ˆ¥²
     (japanese-jisx0213-1	. #x2D2F)	; ø»¢¤²
+    (china3-jef			. #x77D7)	; øº‡Ÿ—
     (ucs			. #x246E)	; â‘®
     ))
 (define-char
@@ -210,6 +225,7 @@
     (numeric-value	. 16)
     (->decomposition	circle #x0031 #x0036)
     (japanese-jisx0213-1	. #x2D30)	; ø»¢¤³
+    (china3-jef			. #x77D8)	; øº‡Ÿ˜
     (ucs			. #x246F)	; â‘¯
     ))
 (define-char
@@ -220,6 +236,7 @@
     (numeric-value	. 17)
     (->decomposition	circle #x0031 #x0037)
     (japanese-jisx0213-1	. #x2D31)	; ø»¢¤´
+    (china3-jef			. #x77D9)	; øº‡Ÿ™
     (ucs			. #x2470)	; â‘°
     ))
 (define-char
@@ -230,6 +247,7 @@
     (numeric-value	. 18)
     (->decomposition	circle #x0031 #x0038)
     (japanese-jisx0213-1	. #x2D32)	; ø»¢¤µ
+    (china3-jef			. #x77DA)	; øº‡Ÿš
     (ucs			. #x2471)	; â‘±
     ))
 (define-char
@@ -240,6 +258,7 @@
     (numeric-value	. 19)
     (->decomposition	circle #x0031 #x0039)
     (japanese-jisx0213-1	. #x2D33)	; ø»¢¤¶
+    (china3-jef			. #x77DB)	; øº‡Ÿ›
     (ucs			. #x2472)	; â‘²
     ))
 (define-char
@@ -250,6 +269,7 @@
     (numeric-value	. 20)
     (->decomposition	circle #x0032 #x0030)
     (japanese-jisx0213-1	. #x2D34)	; ø»¢¤·
+    (china3-jef			. #x77DC)	; øº‡Ÿœ
     (ucs			. #x2473)	; â‘³
     ))
 (define-char
@@ -712,6 +732,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0061 #x0029)
     (korean-ksc5601	. #x294D)	; ø»ˆ¦¨
+    (china3-jef		. #x78A1)	; øº‡¢¡
     (ucs		. #x249C)	; â’œ
     ))
 (define-char
@@ -721,6 +742,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0062 #x0029)
     (korean-ksc5601	. #x294E)	; ø»ˆ¦©
+    (china3-jef		. #x78A2)	; øº‡¢¢
     (ucs		. #x249D)	; â’
     ))
 (define-char
@@ -730,6 +752,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0063 #x0029)
     (korean-ksc5601	. #x294F)	; ø»ˆ¦ª
+    (china3-jef		. #x78A3)	; øº‡¢£
     (ucs		. #x249E)	; â’ž
     ))
 (define-char
@@ -739,6 +762,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0064 #x0029)
     (korean-ksc5601	. #x2950)	; ø»ˆ¦«
+    (china3-jef		. #x78A4)	; øº‡¢¤
     (ucs		. #x249F)	; â’Ÿ
     ))
 (define-char
@@ -748,6 +772,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0065 #x0029)
     (korean-ksc5601	. #x2951)	; ø»ˆ¦¬
+    (china3-jef		. #x78A5)	; øº‡¢¥
     (ucs		. #x24A0)	; â’ 
     ))
 (define-char
@@ -757,6 +782,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0066 #x0029)
     (korean-ksc5601	. #x2952)	; ø»ˆ¦­
+    (china3-jef		. #x78A6)	; øº‡¢¦
     (ucs		. #x24A1)	; â’¡
     ))
 (define-char
@@ -766,6 +792,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0067 #x0029)
     (korean-ksc5601	. #x2953)	; ø»ˆ¦®
+    (china3-jef		. #x78A7)	; øº‡¢§
     (ucs		. #x24A2)	; â’¢
     ))
 (define-char
@@ -775,6 +802,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0068 #x0029)
     (korean-ksc5601	. #x2954)	; ø»ˆ¦¯
+    (china3-jef		. #x78A8)	; øº‡¢¨
     (ucs		. #x24A3)	; â’£
     ))
 (define-char
@@ -784,6 +812,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0069 #x0029)
     (korean-ksc5601	. #x2955)	; ø»ˆ¦°
+    (china3-jef		. #x78A9)	; øº‡¢©
     (ucs		. #x24A4)	; â’¤
     ))
 (define-char
@@ -793,6 +822,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006A #x0029)
     (korean-ksc5601	. #x2956)	; ø»ˆ¦±
+    (china3-jef		. #x78AA)	; øº‡¢ª
     (ucs		. #x24A5)	; â’¥
     ))
 (define-char
@@ -802,6 +832,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006B #x0029)
     (korean-ksc5601	. #x2957)	; ø»ˆ¦²
+    (china3-jef		. #x78AB)	; øº‡¢«
     (ucs		. #x24A6)	; â’¦
     ))
 (define-char
@@ -811,6 +842,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006C #x0029)
     (korean-ksc5601	. #x2958)	; ø»ˆ¦³
+    (china3-jef		. #x78AC)	; øº‡¢¬
     (ucs		. #x24A7)	; â’§
     ))
 (define-char
@@ -820,6 +852,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006D #x0029)
     (korean-ksc5601	. #x2959)	; ø»ˆ¦´
+    (china3-jef		. #x78AD)	; øº‡¢­
     (ucs		. #x24A8)	; â’¨
     ))
 (define-char
@@ -829,6 +862,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006E #x0029)
     (korean-ksc5601	. #x295A)	; ø»ˆ¦µ
+    (china3-jef		. #x78AE)	; øº‡¢®
     (ucs		. #x24A9)	; â’©
     ))
 (define-char
@@ -838,6 +872,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x006F #x0029)
     (korean-ksc5601	. #x295B)	; ø»ˆ¦¶
+    (china3-jef		. #x78AF)	; øº‡¢¯
     (ucs		. #x24AA)	; â’ª
     ))
 (define-char
@@ -847,6 +882,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0070 #x0029)
     (korean-ksc5601	. #x295C)	; ø»ˆ¦·
+    (china3-jef		. #x78B0)	; øº‡¢°
     (ucs		. #x24AB)	; â’«
     ))
 (define-char
@@ -856,6 +892,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0071 #x0029)
     (korean-ksc5601	. #x295D)	; ø»ˆ¦¸
+    (china3-jef		. #x78B1)	; øº‡¢±
     (ucs		. #x24AC)	; â’¬
     ))
 (define-char
@@ -865,6 +902,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0072 #x0029)
     (korean-ksc5601	. #x295E)	; ø»ˆ¦¹
+    (china3-jef		. #x78B2)	; øº‡¢²
     (ucs		. #x24AD)	; â’­
     ))
 (define-char
@@ -874,6 +912,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0073 #x0029)
     (korean-ksc5601	. #x295F)	; ø»ˆ¦º
+    (china3-jef		. #x78B3)	; øº‡¢³
     (ucs		. #x24AE)	; â’®
     ))
 (define-char
@@ -883,6 +922,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0074 #x0029)
     (korean-ksc5601	. #x2960)	; ø»ˆ¦»
+    (china3-jef		. #x78B4)	; øº‡¢´
     (ucs		. #x24AF)	; â’¯
     ))
 (define-char
@@ -892,6 +932,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0075 #x0029)
     (korean-ksc5601	. #x2961)	; ø»ˆ¦¼
+    (china3-jef		. #x78B5)	; øº‡¢µ
     (ucs		. #x24B0)	; â’°
     ))
 (define-char
@@ -901,6 +942,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0076 #x0029)
     (korean-ksc5601	. #x2962)	; ø»ˆ¦½
+    (china3-jef		. #x78B6)	; øº‡¢¶
     (ucs		. #x24B1)	; â’±
     ))
 (define-char
@@ -910,6 +952,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0077 #x0029)
     (korean-ksc5601	. #x2963)	; ø»ˆ¦¾
+    (china3-jef		. #x78B7)	; øº‡¢·
     (ucs		. #x24B2)	; â’²
     ))
 (define-char
@@ -919,6 +962,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0078 #x0029)
     (korean-ksc5601	. #x2964)	; ø»ˆ¦¿
+    (china3-jef		. #x78B8)	; øº‡¢¸
     (ucs		. #x24B3)	; â’³
     ))
 (define-char
@@ -928,6 +972,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x0079 #x0029)
     (korean-ksc5601	. #x2965)	; ø»ˆ§€
+    (china3-jef		. #x78B9)	; øº‡¢¹
     (ucs		. #x24B4)	; â’´
     ))
 (define-char
@@ -937,6 +982,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x007A #x0029)
     (korean-ksc5601	. #x2966)	; ø»ˆ§
+    (china3-jef		. #x78BA)	; øº‡¢º
     (ucs		. #x24B5)	; â’µ
     ))
 (define-char

@@ -70,6 +70,8 @@
     (total-strokes	 . 4)
     (chinese-cns11643-3 . #x2162)	; ø»•—¥
     (ideograph-daikanwa . 07829)	; ø¸º•
+    (china3-jef		. #x97EC)	; øº‰Ÿ¬
+    (mojikyo		. 007829)	; ý €º•
     (ucs		. #x37A2)	; ãž¢
     ))
 (define-char

@@ -207,6 +207,7 @@
     (chinese-cns11643-1		. #x256F)	; ø»‘‰¢
     (japanese-jisx0213-1	. #x2A31)	; ø»¢ š
     (chinese-big5		. #xA3BE)	; ý¢€ŠŽ¾
+    (china3-jef			. #x81AB)	; øºˆ†«
     ))
 (define-char
   '((name		. "MODIFIER LETTER VERTICAL LINE")
@@ -483,6 +484,7 @@
     (korean-ksc5601		. #x2228)	; ø»ˆ›±
     (japanese-jisx0212		. #x222F)	; ø»Š¥¼
     (japanese-jisx0213-1	. #x2A22)	; ø»¢ ‹
+    (china3-jef			. #x81A8)	; øºˆ†¨
     ))
 (define-char
   '((name		. "DOT ABOVE")
@@ -520,6 +522,7 @@
     (chinese-cns11643-1		. #x256C)	; ø»‘‰Ÿ
     (japanese-jisx0213-1	. #x2A58)	; ø»¢¡
     (chinese-big5		. #xA3BB)	; ý¢€ŠŽ»
+    (china3-jef			. #x81A9)	; øºˆ†©
     ))
 (define-char
   '((name		. "RING ABOVE")
@@ -547,6 +550,7 @@
       ))
     (korean-ksc5601	. #x222A)	; ø»ˆ›³
     (japanese-jisx0212	. #x2236)	; ø»Š¦ƒ
+    (china3-jef		. #x81AC)	; øºˆ†¬
     ))
 (define-char
   '((name		. "OGONEK")
@@ -577,6 +581,7 @@
     (korean-ksc5601		. #x222D)	; ø»ˆ›¶
     (japanese-jisx0212		. #x2235)	; ø»Š¦‚
     (japanese-jisx0213-1	. #x2A2D)	; ø»¢ –
+    (china3-jef			. #x81B3)	; øºˆ†³
     ))
 (define-char
   '((name		. "SMALL TILDE")
@@ -615,6 +620,7 @@
     (korean-ksc5601		. #x2229)	; ø»ˆ›²
     (japanese-jisx0212		. #x2233)	; ø»Š¦€
     (japanese-jisx0213-1	. #x2A36)	; ø»¢ Ÿ
+    (china3-jef			. #x81B0)	; øºˆ†°
     ))
 (define-char
   '((name		. "MODIFIER LETTER RHOTIC HOOK")

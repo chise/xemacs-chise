@@ -136,6 +136,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (china3-jef		. #x76B4)	; øº‡š´
     (ucs		. #x2610)	; â˜
     ))
 (define-char
@@ -699,6 +700,7 @@
     (mirrored		. nil)
     (korean-ksc5601		. #x223D)	; ø»ˆœ†
     (japanese-jisx0213-1	. #x263D)	; ø»¢š®
+    (china3-jef			. #x76B6)	; øº‡š¶
     (ucs			. #x2661)	; â™¡
     ))
 (define-char
@@ -707,6 +709,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (japanese-jisx0213-1	. #x263B)	; ø»¢š¬
+    (china3-jef			. #x76B8)	; øº‡š¸
     (ucs			. #x2662)	; â™¢
     ))
 (define-char
@@ -725,6 +728,7 @@
     (mirrored		. nil)
     (korean-ksc5601		. #x223B)	; ø»ˆœ„
     (japanese-jisx0213-1	. #x2639)	; ø»¢šª
+    (china3-jef			. #x76B7)	; øº‡š·
     (ucs			. #x2664)	; â™¤
     ))
 (define-char
@@ -751,6 +755,7 @@
     (mirrored		. nil)
     (korean-ksc5601		. #x223F)	; ø»ˆœˆ
     (japanese-jisx0213-1	. #x263F)	; ø»¢š°
+    (china3-jef			. #x76B5)	; øº‡šµ
     (ucs			. #x2667)	; â™§
     ))
 (define-char

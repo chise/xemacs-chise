@@ -969,6 +969,8 @@
     (total-strokes	 . 9)
     (chinese-cns11643-5 . #x2A6A)	; ø»™¹ƒ
     (ideograph-daikanwa . 23186)	; ø¸…ª’
+    (china3-jef		. #x99F9)	; øº‰§¹
+    (mojikyo		. 023186)	; ý €…ª’
     (ucs		. #x25115)	; ð¥„•
     ))
 (define-char

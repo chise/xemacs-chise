@@ -1157,6 +1157,7 @@
     (total-strokes	 . 13)
     (chinese-big5	. #xDDFA)	; ý¢€·º
     (ideograph-daikanwa . 16126)	; ø¸ƒ»¾
+    (china3-jef		. #x9FCA)	; øº‰¿Š
     ))
 (define-char
   '((morohashi-daikanwa	16126 0 0)
