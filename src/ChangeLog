@@ -1,3 +1,8 @@
+2004-09-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (syms_of_mule_charset): Rename
+	`=jis-x0208-{1978|1983|1990}' to `=jis-x0208@{1978|1983|1990}'.
+
 2004-08-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* fns.c (simplify_char_spec): Don't allocate new character-object
