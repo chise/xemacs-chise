@@ -570,10 +570,17 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (non-morohashi	28 9)
     (chinese-gb2312	. #x5728)	; ø»…•Ÿ
     (chinese-isoir165	. #x5728)	; ø»½¯
     (ucs		. #x4E13)	; ä¸“
+    ))
+(define-char
+  '((=>ucs		. #x5187)	; å†‡
+    (ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (chinese-cns11643-2 . #x212E)	; ø»“Œ­
+    (chinese-big5	. #xC94E)	; øº¡¥’
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
