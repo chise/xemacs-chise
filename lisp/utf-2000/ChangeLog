@@ -1,5 +1,9 @@
 2002-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R046-Mountain.el: Merge some CJK Ext-B code points.
+
+2002-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mojikyo-ccs.el: Add (provide 'mojikyo-ccs).
 
 	* mojikyo-conf.el: Add (provide 'mojikyo-conf).
