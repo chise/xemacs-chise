@@ -191,9 +191,11 @@ typedef int Charset_ID;
 /* TIS620-2533 */
 #define LEADING_BYTE_THAI_TIS620	166 /* (CHARSET_ID_OFFSET_96 + 'T') */
 
+/* Right-hand Part of the VSCII-2 (TCVN 5712:1983) */
+#define LEADING_BYTE_LATIN_TCVN5712	180 /* F = 5/10 0x5A `Z' */
+
 
 /* #define CHARSET_ID_OFFSET_94x94		(CHARSET_ID_OFFSET_96 + 80) */
-
 
 /* #define MIN_LEADING_BYTE_PRIVATE_2	('0' + CHARSET_ID_OFFSET_94x94) */
 /* #define MAX_LEADING_BYTE_PRIVATE_2	('?' + CHARSET_ID_OFFSET_94x94) */
