@@ -258,7 +258,6 @@ DESCRIPTION (string) is the description string of the charset."
 (when (featurep 'utf-2000)
   (setq default-coded-charset-priority-list
 	'(ascii
-          ;; latin-iso646-irv
 	  control-1
 	  latin-iso8859-1
 	  latin-iso8859-2
@@ -269,8 +268,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
-          ;; hiragana-jisx0208
-          ;; katakana-jisx0208
 	  japanese-jisx0208
 	  japanese-jisx0212
 	  chinese-cns11643-1
@@ -291,6 +288,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  ethiopic-ucs
 	  ethiopic
 	  ucs-bmp
-	  arabic-iso8859-6)))
+	  arabic-iso8859-6
+	  ideograph-daikanwa)))
 
 ;;; mule-charset.el ends here
