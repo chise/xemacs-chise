@@ -1,3 +1,104 @@
+2001-10-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R061-Heart.el (CB-01158): New character.
+
+2001-10-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R013-Down-Box.el (S1-522): Unify GT-02025 and M070584.
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CJK Ext-B code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
+	* ad-hoc-cdp.el: New file.
+
+	* Ideograph-R029-Again.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA code points.
+
+	* Ideograph-R028-Private.el (C4-2249): Unify CB-06611.
+	(U+53C5): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify CB-03744.
+
+	* Ideograph-R026-Seal.el (U+536D): Add `ideographic-structure';
+	unify CB-00886.
+	(U+5374): Add `ideographic-structure'; unify CB-00230.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5215): Use M-05972 instead
+	of U+5927/U+54C1 in the `ideographic-structure'.
+
+	* Ideograph-R018-Knife.el (U+5215): Use C4-2141 instead of
+	U+5200|U+5200.
+
+2001-10-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R122-Net.el (U+7F53): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add
+	`ideographic-structure'; unify BC-85BE.
+
+	* Ideograph-R109-Eye.el (J0-6243): Unify BC-88E9.
+
+	* Ideograph-R050-Turban.el (U+5E42): Separated from C3-3979 and
+	moved from Ideograph-R014-Cover.el.
+
+	* Ideograph-R025-Divination.el (M070816): New character.
+	(M-02776): Unify CB-00855.
+	(U+535D): Add `ideographic-structure'; unify CB-01453.
+	(J0-5246): Add `ideographic-structure'.
+	(U+535E): Use char-spec instead of char-ref as the operator in
+	`ideographic-structure'.
+	(M-02820): Add `ideographic-structure'; unify CB-05348.
+	(U+5368): Add `ideographic-structure'.
+
+	* Ideograph-R015-Ice.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge CJK Ext-B code points.
+	(C6-235C): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; unify U-000205B1.
+
+	* Ideograph-R014-Cover.el (U-000****): Merge missing
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R012-Eight.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge CJK Ext-B code points.
+	- Merge Big5-CDP code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
+	* Ideograph-R011-Enter.el:
+	- Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge CJK Ext-B code points.
+	(M-01416): Relate to U-000204DB instead of U+4EBD.
+	(C6-2136): Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; unify U-000204DB.
+
+	* Ideograph-R003-Dot.el (U-0002007D): Unify BC-87B9.
+	(C1-443B): Separated from U+51E1 and moved from
+	Ideograph-R016-Table.el.
+
+2001-10-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	- Add some `ideographic-structure' properties.
+	- Merge CJK Ext-B code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
 2001-10-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (BC-8B4B): New character.
