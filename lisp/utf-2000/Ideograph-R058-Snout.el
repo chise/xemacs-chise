@@ -39,7 +39,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
     (->identical
-     ((=gt		  . 60403)	; ý¡€Ž¯³
+     ((=gt		  . 67403)	; ý¡€‹
       ))
     (=gt-k		. 00267)	; ý¡„€„‹
     (=gt-pj-k1		. #x3974)	; ý¡„€„‹
