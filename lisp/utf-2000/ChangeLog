@@ -1,3 +1,8 @@
+2002-03-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el: Merge some missing mapping to CHINA3-JEF
+	code points.
+
 2002-02-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R170-Mound.el (U+9689): Separate JSP-6664.
