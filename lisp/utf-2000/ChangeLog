@@ -1,4 +1,36 @@
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+7A4E): Use `->subsumptive'.
+
 2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U+9834): Use `->subsumptive'.
+
+	* Ideograph-R113-Spirit.el (M-24824): Use `zhengzi-tong' instead
+	of `seiji-tsuu' in `<-vulgar*sources'.
+
+	* Ideograph-R165-Distinguish.el (GT-53949): Use `<-denotational'
+	for U+91C8.
+	(U+91C8): Define as an abstract character.
+	(J0-3C61): Separate U+91C8; use `<-denotational' for U+91C8.
+
+2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (M-24754): Moved into U+7985.
+	(U+7985): Use `->subsumptive'.
+	(M-24824): Moved into U+9834.
+	(C3-5228): Moved into U+9834.
+	(U+9834): Use `->subsumptive'.
+
+	* Ideograph-R085-Water.el (U+6C7A): Use `->subsumptive'.
+	(C1-4A6E): Moved into U+6C7A.
+	(G0-4549): Separate U+6D3E; use `->subsumptive' to integrate
+	K0-776F; use `<-denotational' for U+6D3E.
+	(J83-4749): Use `->subsumptive' to integrate J90-4749; use
+	`<-denotational' for U+6D3E.
+	(U+6D3E): Define as an abstract character.
+	(C6-3242): Use `<-denotational' for U+6D3E; use `=>daikanwa'
+	instead of `morohashi-daikanwa'.
 
 	* Ideograph-R170-Mound.el (U+96A3): Use `->subsumptive'.
 	(C3-4F5A): Moved into U+96A3.
