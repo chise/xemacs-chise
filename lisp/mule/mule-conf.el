@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 1995,1999 Electrotechnical Laboratory, JAPAN.
 ;; Licensed to the Free Software Foundation.
-;; Copyright (C) 1997,1999 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2000 MORIOKA Tomohiko
 
 ;; Keywords: mule, multilingual, character set, coding system
 
@@ -101,7 +101,7 @@
 (make-charset
  'japanese-jisx0213-1
  "JIS X 0213:2000 Plain 1"
- '(registry "jisx0213-1"
+ '(registry "jisx0213\\(\\.2000\\)-1"
    dimension 2
    chars 94
    final ?O
@@ -110,7 +110,7 @@
 (make-charset
  'japanese-jisx0213-2
  "JIS X 0213:2000 Plain 2"
- '(registry "jisx0213-2"
+ '(registry "jisx0213\\(\\.2000\\)-2"
    dimension 2
    chars 94
    final ?P
