@@ -241,6 +241,7 @@
 ;;	(when-feature sparcworks "sun-eos-debugger-extra")
 ;;	(when-feature sparcworks "sun-eos-menubar")
         ;; (when-feature utf-2000 "make-cdbs")
+	(when-feature utf-2000 "close-cdb")
 	"loadhist"		; Must be dumped before loaddefs is loaded
 	"loaddefs"		; <=== autoloads get loaded here
 ))
