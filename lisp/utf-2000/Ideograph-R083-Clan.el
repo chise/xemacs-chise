@@ -8,10 +8,11 @@
     (=ks-x1001		. #x642B)	; ø»‰¼°
     (=iso-ir165		. #x4A4F)	; ø»«
     (=cns11643-1	. #x4554)	; ø»‘¸‡
-    (=gt-pj-1		. #x3B61)	; æ°
+    (=gt-pj-1		. #x3B61)	; ý¡€…”©
     (=big5		. #xA4F3)	; ý¢€Š“³
     (=daikanwa		. 17026)	; ø¸„Š‚
     (=gt-k		. 00441)	; ý¡„€†¹
+    (=gt		. 21801)	; ý¡€…”©
     (=ucs		. #x6C0F)	; æ°
     ))
 (define-char
@@ -46,10 +47,11 @@
     (=ks-x1001		. #x5A45)	; ø»‰®ž
     (=iso-ir165		. #x4371)	; ø»¡ 
     (=cns11643-1	. #x4661)	; ø»‘¹²
-    (=gt-pj-1		. #x4C31)	; æ°‘
+    (=gt-pj-1		. #x4C31)	; ý¡€…”¬
     (=big5		. #xA5C1)	; ý¢€Š—
     (=daikanwa		. 17028)	; ø¸„Š„
     (=gt-k		. 01008)	; ý¡„€°
+    (=gt		. 21804)	; ý¡€…”¬
     (=ucs		. #x6C11)	; æ°‘
     ))
 (define-char
@@ -67,10 +69,10 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (shinjigen-2	. 4040)
-    (=jis-x0208-1990	. #x5D62)	; ø½‹…
-    (=big5		. #xAA5D)	; ý¢€Š©
+    (=jis-x0208-1978	. #x5D62)	; ø»ƒ•‰
+    (=jis-x0208-1983	. #x5D62)	; ø»‡©‘
+    (=ks-x1001		. #x586C)	; ø»‰¬‰
     (=daikanwa		. 17030)	; ø¸„Š†
-    (=ucs@jis		. #x6C13)	; ø½‹…
     ))
 (define-char
   '((=>ucs		. #x6C13)	; æ°“
@@ -78,7 +80,10 @@
     (ideographic-radical . 83)	; â½’
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=cns11643-1	. #x4E40)	; ø»’…
+    (shinjigen-2	. 4040)
+    (=jis-x0208-1990	. #x5D62)	; ø½‹…
+    (=big5		. #xAA5D)	; ý¢€Š©
+    (=ucs@jis		. #x6C13)	; ø½‹…
     ))
 (define-char
   '((=>ucs		. #x6C13)	; æ°“
@@ -86,12 +91,19 @@
     (ideographic-radical . 83)	; â½’
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (=jis-x0208-1978	. #x5D62)	; ø»ƒ•‰
-    (=jis-x0208-1983	. #x5D62)	; ø»‡©‘
-    (=ks-x1001		. #x586C)	; ø»‰¬‰
+    (=gt-pj-1		. #x5D62)	; ý¡€…”°
+    (=gt		. 21808)	; ý¡€…”°
     ))
 (define-char
-  '((morohashi-daikanwa	17030 0 2)
+  '((=>ucs		. #x6C13)	; æ°“
+    (morohashi-daikanwa	17030 0 2)
+    (ideographic-radical . 83)	; â½’
+    (ideographic-strokes . 4)
+    (total-strokes	 . 8)
+    (=cns11643-1	. #x4E40)	; ø»’…
+    ))
+(define-char
+  '((morohashi-daikanwa	17030 0 3)
     (ideographic-radical . 83)	; â½’
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
