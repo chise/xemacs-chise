@@ -2153,8 +2153,13 @@
       )
      ((ucs		  . #x5149)	; å…‰
       )
-     ((korean-ksc5601	  . #x4E46)	; ø»‰œ·
-      (ideograph-daikanwa . 09493)	; ø¸‚”•
+     ((ideographic-structure
+       ((ucs		    . #x2FF8)	; â¿¸
+	)
+       ((ucs		    . #x5E7F)	; å¹¿
+	)
+       ((ucs		    . #x9EC3)	; é»ƒ
+	))
       ))
     (ideograph-hanziku-1	. #xDED5)	; ý¢€»•
     ))
