@@ -18,8 +18,8 @@
   '((ideographic-radical . 52)	; â¼³
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (<-simplified
-     ((=ucs		  . #x5E7A)	; å¹º
+    (<-simplified-ideograph
+     ((=daikanwa	  . 09189)	; ø¸‚¥
       ))
     (=big5-cdp		. #x895C)	; ý¢€ˆ¥œ
     ))

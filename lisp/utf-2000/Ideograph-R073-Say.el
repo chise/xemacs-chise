@@ -478,7 +478,6 @@
 (define-char
   '((ideographic-radical . 73)	; ⽈
     (ideographic-strokes . 8)
-    (total-strokes	 . 12)
     (=ucs		. #x6702)	; 朂
     ))
 (define-char
