@@ -1,846 +1,846 @@
 (define-char
   '((name		. "HANGUL LETTER KIYEOK")
-    (ucs		. #x3131)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1100)
-    (korean-ksc5601	#x24 #x21)	; ø»ˆž¦
+    (korean-ksc5601	. #x2421)	; ø»ˆž¦
+    (ucs		. #x3131)	; ã„±
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGKIYEOK")
-    (ucs		. #x3132)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1101)
-    (korean-ksc5601	#x24 #x22)	; ø»ˆž§
+    (korean-ksc5601	. #x2422)	; ø»ˆž§
+    (ucs		. #x3132)	; ã„²
     ))
 (define-char
   '((name		. "HANGUL LETTER KIYEOK-SIOS")
-    (ucs		. #x3133)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AA)
-    (korean-ksc5601	#x24 #x23)	; ø»ˆž¨
+    (korean-ksc5601	. #x2423)	; ø»ˆž¨
+    (ucs		. #x3133)	; ã„³
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN")
-    (ucs		. #x3134)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1102)
-    (korean-ksc5601	#x24 #x24)	; ø»ˆž©
+    (korean-ksc5601	. #x2424)	; ø»ˆž©
+    (ucs		. #x3134)	; ã„´
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-CIEUC")
-    (ucs		. #x3135)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AC)
-    (korean-ksc5601	#x24 #x25)	; ø»ˆžª
+    (korean-ksc5601	. #x2425)	; ø»ˆžª
+    (ucs		. #x3135)	; ã„µ
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-HIEUH")
-    (ucs		. #x3136)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11AD)
-    (korean-ksc5601	#x24 #x26)	; ø»ˆž«
+    (korean-ksc5601	. #x2426)	; ø»ˆž«
+    (ucs		. #x3136)	; ã„¶
     ))
 (define-char
   '((name		. "HANGUL LETTER TIKEUT")
-    (ucs		. #x3137)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1103)
-    (korean-ksc5601	#x24 #x27)	; ø»ˆž¬
+    (korean-ksc5601	. #x2427)	; ø»ˆž¬
+    (ucs		. #x3137)	; ã„·
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGTIKEUT")
-    (ucs		. #x3138)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1104)
-    (korean-ksc5601	#x24 #x28)	; ø»ˆž­
+    (korean-ksc5601	. #x2428)	; ø»ˆž­
+    (ucs		. #x3138)	; ã„¸
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL")
-    (ucs		. #x3139)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1105)
-    (korean-ksc5601	#x24 #x29)	; ø»ˆž®
+    (korean-ksc5601	. #x2429)	; ø»ˆž®
+    (ucs		. #x3139)	; ã„¹
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK")
-    (ucs		. #x313A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B0)
-    (korean-ksc5601	#x24 #x2A)	; ø»ˆž¯
+    (korean-ksc5601	. #x242A)	; ø»ˆž¯
+    (ucs		. #x313A)	; ã„º
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-MIEUM")
-    (ucs		. #x313B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B1)
-    (korean-ksc5601	#x24 #x2B)	; ø»ˆž°
+    (korean-ksc5601	. #x242B)	; ø»ˆž°
+    (ucs		. #x313B)	; ã„»
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP")
-    (ucs		. #x313C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B2)
-    (korean-ksc5601	#x24 #x2C)	; ø»ˆž±
+    (korean-ksc5601	. #x242C)	; ø»ˆž±
+    (ucs		. #x313C)	; ã„¼
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-SIOS")
-    (ucs		. #x313D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B3)
-    (korean-ksc5601	#x24 #x2D)	; ø»ˆž²
+    (korean-ksc5601	. #x242D)	; ø»ˆž²
+    (ucs		. #x313D)	; ã„½
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-THIEUTH")
-    (ucs		. #x313E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B4)
-    (korean-ksc5601	#x24 #x2E)	; ø»ˆž³
+    (korean-ksc5601	. #x242E)	; ø»ˆž³
+    (ucs		. #x313E)	; ã„¾
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PHIEUPH")
-    (ucs		. #x313F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11B5)
-    (korean-ksc5601	#x24 #x2F)	; ø»ˆž´
+    (korean-ksc5601	. #x242F)	; ø»ˆž´
+    (ucs		. #x313F)	; ã„¿
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-HIEUH")
-    (ucs		. #x3140)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111A)
-    (korean-ksc5601	#x24 #x30)	; ø»ˆžµ
+    (korean-ksc5601	. #x2430)	; ø»ˆžµ
+    (ucs		. #x3140)	; ã…€
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM")
-    (ucs		. #x3141)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1106)
-    (korean-ksc5601	#x24 #x31)	; ø»ˆž¶
+    (korean-ksc5601	. #x2431)	; ø»ˆž¶
+    (ucs		. #x3141)	; ã…
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP")
-    (ucs		. #x3142)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1107)
-    (korean-ksc5601	#x24 #x32)	; ø»ˆž·
+    (korean-ksc5601	. #x2432)	; ø»ˆž·
+    (ucs		. #x3142)	; ã…‚
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGPIEUP")
-    (ucs		. #x3143)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1108)
-    (korean-ksc5601	#x24 #x33)	; ø»ˆž¸
+    (korean-ksc5601	. #x2433)	; ø»ˆž¸
+    (ucs		. #x3143)	; ã…ƒ
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS")
-    (ucs		. #x3144)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1121)
-    (korean-ksc5601	#x24 #x34)	; ø»ˆž¹
+    (korean-ksc5601	. #x2434)	; ø»ˆž¹
+    (ucs		. #x3144)	; ã…„
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS")
-    (ucs		. #x3145)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1109)
-    (korean-ksc5601	#x24 #x35)	; ø»ˆžº
+    (korean-ksc5601	. #x2435)	; ø»ˆžº
+    (ucs		. #x3145)	; ã……
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGSIOS")
-    (ucs		. #x3146)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110A)
-    (korean-ksc5601	#x24 #x36)	; ø»ˆž»
+    (korean-ksc5601	. #x2436)	; ø»ˆž»
+    (ucs		. #x3146)	; ã…†
     ))
 (define-char
   '((name		. "HANGUL LETTER IEUNG")
-    (ucs		. #x3147)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110B)
-    (korean-ksc5601	#x24 #x37)	; ø»ˆž¼
+    (korean-ksc5601	. #x2437)	; ø»ˆž¼
+    (ucs		. #x3147)	; ã…‡
     ))
 (define-char
   '((name		. "HANGUL LETTER CIEUC")
-    (ucs		. #x3148)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110C)
-    (korean-ksc5601	#x24 #x38)	; ø»ˆž½
+    (korean-ksc5601	. #x2438)	; ø»ˆž½
+    (ucs		. #x3148)	; ã…ˆ
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGCIEUC")
-    (ucs		. #x3149)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110D)
-    (korean-ksc5601	#x24 #x39)	; ø»ˆž¾
+    (korean-ksc5601	. #x2439)	; ø»ˆž¾
+    (ucs		. #x3149)	; ã…‰
     ))
 (define-char
   '((name		. "HANGUL LETTER CHIEUCH")
-    (ucs		. #x314A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110E)
-    (korean-ksc5601	#x24 #x3A)	; ø»ˆž¿
+    (korean-ksc5601	. #x243A)	; ø»ˆž¿
+    (ucs		. #x314A)	; ã…Š
     ))
 (define-char
   '((name		. "HANGUL LETTER KHIEUKH")
-    (ucs		. #x314B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x110F)
-    (korean-ksc5601	#x24 #x3B)	; ø»ˆŸ€
+    (korean-ksc5601	. #x243B)	; ø»ˆŸ€
+    (ucs		. #x314B)	; ã…‹
     ))
 (define-char
   '((name		. "HANGUL LETTER THIEUTH")
-    (ucs		. #x314C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1110)
-    (korean-ksc5601	#x24 #x3C)	; ø»ˆŸ
+    (korean-ksc5601	. #x243C)	; ø»ˆŸ
+    (ucs		. #x314C)	; ã…Œ
     ))
 (define-char
   '((name		. "HANGUL LETTER PHIEUPH")
-    (ucs		. #x314D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1111)
-    (korean-ksc5601	#x24 #x3D)	; ø»ˆŸ‚
+    (korean-ksc5601	. #x243D)	; ø»ˆŸ‚
+    (ucs		. #x314D)	; ã…
     ))
 (define-char
   '((name		. "HANGUL LETTER HIEUH")
-    (ucs		. #x314E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1112)
-    (korean-ksc5601	#x24 #x3E)	; ø»ˆŸƒ
+    (korean-ksc5601	. #x243E)	; ø»ˆŸƒ
+    (ucs		. #x314E)	; ã…Ž
     ))
 (define-char
   '((name		. "HANGUL LETTER A")
-    (ucs		. #x314F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1161)
-    (korean-ksc5601	#x24 #x3F)	; ø»ˆŸ„
+    (korean-ksc5601	. #x243F)	; ø»ˆŸ„
+    (ucs		. #x314F)	; ã…
     ))
 (define-char
   '((name		. "HANGUL LETTER AE")
-    (ucs		. #x3150)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1162)
-    (korean-ksc5601	#x24 #x40)	; ø»ˆŸ…
+    (korean-ksc5601	. #x2440)	; ø»ˆŸ…
+    (ucs		. #x3150)	; ã…
     ))
 (define-char
   '((name		. "HANGUL LETTER YA")
-    (ucs		. #x3151)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1163)
-    (korean-ksc5601	#x24 #x41)	; ø»ˆŸ†
+    (korean-ksc5601	. #x2441)	; ø»ˆŸ†
+    (ucs		. #x3151)	; ã…‘
     ))
 (define-char
   '((name		. "HANGUL LETTER YAE")
-    (ucs		. #x3152)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1164)
-    (korean-ksc5601	#x24 #x42)	; ø»ˆŸ‡
+    (korean-ksc5601	. #x2442)	; ø»ˆŸ‡
+    (ucs		. #x3152)	; ã…’
     ))
 (define-char
   '((name		. "HANGUL LETTER EO")
-    (ucs		. #x3153)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1165)
-    (korean-ksc5601	#x24 #x43)	; ø»ˆŸˆ
+    (korean-ksc5601	. #x2443)	; ø»ˆŸˆ
+    (ucs		. #x3153)	; ã…“
     ))
 (define-char
   '((name		. "HANGUL LETTER E")
-    (ucs		. #x3154)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1166)
-    (korean-ksc5601	#x24 #x44)	; ø»ˆŸ‰
+    (korean-ksc5601	. #x2444)	; ø»ˆŸ‰
+    (ucs		. #x3154)	; ã…”
     ))
 (define-char
   '((name		. "HANGUL LETTER YEO")
-    (ucs		. #x3155)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1167)
-    (korean-ksc5601	#x24 #x45)	; ø»ˆŸŠ
+    (korean-ksc5601	. #x2445)	; ø»ˆŸŠ
+    (ucs		. #x3155)	; ã…•
     ))
 (define-char
   '((name		. "HANGUL LETTER YE")
-    (ucs		. #x3156)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1168)
-    (korean-ksc5601	#x24 #x46)	; ø»ˆŸ‹
+    (korean-ksc5601	. #x2446)	; ø»ˆŸ‹
+    (ucs		. #x3156)	; ã…–
     ))
 (define-char
   '((name		. "HANGUL LETTER O")
-    (ucs		. #x3157)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1169)
-    (korean-ksc5601	#x24 #x47)	; ø»ˆŸŒ
+    (korean-ksc5601	. #x2447)	; ø»ˆŸŒ
+    (ucs		. #x3157)	; ã…—
     ))
 (define-char
   '((name		. "HANGUL LETTER WA")
-    (ucs		. #x3158)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116A)
-    (korean-ksc5601	#x24 #x48)	; ø»ˆŸ
+    (korean-ksc5601	. #x2448)	; ø»ˆŸ
+    (ucs		. #x3158)	; ã…˜
     ))
 (define-char
   '((name		. "HANGUL LETTER WAE")
-    (ucs		. #x3159)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116B)
-    (korean-ksc5601	#x24 #x49)	; ø»ˆŸŽ
+    (korean-ksc5601	. #x2449)	; ø»ˆŸŽ
+    (ucs		. #x3159)	; ã…™
     ))
 (define-char
   '((name		. "HANGUL LETTER OE")
-    (ucs		. #x315A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116C)
-    (korean-ksc5601	#x24 #x4A)	; ø»ˆŸ
+    (korean-ksc5601	. #x244A)	; ø»ˆŸ
+    (ucs		. #x315A)	; ã…š
     ))
 (define-char
   '((name		. "HANGUL LETTER YO")
-    (ucs		. #x315B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116D)
-    (korean-ksc5601	#x24 #x4B)	; ø»ˆŸ
+    (korean-ksc5601	. #x244B)	; ø»ˆŸ
+    (ucs		. #x315B)	; ã…›
     ))
 (define-char
   '((name		. "HANGUL LETTER U")
-    (ucs		. #x315C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116E)
-    (korean-ksc5601	#x24 #x4C)	; ø»ˆŸ‘
+    (korean-ksc5601	. #x244C)	; ø»ˆŸ‘
+    (ucs		. #x315C)	; ã…œ
     ))
 (define-char
   '((name		. "HANGUL LETTER WEO")
-    (ucs		. #x315D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x116F)
-    (korean-ksc5601	#x24 #x4D)	; ø»ˆŸ’
+    (korean-ksc5601	. #x244D)	; ø»ˆŸ’
+    (ucs		. #x315D)	; ã…
     ))
 (define-char
   '((name		. "HANGUL LETTER WE")
-    (ucs		. #x315E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1170)
-    (korean-ksc5601	#x24 #x4E)	; ø»ˆŸ“
+    (korean-ksc5601	. #x244E)	; ø»ˆŸ“
+    (ucs		. #x315E)	; ã…ž
     ))
 (define-char
   '((name		. "HANGUL LETTER WI")
-    (ucs		. #x315F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1171)
-    (korean-ksc5601	#x24 #x4F)	; ø»ˆŸ”
+    (korean-ksc5601	. #x244F)	; ø»ˆŸ”
+    (ucs		. #x315F)	; ã…Ÿ
     ))
 (define-char
   '((name		. "HANGUL LETTER YU")
-    (ucs		. #x3160)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1172)
-    (korean-ksc5601	#x24 #x50)	; ø»ˆŸ•
+    (korean-ksc5601	. #x2450)	; ø»ˆŸ•
+    (ucs		. #x3160)	; ã… 
     ))
 (define-char
   '((name		. "HANGUL LETTER EU")
-    (ucs		. #x3161)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1173)
-    (korean-ksc5601	#x24 #x51)	; ø»ˆŸ–
+    (korean-ksc5601	. #x2451)	; ø»ˆŸ–
+    (ucs		. #x3161)	; ã…¡
     ))
 (define-char
   '((name		. "HANGUL LETTER YI")
-    (ucs		. #x3162)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1174)
-    (korean-ksc5601	#x24 #x52)	; ø»ˆŸ—
+    (korean-ksc5601	. #x2452)	; ø»ˆŸ—
+    (ucs		. #x3162)	; ã…¢
     ))
 (define-char
   '((name		. "HANGUL LETTER I")
-    (ucs		. #x3163)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1175)
-    (korean-ksc5601	#x24 #x53)	; ø»ˆŸ˜
+    (korean-ksc5601	. #x2453)	; ø»ˆŸ˜
+    (ucs		. #x3163)	; ã…£
     ))
 (define-char
   '((name		. "HANGUL FILLER")
-    (ucs		. #x3164)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1160)
-    (korean-ksc5601	#x24 #x54)	; ø»ˆŸ™
+    (korean-ksc5601	. #x2454)	; ø»ˆŸ™
+    (ucs		. #x3164)	; ã…¤
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGNIEUN")
-    (ucs		. #x3165)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1114)
-    (korean-ksc5601	#x24 #x55)	; ø»ˆŸš
+    (korean-ksc5601	. #x2455)	; ø»ˆŸš
+    (ucs		. #x3165)	; ã…¥
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-TIKEUT")
-    (ucs		. #x3166)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1115)
-    (korean-ksc5601	#x24 #x56)	; ø»ˆŸ›
+    (korean-ksc5601	. #x2456)	; ø»ˆŸ›
+    (ucs		. #x3166)	; ã…¦
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-SIOS")
-    (ucs		. #x3167)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C7)
-    (korean-ksc5601	#x24 #x57)	; ø»ˆŸœ
+    (korean-ksc5601	. #x2457)	; ø»ˆŸœ
+    (ucs		. #x3167)	; ã…§
     ))
 (define-char
   '((name		. "HANGUL LETTER NIEUN-PANSIOS")
-    (ucs		. #x3168)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11C8)
-    (korean-ksc5601	#x24 #x58)	; ø»ˆŸ
+    (korean-ksc5601	. #x2458)	; ø»ˆŸ
+    (ucs		. #x3168)	; ã…¨
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-KIYEOK-SIOS")
-    (ucs		. #x3169)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CC)
-    (korean-ksc5601	#x24 #x59)	; ø»ˆŸž
+    (korean-ksc5601	. #x2459)	; ø»ˆŸž
+    (ucs		. #x3169)	; ã…©
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-TIKEUT")
-    (ucs		. #x316A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11CE)
-    (korean-ksc5601	#x24 #x5A)	; ø»ˆŸŸ
+    (korean-ksc5601	. #x245A)	; ø»ˆŸŸ
+    (ucs		. #x316A)	; ã…ª
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PIEUP-SIOS")
-    (ucs		. #x316B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D3)
-    (korean-ksc5601	#x24 #x5B)	; ø»ˆŸ 
+    (korean-ksc5601	. #x245B)	; ø»ˆŸ 
+    (ucs		. #x316B)	; ã…«
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-PANSIOS")
-    (ucs		. #x316C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D7)
-    (korean-ksc5601	#x24 #x5C)	; ø»ˆŸ¡
+    (korean-ksc5601	. #x245C)	; ø»ˆŸ¡
+    (ucs		. #x316C)	; ã…¬
     ))
 (define-char
   '((name		. "HANGUL LETTER RIEUL-YEORINHIEUH")
-    (ucs		. #x316D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11D9)
-    (korean-ksc5601	#x24 #x5D)	; ø»ˆŸ¢
+    (korean-ksc5601	. #x245D)	; ø»ˆŸ¢
+    (ucs		. #x316D)	; ã…­
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PIEUP")
-    (ucs		. #x316E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111C)
-    (korean-ksc5601	#x24 #x5E)	; ø»ˆŸ£
+    (korean-ksc5601	. #x245E)	; ø»ˆŸ£
+    (ucs		. #x316E)	; ã…®
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-SIOS")
-    (ucs		. #x316F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DD)
-    (korean-ksc5601	#x24 #x5F)	; ø»ˆŸ¤
+    (korean-ksc5601	. #x245F)	; ø»ˆŸ¤
+    (ucs		. #x316F)	; ã…¯
     ))
 (define-char
   '((name		. "HANGUL LETTER MIEUM-PANSIOS")
-    (ucs		. #x3170)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11DF)
-    (korean-ksc5601	#x24 #x60)	; ø»ˆŸ¥
+    (korean-ksc5601	. #x2460)	; ø»ˆŸ¥
+    (ucs		. #x3170)	; ã…°
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNMIEUM")
-    (ucs		. #x3171)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111D)
-    (korean-ksc5601	#x24 #x61)	; ø»ˆŸ¦
+    (korean-ksc5601	. #x2461)	; ø»ˆŸ¦
+    (ucs		. #x3171)	; ã…±
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-KIYEOK")
-    (ucs		. #x3172)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x111E)
-    (korean-ksc5601	#x24 #x62)	; ø»ˆŸ§
+    (korean-ksc5601	. #x2462)	; ø»ˆŸ§
+    (ucs		. #x3172)	; ã…²
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-TIKEUT")
-    (ucs		. #x3173)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1120)
-    (korean-ksc5601	#x24 #x63)	; ø»ˆŸ¨
+    (korean-ksc5601	. #x2463)	; ø»ˆŸ¨
+    (ucs		. #x3173)	; ã…³
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-KIYEOK")
-    (ucs		. #x3174)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1122)
-    (korean-ksc5601	#x24 #x64)	; ø»ˆŸ©
+    (korean-ksc5601	. #x2464)	; ø»ˆŸ©
+    (ucs		. #x3174)	; ã…´
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-SIOS-TIKEUT")
-    (ucs		. #x3175)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1123)
-    (korean-ksc5601	#x24 #x65)	; ø»ˆŸª
+    (korean-ksc5601	. #x2465)	; ø»ˆŸª
+    (ucs		. #x3175)	; ã…µ
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-CIEUC")
-    (ucs		. #x3176)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1127)
-    (korean-ksc5601	#x24 #x66)	; ø»ˆŸ«
+    (korean-ksc5601	. #x2466)	; ø»ˆŸ«
+    (ucs		. #x3176)	; ã…¶
     ))
 (define-char
   '((name		. "HANGUL LETTER PIEUP-THIEUTH")
-    (ucs		. #x3177)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1129)
-    (korean-ksc5601	#x24 #x67)	; ø»ˆŸ¬
+    (korean-ksc5601	. #x2467)	; ø»ˆŸ¬
+    (ucs		. #x3177)	; ã…·
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPIEUP")
-    (ucs		. #x3178)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112B)
-    (korean-ksc5601	#x24 #x68)	; ø»ˆŸ­
+    (korean-ksc5601	. #x2468)	; ø»ˆŸ­
+    (ucs		. #x3178)	; ã…¸
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNSSANGPIEUP")
-    (ucs		. #x3179)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112C)
-    (korean-ksc5601	#x24 #x69)	; ø»ˆŸ®
+    (korean-ksc5601	. #x2469)	; ø»ˆŸ®
+    (ucs		. #x3179)	; ã…¹
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-KIYEOK")
-    (ucs		. #x317A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112D)
-    (korean-ksc5601	#x24 #x6A)	; ø»ˆŸ¯
+    (korean-ksc5601	. #x246A)	; ø»ˆŸ¯
+    (ucs		. #x317A)	; ã…º
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-NIEUN")
-    (ucs		. #x317B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112E)
-    (korean-ksc5601	#x24 #x6B)	; ø»ˆŸ°
+    (korean-ksc5601	. #x246B)	; ø»ˆŸ°
+    (ucs		. #x317B)	; ã…»
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-TIKEUT")
-    (ucs		. #x317C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x112F)
-    (korean-ksc5601	#x24 #x6C)	; ø»ˆŸ±
+    (korean-ksc5601	. #x246C)	; ø»ˆŸ±
+    (ucs		. #x317C)	; ã…¼
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-PIEUP")
-    (ucs		. #x317D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1132)
-    (korean-ksc5601	#x24 #x6D)	; ø»ˆŸ²
+    (korean-ksc5601	. #x246D)	; ø»ˆŸ²
+    (ucs		. #x317D)	; ã…½
     ))
 (define-char
   '((name		. "HANGUL LETTER SIOS-CIEUC")
-    (ucs		. #x317E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1136)
-    (korean-ksc5601	#x24 #x6E)	; ø»ˆŸ³
+    (korean-ksc5601	. #x246E)	; ø»ˆŸ³
+    (ucs		. #x317E)	; ã…¾
     ))
 (define-char
   '((name		. "HANGUL LETTER PANSIOS")
-    (ucs		. #x317F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1140)
-    (korean-ksc5601	#x24 #x6F)	; ø»ˆŸ´
+    (korean-ksc5601	. #x246F)	; ø»ˆŸ´
+    (ucs		. #x317F)	; ã…¿
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGIEUNG")
-    (ucs		. #x3180)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1147)
-    (korean-ksc5601	#x24 #x70)	; ø»ˆŸµ
+    (korean-ksc5601	. #x2470)	; ø»ˆŸµ
+    (ucs		. #x3180)	; ã†€
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG")
-    (ucs		. #x3181)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x114C)
-    (korean-ksc5601	#x24 #x71)	; ø»ˆŸ¶
+    (korean-ksc5601	. #x2471)	; ø»ˆŸ¶
+    (ucs		. #x3181)	; ã†
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-SIOS")
-    (ucs		. #x3182)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F1)
-    (korean-ksc5601	#x24 #x72)	; ø»ˆŸ·
+    (korean-ksc5601	. #x2472)	; ø»ˆŸ·
+    (ucs		. #x3182)	; ã†‚
     ))
 (define-char
   '((name		. "HANGUL LETTER YESIEUNG-PANSIOS")
-    (ucs		. #x3183)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11F2)
-    (korean-ksc5601	#x24 #x73)	; ø»ˆŸ¸
+    (korean-ksc5601	. #x2473)	; ø»ˆŸ¸
+    (ucs		. #x3183)	; ã†ƒ
     ))
 (define-char
   '((name		. "HANGUL LETTER KAPYEOUNPHIEUPH")
-    (ucs		. #x3184)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1157)
-    (korean-ksc5601	#x24 #x74)	; ø»ˆŸ¹
+    (korean-ksc5601	. #x2474)	; ø»ˆŸ¹
+    (ucs		. #x3184)	; ã†„
     ))
 (define-char
   '((name		. "HANGUL LETTER SSANGHIEUH")
-    (ucs		. #x3185)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1158)
-    (korean-ksc5601	#x24 #x75)	; ø»ˆŸº
+    (korean-ksc5601	. #x2475)	; ø»ˆŸº
+    (ucs		. #x3185)	; ã†…
     ))
 (define-char
   '((name		. "HANGUL LETTER YEORINHIEUH")
-    (ucs		. #x3186)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1159)
-    (korean-ksc5601	#x24 #x76)	; ø»ˆŸ»
+    (korean-ksc5601	. #x2476)	; ø»ˆŸ»
+    (ucs		. #x3186)	; ã††
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YA")
-    (ucs		. #x3187)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1184)
-    (korean-ksc5601	#x24 #x77)	; ø»ˆŸ¼
+    (korean-ksc5601	. #x2477)	; ø»ˆŸ¼
+    (ucs		. #x3187)	; ã†‡
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-YAE")
-    (ucs		. #x3188)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1185)
-    (korean-ksc5601	#x24 #x78)	; ø»ˆŸ½
+    (korean-ksc5601	. #x2478)	; ø»ˆŸ½
+    (ucs		. #x3188)	; ã†ˆ
     ))
 (define-char
   '((name		. "HANGUL LETTER YO-I")
-    (ucs		. #x3189)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1188)
-    (korean-ksc5601	#x24 #x79)	; ø»ˆŸ¾
+    (korean-ksc5601	. #x2479)	; ø»ˆŸ¾
+    (ucs		. #x3189)	; ã†‰
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YEO")
-    (ucs		. #x318A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1191)
-    (korean-ksc5601	#x24 #x7A)	; ø»ˆŸ¿
+    (korean-ksc5601	. #x247A)	; ø»ˆŸ¿
+    (ucs		. #x318A)	; ã†Š
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-YE")
-    (ucs		. #x318B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1192)
-    (korean-ksc5601	#x24 #x7B)	; ø»ˆ €
+    (korean-ksc5601	. #x247B)	; ø»ˆ €
+    (ucs		. #x318B)	; ã†‹
     ))
 (define-char
   '((name		. "HANGUL LETTER YU-I")
-    (ucs		. #x318C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x1194)
-    (korean-ksc5601	#x24 #x7C)	; ø»ˆ 
+    (korean-ksc5601	. #x247C)	; ø»ˆ 
+    (ucs		. #x318C)	; ã†Œ
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEA")
-    (ucs		. #x318D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x119E)
-    (korean-ksc5601	#x24 #x7D)	; ø»ˆ ‚
+    (korean-ksc5601	. #x247D)	; ø»ˆ ‚
+    (ucs		. #x318D)	; ã†
     ))
 (define-char
   '((name		. "HANGUL LETTER ARAEAE")
-    (ucs		. #x318E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x11A1)
-    (korean-ksc5601	#x24 #x7E)	; ø»ˆ ƒ
+    (korean-ksc5601	. #x247E)	; ø»ˆ ƒ
+    (ucs		. #x318E)	; ã†Ž
     ))
