@@ -176,20 +176,6 @@ const Bytecount rep_bytes_by_first_byte[0xA0] =
 
 #ifdef UTF2000
 
-INLINE_HEADER int CHARSET_BYTE_SIZE (Lisp_Charset* cs);
-INLINE_HEADER int
-CHARSET_BYTE_SIZE (Lisp_Charset* cs)
-{
-  /* ad-hoc method for `ascii' */
-  if ((CHARSET_CHARS (cs) == 94) &&
-      (CHARSET_BYTE_OFFSET (cs) != 33))
-    return 128 - CHARSET_BYTE_OFFSET (cs);
-  else
-    return CHARSET_CHARS (cs);
-}
-
-#define XCHARSET_BYTE_SIZE(ccs)	CHARSET_BYTE_SIZE (XCHARSET (ccs))
-
 int decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len);
 int
 decoding_table_check_elements (Lisp_Object v, int dim, int ccs_len)
