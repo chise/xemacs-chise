@@ -7235,7 +7235,7 @@
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  )
-	 ((=big5-cdp	      . #x8BED)	; &CDP-8BED;
+	 ((=big5-cdp	      . #x8BED)	; &GT-10942;
 	  (=daikanwa	      . 08674)	; &I-M-08674;
 	  ))
 	))
