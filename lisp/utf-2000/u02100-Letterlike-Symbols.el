@@ -30,11 +30,23 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0043)
     (=ucs		. #x2103)	; ℃
-    (=jis-x0208		. #x216E)	; &I-J90-216E; [01-78]
+    ))
+(define-char
+  '((->decomposition	compat #x00B0 #xFF23)
+    (<-denotational
+     ((name		  . "DEGREE CELSIUS")
+      (=ucs		  . #x2103)	; ℃
+      ))
+    (<-fullwidth
+     ((name		  . "DEGREE CELSIUS")
+      (=ucs		  . #x2103)	; ℃
+      ))
+    (=jis-x0208		. #x216E)	; &J90-216E; [01-78]
     (=gb2312		. #x2166)	; &I-G0-2166; [01-70]
     (=ks-x1001		. #x2149)	; &I-K0-2149; [01-41]
     (=cns11643-1	. #x226A)	; &I-C1-226A; [02-74]
     (=big5		. #xA24A)	; &I-B-A24A;
+    (=ucs@jis		. #x2103)	; &J90-216E;
     ))
 (define-char
   '((name		. "CENTRE LINE SYMBOL")
@@ -83,7 +95,18 @@
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
     (=ucs		. #x2109)	; ℉
-    (=ks-x1001		. #x2235)	; &I-K0-2235; [02-21]
+    ))
+(define-char
+  '((->decomposition	compat #x00B0 #xFF26)
+    (<-denotational
+     ((name		  . "DEGREE FAHRENHEIT")
+      (=ucs		  . #x2109)	; ℉
+      ))
+    (<-fullwidth
+     ((name		  . "DEGREE FAHRENHEIT")
+      (=ucs		  . #x2109)	; ℉
+      ))
+    (=ks-x1001		. #x2235)	; &C1-226B; [02-21]
     (=cns11643-1	. #x226B)	; &I-C1-226B; [02-75]
     (=big5		. #xA24B)	; &I-B-A24B;
     ))
@@ -134,7 +157,18 @@
     (mirrored		. nil)
     (->decomposition	font #x0127)
     (=ucs		. #x210F)	; ℏ
-    (=jis-x0213-1-2000	. #x235D)	; &I-JX1-235D; [03-61]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "PLANCK CONSTANT OVER TWO PI")
+      (=ucs		  . #x210F)	; ℏ
+      ))
+    (<-fullwidth
+     ((name		  . "PLANCK CONSTANT OVER TWO PI")
+      (=ucs		  . #x210F)	; ℏ
+      ))
+    (=jis-x0213-1-2000	. #x235D)	; &JX1-235D; [03-61]
+    (=ucs@jis/fw	. #x210F)	; &JX1-235D;
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
@@ -167,8 +201,20 @@
     (mirrored		. nil)
     (->decomposition	font #x006C)
     (=ucs		. #x2113)	; ℓ
-    (=ks-x1001		. #x2724)	; &I-K0-2724; [07-04]
+    ))
+(define-char
+  '((->decomposition	font #xFF4C)
+    (<-denotational
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
+    (<-fullwidth
+     ((name		  . "SCRIPT SMALL L")
+      (=ucs		  . #x2113)	; ℓ
+      ))
+    (=ks-x1001		. #x2724)	; &JX1-235F; [07-04]
     (=jis-x0213-1-2000	. #x235F)	; &I-JX1-235F; [03-63]
+    (=ucs@jis/fw	. #x2113)	; &JX1-235F;
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -192,20 +238,23 @@
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
     (=ucs		. #x2116)	; №
-    (=gb2312		. #x216D)	; &I-G0-216D; [01-77]
+    (cyrillic-iso8859-5 . #xF0)	; &I-CYRILLIC-70;
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "NUMERO SIGN")
+      (=ucs		  . #x2116)	; №
+      ))
+    (<-fullwidth
+     ((name		  . "NUMERO SIGN")
+      (=ucs		  . #x2116)	; №
+      ))
+    (=gb2312		. #x216D)	; &JX1-2D62; [01-77]
     (=ks-x1001		. #x2260)	; &I-K0-2260; [02-64]
     (=jis-x0212		. #x2271)	; &I-JSP-2271; [02-81]
     (=jis-x0213-1-2000	. #x2D62)	; &I-JX1-2D62; [13-66]
     (=big5-eten		. #xC8D2)	; &B-C8D2;
-    ))
-(define-char
-  '((name		. "halfwidth numero sign")
-    (=>ucs		. #x2116)	; №
-    (general-category	symbol other) ; Informative Category
-    (bidi-category	. "ON")
-    (mirrored		. nil)
-    (->decomposition	narrow #x2116)
-    (cyrillic-iso8859-5 . #xF0)	; &CYRILLIC-70;
+    (=ucs@unicode	. #x2116)	; &JX1-2D62;
     ))
 (define-char
   '((name		. "SOUND RECORDING COPYRIGHT")
@@ -290,9 +339,20 @@
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
     (=ucs		. #x2121)	; ℡
-    (=ks-x1001		. #x2265)	; &I-K0-2265; [02-69]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "TELEPHONE SIGN")
+      (=ucs		  . #x2121)	; ℡
+      ))
+    (<-fullwidth
+     ((name		  . "TELEPHONE SIGN")
+      (=ucs		  . #x2121)	; ℡
+      ))
+    (=ks-x1001		. #x2265)	; &JX1-2D64; [02-69]
     (=jis-x0213-1-2000	. #x2D64)	; &I-JX1-2D64; [13-68]
     (=big5-eten		. #xC8D3)	; &B-C8D3;
+    (=ucs@unicode	. #x2121)	; &JX1-2D64;
     ))
 (define-char
   '((name		. "TRADE MARK SIGN")
@@ -301,8 +361,20 @@
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
     (=ucs		. #x2122)	; ™
-    (=ks-x1001		. #x2262)	; &I-K0-2262; [02-66]
+    ))
+(define-char
+  '((->decomposition	super #xFF34 #xFF2D)
+    (<-denotational
+     ((name		  . "TRADE MARK SIGN")
+      (=ucs		  . #x2122)	; ™
+      ))
+    (<-fullwidth
+     ((name		  . "TRADE MARK SIGN")
+      (=ucs		  . #x2122)	; ™
+      ))
+    (=ks-x1001		. #x2262)	; &JSP-226F; [02-66]
     (=jis-x0212		. #x226F)	; &I-JSP-226F; [02-79]
+    (=ucs@jis		. #x2122)	; &JSP-226F;
     ))
 (define-char
   '((name		. "VERSICLE")
@@ -333,7 +405,17 @@
     (mirrored		. nil)
     (->decomposition	#x03A9)
     (=ucs		. #x2126)	; Ω
-    (=ks-x1001		. #x2759)	; &I-K0-2759; [07-57]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "OHM SIGN")
+      (=ucs		  . #x2126)	; Ω
+      ))
+    (<-fullwidth
+     ((name		  . "OHM SIGN")
+      (=ucs		  . #x2126)	; Ω
+      ))
+    (=ks-x1001		. #x2759)	; &K0-2759; [07-57]
     ))
 (define-char
   '((name		. "INVERTED OHM SIGN")
@@ -341,7 +423,18 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (=ucs		. #x2127)	; ℧
-    (=jis-x0213-1-2000	. #x2360)	; &I-JX1-2360; [03-64]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "INVERTED OHM SIGN")
+      (=ucs		  . #x2127)	; ℧
+      ))
+    (<-fullwidth
+     ((name		  . "INVERTED OHM SIGN")
+      (=ucs		  . #x2127)	; ℧
+      ))
+    (=jis-x0213-1-2000	. #x2360)	; &JX1-2360; [03-64]
+    (=ucs@jis/fw	. #x2127)	; &JX1-2360;
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
@@ -373,9 +466,20 @@
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (=ucs		. #x212B)	; Å
-    (=jis-x0208-1983	. #x2272)	; &I-J83-2272; [02-82]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "ANGSTROM SIGN")
+      (=ucs		  . #x212B)	; Å
+      ))
+    (<-fullwidth
+     ((name		  . "ANGSTROM SIGN")
+      (=ucs		  . #x212B)	; Å
+      ))
+    (=jis-x0208@1983	. #x2272)	; &J90-2272; [02-82]
     (=ks-x1001		. #x214A)	; &I-K0-214A; [01-42]
-    (=jis-x0208-1990	. #x2272)	; &I-J90-2272; [02-82]
+    (=jis-x0208@1990	. #x2272)	; &I-J90-2272; [02-82]
+    (=ucs@jis		. #x212B)	; &J90-2272;
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL B")
@@ -454,7 +558,18 @@
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
     (=ucs		. #x2135)	; ℵ
-    (=jis-x0213-1-2000	. #x235C)	; &I-JX1-235C; [03-60]
+    ))
+(define-char
+  '((<-denotational
+     ((name		  . "ALEF SYMBOL")
+      (=ucs		  . #x2135)	; ℵ
+      ))
+    (<-fullwidth
+     ((name		  . "ALEF SYMBOL")
+      (=ucs		  . #x2135)	; ℵ
+      ))
+    (=jis-x0213-1-2000	. #x235C)	; &JX1-235C; [03-60]
+    (=ucs@jis		. #x2135)	; &JX1-235C;
     ))
 (define-char
   '((name		. "BET SYMBOL")
