@@ -1,3 +1,14 @@
+2003-12-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el, Ideograph-R019-Power.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R029-Again.el, Ideograph-R027-Cliff.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R008-Lid.el, Ideograph-R010-Legs.el: Add `=ucs@big5'
+	features.
+
 2003-12-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R018-Knife.el, Ideograph-R014-Cover.el,
@@ -5,8 +16,11 @@
 
 2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R017-Open-Box.el, Ideograph-R015-Ice.el,
-	Ideograph-R009-Man.el: Add `=ucs@big5' features.
+	* Ideograph-R020-Wrap.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R015-Ice.el, Ideograph-R009-Man.el: Add `=ucs@big5'
+	features.
+
+	* Ideograph-R121-Jar.el (C4-2F29): Unify BC-8CDA.
 
 2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
