@@ -6,6 +6,7 @@
     (japanese-jisx0208-1978	. #x4C53)	; ø»‚»¼
     (chinese-gb2312		. #x432B)	; ø»„¸Š
     (japanese-jisx0208		. #x4C53)	; ø»‡„
+    (korean-ksc5601		. #x593E)	; ø»‰¬¹
     (chinese-isoir165		. #x432B)	; ø» š
     (chinese-cns11643-1		. #x4553)	; ø»‘¸†
     (japanese-jisx0208-1990	. #x4C53)	; ø½Šµ¸
@@ -711,6 +712,7 @@
     (japanese-jisx0208-1978	. #x5D5D)	; ø»ƒ•„
     (chinese-gb2312		. #x3A41)	; ø»„«’
     (japanese-jisx0208		. #x5D5D)	; ø»‡©Œ
+    (korean-ksc5601		. #x7B46)	; ø»Šž½
     (chinese-isoir165		. #x3A41)	; ø»“¢
     (chinese-cns11643-1		. #x5B45)	; ø»’˜Œ
     (japanese-jisx0208-1990	. #x5D5D)	; ø½‹€
@@ -724,6 +726,7 @@
     (shinjigen-2	. 4022)
     (japanese-jisx0208-1978	. #x5D5C)	; ø»ƒ•ƒ
     (japanese-jisx0208		. #x5D5C)	; ø»‡©‹
+    (korean-ksc5601		. #x4F33)	; ø»‰ž‚
     (chinese-cns11643-1		. #x5B46)	; ø»’˜
     (japanese-jisx0208-1990	. #x5D5C)	; ø½‹Ž¿
     (ideograph-daikanwa		. 16837)	; ø¸„‡…
