@@ -1,3 +1,8 @@
+2002-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	definitions for isolated-chars.
+
 2002-08-13  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* setup-paths.el (paths-find-utf-2000-lisp-directory): Use
