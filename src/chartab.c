@@ -744,21 +744,23 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
       outrange->charset = Fget_charset (elts[0]);
       CHECK_INT (elts[1]);
       outrange->row = XINT (elts[1]);
-      switch (XCHARSET_TYPE (outrange->charset))
+      if (XCHARSET_DIMENSION (outrange->charset) >= 2)
 	{
-	case CHARSET_TYPE_94:
-	case CHARSET_TYPE_96:
-	  signal_simple_error ("Charset in row vector must be multi-byte",
-			       outrange->charset);
-	case CHARSET_TYPE_94X94:
-	  check_int_range (outrange->row, 33, 126);
-	  break;
-	case CHARSET_TYPE_96X96:
-	  check_int_range (outrange->row, 32, 127);
-	  break;
-	default:
-	  abort ();
+	  switch (XCHARSET_CHARS (outrange->charset))
+	    {
+	    case 94:
+	      check_int_range (outrange->row, 33, 126);
+	      break;
+	    case 96:
+	      check_int_range (outrange->row, 32, 127);
+	      break;
+	    default:
+	      abort ();
+	    }
 	}
+      else
+	signal_simple_error ("Charset in row vector must be multi-byte",
+			     outrange->charset);  
     }
   else
     {
