@@ -1,0 +1,25 @@
+This directory contains the source for the setup program for the cygwin
+net releases.
+
+
+
+To-Do list:
+
+ini.cc: add field in setup.ini to specify whether package is installed
+by default, or not.
+
+install.cc: scan newly installed files for README files, show list to
+user, let them read them if they want.
+
+download.cc: add a "total progress" indicator, like the install one.
+
+add a "category" field to setup.ini, let user choose which categories
+of packages to install, perhaps with a "custom..." button to lead to
+the current chooser.
+
+remember which packages were selected to be skipped, and which prev/curr/exp
+option was last selected, and recall them each time the chooser runs.
+
+Add friendly error reporting to simpsock.cc
+
+Add option to download sources also.
