@@ -131,19 +131,22 @@ be used only with -batch." nil nil)
 ;;;### (autoloads (build-report) "build-report" "lisp/build-report.el")
 
 (autoload 'build-report "build-report" "\
-Composes a fresh mail message with the contents of the built XEmacs
-Installation file and excerpts from XEmacs make output.
-`compose-mail' is used to create the mail message.  Point is left at
-the beginning of the mail text.  You may add some personal notes if
-you like and send the report.
-See also
-  `compose-mail', `mail-user-agent',
-  `build-report-destination',
-  `build-report-keep-regexp',
-  `build-report-delete-regexp',
-  `build-report-make-output-dir',
-  `build-report-make-output-files', and
-  `build-report-installation-file'." t nil)
+Report build information including Installation and make output.
+
+Prompts for status (usually \"Success\" or \"Failure\").  Then uses
+`compose-mail' to create a mail message.  The Subject header contains
+status and version information.  Point is left at the beginning of the
+mail text.  Add some notes if you like, and send the report.
+
+Looks for Installation and the make output file (`beta.err' by
+default, customizable via `build-report-make-output-files') in the
+build directory of the running XEmacs by default (customizable via
+`build-report-make-output-dir').  The output from make is filtered
+through `build-report-keep-regexp' and `build-report-delete-regexp'
+before including in the message.
+
+See also `mail-user-agent', `build-report-destination', and
+`build-report-installation-file'." t nil)
 
 ;;;***
 
@@ -861,7 +864,8 @@ in the tag table that matches the tagname used in the previous find-tag.
 the tag.
 
 This version of this function supports multiple active tags tables,
-and completion.
+and completion. See also the commands `\\[push-tag-mark]' and
+`\\[pop-tag-mark]'.
 
 Variables of note:
 
@@ -1223,7 +1227,8 @@ or if you change your font path, you can call this to re-initialize the menus." 
 
 ;;;### (autoloads (x-font-build-cache font-default-size-for-device font-default-encoding-for-device font-default-registry-for-device font-default-family-for-device font-default-object-for-device font-default-font-for-device font-create-object) "font" "lisp/font.el")
 
-(autoload 'font-create-object "font" nil nil nil)
+(autoload 'font-create-object "font" "\
+Return a font descriptor object for FONTNAME, appropriate for DEVICE." nil nil)
 
 (autoload 'font-default-font-for-device "font" nil nil nil)
 
@@ -1430,7 +1435,7 @@ If you don't like the lazy invocation of this function, you can add it to
 when they are selected for the first time.  If you add fonts to your system, 
 or if you change your font path, you can call this to re-initialize the menus." nil nil)
 
-(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (match-string 4 name)))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 4 truename)))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
+(defun* mswindows-font-menu-font-data (face dcache) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match mswindows-font-regexp name) (setq family (match-string 1 name)) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match mswindows-font-regexp truename)) (setq family (match-string 1 truename)) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from mswindows-font-menu-font-data (make-vector 5 nil))) (when (string-match mswindows-font-regexp name) (setq weight (match-string 2 name)) (setq size (string-to-int (or (match-string 4 name) "0")))) (when (string-match mswindows-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (match-string 2 truename))) (when (not (member size (aref entry 2))) (setq size (string-to-int (or (match-string 4 truename) "0")))) (setq slant (match-string 5 truename))) (vector entry family size weight slant)))
 
 ;;;***
 
@@ -1693,7 +1698,7 @@ they are not defaultly assigned to keys." t nil)
 
 ;;;***
 
-;;;### (autoloads (clear-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle kill-rectangle extract-rectangle delete-extract-rectangle delete-rectangle) "rect" "lisp/rect.el")
+;;;### (autoloads (clear-rectangle replace-rectangle string-rectangle open-rectangle insert-rectangle yank-rectangle kill-rectangle extract-rectangle delete-extract-rectangle delete-rectangle) "rect" "lisp/rect.el")
 
 (autoload 'delete-rectangle "rect" "\
 Delete the text in the region-rectangle without saving it.
@@ -1752,6 +1757,10 @@ If `pending-delete-mode' is active the string replace the region.
 Otherwise this command does not delete or overwrite any existing text.
 
 When called from a program, the rectangle's corners are START and END." t nil)
+
+(autoload 'replace-rectangle "rect" "\
+Like `string-rectangle', but unconditionally replace the original region,
+as if `pending-delete-mode' were active." t nil)
 
 (autoload 'clear-rectangle "rect" "\
 Blank out the region-rectangle.
