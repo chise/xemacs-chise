@@ -1760,6 +1760,11 @@ buffer called `*Shadows*'.  Shadowings are located by calling the
 (autoload 'load-sound-file "sound" "\
 Read in an audio-file and add it to the sound-alist.
 
+FILENAME can either be absolute or relative, in which case the file will
+be searched in the directories given by `default-sound-directory-list'.
+When looking for the file, the extensions given by `sound-extension-list' are
+also tried in the given order.
+
 You can only play sound files if you are running on display 0 of the
 console of a machine with native sound support or running a NetAudio
 server and XEmacs has the necessary sound support compiled in.

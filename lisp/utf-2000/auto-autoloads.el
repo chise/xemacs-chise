@@ -13,9 +13,11 @@
 
 ;;;***
 
-;;;### (autoloads (ideographic-structure-find-char char-ucs char-daikanwa update-ideograph-radical-table) "ideograph-util" "utf-2000/ideograph-util.el")
+;;;### (autoloads (ideographic-structure-find-char char-ucs char-daikanwa char-representative-of-daikanwa update-ideograph-radical-table) "ideograph-util" "utf-2000/ideograph-util.el")
 
 (autoload 'update-ideograph-radical-table "ideograph-util" nil t nil)
+
+(autoload 'char-representative-of-daikanwa "ideograph-util" nil nil nil)
 
 (autoload 'char-daikanwa "ideograph-util" nil nil nil)
 
