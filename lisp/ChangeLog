@@ -1,3 +1,8 @@
+1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (reset-language-environment): Must specify
+	coding-systems of coding-categories `ucs-4' and `utf-8'.
+
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* menubar-items.el (default-menubar): `select-input-method' was
