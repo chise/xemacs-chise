@@ -1,3 +1,10 @@
+2002-07-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Use `utf-8-mcs-unix'
+	instead of `utf-8-unix' in UTF-2000.
+
+	* mule/mule-coding.el (utf-8): Define as an alias for `utf-8-mcs'.
+
 2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/japanese.el (euc-jisx0213): New coding-system.
