@@ -1873,6 +1873,20 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 553)
+    (hanyu-dazidian-char . 5)
+    (->identical
+     ((chinese-cns11643-6 . #x2563)	; ø»›»ª
+      (ideograph-daikanwa . 00239)	; ø¸€ƒ¯
+      ))
+    (ideograph-hanziku-2	. #xC1C0)	; ý¢€¬‡€
+    (ucs			. #x20029)	; ð €©
+    ))
+(define-char
+  '((ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 6)
+    (total-strokes	 . 7)
     (ideograph-gt-pj-9	. #x3B49)	; ý¡€€ƒ
     (ideograph-gt	. 00067)	; ý¡€€ƒ
     ))
