@@ -2530,14 +2530,7 @@
 	 ((=ucs		      . #x53E3)	; 口
 	  ))
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x535D)	; 卝
-	  )
-	 ((=ucs		      . #x5E72)	; 干
-	  ))
+       ((=cbeta		    . 06151)	; &CB06151;
 	))
       (=daikanwa	  . 49510)	; &M-49510;
       )
@@ -2562,14 +2555,7 @@
 	 ((=ucs		      . #x53E3)	; 口
 	  ))
 	)
-       ((ideographic-structure
-	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	  (=ucs		      . #x2FF1)	; ⿱
-	  )
-	 ((=ucs		      . #x535D)	; 卝
-	  )
-	 ((=ucs		      . #x5E72)	; 干
-	  ))
+       ((=cbeta		    . 06151)	; &CB06151;
 	))
       (=cns11643-7	  . #x2679)	; &HZK01-E256; [06-89]
       (=hanziku-1	  . #xE256)	; &I-HZK01-E256;
