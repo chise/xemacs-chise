@@ -85,6 +85,7 @@
     (=gt-pj-1		. #x4960)	; ý¡€„‹
     (=daikanwa		. 13539)	; ø¸ƒ“£
     (=ucs@jis		. #x65A7)	; ø½Š±«
+    (=ucs@big5		. #x65A7)	; ø½Š±«
     ))
 (define-char
   '((morohashi-daikanwa	13539 0 0)
@@ -480,6 +481,7 @@
     (=gt-pj-1		. #x3F37)	; ý¡€„Œ„
     (=daikanwa		. 13572)	; ø¸ƒ”„
     (=ucs@jis		. #x65B0)	; ø½Š¢–
+    (=ucs@big5		. #x65B0)	; ø½Š¢–
     ))
 (define-char
   '((=>ucs		. #x65B0)	; æ–°
@@ -1037,6 +1039,7 @@
     (=big5		. #xF8F0)	; ý¢€£°
     (=daikanwa		. 13619)	; ø¸ƒ”³
     (=ucs@jis		. #x65B8)	; ø»¤¯³
+    (=ucs@big5		. #x65B8)	; ø»¤¯³
     ))
 (define-char
   '((morohashi-daikanwa	13619 0 1)
