@@ -397,11 +397,18 @@
 		 (insert
 		  (format
 		   (if has-long-ccs-name
-		       "(%-26s . %X)
+		       (if (eq ret (find-charset 'ideograph-daikanwa))
+			   "(%-26s . %d)
     "
-		     "(%-18s . %X)
+			 "(%-26s . #x%X)
     "
-		     )
+			 )
+		     (if (eq ret (find-charset 'ideograph-daikanwa))
+			 "(%-18s . %d)
+    "
+		       "(%-18s . #x%X)
+    "
+		       ))
 		   (charset-name ret)
 		   (if (= (charset-iso-graphic-plane ret) 1)
 		       (logior (cdr cell)
@@ -445,6 +452,23 @@
 	(goto-char (point-max))
 	(tabify (point-min)(point-max))
 	))))
+
+(defun decode-builtin-char (charset code-point)
+  (if (and (not (eq charset 'ideograph-daikanwa))
+	   (or (memq charset '(ascii latin-viscii-upper
+				     latin-viscii-lower
+				     arabic-iso8859-6
+				     japanese-jisx0213-1
+				     japanese-jisx0213-2))
+	       (= (char-int (charset-iso-final-char charset)) 0)))
+      (decode-char charset code-point)
+    (let ((table (charset-mapping-table charset)))
+      (if table
+	  (prog2
+	      (set-charset-mapping-table charset nil)
+	      (decode-char charset code-point)
+	    (set-charset-mapping-table charset table))
+	(decode-char charset code-point)))))
 
 ;;;###autoload
 (defun char-db-update-comment ()
