@@ -1461,6 +1461,57 @@ get_unallocated_leading_byte (int dimension)
 }
 
 #ifdef UTF2000
+Emchar
+make_builtin_char (Lisp_Object charset, int c1, int c2)
+{
+  if (XCHARSET_UCS_MAX (charset))
+    {
+      Emchar code
+	= (XCHARSET_DIMENSION (charset) == 1
+	   ?
+	   c1 - XCHARSET_BYTE_OFFSET (charset)
+	   :
+	   (c1 - XCHARSET_BYTE_OFFSET (charset)) * XCHARSET_CHARS (charset)
+	   + c2  - XCHARSET_BYTE_OFFSET (charset))
+	- XCHARSET_CODE_OFFSET (charset) + XCHARSET_UCS_MIN (charset);
+      if ((code < XCHARSET_UCS_MIN (charset))
+	  || (XCHARSET_UCS_MAX (charset) < code))
+	signal_simple_error ("Arguments makes invalid character",
+			     make_char (code));
+      return code;
+    }
+  else if (XCHARSET_DIMENSION (charset) == 1)
+    {
+      switch (XCHARSET_CHARS (charset))
+	{
+	case 94:
+	  return MIN_CHAR_94
+	    + (XCHARSET_FINAL (charset) - '0') * 94 + (c1 - 33);
+	case 96:
+	  return MIN_CHAR_96
+	    + (XCHARSET_FINAL (charset) - '0') * 96 + (c1 - 32);
+	default:
+	  abort ();
+	}
+    }
+  else
+    {
+      switch (XCHARSET_CHARS (charset))
+	{
+	case 94:
+	  return MIN_CHAR_94x94
+	    + (XCHARSET_FINAL (charset) - '0') * 94 * 94
+	    + (c1 - 33) * 94 + (c2 - 33);
+	case 96:
+	  return MIN_CHAR_96x96
+	    + (XCHARSET_FINAL (charset) - '0') * 96 * 96
+	    + (c1 - 32) * 96 + (c2 - 32);
+	default:
+	  abort ();
+	}
+    }
+}
+
 int
 range_charset_code_point (Lisp_Object charset, Emchar ch)
 {
@@ -1619,14 +1670,26 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
       *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94,
 					((c - MIN_CHAR_94) / 94) + '0',
 					CHARSET_LEFT_TO_RIGHT);
-      return ((c - MIN_CHAR_94) % 94) + 33;
+      if (!NILP (*charset))
+	return ((c - MIN_CHAR_94) % 94) + 33;
+      else
+	{
+	  *charset = Vcharset_ucs;
+	  return c;
+	}
     }
   else if (c <= MAX_CHAR_96)
     {
       *charset = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96,
 					((c - MIN_CHAR_96) / 96) + '0',
 					CHARSET_LEFT_TO_RIGHT);
-      return ((c - MIN_CHAR_96) % 96) + 32;
+      if (!NILP (*charset))
+	return ((c - MIN_CHAR_96) % 96) + 32;
+      else
+	{
+	  *charset = Vcharset_ucs;
+	  return c;
+	}
     }
   else if (c <= MAX_CHAR_94x94)
     {
@@ -1634,8 +1697,14 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94,
 				 ((c - MIN_CHAR_94x94) / (94 * 94)) + '0',
 				 CHARSET_LEFT_TO_RIGHT);
-      return (((((c - MIN_CHAR_94x94) / 94) % 94) + 33) << 8)
-	| (((c - MIN_CHAR_94x94) % 94) + 33);
+      if (!NILP (*charset))
+	return (((((c - MIN_CHAR_94x94) / 94) % 94) + 33) << 8)
+	  | (((c - MIN_CHAR_94x94) % 94) + 33);
+      else
+	{
+	  *charset = Vcharset_ucs;
+	  return c;
+	}
     }
   else if (c <= MAX_CHAR_96x96)
     {
@@ -1643,8 +1712,14 @@ encode_builtin_char_1 (Emchar c, Lisp_Object* charset)
 	= CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_96X96,
 				 ((c - MIN_CHAR_96x96) / (96 * 96)) + '0',
 				 CHARSET_LEFT_TO_RIGHT);
-      return ((((c - MIN_CHAR_96x96) / 96) % 96) + 32) << 8
-	| (((c - MIN_CHAR_96x96) % 96) + 32);
+      if (!NILP (*charset))
+	return ((((c - MIN_CHAR_96x96) / 96) % 96) + 32) << 8
+	  | (((c - MIN_CHAR_96x96) % 96) + 32);
+      else
+	{
+	  *charset = Vcharset_ucs;
+	  return c;
+	}
     }
   else
     {
@@ -2267,7 +2342,7 @@ Set mapping-table of CHARSET to TABLE.
 	  if (CHARP (c))
 	    put_char_attribute
 	      (c, charset,
-	       list1 (make_int (i + CHARSET_BYTE_OFFSET (cs))));
+	       make_int (i + CHARSET_BYTE_OFFSET (cs)));
 	}
       break;
     case 2:
@@ -2289,18 +2364,15 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    put_char_attribute (c, charset,
-					list2
-					(make_int
-					 (i + CHARSET_BYTE_OFFSET (cs)),
-					 make_int
-					 (j + CHARSET_BYTE_OFFSET (cs))));
+		    put_char_attribute
+		      (c, charset,
+		       make_int ( ((i + CHARSET_BYTE_OFFSET (cs)) << 8)
+				  | (j + CHARSET_BYTE_OFFSET (cs)) ));
 		}
 	    }
 	  else if (CHARP (v))
 	    put_char_attribute (v, charset,
-				list1
-				(make_int (i + CHARSET_BYTE_OFFSET (cs))));
+				make_int (i + CHARSET_BYTE_OFFSET (cs)));
 	}
       break;
     }
@@ -2312,6 +2384,17 @@ Set mapping-table of CHARSET to TABLE.
 /************************************************************************/
 /*              Lisp primitives for working with characters             */
 /************************************************************************/
+
+#ifdef UTF2000
+DEFUN ("decode-char", Fdecode_char, 2, 2, 0, /*
+Make a character from CHARSET and code-point CODE.
+*/
+       (charset, code))
+{
+  charset = Fget_charset (charset);
+  return make_char (DECODE_CHAR (charset, XINT (code)));
+}
+#endif
 
 DEFUN ("make-char", Fmake_char, 2, 3, 0, /*
 Make a character from CHARSET and octets ARG1 and ARG2.
@@ -2561,6 +2644,9 @@ syms_of_mule_charset (void)
   DEFSUBR (Fset_charset_mapping_table);
 #endif
 
+#ifdef UTF2000
+  DEFSUBR (Fdecode_char);
+#endif
   DEFSUBR (Fmake_char);
   DEFSUBR (Fchar_charset);
   DEFSUBR (Fchar_octet);
