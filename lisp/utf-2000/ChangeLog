@@ -25,6 +25,8 @@
 	* Ideograph-R124-Feather.el (J90-6647): Modify
 	`ideographic-structure'.
 
+	* Ideograph-R033-Scholar.el: Reformatted.
+
 	* Ideograph-R015-Ice.el (M-01669): Modify `ideographic-structure'.
 	(C1-5445): Likewise.
 	(J0-4E3F): Separate G0-4168 and U+51CC; modify
