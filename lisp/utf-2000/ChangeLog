@@ -1,3 +1,47 @@
+2002-04-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (char-attribute-name<): Modify for new
+	charset-id allocation method for private coded-charsets.
+
+	* Ideograph-R154-Shell.el, Ideograph-R140-Grass.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	  `hanyu-dazidian-page' and `hanyu-dazidian-char'.
+	- Add some mappings for Hanziku code points.
+
+	* Ideograph-R122-Net.el (U+7F53): Separate BC-85BE.
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	  `hanyu-dazidian-page' and `hanyu-dazidian-char'; add some
+	  mappings for Hanziku code points.
+
+2002-04-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R109-Eye.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	  `hanyu-dazidian-page' and `hanyu-dazidian-char'.
+	- Add some mappings for Hanziku code points.
+
+	* Ideograph-R075-Tree.el, Ideograph-R047-River.el,
+	Ideograph-R037-Big.el, Ideograph-R031-Enclosure.el: Use
+	`hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add some mappings
+	for Hanziku code points.
+
+	* Ideograph-R063-Door.el, Ideograph-R050-Turban.el: Use
+	`hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add some mappings
+	for Hanziku code points.
+
+	* Ideograph-R089-Double-X.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
+	* Ideograph-R009-Man.el: Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'.
+
 2002-04-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R120-Silk.el (C2-3E77): Separate U+7D6D.
