@@ -1,3 +1,19 @@
+2001-10-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (M-48848): Separate U+9F9C.
+	(U+9F9C): Unify G1-396A.
+
+	* Ideograph-R212-Dragon.el, Ideograph-R211-Tooth.el,
+	Ideograph-R210-Even.el, Ideograph-R207-Drum.el,
+	Ideograph-R205-Frog.el, Ideograph-R203-Black.el: Merge GB 12345
+	code points.
+
+	* Ideograph-R201-Yellow.el (J0-7354): Separate U+9ECC.
+	(U+9ECC): Unify G1-5964.
+
+	* Ideograph-R199-Wheat.el, Ideograph-R198-Deer.el,
+	Ideograph-R197-Salt.el: Merge GB 12345 code points.
+
 2001-10-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el: Merge GB 12345 code points.
