@@ -10,6 +10,10 @@
 
 2005-02-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R149-Speech.el (U+470C): Use `->subsumptive'.
+	(U+9FBB): New character; add `<-denotational' for C5-6952; add
+	`<-ideographic-component-forms' for U+470C.
+
 	* Ideograph-R167-Gold.el (U+9FAC): New character; unify CB02156.
 
 	* Ideograph-R163-City.el (U+90C1): Use `->subsumptive'.
