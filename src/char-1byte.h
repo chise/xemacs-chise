@@ -24,10 +24,6 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_CHAR_1BYTE_H
 #define _XEMACS_CHAR_1BYTE_H
 
-/* ---------------------------- */
-/* (D) For working with Emchars */
-/* ---------------------------- */
-
 #define valid_char_p(ch) ((unsigned int) (ch) <= 0xff)
 
 #endif /* _XEMACS_CHAR_1BYTE_H */

@@ -26,10 +26,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include "mule-charset.h"
 
-/* ---------------------------- */
-/* (D) For working with Emchars */
-/* ---------------------------- */
-
 int non_ascii_valid_char_p (Emchar ch);
 
 INLINE int valid_char_p (Emchar ch);
