@@ -33,6 +33,12 @@
     (ideographic-radical . 166)	; â¾¥
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
+    (mojikyo		. 050546)	; ø¸Œ•²
+    ))
+(define-char
+  '((ideographic-radical . 166)	; â¾¥
+    (ideographic-strokes . 3)
+    (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3C61)	; ø»œš
     ))
 (define-char
@@ -166,6 +172,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 17)
     (chinese-cns11643-5 . #x5F46)	; ø»›†•
+    (mojikyo		. 050547)	; ø¸Œ•³
     ))
 (define-char
   '((ideographic-radical . 166)	; â¾¥
