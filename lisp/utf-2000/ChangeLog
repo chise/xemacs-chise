@@ -1,3 +1,41 @@
+2002-11-26  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R113-Spirit.el, Ideograph-R102-Field.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R043-Lame.el: Add mappings between CNS 11643-4 and CJK
+	Compatibility Ideographs Supplement of UCS.
+
+2002-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (C2-3B3E): Unify CU+5D43.
+	(U+5D43): Separate C6-482B and CU-0002F87C.
+	(C6-482B): Unify GU+5D43 and U-0002F87C.
+
+	* Ideograph-R109-Eye.el (C6-4B7A): Separate U+4039; unify GU+4039,
+	JU+4039 and U-0002F949.
+
+	* Ideograph-R066-Rap.el, Ideograph-R064-Hand.el,
+	Ideograph-R061-Heart.el: Add mappings between CNS 11643-4 and CJK
+	Compatibility Ideographs Supplement of UCS.
+
+	* Ideograph-R030-Mouth.el (C4-235C): Separate U+549E; unify
+	GU+549E and U-0002F83C.
+	(C4-235B): Separate U+5448; unify GU+5448, JU+5448, KU+5448 and
+	U-0002F83E.
+	(C4-3076): Separate U+5553; unify GU+5553 and U-0002F843.
+
+2002-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el, Ideograph-R020-Wrap.el,
+	Ideograph-R045-Sprout.el, Ideograph-R032-Earth.el,
+	Ideograph-R009-Man.el, Ideograph-R030-Mouth.el,
+	Ideograph-R019-Power.el, Ideograph-R015-Ice.el: Add mappings
+	between CNS 11643-4 and CJK Compatibility Ideographs Supplement of
+	UCS.
+
+	* Ideograph-R018-Knife.el (U+5277): Unify C3-4043 and CU-0002F823.
+	(U-0002F823): Separate C3-4043.
+
 2002-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-chars.el (system-char-db-source-file-list): Delete
