@@ -114,7 +114,7 @@
     ))
 (define-char
   '((=>ucs		. #x6BB4)	; 殴
-    (morohashi-daikanwa	16618 1 1)
+    (morohashi-daikanwa	16618 1 2)
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 4)
     (total-strokes	 . 8)

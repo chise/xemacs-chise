@@ -277,6 +277,19 @@ DESCRIPTION (string) is the description string of the charset."
 	  greek-iso8859-7
 	  thai-tis620
 	  =jis-x0208
+	  =big5-cdp
+	  =gt-pj-2
+	  =gt-pj-3
+	  =gt-pj-4
+	  =gt-pj-5
+	  =gt-pj-6
+	  =gt-pj-7
+	  =gt-pj-8
+	  =gt-pj-9
+	  =gt-pj-10
+	  =gt-pj-11
+	  =gt-pj-k1
+	  =gt-pj-k2
 	  japanese-jisx0208
 	  =jis-x0208-1990
 	  japanese-jisx0212
@@ -306,23 +319,10 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
-	  =big5-cdp
+	  =gt-pj-1
 	  chinese-big5-eten-a
 	  chinese-big5-eten-b
 	  chinese-big5
-	  =gt-pj-1
-	  =gt-pj-2
-	  =gt-pj-3
-	  =gt-pj-4
-	  =gt-pj-5
-	  =gt-pj-6
-	  =gt-pj-7
-	  =gt-pj-8
-	  =gt-pj-9
-	  =gt-pj-10
-	  =gt-pj-11
-	  =gt-pj-k1
-	  =gt-pj-k2
 	  ideograph-daikanwa-2
 	  ideograph-daikanwa
 	  =hanziku-1
