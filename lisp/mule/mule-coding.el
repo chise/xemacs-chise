@@ -220,6 +220,8 @@
 	  ((korean-ksc5601 . isolated)      	"I-K0-" 4 X)
 	  ( korean-ksc5601                    	  "K0-" 4 X)
 	  ( china3-jef                    	 "JC3-" 4 X)
+	  ( chinese-big5                    	   "B-" 4 X)
+	  ( chinese-big5                    	  "C0-" 4 X)
 	  ))
 
   (make-coding-system

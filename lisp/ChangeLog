@@ -1,3 +1,8 @@
+2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for `chinese-big5'.
+
 2003-08-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist):
