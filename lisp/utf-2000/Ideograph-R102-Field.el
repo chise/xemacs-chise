@@ -213,6 +213,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (=cns11643-3	. #x2672)	; ø»•Ÿ‹
+    (=jis-x0213-2-2000	. #x7134)	; ø»¦’³
     (=ucs		. #x3F57)	; ã½—
     ))
 (define-char
