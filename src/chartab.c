@@ -1140,10 +1140,6 @@ Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
 Lisp_Object Q_component;
 Lisp_Object Q_component_of;
-Lisp_Object Q_same;
-Lisp_Object Q_same_of;
-Lisp_Object Q_vulgar;
-Lisp_Object Q_vulgar_of;
 Lisp_Object Qto_ucs;
 Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
@@ -3512,13 +3508,12 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    EQ (attribute, Q_identical_from) ||
 	    EQ (attribute, Q_component) ||
 	    EQ (attribute, Q_component_of) ||
-	    EQ (attribute, Q_same) ||
-	    EQ (attribute, Q_same_of) ||
-	    EQ (attribute, Q_vulgar) ||
-	    EQ (attribute, Q_vulgar_of) ||
-	    !NILP (Fstring_match (build_string ("^<-simplified[^*]*$"),
-				  Fsymbol_name (attribute),
-				  Qnil, Qnil)) )
+	    !NILP (Fstring_match
+		   (build_string ("^\\(<-\\|->\\)\\(simplified"
+				  "\\|same\\|vulgar\\|wrong"
+				  "\\)[^*]*$"),
+		    Fsymbol_name (attribute),
+		    Qnil, Qnil)) )
     {
       Lisp_Object rest = value;
       Lisp_Object ret;
@@ -3542,27 +3537,28 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	rev_feature = Q_component_of;
       else if (EQ (attribute, Q_component_of))
 	rev_feature = Q_component;
-      else if (EQ (attribute, Q_same))
-	rev_feature = Q_same_of;
-      else if (EQ (attribute, Q_same_of))
-	rev_feature = Q_same;
-      else if (EQ (attribute, Q_vulgar))
-	rev_feature = Q_vulgar_of;
-      else if (EQ (attribute, Q_vulgar_of))
-	rev_feature = Q_vulgar;
       else
 	{
 	  Lisp_String* name = symbol_name (XSYMBOL (attribute));
 	  Bufbyte *name_str = string_data (name);
 
-	  if (name_str[0] == '<' && name_str[1] == '-')
+	  if ( (name_str[0] == '<' && name_str[1] == '-') || 
+	       (name_str[0] == '-' && name_str[1] == '>') )
 	    {
 	      Bytecount length = string_length (name);
 	      Bufbyte *rev_name_str = alloca (length + 1);
 
 	      memcpy (rev_name_str + 2, name_str + 2, length - 2);
-	      rev_name_str[0] = '-';
-	      rev_name_str[1] = '>';
+	      if (name_str[0] == '<')
+		{
+		  rev_name_str[0] = '-';
+		  rev_name_str[1] = '>';
+		}
+	      else
+		{
+		  rev_name_str[0] = '<';
+		  rev_name_str[1] = '-';
+		}
 	      rev_name_str[length] = 0;
 	      rev_feature = intern (rev_name_str);
 	    }
@@ -3583,8 +3579,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      if (!CONSP (ffv))
 		put_char_attribute (ret, rev_feature, list1 (character));
 	      else if (NILP (Fmemq (character, ffv)))
-		put_char_attribute (ret, rev_feature,
-				    Fcons (character, ffv));
+		put_char_attribute
+		  (ret, rev_feature,
+		   nconc2 (Fcopy_sequence (ffv), list1 (character)));
 	      Fsetcar (rest, ret);
 	    }
 	  rest = XCDR (rest);
@@ -3834,10 +3831,10 @@ Save values of ATTRIBUTE into database file.
       if ( EQ (attribute, Qideographic_structure)
 	   || EQ (attribute, Q_identical)
 	   || EQ (attribute, Q_identical_from)
-	   || EQ (attribute, Q_same)
-	   || EQ (attribute, Q_same_of)
 	   || !NILP (Fstring_match
-		     (build_string ("^\\(<-\\|->\\)simplified[^*]*$"),
+		     (build_string ("^\\(<-\\|->\\)\\(simplified"
+				    "\\|same\\|vulgar\\|wrong"
+				    "\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )
 	filter = &Fchar_refs_simplify_char_specs;
@@ -4613,10 +4610,6 @@ syms_of_chartab (void)
   defsymbol (&Q_identical_from,		"<-identical");
   defsymbol (&Q_component,		"->ideographic-component-forms");
   defsymbol (&Q_component_of,		"<-ideographic-component-forms");
-  defsymbol (&Q_same,			"->same");
-  defsymbol (&Q_same_of,		"<-same");
-  defsymbol (&Q_vulgar,			"->vulgar");
-  defsymbol (&Q_vulgar_of,		"<-vulgar");
   defsymbol (&Qcomposition,		"composition");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");

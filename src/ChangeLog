@@ -1,3 +1,34 @@
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): When processing a reference of
+	a character, put into the end of the reversed reference of each
+	target character.
+
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_same): Deleted.
+	(Q_same_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}same'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}same'.
+	(syms_of_chartab): Delete builtin symbol `{<-|->}same'.
+
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Q_vulgar): Deleted.
+	(Q_vulgar_of): Deleted.
+	(Fput_char_attribute): Use Fstring_match to find `{<-|->}vulgar'.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}vulgar'.
+	(syms_of_chartab): Don't define `{<-|->}vulgar'.
+
+2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Fput_char_attribute): Convert char-refs in value of
+	`{<-|->}wrong[^*]*' to characters and put reverse links.
+	(Fsave_char_attribute_table): Use `Fchar_refs_simplify_char_specs'
+	for `{<-|->}wrong[^*]*'.
+
 2004-04-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Q_vulgar): New variable.
