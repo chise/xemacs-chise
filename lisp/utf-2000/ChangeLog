@@ -1,3 +1,32 @@
+2004-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el: Add some GT code points.
+	(U+624D): Separate GT-00010 and GT-K00176; use
+	`ideographic-{radical|strokes}' instead of `ideographic-'.
+	(U-00022A65): Use `->subsumptive'; add `<-original' for M-05844.
+	(U+39C3): Use `->subsumptive'.
+	(U+6252): Likewise.
+	(U-00022A69): Likewise.
+	(U+6256): Likewise.
+
+	* Ideograph-R003-Dot.el (C3-2740): Use
+	`<-ancient-ideograph*sources' instead of char-ref in
+	`<-ancient-ideograph'.
+
+	* Ideograph-R001-One.el (GT-00010): Separate U+624D, G0-3245 and
+	C1-445F; use `ideographic-{radical|strokes}' instead of
+	`ideographic-'; use `<-unknown' for U+624D.
+	(U+4E22): Unify C3-2263, GT-00193, GT-K02131, M-00144, H1-F56D and
+	JC3-41BA instead of using `->same-ideograph' for M-00144; use
+	`ideographic-radical@{ucs|cns}'; don't use
+	`hanyu-dazidian-{vol|page|char}'.
+	(C6-2936): Use `<-ancient-ideograph*sources' instead of char-ref
+	in `<-ancient-ideograph'.
+	(C3-2740): Likewise.
+
+	* Ideograph-R004-Slash.el (C3-2263): Unify U+4E22 and G0-362A; use
+	`ideographic-radical@{ucs|cns}'.
+
 2004-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (char-ideographic-strokes): Modify preferences
