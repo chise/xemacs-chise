@@ -176,12 +176,20 @@
     (ucs		. #x7522)	; ç”¢
     ))
 (define-char
-  '((morohashi-daikanwa	21684 1)
+  '((=>ucs		. #x7523)	; ç”£
+    (morohashi-daikanwa	21684 1)
     (ideographic-radical . 100)	; â½£
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
     (=jis-x0208		. #x3B3A)	; ø½Šœ¡
     (korean-ksc5601	. #x5F27)	; ø»‰µ–
+    (ucs-jis		. #x7523)	; ø½Šœ¡
+    ))
+(define-char
+  '((morohashi-daikanwa	21684 1 0)
+    (ideographic-radical . 100)	; â½£
+    (ideographic-strokes . 6)
+    (total-strokes	 . 11)
     (chinese-cns11643-3 . #x3745)	; ø»•·œ
     (chinese-gb12345	. #x327A)	; ç”£
     (ucs		. #x7523)	; ç”£
