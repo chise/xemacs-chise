@@ -1,3 +1,9 @@
+2002-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (insert-ideograph-radical-char-data): Specify
+	optional argument `radical' of `ideograph-char<' instead of bind
+	`ideographic-radical'.
+
 2002-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R142-Insect.el, Ideograph-R134-Mortar.el,
