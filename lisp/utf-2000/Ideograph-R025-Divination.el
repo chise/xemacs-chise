@@ -733,7 +733,7 @@
      ((name		  . "CJK RADICAL DIVINATION")
       (=ucs		  . #x2E8A)	; ⺊
       )
-     ((=gb12345		  . #x5F43)	; 咼 [63-35]
+     ((=gb12345		  . #x5F43)	; &UU+54BC; [63-35]
       ))
     (=ucs@unicode	. #x5368)	; &UU+5368;
     ))
