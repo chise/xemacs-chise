@@ -122,6 +122,7 @@
 	(when-feature file-coding "code-cmds")
 	;;;;;;;;;;;;;;;;;; MULE support
 	(when-feature mule "mule-conf")
+	(when-feature mule "arabic")
 	(when-feature utf-2000 "isolated-char")
 	(when-feature utf-2000 "u00000-C0")
 	(when-feature utf-2000 "u00020-Basic-Latin")
@@ -451,7 +452,6 @@
 ;; Now load files to set up all the different languages/environments
 ;; that Mule knows about.
 
-	(when-feature mule "arabic")
 	(when-feature mule "chinese")
 	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
