@@ -1,3 +1,12 @@
+2003-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R012-Eight.el, Ideograph-R011-Enter.el: Add
+	`=ucs@big5' features.
+
+2003-12-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add `=ucs@big5' features.
+
 2003-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el, Ideograph-R159-Cart.el,
