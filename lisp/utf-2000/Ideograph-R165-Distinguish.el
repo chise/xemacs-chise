@@ -32,7 +32,7 @@
     ))
 (define-char
   '((->ucs		. #x91C7)	; é‡‡
-    (morohashi-daikanwa	40116 0 2 0)
+    (morohashi-daikanwa	40116 0 3)
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
@@ -70,12 +70,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 40120)	; ø¸‰²¸
+    (mojikyo		. 040120)	; ý €‰²¸
     ))
 (define-char
   '((morohashi-daikanwa	40120 1)
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 4)
-    (mojikyo		. 050545)	; ø¸Œ•±
+    (total-strokes	 . 11)
+    (mojikyo		. 050545)	; ý €Œ•±
     (ucs		. #x91C8)	; é‡ˆ
     ))
 (define-char
