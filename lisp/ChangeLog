@@ -1,9 +1,273 @@
-1998-10-12  Kenichi Handa  <handa@etl.go.jp>
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule/mule-ccl.el (ccl-compile-if): If there's no false-cmds, set
-	unconditional-jump to nil.
-	(ccl-compile-read-multibyte-character): Return nil.
-	(ccl-compile-write-multibyte-character): Likewise.
+	mule/mule-cmds.el (view-hello-file): Use `iso-2022-7bit' instead
+	of `iso-2022-7'.
+	(prefer-coding-system): Synced up with Emacs 20.3.11 but not
+	ported yet.
+	(read-input-method-name): Treat optional argument `default'.
+
+1999-05-13  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule/mule-cmds.el: Change MULE to Mule in docstrings
+	and menus.
+
+1999-04-12  Richard M. Stallman  <rms@gnu.org>
+
+	* mule/mule-cmds.el (input-method-function):
+	Add permanent-local property.
+
+1999-03-30  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment): Doc fix.
+
+1999-03-17  Eli Zaretskii  <eliz@gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): Fix
+	previous change: don't use dos-codepage when unbound.
+
+1999-03-16  Eli Zaretskii  <eliz@gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): Don't use
+	cpNNN-nonascii-translation-table if it is unbound.
+
+1999-02-12  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Remove
+	description about charset-origin-alist.
+
+1999-01-27  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment):
+	Provide :link, :type (choices) and appropriate :get.
+
+1999-01-14  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (describe-language-environment): Don't alter
+	input-method-alist.
+
+1999-01-06  Eli Zaretskii  <eliz@gnu.org>
+
+	* mule/mule-cmds.el (prefer-coding-system): Call
+	set-coding-priority, so that the internal array of priorities is
+	also updated.
+
+1998-12-30  Eli Zaretskii  <eliz@mescaline.gnu.org>
+
+	* mule/mule-cmds.el (prefer-coding-system): If the
+	argument requires specific EOL conversion type, make the default
+	coding systems use that.
+
+1998-12-17  Eli Zaretskii  <eliz@mescaline.gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): On MS-DOS
+	terminals, install DOS-specific nonascii-translation-table if the
+	language info doesn't specify one.  Pass the default eol-type to
+	set-language-environment-coding-systems.
+	(set-default-coding-systems): Copy the eol-type property for the
+	new default values of {buffer-file,process}-coding-system from the
+	old defaults.
+	(set-language-environment-coding-systems): Accept an optional
+	argument EOL-TYPE, and set the eol-type property of the default
+	coding systems accordingly.
+
+1998-10-16  Markus Rost  <rost@delysid.gnu.org>
+
+	* mule/mule-cmds.el (default-input-method): Fix custom type.
+
+1998-10-12  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (setup-specified-language-environment):
+	Add apropos-inhibit property.
+	(describe-specified-language-support): Likewise.
+
+1998-09-06  Bill Richter  <richter@math.nwu.edu>
+
+	* mule/mule-cmds.el: Doc fixes.
+
+1998-09-02  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (register-input-method): Doc-string
+	modified.
+
+1998-09-01  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment): Fix
+	setter function.
+
+1998-08-23  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el
+	(set-language-environment-coding-systems): Set
+	default-sendmail-coding-system.
+
+1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (activate-input-method): Handle the case that
+	the arg INPUT-METHOD is nil correctly.
+	(read-multilingual-string): Activate the specified input method
+	before calling read-string.  Afterward, activate the original
+	input method.
+
+1998-08-15  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string
+	modified.
+	(set-language-info-alist): Fix typo in doc-string.
+
+1998-08-09  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
+	(reset-language-environment): New function for the job that
+	setup-english-environment used to do.
+	(set-language-environment): Do more setups according to the info
+	in language-info-alist.
+	(read-language-name): Handle the case that the arg KEY is nil.
+	(describe-language-environment): Handle input-method property.
+
+1998-08-08  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (input-method-exit-on-first-char)
+	(input-method-use-echo-area): Doc fixes.
+
+1998-08-06  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (input-method-exit-on-first-char):
+	New variable.
+	(input-method-use-echo-area): New variable.
+
+1998-08-01  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string
+	modified.
+	(set-language-environment): Setup nonascii-translation-table and
+	charset-origin-alist according to the property of the specified
+	language environment.
+	(set-language-environment-coding-systems): Likewise.
+
+1998-07-30  Ken'ichi Handa  <handa@delysid.gnu.org>
+
+	* mule/mule-cmds.el (activate-input-method): Update mode line.
+	(inactivate-input-method): Likewise.
+
+1998-07-19  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (read-multilingual-string): Don't activate an
+	input method in the current buffer, but just bind
+	current-input-method.
+
+1998-05-23  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (register-input-method): Rename arg ENV to
+	LANG-ENV.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info): Don't set up menus at
+	all.
+	(set-language-info-alist): Set up menus here.
+	
+1998-05-20  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (register-input-method): Fix previous change.
+	(setup-specified-language-environment): Doc fix.
+
+1998-05-19  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el: Several doc fixes.
+	(get-language-info, set-language-info): Rename argument.
+	(set-language-info-alist): Likewise.
+	(register-input-method): Rename argument.
+	(activate-input-method): If INPUT-METHOD is nil, deactivate.
+
+1998-05-04  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (toggle-input-method): Use a more appropriate
+	default value while reading an input method.
+
+1998-05-01  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (universal-coding-system-argument):
+	Use buffer-file-coding-system as default.
+
+1998-04-11  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (describe-language-environment): Print the
+	languge environment at the head.
+
+1998-03-20  Richard Stallman  <rms@psilocin.gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): Doc fix.
+	(current-language-environment): Use defcustom.
+	(default-input-method): Specify :type.
+
+1998-03-02  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems):
+	Doc-string modified.
+	(prefer-coding-system): Doc-string modified.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info): Doc-string
+	describes `coding-priority' KEY.
+	(set-language-environment-coding-systems): New function.
+	(select-safe-coding-system): New function.
+	(set-language-info): New optional args DESCRIBE-MAP and SETUP-MAP.
+	(set-language-info-alist): New optionla arg PARENTS.  Call
+	set-language-info with apropriate DESCRIBE-MAP and SETUP-MAP args.
+	(set-language-environment-coding-systems): New function.
+
+1997-12-19  Stephen Eglen  <stephen@cns.ed.ac.uk>
+
+	* mule/mule-cmds.el (set-language-info): Doc fix.
+	(input-method-inactivate-hook): Doc fix.
+
+1997-11-20  Karl Heuer  <kwzh@gnu.org>
+
+	* mule/mule-cmds.el (set-input-method): Renamed from
+	select-input-method.
+
+1997-11-07  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-environment): Run
+	exit-language-environment-hook before calling `exit-function'
+	which is specified for the language environment.
+
+1997-10-23  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems): Doc-string
+	modified.
+	(prefer-coding-system): Likewise.
+	(describe-language-environment): Print aliases of each coding
+	system.
+	(set-language-environment-hook): New variable.
+	(exit-language-environment-hook): New variable.
+	(set-language-environment): Call these hooks.  Before setting a
+	new language environment, exit from the
+	current-language-environment if necessary.
+	(input-method-verbose-flag): The value can be nil, t,
+	complex-only, or default.
+	(input-method-highlight-flag): Doc-string augmented.
+	(activate-input-method): Check if we can run the registered
+	function to activate an input method.
+
+1997-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (read-multilingual-string): Use
+	current-input-method prior to default-input-method.  Don't bind
+	current-input-method by `let', instead, activate the specified
+	input method in the current buffer temporarily.
+
+1997-10-19  John F. Whitehead  <jfw@cisco.com>
+
+	* mule/mule-cmds.el (describe-language-environment): Fix prompt.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* minibuf.el (completing-read): Add new optional argument
+	`default'.
+	(read-coding-system): Add new optional argument
+	`default-coding-system'.
 
 1998-09-06  Bill Richter  <richter@math.nwu.edu>
 
