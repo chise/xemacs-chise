@@ -1,6 +1,13 @@
+2004-01-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R144-Walk-Enclosure.el, Ideograph-R142-Insect.el,
+	Ideograph-R140-Grass.el, Ideograph-R086-Fire.el: Add some
+	`<-simplified@JP/Jouyou' features.
+
 2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R085-Water.el: Add some `<-simplified@JP/Jouyou'
+	* Ideograph-R132-Self.el, Ideograph-R040-Roof.el,
+	Ideograph-R085-Water.el: Add some `<-simplified@JP/Jouyou'
 	features.
 
 2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
