@@ -1,0 +1,71 @@
+#!/bin/sh -
+#
+# $Id: tm-image,v 1.4 1997/01/30 02:22:30 steve Exp $
+#
+# Copyright 1994, 1995, 1996 Free Software Foundation, Inc.
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2, or (at your option)
+# any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with GNU Emacs; see the file COPYING.  If not, write to the
+# Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+# Boston, MA 02111-1307, USA.
+
+PATH=${PATH:-/usr/bin:/bin}:`dirname $0 2>/dev/null`; export PATH
+
+if [ "$TM_TMP_DIR" = "" ]; then
+	TM_TMP_DIR=/tmp
+	export TM_TMP_DIR
+fi
+if [ "$5" = "" ]; then
+	case "$2" in
+	"image/gif")
+		filename="$TM_TMP_DIR/mime$$.gif"
+		;;
+	"image/jpeg")
+		filename="$TM_TMP_DIR/mime$$.jpg"
+		;;
+	"image/tiff"|"image/x-tiff")
+		filename="$TM_TMP_DIR/mime$$.tif"
+		;;
+	"image/x-xwd")
+		filename="$TM_TMP_DIR/mime$$.xwd"
+		;;
+	"image/x-xbm")
+		filename="$TM_TMP_DIR/mime$$.xbm"
+		;;
+	"image/x-pic")
+		filename="$TM_TMP_DIR/mime$$.pic"
+		;;
+	"image/x-mag")
+		filename="$TM_TMP_DIR/mime$$.mag"
+		;;
+	*)
+		filename="$TM_TMP_DIR/mime$$.img"
+		;;
+	esac
+else
+	filename="$TM_TMP_DIR/$5"
+fi
+
+echo "$2; $3 -> $filename"
+
+tmdecode $3 $1 $filename
+
+case "$4" in
+"play")
+	xv -geometry +1+1 $filename
+	trap 'rm -f $filename' 0 1 2 3 13 15
+	;;
+"extract")
+	echo "extract to $filename"
+	;;
+esac
