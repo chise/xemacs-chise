@@ -1,5 +1,14 @@
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R082-Fur.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R043-Lame.el (U-0002F875): Add CU-0002F875.
+
+	* Ideograph-R018-Knife.el (U-0002F823): Add CU-0002F823.
+
 	* Ideograph-R077-Stop.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
@@ -104,6 +113,13 @@
 
 	* Ideograph-R068-Dipper.el, Ideograph-R063-Door.el,
 	Ideograph-R053-Dotted-Cliff.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+2004-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R061-Heart.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
