@@ -3054,6 +3054,12 @@
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (=ucs		. #x3553)	; 㕓
+    ))
+(define-char
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
     (=daikanwa		. 03049)	; &M-03049;
