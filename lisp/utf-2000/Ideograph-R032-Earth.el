@@ -7555,7 +7555,7 @@
   '((=>ucs*		. #x585A)	; å¡š
     (=>ucs@gb		. #x585A)	; å¡š
     (=>ucs@cns		. #x585A)	; ø»’¤
-    (=>ucs-big5		. #x585A)	; ø»’¤
+    (=>ucs@big5		. #x585A)	; ø»’¤
     (ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
