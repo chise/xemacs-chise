@@ -1,3 +1,36 @@
+2001-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+
+	* Ideograph-R018-Knife.el (U+5259): Fix operator.
+	(C3-2F62): Likewise.
+
+	* Ideograph-R014-Cover.el (U+51A9): Simplify
+	`ideographic-structure'.
+
+	* Ideograph-R009-Man.el (U+U+4FA7): Simplify
+	`ideographic-structure'.
+	(M-00703): Use BC-8AFC instead of U+4EBC in the
+	`ideographic-structure'.
+
+2001-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* ideograph-util.el (ideographic-structure=): New function.
+	(ideographic-structure-find-char): Use `ideographic-structure='
+	instead of `char-ref='.
+
+	* Ideograph-R017-Open-Box.el (U+51FF): Fix
+	`ideographic-structure'.
+
+	* Ideograph-R013-Down-Box.el (U+5183): Modify operator.
+	(U+5187): Modify operator.
+	(U+5188): Modify operator.
+	(U+518F): Modify operator.
+
 2001-12-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R039-Child.el: Merge CHINA3-JEF code points.
