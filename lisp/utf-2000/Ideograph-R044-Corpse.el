@@ -1175,6 +1175,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=cns11643-4	. #x3135)	; ø»—¸œ
+    (=big5-cdp		. #x8DA4)	; ý¢€ˆ¶¤
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«
