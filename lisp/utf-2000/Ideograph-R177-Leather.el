@@ -66,8 +66,7 @@
     (=daikanwa		. 42714)	; &I-M-42714;
     ))
 (define-char
-  '((=>daikanwa		. 42715)	; &GT-57333;
-    (ideographic-radical . 177)	; ⾰
+  '((ideographic-radical . 177)	; ⾰
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
     (->same@jiyun
@@ -76,7 +75,8 @@
     (->same@jiyun*sources
      jiyun daikanwa)
     (->same@zihui
-     ((=daikanwa	  . 43109)	; &I-M-43109;
+     ((=gb12345		  . #x484D)	; &M-43109;
+      (=daikanwa	  . 43109)	; &M-43109;
       ))
     (->same@zihui*sources
      jiyun zihui daikanwa)
