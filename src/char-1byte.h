@@ -1,6 +1,5 @@
-/* Header for UCS-4 character representation.
-   Copyright (C) 1999 Electrotechnical Laboratory, JAPAN.
-   Licensed to the Free Software Foundation.
+/* Header for 1-byte character representation.
+   Copyright (C) 1999,2000 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -37,6 +36,10 @@ typedef unsigned char Charset_ID;
 #define LEADING_BYTE_ASCII 0x80
 #define NUM_LEADING_BYTES 1
 
+#define Vcharset_ascii Qnil
+#define Vcharset_control_1 Qnil
+#define Vcharset_latin_iso8859_1 Qnil
+
 
 /************************************************************************/
 /*            Information about a particular character set              */
@@ -54,6 +57,23 @@ typedef unsigned char Charset_ID;
 /*                        Dealing with characters                       */
 /************************************************************************/
 
+INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
+INLINE_HEADER Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point)
+{
+  return code_point;
+}
+
+INLINE_HEADER int encode_char_1 (Emchar ch, Lisp_Object* charset);
+INLINE_HEADER int
+encode_char_1 (Emchar ch, Lisp_Object* charset)
+{
+  *charset = Vcharset_ascii;
+  return  ch;
+}
+
+#define ENCODE_CHAR(ch, charset)	encode_char_1 (ch, &(charset))
+
 #define CHAR_CHARSET(ch) Vcharset_ascii
 #define CHAR_LEADING_BYTE(ch) LEADING_BYTE_ASCII
 
@@ -63,11 +83,16 @@ typedef unsigned char Charset_ID;
   (byte2) = 0;						\
 } while (0)
 
+
+typedef struct Charc
+{
+  Lisp_Object charset;
+  unsigned char code_point;
+} Charc;
+
 
 /************************************************************************/
 /*                            Exported functions                        */
 /************************************************************************/
-
-#define Vcharset_ascii Qnil
 
 #endif /* _XEMACS_CHAR_1BYTE_H */
