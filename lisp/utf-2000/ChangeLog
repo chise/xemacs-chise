@@ -1,5 +1,17 @@
 2004-04-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el (C3-224A): Moved into U+5F52; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U+5F52): Use `->subsumptive'.
+
+	* Ideograph-R036-Evening.el (U+5918): Add `->mistakable' for
+	M-02843 and M-02847; add `->same' for U+5917; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(JSP-3869): Moved into U+5923; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(U+5923): Use `->subsumptive'.
+	(C3-405F): Moved into U+5923.
+
 	* Ideograph-R040-Roof.el (U+5BC3): Separate C3-3541; define as an
 	abstract character.
 	(J83-5563): Use `<-vulgar*sources' instead of char-ref in
@@ -86,6 +98,9 @@
 	char-ref in `<-vulgar'.
 	(K0-6D2B): Moved into U+59C9.
 	(C3-283F): Likewise.
+
+	* Ideograph-R075-Tree.el (U+681F): Use `<-vulgar*sources' instead
+	of char-ref in `<-vulgar'.
 
 	* Ideograph-R030-Mouth.el (U+5451): Use `<-vulgar*sources' instead
 	of char-ref in `<-vulgar'.
