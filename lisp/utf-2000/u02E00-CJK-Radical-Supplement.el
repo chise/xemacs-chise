@@ -518,7 +518,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5-cdp	. #x8970)	; ý¢€ˆ¥°
     (ucs		. #x2EB6)	; âº¶
+    ))
+(define-char
+  '((=>ucs		. #x2EB6)	; âº¶
+    (chinese-big5-cdp	. #x8CCC)	; ý¢€ˆ³Œ
     ))
 (define-char
   '((name		. "CJK RADICAL RAM")
