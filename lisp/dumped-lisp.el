@@ -164,6 +164,7 @@
 	(when-feature utf-2000 "u031A0-Extended-Bopomofo")
 	(when-feature utf-2000 "u03200-Enclosed-CJK-Letters-and-Months")
 	(when-feature utf-2000 "u03300-CJK-Compatibility")
+	(when-feature utf-2000 "Ideograph-R001-One")
 	(when-feature mule "mule-charset")
 	(when-feature file-coding "coding")
 	(when-feature mule "mule-coding")
