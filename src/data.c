@@ -39,6 +39,9 @@ Boston, MA 02111-1307, USA.  */
 #endif /* LISP_FLOAT_TYPE */
 
 Lisp_Object Qnil, Qt, Qquote, Qlambda, Qunbound;
+#ifdef UTF2000
+Lisp_Object Qunloaded;
+#endif
 Lisp_Object Qerror_conditions, Qerror_message;
 Lisp_Object Qerror, Qquit, Qsyntax_error, Qinvalid_read_syntax;
 Lisp_Object Qlist_formation_error;
