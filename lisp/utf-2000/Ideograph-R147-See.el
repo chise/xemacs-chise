@@ -1102,9 +1102,16 @@
     (shinjigen-1	. 7496)
     (shinjigen-2	. 7496)
     (korean-ksc5601		. #x7651)	; ø»Š—²
-    (chinese-cns11643-1		. #x7235)	; ø»’¹®
     (japanese-jisx0208-1990	. #x3F46)	; ø½Š¢¥
     (ideograph-daikanwa		. 34918)	; ø¸ˆ¡¦
+    ))
+(define-char
+  '((->ucs		. #x89AA)	; è¦ª
+    (morohashi-daikanwa	34918 0 0)
+    (ideographic-radical . 147)	; â¾’
+    (ideographic-strokes . 9)
+    (total-strokes	 . 16)
+    (chinese-cns11643-1 . #x7235)	; ø»’¹®
     ))
 (define-char
   '((=>ucs		. #x89AA)	; è¦ª
