@@ -168,6 +168,8 @@ get_x_display (Lisp_Object device)
 /*		      initializing an X connection			*/
 /************************************************************************/
 
+static struct device *device_being_initialized = NULL;
+
 static void
 allocate_x_device_struct (struct device *d)
 {
@@ -562,7 +564,9 @@ x_init_device (struct device *d, Lisp_Object props)
    */
   slow_down_interrupts ();
   /* May not be needed but XtOpenDisplay could not deal with signals here. */
+  device_being_initialized = d;
   dpy = DEVICE_X_DISPLAY (d) = XOpenDisplay (disp_name);
+  device_being_initialized = NULL;
   speed_up_interrupts ();
 
   if (dpy == 0)
@@ -1115,6 +1119,9 @@ x_IO_error_handler (Display *disp)
   /* This function can GC */
   Lisp_Object dev;
   struct device *d = get_device_from_display_1 (disp);
+
+  if (!d)
+    d = device_being_initialized;
 
   assert (d != NULL);
   XSETDEVICE (dev, d);

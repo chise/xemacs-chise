@@ -765,17 +765,21 @@ See also the variable `completion-highlight-first-word-only' for
                         &optional predicate require-match
                                   initial-contents history default)
   "Read a string in the minibuffer, with completion.
-Args: PROMPT, TABLE, PREDICATE, REQUIRE-MATCH, INITIAL-CONTENTS, HISTORY.
+
 PROMPT is a string to prompt with; normally it ends in a colon and a space.
 TABLE is an alist whose elements' cars are strings, or an obarray.
+TABLE can also be a function which does the completion itself.
 PREDICATE limits completion to a subset of TABLE.
-See `try-completion' for more details on completion, TABLE, and PREDICATE.
+See `try-completion' and `all-completions' for more details
+  on completion, TABLE, and PREDICATE.
+
 If REQUIRE-MATCH is non-nil, the user is not allowed to exit unless
- the input is (or completes to) an element of TABLE or is null.
- If it is also not t, Return does not exit if it does non-null completion.
+  the input is (or completes to) an element of TABLE or is null.
+  If it is also not t, Return does not exit if it does non-null completion.
 If INITIAL-CONTENTS is non-nil, insert it in the minibuffer initially.
   If it is (STRING . POSITION), the initial input
   is STRING, but point is placed POSITION characters into the string.
+
 HISTORY, if non-nil, specifies a history list
   and optionally the initial position in the list.
   It can be a symbol, which is the history list variable to use,
@@ -785,7 +789,9 @@ HISTORY, if non-nil, specifies a history list
   which INITIAL-CONTENTS corresponds to).
   If HISTORY is `t', no history will be recorded.
   Positions are counted starting from 1 at the beginning of the list.
-DEFAULT, if non-nil, is the default value.
+DEFAULT, if non-nil, will be returned when the user enters an empty
+  string.
+
 Completion ignores case if the ambient value of
   `completion-ignore-case' is non-nil."
   (let ((minibuffer-completion-table table)

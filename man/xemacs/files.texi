@@ -10,6 +10,19 @@ commands apply directly to text in the buffer; that is, to the copy inside
 Emacs.  Your changes appear in the file itself only when you @dfn{save} the
 buffer back into the file.
 
+@cindex files, remote
+@cindex remote files
+  Emacs is also able to handle ``remote files'' which are stored on
+other hosts.  Not only is Emacs somewhat aware of the special issues
+involved with network file systems, but it can also use FTP and ssh (or
+rsh) to make local copies of the files, and refresh them on the remote
+host automatically when you save the buffer.  The FTP interface is
+provided by the standard @samp{efs} package @ref{Top, EFS, , efs}.  The
+ssh/rsh interface is provided by the optional @samp{tramp} package
+@ref{Top, TRAMP, , tramp}.  These packages attempt to implement all of
+the operations described below, making remote file use transparent
+(except for unavoidable network delays).
+
   In addition to visiting and saving files, Emacs can delete, copy, rename,
 and append to files, and operate on file directories.
 
@@ -43,6 +56,17 @@ file name is the name of the file visited in the current buffer; this
 makes it easy to operate on that file with any of the Emacs file
 commands.
 
+The syntax for accessing remote files unfortunately varies depending on
+the method used.  The syntax for using FTP is
+@samp{/@var{user}@@@var{remote-host}:@var{path-on-remote-host}}.  The
+syntax for using ssh is
+@samp{/[@var{user}@@@var{remote-host}]@var{path-on-remote-host}}.
+
+  In both cases the @samp{@var{user}@@} portion is optional (it defaults
+to your local user name).  @var{path-on-remote-host} may use the
+@samp{~} notation to indicate @var{user}'s home directory on the remote
+host.  The default file name will reflect the remote host information.
+
 @vindex default-directory
   Each buffer has a default directory, normally the same as the
 directory of the file visited in that buffer.  When Emacs reads a file
@@ -58,6 +82,10 @@ the default directory is @file{/u/rms/gnu/}.  If you type just @samp{foo},
 which does not specify a directory, it is short for @file{/u/rms/gnu/foo}.
 @samp{../.login} would stand for @file{/u/rms/.login}.  @samp{new/foo}
 would stand for the filename @file{/u/rms/gnu/new/foo}.
+
+  When visiting a remote file via EFS or TRAMP, the remote directory
+becomes the default directory (@pxref{Visiting}) for that buffer, just
+as a local directory would.
 
 @vindex default-directory-alist
 The variable @code{default-directory-alist} takes an alist of major

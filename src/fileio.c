@@ -364,6 +364,8 @@ If OPERATION equals `inhibit-file-name-operation', then we ignore
 any handlers that are members of `inhibit-file-name-handlers',
 but we still do run any other handlers.  This lets handlers
 use the standard functions without calling themselves recursively.
+
+Otherwise, OPERATION is the name of a funcall'able function.
 */
        (filename, operation))
 {

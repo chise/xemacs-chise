@@ -392,7 +392,7 @@ to the package.
 
 No need to panic, you don't have to go through the
 @file{pkinfo/MANIFEST.pkgname} and manually delete the files.  Instead, use
-@code{M-x package-admin-delete-binary-package RET}.
+@code{M-x package-get-delete-package RET}.
 
 Note that the interactive package tools included with XEmacs already do
 this for you.

@@ -278,12 +278,24 @@ The menu is in a format applicable to @code{easy-menu-define}.
 @comment  node-name,  next,  previous,  up
 @section The Init File
 
-When you save the customizations, call to @code{custom-set-variables},
-@code{custom-set-faces} are inserted into the file specified by
-@code{custom-file}.  By default @code{custom-file} is your @file{.emacs}
-file.  If you use another file, you must explicitly load it yourself.
-The two functions will initialize variables and faces as you have
-specified.
+Customizations are saved to the file specified by @code{custom-file}, as
+calls to @code{custom-set-variables} and @code{custom-set-faces}.
+
+When you save customizations, the current implementation removes the
+calls to @code{custom-set-variables} and @code{custom-set-faces}, and
+replaces them with code generated on the basis of the current
+customization state in Emacs.
+
+By default @code{custom-file} is your @file{.emacs} file (for GNU Emacs
+and older XEmacs) and is @file{custom.el} in the same directory as
+@file{init.el} (in XEmacs 21.4 and later).  If you use another file, you
+must explicitly load it yourself.
+
+As of XEmacs 21.4.7, when @var{custom-file} is present, it is loaded
+@emph{after} @file{init.el}.  This is likely to change in the future,
+because (1) actions in @file{init.el} often would like to depend on
+customizations for consistent appearance and (2) Custom is quite brutal
+about enforcing its idea of the correct values at initialization.
 
 @node Wishlist,  , The Init File, Top
 @comment  node-name,  next,  previous,  up
