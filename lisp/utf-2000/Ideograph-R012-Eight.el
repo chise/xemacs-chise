@@ -408,6 +408,14 @@
     (japanese-jisx0213-2	. #x2327)	; ø»¤ ‚
     ))
 (define-char
+  '((=>ucs		. #x20509)	; ð ”‰
+    (morohashi-daikanwa	48931 0 2)
+    (ideographic-radical . 12)	; â¼‹
+    (ideographic-strokes . 4)
+    (total-strokes	 . 6)
+    (chinese-big5-cdp	. #x8BFA)	; ý¢€ˆ¯º
+    ))
+(define-char
   '((ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
