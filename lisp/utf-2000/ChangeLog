@@ -1,3 +1,11 @@
+2003-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el: Add missing mappings between CJK Ext B
+	and CNS 11643 plain 5.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+882F): New character [copied
+	from Ideograph-R142-Insect.el].
+
 2003-05-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R039-Child.el (JX2-257B): Unify B-C570 and JC3-49F7.
