@@ -158,6 +158,7 @@
     (total-strokes	 . 7)
     (=jis-x0212		. #x3A6E)	; ø»‹Š‹
     (=daikanwa		. 07551)	; ø¸µ¿
+    (=ucs@jis		. #x5C26)	; ø»‹Š‹
     ))
 (define-char
   '((morohashi-daikanwa	7551 0 2)

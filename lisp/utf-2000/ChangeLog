@@ -1,3 +1,21 @@
+2003-07-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (U+2ECC): Specify U+FA66
+	instead of U+8FB6 for `<-radical'; separate JX2-7969 and BC-8966.
+
+	* Ideograph-R162-Walk.el (G0-6541): Unify JX2-7969 and BC-8966;
+	unify U+FA66 instead of U+8FB6; add GU+8FB6.
+
+2003-07-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el, Ideograph-R140-Grass.el,
+	Ideograph-R120-Silk.el, Ideograph-R116-Cave.el,
+	Ideograph-R109-Eye.el, Ideograph-R104-Sickness.el,
+	Ideograph-R064-Hand.el, Ideograph-R046-Mountain.el,
+	Ideograph-R043-Lame.el, Ideograph-R040-Roof.el,
+	Ideograph-R038-Woman.el, Ideograph-R009-Man.el: Add some missing
+	`ucs@jis' features corresponding with JIS X 0212 code points.
+
 2003-07-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+651A): Fix strokes.

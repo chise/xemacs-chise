@@ -10029,6 +10029,7 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
     (=jis-x0212		. #x3B7A)	; ø»‹‹µ
+    (=ucs@jis		. #x5DCE)	; ø»‹‹µ
     ))
 (define-char
   '((morohashi-daikanwa	8636 0 2)
