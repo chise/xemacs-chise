@@ -581,9 +581,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM BELOW")
       (ucs		  . #x2FF6)	; â¿¶
       )
-     ((ucs		  . #x4E35)	; ä¸µ
-      )
      ((ucs		  . #x51F5)	; å‡µ
+      )
+     ((ucs		  . #x4E35)	; ä¸µ
       ))
     (chinese-gb2312	. #x5464)	; ø»…’
     (chinese-isoir165	. #x5464)	; ø»º‘
