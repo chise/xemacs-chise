@@ -680,7 +680,7 @@
     (ucs		. #x0681)	; ځ
     ))
 (define-char
-  '((name		. "ARABIC LETTER HAH WITH TWO DOTS VERTICAL ABOVE")
+  '((name . "ARABIC LETTER HAH WITH TWO DOTS VERTICAL ABOVE")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -743,7 +743,7 @@
     (ucs		. #x068A)	; ڊ
     ))
 (define-char
-  '((name		. "ARABIC LETTER DAL WITH DOT BELOW AND SMALL TAH")
+  '((name . "ARABIC LETTER DAL WITH DOT BELOW AND SMALL TAH")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -820,7 +820,7 @@
     (ucs		. #x0695)	; ڕ
     ))
 (define-char
-  '((name		. "ARABIC LETTER REH WITH DOT BELOW AND DOT ABOVE")
+  '((name . "ARABIC LETTER REH WITH DOT BELOW AND DOT ABOVE")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -848,7 +848,7 @@
     (ucs		. #x0699)	; ڙ
     ))
 (define-char
-  '((name		. "ARABIC LETTER SEEN WITH DOT BELOW AND DOT ABOVE")
+  '((name . "ARABIC LETTER SEEN WITH DOT BELOW AND DOT ABOVE")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
