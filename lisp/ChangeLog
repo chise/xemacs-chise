@@ -1,5 +1,12 @@
 1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* utf-2000/char-db-util.el (ideographic-radicals): New constant.
+	(insert-char-data): Change order of `ideographic-radical',
+	`ideographic-strokes' and `total-strokes'; adjust width of the
+	first element of a list.
+
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`ideograph-daikanwa'.
 
