@@ -1,5 +1,9 @@
 2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule.c (vars_of_mule): Update `utf-2000-version' to 0.19.
+
+2002-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule.c (Vutf_2000_version): New variable [moved from chartab.c].
 	(vars_of_mule): Add new variable `utf-2000-version' [moved from
 	chartab.c].
