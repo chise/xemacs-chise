@@ -1,3 +1,14 @@
+2001-09-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (M-09221): Unify Big5-CDP-8B50.
+
+	* Ideograph-R014-Cover.el: Add `ideographic-structure'.
+	(U+5196): Unify Big5-CDP-8B40.
+	(C3-214F): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+
+	* Ideograph-R013-Down-Box.el: Add `ideographic-structure'.
+
 2001-09-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R015-Ice.el: Add `ideographic-structure'.
@@ -11,6 +22,13 @@
 
 	* Ideograph-R169-Gate.el, Ideograph-R162-Walk.el: Merge GB 12345
 	code points.
+
+2001-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R164-Wine.el: Merge GB 12345 code points.
+
+	* Ideograph-R046-Mountain.el (M-08178): Separate G0-345E, C1-597E
+	and U+5D14.
 
 2001-09-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
