@@ -1,0 +1,8 @@
+2002-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* GT-fmap-K1.txt, GT-fmap-K2.txt: New files.
+
+2002-07-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* etc/char-data/GT-RS.txt: Moved from etc/GT-RS.txt.
+
