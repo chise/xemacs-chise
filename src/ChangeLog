@@ -1,3 +1,19 @@
+2003-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_big5): Deleted.
+	(Vcharset_ideograph_gt): Deleted.
+	(Qucs_big5): Deleted.
+	(Qideograph_gt): Deleted.
+	(syms_of_mule_charset): Delete symbol `ucs-big5' and
+	`ideograph-gt'.
+	(complex_vars_of_mule_charset): Delete coded-charset `ucs-big5'
+	and `ideograph-gt'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_BIG5): Deleted.
+	(LEADING_BYTE_GT): Deleted.
+	(MIN_CHAR_GT): Deleted.
+	(MAX_CHAR_GT): Deleted.
+
 2003-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Fput_char_attribute): Canonicalise charset-aliases.
