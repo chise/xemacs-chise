@@ -765,6 +765,7 @@
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
+    (korean-ksc5601	. #x6121)	; ø»‰¸Œ
     (chinese-cns11643-1 . #x657B)	; ø»’§®
     (ideograph-daikanwa . 29074)	; ø¸‡†’
     ))
