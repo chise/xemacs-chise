@@ -273,8 +273,23 @@
 				  (setq dest (cons pc dest))))
 			      dest)
 			  (list chr))
-			(get-char-attribute chr '<-identical)
-			(get-char-attribute chr '->denotational)))
+			(let ((rest (append
+				     (get-char-attribute chr '<-identical)
+				     (get-char-attribute chr '->denotational)))
+			      pc)
+			  (setq dest nil)
+			  (while rest
+			    (setq pc (car rest))
+			    (if (memq pc dest)
+				(setq rest (cdr rest))
+			      (setq dest (cons pc dest))
+			      (setq rest
+				    (append (cdr rest)
+					    (get-char-attribute
+					     pc '<-identical)
+					    (get-char-attribute
+					     pc '->denotational)))))
+			  dest)))
 	   (when (and radical
 		      (or (eq radical
 			      (or (get-char-attribute
@@ -444,31 +459,55 @@
   (char-ideographic-strokes char radical '(daikanwa)))
 
 ;;;###autoload
-(defun char-daikanwa (char &optional radical)
+(defun char-daikanwa (char &optional radical checked)
   (unless radical
     (setq radical ideographic-radical))
-  (map-char-family
-   (lambda (sc)
-     (if (or (null radical)
-	     (eq (or (get-char-attribute sc 'ideographic-radical)
-		     (char-ideographic-radical sc radical t))
-		 radical))
-	 (let ((ret (or (encode-char sc 'ideograph-daikanwa 'defined-only)
-			(encode-char sc '=daikanwa-rev2 'defined-only))))
-	   (if ret
-	       (if (or (eq sc char)
-		       (and (null (get-char-attribute char '<-subsumptive))
-			    (null (get-char-attribute char '<-denotational))))
-		   ret
-		 (list ret 0))
-	     (or (get-char-attribute sc 'morohashi-daikanwa)
-		 (if (setq ret (char-feature sc '=>daikanwa))
-		     (cond ((consp ret) ret)
-			   ((or (get-char-attribute char '<-subsumptive)
-				(get-char-attribute char '<-denotational))
-			    (list ret 0))
-			   (t ret))))))))
-   char))
+  (if (or (null radical)
+          (eq (or (get-char-attribute char 'ideographic-radical)
+                  (char-ideographic-radical char radical t))
+              radical))
+      (let ((ret (or (encode-char char 'ideograph-daikanwa 'defined-only)
+                     (encode-char char '=daikanwa-rev2 'defined-only)
+                     (get-char-attribute char 'morohashi-daikanwa)
+                     (get-char-attribute char '=>daikanwa))))
+        (or ret
+	    (unless (memq char checked)
+	      (catch 'tag
+		(let ((rest
+		       (append (get-char-attribute char '<-subsumptive)
+			       (get-char-attribute char '<-denotational)))
+		      (i 0)
+		      sc)
+		  (setq checked (cons char checked))
+		  (while rest
+		    (setq sc (car rest))
+		    (when (setq ret (char-daikanwa sc radical checked))
+		      (throw 'tag
+			     (if (numberp ret)
+				 (list ret 0 i)
+			       (append ret (list i)))))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest)
+			  i (1+ i)))
+		  (setq rest (get-char-attribute char '->identical))
+		  (while rest
+		    (setq sc (car rest))
+		    (when (setq ret (char-daikanwa sc radical checked))
+		      (throw 'tag
+			     (if (numberp ret)
+				 (list ret 0)
+			       (append ret (list i)))))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest)))
+		  (setq rest
+			(append (get-char-attribute char '->subsumptive)
+				(get-char-attribute char '->denotational)))
+		  (while rest
+		    (setq sc (car rest))
+		    (if (setq ret (char-daikanwa sc radical checked))
+			(throw 'tag ret))
+		    (setq checked (cons sc checked)
+			  rest (cdr rest))))))))))
 
 ;;;###autoload
 (defun char-ucs (char)
