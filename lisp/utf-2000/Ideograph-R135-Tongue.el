@@ -3,32 +3,29 @@
   '((ideographic-radical . 135)	; ⾆
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
-    (shinjigen-1	. 6628)
-    (shinjigen-2	. 6628)
     (=ucs		. #x820C)	; 舌
-    (=jis-x0208		. #x4065)	; &I-J90-4065; [32-69]
-    (=gb2312		. #x4960)	; &I-G0-4960; [41-64]
-    (=ks-x1001		. #x605F)	; &I-K0-605F; [64-63]
-    (=big5		. #xA6DE)	; &I-B-A6DE;
-    (=gt		. 39171)	; &I-GT-39171;
-    (=gt-k		. 01652)	; &I-GT-K01652;
-    (=gt-pj-1		. #x4065)	; &I-GT-39171; [32-69]
-    (=daikanwa		. 30277)	; &I-M-30277;
-    ))
-(define-char
-  '((=>ucs		. #x820C)	; 舌
-    (morohashi-daikanwa	30277 0 1)
-    (ideographic-radical . 135)	; ⾆
-    (ideographic-strokes . 0)
-    (total-strokes	 . 6)
-    (<-original-ideograph
-     (:sources	(shinjigen-1)
-      :char	((=ucs		     . #x820C)	; 舌
-		 )
+    (->subsumptive
+     ((shinjigen-1	  . 6628)
+      (shinjigen-2	  . 6628)
+      (=jis-x0208	  . #x4065)	; &GT-39171; [32-69]
+      (=gb2312		  . #x4960)	; &I-G0-4960; [41-64]
+      (=ks-x1001	  . #x605F)	; &I-K0-605F; [64-63]
+      (=big5		  . #xA6DE)	; &I-B-A6DE;
+      (=gt		  . 39171)	; &I-GT-39171;
+      (=gt-k		  . 01652)	; &I-GT-K01652;
+      (=gt-pj-1		  . #x4065)	; &I-GT-39171; [32-69]
+      (=daikanwa	  . 30277)	; &I-M-30277;
+      (=ucs@unicode	  . #x820C)	; &GT-39171;
+      )
+     ((<-original
+       ((=jis-x0208	    . #x4065)	; &GT-39171; [32-69]
+	(=ucs@unicode	    . #x820C)	; &GT-39171;
+	))
+      (<-original*sources
+       shinjigen-1)
+      (shinjigen-1	  . 6629)
+      (=cns11643-1	  . #x485F)	; &C1-485F; [40-63]
       ))
-    (ideograph-cdp	. 31451)
-    (shinjigen-1	. 6629)
-    (=cns11643-1	. #x485F)	; &C1-485F; [40-63]
     ))
 (define-char
   '((ideographic-radical . 135)	; ⾆
