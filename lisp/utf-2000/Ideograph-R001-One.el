@@ -54,15 +54,15 @@
       (ucs		  . #x310E)	; ã„Ž
       ))
     (hanyu-dazidian	1 4 1)
-    (japanese-jisx0212		. #x3021)	; ø»Šº’
-    (chinese-cns11643-4		. #x2126)	; ø»— ­
-    (japanese-jisx0213-2	. #x2122)	; ø»¤
-    (ideograph-gt-pj-2		. #x3021)	; ý¡€€€ƒ
-    (ideograph-daikanwa		. 00003)	; ø¸€€ƒ
-    (chinese-big5-cdp		. #x8BCD)	; ý¢€ˆ¯
-    (china3-jef			. #x41A1)	; øº„†¡
-    (ideograph-gt		. 00003)	; ý¡€€€ƒ
-    (ucs			. #x4E02)	; ä¸‚
+    (japanese-jisx0212	. #x3021)	; ø»Šº’
+    (chinese-cns11643-4 . #x2126)	; ø»— ­
+    (=jis-x0213-2-2000	. #x2122)	; ø»¤
+    (ideograph-gt-pj-2	. #x3021)	; ý¡€€€ƒ
+    (ideograph-daikanwa . 00003)	; ø¸€€ƒ
+    (chinese-big5-cdp	. #x8BCD)	; ý¢€ˆ¯
+    (china3-jef		. #x41A1)	; øº„†¡
+    (ideograph-gt	. 00003)	; ý¡€€€ƒ
+    (ucs		. #x4E02)	; ä¸‚
     ))
 (define-char
   '((script		Ideograph)
@@ -225,12 +225,12 @@
 			 :strokes	0))
     (total-strokes	 . 2)
     (ideograph-cdp	. -63)
-    (japanese-jisx0213-2	. #x2121)	; ø»¤€
-    (ideograph-gt-pj-9		. #x4D4A)	; ý¡€€€ˆ
-    (chinese-big5-cdp		. #x8B4A)	; ý¢€ˆ­Š
-    (china3-jef			. #x71FC)	; øº‡‡¼
-    (ideograph-gt		. 00008)	; ý¡€€€ˆ
-    (ucs			. #x20089)	; ð ‚‰
+    (=jis-x0213-2-2000	. #x2121)	; ø»¤€
+    (ideograph-gt-pj-9	. #x4D4A)	; ý¡€€€ˆ
+    (chinese-big5-cdp	. #x8B4A)	; ý¢€ˆ­Š
+    (china3-jef		. #x71FC)	; øº‡‡¼
+    (ideograph-gt	. 00008)	; ý¡€€€ˆ
+    (ucs		. #x20089)	; ð ‚‰
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -542,15 +542,15 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 11 5)
     (shinjigen-1	. 19)
-    (chinese-isoir165		. #x7A21)	; ø»Ž±‚
-    (chinese-cns11643-2		. #x212D)	; ø»“Œ¬
-    (japanese-jisx0213-2	. #x2123)	; ø»¤‚
-    (ideograph-gt-pj-2		. #x302D)	; ý¡€€€¥
-    (chinese-big5		. #xC94D)	; ý¢€Œ¥
-    (ideograph-daikanwa		. 00021)	; ø¸€€•
-    (china3-jef			. #x97C5)	; øº‰Ÿ…
-    (ideograph-gt		. 00037)	; ý¡€€€¥
-    (ucs			. #x4E0F)	; ä¸
+    (chinese-isoir165	. #x7A21)	; ø»Ž±‚
+    (chinese-cns11643-2 . #x212D)	; ø»“Œ¬
+    (=jis-x0213-2-2000	. #x2123)	; ø»¤‚
+    (ideograph-gt-pj-2	. #x302D)	; ý¡€€€¥
+    (chinese-big5	. #xC94D)	; ý¢€Œ¥
+    (ideograph-daikanwa . 00021)	; ø¸€€•
+    (china3-jef		. #x97C5)	; øº‰Ÿ…
+    (ideograph-gt	. 00037)	; ý¡€€€¥
+    (ucs		. #x4E0F)	; ä¸
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -646,11 +646,11 @@
       )
      ((ucs		  . #x4E36)	; ä¸¶
       ))
-    (japanese-jisx0213-1	. #x2E22)	; ø»¢¦ƒ
-    (ideograph-gt-pj-2		. #x3030)	; ý¡€€€Ÿ
-    (ideograph-daikanwa		. 00026)	; ø¸€€š
-    (ucs-jis			. #x2000B)	; ø»¢¦ƒ
-    (ideograph-gt		. 00031)	; ý¡€€€Ÿ
+    (=jis-x0213-1-2000	. #x2E22)	; ø»¢¦ƒ
+    (ideograph-gt-pj-2	. #x3030)	; ý¡€€€Ÿ
+    (ideograph-daikanwa . 00026)	; ø¸€€š
+    (ucs-jis		. #x2000B)	; ø»¢¦ƒ
+    (ideograph-gt	. 00031)	; ý¡€€€Ÿ
     ))
 (define-char
   '((morohashi-daikanwa	26 0 0)
@@ -703,14 +703,14 @@
      ((ucs		  . #x4E00)	; ä¸€
       ))
     (shinjigen-2	. 17)
-    (japanese-jisx0212		. #x3025)	; ø»Šº–
-    (chinese-cns11643-4		. #x2139)	; ø»—¡€
-    (japanese-jisx0213-2	. #x2124)	; ø»¤ƒ
-    (ideograph-gt-pj-2		. #x3032)	; ý¡€€€¢
-    (ideograph-daikanwa		. 00028)	; ø¸€€œ
-    (china3-jef			. #x41A8)	; øº„†¨
-    (ideograph-gt		. 00034)	; ý¡€€€¢
-    (ucs			. #x4E12)	; ä¸’
+    (japanese-jisx0212	. #x3025)	; ø»Šº–
+    (chinese-cns11643-4 . #x2139)	; ø»—¡€
+    (=jis-x0213-2-2000	. #x2124)	; ø»¤ƒ
+    (ideograph-gt-pj-2	. #x3032)	; ý¡€€€¢
+    (ideograph-daikanwa . 00028)	; ø¸€€œ
+    (china3-jef		. #x41A8)	; øº„†¨
+    (ideograph-gt	. 00034)	; ý¡€€€¢
+    (ucs		. #x4E12)	; ä¸’
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -1399,10 +1399,10 @@
     (ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (japanese-jisx0213-1	. #x2E23)	; ø»¢¦„
-    (ideograph-gt-pj-9		. #x3B2A)	; ý¡€€€¸
-    (ideograph-gt		. 00056)	; ý¡€€€¸
-    (ucs			. #x3402)	; ã‚
+    (=jis-x0213-1-2000	. #x2E23)	; ø»¢¦„
+    (ideograph-gt-pj-9	. #x3B2A)	; ý¡€€€¸
+    (ideograph-gt	. 00056)	; ý¡€€€¸
+    (ucs		. #x3402)	; ã‚
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€

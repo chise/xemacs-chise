@@ -215,13 +215,13 @@
     ))
 (define-char
   '((name		. "SESAME DOT")
-    (japanese-jisx0213-1	. #x233E)	; ø»¢–•
-    (ucs			. #xFE45)	; ï¹…
+    (=jis-x0213-1-2000	. #x233E)	; ø»¢–•
+    (ucs		. #xFE45)	; ï¹…
     ))
 (define-char
   '((name		. "WHITE SESAME DOT")
-    (japanese-jisx0213-1	. #x233D)	; ø»¢–”
-    (ucs			. #xFE46)	; ï¹†
+    (=jis-x0213-1-2000	. #x233D)	; ø»¢–”
+    (ucs		. #xFE46)	; ï¹†
     ))
 (define-char
   '((name		. "DASHED OVERLINE")

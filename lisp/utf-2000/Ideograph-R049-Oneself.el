@@ -85,9 +85,9 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (hanyu-dazidian	1 29 2)
-    (japanese-jisx0213-2	. #x286F)	; ø»¤¨ 
-    (chinese-big5-cdp		. #x8BAD)	; ý¢€ˆ®­
-    (ucs-jis			. #x382F)	; ø»¤¨ 
+    (=jis-x0213-2-2000	. #x286F)	; ø»¤¨ 
+    (chinese-big5-cdp	. #x8BAD)	; ý¢€ˆ®­
+    (ucs-jis		. #x382F)	; ø»¤¨ 
     ))
 (define-char
   '((ideographic-radical . 49)	; â¼°

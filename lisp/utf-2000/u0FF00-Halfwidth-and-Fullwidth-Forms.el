@@ -25,11 +25,11 @@
      ((name		  . "QUOTATION MARK")
       (ucs		  . #x0022)	; "
       ))
-    (chinese-gb2312		. #x2322)	; ø»„‰
-    (korean-ksc5601		. #x2322)	; ø»ˆ‰
-    (japanese-jisx0213-1	. #x2230)	; ø»¢”©
-    (chinese-big5-eten		. #xC8D0)	; ý¢€Œ£
-    (ucs			. #xFF02)	; ï¼‚
+    (chinese-gb2312	. #x2322)	; ø»„‰
+    (korean-ksc5601	. #x2322)	; ø»ˆ‰
+    (=jis-x0213-1-2000	. #x2230)	; ø»¢”©
+    (chinese-big5-eten	. #xC8D0)	; ý¢€Œ£
+    (ucs		. #xFF02)	; ï¼‚
     ))
 (define-char
   '((name		. "FULLWIDTH NUMBER SIGN")
@@ -109,11 +109,11 @@
      ((name		  . "APOSTROPHE")
       (ucs		  . #x0027)	; '
       ))
-    (chinese-gb2312		. #x2327)	; ø»„‰†
-    (korean-ksc5601		. #x2327)	; ø»ˆŽ
-    (japanese-jisx0213-1	. #x222F)	; ø»¢”¨
-    (chinese-big5-eten		. #xC8CF)	; ý¢€Œ£
-    (ucs			. #xFF07)	; ï¼‡
+    (chinese-gb2312	. #x2327)	; ø»„‰†
+    (korean-ksc5601	. #x2327)	; ø»ˆŽ
+    (=jis-x0213-1-2000	. #x222F)	; ø»¢”¨
+    (chinese-big5-eten	. #xC8CF)	; ý¢€Œ£
+    (ucs		. #xFF07)	; ï¼‡
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT PARENTHESIS")
@@ -210,12 +210,12 @@
      ((name		  . "HYPHEN-MINUS")
       (ucs		  . #x002D)	; -
       ))
-    (chinese-gb2312		. #x232D)	; ø»„‰Œ
-    (korean-ksc5601		. #x232D)	; ø»ˆ”
-    (chinese-cns11643-1		. #x2231)	; ø»‘„Š
-    (japanese-jisx0213-1	. #x2231)	; ø»¢”ª
-    (chinese-big5		. #xA1D0)	; ý¢€Š‡
-    (ucs			. #xFF0D)	; ï¼
+    (chinese-gb2312	. #x232D)	; ø»„‰Œ
+    (korean-ksc5601	. #x232D)	; ø»ˆ”
+    (chinese-cns11643-1 . #x2231)	; ø»‘„Š
+    (=jis-x0213-1-2000	. #x2231)	; ø»¢”ª
+    (chinese-big5	. #xA1D0)	; ý¢€Š‡
+    (ucs		. #xFF0D)	; ï¼
     ))
 (define-char
   '((name		. "FULLWIDTH FULL STOP")
@@ -1848,22 +1848,22 @@
      ((name		  . "TILDE")
       (ucs		  . #x007E)	; ~
       ))
-    (chinese-gb2312		. #x212B)	; ø»„†Ž
-    (korean-ksc5601		. #x2226)	; ø»ˆ›¯
-    (japanese-jisx0212		. #x2237)	; ø»Š¦„
-    (japanese-jisx0213-1	. #x2232)	; ø»¢”«
-    (china3-jef			. #x81A6)	; øºˆ†¦
-    (ucs			. #xFF5E)	; ï½ž
+    (chinese-gb2312	. #x212B)	; ø»„†Ž
+    (korean-ksc5601	. #x2226)	; ø»ˆ›¯
+    (japanese-jisx0212	. #x2237)	; ø»Š¦„
+    (=jis-x0213-1-2000	. #x2232)	; ø»¢”«
+    (china3-jef		. #x81A6)	; øºˆ†¦
+    (ucs		. #xFF5E)	; ï½ž
     ))
 (define-char
   '((name		. "FULLWIDTH LEFT WHITE PARENTHESIS")
-    (japanese-jisx0213-1	. #x2256)	; ø»¢•
-    (ucs			. #xFF5F)	; ï½Ÿ
+    (=jis-x0213-1-2000	. #x2256)	; ø»¢•
+    (ucs		. #xFF5F)	; ï½Ÿ
     ))
 (define-char
   '((name		. "FULLWIDTH RIGHT WHITE PARENTHESIS")
-    (japanese-jisx0213-1	. #x2257)	; ø»¢•
-    (ucs			. #xFF60)	; ï½ 
+    (=jis-x0213-1-2000	. #x2257)	; ø»¢•
+    (ucs		. #xFF60)	; ï½ 
     ))
 (define-char
   '((name		. "HALFWIDTH IDEOGRAPHIC FULL STOP")
@@ -2910,10 +2910,10 @@
      ((name		  . "MACRON")
       (ucs		  . #x00AF)	; Â¯
       ))
-    (japanese-jisx0212		. #x2234)	; ø»Š¦
-    (japanese-jisx0213-1	. #x292B)	; ø»¢ž¶
-    (china3-jef			. #x81A7)	; øºˆ†§
-    (ucs			. #xFFE3)	; ï¿£
+    (japanese-jisx0212	. #x2234)	; ø»Š¦
+    (=jis-x0213-1-2000	. #x292B)	; ø»¢ž¶
+    (china3-jef		. #x81A7)	; øºˆ†§
+    (ucs		. #xFFE3)	; ï¿£
     ))
 (define-char
   '((name		. "FULLWIDTH BROKEN BAR")
@@ -2925,10 +2925,10 @@
      ((name		  . "BROKEN BAR")
       (ucs		  . #x00A6)	; Â¦
       ))
-    (japanese-jisx0212		. #x2243)	; ø»Š¦
-    (japanese-jisx0213-1	. #x2925)	; ø»¢ž°
-    (chinese-big5-eten		. #xC8CE)	; ý¢€Œ£Ž
-    (ucs			. #xFFE4)	; ï¿¤
+    (japanese-jisx0212	. #x2243)	; ø»Š¦
+    (=jis-x0213-1-2000	. #x2925)	; ø»¢ž°
+    (chinese-big5-eten	. #xC8CE)	; ý¢€Œ£Ž
+    (ucs		. #xFFE4)	; ï¿¤
     ))
 (define-char
   '((name		. "FULLWIDTH YEN SIGN")

@@ -1,7 +1,7 @@
 (define-char
   '((name		. "KATAKANA-HIRAGANA DOUBLE HYPHEN")
-    (japanese-jisx0213-1	. #x237B)	; ø»¢—’
-    (ucs			. #x30A0)	; ã‚ 
+    (=jis-x0213-1-2000	. #x237B)	; ø»¢—’
+    (ucs		. #x30A0)	; ã‚ 
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL A")
@@ -993,8 +993,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30EF #x3099)
-    (japanese-jisx0213-1	. #x2772)	; ø»¢
-    (ucs			. #x30F7)	; ãƒ·
+    (=jis-x0213-1-2000	. #x2772)	; ø»¢
+    (ucs		. #x30F7)	; ãƒ·
     ))
 (define-char
   '((name		. "KATAKANA LETTER VI")
@@ -1002,8 +1002,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F0 #x3099)
-    (japanese-jisx0213-1	. #x2773)	; ø»¢‚
-    (ucs			. #x30F8)	; ãƒ¸
+    (=jis-x0213-1-2000	. #x2773)	; ø»¢‚
+    (ucs		. #x30F8)	; ãƒ¸
     ))
 (define-char
   '((name		. "KATAKANA LETTER VE")
@@ -1011,8 +1011,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F1 #x3099)
-    (japanese-jisx0213-1	. #x2774)	; ø»¢ƒ
-    (ucs			. #x30F9)	; ãƒ¹
+    (=jis-x0213-1-2000	. #x2774)	; ø»¢ƒ
+    (ucs		. #x30F9)	; ãƒ¹
     ))
 (define-char
   '((name		. "KATAKANA LETTER VO")
@@ -1020,8 +1020,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x30F2 #x3099)
-    (japanese-jisx0213-1	. #x2775)	; ø»¢„
-    (ucs			. #x30FA)	; ãƒº
+    (=jis-x0213-1-2000	. #x2775)	; ø»¢„
+    (ucs		. #x30FA)	; ãƒº
     ))
 (define-char
   '((name		. "KATAKANA MIDDLE DOT")
@@ -1062,6 +1062,6 @@
     ))
 (define-char
   '((name		. "KATAKANA DIGRAPH KOTO")
-    (japanese-jisx0213-1	. #x2238)	; ø»¢”±
-    (ucs			. #x30FF)	; ãƒ¿
+    (=jis-x0213-1-2000	. #x2238)	; ø»¢”±
+    (ucs		. #x30FF)	; ãƒ¿
     ))

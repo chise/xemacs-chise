@@ -132,8 +132,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x0127)
-    (japanese-jisx0213-1	. #x235D)	; ø»¢–´
-    (ucs			. #x210F)	; â„
+    (=jis-x0213-1-2000	. #x235D)	; ø»¢–´
+    (ucs		. #x210F)	; â„
     ))
 (define-char
   '((name		. "SCRIPT CAPITAL I")
@@ -165,9 +165,9 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006C)
-    (korean-ksc5601		. #x2724)	; ø»ˆ£ƒ
-    (japanese-jisx0213-1	. #x235F)	; ø»¢–¶
-    (ucs			. #x2113)	; â„“
+    (korean-ksc5601	. #x2724)	; ø»ˆ£ƒ
+    (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
+    (ucs		. #x2113)	; â„“
     ))
 (define-char
   '((name		. "L B BAR SYMBOL")
@@ -190,12 +190,12 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
-    (chinese-gb2312		. #x216D)	; ø»„‡
-    (korean-ksc5601		. #x2260)	; ø»ˆœ©
-    (japanese-jisx0212		. #x2271)	; ø»Š¦¾
-    (japanese-jisx0213-1	. #x2D62)	; ø»¢¥¥
-    (chinese-big5-eten		. #xC8D2)	; ý¢€Œ£’
-    (ucs			. #x2116)	; â„–
+    (chinese-gb2312	. #x216D)	; ø»„‡
+    (korean-ksc5601	. #x2260)	; ø»ˆœ©
+    (japanese-jisx0212	. #x2271)	; ø»Š¦¾
+    (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
+    (chinese-big5-eten	. #xC8D2)	; ý¢€Œ£’
+    (ucs		. #x2116)	; â„–
     ))
 (define-char
   '((name		. "halfwidth numero sign")
@@ -288,10 +288,10 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
-    (korean-ksc5601		. #x2265)	; ø»ˆœ®
-    (japanese-jisx0213-1	. #x2D64)	; ø»¢¥§
-    (chinese-big5-eten		. #xC8D3)	; ý¢€Œ£“
-    (ucs			. #x2121)	; â„¡
+    (korean-ksc5601	. #x2265)	; ø»ˆœ®
+    (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
+    (chinese-big5-eten	. #xC8D3)	; ý¢€Œ£“
+    (ucs		. #x2121)	; â„¡
     ))
 (define-char
   '((name		. "TRADE MARK SIGN")
@@ -339,8 +339,8 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2360)	; ø»¢–·
-    (ucs			. #x2127)	; â„§
+    (=jis-x0213-1-2000	. #x2360)	; ø»¢–·
+    (ucs		. #x2127)	; â„§
     ))
 (define-char
   '((name		. "BLACK-LETTER CAPITAL Z")
@@ -452,8 +452,8 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x05D0)
-    (japanese-jisx0213-1	. #x235C)	; ø»¢–³
-    (ucs			. #x2135)	; â„µ
+    (=jis-x0213-1-2000	. #x235C)	; ø»¢–³
+    (ucs		. #x2135)	; â„µ
     ))
 (define-char
   '((name		. "BET SYMBOL")

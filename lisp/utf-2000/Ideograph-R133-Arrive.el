@@ -199,10 +199,10 @@
   '((ideographic-radical . 133)	; â¾„
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
-    (chinese-cns11643-3		. #x4424)	; ø»–Š
-    (japanese-jisx0213-1	. #x7A59)	; ø»¤–¢
-    (ideograph-daikanwa		. 30158)	; ø¸‡—Ž
-    (ucs			. #x4453)	; ä‘“
+    (chinese-cns11643-3 . #x4424)	; ø»–Š
+    (=jis-x0213-1-2000	. #x7A59)	; ø»¤–¢
+    (ideograph-daikanwa . 30158)	; ø¸‡—Ž
+    (ucs		. #x4453)	; ä‘“
     ))
 (define-char
   '((ideographic-radical . 133)	; â¾„

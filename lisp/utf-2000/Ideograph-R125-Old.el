@@ -22,9 +22,9 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (japanese-jisx0213-2	. #x7522)	; ø»¦˜™
-    (china3-jef			. #x72FC)	; øº‡‹¼
-    (ucs			. #x8002)	; è€‚
+    (=jis-x0213-2-2000	. #x7522)	; ø»¦˜™
+    (china3-jef		. #x72FC)	; øº‡‹¼
+    (ucs		. #x8002)	; è€‚
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼
@@ -180,12 +180,12 @@
     (ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
-    (korean-ksc5601		. #x6D3A)	; ø»ŠŠ
-    (japanese-jisx0213-1	. #x7A44)	; ø»¤–
-    (ideograph-daikanwa		. 28853)	; ø¸‡‚µ
-    (china3-jef			. #x60B5)	; øº†‚µ
-    (ucs-ks			. #x8005)	; ï©›
-    (ucs			. #xFA5B)	; ï©›
+    (korean-ksc5601	. #x6D3A)	; ø»ŠŠ
+    (=jis-x0213-1-2000	. #x7A44)	; ø»¤–
+    (ideograph-daikanwa . 28853)	; ø¸‡‚µ
+    (china3-jef		. #x60B5)	; øº†‚µ
+    (ucs-ks		. #x8005)	; ï©›
+    (ucs		. #xFA5B)	; ï©›
     ))
 (define-char
   '((=>ucs*		. #x8005)	; è€…
@@ -234,10 +234,10 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
-    (japanese-jisx0212		. #x5549)	; ø»‹±
-    (japanese-jisx0213-2	. #x7524)	; ø»¦˜›
-    (ideograph-daikanwa		. 28857)	; ø¸‡‚¹
-    (ucs			. #x8008)	; è€ˆ
+    (japanese-jisx0212	. #x5549)	; ø»‹±
+    (=jis-x0213-2-2000	. #x7524)	; ø»¦˜›
+    (ideograph-daikanwa . 28857)	; ø¸‡‚¹
+    (ucs		. #x8008)	; è€ˆ
     ))
 (define-char
   '((=>ucs		. #x8008)	; è€ˆ
@@ -295,11 +295,11 @@
   '((ideographic-radical . 125)	; â½¼
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (japanese-jisx0212		. #x554A)	; ø»‹±‘
-    (chinese-cns11643-3		. #x3344)	; ø»•±£
-    (japanese-jisx0213-2	. #x7523)	; ø»¦˜š
-    (ideograph-daikanwa		. 28860)	; ø¸‡‚¼
-    (ucs			. #x800A)	; è€Š
+    (japanese-jisx0212	. #x554A)	; ø»‹±‘
+    (chinese-cns11643-3 . #x3344)	; ø»•±£
+    (=jis-x0213-2-2000	. #x7523)	; ø»¦˜š
+    (ideograph-daikanwa . 28860)	; ø¸‡‚¼
+    (ucs		. #x800A)	; è€Š
     ))
 (define-char
   '((ideographic-radical . 125)	; â½¼

@@ -6,13 +6,13 @@
     (digit-value	. 1)
     (numeric-value	. 1)
     (->decomposition	circle #x0031)
-    (chinese-gb2312		. #x2259)	; ø»„ˆš
-    (korean-ksc5601		. #x2867)	; ø»ˆ¥¤
-    (chinese-cns11643-1		. #x2621)	; ø»‘‰²
-    (japanese-jisx0213-1	. #x2D21)	; ø»¢¤¤
-    (chinese-big5-eten		. #xC6A1)	; ý¢€Œš¡
-    (china3-jef			. #x77C9)	; øº‡Ÿ‰
-    (ucs			. #x2460)	; â‘ 
+    (chinese-gb2312	. #x2259)	; ø»„ˆš
+    (korean-ksc5601	. #x2867)	; ø»ˆ¥¤
+    (chinese-cns11643-1 . #x2621)	; ø»‘‰²
+    (=jis-x0213-1-2000	. #x2D21)	; ø»¢¤¤
+    (chinese-big5-eten	. #xC6A1)	; ý¢€Œš¡
+    (china3-jef		. #x77C9)	; øº‡Ÿ‰
+    (ucs		. #x2460)	; â‘ 
     ))
 (define-char
   '((name		. "CIRCLED DIGIT TWO")
@@ -22,13 +22,13 @@
     (digit-value	. 2)
     (numeric-value	. 2)
     (->decomposition	circle #x0032)
-    (chinese-gb2312		. #x225A)	; ø»„ˆ›
-    (korean-ksc5601		. #x2868)	; ø»ˆ¥¥
-    (chinese-cns11643-1		. #x2622)	; ø»‘‰³
-    (japanese-jisx0213-1	. #x2D22)	; ø»¢¤¥
-    (chinese-big5-eten		. #xC6A2)	; ý¢€Œš¢
-    (china3-jef			. #x77CA)	; øº‡ŸŠ
-    (ucs			. #x2461)	; â‘¡
+    (chinese-gb2312	. #x225A)	; ø»„ˆ›
+    (korean-ksc5601	. #x2868)	; ø»ˆ¥¥
+    (chinese-cns11643-1 . #x2622)	; ø»‘‰³
+    (=jis-x0213-1-2000	. #x2D22)	; ø»¢¤¥
+    (chinese-big5-eten	. #xC6A2)	; ý¢€Œš¢
+    (china3-jef		. #x77CA)	; øº‡ŸŠ
+    (ucs		. #x2461)	; â‘¡
     ))
 (define-char
   '((name		. "CIRCLED DIGIT THREE")
@@ -38,13 +38,13 @@
     (digit-value	. 3)
     (numeric-value	. 3)
     (->decomposition	circle #x0033)
-    (chinese-gb2312		. #x225B)	; ø»„ˆœ
-    (korean-ksc5601		. #x2869)	; ø»ˆ¥¦
-    (chinese-cns11643-1		. #x2623)	; ø»‘‰´
-    (japanese-jisx0213-1	. #x2D23)	; ø»¢¤¦
-    (chinese-big5-eten		. #xC6A3)	; ý¢€Œš£
-    (china3-jef			. #x77CB)	; øº‡Ÿ‹
-    (ucs			. #x2462)	; â‘¢
+    (chinese-gb2312	. #x225B)	; ø»„ˆœ
+    (korean-ksc5601	. #x2869)	; ø»ˆ¥¦
+    (chinese-cns11643-1 . #x2623)	; ø»‘‰´
+    (=jis-x0213-1-2000	. #x2D23)	; ø»¢¤¦
+    (chinese-big5-eten	. #xC6A3)	; ý¢€Œš£
+    (china3-jef		. #x77CB)	; øº‡Ÿ‹
+    (ucs		. #x2462)	; â‘¢
     ))
 (define-char
   '((name		. "CIRCLED DIGIT FOUR")
@@ -54,13 +54,13 @@
     (digit-value	. 4)
     (numeric-value	. 4)
     (->decomposition	circle #x0034)
-    (chinese-gb2312		. #x225C)	; ø»„ˆ
-    (korean-ksc5601		. #x286A)	; ø»ˆ¥§
-    (chinese-cns11643-1		. #x2624)	; ø»‘‰µ
-    (japanese-jisx0213-1	. #x2D24)	; ø»¢¤§
-    (chinese-big5-eten		. #xC6A4)	; ý¢€Œš¤
-    (china3-jef			. #x77CC)	; øº‡ŸŒ
-    (ucs			. #x2463)	; â‘£
+    (chinese-gb2312	. #x225C)	; ø»„ˆ
+    (korean-ksc5601	. #x286A)	; ø»ˆ¥§
+    (chinese-cns11643-1 . #x2624)	; ø»‘‰µ
+    (=jis-x0213-1-2000	. #x2D24)	; ø»¢¤§
+    (chinese-big5-eten	. #xC6A4)	; ý¢€Œš¤
+    (china3-jef		. #x77CC)	; øº‡ŸŒ
+    (ucs		. #x2463)	; â‘£
     ))
 (define-char
   '((name		. "CIRCLED DIGIT FIVE")
@@ -70,13 +70,13 @@
     (digit-value	. 5)
     (numeric-value	. 5)
     (->decomposition	circle #x0035)
-    (chinese-gb2312		. #x225D)	; ø»„ˆž
-    (korean-ksc5601		. #x286B)	; ø»ˆ¥¨
-    (chinese-cns11643-1		. #x2625)	; ø»‘‰¶
-    (japanese-jisx0213-1	. #x2D25)	; ø»¢¤¨
-    (chinese-big5-eten		. #xC6A5)	; ý¢€Œš¥
-    (china3-jef			. #x77CD)	; øº‡Ÿ
-    (ucs			. #x2464)	; â‘¤
+    (chinese-gb2312	. #x225D)	; ø»„ˆž
+    (korean-ksc5601	. #x286B)	; ø»ˆ¥¨
+    (chinese-cns11643-1 . #x2625)	; ø»‘‰¶
+    (=jis-x0213-1-2000	. #x2D25)	; ø»¢¤¨
+    (chinese-big5-eten	. #xC6A5)	; ý¢€Œš¥
+    (china3-jef		. #x77CD)	; øº‡Ÿ
+    (ucs		. #x2464)	; â‘¤
     ))
 (define-char
   '((name		. "CIRCLED DIGIT SIX")
@@ -86,13 +86,13 @@
     (digit-value	. 6)
     (numeric-value	. 6)
     (->decomposition	circle #x0036)
-    (chinese-gb2312		. #x225E)	; ø»„ˆŸ
-    (korean-ksc5601		. #x286C)	; ø»ˆ¥©
-    (chinese-cns11643-1		. #x2626)	; ø»‘‰·
-    (japanese-jisx0213-1	. #x2D26)	; ø»¢¤©
-    (chinese-big5-eten		. #xC6A6)	; ý¢€Œš¦
-    (china3-jef			. #x77CE)	; øº‡ŸŽ
-    (ucs			. #x2465)	; â‘¥
+    (chinese-gb2312	. #x225E)	; ø»„ˆŸ
+    (korean-ksc5601	. #x286C)	; ø»ˆ¥©
+    (chinese-cns11643-1 . #x2626)	; ø»‘‰·
+    (=jis-x0213-1-2000	. #x2D26)	; ø»¢¤©
+    (chinese-big5-eten	. #xC6A6)	; ý¢€Œš¦
+    (china3-jef		. #x77CE)	; øº‡ŸŽ
+    (ucs		. #x2465)	; â‘¥
     ))
 (define-char
   '((name		. "CIRCLED DIGIT SEVEN")
@@ -102,13 +102,13 @@
     (digit-value	. 7)
     (numeric-value	. 7)
     (->decomposition	circle #x0037)
-    (chinese-gb2312		. #x225F)	; ø»„ˆ 
-    (korean-ksc5601		. #x286D)	; ø»ˆ¥ª
-    (chinese-cns11643-1		. #x2627)	; ø»‘‰¸
-    (japanese-jisx0213-1	. #x2D27)	; ø»¢¤ª
-    (chinese-big5-eten		. #xC6A7)	; ý¢€Œš§
-    (china3-jef			. #x77CF)	; øº‡Ÿ
-    (ucs			. #x2466)	; â‘¦
+    (chinese-gb2312	. #x225F)	; ø»„ˆ 
+    (korean-ksc5601	. #x286D)	; ø»ˆ¥ª
+    (chinese-cns11643-1 . #x2627)	; ø»‘‰¸
+    (=jis-x0213-1-2000	. #x2D27)	; ø»¢¤ª
+    (chinese-big5-eten	. #xC6A7)	; ý¢€Œš§
+    (china3-jef		. #x77CF)	; øº‡Ÿ
+    (ucs		. #x2466)	; â‘¦
     ))
 (define-char
   '((name		. "CIRCLED DIGIT EIGHT")
@@ -118,13 +118,13 @@
     (digit-value	. 8)
     (numeric-value	. 8)
     (->decomposition	circle #x0038)
-    (chinese-gb2312		. #x2260)	; ø»„ˆ¡
-    (korean-ksc5601		. #x286E)	; ø»ˆ¥«
-    (chinese-cns11643-1		. #x2628)	; ø»‘‰¹
-    (japanese-jisx0213-1	. #x2D28)	; ø»¢¤«
-    (chinese-big5-eten		. #xC6A8)	; ý¢€Œš¨
-    (china3-jef			. #x77D0)	; øº‡Ÿ
-    (ucs			. #x2467)	; â‘§
+    (chinese-gb2312	. #x2260)	; ø»„ˆ¡
+    (korean-ksc5601	. #x286E)	; ø»ˆ¥«
+    (chinese-cns11643-1 . #x2628)	; ø»‘‰¹
+    (=jis-x0213-1-2000	. #x2D28)	; ø»¢¤«
+    (chinese-big5-eten	. #xC6A8)	; ý¢€Œš¨
+    (china3-jef		. #x77D0)	; øº‡Ÿ
+    (ucs		. #x2467)	; â‘§
     ))
 (define-char
   '((name		. "CIRCLED DIGIT NINE")
@@ -134,13 +134,13 @@
     (digit-value	. 9)
     (numeric-value	. 9)
     (->decomposition	circle #x0039)
-    (chinese-gb2312		. #x2261)	; ø»„ˆ¢
-    (korean-ksc5601		. #x286F)	; ø»ˆ¥¬
-    (chinese-cns11643-1		. #x2629)	; ø»‘‰º
-    (japanese-jisx0213-1	. #x2D29)	; ø»¢¤¬
-    (chinese-big5-eten		. #xC6A9)	; ý¢€Œš©
-    (china3-jef			. #x77D1)	; øº‡Ÿ‘
-    (ucs			. #x2468)	; â‘¨
+    (chinese-gb2312	. #x2261)	; ø»„ˆ¢
+    (korean-ksc5601	. #x286F)	; ø»ˆ¥¬
+    (chinese-cns11643-1 . #x2629)	; ø»‘‰º
+    (=jis-x0213-1-2000	. #x2D29)	; ø»¢¤¬
+    (chinese-big5-eten	. #xC6A9)	; ý¢€Œš©
+    (china3-jef		. #x77D1)	; øº‡Ÿ‘
+    (ucs		. #x2468)	; â‘¨
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TEN")
@@ -149,13 +149,13 @@
     (mirrored		. nil)
     (numeric-value	. 10)
     (->decomposition	circle #x0031 #x0030)
-    (chinese-gb2312		. #x2262)	; ø»„ˆ£
-    (korean-ksc5601		. #x2870)	; ø»ˆ¥­
-    (chinese-cns11643-1		. #x262A)	; ø»‘‰»
-    (japanese-jisx0213-1	. #x2D2A)	; ø»¢¤­
-    (chinese-big5-eten		. #xC6AA)	; ý¢€Œšª
-    (china3-jef			. #x77D2)	; øº‡Ÿ’
-    (ucs			. #x2469)	; â‘©
+    (chinese-gb2312	. #x2262)	; ø»„ˆ£
+    (korean-ksc5601	. #x2870)	; ø»ˆ¥­
+    (chinese-cns11643-1 . #x262A)	; ø»‘‰»
+    (=jis-x0213-1-2000	. #x2D2A)	; ø»¢¤­
+    (chinese-big5-eten	. #xC6AA)	; ý¢€Œšª
+    (china3-jef		. #x77D2)	; øº‡Ÿ’
+    (ucs		. #x2469)	; â‘©
     ))
 (define-char
   '((name		. "CIRCLED NUMBER ELEVEN")
@@ -164,10 +164,10 @@
     (mirrored		. nil)
     (numeric-value	. 11)
     (->decomposition	circle #x0031 #x0031)
-    (korean-ksc5601		. #x2871)	; ø»ˆ¥®
-    (japanese-jisx0213-1	. #x2D2B)	; ø»¢¤®
-    (china3-jef			. #x77D3)	; øº‡Ÿ“
-    (ucs			. #x246A)	; â‘ª
+    (korean-ksc5601	. #x2871)	; ø»ˆ¥®
+    (=jis-x0213-1-2000	. #x2D2B)	; ø»¢¤®
+    (china3-jef		. #x77D3)	; øº‡Ÿ“
+    (ucs		. #x246A)	; â‘ª
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWELVE")
@@ -176,10 +176,10 @@
     (mirrored		. nil)
     (numeric-value	. 12)
     (->decomposition	circle #x0031 #x0032)
-    (korean-ksc5601		. #x2872)	; ø»ˆ¥¯
-    (japanese-jisx0213-1	. #x2D2C)	; ø»¢¤¯
-    (china3-jef			. #x77D4)	; øº‡Ÿ”
-    (ucs			. #x246B)	; â‘«
+    (korean-ksc5601	. #x2872)	; ø»ˆ¥¯
+    (=jis-x0213-1-2000	. #x2D2C)	; ø»¢¤¯
+    (china3-jef		. #x77D4)	; øº‡Ÿ”
+    (ucs		. #x246B)	; â‘«
     ))
 (define-char
   '((name		. "CIRCLED NUMBER THIRTEEN")
@@ -188,10 +188,10 @@
     (mirrored		. nil)
     (numeric-value	. 13)
     (->decomposition	circle #x0031 #x0033)
-    (korean-ksc5601		. #x2873)	; ø»ˆ¥°
-    (japanese-jisx0213-1	. #x2D2D)	; ø»¢¤°
-    (china3-jef			. #x77D5)	; øº‡Ÿ•
-    (ucs			. #x246C)	; â‘¬
+    (korean-ksc5601	. #x2873)	; ø»ˆ¥°
+    (=jis-x0213-1-2000	. #x2D2D)	; ø»¢¤°
+    (china3-jef		. #x77D5)	; øº‡Ÿ•
+    (ucs		. #x246C)	; â‘¬
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FOURTEEN")
@@ -200,10 +200,10 @@
     (mirrored		. nil)
     (numeric-value	. 14)
     (->decomposition	circle #x0031 #x0034)
-    (korean-ksc5601		. #x2874)	; ø»ˆ¥±
-    (japanese-jisx0213-1	. #x2D2E)	; ø»¢¤±
-    (china3-jef			. #x77D6)	; øº‡Ÿ–
-    (ucs			. #x246D)	; â‘­
+    (korean-ksc5601	. #x2874)	; ø»ˆ¥±
+    (=jis-x0213-1-2000	. #x2D2E)	; ø»¢¤±
+    (china3-jef		. #x77D6)	; øº‡Ÿ–
+    (ucs		. #x246D)	; â‘­
     ))
 (define-char
   '((name		. "CIRCLED NUMBER FIFTEEN")
@@ -212,10 +212,10 @@
     (mirrored		. nil)
     (numeric-value	. 15)
     (->decomposition	circle #x0031 #x0035)
-    (korean-ksc5601		. #x2875)	; ø»ˆ¥²
-    (japanese-jisx0213-1	. #x2D2F)	; ø»¢¤²
-    (china3-jef			. #x77D7)	; øº‡Ÿ—
-    (ucs			. #x246E)	; â‘®
+    (korean-ksc5601	. #x2875)	; ø»ˆ¥²
+    (=jis-x0213-1-2000	. #x2D2F)	; ø»¢¤²
+    (china3-jef		. #x77D7)	; øº‡Ÿ—
+    (ucs		. #x246E)	; â‘®
     ))
 (define-char
   '((name		. "CIRCLED NUMBER SIXTEEN")
@@ -224,9 +224,9 @@
     (mirrored		. nil)
     (numeric-value	. 16)
     (->decomposition	circle #x0031 #x0036)
-    (japanese-jisx0213-1	. #x2D30)	; ø»¢¤³
-    (china3-jef			. #x77D8)	; øº‡Ÿ˜
-    (ucs			. #x246F)	; â‘¯
+    (=jis-x0213-1-2000	. #x2D30)	; ø»¢¤³
+    (china3-jef		. #x77D8)	; øº‡Ÿ˜
+    (ucs		. #x246F)	; â‘¯
     ))
 (define-char
   '((name		. "CIRCLED NUMBER SEVENTEEN")
@@ -235,9 +235,9 @@
     (mirrored		. nil)
     (numeric-value	. 17)
     (->decomposition	circle #x0031 #x0037)
-    (japanese-jisx0213-1	. #x2D31)	; ø»¢¤´
-    (china3-jef			. #x77D9)	; øº‡Ÿ™
-    (ucs			. #x2470)	; â‘°
+    (=jis-x0213-1-2000	. #x2D31)	; ø»¢¤´
+    (china3-jef		. #x77D9)	; øº‡Ÿ™
+    (ucs		. #x2470)	; â‘°
     ))
 (define-char
   '((name		. "CIRCLED NUMBER EIGHTEEN")
@@ -246,9 +246,9 @@
     (mirrored		. nil)
     (numeric-value	. 18)
     (->decomposition	circle #x0031 #x0038)
-    (japanese-jisx0213-1	. #x2D32)	; ø»¢¤µ
-    (china3-jef			. #x77DA)	; øº‡Ÿš
-    (ucs			. #x2471)	; â‘±
+    (=jis-x0213-1-2000	. #x2D32)	; ø»¢¤µ
+    (china3-jef		. #x77DA)	; øº‡Ÿš
+    (ucs		. #x2471)	; â‘±
     ))
 (define-char
   '((name		. "CIRCLED NUMBER NINETEEN")
@@ -257,9 +257,9 @@
     (mirrored		. nil)
     (numeric-value	. 19)
     (->decomposition	circle #x0031 #x0039)
-    (japanese-jisx0213-1	. #x2D33)	; ø»¢¤¶
-    (china3-jef			. #x77DB)	; øº‡Ÿ›
-    (ucs			. #x2472)	; â‘²
+    (=jis-x0213-1-2000	. #x2D33)	; ø»¢¤¶
+    (china3-jef		. #x77DB)	; øº‡Ÿ›
+    (ucs		. #x2472)	; â‘²
     ))
 (define-char
   '((name		. "CIRCLED NUMBER TWENTY")
@@ -268,9 +268,9 @@
     (mirrored		. nil)
     (numeric-value	. 20)
     (->decomposition	circle #x0032 #x0030)
-    (japanese-jisx0213-1	. #x2D34)	; ø»¢¤·
-    (china3-jef			. #x77DC)	; øº‡Ÿœ
-    (ucs			. #x2473)	; â‘³
+    (=jis-x0213-1-2000	. #x2D34)	; ø»¢¤·
+    (china3-jef		. #x77DC)	; øº‡Ÿœ
+    (ucs		. #x2473)	; â‘³
     ))
 (define-char
   '((name		. "PARENTHESIZED DIGIT ONE")
@@ -1307,9 +1307,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER A")
       (ucs		  . #x24B6)	; â’¶
       ))
-    (korean-ksc5601		. #x284D)	; ø»ˆ¥Š
-    (japanese-jisx0213-1	. #x2C41)	; ø»¢£¦
-    (ucs			. #x24D0)	; â“
+    (korean-ksc5601	. #x284D)	; ø»ˆ¥Š
+    (=jis-x0213-1-2000	. #x2C41)	; ø»¢£¦
+    (ucs		. #x24D0)	; â“
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER B")
@@ -1321,9 +1321,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER B")
       (ucs		  . #x24B7)	; â’·
       ))
-    (korean-ksc5601		. #x284E)	; ø»ˆ¥‹
-    (japanese-jisx0213-1	. #x2C42)	; ø»¢£§
-    (ucs			. #x24D1)	; â“‘
+    (korean-ksc5601	. #x284E)	; ø»ˆ¥‹
+    (=jis-x0213-1-2000	. #x2C42)	; ø»¢£§
+    (ucs		. #x24D1)	; â“‘
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER C")
@@ -1335,9 +1335,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER C")
       (ucs		  . #x24B8)	; â’¸
       ))
-    (korean-ksc5601		. #x284F)	; ø»ˆ¥Œ
-    (japanese-jisx0213-1	. #x2C43)	; ø»¢£¨
-    (ucs			. #x24D2)	; â“’
+    (korean-ksc5601	. #x284F)	; ø»ˆ¥Œ
+    (=jis-x0213-1-2000	. #x2C43)	; ø»¢£¨
+    (ucs		. #x24D2)	; â“’
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER D")
@@ -1349,9 +1349,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER D")
       (ucs		  . #x24B9)	; â’¹
       ))
-    (korean-ksc5601		. #x2850)	; ø»ˆ¥
-    (japanese-jisx0213-1	. #x2C44)	; ø»¢£©
-    (ucs			. #x24D3)	; â““
+    (korean-ksc5601	. #x2850)	; ø»ˆ¥
+    (=jis-x0213-1-2000	. #x2C44)	; ø»¢£©
+    (ucs		. #x24D3)	; â““
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER E")
@@ -1363,9 +1363,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER E")
       (ucs		  . #x24BA)	; â’º
       ))
-    (korean-ksc5601		. #x2851)	; ø»ˆ¥Ž
-    (japanese-jisx0213-1	. #x2C45)	; ø»¢£ª
-    (ucs			. #x24D4)	; â“”
+    (korean-ksc5601	. #x2851)	; ø»ˆ¥Ž
+    (=jis-x0213-1-2000	. #x2C45)	; ø»¢£ª
+    (ucs		. #x24D4)	; â“”
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER F")
@@ -1377,9 +1377,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER F")
       (ucs		  . #x24BB)	; â’»
       ))
-    (korean-ksc5601		. #x2852)	; ø»ˆ¥
-    (japanese-jisx0213-1	. #x2C46)	; ø»¢£«
-    (ucs			. #x24D5)	; â“•
+    (korean-ksc5601	. #x2852)	; ø»ˆ¥
+    (=jis-x0213-1-2000	. #x2C46)	; ø»¢£«
+    (ucs		. #x24D5)	; â“•
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER G")
@@ -1391,9 +1391,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER G")
       (ucs		  . #x24BC)	; â’¼
       ))
-    (korean-ksc5601		. #x2853)	; ø»ˆ¥
-    (japanese-jisx0213-1	. #x2C47)	; ø»¢£¬
-    (ucs			. #x24D6)	; â“–
+    (korean-ksc5601	. #x2853)	; ø»ˆ¥
+    (=jis-x0213-1-2000	. #x2C47)	; ø»¢£¬
+    (ucs		. #x24D6)	; â“–
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER H")
@@ -1405,9 +1405,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER H")
       (ucs		  . #x24BD)	; â’½
       ))
-    (korean-ksc5601		. #x2854)	; ø»ˆ¥‘
-    (japanese-jisx0213-1	. #x2C48)	; ø»¢£­
-    (ucs			. #x24D7)	; â“—
+    (korean-ksc5601	. #x2854)	; ø»ˆ¥‘
+    (=jis-x0213-1-2000	. #x2C48)	; ø»¢£­
+    (ucs		. #x24D7)	; â“—
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER I")
@@ -1419,9 +1419,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER I")
       (ucs		  . #x24BE)	; â’¾
       ))
-    (korean-ksc5601		. #x2855)	; ø»ˆ¥’
-    (japanese-jisx0213-1	. #x2C49)	; ø»¢£®
-    (ucs			. #x24D8)	; â“˜
+    (korean-ksc5601	. #x2855)	; ø»ˆ¥’
+    (=jis-x0213-1-2000	. #x2C49)	; ø»¢£®
+    (ucs		. #x24D8)	; â“˜
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER J")
@@ -1433,9 +1433,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER J")
       (ucs		  . #x24BF)	; â’¿
       ))
-    (korean-ksc5601		. #x2856)	; ø»ˆ¥“
-    (japanese-jisx0213-1	. #x2C4A)	; ø»¢£¯
-    (ucs			. #x24D9)	; â“™
+    (korean-ksc5601	. #x2856)	; ø»ˆ¥“
+    (=jis-x0213-1-2000	. #x2C4A)	; ø»¢£¯
+    (ucs		. #x24D9)	; â“™
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER K")
@@ -1447,9 +1447,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER K")
       (ucs		  . #x24C0)	; â“€
       ))
-    (korean-ksc5601		. #x2857)	; ø»ˆ¥”
-    (japanese-jisx0213-1	. #x2C4B)	; ø»¢£°
-    (ucs			. #x24DA)	; â“š
+    (korean-ksc5601	. #x2857)	; ø»ˆ¥”
+    (=jis-x0213-1-2000	. #x2C4B)	; ø»¢£°
+    (ucs		. #x24DA)	; â“š
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER L")
@@ -1461,9 +1461,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER L")
       (ucs		  . #x24C1)	; â“
       ))
-    (korean-ksc5601		. #x2858)	; ø»ˆ¥•
-    (japanese-jisx0213-1	. #x2C4C)	; ø»¢£±
-    (ucs			. #x24DB)	; â“›
+    (korean-ksc5601	. #x2858)	; ø»ˆ¥•
+    (=jis-x0213-1-2000	. #x2C4C)	; ø»¢£±
+    (ucs		. #x24DB)	; â“›
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER M")
@@ -1475,9 +1475,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER M")
       (ucs		  . #x24C2)	; â“‚
       ))
-    (korean-ksc5601		. #x2859)	; ø»ˆ¥–
-    (japanese-jisx0213-1	. #x2C4D)	; ø»¢£²
-    (ucs			. #x24DC)	; â“œ
+    (korean-ksc5601	. #x2859)	; ø»ˆ¥–
+    (=jis-x0213-1-2000	. #x2C4D)	; ø»¢£²
+    (ucs		. #x24DC)	; â“œ
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER N")
@@ -1489,9 +1489,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER N")
       (ucs		  . #x24C3)	; â“ƒ
       ))
-    (korean-ksc5601		. #x285A)	; ø»ˆ¥—
-    (japanese-jisx0213-1	. #x2C4E)	; ø»¢£³
-    (ucs			. #x24DD)	; â“
+    (korean-ksc5601	. #x285A)	; ø»ˆ¥—
+    (=jis-x0213-1-2000	. #x2C4E)	; ø»¢£³
+    (ucs		. #x24DD)	; â“
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER O")
@@ -1503,9 +1503,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER O")
       (ucs		  . #x24C4)	; â“„
       ))
-    (korean-ksc5601		. #x285B)	; ø»ˆ¥˜
-    (japanese-jisx0213-1	. #x2C4F)	; ø»¢£´
-    (ucs			. #x24DE)	; â“ž
+    (korean-ksc5601	. #x285B)	; ø»ˆ¥˜
+    (=jis-x0213-1-2000	. #x2C4F)	; ø»¢£´
+    (ucs		. #x24DE)	; â“ž
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER P")
@@ -1517,9 +1517,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER P")
       (ucs		  . #x24C5)	; â“…
       ))
-    (korean-ksc5601		. #x285C)	; ø»ˆ¥™
-    (japanese-jisx0213-1	. #x2C50)	; ø»¢£µ
-    (ucs			. #x24DF)	; â“Ÿ
+    (korean-ksc5601	. #x285C)	; ø»ˆ¥™
+    (=jis-x0213-1-2000	. #x2C50)	; ø»¢£µ
+    (ucs		. #x24DF)	; â“Ÿ
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Q")
@@ -1531,9 +1531,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Q")
       (ucs		  . #x24C6)	; â“†
       ))
-    (korean-ksc5601		. #x285D)	; ø»ˆ¥š
-    (japanese-jisx0213-1	. #x2C51)	; ø»¢£¶
-    (ucs			. #x24E0)	; â“ 
+    (korean-ksc5601	. #x285D)	; ø»ˆ¥š
+    (=jis-x0213-1-2000	. #x2C51)	; ø»¢£¶
+    (ucs		. #x24E0)	; â“ 
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER R")
@@ -1545,9 +1545,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER R")
       (ucs		  . #x24C7)	; â“‡
       ))
-    (korean-ksc5601		. #x285E)	; ø»ˆ¥›
-    (japanese-jisx0213-1	. #x2C52)	; ø»¢£·
-    (ucs			. #x24E1)	; â“¡
+    (korean-ksc5601	. #x285E)	; ø»ˆ¥›
+    (=jis-x0213-1-2000	. #x2C52)	; ø»¢£·
+    (ucs		. #x24E1)	; â“¡
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER S")
@@ -1559,9 +1559,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER S")
       (ucs		  . #x24C8)	; â“ˆ
       ))
-    (korean-ksc5601		. #x285F)	; ø»ˆ¥œ
-    (japanese-jisx0213-1	. #x2C53)	; ø»¢£¸
-    (ucs			. #x24E2)	; â“¢
+    (korean-ksc5601	. #x285F)	; ø»ˆ¥œ
+    (=jis-x0213-1-2000	. #x2C53)	; ø»¢£¸
+    (ucs		. #x24E2)	; â“¢
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER T")
@@ -1573,9 +1573,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER T")
       (ucs		  . #x24C9)	; â“‰
       ))
-    (korean-ksc5601		. #x2860)	; ø»ˆ¥
-    (japanese-jisx0213-1	. #x2C54)	; ø»¢£¹
-    (ucs			. #x24E3)	; â“£
+    (korean-ksc5601	. #x2860)	; ø»ˆ¥
+    (=jis-x0213-1-2000	. #x2C54)	; ø»¢£¹
+    (ucs		. #x24E3)	; â“£
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER U")
@@ -1587,9 +1587,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER U")
       (ucs		  . #x24CA)	; â“Š
       ))
-    (korean-ksc5601		. #x2861)	; ø»ˆ¥ž
-    (japanese-jisx0213-1	. #x2C55)	; ø»¢£º
-    (ucs			. #x24E4)	; â“¤
+    (korean-ksc5601	. #x2861)	; ø»ˆ¥ž
+    (=jis-x0213-1-2000	. #x2C55)	; ø»¢£º
+    (ucs		. #x24E4)	; â“¤
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER V")
@@ -1601,9 +1601,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER V")
       (ucs		  . #x24CB)	; â“‹
       ))
-    (korean-ksc5601		. #x2862)	; ø»ˆ¥Ÿ
-    (japanese-jisx0213-1	. #x2C56)	; ø»¢£»
-    (ucs			. #x24E5)	; â“¥
+    (korean-ksc5601	. #x2862)	; ø»ˆ¥Ÿ
+    (=jis-x0213-1-2000	. #x2C56)	; ø»¢£»
+    (ucs		. #x24E5)	; â“¥
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER W")
@@ -1615,9 +1615,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER W")
       (ucs		  . #x24CC)	; â“Œ
       ))
-    (korean-ksc5601		. #x2863)	; ø»ˆ¥ 
-    (japanese-jisx0213-1	. #x2C57)	; ø»¢£¼
-    (ucs			. #x24E6)	; â“¦
+    (korean-ksc5601	. #x2863)	; ø»ˆ¥ 
+    (=jis-x0213-1-2000	. #x2C57)	; ø»¢£¼
+    (ucs		. #x24E6)	; â“¦
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER X")
@@ -1629,9 +1629,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER X")
       (ucs		  . #x24CD)	; â“
       ))
-    (korean-ksc5601		. #x2864)	; ø»ˆ¥¡
-    (japanese-jisx0213-1	. #x2C58)	; ø»¢£½
-    (ucs			. #x24E7)	; â“§
+    (korean-ksc5601	. #x2864)	; ø»ˆ¥¡
+    (=jis-x0213-1-2000	. #x2C58)	; ø»¢£½
+    (ucs		. #x24E7)	; â“§
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Y")
@@ -1643,9 +1643,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Y")
       (ucs		  . #x24CE)	; â“Ž
       ))
-    (korean-ksc5601		. #x2865)	; ø»ˆ¥¢
-    (japanese-jisx0213-1	. #x2C59)	; ø»¢£¾
-    (ucs			. #x24E8)	; â“¨
+    (korean-ksc5601	. #x2865)	; ø»ˆ¥¢
+    (=jis-x0213-1-2000	. #x2C59)	; ø»¢£¾
+    (ucs		. #x24E8)	; â“¨
     ))
 (define-char
   '((name		. "CIRCLED LATIN SMALL LETTER Z")
@@ -1657,9 +1657,9 @@
      ((name		  . "CIRCLED LATIN CAPITAL LETTER Z")
       (ucs		  . #x24CF)	; â“
       ))
-    (korean-ksc5601		. #x2866)	; ø»ˆ¥£
-    (japanese-jisx0213-1	. #x2C5A)	; ø»¢£¿
-    (ucs			. #x24E9)	; â“©
+    (korean-ksc5601	. #x2866)	; ø»ˆ¥£
+    (=jis-x0213-1-2000	. #x2C5A)	; ø»¢£¿
+    (ucs		. #x24E9)	; â“©
     ))
 (define-char
   '((name		. "CIRCLED DIGIT ZERO")
@@ -1673,101 +1673,101 @@
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER ELEVEN")
-    (japanese-jisx0213-1	. #x2C2B)	; ø»¢£
-    (ucs			. #x24EB)	; â“«
+    (=jis-x0213-1-2000	. #x2C2B)	; ø»¢£
+    (ucs		. #x24EB)	; â“«
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWELVE")
-    (japanese-jisx0213-1	. #x2C2C)	; ø»¢£‘
-    (ucs			. #x24EC)	; â“¬
+    (=jis-x0213-1-2000	. #x2C2C)	; ø»¢£‘
+    (ucs		. #x24EC)	; â“¬
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER THIRTEEN")
-    (japanese-jisx0213-1	. #x2C2D)	; ø»¢£’
-    (ucs			. #x24ED)	; â“­
+    (=jis-x0213-1-2000	. #x2C2D)	; ø»¢£’
+    (ucs		. #x24ED)	; â“­
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FOURTEEN")
-    (japanese-jisx0213-1	. #x2C2E)	; ø»¢£“
-    (ucs			. #x24EE)	; â“®
+    (=jis-x0213-1-2000	. #x2C2E)	; ø»¢£“
+    (ucs		. #x24EE)	; â“®
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER FIFTEEN")
-    (japanese-jisx0213-1	. #x2C2F)	; ø»¢£”
-    (ucs			. #x24EF)	; â“¯
+    (=jis-x0213-1-2000	. #x2C2F)	; ø»¢£”
+    (ucs		. #x24EF)	; â“¯
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SIXTEEN")
-    (japanese-jisx0213-1	. #x2C30)	; ø»¢£•
-    (ucs			. #x24F0)	; â“°
+    (=jis-x0213-1-2000	. #x2C30)	; ø»¢£•
+    (ucs		. #x24F0)	; â“°
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER SEVENTEEN")
-    (japanese-jisx0213-1	. #x2C31)	; ø»¢£–
-    (ucs			. #x24F1)	; â“±
+    (=jis-x0213-1-2000	. #x2C31)	; ø»¢£–
+    (ucs		. #x24F1)	; â“±
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER EIGHTEEN")
-    (japanese-jisx0213-1	. #x2C32)	; ø»¢£—
-    (ucs			. #x24F2)	; â“²
+    (=jis-x0213-1-2000	. #x2C32)	; ø»¢£—
+    (ucs		. #x24F2)	; â“²
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER NINETEEN")
-    (japanese-jisx0213-1	. #x2C33)	; ø»¢£˜
-    (ucs			. #x24F3)	; â“³
+    (=jis-x0213-1-2000	. #x2C33)	; ø»¢£˜
+    (ucs		. #x24F3)	; â“³
     ))
 (define-char
   '((name		. "NEGATIVE CIRCLED NUMBER TWENTY")
-    (japanese-jisx0213-1	. #x2C34)	; ø»¢£™
-    (ucs			. #x24F4)	; â“´
+    (=jis-x0213-1-2000	. #x2C34)	; ø»¢£™
+    (ucs		. #x24F4)	; â“´
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT ONE")
-    (japanese-jisx0213-1	. #x265A)	; ø»¢›‹
-    (ucs			. #x24F5)	; â“µ
+    (=jis-x0213-1-2000	. #x265A)	; ø»¢›‹
+    (ucs		. #x24F5)	; â“µ
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT TWO")
-    (japanese-jisx0213-1	. #x265B)	; ø»¢›Œ
-    (ucs			. #x24F6)	; â“¶
+    (=jis-x0213-1-2000	. #x265B)	; ø»¢›Œ
+    (ucs		. #x24F6)	; â“¶
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT THREE")
-    (japanese-jisx0213-1	. #x265C)	; ø»¢›
-    (ucs			. #x24F7)	; â“·
+    (=jis-x0213-1-2000	. #x265C)	; ø»¢›
+    (ucs		. #x24F7)	; â“·
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FOUR")
-    (japanese-jisx0213-1	. #x265D)	; ø»¢›Ž
-    (ucs			. #x24F8)	; â“¸
+    (=jis-x0213-1-2000	. #x265D)	; ø»¢›Ž
+    (ucs		. #x24F8)	; â“¸
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT FIVE")
-    (japanese-jisx0213-1	. #x265E)	; ø»¢›
-    (ucs			. #x24F9)	; â“¹
+    (=jis-x0213-1-2000	. #x265E)	; ø»¢›
+    (ucs		. #x24F9)	; â“¹
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SIX")
-    (japanese-jisx0213-1	. #x265F)	; ø»¢›
-    (ucs			. #x24FA)	; â“º
+    (=jis-x0213-1-2000	. #x265F)	; ø»¢›
+    (ucs		. #x24FA)	; â“º
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT SEVEN")
-    (japanese-jisx0213-1	. #x2660)	; ø»¢›‘
-    (ucs			. #x24FB)	; â“»
+    (=jis-x0213-1-2000	. #x2660)	; ø»¢›‘
+    (ucs		. #x24FB)	; â“»
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT EIGHT")
-    (japanese-jisx0213-1	. #x2661)	; ø»¢›’
-    (ucs			. #x24FC)	; â“¼
+    (=jis-x0213-1-2000	. #x2661)	; ø»¢›’
+    (ucs		. #x24FC)	; â“¼
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED DIGIT NINE")
-    (japanese-jisx0213-1	. #x2662)	; ø»¢›“
-    (ucs			. #x24FD)	; â“½
+    (=jis-x0213-1-2000	. #x2662)	; ø»¢›“
+    (ucs		. #x24FD)	; â“½
     ))
 (define-char
   '((name		. "DOUBLE CIRCLED NUMBER TEN")
-    (japanese-jisx0213-1	. #x2663)	; ø»¢›”
-    (ucs			. #x24FE)	; â“¾
+    (=jis-x0213-1-2000	. #x2663)	; ø»¢›”
+    (ucs		. #x24FE)	; â“¾
     ))

@@ -122,10 +122,10 @@
     (ideographic-strokes . 3)
     (cns-radical	 . 72)	; â½‡
     (total-strokes	 . 7)
-    (chinese-cns11643-3		. #x2640)	; ø»•ž™
-    (japanese-jisx0213-2	. #x2E36)	; ø»¤°›
-    (ideograph-daikanwa		. 14285)	; ø¸ƒŸ
-    (ucs			. #x3AD7)	; ã«—
+    (chinese-cns11643-3 . #x2640)	; ø»•ž™
+    (=jis-x0213-2-2000	. #x2E36)	; ø»¤°›
+    (ideograph-daikanwa . 14285)	; ø¸ƒŸ
+    (ucs		. #x3AD7)	; ã«—
     ))
 (define-char
   '((=>ucs		. #x23323)	; ð£Œ£
@@ -240,11 +240,11 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (korean-ksc5601		. #x7046)	; ø»ŠŽ³
-    (japanese-jisx0212		. #x426D)	; ø»‹•º
-    (japanese-jisx0213-1	. #x754C)	; ø»¤Ž¿
-    (china3-jef			. #x52A2)	; øº…Š¢
-    (ucs			. #x66FA)	; æ›º
+    (korean-ksc5601	. #x7046)	; ø»ŠŽ³
+    (japanese-jisx0212	. #x426D)	; ø»‹•º
+    (=jis-x0213-1-2000	. #x754C)	; ø»¤Ž¿
+    (china3-jef		. #x52A2)	; øº…Š¢
+    (ucs		. #x66FA)	; æ›º
     ))
 (define-char
   '((morohashi-daikanwa	2392 0 1)
@@ -393,8 +393,8 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (japanese-jisx0213-2	. #x2E37)	; ø»¤°œ
-    (ucs-jis			. #x6701)	; ø»¤°œ
+    (=jis-x0213-2-2000	. #x2E37)	; ø»¤°œ
+    (ucs-jis		. #x6701)	; ø»¤°œ
     ))
 (define-char
   '((morohashi-daikanwa	14302 0 5)
@@ -506,13 +506,13 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (japanese-jisx0212		. #x426E)	; ø»‹•»
-    (chinese-cns11643-2		. #x4A60)	; ø»”‰­
-    (japanese-jisx0213-2	. #x2E38)	; ø»¤°
-    (chinese-big5		. #xE1F9)	; ý¢€Ž‡¹
-    (ideograph-daikanwa		. 14311)	; ø¸ƒŸ§
-    (china3-jef			. #x51AD)	; øº…†­
-    (ucs			. #x6705)	; æœ…
+    (japanese-jisx0212	. #x426E)	; ø»‹•»
+    (chinese-cns11643-2 . #x4A60)	; ø»”‰­
+    (=jis-x0213-2-2000	. #x2E38)	; ø»¤°
+    (chinese-big5	. #xE1F9)	; ý¢€Ž‡¹
+    (ideograph-daikanwa . 14311)	; ø¸ƒŸ§
+    (china3-jef		. #x51AD)	; øº…†­
+    (ucs		. #x6705)	; æœ…
     ))
 (define-char
   '((ideographic-radical . 73)	; â½ˆ

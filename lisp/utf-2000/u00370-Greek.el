@@ -2198,8 +2198,7 @@
     (mirrored		. nil)
     (->fullwidth
      ((name		  . "fullwidth greek small letter final sigma")
-      (japanese-jisx0212	  . #x2678)	; ø»Š¬½
-      (japanese-jisx0213-1	  . #x2659)	; ø»¢›Š
+      (japanese-jisx0212  . #x2678)	; ø»Š¬½
       ))
     (->uppercase
      ((name		  . "GREEK CAPITAL LETTER SIGMA")
@@ -2222,9 +2221,9 @@
      ((name		  . "GREEK SMALL LETTER FINAL SIGMA")
       (ucs		  . #x03C2)	; Ï‚
       ))
-    (japanese-jisx0212		. #x2678)	; ø»Š¬½
-    (japanese-jisx0213-1	. #x2659)	; ø»¢›Š
-    (ucs-jis			. #x03C2)	; ø»Š¬½
+    (japanese-jisx0212	. #x2678)	; ø»Š¬½
+    (=jis-x0213-1-2000	. #x2659)	; ø»¢›Š
+    (ucs-jis		. #x03C2)	; ø»Š¬½
     ))
 (define-char
   '((name		. "GREEK SMALL LETTER SIGMA")

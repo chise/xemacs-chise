@@ -51,8 +51,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2247)	; ø»¢•€
-    (ucs			. #x2205)	; âˆ…
+    (=jis-x0213-1-2000	. #x2247)	; ø»¢•€
+    (ucs		. #x2205)	; âˆ…
     ))
 (define-char
   '((name		. "INCREMENT")
@@ -90,8 +90,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2208 #x0338)
-    (japanese-jisx0213-1	. #x2246)	; ø»¢”¿
-    (ucs			. #x2209)	; âˆ‰
+    (=jis-x0213-1-2000	. #x2246)	; ø»¢”¿
+    (ucs		. #x2209)	; âˆ‰
     ))
 (define-char
   '((name		. "SMALL ELEMENT OF")
@@ -171,8 +171,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ET")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x235B)	; ø»¢–²
-    (ucs			. #x2213)	; âˆ“
+    (=jis-x0213-1-2000	. #x235B)	; ø»¢–²
+    (ucs		. #x2213)	; âˆ“
     ))
 (define-char
   '((name		. "DOT PLUS")
@@ -274,10 +274,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-cns11643-1		. #x2249)	; ø»‘„¢
-    (japanese-jisx0213-1	. #x2D78)	; ø»¢¥»
-    (chinese-big5		. #xA1E8)	; ý¢€Š‡¨
-    (ucs			. #x221F)	; âˆŸ
+    (chinese-cns11643-1 . #x2249)	; ø»‘„¢
+    (=jis-x0213-1-2000	. #x2D78)	; ø»¢¥»
+    (chinese-big5	. #xA1E8)	; ý¢€Š‡¨
+    (ucs		. #x221F)	; âˆŸ
     ))
 (define-char
   '((name		. "ANGLE")
@@ -328,11 +328,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x214E)	; ø»„†±
-    (korean-ksc5601		. #x212B)	; ø»ˆš–
-    (japanese-jisx0213-1	. #x2254)	; ø»¢•
-    (chinese-big5		. #xA1FC)	; ý¢€Š‡¼
-    (ucs			. #x2225)	; âˆ¥
+    (chinese-gb2312	. #x214E)	; ø»„†±
+    (korean-ksc5601	. #x212B)	; ø»ˆš–
+    (=jis-x0213-1-2000	. #x2254)	; ø»¢•
+    (chinese-big5	. #xA1FC)	; ý¢€Š‡¼
+    (ucs		. #x2225)	; âˆ¥
     ))
 (define-char
   '((name		. "NOT PARALLEL TO")
@@ -340,8 +340,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2225 #x0338)
-    (japanese-jisx0213-1	. #x2255)	; ø»¢•Ž
-    (ucs			. #x2226)	; âˆ¦
+    (=jis-x0213-1-2000	. #x2255)	; ø»¢•Ž
+    (ucs		. #x2226)	; âˆ¦
     ))
 (define-char
   '((name		. "LOGICAL AND")
@@ -430,12 +430,12 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x2153)	; ø»„†¶
-    (korean-ksc5601		. #x2231)	; ø»ˆ›º
-    (chinese-cns11643-1		. #x224E)	; ø»‘„§
-    (japanese-jisx0213-1	. #x2D73)	; ø»¢¥¶
-    (chinese-big5		. #xA1ED)	; ý¢€Š‡­
-    (ucs			. #x222E)	; âˆ®
+    (chinese-gb2312	. #x2153)	; ø»„†¶
+    (korean-ksc5601	. #x2231)	; ø»ˆ›º
+    (chinese-cns11643-1 . #x224E)	; ø»‘„§
+    (=jis-x0213-1-2000	. #x2D73)	; ø»¢¥¶
+    (chinese-big5	. #xA1ED)	; ý¢€Š‡­
+    (ucs		. #x222E)	; âˆ®
     ))
 (define-char
   '((name		. "SURFACE INTEGRAL")
@@ -608,8 +608,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x226C)	; ø»¢•¥
-    (ucs			. #x2243)	; â‰ƒ
+    (=jis-x0213-1-2000	. #x226C)	; ø»¢•¥
+    (ucs		. #x2243)	; â‰ƒ
     ))
 (define-char
   '((name		. "NOT ASYMPTOTICALLY EQUAL TO")
@@ -624,8 +624,8 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x226D)	; ø»¢•¦
-    (ucs			. #x2245)	; â‰…
+    (=jis-x0213-1-2000	. #x226D)	; ø»¢•¦
+    (ucs		. #x2245)	; â‰…
     ))
 (define-char
   '((name		. "APPROXIMATELY BUT NOT ACTUALLY EQUAL TO")
@@ -647,9 +647,9 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x2156)	; ø»„†¹
-    (japanese-jisx0213-1	. #x226E)	; ø»¢•§
-    (ucs			. #x2248)	; â‰ˆ
+    (chinese-gb2312	. #x2156)	; ø»„†¹
+    (=jis-x0213-1-2000	. #x226E)	; ø»¢•§
+    (ucs		. #x2248)	; â‰ˆ
     ))
 (define-char
   '((name		. "NOT ALMOST EQUAL TO")
@@ -851,8 +851,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2261 #x0338)
-    (japanese-jisx0213-1	. #x226B)	; ø»¢•¤
-    (ucs			. #x2262)	; â‰¢
+    (=jis-x0213-1-2000	. #x226B)	; ø»¢•¤
+    (ucs		. #x2262)	; â‰¢
     ))
 (define-char
   '((name		. "STRICTLY EQUIVALENT TO")
@@ -1019,16 +1019,16 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x226F)	; ø»¢•¨
-    (ucs			. #x2276)	; â‰¶
+    (=jis-x0213-1-2000	. #x226F)	; ø»¢•¨
+    (ucs		. #x2276)	; â‰¶
     ))
 (define-char
   '((name		. "GREATER-THAN OR LESS-THAN")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2270)	; ø»¢•©
-    (ucs			. #x2277)	; â‰·
+    (=jis-x0213-1-2000	. #x2270)	; ø»¢•©
+    (ucs		. #x2277)	; â‰·
     ))
 (define-char
   '((name		. "NEITHER LESS-THAN NOR GREATER-THAN")
@@ -1132,8 +1132,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2282 #x0338)
-    (japanese-jisx0213-1	. #x2242)	; ø»¢”»
-    (ucs			. #x2284)	; âŠ„
+    (=jis-x0213-1-2000	. #x2242)	; ø»¢”»
+    (ucs		. #x2284)	; âŠ„
     ))
 (define-char
   '((name		. "NOT A SUPERSET OF")
@@ -1141,8 +1141,8 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	#x2283 #x0338)
-    (japanese-jisx0213-1	. #x2243)	; ø»¢”¼
-    (ucs			. #x2285)	; âŠ…
+    (=jis-x0213-1-2000	. #x2243)	; ø»¢”¼
+    (ucs		. #x2285)	; âŠ…
     ))
 (define-char
   '((name		. "SUBSET OF OR EQUAL TO")
@@ -1187,16 +1187,16 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2244)	; ø»¢”½
-    (ucs			. #x228A)	; âŠŠ
+    (=jis-x0213-1-2000	. #x2244)	; ø»¢”½
+    (ucs		. #x228A)	; âŠŠ
     ))
 (define-char
   '((name		. "SUPERSET OF WITH NOT EQUAL TO")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2245)	; ø»¢”¾
-    (ucs			. #x228B)	; âŠ‹
+    (=jis-x0213-1-2000	. #x2245)	; ø»¢”¾
+    (ucs		. #x228B)	; âŠ‹
     ))
 (define-char
   '((name		. "MULTISET")
@@ -1266,26 +1266,26 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-cns11643-1		. #x2253)	; ø»‘„¬
-    (japanese-jisx0213-1	. #x2251)	; ø»¢•Š
-    (chinese-big5		. #xA1F2)	; ý¢€Š‡²
-    (ucs			. #x2295)	; âŠ•
+    (chinese-cns11643-1 . #x2253)	; ø»‘„¬
+    (=jis-x0213-1-2000	. #x2251)	; ø»¢•Š
+    (chinese-big5	. #xA1F2)	; ý¢€Š‡²
+    (ucs		. #x2295)	; âŠ•
     ))
 (define-char
   '((name		. "CIRCLED MINUS")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2252)	; ø»¢•‹
-    (ucs			. #x2296)	; âŠ–
+    (=jis-x0213-1-2000	. #x2252)	; ø»¢•‹
+    (ucs		. #x2296)	; âŠ–
     ))
 (define-char
   '((name		. "CIRCLED TIMES")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0213-1	. #x2253)	; ø»¢•Œ
-    (ucs			. #x2297)	; âŠ—
+    (=jis-x0213-1-2000	. #x2253)	; ø»¢•Œ
+    (ucs		. #x2297)	; âŠ—
     ))
 (define-char
   '((name		. "CIRCLED DIVISION SLASH")
@@ -1579,10 +1579,10 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-cns11643-1		. #x224A)	; ø»‘„£
-    (japanese-jisx0213-1	. #x2D79)	; ø»¢¥¼
-    (chinese-big5		. #xA1E9)	; ý¢€Š‡©
-    (ucs			. #x22BF)	; âŠ¿
+    (chinese-cns11643-1 . #x224A)	; ø»‘„£
+    (=jis-x0213-1-2000	. #x2D79)	; ø»¢¥¼
+    (chinese-big5	. #xA1E9)	; ý¢€Š‡©
+    (ucs		. #x22BF)	; âŠ¿
     ))
 (define-char
   '((name		. "N-ARY LOGICAL AND")
@@ -1775,16 +1775,16 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2776)	; ø»¢…
-    (ucs			. #x22DA)	; â‹š
+    (=jis-x0213-1-2000	. #x2776)	; ø»¢…
+    (ucs		. #x22DA)	; â‹š
     ))
 (define-char
   '((name		. "GREATER-THAN EQUAL TO OR LESS-THAN")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0213-1	. #x2777)	; ø»¢†
-    (ucs			. #x22DB)	; â‹›
+    (=jis-x0213-1-2000	. #x2777)	; ø»¢†
+    (ucs		. #x22DB)	; â‹›
     ))
 (define-char
   '((name		. "EQUAL TO OR LESS-THAN")
