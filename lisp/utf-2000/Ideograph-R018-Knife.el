@@ -6920,7 +6920,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; ⿰
 	)
-       ((=ucs@unicode	    . #x77DE)	; &UU+77DE;
+       ((=ucs@unicode	    . #x77DE)	; &EGB-7D75;
 	)
        ((=ucs		    . #x5202)	; 刂
 	))

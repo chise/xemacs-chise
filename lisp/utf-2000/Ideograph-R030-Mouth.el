@@ -17045,7 +17045,7 @@
       )
      ((=ucs		  . #x53E3)	; 口
       )
-     ((=daikanwa	  . 22661)	; &I-M-22661;
+     ((=daikanwa	  . 22661)	; &M-22661;
       ))
     (=daikanwa		. 03981)	; &M-03981;
     (=cbeta		. 00760)	; &I-CB00760;
@@ -25024,7 +25024,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x77DE)	; &UU+77DE;
+       ((=ucs@unicode	    . #x77DE)	; &EGB-7D75;
 	))
       (=ucs@unicode	  . #x564A)	; &UU+564A;
       ))
