@@ -8240,7 +8240,7 @@
     (ideograph-daikanwa . 27683)	; ø¸†°£
     ))
 (define-char
-  '((->ucs		. #x7DF0)	; ç·°
+  '((=>ucs		. #x7DF0)	; ç·°
     (morohashi-daikanwa	27683 0 2)
     (ideographic-radical . 120)	; â½·
     (ideographic-strokes . 9)
@@ -10997,7 +10997,7 @@
     (chinese-cns11643-2 . #x5E4A)	; ø»”¦¯
     ))
 (define-char
-  '((->ucs		. #x7E3B)	; ç¸»
+  '((=>ucs		. #x7E3B)	; ç¸»
     (morohashi-daikanwa	27839 0 1)
     (ideographic-radical . 120)	; â½·
     (ideographic-strokes . 11)
