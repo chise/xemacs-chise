@@ -1034,23 +1034,21 @@
     (=cns11643-7	. #x2364)	; &I-C7-2364;
     ))
 (define-char
-  '((=>ucs		. #x23393)	; 𣎓
-    (ideographic-radical . 74)	; ⽉
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-wrong
-     (:char	((=daikanwa	     . 29821)	; &M-29821;
-		 )
-      :sources	(morohashi-daikanwa)))
-    (=daikanwa		. 14394)	; &M-14394;
-    ))
-(define-char
-  '((morohashi-daikanwa	14394 0 0)
-    (ideographic-radical . 74)	; ⽉
+  '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=ucs		. #x23393)	; 𣎓
-    (=cns11643-4	. #x4A34)	; &I-C4-4A34;
+    (->subsumptive
+     ((<-wrong
+       ((=daikanwa	    . 29821)	; &M-29821;
+	))
+      (<-wrong*sources
+       daikanwa)
+      (=daikanwa	  . 14394)	; &M-14394;
+      )
+     ((=cns11643-4	  . #x4A34)	; &C4-4A34;
+      (=ucs@iso		  . #x23393)	; &C4-4A34;
+      ))
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
