@@ -1067,7 +1067,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (=jis-x0213-1-2000	. #x7654)	; &JX1-7654; [86-52]
-    (=ucs@jis-2000	. #x6C74)	; &JX1-7654;
+    (=ucs@jis/2000	. #x6C74)	; &JX1-7654;
     ))
 (define-char
   '((=>ucs		. #x6C75)	; 汵
@@ -21125,13 +21125,6 @@
   '((ideographic-radical . 85)	; ⽔
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (=ucs		. #x6FF9)	; 濹
-    (=jis-x0212		. #x4927)	; &I-JSP-4927; [41-07]
-    ))
-(define-char
-  '((ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
     (=ucs		. #x23FDF)	; 𣿟
     (=cns11643-5	. #x5B77)	; &I-C5-5B77; [59-87]
     ))
@@ -21798,12 +21791,19 @@
     (=iso-ir165		. #x2E60)	; &I-EGB-2E60; [14-64]
     ))
 (define-char
-  '((=>ucs		. #x6FF9)	; 濹
-    (ideographic-radical . 85)	; ⽔
-    (ideographic-strokes . 15)
-    (total-strokes	 . 18)
-    (=jis-x0213-1-2000	. #x7739)	; &JX1-7739; [87-25]
-    (=ucs@jis-2000	. #x6FF9)	; &JX1-7739;
+  '((ideographic-radical . 85)	; ⽔
+    (=ucs		. #x6FF9)	; 濹
+    (->subsumptive
+     ((ideographic-strokes . 15)
+      (total-strokes	   . 18)
+      (=jis-x0213-1-2000  . #x7739)	; &JX1-7739; [87-25]
+      (=ucs@jis/2000	  . #x6FF9)	; &JX1-7739;
+      )
+     ((ideographic-strokes . 14)
+      (total-strokes	   . 17)
+      (=jis-x0212	  . #x4927)	; &JSP-4927; [41-07]
+      (=ucs@unicode	  . #x6FF9)	; &JSP-4927;
+      ))
     ))
 (define-char
   '((ideographic-radical . 85)	; ⽔
