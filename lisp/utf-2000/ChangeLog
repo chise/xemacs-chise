@@ -1,5 +1,7 @@
 2003-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R104-Sickness.el: Add mappings for Big5 code points.
+
 	* Ideograph-R040-Roof.el (M-07061): New character.
 	(U-000219BA): New character.
 	(M-07062): New character.
