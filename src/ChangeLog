@@ -1,3 +1,10 @@
+1999-09-18  MORIOKA Tomohiko  <tomo@etl.go.jp> (at Bangalore)
+
+	* mule-charset.c (charset_get_byte1): Fix bug about 94- and
+ 	96-set.  (Fmake_reverse_direction_charset): Inherit
+ 	CHARSET_DECODING_TABLE, CHARSET_UCS_MIN, CHARSET_UCS_MAX and
+ 	CHARSET_CODE_OFFSET.
+
 1999-09-17  MORIOKA Tomohiko  <tomo@etl.go.jp> (at Bangalore)
 
 	* char-ucs.h (MIN_CHAR_HALFWIDTH_KATAKANA): Changed to 0xFF61 from
