@@ -292,7 +292,7 @@
     (total-strokes	 . 18)
     (chinese-cns11643-4 . #x5E60)	; ø»˜»
     (ideograph-daikanwa . 44552)	; ø¸Š¸ˆ
-    (ucs-gb		. #x99A7)	; ð¯¨…
+    (=ucs@gb		. #x99A7)	; ð¯¨…
     (=ucs		. #x2FA05)	; ð¯¨…
     ))
 (define-char

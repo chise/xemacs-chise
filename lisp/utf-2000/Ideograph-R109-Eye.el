@@ -3235,7 +3235,7 @@
     (chinese-cns11643-6 . #x4B7A)	; ø»œ³µ
     (=jis-x0213-2-2000	. #x7222)	; ø»¦“¿
     (ideograph-daikanwa . 23381)	; ø¸…­•
-    (ucs-gb		. #x4039)	; ð¯¥‰
+    (=ucs@gb		. #x4039)	; ð¯¥‰
     (ucs-jis		. #x4039)	; ð¯¥‰
     (=ucs		. #x2F949)	; ð¯¥‰
     ))

@@ -6019,7 +6019,7 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (chinese-cns11643-3 . #x4043)	; ø»–„¨
-    (ucs-gb		. #x5277)	; ð¯ £
+    (=ucs@gb		. #x5277)	; ð¯ £
     (=ucs		. #x2F823)	; ð¯ £
     ))
 (define-char

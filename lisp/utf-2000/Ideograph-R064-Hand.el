@@ -14592,7 +14592,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-4 . #x4A27)	; ø»˜œ¼
-    (ucs-gb		. #x649D)	; ð¯£…
+    (=ucs@gb		. #x649D)	; ð¯£…
     (=ucs		. #x2F8C5)	; ð¯£…
     ))
 (define-char

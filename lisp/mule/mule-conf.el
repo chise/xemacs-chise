@@ -141,7 +141,7 @@
 (when (featurep 'utf-2000)
   (define-charset-alias 'ucs '=ucs)
   (define-charset-alias 'japanese-jisx0208-1990 '=jis-x0208-1990)
-  (make-charset 'ucs-gb
+  (make-charset '=ucs@gb
 		"UCS for GB"
 		`(long-name	"ISO/IEC 10646 for GB"
 		  chars		256
@@ -150,6 +150,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	=ucs))
+  (define-charset-alias 'ucs-gb '=ucs@gb)
   (make-charset 'ucs-cns
 		"UCS for CNS"
 		`(long-name	"ISO/IEC 10646 for CNS 11643"
