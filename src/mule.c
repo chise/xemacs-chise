@@ -93,6 +93,10 @@ accept a pattern compiled by 'regexp-compile' with word-option t.
 
 #endif /* MULE_REGEXP */
 
+#ifdef UTF2000
+Lisp_Object Vutf_2000_version;
+#endif
+
 
 void
 syms_of_mule (void)
@@ -116,6 +120,11 @@ vars_of_mule (void)
 
 #ifdef UTF2000
   Fprovide (intern ("utf-2000"));
+
+  Vutf_2000_version = build_string("0.18 (Yamato-Koizumi)");
+  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
+Version number of XEmacs UTF-2000.
+*/ );
 #endif
 
 #ifdef HAVE_CHISE_CLIENT
