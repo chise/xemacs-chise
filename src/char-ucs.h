@@ -513,7 +513,7 @@ CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
 #define MIN_CHAR_GT		0x61000000
 #define MAX_CHAR_GT		(MIN_CHAR_GT + 66773)
 
-Emchar make_builtin_char (Lisp_Object charset, int c1, int c2);
+Emchar decode_builtin_char (Lisp_Object charset, int code_point);
 
 INLINE_HEADER int
 DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3);
@@ -539,6 +539,10 @@ DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3)
   else
     return 0;
 }
+
+extern Lisp_Object Vcharset_chinese_big5;
+extern Lisp_Object Vcharset_chinese_big5_1;
+extern Lisp_Object Vcharset_chinese_big5_2;
 
 INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
@@ -567,7 +571,31 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
 	break;
     }
   if (XCHARSET_DIMENSION (charset) == 1)
-    return make_builtin_char (charset, code_point, 0);
+    return decode_builtin_char (charset, code_point);
+  else if (EQ (charset, Vcharset_chinese_big5_1))
+    {
+      unsigned int I
+	= ((code_point >> 8) - 33) * (0xFF - 0xA1)
+	+ ((code_point & 0xFF) - 33);
+      unsigned char b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+      unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+
+      b2 += b2 < 0x3F ? 0x40 : 0x62;
+      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
+    }
+  else if (EQ (charset, Vcharset_chinese_big5_2))
+    {
+      unsigned int I
+	= ((code_point >> 8) - 33) * (0xFF - 0xA1)
+	+ ((code_point & 0xFF) - 33);
+      unsigned char b1, b2;
+
+      I += (0xFF - 0xA1 + 0x7F - 0x40) * (0xC9 - 0xA1);
+      b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
+      b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
+      b2 += b2 < 0x3F ? 0x40 : 0x62;
+      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
+    }
   else if (EQ (charset, Vcharset_mojikyo_2022_1))
     {
       int m =
@@ -596,7 +624,7 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
 	    return ' ';
 	}
       else
-	return make_builtin_char (charset, code_point >> 8, code_point & 255);
+	return decode_builtin_char (charset, code_point);
     }
 }
 
@@ -752,9 +780,6 @@ CHAR_TO_CHARC (Emchar ch)
 
 EXFUN (Fget_charset, 1);
 
-extern Lisp_Object Vcharset_chinese_big5;
-extern Lisp_Object Vcharset_chinese_big5_1;
-extern Lisp_Object Vcharset_chinese_big5_2;
 extern Lisp_Object Vcharset_japanese_jisx0208;
 extern Lisp_Object Vcharset_japanese_jisx0208_1990;
 extern Lisp_Object Vcharset_japanese_jisx0212;
