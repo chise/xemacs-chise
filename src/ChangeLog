@@ -1,5 +1,10 @@
 2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Fset_charset_mapping_table): Use
+	`put_char_ccs_code_point'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (decoding_table_put_char): New inline function.
 	(put_char_ccs_code_point): Use `decoding_table_put_char'.
 
