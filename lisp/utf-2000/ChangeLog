@@ -1,5 +1,11 @@
 2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R009-Man.el (U+4F50): Unify GT-00633 instead of
+	GT-00634.
+	(U+4F5C): Unify GT-00634.
+
+2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R032-Earth.el (U+58CC): Separate J0-3E6D.
 	(J0-3E6D): Unify GT-06976.
 
