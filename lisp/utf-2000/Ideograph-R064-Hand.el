@@ -6686,6 +6686,8 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (=big5-cdp		. #xABF7)	; ý¢€Š¯·
+    (=gt		. 15509)	; ý¡€ƒ²•
+    (=gt-pj-3		. #x5F70)	; ý¡€ƒ²•
     (=daikanwa		. 12236)	; ø¸‚¿Œ
     ))
 (define-char
