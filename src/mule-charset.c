@@ -73,6 +73,7 @@ Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
 Lisp_Object Vcharset_chinese_big5;
+Lisp_Object Vcharset_chinese_big5_cdp;
 Lisp_Object Vcharset_ideograph_gt;
 Lisp_Object Vcharset_ideograph_gt_pj_1;
 Lisp_Object Vcharset_ideograph_gt_pj_2;
@@ -1613,6 +1614,7 @@ Lisp_Object Qascii,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
   Qchinese_big5,
+  Qchinese_big5_cdp,
   Qideograph_gt,
   Qideograph_gt_pj_1,
   Qideograph_gt_pj_2,
@@ -3561,6 +3563,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qideograph_gt_pj_11,	"ideograph-gt-pj-11");
   defsymbol (&Qideograph_daikanwa,	"ideograph-daikanwa");
   defsymbol (&Qchinese_big5,		"chinese-big5");
+  defsymbol (&Qchinese_big5_cdp,	"chinese-big5-cdp");
   defsymbol (&Qmojikyo,			"mojikyo");
   defsymbol (&Qmojikyo_2022_1,		"mojikyo-2022-1");
   defsymbol (&Qmojikyo_pj_1,		"mojikyo-pj-1");
@@ -3980,6 +3983,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("Big5 Chinese traditional"),
 		  build_string ("big5"),
 		  Qnil, 0, 0, 0, 0);
+  staticpro (&Vcharset_chinese_big5_cdp);
+  Vcharset_chinese_big5_cdp =
+    make_charset (LEADING_BYTE_CHINESE_BIG5_CDP, Qchinese_big5_cdp, 256, 2,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("Big5-CDP"),
+		  build_string ("Big5 + CDP extension"),
+		  build_string ("Big5 with CDP extension"),
+		  build_string ("big5\\.cdp-0"),
+		  Qnil, 0, 0, 0, 0);
   staticpro (&Vcharset_ideograph_gt);
   Vcharset_ideograph_gt =
     make_charset (LEADING_BYTE_GT, Qideograph_gt, 256, 3,
@@ -3998,7 +4010,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GT (pseudo JIS encoding) part "#n),	\
 		  build_string ("GT 2000 (pseudo JIS encoding) part "#n), \
 		  build_string						\
-		  ("\\(GT2000PJ-"#n "\\|jisx0208\\.GT2000-"#n "\\)$"),	\
+		  ("\\(GTpj-"#n "\\|jisx0208\\.GT-"#n "\\)$"),	\
 		  Qnil, 0, 0, 0, 33);
   DEF_GT_PJ (1);
   DEF_GT_PJ (2);
