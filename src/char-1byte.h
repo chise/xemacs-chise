@@ -31,7 +31,7 @@ Boston, MA 02111-1307, USA.  */
 /*                    Definition of leading bytes                       */
 /************************************************************************/
 
-typedef int Charset_ID;
+typedef unsigned char Charset_ID;
 
 #define MIN_LEADING_BYTE 0x80
 #define LEADING_BYTE_ASCII 0x80
