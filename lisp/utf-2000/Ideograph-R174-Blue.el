@@ -2,6 +2,7 @@
   '((ideographic-radical . 174)	; â¾­
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
+    (korean-ksc5601	. #x746C)	; ø»Š•‘
     (ideograph-daikanwa . 42564)	; ø¸Š™„
     (mojikyo		. 042564)	; ý €Š™„
     (ucs		. #x9751)	; é‘
