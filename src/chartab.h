@@ -166,6 +166,7 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
+  unsigned char unloaded;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
 
@@ -224,6 +225,9 @@ DECLARE_LRECORD (char_table, Lisp_Char_Table);
 
 #define CHAR_TABLE_NAME(ct) ((ct)->name)
 #define XCHAR_TABLE_NAME(ct) CHAR_TABLE_NAME (XCHAR_TABLE (ct))
+
+#define CHAR_TABLE_UNLOADED(ct) ((ct)->unloaded)
+#define XCHAR_TABLE_UNLOADED(ct) CHAR_TABLE_UNLOADED (XCHAR_TABLE (ct))
 
 INLINE_HEADER Lisp_Object
 CHAR_TABLE_VALUE_UNSAFE (Lisp_Char_Table *ct, Emchar ch);
