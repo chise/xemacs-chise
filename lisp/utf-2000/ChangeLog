@@ -1,3 +1,7 @@
+2003-01-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R008-Lid.el (JC3-81C1): Unify GT-K02308.
+
 2003-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R004-Slash.el: Unify some GT-Kddddd numbers.
