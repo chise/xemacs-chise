@@ -139,13 +139,6 @@
 (define-char
   '((ideographic-radical . 87)	; â½–
     (ideographic-strokes . 4)
-    (=gb2312		. #x4359)	; ø»„¸¸
-    (=iso-ir165		. #x4359)	; ø»¡ˆ
-    (=ucs		. #x89C5)	; è§…
-    ))
-(define-char
-  '((ideographic-radical . 87)	; â½–
-    (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=cns11643-6	. #x2C62)	; ø»œ…»
     (=ucs		. #x244F6)	; ð¤“¶
