@@ -1,5 +1,26 @@
 2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (ideograph-char<): Treat `=>ucs' as same as
+	`->ucs'.
+
+	* char-db-util.el (char-db-insert-char-spec): Renamed from
+	`char-db-insert-char-ref'.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el: Use `=>ucs' instead of `->ucs'.
+	(M-17573'): Add `<-simplified-ideograph' for M-17644.
+
+	* char-db-util.el (char-db-convert-obsolete-format): New variable.
+	(insert-char-attributes): Don't convert `->ucs' to `=>ucs' if
+	variable `char-db-convert-obsolete-format' is nil; format
+	`->simplified-ideograph' and `<-simplified-ideograph' as character
+	reference.
+
+	* Ideograph-R163-City.el: Fix JIS X 0208 code points.
+
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (char-db-insert-char-ref): New function.
 	(char-db-insert-char-map): New function.
 	(char-db-decode-isolated-char): New function.
