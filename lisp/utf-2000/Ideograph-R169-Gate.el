@@ -540,6 +540,7 @@
   '((morohashi-daikanwa	41260 1)
     (ideographic-radical . 169)	; â¾¨
     (ideographic-strokes . 4)
+    (mojikyo		. 050554)	; ø¸Œ•º
     (ucs		. #x9596)	; é––
     ))
 (define-char
@@ -1345,6 +1346,7 @@
     (japanese-jisx0208		. #x315C)	; ø»†¨£
     (chinese-cns11643-3		. #x4F55)	; ø»–š¼
     (japanese-jisx0208-1990	. #x315C)	; ø½ŠŽ—
+    (mojikyo			. 050555)	; ø¸Œ•»
     (ucs			. #x95B2)	; é–²
     ))
 (define-char
