@@ -1,5 +1,13 @@
 2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (char-db-insert-char-spec): Don't use `ucs' for
+	private area of BMP; use `chinese-big5-cdp' if it is defined; use
+	`find-char' instead of `define-char'.
+	(char-db-insert-alist): Use `find-char' instead of `define-char'.
+	(insert-char-attributes): Likewise.
+
+2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u0E000-Private-Use.el (U+F4E4): Separate Big5-8B4A and
 	Big5-CDP-8B4A.
 	(U+F580): Separate Big5-8C49 and Big5-CDP-8C49.
