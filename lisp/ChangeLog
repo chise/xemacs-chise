@@ -1,6 +1,11 @@
 2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* mule-charset.el (default-coded-charset-priority-list): Add
+	* mule/mule-conf.el (=gt): Renamed from `ideograph-gt'.
+	(ideograph-gt): Changed to an alias for `=gt'.
+
+2003-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`ideograph-gt-pj-k1' and `ideograph-gt-pj-k2'.
 
 2003-02-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
