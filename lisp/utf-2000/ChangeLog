@@ -1,3 +1,23 @@
+2004-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U+88AE): Use `->subsumptive'.
+	(U+88AF): Fix strokes; add `<-simplified@CN' for U+894F.
+	(U+88B0): Use `->subsumptive'.
+	(U+894F): Likewise.
+
+	* Ideograph-R108-Dish.el (U-0002503F): Unify GT-29402.
+	(U+76C0): Unify GT-29401.
+	(U+76C1): Unify GT-29400.
+	(U-00025041): Unify GT-29406.
+	(U-00025042): Unify GT-29408.
+	(U-00025055): Unify BC-8CD7, GT-29430 and GT-K07132; add
+	S{1|2}-5236.
+
+	* Ideograph-R096-Jade.el (U+738A): Delete `japanese-strokes'; add
+	S1-4872; unify GT-26659.
+	(U-000248E9): Add `<-ideographic-component-forms' for U+7389; add
+	S1-4874; unify GT-26658.
+
 2004-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R163-City.el (U+90FD): Changed to an abstract
