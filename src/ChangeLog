@@ -1,5 +1,10 @@
 1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.7 (Hirano).
+
+1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* char-lb.h (CHAR_COLUMNS): New macro.
 
 1999-09-09  MORIOKA Tomohiko  <tomo@etl.go.jp>
