@@ -1,3 +1,8 @@
+2001-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_big5): Prefer charset-g1 than
+	`chinese-big5'.
+
 2001-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (uint8_byte_table_description): New constant.
