@@ -378,15 +378,26 @@ INLINE Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (charset);
-  int idx;
+  int ofs, idx;
   Lisp_Object ch;
 
   if (!EQ (decoding_table, Qnil)
-      && (0 <= (idx = c1 - (XCHARSET_CHARS (charset) == 94 ? 33 : 32)))
+      && (0 <= (idx =
+		c1 - (ofs = (XCHARSET_CHARS (charset) == 94 ? 33 : 32))))
       && (idx < XVECTOR_LENGTH (decoding_table))
       && !EQ (ch = XVECTOR_DATA(decoding_table)[idx], Qnil))
-    return XCHAR (ch);
-  else if (EQ (charset, Vcharset_katakana_jisx0201))
+    {
+      if (VECTORP (ch))
+	{
+	  if ((0 <= (idx = c2 - ofs))
+	      && (idx < XVECTOR_LENGTH (ch))
+	      && !EQ (ch = XVECTOR_DATA(ch)[idx], Qnil))
+	    return XCHAR (ch);
+	}
+      else
+	return XCHAR (ch);
+    }
+  if (EQ (charset, Vcharset_katakana_jisx0201))
     if (c1 < 0x60)
       return c1 + MIN_CHAR_HALFWIDTH_KATAKANA - 33;
     else
