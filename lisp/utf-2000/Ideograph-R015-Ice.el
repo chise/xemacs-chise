@@ -324,9 +324,9 @@
   '((ideographic-radical . 15)	; â¼Ž
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (non-morohashi	1619 9)
-    (chinese-cns11643-3 . #x2321)	; ø»•™ 
-    (ucs		. #x34C7)	; ã“‡
+    (chinese-cns11643-3		. #x2321)	; ø»•™ 
+    (japanese-jisx0213-2	. #x232F)	; ø»¤ Š
+    (ucs			. #x34C7)	; ã“‡
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
