@@ -411,12 +411,42 @@
     (=jef-china3	. #x49F4)	; &I-JC3-49F4;
     ))
 (define-char
-  '((=>ucs		. #x6588)	; 斈
-    (morohashi-daikanwa	13453 0 0)
-    (ideographic-radical . 39)	; ⼦
-    (ideographic-strokes . 4)
+  '((ideographic-radical@ucs . 67)	; ⽂
+    (ideographic-strokes@ucs . 3)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 39)	; ⼦
+    (ideographic-strokes@cns . 4)
+    (ideographic-radical@cns*sources
+     shinjigen-1 cns11643)
     (total-strokes	 . 7)
-    (=cns11643-3	. #x2558)	; &C3-2558; [05-56]
+    (=ucs		. #x6588)	; 斈
+    (->subsumptive
+     ((<-vulgar
+       ((=ucs		    . #x5B78)	; 學
+	(=daikanwa	    . 07033)	; &I-M-07033;
+	))
+      (<-vulgar*sources
+       daikanwa)
+      (=jis-x0208	  . #x555D)	; &M-13453; [53-61]
+      (=daikanwa	  . 13453)	; &I-M-13453;
+      (=ucs@jis		  . #x6588)	; &M-13453;
+      )
+     ((<-vulgar
+       ((shinjigen-1	    . 1783)
+	(=ucs		    . #x5B78)	; 學
+	(=jis-x0208	    . #x555C)	; &I-J90-555C; [53-60]
+	))
+      (<-vulgar*sources
+       shinjigen-1)
+      (shinjigen-1	  . 1786)
+      (shinjigen-2	  . 1786)
+      (=gt		  . 17011)	; &GT-17011;
+      (=gt-pj-1		  . #x555D)	; &GT-17011; [53-61]
+      )
+     ((=cns11643-3	  . #x2558)	; &C3-2558; [05-56]
+      (=ucs@unicode	  . #x6588)	; &C3-2558;
+      ))
     ))
 (define-char
   '((ideographic-radical@ucs . 92)	; ⽛
@@ -1313,6 +1343,7 @@
   '((ideographic-radical . 39)	; ⼦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
+    (shinjigen-1	. 1783)
     (shinjigen-2	. 1783)
     (=ucs		. #x5B78)	; 學
     (=jis-x0208		. #x555C)	; &I-J90-555C; [53-60]
