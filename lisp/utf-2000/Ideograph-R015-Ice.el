@@ -144,11 +144,11 @@
       ))
     (->same*sources
      shuowen kanjo ronkou jiyun daikanwa)
-    (<-original-ideograph
+    (<-original
      ((shinjigen-1	  . 4051)
       (=daikanwa	  . 17087)	; &I-M-17087;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      shinjigen-1)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure
