@@ -75,35 +75,11 @@ struct lrecord_header
 
   /* 1 if the object is readonly from lisp */
   unsigned int lisp_readonly :1;
-
-#ifdef UTF2000
-  /* The `older field is a flag that indicates whether this lcrecord
-     is on a "older storage". */
-  unsigned int older :1;
-#endif
 };
 
 struct lrecord_implementation;
 int lrecord_type_index (const struct lrecord_implementation *implementation);
 
-#ifdef UTF2000
-#define set_lheader_implementation(header,imp) do {	\
-  struct lrecord_header* SLI_header = (header);		\
-  SLI_header->type = (imp)->lrecord_type_index;		\
-  SLI_header->mark = 0;					\
-  SLI_header->older = 0;				\
-  SLI_header->c_readonly = 0;				\
-  SLI_header->lisp_readonly = 0;			\
-} while (0)
-#define set_lheader_older_implementation(header,imp) do {	\
-  struct lrecord_header* SLI_header = (header);			\
-  SLI_header->type = (imp)->lrecord_type_index;			\
-  SLI_header->mark = 0;						\
-  SLI_header->older = 1;					\
-  SLI_header->c_readonly = 0;					\
-  SLI_header->lisp_readonly = 0;				\
-} while (0)
-#else
 #define set_lheader_implementation(header,imp) do {	\
   struct lrecord_header* SLI_header = (header);		\
   SLI_header->type = (imp)->lrecord_type_index;		\
@@ -111,7 +87,6 @@ int lrecord_type_index (const struct lrecord_implementation *implementation);
   SLI_header->c_readonly = 0;				\
   SLI_header->lisp_readonly = 0;			\
 } while (0)
-#endif
 
 struct lcrecord_header
 {
@@ -179,7 +154,6 @@ enum lrecord_type
   lrecord_type_coding_system,
   lrecord_type_char_table,
   lrecord_type_char_table_entry,
-  lrecord_type_char_id_table,
   lrecord_type_byte_table,
   lrecord_type_uint16_byte_table,
   lrecord_type_uint8_byte_table,
@@ -311,10 +285,6 @@ extern int gc_in_progress;
 #define MARKED_RECORD_HEADER_P(lheader) ((lheader)->mark)
 #define MARK_RECORD_HEADER(lheader)   ((void) ((lheader)->mark = 1))
 #define UNMARK_RECORD_HEADER(lheader) ((void) ((lheader)->mark = 0))
-
-#define OLDER_RECORD_P(obj) (XRECORD_LHEADER (obj)->older)
-#define OLDER_RECORD_HEADER_P(lheader) ((lheader)->older)
-
 
 #define C_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->c_readonly)
 #define LISP_READONLY_RECORD_HEADER_P(lheader)  ((lheader)->lisp_readonly)
@@ -778,14 +748,6 @@ void *alloc_lcrecord (size_t size, const struct lrecord_implementation *);
 
 #define alloc_lcrecord_type(type, lrecord_implementation) \
   ((type *) alloc_lcrecord (sizeof (type), lrecord_implementation))
-
-#ifdef UTF2000
-void *
-alloc_older_lcrecord (size_t size, const struct lrecord_implementation *);
-
-#define alloc_older_lcrecord_type(type, lrecord_implementation) \
-  ((type *) alloc_older_lcrecord (sizeof (type), lrecord_implementation))
-#endif
 
 /* Copy the data from one lcrecord structure into another, but don't
    overwrite the header information. */
