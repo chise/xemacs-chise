@@ -1,5 +1,13 @@
 2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (U+3BA4): Use `->subsumptive'.
+
+	* Ideograph-R054-Long-Stride.el (U+5EFC): Use `->subsumptive'.
+	(U+5EFD): Add missing `=ucs@jis' features.
+
+	* Ideograph-R069-Axe.el, Ideograph-R030-Mouth.el: Add missing
+	`=ucs@jis' features.
+
 	* Ideograph-R196-Bird.el, Ideograph-R195-Fish.el: Add missing
 	`=ucs@jis' features.
 
