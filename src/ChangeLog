@@ -1,3 +1,13 @@
+1999-09-17  MORIOKA Tomohiko  <tomo@etl.go.jp> (at Bangalore)
+
+	* char-ucs.h (MIN_CHAR_HALFWIDTH_KATAKANA): Changed to 0xFF61 from
+ 	0xFF60.
+	(MAKE_CHAR): Change offset for katakana-jisx0201 to 33 from 0x20.
+	(breakup_char_1): Likewise.
+
+	* text-coding.c (char_encode_iso2022): Keep designated charsets if
+ 	one of them includes the specified character.
+
 1999-09-14  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c: Update `utf-2000-version' to 0.8 (Kami).
