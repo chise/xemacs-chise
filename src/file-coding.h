@@ -128,10 +128,6 @@ struct Lisp_Coding_System
   } iso2022;
   struct
   {
-    unsigned char size;
-  } fixed;
-  struct
-  {
     /* For a CCL coding system, these specify the CCL programs used for
        decoding (input) and encoding (output). */
     Lisp_Object decode, encode;
