@@ -358,6 +358,7 @@
    (exit-function . exit-thai-xtis-environment)
    (charset thai-xtis)
    (coding-system tis-620 iso-2022-7bit)
+   (tutorial . "TUTORIAL.th")
    (coding-priority tis-620 iso-2022-7bit)
    (sample-text . "$(?!:(B")
    (documentation . t)))
