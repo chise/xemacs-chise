@@ -78,7 +78,7 @@ EOL-TYPE should be `lf', `crlf', `cr' or nil.
 If EOL-TYPE is nil, the returned coding system detects
 how end-of-line is formatted automatically while decoding.
 
-EOL-TYPE can be specified by an integer `unix', `dos' or `mac'.
+EOL-TYPE can be specified by an symbol `unix', `dos' or `mac'.
 They means `lf', `crlf', and `cr' respectively."
   (if (symbolp eol-type)
       (setq eol-type (cond ((or (eq eol-type 'unix)
