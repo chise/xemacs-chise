@@ -939,37 +939,37 @@
     (=daikanwa		. 02942)	; &I-M-02942;
     ))
 (define-char
-  '((=>ucs		. #x5397)	; 厗
-    (ideographic-radical . 27)	; ⼚
+  '((ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5382)	; 厂
-      )
-     ((=ucs		  . #x8F9B)	; 辛
-      ))
-    (=daikanwa		. 02943)	; &M-02943;
-    ))
-(define-char
-  '((morohashi-daikanwa	2943 0 0)
-    (ideographic-radical . 27)	; ⼚
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	1 73 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5382)	; 厂
-      )
-     ((=ucs		  . #x8F9B)	; 辛
-      ))
     (=ucs		. #x5397)	; 厗
-    (=cns11643-2	. #x2938)	; &I-C2-2938; [09-24]
     (=big5		. #xCDF6)	; &I-B-CDF6;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=jis-x0208	    . #x3F49)	; &GT-51557; [31-41]
+	(=ks-x1001	    . #x6374)	; &I-K0-6374; [67-84]
+	(=daikanwa	    . 38630)	; &I-M-38630;
+	))
+      (=daikanwa	  . 02943)	; &M-02943;
+      )
+     ((hanyu-dazidian	  1 73 5)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5382)	; 厂
+	)
+       ((=gb2312	    . #x5041)	; &C1-4B50; [48-33]
+	(=cns11643-1	    . #x4B50)	; &I-C1-4B50; [43-48]
+	))
+      (=cns11643-2	  . #x2938)	; &C2-2938; [09-24]
+      (=ucs@unicode	  . #x5397)	; &C2-2938;
+      ))
     ))
 (define-char
   '((ideographic-radical . 27)	; ⼚
