@@ -1666,6 +1666,7 @@
     (->same
      ((shinjigen-1	  . 735)
       (=jis-x0208	  . #x4A59)	; ø½Š³‚
+      (=cns11643-6	  . #x3558)	; ø»œ’¿
       ))
     (->same*sources
      shinjigen-1)

@@ -233,7 +233,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (->same
-     ((ideographic-radical . 4)	; â¼ƒ
+     ((=gt		  . 00176)	; ý¡€€‚°
       (=daikanwa	  . 00129)	; ø¸€‚
       ))
     (ideographic-structure
