@@ -1,8 +1,19 @@
+2003-01-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (M-03115): Unify GT-K00065.
+	(GT-K00064): New character.
+
+2003-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* isolated-char.el: Read "../etc/char-data/GT-fmap-K3.txt".
+
 2003-01-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R062-Halberd.el (C5-3F46): Unify HZK1-D0CF and
 	U-000203B6; use `ideographic-' instead of `ideographic-radical'
 	and `ideographic-strokes'; complete `ideographic-structure'.
+
+	* Ideograph-R056-Shoot.el (GT-K00233): New character.
 
 	* Ideograph-R007-Two.el (GT-K00083): New character.
 
