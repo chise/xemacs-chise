@@ -2,18 +2,13 @@
   '((ucs		. #x6587)
     (morohashi-daikanwa	13450)
     (ideographic-radical . 67)	; â½‚
-    (kangxi-strokes	. 0)
-    (chinese-gb2312	#x4E #x44)	; ø»…ˆ­
-    (chinese-isoir165	#x4E #x44)	; ø»°½
-    (ideograph-daikanwa #x34 #x8A)	; ø¹“’Š
-    ))
-(define-char
-  '((morohashi-daikanwa	13450)
-    (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (shinjigen-2	. 3203)
+    (chinese-gb2312	#x4E #x44)	; ø»…ˆ­
+    (chinese-isoir165	#x4E #x44)	; ø»°½
     (chinese-cns11643-1		#x45 #x46)	; ø»‘·¹
+    (japanese-jisx0208		#x4A #x38)	; ø»‘·¹
     (japanese-jisx0208-1990	#x4A #x38)	; ø»‘·¹
     (ideograph-daikanwa		#x34 #x8A)	; ø¹“’Š
     ))
