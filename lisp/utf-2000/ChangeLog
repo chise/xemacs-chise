@@ -1,3 +1,37 @@
+2001-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el (M-19682): New character.
+	(C6-4157): Relate to M-19682.
+	(M-19687): New character.
+	(C4-386A): Relate to M-19687; unify Big5-8C7D, Big5-CDP-8C7D and
+	M073769.
+
+	* Ideograph-R140-Grass.el (U+848D): Relate to M-31895.
+
+	* u0E000-Private-Use.el (U+F4A6): Separate Big5-8ACB and
+	Big5-CDP-8ACB.
+	(U+F4F2): Separate Big5-8B58 and Big5-CDP-8B58.
+
+	* Ideograph-R134-Mortar.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Add `ideographic-structure'.
+	(M-30182): Add `<-wrong-ideograph'; unify Big5-8570 and
+	Big5-CDP-8570.
+
+2001-10-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u0E000-Private-Use.el (U+F5B4): Separate Big5-8C7D and
+	Big5-CDP-8C7D.
+
+2001-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* README.en (Properties): Add description about
+	`->wrong-ideograph' and `<-wrong-ideograph'.
+
+	* Ideograph-R037-Big.el (M-05959): Add `<-vulgar-ideograph'; unify
+	Big5-856E and Big5-CDP-856E.
+
 2001-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (char-db-insert-char-spec): Add
