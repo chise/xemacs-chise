@@ -175,12 +175,14 @@
     (=daikanwa		. 01513)	; &I-M-01513;
     ))
 (define-char
-  '((ideographic-	(:radical	122 ; ⽹
-			 :strokes	0
-			 :sources	(morohashi-daikanwa cns-11643))
-			(:radical	13 ; ⼌
-			 :strokes	2
-			 :sources	(ucs)))
+  '((ideographic-radical@ucs . 13)	; ⼌
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@ucs*sources
+     ucs)
+    (ideographic-radical@cns . 122)	; ⽹
+    (ideographic-strokes@cns . 0)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 4)
     (hanyu-dazidian	1 97 3)
     (ideographic-structure
