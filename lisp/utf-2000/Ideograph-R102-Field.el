@@ -1513,7 +1513,8 @@
     (ucs		. #x3F64)	; ã½¤
     ))
 (define-char
-  '((ideographic-radical . 102)	; â½¥
+  '((->ucs		. #x6983)	; æ¦ƒ
+    (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 8)
     (total-strokes	 . 13)
     (chinese-cns11643-2 . #x452C)	; ø»”£
