@@ -7270,11 +7270,18 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (=ucs		. #x3804)	; ã „
+    ))
+(define-char
+  '((=>ucs		. #x3804)	; ã „
+    (ideographic-radical . 46)	; â¼­
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=cns11643-3	. #x4657)	; ø»–°
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
     (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=ucs		. #x5D8E)	; å¶Ž
     ))
 (define-char
