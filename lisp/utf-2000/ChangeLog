@@ -1,3 +1,9 @@
+2001-01-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R151-Bean.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2001-01-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R149-Speech.el: Resorted; add some missing Morohashi's
