@@ -376,7 +376,7 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x8C62)	; ï–™
+     ((chinese-big5-cdp	  . #x8C62)	; ý¢€ˆ±¢
       ))
     (shinjigen-1	. 484)
     (shinjigen-2	. 484)

@@ -160,7 +160,7 @@
       (korean-ksc5601		  . #x7822)	; ø»Š™¿
       (ideograph-daikanwa	  . 01450)	; ø¸€–ª
       )
-     ((chinese-big5-cdp	  . #x8BCD)	; ï•…
+     ((chinese-big5-cdp	  . #x8BCD)	; ý¢€ˆ¯
       ))
     (shinjigen-1	. 491)
     (shinjigen-2	. 491)
@@ -183,7 +183,7 @@
       )
      ((ucs		  . #x516B)	; å…«
       )
-     ((chinese-big5-cdp	  . #x8BCD)	; ï•…
+     ((chinese-big5-cdp	  . #x8BCD)	; ý¢€ˆ¯
       ))
     (chinese-gb2312	. #x5962)	; ø»…™•
     (chinese-isoir165	. #x5962)	; ø»Ž¥
@@ -260,7 +260,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B5C)	; ï“¶
+     ((chinese-big5-cdp	  . #x8B5C)	; ý¢€ˆ­œ
       )
      ((ucs		  . #x516B)	; å…«
       ))
@@ -444,7 +444,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B72)	; ï”Œ
+     ((chinese-big5-cdp	  . #x8B72)	; ý¢€ˆ­²
       )
      ((ucs		  . #x516B)	; å…«
       ))
@@ -485,7 +485,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BA5)	; ï”
+     ((chinese-big5-cdp	  . #x8BA5)	; ý¢€ˆ®¥
       )
      ((ucs		  . #x516B)	; å…«
       ))
@@ -508,7 +508,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x89E0)	; ïž
+     ((chinese-big5-cdp	  . #x89E0)	; ý¢€ˆ§ 
       )
      ((ucs		  . #x516B)	; å…«
       ))
@@ -630,9 +630,9 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B4B)	; ï“¥
+     ((chinese-big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
       )
-     ((chinese-big5-cdp	  . #x8CDE)	; ï—³
+     ((chinese-big5-cdp	  . #x8CDE)	; ý¢€ˆ³ž
       ))
     (shinjigen-1	. 502)
     (shinjigen-2	. 502)

@@ -44,7 +44,7 @@
       )
      ((ucs		  . #x51F5)	; å‡µ
       )
-     ((chinese-big5-cdp	  . #x8B49)	; ï“£
+     ((chinese-big5-cdp	  . #x8B49)	; ý¢€ˆ­‰
       ))
     (shinjigen-1	. 578)
     (shinjigen-2	. 578)

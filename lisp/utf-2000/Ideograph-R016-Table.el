@@ -34,7 +34,7 @@
       )
      ((ucs		  . #x51E0)	; å‡ 
       )
-     ((chinese-big5-cdp	  . #x8B41)	; ä¸¶
+     ((chinese-big5-cdp	  . #x8B41)	; ý¢€ˆ­
       (ucs		  . #x4E36)	; ä¸¶
       ))
     (shinjigen-1	. 566)
@@ -474,7 +474,7 @@
 		 )
       )
      ((name		  . "CJK RADICAL TABLE")
-      (chinese-big5-cdp	  . #x8D66)	; âº‡
+      (chinese-big5-cdp	  . #x8D66)	; ý¢€ˆµ¦
       (ucs		  . #x2E87)	; âº‡
       )
      ((ucs		  . #x7687)	; çš‡
