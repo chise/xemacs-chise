@@ -624,8 +624,8 @@ DECLARE_LRECORD (glyph, struct Lisp_Glyph);
 
 extern Lisp_Object Qxpm, Qxface;
 extern Lisp_Object Q_data, Q_file, Q_color_symbols, Qconst_glyph_variable;
-extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar, Qprogress;
-extern Lisp_Object Qtree, Qtab;
+extern Lisp_Object Qxbm, Qedit_field, Qgroup, Qlabel, Qcombo_box, Qscrollbar;
+extern Lisp_Object Qtree_view, Qtab_control, Qprogress_gauge;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
 extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
 extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height, Q_text;

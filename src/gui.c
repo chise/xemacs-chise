@@ -122,6 +122,13 @@ gui_item_add_keyval_pair (Lisp_Object gui_item,
   else if (EQ (key, Q_callback))	 pgui_item->callback     = val;
   else if (EQ (key, Q_key_sequence)) ;   /* ignored for FSF compatability */
   else if (EQ (key, Q_label)) ;   /* ignored for 21.0 implement in 21.2  */
+  else if (EQ (key, Q_accelerator))
+    {
+      if (SYMBOLP (val) || CHARP (val))
+	pgui_item->accelerator = val;
+      else if (ERRB_EQ (errb, ERROR_ME))
+	signal_simple_error ("Bad keyboard accelerator", val);
+    }
   else if (ERRB_EQ (errb, ERROR_ME))
     signal_simple_error_2 ("Unknown keyword in gui item", key, pgui_item->name);
 }
@@ -141,6 +148,7 @@ gui_item_init (Lisp_Object gui_item)
   lp->style    = Qnil;
   lp->selected = Qnil;
   lp->keys     = Qnil;
+  lp->accelerator     = Qnil;
 }
 
 Lisp_Object
@@ -262,6 +270,8 @@ gui_add_item_keywords_to_plist (Lisp_Object plist, Lisp_Object gui_item)
     Fplist_put (plist, Q_selected, pgui_item->selected);
   if (!NILP (pgui_item->keys))
     Fplist_put (plist, Q_keys, pgui_item->keys);
+  if (!NILP (pgui_item->accelerator))
+    Fplist_put (plist, Q_accelerator, pgui_item->accelerator);
 }
 
 /*
@@ -276,6 +286,41 @@ gui_item_active_p (Lisp_Object gui_item)
   /* Shortcut to avoid evaluating Qt each time */
   return (EQ (XGUI_ITEM (gui_item)->active, Qt)
 	  || !NILP (Feval (XGUI_ITEM (gui_item)->active)));
+}
+
+/* set menu accelerator key to first underlined character in menu name */
+Lisp_Object
+gui_item_accelerator (Lisp_Object gui_item)
+{
+  struct Lisp_Gui_Item* pgui = XGUI_ITEM (gui_item);
+  
+  if (!NILP (pgui->accelerator))
+    return pgui->accelerator;
+
+  else
+    return pgui->name;
+}
+
+Lisp_Object
+gui_name_accelerator (Lisp_Object nm)
+{
+  /* !!#### This function has not been Mule-ized */
+  char* name = (char*)XSTRING_DATA (nm);
+
+  while (*name) {
+    if (*name=='%') {
+      ++name;
+      if (!(*name))
+	return Qnil;
+      if (*name=='_' && *(name+1))
+	{
+	  int accelerator = (int) (unsigned char) (*(name+1));
+	  return make_char (tolower (accelerator));
+	}
+    }
+    ++name;
+  }
+  return Qnil;
 }
 
 /*
@@ -427,6 +472,7 @@ mark_gui_item (Lisp_Object obj, void (*markobj) (Lisp_Object))
 
   markobj (p->name);
   markobj (p->callback);
+  markobj (p->config);
   markobj (p->suffix);
   markobj (p->active);
   markobj (p->included);
@@ -435,6 +481,7 @@ mark_gui_item (Lisp_Object obj, void (*markobj) (Lisp_Object))
   markobj (p->style);
   markobj (p->selected);
   markobj (p->keys);
+  markobj (p->accelerator);
 
   return Qnil;
 }
@@ -492,6 +539,8 @@ gui_item_equal (Lisp_Object obj1, Lisp_Object obj2, int depth)
 	EQ (p1->style, p2->style)
 	&&
 	EQ (p1->selected, p2->selected)
+	&&
+	EQ (p1->accelerator, p2->accelerator)
 	&&
 	EQ (p1->keys, p2->keys)))
     return 0;

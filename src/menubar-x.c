@@ -131,7 +131,8 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
     }
   else if (VECTORP (desc))
     {
-      if (!button_item_to_widget_value (desc, wv, 1,
+      Lisp_Object gui_item = gui_parse_item_keywords (desc);
+      if (!button_item_to_widget_value (gui_item, wv, 1,
 					(menu_type == MENUBAR_TYPE
 					 && depth <= 1)))
 	{
@@ -157,7 +158,7 @@ menu_item_descriptor_to_widget_value_1 (Lisp_Object desc,
 	  wv->enabled = 1;
 	  wv->name = (char *) XSTRING_DATA (LISP_GETTEXT (XCAR (desc)));
 
-	  accel = menu_name_to_accelerator (wv->name);
+	  accel = gui_name_accelerator (LISP_GETTEXT (XCAR (desc)));
 	  wv->accel = LISP_TO_VOID (accel);
 
 	  desc = Fcdr (desc);

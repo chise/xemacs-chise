@@ -184,7 +184,7 @@ If FRAME is nil, use the default face."
 
 (defun custom-face-italic (face &rest args)
   "Return non-nil if the font of FACE is italic."
-  (let* ((font (apply 'face-font-name face))
+  (let* ((font (apply 'face-font-name face args))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (font-italic-p fontobj)))

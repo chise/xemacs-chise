@@ -120,7 +120,7 @@ dbox_descriptor_to_widget_value (Lisp_Object desc)
   widget_value *prev = 0, *kids = 0;
   int n = 0;
   int count = specpdl_depth ();
-  Lisp_Object wv_closure;
+  Lisp_Object wv_closure, gui_item;
 
   CHECK_CONS (desc);
   CHECK_STRING (XCAR (desc));
@@ -163,7 +163,8 @@ dbox_descriptor_to_widget_value (Lisp_Object desc)
       CHECK_VECTOR (button);
       wv = xmalloc_widget_value ();
 
-      if (!button_item_to_widget_value (button, wv, allow_text_p, 1))
+      gui_item = gui_parse_item_keywords (button);
+      if (!button_item_to_widget_value (gui_item, wv, allow_text_p, 1))
 	{
 	  free_widget_value (wv);
 	  continue;
