@@ -454,7 +454,7 @@
       )
      ((=ucs		  . #x6597)	; æ–—
       ))
-    (chinese-cns11643-7 . #x2355)	; ø»ž‚¤
+    (=cns11643-7	. #x2355)	; ø»ž‚¤
     (ideograph-daikanwa . 13527)	; ø¸ƒ“—
     (=cbeta		. 05802)	; ø¸¡šª
     (=ucs		. #x2308A)	; ð£‚Š
@@ -503,7 +503,7 @@
   '((ideographic-radical . 68)	; â½ƒ
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3840)	; ø»ž¡…
+    (=cns11643-7	. #x3840)	; ø»ž¡…
     (ideograph-daikanwa . 13530)	; ø¸ƒ“š
     (=ucs		. #x2308C)	; ð£‚Œ
     ))

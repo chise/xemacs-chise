@@ -359,7 +359,7 @@
   '((ideographic-radical . 100)	; â½£
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x254B)	; ø»ž…–
+    (=cns11643-7	. #x254B)	; ø»ž…–
     (=ucs		. #x24BF3)	; ð¤¯³
     ))
 (define-char

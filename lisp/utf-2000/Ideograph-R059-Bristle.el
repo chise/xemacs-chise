@@ -795,7 +795,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	2 857 5)
-    (chinese-cns11643-7 . #x226C)	; ø»ž
+    (=cns11643-7	. #x226C)	; ø»ž
     (=hanziku-3		. #xACA4)	; ý¢€º²¤
     (=ucs		. #x224AC)	; ð¢’¬
     ))
@@ -804,7 +804,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	2 857 8)
-    (chinese-cns11643-7 . #x226B)	; ø»žœ
+    (=cns11643-7	. #x226B)	; ø»žœ
     (ideograph-daikanwa . 10021)	; ø¸‚œ¥
     (=hanziku-3		. #xACA7)	; ý¢€º²§
     (=ucs		. #x224AB)	; ð¢’«
@@ -829,7 +829,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	2 857 2)
-    (chinese-cns11643-7 . #x2269)	; ø»žš
+    (=cns11643-7	. #x2269)	; ø»žš
     (ideograph-daikanwa . 10023)	; ø¸‚œ§
     (=hanziku-3		. #xACA1)	; ý¢€º²¡
     (=ucs		. #x224AD)	; ð¢’­
@@ -865,7 +865,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (hanyu-dazidian	2 857 3)
-    (chinese-cns11643-7 . #x226A)	; ø»ž›
+    (=cns11643-7	. #x226A)	; ø»ž›
     (=hanziku-3		. #xACA2)	; ý¢€º²¢
     (=ucs		. #x224AE)	; ð¢’®
     ))
@@ -946,7 +946,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
     (hanyu-dazidian	2 858 2)
-    (chinese-cns11643-7 . #x2D64)	; ø»ž‘Ÿ
+    (=cns11643-7	. #x2D64)	; ø»ž‘Ÿ
     (ideograph-daikanwa . 10029)	; ø¸‚œ­
     (=hanziku-3		. #xACC1)	; ý¢€º³
     (=ucs		. #x224B3)	; ð¢’³
@@ -972,14 +972,14 @@
     (ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3776)	; ø»ž 
+    (=cns11643-7	. #x3776)	; ø»ž 
     ))
 (define-char
   '((ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 15)
     (total-strokes	 . 18)
     (hanyu-dazidian	2 858 4)
-    (chinese-cns11643-7 . #x3F56)	; ø»ž«­
+    (=cns11643-7	. #x3F56)	; ø»ž«­
     (ideograph-daikanwa . 10032)	; ø¸‚œ°
     (=hanziku-3		. #xACC3)	; ý¢€º³ƒ
     (=ucs		. #x224B5)	; ð¢’µ
@@ -997,7 +997,7 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
     (hanyu-dazidian	2 858 5)
-    (chinese-cns11643-7 . #x4D62)	; ø»Ÿ€
+    (=cns11643-7	. #x4D62)	; ø»Ÿ€
     (=hanziku-3		. #xACC4)	; ý¢€º³„
     (=ucs		. #x224B7)	; ð¢’·
     ))
@@ -1016,7 +1016,7 @@
     (ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (chinese-cns11643-7 . #x5336)	; ø»Ÿˆ¥
+    (=cns11643-7	. #x5336)	; ø»Ÿˆ¥
     ))
 (define-char
   '((ideographic-radical . 59)	; â¼º

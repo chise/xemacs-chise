@@ -583,7 +583,7 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2363)	; ø»ž‚²
+    (=cns11643-7	. #x2363)	; ø»ž‚²
     ))
 (define-char
   '((=>ucs		. #x3B31)	; ã¬±
@@ -666,7 +666,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F7A)	; ø»ž¬‘
+    (=cns11643-7	. #x3F7A)	; ø»ž¬‘
     (ideograph-daikanwa . 14320)	; ø¸ƒŸ°
     (=ucs		. #x23351)	; ð£‘
     ))
@@ -674,7 +674,7 @@
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (chinese-cns11643-7 . #x3F79)	; ø»ž¬
+    (=cns11643-7	. #x3F79)	; ø»ž¬
     (ideograph-daikanwa . 14321)	; ø¸ƒŸ±
     (=ucs		. #x23353)	; ð£“
     ))
@@ -698,7 +698,7 @@
     (ideographic-strokes . 16)
     (cns-radical	 . 72)	; â½‡
     (total-strokes	 . 20)
-    (chinese-cns11643-7 . #x4D7A)	; ø»Ÿ€µ
+    (=cns11643-7	. #x4D7A)	; ø»Ÿ€µ
     (ideograph-daikanwa . 14323)	; ø¸ƒŸ³
     (=ucs		. #x23358)	; ð£˜
     ))
@@ -714,7 +714,7 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 16)
     (total-strokes	 . 20)
-    (chinese-cns11643-7 . #x4D7B)	; ø»Ÿ€¶
+    (=cns11643-7	. #x4D7B)	; ø»Ÿ€¶
     (=ucs		. #x23359)	; ð£™
     ))
 (define-char
@@ -723,7 +723,7 @@
     (cns-radical	 . 72)	; â½‡
     (total-strokes	 . 21)
     (=jis-x0212		. #x426F)	; ø»‹•¼
-    (chinese-cns11643-7 . #x5347)	; ø»Ÿˆ¶
+    (=cns11643-7	. #x5347)	; ø»Ÿˆ¶
     (ideograph-daikanwa . 14325)	; ø¸ƒŸµ
     (=ucs		. #x6707)	; æœ‡
     ))
@@ -760,14 +760,14 @@
     (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 28)
     (total-strokes	 . 32)
-    (chinese-cns11643-7 . #x6627)	; ø»Ÿ¤
+    (=cns11643-7	. #x6627)	; ø»Ÿ¤
     (=ucs		. #x2A3EC)	; ðª¬
     ))
 (define-char
   '((ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 31)
     (total-strokes	 . 35)
-    (chinese-cns11643-7 . #x663E)	; ø»Ÿ¤§
+    (=cns11643-7	. #x663E)	; ø»Ÿ¤§
     (ideograph-daikanwa . 14329)	; ø¸ƒŸ¹
     (=ucs		. #x2335C)	; ð£œ
     ))

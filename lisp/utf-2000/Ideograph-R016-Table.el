@@ -1019,7 +1019,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 279 2)
-    (chinese-cns11643-7 . #x2C47)	; ø»ž¤
+    (=cns11643-7	. #x2C47)	; ø»ž¤
     (ideograph-daikanwa . 01799)	; ø¸€œ‡
     (=hanziku-1		. #xDFAC)	; ý¢€¾¬
     (=ucs		. #x2066D)	; ð ™­

@@ -2200,7 +2200,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2C54)	; ø»ž±
+    (=cns11643-7	. #x2C54)	; ø»ž±
     (=ucs		. #x20B8B)	; ð ®‹
     ))
 (define-char
@@ -2264,7 +2264,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 402 6)
-    (chinese-cns11643-7 . #x2C55)	; ø»ž²
+    (=cns11643-7	. #x2C55)	; ø»ž²
     (ideograph-daikanwa . 03216)	; ø¸€²
     (=hanziku-1		. #xF8BB)	; ý¢€Ÿ¢»
     (=ucs		. #x20B87)	; ð ®‡
@@ -2291,14 +2291,14 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3729)	; ø»žŸ
+    (=cns11643-7	. #x3729)	; ø»žŸ
     ))
 (define-char
   '((ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 402 10)
-    (chinese-cns11643-7 . #x3728)	; ø»žŸ
+    (=cns11643-7	. #x3728)	; ø»žŸ
     (ideograph-daikanwa . 03218)	; ø¸€²’
     (=hanziku-1		. #xF8BF)	; ý¢€Ÿ¢¿
     (=ucs		. #x20B8E)	; ð ®Ž
@@ -2385,7 +2385,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x4632)	; ø»žµ›
+    (=cns11643-7	. #x4632)	; ø»žµ›
     ))
 (define-char
   '((=>ucs		. #x20B92)	; ð ®’
@@ -2399,7 +2399,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 17)
     (total-strokes	 . 19)
-    (chinese-cns11643-7 . #x4631)	; ø»žµš
+    (=cns11643-7	. #x4631)	; ø»žµš
     (=ucs		. #x20B92)	; ð ®’
     ))
 (define-char
@@ -2430,7 +2430,7 @@
     (ideographic-strokes . 20)
     (total-strokes	 . 22)
     (hanyu-dazidian	1 403 3)
-    (chinese-cns11643-7 . #x5751)	; ø»ŸŽ¸
+    (=cns11643-7	. #x5751)	; ø»ŸŽ¸
     (=hanziku-1		. #xF8D8)	; ý¢€Ÿ£˜
     (=ucs		. #x20B95)	; ð ®•
     ))
@@ -2479,7 +2479,7 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 22)
     (total-strokes	 . 24)
-    (chinese-cns11643-7 . #x5E51)	; ø»Ÿ™Š
+    (=cns11643-7	. #x5E51)	; ø»Ÿ™Š
     (=ucs		. #x20B97)	; ð ®—
     ))
 (define-char
@@ -2495,7 +2495,7 @@
     (ideographic-strokes . 22)
     (total-strokes	 . 24)
     (hanyu-dazidian	1 403 6)
-    (chinese-cns11643-7 . #x5E52)	; ø»Ÿ™‹
+    (=cns11643-7	. #x5E52)	; ø»Ÿ™‹
     (=hanziku-1		. #xF8DB)	; ý¢€Ÿ£›
     (=ucs		. #x20B98)	; ð ®˜
     ))

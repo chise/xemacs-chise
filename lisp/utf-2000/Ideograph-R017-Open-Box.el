@@ -670,7 +670,7 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 17)
     (hanyu-dazidian	1 310 6)
-    (chinese-cns11643-7 . #x367B)	; ø»žŸ„
+    (=cns11643-7	. #x367B)	; ø»žŸ„
     (=hanziku-1		. #xE5E2)	; ý¢€ž—¢
     (=ucs		. #x2069D)	; ð š
     ))
@@ -724,7 +724,7 @@
     (ideographic-strokes . 18)
     (total-strokes	 . 20)
     (->identical
-     ((chinese-cns11643-7 . #x4E3E)	; ø»Ÿ—
+     ((=cns11643-7	  . #x4E3E)	; ø»Ÿ—
       ))
     (->same-ideograph
      ((ideograph-daikanwa . 49274)	; ø¸Œº

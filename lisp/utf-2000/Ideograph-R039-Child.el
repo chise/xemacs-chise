@@ -1288,7 +1288,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D2F)	; ø»žª
+    (=cns11643-7	. #x2D2F)	; ø»žª
     ))
 (define-char
   '((ideographic-radical . 39)	; â¼¦
@@ -1316,7 +1316,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D2E)	; ø»ž©
+    (=cns11643-7	. #x2D2E)	; ø»ž©
     (=ucs		. #x2199F)	; ð¡¦Ÿ
     ))
 (define-char
@@ -1331,7 +1331,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D31)	; ø»ž¬
+    (=cns11643-7	. #x2D31)	; ø»ž¬
     (=ucs		. #x219A0)	; ð¡¦ 
     ))
 (define-char
@@ -1346,7 +1346,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D32)	; ø»ž­
+    (=cns11643-7	. #x2D32)	; ø»ž­
     (=ucs		. #x219A1)	; ð¡¦¡
     ))
 (define-char
@@ -1387,7 +1387,7 @@
   '((ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D2D)	; ø»ž¨
+    (=cns11643-7	. #x2D2D)	; ø»ž¨
     (ideograph-daikanwa . 07039)	; ø¸­¿
     (=jef-china3	. #x49F3)	; øº„§³
     (=ucs		. #x3747)	; ã‡
@@ -1404,7 +1404,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x2D30)	; ø»ž«
+    (=cns11643-7	. #x2D30)	; ø»ž«
     (=ucs		. #x219A3)	; ð¡¦£
     ))
 (define-char
@@ -1451,7 +1451,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3756)	; ø»žŸ½
+    (=cns11643-7	. #x3756)	; ø»žŸ½
     (=ucs		. #x219A9)	; ð¡¦©
     ))
 (define-char
@@ -1561,7 +1561,7 @@
     (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 17)
     (total-strokes	 . 20)
-    (chinese-cns11643-7 . #x4D52)	; ø»Ÿ€
+    (=cns11643-7	. #x4D52)	; ø»Ÿ€
     ))
 (define-char
   '((morohashi-daikanwa	49022 0 1)

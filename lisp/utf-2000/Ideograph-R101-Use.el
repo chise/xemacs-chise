@@ -363,7 +363,7 @@
       )
      ((=ucs		  . #x5EB8)	; åº¸
       ))
-    (chinese-cns11643-7 . #x477D)	; ø»ž¸„
+    (=cns11643-7	. #x477D)	; ø»ž¸„
     (=hanziku-1		. #xE2BC)	; ý¢€žŠ¼
     (=ucs		. #x24C0E)	; ð¤°Ž
     ))
@@ -371,7 +371,7 @@
   '((ideographic-radical . 101)	; â½¤
     (ideographic-strokes . 16)
     (total-strokes	 . 21)
-    (chinese-cns11643-7 . #x5374)	; ø»Ÿ‰£
+    (=cns11643-7	. #x5374)	; ø»Ÿ‰£
     (=ucs		. #x24C00)	; ð¤°€
     ))
 (define-char

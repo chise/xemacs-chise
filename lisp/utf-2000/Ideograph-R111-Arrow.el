@@ -792,7 +792,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2578)	; ø»ž†ƒ
+    (=cns11643-7	. #x2578)	; ø»ž†ƒ
     (ideograph-daikanwa . 24005)	; ø¸…·…
     (=ucs		. #x253F2)	; ð¥²
     ))
@@ -815,7 +815,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2576)	; ø»ž†
+    (=cns11643-7	. #x2576)	; ø»ž†
     (ideograph-daikanwa . 24007)	; ø¸…·‡
     (=ucs		. #x253F4)	; ð¥´
     ))
@@ -823,7 +823,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2577)	; ø»ž†‚
+    (=cns11643-7	. #x2577)	; ø»ž†‚
     (ideograph-daikanwa . 24008)	; ø¸…·ˆ
     (=ucs		. #x253F5)	; ð¥µ
     ))
@@ -840,13 +840,13 @@
     (ideographic-radical . 111)	; â½®
     (ideographic-strokes . 10)
     (total-strokes	 . 15)
-    (chinese-cns11643-7 . #x2579)	; ø»ž†„
+    (=cns11643-7	. #x2579)	; ø»ž†„
     ))
 (define-char
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x3054)	; ø»ž•©
+    (=cns11643-7	. #x3054)	; ø»ž•©
     (ideograph-daikanwa . 24011)	; ø¸…·‹
     (=ucs		. #x253FB)	; ð¥»
     ))
@@ -862,7 +862,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
-    (chinese-cns11643-7 . #x3053)	; ø»ž•¨
+    (=cns11643-7	. #x3053)	; ø»ž•¨
     (ideograph-daikanwa . 24013)	; ø¸…·
     (=ucs		. #x253FE)	; ð¥¾
     ))
@@ -900,7 +900,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3966)	; ø»ž£‰
+    (=cns11643-7	. #x3966)	; ø»ž£‰
     (ideograph-daikanwa . 49386)	; ø¸Œƒª
     (=ucs		. #x25403)	; ð¥ƒ
     ))
@@ -922,7 +922,7 @@
   '((ideographic-radical . 111)	; â½®
     (ideographic-strokes . 12)
     (total-strokes	 . 17)
-    (chinese-cns11643-7 . #x3967)	; ø»ž£Š
+    (=cns11643-7	. #x3967)	; ø»ž£Š
     (=ucs		. #x25404)	; ð¥„
     ))
 (define-char
