@@ -56,7 +56,7 @@
     (->subsumptive
      ((=daikanwa	  . 48819)	; ø¸‹º³
       )
-     ((=ucs@unicode	  . #x9F8E)	; ó°€”
+     ((=ucs@unicode	  . #x9F8E)	; ó°€•
       )
      ((=cns11643-3	  . #x5755)	; ø»–¦¬
       ))
