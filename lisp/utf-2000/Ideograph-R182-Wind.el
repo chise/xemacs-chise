@@ -180,7 +180,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4553)	; ø»–ŒŽ
+    (=cns11643-3	. #x4553)	; ø»–ŒŽ
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -708,7 +708,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (chinese-cns11643-3 . #x4A57)	; ø»–“¨
+    (=cns11643-3	. #x4A57)	; ø»–“¨
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1188,7 +1188,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (chinese-cns11643-3 . #x5361)	; ø»–¡€
+    (=cns11643-3	. #x5361)	; ø»–¡€
     (=ucs		. #x98B5)	; é¢µ
     ))
 (define-char
@@ -1639,7 +1639,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (chinese-cns11643-3 . #x572A)	; ø»–¦
+    (=cns11643-3	. #x572A)	; ø»–¦
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1777,7 +1777,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x595C)	; ø»–©¯
+    (=cns11643-3	. #x595C)	; ø»–©¯
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1958,7 +1958,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x595D)	; ø»–©°
+    (=cns11643-3	. #x595D)	; ø»–©°
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -1990,7 +1990,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x595F)	; ø»–©²
+    (=cns11643-3	. #x595F)	; ø»–©²
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2005,7 +2005,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 9)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x595E)	; ø»–©±
+    (=cns11643-3	. #x595E)	; ø»–©±
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2101,7 +2101,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (chinese-cns11643-3 . #x5B67)	; ø»–¬¶
+    (=cns11643-3	. #x5B67)	; ø»–¬¶
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2303,7 +2303,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (chinese-cns11643-3 . #x5B66)	; ø»–¬µ
+    (=cns11643-3	. #x5B66)	; ø»–¬µ
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2493,7 +2493,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (chinese-cns11643-3 . #x5D55)	; ø»–¯ 
+    (=cns11643-3	. #x5D55)	; ø»–¯ 
     (=ucs		. #x4B1C)	; ä¬œ
     ))
 (define-char
@@ -2553,7 +2553,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (chinese-cns11643-3 . #x5D56)	; ø»–¯¡
+    (=cns11643-3	. #x5D56)	; ø»–¯¡
     ))
 (define-char
   '((=>ucs		. #x98C4)	; é£„
@@ -2838,7 +2838,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (chinese-cns11643-3 . #x5E7B)	; ø»–±¤
+    (=cns11643-3	. #x5E7B)	; ø»–±¤
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2856,7 +2856,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (chinese-cns11643-3 . #x5E79)	; ø»–±¢
+    (=cns11643-3	. #x5E79)	; ø»–±¢
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -2871,7 +2871,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 12)
     (total-strokes	 . 21)
-    (chinese-cns11643-3 . #x5E7A)	; ø»–±£
+    (=cns11643-3	. #x5E7A)	; ø»–±£
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ
@@ -3204,7 +3204,7 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 18)
     (total-strokes	 . 27)
-    (chinese-cns11643-3 . #x6225)	; ø»–¶†
+    (=cns11643-3	. #x6225)	; ø»–¶†
     ))
 (define-char
   '((ideographic-radical . 182)	; â¾µ

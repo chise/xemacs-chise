@@ -97,7 +97,7 @@
       )
      ((=ucs		  . #x652F)	; æ”¯
       ))
-    (chinese-cns11643-3 . #x2C72)	; ø»•§¿
+    (=cns11643-3	. #x2C72)	; ø»•§¿
     (=ucs		. #x6531)	; æ”±
     ))
 (define-char

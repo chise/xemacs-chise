@@ -386,7 +386,7 @@
       )
      ((=ucs		  . #x51F6)	; å‡¶
       ))
-    (chinese-cns11643-3 . #x2323)	; ø»•™¢
+    (=cns11643-3	. #x2323)	; ø»•™¢
     (=ucs		. #x342B)	; ã«
     ))
 (define-char
@@ -530,7 +530,7 @@
       )
      ((=ucs		  . #x4E9F)	; äºŸ
       ))
-    (chinese-cns11643-3 . #x275A)	; ø»• ‘
+    (=cns11643-3	. #x275A)	; ø»• ‘
     ))
 (define-char
   '((=>ucs		. #x2068E)	; ð šŽ

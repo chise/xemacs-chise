@@ -250,7 +250,7 @@
     (ideographic-radical . 132)	; â¾ƒ
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x3E47)	; ø»–°
+    (=cns11643-3	. #x3E47)	; ø»–°
     (ideograph-daikanwa . 30119)	; ø¸‡–§
     (=jef-china3	. #x60E4)	; øº†ƒ¤
     ))

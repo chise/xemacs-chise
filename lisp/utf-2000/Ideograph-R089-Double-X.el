@@ -43,7 +43,7 @@
       )
      ((=ucs		  . #x723B)	; çˆ»
       ))
-    (chinese-cns11643-3 . #x297B)	; ø»•£®
+    (=cns11643-3	. #x297B)	; ø»•£®
     (=hanziku-1		. #xABFA)	; ý¢€š¯º
     (=jef-china3	. #x92AB)	; øº‰Š«
     (mojikyo		. 019738)	; ý €„´š
@@ -87,7 +87,7 @@
       ))
     (shinjigen-2	. 260)
     (=jis-x0208		. #x602C)	; ø½‹’©
-    (chinese-cns11643-3 . #x2D6B)	; ø»•©–
+    (=cns11643-3	. #x2D6B)	; ø»•©–
     (ideograph-daikanwa . 19743)	; ø¸„´Ÿ
     (=hanziku-1		. #xAC46)	; ý¢€š±†
     (=cbeta		. 01131)	; ø¸ ‘«

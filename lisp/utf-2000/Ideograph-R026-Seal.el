@@ -8,7 +8,7 @@
     (=gb2312		. #x5A60)	; ø»…š±
     (=jis-x0208		. #x5247)	; ø½Š¾ 
     (=iso-ir165		. #x5A60)	; ø»Žƒ
-    (chinese-cns11643-3 . #x212A)	; ø»•–­
+    (=cns11643-3	. #x212A)	; ø»•–­
     (=gt-pj-1		. #x5247)	; å©
     (ideograph-daikanwa . 02836)	; ø¸€¬”
     (=big5-cdp		. #x8B5A)	; ý¢€ˆ­š
@@ -160,7 +160,7 @@
      ((=ucs		  . #x5369)	; å©
       ))
     (=jis-x0212		. #x343F)	; ø»‹€¨
-    (chinese-cns11643-3 . #x2228)	; ø»•˜‰
+    (=cns11643-3	. #x2228)	; ø»•˜‰
     (ideograph-daikanwa . 02845)	; ø¸€¬
     (=hanziku-1		. #xE640)	; ý¢€ž™€
     (=cbeta		. 00886)	; ø¸ ¶
@@ -419,7 +419,7 @@
     (=jis-x0208		. #x3551)	; ø½Š”„
     (=ks-x1001		. #x4A3F)	; ø»‰–¸
     (=iso-ir165		. #x4834)	; ø»§¹
-    (chinese-cns11643-3 . #x2467)	; ø»•œ„
+    (=cns11643-3	. #x2467)	; ø»•œ„
     (=gt-pj-1		. #x3551)	; å´
     (ideograph-daikanwa . 02856)	; ø¸€¬¨
     (=hanziku-1		. #xE6A1)	; ý¢€žš¡
@@ -474,7 +474,7 @@
       )
      ((=ucs		  . #x5369)	; å©
       ))
-    (chinese-cns11643-3 . #x2765)	; ø»• œ
+    (=cns11643-3	. #x2765)	; ø»• œ
     (ideograph-daikanwa . 02859)	; ø¸€¬«
     (=hanziku-1		. #xE6E1)	; ý¢€ž›¡
     (=ucs		. #x5376)	; å¶
@@ -610,7 +610,7 @@
     (variant-of-shinjigen-1 . 2072)
     (=gb2312		. #x5A61)	; ø»…š²
     (=iso-ir165		. #x5A61)	; ø»Žƒ‚
-    (chinese-cns11643-3 . #x2766)	; ø»• 
+    (=cns11643-3	. #x2766)	; ø»• 
     (=jis-x0213-2-2000	. #x2356)	; ø»¤ ±
     (ideograph-daikanwa . 02864)	; ø¸€¬°
     (=hanziku-1		. #xE741)	; ý¢€ž
@@ -743,7 +743,7 @@
     (shinjigen-1	. 861)
     (shinjigen-2	. 861)
     (=ks-x1001		. #x716D)	; ø»Š¸
-    (chinese-cns11643-3 . #x2B4B)	; ø»•¥º
+    (=cns11643-3	. #x2B4B)	; ø»•¥º
     (=jis-x0213-1-2000	. #x2E71)	; ø»¢§’
     (ideograph-daikanwa . 02872)	; ø¸€¬¸
     (=jef-china3	. #x45D4)	; øº„—”
@@ -907,7 +907,7 @@
       :sources	(shinjigen-1)))
     (shinjigen-1	. 869)
     (shinjigen-2	. 869)
-    (chinese-cns11643-3 . #x3A26)	; ø»•»—
+    (=cns11643-3	. #x3A26)	; ø»•»—
     (ideograph-daikanwa . 02879)	; ø¸€¬¿
     (=ucs		. #x2F833)	; ð¯ ³
     ))
@@ -960,7 +960,7 @@
       )
      ((=ucs		  . #x5369)	; å©
       ))
-    (chinese-cns11643-3 . #x4047)	; ø»–„¬
+    (=cns11643-3	. #x4047)	; ø»–„¬
     (ideograph-daikanwa . 02883)	; ø¸€­ƒ
     (=hanziku-1		. #xE7C7)	; ý¢€žŸ‡
     (=ucs		. #x5380)	; åŽ€

@@ -137,7 +137,7 @@
       )
      ((=big5-cdp	  . #x89AB)	; ý¢€ˆ¦«
       ))
-    (chinese-cns11643-3 . #x2147)	; ø»•—Š
+    (=cns11643-3	. #x2147)	; ø»•—Š
     (=hanziku-1		. #xDFB1)	; ý¢€¾±
     (=ucs		. #x4EA3)	; äº£
     ))
@@ -1048,7 +1048,7 @@
       )
      ((=ucs		  . #x65E5)	; æ—¥
       ))
-    (chinese-cns11643-3 . #x2B26)	; ø»•¥•
+    (=cns11643-3	. #x2B26)	; ø»•¥•
     (=ucs		. #x4EAF)	; äº¯
     ))
 (define-char
@@ -1141,7 +1141,7 @@
       )
      ((=big5-cdp	  . #x8CED)	; ý¢€ˆ³­
       ))
-    (chinese-cns11643-3 . #x2B25)	; ø»•¥”
+    (=cns11643-3	. #x2B25)	; ø»•¥”
     (=hanziku-1		. #xE0D1)	; ý¢€žƒ‘
     (=ucs		. #x4EB0)	; äº°
     ))
@@ -1209,7 +1209,7 @@
       )
      ((=ucs		  . #x4F46)	; ä½†
       ))
-    (chinese-cns11643-3 . #x2B27)	; ø»•¥–
+    (=cns11643-3	. #x2B27)	; ø»•¥–
     (=hanziku-1		. #xE151)	; ý¢€ž…‘
     (=ucs		. #x4EB1)	; äº±
     ))
@@ -1272,7 +1272,7 @@
       )
      ((=ucs		  . #x6729)	; æœ©
       ))
-    (chinese-cns11643-3 . #x2B24)	; ø»•¥“
+    (=cns11643-3	. #x2B24)	; ø»•¥“
     ))
 (define-char
   '((morohashi-daikanwa	311 0 2)
@@ -2278,7 +2278,7 @@
       )
      ((=big5-cdp	  . #x8B67)	; ý¢€ˆ­§
       ))
-    (chinese-cns11643-3 . #x4034)	; ø»–„™
+    (=cns11643-3	. #x4034)	; ø»–„™
     (=hanziku-1		. #xE1F8)	; ý¢€ž‡¸
     (=ucs		. #x342E)	; ã®
     ))
@@ -2309,7 +2309,7 @@
       )
      ((=ucs		  . #x517C)	; å…¼
       ))
-    (chinese-cns11643-3 . #x4033)	; ø»–„˜
+    (=cns11643-3	. #x4033)	; ø»–„˜
     (mojikyo		. 059028)	; ý €Žš”
     (=ucs		. #x4EB7)	; äº·
     ))

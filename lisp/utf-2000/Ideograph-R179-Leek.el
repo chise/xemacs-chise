@@ -17,7 +17,7 @@
     (ideographic-radical . 179)	; â¾²
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x454F)	; ø»–ŒŠ
+    (=cns11643-3	. #x454F)	; ø»–ŒŠ
     (ideograph-daikanwa . 43237)	; ø¸Š£¥
     ))
 (define-char
@@ -40,7 +40,7 @@
     (ideographic-radical . 179)	; â¾²
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x454E)	; ø»–Œ‰
+    (=cns11643-3	. #x454E)	; ø»–Œ‰
     (mojikyo		. 043238)	; ý €Š£¦
     (=ucs		. #x4A9E)	; äªž
     ))
@@ -63,7 +63,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 15)
     (=jis-x0212		. #x676D)	; ø»ŒŒ
-    (chinese-cns11643-3 . #x4F65)	; ø»–›Œ
+    (=cns11643-3	. #x4F65)	; ø»–›Œ
     (ideograph-daikanwa . 43241)	; ø¸Š£©
     (=ucs		. #x97EF)	; éŸ¯
     ))
@@ -146,7 +146,7 @@
   '((ideographic-radical . 179)	; â¾²
     (ideographic-strokes . 8)
     (total-strokes	 . 17)
-    (chinese-cns11643-3 . #x5721)	; ø»–¥¸
+    (=cns11643-3	. #x5721)	; ø»–¥¸
     (ideograph-daikanwa . 43248)	; ø¸Š£°
     (=ucs		. #x4AA0)	; äª 
     ))
@@ -156,7 +156,7 @@
     (total-strokes	 . 19)
     (shinjigen-2	. 9130)
     (=jis-x0208		. #x706E)	; ø½‹«‹
-    (chinese-cns11643-3 . #x5B61)	; ø»–¬°
+    (=cns11643-3	. #x5B61)	; ø»–¬°
     (ideograph-daikanwa . 43249)	; ø¸Š£±
     (=ucs		. #x97F2)	; éŸ²
     ))
@@ -180,7 +180,7 @@
     (ideographic-radical . 179)	; â¾²
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (chinese-cns11643-3 . #x5B63)	; ø»–¬²
+    (=cns11643-3	. #x5B63)	; ø»–¬²
     ))
 (define-char
   '((ideographic-radical . 179)	; â¾²
@@ -206,7 +206,7 @@
   '((ideographic-radical . 179)	; â¾²
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
-    (chinese-cns11643-3 . #x5B62)	; ø»–¬±
+    (=cns11643-3	. #x5B62)	; ø»–¬±
     (=ucs		. #x4AA2)	; äª¢
     ))
 (define-char
@@ -254,7 +254,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
     (->mojikyo		. 050572)	; äª£
-    (chinese-cns11643-3 . #x5D52)	; ø»–¯
+    (=cns11643-3	. #x5D52)	; ø»–¯
     ))
 (define-char
   '((ideographic-radical . 179)	; â¾²

@@ -49,7 +49,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
     (=jis-x0212		. #x6A30)	; ø»Œ­
-    (chinese-cns11643-3 . #x4A75)	; ø»–”†
+    (=cns11643-3	. #x4A75)	; ø»–”†
     (ideograph-daikanwa . 45636)	; ø¸‹‰„
     (=ucs		. #x9B26)	; é¬¦
     ))
@@ -174,7 +174,7 @@
     (shinjigen-2	. 9498)
     (=jis-x0208		. #x722C)	; ø½‹­…
     (=ks-x1001		. #x7763)	; ø»Š™¢
-    (chinese-cns11643-3 . #x5D62)	; ø»–¯­
+    (=cns11643-3	. #x5D62)	; ø»–¯­
     (ideograph-daikanwa . 45649)	; ø¸‹‰‘
     (=ucs		. #x9B2A)	; é¬ª
     ))
@@ -281,7 +281,7 @@
   '((ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 14)
     (total-strokes	 . 24)
-    (chinese-cns11643-3 . #x612E)	; ø»–´±
+    (=cns11643-3	. #x612E)	; ø»–´±
     (=ucs		. #x9B2C)	; é¬¬
     ))
 (define-char

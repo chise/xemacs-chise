@@ -67,7 +67,7 @@
       ))
     (shinjigen-1	. 9917)
     (shinjigen-2	. 9916)
-    (chinese-cns11643-3 . #x396C)	; ø»•º¿
+    (=cns11643-3	. #x396C)	; ø»•º¿
     ))
 (define-char
   '((ideographic-radical . 213)	; â¿”

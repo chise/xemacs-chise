@@ -74,7 +74,7 @@
   '((ideographic-radical . 45)	; â¼¬
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
-    (chinese-cns11643-3 . #x2162)	; ø»•—¥
+    (=cns11643-3	. #x2162)	; ø»•—¥
     (ideograph-daikanwa . 07829)	; ø¸º•
     (=jef-china3	. #x97EC)	; øº‰Ÿ¬
     (mojikyo		. 007829)	; ý €º•

@@ -293,7 +293,7 @@
   '((ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x3B38)	; ø»•½‡
+    (=cns11643-3	. #x3B38)	; ø»•½‡
     (ideograph-daikanwa . 08735)	; ø¸‚ˆŸ
     (=ucs		. #x382D)	; ã ­
     ))

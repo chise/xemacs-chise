@@ -129,7 +129,7 @@
      ((=ucs		  . #x5DE5)	; å·¥
       ))
     (=jis-x0212		. #x3427)	; ø»‹€
-    (chinese-cns11643-3 . #x2226)	; ø»•˜‡
+    (=cns11643-3	. #x2226)	; ø»•˜‡
     (ideograph-daikanwa . 02600)	; ø¸€¨¨
     (=hanziku-1		. #xB4D3)	; ý¢€›““
     (=jef-china3	. #x45B2)	; øº„–²
@@ -401,7 +401,7 @@
      ((=ucs		  . #x5F01)	; å¼
       ))
     (=jis-x0212		. #x3429)	; ø»‹€’
-    (chinese-cns11643-3 . #x2465)	; ø»•œ‚
+    (=cns11643-3	. #x2465)	; ø»•œ‚
     (ideograph-daikanwa . 02614)	; ø¸€¨¶
     (=hanziku-1		. #xB57B)	; ý¢€›•»
     (=jef-china3	. #x45B4)	; øº„–´
@@ -533,7 +533,7 @@
      ((=ucs		  . #x593E)	; å¤¾
       ))
     (=jis-x0212		. #x342A)	; ø»‹€“
-    (chinese-cns11643-3 . #x2B49)	; ø»•¥¸
+    (=cns11643-3	. #x2B49)	; ø»•¥¸
     (ideograph-daikanwa . 02621)	; ø¸€¨½
     (=hanziku-1		. #xB5A6)	; ý¢€›–¦
     (=jef-china3	. #x45B7)	; øº„–·
@@ -995,7 +995,7 @@
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x3A25)	; ø»•»–
+    (=cns11643-3	. #x3A25)	; ø»•»–
     (=ucs		. #x3532)	; ã”²
     ))
 (define-char
@@ -1216,7 +1216,7 @@
       ))
     (shinjigen-1	. 798)
     (=jis-x0212		. #x3431)	; ø»‹€š
-    (chinese-cns11643-3 . #x4623)	; ø»–Œ¼
+    (=cns11643-3	. #x4623)	; ø»–Œ¼
     (ideograph-daikanwa . 02652)	; ø¸€©œ
     (=hanziku-1		. #xB662)	; ý¢€›™¢
     (=cbeta		. 02324)	; ø¸ ¤”
@@ -1282,7 +1282,7 @@
     (shinjigen-1	. 796)
     (shinjigen-2	. 796)
     (=jis-x0208		. #x523D)	; ø½Š¾–
-    (chinese-cns11643-3 . #x4B34)	; ø»–”£
+    (=cns11643-3	. #x4B34)	; ø»–”£
     (=gt-pj-1		. #x523D)	; åŒ³
     (ideograph-daikanwa . 02655)	; ø¸€©Ÿ
     (=hanziku-1		. #xB67D)	; ý¢€›™½
@@ -1428,7 +1428,7 @@
       )
      ((=ucs		  . #x8CE3)	; è³£
       ))
-    (chinese-cns11643-3 . #x5444)	; ø»–¢
+    (=cns11643-3	. #x5444)	; ø»–¢
     (=jef-china3	. #x45BD)	; øº„–½
     (=ucs		. #x5335)	; åŒµ
     ))
@@ -1495,7 +1495,7 @@
       )
      ((=cns11643-1	  . #x772E)	; ø»“€½
       ))
-    (chinese-cns11643-3 . #x5C34)	; ø»–­¡
+    (=cns11643-3	. #x5C34)	; ø»–­¡
     ))
 (define-char
   '((morohashi-daikanwa	2665 0 3)

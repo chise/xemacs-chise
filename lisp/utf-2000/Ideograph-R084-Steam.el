@@ -118,7 +118,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (chinese-cns11643-3 . #x295D)	; ø»•£
+    (=cns11643-3	. #x295D)	; ø»•£
     (ideograph-daikanwa . 17049)	; ø¸„Š™
     (=jef-china3	. #x55AC)	; øº…–¬
     (=ucs		. #x6C1C)	; æ°œ
@@ -150,7 +150,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
-    (chinese-cns11643-3 . #x295C)	; ø»•£
+    (=cns11643-3	. #x295C)	; ø»•£
     (=ucs		. #x3CB4)	; ã²´
     ))
 (define-char
@@ -388,7 +388,7 @@
     (ideographic-radical . 84)	; â½“
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-3 . #x3668)	; ø»•¶¡
+    (=cns11643-3	. #x3668)	; ø»•¶¡
     (=ucs		. #x3CB5)	; ã²µ
     ))
 (define-char
@@ -427,7 +427,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x3C4E)	; ø»•¾»
+    (=cns11643-3	. #x3C4E)	; ø»•¾»
     (ideograph-daikanwa . 17070)	; ø¸„Š®
     (=ucs		. #x6C2D)	; æ°­
     ))
@@ -544,7 +544,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4229)	; ø»–‡Š
+    (=cns11643-3	. #x4229)	; ø»–‡Š
     (ideograph-daikanwa . 17074)	; ø¸„Š²
     (=ucs		. #x6C31)	; æ°±
     ))
@@ -554,7 +554,7 @@
     (total-strokes	 . 13)
     (=gb2312		. #x6B35)	; ø»…³„
     (=iso-ir165		. #x6B35)	; ø»Ž›”
-    (chinese-cns11643-3 . #x422A)	; ø»–‡‹
+    (=cns11643-3	. #x422A)	; ø»–‡‹
     (=ucs		. #x6C32)	; æ°²
     ))
 (define-char
@@ -611,7 +611,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (chinese-cns11643-3 . #x4C69)	; ø»––¶
+    (=cns11643-3	. #x4C69)	; ø»––¶
     (ideograph-daikanwa . 17079)	; ø¸„Š·
     (=ucs		. #x3CB6)	; ã²¶
     ))
@@ -619,7 +619,7 @@
   '((ideographic-radical . 84)	; â½“
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (chinese-cns11643-3 . #x514A)	; ø»–­
+    (=cns11643-3	. #x514A)	; ø»–­
     (ideograph-daikanwa . 17080)	; ø¸„Š¸
     (=ucs		. #x3CB7)	; ã²·
     ))

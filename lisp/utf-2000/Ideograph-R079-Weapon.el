@@ -130,7 +130,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (->mojikyo		. 050242)	; ý €Œ‘‚
-    (chinese-cns11643-3 . #x2959)	; ø»•£Œ
+    (=cns11643-3	. #x2959)	; ø»•£Œ
     ))
 (define-char
   '((=>ucs		. #x6BB5)	; æ®µ
@@ -260,7 +260,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-3 . #x316B)	; ø»•¯Ž
+    (=cns11643-3	. #x316B)	; ø»•¯Ž
     (=ucs		. #x3C7F)	; ã±¿
     ))
 (define-char
@@ -741,7 +741,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-cns11643-3 . #x3665)	; ø»•¶ž
+    (=cns11643-3	. #x3665)	; ø»•¶ž
     (=gb12345		. #x3F47)	; æ®»
     (=ucs		. #x6BBB)	; æ®»
     ))
@@ -836,7 +836,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
-    (chinese-cns11643-3 . #x3C4B)	; ø»•¾¸
+    (=cns11643-3	. #x3C4B)	; ø»•¾¸
     (=ucs		. #x6BBE)	; æ®¾
     ))
 (define-char
@@ -1014,14 +1014,14 @@
     (total-strokes	 . 13)
     (=gb2312		. #x3B59)	; ø»„­ˆ
     (=iso-ir165		. #x3B59)	; ø»•˜
-    (chinese-cns11643-3 . #x4226)	; ø»–‡‡
+    (=cns11643-3	. #x4226)	; ø»–‡‡
     (=ucs		. #x6BC1)	; æ¯
     ))
 (define-char
   '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
-    (chinese-cns11643-3 . #x4225)	; ø»–‡†
+    (=cns11643-3	. #x4225)	; ø»–‡†
     (ideograph-daikanwa . 49200)	; ø¸Œ€°
     (=ucs		. #x3C84)	; ã²„
     ))
@@ -1401,7 +1401,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (chinese-cns11643-3 . #x5147)	; ø»–ª
+    (=cns11643-3	. #x5147)	; ø»–ª
     (=ucs		. #x3C86)	; ã²†
     ))
 (define-char
@@ -1432,7 +1432,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (chinese-cns11643-3 . #x5148)	; ø»–«
+    (=cns11643-3	. #x5148)	; ø»–«
     (=ucs		. #x3C87)	; ã²‡
     ))
 (define-char
@@ -1652,7 +1652,7 @@
     (ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (chinese-cns11643-3 . #x5825)	; ø»–§š
+    (=cns11643-3	. #x5825)	; ø»–§š
     (=ucs		. #x3C8A)	; ã²Š
     ))
 (define-char

@@ -94,7 +94,7 @@
     (daikanwa-radical	. 129)
     (daikanwa-strokes	. 6)
     (=jis-x0208		. #x3D4D)	; ø½ŠŸ°
-    (chinese-cns11643-3 . #x383E)	; ø»•¸³
+    (=cns11643-3	. #x383E)	; ø»•¸³
     (=gt-pj-1		. #x3D4D)	; ç²›
     (=gt-k		. 07787)	; ý¡„¹«
     (mojikyo		. 050367)	; ý €Œ’¿

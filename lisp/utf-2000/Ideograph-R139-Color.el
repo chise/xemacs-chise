@@ -345,7 +345,7 @@
     (shinjigen-2	. 6679)
     (=jis-x0208		. #x3170)	; ø½ŠŽ«
     (=ks-x1001		. #x667D)	; ø»Š€¾
-    (chinese-cns11643-3 . #x5A7C)	; ø»–«­
+    (=cns11643-3	. #x5A7C)	; ø»–«­
     (ideograph-daikanwa . 30632)	; ø¸‡ž¨
     (=ucs		. #x8276)	; è‰¶
     ))
