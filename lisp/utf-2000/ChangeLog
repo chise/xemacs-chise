@@ -1,3 +1,12 @@
+2004-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el: Add some `total-strokes' features.
+
+	* Ideograph-R169-Gate.el: Add some `total-strokes' features.
+	(U+95FF): Fix strokes.
+	(U+9607): Fix strokes.
+	(U+95E7): Fix strokes.
+
 2004-01-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R175-Wrong.el (U+8F88): Add `total-strokes'.
