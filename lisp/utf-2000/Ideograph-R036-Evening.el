@@ -185,7 +185,8 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (<-ancient
-     ((=daikanwa	  . 05756)	; &I-M-05756;
+     ((=ucs		  . #x591A)	; 多
+      (=daikanwa	  . 05756)	; &I-M-05756;
       ))
     (<-ancient*sources
      jiyun daikanwa)
