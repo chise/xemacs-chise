@@ -13988,12 +13988,25 @@
     (china3-jef			. #x50A2)	; øº…‚¢
     ))
 (define-char
-  '((morohashi-daikanwa	12716 0 2)
+  '((=>ucs-cns		. #x2F8C5)	; ð¯£…
+    (morohashi-daikanwa	12716 0 1)
+    (ideographic-radical . 64)	; â¼¿
+    (ideographic-strokes . 12)
+    (total-strokes	 . 15)
+    (->same-ideograph
+     ((ucs		  . #x2F8C5)	; ð¯£…
+      ))
+    (ucs		. #x649D)	; æ’
+    ))
+(define-char
+  '((=>ucs*		. #x649D)	; æ’
+    (morohashi-daikanwa	12716 0 2)
     (ideographic-radical . 64)	; â¼¿
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (chinese-cns11643-4 . #x4A27)	; ø»˜œ¼
-    (ucs		. #x649D)	; æ’
+    (ucs-gb		. #x649D)	; ð¯£…
+    (ucs		. #x2F8C5)	; ð¯£…
     ))
 (define-char
   '((=>ucs		. #x649D)	; æ’

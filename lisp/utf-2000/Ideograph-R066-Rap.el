@@ -1085,7 +1085,8 @@
     (total-strokes	 . 10)
     (=jis-x0208		. #x4952)	; ø½Š±
     (chinese-cns11643-4 . #x2D46)	; ø»—²µ
-    (ucs-jis		. #x654F)	; ø½Š±
+    (ucs-jis		. #x654F)	; ð¯£ˆ
+    (ucs		. #x2F8C8)	; ð¯£ˆ
     ))
 (define-char
   '((ideographic-	(:radical	135 ; â¾†
