@@ -428,7 +428,7 @@
     (=ucs		. #x23A8E)	; 𣪎
     (->subsumptive
      ((<-wrong
-       ((=daikanwa	    . 04033)	; &I-M-04033;
+       ((=daikanwa	    . 04033)	; &M-04033;
 	))
       (<-wrong*sources
        daikanwa)
