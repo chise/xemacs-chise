@@ -1,4 +1,16 @@
+2003-01-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (J0-4561): Unify GT-K00053.
+	(J0-517C): Modify `ideographic-structure'.
+	(J0-517D): Likewise.
+	(M-02245): Separate C3-5037, HZK1-F042, CB00669 and U+5294.
+	(J0-517B): Separate JC3-44CF and U+5271.
+
 2003-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R012-Eight.el (J0-482C): Unify GT-K00056.
+
+	* Ideograph-R011-Enter.el (J0-467E): Unify GT-K00050.
 
 	* Ideograph-R007-Two.el (U+4E8C): Unify GT-K00054.
 
