@@ -423,11 +423,13 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 
 Lisp_Object Vcharacter_attribute_table;
 Lisp_Object Vcharacter_name_table;
+Lisp_Object Vcharacter_total_strokes_table;
 Lisp_Object Vcharacter_decomposition_table;
 Lisp_Object Vcharacter_composition_table;
 Lisp_Object Vcharacter_variant_table;
 
 Lisp_Object Qname;
+Lisp_Object Qtotal_strokes;
 Lisp_Object Q_decomposition;
 Lisp_Object Qucs;
 Lisp_Object Q_ucs;
@@ -562,6 +564,10 @@ Return the alist of attributes of CHARACTER.
   if (!NILP (ret))
     alist = Fcons (Fcons (Qname, ret), alist);
 
+  ret = get_char_id_table (XCHAR (character), Vcharacter_total_strokes_table);
+  if (!NILP (ret))
+    alist = Fcons (Fcons (Qtotal_strokes, ret), alist);
+
   ret = get_char_id_table (XCHAR (character),
 			   Vcharacter_decomposition_table);
   if (!NILP (ret))
@@ -590,6 +596,11 @@ Return the value of CHARACTER's ATTRIBUTE.
   else if (EQ (attribute, Qname))
     {
       return get_char_id_table (XCHAR (character), Vcharacter_name_table);
+    }
+  else if (EQ (attribute, Qtotal_strokes))
+    {
+      return get_char_id_table (XCHAR (character),
+				Vcharacter_total_strokes_table);
     }
   else if (EQ (attribute, Q_decomposition))
     {
@@ -625,6 +636,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     {
       CHECK_STRING (value);
       put_char_id_table (XCHAR (character), value, Vcharacter_name_table);
+      return value;
+    }
+  else if (EQ (attribute, Qtotal_strokes))
+    {
+      CHECK_INT (value);
+      put_char_id_table (XCHAR (character), value,
+			 Vcharacter_total_strokes_table);
       return value;
     }
   else if (EQ (attribute, Q_decomposition))
@@ -2972,6 +2990,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qchinese_cns11643_2,	"chinese-cns11643-2");
 #ifdef UTF2000
   defsymbol (&Qname,			"name");
+  defsymbol (&Qtotal_strokes,		"total-strokes");
   defsymbol (&Q_ucs,			"->ucs");
   defsymbol (&Q_decomposition,		"->decomposition");
   defsymbol (&Qcompat,			"compat");
@@ -3083,6 +3102,9 @@ Version number of UTF-2000.
 
   staticpro (&Vcharacter_name_table);
   Vcharacter_name_table = make_char_id_table (Qnil, 0);
+
+  /* staticpro (&Vcharacter_name_table); */
+  Vcharacter_total_strokes_table = make_char_id_table (Qnil, -1);
 
   /* staticpro (&Vcharacter_decomposition_table); */
   Vcharacter_decomposition_table = make_char_id_table (Qnil, -1);
