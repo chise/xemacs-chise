@@ -86,7 +86,7 @@
 (custom-add-loads 'matching '("simple" "isearch-mode" "hyper-apropos"))
 (custom-add-loads 'i18n '("cus-edit"))
 (custom-add-loads 'info '("toolbar-items" "info"))
-(custom-add-loads 'x '("x-faces"))
+(custom-add-loads 'x '("gtk-faces" "x-faces"))
 (custom-add-loads 'buffers-tab '("gutter-items"))
 
 ;;; custom-load.el ends here

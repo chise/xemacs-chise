@@ -2745,7 +2745,9 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
 	int delta = (short) HIWORD (wParam); /* Wheel rotation amount */
 	struct gcpro gcpro1, gcpro2;
 
-	if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd), keys,  delta))
+	if (mswindows_handle_mousewheel_event (mswindows_find_frame (hwnd),
+					       keys, delta,
+					       MAKEPOINTS (lParam)))
 	  {
 	    GCPRO2 (emacs_event, fobj);
 	    mswindows_pump_outstanding_events ();	/* Can GC */

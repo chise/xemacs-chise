@@ -193,6 +193,11 @@ Additional features:
 --pdump                 New, experimental, non-working, don't-sue-me-if-
                         your-house-collapses-and-your-wife-leaves-you,
                         portable dumper.
+--with-file-coding      Allows transparent use of "foreign" line break
+                        conventions in text files (such as LF-delimited text
+                        imported from a Unix system to a Windows environment),
+                        optionally including autodetection.  Defaults to ON
+                        on Windows, OFF on Unix.
 
 Internationalization options:
 

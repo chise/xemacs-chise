@@ -478,7 +478,7 @@ BEGIN
     IDS_ERR_OPEN_READ       "Can't open %s for reading: %s"
     IDS_ROOT_ABSOLUTE       "The install directory must be absolute, with both a drive letter and leading slash, like C:\\Cygwin"
     IDS_DOWNLOAD_COMPLETE   "Download Complete"
-    IDS_CVSID               "\n%%% $Id: res.rc,v 1.1.2.6 2001/03/09 04:13:05 wmperry Exp $\n"
+    IDS_CVSID               "\n%%% $Id: res.rc,v 1.2 2001/04/12 18:22:53 michaels Exp $\n"
     IDS_NOLOGFILE           "Cannot open log file %s for writing"
     IDS_UNINSTALL_COMPLETE  "Uninstalls complete."
     IDS_WININET             "Unable to find or load the Internet Explorer 5 DLLs"

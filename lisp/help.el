@@ -1075,60 +1075,38 @@ part of the documentation of internal subroutines."
 	     (string-match "[\n\t ]*\narguments: ?(\\(.*\\))\n?\\'" doc))
 	(setq doc (substring doc 0 (match-beginning 0))))
     doc))
-;  (let ((name-char "[-+a-zA-Z0-9_*]") (sym-char "[-+a-zA-Z0-9_:*]"))
-;    (list
-;     ;;
-;     ;; The symbol itself.
-;     (list (concat "\\`\\(" name-char "+\\)\\(:\\)?")
-;	   '(1 (if (match-beginning 2)
-;		   'font-lock-function-name-face
-;		 'font-lock-variable-name-face)
-;	       nil t))
-;     ;;
-;     ;; Words inside `' which tend to be symbol names.
-;     (list (concat "`\\(" sym-char sym-char "+\\)'")
-;	   1 '(prog1
-;		  'font-lock-reference-face
-;		(add-list-mode-item (match-beginning 1)
-;			       (match-end 1)
-;			       nil
-;			       'help-follow-reference))
-;	   t)
-;     ;;
-;     ;; CLisp `:' keywords as references.
-;     (list (concat "\\<:" sym-char "+\\>") 0 'font-lock-reference-face t)))
 
 ;; replacement for `princ' that puts the text in the specified face,
 ;; if possible
 (defun Help-princ-face (object face)
   (cond ((bufferp standard-output)
-        (let ((opoint (point standard-output)))
-          (princ object)
-          (put-nonduplicable-text-property opoint (point standard-output)
-                                           'face face standard-output)))
-       ((markerp standard-output)
-        (let ((buf (marker-buffer standard-output))
-              (pos (marker-position standard-output)))
-          (princ object)
-          (put-nonduplicable-text-property
-           pos (marker-position standard-output) 'face face buf)))
-       (t princ object)))
+	 (let ((opoint (point standard-output)))
+	   (princ object)
+	   (put-nonduplicable-text-property opoint (point standard-output)
+					    'face face standard-output)))
+	((markerp standard-output)
+	 (let ((buf (marker-buffer standard-output))
+	       (pos (marker-position standard-output)))
+	   (princ object)
+	   (put-nonduplicable-text-property
+	    pos (marker-position standard-output) 'face face buf)))
+	(t princ object)))
 
 ;; replacement for `prin1' that puts the text in the specified face,
 ;; if possible
 (defun Help-prin1-face (object face)
   (cond ((bufferp standard-output)
-        (let ((opoint (point standard-output)))
-          (prin1 object)
-          (put-nonduplicable-text-property opoint (point standard-output)
-                                           'face face standard-output)))
-       ((markerp standard-output)
-        (let ((buf (marker-buffer standard-output))
-              (pos (marker-position standard-output)))
-          (prin1 object)
-          (put-nonduplicable-text-property
-           pos (marker-position standard-output) 'face face buf)))
-       (t prin1 object)))
+	 (let ((opoint (point standard-output)))
+	   (prin1 object)
+	   (put-nonduplicable-text-property opoint (point standard-output)
+					    'face face standard-output)))
+	((markerp standard-output)
+	 (let ((buf (marker-buffer standard-output))
+	       (pos (marker-position standard-output)))
+	   (prin1 object)
+	   (put-nonduplicable-text-property
+	    pos (marker-position standard-output) 'face face buf)))
+	(t prin1 object)))
 
 (defvar help-symbol-regexp
   (let ((sym-char "[+a-zA-Z0-9_:*]")
@@ -1185,7 +1163,7 @@ part of the documentation of internal subroutines."
   ;; properties:
   ;; 1. mouse-face is 'highlight (so the extent gets highlighted on mouse over)
   ;; 2. help-symbol is the name of the symbol.
-  ;; 3. face is 'font-lock-reference-face.
+  ;; 3. face is 'hyper-apropos-hyperlink.
   ;; 4. context-menu is a list of context menu items, specific to whether
   ;;    the symbol is a function, variable, or both.
   ;; 5. activate-function will cause the function or variable to be described,
@@ -1207,7 +1185,7 @@ part of the documentation of internal subroutines."
 	    (let ((ex (make-extent b e)))
 	      (set-extent-property ex 'mouse-face 'highlight)
 	      (set-extent-property ex 'help-symbol sym)
-	      (set-extent-property ex 'face 'font-lock-reference-face)
+	      (set-extent-property ex 'face 'hyper-apropos-hyperlink)
 	      (set-extent-property
 	       ex 'context-menu
 	       (cond ((and var fun)
@@ -1292,7 +1270,8 @@ part of the documentation of internal subroutines."
     (if describe-function-show-arglist
 	(let ((arglist (function-arglist function)))
 	  (when arglist
-	    (Help-princ-face arglist 'font-lock-comment-face)
+	    (require 'hyper-apropos)
+	    (Help-princ-face arglist 'hyper-apropos-documentation)
 	    (terpri))))
     (terpri)
     (cond (kbd-macro-p
@@ -1434,7 +1413,7 @@ there is no variable around that point, nil is returned."
        (let ((print-escape-newlines t))
 	 (princ "`")
 	 ;; (Help-princ-face (symbol-name variable)
-	 ;;               'font-lock-variable-name-face) overkill
+	 ;;		  'font-lock-variable-name-face) overkill
 	 (princ (symbol-name variable))
 	 (princ "' is ")
 	 (while (variable-alias variable)
@@ -1457,9 +1436,11 @@ there is no variable around that point, nil is returned."
 	   (if file-name
 	       (princ (format "  -- loaded from \"%s\"\n" file-name))))
 	 (princ "\nValue: ")
-	 (if (not (boundp variable))
-	     (Help-princ-face "void\n" 'font-lock-comment-face)
-	   (Help-prin1-face (symbol-value variable) 'font-lock-comment-face)
+	 (require 'hyper-apropos)
+    	 (if (not (boundp variable))
+	     (Help-princ-face "void\n" 'hyper-apropos-documentation)
+	   (Help-prin1-face (symbol-value variable)
+			    'hyper-apropos-documentation)
 	   (terpri))
 	 (terpri)
 	 (cond ((local-variable-p variable (current-buffer))

@@ -1201,6 +1201,19 @@ may remhash or puthash the entry currently being processed by FUNCTION.
   return Qnil;
 }
 
+/* #### If the Lisp function being called does a puthash and this
+   #### causes the hash table to be resized, the results will be quite
+   #### random and we will likely crash.  To fix this, either set a
+   #### flag in the hash table while we're mapping and signal an error
+   #### when new entries are added, or fix things to make this
+   #### operation work properly, like this: Store two hash tables in
+   #### each hash table object -- the second one is written to when
+   #### you do a puthash inside of a mapping operation, and the
+   #### various operations need to check both hash tables for entries.
+   #### As soon as the last maphash over a particular hash table
+   #### object terminates, the entries in the second table are added
+   #### to the first (using an unwind-protect). --ben */
+
 /* Map *C* function FUNCTION over the elements of a lisp hash table. */
 void
 elisp_maphash (maphash_function_t function,

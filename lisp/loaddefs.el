@@ -85,14 +85,15 @@
 ;; are ignored in completion,
 ;; making it more likely you will get a unique match.
 (setq completion-ignored-extensions
-	      ;; this is way way way bogus.
-	      ;; completely wtf?
-	      ;; the only things that should be here are those that are
-	      ;; (a) universally recognizable, and
-	      ;; (b) obvious backup files, or
-	      ;; (c) obvious binary files that are generated on a
-	      ;;     PER-SOURCE-FILE basis, so that they will actually
-	      ;;     cause annoyance.  This includes .exe files, e.g.
+      ;; this is way way way bogus.
+      ;; completely wtf?
+      ;; the only things that should be here are those that are
+      ;; (a) universally recognizable, and
+      ;; (b) obvious backup files, or
+      ;; (c) obvious binary files that are generated on a
+      ;;     PER-SOURCE-FILE basis, so that they will actually
+      ;;     cause annoyance.  This excludes executables (.exe, .com)
+      ;;     and libraries (.a, .lib, .dll).
 ;	      '(".o" ".elc" "~" ".bin" ".lbin" ".fasl"
 ;		".dvi" ".toc" ;".log"
 ;		".aux" ".a" ".ln"
@@ -100,7 +101,7 @@
 ;		".diff" ".oi" ".class")))
       '(".o" ".obj" ".elc" "~"
 	".bin" ".lbin" ;; #### these are doubtful, esp. the latter.
-	".dvi";; possibly doubtful, too.
+	".dvi" ;; possibly doubtful, too.
 	".class"))
 
 

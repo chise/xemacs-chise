@@ -1258,6 +1258,20 @@ Prefix arg means just kill any existing server communications subprocess." t nil
 
 ;;;***
 
+;;;### (autoloads (gtk-reset-device-font-menus) "gtk-font-menu" "lisp/gtk-font-menu.el")
+
+(autoload 'gtk-reset-device-font-menus "gtk-font-menu" "\
+Generates the `Font', `Size', and `Weight' submenus for the Options menu.
+This is run the first time that a font-menu is needed for each device.
+If you don't like the lazy invocation of this function, you can add it to
+`create-device-hook' and that will make the font menus respond more quickly
+when they are selected for the first time.  If you add fonts to your system, 
+or if you change your font path, you can call this to re-initialize the menus." nil nil)
+
+(defun* gtk-font-menu-font-data (face dcache) (defvar gtk-font-regexp) (defvar gtk-font-regexp-foundry-and-family) (let* ((case-fold-search t) (domain (if font-menu-this-frame-only-p (selected-frame) (selected-device))) (name (font-instance-name (face-font-instance face domain))) (truename (font-instance-truename (face-font-instance face domain (if (featurep 'mule) 'ascii)))) family size weight entry slant) (when (string-match gtk-font-regexp-foundry-and-family name) (setq family (capitalize (match-string 1 name))) (setq entry (vassoc family (aref dcache 0)))) (when (and (null entry) (string-match gtk-font-regexp-foundry-and-family truename)) (setq family (capitalize (match-string 1 truename))) (setq entry (vassoc family (aref dcache 0)))) (when (null entry) (return-from gtk-font-menu-font-data (make-vector 5 nil))) (when (string-match gtk-font-regexp name) (setq weight (capitalize (match-string 1 name))) (setq size (string-to-int (match-string 6 name)))) (when (string-match gtk-font-regexp truename) (when (not (member weight (aref entry 1))) (setq weight (capitalize (match-string 1 truename)))) (when (not (member size (aref entry 2))) (setq size (string-to-int (match-string 6 truename)))) (setq slant (capitalize (match-string 2 truename)))) (vector entry family size weight slant)))
+
+;;;***
+
 ;;;### (autoloads nil "help-macro" "lisp/help-macro.el")
 
 (defcustom three-step-help t "*Non-nil means give more info about Help command in three steps.\nThe three steps are simple prompt, prompt with all options,\nand window listing and describing the options.\nA value of nil means skip the middle step, so that\n\\[help-command] \\[help-command] gives the window that lists the options." :type 'boolean :group 'help-appearance)
