@@ -1,3 +1,57 @@
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/u03200-Enclosed-CJK-Letters-and-Months.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u03130-Hangul-Compatibility-Jamo.el,
+	utf-2000/u03100-Bopomofo.el: Changed to utf-8 encoding.
+
+	* utf-2000/u030A0-Katakana.el, utf-2000/u03040-Hiragana.el,
+	utf-2000/u03000-CJK-Symbols-and-Punctuation.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u02F00-Kangxi-Radicals.el: Changed to utf-8 encoding.
+
+	* utf-2000/u02700-Dingbats.el,
+	utf-2000/u02600-Miscellaneous-Symbols.el,
+	utf-2000/u025A0-Geometric-Shapes.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/u02580-Block-Elements.el: Changed to utf-8 encoding.
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02460-Enclosed-Alphanumerics.el,
+	utf-2000/u02300-Miscellaneous-Technical.el,
+	utf-2000/u02400-Control-Pictures.el,
+	utf-2000/u02200-Mathematical-Operators.el,
+	utf-2000/u02190-Arrows.el, utf-2000/u02150-Number-Forms.el,
+	utf-2000/u02100-Letterlike-Symbols.el,
+	utf-2000/u020A0-Currency-Symbols.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/u02080-Subscripts.el, utf-2000/u02070-Superscripts.el:
+	Changed to utf-8 encoding.
+
+	* utf-2000/u02000-General-Punctuation.el,
+	utf-2000/u01E00-Latin-Extended-Additional.el: Merge
+	`japanese-jisx0213-1'.
+
+	* utf-2000/u00600-Arabic.el, utf-2000/u00590-Hebrew.el,
+	utf-2000/u00400-Cyrillic.el: Changed to utf-8 encoding.
+
+	* utf-2000/u00370-Greek.el,
+	utf-2000/u00300-Combining-Diacritical-Marks.el,
+	utf-2000/u002B0-Spacing-Modifier-Letters.el,
+	utf-2000/u00250-IPA-Extensions.el,
+	utf-2000/u00180-Latin-Extended-B.el,
+	utf-2000/u00100-Latin-Extended-A.el,
+	utf-2000/u000A0-Latin-1-Supplement.el,
+	utf-2000/u00020-Basic-Latin.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/Ideograph-R030-Mouth.el: New file.
+
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/Ideograph-R005-Second.el: Sync with CNS2Dict 0.390.
+
 1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Generate comment
