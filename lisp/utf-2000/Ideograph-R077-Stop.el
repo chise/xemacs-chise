@@ -742,6 +742,7 @@
     (total-strokes	 . 13)
     (chinese-cns11643-3		. #x4221)	; ø»–‡‚
     (japanese-jisx0208-1990	. #x3A50)	; ø½Š›™
+    (mojikyo			. 050239)	; ø¸Œ¿
     (ucs			. #x6B73)	; æ­³
     ))
 (define-char
@@ -822,6 +823,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-3		. #x4753)	; ø»–Š
     (japanese-jisx0208-1990	. #x4E72)	; ø½Š¹“
+    (mojikyo			. 050240)	; ø¸Œ‘€
     (ucs			. #x6B74)	; æ­´
     ))
 (define-char
