@@ -1,3 +1,19 @@
+2002-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R087-Claw.el: Add mappings for Big5 code points and
+	CBETA numbers.
+
+2002-12-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R118-Bamboo.el (CB01704): New character.
+
+	* Ideograph-R090-Half-Tree-Trunk.el, Ideograph-R089-Double-X.el:
+	Add mappings for Big5 code points and CBETA numbers.
+
+	* Ideograph-R088-Father.el: Add mappings for Big5 code points.
+
+	* u02E00-CJK-Radical-Supplement.el (U+2EAE): Unify BC-8B4C.
+
 2002-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R009-Man.el (U-0002F805): Fix `ideographic-structure'.
