@@ -8041,9 +8041,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((=jis-x0208	  . #x5D59)	; ø½‹Ž¼
-      (korean-ksc5601	  . #x596C)	; ø»‰­§
-      (ideograph-daikanwa . 16721)	; ø¸„…‘
+     ((ucs		  . #x6BCE)	; æ¯Ž
       ))
     (shinjigen-1	. 233)
     (shinjigen-2	. 233)
