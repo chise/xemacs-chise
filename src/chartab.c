@@ -75,6 +75,7 @@ CHISE_DS *default_chise_data_source = NULL;
 EXFUN (Fchar_refs_simplify_char_specs, 1);
 extern Lisp_Object Qideographic_structure;
 
+Lisp_Object Vnext_defined_char_id;
 EXFUN (Fdefine_char, 1);
 
 EXFUN (Fmap_char_attribute, 3);
@@ -3382,7 +3383,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
       while (CONSP (rest))
 	{
-	  ret = Fdefine_char (XCAR (rest));
+	  ret = XCAR (rest);
+
+	  if (CONSP (ret))
+	    ret = Fdefine_char (ret);
+	  
 	  if (!NILP (ret))
 	    {
 	      Fput_char_attribute (ret, Q_unified_from, list1 (character));
@@ -3973,6 +3978,18 @@ Store character's ATTRIBUTES.
 	    }
 	  rest = Fcdr (rest);
 	}
+#if 1
+      {
+	int cid = XINT (Vnext_defined_char_id);
+
+	if (cid <= 0xE00000)
+	  {
+	    character = make_char (cid);
+	    Vnext_defined_char_id = make_int (cid + 1);
+	    goto setup_attributes;
+	  }
+      }
+#else
       if ( (!NILP (code = Fcdr (Fassq (Qto_ucs, attributes)))) )
 	{
 	  if (!INTP (code))
@@ -3981,6 +3998,7 @@ Store character's ATTRIBUTES.
 	    character = make_char (XINT (code) + 0x100000);
 	  goto setup_attributes;
 	}
+#endif
       return Qnil;
     }
   else if (!INTP (code))
@@ -4486,6 +4504,12 @@ syms_of_chartab (void)
 void
 vars_of_chartab (void)
 {
+#ifdef UTF2000
+  DEFVAR_LISP ("next-defined-char-id", &Vnext_defined_char_id /*
+*/ );
+  Vnext_defined_char_id = make_int (0x0F0000);
+#endif
+
 #ifdef HAVE_CHISE
   DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
 */ );
