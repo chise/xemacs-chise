@@ -249,14 +249,16 @@
      ((=daikanwa	  . 25381)	; ø¸†Œ¥
       ))
     (<-ancient-ideograph
-     (:sources	(jii morohashi-daikanwa)
-      :char	((=daikanwa	     . 24940)	; ø¸†…¬
-		 )
+     ((=daikanwa	  . 24940)	; ø¸†…¬
       ))
+    (<-ancient-ideograph*sources
+     jii morohashi-daikanwa)
     (=jis-x0208-1983	. #x6354)	; ø»‡±·
     (=jis-x0208-1990	. #x6354)	; ø½‹—«
+    (=gt-pj-1		. #x6354)	; ý¡€‡¿±
     (=daikanwa		. 48869)	; ø¸‹»¥
     (=ucs@jis		. #x9F9D)	; ø»‡±·
+    (=gt		. 32753)	; ý¡€‡¿±
     ))
 (define-char
   '((=>ucs		. #x9F9D)	; é¾
