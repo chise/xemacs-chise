@@ -1,5 +1,23 @@
 2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u00020-Basic-Latin.el:
+	- Add `->fullwidth' properties.
+	- Use ``character-reference'' style [alist] instead of UCS
+	  code-point [hex integer] as the format of `->lowercase' and
+	  `->uppercase'.
+	- Omit `->titlecase' because each value of it has the same value
+	  of `->uppercase'.
+
+	* Ideograph-R159-Cart.el (J83-6D52): Unify J78-6D52 and J83-6D52.
+	(J83-6D4E): Separate J78-6D4E.
+	(J83-475A): Separate K0-5B54, J90-475A, C1-6F45 and U+8F29.
+	(M-38420): Separate J90-3D34, J78-3D34, J83-3D34, K0-727E, C1-7252
+	and U+8F2F.
+
+	* Ideograph-R158-Body.el: Merge missing JIS X 0208 code points.
+
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R157-Foot.el (J78-6C69): Separate J83-6C69, C1-6243
 	and J90-6C69.
 	(J83-4437): Separate G0-4C78, K0-542F, C1-667C, J90-4437 and
