@@ -16,6 +16,7 @@
     (total-strokes	 . 14)
     (chinese-cns11643-4		. #x4877)	; ø»˜›
     (japanese-jisx0208-1990	. #x4921)	; ø½Š°¬
+    (mojikyo			. 050611)	; ø¸Œ–³
     ))
 (define-char
   '((ideographic-radical . 209)	; â¿
