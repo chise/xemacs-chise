@@ -9701,6 +9701,7 @@
     (total-strokes	 . 9)
     (hanyu-dazidian	1 163 5)
     (=ucs		. #x4FC0)	; 俀
+    (=big5		. #xCDED)	; &I-B-CDED;
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -9739,8 +9740,7 @@
 	(=gb2312	    . #x4D57)	; &I-G0-4D57; [45-55]
 	(=ks-x1001	    . #x7666)	; &I-K0-7666; [86-70]
 	))
-      (=big5		  . #xCDED)	; &B-CDED;
-      (=ucs@unicode	  . #x4FC0)	; &B-CDED;
+      (=ucs@unicode	  . #x4FC0)	; &UU+4FC0;
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -16806,7 +16806,6 @@
       (=big5		  . #xD85B)	; &M-00883;
       (=daikanwa	  . 00883)	; &I-M-00883;
       (=ucs@unicode	  . #x5068)	; &M-00883;
-      (=ucs@big5	  . #x5068)	; &M-00883;
       )
      ((ideographic-strokes . 10)
       (total-strokes	   . 12)
@@ -18979,7 +18978,7 @@
 	))
       (=jis-x0212	  . #x317E)	; &M-00954; [17-94]
       (=daikanwa	  . 00954)	; &I-M-00954;
-      (=ucs@jis/1990	  . #x5090)	; &M-00954;
+      (=ucs@jis		  . #x5090)	; &M-00954;
       )
      ((hanyu-dazidian	  1 204 9)
       (ideographic-structure
@@ -22251,7 +22250,7 @@
 	)
        ((=ucs		    . #x4EBB)	; 亻
 	)
-       ((=ucs		    . #x66FC)	; 曼
+       ((=ucs@unicode	    . #x66FC)	; &GT-18098;
 	))
       (=big5		  . #xDCBB)	; &B-DCBB;
       (=ucs@unicode	  . #x50C8)	; &B-DCBB;
@@ -27215,9 +27214,10 @@
     (total-strokes	 . 15)
     (=ucs		. #x203D7)	; 𠏗
     (->subsumptive
+     ((=daikanwa	  . 01211)	; &M-01211;
+      )
      ((hanyu-dazidian	  1 224 7)
-      (=daikanwa	  . 01211)	; &M-01211;
-      (=hanziku-1	  . #xD46E)	; &I-HZK01-D46E;
+      (=hanziku-1	  . #xD46E)	; &HZK01-D46E;
       )
      ((=cns11643-7	  . #x212D)	; &C7-212D; [01-13]
       (=ucs@iso		  . #x203D7)	; &C7-212D;
@@ -27873,16 +27873,7 @@
     (total-strokes	 . 16)
     (=ucs		. #x203ED)	; 𠏭
     (->subsumptive
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-	(=ucs		    . #x2FF0)	; ⿰
-	)
-       ((=ucs		    . #x4EBB)	; 亻
-	)
-       ((=jis-x0208@1990    . #x665C)	; &M-29093; [70-60]
-	(=daikanwa	    . 29093)	; &I-M-29093;
-	))
-      (=daikanwa	  . 01228)	; &M-01228;
+     ((=daikanwa	  . 01228)	; &M-01228;
       )
      ((hanyu-dazidian	  1 230 1)
       (ideographic-structure
