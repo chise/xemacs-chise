@@ -134,7 +134,6 @@
 		 )
       )
      ((name		  . "CJK RADICAL SECOND THREE")
-      (chinese-big5-cdp	  . #x8D43)	; ⺄
       (ucs		  . #x2E84)	; ⺄
       )
      ((chinese-big5-cdp	  . #x8BF1)	; 
