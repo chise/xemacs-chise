@@ -76,6 +76,7 @@ Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
 Lisp_Object Vcharset_latin_viscii_upper;
+Lisp_Object Vcharset_jis_x0208;
 Lisp_Object Vcharset_chinese_big5;
 /* Lisp_Object Vcharset_chinese_big5_cdp; */
 Lisp_Object Vcharset_ideograph_hanziku_1;
@@ -349,6 +350,7 @@ Lisp_Object Qascii,
   Qlatin_viscii_upper,
   Qvietnamese_viscii_lower,
   Qvietnamese_viscii_upper,
+  Qjis_x0208,
   Qchinese_big5,
   /*  Qchinese_big5_cdp, */
   Qideograph_hanziku_1,
@@ -985,35 +987,23 @@ decode_builtin_char (Lisp_Object charset, int code_point)
       return
 	decode_builtin_char (mother, code + XCHARSET_CODE_OFFSET(charset));
     }
-#if 0
-  else if (EQ (charset, Vcharset_chinese_big5))
+  if (XCHARSET_MAX_CODE (charset))
     {
-      int c1 = code_point >> 8;
-      int c2 = code_point & 0xFF;
-      unsigned int I;
-
-      if ( (  (0xA1 <= c1) && (c1 <= 0xFE)  )
-	   &&
-	   ( ((0x40 <= c2) && (c2 <= 0x7E)) ||
-	     ((0xA1 <= c2) && (c2 <= 0xFE)) ) )
-	{
-	  I = (c1 - 0xA1) * BIG5_SAME_ROW
-	    + c2 - (c2 < 0x7F ? 0x40 : 0x62);
-
-	  if (c1 < 0xC9)
-	    {
-	      charset = Vcharset_chinese_big5_1;
-	    }
-	  else
-	    {
-	      charset = Vcharset_chinese_big5_2;
-	      I -= (BIG5_SAME_ROW) * (0xC9 - 0xA1);
-	    }
-	  code_point = ((I / 94 + 33) << 8) | (I % 94 + 33);
-	}
+      Emchar cid
+	= (XCHARSET_DIMENSION (charset) == 1
+	   ?
+	   code_point - XCHARSET_BYTE_OFFSET (charset)
+	   :
+	   ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
+	   * XCHARSET_CHARS (charset)
+	   + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
+	+ XCHARSET_CODE_OFFSET (charset);
+      if ((cid < XCHARSET_MIN_CODE (charset))
+	  || (XCHARSET_MAX_CODE (charset) < cid))
+	return -1;
+      return cid;
     }
-#endif
-  if ((final = XCHARSET_FINAL (charset)) >= '0')
+  else if ((final = XCHARSET_FINAL (charset)) >= '0')
     {
       if (XCHARSET_DIMENSION (charset) == 1)
 	{
@@ -1049,22 +1039,6 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 	      return -1;
 	    }
 	}
-    }
-  else if (XCHARSET_MAX_CODE (charset))
-    {
-      Emchar cid
-	= (XCHARSET_DIMENSION (charset) == 1
-	   ?
-	   code_point - XCHARSET_BYTE_OFFSET (charset)
-	   :
-	   ((code_point >> 8) - XCHARSET_BYTE_OFFSET (charset))
-	   * XCHARSET_CHARS (charset)
-	   + (code_point & 0xFF) - XCHARSET_BYTE_OFFSET (charset))
-	+ XCHARSET_CODE_OFFSET (charset);
-      if ((cid < XCHARSET_MIN_CODE (charset))
-	  || (XCHARSET_MAX_CODE (charset) < cid))
-	return -1;
-      return cid;
     }
   else
     return -1;
@@ -1158,9 +1132,13 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	      exit (-1);
 	    }
 	}
-      else if ( (XCHARSET_CODE_OFFSET (charset) == 0) ||
+      else if ( ( XCHARSET_FINAL (charset) >= '0' ) &&
+		( XCHARSET_MIN_CODE (charset) == 0 )
+	       /*
+	        (XCHARSET_CODE_OFFSET (charset) == 0) ||
 		(XCHARSET_CODE_OFFSET (charset)
-		 == XCHARSET_MIN_CODE (charset)) )
+		 == XCHARSET_MIN_CODE (charset))
+	       */ )
 	{
 	  int d;
 
@@ -2470,6 +2448,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_viscii_upper,	"latin-viscii-upper");
   defsymbol (&Qvietnamese_viscii_lower,	"vietnamese-viscii-lower");
   defsymbol (&Qvietnamese_viscii_upper,	"vietnamese-viscii-upper");
+  defsymbol (&Qjis_x0208, 		"=jis-x0208");
   defsymbol (&Qideograph_gt,		"ideograph-gt");
   defsymbol (&Qideograph_gt_pj_1,	"ideograph-gt-pj-1");
   defsymbol (&Qideograph_gt_pj_2,	"ideograph-gt-pj-2");
@@ -2785,6 +2764,21 @@ complex_vars_of_mule_charset (void)
 		  build_string ("ISO8859-9 (Latin-5)"),
 		  build_string ("iso8859-9"),
 		  Qnil, 0, 0, 0, 32, Qnil, CONVERSION_IDENTICAL);
+#ifdef UTF2000
+  staticpro (&Vcharset_jis_x0208);
+  Vcharset_jis_x0208 =
+    make_charset (LEADING_BYTE_JIS_X0208,
+		  Qjis_x0208, 94, 2,
+		  2, 0, 'B', CHARSET_LEFT_TO_RIGHT,
+		  build_string ("JIS X0208"),
+		  build_string ("JIS X0208 Common"),
+		  build_string ("JIS X0208 Common part"),
+		  build_string ("jisx0208\\.1990"),
+		  Qnil,
+		  MIN_CHAR_JIS_X0208_1990,
+		  MAX_CHAR_JIS_X0208_1990, MIN_CHAR_JIS_X0208_1990, 33,
+		  Qnil, CONVERSION_94x94);
+#endif
   staticpro (&Vcharset_japanese_jisx0208_1978);
   Vcharset_japanese_jisx0208_1978 =
     make_charset (LEADING_BYTE_JAPANESE_JISX0208_1978,
@@ -2795,7 +2789,13 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("JIS X0208:1978 Japanese Kanji (so called \"old JIS\")"),
 		  build_string ("\\(jisx0208\\|jisc6226\\)\\.1978"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33,
+#ifdef UTF2000
+		  Vcharset_jis_x0208,
+#else
+		  Qnil,
+#endif
+		  CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
     make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 94, 2,
@@ -2822,7 +2822,13 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208:1983 (Japanese)"),
 		  build_string ("JIS X0208:1983 Japanese Kanji"),
 		  build_string ("jisx0208\\.1983"),
-		  Qnil, 0, 0, 0, 33, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 33,
+#ifdef UTF2000
+		  Vcharset_jis_x0208,
+#else
+		  Qnil,
+#endif
+		  CONVERSION_IDENTICAL);
 #ifdef UTF2000
   staticpro (&Vcharset_japanese_jisx0208_1990);
   Vcharset_japanese_jisx0208_1990 =
@@ -2834,9 +2840,11 @@ complex_vars_of_mule_charset (void)
 		  build_string ("JIS X0208:1990 Japanese Kanji"),
 		  build_string ("jisx0208\\.1990"),
 		  Qnil,
-		  MIN_CHAR_JIS_X0208_1990,
-		  MAX_CHAR_JIS_X0208_1990, MIN_CHAR_JIS_X0208_1990, 33,
-		  Qnil, CONVERSION_94x94);
+		  0x2121 /* MIN_CHAR_JIS_X0208_1990 */,
+		  0x7426 /* MAX_CHAR_JIS_X0208_1990 */,
+		  0 /* MIN_CHAR_JIS_X0208_1990 */, 33,
+		  Vcharset_jis_x0208 /* Qnil */,
+		  CONVERSION_IDENTICAL /* CONVERSION_94x94 */);
 #endif
   staticpro (&Vcharset_korean_ksc5601);
   Vcharset_korean_ksc5601 =
