@@ -1830,8 +1830,18 @@ coding_system_is_binary (Lisp_Object coding_system)
 #define coding_system_is_binary(coding_system) 1
 #endif
 
-static Extbyte_dynarr *conversion_out_dynarr;
-static Bufbyte_dynarr *conversion_in_dynarr;
+typedef struct
+{
+  Dynarr_declare (Bufbyte_dynarr *);
+} Bufbyte_dynarr_dynarr;
+
+typedef struct
+{
+  Dynarr_declare (Extbyte_dynarr *);
+} Extbyte_dynarr_dynarr;
+
+static Extbyte_dynarr_dynarr *conversion_out_dynarr_list;
+static Bufbyte_dynarr_dynarr *conversion_in_dynarr_list;
 
 static int dfc_convert_to_external_format_in_use;
 static int dfc_convert_to_internal_format_in_use;
@@ -1860,6 +1870,7 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
 				dfc_conversion_data *sink)
 {
   int count = specpdl_depth ();
+  Extbyte_dynarr *conversion_out_dynarr;
 
   type_checking_assert
     (((source_type == DFC_TYPE_DATA) ||
@@ -1869,19 +1880,19 @@ dfc_convert_to_external_format (dfc_conversion_type source_type,
      ((sink_type == DFC_TYPE_DATA) ||
       (sink_type == DFC_TYPE_LISP_LSTREAM && LSTREAMP (source->lisp_object))));
 
-  if (dfc_convert_to_external_format_in_use != 0)
-    error ("Can't call a conversion function from a conversion function");
-  else
-    dfc_convert_to_external_format_in_use = 1;
-
   record_unwind_protect (dfc_convert_to_external_format_reset_in_use,
-			 Qzero);
+			 make_int (dfc_convert_to_external_format_in_use));
+  if (Dynarr_length (conversion_out_dynarr_list) <=
+      dfc_convert_to_external_format_in_use)
+    Dynarr_add (conversion_out_dynarr_list, Dynarr_new (Extbyte));
+  conversion_out_dynarr = Dynarr_at (conversion_out_dynarr_list,
+				     dfc_convert_to_external_format_in_use);
+  dfc_convert_to_external_format_in_use++;
+  Dynarr_reset (conversion_out_dynarr);
 
 #ifdef FILE_CODING
   coding_system = Fget_coding_system (coding_system);
 #endif
-
-  Dynarr_reset (conversion_out_dynarr);
 
   /* Here we optimize in the case where the coding system does no
      conversion. However, we don't want to optimize in case the source
@@ -2021,6 +2032,7 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
 				dfc_conversion_data *sink)
 {
   int count = specpdl_depth ();
+  Bufbyte_dynarr *conversion_in_dynarr;
 
   type_checking_assert
     ((source_type == DFC_TYPE_DATA ||
@@ -2029,19 +2041,19 @@ dfc_convert_to_internal_format (dfc_conversion_type source_type,
     (sink_type   == DFC_TYPE_DATA ||
      sink_type   == DFC_TYPE_LISP_LSTREAM));
 
-  if (dfc_convert_to_internal_format_in_use != 0)
-    error ("Can't call a conversion function from a conversion function");
-  else
-    dfc_convert_to_internal_format_in_use = 1;
-
   record_unwind_protect (dfc_convert_to_internal_format_reset_in_use,
-			 Qzero);
+			 make_int (dfc_convert_to_internal_format_in_use));
+  if (Dynarr_length (conversion_in_dynarr_list) <=
+      dfc_convert_to_internal_format_in_use)
+    Dynarr_add (conversion_in_dynarr_list, Dynarr_new (Bufbyte));
+  conversion_in_dynarr = Dynarr_at (conversion_in_dynarr_list,
+				    dfc_convert_to_internal_format_in_use);
+  dfc_convert_to_internal_format_in_use++;
+  Dynarr_reset (conversion_in_dynarr);
 
 #ifdef FILE_CODING
   coding_system = Fget_coding_system (coding_system);
 #endif
-
-  Dynarr_reset (conversion_in_dynarr);
 
   if (source_type != DFC_TYPE_LISP_LSTREAM &&
       sink_type   != DFC_TYPE_LISP_LSTREAM &&
@@ -2234,8 +2246,10 @@ syms_of_buffer (void)
 void
 reinit_vars_of_buffer (void)
 {
-  conversion_in_dynarr  = Dynarr_new (Bufbyte);
-  conversion_out_dynarr = Dynarr_new (Extbyte);
+  conversion_in_dynarr_list = Dynarr_new2 (Bufbyte_dynarr_dynarr,
+					   Bufbyte_dynarr *);
+  conversion_out_dynarr_list = Dynarr_new2 (Extbyte_dynarr_dynarr,
+					    Extbyte_dynarr *);
 
   staticpro_nodump (&Vbuffer_alist);
   Vbuffer_alist = Qnil;
@@ -2677,31 +2691,31 @@ This is the same as (default-value 'case-fold-search).
   DEFVAR_BUFFER_LOCAL ("modeline-format", modeline_format /*
 Template for displaying modeline for current buffer.
 Each buffer has its own value of this variable.
-Value may be a string, a symbol or a list or cons cell.
-For a symbol, its value is used (but it is ignored if t or nil).
+Value may be a string, symbol, glyph, generic specifier, list or cons cell.
+For a symbol, its value is processed (but it is ignored if t or nil).
  A string appearing directly as the value of a symbol is processed verbatim
  in that the %-constructs below are not recognized.
 For a glyph, it is inserted as is.
+For a generic specifier (i.e. a specifier of type `generic'), its instance
+ is computed in the current window using the equivalent of `specifier-instance'
+ and the value is processed.
 For a list whose car is a symbol, the symbol's value is taken,
  and if that is non-nil, the cadr of the list is processed recursively.
  Otherwise, the caddr of the list (if there is one) is processed.
 For a list whose car is a string or list, each element is processed
  recursively and the results are effectively concatenated.
 For a list whose car is an integer, the cdr of the list is processed
-  and padded (if the number is positive) or truncated (if negative)
-  to the width specified by that number.
+ and padded (if the number is positive) or truncated (if negative)
+ to the width specified by that number.
 For a list whose car is an extent, the cdr of the list is processed
  normally but the results are displayed using the face of the
  extent, and mouse clicks over this section are processed using the
  keymap of the extent. (In addition, if the extent has a help-echo
  property, that string will be echoed when the mouse moves over this
- section.) See `generated-modeline-string' for more information.
-For a list whose car is a face, the cdr of the list is processed
- normally but the results will be displayed using the face in the car.
-For a list whose car is a keymap, the cdr of the list is processed
- normally but the keymap will apply for mouse clicks over the results,
- in addition to `modeline-map'.  Nested keymap specifications are
- handled properly.
+ section.) If extents are nested, all keymaps are properly consulted
+ when processing mouse clicks, but multiple faces are not correctly
+ merged (only the first face is used), and lists of faces are not
+ correctly handled.  See `generated-modeline-string' for more information.
 A string is printed verbatim in the modeline except for %-constructs:
   (%-constructs are processed when the string is the entire modeline-format
    or when it is found in a cons-cell or a list)

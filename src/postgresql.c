@@ -540,15 +540,15 @@ Poll an asynchronous connection for completion
 	(conn))
 {
   PGconn *P;
-  PostgresPollingStatusType PS;
+  PostgresPollingStatusType polling_status;
 
   CHECK_PGCONN (conn);
 
   P = (XPGCONN (conn))->pgconn;
   CHECK_LIVE_CONNECTION (P);
 
-  PS = PQconnectPoll (P);
-  switch (PS)
+  polling_status = PQconnectPoll (P);
+  switch (polling_status)
     {
     case PGRES_POLLING_FAILED:
       /* Something Bad has happened */
@@ -566,7 +566,7 @@ Poll an asynchronous connection for completion
       return Qpgres_polling_active;
     default:
       /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
+      error ("Help!  Unknown status code %08x from backend!", polling_status);
     }
 }
 
@@ -730,15 +730,15 @@ Poll an asynchronous reset for completion
 	(conn))
 {
   PGconn *P;
-  PostgresPollingStatusType PS;
+  PostgresPollingStatusType polling_status;
 
   CHECK_PGCONN (conn);
 
   P = (XPGCONN (conn))->pgconn;
   CHECK_LIVE_CONNECTION (P);
 
-  PS = PQresetPoll (P);
-  switch (PS)
+  polling_status = PQresetPoll (P);
+  switch (polling_status)
     {
     case PGRES_POLLING_FAILED:
       /* Something Bad has happened */
@@ -756,7 +756,7 @@ Poll an asynchronous reset for completion
       return Qpgres_polling_active;
     default:
       /* they've added a new field we don't know about */
-      error ("Help!  Unknown status code %08x from backend!", PS);
+      error ("Help!  Unknown status code %08x from backend!", polling_status);
     }
 }
 #endif

@@ -135,7 +135,10 @@ argument.  @xref{Windows}.
 however.  You cannot switch buffers in it---the minibuffer and its
 window are permanently attached.  Also, you cannot split or kill the
 minibuffer window. But you can make it taller in the normal fashion with
-@kbd{C-x ^}.
+@kbd{C-x ^}.  If you enable Resize-Minibuffer mode, then the
+minibuffer window expands vertically as necessary to hold the text that
+you put in the minibuffer.  Use @kbd{M-x resize-minibuffer-mode} to
+enable or disable this minor mode (@pxref{Minor Modes}).
 
 @kindex C-M-v
   If while in the minibuffer you issue a command that displays help text
@@ -227,7 +230,7 @@ possibilities for the very next character---it could be any of
 @samp{c-}---so no more characters are added; instead, @key{TAB}
 displays a list of all possible completions in another window.
 
-  If you go on to type @kbd{f @key{TAB}}, this @key{TAB} sees
+  If you go on to type @kbd{-f @key{TAB}}, this @key{TAB} sees
 @samp{auto-f}.  The only command name starting this way is
 @code{auto-fill-mode}, so completion fills in the rest of that.  You now
 have @samp{auto-fill-mode} in the minibuffer after typing just @kbd{au
@@ -284,6 +287,15 @@ Clicking mouse button 2 on a completion in the list of possible
 completions chooses that completion (@code{mouse-choose-completion}).
 You normally use this command while point is in the minibuffer; but you
 must click in the list of completions, not in the minibuffer itself.
+
+@findex switch-to-completions
+@item @key{PRIOR}
+@itemx M-v
+Typing @key{PRIOR} or @kbd{M-v}, while in the minibuffer, selects the
+window showing the completion list buffer
+(@code{switch-to-completions}).  This paves the way for using the
+commands below.  (Selecting that window in the usual ways has the same
+effect, but this way is more convenient.)
 
 @findex choose-completion
 @item @key{RET}
@@ -374,6 +386,12 @@ If the variable @code{minibuffer-confirm-incomplete} is set to @code{t},
 then in contexts where @code{completing-read} allows answers that are
 not valid completions, an extra @key{RET} must be typed to confirm the
 response.  This is helpful for catching typos.
+
+@cindex Icomplete mode
+  Icomplete mode presents a constantly-updated display that tells you
+what completions are available for the text you've entered so far.  The
+command to enable or disable this minor mode is @kbd{M-x
+icomplete-mode}.
 
 @node Minibuffer History, Repetition, Completion, Minibuffer
 @section Minibuffer History
@@ -479,11 +497,11 @@ the command name.
 @item C-x @key{ESC} @key{ESC}
 Re-execute a recent minibuffer command (@code{repeat-complex-command}).
 @item M-p
-Within @kbd{C-x @key{ESC}}, move to previous recorded command
+Within @kbd{C-x @key{ESC} @key{ESC}}, move to previous recorded command
 (@code{previous-history-element}).
 @item M-n
-Within @kbd{C-x @key{ESC}}, move to the next (more recent) recorded
-command (@code{next-history-element}).
+Within @kbd{C-x @key{ESC} @key{ESC}}, move to the next (more recent)
+recorded command (@code{next-history-element}).
 @item M-x list-command-history
 Display the entire command history, showing all the commands
 @kbd{C-x @key{ESC} @key{ESC}} can repeat, most recent first.

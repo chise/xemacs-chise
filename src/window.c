@@ -281,9 +281,9 @@ allocate_window (void)
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->line_start_cache = Dynarr_new (line_start_cache);
-  p->subwindow_instance_cache = make_lisp_hash_table (10,
+  p->subwindow_instance_cache = make_lisp_hash_table (30,
 						      HASH_TABLE_KEY_WEAK,
-						      HASH_TABLE_EQ);
+						      HASH_TABLE_EQUAL);
   p->line_cache_last_updated = Qzero;
   INIT_DISP_VARIABLE (last_point_x, 0);
   INIT_DISP_VARIABLE (last_point_y, 0);
@@ -1867,6 +1867,34 @@ replace_window (Lisp_Object old, Lisp_Object replacement)
   /* #### Here, if replacement is a vertical combination
      and so is its new parent, we should make replacement's
      children be children of that parent instead. */
+
+  ERROR_CHECK_SUBWINDOW_CACHE (p);
+}
+
+static int
+window_unmap_subwindows_cache_mapper (Lisp_Object key, Lisp_Object value,
+				      void *flag_closure)
+{
+  /* value can be nil; we cache failures as well as successes */
+  if (!NILP (value))
+    {
+      struct frame* f = XFRAME (XIMAGE_INSTANCE_FRAME (value));
+      unmap_subwindow (value);
+      /* In case GC doesn't catch up fast enough, remove from the frame
+	 cache also. Otherwise code that checks the sanity of the instance
+	 will fail. */
+      XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f))
+	= delq_no_quit (value, XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f)));
+    }
+  return 0;
+}
+
+static void
+window_unmap_subwindows (struct window* w)
+{
+  assert (!NILP (w->subwindow_instance_cache));
+  elisp_maphash (window_unmap_subwindows_cache_mapper,
+		 w->subwindow_instance_cache, 0);
 }
 
 /* we're deleting W; set the structure of W to indicate this. */
@@ -1874,6 +1902,20 @@ replace_window (Lisp_Object old, Lisp_Object replacement)
 static void
 mark_window_as_deleted (struct window *w)
 {
+  /* The window instance cache is going away now, so need to get the
+     cachels reset by redisplay. */
+  MARK_FRAME_SUBWINDOWS_CHANGED (XFRAME (WINDOW_FRAME (w)));
+
+  /* The cache is going away. If we leave unmapping to
+     reset_subwindow_cachels then we get in a situation where the
+     domain (the window) has been deleted but we still need access to
+     its attributes in order to unmap windows properly. Since the
+     subwindows are going to get GC'd anyway as a result of the domain
+     going away, it is safer to just unmap them all while we know the
+     domain is still valid. */
+  ERROR_CHECK_SUBWINDOW_CACHE (w);
+  window_unmap_subwindows (w);
+
   /* In the loop
      (while t (split-window) (delete-window))
      we end up with a tree of deleted windows which are all connected
@@ -1885,13 +1927,13 @@ mark_window_as_deleted (struct window *w)
      Since the window-configuration code doesn't need any of the
      pointers to other windows (they are all recreated from the
      window-config data), we set them all to nil so that we
-     are able to collect more actual garbage.
-   */
+     are able to collect more actual garbage. */
   w->next = Qnil;
   w->prev = Qnil;
   w->hchild = Qnil;
   w->vchild = Qnil;
   w->parent = Qnil;
+  w->subwindow_instance_cache = Qnil;
 
   w->dead = 1;
 
@@ -1928,6 +1970,7 @@ will automatically call `save-buffers-kill-emacs'.)
     window = Fselected_window (Qnil);
   else
     CHECK_WINDOW (window);
+
   w = XWINDOW (window);
 
   /* It's okay to delete an already-deleted window.  */
@@ -3475,9 +3518,9 @@ make_dummy_parent (Lisp_Object window)
   p->face_cachels     = Dynarr_new (face_cachel);
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->subwindow_instance_cache = 
-    make_lisp_hash_table (10,
+    make_lisp_hash_table (30,
 			  HASH_TABLE_KEY_WEAK,
-			  HASH_TABLE_EQ);
+			  HASH_TABLE_EQUAL);
 
   /* Put new into window structure in place of window */
   replace_window (window, new);
@@ -5173,6 +5216,11 @@ by `current-window-configuration' (which see).
 
       mark_windows_in_use (f, 1);
 
+      /* Force subwindows to be reinstantiated. They are all going
+         anyway and if we don't do this GC may not happen between now
+         and the next time we check their integrity. */
+      reset_frame_subwindow_instance_cache (f);
+
 #if 0
       /* JV: This is bogus,
 	 First of all, the units are inconsistent. The frame sizes are measured
@@ -5315,6 +5363,14 @@ by `current-window-configuration' (which see).
 	  w->hscroll = p->hscroll;
 	  w->modeline_hscroll = p->modeline_hscroll;
 	  w->line_cache_last_updated = Qzero;
+	  /* The subwindow instance cache isn't preserved across
+	     window configurations, and in fact doing so would be
+	     wrong. We just reset to zero and then redisplay will fill
+	     it up as needed. */
+	  w->subwindow_instance_cache =
+	    make_lisp_hash_table (30,
+				  HASH_TABLE_KEY_WEAK,
+				  HASH_TABLE_EQUAL);
 	  SET_LAST_MODIFIED (w, 1);
 	  SET_LAST_FACECHANGE (w);
 	  w->config_mark = 0;

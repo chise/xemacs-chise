@@ -30,6 +30,92 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Change Logs and VC,  Next: Old Versions,  Prev: Log Entries,  Up: Version Control
+
+Change Logs and VC
+------------------
+
+   If you use RCS for a program and also maintain a change log file for
+it (*note Change Log::), you can generate change log entries
+automatically from the version control log entries:
+
+`C-x v a'
+     Visit the current directory's change log file and create new
+     entries for versions checked in since the most recent entry in the
+     change log file (`vc-update-change-log').
+
+     This command works with RCS only; it does not work with SCCS.
+
+   For example, suppose the first line of `ChangeLog' is dated 10 April
+1992, and that the only check-in since then was by Nathaniel Bowditch
+to `rcs2log' on 8 May 1992 with log text `Ignore log messages that
+start with `#'.'.  Then `C-x v a' visits `ChangeLog' and inserts text
+like this:
+
+     Fri May  8 21:45:00 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * rcs2log: Ignore log messages that start with `#'.
+
+You can then edit the new change log entry further as you wish.
+
+   Normally, the log entry for file `foo' is displayed as `* foo: TEXT
+OF LOG ENTRY'.  The `:' after `foo' is omitted if the text of the log
+entry starts with `(FUNCTIONNAME): '.  For example, if the log entry
+for `vc.el' is `(vc-do-command): Check call-process status.', then the
+text in `ChangeLog' looks like this:
+
+     Wed May  6 10:53:00 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.el (vc-do-command): Check call-process status.
+
+   When `C-x v a' adds several change log entries at once, it groups
+related log entries together if they all are checked in by the same
+author at nearly the same time.  If the log entries for several such
+files all have the same text, it coalesces them into a single entry.
+For example, suppose the most recent checkins have the following log
+entries:
+
+For `vc.texinfo':
+     Fix expansion typos.
+For `vc.el':
+     Don't call expand-file-name.
+For `vc-hooks.el':
+     Don't call expand-file-name.
+
+   They appear like this in `ChangeLog':
+
+     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.texinfo: Fix expansion typos.
+     
+             * vc.el, vc-hooks.el: Don't call expand-file-name.
+
+   Normally, `C-x v a' separates log entries by a blank line, but you
+can mark several related log entries to be clumped together (without an
+intervening blank line) by starting the text of each related log entry
+with a label of the form `{CLUMPNAME} '.  The label itself is not
+copied to `ChangeLog'.  For example, suppose the log entries are:
+
+For `vc.texinfo':
+     {expand} Fix expansion typos.
+For `vc.el':
+     {expand} Don't call expand-file-name.
+For `vc-hooks.el':
+     {expand} Don't call expand-file-name.
+
+Then the text in `ChangeLog' looks like this:
+
+     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.texinfo: Fix expansion typos.
+             * vc.el, vc-hooks.el: Don't call expand-file-name.
+
+   A log entry whose text begins with `#' is not copied to `ChangeLog'.
+For example, if you merely fix some misspellings in comments, you can
+log the change with an entry beginning with `#' to avoid putting such
+trivia into `ChangeLog'.
+
+
 File: xemacs.info,  Node: Old Versions,  Next: VC Status,  Prev: Change Logs and VC,  Up: Version Control
 
 Examining And Comparing Old Versions
@@ -1100,104 +1186,4 @@ arguments, the buffer and a flag that if non-`nil' means that the
 currently selected window is not acceptable. Commands such as
 `switch-to-buffer-other-window' and `find-file-other-window' work using
 this function.
-
-
-File: xemacs.info,  Node: Change Window,  Prev: Pop Up Window,  Up: Windows
-
-Deleting and Rearranging Windows
-================================
-
-`C-x 0'
-     Get rid of the selected window (`delete-window').  That is a zero.
-     If there is more than one Emacs frame, deleting the sole remaining
-     window on that frame deletes the frame as well. If the current
-     frame is the only frame, it is not deleted.
-
-`C-x 1'
-     Get rid of all windows except the selected one
-     (`delete-other-windows').
-
-`C-x ^'
-     Make the selected window taller, at the expense of the other(s)
-     (`enlarge-window').
-
-`C-x }'
-     Make the selected window wider (`enlarge-window-horizontally').
-
-   To delete a window, type `C-x 0' (`delete-window').  (That is a
-zero.)  The space occupied by the deleted window is distributed among
-the other active windows (but not the minibuffer window, even if that
-is active at the time).  Once a window is deleted, its attributes are
-forgotten; there is no automatic way to make another window of the same
-shape or showing the same buffer.  The buffer continues to exist, and
-you can select it in any window with `C-x b'.
-
-   `C-x 1' (`delete-other-windows') is more powerful than `C-x 0'; it
-deletes all the windows except the selected one (and the minibuffer).
-The selected window expands to use the whole frame except for the echo
-area.
-
-   To readjust the division of space among existing windows, use `C-x
-^' (`enlarge-window').  It makes the currently selected window longer
-by one line or as many lines as a numeric argument specifies.  With a
-negative argument, it makes the selected window smaller.  `C-x }'
-(`enlarge-window-horizontally') makes the selected window wider by the
-specified number of columns.  The extra screen space given to a window
-comes from one of its neighbors, if that is possible; otherwise, all
-the competing windows are shrunk in the same proportion.  If this makes
-some windows too small, those windows are deleted and their space is
-divided up.   Minimum window size is specified by the variables
-`window-min-height' and `window-min-width'.
-
-   You can also resize windows within a frame by clicking the left mouse
-button on a modeline, and dragging.
-
-   Clicking the right button on a mode line pops up a menu of common
-window manager operations.  This menu contains the following options:
-
-Delete Window
-     Remove the window above this modeline from the frame.
-
-Delete Other Windows
-     Delete all windows on the frame except for the one above this
-     modeline.
-
-Split Window
-     Split the window above the mode line in half, creating another
-     window.
-
-Split Window Horizontally
-     Split the window above the mode line in half horizontally, so that
-     there will be two windows side-by-side.
-
-Balance Windows
-     Readjust the sizes of all windows on the frame until all windows
-     have roughly the same number of lines.
-
-
-File: xemacs.info,  Node: Mule,  Next: Major Modes,  Prev: Windows,  Up: Top
-
-World Scripts Support
-*********************
-
-   If you compile XEmacs with mule option, it supports a wide variety of
-world scripts, including Latin script, as well as Arabic script,
-Simplified Chinese script (for mainland of China), Traditional Chinese
-script (for Taiwan and Hong-Kong), Greek script, Hebrew script, IPA
-symbols, Japanese scripts (Hiragana, Katakana and Kanji), Korean scripts
-(Hangul and Hanja) and Cyrillic script (for Beylorussian, Bulgarian,
-Russian, Serbian and Ukrainian).  These features have been merged from
-the modified version of Emacs known as MULE (for "MULti-lingual
-Enhancement to GNU Emacs").
-
-* Menu:
-
-* Mule Intro::              Basic concepts of Mule.
-* Language Environments::   Setting things up for the language you use.
-* Input Methods::           Entering text characters not on your keyboard.
-* Select Input Method::     Specifying your choice of input methods.
-* Coding Systems::          Character set conversion when you read and
-                              write files, and so on.
-* Recognize Coding::        How XEmacs figures out which conversion to use.
-* Specify Coding::          Various ways to choose which conversion to use.
 

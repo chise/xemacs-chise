@@ -30,6 +30,65 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Kbd Macro Query,  Prev: Save Kbd Macro,  Up: Keyboard Macros
+
+Executing Macros With Variations
+--------------------------------
+
+   You can use `C-x q' (`kbd-macro-query'), to get an effect similar to
+that of `query-replace'.  The macro asks you  each time whether to make
+a change.  When you are defining the macro, type `C-x q' at the point
+where you want the query to occur.  During macro definition, the `C-x
+q' does nothing, but when you invoke the macro, `C-x q' reads a
+character from the terminal to decide whether to continue.
+
+   The special answers to a `C-x q' query are <SPC>, <DEL>, `C-d',
+`C-l', and `C-r'.  Any other character terminates execution of the
+keyboard macro and is then read as a command.  <SPC> means to continue.
+<DEL> means to skip the remainder of this repetition of the macro,
+starting again from the beginning in the next repetition.  `C-d' means
+to skip the remainder of this repetition and cancel further repetition.
+`C-l' redraws the frame and asks you again for a character to specify
+what to do.  `C-r' enters a recursive editing level, in which you can
+perform editing that is not part of the macro.  When you exit the
+recursive edit using `C-M-c', you are asked again how to continue with
+the keyboard macro.  If you type a <SPC> at this time, the rest of the
+macro definition is executed.  It is up to you to leave point and the
+text in a state such that the rest of the macro will do what you want.
+
+   `C-u C-x q', which is `C-x q' with a numeric argument, performs a
+different function.  It enters a recursive edit reading input from the
+keyboard, both when you type it during the definition of the macro and
+when it is executed from the macro.  During definition, the editing you
+do inside the recursive edit does not become part of the macro.  During
+macro execution, the recursive edit gives you a chance to do some
+particularized editing.  *Note Recursive Edit::.
+
+
+File: xemacs.info,  Node: Key Bindings,  Next: Syntax,  Prev: Keyboard Macros,  Up: Customization
+
+Customizing Key Bindings
+========================
+
+   This section deals with the "keymaps" that define the bindings
+between keys and functions, and shows how you can customize these
+bindings.
+
+   A command is a Lisp function whose definition provides for
+interactive use.  Like every Lisp function, a command has a function
+name, which is a Lisp symbol whose name usually consists of lower case
+letters and hyphens.
+
+* Menu:
+
+* Keymaps::    Definition of the keymap data structure.
+               Names of Emacs's standard keymaps.
+* Rebinding::  How to redefine one key's meaning conveniently.
+* Disabling::  Disabling a command means confirmation is required
+                before it can be executed.  This is done to protect
+                beginners from surprises.
+
+
 File: xemacs.info,  Node: Keymaps,  Next: Rebinding,  Up: Key Bindings
 
 Keymaps
@@ -1134,149 +1193,4 @@ iconic flag of the ApplicationShell (`Emacs.iconic') and always applies
 to the first frame created regardless of its name.  However, it is
 possible to set the iconic flag on particular frames (by name) by using
 the `Emacs*FRAME-NAME.iconic' resource.
-
-
-File: xemacs.info,  Node: Resource List,  Next: Face Resources,  Prev: Iconic Resources,  Up: X Resources
-
-Resource List
--------------
-
-   Emacs frames accept the following resources:
-
-`geometry' (class `Geometry'): string
-     Initial geometry for the frame.  *Note Geometry Resources::, for a
-     complete discussion of how this works.
-
-`iconic' (class `Iconic'): boolean
-     Whether this frame should appear in the iconified state.
-
-`internalBorderWidth' (class `InternalBorderWidth'): int
-     How many blank pixels to leave between the text and the edge of the
-     window.
-
-`interline' (class `Interline'): int
-     How many pixels to leave between each line (may not be
-     implemented).
-
-`menubar' (class `Menubar'): boolean
-     Whether newly-created frames should initially have a menubar.  Set
-     to true by default.
-
-`initiallyUnmapped' (class `InitiallyUnmapped'): boolean
-     Whether XEmacs should leave the initial frame unmapped when it
-     starts up.  This is useful if you are starting XEmacs as a server
-     (e.g. in conjunction with gnuserv or the external client widget).
-     You can also control this with the `-unmapped' command-line option.
-
-`barCursor' (class `BarColor'): boolean
-     Whether the cursor should be displayed as a bar, or the
-     traditional box.
-
-`cursorColor' (class `CursorColor'): color-name
-     The color of the text cursor.
-
-`scrollBarWidth' (class `ScrollBarWidth'): integer
-     How wide the vertical scrollbars should be, in pixels; 0 means no
-     vertical scrollbars.  You can also use a resource specification of
-     the form `*scrollbar.width', or the usual toolkit scrollbar
-     resources: `*XmScrollBar.width' (Motif), `*XlwScrollBar.width'
-     (Lucid), or `*Scrollbar.thickness' (Athena).  We don't recommend
-     that you use the toolkit resources, though, because they're
-     dependent on how exactly your particular build of XEmacs was
-     configured.
-
-`scrollBarHeight' (class `ScrollBarHeight'): integer
-     How high the horizontal scrollbars should be, in pixels; 0 means no
-     horizontal scrollbars.  You can also use a resource specification
-     of the form `*scrollbar.height', or the usual toolkit scrollbar
-     resources: `*XmScrollBar.height' (Motif), `*XlwScrollBar.height'
-     (Lucid), or `*Scrollbar.thickness' (Athena).  We don't recommend
-     that you use the toolkit resources, though, because they're
-     dependent on how exactly your particular build of XEmacs was
-     configured.
-
-`scrollBarPlacement' (class `ScrollBarPlacement'): string
-     Where the horizontal and vertical scrollbars should be positioned.
-     This should be one of the four strings `BOTTOM_LEFT',
-     `BOTTOM_RIGHT', `TOP_LEFT', and `TOP_RIGHT'.  Default is
-     `BOTTOM_RIGHT' for the Motif and Lucid scrollbars and
-     `BOTTOM_LEFT' for the Athena scrollbars.
-
-`topToolBarHeight' (class `TopToolBarHeight'): integer
-`bottomToolBarHeight' (class `BottomToolBarHeight'): integer
-`leftToolBarWidth' (class `LeftToolBarWidth'): integer
-`rightToolBarWidth' (class `RightToolBarWidth'): integer
-     Height and width of the four possible toolbars.
-
-`topToolBarShadowColor' (class `TopToolBarShadowColor'): color-name
-`bottomToolBarShadowColor' (class `BottomToolBarShadowColor'): color-name
-     Color of the top and bottom shadows for the toolbars.  NOTE: These
-     resources do _not_ have anything to do with the top and bottom
-     toolbars (i.e. the toolbars at the top and bottom of the frame)!
-     Rather, they affect the top and bottom shadows around the edges of
-     all four kinds of toolbars.
-
-`topToolBarShadowPixmap' (class `TopToolBarShadowPixmap'): pixmap-name
-`bottomToolBarShadowPixmap' (class `BottomToolBarShadowPixmap'): pixmap-name
-     Pixmap of the top and bottom shadows for the toolbars.  If set,
-     these resources override the corresponding color resources. NOTE:
-     These resources do _not_ have anything to do with the top and
-     bottom toolbars (i.e. the toolbars at the top and bottom of the
-     frame)!  Rather, they affect the top and bottom shadows around the
-     edges of all four kinds of toolbars.
-
-`toolBarShadowThickness' (class `ToolBarShadowThickness'): integer
-     Thickness of the shadows around the toolbars, in pixels.
-
-`visualBell' (class `VisualBell'): boolean
-     Whether XEmacs should flash the screen rather than making an
-     audible beep.
-
-`bellVolume' (class `BellVolume'): integer
-     Volume of the audible beep.
-
-`useBackingStore' (class `UseBackingStore'): boolean
-     Whether XEmacs should set the backing-store attribute of the X
-     windows it creates.  This increases the memory usage of the X
-     server but decreases the amount of X traffic necessary to update
-     the screen, and is useful when the connection to the X server goes
-     over a low-bandwidth line such as a modem connection.
-
-   Emacs devices accept the following resources:
-
-`textPointer' (class `Cursor'): cursor-name
-     The cursor to use when the mouse is over text.  This resource is
-     used to initialize the variable `x-pointer-shape'.
-
-`selectionPointer' (class `Cursor'): cursor-name
-     The cursor to use when the mouse is over a selectable text region
-     (an extent with the `highlight' property; for example, an Info
-     cross-reference).  This resource is used to initialize the variable
-     `x-selection-pointer-shape'.
-
-`spacePointer' (class `Cursor'): cursor-name
-     The cursor to use when the mouse is over a blank space in a buffer
-     (that is, after the end of a line or after the end-of-file).  This
-     resource is used to initialize the variable
-     `x-nontext-pointer-shape'.
-
-`modeLinePointer' (class `Cursor'): cursor-name
-     The cursor to use when the mouse is over a modeline.  This
-     resource is used to initialize the variable `x-mode-pointer-shape'.
-
-`gcPointer' (class `Cursor'): cursor-name
-     The cursor to display when a garbage-collection is in progress.
-     This resource is used to initialize the variable
-     `x-gc-pointer-shape'.
-
-`scrollbarPointer' (class `Cursor'): cursor-name
-     The cursor to use when the mouse is over the scrollbar.  This
-     resource is used to initialize the variable
-     `x-scrollbar-pointer-shape'.
-
-`pointerColor' (class `Foreground'): color-name
-`pointerBackground' (class `Background'): color-name
-     The foreground and background colors of the mouse cursor.  These
-     resources are used to initialize the variables
-     `x-pointer-foreground-color' and `x-pointer-background-color'.
 

@@ -659,7 +659,7 @@ around the `require' calls (*note Eval During Compile::).
      file that gets the error will not, of course, produce any compiled
      code.)
 
-          % emacs -batch -f batch-byte-compile *.el
+          % xemacs -batch -f batch-byte-compile *.el
 
  - Function: batch-byte-recompile-directory
      This function is similar to `batch-byte-compile' but runs the

@@ -267,7 +267,7 @@ Ctrl<KeyPress>m: ArmAndActivate()\n
 ! Native Widget translations
 ! ======================= 
 Emacs*Text*translations: #override\n\
-	<Btn1Down>:	widget-focus-in()\n
+	<Btn1Down>:	widget-focus-in() select-start()\n
 
 ! XIM input method style 
 ! ======================= 

@@ -1886,6 +1886,199 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-20  Karl M. Hegbloom  <karlheg@bittersweet.inetarena.com>
+
+	* font-lock.el (font-lock-keywords): Rewrote docstring
+
+2000-05-22  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* loadhist.el (unload-feature): handle case where x is both boundp
+	and fboundp
+
+2000-05-22  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* packages.el: It's ok to use built-in macros, but not lisp
+	defined ones.
+
+2000-05-20  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el:
+	* font-lock.el (font-lock-message-threshold):
+	* font-lock.el (font-lock-mode):
+	* font-lock.el (font-lock-default-fontify-buffer):
+	* font-lock.el (font-lock-always-fontify-immediately):
+	* font-lock.el (font-lock-old-extent): Removed.
+	* font-lock.el (font-lock-old-len): Removed.
+	* font-lock.el (font-lock-fontify-glumped-region): Removed.
+	* font-lock.el (font-lock-pending-extent-table): New.
+	* font-lock.el (font-lock-range-table): New.
+	* font-lock.el (font-lock-after-change-function):
+	* font-lock.el (font-lock-after-change-function-1): Removed.
+	* font-lock.el (font-lock-fontify-pending-extents): New.
+	* font-lock.el ('font-lock-revert-cleanup): Removed.
+	* font-lock.el ('font-lock-revert-setup): Removed.
+	Rewrite deferral code to handle any number of changes, merging
+	them properly.  Remove hacked-up code for revert-buffer, now
+	unnecessary.
+	
+	* menubar-items.el (default-menubar):
+	In Options->Edit Init File, don't switch to emacs-lisp-mode
+	unless necessary; doing this turns off font-lock.
+
+2000-05-15  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* keydefs.el: Define C-x BS to backward-kill-sentence.
+
+2000-05-15  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* files.el (hack-local-variables-prop-line): Use non-greedy
+	matching to process -*-texinfo-*- -*-.
+
+2000-05-11  Jonathan Marten <jonathan.marten@uk.sun.com>
+
+	* minibuf.el (minibuf-directory-files): new function.
+	(read-file-name-activate-callback): use minibuf-directory-files.
+	(read-directory-name-internal): ditto.
+	(mouse-file-display-completion-list): ditto.
+	(mouse-directory-display-completion-list): ditto.
+	(read-file-name-internal): remove "./" from completion list unless
+	explicitly matched, for consistency.
+
+2000-05-11  Ben Wing  <ben@xemacs.org>
+
+	* gutter-items.el (gutter-buffers-tab):
+	* gutter-items.el (add-tab-to-gutter):
+	* gutter-items.el (update-tab-in-gutter):
+	* gutter-items.el (remove-buffer-from-gutter-tab): Removed.
+	* gutter-items.el (append-progress-display):
+	* gutter-items.el (abort-progress-display):
+	* gutter-items.el (raw-append-progress-display):
+	Further fixes.  Use set-glyph-image not set-image-instance-property,
+	to fix problems with multiple windows in a frame.
+	
+	* menubar-items.el (tutorials-menu-filter):
+	Fix typo.
+	
+	* startup.el (early-error-handler):
+	Display message box under windows; otherwise, message will disappear
+	before it can be viewed.
+	
+	* update-elc.el:
+	Fix bug in NEEDTODUMP processing.
+
+2000-05-08  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* startup.el (lock-directory): Removed.
+	(superlock-file): Ditto.
+	(startup-set-paths): Remove lockdir.
+	(startup-setup-paths-warning): Remove lock-directory.
+
+	* setup-paths.el (paths-find-lock-directory): Removed.
+	(paths-find-superlock-file): Ditto.
+
+2000-05-09  Ben Wing  <ben@xemacs.org>
+
+	* faces.el (set-face-property):
+	* faces.el (set-face-font):
+	* faces.el (set-face-foreground):
+	* faces.el (set-face-background):
+	* faces.el (set-face-background-pixmap):
+	* faces.el (set-face-underline-p):
+	* faces.el (set-face-strikethru-p):
+	* faces.el (set-face-highlight-p):
+	* faces.el (set-face-dim-p):
+	* faces.el (set-face-blinking-p):
+	* faces.el (set-face-reverse-p):
+	doc string changes.
+	
+	* glyphs.el:
+	* glyphs.el (make-image-specifier):
+	* glyphs.el (glyph-property):
+	* glyphs.el (set-glyph-image):
+	* glyphs.el (make-glyph):
+	* glyphs.el (make-pointer-glyph):
+	* glyphs.el (make-icon-glyph):
+	* glyphs.el (widget-image-instance-p): New.
+	authorship info, lots of doc changes.  New predicate, inadvertently
+	omitted.  the general principle with specifier docs is now that
+	the description of instantiators should go with the make-foo-specifier
+	fun's doc string, rather than in foo-specifier-p.  this follows
+	conventions elsewhere in XEmacs and in general is a lot more obvious
+	of a place to look.  sometimes the make-foo-specifier function needs
+	to be created in the process.
+	
+	* gutter.el:
+	* gutter.el (make-gutter-specifier): New.
+	* gutter.el (make-gutter-size-specifier): New.
+	* gutter.el (make-gutter-visible-specifier): New.
+	specifier doc updates according to the conventions specified before.
+
+	* objects.el:
+	* objects.el (make-font-specifier):
+	* objects.el (make-color-specifier):
+	* objects.el (make-face-boolean-specifier): New.
+	specifier doc updates according to the conventions specified before.
+
+	* specifier.el:
+	* specifier.el (set-specifier):
+	* specifier.el (make-integer-specifier): New.
+	* specifier.el (make-boolean-specifier): New.
+	* specifier.el (make-natnum-specifier): New.
+	* specifier.el (make-generic-specifier): New.
+	* specifier.el (make-display-table-specifier): New.
+	specifier doc updates according to the conventions specified before.
+
+	* toolbar.el:
+	* toolbar.el (make-toolbar-specifier): New.
+	specifier doc updates according to the conventions specified before.
+
+2000-05-09  Ben Wing  <ben@xemacs.org>
+
+	* process.el (call-process-internal): Revert to previous version
+	because Mike's change clashed with a change I did not long before.
+	Changed progn to prog1 to fix the bug pointed out by Mike Alexander.
+	Thanks very much Mike for pointing out the bug and submitting a
+	patch!
+
+2000-04-13  Mike Alexander  <mta@arbortext.com>
+
+	* process.el (call-process-internal): Send the correct input buffer
+	(call-process-internal): Return the exit status of the process
+
+2000-05-07  Ben Wing  <ben@xemacs.org>
+
+	* winnt.el:
+	* winnt.el (nt-quote-args-verbatim): Removed.
+	* winnt.el (nt-quote-args-prefix-quote): Removed.
+	* winnt.el (nt-quote-args-backslash-quote): Removed.
+	* winnt.el (nt-quote-args-double-quote): Removed.
+	* winnt.el (nt-quote-args-functions-alist): Removed.
+	* winnt.el (nt-quote-process-args): Removed.
+	Remove all stuff for argument quoting.  We borrow the code instead
+	from Emacs 20.6, which is much more careful in its quoting
+	(e.g. in handling runs of the escape character) and avoids most of
+	the need for this Lisp mechanism by checking to see whether we're
+	running a Cygwin or normal program and doing the appropriate
+	quoting.  If we end up needing such a mechanism, we should add
+	it by extending the variable `mswindows-quote-process-args' so it
+	can take an alist of regexps.
+
+2000-05-07  Ben Wing  <ben@xemacs.org>
+
+	* keydefs.el:
+	Restore M-up, M-down to 21.1 state.  Put *ward-sentence on
+	C-M-left, C-M-right instead.  Define C-M-up, C-M-down to scroll
+	the window without moving point.
+	
+	* simple.el:
+	* simple.el (scroll-up-one): New.
+	* simple.el (scroll-down-one): New.
+	Functions for use with C-M-up/down.
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

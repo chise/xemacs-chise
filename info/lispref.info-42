@@ -50,6 +50,587 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: LDAP Variables,  Next: The High-Level LDAP API,  Prev: XEmacs LDAP API,  Up: XEmacs LDAP API
+
+LDAP Variables
+--------------
+
+ - Variable: ldap-default-host
+     The default LDAP server hostname.  A TCP port number can be
+     appended to that name using a colon as a separator.
+
+ - Variable: ldap-default-port
+     Default TCP port for LDAP connections.  Initialized from the LDAP
+     library. Default value is 389.
+
+ - Variable: ldap-default-base
+     Default base for LDAP searches.  This is a string using the syntax
+     of RFC 1779.  For instance, "o=ACME, c=US" limits the search to the
+     Acme organization in the United States.
+
+ - Variable: ldap-host-parameters-alist
+     An alist of per host options for LDAP transactions.  The list
+     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)' HOST is the
+     name of an LDAP server. A TCP port number can be appended to that
+     name using a colon as a separator.  PROPN and VALN are
+     property/value pairs describing parameters for the server.  Valid
+     properties:
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `cn=Babs Jensen,o=ACME,c=US', see RFC 1779 for details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `base'
+          The base for the search. This may look like `cÿ, o¬me', see
+          RFC 1779 for syntax details.
+
+    `scope'
+          One of the symbols `base', `onelevel' or `subtree' indicating
+          the scope of the search limited to a base object, to a single
+          level or to the whole subtree.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ - Variable: ldap-verbose
+     If non-`nil', LDAP operations will echo progress messages.
+     Defaults to `nil'.
+
+
+File: lispref.info,  Node: The High-Level LDAP API,  Next: The Low-Level LDAP API,  Prev: LDAP Variables,  Up: XEmacs LDAP API
+
+The High-Level LDAP API
+-----------------------
+
+   The following functions provide the most convenient interface to
+perform LDAP operations.  All of them open a connection to a host,
+perform an operation (add/search/modify/delete) on one or several
+entries and cleanly close the connection thus insulating the user from
+all the details of the low-level interface such as LDAP Lisp objects
+*note The Low-Level LDAP API::.
+
+   Note that `ldap-search' which used to be the name of the high-level
+search function in XEmacs 21.1 is now obsolete.  For consistency  in the
+naming as well as backward compatibility, that function now acts as a
+wrapper that calls either `ldap-search-basic' (low-level search
+function) or `ldap-search-entries' (high-level search function)
+according to the actual parameters.  A direct call to one of these two
+functions is preferred since it is faster and unambiguous.
+
+ - Function: ldap-search-entries filter &optional host attributes
+          attrsonly withdn
+     Perform an LDAP search.  FILTER is the search filter *note Syntax
+     of Search Filters:: HOST is the LDAP host on which to perform the
+     search.  ATTRIBUTES is the specific attributes to retrieve, `nil'
+     means retrieve all.  ATTRSONLY if non-`nil' retrieves the
+     attributes only without their associated values.  If WITHDN is
+     non-`nil' each entry in the result will be prepended with its
+     distinguished name DN.  Additional search parameters can be
+     specified through `ldap-host-parameters-alist'.  The function
+     returns a list of matching entries.  Each entry is itself an alist
+     of attribute/value pairs optionally preceded by the DN of the
+     entry according to the value of WITHDN.
+
+ - Function: ldap-add-entries entries &optional host binddn passwd
+     Add entries to an LDAP directory.  ENTRIES is a list of entry
+     specifications of the form `(DN (ATTR . VALUE) (ATTR . VALUE) ...)'
+     where DN the distinguished name of an entry to add, the following
+     are cons cells containing attribute/value string pairs.  HOST is
+     the LDAP host, defaulting to `ldap-default-host' BINDDN is the DN
+     to bind as to the server PASSWD is the corresponding password.
+
+ - Function: ldap-modify-entries entry-mods &optional host binddn passwd
+     Modify entries of an LDAP directory.  ENTRY_MODS is a list of
+     entry modifications of the form `(DN MOD-SPEC1 MOD-SPEC2 ...)'
+     where DN is the distinguished name of the entry to modify, the
+     following are modification specifications.  A modification
+     specification is itself a list of the form `(MOD-OP ATTR VALUE1
+     VALUE2 ...)' MOD-OP and ATTR are mandatory, VALUES are optional
+     depending on MOD-OP.  MOD-OP is the type of modification, one of
+     the symbols `add', `delete' or `replace'. ATTR is the LDAP
+     attribute type to modify.  HOST is the LDAP host, defaulting to
+     `ldap-default-host' BINDDN is the DN to bind as to the server
+     PASSWD is the corresponding password"
+
+ - Function: ldap-delete-entries dn &optional host binddn passwd
+     Delete an entry from an LDAP directory.  DN is the distinguished
+     name of an entry to delete or a list of those.  HOST is the LDAP
+     host, defaulting to `ldap-default-host' BINDDN is the DN to bind
+     as to the server PASSWD is the corresponding password.
+
+
+File: lispref.info,  Node: The Low-Level LDAP API,  Next: LDAP Internationalization,  Prev: The High-Level LDAP API,  Up: XEmacs LDAP API
+
+The Low-Level LDAP API
+----------------------
+
+   The low-level API should be used directly for very specific purposes
+(such as multiple operations on a connection) only.  The higher-level
+functions provide a more convenient way to access LDAP directories
+hiding the subtleties of handling the connection, translating arguments
+and ensuring compliance with LDAP internationalization rules and formats
+(currently partly implemented only). See *note The High-Level LDAP API::
+
+   Note that the former functions `ldap-*-internal' functions have been
+renamed in XEmacs 21.2
+
+* Menu:
+
+* The LDAP Lisp Object::
+* Opening and Closing a LDAP Connection::
+* Low-level Operations on a LDAP Server::
+
+
+File: lispref.info,  Node: The LDAP Lisp Object,  Next: Opening and Closing a LDAP Connection,  Prev: The Low-Level LDAP API,  Up: The Low-Level LDAP API
+
+The LDAP Lisp Object
+....................
+
+   An internal built-in `ldap' lisp object represents a LDAP connection.
+
+ - Function: ldapp object
+     This function returns non-`nil' if OBJECT is a `ldap' object.
+
+ - Function: ldap-host ldap
+     Return the server host of the connection represented by LDAP
+
+ - Function: ldap-live-p ldap
+     Return non-`nil' if LDAP is an active LDAP connection
+
+
+File: lispref.info,  Node: Opening and Closing a LDAP Connection,  Next: Low-level Operations on a LDAP Server,  Prev: The LDAP Lisp Object,  Up: The Low-Level LDAP API
+
+Opening and Closing a LDAP Connection
+.....................................
+
+ - Function: ldap-open host &optional plist
+     Open a LDAP connection to HOST.  PLIST is a property list
+     containing additional parameters for the connection.  Valid keys
+     in that list are:
+    `port'
+          The TCP port to use for the connection if different from
+          `ldap-default-port' or the library builtin value
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `c=com, o=Acme, cn=Babs Jensen', see RFC 1779 for
+          details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search The default is `never'.
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ - Function: ldap-close ldap
+     Close the connection represented by LDAP
+
+
+File: lispref.info,  Node: Low-level Operations on a LDAP Server,  Prev: Opening and Closing a LDAP Connection,  Up: The Low-Level LDAP API
+
+Low-level Operations on a LDAP Server
+.....................................
+
+   `ldap-search-basic' is the low-level primitive to perform a search
+on a LDAP server.  It works directly on an open LDAP connection thus
+requiring a preliminary call to `ldap-open'.  Multiple searches can be
+made on the same connection, then the session must be closed with
+`ldap-close'.
+
+ - Function: ldap-search-basic ldap filter base scope attrs attrsonly
+     Perform a search on an open connection LDAP created with
+     `ldap-open'.  FILTER is a filter string for the search *note
+     Syntax of Search Filters:: BASE is the distinguished name at which
+     to start the search.  SCOPE is one of the symbols `base',
+     `onelevel' or `subtree' indicating the scope of the search limited
+     to a base object, to a single level or to the whole subtree.  The
+     default is `subtree'.  `attrs' is a list of strings indicating
+     which attributes to retrieve for each matching entry. If `nil' all
+     available attributes are returned.  If `attrsonly' is non-`nil'
+     then only the attributes are retrieved, not their associated values
+     If `withdn' is non-`nil' then each entry in the result is
+     prepended with its distinguished name DN If `verbose' is non-`nil'
+     then progress messages are echoed The function returns a list of
+     matching entries.  Each entry  is itself an alist of
+     attribute/value pairs optionally preceded by the DN of the entry
+     according to the value of `withdn'.
+
+ - Function: ldap-add ldap dn entry
+     Add ENTRY to a LDAP directory which a connection LDAP has been
+     opened to with `ldap-open'.  DN is the distinguished name of the
+     entry to add.  ENTRY is an entry specification, i.e., a list of
+     cons cells containing attribute/value string pairs.
+
+ - Function: ldap-modify ldap dn mods
+     Modify an entry in an LDAP directory.  LDAP is an LDAP connection
+     object created with `ldap-open'.  DN is the distinguished name of
+     the entry to modify.  MODS is a list of modifications to apply.  A
+     modification is a list of the form `(MOD-OP ATTR VALUE1 VALUE2
+     ...)'  MOD-OP and ATTR are mandatory, VALUES are optional
+     depending on MOD-OP.  MOD-OP is the type of modification, one of
+     the symbols `add', `delete' or `replace'. ATTR is the LDAP
+     attribute type to modify
+
+ - Function: ldap-delete ldap dn
+     Delete an entry to an LDAP directory.  LDAP is an LDAP connection
+     object created with `ldap-open'.  DN is the distinguished name of
+     the entry to delete
+
+
+File: lispref.info,  Node: LDAP Internationalization,  Prev: The Low-Level LDAP API,  Up: XEmacs LDAP API
+
+LDAP Internationalization
+-------------------------
+
+   The XEmacs LDAP API provides basic internationalization features
+based on the LDAP v3 specification (essentially RFC2252 on "LDAP v3
+Attribute Syntax Definitions").  Unfortunately since there is currently
+no free LDAP v3 server software, this part has not received much
+testing and should be considered experimental.  The framework is in
+place though.
+
+ - Function: ldap-decode-attribute attr
+     Decode the attribute/value pair ATTR according to LDAP rules.  The
+     attribute name is looked up in `ldap-attribute-syntaxes-alist' and
+     the corresponding decoder is then retrieved from
+     `ldap-attribute-syntax-decoders'' and applied on the value(s).
+
+* Menu:
+
+* LDAP Internationalization Variables::
+* Encoder/Decoder Functions::
+
+
+File: lispref.info,  Node: LDAP Internationalization Variables,  Next: Encoder/Decoder Functions,  Prev: LDAP Internationalization,  Up: LDAP Internationalization
+
+LDAP Internationalization Variables
+...................................
+
+ - Variable: ldap-ignore-attribute-codings
+     If non-`nil', no encoding/decoding will be performed LDAP
+     attribute values
+
+ - Variable: ldap-coding-system
+     Coding system of LDAP string values.  LDAP v3 specifies the coding
+     system of strings to be UTF-8.  You need an XEmacs with Mule
+     support for this.
+
+ - Variable: ldap-default-attribute-decoder
+     Decoder function to use for attributes whose syntax is unknown.
+     Such a function receives an encoded attribute value as a string
+     and should return the decoded value as a string
+
+ - Variable: ldap-attribute-syntax-encoders
+     A vector of functions used to encode LDAP attribute values.  The
+     sequence of functions corresponds to the sequence of LDAP
+     attribute syntax object identifiers of the form
+     1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
+     As of this writing, only a few encoder functions are available.
+
+ - Variable: ldap-attribute-syntax-decoders
+     A vector of functions used to decode LDAP attribute values.  The
+     sequence of functions corresponds to the sequence of LDAP
+     attribute syntax object identifiers of the form
+     1.3.6.1.4.1.1466.1115.121.1.* as defined in RFC2252 section 4.3.2.
+     As of this writing, only a few decoder functions are available.
+
+ - Variable: ldap-attribute-syntaxes-alist
+     A map of LDAP attribute names to their type object id minor number.
+     This table is built from RFC2252 Section 5 and RFC2256 Section 5
+
+
+File: lispref.info,  Node: Encoder/Decoder Functions,  Prev: LDAP Internationalization Variables,  Up: LDAP Internationalization
+
+Encoder/Decoder Functions
+.........................
+
+ - Function: ldap-encode-boolean bool
+     A function that encodes an elisp boolean BOOL into a LDAP boolean
+     string representation
+
+ - Function: ldap-decode-boolean str
+     A function that decodes a LDAP boolean string representation STR
+     into an elisp boolean
+
+ - Function: ldap-decode-string str
+     Decode a string STR according to `ldap-coding-system'
+
+ - Function: ldap-encode-string str
+     Encode a string STR according to `ldap-coding-system'
+
+ - Function: ldap-decode-address str
+     Decode an address STR according to `ldap-coding-system' and
+     replacing $ signs with newlines as specified by LDAP encoding
+     rules for addresses
+
+ - Function: ldap-encode-address str
+     Encode an address STR according to `ldap-coding-system' and
+     replacing newlines with $ signs as specified by LDAP encoding
+     rules for addresses
+
+
+File: lispref.info,  Node: Syntax of Search Filters,  Prev: XEmacs LDAP API,  Up: LDAP Support
+
+Syntax of Search Filters
+========================
+
+   LDAP search functions use RFC1558 syntax to describe the search
+filter.  In that syntax simple filters have the form:
+
+     (<attr> <filtertype> <value>)
+
+   `<attr>' is an attribute name such as `cn' for Common Name, `o' for
+Organization, etc...
+
+   `<value>' is the corresponding value.  This is generally an exact
+string but may also contain `*' characters as wildcards
+
+   `filtertype' is one `=' `~=', `<=', `>=' which respectively describe
+equality, approximate equality, inferiority and superiority.
+
+   Thus `(cn=John Smith)' matches all records having a canonical name
+equal to John Smith.
+
+   A special case is the presence filter `(<attr>=*' which matches
+records containing a particular attribute.  For instance `(mail=*)'
+matches all records containing a `mail' attribute.
+
+   Simple filters can be connected together with the logical operators
+`&', `|' and `!' which stand for the usual and, or and not operators.
+
+   `(&(objectClass=Person)(mail=*)(|(sn=Smith)(givenname=John)))'
+matches records of class `Person' containing a `mail' attribute and
+corresponding to people whose last name is `Smith' or whose first name
+is `John'.
+
+
+File: lispref.info,  Node: PostgreSQL Support,  Next: Internationalization,  Prev: LDAP Support,  Up: Top
+
+PostgreSQL Support
+******************
+
+   XEmacs can be linked with PostgreSQL libpq run-time support to
+provide relational database access from Emacs Lisp code.
+
+* Menu:
+
+* Building XEmacs with PostgreSQL support::
+* XEmacs PostgreSQL libpq API::
+* XEmacs PostgreSQL libpq Examples::
+
+
+File: lispref.info,  Node: Building XEmacs with PostgreSQL support,  Next: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
+
+Building XEmacs with PostgreSQL support
+=======================================
+
+   XEmacs PostgreSQL support requires linking to the PostgreSQL libpq.so
+library.  Describing how to build and install PostgreSQL is beyond the
+scope of this document, see the PostgreSQL manual for details.
+
+   If you have installed XEmacs from one of the binary kits on
+(<ftp://ftp.xemacs.org/>), or are using an XEmacs binary from a CD ROM,
+you should have XEmacs PostgreSQL support by default.  If you are
+building XEmacs from source on a Linux system with PostgreSQL installed
+into the default location, it should be autodetected when you run
+configure.  If you have installed PostgreSQL into its non-Linux default
+location, `/usr/local/pgsql', you must specify
+`--site-prefixes=/usr/local/pgsql' when you run configure.  If you
+installed PostgreSQL into another location, use that instead of
+`/usr/local/pgsql' when specifying `--site-prefixes'.
+
+   As of XEmacs 21.2, PostgreSQL versions 6.5.3 and 7.0 are supported.
+XEmacs Lisp support for V7.0 is somewhat more extensive than support for
+V6.5.  In particular, asynchronous queries are supported.
+
+
+File: lispref.info,  Node: XEmacs PostgreSQL libpq API,  Next: XEmacs PostgreSQL libpq Examples,  Prev: Building XEmacs with PostgreSQL support,  Up: PostgreSQL Support
+
+XEmacs PostgreSQL libpq API
+===========================
+
+   XEmacs PostgreSQL API is intended to be a policy-free, low-level
+binding to libpq.  The intent is to provide all the basic functionality
+and then let high level Lisp code decide its own policies.
+
+   This documentation assumes that the reader has knowledge of SQL, but
+requires no prior knowledge of libpq.
+
+   There are many examples in this manual and some setup will be
+required.  In order to run most of the following examples, the
+following code needs to be executed.  In addition to the data is in
+this table, nearly all of the examples will assume that the free
+variable `P' refers to this database connection.  The examples in the
+original edition of this manual were run against Postgres 7.0beta1.
+
+     (progn
+       (setq P (pq-connectdb ""))
+       ;; id is the primary key, shikona is a Japanese word that
+       ;; means `the professional name of a Sumo wrestler', and
+       ;; rank is the Sumo rank name.
+       (pq-exec P (concat "CREATE TABLE xemacs_test"
+                          " (id int, shikona text, rank text);"))
+       (pq-exec P "COPY xemacs_test FROM stdin;")
+       (pq-put-line P "1\tMusashimaru\tYokuzuna\n")
+       (pq-put-line P "2\tDejima\tOozeki\n")
+       (pq-put-line P "3\tMusoyama\tSekiwake\n")
+       (pq-put-line P "4\tMiyabiyama\tSekiwake\n")
+       (pq-put-line P "5\tWakanoyama\tMaegashira\n")
+       (pq-put-line P "\\.\n")
+       (pq-end-copy P))
+          => nil
+
+* Menu:
+
+* libpq Lisp Variables::
+* libpq Lisp Symbols and DataTypes::
+* Synchronous Interface Functions::
+* Asynchronous Interface Functions::
+* Large Object Support::
+* Other libpq Functions::
+* Unimplemented libpq Functions::
+
+
+File: lispref.info,  Node: libpq Lisp Variables,  Next: libpq Lisp Symbols and DataTypes,  Prev: XEmacs PostgreSQL libpq API,  Up: XEmacs PostgreSQL libpq API
+
+libpq Lisp Variables
+--------------------
+
+   Various Unix environment variables are used by libpq to provide
+defaults to the many different parameters.  In the XEmacs Lisp API,
+these environment variables are bound to Lisp variables to provide more
+convenient access to Lisp Code.  These variables are passed to the
+backend database server during the establishment of a database
+connection and when the `pq-setenv' call is made.
+
+ - Variable: pg:host
+     Initialized from the PGHOST environment variable.  The default
+     host to connect to.
+
+ - Variable: pg:user
+     Initialized from the PGUSER environment variable.  The default
+     database user name.
+
+ - Variable: pg:options
+     Initialized from the PGOPTIONS environment variable.  Default
+     additional server options.
+
+ - Variable: pg:port
+     Initialized from the PGPORT environment variable.  The default TCP
+     port to connect to.
+
+ - Variable: pg:tty
+     Initialized from the PGTTY environment variable.  The default
+     debugging TTY.
+
+     Compatibility note:  Debugging TTYs are turned off in the XEmacs
+     Lisp binding.
+
+ - Variable: pg:database
+     Initialized from the PGDATABASE environment variable.  The default
+     database to connect to.
+
+ - Variable: pg:realm
+     Initialized from the PGREALM environment variable.  The default
+     Kerberos realm.
+
+ - Variable: pg:client-encoding
+     Initialized from the PGCLIENTENCODING environment variable.  The
+     default client encoding.
+
+     Compatibility note:  This variable is not present in non-Mule
+     XEmacsen.  This variable is not present in versions of libpq prior
+     to 7.0.  In the current implementation, client encoding is
+     equivalent to the `file-name-coding-system' format.
+
+ - Variable: pg:authtype
+     Initialized from the PGAUTHTYPE environment variable.  The default
+     authentication scheme used.
+
+     Compatibility note:  This variable is unused in versions of libpq
+     after 6.5.  It is not implemented at all in the XEmacs Lisp
+     binding.
+
+ - Variable: pg:geqo
+     Initialized from the PGGEQO environment variable.  Genetic
+     optimizer options.
+
+ - Variable: pg:cost-index
+     Initialized from the PGCOSTINDEX environment variable.  Cost index
+     options.
+
+ - Variable: pg:cost-heap
+     Initialized from the PGCOSTHEAP environment variable.  Cost heap
+     options.
+
+ - Variable: pg:tz
+     Initialized from the PGTZ environment variable.  Default timezone.
+
+ - Variable: pg:date-style
+     Initialized from the PGDATESTYLE environment variable.  Default
+     date style in returned date objects.
+
+ - Variable: pg-coding-system
+     This is a variable controlling which coding system is used to
+     encode non-ASCII strings sent to the database.
+
+     Compatibility Note: This variable is not present in InfoDock.
+
+
 File: lispref.info,  Node: libpq Lisp Symbols and DataTypes,  Next: Synchronous Interface Functions,  Prev: libpq Lisp Variables,  Up: XEmacs PostgreSQL libpq API
 
 libpq Lisp Symbols and Datatypes
@@ -706,511 +1287,4 @@ Other libpq Functions
      Return a data structure that represents the connection defaults.
      The data is returned as a list of lists, where each sublist
      contains info regarding a single option.
-
-
-File: lispref.info,  Node: Unimplemented libpq Functions,  Prev: Other libpq Functions,  Up: XEmacs PostgreSQL libpq API
-
-Unimplemented libpq Functions
------------------------------
-
- - Unimplemented Function: PGconn *PQsetdbLogin (char *pghost, char
-          *pgport, char *pgoptions, char *pgtty, char *dbName, char
-          *login, char *pwd)
-     Synchronous database connection.  PGHOST is the hostname of the
-     PostgreSQL backend to connect to.  PGPORT is the TCP port number
-     to use.  PGOPTIONS specifies other backend options.  PGTTY
-     specifies the debugging tty to use.  DBNAME specifies the database
-     name to use.  LOGIN specifies the database user name.  PWD
-     specifies the database user's password.
-
-     This routine is deprecated as of libpq-7.0, and its functionality
-     can be replaced by external Lisp code if needed.
-
- - Unimplemented Function: PGconn *PQsetdb (char *pghost, char *pgport,
-          char *pgoptions, char *pgtty, char *dbName)
-     Synchronous database connection.  PGHOST is the hostname of the
-     PostgreSQL backend to connect to.  PGPORT is the TCP port number
-     to use.  PGOPTIONS specifies other backend options.  PGTTY
-     specifies the debugging tty to use.  DBNAME specifies the database
-     name to use.
-
-     This routine was deprecated in libpq-6.5.
-
- - Unimplemented Function: int PQsocket (PGconn *conn)
-     Return socket file descriptor to a backend database process.  CONN
-     database connection object.
-
- - Unimplemented Function: void PQprint (FILE *fout, PGresult *res,
-          PGprintOpt *ps)
-     Print out the results of a query to a designated C stream.  FOUT C
-     stream to print to RES the query result object to print PS the
-     print options structure.
-
-     This routine is deprecated as of libpq-7.0 and cannot be sensibly
-     exported to XEmacs Lisp.
-
- - Unimplemented Function: void PQdisplayTuples (PGresult *res, FILE
-          *fp, int fillAlign, char *fieldSep, int printHeader, int
-          quiet)
-     RES query result object to print FP C stream to print to FILLALIGN
-     pad the fields with spaces FIELDSEP field separator PRINTHEADER
-     display headers?  QUIET
-
-     This routine was deprecated in libpq-6.5.
-
- - Unimplemented Function: void PQprintTuples (PGresult *res, FILE
-          *fout, int printAttName, int terseOutput, int width)
-     RES query result object to print FOUT C stream to print to
-     PRINTATTNAME print attribute names TERSEOUTPUT delimiter bars
-     WIDTH width of column, if 0, use variable width
-
-     This routine was deprecated in libpq-6.5.
-
- - Unimplemented Function: int PQmblen (char *s, int encoding)
-     Determine length of a multibyte encoded char at `*s'.  S encoded
-     string ENCODING type of encoding
-
-     Compatibility note:  This function was introduced in libpq-7.0.
-
- - Unimplemented Function: void PQtrace (PGconn *conn, FILE *debug_port)
-     Enable tracing on `debug_port'.  CONN database connection object.
-     DEBUG_PORT C output stream to use.
-
- - Unimplemented Function: void PQuntrace (PGconn *conn)
-     Disable tracing.  CONN database connection object.
-
- - Unimplemented Function: char *PQoidStatus (PGconn *conn)
-     Return the object id as a string of the last tuple inserted.  CONN
-     database connection object.
-
-     Compatibility note: This function is deprecated in libpq-7.0,
-     however it is used internally by the XEmacs binding code when
-     linked against versions prior to 7.0.
-
- - Unimplemented Function: PGresult *PQfn (PGconn *conn, int fnid, int
-          *result_buf, int *result_len, int result_is_int, PQArgBlock
-          *args, int nargs)
-     "Fast path" interface -- not really recommended for application use
-     CONN A database connection object.  FNID RESULT_BUF RESULT_LEN
-     RESULT_IS_INT ARGS NARGS
-
-   The following set of very low level large object functions aren't
-appropriate to be exported to Lisp.
-
- - Unimplemented Function: int pq-lo-open (PGconn *conn, int lobjid,
-          int mode)
-     CONN a database connection object.  LOBJID a large object ID.
-     MODE opening modes.
-
- - Unimplemented Function: int pq-lo-close (PGconn *conn, int fd)
-     CONN a database connection object.  FD a large object file
-     descriptor
-
- - Unimplemented Function: int pq-lo-read (PGconn *conn, int fd, char
-          *buf, int len)
-     CONN a database connection object.  FD a large object file
-     descriptor.  BUF buffer to read into.  LEN size of buffer.
-
- - Unimplemented Function: int pq-lo-write (PGconn *conn, int fd, char
-          *buf, size_t len)
-     CONN a database connection object.  FD a large object file
-     descriptor.  BUF buffer to write from.  LEN size of buffer.
-
- - Unimplemented Function: int pq-lo-lseek (PGconn *conn, int fd, int
-          offset, int whence)
-     CONN a database connection object.  FD a large object file
-     descriptor.  OFFSET WHENCE
-
- - Unimplemented Function: int pq-lo-creat (PGconn *conn, int mode)
-     CONN a database connection object.  MODE opening modes.
-
- - Unimplemented Function: int pq-lo-tell (PGconn *conn, int fd)
-     CONN a database connection object.  FD a large object file
-     descriptor.
-
- - Unimplemented Function: int pq-lo-unlink (PGconn *conn, int lobjid)
-     CONN a database connection object.  LBOJID a large object ID.
-
-
-File: lispref.info,  Node: XEmacs PostgreSQL libpq Examples,  Prev: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
-
-XEmacs PostgreSQL libpq Examples
-================================
-
-   This is an example of one method of establishing an asynchronous
-connection.
-
-     (defun database-poller (P)
-       (message "%S before poll" (pq-pgconn P 'pq::status))
-       (pq-connect-poll P)
-       (message "%S after poll" (pq-pgconn P 'pq::status))
-       (if (eq (pq-pgconn P 'pq::status) 'pg::connection-ok)
-           (message "Done!")
-         (add-timeout .1 'database-poller P)))
-          => database-poller
-     (progn
-       (setq P (pq-connect-start ""))
-       (add-timeout .1 'database-poller P))
-          => pg::connection-started before poll
-          => pg::connection-made after poll
-          => pg::connection-made before poll
-          => pg::connection-awaiting-response after poll
-          => pg::connection-awaiting-response before poll
-          => pg::connection-auth-ok after poll
-          => pg::connection-auth-ok before poll
-          => pg::connection-setenv after poll
-          => pg::connection-setenv before poll
-          => pg::connection-ok after poll
-          => Done!
-     P
-          => #<PGconn localhost:25432 steve/steve>
-
-   Here is an example of one method of doing an asynchronous reset.
-
-     (defun database-poller (P)
-       (let (PS)
-         (message "%S before poll" (pq-pgconn P 'pq::status))
-         (setq PS (pq-reset-poll P))
-         (message "%S after poll [%S]" (pq-pgconn P 'pq::status) PS)
-         (if (eq (pq-pgconn P 'pq::status) 'pg::connection-ok)
-     	(message "Done!")
-           (add-timeout .1 'database-poller P))))
-          => database-poller
-     (progn
-       (pq-reset-start P)
-       (add-timeout .1 'database-poller P))
-          => pg::connection-started before poll
-          => pg::connection-made after poll [pgres::polling-writing]
-          => pg::connection-made before poll
-          => pg::connection-awaiting-response after poll [pgres::polling-reading]
-          => pg::connection-awaiting-response before poll
-          => pg::connection-setenv after poll [pgres::polling-reading]
-          => pg::connection-setenv before poll
-          => pg::connection-ok after poll [pgres::polling-ok]
-          => Done!
-     P
-          => #<PGconn localhost:25432 steve/steve>
-
-   And finally, an asynchronous query.
-
-     (defun database-poller (P)
-       (let (R)
-         (pq-consume-input P)
-         (if (pq-is-busy P)
-     	(add-timeout .1 'database-poller P)
-           (setq R (pq-get-result P))
-           (if R
-     	  (progn
-     	    (push R result-list)
-     	    (add-timeout .1 'database-poller P))))))
-          => database-poller
-     (when (pq-send-query P "SELECT * FROM xemacs_test;")
-       (setq result-list nil)
-       (add-timeout .1 'database-poller P))
-          => 885
-     ;; wait a moment
-     result-list
-          => (#<PGresult PGRES_TUPLES_OK - SELECT>)
-
-   Here is an example showing how multiple SQL statements in a single
-query can have all their results collected.
-     ;; Using the same `database-poller' function from the previous example
-     (when (pq-send-query P "SELECT * FROM xemacs_test;
-     SELECT * FROM pg_database;
-     SELECT * FROM pg_user;")
-       (setq result-list nil)
-       (add-timeout .1 'database-poller P))
-          => 1782
-     ;; wait a moment
-     result-list
-          => (#<PGresult PGRES_TUPLES_OK - SELECT> #<PGresult PGRES_TUPLES_OK - SELECT> #<PGresult PGRES_TUPLES_OK - SELECT>)
-
-   Here is an example which illustrates collecting all data from a
-query, including the field names.
-
-     (defun pg-util-query-results (results)
-       "Retrieve results of last SQL query into a list structure."
-       (let ((i (1- (pq-ntuples R)))
-     	j l1 l2)
-         (while (>= i 0)
-           (setq j (1- (pq-nfields R)))
-           (setq l2 nil)
-           (while (>= j 0)
-     	(push (pq-get-value R i j) l2)
-     	(decf j))
-           (push l2 l1)
-           (decf i))
-         (setq j (1- (pq-nfields R)))
-         (setq l2 nil)
-         (while (>= j 0)
-           (push (pq-fname R j) l2)
-           (decf j))
-         (push l2 l1)
-         l1))
-          => pg-util-query-results
-     (setq R (pq-exec P "SELECT * FROM xemacs_test ORDER BY field2 DESC;"))
-          => #<PGresult PGRES_TUPLES_OK - SELECT>
-     (pg-util-query-results R)
-          => (("f1" "field2") ("a" "97") ("b" "97") ("stuff" "42") ("a string" "12") ("foo" "10") ("string" "2") ("text" "1"))
-
-   Here is an example of a query that uses a database cursor.
-
-     (let (data R)
-       (setq R (pq-exec P "BEGIN;"))
-       (setq R (pq-exec P "DECLARE k_cursor CURSOR FOR SELECT * FROM xemacs_test ORDER BY f1 DESC;"))
-     
-       (setq R (pq-exec P "FETCH k_cursor;"))
-       (while (eq (pq-ntuples R) 1)
-         (push (list (pq-get-value R 0 0) (pq-get-value R 0 1)) data)
-         (setq R (pq-exec P "FETCH k_cursor;")))
-       (setq R (pq-exec P "END;"))
-       data)
-          => (("a" "97") ("a string" "12") ("b" "97") ("foo" "10") ("string" "2") ("stuff" "42") ("text" "1"))
-
-   Here's another example of cursors, this time with a Lisp macro to
-implement a mapping function over a table.
-
-     (defmacro map-db (P table condition callout)
-       `(let (R)
-          (pq-exec ,P "BEGIN;")
-          (pq-exec ,P (concat "DECLARE k_cursor CURSOR FOR SELECT * FROM "
-     			 ,table
-     			 " "
-     			 ,condition
-     			 " ORDER BY f1 DESC;"))
-          (setq R (pq-exec P "FETCH k_cursor;"))
-          (while (eq (pq-ntuples R) 1)
-            (,callout (pq-get-value R 0 0) (pq-get-value R 0 1))
-            (setq R (pq-exec P "FETCH k_cursor;")))
-          (pq-exec P "END;")))
-          => map-db
-     (defun callback (arg1 arg2)
-       (message "arg1 = %s, arg2 = %s" arg1 arg2))
-          => callback
-     (map-db P "xemacs_test" "WHERE field2 > 10" callback)
-          => arg1 = stuff, arg2 = 42
-          => arg1 = b, arg2 = 97
-          => arg1 = a string, arg2 = 12
-          => arg1 = a, arg2 = 97
-          => #<PGresult PGRES_COMMAND_OK - COMMIT>
-
-
-File: lispref.info,  Node: Internationalization,  Next: MULE,  Prev: PostgreSQL Support,  Up: Top
-
-Internationalization
-********************
-
-* Menu:
-
-* I18N Levels 1 and 2:: Support for different time, date, and currency formats.
-* I18N Level 3::        Support for localized messages.
-* I18N Level 4::        Support for Asian languages.
-
-
-File: lispref.info,  Node: I18N Levels 1 and 2,  Next: I18N Level 3,  Up: Internationalization
-
-I18N Levels 1 and 2
-===================
-
-   XEmacs is now compliant with I18N levels 1 and 2.  Specifically,
-this means that it is 8-bit clean and correctly handles time and date
-functions.  XEmacs will correctly display the entire ISO-Latin 1
-character set.
-
-   The compose key may now be used to create any character in the
-ISO-Latin 1 character set not directly available via the keyboard..  In
-order for the compose key to work it is necessary to load the file
-`x-compose.el'.  At any time while composing a character, `C-h' will
-display all valid completions and the character which would be produced.
-
-
-File: lispref.info,  Node: I18N Level 3,  Next: I18N Level 4,  Prev: I18N Levels 1 and 2,  Up: Internationalization
-
-I18N Level 3
-============
-
-* Menu:
-
-* Level 3 Basics::
-* Level 3 Primitives::
-* Dynamic Messaging::
-* Domain Specification::
-* Documentation String Extraction::
-
-
-File: lispref.info,  Node: Level 3 Basics,  Next: Level 3 Primitives,  Up: I18N Level 3
-
-Level 3 Basics
---------------
-
-   XEmacs now provides alpha-level functionality for I18N Level 3.
-This means that everything necessary for full messaging is available,
-but not every file has been converted.
-
-   The two message files which have been created are `src/emacs.po' and
-`lisp/packages/mh-e.po'.  Both files need to be converted using
-`msgfmt', and the resulting `.mo' files placed in some locale's
-`LC_MESSAGES' directory.  The test "translations" in these files are
-the original messages prefixed by `TRNSLT_'.
-
-   The domain for a variable is stored on the variable's property list
-under the property name VARIABLE-DOMAIN.  The function
-`documentation-property' uses this information when translating a
-variable's documentation.
-
-
-File: lispref.info,  Node: Level 3 Primitives,  Next: Dynamic Messaging,  Prev: Level 3 Basics,  Up: I18N Level 3
-
-Level 3 Primitives
-------------------
-
- - Function: gettext string
-     This function looks up STRING in the default message domain and
-     returns its translation.  If `I18N3' was not enabled when XEmacs
-     was compiled, it just returns STRING.
-
- - Function: dgettext domain string
-     This function looks up STRING in the specified message domain and
-     returns its translation.  If `I18N3' was not enabled when XEmacs
-     was compiled, it just returns STRING.
-
- - Function: bind-text-domain domain pathname
-     This function associates a pathname with a message domain.  Here's
-     how the path to message file is constructed under SunOS 5.x:
-
-          `{pathname}/{LANG}/LC_MESSAGES/{domain}.mo'
-
-     If `I18N3' was not enabled when XEmacs was compiled, this function
-     does nothing.
-
- - Special Form: domain string
-     This function specifies the text domain used for translating
-     documentation strings and interactive prompts of a function.  For
-     example, write:
-
-          (defun foo (arg) "Doc string" (domain "emacs-foo") ...)
-
-     to specify `emacs-foo' as the text domain of the function `foo'.
-     The "call" to `domain' is actually a declaration rather than a
-     function; when actually called, `domain' just returns `nil'.
-
- - Function: domain-of function
-     This function returns the text domain of FUNCTION; it returns
-     `nil' if it is the default domain.  If `I18N3' was not enabled
-     when XEmacs was compiled, it always returns `nil'.
-
-
-File: lispref.info,  Node: Dynamic Messaging,  Next: Domain Specification,  Prev: Level 3 Primitives,  Up: I18N Level 3
-
-Dynamic Messaging
------------------
-
-   The `format' function has been extended to permit you to change the
-order of parameter insertion.  For example, the conversion format
-`%1$s' inserts parameter one as a string, while `%2$s' inserts
-parameter two.  This is useful when creating translations which require
-you to change the word order.
-
-
-File: lispref.info,  Node: Domain Specification,  Next: Documentation String Extraction,  Prev: Dynamic Messaging,  Up: I18N Level 3
-
-Domain Specification
---------------------
-
-   The default message domain of XEmacs is `emacs'.  For add-on
-packages, it is best to use a different domain.  For example, let us
-say we want to convert the "gorilla" package to use the domain
-`emacs-gorilla'.  To translate the message "What gorilla?", use
-`dgettext' as follows:
-
-     (dgettext "emacs-gorilla" "What gorilla?")
-
-   A function (or macro) which has a documentation string or an
-interactive prompt needs to be associated with the domain in order for
-the documentation or prompt to be translated.  This is done with the
-`domain' special form as follows:
-
-     (defun scratch (location)
-       "Scratch the specified location."
-       (domain "emacs-gorilla")
-       (interactive "sScratch: ")
-       ... )
-
-   It is most efficient to specify the domain in the first line of the
-function body, before the `interactive' form.
-
-   For variables and constants which have documentation strings,
-specify the domain after the documentation.
-
- - Special Form: defvar symbol [value [doc-string [domain]]]
-     Example:
-          (defvar weight 250 "Weight of gorilla, in pounds." "emacs-gorilla")
-
- - Special Form: defconst symbol [value [doc-string [domain]]]
-     Example:
-          (defconst limbs 4 "Number of limbs" "emacs-gorilla")
-
-   Autoloaded functions which are specified in `loaddefs.el' do not need
-to have a domain specification, because their documentation strings are
-extracted into the main message base.  However, for autoloaded functions
-which are specified in a separate package, use following syntax:
-
- - Function: autoload symbol filename &optional docstring interactive
-          macro domain
-     Example:
-          (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")
-
-
-File: lispref.info,  Node: Documentation String Extraction,  Prev: Domain Specification,  Up: I18N Level 3
-
-Documentation String Extraction
--------------------------------
-
-   The utility `etc/make-po' scans the file `DOC' to extract
-documentation strings and creates a message file `doc.po'.  This file
-may then be inserted within `emacs.po'.
-
-   Currently, `make-po' is hard-coded to read from `DOC' and write to
-`doc.po'.  In order to extract documentation strings from an add-on
-package, first run `make-docfile' on the package to produce the `DOC'
-file.  Then run `make-po -p' with the `-p' argument to indicate that we
-are extracting documentation for an add-on package.
-
-   (The `-p' argument is a kludge to make up for a subtle difference
-between pre-loaded documentation and add-on documentation:  For add-on
-packages, the final carriage returns in the strings produced by
-`make-docfile' must be ignored.)
-
-
-File: lispref.info,  Node: I18N Level 4,  Prev: I18N Level 3,  Up: Internationalization
-
-I18N Level 4
-============
-
-   The Asian-language support in XEmacs is called "MULE".  *Note MULE::.
-
-
-File: lispref.info,  Node: MULE,  Next: Tips,  Prev: Internationalization,  Up: Top
-
-MULE
-****
-
-   "MULE" is the name originally given to the version of GNU Emacs
-extended for multi-lingual (and in particular Asian-language) support.
-"MULE" is short for "MUlti-Lingual Emacs".  It is an extension and
-complete rewrite of Nemacs ("Nihon Emacs" where "Nihon" is the Japanese
-word for "Japan"), which only provided support for Japanese.  XEmacs
-refers to its multi-lingual support as "MULE support" since it is based
-on "MULE".
-
-* Menu:
-
-* Internationalization Terminology::
-                        Definition of various internationalization terms.
-* Charsets::            Sets of related characters.
-* MULE Characters::     Working with characters in XEmacs/MULE.
-* Composite Characters:: Making new characters by overstriking other ones.
-* Coding Systems::      Ways of representing a string of chars using integers.
-* CCL::                 A special language for writing fast converters.
-* Category Tables::     Subdividing charsets into groups.
 

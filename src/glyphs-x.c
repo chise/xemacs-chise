@@ -98,7 +98,6 @@ DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (string);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (inherit);
-DECLARE_IMAGE_INSTANTIATOR_FORMAT (layout);
 #ifdef HAVE_JPEG
 DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
 #endif
@@ -128,7 +127,9 @@ DEFINE_IMAGE_INSTANTIATOR_FORMAT (font);
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (autodetect);
 
 #ifdef HAVE_WIDGETS
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (layout);
 DEFINE_DEVICE_IIFORMAT (x, widget);
+DEFINE_DEVICE_IIFORMAT (x, native_layout);
 DEFINE_DEVICE_IIFORMAT (x, button);
 DEFINE_DEVICE_IIFORMAT (x, progress_gauge);
 DEFINE_DEVICE_IIFORMAT (x, edit_field);
@@ -394,11 +395,14 @@ x_finalize_image_instance (Lisp_Image_Instance *p)
   if (!p->data)
     return;
 
-  if (DEVICE_LIVE_P (XDEVICE (p->device)))
+  if (DEVICE_LIVE_P (XDEVICE (IMAGE_INSTANCE_DEVICE (p))))
     {
-      Display *dpy = DEVICE_X_DISPLAY (XDEVICE (p->device));
-
-      if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
+      Display *dpy = DEVICE_X_DISPLAY 
+	(XDEVICE (IMAGE_INSTANCE_DEVICE (p)));
+      if (0)
+	;
+#ifdef HAVE_WIDGETS
+      else if (IMAGE_INSTANCE_TYPE (p) == IMAGE_WIDGET)
 	{
 	  if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
 	    {
@@ -408,10 +412,15 @@ x_finalize_image_instance (Lisp_Image_Instance *p)
 #endif
 	      lw_destroy_widget (IMAGE_INSTANCE_X_WIDGET_ID (p));
 	      lw_destroy_widget (IMAGE_INSTANCE_X_CLIPWIDGET (p));
+
+	      /* We can release the callbacks again. */
+	      ungcpro_popup_callbacks (IMAGE_INSTANCE_X_WIDGET_LWID (p));
+
 	      IMAGE_INSTANCE_X_WIDGET_ID (p) = 0;
 	      IMAGE_INSTANCE_X_CLIPWIDGET (p) = 0;
 	    }
 	}
+#endif
       else if (IMAGE_INSTANCE_TYPE (p) == IMAGE_SUBWINDOW)
 	{
 	  if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
@@ -2210,11 +2219,11 @@ x_update_widget (Lisp_Image_Instance *p)
   /* Possibly update the colors and font */
   if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (p)
       ||
-      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (p))->faces_changed
+      XFRAME (IMAGE_INSTANCE_FRAME (p))->faces_changed
       ||
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (p))
     {
-      update_widget_face (wv, p, IMAGE_INSTANCE_SUBWINDOW_FRAME (p));
+      update_widget_face (wv, p, IMAGE_INSTANCE_FRAME (p));
     }
 
   /* Possibly update the text. */
@@ -2267,15 +2276,15 @@ x_subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   /* This function can GC */
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii);
-  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object frame = DOMAIN_FRAME (domain);
   struct frame* f = XFRAME (frame);
   Display *dpy;
   Screen *xs;
   Window pw, win;
   XSetWindowAttributes xswa;
   Mask valueMask = 0;
-  unsigned int w = IMAGE_INSTANCE_SUBWINDOW_WIDTH (ii),
-    h = IMAGE_INSTANCE_SUBWINDOW_HEIGHT (ii);
+  unsigned int w = IMAGE_INSTANCE_WIDTH (ii),
+    h = IMAGE_INSTANCE_HEIGHT (ii);
 
   if (!DEVICE_X_P (XDEVICE (device)))
     signal_simple_error ("Not an X device", device);
@@ -2420,7 +2429,7 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object device = IMAGE_INSTANCE_DEVICE (ii), pixel;
   struct device* d = XDEVICE (device);
-  Lisp_Object frame = FW_FRAME (domain);
+  Lisp_Object frame = DOMAIN_FRAME (domain);
   struct frame* f = XFRAME (frame);
   char* nm=0;
   Widget wid;
@@ -2478,12 +2487,12 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
      anymore...*/
   pixel = FACE_FOREGROUND
     (IMAGE_INSTANCE_WIDGET_FACE (ii),
-     IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+     IMAGE_INSTANCE_FRAME (ii));
   fcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
 
   pixel = FACE_BACKGROUND
     (IMAGE_INSTANCE_WIDGET_FACE (ii),
-     IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+     IMAGE_INSTANCE_FRAME (ii));
   bcolor = COLOR_INSTANCE_X_COLOR (XCOLOR_INSTANCE (pixel));
 
   lw_add_widget_value_arg (wv, XtNbackground, bcolor.pixel);
@@ -2513,6 +2522,9 @@ x_widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
   XtSetMappedWhenManaged (wid, TRUE);
 
   free_widget_value_tree (wv);
+  /* A kludgy but simple way to make sure the callback for a widget
+     doesn't get deleted. */
+  gcpro_popup_callbacks (id);
 }
 
 /* get properties of a control */
@@ -2527,6 +2539,18 @@ x_widget_property (Lisp_Object image_instance, Lisp_Object prop)
       return build_ext_string (wv->value, Qnative);
     }
   return Qunbound;
+}
+
+/* Instantiate a layout control for putting other widgets in. */
+static void
+x_native_layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+			     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
+			     int dest_mask, Lisp_Object domain)
+{
+  Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
+
+  x_widget_instantiate (image_instance, instantiator, pointer_fg,
+			pointer_bg, dest_mask, domain, "layout", 0);
 }
 
 /* Instantiate a button widget. Unfortunately instantiated widgets are
@@ -2692,7 +2716,7 @@ x_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 				IMAGE_INSTANCE_WIDGET_ITEMS (ii));
 
   update_tab_widget_face (wv, ii,
-			  IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+			  IMAGE_INSTANCE_FRAME (ii));
 
   x_widget_instantiate (image_instance, instantiator, pointer_fg,
 			pointer_bg, dest_mask, domain, "tab-control", wv);
@@ -2707,7 +2731,7 @@ x_tab_control_update (Lisp_Object image_instance)
   /* Possibly update the face. */
   if (IMAGE_INSTANCE_WIDGET_FACE_CHANGED (ii)
       ||
-      XFRAME (IMAGE_INSTANCE_SUBWINDOW_FRAME (ii))->faces_changed
+      XFRAME (IMAGE_INSTANCE_FRAME (ii))->faces_changed
       ||
       IMAGE_INSTANCE_WIDGET_ITEMS_CHANGED (ii))
     {
@@ -2718,7 +2742,7 @@ x_tab_control_update (Lisp_Object image_instance)
 	return;
 
       update_tab_widget_face (wv, ii,
-			      IMAGE_INSTANCE_SUBWINDOW_FRAME (ii));
+			      IMAGE_INSTANCE_FRAME (ii));
 
       lw_modify_all_widgets (IMAGE_INSTANCE_X_WIDGET_LWID (ii), wv, True);
     }
@@ -2775,7 +2799,9 @@ image_instantiator_format_create_glyphs_x (void)
 {
   IIFORMAT_VALID_CONSOLE (x, nothing);
   IIFORMAT_VALID_CONSOLE (x, string);
+#ifdef HAVE_WIDGETS
   IIFORMAT_VALID_CONSOLE (x, layout);
+#endif
   IIFORMAT_VALID_CONSOLE (x, formatted_string);
   IIFORMAT_VALID_CONSOLE (x, inherit);
 #ifdef HAVE_XPM
@@ -2800,12 +2826,15 @@ image_instantiator_format_create_glyphs_x (void)
   INITIALIZE_DEVICE_IIFORMAT (x, subwindow);
   IIFORMAT_HAS_DEVMETHOD (x, subwindow, instantiate);
 #ifdef HAVE_WIDGETS
+  /* layout widget */
+  INITIALIZE_DEVICE_IIFORMAT (x, native_layout);
+  IIFORMAT_HAS_DEVMETHOD (x, native_layout, instantiate);
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (x, button);
   IIFORMAT_HAS_DEVMETHOD (x, button, property);
   IIFORMAT_HAS_DEVMETHOD (x, button, instantiate);
   IIFORMAT_HAS_DEVMETHOD (x, button, update);
-
+  /* general widget methods. */
   INITIALIZE_DEVICE_IIFORMAT (x, widget);
   IIFORMAT_HAS_DEVMETHOD (x, widget, property);
   /* progress gauge */

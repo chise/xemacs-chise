@@ -148,12 +148,12 @@
 ;; layout
 (setq layout 
       (make-glyph
-       [layout :pixel-width 200 :pixel-height 250
+       [layout :descriptor "The Layout"
 	       :orientation vertical
 	       :justify left
 	       :border [string :data "Hello There Mrs"]
-	       :items ([layout :orientation horizontal
-			       :items (radio-button1 radio-button2)]
+	       :items ([native-layout :orientation horizontal
+				      :items (radio-button1 radio-button2)]
 		       edit-field toggle-button label str)]))
 (set-glyph-face layout 'gui-element)
 (set-extent-begin-glyph

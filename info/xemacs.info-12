@@ -30,6 +30,82 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Fortran Indent,  Next: Fortran Comments,  Prev: Fortran Motion,  Up: Fortran
+
+Fortran Indentation
+-------------------
+
+   Special commands and features are available for indenting Fortran
+code.  They make sure various syntactic entities (line numbers, comment
+line indicators, and continuation line flags) appear in the columns
+that are required for standard Fortran.
+
+* Menu:
+
+* Commands: ForIndent Commands. Commands for indenting Fortran.
+* Numbers:  ForIndent Num.      How line numbers auto-indent.
+* Conv:     ForIndent Conv.     Conventions you must obey to avoid trouble.
+* Vars:     ForIndent Vars.     Variables controlling Fortran indent style.
+
+
+File: xemacs.info,  Node: ForIndent Commands,  Next: ForIndent Num,  Prev: Fortran Indent,  Up: Fortran Indent
+
+Fortran Indentation Commands
+............................
+
+`<TAB>'
+     Indent the current line (`fortran-indent-line').
+
+`M-<LFD>'
+     Break the current line and set up a continuation line.
+
+`C-M-q'
+     Indent all the lines of the subprogram point is in
+     (`fortran-indent-subprogram').
+
+   <TAB> is redefined by Fortran mode to reindent the current line for
+Fortran (`fortran-indent-line').  Line numbers and continuation markers
+are indented to their required columns, and the body of the statement
+is independently indented, based on its nesting in the program.
+
+   The key `C-M-q' is redefined as `fortran-indent-subprogram', a
+command that reindents all the lines of the Fortran subprogram
+(function or subroutine) containing point.
+
+   The key `M-<LFD>' is redefined as `fortran-split-line', a command to
+split a line in the appropriate fashion for Fortran.  In a non-comment
+line, the second half becomes a continuation line and is indented
+accordingly.  In a comment line, both halves become separate comment
+lines.
+
+
+File: xemacs.info,  Node: ForIndent Num,  Next: ForIndent Conv,  Prev: ForIndent Commands,  Up: Fortran Indent
+
+Line Numbers and Continuation
+.............................
+
+   If a number is the first non-whitespace in the line, it is assumed
+to be a line number and is moved to columns 0 through 4.  (Columns are
+always counted from 0 in XEmacs.)  If the text on the line starts with
+the conventional Fortran continuation marker `$', it is moved to column
+5.  If the text begins with any non whitespace character in column 5,
+it is assumed to be an unconventional continuation marker and remains
+in column 5.
+
+   Line numbers of four digits or less are normally indented one space.
+This amount is controlled by the variable `fortran-line-number-indent',
+which is the maximum indentation a line number can have.  Line numbers
+are indented to right-justify them to end in column 4 unless that would
+require more than the maximum indentation.  The default value of the
+variable is 1.
+
+   Simply inserting a line number is enough to indent it according to
+these rules.  As each digit is inserted, the indentation is recomputed.
+To turn off this feature, set the variable
+`fortran-electric-line-number' to `nil'.  Then inserting line numbers
+is like inserting anything else.
+
+
 File: xemacs.info,  Node: ForIndent Conv,  Next: ForIndent Vars,  Prev: ForIndent Num,  Up: Fortran Indent
 
 Syntactic Conventions
@@ -916,243 +992,4 @@ Source Packages
 appropriate in regular packages) source code plus all of the files
 necessary to build distribution tarballs (Unix Tar format files,
 gzipped for space savings).
-
-
-File: xemacs.info,  Node: Using Packages,  Next: Building Packages,  Prev: Package Terminology,  Up: Packages
-
-Getting Started
----------------
-
-   When you first download XEmacs 21, you will usually first grab the
-"core distribution", a file called `xemacs-21.0.tar.gz'. (Replace the
-21.0 by the current version number.)  The core distribution contains
-the sources of XEmacs and a minimal set of Emacs Lisp files, which are
-in the subdirectory named `lisp'.  This subdirectory used to contain
-all Emacs Lisp files distributed with XEmacs.  Now, to conserve disk
-space, most non-essential packages were made optional.
-
-Choosing the Packages You Need
-------------------------------
-
-   The available packages can currently be found in the same ftp
-directory where you grabbed the core distribution from, and are located
-in the subdirectory `packages/binary-packages'.  Package file names
-follow the naming convention `<package-name>-<version>-pkg.tar.gz'.
-
-   If you have EFS *Note (EFS)::, packages can be installed over the
-network.  Alternatively, if you have copies of the packages locally,
-you can install packages from a local disk or CDROM.
-
-   The file `etc/PACKAGES' in the core distribution contains a list of
-the packages available at the time of the XEmacs release.  Packages are
-also listed on the `Options' menu under:
-
-             Options->Customize->Emacs->Packages
-
-   However, don't select any of these menu picks unless you actually
-want to install the given package (and have properly configured your
-system to do so).
-
-   You can also get a list of available packages, and whether or not
-they are installed, using the visual package browser and installer.
-You can access it via the menus:
-
-             Options->Manage Packages->List & Install
-
-   Or, you can get to it via the keyboard:
-
-     M-x pui-list-packages
-
-   Hint to system administrators of multi-user systems: it might be a
-good idea to install all packages and not interfere with the wishes of
-your users.
-
-   If you can't find which package provides the feature you require, try
-using the `package-get-package-provider' function. Eg., if you know
-that you need `thingatpt', type:
-
-     M-x package-get-package-provider RET thingatpt
-
-   which will return something like (fsf-compat "1.06"). You can the use
-one of the methods above for installing the package you want.
-
-XEmacs and Installing Packages
-------------------------------
-
-   Normally, packages are installed over the network, using EFS *Note
-(EFS)::.  However, you may not have network access, or you may already
-have some or all of the packages on a local disk, such as a CDROM.  If
-you want to install from a local disk, you must first tell XEmacs where
-to find the package binaries.  This is done by adding a line like the
-following to your `.emacs' file:
-
-     (setq package-get-remote (cons (list nil "/my/path/to/package/binaries")
-                                    package-get-remote))
-
-   Here, you'd change `/my/path/to/package/binaries' to be the path to
-your local package binaries.  Next, restart XEmacs, and you're ready to
-go (advanced users can just re-evaluate the sexp).
-
-   If you are installing from a temporary, one-time directory, you can
-also add these directory names to `package-get-remote' using:
-
-             M-x pui-add-install-directory
-
-   Note, however, that any directories added using this function are not
-saved; this information will be lost when you quit XEmacs.
-
-   If you're going to install over the network, you only have to insure
-that EFS *Note (EFS):: works, and that it can get outside a firewall, if
-you happen to be behind one.  You shouldn't have to do anything else;
-XEmacs already knows where to go. However you can add your own mirrors
-to this list. See `package-get-remote'.
-
-   The easiest way to install a package is to use the visual package
-browser and installer, using the menu pick:
-
-             Options->Manage Packages->List & Install
-   or
-             Options->Manage Packages->Using Custom->Select-> ...
-
-   You can also access it using the keyboard:
-
-     M-x pui-list-packages
-
-   The visual package browser will then display a list of all packages.
-Help information will be displayed at the very bottom of the buffer; you
-may have to scroll down to see it.  You can also press `?' to get the
-same help.  From this buffer, you can tell the package status by the
-character in the first column:
-
-`-'
-     The package has not been installed.
-
-`*'
-     The package has been installed, but a newer version is available.
-     The current version is out-of-date.
-
-`+'
-     The package has been marked for installation/update.
-
-   If there is no character in the first column, the package has been
-installed and is up-to-date.
-
-   From here, you can select or unselect packages for installation using
-the <RET> key, the `Mouse-2' button or selecting "Select" from the
-(Popup) Menu.  Once you've finished selecting the packages, you can
-press the `x' key (or use the menu) to actually install the packages.
-Note that you will have to restart XEmacs for XEmacs to recognize any
-new packages.
-
-   Key summary:
-
-`?'
-     Display simple help.
-
-`<RET>'
-`<Mouse-2>'
-     Toggle between selecting and unselecting a package for
-     installation.
-
-`x'
-     Install selected packages.
-
-`<SPC>'
-     View, in the minibuffer, additional information about the package,
-     such as the package date (not the build date) and the package
-     author.  Moving the mouse over a package name will also do the
-     same thing.
-
-`v'
-     Toggle between verbose and non-verbose package display.
-
-`g'
-     Refresh the package display.
-
-`q'
-     Kill the package buffer.
-
-   Moving the mouse over a package will also cause additional
-information about the package to be displayed in the minibuffer.
-
-Other package installation interfaces
--------------------------------------
-
-   For an alternative package interface, you can select packages from
-the customize menus, under:
-
-             Options->Customize->Emacs->Packages-> ...
-   or
-             Options->Manage Packages->Using Custom->Select-> ...
-
-   Set their state to on, and then do:
-
-             Options->Manage Packages->Using Custom->Update Packages
-
-   This will automatically retrieve the packages you have selected from
-the XEmacs ftp site or your local disk, and install them into XEmacs.
-Additionally it will update any packages you already have installed to
-the newest version.  Note that if a package is newly installed you will
-have to restart XEmacs for the change to take effect.
-
-   You can also install packages using a semi-manual interface:
-
-     M-x package-get-all <return>
-
-   Enter the name of the package (e.g., `prog-modes'), and XEmacs will
-search for the latest version (as listed in the lisp file
-`lisp/package-get-base.el'), and install it and any packages that it
-depends upon.
-
-Manual Binary Package Installation
-----------------------------------
-
-   Pre-compiled, binary packages can be installed in either a system
-package directory (this is determined when XEmacs is compiled), or in
-one of the following subdirectories of your `$HOME' directory:
-
-     ~/.xemacs/mule-packages
-     ~/.xemacs/xemacs-packages
-
-   Packages in the former directory will only be found by a Mule-enabled
-XEmacs.
-
-   XEmacs does not have to be running to install binary packages,
-although XEmacs will not know about any newly-installed packages until
-you restart XEmacs.  Note, however, that installing a newer version of a
-package while XEmacs is running could cause strange errors in XEmacs;
-it's best to exit XEmacs before upgrading an existing package.
-
-   To install binary packages manually:
-
-  1. Download the package(s) that you want to install.  Each binary
-     package will typically be a gzip'd tarball.
-
-  2. Decide where to install the packages: in the system package
-     directory, or in `~/.xemacs/mule-packages' or
-     `~/.xemacs/xemacs-packages', respectively.  If you want to install
-     the packages in the system package directory, make sure you can
-     write into that directory.  If you want to install in your `$HOME'
-     directory, create the directory, `~/.xemacs/mule-packages' or
-     `~/.xemacs/xemacs-packages', respectively.
-
-  3. Next, `cd' to the directory under which you want to install the
-     package(s).
-
-  4. From this directory, uncompress and extract each of the gzip'd
-     tarballs that you downloaded in step 1.  Unix and Cygnus cygwin
-     users will typically do this using the commands:
-
-                  gunzip < package.tar.gz | tar xvf -
-
-     Above, replace `package.tar.gz' with the filename of the package
-     that you downloaded in step 1.
-
-     Of course, if you use GNU `tar', you could also use:
-
-                  tar xvzf package.tar.gz
-
-  5. That's it.  Quit and restart XEmacs to get it to recognize any new
-     or changed packages.
-
 

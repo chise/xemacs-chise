@@ -30,6 +30,80 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Lisp Indent,  Next: C Indent,  Prev: Multi-line Indent,  Up: Grinding
+
+Customizing Lisp Indentation
+----------------------------
+
+   The indentation pattern for a Lisp expression can depend on the
+function called by the expression.  For each Lisp function, you can
+choose among several predefined patterns of indentation, or define an
+arbitrary one with a Lisp program.
+
+   The standard pattern of indentation is as follows: the second line
+of the expression is indented under the first argument, if that is on
+the same line as the beginning of the expression; otherwise, the second
+line is indented underneath the function name.  Each following line is
+indented under the previous line whose nesting depth is the same.
+
+   If the variable `lisp-indent-offset' is non-`nil', it overrides the
+usual indentation pattern for the second line of an expression, so that
+such lines are always indented `lisp-indent-offset' more columns than
+the containing list.
+
+   Certain functions override the standard pattern.  Functions whose
+names start with `def' always indent the second line by
+`lisp-body-indention' extra columns beyond the open-parenthesis
+starting the expression.
+
+   Individual functions can override the standard pattern in various
+ways, according to the `lisp-indent-function' property of the function
+name.  (Note: `lisp-indent-function' was formerly called
+`lisp-indent-hook').  There are four possibilities for this property:
+
+`nil'
+     This is the same as no property; the standard indentation pattern
+     is used.
+
+`defun'
+     The pattern used for function names that start with `def' is used
+     for this function also.
+
+a number, NUMBER
+     The first NUMBER arguments of the function are "distinguished"
+     arguments; the rest are considered the "body" of the expression.
+     A line in the expression is indented according to whether the
+     first argument on it is distinguished or not.  If the argument is
+     part of the body, the line is indented `lisp-body-indent' more
+     columns than the open-parenthesis starting the containing
+     expression.  If the argument is distinguished and is either the
+     first or second argument, it is indented twice that many extra
+     columns.  If the argument is distinguished and not the first or
+     second argument, the standard pattern is followed for that line.
+
+a symbol, SYMBOL
+     SYMBOL should be a function name; that function is called to
+     calculate the indentation of a line within this expression.  The
+     function receives two arguments:
+    STATE
+          The value returned by `parse-partial-sexp' (a Lisp primitive
+          for indentation and nesting computation) when it parses up to
+          the beginning of this line.
+
+    POS
+          The position at which the line being indented begins.
+
+     It should return either a number, which is the number of columns of
+     indentation for that line, or a list whose first element is such a
+     number.  The difference between returning a number and returning a
+     list is that a number says that all following lines at the same
+     nesting level should be indented just like this one; a list says
+     that following lines might call for different indentations.  This
+     makes a difference when the indentation is computed by `C-M-q'; if
+     the value is a number, `C-M-q' need not recalculate indentation
+     for the following lines until the end of the list.
+
+
 File: xemacs.info,  Node: C Indent,  Prev: Lisp Indent,  Up: Grinding
 
 Customizing C Indentation
@@ -1119,80 +1193,4 @@ killing it or moving it.
 `C-c C-p'
      Move to beginning of current or previous statement (`fortran-
      previous-statement').
-
-
-File: xemacs.info,  Node: Fortran Indent,  Next: Fortran Comments,  Prev: Fortran Motion,  Up: Fortran
-
-Fortran Indentation
--------------------
-
-   Special commands and features are available for indenting Fortran
-code.  They make sure various syntactic entities (line numbers, comment
-line indicators, and continuation line flags) appear in the columns
-that are required for standard Fortran.
-
-* Menu:
-
-* Commands: ForIndent Commands. Commands for indenting Fortran.
-* Numbers:  ForIndent Num.      How line numbers auto-indent.
-* Conv:     ForIndent Conv.     Conventions you must obey to avoid trouble.
-* Vars:     ForIndent Vars.     Variables controlling Fortran indent style.
-
-
-File: xemacs.info,  Node: ForIndent Commands,  Next: ForIndent Num,  Prev: Fortran Indent,  Up: Fortran Indent
-
-Fortran Indentation Commands
-............................
-
-`<TAB>'
-     Indent the current line (`fortran-indent-line').
-
-`M-<LFD>'
-     Break the current line and set up a continuation line.
-
-`C-M-q'
-     Indent all the lines of the subprogram point is in
-     (`fortran-indent-subprogram').
-
-   <TAB> is redefined by Fortran mode to reindent the current line for
-Fortran (`fortran-indent-line').  Line numbers and continuation markers
-are indented to their required columns, and the body of the statement
-is independently indented, based on its nesting in the program.
-
-   The key `C-M-q' is redefined as `fortran-indent-subprogram', a
-command that reindents all the lines of the Fortran subprogram
-(function or subroutine) containing point.
-
-   The key `M-<LFD>' is redefined as `fortran-split-line', a command to
-split a line in the appropriate fashion for Fortran.  In a non-comment
-line, the second half becomes a continuation line and is indented
-accordingly.  In a comment line, both halves become separate comment
-lines.
-
-
-File: xemacs.info,  Node: ForIndent Num,  Next: ForIndent Conv,  Prev: ForIndent Commands,  Up: Fortran Indent
-
-Line Numbers and Continuation
-.............................
-
-   If a number is the first non-whitespace in the line, it is assumed
-to be a line number and is moved to columns 0 through 4.  (Columns are
-always counted from 0 in XEmacs.)  If the text on the line starts with
-the conventional Fortran continuation marker `$', it is moved to column
-5.  If the text begins with any non whitespace character in column 5,
-it is assumed to be an unconventional continuation marker and remains
-in column 5.
-
-   Line numbers of four digits or less are normally indented one space.
-This amount is controlled by the variable `fortran-line-number-indent',
-which is the maximum indentation a line number can have.  Line numbers
-are indented to right-justify them to end in column 4 unless that would
-require more than the maximum indentation.  The default value of the
-variable is 1.
-
-   Simply inserting a line number is enough to indent it according to
-these rules.  As each digit is inserted, the indentation is recomputed.
-To turn off this feature, set the variable
-`fortran-electric-line-number' to `nil'.  Then inserting line numbers
-is like inserting anything else.
 

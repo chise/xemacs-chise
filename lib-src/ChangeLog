@@ -11,6 +11,19 @@
 
 	* update-elc.sh (ignore_dirs): Ignore lisp/utf-2000 subdirectory.
 
+2000-05-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.34 is released.
+
+2000-05-11  Ben Wing  <ben@xemacs.org>
+
+	* i.c (get_command): fix unused var warning.
+	
+	* make-docfile.c (MDGET):
+	* make-docfile.c (read_c_string):
+	rewrite and reindent -- handle closing doc string comment that's
+	not at beg of line.
+
 2000-05-01  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.33 is released.

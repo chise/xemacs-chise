@@ -957,23 +957,31 @@ mswindows_eol_cursor_width (void)
 }
 
 /*****************************************************************************
- mswindows_output_begin
+ mswindows_frame_output_begin
 
  Perform any necessary initialization prior to an update.
  ****************************************************************************/
 static void
-mswindows_output_begin (struct device *d)
+mswindows_frame_output_begin (struct frame *f)
 {
 }
 
 /*****************************************************************************
- mswindows_output_end
+ mswindows_frame_output_end
 
  Perform any necessary flushing of queues when an update has completed.
  ****************************************************************************/
 static void
-mswindows_output_end (struct device *d)
+mswindows_frame_output_end (struct frame *f)
 {
+  HDWP hdwp = FRAME_MSWINDOWS_DATA (f)->hdwp;
+
+  if (hdwp != 0)
+    {
+      EndDeferWindowPos (hdwp);
+      FRAME_MSWINDOWS_DATA (f)->hdwp = 0;
+    }
+
   GdiFlush();
 }
 
@@ -1157,20 +1165,22 @@ mswindows_output_display_block (struct window *w, struct display_line *dl, int b
 						 findex, 0, 1);
 		      break;
 		      
-		    case IMAGE_SUBWINDOW:
 		    case IMAGE_WIDGET:
+		      if (EQ (XIMAGE_INSTANCE_WIDGET_TYPE (instance),
+			      Qlayout))
+			{
+			  redisplay_output_layout (w, instance, &dbox, &dga, findex,
+						   cursor_start, cursor_width,
+						   cursor_height);
+			  if (rb->cursor_type == CURSOR_ON)
+			    mswindows_output_cursor (w, dl, xpos, cursor_width,
+						     findex, 0, 1);
+			  break;
+			}
+		    case IMAGE_SUBWINDOW:
 		      redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
 						  cursor_start, cursor_width,
 						  cursor_height);
-		      if (rb->cursor_type == CURSOR_ON)
-			mswindows_output_cursor (w, dl, xpos, cursor_width,
-						 findex, 0, 1);
-		      break;
-		      
-		    case IMAGE_LAYOUT:
-		      redisplay_output_layout (w, instance, &dbox, &dga, findex,
-					       cursor_start, cursor_width,
-					       cursor_height);
 		      if (rb->cursor_type == CURSOR_ON)
 			mswindows_output_cursor (w, dl, xpos, cursor_width,
 						 findex, 0, 1);
@@ -1358,8 +1368,8 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, output_vertical_divider);
   CONSOLE_HAS_METHOD (mswindows, clear_region);
   CONSOLE_HAS_METHOD (mswindows, clear_frame);
-  CONSOLE_HAS_METHOD (mswindows, output_begin);
-  CONSOLE_HAS_METHOD (mswindows, output_end);
+  CONSOLE_HAS_METHOD (mswindows, frame_output_begin);
+  CONSOLE_HAS_METHOD (mswindows, frame_output_end);
   CONSOLE_HAS_METHOD (mswindows, flash);
   CONSOLE_HAS_METHOD (mswindows, ring_bell);
   CONSOLE_HAS_METHOD (mswindows, bevel_area);
@@ -1374,8 +1384,8 @@ console_type_create_redisplay_mswindows (void)
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_vertical_divider);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_region);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, clear_frame);
-  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_begin);
-  CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_end);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, frame_output_begin);
+  CONSOLE_INHERITS_METHOD (msprinter, mswindows, frame_output_end);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, bevel_area);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_string);
   CONSOLE_INHERITS_METHOD (msprinter, mswindows, output_pixmap);

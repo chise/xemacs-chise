@@ -30,6 +30,116 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: TeX Print,  Prev: TeX Editing,  Up: TeX Mode
+
+TeX Printing Commands
+.....................
+
+   You can invoke TeX as an inferior of Emacs on either the entire
+contents of the buffer or just a region at a time.  Running TeX in this
+way on just one chapter is a good way to see what your changes look
+like without taking the time to format the entire file.
+
+`C-c C-r'
+     Invoke TeX on the current region, plus the buffer's header
+     (`tex-region').
+
+`C-c C-b'
+     Invoke TeX on the entire current buffer (`tex-buffer').
+
+`C-c C-l'
+     Recenter the window showing output from the inferior TeX so that
+     the last line can be seen (`tex-recenter-output-buffer').
+
+`C-c C-k'
+     Kill the inferior TeX (`tex-kill-job').
+
+`C-c C-p'
+     Print the output from the last `C-c C-r' or `C-c C-b' command
+     (`tex-print').
+
+`C-c C-q'
+     Show the printer queue (`tex-show-print-queue').
+
+   You can pass the current buffer through an inferior TeX using `C-c
+C-b' (`tex-buffer').  The formatted output appears in a file in `/tmp';
+to print it, type `C-c C-p' (`tex-print').  Afterward use `C-c C-q'
+(`tex-show-print-queue') to view the progress of your output towards
+being printed.
+
+   The console output from TeX, including any error messages, appears
+in a buffer called `*TeX-shell*'.  If TeX gets an error, you can switch
+to this buffer and feed it input (this works as in Shell mode; *note
+Interactive Shell::).  Without switching to this buffer, you can scroll
+it so that its last line is visible by typing `C-c C-l'.
+
+   Type `C-c C-k' (`tex-kill-job') to kill the TeX process if you see
+that its output is no longer useful.  Using `C-c C-b' or `C-c C-r' also
+kills any TeX process still running.
+
+   You can pass an arbitrary region through an inferior TeX by typing
+`C-c C-r' (`tex-region').  This is tricky, however, because most files
+of TeX input contain commands at the beginning to set parameters and
+define macros.  Without them, no later part of the file will format
+correctly.  To solve this problem, `C-c C-r' allows you to designate a
+part of the file as containing essential commands; it is included
+before the specified region as part of the input to TeX.  The
+designated part of the file is called the "header".
+
+   To indicate the bounds of the header in Plain TeX mode, insert two
+special strings in the file: `%**start of header' before the header,
+and `%**end of header' after it.  Each string must appear entirely on
+one line, but there may be other text on the line before or after.  The
+lines containing the two strings are included in the header.  If
+`%**start of header' does not appear within the first 100 lines of the
+buffer, `C-c C-r' assumes there is no header.
+
+   In LaTeX mode, the header begins with `\documentstyle' and ends with
+`\begin{document}'.  These are commands that LaTeX requires you to use,
+so you don't need to do anything special to identify the header.
+
+   When you enter either kind of TeX mode, Emacs calls with no
+arguments the value of the variable `text-mode-hook', if that value
+exists and is not `nil'.  Emacs then calls the variable `TeX-mode-hook'
+and either `plain-TeX-mode-hook' or `LaTeX-mode-hook' under the same
+conditions.
+
+
+File: xemacs.info,  Node: Outline Mode,  Prev: TeX Mode,  Up: Text Mode
+
+Outline Mode
+------------
+
+   Outline mode is a major mode similar to Text mode but intended for
+editing outlines.  It allows you to make parts of the text temporarily
+invisible so that you can see just the overall structure of the
+outline.  Type `M-x outline-mode' to turn on Outline mode in the
+current buffer.
+
+   When you enter Outline mode, Emacs calls with no arguments the value
+of the variable `text-mode-hook', if that value exists and is not
+`nil'; then it does the same with the variable `outline-mode-hook'.
+
+   When a line is invisible in outline mode, it does not appear on the
+screen.  The screen appears exactly as if the invisible line were
+deleted, except that an ellipsis (three periods in a row) appears at
+the end of the previous visible line (only one ellipsis no matter how
+many invisible lines follow).
+
+   All editing commands treat the text of the invisible line as part of
+the previous visible line.  For example, `C-n' moves onto the next
+visible line.  Killing an entire visible line, including its
+terminating newline, really kills all the following invisible lines as
+well; yanking everything back yanks the invisible lines and they remain
+invisible.
+
+* Menu:
+
+* Format: Outline Format.	  What the text of an outline looks like.
+* Motion: Outline Motion.	  Special commands for moving through outlines.
+* Visibility: Outline Visibility. Commands to control what is visible.
+
+
 File: xemacs.info,  Node: Outline Format,  Next: Outline Motion,  Prev: Outline Mode,  Up: Outline Mode
 
 Format of Outlines
@@ -1074,78 +1184,4 @@ in C mode.
    Another way to specify a range to be re-indented is with point and
 mark.  The command `C-M-\' (`indent-region') applies <TAB> to every
 line whose first character is between point and mark.
-
-
-File: xemacs.info,  Node: Lisp Indent,  Next: C Indent,  Prev: Multi-line Indent,  Up: Grinding
-
-Customizing Lisp Indentation
-----------------------------
-
-   The indentation pattern for a Lisp expression can depend on the
-function called by the expression.  For each Lisp function, you can
-choose among several predefined patterns of indentation, or define an
-arbitrary one with a Lisp program.
-
-   The standard pattern of indentation is as follows: the second line
-of the expression is indented under the first argument, if that is on
-the same line as the beginning of the expression; otherwise, the second
-line is indented underneath the function name.  Each following line is
-indented under the previous line whose nesting depth is the same.
-
-   If the variable `lisp-indent-offset' is non-`nil', it overrides the
-usual indentation pattern for the second line of an expression, so that
-such lines are always indented `lisp-indent-offset' more columns than
-the containing list.
-
-   Certain functions override the standard pattern.  Functions whose
-names start with `def' always indent the second line by
-`lisp-body-indention' extra columns beyond the open-parenthesis
-starting the expression.
-
-   Individual functions can override the standard pattern in various
-ways, according to the `lisp-indent-function' property of the function
-name.  (Note: `lisp-indent-function' was formerly called
-`lisp-indent-hook').  There are four possibilities for this property:
-
-`nil'
-     This is the same as no property; the standard indentation pattern
-     is used.
-
-`defun'
-     The pattern used for function names that start with `def' is used
-     for this function also.
-
-a number, NUMBER
-     The first NUMBER arguments of the function are "distinguished"
-     arguments; the rest are considered the "body" of the expression.
-     A line in the expression is indented according to whether the
-     first argument on it is distinguished or not.  If the argument is
-     part of the body, the line is indented `lisp-body-indent' more
-     columns than the open-parenthesis starting the containing
-     expression.  If the argument is distinguished and is either the
-     first or second argument, it is indented twice that many extra
-     columns.  If the argument is distinguished and not the first or
-     second argument, the standard pattern is followed for that line.
-
-a symbol, SYMBOL
-     SYMBOL should be a function name; that function is called to
-     calculate the indentation of a line within this expression.  The
-     function receives two arguments:
-    STATE
-          The value returned by `parse-partial-sexp' (a Lisp primitive
-          for indentation and nesting computation) when it parses up to
-          the beginning of this line.
-
-    POS
-          The position at which the line being indented begins.
-
-     It should return either a number, which is the number of columns of
-     indentation for that line, or a list whose first element is such a
-     number.  The difference between returning a number and returning a
-     list is that a number says that all following lines at the same
-     nesting level should be indented just like this one; a list says
-     that following lines might call for different indentations.  This
-     makes a difference when the indentation is computed by `C-M-q'; if
-     the value is a number, `C-M-q' need not recalculate indentation
-     for the following lines until the end of the list.
 

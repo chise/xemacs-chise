@@ -358,7 +358,6 @@ sitemoduledir='${datadir}/${inststaticdir}/site-modules'
 pkgdir='${datadir}/${instvardir}/lisp'
 package_path=''
 etcdir='${datadir}/${instvardir}/etc'
-lockdir='${statedir}/${inststaticdir}/lock'
 archlibdir='${datadir}/${instvardir}/${configuration}'
 docdir='${archlibdir}'
 with_prefix='yes'
@@ -748,7 +747,7 @@ The default is to autodetect all sound support."])
 
 	dnl Has the user specified one of the path options?
 	prefix | exec_prefix | bindir | datadir | statedir | libdir | \
-	mandir | infodir | infopath | lispdir | etcdir | lockdir | pkgdir | \
+	mandir | infodir | infopath | lispdir | etcdir | pkgdir | \
 	archlibdir | docdir | package_path )
 	   dnl If the value was omitted, get it from the next argument.
 	   if test "$valomitted" = "yes"; then
@@ -776,7 +775,6 @@ The default is to autodetect all sound support."])
  	        AC_DEFINE(LISPDIR_USER_DEFINED)
             AC_DEFINE(MODULEDIR_USER_DEFINED)
 	        AC_DEFINE(ETCDIR_USER_DEFINED) ;;
-             statedir | lockdir ) AC_DEFINE(LOCKDIR_USER_DEFINED) ;;
 	     docdir ) AC_DEFINE(DOCDIR_USER_DEFINED) ;;
              exec_prefix | libdir | archlibdir ) AC_DEFINE(ARCHLIBDIR_USER_DEFINED) ;;
            esac
@@ -2273,7 +2271,6 @@ else
 	doug_lea_malloc=no
 fi
 after_morecore_hook_exists=yes
-AC_CHECK_FUNC(malloc_get_state, ,doug_lea_malloc=no)
 AC_CHECK_FUNC(malloc_set_state, ,doug_lea_malloc=no)
 AC_MSG_CHECKING(whether __after_morecore_hook exists)
 AC_TRY_LINK([extern void (* __after_morecore_hook)();],[__after_morecore_hook = 0],
@@ -2294,18 +2291,15 @@ elif test "$with_debug_malloc" = "yes" ; then
     - User chose to use Debugging Malloc."
 fi
 
-if test "$doug_lea_malloc" = "yes" ; then
-  if test "$GNU_MALLOC" = yes ; then
-    GNU_MALLOC_reason="
+if test "$doug_lea_malloc" = "yes" -a "$GNU_MALLOC" = "yes" ; then
+  GNU_MALLOC_reason="
     - Using Doug Lea's new malloc from the GNU C Library."
-  fi
   AC_DEFINE(DOUG_LEA_MALLOC)
   if test "$after_morecore_hook_exists" = "no" ; then
     GNU_MALLOC_reason="
     - Using Doug Lea's new malloc from the Linux C Library."
     AC_DEFINE(_NO_MALLOC_WARNING_)
   fi
-  use_minimal_tagbits=yes
 fi
 
 dnl #### mcheck is broken in all versions of Linux libc and glibc.
@@ -4373,17 +4367,6 @@ while true; do
 done
 AC_SUBST(ETCDIR)
 
-AC_SUBST(lockdir)
-AC_SUBST(LOCKDIR_USER_DEFINED)
-LOCKDIR=$lockdir
-while true; do
-  case "$LOCKDIR" in
-    *\$* ) eval "LOCKDIR=$LOCKDIR" ;;
-    *) break ;;
-  esac
-done
-AC_SUBST(LOCKDIR)
-
 AC_SUBST(docdir)
 AC_SUBST(DOCDIR_USER_DEFINED)
 DOCDIR=$docdir
@@ -4698,8 +4681,6 @@ test "$with_workshop" = yes && echo "  Compiling in support for Sun WorkShop."
 test "$with_socks" = yes && echo "  Compiling in support for SOCKS."
 test "$with_dnet" = yes && echo "  Compiling in support for DNET."
 test "$with_modules" = "yes" && echo "  Compiling in support for dynamic shared object modules."
-test "$with_clash_detection" != "no" && \
-  echo "  Clash detection will use \"$lockdir\" for locking files."
 test "$use_union_type" = yes && echo "  Using the union type for Lisp_Objects."
 test "$pdump" = yes && echo "  Using the new portable dumper."
 test "$debug" = yes && echo "  Compiling in support for extra debugging code."

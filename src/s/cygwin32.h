@@ -85,62 +85,8 @@ extern int utimes(char *file, struct timeval *tvp);
 extern int srandom( unsigned seed);
 extern long random();
 
-# define SND_ASYNC		1
-# define SND_NODEFAULT		2
-# define SND_MEMORY		4
-# define SND_FILENAME		0x2000L
-# define VK_APPS			0x5D
-# define SIF_TRACKPOS	0x0010
-# define ICC_BAR_CLASSES 4
-# define FW_BLACK	FW_HEAVY
-# define FW_ULTRABOLD	FW_EXTRABOLD
-# define FW_DEMIBOLD	FW_SEMIBOLD
-# define FW_ULTRALIGHT	FW_EXTRALIGHT
-# define APPCMD_FILTERINITS	0x20L
-# define CBF_FAIL_SELFCONNECTIONS 0x1000
-# define CBF_SKIP_ALLNOTIFICATIONS	0x3C0000
-# define CBF_FAIL_ADVISES	0x4000
-# define CBF_FAIL_POKES		0x10000
-# define CBF_FAIL_REQUESTS	0x20000
-# define SZDDESYS_TOPIC		"System"
-# define JOHAB_CHARSET 		130
-# define MAC_CHARSET 		77
 # endif
 #endif
-
-#ifndef SPI_GETWHEELSCROLLLINES
-#define SPI_GETWHEELSCROLLLINES 104
-#endif
-#ifndef WHEEL_PAGESCROLL
-#define WHEEL_PAGESCROLL (UINT_MAX)
-#endif
-#ifndef WHEEL_DELTA
-#define WHEEL_DELTA 120
-#endif
-#ifndef WM_MOUSEWHEEL
-#define WM_MOUSEWHEEL 0x20A
-#endif
-#ifndef TCS_BOTTOM
-#define TCS_BOTTOM 0x0002
-#endif
-#ifndef TCS_VERTICAL
-#define TCS_VERTICAL 0x0080
-#endif
-#ifndef PHYSICALWIDTH
-#define PHYSICALWIDTH 110
-#endif
-#ifndef PHYSICALHEIGHT
-#define PHYSICALHEIGHT 111
-#endif
-#ifndef PHYSICALOFFSETX
-#define PHYSICALOFFSETX 112
-#endif
-#ifndef PHYSICALOFFSETY
-#define PHYSICALOFFSETY 113
-#endif
-
-
-#define PBS_SMOOTH              0x01
 
 #ifdef HAVE_MS_WINDOWS
 #define HAVE_NTGUI
@@ -153,7 +99,7 @@ extern long random();
 
 #define C_SWITCH_SYSTEM -Wno-sign-compare -fno-caller-saves
 #define LIBS_SYSTEM -lwinmm
-
+#define WIN32_LEAN_AND_MEAN
 
 #define TEXT_START -1
 #define TEXT_END -1

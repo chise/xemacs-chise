@@ -106,6 +106,10 @@ FILE *termscript;	/* Stdio stream being used for copy of all output.  */
 
 int stdout_needs_newline;
 
+#ifdef WINDOWSNT
+static int no_useful_stderr;
+#endif
+
 static void
 std_handle_out_external (FILE *stream, Lisp_Object lstream,
 			 const Extbyte *extptr, Extcount extlen,
@@ -117,9 +121,12 @@ std_handle_out_external (FILE *stream, Lisp_Object lstream,
   if (stream)
     {
 #ifdef WINDOWSNT
+      if (!no_useful_stderr)
+	no_useful_stderr = GetStdHandle (STD_ERROR_HANDLE) == 0 ? 1 : -1;
+
       /* we typically have no useful stdout/stderr under windows if we're
 	 being invoked graphically. */
-      if (!noninteractive)
+      if (!noninteractive || no_useful_stderr > 0)
 	msw_output_console_string (extptr, extlen);
       else
 #endif
@@ -174,9 +181,16 @@ std_handle_out_va (FILE *stream, const char *fmt, va_list args)
   int retval;
 
   retval = vsprintf ((char *) kludge, fmt, args);
-  TO_EXTERNAL_FORMAT (DATA, (kludge, strlen ((char *) kludge)),
-		      ALLOCA, (extptr, extlen),
-		      Qnative);
+  if (initialized && !fatal_error_in_progress)
+    TO_EXTERNAL_FORMAT (DATA, (kludge, strlen ((char *) kludge)),
+			ALLOCA, (extptr, extlen),
+			Qnative);
+  else
+    {
+      extptr = (Extbyte *) kludge;
+      extlen = (Extcount) strlen ((char *) kludge);
+    }
+  
   std_handle_out_external (stream, Qnil, extptr, extlen, 1, 1);
   return retval;
 }
@@ -190,7 +204,10 @@ stderr_out (const char *fmt, ...)
   int retval;
   va_list args;
   va_start (args, fmt);
-  retval = std_handle_out_va (stderr, GETTEXT (fmt), args);
+  retval =
+    std_handle_out_va
+    (stderr, initialized && !fatal_error_in_progress ? GETTEXT (fmt) : fmt,
+     args);
   va_end (args);
   return retval;
 }
@@ -204,7 +221,10 @@ stdout_out (const char *fmt, ...)
   int retval;
   va_list args;
   va_start (args, fmt);
-  retval = std_handle_out_va (stdout, GETTEXT (fmt), args);
+  retval =
+    std_handle_out_va
+    (stdout, initialized && !fatal_error_in_progress ? GETTEXT (fmt) : fmt,
+     args);
   va_end (args);
   return retval;
 }

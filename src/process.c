@@ -1073,24 +1073,25 @@ See `set-process-filter' for more info on filter functions.
   return XPROCESS (proc)->filter;
 }
 
-DEFUN ("process-send-region", Fprocess_send_region, 3, 3, 0, /*
-Send current contents of region as input to PROCESS.
+DEFUN ("process-send-region", Fprocess_send_region, 3, 4, 0, /*
+Send current contents of the region between START and END as input to PROCESS.
 PROCESS may be a process name or an actual process.
-Called from program, takes three arguments, PROCESS, START and END.
+BUFFER specifies the buffer to look in; if nil, the current buffer is used.
 If the region is more than 500 or so characters long,
 it is sent in several bunches.  This may happen even for shorter regions.
 Output from processes can arrive in between bunches.
 */
-       (process, start, end))
+       (process, start, end, buffer))
 {
   /* This function can GC */
   Lisp_Object proc = get_process (process);
   Bufpos st, en;
+  struct buffer *buf = decode_buffer (buffer, 0);
 
-  get_buffer_range_char (current_buffer, start, end, &st, &en, 0);
+  XSETBUFFER (buffer, buf);
+  get_buffer_range_char (buf, start, end, &st, &en, 0);
 
-  send_process (proc, Fcurrent_buffer (), 0,
-                st, en - st);
+  send_process (proc, buffer, 0, st, en - st);
   return Qnil;
 }
 

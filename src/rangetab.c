@@ -443,10 +443,47 @@ Flush TABLE.
 DEFUN ("map-range-table", Fmap_range_table, 2, 2, 0, /*
 Map FUNCTION over entries in TABLE, calling it with three args,
 the beginning and end of the range and the corresponding value.
+
+Results are guaranteed to be correct (i.e. each entry processed
+exactly once) if FUNCTION modifies or deletes the current entry
+(i.e. passes the current range to `put-range-table' or
+`remove-range-table'), but not otherwise.
 */
        (function, table))
 {
-  error ("not yet implemented");
+  Lisp_Range_Table *rt;
+  int i;
+
+  CHECK_RANGE_TABLE (table);
+  CHECK_FUNCTION (function);
+
+  rt = XRANGE_TABLE (table);
+
+  /* Do not "optimize" by pulling out the length computation below!
+     FUNCTION may have changed the table. */
+  for (i = 0; i < Dynarr_length (rt->entries); i++)
+    {
+      struct range_table_entry *entry = Dynarr_atp (rt->entries, i);
+      EMACS_INT first, last;
+      Lisp_Object args[4];
+      int oldlen;
+      
+    again:
+      first = entry->first;
+      last = entry->last;
+      oldlen = Dynarr_length (rt->entries);
+      args[0] = function;
+      args[1] = make_int (first);
+      args[2] = make_int (last);
+      args[3] = entry->val;
+      Ffuncall (countof (args), args);
+      /* Has FUNCTION removed the entry? */
+      if (oldlen > Dynarr_length (rt->entries)
+	  && i < Dynarr_length (rt->entries)
+	  && (first != entry->first || last != entry->last))
+	goto again;
+      }
+
   return Qnil;
 }
 

@@ -30,6 +30,243 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Calendar Motion,  Next: Scroll Calendar,  Prev: Calendar/Diary,  Up: Calendar/Diary
+
+Movement in the Calendar
+------------------------
+
+   Calendar mode lets you move through the calendar in logical units of
+time such as days, weeks, months, and years.  If you move outside the
+three months originally displayed, the calendar display "scrolls"
+automatically through time to make the selected date visible.  Moving to
+a date lets you view its holidays or diary entries, or convert it to
+other calendars; moving longer time periods is also useful simply to
+scroll the calendar.
+
+* Menu:
+
+* Calendar Unit Motion::       Moving by days, weeks, months, and years.
+* Move to Beginning or End::   Moving to start/end of weeks, months, and years.
+* Specified Dates::            Moving to the current date or another
+                               specific date.
+
+
+File: xemacs.info,  Node: Calendar Unit Motion,  Next: Move to Beginning or End,  Prev: Calendar Motion,  Up: Calendar Motion
+
+Motion by Integral Days, Weeks, Months, Years
+.............................................
+
+   The commands for movement in the calendar buffer parallel the
+commands for movement in text.  You can move forward and backward by
+days, weeks, months, and years.
+
+`C-f'
+     Move point one day forward (`calendar-forward-day').
+
+`C-b'
+     Move point one day backward (`calendar-backward-day').
+
+`C-n'
+     Move point one week forward (`calendar-forward-week').
+
+`C-p'
+     Move point one week backward (`calendar-backward-week').
+
+`M-}'
+     Move point one month forward (`calendar-forward-month').
+
+`M-{'
+     Move point one month backward (`calendar-backward-month').
+
+`C-x ]'
+     Move point one year forward (`calendar-forward-year').
+
+`C-x ['
+     Move point one year backward (`calendar-backward-year').
+
+   The day and week commands are natural analogues of the usual Emacs
+commands for moving by characters and by lines.  Just as `C-n' usually
+moves to the same column in the following line, in Calendar mode it
+moves to the same day in the following week.  And `C-p' moves to the
+same day in the previous week.
+
+   The arrow keys are equivalent to `C-f', `C-b', `C-n' and `C-p', just
+as they normally are in other modes.
+
+   The commands for motion by months and years work like those for
+weeks, but move a larger distance.  The month commands `M-}' and `M-{'
+move forward or backward by an entire month's time.  The year commands
+`C-x ]' and `C-x [' move forward or backward a whole year.
+
+   The easiest way to remember these commands is to consider months and
+years analogous to paragraphs and pages of text, respectively.  But the
+commands themselves are not quite analogous.  The ordinary Emacs
+paragraph commands move to the beginning or end of a paragraph, whereas
+these month and year commands move by an entire month or an entire
+year, which usually involves skipping across the end of a month or year.
+
+   All these commands accept a numeric argument as a repeat count.  For
+convenience, the digit keys and the minus sign specify numeric
+arguments in Calendar mode even without the Meta modifier.  For example,
+`100 C-f' moves point 100 days forward from its present location.
+
+
+File: xemacs.info,  Node: Move to Beginning or End,  Next: Specified Dates,  Prev: Calendar Unit Motion,  Up: Calendar Motion
+
+Beginning or End of Week, Month or Year
+.......................................
+
+   A week (or month, or year) is not just a quantity of days; we think
+of weeks (months, years) as starting on particular dates.  So Calendar
+mode provides commands to move to the beginning or end of a week, month
+or year:
+
+`C-a'
+     Move point to start of week (`calendar-beginning-of-week').
+
+`C-e'
+     Move point to end of week (`calendar-end-of-week').
+
+`M-a'
+     Move point to start of month (`calendar-beginning-of-month').
+
+`M-e'
+     Move point to end of month (`calendar-end-of-month').
+
+`M-<'
+     Move point to start of year (`calendar-beginning-of-year').
+
+`M->'
+     Move point to end of year (`calendar-end-of-year').
+
+   These commands also take numeric arguments as repeat counts, with the
+repeat count indicating how many weeks, months, or years to move
+backward or forward.
+
+   By default, weeks begin on Sunday.  To make them begin on Monday
+instead, set the variable `calendar-week-start-day' to 1.
+
+
+File: xemacs.info,  Node: Specified Dates,  Prev: Move to Beginning or End,  Up: Calendar Motion
+
+Particular Dates
+................
+
+   Calendar mode provides commands for moving to a particular date
+specified in various ways.
+
+`g d'
+     Move point to specified date (`calendar-goto-date').
+
+`o'
+     Center calendar around specified month (`calendar-other-month').
+
+`.'
+     Move point to today's date (`calendar-goto-today').
+
+   `g d' (`calendar-goto-date') prompts for a year, a month, and a day
+of the month, and then moves to that date.  Because the calendar
+includes all dates from the beginning of the current era, you must type
+the year in its entirety; that is, type `1990', not `90'.
+
+   `o' (`calendar-other-month') prompts for a month and year, then
+centers the three-month calendar around that month.
+
+   You can return to today's date with `.' (`calendar-goto-today').
+
+
+File: xemacs.info,  Node: Scroll Calendar,  Next: Mark and Region,  Prev: Calendar Motion,  Up: Calendar/Diary
+
+Scrolling the Calendar through Time
+-----------------------------------
+
+   The calendar display scrolls automatically through time when you
+move out of the visible portion.  You can also scroll it manually.
+Imagine that the calendar window contains a long strip of paper with
+the months on it.  Scrolling it means moving the strip so that new
+months become visible in the window.
+
+`C-x <'
+     Scroll calendar one month forward (`scroll-calendar-left').
+
+`C-x >'
+     Scroll calendar one month backward (`scroll-calendar-right').
+
+`C-v'
+`<NEXT>'
+     Scroll calendar three months forward
+     (`scroll-calendar-left-three-months').
+
+`M-v'
+`<PRIOR>'
+     Scroll calendar three months backward
+     (`scroll-calendar-right-three-months').
+
+   The most basic calendar scroll commands scroll by one month at a
+time.  This means that there are two months of overlap between the
+display before the command and the display after.  `C-x <' scrolls the
+calendar contents one month to the left; that is, it moves the display
+forward in time.  `C-x >' scrolls the contents to the right, which
+moves backwards in time.
+
+   The commands `C-v' and `M-v' scroll the calendar by an entire
+"screenful"--three months--in analogy with the usual meaning of these
+commands.  `C-v' makes later dates visible and `M-v' makes earlier
+dates visible.  These commands take a numeric argument as a repeat
+count; in particular, since `C-u' multiplies the next command by four,
+typing `C-u C-v' scrolls the calendar forward by a year and typing `C-u
+M-v' scrolls the calendar backward by a year.
+
+   The function keys <NEXT> and <PRIOR> are equivalent to `C-v' and
+`M-v', just as they are in other modes.
+
+
+File: xemacs.info,  Node: Mark and Region,  Next: General Calendar,  Prev: Scroll Calendar,  Up: Calendar/Diary
+
+The Mark and the Region
+-----------------------
+
+   The concept of the mark applies to the calendar just as to any other
+buffer, but it marks a _date_, not a _position_ in the buffer.  The
+region consists of the days between the mark and point (including the
+starting and stopping dates).
+
+`C-SPC'
+     Set the mark to today's date (`calendar-set-mark').
+
+`C-@'
+     The same.
+
+`C-x C-x'
+     Interchange mark and point (`calendar-exchange-point-and-mark').
+
+`M-='
+     Display the number of days in the current region
+     (`calendar-count-days-region').
+
+   You set the mark in the calendar, as in any other buffer, by using
+`C-@' or `C-SPC' (`calendar-set-mark').  You return to the marked date
+with the command `C-x C-x' (`calendar-exchange-point-and-mark') which
+puts the mark where point was and point where mark was.  The calendar
+is scrolled as necessary, if the marked date was not visible on the
+screen.  This does not change the extent of the region.
+
+   To determine the number of days in the region, type `M-='
+(`calendar-count-days-region').  The numbers of days printed is
+_inclusive_; that is, it includes the days specified by mark and point.
+
+   The main use of the mark in the calendar is to remember dates that
+you may want to go back to.  To make this feature more useful, the mark
+ring (*note Mark Ring::) operates exactly as in other buffers:  Emacs
+remembers 16 previous locations of the mark.  To return to a marked
+date, type `C-u C-SPC' (or `C-u C-@'); this is the command
+`calendar-set-mark' given a numeric argument.  It moves point to where
+the mark was, restores the mark from the ring of former marks, and
+stores the previous point at the end of the mark ring.  So, repeated
+use of this command moves point through all the old marks on the ring,
+one by one.
+
+
 File: xemacs.info,  Node: General Calendar,  Next: LaTeX Calendar,  Prev: Mark and Region,  Up: Calendar/Diary
 
 Miscellaneous Calendar Commands
@@ -1026,101 +1263,4 @@ on the variable `date'; this variable is a list (MONTH DAY YEAR) that
 gives the Gregorian date for which the diary entries are being found.
 If the value of the sexp is `t', the entry applies to that date.  If
 the sexp evaluates to `nil', the entry does _not_ apply to that date.
-
-
-File: xemacs.info,  Node: Calendar Customization,  Prev: Diary,  Up: Calendar/Diary
-
-Customizing the Calendar and Diary
-----------------------------------
-
-   There are many customizations that you can use to make the calendar
-and diary suit your personal tastes.
-
-* Menu:
-
-* Calendar Customizing::   Defaults you can set.
-* Holiday Customizing::    Defining your own holidays.
-* Date Display Format::    Changing the format.
-* Time Display Format::    Changing the format.
-* Daylight Savings::       Changing the default.
-* Diary Customizing::      Defaults you can set.
-* Hebrew/Islamic Entries:: How to obtain them.
-* Fancy Diary Display::    Enhancing the diary display, sorting entries.
-* Included Diary Files::   Sharing a common diary file.
-* Sexp Diary Entries::     Fancy things you can do.
-* Appt Customizing::	   Customizing appointment reminders.
-
-
-File: xemacs.info,  Node: Calendar Customizing,  Next: Holiday Customizing,  Up: Calendar Customization
-
-Customizing the Calendar
-........................
-
-   If you set the variable `view-diary-entries-initially' to `t',
-calling up the calendar automatically displays the diary entries for
-the current date as well.  The diary dates appear only if the current
-date is visible.  If you add both of the following lines to your
-`.emacs' file:
-
-     (setq view-diary-entries-initially t)
-     (calendar)
-
-this displays both the calendar and diary windows whenever you start
-Emacs.
-
-   Similarly, if you set the variable
-`view-calendar-holidays-initially' to `t', entering the calendar
-automatically displays a list of holidays for the current three-month
-period.  The holiday list appears in a separate window.
-
-   You can set the variable `mark-diary-entries-in-calendar' to `t' in
-order to mark any dates with diary entries.  This takes effect whenever
-the calendar window contents are recomputed.  There are two ways of
-marking these dates: by changing the face (*note Faces::), if the
-display supports that, or by placing a plus sign (`+') beside the date
-otherwise.
-
-   Similarly, setting the variable `mark-holidays-in-calendar' to `t'
-marks holiday dates, either with a change of face or with an asterisk
-(`*').
-
-   The variable `calendar-holiday-marker' specifies how to mark a date
-as being a holiday.  Its value may be a character to insert next to the
-date, or a face name to use for displaying the date.  Likewise, the
-variable `diary-entry-marker' specifies how to mark a date that has
-diary entries.  The calendar creates faces named `holiday-face' and
-`diary-face' for these purposes; those symbols are the default values
-of these variables, when Emacs supports multiple faces on your terminal.
-
-   The variable `calendar-load-hook' is a normal hook run when the
-calendar package is first loaded (before actually starting to display
-the calendar).
-
-   Starting the calendar runs the normal hook
-`initial-calendar-window-hook'.  Recomputation of the calendar display
-does not run this hook.  But if you leave the calendar with the `q'
-command and reenter it, the hook runs again.
-
-   The variable `today-visible-calendar-hook' is a normal hook run
-after the calendar buffer has been prepared with the calendar when the
-current date is visible in the window.  One use of this hook is to
-replace today's date with asterisks; to do that, use the hook function
-`calendar-star-date'.
-
-     (add-hook 'today-visible-calendar-hook 'calendar-star-date)
-
-Another standard hook function marks the current date, either by
-changing its face or by adding an asterisk.  Here's how to use it:
-
-     (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
-
-The variable `calendar-today-marker' specifies how to mark today's
-date.  Its value should be a character to insert next to the date or a
-face name to use for displaying the date.  A face named
-`calendar-today-face' is provided for this purpose; that symbol is the
-default for this variable when Emacs supports multiple faces on your
-terminal.
-
-A similar normal hook, `today-invisible-calendar-hook' is run if the
-current date is _not_ visible in the window.
 

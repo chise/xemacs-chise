@@ -30,6 +30,105 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Minibuffer File,  Next: Minibuffer Edit,  Prev: Minibuffer,  Up: Minibuffer
+
+Minibuffers for File Names
+==========================
+
+   Sometimes the minibuffer starts out with text in it.  For example,
+when you are supposed to give a file name, the minibuffer starts out
+containing the "default directory", which ends with a slash.  This is
+to inform you which directory the file will be found in if you do not
+specify a directory.
+
+   For example, the minibuffer might start out with these contents:
+
+     Find File: /u2/emacs/src/
+
+where `Find File: ' is the prompt.  Typing `buffer.c' specifies the
+file `/u2/emacs/src/buffer.c'.  To find files in nearby directories,
+use `..'; thus, if you type `../lisp/simple.el', you will get the file
+named `/u2/emacs/lisp/simple.el'.  Alternatively, you can kill with
+`M-<DEL>' the directory names you don't want (*note Words::).
+
+   If you don't want any of the default, you can kill it with `C-a
+C-k'.  But you don't need to kill the default; you can simply ignore it.
+Insert an absolute file name, one starting with a slash or a tilde,
+after the default directory.  For example, to specify the file
+`/etc/termcap', just insert that name, giving these minibuffer contents:
+
+     Find File: /u2/emacs/src//etc/termcap
+
+XEmacs gives a special meaning to a double slash (which is not normally
+a useful thing to write): it means, "ignore everything before the
+second slash in the pair."  Thus, `/u2/emacs/src/' is ignored in the
+example above, and you get the file `/etc/termcap'.
+
+   If you set `insert-default-directory' to `nil', the default
+directory is not inserted in the minibuffer.  This way, the minibuffer
+starts out empty.  But the name you type, if relative, is still
+interpreted with respect to the same default directory.
+
+
+File: xemacs.info,  Node: Minibuffer Edit,  Next: Completion,  Prev: Minibuffer File,  Up: Minibuffer
+
+Editing in the Minibuffer
+=========================
+
+   The minibuffer is an XEmacs buffer (albeit a peculiar one), and the
+usual XEmacs commands are available for editing the text of an argument
+you are entering.
+
+   Since <RET> in the minibuffer is defined to exit the minibuffer, you
+can't use it to insert a newline in the minibuffer.  To do that, type
+`C-o' or `C-q C-j'.  (Recall that a newline is really the character
+control-J.)
+
+   The minibuffer has its own window which always has space on the
+screen but acts as if it were not there when the minibuffer is not in
+use.  When the minibuffer is in use, its window is just like the
+others; you can switch to another window with `C-x o', edit text in
+other windows and perhaps even visit more files, before returning to the
+minibuffer to submit the argument.  You can kill text in another window,
+return to the minibuffer window, and then yank the text to use it in the
+argument.  *Note Windows::.
+
+   There are some restrictions on the use of the minibuffer window,
+however.  You cannot switch buffers in it--the minibuffer and its
+window are permanently attached.  Also, you cannot split or kill the
+minibuffer window. But you can make it taller in the normal fashion with
+`C-x ^'.  If you enable Resize-Minibuffer mode, then the minibuffer
+window expands vertically as necessary to hold the text that you put in
+the minibuffer.  Use `M-x resize-minibuffer-mode' to enable or disable
+this minor mode (*note Minor Modes::).
+
+   If while in the minibuffer you issue a command that displays help
+text of any sort in another window, you can use the `C-M-v' command
+while in the minibuffer to scroll the help text.  This lasts until you
+exit the minibuffer.  This feature is especially useful if a completing
+minibuffer gives you a list of possible completions.  *Note Other
+Window::.
+
+   If the variable `minibuffer-confirm-incomplete' is `t', you are
+asked for confirmation if there is no known completion for the text you
+typed. For example, if you attempted to visit a non-existent file, the
+minibuffer might read:
+             Find File: chocolate_bar.c [no completions, confirm]
+   If you press `Return' again, that confirms the filename. Otherwise,
+you can continue editing it.
+
+   XEmacs supports recursive use of the minibuffer.  However, it is easy
+to do this by accident (because of autorepeating keyboards, for example)
+and get confused.  Therefore, most XEmacs commands that use the
+minibuffer refuse to operate if the minibuffer window is selected.  If
+the minibuffer is active but you have switched to a different window,
+recursive use of the minibuffer is allowed--if you know enough to try
+to do this, you probably will not get confused.
+
+   If you set the variable `enable-recursive-minibuffers' to a
+non-`nil', recursive use of the minibuffer is always allowed.
+
+
 File: xemacs.info,  Node: Completion,  Next: Minibuffer History,  Prev: Minibuffer Edit,  Up: Minibuffer
 
 Completion
@@ -91,7 +190,7 @@ possibilities for the very next character--it could be any of `c-'--so
 no more characters are added; instead, <TAB> displays a list of all
 possible completions in another window.
 
-   If you go on to type `f <TAB>', this <TAB> sees `auto-f'.  The only
+   If you go on to type `-f <TAB>', this <TAB> sees `auto-f'.  The only
 command name starting this way is `auto-fill-mode', so completion fills
 in the rest of that.  You now have `auto-fill-mode' in the minibuffer
 after typing just `au <TAB> f <TAB>'.  Note that <TAB> has this effect
@@ -149,6 +248,14 @@ window that displays a list of completions:
      You normally use this command while point is in the minibuffer;
      but you must click in the list of completions, not in the
      minibuffer itself.
+
+`<PRIOR>'
+`M-v'
+     Typing <PRIOR> or `M-v', while in the minibuffer, selects the
+     window showing the completion list buffer
+     (`switch-to-completions').  This paves the way for using the
+     commands below.  (Selecting that window in the usual ways has the
+     same effect, but this way is more convenient.)
 
 `<RET>'
      Typing <RET> _in the completion list buffer_ chooses the
@@ -233,6 +340,10 @@ and you must type `?' to display the possible completions.
 in contexts where `completing-read' allows answers that are not valid
 completions, an extra <RET> must be typed to confirm the response.
 This is helpful for catching typos.
+
+   Icomplete mode presents a constantly-updated display that tells you
+what completions are available for the text you've entered so far.  The
+command to enable or disable this minor mode is `M-x icomplete-mode'.
 
 
 File: xemacs.info,  Node: Minibuffer History,  Next: Repetition,  Prev: Completion,  Up: Minibuffer
@@ -320,11 +431,11 @@ name.
      Re-execute a recent minibuffer command (`repeat-complex-command').
 
 `M-p'
-     Within `C-x <ESC>', move to previous recorded command
+     Within `C-x <ESC> <ESC>', move to previous recorded command
      (`previous-history-element').
 
 `M-n'
-     Within `C-x <ESC>', move to the next (more recent) recorded
+     Within `C-x <ESC> <ESC>', move to the next (more recent) recorded
      command (`next-history-element').
 
 `M-x list-command-history'
@@ -1115,88 +1226,4 @@ delimiter (to include it), while point goes after the preceding page
 delimiter (to exclude it).  Finally, `C-x h' (`mark-whole-buffer') sets
 up the entire buffer as the region by putting point at the beginning
 and the mark at the end.
-
-
-File: xemacs.info,  Node: Mark Ring,  Prev: Marking Objects,  Up: Mark
-
-The Mark Ring
--------------
-
-   Aside from delimiting the region, the mark is also useful for marking
-a spot that you may want to go back to.  To make this feature more
-useful, Emacs remembers 16 previous locations of the mark in the "mark
-ring".  Most commands that set the mark push the old mark onto this
-ring.  To return to a marked location, use `C-u C-<SPC>' (or `C-u
-C-@'); this is the command `set-mark-command' given a numeric argument.
-The command moves point to where the mark was, and restores the mark
-from the ring of former marks. Repeated use of this command moves point
-to all the old marks on the ring, one by one.  The marks you have seen
-go to the end of the ring, so no marks are lost.
-
-   Each buffer has its own mark ring.  All editing commands use the
-current buffer's mark ring.  In particular, `C-u C-<SPC>' always stays
-in the same buffer.
-
-   Many commands that can move long distances, such as `M-<'
-(`beginning-of-buffer'), start by setting the mark and saving the old
-mark on the mark ring.  This makes it easier for you to move back
-later.  Searches set the mark, unless they do not actually move point.
-When a command sets the mark, `Mark Set' is printed in the echo area.
-
-   The variable `mark-ring-max' is the maximum number of entries to
-keep in the mark ring.  If that many entries exist and another entry is
-added, the last entry in the list is discarded.  Repeating `C-u
-C-<SPC>' circulates through the entries that are currently in the ring.
-
-   The variable `mark-ring' holds the mark ring itself, as a list of
-marker objects in the order most recent first.  This variable is local
-in every buffer.
-
-
-File: xemacs.info,  Node: Mouse Selection,  Next: Additional Mouse Operations,  Prev: Mark,  Up: Top
-
-Selecting Text with the Mouse
-=============================
-
-   If you are using XEmacs under X, you can use the mouse pointer to
-select text. (The normal mouse pointer is an I-beam, the same pointer
-that `xterm' uses.)
-
-   The glyph variable `text-pointer-glyph' controls the shape of the
-mouse pointer when over text.  You can also control the shape of the
-mouse pointer when over nontext using `nontext-pointer-glyph', and the
-shape of the mouse pointer when over the modeline using
-`modeline-pointer-glyph'. (Remember, you should use `set-glyph-image',
-not `setq', to set one of these variables.)
-
-   If you want to get fancy, you can set the foreground and background
-colors of the mouse pointer by setting the `pointer' face.
-
-   There are two ways to select a region of text with the mouse:
-
-   To select a word in text, double-click with the left mouse button
-while the mouse cursor is over the word.  The word is highlighted when
-selected. On monochrome monitors, a stippled background indicates that a
-region of text has been highlighted. On color monitors, a color
-background indicates highlighted text. You can triple-click to select
-whole lines.
-
-   To select an arbitrary region of text:
-
-  1. Move the mouse cursor over the character at the beginning of the
-     region of text you want to select.
-
-  2. Press and hold the left mouse button.
-
-  3. While holding the left mouse button down, drag the cursor to the
-     character at the end of the region of text you want to select.
-
-  4. Release the left mouse button.
-        The selected region of text is highlighted.
-
-   Once a region of text is selected, it becomes the primary X selection
-(*note Using X Selections::) as well as the Emacs selected region. You
-can paste it into other X applications and use the options from the
-Edit pull-down menu on it.  Since it is also the Emacs region, you can
-use Emacs region commands on it.
 

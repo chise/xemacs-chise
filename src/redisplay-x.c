@@ -286,24 +286,24 @@ x_eol_cursor_width (void)
 }
 
 /*****************************************************************************
- x_output_begin
+ x_window_output_begin
 
  Perform any necessary initialization prior to an update.
  ****************************************************************************/
 static void
-x_output_begin (struct device *d)
+x_window_output_begin (struct window *w)
 {
 }
 
 /*****************************************************************************
- x_output_end
+ x_window_output_end
 
  Perform any necessary flushing of queues when an update has completed.
  ****************************************************************************/
 static void
-x_output_end (struct device *d)
+x_window_output_end (struct window *w)
 {
-  XFlush (DEVICE_X_DISPLAY (d));
+  XFlush (DEVICE_X_DISPLAY (WINDOW_XDEVICE (w)));
 }
 
 /*****************************************************************************
@@ -460,16 +460,18 @@ x_output_display_block (struct window *w, struct display_line *dl, int block,
 		      break;
 		      
 		    case IMAGE_WIDGET:
+		      if (EQ (XIMAGE_INSTANCE_WIDGET_TYPE (instance),
+			      Qlayout))
+			{
+			  redisplay_output_layout (w, instance, &dbox, &dga, findex,
+						   cursor_start, cursor_width,
+						   cursor_height);
+			  break;
+			}
 		    case IMAGE_SUBWINDOW:
 		      redisplay_output_subwindow (w, instance, &dbox, &dga, findex,
 						  cursor_start, cursor_width,
 						  cursor_height);
-		      break;
-		      
-		    case IMAGE_LAYOUT:
-		      redisplay_output_layout (w, instance, &dbox, &dga, findex,
-					       cursor_start, cursor_width,
-					       cursor_height);
 		      break;
 		      
 		    case IMAGE_NOTHING:
@@ -2093,8 +2095,8 @@ console_type_create_redisplay_x (void)
   CONSOLE_HAS_METHOD (x, output_vertical_divider);
   CONSOLE_HAS_METHOD (x, clear_region);
   CONSOLE_HAS_METHOD (x, clear_frame);
-  CONSOLE_HAS_METHOD (x, output_begin);
-  CONSOLE_HAS_METHOD (x, output_end);
+  CONSOLE_HAS_METHOD (x, window_output_begin);
+  CONSOLE_HAS_METHOD (x, window_output_end);
   CONSOLE_HAS_METHOD (x, flash);
   CONSOLE_HAS_METHOD (x, ring_bell);
   CONSOLE_HAS_METHOD (x, bevel_area);

@@ -28,13 +28,50 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+
+#include "buffer.h"
+#include "console-msw.h"
 #include "events.h"
 #include "opaque.h"
 
-#include "console-msw.h"
-
 DEFINE_CONSOLE_TYPE (mswindows);
 DEFINE_CONSOLE_TYPE (msprinter);
+
+Lisp_Object Qabortretryignore;
+Lisp_Object Qapplmodal;
+Lisp_Object Qdefault_desktop_only;
+Lisp_Object Qdefbutton1;
+Lisp_Object Qdefbutton2;
+Lisp_Object Qdefbutton3;
+Lisp_Object Qdefbutton4;
+/* Lisp_Object Qhelp; */
+Lisp_Object Qiconasterisk;
+Lisp_Object Qiconexclamation;
+Lisp_Object Qiconhand;
+Lisp_Object Qiconinformation;
+Lisp_Object Qiconquestion;
+Lisp_Object Qiconstop;
+/* Lisp_Object Qok; */
+Lisp_Object Qokcancel;
+Lisp_Object Qretrycancel;
+/* Lisp_Object Qright; */
+Lisp_Object Qrtlreading;
+Lisp_Object Qservice_notification;
+Lisp_Object Qsetforeground;
+Lisp_Object Qsystemmodal;
+Lisp_Object Qtaskmodal;
+Lisp_Object Qtopmost;
+Lisp_Object Qyesno;
+Lisp_Object Qyesnocancel;
+
+/* Lisp_Object Qabort; */
+/* Lisp_Object Qcancel; */
+/* Lisp_Object Qignore; */
+/* Lisp_Object Qno; */
+/* Lisp_Object Qok; */
+/* Lisp_Object Qretry; */
+/* Lisp_Object Qyes; */
+
 
 /************************************************************************/
 /*                       mswindows console methods                      */
@@ -261,6 +298,242 @@ DSYMNAME (Lisp_Object obj)
 
 #endif /* DEBUG_XEMACS */
 
+DEFUN ("mswindows-message-box", Fmswindows_message_box, 1, 3, 0, /*
+Pop up an MS Windows message box.
+MESSAGE is the string to display.  Optional argument FLAG controls
+what appears in the box and how it behaves; it is a symbol or list of
+symbols, described below.  Second optional argument TITLE controls the
+title bar; if omitted, a standard title bar will be used, probably
+displaying "XEmacs".
+
+Possible flags are
+
+
+-- To specify the buttons in the message box:
+
+abortretryignore 
+  The message box contains three push buttons: Abort, Retry, and Ignore. 
+ok 
+  The message box contains one push button: OK. This is the default. 
+okcancel 
+  The message box contains two push buttons: OK and Cancel. 
+retrycancel 
+  The message box contains two push buttons: Retry and Cancel. 
+yesno 
+  The message box contains two push buttons: Yes and No. 
+yesnocancel 
+  The message box contains three push buttons: Yes, No, and Cancel. 
+
+
+-- To display an icon in the message box:
+ 
+iconexclamation, iconwarning
+  An exclamation-point icon appears in the message box. 
+iconinformation, iconasterisk
+  An icon consisting of a lowercase letter i in a circle appears in
+  the message box. 
+iconquestion
+  A question-mark icon appears in the message box. 
+iconstop, iconerror, iconhand
+  A stop-sign icon appears in the message box. 
+
+
+-- To indicate the default button: 
+
+defbutton1
+  The first button is the default button.  This is the default.
+defbutton2
+  The second button is the default button. 
+defbutton3
+  The third button is the default button. 
+defbutton4
+  The fourth button is the default button. 
+
+
+-- To indicate the modality of the dialog box:
+ 
+applmodal
+  The user must respond to the message box before continuing work in
+  the window identified by the hWnd parameter. However, the user can
+  move to the windows of other applications and work in those windows.
+  Depending on the hierarchy of windows in the application, the user
+  may be able to move to other windows within the application. All
+  child windows of the parent of the message box are automatically
+  disabled, but popup windows are not.  This is the default.
+systemmodal
+  Same as applmodal except that the message box has the WS_EX_TOPMOST
+  style. Use system-modal message boxes to notify the user of serious,
+  potentially damaging errors that require immediate attention (for
+  example, running out of memory). This flag has no effect on the
+  user's ability to interact with windows other than those associated
+  with hWnd.
+taskmodal
+  Same as applmodal except that all the top-level windows belonging to
+  the current task are disabled if the hWnd parameter is NULL. Use
+  this flag when the calling application or library does not have a
+  window handle available but still needs to prevent input to other
+  windows in the current application without suspending other
+  applications.
+
+
+In addition, you can specify the following flags: 
+
+default-desktop-only 
+  The desktop currently receiving input must be a default desktop;
+  otherwise, the function fails. A default desktop is one an
+  application runs on after the user has logged on.
+help 
+  Adds a Help button to the message box. Choosing the Help button or
+  pressing F1 generates a Help event.
+right 
+  The text is right-justified. 
+rtlreading 
+  Displays message and caption text using right-to-left reading order
+  on Hebrew and Arabic systems.
+setforeground 
+  The message box becomes the foreground window. Internally, Windows
+  calls the SetForegroundWindow function for the message box.
+topmost 
+  The message box is created with the WS_EX_TOPMOST window style. 
+service-notification 
+  Windows NT only: The caller is a service notifying the user of an
+  event. The function displays a message box on the current active
+  desktop, even if there is no user logged on to the computer.  If
+  this flag is set, the hWnd parameter must be NULL. This is so the
+  message box can appear on a desktop other than the desktop
+  corresponding to the hWnd.
+
+
+
+The return value is one of the following menu-item values returned by
+the dialog box:
+ 
+abort
+  Abort button was selected. 
+cancel
+  Cancel button was selected. 
+ignore
+  Ignore button was selected. 
+no
+  No button was selected. 
+ok
+  OK button was selected. 
+retry
+  Retry button was selected. 
+yes
+  Yes button was selected. 
+
+If a message box has a Cancel button, the function returns the
+`cancel' value if either the ESC key is pressed or the Cancel button
+is selected.  If the message box has no Cancel button, pressing ESC has
+no effect.  */
+       (message_, flags, title))
+{
+  Lisp_Object tail;
+  Extbyte *msgout;
+  Extbyte *titleout = 0;
+  UINT sty = 0;
+
+  if (noninteractive)
+    return Qcancel;
+
+  if (!CONSP (flags))
+    {
+      CHECK_SYMBOL (flags);
+      flags = list1 (flags);
+    }
+
+  CHECK_STRING (message_);
+  TO_EXTERNAL_FORMAT (LISP_STRING, message_,
+		      C_STRING_ALLOCA, msgout,
+		      Qmswindows_tstr);
+  
+  if (!NILP (title))
+    {
+      CHECK_STRING (title);
+      TO_EXTERNAL_FORMAT (LISP_STRING, title,
+			  C_STRING_ALLOCA, titleout,
+			  Qmswindows_tstr);
+    }
+
+  EXTERNAL_LIST_LOOP (tail, flags)
+    {
+      Lisp_Object st = XCAR (tail);
+      CHECK_SYMBOL (st);
+      if (0)
+	;
+#define FROB(sym, val) else if (EQ (st, sym)) sty |= val
+      FROB (Qabortretryignore, MB_ABORTRETRYIGNORE);
+      FROB (Qapplmodal, MB_APPLMODAL);
+      FROB (Qdefault_desktop_only, MB_DEFAULT_DESKTOP_ONLY);
+      FROB (Qdefbutton1, MB_DEFBUTTON1);
+      FROB (Qdefbutton2, MB_DEFBUTTON2);
+      FROB (Qdefbutton3, MB_DEFBUTTON3);
+      FROB (Qdefbutton4, MB_DEFBUTTON4);
+      FROB (Qhelp, MB_HELP);
+      FROB (Qiconasterisk, MB_ICONASTERISK);
+      FROB (Qiconexclamation, MB_ICONEXCLAMATION);
+      FROB (Qiconhand, MB_ICONHAND);
+      FROB (Qiconinformation, MB_ICONINFORMATION);
+      FROB (Qiconquestion, MB_ICONQUESTION);
+      FROB (Qiconstop, MB_ICONSTOP);
+      FROB (Qok, MB_OK);
+      FROB (Qokcancel, MB_OKCANCEL);
+      FROB (Qretrycancel, MB_RETRYCANCEL);
+      FROB (Qright, MB_RIGHT);
+      FROB (Qrtlreading, MB_RTLREADING);
+      FROB (Qservice_notification, MB_SERVICE_NOTIFICATION);
+      FROB (Qsetforeground, MB_SETFOREGROUND);
+      FROB (Qsystemmodal, MB_SYSTEMMODAL);
+      FROB (Qtaskmodal, MB_TASKMODAL);
+      FROB (Qtopmost, MB_TOPMOST);
+      FROB (Qyesno, MB_YESNO);
+      FROB (Qyesnocancel, MB_YESNOCANCEL);
+#undef FROB
+
+      else
+	signal_simple_error ("Unrecognized flag", st);
+    }
+
+  {
+    int retval = MessageBox (NULL, msgout, titleout, sty);
+
+    if (retval == 0)
+      error ("Out of memory when calling `mswindows-message-box'");
+
+#define FROB(sym, val) if (retval == val) return sym
+    FROB (Qabort, IDABORT);
+    FROB (Qcancel, IDCANCEL);
+    FROB (Qignore, IDIGNORE);
+    FROB (Qno, IDNO);
+    FROB (Qok, IDOK);
+    FROB (Qretry, IDRETRY);
+    FROB (Qyes, IDYES);
+#undef FROB
+    
+    signal_simple_error ("Unknown return value from MessageBox()",
+			 make_int (retval));
+  }
+
+  return Qnil;
+}
+
+void
+mswindows_output_last_error (char *frob)
+{
+  LPVOID lpMsgBuf;
+  int errval = GetLastError();
+  
+  FormatMessage (FORMAT_MESSAGE_ALLOCATE_BUFFER
+		 | FORMAT_MESSAGE_FROM_SYSTEM,
+		 NULL, errval,
+		 MAKELANGID (LANG_NEUTRAL, SUBLANG_DEFAULT),
+		 (LPTSTR) &lpMsgBuf,
+		 0,
+		 NULL);
+  stderr_out ("last error during %s is %d: %s\n",
+	      frob, errval, (char*)lpMsgBuf);
+}
 
 
 /************************************************************************/
@@ -270,6 +543,42 @@ DSYMNAME (Lisp_Object obj)
 void
 syms_of_console_mswindows (void)
 {
+  defsymbol (&Qabortretryignore, "abortretryignore");
+  defsymbol (&Qapplmodal, "applmodal");
+  defsymbol (&Qdefault_desktop_only, "default-desktop-only");
+  defsymbol (&Qdefbutton1, "defbutton1");
+  defsymbol (&Qdefbutton2, "defbutton2");
+  defsymbol (&Qdefbutton3, "defbutton3");
+  defsymbol (&Qdefbutton4, "defbutton4");
+  /* defsymbol (&Qhelp, "help"); */
+  defsymbol (&Qiconasterisk, "iconasterisk");
+  defsymbol (&Qiconexclamation, "iconexclamation");
+  defsymbol (&Qiconhand, "iconhand");
+  defsymbol (&Qiconinformation, "iconinformation");
+  defsymbol (&Qiconquestion, "iconquestion");
+  defsymbol (&Qiconstop, "iconstop");
+  /* defsymbol (&Qok, "ok"); */
+  defsymbol (&Qokcancel, "okcancel");
+  defsymbol (&Qretrycancel, "retrycancel");
+  /* defsymbol (&Qright, "right"); */
+  defsymbol (&Qrtlreading, "rtlreading");
+  defsymbol (&Qservice_notification, "service-notification");
+  defsymbol (&Qsetforeground, "setforeground");
+  defsymbol (&Qsystemmodal, "systemmodal");
+  defsymbol (&Qtaskmodal, "taskmodal");
+  defsymbol (&Qtopmost, "topmost");
+  defsymbol (&Qyesno, "yesno");
+  defsymbol (&Qyesnocancel, "yesnocancel");
+
+  /* defsymbol (&Qabort, "abort"); */
+  /* defsymbol (&Qcancel, "cancel"); */
+  /* defsymbol (&Qignore, "ignore"); */
+  /* defsymbol (&Qno, "no"); */
+  /* defsymbol (&Qok, "ok"); */
+  /* defsymbol (&Qretry, "retry"); */
+  /* defsymbol (&Qyes, "yes"); */
+
+  DEFSUBR (Fmswindows_message_box);
 }
 
 void

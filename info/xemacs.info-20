@@ -523,6 +523,7 @@ Key (Character) Index
 * ? (Calendar mode):                     General Calendar.
 * ^ (query-replace):                     Query Replace.
 * a (Calendar mode):                     Holidays.
+* BS:                                    Inserting Text.
 * button1:                               Intro to Keystrokes.
 * button1up:                             Intro to Keystrokes.
 * button2:                               Intro to Keystrokes.
@@ -536,9 +537,9 @@ Key (Character) Index
 * C-] <1>:                               Quitting.
 * C-]:                                   Recursive Edit.
 * C-_:                                   Undo.
-* C-a:                                   Basic.
+* C-a:                                   Moving Point.
 * C-a (Calendar mode):                   Move to Beginning or End.
-* C-b:                                   Basic.
+* C-b:                                   Moving Point.
 * C-b (Calendar mode):                   Calendar Unit Motion.
 * C-c:                                   Key Sequences.
 * C-c ' (Picture mode):                  Insert in Picture.
@@ -605,10 +606,10 @@ Key (Character) Index
 * C-c } (TeX mode):                      TeX Editing.
 * C-d:                                   Killing.
 * C-d (Shell mode):                      Shell Mode.
-* C-e:                                   Basic.
+* C-e:                                   Moving Point.
 * C-e (Calendar mode):                   Move to Beginning or End.
-* C-END:                                 Basic.
-* C-f:                                   Basic.
+* C-END:                                 Moving Point.
+* C-f:                                   Moving Point.
 * C-f (Calendar mode):                   Calendar Unit Motion.
 * C-g <1>:                               Quitting.
 * C-g:                                   Minibuffer.
@@ -645,12 +646,12 @@ Key (Character) Index
 * C-h v <2>:                             Documentation.
 * C-h v:                                 Name Help.
 * C-h w:                                 Name Help.
-* C-HOME:                                Basic.
+* C-HOME:                                Moving Point.
 * C-k:                                   Killing.
 * C-l <1>:                               Scrolling.
-* C-l:                                   Basic.
+* C-l:                                   Moving Point.
 * C-l (query-replace):                   Query Replace.
-* C-LEFT:                                Basic.
+* C-LEFT:                                Moving Point.
 * C-M-@ <1>:                             Lists.
 * C-M-@:                                 Marking Objects.
 * C-M-\ <1>:                             Multi-line Indent.
@@ -681,23 +682,23 @@ Key (Character) Index
 * C-M-w:                                 Appending Kills.
 * C-M-x <1>:                             External Lisp.
 * C-M-x:                                 Lisp Eval.
-* C-n:                                   Basic.
+* C-n:                                   Moving Point.
 * C-n (Calendar mode):                   Calendar Unit Motion.
 * C-o:                                   Blank Lines.
-* C-p:                                   Basic.
+* C-p:                                   Moving Point.
 * C-p (Calendar mode):                   Calendar Unit Motion.
-* C-q:                                   Basic.
+* C-q:                                   Inserting Text.
 * C-q (isearch-mode):                    Incremental Search.
 * C-r:                                   Incremental Search.
 * C-r (isearch-mode):                    Incremental Search.
 * C-r (query-replace):                   Query Replace.
-* C-RIGHT:                               Basic.
+* C-RIGHT:                               Moving Point.
 * C-s:                                   Incremental Search.
 * C-s (isearch-mode):                    Incremental Search.
 * C-SPC:                                 Setting Mark.
 * C-SPC (Calendar mode):                 Mark and Region.
 * C-t <1>:                               Transpose.
-* C-t:                                   Basic.
+* C-t:                                   Moving Point.
 * C-u:                                   Arguments.
 * C-u - C-x ;:                           Comments.
 * C-u C-@:                               Mark Ring.
@@ -705,7 +706,7 @@ Key (Character) Index
 * C-u C-x v v:                           Editing with VC.
 * C-u TAB:                               Multi-line Indent.
 * C-v <1>:                               Scrolling.
-* C-v:                                   Basic.
+* C-v:                                   Moving Point.
 * C-v (Calendar mode):                   Scroll Calendar.
 * C-w:                                   Killing.
 * C-w (isearch-mode):                    Incremental Search.
@@ -819,12 +820,11 @@ Key (Character) Index
 * DEL <1>:                               Program Modes.
 * DEL <2>:                               Major Modes.
 * DEL <3>:                               Kill Errors.
-* DEL <4>:                               Killing.
-* DEL:                                   Basic.
+* DEL:                                   Killing.
 * DEL (isearch-mode):                    Incremental Search.
 * DEL (query-replace):                   Query Replace.
-* DOWN:                                  Basic.
-* END:                                   Basic.
+* DOWN:                                  Moving Point.
+* END:                                   Moving Point.
 * ESC <1>:                               Meta Key.
 * ESC:                                   Key Sequences.
 * ESC (query-replace):                   Query Replace.
@@ -834,7 +834,7 @@ Key (Character) Index
 * g m l (Calendar mode):                 Mayan Calendar.
 * h (Calendar mode):                     Holidays.
 * Help:                                  Help.
-* HOME:                                  Basic.
+* HOME:                                  Moving Point.
 * hyper key <1>:                         Super and Hyper Keys.
 * hyper key <2>:                         Representing Keystrokes.
 * hyper key:                             Intro to Keystrokes.
@@ -845,7 +845,7 @@ Key (Character) Index
 * i m (Calendar mode):                   Adding to Diary.
 * i w (Calendar mode):                   Adding to Diary.
 * i y (Calendar mode):                   Adding to Diary.
-* LEFT:                                  Basic.
+* LEFT:                                  Moving Point.
 * LFD <1>:                               Basic Indent.
 * LFD <2>:                               Major Modes.
 * LFD:                                   String Key Sequences.
@@ -867,11 +867,11 @@ Key (Character) Index
 * M-/:                                   Dynamic Abbrevs.
 * M-1:                                   Arguments.
 * M-;:                                   Comments.
-* M-<:                                   Basic.
+* M-<:                                   Moving Point.
 * M-< (Calendar mode):                   Move to Beginning or End.
 * M-=:                                   Position Info.
 * M-= (Calendar mode):                   Mark and Region.
-* M->:                                   Basic.
+* M->:                                   Moving Point.
 * M-> (Calendar mode):                   Move to Beginning or End.
 * M-?:                                   Nroff Mode.
 * M-@ <1>:                               Words.
@@ -917,7 +917,7 @@ Key (Character) Index
 * M-p (minibuffer history):              Minibuffer History.
 * M-p (Shell mode):                      Shell Mode.
 * M-q:                                   Fill Commands.
-* M-r:                                   Basic.
+* M-r:                                   Moving Point.
 * M-r (minibuffer history):              Minibuffer History.
 * M-s:                                   Fill Commands.
 * M-s (minibuffer history):              Minibuffer History.
@@ -930,7 +930,7 @@ Key (Character) Index
 * M-TAB (isearch-mode):                  Incremental Search.
 * M-u:                                   Case.
 * M-v <1>:                               Scrolling.
-* M-v:                                   Basic.
+* M-v:                                   Moving Point.
 * M-v (Calendar mode):                   Scroll Calendar.
 * M-w:                                   Kill Ring.
 * M-x:                                   M-x.
@@ -947,15 +947,15 @@ Key (Character) Index
 * p (Calendar mode):                     To Other Calendar.
 * p d (Calendar mode):                   General Calendar.
 * pgdn:                                  Scrolling.
-* PGDN:                                  Basic.
+* PGDN:                                  Moving Point.
 * pgup:                                  Scrolling.
-* PGUP:                                  Basic.
+* PGUP:                                  Moving Point.
 * prior:                                 Scrolling.
 * q (Calendar mode):                     General Calendar.
-* RET:                                   Basic.
+* RET:                                   Inserting Text.
 * RET (isearch-mode):                    Incremental Search.
 * RET (Shell mode):                      Shell Mode.
-* RIGHT:                                 Basic.
+* RIGHT:                                 Moving Point.
 * s (Calendar mode):                     Diary Commands.
 * S (Calendar mode):                     Sunrise/Sunset.
 * S-TAB (customization buffer):          Changing an Option.
@@ -977,6 +977,6 @@ Key (Character) Index
 * TAB (Shell mode):                      Shell Mode.
 * u (Calendar mode) <1>:                 Diary Commands.
 * u (Calendar mode):                     Holidays.
-* UP:                                    Basic.
+* UP:                                    Moving Point.
 * x (Calendar mode):                     Holidays.
 

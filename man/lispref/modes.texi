@@ -920,7 +920,7 @@ is controlled using the @code{modeline} face.  @xref{Faces}.
 
   The modeline contents are controlled by a data structure of lists,
 strings, symbols, and numbers kept in the buffer-local variable
-@code{mode-line-format}.  The data structure is called a @dfn{modeline
+@code{modeline-format}.  The data structure is called a @dfn{modeline
 construct}, and it is built in recursive fashion out of simpler modeline
 constructs.  The same data structure is used for constructing
 frame titles (@pxref{Frame Titles}).
@@ -943,8 +943,8 @@ Because of this, very few modes need to alter @code{modeline-format}.
 For most purposes, it is sufficient to alter the variables referenced by
 @code{modeline-format}.
 
-  A modeline construct may be a list, a symbol, or a string.  If the
-value is a list, each element may be a list, a symbol, or a string.
+  A modeline construct may be a string, symbol, glyph, generic
+specifier, list or cons cell.
 
 @table @code
 @cindex percent symbol in modeline
@@ -956,12 +956,21 @@ is left justified).  @xref{%-Constructs}.
 
 @item @var{symbol}
 A symbol as a modeline construct stands for its value.  The value of
-@var{symbol} is used as a modeline construct, in place of @var{symbol}.
-However, the symbols @code{t} and @code{nil} are ignored; so is any
-symbol whose value is void.
+@var{symbol} is processed as a modeline construct, in place of
+@var{symbol}.  However, the symbols @code{t} and @code{nil} are ignored;
+so is any symbol whose value is void.
 
 There is one exception: if the value of @var{symbol} is a string, it is
 displayed verbatim: the @code{%}-constructs are not recognized.
+
+@item @var{glyph}
+A glyph is displayed as is.
+
+@item @var{generic-specifier}
+A @var{generic-specifier} (i.e. a specifier of type @code{generic})
+stands for its instance.  The instance of @var{generic-specifier} is
+computed in the current window using the equivalent of
+@code{specifier-instance} and the value is processed.
 
 @item (@var{string} @var{rest}@dots{}) @r{or} (@var{list} @var{rest}@dots{})
 A list whose first element is a string or list means to process all the
@@ -987,6 +996,19 @@ if @var{width} is negative) on the right.
 
 For example, the usual way to show what percentage of a buffer is above
 the top of the window is to use a list like this: @code{(-3 "%p")}.
+
+@item (@var{extent} @var{rest}@dots{})
+
+A list whose car is an extent means the cdr of the list is processed
+normally but the results are displayed using the face of the extent, and
+mouse clicks over this section are processed using the keymap of the
+extent. (In addition, if the extent has a help-echo property, that
+string will be echoed when the mouse moves over this section.) If
+extents are nested, all keymaps are properly consulted when processing
+mouse clicks, but multiple faces are not correctly merged (only the
+first face is used), and lists of faces are not correctly handled.
+@c #### Document generate-modeline-string.
+@c See `generated-modeline-string' for more information.
 @end table
 
   If you do alter @code{modeline-format} itself, the new value should
@@ -1202,10 +1224,10 @@ The status of the subprocess belonging to the current buffer, obtained with
 
 @c The following two may only apply in XEmacs.
 @item %l
-the current line number.
+The current line number.
 
 @item %S
-the name of the selected frame; this is only meaningful under the
+The name of the selected frame; this is only meaningful under the
 X Window System.  @xref{Frame Name}.
 
 @item %t
@@ -1225,6 +1247,9 @@ visible on screen; or @samp{Bottom} or @samp{All}.
 @item %n
 @samp{Narrow} when narrowing is in effect; nothing otherwise (see
 @code{narrow-to-region} in @ref{Narrowing}).
+
+@item %C
+Under XEmacs/mule, the mnemonic for @code{buffer-file-coding-system}.
 
 @item %[
 An indication of the depth of recursive editing levels (not counting

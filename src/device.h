@@ -426,6 +426,8 @@ int valid_device_class_p (Lisp_Object class);
 #define MARK_DEVICE_WINDOWS_STRUCTURE_CHANGED(d)	\
   ((void) (windows_structure_changed = (d)->windows_structure_changed = 1))
 
+/* #### unify this with DOMAIN_DEVICE once the latter has image instances
+   expunged from it. */
 /* This turns out to be used heavily so we make it a macro to make it
    inline.  Also, the majority of the time the object will turn out to
    be a window so we move it from being checked last to being checked

@@ -68,7 +68,7 @@ the internals: *Note lrecords::.
 
    Our next candidates are the other objects that behave quite
 differently than everything else: the strings. They consists of two
-parts, a fixed-size portion (`struct Lisp_string') holding the string's
+parts, a fixed-size portion (`struct Lisp_String') holding the string's
 length, its property list and a pointer to the second part, and the
 actual string data, which is stored in string-chars blocks comparable to
 frob blocks. In this block, the data is not only freed, but also a
@@ -824,9 +824,9 @@ File: internals.info,  Node: Dumping phase,  Next: Reloading phase,  Prev: Data 
 Dumping phase
 =============
 
-   Dumping is done by calling the function pdump() (in alloc.c) which is
-invoked from Fdump_emacs (in emacs.c).  This function performs a number
-of tasks.
+   Dumping is done by calling the function pdump() (in dumper.c) which
+is invoked from Fdump_emacs (in emacs.c).  This function performs a
+number of tasks.
 
 * Menu:
 

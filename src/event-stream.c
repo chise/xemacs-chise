@@ -121,6 +121,8 @@ Lisp_Object Qpre_idle_hook, Vpre_idle_hook;
 /* Control gratuitous keyboard focus throwing. */
 int focus_follows_mouse;
 
+int modifier_keys_are_sticky;
+
 #if 0 /* FSF Emacs crap */
 /* Hook run after a command if there's no more input soon.  */
 Lisp_Object Qpost_command_idle_hook, Vpost_command_idle_hook;
@@ -4753,6 +4755,15 @@ If lookup still fails, a normal error is signalled.  In general,
 you should *bind* this, not set it.
 */ );
     Vretry_undefined_key_binding_unshifted = Qt;
+
+  DEFVAR_BOOL ("modifier-keys-are-sticky", &modifier_keys_are_sticky /*
+*Non-nil makes modifier keys sticky.
+This means that you can release the modifier key before pressing down
+the key that you wish to be modified.  Although this is non-standard
+behavior, it is recommended because it reduces the strain on your hand,
+thus reducing the incidence of the dreaded Emacs-pinky syndrome.
+*/ );
+  modifier_keys_are_sticky = 0;
 
 #ifdef HAVE_XIM
   DEFVAR_LISP ("composed-character-default-binding",

@@ -1,3 +1,11 @@
+to 21.2.34 "Molpe"
+-- Lots of changes to GUI, Windows, font-lock code, Ben Wing
+-- Lots of changes to GUI, Windows code, Andy Piper
+-- Various fixes, Karl Hegbloom
+-- User manual documentation updates, Yoshiki Hayashi
+-- Dumping fixes, Yoshiki Hayashi
+-- Define C-x BS to backward-kill-sentence, Yoshiki Hayashi
+
 to 21.2.33 "Melpomene"
 -- Yet more progress gauge and gutter redisplay fixes from Andy Piper
 -- glyph error checking from Andy Piper

@@ -26,9 +26,11 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
+#include "buffer.h"
 #include "console-msw.h"
 #include "hash.h"
 #include "lstream.h"
+#include "nt.h"
 #include "process.h"
 #include "procimpl.h"
 #include "sysdep.h"
@@ -45,9 +47,6 @@ Boston, MA 02111-1307, USA.  */
 /* Arbitrary size limit for code fragments passed to run_in_other_process */
 #define FRAGMENT_CODE_SIZE 32
 
-/* Bound by winnt.el */
-Lisp_Object Qnt_quote_process_args;
-
 /* Implementation-specific data. Pointed to by Lisp_Process->process_data */
 struct nt_process_data
 {
@@ -56,6 +55,10 @@ struct nt_process_data
   HWND hwnd; /* console window */
   int need_enable_child_signals;
 };
+
+/* Control how args are quoted to ensure correct parsing by child
+   process. */
+Lisp_Object Vmswindows_quote_process_args;
 
 /* Control whether create_child causes the process to inherit Emacs'
    console window, or be given a new one of its own.  The default is
@@ -676,10 +679,32 @@ signal_cannot_launch (Lisp_Object image_file, DWORD err)
 }
 
 static void
-ensure_console_window_exists ()
+ensure_console_window_exists (void)
 {
   if (msw_windows9x_p ())
     msw_hide_console ();
+}
+
+int
+compare_env (const void *strp1, const void *strp2)
+{
+  const char *str1 = *(const char**)strp1, *str2 = *(const char**)strp2;
+
+  while (*str1 && *str2 && *str1 != '=' && *str2 != '=')
+    {
+      if ((*str1) > (*str2))
+	return 1;
+      else if ((*str1) < (*str2))
+	return -1;
+      str1++, str2++;
+    }
+
+  if (*str1 == '=' && *str2 == '=')
+    return 0;
+  else if (*str1 == '=')
+    return -1;
+  else
+    return 1;
 }
 
 static int
@@ -687,10 +712,15 @@ nt_create_process (Lisp_Process *p,
 		   Lisp_Object *argv, int nargv,
 		   Lisp_Object program, Lisp_Object cur_dir)
 {
+  /* Synched up with sys_spawnve in FSF 20.6.  Significantly different
+     but still synchable. */
   HANDLE hmyshove, hmyslurp, hprocin, hprocout, hprocerr;
-  LPTSTR command_line;
+  Extbyte *command_line;
   BOOL do_io, windowed;
   char *proc_env;
+
+  /* No need to DOS-ize the filename; expand-file-name (called prior)
+     already does this. */
 
   /* Find out whether the application is windowed or not */
   {
@@ -739,54 +769,258 @@ nt_create_process (Lisp_Process *p,
       CreatePipe (&hmyslurp, &hprocout, &sa, 0);
 
       /* Duplicate the stdout handle for use as stderr */
-      DuplicateHandle(GetCurrentProcess(), hprocout, GetCurrentProcess(), &hprocerr,
-	0, TRUE, DUPLICATE_SAME_ACCESS);
+      DuplicateHandle(GetCurrentProcess(), hprocout, GetCurrentProcess(),
+		      &hprocerr, 0, TRUE, DUPLICATE_SAME_ACCESS);
 
       /* Stupid Win32 allows to create a pipe with *both* ends either
 	 inheritable or not. We need process ends inheritable, and local
 	 ends not inheritable. */
-      DuplicateHandle (GetCurrentProcess(), hmyshove, GetCurrentProcess(), &htmp,
-		       0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+      DuplicateHandle (GetCurrentProcess(), hmyshove, GetCurrentProcess(),
+		       &htmp, 0, FALSE,
+		       DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
       hmyshove = htmp;
-      DuplicateHandle (GetCurrentProcess(), hmyslurp, GetCurrentProcess(), &htmp,
-		       0, FALSE, DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
+      DuplicateHandle (GetCurrentProcess(), hmyslurp, GetCurrentProcess(),
+		       &htmp, 0, FALSE,
+		       DUPLICATE_CLOSE_SOURCE | DUPLICATE_SAME_ACCESS);
       hmyslurp = htmp;
     }
 
-  /* Convert an argv vector into Win32 style command line by a call to
-     lisp function `nt-quote-process-args' which see (in winnt.el)*/
+  /* Convert an argv vector into Win32 style command line. */
   {
     int i;
-    Lisp_Object args_or_ret = Qnil;
-    struct gcpro gcpro1;
+    Bufbyte **quoted_args;
+    int is_dos_app, is_cygnus_app;
+    int do_quoting = 0;
+    char escape_char = 0;
 
-    GCPRO1 (args_or_ret);
+    nargv++; /* include program; we access argv offset by 1 below */
+    quoted_args = alloca_array (Bufbyte *, nargv);
+
+    /* Determine whether program is a 16-bit DOS executable, or a Win32
+       executable that is implicitly linked to the Cygnus dll (implying it
+       was compiled with the Cygnus GNU toolchain and hence relies on
+       cygwin.dll to parse the command line - we use this to decide how to
+       escape quote chars in command line args that must be quoted). */
+    mswindows_executable_type (XSTRING_DATA (program),
+			       &is_dos_app, &is_cygnus_app);
+
+#if 0
+    /* #### we need to port this. */
+    /* On Windows 95, if cmdname is a DOS app, we invoke a helper
+       application to start it by specifying the helper app as cmdname,
+       while leaving the real app name as argv[0].  */
+    if (is_dos_app)
+      {
+	cmdname = (char*) alloca (MAXPATHLEN);
+	if (egetenv ("CMDPROXY"))
+	  strcpy ((char*)cmdname, egetenv ("CMDPROXY"));
+	else
+	  {
+	    strcpy ((char*)cmdname, XSTRING_DATA (Vinvocation_directory));
+	    strcat ((char*)cmdname, "cmdproxy.exe");
+	  }
+      }
+#endif
+  
+    /* we have to do some conjuring here to put argv and envp into the
+       form CreateProcess wants...  argv needs to be a space separated/null
+       terminated list of parameters, and envp is a null
+       separated/double-null terminated list of parameters.
+
+       Additionally, zero-length args and args containing whitespace or
+       quote chars need to be wrapped in double quotes - for this to work,
+       embedded quotes need to be escaped as well.  The aim is to ensure
+       the child process reconstructs the argv array we start with
+       exactly, so we treat quotes at the beginning and end of arguments
+       as embedded quotes.
+
+       The Win32 GNU-based library from Cygnus doubles quotes to escape
+       them, while MSVC uses backslash for escaping.  (Actually the MSVC
+       startup code does attempt to recognize doubled quotes and accept
+       them, but gets it wrong and ends up requiring three quotes to get a
+       single embedded quote!)  So by default we decide whether to use
+       quote or backslash as the escape character based on whether the
+       binary is apparently a Cygnus compiled app.
+
+       Note that using backslash to escape embedded quotes requires
+       additional special handling if an embedded quote is already
+       preceded by backslash, or if an arg requiring quoting ends with
+       backslash.  In such cases, the run of escape characters needs to be
+       doubled.  For consistency, we apply this special handling as long
+       as the escape character is not quote.
+   
+       Since we have no idea how large argv and envp are likely to be we
+       figure out list lengths on the fly and allocate them.  */
+  
+    if (!NILP (Vmswindows_quote_process_args))
+      {
+	do_quoting = 1;
+	/* Override escape char by binding mswindows-quote-process-args to
+	   desired character, or use t for auto-selection.  */
+	if (INTP (Vmswindows_quote_process_args))
+	  escape_char = (char) XINT (Vmswindows_quote_process_args);
+	else
+	  escape_char = is_cygnus_app ? '"' : '\\';
+      }
+  
+    /* do argv...  */
+    for (i = 0; i < nargv; ++i)
+      {
+	Bufbyte *targ = XSTRING_DATA (i == 0 ? program : argv[i - 1]);
+	Bufbyte *p = targ;
+	int need_quotes = 0;
+	int escape_char_run = 0;
+	int arglen = 0;
+
+	if (*p == 0)
+	  need_quotes = 1;
+	for ( ; *p; p++)
+	  {
+	    if (*p == '"')
+	      {
+		/* allow for embedded quotes to be escaped */
+		arglen++;
+		need_quotes = 1;
+		/* handle the case where the embedded quote is already escaped */
+		if (escape_char_run > 0)
+		  {
+		    /* To preserve the arg exactly, we need to double the
+		       preceding escape characters (plus adding one to
+		       escape the quote character itself).  */
+		    arglen += escape_char_run;
+		  }
+	      }
+	    else if (*p == ' ' || *p == '\t')
+	      {
+		need_quotes = 1;
+	      }
+
+	    if (*p == escape_char && escape_char != '"')
+	      escape_char_run++;
+	    else
+	      escape_char_run = 0;
+	  }
+	if (need_quotes)
+	  {
+	    arglen += 2;
+	    /* handle the case where the arg ends with an escape char - we
+	       must not let the enclosing quote be escaped.  */
+	    if (escape_char_run > 0)
+	      arglen += escape_char_run;
+	  }
+	arglen += strlen (targ) + 1;
+
+	quoted_args[i] = alloca_array (Bufbyte, arglen); 
+      }
 
     for (i = 0; i < nargv; ++i)
-      args_or_ret = Fcons (*argv++, args_or_ret);
-    args_or_ret = Fnreverse (args_or_ret);
-    args_or_ret = Fcons (program, args_or_ret);
+      {
+	Bufbyte *targ = XSTRING_DATA (i == 0 ? program : argv[i - 1]);
+	Bufbyte *p = targ;
+	int need_quotes = 0;
+	Bufbyte *parg = quoted_args[i];
 
-    args_or_ret = call1 (Qnt_quote_process_args, args_or_ret);
+	if (*p == 0)
+	  need_quotes = 1;
 
-    if (!STRINGP (args_or_ret))
-      /* Luser wrote his/her own clever version */
-      error ("Bogus return value from `nt-quote-process-args'");
+	if (do_quoting)
+	  {
+	    for ( ; *p; p++)
+	      if (*p == ' ' || *p == '\t' || *p == '"')
+		need_quotes = 1;
+	  }
+	if (need_quotes)
+	  {
+	    int escape_char_run = 0;
+	    Bufbyte * first;
+	    Bufbyte * last;
 
-    command_line = alloca_array (char, (XSTRING_LENGTH (program)
-					+ XSTRING_LENGTH (args_or_ret) + 2));
-    strcpy (command_line, XSTRING_DATA (program));
-    strcat (command_line, " ");
-    strcat (command_line, XSTRING_DATA (args_or_ret));
+	    p = targ;
+	    first = p;
+	    last = p + strlen (p) - 1;
+	    *parg++ = '"';
+#if 0
+	    /* This version does not escape quotes if they occur at the
+	       beginning or end of the arg - this could lead to incorrect
+	       behavior when the arg itself represents a command line
+	       containing quoted args.  I believe this was originally done
+	       as a hack to make some things work, before
+	       `mswindows-quote-process-args' was added.  */
+	    while (*p)
+	      {
+		if (*p == '"' && p > first && p < last)
+		  *parg++ = escape_char;	/* escape embedded quotes */
+		*parg++ = *p++;
+	      }
+#else
+	    for ( ; *p; p++)
+	      {
+		if (*p == '"')
+		  {
+		    /* double preceding escape chars if any */
+		    while (escape_char_run > 0)
+		      {
+			*parg++ = escape_char;
+			escape_char_run--;
+		      }
+		    /* escape all quote chars, even at beginning or end */
+		    *parg++ = escape_char;
+		  }
+		*parg++ = *p;
 
-    UNGCPRO; /* args_or_ret */
+		if (*p == escape_char && escape_char != '"')
+		  escape_char_run++;
+		else
+		  escape_char_run = 0;
+	      }
+	    /* double escape chars before enclosing quote */
+	    while (escape_char_run > 0)
+	      {
+		*parg++ = escape_char;
+		escape_char_run--;
+	      }
+#endif
+	    *parg++ = '"';
+	  }
+	else
+	  {
+	    strcpy (parg, targ);
+	    parg += strlen (targ);
+	  }
+	*parg = '\0';
+      }
+
+    {
+      int total_cmdline_len = 0;
+      Extcount *extargcount = (Extcount *) alloca_array (Extcount, nargv);
+      Extbyte **extarg = (Extbyte **) alloca_array (Extbyte *, nargv);
+      Extbyte *command_ptr;
+
+      for (i = 0; i < nargv; ++i)
+	{
+	  TO_EXTERNAL_FORMAT (C_STRING, quoted_args[i], ALLOCA,
+			      (extarg[i], extargcount[i]), Qmswindows_tstr);
+	  /* account for space and terminating null */
+	  total_cmdline_len += extargcount[i] + EITCHAR_SIZE;
+	}
+
+      command_line = alloca_array (char, total_cmdline_len);
+      command_ptr = command_line;
+      for (i = 0; i < nargv; ++i)
+	{
+	  memcpy (command_ptr, extarg[i], extargcount[i]);
+	  command_ptr += extargcount[i];
+	  EICOPY_TCHAR (command_ptr, ' ');
+	  command_ptr += EITCHAR_SIZE;
+	}
+      EICOPY_TCHAR (command_ptr, '\0');
+      command_ptr += EITCHAR_SIZE;
+    }
   }
-
   /* Set `proc_env' to a nul-separated array of the strings in
      Vprocess_environment terminated by 2 nuls.  */
  
   {
-    extern int compare_env (const char **strp1, const char **strp2);
     char **env;
     REGISTER Lisp_Object tem;
     REGISTER char **new_env;
@@ -798,6 +1032,17 @@ nt_create_process (Lisp_Process *p,
  	  && STRINGP (XCAR (tem)));
  	 tem = XCDR (tem))
       new_length++;
+
+    /* FSF adds an extra env var to hold the current process ID of the
+       Emacs process.  Apparently this is used only by emacsserver.c,
+       which we have superseded to gnuserv.c. (#### Does it work under
+       MS Windows?)
+
+       sprintf (ppid_env_var_buffer, "EM_PARENT_PROCESS_ID=%d", 
+         GetCurrentProcessId ());
+       arglen += strlen (ppid_env_var_buffer) + 1;
+       numenv++;
+    */
     
     /* new_length + 1 to include terminating 0.  */
     env = new_env = alloca_array (char *, new_length + 1);
@@ -1082,7 +1327,7 @@ nt_kill_child_process (Lisp_Object proc, int signo,
 }
 
 /*
- * Kill any process in the system given its PID.
+ * Kill any process in the system given its PID
  *
  * Returns zero if a signal successfully sent, or
  * negative number upon failure
@@ -1339,12 +1584,25 @@ process_type_create_nt (void)
 void
 syms_of_process_nt (void)
 {
-  defsymbol (&Qnt_quote_process_args, "nt-quote-process-args");
 }
 
 void
 vars_of_process_nt (void)
 {
+  DEFVAR_LISP ("mswindows-quote-process-args",
+	       &Vmswindows_quote_process_args /*
+Non-nil enables quoting of process arguments to ensure correct parsing.
+Because Windows does not directly pass argv arrays to child processes,
+programs have to reconstruct the argv array by parsing the command
+line string.  For an argument to contain a space, it must be enclosed
+in double quotes or it will be parsed as multiple arguments.
+
+If the value is a character, that character will be used to escape any
+quote characters that appear, otherwise a suitable escape character
+will be chosen based on the type of the program (normal or Cygwin).
+*/ );								  
+  Vmswindows_quote_process_args = Qt;
+
   DEFVAR_LISP ("mswindows-start-process-share-console",
 	       &Vmswindows_start_process_share_console /*
 When nil, new child processes are given a new console.

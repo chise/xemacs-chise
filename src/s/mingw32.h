@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 
 #define C_SWITCH_SYSTEM "-mno-cygwin -Wno-sign-compare -fno-caller-saves -Int/inc -I../nt/inc -DWINDOWSNT"
 #define LIBS_SYSTEM "-mno-cygwin -lwinmm -lwsock32"
+#define WIN32_LEAN_AND_MEAN
 
 #define TEXT_START -1
 #define TEXT_END -1
@@ -51,43 +52,8 @@ Boston, MA 02111-1307, USA.  */
 #define LOCALE_USE_CP_ACP 0x40000000
 #define NSIG 23
 
-#ifndef SPI_GETWHEELSCROLLLINES
-#define SPI_GETWHEELSCROLLLINES 104
-#endif
-#ifndef WHEEL_PAGESCROLL
-#define WHEEL_PAGESCROLL (UINT_MAX)
-#endif
-#ifndef WHEEL_DELTA
-#define WHEEL_DELTA 120
-#endif
-
 /* this is necessary to get the TCS_* definitions in <commctrl.h> */
 #define _WIN32_IE 0x0400
-
-#ifndef WM_MOUSEWHEEL
-#define WM_MOUSEWHEEL 0x20A
-#endif
-#ifndef TCS_BOTTOM
-#define TCS_BOTTOM 0x0002
-#endif
-#ifndef TCS_VERTICAL
-#define TCS_VERTICAL 0x0080
-#endif
-#ifndef PHYSICALWIDTH
-#define PHYSICALWIDTH 110
-#endif
-#ifndef PHYSICALHEIGHT
-#define PHYSICALHEIGHT 111
-#endif
-#ifndef PHYSICALOFFSETX
-#define PHYSICALOFFSETX 112
-#endif
-#ifndef PHYSICALOFFSETY
-#define PHYSICALOFFSETY 113
-#endif
-#ifndef PBS_SMOOTH
-#define PBS_SMOOTH              0x01
-#endif
 
 /* translate NT world unexec stuff to our a.out definitions */
 
@@ -263,6 +229,7 @@ gid_t getegid (void);
 #undef HAVE_SYS_WAIT_H
 #undef HAVE_TERMIOS
 #undef SYSV_SYSTEM_DIR
+#undef CLASH_DETECTION
 
 /* We now have emulation for some signals */
 #define HAVE_SIGHOLD

@@ -30,6 +30,106 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Change Window,  Prev: Pop Up Window,  Up: Windows
+
+Deleting and Rearranging Windows
+================================
+
+`C-x 0'
+     Get rid of the selected window (`delete-window').  That is a zero.
+     If there is more than one Emacs frame, deleting the sole remaining
+     window on that frame deletes the frame as well. If the current
+     frame is the only frame, it is not deleted.
+
+`C-x 1'
+     Get rid of all windows except the selected one
+     (`delete-other-windows').
+
+`C-x ^'
+     Make the selected window taller, at the expense of the other(s)
+     (`enlarge-window').
+
+`C-x }'
+     Make the selected window wider (`enlarge-window-horizontally').
+
+   To delete a window, type `C-x 0' (`delete-window').  (That is a
+zero.)  The space occupied by the deleted window is distributed among
+the other active windows (but not the minibuffer window, even if that
+is active at the time).  Once a window is deleted, its attributes are
+forgotten; there is no automatic way to make another window of the same
+shape or showing the same buffer.  The buffer continues to exist, and
+you can select it in any window with `C-x b'.
+
+   `C-x 1' (`delete-other-windows') is more powerful than `C-x 0'; it
+deletes all the windows except the selected one (and the minibuffer).
+The selected window expands to use the whole frame except for the echo
+area.
+
+   To readjust the division of space among existing windows, use `C-x
+^' (`enlarge-window').  It makes the currently selected window longer
+by one line or as many lines as a numeric argument specifies.  With a
+negative argument, it makes the selected window smaller.  `C-x }'
+(`enlarge-window-horizontally') makes the selected window wider by the
+specified number of columns.  The extra screen space given to a window
+comes from one of its neighbors, if that is possible; otherwise, all
+the competing windows are shrunk in the same proportion.  If this makes
+some windows too small, those windows are deleted and their space is
+divided up.   Minimum window size is specified by the variables
+`window-min-height' and `window-min-width'.
+
+   You can also resize windows within a frame by clicking the left mouse
+button on a modeline, and dragging.
+
+   Clicking the right button on a mode line pops up a menu of common
+window manager operations.  This menu contains the following options:
+
+Delete Window
+     Remove the window above this modeline from the frame.
+
+Delete Other Windows
+     Delete all windows on the frame except for the one above this
+     modeline.
+
+Split Window
+     Split the window above the mode line in half, creating another
+     window.
+
+Split Window Horizontally
+     Split the window above the mode line in half horizontally, so that
+     there will be two windows side-by-side.
+
+Balance Windows
+     Readjust the sizes of all windows on the frame until all windows
+     have roughly the same number of lines.
+
+
+File: xemacs.info,  Node: Mule,  Next: Major Modes,  Prev: Windows,  Up: Top
+
+World Scripts Support
+*********************
+
+   If you compile XEmacs with mule option, it supports a wide variety of
+world scripts, including Latin script, as well as Arabic script,
+Simplified Chinese script (for mainland of China), Traditional Chinese
+script (for Taiwan and Hong-Kong), Greek script, Hebrew script, IPA
+symbols, Japanese scripts (Hiragana, Katakana and Kanji), Korean scripts
+(Hangul and Hanja) and Cyrillic script (for Beylorussian, Bulgarian,
+Russian, Serbian and Ukrainian).  These features have been merged from
+the modified version of Emacs known as MULE (for "MULti-lingual
+Enhancement to GNU Emacs").
+
+* Menu:
+
+* Mule Intro::              Basic concepts of Mule.
+* Language Environments::   Setting things up for the language you use.
+* Input Methods::           Entering text characters not on your keyboard.
+* Select Input Method::     Specifying your choice of input methods.
+* Coding Systems::          Character set conversion when you read and
+                              write files, and so on.
+* Recognize Coding::        How XEmacs figures out which conversion to use.
+* Specify Coding::          Various ways to choose which conversion to use.
+
+
 File: xemacs.info,  Node: Mule Intro,  Next: Language Environments,  Prev: Mule,  Up: Mule
 
 Introduction to world scripts
@@ -1027,114 +1127,4 @@ you insert a `\begin', use `C-c C-f' (`tex-close-latex-block') to
 insert automatically a matching `\end' (on a new line following the
 `\begin').  A blank line is inserted between the two, and point is left
 there.
-
-
-File: xemacs.info,  Node: TeX Print,  Prev: TeX Editing,  Up: TeX Mode
-
-TeX Printing Commands
-.....................
-
-   You can invoke TeX as an inferior of Emacs on either the entire
-contents of the buffer or just a region at a time.  Running TeX in this
-way on just one chapter is a good way to see what your changes look
-like without taking the time to format the entire file.
-
-`C-c C-r'
-     Invoke TeX on the current region, plus the buffer's header
-     (`tex-region').
-
-`C-c C-b'
-     Invoke TeX on the entire current buffer (`tex-buffer').
-
-`C-c C-l'
-     Recenter the window showing output from the inferior TeX so that
-     the last line can be seen (`tex-recenter-output-buffer').
-
-`C-c C-k'
-     Kill the inferior TeX (`tex-kill-job').
-
-`C-c C-p'
-     Print the output from the last `C-c C-r' or `C-c C-b' command
-     (`tex-print').
-
-`C-c C-q'
-     Show the printer queue (`tex-show-print-queue').
-
-   You can pass the current buffer through an inferior TeX using `C-c
-C-b' (`tex-buffer').  The formatted output appears in a file in `/tmp';
-to print it, type `C-c C-p' (`tex-print').  Afterward use `C-c C-q'
-(`tex-show-print-queue') to view the progress of your output towards
-being printed.
-
-   The console output from TeX, including any error messages, appears
-in a buffer called `*TeX-shell*'.  If TeX gets an error, you can switch
-to this buffer and feed it input (this works as in Shell mode; *note
-Interactive Shell::).  Without switching to this buffer, you can scroll
-it so that its last line is visible by typing `C-c C-l'.
-
-   Type `C-c C-k' (`tex-kill-job') to kill the TeX process if you see
-that its output is no longer useful.  Using `C-c C-b' or `C-c C-r' also
-kills any TeX process still running.
-
-   You can pass an arbitrary region through an inferior TeX by typing
-`C-c C-r' (`tex-region').  This is tricky, however, because most files
-of TeX input contain commands at the beginning to set parameters and
-define macros.  Without them, no later part of the file will format
-correctly.  To solve this problem, `C-c C-r' allows you to designate a
-part of the file as containing essential commands; it is included
-before the specified region as part of the input to TeX.  The
-designated part of the file is called the "header".
-
-   To indicate the bounds of the header in Plain TeX mode, insert two
-special strings in the file: `%**start of header' before the header,
-and `%**end of header' after it.  Each string must appear entirely on
-one line, but there may be other text on the line before or after.  The
-lines containing the two strings are included in the header.  If
-`%**start of header' does not appear within the first 100 lines of the
-buffer, `C-c C-r' assumes there is no header.
-
-   In LaTeX mode, the header begins with `\documentstyle' and ends with
-`\begin{document}'.  These are commands that LaTeX requires you to use,
-so you don't need to do anything special to identify the header.
-
-   When you enter either kind of TeX mode, Emacs calls with no
-arguments the value of the variable `text-mode-hook', if that value
-exists and is not `nil'.  Emacs then calls the variable `TeX-mode-hook'
-and either `plain-TeX-mode-hook' or `LaTeX-mode-hook' under the same
-conditions.
-
-
-File: xemacs.info,  Node: Outline Mode,  Prev: TeX Mode,  Up: Text Mode
-
-Outline Mode
-------------
-
-   Outline mode is a major mode similar to Text mode but intended for
-editing outlines.  It allows you to make parts of the text temporarily
-invisible so that you can see just the overall structure of the
-outline.  Type `M-x outline-mode' to turn on Outline mode in the
-current buffer.
-
-   When you enter Outline mode, Emacs calls with no arguments the value
-of the variable `text-mode-hook', if that value exists and is not
-`nil'; then it does the same with the variable `outline-mode-hook'.
-
-   When a line is invisible in outline mode, it does not appear on the
-screen.  The screen appears exactly as if the invisible line were
-deleted, except that an ellipsis (three periods in a row) appears at
-the end of the previous visible line (only one ellipsis no matter how
-many invisible lines follow).
-
-   All editing commands treat the text of the invisible line as part of
-the previous visible line.  For example, `C-n' moves onto the next
-visible line.  Killing an entire visible line, including its
-terminating newline, really kills all the following invisible lines as
-well; yanking everything back yanks the invisible lines and they remain
-invisible.
-
-* Menu:
-
-* Format: Outline Format.	  What the text of an outline looks like.
-* Motion: Outline Motion.	  Special commands for moving through outlines.
-* Visibility: Outline Visibility. Commands to control what is visible.
 

@@ -507,7 +507,7 @@ color_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 {
   /* When called, we're inside of call_with_suspended_errors(),
      so we can freely error. */
-  Lisp_Object device = DFW_DEVICE (domain);
+  Lisp_Object device = DOMAIN_DEVICE (domain);
   struct device *d = XDEVICE (device);
 
   if (COLOR_INSTANCEP (instantiator))
@@ -631,19 +631,7 @@ set_color_attached_to (Lisp_Object obj, Lisp_Object face, Lisp_Object property)
 DEFUN ("color-specifier-p", Fcolor_specifier_p, 1, 1, 0, /*
 Return t if OBJECT is a color specifier.
 
-Valid instantiators for color specifiers are:
-
--- a string naming a color (e.g. under X this might be "lightseagreen2"
-   or "#F534B2")
--- a color instance (use that instance directly if the device matches,
-   or use the string that generated it)
--- a vector of no elements (only on TTY's; this means to set no color
-   at all, thus using the "natural" color of the terminal's text)
--- a vector of one or two elements: a face to inherit from, and
-   optionally a symbol naming which property of that face to inherit,
-   either `foreground' or `background' (if omitted, defaults to the same
-   property that this color specifier is used for; if this specifier is
-   not part of a face, the instantiator would not be valid)
+See `make-color-specifier' for a description of possible color instantiators.
 */
        (object))
 {
@@ -706,7 +694,7 @@ font_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 {
   /* When called, we're inside of call_with_suspended_errors(),
      so we can freely error. */
-  Lisp_Object device = DFW_DEVICE (domain);
+  Lisp_Object device = DOMAIN_DEVICE (domain);
   struct device *d = XDEVICE (device);
   Lisp_Object instance;
 
@@ -841,16 +829,7 @@ set_font_attached_to (Lisp_Object obj, Lisp_Object face, Lisp_Object property)
 DEFUN ("font-specifier-p", Ffont_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a font specifier.
 
-Valid instantiators for font specifiers are:
-
--- a string naming a font (e.g. under X this might be
-   "-*-courier-medium-r-*-*-*-140-*-*-*-*-iso8859-*" for a 14-point
-   upright medium-weight Courier font)
--- a font instance (use that instance directly if the device matches,
-   or use the string that generated it)
--- a vector of no elements (only on TTY's; this means to set no font
-   at all, thus using the "natural" font of the terminal's text)
--- a vector of one element (a face to inherit from)
+See `make-font-specifier' for a description of possible font instantiators.
 */
        (object))
 {
@@ -986,15 +965,8 @@ set_face_boolean_attached_to (Lisp_Object obj, Lisp_Object face,
 DEFUN ("face-boolean-specifier-p", Fface_boolean_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a face-boolean specifier.
 
-Valid instantiators for face-boolean specifiers are
-
--- t or nil
--- a vector of two or three elements: a face to inherit from,
-   optionally a symbol naming the property of that face to inherit from
-   (if omitted, defaults to the same property that this face-boolean
-   specifier is used for; if this specifier is not part of a face,
-   the instantiator would not be valid), and optionally a value which,
-   if non-nil, means to invert the sense of the inherited property.
+See `make-face-boolean-specifier' for a description of possible
+face-boolean instantiators.
 */
        (object))
 {

@@ -143,10 +143,6 @@ Lisp_Object Vcurrent_warning_class;
 /* Special catch tag used in call_with_suspended_errors(). */
 Lisp_Object Qunbound_suspended_errors_tag;
 
-/* Non-nil means we're going down, so we better not run any hooks
-   or do other non-essential stuff. */
-int preparing_for_armageddon;
-
 /* Non-nil means record all fset's and provide's, to be undone
    if the file being autoloaded is not fully loaded.
    They are recorded by being consed onto the front of Vautoload_queue:
@@ -4901,8 +4897,8 @@ function calls.
 		      Fprin1 (backlist->args[i], stream);
 		    }
 		}
+	      write_c_string (")\n", stream);
 	    }
-	  write_c_string (")\n", stream);
 	  backlist = backlist->next;
 	}
     }

@@ -50,6 +50,135 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Saving Buffers,  Next: Reading from Files,  Prev: Visiting Files,  Up: Files
+
+Saving Buffers
+==============
+
+   When you edit a file in XEmacs, you are actually working on a buffer
+that is visiting that file--that is, the contents of the file are
+copied into the buffer and the copy is what you edit.  Changes to the
+buffer do not change the file until you "save" the buffer, which means
+copying the contents of the buffer into the file.
+
+ - Command: save-buffer &optional backup-option
+     This function saves the contents of the current buffer in its
+     visited file if the buffer has been modified since it was last
+     visited or saved.  Otherwise it does nothing.
+
+     `save-buffer' is responsible for making backup files.  Normally,
+     BACKUP-OPTION is `nil', and `save-buffer' makes a backup file only
+     if this is the first save since visiting the file.  Other values
+     for BACKUP-OPTION request the making of backup files in other
+     circumstances:
+
+        * With an argument of 4 or 64, reflecting 1 or 3 `C-u''s, the
+          `save-buffer' function marks this version of the file to be
+          backed up when the buffer is next saved.
+
+        * With an argument of 16 or 64, reflecting 2 or 3 `C-u''s, the
+          `save-buffer' function unconditionally backs up the previous
+          version of the file before saving it.
+
+ - Command: save-some-buffers &optional save-silently-p exiting
+     This command saves some modified file-visiting buffers.  Normally
+     it asks the user about each buffer.  But if SAVE-SILENTLY-P is
+     non-`nil', it saves all the file-visiting buffers without querying
+     the user.
+
+     The optional EXITING argument, if non-`nil', requests this
+     function to offer also to save certain other buffers that are not
+     visiting files.  These are buffers that have a non-`nil' local
+     value of `buffer-offer-save'.  (A user who says yes to saving one
+     of these is asked to specify a file name to use.)  The
+     `save-buffers-kill-emacs' function passes a non-`nil' value for
+     this argument.
+
+ - Variable: buffer-offer-save
+     When this variable is non-`nil' in a buffer, XEmacs offers to save
+     the buffer on exit even if the buffer is not visiting a file.  The
+     variable is automatically local in all buffers.  Normally, Mail
+     mode (used for editing outgoing mail) sets this to `t'.
+
+ - Command: write-file filename
+     This function writes the current buffer into file FILENAME, makes
+     the buffer visit that file, and marks it not modified.  Then it
+     renames the buffer based on FILENAME, appending a string like `<2>'
+     if necessary to make a unique buffer name.  It does most of this
+     work by calling `set-visited-file-name' and `save-buffer'.
+
+ - Variable: write-file-hooks
+     The value of this variable is a list of functions to be called
+     before writing out a buffer to its visited file.  If one of them
+     returns non-`nil', the file is considered already written and the
+     rest of the functions are not called, nor is the usual code for
+     writing the file executed.
+
+     If a function in `write-file-hooks' returns non-`nil', it is
+     responsible for making a backup file (if that is appropriate).  To
+     do so, execute the following code:
+
+          (or buffer-backed-up (backup-buffer))
+
+     You might wish to save the file modes value returned by
+     `backup-buffer' and use that to set the mode bits of the file that
+     you write.  This is what `save-buffer' normally does.
+
+     Even though this is not a normal hook, you can use `add-hook' and
+     `remove-hook' to manipulate the list.  *Note Hooks::.
+
+ - Variable: local-write-file-hooks
+     This works just like `write-file-hooks', but it is intended to be
+     made local to particular buffers.  It's not a good idea to make
+     `write-file-hooks' local to a buffer--use this variable instead.
+
+     The variable is marked as a permanent local, so that changing the
+     major mode does not alter a buffer-local value.  This is
+     convenient for packages that read "file" contents in special ways,
+     and set up hooks to save the data in a corresponding way.
+
+ - Variable: write-contents-hooks
+     This works just like `write-file-hooks', but it is intended for
+     hooks that pertain to the contents of the file, as opposed to
+     hooks that pertain to where the file came from.  Such hooks are
+     usually set up by major modes, as buffer-local bindings for this
+     variable.  Switching to a new major mode always resets this
+     variable.
+
+ - Variable: after-save-hook
+     This normal hook runs after a buffer has been saved in its visited
+     file.
+
+ - Variable: file-precious-flag
+     If this variable is non-`nil', then `save-buffer' protects against
+     I/O errors while saving by writing the new file to a temporary
+     name instead of the name it is supposed to have, and then renaming
+     it to the intended name after it is clear there are no errors.
+     This procedure prevents problems such as a lack of disk space from
+     resulting in an invalid file.
+
+     As a side effect, backups are necessarily made by copying.  *Note
+     Rename or Copy::.  Yet, at the same time, saving a precious file
+     always breaks all hard links between the file you save and other
+     file names.
+
+     Some modes set this variable non-`nil' locally in particular
+     buffers.
+
+ - User Option: require-final-newline
+     This variable determines whether files may be written out that do
+     _not_ end with a newline.  If the value of the variable is `t',
+     then `save-buffer' silently adds a newline at the end of the file
+     whenever the buffer being saved does not already end in one.  If
+     the value of the variable is non-`nil', but not `t', then
+     `save-buffer' asks the user whether to add a newline each time the
+     case arises.
+
+     If the value of the variable is `nil', then `save-buffer' doesn't
+     add newlines at all.  `nil' is the default value, but a few major
+     modes set it to `t' in particular buffers.
+
+
 File: lispref.info,  Node: Reading from Files,  Next: Writing to Files,  Prev: Saving Buffers,  Up: Files
 
 Reading from Files
@@ -1126,136 +1255,4 @@ name.  For other completion functions, see *Note Completion::.
 
           completion-ignored-extensions
                => (".o" ".elc" "~" ".dvi")
-
-
-File: lispref.info,  Node: User Name Completion,  Prev: File Name Completion,  Up: File Names
-
-User Name Completion
---------------------
-
-   This section describes low-level subroutines for completing a user
-name.  For other completion functions, see *Note Completion::.
-
- - Function: user-name-all-completions partial-username
-     This function returns a list of all possible completions for a user
-     whose name starts with PARTIAL-USERNAME.  The order of the
-     completions is unpredictable and conveys no useful information.
-
-     The argument PARTIAL-USERNAME must be a partial user name
-     containing no tilde character and no slash.
-
- - Function: user-name-completion username
-     This function completes the user name USERNAME.  It returns the
-     longest prefix common to all user names that start with USERNAME.
-
-     If only one match exists and USERNAME matches it exactly, the
-     function returns `t'.  The function returns `nil' if no user name
-     starting with USERNAME exists.
-
- - Function: user-name-completion-1 username
-     This function completes the user name USERNAME, like
-     `user-name-completion', differing only in the return value.  This
-     function returns the cons of the completion returned by
-     `user-name-completion', and a boolean indicating whether that
-     completion was unique.
-
-
-File: lispref.info,  Node: Contents of Directories,  Next: Create/Delete Dirs,  Prev: File Names,  Up: Files
-
-Contents of Directories
-=======================
-
-   A directory is a kind of file that contains other files entered under
-various names.  Directories are a feature of the file system.
-
-   XEmacs can list the names of the files in a directory as a Lisp list,
-or display the names in a buffer using the `ls' shell command.  In the
-latter case, it can optionally display information about each file,
-depending on the value of switches passed to the `ls' command.
-
- - Function: directory-files directory &optional full-name match-regexp
-          nosort files-only
-     This function returns a list of the names of the files in the
-     directory DIRECTORY.  By default, the list is in alphabetical
-     order.
-
-     If FULL-NAME is non-`nil', the function returns the files'
-     absolute file names.  Otherwise, it returns just the names
-     relative to the specified directory.
-
-     If MATCH-REGEXP is non-`nil', this function returns only those
-     file names that contain that regular expression--the other file
-     names are discarded from the list.
-
-     If NOSORT is non-`nil', `directory-files' does not sort the list,
-     so you get the file names in no particular order.  Use this if you
-     want the utmost possible speed and don't care what order the files
-     are processed in.  If the order of processing is visible to the
-     user, then the user will probably be happier if you do sort the
-     names.
-
-     If FILES-ONLY is the symbol `t', then only the "files" in the
-     directory will be returned; subdirectories will be excluded.  If
-     FILES-ONLY is not `nil' and not `t', then only the subdirectories
-     will be returned.  Otherwise, if FILES-ONLY is `nil' (the default)
-     then both files and subdirectories will be returned.
-
-          (directory-files "~lewis")
-               => ("#foo#" "#foo.el#" "." ".."
-                   "dired-mods.el" "files.texi"
-                   "files.texi.~1~")
-
-     An error is signaled if DIRECTORY is not the name of a directory
-     that can be read.
-
- - Function: insert-directory file switches &optional wildcard
-          full-directory-p
-     This function inserts (in the current buffer) a directory listing
-     for directory FILE, formatted with `ls' according to SWITCHES.  It
-     leaves point after the inserted text.
-
-     The argument FILE may be either a directory name or a file
-     specification including wildcard characters.  If WILDCARD is
-     non-`nil', that means treat FILE as a file specification with
-     wildcards.
-
-     If FULL-DIRECTORY-P is non-`nil', that means FILE is a directory
-     and switches do not contain `-d', so that the listing should show
-     the full contents of the directory.  (The `-d' option to `ls' says
-     to describe a directory itself rather than its contents.)
-
-     This function works by running a directory listing program whose
-     name is in the variable `insert-directory-program'.  If WILDCARD is
-     non-`nil', it also runs the shell specified by `shell-file-name',
-     to expand the wildcards.
-
- - Variable: insert-directory-program
-     This variable's value is the program to run to generate a
-     directory listing for the function `insert-directory'.
-
-
-File: lispref.info,  Node: Create/Delete Dirs,  Next: Magic File Names,  Prev: Contents of Directories,  Up: Files
-
-Creating and Deleting Directories
-=================================
-
-   Most XEmacs Lisp file-manipulation functions get errors when used on
-files that are directories.  For example, you cannot delete a directory
-with `delete-file'.  These special functions exist to create and delete
-directories.
-
- - Command: make-directory dirname &optional parents
-     This function creates a directory named DIRNAME.  Interactively,
-     the default choice of directory to create is the current default
-     directory for file names.  That is useful when you have visited a
-     file in a nonexistent directory.
-
-     Non-interactively, optional argument PARENTS says whether to
-     create parent directories if they don't exist. (Interactively, this
-     always happens.)
-
- - Command: delete-directory dirname
-     This function deletes the directory named DIRNAME.  The function
-     `delete-file' does not work for files that are directories; you
-     must use `delete-directory' in that case.
 

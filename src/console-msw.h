@@ -33,13 +33,8 @@ Boston, MA 02111-1307, USA.  */
 #define INCLUDED_console_msw_h_
 
 #include "console.h"
-#include <windows.h>
-#include <ddeml.h>	/* DDE management library */
-#if !defined(__CYGWIN32__) && !defined(__MINGW32__) \
-	|| CYGWIN_VERSION_DLL_MAJOR > 20
-#include <shellapi.h>	/* FileManager/Explorer drag and drop */
-#include <commctrl.h>
-#endif
+#include "syswindows.h"
+#include "syscommctrl.h"
 
 #ifdef HAVE_XPM
 #include <X11/xpm.h>
@@ -163,6 +158,9 @@ struct mswindows_frame
 
   /* DC for this win32 window */
   HDC hdc;
+
+  /* Used with DeferWindowPos */
+  HDWP hdwp;
 
   /* Time of last click event, for button 2 emul */
   DWORD last_click_time;
@@ -351,5 +349,8 @@ Lisp_Object mswindows_handle_gui_wm_command (struct frame* f,
 					     HWND ctrl, LPARAM id);
 
 int msw_windows9x_p (void);
+
+
+void mswindows_output_last_error (char *frob);
 
 #endif /* INCLUDED_console_msw_h_ */

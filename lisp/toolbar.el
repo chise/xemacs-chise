@@ -198,4 +198,21 @@ as an argument if release is over a blank area of the toolbar."
   (setq zmacs-region-stays t)
   (release-toolbar-button-internal event nil))
 
+(defun make-toolbar-specifier (spec-list)
+  "Return a new `toolbar' specifier object with the given specification list.
+SPEC-LIST can be a list of specifications (each of which is a cons of a
+locale and a list of instantiators), a single instantiator, or a list
+of instantiators.  See `make-specifier' for more information about
+specifiers.
+
+Toolbar specifiers are used to specify the format of a toolbar.
+The values of the variables `default-toolbar', `top-toolbar',
+`left-toolbar', `right-toolbar', and `bottom-toolbar' are always
+toolbar specifiers.
+
+Valid toolbar instantiators are called \"toolbar descriptors\"
+and are lists of vectors.  See `default-toolbar' for a description
+of the exact format."
+  (make-specifier-and-init 'toolbar spec-list))
+
 ;;; toolbar.el ends here

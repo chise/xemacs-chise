@@ -152,8 +152,10 @@ struct console_methods
 			       int, int, int, int,
 			       Lisp_Object, Lisp_Object, Lisp_Object);
   void (*clear_frame_method) (struct frame *);
-  void (*output_begin_method) (struct device *);
-  void (*output_end_method) (struct device *);
+  void (*window_output_begin_method) (struct window *);
+  void (*frame_output_begin_method) (struct frame *);
+  void (*window_output_end_method) (struct window *);
+  void (*frame_output_end_method) (struct frame *);
   int (*flash_method) (struct device *);
   void (*ring_bell_method) (struct device *, int volume, int pitch,
 			    int duration);

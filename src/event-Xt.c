@@ -86,8 +86,6 @@ XtAppContext Xt_app_con;
 /* Do we accept events sent by other clients? */
 int x_allow_sendevents;
 
-int modifier_keys_are_sticky;
-
 #ifdef DEBUG_XEMACS
 int x_debug_events;
 #endif
@@ -3159,15 +3157,6 @@ vars_of_event_Xt (void)
   staticpro (&dispatch_event_queue);
   dispatch_event_queue_tail = Qnil;
   pdump_wire (&dispatch_event_queue_tail);
-
-  DEFVAR_BOOL ("modifier-keys-are-sticky", &modifier_keys_are_sticky /*
-*Non-nil makes modifier keys sticky.
-This means that you can release the modifier key before pressing down
-the key that you wish to be modified.  Although this is non-standard
-behavior, it is recommended because it reduces the strain on your hand,
-thus reducing the incidence of the dreaded Emacs-pinky syndrome.
-*/ );
-  modifier_keys_are_sticky = 0;
 
   DEFVAR_BOOL ("x-allow-sendevents", &x_allow_sendevents /*
 *Non-nil means to allow synthetic events.  Nil means they are ignored.

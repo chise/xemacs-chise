@@ -350,12 +350,14 @@ Toolbar
 * Menu:
 
 * Toolbar Intro::		An introduction.
-* Toolbar Descriptor Format::	How to create a toolbar.
+* Creating Toolbar::            How to create a toolbar.
+* Toolbar Descriptor Format::	Accessing and modifying a toolbar's
+                                  properties.
 * Specifying the Toolbar::	Setting a toolbar's contents.
 * Other Toolbar Variables::	Controlling the size of toolbars.
 
 
-File: lispref.info,  Node: Toolbar Intro,  Next: Toolbar Descriptor Format,  Up: Toolbar
+File: lispref.info,  Node: Toolbar Intro,  Next: Creating Toolbar,  Up: Toolbar
 
 Toolbar Intro
 =============
@@ -399,7 +401,29 @@ the position-specific specifiers, and if the user sets the default
 toolbar to the same position, it will just not be visible.
 
 
-File: lispref.info,  Node: Toolbar Descriptor Format,  Next: Specifying the Toolbar,  Prev: Toolbar Intro,  Up: Toolbar
+File: lispref.info,  Node: Creating Toolbar,  Next: Toolbar Descriptor Format,  Prev: Toolbar Intro,  Up: Toolbar
+
+Creating Toolbar
+================
+
+ - Function: make-toolbar-specifier spec-list
+     Return a new `toolbar' specifier object with the given
+     specification list.  SPEC-LIST can be a list of specifications
+     (each of which is a cons of a locale and a list of instantiators),
+     a single instantiator, or a list of instantiators.  *Note
+     Specifiers::, for more information about specifiers.
+
+     Toolbar specifiers are used to specify the format of a toolbar.
+     The values of the variables `default-toolbar', `top-toolbar',
+     `left-toolbar', `right-toolbar', and `bottom-toolbar' are always
+     toolbar specifiers.
+
+     Valid toolbar instantiators are called "toolbar descriptors" and
+     are lists of vectors.  See `default-toolbar' for a description of
+     the exact format.
+
+
+File: lispref.info,  Node: Toolbar Descriptor Format,  Next: Specifying the Toolbar,  Prev: Creating Toolbar,  Up: Toolbar
 
 Toolbar Descriptor Format
 =========================
@@ -686,13 +710,15 @@ contain arbitrary text or graphics.
 * Menu:
 
 * Gutter Intro::		An introduction.
-* Gutter Descriptor Format::	How to create a gutter.
+* Creating Gutter::             How to create a gutter.
+* Gutter Descriptor Format::	Accessing and modifying a gutter's
+                                  properties.
 * Specifying a Gutter::		Setting a gutter's contents.
 * Other Gutter Variables::	Controlling the size of gutters.
 * Common Gutter Widgets::       Things to put in gutters.
 
 
-File: lispref.info,  Node: Gutter Intro,  Next: Gutter Descriptor Format,  Up: Gutter
+File: lispref.info,  Node: Gutter Intro,  Next: Creating Gutter,  Prev: Gutter,  Up: Gutter
 
 Gutter Intro
 ============
@@ -731,7 +757,67 @@ the position-specific specifiers, and if the user sets the default
 gutter to the same position, it will just not be visible.
 
 
-File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Gutter Intro,  Up: Gutter
+File: lispref.info,  Node: Creating Gutter,  Next: Gutter Descriptor Format,  Prev: Gutter Intro,  Up: Gutter
+
+Creating Gutter
+===============
+
+ - Function: make-gutter-specifier spec-list
+     Return a new `gutter' specifier object with the given specification
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter specifiers are used to specify the format of a gutter.  The
+     values of the variables `default-gutter', `top-gutter',
+     `left-gutter', `right-gutter', and `bottom-gutter' are always
+     gutter specifiers.
+
+     Valid gutter instantiators are called "gutter descriptors" and are
+     either strings or property-lists of strings.  See `default-gutter'
+     for a description of the exact format.
+
+ - Function: make-gutter-size-specifier spec-list
+     Return a new `gutter-size' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-size specifiers are used to specify the size of a gutter.
+     The values of the variables `default-gutter-size',
+     `top-gutter-size', `left-gutter-size', `right-gutter-size', and
+     `bottom-gutter-size' are always gutter-size specifiers.
+
+     Valid gutter-size instantiators are either integers or the special
+     symbol `autodetect'. If a gutter-size is set to `autodetect' them
+     the size of the gutter will be adjusted to just accomodate the
+     gutters contents. `autodetect' only works for top and bottom
+     gutters.
+
+ - Function: make-gutter-visible-specifier spec-list
+     Return a new `gutter-visible' specifier object with the given spec
+     list.  SPEC-LIST can be a list of specifications (each of which is
+     a cons of a locale and a list of instantiators), a single
+     instantiator, or a list of instantiators.  *Note Specifiers::, for
+     more information about specifiers.
+
+     Gutter-visible specifiers are used to specify the visibility of a
+     gutter.  The values of the variables `default-gutter-visible-p',
+     `top-gutter-visible-p', `left-gutter-visible-p',
+     `right-gutter-visible-p', and `bottom-gutter-visible-p' are always
+     gutter-visible specifiers.
+
+     Valid gutter-visible instantiators are t, nil or a list of
+     symbols.  If a gutter-visible instantiator is set to a list of
+     symbols, and the correspondong gutter specification is a
+     property-list strings, then elements of the gutter specification
+     will only be visible if the corresponding symbol occurs in the
+     gutter-visible instantiator.
+
+
+File: lispref.info,  Node: Gutter Descriptor Format,  Next: Specifying a Gutter,  Prev: Creating Gutter,  Up: Gutter
 
 Gutter Descriptor Format
 ========================
@@ -1031,7 +1117,7 @@ time-consuming operations like downloading.
 File: lispref.info,  Node: Buffer Tabs,  Next: Progress Bars,  Up: Common Gutter Widgets
 
 Buffer Tabs
-===========
+-----------
 
    Not documented yet.
 
@@ -1039,7 +1125,7 @@ Buffer Tabs
 File: lispref.info,  Node: Progress Bars,  Prev: Buffer Tabs,  Up: Common Gutter Widgets
 
 Progress Bars
-=============
+-------------
 
    Not documented yet.
 
@@ -1121,98 +1207,4 @@ application interaction is possible while dragging is in progress.
 
    For information about the OffiX project have a look at
 http://leb.net/~offix/
-
-
-File: lispref.info,  Node: CDE dt,  Next: MSWindows OLE,  Prev: OffiX DND,  Up: Supported Protocols
-
-CDE dt
-------
-
-   CDE stands for Common Desktop Environment. It is based on the Motif
-widget library. It's drag'n'drop protocol is also an abstraction of the
-Motif protocol (so it might be possible, that XEmacs will also support
-the Motif protocol soon).
-
-   CDE has three different types: file, buffer, and text. XEmacs only
-uses file and buffer drags. The API will disallow full URL drags, only
-file method URLs are passed through.
-
-   Buffer drags are always converted to plain text.
-
-
-File: lispref.info,  Node: MSWindows OLE,  Next: Loose ends,  Prev: CDE dt,  Up: Supported Protocols
-
-MSWindows OLE
--------------
-
-   Only allows file drags and drops.
-
-
-File: lispref.info,  Node: Loose ends,  Prev: MSWindows OLE,  Up: Supported Protocols
-
-Loose ends
-----------
-
-   The following protocols will be supported soon: Xdnd, Motif, Xde (if
-I get some specs), KDE OffiX (if KDE can find XEmacs windows).
-
-   In particular Xdnd will be one of the protocols that can benefit from
-the XEmacs API, cause it also uses MIME types to encode dragged data.
-
-
-File: lispref.info,  Node: Drop Interface,  Next: Drag Interface,  Prev: Supported Protocols,  Up: Drag and Drop
-
-Drop Interface
-==============
-
-   For each activated low-level protocol, a internal routine will catch
-incoming drops and convert them to a dragdrop-drop type misc-user-event.
-
-   This misc-user-event has its function argument set to
-`dragdrop-drop-dispatch' and the object contains the data of the drop
-(converted to URL/MIME specific data). This function will search the
-variable `experimental-dragdrop-drop-functions' for a function that can
-handle the dropped data.
-
-   To modify the drop behavior, the user can modify the variable
-`experimental-dragdrop-drop-functions'. Each element of this list
-specifies a possible handler for dropped data. The first one that can
-handle the data will return `t' and exit. Another possibility is to set
-a extent-property with the same name. Extents are checked prior to the
-variable.
-
-   The customization group `drag-n-drop' shows all variables of user
-interest.
-
-
-File: lispref.info,  Node: Drag Interface,  Prev: Drop Interface,  Up: Drag and Drop
-
-Drag Interface
-==============
-
-   This describes the drag API (not implemented yet).
-
-
-File: lispref.info,  Node: Modes,  Next: Documentation,  Prev: Drag and Drop,  Up: Top
-
-Major and Minor Modes
-*********************
-
-   A "mode" is a set of definitions that customize XEmacs and can be
-turned on and off while you edit.  There are two varieties of modes:
-"major modes", which are mutually exclusive and used for editing
-particular kinds of text, and "minor modes", which provide features
-that users can enable individually.
-
-   This chapter describes how to write both major and minor modes, how
-to indicate them in the modeline, and how they run hooks supplied by the
-user.  For related topics such as keymaps and syntax tables, see *Note
-Keymaps::, and *Note Syntax Tables::.
-
-* Menu:
-
-* Major Modes::        Defining major modes.
-* Minor Modes::        Defining minor modes.
-* Modeline Format::    Customizing the text that appears in the modeline.
-* Hooks::              How to use hooks; how to write code that provides hooks.
 

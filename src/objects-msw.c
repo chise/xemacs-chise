@@ -49,13 +49,6 @@ Boston, MA 02111-1307, USA.  */
 #include "device.h"
 #include "insdel.h"
 
-#if (defined(__CYGWIN32__) || defined(__MINGW32__)) && \
-	CYGWIN_VERSION_DLL_MAJOR < 21
-#define stricmp strcasecmp
-#define FONTENUMPROC FONTENUMEXPROC
-#define ntmTm ntmentm
-#endif
-
 typedef struct colormap_t 
 {
   const char *name;

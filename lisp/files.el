@@ -1545,7 +1545,7 @@ for current buffer."
 	(cond ((not (search-forward "-*-" end t))
 	       ;; doesn't have one.
 	       (setq force t))
-	      ((looking-at "[ \t]*\\([^ \t\n\r:;]+\\)\\([ \t]*-\\*-\\)")
+	      ((looking-at "[ \t]*\\([^ \t\n\r:;]+?\\)\\([ \t]*-\\*-\\)")
 	       ;; Antiquated form: "-*- ModeName -*-".
 	       (setq result
 		     (list (cons 'mode

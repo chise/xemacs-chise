@@ -115,14 +115,18 @@
 	     (if (string-match "\\.elc?\\'" arg)
 		 (substring arg 0 (match-beginning 0))
 	       arg)))
-	    (if (and dumped-exe
-		     (or (and (file-exists-p (concat frob ".el"))
-			      (file-newer-than-file-p (concat frob ".el")
-						      dumped-exe))
-			 (and (file-exists-p (concat frob ".elc"))
-			      (file-newer-than-file-p (concat frob ".elc")
-						      dumped-exe))))
-		(setq need-to-dump t)))
+	    (when (and dumped-exe
+		       (or (and (file-exists-p
+				 (concat "../lisp/" frob ".el"))
+				(file-newer-than-file-p
+				 (concat "../lisp/" frob ".el")
+				 dumped-exe))
+			   (and (file-exists-p
+				 (concat "../lisp/" frob ".elc"))
+				(file-newer-than-file-p
+				 (concat "../lisp/" frob ".elc")
+				 dumped-exe))))
+	      (setq need-to-dump t)))
 
       (if (null (member (file-name-nondirectory arg)
 			packages-unbytecompiled-lisp))

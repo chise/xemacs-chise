@@ -127,13 +127,6 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
     abs (XINT (height));
       
   /* Misc frame stuff */
-  FRAME_MSWINDOWS_DATA(f)->button2_need_lbutton = 0;
-  FRAME_MSWINDOWS_DATA(f)->button2_need_rbutton = 0;
-  FRAME_MSWINDOWS_DATA(f)->button2_is_down = 0;
-  FRAME_MSWINDOWS_DATA(f)->ignore_next_lbutton_up = 0;
-  FRAME_MSWINDOWS_DATA(f)->ignore_next_rbutton_up = 0;
-  FRAME_MSWINDOWS_DATA(f)->sizing = 0;
-  FRAME_MSWINDOWS_DATA(f)->paint_pending = 0;
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
   FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = 

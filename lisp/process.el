@@ -129,7 +129,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	      (if buffer
 		  (set-marker (process-mark proc) (point buffer) buffer))
 	      (unwind-protect
-		  (progn
+		  (prog1
 		    (catch 'call-process-done
 		      (when (not discard)
 			(set-process-sentinel

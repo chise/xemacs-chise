@@ -87,16 +87,10 @@ Boston, MA 02111-1307, USA.  */
 #define LEFT_GLYPHS	2
 #define RIGHT_GLYPHS	3
 
-/* Set the vertical clip to 0 if we are currently updating the line
-   start cache.  Otherwise for buffers of line height 1 it may fail to
-   be able to work properly because regenerate_window will not layout
-   a single line.  */
 #define VERTICAL_CLIP(w, display)					\
-  (updating_line_start_cache						\
-   ? 0									\
-   : ((WINDOW_TTY_P (w) | (!display && scroll_on_clipped_lines))	\
+    ((WINDOW_TTY_P (w) | (!display && scroll_on_clipped_lines))	        \
       ? INT_MAX								\
-      : vertical_clip))
+      : vertical_clip)
 
 /* The following structures are completely private to redisplay.c so
    we put them here instead of in a header file, for modularity. */
@@ -327,9 +321,6 @@ int vertical_clip;
 
 /* Minimum visible pixel width of clipped glyphs at right margin. */
 int horizontal_clip;
-
-/* Set if currently inside update_line_start_cache. */
-static int updating_line_start_cache;
 
 /* Nonzero means reading single-character input with prompt
    so put cursor on minibuffer after the prompt.  */
@@ -1322,6 +1313,7 @@ add_disp_table_entry_runes_1 (pos_data *data, Lisp_Object entry)
 		    case '%':
 		      dst += set_charptr_emchar (dst, '%');
 		      break;
+		      /* #### unimplemented */
 		    }
 		}
 	    }
@@ -3980,8 +3972,8 @@ tail_recurse:
        * - If first element is another symbol, process the cadr or caddr
        *   recursively according to whether the symbol's value is non-nil or
        *   nil.
-       * - If first element is a face, process the cdr recursively
-       *   without altering the depth.
+       * - If first element is an extent, process the cdr recursively
+       *   and handle the extent's face.
        */
 
       Lisp_Object car, tem;
@@ -5097,6 +5089,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
   int ypos = WINDOW_TEXT_TOP (w);
   int yend;	/* set farther down */
   int yclip = WINDOW_TEXT_TOP_CLIP (w);
+  int force;
 
   prop_block_dynarr *prop;
   layout_bounds bounds;
@@ -5150,10 +5143,14 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
   else
     prop = 0;
 
+  /* When we are computing things for scrolling purposes, make
+     sure at least one line is always generated */
+  force = (type == CMOTION_DISP);
+
   /* Make sure this is set always */
   /* Note the conversion at end */
   w->window_end_pos[type] = start_pos;
-  while (ypos < yend)
+  while (ypos < yend || force)
     {
       struct display_line dl;
       struct display_line *dlp;
@@ -5206,7 +5203,7 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 	     the top clip and the bottom clip. */
 	  visible_height -= (dlp->clip + dlp->top_clip);
 
-	  if (visible_height < VERTICAL_CLIP (w, 1))
+	  if (visible_height < VERTICAL_CLIP (w, 1) && !force)
 	    {
 	      if (local)
 		free_display_line (dlp);
@@ -5250,6 +5247,8 @@ regenerate_window (struct window *w, Bufpos start_pos, Bufpos point, int type)
 	 generate_display_line call. */
       if (start_pos > BUF_ZV (b))
 	break;
+
+      force = 0;
     }
 
   if (prop)
@@ -6342,12 +6341,9 @@ redisplay_frame (struct frame *f, int preemption_check)
      process.*/
   if (f->frame_changed || f->subwindows_changed)
     {
-      reset_subwindow_cachels (f);
       /* we have to do this so the gutter gets regenerated. */
       reset_gutter_display_lines (f);
     }
-  else
-    mark_subwindow_cachels_as_not_updated (f);
 
   hold_frame_size_changes ();
 
@@ -6375,6 +6371,8 @@ redisplay_frame (struct frame *f, int preemption_check)
      #### If a frame-size change does occur we should probably
      actually be preempting redisplay. */
 
+  MAYBE_DEVMETH (d, frame_output_begin, (f));
+
   /* We can now update the gutters, safe in the knowledge that our
      efforts won't get undone. */
 
@@ -6388,7 +6386,7 @@ redisplay_frame (struct frame *f, int preemption_check)
   /* Erase the frame before outputting its contents. */
   if (f->clear)
     {
-      DEVMETH (d, clear_frame, (f));
+      MAYBE_DEVMETH (d, clear_frame, (f));
     }
 
   /* Do the selected window first. */
@@ -6397,11 +6395,7 @@ redisplay_frame (struct frame *f, int preemption_check)
   /* Then do the rest. */
   redisplay_windows (f->root_window, 1);
 
-  /* We now call the output_end routine for tty frames.  We delay
-     doing so in order to avoid cursor flicker.  So much for 100%
-     encapsulation. */
-  if (FRAME_TTY_P (f))
-    DEVMETH (d, output_end, (d));
+  MAYBE_DEVMETH (d, frame_output_end, (f));
 
   update_frame_title (f);
 
@@ -7836,7 +7830,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 
   validate_line_start_cache (w);
   w->line_cache_validation_override++;
-  updating_line_start_cache = 1;
 
   if (from < BUF_BEGV (b))
     from = BUF_BEGV (b);
@@ -7845,7 +7838,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 
   if (from > to)
     {
-      updating_line_start_cache = 0;
       w->line_cache_validation_override--;
       return;
     }
@@ -7858,7 +7850,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
       /* Check to see if the desired range is already in the cache. */
       if (from >= low_bound && to <= high_bound)
 	{
-	  updating_line_start_cache = 0;
 	  w->line_cache_validation_override--;
 	  return;
 	}
@@ -7887,7 +7878,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
       update_internal_cache_list (w, DESIRED_DISP);
       if (!Dynarr_length (internal_cache))
 	{
-	  updating_line_start_cache = 0;
 	  w->line_cache_validation_override--;
 	  return;
 	}
@@ -7915,7 +7905,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 	{
 	  Dynarr_add_many (cache, Dynarr_atp (internal_cache, 0),
 			   Dynarr_length (internal_cache));
-	  updating_line_start_cache = 0;
 	  w->line_cache_validation_override--;
 	  return;
 	}
@@ -7924,7 +7913,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
          the bounds of the DESIRED structs in the first place. */
       if (start >= low_bound && end <= high_bound)
 	{
-	  updating_line_start_cache = 0;
 	  w->line_cache_validation_override--;
 	  return;
 	}
@@ -7947,7 +7935,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 	      Dynarr_reset (cache);
 	      Dynarr_add_many (cache, Dynarr_atp (internal_cache, 0),
 			       Dynarr_length (internal_cache));
-	      updating_line_start_cache = 0;
 	      w->line_cache_validation_override--;
 	      return;
 	    }
@@ -7973,7 +7960,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 	      Dynarr_reset (cache);
 	      Dynarr_add_many (cache, Dynarr_atp (internal_cache, 0),
 			       Dynarr_length (internal_cache));
-	      updating_line_start_cache = 0;
 	      w->line_cache_validation_override--;
 	      return;
 	    }
@@ -7982,7 +7968,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 			   Dynarr_length (internal_cache) - ic_elt);
 	}
 
-      updating_line_start_cache = 0;
       w->line_cache_validation_override--;
       return;
     }
@@ -8002,23 +7987,9 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 	  update_internal_cache_list (w, CMOTION_DISP);
 
 	  /* If this assert is triggered then regenerate_window failed
-             to layout a single line.  That is not supposed to be
-             possible because we impose a minimum height on the buffer
-             and override vertical clip when we are in here. */
-	  /* #### Ah, but it is because the window may temporarily
-             exist but not have any lines at all if the minibuffer is
-             real big.  Look into that situation better. */
-	  if (!Dynarr_length (internal_cache))
-	    {
-	      if (old_lb == -1 && low_bound == -1)
-		{
-		  updating_line_start_cache = 0;
-		  w->line_cache_validation_override--;
-		  return;
-		}
-
-	      assert (Dynarr_length (internal_cache));
-	    }
+             to layout a single line. This is not possible since we
+	     force at least a single line to be layout for CMOTION_DISP */
+	  assert (Dynarr_length (internal_cache));
 	  assert (startp == Dynarr_atp (internal_cache, 0)->start);
 
 	  ic_elt = Dynarr_length (internal_cache) - 1;
@@ -8064,7 +8035,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
 	  startp = new_startp;
 	  if (startp > BUF_ZV (b))
 	    {
-	      updating_line_start_cache = 0;
 	      w->line_cache_validation_override--;
 	      return;
 	    }
@@ -8098,7 +8068,6 @@ update_line_start_cache (struct window *w, Bufpos from, Bufpos to,
       while (to > high_bound);
     }
 
-  updating_line_start_cache = 0;
   w->line_cache_validation_override--;
   assert (to <= high_bound);
 }
@@ -8839,6 +8808,9 @@ Ensure that all minibuffers are correctly showing the echo area.
 	  if (FRAME_REPAINT_P (f) && FRAME_HAS_MINIBUF_P (f))
 	    {
 	      Lisp_Object window = FRAME_MINIBUF_WINDOW (f);
+
+	      MAYBE_DEVMETH (d, frame_output_begin, (f));
+
 	      /*
 	       * If the frame size has changed, there may be random
 	       * chud on the screen left from previous messages
@@ -8847,19 +8819,15 @@ Ensure that all minibuffers are correctly showing the echo area.
 	       */
 	      if (f->echo_area_garbaged)
 		{
-		  DEVMETH (d, clear_frame, (f));
+		  MAYBE_DEVMETH (d, clear_frame, (f));
 		  f->echo_area_garbaged = 0;
 		}
 	      redisplay_window (window, 0);
+	      MAYBE_DEVMETH (d, frame_output_end, (f));
+
 	      call_redisplay_end_triggers (XWINDOW (window), 0);
 	    }
 	}
-
-      /* We now call the output_end routine for tty frames.  We delay
-	 doing so in order to avoid cursor flicker.  So much for 100%
-	 encapsulation. */
-      if (DEVICE_TTY_P (d))
-	DEVMETH (d, output_end, (d));
     }
 
   return Qnil;
@@ -9270,15 +9238,8 @@ syms_of_redisplay (void)
 }
 
 void
-reinit_vars_of_redisplay (void)
-{
-  updating_line_start_cache = 0;
-}
-
-void
 vars_of_redisplay (void)
 {
-  reinit_vars_of_redisplay ();
 
 #if 0
   staticpro (&last_arrow_position);
@@ -9323,7 +9284,9 @@ See also `overlay-arrow-string'.
   Voverlay_arrow_position = Qnil;
 
   DEFVAR_LISP_MAGIC ("overlay-arrow-string", &Voverlay_arrow_string /*
-String to display as an arrow.  See also `overlay-arrow-position'.
+String or glyph to display as an arrow.  See also `overlay-arrow-position'.
+(Note that despite the name of this variable, it can be set to a glyph as
+well as a string.)
 */ ,
 		     redisplay_variable_changed);
   Voverlay_arrow_string = Qnil;

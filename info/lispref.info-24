@@ -50,6 +50,138 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: User Name Completion,  Prev: File Name Completion,  Up: File Names
+
+User Name Completion
+--------------------
+
+   This section describes low-level subroutines for completing a user
+name.  For other completion functions, see *Note Completion::.
+
+ - Function: user-name-all-completions partial-username
+     This function returns a list of all possible completions for a user
+     whose name starts with PARTIAL-USERNAME.  The order of the
+     completions is unpredictable and conveys no useful information.
+
+     The argument PARTIAL-USERNAME must be a partial user name
+     containing no tilde character and no slash.
+
+ - Function: user-name-completion username
+     This function completes the user name USERNAME.  It returns the
+     longest prefix common to all user names that start with USERNAME.
+
+     If only one match exists and USERNAME matches it exactly, the
+     function returns `t'.  The function returns `nil' if no user name
+     starting with USERNAME exists.
+
+ - Function: user-name-completion-1 username
+     This function completes the user name USERNAME, like
+     `user-name-completion', differing only in the return value.  This
+     function returns the cons of the completion returned by
+     `user-name-completion', and a boolean indicating whether that
+     completion was unique.
+
+
+File: lispref.info,  Node: Contents of Directories,  Next: Create/Delete Dirs,  Prev: File Names,  Up: Files
+
+Contents of Directories
+=======================
+
+   A directory is a kind of file that contains other files entered under
+various names.  Directories are a feature of the file system.
+
+   XEmacs can list the names of the files in a directory as a Lisp list,
+or display the names in a buffer using the `ls' shell command.  In the
+latter case, it can optionally display information about each file,
+depending on the value of switches passed to the `ls' command.
+
+ - Function: directory-files directory &optional full-name match-regexp
+          nosort files-only
+     This function returns a list of the names of the files in the
+     directory DIRECTORY.  By default, the list is in alphabetical
+     order.
+
+     If FULL-NAME is non-`nil', the function returns the files'
+     absolute file names.  Otherwise, it returns just the names
+     relative to the specified directory.
+
+     If MATCH-REGEXP is non-`nil', this function returns only those
+     file names that contain that regular expression--the other file
+     names are discarded from the list.
+
+     If NOSORT is non-`nil', `directory-files' does not sort the list,
+     so you get the file names in no particular order.  Use this if you
+     want the utmost possible speed and don't care what order the files
+     are processed in.  If the order of processing is visible to the
+     user, then the user will probably be happier if you do sort the
+     names.
+
+     If FILES-ONLY is the symbol `t', then only the "files" in the
+     directory will be returned; subdirectories will be excluded.  If
+     FILES-ONLY is not `nil' and not `t', then only the subdirectories
+     will be returned.  Otherwise, if FILES-ONLY is `nil' (the default)
+     then both files and subdirectories will be returned.
+
+          (directory-files "~lewis")
+               => ("#foo#" "#foo.el#" "." ".."
+                   "dired-mods.el" "files.texi"
+                   "files.texi.~1~")
+
+     An error is signaled if DIRECTORY is not the name of a directory
+     that can be read.
+
+ - Function: insert-directory file switches &optional wildcard
+          full-directory-p
+     This function inserts (in the current buffer) a directory listing
+     for directory FILE, formatted with `ls' according to SWITCHES.  It
+     leaves point after the inserted text.
+
+     The argument FILE may be either a directory name or a file
+     specification including wildcard characters.  If WILDCARD is
+     non-`nil', that means treat FILE as a file specification with
+     wildcards.
+
+     If FULL-DIRECTORY-P is non-`nil', that means FILE is a directory
+     and switches do not contain `-d', so that the listing should show
+     the full contents of the directory.  (The `-d' option to `ls' says
+     to describe a directory itself rather than its contents.)
+
+     This function works by running a directory listing program whose
+     name is in the variable `insert-directory-program'.  If WILDCARD is
+     non-`nil', it also runs the shell specified by `shell-file-name',
+     to expand the wildcards.
+
+ - Variable: insert-directory-program
+     This variable's value is the program to run to generate a
+     directory listing for the function `insert-directory'.
+
+
+File: lispref.info,  Node: Create/Delete Dirs,  Next: Magic File Names,  Prev: Contents of Directories,  Up: Files
+
+Creating and Deleting Directories
+=================================
+
+   Most XEmacs Lisp file-manipulation functions get errors when used on
+files that are directories.  For example, you cannot delete a directory
+with `delete-file'.  These special functions exist to create and delete
+directories.
+
+ - Command: make-directory dirname &optional parents
+     This function creates a directory named DIRNAME.  Interactively,
+     the default choice of directory to create is the current default
+     directory for file names.  That is useful when you have visited a
+     file in a nonexistent directory.
+
+     Non-interactively, optional argument PARENTS says whether to
+     create parent directories if they don't exist. (Interactively, this
+     always happens.)
+
+ - Command: delete-directory dirname
+     This function deletes the directory named DIRNAME.  The function
+     `delete-file' does not work for files that are directories; you
+     must use `delete-directory' in that case.
+
+
 File: lispref.info,  Node: Magic File Names,  Next: Partial Files,  Prev: Create/Delete Dirs,  Up: Files
 
 Making Certain File Names "Magic"
@@ -1046,47 +1178,4 @@ not be displayed in any windows.
 * Creating Buffers::    Functions that create buffers.
 * Killing Buffers::     Buffers exist until explicitly killed.
 * Indirect Buffers::    An indirect buffer shares text with some other buffer.
-
-
-File: lispref.info,  Node: Buffer Basics,  Next: Current Buffer,  Up: Buffers
-
-Buffer Basics
-=============
-
-   A "buffer" is a Lisp object containing text to be edited.  Buffers
-are used to hold the contents of files that are being visited; there may
-also be buffers that are not visiting files.  While several buffers may
-exist at one time, exactly one buffer is designated the "current
-buffer" at any time.  Most editing commands act on the contents of the
-current buffer.  Each buffer, including the current buffer, may or may
-not be displayed in any windows.
-
-   Buffers in Emacs editing are objects that have distinct names and
-hold text that can be edited.  Buffers appear to Lisp programs as a
-special data type.  You can think of the contents of a buffer as an
-extendable string; insertions and deletions may occur in any part of
-the buffer.  *Note Text::.
-
-   A Lisp buffer object contains numerous pieces of information.  Some
-of this information is directly accessible to the programmer through
-variables, while other information is accessible only through
-special-purpose functions.  For example, the visited file name is
-directly accessible through a variable, while the value of point is
-accessible only through a primitive function.
-
-   Buffer-specific information that is directly accessible is stored in
-"buffer-local" variable bindings, which are variable values that are
-effective only in a particular buffer.  This feature allows each buffer
-to override the values of certain variables.  Most major modes override
-variables such as `fill-column' or `comment-column' in this way.  For
-more information about buffer-local variables and functions related to
-them, see *Note Buffer-Local Variables::.
-
-   For functions and variables related to visiting files in buffers, see
-*Note Visiting Files:: and *Note Saving Buffers::.  For functions and
-variables related to the display of buffers in windows, see *Note
-Buffers and Windows::.
-
- - Function: bufferp object
-     This function returns `t' if OBJECT is a buffer, `nil' otherwise.
 
