@@ -155,6 +155,7 @@
     (japanese-jisx0208-1978	. #x356E)	; ø»‚š¥
     (chinese-gb2312		. #x4825)	; ø»„¿š
     (japanese-jisx0208		. #x356E)	; ø»†®­
+    (korean-ksc5601		. #x4B5B)	; ø»‰˜²
     (chinese-isoir165		. #x4825)	; ø»§ª
     (chinese-cns11643-1		. #x462A)	; ø»‘¸»
     (japanese-jisx0208-1990	. #x356E)	; ø½Š”¡
@@ -447,6 +448,7 @@
     (shinjigen-2	. 893)
     (japanese-jisx0208-1978	. #x5254)	; ø»ƒ„±
     (japanese-jisx0208		. #x5254)	; ø»‡˜¹
+    (korean-ksc5601		. #x7351)	; ø»Š“˜
     (chinese-cns11643-1		. #x5936)	; ø»’•
     (japanese-jisx0208-1990	. #x5254)	; ø½Š¾­
     (chinese-gb12345		. #x324E)	; åƒ
