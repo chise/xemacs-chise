@@ -1094,11 +1094,12 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	code = ch;
       if ( (min <= code) && (code <= max) )
 	{
+	  int d = code - XCHARSET_CODE_OFFSET (charset);
+
 	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
 	    {
-	      int m = code - min;
-	      int row = m  / 94;
-	      int cell = m % 94 + 33;
+	      int row  = d / 94;
+	      int cell = d % 94 + 33;
 
 	      if (row < 30)
 		row += 16 + 32;
@@ -1108,8 +1109,6 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	    }
 	  else if (XCHARSET_CHARS (charset) == 94)
 	    {
-	      int d =code - XCHARSET_CODE_OFFSET (charset);
-
 	      if (XCHARSET_DIMENSION (charset) == 1)
 		return d + 33;
 	      else if (XCHARSET_DIMENSION (charset) == 2)
@@ -1128,8 +1127,6 @@ charset_code_point (Lisp_Object charset, Emchar ch)
 	    }
 	  else if (XCHARSET_CHARS (charset) == 96)
 	    {
-	      int d =code - XCHARSET_CODE_OFFSET (charset);
-
 	      if (XCHARSET_DIMENSION (charset) == 1)
 		return d + 32;
 	      else if (XCHARSET_DIMENSION (charset) == 2)
