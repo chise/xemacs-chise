@@ -1,3 +1,12 @@
+2003-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (LEADING_BYTE_UCS_GB): Deleted.
+
+	* mule-charset.c (Vcharset_ucs_gb): Deleted.
+	(Qucs_gb): Deleted.
+	(syms_of_mule_charset): Delete `ucs-gb'.
+	(complex_vars_of_mule_charset): Likewise.
+
 2003-03-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* char-ucs.h (LEADING_BYTE_UCS_CNS): Deleted.
