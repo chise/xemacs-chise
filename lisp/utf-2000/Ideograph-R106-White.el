@@ -603,6 +603,7 @@
 (define-char
   '((ideographic-radical . 106)	; â½©
     (ideographic-strokes . 6)
+    (total-strokes	 . 11)
     (=ucs		. #x7691)	; çš‘
     (=gb2312		. #x3028)	; ø»„œ
     ))
