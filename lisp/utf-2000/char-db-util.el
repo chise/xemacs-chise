@@ -69,9 +69,11 @@
       (setq i (1+ i)))
     v))
 
+(defvar char-db-file-coding-system 'utf-8-mcs-er)
+
 (defvar char-db-feature-domains
   '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
-	jis-x0213 misc unknown))
+	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
 
 (defvar char-db-ignored-attributes nil)
 
@@ -87,8 +89,8 @@
     nil)
    ((find-charset ka)
     (if (find-charset kb)
-	(if (<= (charset-id ka) 0)
-	    (if (<= (charset-id kb) 0)
+	(if (<= (charset-id ka) 1)
+	    (if (<= (charset-id kb) 1)
 		(cond
 		 ((= (charset-dimension ka)
 		     (charset-dimension kb))
@@ -98,7 +100,7 @@
 		     (charset-dimension kb))
 		  ))
 	      t)
-	  (if (<= (charset-id kb) 0)
+	  (if (<= (charset-id kb) 1)
 	      nil
 	    (< (charset-id ka)(charset-id kb))))
       nil))
@@ -198,7 +200,7 @@
 		    (if (and (or (charset-iso-final-char ccs)
 				 (memq ccs
 				       '(=daikanwa
-					 =daikanwa-rev2
+					 =daikanwa@rev2
 					 ;; =gt-k
 					 )))
 			     (setq ret (encode-char char ccs 'defined-only)))
@@ -390,10 +392,43 @@
 
 (defvar char-db-convert-obsolete-format t)
 
+(defun char-db-insert-ccs-feature (name value line-breaking)
+  (insert
+   (format
+    (cond ((memq name '(=daikanwa
+			=daikanwa@rev1 =daikanwa@rev2
+			=gt =gt-k =cbeta))
+	   "(%-18s . %05d)\t; %c")
+	  ((eq name 'mojikyo)
+	   "(%-18s . %06d)\t; %c")
+	  ((>= (charset-dimension name) 2)
+	   "(%-18s . #x%04X)\t; %c")
+	  (t
+	   "(%-18s . #x%02X)\t; %c"))
+    name
+    (if (= (charset-iso-graphic-plane name) 1)
+	(logior value
+		(cond ((= (charset-dimension name) 1)
+		       #x80)
+		      ((= (charset-dimension name) 2)
+		       #x8080)
+		      ((= (charset-dimension name) 3)
+		       #x808080)
+		      (t 0)))
+      value)
+    (char-db-decode-isolated-char name value)))
+  (if (and (= (charset-chars name) 94)
+	   (= (charset-dimension name) 2))
+      (insert (format " [%02d-%02d]"
+		      (- (lsh value -8) 32)
+		      (- (logand value 255) 32))))
+  (insert line-breaking))
+
 (defun insert-char-attributes (char &optional readable attributes column)
   (unless column
     (setq column (current-column)))
-  (let (name value has-long-ccs-name rest
+  (let (name value ; has-long-ccs-name
+	rest
 	radical strokes
 	(line-breaking
 	 (concat "\n" (make-string (1+ column) ?\ )))
@@ -447,6 +482,14 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
+    ;; (when (and (memq '<-denotational attributes)
+    ;;            (setq value (get-char-attribute char '<-denotational))
+    ;;            (null (cdr value))
+    ;;            (setq value (encode-char (car value) 'ucs 'defined-only)))
+    ;;   (insert (format "(%-18s . #x%04X)\t; %c%s"
+    ;;                   '=>ucs value (decode-char 'ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '<-denotational attributes)))
     (dolist (name '(=>ucs =>ucs*))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -467,30 +510,6 @@
 			line-breaking))
 	(setq attributes (delq name attributes))
 	))
-    ;; (dolist (name '(=>ucs-gb =>ucs-cns =>ucs-jis =>ucs-ks =>ucs-big5))
-    ;;   (when (and (memq name attributes)
-    ;;              (setq value (get-char-attribute char name)))
-    ;;     (insert (format "(%-18s . #x%04X)\t; %c%s"
-    ;;                     (intern
-    ;;                      (concat "=>ucs@"
-    ;;                              (substring (symbol-name name) 6)))
-    ;;                     value
-    ;;                     (decode-char (intern
-    ;;                                   (concat "=ucs@"
-    ;;                                           (substring
-    ;;                                            (symbol-name name) 6)))
-    ;;                                  value)
-    ;;                     line-breaking))
-    ;;     (setq attributes (delq name attributes))))
-    ;; (when (and (memq '->ucs attributes)
-    ;;            (setq value (get-char-attribute char '->ucs)))
-    ;;   (insert (format (if char-db-convert-obsolete-format
-    ;;                       "(=>ucs\t\t. #x%04X)\t; %c%s"
-    ;;                     "(->ucs\t\t. #x%04X)\t; %c%s")
-    ;;                   value (decode-char '=ucs value)
-    ;;                   line-breaking))
-    ;;   (setq attributes (delq '->ucs attributes))
-    ;;   )
     (dolist (name '(=>daikanwa))
       (when (and (memq name attributes)
 		 (setq value (get-char-attribute char name)))
@@ -828,20 +847,9 @@
       )
     (unless readable
       (dolist (ignored '(composition
-			 ->denotational <-subsumptive ->ucs-unified))
+			 ->denotational <-subsumptive ->ucs-unified
+			 ->ideographic-component-forms))
 	(setq attributes (delq ignored attributes))))
-    ;; (setq rest ccs-attributes)
-    ;; (while (and rest
-    ;;             (progn
-    ;;               (setq value (get-char-attribute char (car rest)))
-    ;;               (if value
-    ;;                   (if (>= (length (symbol-name (car rest))) 19)
-    ;;                       (progn
-    ;;                         (setq has-long-ccs-name t)
-    ;;                         nil)
-    ;;                     t)
-    ;;                 t)))
-    ;;   (setq rest (cdr rest)))
     (while attributes
       (setq name (car attributes))
       (if (setq value (get-char-attribute char name))
@@ -851,39 +859,8 @@
 			  (prog1
 			      (setq value (get-char-attribute char name))
 			    (setq dest-ccss (cons name dest-ccss))))
-		     (insert
-		      (format
-		       (cond ((memq name '(=daikanwa
-					   =daikanwa-rev1 =daikanwa-rev2
-					   =gt =gt-k =cbeta))
-			      (if has-long-ccs-name
-				  "(%-26s . %05d)\t; %c%s"
-				"(%-18s . %05d)\t; %c%s"))
-			     ((eq name 'mojikyo)
-			      (if has-long-ccs-name
-				  "(%-26s . %06d)\t; %c%s"
-				"(%-18s . %06d)\t; %c%s"))
-			     ((>= (charset-dimension name) 2)
-			      (if has-long-ccs-name
-				  "(%-26s . #x%04X)\t; %c%s"
-				"(%-18s . #x%04X)\t; %c%s"))
-			     (t
-			      (if has-long-ccs-name
-				  "(%-26s . #x%02X)\t; %c%s"
-				"(%-18s . #x%02X)\t; %c%s")))
-		       name
-		       (if (= (charset-iso-graphic-plane name) 1)
-			   (logior value
-				   (cond ((= (charset-dimension name) 1)
-					  #x80)
-					 ((= (charset-dimension name) 2)
-					  #x8080)
-					 ((= (charset-dimension name) 3)
-					  #x808080)
-					 (t 0)))
-			 value)
-		       (char-db-decode-isolated-char name value)
-		       line-breaking)))
+		     (char-db-insert-ccs-feature name value line-breaking)
+		     )
 		 )
 		((string-match "^=>ucs@" (symbol-name name))
 		 (insert (format "(%-18s . #x%04X)\t; %c%s"
@@ -896,7 +873,20 @@
 				 line-breaking))
 		 )
 		((and (not readable)
-		      (string-match "^->simplified" (symbol-name name)))
+		      (null (get-char-attribute
+			     char
+			     (intern (format "%s*sources" name))))
+		      (not (string-match "\\*sources$" (symbol-name name)))
+		      (or (eq name '<-identical)
+			  (string-match "^->simplified" (symbol-name name))
+                          ;; (string-match "^<-same" (symbol-name name))
+			  (string-match "^->same" (symbol-name name))
+                          ;; (string-match "^->ideographic-same" (symbol-name name))
+			  (string-match "^->vulgar" (symbol-name name))
+			  (string-match "^->wrong" (symbol-name name))
+			  (string-match "^->original" (symbol-name name))
+			  (string-match "^->ancient" (symbol-name name))
+			  ))
 		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
@@ -932,24 +922,47 @@
 				 (intern (format "%s*sources" name))))
 			  (setq required-features nil)
 			  (dolist (source sources)
-			    (setq required-features
-				  (cons
-				   (if (find-charset
-					(setq ret (intern
-						   (format "=%s" source))))
-				       ret
-				     source)
-				   required-features)))
-			  (when (string-match "@JP" (symbol-name name))
-			    (setq required-features
-				  (union required-features
-					 '(=jis-x0208
-					   =jis-x0208-1990
-					   =jis-x0213-1-2000
-					   =jis-x0213-2-2000
-					   =jis-x0212
-					   =jis-x0208-1983
-					   =jis-x0208-1978))))
+			    (cond
+			     ((memq source '(JP JP/Jouyou
+						shinjigen-1))
+			      (setq required-features
+				    (union required-features
+					   '(=jis-x0208
+					     =jis-x0208-1990
+					     =jis-x0213-1-2000
+					     =jis-x0213-2-2000
+					     =jis-x0212
+					     =jis-x0208-1983
+					     =jis-x0208-1978))))
+			     ((eq source 'CN)
+			      (setq required-features
+				    (union required-features
+					   '(=gb2312
+					     =gb12345
+					     =iso-ir165)))))
+			    (cond
+			     ((find-charset
+			       (setq ret (intern (format "=%s" source))))
+			      (setq required-features
+				    (cons ret required-features)))
+			     (t (setq required-features
+				      (cons source required-features)))))
+			  (cond ((string-match "@JP" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=jis-x0208
+						=jis-x0208-1990
+						=jis-x0213-1-2000
+						=jis-x0213-2-2000
+						=jis-x0212
+						=jis-x0208-1983
+						=jis-x0208-1978))))
+				((string-match "@CN" (symbol-name name))
+				 (setq required-features
+				       (union required-features
+					      '(=gb2312
+						=gb12345
+						=iso-ir165)))))
 			  (if separator
 			      (insert lbs))
 			  (if readable
@@ -1047,46 +1060,6 @@
 				 line-breaking)))
 		))
       (setq attributes (cdr attributes)))
-    ;; (while ccs-attributes
-    ;;   (setq name (charset-name (car ccs-attributes)))
-    ;;   (if (and (not (memq name dest-ccss))
-    ;;            (prog1
-    ;;                (setq value (get-char-attribute char name))
-    ;;              (setq dest-ccss (cons name dest-ccss))))
-    ;;       (insert
-    ;;        (format
-    ;;         (cond ((memq name '(=daikanwa
-    ;;                             =daikanwa-rev1 =daikanwa-rev2
-    ;;                             =gt =gt-k =cbeta))
-    ;;                (if has-long-ccs-name
-    ;;                    "(%-26s . %05d)\t; %c%s"
-    ;;                  "(%-18s . %05d)\t; %c%s"))
-    ;;               ((eq name 'mojikyo)
-    ;;                (if has-long-ccs-name
-    ;;                    "(%-26s . %06d)\t; %c%s"
-    ;;                  "(%-18s . %06d)\t; %c%s"))
-    ;;               ((>= (charset-dimension name) 2)
-    ;;                (if has-long-ccs-name
-    ;;                    "(%-26s . #x%04X)\t; %c%s"
-    ;;                  "(%-18s . #x%04X)\t; %c%s"))
-    ;;               (t
-    ;;                (if has-long-ccs-name
-    ;;                    "(%-26s . #x%02X)\t; %c%s"
-    ;;                  "(%-18s . #x%02X)\t; %c%s")))
-    ;;         name
-    ;;         (if (= (charset-iso-graphic-plane name) 1)
-    ;;             (logior value
-    ;;                     (cond ((= (charset-dimension name) 1)
-    ;;                            #x80)
-    ;;                           ((= (charset-dimension name) 2)
-    ;;                            #x8080)
-    ;;                           ((= (charset-dimension name) 3)
-    ;;                            #x808080)
-    ;;                           (t 0)))
-    ;;           value)
-    ;;         (char-db-decode-isolated-char name value)
-    ;;         line-breaking)))
-    ;;   (setq ccs-attributes (cdr ccs-attributes)))
     (insert ")")))
 
 (defun insert-char-data (char &optional readable
@@ -1146,9 +1119,10 @@
 
 (defun write-char-range-data-to-file (min max file
 					  &optional script excluded-script)
-  (let ((coding-system-for-write 'utf-8-mcs))
+  (let ((coding-system-for-write char-db-file-coding-system))
     (with-temp-buffer
-      (insert ";; -*- coding: utf-8-mcs -*-\n")
+      (insert (format ";; -*- coding: %s -*-\n"
+		      char-db-file-coding-system))
       (insert-char-range-data min max script excluded-script)
       (write-region (point-min)(point-max) file))))
 

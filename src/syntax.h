@@ -1,6 +1,6 @@
 /* Declarations having to do with XEmacs syntax tables.
    Copyright (C) 1985, 1992, 1993 Free Software Foundation, Inc.
-   Copyright (C) 2001,2003 MORIOKA Tomohiko
+   Copyright (C) 2001,2003,2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -84,8 +84,8 @@ SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c);
 INLINE_HEADER enum syntaxcode
 SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
 {
-  int code = CHAR_TABLE_VALUE_UNSAFE (table, c);
-  int ret = Spunct;
+  Lisp_Object code = CHAR_TABLE_VALUE_UNSAFE (table, c);
+  enum syntaxcode ret = Spunct;
 
   if (CONSP (code))
     code = XCAR (code);

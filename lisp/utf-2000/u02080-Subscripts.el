@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "SUBSCRIPT ZERO")
     (general-category	number other) ; Normative Category
@@ -21,7 +21,7 @@
     (->decomposition	sub #x0031)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT ONE")
-      (=ks-x1001	  . #x297B)	; ø»ˆ§–
+      (=ks-x1001	  . #x297B)	; &K0-297B; [09-91]
       ))
     (=ucs		. #x2081)	; â‚
     ))
@@ -39,7 +39,7 @@
      ((name		  . "SUBSCRIPT ONE")
       (=ucs		  . #x2081)	; â‚
       ))
-    (=ks-x1001		. #x297B)	; ø»ˆ§–
+    (=ks-x1001		. #x297B)	; &K0-297B; [09-91]
     ))
 (define-char
   '((name		. "SUBSCRIPT TWO")
@@ -52,7 +52,7 @@
     (->decomposition	sub #x0032)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT TWO")
-      (=ks-x1001	  . #x297C)	; ø»ˆ§—
+      (=ks-x1001	  . #x297C)	; &K0-297C; [09-92]
       ))
     (=ucs		. #x2082)	; â‚‚
     ))
@@ -70,7 +70,7 @@
      ((name		  . "SUBSCRIPT TWO")
       (=ucs		  . #x2082)	; â‚‚
       ))
-    (=ks-x1001		. #x297C)	; ø»ˆ§—
+    (=ks-x1001		. #x297C)	; &K0-297C; [09-92]
     ))
 (define-char
   '((name		. "SUBSCRIPT THREE")
@@ -83,7 +83,7 @@
     (->decomposition	sub #x0033)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT THREE")
-      (=ks-x1001	  . #x297D)	; ø»ˆ§˜
+      (=ks-x1001	  . #x297D)	; &K0-297D; [09-93]
       ))
     (=ucs		. #x2083)	; â‚ƒ
     ))
@@ -101,7 +101,7 @@
      ((name		  . "SUBSCRIPT THREE")
       (=ucs		  . #x2083)	; â‚ƒ
       ))
-    (=ks-x1001		. #x297D)	; ø»ˆ§˜
+    (=ks-x1001		. #x297D)	; &K0-297D; [09-93]
     ))
 (define-char
   '((name		. "SUBSCRIPT FOUR")
@@ -114,7 +114,7 @@
     (->decomposition	sub #x0034)
     (->fullwidth
      ((name		  . "FULLWIDTH SUBSCRIPT FOUR")
-      (=ks-x1001	  . #x297E)	; ø»ˆ§™
+      (=ks-x1001	  . #x297E)	; &K0-297E; [09-94]
       ))
     (=ucs		. #x2084)	; â‚„
     ))
@@ -132,7 +132,7 @@
      ((name		  . "SUBSCRIPT FOUR")
       (=ucs		  . #x2084)	; â‚„
       ))
-    (=ks-x1001		. #x297E)	; ø»ˆ§™
+    (=ks-x1001		. #x297E)	; &K0-297E; [09-94]
     ))
 (define-char
   '((name		. "SUBSCRIPT FIVE")

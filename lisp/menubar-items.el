@@ -128,6 +128,95 @@ which will not be used as accelerators."
 	     "")))
 	(t "")))
 
+(defcustom menu-max-items 25
+  "*Maximum number of items in generated menus.
+If number of entries in such a menu is larger than this value, split menu
+into submenus of nearly equal length (see `menu-submenu-max-items').  If
+nil, never split menu into submenus."
+  :group 'menu
+  :type '(choice (const :tag "no submenus" nil)
+		 (integer)))
+
+(defcustom menu-submenu-max-items 20
+  "*Maximum number of items in submenus when splitting menus.
+We split large menus into submenus of this many items, and then balance
+them out as much as possible (otherwise the last submenu may have very few
+items)."
+  :group 'menu
+  :type 'integer)
+
+(defcustom menu-submenu-name-format "%-12.12s ... %.12s"
+  "*Format specification of the submenu name when splitting menus.
+Used by `menu-split-long-menu' if the number of entries in a menu is
+larger than `menu-menu-max-items'.
+This string should contain one %s for the name of the first entry and
+one %s for the name of the last entry in the submenu.
+If the value is a function, it should return the submenu name.  The
+function is be called with two arguments, the names of the first and
+the last entry in the menu."
+  :group 'menu
+  :type '(choice (string :tag "Format string")
+		 (function)))
+
+(defun menu-split-long-menu (menu)
+  "Split MENU according to `menu-max-items' and add accelerator specs.
+
+You should normally use the idiom
+
+\(menu-split-long-menu (menu-sort-menu menu))
+
+See also `menu-sort-menu'."
+  (let ((len (length menu)))
+    (if (or (null menu-max-items)
+	    (<= len menu-max-items))
+	(submenu-generate-accelerator-spec menu)
+      (let* ((outer (/ (+ len (1- menu-submenu-max-items))
+		       menu-submenu-max-items))
+	     (inner (/ (+ len (1- outer)) outer))
+	     (result nil))
+	(while menu
+	  (let ((sub nil)
+		(from (car menu)))
+	    (dotimes (foo (min inner len))
+	      (setq sub  (cons (car menu) sub)
+		    menu (cdr menu)))
+	    (setq len (- len inner))
+	    (let ((to (car sub)))
+	      (setq sub (nreverse sub))
+	      (setq result
+		    (cons (cons (if (stringp menu-submenu-name-format)
+				    (format menu-submenu-name-format
+					    (menu-item-strip-accelerator-spec
+					     (aref from 0))
+					    (menu-item-strip-accelerator-spec
+					     (aref to 0)))
+				  (funcall menu-submenu-name-format
+					   (menu-item-strip-accelerator-spec
+					    (aref from 0))
+					   (menu-item-strip-accelerator-spec
+					    (aref to 0))))
+				(submenu-generate-accelerator-spec sub))
+			  result)))))
+	(submenu-generate-accelerator-spec (nreverse result))))))
+
+(defun menu-sort-menu (menu)
+  "Sort MENU alphabetically.
+
+You should normally use the idiom
+
+\(menu-split-long-menu (menu-sort-menu menu))
+
+See also `menu-split-long-menu'."
+  (sort menu
+	#'(lambda (a b) (string-lessp (aref a 0) (aref b 0)))))
+
+(defun menu-item-search ()
+  "Bring up a search dialog if possible and desired, else do interactive search"
+  (interactive)
+  (if (should-use-dialog-box-p)
+      (make-search-dialog)
+    (isearch-forward)))
+
 (defconst default-menubar
 ; (purecopy-menubar ;purespace is dead
    ;; note backquote.
@@ -201,7 +290,7 @@ which will not be used as accelerators."
       ["Select %_All" mark-whole-buffer]
       ["Select Pa%_ge" mark-page]
       "----"
-      ["%_Find..." make-search-dialog]
+      ["%_Find..." menu-item-search]
       ["R%_eplace..." query-replace]
       ["Replace (Rege%_xp)..." query-replace-regexp]
       ["%_List Matching Lines..." list-matching-lines]
@@ -404,23 +493,26 @@ which will not be used as accelerators."
 
      ("%_Tools"
       ("%_Packages"
-       ("%_Add Download Site"
-        :filter (lambda (&rest junk)
-                  (submenu-generate-accelerator-spec
-		   (package-get-download-menu))))
+       ("%_Set Download Site"
+	("%_Official Releases"
+	 :filter (lambda (&rest junk)
+		   (menu-split-long-menu
+		    (submenu-generate-accelerator-spec
+		     (package-ui-download-menu)))))
+	("%_Pre-Releases"
+	 :filter (lambda (&rest junk)
+		   (menu-split-long-menu
+		    (submenu-generate-accelerator-spec
+		     (package-ui-pre-release-download-menu)))))
+	("%_Site Releases"
+	 :filter (lambda (&rest junk)
+		   (menu-split-long-menu
+		    (submenu-generate-accelerator-spec
+		     (package-ui-site-release-download-menu))))))
+       "--:shadowEtchedIn"
        ["%_Update Package Index" package-get-update-base]
        ["%_List and Install" pui-list-packages]
        ["U%_pdate Installed Packages" package-get-update-all]
-       ;; hack-o-matic, we can't force a load of package-base here
-       ;; since it triggers dialog box interactions which we can't
-       ;; deal with while using a menu
-       ("Using %_Custom"
-	:filter (lambda (&rest junk)
-		  (if package-get-base
-		      (submenu-generate-accelerator-spec
-		       (cdr (custom-menu-create 'packages)))
-		    '("Please load Package Index"))))
-
        ["%_Help" (Info-goto-node "(xemacs)Packages")])
       ("%_Internet"
        ["Read Mail %_1 (VM)..." vm
