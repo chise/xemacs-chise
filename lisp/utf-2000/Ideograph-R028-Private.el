@@ -165,11 +165,13 @@
     (=ucs		. #x20AD7)	; 𠫗
     ))
 (define-char
-  '((=>ucs		. #x2062F)	; 𠘯
-    (ideographic-radical . 28)	; ⼛
-    (ideographic-strokes . 2)
+  '((ideographic-radical@ucs . 16)	; ⼏
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@daikanwa . 28)	; ⼛
+    (ideographic-strokes@daikanwa . 2)
     (total-strokes	 . 4)
     (=daikanwa		. 03067)	; �����
+    (=ucs		. #x2062F)	; 𠘯
     ))
 (define-char
   '((=>ucs		. #x2062F)	; 𠘯

@@ -3379,6 +3379,32 @@
     (=ucs		. #x7BA5)	; ç®¥
     ))
 (define-char
+  '((morohashi-daikanwa	ho 52)
+    (ideographic-radical@ucs . 18)	; â¼‘
+    (ideographic-strokes@ucs . 12)
+    (ideographic-radical@cns . 118)	; â½µ
+    (ideographic-strokes@cns . 8)
+    (total-strokes	 . 14)
+    (->same-ideograph
+     ((=daikanwa	  . 26149)	; ø¸†˜¥
+      ))
+    (->same-ideograph*sources
+     kouin kangxi morohashi-daikanwa)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (=ucs		  . #x2FF0)	; â¿°
+      )
+     ((=ucs		  . #x7B54)	; ç­”
+      )
+     ((=ucs		  . #x5202)	; åˆ‚
+      ))
+    (=cns11643-2	. #x4C61)	; ø»”Œª
+    (=jis-x0213-2-2000	. #x233D)	; ø»¤ ˜
+    (=big5		. #xE35A)	; ý¢€Žš
+    (=jef-china3	. #x5EC1)	; øº…»
+    (=ucs		. #x5284)	; åŠ„
+    ))
+(define-char
   '((ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
@@ -3440,23 +3466,6 @@
     (total-strokes	 . 14)
     (=cns11643-4	. #x456D)	; ø»˜–¬
     (=ucs		. #x420B)	; äˆ‹
-    ))
-(define-char
-  '((=>ucs		. #x5284)	; åŠ„
-    (ideographic-radical . 118)	; â½µ
-    (ideographic-strokes . 8)
-    (total-strokes	 . 14)
-    (ideograph-cdp	. 3231)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x7B54)	; ç­”
-      )
-     ((=ucs		  . #x5202)	; åˆ‚
-      ))
-    (=cns11643-2	. #x4C61)	; ø»”Œª
-    (=big5		. #xE35A)	; ý¢€Žš
     ))
 (define-char
   '((ideographic-radical . 118)	; â½µ
@@ -9037,11 +9046,18 @@
     (=ucs		. #x25D79)	; ð¥µ¹
     ))
 (define-char
-  '((morohashi-daikanwa	ho 465)
+  '((=>ucs		. #x7C4F)	; ç±
+    (morohashi-daikanwa	ho 465)
     (ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (=jis-x0208		. #x6459)	; ø½‹™Ž
+    ))
+(define-char
+  '((morohashi-daikanwa	ho 465 0)
+    (ideographic-radical . 118)	; â½µ
+    (ideographic-strokes . 14)
+    (total-strokes	 . 20)
     (=ucs		. #x7C4F)	; ç±
     ))
 (define-char

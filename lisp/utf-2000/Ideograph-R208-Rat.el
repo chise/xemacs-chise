@@ -21,8 +21,11 @@
     (=cns11643-1	. #x6771)	; ø»’ª 
     ))
 (define-char
-  '((ideographic-radical . 208)	; â¿
-    (ideographic-strokes . 0)
+  '((morohashi-daikanwa	ho 47)
+    (ideographic-radical@ucs . 208)	; â¿
+    (ideographic-strokes@ucs . 0)
+    (ideographic-radical@daikanwa . 16)	; â¼
+    (ideographic-strokes@daikanwa . 6)
     (total-strokes	 . 8)
     (=jis-x0208		. #x736B)	; ø½‹¯¢
     (=gt-pj-1		. #x736B)	; é¼¡
