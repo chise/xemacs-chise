@@ -1,5 +1,19 @@
 2001-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R187-Horse.el (C3-5736): Delete `morohashi-daikanwa'
+	property because it is wrong.
+
+	* Ideograph-R142-Insect.el (M-33263): Separate C4-4D2B.
+	(U+8755): Separate M-33264; fix `morohashi-daikanwa' property;
+	separate C1-6A73.
+
+2001-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el (C3-214F): Fix `morohashi-daikanwa'
+	property.
+
+2001-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R193-Cauldron.el: Resorted; add some missing
 	Morohashi's Daikanwa characters; add missing `ideographic-strokes'
 	attributes; use `ideographic-strokes' if each stroke attribute has
