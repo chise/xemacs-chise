@@ -290,8 +290,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  lao
 	  ethiopic-ucs
 	  ethiopic
-	  ucs-bmp
-	  arabic-iso8859-6
 	  mojikyo-pj-1
 	  mojikyo-pj-2
 	  mojikyo-pj-3
@@ -313,6 +311,8 @@ DESCRIPTION (string) is the description string of the charset."
 	  mojikyo-pj-19
 	  mojikyo-pj-20
 	  mojikyo-pj-21
-	  ideograph-daikanwa)))
+	  ideograph-daikanwa
+	  ucs-bmp
+	  arabic-iso8859-6)))
 
 ;;; mule-charset.el ends here
