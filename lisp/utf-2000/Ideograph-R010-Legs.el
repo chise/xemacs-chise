@@ -668,6 +668,38 @@
     (=hanziku-1		. #xDDCB)	; ý¢€·‹
     ))
 (define-char
+  '((=>ucs*		. #x514D)	; å…
+    (ideographic-radical . 10)	; â¼‰
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x514D)	; å…
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (=ucs		  . #x2FF1)	; â¿±
+      )
+     ((=ucs		  . #x5200)	; åˆ€
+      )
+     ((=big5-cdp	  . #x8BCB)	; ý¢€ˆ¯‹
+      ))
+    (shinjigen-1	. 471)
+    (shinjigen-2	. 471)
+    (=ucs		. #xFA32)	; ï¨²
+    (=cns11643-3	. #x2452)	; ø»•›¯
+    (=jis-x0213-1-2000	. #x2E50)	; ø»¢¦±
+    (=big5-cdp		. #xA74B)	; ý¢€Š‹
+    (=daikanwa		. 01358)	; ø¸€•Ž
+    (=jef-china3	. #x43D5)	; øº„•
+    (=ucs@cns		. #x2F80E)	; ï¨²
+    ))
+(define-char
+  '((->identical
+     ((=ucs		  . #xFA32)	; ï¨²
+      ))
+    (=ucs		. #x2F80E)	; ð¯ Ž
+    ))
+(define-char
   '((ideographic-radical . 10)	; â¼‰
     (sound@ja		"men-z+iru")
     (sound@ja/kun	"manuka-r+eru" "manuga-r+eru")
@@ -712,38 +744,6 @@
     (=gt-k		. 03837)	; ý¡„€»½
     (=gt-pj-1		. #x4C48)	; ý¡€€›·
     (=ucs@jis		. #x514D)	; ø½Šµ­
-    ))
-(define-char
-  '((=>ucs*		. #x514D)	; å…
-    (ideographic-radical . 10)	; â¼‰
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (<-denotational
-     ((=ucs		  . #x514D)	; å…
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; â¿±
-      )
-     ((=ucs		  . #x5200)	; åˆ€
-      )
-     ((=big5-cdp	  . #x8BCB)	; ý¢€ˆ¯‹
-      ))
-    (shinjigen-1	. 471)
-    (shinjigen-2	. 471)
-    (=ucs		. #xFA32)	; ï¨²
-    (=cns11643-3	. #x2452)	; ø»•›¯
-    (=jis-x0213-1-2000	. #x2E50)	; ø»¢¦±
-    (=big5-cdp		. #xA74B)	; ý¢€Š‹
-    (=daikanwa		. 01358)	; ø¸€•Ž
-    (=jef-china3	. #x43D5)	; øº„•
-    (=ucs@cns		. #x2F80E)	; ï¨²
-    ))
-(define-char
-  '((->identical
-     ((=ucs		  . #xFA32)	; ï¨²
-      ))
-    (=ucs		. #x2F80E)	; ð¯ Ž
     ))
 (define-char
   '((ideographic-radical . 10)	; â¼‰
