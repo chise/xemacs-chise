@@ -56,6 +56,7 @@ Lisp_Object Vcharset_cyrillic_iso8859_5;
 Lisp_Object Vcharset_latin_iso8859_9;
 Lisp_Object Vcharset_japanese_jisx0208_1978;
 Lisp_Object Vcharset_chinese_gb2312;
+Lisp_Object Vcharset_chinese_gb12345;
 Lisp_Object Vcharset_japanese_jisx0208;
 Lisp_Object Vcharset_japanese_jisx0208_1990;
 Lisp_Object Vcharset_korean_ksc5601;
@@ -1586,6 +1587,7 @@ Lisp_Object Qascii,
   Qlatin_iso8859_9,
   Qjapanese_jisx0208_1978,
   Qchinese_gb2312,
+  Qchinese_gb12345,
   Qjapanese_jisx0208,
   Qjapanese_jisx0208_1990,
   Qkorean_ksc5601,
@@ -3195,7 +3197,7 @@ Make a builtin character from CHARSET and code-point CODE.
     c &= 0x7F7F7F7F;
 #endif
   c = decode_builtin_char (charset, c);
-  return c ? make_char (c) : Fdecode_char (charset, code);
+  return c >= 0 ? make_char (c) : Fdecode_char (charset, code);
 }
 #endif
 
@@ -3502,6 +3504,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
   defsymbol (&Qjapanese_jisx0208_1978,	"japanese-jisx0208-1978");
   defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
+  defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qjapanese_jisx0208, 	"japanese-jisx0208");
   defsymbol (&Qjapanese_jisx0208_1990, 	"japanese-jisx0208-1990");
   defsymbol (&Qkorean_ksc5601,		"korean-ksc5601");
@@ -3843,6 +3846,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("GB2312)"),
 		  build_string ("GB2312 Chinese simplified"),
 		  build_string ("gb2312"),
+		  Qnil, 0, 0, 0, 33);
+  staticpro (&Vcharset_chinese_gb12345);
+  Vcharset_chinese_gb12345 =
+    make_charset (LEADING_BYTE_CHINESE_GB12345, Qchinese_gb12345, 94, 2,
+		  2, 0, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("G1"),
+		  build_string ("GB 12345)"),
+		  build_string ("GB 12345-1990"),
+		  build_string ("GB12345\\(\\.1990\\)?-0"),
 		  Qnil, 0, 0, 0, 33);
   staticpro (&Vcharset_japanese_jisx0208);
   Vcharset_japanese_jisx0208 =
