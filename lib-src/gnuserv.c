@@ -29,11 +29,10 @@
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
-#if 0
-static char rcsid [] = "!Header: gnuserv.c,v 2.1 95/02/16 11:58:27 arup alpha !";
-#endif
-
 #include "gnuserv.h"
+
+char gnuserv_version[] = "gnuserv version" GNUSERV_VERSION;
+
 
 #ifdef USE_LITOUT
 #ifdef linux
@@ -459,6 +458,8 @@ permitted (u_long host_addr, int fd)
   char auth_protocol[128];
   char buf[1024];
   int  auth_data_len;
+  int  auth_data_pos;
+  int  auth_mismatches;
 
   if (fd > 0)
     {
@@ -491,15 +492,34 @@ permitted (u_long host_addr, int fd)
 
 	  auth_data_len = atoi(buf);
 
+	  if (auth_data_len <= 0 || auth_data_len > sizeof(buf))
+	      {
+		return FALSE;
+	      }
+
 	  if (timed_read(fd, buf, auth_data_len, AUTH_TIMEOUT, 0) != auth_data_len)
 	    return FALSE;
 
 #ifdef AUTH_MAGIC_COOKIE
-	  if (server_xauth && server_xauth->data &&
-	      !memcmp(buf, server_xauth->data, auth_data_len))
-	    {
+	  if (server_xauth && server_xauth->data)
+	  {
+	    /* Do a compare without comprising info about
+	       the size of the cookie */
+	    auth_mismatches =
+	      ( auth_data_len ^
+		server_xauth->data_length );
+
+	    for(auth_data_pos=0; auth_data_pos < auth_data_len; ++auth_data_pos)
+	      auth_mismatches |=
+		( buf[auth_data_pos] ^
+		  server_xauth->data[auth_data_pos % server_xauth->data_length]);
+
+	    if (auth_mismatches == 0)
 	      return TRUE;
-	    }
+	    
+	    for(;rand() % 1000;);
+	  }
+
 #else
 	  printf ("client tried Xauth, but server is not compiled with Xauth\n");
 #endif

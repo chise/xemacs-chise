@@ -52,11 +52,17 @@ print_opaque (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   write_c_string (buf, printcharfun);
 }
 
+inline static size_t
+aligned_sizeof_opaque (size_t opaque_size)
+{
+  return ALIGN_SIZE (offsetof (Lisp_Opaque, data) + opaque_size,
+		     ALIGNOF (max_align_t));
+}
+
 static size_t
 sizeof_opaque (const void *header)
 {
-  const Lisp_Opaque *p = (const Lisp_Opaque *) header;
-  return offsetof (Lisp_Opaque, data) + p->size;
+  return aligned_sizeof_opaque (((const Lisp_Opaque *) header)->size);
 }
 
 /* Return an opaque object of size SIZE.
@@ -67,7 +73,7 @@ Lisp_Object
 make_opaque (const void *data, size_t size)
 {
   Lisp_Opaque *p = (Lisp_Opaque *)
-    alloc_lcrecord (offsetof (Lisp_Opaque, data) + size, &lrecord_opaque);
+    alloc_lcrecord (aligned_sizeof_opaque (size), &lrecord_opaque);
   p->size = size;
 
   if (data == OPAQUE_CLEAR)

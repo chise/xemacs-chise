@@ -354,16 +354,21 @@ specifier_hash (Lisp_Object obj, int depth)
 		internal_hash (s->buffer_specs, depth + 1));
 }
 
+inline static size_t
+aligned_sizeof_specifier (size_t specifier_type_specific_size)
+{
+  return ALIGN_SIZE (offsetof (Lisp_Specifier, data)
+		     + specifier_type_specific_size,
+		     ALIGNOF (max_align_t));
+}
+
 static size_t
 sizeof_specifier (const void *header)
 {
-  if (GHOST_SPECIFIER_P ((Lisp_Specifier *) header))
-    return offsetof (Lisp_Specifier, data);
-  else
-    {
-      const Lisp_Specifier *p = (const Lisp_Specifier *) header;
-      return offsetof (Lisp_Specifier, data) + p->methods->extra_data_size;
-    }
+  const Lisp_Specifier *p = (const Lisp_Specifier *) header;
+  return aligned_sizeof_specifier (GHOST_SPECIFIER_P (p)
+				   ? 0
+				   : p->methods->extra_data_size);
 }
 
 static const struct lrecord_description specifier_methods_description_1[] = {
@@ -476,8 +481,7 @@ make_specifier_internal (struct specifier_methods *spec_meths,
 {
   Lisp_Object specifier;
   Lisp_Specifier *sp = (Lisp_Specifier *)
-    alloc_lcrecord (offsetof (Lisp_Specifier, data) + data_size,
-		    &lrecord_specifier);
+    alloc_lcrecord (aligned_sizeof_specifier (data_size), &lrecord_specifier);
 
   sp->methods = spec_meths;
   sp->global_specs = Qnil;

@@ -832,7 +832,7 @@ Specifically:
 When a string is created using @code{buffer-substring} or
 @code{buffer-string}, any duplicable extents in the region corresponding
 to the string will be copied into the string (@pxref{Buffer
-Contents}).  When the string in inserted into a buffer using
+Contents}).  When the string is inserted into a buffer using
 @code{insert}, @code{insert-before-markers}, @code{insert-buffer} or
 @code{insert-buffer-substring}, the extents in the string will be copied
 back into the buffer (@pxref{Insertion}).  The extents in a string can,

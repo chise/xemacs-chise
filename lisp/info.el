@@ -2430,7 +2430,8 @@ This command is designed to be used whether you are already in Info or not."
 				    (if fn
 					(format " (default %s)" fn)
 				      ""))
-			    obarray 'fboundp t))
+			    obarray 'fboundp t
+                            nil nil (and fn (symbol-name fn))))
 		 (list (if (equal val "")
 			   fn (intern val)))))
   (save-window-excursion

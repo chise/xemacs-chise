@@ -405,7 +405,7 @@ struct image_specifier
   Lisp_Object attachee_property;/* property of that face or glyph */
 };
 
-#define IMAGE_SPECIFIER_DATA(g) (SPECIFIER_TYPE_DATA (g, image))
+#define IMAGE_SPECIFIER_DATA(g) SPECIFIER_TYPE_DATA (g, image)
 #define IMAGE_SPECIFIER_ALLOWED(g) (IMAGE_SPECIFIER_DATA (g)->allowed)
 #define IMAGE_SPECIFIER_ATTACHEE(g) (IMAGE_SPECIFIER_DATA (g)->attachee)
 #define IMAGE_SPECIFIER_ATTACHEE_PROPERTY(g) \

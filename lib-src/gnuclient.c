@@ -48,12 +48,10 @@ Boston, MA 02111-1307, USA.
  * ../etc/gnuserv.README relative to the directory containing this file)
  */
 
-#if 0
-/* Hand-munged RCS header */
-static char rcsid [] = "!Header: gnuclient.c,v 2.2 95/12/12 01:39:21 wing nene !";
-#endif
-
 #include "gnuserv.h"
+
+char gnuserv_version[] = "gnuclient version " GNUSERV_VERSION;
+
 #include "getopt.h"
 
 #include <stdio.h>
