@@ -15,10 +15,10 @@
 (define-char
   '((ideographic-radical . 183)	; â¾¶
     (ideographic-strokes . 0)
-    (kangxi-radical	 . 5)	; â¼„
-    (kangxi-strokes	 . 2)
+    (total-strokes	 . 3)
     (chinese-gb2312	. #x3749)	; ø»„§€
     (chinese-isoir165	. #x3749)	; ø»
+    (chinese-big5-cdp	. #x89F8)	; ý¢€ˆ§¸
     (ucs		. #x98DE)	; é£ž
     ))
 (define-char
