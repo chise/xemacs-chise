@@ -1,3 +1,11 @@
+2000-02-02  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (Fdefine_char): Fix problem when new code-point
+	format is used without `ucs' property.
+	(Fdecode_char): Fix problem with GR representation.
+	(complex_vars_of_mule_charset): Don't use `MIN_CHAR_CYRILLIC' and
+	`MAX_CHAR_CYRILLIC' as range of builtin `cyrillic-iso8859-5'.
+
 2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (make_builtin_char): New function.
