@@ -1,0 +1,1006 @@
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Internals: (internals).	XEmacs Internals Manual.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
+Microsystems.  Copyright (C) 1994 - 1998 Free Software Foundation.
+Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: internals.info,  Node: garbage_collect_1,  Next: mark_object,  Prev: Invocation,  Up: Garbage Collection - Step by Step
+
+`garbage_collect_1'
+-------------------
+
+   We can now describe exactly what happens after the invocation takes
+place.
+  1. There are several cases in which the garbage collector is left
+     immediately: when we are already garbage collecting
+     (`gc_in_progress'), when the garbage collection is somehow
+     forbidden (`gc_currently_forbidden'), when we are currently
+     displaying something (`in_display') or when we are preparing for
+     the armageddon of the whole system (`preparing_for_armageddon').
+
+  2. Next the correct frame in which to put all the output occurring
+     during garbage collecting is determined. In order to be able to
+     restore the old display's state after displaying the message, some
+     data about the current cursor position has to be saved. The
+     variables `pre_gc_curser' and `cursor_changed' take care of that.
+
+  3. The state of `gc_currently_forbidden' must be restored after the
+     garbage collection, no matter what happens during the process. We
+     accomplish this by `record_unwind_protect'ing the suitable function
+     `restore_gc_inhibit' together with the current value of
+     `gc_currently_forbidden'.
+
+  4. If we are concurrently running an interactive xemacs session, the
+     next step is simply to show the garbage collector's cursor/message.
+
+  5. The following steps are the intrinsic steps of the garbage
+     collector, therefore `gc_in_progress' is set.
+
+  6. For debugging purposes, it is possible to copy the current C stack
+     frame. However, this seems to be a currently unused feature.
+
+  7. Before actually starting to go over all live objects, references to
+     objects that are no longer used are pruned. We only have to do
+     this for events (`clear_event_resource') and for specifiers
+     (`cleanup_specifiers').
+
+  8. Now the mark phase begins and marks all accessible elements. In
+     order to start from all slots that serve as roots of
+     accessibility, the function `mark_object' is called for each root
+     individually to go out from there to mark all reachable objects.
+     All roots that are traversed are shown in their processed order:
+        * all constant symbols and static variables that are registered
+          via `staticpro' in the array `staticvec'.  *Note Adding
+          Global Lisp Variables::.
+
+        * all Lisp objects that are created in C functions and that
+          must be protected from freeing them. They are registered in
+          the global list `gcprolist'.  *Note GCPROing::.
+
+        * all local variables (i.e. their name fields `symbol' and old
+          values `old_values') that are bound during the evaluation by
+          the Lisp engine. They are stored in `specbinding' structs
+          pushed on a stack called `specpdl'.  *Note Dynamic Binding;
+          The specbinding Stack; Unwind-Protects::.
+
+        * all catch blocks that the Lisp engine encounters during the
+          evaluation cause the creation of structs `catchtag' inserted
+          in the list `catchlist'. Their tag (`tag') and value (`val'
+          fields are freshly created objects and therefore have to be
+          marked.  *Note Catch and Throw::.
+
+        * every function application pushes new structs `backtrace' on
+          the call stack of the Lisp engine (`backtrace_list'). The
+          unique parts that have to be marked are the fields for each
+          function (`function') and all their arguments (`args').
+          *Note Evaluation::.
+
+        * all objects that are used by the redisplay engine that must
+          not be freed are marked by a special function called
+          `mark_redisplay' (in `redisplay.c').
+
+        * all objects created for profiling purposes are allocated by C
+          functions instead of using the lisp allocation mechanisms. In
+          order to receive the right ones during the sweep phase, they
+          also have to be marked manually. That is done by the function
+          `mark_profiling_info'
+
+  9. Hash tables in Xemacs belong to a kind of special objects that
+     make use of a concept often called 'weak pointers'.  To make a
+     long story short, these kind of pointers are not followed during
+     the estimation of the live objects during garbage collection.  Any
+     object referenced only by weak pointers is collected anyway, and
+     the reference to it is cleared. In hash tables there are different
+     usage patterns of them, manifesting in different types of hash
+     tables, namely 'non-weak', 'weak', 'key-weak' and 'value-weak'
+     (internally also 'key-car-weak' and 'value-car-weak') hash tables,
+     each clearing entries depending on different conditions. More
+     information can be found in the documentation to the function
+     `make-hash-table'.
+
+     Because there are complicated dependency rules about when and what
+     to mark while processing weak hash tables, the standard `marker'
+     method is only active if it is marking non-weak hash tables. As
+     soon as a weak component is in the table, the hash table entries
+     are ignored while marking. Instead their marking is done each
+     separately by the function `finish_marking_weak_hash_tables'. This
+     function iterates over each hash table entry `hentries' for each
+     weak hash table in `Vall_weak_hash_tables'. Depending on the type
+     of a table, the appropriate action is performed.  If a table is
+     acting as `HASH_TABLE_KEY_WEAK', and a key already marked,
+     everything reachable from the `value' component is marked. If it is
+     acting as a `HASH_TABLE_VALUE_WEAK' and the value component is
+     already marked, the marking starts beginning only from the `key'
+     component.  If it is a `HASH_TABLE_KEY_CAR_WEAK' and the car of
+     the key entry is already marked, we mark both the `key' and
+     `value' components.  Finally, if the table is of the type
+     `HASH_TABLE_VALUE_CAR_WEAK' and the car of the value components is
+     already marked, again both the `key' and the `value' components
+     get marked.
+
+     Again, there are lists with comparable properties called weak
+     lists. There exist different peculiarities of their types called
+     `simple', `assoc', `key-assoc' and `value-assoc'. You can find
+     further details about them in the description to the function
+     `make-weak-list'. The scheme of their marking is similar: all weak
+     lists are listed in `Qall_weak_lists', therefore we iterate over
+     them. The marking is advanced until we hit an already marked pair.
+     Then we know that during a former run all the rest has been marked
+     completely. Again, depending on the special type of the weak list,
+     our jobs differ. If it is a `WEAK_LIST_SIMPLE' and the elem is
+     marked, we mark the `cons' part. If it is a `WEAK_LIST_ASSOC' and
+     not a pair or a pair with both marked car and cdr, we mark the
+     `cons' and the `elem'. If it is a `WEAK_LIST_KEY_ASSOC' and not a
+     pair or a pair with a marked car of the elem, we mark the `cons'
+     and the `elem'. Finally, if it is a `WEAK_LIST_VALUE_ASSOC' and
+     not a pair or a pair with a marked cdr of the elem, we mark both
+     the `cons' and the `elem'.
+
+     Since, by marking objects in reach from weak hash tables and weak
+     lists, other objects could get marked, this perhaps implies
+     further marking of other weak objects, both finishing functions
+     are redone as long as yet unmarked objects get freshly marked.
+
+ 10. After completing the special marking for the weak hash tables and
+     for the weak lists, all entries that point to objects that are
+     going to be swept in the further process are useless, and
+     therefore have to be removed from the table or the list.
+
+     The function `prune_weak_hash_tables' does the job for weak hash
+     tables. Totally unmarked hash tables are removed from the list
+     `Vall_weak_hash_tables'. The other ones are treated more carefully
+     by scanning over all entries and removing one as soon as one of
+     the components `key' and `value' is unmarked.
+
+     The same idea applies to the weak lists. It is accomplished by
+     `prune_weak_lists': An unmarked list is pruned from
+     `Vall_weak_lists' immediately. A marked list is treated more
+     carefully by going over it and removing just the unmarked pairs.
+
+ 11. The function `prune_specifiers' checks all listed specifiers held
+     in `Vall_speficiers' and removes the ones from the lists that are
+     unmarked.
+
+ 12. All syntax tables are stored in a list called
+     `Vall_syntax_tables'. The function `prune_syntax_tables' walks
+     through it and unlinks the tables that are unmarked.
+
+ 13. Next, we will attack the complete sweeping - the function
+     `gc_sweep' which holds the predominance.
+
+ 14. First, all the variables with respect to garbage collection are
+     reset. `consing_since_gc' - the counter of the created cells since
+     the last garbage collection - is set back to 0, and
+     `gc_in_progress' is not `true' anymore.
+
+ 15. In case the session is interactive, the displayed cursor and
+     message are removed again.
+
+ 16. The state of `gc_inhibit' is restored to the former value by
+     unwinding the stack.
+
+ 17. A small memory reserve is always held back that can be reached by
+     `breathing_space'. If nothing more is left, we create a new reserve
+     and exit.
+
+
+File: internals.info,  Node: mark_object,  Next: gc_sweep,  Prev: garbage_collect_1,  Up: Garbage Collection - Step by Step
+
+`mark_object'
+-------------
+
+   The first thing that is checked while marking an object is whether
+the object is a real Lisp object `Lisp_Type_Record' or just an integer
+or a character. Integers and characters are the only two types that are
+stored directly - without another level of indirection, and therefore
+they don´t have to be marked and collected.  *Note How Lisp Objects Are
+Represented in C::.
+
+   The second case is the one we have to handle. It is the one when we
+are dealing with a pointer to a Lisp object. But, there exist also three
+possibilities, that prevent us from doing anything while marking: The
+object is read only which prevents it from being garbage collected,
+i.e. marked (`C_READONLY_RECORD_HEADER'). The object in question is
+already marked, and need not be marked for the second time (checked by
+`MARKED_RECORD_HEADER_P'). If it is a special, unmarkable object
+(`UNMARKABLE_RECORD_HEADER_P', apparently, these are objects that sit
+in some CONST space, and can therefore not be marked, see
+`this_one_is_unmarkable' in `alloc.c').
+
+   Now, the actual marking is feasible. We do so by once using the macro
+`MARK_RECORD_HEADER' to mark the object itself (actually the special
+flag in the lrecord header), and calling its special marker "method"
+`marker' if available. The marker method marks every other object that
+is in reach from our current object. Note, that these marker methods
+should not call `mark_object' recursively, but instead should return
+the next object from where further marking has to be performed.
+
+   In case another object was returned, as mentioned before, we
+reiterate the whole `mark_object' process beginning with this next
+object.
+
+
+File: internals.info,  Node: gc_sweep,  Next: sweep_lcrecords_1,  Prev: mark_object,  Up: Garbage Collection - Step by Step
+
+`gc_sweep'
+----------
+
+   The job of this function is to free all unmarked records from
+memory. As we know, there are different types of objects implemented
+and managed, and consequently different ways to free them from memory.
+*Note Introduction to Allocation::.
+
+   We start with all objects stored through `lcrecords'. All bulkier
+objects are allocated and handled using that scheme of `lcrecords'.
+Each object is `malloc'ed separately instead of placing it in one of
+the contiguous frob blocks. All types that are currently stored using
+`lcrecords'´s  `alloc_lcrecord' and `make_lcrecord_list' are the types:
+vectors, buffers, char-table, char-table-entry, console, weak-list,
+database, device, ldap, hash-table, command-builder, extent-auxiliary,
+extent-info, face, coding-system, frame, image-instance, glyph,
+popup-data, gui-item, keymap, charset, color_instance, font_instance,
+opaque, opaque-list, process, range-table, specifier,
+symbol-value-buffer-local, symbol-value-lisp-magic,
+symbol-value-varalias, toolbar-button, tooltalk-message,
+tooltalk-pattern, window, and window-configuration. We take care of
+them in the fist place in order to be able to handle and to finalize
+items stored in them more easily. The function `sweep_lcrecords_1' as
+described below is doing the whole job for us.  For a description about
+the internals: *Note lrecords::.
+
+   Our next candidates are the other objects that behave quite
+differently than everything else: the strings. They consists of two
+parts, a fixed-size portion (`struct Lisp_string') holding the string's
+length, its property list and a pointer to the second part, and the
+actual string data, which is stored in string-chars blocks comparable to
+frob blocks. In this block, the data is not only freed, but also a
+compression of holes is made, i.e. all strings are relocated together.
+*Note String::. This compacting phase is performed by the function
+`compact_string_chars', the actual sweeping by the function
+`sweep_strings' is described below.
+
+   After that, the other types are swept step by step using functions
+`sweep_conses', `sweep_bit_vectors_1', `sweep_compiled_functions',
+`sweep_floats', `sweep_symbols', `sweep_extents', `sweep_markers' and
+`sweep_extents'.  They are the fixed-size types cons, floats,
+compiled-functions, symbol, marker, extent, and event stored in
+so-called "frob blocks", and therefore we can basically do the same on
+every type objects, using the same macros, especially defined only to
+handle everything with respect to fixed-size blocks. The only fixed-size
+type that is not handled here are the fixed-size portion of strings,
+because we took special care of them earlier.
+
+   The only big exceptions are bit vectors stored differently and
+therefore treated differently by the function `sweep_bit_vectors_1'
+described later.
+
+   At first, we need some brief information about how these fixed-size
+types are managed in general, in order to understand how the sweeping
+is done. They have all a fixed size, and are therefore stored in big
+blocks of memory - allocated at once - that can hold a certain amount
+of objects of one type. The macro `DECLARE_FIXED_TYPE_ALLOC' creates
+the suitable structures for every type. More precisely, we have the
+block struct (holding a pointer to the previous block `prev' and the
+objects in `block[]'), a pointer to current block
+(`current_..._block)') and its last index (`current_..._block_index'),
+and a pointer to the free list that will be created. Also a macro
+`FIXED_TYPE_FROM_BLOCK' plus some related macros exists that are used
+to obtain a new object, either from the free list
+`ALLOCATE_FIXED_TYPE_1' if there is an unused object of that type
+stored or by allocating a completely new block using
+`ALLOCATE_FIXED_TYPE_FROM_BLOCK'.
+
+   The rest works as follows: all of them define a macro `UNMARK_...'
+that is used to unmark the object. They define a macro
+`ADDITIONAL_FREE_...' that defines additional work that has to be done
+when converting an object from in use to not in use (so far, only
+markers use it in order to unchain them). Then, they all call the macro
+`SWEEP_FIXED_TYPE_BLOCK' instantiated with their type name and their
+struct name.
+
+   This call in particular does the following: we go over all blocks
+starting with the current moving towards the oldest.  For each block,
+we look at every object in it. If the object already freed (checked
+with `FREE_STRUCT_P' using the first pointer of the object), or if it is
+set to read only (`C_READONLY_RECORD_HEADER_P', nothing must be done.
+If it is unmarked (checked with `MARKED_RECORD_HEADER_P'), it is put in
+the free list and set free (using the macro `FREE_FIXED_TYPE',
+otherwise it stays in the block, but is unmarked (by `UNMARK_...').
+While going through one block, we note if the whole block is empty. If
+so, the whole block is freed (using `xfree') and the free list state is
+set to the state it had before handling this block.
+
+
+File: internals.info,  Node: sweep_lcrecords_1,  Next: compact_string_chars,  Prev: gc_sweep,  Up: Garbage Collection - Step by Step
+
+`sweep_lcrecords_1'
+-------------------
+
+   After nullifying the complete lcrecord statistics, we go over all
+lcrecords two separate times. They are all chained together in a list
+with a head called `all_lcrecords'.
+
+   The first loop calls for each object its `finalizer' method, but only
+in the case that it is not read only (`C_READONLY_RECORD_HEADER_P)', it
+is not already marked (`MARKED_RECORD_HEADER_P'), it is not already in
+a free list (list of freed objects, field `free') and finally it owns a
+finalizer method.
+
+   The second loop actually frees the appropriate objects again by
+iterating through the whole list. In case an object is read only or
+marked, it has to persist, otherwise it is manually freed by calling
+`xfree'. During this loop, the lcrecord statistics are kept up to date
+by calling `tick_lcrecord_stats' with the right arguments,
+
+
+File: internals.info,  Node: compact_string_chars,  Next: sweep_strings,  Prev: sweep_lcrecords_1,  Up: Garbage Collection - Step by Step
+
+`compact_string_chars'
+----------------------
+
+   The purpose of this function is to compact all the data parts of the
+strings that are held in so-called `string_chars_block', i.e. the
+strings that do not exceed a certain maximal length.
+
+   The procedure with which this is done is as follows. We are keeping
+two positions in the `string_chars_block's using two pointer/integer
+pairs, namely `from_sb'/`from_pos' and `to_sb'/`to_pos'. They stand for
+the actual positions, from where to where, to copy the actually handled
+string.
+
+   While going over all chained `string_char_block's and their held
+strings, staring at `first_string_chars_block', both pointers are
+advanced and eventually a string is copied from `from_sb' to `to_sb',
+depending on the status of the pointed at strings.
+
+   More precisely, we can distinguish between the following actions.
+   * The string at `from_sb''s position could be marked as free, which
+     is indicated by an invalid pointer to the pointer that should
+     point back to the fixed size string object, and which is checked by
+     `FREE_STRUCT_P'. In this case, the `from_sb'/`from_pos' is
+     advanced to the next string, and nothing has to be copied.
+
+   * Also, if a string object itself is unmarked, nothing has to be
+     copied. We likewise advance the `from_sb'/`from_pos' pair as
+     described above.
+
+   * In all other cases, we have a marked string at hand. The string
+     data must be moved from the from-position to the to-position. In
+     case there is not enough space in the actual `to_sb'-block, we
+     advance this pointer to the beginning of the next block before
+     copying. In case the from and to positions are different, we
+     perform the actual copying using the library function `memmove'.
+
+   After compacting, the pointer to the current `string_chars_block',
+sitting in `current_string_chars_block', is reset on the last block to
+which we moved a string, i.e. `to_block', and all remaining blocks (we
+know that they just carry garbage) are explicitly `xfree'd.
+
+
+File: internals.info,  Node: sweep_strings,  Next: sweep_bit_vectors_1,  Prev: compact_string_chars,  Up: Garbage Collection - Step by Step
+
+`sweep_strings'
+---------------
+
+   The sweeping for the fixed sized string objects is essentially
+exactly the same as it is for all other fixed size types. As before,
+the freeing into the suitable free list is done by using the macro
+`SWEEP_FIXED_SIZE_BLOCK' after defining the right macros
+`UNMARK_string' and `ADDITIONAL_FREE_string'. These two definitions are
+a little bit special compared to the ones used for the other fixed size
+types.
+
+   `UNMARK_string' is defined the same way except some additional code
+used for updating the bookkeeping information.
+
+   For strings, `ADDITIONAL_FREE_string' has to do something in
+addition: in case, the string was not allocated in a
+`string_chars_block' because it exceeded the maximal length, and
+therefore it was `malloc'ed separately, we know also `xfree' it
+explicitly.
+
+
+File: internals.info,  Node: sweep_bit_vectors_1,  Prev: sweep_strings,  Up: Garbage Collection - Step by Step
+
+`sweep_bit_vectors_1'
+---------------------
+
+   Bit vectors are also one of the rare types that are `malloc'ed
+individually. Consequently, while sweeping, all further needless bit
+vectors must be freed by hand. This is done, as one might imagine, the
+expected way: since they are all registered in a list called
+`all_bit_vectors', all elements of that list are traversed, all
+unmarked bit vectors are unlinked by calling `xfree' and all of them
+become unmarked.  In addition, the bookkeeping information used for
+garbage collector's output purposes is updated.
+
+
+File: internals.info,  Node: Integers and Characters,  Next: Allocation from Frob Blocks,  Prev: Garbage Collection - Step by Step,  Up: Allocation of Objects in XEmacs Lisp
+
+Integers and Characters
+=======================
+
+   Integer and character Lisp objects are created from integers using
+the macros `XSETINT()' and `XSETCHAR()' or the equivalent functions
+`make_int()' and `make_char()'. (These are actually macros on most
+systems.)  These functions basically just do some moving of bits
+around, since the integral value of the object is stored directly in
+the `Lisp_Object'.
+
+   `XSETINT()' and the like will truncate values given to them that are
+too big; i.e. you won't get the value you expected but the tag bits
+will at least be correct.
+
+
+File: internals.info,  Node: Allocation from Frob Blocks,  Next: lrecords,  Prev: Integers and Characters,  Up: Allocation of Objects in XEmacs Lisp
+
+Allocation from Frob Blocks
+===========================
+
+   The uninitialized memory required by a `Lisp_Object' of a particular
+type is allocated using `ALLOCATE_FIXED_TYPE()'.  This only occurs
+inside of the lowest-level object-creating functions in `alloc.c':
+`Fcons()', `make_float()', `Fmake_byte_code()', `Fmake_symbol()',
+`allocate_extent()', `allocate_event()', `Fmake_marker()', and
+`make_uninit_string()'.  The idea is that, for each type, there are a
+number of frob blocks (each 2K in size); each frob block is divided up
+into object-sized chunks.  Each frob block will have some of these
+chunks that are currently assigned to objects, and perhaps some that are
+free. (If a frob block has nothing but free chunks, it is freed at the
+end of the garbage collection cycle.)  The free chunks are stored in a
+free list, which is chained by storing a pointer in the first four bytes
+of the chunk. (Except for the free chunks at the end of the last frob
+block, which are handled using an index which points past the end of the
+last-allocated chunk in the last frob block.)  `ALLOCATE_FIXED_TYPE()'
+first tries to retrieve a chunk from the free list; if that fails, it
+calls `ALLOCATE_FIXED_TYPE_FROM_BLOCK()', which looks at the end of the
+last frob block for space, and creates a new frob block if there is
+none. (There are actually two versions of these macros, one of which is
+more defensive but less efficient and is used for error-checking.)
+
+
+File: internals.info,  Node: lrecords,  Next: Low-level allocation,  Prev: Allocation from Frob Blocks,  Up: Allocation of Objects in XEmacs Lisp
+
+lrecords
+========
+
+   [see `lrecord.h']
+
+   All lrecords have at the beginning of their structure a `struct
+lrecord_header'.  This just contains a pointer to a `struct
+lrecord_implementation', which is a structure containing method pointers
+and such.  There is one of these for each type, and it is a global,
+constant, statically-declared structure that is declared in the
+`DEFINE_LRECORD_IMPLEMENTATION()' macro. (This macro actually declares
+an array of two `struct lrecord_implementation' structures.  The first
+one contains all the standard method pointers, and is used in all
+normal circumstances.  During garbage collection, however, the lrecord
+is "marked" by bumping its implementation pointer by one, so that it
+points to the second structure in the array.  This structure contains a
+special indication in it that it's a "marked-object" structure: the
+finalize method is the special function `this_marks_a_marked_record()',
+and all other methods are null pointers.  At the end of garbage
+collection, all lrecords will either be reclaimed or unmarked by
+decrementing their implementation pointers, so this second structure
+pointer will never remain past garbage collection.
+
+   Simple lrecords (of type (c) above) just have a `struct
+lrecord_header' at their beginning.  lcrecords, however, actually have a
+`struct lcrecord_header'.  This, in turn, has a `struct lrecord_header'
+at its beginning, so sanity is preserved; but it also has a pointer
+used to chain all lcrecords together, and a special ID field used to
+distinguish one lcrecord from another. (This field is used only for
+debugging and could be removed, but the space gain is not significant.)
+
+   Simple lrecords are created using `ALLOCATE_FIXED_TYPE()', just like
+for other frob blocks.  The only change is that the implementation
+pointer must be initialized correctly. (The implementation structure for
+an lrecord, or rather the pointer to it, is named `lrecord_float',
+`lrecord_extent', `lrecord_buffer', etc.)
+
+   lcrecords are created using `alloc_lcrecord()'.  This takes a size
+to allocate and an implementation pointer. (The size needs to be passed
+because some lcrecords, such as window configurations, are of variable
+size.) This basically just `malloc()'s the storage, initializes the
+`struct lcrecord_header', and chains the lcrecord onto the head of the
+list of all lcrecords, which is stored in the variable `all_lcrecords'.
+The calls to `alloc_lcrecord()' generally occur in the lowest-level
+allocation function for each lrecord type.
+
+   Whenever you create an lrecord, you need to call either
+`DEFINE_LRECORD_IMPLEMENTATION()' or
+`DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()'.  This needs to be specified
+in a C file, at the top level.  What this actually does is define and
+initialize the implementation structure for the lrecord. (And possibly
+declares a function `error_check_foo()' that implements the `XFOO()'
+macro when error-checking is enabled.)  The arguments to the macros are
+the actual type name (this is used to construct the C variable name of
+the lrecord implementation structure and related structures using the
+`##' macro concatenation operator), a string that names the type on the
+Lisp level (this may not be the same as the C type name; typically, the
+C type name has underscores, while the Lisp string has dashes), various
+method pointers, and the name of the C structure that contains the
+object.  The methods are used to encapsulate type-specific information
+about the object, such as how to print it or mark it for garbage
+collection, so that it's easy to add new object types without having to
+add a specific case for each new type in a bunch of different places.
+
+   The difference between `DEFINE_LRECORD_IMPLEMENTATION()' and
+`DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION()' is that the former is used
+for fixed-size object types and the latter is for variable-size object
+types.  Most object types are fixed-size; some complex types, however
+(e.g. window configurations), are variable-size.  Variable-size object
+types have an extra method, which is called to determine the actual
+size of a particular object of that type.  (Currently this is only used
+for keeping allocation statistics.)
+
+   For the purpose of keeping allocation statistics, the allocation
+engine keeps a list of all the different types that exist.  Note that,
+since `DEFINE_LRECORD_IMPLEMENTATION()' is a macro that is specified at
+top-level, there is no way for it to add to the list of all existing
+types.  What happens instead is that each implementation structure
+contains in it a dynamically assigned number that is particular to that
+type. (Or rather, it contains a pointer to another structure that
+contains this number.  This evasiveness is done so that the
+implementation structure can be declared const.) In the sweep stage of
+garbage collection, each lrecord is examined to see if its
+implementation structure has its dynamically-assigned number set.  If
+not, it must be a new type, and it is added to the list of known types
+and a new number assigned.  The number is used to index into an array
+holding the number of objects of each type and the total memory
+allocated for objects of that type.  The statistics in this array are
+also computed during the sweep stage.  These statistics are returned by
+the call to `garbage-collect' and are printed out at the end of the
+loadup phase.
+
+   Note that for every type defined with a `DEFINE_LRECORD_*()' macro,
+there needs to be a `DECLARE_LRECORD_IMPLEMENTATION()' somewhere in a
+`.h' file, and this `.h' file needs to be included by `inline.c'.
+
+   Furthermore, there should generally be a set of `XFOOBAR()',
+`FOOBARP()', etc. macros in a `.h' (or occasionally `.c') file.  To
+create one of these, copy an existing model and modify as necessary.
+
+   The various methods in the lrecord implementation structure are:
+
+  1. A "mark" method.  This is called during the marking stage and
+     passed a function pointer (usually the `mark_object()' function),
+     which is used to mark an object.  All Lisp objects that are
+     contained within the object need to be marked by applying this
+     function to them.  The mark method should also return a Lisp
+     object, which should be either nil or an object to mark. (This can
+     be used in lieu of calling `mark_object()' on the object, to
+     reduce the recursion depth, and consequently should be the most
+     heavily nested sub-object, such as a long list.)
+
+     *Please note:* When the mark method is called, garbage collection
+     is in progress, and special precautions need to be taken when
+     accessing objects; see section (B) above.
+
+     If your mark method does not need to do anything, it can be `NULL'.
+
+  2. A "print" method.  This is called to create a printed
+     representation of the object, whenever `princ', `prin1', or the
+     like is called.  It is passed the object, a stream to which the
+     output is to be directed, and an `escapeflag' which indicates
+     whether the object's printed representation should be "escaped" so
+     that it is readable. (This corresponds to the difference between
+     `princ' and `prin1'.) Basically, "escaped" means that strings will
+     have quotes around them and confusing characters in the strings
+     such as quotes, backslashes, and newlines will be backslashed; and
+     that special care will be taken to make symbols print in a
+     readable fashion (e.g. symbols that look like numbers will be
+     backslashed).  Other readable objects should perhaps pass
+     `escapeflag' on when sub-objects are printed, so that readability
+     is preserved when necessary (or if not, always pass in a 1 for
+     `escapeflag').  Non-readable objects should in general ignore
+     `escapeflag', except that some use it as an indication that more
+     verbose output should be given.
+
+     Sub-objects are printed using `print_internal()', which takes
+     exactly the same arguments as are passed to the print method.
+
+     Literal C strings should be printed using `write_c_string()', or
+     `write_string_1()' for non-null-terminated strings.
+
+     Functions that do not have a readable representation should check
+     the `print_readably' flag and signal an error if it is set.
+
+     If you specify NULL for the print method, the
+     `default_object_printer()' will be used.
+
+  3. A "finalize" method.  This is called at the beginning of the sweep
+     stage on lcrecords that are about to be freed, and should be used
+     to perform any extra object cleanup.  This typically involves
+     freeing any extra `malloc()'ed memory associated with the object,
+     releasing any operating-system and window-system resources
+     associated with the object (e.g. pixmaps, fonts), etc.
+
+     The finalize method can be NULL if nothing needs to be done.
+
+     WARNING #1: The finalize method is also called at the end of the
+     dump phase; this time with the for_disksave parameter set to
+     non-zero.  The object is _not_ about to disappear, so you have to
+     make sure to _not_ free any extra `malloc()'ed memory if you're
+     going to need it later.  (Also, signal an error if there are any
+     operating-system and window-system resources here, because they
+     can't be dumped.)
+
+     Finalize methods should, as a rule, set to zero any pointers after
+     they've been freed, and check to make sure pointers are not zero
+     before freeing.  Although I'm pretty sure that finalize methods
+     are not called twice on the same object (except for the
+     `for_disksave' proviso), we've gotten nastily burned in some cases
+     by not doing this.
+
+     WARNING #2: The finalize method is _only_ called for lcrecords,
+     _not_ for simply lrecords.  If you need a finalize method for
+     simple lrecords, you have to stick it in the
+     `ADDITIONAL_FREE_foo()' macro in `alloc.c'.
+
+     WARNING #3: Things are in an _extremely_ bizarre state when
+     `ADDITIONAL_FREE_foo()' is called, so you have to be incredibly
+     careful when writing one of these functions.  See the comment in
+     `gc_sweep()'.  If you ever have to add one of these, consider
+     using an lcrecord or dealing with the problem in a different
+     fashion.
+
+  4. An "equal" method.  This compares the two objects for similarity,
+     when `equal' is called.  It should compare the contents of the
+     objects in some reasonable fashion.  It is passed the two objects
+     and a "depth" value, which is used to catch circular objects.  To
+     compare sub-Lisp-objects, call `internal_equal()' and bump the
+     depth value by one.  If this value gets too high, a
+     `circular-object' error will be signaled.
+
+     If this is NULL, objects are `equal' only when they are `eq', i.e.
+     identical.
+
+  5. A "hash" method.  This is used to hash objects when they are to be
+     compared with `equal'.  The rule here is that if two objects are
+     `equal', they _must_ hash to the same value; i.e. your hash
+     function should use some subset of the sub-fields of the object
+     that are compared in the "equal" method.  If you specify this
+     method as `NULL', the object's pointer will be used as the hash,
+     which will _fail_ if the object has an `equal' method, so don't do
+     this.
+
+     To hash a sub-Lisp-object, call `internal_hash()'.  Bump the depth
+     by one, just like in the "equal" method.
+
+     To convert a Lisp object directly into a hash value (using its
+     pointer), use `LISP_HASH()'.  This is what happens when the hash
+     method is NULL.
+
+     To hash two or more values together into a single value, use
+     `HASH2()', `HASH3()', `HASH4()', etc.
+
+  6. "getprop", "putprop", "remprop", and "plist" methods.  These are
+     used for object types that have properties.  I don't feel like
+     documenting them here.  If you create one of these objects, you
+     have to use different macros to define them, i.e.
+     `DEFINE_LRECORD_IMPLEMENTATION_WITH_PROPS()' or
+     `DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION_WITH_PROPS()'.
+
+  7. A "size_in_bytes" method, when the object is of variable-size.
+     (i.e. declared with a `_SEQUENCE_IMPLEMENTATION' macro.)  This
+     should simply return the object's size in bytes, exactly as you
+     might expect.  For an example, see the methods for window
+     configurations and opaques.
+
+
+File: internals.info,  Node: Low-level allocation,  Next: Pure Space,  Prev: lrecords,  Up: Allocation of Objects in XEmacs Lisp
+
+Low-level allocation
+====================
+
+   Memory that you want to allocate directly should be allocated using
+`xmalloc()' rather than `malloc()'.  This implements error-checking on
+the return value, and once upon a time did some more vital stuff (i.e.
+`BLOCK_INPUT', which is no longer necessary).  Free using `xfree()',
+and realloc using `xrealloc()'.  Note that `xmalloc()' will do a
+non-local exit if the memory can't be allocated. (Many functions,
+however, do not expect this, and thus XEmacs will likely crash if this
+happens.  *This is a bug.*  If you can, you should strive to make your
+function handle this OK.  However, it's difficult in the general
+circumstance, perhaps requiring extra unwind-protects and such.)
+
+   Note that XEmacs provides two separate replacements for the standard
+`malloc()' library function.  These are called "old GNU malloc"
+(`malloc.c') and "new GNU malloc" (`gmalloc.c'), respectively.  New GNU
+malloc is better in pretty much every way than old GNU malloc, and
+should be used if possible.  (It used to be that on some systems, the
+old one worked but the new one didn't.  I think this was due
+specifically to a bug in SunOS, which the new one now works around; so
+I don't think the old one ever has to be used any more.) The primary
+difference between both of these mallocs and the standard system malloc
+is that they are much faster, at the expense of increased space.  The
+basic idea is that memory is allocated in fixed chunks of powers of
+two.  This allows for basically constant malloc time, since the various
+chunks can just be kept on a number of free lists. (The standard system
+malloc typically allocates arbitrary-sized chunks and has to spend some
+time, sometimes a significant amount of time, walking the heap looking
+for a free block to use and cleaning things up.)  The new GNU malloc
+improves on things by allocating large objects in chunks of 4096 bytes
+rather than in ever larger powers of two, which results in ever larger
+wastage.  There is a slight speed loss here, but it's of doubtful
+significance.
+
+   NOTE: Apparently there is a third-generation GNU malloc that is
+significantly better than the new GNU malloc, and should probably be
+included in XEmacs.
+
+   There is also the relocating allocator, `ralloc.c'.  This actually
+moves blocks of memory around so that the `sbrk()' pointer shrunk and
+virtual memory released back to the system.  On some systems, this is a
+big win.  On all systems, it causes a noticeable (and sometimes huge)
+speed penalty, so I turn it off by default.  `ralloc.c' only works with
+the new GNU malloc in `gmalloc.c'.  There are also two versions of
+`ralloc.c', one that uses `mmap()' rather than block copies to move
+data around.  This purports to be faster, although that depends on the
+amount of data that would have had to be block copied and the
+system-call overhead for `mmap()'.  I don't know exactly how this
+works, except that the relocating-allocation routines are pretty much
+used only for the memory allocated for a buffer, which is the biggest
+consumer of space, esp. of space that may get freed later.
+
+   Note that the GNU mallocs have some "memory warning" facilities.
+XEmacs taps into them and issues a warning through the standard warning
+system, when memory gets to 75%, 85%, and 95% full.  (On some systems,
+the memory warnings are not functional.)
+
+   Allocated memory that is going to be used to make a Lisp object is
+created using `allocate_lisp_storage()'.  This calls `xmalloc()' but
+also verifies that the pointer to the memory can fit into a Lisp word
+(remember that some bits are taken away for a type tag and a mark bit).
+If not, an error is issued through `memory_full()'.
+`allocate_lisp_storage()' is called by `alloc_lcrecord()',
+`ALLOCATE_FIXED_TYPE()', and the vector and bit-vector creation
+routines.  These routines also call `INCREMENT_CONS_COUNTER()' at the
+appropriate times; this keeps statistics on how much memory is
+allocated, so that garbage-collection can be invoked when the threshold
+is reached.
+
+
+File: internals.info,  Node: Pure Space,  Next: Cons,  Prev: Low-level allocation,  Up: Allocation of Objects in XEmacs Lisp
+
+Pure Space
+==========
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Cons,  Next: Vector,  Prev: Pure Space,  Up: Allocation of Objects in XEmacs Lisp
+
+Cons
+====
+
+   Conses are allocated in standard frob blocks.  The only thing to
+note is that conses can be explicitly freed using `free_cons()' and
+associated functions `free_list()' and `free_alist()'.  This
+immediately puts the conses onto the cons free list, and decrements the
+statistics on memory allocation appropriately.  This is used to good
+effect by some extremely commonly-used code, to avoid generating extra
+objects and thereby triggering GC sooner.  However, you have to be
+_extremely_ careful when doing this.  If you mess this up, you will get
+BADLY BURNED, and it has happened before.
+
+
+File: internals.info,  Node: Vector,  Next: Bit Vector,  Prev: Cons,  Up: Allocation of Objects in XEmacs Lisp
+
+Vector
+======
+
+   As mentioned above, each vector is `malloc()'ed individually, and
+all are threaded through the variable `all_vectors'.  Vectors are
+marked strangely during garbage collection, by kludging the size field.
+Note that the `struct Lisp_Vector' is declared with its `contents'
+field being a _stretchy_ array of one element.  It is actually
+`malloc()'ed with the right size, however, and access to any element
+through the `contents' array works fine.
+
+
+File: internals.info,  Node: Bit Vector,  Next: Symbol,  Prev: Vector,  Up: Allocation of Objects in XEmacs Lisp
+
+Bit Vector
+==========
+
+   Bit vectors work exactly like vectors, except for more complicated
+code to access an individual bit, and except for the fact that bit
+vectors are lrecords while vectors are not. (The only difference here is
+that there's an lrecord implementation pointer at the beginning and the
+tag field in bit vector Lisp words is "lrecord" rather than "vector".)
+
+
+File: internals.info,  Node: Symbol,  Next: Marker,  Prev: Bit Vector,  Up: Allocation of Objects in XEmacs Lisp
+
+Symbol
+======
+
+   Symbols are also allocated in frob blocks.  Note that the code
+exists for symbols to be either lrecords (category (c) above) or simple
+types (category (b) above), and are lrecords by default (I think),
+although there is no good reason for this.
+
+   Note that symbols in the awful horrible obarray structure are
+chained through their `next' field.
+
+   Remember that `intern' looks up a symbol in an obarray, creating one
+if necessary.
+
+
+File: internals.info,  Node: Marker,  Next: String,  Prev: Symbol,  Up: Allocation of Objects in XEmacs Lisp
+
+Marker
+======
+
+   Markers are allocated in frob blocks, as usual.  They are kept in a
+buffer unordered, but in a doubly-linked list so that they can easily
+be removed. (Formerly this was a singly-linked list, but in some cases
+garbage collection took an extraordinarily long time due to the O(N^2)
+time required to remove lots of markers from a buffer.) Markers are
+removed from a buffer in the finalize stage, in
+`ADDITIONAL_FREE_marker()'.
+
+
+File: internals.info,  Node: String,  Next: Compiled Function,  Prev: Marker,  Up: Allocation of Objects in XEmacs Lisp
+
+String
+======
+
+   As mentioned above, strings are a special case.  A string is
+logically two parts, a fixed-size object (containing the length,
+property list, and a pointer to the actual data), and the actual data
+in the string.  The fixed-size object is a `struct Lisp_String' and is
+allocated in frob blocks, as usual.  The actual data is stored in
+special "string-chars blocks", which are 8K blocks of memory.
+Currently-allocated strings are simply laid end to end in these
+string-chars blocks, with a pointer back to the `struct Lisp_String'
+stored before each string in the string-chars block.  When a new string
+needs to be allocated, the remaining space at the end of the last
+string-chars block is used if there's enough, and a new string-chars
+block is created otherwise.
+
+   There are never any holes in the string-chars blocks due to the
+string compaction and relocation that happens at the end of garbage
+collection.  During the sweep stage of garbage collection, when objects
+are reclaimed, the garbage collector goes through all string-chars
+blocks, looking for unused strings.  Each chunk of string data is
+preceded by a pointer to the corresponding `struct Lisp_String', which
+indicates both whether the string is used and how big the string is,
+i.e. how to get to the next chunk of string data.  Holes are compressed
+by block-copying the next string into the empty space and relocating the
+pointer stored in the corresponding `struct Lisp_String'.  *This means
+you have to be careful with strings in your code.* See the section
+above on `GCPRO'ing.
+
+   Note that there is one situation not handled: a string that is too
+big to fit into a string-chars block.  Such strings, called "big
+strings", are all `malloc()'ed as their own block. (#### Although it
+would make more sense for the threshold for big strings to be somewhat
+lower, e.g. 1/2 or 1/4 the size of a string-chars block.  It seems that
+this was indeed the case formerly - indeed, the threshold was set at
+1/8 - but Mly forgot about this when rewriting things for 19.8.)
+
+   Note also that the string data in string-chars blocks is padded as
+necessary so that proper alignment constraints on the `struct
+Lisp_String' back pointers are maintained.
+
+   Finally, strings can be resized.  This happens in Mule when a
+character is substituted with a different-length character, or during
+modeline frobbing. (You could also export this to Lisp, but it's not
+done so currently.) Resizing a string is a potentially tricky process.
+If the change is small enough that the padding can absorb it, nothing
+other than a simple memory move needs to be done.  Keep in mind,
+however, that the string can't shrink too much because the offset to the
+next string in the string-chars block is computed by looking at the
+length and rounding to the nearest multiple of four or eight.  If the
+string would shrink or expand beyond the correct padding, new string
+data needs to be allocated at the end of the last string-chars block and
+the data moved appropriately.  This leaves some dead string data, which
+is marked by putting a special marker of 0xFFFFFFFF in the `struct
+Lisp_String' pointer before the data (there's no real `struct
+Lisp_String' to point to and relocate), and storing the size of the dead
+string data (which would normally be obtained from the now-non-existent
+`struct Lisp_String') at the beginning of the dead string data gap.
+The string compactor recognizes this special 0xFFFFFFFF marker and
+handles it correctly.
+
+
+File: internals.info,  Node: Compiled Function,  Prev: String,  Up: Allocation of Objects in XEmacs Lisp
+
+Compiled Function
+=================
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Events and the Event Loop,  Next: Evaluation; Stack Frames; Bindings,  Prev: Allocation of Objects in XEmacs Lisp,  Up: Top
+
+Events and the Event Loop
+*************************
+
+* Menu:
+
+* Introduction to Events::
+* Main Loop::
+* Specifics of the Event Gathering Mechanism::
+* Specifics About the Emacs Event::
+* The Event Stream Callback Routines::
+* Other Event Loop Functions::
+* Converting Events::
+* Dispatching Events; The Command Builder::
+
+
+File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Up: Events and the Event Loop
+
+Introduction to Events
+======================
+
+   An event is an object that encapsulates information about an
+interesting occurrence in the operating system.  Events are generated
+either by user action, direct (e.g. typing on the keyboard or moving
+the mouse) or indirect (moving another window, thereby generating an
+expose event on an Emacs frame), or as a result of some other typically
+asynchronous action happening, such as output from a subprocess being
+ready or a timer expiring.  Events come into the system in an
+asynchronous fashion (typically through a callback being called) and
+are converted into a synchronous event queue (first-in, first-out) in a
+process that we will call "collection".
+
+   Note that each application has its own event queue. (It is
+immaterial whether the collection process directly puts the events in
+the proper application's queue, or puts them into a single system
+queue, which is later split up.)
+
+   The most basic level of event collection is done by the operating
+system or window system.  Typically, XEmacs does its own event
+collection as well.  Often there are multiple layers of collection in
+XEmacs, with events from various sources being collected into a queue,
+which is then combined with other sources to go into another queue
+(i.e. a second level of collection), with perhaps another level on top
+of this, etc.
+
+   XEmacs has its own types of events (called "Emacs events"), which
+provides an abstract layer on top of the system-dependent nature of the
+most basic events that are received.  Part of the complex nature of the
+XEmacs event collection process involves converting from the
+operating-system events into the proper Emacs events - there may not be
+a one-to-one correspondence.
+
+   Emacs events are documented in `events.h'; I'll discuss them later.
+
