@@ -139,6 +139,15 @@
   )
 
 (when (featurep 'utf-2000)
+  (make-charset 'ucs-jis
+		"UCS for JIS"
+		`(long-name	"ISO/IEC 10646 for JIS X0208/0212/0213"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	ucs))
   (make-charset '=ucs-jis-1990
 		"UCS for JIS:1990"
 		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
