@@ -4,7 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -322,7 +322,8 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 static void
 save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 		       Lisp_Object db,
-		       Emchar ofs, int place)
+		       Emchar ofs, int place,
+		       Lisp_Object (*filter)(Lisp_Object value))
 {
   struct chartab_range rainj;
   int i, retval;
@@ -633,7 +634,8 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 static void
 save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 			Lisp_Object db,
-			Emchar ofs, int place)
+			Emchar ofs, int place,
+			Lisp_Object (*filter)(Lisp_Object value))
 {
   struct chartab_range rainj;
   int i, retval;
@@ -893,7 +895,8 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 static void
 save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 		 Lisp_Object db,
-		 Emchar ofs, int place)
+		 Emchar ofs, int place,
+		 Lisp_Object (*filter)(Lisp_Object value))
 {
   int i, retval;
   Lisp_Object v;
@@ -906,19 +909,19 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
       if (UINT8_BYTE_TABLE_P (v))
 	{
 	  save_uint8_byte_table (XUINT8_BYTE_TABLE(v), root, db,
-				 c, place - 1);
+				 c, place - 1, filter);
 	  c += unit;
 	}
       else if (UINT16_BYTE_TABLE_P (v))
 	{
 	  save_uint16_byte_table (XUINT16_BYTE_TABLE(v), root, db,
-				  c, place - 1);
+				  c, place - 1, filter);
 	  c += unit;
 	}
       else if (BYTE_TABLE_P (v))
 	{
 	  save_byte_table (XBYTE_TABLE(v), root, db,
-			   c, place - 1);
+			   c, place - 1, filter);
 	  c += unit;
 	}
       else if (EQ (v, Qunloaded))
@@ -929,6 +932,9 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 	{
 	  struct chartab_range rainj;
 	  Emchar c1 = c + unit;
+
+	  if (filter != NULL)
+	    v = (*filter)(v);
 
 	  rainj.type = CHARTAB_RANGE_CHAR;
 
@@ -3259,8 +3265,10 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	attribute = Qto_ucs;
 #endif
     }
+#if 0
   else if (EQ (attribute, Qideographic_structure))
     value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
+#endif
   {
     Lisp_Object table = Fgethash (attribute,
 				  Vchar_attribute_hash_table,
@@ -3380,12 +3388,21 @@ Save values of ATTRIBUTE into database file.
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
   if (!NILP (db))
     {
+      Lisp_Object (*filter)(Lisp_Object value);
+
+      if (EQ (attribute, Qideographic_structure))
+	filter = &Fchar_refs_simplify_char_specs;
+      else
+	filter = NULL;
+
       if (UINT8_BYTE_TABLE_P (ct->table))
-	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db, 0, 3);
+	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db,
+			       0, 3, filter);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db, 0, 3);
+	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db,
+				0, 3, filter);
       else if (BYTE_TABLE_P (ct->table))
-	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3);
+	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3, filter);
       Fclose_database (db);
       return Qt;
     }
