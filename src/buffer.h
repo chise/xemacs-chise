@@ -1375,6 +1375,8 @@ Bufbyte *convert_from_external_format (CONST Extbyte *ptr,
 
 #ifndef MULE
 
+typedef int Charset_ID;
+
 #define Vcharset_ascii Qnil
 
 #define CHAR_CHARSET(ch) Vcharset_ascii
