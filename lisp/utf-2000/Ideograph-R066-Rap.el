@@ -3147,7 +3147,6 @@
     ))
 (define-char
   '((=>ucs		. #x22FBE)	; ð¢¾¾
-    (=>ucs-jis		. #x6577)	; æ•·
     (morohashi-daikanwa	13359 1)
     (ideographic-radical . 66)	; â½
     (ideographic-strokes . 11)
@@ -3156,6 +3155,7 @@
     (japanese-jisx0208		. #x495F)	; ø»‡‹¶
     (korean-ksc5601		. #x5D27)	; ø»‰²š
     (japanese-jisx0208-1990	. #x495F)	; ø½Š±ª
+    (ucs-jis			. #x6577)	; ø»‚·®
     ))
 (define-char
   '((=>ucs-jis		. #x6577)	; æ•·

@@ -2819,7 +2819,6 @@
     ))
 (define-char
   '((=>ucs		. #x24D01)	; ð¤´
-    (=>ucs-jis		. #x7589)	; ç–‰
     (ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 17)
     (total-strokes	 . 22)
@@ -2828,6 +2827,7 @@
     (japanese-jisx0208		. #x6149)	; ø»‡®°
     (japanese-jisx0208-1990	. #x6149)	; ø½‹”¤
     (ideograph-daikanwa		. 21982)	; ø¸…—ž
+    (ucs-jis			. #x7589)	; ø»ƒš¨
     ))
 (define-char
   '((=>ucs-jis		. #x7589)	; ç–‰

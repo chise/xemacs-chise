@@ -32392,6 +32392,7 @@
 (define-char
   '((ideographic-radical . 30)	; â¼
     (hanyu-dazidian	1 704 3)
+    (chinese-gb12345		. #x7C37)	; åš¹
     (ideograph-hanziku-2	. #xE2F9)	; ý¢€®‹¹
     (ucs			. #x56B9)	; åš¹
     ))

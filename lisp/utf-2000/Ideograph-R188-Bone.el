@@ -1,5 +1,5 @@
 (define-char
-  '((->ucs		. #x9AA8)	; 骨
+  '((=>ucs		. #x9AA8)	; 骨
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
@@ -11,7 +11,7 @@
     (ideograph-daikanwa		. 45098)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AA8)	; 骨
+  '((=>ucs		. #x9AA8)	; 骨
     (morohashi-daikanwa	45098 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
@@ -22,13 +22,13 @@
   '((morohashi-daikanwa	45098 0 4)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 0)
-    (total-strokes	 . 10)
+    (total-strokes	 . 9)
     (chinese-gb2312	. #x3947)	; �����
     (chinese-isoir165	. #x3947)	; �����
     (ucs		. #x9AA8)	; 骨
     ))
 (define-char
-  '((->ucs		. #x4BC6)	; 䯆
+  '((=>ucs		. #x4BC6)	; 䯆
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 1)
     (total-strokes	 . 11)
@@ -76,7 +76,7 @@
     (ucs		. #x4BC7)	; 䯇
     ))
 (define-char
-  '((->ucs		. #x4BC7)	; 䯇
+  '((=>ucs		. #x4BC7)	; 䯇
     (morohashi-daikanwa	45102 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 2)
@@ -105,7 +105,7 @@
     (ucs		. #x9AAA)	; 骪
     ))
 (define-char
-  '((->ucs		. #x9AAA)	; 骪
+  '((=>ucs		. #x9AAA)	; 骪
     (morohashi-daikanwa	45105 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 3)
@@ -119,7 +119,7 @@
     (ucs		. #x9AAB)	; 骫
     ))
 (define-char
-  '((->ucs		. #x9AAB)	; 骫
+  '((=>ucs		. #x9AAB)	; 骫
     (morohashi-daikanwa	45106 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 3)
@@ -148,7 +148,7 @@
     (ucs		. #x9AAC)	; 骬
     ))
 (define-char
-  '((->ucs		. #x9AAC)	; 骬
+  '((=>ucs		. #x9AAC)	; 骬
     (morohashi-daikanwa	45109 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 3)
@@ -180,7 +180,7 @@
     (ucs			. #x9AAD)	; 骭
     ))
 (define-char
-  '((->ucs		. #x9AAD)	; 骭
+  '((=>ucs		. #x9AAD)	; 骭
     (morohashi-daikanwa	45111 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 3)
@@ -209,7 +209,7 @@
     (ucs		. #x9AAE)	; 骮
     ))
 (define-char
-  '((->ucs		. #x9AAE)	; 骮
+  '((=>ucs		. #x9AAE)	; 骮
     (morohashi-daikanwa	45113 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 3)
@@ -302,7 +302,7 @@
     (ucs		. #x4BC8)	; 䯈
     ))
 (define-char
-  '((->ucs		. #x4BC8)	; 䯈
+  '((=>ucs		. #x4BC8)	; 䯈
     (morohashi-daikanwa	45123 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
@@ -319,7 +319,7 @@
     (ideograph-daikanwa		. 45124)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AAF)	; 骯
+  '((=>ucs		. #x9AAF)	; 骯
     (morohashi-daikanwa	45124 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
@@ -342,7 +342,7 @@
     (ucs		. #x4BC9)	; 䯉
     ))
 (define-char
-  '((->ucs		. #x4BC9)	; 䯉
+  '((=>ucs		. #x4BC9)	; 䯉
     (morohashi-daikanwa	45125 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
@@ -363,7 +363,7 @@
     (chinese-cns11643-4 . #x4864)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB0)	; 骰
+  '((=>ucs		. #x9AB0)	; 骰
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
@@ -374,7 +374,7 @@
     (ideograph-daikanwa		. 45127)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB0)	; 骰
+  '((=>ucs		. #x9AB0)	; 骰
     (morohashi-daikanwa	45127 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
@@ -391,14 +391,14 @@
     (ucs		. #x9AB0)	; 骰
     ))
 (define-char
-  '((->ucs		. #x9AB1)	; 骱
+  '((=>ucs		. #x9AB1)	; 骱
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 45128)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB1)	; 骱
+  '((=>ucs		. #x9AB1)	; 骱
     (morohashi-daikanwa	45128 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 4)
@@ -565,7 +565,7 @@
     (ucs		. #x9AB2)	; 骲
     ))
 (define-char
-  '((->ucs		. #x9AB2)	; 骲
+  '((=>ucs		. #x9AB2)	; 骲
     (morohashi-daikanwa	45142 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -581,7 +581,7 @@
     (ucs			. #x4BCA)	; 䯊
     ))
 (define-char
-  '((->ucs		. #x4BCA)	; 䯊
+  '((=>ucs		. #x4BCA)	; 䯊
     (morohashi-daikanwa	45143 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -596,7 +596,7 @@
     (ucs		. #x4BCB)	; 䯋
     ))
 (define-char
-  '((->ucs		. #x4BCB)	; 䯋
+  '((=>ucs		. #x4BCB)	; 䯋
     (morohashi-daikanwa	45144 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -611,7 +611,7 @@
     (ucs		. #x4BCC)	; 䯌
     ))
 (define-char
-  '((->ucs		. #x4BCC)	; 䯌
+  '((=>ucs		. #x4BCC)	; 䯌
     (morohashi-daikanwa	45145 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -625,7 +625,7 @@
     (ucs		. #x9AB3)	; 骳
     ))
 (define-char
-  '((->ucs		. #x9AB3)	; 骳
+  '((=>ucs		. #x9AB3)	; 骳
     (morohashi-daikanwa	45146 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -641,7 +641,7 @@
     (ucs		. #x9AB4)	; 骴
     ))
 (define-char
-  '((->ucs		. #x9AB4)	; 骴
+  '((=>ucs		. #x9AB4)	; 骴
     (morohashi-daikanwa	45147 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -682,7 +682,7 @@
     (ucs		. #x4BCD)	; 䯍
     ))
 (define-char
-  '((->ucs		. #x4BCD)	; 䯍
+  '((=>ucs		. #x4BCD)	; 䯍
     (morohashi-daikanwa	45150 0 1)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -698,7 +698,7 @@
     (ucs		. #x9AB5)	; 骵
     ))
 (define-char
-  '((->ucs		. #x9AB5)	; 骵
+  '((=>ucs		. #x9AB5)	; 骵
     (morohashi-daikanwa	45151 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -745,7 +745,7 @@
     (chinese-cns11643-4 . #x4E77)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB6)	; 骶
+  '((=>ucs		. #x9AB6)	; 骶
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
@@ -754,7 +754,7 @@
     (ideograph-daikanwa		. 45155)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB6)	; 骶
+  '((=>ucs		. #x9AB6)	; 骶
     (morohashi-daikanwa	45155 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -771,7 +771,7 @@
     (ucs		. #x9AB6)	; 骶
     ))
 (define-char
-  '((->ucs		. #x9AB7)	; 骷
+  '((=>ucs		. #x9AB7)	; 骷
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
@@ -779,7 +779,7 @@
     (ideograph-daikanwa		. 45156)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB7)	; 骷
+  '((=>ucs		. #x9AB7)	; 骷
     (morohashi-daikanwa	45156 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 5)
@@ -862,7 +862,7 @@
     (ucs		. #x4BCF)	; 䯏
     ))
 (define-char
-  '((->ucs		. #x4BCF)	; 䯏
+  '((=>ucs		. #x4BCF)	; 䯏
     (morohashi-daikanwa	45163 0 4)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -870,7 +870,7 @@
     (chinese-cns11643-3 . #x5372)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB8)	; 骸
+  '((=>ucs		. #x9AB8)	; 骸
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
@@ -882,7 +882,7 @@
     (ideograph-daikanwa		. 45164)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AB8)	; 骸
+  '((=>ucs		. #x9AB8)	; 骸
     (morohashi-daikanwa	45164 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -906,7 +906,7 @@
     (ucs		. #x4BD0)	; 䯐
     ))
 (define-char
-  '((->ucs		. #x4BD0)	; 䯐
+  '((=>ucs		. #x4BD0)	; 䯐
     (morohashi-daikanwa	45165 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -921,7 +921,7 @@
     (ucs		. #x4BD1)	; 䯑
     ))
 (define-char
-  '((->ucs		. #x4BD1)	; 䯑
+  '((=>ucs		. #x4BD1)	; 䯑
     (morohashi-daikanwa	45166 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -937,7 +937,7 @@
     (ucs			. #x4BD2)	; 䯒
     ))
 (define-char
-  '((->ucs		. #x4BD2)	; 䯒
+  '((=>ucs		. #x4BD2)	; 䯒
     (morohashi-daikanwa	45167 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -980,7 +980,7 @@
     (ucs			. #x9AB9)	; 骹
     ))
 (define-char
-  '((->ucs		. #x9AB9)	; 骹
+  '((=>ucs		. #x9AB9)	; 骹
     (morohashi-daikanwa	45170 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -995,7 +995,7 @@
     (ucs		. #x4BD3)	; 䯓
     ))
 (define-char
-  '((->ucs		. #x4BD3)	; 䯓
+  '((=>ucs		. #x4BD3)	; 䯓
     (morohashi-daikanwa	45171 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -1003,14 +1003,14 @@
     (chinese-cns11643-4 . #x552F)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABA)	; 骺
+  '((=>ucs		. #x9ABA)	; 骺
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 45172)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABA)	; 骺
+  '((=>ucs		. #x9ABA)	; 骺
     (morohashi-daikanwa	45172 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -1047,7 +1047,7 @@
     (ucs		. #x9ABB)	; 骻
     ))
 (define-char
-  '((->ucs		. #x9ABB)	; 骻
+  '((=>ucs		. #x9ABB)	; 骻
     (morohashi-daikanwa	45174 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -1055,7 +1055,7 @@
     (chinese-cns11643-2 . #x5B79)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABC)	; 骼
+  '((=>ucs		. #x9ABC)	; 骼
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
     (total-strokes	 . 16)
@@ -1066,7 +1066,7 @@
     (ideograph-daikanwa		. 45175)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABC)	; 骼
+  '((=>ucs		. #x9ABC)	; 骼
     (morohashi-daikanwa	45175 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -1103,7 +1103,7 @@
     (ucs		. #x4BD4)	; 䯔
     ))
 (define-char
-  '((->ucs		. #x4BD4)	; 䯔
+  '((=>ucs		. #x4BD4)	; 䯔
     (morohashi-daikanwa	45177 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 6)
@@ -1157,7 +1157,7 @@
     (ucs		. #x4BD5)	; 䯕
     ))
 (define-char
-  '((->ucs		. #x4BD5)	; 䯕
+  '((=>ucs		. #x4BD5)	; 䯕
     (morohashi-daikanwa	45182 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1185,7 +1185,7 @@
     (ucs		. #x4BD6)	; 䯖
     ))
 (define-char
-  '((->ucs		. #x4BD6)	; 䯖
+  '((=>ucs		. #x4BD6)	; 䯖
     (morohashi-daikanwa	45184 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1200,7 +1200,7 @@
     (ucs		. #x4BD7)	; 䯗
     ))
 (define-char
-  '((->ucs		. #x4BD7)	; 䯗
+  '((=>ucs		. #x4BD7)	; 䯗
     (morohashi-daikanwa	45185 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1221,7 +1221,7 @@
     (chinese-cns11643-7 . #x3E32)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABD)	; 骽
+  '((=>ucs		. #x9ABD)	; 骽
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
     (total-strokes	 . 17)
@@ -1256,7 +1256,7 @@
     (ucs		. #x4BD8)	; 䯘
     ))
 (define-char
-  '((->ucs		. #x4BD8)	; 䯘
+  '((=>ucs		. #x4BD8)	; 䯘
     (morohashi-daikanwa	45189 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1297,7 +1297,7 @@
     (ucs		. #x4BD9)	; 䯙
     ))
 (define-char
-  '((->ucs		. #x4BD9)	; 䯙
+  '((=>ucs		. #x4BD9)	; 䯙
     (morohashi-daikanwa	45193 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1312,7 +1312,7 @@
     (ucs		. #x4BDA)	; 䯚
     ))
 (define-char
-  '((->ucs		. #x4BDA)	; 䯚
+  '((=>ucs		. #x4BDA)	; 䯚
     (morohashi-daikanwa	45194 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1328,7 +1328,7 @@
     (ucs		. #x9ABE)	; 骾
     ))
 (define-char
-  '((->ucs		. #x9ABE)	; 骾
+  '((=>ucs		. #x9ABE)	; 骾
     (morohashi-daikanwa	45195 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 7)
@@ -1432,7 +1432,7 @@
     (chinese-cns11643-7 . #x453E)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ABF)	; 骿
+  '((=>ucs		. #x9ABF)	; 骿
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
@@ -1448,7 +1448,7 @@
     (ucs		. #x9ABF)	; 骿
     ))
 (define-char
-  '((->ucs		. #x9AC0)	; 髀
+  '((=>ucs		. #x9AC0)	; 髀
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
@@ -1459,7 +1459,7 @@
     (ideograph-daikanwa		. 45205)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC0)	; 髀
+  '((=>ucs		. #x9AC0)	; 髀
     (morohashi-daikanwa	45205 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
@@ -1522,7 +1522,7 @@
     (ucs		. #x4BDB)	; 䯛
     ))
 (define-char
-  '((->ucs		. #x4BDB)	; 䯛
+  '((=>ucs		. #x4BDB)	; 䯛
     (morohashi-daikanwa	45209 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
@@ -1563,7 +1563,7 @@
     (ucs		. #x4BDC)	; 䯜
     ))
 (define-char
-  '((->ucs		. #x4BDC)	; 䯜
+  '((=>ucs		. #x4BDC)	; 䯜
     (morohashi-daikanwa	45212 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
@@ -1610,7 +1610,7 @@
     (chinese-cns11643-5 . #x6653)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC1)	; 髁
+  '((=>ucs		. #x9AC1)	; 髁
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
@@ -1619,7 +1619,7 @@
     (ideograph-daikanwa		. 45216)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC1)	; 髁
+  '((=>ucs		. #x9AC1)	; 髁
     (morohashi-daikanwa	45216 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 8)
@@ -1670,7 +1670,7 @@
     (ucs		. #x4BDD)	; 䯝
     ))
 (define-char
-  '((->ucs		. #x4BDD)	; 䯝
+  '((=>ucs		. #x4BDD)	; 䯝
     (morohashi-daikanwa	45222 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
@@ -1730,14 +1730,14 @@
     (chinese-cns11643-7 . #x4C3A)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC2)	; 髂
+  '((=>ucs		. #x9AC2)	; 髂
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
     (ideograph-daikanwa . 45227)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC2)	; 髂
+  '((=>ucs		. #x9AC2)	; 髂
     (morohashi-daikanwa	45227 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
@@ -1773,7 +1773,7 @@
     (ucs		. #x4BDE)	; 䯞
     ))
 (define-char
-  '((->ucs		. #x4BDE)	; 䯞
+  '((=>ucs		. #x4BDE)	; 䯞
     (morohashi-daikanwa	45229 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
@@ -1781,7 +1781,7 @@
     (chinese-cns11643-4 . #x6248)	; �����
     ))
 (define-char
-  '((->ucs		. #x4BDF)	; 䯟
+  '((=>ucs		. #x4BDF)	; 䯟
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
@@ -1801,9 +1801,11 @@
     (total-strokes	 . 19)
     (japanese-jisx0213-2	. #x7D2C)	; �����
     (ideograph-daikanwa		. 45231)	; �����
+    (ucs			. #x29A72)	; 𩩲
     ))
 (define-char
-  '((morohashi-daikanwa	45231 0 1)
+  '((=>ucs		. #x29A72)	; 𩩲
+    (morohashi-daikanwa	45231 0 1)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
     (total-strokes	 . 19)
@@ -1871,7 +1873,7 @@
     (ucs			. #x9AC3)	; 髃
     ))
 (define-char
-  '((->ucs		. #x9AC3)	; 髃
+  '((=>ucs		. #x9AC3)	; 髃
     (morohashi-daikanwa	45236 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 9)
@@ -1928,7 +1930,7 @@
     (ucs			. #x9AC4)	; 髄
     ))
 (define-char
-  '((->ucs		. #x9AC4)	; 髄
+  '((=>ucs		. #x9AC4)	; 髄
     (morohashi-daikanwa	45240 1 1)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
@@ -1965,7 +1967,7 @@
     (ucs			. #x9AC6)	; 髆
     ))
 (define-char
-  '((->ucs		. #x9AC6)	; 髆
+  '((=>ucs		. #x9AC6)	; 髆
     (morohashi-daikanwa	45241 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
@@ -1986,7 +1988,7 @@
     (chinese-cns11643-4 . #x654A)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AC7)	; 髇
+  '((=>ucs		. #x9AC7)	; 髇
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
@@ -2035,7 +2037,7 @@
     (ucs		. #x9AC8)	; 髈
     ))
 (define-char
-  '((->ucs		. #x9AC8)	; 髈
+  '((=>ucs		. #x9AC8)	; 髈
     (morohashi-daikanwa	45246 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
@@ -2050,7 +2052,7 @@
     (ucs		. #x4BE0)	; 䯠
     ))
 (define-char
-  '((->ucs		. #x4BE0)	; 䯠
+  '((=>ucs		. #x4BE0)	; 䯠
     (morohashi-daikanwa	45247 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
@@ -2097,7 +2099,7 @@
     (chinese-cns11643-7 . #x5174)	; �����
     ))
 (define-char
-  '((->ucs		. #x4BE1)	; 䯡
+  '((=>ucs		. #x4BE1)	; 䯡
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
@@ -2112,7 +2114,7 @@
     (ucs		. #x4BE1)	; 䯡
     ))
 (define-char
-  '((->ucs		. #x9AC9)	; 髉
+  '((=>ucs		. #x9AC9)	; 髉
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
     (total-strokes	 . 20)
@@ -2127,7 +2129,7 @@
     (ucs		. #x9AC9)	; 髉
     ))
 (define-char
-  '((->ucs		. #x9ACA)	; 髊
+  '((=>ucs		. #x9ACA)	; 髊
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 10)
     (ideograph-daikanwa . 45253)	; �����
@@ -2168,7 +2170,7 @@
     (ucs		. #x9ACC)	; 髌
     ))
 (define-char
-  '((->ucs		. #x9ACD)	; 髍
+  '((=>ucs		. #x9ACD)	; 髍
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
@@ -2190,7 +2192,7 @@
     (ucs		. #x4BE2)	; 䯢
     ))
 (define-char
-  '((->ucs		. #x4BE2)	; 䯢
+  '((=>ucs		. #x4BE2)	; 䯢
     (morohashi-daikanwa	45257 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
@@ -2276,7 +2278,7 @@
     (chinese-cns11643-5 . #x7235)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ACE)	; 髎
+  '((=>ucs		. #x9ACE)	; 髎
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
     (total-strokes	 . 21)
@@ -2329,7 +2331,7 @@
     (ideograph-daikanwa		. 45267)	; �����
     ))
 (define-char
-  '((->ucs		. #x9ACF)	; 髏
+  '((=>ucs		. #x9ACF)	; 髏
     (morohashi-daikanwa	45267 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 11)
@@ -2430,7 +2432,7 @@
     (ucs		. #x4BE3)	; 䯣
     ))
 (define-char
-  '((->ucs		. #x4BE3)	; 䯣
+  '((=>ucs		. #x4BE3)	; 䯣
     (morohashi-daikanwa	45273 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
@@ -2473,7 +2475,7 @@
     (ucs			. #x9AD0)	; 髐
     ))
 (define-char
-  '((->ucs		. #x9AD0)	; 髐
+  '((=>ucs		. #x9AD0)	; 髐
     (morohashi-daikanwa	45276 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 12)
@@ -2533,7 +2535,7 @@
     (chinese-cns11643-7 . #x5D66)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD1)	; 髑
+  '((=>ucs		. #x9AD1)	; 髑
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
@@ -2544,7 +2546,7 @@
     (ideograph-daikanwa		. 45281)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD1)	; 髑
+  '((=>ucs		. #x9AD1)	; 髑
     (morohashi-daikanwa	45281 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2588,14 +2590,14 @@
     (chinese-cns11643-4 . #x6B36)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD2)	; 髒
+  '((=>ucs		. #x9AD2)	; 髒
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
     (ideograph-daikanwa . 45284)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD2)	; 髒
+  '((=>ucs		. #x9AD2)	; 髒
     (morohashi-daikanwa	45284 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2627,7 +2629,7 @@
     (ucs		. #x4BE4)	; 䯤
     ))
 (define-char
-  '((->ucs		. #x4BE4)	; 䯤
+  '((=>ucs		. #x4BE4)	; 䯤
     (morohashi-daikanwa	45285 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2674,7 +2676,7 @@
     (chinese-cns11643-7 . #x5D62)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD3)	; 髓
+  '((=>ucs		. #x9AD3)	; 髓
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
     (total-strokes	 . 23)
@@ -2686,7 +2688,7 @@
     (ideograph-daikanwa		. 45289)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD3)	; 髓
+  '((=>ucs		. #x9AD3)	; 髓
     (morohashi-daikanwa	45289 0 2)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2728,7 +2730,7 @@
     (ideograph-daikanwa		. 45291)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD4)	; 體
+  '((=>ucs		. #x9AD4)	; 體
     (morohashi-daikanwa	45291 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 13)
@@ -2796,7 +2798,7 @@
     (ucs		. #x4BE5)	; 䯥
     ))
 (define-char
-  '((->ucs		. #x4BE5)	; 䯥
+  '((=>ucs		. #x4BE5)	; 䯥
     (morohashi-daikanwa	45295 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 14)
@@ -2839,7 +2841,7 @@
     (ideograph-daikanwa		. 45298)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD5)	; 髕
+  '((=>ucs		. #x9AD5)	; 髕
     (morohashi-daikanwa	45298 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 14)
@@ -2862,7 +2864,7 @@
     (ideograph-daikanwa . 45300)	; �����
     ))
 (define-char
-  '((->ucs		. #x9AD6)	; 髖
+  '((=>ucs		. #x9AD6)	; 髖
     (morohashi-daikanwa	45300 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 15)
@@ -2907,7 +2909,7 @@
     (ucs		. #x4BE6)	; 䯦
     ))
 (define-char
-  '((->ucs		. #x4BE6)	; 䯦
+  '((=>ucs		. #x4BE6)	; 䯦
     (morohashi-daikanwa	45302 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 15)
@@ -2936,7 +2938,7 @@
     (ucs		. #x9AD7)	; 髗
     ))
 (define-char
-  '((->ucs		. #x9AD7)	; 髗
+  '((=>ucs		. #x9AD7)	; 髗
     (morohashi-daikanwa	45305 0 0)
     (ideographic-radical . 188)	; ⾻
     (ideographic-strokes . 16)

@@ -2335,7 +2335,8 @@
     (ucs		. #x231B6)	; 𣆶
     ))
 (define-char
-  '((morohashi-daikanwa	13941 0 1)
+  '((=>ucs		. #x231B6)	; 𣆶
+    (morohashi-daikanwa	13941 0 1)
     (ideographic-radical . 72)	; ⽇
     (ideographic-strokes . 8)
     (total-strokes	 . 12)

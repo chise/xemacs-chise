@@ -333,7 +333,7 @@
     (ucs			. #x8EB1)	; 躱
     ))
 (define-char
-  '((->ucs		. #x8EB1)	; 躱
+  '((=>ucs		. #x8EB1)	; 躱
     (morohashi-daikanwa	38078 0 0)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 6)
@@ -350,7 +350,7 @@
     (ucs		. #x8EB2)	; 躲
     ))
 (define-char
-  '((->ucs		. #x8EB2)	; 躲
+  '((=>ucs		. #x8EB2)	; 躲
     (morohashi-daikanwa	38079 0 0)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 6)
@@ -525,7 +525,7 @@
     (ucs		. #x8EB7)	; 躷
     ))
 (define-char
-  '((->ucs		. #x8EB7)	; 躷
+  '((=>ucs		. #x8EB7)	; 躷
     (morohashi-daikanwa	38101 0 1)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 8)
@@ -570,7 +570,7 @@
     (ideograph-daikanwa . 38107)	; �����
     ))
 (define-char
-  '((->ucs		. #x8EBA)	; 躺
+  '((=>ucs		. #x8EBA)	; 躺
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 8)
     (total-strokes	 . 15)
@@ -617,7 +617,7 @@
     (ucs		. #x8EBD)	; 躽
     ))
 (define-char
-  '((->ucs		. #x8EBD)	; 躽
+  '((=>ucs		. #x8EBD)	; 躽
     (morohashi-daikanwa	38114 0 1)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 9)
@@ -625,7 +625,7 @@
     (chinese-cns11643-2 . #x5A74)	; �����
     ))
 (define-char
-  '((->ucs		. #x483C)	; 䠼
+  '((=>ucs		. #x483C)	; 䠼
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
@@ -730,8 +730,10 @@
 (define-char
   '((ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 10)
+    (total-strokes	 . 17)
     (japanese-jisx0213-1	. #x7C49)	; �����
     (ideograph-daikanwa		. 38133)	; �����
+    (ucs			. #x28277)	; 𨉷
     ))
 (define-char
   '((ideographic-radical . 158)	; ⾝
@@ -760,7 +762,7 @@
     (ideograph-daikanwa		. 38137)	; �����
     ))
 (define-char
-  '((->ucs		. #x8EC0)	; 軀
+  '((=>ucs		. #x8EC0)	; 軀
     (morohashi-daikanwa	38137 0 1)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 11)
@@ -776,7 +778,7 @@
     (ucs		. #x8EC0)	; 軀
     ))
 (define-char
-  '((->ucs		. #x8EAF)	; 躯
+  '((=>ucs		. #x8EAF)	; 躯
     (morohashi-daikanwa	38137 0 5)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 4)
@@ -1004,7 +1006,7 @@
     (ucs		. #x4841)	; 䡁
     ))
 (define-char
-  '((->ucs		. #x4841)	; 䡁
+  '((=>ucs		. #x4841)	; 䡁
     (morohashi-daikanwa	38166 0 0)
     (ideographic-radical . 158)	; ⾝
     (ideographic-strokes . 16)
