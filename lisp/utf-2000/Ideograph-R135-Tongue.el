@@ -461,12 +461,16 @@
       (->same*sources
        daikanwa)
       (<-vulgar@jiyun
-       ((=daikanwa	    . 38649)	; &I-M-38649;
+       ((=jis-x0212	    . #x6130)	; &M-38649;
+	(=jis-x0213-2-2000  . #x7967)	; &I-JX2-7967;
+	(=daikanwa	    . 38649)	; &I-M-38649;
 	))
       (<-vulgar@jiyun*sources
        daikanwa)
       (<-vulgar@zhengzi-tong
-       ((=daikanwa	    . 38671)	; &I-M-38671;
+       ((=jis-x0208	    . #x6D66)	; &GT-51611;
+	(=ks-x1001	    . #x5E76)	; &I-K0-5E76;
+	(=daikanwa	    . 38671)	; &I-M-38671;
 	))
       (<-vulgar@zhengzi-tong*sources
        daikanwa)

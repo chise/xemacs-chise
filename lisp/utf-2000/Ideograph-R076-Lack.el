@@ -2112,46 +2112,51 @@
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (=cns11643-7	. #x2378)	; &C7-2378;
-    ))
-(define-char
-  '((=>ucs		. #x6B54)	; 歔
-    (ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (shinjigen-1	. 3943)
-    (shinjigen-2	. 3943)
-    (=jis-x0208		. #x5D41)	; &GT-20820;
-    (=big5		. #xE9DF)	; &I-B-E9DF;
-    (=gt		. 20820)	; &I-GT-20820;
-    (=gt-pj-1		. #x5D41)	; &I-GT-20820;
-    (=daikanwa		. 16198)	; &I-M-16198;
-    (=ucs@jis		. #x6B54)	; &GT-20820;
-    ))
-(define-char
-  '((=>ucs		. #x6B54)	; 歔
-    (morohashi-daikanwa	16198 0 0)
-    (ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 12)
-    (total-strokes	 . 16)
-    (=cns11643-2	. #x576A)	; &C2-576A;
-    ))
-(define-char
-  '((morohashi-daikanwa	16198 0 2)
-    (ideographic-radical . 76)	; ⽋
-    (ideographic-strokes . 11)
-    (total-strokes	 . 15)
-    (<-wrong-ideograph
-     ((shinjigen-1	  . 3943)
-      (=daikanwa	  . 16198)	; &I-M-16198;
-      ))
-    (<-wrong-ideograph*sources
-     shinjigen-1)
-    (shinjigen-1	. 3944)
     (=ucs		. #x6B54)	; 歔
-    (=iso-ir165		. #x2E55)	; &I-EGB-2E55;
+    ))
+(define-char
+  '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (<-denotational
+     ((=ucs		  . #x6B54)	; 歔
+      ))
+    (->subsumptive
+     ((shinjigen-1	  . 3943)
+      (shinjigen-2	  . 3943)
+      (=jis-x0208	  . #x5D41)	; &GT-20820;
+      (=big5		  . #xE9DF)	; &I-B-E9DF;
+      (=gt		  . 20820)	; &I-GT-20820;
+      (=gt-pj-1		  . #x5D41)	; &I-GT-20820;
+      (=daikanwa	  . 16198)	; &I-M-16198;
+      (=ucs@jis		  . #x6B54)	; &GT-20820;
+      )
+     ((=cns11643-2	  . #x576A)	; &C2-576A;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 76)	; ⽋
+    (ideographic-strokes . 11)
+    (total-strokes	 . 15)
+    (<-denotational
+     ((=ucs		  . #x6B54)	; 歔
+      ))
+    (->subsumptive
+     ((<-wrong
+       ((shinjigen-1	    . 3943)
+	(=jis-x0208	    . #x5D41)	; &GT-20820;
+	(=daikanwa	    . 16198)	; &I-M-16198;
+	))
+      (<-wrong*sources
+       shinjigen-1)
+      (shinjigen-1	  . 3944)
+      (=iso-ir165	  . #x2E55)	; &EGB-2E55;
+      (=ucs@unicode	  . #x6B54)	; &EGB-2E55;
+      )
+     ((=>ucs*		  . #x6B54)	; 歔
+      (=ucs		  . #x2F8F1)	; 歔
+      (=cns11643-7	  . #x2378)	; &I-C7-2378;
+      ))
     ))
 (define-char
   '((ideographic-radical . 76)	; ⽋

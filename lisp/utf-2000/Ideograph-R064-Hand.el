@@ -2468,17 +2468,22 @@
   '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 2896)
     (=ucs		. #x62C9)	; 拉
-    (=jis-x0208		. #x5947)	; &I-J90-5947;
-    (=gb2312		. #x402D)	; &I-G0-402D;
-    (=ks-x1001		. #x5543)	; &I-K0-5543;
-    (=cns11643-1	. #x4D56)	; &I-C1-4D56;
     (=big5		. #xA9D4)	; &I-B-A9D4;
-    (=gt		. 15116)	; &I-GT-15116;
-    (=gt-k		. 03881)	; &I-GT-K03881;
-    (=gt-pj-1		. #x5947)	; &I-GT-15116;
-    (=daikanwa		. 11946)	; &I-M-11946;
+    (->subsumptive
+     ((shinjigen-2	  . 2896)
+      (=jis-x0208	  . #x5947)	; &GT-15116;
+      (=ks-x1001	  . #x5543)	; &I-K0-5543;
+      (=gt		  . 15116)	; &I-GT-15116;
+      (=gt-k		  . 03881)	; &I-GT-K03881;
+      (=gt-pj-1		  . #x5947)	; &I-GT-15116;
+      (=daikanwa	  . 11946)	; &I-M-11946;
+      (=ucs@jis		  . #x62C9)	; &GT-15116;
+      )
+     ((=gb2312		  . #x402D)	; &C1-4D56;
+      (=cns11643-1	  . #x4D56)	; &I-C1-4D56;
+      (=ucs@unicode	  . #x62C9)	; &C1-4D56;
+      ))
     ))
 (define-char
   '((ideographic-radical . 64)	; ⼿

@@ -246,20 +246,10 @@
     (mojikyo		. 000169)	; &MCS-600000A9;
     ))
 (define-char
-  '((=>ucs		. #x20088)	; 𠂈
-    (ideographic-radical . 5)	; ⼄
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (hanyu-dazidian	1 49 4)
-    (=big5-cdp		. #x87F5)	; &CDP-87F5;
-    ))
-(define-char
   '((ideographic-radical . 5)	; ⼄
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 49)
-    (hanyu-dazidian-char . 8)
+    (hanyu-dazidian	1 49 8)
     (=big5-cdp		. #x8871)	; &CDP-8871;
     ))
 (define-char

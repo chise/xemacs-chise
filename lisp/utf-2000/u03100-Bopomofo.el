@@ -95,10 +95,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	3)
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=ucs		  . #x4E02)	; 丂
       ))
@@ -203,10 +199,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	9)
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=daikanwa	  . 00009)	; &I-M-00009;
       ))
@@ -241,12 +233,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	4)
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
-     ((=daikanwa	  . 00004)	; &I-M-00004;
+     ((=ucs		  . #x20000)	; 𠀀
+      (=daikanwa	  . 00004)	; &I-M-00004;
       ))
     (=ucs		. #x311B)	; ㄛ
     (=gb2312		. #x285B)	; &I-G0-285B;
@@ -259,10 +248,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	5)
-    (ideographic-radical . 1)	; ⼀
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=daikanwa	  . 00005)	; &M-00005;
       ))
@@ -387,10 +372,6 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	115)
-    (ideographic-radical . 4)	; ⼃
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
     (<-bopomofo
      ((=ucs		  . #x3405)	; 㐅
       ))

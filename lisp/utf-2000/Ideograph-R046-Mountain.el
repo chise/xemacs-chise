@@ -696,16 +696,21 @@
   '((ideographic-radical . 46)	; ⼭
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
-    (shinjigen-2	. 1960)
     (=ucs		. #x5C8C)	; 岌
-    (=jis-x0208		. #x5629)	; &I-J90-5629;
-    (=gb2312		. #x6127)	; &I-G0-6127;
-    (=cns11643-1	. #x4A26)	; &I-C1-4A26;
-    (=big5		. #xA7C4)	; &I-B-A7C4;
-    (=gt		. 09964)	; &I-GT-09964;
-    (=gt-k		. 02699)	; &I-GT-K02699;
-    (=gt-pj-1		. #x5629)	; &I-GT-09964;
-    (=daikanwa		. 07929)	; &I-M-07929;
+    (->subsumptive
+     ((shinjigen-2	  . 1960)
+      (=jis-x0208	  . #x5629)	; &GT-09964;
+      (=cns11643-1	  . #x4A26)	; &I-C1-4A26;
+      (=gt		  . 09964)	; &I-GT-09964;
+      (=gt-k		  . 02699)	; &I-GT-K02699;
+      (=gt-pj-1		  . #x5629)	; &I-GT-09964;
+      (=daikanwa	  . 07929)	; &I-M-07929;
+      (=ucs@jis		  . #x5C8C)	; &GT-09964;
+      )
+     ((=gb2312		  . #x6127)	; &G0-6127;
+      (=big5		  . #xA7C4)	; &I-B-A7C4;
+      (=ucs@unicode	  . #x5C8C)	; &G0-6127;
+      ))
     ))
 (define-char
   '((ideographic-radical . 46)	; ⼭

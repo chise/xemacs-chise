@@ -28,44 +28,43 @@
     (=cns11643-1	. #x442B)	; &I-C1-442B;
     ))
 (define-char
-  '((=>ucs		. #x204DB)	; 𠓛
-    (ideographic-radical . 11)	; ⼊
+  '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-wrong-ideograph
-     (:char	((=daikanwa	     . 00345)	; &I-M-00345;
-		 )
-      :sources	(seiji-tsuu morohashi-daikanwa)))
-    (hanyu-dazidian	1 102 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=jis-x0208	  . #x467E)	; &GT-01850;
-      (=ks-x1001	  . #x6C7D)	; &I-K0-6C7D;
-      (=daikanwa	  . 01415)	; &I-M-01415;
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
-    (=daikanwa		. 01416)	; &M-01416;
-    (=hanziku-1		. #xB8E0)	; &I-HZK01-B8E0;
-    (mojikyo		. 001416)	; &MCS-60000588;
-    ))
-(define-char
-  '((morohashi-daikanwa	1416 0 0)
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (=ucs		  . #x2FF1)	; ⿱
-      )
-     ((=ucs		  . #x5165)	; 入
-      )
-     ((=ucs		  . #x4E00)	; 一
-      ))
     (=ucs		. #x204DB)	; 𠓛
-    (=cns11643-6	. #x2136)	; &I-C6-2136;
+    (->subsumptive
+     ((<-wrong
+       ((=ucs		    . #x4EBC)	; 亼
+	(=daikanwa	    . 00345)	; &I-M-00345;
+	))
+      (<-wrong*sources
+       zhengzi-tong daikanwa)
+      (hanyu-dazidian	  1 102 3)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=jis-x0208	    . #x467E)	; &GT-01850;
+	(=ks-x1001	    . #x6C7D)	; &I-K0-6C7D;
+	(=daikanwa	    . 01415)	; &I-M-01415;
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=daikanwa	  . 01416)	; &M-01416;
+      (=hanziku-1	  . #xB8E0)	; &I-HZK01-B8E0;
+      (mojikyo		  . 001416)	; &MCS-60000588;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(=ucs		    . #x2FF1)	; ⿱
+	)
+       ((=ucs		    . #x5165)	; 入
+	)
+       ((=ucs		    . #x4E00)	; 一
+	))
+      (=cns11643-6	  . #x2136)	; &C6-2136;
+      (=ucs@iso		  . #x204DB)	; &C6-2136;
+      ))
     ))
 (define-char
   '((=>ucs		. #x5166)	; 兦

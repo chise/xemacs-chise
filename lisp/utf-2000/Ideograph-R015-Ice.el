@@ -217,57 +217,60 @@
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (<-wrong-ideograph
-     (:sources	(morohashi-daikanwa shinjigen-1)
-      :char	((shinjigen-1	     . 542)
-		 (=daikanwa	     . 01613)	; &I-M-01613;
-		 )
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x51AB)	; 冫
-      )
-     ((=ucs		  . #x7259)	; 牙
-      ))
-    (shinjigen-1	. 544)
-    (shinjigen-2	. 544)
     (=ucs		. #x51B4)	; 冴
-    (=cns11643-3	. #x227C)	; &I-C3-227C;
-    (=daikanwa		. 01615)	; &I-M-01615;
-    (mojikyo		. 001615)	; &MCS-6000064F;
-    ))
-(define-char
-  '((=>ucs		. #x51B4)	; 冴
-    (morohashi-daikanwa	1615 0 1)
-    (ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=jis-x0208-1978	. #x3A63)	; &J78-3A63;
-    ))
-(define-char
-  '((=>ucs		. #x51B4)	; 冴
-    (morohashi-daikanwa	1615 0 2)
-    (ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=jis-x0208-1983	. #x3A63)	; &GT-02143;
-    (=jis-x0208-1990	. #x3A63)	; &I-J90-3A63;
-    (=gt		. 02143)	; &I-GT-02143;
-    (=gt-pj-1		. #x3A63)	; &I-GT-02143;
-    (=jef-china3	. #x44A5)	; &I-JC3-44A5;
-    (=ucs@jis		. #x51B4)	; &GT-02143;
-    ))
-(define-char
-  '((=>ucs		. #x51B4)	; 冴
-    (morohashi-daikanwa	1615 0 3)
-    (ideographic-radical . 15)	; ⼎
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (=cbeta		. 06339)	; &CB06339;
+    (->subsumptive
+     ((ideographic-strokes . 4)
+      (total-strokes	   . 6)
+      (->subsumptive
+       ((<-wrong
+	 ((shinjigen-1	      . 542)
+	  (=ucs		      . #x51B1)	; 冱
+	  (=jis-x0208	      . #x5154)	; &I-J90-5154;
+	  (=daikanwa	      . 01613)	; &I-M-01613;
+	  ))
+	(<-wrong*sources
+	 daikanwa shinjigen-1)
+	(ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x51AB)	; 冫
+	  )
+	 ((=ucs		      . #x7259)	; 牙
+	  ))
+	(shinjigen-1	    . 544)
+	(shinjigen-2	    . 544)
+	(=daikanwa	    . 01615)	; &M-01615;
+	(=ucs@unicode	    . #x51B4)	; &M-01615;
+	(mojikyo	    . 001615)	; &MCS-6000064F;
+	)
+       ((ideographic-structure
+	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	  (=ucs		      . #x2FF0)	; ⿰
+	  )
+	 ((=ucs		      . #x51AB)	; 冫
+	  )
+	 ((=cns11643-1	      . #x455B)	; &M-19909;
+	  (=daikanwa	      . 19909)	; &I-M-19909;
+	  ))
+	(=cns11643-3	    . #x227C)	; &C3-227C;
+	))
+      )
+     ((ideographic-strokes . 5)
+      (total-strokes	   . 7)
+      (->subsumptive
+       ((=jis-x0208-1978    . #x3A63)	; &J78-3A63;
+	)
+       ((=jis-x0208-1983    . #x3A63)	; &GT-02143;
+	(=jis-x0208-1990    . #x3A63)	; &I-J90-3A63;
+	(=gt		    . 02143)	; &I-GT-02143;
+	(=gt-pj-1	    . #x3A63)	; &I-GT-02143;
+	(=jef-china3	    . #x44A5)	; &I-JC3-44A5;
+	(=ucs@jis	    . #x51B4)	; &GT-02143;
+	)
+       ((=cbeta		    . 06339)	; &CB06339;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 15)	; ⼎
@@ -275,6 +278,8 @@
     (total-strokes	 . 6)
     (<-vulgar
      ((shinjigen-1	  . 4092)
+      (=ucs		  . #x6C96)	; 沖
+      (=jis-x0208	  . #x322D)	; &I-J90-322D;
       (=daikanwa	  . 17209)	; &I-M-17209;
       ))
     (<-vulgar*sources
@@ -309,6 +314,8 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4080)
+	(=jis-x0208	    . #x3768)	; &GT-21966;
+	(=ks-x1001	    . #x4C3D)	; &I-K0-4C3D;
 	(=daikanwa	    . 17174)	; &I-M-17174;
 	))
       (<-vulgar*sources
@@ -377,6 +384,8 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 4122)
+      (=ucs		  . #x6CC1)	; 況
+      (=jis-x0208	  . #x3637)	; &I-J90-3637;
       (=daikanwa	  . 17264)	; &I-M-17264;
       ))
     (<-vulgar*sources
@@ -1238,6 +1247,7 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4308)
+	(=jis-x0208	    . #x4E43)	; &GT-22670;
 	(=daikanwa	    . 17606)	; &I-M-17606;
 	))
       (<-vulgar*sources
@@ -1929,6 +1939,8 @@
     (->subsumptive
      ((<-vulgar
        ((shinjigen-1	    . 4378)
+	(=jis-x0208	    . #x3D60)	; &GT-22976;
+	(=ks-x1001	    . #x715E)	; &I-K0-715E;
 	(=daikanwa	    . 17934)	; &I-M-17934;
 	))
       (<-vulgar*sources

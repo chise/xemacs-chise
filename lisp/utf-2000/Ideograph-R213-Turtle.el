@@ -278,7 +278,7 @@
      ((=daikanwa	  . 24940)	; &I-M-24940;
       ))
     (<-ancient-ideograph*sources
-     jii morohashi-daikanwa)
+     zihui daikanwa)
     (=jis-x0208-1983	. #x6354)	; &GT-32753;
     (=jis-x0208-1990	. #x6354)	; &I-J90-6354;
     (=gt		. 32753)	; &I-GT-32753;

@@ -1,3 +1,629 @@
+2004-05-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R177-Leather.el: Use `->subsumptive' for some
+	character definitions.
+	(M-42712): Unify U-0002925C.
+	(U+976C): Unify JC3-8DBD.
+	(U+9773): Unify JC3-6CC1.
+	(J90-3724): Unify JC3-6CCB.
+	(U+9776): Unify JC3-8BF4.
+	(J90-3373): Unify JC3-6CCA.
+	(G0-474A): Unify JC3-6CCC.
+	(M-42896): Unify CB02709.
+	(M-42899): Unify U-000292D7.
+	(JSP-674A): Unify JC3-6CC2; separate C3-567B; moved into U+979F.
+	(U+979F): Use `->subsumptive'.
+	(U+97AE): Unify JC3-6CC3.
+	(C5-5F64): Map to M-42945.
+	(JSP-674E): Unify JC3-6CC4.
+	(JSP-6752): Unify JC3-6CC5.
+	(U+97BC): Unify JC3-6CC6.
+	(M-43036): Unify JC3-6CC7.
+	(U+97C1): Unify JC3-6CC8.
+	(GT-57774): Unify JC3-6CC9.
+
+2004-05-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el: Add mappings for Big5 code points.
+
+2004-05-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R175-Wrong.el: Use `->subsumptive' for some character
+	definitions.
+	(C5-3D42): Map to U-000291EE.
+	(M-42603): Map to U-000291F6.
+
+	* Ideograph-R176-Face.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+	(M-42632): Unify U-0002920B.
+	(U-00029210): New character.
+	(M-42643): Unify U-00029214.
+	(M-42644): Unify U-00029217.
+	(U-00029237): New character.
+	(U-0002923F): New character.
+	(U+4A4D): Unify JC3-6CBC.
+	(U-00029250): New character.
+
+2004-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (U+62C9): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+5566): Use `->subsumptive'.
+	(U+5568): Likewise; integrate M-42566; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+	(U-00020D52): Use `->subsumptive'.
+
+2004-05-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R174-Blue.el: Use `->subsumptive' for some character
+	definitions.
+	(M-42566): Map to U+5568; use
+	`ideographic-{radical|strokes}@{ucs@daikanwa}' and
+	`ideographic-radical@ucs*sources'.
+	(C5-7162): Map to U-000291E3.
+
+	* Ideograph-R141-Tiger.el: Use `->subsumptive' for some character
+	definitions.
+	(U+865C): Define as an abstract character.
+	(JX1-7B4F): Use `<-denotational' for U+865C; use `->subsumptive'
+	to integrate U+F936 and C1-663F.
+	(J0-4E3A): Use `<-denotational' for U+865C; use `->subsumptive' to
+	integrate U-0002F9B4.
+
+	* Ideograph-R057-Bow.el (U-00020134): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+	(M-09783): Unify U-000223DC and H3-CB5E.
+	(M-09784): Unify U-000223DE and H3-CB76.
+	(M-09785): Unify U-000223DD and H3-CB75.
+	(M-09786): Unify U-000223DF and H3-CB78.
+	(U+5F2F): Use `->subsumptive'.
+
+2004-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R124-Feather.el: Use `->subsumptive' for some
+	character definitions.
+
+2004-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U-00020AF8): Use `->subsumptive'.
+	(U-00020AFC): Unify GT-00368 and GT-K06658.
+
+	* Ideograph-R013-Down-Box.el (U+56D8): Use `->subsumptive'.
+
+2004-05-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R007-Two.el: Add some GT code points.
+	(U-0002011E): Separate H1-A4A3.
+	(U-00020120): Unify H1-A4A3.
+
+	* Ideograph-R039-Child.el (U+5B6B): Use `->subsumptive'.
+	(U+3743): Likewise.
+	(U+5B6C): Likewise.
+	(U-0002196A): Likewise.
+	(U-00022232): Likewise.
+	(U-0002196D): Likewise.
+
+	* Ideograph-R030-Mouth.el (U+5617): Use `->subsumptive'.
+	(U+5653): Likewise.
+	(U+5618): Likewise.
+
+2004-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el: Add mappings for Big5 code points.
+
+	* Ideograph-R062-Halberd.el (U+6231): Use `->subsumptive'.
+
+	* Ideograph-R036-Evening.el (C6-243B): Separate M-05757; unify
+	U-0002F85D; use `<-denotational' for U+591A.
+	(M-05757): Separate C6-243B; unify U-21587 and H3-ADA3; add
+	`->same' for M-05756.
+	(U-00021588): Add `->same' for M-05756.
+	(U+591B): Add `<-vulgar' for M-05756.
+	(U-00022EC8): Unify H4-B9B4.
+	(U-000215CC): Use `->subsumptive'.
+	(U-00023873): Likewise.
+
+	* Ideograph-R030-Mouth.el (U-00020FC5): Use `->subsumptive'.
+	(U-0002018A): Likewise.
+	(U-00020FC6): Likewise.
+	(U+561F): Likewise.
+	(U-000203E7): Likewise.
+	(U+5655): Likewise.
+	(M-04331): Unify U-00020FA2.
+	(U-00020FA5): Use `->subsumptive'.
+	(U-000203D3): Likewise.
+	(U-00020FAF): Likewise.
+	(M-04335): Unify U-00020FA9.
+	(M-04336): Unify U-00020FA3.
+	(M-04337): Unify U-00020FAB.
+	(U-00020FB0): Use `->subsumptive'.
+	(M-04339): Unify U-00020FA4.
+	(M-04341): Map to U-00020FAE.
+	(M-04342): Unify U-00020FAC.
+	(U-00020FA6): Use `->subsumptive'.
+	(U+5656): Likewise.
+
+2004-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U-00021A5F): Use `->subsumptive'.
+	(U+5BD6): Likewise.
+	(U-00021A60): Likewise.
+	(U+5BD7): Likewise.
+	(U-00021A61): Likewise.
+	(U+5BD8): Likewise.
+	(U-00021A62): Likewise.
+	(U-00021A63): Likewise.
+	(U+5BD9): Likewise.
+	(U-00021A64): Likewise.
+	(U+3764): Likewise.
+	(U-00021A65): Likewise.
+	(U+3765): Likewise.
+	(U+5BDA): Likewise.
+	(U-00021A67): Likewise.
+	(U-00021A66): Likewise.
+	(U-00021A68): Likewise.
+	(U+3766): Likewise.
+	(U+3767): Likewise.
+	(U-00021A69): Likewise.
+	(U-00021A6A): Likewise.
+	(U-00021A7A): Likewise.
+	(U+5BDC): Likewise.
+	(U-00021A6C): Likewise.
+	(U+5BDD): Likewise.
+	(U-00021A6D): Likewise.
+	(U-00021A77): Likewise.
+
+	* Ideograph-R052-Short-Thread.el:
+	- Use `->subsumptive' for some character definitions.
+	- Add some mappings to Daikanwa numbers.
+	(U-000221B2): Unify M-09194.
+	(M-09199): New character.
+	(U-000221BB): New character [copied from Ideograph-R016-Table.el].
+	(M-09210): New character.
+
+	* Ideograph-R016-Table.el (M-01774): Unify U-0002064E.
+	(U-000221BB): Use `->subsumptive',
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' to integrate M-09200; add
+	`<-ancient-ideograph' for M-09208.
+
+	* Ideograph-R054-Long-Stride.el (M-09582): Map to U-000262EA.
+
+2004-05-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R086-Fire.el (U-00024186): Use `->subsumptive'.
+	(U+7071): Likewise.
+	(U+7072): Likewise.
+	(U-00024184): Likewise.
+	(U-00024185): Likewise.
+	(U+7073): Likewise.
+	(U-0002418B): Likewise.
+	(U+7074): Likewise.
+	(U+7075): Likewise.
+	(U+7076): Likewise.
+	(U+3DA3): Likewise.
+	(U+7077): Likewise.
+	(U+7078): Likewise.
+
+2004-05-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R054-Long-Stride.el: Use `->subsumptive' for some
+	character definitions.
+	(M-09581): Map to U-00023261.
+
+2004-05-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R055-Two-Hands.el: Use `->subsumptive' for some
+	character definitions.
+	(U+5EFE): Define as an abstract character.
+	(J0-5730): Separate U+5EFE; use `<-denotational' for U+5EFE.
+	(C6-2174): Unify U-0002F890; use `<-denotational' for U+5EFE.
+	(M-09590): Map to U-0002232E.
+	(M-09602): Unify U-00022339.
+	(M-09615): Unify U-00022347.
+	(M-09616): Unify U-00022348.
+	(M-09623): Unify U-00022351.
+	(M-09624): Map to U-00022353.
+	(U+5F09): Unify CB04455.
+
+	* Ideograph-R051-Dry.el: Add some mappings to Daikanwa numbers.
+	(U-000221A6): New character.
+
+2004-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R008-Lid.el (U-00020179): Use `->subsumptive';
+	integrate M-09212; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+2004-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el (U+8201): Use `->subsumptive'.
+
+2004-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-000203D3): Use `->subsumptive' to
+	integrate M-04333; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+2004-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R117-Stand.el, Ideograph-R029-Again.el,
+	Ideograph-R019-Power.el: Use `->subsumptive' for some character
+	definitions.
+
+2004-05-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (J0-355A): Add
+	`ideographic-{radical|strokes}@ucs' and
+	`ideographic-radical@ucs*sources' again.
+
+	* Ideograph-R085-Water.el (U+6FE8): Use `->subsumptive'.
+	(U+6FE9): Likewise.
+	(U+6FEA): Likewise.
+	(U-00024028): Likewise.
+
+	* Ideograph-R079-Weapon.el (U+3C7E): Use `->subsumptive'.
+	(U+3C7F): Likewise.
+	(U+6BB7): Likewise.
+	(M-16628): Map to U-00023A89.
+
+	* Ideograph-R010-Legs.el (B-A552): Use `->subsumptive'.
+	(G0-3364): Moved into B-A552.
+	(U+514C): Add `<-denotational' for B-A749; separate B-A749.
+	(B-A749): Define as an abstract character.
+	(U+5151): Add `<-denotational' for B-A749.
+	(U-0002047D): Use `->subsumptive'.
+	(U+5157): Likewise.
+
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R141-Tiger.el (U+4595): Use `->subsumptive'.
+	(U-000271BC): Likewise.
+	(U+4596): Likewise.
+	(U+865F): Likewise.
+
+	* Ideograph-R117-Stand.el (U+7AD1): Use `->subsumptive'.
+	(U+7AD2): Likewise.
+	(U+41C6): Likewise.
+	(U+7AD3): Likewise.
+	(U+7AD4): Likewise.
+	(U+7AD5): Likewise.
+
+	* Ideograph-R113-Spirit.el (U-00025608): Use `->subsumptive'.
+	(U-0002560A): Likewise.
+	(U-0002560B): Likewise.
+	(U+40FE): Likewise.
+	(U+4104): Likewise.
+	(U+4105): Likewise.
+	(U+7966): Likewise.
+
+	* Ideograph-R075-Tree.el (U+681E): Use `->subsumptive'.
+	(U+6820): Likewise.
+	(U+6823): Likewise.
+	(U+6821): Likewise.
+
+	* Ideograph-R165-Distinguish.el (U-00028910): Use `->subsumptive'.
+	(U-00028911): Likewise.
+	(U+91C9): Likewise.
+
+	* Ideograph-R009-Man.el (U-000203E7): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' instead of `ideographic-';
+	integrate M-04329.
+
+	* Ideograph-R140-Grass.el (U+8649): Use `->subsumptive'.
+	(M-32636): Map to U-0002716F and use `->subsumptive'.
+	(C7-6255): Likewise.
+	(U-0002716F): Use `->subsumptive'; integrate M-32636 and C7-6255.
+	(U-00027170): Use `->subsumptive'.
+	(C7-6253): Map to U-00027171 and use `->subsumptive'.
+	(U-00027171): Use `->subsumptive'.
+	(C7-613C): Map to U-00027174 and use `->subsumptive'.
+	(U-00027174): New character.
+	(U-00027186): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources'.
+	(U+457F): Use `->subsumptive'.
+	(U-0002717A): Likewise.
+
+2004-05-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el: Add some mappings to Daikanwa numbers.
+	(M-08865): Unify GT-11193.
+
+	* Ideograph-R036-Evening.el (M-05775): Moved into U-00020157.
+	(CB03754): Likewise.
+	(U-00020157): Use `->subsumptive'; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@cns*sources' instead of `ideographic-'.
+	(IU-00020157): Unify C5-2C66 and H1-E153.
+
+	* Ideograph-R008-Lid.el: Use `->subsumptive' for some character
+	definitions.
+
+2004-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R017-Open-Box.el (U+342B): Use `->subsumptive';
+	integrate BC-8C5E [copied from Ideograph-R008-Lid.el].
+
+	* Ideograph-R113-Spirit.el: Add mappings for Big5 code points.
+
+2004-05-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el, Ideograph-R114-Track.el: Add mappings
+	for Big5 code points.
+
+	* Ideograph-R030-Mouth.el: Use `->subsumptive' for some character
+	definitions.
+	(M-03842): Map into U-00020D3F.
+	(U-00020D3F): Integrate with M-03842.
+	(U-00021153): Integrate with M-04623.
+	(U-0002115B): Integrate with M-04636.
+	(U-00021174): Unify M-04649.
+	(U-00021175): Integrate with M-04651.
+
+2004-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R116-Cave.el: Add mappings for Big5 code points.
+
+	* Ideograph-R051-Dry.el (U+5E73): Use `->subsumptive'.
+	(M-09167): Moved into U+5E73; unify GT-11550 and GT-K01070.
+	(U+5E75): Use `->subsumptive'.
+	(U-0002218A): Use `->subsumptive'.
+	(U-0002218D): likewise.
+	(M-09174): Unify U-0002218C.
+	(U+5E77): Use `->subsumptive'.
+	(U-00022192): Likewise.
+	(U-0002219C): Likewise.
+	(U-000221AC): Likewise.
+
+2004-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R040-Roof.el (U+5BDB): Use `->subsumptive'.
+	(U+5BEC): Likewise.
+	(M-07322): Moved into U+5BEC; unify JC3-4AC6.
+
+2004-05-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R178-Tanned-Leather.el (U+97CB): Use `->subsumptive'.
+	(U+97CC): Likewise.
+
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (M-02400): Moved into U-00020880.
+	(U-00020880): Use `->subsumptive'; integrate M-02400.
+	(U-00020884): Use `->subsumptive'.
+
+2004-05-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R213-Turtle.el (J90-6354): Use `zihui' and `daikanwa'
+	instead of `jii' and `morohashi-daikanwa' in
+	`<-ancient-ideograph*sources'.
+
+2004-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (BC-87D9): Unify U-000200A3; moved into
+	Ideograph-R004-Slash.el.
+	(BC-8871): Use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R004-Slash.el: Use `->subsumptive' for some character
+	definitions.
+	(U-000200A3): Unify BC-87D9.
+
+	* Ideograph-R177-Leather.el (U+976D): Delete `=>daikanwa'.
+
+	* Ideograph-R009-Man.el (U-00020398): Use `->subsumptive' to
+	integrate M-24898.
+
+	* char-db-util.el (char-db-feature-domains): Add `cdp'.
+	(insert-char-attributes): Don't display `<-same' when running with
+	non-readable mode.
+
+2004-05-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u03100-Bopomofo.el (<BOPOMOFO LETTER K>): Delete
+	`morohashi-daikanwa', `ideographic-radical', `ideographic-strokes'
+	and `total-strokes'.
+	(<BOPOMOFO LETTER C>): Likewise.
+	(<BOPOMOFO LETTER O>): Likewise.
+	(<BOPOMOFO LETTER E>): Likewise.
+	(<BOPOMOFO LETTER U>): Likewise.
+
+	* Ideograph-R012-Eight.el (U+516B): Use `->subsumptive'.
+	(GT-K00059): Use `<-denotational' for U+516B; add
+	`<-ideographic-component-forms' for U+516B.
+
+	* Ideograph-R003-Dot.el (U+4E3E): Modify `ideographic-structure'.
+
+	* Ideograph-R104-Sickness.el (U+7613): Use `->subsumptive'.
+
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U+5C8C): Use `->subsumptive'.
+
+2004-05-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R115-Grain.el (U+7A4E): Use `->subsumptive'.
+
+2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R181-Leaf.el (U+9834): Use `->subsumptive'.
+
+	* Ideograph-R113-Spirit.el (M-24824): Use `zhengzi-tong' instead
+	of `seiji-tsuu' in `<-vulgar*sources'.
+
+	* Ideograph-R165-Distinguish.el (GT-53949): Use `<-denotational'
+	for U+91C8.
+	(U+91C8): Define as an abstract character.
+	(J0-3C61): Separate U+91C8; use `<-denotational' for U+91C8.
+
+2004-05-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R113-Spirit.el (M-24754): Moved into U+7985.
+	(U+7985): Use `->subsumptive'.
+	(M-24824): Moved into U+9834.
+	(C3-5228): Moved into U+9834.
+	(U+9834): Use `->subsumptive'.
+
+	* Ideograph-R085-Water.el (U+6C7A): Use `->subsumptive'.
+	(C1-4A6E): Moved into U+6C7A.
+	(G0-4549): Separate U+6D3E; use `->subsumptive' to integrate
+	K0-776F; use `<-denotational' for U+6D3E.
+	(J83-4749): Use `->subsumptive' to integrate J90-4749; use
+	`<-denotational' for U+6D3E.
+	(U+6D3E): Define as an abstract character.
+	(C6-3242): Use `<-denotational' for U+6D3E; use `=>daikanwa'
+	instead of `morohashi-daikanwa'.
+
+	* Ideograph-R170-Mound.el (U+96A3): Use `->subsumptive'.
+	(C3-4F5A): Moved into U+96A3.
+	(J83-4E59): Likewise.
+	(J90-4E59): Likewise.
+
+	* Ideograph-R141-Tiger.el (M-32723): Use `->subsumptive'; use
+	`<-denotational' for U+865E.
+	(U+865E): Define as an abstract character.
+	(J0-3673): Use `<-denotational' for U+865E.
+	(G0-535D): Separate U+865E; use `<-denotational' for U+865E.
+
+	* Ideograph-R075-Tree.el (JSP-434D): Separate U+681F and B-D1D9;
+	use `<-denotational' for U+681F.
+	(U+681F): Define as an abstract character.
+	(M-15010): Moved into U-0002F8E5.
+	(U-0002F8E5): Use `->subsumptive'; use `<-denotational' for
+	U+681F.
+
+	* Ideograph-R037-Big.el (U-0002162C): Use `->subsumptive'.
+	(U-00021643): Likewise.
+
+	* Ideograph-R040-Roof.el (U+5BCC): Use `->subsumptive'.
+
+	* Ideograph-R030-Mouth.el (U+5674): Add `kangxi' into
+	`<-vulgar*sources'.
+	(U+5673): Use `->subsumptive'.
+	(C7-2C65): Unify U-0002F84F; add `<-denotational' for U+5674.
+
+	* Ideograph-R014-Cover.el (U+51A8): Add `zhengzi-tong' and
+	`daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Add `zhengzi-tong'
+	and `daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R018-Knife.el (U+5226): Add `->same' for U+5227 and
+	U+52AB.
+	(U+5227): Add `->same' for U+5226 and U+52AB.
+
+	* Ideograph-R006-Hook.el (U+4E8A): Add `songyuan-yilai-suzipu' and
+	`daikanwa' into `<-vulgar*sources'.
+
+	* Ideograph-R029-Again.el (U+53CC): Use `JP Jouyou' instead of
+	`JP-Jouyou' in `script'.
+
+2004-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R172-Short-Tailed-Bird.el: Add mappings between CJK
+	Ext B and CNS 11643 plain 5.
+	(M-41949): Moved into U+49F2.
+	(M-41956): Don't map into U+49F2.
+	(U+49F2): Use `->subsumptive'; integrate M-41949 instead of
+	M-41956.
+
+	* Ideograph-R182-Wind.el (U+98B0): Use `->subsumptive'.
+	(JSP-683D): Separate U+98B0; unify CB00584.
+	(C4-4857): Moved into U+98B0.
+	(CB02664): New character in U+98B0.
+
+2004-05-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R026-Seal.el (U+3541): Use `<-wrong*sources' instead
+	of char-ref in `<-wrong'; add `->mistakable' for M-39379; add
+	`<-vulgar' for M-02867.
+	(U+537B): Use `->subsumptive'.
+
+	* Ideograph-R171-Slave.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R130-Meat.el (JSP-564C): Moved into U+8196.
+	(U+8196): Use `->subsumptive'.
+	(M-29821): Moved into U-0002F989.
+	(U-0002F989): Use `->subsumptive'; add `<-denotational' for
+	U-00023393.
+	(U+442F): Use `->subsumptive'.
+	(C4-4C5C): Moved into U+442F.
+	(M-29824): Moved into U+8197.
+	(U+8197): Use `->subsumptive'.
+	(U+8198): Use `->subsumptive'.
+	(C1-6E51): Moved into U+8198.
+	(U+8199): Use `->subsumptive'.
+	(C2-532C): Moved into U+8199.
+
+	* Ideograph-R118-Bamboo.el (U+4227): Use `<-wrong*sources' instead
+	of char-ref in `<-wrong'.
+	(M-26564): Moved into U-0002F964.
+	(C7-413C): Likewise.
+	(U-0002F964): New character.
+
+	* Ideograph-R015-Ice.el (U+51B4): Use `->subsumptive'; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(J78-3A63): Moved into U+51B4.
+	(J83-3A63): Likewise.
+	(CB06339): Likewise.
+
+2004-04-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R076-Lack.el (U+6B54): Changed to an abstract
+	character.
+	(J0-5D41): Use `<-denotational' for U+6B54; use `->subsumptive' to
+	integrate C2-576A.
+	(EGB-2E55): Use `<-denotational' for U+6B54; use `->subsumptive'
+	to integrate C7-2378.
+	(C7-2378): Unify U-0002F8F1.
+
+2004-04-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (M-04033): Moved into U+55C0.
+	(U+55C0): Use `->subsumptive'.
+
+	* Ideograph-R018-Knife.el (J0-405A): Moved into U+5207.
+	(U+5207): Use `->subsumptive'.
+	(S1-0597): Use `<-denotational' for U+5207; use `<-wrong*sources'
+	instead of char-ref in `<-wrong'.
+	(M-02103): Moved into U-00020771; use `<-wrong*sources' instead of
+	char-ref in `<-wrong'.
+	(U-00020771): Use `->subsumptive'.
+
+	* Ideograph-R134-Mortar.el (U-0002695B): Use `<-wrong*sources'
+	instead of char-ref in `<-wrong'.
+
+	* Ideograph-R079-Weapon.el (M-16636): Moved into U-00023A8E; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-00023A8E): Use `->subsumptive'.
+
+	* Ideograph-R074-Moon.el (M-14394): Moved into U-00023393; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-00023393): Use `->subsumptive'.
+
+	* Ideograph-R011-Enter.el (M-01416): Moved into U-000204DB; use
+	`<-wrong*sources' instead of char-ref in `<-wrong'.
+	(U-000204DB): Use `->subsumptive'.
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->wrong' when running with non-readable mode.
+
+2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R134-Mortar.el, Ideograph-R118-Bamboo.el,
+	Ideograph-R079-Weapon.el, Ideograph-R076-Lack.el,
+	Ideograph-R074-Moon.el, Ideograph-R026-Seal.el,
+	Ideograph-R024-Ten.el, Ideograph-R018-Knife.el,
+	Ideograph-R015-Ice.el, Ideograph-R011-Enter.el: Rename
+	`<-wrong-ideograph' to `<-wrong'.
+
 2004-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R160-Bitter.el (U+8F9E): Changed to abstract

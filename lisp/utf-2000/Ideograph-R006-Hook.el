@@ -390,10 +390,12 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 69)
+      (=ucs		  . #x4E8B)	; 事
+      (=jis-x0208	  . #x3B76)	; &I-J90-3B76;
       (=daikanwa	  . 00241)	; &I-M-00241;
       ))
     (<-vulgar*sources
-     shinjigen-1)
+     songyuan-yilai-suzipu daikanwa shinjigen-1)
     (shinjigen-1	. 71)
     (shinjigen-2	. 71)
     (sound@ja/kun	"koto")

@@ -1,48 +1,43 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x516B)	; 八
-    (ideographic-radical . 12)	; ⼋
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (shinjigen-1	. 490)
-    (shinjigen-2	. 490)
-    (=jis-x0208		. #x482C)	; &GT-01888;
-    (=ks-x1001		. #x7822)	; &I-K0-7822;
-    (=big5		. #xA44B)	; &I-B-A44B;
-    (=gt		. 01888)	; &I-GT-01888;
-    (=gt-k		. 00056)	; &I-GT-K00056;
-    (=gt-pj-1		. #x482C)	; &I-GT-01888;
-    (=daikanwa		. 01450)	; &I-M-01450;
-    (=jef-china3	. #x43E4)	; &I-JC3-43E4;
-    (=ucs@jis		. #x516B)	; &GT-01888;
-    (=ucs@big5		. #x516B)	; &GT-01888;
-    ))
-(define-char
-  '((=>ucs		. #x516B)	; 八
-    (morohashi-daikanwa	1450 0 0)
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (shinjigen-1	. 489)
-    (shinjigen-2	. 489)
-    (=cns11643-1	. #x442C)	; &C1-442C;
-    (mojikyo		. 001450)	; &MCS-600005AA;
-    ))
-(define-char
-  '((morohashi-daikanwa	1450 0 1)
-    (ideographic-radical . 12)	; ⼋
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (hanyu-dazidian	1 241 3)
     (=ucs		. #x516B)	; 八
-    (=gb2312		. #x304B)	; &I-G0-304B;
+    (->subsumptive
+     ((shinjigen-1	  . 490)
+      (shinjigen-2	  . 490)
+      (=jis-x0208	  . #x482C)	; &GT-01888;
+      (=ks-x1001	  . #x7822)	; &I-K0-7822;
+      (=big5		  . #xA44B)	; &I-B-A44B;
+      (=gt		  . 01888)	; &I-GT-01888;
+      (=gt-k		  . 00056)	; &I-GT-K00056;
+      (=gt-pj-1		  . #x482C)	; &I-GT-01888;
+      (=daikanwa	  . 01450)	; &I-M-01450;
+      (=jef-china3	  . #x43E4)	; &I-JC3-43E4;
+      (=ucs@jis		  . #x516B)	; &GT-01888;
+      (=ucs@big5	  . #x516B)	; &GT-01888;
+      )
+     ((shinjigen-1	  . 489)
+      (shinjigen-2	  . 489)
+      (=cns11643-1	  . #x442C)	; &C1-442C;
+      (mojikyo		  . 001450)	; &MCS-600005AA;
+      )
+     ((hanyu-dazidian	  1 241 3)
+      (=gb2312		  . #x304B)	; &G0-304B;
+      (=ucs@unicode	  . #x516B)	; &G0-304B;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x516B)	; 八
-    (morohashi-daikanwa	1450 0 2)
-    (ideographic-radical . 12)	; ⼋
+  '((ideographic-radical . 12)	; ⼋
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (<-denotational
+     ((=ucs		  . #x516B)	; 八
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x516B)	; 八
+      ))
     (=gt-k		. 00059)	; &GT-K00059;
     (=gt-pj-k1		. #x3768)	; &GT-K00059;
     ))

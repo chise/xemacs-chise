@@ -153,14 +153,18 @@
     (total-strokes	 . 4)
     (<-vulgar
      ((shinjigen-1	  . 823)
+      (=jis-x0208	  . #x4234)	; &GT-03504;
+      (=ks-x1001	  . #x706F)	; &I-K0-706F;
       (=daikanwa	  . 02740)	; &I-M-02740;
       ))
     (<-vulgar*sources
      shinjigen-1)
-    (<-wrong-ideograph
-     ((=daikanwa	  . 02740)	; &I-M-02740;
+    (<-wrong
+     ((=jis-x0208	  . #x4234)	; &GT-03504;
+      (=ks-x1001	  . #x706F)	; &I-K0-706F;
+      (=daikanwa	  . 02740)	; &I-M-02740;
       ))
-    (<-wrong-ideograph*sources
+    (<-wrong*sources
      pianhai daikanwa)
     (hanyu-dazidian	1 59 4)
     (ideographic-structure
@@ -690,6 +694,8 @@
     (total-strokes	 . 7)
     (<-vulgar
      ((shinjigen-1	  . 910)
+      (=ucs		  . #x53D4)	; 叔
+      (=jis-x0208	  . #x3D47)	; &I-J90-3D47;
       (=daikanwa	  . 03154)	; &I-M-03154;
       ))
     (<-vulgar*sources
