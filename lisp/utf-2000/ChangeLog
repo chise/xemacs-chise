@@ -1,3 +1,25 @@
+2002-02-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R016-Table.el (U+51E1): Delete `cns-radical'; add
+	`->identical' for C1-443B; separate C1-443B.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (M-04531): Separate C7-3F2E.
+	(C7-3F2E): Separate U-000210A2.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R029-Again.el (M-03155): Separate C6-2A32.
+	(C6-2A32): Separate U-00020B3B.
+
+	* Ideograph-R028-Private.el (U-0002128F): Separate C6-2641.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el (U-000200D5): Add
+	`ideographic-structure'.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* isolated-char.el (GT-21862): New character.
