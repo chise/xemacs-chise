@@ -172,11 +172,6 @@
    ))
 
 (when (featurep 'utf-2000)
-  (make-coding-system
-   'utf-8-er 'utf-8
-   "Coding-system of ISO/IEC 10646 UTF-8 with entity-reference."
-   '(mnemonic "UTF8" use-entity-reference t))
-
   (setq coded-charset-entity-reference-alist
 	'((chinese-big5-cdp "CDP-" 4 X)
 	  (ideograph-daikanwa "M-" 5 d)
@@ -193,7 +188,96 @@
 	  (chinese-cns11643-7 "C7-" 4 X)
 	  ))
 
+  (make-coding-system
+   'utf-8-mcs-er 'utf-8
+   "Coding-system of UTF-8 with entity-reference."
+   '(mnemonic "MTF8r" use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-gb 'utf-8
+   "Coding-system of UTF-8 using GB mapping."
+   '(mnemonic "UTF8G"
+	      charset-g0 ucs
+	      charset-g1 =>ucs))
+
+  (make-coding-system
+   'utf-8-gb-er 'utf-8
+   "Coding-system of UTF-8 using GB mapping with entity-reference."
+   '(mnemonic "UTF8Gr"
+	      charset-g0 ucs
+	      charset-g1 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-cns 'utf-8
+   "Coding-system of UTF-8 using CNS mapping."
+   '(mnemonic "UTF8C"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-cns-er 'utf-8
+   "Coding-system of UTF-8 using CNS mapping with entity-reference."
+   '(mnemonic "UTF8Cr"
+	      charset-g0 ucs-cns
+	      charset-g1 =>ucs-cns
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-big5 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping."
+   '(mnemonic "UTF8B"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-big5-er 'utf-8
+   "Coding-system of UTF-8 using Big5 mapping with entity-reference."
+   '(mnemonic "UTF8Br"
+	      charset-g0 ucs-big5
+	      charset-g1 =>ucs-big5
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-jis 'utf-8
+   "Coding-system of UTF-8 using JIS mapping."
+   '(mnemonic "UTF8J"
+	      charset-g0 ucs-jis
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-jis-er 'utf-8
+   "Coding-system of UTF-8 using JIS mapping with entity-reference."
+   '(mnemonic "UTF8Jr"
+	      charset-g0 ucs-jis
+	      charset-g1 =>ucs-jis
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
+  (make-coding-system
+   'utf-8-ks 'utf-8
+   "Coding-system of UTF-8 using KS mapping."
+   '(mnemonic "UTF8K"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs))
+
+  (make-coding-system
+   'utf-8-ks-er 'utf-8
+   "Coding-system of UTF-8 using KS mapping with entity-reference."
+   '(mnemonic "UTF8Kr"
+	      charset-g0 ucs-ks
+	      charset-g1 =>ucs-ks
+	      charset-g2 =>ucs
+	      use-entity-reference t))
+
   (define-coding-system-alias 'utf-8 'utf-8-mcs)
+  (define-coding-system-alias 'utf-8-er 'utf-8-mcs-er)
   )
 
 ;; initialize the coding categories to something semi-reasonable
