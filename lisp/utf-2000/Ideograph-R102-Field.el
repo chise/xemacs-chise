@@ -583,6 +583,7 @@
     (shinjigen-2	. 5038)
     (japanese-jisx0208-1978	. #x482A)	; ø»‚µ›
     (japanese-jisx0208		. #x482A)	; ø»‡‰£
+    (korean-ksc5601		. #x6F25)	; ø»ŠŒ´
     (chinese-isoir165		. #x2D6B)	; ø»†
     (japanese-jisx0208-1990	. #x482A)	; ø½Š¯—
     (ideograph-daikanwa		. 21797)	; ø¸…”¥
