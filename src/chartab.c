@@ -65,6 +65,7 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 #ifdef HAVE_LIBCHISE
 Lisp_Object Vchise_db_directory;
+Lisp_Object Vchise_system_db_directory;
 
 CHISE_DS *default_chise_data_source = NULL;
 #endif
@@ -4465,13 +4466,19 @@ vars_of_chartab (void)
   DEFVAR_LISP ("char-db-stingy-mode", &Vchar_db_stingy_mode /*
 */ );
   Vchar_db_stingy_mode = Qt;
+
 #ifdef HAVE_LIBCHISE
   Vchise_db_directory = build_string(chise_db_dir);
   DEFVAR_LISP ("chise-db-directory", &Vchise_db_directory /*
-Directory of CHISE character database.
+Directory of CHISE character databases.
 */ );
 
+  Vchise_system_db_directory = build_string(chise_system_db_dir);
+  DEFVAR_LISP ("chise-system-db-directory", &Vchise_system_db_directory /*
+Directory of system character database of CHISE.
+*/ );
 #endif
+
 #endif /* HAVE_CHISE */
   /* DO NOT staticpro this.  It works just like Vweak_hash_tables. */
   Vall_syntax_tables = Qnil;
