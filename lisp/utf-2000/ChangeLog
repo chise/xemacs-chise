@@ -1,5 +1,20 @@
 2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R058-Snout.el (GT-67403): Unify BC-8BAB.
+	(B-B16B): Add BU+5F57.
+
+	* Ideograph-R056-Shoot.el, Ideograph-R053-Dotted-Cliff.el: Add
+	`=ucs@big5' features.
+
+	* Ideograph-R019-Power.el (U+52D6): Separate JC3-44EC.
+	(M-02392): Use `<-vulgar-ideograph*sources' instead of char-ref in
+	`<-vulgar-ideograph'.
+	(U+52D7): Use `ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of `ideographic-'.
+	(J0-342A): Separate GT-03062, GT-K07734, U+52D8 and G0-3F31.
+
+2003-12-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R055-Two-Hands.el, Ideograph-R054-Long-Stride.el: Add
 	`=ucs@big5' features.
 
