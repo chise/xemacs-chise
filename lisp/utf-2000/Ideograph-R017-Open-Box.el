@@ -313,9 +313,9 @@
   '((ideographic-radical . 17)	; â¼
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (comment		. "<vulgar character> of S1-0584")
     (shinjigen-1	. 586)
     (shinjigen-2	. 586)
+    (vulgar-char-of-shinjigen-1 . 584)
     (japanese-jisx0208-1978	. #x5162)	; ø»ƒƒ¡
     (japanese-jisx0208		. #x5162)	; ø»‡—©
     (japanese-jisx0208-1990	. #x5162)	; ø½Š½

@@ -224,8 +224,8 @@
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (comment		. "<variant> of S1-0508")
     (shinjigen-1	. 511)
+    (variant-of-shinjigen-1 . 508)
     (chinese-cns11643-6 . #x2239)	; ø»›¶¦
     (ideograph-daikanwa . 48932)	; ø¸‹¼¤
     ))

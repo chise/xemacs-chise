@@ -1279,9 +1279,9 @@
     (ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (comment		. "<vulgar character> of S1-0740")
     (shinjigen-1	. 741)
     (shinjigen-2	. 741)
+    (vulgar-char-of-shinjigen-1 . 740)
     (ideograph-daikanwa . 02392)	; ø¸€¥˜
     ))
 (define-char
@@ -1416,7 +1416,7 @@
   '((ideographic-radical . 19)	; â¼’
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (comment		. "<ancient character> of S1-0757")
+    (ancient-char-of-shinjigen-1 . 757)
     (shinjigen-1	. 759)
     (shinjigen-2	. 759)
     (japanese-jisx0212		. #x336E)	; ø»Š¿¹

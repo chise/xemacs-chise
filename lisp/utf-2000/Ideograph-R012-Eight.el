@@ -123,8 +123,8 @@
     (ideographic-radical . 12)	; â¼‹
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "<vulgar character> of S1-0491")
     (shinjigen-1	. 492)
+    (vulgar-char-of-shinjigen-1 . 491)
     (chinese-cns11643-6 . #x2141)	; ø»›µ
     ))
 (define-char

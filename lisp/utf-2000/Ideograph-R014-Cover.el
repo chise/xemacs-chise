@@ -31,9 +31,9 @@
     (ideographic-radical . 14)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (comment		. "<vulgar character> of S1-0525")
     (shinjigen-1	. 527)
     (shinjigen-2	. 527)
+    (vulgar-char-of-shinjigen-1 . 525)
     (chinese-cns11643-3 . #x214F)	; ø»•—’
     ))
 (define-char
@@ -354,9 +354,9 @@
   '((ideographic-radical . 14)	; â¼
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (comment		. "<vulgar character> of R040:S1-1852")
     (shinjigen-1	. 1853)
     (shinjigen-2	. 1853)
+    (vulgar-char-of-shinjigen-1 . 1852)
     (japanese-jisx0208-1978	. #x495A)	; ø»‚·©
     (japanese-jisx0208		. #x495A)	; ø»‡‹±
     (chinese-isoir165		. #x2E2B)	; ø»¤
