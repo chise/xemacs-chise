@@ -10,7 +10,7 @@
     (korean-ksc5601	. #x536F)	; ø»‰¤¶
     (chinese-isoir165	. #x3536)	; ø»Œ
     (chinese-cns11643-1 . #x442E)	; ø»‘¶ƒ
-    (ideograph-gt-pj-1	. #x4561)	; åˆ€
+    (=gt-pj-1		. #x4561)	; åˆ€
     (chinese-big5	. #xA44D)	; ý¢€Š‘
     (ideograph-daikanwa . 01845)	; ø¸€œµ
     (=gt-k		. 00053)	; ý¡„€€µ

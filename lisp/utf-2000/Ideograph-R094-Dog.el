@@ -6684,7 +6684,7 @@
     (ideographic-radical . 94)	; â½
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (ideograph-gt-pj-4	. #x6D51)	; ý¡€†Ÿ®
+    (=gt-pj-4		. #x6D51)	; ý¡€†Ÿ®
     (=gt		. 26606)	; ý¡€†Ÿ®
     ))
 (define-char

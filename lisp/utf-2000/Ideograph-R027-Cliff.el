@@ -2137,7 +2137,7 @@
       ))
     (shinjigen-1	. 2208)
     (shinjigen-2	. 2208)
-    (ideograph-gt-pj-11 . #x3B44)	; ý¡€€»£
+    (=gt-pj-11		. #x3B44)	; ý¡€€»£
     (=gt		. 03811)	; ý¡€€»£
     ))
 (define-char

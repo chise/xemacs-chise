@@ -453,7 +453,7 @@
       )
      ((ucs		  . #x5382)	; åŽ‚
       ))
-    (ideograph-gt-pj-k1 . #x3A57)	; ý¡„€¤„
+    (=gt-pj-k1		. #x3A57)	; ý¡„€¤„
     (=gt-k		. 02308)	; ý¡„€¤„
     (=jef-china3	. #x81C1)	; øºˆ‡
     ))
@@ -2437,8 +2437,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	 ((=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((ucs		      . #x4E2A)	; ä¸ª
@@ -2448,8 +2447,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	 ((=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((ucs		      . #x4E2A)	; ä¸ª
@@ -2485,8 +2483,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	 ((=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((ucs		      . #x4E2A)	; ä¸ª
@@ -2496,8 +2493,7 @@
 	 ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
-	 ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	 ((=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
 	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((ucs		      . #x4E2A)	; ä¸ª
@@ -3281,8 +3277,7 @@
 	)
        ((ucs		    . #x516B)	; å…«
 	)
-       ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+       ((=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	)
        ((ucs		    . #x620A)	; æˆŠ
@@ -3317,8 +3312,7 @@
 	)
        ((ucs		    . #x516B)	; å…«
 	)
-       ((ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
-	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+       ((=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
 	(=jef-china3	    . #x71FA)	; øº‡‡º
 	)
        ((ucs		    . #x620A)	; æˆŠ

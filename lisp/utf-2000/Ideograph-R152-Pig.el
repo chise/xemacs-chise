@@ -41,7 +41,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 6)
     (chinese-cns11643-5 . #x2329)	; ø»™­°
-    (ideograph-gt-pj-k1 . #x3461)	; ø»™­°
+    (=gt-pj-k1		. #x3461)	; ø»™­°
     (ideograph-daikanwa . 36336)	; ø¸ˆ·°
     (=gt-k		. 02141)	; ý¡„€¡
     ))

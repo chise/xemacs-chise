@@ -3545,7 +3545,7 @@
 	))
       ))
     (japanese-jisx0212	. #x372C)	; ø»‹„¯
-    (ideograph-gt-pj-2	. #x5D3D)	; ý¡€Ÿ¨
+    (=gt-pj-2		. #x5D3D)	; ý¡€Ÿ¨
     (ideograph-daikanwa . 04866)	; ø¸Œ‚
     (=cbeta		. 01402)	; ø¸ •º
     (ucs-jis		. #x571D)	; ø»‹„¯
@@ -3620,7 +3620,7 @@
       (korean-ksc5601	  . #x5532)	; ø»‰¦µ
       (ideograph-daikanwa . 15947)	; ø¸ƒ¹‹
       ))
-    (ideograph-gt-pj-2	. #x5D3E)	; ý¡€Ÿ©
+    (=gt-pj-2		. #x5D3E)	; ý¡€Ÿ©
     (chinese-big5	. #xF96B)	; ý¢€¥«
     (=gt		. 06121)	; ý¡€Ÿ©
     ))

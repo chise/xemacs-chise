@@ -67,8 +67,6 @@
     (while (< i 215)
       (aset v i (decode-char 'ucs (+ #x2EFF i)))
       (setq i (1+ i)))
-    ;; (unless (charset-iso-final-char (car (split-char (aref v 34))))
-    ;;   (aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
 (defvar char-db-ignored-attributes nil)
@@ -382,17 +380,17 @@
     (setq ret
 	  (cond ((eq ccs 'arabic-iso8859-6)
 		 (decode-char ccs code-point))
-		((and (memq ccs '(ideograph-gt-pj-1
-				  ideograph-gt-pj-2
-				  ideograph-gt-pj-3
-				  ideograph-gt-pj-4
-				  ideograph-gt-pj-5
-				  ideograph-gt-pj-6
-				  ideograph-gt-pj-7
-				  ideograph-gt-pj-8
-				  ideograph-gt-pj-9
-				  ideograph-gt-pj-10
-				  ideograph-gt-pj-11))
+		((and (memq ccs '(=gt-pj-1
+				  =gt-pj-2
+				  =gt-pj-3
+				  =gt-pj-4
+				  =gt-pj-5
+				  =gt-pj-6
+				  =gt-pj-7
+				  =gt-pj-8
+				  =gt-pj-9
+				  =gt-pj-10
+				  =gt-pj-11))
 		      (setq ret (decode-char ccs code-point))
 		      (setq ret (get-char-attribute ret '=gt)))
 		 (decode-builtin-char '=gt ret))
@@ -963,7 +961,7 @@
 		   (if has-long-ccs-name
 		       "(%-26s . %06d)\t; %c%s"
 		     "(%-18s . %06d)\t; %c%s"))
-		  ((>= (charset-dimension name) 2) ; (eq name 'ucs)
+		  ((>= (charset-dimension name) 2)
 		   (if has-long-ccs-name
 		       "(%-26s . #x%04X)\t; %c%s"
 		     "(%-18s . #x%04X)\t; %c%s"))

@@ -2766,7 +2766,7 @@
      ((=jis-x0208	  . #x7032)	; ø½‹ª
       (ideograph-daikanwa . 41937)	; ø¸Š‘
       ))
-    (ideograph-gt-pj-9	. #x4C4B)	; ý¡€°¬
+    (=gt-pj-9		. #x4C4B)	; ý¡€°¬
     (=gt-k		. 08651)	; ý¡„‚‡‹
     (=gt		. 56364)	; ý¡€°¬
     ))

@@ -17,7 +17,7 @@
     (ideographic-radical . 13)	; â¼Œ
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (ideograph-gt-pj-k1 . #x3D6D)	; ý¡„€
+    (=gt-pj-k1		. #x3D6D)	; ý¡„€
     (=gt-k		. 00079)	; ý¡„€
     ))
 (define-char
@@ -784,7 +784,7 @@
       ))
     (shinjigen-1	. 522)
     (shinjigen-2	. 522)
-    (ideograph-gt-pj-9	. #x3372)	; ý¡€€Ÿ©
+    (=gt-pj-9		. #x3372)	; ý¡€€Ÿ©
     (chinese-big5	. #xD0E0)	; ý¢€ƒ 
     (=gt-k		. 06707)	; ý¡„¨³
     (=jef-china3	. #x43ED)	; øº„­
