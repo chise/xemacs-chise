@@ -671,7 +671,8 @@ parse_charset_conversion_specs (charset_conversion_spec_dynarr *store_here,
 	signal_simple_error ("Invalid charset conversion spec", car);
       from = Fget_charset (XCAR (car));
       to = Fget_charset (XCAR (XCDR (car)));
-      if (XCHARSET_TYPE (from) != XCHARSET_TYPE (to))
+      if ( (XCHARSET_CHARS (from) != XCHARSET_CHARS (to)) ||
+	   (XCHARSET_DIMENSION (from) != XCHARSET_DIMENSION (to)) )
 	signal_simple_error_2
 	  ("Attempted conversion between different charset types",
 	   from, to);
@@ -4724,7 +4725,8 @@ iso2022_designate (Lisp_Object charset, unsigned char reg,
 {
   static CONST char inter94[] = "()*+";
   static CONST char inter96[] = ",-./";
-  unsigned int type;
+  unsigned short chars;
+  unsigned char dimension;
   unsigned char final;
   Lisp_Object old_charset = str->iso2022.charset[reg];
 
@@ -4732,11 +4734,13 @@ iso2022_designate (Lisp_Object charset, unsigned char reg,
   if (!CHARSETP (charset))
     /* charset might be an initial nil or t. */
     return;
-  type = XCHARSET_TYPE (charset);
+  chars = XCHARSET_CHARS (charset);
+  dimension = XCHARSET_DIMENSION (charset);
   final = XCHARSET_FINAL (charset);
   if (!str->iso2022.force_charset_on_output[reg] &&
       CHARSETP (old_charset) &&
-      XCHARSET_TYPE (old_charset) == type &&
+      XCHARSET_CHARS (old_charset) == chars &&
+      XCHARSET_DIMENSION (old_charset) == dimension &&
       XCHARSET_FINAL (old_charset) == final)
     return;
 
@@ -4760,25 +4764,29 @@ iso2022_designate (Lisp_Object charset, unsigned char reg,
   }
 
   Dynarr_add (dst, ISO_CODE_ESC);
-  switch (type)
+  switch (chars)
     {
-    case CHARSET_TYPE_94:
-      Dynarr_add (dst, inter94[reg]);
-      break;
-    case CHARSET_TYPE_96:
-      Dynarr_add (dst, inter96[reg]);
-      break;
-    case CHARSET_TYPE_94X94:
-      Dynarr_add (dst, '$');
-      if (reg != 0
-	  || !(CODING_SYSTEM_ISO2022_SHORT (str->codesys))
-	  || final < '@'
-	  || final > 'B')
+    case 94:
+      if (dimension == 1)
 	Dynarr_add (dst, inter94[reg]);
+      else
+	{
+	  Dynarr_add (dst, '$');
+	  if (reg != 0
+	      || !(CODING_SYSTEM_ISO2022_SHORT (str->codesys))
+	      || final < '@'
+	      || final > 'B')
+	    Dynarr_add (dst, inter94[reg]);
+	}
       break;
-    case CHARSET_TYPE_96X96:
-      Dynarr_add (dst, '$');
-      Dynarr_add (dst, inter96[reg]);
+    case 96:
+      if (dimension == 1)
+	Dynarr_add (dst, inter96[reg]);
+      else
+	{
+	  Dynarr_add (dst, '$');
+	  Dynarr_add (dst, inter96[reg]);
+	}
       break;
     }
   Dynarr_add (dst, final);
