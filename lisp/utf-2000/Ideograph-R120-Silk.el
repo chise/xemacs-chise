@@ -13470,7 +13470,7 @@
   '((->ucs		. #x7E8A)	; çºŠ
     (morohashi-daikanwa	28033 0 1)
     (ideographic-radical . 120)	; â½·
-    (kangxi-strokes	 . 15)
+    (ideographic-strokes . 15)
     (total-strokes	 . 21)
     (chinese-cns11643-2 . #x6B75)	; ø»”º 
     ))
