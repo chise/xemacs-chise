@@ -30,6 +30,40 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Save Kbd Macro,  Next: Kbd Macro Query,  Prev: Basic Kbd Macro,  Up: Keyboard Macros
+
+Naming and Saving Keyboard Macros
+---------------------------------
+
+   To save a keyboard macro for longer than until you define the next
+one, you must give it a name using `M-x name-last-kbd-macro'.  This
+reads a name as an argument using the minibuffer and defines that name
+to execute the macro.  The macro name is a Lisp symbol, and defining it
+in this way makes it a valid command name for calling with `M-x' or for
+binding a key to with `global-set-key' (*note Keymaps::).  If you
+specify a name that has a prior definition other than another keyboard
+macro, Emacs prints an error message and nothing is changed.
+
+   Once a macro has a command name, you can save its definition in a
+file.  You can then use it in another editing session.  First visit the
+file you want to save the definition in.  Then use the command:
+
+     M-x insert-kbd-macro <RET> MACRONAME <RET>
+
+This inserts some Lisp code that, when executed later, will define the
+same macro with the same definition it has now.  You need not
+understand Lisp code to do this, because `insert-kbd-macro' writes the
+Lisp code for you.  Then save the file.  You can load the file with
+`load-file' (*note Lisp Libraries::).  If the file you save in is your
+initialization file (*note Init File::), then the macro will be defined
+each time you run Emacs.
+
+   If you give `insert-kbd-macro' a prefix argument, it creates
+additional Lisp code to record the keys (if any) that you have bound to
+the keyboard macro, so that the macro is reassigned the same keys when
+you load the file.
+
+
 File: xemacs.info,  Node: Kbd Macro Query,  Prev: Save Kbd Macro,  Up: Keyboard Macros
 
 Executing Macros With Variations
@@ -234,9 +268,9 @@ redefines `C-x 4 $' to run the (fictitious) command
 `spell-other-window'.
 
    The most general way to modify a keymap is the function
-`define-key', used in Lisp code (such as your `.emacs' file).
-`define-key' takes three arguments: the keymap, the key to modify in
-it, and the new definition.  *Note Init File::, for an example.
+`define-key', used in Lisp code (such as your init file).  `define-key'
+takes three arguments: the keymap, the key to modify in it, and the new
+definition.  *Note Init File::, for an example.
 `substitute-key-definition' is used similarly; it takes three
 arguments, an old definition, a new definition, and a keymap, and
 redefines in that keymap all keys that were previously defined with the
@@ -382,10 +416,12 @@ beginning users from executing it by accident and being confused.
 
    The direct mechanism for disabling a command is to have a non-`nil'
 `disabled' property on the Lisp symbol for the command.  These
-properties are normally set by the user's `.emacs' file with Lisp
+properties are normally set by the user's init file with Lisp
 expressions such as:
 
      (put 'delete-region 'disabled t)
+
+   *Note Init File::.
 
    If the value of the `disabled' property is a string, that string is
 included in the message printed when the command is used:
@@ -393,9 +429,9 @@ included in the message printed when the command is used:
      (put 'delete-region 'disabled
           "Text deleted this way cannot be yanked back!\n")
 
-   You can disable a command either by editing the `.emacs' file
-directly or with the command `M-x disable-command', which edits the
-`.emacs' file for you.  *Note Init File::.
+   You can disable a command either by editing the init file directly
+or with the command `M-x disable-command', which edits the init file
+for you.  *Note Init File::.
 
    When you attempt to invoke a disabled command interactively in Emacs,
 a window is displayed containing the command's name, its documentation,
@@ -403,7 +439,7 @@ and some instructions on what to do next; then Emacs asks for input
 saying whether to execute the command as requested, enable it and
 execute, or cancel it.  If you decide to enable the command, you are
 asked whether to do this permanently or just for the current session.
-Enabling permanently works by automatically editing your `.emacs' file.
+Enabling permanently works by automatically editing your init file.
 You can use `M-x enable-command' at any time to enable any command
 permanently.
 
@@ -596,19 +632,20 @@ some English to explain that string if necessary.
 
 File: xemacs.info,  Node: Init File,  Next: Audible Bell,  Prev: Syntax,  Up: Customization
 
-The Init File, .emacs
-=====================
+The Init File
+=============
 
-   When you start Emacs, it normally loads the file `.emacs' in your
-home directory.  This file, if it exists, should contain Lisp code.  It
-is called your initialization file or "init file".  Use the command
-line switch `-q' to tell Emacs whether to load an init file (*note
-Entering Emacs::).  Use the command line switch `-user-init-file'
-(*note Command Switches::) to tell Emacs to load a different file
-instead of `~/.emacs'.
+   When you start Emacs, it normally loads either `.xemacs/init.el' or
+the file `.emacs' (whichever comes first) in your home directory.  This
+file, if it exists, should contain Lisp code.  It is called your
+initialization file or "init file".  Use the command line switch `-q'
+to tell Emacs whether to load an init file (*note Entering Emacs::).
+Use the command line switch `-user-init-file' (*note Command
+Switches::) to tell Emacs to load a different file instead of
+`~/.xemacs/init.el'/`~/.emacs'.
 
-   When the `.emacs' file is read, the variable `user-init-file' says
-which init file was loaded.
+   When the init file is read, the variable `user-init-file' says which
+init file was loaded.
 
    At some sites there is a "default init file", which is the library
 named `default.el', found via the standard search path for libraries.
@@ -618,10 +655,8 @@ whenever you start Emacs.  But your init file, if any, is loaded first;
 if it sets `inhibit-default-init' non-`nil', then `default' is not
 loaded.
 
-   If you have a large amount of code in your `.emacs' file, you should
-move it into another file named `SOMETHING.el', byte-compile it (*note
-Lisp Libraries::), and load that file from your `.emacs' file using
-`load'.
+   If you have a large amount of code in your init file, you should
+byte-compile it to `~/.xemacs/init.elc' or `~/.emacs.elc'.
 
 * Menu:
 
@@ -635,16 +670,16 @@ File: xemacs.info,  Node: Init Syntax,  Next: Init Examples,  Up: Init File
 Init File Syntax
 ----------------
 
-   The `.emacs' file contains one or more Lisp function call
-expressions.  Each consists of a function name followed by arguments,
-all surrounded by parentheses.  For example, `(setq fill-column 60)'
-represents a call to the function `setq' which is used to set the
-variable `fill-column' (*note Filling::) to 60.
+   The init file contains one or more Lisp function call expressions.
+Each consists of a function name followed by arguments, all surrounded
+by parentheses.  For example, `(setq fill-column 60)' represents a call
+to the function `setq' which is used to set the variable `fill-column'
+(*note Filling::) to 60.
 
    The second argument to `setq' is an expression for the new value of
 the variable.  This can be a constant, a variable, or a function call
-expression.  In `.emacs', constants are used most of the time.  They
-can be:
+expression.  In the init file, constants are used most of the time.
+They can be:
 
 Numbers
      Integers are written in decimal, with an optional initial minus
@@ -836,16 +871,16 @@ Thus, terminal types `aaa-48' and `aaa-30-rv' both use the library
 the full terminal type name.
 
    The library's name is constructed by concatenating the value of the
-variable `term-file-prefix' and the terminal type.  Your `.emacs' file
-can prevent the loading of the terminal-specific library by setting
-`term-file-prefix' to `nil'.
+variable `term-file-prefix' and the terminal type.  Your init file can
+prevent the loading of the terminal-specific library by setting
+`term-file-prefix' to `nil'.  *Note Init File::.
 
    The value of the variable `term-setup-hook', if not `nil', is called
 as a function of no arguments at the end of Emacs initialization, after
-both your `.emacs' file and any terminal-specific library have been
-read.  You can set the value in the `.emacs' file to override part of
-any of the terminal-specific libraries and to define initializations
-for terminals that do not have a library.
+both your init file and any terminal-specific library have been read.
+*Note Init File::.  You can set the value in the init file to override
+part of any of the terminal-specific libraries and to define
+initializations for terminals that do not have a library.
 
 
 File: xemacs.info,  Node: Audible Bell,  Next: Faces,  Prev: Init File,  Up: Customization

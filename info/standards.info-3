@@ -377,7 +377,7 @@ directories:
 `srcdir'
      The directory for the sources being compiled.  The value of this
      variable is normally inserted by the `configure' shell script.
-     (If you are using Autconf, use `srcdir = @srcdir@'.)
+     (If you are using Autoconf, use `srcdir = @srcdir@'.)
 
    For example:
 

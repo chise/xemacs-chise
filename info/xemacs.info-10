@@ -838,7 +838,7 @@ appear on the screen.
                          There are editing commands to operate on them.
 * Grinding::            Adjusting indentation to show the nesting.
 * Matching::            Insertion of a close-delimiter flashes matching open.
-* Comments::            Inserting, illing and aligning comments.
+* Comments::            Inserting, filling and aligning comments.
 * Balanced Editing::    Inserting two matching parentheses at once, etc.
 * Lisp Completion::     Completion on symbol names in Lisp code.
 * Documentation::       Getting documentation of functions you plan to call.

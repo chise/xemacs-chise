@@ -671,13 +671,13 @@ the error message the first time the bug happens, so if you can't make
 it happen again, you can report at least that.
 
    Check whether any programs you have loaded into the Lisp world,
-including your `.emacs' file, set any variables that may affect the
-functioning of Emacs.  Also, see whether the problem happens in a
-freshly started Emacs without loading your `.emacs' file (start Emacs
-with the `-q' switch to prevent loading the init file).  If the problem
-does NOT occur then, it is essential that we know the contents of any
-programs that you must load into the Lisp world in order to cause the
-problem to occur.
+including your init file, set any variables that may affect the
+functioning of Emacs.  *Note Init File::.  Also, see whether the
+problem happens in a freshly started Emacs without loading your init
+file (start Emacs with the `-q' switch to prevent loading the init
+file).  If the problem does NOT occur then, it is essential that we
+know the contents of any programs that you must load into the Lisp
+world in order to cause the problem to occur.
 
    If the problem does depend on an init file or other Lisp programs
 that are not part of the standard Emacs system, then you should make
@@ -714,11 +714,11 @@ using `Meta-<ESC>' or from the `*scratch*' buffer just after starting
 Emacs.  From then on, all output from Emacs to the terminal will be
 written in the specified termscript file as well, until the Emacs
 process is killed.  If the problem happens when Emacs starts up, put
-this expression into your `.emacs' file so that the termscript file will
-be open when Emacs displays the screen for the first time.  Be warned:
-it is often difficult, and sometimes impossible, to fix a
-terminal-dependent bug without access to a terminal of the type that
-stimulates the bug.
+this expression into your init file so that the termscript file will be
+open when Emacs displays the screen for the first time.  *Note Init
+File::. Be warned: it is often difficult, and sometimes impossible, to
+fix a terminal-dependent bug without access to a terminal of the type
+that stimulates the bug.
 
    The newsgroup `comp.emacs.xemacs' may be used for bug reports, other
 discussions and requests for assistance.

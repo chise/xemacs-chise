@@ -519,8 +519,8 @@ for daylight savings time_.  *Note Daylight Savings::, for how daylight
 savings time is determined.
 
    As a user, you might find it convenient to set the calendar location
-variables for your usual physical location in your `.emacs' file.  And
-when you install Emacs on a machine, you can create a `default.el' file
+variables for your usual physical location in your init file.  And when
+you install Emacs on a machine, you can create a `default.el' file
 which sets them properly for the typical location of most users of that
 machine.  *Note Init File::.
 
@@ -975,10 +975,10 @@ date, independently of the calendar display, and optionally for the next
 few days as well; the variable `number-of-diary-entries' specifies how
 many days to include (*note Customization::).
 
-   If you put `(diary)' in your `.emacs' file, this automatically
-displays a window with the day's diary entries, when you enter Emacs.
-The mode line of the displayed window shows the date and any holidays
-that fall on that date.
+   If you put `(diary)' in your init file, this automatically displays
+a window with the day's diary entries, when you enter Emacs.  *Note
+Init File::.  The mode line of the displayed window shows the date and
+any holidays that fall on that date.
 
    Many users like to receive notice of events in their diary as email.
 To send such mail to yourself, use the command `M-x

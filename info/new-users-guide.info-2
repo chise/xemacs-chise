@@ -368,7 +368,7 @@ auto-save-mode
 
 line-number-mode
      After you enable this mode, the line number at which your cursor is
-     present will be displayed continously in the mode line.
+     present will be displayed continuously in the mode line.
 
 blink-paren
      To enable this command, just type
@@ -1063,8 +1063,8 @@ many buffers:
 
 `M-x insert-buffer'
      Insert contents of specified buffer into current buffer at point.
-     This command will prompt you for a buffername which you want to be
-     copied into the current buffer at the location of the cursor.
+     This command will prompt you for a buffer name which you want to
+     be copied into the current buffer at the location of the cursor.
 
 `M-x append-to-file'
      This command will prompt you for a filename and append the region

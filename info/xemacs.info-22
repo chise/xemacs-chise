@@ -222,7 +222,7 @@ Variable Index
 * lpr-switches:                          Hardcopy.
 * mail-abbrev-mailrc-file:               Mail Headers.
 * mail-abbrev-mode-regexp:               Mail Headers.
-* mail-alias-seperator-string:           Mail Headers.
+* mail-alias-separator-string:           Mail Headers.
 * mail-archive-file-name:                Mail Headers.
 * mail-header-separator:                 Mail Format.
 * mail-mode-hook:                        Mail Mode.
@@ -734,7 +734,7 @@ Concept Index
 * sexp diary entries:                    Sexp Diary Entries.
 * shell commands:                        Shell.
 * Shell mode:                            Shell Mode.
-* shift modifer:                         Representing Keystrokes.
+* shift modifier:                        Representing Keystrokes.
 * shrinking XEmacs frame:                Exiting.
 * simultaneous editing:                  Interlocking.
 * single-file packages:                  Package Terminology.

@@ -242,7 +242,7 @@ elsewhere.
 buffer positions in them as integers, and every time text is inserted or
 deleted, these positions must be updated.  In order to minimize the
 amount of shuffling that needs to be done, the positions in markers and
-extents (there's one per marker, two per extent) and stored in Meminds.
+extents (there's one per marker, two per extent) are stored in Meminds.
 This means that they only need to be moved when the text is physically
 moved in memory; since the gap structure tries to minimize this, it also
 minimizes the number of marker and extent indices that need to be
@@ -733,7 +733,7 @@ CCL
      other encoded/decoded data has been written out.  This is not used for
      charset CCL programs.
      
-     REGISTER: 0..7  -- refered by RRR or rrr
+     REGISTER: 0..7  -- referred by RRR or rrr
      
      OPERATOR BIT FIELD (27-bit): XXXXXXXXXXXXXXX RRR TTTTT
              TTTTT (5-bit): operator type
