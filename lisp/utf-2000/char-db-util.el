@@ -71,6 +71,34 @@
 	(aset v 34 (make-char 'chinese-gb2312 #x62 #x3A)))
     v))
 
+;;;###autoload
+(defun char-ref-p (obj)
+  (and (consp obj)
+       (keywordp (car obj))))
+
+;;;###autoload
+(defun char-ref= (cr1 cr2)
+  (cond ((char-ref-p cr1)
+	 (if (char-ref-p cr2)
+	     (char-spec= (plist-get cr1 :char)
+			 (plist-get cr2 :char))
+	   (char-spec= (plist-get cr1 :char) cr2)))
+	(t
+	 (char-spec= cr1
+		     (if (char-ref-p cr2)
+			 (plist-get cr2 :char)
+		       cr2)))))
+
+;;;###autoload
+(defun char-spec= (cs1 cs2)
+  (if (characterp cs1)
+      (if (characterp cs2)
+	  (eq cs1 cs2)
+	(eq cs1 (find-char cs2)))
+    (if (characterp cs2)
+	(eq (find-char cs1) cs2)
+      (eq (find-char cs1) (find-char cs2)))))
+
 (defun char-attribute-name< (ka kb)
   (cond
    ((find-charset ka)
@@ -914,6 +942,9 @@
     (condition-case err
 	(progn
 	  (insert-char-data-with-variant char 'printable)
+	  (unless (char-attribute-alist char)
+	    (insert (format ";; = %c\n"
+			    (apply #'make-char (split-char char)))))
           ;; (char-db-update-comment)
 	  (set-buffer-modified-p nil)
 	  (view-mode the-buf (lambda (buf)
