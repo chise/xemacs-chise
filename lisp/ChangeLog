@@ -1,3 +1,16 @@
+1999-10-02  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`japanese-jisx0208'.
+
+	* mule/ccs-iso8859-2.el, mule/ccs-iso8859-3.el,
+	mule/ccs-iso8859-4.el, mule/ccs-iso8859-9.el,
+	mule/ccs-jisx0201-latin.el, mule/ccs-jisx0208-1983.el,
+	mule/ccs-viscii.el: New files.
+
+	* bytecomp.el (byte-compile-insert-header): Don't use `raw-text'
+	if \uXXXX is found.
+
 1999-09-30  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
