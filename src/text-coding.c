@@ -379,6 +379,13 @@ mark_coding_system (Lisp_Object obj)
 	    }
 	}
       break;
+#ifdef UTF2000
+
+    case CODESYS_BIG5:
+      mark_object (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 0));
+      mark_object (CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 1));
+      break;
+#endif
 
     case CODESYS_CCL:
       mark_object (CODING_SYSTEM_CCL_DECODE (codesys));
@@ -644,6 +651,19 @@ allocate_coding_system (enum coding_system_type type, Lisp_Object name)
       for (i = 0; i < 4; i++)
 	CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i) = Qnil;
     }
+#ifdef UTF2000
+  if (type == CODESYS_BIG5)
+    {
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 0)
+	= Vcharset_ascii;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 1)
+	= Vcharset_chinese_big5;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 2)
+	= Qnil;
+      CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, 3)
+	= Qnil;
+    }
+#endif
   else if (type == CODESYS_CCL)
     {
       CODING_SYSTEM_CCL_DECODE (codesys) = Qnil;
@@ -994,6 +1014,15 @@ if TYPE is 'ccl:
 	    else
 	      signal_simple_error ("Unrecognized property", key);
 	  }
+#ifdef UTF2000
+	else if (ty == CODESYS_BIG5)
+	  {
+	    if      (EQ (key, Qcharset_g0)) FROB_INITIAL_CHARSET (0);
+	    else if (EQ (key, Qcharset_g1)) FROB_INITIAL_CHARSET (1);
+	    else
+	      signal_simple_error ("Unrecognized property", key);
+	  }
+#endif
 	else if (EQ (type, Qccl))
 	  {
 	    Lisp_Object sym;
@@ -3579,6 +3608,11 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
   unsigned int flags  = str->flags;
   unsigned int cpos   = str->cpos;
   eol_type_t eol_type = str->eol_type;
+#ifdef UTF2000
+  Lisp_Object ccs
+    = CODING_SYSTEM_ISO2022_INITIAL_CHARSET (DECODING_STREAM_DATA
+					     (decoding)->codesys, 1);
+#endif
 
   while (n--)
     {
@@ -3589,9 +3623,12 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 	  if (BYTE_BIG5_TWO_BYTE_2_P (c))
 	    {
 #ifdef UTF2000
-	      DECODE_ADD_UCS_CHAR
-		(DECODE_CHAR (Vcharset_chinese_big5, (cpos << 8) | c),
-		 dst);
+	      int code_point = (cpos << 8) | c;
+	      Emchar char_id = DECODE_DEFINED_CHAR (ccs, code_point);
+
+	      if (char_id < 0)
+		char_id = DECODE_CHAR (Vcharset_chinese_big5, code_point);
+	      DECODE_ADD_UCS_CHAR (char_id, dst);
 #else
 	      unsigned char b1, b2, b3;
 	      DECODE_BIG5 (cpos, c, b1, b2, b3);
