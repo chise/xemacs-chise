@@ -1,3 +1,13 @@
+2004-01-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=ucs@iso): New coded-charset in XEmacs CHISE.
+	(=ucs@unicode): Likewise.
+	(=ucs@gb): Inherits `=ucs@unicode' instead of `=ucs'.
+	(=ucs@cns): Likewise.
+	(=ucs@jis): Likewise.
+	(=ucs@ks): Likewise.
+	(=ucs@big5): Likewise.
+
 2004-01-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (utf-8-jis): Use `=ucs@jis-2000' instead of
