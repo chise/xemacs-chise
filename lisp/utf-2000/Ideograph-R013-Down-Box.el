@@ -829,6 +829,12 @@
     (=hanziku-2		. #xD1E6)	; &I-HZK02-D1E6;
     ))
 (define-char
+  '((ideographic-radical . 13)	; ⼌
+    (ideographic-strokes . 7)
+    (total-strokes	 . 9)
+    (=big5-cdp		. #x8CBF)	; &CDP-8CBF;
+    ))
+(define-char
   '((=>ucs		. #x5193)	; 冓
     (ideographic-radical . 13)	; ⼌
     (ideographic-strokes . 8)
