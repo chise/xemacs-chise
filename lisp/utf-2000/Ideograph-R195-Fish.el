@@ -5727,6 +5727,7 @@
     (total-strokes	 . 22)
     (japanese-jisx0208-1978	. #x7261)	; ø»ƒ³¾
     (japanese-jisx0208		. #x7261)	; ø»ˆˆ†
+    (korean-ksc5601		. #x4B3E)	; ø»‰˜•
     (japanese-jisx0208-1990	. #x7261)	; ø½‹­º
     (ideograph-daikanwa		. 46468)	; ø¸‹–„
     (ucs			. #x9C47)	; é±‡
