@@ -359,13 +359,20 @@
     (total-strokes	 . 17)
     (japanese-jisx0208-1978	. #x4263)	; ø»‚­ 
     (chinese-gb2312		. #x776C)	; ø»†…£
-    (japanese-jisx0208		. #x4263)	; ø»‡¨
     (korean-ksc5601		. #x536A)	; ø»‰¤±
     (chinese-isoir165		. #x776C)	; ø»Ž­³
     (chinese-cns11643-1		. #x7638)	; ø»’¿©
-    (japanese-jisx0208-1990	. #x4263)	; ø½Š§œ
     (ideograph-daikanwa		. 48075)	; ø¸‹¯‹
     (ucs			. #x9EDB)	; é»›
+    ))
+(define-char
+  '((=>ucs		. #x9EDB)	; é»›
+    (morohashi-daikanwa	48075 0 4)
+    (ideographic-radical . 203)	; â¿Š
+    (ideographic-strokes . 5)
+    (total-strokes	 . 16)
+    (japanese-jisx0208		. #x4263)	; ø»‡¨
+    (japanese-jisx0208-1990	. #x4263)	; ø½Š§œ
     ))
 (define-char
   '((ideographic-radical . 203)	; â¿Š
