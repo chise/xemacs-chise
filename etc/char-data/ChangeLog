@@ -1,3 +1,82 @@
+2005-01-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* B-to-UCS.txt (B-A1C3): Delete mapping for U+203E.
+
+2005-01-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-63AD): Map to U+8653 instead of U+5A4B.
+
+2004-12-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-91FB): Map to U+6F29 instead of U+6E64.
+
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4DE8): Map to U+FA40 instead of U+61F2.
+
+2004-11-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-7FD6): Map to U+222A instead of U+22C3.
+	(JC3-7FD7): Map to U+2229 instead of U+22C2.
+	(JC3-7FD8): Map to U+2227 instead of U+22C0.
+	(JC3-7FD9): Map to U+2228 instead of U+22C1.
+
+2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* G0-to-UCS.txt: New file.
+
+2004-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* B-to-UCS.txt (B-A1C5): Delete mapping to U+FF3F.
+
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* C1-to-UCS.txt (C1-2224): Add.
+	(C1-2242): Add.
+	(C1-2243): Add.
+	(C1-2253): Add.
+	(C1-2254): Add.
+
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* C1-to-UCS.txt (C1-213A): Add.
+	(C1-213B): Add.
+
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* C1-to-UCS.txt (C1-2126): Map to U+2027 instead of U+30FB.
+	(C1-213C): Add.
+	(C1-213D): Add.
+	(C1-216A): Map to U+2035 instead of U+2032.
+	(C1-216B): Map to U+2032 instead of U+2035.
+
+2004-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-60E3): Map to U+81ED instead of U+FA5C.
+
+2004-09-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4ED6): Map to U+6168 instead of U+FA3E.
+	(JC3-50F4): Map to U+65E3 instead of U+FA42.
+
+2004-08-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JSP-to-UCS.txt (JSP-6674): Delete jU+5DB2.
+
+2004-05-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-4AC6): Map into U+5BEC instead of
+	U-00025980.
+
+2004-04-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-68AC): Map to U+9115 instead of U+90F7.
+
+2004-03-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* JC3-to-UCS.txt (JC3-67A3): Map to U+2ECC instead of U+8FB6.
+	(JC3-72FA): Map to U+2EBE instead of U+8279.
+
 2004-02-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-81F6): Map to U+6EE8 instead of U+6EEB.

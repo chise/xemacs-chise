@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HA")
     (general-category	letter other) ; Informative Category
@@ -6,7 +6,7 @@
     (mirrored		. nil)
     (=ucs		. #x1200)	; áˆ€
     (ethiopic-ucs	. #x1200)	; áˆ€
-    (ethiopic		. #x2121)	; øº¥¹Œ
+    (ethiopic		. #x2121)	; &MULE-ETHIO-2121; [01-01]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HU")
@@ -15,7 +15,7 @@
     (mirrored		. nil)
     (=ucs		. #x1201)	; áˆ
     (ethiopic-ucs	. #x1201)	; áˆ
-    (ethiopic		. #x2122)	; øº¥¹
+    (ethiopic		. #x2122)	; &MULE-ETHIO-2122; [01-02]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HI")
@@ -24,7 +24,7 @@
     (mirrored		. nil)
     (=ucs		. #x1202)	; áˆ‚
     (ethiopic-ucs	. #x1202)	; áˆ‚
-    (ethiopic		. #x2123)	; øº¥¹Ž
+    (ethiopic		. #x2123)	; &MULE-ETHIO-2123; [01-03]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HAA")
@@ -33,7 +33,7 @@
     (mirrored		. nil)
     (=ucs		. #x1203)	; áˆƒ
     (ethiopic-ucs	. #x1203)	; áˆƒ
-    (ethiopic		. #x2124)	; øº¥¹
+    (ethiopic		. #x2124)	; &MULE-ETHIO-2124; [01-04]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HEE")
@@ -42,7 +42,7 @@
     (mirrored		. nil)
     (=ucs		. #x1204)	; áˆ„
     (ethiopic-ucs	. #x1204)	; áˆ„
-    (ethiopic		. #x2125)	; øº¥¹
+    (ethiopic		. #x2125)	; &MULE-ETHIO-2125; [01-05]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HE")
@@ -51,7 +51,7 @@
     (mirrored		. nil)
     (=ucs		. #x1205)	; áˆ…
     (ethiopic-ucs	. #x1205)	; áˆ…
-    (ethiopic		. #x2126)	; øº¥¹‘
+    (ethiopic		. #x2126)	; &MULE-ETHIO-2126; [01-06]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HO")
@@ -60,7 +60,7 @@
     (mirrored		. nil)
     (=ucs		. #x1206)	; áˆ†
     (ethiopic-ucs	. #x1206)	; áˆ†
-    (ethiopic		. #x2127)	; øº¥¹’
+    (ethiopic		. #x2127)	; &MULE-ETHIO-2127; [01-07]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LA")
@@ -69,7 +69,7 @@
     (mirrored		. nil)
     (=ucs		. #x1208)	; áˆˆ
     (ethiopic-ucs	. #x1208)	; áˆˆ
-    (ethiopic		. #x2129)	; øº¥¹”
+    (ethiopic		. #x2129)	; &MULE-ETHIO-2129; [01-09]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LU")
@@ -78,7 +78,7 @@
     (mirrored		. nil)
     (=ucs		. #x1209)	; áˆ‰
     (ethiopic-ucs	. #x1209)	; áˆ‰
-    (ethiopic		. #x212A)	; øº¥¹•
+    (ethiopic		. #x212A)	; &MULE-ETHIO-212A; [01-10]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LI")
@@ -87,7 +87,7 @@
     (mirrored		. nil)
     (=ucs		. #x120A)	; áˆŠ
     (ethiopic-ucs	. #x120A)	; áˆŠ
-    (ethiopic		. #x212B)	; øº¥¹–
+    (ethiopic		. #x212B)	; &MULE-ETHIO-212B; [01-11]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LAA")
@@ -96,7 +96,7 @@
     (mirrored		. nil)
     (=ucs		. #x120B)	; áˆ‹
     (ethiopic-ucs	. #x120B)	; áˆ‹
-    (ethiopic		. #x212C)	; øº¥¹—
+    (ethiopic		. #x212C)	; &MULE-ETHIO-212C; [01-12]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LEE")
@@ -105,7 +105,7 @@
     (mirrored		. nil)
     (=ucs		. #x120C)	; áˆŒ
     (ethiopic-ucs	. #x120C)	; áˆŒ
-    (ethiopic		. #x212D)	; øº¥¹˜
+    (ethiopic		. #x212D)	; &MULE-ETHIO-212D; [01-13]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LE")
@@ -114,7 +114,7 @@
     (mirrored		. nil)
     (=ucs		. #x120D)	; áˆ
     (ethiopic-ucs	. #x120D)	; áˆ
-    (ethiopic		. #x212E)	; øº¥¹™
+    (ethiopic		. #x212E)	; &MULE-ETHIO-212E; [01-14]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LO")
@@ -123,7 +123,7 @@
     (mirrored		. nil)
     (=ucs		. #x120E)	; áˆŽ
     (ethiopic-ucs	. #x120E)	; áˆŽ
-    (ethiopic		. #x212F)	; øº¥¹š
+    (ethiopic		. #x212F)	; &MULE-ETHIO-212F; [01-15]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LWA")
@@ -132,7 +132,7 @@
     (mirrored		. nil)
     (=ucs		. #x120F)	; áˆ
     (ethiopic-ucs	. #x120F)	; áˆ
-    (ethiopic		. #x2130)	; øº¥¹›
+    (ethiopic		. #x2130)	; &MULE-ETHIO-2130; [01-16]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHA")
@@ -141,7 +141,7 @@
     (mirrored		. nil)
     (=ucs		. #x1210)	; áˆ
     (ethiopic-ucs	. #x1210)	; áˆ
-    (ethiopic		. #x2131)	; øº¥¹œ
+    (ethiopic		. #x2131)	; &MULE-ETHIO-2131; [01-17]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHU")
@@ -150,7 +150,7 @@
     (mirrored		. nil)
     (=ucs		. #x1211)	; áˆ‘
     (ethiopic-ucs	. #x1211)	; áˆ‘
-    (ethiopic		. #x2132)	; øº¥¹
+    (ethiopic		. #x2132)	; &MULE-ETHIO-2132; [01-18]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHI")
@@ -159,7 +159,7 @@
     (mirrored		. nil)
     (=ucs		. #x1212)	; áˆ’
     (ethiopic-ucs	. #x1212)	; áˆ’
-    (ethiopic		. #x2133)	; øº¥¹ž
+    (ethiopic		. #x2133)	; &MULE-ETHIO-2133; [01-19]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHAA")
@@ -168,7 +168,7 @@
     (mirrored		. nil)
     (=ucs		. #x1213)	; áˆ“
     (ethiopic-ucs	. #x1213)	; áˆ“
-    (ethiopic		. #x2134)	; øº¥¹Ÿ
+    (ethiopic		. #x2134)	; &MULE-ETHIO-2134; [01-20]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHEE")
@@ -177,7 +177,7 @@
     (mirrored		. nil)
     (=ucs		. #x1214)	; áˆ”
     (ethiopic-ucs	. #x1214)	; áˆ”
-    (ethiopic		. #x2135)	; øº¥¹ 
+    (ethiopic		. #x2135)	; &MULE-ETHIO-2135; [01-21]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHE")
@@ -186,7 +186,7 @@
     (mirrored		. nil)
     (=ucs		. #x1215)	; áˆ•
     (ethiopic-ucs	. #x1215)	; áˆ•
-    (ethiopic		. #x2136)	; øº¥¹¡
+    (ethiopic		. #x2136)	; &MULE-ETHIO-2136; [01-22]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHO")
@@ -195,7 +195,7 @@
     (mirrored		. nil)
     (=ucs		. #x1216)	; áˆ–
     (ethiopic-ucs	. #x1216)	; áˆ–
-    (ethiopic		. #x2137)	; øº¥¹¢
+    (ethiopic		. #x2137)	; &MULE-ETHIO-2137; [01-23]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHWA")
@@ -204,7 +204,7 @@
     (mirrored		. nil)
     (=ucs		. #x1217)	; áˆ—
     (ethiopic-ucs	. #x1217)	; áˆ—
-    (ethiopic		. #x2138)	; øº¥¹£
+    (ethiopic		. #x2138)	; &MULE-ETHIO-2138; [01-24]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MA")
@@ -213,7 +213,7 @@
     (mirrored		. nil)
     (=ucs		. #x1218)	; áˆ˜
     (ethiopic-ucs	. #x1218)	; áˆ˜
-    (ethiopic		. #x2139)	; øº¥¹¤
+    (ethiopic		. #x2139)	; &MULE-ETHIO-2139; [01-25]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MU")
@@ -222,7 +222,7 @@
     (mirrored		. nil)
     (=ucs		. #x1219)	; áˆ™
     (ethiopic-ucs	. #x1219)	; áˆ™
-    (ethiopic		. #x213A)	; øº¥¹¥
+    (ethiopic		. #x213A)	; &MULE-ETHIO-213A; [01-26]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MI")
@@ -231,7 +231,7 @@
     (mirrored		. nil)
     (=ucs		. #x121A)	; áˆš
     (ethiopic-ucs	. #x121A)	; áˆš
-    (ethiopic		. #x213B)	; øº¥¹¦
+    (ethiopic		. #x213B)	; &MULE-ETHIO-213B; [01-27]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MAA")
@@ -240,7 +240,7 @@
     (mirrored		. nil)
     (=ucs		. #x121B)	; áˆ›
     (ethiopic-ucs	. #x121B)	; áˆ›
-    (ethiopic		. #x213C)	; øº¥¹§
+    (ethiopic		. #x213C)	; &MULE-ETHIO-213C; [01-28]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MEE")
@@ -249,7 +249,7 @@
     (mirrored		. nil)
     (=ucs		. #x121C)	; áˆœ
     (ethiopic-ucs	. #x121C)	; áˆœ
-    (ethiopic		. #x213D)	; øº¥¹¨
+    (ethiopic		. #x213D)	; &MULE-ETHIO-213D; [01-29]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ME")
@@ -258,7 +258,7 @@
     (mirrored		. nil)
     (=ucs		. #x121D)	; áˆ
     (ethiopic-ucs	. #x121D)	; áˆ
-    (ethiopic		. #x213E)	; øº¥¹©
+    (ethiopic		. #x213E)	; &MULE-ETHIO-213E; [01-30]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MO")
@@ -267,7 +267,7 @@
     (mirrored		. nil)
     (=ucs		. #x121E)	; áˆž
     (ethiopic-ucs	. #x121E)	; áˆž
-    (ethiopic		. #x213F)	; øº¥¹ª
+    (ethiopic		. #x213F)	; &MULE-ETHIO-213F; [01-31]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MWA")
@@ -276,7 +276,7 @@
     (mirrored		. nil)
     (=ucs		. #x121F)	; áˆŸ
     (ethiopic-ucs	. #x121F)	; áˆŸ
-    (ethiopic		. #x2140)	; øº¥¹«
+    (ethiopic		. #x2140)	; &MULE-ETHIO-2140; [01-32]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZA")
@@ -285,7 +285,7 @@
     (mirrored		. nil)
     (=ucs		. #x1220)	; áˆ 
     (ethiopic-ucs	. #x1220)	; áˆ 
-    (ethiopic		. #x2141)	; øº¥¹¬
+    (ethiopic		. #x2141)	; &MULE-ETHIO-2141; [01-33]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZU")
@@ -294,7 +294,7 @@
     (mirrored		. nil)
     (=ucs		. #x1221)	; áˆ¡
     (ethiopic-ucs	. #x1221)	; áˆ¡
-    (ethiopic		. #x2142)	; øº¥¹­
+    (ethiopic		. #x2142)	; &MULE-ETHIO-2142; [01-34]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZI")
@@ -303,7 +303,7 @@
     (mirrored		. nil)
     (=ucs		. #x1222)	; áˆ¢
     (ethiopic-ucs	. #x1222)	; áˆ¢
-    (ethiopic		. #x2143)	; øº¥¹®
+    (ethiopic		. #x2143)	; &MULE-ETHIO-2143; [01-35]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZAA")
@@ -312,7 +312,7 @@
     (mirrored		. nil)
     (=ucs		. #x1223)	; áˆ£
     (ethiopic-ucs	. #x1223)	; áˆ£
-    (ethiopic		. #x2144)	; øº¥¹¯
+    (ethiopic		. #x2144)	; &MULE-ETHIO-2144; [01-36]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZEE")
@@ -321,7 +321,7 @@
     (mirrored		. nil)
     (=ucs		. #x1224)	; áˆ¤
     (ethiopic-ucs	. #x1224)	; áˆ¤
-    (ethiopic		. #x2145)	; øº¥¹°
+    (ethiopic		. #x2145)	; &MULE-ETHIO-2145; [01-37]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZE")
@@ -330,7 +330,7 @@
     (mirrored		. nil)
     (=ucs		. #x1225)	; áˆ¥
     (ethiopic-ucs	. #x1225)	; áˆ¥
-    (ethiopic		. #x2146)	; øº¥¹±
+    (ethiopic		. #x2146)	; &MULE-ETHIO-2146; [01-38]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZO")
@@ -339,7 +339,7 @@
     (mirrored		. nil)
     (=ucs		. #x1226)	; áˆ¦
     (ethiopic-ucs	. #x1226)	; áˆ¦
-    (ethiopic		. #x2147)	; øº¥¹²
+    (ethiopic		. #x2147)	; &MULE-ETHIO-2147; [01-39]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZWA")
@@ -348,7 +348,7 @@
     (mirrored		. nil)
     (=ucs		. #x1227)	; áˆ§
     (ethiopic-ucs	. #x1227)	; áˆ§
-    (ethiopic		. #x2148)	; øº¥¹³
+    (ethiopic		. #x2148)	; &MULE-ETHIO-2148; [01-40]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RA")
@@ -357,7 +357,7 @@
     (mirrored		. nil)
     (=ucs		. #x1228)	; áˆ¨
     (ethiopic-ucs	. #x1228)	; áˆ¨
-    (ethiopic		. #x2149)	; øº¥¹´
+    (ethiopic		. #x2149)	; &MULE-ETHIO-2149; [01-41]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RU")
@@ -366,7 +366,7 @@
     (mirrored		. nil)
     (=ucs		. #x1229)	; áˆ©
     (ethiopic-ucs	. #x1229)	; áˆ©
-    (ethiopic		. #x214A)	; øº¥¹µ
+    (ethiopic		. #x214A)	; &MULE-ETHIO-214A; [01-42]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RI")
@@ -375,7 +375,7 @@
     (mirrored		. nil)
     (=ucs		. #x122A)	; áˆª
     (ethiopic-ucs	. #x122A)	; áˆª
-    (ethiopic		. #x214B)	; øº¥¹¶
+    (ethiopic		. #x214B)	; &MULE-ETHIO-214B; [01-43]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RAA")
@@ -384,7 +384,7 @@
     (mirrored		. nil)
     (=ucs		. #x122B)	; áˆ«
     (ethiopic-ucs	. #x122B)	; áˆ«
-    (ethiopic		. #x214C)	; øº¥¹·
+    (ethiopic		. #x214C)	; &MULE-ETHIO-214C; [01-44]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE REE")
@@ -393,7 +393,7 @@
     (mirrored		. nil)
     (=ucs		. #x122C)	; áˆ¬
     (ethiopic-ucs	. #x122C)	; áˆ¬
-    (ethiopic		. #x214D)	; øº¥¹¸
+    (ethiopic		. #x214D)	; &MULE-ETHIO-214D; [01-45]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RE")
@@ -402,7 +402,7 @@
     (mirrored		. nil)
     (=ucs		. #x122D)	; áˆ­
     (ethiopic-ucs	. #x122D)	; áˆ­
-    (ethiopic		. #x214E)	; øº¥¹¹
+    (ethiopic		. #x214E)	; &MULE-ETHIO-214E; [01-46]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RO")
@@ -411,7 +411,7 @@
     (mirrored		. nil)
     (=ucs		. #x122E)	; áˆ®
     (ethiopic-ucs	. #x122E)	; áˆ®
-    (ethiopic		. #x214F)	; øº¥¹º
+    (ethiopic		. #x214F)	; &MULE-ETHIO-214F; [01-47]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RWA")
@@ -420,7 +420,7 @@
     (mirrored		. nil)
     (=ucs		. #x122F)	; áˆ¯
     (ethiopic-ucs	. #x122F)	; áˆ¯
-    (ethiopic		. #x2150)	; øº¥¹»
+    (ethiopic		. #x2150)	; &MULE-ETHIO-2150; [01-48]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SA")
@@ -429,7 +429,7 @@
     (mirrored		. nil)
     (=ucs		. #x1230)	; áˆ°
     (ethiopic-ucs	. #x1230)	; áˆ°
-    (ethiopic		. #x2151)	; øº¥¹¼
+    (ethiopic		. #x2151)	; &MULE-ETHIO-2151; [01-49]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SU")
@@ -438,7 +438,7 @@
     (mirrored		. nil)
     (=ucs		. #x1231)	; áˆ±
     (ethiopic-ucs	. #x1231)	; áˆ±
-    (ethiopic		. #x2152)	; øº¥¹½
+    (ethiopic		. #x2152)	; &MULE-ETHIO-2152; [01-50]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SI")
@@ -447,7 +447,7 @@
     (mirrored		. nil)
     (=ucs		. #x1232)	; áˆ²
     (ethiopic-ucs	. #x1232)	; áˆ²
-    (ethiopic		. #x2153)	; øº¥¹¾
+    (ethiopic		. #x2153)	; &MULE-ETHIO-2153; [01-51]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SAA")
@@ -456,7 +456,7 @@
     (mirrored		. nil)
     (=ucs		. #x1233)	; áˆ³
     (ethiopic-ucs	. #x1233)	; áˆ³
-    (ethiopic		. #x2154)	; øº¥¹¿
+    (ethiopic		. #x2154)	; &MULE-ETHIO-2154; [01-52]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SEE")
@@ -465,7 +465,7 @@
     (mirrored		. nil)
     (=ucs		. #x1234)	; áˆ´
     (ethiopic-ucs	. #x1234)	; áˆ´
-    (ethiopic		. #x2155)	; øº¥º€
+    (ethiopic		. #x2155)	; &MULE-ETHIO-2155; [01-53]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SE")
@@ -474,7 +474,7 @@
     (mirrored		. nil)
     (=ucs		. #x1235)	; áˆµ
     (ethiopic-ucs	. #x1235)	; áˆµ
-    (ethiopic		. #x2156)	; øº¥º
+    (ethiopic		. #x2156)	; &MULE-ETHIO-2156; [01-54]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SO")
@@ -483,7 +483,7 @@
     (mirrored		. nil)
     (=ucs		. #x1236)	; áˆ¶
     (ethiopic-ucs	. #x1236)	; áˆ¶
-    (ethiopic		. #x2157)	; øº¥º‚
+    (ethiopic		. #x2157)	; &MULE-ETHIO-2157; [01-55]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SWA")
@@ -492,7 +492,7 @@
     (mirrored		. nil)
     (=ucs		. #x1237)	; áˆ·
     (ethiopic-ucs	. #x1237)	; áˆ·
-    (ethiopic		. #x2158)	; øº¥ºƒ
+    (ethiopic		. #x2158)	; &MULE-ETHIO-2158; [01-56]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHA")
@@ -501,7 +501,7 @@
     (mirrored		. nil)
     (=ucs		. #x1238)	; áˆ¸
     (ethiopic-ucs	. #x1238)	; áˆ¸
-    (ethiopic		. #x2159)	; øº¥º„
+    (ethiopic		. #x2159)	; &MULE-ETHIO-2159; [01-57]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHU")
@@ -510,7 +510,7 @@
     (mirrored		. nil)
     (=ucs		. #x1239)	; áˆ¹
     (ethiopic-ucs	. #x1239)	; áˆ¹
-    (ethiopic		. #x215A)	; øº¥º…
+    (ethiopic		. #x215A)	; &MULE-ETHIO-215A; [01-58]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHI")
@@ -519,7 +519,7 @@
     (mirrored		. nil)
     (=ucs		. #x123A)	; áˆº
     (ethiopic-ucs	. #x123A)	; áˆº
-    (ethiopic		. #x215B)	; øº¥º†
+    (ethiopic		. #x215B)	; &MULE-ETHIO-215B; [01-59]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHAA")
@@ -528,7 +528,7 @@
     (mirrored		. nil)
     (=ucs		. #x123B)	; áˆ»
     (ethiopic-ucs	. #x123B)	; áˆ»
-    (ethiopic		. #x215C)	; øº¥º‡
+    (ethiopic		. #x215C)	; &MULE-ETHIO-215C; [01-60]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHEE")
@@ -537,7 +537,7 @@
     (mirrored		. nil)
     (=ucs		. #x123C)	; áˆ¼
     (ethiopic-ucs	. #x123C)	; áˆ¼
-    (ethiopic		. #x215D)	; øº¥ºˆ
+    (ethiopic		. #x215D)	; &MULE-ETHIO-215D; [01-61]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHE")
@@ -546,7 +546,7 @@
     (mirrored		. nil)
     (=ucs		. #x123D)	; áˆ½
     (ethiopic-ucs	. #x123D)	; áˆ½
-    (ethiopic		. #x215E)	; øº¥º‰
+    (ethiopic		. #x215E)	; &MULE-ETHIO-215E; [01-62]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHO")
@@ -555,7 +555,7 @@
     (mirrored		. nil)
     (=ucs		. #x123E)	; áˆ¾
     (ethiopic-ucs	. #x123E)	; áˆ¾
-    (ethiopic		. #x215F)	; øº¥ºŠ
+    (ethiopic		. #x215F)	; &MULE-ETHIO-215F; [01-63]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHWA")
@@ -564,7 +564,7 @@
     (mirrored		. nil)
     (=ucs		. #x123F)	; áˆ¿
     (ethiopic-ucs	. #x123F)	; áˆ¿
-    (ethiopic		. #x2160)	; øº¥º‹
+    (ethiopic		. #x2160)	; &MULE-ETHIO-2160; [01-64]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QA")
@@ -573,7 +573,7 @@
     (mirrored		. nil)
     (=ucs		. #x1240)	; á‰€
     (ethiopic-ucs	. #x1240)	; á‰€
-    (ethiopic		. #x2161)	; øº¥ºŒ
+    (ethiopic		. #x2161)	; &MULE-ETHIO-2161; [01-65]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QU")
@@ -582,7 +582,7 @@
     (mirrored		. nil)
     (=ucs		. #x1241)	; á‰
     (ethiopic-ucs	. #x1241)	; á‰
-    (ethiopic		. #x2162)	; øº¥º
+    (ethiopic		. #x2162)	; &MULE-ETHIO-2162; [01-66]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QI")
@@ -591,7 +591,7 @@
     (mirrored		. nil)
     (=ucs		. #x1242)	; á‰‚
     (ethiopic-ucs	. #x1242)	; á‰‚
-    (ethiopic		. #x2163)	; øº¥ºŽ
+    (ethiopic		. #x2163)	; &MULE-ETHIO-2163; [01-67]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QAA")
@@ -600,7 +600,7 @@
     (mirrored		. nil)
     (=ucs		. #x1243)	; á‰ƒ
     (ethiopic-ucs	. #x1243)	; á‰ƒ
-    (ethiopic		. #x2164)	; øº¥º
+    (ethiopic		. #x2164)	; &MULE-ETHIO-2164; [01-68]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QEE")
@@ -609,7 +609,7 @@
     (mirrored		. nil)
     (=ucs		. #x1244)	; á‰„
     (ethiopic-ucs	. #x1244)	; á‰„
-    (ethiopic		. #x2165)	; øº¥º
+    (ethiopic		. #x2165)	; &MULE-ETHIO-2165; [01-69]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QE")
@@ -618,7 +618,7 @@
     (mirrored		. nil)
     (=ucs		. #x1245)	; á‰…
     (ethiopic-ucs	. #x1245)	; á‰…
-    (ethiopic		. #x2166)	; øº¥º‘
+    (ethiopic		. #x2166)	; &MULE-ETHIO-2166; [01-70]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QO")
@@ -627,7 +627,7 @@
     (mirrored		. nil)
     (=ucs		. #x1246)	; á‰†
     (ethiopic-ucs	. #x1246)	; á‰†
-    (ethiopic		. #x2167)	; øº¥º’
+    (ethiopic		. #x2167)	; &MULE-ETHIO-2167; [01-71]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWA")
@@ -636,7 +636,7 @@
     (mirrored		. nil)
     (=ucs		. #x1248)	; á‰ˆ
     (ethiopic-ucs	. #x1248)	; á‰ˆ
-    (ethiopic		. #x2169)	; øº¥º”
+    (ethiopic		. #x2169)	; &MULE-ETHIO-2169; [01-73]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWI")
@@ -645,7 +645,7 @@
     (mirrored		. nil)
     (=ucs		. #x124A)	; á‰Š
     (ethiopic-ucs	. #x124A)	; á‰Š
-    (ethiopic		. #x216B)	; øº¥º–
+    (ethiopic		. #x216B)	; &MULE-ETHIO-216B; [01-75]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWAA")
@@ -654,7 +654,7 @@
     (mirrored		. nil)
     (=ucs		. #x124B)	; á‰‹
     (ethiopic-ucs	. #x124B)	; á‰‹
-    (ethiopic		. #x216C)	; øº¥º—
+    (ethiopic		. #x216C)	; &MULE-ETHIO-216C; [01-76]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWEE")
@@ -663,7 +663,7 @@
     (mirrored		. nil)
     (=ucs		. #x124C)	; á‰Œ
     (ethiopic-ucs	. #x124C)	; á‰Œ
-    (ethiopic		. #x216D)	; øº¥º˜
+    (ethiopic		. #x216D)	; &MULE-ETHIO-216D; [01-77]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWE")
@@ -672,7 +672,7 @@
     (mirrored		. nil)
     (=ucs		. #x124D)	; á‰
     (ethiopic-ucs	. #x124D)	; á‰
-    (ethiopic		. #x216E)	; øº¥º™
+    (ethiopic		. #x216E)	; &MULE-ETHIO-216E; [01-78]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHA")
@@ -681,7 +681,7 @@
     (mirrored		. nil)
     (=ucs		. #x1250)	; á‰
     (ethiopic-ucs	. #x1250)	; á‰
-    (ethiopic		. #x2171)	; øº¥ºœ
+    (ethiopic		. #x2171)	; &MULE-ETHIO-2171; [01-81]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHU")
@@ -690,7 +690,7 @@
     (mirrored		. nil)
     (=ucs		. #x1251)	; á‰‘
     (ethiopic-ucs	. #x1251)	; á‰‘
-    (ethiopic		. #x2172)	; øº¥º
+    (ethiopic		. #x2172)	; &MULE-ETHIO-2172; [01-82]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHI")
@@ -699,7 +699,7 @@
     (mirrored		. nil)
     (=ucs		. #x1252)	; á‰’
     (ethiopic-ucs	. #x1252)	; á‰’
-    (ethiopic		. #x2173)	; øº¥ºž
+    (ethiopic		. #x2173)	; &MULE-ETHIO-2173; [01-83]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHAA")
@@ -708,7 +708,7 @@
     (mirrored		. nil)
     (=ucs		. #x1253)	; á‰“
     (ethiopic-ucs	. #x1253)	; á‰“
-    (ethiopic		. #x2174)	; øº¥ºŸ
+    (ethiopic		. #x2174)	; &MULE-ETHIO-2174; [01-84]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHEE")
@@ -717,7 +717,7 @@
     (mirrored		. nil)
     (=ucs		. #x1254)	; á‰”
     (ethiopic-ucs	. #x1254)	; á‰”
-    (ethiopic		. #x2175)	; øº¥º 
+    (ethiopic		. #x2175)	; &MULE-ETHIO-2175; [01-85]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHE")
@@ -726,7 +726,7 @@
     (mirrored		. nil)
     (=ucs		. #x1255)	; á‰•
     (ethiopic-ucs	. #x1255)	; á‰•
-    (ethiopic		. #x2176)	; øº¥º¡
+    (ethiopic		. #x2176)	; &MULE-ETHIO-2176; [01-86]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHO")
@@ -735,7 +735,7 @@
     (mirrored		. nil)
     (=ucs		. #x1256)	; á‰–
     (ethiopic-ucs	. #x1256)	; á‰–
-    (ethiopic		. #x2177)	; øº¥º¢
+    (ethiopic		. #x2177)	; &MULE-ETHIO-2177; [01-87]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWA")
@@ -744,7 +744,7 @@
     (mirrored		. nil)
     (=ucs		. #x1258)	; á‰˜
     (ethiopic-ucs	. #x1258)	; á‰˜
-    (ethiopic		. #x2179)	; øº¥º¤
+    (ethiopic		. #x2179)	; &MULE-ETHIO-2179; [01-89]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWI")
@@ -753,7 +753,7 @@
     (mirrored		. nil)
     (=ucs		. #x125A)	; á‰š
     (ethiopic-ucs	. #x125A)	; á‰š
-    (ethiopic		. #x217B)	; øº¥º¦
+    (ethiopic		. #x217B)	; &MULE-ETHIO-217B; [01-91]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWAA")
@@ -762,7 +762,7 @@
     (mirrored		. nil)
     (=ucs		. #x125B)	; á‰›
     (ethiopic-ucs	. #x125B)	; á‰›
-    (ethiopic		. #x217C)	; øº¥º§
+    (ethiopic		. #x217C)	; &MULE-ETHIO-217C; [01-92]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWEE")
@@ -771,7 +771,7 @@
     (mirrored		. nil)
     (=ucs		. #x125C)	; á‰œ
     (ethiopic-ucs	. #x125C)	; á‰œ
-    (ethiopic		. #x217D)	; øº¥º¨
+    (ethiopic		. #x217D)	; &MULE-ETHIO-217D; [01-93]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWE")
@@ -780,7 +780,7 @@
     (mirrored		. nil)
     (=ucs		. #x125D)	; á‰
     (ethiopic-ucs	. #x125D)	; á‰
-    (ethiopic		. #x217E)	; øº¥º©
+    (ethiopic		. #x217E)	; &MULE-ETHIO-217E; [01-94]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BA")
@@ -789,7 +789,7 @@
     (mirrored		. nil)
     (=ucs		. #x1260)	; á‰ 
     (ethiopic-ucs	. #x1260)	; á‰ 
-    (ethiopic		. #x2223)	; øº¥º¬
+    (ethiopic		. #x2223)	; &MULE-ETHIO-2223; [02-03]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BU")
@@ -798,7 +798,7 @@
     (mirrored		. nil)
     (=ucs		. #x1261)	; á‰¡
     (ethiopic-ucs	. #x1261)	; á‰¡
-    (ethiopic		. #x2224)	; øº¥º­
+    (ethiopic		. #x2224)	; &MULE-ETHIO-2224; [02-04]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BI")
@@ -807,7 +807,7 @@
     (mirrored		. nil)
     (=ucs		. #x1262)	; á‰¢
     (ethiopic-ucs	. #x1262)	; á‰¢
-    (ethiopic		. #x2225)	; øº¥º®
+    (ethiopic		. #x2225)	; &MULE-ETHIO-2225; [02-05]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BAA")
@@ -816,7 +816,7 @@
     (mirrored		. nil)
     (=ucs		. #x1263)	; á‰£
     (ethiopic-ucs	. #x1263)	; á‰£
-    (ethiopic		. #x2226)	; øº¥º¯
+    (ethiopic		. #x2226)	; &MULE-ETHIO-2226; [02-06]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BEE")
@@ -825,7 +825,7 @@
     (mirrored		. nil)
     (=ucs		. #x1264)	; á‰¤
     (ethiopic-ucs	. #x1264)	; á‰¤
-    (ethiopic		. #x2227)	; øº¥º°
+    (ethiopic		. #x2227)	; &MULE-ETHIO-2227; [02-07]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BE")
@@ -834,7 +834,7 @@
     (mirrored		. nil)
     (=ucs		. #x1265)	; á‰¥
     (ethiopic-ucs	. #x1265)	; á‰¥
-    (ethiopic		. #x2228)	; øº¥º±
+    (ethiopic		. #x2228)	; &MULE-ETHIO-2228; [02-08]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BO")
@@ -843,7 +843,7 @@
     (mirrored		. nil)
     (=ucs		. #x1266)	; á‰¦
     (ethiopic-ucs	. #x1266)	; á‰¦
-    (ethiopic		. #x2229)	; øº¥º²
+    (ethiopic		. #x2229)	; &MULE-ETHIO-2229; [02-09]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BWA")
@@ -852,7 +852,7 @@
     (mirrored		. nil)
     (=ucs		. #x1267)	; á‰§
     (ethiopic-ucs	. #x1267)	; á‰§
-    (ethiopic		. #x222A)	; øº¥º³
+    (ethiopic		. #x222A)	; &MULE-ETHIO-222A; [02-10]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VA")
@@ -861,7 +861,7 @@
     (mirrored		. nil)
     (=ucs		. #x1268)	; á‰¨
     (ethiopic-ucs	. #x1268)	; á‰¨
-    (ethiopic		. #x222B)	; øº¥º´
+    (ethiopic		. #x222B)	; &MULE-ETHIO-222B; [02-11]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VU")
@@ -870,7 +870,7 @@
     (mirrored		. nil)
     (=ucs		. #x1269)	; á‰©
     (ethiopic-ucs	. #x1269)	; á‰©
-    (ethiopic		. #x222C)	; øº¥ºµ
+    (ethiopic		. #x222C)	; &MULE-ETHIO-222C; [02-12]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VI")
@@ -879,7 +879,7 @@
     (mirrored		. nil)
     (=ucs		. #x126A)	; á‰ª
     (ethiopic-ucs	. #x126A)	; á‰ª
-    (ethiopic		. #x222D)	; øº¥º¶
+    (ethiopic		. #x222D)	; &MULE-ETHIO-222D; [02-13]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VAA")
@@ -888,7 +888,7 @@
     (mirrored		. nil)
     (=ucs		. #x126B)	; á‰«
     (ethiopic-ucs	. #x126B)	; á‰«
-    (ethiopic		. #x222E)	; øº¥º·
+    (ethiopic		. #x222E)	; &MULE-ETHIO-222E; [02-14]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VEE")
@@ -897,7 +897,7 @@
     (mirrored		. nil)
     (=ucs		. #x126C)	; á‰¬
     (ethiopic-ucs	. #x126C)	; á‰¬
-    (ethiopic		. #x222F)	; øº¥º¸
+    (ethiopic		. #x222F)	; &MULE-ETHIO-222F; [02-15]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VE")
@@ -906,7 +906,7 @@
     (mirrored		. nil)
     (=ucs		. #x126D)	; á‰­
     (ethiopic-ucs	. #x126D)	; á‰­
-    (ethiopic		. #x2230)	; øº¥º¹
+    (ethiopic		. #x2230)	; &MULE-ETHIO-2230; [02-16]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VO")
@@ -915,7 +915,7 @@
     (mirrored		. nil)
     (=ucs		. #x126E)	; á‰®
     (ethiopic-ucs	. #x126E)	; á‰®
-    (ethiopic		. #x2231)	; øº¥ºº
+    (ethiopic		. #x2231)	; &MULE-ETHIO-2231; [02-17]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VWA")
@@ -924,7 +924,7 @@
     (mirrored		. nil)
     (=ucs		. #x126F)	; á‰¯
     (ethiopic-ucs	. #x126F)	; á‰¯
-    (ethiopic		. #x2232)	; øº¥º»
+    (ethiopic		. #x2232)	; &MULE-ETHIO-2232; [02-18]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TA")
@@ -933,7 +933,7 @@
     (mirrored		. nil)
     (=ucs		. #x1270)	; á‰°
     (ethiopic-ucs	. #x1270)	; á‰°
-    (ethiopic		. #x2233)	; øº¥º¼
+    (ethiopic		. #x2233)	; &MULE-ETHIO-2233; [02-19]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TU")
@@ -942,7 +942,7 @@
     (mirrored		. nil)
     (=ucs		. #x1271)	; á‰±
     (ethiopic-ucs	. #x1271)	; á‰±
-    (ethiopic		. #x2234)	; øº¥º½
+    (ethiopic		. #x2234)	; &MULE-ETHIO-2234; [02-20]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TI")
@@ -951,7 +951,7 @@
     (mirrored		. nil)
     (=ucs		. #x1272)	; á‰²
     (ethiopic-ucs	. #x1272)	; á‰²
-    (ethiopic		. #x2235)	; øº¥º¾
+    (ethiopic		. #x2235)	; &MULE-ETHIO-2235; [02-21]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TAA")
@@ -960,7 +960,7 @@
     (mirrored		. nil)
     (=ucs		. #x1273)	; á‰³
     (ethiopic-ucs	. #x1273)	; á‰³
-    (ethiopic		. #x2236)	; øº¥º¿
+    (ethiopic		. #x2236)	; &MULE-ETHIO-2236; [02-22]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TEE")
@@ -969,7 +969,7 @@
     (mirrored		. nil)
     (=ucs		. #x1274)	; á‰´
     (ethiopic-ucs	. #x1274)	; á‰´
-    (ethiopic		. #x2237)	; øº¥»€
+    (ethiopic		. #x2237)	; &MULE-ETHIO-2237; [02-23]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TE")
@@ -978,7 +978,7 @@
     (mirrored		. nil)
     (=ucs		. #x1275)	; á‰µ
     (ethiopic-ucs	. #x1275)	; á‰µ
-    (ethiopic		. #x2238)	; øº¥»
+    (ethiopic		. #x2238)	; &MULE-ETHIO-2238; [02-24]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TO")
@@ -987,7 +987,7 @@
     (mirrored		. nil)
     (=ucs		. #x1276)	; á‰¶
     (ethiopic-ucs	. #x1276)	; á‰¶
-    (ethiopic		. #x2239)	; øº¥»‚
+    (ethiopic		. #x2239)	; &MULE-ETHIO-2239; [02-25]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TWA")
@@ -996,7 +996,7 @@
     (mirrored		. nil)
     (=ucs		. #x1277)	; á‰·
     (ethiopic-ucs	. #x1277)	; á‰·
-    (ethiopic		. #x223A)	; øº¥»ƒ
+    (ethiopic		. #x223A)	; &MULE-ETHIO-223A; [02-26]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CA")
@@ -1005,7 +1005,7 @@
     (mirrored		. nil)
     (=ucs		. #x1278)	; á‰¸
     (ethiopic-ucs	. #x1278)	; á‰¸
-    (ethiopic		. #x223B)	; øº¥»„
+    (ethiopic		. #x223B)	; &MULE-ETHIO-223B; [02-27]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CU")
@@ -1014,7 +1014,7 @@
     (mirrored		. nil)
     (=ucs		. #x1279)	; á‰¹
     (ethiopic-ucs	. #x1279)	; á‰¹
-    (ethiopic		. #x223C)	; øº¥»…
+    (ethiopic		. #x223C)	; &MULE-ETHIO-223C; [02-28]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CI")
@@ -1023,7 +1023,7 @@
     (mirrored		. nil)
     (=ucs		. #x127A)	; á‰º
     (ethiopic-ucs	. #x127A)	; á‰º
-    (ethiopic		. #x223D)	; øº¥»†
+    (ethiopic		. #x223D)	; &MULE-ETHIO-223D; [02-29]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CAA")
@@ -1032,7 +1032,7 @@
     (mirrored		. nil)
     (=ucs		. #x127B)	; á‰»
     (ethiopic-ucs	. #x127B)	; á‰»
-    (ethiopic		. #x223E)	; øº¥»‡
+    (ethiopic		. #x223E)	; &MULE-ETHIO-223E; [02-30]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CEE")
@@ -1041,7 +1041,7 @@
     (mirrored		. nil)
     (=ucs		. #x127C)	; á‰¼
     (ethiopic-ucs	. #x127C)	; á‰¼
-    (ethiopic		. #x223F)	; øº¥»ˆ
+    (ethiopic		. #x223F)	; &MULE-ETHIO-223F; [02-31]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CE")
@@ -1050,7 +1050,7 @@
     (mirrored		. nil)
     (=ucs		. #x127D)	; á‰½
     (ethiopic-ucs	. #x127D)	; á‰½
-    (ethiopic		. #x2240)	; øº¥»‰
+    (ethiopic		. #x2240)	; &MULE-ETHIO-2240; [02-32]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CO")
@@ -1059,7 +1059,7 @@
     (mirrored		. nil)
     (=ucs		. #x127E)	; á‰¾
     (ethiopic-ucs	. #x127E)	; á‰¾
-    (ethiopic		. #x2241)	; øº¥»Š
+    (ethiopic		. #x2241)	; &MULE-ETHIO-2241; [02-33]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CWA")
@@ -1068,7 +1068,7 @@
     (mirrored		. nil)
     (=ucs		. #x127F)	; á‰¿
     (ethiopic-ucs	. #x127F)	; á‰¿
-    (ethiopic		. #x2242)	; øº¥»‹
+    (ethiopic		. #x2242)	; &MULE-ETHIO-2242; [02-34]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XA")
@@ -1077,7 +1077,7 @@
     (mirrored		. nil)
     (=ucs		. #x1280)	; áŠ€
     (ethiopic-ucs	. #x1280)	; áŠ€
-    (ethiopic		. #x2243)	; øº¥»Œ
+    (ethiopic		. #x2243)	; &MULE-ETHIO-2243; [02-35]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XU")
@@ -1086,7 +1086,7 @@
     (mirrored		. nil)
     (=ucs		. #x1281)	; áŠ
     (ethiopic-ucs	. #x1281)	; áŠ
-    (ethiopic		. #x2244)	; øº¥»
+    (ethiopic		. #x2244)	; &MULE-ETHIO-2244; [02-36]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XI")
@@ -1095,7 +1095,7 @@
     (mirrored		. nil)
     (=ucs		. #x1282)	; áŠ‚
     (ethiopic-ucs	. #x1282)	; áŠ‚
-    (ethiopic		. #x2245)	; øº¥»Ž
+    (ethiopic		. #x2245)	; &MULE-ETHIO-2245; [02-37]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XAA")
@@ -1104,7 +1104,7 @@
     (mirrored		. nil)
     (=ucs		. #x1283)	; áŠƒ
     (ethiopic-ucs	. #x1283)	; áŠƒ
-    (ethiopic		. #x2246)	; øº¥»
+    (ethiopic		. #x2246)	; &MULE-ETHIO-2246; [02-38]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XEE")
@@ -1113,7 +1113,7 @@
     (mirrored		. nil)
     (=ucs		. #x1284)	; áŠ„
     (ethiopic-ucs	. #x1284)	; áŠ„
-    (ethiopic		. #x2247)	; øº¥»
+    (ethiopic		. #x2247)	; &MULE-ETHIO-2247; [02-39]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XE")
@@ -1122,7 +1122,7 @@
     (mirrored		. nil)
     (=ucs		. #x1285)	; áŠ…
     (ethiopic-ucs	. #x1285)	; áŠ…
-    (ethiopic		. #x2248)	; øº¥»‘
+    (ethiopic		. #x2248)	; &MULE-ETHIO-2248; [02-40]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XO")
@@ -1131,7 +1131,7 @@
     (mirrored		. nil)
     (=ucs		. #x1286)	; áŠ†
     (ethiopic-ucs	. #x1286)	; áŠ†
-    (ethiopic		. #x2249)	; øº¥»’
+    (ethiopic		. #x2249)	; &MULE-ETHIO-2249; [02-41]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWA")
@@ -1140,7 +1140,7 @@
     (mirrored		. nil)
     (=ucs		. #x1288)	; áŠˆ
     (ethiopic-ucs	. #x1288)	; áŠˆ
-    (ethiopic		. #x224B)	; øº¥»”
+    (ethiopic		. #x224B)	; &MULE-ETHIO-224B; [02-43]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWI")
@@ -1149,7 +1149,7 @@
     (mirrored		. nil)
     (=ucs		. #x128A)	; áŠŠ
     (ethiopic-ucs	. #x128A)	; áŠŠ
-    (ethiopic		. #x224D)	; øº¥»–
+    (ethiopic		. #x224D)	; &MULE-ETHIO-224D; [02-45]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWAA")
@@ -1158,7 +1158,7 @@
     (mirrored		. nil)
     (=ucs		. #x128B)	; áŠ‹
     (ethiopic-ucs	. #x128B)	; áŠ‹
-    (ethiopic		. #x224E)	; øº¥»—
+    (ethiopic		. #x224E)	; &MULE-ETHIO-224E; [02-46]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWEE")
@@ -1167,7 +1167,7 @@
     (mirrored		. nil)
     (=ucs		. #x128C)	; áŠŒ
     (ethiopic-ucs	. #x128C)	; áŠŒ
-    (ethiopic		. #x224F)	; øº¥»˜
+    (ethiopic		. #x224F)	; &MULE-ETHIO-224F; [02-47]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWE")
@@ -1176,7 +1176,7 @@
     (mirrored		. nil)
     (=ucs		. #x128D)	; áŠ
     (ethiopic-ucs	. #x128D)	; áŠ
-    (ethiopic		. #x2250)	; øº¥»™
+    (ethiopic		. #x2250)	; &MULE-ETHIO-2250; [02-48]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NA")
@@ -1185,7 +1185,7 @@
     (mirrored		. nil)
     (=ucs		. #x1290)	; áŠ
     (ethiopic-ucs	. #x1290)	; áŠ
-    (ethiopic		. #x2253)	; øº¥»œ
+    (ethiopic		. #x2253)	; &MULE-ETHIO-2253; [02-51]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NU")
@@ -1194,7 +1194,7 @@
     (mirrored		. nil)
     (=ucs		. #x1291)	; áŠ‘
     (ethiopic-ucs	. #x1291)	; áŠ‘
-    (ethiopic		. #x2254)	; øº¥»
+    (ethiopic		. #x2254)	; &MULE-ETHIO-2254; [02-52]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NI")
@@ -1203,7 +1203,7 @@
     (mirrored		. nil)
     (=ucs		. #x1292)	; áŠ’
     (ethiopic-ucs	. #x1292)	; áŠ’
-    (ethiopic		. #x2255)	; øº¥»ž
+    (ethiopic		. #x2255)	; &MULE-ETHIO-2255; [02-53]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NAA")
@@ -1212,7 +1212,7 @@
     (mirrored		. nil)
     (=ucs		. #x1293)	; áŠ“
     (ethiopic-ucs	. #x1293)	; áŠ“
-    (ethiopic		. #x2256)	; øº¥»Ÿ
+    (ethiopic		. #x2256)	; &MULE-ETHIO-2256; [02-54]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NEE")
@@ -1221,7 +1221,7 @@
     (mirrored		. nil)
     (=ucs		. #x1294)	; áŠ”
     (ethiopic-ucs	. #x1294)	; áŠ”
-    (ethiopic		. #x2257)	; øº¥» 
+    (ethiopic		. #x2257)	; &MULE-ETHIO-2257; [02-55]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NE")
@@ -1230,7 +1230,7 @@
     (mirrored		. nil)
     (=ucs		. #x1295)	; áŠ•
     (ethiopic-ucs	. #x1295)	; áŠ•
-    (ethiopic		. #x2258)	; øº¥»¡
+    (ethiopic		. #x2258)	; &MULE-ETHIO-2258; [02-56]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NO")
@@ -1239,7 +1239,7 @@
     (mirrored		. nil)
     (=ucs		. #x1296)	; áŠ–
     (ethiopic-ucs	. #x1296)	; áŠ–
-    (ethiopic		. #x2259)	; øº¥»¢
+    (ethiopic		. #x2259)	; &MULE-ETHIO-2259; [02-57]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NWA")
@@ -1248,7 +1248,7 @@
     (mirrored		. nil)
     (=ucs		. #x1297)	; áŠ—
     (ethiopic-ucs	. #x1297)	; áŠ—
-    (ethiopic		. #x225A)	; øº¥»£
+    (ethiopic		. #x225A)	; &MULE-ETHIO-225A; [02-58]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYA")
@@ -1257,7 +1257,7 @@
     (mirrored		. nil)
     (=ucs		. #x1298)	; áŠ˜
     (ethiopic-ucs	. #x1298)	; áŠ˜
-    (ethiopic		. #x225B)	; øº¥»¤
+    (ethiopic		. #x225B)	; &MULE-ETHIO-225B; [02-59]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYU")
@@ -1266,7 +1266,7 @@
     (mirrored		. nil)
     (=ucs		. #x1299)	; áŠ™
     (ethiopic-ucs	. #x1299)	; áŠ™
-    (ethiopic		. #x225C)	; øº¥»¥
+    (ethiopic		. #x225C)	; &MULE-ETHIO-225C; [02-60]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYI")
@@ -1275,7 +1275,7 @@
     (mirrored		. nil)
     (=ucs		. #x129A)	; áŠš
     (ethiopic-ucs	. #x129A)	; áŠš
-    (ethiopic		. #x225D)	; øº¥»¦
+    (ethiopic		. #x225D)	; &MULE-ETHIO-225D; [02-61]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYAA")
@@ -1284,7 +1284,7 @@
     (mirrored		. nil)
     (=ucs		. #x129B)	; áŠ›
     (ethiopic-ucs	. #x129B)	; áŠ›
-    (ethiopic		. #x225E)	; øº¥»§
+    (ethiopic		. #x225E)	; &MULE-ETHIO-225E; [02-62]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYEE")
@@ -1293,7 +1293,7 @@
     (mirrored		. nil)
     (=ucs		. #x129C)	; áŠœ
     (ethiopic-ucs	. #x129C)	; áŠœ
-    (ethiopic		. #x225F)	; øº¥»¨
+    (ethiopic		. #x225F)	; &MULE-ETHIO-225F; [02-63]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYE")
@@ -1302,7 +1302,7 @@
     (mirrored		. nil)
     (=ucs		. #x129D)	; áŠ
     (ethiopic-ucs	. #x129D)	; áŠ
-    (ethiopic		. #x2260)	; øº¥»©
+    (ethiopic		. #x2260)	; &MULE-ETHIO-2260; [02-64]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYO")
@@ -1311,7 +1311,7 @@
     (mirrored		. nil)
     (=ucs		. #x129E)	; áŠž
     (ethiopic-ucs	. #x129E)	; áŠž
-    (ethiopic		. #x2261)	; øº¥»ª
+    (ethiopic		. #x2261)	; &MULE-ETHIO-2261; [02-65]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYWA")
@@ -1320,7 +1320,7 @@
     (mirrored		. nil)
     (=ucs		. #x129F)	; áŠŸ
     (ethiopic-ucs	. #x129F)	; áŠŸ
-    (ethiopic		. #x2262)	; øº¥»«
+    (ethiopic		. #x2262)	; &MULE-ETHIO-2262; [02-66]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL A")
@@ -1329,7 +1329,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A0)	; áŠ 
     (ethiopic-ucs	. #x12A0)	; áŠ 
-    (ethiopic		. #x2263)	; øº¥»¬
+    (ethiopic		. #x2263)	; &MULE-ETHIO-2263; [02-67]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL U")
@@ -1338,7 +1338,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A1)	; áŠ¡
     (ethiopic-ucs	. #x12A1)	; áŠ¡
-    (ethiopic		. #x2264)	; øº¥»­
+    (ethiopic		. #x2264)	; &MULE-ETHIO-2264; [02-68]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL I")
@@ -1347,7 +1347,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A2)	; áŠ¢
     (ethiopic-ucs	. #x12A2)	; áŠ¢
-    (ethiopic		. #x2265)	; øº¥»®
+    (ethiopic		. #x2265)	; &MULE-ETHIO-2265; [02-69]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL AA")
@@ -1356,7 +1356,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A3)	; áŠ£
     (ethiopic-ucs	. #x12A3)	; áŠ£
-    (ethiopic		. #x2266)	; øº¥»¯
+    (ethiopic		. #x2266)	; &MULE-ETHIO-2266; [02-70]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL EE")
@@ -1365,7 +1365,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A4)	; áŠ¤
     (ethiopic-ucs	. #x12A4)	; áŠ¤
-    (ethiopic		. #x2267)	; øº¥»°
+    (ethiopic		. #x2267)	; &MULE-ETHIO-2267; [02-71]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL E")
@@ -1374,7 +1374,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A5)	; áŠ¥
     (ethiopic-ucs	. #x12A5)	; áŠ¥
-    (ethiopic		. #x2268)	; øº¥»±
+    (ethiopic		. #x2268)	; &MULE-ETHIO-2268; [02-72]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL O")
@@ -1383,7 +1383,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A6)	; áŠ¦
     (ethiopic-ucs	. #x12A6)	; áŠ¦
-    (ethiopic		. #x2269)	; øº¥»²
+    (ethiopic		. #x2269)	; &MULE-ETHIO-2269; [02-73]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL WA")
@@ -1392,7 +1392,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A7)	; áŠ§
     (ethiopic-ucs	. #x12A7)	; áŠ§
-    (ethiopic		. #x226A)	; øº¥»³
+    (ethiopic		. #x226A)	; &MULE-ETHIO-226A; [02-74]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KA")
@@ -1401,7 +1401,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A8)	; áŠ¨
     (ethiopic-ucs	. #x12A8)	; áŠ¨
-    (ethiopic		. #x226B)	; øº¥»´
+    (ethiopic		. #x226B)	; &MULE-ETHIO-226B; [02-75]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KU")
@@ -1410,7 +1410,7 @@
     (mirrored		. nil)
     (=ucs		. #x12A9)	; áŠ©
     (ethiopic-ucs	. #x12A9)	; áŠ©
-    (ethiopic		. #x226C)	; øº¥»µ
+    (ethiopic		. #x226C)	; &MULE-ETHIO-226C; [02-76]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KI")
@@ -1419,7 +1419,7 @@
     (mirrored		. nil)
     (=ucs		. #x12AA)	; áŠª
     (ethiopic-ucs	. #x12AA)	; áŠª
-    (ethiopic		. #x226D)	; øº¥»¶
+    (ethiopic		. #x226D)	; &MULE-ETHIO-226D; [02-77]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KAA")
@@ -1428,7 +1428,7 @@
     (mirrored		. nil)
     (=ucs		. #x12AB)	; áŠ«
     (ethiopic-ucs	. #x12AB)	; áŠ«
-    (ethiopic		. #x226E)	; øº¥»·
+    (ethiopic		. #x226E)	; &MULE-ETHIO-226E; [02-78]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KEE")
@@ -1437,7 +1437,7 @@
     (mirrored		. nil)
     (=ucs		. #x12AC)	; áŠ¬
     (ethiopic-ucs	. #x12AC)	; áŠ¬
-    (ethiopic		. #x226F)	; øº¥»¸
+    (ethiopic		. #x226F)	; &MULE-ETHIO-226F; [02-79]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KE")
@@ -1446,7 +1446,7 @@
     (mirrored		. nil)
     (=ucs		. #x12AD)	; áŠ­
     (ethiopic-ucs	. #x12AD)	; áŠ­
-    (ethiopic		. #x2270)	; øº¥»¹
+    (ethiopic		. #x2270)	; &MULE-ETHIO-2270; [02-80]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KO")
@@ -1455,7 +1455,7 @@
     (mirrored		. nil)
     (=ucs		. #x12AE)	; áŠ®
     (ethiopic-ucs	. #x12AE)	; áŠ®
-    (ethiopic		. #x2271)	; øº¥»º
+    (ethiopic		. #x2271)	; &MULE-ETHIO-2271; [02-81]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWA")
@@ -1464,7 +1464,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B0)	; áŠ°
     (ethiopic-ucs	. #x12B0)	; áŠ°
-    (ethiopic		. #x2273)	; øº¥»¼
+    (ethiopic		. #x2273)	; &MULE-ETHIO-2273; [02-83]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWI")
@@ -1473,7 +1473,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B2)	; áŠ²
     (ethiopic-ucs	. #x12B2)	; áŠ²
-    (ethiopic		. #x2275)	; øº¥»¾
+    (ethiopic		. #x2275)	; &MULE-ETHIO-2275; [02-85]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWAA")
@@ -1482,7 +1482,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B3)	; áŠ³
     (ethiopic-ucs	. #x12B3)	; áŠ³
-    (ethiopic		. #x2276)	; øº¥»¿
+    (ethiopic		. #x2276)	; &MULE-ETHIO-2276; [02-86]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWEE")
@@ -1491,7 +1491,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B4)	; áŠ´
     (ethiopic-ucs	. #x12B4)	; áŠ´
-    (ethiopic		. #x2277)	; øº¥¼€
+    (ethiopic		. #x2277)	; &MULE-ETHIO-2277; [02-87]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWE")
@@ -1500,7 +1500,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B5)	; áŠµ
     (ethiopic-ucs	. #x12B5)	; áŠµ
-    (ethiopic		. #x2278)	; øº¥¼
+    (ethiopic		. #x2278)	; &MULE-ETHIO-2278; [02-88]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXA")
@@ -1509,7 +1509,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B8)	; áŠ¸
     (ethiopic-ucs	. #x12B8)	; áŠ¸
-    (ethiopic		. #x227B)	; øº¥¼„
+    (ethiopic		. #x227B)	; &MULE-ETHIO-227B; [02-91]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXU")
@@ -1518,7 +1518,7 @@
     (mirrored		. nil)
     (=ucs		. #x12B9)	; áŠ¹
     (ethiopic-ucs	. #x12B9)	; áŠ¹
-    (ethiopic		. #x227C)	; øº¥¼…
+    (ethiopic		. #x227C)	; &MULE-ETHIO-227C; [02-92]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXI")
@@ -1527,7 +1527,7 @@
     (mirrored		. nil)
     (=ucs		. #x12BA)	; áŠº
     (ethiopic-ucs	. #x12BA)	; áŠº
-    (ethiopic		. #x227D)	; øº¥¼†
+    (ethiopic		. #x227D)	; &MULE-ETHIO-227D; [02-93]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXAA")
@@ -1536,7 +1536,7 @@
     (mirrored		. nil)
     (=ucs		. #x12BB)	; áŠ»
     (ethiopic-ucs	. #x12BB)	; áŠ»
-    (ethiopic		. #x227E)	; øº¥¼‡
+    (ethiopic		. #x227E)	; &MULE-ETHIO-227E; [02-94]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXEE")
@@ -1545,7 +1545,7 @@
     (mirrored		. nil)
     (=ucs		. #x12BC)	; áŠ¼
     (ethiopic-ucs	. #x12BC)	; áŠ¼
-    (ethiopic		. #x2321)	; øº¥¼ˆ
+    (ethiopic		. #x2321)	; &MULE-ETHIO-2321; [03-01]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXE")
@@ -1554,7 +1554,7 @@
     (mirrored		. nil)
     (=ucs		. #x12BD)	; áŠ½
     (ethiopic-ucs	. #x12BD)	; áŠ½
-    (ethiopic		. #x2322)	; øº¥¼‰
+    (ethiopic		. #x2322)	; &MULE-ETHIO-2322; [03-02]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXO")
@@ -1563,7 +1563,7 @@
     (mirrored		. nil)
     (=ucs		. #x12BE)	; áŠ¾
     (ethiopic-ucs	. #x12BE)	; áŠ¾
-    (ethiopic		. #x2323)	; øº¥¼Š
+    (ethiopic		. #x2323)	; &MULE-ETHIO-2323; [03-03]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWA")
@@ -1572,7 +1572,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C0)	; á‹€
     (ethiopic-ucs	. #x12C0)	; á‹€
-    (ethiopic		. #x2325)	; øº¥¼Œ
+    (ethiopic		. #x2325)	; &MULE-ETHIO-2325; [03-05]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWI")
@@ -1581,7 +1581,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C2)	; á‹‚
     (ethiopic-ucs	. #x12C2)	; á‹‚
-    (ethiopic		. #x2327)	; øº¥¼Ž
+    (ethiopic		. #x2327)	; &MULE-ETHIO-2327; [03-07]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWAA")
@@ -1590,7 +1590,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C3)	; á‹ƒ
     (ethiopic-ucs	. #x12C3)	; á‹ƒ
-    (ethiopic		. #x2328)	; øº¥¼
+    (ethiopic		. #x2328)	; &MULE-ETHIO-2328; [03-08]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWEE")
@@ -1599,7 +1599,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C4)	; á‹„
     (ethiopic-ucs	. #x12C4)	; á‹„
-    (ethiopic		. #x2329)	; øº¥¼
+    (ethiopic		. #x2329)	; &MULE-ETHIO-2329; [03-09]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWE")
@@ -1608,7 +1608,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C5)	; á‹…
     (ethiopic-ucs	. #x12C5)	; á‹…
-    (ethiopic		. #x232A)	; øº¥¼‘
+    (ethiopic		. #x232A)	; &MULE-ETHIO-232A; [03-10]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WA")
@@ -1617,7 +1617,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C8)	; á‹ˆ
     (ethiopic-ucs	. #x12C8)	; á‹ˆ
-    (ethiopic		. #x232D)	; øº¥¼”
+    (ethiopic		. #x232D)	; &MULE-ETHIO-232D; [03-13]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WU")
@@ -1626,7 +1626,7 @@
     (mirrored		. nil)
     (=ucs		. #x12C9)	; á‹‰
     (ethiopic-ucs	. #x12C9)	; á‹‰
-    (ethiopic		. #x232E)	; øº¥¼•
+    (ethiopic		. #x232E)	; &MULE-ETHIO-232E; [03-14]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WI")
@@ -1635,7 +1635,7 @@
     (mirrored		. nil)
     (=ucs		. #x12CA)	; á‹Š
     (ethiopic-ucs	. #x12CA)	; á‹Š
-    (ethiopic		. #x232F)	; øº¥¼–
+    (ethiopic		. #x232F)	; &MULE-ETHIO-232F; [03-15]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WAA")
@@ -1644,7 +1644,7 @@
     (mirrored		. nil)
     (=ucs		. #x12CB)	; á‹‹
     (ethiopic-ucs	. #x12CB)	; á‹‹
-    (ethiopic		. #x2330)	; øº¥¼—
+    (ethiopic		. #x2330)	; &MULE-ETHIO-2330; [03-16]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WEE")
@@ -1653,7 +1653,7 @@
     (mirrored		. nil)
     (=ucs		. #x12CC)	; á‹Œ
     (ethiopic-ucs	. #x12CC)	; á‹Œ
-    (ethiopic		. #x2331)	; øº¥¼˜
+    (ethiopic		. #x2331)	; &MULE-ETHIO-2331; [03-17]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WE")
@@ -1662,7 +1662,7 @@
     (mirrored		. nil)
     (=ucs		. #x12CD)	; á‹
     (ethiopic-ucs	. #x12CD)	; á‹
-    (ethiopic		. #x2332)	; øº¥¼™
+    (ethiopic		. #x2332)	; &MULE-ETHIO-2332; [03-18]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WO")
@@ -1671,7 +1671,7 @@
     (mirrored		. nil)
     (=ucs		. #x12CE)	; á‹Ž
     (ethiopic-ucs	. #x12CE)	; á‹Ž
-    (ethiopic		. #x2333)	; øº¥¼š
+    (ethiopic		. #x2333)	; &MULE-ETHIO-2333; [03-19]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL A")
@@ -1680,7 +1680,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D0)	; á‹
     (ethiopic-ucs	. #x12D0)	; á‹
-    (ethiopic		. #x2335)	; øº¥¼œ
+    (ethiopic		. #x2335)	; &MULE-ETHIO-2335; [03-21]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL U")
@@ -1689,7 +1689,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D1)	; á‹‘
     (ethiopic-ucs	. #x12D1)	; á‹‘
-    (ethiopic		. #x2336)	; øº¥¼
+    (ethiopic		. #x2336)	; &MULE-ETHIO-2336; [03-22]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL I")
@@ -1698,7 +1698,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D2)	; á‹’
     (ethiopic-ucs	. #x12D2)	; á‹’
-    (ethiopic		. #x2337)	; øº¥¼ž
+    (ethiopic		. #x2337)	; &MULE-ETHIO-2337; [03-23]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL AA")
@@ -1707,7 +1707,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D3)	; á‹“
     (ethiopic-ucs	. #x12D3)	; á‹“
-    (ethiopic		. #x2338)	; øº¥¼Ÿ
+    (ethiopic		. #x2338)	; &MULE-ETHIO-2338; [03-24]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL EE")
@@ -1716,7 +1716,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D4)	; á‹”
     (ethiopic-ucs	. #x12D4)	; á‹”
-    (ethiopic		. #x2339)	; øº¥¼ 
+    (ethiopic		. #x2339)	; &MULE-ETHIO-2339; [03-25]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL E")
@@ -1725,7 +1725,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D5)	; á‹•
     (ethiopic-ucs	. #x12D5)	; á‹•
-    (ethiopic		. #x233A)	; øº¥¼¡
+    (ethiopic		. #x233A)	; &MULE-ETHIO-233A; [03-26]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL O")
@@ -1734,7 +1734,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D6)	; á‹–
     (ethiopic-ucs	. #x12D6)	; á‹–
-    (ethiopic		. #x233B)	; øº¥¼¢
+    (ethiopic		. #x233B)	; &MULE-ETHIO-233B; [03-27]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZA")
@@ -1743,7 +1743,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D8)	; á‹˜
     (ethiopic-ucs	. #x12D8)	; á‹˜
-    (ethiopic		. #x233D)	; øº¥¼¤
+    (ethiopic		. #x233D)	; &MULE-ETHIO-233D; [03-29]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZU")
@@ -1752,7 +1752,7 @@
     (mirrored		. nil)
     (=ucs		. #x12D9)	; á‹™
     (ethiopic-ucs	. #x12D9)	; á‹™
-    (ethiopic		. #x233E)	; øº¥¼¥
+    (ethiopic		. #x233E)	; &MULE-ETHIO-233E; [03-30]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZI")
@@ -1761,7 +1761,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DA)	; á‹š
     (ethiopic-ucs	. #x12DA)	; á‹š
-    (ethiopic		. #x233F)	; øº¥¼¦
+    (ethiopic		. #x233F)	; &MULE-ETHIO-233F; [03-31]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZAA")
@@ -1770,7 +1770,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DB)	; á‹›
     (ethiopic-ucs	. #x12DB)	; á‹›
-    (ethiopic		. #x2340)	; øº¥¼§
+    (ethiopic		. #x2340)	; &MULE-ETHIO-2340; [03-32]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZEE")
@@ -1779,7 +1779,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DC)	; á‹œ
     (ethiopic-ucs	. #x12DC)	; á‹œ
-    (ethiopic		. #x2341)	; øº¥¼¨
+    (ethiopic		. #x2341)	; &MULE-ETHIO-2341; [03-33]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZE")
@@ -1788,7 +1788,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DD)	; á‹
     (ethiopic-ucs	. #x12DD)	; á‹
-    (ethiopic		. #x2342)	; øº¥¼©
+    (ethiopic		. #x2342)	; &MULE-ETHIO-2342; [03-34]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZO")
@@ -1797,7 +1797,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DE)	; á‹ž
     (ethiopic-ucs	. #x12DE)	; á‹ž
-    (ethiopic		. #x2343)	; øº¥¼ª
+    (ethiopic		. #x2343)	; &MULE-ETHIO-2343; [03-35]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZWA")
@@ -1806,7 +1806,7 @@
     (mirrored		. nil)
     (=ucs		. #x12DF)	; á‹Ÿ
     (ethiopic-ucs	. #x12DF)	; á‹Ÿ
-    (ethiopic		. #x2344)	; øº¥¼«
+    (ethiopic		. #x2344)	; &MULE-ETHIO-2344; [03-36]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHA")
@@ -1815,7 +1815,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E0)	; á‹ 
     (ethiopic-ucs	. #x12E0)	; á‹ 
-    (ethiopic		. #x2345)	; øº¥¼¬
+    (ethiopic		. #x2345)	; &MULE-ETHIO-2345; [03-37]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHU")
@@ -1824,7 +1824,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E1)	; á‹¡
     (ethiopic-ucs	. #x12E1)	; á‹¡
-    (ethiopic		. #x2346)	; øº¥¼­
+    (ethiopic		. #x2346)	; &MULE-ETHIO-2346; [03-38]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHI")
@@ -1833,7 +1833,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E2)	; á‹¢
     (ethiopic-ucs	. #x12E2)	; á‹¢
-    (ethiopic		. #x2347)	; øº¥¼®
+    (ethiopic		. #x2347)	; &MULE-ETHIO-2347; [03-39]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHAA")
@@ -1842,7 +1842,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E3)	; á‹£
     (ethiopic-ucs	. #x12E3)	; á‹£
-    (ethiopic		. #x2348)	; øº¥¼¯
+    (ethiopic		. #x2348)	; &MULE-ETHIO-2348; [03-40]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHEE")
@@ -1851,7 +1851,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E4)	; á‹¤
     (ethiopic-ucs	. #x12E4)	; á‹¤
-    (ethiopic		. #x2349)	; øº¥¼°
+    (ethiopic		. #x2349)	; &MULE-ETHIO-2349; [03-41]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHE")
@@ -1860,7 +1860,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E5)	; á‹¥
     (ethiopic-ucs	. #x12E5)	; á‹¥
-    (ethiopic		. #x234A)	; øº¥¼±
+    (ethiopic		. #x234A)	; &MULE-ETHIO-234A; [03-42]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHO")
@@ -1869,7 +1869,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E6)	; á‹¦
     (ethiopic-ucs	. #x12E6)	; á‹¦
-    (ethiopic		. #x234B)	; øº¥¼²
+    (ethiopic		. #x234B)	; &MULE-ETHIO-234B; [03-43]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHWA")
@@ -1878,7 +1878,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E7)	; á‹§
     (ethiopic-ucs	. #x12E7)	; á‹§
-    (ethiopic		. #x234C)	; øº¥¼³
+    (ethiopic		. #x234C)	; &MULE-ETHIO-234C; [03-44]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YA")
@@ -1887,7 +1887,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E8)	; á‹¨
     (ethiopic-ucs	. #x12E8)	; á‹¨
-    (ethiopic		. #x234D)	; øº¥¼´
+    (ethiopic		. #x234D)	; &MULE-ETHIO-234D; [03-45]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YU")
@@ -1896,7 +1896,7 @@
     (mirrored		. nil)
     (=ucs		. #x12E9)	; á‹©
     (ethiopic-ucs	. #x12E9)	; á‹©
-    (ethiopic		. #x234E)	; øº¥¼µ
+    (ethiopic		. #x234E)	; &MULE-ETHIO-234E; [03-46]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YI")
@@ -1905,7 +1905,7 @@
     (mirrored		. nil)
     (=ucs		. #x12EA)	; á‹ª
     (ethiopic-ucs	. #x12EA)	; á‹ª
-    (ethiopic		. #x234F)	; øº¥¼¶
+    (ethiopic		. #x234F)	; &MULE-ETHIO-234F; [03-47]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YAA")
@@ -1914,7 +1914,7 @@
     (mirrored		. nil)
     (=ucs		. #x12EB)	; á‹«
     (ethiopic-ucs	. #x12EB)	; á‹«
-    (ethiopic		. #x2350)	; øº¥¼·
+    (ethiopic		. #x2350)	; &MULE-ETHIO-2350; [03-48]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YEE")
@@ -1923,7 +1923,7 @@
     (mirrored		. nil)
     (=ucs		. #x12EC)	; á‹¬
     (ethiopic-ucs	. #x12EC)	; á‹¬
-    (ethiopic		. #x2351)	; øº¥¼¸
+    (ethiopic		. #x2351)	; &MULE-ETHIO-2351; [03-49]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YE")
@@ -1932,7 +1932,7 @@
     (mirrored		. nil)
     (=ucs		. #x12ED)	; á‹­
     (ethiopic-ucs	. #x12ED)	; á‹­
-    (ethiopic		. #x2352)	; øº¥¼¹
+    (ethiopic		. #x2352)	; &MULE-ETHIO-2352; [03-50]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YO")
@@ -1941,7 +1941,7 @@
     (mirrored		. nil)
     (=ucs		. #x12EE)	; á‹®
     (ethiopic-ucs	. #x12EE)	; á‹®
-    (ethiopic		. #x2353)	; øº¥¼º
+    (ethiopic		. #x2353)	; &MULE-ETHIO-2353; [03-51]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DA")
@@ -1950,7 +1950,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F0)	; á‹°
     (ethiopic-ucs	. #x12F0)	; á‹°
-    (ethiopic		. #x2355)	; øº¥¼¼
+    (ethiopic		. #x2355)	; &MULE-ETHIO-2355; [03-53]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DU")
@@ -1959,7 +1959,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F1)	; á‹±
     (ethiopic-ucs	. #x12F1)	; á‹±
-    (ethiopic		. #x2356)	; øº¥¼½
+    (ethiopic		. #x2356)	; &MULE-ETHIO-2356; [03-54]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DI")
@@ -1968,7 +1968,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F2)	; á‹²
     (ethiopic-ucs	. #x12F2)	; á‹²
-    (ethiopic		. #x2357)	; øº¥¼¾
+    (ethiopic		. #x2357)	; &MULE-ETHIO-2357; [03-55]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DAA")
@@ -1977,7 +1977,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F3)	; á‹³
     (ethiopic-ucs	. #x12F3)	; á‹³
-    (ethiopic		. #x2358)	; øº¥¼¿
+    (ethiopic		. #x2358)	; &MULE-ETHIO-2358; [03-56]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DEE")
@@ -1986,7 +1986,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F4)	; á‹´
     (ethiopic-ucs	. #x12F4)	; á‹´
-    (ethiopic		. #x2359)	; øº¥½€
+    (ethiopic		. #x2359)	; &MULE-ETHIO-2359; [03-57]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DE")
@@ -1995,7 +1995,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F5)	; á‹µ
     (ethiopic-ucs	. #x12F5)	; á‹µ
-    (ethiopic		. #x235A)	; øº¥½
+    (ethiopic		. #x235A)	; &MULE-ETHIO-235A; [03-58]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DO")
@@ -2004,7 +2004,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F6)	; á‹¶
     (ethiopic-ucs	. #x12F6)	; á‹¶
-    (ethiopic		. #x235B)	; øº¥½‚
+    (ethiopic		. #x235B)	; &MULE-ETHIO-235B; [03-59]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DWA")
@@ -2013,7 +2013,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F7)	; á‹·
     (ethiopic-ucs	. #x12F7)	; á‹·
-    (ethiopic		. #x235C)	; øº¥½ƒ
+    (ethiopic		. #x235C)	; &MULE-ETHIO-235C; [03-60]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDA")
@@ -2022,7 +2022,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F8)	; á‹¸
     (ethiopic-ucs	. #x12F8)	; á‹¸
-    (ethiopic		. #x235D)	; øº¥½„
+    (ethiopic		. #x235D)	; &MULE-ETHIO-235D; [03-61]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDU")
@@ -2031,7 +2031,7 @@
     (mirrored		. nil)
     (=ucs		. #x12F9)	; á‹¹
     (ethiopic-ucs	. #x12F9)	; á‹¹
-    (ethiopic		. #x235E)	; øº¥½…
+    (ethiopic		. #x235E)	; &MULE-ETHIO-235E; [03-62]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDI")
@@ -2040,7 +2040,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FA)	; á‹º
     (ethiopic-ucs	. #x12FA)	; á‹º
-    (ethiopic		. #x235F)	; øº¥½†
+    (ethiopic		. #x235F)	; &MULE-ETHIO-235F; [03-63]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDAA")
@@ -2049,7 +2049,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FB)	; á‹»
     (ethiopic-ucs	. #x12FB)	; á‹»
-    (ethiopic		. #x2360)	; øº¥½‡
+    (ethiopic		. #x2360)	; &MULE-ETHIO-2360; [03-64]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDEE")
@@ -2058,7 +2058,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FC)	; á‹¼
     (ethiopic-ucs	. #x12FC)	; á‹¼
-    (ethiopic		. #x2361)	; øº¥½ˆ
+    (ethiopic		. #x2361)	; &MULE-ETHIO-2361; [03-65]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDE")
@@ -2067,7 +2067,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FD)	; á‹½
     (ethiopic-ucs	. #x12FD)	; á‹½
-    (ethiopic		. #x2362)	; øº¥½‰
+    (ethiopic		. #x2362)	; &MULE-ETHIO-2362; [03-66]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDO")
@@ -2076,7 +2076,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FE)	; á‹¾
     (ethiopic-ucs	. #x12FE)	; á‹¾
-    (ethiopic		. #x2363)	; øº¥½Š
+    (ethiopic		. #x2363)	; &MULE-ETHIO-2363; [03-67]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDWA")
@@ -2085,7 +2085,7 @@
     (mirrored		. nil)
     (=ucs		. #x12FF)	; á‹¿
     (ethiopic-ucs	. #x12FF)	; á‹¿
-    (ethiopic		. #x2364)	; øº¥½‹
+    (ethiopic		. #x2364)	; &MULE-ETHIO-2364; [03-68]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JA")
@@ -2094,7 +2094,7 @@
     (mirrored		. nil)
     (=ucs		. #x1300)	; áŒ€
     (ethiopic-ucs	. #x1300)	; áŒ€
-    (ethiopic		. #x2365)	; øº¥½Œ
+    (ethiopic		. #x2365)	; &MULE-ETHIO-2365; [03-69]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JU")
@@ -2103,7 +2103,7 @@
     (mirrored		. nil)
     (=ucs		. #x1301)	; áŒ
     (ethiopic-ucs	. #x1301)	; áŒ
-    (ethiopic		. #x2366)	; øº¥½
+    (ethiopic		. #x2366)	; &MULE-ETHIO-2366; [03-70]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JI")
@@ -2112,7 +2112,7 @@
     (mirrored		. nil)
     (=ucs		. #x1302)	; áŒ‚
     (ethiopic-ucs	. #x1302)	; áŒ‚
-    (ethiopic		. #x2367)	; øº¥½Ž
+    (ethiopic		. #x2367)	; &MULE-ETHIO-2367; [03-71]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JAA")
@@ -2121,7 +2121,7 @@
     (mirrored		. nil)
     (=ucs		. #x1303)	; áŒƒ
     (ethiopic-ucs	. #x1303)	; áŒƒ
-    (ethiopic		. #x2368)	; øº¥½
+    (ethiopic		. #x2368)	; &MULE-ETHIO-2368; [03-72]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JEE")
@@ -2130,7 +2130,7 @@
     (mirrored		. nil)
     (=ucs		. #x1304)	; áŒ„
     (ethiopic-ucs	. #x1304)	; áŒ„
-    (ethiopic		. #x2369)	; øº¥½
+    (ethiopic		. #x2369)	; &MULE-ETHIO-2369; [03-73]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JE")
@@ -2139,7 +2139,7 @@
     (mirrored		. nil)
     (=ucs		. #x1305)	; áŒ…
     (ethiopic-ucs	. #x1305)	; áŒ…
-    (ethiopic		. #x236A)	; øº¥½‘
+    (ethiopic		. #x236A)	; &MULE-ETHIO-236A; [03-74]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JO")
@@ -2148,7 +2148,7 @@
     (mirrored		. nil)
     (=ucs		. #x1306)	; áŒ†
     (ethiopic-ucs	. #x1306)	; áŒ†
-    (ethiopic		. #x236B)	; øº¥½’
+    (ethiopic		. #x236B)	; &MULE-ETHIO-236B; [03-75]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JWA")
@@ -2157,7 +2157,7 @@
     (mirrored		. nil)
     (=ucs		. #x1307)	; áŒ‡
     (ethiopic-ucs	. #x1307)	; áŒ‡
-    (ethiopic		. #x236C)	; øº¥½“
+    (ethiopic		. #x236C)	; &MULE-ETHIO-236C; [03-76]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GA")
@@ -2166,7 +2166,7 @@
     (mirrored		. nil)
     (=ucs		. #x1308)	; áŒˆ
     (ethiopic-ucs	. #x1308)	; áŒˆ
-    (ethiopic		. #x236D)	; øº¥½”
+    (ethiopic		. #x236D)	; &MULE-ETHIO-236D; [03-77]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GU")
@@ -2175,7 +2175,7 @@
     (mirrored		. nil)
     (=ucs		. #x1309)	; áŒ‰
     (ethiopic-ucs	. #x1309)	; áŒ‰
-    (ethiopic		. #x236E)	; øº¥½•
+    (ethiopic		. #x236E)	; &MULE-ETHIO-236E; [03-78]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GI")
@@ -2184,7 +2184,7 @@
     (mirrored		. nil)
     (=ucs		. #x130A)	; áŒŠ
     (ethiopic-ucs	. #x130A)	; áŒŠ
-    (ethiopic		. #x236F)	; øº¥½–
+    (ethiopic		. #x236F)	; &MULE-ETHIO-236F; [03-79]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GAA")
@@ -2193,7 +2193,7 @@
     (mirrored		. nil)
     (=ucs		. #x130B)	; áŒ‹
     (ethiopic-ucs	. #x130B)	; áŒ‹
-    (ethiopic		. #x2370)	; øº¥½—
+    (ethiopic		. #x2370)	; &MULE-ETHIO-2370; [03-80]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GEE")
@@ -2202,7 +2202,7 @@
     (mirrored		. nil)
     (=ucs		. #x130C)	; áŒŒ
     (ethiopic-ucs	. #x130C)	; áŒŒ
-    (ethiopic		. #x2371)	; øº¥½˜
+    (ethiopic		. #x2371)	; &MULE-ETHIO-2371; [03-81]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GE")
@@ -2211,7 +2211,7 @@
     (mirrored		. nil)
     (=ucs		. #x130D)	; áŒ
     (ethiopic-ucs	. #x130D)	; áŒ
-    (ethiopic		. #x2372)	; øº¥½™
+    (ethiopic		. #x2372)	; &MULE-ETHIO-2372; [03-82]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GO")
@@ -2220,7 +2220,7 @@
     (mirrored		. nil)
     (=ucs		. #x130E)	; áŒŽ
     (ethiopic-ucs	. #x130E)	; áŒŽ
-    (ethiopic		. #x2373)	; øº¥½š
+    (ethiopic		. #x2373)	; &MULE-ETHIO-2373; [03-83]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWA")
@@ -2229,7 +2229,7 @@
     (mirrored		. nil)
     (=ucs		. #x1310)	; áŒ
     (ethiopic-ucs	. #x1310)	; áŒ
-    (ethiopic		. #x2375)	; øº¥½œ
+    (ethiopic		. #x2375)	; &MULE-ETHIO-2375; [03-85]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWI")
@@ -2238,7 +2238,7 @@
     (mirrored		. nil)
     (=ucs		. #x1312)	; áŒ’
     (ethiopic-ucs	. #x1312)	; áŒ’
-    (ethiopic		. #x2377)	; øº¥½ž
+    (ethiopic		. #x2377)	; &MULE-ETHIO-2377; [03-87]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWAA")
@@ -2247,7 +2247,7 @@
     (mirrored		. nil)
     (=ucs		. #x1313)	; áŒ“
     (ethiopic-ucs	. #x1313)	; áŒ“
-    (ethiopic		. #x2378)	; øº¥½Ÿ
+    (ethiopic		. #x2378)	; &MULE-ETHIO-2378; [03-88]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWEE")
@@ -2256,7 +2256,7 @@
     (mirrored		. nil)
     (=ucs		. #x1314)	; áŒ”
     (ethiopic-ucs	. #x1314)	; áŒ”
-    (ethiopic		. #x2379)	; øº¥½ 
+    (ethiopic		. #x2379)	; &MULE-ETHIO-2379; [03-89]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWE")
@@ -2265,7 +2265,7 @@
     (mirrored		. nil)
     (=ucs		. #x1315)	; áŒ•
     (ethiopic-ucs	. #x1315)	; áŒ•
-    (ethiopic		. #x237A)	; øº¥½¡
+    (ethiopic		. #x237A)	; &MULE-ETHIO-237A; [03-90]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGA")
@@ -2274,7 +2274,7 @@
     (mirrored		. nil)
     (=ucs		. #x1318)	; áŒ˜
     (ethiopic-ucs	. #x1318)	; áŒ˜
-    (ethiopic		. #x237D)	; øº¥½¤
+    (ethiopic		. #x237D)	; &MULE-ETHIO-237D; [03-93]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGU")
@@ -2283,7 +2283,7 @@
     (mirrored		. nil)
     (=ucs		. #x1319)	; áŒ™
     (ethiopic-ucs	. #x1319)	; áŒ™
-    (ethiopic		. #x237E)	; øº¥½¥
+    (ethiopic		. #x237E)	; &MULE-ETHIO-237E; [03-94]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGI")
@@ -2292,7 +2292,7 @@
     (mirrored		. nil)
     (=ucs		. #x131A)	; áŒš
     (ethiopic-ucs	. #x131A)	; áŒš
-    (ethiopic		. #x2421)	; øº¥½¦
+    (ethiopic		. #x2421)	; &MULE-ETHIO-2421; [04-01]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGAA")
@@ -2301,7 +2301,7 @@
     (mirrored		. nil)
     (=ucs		. #x131B)	; áŒ›
     (ethiopic-ucs	. #x131B)	; áŒ›
-    (ethiopic		. #x2422)	; øº¥½§
+    (ethiopic		. #x2422)	; &MULE-ETHIO-2422; [04-02]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGEE")
@@ -2310,7 +2310,7 @@
     (mirrored		. nil)
     (=ucs		. #x131C)	; áŒœ
     (ethiopic-ucs	. #x131C)	; áŒœ
-    (ethiopic		. #x2423)	; øº¥½¨
+    (ethiopic		. #x2423)	; &MULE-ETHIO-2423; [04-03]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGE")
@@ -2319,7 +2319,7 @@
     (mirrored		. nil)
     (=ucs		. #x131D)	; áŒ
     (ethiopic-ucs	. #x131D)	; áŒ
-    (ethiopic		. #x2424)	; øº¥½©
+    (ethiopic		. #x2424)	; &MULE-ETHIO-2424; [04-04]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGO")
@@ -2328,7 +2328,7 @@
     (mirrored		. nil)
     (=ucs		. #x131E)	; áŒž
     (ethiopic-ucs	. #x131E)	; áŒž
-    (ethiopic		. #x2425)	; øº¥½ª
+    (ethiopic		. #x2425)	; &MULE-ETHIO-2425; [04-05]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THA")
@@ -2337,7 +2337,7 @@
     (mirrored		. nil)
     (=ucs		. #x1320)	; áŒ 
     (ethiopic-ucs	. #x1320)	; áŒ 
-    (ethiopic		. #x2427)	; øº¥½¬
+    (ethiopic		. #x2427)	; &MULE-ETHIO-2427; [04-07]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THU")
@@ -2346,7 +2346,7 @@
     (mirrored		. nil)
     (=ucs		. #x1321)	; áŒ¡
     (ethiopic-ucs	. #x1321)	; áŒ¡
-    (ethiopic		. #x2428)	; øº¥½­
+    (ethiopic		. #x2428)	; &MULE-ETHIO-2428; [04-08]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THI")
@@ -2355,7 +2355,7 @@
     (mirrored		. nil)
     (=ucs		. #x1322)	; áŒ¢
     (ethiopic-ucs	. #x1322)	; áŒ¢
-    (ethiopic		. #x2429)	; øº¥½®
+    (ethiopic		. #x2429)	; &MULE-ETHIO-2429; [04-09]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THAA")
@@ -2364,7 +2364,7 @@
     (mirrored		. nil)
     (=ucs		. #x1323)	; áŒ£
     (ethiopic-ucs	. #x1323)	; áŒ£
-    (ethiopic		. #x242A)	; øº¥½¯
+    (ethiopic		. #x242A)	; &MULE-ETHIO-242A; [04-10]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THEE")
@@ -2373,7 +2373,7 @@
     (mirrored		. nil)
     (=ucs		. #x1324)	; áŒ¤
     (ethiopic-ucs	. #x1324)	; áŒ¤
-    (ethiopic		. #x242B)	; øº¥½°
+    (ethiopic		. #x242B)	; &MULE-ETHIO-242B; [04-11]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THE")
@@ -2382,7 +2382,7 @@
     (mirrored		. nil)
     (=ucs		. #x1325)	; áŒ¥
     (ethiopic-ucs	. #x1325)	; áŒ¥
-    (ethiopic		. #x242C)	; øº¥½±
+    (ethiopic		. #x242C)	; &MULE-ETHIO-242C; [04-12]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THO")
@@ -2391,7 +2391,7 @@
     (mirrored		. nil)
     (=ucs		. #x1326)	; áŒ¦
     (ethiopic-ucs	. #x1326)	; áŒ¦
-    (ethiopic		. #x242D)	; øº¥½²
+    (ethiopic		. #x242D)	; &MULE-ETHIO-242D; [04-13]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THWA")
@@ -2400,7 +2400,7 @@
     (mirrored		. nil)
     (=ucs		. #x1327)	; áŒ§
     (ethiopic-ucs	. #x1327)	; áŒ§
-    (ethiopic		. #x242E)	; øº¥½³
+    (ethiopic		. #x242E)	; &MULE-ETHIO-242E; [04-14]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHA")
@@ -2409,7 +2409,7 @@
     (mirrored		. nil)
     (=ucs		. #x1328)	; áŒ¨
     (ethiopic-ucs	. #x1328)	; áŒ¨
-    (ethiopic		. #x242F)	; øº¥½´
+    (ethiopic		. #x242F)	; &MULE-ETHIO-242F; [04-15]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHU")
@@ -2418,7 +2418,7 @@
     (mirrored		. nil)
     (=ucs		. #x1329)	; áŒ©
     (ethiopic-ucs	. #x1329)	; áŒ©
-    (ethiopic		. #x2430)	; øº¥½µ
+    (ethiopic		. #x2430)	; &MULE-ETHIO-2430; [04-16]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHI")
@@ -2427,7 +2427,7 @@
     (mirrored		. nil)
     (=ucs		. #x132A)	; áŒª
     (ethiopic-ucs	. #x132A)	; áŒª
-    (ethiopic		. #x2431)	; øº¥½¶
+    (ethiopic		. #x2431)	; &MULE-ETHIO-2431; [04-17]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHAA")
@@ -2436,7 +2436,7 @@
     (mirrored		. nil)
     (=ucs		. #x132B)	; áŒ«
     (ethiopic-ucs	. #x132B)	; áŒ«
-    (ethiopic		. #x2432)	; øº¥½·
+    (ethiopic		. #x2432)	; &MULE-ETHIO-2432; [04-18]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHEE")
@@ -2445,7 +2445,7 @@
     (mirrored		. nil)
     (=ucs		. #x132C)	; áŒ¬
     (ethiopic-ucs	. #x132C)	; áŒ¬
-    (ethiopic		. #x2433)	; øº¥½¸
+    (ethiopic		. #x2433)	; &MULE-ETHIO-2433; [04-19]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHE")
@@ -2454,7 +2454,7 @@
     (mirrored		. nil)
     (=ucs		. #x132D)	; áŒ­
     (ethiopic-ucs	. #x132D)	; áŒ­
-    (ethiopic		. #x2434)	; øº¥½¹
+    (ethiopic		. #x2434)	; &MULE-ETHIO-2434; [04-20]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHO")
@@ -2463,7 +2463,7 @@
     (mirrored		. nil)
     (=ucs		. #x132E)	; áŒ®
     (ethiopic-ucs	. #x132E)	; áŒ®
-    (ethiopic		. #x2435)	; øº¥½º
+    (ethiopic		. #x2435)	; &MULE-ETHIO-2435; [04-21]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHWA")
@@ -2472,7 +2472,7 @@
     (mirrored		. nil)
     (=ucs		. #x132F)	; áŒ¯
     (ethiopic-ucs	. #x132F)	; áŒ¯
-    (ethiopic		. #x2436)	; øº¥½»
+    (ethiopic		. #x2436)	; &MULE-ETHIO-2436; [04-22]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHA")
@@ -2481,7 +2481,7 @@
     (mirrored		. nil)
     (=ucs		. #x1330)	; áŒ°
     (ethiopic-ucs	. #x1330)	; áŒ°
-    (ethiopic		. #x2437)	; øº¥½¼
+    (ethiopic		. #x2437)	; &MULE-ETHIO-2437; [04-23]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHU")
@@ -2490,7 +2490,7 @@
     (mirrored		. nil)
     (=ucs		. #x1331)	; áŒ±
     (ethiopic-ucs	. #x1331)	; áŒ±
-    (ethiopic		. #x2438)	; øº¥½½
+    (ethiopic		. #x2438)	; &MULE-ETHIO-2438; [04-24]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHI")
@@ -2499,7 +2499,7 @@
     (mirrored		. nil)
     (=ucs		. #x1332)	; áŒ²
     (ethiopic-ucs	. #x1332)	; áŒ²
-    (ethiopic		. #x2439)	; øº¥½¾
+    (ethiopic		. #x2439)	; &MULE-ETHIO-2439; [04-25]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHAA")
@@ -2508,7 +2508,7 @@
     (mirrored		. nil)
     (=ucs		. #x1333)	; áŒ³
     (ethiopic-ucs	. #x1333)	; áŒ³
-    (ethiopic		. #x243A)	; øº¥½¿
+    (ethiopic		. #x243A)	; &MULE-ETHIO-243A; [04-26]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHEE")
@@ -2517,7 +2517,7 @@
     (mirrored		. nil)
     (=ucs		. #x1334)	; áŒ´
     (ethiopic-ucs	. #x1334)	; áŒ´
-    (ethiopic		. #x243B)	; øº¥¾€
+    (ethiopic		. #x243B)	; &MULE-ETHIO-243B; [04-27]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHE")
@@ -2526,7 +2526,7 @@
     (mirrored		. nil)
     (=ucs		. #x1335)	; áŒµ
     (ethiopic-ucs	. #x1335)	; áŒµ
-    (ethiopic		. #x243C)	; øº¥¾
+    (ethiopic		. #x243C)	; &MULE-ETHIO-243C; [04-28]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHO")
@@ -2535,7 +2535,7 @@
     (mirrored		. nil)
     (=ucs		. #x1336)	; áŒ¶
     (ethiopic-ucs	. #x1336)	; áŒ¶
-    (ethiopic		. #x243D)	; øº¥¾‚
+    (ethiopic		. #x243D)	; &MULE-ETHIO-243D; [04-29]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHWA")
@@ -2544,7 +2544,7 @@
     (mirrored		. nil)
     (=ucs		. #x1337)	; áŒ·
     (ethiopic-ucs	. #x1337)	; áŒ·
-    (ethiopic		. #x243E)	; øº¥¾ƒ
+    (ethiopic		. #x243E)	; &MULE-ETHIO-243E; [04-30]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSA")
@@ -2553,7 +2553,7 @@
     (mirrored		. nil)
     (=ucs		. #x1338)	; áŒ¸
     (ethiopic-ucs	. #x1338)	; áŒ¸
-    (ethiopic		. #x243F)	; øº¥¾„
+    (ethiopic		. #x243F)	; &MULE-ETHIO-243F; [04-31]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSU")
@@ -2562,7 +2562,7 @@
     (mirrored		. nil)
     (=ucs		. #x1339)	; áŒ¹
     (ethiopic-ucs	. #x1339)	; áŒ¹
-    (ethiopic		. #x2440)	; øº¥¾…
+    (ethiopic		. #x2440)	; &MULE-ETHIO-2440; [04-32]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSI")
@@ -2571,7 +2571,7 @@
     (mirrored		. nil)
     (=ucs		. #x133A)	; áŒº
     (ethiopic-ucs	. #x133A)	; áŒº
-    (ethiopic		. #x2441)	; øº¥¾†
+    (ethiopic		. #x2441)	; &MULE-ETHIO-2441; [04-33]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSAA")
@@ -2580,7 +2580,7 @@
     (mirrored		. nil)
     (=ucs		. #x133B)	; áŒ»
     (ethiopic-ucs	. #x133B)	; áŒ»
-    (ethiopic		. #x2442)	; øº¥¾‡
+    (ethiopic		. #x2442)	; &MULE-ETHIO-2442; [04-34]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSEE")
@@ -2589,7 +2589,7 @@
     (mirrored		. nil)
     (=ucs		. #x133C)	; áŒ¼
     (ethiopic-ucs	. #x133C)	; áŒ¼
-    (ethiopic		. #x2443)	; øº¥¾ˆ
+    (ethiopic		. #x2443)	; &MULE-ETHIO-2443; [04-35]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSE")
@@ -2598,7 +2598,7 @@
     (mirrored		. nil)
     (=ucs		. #x133D)	; áŒ½
     (ethiopic-ucs	. #x133D)	; áŒ½
-    (ethiopic		. #x2444)	; øº¥¾‰
+    (ethiopic		. #x2444)	; &MULE-ETHIO-2444; [04-36]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSO")
@@ -2607,7 +2607,7 @@
     (mirrored		. nil)
     (=ucs		. #x133E)	; áŒ¾
     (ethiopic-ucs	. #x133E)	; áŒ¾
-    (ethiopic		. #x2445)	; øº¥¾Š
+    (ethiopic		. #x2445)	; &MULE-ETHIO-2445; [04-37]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSWA")
@@ -2616,7 +2616,7 @@
     (mirrored		. nil)
     (=ucs		. #x133F)	; áŒ¿
     (ethiopic-ucs	. #x133F)	; áŒ¿
-    (ethiopic		. #x2446)	; øº¥¾‹
+    (ethiopic		. #x2446)	; &MULE-ETHIO-2446; [04-38]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZA")
@@ -2625,7 +2625,7 @@
     (mirrored		. nil)
     (=ucs		. #x1340)	; á€
     (ethiopic-ucs	. #x1340)	; á€
-    (ethiopic		. #x2447)	; øº¥¾Œ
+    (ethiopic		. #x2447)	; &MULE-ETHIO-2447; [04-39]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZU")
@@ -2634,7 +2634,7 @@
     (mirrored		. nil)
     (=ucs		. #x1341)	; á
     (ethiopic-ucs	. #x1341)	; á
-    (ethiopic		. #x2448)	; øº¥¾
+    (ethiopic		. #x2448)	; &MULE-ETHIO-2448; [04-40]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZI")
@@ -2643,7 +2643,7 @@
     (mirrored		. nil)
     (=ucs		. #x1342)	; á‚
     (ethiopic-ucs	. #x1342)	; á‚
-    (ethiopic		. #x2449)	; øº¥¾Ž
+    (ethiopic		. #x2449)	; &MULE-ETHIO-2449; [04-41]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZAA")
@@ -2652,7 +2652,7 @@
     (mirrored		. nil)
     (=ucs		. #x1343)	; áƒ
     (ethiopic-ucs	. #x1343)	; áƒ
-    (ethiopic		. #x244A)	; øº¥¾
+    (ethiopic		. #x244A)	; &MULE-ETHIO-244A; [04-42]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZEE")
@@ -2661,7 +2661,7 @@
     (mirrored		. nil)
     (=ucs		. #x1344)	; á„
     (ethiopic-ucs	. #x1344)	; á„
-    (ethiopic		. #x244B)	; øº¥¾
+    (ethiopic		. #x244B)	; &MULE-ETHIO-244B; [04-43]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZE")
@@ -2670,7 +2670,7 @@
     (mirrored		. nil)
     (=ucs		. #x1345)	; á…
     (ethiopic-ucs	. #x1345)	; á…
-    (ethiopic		. #x244C)	; øº¥¾‘
+    (ethiopic		. #x244C)	; &MULE-ETHIO-244C; [04-44]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZO")
@@ -2679,7 +2679,7 @@
     (mirrored		. nil)
     (=ucs		. #x1346)	; á†
     (ethiopic-ucs	. #x1346)	; á†
-    (ethiopic		. #x244D)	; øº¥¾’
+    (ethiopic		. #x244D)	; &MULE-ETHIO-244D; [04-45]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FA")
@@ -2688,7 +2688,7 @@
     (mirrored		. nil)
     (=ucs		. #x1348)	; áˆ
     (ethiopic-ucs	. #x1348)	; áˆ
-    (ethiopic		. #x244F)	; øº¥¾”
+    (ethiopic		. #x244F)	; &MULE-ETHIO-244F; [04-47]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FU")
@@ -2697,7 +2697,7 @@
     (mirrored		. nil)
     (=ucs		. #x1349)	; á‰
     (ethiopic-ucs	. #x1349)	; á‰
-    (ethiopic		. #x2450)	; øº¥¾•
+    (ethiopic		. #x2450)	; &MULE-ETHIO-2450; [04-48]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FI")
@@ -2706,7 +2706,7 @@
     (mirrored		. nil)
     (=ucs		. #x134A)	; áŠ
     (ethiopic-ucs	. #x134A)	; áŠ
-    (ethiopic		. #x2451)	; øº¥¾–
+    (ethiopic		. #x2451)	; &MULE-ETHIO-2451; [04-49]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FAA")
@@ -2715,7 +2715,7 @@
     (mirrored		. nil)
     (=ucs		. #x134B)	; á‹
     (ethiopic-ucs	. #x134B)	; á‹
-    (ethiopic		. #x2452)	; øº¥¾—
+    (ethiopic		. #x2452)	; &MULE-ETHIO-2452; [04-50]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FEE")
@@ -2724,7 +2724,7 @@
     (mirrored		. nil)
     (=ucs		. #x134C)	; áŒ
     (ethiopic-ucs	. #x134C)	; áŒ
-    (ethiopic		. #x2453)	; øº¥¾˜
+    (ethiopic		. #x2453)	; &MULE-ETHIO-2453; [04-51]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FE")
@@ -2733,7 +2733,7 @@
     (mirrored		. nil)
     (=ucs		. #x134D)	; á
     (ethiopic-ucs	. #x134D)	; á
-    (ethiopic		. #x2454)	; øº¥¾™
+    (ethiopic		. #x2454)	; &MULE-ETHIO-2454; [04-52]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FO")
@@ -2742,7 +2742,7 @@
     (mirrored		. nil)
     (=ucs		. #x134E)	; áŽ
     (ethiopic-ucs	. #x134E)	; áŽ
-    (ethiopic		. #x2455)	; øº¥¾š
+    (ethiopic		. #x2455)	; &MULE-ETHIO-2455; [04-53]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FWA")
@@ -2751,7 +2751,7 @@
     (mirrored		. nil)
     (=ucs		. #x134F)	; á
     (ethiopic-ucs	. #x134F)	; á
-    (ethiopic		. #x2456)	; øº¥¾›
+    (ethiopic		. #x2456)	; &MULE-ETHIO-2456; [04-54]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PA")
@@ -2760,7 +2760,7 @@
     (mirrored		. nil)
     (=ucs		. #x1350)	; á
     (ethiopic-ucs	. #x1350)	; á
-    (ethiopic		. #x2457)	; øº¥¾œ
+    (ethiopic		. #x2457)	; &MULE-ETHIO-2457; [04-55]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PU")
@@ -2769,7 +2769,7 @@
     (mirrored		. nil)
     (=ucs		. #x1351)	; á‘
     (ethiopic-ucs	. #x1351)	; á‘
-    (ethiopic		. #x2458)	; øº¥¾
+    (ethiopic		. #x2458)	; &MULE-ETHIO-2458; [04-56]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PI")
@@ -2778,7 +2778,7 @@
     (mirrored		. nil)
     (=ucs		. #x1352)	; á’
     (ethiopic-ucs	. #x1352)	; á’
-    (ethiopic		. #x2459)	; øº¥¾ž
+    (ethiopic		. #x2459)	; &MULE-ETHIO-2459; [04-57]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PAA")
@@ -2787,7 +2787,7 @@
     (mirrored		. nil)
     (=ucs		. #x1353)	; á“
     (ethiopic-ucs	. #x1353)	; á“
-    (ethiopic		. #x245A)	; øº¥¾Ÿ
+    (ethiopic		. #x245A)	; &MULE-ETHIO-245A; [04-58]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PEE")
@@ -2796,7 +2796,7 @@
     (mirrored		. nil)
     (=ucs		. #x1354)	; á”
     (ethiopic-ucs	. #x1354)	; á”
-    (ethiopic		. #x245B)	; øº¥¾ 
+    (ethiopic		. #x245B)	; &MULE-ETHIO-245B; [04-59]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PE")
@@ -2805,7 +2805,7 @@
     (mirrored		. nil)
     (=ucs		. #x1355)	; á•
     (ethiopic-ucs	. #x1355)	; á•
-    (ethiopic		. #x245C)	; øº¥¾¡
+    (ethiopic		. #x245C)	; &MULE-ETHIO-245C; [04-60]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PO")
@@ -2814,7 +2814,7 @@
     (mirrored		. nil)
     (=ucs		. #x1356)	; á–
     (ethiopic-ucs	. #x1356)	; á–
-    (ethiopic		. #x245D)	; øº¥¾¢
+    (ethiopic		. #x245D)	; &MULE-ETHIO-245D; [04-61]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PWA")
@@ -2823,7 +2823,7 @@
     (mirrored		. nil)
     (=ucs		. #x1357)	; á—
     (ethiopic-ucs	. #x1357)	; á—
-    (ethiopic		. #x245E)	; øº¥¾£
+    (ethiopic		. #x245E)	; &MULE-ETHIO-245E; [04-62]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RYA")
@@ -2832,7 +2832,7 @@
     (mirrored		. nil)
     (=ucs		. #x1358)	; á˜
     (ethiopic-ucs	. #x1358)	; á˜
-    (ethiopic		. #x245F)	; øº¥¾¤
+    (ethiopic		. #x245F)	; &MULE-ETHIO-245F; [04-63]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MYA")
@@ -2841,7 +2841,7 @@
     (mirrored		. nil)
     (=ucs		. #x1359)	; á™
     (ethiopic-ucs	. #x1359)	; á™
-    (ethiopic		. #x2460)	; øº¥¾¥
+    (ethiopic		. #x2460)	; &MULE-ETHIO-2460; [04-64]
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FYA")
@@ -2850,7 +2850,7 @@
     (mirrored		. nil)
     (=ucs		. #x135A)	; áš
     (ethiopic-ucs	. #x135A)	; áš
-    (ethiopic		. #x2461)	; øº¥¾¦
+    (ethiopic		. #x2461)	; &MULE-ETHIO-2461; [04-65]
     ))
 (define-char
   '((name		. "ETHIOPIC WORDSPACE")
@@ -2859,7 +2859,7 @@
     (mirrored		. nil)
     (=ucs		. #x1361)	; á¡
     (ethiopic-ucs	. #x1361)	; á¡
-    (ethiopic		. #x2468)	; øº¥¾­
+    (ethiopic		. #x2468)	; &MULE-ETHIO-2468; [04-72]
     ))
 (define-char
   '((name		. "ETHIOPIC FULL STOP")
@@ -2868,7 +2868,7 @@
     (mirrored		. nil)
     (=ucs		. #x1362)	; á¢
     (ethiopic-ucs	. #x1362)	; á¢
-    (ethiopic		. #x2469)	; øº¥¾®
+    (ethiopic		. #x2469)	; &MULE-ETHIO-2469; [04-73]
     ))
 (define-char
   '((name		. "ETHIOPIC COMMA")
@@ -2877,7 +2877,7 @@
     (mirrored		. nil)
     (=ucs		. #x1363)	; á£
     (ethiopic-ucs	. #x1363)	; á£
-    (ethiopic		. #x246A)	; øº¥¾¯
+    (ethiopic		. #x246A)	; &MULE-ETHIO-246A; [04-74]
     ))
 (define-char
   '((name		. "ETHIOPIC SEMICOLON")
@@ -2886,7 +2886,7 @@
     (mirrored		. nil)
     (=ucs		. #x1364)	; á¤
     (ethiopic-ucs	. #x1364)	; á¤
-    (ethiopic		. #x246B)	; øº¥¾°
+    (ethiopic		. #x246B)	; &MULE-ETHIO-246B; [04-75]
     ))
 (define-char
   '((name		. "ETHIOPIC COLON")
@@ -2895,7 +2895,7 @@
     (mirrored		. nil)
     (=ucs		. #x1365)	; á¥
     (ethiopic-ucs	. #x1365)	; á¥
-    (ethiopic		. #x246C)	; øº¥¾±
+    (ethiopic		. #x246C)	; &MULE-ETHIO-246C; [04-76]
     ))
 (define-char
   '((name		. "ETHIOPIC PREFACE COLON")
@@ -2904,7 +2904,7 @@
     (mirrored		. nil)
     (=ucs		. #x1366)	; á¦
     (ethiopic-ucs	. #x1366)	; á¦
-    (ethiopic		. #x246D)	; øº¥¾²
+    (ethiopic		. #x246D)	; &MULE-ETHIO-246D; [04-77]
     ))
 (define-char
   '((name		. "ETHIOPIC QUESTION MARK")
@@ -2913,7 +2913,7 @@
     (mirrored		. nil)
     (=ucs		. #x1367)	; á§
     (ethiopic-ucs	. #x1367)	; á§
-    (ethiopic		. #x246E)	; øº¥¾³
+    (ethiopic		. #x246E)	; &MULE-ETHIO-246E; [04-78]
     ))
 (define-char
   '((name		. "ETHIOPIC PARAGRAPH SEPARATOR")
@@ -2922,7 +2922,7 @@
     (mirrored		. nil)
     (=ucs		. #x1368)	; á¨
     (ethiopic-ucs	. #x1368)	; á¨
-    (ethiopic		. #x246F)	; øº¥¾´
+    (ethiopic		. #x246F)	; &MULE-ETHIO-246F; [04-79]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT ONE")
@@ -2934,7 +2934,7 @@
     (numeric-value	 . 1)
     (=ucs		. #x1369)	; á©
     (ethiopic-ucs	. #x1369)	; á©
-    (ethiopic		. #x2470)	; øº¥¾µ
+    (ethiopic		. #x2470)	; &MULE-ETHIO-2470; [04-80]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT TWO")
@@ -2946,7 +2946,7 @@
     (numeric-value	 . 2)
     (=ucs		. #x136A)	; áª
     (ethiopic-ucs	. #x136A)	; áª
-    (ethiopic		. #x2471)	; øº¥¾¶
+    (ethiopic		. #x2471)	; &MULE-ETHIO-2471; [04-81]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT THREE")
@@ -2958,7 +2958,7 @@
     (numeric-value	 . 3)
     (=ucs		. #x136B)	; á«
     (ethiopic-ucs	. #x136B)	; á«
-    (ethiopic		. #x2472)	; øº¥¾·
+    (ethiopic		. #x2472)	; &MULE-ETHIO-2472; [04-82]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT FOUR")
@@ -2970,7 +2970,7 @@
     (numeric-value	 . 4)
     (=ucs		. #x136C)	; á¬
     (ethiopic-ucs	. #x136C)	; á¬
-    (ethiopic		. #x2473)	; øº¥¾¸
+    (ethiopic		. #x2473)	; &MULE-ETHIO-2473; [04-83]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT FIVE")
@@ -2982,7 +2982,7 @@
     (numeric-value	 . 5)
     (=ucs		. #x136D)	; á­
     (ethiopic-ucs	. #x136D)	; á­
-    (ethiopic		. #x2474)	; øº¥¾¹
+    (ethiopic		. #x2474)	; &MULE-ETHIO-2474; [04-84]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT SIX")
@@ -2994,7 +2994,7 @@
     (numeric-value	 . 6)
     (=ucs		. #x136E)	; á®
     (ethiopic-ucs	. #x136E)	; á®
-    (ethiopic		. #x2475)	; øº¥¾º
+    (ethiopic		. #x2475)	; &MULE-ETHIO-2475; [04-85]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT SEVEN")
@@ -3006,7 +3006,7 @@
     (numeric-value	 . 7)
     (=ucs		. #x136F)	; á¯
     (ethiopic-ucs	. #x136F)	; á¯
-    (ethiopic		. #x2476)	; øº¥¾»
+    (ethiopic		. #x2476)	; &MULE-ETHIO-2476; [04-86]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT EIGHT")
@@ -3018,7 +3018,7 @@
     (numeric-value	 . 8)
     (=ucs		. #x1370)	; á°
     (ethiopic-ucs	. #x1370)	; á°
-    (ethiopic		. #x2477)	; øº¥¾¼
+    (ethiopic		. #x2477)	; &MULE-ETHIO-2477; [04-87]
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT NINE")
@@ -3030,7 +3030,7 @@
     (numeric-value	 . 9)
     (=ucs		. #x1371)	; á±
     (ethiopic-ucs	. #x1371)	; á±
-    (ethiopic		. #x2478)	; øº¥¾½
+    (ethiopic		. #x2478)	; &MULE-ETHIO-2478; [04-88]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TEN")
@@ -3040,7 +3040,7 @@
     (numeric-value	. 10)
     (=ucs		. #x1372)	; á²
     (ethiopic-ucs	. #x1372)	; á²
-    (ethiopic		. #x2479)	; øº¥¾¾
+    (ethiopic		. #x2479)	; &MULE-ETHIO-2479; [04-89]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TWENTY")
@@ -3050,7 +3050,7 @@
     (numeric-value	. 20)
     (=ucs		. #x1373)	; á³
     (ethiopic-ucs	. #x1373)	; á³
-    (ethiopic		. #x247A)	; øº¥¾¿
+    (ethiopic		. #x247A)	; &MULE-ETHIO-247A; [04-90]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER THIRTY")
@@ -3060,7 +3060,7 @@
     (numeric-value	. 30)
     (=ucs		. #x1374)	; á´
     (ethiopic-ucs	. #x1374)	; á´
-    (ethiopic		. #x247B)	; øº¥¿€
+    (ethiopic		. #x247B)	; &MULE-ETHIO-247B; [04-91]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER FORTY")
@@ -3070,7 +3070,7 @@
     (numeric-value	. 40)
     (=ucs		. #x1375)	; áµ
     (ethiopic-ucs	. #x1375)	; áµ
-    (ethiopic		. #x247C)	; øº¥¿
+    (ethiopic		. #x247C)	; &MULE-ETHIO-247C; [04-92]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER FIFTY")
@@ -3080,7 +3080,7 @@
     (numeric-value	. 50)
     (=ucs		. #x1376)	; á¶
     (ethiopic-ucs	. #x1376)	; á¶
-    (ethiopic		. #x247D)	; øº¥¿‚
+    (ethiopic		. #x247D)	; &MULE-ETHIO-247D; [04-93]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER SIXTY")
@@ -3090,7 +3090,7 @@
     (numeric-value	. 60)
     (=ucs		. #x1377)	; á·
     (ethiopic-ucs	. #x1377)	; á·
-    (ethiopic		. #x247E)	; øº¥¿ƒ
+    (ethiopic		. #x247E)	; &MULE-ETHIO-247E; [04-94]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER SEVENTY")
@@ -3100,7 +3100,7 @@
     (numeric-value	. 70)
     (=ucs		. #x1378)	; á¸
     (ethiopic-ucs	. #x1378)	; á¸
-    (ethiopic		. #x2521)	; øº¥¿„
+    (ethiopic		. #x2521)	; &MULE-ETHIO-2521; [05-01]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER EIGHTY")
@@ -3110,7 +3110,7 @@
     (numeric-value	. 80)
     (=ucs		. #x1379)	; á¹
     (ethiopic-ucs	. #x1379)	; á¹
-    (ethiopic		. #x2522)	; øº¥¿…
+    (ethiopic		. #x2522)	; &MULE-ETHIO-2522; [05-02]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER NINETY")
@@ -3120,7 +3120,7 @@
     (numeric-value	. 90)
     (=ucs		. #x137A)	; áº
     (ethiopic-ucs	. #x137A)	; áº
-    (ethiopic		. #x2523)	; øº¥¿†
+    (ethiopic		. #x2523)	; &MULE-ETHIO-2523; [05-03]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER HUNDRED")
@@ -3130,7 +3130,7 @@
     (numeric-value	. 100)
     (=ucs		. #x137B)	; á»
     (ethiopic-ucs	. #x137B)	; á»
-    (ethiopic		. #x2524)	; øº¥¿‡
+    (ethiopic		. #x2524)	; &MULE-ETHIO-2524; [05-04]
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TEN THOUSAND")
@@ -3140,5 +3140,5 @@
     (numeric-value	. 10000)
     (=ucs		. #x137C)	; á¼
     (ethiopic-ucs	. #x137C)	; á¼
-    (ethiopic		. #x2525)	; øº¥¿ˆ
+    (ethiopic		. #x2525)	; &MULE-ETHIO-2525; [05-05]
     ))

@@ -1057,10 +1057,14 @@ x_error_handler (Display *disp, XErrorEvent *event)
       }
 #endif /* EXTERNAL_WIDGET */
 
+#if 0
+      /* This ends up calling X, which isn't allowed in an X error handler
+       */
       stderr_out ("\n%s: ",
 		  (STRINGP (Vinvocation_name)
 		   ? (char *) XSTRING_DATA (Vinvocation_name)
 		   : "xemacs"));
+#endif
       XmuPrintDefaultErrorMessage (disp, event, stderr);
     }
   return 0;

@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "SMALL COMMA")
     (general-category	punctuation other) ; Informative Category
@@ -6,8 +6,8 @@
     (mirrored		. nil)
     (->decomposition	small #x002C)
     (=ucs		. #xFE50)	; ï¹
-    (=cns11643-1	. #x212E)	; ø»‘‚©
-    (=big5		. #xA14D)	; ý¢€Š…
+    (=cns11643-1	. #x212E)	; &I-C1-212E; [01-14]
+    (=big5		. #xA14D)	; &I-B-A14D;
     ))
 (define-char
   '((name		. "SMALL IDEOGRAPHIC COMMA")
@@ -16,8 +16,8 @@
     (mirrored		. nil)
     (->decomposition	small #x3001)
     (=ucs		. #xFE51)	; ï¹‘
-    (=cns11643-1	. #x212F)	; ø»‘‚ª
-    (=big5		. #xA14E)	; ý¢€Š…Ž
+    (=cns11643-1	. #x212F)	; &I-C1-212F; [01-15]
+    (=big5		. #xA14E)	; &I-B-A14E;
     ))
 (define-char
   '((name		. "SMALL FULL STOP")
@@ -26,8 +26,8 @@
     (mirrored		. nil)
     (->decomposition	small #x002E)
     (=ucs		. #xFE52)	; ï¹’
-    (=cns11643-1	. #x2130)	; ø»‘‚«
-    (=big5		. #xA14F)	; ý¢€Š…
+    (=cns11643-1	. #x2130)	; &I-C1-2130; [01-16]
+    (=big5		. #xA14F)	; &I-B-A14F;
     ))
 (define-char
   '((name		. "SMALL SEMICOLON")
@@ -36,8 +36,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003B)
     (=ucs		. #xFE54)	; ï¹”
-    (=cns11643-1	. #x2132)	; ø»‘‚­
-    (=big5		. #xA151)	; ý¢€Š…‘
+    (=cns11643-1	. #x2132)	; &I-C1-2132; [01-18]
+    (=big5		. #xA151)	; &I-B-A151;
     ))
 (define-char
   '((name		. "SMALL COLON")
@@ -46,8 +46,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003A)
     (=ucs		. #xFE55)	; ï¹•
-    (=cns11643-1	. #x2133)	; ø»‘‚®
-    (=big5		. #xA152)	; ý¢€Š…’
+    (=cns11643-1	. #x2133)	; &I-C1-2133; [01-19]
+    (=big5		. #xA152)	; &I-B-A152;
     ))
 (define-char
   '((name		. "SMALL QUESTION MARK")
@@ -56,8 +56,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003F)
     (=ucs		. #xFE56)	; ï¹–
-    (=cns11643-1	. #x2134)	; ø»‘‚¯
-    (=big5		. #xA153)	; ý¢€Š…“
+    (=cns11643-1	. #x2134)	; &I-C1-2134; [01-20]
+    (=big5		. #xA153)	; &I-B-A153;
     ))
 (define-char
   '((name		. "SMALL EXCLAMATION MARK")
@@ -66,8 +66,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0021)
     (=ucs		. #xFE57)	; ï¹—
-    (=cns11643-1	. #x2135)	; ø»‘‚°
-    (=big5		. #xA154)	; ý¢€Š…”
+    (=cns11643-1	. #x2135)	; &I-C1-2135; [01-21]
+    (=big5		. #xA154)	; &I-B-A154;
     ))
 (define-char
   '((name		. "SMALL EM DASH")
@@ -84,8 +84,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0028)
     (=ucs		. #xFE59)	; ï¹™
-    (=cns11643-1	. #x215E)	; ø»‘ƒ™
-    (=big5		. #xA17D)	; ý¢€Š…½
+    (=cns11643-1	. #x215E)	; &I-C1-215E; [01-62]
+    (=big5		. #xA17D)	; &I-B-A17D;
     ))
 (define-char
   '((name		. "SMALL RIGHT PARENTHESIS")
@@ -94,8 +94,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0029)
     (=ucs		. #xFE5A)	; ï¹š
-    (=cns11643-1	. #x215F)	; ø»‘ƒš
-    (=big5		. #xA17E)	; ý¢€Š…¾
+    (=cns11643-1	. #x215F)	; &I-C1-215F; [01-63]
+    (=big5		. #xA17E)	; &I-B-A17E;
     ))
 (define-char
   '((name		. "SMALL LEFT CURLY BRACKET")
@@ -104,8 +104,8 @@
     (mirrored		. nil)
     (->decomposition	small #x007B)
     (=ucs		. #xFE5B)	; ï¹›
-    (=cns11643-1	. #x2160)	; ø»‘ƒ›
-    (=big5		. #xA1A1)	; ý¢€Š†¡
+    (=cns11643-1	. #x2160)	; &I-C1-2160; [01-64]
+    (=big5		. #xA1A1)	; &I-B-A1A1;
     ))
 (define-char
   '((name		. "SMALL RIGHT CURLY BRACKET")
@@ -114,8 +114,8 @@
     (mirrored		. nil)
     (->decomposition	small #x007D)
     (=ucs		. #xFE5C)	; ï¹œ
-    (=cns11643-1	. #x2161)	; ø»‘ƒœ
-    (=big5		. #xA1A2)	; ý¢€Š†¢
+    (=cns11643-1	. #x2161)	; &I-C1-2161; [01-65]
+    (=big5		. #xA1A2)	; &I-B-A1A2;
     ))
 (define-char
   '((name		. "SMALL LEFT TORTOISE SHELL BRACKET")
@@ -124,8 +124,8 @@
     (mirrored		. nil)
     (->decomposition	small #x3014)
     (=ucs		. #xFE5D)	; ï¹
-    (=cns11643-1	. #x2162)	; ø»‘ƒ
-    (=big5		. #xA1A3)	; ý¢€Š†£
+    (=cns11643-1	. #x2162)	; &I-C1-2162; [01-66]
+    (=big5		. #xA1A3)	; &I-B-A1A3;
     ))
 (define-char
   '((name		. "SMALL RIGHT TORTOISE SHELL BRACKET")
@@ -134,8 +134,8 @@
     (mirrored		. nil)
     (->decomposition	small #x3015)
     (=ucs		. #xFE5E)	; ï¹ž
-    (=cns11643-1	. #x2163)	; ø»‘ƒž
-    (=big5		. #xA1A4)	; ý¢€Š†¤
+    (=cns11643-1	. #x2163)	; &I-C1-2163; [01-67]
+    (=big5		. #xA1A4)	; &I-B-A1A4;
     ))
 (define-char
   '((name		. "SMALL NUMBER SIGN")
@@ -144,8 +144,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0023)
     (=ucs		. #xFE5F)	; ï¹Ÿ
-    (=cns11643-1	. #x222D)	; ø»‘„†
-    (=big5		. #xA1CC)	; ý¢€Š‡Œ
+    (=cns11643-1	. #x222D)	; &I-C1-222D; [02-13]
+    (=big5		. #xA1CC)	; &I-B-A1CC;
     ))
 (define-char
   '((name		. "SMALL AMPERSAND")
@@ -154,8 +154,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0026)
     (=ucs		. #xFE60)	; ï¹ 
-    (=cns11643-1	. #x222E)	; ø»‘„‡
-    (=big5		. #xA1CD)	; ý¢€Š‡
+    (=cns11643-1	. #x222E)	; &I-C1-222E; [02-14]
+    (=big5		. #xA1CD)	; &I-B-A1CD;
     ))
 (define-char
   '((name		. "SMALL ASTERISK")
@@ -164,8 +164,8 @@
     (mirrored		. nil)
     (->decomposition	small #x002A)
     (=ucs		. #xFE61)	; ï¹¡
-    (=cns11643-1	. #x222F)	; ø»‘„ˆ
-    (=big5		. #xA1CE)	; ý¢€Š‡Ž
+    (=cns11643-1	. #x222F)	; &I-C1-222F; [02-15]
+    (=big5		. #xA1CE)	; &I-B-A1CE;
     ))
 (define-char
   '((name		. "SMALL PLUS SIGN")
@@ -174,8 +174,8 @@
     (mirrored		. nil)
     (->decomposition	small #x002B)
     (=ucs		. #xFE62)	; ï¹¢
-    (=cns11643-1	. #x223F)	; ø»‘„˜
-    (=big5		. #xA1DE)	; ý¢€Š‡ž
+    (=cns11643-1	. #x223F)	; &I-C1-223F; [02-31]
+    (=big5		. #xA1DE)	; &I-B-A1DE;
     ))
 (define-char
   '((name		. "SMALL HYPHEN-MINUS")
@@ -184,8 +184,8 @@
     (mirrored		. nil)
     (->decomposition	small #x002D)
     (=ucs		. #xFE63)	; ï¹£
-    (=cns11643-1	. #x2240)	; ø»‘„™
-    (=big5		. #xA1DF)	; ý¢€Š‡Ÿ
+    (=cns11643-1	. #x2240)	; &I-C1-2240; [02-32]
+    (=big5		. #xA1DF)	; &I-B-A1DF;
     ))
 (define-char
   '((name		. "SMALL LESS-THAN SIGN")
@@ -194,8 +194,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003C)
     (=ucs		. #xFE64)	; ï¹¤
-    (=cns11643-1	. #x2241)	; ø»‘„š
-    (=big5		. #xA1E0)	; ý¢€Š‡ 
+    (=cns11643-1	. #x2241)	; &I-C1-2241; [02-33]
+    (=big5		. #xA1E0)	; &I-B-A1E0;
     ))
 (define-char
   '((name		. "SMALL GREATER-THAN SIGN")
@@ -204,8 +204,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003E)
     (=ucs		. #xFE65)	; ï¹¥
-    (=cns11643-1	. #x2242)	; ø»‘„›
-    (=big5		. #xA1E1)	; ý¢€Š‡¡
+    (=cns11643-1	. #x2242)	; &I-C1-2242; [02-34]
+    (=big5		. #xA1E1)	; &I-B-A1E1;
     ))
 (define-char
   '((name		. "SMALL EQUALS SIGN")
@@ -214,8 +214,8 @@
     (mirrored		. nil)
     (->decomposition	small #x003D)
     (=ucs		. #xFE66)	; ï¹¦
-    (=cns11643-1	. #x2243)	; ø»‘„œ
-    (=big5		. #xA1E2)	; ý¢€Š‡¢
+    (=cns11643-1	. #x2243)	; &I-C1-2243; [02-35]
+    (=big5		. #xA1E2)	; &I-B-A1E2;
     ))
 (define-char
   '((name		. "SMALL REVERSE SOLIDUS")
@@ -224,8 +224,8 @@
     (mirrored		. nil)
     (->decomposition	small #x005C)
     (=ucs		. #xFE68)	; ï¹¨
-    (=cns11643-1	. #x2262)	; ø»‘„»
-    (=big5		. #xA242)	; ý¢€Š‰‚
+    (=cns11643-1	. #x2262)	; &I-C1-2262; [02-66]
+    (=big5		. #xA242)	; &I-B-A242;
     ))
 (define-char
   '((name		. "SMALL DOLLAR SIGN")
@@ -234,8 +234,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0024)
     (=ucs		. #xFE69)	; ï¹©
-    (=cns11643-1	. #x226C)	; ø»‘……
-    (=big5		. #xA24C)	; ý¢€Š‰Œ
+    (=cns11643-1	. #x226C)	; &I-C1-226C; [02-76]
+    (=big5		. #xA24C)	; &I-B-A24C;
     ))
 (define-char
   '((name		. "SMALL PERCENT SIGN")
@@ -244,8 +244,8 @@
     (mirrored		. nil)
     (->decomposition	small #x0025)
     (=ucs		. #xFE6A)	; ï¹ª
-    (=cns11643-1	. #x226D)	; ø»‘…†
-    (=big5		. #xA24D)	; ý¢€Š‰
+    (=cns11643-1	. #x226D)	; &I-C1-226D; [02-77]
+    (=big5		. #xA24D)	; &I-B-A24D;
     ))
 (define-char
   '((name		. "SMALL COMMERCIAL AT")
@@ -254,6 +254,6 @@
     (mirrored		. nil)
     (->decomposition	small #x0040)
     (=ucs		. #xFE6B)	; ï¹«
-    (=cns11643-1	. #x226E)	; ø»‘…‡
-    (=big5		. #xA24E)	; ý¢€Š‰Ž
+    (=cns11643-1	. #x226E)	; &I-C1-226E; [02-78]
+    (=big5		. #xA24E)	; &I-B-A24E;
     ))
