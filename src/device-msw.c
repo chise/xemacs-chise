@@ -50,6 +50,7 @@ Boston, MA 02111-1307, USA.  */
 /* win32 DDE management library globals */
 #ifdef HAVE_DRAGNDROP
 DWORD mswindows_dde_mlid;
+int mswindows_dde_enable;
 HSZ mswindows_dde_service;
 HSZ mswindows_dde_topic_system;
 HSZ mswindows_dde_item_open;
@@ -179,17 +180,18 @@ mswindows_init_device (struct device *d, Lisp_Object props)
 #endif
 }
 
+#ifdef HAVE_DRAGNDROP
 static void
-mswindows_finish_init_device (struct device *d, Lisp_Object props)
+mswindows_init_dde ()
 {
   /* Initialize DDE management library and our related globals. We execute a
    * dde Open("file") by simulating a drop, so this depends on dnd support. */
-#ifdef HAVE_DRAGNDROP
 # if !(defined(CYGWIN) || defined(MINGW))
   CoInitialize (NULL);
 # endif
 
   mswindows_dde_mlid = 0;
+  mswindows_dde_enable = 0;
   DdeInitialize (&mswindows_dde_mlid, (PFNCALLBACK)mswindows_dde_callback,
 		 APPCMD_FILTERINITS|CBF_FAIL_SELFCONNECTIONS|CBF_FAIL_ADVISES|
 		 CBF_FAIL_POKES|CBF_FAIL_REQUESTS|CBF_SKIP_ALLNOTIFICATIONS,
@@ -202,6 +204,27 @@ mswindows_finish_init_device (struct device *d, Lisp_Object props)
   mswindows_dde_item_open = DdeCreateStringHandle (mswindows_dde_mlid,
 						   TEXT(MSWINDOWS_DDE_ITEM_OPEN), 0);
   DdeNameService (mswindows_dde_mlid, mswindows_dde_service, 0L, DNS_REGISTER);
+}
+#endif
+
+void 
+init_mswindows_very_early()
+{
+#ifdef HAVE_DRAGNDROP
+  /* Initializing dde when the device is created is too late - the
+     client will give up waiting.  Instead we initialize here and tell
+     the client we're too busy until the rest of initialization has
+     happened. */
+  mswindows_init_dde();
+#endif
+}
+
+static void
+mswindows_finish_init_device (struct device *d, Lisp_Object props)
+{
+#ifdef HAVE_DRAGNDROP
+  /* Tell pending clients we are ready. */
+  mswindows_dde_enable = 1;
 #endif
 }
 
@@ -338,12 +361,6 @@ mswindows_device_system_metrics (struct device *d,
 
   /* Do not know such property */
   return Qunbound;
-}
-
-static unsigned int
-mswindows_device_implementation_flags (void)
-{
-  return XDEVIMPF_PIXEL_GEOMETRY;
 }
 
 
@@ -533,14 +550,6 @@ msprinter_mark_device (struct device *d)
   mark_object (DEVICE_MSPRINTER_DEVMODE (d));
 }
 
-static unsigned int
-msprinter_device_implementation_flags (void)
-{
-  return (  XDEVIMPF_PIXEL_GEOMETRY
-	  | XDEVIMPF_IS_A_PRINTER
-	  | XDEVIMPF_NO_AUTO_REDISPLAY
-	  | XDEVIMPF_FRAMELESS_OK );
-}
 
 /************************************************************************/
 /*                      printer Lisp subroutines                        */
@@ -1304,13 +1313,17 @@ console_type_create_device_mswindows (void)
   CONSOLE_HAS_METHOD (mswindows, mark_device);
   CONSOLE_HAS_METHOD (mswindows, delete_device);
   CONSOLE_HAS_METHOD (mswindows, device_system_metrics);
-  CONSOLE_HAS_METHOD (mswindows, device_implementation_flags);
+  CONSOLE_IMPLEMENTATION_FLAGS (mswindows, XDEVIMPF_PIXEL_GEOMETRY);
 
   CONSOLE_HAS_METHOD (msprinter, init_device);
   CONSOLE_HAS_METHOD (msprinter, mark_device);
   CONSOLE_HAS_METHOD (msprinter, delete_device);
   CONSOLE_HAS_METHOD (msprinter, device_system_metrics);
-  CONSOLE_HAS_METHOD (msprinter, device_implementation_flags);
+  CONSOLE_IMPLEMENTATION_FLAGS (msprinter, (XDEVIMPF_PIXEL_GEOMETRY
+					    | XDEVIMPF_IS_A_PRINTER
+					    | XDEVIMPF_NO_AUTO_REDISPLAY
+					    | XDEVIMPF_DONT_PREEMPT_REDISPLAY
+					    | XDEVIMPF_FRAMELESS_OK));
 }
 
 

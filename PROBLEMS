@@ -212,6 +212,10 @@ normally held in /usr/ccs/bin.  This can be done by one of:
 
 - uninstalling GNU ld.
 
+- configuring XEmacs with these environment settings (suggested by
+  Goran Koruga <goran.koruga@hermes.si>):
+  LD=/usr/ccs/bin/ld AS=/usr/ccs/bin/as configure
+
 The Solaris2 FAQ claims:
 
     When you install gcc, don't make the mistake of installing

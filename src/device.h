@@ -48,6 +48,7 @@ struct pixel_to_glyph_translation_cache
 
 #define DEVICE_TYPE_NAME(d) ((d)->devmeths->name)
 #define DEVICE_TYPE(d) ((d)->devmeths->symbol)
+#define DEVICE_IMPL_FLAG(d, f) CONMETH_IMPL_FLAG ((d)->devmeths, (f))
 #define DEVICE_SPECIFIC_FRAME_PROPS(d) \
   ((d)->devmeths->device_specific_frame_props)
 
@@ -273,9 +274,7 @@ error_check_device_type (struct device *d, Lisp_Object sym)
 
 #define DEVICE_DISPLAY_P(dev)				\
   (DEVICE_LIVE_P (dev) &&				\
-   (MAYBE_INT_DEVMETH (dev,				\
-		       device_implementation_flags, ())	\
-    & XDEVIMPF_IS_A_PRINTER) ? 0 : 1)
+    !DEVICE_IMPL_FLAG (dev, XDEVIMPF_IS_A_PRINTER))
 
 #define CHECK_DISPLAY_DEVICE(dev)			\
   do {							\

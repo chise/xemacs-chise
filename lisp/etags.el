@@ -761,7 +761,8 @@ in the tag table that matches the tagname used in the previous find-tag.
 the tag.
 
 This version of this function supports multiple active tags tables,
-and completion.
+and completion. See also the commands `\\[push-tag-mark]' and
+`\\[pop-tag-mark]'.
 
 Variables of note:
 
@@ -1170,7 +1171,7 @@ If this is a C-defined elisp function, it does something more clever."
 (defcustom tag-mark-stack-max 16
   "*The maximum number of elements kept on the mark-stack used
 by tags-search.  See also the commands `\\[push-tag-mark]' and
-and `\\[pop-tag-mark]'."
+`\\[pop-tag-mark]'."
   :type 'integer
   :group 'etags)
 

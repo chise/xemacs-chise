@@ -44,6 +44,7 @@ Boston, MA 02111-1307, USA.  */
   sprintf (pty_name, "/dev/ptyp%d", i);
 #define PTY_TTY_NAME_SPRINTF \
   sprintf (pty_name, "/dev/ttyp%d", i);
+#define FORCE_ALLOCATE_PTY_THE_OLD_FASHIONED_WAY
 
 /* We have sockets. Always. */
 #ifndef HAVE_SOCKETS

@@ -2778,7 +2778,7 @@ x_tab_control_redisplay (Lisp_Object image_instance)
 		     but I couldn't find it. */
 		  Lisp_Object old_selected =gui_item_list_find_selected
 		    (XCDR (IMAGE_INSTANCE_WIDGET_ITEMS (ii)));
-		  Arg al [1];
+		  Arg al [2];
 		  char* name;
 		  unsigned int num_children, i;
 		  Widget* children;
@@ -2794,7 +2794,9 @@ x_tab_control_redisplay (Lisp_Object image_instance)
 		      if (!strcmp (XtName (children [i]), name))
 			{
 			  XtSetArg (al [0], XtNtopWidget, children [i]);
-			  XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 1);
+			  XtSetArg (al [1], XtNhighlightWidget,
+				    children [i]);
+			  XtSetValues (IMAGE_INSTANCE_X_WIDGET_ID (ii), al, 2);
 			  break;
 			}
 		    }

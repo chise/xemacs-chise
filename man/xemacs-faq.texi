@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/07/25 07:46:06 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2001/10/23 08:35:23 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -655,10 +655,9 @@ The most common pronounciation is @samp{Eks eemax}.
 @node Q1.0.9, Q1.0.10, Q1.0.8, Introduction
 @unnumberedsubsec Q1.0.9: What does XEmacs look like?
 
-Screen snapshots are available in the WWW version of the FAQ.
-@example
-@uref{http://www.xemacs.org/faq/xemacs-faq.html}
-@end example
+Screen snapshots are available at
+@uref{http://www.xemacs.org/About/Screenshots/index.html}
+as part of the XEmacs website.
 
 @node Q1.0.10, Q1.0.11, Q1.0.9, Introduction
 @unnumberedsubsec Q1.0.10: Is there a port of XEmacs to Microsoft ('95 or NT)?
@@ -1056,8 +1055,7 @@ modification to @email{ava@@math.jhu.ed, Valery Alexeev's} @file{russian.el}
 which can be obtained from
 @end quotation
 
-@uref{http://ftpsearch.ntnu.no/?query=russian.el.Z}.
-@c dead link above
+@uref{http://ftpsearch.lycos.com/?query=russian.el.Z&form=medium}.
 
 @email{d.barsky@@ee.surrey.ac.uk, Dima Barsky} writes:
 
@@ -1077,7 +1075,7 @@ There is another cyrillic mode for both GNU Emacs and XEmacs by
 
 @quotation
 The fullest resource I found on Russian language use (in and out of
-XEmacs) is @uref{http://sunsite.oit.unc.edu/sergei/Software/Software.html}
+XEmacs) is @uref{http://www.ibiblio.org/sergei/Software/Software.html}
 @end quotation
 
 @node Q1.4.1, Q1.4.2, Q1.3.7, Introduction
@@ -3904,7 +3902,7 @@ Note that each string is a regular expression.
 @node Q4.0.7, Q4.0.8, Q4.0.6, Subsystems
 @unnumberedsubsec Q4.0.7: Is there a mailing list or FAQ for VM?
 
-A FAQ for VM exists at @uref{http://www.cyberpass.net/~gorkab/vmfaq.htm}.
+A FAQ for VM exists at @uref{http://www.wonderworks.com/vm/FAQ.html}.
 
 VM has its own newsgroups gnu.emacs.vm.info and gnu.emacs.vm.bug.
 
@@ -4371,11 +4369,9 @@ did so.)
 @unnumberedsec 4.6: Infodock
 @unnumberedsubsec Q4.6.1: What is Infodock?
 
-InfoDock is an integrated productivity toolset, mainly aimed at
-technical people.  It is developed and supported by InfoDock
-Associates, a firm that offers custom support and development
-for InfoDock, XEmacs and GNU Emacs.  ( @uref{http://www.infodock.com},
-@email{info@@infodock.com}, +1 408 243 3300).
+@uref{http://sourceforge.net/projects/infodock/, InfoDock} is an
+integrated productivity toolset, mainly aimed at technical people,
+hosted at SourceForge.
 
 InfoDock is built atop the XEmacs variant of GNU Emacs and so has all of
 the power of Emacs, but with an easier to use and more comprehensive
@@ -4543,7 +4539,7 @@ The most recent version is always available by ftp at
 @iftex
 @*
 @end iftex
-@uref{ftp://sunsite.auc.dk/packages/auctex/auctex.tar.gz}.
+@uref{ftp://sunsite.dk/packages/auctex/auctex.tar.gz}.
 
 In case you don't have access to anonymous ftp, you can get it by an
 email request to @email{ftpmail@@decwrl.dec.com}.
@@ -4552,7 +4548,7 @@ WWW users may want to check out the AUC TeX page at
 @iftex
 @*
 @end iftex
-@uref{http://sunsite.auc.dk/auctex/}.
+@uref{http://sunsite.dk/auctex/}.
 
 @node Q4.7.2, Q4.7.3, Q4.7.1, Subsystems
 @unnumberedsubsec Q4.7.2: Are there any Emacs Lisp Spreadsheets?
@@ -6717,8 +6713,10 @@ Etags changes.  See @file{NEWS} for full details.
 
 Not yet written.
 
-@itemize @bullet
-@end itemize
+@c APA: Texi2html produces invalid HTML from an empty list of bullets!
+@c Please uncomment following list when it does contain bullets.
+@c @itemize @bullet
+@c @end itemize
 
 @node Q7.0.3, Q7.0.4, Q7.0.2, Current Events
 @unnumberedsubsec Q7.0.3: What's new in XEmacs 21.1?

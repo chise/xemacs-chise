@@ -1484,8 +1484,8 @@ which will not be used as accelerators."
        ["Find %_Packages" finder-by-keyword]
        ["View %_Splash Screen" xemacs-splash-buffer]
        ["%_Unix Manual..." manual-entry])
-      ["Send %_Bug Report..." report-emacs-bug
-       :active (fboundp 'report-emacs-bug)])))
+      ["Send %_Bug Report..." report-xemacs-bug
+       :active (fboundp 'report-xemacs-bug)])))
 
 
 (defun maybe-add-init-button ()

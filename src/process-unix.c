@@ -220,6 +220,7 @@ allocate_pty (void)
      allocate_pty() tries all the different known easy ways of opening
      a pty.  In case of failure, we resort to the old BSD-style pty
      grovelling code in allocate_pty_the_old_fashioned_way(). */
+#ifndef FORCE_ALLOCATE_PTY_THE_OLD_FASHIONED_WAY
   int master_fd = -1;
   const char *slave_name = NULL;
   const char *clone = NULL;
@@ -342,6 +343,7 @@ allocate_pty (void)
  lose:
   if (master_fd >= 0)
     close (master_fd);
+#endif /* ndef FORCE_ALLOCATE_PTY_THE_OLD_FASHIONED_WAY */
   return allocate_pty_the_old_fashioned_way ();
 }
 
@@ -1981,7 +1983,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest,
   memset (&sa, 0, sizeof(sa));
   sa.sin_family = AF_INET;
   sa.sin_port = theport;
-  sa.sin_addr.s_addr = htonl (inet_addr ((char *) XSTRING_DATA (dest)));
+  sa.sin_addr.s_addr = inet_addr ((char *) XSTRING_DATA (dest));
 
   /* Socket configuration for reading ------------------------ */
 
@@ -2001,7 +2003,7 @@ unix_open_multicast_group (Lisp_Object name, Lisp_Object dest,
     }
 
   /* join multicast group */
-  imr.imr_multiaddr.s_addr = htonl (inet_addr ((char *) XSTRING_DATA (dest)));
+  imr.imr_multiaddr.s_addr = inet_addr ((char *) XSTRING_DATA (dest));
   imr.imr_interface.s_addr = htonl (INADDR_ANY);
   if (setsockopt (rs, IPPROTO_IP, IP_ADD_MEMBERSHIP,
 		  &imr, sizeof (struct ip_mreq)) < 0)

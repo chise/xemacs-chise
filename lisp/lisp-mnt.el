@@ -560,8 +560,8 @@ Prompts for bug subject.  Leaves you in a mail buffer."
     (mail nil
 	  (if addr
 	      (concat (car addr) " <" (cdr addr) ">")
-	    (or (and (boundp 'report-emacs-bug-beta-address)
-		     report-emacs-bug-beta-address)
+	    (or (and (boundp 'report-xemacs-bug-beta-address)
+		     report-xemacs-bug-beta-address)
 		"<xemacs-beta@xemacs.org>"))
 	  topic)
     (goto-char (point-max))

@@ -102,7 +102,7 @@ set_one_shot_timer (EMACS_TIME interval)
   struct itimerval it;
   it.it_value = interval;
   EMACS_SET_SECS_USECS (it.it_interval, 0, 0);
-  setitimer (ITIMER_REAL, &it, 0);
+  qxe_setitimer (ITIMER_REAL, &it, 0);
 #else
   int secs;
   EMACS_TIME_TO_INT (interval, secs);
@@ -327,6 +327,7 @@ handle_alarm_going_off (void)
 }
 
 #ifdef HAVE_SETITIMER
+
 unsigned int
 alarm (unsigned int howlong)
 {
@@ -340,12 +341,27 @@ alarm (unsigned int howlong)
   new_it.it_value.tv_usec = 0;
   new_it.it_interval.tv_sec = 0;
   new_it.it_interval.tv_usec = 0;
-  setitimer (ITIMER_REAL, &new_it, &old_it);
+  qxe_setitimer (ITIMER_REAL, &new_it, &old_it);
 
   /* Never return zero if there was a timer outstanding. */
   return old_it.it_value.tv_sec + (old_it.it_value.tv_usec > 0 ? 1 : 0);
 }
+
+int
+qxe_setitimer (int kind, const struct itimerval *itnew,
+	       struct itimerval *itold)
+{
+#if defined (WIN32_NATIVE) || defined (CYGWIN)
+  /* setitimer() does not exist on native MS Windows, and appears broken
+     on Cygwin.  See win32.c. */
+  return mswindows_setitimer (kind, itnew, itold);
+#else
+  return setitimer (kind, itnew, itold);
 #endif
+}
+
+#endif /* HAVE_SETITIMER */
+
 
 DEFUN ("waiting-for-user-input-p", Fwaiting_for_user_input_p, 0, 0, 0, /*
 Return non-nil if XEmacs is waiting for input from the user.

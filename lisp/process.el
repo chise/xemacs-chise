@@ -53,6 +53,7 @@
   "Executing external commands."
   :group 'processes)
 
+;; This may be changed to "/c" in win32-native.el.
 
 (defvar shell-command-switch "-c"
   "Switch used to have the shell execute its command line argument.")
@@ -121,13 +122,17 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	      (when (and stderr (not (eq t stderr)))
 		(setq stderr (expand-file-name stderr))
 		(setq errbuf (generate-new-buffer "*call-process*")))
-	      (setq proc
-		    (apply 'start-process-internal "*call-process*"
-			   buffer
-			   ;#### not implemented until my new process
-			   ;changes go in.
-			   ;(if (eq t stderr) buffer (list buffer errbuf))
-			   program args))
+	      ;; We read INFILE using the binary coding-system.
+	      ;; We must feed the process using the same coding-system, so
+	      ;; that it really receives the contents of INFILE.
+	      (let ((coding-system-for-write 'binary))
+		(setq proc
+		      (apply 'start-process-internal "*call-process*"
+			     buffer
+			     ;#### not implemented until my new process
+			     ;changes go in.
+			     ;(if (eq t stderr) buffer (list buffer errbuf))
+			     program args)))
 	      (if buffer
 		  (set-marker (process-mark proc) (point buffer) buffer))
 	      (unwind-protect
@@ -446,15 +451,17 @@ lost packets."
       ;; around shell metachars gets through the last two, and applying
       ;; the normal VC runtime quoting works with practically all apps.
       (mswindows-quote-one-vc-runtime-arg argument t)
-    ;; Quote everything except POSIX filename characters.
-    ;; This should be safe enough even for really weird shells.
-    (let ((result "") (start 0) end)
-      (while (string-match "[^-0-9a-zA-Z_./]" argument start)
-	(setq end (match-beginning 0)
-	      result (concat result (substring argument start end)
-			     "\\" (substring argument end (1+ end)))
-	      start (1+ end)))
-      (concat result (substring argument start)))))
+    (if (equal argument "")
+	"\"\""
+      ;; Quote everything except POSIX filename characters.
+      ;; This should be safe enough even for really weird shells.
+      (let ((result "") (start 0) end)
+	(while (string-match "[^-0-9a-zA-Z_./]" argument start)
+	  (setq end (match-beginning 0)
+		result (concat result (substring argument start end)
+			       "\\" (substring argument end (1+ end)))
+		start (1+ end)))
+	(concat result (substring argument start))))))
 
 (defun shell-command-to-string (command)
   "Execute shell command COMMAND and return its output as a string."

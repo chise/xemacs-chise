@@ -3,5 +3,5 @@
 #endif
 
 XEmacs ICON PRELOAD "xemacs.ico"
-XEmacsFile ICON "File.ico"
-XEmacsLisp ICON "Lisp.ico"
+XEmacsFile ICON "file.ico"
+XEmacsLisp ICON "lisp.ico"

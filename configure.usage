@@ -77,15 +77,16 @@ Window-system options:
                         *WARNING*  The Motif menubar is currently broken.
 --with-scrollbars=TYPE  Use TYPE scrollbars
                         (lucid, motif, athena, or no).
---with-dialogs=TYPE     Use TYPE dialog boxes (motif, athena, or no).
+--with-dialogs=TYPE     Use TYPE dialog boxes (lucid, motif, athena, or no).
                         Lucid menubars and scrollbars are the default.
                         Motif dialog boxes will be used if Motif can be found.
---with-widgets=TYPE     Use TYPE widgets (motif, athena, or no).
+--with-widgets=TYPE     Use TYPE widgets (lucid, motif, athena, or no).
                         Motif widgets will be used if Motif can be found.
                         Other widget types are currently unsupported.
 --with-dragndrop        Compile in the generic drag and drop API. This is
                         automatically added if one of the drag and drop
-                        protocols is found (currently CDE, OffiX, MSWindows).
+                        protocols is found (currently CDE, OffiX, MSWindows,
+                        and GTK).
                         *WARNING*  The Drag'n'drop support is under development
                                    and is considered experimental.
 --with-cde              Compile in support for CDE drag and drop.
@@ -155,7 +156,7 @@ Mail options:
 
 --mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
                         concurrent updates of mail spool files. Valid types
-                        are `lockf', `flock', and `dot'.
+                        are `lockf', `flock', `dot', `locking' or `mmdf'.
 --with-pop              Support POP for mail retrieval.
 --with-kerberos         Support Kerberos-authenticated POP.
 --with-hesiod           Support Hesiod to get the POP server host.

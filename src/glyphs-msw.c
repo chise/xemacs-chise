@@ -2091,6 +2091,12 @@ extern int debug_widget_instances;
 #endif
 
 static void
+finalize_destroy_window (void *win)
+{
+  DestroyWindow ((HWND) win);
+}
+
+static void
 mswindows_finalize_image_instance (Lisp_Image_Instance *p)
 {
   if (!p->data)
@@ -2107,8 +2113,14 @@ mswindows_finalize_image_instance (Lisp_Image_Instance *p)
 #endif
 	  if (IMAGE_INSTANCE_SUBWINDOW_ID (p))
 	    {
-	      DestroyWindow (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p));
-	      DestroyWindow (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p));
+	      /* DestroyWindow is not safe here, as it will send messages
+		 to our window proc. */
+	      register_post_gc_action
+		(finalize_destroy_window,
+		 (void *) (WIDGET_INSTANCE_MSWINDOWS_HANDLE (p)));
+	      register_post_gc_action
+		(finalize_destroy_window,
+		 (void *) (IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (p)));
 	      IMAGE_INSTANCE_SUBWINDOW_ID (p) = 0;
 	    }
 	}

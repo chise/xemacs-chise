@@ -202,7 +202,8 @@ If FRAME is nil, use the default face."
 
 (defun custom-set-face-font-size (face size &optional locale tags)
   "Set the font of FACE to SIZE."
-  (let* ((font (apply 'face-font-name face locale))
+  ;; #### should this call have tags in it?
+  (let* ((font (apply 'face-font-name face (list locale)))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (set-font-size fontobj size)
@@ -217,7 +218,8 @@ If FRAME is nil, use the default face."
 
 (defun custom-set-face-font-family (face family &optional locale tags)
   "Set the font of FACE to FAMILY."
-  (let* ((font (apply 'face-font-name face locale))
+  ;; #### should this call have tags in it?
+  (let* ((font (apply 'face-font-name face (list locale)))
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (set-font-family fontobj family)
