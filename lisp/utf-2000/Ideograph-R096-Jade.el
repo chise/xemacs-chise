@@ -1477,6 +1477,14 @@
     (ucs		. #x73DC)	; çœ
     ))
 (define-char
+  '((=>ucs		. #x73DC)	; çœ
+    (morohashi-daikanwa	20950 0 0)
+    (ideographic-radical . 96)	; â½Ÿ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (china3-jef		. #x83FA)	; øºˆº
+    ))
+(define-char
   '((=>ucs		. #x73DD)	; ç
     (ideographic-radical . 96)	; â½Ÿ
     (ideographic-strokes . 6)
