@@ -114,9 +114,12 @@
     (=gt-pj-k1		. #x692C)	; ý¡„€…±
     ))
 (define-char
-  '((ideographic-radical . 16)	; â¼
-    (ideographic-strokes . 1)
-    (total-strokes	 . 3)
+  '((total-strokes	 . 3)
+    (<-vulgar-ideograph
+     ((=daikanwa	  . 01739)	; ø¸€›‹
+      ))
+    (<-vulgar-ideograph*sources
+     zhengzi-tong daikanwa)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
@@ -127,10 +130,21 @@
       ))
     (=ucs		. #x51E2)	; å‡¢
     (=jis-x0212		. #x3329)	; ø»Š¾´
+    (=cns11643-3	. #x212F)	; ø»•–²
     (=jis-x0213-1-2000	. #x2E58)	; ø»¢¦¹
-    (=daikanwa		. 01740)	; ø¸€›Œ
     (=hanziku-1		. #xDEE9)	; ý¢€»©
     (=jef-china3	. #x41B8)	; øº„†¸
+    (->subsumptive
+     ((ideographic-radical . 4)	; â¼ƒ
+      (ideographic-strokes . 2)
+      (ideographic-radical*sources daikanwa cns11643)
+      (=daikanwa	  . 00123)	; ø¸€»
+      )
+     ((ideographic-radical . 16)	; â¼
+      (ideographic-strokes . 1)
+      (ideographic-radical*sources daikanwa jis-x0213-2000 ucs)
+      (=daikanwa	  . 01740)	; ø¸€›Œ
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	1740 0 2)
