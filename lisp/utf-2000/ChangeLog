@@ -1,5 +1,31 @@
 2003-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R096-Jade.el (U+738D): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-{radical|strokes}@cns'; unify M053003.
+
+	* Ideograph-R044-Corpse.el (U+5C39): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@ucs*sources'; use `ideographic-radical@cns'
+	instead of `cns-radical'; add `ideographic-strokes@cns'.
+
+	* Ideograph-R017-Open-Box.el (U+342B): Copied from
+	Ideograph-R008-Lid.el.
+	(M-01841): Move C5-5A75 to M-23906; add `->identical' for M-23906.
+	(U-00025390): Copied from Ideograph-R110-Spear.el; unify C5-5A75.
+
+	* Ideograph-R008-Lid.el (U+342B): Use `ideographic-radical@ucs'
+	instead of `ideographic-radical'; add
+	`ideographic-radical@ucs*sources' and `ideographic-radical@cns'.
+
+	* Ideograph-R110-Spear.el (U-00025390): Use
+	`ideographic-{radical|strokes}@ucs' instead of
+	`ideographic-{radical|strokes}'; add
+	`ideographic-radical@{ucs|cns}*sources' and
+	`ideographic-{radical|strokes}@cns'; unify C5-5A75.
+
 	* Ideograph-R120-Silk.el: Add some missing mappings to JEF-CHINA3
 	code points.
 
