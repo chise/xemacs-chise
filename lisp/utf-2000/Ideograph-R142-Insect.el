@@ -11215,14 +11215,20 @@
   '((ideographic-radical . 142)	; ⾍
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
-    (shinjigen-2	. 7298)
     (=ucs		. #x8821)	; 蠡
-    (=jis-x0208		. #x6A42)	; &I-J90-6A42; [74-34]
-    (=gb2312		. #x733B)	; &I-G0-733B; [83-27]
-    (=cns11643-1	. #x7B26)	; &I-C1-7B26; [91-06]
-    (=gt		. 45626)	; &I-GT-45626;
-    (=gt-pj-1		. #x6A42)	; &I-GT-45626; [74-34]
-    (=daikanwa		. 33796)	; &I-M-33796;
+    (->subsumptive
+     ((shinjigen-2	  . 7298)
+      (=jis-x0208	  . #x6A42)	; &GT-45626; [74-34]
+      (=gt		  . 45626)	; &I-GT-45626;
+      (=gt-pj-1		  . #x6A42)	; &I-GT-45626; [74-34]
+      (=daikanwa	  . 33796)	; &I-M-33796;
+      (=ucs@jis		  . #x8821)	; &GT-45626;
+      )
+     ((=gb2312		  . #x733B)	; &G0-733B; [83-27]
+      (=ucs@unicode	  . #x8821)	; &G0-733B;
+      )
+     ((=cns11643-1	  . #x7B26)	; &C1-7B26; [91-06]
+      ))
     ))
 (define-char
   '((ideographic-radical . 142)	; ⾍
