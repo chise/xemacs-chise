@@ -4204,44 +4204,67 @@ decode_coding_utf16 (Lstream *decoding, const Extbyte *src,
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags = str->flags;
   unsigned int cpos  = str->cpos;
-  unsigned char counter = str->counter;
+  unsigned char counter = str->counter & 3;
+  unsigned char byte_order = str->counter >> 2;
   eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
       unsigned char c = *(unsigned char *)src++;
-      if ((counter & 1) == 0)
+      if (counter == 0)
 	{
 	  cpos = c;
-	  counter |= 1;
+	  counter = 1;
+	}
+      else if (counter == 1)
+	{
+	  int code;
+
+	  if (byte_order == 0)
+	    code = (c << 8) | cpos;
+	  else
+	    code = (cpos << 8) | c;
+	  if (code == 0xFFFE)
+	    {
+	      code = ((code & 0xFF) << 8) | (code >> 8);
+	      if ( byte_order == 0 )
+		byte_order = 1;
+	      else
+		byte_order = 0;
+	    }
+	  if ( (0xD800 <= code) && (code <= 0xDBFF) )
+	    {
+	      counter = 2;
+	      cpos = code;
+	    }
+	  else
+	    {
+	      counter = 0;
+	      cpos = 0;
+	      if (code != 0xFEFF)
+		{
+		  DECODE_HANDLE_EOL_TYPE (eol_type, code, flags, dst);
+		  DECODE_ADD_UCS_CHAR (code, dst);
+		}
+	    }
+	}
+      else if (counter == 2)
+	{
+	  cpos = (cpos << 8) | c;
+	  counter++;
 	}
       else
 	{
-	  int code
-	    = (counter & 2) == 2
-	    ? (cpos << 8) | c
-	    : (c << 8) | cpos;
+	  int x = cpos >> 8;
+	  int y
+	    = (byte_order == 0)
+	    ? (c << 8) | (cpos & 0xFF)
+	    : ((cpos & 0xFF) << 8) | c;
 
-	  if (code == 0xFFFE)
-	    {
-	      if ( (counter & 2) == 0 )
-		{
-		  counter = 2;
-		  code = (cpos << 8) | c;
-		}
-	      else
-		{
-		  counter = 0;
-		  code = (c << 8) | cpos;
-		}
-	    }
-	  counter &= 2;
+	  DECODE_ADD_UCS_CHAR ((x - 0xD800) * 0x400 + (y - 0xDC00)
+			       + 0x10000, dst);
+	  counter = 0;
 	  cpos = 0;
-	  if (code != 0xFEFF)
-	    {
-	      DECODE_HANDLE_EOL_TYPE (eol_type, code, flags, dst);
-	      DECODE_ADD_UCS_CHAR (code, dst);
-	    }
 	}
     label_continue_loop:;
     }
@@ -4250,7 +4273,7 @@ decode_coding_utf16 (Lstream *decoding, const Extbyte *src,
 
   str->flags	= flags;
   str->cpos	= cpos;
-  str->counter	= counter;
+  str->counter	= (byte_order << 2) | counter;
 }
 
 void
@@ -4265,7 +4288,7 @@ char_encode_utf16 (struct encoding_stream *str, Emchar ch,
   else
     {
       int y = ((ch - 0x10000) / 0x400) + 0xD800;
-      int z = ((ch - 0x10000) % 0x400) + 0xD800;
+      int z = ((ch - 0x10000) % 0x400) + 0xDC00;
       
       Dynarr_add (dst, y);
       Dynarr_add (dst, y >> 8);
