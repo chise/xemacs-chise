@@ -79,30 +79,19 @@
    ((find-charset ka)
     (cond
      ((find-charset kb)
-      (if (and (charset-iso-final-char ka)
-	       (>= (charset-iso-final-char ka) ?@)
-	       (charset-iso-final-char kb)
-	       (>= (charset-iso-final-char kb) ?@))
-	  (cond
-	   ((= (charset-dimension ka)
-	       (charset-dimension kb))
-	    (< (charset-iso-final-char ka)
-	       (charset-iso-final-char kb)))
-	   (t
-	    (> (charset-dimension ka)
-	       (charset-dimension kb))
-	    ))
-	(if (< (charset-id ka) 0)
-	    (if (< (charset-id kb) 0)
-		(cond
-		 ((= (charset-dimension ka)
-		     (charset-dimension kb))
-		  (> (charset-id ka)(charset-id kb)))
-		 (t
-		  (> (charset-dimension ka)
-		     (charset-dimension kb))
-		  ))
-	      t)
+      (if (<= (charset-id ka) 0)
+	  (if (<= (charset-id kb) 0)
+	      (cond
+	       ((= (charset-dimension ka)
+		   (charset-dimension kb))
+		(> (charset-id ka)(charset-id kb)))
+	       (t
+		(> (charset-dimension ka)
+		   (charset-dimension kb))
+		))
+	    t)
+	(if (<= (charset-id kb) 0)
+	    nil
 	  (< (charset-id ka)(charset-id kb)))))
      ((symbolp kb)
       nil)
