@@ -73,6 +73,11 @@
 
 2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* char-db-util.el (insert-char-attributes): Don't display `<-same'
+	when running with non-readable mode.
+
+2004-03-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R213-Turtle.el, Ideograph-R203-Black.el,
 	Ideograph-R186-Fragrant.el, Ideograph-R196-Bird.el,
 	Ideograph-R184-Eat.el, Ideograph-R177-Leather.el,
