@@ -142,6 +142,7 @@
   )
 
 
+(unless (featurep 'utf-2000)
 (defconst iso8859/1-case-table nil
   "The case table for ISO-8859/1 characters.")
 
@@ -198,6 +199,7 @@
  )
 
 (set-standard-case-table (mapcar 'copy-sequence iso8859/1-case-table))
+)
 
 (setq-default ctl-arrow 'iso-8859/1)
 
