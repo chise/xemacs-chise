@@ -1,3 +1,18 @@
+2002-11-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el, Ideograph-R134-Mortar.el,
+	Ideograph-R135-Tongue.el, Ideograph-R137-Boat.el,
+	Ideograph-R133-Arrive.el, Ideograph-R132-Self.el,
+	Ideograph-R130-Meat.el, Ideograph-R122-Net.el,
+	Ideograph-R121-Jar.el, Ideograph-R109-Eye.el,
+	Ideograph-R108-Dish.el, Ideograph-R102-Field.el,
+	Ideograph-R096-Jade.el, Ideograph-R094-Dog.el,
+	Ideograph-R085-Water.el: Add some missing mappings to CHINA3-JEF
+	code points.
+
+	* Ideograph-R180-Sound.el (JC3-6CD8): Add S1-9133.
+	(J0-323B): Add S1-9132.
+
 2002-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R180-Sound.el (M-43265): Separate G0-5274, J0-323B,
