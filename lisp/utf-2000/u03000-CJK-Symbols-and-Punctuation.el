@@ -77,6 +77,7 @@
     (japanese-jisx0208		. #x2139)	; ø»† 
     (chinese-isoir165		. #x2129)	; ø»Œ®œ
     (japanese-jisx0208-1990	. #x2139)	; ø½‰¶”
+    (chinese-big5		. #xC6E0)	; øº ·¯
     (ucs			. #x3005)	; ã€…
     ))
 (define-char
@@ -87,6 +88,7 @@
     (japanese-jisx0208-1978	. #x213A)	; ø»¼™
     (japanese-jisx0208		. #x213A)	; ø»†¡
     (japanese-jisx0208-1990	. #x213A)	; ø½‰¶•
+    (chinese-big5		. #xC6E1)	; øº ·°
     (ucs			. #x3006)	; ã€†
     ))
 (define-char
@@ -98,6 +100,7 @@
     (japanese-jisx0208-1978	. #x213B)	; ø»¼š
     (japanese-jisx0208		. #x213B)	; ø»†¢
     (japanese-jisx0208-1990	. #x213B)	; ø½‰¶–
+    (chinese-big5		. #xC6E2)	; øº ·±
     (ucs			. #x3007)	; ã€‡
     ))
 (define-char
