@@ -207,9 +207,16 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (=cns11643-6	. #x2149)	; ø»›µ˜
     (=daikanwa		. 00234)	; ø¸€ƒª
     (=ucs		. #x20114)	; ð „”
+    ))
+(define-char
+  '((=>ucs		. #x20114)	; ð „”
+    (morohashi-daikanwa	234 0 9)
+    (ideographic-radical . 6)	; â¼…
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (=cns11643-6	. #x2149)	; ø»›µ˜
     ))
 (define-char
   '((ideographic-radical . 6)	; â¼…
