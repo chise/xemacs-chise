@@ -94,9 +94,6 @@ Lisp_Object put_byte_table (Lisp_Object table, unsigned char idx,
 
 
 typedef struct Lisp_Char_Table Lisp_Char_ID_Table;
-#define XCHAR_ID_TABLE(x)  XCHAR_TABLE(x)
-#define XSETCHAR_ID_TABLE(x, p) XSETCHAR_TABLE(x, p)
-#define CHAR_ID_TABLE_P(x) CHAR_TABLEP(x)
 
 Lisp_Object make_char_id_table (Lisp_Object initval);
 
