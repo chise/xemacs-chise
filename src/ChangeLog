@@ -1,5 +1,29 @@
 2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* buffer.c (dfc_convert_to_external_format): Modify for UTF-2000.
+	(dfc_convert_to_internal_format): Likewise.
+	
+	* text-coding.c (Fcoding_system_canonical_name_p): New function.
+	* text-coding.c (Fcoding_system_alias_p): New function.
+	* text-coding.c (Fcoding_system_aliasee): New function.
+	* text-coding.c (append_suffix_to_symbol): New function.
+	* text-coding.c (dangling_coding_system_alias_p): New function.
+	* text-coding.c (Ffind_coding_system):
+	* text-coding.c (Fcopy_coding_system):
+	* text-coding.c (encode_coding_no_conversion):
+	* text-coding.c (syms_of_file_coding):
+	* text-coding.c (vars_of_file_coding):
+	Rewrite coding system alias code.
+	Allow nested aliases, like symbolic links.
+	Allow redefinition of coding system aliases.
+	Prevent existence of dangling coding system aliases.
+	Eliminate convert_to_external_format.
+	Eliminate convert_to_internal_format.
+	
+	* text-coding.c: Change enum eol_type to eol_type_t.
+
+2000-05-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (encode_builtin_char_1): Limit builtin-code-range
 	of `mojikyo' to MIN_CHAR_MOJIKYO + 94 * 60 * 22.
 
