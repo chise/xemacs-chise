@@ -1211,10 +1211,12 @@
     (total-strokes	 . 14)
     (<-vulgar
      ((shinjigen-1	  . 796)
+      (=ucs		  . #x5333)	; 匳
+      (=jis-x0208	  . #x523D)	; &I-J90-523D;
       (=daikanwa	  . 02655)	; &I-M-02655;
       ))
     (<-vulgar*sources
-     shinjigen-1)
+     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 89 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
