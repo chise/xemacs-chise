@@ -878,7 +878,18 @@
   '((ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (ideograph-daikanwa . 03104)	; ø¸€° 
+    (->identical
+     ((ideograph-daikanwa . 30340)	; ø¸‡š„
+      ))
+    (->synonyms
+     (:sources	(henkai-ruihen morohashi-daikanwa)
+      :char	((ideograph-daikanwa . 13502)	; ø¸ƒ’¾
+		 )
+      ))
+    (hanyu-dazidian	1 389 3)
+    (ideograph-daikanwa		. 03104)	; ø¸€° 
+    (ideograph-hanziku-1	. #xF5EF)	; ý¢€Ÿ—¯
+    (ucs			. #x20B02)	; ð ¬‚
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›
@@ -1213,12 +1224,6 @@
     (hanyu-dazidian	1 387 19)
     (ideograph-hanziku-1	. #xF5BF)	; ý¢€Ÿ–¿
     (ucs			. #x20AFD)	; ð «½
-    ))
-(define-char
-  '((ideographic-radical . 28)	; â¼›
-    (hanyu-dazidian	1 389 3)
-    (ideograph-hanziku-1	. #xF5EF)	; ý¢€Ÿ—¯
-    (ucs			. #x20B02)	; ð ¬‚
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›
