@@ -943,7 +943,7 @@ already been made, @key{DEL} and @key{SPC} are equivalent.  At this
 point, you can type @kbd{C-r} (see below) to alter the replaced text.  To
 undo the replacement, you can type @kbd{C-x u}. 
 This exits the @code{query-replace}.  If you want to do further
-replacement you must use @kbd{C-x ESC} to restart (@pxref{Repetition}).
+replacement you must use @kbd{C-x @key{ESC} @key{ESC}} to restart (@pxref{Repetition}).
 
 @item @key{ESC}
 to exit without doing any more replacements.
@@ -983,8 +983,8 @@ answer.
 
   If you type any other character, Emacs exits the @code{query-replace}, and
 executes the character as a command.  To restart the @code{query-replace},
-use @kbd{C-x @key{ESC}}, which repeats the @code{query-replace} because it
-used the minibuffer to read its arguments.  @xref{Repetition, C-x ESC}.
+use @kbd{C-x @key{ESC} @key{ESC}}, which repeats the @code{query-replace} because it
+used the minibuffer to read its arguments.  @xref{Repetition, C-x ESC ESC}.
 
 @node Other Repeating Search,, Replace, Search
 @section Other Search-and-Loop Commands

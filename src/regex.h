@@ -27,11 +27,32 @@
 #define RE_TRANSLATE_TYPE Lisp_Object
 #else
 #define RE_TRANSLATE_TYPE char *
+
+/* type definitions copied from lisp.h */
+#ifndef SIZEOF_EMACS_INT
+# define SIZEOF_EMACS_INT SIZEOF_VOID_P
+#endif
+
+#ifndef EMACS_INT
+# if   SIZEOF_EMACS_INT == SIZEOF_LONG
+#  define EMACS_INT long
+# elif SIZEOF_EMACS_INT == SIZEOF_INT
+#  define EMACS_INT int
+# elif SIZEOF_EMACS_INT == SIZEOF_LONG_LONG
+#  define EMACS_INT long long
+# else
+#  error Unable to determine suitable type for EMACS_INT
+# endif
+#endif
+
+/* Counts of bytes or array elements */
+typedef EMACS_INT Memory_count;
+typedef EMACS_INT Element_count;
+
 #endif /* emacs */
 
 /* POSIX says that <sys/types.h> must be included (by the caller) before
    <regex.h>.  */
-
 
 /* The following bits are used to determine the regexp syntax we
    recognize.  The not-set meaning typically corresponds to the syntax
@@ -338,7 +359,7 @@ struct re_pattern_buffer
   RE_TRANSLATE_TYPE translate;
 
 	/* Number of subexpressions found by the compiler.  */
-  size_t re_nsub;
+  Element_count re_nsub;
 
         /* Zero if this pattern cannot match the empty string, one else.
            Well, in truth it's used only in `re_search_2', to see
@@ -387,7 +408,7 @@ typedef int regoff_t;
    regex.texinfo for a full description of what registers match.  */
 struct re_registers
 {
-  unsigned num_regs;
+  int num_regs;
   regoff_t *start;
   regoff_t *end;
 };
@@ -481,11 +502,13 @@ int re_exec (const char *);
 #endif
 
 /* POSIX compatibility.  */
+/* #### Arrgh, not any more.  But I don't have time to deal with this
+   properly, and I don't know if we should care. - sjt */
 int regcomp (regex_t *preg, const char *pattern, int cflags);
-int regexec (const regex_t *preg, const char *string, size_t nmatch,
+int regexec (const regex_t *preg, const char *string, Element_count nmatch,
 	     regmatch_t pmatch[], int eflags);
-size_t regerror (int errcode, const regex_t *preg, char *errbuf,
-		 size_t errbuf_size);
+Memory_count regerror (int errcode, const regex_t *preg, char *errbuf,
+		       Memory_count errbuf_size);
 void regfree (regex_t *preg);
 
 #endif /* INCLUDED_regex_h_ */

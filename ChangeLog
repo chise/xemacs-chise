@@ -56,6 +56,14 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.0 "Solid Vapor" is released.
+
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/photos/wing*.png: Rename to ben*.png.
+
 2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.2.47 "Zephir" is released.

@@ -4359,6 +4359,31 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.0 "Solid Vapor" is released.
+
+2001-04-15  Ben Wing  <ben@xemacs.org>
+
+	* cmdloop.c (call_command_loop):
+	Fix braino in bit-rotting code.
+	
+2001-04-07  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* extents.c (Fset_extent_endpoints): Force creation of extent info
+	in buffer_or_string.
+
+	* extents.c (process_extents_for_insertion_mapper): Correctly
+	check for open-open zero-length extents.
+
+2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* lisp.h: New typedefs Memory_count, Element_count.
+	* regex.c:
+	* regex.h:
+	Sign-compare warning elimination: several unsigned -> signed.
+	Based on work by Ben Wing <ben@xemacs.org>.
+
 2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.2.47 "Zephir" is released.

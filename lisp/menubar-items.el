@@ -1425,7 +1425,7 @@ which will not be used as accelerators."
      ("%_Help"
       ["%_About XEmacs..." about-xemacs]
       "-----"
-      ["XEmacs %_News" view-emacs-news]
+      ["What's %_New in XEmacs" view-emacs-news]
       ["%_Obtaining XEmacs" describe-distribution]
       "-----"
       ("%_Info (Online Docs)"

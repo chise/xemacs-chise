@@ -380,6 +380,10 @@ typedef EMACS_INT Extcount;
 /*     structure/other typedefs    */
 /* ------------------------------- */
 
+/* Counts of bytes or array elements */
+typedef EMACS_INT Memory_count;
+typedef EMACS_INT Element_count;
+
 typedef struct lstream Lstream;
 
 typedef unsigned int face_index;
