@@ -67,10 +67,12 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
     (<-ancient
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 03118)	; &I-M-03118;
-		 )
+     ((=ks-x1001	  . #x5060)	; &M-03118; [48-64]
+      (=cns11643-1	  . #x452F)	; &I-C1-452F; [37-15]
+      (=daikanwa	  . 03118)	; &I-M-03118;
       ))
+    (<-ancient*sources
+     daikanwa)
     (=cns11643-6	. #x2121)	; &GT-00149; [01-01]
     (=gt		. 00149)	; &I-GT-00149;
     (=gt-pj-2		. #x3076)	; &I-GT-00149; [16-86]
@@ -176,10 +178,11 @@
       (=ucs		  . #x3128)	; ㄨ
       ))
     (<-ancient
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 00257)	; &I-M-00257;
-		 )
+     ((=ucs		  . #x4E94)	; 五
+      (=daikanwa	  . 00257)	; &I-M-00257;
       ))
+    (<-ancient*sources
+     daikanwa)
     (hanyu-dazidian	1 31 4)
     (=ucs		. #x3405)	; 㐅
     (=cns11643-6	. #x2123)	; &I-C6-2123; [01-03]
