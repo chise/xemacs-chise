@@ -769,7 +769,7 @@ If there is no corresponding value, return DEFAULT (defaults to nil).
   }
 }
 
-DEFUN ("map-database", Fmapdatabase, 2, 2, 0, /*
+DEFUN ("map-database", Fmap_database, 2, 2, 0, /*
 Map FUNCTION over entries in DATABASE, calling it with two args,
 each key and value in the database.
 */
@@ -804,7 +804,7 @@ syms_of_database (void)
 
   DEFSUBR (Fopen_database);
   DEFSUBR (Fdatabasep);
-  DEFSUBR (Fmapdatabase);
+  DEFSUBR (Fmap_database);
   DEFSUBR (Fput_database);
   DEFSUBR (Fget_database);
   DEFSUBR (Fremove_database);
