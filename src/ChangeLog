@@ -1,3 +1,15 @@
+2002-07-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (Vchar_db_stingy_mode): New variable.
+	(load_char_attribute_maybe): Close database if
+	Vchar_db_stingy_mode is not NIL.
+	(Fload_char_attribute_table_map_function): Use
+	`get_char_id_table_0' instead of `get_char_id_table'.
+	(vars_of_chartab): Add new variable `char-db-stingy-mode'.
+
+	* chartab.h (get_char_id_table_0): New inline function.
+	(get_char_id_table): Use `get_char_id_table_0'.
+
 2002-07-07  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* text-coding.c (decode_coding_utf8): Use `COMPOSE_FLUSH_CHARS'
