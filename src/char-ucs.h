@@ -100,6 +100,7 @@ Lisp_Object get_char_id_table (Emchar ch, Lisp_Object table);
 
 
 extern Lisp_Object Vcharset_mojikyo;
+extern Lisp_Object Vcharset_mojikyo_2022_1;
 extern Lisp_Object Vcharset_latin_jisx0201;
 
 
@@ -121,55 +122,57 @@ typedef short Charset_ID;
 /* ISO/IEC 10646 BMP */
 #define LEADING_BYTE_UCS_BMP		(CHARSET_ID_OFFSET - 3)
 
+/* Japanese JIS X0208-1990	2/4 2/{(8),9,10,11} 4/2 (B) */
+#define LEADING_BYTE_JAPANESE_JISX0208_1990 (CHARSET_ID_OFFSET - 4)
+
 /* VISCII 1.1 */
-#define LEADING_BYTE_LATIN_VISCII	(CHARSET_ID_OFFSET - 4)
+#define LEADING_BYTE_LATIN_VISCII	(CHARSET_ID_OFFSET - 5)
 
 /* MULE VISCII-LOWER			(CHARSET_ID_OFFSET_96 + '1') */
-#define LEADING_BYTE_LATIN_VISCII_LOWER	(CHARSET_ID_OFFSET - 5)
+#define LEADING_BYTE_LATIN_VISCII_LOWER	(CHARSET_ID_OFFSET - 6)
 
 /* MULE VISCII-UPPER			(CHARSET_ID_OFFSET_96 + '2') */
-#define LEADING_BYTE_LATIN_VISCII_UPPER	(CHARSET_ID_OFFSET - 6)
+#define LEADING_BYTE_LATIN_VISCII_UPPER	(CHARSET_ID_OFFSET - 7)
 
 /* Big5 Level 1			2/4 2/{(8),9,10,11} 4/0 '0' */
-#define LEADING_BYTE_CHINESE_BIG5_1	(CHARSET_ID_OFFSET - 7)
+#define LEADING_BYTE_CHINESE_BIG5_1	(CHARSET_ID_OFFSET - 8)
 
 /* Big5 Level 2			2/4 2/{(8),9,10,11} 4/0 '1' */
-#define LEADING_BYTE_CHINESE_BIG5_2	(CHARSET_ID_OFFSET - 8)
+#define LEADING_BYTE_CHINESE_BIG5_2	(CHARSET_ID_OFFSET - 9)
 
-#define LEADING_BYTE_ETHIOPIC_UCS	(CHARSET_ID_OFFSET - 9)
+#define LEADING_BYTE_ETHIOPIC_UCS	(CHARSET_ID_OFFSET - 10)
 
-#define LEADING_BYTE_DAIKANWA		(CHARSET_ID_OFFSET - 10)
-#define LEADING_BYTE_DAIKANWA_EKANJI	(CHARSET_ID_OFFSET - 11)
-#define LEADING_BYTE_MOJIKYO		(CHARSET_ID_OFFSET - 12)
-
-/* Japanese JIS X0208-1990	2/4 2/{(8),9,10,11} 4/2 (B) */
-#define LEADING_BYTE_JAPANESE_JISX0208_1990 (CHARSET_ID_OFFSET - 13)
+#define LEADING_BYTE_DAIKANWA		(CHARSET_ID_OFFSET - 11)
+#define LEADING_BYTE_DAIKANWA_EKANJI	(CHARSET_ID_OFFSET - 12)
+#define LEADING_BYTE_MOJIKYO		(CHARSET_ID_OFFSET - 13)
+#define LEADING_BYTE_MOJIKYO_2022_1	(CHARSET_ID_OFFSET - 14)
+#define LEADING_BYTE_MOJIKYO_2022_2	(CHARSET_ID_OFFSET - 15)
 
 /* Konjaku-Mojikyo font (for pseudo-JIS X 0208 encoding) */
-#define LEADING_BYTE_MOJIKYO_PJ_1	(CHARSET_ID_OFFSET - 14)
-#define LEADING_BYTE_MOJIKYO_PJ_2	(CHARSET_ID_OFFSET - 15)
-#define LEADING_BYTE_MOJIKYO_PJ_3	(CHARSET_ID_OFFSET - 16)
-#define LEADING_BYTE_MOJIKYO_PJ_4	(CHARSET_ID_OFFSET - 17)
-#define LEADING_BYTE_MOJIKYO_PJ_5	(CHARSET_ID_OFFSET - 18)
-#define LEADING_BYTE_MOJIKYO_PJ_6	(CHARSET_ID_OFFSET - 19)
-#define LEADING_BYTE_MOJIKYO_PJ_7	(CHARSET_ID_OFFSET - 20)
-#define LEADING_BYTE_MOJIKYO_PJ_8	(CHARSET_ID_OFFSET - 21)
-#define LEADING_BYTE_MOJIKYO_PJ_9	(CHARSET_ID_OFFSET - 22)
-#define LEADING_BYTE_MOJIKYO_PJ_10	(CHARSET_ID_OFFSET - 23)
-#define LEADING_BYTE_MOJIKYO_PJ_11	(CHARSET_ID_OFFSET - 24)
-#define LEADING_BYTE_MOJIKYO_PJ_12	(CHARSET_ID_OFFSET - 25)
-#define LEADING_BYTE_MOJIKYO_PJ_13	(CHARSET_ID_OFFSET - 26)
-#define LEADING_BYTE_MOJIKYO_PJ_14	(CHARSET_ID_OFFSET - 27)
-#define LEADING_BYTE_MOJIKYO_PJ_15	(CHARSET_ID_OFFSET - 28)
-#define LEADING_BYTE_MOJIKYO_PJ_16	(CHARSET_ID_OFFSET - 29)
-#define LEADING_BYTE_MOJIKYO_PJ_17	(CHARSET_ID_OFFSET - 30)
-#define LEADING_BYTE_MOJIKYO_PJ_18	(CHARSET_ID_OFFSET - 31)
-#define LEADING_BYTE_MOJIKYO_PJ_19	(CHARSET_ID_OFFSET - 32)
-#define LEADING_BYTE_MOJIKYO_PJ_20	(CHARSET_ID_OFFSET - 33)
-#define LEADING_BYTE_MOJIKYO_PJ_21	(CHARSET_ID_OFFSET - 34)
+#define LEADING_BYTE_MOJIKYO_PJ_1	(CHARSET_ID_OFFSET - 16)
+#define LEADING_BYTE_MOJIKYO_PJ_2	(CHARSET_ID_OFFSET - 17)
+#define LEADING_BYTE_MOJIKYO_PJ_3	(CHARSET_ID_OFFSET - 18)
+#define LEADING_BYTE_MOJIKYO_PJ_4	(CHARSET_ID_OFFSET - 19)
+#define LEADING_BYTE_MOJIKYO_PJ_5	(CHARSET_ID_OFFSET - 20)
+#define LEADING_BYTE_MOJIKYO_PJ_6	(CHARSET_ID_OFFSET - 21)
+#define LEADING_BYTE_MOJIKYO_PJ_7	(CHARSET_ID_OFFSET - 22)
+#define LEADING_BYTE_MOJIKYO_PJ_8	(CHARSET_ID_OFFSET - 23)
+#define LEADING_BYTE_MOJIKYO_PJ_9	(CHARSET_ID_OFFSET - 24)
+#define LEADING_BYTE_MOJIKYO_PJ_10	(CHARSET_ID_OFFSET - 25)
+#define LEADING_BYTE_MOJIKYO_PJ_11	(CHARSET_ID_OFFSET - 26)
+#define LEADING_BYTE_MOJIKYO_PJ_12	(CHARSET_ID_OFFSET - 27)
+#define LEADING_BYTE_MOJIKYO_PJ_13	(CHARSET_ID_OFFSET - 28)
+#define LEADING_BYTE_MOJIKYO_PJ_14	(CHARSET_ID_OFFSET - 29)
+#define LEADING_BYTE_MOJIKYO_PJ_15	(CHARSET_ID_OFFSET - 30)
+#define LEADING_BYTE_MOJIKYO_PJ_16	(CHARSET_ID_OFFSET - 31)
+#define LEADING_BYTE_MOJIKYO_PJ_17	(CHARSET_ID_OFFSET - 32)
+#define LEADING_BYTE_MOJIKYO_PJ_18	(CHARSET_ID_OFFSET - 33)
+#define LEADING_BYTE_MOJIKYO_PJ_19	(CHARSET_ID_OFFSET - 34)
+#define LEADING_BYTE_MOJIKYO_PJ_20	(CHARSET_ID_OFFSET - 35)
+#define LEADING_BYTE_MOJIKYO_PJ_21	(CHARSET_ID_OFFSET - 36)
 
 #define MIN_LEADING_BYTE_PRIVATE	MIN_LEADING_BYTE
-#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 35)
+#define MAX_LEADING_BYTE_PRIVATE	(CHARSET_ID_OFFSET - 37)
 
 
 /* #define CHARSET_ID_OFFSET_94		(CHARSET_ID_OFFSET - '0') */
@@ -337,15 +340,6 @@ DECLARE_LRECORD (charset, Lisp_Charset);
 #define CHECK_CHARSET(x) CHECK_RECORD (x, charset)
 #define CONCHECK_CHARSET(x) CONCHECK_RECORD (x, charset)
 
-#define CHARSET_TYPE_94      0 /* This charset includes 94      characters. */
-#define CHARSET_TYPE_94X94   1 /* This charset includes 94x94   characters. */
-#define CHARSET_TYPE_96      2 /* This charset includes 96      characters. */
-#define CHARSET_TYPE_96X96   3 /* This charset includes 96x96   characters. */
-#define CHARSET_TYPE_128     4 /* This charset includes 128     characters. */
-#define CHARSET_TYPE_128X128 5 /* This charset includes 128x128 characters. */
-#define CHARSET_TYPE_256     6 /* This charset includes 256     characters. */
-#define CHARSET_TYPE_256X256 7 /* This charset includes 256x256 characters. */
-
 #define CHARSET_LEFT_TO_RIGHT	0
 #define CHARSET_RIGHT_TO_LEFT	1
 
@@ -427,8 +421,22 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 
 #endif
 
-#define CHARSET_BY_ATTRIBUTES(type, final, dir) \
-  (chlook->charset_by_attributes[type][final])
+INLINE_HEADER Lisp_Object
+CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir);
+INLINE_HEADER Lisp_Object
+CHARSET_BY_ATTRIBUTES (int chars, int dimension, int final, int dir)
+{
+  int type;
+
+  if (chars == 94)
+    type = 0;
+  else if (chars == 96)
+    type = 1;
+  else
+    return Qnil;
+  type += dimension == 1 ? 0 : 2;
+  return chlook->charset_by_attributes[type][final];
+}
 
 
 /************************************************************************/
@@ -485,6 +493,31 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 
 Emchar make_builtin_char (Lisp_Object charset, int c1, int c2);
 
+INLINE_HEADER int
+DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3);
+INLINE_HEADER int
+DECODE_MOJIKYO_2022 (unsigned char b1, unsigned char b2, unsigned char b3)
+{
+  if (b2 < 16 + 32)
+    return 0;
+  else if (b2 < 16 + 32 + 30)
+    return
+      (b1 - 33) * (94 * 60)
+      + (b2 - (16 + 32)) * 94
+      + (b3 - 33)
+      + 1;
+  else if (b2 < 18 + 32 + 30)
+    return 0;
+  else if (b2 < 18 + 32 + 60)
+    return
+      (b1 - 33) * (94 * 60)
+      + (b2 - (18 + 32)) * 94
+      + (b3 - 33)
+      + 1;
+  else
+    return 0;
+}
+
 INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
 DECODE_CHAR (Lisp_Object charset, int code_point)
@@ -513,31 +546,30 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
     }
   if (XCHARSET_DIMENSION (charset) == 1)
     return make_builtin_char (charset, code_point, 0);
+  else if (EQ (charset, Vcharset_mojikyo_2022_1))
+    {
+      int m =
+	DECODE_MOJIKYO_2022
+	((unsigned char)(code_point >> 16),
+	 (unsigned char)(code_point >>  8),
+	 (unsigned char) code_point);
+
+      if (m > 0)
+	return DECODE_CHAR (Vcharset_mojikyo, m);
+      else
+	return ' ';
+    }
   else
     {
       int plane = LEADING_BYTE_MOJIKYO_PJ_1 - XCHARSET_ID (charset);
 
       if ( (0 <= plane) && (plane <= 21) )
 	{
-	  int c1 = code_point >> 8;
-	  int c2 = code_point & 255;
-
-	  if (c1 < 16 + 32)
-	    return ' ';
-	  else if (c1 < 16 + 32 + 30)
-	    return DECODE_CHAR (Vcharset_mojikyo,
-				plane * (94 * 60)
-				+ (c1 - (16 + 32)) * 94
-				+ (c2 - 33)
-				+ 1);
-	  else if (c1 < 18 + 32 + 30)
-	    return ' ';
-	  else if (c1 < 18 + 32 + 60)
-	    return DECODE_CHAR (Vcharset_mojikyo,
-				plane * (94 * 60)
-				+ (c1 - (18 + 32)) * 94
-				+ (c2 - 33)
-				+ 1);
+	  int m = DECODE_MOJIKYO_2022 (plane + 33,
+				       code_point >> 8,
+				       (unsigned char)code_point);
+	  if (m > 0)
+	    return DECODE_CHAR (Vcharset_mojikyo, m);
 	  else
 	    return ' ';
 	}
@@ -600,10 +632,9 @@ encode_char_1 (Emchar ch, Lisp_Object* charset)
 	    return XINT (ret);
 	  else
 	    {
-	      int code_point;
+	      int code_point = range_charset_code_point (*charset, ch);
 
-	      if ((code_point
-		   = range_charset_code_point (*charset, ch)) >= 0)
+	      if (code_point >= 0)
 		return code_point;
 	    }
 	}
