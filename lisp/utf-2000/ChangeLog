@@ -1,3 +1,8 @@
+2002-01-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R154-Shell.el (U+8D53): Moved from
+	Ideograph-R053-Dotted-Cliff.el.
+
 2002-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R053-Dotted-Cliff.el: Add some mappings for CJK Ext-B
