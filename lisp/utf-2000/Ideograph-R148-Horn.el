@@ -1163,6 +1163,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x333A)	; ø»ž™©
+    (mojikyo		. 050450)	; ø¸Œ”’
     ))
 (define-char
   '((ideographic-radical . 148)	; â¾“
