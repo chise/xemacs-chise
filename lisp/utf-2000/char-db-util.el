@@ -61,6 +61,45 @@
     ("So" symbol	other)
     ))
 
+(defun char-attribute-name< (ka kb)
+  (cond
+   ((find-charset ka)
+    (cond
+     ((find-charset kb)
+      (cond
+       ((= (charset-dimension ka)
+	   (charset-dimension kb))
+	(cond ((= (charset-chars ka)(charset-chars kb))
+	       (cond
+		((>= (charset-final ka) ?@)
+		 (if (>= (charset-final kb) ?@)
+		     (< (charset-final ka)
+			(charset-final kb))
+		   t))
+		((>= (charset-final ka) ?0)
+		 (cond
+		  ((>= (charset-final kb) ?@)
+		   nil)
+		  ((>= (charset-final kb) ?0)
+		   (< (charset-final ka)
+		      (charset-final kb)))
+		  (t)))))
+	      ((<= (charset-chars ka)(charset-chars kb)))))
+       (t
+	(< (charset-dimension ka)
+	   (charset-dimension kb))
+	)))
+     (t)))
+   ((find-charset kb)
+    t)
+   ((symbolp ka)
+    (cond ((symbolp kb)
+	   (string< (symbol-name ka)
+		    (symbol-name kb)))
+	  (t)))
+   ((symbolp kb)
+    nil)))
+
 (defun insert-char-data (char)
   (let ((data (char-attribute-alist char))
 	cell ret name has-long-ccs-name rest)
@@ -158,6 +197,13 @@
 	    (setq data (del-alist 'numeric-value data))
 	    )
 	  )
+	(when (setq cell (assq 'iso-10646-comment data))
+	    (setq cell (cdr cell))
+	    (insert (format "(iso-10646-comment\t . %S)
+    "
+			    cell))
+	    (setq data (del-alist 'iso-10646-comment data))
+	    )
 	(when (setq cell (assq '->decomposition data))
 	  (setq cell (cdr cell))
 	  (insert (format "(->decomposition\t%s)
@@ -217,40 +263,7 @@
 	(setq data
 	      (sort data
 		    (lambda (a b)
-		      (let ((ka (car a))
-			    (kb (car b)))
-			(cond ((find-charset ka)
-			       (cond ((find-charset kb)
-				      (cond ((= (charset-dimension ka)
-						(charset-dimension kb))
-					     (cond
-					      ((>= (charset-final ka) ?@)
-					       (if (>= (charset-final kb) ?@)
-						   (< (charset-final ka)
-						      (charset-final kb))
-						 t))
-					      ((>= (charset-final ka) ?0)
-					       (cond
-						((>= (charset-final kb) ?@)
-						 nil)
-						((>= (charset-final kb) ?0)
-						 (< (charset-final ka)
-						    (charset-final kb)))
-						(t)))))
-					    (t
-					     (< (charset-dimension ka)
-						(charset-dimension kb))
-					     )))
-				     (t)))
-			      ((find-charset kb)
-			       t)
-			      ((symbolp ka)
-			       (cond ((symbolp kb)
-				      (string< (symbol-name ka)
-					       (symbol-name kb)))
-				     (t)))
-			      ((symbolp kb)
-			       nil))))))
+		      (char-attribute-name< (car a)(car b)))))
 	(setq rest data)
 	(while (and rest
 		    (progn
@@ -339,7 +352,8 @@
 	(when (find-charset (car cdef))
 	  (goto-char (match-end 0))
 	  (setq char
-		(if (or (eq (car cdef) 'ascii)
+		(if (or (memq (car cdef) '(ascii latin-viscii-upper
+						 latin-viscii-lower))
 			(= (char-int (charset-final (car cdef))) 0))
 		    (apply (function make-char) cdef)
 		  (if (setq table (charset-mapping-table (car cdef)))
