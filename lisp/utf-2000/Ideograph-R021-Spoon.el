@@ -27,6 +27,18 @@
   '((ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     (:cdp-combinator	1
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+		 (ucs		     . #x2FF0)	; â¿°
+		 )
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (chinese-big5-cdp	  . #x8AF5)	; âº…
+      (ucs		  . #x2E85)	; âº…
+      )
+     ((ideograph-daikanwa . 02571)	; ø¸€¨‹
+      ))
     (shinjigen-1	. 115)
     (shinjigen-2	. 115)
     (chinese-gb2312	. #x3B2F)	; ø»„¬ž
@@ -40,6 +52,18 @@
     (ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (ideographic-structure
+     (:cdp-combinator	1
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+		 (ucs		     . #x2FF0)	; â¿°
+		 )
+      )
+     ((name		  . "CJK RADICAL PERSON")
+      (chinese-big5-cdp	  . #x8AF5)	; âº…
+      (ucs		  . #x2E85)	; âº…
+      )
+     ((ucs		  . #x5315)	; åŒ•
+      ))
     (shinjigen-1	. 114)
     (shinjigen-2	. 114)
     (japanese-jisx0208-1978	. #x323D)	; ø»‚•š
@@ -60,6 +84,16 @@
   '((ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     (:cdp-combinator	1
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+		 (ucs		     . #x2FF0)	; â¿°
+		 )
+      )
+     ((chinese-big5-cdp	  . #x8BC5)	; ï”½
+      )
+     ((ucs		  . #x5315)	; åŒ•
+      ))
     (shinjigen-1	. 784)
     (shinjigen-2	. 784)
     (japanese-jisx0208-1978	. #x4B4C)	; ø»‚º—
@@ -68,6 +102,7 @@
     (korean-ksc5601		. #x5D41)	; ø»‰²´
     (chinese-isoir165		. #x3131)	; ø»†„
     (japanese-jisx0208-1990	. #x4B4C)	; ø½Š´“
+    (chinese-big5		. #xA55F)	; øºŸ¥“
     (ideograph-daikanwa		. 02574)	; ø¸€¨Ž
     (ucs			. #x5317)	; åŒ—
     ))
@@ -77,8 +112,17 @@
     (ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (ideographic-structure
+     (:cdp-combinator	1
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+		 (ucs		     . #x2FF0)	; â¿°
+		 )
+      )
+     ((chinese-big5-cdp	  . #x8BC5)	; ï”½
+      )
+     ((ucs		  . #x5315)	; åŒ•
+      ))
     (chinese-cns11643-1 . #x4621)	; ø»‘¸²
-    (chinese-big5	. #xA55F)	; øºŸ¥“
     ))
 (define-char
   '((ideographic-radical . 21)	; â¼”
@@ -261,6 +305,16 @@
   '((ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
+    (ideographic-structure
+     (:cdp-combinator	3
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LOWER LEFT")
+		 (ucs		     . #x2FFA)	; â¿º
+		 )
+      )
+     ((ucs		  . #x662F)	; æ˜¯
+      )
+     ((ucs		  . #x5315)	; åŒ•
+      ))
     (shinjigen-1	. 785)
     (shinjigen-2	. 785)
     (japanese-jisx0208-1978	. #x3A7C)	; ø»‚¢‰
