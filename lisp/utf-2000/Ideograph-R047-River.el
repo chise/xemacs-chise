@@ -22,8 +22,12 @@
   '((ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 49)
+    (hanyu-dazidian-char . 7)
     (chinese-cns11643-4 . #x212C)	; ø»— ³
     (ideograph-daikanwa . 08672)	; ø¸‚‡ 
+    (chinese-big5-cdp	. #x8978)	; ý¢€ˆ¥¸
     (ucs		. #x5DDC)	; å·œ
     ))
 (define-char
