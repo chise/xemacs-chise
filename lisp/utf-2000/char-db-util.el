@@ -366,6 +366,7 @@
     (while (<= code max)
       (setq char (int-char code))
       (insert-char-data-with-variant char)
+      (setq code (1+ code))
       )))
 
 (defun write-char-range-data-to-file (min max file)
