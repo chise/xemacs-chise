@@ -2121,7 +2121,7 @@ charset_get_byte2 (Lisp_Object charset, Emchar ch)
     }
 }
 
-Lisp_Object Vdefault_preferred_coded_charset_list;
+Lisp_Object Vdefault_coded_charset_priority_list;
 #endif
 
 
@@ -2991,9 +2991,9 @@ Leading-code of private TYPE9N charset of column-width 1.
 Version number of UTF-2000.
 */ );
 
-  Vdefault_preferred_coded_charset_list = Qnil;
-  DEFVAR_LISP ("default-preferred-coded-charset-list",
-	       &Vdefault_preferred_coded_charset_list /*
+  Vdefault_coded_charset_priority_list = Qnil;
+  DEFVAR_LISP ("default-coded-charset-priority-list",
+	       &Vdefault_coded_charset_priority_list /*
 Default order of preferred coded-character-set.
 */ );
 #endif
