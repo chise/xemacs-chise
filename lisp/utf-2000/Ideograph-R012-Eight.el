@@ -7,8 +7,10 @@
     (shinjigen-2	. 490)
     (=jis-x0208		. #x482C)	; ø½Š¯™
     (korean-ksc5601	. #x7822)	; ø»Š™¿
+    (ideograph-gt-pj-1	. #x482C)	; ø½Š¯™
     (chinese-big5	. #xA44B)	; ý¢€Š‘‹
     (ideograph-daikanwa . 01450)	; ø¸€–ª
+    (ideograph-gt-k	. 00056)	; ý¡„€€¸
     (china3-jef		. #x43E4)	; øº„¤
     (ucs-jis		. #x516B)	; ø½Š¯™
     ))
