@@ -1,5 +1,31 @@
 2004-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R013-Down-Box.el (U+5184): Unify GT-01981 and
+	GT-K00592.
+	(U-0002053D): Use `->subsumptive'.
+	(M-01510): Unify GT-01980.
+	(U-0002053E): Unify GT-01979.
+	(C6-2150): Unify GT-01982.
+	(U+5189): Changed to an abstract character.
+	(J78-5147): Add `<-denotational' for U+5189; unify GT-01992 and
+	GT-K01032.
+	(U+518B): Unify GT-01986 and GT-K01263.
+	(U-00020542): Use `->subsumptive'.
+	(C4-215D): Unify GT-01987.
+	(U-00020543): Use `->subsumptive'; integrate GT-01996.
+	(U-00020544): Unify GT-01994.
+	(U-00020548): Use `->subsumptive'.
+	(M-01522): Unify GT-01995.
+	(U-00020541): Use `->ideographic-variants*sources' instead of
+	char-ref in `->ideographic-variants'; unify GT-01990.
+	(G0-483D): Add `<-denotational' for U+5189.
+	(GT-K01266): New character.
+	(U-0002054B): Use `->subsumptive'.
+	(C6-235A): Unify GT-02003 and GT-K01746.
+	(U-0002F815): Unify GT-02001.
+
+2004-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R145-Clothes.el (U+88AE): Use `->subsumptive'.
 	(U+88AF): Fix strokes; add `<-simplified@CN' for U+894F.
 	(U+88B0): Use `->subsumptive'.
