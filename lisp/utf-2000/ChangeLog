@@ -1,5 +1,36 @@
 2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R141-Tiger.el (C1-5D29): Moved from
+	Ideograph-R059-Bristle.el.
+	(U+865E): Add `script'.
+
+	* Ideograph-R060-Step.el (G0-3E36): Add `script'.
+	(M-10085): Separate C1-5121.
+	(C1-5121): Unify M072385.
+
+	* Ideograph-R059-Bristle.el (M-09992): Unify M009992.
+	(U+5F69): Unify M054127.
+	(M-09993): Separate G0-316B and U+5F6A; separate and move C1-5D29
+	to Ideograph-R141-Tiger.el; delete `cns-radical'; unify M009993.
+	(G0-316B): Unify M057577 and U+5F6A.
+	(M-09994): Add `ideograph=' for M-09993; unify M009994.
+
+	* Ideograph-R058-Snout.el (M-9909'): Separate G0-3969, M050167 and
+	U+5F52; unify C3-224A; add `vulgar-ideograph-of' for M-16349.
+	(M-09912): Add `vulgar-ideograph-of' for M-21890; unify M009912.
+	(M-09913): Add `simplified-ideograph-of' for M-21890; unify
+	J0-4576, G0-3531, C3-2351, M009913 and U+5F53.
+
+	* Ideograph-R057-Bow.el (M-09706): Unify C6-2322; add
+	`original-ideograph-of' for M-09698.
+	(M009706): New character; relate to M-09706.
+
+	* Ideograph-R053-Dotted-Cliff.el (M-09230): Separate C5-225D;
+	unify M009230.
+	(M-09233): Unify M009233.
+
+2001-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R162-Walk.el (C1-4B56): Moved from
 	Ideograph-R047-River.el.
 	(G0-3169): Unify M053401.
