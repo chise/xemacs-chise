@@ -388,6 +388,14 @@
   '((ideographic-radical . 102)	; â½¥
     (ideographic-strokes . 3)
     (total-strokes	 . 8)
+    (chinese-gb2312	. #x3329)	; ø»„ ¨
+    (chinese-isoir165	. #x3329)	; ø»ˆ¸
+    (ucs		. #x7545)	; ç•…
+    ))
+(define-char
+  '((ideographic-radical . 102)	; â½¥
+    (ideographic-strokes . 3)
+    (total-strokes	 . 8)
     (chinese-cns11643-3 . #x2A39)	; ø»•¤Š
     ))
 (define-char
