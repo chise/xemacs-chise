@@ -16184,8 +16184,8 @@
     (total-strokes	 . 13)
     (ideographic-structure
      (:cdp-combinator	2
-      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-		 (ucs		     . #x2FF1)	; ⿱
+      :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
+		 (ucs		     . #x2FF3)	; ⿳
 		 )
       )
      ((chinese-big5-cdp	  . #x8AFC)	; 
