@@ -45,6 +45,9 @@ enum coding_system_type
   CODESYS_BIG5,		/* BIG5 (used for Taiwanese). */
   CODESYS_UCS4,		/* ISO 10646 UCS-4 */
   CODESYS_UTF8,		/* ISO 10646 UTF-8 */
+#ifdef UTF2000
+  CODESYS_UTF16,	/* ISO 10646 UTF-16 */
+#endif
   CODESYS_CCL,		/* Converter written in CCL. */
 #endif
   CODESYS_NO_CONVERSION	/* "No conversion"; used for binary files.
@@ -465,6 +468,7 @@ enum coding_category_type
   CODING_CATEGORY_ISO_LOCK_SHIFT, /* ISO2022 system using locking shift */
   CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_BIG5,
+  CODING_CATEGORY_UTF16,
   CODING_CATEGORY_UCS4,
 #else /* not MULE */
   CODING_CATEGORY_NO_CONVERSION,
@@ -489,6 +493,8 @@ enum coding_category_type
   (1 << CODING_CATEGORY_BIG5)
 #define CODING_CATEGORY_UCS4_MASK \
   (1 << CODING_CATEGORY_UCS4)
+#define CODING_CATEGORY_UTF16_MASK \
+  (1 << CODING_CATEGORY_UTF16)
 #define CODING_CATEGORY_UTF8_MASK \
   (1 << CODING_CATEGORY_UTF8)
 #endif
