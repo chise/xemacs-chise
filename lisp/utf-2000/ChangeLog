@@ -1,5 +1,17 @@
 2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R077-Stop.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R006-Hook.el (U+4E87): Use `->subsumptive' to
+	integrate C3-212D.
+
+	* Ideograph-R004-Slash.el (U+4E87): Copied from
+	Ideograph-R006-Hook.el; use `->subsumptive' to integrate C3-212D.
+	(U-0002008B): New character.
+
 	* Ideograph-R079-Weapon.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
