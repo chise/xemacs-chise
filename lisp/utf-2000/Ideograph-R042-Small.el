@@ -21,15 +21,29 @@
     (total-strokes	 . 4)
     (=ucs		. #x5C10)	; 尐
     (=big5		. #xC95C)	; &I-B-C95C;
-    (=daikanwa		. 07474)	; &I-M-07474;
     ))
 (define-char
-  '((=>ucs		. #x5C10)	; 尐
-    (morohashi-daikanwa	7474 0 1)
-    (ideographic-radical . 42)	; ⼩
+  '((ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 1)
     (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x5C10)	; 尐
+      ))
+    (->subsumptive
+     ((=daikanwa	  . 07474)	; &M-07474;
+      )
+     ((=ucs@unicode	  . #x5C10)	; &UU+5C10;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 42)	; ⼩
+    (ideographic-strokes . 1)
+    (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x5C10)	; 尐
+      ))
     (=cns11643-2	. #x213C)	; &C2-213C; [01-28]
+    (=ucs@cns		. #x5C10)	; &C2-213C;
     ))
 (define-char
   '((=>ucs		. #x5C11)	; 少
