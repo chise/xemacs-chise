@@ -1,5 +1,11 @@
 2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* chartab.c (map_char_id_table): Deleted.
+	(Fmap_char_attribute): Use `map_char_table' instead of
+	`map_char_id_table'.
+
+2001-09-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* syntax.h (SYNTAX_CODE_UNSAFE): New implementation in XEmacs
 	UTF-2000.
 	(update_syntax_table): Deleted in XEmacs UTF-2000.
