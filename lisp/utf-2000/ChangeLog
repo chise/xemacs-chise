@@ -1,3 +1,73 @@
+2001-05-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+5450): Delete `morohashi-daikanwa'
+	property because it is wrong.
+	(M-48970): Unify U+5451.
+	(U+5452): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+5453): Delete `non-morohashi' property.
+	(U+5454): Delete `non-morohashi' property.
+	(U+5455): Delete `non-morohashi' property.
+	(U+5456): Delete `non-morohashi' property.
+	(U+5457): Delete `non-morohashi' property.
+	(U+5458): Delete `non-morohashi' property.
+	(U+5459): Delete `non-morohashi' property.
+	(U+545B): Delete `non-morohashi' property.
+	(U+545C): Delete `non-morohashi' property.
+	(U+54D0): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+54D2): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+54D3): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+54D4): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+54D5): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+54D6): Delete `non-morohashi' property.
+	(U+54D7): Delete `non-morohashi' property.
+	(U+54D8): Delete `non-morohashi' property.
+	(U+54D9): Delete `non-morohashi' property.
+	(U+54DA): Delete `non-morohashi' property.
+	(U+54DB): Delete `non-morohashi' property; add M059181.
+	(U+54DC): Delete `non-morohashi' property.
+	(U+54DD): Delete `non-morohashi' property.
+	(U+54DE): Delete `non-morohashi' property.
+	(U+54DF): Delete `non-morohashi' property.
+	(M-03630): Separate C2-2E46.
+	(U+5567): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+5568): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+5569): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+556A): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+556C): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+556D): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+556F): Delete `morohashi-daikanwa' property because it is
+	wrong.
+	(U+5570): Delete `non-morohashi' property.
+	(U+5571): Delete `non-morohashi' property; add M059209.
+	(U+5572): Delete `non-morohashi' property; add M059210.
+	(U+5573): Delete `non-morohashi' property; add M059211.
+	(U+5574): Delete `non-morohashi' property.
+	(U+5575): Delete `non-morohashi' property.
+	(U+5576): Delete `non-morohashi' property.
+	(U+5578): Delete `non-morohashi' property.
+	(U+5579): Delete `non-morohashi' property; add M059213.
+	(U+5577): Delete `non-morohashi' property.
+	(U+55B7): Delete `non-morohashi' property.
+	(C7-2C61): Fix `morohashi-daikanwa' property.
+
+2001-05-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R197-Salt.el: Resorted; add some missing Morohashi's
+	Daikanwa characters; add missing `ideographic-strokes' attributes;
+	use `ideographic-strokes' if each stroke attribute has same value.
+
 2001-05-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R198-Deer.el: Resorted; add some missing Morohashi's
