@@ -42,6 +42,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 96)
     (hanyu-dazidian-char . 15)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
+      )
+     ((ucs		  . #x5182)	; å†‚
+      )
+     ((ucs		  . #x20120)	; ð „ 
+      ))
     (japanese-jisx0212		. #x3270)	; ø»Š¾
     (chinese-cns11643-4		. #x213E)	; ø»—¡…
     (japanese-jisx0213-2	. #x2329)	; ø»¤ „
@@ -169,6 +177,14 @@
      ((ideographic-radical . 122)	; â½¹
       (ideograph-daikanwa . 28201)	; ø¸†¸©
       (ucs		  . #x7F53)	; ç½“
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
+      (ucs		  . #x2FF5)	; â¿µ
+      )
+     ((ucs		  . #x5182)	; å†‚
+      )
+     ((ucs		  . #x3405)	; ã…
       ))
     (chinese-gb2312	. #x3854)	; ø»„¨©
     (chinese-isoir165	. #x3854)	; ø»¹
@@ -327,6 +343,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 711)
     (hanyu-dazidian-char . 2)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+      (ucs		  . #x2FF4)	; â¿´
+      )
+     ((ucs		  . #x5182)	; å†‚
+      )
+     ((ucs		  . #x5DF3)	; å·³
+      ))
     (shinjigen-1	. 1303)
     (shinjigen-2	. 1303)
     (japanese-jisx0208-1978	. #x5145)	; ø»ƒƒ„
