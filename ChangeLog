@@ -1,3 +1,7 @@
+2002-10-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* etc/char-data/JC3-to-UCS.txt (JC3-41F8): Don't map to U+4F60.
+
 2002-09-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* etc/char-data/JC3-to-UCS.txt (JC3-76CD): Fix typo.
