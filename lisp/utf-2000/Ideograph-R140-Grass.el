@@ -1,11 +1,4 @@
 (define-char
-  '((morohashi-daikanwa	5747 0 3)
-    (ideographic-radical . 140)	; â¾‹
-    (ideographic-strokes . 19)
-    (total-strokes	 . 22)
-    (ucs		. #x8641)	; è™
-    ))
-(define-char
   '((morohashi-daikanwa	15811)
     (ideographic-radical . 140)	; â¾‹
     (kangxi-strokes	. 15)
@@ -5869,17 +5862,23 @@
     (ideograph-daikanwa . 31169)	; ø¸‡§
     ))
 (define-char
-  '((morohashi-daikanwa	31170)
+  '((->ucs		. #x83D4)	; è”
+    (morohashi-daikanwa	31170)
     (ideographic-radical . 140)	; â¾‹
-    (total-strokes	. 12)
-    (japanese-strokes	. 8)
-    (kangxi-strokes	. 8)
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
+    (chinese-cns11643-1 . #x616E)	; ø»’¡©
+    (ideograph-daikanwa . 31170)	; ø¸‡§‚
+    ))
+(define-char
+  '((morohashi-daikanwa	31170 0 1)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 8)
+    (total-strokes	 . 11)
     (chinese-gb2312		. #x5D4A)	; ø»…žµ
     (japanese-jisx0212		. #x583C)	; ø»‹µ
     (chinese-isoir165		. #x5D4A)	; ø»Ž‡…
-    (chinese-cns11643-1		. #x616E)	; ø»’¡©
     (japanese-jisx0213-2	. #x763D)	; è”
-    (ideograph-daikanwa		. 31170)	; ø¸‡§‚
     (ucs			. #x83D4)	; è”
     ))
 (define-char
@@ -17995,11 +17994,27 @@
     (ideograph-daikanwa . 32600)	; ø¸‡½˜
     ))
 (define-char
-  '((morohashi-daikanwa	32601)
+  '((->ucs		. #x8641)	; è™
+    (morohashi-daikanwa	32601)
     (ideographic-radical . 140)	; â¾‹
-    (total-strokes	. 25)
-    (chinese-cns11643-5 . #x7940)	; ø»›¬›
+    (ideographic-strokes . 20)
+    (total-strokes	 . 24)
     (ideograph-daikanwa . 32601)	; ø¸‡½™
+    ))
+(define-char
+  '((->ucs		. #x8641)	; è™
+    (morohashi-daikanwa	32601 0 0)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 21)
+    (total-strokes	 . 25)
+    (chinese-cns11643-5 . #x7940)	; ø»›¬›
+    ))
+(define-char
+  '((morohashi-daikanwa	32601 0 1)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 20)
+    (total-strokes	 . 23)
+    (ucs		. #x8641)	; è™
     ))
 (define-char
   '((morohashi-daikanwa	32602)
