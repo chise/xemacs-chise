@@ -24,6 +24,11 @@ Boston, MA 02111-1307, USA.  */
 #ifndef _XEMACS_MB_UTF_8_H
 #define _XEMACS_MB_UTF_8_H
 
+#define MULTIBYTE
+
+/* Maximum number of buffer bytes per Emacs character. */
+#define MAX_EMCHAR_LEN 6
+
 /************************************************************************/
 /*                     Operations on individual bytes                   */
 /*                       in a Mule-formatted string                     */
@@ -45,5 +50,24 @@ BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 /* Is this character represented by more than one byte in a string? */
 
 #define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
+
+
+INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
+INLINE int
+REP_BYTES_BY_FIRST_BYTE (int fb)
+{
+  if ( fb < 0xc0 )
+    return 1;
+  else if ( fb < 0xe0 )
+    return 2;
+  else if ( fb < 0xf0 )
+    return 3;
+  else if ( fb < 0xf8 )
+    return 4;
+  else if ( fb < 0xfc )
+    return 5;
+  else
+    return 6;
+}
 
 #endif /* _XEMACS_MB_UTF_8_H */
