@@ -1,3 +1,14 @@
+2002-01-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el:
+	- Add some CJK Ext-B code points.
+	- Add some missing mapping between CNS and Daikanwa.
+	- Fix some bugs [and perhaps might add some bugs :-P].
+
+2002-01-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (M-26243): Map to U+7BC0.
+
 2002-01-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R046-Mountain.el: Merge some CJK Ext-B code points.
