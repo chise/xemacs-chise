@@ -9,9 +9,9 @@
     (=ks-x1001		. #x5E2B)	; ø»‰³¼
     (=jis-x0208		. #x4874)	; ø½Š°¡
     (=gb12345		. #x3749)	; é£›
-    (=daikanwa		. 44000)	; ø¸Š¯ 
     (=gt-k		. 05163)	; ý¡„«
     (=gt-pj-1		. #x4874)	; é£›
+    (=daikanwa		. 44000)	; ø¸Š¯ 
     ))
 (define-char
   '((ideographic-radical . 183)	; â¾¶

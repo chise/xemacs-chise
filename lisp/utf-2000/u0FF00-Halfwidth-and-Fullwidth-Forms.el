@@ -1204,9 +1204,9 @@
     (general-category	punctuation connector) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (=ucs@big5		. #x02CD)	; ø»‘ƒ¿
     (=cns11643-1	. #x2226)	; ø»‘ƒ¿
     (=big5		. #xA1C5)	; ý¢€Š‡…
+    (=ucs@big5		. #x02CD)	; ø»‘ƒ¿
     ))
 (define-char
   '((name		. "FULLWIDTH GRAVE ACCENT")

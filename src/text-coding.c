@@ -2349,7 +2349,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 				     Fmatch_end (make_int (1))),
 			 make_int (base)));
 
-	      DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code), dst);
+	      DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code, 0), dst);
 	      goto decoded;
 	    }
 	  rest = Fcdr (rest);
@@ -3775,10 +3775,11 @@ decode_coding_big5 (Lstream *decoding, const Extbyte *src,
 	    {
 #ifdef UTF2000
 	      int code_point = (cpos << 8) | c;
-	      Emchar char_id = decode_defined_char (ccs, code_point);
+	      Emchar char_id = decode_defined_char (ccs, code_point, 0);
 
 	      if (char_id < 0)
-		char_id = DECODE_CHAR (Vcharset_chinese_big5, code_point);
+		char_id
+		  = DECODE_CHAR (Vcharset_chinese_big5, code_point, 0);
 	      DECODE_ADD_UCS_CHAR (char_id, dst);
 #else
 	      unsigned char b1, b2, b3;
@@ -5405,7 +5406,7 @@ decode_coding_iso2022 (Lstream *decoding, const Extbyte *src,
 		  COMPOSE_ADD_CHAR (str,
 				    DECODE_CHAR (charset,
 						 ((cpos & 0x7F7F7F) << 8)
-						 | (c & 0x7F)),
+						 | (c & 0x7F), 0),
 				    dst);
 		  cpos = 0;
 		  counter = 0;

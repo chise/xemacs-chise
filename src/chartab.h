@@ -32,7 +32,7 @@ Boston, MA 02111-1307, USA.  */
 #ifdef UTF2000
 
 EXFUN (Fmake_char, 3);
-EXFUN (Fdecode_char, 3);
+EXFUN (Fdecode_char, 4);
 
 EXFUN (Fput_char_attribute, 3);
 

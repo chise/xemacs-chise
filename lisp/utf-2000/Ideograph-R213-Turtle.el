@@ -6,11 +6,11 @@
     (total-strokes	 . 16)
     (shinjigen-1	. 9918)
     (shinjigen-2	. 9917)
-    (=ucs@jis		. #x9F9C)	; ø½‹¯´
     (=jis-x0208-1990	. #x737D)	; ø½‹¯´
     (=ks-x1001		. #x4F4F)	; ø»‰žž
     (=jis-x0208-1983	. #x737D)	; ø»ˆŠ€
     (=daikanwa		. 48847)	; ø¸‹»
+    (=ucs@jis		. #x9F9C)	; ø½‹¯´
     ))
 (define-char
   '((=>ucs		. #x9F9C)	; é¾œ
@@ -116,8 +116,8 @@
     (ideographic-radical . 213)	; â¿”
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
-    (mojikyo		. 048854)	; ý €‹»–
     (=daikanwa		. 48854)	; ø¸‹»–
+    (mojikyo		. 048854)	; ý €‹»–
     ))
 (define-char
   '((morohashi-daikanwa	48854 0 5)
@@ -253,12 +253,12 @@
       ))
     (<-ancient-ideograph*sources
      jii morohashi-daikanwa)
-    (=gt		. 32753)	; ý¡€‡¿±
-    (=ucs@jis		. #x9F9D)	; ý¡€‡¿±
     (=jis-x0208-1990	. #x6354)	; ø½‹—«
     (=jis-x0208-1983	. #x6354)	; ø»‡±·
-    (=daikanwa		. 48869)	; ø¸‹»¥
+    (=gt		. 32753)	; ý¡€‡¿±
     (=gt-pj-1		. #x6354)	; ý¡€‡¿±
+    (=daikanwa		. 48869)	; ø¸‹»¥
+    (=ucs@jis		. #x9F9D)	; ø½‹—«
     ))
 (define-char
   '((=>ucs		. #x9F9D)	; é¾

@@ -603,13 +603,16 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point)
   decoding_table_put_char (ccs, code_point, Qunbound);
 }
 
-Emchar decode_defined_char (Lisp_Object charset, int code_point);
+Emchar decode_defined_char (Lisp_Object charset, int code_point,
+			    int without_inheritance);
 
-INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
-DECODE_CHAR (Lisp_Object charset, int code_point)
+DECODE_CHAR (Lisp_Object charset, int code_point, int without_inheritance);
+INLINE_HEADER Emchar
+DECODE_CHAR (Lisp_Object charset, int code_point, int without_inheritance)
 {
-  Emchar char_id = decode_defined_char (charset, code_point);
+  Emchar char_id
+    = decode_defined_char (charset, code_point, without_inheritance);
 
   if (char_id >= 0)
     return char_id;
@@ -624,7 +627,7 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
       unsigned char b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
 
       b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
+      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2, 0);
     }
   else if (EQ (charset, Vcharset_chinese_big5_2))
     {
@@ -637,7 +640,7 @@ DECODE_CHAR (Lisp_Object charset, int code_point)
       b1 = I / (0xFF - 0xA1 + 0x7F - 0x40) + 0xA1;
       b2 = I % (0xFF - 0xA1 + 0x7F - 0x40);
       b2 += b2 < 0x3F ? 0x40 : 0x62;
-      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2);
+      return DECODE_CHAR (Vcharset_chinese_big5, (b1 << 8) | b2, 0);
     }
   return decode_builtin_char (charset, code_point);
 }
@@ -650,9 +653,9 @@ INLINE_HEADER Emchar
 MAKE_CHAR (Lisp_Object charset, int c1, int c2)
 {
   if (XCHARSET_DIMENSION (charset) == 1)
-    return DECODE_CHAR (charset, c1);
+    return DECODE_CHAR (charset, c1, 0);
   else
-    return DECODE_CHAR (charset, (c1 << 8) | c2);
+    return DECODE_CHAR (charset, (c1 << 8) | c2, 0);
 }
 
 extern Lisp_Object Vcharacter_attribute_table;

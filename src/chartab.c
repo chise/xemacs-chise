@@ -34,6 +34,7 @@ Boston, MA 02111-1307, USA.  */
              loosely based on the original Mule.
    Jareth Hein: fixed a couple of bugs in the implementation, and
    	     added regex support for categories with check_category_at
+   MORIOKA Tomohiko: Rewritten for XEmacs CHISE
  */
 
 #include <config.h>
@@ -2180,7 +2181,8 @@ put_char_table (Lisp_Char_Table *ct, struct chartab_range *range,
 	cell_max = i & 0xFF;
 	for (i = cell_min; i <= cell_max; i++)
 	  {
-	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
+	    Emchar ch
+	      = DECODE_CHAR (range->charset, (range->row << 8) | i, 0);
 
 	    if ( charset_code_point (range->charset, ch, 0) >= 0 )
 	      put_char_id_table_0 (ct, ch, val);
@@ -2610,7 +2612,8 @@ map_char_table (Lisp_Char_Table *ct,
 	rainj.type = CHARTAB_RANGE_CHAR;
 	for (retval =0, i = cell_min; i <= cell_max && retval == 0; i++)
 	  {
-	    Emchar ch = DECODE_CHAR (range->charset, (range->row << 8) | i);
+	    Emchar ch
+	      = DECODE_CHAR (range->charset, (range->row << 8) | i, 0);
 
 	    if ( charset_code_point (range->charset, ch, 0) >= 0 )
 	      {
@@ -3107,7 +3110,7 @@ Store character's ATTRIBUTES.
 	      if (CONSP (cell))
 		character = Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
 	      else
-		character = Fdecode_char (ccs, cell, Qnil);
+		character = Fdecode_char (ccs, cell, Qnil, Qt);
 	      if (!NILP (character))
 		goto setup_attributes;
 	    }
@@ -3164,7 +3167,7 @@ Retrieve the character of the given ATTRIBUTES.
 	  if (CONSP (cell))
 	    return Fmake_char (ccs, Fcar (cell), Fcar (Fcdr (cell)));
 	  else
-	    return Fdecode_char (ccs, cell, Qnil);
+	    return Fdecode_char (ccs, cell, Qnil, Qnil);
 	}
       rest = Fcdr (rest);
     }
