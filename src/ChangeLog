@@ -1,5 +1,76 @@
 1999-09-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* character.h (Charset_ID): New type.
+	(LEADING_BYTE_UCS_BMP): New macro.
+	(LEADING_BYTE_CONTROL_1): Changed from 0x8F to 0x81.
+	(CHARSET_ID_OFFSET_94): New macro.
+	(MIN_CHARSET_ID_PRIVATE_94): New macro.
+	(MAX_CHARSET_ID_PRIVATE_94): New macro.
+	(LEADING_BYTE_ASCII): Changed to use CHARSET_ID_OFFSET_94 and
+	final-byte.
+	(LEADING_BYTE_KATAKANA_JISX0201): Likewise.
+	(LEADING_BYTE_LATIN_JISX0201): Likewise.
+	(CHARSET_ID_OFFSET_96): New macro.
+	(LEADING_BYTE_LATIN_ISO8859_1): Changed to use
+	CHARSET_ID_OFFSET_96 and final-byte.
+	(LEADING_BYTE_LATIN_ISO8859_2): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_3): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_4): Likewise.
+	(LEADING_BYTE_GREEK_ISO8859_7): Likewise.
+	(LEADING_BYTE_ARABIC_ISO8859_6): Likewise.
+	(LEADING_BYTE_HEBREW_ISO8859_8): Likewise.
+	(LEADING_BYTE_CYRILLIC_ISO8859_5): Likewise.
+	(LEADING_BYTE_LATIN_ISO8859_9): Likewise.
+	(LEADING_BYTE_THAI_TIS620): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_1): Changed from 0x0D0 to 0xD0.
+	(MAX_LEADING_BYTE_PRIVATE_1): Changed from 0x11f to 0xDF.
+	(CHARSET_ID_OFFSET_94x94): New macro.
+	(LEADING_BYTE_CHINESE_BIG5_1): Changed to use
+	CHARSET_ID_OFFSET_94x94 and final-byte.
+	(LEADING_BYTE_CHINESE_BIG5_2): Likewise.
+	(MIN_LEADING_BYTE_PRIVATE_2): Likewise.
+	(MAX_LEADING_BYTE_PRIVATE_2): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208_1978): Likewise.
+	(LEADING_BYTE_CHINESE_GB2312): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0208): Likewise.
+	(LEADING_BYTE_KOREAN_KSC5601): Likewise.
+	(LEADING_BYTE_JAPANESE_JISX0212): Likewise.
+	(LEADING_BYTE_CHINESE_CCITT_GB): Likewise.
+	(LEADING_BYTE_CHINESE_CNS11643_*): Likewise.
+	(LEADING_BYTE_KOREAN_KPS9566): Likewise.
+	(CHARSET_TYPE_128X128): New macro.
+	(CHARSET_TYPE_256X256): New macro.
+	(XCHARSET_PRIVATE_P): Delete unconditionally.
+	(charset_by_attributes): Delete array about direction.
+	(CHARSET_BY_LEADING_BYTE): Use `Charset_ID' instead of `int'.
+	(CHARSET_BY_ATTRIBUTES): Modify for `charset_by_attributes'.
+	(MIN_CHAR_94): New macro.
+	(MAX_CHAR_94): New macro.
+	(MIN_CHAR_96): New macro.
+	(MAX_CHAR_96): New macro.
+	(MIN_CHAR_94x94): New macro.
+	(MAX_CHAR_94x94): New macro.
+	(MIN_CHAR_96x96): New macro.
+	(MAX_CHAR_96x96): New macro.
+	(FIELD1_TO_PRIVATE_LEADING_BYTE): Use `CHARSET_ID_OFFSET_94x94'.
+	(FIELD1_TO_OFFICIAL_LEADING_BYTE): Likewise.
+	(FIELD2_TO_PRIVATE_LEADING_BYTE): Use `(MIN_LEADING_BYTE_PRIVATE_1
+	- 32)'.
+	(FIELD2_TO_OFFICIAL_LEADING_BYTE): Use `LEADING_BYTE_ASCII'.
+	(MIN_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MAX_CHAR_FIELD2_OFFICIAL): Deleted.
+	(MIN_CHAR_OFFICIAL_TYPE9N): Deleted.
+	(MAX_CHAR_PRIVATE_TYPE9N): Changed.
+	(MAKE_CHAR): Use `XCHARSET_FINAL' instead of
+	`XCHARSET_LEADING_BYTE' to make code-point.
+	(latin_a_char_to_charset): New variable.
+	(latin_a_char_to_byte1): New variable.
+	(latin_a_char_to_byte2): New variable.
+	(breakup_char_1): Use `latin_a_char_to_{charset|byte1|byte2}' for
+	Latin Extended-A; use `CHARSET_BY_ATTRIBUTES' instead of
+	`CHARSET_BY_LEADING_BYTE' to get charset for ISO-2022 characters.
+	(Vcharset_japanese_jisx0212): New variable definition.
+
 	* insdel.c (find_charsets_in_bufbyte_string): Use `Charset_ID'
 	instead of `unsigned char'; use `MIN_LEADING_BYTE' instead of 128.
 	(find_charsets_in_emchar_string): Likewise.
@@ -34,6 +105,9 @@
 	instead of `unsigned char'.
 
 1999-08-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* character.h (PRE_LEADING_BYTE_PRIVATE_1): Deleted.
+	(PRE_LEADING_BYTE_PRIVATE_2): Deleted.
 
 	* mule-ccl.c (ccl_driver): Don't define `CCL_ReadMultibyteChar2'
 	in UTF-2000 because it is not ported yet and not to use
