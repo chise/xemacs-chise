@@ -1,5 +1,30 @@
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/Ideograph-R008-Lid.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R007-Two.el: Merge `japanese-jisx0213-1'.
+
+	* utf-2000/Ideograph-R004-Slash.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R006-Hook.el (M00237): Separate C5-2330.
+
+	* utf-2000/Ideograph-R005-Second.el: Merge `japanese-jisx0213-2'.
+
+	* utf-2000/Ideograph-R002-Line.el: Merge `japanese-jisx0213-1' and
+	`japanese-jisx0213-2'.
+
+	* utf-2000/u03040-Hiragana.el (HIRAGANA LETTER SMALL KA): New
+	character.
+	(HIRAGANA LETTER SMALL KE): New character.
+
+	* utf-2000/u02600-Miscellaneous-Symbols.el (WHITE SHOGI PIECE):
+	New character.
+	(BLACK SHOGI PIECE): New character.
+
+	* utf-2000/Ideograph-R001-One.el: Merge `japanese-jisx0213-1'.
+
+1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/u01F00-Greek-Extended.el: Merge `japanese-jisx0213-1'.
 
 1999-11-21  MORIOKA Tomohiko  <tomo@etl.go.jp>
