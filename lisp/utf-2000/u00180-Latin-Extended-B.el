@@ -264,21 +264,23 @@
     (ucs		. #x01A0)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x031B)
     (mirrored		. nil)
+    (->decomposition	#x004F #x031B)
     (->lowercase	#x01A1)
-    (latin-viscii-upper	#x3D)	; -2=
+    (latin-viscii-upper #x3D)	; -2½-A
+    (latin-viscii	#xB4)	; -2½-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER O WITH HORN")
     (ucs		. #x01A1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x031B)
     (mirrored		. nil)
+    (->decomposition	#x006F #x031B)
     (->uppercase	#x01A0)
     (->titlecase	#x01A0)
-    (latin-viscii-lower	#x3D)	; -1=
+    (latin-viscii-lower #x3D)	; -1½-A
+    (latin-viscii	#xBD)	; -1½-A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER OI")
@@ -393,21 +395,23 @@
     (ucs		. #x01AF)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x031B)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x031B)
     (->lowercase	#x01B0)
-    (latin-viscii-upper	#x5F)	; -2_
+    (latin-viscii-upper #x5F)	; -2ß-A
+    (latin-viscii	#xBF)	; -2ß-A
     ))
 (define-char
   '((name		. "LATIN SMALL LETTER U WITH HORN")
     (ucs		. #x01B0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x031B)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x031B)
     (->uppercase	#x01AF)
     (->titlecase	#x01AF)
-    (latin-viscii-lower	#x5F)	; -1_
+    (latin-viscii-lower #x5F)	; -1ß-A
+    (latin-viscii	#xDF)	; -1ß-A
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER UPSILON")
@@ -564,18 +568,18 @@
     (ucs		. #x01C4)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0044 #x017D)
     (mirrored		. nil)
+    (->decomposition	compat #x0044 #x017D)
     (->lowercase	#x01C6)
     (->titlecase	#x01C5)
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON")
-    (ucs  . #x01C5)
+    (ucs		. #x01C5)
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0044 #x017E)
     (mirrored		. nil)
+    (->decomposition	compat #x0044 #x017E)
     (->uppercase	#x01C4)
     (->lowercase	#x01C6)
     ))
@@ -584,8 +588,8 @@
     (ucs		. #x01C6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0064 #x017E)
     (mirrored		. nil)
+    (->decomposition	compat #x0064 #x017E)
     (->uppercase	#x01C4)
     (->titlecase	#x01C5)
     ))
@@ -594,8 +598,8 @@
     (ucs		. #x01C7)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x004C #x004A)
     (mirrored		. nil)
+    (->decomposition	compat #x004C #x004A)
     (->lowercase	#x01C9)
     (->titlecase	#x01C8)
     ))
@@ -604,8 +608,8 @@
     (ucs		. #x01C8)
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x004C #x006A)
     (mirrored		. nil)
+    (->decomposition	compat #x004C #x006A)
     (->uppercase	#x01C7)
     (->lowercase	#x01C9)
     ))
@@ -614,8 +618,8 @@
     (ucs		. #x01C9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x006C #x006A)
     (mirrored		. nil)
+    (->decomposition	compat #x006C #x006A)
     (->uppercase	#x01C7)
     (->titlecase	#x01C8)
     ))
@@ -624,8 +628,8 @@
     (ucs		. #x01CA)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x004E #x004A)
     (mirrored		. nil)
+    (->decomposition	compat #x004E #x004A)
     (->lowercase	#x01CC)
     (->titlecase	#x01CB)
     ))
@@ -634,8 +638,8 @@
     (ucs		. #x01CB)
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x004E #x006A)
     (mirrored		. nil)
+    (->decomposition	compat #x004E #x006A)
     (->uppercase	#x01CA)
     (->lowercase	#x01CC)
     ))
@@ -644,8 +648,8 @@
     (ucs		. #x01CC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x006E #x006A)
     (mirrored		. nil)
+    (->decomposition	compat #x006E #x006A)
     (->uppercase	#x01CA)
     (->titlecase	#x01CB)
     ))
@@ -654,8 +658,8 @@
     (ucs		. #x01CD)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x030C)
     (->lowercase	#x01CE)
     ))
 (define-char
@@ -663,10 +667,10 @@
     (->ucs		. #x01CD)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01CD)
     (mirrored		. nil)
+    (->decomposition	wide #x01CD)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER A WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER A WITH CARON")))
     (japanese-jisx0212	#x2A #x26)	; $(D*&(B
     ))
 (define-char
@@ -674,8 +678,8 @@
     (ucs		. #x01CE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x030C)
     (->uppercase	#x01CD)
     (->titlecase	#x01CD)
     ))
@@ -684,12 +688,12 @@
     (->ucs		. #x01CE)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01CE)
     (mirrored		. nil)
+    (->decomposition	wide #x01CE)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER A WITH CARON")))
     (chinese-gb2312	#x28 #x23)	; $(D+&(B
     (japanese-jisx0212	#x2B #x26)	; $(D+&(B
     ))
@@ -698,8 +702,8 @@
     (ucs		. #x01CF)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x030C)
     (->lowercase	#x01D0)
     ))
 (define-char
@@ -707,10 +711,10 @@
     (->ucs		. #x01CF)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01CF)
     (mirrored		. nil)
+    (->decomposition	wide #x01CF)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
     (japanese-jisx0212	#x2A #x43)	; $(D*C(B
     ))
 (define-char
@@ -718,8 +722,8 @@
     (ucs		. #x01D0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x030C)
     (->uppercase	#x01CF)
     (->titlecase	#x01CF)
     ))
@@ -728,12 +732,12 @@
     (->ucs		. #x01D0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D0)
     (mirrored		. nil)
+    (->decomposition	wide #x01D0)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER I WITH CARON")))
     (chinese-gb2312	#x28 #x2B)	; $(D+C(B
     (japanese-jisx0212	#x2B #x43)	; $(D+C(B
     ))
@@ -742,8 +746,8 @@
     (ucs		. #x01D1)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x030C)
     (mirrored		. nil)
+    (->decomposition	#x004F #x030C)
     (->lowercase	#x01D2)
     ))
 (define-char
@@ -751,10 +755,10 @@
     (->ucs		. #x01D1)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D1)
     (mirrored		. nil)
+    (->decomposition	wide #x01D1)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER O WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER O WITH CARON")))
     (japanese-jisx0212	#x2A #x55)	; $(D*U(B
     ))
 (define-char
@@ -762,8 +766,8 @@
     (ucs		. #x01D2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x030C)
     (mirrored		. nil)
+    (->decomposition	#x006F #x030C)
     (->uppercase	#x01D1)
     (->titlecase	#x01D1)
     ))
@@ -772,12 +776,12 @@
     (->ucs		. #x01D2)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D2)
     (mirrored		. nil)
+    (->decomposition	wide #x01D2)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER O WITH CARON")))
     (chinese-gb2312	#x28 #x2F)	; $(D+U(B
     (japanese-jisx0212	#x2B #x55)	; $(D+U(B
     ))
@@ -786,8 +790,8 @@
     (ucs		. #x01D3)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x030C)
     (->lowercase	#x01D4)
     ))
 (define-char
@@ -795,10 +799,10 @@
     (->ucs		. #x01D3)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D3)
     (mirrored		. nil)
+    (->decomposition	wide #x01D3)
     (->lowercase
-     ((name		. "FULLWIDTH LATIN SMALL LETTER U WITH CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH CARON")))
     (japanese-jisx0212	#x2A #x67)	; $(D*g(B
     ))
 (define-char
@@ -806,8 +810,8 @@
     (ucs		. #x01D4)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x030C)
     (->uppercase	#x01D3)
     (->titlecase	#x01D3)
     ))
@@ -816,31 +820,31 @@
     (->ucs		. #x01D4)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D4)
     (mirrored		. nil)
+    (->decomposition	wide #x01D4)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH CARON")))
     (chinese-gb2312	#x28 #x33)	; $(D+g(B
     (japanese-jisx0212	#x2B #x67)	; $(D+g(B
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
-    (ucs  . #x01D5)
+    (ucs		. #x01D5)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00DC #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00DC #x0304)
     (->lowercase	#x01D6)
     ))
 (define-char
   '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")
-    (->ucs  . #x01D5)
+    (->ucs		. #x01D5)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D5)
     (mirrored		. nil)
+    (->decomposition	wide #x01D5)
     (->lowercase
      ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")))
     (japanese-jisx0212	#x2A #x70)	; $(D*p(B
@@ -850,18 +854,18 @@
     (ucs		. #x01D6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00FC #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00FC #x0304)
     (->uppercase	#x01D5)
     (->titlecase	#x01D5)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
+  '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND MACRON")
     (->ucs		. #x01D6)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D6)
     (mirrored		. nil)
+    (->decomposition	wide #x01D6)
     (->uppercase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND MACRON")))
     (->titlecase
@@ -874,19 +878,19 @@
     (ucs		. #x01D7)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00DC #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00DC #x0301)
     (->lowercase	#x01D8)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")
     (->ucs		. #x01D7)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D7)
     (mirrored		. nil)
+    (->decomposition	wide #x01D7)
     (->lowercase
-     ((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")))
     (japanese-jisx0212	#x2A #x6D)	; $(D*m(B
     ))
 (define-char
@@ -894,18 +898,18 @@
     (ucs		. #x01D8)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00FC #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00FC #x0301)
     (->uppercase	#x01D7)
     (->titlecase	#x01D7)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
+  '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND ACUTE")
     (->ucs		. #x01D8)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D8)
     (mirrored		. nil)
+    (->decomposition	wide #x01D8)
     (->uppercase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND ACUTE")))
     (->titlecase
@@ -918,19 +922,19 @@
     (ucs		. #x01D9)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00DC #x030C)
     (mirrored		. nil)
+    (->decomposition	#x00DC #x030C)
     (->lowercase	#x01DA)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")
     (->ucs		. #x01D9)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01D9)
     (mirrored		. nil)
+    (->decomposition	wide #x01D9)
     (->lowercase
-     ((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")))
     (japanese-jisx0212	#x2A #x6F)	; $(D*o(B
     ))
 (define-char
@@ -938,18 +942,18 @@
     (ucs		. #x01DA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00FC #x030C)
     (mirrored		. nil)
+    (->decomposition	#x00FC #x030C)
     (->uppercase	#x01D9)
     (->titlecase	#x01D9)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
-    (->ucs	. #x01DA)
+  '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND CARON")
+    (->ucs		. #x01DA)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01DA)
     (mirrored		. nil)
+    (->decomposition	wide #x01DA)
     (->uppercase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON")))
     (->titlecase
@@ -967,14 +971,14 @@
     (->lowercase	#x01DC)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
-    (ucs	. #x01DB)
+  '((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")
+    (->ucs		. #x01DB)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01DB)
     (mirrored		. nil)
+    (->decomposition	wide #x01DB)
     (->lowercase
-     ((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")))
+     ((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")))
     (japanese-jisx0212	#x2A #x6E)	; $(D*n(B
     ))
 (define-char
@@ -982,18 +986,18 @@
     (ucs		. #x01DC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00FC #x0300)
     (mirrored		. nil)
+    (->decomposition	#x00FC #x0300)
     (->uppercase	#x01DB)
     (->titlecase	#x01DB)
     ))
 (define-char
-  '((name	. "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
-    (->ucs	. #x01DC)
+  '((name . "FULLWIDTH LATIN SMALL LETTER U WITH DIAERESIS AND GRAVE")
+    (->ucs		. #x01DC)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01DC)
     (mirrored		. nil)
+    (->decomposition	wide #x01DC)
     (->uppercase
      ((name . "FULLWIDTH LATIN CAPITAL LETTER U WITH DIAERESIS AND GRAVE")))
     (->titlecase
@@ -1012,11 +1016,11 @@
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON")
-    (ucs  . #x01DE)
+    (ucs		. #x01DE)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00C4 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00C4 #x0304)
     (->lowercase	#x01DF)
     ))
 (define-char
@@ -1024,18 +1028,18 @@
     (ucs		. #x01DF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00E4 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00E4 #x0304)
     (->uppercase	#x01DE)
     (->titlecase	#x01DE)
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH DOT ABOVE AND MACRON")
-    (ucs  . #x01E0)
+    (ucs		. #x01E0)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0226 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0226 #x0304)
     (->lowercase	#x01E1)
     ))
 (define-char
@@ -1043,8 +1047,8 @@
     (ucs		. #x01E1)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0227 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0227 #x0304)
     (->uppercase	#x01E0)
     (->titlecase	#x01E0)
     ))
@@ -1053,9 +1057,9 @@
     (ucs		. #x01E2)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00C6 #x0304)
     (mirrored		. nil)
     (iso-10646-comment	. "ash *")
+    (->decomposition	#x00C6 #x0304)
     (->lowercase	#x01E3)
     ))
 (define-char
@@ -1063,9 +1067,9 @@
     (ucs		. #x01E3)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00E6 #x0304)
     (mirrored		. nil)
     (iso-10646-comment	. "ash *")
+    (->decomposition	#x00E6 #x0304)
     (->uppercase	#x01E2)
     (->titlecase	#x01E2)
     ))
@@ -1091,8 +1095,8 @@
     (ucs		. #x01E6)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x030C)
     (->lowercase	#x01E7)
     ))
 (define-char
@@ -1100,8 +1104,8 @@
     (ucs		. #x01E7)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x030C)
     (->uppercase	#x01E6)
     (->titlecase	#x01E6)
     ))
@@ -1110,8 +1114,8 @@
     (ucs		. #x01E8)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004B #x030C)
     (mirrored		. nil)
+    (->decomposition	#x004B #x030C)
     (->lowercase	#x01E9)
     ))
 (define-char
@@ -1119,8 +1123,8 @@
     (ucs		. #x01E9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006B #x030C)
     (mirrored		. nil)
+    (->decomposition	#x006B #x030C)
     (->uppercase	#x01E8)
     (->titlecase	#x01E8)
     ))
@@ -1129,8 +1133,8 @@
     (ucs		. #x01EA)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x0328)
     (mirrored		. nil)
+    (->decomposition	#x004F #x0328)
     (->lowercase	#x01EB)
     ))
 (define-char
@@ -1138,8 +1142,8 @@
     (ucs		. #x01EB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x0328)
     (mirrored		. nil)
+    (->decomposition	#x006F #x0328)
     (->uppercase	#x01EA)
     (->titlecase	#x01EA)
     ))
@@ -1148,8 +1152,8 @@
     (ucs		. #x01EC)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x01EA #x0304)
     (mirrored		. nil)
+    (->decomposition	#x01EA #x0304)
     (->lowercase	#x01ED)
     ))
 (define-char
@@ -1157,8 +1161,8 @@
     (ucs		. #x01ED)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x01EB #x0304)
     (mirrored		. nil)
+    (->decomposition	#x01EB #x0304)
     (->uppercase	#x01EC)
     (->titlecase	#x01EC)
     ))
@@ -1167,8 +1171,8 @@
     (ucs		. #x01EE)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x01B7 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x01B7 #x030C)
     (->lowercase	#x01EF)
     ))
 (define-char
@@ -1176,8 +1180,8 @@
     (ucs		. #x01EF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0292 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0292 #x030C)
     (->uppercase	#x01EE)
     (->titlecase	#x01EE)
     ))
@@ -1186,16 +1190,16 @@
     (ucs		. #x01F0)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006A #x030C)
     (mirrored		. nil)
+    (->decomposition	#x006A #x030C)
     ))
 (define-char
   '((name		. "LATIN CAPITAL LETTER DZ")
     (ucs		. #x01F1)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0044 #x005A)
     (mirrored		. nil)
+    (->decomposition	compat #x0044 #x005A)
     (->lowercase	#x01F3)
     (->titlecase	#x01F2)
     ))
@@ -1204,8 +1208,8 @@
     (ucs		. #x01F2)
     (general-category	letter titlecase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0044 #x007A)
     (mirrored		. nil)
+    (->decomposition	compat #x0044 #x007A)
     (->uppercase	#x01F1)
     (->lowercase	#x01F3)
     ))
@@ -1214,8 +1218,8 @@
     (ucs		. #x01F3)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	compat #x0064 #x007A)
     (mirrored		. nil)
+    (->decomposition	compat #x0064 #x007A)
     (->uppercase	#x01F1)
     (->titlecase	#x01F2)
     ))
@@ -1224,8 +1228,8 @@
     (ucs		. #x01F4)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0047 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0047 #x0301)
     (->lowercase	#x01F5)
     ))
 (define-char
@@ -1233,8 +1237,8 @@
     (ucs		. #x01F5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0067 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x0067 #x0301)
     (->uppercase	#x01F4)
     (->titlecase	#x01F4)
     ))
@@ -1243,12 +1247,12 @@
     (->ucs		. #x01F5)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	wide #x01F5)
     (mirrored		. nil)
+    (->decomposition	wide #x01F5)
     (->uppercase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
     (->titlecase
-     ((name		. "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
+     ((name . "FULLWIDTH LATIN CAPITAL LETTER G WITH ACUTE")))
     (japanese-jisx0212	#x2B #x39)	; $(D+9(B
     ))
 (define-char
@@ -1272,8 +1276,8 @@
     (ucs		. #x01F8)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004E #x0300)
     (mirrored		. nil)
+    (->decomposition	#x004E #x0300)
     (->lowercase	#x01F9)
     ))
 (define-char
@@ -1281,18 +1285,18 @@
     (ucs		. #x01F9)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006E #x0300)
     (mirrored		. nil)
+    (->decomposition	#x006E #x0300)
     (->uppercase	#x01F8)
     (->titlecase	#x01F8)
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE")
-    (ucs  . #x01FA)
+    (ucs		. #x01FA)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00C5 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00C5 #x0301)
     (->lowercase	#x01FB)
     ))
 (define-char
@@ -1300,8 +1304,8 @@
     (ucs		. #x01FB)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00E5 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00E5 #x0301)
     (->uppercase	#x01FA)
     (->titlecase	#x01FA)
     ))
@@ -1310,9 +1314,9 @@
     (ucs		. #x01FC)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00C6 #x0301)
     (mirrored		. nil)
     (iso-10646-comment	. "ash *")
+    (->decomposition	#x00C6 #x0301)
     (->lowercase	#x01FD)
     ))
 (define-char
@@ -1320,9 +1324,9 @@
     (ucs		. #x01FD)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00E6 #x0301)
     (mirrored		. nil)
     (iso-10646-comment	. "ash *")
+    (->decomposition	#x00E6 #x0301)
     (->uppercase	#x01FC)
     (->titlecase	#x01FC)
     ))
@@ -1331,8 +1335,8 @@
     (ucs		. #x01FE)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00D8 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00D8 #x0301)
     (->lowercase	#x01FF)
     ))
 (define-char
@@ -1340,8 +1344,8 @@
     (ucs		. #x01FF)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00F8 #x0301)
     (mirrored		. nil)
+    (->decomposition	#x00F8 #x0301)
     (->uppercase	#x01FE)
     (->titlecase	#x01FE)
     ))
@@ -1350,8 +1354,8 @@
     (ucs		. #x0200)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x030F)
     (->lowercase	#x0201)
     ))
 (define-char
@@ -1359,8 +1363,8 @@
     (ucs		. #x0201)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x030F)
     (->uppercase	#x0200)
     (->titlecase	#x0200)
     ))
@@ -1369,8 +1373,8 @@
     (ucs		. #x0202)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x0311)
     (->lowercase	#x0203)
     ))
 (define-char
@@ -1378,8 +1382,8 @@
     (ucs		. #x0203)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x0311)
     (->uppercase	#x0202)
     (->titlecase	#x0202)
     ))
@@ -1388,8 +1392,8 @@
     (ucs		. #x0204)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x030F)
     (->lowercase	#x0205)
     ))
 (define-char
@@ -1397,8 +1401,8 @@
     (ucs		. #x0205)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x030F)
     (->uppercase	#x0204)
     (->titlecase	#x0204)
     ))
@@ -1407,8 +1411,8 @@
     (ucs		. #x0206)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0311)
     (->lowercase	#x0207)
     ))
 (define-char
@@ -1416,8 +1420,8 @@
     (ucs		. #x0207)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0311)
     (->uppercase	#x0206)
     (->titlecase	#x0206)
     ))
@@ -1426,8 +1430,8 @@
     (ucs		. #x0208)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x030F)
     (->lowercase	#x0209)
     ))
 (define-char
@@ -1435,8 +1439,8 @@
     (ucs		. #x0209)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x030F)
     (->uppercase	#x0208)
     (->titlecase	#x0208)
     ))
@@ -1445,8 +1449,8 @@
     (ucs		. #x020A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0049 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0049 #x0311)
     (->lowercase	#x020B)
     ))
 (define-char
@@ -1454,8 +1458,8 @@
     (ucs		. #x020B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0069 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0069 #x0311)
     (->uppercase	#x020A)
     (->titlecase	#x020A)
     ))
@@ -1464,8 +1468,8 @@
     (ucs		. #x020C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x030F)
     (mirrored		. nil)
+    (->decomposition	#x004F #x030F)
     (->lowercase	#x020D)
     ))
 (define-char
@@ -1473,8 +1477,8 @@
     (ucs		. #x020D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x030F)
     (mirrored		. nil)
+    (->decomposition	#x006F #x030F)
     (->uppercase	#x020C)
     (->titlecase	#x020C)
     ))
@@ -1483,8 +1487,8 @@
     (ucs		. #x020E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x0311)
     (mirrored		. nil)
+    (->decomposition	#x004F #x0311)
     (->lowercase	#x020F)
     ))
 (define-char
@@ -1492,8 +1496,8 @@
     (ucs		. #x020F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x0311)
     (mirrored		. nil)
+    (->decomposition	#x006F #x0311)
     (->uppercase	#x020E)
     (->titlecase	#x020E)
     ))
@@ -1502,8 +1506,8 @@
     (ucs		. #x0210)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0052 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0052 #x030F)
     (->lowercase	#x0211)
     ))
 (define-char
@@ -1511,8 +1515,8 @@
     (ucs		. #x0211)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0072 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0072 #x030F)
     (->uppercase	#x0210)
     (->titlecase	#x0210)
     ))
@@ -1521,8 +1525,8 @@
     (ucs		. #x0212)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0052 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0052 #x0311)
     (->lowercase	#x0213)
     ))
 (define-char
@@ -1530,8 +1534,8 @@
     (ucs		. #x0213)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0072 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0072 #x0311)
     (->uppercase	#x0212)
     (->titlecase	#x0212)
     ))
@@ -1540,8 +1544,8 @@
     (ucs		. #x0214)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x030F)
     (->lowercase	#x0215)
     ))
 (define-char
@@ -1549,8 +1553,8 @@
     (ucs		. #x0215)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x030F)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x030F)
     (->uppercase	#x0214)
     (->titlecase	#x0214)
     ))
@@ -1559,8 +1563,8 @@
     (ucs		. #x0216)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0055 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0055 #x0311)
     (->lowercase	#x0217)
     ))
 (define-char
@@ -1568,8 +1572,8 @@
     (ucs		. #x0217)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0075 #x0311)
     (mirrored		. nil)
+    (->decomposition	#x0075 #x0311)
     (->uppercase	#x0216)
     (->titlecase	#x0216)
     ))
@@ -1578,9 +1582,9 @@
     (ucs		. #x0218)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0053 #x0326)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0053 #x0326)
     (->lowercase	#x0219)
     ))
 (define-char
@@ -1588,9 +1592,9 @@
     (ucs		. #x0219)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0073 #x0326)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0073 #x0326)
     (->uppercase	#x0218)
     (->titlecase	#x0218)
     ))
@@ -1599,9 +1603,9 @@
     (ucs		. #x021A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0054 #x0326)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0054 #x0326)
     (->lowercase	#x021B)
     ))
 (define-char
@@ -1609,9 +1613,9 @@
     (ucs		. #x021B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0074 #x0326)
     (mirrored		. nil)
     (iso-10646-comment	. "*")
+    (->decomposition	#x0074 #x0326)
     (->uppercase	#x021A)
     (->titlecase	#x021A)
     ))
@@ -1637,8 +1641,8 @@
     (ucs		. #x021E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0048 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0048 #x030C)
     (->lowercase	#x021F)
     ))
 (define-char
@@ -1646,8 +1650,8 @@
     (ucs		. #x021F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0068 #x030C)
     (mirrored		. nil)
+    (->decomposition	#x0068 #x030C)
     (->uppercase	#x021E)
     (->titlecase	#x021E)
     ))
@@ -1690,8 +1694,8 @@
     (ucs		. #x0226)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0041 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0041 #x0307)
     (->lowercase	#x0227)
     ))
 (define-char
@@ -1699,8 +1703,8 @@
     (ucs		. #x0227)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0061 #x0307)
     (mirrored		. nil)
+    (->decomposition	#x0061 #x0307)
     (->uppercase	#x0226)
     (->titlecase	#x0226)
     ))
@@ -1709,8 +1713,8 @@
     (ucs		. #x0228)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0045 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0045 #x0327)
     (->lowercase	#x0229)
     ))
 (define-char
@@ -1718,18 +1722,18 @@
     (ucs		. #x0229)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0065 #x0327)
     (mirrored		. nil)
+    (->decomposition	#x0065 #x0327)
     (->uppercase	#x0228)
     (->titlecase	#x0228)
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON")
-    (ucs  . #x022A)
+    (ucs		. #x022A)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00D6 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00D6 #x0304)
     (->lowercase	#x022B)
     ))
 (define-char
@@ -1737,8 +1741,8 @@
     (ucs		. #x022B)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00F6 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00F6 #x0304)
     (->uppercase	#x022A)
     (->titlecase	#x022A)
     ))
@@ -1747,8 +1751,8 @@
     (ucs		. #x022C)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00D5 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00D5 #x0304)
     (->lowercase	#x022D)
     ))
 (define-char
@@ -1756,8 +1760,8 @@
     (ucs		. #x022D)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x00F5 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x00F5 #x0304)
     (->uppercase	#x022C)
     (->titlecase	#x022C)
     ))
@@ -1766,8 +1770,8 @@
     (ucs		. #x022E)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x004F #x0307)
     (mirrored		. nil)
+    (->decomposition	#x004F #x0307)
     (->lowercase	#x022F)
     ))
 (define-char
@@ -1775,18 +1779,18 @@
     (ucs		. #x022F)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x006F #x0307)
     (mirrored		. nil)
+    (->decomposition	#x006F #x0307)
     (->uppercase	#x022E)
     (->titlecase	#x022E)
     ))
 (define-char
   '((name . "LATIN CAPITAL LETTER O WITH DOT ABOVE AND MACRON")
-    (ucs  . #x0230)
+    (ucs		. #x0230)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x022E #x0304)
     (mirrored		. nil)
+    (->decomposition	#x022E #x0304)
     (->lowercase	#x0231)
     ))
 (define-char
@@ -1794,8 +1798,8 @@
     (ucs		. #x0231)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x022F #x0304)
     (mirrored		. nil)
+    (->decomposition	#x022F #x0304)
     (->uppercase	#x0230)
     (->titlecase	#x0230)
     ))
@@ -1804,8 +1808,8 @@
     (ucs		. #x0232)
     (general-category	letter uppercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0059 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0059 #x0304)
     (->lowercase	#x0233)
     ))
 (define-char
@@ -1813,8 +1817,8 @@
     (ucs		. #x0233)
     (general-category	letter lowercase) ; Normative Category
     (bidi-category	. "L")
-    (->decomposition	#x0079 #x0304)
     (mirrored		. nil)
+    (->decomposition	#x0079 #x0304)
     (->uppercase	#x0232)
     (->titlecase	#x0232)
     ))
