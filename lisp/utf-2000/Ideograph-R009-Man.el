@@ -34226,25 +34226,6 @@
   '((ideographic-radical . 9)	; â¼ˆ
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 143)
-    (hanyu-dazidian-char . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-      (ucs		  . #x2FF1)	; â¿±
-      )
-     ((japanese-jisx0208-1978	  . #x3A23)	; ø»‚ °
-      (japanese-jisx0208	  . #x3A23)	; ø»†´¸
-      (korean-ksc5601		  . #x5051)	; ø»‰Ÿ¾
-      (chinese-cns11643-1	  . #x4474)	; ø»‘·‰
-      (ideograph-daikanwa	  . 00358)	; ø¸€…¦
-      )
-     ((chinese-big5-cdp	  . #x895D)	; ý¢€ˆ¥
-      ))
-    (ideograph-hanziku-1	. #xC161)	; ý¢€œ…¡
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 143)
     (hanyu-dazidian-char . 9)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
