@@ -2164,10 +2164,8 @@ struct decoding_stream
      Some of these flags are dependent on the coding system. */
   unsigned int flags;
 
-  /* CH holds a partially built-up character.  Since we only deal
-     with one- and two-byte characters at the moment, we only use
-     this to store the first byte of a two-byte character. */
-  unsigned int ch;
+  /* CPOS holds a partially built-up code-point of character. */
+  unsigned int cpos;
 
   /* EOL_TYPE specifies the type of end-of-line conversion that
      currently applies.  We need to keep this separate from the
@@ -2409,7 +2407,7 @@ reset_decoding_stream (struct decoding_stream *str)
   str->combined_char_count = 0;
   str->combining_table = Qnil;
 #endif
-  str->flags = str->ch = 0;
+  str->flags = str->cpos = 0;
 }
 
 static int
@@ -3225,21 +3223,21 @@ decode_coding_sjis (Lstream *decoding, const unsigned char *src,
   unsigned char c;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
+  unsigned int cpos   = str->cpos;
   eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
       c = *src++;
 
-      if (ch)
+      if (cpos)
 	{
 	  /* Previous character was first byte of Shift-JIS Kanji char. */
 	  if (BYTE_SJIS_TWO_BYTE_2_P (c))
 	    {
 	      unsigned char e1, e2;
 
-	      DECODE_SJIS (ch, c, e1, e2);
+	      DECODE_SJIS (cpos, c, e1, e2);
 #ifdef UTF2000
 	      DECODE_ADD_UCS_CHAR(MAKE_CHAR(Vcharset_japanese_jisx0208,
 					    e1 & 0x7F,
@@ -3252,16 +3250,16 @@ decode_coding_sjis (Lstream *decoding, const unsigned char *src,
 	    }
 	  else
 	    {
-	      DECODE_ADD_BINARY_CHAR (ch, dst);
+	      DECODE_ADD_BINARY_CHAR (cpos, dst);
 	      DECODE_ADD_BINARY_CHAR (c, dst);
 	    }
-	  ch = 0;
+	  cpos = 0;
 	}
       else
 	{
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	  if (BYTE_SJIS_TWO_BYTE_1_P (c))
-	    ch = c;
+	    cpos = c;
 	  else if (BYTE_SJIS_KATAKANA_P (c))
 	    {
 #ifdef UTF2000
@@ -3283,10 +3281,10 @@ decode_coding_sjis (Lstream *decoding, const unsigned char *src,
     label_continue_loop:;
     }
 
-  DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
+  DECODE_HANDLE_END_OF_CONVERSION (flags, cpos, dst);
 
   str->flags = flags;
-  str->ch    = ch;
+  str->cpos  = cpos;
 }
 
 /* Convert internal character representation to Shift_JIS. */
@@ -3528,45 +3526,45 @@ decode_coding_big5 (Lstream *decoding, const unsigned char *src,
   unsigned char c;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
+  unsigned int cpos   = str->cpos;
   eol_type_t eol_type = str->eol_type;
 
   while (n--)
     {
       c = *src++;
-      if (ch)
+      if (cpos)
 	{
 	  /* Previous character was first byte of Big5 char. */
 	  if (BYTE_BIG5_TWO_BYTE_2_P (c))
 	    {
 	      unsigned char b1, b2, b3;
-	      DECODE_BIG5 (ch, c, b1, b2, b3);
+	      DECODE_BIG5 (cpos, c, b1, b2, b3);
 	      Dynarr_add (dst, b1);
 	      Dynarr_add (dst, b2);
 	      Dynarr_add (dst, b3);
 	    }
 	  else
 	    {
-	      DECODE_ADD_BINARY_CHAR (ch, dst);
+	      DECODE_ADD_BINARY_CHAR (cpos, dst);
 	      DECODE_ADD_BINARY_CHAR (c, dst);
 	    }
-	  ch = 0;
+	  cpos = 0;
 	}
       else
 	{
 	  DECODE_HANDLE_EOL_TYPE (eol_type, c, flags, dst);
 	  if (BYTE_BIG5_TWO_BYTE_1_P (c))
-	    ch = c;
+	    cpos = c;
 	  else
 	    DECODE_ADD_BINARY_CHAR (c, dst);
 	}
     label_continue_loop:;
     }
 
-  DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
+  DECODE_HANDLE_END_OF_CONVERSION (flags, cpos, dst);
 
   str->flags = flags;
-  str->ch    = ch;
+  str->cpos  = cpos;
 }
 
 /* Convert internally-formatted data to Big5. */
@@ -3719,7 +3717,7 @@ decode_coding_ucs4 (Lstream *decoding, const unsigned char *src,
 {
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags = str->flags;
-  unsigned int ch    = str->ch;
+  unsigned int cpos  = str->cpos;
   unsigned char counter = str->counter;
 
   while (n--)
@@ -3728,25 +3726,25 @@ decode_coding_ucs4 (Lstream *decoding, const unsigned char *src,
       switch (counter)
 	{
 	case 0:
-	  ch = c;
+	  cpos = c;
 	  counter = 3;
 	  break;
 	case 1:
-	  DECODE_ADD_UCS_CHAR ((ch << 8) | c, dst);
-	  ch = 0;
+	  DECODE_ADD_UCS_CHAR ((cpos << 8) | c, dst);
+	  cpos = 0;
 	  counter = 0;
 	  break;
 	default:
-	  ch = ( ch << 8 ) | c;
+	  cpos = ( cpos << 8 ) | c;
 	  counter--;
 	}
     }
   if (counter & CODING_STATE_END)
-    DECODE_OUTPUT_PARTIAL_CHAR (ch);
+    DECODE_OUTPUT_PARTIAL_CHAR (cpos);
 
-  str->flags = flags;
-  str->ch    = ch;
-  str->counter = counter;
+  str->flags	= flags;
+  str->cpos	= cpos;
+  str->counter	= counter;
 }
 
 void
@@ -3810,10 +3808,10 @@ decode_coding_utf8 (Lstream *decoding, const unsigned char *src,
 		    unsigned_char_dynarr *dst, unsigned int n)
 {
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-  unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
-  eol_type_t eol_type = str->eol_type;
-  unsigned char counter = str->counter;
+  unsigned int flags	= str->flags;
+  unsigned int cpos	= str->cpos;
+  eol_type_t eol_type	= str->eol_type;
+  unsigned char counter	= str->counter;
 
   while (n--)
     {
@@ -3823,27 +3821,27 @@ decode_coding_utf8 (Lstream *decoding, const unsigned char *src,
 	case 0:
 	  if ( c >= 0xfc )
 	    {
-	      ch = c & 0x01;
+	      cpos = c & 0x01;
 	      counter = 5;
 	    }
 	  else if ( c >= 0xf8 )
 	    {
-	      ch = c & 0x03;
+	      cpos = c & 0x03;
 	      counter = 4;
 	    }
 	  else if ( c >= 0xf0 )
 	    {
-	      ch = c & 0x07;
+	      cpos = c & 0x07;
 	      counter = 3;
 	    }
 	  else if ( c >= 0xe0 )
 	    {
-	      ch = c & 0x0f;
+	      cpos = c & 0x0f;
 	      counter = 2;
 	    }
 	  else if ( c >= 0xc0 )
 	    {
-	      ch = c & 0x1f;
+	      cpos = c & 0x1f;
 	      counter = 1;
 	    }
 	  else
@@ -3853,24 +3851,24 @@ decode_coding_utf8 (Lstream *decoding, const unsigned char *src,
 	    }
 	  break;
 	case 1:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
-	  DECODE_ADD_UCS_CHAR (ch, dst);
-	  ch = 0;
+	  cpos = ( cpos << 6 ) | ( c & 0x3f );
+	  DECODE_ADD_UCS_CHAR (cpos, dst);
+	  cpos = 0;
 	  counter = 0;
 	  break;
 	default:
-	  ch = ( ch << 6 ) | ( c & 0x3f );
+	  cpos = ( cpos << 6 ) | ( c & 0x3f );
 	  counter--;
 	}
     label_continue_loop:;
     }
 
   if (flags & CODING_STATE_END)
-    DECODE_OUTPUT_PARTIAL_CHAR (ch);
+    DECODE_OUTPUT_PARTIAL_CHAR (cpos);
 
-  str->flags = flags;
-  str->ch    = ch;
-  str->counter = counter;
+  str->flags	= flags;
+  str->cpos	= cpos;
+  str->counter	= counter;
 }
 
 void
@@ -4383,7 +4381,8 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	}
       if (0x40 <= c && c <= 0x42)
 	{
-	  cs = CHARSET_BY_ATTRIBUTES (CHARSET_TYPE_94X94, c,
+	  /* 94^n-set */
+	  cs = CHARSET_BY_ATTRIBUTES (94, -1, c,
 				      *flags & CODING_STATE_R2L ?
 				      CHARSET_RIGHT_TO_LEFT :
 				      CHARSET_LEFT_TO_RIGHT);
@@ -4394,7 +4393,8 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 
     default:
       {
-	int type =-1;
+	int chars = 0;
+	int single = 0;
 
 	if (c < '0' || c > '~')
 	  return 0; /* bad final byte */
@@ -4402,15 +4402,15 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	if (iso->esc >= ISO_ESC_2_8 &&
 	    iso->esc <= ISO_ESC_2_15)
 	  {
-	    type = ((iso->esc >= ISO_ESC_2_12) ?
-		    CHARSET_TYPE_96 : CHARSET_TYPE_94);
+	    chars = (iso->esc >= ISO_ESC_2_12) ? 96 : 94;
+	    single = 1; /* single-byte */
 	    reg = (iso->esc - ISO_ESC_2_8) & 3;
 	  }
 	else if (iso->esc >= ISO_ESC_2_4_8 &&
 		 iso->esc <= ISO_ESC_2_4_15)
 	  {
-	    type = ((iso->esc >= ISO_ESC_2_4_12) ?
-		    CHARSET_TYPE_96X96 : CHARSET_TYPE_94X94);
+	    chars = (iso->esc >= ISO_ESC_2_4_12) ? 96 : 94;
+	    single = -1; /* multi-byte */
 	    reg = (iso->esc - ISO_ESC_2_4_8) & 3;
 	  }
 	else
@@ -4419,7 +4419,7 @@ parse_iso2022_esc (Lisp_Object codesys, struct iso2022_decoder *iso,
 	    abort();
 	  }
 
-	cs = CHARSET_BY_ATTRIBUTES (type, c,
+	cs = CHARSET_BY_ATTRIBUTES (chars, single, c,
 				    *flags & CODING_STATE_R2L ?
 				    CHARSET_RIGHT_TO_LEFT :
 				    CHARSET_LEFT_TO_RIGHT);
@@ -4707,9 +4707,10 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 		       unsigned_char_dynarr *dst, unsigned int n)
 {
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
-  unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
-  eol_type_t eol_type = str->eol_type;
+  unsigned int flags	= str->flags;
+  unsigned int cpos	= str->cpos;
+  unsigned char counter = str->counter;
+  eol_type_t eol_type	= str->eol_type;
 #ifdef ENABLE_COMPOSITE_CHARS
   unsigned_char_dynarr *real_dst = dst;
 #endif
@@ -4792,7 +4793,8 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 		  DECODE_ADD_BINARY_CHAR (c, dst);
 		}
 	    }
-	  ch = 0;
+	  cpos = 0;
+	  counter = 0;
 	}
       else if (BYTE_C0_P (c) || BYTE_C1_P (c))
 	{ /* Control characters */
@@ -4801,11 +4803,16 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 
 	  /* If we were in the middle of a character, dump out the
 	     partial character. */
-	  if (ch)
+	  if (counter)
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
-	      DECODE_ADD_BINARY_CHAR (ch, dst);
-	      ch = 0;
+	      while (counter > 0)
+		{
+		  counter--;
+		  DECODE_ADD_BINARY_CHAR
+		    ((unsigned char)(cpos >> (counter * 8)), dst);
+		}
+	      cpos = 0;
 	    }
 
 	  /* If we just saw a single-shift character, dump it out.
@@ -4906,7 +4913,13 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 	       to preserve it for the output. */
 	    {
 	      COMPOSE_FLUSH_CHARS (str, dst);
-	      DECODE_OUTPUT_PARTIAL_CHAR (ch);
+	      while (counter > 0)
+		{
+		  counter--;
+		  DECODE_ADD_BINARY_CHAR
+		    ((unsigned char)(cpos >> (counter * 8)), dst);
+		}
+	      cpos = 0;
 	      DECODE_ADD_BINARY_CHAR (c, dst);
 	    }
 
@@ -4928,26 +4941,19 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 		}
 
 #ifdef UTF2000
-	      if (XCHARSET_DIMENSION (charset) == 1)
-		{
-		  if (ch)
-		    {
-		      COMPOSE_FLUSH_CHARS (str, dst);
-		      DECODE_ADD_BINARY_CHAR (ch, dst);
-		      ch = 0;
-		    }
-		  COMPOSE_ADD_CHAR (str,
-				    MAKE_CHAR (charset, c & 0x7F, 0), dst);
-		}
-	      else if (ch)
+	      counter++;
+	      if (XCHARSET_DIMENSION (charset) == counter)
 		{
 		  COMPOSE_ADD_CHAR (str,
-				    MAKE_CHAR (charset, ch & 0x7F, c & 0x7F),
+				    DECODE_CHAR (charset,
+						 ((cpos & 0x7F7F7F) << 8)
+						 | (c & 0x7F)),
 				    dst);
-		  ch = 0;
+		  cpos = 0;
+		  counter = 0;
 		}
 	      else
-		ch = c;
+		cpos = (cpos << 8) | c;
 #else
 	      lb = XCHARSET_LEADING_BYTE (charset);
 	      switch (XCHARSET_REP_BYTES (charset))
@@ -5000,7 +5006,7 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
 #endif
 	    }
 
-	  if (!ch)
+	  if (!cpos)
 	    flags &= CODING_STATE_ISO2022_LOCK;
 	}
 
@@ -5010,10 +5016,11 @@ decode_coding_iso2022 (Lstream *decoding, const unsigned char *src,
   if (flags & CODING_STATE_END)
     {
       COMPOSE_FLUSH_CHARS (str, dst);
-      DECODE_OUTPUT_PARTIAL_CHAR (ch);
+      DECODE_OUTPUT_PARTIAL_CHAR (cpos);
     }
-  str->flags = flags;
-  str->ch    = ch;
+  str->flags   = flags;
+  str->cpos    = cpos;
+  str->counter = counter;
 }
 
 
@@ -5124,7 +5131,7 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
   int i;
   Lisp_Object charset = str->iso2022.current_charset;
   int half = str->iso2022.current_half;
-  unsigned int byte1, byte2;
+  int code_point;
 
   if (ch <= 0x7F)
     {
@@ -5186,8 +5193,6 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       reg = -1;
       for (i = 0; i < 4; i++)
 	{
-	  int code_point;
-
 	  if ((CHARSETP (charset = str->iso2022.charset[i])
 	       && ((code_point = charset_code_point (charset, ch)) >= 0))
 	      ||
@@ -5196,16 +5201,6 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
 	       && ((code_point = charset_code_point (charset, ch)) >= 0)))
 	    {
-	      if (XCHARSET_DIMENSION (charset) == 1)
-		{
-		  byte1 = code_point;
-		  byte2 = 0;
-		}
-	      else /* if (XCHARSET_DIMENSION (charset) == 2) */
-		{
-		  byte1 = code_point >> 8;
-		  byte2 = code_point & 255;
-		}
 	      reg = i;
 	      break;
 	    }
@@ -5217,18 +5212,18 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
 
 	  while (!EQ (Vdefault_coded_charset_priority_list, Qnil))
 	    {
-	      BREAKUP_CHAR (ch, charset, byte1, byte2);
+	      code_point = ENCODE_CHAR (ch, charset);
 	      if (XCHARSET_FINAL (charset))
 		goto found;
 	      Vdefault_coded_charset_priority_list
 		= Fcdr (Fmemq (XCHARSET_NAME (charset),
 			       Vdefault_coded_charset_priority_list));
 	    }
-	  BREAKUP_CHAR (ch, charset, byte1, byte2);
+	  code_point = ENCODE_CHAR (ch, charset);
 	  if (!XCHARSET_FINAL (charset))
 	    {
 	      charset = Vcharset_ascii;
-	      byte1 = '~';
+	      code_point = '~';
 	    }
 	found:
 	  Vdefault_coded_charset_priority_list
@@ -5309,11 +5304,22 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       switch (XCHARSET_DIMENSION (charset))
 	{
 	case 1:
-	  Dynarr_add (dst, byte1 | charmask);
+	  Dynarr_add (dst, (code_point & 0xFF) | charmask);
 	  break;
 	case 2:
-	  Dynarr_add (dst, byte1 | charmask);
-	  Dynarr_add (dst, byte2 | charmask);
+	  Dynarr_add (dst, ((code_point >> 8) & 0xFF) | charmask);
+	  Dynarr_add (dst, ( code_point       & 0xFF) | charmask);
+	  break;
+	case 3:
+	  Dynarr_add (dst, ((code_point >> 16) & 0xFF) | charmask);
+	  Dynarr_add (dst, ((code_point >>  8) & 0xFF) | charmask);
+	  Dynarr_add (dst, ( code_point        & 0xFF) | charmask);
+	  break;
+	case 4:
+	  Dynarr_add (dst, ((code_point >> 24) & 0xFF) | charmask);
+	  Dynarr_add (dst, ((code_point >> 16) & 0xFF) | charmask);
+	  Dynarr_add (dst, ((code_point >>  8) & 0xFF) | charmask);
+	  Dynarr_add (dst, ( code_point        & 0xFF) | charmask);
 	  break;
 	default:
 	  abort ();
@@ -5355,7 +5361,7 @@ decode_coding_no_conversion (Lstream *decoding, const unsigned char *src,
   unsigned char c;
   struct decoding_stream *str = DECODING_STREAM_DATA (decoding);
   unsigned int flags  = str->flags;
-  unsigned int ch     = str->ch;
+  unsigned int cpos   = str->cpos;
   eol_type_t eol_type = str->eol_type;
 
   while (n--)
@@ -5367,10 +5373,10 @@ decode_coding_no_conversion (Lstream *decoding, const unsigned char *src,
     label_continue_loop:;
     }
 
-  DECODE_HANDLE_END_OF_CONVERSION (flags, ch, dst);
+  DECODE_HANDLE_END_OF_CONVERSION (flags, cpos, dst);
 
   str->flags = flags;
-  str->ch    = ch;
+  str->cpos  = cpos;
 }
 
 static void
