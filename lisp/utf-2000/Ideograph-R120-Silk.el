@@ -4285,6 +4285,7 @@
     (shinjigen-2	. 6045)
     (japanese-jisx0208-1978	. #x4064)	; ø»‚ª¥
     (japanese-jisx0208		. #x4064)	; ø»†¾­
+    (korean-ksc5601		. #x6F3E)	; ø»Š
     (japanese-jisx0208-1990	. #x4064)	; ø½Š¤¡
     (ideograph-daikanwa		. 49469)	; ø¸Œ„½
     ))
