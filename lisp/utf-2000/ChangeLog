@@ -1,4 +1,28 @@
+2004-03-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+663C): Use `->subsumptive' for M-07705,
+	M-13886 and C3-2C37.
+	(C6-3836): Unify U-0002F8CC and M-13928; use `->confusing' instead
+	of `->same' for M-14294; add `->same' for U-00026618; add
+	`<-large-seal' for M-13948.
+
 2004-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (M-13027): Unify U-00022E85, C5-7347 and
+	H5-EFE7.
+	(U-00022E85): Unify M-13027; use `->same@unknown' instead of
+	`->same' for U+7C61.
+
+	* Ideograph-R045-Sprout.el (M-07853): Moved into U-00021D18
+	instead of using `->same' for M-00157.
+
+	* Ideograph-R036-Evening.el (U+68A6): Modify
+	`ideographic-radical*sources' in `->subsumptive'.
+
+	* Ideograph-R004-Slash.el (U-00021D18): Use `->subsumptive' for
+	M-00157 and M-07853 instead of `->same' for M-07853; use
+	`<-original-ideograph*sources' instead of char-ref in
+	`<-original-ideograph'.
 
 	* Ideograph-R075-Tree.el (U-00023484): Add M-14870; use
 	`->subsumptive'.
