@@ -83,7 +83,8 @@
     (chinese-cns11643-4 . #x276E)	; ø»—ª©
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269C7)	; ð¦§‡
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (ideograph-daikanwa . 30280)	; ø¸‡™ˆ
@@ -94,9 +95,11 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
     (chinese-cns11643-6 . #x3434)	; ø»œ½
+    (ucs		. #x269C7)	; ð¦§‡
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269C8)	; ð¦§ˆ
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30281)	; ø¸‡™‰
@@ -107,9 +110,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-4 . #x2F4E)	; ø»—µ¹
+    (ucs		. #x269C8)	; ð¦§ˆ
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269CE)	; ð¦§Ž
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30282)	; ø¸‡™Š
@@ -120,6 +125,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3B44)	; ø»œ›Ÿ
+    (ucs		. #x269CE)	; ð¦§Ž
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -155,7 +161,8 @@
     (chinese-cns11643-1 . #x576B)	; ø»’’º
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269C9)	; ð¦§‰
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30284)	; ø¸‡™Œ
@@ -166,6 +173,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-4 . #x2F4D)	; ø»—µ¸
+    (ucs		. #x269C9)	; ð¦§‰
     ))
 (define-char
   '((=>ucs		. #x654C)	; æ•Œ
@@ -175,7 +183,8 @@
     (ideograph-daikanwa . 30285)	; ø¸‡™
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269CA)	; ð¦§Š
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30286)	; ø¸‡™Ž
@@ -186,6 +195,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3B42)	; ø»œ›
+    (ucs		. #x269CA)	; ð¦§Š
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -203,7 +213,8 @@
     (chinese-cns11643-3 . #x3353)	; ø»•±²
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269CF)	; ð¦§
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30288)	; ø¸‡™
@@ -214,9 +225,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-5 . #x2F73)	; ø»š€¢
+    (ucs		. #x269CF)	; ð¦§
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269D0)	; ð¦§
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30289)	; ø¸‡™‘
@@ -227,6 +240,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-5 . #x2F74)	; ø»š€£
+    (ucs		. #x269D0)	; ð¦§
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -244,7 +258,8 @@
     (chinese-cns11643-3 . #x3354)	; ø»•±³
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269CC)	; ð¦§Œ
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (ideograph-daikanwa . 30293)	; ø¸‡™•
@@ -255,9 +270,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
     (chinese-cns11643-6 . #x3B43)	; ø»œ›ž
+    (ucs		. #x269CC)	; ð¦§Œ
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269D3)	; ð¦§“
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (ideograph-daikanwa . 30294)	; ø¸‡™–
@@ -268,6 +285,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (chinese-cns11643-6 . #x436D)	; ø»œ§¸
+    (ucs		. #x269D3)	; ð¦§“
     ))
 (define-char
   '((=>ucs		. #x8211)	; èˆ‘
@@ -315,9 +333,11 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
     (chinese-cns11643-6 . #x436C)	; ø»œ§·
+    (ucs		. #x269D1)	; ð¦§‘
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269D5)	; ð¦§•
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 30298)	; ø¸‡™š
@@ -328,9 +348,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (chinese-cns11643-6 . #x4D60)	; ø»œ¶—
+    (ucs		. #x269D5)	; ð¦§•
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269D6)	; ð¦§–
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 30299)	; ø¸‡™›
@@ -341,6 +363,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (chinese-cns11643-6 . #x4D5F)	; ø»œ¶–
+    (ucs		. #x269D6)	; ð¦§–
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -369,7 +392,8 @@
     (ucs			. #x8212)	; èˆ’
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269D7)	; ð¦§—
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (ideograph-daikanwa . 30301)	; ø¸‡™
@@ -380,9 +404,11 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (chinese-cns11643-6 . #x4D61)	; ø»œ¶˜
+    (ucs		. #x269D7)	; ð¦§—
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269DD)	; ð¦§
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (japanese-jisx0213-2	. #x755F)	; ø»¦™–
@@ -394,6 +420,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-5 . #x4929)	; ø»š¥¤
+    (ucs		. #x269DD)	; ð¦§
     ))
 (define-char
   '((=>ucs		. #x8F9E)	; è¾ž
@@ -425,7 +452,8 @@
     (chinese-cns11643-3 . #x4425)	; ø»–Š‚
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269DF)	; ð¦§Ÿ
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30308)	; ø¸‡™¤
@@ -436,9 +464,11 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-4 . #x464D)	; ø»˜—ª
+    (ucs		. #x269DF)	; ð¦§Ÿ
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E5)	; ð¦§¥
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30309)	; ø¸‡™¥
@@ -449,6 +479,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-6 . #x607E)	; ø»’¯
+    (ucs		. #x269E5)	; ð¦§¥
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -504,7 +535,8 @@
     (chinese-cns11643-1 . #x6A59)	; ø»’®¢
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E1)	; ð¦§¡
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30313)	; ø¸‡™©
@@ -515,6 +547,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-4 . #x464E)	; ø»˜—«
+    (ucs		. #x269E1)	; ð¦§¡
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -544,7 +577,8 @@
     (chinese-cns11643-2 . #x4D32)	; ø»”™
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E2)	; ð¦§¢
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30315)	; ø¸‡™«
@@ -555,9 +589,11 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
     (chinese-cns11643-6 . #x5729)	; ø»„Œ
+    (ucs		. #x269E2)	; ð¦§¢
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E6)	; ð¦§¦
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30316)	; ø¸‡™¬
@@ -568,9 +604,11 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-6 . #x607D)	; ø»’®
+    (ucs		. #x269E6)	; ð¦§¦
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E4)	; ð¦§¤
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (ideograph-daikanwa . 30317)	; ø¸‡™­
@@ -581,6 +619,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 14)
     (chinese-cns11643-6 . #x607C)	; ø»’­
+    (ucs		. #x269E4)	; ð¦§¤
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -598,7 +637,8 @@
     (chinese-cns11643-4 . #x4C64)	; ø»˜ µ
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269EB)	; ð¦§«
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 30319)	; ø¸‡™¯
@@ -609,9 +649,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (chinese-cns11643-7 . #x2748)	; ø»žˆ
+    (ucs		. #x269EB)	; ð¦§«
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269E7)	; ð¦§§
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 30320)	; ø¸‡™°
@@ -622,9 +664,11 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (chinese-cns11643-7 . #x2747)	; ø»žˆŽ
+    (ucs		. #x269E7)	; ð¦§§
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269EA)	; ð¦§ª
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 30321)	; ø¸‡™±
@@ -635,6 +679,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (chinese-cns11643-7 . #x2749)	; ø»žˆ
+    (ucs		. #x269EA)	; ð¦§ª
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -671,7 +716,8 @@
     (ucs			. #x8217)	; èˆ—
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269ED)	; ð¦§­
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 30324)	; ø¸‡™´
@@ -682,9 +728,11 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x3178)	; ø»ž—«
+    (ucs		. #x269ED)	; ð¦§­
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269EE)	; ð¦§®
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 30325)	; ø¸‡™µ
@@ -695,6 +743,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (chinese-cns11643-5 . #x573E)	; ø»šº
+    (ucs		. #x269EE)	; ð¦§®
     ))
 (define-char
   '((=>ucs		. #x8218)	; èˆ˜
@@ -717,7 +766,8 @@
     (ucs		. #x8218)	; èˆ˜
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F0)	; ð¦§°
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (ideograph-daikanwa . 30327)	; ø¸‡™·
@@ -728,9 +778,11 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
     (chinese-cns11643-7 . #x3179)	; ø»ž—¬
+    (ucs		. #x269F0)	; ð¦§°
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F1)	; ð¦§±
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (ideograph-daikanwa . 30328)	; ø¸‡™¸
@@ -741,9 +793,11 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
     (chinese-cns11643-7 . #x3A68)	; ø»ž¤©
+    (ucs		. #x269F1)	; ð¦§±
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F4)	; ð¦§´
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (ideograph-daikanwa . 30329)	; ø¸‡™¹
@@ -754,6 +808,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (chinese-cns11643-5 . #x6374)	; ø»›Œ»
+    (ucs		. #x269F4)	; ð¦§´
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -773,7 +828,8 @@
     (chinese-cns11643-3 . #x5868)	; ø»–¨
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F5)	; ð¦§µ
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (ideograph-daikanwa . 30331)	; ø¸‡™»
@@ -784,6 +840,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
     (chinese-cns11643-7 . #x422A)	; ø»ž¯›
+    (ucs		. #x269F5)	; ð¦§µ
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -791,6 +848,7 @@
     (total-strokes	 . 18)
     (chinese-cns11643-7 . #x4229)	; ø»ž¯š
     (ideograph-daikanwa . 30332)	; ø¸‡™¼
+    (ucs		. #x269F6)	; ð¦§¶
     ))
 (define-char
   '((ideographic-radical . 135)	; â¾†
@@ -809,7 +867,8 @@
     (chinese-cns11643-3 . #x5A79)	; ø»–«ª
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F8)	; ð¦§¸
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (ideograph-daikanwa . 30334)	; ø¸‡™¾
@@ -820,9 +879,11 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 20)
     (chinese-cns11643-5 . #x6D36)	; ø»›š©
+    (ucs		. #x269F8)	; ð¦§¸
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269F9)	; ð¦§¹
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
     (ideograph-daikanwa . 30335)	; ø¸‡™¿
@@ -833,9 +894,11 @@
     (ideographic-strokes . 15)
     (total-strokes	 . 21)
     (chinese-cns11643-5 . #x707B)	; ø»› ˆ
+    (ucs		. #x269F9)	; ð¦§¹
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269FB)	; ð¦§»
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
     (ideograph-daikanwa . 30336)	; ø¸‡š€
@@ -846,9 +909,11 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
     (chinese-cns11643-7 . #x5C4A)	; ø»Ÿ–‡
+    (ucs		. #x269FB)	; ð¦§»
     ))
 (define-char
-  '((ideographic-radical . 135)	; â¾†
+  '((=>ucs		. #x269FC)	; ð¦§¼
+    (ideographic-radical . 135)	; â¾†
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
     (ideograph-daikanwa . 30337)	; ø¸‡š
@@ -859,4 +924,5 @@
     (ideographic-strokes . 17)
     (total-strokes	 . 23)
     (chinese-cns11643-5 . #x763E)	; ø»›§¿
+    (ucs		. #x269FC)	; ð¦§¼
     ))
