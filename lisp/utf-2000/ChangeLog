@@ -1,3 +1,13 @@
+2004-03-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U-00023484): Add M-14870; use
+	`->subsumptive'.
+	(U+68A6): Unify J0-546D instead of using `->same'; use
+	`->subsumptive' for M-05784 and M-14871.
+
+	* Ideograph-R044-Corpse.el (M-07705): Moved into U+663C.
+	(C3-2C37): Likewise.
+
 2004-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R036-Evening.el (J0-546D): Unify U+68A6 instead of
