@@ -1,3 +1,11 @@
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.3 "Academic Rigor" is released.
+
+2001-05-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs.mak: Use the EMACS_PATCH_LEVEL define in compiles.
+
 2001-05-10  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.2 "Developer-Friendly Unix APIs" is released.
