@@ -1,3 +1,10 @@
+1999-08-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (struct decoding_stream): New member `counter'.
+	(reset_decoding_stream): Initialize `counter'.
+	(decode_coding_ucs4): Use `counter'.
+	(decode_coding_utf8): Likewise.
+
 1999-07-30  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.19 is released
