@@ -556,12 +556,23 @@
     (ucs		. #x21951)	; ð¡¥‘
     ))
 (define-char
-  '((ideographic-radical . 39)	; â¼¦
+  '((=>ucs		. #x200F1)	; ð ƒ±
+    (ideographic-radical . 39)	; â¼¦
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
+    (->identical
+     ((ucs		  . #x200F1)	; ð ƒ±
+      ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ucs		  . #x5B5B)	; å­›
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (chinese-cns11643-4 . #x2624)	; ø»—¨
     (ideograph-daikanwa . 06971)	; ø¸¬»
-    (ucs		. #x200F1)	; ð ƒ±
     ))
 (define-char
   '((ideographic-radical . 39)	; â¼¦
