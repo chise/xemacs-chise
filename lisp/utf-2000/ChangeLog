@@ -1,5 +1,14 @@
 2004-11-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R012-Eight.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+	(U-0002052C): Unify M-01496.
+	(U-00020529): Don't map to M-01498; use `<-unknown' instead.
+	(U-00020530): Unify M-01498.
+	(U-00020531): Don't map to BC-8556.
+
 	* Ideograph-R010-Legs.el, Ideograph-R005-Second.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
