@@ -3511,7 +3511,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    !NILP (Fstring_match
 		   (build_string ("^\\(<-\\|->\\)\\(simplified"
 				  "\\|same\\|vulgar\\|wrong"
-				  "\\|original"
+				  "\\|original\\|ancient"
 				  "\\)[^*]*$"),
 		    Fsymbol_name (attribute),
 		    Qnil, Qnil)) )
@@ -3835,7 +3835,7 @@ Save values of ATTRIBUTE into database file.
 	   || !NILP (Fstring_match
 		     (build_string ("^\\(<-\\|->\\)\\(simplified"
 				    "\\|same\\|vulgar\\|wrong"
-				    "\\|original"
+				    "\\|original\\|ancient"
 				    "\\)[^*]*$"),
 		      Fsymbol_name (attribute),
 		      Qnil, Qnil)) )

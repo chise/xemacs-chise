@@ -26,12 +26,15 @@
       ))
     (->mistakable*sources
      kangxi)
-    (<-ancient-ideograph
-     ((=daikanwa	  . 04969)	; &I-M-04969;
+    (<-ancient
+     ((=ucs		  . #x5764)	; 坤
+      (=daikanwa	  . 04969)	; &I-M-04969;
       ))
-    (<-ancient-ideograph*sources
-     yupian)
-    (=daikanwa		. 08670)	; &M-08670;
+    (<-ancient*sources
+     yupian daikanwa)
+    (=gt		. 10943)	; &GT-10943;
+    (=gt-pj-3		. #x3D72)	; &GT-10943; [29-82]
+    (=daikanwa		. 08670)	; &I-M-08670;
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮
@@ -41,6 +44,8 @@
     (=ucs		. #x21FE8)	; 𡿨
     (=cns11643-4	. #x2125)	; &I-C4-2125; [01-05]
     (=big5-cdp		. #x8DEA)	; &I-CDP-8DEA;
+    (=gt		. 10940)	; &I-GT-10940;
+    (=gt-pj-3		. #x3D73)	; &I-GT-10940; [29-83]
     (=daikanwa		. 08671)	; &I-M-08671;
     ))
 (define-char
@@ -51,6 +56,9 @@
     (=ucs		. #x5DDC)	; 巜
     (=cns11643-4	. #x212C)	; &I-C4-212C; [01-12]
     (=big5-cdp		. #x8978)	; &I-CDP-8978;
+    (=gt		. 10941)	; &I-GT-10941;
+    (=gt-k		. 00158)	; &I-GT-K00158;
+    (=gt-pj-3		. #x3D74)	; &I-GT-10941; [29-84]
     (=daikanwa		. 08672)	; &I-M-08672;
     ))
 (define-char
@@ -80,7 +88,9 @@
       ))
     (<-simplified@JP/old*sources
      daikanwa)
-    (=big5-cdp		. #x8BED)	; &CDP-8BED;
+    (=big5-cdp		. #x8BED)	; &GT-10942;
+    (=gt		. 10942)	; &I-GT-10942;
+    (=gt-pj-3		. #x3D75)	; &I-GT-10942; [29-85]
     (=daikanwa		. 08674)	; &I-M-08674;
     ))
 (define-char
@@ -89,22 +99,22 @@
     (total-strokes	 . 4)
     (=ucs		. #x21FE7)	; 𡿧
     (=cns11643-6	. #x216D)	; &I-C6-216D; [01-77]
+    (=gt		. 10946)	; &I-GT-10946;
+    (=gt-k		. 00728)	; &I-GT-K00728;
+    (=gt-pj-3		. #x3D76)	; &I-GT-10946; [29-86]
     (=daikanwa		. 08675)	; &I-M-08675;
     ))
 (define-char
-  '((=>ucs		. #x21FE9)	; 𡿩
-    (ideographic-radical . 47)	; ⼮
-    (ideographic-strokes . 3)
-    (total-strokes	 . 6)
-    (=daikanwa		. 08676)	; &M-08676;
-    ))
-(define-char
-  '((morohashi-daikanwa	8676 0 1)
-    (ideographic-radical . 47)	; ⼮
+  '((ideographic-radical . 47)	; ⼮
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x21FE9)	; 𡿩
-    (=cns11643-4	. #x2262)	; &I-C4-2262; [02-66]
+    (->subsumptive
+     ((=daikanwa	  . 08676)	; &M-08676;
+      )
+     ((=cns11643-4	  . #x2262)	; &C4-2262; [02-66]
+      (=ucs@iso		  . #x21FE9)	; &C4-2262;
+      ))
     ))
 (define-char
   '((ideographic-radical . 47)	; ⼮

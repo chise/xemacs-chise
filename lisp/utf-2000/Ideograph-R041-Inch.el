@@ -805,10 +805,11 @@
     (->subsumptive
      ((ideographic-strokes . 14)
       (total-strokes	   . 17)
-      (<-ancient-ideograph
-       ((=daikanwa	    . 07465)	; &I-M-07465;
+      (<-ancient
+       ((=ks-x1001	    . #x5374)	; &M-07465; [51-84]
+	(=daikanwa	    . 07465)	; &I-M-07465;
 	))
-      (<-ancient-ideograph*sources
+      (<-ancient*sources
        daikanwa)
       (=daikanwa	  . 07468)	; &M-07468;
       (mojikyo		  . 007468)	; &MCS-60001D2C;
@@ -838,8 +839,9 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (<-ancient-ideograph
-     ((=daikanwa	  . 07465)	; &I-M-07465;
+    (<-ancient
+     ((=ks-x1001	  . #x5374)	; &M-07465; [51-84]
+      (=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (=ucs		. #x21B51)	; 𡭑
     (=cns11643-7	. #x4659)	; &I-C7-4659; [38-57]

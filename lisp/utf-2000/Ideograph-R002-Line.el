@@ -21,49 +21,50 @@
   '((ideographic-radical . 2)	; ⼁
     (ideographic-strokes . 1)
     (total-strokes	 . 2)
-    (hanyu-dazidian	1 49 2)
-    (shinjigen-1	. 31)
     (=ucs		. #x4E29)	; 丩
-    (=jis-x0213-2-2000	. #x2125)	; &I-JX2-2125; [01-05]
-    (=big5-cdp		. #x8BA3)	; &I-CDP-8BA3;
-    (=gt		. 00102)	; &I-GT-00102;
-    (=gt-k		. 00069)	; &I-GT-K00069;
-    (=gt-pj-2		. #x3054)	; &I-GT-00102; [16-52]
-    (=daikanwa		. 00068)	; &I-M-00068;
-    (mojikyo		. 000068)	; &MCS-60000044;
+    (->subsumptive
+     ((hanyu-dazidian	  1 49 2)
+      (shinjigen-1	  . 31)
+      (=jis-x0213-2-2000  . #x2125)	; &GT-00102; [01-05]
+      (=big5-cdp	  . #x8BA3)	; &I-CDP-8BA3;
+      (=gt		  . 00102)	; &I-GT-00102;
+      (=gt-k		  . 00069)	; &I-GT-K00069;
+      (=gt-pj-2		  . #x3054)	; &I-GT-00102; [16-52]
+      (=daikanwa	  . 00068)	; &I-M-00068;
+      (=ucs@unicode	  . #x4E29)	; &GT-00102;
+      (mojikyo		  . 000068)	; &MCS-60000044;
+      )
+     ((=cns11643-4	  . #x2127)	; &GT-K00068; [01-07]
+      (=gt-k		  . 00068)	; &I-GT-K00068;
+      (=gt-pj-k1	  . #x735C)	; &GT-K00068; [83-60]
+      (=ucs@cns		  . #x4E29)	; &GT-K00068;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x4E29)	; 丩
-    (morohashi-daikanwa	68 0 0)
-    (ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (=cns11643-4	. #x2127)	; &GT-K00068; [01-07]
-    (=gt-k		. 00068)	; &I-GT-K00068;
-    (=gt-pj-k1		. #x735C)	; &GT-K00068; [83-60]
-    (=ucs@cns		. #x4E29)	; &GT-K00068;
-    ))
-(define-char
-  '((ideographic-radical . 2)	; ⼁
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (->same
-     ((=cns11643-6	  . #x212C)	; &M-02775; [01-12]
-      (=daikanwa	  . 02775)	; &I-M-02775;
+  '((total-strokes	 . 2)
+    (<-ancient
+     ((=ucs		  . #x535C)	; 卜
+      (=daikanwa	  . 02774)	; &I-M-02774;
       ))
-    (->same*sources
-     daikanwa)
-    (<-ancient-ideograph
-     ((=daikanwa	  . 02774)	; &I-M-02774;
-      ))
-    (<-ancient-ideograph*sources
-     daikanwa)
+    (<-ancient*sources
+     shuowen daikanwa)
     (hanyu-dazidian	1 28 4)
     (=ucs		. #x20061)	; 𠁡
+    (=cns11643-6	. #x212C)	; &I-C6-212C; [01-12]
     (=big5-cdp		. #x87B1)	; &I-CDP-87B1;
     (=gt		. 00103)	; &I-GT-00103;
     (=gt-pj-2		. #x3055)	; &I-GT-00103; [16-53]
-    (=daikanwa		. 00069)	; &I-M-00069;
+    (->subsumptive
+     ((ideographic-radical . 2)	; ⼁
+      (ideographic-strokes . 1)
+      (ideographic-radical*sources daikanwa=00069 gt ucs)
+      (=daikanwa	  . 00069)	; &M-00069;
+      )
+     ((ideographic-radical . 25)	; ⼘
+      (ideographic-strokes . 0)
+      (ideographic-radical*sources daikanwa=02775 cns11643)
+      (=daikanwa	  . 02775)	; &M-02775;
+      ))
     ))
 (define-char
   '((ideographic-radical . 2)	; ⼁

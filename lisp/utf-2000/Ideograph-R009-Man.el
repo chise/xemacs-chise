@@ -1613,25 +1613,26 @@
     (mojikyo		. 000394)	; &MCS-6000018A;
     ))
 (define-char
-  '((=>ucs		. #x36A2)	; 㚢
-    (ideographic-radical . 9)	; ⼈
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-ancient-ideograph
-     (:sources	(morohashi-daikanwa)
-      :char	((=daikanwa	     . 00630)	; &I-M-00630;
-		 )
+    (<-denotational
+     ((=ucs		  . #x36A2)	; 㚢
       ))
-    (comment		. "M-06040 is different character.")
-    (=daikanwa		. 00395)	; &M-00395;
-    ))
-(define-char
-  '((=>ucs		. #x36A2)	; 㚢
-    (morohashi-daikanwa	395 0 1)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (=cns11643-3	. #x2174)	; &C3-2174; [01-84]
+    (->subsumptive
+     ((->mistakable
+       ((=daikanwa	    . 06040)	; &M-06040;
+	))
+      (<-ancient
+       ((=ucs		    . #xFA30)	; 侮
+	(=daikanwa	    . 00630)	; &I-M-00630;
+	))
+      (<-ancient*sources
+       daikanwa)
+      (=daikanwa	  . 00395)	; &M-00395;
+      )
+     ((=cns11643-3	  . #x2174)	; &C3-2174; [01-84]
+      ))
     ))
 (define-char
   '((=>ucs		. #x201B2)	; 𠆲
@@ -7534,7 +7535,7 @@
 	  )
 	 ((=ucs		      . #x53E3)	; 口
 	  )
-	 ((=big5-cdp	      . #x8BED)	; &CDP-8BED;
+	 ((=big5-cdp	      . #x8BED)	; &GT-10942;
 	  (=daikanwa	      . 08674)	; &I-M-08674;
 	  ))
 	))
@@ -7558,12 +7559,15 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
-     (:sources	(shinjigen-1)
-      :char	((shinjigen-1	     . 211)
-		 (=daikanwa	     . 00577)	; &I-M-00577;
-		 )
+    (<-ancient
+     ((shinjigen-1	  . 211)
+      (=jis-x0208	  . #x3426)	; &GT-00718; [20-06]
+      (=gb2312		  . #x5929)	; &I-G0-5929; [57-09]
+      (=ks-x1001	  . #x4A49)	; &I-K0-4A49; [42-41]
+      (=daikanwa	  . 00577)	; &I-M-00577;
       ))
+    (<-ancient*sources
+     shinjigen-1)
     (hanyu-dazidian	1 148 4)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -11256,44 +11260,43 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (hanyu-dazidian	1 160 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EBB)	; 亻
-      )
-     ((=ucs		  . #x5446)	; 呆
-      ))
-    (shinjigen-1	. 273)
-    (shinjigen-2	. 273)
     (=ucs		. #x4FDD)	; 保
-    (=jis-x0208		. #x4A5D)	; &I-J90-4A5D; [42-61]
-    (=gb2312		. #x3123)	; &I-G0-3123; [17-03]
-    (=ks-x1001		. #x5C41)	; &I-K0-5C41; [60-33]
-    (=big5		. #xAB4F)	; &I-B-AB4F;
-    (=gt		. 00905)	; &I-GT-00905;
-    (=gt-k		. 05181)	; &I-GT-K05181;
-    (=gt-pj-1		. #x4A5D)	; &I-GT-00905; [42-61]
-    (=daikanwa		. 00702)	; &I-M-00702;
-    (mojikyo		. 000702)	; &MCS-600002BE;
-    ))
-(define-char
-  '((=>ucs		. #x4FDD)	; 保
-    (morohashi-daikanwa	702 0 1)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 7)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
+    (->subsumptive
+     ((hanyu-dazidian	  1 160 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x4EBB)	; 亻
+	)
+       ((=jis-x0208	    . #x4A72)	; &GT-04295; [42-82]
+	(=gb2312	    . #x3474)	; &I-G0-3474; [20-84]
+	(=daikanwa	    . 03395)	; &I-M-03395;
+	))
+      (shinjigen-1	  . 273)
+      (shinjigen-2	  . 273)
+      (=jis-x0208	  . #x4A5D)	; &GT-00905; [42-61]
+      (=gb2312		  . #x3123)	; &I-G0-3123; [17-03]
+      (=ks-x1001	  . #x5C41)	; &I-K0-5C41; [60-33]
+      (=big5		  . #xAB4F)	; &I-B-AB4F;
+      (=gt		  . 00905)	; &I-GT-00905;
+      (=gt-k		  . 05181)	; &I-GT-K05181;
+      (=gt-pj-1		  . #x4A5D)	; &I-GT-00905; [42-61]
+      (=daikanwa	  . 00702)	; &I-M-00702;
+      (=ucs@unicode	  . #x4FDD)	; &GT-00905;
+      (mojikyo		  . 000702)	; &MCS-600002BE;
       )
-     ((name		  . "CJK RADICAL PERSON")
-      (=ucs		  . #x2E85)	; ⺅
-      )
-     ((=cns11643-1	  . #x4944)	; &C1-4944; [41-36]
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((name		    . "CJK RADICAL PERSON")
+	(=ucs		    . #x2E85)	; ⺅
+	)
+       ((=cns11643-1	    . #x4944)	; &C1-4944; [41-36]
+	))
+      (=cns11643-1	  . #x4F71)	; &C1-4F71; [47-81]
       ))
-    (=cns11643-1	. #x4F71)	; &C1-4F71; [47-81]
     ))
 (define-char
   '((ideographic-radical . 9)	; ⼈
@@ -20812,46 +20815,27 @@
     (mojikyo		. 000980)	; &MCS-600003D4;
     ))
 (define-char
-  '((=>ucs		. #x20300)	; 𠌀
-    (ideographic-radical . 9)	; ⼈
+  '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-ancient-ideograph
-     (:sources	(jiyun morohashi-daikanwa)
-      :char	((=daikanwa	     . 00702)	; &I-M-00702;
-		 )
-      ))
-    (=daikanwa		. 00981)	; &M-00981;
-    ))
-(define-char
-  '((=>ucs		. #x20300)	; 𠌀
-    (morohashi-daikanwa	981 0 0)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 10)
-    (total-strokes	 . 12)
-    (hanyu-dazidian	1 203 16)
-    (=hanziku-1		. #xD04B)	; &HZK01-D04B;
-    ))
-(define-char
-  '((morohashi-daikanwa	981 0 2)
-    (ideographic-radical . 9)	; ⼈
-    (ideographic-strokes . 10)
-    (total-strokes	 . 12)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((=ucs		  . #x4EBB)	; 亻
-      )
-     ((name		  . "CJK RADICAL PAW ONE")
-      (=ucs		  . #x2EA4)	; ⺤
-      )
-     ((=big5-cdp	  . #x8B69)	; &CDP-8B69;
-      )
-     ((=ucs		  . #x4E5B)	; 乛
-      )
-     ((=ucs		  . #x5C0F)	; 小
-      ))
     (=ucs		. #x20300)	; 𠌀
-    (=cns11643-6	. #x4653)	; &I-C6-4653; [38-51]
+    (->subsumptive
+     ((<-ancient
+       ((=jis-x0208	    . #x4A5D)	; &GT-00905; [42-61]
+	(=gb2312	    . #x3123)	; &I-G0-3123; [17-03]
+	(=ks-x1001	    . #x5C41)	; &I-K0-5C41; [60-33]
+	(=daikanwa	    . 00702)	; &I-M-00702;
+	))
+      (<-ancient*sources
+       jiyun daikanwa)
+      (=daikanwa	  . 00981)	; &M-00981;
+      )
+     ((hanyu-dazidian	  1 203 16)
+      (=hanziku-1	  . #xD04B)	; &HZK01-D04B;
+      )
+     ((=cns11643-6	  . #x4653)	; &C6-4653; [38-51]
+      (=ucs@iso		  . #x20300)	; &C6-4653;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	981 0 5)

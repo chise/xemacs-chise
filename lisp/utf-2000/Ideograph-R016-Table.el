@@ -561,41 +561,45 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=daikanwa		. 01762)	; &M-01762;
+    (hanyu-dazidian	1 277 9)
+    (=ucs		. #x20641)	; 𠙁
+    (=daikanwa		. 01762)	; &I-M-01762;
+    (=hanziku-1		. #xDF51)	; &I-HZK01-DF51;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=daikanwa		. 01763)	; &M-01763;
+    (hanyu-dazidian	1 277 13)
+    (=ucs		. #x20642)	; 𠙂
+    (=daikanwa		. 01763)	; &I-M-01763;
+    (=hanziku-1		. #xDF55)	; &I-HZK01-DF55;
     ))
 (define-char
-  '((=>ucs		. #x20AE8)	; 𠫨
-    (ideographic-radical . 16)	; ⼏
+  '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (=daikanwa		. 01764)	; &M-01764;
-    ))
-(define-char
-  '((morohashi-daikanwa	1764 0 0)
-    (ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 5)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	1 386 11)
     (=ucs		. #x20AE8)	; 𠫨
-    (=cns11643-5	. #x233C)	; &I-C5-233C; [03-28]
-    (=hanziku-1		. #xF575)	; &I-HZK01-F575;
+    (->subsumptive
+     ((=daikanwa	  . 01764)	; &M-01764;
+      )
+     ((hanyu-dazidian	  1 386 11)
+      (=cns11643-5	  . #x233C)	; &HZK01-F575; [03-28]
+      (=hanziku-1	  . #xF575)	; &I-HZK01-F575;
+      (=ucs@iso		  . #x20AE8)	; &HZK01-F575;
+      ))
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-ancient-ideograph
+    (<-ancient
      ((shinjigen-1	  . 9211)
-      (=jis-x0208	  . #x4977)	; &I-J90-4977; [41-87]
+      (=jis-x0208	  . #x4977)	; &GT-58717; [41-87]
+      (=ks-x1001	  . #x7926)	; &I-K0-7926; [89-06]
       (=daikanwa	  . 43756)	; &I-M-43756;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shinjigen-1)
     (hanyu-dazidian	1 277 11)
     (=ucs		. #x51EC)	; 凬
@@ -747,10 +751,12 @@
     (ideographic-radical@cns*sources
      daikanwa=01775 cns11643)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
-     ((=daikanwa	  . 09208)	; &I-M-09208;
+    (<-ancient
+     ((=jis-x0208	  . #x3476)	; &M-09208; [20-86]
+      (=ks-x1001	  . #x507A)	; &I-K0-507A; [48-90]
+      (=daikanwa	  . 09208)	; &I-M-09208;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      yupian jiyun daikanwa)
     (hanyu-dazidian	2 1094 6)
     (=ucs		. #x221BB)	; 𢆻
@@ -1200,18 +1206,6 @@
     (hanyu-dazidian	1 277 8)
     (=ucs		. #x2063B)	; 𠘻
     (=hanziku-1		. #xDF50)	; &I-HZK01-DF50;
-    ))
-(define-char
-  '((ideographic-radical . 16)	; ⼏
-    (hanyu-dazidian	1 277 9)
-    (=ucs		. #x20641)	; 𠙁
-    (=hanziku-1		. #xDF51)	; &I-HZK01-DF51;
-    ))
-(define-char
-  '((ideographic-radical . 16)	; ⼏
-    (hanyu-dazidian	1 277 13)
-    (=ucs		. #x20642)	; 𠙂
-    (=hanziku-1		. #xDF55)	; &I-HZK01-DF55;
     ))
 (define-char
   '((ideographic-radical . 16)	; ⼏

@@ -2420,11 +2420,12 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-ancient-ideograph
-     (:sources	(shuowen morohashi-daikanwa)
-      :char	((=daikanwa	     . 02465)	; &I-M-02465;
-		 )
+    (<-ancient
+     ((=ucs		  . #x52F3)	; 勳
+      (=daikanwa	  . 02465)	; &I-M-02465;
       ))
+    (<-ancient*sources
+     shuowen daikanwa)
     (hanyu-dazidian	1 376 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
