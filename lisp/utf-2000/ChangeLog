@@ -1,3 +1,44 @@
+2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R031-Enclosure.el: Use `=jis-x0208@{1978|1983|1990}'
+	instead of `=jis-x0208-{1978|1983|1990}'.
+	(U+570D): Use `->subsumptive'.
+
+	* Ideograph-R013-Down-Box.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Add some GT code points.
+	(U+518D): Changed to an abstract character.
+	(U-0002F815): Unify GT-01999 and GT-K01616 instead of GT-02001;
+	use `<-denotational' for U+518D.
+	(GT-02001): Separated from U-0002F815; use `<-denotational' for
+	U+518D.
+	(U+518E): Use `->subsumptive'.
+	(M-01526): Unify U-0002054C, GT-02004, GT-K02042 and H1-B8A1.
+	(U-0002054D): Use `->subsumptive'.
+	(M-01527): Unify GT-01998.
+	(J0-3A46): Use `<-denotational' for U+518D.
+	(M-01532): Unify U-00020555, GT-02007 and H1-B8A7.
+	(U-00020556): Use `->subsumptive'.
+	(U-0002055B): Likewise.
+	(U+5193): Likewise.
+	(U+5194): Likewise.
+	(U-0002055F): Likewise.
+	(U+34BB): Likewise.
+	(U+5195): Likewise.
+	(U-00020560): Likewise.
+	(M-01546): Use `->mistakable' instead of `comment'; unify
+	GT-02031.
+	(U+34BC): Use `->subsumptive'.
+	(M-01548): Unify U-00020561, GT-02036 and H1-B8C1.
+	(U-00020562): Use `->subsumptive'.
+	(U-00020563): Likewise.
+
+2004-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R001-One.el (BC-88C7): Modify char-specs in
+	`<-ideographic-component-forms'.
+
 2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R029-Again.el: Use `=jis-x0208@{1978|1983|1990}'
