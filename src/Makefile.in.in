@@ -350,7 +350,7 @@ ${PROGNAME}: temacs ${libsrc}DOC $(mo_file) ${other_files} update-elc.stamp
 
 fastdump: temacs 
 	@$(RM) ${PROGNAME} && touch SATISFIED
-	-${dumpp_temacs}
+	-${dump_temacs}
 	@if test -f ${PROGNAME}; then if test -f SATISFIED; then \
 		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
 		$(RM) SATISFIED; exit 0; fi; \
@@ -454,10 +454,11 @@ run-temacs: temacs
 ## We have automated tests!!
 testdir = ${srcdir}/../tests/automated
 tests   = \
-	${testdir}/hash-table-tests.el \
-	${testdir}/lisp-tests.el \
-	${testdir}/database-tests.el \
-	${testdir}/byte-compiler-tests.el
+	${testdir}/hash-table-tests.el    \
+	${testdir}/lisp-tests.el          \
+	${testdir}/database-tests.el      \
+	${testdir}/byte-compiler-tests.el \
+	${testdir}/md5-tests.el
 batch_test_emacs = -batch -l ${testdir}/test-harness.el -f batch-test-emacs ${tests}
 
 .PHONY: check check-temacs
@@ -692,7 +693,7 @@ clean: mostlyclean versionclean
 ## Do not use it on development directories!
 distclean: clean
 	$(RM) config.h paths.h Emacs.ad.h \
-	  Makefile Makefile.in GNUmakefile TAGS ${PROGNAME}.*
+	  GNUmakefile Makefile Makefile.in TAGS ${PROGNAME}.*
 realclean: distclean
 versionclean:
 	$(RM) ${PROGNAME} ${PROGNAME}.exe ${libsrc}DOC

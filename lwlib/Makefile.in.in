@@ -86,7 +86,7 @@ mostlyclean:
 	$(RM) liblw.a liblw_pure_*.a *.o *.i core
 clean: mostlyclean
 distclean: clean
-	$(RM) Makefile Makefile.in config.h TAGS
+	$(RM) GNUmakefile Makefile Makefile.in config.h TAGS
 realclean: distclean
 extraclean: distclean
 	$(RM) *~ \#*

@@ -157,9 +157,6 @@ lock_file_1 (char *lfname,int force)
 static int
 current_lock_owner (lock_info_type *owner, char *lfname)
 {
-#ifndef index
-  extern char *rindex (), *index ();
-#endif
   int o, p, len, ret;
   int local_owner = 0;
   char *at, *dot;
@@ -195,8 +192,8 @@ current_lock_owner (lock_info_type *owner, char *lfname)
   
   /* Parse USER@HOST.PID.  If can't parse, return -1.  */
   /* The USER is everything before the first @.  */
-  at = index (lfinfo, '@');
-  dot = rindex (lfinfo, '.');
+  at = strchr (lfinfo, '@');
+  dot = strrchr (lfinfo, '.');
   if (!at || !dot) {
     xfree (lfinfo);
     return -1;

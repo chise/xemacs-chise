@@ -230,7 +230,7 @@ clean: mostlyclean
 	$(RM) ${INSTALLABLES} ${UTILITIES} *.exe
 distclean: clean
 	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS
-	$(RM) Makefile Makefile.in blessmail config.values
+	$(RM) GNUmakefile Makefile Makefile.in blessmail config.values
 realclean: distclean
 extraclean: distclean
 	$(RM) *~ \#*

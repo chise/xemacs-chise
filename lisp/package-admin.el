@@ -123,16 +123,20 @@ The optional `pkg-dir' can be used to override the default package hierarchy
 
 (defun package-admin-install-function-mswindows (file pkg-dir buf)
   "Install function for mswindows"
-  (let ( (default-directory pkg-dir) )
-    (call-process "djtar" nil buf t "-x" file)
-    ))
+  (let ((default-directory (file-name-as-directory pkg-dir)))
+    (unless (file-directory-p default-directory)
+      (make-directory default-directory t))
+    (call-process "djtar" nil buf t "-x" file)))
 
 (defun package-admin-default-install-function (file pkg-dir buf)
   "Default function to install a package.
 Install package FILENAME into directory PKG-DIR, with any messages output
 to buffer BUF."
-  (let (filename)
-    (setq filename (expand-file-name file pkg-dir))
+  (let* ((pkg-dir (file-name-as-directory pkg-dir))
+	 (default-directory pkg-dir)
+	 (filename (expand-file-name file)))
+    (unless (file-directory-p pkg-dir)
+      (make-directory pkg-dir t))
     ;; Don't assume GNU tar.
     (if (shell-command (concat "gunzip -c " filename " | tar xvf -") buf)
 	0
@@ -323,7 +327,8 @@ is the top-level directory under which the package was installed."
     ;; Insure that the current directory doesn't change
     (save-excursion
       (set-buffer buf)
-      (setq default-directory pkg-dir)
+      ;; This is not really needed
+      (setq default-directory (file-name-as-directory pkg-dir))
       (setq case-fold-search t)
       (buffer-disable-undo)
       (goto-char (setq start (point-max)))

@@ -956,7 +956,9 @@ It is used by the functions `file-name-completion' and
 */ );
   Vcompletion_ignored_extensions = Qnil;
 
+#ifndef  WINDOWSNT
   user_cache = NULL;
   user_cache_len = 0;
   user_cache_max = 0;
+#endif
 }

@@ -35,6 +35,7 @@ Boston, MA 02111-1307, USA.  */
 #include "buffer.h"
 #include "console-msw.h"
 #include "glyphs-msw.h"
+#include "elhash.h"
 #include "events.h"
 #include "faces.h"
 #include "frame.h"
@@ -128,8 +129,8 @@ mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
   FRAME_MSWINDOWS_DATA(f)->sizing = 0;
   FRAME_MSWINDOWS_MENU_HASH_TABLE(f) = Qnil;
 #ifdef HAVE_TOOLBARS
-  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) = Fmake_hash_table (make_int (50), 
-							  Qequal);
+  FRAME_MSWINDOWS_TOOLBAR_HASH_TABLE(f) =
+    make_lisp_hash_table (50, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 #endif
 
   /* Will initialize these in WM_SIZE handler. We cannot do it now,

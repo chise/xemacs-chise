@@ -80,7 +80,7 @@ Lisp_Object make_opaque_long (long val);
 void free_opaque_ptr (Lisp_Object ptr);
 
 #define OPAQUE_SIZE(op) XINT ((op)->size_or_chain)
-#define OPAQUE_DATA(op) ((op)->data)
+#define OPAQUE_DATA(op) ((void *) ((op)->data))
 #define OPAQUE_MARKFUN(op) ((op)->markfun)
 #define XOPAQUE_SIZE(op) OPAQUE_SIZE (XOPAQUE (op))
 #define XOPAQUE_DATA(op) OPAQUE_DATA (XOPAQUE (op))

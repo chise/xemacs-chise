@@ -1,3 +1,37 @@
+1998-12-16  Andy Piper  <andy@xemacs.org>
+
+	* XEmacs 21.2.6 is released
+
+1998-12-11  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak (DOC_SRC2): CLASH_DETECTION is not supported under
+ 	native Windows NT.  Therefore src\filelock.c is not to be
+ 	compiled.
+	(TEMACS_OBJS): Consequently, don't link in $(OUTDIR)\filelock.obj.
+
+1998-12-10  Jonathan Harris  <jhar@tardis.ed.ac.uk>
+
+	* xemacs.mak ($(OUTDIR)\alloc.obj): add a dependency on
+ 	puresize-adjust.h to avoid infinite recursion.
+
+1998-12-09  Andy Piper  <andy@xemacs.org>
+
+	* config.h: remove clash detection stuff.
+
+1998-12-07  Martin Buchholz  <martin@xemacs.org>
+
+	* xemacs.mak (TEMACS_OBJS):
+	(DOC_SRC4): 
+	- Remove pure.c, pure.obj
+
+1998-11-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs.mak: Creating minimal versions of Installation,
+ 	Installation.el, and config.values to make
+	(describe-installation) and (config-value ...) work in Windows NT
+ 	native builds.  Incorporating rule for movemail.exe courtesy of
+ 	Andy Piper.
+
 1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.5 is released

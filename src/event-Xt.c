@@ -1756,6 +1756,8 @@ Xt_timeout_to_emacs_event (struct Lisp_Event *emacs_event)
   /* timeout events have nil as channel */
   emacs_event->timestamp  = 0; /* #### wrong!! */
   emacs_event->event.timeout.interval_id = timeout->id;
+  emacs_event->event.timeout.function = Qnil;
+  emacs_event->event.timeout.object = Qnil;
   Blocktype_free (the_Xt_timeout_blocktype, timeout);
 }
 

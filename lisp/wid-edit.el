@@ -302,6 +302,7 @@ new value."
     (and (functionp help-echo)
 	 (setq help-echo (funcall help-echo widget)))
     (when (stringp help-echo)
+      (setq help-echo-owns-message t)
       (display-message 'help-echo help-echo))))
 
 (defsubst widget-handle-help-echo (extent help-echo)
