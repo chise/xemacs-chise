@@ -1931,7 +1931,7 @@
     (ideographic-radical@cns . 1)	; ⼀
     (ideographic-strokes@cns . 7)
     (ideographic-radical@cns*sources
-     cns-11643)
+     cns11643)
     (total-strokes	 . 8)
     (->same-ideograph
      ((ideographic-radical . 1)	; ⼀
@@ -2453,6 +2453,8 @@
     (ideographic-strokes@ucs . 11)
     (ideographic-radical@cns . 1)	; ⼀
     (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 16)
     (hanyu-dazidian	4 2552 4)
     (=ucs		. #x24CCF)	; 𤳏
