@@ -134,6 +134,7 @@
     (=gb2312		. #x635C)	; ø»…§»
     (=iso-ir165		. #x635C)	; ø»Ž‹
     (=jis-x0213-2-2000	. #x702E)	; ø»¦‘
+    (=big5-cdp		. #x89B1)	; ý¢€ˆ¦±
     (=ucs		. #x4E2C)	; ä¸¬
     ))
 (define-char
