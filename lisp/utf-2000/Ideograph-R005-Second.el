@@ -1138,7 +1138,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((ucs		    . #x722B)	; çˆ«
+       ((ucs-jis	    . #x722B)	; ø»‹¡…
 	)
        ((ucs		    . #x53E3)	; å£
 	))
@@ -1157,6 +1157,21 @@
     (ideographic-radical . 5)	; â¼„
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+      (ucs		  . #x2FF0)	; â¿°
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x722B)	; çˆ«
+	)
+       ((ucs		    . #x53E3)	; å£
+	))
+      )
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
     (ideograph-gt-pj-9	. #x507D)	; ý¡€€ƒ¾
     (ideograph-gt	. 00254)	; ý¡€€ƒ¾
     ))
