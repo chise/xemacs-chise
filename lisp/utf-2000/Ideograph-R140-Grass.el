@@ -4315,15 +4315,22 @@
     (ideograph-daikanwa . 30936)	; ø¸‡£˜
     ))
 (define-char
-  '((ideographic-radical . 140)	; â¾‹
+  '((=>ucs		. #x8345)	; è…
+    (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (chinese-cns11643-2 . #x3251)	; ø»“¦Ž
+    (ideograph-daikanwa . 30937)	; ø¸‡£™
+    ))
+(define-char
+  '((morohashi-daikanwa	30937 0 1)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 6)
+    (total-strokes	 . 9)
     (japanese-jisx0208-1978	. #x6829)	; ø»ƒ¤š
     (japanese-jisx0208		. #x6829)	; ø»‡¸¢
     (chinese-isoir165		. #x7E3E)	; ø»Ž·—
-    (chinese-cns11643-2		. #x3251)	; ø»“¦Ž
     (japanese-jisx0208-1990	. #x6829)	; ø½‹ž–
-    (ideograph-daikanwa		. 30937)	; ø¸‡£™
     (ucs			. #x8345)	; è…
     ))
 (define-char
@@ -12490,21 +12497,35 @@
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
-    (chinese-cns11643-1 . #x6A5D)	; ø»’®¦
     (ideograph-daikanwa . 31634)	; ø¸‡®’
     ))
 (define-char
-  '((morohashi-daikanwa	31634 0 1)
+  '((=>ucs		. #x84BF)	; è’¿
+    (morohashi-daikanwa	31634 0 0)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 10)
+    (total-strokes	 . 14)
+    (chinese-cns11643-1 . #x6A5D)	; ø»’®¦
+    ))
+(define-char
+  '((=>ucs		. #x84BF)	; è’¿
+    (morohashi-daikanwa	31634 0 1)
     (ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (japanese-jisx0208-1978	. #x6866)	; ø»ƒ¥—
-    (chinese-gb2312		. #x5D6F)	; ø»…Ÿš
     (japanese-jisx0208		. #x6866)	; ø»‡¹Ÿ
     (korean-ksc5601		. #x7B5A)	; ø»ŠŸ‘
-    (chinese-isoir165		. #x5D6F)	; ø»Ž‡ª
     (japanese-jisx0208-1990	. #x6866)	; ø½‹Ÿ“
-    (ucs			. #x84BF)	; è’¿
+    ))
+(define-char
+  '((morohashi-daikanwa	31634 0 2)
+    (ideographic-radical . 140)	; â¾‹
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (chinese-gb2312	. #x5D6F)	; ø»…Ÿš
+    (chinese-isoir165	. #x5D6F)	; ø»Ž‡ª
+    (ucs		. #x84BF)	; è’¿
     ))
 (define-char
   '((=>ucs		. #x84C0)	; è“€
