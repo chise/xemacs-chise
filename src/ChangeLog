@@ -1,5 +1,11 @@
 1999-09-12  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (make_charset): Initialize
+	`CHARSET_TO_BYTE1_TABLE(cs)' and `CHARSET_TO_BYTE2_TABLE(cs)' by
+	NULL if table is not defined.
+
+1999-09-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* text-coding.c (char_encode_shift_jis): Use
 	`XCHARSET_TO_BYTE1_TABLE' for `Vcharset_latin_jisx0201' instead of
 	`ucs_to_latin_jisx0201'.
