@@ -1,3 +1,63 @@
+2001-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R203-Black.el (M-48063): Unify M048063.
+
+	* Ideograph-R201-Yellow.el (M-47926): Unify M047926.
+	(M-47935): Separate U+9EC7; unify M047935.
+	(U+9EC7): Unify M053051.
+
+2001-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R200-Hemp.el (M-47892): Unify M047892.
+	(M-47893): Unify M047893.
+	(M-47909): Unify M047909.
+
+	* Ideograph-R199-Wheat.el (M-47827): Unify M047827.
+
+2001-06-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R197-Salt.el (M-49944): Deleted; moved to
+	Ideograph-R198-Deer.el and unified with same character in there.
+
+	* Ideograph-R196-Bird.el (U+9E37): Add `total-strokes'.
+	(M-46995): Unify M046995.
+	(M-47005): Unify M047005.
+
+	* Ideograph-R194-Ghost.el (M-45906): Unify M045906.
+	(M-45906'): Add `total-strokes'; separate M050602; unify M057627;
+	fix `total-strokes'.
+
+	* Ideograph-R195-Fish.el (M-45969): Add `total-strokes'; unify
+	M045969.
+	(U+9C7D): Add `total-strokes'.
+	(M-46226): New character; relate to U+9BDB; unify M046226.
+	(U+9BF3): Add `total-strokes'.
+
+2001-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el (M-45649'): Separate C3-594A, J90-462E
+	and U+95D8 and move them to Ideograph-R169-Gate.el; delete
+	`cns-radical'.
+
+	* Ideograph-R190-Hair.el (M-45370): Separate C5-4B58; unify M045370.
+
+	* Ideograph-R169-Gate.el (U+95D8): Separated from M-45649'; moved
+	from Ideograph-R191-Fight.el.
+
+2001-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R188-Bone.el (M-45231): Fixed.
+	(M045231): New character; relate to M-45231.
+
+	* Ideograph-R187-Horse.el (M-44634): Separate C4-4860; unify
+	M058563.
+	(C4-4860): Unify M044634.
+	(M-44915): Separate K0-5479; unify M044915.
+	(M068356): New character; relate to U+9A30 and M-44915.
+	(M-45042): Separate C7-6031; unify M045042.
+	(M-45043): Separate C7-6034.
+	(C7-6034): Unify M045043.
+
 2001-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R184-Eat.el (M-44023): Unify M044023.
