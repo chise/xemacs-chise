@@ -1,5 +1,9 @@
 2003-01-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R071-Not.el (JC3-50F4): Map to U+FA42 instead of
+	U+65E3.
+	(U+FA42): New character.
+
 	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL SMALL ONE): Unify
 	BC-8B54 and GT-K00303.
 	(GT-K00305): New character.
