@@ -256,7 +256,7 @@ DESCRIPTION (string) is the description string of the charset."
 ;;;
 
 (when (featurep 'utf-2000)
-  (setq default-preferred-coded-charset-list
+  (setq default-coded-charset-priority-list
 	'(ascii
 	  control-1
 	  latin-iso8859-1
