@@ -3,6 +3,11 @@
 	* dumped-lisp.el (preloaded-file-list): Rename
 	u031A0-Extended-Bopomofo.el to u031A0-Bopomofo-Extended.el.
 
+2001-07-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-big5'.
+
 2001-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Dump
