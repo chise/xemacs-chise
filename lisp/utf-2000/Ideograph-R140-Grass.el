@@ -37,21 +37,12 @@
     (=ucs@jis		. #xFA5E)	; âº¿
     ))
 (define-char
-  '((=>daikanwa		. 30639)	; âº¿
-    (ideographic-radical . 140)	; â¾‹
+  '((ideographic-radical . 140)	; â¾‹
     (ideographic-strokes . 0)
     (<-ideographic-component-forms
      ((=ucs		  . #x8278)	; è‰¸
       ))
     (=ucs		. #x8279)	; è‰¹
-    ))
-(define-char
-  '((=>ucs*		. #x8279)	; è‰¹
-    (->identical
-     ((name		  . "CJK RADICAL GRASS THREE")
-      (=ucs		  . #x2EC0)	; â»€
-      ))
-    (=ucs		. #xFA5D)	; ï©
     ))
 (define-char
   '((=>ucs*		. #x8279)	; è‰¹
@@ -63,7 +54,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS ONE")
-    (=>daikanwa		. 30639)	; âº¿
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -84,7 +74,6 @@
     ))
 (define-char
   '((name		. "CJK RADICAL GRASS THREE")
-    (=>daikanwa		. 30639)	; âº¿
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -100,6 +89,14 @@
     (=gt-k		. 00569)	; ý¡„€ˆ¹
     (=gt-pj-9		. #x4E5A)	; ý¡€‰«
     (=ucs@jis		. #xFA5D)	; â»€
+    ))
+(define-char
+  '((=>ucs*		. #x8279)	; è‰¹
+    (->identical
+     ((name		  . "CJK RADICAL GRASS THREE")
+      (=ucs		  . #x2EC0)	; â»€
+      ))
+    (=ucs		. #xFA5D)	; ï©
     ))
 (define-char
   '((=>daikanwa		. 30640)	; ý¢€ˆ­‹
