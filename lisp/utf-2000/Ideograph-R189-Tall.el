@@ -5,13 +5,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (shinjigen-2	. 9450)
-    (=ucs@jis		. #x9AD8)	; ø»‰›§
-    (=ucs@ks		. #x9AD8)	; ø»‰›§
     (=ks-x1001		. #x4D54)	; ø»‰›§
     (=jis-x0208		. #x3962)	; ø½Šš
-    (=daikanwa		. 45313)	; ø¸‹„
     (=gt-k		. 06430)	; ý¡„¤ž
     (=gt-pj-1		. #x3962)	; ø»‰›§
+    (=daikanwa		. 45313)	; ø¸‹„
+    (=ucs@jis		. #x9AD8)	; ø»‰›§
+    (=ucs@ks		. #x9AD8)	; ø»‰›§
     ))
 (define-char
   '((morohashi-daikanwa	45313 0 0)
@@ -107,9 +107,9 @@
     (ideographic-radical . 189)	; â¾¼
     (ideographic-strokes . 3)
     (total-strokes	 . 13)
-    (=ucs@jis		. #x4BE8)	; ø»¦¤˜
     (=jis-x0213-2-2000	. #x7D31)	; ø»¦¤˜
     (=daikanwa		. 45317)	; ø¸‹„…
+    (=ucs@jis		. #x4BE8)	; ø»¦¤˜
     ))
 (define-char
   '((=>ucs		. #x4BE8)	; ä¯¨
@@ -218,9 +218,9 @@
     (ideographic-radical . 189)	; â¾¼
     (ideographic-strokes . 5)
     (total-strokes	 . 15)
-    (=ucs@jis		. #x9ADB)	; ø»Œ‹
     (=jis-x0212		. #x696C)	; ø»Œ‹
     (=daikanwa		. 45325)	; ø¸‹„
+    (=ucs@jis		. #x9ADB)	; ø»Œ‹
     ))
 (define-char
   '((morohashi-daikanwa	45325 0 0)

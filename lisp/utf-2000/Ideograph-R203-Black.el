@@ -25,9 +25,9 @@
     (=ucs		. #x9ED2)	; é»’
     (=cns11643-3	. #x396B)	; ø»•º¾
     (=jis-x0208		. #x3975)	; ø½Šš 
-    (=daikanwa		. 48040)	; ø¸‹®¨
     (=gt-k		. 07761)	; ý¡„¹‘
     (=gt-pj-1		. #x3975)	; é»’
+    (=daikanwa		. 48040)	; ø¸‹®¨
     ))
 (define-char
   '((ideographic-radical . 203)	; â¿Š
@@ -182,11 +182,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 16)
     (shinjigen-2	. 9820)
-    (=ucs@jis		. #x9ED4)	; ø»’»”
     (=cns11643-1	. #x733D)	; ø»’»”
     (=ks-x1001		. #x4C23)	; ø»‰™˜
     (=jis-x0208		. #x7358)	; ø½‹¯
     (=daikanwa		. 48056)	; ø¸‹®¸
+    (=ucs@jis		. #x9ED4)	; ø»’»”
     ))
 (define-char
   '((morohashi-daikanwa	48056 0 2)
@@ -375,9 +375,9 @@
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 5)
     (total-strokes	 . 16)
-    (=ucs@jis		. #x9EDB)	; ø½Š§œ
     (=jis-x0208-1990	. #x4263)	; ø½Š§œ
     (=jis-x0208-1983	. #x4263)	; ø»‡¨
+    (=ucs@jis		. #x9EDB)	; ø½Š§œ
     ))
 (define-char
   '((ideographic-radical . 203)	; â¿Š
@@ -1242,9 +1242,9 @@
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 10)
     (total-strokes	 . 22)
-    (=ucs@jis		. #x9EF0)	; ø»Œ“´
     (=jis-x0212		. #x6C7B)	; ø»Œ“´
     (=daikanwa		. 48178)	; ø¸‹°²
+    (=ucs@jis		. #x9EF0)	; ø»Œ“´
     ))
 (define-char
   '((morohashi-daikanwa	48178 0 5)
@@ -1274,9 +1274,9 @@
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 10)
     (total-strokes	 . 22)
-    (=ucs@jis		. #x9EF1)	; ø»Œ“µ
     (=jis-x0212		. #x6C7C)	; ø»Œ“µ
     (=daikanwa		. 48180)	; ø¸‹°´
+    (=ucs@jis		. #x9EF1)	; ø»Œ“µ
     ))
 (define-char
   '((morohashi-daikanwa	48180 0 2)
@@ -1332,9 +1332,9 @@
     (ideographic-radical . 203)	; â¿Š
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
-    (=ucs@jis		. #x9EF2)	; ø»Œ“¶
     (=jis-x0212		. #x6C7D)	; ø»Œ“¶
     (=daikanwa		. 48189)	; ø¸‹°½
+    (=ucs@jis		. #x9EF2)	; ø»Œ“¶
     ))
 (define-char
   '((morohashi-daikanwa	48189 0 1)
@@ -1407,11 +1407,11 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 23)
     (shinjigen-2	. 9836)
-    (=ucs@jis		. #x9EF4)	; ø»“‰
     (=cns11643-1	. #x7C5C)	; ø»“‰
     (=ks-x1001		. #x5A3D)	; ø»‰®–
     (=jis-x0208		. #x7360)	; ø½‹¯—
     (=daikanwa		. 48196)	; ø¸‹±„
+    (=ucs@jis		. #x9EF4)	; ø»“‰
     ))
 (define-char
   '((morohashi-daikanwa	48196 0 1)

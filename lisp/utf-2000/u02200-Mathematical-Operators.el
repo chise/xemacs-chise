@@ -550,10 +550,10 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (=ucs		. #x223C)	; âˆ¼
-    (=ucs@big5		. #xFF5E)	; âˆ¼
     (=cns11643-1	. #x2244)	; ø»‘„
     (=ks-x1001		. #x212D)	; ø»ˆš˜
     (=big5		. #xA1E3)	; ý¢€Š‡£
+    (=ucs@big5		. #xFF5E)	; âˆ¼
     ))
 (define-char
   '((name		. "REVERSED TILDE")

@@ -5,13 +5,13 @@
     (total-strokes	 . 4)
     (shinjigen-2	. 4717)
     (=ucs		. #x723F)	; çˆ¿
-    (=gt		. 25375)	; ý¡€†ŒŸ
     (=gb2312		. #x635D)	; ø»…§¼
     (=jis-x0208		. #x602D)	; ø½‹’ª
     (=big5		. #xC962)	; ý¢€Œ¥¢
-    (=daikanwa		. 19758)	; ø¸„´®
+    (=gt		. 25375)	; ý¡€†ŒŸ
     (=gt-k		. 00543)	; ý¡„€ˆŸ
     (=gt-pj-1		. #x602D)	; ý¡€†ŒŸ
+    (=daikanwa		. 19758)	; ø¸„´®
     ))
 (define-char
   '((=>ucs		. #x723F)	; çˆ¿
@@ -29,8 +29,8 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 52)
     (hanyu-dazidian-char . 4)
-    (=daikanwa		. 19759)	; ø¸„´¯
     (=big5-cdp		. #x87D0)	; ý¢€ˆŸ
+    (=daikanwa		. 19759)	; ø¸„´¯
     ))
 (define-char
   '((morohashi-daikanwa	19759 0 2)
@@ -114,12 +114,12 @@
       ))
     (shinjigen-2	. 4718)
     (=ucs		. #x7240)	; ç‰€
-    (=gt		. 25381)	; ý¡€†Œ¥
     (=ks-x1001		. #x5F51)	; ø»‰¶€
     (=jis-x0208		. #x602E)	; ø½‹’«
-    (=daikanwa		. 19763)	; ø¸„´³
+    (=gt		. 25381)	; ý¡€†Œ¥
     (=gt-k		. 03901)	; ý¡„€¼½
     (=gt-pj-1		. #x602E)	; ý¡€†Œ¥
+    (=daikanwa		. 19763)	; ø¸„´³
     (=cbeta		. 00646)	; ø¸ Š†
     ))
 (define-char
@@ -764,12 +764,12 @@
     (total-strokes	 . 17)
     (shinjigen-2	. 4719)
     (=ucs		. #x7246)	; ç‰†
-    (=gt		. 25429)	; ý¡€†•
     (=ks-x1001		. #x6D6D)	; ø»Š‹€
     (=jis-x0208		. #x602F)	; ø½‹’¬
     (=big5		. #xC0F0)	; ý¢€Œƒ°
-    (=daikanwa		. 19806)	; ø¸„µž
+    (=gt		. 25429)	; ý¡€†•
     (=gt-pj-1		. #x602F)	; ý¡€†•
+    (=daikanwa		. 19806)	; ø¸„µž
     ))
 (define-char
   '((=>ucs		. #x7246)	; ç‰†

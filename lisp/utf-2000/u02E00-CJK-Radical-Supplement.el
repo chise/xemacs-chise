@@ -97,8 +97,8 @@
      ((=ucs		  . #x51E0)	; å‡ 
       ))
     (=ucs		. #x2E87)	; âº‡
-    (=gt		. 02284)	; ý¡€€£¬
     (=big5-cdp		. #x8D66)	; ý¢€ˆµ¦
+    (=gt		. 02284)	; ý¡€€£¬
     (=gt-k		. 00086)	; ý¡„€–
     (=gt-pj-9		. #x505D)	; ý¡€€£¬
     ))
@@ -120,8 +120,8 @@
      ((=ucs		  . #x5202)	; åˆ‚
       ))
     (=ucs		. #x2E89)	; âº‰
-    (=ucs@big5		. #x5202)	; âº‰
     (=big5-eten		. #xC87D)	; ý¢€Œ¡½
+    (=ucs@big5		. #x5202)	; âº‰
     ))
 (define-char
   '((name		. "CJK RADICAL DIVINATION")
@@ -266,8 +266,8 @@
      ((=ucs		  . #x5FC4)	; å¿„
       ))
     (=ucs		. #x2E96)	; âº–
-    (=gt		. 12992)	; ý¡€ƒ‹€
     (=big5-cdp		. #x8B51)	; ý¢€ˆ­‘
+    (=gt		. 12992)	; ý¡€ƒ‹€
     (=gt-k		. 00302)	; ý¡„€„®
     (=gt-pj-3		. #x4D5F)	; ý¡€ƒ‹€
     ))
@@ -643,8 +643,8 @@
     (total-strokes	 . 4)
     (=ucs		. #x2EBC)	; âº¼
     (=gt		. 37857)	; ý¡€‰¡
-    (=daikanwa		. 29237)	; ø¸‡ˆµ
     (=gt-pj-6		. #x3879)	; ý¡€‰¡
+    (=daikanwa		. 29237)	; ø¸‡ˆµ
     ))
 (define-char
   '((=>ucs		. #x2EBC)	; âº¼
@@ -834,13 +834,13 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECD)	; â»
-    (=gt		. 51643)	; ý¡€Œ¦»
-    (=ucs@jis		. #x8FB6)	; â»
     (=jis-x0213-2-2000	. #x796A)	; ø»¦Ÿ™
     (=jis-x0212		. #x6134)	; ø»Œ‚£
-    (=daikanwa		. 38702)	; ø¸‰œ®
+    (=gt		. 51643)	; ý¡€Œ¦»
     (=gt-k		. 00580)	; ý¡„€‰„
     (=gt-pj-7		. #x5530)	; ý¡€Œ¦»
+    (=daikanwa		. 38702)	; ø¸‰œ®
+    (=ucs@jis		. #x8FB6)	; â»
     ))
 (define-char
   '((name		. "CJK RADICAL WALK TWO")
@@ -853,9 +853,9 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (=ucs		. #x2ECE)	; â»Ž
-    (=ucs@cns		. #x8FB6)	; â»Ž
     (=cns11643-4	. #x2154)	; ø»—¡›
     (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
+    (=ucs@cns		. #x8FB6)	; â»Ž
     ))
 (define-char
   '((name		. "CJK RADICAL CITY")
