@@ -1,0 +1,1148 @@
+This is Info file ../../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Mode Line,  Next: XEmacs under X,  Prev: Echo Area,  Up: Frame
+
+The Mode Line
+=============
+
+   Each text window's last line is a "mode line" which describes what is
+going on in that window.  When there is only one text window, the mode
+line appears right above the echo area.  The mode line is in inverse
+video if the terminal supports that, starts and ends with dashes, and
+contains text like `XEmacs: SOMETHING'.
+
+   If a mode line has something else in place of `XEmacs: SOMETHING',
+the window above it is in a special subsystem such as Dired.  The mode
+line then indicates the status of the subsystem.
+
+   Normally, the mode line has the following appearance:
+
+     --CH-XEmacs: BUF      (MAJOR MINOR)----POS------
+
+This gives information about the buffer being displayed in the window:
+the buffer's name, what major and minor modes are in use, whether the
+buffer's text has been changed, and how far down the buffer you are
+currently looking.
+
+   CH contains two stars (`**') if the text in the buffer has been
+edited (the buffer is "modified"), or two dashes (`--') if the buffer
+has not been edited.  Exception: for a read-only buffer, it is `%%'.
+
+   BUF is the name of the window's chosen "buffer".  The chosen buffer
+in the selected window (the window that the cursor is in) is also
+XEmacs's selected buffer, the buffer in which editing takes place.  When
+we speak of what some command does to "the buffer", we mean the
+currently selected buffer.  *Note Buffers::.
+
+   POS tells you whether there is additional text above the top of the
+screen or below the bottom.  If your file is small and it is completely
+visible on the screen, POS is `All'.  Otherwise, POS is `Top' if you
+are looking at the beginning of the file, `Bot' if you are looking at
+the end of the file, or `NN%', where NN is the percentage of the file
+above the top of the screen.
+
+   MAJOR is the name of the "major mode" in effect in the buffer.  At
+any time, each buffer is in one and only one major mode.  The available
+major modes include Fundamental mode (the least specialized), Text
+mode, Lisp mode, and C mode.  *Note Major Modes::, for details on how
+the modes differ and how you select one.
+
+   MINOR is a list of some of the "minor modes" that are turned on in
+the window's chosen buffer.  For example, `Fill' means that Auto Fill
+mode is on.  `Abbrev' means that Word Abbrev mode is on.  `Ovwrt' means
+that Overwrite mode is on.  *Note Minor Modes::, for more information.
+`Narrow' means that the buffer being displayed has editing restricted
+to only a portion of its text.  This is not really a minor mode, but is
+like one.  *Note Narrowing::.  `Def' means that a keyboard macro is
+being defined.  *Note Keyboard Macros::.
+
+   Some buffers display additional information after the minor modes.
+For example, Rmail buffers display the current message number and the
+total number of messages.  Compilation buffers and Shell mode display
+the status of the subprocess.
+
+   If XEmacs is currently inside a recursive editing level, square
+brackets (`[...]') appear around the parentheses that surround the
+modes.  If XEmacs is in one recursive editing level within another,
+double square brackets appear, and so on.  Since information on
+recursive editing applies to XEmacs in general and not to any one
+buffer, the square brackets appear in every mode line on the screen or
+not in any of them.  *Note Recursive Edit::.
+
+   XEmacs can optionally display the time and system load in all mode
+lines.  To enable this feature, type `M-x display-time'.  The
+information added to the mode line usually appears after the file name,
+before the mode names and their parentheses.  It looks like this:
+
+     HH:MMpm L.LL [D]
+
+(Some fields may be missing if your operating system cannot support
+them.)  HH and MM are the hour and minute, followed always by `am' or
+`pm'.  L.LL is the average number of running processes in the whole
+system recently.  D is an approximate index of the ratio of disk
+activity to CPU activity for all users.
+
+   The word `Mail' appears after the load level if there is mail for
+you that you have not read yet.
+
+   Customization note: the variable `mode-line-inverse-video' controls
+whether the mode line is displayed in inverse video (assuming the
+terminal supports it); `nil' means no inverse video.  The default is
+`t'.  For X frames, simply set the foreground and background colors
+appropriately.
+
+
+File: xemacs.info,  Node: XEmacs under X,  Prev: Mode Line,  Up: Frame
+
+Using XEmacs Under the X Window System
+======================================
+
+   XEmacs can be used with the X Window System and a window manager like
+MWM or TWM.  In that case, the X window manager opens, closes, and
+resizes XEmacs frames.  You use the window manager's mouse gestures to
+perform the operations.  Consult your window manager guide or reference
+manual for information on manipulating X windows.
+
+   When you are working under X, each X window (that is, each XEmacs
+frame) has a menu bar for mouse-controlled operations (*note Pull-down
+Menus::.).
+
+   XEmacs under X is also a multi-frame XEmacs.  You can use the New
+Frame menu item from the File menu to create a new XEmacs frame in a
+new X window from the same process.  The different frames will share the
+same buffer list, but you can look at different buffers in the different
+frames.
+
+   The function `find-file-other-frame' is just like `find-file', but
+creates a new frame to display the buffer in first.  This is normally
+bound to `C-x 5 C-f', and is what the Open File, New Frame menu item
+does.
+
+   The function `switch-to-buffer-other-frame' is just like
+`switch-to-buffer', but creates a new frame to display the buffer in
+first.  This is normally bound to `C-x 5 b'.
+
+   You can specify a different default frame size other than the one
+provided.  Use the variable `default-frame-alist', which is an alist of
+default values for frame creation other than the first one.  These may
+be set in your init file, like this:
+
+       (setq default-frame-alist '((width . 80) (height . 55)))
+
+   For values specific to the first XEmacs frame, you must use X
+resources.  The variable `x-frame-defaults' takes an alist of default
+frame creation parameters for X window frames.  These override what is
+specified in `~/.Xdefaults' but are overridden by the arguments to the
+particular call to `x-create-frame'.
+
+   When you create a new frame, the variable `create-frame-hook' is
+called with one argument, the frame just created.
+
+   If you want to close one or more of the X windows you created using
+New Frame, use the Delete Frame menu item from the File menu.
+
+   If you are working with multiple frames, some special information
+applies:
+   * Two variables, `frame-title-format' and `frame-icon-title-format'
+     determine the title of the frame and the title of the icon that
+     results if you shrink the frame.
+
+   * The variables `auto-lower-frame' and `auto-raise-frame' position a
+     frame. If true, `auto-lower-frame' lowers a frame to the bottom
+     when it is no longer selected. If true, `auto-raise-frame' raises
+     a frame to the top when it is selected. Under X, most
+     ICCCM-compliant window managers will have options to do this for
+     you, but these variables are provided in case you are using a
+     broken window manager.
+
+   * There is a new frame/modeline format directive, %S, which expands
+     to the name of the current frame (a frame's name is distinct from
+     its title; the name is used for resource lookup, among other
+     things, and the title is simply what appears above the window.)
+
+
+File: xemacs.info,  Node: Keystrokes,  Next: Pull-down Menus,  Prev: Frame,  Up: Top
+
+Keystrokes, Key Sequences, and Key Bindings
+*******************************************
+
+* Menu:
+
+* Intro to Keystrokes::      Keystrokes as building blocks of key sequences.
+* Representing Keystrokes::  Using lists of modifiers and keysyms to
+                             represent keystrokes.
+* Key Sequences::            Combine key strokes into key sequences you can
+                             bind to commands.
+* String Key Sequences::     Available for upward compatibility.
+* Meta Key::                 Using <ESC> to represent <Meta>
+* Super and Hyper Keys::     Adding modifier keys on certain keyboards.
+* Character Representation:: How characters appear in Emacs buffers.
+* Commands::                 How commands are bound to key sequences.
+
+
+File: xemacs.info,  Node: Intro to Keystrokes,  Next: Representing Keystrokes,  Prev: Keystrokes,  Up: Keystrokes
+
+Keystrokes as Building Blocks of Key Sequences
+==============================================
+
+   Earlier versions of Emacs used only the ASCII character set, which
+defines 128 different character codes.  Some of these codes are
+assigned graphic symbols like `a' and `='; the rest are control
+characters, such as `Control-a' (also called `C-a').  `C-a' means you
+hold down the <CTRL> key and then press `a'.
+
+   Keybindings in XEmacs are not restricted to the set of keystrokes
+that can be represented in ASCII.  XEmacs can tell the difference
+between, for example, `Control-h', `Control-Shift-h', and `Backspace'.
+
+   A keystroke is like a piano chord: you get it by simultaneously
+striking several keys.  To be more precise, a keystroke consists of a
+possibly empty set of modifiers followed by a single "keysym".  The set
+of modifiers is small; it consists of `Control', `Meta', `Super',
+`Hyper', and `Shift'.
+
+   The rest of the keys on your keyboard, along with the mouse buttons,
+make up the set of keysyms.  A keysym is usually what is printed on the
+keys on your keyboard.  Here is a table of some of the symbolic names
+for keysyms:
+`a,b,c...'
+     alphabetic keys
+
+`f1,f2...'
+     function keys
+
+`button1'
+     left mouse button
+
+`button2'
+     middle mouse button
+
+`button3'
+     right mouse button
+
+`button1up'
+     upstroke on the left mouse button
+
+`button2up'
+     upstroke on the middle mouse button
+
+`button3up'
+     upstroke on the right mouse button
+
+`return'
+     Return key
+
+   Use the variable `keyboard-translate-table' only if you are on a
+dumb tty, as it cannot handle input that cannot be represented as ASCII.
+The value of this variable is a string used as a translate table for
+keyboard input or `nil'.  Each character is looked up in this string
+and the contents used instead.  If the string is of length `n',
+character codes `N' and up are untranslated.  If you are running Emacs
+under X, you should do the translations with the `xmodmap' program
+instead.
+
+
+File: xemacs.info,  Node: Representing Keystrokes,  Next: Key Sequences,  Prev: Intro to Keystrokes,  Up: Keystrokes
+
+Representing Keystrokes
+-----------------------
+
+   XEmacs represents keystrokes as lists. Each list consists of an
+arbitrary combination of modifiers followed by a single keysym at the
+end of the list.  If the keysym corresponds to an ASCII character, you
+can use its character code.  (A keystroke may also be represented by an
+event object, as returned by the `read-key-sequence' function;
+non-programmers need not worry about this.)
+
+   The following table gives some examples of how to list
+representations for keystrokes.  Each list consists of sets of
+modifiers followed by keysyms:
+
+`(control a)'
+     Pressing <CTRL> and `a' simultaneously.
+
+`(control ?a)'
+     Another way of writing the keystroke `C-a'.
+
+`(control 65)'
+     Yet another way of writing the keystroke `C-a'.
+
+`(break)'
+     Pressing the <BREAK> key.
+
+`(control meta button2up)'
+     Release the middle mouse button, while pressing <CTRL> and <META>.
+ Note: As you define keystrokes, you can use the `shift' key only as a
+modifier with characters that do not have a second keysym on the same
+key, such as `backspace' and `tab'.  It is an error to define a
+keystroke using the <shift> modifier with keysyms such as `a' and `='.
+The correct forms are `A' and `+'.
+
+
+File: xemacs.info,  Node: Key Sequences,  Next: String Key Sequences,  Prev: Representing Keystrokes,  Up: Keystrokes
+
+Representing Key Sequences
+--------------------------
+
+   A "complete key sequence" is a sequence of keystrokes that Emacs
+understands as a unit.  Key sequences are significant because you can
+bind them to commands.  Note that not all sequences of keystrokes are
+possible key sequences.  In particular, the initial keystrokes in a key
+sequence must make up a "prefix key sequence".
+
+   Emacs represents a key sequence as a vector of keystrokes.  Thus, the
+schematic representation of a complete key sequence is as follows:
+
+       [(modifier .. modifer keysym) ... (modifier .. modifier keysym)]
+
+   Here are some examples of complete key sequences:
+
+`[(control c) (control a)]'
+     Typing `C-c' followed by `C-a'
+
+`[(control c) (control 65)]'
+     Typing `C-c' followed by `C-a'. (Using the ASCII code for the
+     character `a')
+
+`[(control c) (break)]'
+     Typing `C-c' followed by the `break' character.
+
+   A "prefix key sequence" is the beginning of a series of longer
+sequences that are valid key sequences; adding any single keystroke to
+the end of a prefix results in a valid key sequence.  For example,
+`control-x' is standardly defined as a prefix.  Thus there is a
+two-character key sequence starting with `C-x' for each valid
+keystroke, giving numerous possibilities.  Here are some samples:
+
+   * `[(control x) (c)]'
+
+   * `[(control x) (control c)]'
+
+   Adding one character to a prefix key does not have to form a complete
+key.  It could make another, longer prefix.  For example, `[(control x)
+(\4)]' is itself a prefix that leads to any number of different
+three-character keys, including `[(control x) (\4) (f)]', `[(control x)
+(\4) (b)]' and so on.  It would be possible to define one of those
+three-character sequences as a prefix, creating a series of
+four-character keys, but we did not define any of them this way.
+
+   By contrast, the two-character sequence `[(control f) (control k)]'
+is not a key, because the `(control f)' is a complete key sequence in
+itself.  You cannot give `[(control f (control k)]' an independent
+meaning as a command while `(control f)' is a complete sequence,
+because Emacs would understand <C-f C-k> as two commands.
+
+   The predefined prefix key sequences in Emacs are `(control c)',
+`(control x)', `(control h)', `[(control x) (\4)]', and `escape'.  You
+can customize Emacs and could make new prefix keys or eliminate the
+default key sequences.  *Note Key Bindings::.  For example, if you
+redefine `(control f)' as a prefix, `[(control f) (control k)]'
+automatically becomes a valid key sequence (complete, unless you define
+it as a prefix as well).  Conversely, if you remove the prefix
+definition of `[(control x) (\4)]', `[(control x) (\4) (f)]' (or
+`[(control x) (\4) ANYTHING]') is no longer a valid key sequence.
+
+   Note that the above paragraphs uses \4 instead of simply 4, because
+\4 is the symbol whose name is "4", and plain 4 is the integer 4, which
+would have been interpreted as the ASCII value.  Another way of
+representing the symbol whose name is "4" is to write ?4, which would be
+interpreted as the number 52, which is the ASCII code for the character
+"4".  We could therefore actually have written 52 directly, but that is
+far less clear.
+
+
+File: xemacs.info,  Node: String Key Sequences,  Next: Meta Key,  Prev: Key Sequences,  Up: Keystrokes
+
+String Key Sequences
+--------------------
+
+   For backward compatibility, you may also represent a key sequence
+using strings.  For example, we have the following equivalent
+representations:
+
+`"\C-c\C-c"'
+     `[(control c) (control c)]'
+
+`"\e\C-c"'
+     `[(meta control c)]'
+
+
+File: xemacs.info,  Node: Meta Key,  Next: Super and Hyper Keys,  Prev: String Key Sequences,  Up: Keystrokes
+
+Assignment of the <META> Key
+----------------------------
+
+   Not all terminals have the complete set of modifiers.  Terminals
+that have a <Meta> key allow you to type Meta characters by just
+holding that key down.  To type `Meta-a', hold down <META> and press
+`a'.  On those terminals, the <META> key works like the <SHIFT> key.
+Such a key is not always labeled <META>, however, as this function is
+often a special option for a key with some other primary purpose.
+
+   If there is no <META> key, you can still type Meta characters using
+two-character sequences starting with <ESC>.  To enter `M-a', you could
+type `<ESC> a'.  To enter `C-M-a', you would type `ESC C-a'.  <ESC> is
+allowed on terminals with Meta keys, too, in case you have formed a
+habit of using it.
+
+   If you are running under X and do not have a <META> key, it is
+possible to reconfigure some other key to be a <META> key.  *Note Super
+and Hyper Keys::.
+
+   Emacs believes the terminal has a <META> key if the variable
+`meta-flag' is non-`nil'.  Normally this is set automatically according
+to the termcap entry for your terminal type.  However, sometimes the
+termcap entry is wrong, and then it is useful to set this variable
+yourself.  *Note Variables::, for how to do this.
+
+   Note: If you are running under the X window system, the setting of
+the `meta-flag' variable is irrelevant.
+
+
+File: xemacs.info,  Node: Super and Hyper Keys,  Next: Character Representation,  Prev: Meta Key,  Up: Keystrokes
+
+Assignment of the <SUPER> and <HYPER> Keys
+------------------------------------------
+
+   Most keyboards do not, by default, have <SUPER> or <HYPER> modifier
+keys.  Under X, you can simulate the <SUPER> or <HYPER> key if you want
+to bind keys to sequences using `super' and `hyper'.  You can use the
+`xmodmap' program to do this.
+
+   For example, to turn your <CAPS-LOCK> key into a <SUPER> key, do the
+following:
+
+   Create a file called `~/.xmodmap'.  In this file, place the lines
+
+     	remove Lock = Caps_Lock
+     	keysym Caps_Lock = Super_L
+     	add Mod2 = Super_L
+
+   The first line says that the key that is currently called `Caps_Lock'
+should no longer behave as a "lock" key.  The second line says that
+this should now be called `Super_L' instead.  The third line says that
+the key called `Super_L' should be a modifier key, which produces the
+`Mod2' modifier.
+
+   To create a <META> or <HYPER> key instead of a <SUPER> key, replace
+the word `Super' above with `Meta' or `Hyper'.
+
+   Just after you start up X, execute the command `xmodmap /.xmodmap'.
+You can add this command to the appropriate initialization file to have
+the command executed automatically.
+
+   If you have problems, see the documentation for the `xmodmap'
+program.  The X keyboard model is quite complicated, and explaining it
+is beyond the scope of this manual.  However, we reprint the following
+description from the X Protocol document for your convenience:
+
+   A list of keysyms is associated with each keycode. If that list
+(ignoring trailing `NoSymbol' entries) is a single keysym `K', then the
+list is treated as if it were the list ```K NoSymbol K NoSymbol'''. If
+the list (ignoring trailing `NoSymbol' entries) is a pair of keysyms
+`K1 K2', then the list is treated as if it were the list ```K1 K2 K1
+K2'''. If the list (ignoring trailing `NoSymbol' entries) is a triple
+of keysyms `K1 K2 K3', then the list is treated as if it were the list
+```K1 K2 K3 NoSymbol'''.
+
+   The first four elements of the list are split into two groups of
+keysyms. Group 1 contains the first and second keysyms; Group 2 contains
+third and fourth keysyms. Within each group, if the second element of
+the group is NoSymbol, then the group should be treated as if the second
+element were the same as the first element, except when the first
+element is an alphabetic keysym `K' for which both lowercase and
+uppercase forms are defined. In that case, the group should be treated
+as if the first element were the lowercase form of `K' and the second
+element were the uppercase form of `K'.
+
+   The standard rules for obtaining a keysym from a KeyPress event make
+use of only the Group 1 and Group 2 keysyms; no interpretation of other
+keysyms in the list is given here. (That is, the last four keysyms are
+unused.)
+
+   Which group to use is determined by modifier state. Switching between
+groups is controlled by the keysym named `Mode_switch'. Attach that
+keysym to some keycode and attach that keycode to any one of the
+modifiers Mod1 through Mod5. This modifier is called the "group
+modifier". For any keycode, Group 1 is used when the group modifier is
+off, and Group 2 is used when the group modifier is on.
+
+   Within a group, which keysym to use is also determined by modifier
+state. The first keysym is used when the `Shift' and `Lock' modifiers
+are off. The second keysym is used when the `Shift' modifier is on, or
+when the `Lock' modifier is on and the second keysym is uppercase
+alphabetic, or when the `Lock' modifier is on and is interpreted as
+`ShiftLock'. Otherwise, when the `Lock' modifier is on and is
+interpreted as `CapsLock', the state of the `Shift' modifier is applied
+first to select a keysym, but if that keysym is lower-case alphabetic,
+then the corresponding upper-case keysym is used instead.
+
+   In addition to the above information on keysyms, we also provide the
+following description of modifier mapping from the InterClient
+Communications Conventions Manual:
+
+   X11 supports 8 modifier bits, of which 3 are pre-assigned to
+`Shift', `Lock', and `Control'. Each modifier bit is controlled by the
+state of a set of keys, and these sets are specified in a table
+accessed by `GetModifierMapping()' and `SetModifierMapping()'.
+
+   A client needing to use one of the pre-assigned modifiers should
+assume that the modifier table has been set up correctly to control
+these modifiers. The `Lock' modifier should be interpreted as `Caps
+Lock' or `Shift Lock' according to whether the keycodes in its
+controlling set include `XK_Caps_Lock' or `XK_Shift_Lock'.
+
+   Clients should determine the meaning of a modifier bit from the
+keysyms being used to control it.
+
+   A client needing to use an extra modifier, for example `Meta',
+should:
+
+  1. Scan the existing modifier mappings.
+
+       1. If it finds a modifier that contains a keycode whose set of
+          keysyms includes `XK_Meta_L' or `XK_Meta_R', it should use
+          that modifier bit.
+
+       2. If there is no existing modifier controlled by `XK_Meta_L' or
+          `XK_Meta_R', it should select an unused modifier bit (one with
+          an empty controlling set) and:
+
+  2. If there is a keycode with `XL_Meta_L' in its set of keysyms, add
+     that keycode to the set for the chosen modifier, and then:
+
+       1. If there is a keycode with `XL_Meta_R' in its set of keysyms,
+          add that keycode to the set for the chosen modifier, and then:
+
+       2. If the controlling set is still empty, interact with the user
+          to select one or more keys to be `Meta'.
+
+  3. If there are no unused modifier bits, ask the user to take
+     corrective action.
+
+   This means that the `Mod1' modifier does not necessarily mean
+`Meta', although some applications (such as twm and emacs 18) assume
+that. Any of the five unassigned modifier bits could mean `Meta'; what
+matters is that a modifier bit is generated by a keycode which is bound
+to the keysym `Meta_L' or `Meta_R'.
+
+   Therefore, if you want to make a <META> key, the right way is to
+make the keycode in question generate both a `Meta' keysym and some
+previously-unassigned modifier bit.
+
+
+File: xemacs.info,  Node: Character Representation,  Next: Commands,  Prev: Super and Hyper Keys,  Up: Keystrokes
+
+Representation of Characters
+============================
+
+   This section briefly discusses how characters are represented in
+Emacs buffers.  *Note Key Sequences::, for information on representing
+key sequences to create key bindings.
+
+   ASCII graphic characters in Emacs buffers are displayed with their
+graphics.  <LFD> is the same as a newline character; it is displayed by
+starting a new line.  <TAB> is displayed by moving to the next tab stop
+column (usually every 8 spaces).  Other control characters are
+displayed as a caret (`^') followed by the non-control version of the
+character; thus, `C-a' is displayed as `^A'.  Non-ASCII characters 128
+and up are displayed with octal escape sequences; thus, character code
+243 (octal), also called `M-#' when used as an input character, is
+displayed as `\243'.
+
+   The variable `ctl-arrow' may be used to alter this behavior.  *Note
+Display Vars::.
+
+
+File: xemacs.info,  Node: Commands,  Prev: Character Representation,  Up: Keystrokes
+
+Keys and Commands
+=================
+
+   This manual is full of passages that tell you what particular keys
+do.  But Emacs does not assign meanings to keys directly.  Instead,
+Emacs assigns meanings to "functions", and then gives keys their
+meanings by "binding" them to functions.
+
+   A function is a Lisp object that can be executed as a program.
+Usually it is a Lisp symbol that has been given a function definition;
+every symbol has a name, usually made of a few English words separated
+by dashes, such as `next-line' or `forward-word'.  It also has a
+"definition", which is a Lisp program.  Only some functions can be the
+bindings of keys; these are functions whose definitions use
+`interactive' to specify how to call them interactively.  Such
+functions are called "commands", and their names are "command names".
+More information on this subject will appear in the XEmacs Lisp
+Reference Manual.
+
+   The bindings between keys and functions are recorded in various
+tables called "keymaps".  *Note Key Bindings::, for more information on
+key sequences you can bind commands to.  *Note Keymaps::, for
+information on creating keymaps.
+
+   When we say  "`C-n' moves down vertically one line" we are glossing
+over a distinction that is irrelevant in ordinary use but is vital in
+understanding how to customize Emacs.  The function `next-line' is
+programmed to move down vertically.  `C-n' has this effect because it
+is bound to that function.  If you rebind `C-n' to the function
+`forward-word' then `C-n' will move forward by words instead.
+Rebinding keys is a common method of customization.
+
+   The rest of this manual usually ignores this subtlety to keep things
+simple.  To give the customizer the information needed, we often state
+the name of the command that really does the work in parentheses after
+mentioning the key that runs it.  For example, we will say that "The
+command `C-n' (`next-line') moves point vertically down," meaning that
+`next-line' is a command that moves vertically down and `C-n' is a key
+that is standardly bound to it.
+
+   While we are on the subject of information for customization only,
+it's a good time to tell you about "variables".  Often the description
+of a command will say, "To change this, set the variable `mumble-foo'."
+A variable is a name used to remember a value.  Most of the variables
+documented in this manual exist just to facilitate customization: some
+command or other part of Emacs uses the variable and behaves
+differently depending on its setting.  Until you are interested in
+customizing, you can ignore the information about variables.  When you
+are ready to be interested, read the basic information on variables, and
+then the information on individual variables will make sense.  *Note
+Variables::.
+
+
+File: xemacs.info,  Node: Pull-down Menus,  Next: Entering Emacs,  Prev: Keystrokes,  Up: Top
+
+XEmacs Pull-down Menus
+======================
+
+   If you are running XEmacs under X, a menu bar on top of the Emacs
+frame provides access to pull-down menus of file, edit, and
+help-related commands. The menus provide convenient shortcuts and an
+easy interface for novice users.  They do not provide additions to the
+functionality available via key commands; you can still invoke commands
+from the keyboard as in previous versions of Emacs.
+
+File
+     Perform file and buffer-related operations, such as opening and
+     closing files, saving and printing buffers, as well as exiting
+     Emacs.
+
+Edit
+     Perform standard editing operations, such as cutting, copying,
+     pasting, and killing selected text.
+
+Apps
+     Access to sub-applications implemented within XEmacs, such as the
+     mail reader, the World Wide Web browser, the spell-checker, and
+     the calendar program.
+
+Options
+     Control various options regarding the way XEmacs works, such as
+     controlling which elements of the frame are visible, selecting the
+     fonts to be used for text, specifying whether searches are
+     case-sensitive, etc.
+
+Buffers
+     Present a menu of buffers for selection as well as the option to
+     display a buffer list.
+
+Tools
+     Perform various actions designed to automate software development
+     and similar technical work, such as searching through many files,
+     compiling a program, and comparing or merging two or three files.
+
+Help
+     Access to Emacs Info.
+
+   There are two ways of selecting an item from a pull-down menu:
+
+   * Select an item in the menu bar by moving the cursor over it and
+     click the left mouse-button.  Then move the cursor over the menu
+     item you want to choose and click left again.
+
+   * Select an item in the menu bar by moving the cursor over it and
+     click and hold the left mouse-button.  With the mouse-button
+     depressed, move the cursor over the menu item you want, then
+     release it to make your selection.
+
+   If a command in the pull-down menu is not applicable in a given
+situation, the command is disabled and its name appears faded.  You
+cannot invoke items that are faded.  For example, many commands on the
+Edit menu appear faded until you select text on which they are to
+operate; after you select a block of text, edit commands are enabled.
+*Note Mouse Selection::, for information on using the mouse to select
+text.  *Note Using X Selections::, for related information.
+
+   There are also `M-x' equivalents for each menu item.  To find the
+equivalent for any left-button menu item, do the following:
+
+  1. Type `C-h k' to get the `Describe Key' prompt.
+
+  2. Select the menu item and click.
+
+   Emacs displays the function associated with the menu item in a
+separate window, usually together with some documentation.
+
+* Menu:
+
+* File Menu::           Items on the File menu.
+* Edit Menu::           Items on the Edit menu.
+* Apps Menu::		Items on the Apps menu.
+* Options Menu::        Items on the Options menu.
+* Buffers Menu::        Information about the Buffers menu.
+* Tools Menu::		Items on the Tools menu.
+* Help Menu::           Items on the Help menu.
+* Menu Customization::  Adding and removing menu items and related
+                        operations.
+
+
+File: xemacs.info,  Node: File Menu,  Next: Edit Menu,  Up: Pull-down Menus
+
+The File Menu
+-------------
+
+   The File menu bar item contains the items New Frame, Open File...,
+Save Buffer, Save Buffer As..., Revert Buffer, Print Buffer, Delete
+Frame, Kill Buffer and Exit Emacs on the pull-down menu.  If you select
+a menu item, Emacs executes the equivalent command.
+
+Open File, New Frame...
+     Prompts you for a filename and loads that file into a new buffer
+     in a new Emacs frame, that is, a new X window running under the
+     same Emacs process.  You can remove the frame using the Delete
+     Frame menu item.  When you remove the last frame, you exit Emacs
+     and are prompted for confirmation.
+
+Open File...
+     Prompts you for a filename and loads that file into a new buffer.
+     Open File... is equivalent to the Emacs command `find-file' (`C-x
+     C-f').
+
+Insert File...
+     Prompts you for a filename and inserts the contents of that file
+     into the current buffer.  The file associated with the current
+     buffer is not changed by this command.  This is equivalent to the
+     Emacs command `insert-file' (`C-x i').
+
+Save Buffer
+     Writes and saves the current Emacs buffer as the latest version of
+     the current visited file.  Save Buffer is equivalent to the Emacs
+     command `save-buffer' (`C-x C-s').
+
+Save Buffer As...
+     Writes and saves the current Emacs buffer to the filename you
+     specify.  Save Buffer As... is equivalent to the Emacs command
+     `write-file' (`C-x C-w').
+
+Revert Buffer
+     Restores the last saved version of the file to the current buffer.
+     When you edit a buffer containing a text file, you must save the
+     buffer before your changes become effective.  Use Revert Buffer if
+     you do not want to keep the changes you have made in the buffer.
+     Revert Buffer is equivalent to the Emacs command `revert-file'
+     (`M-x revert-buffer').
+
+Kill Buffer
+     Kills the current buffer, prompting you first if there are unsaved
+     changes.  This is roughly equivalent to the Emacs command
+     `kill-buffer' (`C-x k'), except that `kill-buffer' prompts for the
+     name of a buffer to kill.
+
+Print Buffer
+     Prints a hardcopy of the current buffer.  Equivalent to the Emacs
+     command `print-buffer' (`M-x print-buffer').
+
+New Frame
+     Creates a new Emacs frame displaying the `*scratch*' buffer.  This
+     is like the Open File, New Frame... menu item, except that it does
+     not prompt for or load a file.
+
+Delete Frame
+     Allows you to close all but one of the frames created by New Frame.
+     If you created several Emacs frames belonging to the same Emacs
+     process, you can close all but one of them.  When you attempt to
+     close the last frame, Emacs informs you that you are attempting to
+     delete the last frame.  You have to choose Exit Emacs for that.
+
+Split Frame
+     Divides the current window on the current frame into two
+     equal-sized windows, both displaying the same buffer.  Equivalent
+     to the Emacs command `split-window-vertically' (`C-x 2').
+
+Un-split (Keep This)
+     If the frame is divided into multiple windows, this removes all
+     windows other than the selected one.  Equivalent to the Emacs
+     command `delete-other-windows' (`C-x 1').
+
+Un-split (Keep Others)
+     If the frame is divided into multiple windows, this removes the
+     selected window from the frame, giving the space back to one of the
+     other windows.  Equivalent to the Emacs command `delete-window'
+     (`C-x 0').
+
+Exit Emacs
+     Shuts down (kills) the Emacs process.  Equivalent to the Emacs
+     command `save-buffers-kill-emacs' (`C-x C-c').  Before killing the
+     Emacs process, the system asks which unsaved buffers to save by
+     going through the list of all buffers in that Emacs process.
+
+
+File: xemacs.info,  Node: Edit Menu,  Next: Apps Menu,  Prev: File Menu,  Up: Pull-down Menus
+
+The Edit Menu
+-------------
+
+   The Edit pull-down menu contains the Undo, Cut, Copy, Paste, and
+Clear menu items.  When you select a menu item, Emacs executes the
+equivalent command.  Most commands on the Edit menu work on a block of
+text, the X selection.  They appear faded until you select a block of
+text (activate a region) with the mouse.  *Note Using X Selections::,
+*note Killing::., and *note Yanking::. for more information.
+
+Undo
+     Undoes the previous command.  Undo is equivalent to the Emacs
+     command `undo' (`C-x u').
+
+Cut
+     Removes the selected text block from the current buffer, makes it
+     the X clipboard selection, and places it in the kill ring.  Before
+     executing this command, you have to select a region using Emacs
+     region selection commands or with the mouse.
+
+Copy
+     Makes a selected text block the X clipboard selection, and places
+     it in the kill ring.  You can select text using one of the Emacs
+     region selection commands or by selecting a text region with the
+     mouse.
+
+Paste
+     Inserts the current value of the X clipboard selection in the
+     current buffer.  Note that this is not necessarily the same as the
+     Emacs `yank' command, because the Emacs kill ring and the X
+     clipboard selection are not the same thing.  You can paste in text
+     you have placed in the clipboard using Copy or Cut.  You can also
+     use Paste to insert text that was pasted into the clipboard from
+     other applications.
+
+Clear
+     Removes the selected text block from the current buffer but does
+     not place it in the kill ring or the X clipboard selection.
+
+Start Macro Recording
+     After selecting this, Emacs will remember every keystroke you type
+     until End Macro Recording is selected.  This is the same as the
+     Emacs command `start-kbd-macro' (`C-x (').
+
+End Macro Recording
+     Selecting this tells emacs to stop remembering your keystrokes.
+     This is the same as the Emacs command `end-kbd-macro' (`C-x )').
+
+Execute Last Macro
+     Selecting this item will cause emacs to re-interpret all of the
+     keystrokes which were saved between selections of the Start Macro
+     Recording and End Macro Recording menu items.  This is the same as
+     the Emacs command `call-last-kbd-macro' (`C-x e').
+
+
+File: xemacs.info,  Node: Apps Menu,  Next: Options Menu,  Prev: Edit Menu,  Up: Pull-down Menus
+
+The Apps Menu
+-------------
+
+   The Apps pull-down menu contains the Read Mail (VM)..., Read Mail
+(MH)..., Send Mail..., Usenet News, Browse the Web, Gopher, Spell-Check
+Buffer and Emulate VI menu items, and the Calendar and Games sub-menus.
+When you select a menu item, Emacs executes the equivalent command.
+For some of the menu items, there are sub-menus which you will need to
+select.
+
+
+File: xemacs.info,  Node: Options Menu,  Next: Buffers Menu,  Prev: Apps Menu,  Up: Pull-down Menus
+
+The Options Menu
+----------------
+
+   The Options pull-down menu contains the Read Only, Case Sensitive
+Search, Overstrike, Auto Delete Selection, Teach Extended Commands,
+Syntax Highlighting, Paren Highlighting, Font, Size, Weight, Buffers
+Menu Length..., Buffers Sub-Menus and Save Options menu items.  When
+you select a menu item, Emacs executes the equivalent command.  For
+some of the menu items, there are sub-menus which you will need to
+select.
+
+Read Only
+     Selecting this item will cause the buffer to visit the file in a
+     read-only mode. Changes to the file will not be allowed. This is
+     equivalent to the Emacs command `toggle-read-only' (`C-x C-q').
+
+Case Sensitive Search
+     Selecting this item will cause searches to be case-sensitive. If
+     its not selected then searches will ignore case. This option is
+     local to the buffer.
+
+Overstrike
+     After selecting this item, when you type letters they will replace
+     existing text on a one-to-one basis, rather than pushing it to the
+     right. At the end of a line, such characters extend the line.
+     Before a tab, such characters insert until the tab is filled in.
+     This is the same as Emacs command `quoted-insert' (`C-q').
+
+Auto Delete Selection
+     Selecting this item will cause automatic deletion of the selected
+     region. The typed text will replace the selection if the selection
+     is active (i.e. if its highlighted). If the option is not selected
+     then the typed text is just inserted at the point.
+
+Teach Extended Commands
+     After you  select this item, any time you execute a command with
+     `M-x'which has a shorter keybinding, you will be shown the
+     alternate binding before the command executes.
+
+Syntax Highlighting
+     You can customize your `.emacs' file to include the font-lock mode
+     so that when you select this item, the comments will be displayed
+     in one face, strings in another, reserved words in another, and so
+     on. When Fonts is selected, different parts of the program will
+     appear in different Fonts. When Colors is selected, then the
+     program will be displayed in different colors. Selecting None
+     causes the program to appear in just one Font and Color. Selecting
+     Less resets the Fonts and Colors to a fast, minimal set of
+     decorations. Selecting More resets the Fonts and Colors to a larger
+     set of decorations. For example, if Less is selected (which is the
+     default setting) then you might have all comments in green color.
+     Whereas, if More is selected then a function name in the comments
+     themselves might appear in a different Color or Font.
+
+Paren Highlighting
+     After selecting Blink from this item, if you place the cursor on a
+     parenthesis, the matching parenthesis will blink. If you select
+     Highlight and place the cursor on a parenthesis, the whole
+     expression of the parenthesis under the cursor will be highlighted.
+     Selecting None will turn off the options (regarding Paren
+     Highlighting) which you had selected earlier.
+
+Font
+     You can select any Font for your program by choosing from one of
+     the available Fonts.
+
+Size
+     You can select any size ranging from 2 to 24 by selecting the
+     appropriate option.
+
+Weight
+     You can choose either Bold or Medium for the weight.
+
+Buffers Menu Length...
+     Prompts you for the number of buffers to display. Then it will
+     display that number of most recently selected buffers.
+
+Buffers Sub-Menus
+     After selection of this item the Buffers menu will contain several
+     commands, as submenus of each buffer line. If this item is
+     unselected, then there are no submenus for each buffer line, the
+     only command available will be selecting that buffer.
+
+Save Options
+     Selecting this item will save the current settings of your Options
+     menu to your `.emacs' file.
+
+
+File: xemacs.info,  Node: Buffers Menu,  Next: Tools Menu,  Prev: Options Menu,  Up: Pull-down Menus
+
+The Buffers Menu
+----------------
+
+   The Buffers menu provides a selection of up to ten buffers and the
+item List All Buffers, which provides a Buffer List. *Note List
+Buffers::, for more information.
+
+
+File: xemacs.info,  Node: Tools Menu,  Next: Help Menu,  Prev: Buffers Menu,  Up: Pull-down Menus
+
+The Tools Menu
+--------------
+
+   The Tools pull-down menu contains the Grep..., Compile..., Shell
+Command..., Shell Command on Region..., Debug(GDB)...  and
+Debug(DBX)... menu items, and the Compare, Merge, Apply Patch and Tags
+sub-menus.  When you select a menu item, Emacs executes the equivalent
+command.  For some of the menu items, there are sub-menus which you
+will need to select.
+
+
+File: xemacs.info,  Node: Help Menu,  Next: Menu Customization,  Prev: Tools Menu,  Up: Pull-down Menus
+
+The Help Menu
+-------------
+
+   The Help Menu gives you access to Emacs Info and provides a menu
+equivalent for each of the choices you have when using `C-h'.  *Note
+Help::, for more information.
+
+   The Help menu also gives access to UNIX online manual pages via the
+UNIX Manual Page option.
+
+
+File: xemacs.info,  Node: Menu Customization,  Prev: Help Menu,  Up: Pull-down Menus
+
+Customizing XEmacs Menus
+------------------------
+
+   You can customize any of the pull-down menus by adding or removing
+menu items and disabling or enabling existing menu items.
+
+   The following functions are available:
+`add-menu: (MENU-PATH MENU-NAME MENU-ITEMS &OPTIONAL BEFORE)'
+     Add a menu to the menu bar or one of its submenus.
+
+`add-menu-item: (MENU-PATH ITEM-NAME FUNCTION ENABLED-P
+     &optional before)' Add a menu item to a menu, creating the menu
+     first if necessary.
+
+`delete-menu-item: (PATH)'
+     Remove the menu item defined by PATH from the menu hierarchy.
+
+`disable-menu-item: (PATH)'
+     Disable the specified menu item.
+
+`enable-menu-item: (PATH)'
+     Enable the specified previously disabled menu item.
+
+`relabel-menu-item: (PATH NEW-NAME)'
+     Change the string of the menu item specified by PATH to NEW-NAME.
+
+   Use the function `add-menu' to add a new menu or submenu.  If a menu
+or submenu of the given name exists already, it is changed.
+
+   MENU-PATH identifies the menu under which the new menu should be
+inserted.  It is a list of strings; for example, `("File")' names the
+top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
+File.  If MENU-PATH is `nil', the menu is added to the menu bar itself.
+
+   MENU-NAME is the string naming the menu to be added.
+
+   MENU-ITEMS is a list of menu item descriptions.  Each menu item
+should be a vector of three elements:
+
+   * A string, which is the name of the menu item
+
+   * A symbol naming a command, or a form to evaluate
+
+   * `t' or `nil' to indicate whether the item is selectable
+
+   The optional argument BEFORE is the name of the menu before which
+the new menu or submenu should be added.  If the menu is already
+present, it is not moved.
+
+   The function `add-menu-item' adds a menu item to the specified menu,
+creating the menu first if necessary.  If the named item already
+exists, the menu remains unchanged.
+
+   MENU-PATH identifies the menu into which the new menu item should be
+inserted.  It is a list of strings; for example, `("File")' names the
+top-level File menu.  `("File" "Foo")' names a hypothetical submenu of
+File.
+
+   ITEM-NAME is the string naming the menu item to add.
+
+   FUNCTION is the command to invoke when this menu item is selected.
+If it is a symbol, it is invoked with `call-interactively', in the same
+way that functions bound to keys are invoked.  If it is a list, the
+list is simply evaluated.
+
+   ENABLED-P controls whether the item is selectable or not.  It should
+be `t', `nil', or a form to evaluate to decide.  This form will be
+evaluated just before the menu is displayed, and the menu item will be
+selectable if that form returns non-`nil'.
+
+   For example, to make the `rename-file' command available from the
+File menu, use the following code:
+
+     (add-menu-item '("File") "Rename File" 'rename-file t)
+
+   To add a submenu of file management commands using a File Management
+item, use the following code:
+
+     (add-menu-item '("File" "File Management") "Copy File" 'copy-file t)
+     (add-menu-item '("File" "File Management") "Delete File" 'delete-file t)
+     (add-menu-item '("File" "File Management") "Rename File" 'rename-file t)
+
+   The optional BEFORE argument is the name of a menu item before which
+the new item should be added.  If the item is already present, it is
+not moved.
+
+   To remove a specified menu item from the menu hierarchy, use
+`delete-menu-item'.
+
+   PATH is a list of strings that identify the position of the menu
+item in the menu hierarchy.  `("File" "Save")' means the menu item
+called Save under the top level File menu.  `("Menu" "Foo" "Item")'
+means the menu item called Item under the Foo submenu of Menu.
+
+   To disable a menu item, use `disable-menu-item'.  The disabled menu
+item is grayed and can no longer be selected.  To make the item
+selectable again, use `enable-menu-item'.  `disable-menu-item' and
+`enable-menu-item' both have the argument PATH.
+
+   To change the string of the specified menu item, use
+`relabel-menu-item'. This function also takes the argument PATH.
+
+   NEW-NAME is the string to which the menu item will be changed.
+
+
+File: xemacs.info,  Node: Entering Emacs,  Next: Exiting,  Prev: Pull-down Menus,  Up: Top
+
+Entering and Exiting Emacs
+**************************
+
+   The usual way to invoke Emacs is to type `emacs <RET>' at the shell
+(for XEmacs, type `xemacs <RET>').  Emacs clears the screen and then
+displays an initial advisory message and copyright notice.  You can
+begin typing Emacs commands immediately afterward.
+
+   Some operating systems insist on discarding all type-ahead when Emacs
+starts up; they give Emacs no way to prevent this.  Therefore, it is
+wise to wait until Emacs clears the screen before typing the first
+editing command.
+
+   Before Emacs reads the first command, you have not had a chance to
+give a command to specify a file to edit.  Since Emacs must always have
+a current buffer for editing, it presents a buffer, by default, a
+buffer named `*scratch*'.  The buffer is in Lisp Interaction mode; you
+can use it to type Lisp expressions and evaluate them, or you can
+ignore that capability and simply doodle.  You can specify a different
+major mode for this buffer by setting the variable `initial-major-mode'
+in your init file.  *Note Init File::.
+
+   It is possible to give Emacs arguments in the shell command line to
+specify files to visit, Lisp files to load, and functions to call.
+

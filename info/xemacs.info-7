@@ -1,0 +1,1138 @@
+This is Info file ../../info/xemacs.info, produced by Makeinfo version
+1.68 from the input file xemacs.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* XEmacs: (xemacs).		XEmacs Editor.
+END-INFO-DIR-ENTRY
+
+   This file documents the XEmacs editor.
+
+   Copyright (C) 1985, 1986, 1988 Richard M. Stallman.  Copyright (C)
+1991, 1992, 1993, 1994 Lucid, Inc.  Copyright (C) 1993, 1994 Sun
+Microsystems, Inc.  Copyright (C) 1995 Amdahl Corporation.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the sections entitled "The GNU Manifesto", "Distribution" and "GNU
+General Public License" are included exactly as in the original, and
+provided that the entire resulting derived work is distributed under the
+terms of a permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the sections entitled "The GNU Manifesto",
+"Distribution" and "GNU General Public License" may be included in a
+translation approved by the author instead of in the original English.
+
+
+File: xemacs.info,  Node: Backup Copying,  Prev: Backup Deletion,  Up: Backup
+
+Copying vs. Renaming
+....................
+
+   You can make backup files by copying the old file or by renaming it.
+This makes a difference when the old file has multiple names.  If you
+rename the old file into the backup file, the alternate names become
+names for the backup file.  If you copy the old file instead, the
+alternate names remain names for the file that you are editing, and the
+contents accessed by those names will be the new contents.
+
+   How you make a backup file may also affect the file's owner and
+group.  If you use copying, they do not change.  If renaming is used,
+you become the file's owner, and the file's group becomes the default
+(different operating systems have different defaults for the group).
+
+   Having the owner change is usually a good idea, because then the
+owner is always the person who last edited the file.  Occasionally
+there is a file whose owner should not change.  Since most files should
+change owners, it is a good idea to use local variable lists to set
+`backup-by-copying-when-mismatch' for the special cases where the owner
+should not change (*note File Variables::.).
+
+   Three variables control the choice of renaming or copying.
+Normally, renaming is done.  If the variable `backup-by-copying' is
+non-`nil', copying is used.  Otherwise, if the variable
+`backup-by-copying-when-linked' is non-`nil', copying is done for files
+that have multiple names, but renaming may still be done when the file
+being edited has only one name.  If the variable
+`backup-by-copying-when-mismatch' is non-`nil', copying is done if
+renaming would cause the file's owner or group to change.
+
+
+File: xemacs.info,  Node: Interlocking,  Prev: Backup,  Up: Saving
+
+Protection Against Simultaneous Editing
+---------------------------------------
+
+   Simultaneous editing occurs when two users visit the same file, both
+make changes, and both save their changes.  If no one was informed that
+this was happening, and you saved first, you would later find that your
+changes were lost.  On some systems, Emacs notices immediately when the
+second user starts to change a file already being edited, and issues a
+warning.  When this is not possible, or if the second user has started
+to change the file despite the warning, Emacs checks when the file is
+saved, and issues a second warning when a user is about to overwrite a
+file containing another user's changes.  If you are the user editing the
+file, you can take corrective action at this point and prevent actual
+loss of work.
+
+   When you make the first modification in an Emacs buffer that is
+visiting a file, Emacs records that you have locked the file.  (It does
+this by writing another file in a directory reserved for this purpose.)
+The lock is removed when you save the changes.  The idea is that the
+file is locked whenever the buffer is modified.  If you begin to modify
+the buffer while the visited file is locked by someone else, this
+constitutes a collision, and Emacs asks you what to do.  It does this
+by calling the Lisp function `ask-user-about-lock', which you can
+redefine to customize what it does.  The standard definition of this
+function asks you a question and accepts three possible answers:
+
+`s'
+     Steal the lock.  Whoever was already changing the file loses the
+     lock, and you get the lock.
+
+`p'
+     Proceed.  Go ahead and edit the file despite its being locked by
+     someone else.
+
+`q'
+     Quit.  This causes an error (`file-locked') and the modification
+     you were trying to make in the buffer does not actually take place.
+
+   Note that locking works on the basis of a file name; if a file has
+multiple names, Emacs does not realize that the two names are the same
+file and cannot prevent two users from editing it simultaneously under
+different names.  However, basing locking on names means that Emacs can
+interlock the editing of new files that do not really exist until they
+are saved.
+
+   Some systems are not configured to allow Emacs to make locks.  On
+these systems, Emacs cannot detect trouble in advance, but it can still
+detect it in time to prevent you from overwriting someone else's
+changes.
+
+   Every time Emacs saves a buffer, it first checks the
+last-modification date of the existing file on disk to see that it has
+not changed since the file was last visited or saved.  If the date does
+not match, it implies that changes were made in the file in some other
+way, and these changes are about to be lost if Emacs actually does
+save.  To prevent this, Emacs prints a warning message and asks for
+confirmation before saving.  Occasionally you will know why the file
+was changed and know that it does not matter; then you can answer `yes'
+and proceed.  Otherwise, you should cancel the save with `C-g' and
+investigate the situation.
+
+   The first thing you should do when notified that simultaneous editing
+has already taken place is to list the directory with `C-u C-x C-d'
+(*note Directory Listing: ListDir.).  This will show the file's current
+author.  You should attempt to contact that person and ask him not to
+continue editing.  Often the next step is to save the contents of your
+Emacs buffer under a different name, and use `diff' to compare the two
+files.
+
+   Simultaneous editing checks are also made when you visit a file that
+is already visited with `C-x C-f' and when you start to modify a file.
+This is not strictly necessary, but it is useful to find out about such
+a problem as early as possible, when corrective action takes less work.
+
+   Another way to protect your file is to set the read, write, and
+executable permissions for the file. Use the function
+`set-default-file-modes' to set the UNIX `umask' value to the NMASK
+argument. The `umask' value is the default protection mode for new
+files.
+
+
+File: xemacs.info,  Node: Reverting,  Next: Auto Save,  Prev: Saving,  Up: Files
+
+Reverting a Buffer
+==================
+
+   If you have made extensive changes to a file and then change your
+mind about them, you can get rid of all changes by reading in the
+previous version of the file.  To do this, use `M-x revert-buffer',
+which operates on the current buffer.  Since reverting a buffer can
+result in very extensive changes, you must confirm it with `yes'.
+
+   If the current buffer has been auto-saved more recently than it has
+been saved explicitly, `revert-buffer' offers to read the auto save file
+instead of the visited file (*note Auto Save::.).  Emacs asks you about
+the auto-save file before the request for confirmation of the
+`revert-buffer' operation, and demands `y' or `n' as an answer.  If you
+have started to type `yes' for confirmation without realizing that the
+auto-save question was going to be asked, the `y' will answer that
+question, but the `es' will not be valid confirmation.  This gives you
+a chance to cancel the operation with `C-g' and try again with the
+answers you really intend.
+
+   `revert-buffer' keeps point at the same distance (measured in
+characters) from the beginning of the file.  If the file was edited only
+slightly, you will be at approximately the same piece of text after
+reverting as before.  If you have made more extensive changes, the
+value of point in the old file may bring you to a totally different
+piece of text than your last editing point.
+
+   A buffer reverted from its visited file is marked "not modified"
+until you make a change.
+
+   Some kinds of buffers whose contents reflect data bases other than
+files, such as Dired buffers, can also be reverted.  For them,
+reverting means recalculating their contents from the appropriate data.
+Buffers created randomly with `C-x b' cannot be reverted;
+`revert-buffer' reports an error when asked to do so.
+
+
+File: xemacs.info,  Node: Auto Save,  Next: Version Control,  Prev: Reverting,  Up: Files
+
+Auto-Saving: Protection Against Disasters
+=========================================
+
+   Emacs saves all the visited files from time to time (based on
+counting your keystrokes) without being asked.  This is called
+"auto-saving".  It prevents you from losing more than a limited amount
+of work if the system crashes.
+
+   When Emacs determines it is time for auto-saving, each buffer is
+considered and is auto-saved if auto-saving is turned on for it and it
+has changed since the last time it was auto-saved.  If any auto-saving
+is done, the message `Auto-saving...' is displayed in the echo area
+until auto-saving is finished.  Errors occurring during auto-saving are
+caught so that they do not interfere with the execution of commands you
+have been typing.
+
+* Menu:
+
+* Files: Auto Save Files.
+* Control: Auto Save Control.
+* Recover::		Recovering text from auto-save files.
+
+
+File: xemacs.info,  Node: Auto Save Files,  Next: Auto Save Control,  Prev: Auto Save,  Up: Auto Save
+
+Auto-Save Files
+---------------
+
+   Auto-saving does not normally write to the files you visited, because
+it can be undesirable to save a program that is in an inconsistent
+state when you have made only half of a planned change.  Instead,
+auto-saving is done in a different file called the "auto-save file",
+and the visited file is changed only when you save explicitly, for
+example, with `C-x C-s'.
+
+   Normally, the name of the auto-save file is generated by appending
+`#' to the front and back of the visited file name.  Thus, a buffer
+visiting file `foo.c' would be auto-saved in a file `#foo.c#'.  Most
+buffers that are not visiting files are auto-saved only if you request
+it explicitly; when they are auto-saved, the auto-save file name is
+generated by appending `#%' to the front and `#' to the back of buffer
+name.  For example, the `*mail*' buffer in which you compose messages
+to be sent is auto-saved in a file named `#%*mail*#'.  Names of
+auto-save files are generated this way unless you customize the
+functions `make-auto-save-file-name' and `auto-save-file-name-p' to do
+something different.  The file name to be used for auto-saving a buffer
+is calculated at the time auto-saving is turned on in that buffer.
+
+   If you want auto-saving to be done in the visited file, set the
+variable `auto-save-visited-file-name' to be non-`nil'.  In this mode,
+there is really no difference between auto-saving and explicit saving.
+
+   Emacs deletes a buffer's auto-save file when you explicitly save the
+buffer.  To inhibit the deletion, set the variable
+`delete-auto-save-files' to `nil'.  Changing the visited file name with
+`C-x C-w' or `set-visited-file-name' renames any auto-save file to
+correspond to the new visited name.
+
+
+File: xemacs.info,  Node: Auto Save Control,  Next: Recover,  Prev: Auto Save Files,  Up: Auto Save
+
+Controlling Auto-Saving
+-----------------------
+
+   Each time you visit a file, auto-saving is turned on for that file's
+buffer if the variable `auto-save-default' is non-`nil' (but not in
+batch mode; *note Entering Emacs::.).  The default for this variable is
+`t', so Emacs auto-saves buffers that visit files by default.  You can
+use the command `M-x auto-save-mode' to turn auto-saving for a buffer
+on or off.  Like other minor mode commands, `M-x auto-save-mode' turns
+auto-saving on with a positive argument, off with a zero or negative
+argument; with no argument, it toggles.
+
+   Emacs performs auto-saving periodically based on counting how many
+characters you have typed since the last time auto-saving happened.  The
+variable `auto-save-interval' specifies the number of characters
+between auto-saves.  By default, it is 300.  Emacs also auto-saves
+whenever you call the function `do-auto-save'.
+
+   Emacs also does auto-saving whenever it gets a fatal error.  This
+includes killing the Emacs job with a shell command such as `kill
+-emacs', or disconnecting a phone line or network connection.
+
+   You can set the number of seconds of idle time before an auto-save is
+done. Setting the value of the variable `auto-save-timeout' to zero or
+`nil' will  disable auto-saving due to idleness.
+
+   The actual amount of idle time between auto-saves is logarithmically
+related to the size of the current buffer.  This variable is the number
+of seconds after which an auto-save will happen when the current buffer
+is 50k or less; the timeout will be 2 1/4 times this in a 200k buffer, 3
+3/4 times this in a 1000k buffer, and 4 1/2 times this in a 2000k
+buffer.
+
+   For this variable to have any effect, you must do `(require 'timer)'.
+
+
+File: xemacs.info,  Node: Recover,  Prev: Auto Save Control,  Up: Auto Save
+
+Recovering Data from Auto-Saves
+-------------------------------
+
+   If you want to use the contents of an auto-save file to recover from
+a loss of data, use the command `M-x recover-file <RET> FILE <RET>'.
+Emacs visits FILE and then (after your confirmation) restores the
+contents from the auto-save file `#FILE#'.  You can then save the file
+with `C-x C-s' to put the recovered text into FILE itself.  For
+example, to recover file `foo.c' from its auto-save file `#foo.c#', do:
+
+     M-x recover-file <RET> foo.c <RET>
+     C-x C-s
+
+   Before asking for confirmation, `M-x recover-file' displays a
+directory listing describing the specified file and the auto-save file,
+so you can compare their sizes and dates.  If the auto-save file is
+older, `M-x recover-file' does not offer to read it.
+
+   Auto-saving is disabled by `M-x recover-file' because using this
+command implies that the auto-save file contains valuable data from a
+past session.  If you save the data in the visited file and then go on
+to make new changes, turn auto-saving back on with `M-x auto-save-mode'.
+
+
+File: xemacs.info,  Node: Version Control,  Next: ListDir,  Prev: Auto Save,  Up: Files
+
+Version Control
+===============
+
+   "Version control systems" are packages that can record multiple
+versions of a source file, usually storing the unchanged parts of the
+file just once.  Version control systems also record history information
+such as the creation time of each version, who created it, and a
+description of what was changed in that version.
+
+   The GNU project recommends the version control system known as RCS,
+which is free software and available from the Free Software Foundation.
+Emacs supports use of either RCS or SCCS (a proprietary, but widely
+used, version control system that is not quite as powerful as RCS)
+through a facility called VC.  The same Emacs commands work with either
+RCS or SCCS, so you hardly have to know which one of them you are using.
+
+* Menu:
+
+* Concepts of VC::              Basic version control information;
+                                  checking files in and out.
+* Editing with VC::             Commands for editing a file maintained
+                                  with version control.
+* Variables for Check-in/out::  Variables that affect the commands used
+                                  to check files in or out.
+* Log Entries::                 Logging your changes.
+* Change Logs and VC::          Generating a change log file from log
+                                  entries.
+* Old Versions::                Examining and comparing old versions.
+* VC Status::                   Commands to view the VC status of files and
+                                  look at log entries.
+* Renaming and VC::             A command to rename both the source and
+                                  master file correctly.
+* Snapshots::                   How to make and use snapshots, a set of
+                                  file versions that can be treated as a unit.
+* Version Headers::             Inserting version control headers into
+                                  working files.
+
+
+File: xemacs.info,  Node: Concepts of VC,  Next: Editing with VC,  Prev: Version Control,  Up: Version Control
+
+Concepts of Version Control
+---------------------------
+
+   When a file is under version control, we also say that it is
+"registered" in the version control system.  Each registered file has a
+corresponding "master file" which represents the file's present state
+plus its change history, so that you can reconstruct from it either the
+current version or any specified earlier version.  Usually the master
+file also records a "log entry" for each version describing what was
+changed in that version.
+
+   The file that is maintained under version control is sometimes called
+the "work file" corresponding to its master file.
+
+   To examine a file, you "check it out".  This extracts a version of
+the source file (typically, the most recent) from the master file.  If
+you want to edit the file, you must check it out "locked".  Only one
+user can do this at a time for any given source file.  (This kind of
+locking is completely unrelated to the locking that Emacs uses to
+detect simultaneous editing of a file.)
+
+   When you are done with your editing, you must "check in" the new
+version.  This records the new version in the master file, and unlocks
+the source file so that other people can lock it and thus modify it.
+
+   Checkin and checkout are the basic operations of version control.
+You can do both of them with a single Emacs command: `C-x C-q'
+(`vc-toggle-read-only').
+
+   A "snapshot" is a coherent collection of versions of the various
+files that make up a program.  *Note Snapshots::.
+
+
+File: xemacs.info,  Node: Editing with VC,  Next: Variables for Check-in/out,  Prev: Concepts of VC,  Up: Version Control
+
+Editing with Version Control
+----------------------------
+
+   When you visit a file that is maintained using version control, the
+mode line displays `RCS' or `SCCS' to inform you that version control
+is in use, and also (in case you care) which low-level system the file
+is actually stored in.  Normally, such a source file is read-only, and
+the mode line indicates this with `%%'.  With RCS, the mode line also
+indicates the number of the head version, which is normally also the
+version you are looking at.
+
+   These are the commands for editing a file maintained with version
+control:
+
+`C-x C-q'
+     Check the visited file in or out.
+
+`C-x v u'
+     Revert the buffer and the file to the last checked in version.
+
+`C-x v c'
+     Remove the last-entered change from the master for the visited
+     file.  This undoes your last check-in.
+
+`C-x v i'
+     Register the visited file in version control.
+
+(`C-x v' is the prefix key for version control commands; all of these
+commands except for `C-x C-q' start with `C-x v'.)
+
+   When you want to modify a file maintained with version control, type
+`C-x C-q' (`vc-toggle-read-only').  This "checks out" the file, and
+tells RCS or SCCS to lock the file.  This means making the file
+writable for you (but not for anyone else).
+
+   When you are finished editing the file, type `C-x C-q' again.  When
+used on a file that is checked out, this command checks the file in.
+But check-in does not start immediately; first, you must enter the "log
+entry"--a description of the changes in the new version.  `C-x C-q'
+pops up a buffer for you to enter this in.  When you are finished
+typing in the log entry, type `C-c C-c' to terminate it; this is when
+actual check-in takes place.
+
+   Once you have checked in your changes, the file is unlocked, so that
+other users can lock it and modify it.
+
+   Emacs does not save backup files for source files that are maintained
+with version control.  If you want to make backup files despite version
+control, set the variable `vc-make-backup-files' to a non-`nil' value.
+
+   Normally the work file exists all the time, whether it is locked or
+not.  If you set `vc-keep-workfiles' to `nil', then checking in a new
+version with `C-x C-q' deletes the work file; but any attempt to visit
+the file with Emacs creates it again.
+
+   It is not impossible to lock a file that someone else has locked.  If
+you try to check out a file that is locked, `C-x C-q' asks you whether
+you want to "steal the lock."  If you say yes, the file becomes locked
+by you, but a message is sent to the person who had formerly locked the
+file, to inform him of what has happened.  The mode line indicates that
+a file is locked by someone else by displaying the login name of that
+person, before the version number.
+
+   If you want to discard your current set of changes and revert to the
+last version checked in, use `C-x v u' (`vc-revert-buffer').  This
+cancels your last check-out, leaving the file unlocked.  If you want to
+make a different set of changes, you must first check the file out
+again.  `C-x v u' requires confirmation, unless it sees that you
+haven't made any changes since the last checked-in version.
+
+   `C-x v u' is also the command to use if you lock a file and then
+don't actually change it.
+
+   You can cancel a change after checking it in, with `C-x v c'
+(`vc-cancel-version').  This command discards all record of the most
+recent checked in version, so be careful about using it.  It requires
+confirmation with `yes'.  By default, `C-x v c' reverts your workfile
+and buffer to the previous version (the one that precedes the version
+that is deleted), but you can prevent the reversion by giving the
+command a prefix argument.  Then the buffer does not change.
+
+   This command with a prefix argument is useful when you have checked
+in a change and then discover a trivial error in it; you can cancel the
+erroneous check-in, fix the error, and repeat the check-in.
+
+   Be careful when invoking `C-x v c', as it is easy to throw away a
+lot of work with it.  To help you be careful, this command always
+requires confirmation with `yes'.
+
+   You can register the visited file for version control using
+`C-x v i' (`vc-register').  If the variable `vc-default-back-end' is
+non-`nil', it specifies which version control system to use; otherwise,
+this uses RCS if it is installed on your system and SCCS if not.  After
+`C-x v i', the file is unlocked and read-only.  Type `C-x C-q' if you
+wish to edit it.
+
+   By default, the initial version number is 1.1.  If you want to use a
+different number, give `C-x v i' a prefix argument; then it reads the
+initial version number using the minibuffer.
+
+   If `vc-initial-comment' is non-`nil', `C-x v i' reads an initial
+comment (much like a log entry) to describe the purpose of this source
+file.
+
+   To specify the version number for a subsequent checkin, use the
+command `C-u C-x v v'.  `C-x v v' (`vc-next-action') is the command
+that `C-x C-q' uses to do the "real work" when the visited file uses
+version control.  When used for checkin, and given a prefix argument,
+it reads the version number with the minibuffer.
+
+
+File: xemacs.info,  Node: Variables for Check-in/out,  Next: Log Entries,  Prev: Editing with VC,  Up: Version Control
+
+Variables Affecting Check-in and Check-out
+------------------------------------------
+
+   If `vc-suppress-confirm' is non-`nil', then `C-x C-q' and `C-x v i'
+can save the current buffer without asking, and `C-x v u' also operates
+without asking for confirmation.  (This variable does not affect `C-x v
+c'; that is so drastic that it should always ask for confirmation.)
+
+   VC mode does much of its work by running the shell commands for RCS
+and SCCS.  If `vc-command-messages' is non-`nil', VC displays messages
+to indicate which shell commands it runs, and additional messages when
+the commands finish.
+
+   Normally, VC assumes that it can deduce the locked/unlocked state of
+files by looking at the file permissions of the work file; this is
+fast.  However, if the `RCS' or `SCCS' subdirectory is actually a
+symbolic link, then VC does not trust the file permissions to reflect
+this status.
+
+   You can specify the criterion for whether to trust the file
+permissions by setting the variable `vc-mistrust-permissions'.  Its
+value may be `t' (always mistrust the file permissions and check the
+master file), `nil' (always trust the file permissions), or a function
+of one argument which makes the decision.  The argument is the directory
+name of the `RCS' or `SCCS' subdirectory.  A non-`nil' value from the
+function says to mistrust the file permissions.
+
+   If you find that the file permissions of work files are changed
+erroneously, set `vc-mistrust-permissions' to `t'.  Then VC always
+checks the master file to determine the file's status.
+
+   You can specify additional directories to search for version control
+programs by setting the variable `vc-path'.  These directories are
+searched before the usual search path.  The proper result usually
+happens automatically.
+
+
+File: xemacs.info,  Node: Log Entries,  Next: Change Logs and VC,  Prev: Variables for Check-in/out,  Up: Version Control
+
+Log Entries
+-----------
+
+   When you're editing an initial comment or log entry for inclusion in
+a master file, finish your entry by typing `C-c C-c'.
+
+`C-c C-c'
+     Finish the comment edit normally (`vc-finish-logentry').  This
+     finishes check-in.
+
+   To abort check-in, just don't type `C-c C-c' in that buffer.  You
+can switch buffers and do other editing.  As long as you don't try to
+check in another file, the entry you were editing remains in its
+buffer, and you can go back to that buffer at any time to complete the
+check-in.
+
+   If you change several source files for the same reason, it is often
+convenient to specify the same log entry for many of the files.  To do
+this, use the history of previous log entries.  The commands `M-n',
+`M-p', `M-s' and `M-r' for doing this work just like the minibuffer
+history commands (except that these versions are used outside the
+minibuffer).
+
+   Each time you check in a file, the log entry buffer is put into VC
+Log mode, which involves running two hooks: `text-mode-hook' and
+`vc-log-mode-hook'.
+
+
+File: xemacs.info,  Node: Change Logs and VC,  Next: Old Versions,  Prev: Log Entries,  Up: Version Control
+
+Change Logs and VC
+------------------
+
+   If you use RCS for a program and also maintain a change log file for
+it (*note Change Log::.), you can generate change log entries
+automatically from the version control log entries:
+
+`C-x v a'
+     Visit the current directory's change log file and create new
+     entries for versions checked in since the most recent entry in the
+     change log file (`vc-update-change-log').
+
+     This command works with RCS only; it does not work with SCCS.
+
+   For example, suppose the first line of `ChangeLog' is dated 10 April
+1992, and that the only check-in since then was by Nathaniel Bowditch
+to `rcs2log' on 8 May 1992 with log text `Ignore log messages that
+start with `#'.'.  Then `C-x v a' visits `ChangeLog' and inserts text
+like this:
+
+     Fri May  8 21:45:00 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * rcs2log: Ignore log messages that start with `#'.
+
+You can then edit the new change log entry further as you wish.
+
+   Normally, the log entry for file `foo' is displayed as `* foo: TEXT
+OF LOG ENTRY'.  The `:' after `foo' is omitted if the text of the log
+entry starts with `(FUNCTIONNAME): '.  For example, if the log entry
+for `vc.el' is `(vc-do-command): Check call-process status.', then the
+text in `ChangeLog' looks like this:
+
+     Wed May  6 10:53:00 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.el (vc-do-command): Check call-process status.
+
+   When `C-x v a' adds several change log entries at once, it groups
+related log entries together if they all are checked in by the same
+author at nearly the same time.  If the log entries for several such
+files all have the same text, it coalesces them into a single entry.
+For example, suppose the most recent checkins have the following log
+entries:
+
+For `vc.texinfo':
+     Fix expansion typos.
+For `vc.el':
+     Don't call expand-file-name.
+For `vc-hooks.el':
+     Don't call expand-file-name.
+
+   They appear like this in `ChangeLog':
+
+     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.texinfo: Fix expansion typos.
+     
+             * vc.el, vc-hooks.el: Don't call expand-file-name.
+
+   Normally, `C-x v a' separates log entries by a blank line, but you
+can mark several related log entries to be clumped together (without an
+intervening blank line) by starting the text of each related log entry
+with a label of the form `{CLUMPNAME} '.  The label itself is not
+copied to `ChangeLog'.  For example, suppose the log entries are:
+
+For `vc.texinfo':
+     {expand} Fix expansion typos.
+For `vc.el':
+     {expand} Don't call expand-file-name.
+For `vc-hooks.el':
+     {expand} Don't call expand-file-name.
+
+Then the text in `ChangeLog' looks like this:
+
+     Wed Apr  1 08:57:59 1992  Nathaniel Bowditch  (nat@apn.org)
+     
+             * vc.texinfo: Fix expansion typos.
+             * vc.el, vc-hooks.el: Don't call expand-file-name.
+
+   A log entry whose text begins with `#' is not copied to `ChangeLog'.
+For example, if you merely fix some misspellings in comments, you can
+log the change with an entry beginning with `#' to avoid putting such
+trivia into `ChangeLog'.
+
+
+File: xemacs.info,  Node: Old Versions,  Next: VC Status,  Prev: Change Logs and VC,  Up: Version Control
+
+Examining And Comparing Old Versions
+------------------------------------
+
+`C-x v ~ VERSION <RET>'
+     Examine version VERSION of the visited file, in a buffer of its
+     own (`vc-version-other-window').
+
+`C-x v ='
+     Compare the current buffer contents with the latest checked-in
+     version of the file.
+
+`C-u C-x v = FILE <RET> OLDVERS <RET> NEWVERS <RET>'
+     Compare the specified two versions of FILE.
+
+   You can examine any version of a file by first visiting it, and then
+using `C-x v ~ VERSION <RET>' (`vc-version-other-window').  This puts
+the text of version VERSION in a file named `FILENAME.~VERSION~', then
+visits it in a separate window.
+
+   To compare two versions of a file, use the command `C-x v ='
+(`vc-diff').
+
+   Plain `C-x v =' compares the current buffer contents (saving them in
+the file if necessary) with the last checked-in version of the file.
+With a prefix argument, `C-x v =' reads a file name and two version
+numbers, then compares those versions of the specified file.
+
+   If you supply a directory name instead of the name of a work file,
+this command compares the two specified versions of all registered files
+in that directory and its subdirectories.  You can also specify a
+snapshot name (*note Snapshots::.) instead of one or both version
+numbers.
+
+   You can specify a checked-in version by its number; you can specify
+the most recent checked-in version with an empty version number.
+
+   This command works by running the `vcdiff' utility, getting the
+options from the variable `diff-switches'.  It displays the output in a
+special buffer in another window.  Unlike the `M-x diff' command, `C-x
+v =' does not try to find the changes in the old and new versions.
+This is because one or both versions normally do not exist as files.
+They exist only in the records of the master file.  *Note Comparing
+Files::, for more information about `M-x diff'.
+
+
+File: xemacs.info,  Node: VC Status,  Next: Renaming and VC,  Prev: Old Versions,  Up: Version Control
+
+VC Status Commands
+------------------
+
+   To view the detailed version control status and history of a file,
+type `C-x v l' (`vc-print-log').  It displays the history of changes to
+the current file, including the text of the log entries.  The output
+appears in a separate window.
+
+   When you are working on a large program, it's often useful to find
+all the files that are currently locked, or all the files maintained in
+version control at all.  You can use `C-x v d' (`vc-directory') to show
+all the locked files in or beneath the current directory.  This
+includes all files that are locked by any user.  `C-u C-x v d' lists
+all files in or beneath the current directory that are maintained with
+version control.
+
+   The list of files is displayed as a buffer that uses an augmented
+Dired mode.  The names of the users locking various files are shown (in
+parentheses) in place of the owner and group.  All the normal Dired
+commands work in this buffer.  Most interactive VC commands work also,
+and apply to the file name on the current line.
+
+   The `C-x v v' command (`vc-next-action'), when used in the augmented
+Dired buffer, operates on all the marked files (or the file on the
+current line).  If it operates on more than one file, it handles each
+file according to its current state; thus, it may check out one file
+and check in another (because it is already checked out).  If it has to
+check in any files, it reads a single log entry, then uses that text
+for all the files being checked in.  This can be convenient for
+registering or checking in several files at once, as part of the same
+change.
+
+
+File: xemacs.info,  Node: Renaming and VC,  Next: Snapshots,  Prev: VC Status,  Up: Version Control
+
+Renaming VC Work Files and Master Files
+---------------------------------------
+
+   When you rename a registered file, you must also rename its master
+file correspondingly to get proper results.  Use `vc-rename-file' to
+rename the source file as you specify, and rename its master file
+accordingly.  It also updates any snapshots (*note Snapshots::.) that
+mention the file, so that they use the new name; despite this, the
+snapshot thus modified may not completely work (*note Snapshot
+Caveats::.).
+
+   You cannot use `vc-rename-file' on a file that is locked by someone
+else.
+
+
+File: xemacs.info,  Node: Snapshots,  Next: Version Headers,  Prev: Renaming and VC,  Up: Version Control
+
+Snapshots
+---------
+
+   A "snapshot" is a named set of file versions (one for each
+registered file) that you can treat as a unit.  One important kind of
+snapshot is a "release", a (theoretically) stable version of the system
+that is ready for distribution to users.
+
+* Menu:
+
+* Making Snapshots::		The snapshot facilities.
+* Snapshot Caveats::		Things to be careful of when using snapshots.
+
+
+File: xemacs.info,  Node: Making Snapshots,  Next: Snapshot Caveats,  Prev: Snapshots,  Up: Snapshots
+
+Making and Using Snapshots
+..........................
+
+   There are two basic commands for snapshots; one makes a snapshot
+with a given name, the other retrieves a named snapshot.
+
+`C-x v s NAME <RET>'
+     Define the last saved versions of every registered file in or
+     under the current directory as a snapshot named NAME
+     (`vc-create-snapshot').
+
+`C-x v r NAME <RET>'
+     Check out all registered files at or below the current directory
+     level using whatever versions correspond to the snapshot NAME
+     (`vc-retrieve-snapshot').
+
+     This command reports an error if any files are locked at or below
+     the current directory, without changing anything; this is to avoid
+     overwriting work in progress.
+
+   A snapshot uses a very small amount of resources--just enough to
+record the list of file names and which version belongs to the
+snapshot.  Thus, you need not hesitate to create snapshots whenever
+they are useful.
+
+   You can give a snapshot name as an argument to `C-x v =' or `C-x v
+~' (*note Old Versions::.).  Thus, you can use it to compare a snapshot
+against the current files, or two snapshots against each other, or a
+snapshot against a named version.
+
+
+File: xemacs.info,  Node: Snapshot Caveats,  Prev: Making Snapshots,  Up: Snapshots
+
+Snapshot Caveats
+................
+
+   VC's snapshot facilities are modeled on RCS's named-configuration
+support.  They use RCS's native facilities for this, so under VC
+snapshots made using RCS are visible even when you bypass VC.
+
+   For SCCS, VC implements snapshots itself.  The files it uses contain
+name/file/version-number triples.  These snapshots are visible only
+through VC.
+
+   A snapshot is a set of checked-in versions.  So make sure that all
+the files are checked in and not locked when you make a snapshot.
+
+   File renaming and deletion can create some difficulties with
+snapshots.  This is not a VC-specific problem, but a general design
+issue in version control systems that no one has solved very well yet.
+
+   If you rename a registered file, you need to rename its master along
+with it (the command `vc-rename-file' does this automatically).  If you
+are using SCCS, you must also update the records of the snapshot, to
+mention the file by its new name (`vc-rename-file' does this, too).  An
+old snapshot that refers to a master file that no longer exists under
+the recorded name is invalid; VC can no longer retrieve it.  It would
+be beyond the scope of this manual to explain enough about RCS and SCCS
+to explain how to update the snapshots by hand.
+
+   Using `vc-rename-file' makes the snapshot remain valid for
+retrieval, but it does not solve all problems.  For example, some of the
+files in the program probably refer to others by name.  At the very
+least, the makefile probably mentions the file that you renamed.  If you
+retrieve an old snapshot, the renamed file is retrieved under its new
+name, which is not the name that the makefile expects.  So the program
+won't really work as retrieved.
+
+
+File: xemacs.info,  Node: Version Headers,  Prev: Snapshots,  Up: Version Control
+
+Inserting Version Control Headers
+---------------------------------
+
+   Sometimes it is convenient to put version identification strings
+directly into working files.  Certain special strings called "version
+headers" are replaced in each successive version by the number of that
+version.
+
+   You can use the `C-x v h' command (`vc-insert-headers') to insert a
+suitable header string.
+
+`C-x v h'
+     Insert headers in a file for use with your version-control system.
+
+   The default header string is `\$Id\$' for RCS and `\%W\%' for SCCS.
+(The actual strings inserted do not have the backslashes in them.  They
+were placed in the Info source file so that the strings don't get
+interpreted as version-control headers when the Info source files are
+maintained under version control.) You can specify other headers to
+insert by setting the variable `vc-header-alist'.  Its value is a list
+of elements of the form `(PROGRAM . STRING)' where PROGRAM is `RCS' or
+`SCCS' and STRING is the string to use.
+
+   Instead of a single string, you can specify a list of strings; then
+each string in the list is inserted as a separate header on a line of
+its own.
+
+   It is often necessary to use "superfluous" backslashes when writing
+the strings that you put in this variable.  This is to prevent the
+string in the constant from being interpreted as a header itself if the
+Emacs Lisp file containing it is maintained with version control.
+
+   Each header is inserted surrounded by tabs, inside comment
+delimiters, on a new line at the start of the buffer.  Normally the
+ordinary comment start and comment end strings of the current mode are
+used, but for certain modes, there are special comment delimiters for
+this purpose; the variable `vc-comment-alist' specifies them.  Each
+element of this list has the form `(MODE STARTER ENDER)'.
+
+   The variable `vc-static-header-alist' specifies further strings to
+add based on the name of the buffer.  Its value should be a list of
+elements of the form `(REGEXP . FORMAT)'.  Whenever REGEXP matches the
+buffer name, FORMAT is inserted as part of the header.  A header line
+is inserted for each element that matches the buffer name, and for each
+string specified by `vc-header-alist'.  The header line is made by
+processing the string from `vc-header-alist' with the format taken from
+the element.  The default value for `vc-static-header-alist' is:
+
+     (("\\.c$" .
+       "\n#ifndef lint\nstatic char vcid[] = \"\%s\";\n\
+     #endif /* lint */\n"))
+
+which specifies insertion of a string of this form:
+
+
+     #ifndef lint
+     static char vcid[] = "STRING";
+     #endif /* lint */
+
+
+File: xemacs.info,  Node: ListDir,  Next: Comparing Files,  Prev: Version Control,  Up: Files
+
+Listing a File Directory
+========================
+
+   Files are organized by Unix into "directories".  A "directory
+listing" is a list of all the files in a directory.  Emacs provides
+directory listings in brief format (file names only) and verbose format
+(sizes, dates, and authors included).
+
+`C-x C-d DIR-OR-PATTERN'
+     Print a brief directory listing (`list-directory').
+
+`C-u C-x C-d DIR-OR-PATTERN'
+     Print a verbose directory listing.
+
+   To print a directory listing, use `C-x C-d' (`list-directory').
+This command prompts in the minibuffer for a file name which is either
+a  directory to be listed or pattern containing wildcards for the files
+to be listed.  For example,
+
+     C-x C-d /u2/emacs/etc <RET>
+
+lists all the files in directory `/u2/emacs/etc'.  An example of
+specifying a file name pattern is:
+
+     C-x C-d /u2/emacs/src/*.c <RET>
+
+   Normally, `C-x C-d' prints a brief directory listing containing just
+file names.  A numeric argument (regardless of value) tells it to print
+a verbose listing (like `ls -l').
+
+   Emacs obtains the text of a directory listing by running `ls' in an
+inferior process.  Two Emacs variables control the switches passed to
+`ls': `list-directory-brief-switches' is a string giving the switches
+to use in brief listings (`"-CF"' by default).
+`list-directory-verbose-switches' is a string giving the switches to
+use in a verbose listing (`"-l"' by default).
+
+   The variable `directory-abbrev-alist' is an alist of abbreviations
+for file directories.  The list consists of elements of the form `(FROM
+.  TO)', each meaning to replace `FROM' with `TO' when it appears in a
+directory name.  This replacement is done when setting up the default
+directory of a newly visited file.  Every `FROM' string should start
+with ``^''.
+
+   Use this feature when you have directories which you normally refer
+to via absolute symbolic links.  Make `TO' the name of the link, and
+`FROM' the name it is linked to.
+
+
+File: xemacs.info,  Node: Comparing Files,  Next: Dired,  Prev: ListDir,  Up: Files
+
+Comparing Files
+===============
+
+   The command `M-x diff' compares two files, displaying the
+differences in an Emacs buffer named `*Diff*'.  It works by running the
+`diff' program, using options taken from the variable `diff-switches',
+whose value should be a string.
+
+   The buffer `*Diff*' has Compilation mode as its major mode, so you
+can use `C-x `' to visit successive changed locations in the two source
+files.  You can also move to a particular hunk of changes and type `C-c
+C-c' to find the corresponding source location.  You can also use the
+other special commands of Compilation mode: <SPC> and <DEL> for
+scrolling, and `M-p' and `M-n' for cursor motion.  *Note Compilation::.
+
+   The command `M-x diff-backup' compares a specified file with its most
+recent backup.  If you specify the name of a backup file, `diff-backup'
+compares it with the source file that it is a backup of.
+
+   The command `M-x compare-windows' compares the text in the current
+window with that in the next window.  Comparison starts at point in each
+window.  Point moves forward in each window, a character at a time in
+each window, until the next characters in the two windows are
+different.  Then the command is finished.  For more information about
+windows in Emacs, *Note Windows::.
+
+   With a numeric argument, `compare-windows' ignores changes in
+whitespace.  If the variable `compare-ignore-case' is non-`nil', it
+ignores differences in case as well.
+
+
+File: xemacs.info,  Node: Dired,  Next: Misc File Ops,  Prev: Comparing Files,  Up: Files
+
+Dired, the Directory Editor
+===========================
+
+   Dired makes it easy to delete or visit many of the files in a single
+directory at once.  It creates an Emacs buffer containing a listing of
+the directory.  You can use the normal Emacs commands to move around in
+this buffer and special Dired commands to operate on the files.
+
+* Menu:
+
+* Enter: Dired Enter.         How to invoke Dired.
+* Edit: Dired Edit.           Editing the Dired buffer.
+* Deletion: Dired Deletion.   Deleting files with Dired.
+* Immed: Dired Immed.         Other file operations through Dired.
+
+
+File: xemacs.info,  Node: Dired Enter,  Next: Dired Edit,  Prev: Dired,  Up: Dired
+
+Entering Dired
+--------------
+
+   To invoke dired, type `C-x d' or `M-x dired'.  The command reads a
+directory name or wildcard file name pattern as a minibuffer argument
+just like the `list-directory' command, `C-x C-d'.  Where `dired'
+differs from `list-directory' is in naming the buffer after the
+directory name or the wildcard pattern used for the listing, and putting
+the buffer into Dired mode so that the special commands of Dired are
+available in it.  The variable `dired-listing-switches' is a string
+used as an argument to `ls' in making the directory; this string must
+contain `-l'.
+
+   To display the Dired buffer in another window rather than in the
+selected window, use `C-x 4 d' (`dired-other-window)' instead of `C-x
+d'.
+
+
+File: xemacs.info,  Node: Dired Edit,  Next: Dired Deletion,  Prev: Dired Enter,  Up: Dired
+
+Editing in Dired
+----------------
+
+   Once the Dired buffer exists, you can switch freely between it and
+other Emacs buffers.  Whenever the Dired buffer is selected, certain
+special commands are provided that operate on files that are listed.
+The Dired buffer is "read-only", and inserting text in it is not
+useful, so ordinary printing characters such as `d' and `x' are used
+for Dired commands.  Most Dired commands operate on the file described
+by the line that point is on.  Some commands perform operations
+immediately; others "flag" a file to be operated on later.
+
+   Most Dired commands that operate on the current line's file also
+treat a numeric argument as a repeat count, meaning to act on the files
+of the next few lines.  A negative argument means to operate on the
+files of the preceding lines, and leave point on the first of those
+lines.
+
+   All the usual Emacs cursor motion commands are available in Dired
+buffers.  Some special purpose commands are also provided.  The keys
+`C-n' and `C-p' are redefined so that they try to position the cursor
+at the beginning of the filename on the line, rather than at the
+beginning of the line.
+
+   For extra convenience, <SPC> and `n' in Dired are equivalent to
+`C-n'.  `p' is equivalent to `C-p'.  Moving by lines is done so often
+in Dired that it deserves to be easy to type.  <DEL> (move up and
+unflag) is often useful simply for moving up.
+
+   The `g' command in Dired runs `revert-buffer' to reinitialize the
+buffer from the actual disk directory and show any changes made in the
+directory by programs other than Dired.  All deletion flags in the Dired
+buffer are lost when this is done.
+
+
+File: xemacs.info,  Node: Dired Deletion,  Next: Dired Immed,  Prev: Dired Edit,  Up: Dired
+
+Deleting Files With Dired
+-------------------------
+
+   The primary use of Dired is to flag files for deletion and then
+delete them.
+
+`d'
+     Flag this file for deletion.
+
+`u'
+     Remove deletion-flag on this line.
+
+`<DEL>'
+     Remove deletion-flag on previous line, moving point to that line.
+
+`x'
+     Delete the files that are flagged for deletion.
+
+`#'
+     Flag all auto-save files (files whose names start and end with `#')
+     for deletion (*note Auto Save::.).
+
+`~'
+     Flag all backup files (files whose names end with `~') for deletion
+     (*note Backup::.).
+
+`. (Period)'
+     Flag excess numeric backup files for deletion.  The oldest and
+     newest few backup files of any one file are exempt; the middle
+     ones are flagged.
+
+   You can flag a file for deletion by moving to the line describing the
+file and typing `d' or `C-d'.  The deletion flag is visible as a `D' at
+the beginning of the line.  Point is moved to the beginning of the next
+line, so that repeated `d' commands flag successive files.
+
+   The files are flagged for deletion rather than deleted immediately to
+avoid the danger of deleting a file accidentally.  Until you direct
+Dired to delete the flagged files, you can remove deletion flags using
+the commands `u' and <DEL>.  `u' works just like `d', but removes flags
+rather than making flags.  <DEL> moves upward, removing flags; it is
+like `u' with numeric argument automatically negated.
+
+   To delete the flagged files, type `x'.  This command first displays a
+list of all the file names flagged for deletion, and requests
+confirmation with `yes'.  Once you confirm, all the flagged files are
+deleted, and their lines are deleted from the text of the Dired buffer.
+The shortened Dired buffer remains selected.  If you answer `no' or
+quit with `C-g', you return immediately to Dired, with the deletion
+flags still present and no files actually deleted.
+
+   The `#', `~', and `.' commands flag many files for deletion, based
+on their names.  These commands are useful precisely because they do
+not actually delete any files; you can remove the deletion flags from
+any flagged files that you really wish to keep.
+
+   `#' flags for deletion all files that appear to have been made by
+auto-saving (that is, files whose names begin and end with `#').  `~'
+flags for deletion all files that appear to have been made as backups
+for files that were edited (that is, files whose names end with `~').
+
+   `.' (Period) flags just some of the backup files for deletion: only
+numeric backups that are not among the oldest few nor the newest few
+backups of any one file.  Normally `dired-kept-versions' (not
+`kept-new-versions'; that applies only when saving) specifies the
+number of newest versions of each file to keep, and `kept-old-versions'
+specifies the number of oldest versions to keep.  Period with a
+positive numeric argument, as in `C-u 3 .', specifies the number of
+newest versions to keep, overriding `dired-kept-versions'.  A negative
+numeric argument overrides `kept-old-versions', using minus the value
+of the argument to specify the number of oldest versions of each file
+to keep.
+
