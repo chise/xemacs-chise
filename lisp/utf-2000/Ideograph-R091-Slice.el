@@ -6,6 +6,7 @@
     (=gb2312		. #x462C)	; ø»„¼¥
     (=jis-x0208		. #x4A52)	; ø½Š²»
     (=ks-x1001		. #x7838)	; ø»Šš•
+    (=iso-ir165		. #x462C)	; ø»¤µ
     (=gt-pj-1		. #x4A52)	; ý¡€†¡
     (=big5		. #xA4F9)	; ý¢€Š“¹
     (=daikanwa		. 19813)	; ø¸„µ¥
@@ -95,6 +96,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=gb2312		. #x3066)	; ø»„‹
+    (=iso-ir165		. #x3066)	; ø»…›
     (=ucs		. #x7248)	; ç‰ˆ
     ))
 (define-char
@@ -704,6 +706,7 @@
     (=jis-x0208-1978	. #x4757)	; ø»‚´ª
     (=gb2312		. #x4546)	; ø»„»¡
     (=ks-x1001		. #x782B)	; ø»Ššˆ
+    (=iso-ir165		. #x4546)	; ø»£±
     (=big5		. #xB550)	; ý¢€‹•
     (=daikanwa		. 19854)	; ø¸„¶Ž
     (=ucs		. #x724C)	; ç‰Œ
@@ -855,6 +858,7 @@
   '((ideographic-radical . 91)	; â½š
     (ideographic-strokes . 8)
     (=gb2312		. #x6B39)	; ø»…³ˆ
+    (=iso-ir165		. #x6B39)	; ø»Ž›˜
     (=ucs		. #x724D)	; ç‰
     ))
 (define-char
@@ -1018,6 +1022,7 @@
     (=gb2312		. #x6B3A)	; ø»…³‰
     (=jis-x0208		. #x442D)	; ø½Š©¢
     (=ks-x1001		. #x7460)	; ø»Š•…
+    (=iso-ir165		. #x6B3A)	; ø»Ž›™
     (=gt-pj-1		. #x442D)	; ý¡€†ŽŸ
     (=big5		. #xB7DE)	; ý¢€‹Ÿž
     (=daikanwa		. 19871)	; ø¸„¶Ÿ
@@ -1375,6 +1380,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=gb2312		. #x6B3B)	; ø»…³Š
+    (=iso-ir165		. #x6B3B)	; ø»Ž›š
     (=ucs		. #x7256)	; ç‰–
     ))
 (define-char
@@ -1471,11 +1477,13 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=cns11643-1	  . #x455A)	; ø»‘¸
+     ((=ucs		  . #x7247)	; ç‰‡
       )
-     ((=ucs		  . #x5EB8)	; åº¸
+     ((=jis-x0208	  . #x4D47)	; ø½Š·Š
+      (=ks-x1001	  . #x693C)	; ø»Š„—
+      (=daikanwa	  . 09378)	; ø¸‚’¢
       ))
-    (=cns11643-3	. #x4D2D)	; ø»–—˜
+    (=cbeta		. 04523)	; ø¸¡†«
     ))
 (define-char
   '((=>ucs		. #x7257)	; ç‰—
@@ -1486,15 +1494,11 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((=ucs		  . #x7247)	; ç‰‡
+     ((=cns11643-1	  . #x455A)	; ø»‘¸
       )
-     ((=jis-x0208	  . #x4D47)	; ø½Š·Š
-      (=ks-x1001	  . #x693C)	; ø»Š„—
-      (=daikanwa	  . 09378)	; ø¸‚’¢
+     ((=ucs		  . #x5EB8)	; åº¸
       ))
-    (=jis-x0213-2-2000	. #x7031)	; ø»¦‘’
-    (=cbeta		. 04523)	; ø¸¡†«
-    (=ucs@jis		. #x7257)	; ø»¦‘’
+    (=cns11643-3	. #x4D2D)	; ø»–—˜
     ))
 (define-char
   '((ideographic-radical . 91)	; â½š
