@@ -1,34 +1,34 @@
+2003-06-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R117-Stand.el, Ideograph-R114-Track.el,
+	Ideograph-R102-Field.el, Ideograph-R099-Sweet.el,
+	Ideograph-R094-Dog.el, Ideograph-R077-Stop.el: Add some GT code
+	points.
+
 2003-06-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R162-Walk.el (J0-6364): Unify GT-33128.
 
-	* Ideograph-R111-Arrow.el: Add some GT code points.
-
 	* Ideograph-R110-Spear.el (U+77DB): Unify GT-30525.
 	(J0-6262): Unify GT-30529.
-
-	* Ideograph-R106-White.el, Ideograph-R103-Bolt-Of-Cloth.el,
-	Ideograph-R101-Use.el, Ideograph-R100-Life.el: Add some GT code
-	points.
 
 	* Ideograph-R095-Profound.el (J0-383C): Unify GT-26647.
 	(J0-4E28): Unify GT-26651.
 
 	* Ideograph-R092-Fang.el (J0-3267): Unify GT-25560.
 
-	* Ideograph-R091-Slice.el, Ideograph-R089-Double-X.el: Add some GT
-	code points.
-
 	* Ideograph-R088-Father.el (U+7236): Unify GT-25337.
 	(J0-4C6C): Unify GT-25352.
-
-	* Ideograph-R087-Claw.el, Ideograph-R084-Steam.el,
-	Ideograph-R082-Fur.el: Add some GT code points.
 
 	* Ideograph-R081-Compare.el (U+6BD4): Unify GT-21460.
 	(U+6BD8): Unify GT-21470.
 
-	* Ideograph-R080-Do-Not.el, Ideograph-R079-Weapon.el,
+	* Ideograph-R111-Arrow.el, Ideograph-R106-White.el,
+	Ideograph-R103-Bolt-Of-Cloth.el, Ideograph-R101-Use.el,
+	Ideograph-R100-Life.el, Ideograph-R091-Slice.el,
+	Ideograph-R089-Double-X.el, Ideograph-R087-Claw.el,
+	Ideograph-R084-Steam.el, Ideograph-R082-Fur.el,
+	Ideograph-R080-Do-Not.el, Ideograph-R079-Weapon.el,
 	Ideograph-R078-Death.el: Add some GT code points.
 
 	* Ideograph-R072-Sun.el (J0-4B41): Unify GT-29718.
