@@ -1,3 +1,70 @@
+2002-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R091-Slice.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R004-Slash.el (H1-AC46): Moved to
+	Ideograph-R089-Double-X.el and unified by U+723C.
+
+2002-04-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R092-Fang.el: Use `=>ucs' instead of `->ucs'.
+	(J0-3267): Unify JC3-58C5.
+
+	* Ideograph-R090-Half-Tree-Trunk.el: Use `=>ucs' instead of
+	`->ucs'.
+
+2002-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R147-See.el (J90-3F46): Separate C1-7235.
+
+	* Ideograph-R117-Stand.el (BC-8BAE): New character.
+
+	* Ideograph-R113-Spirit.el (M-24694): Separate J0-493C, G0-4631,
+	K0-7879 and U+7968; unify C1-5C41.
+
+	* Ideograph-R088-Father.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R052-Short-Thread.el (J0-3476): Separate C1-5E7D.
+
+	* Ideograph-R044-Corpse.el (BC-8D70): New character.
+
+	* Ideograph-R093-Cow.el (JX1-7767): Separate G0-6A79, C2-4469 and
+	U+728D; unify JC3-98C1.
+
+	* Ideograph-R086-Fire.el: Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R075-Tree.el (U+6740): Delete `->same-ideograph' for
+	M-14471.
+
+	* Ideograph-R087-Claw.el: Use `=>ucs' instead of `->ucs'.
+	(M-19711): Unify JC3-58AE.
+
+	* Ideograph-R072-Sun.el (JSP-4247): Separate G0-6A50, JC3-51A8 and
+	U+6677.
+	(U+6677): Unify M058074.
+	(C1-5F63): Unify JC3-51A7 and M014005.
+	(J78-3D6C): Separate JC3-51FE.
+	(U+66D9): Unify JC3-51FE.
+
+	* Ideograph-R085-Water.el: Merge mapping to CHINA3-JEF code
+	points.
+
+2002-04-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (JC3-81C0): New character.
+	(U+6A73): Unify JC3-54AF.
+
+	* Ideograph-R063-Door.el (JSP-3F31): Separate U+6239.
+	(U+6239): Add `ideographic-structure'.
+
+2002-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (JX1-7463): Unify JC3-4EFB.
+
 2002-04-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* isolated-char.el (GT-60403): New character.
