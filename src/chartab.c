@@ -356,7 +356,7 @@ print_char_table (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 
 #ifdef MULE
   {
-    int i;
+    Charset_ID i;
 
     for (i = MIN_LEADING_BYTE; i < MIN_LEADING_BYTE + NUM_LEADING_BYTES;
 	 i++)
@@ -773,8 +773,8 @@ decode_char_table_range (Lisp_Object range, struct chartab_range *outrange)
 
 /* called from CHAR_TABLE_VALUE(). */
 Lisp_Object
-get_non_ascii_char_table_value (Lisp_Char_Table *ct, int leading_byte,
-			       Emchar c)
+get_non_ascii_char_table_value (Lisp_Char_Table *ct, Charset_ID leading_byte,
+				Emchar c)
 {
   Lisp_Object val;
   Lisp_Object charset = CHARSET_BY_LEADING_BYTE (leading_byte);
@@ -1265,7 +1265,7 @@ map_over_charset_row (Lisp_Char_Table_Entry *cte,
 
 
 static int
-map_over_other_charset (Lisp_Char_Table *ct, int lb,
+map_over_other_charset (Lisp_Char_Table *ct, Charset_ID lb,
 			int (*fn) (struct chartab_range *range,
 				   Lisp_Object val, void *arg),
 			void *arg)
@@ -1342,9 +1342,9 @@ map_char_table (Lisp_Char_Table *ct,
 	if (retval)
 	  return retval;
 	{
-	  int i;
-	  int start = MIN_LEADING_BYTE;
-	  int stop  = start + NUM_LEADING_BYTES;
+	  Charset_ID i;
+	  Charset_ID start = MIN_LEADING_BYTE;
+	  Charset_ID stop  = start + NUM_LEADING_BYTES;
 
 	  for (i = start, retval = 0; i < stop && retval == 0; i++)
 	    {
