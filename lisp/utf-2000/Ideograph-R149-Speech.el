@@ -6100,6 +6100,7 @@
     ))
 (define-char
   '((name		. "CJK COMPATIBILITY IDEOGRAPH-FA22")
+    (=>ucs*		. #x8AF8)	; 諸
     (ideographic-radical . 149)	; ⾔
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
