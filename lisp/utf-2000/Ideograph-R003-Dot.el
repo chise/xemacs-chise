@@ -164,6 +164,16 @@
   '((ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (->identical
+     ((chinese-cns11643-5 . #x212D)	; ø»™ª¸
+      (ideograph-daikanwa . 02840)	; ø¸€¬˜
+      ))
+    (ucs		. #x2007E)	; ð ¾
+    ))
+(define-char
+  '((ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 42)
     (hanyu-dazidian-char . 13)
@@ -219,6 +229,19 @@
     (chinese-isoir165	. #x4E2A)	; ø»°£
     (chinese-big5-cdp	. #x89D0)	; ý¢€ˆ§
     (ucs		. #x4E3A)	; ä¸º
+    ))
+(define-char
+  '((=>ucs		. #x2007E)	; ð ¾
+    (ideographic-radical . 3)	; â¼‚
+    (ideographic-strokes . 3)
+    (total-strokes	 . 4)
+    (->same-ideograph
+     ((ucs		  . #x2007E)	; ð ¾
+      )
+     ((chinese-cns11643-5 . #x212D)	; ø»™ª¸
+      (ideograph-daikanwa . 02840)	; ø¸€¬˜
+      ))
+    (chinese-big5-cdp	. #x87D2)	; ý¢€ˆŸ’
     ))
 (define-char
   '((=>ucs		. #x4E3B)	; ä¸»
