@@ -1,5 +1,8 @@
 2003-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R042-Small.el (U-00021B99): Unify MH-0138 and M085357.
+	(C5-3E65): Map to MH-0138.
+
 	* Ideograph-R039-Child.el (U+5B76): Modify strokes.
 
 2003-06-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
