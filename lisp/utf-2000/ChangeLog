@@ -1,5 +1,16 @@
 2002-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* isolated-char.el (GT-19655): New character.
+	(GT-19656): Likewise.
+	(GT-19861): Likewise.
+
+	* Ideograph-R075-Tree.el (U+69EA): Unify GT-19655; separate
+	C3-4C60.
+	(M-15364'): Unify GT-19656.
+	(K0-4B48): Unify GT-19861.
+
+2002-04-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R018-Knife.el (C3-275D): Unify H1-EA70.
 	(U+523C): Separate H1-EA70.
 
