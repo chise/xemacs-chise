@@ -1,3 +1,17 @@
+2001-08-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Change interface of
+	mapping function to use struct chartab_range instead of Emchar.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_id_table): Likewise.
+	(struct slow_map_char_id_table_arg): Deleted.
+	(slow_map_char_id_table_fun): Deleted.
+	(Fmap_char_attribute): Use struct `slow_map_char_table_arg' and
+	function `slow_map_char_table_fun' instead of struct
+	`slow_map_char_id_table_arg' and function
+	`slow_map_char_id_table_fun'.
+
 2001-08-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c: Move char-it-table related codes to chartab.c.
