@@ -35,10 +35,10 @@
   '((ideographic-radical . 156)	; ⾛
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (<-original-ideograph
+    (<-original
      ((=daikanwa	  . 37034)	; &I-M-37034;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      kangxi daikanwa)
     (=cns11643-6	. #x2E32)	; &M-37035; [14-18]
     (=daikanwa		. 37035)	; &I-M-37035;
