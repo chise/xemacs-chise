@@ -1,3 +1,10 @@
+2001-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qcode_offset): New variable.
+	(Fmake_charset): Use `XUINT' to get value of `min-code' and
+	`max-code'; accept new property `code-offset'.
+	(syms_of_mule_charset): Add new symbol `code-offset'.
+
 2001-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (range_charset_code_point): Fixed.
