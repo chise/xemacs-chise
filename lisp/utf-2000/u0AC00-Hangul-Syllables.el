@@ -6012,6 +6012,10 @@
     (=jef-china3	. #x94D7)	; øº‰“—
     ))
 (define-char
+  '((=>ucs		. #xC6B8)	; ìš¸
+    (=jef-china3	. #x94C0)	; øº‰“€
+    ))
+(define-char
   '((=ucs		. #xC6B9)	; ìš¹
     (=ks-x1001		. #x3F70)	; ø»‰‡Ÿ
     ))
