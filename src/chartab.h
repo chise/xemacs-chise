@@ -345,6 +345,12 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
 }
 
 #ifdef HAVE_DATABASE
+extern Lisp_Object Qsystem_char_id;
+
+Lisp_Object
+char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
+			       int writing_mode);
+
 Lisp_Object load_char_attribute_maybe (Emchar ch, Lisp_Object attribute);
 #endif
 
