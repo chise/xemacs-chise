@@ -1,5 +1,21 @@
 2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* ideograph-util.el (morohashi-daikanwa<): New function.
+	(ideograph-char<): Use `morohashi-daikanwa<'.
+
+	* Ideograph-R075-Tree.el (U+6730): Delete `kangxi-radical' and
+	`kangxi-strokes'; unify M059667.
+
+	* Ideograph-R074-Moon.el (M-14340): Unify M014340.
+	(M-14345): Unify M014345.
+	(M-14374): Unify M014374.
+
+	* Ideograph-R066-Rap.el (U+654C): Add `ideograph='.
+	(M-13252): Unify C4-377A and M013252.
+	(U+3A9A): Relate to M-13265; unify M075463.
+
+2001-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R064-Hand.el (M-11769): Separate G0-3245, C1-445F and
 	U+624D; unify M011769.
 	(U+624D): Unify G0-3245, C1-445F and M051101.
