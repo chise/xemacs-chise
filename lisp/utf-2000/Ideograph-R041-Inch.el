@@ -290,7 +290,7 @@
     (ucs		. #x5C06)	; 将
     ))
 (define-char
-  '((->ucs		. #x5C06)	; 将
+  '((=>ucs		. #x5C06)	; 将
     (morohashi-daikanwa	7437 1)
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 7)
@@ -317,7 +317,7 @@
     (ucs			. #x5C07)	; 將
     ))
 (define-char
-  '((->ucs		. #x5C07)	; 將
+  '((=>ucs		. #x5C07)	; 將
     (morohashi-daikanwa	7438 0 1)
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
@@ -350,7 +350,7 @@
     (ucs			. #x5C02)	; 専
     ))
 (define-char
-  '((->ucs		. #x5C09)	; 尉
+  '((=>ucs		. #x5C09)	; 尉
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -395,7 +395,7 @@
     (ideograph-daikanwa . 07443)	; �����
     ))
 (define-char
-  '((->ucs		. #x5C0A)	; 尊
+  '((=>ucs		. #x5C0A)	; 尊
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -583,7 +583,7 @@
     (ucs			. #x5C0E)	; 導
     ))
 (define-char
-  '((->ucs		. #x5C0E)	; 導
+  '((=>ucs		. #x5C0E)	; 導
     (morohashi-daikanwa	7463 1 1)
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 13)
@@ -606,7 +606,7 @@
     (ideograph-daikanwa . 07464)	; �����
     ))
 (define-char
-  '((->ucs		. #x5C0E)	; 導
+  '((=>ucs		. #x5C0E)	; 導
     (ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 13)
     (total-strokes	 . 16)

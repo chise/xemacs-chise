@@ -190,7 +190,7 @@
     (ucs		. #x5C19)	; 尙
     ))
 (define-char
-  '((->ucs		. #x5C19)	; 尙
+  '((=>ucs		. #x5C19)	; 尙
     (morohashi-daikanwa	7493 0 0)
     (ideographic-radical . 42)	; ⼩
     (ideographic-strokes . 5)
