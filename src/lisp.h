@@ -39,6 +39,7 @@ Boston, MA 02111-1307, USA.  */
 #include <stdio.h>		/* NULL, etc. */
 #include <ctype.h>
 #include <stdarg.h>
+#include <stddef.h>		/* offsetof */
 
 #ifdef __lucid
 # include <sysent.h>

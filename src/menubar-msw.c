@@ -116,8 +116,6 @@ static Lisp_Object current_hash_table;
 #define MENU_ITEM_ID_BITS(x) (((x) & 0x7FFF) | 0x8000)
 static HMENU top_level_menu;
 
-#define MAX_MENUITEM_LENGTH 128
-
 /*
  * This returns Windows-style menu item string:
  * "Left Flush\tRight Flush"

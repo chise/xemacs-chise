@@ -143,7 +143,7 @@
 	    ("Set language environment")
 	    "--"
 	    ["Toggle input method" toggle-input-method]
-	    ["Select input method" select-input-method]
+	    ["Select input method" set-input-method]
 	    ["Describe input method" describe-input-method]
 	    "--"
 	    ["Describe current coding systems"
@@ -955,7 +955,8 @@
        ["No Warranty" describe-no-warranty]
        ["XEmacs License" describe-copying]
        ["The Latest Version" describe-distribution])
-      ["Send Bug Report..." report-emacs-bug]))))
+      ["Send Bug Report..." report-emacs-bug
+       :active (fboundp 'report-emacs-bug)]))))
 
 
 (defun maybe-add-init-button ()

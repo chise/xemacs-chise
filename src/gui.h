@@ -60,6 +60,7 @@ struct Lisp_Gui_Item
   Lisp_Object style;		/* Symbol */
   Lisp_Object selected;		/* Form */
   Lisp_Object keys;		/* String */
+  Lisp_Object accelerator;	/* Char or Symbol  */
 };
 
 extern Lisp_Object Q_accelerator, Q_active, Q_config, Q_filter, Q_included;
@@ -74,6 +75,8 @@ Lisp_Object gui_parse_item_keywords_no_errors (Lisp_Object item);
 int  gui_item_active_p (Lisp_Object);
 int  gui_item_selected_p (Lisp_Object);
 int  gui_item_included_p (Lisp_Object, Lisp_Object into);
+Lisp_Object gui_item_accelerator (Lisp_Object gui_item);
+Lisp_Object gui_name_accelerator (Lisp_Object name);
 int  gui_item_id_hash (Lisp_Object, Lisp_Object gui_item, int);
 unsigned int gui_item_display_flush_left  (Lisp_Object pgui_item,
 					   char* buf, Bytecount buf_len);
@@ -88,5 +91,7 @@ void gui_item_init (Lisp_Object gui_item);
 #define GUI_ITEM_ID_MIN(s) (s * 0x2000)
 #define GUI_ITEM_ID_MAX(s) (0x1FFF + GUI_ITEM_ID_MIN (s))
 #define GUI_ITEM_ID_BITS(x,s) (((x) & 0x1FFF) + GUI_ITEM_ID_MIN (s))
+
+#define MAX_MENUITEM_LENGTH 128
 
 #endif /* _XEMACS_GUI_H_ */

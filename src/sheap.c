@@ -21,7 +21,6 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 #include <config.h>
 #include <stdio.h>
 #include "lisp.h"
-#include <stddef.h>
 #include <unistd.h>
 #include <sheap-adjust.h>
 

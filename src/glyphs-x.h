@@ -80,22 +80,48 @@ struct x_image_instance_data
 
 struct x_subwindow_data
 {
-  Screen *xscreen;
-  Window parent_window;
+  union
+  {
+    struct
+    {
+      Screen *xscreen;
+      Window parent_window;
+    } sub;
+    struct 
+    {
+      Position x_offset;
+      Position y_offset;
+      LWLIB_ID	id;
+    } wid;
+  } data;
 };
 
 #define X_SUBWINDOW_INSTANCE_DATA(i) ((struct x_subwindow_data *) (i)->data)
 
 #define IMAGE_INSTANCE_X_SUBWINDOW_SCREEN(i) \
-  (X_SUBWINDOW_INSTANCE_DATA (i)->xscreen)
+  (X_SUBWINDOW_INSTANCE_DATA (i)->data.sub.xscreen)
 #define IMAGE_INSTANCE_X_SUBWINDOW_PARENT(i) \
-  (X_SUBWINDOW_INSTANCE_DATA (i)->parent_window)
+  (X_SUBWINDOW_INSTANCE_DATA (i)->data.sub.parent_window)
+#define IMAGE_INSTANCE_X_WIDGET_XOFFSET(i) \
+  (X_SUBWINDOW_INSTANCE_DATA (i)->data.wid.x_offset)
+#define IMAGE_INSTANCE_X_WIDGET_YOFFSET(i) \
+  (X_SUBWINDOW_INSTANCE_DATA (i)->data.wid.y_offset)
+#define IMAGE_INSTANCE_X_WIDGET_LWID(i) \
+  (X_SUBWINDOW_INSTANCE_DATA (i)->data.wid.id)
 #define XIMAGE_INSTANCE_X_SUBWINDOW_PARENT(i) \
   IMAGE_INSTANCE_X_SUBWINDOW_PARENT (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_X_SUBWINDOW_SCREEN(i) \
   IMAGE_INSTANCE_X_SUBWINDOW_SCREEN (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_X_WIDGET_XOFFSET(i) \
+  IMAGE_INSTANCE_X_WIDGET_XOFFSET (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_X_WIDGET_YOFFSET(i) \
+  IMAGE_INSTANCE_X_WIDGET_YOFFSET (XIMAGE_INSTANCE (i))
+#define XIMAGE_INSTANCE_X_WIDGET_LWID(i) \
+  IMAGE_INSTANCE_X_WIDGET_LWID (XIMAGE_INSTANCE (i))
 #define IMAGE_INSTANCE_X_SUBWINDOW_ID(i) \
   ((Window) IMAGE_INSTANCE_SUBWINDOW_ID (i))
+#define IMAGE_INSTANCE_X_WIDGET_ID(i) \
+  ((Widget) IMAGE_INSTANCE_SUBWINDOW_ID (i))
 
 #endif /* HAVE_X_WINDOWS */
 #endif /* _XEMACS_GLYPHS_X_H_ */

@@ -58,8 +58,6 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "window.h"
 
-#include <stddef.h>
-
 #ifdef DOUG_LEA_MALLOC
 #include <malloc.h>
 #endif
@@ -1186,7 +1184,7 @@ DEFINE_LRECORD_SEQUENCE_IMPLEMENTATION("vector", vector,
 				        * knows how to handle vectors.
 				        */
 				       0,
-				       0,
+				       vector_description,
 				       size_vector, Lisp_Vector);
 
 /* #### should allocate `small' vectors from a frob-block */

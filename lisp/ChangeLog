@@ -18,10 +18,670 @@
 	* mule/vietnamese.el (leading-code-private-11): Deleted [defined
 	as builtin variable].
 
+1999-07-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (reset-language-environment): Regard
+	coding-category `utf-8' and `ucs-4' if they are available.
+
+1999-07-06  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems): Fix DOC-string.
+	(prefer-coding-system): Fix DOC-string.
+
+	* mule/mule-cmds.el (coding-system-change-eol-conversion): Fix
+	DOC-string too.
+
+	* mule/mule-cmds.el (mule-keymap): Change keymap name from MULE to
+	Mule.
+	(coding-system-change-eol-conversion): Fix DOC-string.
+
+1999-06-30  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (mule-keymap): Use `describe-coding-system'
+	instead of `list-coding-system'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* menubar-items.el (default-menubar): `select-input-method' was
+	renamed to `set-input-method'.
+
+	* mule/mule-cmds.el (set-language-info-alist): Fix setting for
+	"Set Language Environment" menu.
+
+	* mule/mule-cmds.el (set-language-info-alist): Fix setting for
+	"Describe Language Support" menu.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el ("Chinese-GB"): Rename
+	`chinese-gb-environment-setup-function' to
+	`setup-chinese-gb-environment-internal'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/korean.el: Use `define-coding-system-alias' instead of
+	`copy-coding-system'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems):
+	Treat duplicated coding-categories.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/japanese.el: Use `define-coding-system-alias' instead of
+	`copy-coding-system'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/vietnamese.el: Specify `iso-8-1' as a category of
+	coding-system `viscii'.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/cyrillic.el:
+	- Specify `iso-8-1' as a category of coding-system `koi8-r'.
+	(cyrillic-alternativnyj-decode-table): New variable.
+	(cyrillic-alternativnyj-encode-table): New variable.
+	- Specify `iso-8-1' as a category of coding-system
+	  `alternativnyj'.
+	- Abolish general Cyrillic environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/chinese.el:
+	- Use `define-coding-system-alias' instead of `copy-coding-system'.
+	- Register `chinese-gb-environment-setup-function' as a
+	  `setup-function' of "Chinese-GB" environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info-alist): Allow dummy
+	optional argument `parents'.
+
+	* mule/thai-xtis.el: Specify `tis-620' as `tutorial-coding-system'
+	property for Thai-XTIS.
+
+	* mule/mule-help.el (help-with-tutorial): Use property
+	`tutorial-coding-system' of language-info as a coding-system to
+	read tutorial file.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Don't setup `setup-function' and
+	`exit-function'.
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems): Use
+	`set-coding-category-system' to set up coding-system for
+	coding-category.
+
+	* mule/mule-cmds.el (prefer-coding-system): Use
+	`set-coding-category-system' to set up coding-system for
+	coding-category.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Specify TUTORIAL.th as the tutorial file for
+	Thai-XTIS environment.
+
+	* mule/mule-cmds.el (prefer-coding-system): Use
+	`find-coding-system' instead of `coding-system-p'.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems):
+	Modify eol-type for XEmacs.
+
+	* mule/thai-xtis.el: Delete unused local variable `category'.
+
+	* mule/mule-cmds.el (coding-system-change-eol-conversion): New
+	function.
+	(prefer-coding-system): Don't call
+	`update-coding-systems-internal'; use function
+	`coding-category-list' instead of variable `coding-category-list';
+	use `set-coding-priority-list' instead of `set-coding-priority';
+	modify `eol-type' for XEmacs.
+
+	* mule/mule-misc.el (string-width): Use `charset-width' instead of
+	`charset-columns'.
+	(char-width): Likewise.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Specify `iso-8-1' as coding-category of
+	`tis-620'.
+
+	* mule/mule-cmds.el (set-language-environment-coding-systems): Use
+	`set-coding-priority-list' instead of `set-coding-priority'; don't
+	call `update-coding-systems-internal'.
+
+	* mule/mule-misc.el (coding-system-get): New function.
+	(coding-system-put): New function.
+	(coding-system-category): New function.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Load "thai-xtis-chars"
+	when Mule is running; load "mule/thai-xtis" instead of "thai-xtis"
+	to avoid conflict with leim/quail/thai-xtis.
+
+	* mule/thai-xtis.el: Split definition of the charset `thai-xtis'
+	to thai-xtis-chars.el.
+
+	* mule/thai-xtis-chars.el: New file (split from
+	mule/thai-xtis.el).
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el:
+	- Change category for the charset `thai-xtis' to `?x' from `?T'.
+	- Add syntax entries.
+	- Put `preferred-coding-system' of the charset `thai-xtis' to
+	  `tis-620'.
+
+1999-06-28  TAKAHASHI Naoto  <ntakahas@etl.go.jp>
+
+	* mule/thai-xtis.el: ccl-decode-thai-xtis and subroutines
+	rewritten to use write-multibyte-character.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	mule/mule-cmds.el (view-hello-file): Use `iso-2022-7bit' instead
+	of `iso-2022-7'.
+	(prefer-coding-system): Synced up with Emacs 20.3.11 but not
+	ported yet.
+	(read-input-method-name): Treat optional argument `default'.
+
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info): Don't set up menus at
+	all.
+	(set-language-info-alist): Set up menus here.
+	
+1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* minibuf.el (completing-read): Add new optional argument
+	`default'.
+	(read-coding-system): Add new optional argument
+	`default-coding-system'.
+
+1999-06-03  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule/vietnamese.el (ccl-encode-vscii): Typo fixed
+	(viet-viscii-...->viet-vscii...).
+
+1999-05-13  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule/mule-cmds.el: Change MULE to Mule in docstrings
+	and menus.
+
+1999-04-12  Richard M. Stallman  <rms@gnu.org>
+
+	* mule/mule-cmds.el (input-method-function): Add permanent-local
+	property.
+
+1999-03-30  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment): Doc fix.
+
+1999-02-06  Richard Stallman  <rms@gnu.org>
+
+	* mule/european.el (setup-slovenian-environment): New function.
+	("Slovenian"): New language environment.
+
+1999-01-27  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment): Provide :link,
+	:type (choices) and appropriate :get.
+
+1999-01-14  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (describe-language-environment): Don't alter
+	input-method-alist.
+
+1999-01-06  Eli Zaretskii  <eliz@gnu.org>
+
+	* mule/mule-cmds.el (prefer-coding-system): Call
+	set-coding-priority, so that the internal array of priorities is
+	also updated.
+
+1998-12-30  Eli Zaretskii  <eliz@mescaline.gnu.org>
+
+	* mule/mule-cmds.el (prefer-coding-system): If the argument
+	requires specific EOL conversion type, make the default coding
+	systems use that.
+
+1998-12-17  Eli Zaretskii  <eliz@mescaline.gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): Pass the default
+	eol-type to set-language-environment-coding-systems.
+	(set-default-coding-systems): Copy the eol-type property for the
+	new default values of {buffer-file,process}-coding-system from the
+	old defaults.
+	(set-language-environment-coding-systems): Accept an optional
+	argument EOL-TYPE, and set the eol-type property of the default
+	coding systems accordingly.
+
+1998-10-26  Kenichi Handa <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Cancel previous change,
+	use generate-new-buffer instead of get-buffer-create.
+
+1998-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el (pre-write-encode-hz): Use with-temp-buffer.
+
+1998-10-16  Markus Rost  <rost@delysid.gnu.org>
+
+	* mule/mule-cmds.el (default-input-method): Fix custom type.
+
+1998-10-12  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (setup-specified-language-environment):
+	Add apropos-inhibit property.
+	(describe-specified-language-support): Likewise.
+
+1998-09-06  Bill Richter  <richter@math.nwu.edu>
+
+	* mule/mule-cmds.el: Doc fixes.
+
+1998-09-02  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (register-input-method): Doc-string
+	modified.
+
+1998-09-01  Dave Love  <fx@gnu.org>
+
+	* mule/mule-cmds.el (current-language-environment): Fix
+	setter function.
+
+1998-08-31  Paul Eggert  <eggert@twinsun.com>
+
+	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
+	mule/european.el, mule/hebrew.el, mule/japanese.el,
+	mule/korean.el, mule/vietnamese.el: Add coding: local variable, to
+	avoid bootstrapping problem if you need to recompile all the Lisp
+	files using interpreted code.
+
+1998-08-26  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/european.el ("Latin-1"): Modify `documentation' key value.
+	("Latin-2"): Likewise.
+
+1998-08-18  Per Starback  <starback@update.uu.se>
+
+	* mule/european.el (setup-latin2-environment): Fix typo.
+
+1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/european.el: Give proper value of `input-method' key to all
+	lang. env.
+
+	* mule/mule-cmds.el (activate-input-method): Handle the case that
+	the arg INPUT-METHOD is nil correctly.
+	(read-multilingual-string): Activate the specified input method
+	before calling read-string.  Afterward, activate the original
+	input method.
+
+1998-08-15  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
+	(set-language-info-alist): Fix typo in doc-string.
+
+	* mule/hebrew.el ("Hebrew"): Delete describe-function key.
+
+1998-08-09  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
+	(reset-language-environment): New function for the job that
+	setup-english-environment used to do.
+	(set-language-environment): Do more setups according to the info
+	in language-info-alist.
+	(read-language-name): Handle the case that the arg KEY is nil.
+	(describe-language-environment): Handle input-method property.
+
+	* mule/: All files under this directory, which related with
+	specific languages (such as mule/european.el, mule/greek.el,
+	mule/hebrew.el, mule/misc-lang.el), modified as below.
+	(setup-XXX-environment): Just call set-language-environment.  If
+	they used to do some other jobs than what done by
+	set-language-environment, those jobs are done in
+	setup-XXX-environment-internal now.
+	("LANUGAGE-ENVIRONMENT"): Delete property setup-function or change
+	the value to setup-XXX-environment-internal.  Add properties
+	input-method and features.
+
+	* mule/english.el (setup-english-environment): Just call
+	reset-language-environment.
+
+	* mule/european.el (setup-8-bit-environment): Function deleted.
+
+1998-08-08  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (input-method-exit-on-first-char)
+	(input-method-use-echo-area): Doc fixes.
+
+1998-08-06  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (input-method-exit-on-first-char): New
+	variable.
+	(input-method-use-echo-area): New variable.
+
+1998-08-01  Kenichi HANDA  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (language-info-alist): Doc-string modified.
+
+1998-07-30  Ken'ichi Handa  <handa@delysid.gnu.org>
+
+	* mule/mule-cmds.el (activate-input-method): Update mode line.
+	(inactivate-input-method): Likewise.
+
+1998-07-19  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (read-multilingual-string): Don't activate an
+	input method in the current buffer, but just bind
+	current-input-method.
+
+1998-07-08  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/hebrew.el ("Hebrew"): Add coding-priority.
+
+	* mule/misc-lang.el ("IPA"): Add coding-priority and
+	coding-system.
+
+1998-06-26  Ken'ichi Handa  <handa@melange.gnu.org>
+
+	* mule/greek.el: Add coding-priority.
+
+1998-05-23  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (register-input-method): Rename arg ENV to
+	LANG-ENV.
+
+1998-05-20  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el (register-input-method): Fix previous change.
+	(setup-specified-language-environment): Doc fix.
+
+1998-05-19  Richard Stallman  <rms@psilocin.ai.mit.edu>
+
+	* mule/mule-cmds.el: Several doc fixes.
+	(get-language-info, set-language-info): Rename argument.
+	(set-language-info-alist): Likewise.
+	(register-input-method): Rename argument.
+	(activate-input-method): If INPUT-METHOD is nil, deactivate.
+
+1998-05-04  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (toggle-input-method): Use a more appropriate
+	default value while reading an input method.
+
+1998-05-01  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (universal-coding-system-argument):
+	Use buffer-file-coding-system as default.
+
+1998-04-14  Andreas Schwab  <schwab@mescaline.gnu.org>
+
+	* mule/korean.el ("Korean"): Doc fix.
+
+1998-04-11  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (describe-language-environment): Print the
+	languge environment at the head.
+
+1998-04-06  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/japanese.el: Set exit-function to exit-japanese-environment
+	for Japanese environment.
+
+1998-03-20  Richard Stallman  <rms@psilocin.gnu.org>
+
+	* mule/mule-cmds.el (set-language-environment): Doc fix.
+	(current-language-environment): Use defcustom.
+	(default-input-method): Specify :type.
+
+1998-03-02  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems): Doc-string
+	modified.
+	(prefer-coding-system): Doc-string modified.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-info): Doc-string
+	describes `coding-priority' KEY.
+	(set-language-environment-coding-systems): New function.
+	(select-safe-coding-system): New function.
+	(set-language-info): New optional args DESCRIBE-MAP and SETUP-MAP.
+	(set-language-info-alist): New optionla arg PARENTS.  Call
+	set-language-info with apropriate DESCRIBE-MAP and SETUP-MAP args.
+	(set-language-environment-coding-systems): New function.
+
+	* mule/chinese.el: Remove setting up of
+	describe-chinese-environment-map and
+	setup-chinese-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.
+
+	* mule/cyrillic.el: Remove setting up of
+	describe-cyrillic-environment-map and
+	setup-cyrillic-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.
+
+	* mule/english.el: Register coding-priority key in
+	language-info-alist.
+
+	* mule/ethiopic.el: Register coding-priority key in
+	language-info-alist.
+
+	* mule/european.el: Remove setting up of
+	describe-european-environment-map and
+	setup-european-environment-map.  Exclude them in args of calls to
+	set-language-info-alist.  Register coding-priority key in
+	language-info-alist.  Add "German" language env.
+	(setup-8-bit-environment): Delete CODING-SYSTEM arg.
+	(setup-german-environment): New function.
+
+	* mule/greek.el (setup-greek-environment): For Greek lang. env.,
+	change default input method to "greek-postfix".
+
+	* mule/japanese.el, mule/korean.el, mule/vietnamese.el: Register
+	coding-priority key in
+
+1997-12-19  Stephen Eglen  <stephen@cns.ed.ac.uk>
+
+	* mule/mule-cmds.el (set-language-info): Doc fix.
+	(input-method-inactivate-hook): Doc fix.
+
+1997-11-20  Karl Heuer  <kwzh@gnu.org>
+
+	* mule/mule-cmds.el (set-input-method): Renamed from
+	select-input-method.
+
+1997-11-07  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-language-environment): Run
+	exit-language-environment-hook before calling `exit-function'
+	which is specified for the language environment.
+
+1997-10-23  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (set-default-coding-systems): Doc-string
+	modified.
+	(prefer-coding-system): Likewise.
+	(describe-language-environment): Print aliases of each coding
+	system.
+	(set-language-environment-hook): New variable.
+	(exit-language-environment-hook): New variable.
+	(set-language-environment): Call these hooks.  Before setting a
+	new language environment, exit from the
+	current-language-environment if necessary.
+	(input-method-verbose-flag): The value can be nil, t,
+	complex-only, or default.
+	(input-method-highlight-flag): Doc-string augmented.
+	(activate-input-method): Check if we can run the registered
+	function to activate an input method.
+
+	* mule/korean.el: Set exit-function for language environment
+	"Korean" to exit-korean-environment.
+	(setup-korean-environment): Moved to korea-util.el.
+
+1997-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-cmds.el (read-multilingual-string): Use
+	current-input-method prior to default-input-method.  Don't bind
+	current-input-method by `let', instead, activate the specified
+	input method in the current buffer temporarily.
+
+1997-10-19  John F. Whitehead  <jfw@cisco.com>
+
+	* mule/mule-cmds.el (describe-language-environment): Fix prompt.
+
+1997-10-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/chinese.el (post-read-decode-hz): Return the result of
+	decode-hz-region.
+	(pre-write-encode-hz): Do not change the value of
+	last-coding-system.
+
+1998-09-06  Bill Richter  <richter@math.nwu.edu>
+
+	* mule/mule-ccl.el: Doc fixes.
+
+1998-04-20  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-ccl.el (declare-ccl-program): New optional arg VECTOR.
+	(check-ccl-program): New macro.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule/mule-ccl.el: Comment about CCL syntax modified.
+	(ccl-command-table): Add read-multibyte-character and
+	write-multibyte-character.
+	(ccl-code-table): Add ex-cmd.
+	(ccl-extended-code-table): New variable.
+	(ccl-embed-extended-command): New function.
+	(ccl-compile-read-multibyte-character,
+	ccl-compile-write-multibyte-character) New functions.
+	(ccl-dump-ex-cmd, ccl-dump-read-multibyte-character,
+	ccl-dump-write-multibyte-character): New functions.
+
 1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-13  SL Baur  <steve@miho>
+
+	* lib-complete.el (read-library-name): Revert previous change.
+	(read-library): Ditto.
+
+1999-06-24  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* packages.el (packages-package-list): Capitalize docstring.
+
+	* packages.el (packages-find-package-library-path): Use #'nconc
+	rather than #'append to reduce consing -- #'mapcar uses Flist,
+	which returns a freshly consed list.  #'append would create yet
+	another fresh list, using Fmake_list in concat.
+
+	* packages.el (package-provide): Use setq with remassq like it
+	says in its docstring.
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* lib-complete.el (progn-with-message): Fix typo.
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* mule/mule-misc.el (char-octet): Make function match docstring.
+	From Katsumi Yamaoka <yamaoka@jpl.org>
+	
+1999-06-15  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* wid-edit.el (widget-documentation): corrected spelling error.
+
+1999-06-23  Jonathan Marten <jonathan.marten@uk.sun.com>
+
+	* x-win-sun.el (x-win-init-sun): Don't rebind Find and Sh-find
+	keys if already bound
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* lib-complete.el (progn-with-message): Revert previous changes.
+
+1999-06-24  Bob Weiner  <weiner@beopen.com>
+
+	* lib-complete.el (find-library): 
+	(find-library-other-window): 
+	(find-library-other-frame): Completely rewrote
+	so that these functions actually work when called non-interactively.  
+	Also made them handle LIBRARY arguments which end with .el or .elc.
+
+1999-06-24  Bob Weiner  <weiner@beopen.com>
+
+	* simple.el (indent-new-comment-line): Locally bound
+	`block-comment-start' to `comstart' or else when this is called
+	from do-auto-fill, e.g. in Lisp mode, it will insert any non-nil
+	`block-comment-start' value, ignoring any existing spacing after a
+	comment prefix in the previous line and producing ugly comments.
+
+1999-06-23  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (mouse-choose-completion): 
+	(choose-completion): 
+	(completion-switch-to-minibuffer): Added.
+	([Tab]): [Tab] previously switched to the minibuffer
+	but since [space] does that and since most applications in the
+	world use [Tab] to select the next item in a list, do that in the
+	*Completions* buffer too.  This will cause the least confusion
+	among the largest population of users.  -- Bob Weiner, BeOpen.com,
+	06/23/1999.
+
+1999-06-22  Bob Weiner  <weiner@beopen.com>
+
+	* help.el (help-buffer-name): Added support for a null value
+	of `help-buffer-prefix-string' since some buffers require no
+	prefix.
+
+1999-06-20  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (completion-list-mode-quit): Added and bound to {q} 
+	in the completion-list-mode-map to bury the completions buffer
+	even when the minibuffer is no longer active.
+
+1999-06-20  Bob Weiner  <weiner@beopen.com>
+
+	* list-mode.el (list-mode): It is visually disconcerting to have
+	the text cursor disappear within list buffers, especially when
+	moving from window to window, so leave it visible.
+
+1999-07-01  SL Baur  <steve@miho.m17n.org>
+
+	* menubar-items.el (default-menubar): Conditionalize the bug
+	report menu item (which may not be possible in this XEmacs).
+	Reported by: Ken'ichi Handa <handa@etl.go.jp>
+	
+1999-06-30  SL Baur  <steve@miho.m17n.org>
+
+	* subr.el (with-current-buffer): DOC string fix.
+	Suggested by Bob Weiner <weiner@altrasoft.com>
+
+1999-06-25  Charles G Waldman <cgw@fnal.gov>
+
+        * cus-face.el (custom-face-italic): insert missing args
+        
+1999-06-24  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* packages.el (package-locations): Changed default early package
+	hierarchies to ~/.xemacs/mule-packages and
+	~/.xemacs/xemacs-packages.
 
 1999-06-23  SL Baur  <steve@miho.m17n.org>
 

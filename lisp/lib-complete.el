@@ -38,7 +38,6 @@
 ;; Last Modified By: Heiko M|nkel <muenkel@tnt.uni-hannover.de>
 ;; Additional XEmacs integration By: Chuck Thompson <cthomp@cs.uiuc.edu>
 ;; Last Modified On: Thu Jul 1 14:23:00 1994
-;; RCS Info        : $Revision: 1.3.2.2 $ $Locker:  $
 ;; ========================================================================
 ;; NOTE: XEmacs must be redumped if this file is changed.
 ;;
@@ -57,6 +56,7 @@
 ;;; ChangeLog:
 
 ;; 4/26/97: sb Mule-ize.
+;; 6/24/1999 much rewriting from Bob Weiner
 
 ;;; Code:
 
@@ -217,7 +217,6 @@ where each <cache-record> has the form
       (if tail (setcdr tail nil)))))
 
 ;;=== Read a filename, with completion in a search path ===================
-(defvar read-library-internal-search-path)
 
 (defun read-library-internal (FILE FILTER FLAG)
   "Don't call this."
@@ -255,8 +254,20 @@ Optional sixth argument FILTER can be used to provide a function to
     (cond 
      ((equal library "") DEFAULT)
      (FULL (locate-file library read-library-internal-search-path
-			  '(".el" ".el.gz" ".elc")))
+			 '(".el" ".el.gz" ".elc")))
      (t library))))
+
+(defun read-library-name (prompt)
+  "PROMPTs for and returns an existing Elisp library name (without any suffix) or the empty string."
+  (interactive)
+  (let ((read-library-internal-search-path load-path))
+    (completing-read prompt
+		     'read-library-internal 
+		     (lambda (fn) 
+		       (cond
+			((string-match "\\.el\\(\\.gz\\|\\.Z\\)?$" fn)
+			 (substring fn 0 (match-beginning 0)))))
+		     t nil)))
 
 ;; NOTE: as a special case, read-library may be used to read a filename
 ;; relative to the current directory, returning a *relative* pathname
@@ -264,70 +275,72 @@ Optional sixth argument FILTER can be used to provide a function to
 ;;
 ;; eg. (read-library "Local header: " '(nil) nil)
 
-(defun get-library-path ()
-  "Front end to read-library"
-  (read-library "Find Library file: " load-path nil t t
-		  (function (lambda (fn) 
-			      (cond
-			       ;; decompression doesn't work with mule -slb
-			       ((string-match (if (featurep 'mule)
-						  "\\.el$"
-						"\\.el\\(\\.gz\\)?$") fn)
-				(substring fn 0 (match-beginning 0))))))
-		  ))
-
 ;;=== Replacement for load-library with completion ========================
 
 (defun load-library (library)
   "Load the library named LIBRARY.
 This is an interface to the function `load'."
   (interactive 
-   (list (read-library "Load Library: " load-path nil nil nil
-		  (function (lambda (fn) 
-			      (cond 
-			       ((string-match "\\.elc?$" fn)
-				(substring fn 0 (match-beginning 0))))))
-		  ))) 
+   (list (read-library "Load library: " load-path nil nil nil
+		       (function (lambda (fn) 
+				   (cond 
+				    ((string-match "\\.elc?$" fn)
+				     (substring fn 0 (match-beginning 0))))))
+		       ))) 
   (load library))
 
-;;=== find-library with completion (Author: Heiko Muenkel) ===================
+;;=== find-library with completion (Author: Bob Weiner) ===================
 
-(defun find-library (library &optional codesys)
-  "Find and edit the source for the library named LIBRARY.
-The extension of the LIBRARY must be omitted.
-Under XEmacs/Mule, the optional second argument specifies the
-coding system to use when decoding the file.  Interactively,
-with a prefix argument, you will be prompted for the coding system."
+(defun find-library (library &optional codesys display-function)
+  "Find and display in the current window the source for the Elisp LIBRARY.
+LIBRARY should be a name without any path information and may include or omit
+the \".el\" suffix.  Under XEmacs/Mule, the optional second argument CODESYS
+specifies the coding system to use when decoding the file.  Interactively,
+with a prefix argument, this prompts for the coding system.  Optional third
+argument DISPLAY-FUNCTION must take two arguments, the filename to display
+and CODESYS.  The default for DISPLAY-FUNCTION is `find-file'."
   (interactive 
-   (list (get-library-path)
+   (list (read-library-name "Find library: ")
 	 (if current-prefix-arg
 	     (read-coding-system "Coding System: "))))
-  (find-file library codesys))
+  (let ((path (if (or (null library) (equal library ""))
+		   nil
+		(locate-file library load-path
+			     ;; decompression doesn't work with Mule -slb
+			     (if (featurep 'mule)
+				 ":.el:.elc"
+			       ":.el:.el.gz:.el.Z:.elc")))))
+    (if path (funcall (if (fboundp display-function)
+			  display-function 'find-file)
+		      path codesys)
+      (error "(find-library): Cannot locate library `%s'" library))))
 
 (defun find-library-other-window (library &optional codesys)
-  "Load the library named LIBRARY in another window.
-Under XEmacs/Mule, the optional second argument specifies the
-coding system to use when decoding the file.  Interactively,
-with a prefix argument, you will be prompted for the coding system."
+  "Find and display in another window the source for the Elisp LIBRARY.
+LIBRARY should be a name without any path information and may include or omit
+the \".el\" suffix.  Under XEmacs/Mule, the optional second argument CODESYS
+specifies the coding system to use when decoding the file.  Interactively,
+with a prefix argument, this prompts for the coding system."
   (interactive 
-   (list (get-library-path)
-	 (if current-prefix-arg
-	   (read-coding-system "Coding System: "))))
-  (find-file-other-window library codesys))
-
-(defun find-library-other-frame (library &optional codesys)
-  "Load the library named LIBRARY in a newly-created frame.
-Under XEmacs/Mule, the optional second argument specifies the
-coding system to use when decoding the file.  Interactively,
-with a prefix argument, you will be prompted for the coding system."
-  (interactive 
-   (list (get-library-path)
+   (list (read-library-name "Find library in other window: ")
 	 (if current-prefix-arg
 	     (read-coding-system "Coding System: "))))
-  (find-file-other-frame library codesys))
+  (find-library library codesys 'find-file-other-window))
 
-; This conflicts with an existing binding
-;(define-key global-map "\C-xl" 'find-library)
+(defun find-library-other-frame (library &optional codesys)
+  "Find and display in another frame the source for the Elisp LIBRARY.
+LIBRARY should be a name without any path information and may include or omit
+the \".el\" suffix.  Under XEmacs/Mule, the optional second argument CODESYS
+specifies the coding system to use when decoding the file.  Interactively,
+with a prefix argument, this prompts for the coding system."
+  (interactive 
+   (list (read-library-name "Find library in other frame: ")
+	 (if current-prefix-arg
+	     (read-coding-system "Coding System: "))))
+  (find-library library codesys 'find-file-other-frame))
+
+;; This conflicts with an existing binding.
+;;(define-key global-map "\C-xl" 'find-library)
 (define-key global-map "\C-x4l" 'find-library-other-window)
 (define-key global-map "\C-x5l" 'find-library-other-frame)
 

@@ -10,6 +10,39 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* etc/TUTORIAL.th: Change code to tis-620.
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* config.guess (main): Synch with newer config.guess for HP
+	support.
+	From Marcus Thiessel <marcus@xemacs.org>
+
+1999-06-25  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
+
+	* configure.in (with_prefix): Added --with-prefix, defaults to
+	yes, to control whether the value of --prefix is compiled into the 
+	binary.
+
+1999-07-03  Andy Piper  <andy@xemacs.org>
+
+	* configure.usage (--with-widgets): add.
+
+1999-07-02  Andy Piper  <andy@xemacs.org>
+
+	* configure.in: Make sure we get motif in lwlib if we have widgets
+ 	and motif.
+
+1999-06-25  SL Baur  <steve@miho.m17n.org>
+
+	* configure.in (version): Fix --with-infodock test.
+
 1999-06-15  Michael Sperber [Mr. Preprocessor]  <sperber@informatik.uni-tuebingen.de>
 
 	* configure.in: --prefix and --exec-prefix are now only compiled

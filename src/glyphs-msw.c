@@ -1,5 +1,5 @@
 /* mswindows-specific glyph objects.
-   Copyright (C) 1998 Andy Piper.
+   Copyright (C) 1998, 99 Andy Piper.
    
 This file is part of XEmacs.
 
@@ -53,6 +53,22 @@ Boston, MA 02111-1307, USA.  */
 
 #define WIDGET_GLYPH_SLOT 0
 
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (nothing);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (formatted_string);
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (inherit);
+#ifdef HAVE_JPEG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (jpeg);
+#endif
+#ifdef HAVE_TIFF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (tiff);
+#endif  
+#ifdef HAVE_PNG
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (png);
+#endif  
+#ifdef HAVE_GIF
+DECLARE_IMAGE_INSTANTIATOR_FORMAT (gif);
+#endif  
 #ifdef HAVE_XPM
 DEFINE_DEVICE_IIFORMAT (mswindows, xpm);
 #endif
@@ -61,7 +77,7 @@ DEFINE_DEVICE_IIFORMAT (mswindows, xbm);
 DEFINE_DEVICE_IIFORMAT (mswindows, xface);
 #endif
 DEFINE_DEVICE_IIFORMAT (mswindows, button);
-DEFINE_DEVICE_IIFORMAT (mswindows, edit);
+DEFINE_DEVICE_IIFORMAT (mswindows, edit_field);
 #if 0
 DEFINE_DEVICE_IIFORMAT (mswindows, group);
 #endif
@@ -69,10 +85,10 @@ DEFINE_DEVICE_IIFORMAT (mswindows, subwindow);
 DEFINE_DEVICE_IIFORMAT (mswindows, widget);
 DEFINE_DEVICE_IIFORMAT (mswindows, label);
 DEFINE_DEVICE_IIFORMAT (mswindows, scrollbar);
-DEFINE_DEVICE_IIFORMAT (mswindows, combo);
-DEFINE_DEVICE_IIFORMAT (mswindows, progress);
-DEFINE_DEVICE_IIFORMAT (mswindows, tree);
-DEFINE_DEVICE_IIFORMAT (mswindows, tab);
+DEFINE_DEVICE_IIFORMAT (mswindows, combo_box);
+DEFINE_DEVICE_IIFORMAT (mswindows, progress_gauge);
+DEFINE_DEVICE_IIFORMAT (mswindows, tree_view);
+DEFINE_DEVICE_IIFORMAT (mswindows, tab_control);
 
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (bmp);
 Lisp_Object Qbmp;
@@ -2319,7 +2335,7 @@ mswindows_button_instantiate (Lisp_Object image_instance, Lisp_Object instantiat
 
 /* instantiate an edit control */
 static void
-mswindows_edit_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+mswindows_edit_field_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			    int dest_mask, Lisp_Object domain)
 {
@@ -2332,7 +2348,7 @@ mswindows_edit_instantiate (Lisp_Object image_instance, Lisp_Object instantiator
 
 /* instantiate a progress gauge */
 static void
-mswindows_progress_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+mswindows_progress_gauge_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 				Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 				int dest_mask, Lisp_Object domain)
 {
@@ -2431,7 +2447,7 @@ static void add_tree_item_list (Lisp_Object image_instance,
 }
 
 static void
-mswindows_tree_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+mswindows_tree_view_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			    int dest_mask, Lisp_Object domain)
 {
@@ -2509,13 +2525,12 @@ static TC_ITEM* add_tab_item (Lisp_Object image_instance,
 }
 
 static void
-mswindows_tab_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+mswindows_tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			   int dest_mask, Lisp_Object domain)
 {
   Lisp_Object rest;
   HWND wnd;
-  HTREEITEM parent;
   int index = 0;
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   mswindows_widget_instantiate (image_instance, instantiator, pointer_fg,
@@ -2573,7 +2588,7 @@ mswindows_scrollbar_instantiate (Lisp_Object image_instance, Lisp_Object instant
 
 /* instantiate a combo control */
 static void
-mswindows_combo_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+mswindows_combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 			     Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 			     int dest_mask, Lisp_Object domain)
 {
@@ -2646,7 +2661,7 @@ mswindows_button_property (Lisp_Object image_instance, Lisp_Object prop)
 
 /* get properties of a combo box */
 static Lisp_Object
-mswindows_combo_property (Lisp_Object image_instance, Lisp_Object prop)
+mswindows_combo_box_property (Lisp_Object image_instance, Lisp_Object prop)
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
   HANDLE wnd = WIDGET_INSTANCE_MSWINDOWS_HANDLE (ii);
@@ -2683,7 +2698,7 @@ mswindows_widget_set_property (Lisp_Object image_instance, Lisp_Object prop,
 
 /* set the properties of a progres guage */
 static Lisp_Object
-mswindows_progress_set_property (Lisp_Object image_instance, Lisp_Object prop,
+mswindows_progress_gauge_set_property (Lisp_Object image_instance, Lisp_Object prop,
 				 Lisp_Object val)
 {
   struct Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
@@ -2729,6 +2744,10 @@ console_type_create_glyphs_mswindows (void)
 void
 image_instantiator_format_create_glyphs_mswindows (void)
 {
+  IIFORMAT_VALID_CONSOLE (mswindows, nothing);
+  IIFORMAT_VALID_CONSOLE (mswindows, string);
+  IIFORMAT_VALID_CONSOLE (mswindows, formatted_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, inherit);
   /* image-instantiator types */
 #ifdef HAVE_XPM
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xpm);
@@ -2740,13 +2759,25 @@ image_instantiator_format_create_glyphs_mswindows (void)
   INITIALIZE_DEVICE_IIFORMAT (mswindows, xface);
   IIFORMAT_HAS_DEVMETHOD (mswindows, xface, instantiate);
 #endif
+#ifdef HAVE_JPEG
+  IIFORMAT_VALID_CONSOLE (mswindows, jpeg);
+#endif
+#ifdef HAVE_TIFF
+  IIFORMAT_VALID_CONSOLE (mswindows, tiff);
+#endif  
+#ifdef HAVE_PNG
+  IIFORMAT_VALID_CONSOLE (mswindows, png);
+#endif  
+#ifdef HAVE_GIF
+  IIFORMAT_VALID_CONSOLE (mswindows, gif);
+#endif  
   /* button widget */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, button);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, property);
   IIFORMAT_HAS_DEVMETHOD (mswindows, button, instantiate);
 
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, edit);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, edit, instantiate);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, edit_field);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, edit_field, instantiate);
   
   INITIALIZE_DEVICE_IIFORMAT (mswindows, subwindow);
   IIFORMAT_HAS_DEVMETHOD (mswindows, subwindow, instantiate);
@@ -2763,27 +2794,27 @@ image_instantiator_format_create_glyphs_mswindows (void)
   IIFORMAT_HAS_DEVMETHOD (mswindows, label, instantiate);
 
   /* combo box */
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, combo);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, combo, property);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, combo, instantiate);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, combo_box);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, combo_box, property);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, combo_box, instantiate);
 
   /* scrollbar */
   INITIALIZE_DEVICE_IIFORMAT (mswindows, scrollbar);
   IIFORMAT_HAS_DEVMETHOD (mswindows, scrollbar, instantiate);
 
   /* progress gauge */
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, progress);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, instantiate);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, progress_gauge);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, set_property);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, progress_gauge, instantiate);
 
   /* tree view widget */
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, tree);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, tree_view);
   /*  IIFORMAT_HAS_DEVMETHOD (mswindows, progress, set_property);*/
-  IIFORMAT_HAS_DEVMETHOD (mswindows, tree, instantiate);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tree_view, instantiate);
 
   /* tab control widget */
-  INITIALIZE_DEVICE_IIFORMAT (mswindows, tab);
-  IIFORMAT_HAS_DEVMETHOD (mswindows, tab, instantiate);
+  INITIALIZE_DEVICE_IIFORMAT (mswindows, tab_control);
+  IIFORMAT_HAS_DEVMETHOD (mswindows, tab_control, instantiate);
 
   /* windows bitmap format */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (bmp, "bmp");
@@ -2794,6 +2825,7 @@ image_instantiator_format_create_glyphs_mswindows (void)
 
   IIFORMAT_VALID_KEYWORD (bmp, Q_data, check_valid_string);
   IIFORMAT_VALID_KEYWORD (bmp, Q_file, check_valid_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, bmp);
 
   /* mswindows resources */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (mswindows_resource,
@@ -2808,27 +2840,17 @@ image_instantiator_format_create_glyphs_mswindows (void)
 			  check_valid_resource_symbol);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_resource_id, check_valid_resource_id);
   IIFORMAT_VALID_KEYWORD (mswindows_resource, Q_file, check_valid_string);
+  IIFORMAT_VALID_CONSOLE (mswindows, mswindows_resource);
 }
 
 void
 vars_of_glyphs_mswindows (void)
 {
-  Fprovide (Qbmp);
-  Fprovide (Qmswindows_resource);
   DEFVAR_LISP ("mswindows-bitmap-file-path", &Vmswindows_bitmap_file_path /*
 A list of the directories in which mswindows bitmap files may be found.
 This is used by the `make-image-instance' function.
 */ );
   Vmswindows_bitmap_file_path = Qnil;
-
-  Fprovide (Qbutton);
-  Fprovide (Qedit);
-  Fprovide (Qcombo);
-  Fprovide (Qscrollbar);
-  Fprovide (Qlabel);
-  Fprovide (Qprogress);
-  Fprovide (Qtree);
-  Fprovide (Qtab);
 }
 
 void

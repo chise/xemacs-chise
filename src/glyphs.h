@@ -85,6 +85,8 @@ struct image_instantiator_methods
   Lisp_Object device;		/* sometimes used */
 
   ii_keyword_entry_dynarr *keywords;
+  /* consoles this ii is supported on */
+  console_type_entry_dynarr *consoles;
   /* Implementation specific methods: */
 
   /* Validate method: Given an instantiator vector, signal an error if
@@ -170,6 +172,8 @@ do {								\
   format##_image_instantiator_methods->device = Qnil;		\
   format##_image_instantiator_methods->keywords =		\
     Dynarr_new (ii_keyword_entry);				\
+  format##_image_instantiator_methods->consoles =		\
+    Dynarr_new (console_type_entry);				\
   add_entry_to_image_instantiator_format_list			\
     (Q##format, format##_image_instantiator_methods);		\
 } while (0)
@@ -215,7 +219,20 @@ do {								\
 		entry);							\
   } while (0)
 
+/* Declare that image-instantiator format FORMAT is supported on 
+   CONSOLE type. */
+#define IIFORMAT_VALID_CONSOLE(console, format)		\
+  do {								\
+    struct console_type_entry entry;				\
+								\
+    entry.symbol = Q##console;					\
+    entry.meths = console##_console_methods;			\
+    Dynarr_add (format##_image_instantiator_methods->consoles,	\
+		entry);						\
+  } while (0)
+
 #define DEFINE_DEVICE_IIFORMAT(type, format)\
+DECLARE_IMAGE_INSTANTIATOR_FORMAT(format);		\
 struct image_instantiator_methods *type##_##format##_image_instantiator_methods
 
 #define INITIALIZE_DEVICE_IIFORMAT(type, format)	\
@@ -228,6 +245,7 @@ do {								\
     Dynarr_new (ii_keyword_entry);				\
   add_entry_to_device_ii_format_list				\
     (Q##type, Q##format, type##_##format##_image_instantiator_methods);	\
+  IIFORMAT_VALID_CONSOLE(type,format);			\
 } while (0)
 
 /* Declare that image-instantiator format FORMAT has method M; used in
@@ -624,8 +642,8 @@ DECLARE_LRECORD (glyph, struct Lisp_Glyph);
 
 extern Lisp_Object Qxpm, Qxface;
 extern Lisp_Object Q_data, Q_file, Q_color_symbols, Qconst_glyph_variable;
-extern Lisp_Object Qxbm, Qedit, Qgroup, Qlabel, Qcombo, Qscrollbar, Qprogress;
-extern Lisp_Object Qtree, Qtab;
+extern Lisp_Object Qxbm, Qedit_field, Qgroup, Qlabel, Qcombo_box, Qscrollbar;
+extern Lisp_Object Qtree_view, Qtab_control, Qprogress_gauge;
 extern Lisp_Object Q_mask_file, Q_mask_data, Q_hotspot_x, Q_hotspot_y;
 extern Lisp_Object Q_foreground, Q_background, Q_face, Q_descriptor, Q_group;
 extern Lisp_Object Q_width, Q_height, Q_pixel_width, Q_pixel_height, Q_text;

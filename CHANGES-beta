@@ -1,5 +1,12 @@
 							-*- indented-text -*-
 to 21.2.18 "Toshima"
+-- miscellaneous fixes from Steve Baur
+-- miscellaneous fixes from Didier Verna
+-- various bug fixes from Karl Hegbloom
+-- miscellaneous fixes from Bob Weiner
+-- fix for XIM server crashing and taking down XEmacs from Kazuyuki IENAGA
+-- valid-image-instantiator-format-p tightened up by Andy Piper.
+-- glyph widget support under X/Motif from Andy Piper
 -- Make docdir configurable, update package searching rules from Michael
    Sperber
 -- Fix for Japanese word/character movements from MORIOKA Tomohiko

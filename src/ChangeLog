@@ -165,6 +165,297 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+1999-06-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-ccl.c (ccl_driver): Fix `CCL_WriteMultibyteChar2'.
+
+1999-06-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (mule_decode): Setup `str->ccl.last_block'.
+	(mule_encode): Likewise.
+
+	* mule-ccl.c (Qccl_program): New variable.
+	(CCL_SUSPEND): New macro.
+	(CCL_INVALID_CMD): New macro.
+	(CCL_READ_CHAR): Don't regard as invalid command while processing
+	the last block even if input is empty; use
+	`CCL_STAT_SUSPEND_BY_SRC' instead of `CCL_STAT_SUSPEND'.
+	(vars_of_mule_ccl): Setup `Qccl_program' and `Qccl_program_idx'.
+
+	* mule-ccl.h (CCL_STAT_SUCCESS): Moved from mule-ccl.c.
+	(CCL_STAT_SUSPEND_BY_SRC): Imported from Emacs 20.3.10.
+	(CCL_STAT_SUSPEND_BY_DST): Likewise.
+	(CCL_STAT_INVALID_CMD): Moved from mule-ccl.c; change value from 2.
+	(CCL_STAT_QUIT): Moved from mule-ccl.c; change value from 3.
+
+1999-05-04  Ken'ichi Handa  <handa@gnu.org>
+
+	* mule-ccl.h (struct ccl_program): New member stack_idx.
+
+	* mule-ccl.c (ccl_prog_stack_struct): Declare it as static.
+	(ccl_driver): Setup stack_idx and ccl_prog correctly.  Update them
+	before returing.
+	(setup_ccl_program): Initialize ccl->stack_idx to 0.
+
+1998-10-12  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_DECODE_SJIS, CCL_ENCODE_SJIS): Swap the
+	definitions.
+
+1998-08-18  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c (CCL_READ_CHAR): If eof is encounterd while
+	processing the last block, don't just finish but processes eol
+	block of the current CCL program.
+	(ccl_driver): Add a new jump label ccl_repeat for the above
+	change.
+
+1998-04-15  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.c: Typo in comments fixed.
+	(Qccl_program_idx): New variables.
+	(CCL_ReadMultibyteChar2): Macro name changed from
+	CCL_ReadMultibyteCharacter.
+	(CCL_WriteMultibyteChar2): Macro name changed from
+	CCL_WriteMultibyteChar2.
+	(ccl_driver): Adjusted for the above changes.
+	(resolve_symbol_ccl_program): New function.
+	(Fccl_execute): The arg CCL-PROGRAM can be a symbol of CCL
+	program.  If CCL-PRGRAM is a vector, convert symbols in it to ID
+	numbers by resolve_symbol_ccl_program.
+	(Fccl_execute_on_string): Likewise.
+	(Fregister_ccl_program): If the arg CCL-PRGRAM is a vector,
+	convert symbols in it to ID numbers by resolve_symbol_ccl_program.
+
+1998-01-21  Kenichi Handa  <handa@etl.go.jp>
+
+	* mule-ccl.h: (struct ccl_program): New member private_state.
+
+	* mule-ccl.c
+	(CCL_Call): Fix the comment.
+	(CCL_ReadMultibyteCharacter, CCL_WriteMultibyteCharacter): New
+	macros for CCL Commands.
+	(EXCMD): New macro.
+	(ccl_driver): New case lable `CCL_Extention'.
+	(setup_ccl_program): Initialize the member `private_state' of CCL.
+
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-08  SL Baur  <steve@mule.m17n.org>
+
+	* event-Xt.c (handle_focus_event_1): Guard FRAME_X_XIC with
+	XIM_XLIB.
+	(emacs_Xt_handle_magic_event): Ditto.
+	* redisplay-x.c (x_output_string): Ditto.
+	(x_output_eol_cursor): Ditto.
+
+1999-06-30  Kazuyuki IENAGA <kazz@imasy.or.jp>
+
+	*  event-Xt.c, input-method-xlib.c, redisplay-x.c: Avoid the
+	problem that when XIM is destroyed or missed with some reason,
+	xemacs will die.  Now xim=xlib waits the XIM will be ready and
+	endures the case of XIM end up.
+
+1999-07-03  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+        * tooltalk.c (init_tooltalk): save signal actions for SIGQUIT,
+        SIGINT and SIGCHLD before calling tt_open and restore the
+        afterwards. This fixes e.g. the zombie subprocesses on Solaris
+
+1999-07-06  SL Baur  <steve@xemacs.org>
+
+	* s/linux.h: gcc-2.8 changes for powerpc
+	From Justin Vallon <vallon@mindspring.com>
+
+1999-07-05  Didier Verna  <verna@inf.enst.fr>
+
+	* indent.c: new symbol Qcoerce.
+	(Fmove_to_column): use it + doc string update.
+
+1999-07-04  Andy Piper  <andy@xemacs.org>
+
+	* console.c: undo earlier Fprovide changes.
+	* fns.c: ditto.
+	* console.h: ditto.
+
+	* console-tty.c (image_instantiator_format_create_glyphs_tty): new
+ 	function. validate appropriate image formats for tty.
+
+	* glyphs.h (INITIALIZE_IMAGE_INSTANTIATOR_FORMAT_NO_SYM):
+ 	initialize consoles parameter.
+	(struct image_instantiator_methods): add consoles parameter.
+	(IIFORMAT_VALID_CONSOLE): new function. validate the format on the
+ 	console.
+	(INITIALIZE_DEVICE_IIFORMAT): validate the format on the given
+ 	console.
+
+	* glyphs-msw.c: declare instantiators for later use.
+	(image_instantiator_format_create_glyphs_mswindows): validate xpm
+ 	and friends on the mswindows console.
+	* glyphs-x.c: ditto.
+
+	* glyphs.c (valid_image_instantiator_format_p): disallow glyphs
+ 	that have not been registered on the supplied device.
+	(Fvalid_image_instantiator_format_p): add locale argument.
+	(instantiate_image_instantiator): valid image instantiator on the
+ 	device.
+
+	* symsinit.h: add image_instantiator_format_create_glyphs_tty()
+ 	declaration.
+
+	* emacs.c (main_1): add call to
+ 	image_instantiator_format_create_glyphs_tty().
+
+1999-06-29  Olivier Galibert  <galibert@pobox.com>
+
+	* lisp.h: Add #include <stddef.h>.
+
+	* sysdep.c: Remove #include <stddef.h>.
+	* symbols.c: Remove #include <stddef.h>.
+	* sheap.c: Remove #include <stddef.h>.
+	* opaque.c: Remove #include <stddef.h>.
+	* nt.c: Remove #include <stddef.h>.
+	* mule-charset.c: Remove #include <stddef.h>.
+	* marker.c: Remove #include <stddef.h>.
+	* file-coding.c: Remove #include <stddef.h>.
+	* extents.c: Remove #include <stddef.h>.
+	* elhash.c: Remove #include <stddef.h>.
+	* data.c: Remove #include <stddef.h>.
+	* chartab.c: Remove #include <stddef.h>.
+	* bytecode.c: Remove #include <stddef.h>.
+	* alloc.c: Remove #include <stddef.h>.  Fix vector description
+
+1999-06-30  SL Baur  <steve@miho.m17n.org>
+
+	* editfns.c: Document "%s" format spec.
+	Suggested by Bob Weiner <weiner@altrasoft.com>
+
+1999-06-29  Andy Piper  <andy@xemacs.org>
+
+	* event-msw.c: fix definition booboo.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* glyphs-x.c: change tree -> tree-view, progress ->
+ 	progress_gauge, edit -> edit-field, tab -> tab-control, combo ->
+ 	combo-box.
+	(complex_vars_of_glyphs_x): provide-on-console the implemented
+ 	widget types.
+
+	* glyphs-msw.c: ditto.
+	(complex_vars_of_glyphs_mswindows): ditto.
+
+	* lisp.h: add Fprovide_on_console.
+
+	* fns.c (Ffeaturep): add extra optional console argument.
+	(Fprovide_on_console): like Fprovide but provides only on the
+ 	specified console-type.
+	(Frequire): check console-features as well as global features.
+
+	* console.c (Fconsole_features): new function. return features for
+ 	this console.
+	(syms_of_console): add Fconsole_features.
+
+	* console.h (CONMETH_FEATURES): new function for accessing features.
+	(CONSOLE_FEATURES): ditto.
+	(struct console_methods): add features slot.
+	(INITIALIZE_CONSOLE_TYPE): initialize features slot.
+
+1999-06-28  Andy Piper  <andy@xemacs.org>
+
+	* event-Xt.c (handle_focus_event_1): conditionally compile for
+ 	X11R5.
+
+	* s/cygwin32.h: fix me website address.
+
+	* event-msw.c: add NMHDR for pre b20 cygwin builds.
+
+	* gui-x.c (button_item_to_widget_value): only add callback if it
+ 	is non-nil.
+
+	* glyphs-x.c: add progress, edit and combo instantiators.
+	(x_widget_set_property): new function. uses lwlib to set widget
+ 	values.
+	(x_widget_property): new function. uses lwlib to get widget
+ 	values.
+	(x_button_instantiate): support images in buttons.
+	(x_button_property): new function. use lwlib to get the selected
+ 	state.
+	(x_progress_instantiate): new function for instantiating progress
+ 	gauges.
+	(x_progress_set_property): new function. sets the progress gauge
+ 	position.
+	(x_edit_instantiate): new function. for instantiating edit fields.
+	(x_combo_instantiate): new function. for instantiating combo
+ 	boxes.
+	(image_instantiator_format_create_glyphs_x): add new device ii
+ 	formats.
+
+	* glyphs-msw.c (mswindows_tab_instantiate): remove redundant var.
+
+	* console.h (CONSOLE_FEATURES): new features accesor.
+
+	* conslots.h (MARKED_SLOT): add features entry.
+
+1999-06-25  Andy Piper  <andy@xemacs.org>
+
+	* menubar-x.c (menu_item_descriptor_to_widget_value_1): use new
+ 	gui functions.
+
+	* menubar-msw.c: move MAX_MENUITEM_LENGTH to gui.h
+
+	* gui.h (struct Lisp_Gui_Item): add accelerator.
+
+	* gui.c (gui_item_add_keyval_pair): deal with accelerators.
+	(gui_item_init): ditto.
+	(gui_add_item_keywords_to_plist): ditto.
+	(mark_gui_item): ditto.
+	(gui_item_hash): ditto.
+	(gui_item_accelerator): new function.
+	(gui_name_accelerator): new function stolen from gui-x.c
+
+	* gui-x.c (popup_selection_callback): always define. mark
+ 	subwindows changed after calling a callback.
+	(menu_name_to_accelerator): deleted.
+	(button_item_to_widget_value): forward gui_item things to gui_item
+ 	functions.
+
+	* glyphs-x.h (struct x_subwindow_data): add data for widgets. add
+ 	appropriate accesors.
+
+	* glyphs-x.c: declare new glyph formats.
+	(x_finalize_image_instance): unmanage and destroy widgets if they
+ 	exist.
+	(x_unmap_subwindow): handle widgets specially.
+	(x_map_subwindow): ditto. offset display of widgets by offset of
+ 	text widget within container.
+	(x_update_subwindow): new function. call lw_modify_all_widgets
+ 	when we are a widget.
+	(x_widget_instantiate): new function for generically creating
+ 	widgets-glyphs. toolkit specifics forwarded to lwlib.
+	(x_button_instantiate): new function for instantiating
+ 	widgets-glyph buttons.
+	(console_type_create_glyphs_x): register update_subwindow.
+	(image_instantiator_format_create_glyphs_x): register widget and
+ 	button types.
+
+	* event-msw.c (mswindows_wnd_proc): remove redundant variable.
+
+	* event-Xt.c (x_event_to_emacs_event): call handle_focus_event_1
+ 	when we get a button press in case we do not have the focus.
+	(handle_focus_event_1): set the keyboard focus to the text widget
+ 	if we do not have it.
+
+	* dialog-x.c (dbox_descriptor_to_widget_value): use new gui_item
+ 	functions.
+
+1999-06-24  SL Baur  <steve@miho.m17n.org>
+
+	* syntax.c (scan_words): Restore non-Mule code.
+	(word_constituent_p): Restore.
+
 1999-06-23  Olivier Galibert  <galibert@pobox.com>
 
 	* config.h.in: Add missing #undef *_USER_DEFINED.
@@ -276,7 +567,7 @@
 	(HAVE_UMICH_LDAP): Removed
 	(HAVE_NS_LDAP): Removed
 
-	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as  
+	* eldap.h (struct Lisp_LDAP): Removed the `livep' member as
 	suggested by Olivier Galibert
 	(CHECK_LIVE_LDAP): Test on `ld' instead of `livep'
 
@@ -294,7 +585,7 @@
 
 1999-06-16  Norbert Koch  <n.koch@eai-delta.de>
 
-	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in 
+	* redisplay-msw.c: Run 'ccl_driver' with 'CCL_MODE_ENCODING' as in
 	redisplay-x.c
 
 1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
@@ -572,9 +863,9 @@
  	ARG2.
 
 1999-05-21  Andy Piper  <andy@xemacs.org>
-	
+
 	* xselect.c: deleted.
-	
+
 	* symsinit.h: declare select initialisation.
 
 	* select.h: new file. declare commonly used select functions and
@@ -707,7 +998,7 @@
 	is interned in the main obarray.
 
 1999-04-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
-        
+
 	* menubar-x.c (pre_activate_callback): set accelerator field in
 	"No menu" entries to nil. Avoid crash in
 	command_builder_operate_menu_accelerator
@@ -729,13 +1020,13 @@
 	* m/intel386.h: remove redundant definitions.
 
 	* s/mingw32.h: new header for mingw32.
-	
+
 	* unexnt.c: (open_input_file): function moved to nt.c.
 	(close_file_data): ditto.
 	(rva_to_section): function moved to ntproc.
 
 	* symsinit.h: declare syms_of_ntproc();
-	
+
 	* objects-msw.c (mswindows_font_instance_truename): new function.
 
 	* ntproc.c: remove many warnings.
@@ -747,7 +1038,7 @@
 	(sys_spawnve): fix bad MULE/GCPRO bug in filename handling.
 
 	* ntheap.h: remove declarations of functions that are now static.
-	
+
 	* ntheap.c: support static heap.
 
 	* nt.h: conditionalise X_OK definition.
@@ -758,7 +1049,7 @@
 	(_sys_read_ahead): moved to ntproc.c
 
 	* emacs.c: make sure syms_of_ntptroc gets called under windows.
-	
+
 	* console-msw.h: support mingw32.
 	* getloadavg.c: ditto.
 	* ntplay.c: ditto.
@@ -769,14 +1060,14 @@
 
 	* config.h.in: dont turn on DEBUG_ENCAPSULATION by default because
  	some systems don't have all of the encapsulated system calls.
-	
+
 	* callproc.c: warning elimination.
 	* dired-msw.c: ditto.
 	* process-nt.c: ditto.
 	* realpath.c: ditto.
-	
+
 	* Makefile.in.in: tweak : and ; for building under mswindows.
-	
+
 1999-04-26  Michael Harnois  <mharnois@willinet.net>
 
 	* eldap.c (allocate_ldap): Adapt to the new semantics of
@@ -892,7 +1183,7 @@
 	* symbols.c: Make gung-ho mandatory.  make_pure_pname ->
  		  make_string or make_string_nocopy.  Fix various
 	 	  alloc_lcrecord_type.
-	
+
 	* lread.c: Remove everything purespace related.
 	(Flocate_file_clear_hashing): purified -> c_readonly.
 	(locate_file): Ditto.
@@ -1061,7 +1352,7 @@
 
 	* fns.c (base64_decode_1): Remove COUNTER.
 	(base64_decode_1): Accept CRLF in addition to CR.
-	(base64_decode_1): Disallow a stray character after final EOF; the 
+	(base64_decode_1): Disallow a stray character after final EOF; the
 	check was probably a remnant of buggy recode code.
 
 1998-12-05  Hrvoje Niksic  <hniksic@srce.hr>
@@ -1230,8 +1521,8 @@
 	(composite_char_string):
 	(make-composite-char):
 	(composite-char-string):
-	(syms_of_mule_charset): 
-	(complex_vars_of_mule_charset): 
+	(syms_of_mule_charset):
+	(complex_vars_of_mule_charset):
 	* mule-charset.h (LEADING_BYTE_COMPOSITE):
 	(CHAR_LEADING_BYTE):
 	(MAKE_CHAR):
@@ -1244,8 +1535,8 @@
 	(reset_iso2022):
 	(parse_iso2022_esc):
 	(encode_coding_iso2022):
-	#ifdef out all composite character support using 
-	#ifdef ENABLE_COMPOSITE_CHARS 
+	#ifdef out all composite character support using
+	#ifdef ENABLE_COMPOSITE_CHARS
 
 	* alloc.c: Define lrecord_coding_system only if ! FILE_CODING
 
@@ -5529,4 +5820,3 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 1998-05-10  Hrvoje Niksic  <hniksic@srce.hr>
 
 	* frame.c (Ffocus_frame): New function.
-

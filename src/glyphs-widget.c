@@ -38,10 +38,10 @@ Boston, MA 02111-1307, USA.  */
 #include "opaque.h"
 
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (button);
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (combo);
-Lisp_Object Qcombo;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (edit);
-Lisp_Object Qedit;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (combo_box);
+Lisp_Object Qcombo_box;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (edit_field);
+Lisp_Object Qedit_field;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (scrollbar);
 Lisp_Object Qscrollbar;
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (widget);
@@ -51,12 +51,12 @@ Lisp_Object Qgroup;
 #endif
 DEFINE_IMAGE_INSTANTIATOR_FORMAT (label);
 Lisp_Object Qlabel;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress);
-Lisp_Object Qprogress;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (tree);
-Lisp_Object Qtree;
-DEFINE_IMAGE_INSTANTIATOR_FORMAT (tab);
-Lisp_Object Qtab;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge);
+Lisp_Object Qprogress_gauge;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (tree_view);
+Lisp_Object Qtree_view;
+DEFINE_IMAGE_INSTANTIATOR_FORMAT (tab_control);
+Lisp_Object Qtab_control;
 
 Lisp_Object Q_descriptor, Q_height, Q_width, Q_properties, Q_items;
 Lisp_Object Q_image, Q_text, Q_percent;
@@ -187,7 +187,7 @@ check_valid_item_list (Lisp_Object data)
  the instances. This is encoded in the widget type
  field. widget_property gets invoked by decoding the primary type
  (Qwidget), widget property then invokes based on the secondary type
- (Qedit for example). It is debatable that we should wire things in this
+ (Qedit_field for example). It is debatable that we should wire things in this
  generalised way rather than treating widgets specially in
  image_instance_property. */
 static Lisp_Object 
@@ -270,7 +270,7 @@ widget_validate (Lisp_Object instantiator)
 }
 
 static void
-combo_validate (Lisp_Object instantiator)
+combo_box_validate (Lisp_Object instantiator)
 {
   widget_validate (instantiator);
   if (NILP (find_keyword_in_vector (instantiator, Q_properties)))
@@ -434,7 +434,7 @@ widget_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
 /* combo-box generic instantiation - get he heigh right */
 static void
-combo_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+combo_box_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		   Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		   int dest_mask, Lisp_Object domain)
 {
@@ -447,7 +447,7 @@ combo_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 }
 
 static void
-tab_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
+tab_control_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		 Lisp_Object pointer_fg, Lisp_Object pointer_bg,
 		 int dest_mask, Lisp_Object domain)
 {
@@ -541,25 +541,25 @@ image_instantiator_format_create_glyphs_widget (void)
   VALID_GUI_KEYWORDS (button);
 
   /* edit fields */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (edit, "edit");
-  IIFORMAT_HAS_SHARED_METHOD (edit, validate, widget);
-  IIFORMAT_HAS_SHARED_METHOD (edit, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (edit, instantiate, widget);
-  VALID_WIDGET_KEYWORDS (edit);
-  VALID_GUI_KEYWORDS (edit);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (edit_field, "edit-field");
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, validate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (edit_field, instantiate, widget);
+  VALID_WIDGET_KEYWORDS (edit_field);
+  VALID_GUI_KEYWORDS (edit_field);
 
   /* combo box */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo, "combo");
-  IIFORMAT_HAS_METHOD (combo, validate);
-  IIFORMAT_HAS_SHARED_METHOD (combo, possible_dest_types, widget);
-  IIFORMAT_HAS_METHOD (combo, instantiate);
-  VALID_GUI_KEYWORDS (combo);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (combo_box, "combo-box");
+  IIFORMAT_HAS_METHOD (combo_box, validate);
+  IIFORMAT_HAS_SHARED_METHOD (combo_box, possible_dest_types, widget);
+  IIFORMAT_HAS_METHOD (combo_box, instantiate);
+  VALID_GUI_KEYWORDS (combo_box);
 
-  IIFORMAT_VALID_KEYWORD (combo, Q_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_height, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_pixel_width, check_valid_int);
-  IIFORMAT_VALID_KEYWORD (combo, Q_face, check_valid_face);
-  IIFORMAT_VALID_KEYWORD (combo, Q_properties, check_valid_item_list);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_height, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_pixel_width, check_valid_int);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_face, check_valid_face);
+  IIFORMAT_VALID_KEYWORD (combo_box, Q_properties, check_valid_item_list);
 
   /* scrollbar */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (scrollbar, "scrollbar");
@@ -573,30 +573,30 @@ image_instantiator_format_create_glyphs_widget (void)
   IIFORMAT_VALID_KEYWORD (scrollbar, Q_face, check_valid_face);
 
   /* progress guage */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress, "progress");
-  IIFORMAT_HAS_SHARED_METHOD (progress, validate, widget);
-  IIFORMAT_HAS_SHARED_METHOD (progress, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (progress, instantiate, combo);
-  VALID_WIDGET_KEYWORDS (progress);
-  VALID_GUI_KEYWORDS (progress);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (progress_gauge, "progress-gauge");
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, validate, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (progress_gauge, instantiate, combo_box);
+  VALID_WIDGET_KEYWORDS (progress_gauge);
+  VALID_GUI_KEYWORDS (progress_gauge);
 
   /* tree view */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tree, "tree");
-  IIFORMAT_HAS_SHARED_METHOD (tree, validate, combo);
-  IIFORMAT_HAS_SHARED_METHOD (tree, possible_dest_types, widget);
-  IIFORMAT_HAS_SHARED_METHOD (tree, instantiate, combo);
-  VALID_WIDGET_KEYWORDS (tree);
-  VALID_GUI_KEYWORDS (tree);
-  IIFORMAT_VALID_KEYWORD (tree, Q_properties, check_valid_item_list);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tree_view, "tree-view");
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, validate, combo_box);
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, possible_dest_types, widget);
+  IIFORMAT_HAS_SHARED_METHOD (tree_view, instantiate, combo_box);
+  VALID_WIDGET_KEYWORDS (tree_view);
+  VALID_GUI_KEYWORDS (tree_view);
+  IIFORMAT_VALID_KEYWORD (tree_view, Q_properties, check_valid_item_list);
 
   /* tab control */
-  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tab, "tab");
-  IIFORMAT_HAS_SHARED_METHOD (tab, validate, combo);
-  IIFORMAT_HAS_SHARED_METHOD (tab, possible_dest_types, widget);
-  IIFORMAT_HAS_METHOD (tab, instantiate);
-  VALID_WIDGET_KEYWORDS (tab);
-  VALID_GUI_KEYWORDS (tab);
-  IIFORMAT_VALID_KEYWORD (tab, Q_properties, check_valid_item_list);
+  INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (tab_control, "tab-control");
+  IIFORMAT_HAS_SHARED_METHOD (tab_control, validate, combo_box);
+  IIFORMAT_HAS_SHARED_METHOD (tab_control, possible_dest_types, widget);
+  IIFORMAT_HAS_METHOD (tab_control, instantiate);
+  VALID_WIDGET_KEYWORDS (tab_control);
+  VALID_GUI_KEYWORDS (tab_control);
+  IIFORMAT_VALID_KEYWORD (tab_control, Q_properties, check_valid_item_list);
 
   /* labels */
   INITIALIZE_IMAGE_INSTANTIATOR_FORMAT (label, "label");
