@@ -277,6 +277,7 @@ Lisp_Object Qdirection;
 Lisp_Object Qreverse_direction_charset;
 Lisp_Object Qleading_byte;
 Lisp_Object Qshort_name, Qlong_name;
+Lisp_Object Qiso_ir;
 #ifdef UTF2000
 Lisp_Object Qmin_code, Qmax_code, Qcode_offset;
 Lisp_Object Qmother, Qconversion, Q94x60, Q94x94x60, Qbig5_1, Qbig5_2;
@@ -1489,7 +1490,7 @@ character set.  Recognized properties are:
 */
        (name, doc_string, props))
 {
-  int id, dimension = 1, chars = 94, graphic = 0, final = 0, columns = -1;
+  int id = 0, dimension = 1, chars = 94, graphic = 0, final = 0, columns = -1;
   int direction = CHARSET_LEFT_TO_RIGHT;
   Lisp_Object registry = Qnil;
   Lisp_Object charset;
@@ -1521,6 +1522,14 @@ character set.  Recognized properties are:
 	  {
 	    CHECK_STRING (value);
 	    long_name = value;
+	  }
+
+	else if (EQ (keyword, Qiso_ir))
+	  {
+#ifdef UTF2000
+	    CHECK_INT (value);
+	    id = - XINT (value);
+#endif
 	  }
 
 	else if (EQ (keyword, Qdimension))
@@ -1664,7 +1673,8 @@ character set.  Recognized properties are:
     error
       ("Character set already defined for this DIMENSION/CHARS/FINAL combo");
 
-  id = get_unallocated_leading_byte (dimension);
+  if (id == 0)
+    id = get_unallocated_leading_byte (dimension);
 
   if (NILP (doc_string))
     doc_string = build_string ("");
@@ -2669,6 +2679,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qreverse_direction_charset, "reverse-direction-charset");
   defsymbol (&Qshort_name, "short-name");
   defsymbol (&Qlong_name, "long-name");
+  defsymbol (&Qiso_ir, "iso-ir");
 #ifdef UTF2000
   defsymbol (&Qmother, "mother");
   defsymbol (&Qmin_code, "min-code");
