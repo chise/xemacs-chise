@@ -34,6 +34,7 @@
     (=gt-pj-1		. #x5577)	; &I-GT-09499; [53-87]
     (=daikanwa		. 07539)	; &I-M-07539;
     (=ucs@unicode	. #x5C22)	; 尢
+    (=ucs@cns		. #x2F875)	; 尢
     ))
 (define-char
   '((ideographic-radical . 43)	; ⼪
