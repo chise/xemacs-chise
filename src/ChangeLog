@@ -1,3 +1,8 @@
+2000-06-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decoding_table_check_elements): New function.
+	(Fset_charset_mapping_table): Use `decoding_table_check_elements'.
+
 2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Fset_charset_mapping_table): Use
