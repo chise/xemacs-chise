@@ -883,7 +883,11 @@
 		((eq name 'jisx0208-1978/4X)
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
-				 line-breaking)))
+				 line-breaking))
+		 )
+		((and (not readable)
+		      (string-match "^->simplified" (symbol-name name)))
+		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
 		     (string-match "^\\(->\\|<-\\)" (symbol-name name)))
