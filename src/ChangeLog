@@ -1,5 +1,16 @@
 2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Fsave_charset_mapping_table): Open database as
+	"w+" mode.
+	(load_char_decoding_entry_maybe): Open database as read-only mode.
+
+	* chartab.c (Fsave_char_attribute_table): Don't share `ct->db';
+	open database as "w+" mode.
+	(load_char_attribute_maybe): Open database as read-only mode.
+	(Fload_char_attribute_table): Likewise.
+
+2002-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* chartab.c (mark_char_table): Don't refer `ct->db_file'.
 	(char_table_description): Delete member `db_file'.
 	(Fmake_char_table): Don't refer `ct->db_file'.
