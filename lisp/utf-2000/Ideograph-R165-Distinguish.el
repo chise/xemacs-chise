@@ -81,6 +81,8 @@
      ((japanese-jisx0208-1990	  . #x6E59)	; ø½‹§º
       (ideograph-daikanwa	  . 40129)	; ø¸‰³
       ))
+    (japanese-jisx0208-1978	. #x3C61)	; ø»‚¤ª
+    (japanese-jisx0208		. #x3C61)	; ø»†¸²
     (japanese-jisx0208-1990	. #x3C61)	; ø½Šž¦
     (mojikyo			. 050545)	; ý €Œ•±
     (ucs			. #x91C8)	; é‡ˆ
