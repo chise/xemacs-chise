@@ -1,3 +1,7 @@
+2002-12-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002F805): Fix `ideographic-structure'.
+
 2002-11-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R042-Small.el (U+5C17): Unify BC-8CA7.
