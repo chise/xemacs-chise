@@ -1,3 +1,76 @@
+2003-06-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R104-Sickness.el: Add mappings for Big5 code points.
+
+	* Ideograph-R040-Roof.el (M-07061): New character.
+	(U-000219BA): New character.
+	(M-07062): New character.
+	(U+374B): New character.
+
+	* Ideograph-R012-Eight.el (U-00020503): Unify M-48904; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' and
+	`ideographic-radical@ucs*sources' instead of
+	`ideographic-{radical|strokes}'; don't use char-ref format in
+	`<-vulgar-ideograph'; use `<-vulgar-ideograph*sources' instead.
+
+	* Ideograph-R001-One.el (M-48904): New character [unified to
+	U-00020503 and copied from Ideograph-R012-Eight.el].
+
+2003-06-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+3654): New character.
+	(CB07009): New character.
+
+2003-06-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R021-Spoon.el (MH-0057): Unify JC3-45AC.
+
+	* Ideograph-R040-Roof.el (J0-3B21): Separate G0-326C and U+5BDF.
+
+2003-06-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U-00020C8A): Unify MH-0065; add
+	strokes.
+	(MH-0068): New character.
+	(U-00020E5D): Unify MH-0069; add strokes.
+	(U-00020E91): Unify MH-0070; add strokes.
+	(U+565B): Unify MH-0071 and GT-05383.
+	(CB03519): Unify MH-0072.
+	(U+567B): Relate to MH-0072; delete `->mojikyo'.
+	(JC3-8EE0): Unify MH-0073; separate G0-606A, C2-5C4C and U+5693.
+	(C3-602D): Unify MH-0075 and GT-05858.
+	(U+361A): Relate to MH-0075.
+	(U+56D6): Add `total-strokes'.
+
+	* Ideograph-R169-Gate.el (M-41484): Separate all.
+	(U+95DE): Fix strokes.
+
+	* Ideograph-R041-Inch.el (U-00020B8A): Unify MH-0063; use
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@ucs*sources' instead of
+	`ideographic-{radical|strokes}'.
+
+	* Ideograph-R029-Again.el (MH-0063): New character; unify
+	U-00020B8A [copied from `Ideograph-R041-Inch.el'].
+
+	* Ideograph-R027-Cliff.el (U-00020A33): Unify MH-0059; add
+	strokes.
+	(M-02978): Unify U-00020A77.
+	(MH-0060): New character.
+	(U+53A2): Unify MH-0061.
+
+	* Ideograph-R022-Right-Open-Box.el (U-00020967): Unify MH-0058;
+	add strokes.
+
+	* Ideograph-R105-Dotted-Tent.el, Ideograph-R103-Bolt-Of-Cloth.el:
+	Add mappings for Big5 code points.
+
+	* Ideograph-R021-Spoon.el (MH-0057): New character.
+
+2003-06-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R142-Insect.el (M-33859): Unify B-F7D7.
+
 2003-06-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R006-Hook.el (U-00020114): Separate C6-2149.

@@ -1408,6 +1408,15 @@
     (=ucs		. #x5335)	; åŒµ
     ))
 (define-char
+  '((morohashi-daikanwa	ho 58)
+    (ideographic-radical . 22)	; â¼•
+    (ideographic-strokes . 15)
+    (total-strokes	 . 17)
+    (hanyu-dazidian	1 90 12)
+    (=hanziku-1		. #xB6A3)	; ý¢€›š£
+    (=ucs		. #x20967)	; ð ¥§
+    ))
+(define-char
   '((ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 16)
     (total-strokes	 . 18)
@@ -1643,12 +1652,6 @@
     (hanyu-dazidian	1 89 11)
     (=hanziku-1		. #xB660)	; ý¢€›™ 
     (=ucs		. #x20958)	; ð ¥˜
-    ))
-(define-char
-  '((ideographic-radical . 22)	; â¼•
-    (hanyu-dazidian	1 90 12)
-    (=hanziku-1		. #xB6A3)	; ý¢€›š£
-    (=ucs		. #x20967)	; ð ¥§
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•

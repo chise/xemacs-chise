@@ -722,8 +722,13 @@
     (=ucs		. #x21B4C)	; ð¡­Œ
     ))
 (define-char
-  '((ideographic-radical . 41)	; â¼¨
-    (ideographic-strokes . 13)
+  '((morohashi-daikanwa	ho 63)
+    (ideographic-radical@ucs . 29)	; â¼œ
+    (ideographic-strokes@ucs . 13)
+    (ideographic-radical@ucs*sources
+     daikanwa ucs)
+    (ideographic-radical@cns . 41)	; â¼¨
+    (ideographic-strokes@cns . 13)
     (total-strokes	 . 16)
     (=cns11643-5	. #x542E)	; ø»šµ³
     (=ucs		. #x20B8A)	; ð ®Š

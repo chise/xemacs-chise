@@ -117,6 +117,15 @@
     (=cns11643-4	. #x2142)	; ø»—¡‰
     ))
 (define-char
+  '((morohashi-daikanwa	ho 57)
+    (ideographic-radical . 21)	; â¼”
+    (ideographic-strokes . 2)
+    (total-strokes	 . 4)
+    (=gt-pj-9		. #x3375)	; ý¡€€³£
+    (=jef-china3	. #x45AC)	; øº„–¬
+    (=gt		. 03299)	; ý¡€€³£
+    ))
+(define-char
   '((ideographic-radical . 21)	; â¼”
     (ideographic-strokes . 3)
     (total-strokes	 . 5)

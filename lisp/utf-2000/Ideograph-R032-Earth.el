@@ -6709,6 +6709,21 @@
   '((ideographic-radical . 32)	; â¼Ÿ
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (=daikanwa		. 05305)	; ø¸’¹
+    (=ucs		. #x3654)	; ã™”
+    ))
+(define-char
+  '((=>ucs		. #x3654)	; ã™”
+    (morohashi-daikanwa	5305 0 0)
+    (ideographic-radical . 32)	; â¼Ÿ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
+    (=cbeta		. 07009)	; ø¸¡­¡
+    ))
+(define-char
+  '((ideographic-radical . 32)	; â¼Ÿ
+    (ideographic-strokes . 9)
+    (total-strokes	 . 12)
     (=cns11643-5	. #x3736)	; ø»š‹•
     (=daikanwa		. 05306)	; ø¸’º
     (=ucs		. #x213AB)	; ð¡Ž«
