@@ -763,7 +763,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      (:char	((=daikanwa	     . 13738)	; &I-M-13738;
 		 )
       :sources	(jiyun morohashi-daikanwa)))
@@ -828,7 +828,7 @@
     (ideographic-radical . 27)	; ⼚
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      (:char	((=daikanwa	     . 08926)	; &I-M-08926;
 		 )
       :sources	(jii morohashi-daikanwa)))

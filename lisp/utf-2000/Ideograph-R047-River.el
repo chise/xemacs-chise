@@ -26,10 +26,10 @@
       ))
     (->mistakable*sources
      kangxi)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 04969)	; &I-M-04969;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      yupian)
     (=daikanwa		. 08670)	; &M-08670;
     ))

@@ -5334,12 +5334,12 @@
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 9)
     (total-strokes	 . 14)
-    (<-ancient-ideograph
+    (<-ancient
      ((shinjigen-1	  . 928)
       (=jis-x0208	  . #x3143)	; &I-J90-3143; [17-35]
       (=daikanwa	  . 03214)	; &I-M-03214;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shuowen daikanwa shinjigen-1)
     (shinjigen-1	. 929)
     (shinjigen-2	. 929)

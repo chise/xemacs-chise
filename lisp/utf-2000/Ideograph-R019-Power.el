@@ -2416,7 +2416,7 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(shuowen morohashi-daikanwa)
       :char	((=daikanwa	     . 02465)	; &I-M-02465;
 		 )

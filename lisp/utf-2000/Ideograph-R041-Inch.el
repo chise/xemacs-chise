@@ -788,10 +788,10 @@
     (->subsumptive
      ((ideographic-strokes . 14)
       (total-strokes	   . 17)
-      (<-ancient-ideograph
+      (<-ancient
        ((=daikanwa	    . 07465)	; &I-M-07465;
 	))
-      (<-ancient-ideograph*sources
+      (<-ancient*sources
        daikanwa)
       (=daikanwa	  . 07468)	; &M-07468;
       )
@@ -820,7 +820,7 @@
   '((ideographic-radical . 41)	; ⼨
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 07465)	; &I-M-07465;
       ))
     (=ucs		. #x21B51)	; 𡭑

@@ -184,10 +184,10 @@
   '((ideographic-radical . 36)	; ⼣
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 05756)	; &I-M-05756;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      jiyun daikanwa)
     (hanyu-dazidian	1 53 6)
     (ideographic-structure

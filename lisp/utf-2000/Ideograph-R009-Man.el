@@ -1559,7 +1559,7 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 00630)	; &I-M-00630;
 		 )
@@ -7257,7 +7257,7 @@
   '((ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 211)
 		 (=daikanwa	     . 00577)	; &I-M-00577;
@@ -19895,7 +19895,7 @@
     (ideographic-radical . 9)	; ⼈
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(jiyun morohashi-daikanwa)
       :char	((=daikanwa	     . 00702)	; &I-M-00702;
 		 )

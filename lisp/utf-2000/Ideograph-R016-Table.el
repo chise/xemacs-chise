@@ -588,12 +588,12 @@
   '((ideographic-radical . 16)	; ⼏
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-ancient-ideograph
+    (<-ancient
      ((shinjigen-1	  . 9211)
       (=jis-x0208	  . #x4977)	; &I-J90-4977; [41-87]
       (=daikanwa	  . 43756)	; &I-M-43756;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shinjigen-1)
     (hanyu-dazidian	1 277 11)
     (=ucs		. #x51EC)	; 凬
@@ -744,10 +744,10 @@
     (ideographic-radical@cns*sources
      daikanwa=01775 cns11643)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 09208)	; &I-M-09208;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      yupian jiyun daikanwa)
     (hanyu-dazidian	2 1094 6)
     (=ucs		. #x221BB)	; 𢆻

@@ -608,7 +608,7 @@
   '((ideographic-radical . 30)	; ⼝
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 721)
 		 (=daikanwa	     . 02742)	; &I-M-02742;

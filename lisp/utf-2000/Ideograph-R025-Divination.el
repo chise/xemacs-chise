@@ -34,10 +34,10 @@
     (->same
      ((=ucs		  . #x20061)	; 𠁡
       ))
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 02774)	; &I-M-02774;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shuowen daikanwa)
     (=cns11643-6	. #x212C)	; &M-02775; [01-12]
     (=daikanwa		. 02775)	; &I-M-02775;
@@ -542,7 +542,7 @@
   '((ideographic-radical . 25)	; ⼘
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 839)
 		 (=daikanwa	     . 02791)	; &I-M-02791;

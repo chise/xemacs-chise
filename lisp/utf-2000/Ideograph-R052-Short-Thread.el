@@ -143,10 +143,10 @@
     (ideographic-radical@cns*sources
      daikanwa=01775 cns11643)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 09208)	; &I-M-09208;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      yupian jiyun daikanwa)
     (hanyu-dazidian	2 1094 6)
     (=ucs		. #x221BB)	; 𢆻

@@ -66,7 +66,7 @@
   '((ideographic-radical . 4)	; ⼃
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 03118)	; &I-M-03118;
 		 )
@@ -175,7 +175,7 @@
      ((name		  . "BOPOMOFO LETTER U")
       (=ucs		  . #x3128)	; ㄨ
       ))
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 00257)	; &I-M-00257;
 		 )

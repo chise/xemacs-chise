@@ -286,10 +286,10 @@
     (ideographic-radical . 87)	; ⽖
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 19687)	; &I-M-19687;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shuowen daikanwa)
     (=daikanwa		. 19682)	; &M-19682;
     ))

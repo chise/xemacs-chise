@@ -1669,7 +1669,7 @@
   '((ideographic-radical . 1)	; ⼀
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (<-ancient-ideograph
+    (<-ancient
      (:sources	(morohashi-daikanwa)
       :char	((=daikanwa	     . 39763)	; &I-M-39763;
 		 )
@@ -1981,10 +1981,10 @@
      ((=cns11643-3	  . #x2740)	; &GT-00145; [07-32]
       (=daikanwa	  . 00104)	; &I-M-00104;
       ))
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 47663)	; &I-M-47663;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      daikanwa)
     (=cns11643-6	. #x2936)	; &GT-00087; [09-22]
     (=gt		. 00087)	; &I-GT-00087;
@@ -2039,10 +2039,10 @@
      ((=cns11643-6	  . #x2936)	; &GT-00087; [09-22]
       (=daikanwa	  . 00059)	; &I-M-00059;
       ))
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 47663)	; &I-M-47663;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      daikanwa)
     (<-denotational
      ((=ucs		  . #x4E3D)	; 丽

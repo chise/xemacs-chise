@@ -2678,10 +2678,10 @@
   '((ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 01917)	; &I-M-01917;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      zihui-bei daikanwa)
     (=ucs		. #x206F9)	; 𠛹
     (=cns11643-6	. #x2967)	; &I-C6-2967; [09-71]
@@ -7923,11 +7923,11 @@
       ))
     (->same*sources
      yupian daikanwa)
-    (<-ancient-ideograph
+    (<-ancient
      ((shinjigen-1	  . 653)
       (=daikanwa	  . 02228)	; &I-M-02228;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      shinjigen-1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

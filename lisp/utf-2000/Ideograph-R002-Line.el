@@ -51,10 +51,10 @@
       ))
     (->same*sources
      daikanwa)
-    (<-ancient-ideograph
+    (<-ancient
      ((=daikanwa	  . 02774)	; &I-M-02774;
       ))
-    (<-ancient-ideograph*sources
+    (<-ancient*sources
      daikanwa)
     (hanyu-dazidian	1 28 4)
     (=ucs		. #x20061)	; 𠁡
