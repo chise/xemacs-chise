@@ -3353,6 +3353,7 @@ open_chise_data_source_maybe ()
   if (default_chise_data_source == NULL)
     {
       Lisp_Object db_dir = Vexec_directory;
+      int modemask = 0755;		/* rwxr-xr-x */
 
       if (NILP (db_dir))
 	db_dir = build_string ("../lib-src");
@@ -3360,7 +3361,8 @@ open_chise_data_source_maybe ()
 
       default_chise_data_source
 	= chise_open_data_source (CHISE_DS_Berkeley_DB,
-				  XSTRING_DATA (db_dir));
+				  XSTRING_DATA (db_dir),
+				  DB_HASH, modemask);
       if (default_chise_data_source == NULL)
 	return -1;
     }
@@ -3390,25 +3392,15 @@ char_table_open_db_maybe (Lisp_Char_Table* cit)
   if (!NILP (attribute))
     {
 #ifdef CHISE
-      int modemask;
-      int accessmask = 0;
-      DBTYPE real_subtype;
-
       if (cit->feature_table == NULL)
 	{
 	  if ( open_chise_data_source_maybe () )
 	    return -1;
 
-	  modemask = 0755;		/* rwxr-xr-x */
-	  real_subtype = DB_HASH;
-	  accessmask = DB_RDONLY;
-
 	  cit->feature_table
 	    = chise_ds_open_feature_table (default_chise_data_source,
 					   XSTRING_DATA (Fsymbol_name
-							 (attribute)),
-					   real_subtype,
-					   accessmask, modemask);
+							 (attribute)));
 	  if (cit->feature_table == NULL)
 	    return -1;
 	}
