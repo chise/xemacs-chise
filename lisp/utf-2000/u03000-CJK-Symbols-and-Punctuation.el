@@ -570,6 +570,21 @@
     (ucs		. #x303A)	; ã€º
     ))
 (define-char
+  '((name		. "VERTICAL IDEOGRAPHIC ITERATION MARK")
+    (japanese-jisx0213-1	. #x2236)	; ø»¢”¯
+    (ucs			. #x303B)	; ã€»
+    ))
+(define-char
+  '((name		. "MASU MARK")
+    (japanese-jisx0213-1	. #x2237)	; ø»¢”°
+    (ucs			. #x303C)	; ã€¼
+    ))
+(define-char
+  '((name		. "PART ALTERNATION MARK")
+    (japanese-jisx0213-1	. #x233C)	; ø»¢–“
+    (ucs			. #x303D)	; ã€½
+    ))
+(define-char
   '((name		. "IDEOGRAPHIC VARIATION INDICATOR")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
