@@ -1,3 +1,25 @@
+2004-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (<CJK RADICAL GRASS ONE>): Unify
+	BC-8957.
+	(C6-254D): Use `->subsumptive'; map to U-00026AFC; integrate
+	GT-39649, GT-K01416 and H8-E77D.
+	(U+4494): Use `->subsumptive'.
+	(GT-K01418): New character.
+	(U+4495): Use `->subsumptive'.
+	(U+44BC): Likewise.
+	(U+8349): Changed to an abstract character.
+	(C1-5777): Use `<-denotational' for U+8349; unify GT-40452 and
+	GT-K06491.
+	(J0-4170): Use `<-denotational' for U+8349.
+	(U+83EB): Use `->subsumptive'.
+	(U+452D): Likewise.
+	(U+452E): Likewise.
+	(U+853F): Use `->subsumptive'; use `<-denotational' for B-DFAF.
+	(B-DFAF): Changed to an abstract character.
+	(U+848D): Use `->subsumptive'; use `<-denotational' for B-DFAF.
+	(U+452F): Use `->subsumptive'.
+
 2004-08-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R013-Down-Box.el (U+5184): Unify GT-01981 and
