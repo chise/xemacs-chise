@@ -285,6 +285,10 @@ depend ${srcdir}/src/depend:
 all-elc all-elcs: lib-src lwlib dump-elcs src
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l update-elc-2.el -f batch-update-elc-2 lisp
+#ifdef UTF2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l update-elc-2.el -f batch-update-elc-2 lisp/utf-2000
+#endif
 
 ## Sub-target for all-elc.
 dump-elc dump-elcs: ${GENERATED_HEADERS} FRC.dump-elcs
@@ -307,6 +311,14 @@ lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/mule/auto-autoloads.el
 	@$(RM) lisp/mule/auto-autoloads.el~
+#endif
+#ifdef UTF2000
+	$(RM) lisp/utf-2000/auto-autoloads.el
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-l autoload -f batch-update-directory lisp/utf-2000
+	${blddir}/src/${PROGNAME} -batch -vanilla \
+		-f batch-byte-compile lisp/utf-2000/auto-autoloads.el
+	@$(RM) lisp/utf-2000/auto-autoloads.el~
 #endif
 
 FRC.lisp.custom.load.el:
