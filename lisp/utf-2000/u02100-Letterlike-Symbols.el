@@ -62,8 +62,21 @@
     (mirrored		. nil)
     (->decomposition	compat #x0063 #x002F #x006F)
     (=ucs		. #x2105)	; ℅
-    (=cns11643-1	. #x2222)	; &I-C1-2222; [02-02]
+    ))
+(define-char
+  '((->decomposition	compat #x0063 #xFF0F #x006F)
+    (<-denotational
+     ((name		  . "CARE OF")
+      (=ucs		  . #x2105)	; ℅
+      ))
+    (<-fullwidth
+     ((name		  . "CARE OF")
+      (=ucs		  . #x2105)	; ℅
+      ))
+    (=cns11643-1	. #x2222)	; &C1-2222; [02-02]
     (=big5		. #xA1C1)	; &I-B-A1C1;
+    (=ucs@cns		. #x2105)	; &C1-2222;
+    (=ucs@big5		. #x2105)	; &C1-2222;
     ))
 (define-char
   '((name		. "CADA UNA")
