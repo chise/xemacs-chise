@@ -14,13 +14,13 @@
     (ucs			. #x81E3)	; è‡£
     ))
 (define-char
-  '((->ucs		. #x81E3)	; è‡£
-    (ideographic-radical . 131)	; â¾‚
+  '((ideographic-radical . 131)	; â¾‚
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (chinese-cns11643-6		. #x287C)	; ø»œ€
     (japanese-jisx0213-2	. #x7556)	; ø»¦™
     (ideograph-daikanwa		. 30069)	; ø¸‡•µ
+    (ucs			. #x268DD)	; ð¦£
     ))
 (define-char
   '((->ucs		. #x81E3)	; è‡£
