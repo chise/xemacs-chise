@@ -371,15 +371,19 @@
     (=jef-china3	. #x45D2)	; øº„—’
     ))
 (define-char
-  '((script		JP-Jouyou Ideograph)
+  '((script		JP Jouyou Ideograph)
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 5)
     (total-strokes	 . 7)
-    (<-vulgar-ideograph
-     (:sources	(shinjigen-1)
-      :char	((=daikanwa	     . 02873)	; ø¸€¬¹
-		 )
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x537D)	; å½
+      (=jis-x0213-1-2000  . #x2E71)	; ø»¢§’
       ))
+    (<-vulgar-ideograph
+     ((=daikanwa	  . 02873)	; ø¸€¬¹
+      ))
+    (<-vulgar-ideograph*sources
+     shinjigen-1)
     (hanyu-dazidian	1 314 2)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
