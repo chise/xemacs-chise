@@ -490,11 +490,13 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (ideograph=
-     ((sources		  morohashi-daikanwa)
-      (char . ((=daikanwa	   . 44433)	; ø¸Š¶‘
-	       ))
+    (->same-ideograph
+     ((=daikanwa	  . 44433)	; ø¸Š¶‘
       ))
+    (->same-ideograph*sources
+     daikanwa)
+    (=gt		. 59087)	; ý¡€Ž›
+    (=gt-pj-8		. #x4646)	; ý¡€Ž›
     (mojikyo		. 050581)	; ý €Œ–•
     ))
 (define-char
@@ -7248,6 +7250,8 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 14)
     (total-strokes	 . 23)
+    (=gt		. 59896)	; ý¡€Ž§¸
+    (=gt-pj-8		. #x4A5F)	; ý¡€Ž§¸
     (mojikyo		. 050589)	; ý €Œ–
     ))
 (define-char
@@ -7255,7 +7259,6 @@
     (ideographic-radical . 184)	; â¾·
     (ideographic-strokes . 14)
     (total-strokes	 . 22)
-    (->mojikyo		. 050589)	; ý €Œ–
     (=cns11643-7	. #x5A34)	; ø»Ÿ’µ
     ))
 (define-char
