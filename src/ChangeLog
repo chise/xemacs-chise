@@ -1,3 +1,14 @@
+2003-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Qmap_jis_x0208): Renamed from `Qjis_x0208'.
+	(Qmap_jis_x0208_1990): Renamed from `Qjapanese_jisx0208_1990';
+	don't define it when UTF2000 is not defined.
+	(syms_of_mule_charset): Modify for `Qmap_jis_x0208'; rename
+	`japanese-jisx0208-1990' to `=jis-x0208-1990'; don't define it
+	when UTF2000 is not defined.
+	(complex_vars_of_mule_charset): Modify for `Qmap_jis_x0208';
+	rename `japanese-jisx0208-1990' to `=jis-x0208-1990'.
+
 2003-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (LEADING_BYTE_UCS_GB): Deleted.

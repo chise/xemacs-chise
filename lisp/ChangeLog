@@ -1,3 +1,10 @@
+2003-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-conf.el (=jis-x0213-1-2000): Rename
+	`japanese-jisx0208-1990' to `=jis-x0208-1990'.
+	(japanese-jisx0208-1990): New alias for `=jis-x0208-1990' when
+	`utf-2000' is provided.
+
 2003-03-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-conf.el (ucs-gb): New coded-charsets when `utf-2000'
