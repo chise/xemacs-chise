@@ -474,18 +474,15 @@
 	    (unless (memq char checked)
 	      (catch 'tag
 		(let ((rest
-		       (append (get-char-attribute char '<-subsumptive)
-			       (get-char-attribute char '<-denotational)))
+		       (append (get-char-attribute char '->subsumptive)
+			       (get-char-attribute char '->denotational)))
 		      (i 0)
 		      sc)
 		  (setq checked (cons char checked))
 		  (while rest
 		    (setq sc (car rest))
-		    (when (setq ret (char-daikanwa sc radical checked))
-		      (throw 'tag
-			     (if (numberp ret)
-				 (list ret 0 i)
-			       (append ret (list i)))))
+		    (if (setq ret (char-daikanwa sc radical checked))
+			(throw 'tag ret))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)
 			  i (1+ i)))
@@ -500,12 +497,15 @@
 		    (setq checked (cons sc checked)
 			  rest (cdr rest)))
 		  (setq rest
-			(append (get-char-attribute char '->subsumptive)
-				(get-char-attribute char '->denotational)))
+			(append (get-char-attribute char '<-subsumptive)
+				(get-char-attribute char '<-denotational)))
 		  (while rest
 		    (setq sc (car rest))
-		    (if (setq ret (char-daikanwa sc radical checked))
-			(throw 'tag ret))
+		    (when (setq ret (char-daikanwa sc radical checked))
+		      (throw 'tag
+			     (if (numberp ret)
+				 (list ret 0 i)
+			       (append ret (list i)))))
 		    (setq checked (cons sc checked)
 			  rest (cdr rest))))))))))
 
