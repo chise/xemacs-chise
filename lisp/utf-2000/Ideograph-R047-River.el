@@ -72,18 +72,32 @@
     (japanese-jisx0208		. #x3D23)	; ø»†¹’
     (korean-ksc5601		. #x7136)	; ø»Š
     (chinese-isoir165		. #x565D)	; ø»½†
-    (chinese-cns11643-1		. #x477C)	; ø»‘»«
     (japanese-jisx0208-1990	. #x3D23)	; ø½ŠŸ†
     (ideograph-daikanwa		. 08678)	; ø¸‚‡¦
     (ucs			. #x5DDE)	; å·ž
     ))
 (define-char
-  '((ideographic-radical . 47)	; â¼®
+  '((->ucs		. #x5DDE)	; å·ž
+    (morohashi-daikanwa	8678 0 2)
+    (ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (chinese-cns11643-2 . #x223A)	; ø»“Ž—
+    (chinese-cns11643-1 . #x477C)	; ø»‘»«
+    ))
+(define-char
+  '((->ucs		. #x5DDF)	; å·Ÿ
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
     (ideograph-daikanwa . 08679)	; ø¸‚‡§
-    (ucs		. #x5DDF)	; å·Ÿ
+    ))
+(define-char
+  '((->ucs		. #x5DDF)	; å·Ÿ
+    (morohashi-daikanwa	8679 0 1)
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (chinese-cns11643-6 . #x245B)	; ø»›º„
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
@@ -107,6 +121,17 @@
     (ucs			. #x5DE1)	; å·¡
     ))
 (define-char
+  '((->ucs		. #x5DE1)	; å·¡
+    (morohashi-daikanwa	8680 1 1)
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 4)
+    (cns-radical	 . 162)	; â¾¡
+    (cns-strokes	 . 3)
+    (total-strokes	 . 7)
+    (->mojikyo		. 050160)	; å·¡
+    (chinese-cns11643-1 . #x4B56)	; ø»’€½
+    ))
+(define-char
   '((ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
@@ -122,11 +147,19 @@
     (ucs		. #x3829)	; ã ©
     ))
 (define-char
-  '((ideographic-radical . 47)	; â¼®
+  '((->ucs		. #x5DDF)	; å·Ÿ
+    (ideographic-radical . 47)	; â¼®
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
-    (chinese-cns11643-6 . #x245B)	; ø»›º„
     (ideograph-daikanwa . 49065)	; ø¸‹¾©
+    ))
+(define-char
+  '((morohashi-daikanwa	49065 0 1)
+    (ideographic-radical . 47)	; â¼®
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (chinese-cns11643-2 . #x223A)	; ø»“Ž—
+    (ucs		. #x5DDF)	; å·Ÿ
     ))
 (define-char
   '((ideographic-radical . 47)	; â¼®
