@@ -1,5 +1,12 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/european.el (setup-latin1-environment): Just call
+	`set-language-environment'.
+	- Specify `coding-priority' and `input-method' properties of each
+	  language environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/english.el (setup-english-environment): Don't setup
 	`setup-function' property of English environment.
 
@@ -34,9 +41,10 @@
 
 1998-08-31  Paul Eggert  <eggert@twinsun.com>
 
-	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el: Add coding:
-	local variable, to avoid bootstrapping problem if you need to
-	recompile all the Lisp files using interpreted code.
+	* mule/chinese.el, mule/cyrillic.el, mule/ethiopic.el,
+	mule/european.el: Add coding: local variable, to avoid
+	bootstrapping problem if you need to recompile all the Lisp files
+	using interpreted code.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
 
@@ -248,6 +256,9 @@
 
 	* language/english.el (setup-english-environment): Just call
 	reset-language-environment.
+
+	* language/european.el (setup-8-bit-environment): Function
+	deleted.
 
 1998-08-08  Richard Stallman  <rms@psilocin.ai.mit.edu>
 
