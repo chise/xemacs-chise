@@ -1,5 +1,12 @@
 2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (Qto_ucs): New variable.
+	(Fput_char_attribute): Treat `=>ucs' as same as `->ucs'.
+	(Fdefine_char): Likewise.
+	(syms_of_mule_charset): Add new symbol `=>ucs'.
+
+2001-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (Fdecode_char): Fixed.
 
 2001-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
