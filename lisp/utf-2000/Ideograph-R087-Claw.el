@@ -356,7 +356,9 @@
     (->ancient-ideograph*sources
      daikanwa)
     (->same
-     ((=daikanwa	  . 00214)	; ø¸€ƒ–
+     ((=jis-x0208	  . #x502C)	; ø½Š»‰
+      (=ks-x1001	  . #x552F)	; ø»‰¦²
+      (=daikanwa	  . 00214)	; ø¸€ƒ–
       ))
     (->same*sources
      shuowen daikanwa)

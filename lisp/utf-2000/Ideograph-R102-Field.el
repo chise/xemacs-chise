@@ -179,7 +179,8 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (->same
-     ((=daikanwa	  . 21735)	; ø¸…“§
+     ((=ucs		  . #x753A)	; ç”º
+      (=daikanwa	  . 21735)	; ø¸…“§
       ))
     (->same*sources
      daikanwa)

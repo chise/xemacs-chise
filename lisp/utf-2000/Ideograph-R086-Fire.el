@@ -3276,7 +3276,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x70EE)	; çƒ®
     (->subsumptive
-     ((=ucs@unicode	  . #x70EE)	; ó°€™
+     ((=ucs@unicode	  . #x70EE)	; ó°€œ
       )
      ((=cns11643-3	  . #x3230)	; ø»•¯±
       ))
