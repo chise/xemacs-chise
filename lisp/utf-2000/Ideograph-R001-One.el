@@ -832,11 +832,11 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
     (ideographic-structure
-     ((ucs		. #x2FF1)	; â¿±
+     ((ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	. #x89D7)	; ý¢€ˆ§—
+     ((chinese-big5-cdp	  . #x89D7)	; ý¢€ˆ§—
       )
-     ((ucs			. #x4E00)	; ä¸€
+     ((ucs		  . #x4E00)	; ä¸€
       ))
     (chinese-cns11643-4 . #x2155)	; ø»—¡œ
     ))
