@@ -2478,22 +2478,25 @@
   '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (=daikanwa		. 02400)	; &M-02400;
+    (=ucs		. #x20880)	; 𠢀
+    (->subsumptive
+     ((=daikanwa	  . 02400)	; &M-02400;
+      )
+     ((=cns11643-6	  . #x3D51)	; &C6-3D51;
+      (=ucs@iso		  . #x20880)	; &C6-3D51;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x20884)	; 𠢄
-    (ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (=daikanwa		. 02401)	; &M-02401;
-    ))
-(define-char
-  '((morohashi-daikanwa	2401 0 0)
-    (ideographic-radical . 19)	; ⼒
+  '((ideographic-radical . 19)	; ⼒
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
     (=ucs		. #x20884)	; 𠢄
-    (=cns11643-6	. #x3D4D)	; &I-C6-3D4D;
+    (->subsumptive
+     ((=daikanwa	  . 02401)	; &M-02401;
+      )
+     ((=cns11643-6	  . #x3D4D)	; &C6-3D4D;
+      (=ucs@iso		  . #x20884)	; &C6-3D4D;
+      ))
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
@@ -2518,13 +2521,6 @@
     (=ucs		. #x52DA)	; 勚
     (=iso-ir165		. #x7A43)	; &I-EGB-7A43;
     (=hanziku-1		. #xF2E5)	; &I-HZK01-F2E5;
-    ))
-(define-char
-  '((ideographic-radical . 19)	; ⼒
-    (ideographic-strokes . 9)
-    (total-strokes	 . 11)
-    (=ucs		. #x20880)	; 𠢀
-    (=cns11643-6	. #x3D51)	; &I-C6-3D51;
     ))
 (define-char
   '((ideographic-radical . 19)	; ⼒
