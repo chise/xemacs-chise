@@ -54,6 +54,16 @@
     (ucs			. #x81E5)	; è‡¥
     ))
 (define-char
+  '((=>ucs		. #x5367)	; å§
+    (ideographic-radical . 131)	; â¾‚
+    (ideographic-strokes . 2)
+    (total-strokes	 . 9)
+    (->identical
+     ((ideograph-daikanwa . 02808)	; ø¸€«¸
+      ))
+    (chinese-cns11643-3 . #x2A5C)	; ø»•¤­
+    ))
+(define-char
   '((ideographic-radical . 131)	; â¾‚
     (ideographic-strokes . 3)
     (total-strokes	 . 9)
