@@ -1,4 +1,39 @@
+2004-08-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R163-City.el (U+90FD): Changed to an abstract
+	character.
+	(J0-4554): Use `<-denotational' for U+90FD; add S1-8455.
+	(U+FA26): Use `<-denotational' for U+90FD; add S1-8456.
+
+	* Ideograph-R122-Net.el (U-00026270): New character.
+
+	* Ideograph-R061-Heart.el (U+6167): Use `->subsumptive'.
+	(U-000227E9): Use `->subsumptive'.
+
 2004-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R151-Bean.el (U+3AB7): Add
+	`ideographic-{radical|strokes}' in derived characters.
+
+	* Ideograph-R109-Eye.el (U+770C): Use `->subsumptive'.
+
+	* Ideograph-R120-Silk.el (J0-6551): Add S1-6141.
+
+2004-08-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (<CJK RADICAL GRASS ONE>):
+	Unify BC-8957.
+
+	* Ideograph-R190-Hair.el: Add mappings between CJK Ext B and CNS
+	11643 plain 5.
+
+	* Ideograph-R154-Shell.el (C6-585E): Use `->subsumptive';
+	integrate U-00027D69.
+
+	* Ideograph-R086-Fire.el (BC-8BE3): New character.
+
+	* Ideograph-R019-Power.el (U+52B3):
+	Add `<-vulgar' for U+52DE; modify `ideographic-structure'.
 
 	* Ideograph-R068-Dipper.el (U+3AB7): Add
 	`ideographic-{radical|strokes}' in derived characters.
