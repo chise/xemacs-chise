@@ -22,6 +22,29 @@ build-time, and "documentation and data" changes.
 For more details, including developers involved and dates, see the
 ChangeLogs, or use CVS diff to view the patches.
 
+to XEmacs 21.4.5 "Civil Service"
+
+  - Now installs arch-specific files relative to $execdir, not $prefix.
+  - New configure.ac guards against autoconf 2.5x, not yet supported.
+  - (**) configure.ac added to auto-mode-alist.
+  - Synch configure.usage with configure.in.
+  - Add GTK defaults in several places.
+  - Fix Lisp syntax in several files.
+  - call-process-internal reads files as 'binary, now writes 'binary too.
+  - FAQ corrections.
+  - Many typo fixes.
+  - Correct case for XEmacs file names under msw (Cygwin is pedantic).
+  - Fix progress gauge flashing under OpenMotif.
+  - Texinfo syntax corrections in Info sources.
+  - Bug reporting now politically correct.
+  - Now detects xpm-nox on Cygwin.
+  - Conditionalize `-msw.c against Cygwin and MSVC5 deficiencies.
+  - .9 files now recognized as manpages (shadowed by ChangeLog and .scm).
+  - Fix "gc in window proc" and "setitimer" crashes on msw.
+  - Quote null arguments correctly on msw.
+  - Fix pty allocation on SCO Unix.
+  - Eliminate a few warnings.
+
 to XEmacs 21.4.4 "Artificial Intelligence"
 
   - (**) There is a bug in "window procedures" under MS Windows only.
@@ -32,7 +55,6 @@ to XEmacs 21.4.4 "Artificial Intelligence"
   - C-g now works on MS Windows
   - Kinsoku (text wrapping for Asian scripts) fixes
   - "Scrolling with no scrollbar" crash on MS Windows fixed
-    Krause).
   - Case conversion works for Cyrillic
   - Help is available with C-x s
   - M-x locate-library completes library names
