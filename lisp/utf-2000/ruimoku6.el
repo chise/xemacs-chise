@@ -1,25 +1,25 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((script		bones-carapaces Ideographs)
     (sources		bos=A016070-00002)
-    (=ruimoku-v6	. #xE000)	; øº€€
+    (=ruimoku-v6	. #xE000)	; &RUI6-E000;
     ))
 (define-char
   '((script		bones-carapaces Ideographs)
     (sources		bos=A016070-00002)
-    (=ruimoku-v6	. #xE001)	; øº€
+    (=ruimoku-v6	. #xE001)	; &RUI6-E001;
     ))
 (define-char
   '((sources		bos=A015208-00001)
-    (=ruimoku-v6	. #xE002)	; øº€‚
+    (=ruimoku-v6	. #xE002)	; &RUI6-E002;
     ))
 (define-char
   '((sources		bos=A015208-00001)
-    (=ruimoku-v6	. #xE003)	; øº€ƒ
+    (=ruimoku-v6	. #xE003)	; &RUI6-E003;
     ))
 (define-char
   '((sources		bos=A015208-00001)
-    (=ruimoku-v6	. #xE004)	; øº€„
+    (=ruimoku-v6	. #xE004)	; &RUI6-E004;
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -34,7 +34,7 @@
      ((=ucs		  . #x51AC)	; å†¬
       ))
     (sources		bos=A016481-00008)
-    (=ruimoku-v6	. #xE005)	; øº€…
+    (=ruimoku-v6	. #xE005)	; &RUI6-E005;
     ))
 (define-char
   '((ideographic-radical . 37)	; â¼¤
@@ -43,14 +43,14 @@
       ))
     (sources		bos=A016462-00003 bos=A016430-00004
 			bos=A016594-00007)
-    (=ruimoku-v6	. #xE006)	; øº€†
+    (=ruimoku-v6	. #xE006)	; &RUI6-E006;
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (<-error@abos/2001
-     ((=ruimoku-v6	  . #xE00F)	; øº€
+     ((=ruimoku-v6	  . #xE00F)	; &RUI6-E00F;
       ))
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -60,7 +60,7 @@
       )
      ((=ucs		  . #x5369)	; å©
       ))
-    (=ruimoku-v6	. #xE007)	; øº€‡
+    (=ruimoku-v6	. #xE007)	; &RUI6-E007;
     ))
 (define-char
   '((ideographic-radical . 46)	; â¼­
@@ -75,20 +75,20 @@
      ((=ucs		  . #x96A0)	; éš 
       ))
     (sources		bos=A015330-00006)
-    (=ruimoku-v6	. #xE008)	; øº€ˆ
+    (=ruimoku-v6	. #xE008)	; &RUI6-E008;
     ))
 (define-char
   '((sources		bos=A015412-00003)
-    (=ruimoku-v6	. #xE009)	; øº€‰
+    (=ruimoku-v6	. #xE009)	; &RUI6-E009;
     ))
 (define-char
   '((sources		bos=A016374-00004)
-    (=ruimoku-v6	. #xE00A)	; øº€Š
-    (=ucs@unicode	. #x29C2C)	; øº€Š
+    (=ruimoku-v6	. #xE00A)	; &RUI6-E00A;
+    (=ucs@unicode	. #x29C2C)	; &RUI6-E00A;
     ))
 (define-char
   '((sources		bos=A2001-16138-00013)
-    (=ruimoku-v6	. #xE00B)	; øº€‹
+    (=ruimoku-v6	. #xE00B)	; &RUI6-E00B;
     ))
 (define-char
   '((ideographic-radical . 75)	; â½Š
@@ -103,12 +103,12 @@
      ((=ucs		  . #x5CB8)	; å²¸
       ))
     (sources		bos=A016758-00009)
-    (=ruimoku-v6	. #xE00C)	; øº€Œ
+    (=ruimoku-v6	. #xE00C)	; &RUI6-E00C;
     ))
 (define-char
   '((->decomposition	#x0101 #x0301)
     (sources		bos=C011091-00007)
-    (=ruimoku-v6	. #xE00D)	; øº€
+    (=ruimoku-v6	. #xE00D)	; &RUI6-E00D;
     ))
 (define-char
   '((ideographic-radical . 24)	; â¼—
@@ -118,8 +118,8 @@
      ((=ucs		  . #x5C70)	; å±°
       ))
     (sources		bos=A016219-00020)
-    (=big5-cdp		. #x8B75)	; ý¢€ˆ­µ
-    (=ruimoku-v6	. #xE00E)	; øº€Ž
+    (=big5-cdp		. #x8B75)	; &RUI6-E00E;
+    (=ruimoku-v6	. #xE00E)	; &I-RUI6-E00E;
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
@@ -134,5 +134,5 @@
      ((=ucs		  . #x5369)	; å©
       ))
     (sources		bos=A016728-00002)
-    (=ruimoku-v6	. #xE00F)	; øº€
+    (=ruimoku-v6	. #xE00F)	; &RUI6-E00F;
     ))

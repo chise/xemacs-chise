@@ -161,8 +161,12 @@
 		(mapcar (lambda (c)
 			  (aref c 0))
 			(split-string tchars " ")))
-	  (unless (equal (char-feature char '<-simplified@JP/Jouyou)
-			 tchars)
+	  (unless (or (equal (char-feature char '<-simplified@JP/Jouyou)
+			     tchars)
+		      (and (equal (char-feature char '<-simplified)
+				  tchars)
+			   (memq 'JP/Jouyou
+				 (char-feature char '<-simplified*sources))))
 	    (put-char-attribute char
 				'<-simplified@JP/Jouyou
 				tchars)))
