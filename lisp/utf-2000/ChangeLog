@@ -1,3 +1,16 @@
+2004-07-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R075-Tree.el (U+6786): Use `->subsumptive'.
+	(U-000233D9): Unify CB10543 and H3-EEE9.
+	(U+6787): Use `->subsumptive'.
+
+	* Ideograph-R186-Fragrant.el: Add mappings between CJK Ext B and
+	CNS 11643 plain 5.
+	(U+99A7): Define as ab abstract character.
+	(U-0002FA05): Use `<-denotational' for U+99A7; use `=ucs@unicode'
+	instead of `=ucs@gb'.
+	(C2-677E): Use `<-denotational' for U+99A7.
+
 2004-07-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R181-Leaf.el: Add mappings between CJK Ext B and CNS
