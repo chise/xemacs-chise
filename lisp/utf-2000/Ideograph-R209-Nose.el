@@ -10,6 +10,7 @@
     (=gt-k		. 11266)	; ý¡„‚°‚
     (=gt-pj-8		. #x736C)	; ý¡€Š°
     (=daikanwa		. 48498)	; ø¸‹µ²
+    (mojikyo		. 048498)	; ý €‹µ²
     ))
 (define-char
   '((=>ucs*		. #x9F3B)	; é¼»
@@ -26,6 +27,7 @@
     (=gt-pj-1		. #x4921)	; ý¡€Š±
     (=ucs@jis		. #x9F3B)	; ð¯¨œ
     (=ucs@ks		. #x9F3B)	; ð¯¨œ
+    (mojikyo		. 050611)	; ý €Œ–³
     ))
 (define-char
   '((ideographic-radical . 209)	; â¿

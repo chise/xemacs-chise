@@ -33,6 +33,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (=big5-cdp		. #x8A60)	; ý¢€ˆ© 
+    (mojikyo		. 070838)	; ý €‘’¶
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
@@ -227,21 +228,6 @@
     (=daikanwa		. 02847)	; ø¸€¬Ÿ
     ))
 (define-char
-  '((ideographic-radical . 26)	; â¼™
-    (ideographic-strokes . 3)
-    (total-strokes	 . 5)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x5F0B)	; å¼‹
-      )
-     ((=ucs		  . #x5369)	; å©
-      ))
-    (sources		bos=A016728-00002)
-    (=ruimoku-v6	. #xE00F)	; øº€
-    ))
-(define-char
   '((=>ucs		. #x5370)	; å°
     (ideographic-radical . 26)	; â¼™
     (ideographic-strokes . 4)
@@ -364,23 +350,6 @@
     (=ucs		. #x20A16)	; ð ¨–
     (=cns11643-6	. #x2379)	; ø»›¹„
     (=daikanwa		. 02853)	; ø¸€¬¥
-    ))
-(define-char
-  '((ideographic-radical . 26)	; â¼™
-    (ideographic-strokes . 4)
-    (total-strokes	 . 6)
-    (<-error@abos/2001
-     ((=ruimoku-v6	  . #xE00F)	; øº€
-      ))
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; â¿°
-      )
-     ((=ucs		  . #x6208)	; æˆˆ
-      )
-     ((=ucs		  . #x5369)	; å©
-      ))
-    (=ruimoku-v6	. #xE007)	; øº€‡
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™
@@ -920,6 +889,7 @@
     (=gt		. 03656)	; ý¡€€¹ˆ
     (=gt-pj-1		. #x362A)	; ý¡€€¹ˆ
     (=jef-china3	. #x45D5)	; øº„—•
+    (mojikyo		. 054486)	; ý €“–
     ))
 (define-char
   '((ideographic-radical . 26)	; â¼™

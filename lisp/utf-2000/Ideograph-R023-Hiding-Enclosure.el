@@ -60,6 +60,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=cns11643-1	. #x4528)	; ø»‘·›
+    (mojikyo		. 002673)	; ý €€©±
     ))
 (define-char
   '((morohashi-daikanwa	2673 0 1)
@@ -90,8 +91,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (<-simplified
-     ((=cns11643-1	  . #x5934)	; ø»’”¿
-      (=daikanwa	  . 02691)	; ø¸€ªƒ
+     ((=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
     (<-simplified*sources
      daikanwa)
@@ -114,7 +114,6 @@
     (total-strokes	 . 4)
     (<-simplified
      ((shinjigen-1	  . 802)
-      (=cns11643-1	  . #x5934)	; ø»’”¿
       (=daikanwa	  . 02691)	; ø¸€ªƒ
       ))
     (<-simplified*sources
@@ -518,6 +517,7 @@
     (shinjigen-2	. 807)
     (=cns11643-1	. #x5933)	; ø»’”¾
     (=daikanwa		. 02690)	; ø¸€ª‚
+    (mojikyo		. 002690)	; ý €€ª‚
     ))
 (define-char
   '((=>ucs		. #x533F)	; åŒ¿

@@ -199,6 +199,7 @@
     (=gt-k		. 01650)	; ý¡„€™²
     (=gt-pj-1		. #x402E)	; ý¡€ƒ£
     (=jef-china3	. #x4EEF)	; øº„»¯
+    (mojikyo		. 050187)	; ý €Œ‹
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -221,6 +222,7 @@
     (=ucs		. #x2F8B2)	; ð¯¢²
     (=cns11643-3	. #x2627)	; ø»•ž€
     (=daikanwa		. 11544)	; ø¸‚´˜
+    (mojikyo		. 011544)	; ý €‚´˜
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -579,31 +581,11 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; â¿¹
-      )
-     ((=ucs		  . #x6208)	; æˆˆ
-      )
-     ((=ucs		  . #x51AC)	; å†¬
-      ))
-    (sources		bos=A016481-00008)
-    (=ruimoku-v6	. #xE005)	; øº€…
-    ))
-(define-char
-  '((=>daikanwa		. 11583)	; ø»—²ž
-    (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (->subsumptive
-     ((=cns11643-4	  . #x2D2F)	; ø»—²ž
-      (=daikanwa	  . 11583)	; ø¸‚´¿
-      )
-     ((=ucs@unicode	  . #x39B4)	; ó°€–
-      ))
     (=ucs		. #x39B4)	; ã¦´
+    (=cns11643-4	. #x2D2F)	; ø»—²ž
+    (=daikanwa		. 11583)	; ø¸‚´¿
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -971,6 +953,7 @@
     (=ucs		. #x39B8)	; ã¦¸
     (=cns11643-3	. #x3B65)	; ø»•½´
     (=cbeta		. 02455)	; ø¸ ¦—
+    (mojikyo		. 050188)	; ý €ŒŒ
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
@@ -1214,6 +1197,7 @@
     (=gt		. 14653)	; ý¡€ƒ¤½
     (=gt-k		. 10232)	; ý¡„‚Ÿ¸
     (=gt-pj-1		. #x406F)	; ý¡€ƒ¤½
+    (mojikyo		. 050189)	; ý €Œ
     ))
 (define-char
   '((=>ucs		. #x229DC)	; ð¢§œ

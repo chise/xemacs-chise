@@ -34,6 +34,7 @@
     (=cns11643-4	. #x214D)	; ø»—¡”
     (=jis-x0213-1-2000	. #x7431)	; ø»¤†
     (=big5-cdp		. #x8B6F)	; ý¢€ˆ­¯
+    (mojikyo		. 051106)	; ý €Œž¢
     ))
 (define-char
   '((=>ucs		. #x5E73)	; å¹³

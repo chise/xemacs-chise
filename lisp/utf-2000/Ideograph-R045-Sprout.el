@@ -91,6 +91,7 @@
     (=cns11643-3	. #x2162)	; ø»•—¥
     (=daikanwa		. 07829)	; ø¸º•
     (=jef-china3	. #x97EC)	; øº‰Ÿ¬
+    (mojikyo		. 007829)	; ý €º•
     ))
 (define-char
   '((ideographic-radical . 45)	; â¼¬
@@ -116,7 +117,6 @@
     (=jis-x0212		. #x3B22)	; ø»‹Š
     (=cns11643-4	. #x225F)	; ø»—£„
     (=jis-x0213-2-2000	. #x2836)	; ø»¤§§
-    (=big5-cdp		. #x8DBD)	; ý¢€ˆ¶½
     (=daikanwa		. 07833)	; ø¸º™
     (=jef-china3	. #x99E5)	; øº‰§¥
     ))

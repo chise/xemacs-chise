@@ -221,6 +221,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=daikanwa		. 13552)	; ø¸ƒ“°
+    (mojikyo		. 013552)	; ý €ƒ“°
     ))
 (define-char
   '((morohashi-daikanwa	13552 0 9)
@@ -913,6 +914,7 @@
     (=jis-x0213-2-2000	. #x2D6B)	; ø»¤¯²
     (=daikanwa		. 13604)	; ø¸ƒ”¤
     (=cbeta		. 00010)	; ø¸ €Š
+    (mojikyo		. 013604)	; ý €ƒ”¤
     ))
 (define-char
   '((ideographic-radical . 69)	; â½„

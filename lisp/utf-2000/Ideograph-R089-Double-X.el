@@ -48,6 +48,7 @@
     (=cns11643-3	. #x297B)	; ø»•£®
     (=hanziku-1		. #xABFA)	; ý¢€š¯º
     (=jef-china3	. #x92AB)	; øº‰Š«
+    (mojikyo		. 019738)	; ý €„´š
     ))
 (define-char
   '((=>ucs		. #x2455E)	; ð¤•ž
@@ -268,6 +269,7 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((name		      . "CJK RADICAL SMALL ONE")
 	  (=ucs		      . #x2E8C)	; âºŒ
@@ -358,6 +360,7 @@
 	  )
 	 ((name*	      . "ideographic component person as roof")
 	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
 	  )
 	 ((=ucs		      . #x6B62)	; æ­¢
 	  )

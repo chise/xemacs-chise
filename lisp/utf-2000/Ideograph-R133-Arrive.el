@@ -273,6 +273,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (=daikanwa		. 30164)	; ø¸‡—”
+    (mojikyo		. 030164)	; ý €‡—”
     ))
 (define-char
   '((morohashi-daikanwa	30164 0 0)
@@ -384,6 +385,7 @@
     (=ucs		. #x2694F)	; ð¦¥
     (=cns11643-5	. #x6370)	; ø»›Œ·
     (=daikanwa		. 30171)	; ø¸‡—›
+    (mojikyo		. 030171)	; ý €‡—›
     ))
 (define-char
   '((ideographic-radical . 133)	; â¾„

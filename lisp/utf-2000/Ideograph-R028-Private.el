@@ -805,6 +805,7 @@
     (total-strokes	 . 11)
     (=ucs		. #x3558)	; ã•˜
     (=cns11643-3	. #x3456)	; ø»•³“
+    (mojikyo		. 070966)	; ý €‘”¶
     ))
 (define-char
   '((ideographic-radical . 28)	; â¼›

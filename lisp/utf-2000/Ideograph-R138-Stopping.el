@@ -45,11 +45,10 @@
      ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))
     (<-simplified
-     ((=jis-x0208	  . #x4E49)	; ø½Š¸ª
-      (=ks-x1001	  . #x555E)	; ø»‰§¡
-      (=daikanwa	  . 30597)	; ø¸‡ž…
+     ((=daikanwa	  . 30597)	; ø¸‡ž…
       ))
     (=big5-cdp		. #x8C42)	; ý¢€ˆ±‚
+    (mojikyo		. 075143)	; ý €’–‡
     ))
 (define-char
   '((ideographic-radical . 138)	; â¾‰

@@ -552,6 +552,7 @@
     (=gt		. 12687)	; ý¡€ƒ†
     (=gt-pj-1		. #x3742)	; ý¡€ƒ†
     (=ucs@jis		. #x5F84)	; ø½Š–±
+    (mojikyo		. 050169)	; ý €Œ¹
     ))
 (define-char
   '((script		CN Simplified Ideograph)
@@ -623,6 +624,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (=cns11643-1	. #x5121)	; ø»’ˆ¼
+    (mojikyo		. 072385)	; ý €‘«
     ))
 (define-char
   '((ideographic-radical . 60)	; â¼»
@@ -1224,6 +1226,13 @@
     (=daikanwa		. 10133)	; ø¸‚ž•
     ))
 (define-char
+  '((=>ucs		. #x5F94)	; å¾”
+    (ideographic-radical . 60)	; â¼»
+    (ideographic-strokes . 7)
+    (total-strokes	 . 10)
+    (mojikyo		. 059591)	; ý €Ž£‡
+    ))
+(define-char
   '((ideographic-radical . 60)	; â¼»
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -1717,6 +1726,7 @@
     (=daikanwa		. 10168)	; ø¸‚ž¸
     (=cbeta		. 05518)	; ø¸¡–Ž
     (=jef-china3	. #x99F0)	; øº‰§°
+    (mojikyo		. 010168)	; ý €‚ž¸
     ))
 (define-char
   '((=>ucs		. #x2251A)	; ð¢”š
@@ -2125,6 +2135,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
     (=ucs		. #x5F9A)	; å¾š
+    (mojikyo		. 059592)	; ý €Ž£ˆ
     ))
 (define-char
   '((ideographic-radical . 60)	; â¼»
@@ -2141,6 +2152,7 @@
     (=ucs		. #x5FA4)	; å¾¤
     (=cns11643-4	. #x374A)	; ø»˜¥
     (=cbeta		. 00735)	; ø¸ ‹Ÿ
+    (mojikyo		. 050013)	; ý €Œ
     ))
 (define-char
   '((=>ucs		. #x5FA4)	; å¾¤
@@ -2695,6 +2707,7 @@
     (=gt-k		. 11158)	; ý¡„‚®–
     (=gt-pj-1		. #x4641)	; ý¡€ƒ‰ 
     (=ucs@jis		. #x5FB3)	; ø½Š¬²
+    (mojikyo		. 050170)	; ý €Œº
     ))
 (define-char
   '((morohashi-daikanwa	10237 1 0)
@@ -2726,6 +2739,14 @@
     (=gt-k		. 11152)	; ý¡„‚®
     (=gt-pj-1		. #x4427)	; ý¡€ƒ‰
     (=ucs@jis		. #x5FB4)	; ø½Š©œ
+    ))
+(define-char
+  '((=>ucs		. #x5FB4)	; å¾´
+    (morohashi-daikanwa	10238 1 0)
+    (ideographic-radical . 60)	; â¼»
+    (ideographic-strokes . 11)
+    (total-strokes	 . 14)
+    (mojikyo		. 050171)	; ý €Œ»
     ))
 (define-char
   '((morohashi-daikanwa	10238 1 1)
@@ -2957,6 +2978,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
     (=ucs		. #x5FBA)	; å¾º
+    (mojikyo		. 059595)	; ý €Ž£‹
     ))
 (define-char
   '((ideographic-radical . 60)	; â¼»

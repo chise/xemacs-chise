@@ -277,6 +277,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 16)
     (=daikanwa		. 48063)	; ø¸‹®¿
+    (mojikyo		. 048063)	; ý €‹®¿
     ))
 (define-char
   '((morohashi-daikanwa	48063 0 0)
@@ -305,6 +306,7 @@
     (=gt		. 65566)	; ý¡€€ž
     (=gt-k		. 11953)	; ý¡„‚º±
     (=gt-pj-1		. #x4C5B)	; ý¡€€ž
+    (mojikyo		. 050609)	; ý €Œ–±
     ))
 (define-char
   '((=>ucs		. #x9ED9)	; é»™

@@ -38,6 +38,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
     (=daikanwa		. 36185)	; ø¸ˆµ™
+    (mojikyo		. 036185)	; ý €ˆµ™
     ))
 (define-char
   '((morohashi-daikanwa	36185 0 1)

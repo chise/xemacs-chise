@@ -402,6 +402,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
     (=ucs		. #x23B14)	; ð£¬”
+    (mojikyo		. 049202)	; ý €Œ€²
     ))
 (define-char
   '((=>ucs		. #x23B14)	; ð£¬”

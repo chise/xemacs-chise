@@ -277,6 +277,7 @@
     (=ucs		. #x20931)	; ð ¤±
     (=cns11643-6	. #x236D)	; ø»›¸¸
     (=daikanwa		. 02607)	; ø¸€¨¯
+    (mojikyo		. 002607)	; ý €€¨¯
     ))
 (define-char
   '((=>ucs		. #x20931)	; ð ¤±
@@ -315,6 +316,7 @@
     (=daikanwa		. 02609)	; ø¸€¨±
     (=hanziku-1		. #xB55A)	; ý¢€›•š
     (=jef-china3	. #x8FB6)	; øºˆ¾¶
+    (mojikyo		. 002609)	; ý €€¨±
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
@@ -626,6 +628,7 @@
     (=cns11643-4	. #x2850)	; ø»—«©
     (=daikanwa		. 02626)	; ø¸€©‚
     (=jef-china3	. #x45B9)	; øº„–¹
+    (mojikyo		. 002626)	; ý €€©‚
     ))
 (define-char
   '((morohashi-daikanwa	2626 0 2)
@@ -668,6 +671,7 @@
     (total-strokes	 . 9)
     (=cns11643-6	. #x2F32)	; ø»œ‰¥
     (=daikanwa		. 02628)	; ø¸€©„
+    (mojikyo		. 002628)	; ý €€©„
     ))
 (define-char
   '((morohashi-daikanwa	2628 0 0)
@@ -927,6 +931,7 @@
     (=big5		. #xD46F)	; ý¢€‘¯
     (=daikanwa		. 02639)	; ø¸€©
     (=jef-china3	. #x97D2)	; øº‰Ÿ’
+    (mojikyo		. 002639)	; ý €€©
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
@@ -951,6 +956,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
     (=daikanwa		. 02641)	; ø¸€©‘
+    (mojikyo		. 002641)	; ý €€©‘
     ))
 (define-char
   '((=>ucs		. #x20951)	; ð ¥‘
@@ -1094,6 +1100,13 @@
     (=daikanwa		. 02646)	; ø¸€©–
     ))
 (define-char
+  '((=>ucs		. #x3532)	; ã”²
+    (ideographic-radical . 22)	; â¼•
+    (ideographic-strokes . 11)
+    (total-strokes	 . 13)
+    (mojikyo		. 083453)	; ý €”—½
+    ))
+(define-char
   '((=>ucs		. #x3534)	; ã”´
     (ideographic-radical . 22)	; â¼•
     (ideographic-strokes . 12)
@@ -1123,6 +1136,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 90 2)
     (=hanziku-1		. #xB677)	; ý¢€›™·
+    (mojikyo		. 002648)	; ý €€©˜
     ))
 (define-char
   '((morohashi-daikanwa	2648 0 2)
@@ -1189,11 +1203,11 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (<-vulgar-ideograph
-     ((shinjigen-1	  . 796)
-      (=daikanwa	  . 02655)	; ø¸€©Ÿ
+     (:sources	(shinjigen-1)
+      :char	((shinjigen-1	     . 796)
+		 (=daikanwa	     . 02655)	; ø¸€©Ÿ
+		 )
       ))
-    (<-vulgar-ideograph*sources
-     shinjigen-1)
     (hanyu-dazidian	1 89 13)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM LEFT")
@@ -1235,6 +1249,7 @@
     (total-strokes	 . 14)
     (hanyu-dazidian	1 89 12)
     (=hanziku-1		. #xB661)	; ý¢€›™¡
+    (mojikyo		. 002653)	; ý €€©
     ))
 (define-char
   '((=>ucs		. #x2095B)	; ð ¥›
@@ -1242,6 +1257,7 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (=daikanwa		. 02654)	; ø¸€©ž
+    (mojikyo		. 002654)	; ý €€©ž
     ))
 (define-char
   '((morohashi-daikanwa	2654 0 0)
@@ -1311,6 +1327,14 @@
     (=ucs		. #x2095D)	; ð ¥
     (=cns11643-5	. #x4C2D)	; ø»šª‚
     (=hanziku-1		. #xB67C)	; ý¢€›™¼
+    ))
+(define-char
+  '((=>ucs		. #x2095D)	; ð ¥
+    (morohashi-daikanwa	2657 0 1)
+    (ideographic-radical . 22)	; â¼•
+    (ideographic-strokes . 13)
+    (total-strokes	 . 15)
+    (mojikyo		. 002657)	; ý €€©¡
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
@@ -1393,6 +1417,7 @@
     (=hanziku-1		. #xB6A4)	; ý¢€›š¤
     (=cbeta		. 05235)	; ø¸¡‘³
     (=ucs@jis		. #x5335)	; ø»‹€›
+    (mojikyo		. 002662)	; ý €€©¦
     ))
 (define-char
   '((morohashi-daikanwa	2662 0 0)
@@ -1419,6 +1444,7 @@
     (hanyu-dazidian	1 90 12)
     (=ucs		. #x20967)	; ð ¥§
     (=hanziku-1		. #xB6A3)	; ý¢€›š£
+    (mojikyo		. 085531)	; ý €”¸›
     ))
 (define-char
   '((ideographic-radical . 22)	; â¼•
@@ -1567,6 +1593,7 @@
     (ideographic-strokes . 23)
     (total-strokes	 . 25)
     (=daikanwa		. 02669)	; ø¸€©­
+    (mojikyo		. 002669)	; ý €€©­
     ))
 (define-char
   '((morohashi-daikanwa	2669 0 0)
@@ -1602,6 +1629,14 @@
     (hanyu-dazidian	1 91 10)
     (=cns11643-7	. #x6443)	; ø»Ÿ¡°
     (=hanziku-1		. #xB6C1)	; ý¢€››
+    ))
+(define-char
+  '((=>ucs		. #x2096C)	; ð ¥¬
+    (morohashi-daikanwa	2671 0 2)
+    (ideographic-radical . 22)	; â¼•
+    (ideographic-strokes . 26)
+    (total-strokes	 . 28)
+    (mojikyo		. 002671)	; ý €€©¯
     ))
 (define-char
   '((morohashi-daikanwa	2671 0 3)

@@ -84,6 +84,7 @@
     (=gt		. 53949)	; ý¡€Š½
     (=gt-pj-7		. #x6356)	; ý¡€Š½
     (=daikanwa		. 40120)	; ø¸‰²¸
+    (mojikyo		. 040120)	; ý €‰²¸
     ))
 (define-char
   '((morohashi-daikanwa	40120 1)
@@ -99,6 +100,7 @@
     (=jis-x0208		. #x3C61)	; ø½Šž¦
     (=gt		. 53950)	; ý¡€Š¾
     (=gt-pj-1		. #x3C61)	; ý¡€Š¾
+    (mojikyo		. 050545)	; ý €Œ•±
     ))
 (define-char
   '((ideographic-radical . 165)	; â¾¤

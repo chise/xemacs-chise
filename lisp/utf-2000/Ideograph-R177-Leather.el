@@ -2529,6 +2529,7 @@
     (total-strokes	 . 19)
     (=ucs		. #x2930F)	; ð©Œ
     (=cns11643-4	. #x6176)	; ø»˜¿½
+    (mojikyo		. 042976)	; ý €ŠŸ 
     ))
 (define-char
   '((ideographic-radical . 177)	; â¾°

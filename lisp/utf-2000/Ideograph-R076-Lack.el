@@ -36,6 +36,7 @@
     (=ks-x1001		. #x732D)	; ø»Š’´
     (=big5		. #xA6B8)	; ý¢€Šš¸
     (=daikanwa		. 15992)	; ø¸ƒ¹¸
+    (mojikyo		. 015992)	; ý €ƒ¹¸
     ))
 (define-char
   '((=>ucs		. #x6B21)	; æ¬¡
@@ -44,6 +45,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (=cns11643-1	. #x4839)	; ø»‘¼†
+    (mojikyo		. 077592)	; ý €’¼˜
     ))
 (define-char
   '((morohashi-daikanwa	15992 1)
@@ -57,6 +59,7 @@
     (=gt		. 20574)	; ý¡€…ž
     (=gt-k		. 01626)	; ý¡„€™š
     (=gt-pj-1		. #x3C21)	; ý¡€…ž
+    (mojikyo		. 050236)	; ý €Œ¼
     ))
 (define-char
   '((ideographic-radical . 76)	; â½‹
@@ -379,6 +382,7 @@
     (=gt		. 20586)	; ý¡€…ª
     (=gt-k		. 03644)	; ý¡„€¸¼
     (=gt-pj-1		. #x3224)	; ý¡€…ª
+    (mojikyo		. 050237)	; ý €Œ½
     ))
 (define-char
   '((=>ucs		. #x6B27)	; æ¬§
@@ -835,6 +839,7 @@
      ((=ucs		  . #x6B20)	; æ¬ 
       ))
     (=cbeta		. 03389)	; ø¸ ´½
+    (mojikyo		. 077593)	; ý €’¼™
     ))
 (define-char
   '((ideographic-radical . 76)	; â½‹
@@ -1168,6 +1173,7 @@
     (=big5		. #xD9DC)	; ý¢€§œ
     (=daikanwa		. 16111)	; ø¸ƒ»¯
     (=ucs@jis		. #x6B3F)	; ø»‹š—
+    (mojikyo		. 016111)	; ý €ƒ»¯
     ))
 (define-char
   '((morohashi-daikanwa	16111 0 0)
@@ -1350,6 +1356,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=cns11643-2	. #x4422)	; ø»“¿»
+    (mojikyo		. 016126)	; ý €ƒ»¾
     ))
 (define-char
   '((ideographic-radical . 76)	; â½‹
@@ -1435,6 +1442,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
     (=cns11643-1	. #x6458)	; ø»’¥­
+    (mojikyo		. 016141)	; ý €ƒ¼
     ))
 (define-char
   '((=>ucs		. #x238E5)	; ð££¥
@@ -1708,6 +1716,7 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (=cns11643-2	. #x4B2D)	; ø»”Š˜
+    (mojikyo		. 016166)	; ý €ƒ¼¦
     ))
 (define-char
   '((morohashi-daikanwa	16166 0 3)
@@ -2357,6 +2366,14 @@
     (=jis-x0212		. #x4577)	; ø»‹šž
     (=jef-china3	. #x54D8)	; øº…“˜
     (=ucs@jis		. #x6B5D)	; ø»‹šž
+    ))
+(define-char
+  '((=>ucs		. #x6B5D)	; æ­
+    (morohashi-daikanwa	16220 0 2)
+    (ideographic-radical . 76)	; â½‹
+    (ideographic-strokes . 13)
+    (total-strokes	 . 17)
+    (mojikyo		. 016220)	; ý €ƒ½œ
     ))
 (define-char
   '((ideographic-radical . 76)	; â½‹

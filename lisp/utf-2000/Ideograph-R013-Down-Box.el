@@ -73,6 +73,7 @@
     (total-strokes	 . 4)
     (ideograph-cdp	. -412)
     (=big5-cdp		. #x8A78)	; ý¢€ˆ©¸
+    (mojikyo		. 070546)	; ý €‘Ž’
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
@@ -85,6 +86,7 @@
     (=big5-cdp		. #x8A79)	; ý¢€ˆ©¹
     (=daikanwa		. 01509)	; ø¸€—¥
     (=jef-china3	. #x9DE6)	; øº‰·¦
+    (mojikyo		. 001509)	; ý €€—¥
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
@@ -216,6 +218,7 @@
       ))
     (=cns11643-2	. #x212E)	; ø»“Œ­
     (=ucs@cns		. #x5187)	; ø»“Œ­
+    (mojikyo		. 053001)	; ý €Œ¼‰
     ))
 (define-char
   '((=>ucs		. #x5189)	; å†‰
@@ -406,6 +409,7 @@
     (=gt		. 01993)	; ý¡€€Ÿ‰
     (=gt-k		. 01031)	; ý¡„€‡
     (=gt-pj-1		. #x5147)	; ý¡€€Ÿ‰
+    (mojikyo		. 054507)	; ý €“«
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
@@ -426,6 +430,7 @@
     (=big5-cdp		. #x8AF1)	; ý¢€ˆ«±
     (=daikanwa		. 01523)	; ø¸€—³
     (=cbeta		. 04693)	; ø¸¡‰•
+    (mojikyo		. 001523)	; ý €€—³
     ))
 (define-char
   '((=>ucs*		. #x518D)	; å†
@@ -520,6 +525,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (=cns11643-6	. #x2359)	; ø»›¸¤
+    (mojikyo		. 070571)	; ý €‘Ž«
     ))
 (define-char
   '((=>ucs		. #x518F)	; å†
@@ -651,6 +657,7 @@
     (=gt-pj-1		. #x666E)	; ý¡€€Ÿž
     (=daikanwa		. 01534)	; ø¸€—¾
     (=hanziku-4		. #xDCEE)	; ý¢³®
+    (mojikyo		. 001534)	; ý €€—¾
     ))
 (define-char
   '((=>ucs		. #x5190)	; å†
@@ -736,6 +743,7 @@
     (hanyu-dazidian	1 332 8)
     (=ucs		. #x20557)	; ð •—
     (=hanziku-1		. #xEA71)	; ý¢€ž©±
+    (mojikyo		. 085221)	; ý €”³¥
     ))
 (define-char
   '((morohashi-daikanwa	ho 39)
@@ -745,6 +753,7 @@
     (hanyu-dazidian	8 8 9)
     (=ucs		. #x20559)	; ð •™
     (=hanziku-12	. #xEB60)	; ý¢ƒŽ­ 
+    (mojikyo		. 085222)	; ý €”³¦
     ))
 (define-char
   '((ideographic-radical . 13)	; â¼Œ
@@ -842,6 +851,7 @@
     (=gt-pj-9		. #x3372)	; ý¡€€Ÿ©
     (=jef-china3	. #x43ED)	; øº„­
     (=ucs@big5		. #x5193)	; ý¢€ƒ 
+    (mojikyo		. 070584)	; ý €‘Ž¸
     ))
 (define-char
   '((morohashi-daikanwa	1540 0 3)
@@ -938,6 +948,7 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	1 101 1)
     (=hanziku-1		. #xB8BE)	; ý¢€›¢¾
+    (mojikyo		. 085254)	; ý €”´†
     ))
 (define-char
   '((morohashi-daikanwa	ho 40 0)
@@ -965,6 +976,7 @@
     (=cns11643-4	. #x304C)	; ø»—·•
     (=daikanwa		. 01544)	; ø¸€˜ˆ
     (=hanziku-4		. #xE1A3)	; ý¢Ž†£
+    (mojikyo		. 001544)	; ý €€˜ˆ
     ))
 (define-char
   '((=>ucs		. #x34BB)	; ã’»

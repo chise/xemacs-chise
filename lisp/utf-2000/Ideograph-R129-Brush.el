@@ -114,6 +114,7 @@
     (=gt		. 37838)	; ý¡€‰Ž
     (=gt-k		. 07787)	; ý¡„¹«
     (=gt-pj-1		. #x3D4D)	; ý¡€‰Ž
+    (mojikyo		. 050367)	; ý €Œ’¿
     ))
 (define-char
   '((=>ucs		. #x7C9B)	; ç²›

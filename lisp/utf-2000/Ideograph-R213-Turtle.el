@@ -120,6 +120,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 20)
     (=daikanwa		. 48854)	; ø¸‹»–
+    (mojikyo		. 048854)	; ý €‹»–
     ))
 (define-char
   '((morohashi-daikanwa	48854 0 5)

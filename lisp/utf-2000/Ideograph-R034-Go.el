@@ -118,6 +118,7 @@
      ((=ucs		  . #x4EBA)	; äºº
       ))
     (=cns11643-3	. #x2235)	; ø»•˜–
+    (mojikyo		. 075966)	; ý €’¢¾
     ))
 (define-char
   '((ideographic-radical . 34)	; â¼¡

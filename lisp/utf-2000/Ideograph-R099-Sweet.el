@@ -24,6 +24,14 @@
     (=daikanwa		. 21644)	; ø¸…’Œ
     ))
 (define-char
+  '((=>ucs		. #x24BBA)	; ð¤®º
+    (morohashi-daikanwa	21644 0 0)
+    (ideographic-radical . 99)	; â½¢
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (mojikyo		. 021644)	; ý €…’Œ
+    ))
+(define-char
   '((morohashi-daikanwa	21644 0 1)
     (ideographic-radical . 99)	; â½¢
     (ideographic-strokes . 0)
@@ -390,6 +398,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
     (=daikanwa		. 21668)	; ø¸…’¤
+    (mojikyo		. 021668)	; ý €…’¤
     ))
 (define-char
   '((morohashi-daikanwa	21668 0 0)

@@ -282,6 +282,7 @@
     (=cns11643-3	. #x594A)	; ø»–©
     (=gt		. 61399)	; ý¡€Ž¿—
     (=gt-pj-1		. #x462E)	; ý¡€Ž¿—
+    (mojikyo		. 050601)	; ý €Œ–©
     ))
 (define-char
   '((ideographic-radical . 191)	; â¾¾

@@ -33,6 +33,7 @@
     (=gt		. 12984)	; ý¡€ƒŠ¸
     (=gt-k		. 03927)	; ý¡„€½—
     (=gt-pj-1		. #x736B)	; ý¡€ƒŠ¸
+    (mojikyo		. 054751)	; ý €—Ÿ
     ))
 (define-char
   '((ideographic-radical . 208)	; â¿

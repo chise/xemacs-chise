@@ -623,6 +623,7 @@
     (=gt-k		. 06729)	; ý¡„©‰
     (=gt-pj-1		. #x4070)	; ý¡€ƒ§·
     (=ucs@jis		. #x6247)	; ø½Š¤­
+    (mojikyo		. 050190)	; ý €ŒŽ
     ))
 (define-char
   '((morohashi-daikanwa	11743 1 3)
@@ -631,6 +632,7 @@
     (total-strokes	 . 10)
     (=ucs		. #x6247)	; æ‰‡
     (=gb2312		. #x4948)	; ø»…›
+    (mojikyo		. 057162)	; ý €½Š
     ))
 (define-char
   '((ideographic-radical . 63)	; â¼¾

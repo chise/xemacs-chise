@@ -193,6 +193,7 @@
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x21BCB)	; ð¡¯‹
+    (mojikyo		. 085205)	; ý €”³•
     ))
 (define-char
   '((ideographic-radical . 43)	; â¼ª
@@ -629,6 +630,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
     (=ucs		. #x21BF1)	; ð¡¯±
+    (mojikyo		. 085287)	; ý €”´§
     ))
 (define-char
   '((ideographic-radical . 43)	; â¼ª

@@ -1017,6 +1017,7 @@
     (=gt-pj-1		. #x5A5A)	; ý¡€„Ž–
     (=cbeta		. 02839)	; ø¸ ¬—
     (=ucs@jis		. #x65D9)	; ø½‹Š£
+    (mojikyo		. 054571)	; ý €”«
     ))
 (define-char
   '((ideographic-radical . 70)	; â½…

@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(eval-when-compile (require 'cl))
+
 (defun delete-file-with-children (filename)
   (if (file-directory-p filename)
       (let ((files

@@ -122,6 +122,7 @@
     (=ucs		. #x26ADD)	; ð¦«
     (=cns11643-6	. #x5731)	; ø»„”
     (=daikanwa		. 30614)	; ø¸‡ž–
+    (mojikyo		. 030614)	; ý €‡ž–
     ))
 (define-char
   '((=>ucs		. #x8275)	; è‰µ
@@ -367,6 +368,7 @@
     (=ucs		. #x26AF0)	; ð¦«°
     (=cns11643-5	. #x6D38)	; ø»›š«
     (=daikanwa		. 30634)	; ø¸‡žª
+    (mojikyo		. 030634)	; ý €‡žª
     ))
 (define-char
   '((ideographic-radical . 139)	; â¾Š

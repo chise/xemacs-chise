@@ -388,6 +388,7 @@
     (=gt-k		. 01001)	; ý¡„€©
     (=gt-pj-1		. #x4A71)	; ý¡€€²—
     (=ucs@jis		. #x5305)	; ø½Š³š
+    (mojikyo		. 050113)	; ý €Œ
     ))
 (define-char
   '((ideographic-radical . 20)	; â¼“
@@ -429,6 +430,13 @@
     (=daikanwa		. 02510)	; ø¸€§Ž
     ))
 (define-char
+  '((morohashi-daikanwa	2510 0 0)
+    (ideographic-radical . 20)	; â¼“
+    (ideographic-strokes . 3)
+    (total-strokes	 . 5)
+    (mojikyo		. 002510)	; ý €€§Ž
+    ))
+(define-char
   '((morohashi-daikanwa	2510 0 9)
     (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 2)
@@ -460,6 +468,7 @@
     (=ucs		. #x2F82A)	; ð¯ ª
     (=cns11643-3	. #x2225)	; ø»•˜†
     (=daikanwa		. 02511)	; ø¸€§
+    (mojikyo		. 002511)	; ý €€§
     ))
 (define-char
   '((morohashi-daikanwa	2511 0 2)
@@ -485,6 +494,7 @@
     (=gt		. 03219)	; ý¡€€²“
     (=gt-k		. 01034)	; ý¡„€Š
     (=gt-pj-1		. #x5232)	; ý¡€€²“
+    (mojikyo		. 072447)	; ý €‘«¿
     ))
 (define-char
   '((=>ucs		. #x5307)	; åŒ‡
@@ -492,6 +502,7 @@
     (ideographic-radical . 20)	; â¼“
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
+    (->mojikyo		. 054897)	; åŒ‡
     (->ideographic-variants
      ((=daikanwa	  . 02511)	; ø¸€§
       ))
@@ -518,6 +529,7 @@
     (=ucs		. #x5307)	; åŒ‡
     (=cns11643-3	. #x2224)	; ø»•˜…
     (=jef-china3	. #x45A8)	; øº„–¨
+    (mojikyo		. 054897)	; ý €™±
     ))
 (define-char
   '((ideographic-radical . 20)	; â¼“
@@ -759,6 +771,7 @@
     (=ucs		. #x208DE)	; ð £ž
     (=cns11643-6	. #x2F2A)	; ø»œ‰
     (=daikanwa		. 02526)	; ø¸€§ž
+    (mojikyo		. 038180)	; ý €‰”¤
     ))
 (define-char
   '((ideographic-radical . 20)	; â¼“
@@ -1054,6 +1067,7 @@
     (total-strokes	 . 11)
     (=gt		. 03260)	; ý¡€€²¼
     (=gt-pj-11		. #x442E)	; ý¡€€²¼
+    (mojikyo		. 085280)	; ý €”´ 
     ))
 (define-char
   '((morohashi-daikanwa	ho 55 1)
@@ -1069,6 +1083,7 @@
     (total-strokes	 . 11)
     (=ucs		. #x208F3)	; ð £³
     (=cns11643-5	. #x312F)	; ø»š‚š
+    (mojikyo		. 085281)	; ý €”´¡
     ))
 (define-char
   '((ideographic-radical . 20)	; â¼“
