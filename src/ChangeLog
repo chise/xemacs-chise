@@ -1,3 +1,29 @@
+1999-09-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (CHAR96): Deleted.
+	(latin_jisx0201_to_ucs): Type is changed from array of <Emchar> to
+	<Lisp_Object>.
+	(latin_iso8859_2_to_ucs): Likewise.
+	(latin_iso8859_3_to_ucs): Likewise.
+	(latin_iso8859_4_to_ucs): Likewise.
+	(latin_iso8859_9_to_ucs): Likewise.
+	(latin_viscii_lower_to_ucs): Likewise.
+	(latin_viscii_upper_to_ucs): Likewise.
+	(latin_tcvn5712_to_ucs): Commented out.
+	(make_charset): Change type of argument `decoding_table' from
+	<Emchar*> to <Lisp_Object> [vector of characters].
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(Fcharset_mapping_table): New function in UTF-2000.
+	(syms_of_mule_charset): Setup `Fcharset_mapping_table' in
+	UTF-2000.
+	(complex_vars_of_mule_charset): Modify for type change of
+	`*_to_ucs'; modify for `make_charset'.
+
+	* char-ucs.h (struct Lisp_Charset): Change type of
+	`decoding_table' from <Emchar*> to <Lisp_Object>.
+	(MAKE_CHAR): Modify for new specification of `decoding_table'.
+
 1999-09-23  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Fmake_reverse_direction_charset): Fix compile
