@@ -1065,6 +1065,17 @@
   '((ideographic-radical . 1)	; â¼€
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (->same-ideograph
+     ((ideograph-daikanwa . 00144)	; ø¸€‚
+      ))
+    (chinese-gb2312	. #x362A)	; ø»„¥ƒ
+    (chinese-isoir165	. #x362A)	; ø»“
+    (ucs		. #x4E22)	; ä¸¢
+    ))
+(define-char
+  '((ideographic-radical . 1)	; â¼€
+    (ideographic-strokes . 5)
+    (total-strokes	 . 6)
     (ideograph-gt-pj-9	. #x3666)	; ý¡€€€¶
     (ideograph-gt	. 00054)	; ý¡€€€¶
     ))
