@@ -324,6 +324,8 @@ Boston, MA 02111-1307, USA.  */
 /*                    Definition of leading bytes                       */
 /************************************************************************/
 
+typedef unsigned char Charset_ID;
+
 #define MIN_LEADING_BYTE		0x80
 /* These need special treatment in a string and/or character */
 #define LEADING_BYTE_ASCII		0x8E /* Omitted in a buffer */
@@ -551,13 +553,14 @@ DECLARE_LRECORD (charset, Lisp_Charset);
   CHARSET_REVERSE_DIRECTION_CHARSET (XCHARSET (cs))
 
 struct charset_lookup {
-  /* Table of charsets indexed by leading byte. */
-  Lisp_Object charset_by_leading_byte[128];
+  /* Table of charsets indexed by (leading byte - MIN_LEADING_BYTE). */
+  Lisp_Object charset_by_leading_byte[NUM_LEADING_BYTES];
 
   /* Table of charsets indexed by type/final-byte/direction. */
   Lisp_Object charset_by_attributes[4][128][2];
-  Bufbyte next_allocated_1_byte_leading_byte;
-  Bufbyte next_allocated_2_byte_leading_byte;
+
+  Charset_ID next_allocated_1_byte_leading_byte;
+  Charset_ID next_allocated_2_byte_leading_byte;
 };
 
 INLINE_HEADER Lisp_Object CHARSET_BY_LEADING_BYTE (Bufbyte lb);
@@ -570,9 +573,10 @@ CHARSET_BY_LEADING_BYTE (Bufbyte lb)
   /* When error-checking is on, x86 GCC 2.95.2 -O3 miscompiles the
      following unless we introduce `tem'. */
   int tem = lb;
-  type_checking_assert (tem >= 0x80 && tem <= 0xFF);
+  type_checking_assert (tem >= MIN_LEADING_BYTE &&
+			tem < (MIN_LEADING_BYTE + NUM_LEADING_BYTES));
 #endif
-  return chlook->charset_by_leading_byte[lb - 128];
+  return chlook->charset_by_leading_byte[lb - MIN_LEADING_BYTE];
 }
 
 INLINE_HEADER Lisp_Object
@@ -610,11 +614,7 @@ REP_BYTES_BY_FIRST_BYTE (Bufbyte fb)
 /*                        Dealing with characters                       */
 /************************************************************************/
 
-/* Is this character represented by more than one byte in a string? */
-
-#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
-
-#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
+#define CHAR_ASCII_P(ch) ((ch) <= 0x7F)
 
 /* The bit fields of character are divided into 3 parts:
    FIELD1(5bits):FIELD2(7bits):FIELD3(7bits) */

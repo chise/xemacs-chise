@@ -898,6 +898,7 @@ conversion, find-file-hooks, automatic uncompression, etc.
 	    (after-insert-file-functions nil)
 	    (coding-system-for-read 'binary)
 	    (coding-system-for-write 'binary)
+	    (jka-compr-compression-info-list nil)
 	    (find-buffer-file-type-function
 	     (if (fboundp 'find-buffer-file-type)
 		 (symbol-function 'find-buffer-file-type)
@@ -1270,7 +1271,8 @@ with the name of the interpreter specified in the first line.
 If it matches, mode MODE is selected.")
 
 (defvar binary-file-regexps
-  '("\\.\\(?:bz2\\|elc\\|g\\(if\\|z\\)\\|jp\\(eg\\|g\\)\\|png\\|t\\(ar\\|gz\\|iff\\)\\|[Zo]\\)\\'")
+  (purecopy
+   '("\\.\\(?:bz2\\|elc\\|g\\(if\\|z\\)\\|jp\\(eg\\|g\\)\\|png\\|PNG\\|t\\(ar\\|gz\\|iff\\)\\|[Zo]\\)\\'"))
   "List of regexps of filenames containing binary (non-text) data.")
 
 ;   (eval-when-compile
