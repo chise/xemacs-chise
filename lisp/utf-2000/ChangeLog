@@ -1,7 +1,13 @@
 2002-11-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* Ideograph-R078-Death.el: Add some missing mappings to CBETA
-	numbers.
+	* Ideograph-R093-Cow.el (CB01492): New character; unify M-20124;
+	map to U-000246BC.
+	(U-000246BC): Map to M-20124.
+
+	* Ideograph-R086-Fire.el: Add mappings for Big5 code points.
+
+	* Ideograph-R076-Lack.el, Ideograph-R078-Death.el: Add some
+	missing mappings to CBETA numbers.
 
 2002-11-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
