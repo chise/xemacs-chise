@@ -1,3 +1,8 @@
+2003-06-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (J0-5442): Unify JU+57D6.
+	(J0-3275): Unify JU+58CA.
+
 2003-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R032-Earth.el (U+57AC): Unify MH-0082.
