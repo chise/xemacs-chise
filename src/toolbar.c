@@ -1160,14 +1160,9 @@ toolbar_after_change (Lisp_Object specifier, Lisp_Object locale)
 
 DEFUN ("toolbar-specifier-p", Ftoolbar_specifier_p, 1, 1, 0, /*
 Return non-nil if OBJECT is a toolbar specifier.
-Toolbar specifiers are used to specify the format of a toolbar.
-The values of the variables `default-toolbar', `top-toolbar',
-`left-toolbar', `right-toolbar', and `bottom-toolbar' are always
-toolbar specifiers.
 
-Valid toolbar instantiators are called "toolbar descriptors"
-and are lists of vectors.  See `default-toolbar' for a description
-of the exact format.
+See `make-toolbar-specifier' for a description of possible toolbar
+instantiators.
 */
        (object))
 {

@@ -145,6 +145,9 @@ Boston, MA 02111-1307, USA.  */
   MARKED_SLOT_ARRAY (toolbar_border_width, 4);
 #endif
 
+/* Cache of subwindow instances for this frame */
+  MARKED_SLOT (subwindow_instance_cache);
+
   /* Possible frame-local default for outside margin widths. */
   MARKED_SLOT (left_margin_width);
   MARKED_SLOT (right_margin_width);

@@ -76,28 +76,4 @@ extern void cache_system_info (void);
 extern unsigned char *round_to_next (unsigned char *address, 
 				     unsigned long align);
 
-/* ----------------------------------------------------------------- */
-/* Useful routines for manipulating memory-mapped files. */
-
-typedef struct file_data {
-  const char    *name;
-  unsigned long  size;
-  HANDLE         file;
-  HANDLE         file_mapping;
-  char *file_base;
-} file_data;
-
-#define OFFSET_TO_RVA(var,section) \
-	  (section->VirtualAddress + ((DWORD)(var) - section->PointerToRawData))
-
-#define RVA_TO_OFFSET(var,section) \
-	  (section->PointerToRawData + ((DWORD)(var) - section->VirtualAddress))
-
-#define RVA_TO_PTR(var,section,filedata) \
-	  ((void *)(RVA_TO_OFFSET(var,section) + (filedata).file_base))
-
-int open_input_file (file_data *p_file, const char *name);
-int open_output_file (file_data *p_file, const char *name, unsigned long size);
-void close_file_data (file_data *p_file);
-
 #endif /* INCLUDED_ntheap_h_ */

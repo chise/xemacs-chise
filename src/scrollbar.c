@@ -735,26 +735,26 @@ behavior.
      with their standard behaviors.  It is not possible to hide the
      differences down in lwlib because knowledge of XEmacs buffer and
      cursor motion routines is necessary. */
-#if defined (LWLIB_SCROLLBARS_MOTIF) || defined (LWLIB_SCROLLBARS_LUCID) || \
-    defined (LWLIB_SCROLLBARS_ATHENA3D) || defined(HAVE_MS_WINDOWS)
-  window_scroll (window, Qnil, -1, ERROR_ME_NOT);
-#else /* Athena */
-  {
-    Bufpos bufpos;
-    Lisp_Object value = Fcdr (object);
 
-    CHECK_INT (value);
-    Fmove_to_window_line (Qzero, window);
-    /* can't use Fvertical_motion() because it moves the buffer point
-       rather than the window's point.
+  if (NILP (XCDR (object)))
+    window_scroll (window, Qnil, -1, ERROR_ME_NOT);
+  else
+    {
+      Bufpos bufpos;
+      Lisp_Object value = Fcdr (object);
 
-       #### It does?  Why does it take a window argument then? */
-    bufpos = vmotion (XWINDOW (window), XINT (Fwindow_point (window)),
-		      XINT (value), 0);
-    Fset_window_point (window, make_int (bufpos));
-    Fcenter_to_window_line (Qzero, window);
-  }
-#endif /* Athena */
+      CHECK_INT (value);
+      Fmove_to_window_line (Qzero, window);
+      /* can't use Fvertical_motion() because it moves the buffer point
+	 rather than the window's point.
+
+	 #### It does?  Why does it take a window argument then? */
+      bufpos = vmotion (XWINDOW (window), XINT (Fwindow_point (window)),
+			XINT (value), 0);
+      Fset_window_point (window, make_int (bufpos));
+      Fcenter_to_window_line (Qzero, window);
+    }
+
   zmacs_region_stays = 1;
   return Qnil;
 }
@@ -776,17 +776,17 @@ behavior.
      with their standard behaviors.  It is not possible to hide the
      differences down in lwlib because knowledge of XEmacs buffer and
      cursor motion routines is necessary. */
-#if defined (LWLIB_SCROLLBARS_MOTIF) || defined (LWLIB_SCROLLBARS_LUCID) || \
-    defined (LWLIB_SCROLLBARS_ATHENA3D) || defined (HAVE_MS_WINDOWS)
-  window_scroll (window, Qnil, 1, ERROR_ME_NOT);
-#else /* Athena */
-  {
-    Lisp_Object value = Fcdr (object);
-    CHECK_INT (value);
-    Fmove_to_window_line (value, window);
-    Fcenter_to_window_line (Qzero, window);
-  }
-#endif /* Athena */
+
+  if (NILP (XCDR (object)))
+    window_scroll (window, Qnil, 1, ERROR_ME_NOT);
+  else
+    {
+      Lisp_Object value = Fcdr (object);
+      CHECK_INT (value);
+      Fmove_to_window_line (value, window);
+      Fcenter_to_window_line (Qzero, window);
+    }
+
   zmacs_region_stays = 1;
   return Qnil;
 }

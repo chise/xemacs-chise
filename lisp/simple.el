@@ -2001,6 +2001,17 @@ is nil.  If BUFFER is nil, the current buffer is assumed."
       (beginning-of-buffer nil)
       (end-of-buffer nil))))
 
+(defun scroll-up-one ()
+  "Scroll text of current window upward one line.
+On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
+On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
+signaled.
+
+If `signal-error-on-buffer-boundary' is nil, attempts to scroll past buffer
+boundaries do not cause an error to be signaled."
+  (interactive "_")
+  (scroll-up-command 1))
+
 (defun scroll-up-command (&optional n)
   "Scroll text of current window upward ARG lines; or near full screen if no ARG.
 A near full screen is `next-screen-context-lines' less than a full screen.
@@ -2019,6 +2030,17 @@ boundaries do not cause an error to be signaled."
 	(scroll-up n)
       (beginning-of-buffer nil)
       (end-of-buffer nil))))
+
+(defun scroll-down-one ()
+  "Scroll text of current window downward one line.
+On attempt to scroll past end of buffer, `end-of-buffer' is signaled.
+On attempt to scroll past beginning of buffer, `beginning-of-buffer' is
+signaled.
+
+If `signal-error-on-buffer-boundary' is nil, attempts to scroll past buffer
+boundaries do not cause an error to be signaled."
+  (interactive "_")
+  (scroll-down-command 1))
 
 (defun scroll-down-command (&optional n)
   "Scroll text of current window downward ARG lines; or near full screen if no ARG.

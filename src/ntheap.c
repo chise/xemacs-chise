@@ -227,17 +227,44 @@ sbrk (unsigned long increment)
 void
 recreate_heap (char *executable_path)
 {
-  void *tmp;
-
   /* First reserve the upper part of our heap.  (We reserve first
-     because there have been problems in the past where doing the
-     mapping first has loaded DLLs into the VA space of our heap.)  */
-  tmp = VirtualAlloc ((void *) get_heap_end (),
-		      get_reserved_heap_size () - get_committed_heap_size (),
-		      MEM_RESERVE,
-		      PAGE_NOACCESS);
+	 because there have been problems in the past where doing the
+	 mapping first has loaded DLLs into the VA space of our heap.)  */
+
+  /* Query the region at the end of the committed heap */
+  void *tmp;
+  MEMORY_BASIC_INFORMATION info;
+  DWORD size;
+  unsigned char* base = get_heap_end ();
+  unsigned char* end  = base + get_reserved_heap_size () - get_committed_heap_size ();
+  VirtualQuery (base, &info, sizeof info);
+  if (info.State != MEM_FREE)
+	{
+	  /* Oops, something has already reserved or commited it, nothing we can do but exit */
+	  char buf[256];
+	  wsprintf(buf,
+			   "XEmacs cannot start because the memory region required by the heap is not available.\n"
+			   "(BaseAddress = 0x%lx, AllocationBase = 0x%lx, Size = 0x%lx, State = %s, Type = %s)",
+			   info.BaseAddress, info.AllocationBase, info.RegionSize,
+			   info.State == MEM_COMMIT ? "COMMITED" : "RESERVED",
+			   info.Type == MEM_IMAGE ? "IMAGE" : info.Type == MEM_MAPPED ? "MAPPED" : "PRIVATE");
+	  MessageBox(NULL, buf, "XEmacs", MB_OK | MB_ICONSTOP);
+	  exit(1);
+	}
+
+  /* Now try and reserve as much as possible */
+  size = min (info.RegionSize, end - base);
+  tmp = VirtualAlloc (base, size, MEM_RESERVE, PAGE_NOACCESS);
   if (!tmp)
-    exit (1);
+	{
+	  /* Can't reserve it, nothing we can do but exit */
+	  char buf[256];
+	  wsprintf(buf,
+			   "XEmacs cannot start because it couldn't reserve space required for the heap.\n"
+			   "(VirtualAlloc at 0x%lx of 0x%lx failed (%d))", base, size, GetLastError());
+	  MessageBox(NULL, buf, "XEmacs", MB_OK | MB_ICONSTOP);
+	  exit (1);
+	}
 
   /* We read in the data for the .bss section from the executable
      first and map in the heap from the executable second to prevent

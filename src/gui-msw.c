@@ -22,13 +22,13 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
+#include "console-msw.h"
 #include "redisplay.h"
 #include "gui.h"
 #include "glyphs.h"
 #include "frame.h"
-#include "events.h"
 #include "elhash.h"
-#include "console-msw.h"
+#include "events.h"
 #include "buffer.h"
 
 /*
@@ -84,15 +84,8 @@ mswindows_handle_gui_wm_command (struct frame* f, HWND ctrl, LPARAM id)
 
   mswindows_enqueue_dispatch_event (event);
   /* The result of this evaluation could cause other instances to change so 
-     enqueue an update callback to check this. We also have to make sure that
-     the function does not appear in the command history.
-     #### I'm sure someone can tell me how to optimize this. */
-  mswindows_enqueue_misc_user_event
-    (frame, Qeval, 
-     list3 (Qlet,
-	    list2 (Qthis_command,
-		   Qlast_command),
-	    list2 (Qupdate_widget_instances, frame)));
+     enqueue an update callback to check this. */
+  enqueue_magic_eval_event (update_widget_instances, frame);
   return Qt;
 }
 

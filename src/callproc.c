@@ -188,7 +188,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
   char *bufptr = buf;
   int bufsize = 16384;
   int speccount = specpdl_depth ();
-  struct gcpro gcpro1, gcpro2;
+  struct gcpro gcpro1, gcpro2, gcpro3;
   char **new_argv = alloca_array (char *, max (2, nargs - 2));
 
   /* File to use for stderr in the child.
@@ -235,7 +235,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
     NUNGCPRO;
   }
 
-  GCPRO1 (current_dir);
+  GCPRO2 (current_dir, path);
 
   if (nargs >= 2 && ! NILP (args[1]))
     {
@@ -250,7 +250,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
   UNGCPRO;
 
-  GCPRO2 (infile, current_dir);		/* Fexpand_file_name might trash it */
+  GCPRO3 (infile, current_dir, path);  	/* Fexpand_file_name might trash it */
 
   if (nargs >= 3)
     {

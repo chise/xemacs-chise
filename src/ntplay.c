@@ -18,19 +18,13 @@ along with XEmacs; see the file COPYING.  If not, write to the Free
 Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.*/
 
-#include <windows.h>
 #include <config.h>
 #include <stdio.h>
 #include "sysfile.h"
+#include "syswindows.h"
 #include "lisp.h"
 #include "nativesound.h"
 
-#if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
-	CYGWIN_VERSION_DLL_MAJOR < 21
-extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
-#else
-#include <mmsystem.h>
-#endif
 static int play_sound_data_1 (unsigned char *data, int length,
 			       int volume, int convert);
 

@@ -31,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include <config.h>
 #include "lisp.h"
 
+Lisp_Object Qabort;
 Lisp_Object Qactually_requested;
 Lisp_Object Qafter;
 Lisp_Object Qall;
@@ -47,8 +48,9 @@ Lisp_Object Qbottom;
 Lisp_Object Qbottom_margin;
 Lisp_Object Qbuffer;
 Lisp_Object Qbutton;
-Lisp_Object Qcenter;
+Lisp_Object Qcancel;
 Lisp_Object Qcategory;
+Lisp_Object Qcenter;
 Lisp_Object Qchannel;
 Lisp_Object Qchar;
 Lisp_Object Qcharacter;
@@ -82,18 +84,20 @@ Lisp_Object Qface;
 Lisp_Object Qfile_name;
 Lisp_Object Qfont;
 Lisp_Object Qframe;
-Lisp_Object Qfunction;
 Lisp_Object Qfuncall;
+Lisp_Object Qfunction;
 Lisp_Object Qgap_overhead;
 Lisp_Object Qgeneric;
 Lisp_Object Qgeometry;
 Lisp_Object Qglobal;
 Lisp_Object Qgutter;
 Lisp_Object Qheight;
+Lisp_Object Qhelp;
 Lisp_Object Qhighlight;
 Lisp_Object Qhorizontal;
 Lisp_Object Qicon;
 Lisp_Object Qid;
+Lisp_Object Qignore;
 Lisp_Object Qimage;
 Lisp_Object Qinfo;
 Lisp_Object Qinherit;
@@ -122,11 +126,13 @@ Lisp_Object Qmotion;
 Lisp_Object Qmsprinter;
 Lisp_Object Qmswindows;
 Lisp_Object Qname;
+Lisp_Object Qno;
 Lisp_Object Qnone;
 Lisp_Object Qnot;
 Lisp_Object Qnothing;
 Lisp_Object Qnotice;
 Lisp_Object Qobject;
+Lisp_Object Qok;
 Lisp_Object Qold_assoc;
 Lisp_Object Qold_delete;
 Lisp_Object Qold_delq;
@@ -147,6 +153,7 @@ Lisp_Object Qrassoc;
 Lisp_Object Qrassq;
 Lisp_Object Qrequire;
 Lisp_Object Qresource;
+Lisp_Object Qretry;
 Lisp_Object Qreturn;
 Lisp_Object Qreverse;
 Lisp_Object Qright;
@@ -179,16 +186,18 @@ Lisp_Object Qunimplemented;
 Lisp_Object Qvalue_assoc;
 Lisp_Object Qvertical;
 Lisp_Object Qwarning;
-Lisp_Object Qwidth;
 Lisp_Object Qwidget;
+Lisp_Object Qwidth;
 Lisp_Object Qwindow;
 Lisp_Object Qwindow_system;
 Lisp_Object Qx;
 Lisp_Object Qy;
+Lisp_Object Qyes;
 
 void
 syms_of_general (void)
 {
+  defsymbol (&Qabort, "abort");
   defsymbol (&Qactually_requested, "actually-requested");
   defsymbol (&Qafter, "after");
   defsymbol (&Qall, "all");
@@ -205,6 +214,7 @@ syms_of_general (void)
   defsymbol (&Qbottom_margin, "bottom-margin");
   defsymbol (&Qbuffer, "buffer");
   defsymbol (&Qbutton, "button");
+  defsymbol (&Qcancel, "cancel");
   defsymbol (&Qcategory, "category");
   defsymbol (&Qcenter, "center");
   defsymbol (&Qchannel, "channel");
@@ -240,18 +250,20 @@ syms_of_general (void)
   defsymbol (&Qfile_name, "file-name");
   defsymbol (&Qfont, "font");
   defsymbol (&Qframe, "frame");
-  defsymbol (&Qfunction, "function");
   defsymbol (&Qfuncall, "funcall");
+  defsymbol (&Qfunction, "function");
   defsymbol (&Qgap_overhead, "gap-overhead");
   defsymbol (&Qgeneric, "generic");
   defsymbol (&Qgeometry, "geometry");
   defsymbol (&Qglobal, "global");
   defsymbol (&Qgutter, "gutter");
   defsymbol (&Qheight, "height");
+  defsymbol (&Qhelp, "help");
   defsymbol (&Qhighlight, "highlight");
   defsymbol (&Qhorizontal, "horizontal");
   defsymbol (&Qicon, "icon");
   defsymbol (&Qid, "id");
+  defsymbol (&Qignore, "ignore");
   defsymbol (&Qimage, "image");
   defsymbol (&Qinfo, "info");
   defsymbol (&Qinherit, "inherit");
@@ -280,11 +292,13 @@ syms_of_general (void)
   defsymbol (&Qmsprinter, "msprinter");
   defsymbol (&Qmswindows, "mswindows");
   defsymbol (&Qname, "name");
+  defsymbol (&Qno, "no");
   defsymbol (&Qnone, "none");
   defsymbol (&Qnot, "not");
   defsymbol (&Qnothing, "nothing");
   defsymbol (&Qnotice, "notice");
   defsymbol (&Qobject, "object");
+  defsymbol (&Qok, "ok");
   defsymbol (&Qold_assoc, "old-assoc");
   defsymbol (&Qold_delete, "old-delete");
   defsymbol (&Qold_delq, "old-delq");
@@ -305,6 +319,7 @@ syms_of_general (void)
   defsymbol (&Qrassq, "rassq");
   defsymbol (&Qrequire, "require");
   defsymbol (&Qresource, "resource");
+  defsymbol (&Qretry, "retry");
   defsymbol (&Qreturn, "return");
   defsymbol (&Qreverse, "reverse");
   defsymbol (&Qright, "right");
@@ -337,10 +352,11 @@ syms_of_general (void)
   defsymbol (&Qvalue_assoc, "value-assoc");
   defsymbol (&Qvertical, "vertical");
   defsymbol (&Qwarning, "warning");
-  defsymbol (&Qwidth, "width");
   defsymbol (&Qwidget, "widget");
+  defsymbol (&Qwidth, "width");
   defsymbol (&Qwindow, "window");
   defsymbol (&Qwindow_system, "window-system");
   defsymbol (&Qx, "x");
   defsymbol (&Qy, "y");
+  defsymbol (&Qyes, "yes");
 }

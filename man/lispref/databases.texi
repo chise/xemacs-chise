@@ -31,7 +31,7 @@ select the type of database file to use.  (Note:  XEmacs may not
 support both of these types.)
 
 For a @var{type} of @code{'dbm}, there are no subtypes, so
-@var{subtype} should by @code{nil}.
+@var{subtype} should be @code{nil}.
 
 For a @var{type} of @code{'berkeley_db}, the following subtypes are
 available:  @code{'hash}, @code{'btree}, and @code{'recno}.  See the

@@ -1544,6 +1544,24 @@ If DEFAULT-VALUE is non-nil, return that if user enters an empty
 	    (setq n (1+ n))))
       new)))
 
+
+;; Wrapper for `directory-files' for use in generating completion lists.
+;; Generates output in the same format as `file-name-all-completions'.
+;;
+;; The EFS replacement for `directory-files' doesn't support the FILES-ONLY
+;; option, so it has to be faked.  The listing cache will hopefully
+;; improve the performance of this operation.
+(defun minibuf-directory-files (dir &optional match-regexp files-only)
+  (let ((want-file (or (eq files-only nil) (eq files-only t)))
+        (want-dirs (or (eq files-only nil) (not (eq files-only t)))))
+    (delete nil
+            (mapcar (function (lambda (f)
+                                (if (file-directory-p (expand-file-name f dir))
+                                    (and want-dirs (file-name-as-directory f))
+                                  (and want-file f))))
+                    (delete "." (directory-files dir nil match-regexp))))))
+
+
 (defun read-file-name-2 (history prompt dir default
 				 must-match initial-contents
 				 completer)
@@ -1632,7 +1650,7 @@ If DEFAULT-VALUE is non-nil, return that if user enters an empty
       (reset-buffer completion-buf)
       (let ((standard-output completion-buf))
 	(display-completion-list
-	 (delete "." (directory-files full nil nil nil (if dir-p 'directory)))
+         (minibuf-directory-files full nil (if dir-p 'directory))
 	 :user-data dir-p
 	 :reference-buffer minibuf
 	 :activate-callback 'read-file-name-activate-callback)
@@ -1825,7 +1843,9 @@ DIR defaults to current buffer's directory default."
             ((eq action 't)
              ;; all completions
              (mapcar #'un-substitute-in-file-name
-                     (file-name-all-completions name dir)))
+                     (if (string= name "")
+                         (delete "./" (file-name-all-completions "" dir))
+                       (file-name-all-completions name dir))))
             (t;; nil
              ;; complete
              (let* ((d (or dir default-directory))
@@ -1854,17 +1874,13 @@ DIR defaults to current buffer's directory default."
    #'(lambda (action orig string specdir dir name)
       (let* ((dirs #'(lambda (fn)
 		       (let ((l (if (equal name "")
-				    (directory-files
+				    (minibuf-directory-files
 				     dir
-				     nil
 				     ""
-				     nil
 				     'directories)
-				  (directory-files
+				  (minibuf-directory-files
 				   dir
-				   nil
 				   (concat "\\`" (regexp-quote name))
-				   nil
 				   'directories))))
 			 (mapcar fn
 				 ;; Wretched unix
@@ -1947,7 +1963,7 @@ whether it is a file(/result) or a directory (/result/)."
   (let ((standard-output (window-buffer window)))
     (condition-case nil
 	(display-completion-list
-	 (directory-files dir nil nil nil t)
+	 (minibuf-directory-files dir nil t)
 	 :window-width (window-width window)
 	 :window-height (window-text-area-height window)
 	 :completion-string ""
@@ -1963,7 +1979,7 @@ whether it is a file(/result) or a directory (/result/)."
   (let ((standard-output (window-buffer window)))
     (condition-case nil
 	(display-completion-list
-	 (delete "." (directory-files dir nil nil nil 1))
+	 (minibuf-directory-files dir nil 1)
 	 :window-width (window-width window)
 	 :window-height (window-text-area-height window)
 	 :completion-string ""

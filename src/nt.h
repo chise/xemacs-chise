@@ -40,41 +40,6 @@ Boston, MA 02111-1307, USA.  */
 #define X_OK 1
 #define F_OK 0
 
-/* File descriptor set emulation.  */
-
-#if 0 /* These are defined in winsock.h.
-	 FD_SETSIZE is defined 64. Let's not full the runtime. */
-
-/* The MSVC multithreaded statically-linked runtime library has limit
-   of 256 descriptors by default (the single-threaded static library
-   has a limit of 64 descriptors, and the DLL versions both have a
-   limit of 512).  Beware.  Should this be set to 512?  */
-#define FD_SETSIZE  256
-typedef struct {
-  unsigned int bits[FD_SETSIZE / 32];
-} fd_set;
-
-/* standard access macros */
-#define FD_SET(n, p) \
-  do { \
-    if ((n) < FD_SETSIZE) { \
-      (p)->bits[(n)/32] |= (1 << (n)%32); \
-    } \
-  } while (0)
-#define FD_CLR(n, p) \
-  do { \
-    if ((n) < FD_SETSIZE) { \
-      (p)->bits[(n)/32] &= ~(1 << (n)%32); \
-    } \
-  } while (0)
-#define FD_ISSET(n, p) ((n) < FD_SETSIZE ? ((p)->bits[(n)/32] & (1 << (n)%32)) : 0)
-#define FD_ZERO(p) memset((p), 0, sizeof(fd_set))
-
-#define SELECT_TYPE fd_set
-#define MAXDESC FD_SETSIZE
-
-#endif /* 0 */
-
 /* ------------------------------------------------------------------------- */
 
 /* child_process.status values */
@@ -113,7 +78,7 @@ typedef struct
   child_process *  cp;
 } filedesc;
 
-extern filedesc fd_info [ MAXDESC ];
+extern filedesc fd_info [];
 
 /* fd_info flag definitions */
 #define FILE_READ    0x0001
@@ -147,7 +112,37 @@ extern LPBYTE nt_get_resource (char * key, LPDWORD type);
 void set_process_dir (const char * dir);
 time_t convert_time (FILETIME ft);
 
-extern void init_ntproc ();
+extern void init_ntproc (void);
 extern void term_ntproc (int unused);
+
+/* ----------------------------------------------------------------- */
+/* Useful routines for manipulating memory-mapped files. */
+
+typedef struct file_data
+{
+  const char    *name;
+  unsigned long  size;
+  HANDLE         file;
+  HANDLE         file_mapping;
+  char *file_base;
+} file_data;
+
+#define OFFSET_TO_RVA(var,section) \
+	  (section->VirtualAddress + ((DWORD)(var) - section->PointerToRawData))
+
+#define RVA_TO_OFFSET(var,section) \
+	  (section->PointerToRawData + ((DWORD)(var) - section->VirtualAddress))
+
+#define RVA_TO_PTR(var,section,filedata) \
+	  ((void *)(RVA_TO_OFFSET(var,section) + (filedata).file_base))
+
+int open_input_file (file_data *p_file, const char *name);
+int open_output_file (file_data *p_file, const char *name, unsigned long size);
+void close_file_data (file_data *p_file);
+void mswindows_executable_type (const char * filename, int * is_dos_app,
+				int * is_cygnus_app);
+
+/* In process-nt.c */
+extern int compare_env (const void *strp1, const void *strp2);
 
 #endif /* INCLUDED_nt_h_ */

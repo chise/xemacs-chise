@@ -96,13 +96,20 @@ struct mswindows_subwindow_data
 };
 
 #define MSWINDOWS_SUBWINDOW_DATA(i) \
-((struct mswindows_subwindow_data *) (i)->data)
-
+  ((struct mswindows_subwindow_data *) (i)->data)
 #define IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW(i) \
      (MSWINDOWS_SUBWINDOW_DATA (i)->clip_window)
 
+#define XIMAGE_INSTANCE_MSWINDOWS_SUBWINDOW_DATA(i) \
+  MSWINDOWS_SUBWINDOW_DATA (XIMAGE_INSTANCE (i))
 #define XIMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW(i) \
   IMAGE_INSTANCE_MSWINDOWS_CLIPWINDOW (XIMAGE_INSTANCE (i))
+
+#define DOMAIN_MSWINDOWS_HANDLE(domain) \
+  ((IMAGE_INSTANCEP (domain) && \
+  XIMAGE_INSTANCE_MSWINDOWS_SUBWINDOW_DATA (domain)) ? \
+   XWIDGET_INSTANCE_MSWINDOWS_HANDLE (domain) : \
+   FRAME_MSWINDOWS_HANDLE (DOMAIN_XFRAME (domain)))
 
 #endif /* HAVE_MS_WINDOWS */
 

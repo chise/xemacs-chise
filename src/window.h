@@ -387,9 +387,13 @@ int invalidate_vertical_divider_cache_in_window (struct window *w,
 int window_divider_width (struct window *w);
 
 #define WINDOW_FRAME(w) ((w)->frame)
+#define WINDOW_XFRAME(w) XFRAME (WINDOW_FRAME (w))
 #define WINDOW_BUFFER(w) ((w)->buffer)
+#define WINDOW_XBUFFER(w) XBUFFER (WINDOW_BUFFER (w))
 #define WINDOW_DEVICE(w) FRAME_DEVICE (XFRAME (WINDOW_FRAME (w)))
+#define WINDOW_XDEVICE(w) XDEVICE (WINDOW_DEVICE (w))
 #define WINDOW_CONSOLE(w) DEVICE_CONSOLE (XDEVICE (WINDOW_DEVICE (w)))
+#define WINDOW_XCONSOLE(w) XCONSOLE (WINDOW_CONSOLE (w))
 
 /* XEmacs window size and positioning macros. */
 #define WINDOW_TOP(w) ((w)->pixel_top)

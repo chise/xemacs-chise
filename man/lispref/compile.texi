@@ -235,7 +235,7 @@ prevent processing of subsequent files.  (The file that gets the error
 will not, of course, produce any compiled code.)
 
 @example
-% emacs -batch -f batch-byte-compile *.el
+% xemacs -batch -f batch-byte-compile *.el
 @end example
 @end defun
 

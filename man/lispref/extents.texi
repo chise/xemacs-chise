@@ -94,9 +94,9 @@ functions in preference to the lower-level extent functions.  For more
 information, @xref{Annotations}.
 
   If an extent has its @code{detachable} property set, it will become
-@dfn{detached} (i.e. no longer in the buffer) when all its text its
+@dfn{detached} (i.e. no longer in the buffer) when all its text is
 deleted.  Otherwise, it will simply shrink down to zero-length and
-sit it the same place in the buffer.  By default, the @code{detachable}
+sit in the same place in the buffer.  By default, the @code{detachable}
 property is set on newly-created extents.  @xref{Detached Extents}.
 
   If an extent has its @code{duplicable} property set, it will be

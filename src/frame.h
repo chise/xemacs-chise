@@ -94,9 +94,6 @@ struct frame
 
   int modiff;
 
-  /* subwindow cache elements for this frame */
-  subwindow_cachel_dynarr *subwindow_cachels;
-
   struct expose_ignore* subwindow_exposures;
   struct expose_ignore* subwindow_exposures_tail;
 
@@ -547,7 +544,7 @@ extern int frame_changed;
   NON_LVALUE ((f)->last_nonminibuf_window)
 #define FRAME_SB_VCACHE(f) ((f)->sb_vcache)
 #define FRAME_SB_HCACHE(f) ((f)->sb_hcache)
-#define FRAME_SUBWINDOW_CACHE(f) ((f)->subwindow_cachels)
+#define FRAME_SUBWINDOW_CACHE(f) ((f)->subwindow_instance_cache)
 
 #if 0 /* FSFmacs */
 
