@@ -332,8 +332,9 @@
 	       (format "Ideograph-R%03d-%s.el" radical name)
 	       file))))
   (with-temp-buffer
+    (insert ";; -*- coding: utf-8-mcs -*-\n")
     (insert-ideograph-radical-char-data radical)
-    (let ((coding-system-for-write 'utf-8))
+    (let ((coding-system-for-write 'utf-8-mcs))
       (write-region (point-min)(point-max) file)
       )))
 
