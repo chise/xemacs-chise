@@ -16,6 +16,11 @@
 
 	* Ideograph-R001-One.el (G0-3373): Add `<-vulgar*sources'.
 
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->vulgar' when running with non-readable mode; Add some CCSs
+	corresponding with shinjigen-1 specified in {<-|->}FOO*sources
+	into required-features.
+
 	* Ideograph-R003-Dot.el (U+51E1): Moved to
 	Ideograph-R016-Table.el.
 	(U-0002007E): Use `ideographic-{radical|strokes}@{ucs|daikanwa}'
