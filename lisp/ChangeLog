@@ -1,3 +1,17 @@
+2000-02-01  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (insert-char-data): Print corresponding
+	character as comment for `->ucs' and each coded-charset.
+	(what-char-definition): Don't call `char-db-update-comment'.
+
+2000-01-31  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* dumped-lisp.el (preloaded-file-list): Add "mojikyo" in UTF-2000.
+
+2000-01-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/mojikyo.el: New file.
+
 2000-01-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/char-db-util.el (insert-char-data): Print code-point of
