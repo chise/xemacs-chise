@@ -1,3 +1,8 @@
+1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule/thai-xtis.el: Specify `columns' of the charset `thai-xtis'
+	is 1.
+
 1999-06-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule/cyrillic.el (cyrillic-koi8-r-decode-table): Use NBSP of ISO
