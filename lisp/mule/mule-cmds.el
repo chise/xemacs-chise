@@ -195,7 +195,7 @@ for MS-DOS terminal, because DOS terminals only support a single coding
 system, and Emacs automatically sets the default to that coding system at
 startup."
   (interactive "zPrefer coding system: ")
-  (if (not (and coding-system (coding-system-p coding-system)))
+  (if (not (and coding-system (find-coding-system coding-system)))
       (error "Invalid coding system `%s'" coding-system))
   (let ((coding-category (coding-system-category coding-system))
 	(base (coding-system-base coding-system))
