@@ -80,6 +80,15 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 103)
     (hanyu-dazidian-char . 1)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((name		  . "cjk radical person as roof")
+      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      )
+     ((ucs		  . #x4E28)	; ä¸¨
+      ))
     (shinjigen-1	. 33)
     (shinjigen-2	. 33)
     (japanese-jisx0208-1978	. #x5024)	; ø»ƒ…
@@ -91,6 +100,7 @@
     (ideograph-gt-pj-1		. #x5024)	; ý¡€€©
     (ideograph-daikanwa		. 00070)	; ø¸€†
     (ideograph-cbeta		. 00286)	; ø¸ „ž
+    (chinese-big5-cdp		. #x8A4B)	; ý¢€ˆ©‹
     (ideograph-gt		. 00105)	; ý¡€€©
     (mojikyo			. 000070)	; ý €€†
     (ucs			. #x4E2A)	; ä¸ª
