@@ -22,6 +22,10 @@
 
 2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* u00F00-Tibetan.el: Reformatted.
+
+2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* u00D80-Sinhala.el, u00D00-Malayalam.el, u00C80-Kannada.el,
 	u00C00-Telugu.el, u00B80-Tamil.el, u00B00-Oriya.el: Reformatted.
 
