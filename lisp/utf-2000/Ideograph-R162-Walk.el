@@ -207,18 +207,32 @@
     (ucs		. #x8FC1)	; è¿
     ))
 (define-char
-  '((morohashi-daikanwa	38722)
+  '((->ucs		. #x8FC2)	; è¿‚
+    (morohashi-daikanwa	38722)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (japanese-jisx0208-1978	. #x312A)	; ø»‚“©
+    (korean-ksc5601		. #x6966)	; ø»Š…
+    (ideograph-daikanwa		. 38722)	; ø¸‰‚
+    ))
+(define-char
+  '((->ucs		. #x8FC2)	; è¿‚
+    (morohashi-daikanwa	38722 0 2)
+    (ideographic-radical . 162)	; â¾¡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (chinese-cns11643-1 . #x4B52)	; ø»’€¹
+    ))
+(define-char
+  '((morohashi-daikanwa	38722 0 3)
+    (ideographic-radical . 162)	; â¾¡
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (chinese-gb2312		. #x5358)	; ø»…—
     (japanese-jisx0208		. #x312A)	; ø»†§±
-    (korean-ksc5601		. #x6966)	; ø»Š…
     (chinese-isoir165		. #x5358)	; ø»¸§
-    (chinese-cns11643-1		. #x4B52)	; ø»’€¹
     (japanese-jisx0208-1990	. #x312A)	; è¿‚
-    (ideograph-daikanwa		. 38722)	; ø¸‰‚
     (ucs			. #x8FC2)	; è¿‚
     ))
 (define-char
@@ -1916,27 +1930,35 @@
     (ideograph-daikanwa . 38900)	; ø¸‰Ÿ´
     ))
 (define-char
-  '((morohashi-daikanwa	38901)
+  '((->ucs		. #x9022)	; é€¢
+    (morohashi-daikanwa	38901)
     (ideographic-radical . 162)	; â¾¡
-    (total-strokes	. 11)
-    (chinese-cns11643-1		. #x5D61)	; ø»’›¤
-    (japanese-jisx0208-1990	. #x3029)	; ø»’›¤
-    (ideograph-daikanwa		. 38901)	; ø¸‰Ÿµ
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (korean-ksc5601	. #x5C71)	; ø»‰²†
+    (ideograph-daikanwa . 38901)	; ø¸‰Ÿµ
+    ))
+(define-char
+  '((->ucs		. #x9022)	; é€¢
+    (morohashi-daikanwa	38901 0 2)
+    (ideographic-radical . 162)	; â¾¡
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (chinese-cns11643-1 . #x5D61)	; ø»’›¤
     ))
 (define-char
   '((morohashi-daikanwa	38901 0 3)
     (ideographic-radical . 162)	; â¾¡
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (jisx0208-difference . -78/4)
     (shinjigen-1	. 8295)
     (shinjigen-2	. 8295)
     (japanese-jisx0208-1978	. #x3029)	; ø»‚’Š
     (chinese-gb2312		. #x376A)	; ø»„§¡
     (japanese-jisx0208		. #x3029)	; ø»†¦’
-    (korean-ksc5601		. #x5C71)	; ø»‰²†
     (chinese-isoir165		. #x376A)	; ø»±
-    (chinese-cns11643-1		. #x5D61)	; ø»’›¤
-    (ideograph-daikanwa		. 38901)	; ø¸‰Ÿµ
+    (japanese-jisx0208-1990	. #x3029)	; é€¢
     (ucs			. #x9022)	; é€¢
     ))
 (define-char
