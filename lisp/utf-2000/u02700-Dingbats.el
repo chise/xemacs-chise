@@ -396,7 +396,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5	. #xC6E6)	; �����
+    (chinese-big5-eten	. #xC6E6)	; ������
     (ucs		. #x273D)	; ✽
     ))
 (define-char
@@ -491,7 +491,7 @@
     (ucs		. #x274A)	; ❊
     ))
 (define-char
-  '((name		. "HEAVY EIGHT TEARDROP-SPOKED PROPELLER ASTERISK")
+  '((name . "HEAVY EIGHT TEARDROP-SPOKED PROPELLER ASTERISK")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -827,7 +827,7 @@
     (ucs		. #x2789)	; ➉
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT ONE")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT ONE")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -836,7 +836,7 @@
     (ucs		. #x278A)	; ➊
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT TWO")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT TWO")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -845,7 +845,7 @@
     (ucs		. #x278B)	; ➋
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT THREE")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT THREE")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -854,7 +854,7 @@
     (ucs		. #x278C)	; ➌
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT FOUR")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT FOUR")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -863,7 +863,7 @@
     (ucs		. #x278D)	; ➍
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT FIVE")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT FIVE")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -872,7 +872,7 @@
     (ucs		. #x278E)	; ➎
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT SIX")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT SIX")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -881,7 +881,7 @@
     (ucs		. #x278F)	; ➏
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT SEVEN")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT SEVEN")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -890,7 +890,7 @@
     (ucs		. #x2790)	; ➐
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT EIGHT")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT EIGHT")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -899,7 +899,7 @@
     (ucs		. #x2791)	; ➑
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT NINE")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF DIGIT NINE")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -908,7 +908,7 @@
     (ucs		. #x2792)	; ➒
     ))
 (define-char
-  '((name		. "DINGBAT NEGATIVE CIRCLED SANS-SERIF NUMBER TEN")
+  '((name . "DINGBAT NEGATIVE CIRCLED SANS-SERIF NUMBER TEN")
     (general-category	number other) ; Normative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -979,7 +979,7 @@
     (ucs		. #x279F)	; ➟
     ))
 (define-char
-  '((name		. "HEAVY DASHED TRIANGLE-HEADED RIGHTWARDS ARROW")
+  '((name . "HEAVY DASHED TRIANGLE-HEADED RIGHTWARDS ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -1021,7 +1021,7 @@
     (ucs		. #x27A5)	; ➥
     ))
 (define-char
-  '((name		. "HEAVY BLACK CURVED UPWARDS AND RIGHTWARDS ARROW")
+  '((name . "HEAVY BLACK CURVED UPWARDS AND RIGHTWARDS ARROW")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)

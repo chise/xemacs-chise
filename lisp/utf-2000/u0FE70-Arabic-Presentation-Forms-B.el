@@ -129,7 +129,7 @@
     (ucs		. #xFE81)	; ﺁ
     ))
 (define-char
-  '((name		. "ARABIC LETTER ALEF WITH MADDA ABOVE FINAL FORM")
+  '((name . "ARABIC LETTER ALEF WITH MADDA ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -147,7 +147,7 @@
     (ucs		. #xFE83)	; ﺃ
     ))
 (define-char
-  '((name		. "ARABIC LETTER ALEF WITH HAMZA ABOVE FINAL FORM")
+  '((name . "ARABIC LETTER ALEF WITH HAMZA ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -165,7 +165,7 @@
     (ucs		. #xFE85)	; ﺅ
     ))
 (define-char
-  '((name		. "ARABIC LETTER WAW WITH HAMZA ABOVE FINAL FORM")
+  '((name . "ARABIC LETTER WAW WITH HAMZA ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -183,7 +183,7 @@
     (ucs		. #xFE87)	; ﺇ
     ))
 (define-char
-  '((name		. "ARABIC LETTER ALEF WITH HAMZA BELOW FINAL FORM")
+  '((name . "ARABIC LETTER ALEF WITH HAMZA BELOW FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -201,7 +201,7 @@
     (ucs		. #xFE89)	; ﺉ
     ))
 (define-char
-  '((name		. "ARABIC LETTER YEH WITH HAMZA ABOVE FINAL FORM")
+  '((name . "ARABIC LETTER YEH WITH HAMZA ABOVE FINAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -210,7 +210,7 @@
     (ucs		. #xFE8A)	; ﺊ
     ))
 (define-char
-  '((name		. "ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM")
+  '((name . "ARABIC LETTER YEH WITH HAMZA ABOVE INITIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)
@@ -219,7 +219,7 @@
     (ucs		. #xFE8B)	; ﺋ
     ))
 (define-char
-  '((name		. "ARABIC LETTER YEH WITH HAMZA ABOVE MEDIAL FORM")
+  '((name . "ARABIC LETTER YEH WITH HAMZA ABOVE MEDIAL FORM")
     (general-category	letter other) ; Informative Category
     (bidi-category	. "AL")
     (mirrored		. nil)

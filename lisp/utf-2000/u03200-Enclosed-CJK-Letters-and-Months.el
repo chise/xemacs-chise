@@ -412,7 +412,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0028 #x682A #x0029)
     (japanese-jisx0213-1	. #x2D6A)	; ø»¢¥­
-    (chinese-big5		. #xC8D1)	; øº ¼š
+    (chinese-big5-eten		. #xC8D1)	; ý¢€Œ£‘
     (ucs			. #x3231)	; ãˆ±
     ))
 (define-char
@@ -1118,7 +1118,7 @@
     (mirrored		. nil)
     (->decomposition	circle #x6B63)
     (chinese-cns11643-1 . #x2221)	; ø»‘ƒº
-    (chinese-big5	. #xA1C0)	; øºŸœž
+    (chinese-big5	. #xA1C0)	; ý¢€Š‡€
     (ucs		. #x32A3)	; ãŠ£
     ))
 (define-char

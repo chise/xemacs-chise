@@ -1,192 +1,192 @@
 (define-char
-  '((ucs		. #x0080)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0080)	; 
     ))
 (define-char
-  '((ucs		. #x0081)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0081)	; 
     ))
 (define-char
-  '((ucs		. #x0082)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0082)	; 
     ))
 (define-char
-  '((ucs		. #x0083)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0083)	; 
     ))
 (define-char
-  '((ucs		. #x0084)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0084)	; 
     ))
 (define-char
-  '((ucs		. #x0085)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "B")
     (mirrored		. nil)
+    (ucs		. #x0085)	; 
     ))
 (define-char
-  '((ucs		. #x0086)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0086)	; 
     ))
 (define-char
-  '((ucs		. #x0087)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0087)	; 
     ))
 (define-char
-  '((ucs		. #x0088)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0088)	; 
     ))
 (define-char
-  '((ucs		. #x0089)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0089)	; 
     ))
 (define-char
-  '((ucs		. #x008A)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008A)	; 
     ))
 (define-char
-  '((ucs		. #x008B)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008B)	; 
     ))
 (define-char
-  '((ucs		. #x008C)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008C)	; 
     ))
 (define-char
-  '((ucs		. #x008D)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008D)	; 
     ))
 (define-char
-  '((ucs		. #x008E)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008E)	; 
     ))
 (define-char
-  '((ucs		. #x008F)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x008F)	; 
     ))
 (define-char
-  '((ucs		. #x0090)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0090)	; 
     ))
 (define-char
-  '((ucs		. #x0091)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0091)	; 
     ))
 (define-char
-  '((ucs		. #x0092)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0092)	; 
     ))
 (define-char
-  '((ucs		. #x0093)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0093)	; 
     ))
 (define-char
-  '((ucs		. #x0094)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0094)	; 
     ))
 (define-char
-  '((ucs		. #x0095)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0095)	; 
     ))
 (define-char
-  '((ucs		. #x0096)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0096)	; 
     ))
 (define-char
-  '((ucs		. #x0097)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0097)	; 
     ))
 (define-char
-  '((ucs		. #x0098)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0098)	; 
     ))
 (define-char
-  '((ucs		. #x0099)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x0099)	; 
     ))
 (define-char
-  '((ucs		. #x009A)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009A)	; 
     ))
 (define-char
-  '((ucs		. #x009B)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009B)	; 
     ))
 (define-char
-  '((ucs		. #x009C)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009C)	; 
     ))
 (define-char
-  '((ucs		. #x009D)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009D)	; 
     ))
 (define-char
-  '((ucs		. #x009E)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009E)	; 
     ))
 (define-char
-  '((ucs		. #x009F)
-    (general-category	other control) ; Normative Category
+  '((general-category	other control) ; Normative Category
     (bidi-category	. "BN")
     (mirrored		. nil)
+    (ucs		. #x009F)	; 
     ))

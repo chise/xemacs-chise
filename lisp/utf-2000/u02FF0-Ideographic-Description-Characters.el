@@ -1,5 +1,5 @@
 (define-char
-  '((name		. "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+  '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
@@ -27,7 +27,7 @@
     (ucs		. #x2FF3)	; ⿳
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
+  '((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
