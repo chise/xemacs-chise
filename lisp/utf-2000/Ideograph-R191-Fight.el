@@ -140,7 +140,7 @@
     (ideographic-radical . 191)	; â¾¾
     (ideographic-strokes . 8)
     (total-strokes	 . 18)
-    (chinese-cns11643-4 . #x5E79)	; ø»˜»¦
+    (=cns11643-4	. #x5E79)	; ø»˜»¦
     (=ucs		. #x29C14)	; ð©°”
     ))
 (define-char
@@ -265,7 +265,7 @@
     (ideographic-strokes . 14)
     (total-strokes	 . 25)
     (=jis-x0212		. #x6A32)	; ø»Œ¯
-    (chinese-cns11643-4 . #x6D37)	; ø»™¦
+    (=cns11643-4	. #x6D37)	; ø»™¦
     (=jis-x0213-1-2000	. #x7E3F)	; ø»¤œ€
     (=cbeta		. 10823)	; ø¸¢©‡
     (=ucs		. #x9B2D)	; é¬­

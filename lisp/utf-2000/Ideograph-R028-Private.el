@@ -122,7 +122,7 @@
      ((=ucs		  . #x53B6)	; åŽ¶
       ))
     (=jis-x0212		. #x3454)	; ø»‹€½
-    (chinese-cns11643-4 . #x2145)	; ø»—¡Œ
+    (=cns11643-4	. #x2145)	; ø»—¡Œ
     (ideograph-daikanwa . 03064)	; ø¸€¯¸
     (=hanziku-1		. #xF4F0)	; ý¢€Ÿ“°
     (=jef-china3	. #x45E7)	; øº„—§
@@ -294,7 +294,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 386 7)
-    (chinese-cns11643-4 . #x224A)	; ø»—¢¯
+    (=cns11643-4	. #x224A)	; ø»—¢¯
     (ideograph-daikanwa . 03074)	; ø¸€°‚
     (=hanziku-1		. #xF571)	; ý¢€Ÿ•±
     (=ucs		. #x20ADE)	; ð «ž
@@ -313,7 +313,7 @@
      ((=ucs		  . #x53B8)	; åŽ¸
       ))
     (=jis-x0212		. #x3456)	; ø»‹€¿
-    (chinese-cns11643-4 . #x2248)	; ø»—¢­
+    (=cns11643-4	. #x2248)	; ø»—¢­
     (ideograph-daikanwa . 03075)	; ø¸€°ƒ
     (=hanziku-1		. #xF572)	; ý¢€Ÿ•²
     (=jef-china3	. #x45E8)	; øº„—¨
@@ -425,7 +425,7 @@
       )
      ((=ucs		  . #x53B7)	; åŽ·
       ))
-    (chinese-cns11643-4 . #x2249)	; ø»—¢®
+    (=cns11643-4	. #x2249)	; ø»—¢®
     (ideograph-daikanwa . 48956)	; ø¸‹¼¼
     (=big5-cdp		. #x88E6)	; ý¢€ˆ£¦
     (=cbeta		. 06611)	; ø¸¡§“
@@ -495,7 +495,7 @@
      ((=ucs		  . #x53B6)	; åŽ¶
       ))
     (=jis-x0212		. #x3457)	; ø»‹€
-    (chinese-cns11643-4 . #x2559)	; ø»—§˜
+    (=cns11643-4	. #x2559)	; ø»—§˜
     (=jis-x0213-2-2000	. #x235B)	; ø»¤ ¶
     (ideograph-daikanwa . 03083)	; ø¸€°‹
     (=hanziku-1		. #xF576)	; ý¢€Ÿ•¶
@@ -659,7 +659,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian	1 397 9)
-    (chinese-cns11643-4 . #x2856)	; ø»—«¯
+    (=cns11643-4	. #x2856)	; ø»—«¯
     (ideograph-daikanwa . 48989)	; ø¸‹½
     (=hanziku-1		. #xF7BB)	; ý¢€Ÿž»
     (=ucs		. #x20AF3)	; ð «³
@@ -1065,7 +1065,7 @@
   '((ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (chinese-cns11643-4 . #x4929)	; ø»˜› 
+    (=cns11643-4	. #x4929)	; ø»˜› 
     (ideograph-daikanwa . 03113)	; ø¸€°©
     (=ucs		. #x3559)	; ã•™
     ))
@@ -1073,7 +1073,7 @@
   '((ideographic-radical . 28)	; â¼›
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
-    (chinese-cns11643-4 . #x492A)	; ø»˜›¡
+    (=cns11643-4	. #x492A)	; ø»˜›¡
     (ideograph-daikanwa . 48958)	; ø¸‹¼¾
     (=ucs		. #x366F)	; ã™¯
     ))

@@ -57,7 +57,7 @@
       ))
     (hanyu-dazidian	1 4 1)
     (=jis-x0212		. #x3021)	; ø»Šº’
-    (chinese-cns11643-4 . #x2126)	; ø»— ­
+    (=cns11643-4	. #x2126)	; ø»— ­
     (=jis-x0213-2-2000	. #x2122)	; ø»¤
     (=gt-pj-2		. #x3021)	; ý¡€€€ƒ
     (ideograph-daikanwa . 00003)	; ø¸€€ƒ
@@ -735,7 +735,7 @@
       ))
     (shinjigen-2	. 17)
     (=jis-x0212		. #x3025)	; ø»Šº–
-    (chinese-cns11643-4 . #x2139)	; ø»—¡€
+    (=cns11643-4	. #x2139)	; ø»—¡€
     (=jis-x0213-2-2000	. #x2124)	; ø»¤ƒ
     (=gt-pj-2		. #x3032)	; ý¡€€€¢
     (ideograph-daikanwa . 00028)	; ø¸€€œ
@@ -918,7 +918,7 @@
       )
      ((=ucs		  . #x4E00)	; ä¸€
       ))
-    (chinese-cns11643-4 . #x2155)	; ø»—¡œ
+    (=cns11643-4	. #x2155)	; ø»—¡œ
     (=ucs@cns		. #x4E17)	; ø»—¡œ
     ))
 (define-char
@@ -1230,7 +1230,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 19 2)
-    (chinese-cns11643-4 . #x2224)	; ø»—¢‰
+    (=cns11643-4	. #x2224)	; ø»—¢‰
     (=gt-pj-2		. #x303A)	; ý¡€€€¾
     (ideograph-daikanwa . 00039)	; ø¸€€§
     (=big5-cdp		. #x8AA2)	; ý¢€ˆª¢
@@ -1653,7 +1653,7 @@
     (comment		. "M-11708 is different character.")
     (hanyu-dazidian	1 21 6)
     (=jis-x0212		. #x3027)	; ø»Šº˜
-    (chinese-cns11643-4 . #x2335)	; ø»—£¸
+    (=cns11643-4	. #x2335)	; ø»—£¸
     (=gt-pj-2		. #x3041)	; ý¡€€Œ
     (ideograph-daikanwa . 00048)	; ø¸€€°
     (=big5-cdp		. #x8DF0)	; ý¢€ˆ·°

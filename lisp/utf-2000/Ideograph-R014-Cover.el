@@ -183,7 +183,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 303 10)
-    (chinese-cns11643-4 . #x2237)	; ø»—¢œ
+    (=cns11643-4	. #x2237)	; ø»—¢œ
     (=hanziku-1		. #xE4A3)	; ý¢€ž’£
     ))
 (define-char
@@ -822,7 +822,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 15)
     (hanyu-dazidian	1 389 16)
-    (chinese-cns11643-4 . #x4922)	; ø»˜›™
+    (=cns11643-4	. #x4922)	; ø»˜›™
     (ideograph-daikanwa . 01600)	; ø¸€™€
     (=hanziku-1		. #xF5FC)	; ý¢€Ÿ—¼
     (=ucs		. #x34C4)	; ã“„

@@ -152,7 +152,7 @@
     (ideographic-radical . 114)	; â½±
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (chinese-cns11643-4 . #x395B)	; ø»˜„²
+    (=cns11643-4	. #x395B)	; ø»˜„²
     (=ucs		. #x2573E)	; ð¥œ¾
     ))
 (define-char
@@ -237,7 +237,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(=ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-cns11643-4 . #x2127)	; ø»— ®
+       ((=cns11643-4	    . #x2127)	; ø»— ®
 	)
        ((=big5-cdp	    . #x88AC)	; ý¢€ˆ¢¬
 	))

@@ -83,7 +83,7 @@
     (ideographic-radical . 166)	; â¾¥
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (chinese-cns11643-4 . #x357A)	; ø»—¿™
+    (=cns11643-4	. #x357A)	; ø»—¿™
     (=ucs		. #x491A)	; ä¤š
     ))
 (define-char

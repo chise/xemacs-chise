@@ -77,7 +77,7 @@
     (ideographic-radical . 10)	; â¼‰
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
-    (chinese-cns11643-4 . #x213D)	; ø»—¡„
+    (=cns11643-4	. #x213D)	; ø»—¡„
     ))
 (define-char
   '((=>ucs		. #x5142)	; å…‚
@@ -167,7 +167,7 @@
       )
      ((=ucs		  . #x513F)	; å„¿
       ))
-    (chinese-cns11643-4 . #x215C)	; ø»—¡£
+    (=cns11643-4	. #x215C)	; ø»—¡£
     (ideograph-daikanwa . 01342)	; ø¸€”¾
     (=hanziku-1		. #xDCE4)	; ý¢€³¤
     (mojikyo		. 001342)	; ý €€”¾
@@ -287,7 +287,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
     (hanyu-dazidian	1 268 1)
-    (chinese-cns11643-4 . #x2232)	; ø»—¢—
+    (=cns11643-4	. #x2232)	; ø»—¢—
     (ideograph-daikanwa . 01346)	; ø¸€•‚
     (=big5-cdp		. #x8AA1)	; ý¢€ˆª¡
     (mojikyo		. 001346)	; ý €€•‚
@@ -533,7 +533,7 @@
       )
      ((=ucs		  . #x513F)	; å„¿
       ))
-    (chinese-cns11643-4 . #x2233)	; ø»—¢˜
+    (=cns11643-4	. #x2233)	; ø»—¢˜
     (ideograph-daikanwa . 01354)	; ø¸€•Š
     (=hanziku-1		. #xDCE6)	; ý¢€³¦
     (=jef-china3	. #x43D4)	; øº„”
@@ -814,7 +814,7 @@
      ((=ucs		  . #x20477)	; ð ‘·
       ))
     (=jis-x0212		. #x3267)	; ø»Š¾”
-    (chinese-cns11643-4 . #x233B)	; ø»—£¾
+    (=cns11643-4	. #x233B)	; ø»—£¾
     (ideograph-daikanwa . 01362)	; ø¸€•’
     (=jef-china3	. #x43D6)	; øº„–
     (=ucs@jis		. #x514F)	; ø»Š¾”
@@ -1008,7 +1008,7 @@
       )
      ((=ucs		  . #x5142)	; å…‚
       ))
-    (chinese-cns11643-4 . #x253F)	; ø»—¦¾
+    (=cns11643-4	. #x253F)	; ø»—¦¾
     ))
 (define-char
   '((=>ucs		. #x5153)	; å…“
@@ -1365,7 +1365,7 @@
      ((=ucs		  . #x53F0)	; å°
       ))
     (=jis-x0212		. #x326B)	; ø»Š¾˜
-    (chinese-cns11643-4 . #x2840)	; ø»—«™
+    (=cns11643-4	. #x2840)	; ø»—«™
     (ideograph-daikanwa . 01378)	; ø¸€•¢
     (=hanziku-1		. #xDE6B)	; ý¢€¹«
     (=jef-china3	. #x43D8)	; øº„˜
@@ -1478,7 +1478,7 @@
       )
      ((=ucs		  . #x5144)	; å…„
       ))
-    (chinese-cns11643-4 . #x2B69)	; ø»—°œ
+    (=cns11643-4	. #x2B69)	; ø»—°œ
     (ideograph-daikanwa . 01382)	; ø¸€•¦
     (=hanziku-1		. #xDE71)	; ý¢€¹±
     (mojikyo		. 001382)	; ý €€•¦

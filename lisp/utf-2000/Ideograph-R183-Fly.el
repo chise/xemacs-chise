@@ -116,7 +116,7 @@
     (ideographic-radical . 183)	; â¾¶
     (ideographic-strokes . 13)
     (total-strokes	 . 22)
-    (chinese-cns11643-4 . #x6964)	; ø»™‹›
+    (=cns11643-4	. #x6964)	; ø»™‹›
     (=ucs		. #x2967C)	; ð©™¼
     ))
 (define-char

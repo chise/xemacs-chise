@@ -193,7 +193,7 @@
     (ideographic-radical . 67)	; â½‚
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
-    (chinese-cns11643-4 . #x2D47)	; ø»—²¶
+    (=cns11643-4	. #x2D47)	; ø»—²¶
     (=ucs		. #x658A)	; æ–Š
     ))
 (define-char

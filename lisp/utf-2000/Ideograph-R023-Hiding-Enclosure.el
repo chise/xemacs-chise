@@ -609,7 +609,7 @@
       )
      ((=ucs		  . #x8652)	; è™’
       ))
-    (chinese-cns11643-4 . #x3650)	; ø»˜€
+    (=cns11643-4	. #x3650)	; ø»˜€
     (ideograph-daikanwa . 02692)	; ø¸€ª„
     ))
 (define-char
