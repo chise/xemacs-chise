@@ -1,3 +1,17 @@
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_name_table): New variable.
+	(Qname): New variable.
+	(Fget_char_attribute): Use `Vcharacter_name_table' for `name'
+	attribute.
+	(Fput_char_attribute): Use function `put_char_ccs_code_point'; use
+	`Vcharacter_name_table' for `name' attribute.
+	(Fremove_char_attribute): Use function `remove_char_ccs'.
+	(put_char_ccs_code_point): New function.
+	(remove_char_ccs): New function.
+	(syms_of_mule_charset): Add new symbol `name'.
+	(vars_of_mule_charset): Setup `Vcharacter_name_table'.
+
 2000-05-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (make_byte_table): Add new argument `older'.
