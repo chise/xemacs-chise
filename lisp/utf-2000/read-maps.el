@@ -126,7 +126,7 @@
 	    (put-char-attribute chr ccs code))
 	  (when (and ucs-code
 		     (not (eq (or (encode-char chr ucs-ccs 'defined-only)
-				  (get-char-attribute chr '=>ucs))
+				  (char-feature chr '=>ucs))
 			      ucs-code)))
 	    (put-char-attribute chr ucs-ccs ucs-code))
 	  (when (and ucs
@@ -136,7 +136,7 @@
                                                             =ucs-jis-2000
 							    ;; ucs-big5
 							    )))
-				       (get-char-attribute chr '=>ucs)))
+				       (char-feature chr '=>ucs)))
 			      ucs)))
 	    (if (or ucs-code (null ucs-ccs))
 		(put-char-attribute chr '=>ucs ucs)
