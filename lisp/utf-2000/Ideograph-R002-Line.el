@@ -2,12 +2,14 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
+    (ideograph-cdp	. 156)
     (chinese-gb2312		. #x582D)	; ø»…—‚
     (japanese-jisx0212		. #x3029)	; ø»Šºš
     (chinese-isoir165		. #x582D)	; ø»¿’
     (chinese-cns11643-3		. #x2121)	; ø»•–¤
     (japanese-jisx0213-1	. #x2E24)	; ø»¢¦…
     (ideograph-gt-pj-2		. #x3053)	; ý¡€€¥
+    (chinese-big5		. #x8B76)	; ä¸¨
     (ideograph-daikanwa		. 00067)	; ø¸€ƒ
     (ideograph-gt		. 00101)	; ý¡€€¥
     (mojikyo			. 000067)	; ý €€ƒ
@@ -65,7 +67,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (ideographic-cdp	. 160)
+    (ideograph-cdp	. 160)
     (shinjigen-1	. 32)
     (shinjigen-2	. 32)
     (chinese-gb2312		. #x513E)	; ø»…
@@ -106,7 +108,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideographic-cdp	. 164)
+    (ideograph-cdp	. 164)
     (shinjigen-1	. 34)
     (shinjigen-2	. 34)
     (japanese-jisx0208-1978	. #x4366)	; ø»‚¯
@@ -127,7 +129,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideographic-cdp	. 322)
+    (ideograph-cdp	. 322)
     (ideographic-structure
      (:cdp-combinator	3
       :char	((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
@@ -183,7 +185,7 @@
     (ideographic-radical . 2)	; â¼
     (ideographic-strokes . 3)
     (total-strokes	 . 4)
-    (ideographic-cdp	. 161)
+    (ideograph-cdp	. 161)
     (chinese-cns11643-1 . #x4464)	; ø»‘¶¹
     (chinese-big5	. #xA4A5)	; øºŸ£š
     ))
@@ -198,7 +200,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 4)
     (total-strokes	 . 5)
-    (ideographic-cdp	. 342)
+    (ideograph-cdp	. 342)
     (shinjigen-1	. 36)
     (shinjigen-2	. 36)
     (japanese-jisx0208-1978	. #x5025)	; ø»ƒ†
@@ -236,7 +238,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 6)
     (total-strokes	 . 7)
-    (ideographic-cdp	. 173)
+    (ideograph-cdp	. 173)
     (shinjigen-1	. 38)
     (shinjigen-2	. 38)
     (japanese-jisx0208-1978	. #x367A)	; ø»‚œ
@@ -275,7 +277,7 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
-    (ideographic-cdp	. 175)
+    (ideograph-cdp	. 175)
     (chinese-cns11643-2 . #x2531)	; ø»“’¨
     (ideograph-gt-pj-2	. #x305E)	; ý¡€€µ
     (chinese-big5	. #xCBB1)	; øº¡«
