@@ -981,6 +981,106 @@ get_unallocated_leading_byte (int dimension)
 }
 
 #ifdef UTF2000
+Lisp_Object
+range_charset_code_point (Lisp_Object charset, Emchar ch)
+{
+  int d;
+
+  if ((XCHARSET_UCS_MIN (charset) <= ch)
+      && (ch <= XCHARSET_UCS_MAX (charset)))
+    {
+      d = ch - XCHARSET_UCS_MIN (charset) + XCHARSET_CODE_OFFSET (charset);
+		       
+      if (XCHARSET_DIMENSION (charset) == 1)
+	return list1 (make_int (d + XCHARSET_BYTE_OFFSET (charset)));
+      else if (XCHARSET_DIMENSION (charset) == 2)
+	return list2 (make_int (d / XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d % XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)));
+      else if (XCHARSET_DIMENSION (charset) == 3)
+	return list3 (make_int (d / (XCHARSET_CHARS (charset)
+					* XCHARSET_CHARS (charset))
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d / XCHARSET_CHARS (charset)
+				% XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d % XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)));
+      else /* if (XCHARSET_DIMENSION (charset) == 4) */
+	return list4 (make_int (d / (XCHARSET_CHARS (charset)
+					* XCHARSET_CHARS (charset)
+					* XCHARSET_CHARS (charset))
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d / (XCHARSET_CHARS (charset)
+					* XCHARSET_CHARS (charset))
+				% XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d / XCHARSET_CHARS (charset)
+				% XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)),
+		      make_int (d % XCHARSET_CHARS (charset)
+				+ XCHARSET_BYTE_OFFSET (charset)));
+    }
+  else if (XCHARSET_CODE_OFFSET (charset) == 0)
+    {
+      if (XCHARSET_DIMENSION (charset) == 1)
+	{
+	  if (XCHARSET_CHARS (charset) == 94)
+	    {
+	      if (((d = ch - (MIN_CHAR_94
+			      + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
+		  && (d < 94))
+		return list1 (make_int (d + 33));
+	    }
+	  else if (XCHARSET_CHARS (charset) == 96)
+	    {
+	      if (((d = ch - (MIN_CHAR_96
+			      + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
+		  && (d < 96))
+		return list1 (make_int (d + 32));
+	    }
+	  else
+	    return Qnil;
+	}
+      else if (XCHARSET_DIMENSION (charset) == 2)
+	{
+	  if (XCHARSET_CHARS (charset) == 94)
+	    {
+	      if (((d = ch - (MIN_CHAR_94x94
+			      + (XCHARSET_FINAL (charset) - '0') * 94 * 94))
+		   >= 0)
+		  && (d < 94 * 94))
+		return list2 ((d / 94) + 33, d % 94 + 33);
+	    }
+	  else if (XCHARSET_CHARS (charset) == 96)
+	    {
+	      if (((d = ch - (MIN_CHAR_96x96
+			      + (XCHARSET_FINAL (charset) - '0') * 96 * 96))
+		   >= 0)
+		  && (d < 96 * 96))
+		return list2 ((d / 96) + 32, d % 96 + 32);
+	    }
+	}
+    }
+  return Qnil;
+}
+
+Lisp_Object
+charset_code_point (Lisp_Object charset, Emchar ch)
+{
+  Lisp_Object cdef = get_char_code_table (ch, Vcharacter_attribute_table);
+
+  if (!EQ (cdef, Qnil))
+    {
+      Lisp_Object field = Fassq (charset, cdef);
+
+      if (!EQ (field, Qnil))
+	return Fcdr (field);
+    }
+  return range_charset_code_point (charset, ch);
+}
+
 unsigned char
 charset_get_byte1 (Lisp_Object charset, Emchar ch)
 {
