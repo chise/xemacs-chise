@@ -299,7 +299,7 @@
     (ucs		. #x8228)	; 舨
     ))
 (define-char
-  '((->ucs		. #x8228)	; 舨
+  '((=>ucs		. #x8228)	; 舨
     (morohashi-daikanwa	30382 0 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 4)
@@ -394,7 +394,7 @@
     (ucs		. #x822D)	; 舭
     ))
 (define-char
-  '((->ucs		. #x822D)	; 舭
+  '((=>ucs		. #x822D)	; 舭
     (morohashi-daikanwa	30390 0 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 4)
@@ -460,7 +460,7 @@
     (ucs		. #x8231)	; 舱
     ))
 (define-char
-  '((->ucs		. #x8232)	; 舲
+  '((=>ucs		. #x8232)	; 舲
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
@@ -614,7 +614,7 @@
     (ideograph-daikanwa . 30406)	; �����
     ))
 (define-char
-  '((->ucs		. #x8239)	; 船
+  '((=>ucs		. #x8239)	; 船
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 5)
     (total-strokes	 . 11)
@@ -624,7 +624,7 @@
     (ideograph-daikanwa		. 30407)	; �����
     ))
 (define-char
-  '((->ucs		. #x8239)	; 船
+  '((=>ucs		. #x8239)	; 船
     (morohashi-daikanwa	30407 0 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 5)
@@ -852,7 +852,7 @@
     (ucs		. #x823F)	; 舿
     ))
 (define-char
-  '((->ucs		. #x8240)	; 艀
+  '((=>ucs		. #x8240)	; 艀
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
@@ -872,7 +872,7 @@
     (ucs		. #x8240)	; 艀
     ))
 (define-char
-  '((->ucs		. #x8241)	; 艁
+  '((=>ucs		. #x8241)	; 艁
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
@@ -904,7 +904,7 @@
     (ucs		. #x8243)	; 艃
     ))
 (define-char
-  '((->ucs		. #x8244)	; 艄
+  '((=>ucs		. #x8244)	; 艄
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
@@ -921,7 +921,7 @@
     (ucs		. #x8244)	; 艄
     ))
 (define-char
-  '((->ucs		. #x8244)	; 艄
+  '((=>ucs		. #x8244)	; 艄
     (morohashi-daikanwa	30435 0 2 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 7)
@@ -966,7 +966,7 @@
     (ucs			. #x8246)	; 艆
     ))
 (define-char
-  '((->ucs		. #x8247)	; 艇
+  '((=>ucs		. #x8247)	; 艇
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 7)
     (total-strokes	 . 13)
@@ -1318,7 +1318,7 @@
     (ucs			. #x447A)	; 䑺
     ))
 (define-char
-  '((->ucs		. #x447A)	; 䑺
+  '((=>ucs		. #x447A)	; 䑺
     (morohashi-daikanwa	30480 0 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 9)
@@ -1365,7 +1365,7 @@
     (ucs		. #x8253)	; 艓
     ))
 (define-char
-  '((->ucs		. #x8253)	; 艓
+  '((=>ucs		. #x8253)	; 艓
     (morohashi-daikanwa	30485 0 0)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 9)
@@ -1737,7 +1737,7 @@
     (ucs		. #x825B)	; 艛
     ))
 (define-char
-  '((->ucs		. #x825B)	; 艛
+  '((=>ucs		. #x825B)	; 艛
     (morohashi-daikanwa	30525 0 1)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 11)
@@ -1745,7 +1745,7 @@
     (chinese-cns11643-2 . #x5E5D)	; �����
     ))
 (define-char
-  '((->ucs		. #x4483)	; 䒃
+  '((=>ucs		. #x4483)	; 䒃
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 11)
     (total-strokes	 . 17)
@@ -1939,7 +1939,7 @@
     (ucs		. #x4486)	; 䒆
     ))
 (define-char
-  '((->ucs		. #x4486)	; 䒆
+  '((=>ucs		. #x4486)	; 䒆
     (morohashi-daikanwa	30548 0 1)
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 11)
@@ -2114,7 +2114,7 @@
     (ideograph-daikanwa . 30568)	; �����
     ))
 (define-char
-  '((->ucs		. #x4488)	; 䒈
+  '((=>ucs		. #x4488)	; 䒈
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 13)
     (total-strokes	 . 19)
@@ -2229,6 +2229,7 @@
     (japanese-jisx0213-2	. #x7573)	; �����
     (ideograph-daikanwa		. 30579)	; �����
     (mojikyo			. 030579)	; ������
+    (ucs			. #x26AB7)	; 𦪷
     ))
 (define-char
   '((ideographic-radical . 137)	; ⾈
@@ -2346,7 +2347,7 @@
     (chinese-cns11643-7 . #x5C4C)	; �����
     ))
 (define-char
-  '((->ucs		. #x826D)	; 艭
+  '((=>ucs		. #x826D)	; 艭
     (ideographic-radical . 137)	; ⾈
     (ideographic-strokes . 18)
     (total-strokes	 . 24)
