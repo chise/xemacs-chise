@@ -1,3 +1,29 @@
+2003-03-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R209-Nose.el, Ideograph-R210-Even.el,
+	Ideograph-R198-Deer.el, Ideograph-R189-Tall.el,
+	Ideograph-R187-Horse.el, Ideograph-R181-Leaf.el,
+	Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R170-Mound.el,
+	Ideograph-R169-Gate.el, Ideograph-R164-Wine.el,
+	Ideograph-R163-City.el, Ideograph-R160-Bitter.el,
+	Ideograph-R162-Walk.el, Ideograph-R157-Foot.el,
+	Ideograph-R154-Shell.el, Ideograph-R149-Speech.el,
+	Ideograph-R147-See.el, Ideograph-R145-Clothes.el,
+	Ideograph-R142-Insect.el, Ideograph-R141-Tiger.el,
+	Ideograph-R125-Old.el, Ideograph-R140-Grass.el,
+	Ideograph-R122-Net.el, Ideograph-R120-Silk.el,
+	Ideograph-R118-Bamboo.el, Ideograph-R116-Cave.el,
+	Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
+	Ideograph-R087-Claw.el, Ideograph-R094-Dog.el,
+	Ideograph-R086-Fire.el, Ideograph-R085-Water.el,
+	Ideograph-R075-Tree.el, Ideograph-R074-Moon.el,
+	Ideograph-R072-Sun.el, Ideograph-R061-Heart.el,
+	Ideograph-R053-Dotted-Cliff.el, Ideograph-R044-Corpse.el,
+	Ideograph-R032-Earth.el, Ideograph-R030-Mouth.el,
+	Ideograph-R020-Wrap.el, Ideograph-R009-Man.el,
+	Ideograph-R005-Second.el, Ideograph-R004-Slash.el: Rename
+	`=ucs-ks' to `=ucs@ks'.
+
 2003-03-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R085-Water.el (JX1-7654): Rename `=ucs-jis-2000' to
