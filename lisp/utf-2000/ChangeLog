@@ -1,3 +1,23 @@
+2001-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge some CBETA numbers.
+	- Merge Big5 code points.
+
+	* Ideograph-R025-Divination.el (U+535D): Unify BC-8BF9.
+	(U+5364): Unify BC-8A56.
+	(U-000209EA): Unify BC-8AA6.
+	- Add some `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char' properties.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+
+	* Ideograph-R052-Short-Thread.el, Ideograph-R051-Dry.el: Merge
+	Big5 code points.
+
+	* Ideograph-R027-Cliff.el: Merge some CJK Ext-B code points.
+
 2001-11-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R003-Dot.el (U-0002007E): Moved from
