@@ -1,3 +1,45 @@
+2001-08-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R028-Private.el (U+53BC): Unify G1-7D29; delete
+	`kangxi-radical' and `kangxi-strokes'; delete `non-morohashi'.
+	(C6-2251): Delete `non-morohashi'.
+	(U+53C3): Unify G1-324E.
+
+2001-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Add missing JIS X 0208:1990 and JIS X
+	0212 code points.
+
+2001-08-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el (U+8748): Add `total-strokes'.
+	(G0-3275): Fix `ideographic-strokes'; delete `kangxi-strokes',
+	`daikanwa-radical' and `daikanwa-strokes'.
+	(U+877E): Add `total-strokes'.
+	(U+87A8): Likewise.
+	(U+87CF): Likewise.  Add missing JIS X 0208:1990 and JIS X 0212
+	code points.
+
+	* Ideograph-R140-Grass.el (C6-4D68): Fix `ideographic-strokes'.
+	(G0-3D2F): Add `total-strokes'; delete `japanese-strokes'.
+	Add missing JIS X 0208:1990 and JIS X 0212 code points.
+
+	* Ideograph-R118-Bamboo.el: Add missing JIS X 0208:1990 code
+	points.
+
+	* Ideograph-R115-Grain.el: Add missing JIS X 0212 and JIS X
+	0208:1990 code points.
+
+2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el (M-38710): Add `total-strokes'; separate
+	U+8FBA.
+	(U+8FBA): Unify J90-4A55; relate to M-38710.
+	(J90-4D5A): New character; relate to U+9065.
+	(G0-5223): Fix `ideographic-strokes'; add `total-strokes'.
+
+	* Ideograph-R159-Cart.el: Add missing JIS X 0208:1990 code points.
+
 2001-08-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R158-Body.el (U+8EC5): Add `total-strokes'; unify
