@@ -38,6 +38,15 @@ Boston, MA 02111-1307, USA.  */
 #define BYTE_C1_P(c) ((unsigned int) ((unsigned int) (c) - 0x80) < 0x20)
 
 
+/************************************************************************/
+/*                        Dealing with characters                       */
+/************************************************************************/
+
+/* Is this character represented by more than one byte in a string? */
+
+#define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
+
+
 /* ---------------------------------------------------------------------- */
 /* (A) For working with charptr's (pointers to internally-formatted text) */
 /* ---------------------------------------------------------------------- */
