@@ -1,3 +1,7 @@
+2003-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R064-Hand.el (M-12236): Unify GT-15509.
+
 2003-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R180-Sound.el: Reformatted.
