@@ -399,13 +399,17 @@
 		     (insert
 		      (format
 		       (if has-long-ccs-name
-			   (if (eq ret (find-charset 'ideograph-daikanwa))
+			   (if (memq ret
+				     (list (find-charset 'ideograph-daikanwa)
+					   (find-charset 'mojikyo)))
 			       "(%-26s . %05d)\t; %c
     "
 			     "(%-26s . #x%X)\t; %c
     "
 			     )
-			 (if (eq ret (find-charset 'ideograph-daikanwa))
+			 (if (memq ret
+				   (list (find-charset 'ideograph-daikanwa)
+					 (find-charset 'mojikyo)))
 			     "(%-18s . %05d)\t; %c
     "
 			   "(%-18s . #x%X)\t; %c
@@ -442,6 +446,10 @@
 				 (car cell)
 				 (mapconcat (function prin1-to-string)
 					    (cdr cell) " "))))
+		((eq (car cell) 'jisx0208-1978/4X)
+		 (insert (format "(%-18s . #x%04X)
+    "
+				 (car cell)(cdr cell))))
 		(t
 		 (insert (format "(%-18s . %S)
     "
@@ -458,7 +466,8 @@
 
 (defun decode-builtin-char (charset code-point)
   (setq charset (get-charset charset))
-  (if (and (not (eq (charset-name charset) 'ideograph-daikanwa))
+  (if (and (not (memq (charset-name charset)
+		      '(ideograph-daikanwa mojikyo)))
 	   (or (memq (charset-name charset)
 		     '(ascii latin-viscii-upper
 			     latin-viscii-lower
