@@ -7,6 +7,7 @@
     (japanese-jisx0208		. #x734E)	; ø»ˆ‰‘
     (korean-ksc5601		. #x586A)	; ø»‰¬‡
     (japanese-jisx0208-1990	. #x734E)	; ø½‹¯…
+    (chinese-gb12345		. #x4273)	; éº¥
     (ideograph-daikanwa		. 47717)	; ø¸‹©¥
     (ucs			. #x9EA5)	; éº¥
     ))
@@ -275,7 +276,8 @@
     (chinese-cns11643-4 . #x4F4B)	; ø»˜¤¶
     ))
 (define-char
-  '((ideographic-radical . 199)	; â¿†
+  '((=>ucs		. #x9EA9)	; éº©
+    (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (shinjigen-2	. 0)
@@ -283,7 +285,6 @@
     (japanese-jisx0208		. #x734F)	; ø»ˆ‰’
     (japanese-jisx0208-1990	. #x734F)	; ø½‹¯†
     (ideograph-daikanwa		. 47739)	; ø¸‹©»
-    (ucs			. #x9EA9)	; éº©
     ))
 (define-char
   '((->ucs		. #x9EA9)	; éº©
@@ -292,6 +293,14 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 15)
     (chinese-cns11643-1 . #x702B)	; ø»’¶¨
+    ))
+(define-char
+  '((morohashi-daikanwa	47739 0 5)
+    (ideographic-radical . 199)	; â¿†
+    (ideographic-strokes . 4)
+    (total-strokes	 . 15)
+    (chinese-gb12345	. #x746F)	; éº©
+    (ucs		. #x9EA9)	; éº©
     ))
 (define-char
   '((ideographic-radical . 199)	; â¿†
@@ -689,13 +698,13 @@
     (chinese-cns11643-5 . #x6074)	; ø»›ˆ¡
     ))
 (define-char
-  '((ideographic-radical . 199)	; â¿†
+  '((=>ucs		. #x9EAF)	; éº¯
+    (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
     (japanese-jisx0212		. #x6C6C)	; ø»Œ“¥
     (japanese-jisx0213-1	. #x7E6E)	; ø»¤œ¯
     (ideograph-daikanwa		. 47771)	; ø¸‹ª›
-    (ucs			. #x9EAF)	; éº¯
     ))
 (define-char
   '((->ucs		. #x9EAF)	; éº¯
@@ -704,6 +713,14 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 17)
     (chinese-cns11643-3 . #x5750)	; ø»–¦§
+    ))
+(define-char
+  '((morohashi-daikanwa	47771 0 5)
+    (ideographic-radical . 199)	; â¿†
+    (ideographic-strokes . 6)
+    (total-strokes	 . 17)
+    (chinese-gb12345	. #x7865)	; éº¯
+    (ucs		. #x9EAF)	; éº¯
     ))
 (define-char
   '((ideographic-radical . 199)	; â¿†
@@ -1364,6 +1381,7 @@
     (ideographic-radical . 199)	; â¿†
     (ideographic-strokes . 9)
     (total-strokes	 . 20)
+    (chinese-gb12345	. #x7859)	; éºµ
     (mojikyo		. 053638)	; ý €††
     (ucs		. #x9EB5)	; éºµ
     ))

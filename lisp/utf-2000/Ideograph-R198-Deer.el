@@ -717,8 +717,16 @@
     (ideographic-radical . 198)	; â¿…
     (ideographic-strokes . 8)
     (total-strokes	 . 19)
-    (chinese-cns11643-1 . #x795E)	; ø»“„©
+    (chinese-gb12345	. #x4076)	; éº—
     (ucs		. #x9E97)	; éº—
+    ))
+(define-char
+  '((=>ucs		. #x9E97)	; éº—
+    (morohashi-daikanwa	47663 0 2)
+    (ideographic-radical . 198)	; â¿…
+    (ideographic-strokes . 8)
+    (total-strokes	 . 19)
+    (chinese-cns11643-1 . #x795E)	; ø»“„©
     ))
 (define-char
   '((ideographic-radical . 198)	; â¿…

@@ -104,11 +104,19 @@
     (ideograph-daikanwa		. 48341)	; ø¸‹³•
     ))
 (define-char
-  '((morohashi-daikanwa	48341 0 0)
+  '((=>ucs		. #x9F15)	; é¼•
+    (morohashi-daikanwa	48341 0 0)
     (ideographic-radical . 207)	; â¿Ž
     (ideographic-strokes . 5)
     (total-strokes	 . 18)
     (chinese-cns11643-1 . #x7829)	; ø»“‚–
+    ))
+(define-char
+  '((morohashi-daikanwa	48341 0 1)
+    (ideographic-radical . 207)	; â¿Ž
+    (ideographic-strokes . 5)
+    (total-strokes	 . 18)
+    (chinese-gb12345	. #x782E)	; é¼•
     (ucs		. #x9F15)	; é¼•
     ))
 (define-char
