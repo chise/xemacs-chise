@@ -2202,6 +2202,7 @@
 (define-char
   '((ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 12)
+    (total-strokes	 . 16)
     (=ucs		. #x6B5A)	; 歚
     ))
 (define-char
