@@ -1,3 +1,7 @@
+1999-06-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-ccl.c (ccl_driver): Fix `CCL_WriteMultibyteChar2'.
+
 1999-06-24  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (mule_decode): Setup `str->ccl.last_block'.
