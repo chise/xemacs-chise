@@ -18,12 +18,14 @@
 (define-char
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
-    (japanese-strokes	 . 1)
     (total-strokes	 . 5)
+    (shinjigen-1	. 4872)
     (=ucs		. #x738A)	; 玊
     (=cns11643-2	. #x2166)	; &I-C2-2166; [01-70]
     (=jis-x0213-2-2000	. #x705A)	; &I-JX2-705A; [80-58]
     (=big5		. #xC9A7)	; &I-B-C9A7;
+    (=gt		. 26659)	; &I-GT-26659;
+    (=gt-pj-4		. #x6D73)	; &I-GT-26659; [77-83]
     (=daikanwa		. 20822)	; &I-M-20822;
     ))
 (define-char
@@ -46,8 +48,17 @@
   '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x7389)	; 玉
+      (=daikanwa	  . 20821)	; &I-M-20821;
+      ))
+    (<-ideographic-component-forms*sources
+     zihui/char-index daikanwa)
+    (shinjigen-1	. 4874)
     (=ucs		. #x248E9)	; 𤣩
     (=cns11643-5	. #x214C)	; &I-C5-214C; [01-44]
+    (=gt		. 26658)	; &I-GT-26658;
+    (=gt-pj-4		. #x6D74)	; &I-GT-26658; [77-84]
     (=daikanwa		. 20824)	; &I-M-20824;
     ))
 (define-char
@@ -3219,29 +3230,26 @@
     (=ucs		. #x7439)	; 琹
     ))
 (define-char
-  '((=>ucs		. #x7434)	; 琴
-    (ideographic-radical . 96)	; ⽟
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (shinjigen-2	. 4918)
-    (=jis-x0208		. #x3657)	; &GT-26940; [22-55]
-    (=ks-x1001		. #x5056)	; &I-K0-5056; [48-54]
-    (=cns11643-1	. #x6064)	; &I-C1-6064; [64-68]
-    (=big5		. #xB55E)	; &I-B-B55E;
-    (=gt		. 26940)	; &I-GT-26940;
-    (=gt-k		. 09038)	; &I-GT-K09038;
-    (=gt-pj-1		. #x3657)	; &I-GT-26940; [22-55]
-    (=daikanwa		. 21079)	; &I-M-21079;
-    (=ucs@jis		. #x7434)	; &GT-26940;
-    (mojikyo		. 021079)	; &MCS-60005257;
-    ))
-(define-char
-  '((morohashi-daikanwa	21079 0 1)
-    (ideographic-radical . 96)	; ⽟
+  '((ideographic-radical . 96)	; ⽟
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x7434)	; 琴
-    (=gb2312		. #x4759)	; &I-G0-4759; [39-57]
+    (=big5		. #xB55E)	; &I-B-B55E;
+    (->subsumptive
+     ((shinjigen-2	  . 4918)
+      (=jis-x0208	  . #x3657)	; &GT-26940; [22-55]
+      (=ks-x1001	  . #x5056)	; &I-K0-5056; [48-54]
+      (=cns11643-1	  . #x6064)	; &I-C1-6064; [64-68]
+      (=gt		  . 26940)	; &I-GT-26940;
+      (=gt-k		  . 09038)	; &I-GT-K09038;
+      (=gt-pj-1		  . #x3657)	; &I-GT-26940; [22-55]
+      (=daikanwa	  . 21079)	; &I-M-21079;
+      (=ucs@jis		  . #x7434)	; &GT-26940;
+      (mojikyo		  . 021079)	; &MCS-60005257;
+      )
+     ((=gb2312		  . #x4759)	; &G0-4759; [39-57]
+      (=ucs@unicode	  . #x7434)	; &G0-4759;
+      ))
     ))
 (define-char
   '((=>ucs		. #x7435)	; 琵

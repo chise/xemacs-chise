@@ -1344,26 +1344,24 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (<-simplified@JP/Jouyou
-     ((=jis-x0208	  . #x6551)	; &GT-35730; [69-49]
-      (=ks-x1001	  . #x7A63)	; &I-K0-7A63; [90-67]
-      (=daikanwa	  . 27784)	; &I-M-27784;
-      ))
     (=ucs		. #x770C)	; 県
-    (=jis-x0208		. #x3829)	; &I-J90-3829; [24-09]
-    (=gt		. 29668)	; &I-GT-29668;
-    (=gt-k		. 05063)	; &I-GT-K05063;
-    (=gt-pj-1		. #x3829)	; &I-GT-29668; [24-09]
-    ))
-(define-char
-  '((=>ucs		. #x770C)	; 県
-    (morohashi-daikanwa	23210 1 0)
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 4)
-    (total-strokes	 . 9)
-    (hanyu-dazidian	4 2478 4)
-    (=hanziku-7		. #xAA67)	; &HZK07-AA67;
-    (mojikyo		. 050295)	; &MCS-6000C477;
+    (->subsumptive
+     ((<-simplified@JP/Jouyou
+       ((=jis-x0208	    . #x6551)	; &GT-35730; [69-49]
+	(=ks-x1001	    . #x7A63)	; &I-K0-7A63; [90-67]
+	(=daikanwa	    . 27784)	; &I-M-27784;
+	))
+      (shinjigen-1	  . 6140)
+      (=jis-x0208	  . #x3829)	; &GT-29668; [24-09]
+      (=gt		  . 29668)	; &I-GT-29668;
+      (=gt-k		  . 05063)	; &I-GT-K05063;
+      (=gt-pj-1		  . #x3829)	; &I-GT-29668; [24-09]
+      (=ucs@unicode	  . #x770C)	; &GT-29668;
+      (mojikyo		  . 050295)	; &MCS-6000C477;
+      )
+     ((hanyu-dazidian	  4 2478 4)
+      (=hanziku-7	  . #xAA67)	; &HZK07-AA67;
+      ))
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬

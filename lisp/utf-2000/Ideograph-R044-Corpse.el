@@ -126,6 +126,13 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 2)
+    (total-strokes	 . 5)
+    (=ucs		. #x21C28)	; 𡰨
+    (=daikanwa		. 07639)	; &I-M-07639;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 3)
     (total-strokes	 . 6)
     (=ucs		. #x21C29)	; 𡰩
@@ -213,6 +220,13 @@
     (=cns11643-6	. #x244F)	; &I-C6-244F; [04-47]
     (=big5-cdp		. #x8D6C)	; &I-CDP-8D6C;
     (=daikanwa		. 07648)	; &I-M-07648;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 3)
+    (total-strokes	 . 6)
+    (=ucs		. #x21C32)	; 𡰲
+    (=daikanwa		. 07649)	; &I-M-07649;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -2288,28 +2302,25 @@
     (=cns11643-5	. #x6B7D)	; &C5-6B7D; [75-93]
     ))
 (define-char
-  '((=>ucs		. #x5C6C)	; 屬
-    (ideographic-radical . 44)	; ⼫
+  '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 18)
     (total-strokes	 . 21)
-    (shinjigen-2	. 1942)
-    (=jis-x0208		. #x5624)	; &GT-09844; [54-04]
-    (=ks-x1001		. #x6155)	; &I-K0-6155; [65-53]
-    (=gt		. 09844)	; &I-GT-09844;
-    (=gt-pj-1		. #x5624)	; &I-GT-09844; [54-04]
-    (=daikanwa		. 07821)	; &I-M-07821;
-    (=ucs@jis		. #x5C6C)	; &GT-09844;
-    ))
-(define-char
-  '((morohashi-daikanwa	7821 0 1)
-    (ideographic-radical . 44)	; ⼫
-    (ideographic-strokes . 18)
-    (total-strokes	 . 21)
-    (shinjigen-2	. 1942)
     (=ucs		. #x5C6C)	; 屬
-    (=cns11643-1	. #x7A68)	; &I-C1-7A68; [90-72]
-    (=gb12345		. #x4A74)	; 屬 [42-84]
-    (=big5		. #xC4DD)	; &I-B-C4DD;
+    (->subsumptive
+     ((shinjigen-1	  . 1942)
+      (shinjigen-2	  . 1942)
+      (=jis-x0208	  . #x5624)	; &GT-09844; [54-04]
+      (=ks-x1001	  . #x6155)	; &I-K0-6155; [65-53]
+      (=big5		  . #xC4DD)	; &I-B-C4DD;
+      (=gt		  . 09844)	; &I-GT-09844;
+      (=gt-pj-1		  . #x5624)	; &I-GT-09844; [54-04]
+      (=daikanwa	  . 07821)	; &I-M-07821;
+      (=ucs@jis		  . #x5C6C)	; &GT-09844;
+      )
+     ((=cns11643-1	  . #x7A68)	; &C1-7A68; [90-72]
+      (=gb12345		  . #x4A74)	; &C1-7A68; [42-84]
+      (=ucs@unicode	  . #x5C6C)	; &C1-7A68;
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫

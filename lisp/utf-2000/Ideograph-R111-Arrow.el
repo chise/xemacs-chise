@@ -17,6 +17,19 @@
     ))
 (define-char
   '((ideographic-radical . 111)	; ⽮
+    (ideographic-strokes . 0)
+    (total-strokes	 . 5)
+    (<-denotational
+     ((=ucs		  . #x77E2)	; 矢
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x77E2)	; 矢
+      ))
+    (=gt-k		. 01013)	; &GT-K01013;
+    (=gt-pj-k1		. #x3526)	; &GT-K01013; [21-06]
+    ))
+(define-char
+  '((ideographic-radical . 111)	; ⽮
     (ideographic-strokes . 2)
     (total-strokes	 . 7)
     (shinjigen-2	. 5390)

@@ -75,7 +75,8 @@
       (save-char-attribute-table attribute))
 
     (dolist (ccs (charset-list))
-      (save-charset-properties ccs)
+      (and (fboundp 'save-charset-properties)
+	   (save-charset-properties ccs))
       (save-charset-mapping-table ccs))
 
     (with-temp-buffer

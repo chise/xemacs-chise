@@ -1142,35 +1142,26 @@
     (=cns11643-1	. #x566D)	; &I-C1-566D; [54-77]
     ))
 (define-char
-  '((=>ucs		. #x75BE)	; 疾
-    (ideographic-radical . 104)	; ⽧
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (shinjigen-2	. 5102)
-    (=jis-x0208		. #x3C40)	; &GT-28350; [28-32]
-    (=ks-x1001		. #x7270)	; &I-K0-7270; [82-80]
-    (=big5		. #xAF65)	; &I-B-AF65;
-    (=gt		. 28350)	; &I-GT-28350;
-    (=gt-k		. 06449)	; &I-GT-K06449;
-    (=gt-pj-1		. #x3C40)	; &I-GT-28350; [28-32]
-    (=daikanwa		. 22112)	; &I-M-22112;
-    (=ucs@jis		. #x75BE)	; &GT-28350;
-    ))
-(define-char
-  '((morohashi-daikanwa	22112 0 0)
-    (ideographic-radical . 104)	; ⽧
+  '((ideographic-radical . 104)	; ⽧
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
     (=ucs		. #x75BE)	; 疾
-    (=gb2312		. #x3C32)	; &I-G0-3C32; [28-18]
-    ))
-(define-char
-  '((=>ucs		. #x75BE)	; 疾
-    (morohashi-daikanwa	22112 0 1)
-    (ideographic-radical . 104)	; ⽧
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (=cns11643-1	. #x5668)	; &C1-5668; [54-72]
+    (=big5		. #xAF65)	; &I-B-AF65;
+    (->subsumptive
+     ((shinjigen-2	  . 5102)
+      (=jis-x0208	  . #x3C40)	; &GT-28350; [28-32]
+      (=ks-x1001	  . #x7270)	; &I-K0-7270; [82-80]
+      (=gt		  . 28350)	; &I-GT-28350;
+      (=gt-k		  . 06449)	; &I-GT-K06449;
+      (=gt-pj-1		  . #x3C40)	; &I-GT-28350; [28-32]
+      (=daikanwa	  . 22112)	; &I-M-22112;
+      (=ucs@jis		  . #x75BE)	; &GT-28350;
+      )
+     ((=gb2312		  . #x3C32)	; &G0-3C32; [28-18]
+      (=ucs@unicode	  . #x75BE)	; &G0-3C32;
+      )
+     ((=cns11643-1	  . #x5668)	; &C1-5668; [54-72]
+      ))
     ))
 (define-char
   '((=>ucs		. #x75BF)	; 疿

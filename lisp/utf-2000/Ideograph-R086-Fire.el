@@ -528,36 +528,30 @@
     (=cns11643-3	. #x2663)	; &C3-2663; [06-67]
     ))
 (define-char
-  '((=>ucs		. #x707C)	; 灼
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=jis-x0208-1978	. #x3C5E)	; &M-18878; [28-62]
-    (=ks-x1001		. #x6D47)	; &I-K0-6D47; [77-39]
-    (=big5		. #xA860)	; &I-B-A860;
-    (=daikanwa		. 18878)	; &I-M-18878;
-    ))
-(define-char
-  '((morohashi-daikanwa	18878 0 2)
-    (ideographic-radical . 86)	; ⽕
+  '((ideographic-radical . 86)	; ⽕
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
     (=ucs		. #x707C)	; 灼
-    (=gb2312		. #x5746)	; &I-G0-5746; [55-38]
-    (=jis-x0208-1983	. #x3C5E)	; &I-J83-3C5E; [28-62]
-    (=jis-x0208-1990	. #x3C5E)	; &I-J90-3C5E; [28-62]
-    (=gt		. 24182)	; &I-GT-24182;
-    (=gt-k		. 02569)	; &I-GT-K02569;
-    (=gt-pj-1		. #x3C5E)	; &I-GT-24182; [28-62]
-    (=jef-china3	. #x58AA)	; &I-JC3-58AA;
-    ))
-(define-char
-  '((=>ucs		. #x707C)	; 灼
-    (morohashi-daikanwa	18878 0 3)
-    (ideographic-radical . 86)	; ⽕
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=cns11643-1	. #x4B23)	; &C1-4B23; [43-03]
+    (=big5		. #xA860)	; &I-B-A860;
+    (->subsumptive
+     ((=jis-x0208-1978	  . #x3C5E)	; &GT-24181; [28-62]
+      (=ks-x1001	  . #x6D47)	; &I-K0-6D47; [77-39]
+      (=gt		  . 24181)	; &I-GT-24181;
+      (=gt-k		  . 02568)	; &I-GT-K02568;
+      (=gt-pj-4		  . #x5A44)	; &I-GT-24181; [58-36]
+      (=daikanwa	  . 18878)	; &I-M-18878;
+      )
+     ((=gb2312		  . #x5746)	; &GT-24182; [55-38]
+      (=jis-x0208-1983	  . #x3C5E)	; &I-J83-3C5E; [28-62]
+      (=jis-x0208-1990	  . #x3C5E)	; &I-J90-3C5E; [28-62]
+      (=gt		  . 24182)	; &I-GT-24182;
+      (=gt-k		  . 02569)	; &I-GT-K02569;
+      (=gt-pj-1		  . #x3C5E)	; &I-GT-24182; [28-62]
+      (=jef-china3	  . #x58AA)	; &I-JC3-58AA;
+      (=ucs@unicode	  . #x707C)	; &GT-24182;
+      )
+     ((=cns11643-1	  . #x4B23)	; &C1-4B23; [43-03]
+      ))
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕
@@ -3335,6 +3329,12 @@
     (total-strokes	 . 10)
     (hanyu-dazidian	3 2201 6)
     (=hanziku-6		. #xC4F6)	; &HZK06-C4F6;
+    ))
+(define-char
+  '((ideographic-radical . 86)	; ⽕
+    (ideographic-strokes . 6)
+    (total-strokes	 . 10)
+    (=big5-cdp		. #x8BE3)	; &CDP-8BE3;
     ))
 (define-char
   '((ideographic-radical . 86)	; ⽕

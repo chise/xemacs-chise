@@ -567,15 +567,7 @@
       (=daikanwa	  . 07516)	; &M-07516;
       (=hanziku-1	  . #xCC7C)	; &I-HZK01-CC7C;
       )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
-	(=ucs		    . #x2FF1)	; ⿱
-	)
-       ((=ucs		    . #x5C12)	; 尒
-	)
-       ((=big5-cdp	    . #x87C1)	; &CDP-87C1;
-	))
-      (=cns11643-6	  . #x3E65)	; &C6-3E65; [30-69]
+     ((=cns11643-6	  . #x3E65)	; &C6-3E65; [30-69]
       (=ucs@iso		  . #x202D3)	; &C6-3E65;
       ))
     ))

@@ -357,7 +357,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x456F)	; &C1-456F; [37-79]
+     ((=cns11643-1	  . #x456F)	; &GT-K01023; [37-79]
       )
      ((=ucs		  . #x6BDB)	; 毛
       ))
@@ -373,7 +373,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; ⿰
       )
-     ((=cns11643-1	  . #x456F)	; &C1-456F; [37-79]
+     ((=cns11643-1	  . #x456F)	; &GT-K01023; [37-79]
       )
      ((=cns11643-1	  . #x4553)	; &C1-4553; [37-51]
       ))

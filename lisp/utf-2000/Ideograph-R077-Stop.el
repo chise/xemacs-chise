@@ -376,6 +376,7 @@
     (=ucs		. #x6B68)	; 歨
     (=cns11643-3	. #x2955)	; &I-C3-2955; [09-53]
     (=daikanwa		. 16277)	; &I-M-16277;
+    (=hanziku-4		. #xD2ED)	; &I-HZK04-D2ED;
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌
@@ -1069,40 +1070,33 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (=ucs		. #x2398B)	; 𣦋
+    (->subsumptive
+     ((=ucs@iso		  . #x2398B)	; &UU+2398B;
+      )
+     ((hanyu-dazidian	  2 1444 5)
+      (=hanziku-4	  . #xD3B4)	; &HZK04-D3B4;
+      ))
     ))
 (define-char
-  '((=>ucs		. #x2398B)	; 𣦋
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 8)
-    (total-strokes	 . 12)
-    (hanyu-dazidian	2 1444 5)
-    (=hanziku-4		. #xD3B4)	; &HZK04-D3B4;
-    ))
-(define-char
-  '((=>ucs		. #x6B70)	; 歰
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 9)
-    (total-strokes	 . 13)
-    (=jis-x0212		. #x457C)	; &M-16324; [37-92]
-    (=daikanwa		. 16324)	; &I-M-16324;
-    (=ucs@jis		. #x6B70)	; &M-16324;
-    ))
-(define-char
-  '((morohashi-daikanwa	16324 0 1)
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
+  '((ideographic-radical . 77)	; ⽌
     (=ucs		. #x6B70)	; 歰
-    (=cbeta		. 00613)	; &I-CB00613;
-    (mojikyo		. 016324)	; &MCS-60003FC4;
-    ))
-(define-char
-  '((=>ucs		. #x6B70)	; 歰
-    (morohashi-daikanwa	16324 0 3)
-    (ideographic-radical . 77)	; ⽌
-    (ideographic-strokes . 10)
-    (total-strokes	 . 14)
-    (=cns11643-4	. #x442D)	; &C4-442D; [36-13]
+    (->subsumptive
+     ((ideographic-strokes . 9)
+      (total-strokes	   . 13)
+      (=jis-x0212	  . #x457C)	; &M-16324; [37-92]
+      (=daikanwa	  . 16324)	; &I-M-16324;
+      (=ucs@jis		  . #x6B70)	; &M-16324;
+      )
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 14)
+      (=cbeta		  . 00613)	; &CB00613;
+      (=ucs@unicode	  . #x6B70)	; &CB00613;
+      (mojikyo		  . 016324)	; &MCS-60003FC4;
+      )
+     ((ideographic-strokes . 10)
+      (total-strokes	   . 14)
+      (=cns11643-4	  . #x442D)	; &C4-442D; [36-13]
+      ))
     ))
 (define-char
   '((ideographic-radical . 77)	; ⽌

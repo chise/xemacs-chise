@@ -1495,8 +1495,13 @@
   '((ideographic-radical . 154)	; ⾙
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
-    (=cns11643-6	. #x585E)	; &M-36757; [56-62]
-    (=daikanwa		. 36757)	; &I-M-36757;
+    (=ucs		. #x27D69)	; 𧵩
+    (->subsumptive
+     ((=daikanwa	  . 36757)	; &M-36757;
+      (=ucs@iso		  . #x27D69)	; &M-36757;
+      )
+     ((=cns11643-6	  . #x585E)	; &C6-585E; [56-62]
+      ))
     ))
 (define-char
   '((ideographic-radical . 154)	; ⾙

@@ -16,18 +16,28 @@
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
+    (ideographic-strokes . 0)
+    (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8C46)	; 豆
+      ))
+    (=gt-k		. 02620)	; &GT-K02620;
+    (=gt-pj-k1		. #x3459)	; &GT-K02620; [20-57]
+    ))
+(define-char
+  '((ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 2)
     (total-strokes	 . 9)
     (=ucs		. #x27BDA)	; 𧯚
-    (=daikanwa		. 36246)	; &I-M-36246;
-    ))
-(define-char
-  '((=>ucs		. #x27BDA)	; 𧯚
-    (morohashi-daikanwa	36246 0 0)
-    (ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 2)
-    (total-strokes	 . 9)
-    (=cns11643-6	. #x3455)	; &C6-3455; [20-53]
+    (->subsumptive
+     ((=daikanwa	  . 36246)	; &M-36246;
+      (=ucs@iso		  . #x27BDA)	; &M-36246;
+      )
+     ((=cns11643-6	  . #x3455)	; &C6-3455; [20-53]
+      ))
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
@@ -90,7 +100,8 @@
   '((ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
-    (=daikanwa		. 36251)	; &M-36251;
+    (=ucs		. #x27BDD)	; 𧯝
+    (=daikanwa		. 36251)	; &I-M-36251;
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖
@@ -115,14 +126,32 @@
   '((ideographic-radical . 151)	; ⾖
     (ideographic-strokes . 4)
     (total-strokes	 . 11)
-    (=daikanwa		. 36254)	; &M-36254;
+    (=ucs		. #x27BDE)	; 𧯞
+    (=daikanwa		. 36254)	; &I-M-36254;
     ))
 (define-char
-  '((ideographic-radical . 151)	; ⾖
-    (ideographic-strokes . 4)
-    (total-strokes	 . 11)
+  '((total-strokes	 . 11)
     (=ucs		. #x3AB7)	; 㪷
-    (=cns11643-3	. #x392B)	; &I-C3-392B; [25-11]
+    (->subsumptive
+     ((ideographic-radical . 68)	; ⽃
+      (ideographic-strokes . 7)
+      (ideographic-radical*sources daikanwa cbeta ucs)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=ucs		    . #x8C46)	; 豆
+	)
+       ((=ucs		    . #x6597)	; 斗
+	))
+      (=daikanwa	  . 13507)	; &M-13507;
+      (=cbeta		  . 00356)	; &I-CB00356;
+      (=ucs@unicode	  . #x3AB7)	; &M-13507;
+      )
+     ((ideographic-radical . 151)	; ⾖
+      (ideographic-strokes . 4)
+      (=cns11643-3	  . #x392B)	; &C3-392B; [25-11]
+      ))
     ))
 (define-char
   '((ideographic-radical . 151)	; ⾖

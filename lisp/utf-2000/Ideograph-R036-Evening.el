@@ -1129,61 +1129,55 @@
     (=hanziku-3		. #xAEAA)	; &I-HZK03-AEAA;
     ))
 (define-char
-  '((=>ucs		. #x20199)	; 𠆙
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 14)
+  '((ideographic-radical@ucs . 8)	; ⼇
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@ucs*sources
+     ucs)
+    (ideographic-radical@daikanwa . 36)	; ⼣
+    (ideographic-strokes@daikanwa . 14)
+    (ideographic-strokes@daikanwa*sources
+     daikanwa)
     (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x4462)	; &GT-00406; [36-66]
-      (=ks-x1001	  . #x6F4D)	; &I-K0-6F4D; [79-45]
-      (=daikanwa	  . 00303)	; &I-M-00303;
-      )
-     ((=daikanwa	  . 05763)	; &M-05763;
-      ))
-    (=daikanwa		. 05824)	; &M-05824;
-    ))
-(define-char
-  '((=>ucs		. #x20199)	; 𠆙
-    (morohashi-daikanwa	5824 0 1)
-    (ideographic-radical . 36)	; ⼣
-    (ideographic-strokes . 14)
-    (total-strokes	 . 17)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=jis-x0208	  . #x4462)	; &GT-00406; [36-66]
-      (=ks-x1001	  . #x6F4D)	; &I-K0-6F4D; [79-45]
-      (=daikanwa	  . 00303)	; &I-M-00303;
-      )
-     ((=jis-x0208	  . #x4C6B)	; &GT-07291; [44-75]
-      (=ks-x1001	  . #x6528)	; &I-K0-6528; [69-08]
-      ))
-    (=cbeta		. 00833)	; &CB00833;
-    ))
-(define-char
-  '((morohashi-daikanwa	5824 0 2)
-    (ideographic-	(:radical	8 ; ⼇
-			 :strokes	15
-			 :sources	(ucs))
-			(:radical	36 ; ⼣
-			 :strokes	14
-			 :strokes	(morohashi-daikanwa)))
-    (total-strokes	 . 17)
-    (hanyu-dazidian	1 294 4)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
-      (=ucs		  . #x2FF0)	; ⿰
-      )
-     ((=ucs		  . #x4EAD)	; 亭
-      )
-     ((=ucs		  . #x591C)	; 夜
-      ))
     (=ucs		. #x20199)	; 𠆙
-    (=hanziku-1		. #xE2B7)	; &I-HZK01-E2B7;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x4462)	; &GT-00406; [36-66]
+	(=ks-x1001	    . #x6F4D)	; &I-K0-6F4D; [79-45]
+	(=daikanwa	    . 00303)	; &I-M-00303;
+	)
+       ((=daikanwa	    . 05763)	; &M-05763;
+	))
+      (=daikanwa	  . 05824)	; &M-05824;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=jis-x0208	    . #x4462)	; &GT-00406; [36-66]
+	(=ks-x1001	    . #x6F4D)	; &I-K0-6F4D; [79-45]
+	(=daikanwa	    . 00303)	; &I-M-00303;
+	)
+       ((=jis-x0208	    . #x4C6B)	; &GT-07291; [44-75]
+	(=ks-x1001	    . #x6528)	; &I-K0-6528; [69-08]
+	))
+      (=cbeta		  . 00833)	; &CB00833;
+      )
+     ((hanyu-dazidian	  1 294 4)
+      (ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(=ucs		    . #x2FF0)	; ⿰
+	)
+       ((=gb2312	    . #x4D24)	; &C1-4F68; [45-04]
+	(=cns11643-1	    . #x4F68)	; &I-C1-4F68; [47-72]
+	)
+       ((=ucs		    . #x591C)	; 夜
+	))
+      (=hanziku-1	  . #xE2B7)	; &HZK01-E2B7;
+      (=ucs@iso		  . #x20199)	; &HZK01-E2B7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 36)	; ⼣

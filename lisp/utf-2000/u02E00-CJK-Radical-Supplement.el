@@ -706,6 +706,7 @@
     (=ucs		. #x2EBE)	; ⺾
     (=gb2312		. #x5C33)	; &I-G0-5C33; [60-19]
     (=jis-x0213-2-2000	. #x7576)	; &I-JX2-7576; [85-86]
+    (=big5-cdp		. #x8957)	; &I-CDP-8957;
     (=gt		. 39639)	; &I-GT-39639;
     (=gt-k		. 00279)	; &I-GT-K00279;
     (=gt-pj-9		. #x4F47)	; &I-GT-39639; [47-39]
@@ -834,6 +835,7 @@
      ((=ucs		  . #x8BA0)	; 讠
       ))
     (=ucs		. #x2EC8)	; ⻈
+    (=big5-cdp		. #x8963)	; &I-CDP-8963;
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED SHELL")
@@ -850,7 +852,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x8DB3)	; 足
+      ))
     (=ucs		. #x2ECA)	; ⻊
+    (=gt-k		. 02600)	; &I-GT-K02600;
+    (=gt-pj-k1		. #x3436)	; ⻊ [20-22]
     ))
 (define-char
   '((name		. "CJK RADICAL C-SIMPLIFIED CART")

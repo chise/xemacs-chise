@@ -180,10 +180,10 @@ Lisp_Object
 put_char_ccs_code_point (Lisp_Object character,
 			 Lisp_Object ccs, Lisp_Object value)
 {
-  if ( !(EQ (XCHARSET_NAME (ccs), Qmap_ucs)
-	 && INTP (value) && (XINT (value) < 0xF0000))
-       || !INTP (value)
-       /* || (XCHAR (character) != XINT (value)) */ )
+  if ( !( EQ (XCHARSET_NAME (ccs), Qmap_ucs)
+	  && INTP (value) && (XINT (value) < 0xF0000)
+	  && XCHAR (character) == XINT (value) )
+       || !INTP (value) )
     {
       Lisp_Object v = XCHARSET_DECODING_TABLE (ccs);
       int code_point;
@@ -970,7 +970,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
     {
       if ( CHARSETP (mother) )
 	{
-	  int code
+	  EMACS_INT code
 	    = decode_ccs_conversion (XCHARSET_CONVERSION (charset),
 				     code_point);
 
@@ -2563,7 +2563,8 @@ Make a builtin character from CHARSET and code-point CODE.
 */
        (charset, code))
 {
-  int c;
+  EMACS_INT c;
+  Emchar ch;
 
   charset = Fget_charset (charset);
   CHECK_INT (code);
@@ -2597,9 +2598,9 @@ Make a builtin character from CHARSET and code-point CODE.
   if (XCHARSET_GRAPHIC (charset) == 1)
     c &= 0x7F7F7F7F;
 #endif
-  c = decode_builtin_char (charset, c);
+  ch = decode_builtin_char (charset, c);
   return
-    c >= 0 ? make_char (c) : Fdecode_char (charset, code, Qnil, Qnil);
+    ch >= 0 ? make_char (ch) : Fdecode_char (charset, code, Qnil, Qnil);
 }
 #endif
 

@@ -58,6 +58,12 @@
     (=gb2312		. #x4232)	; &I-G0-4232; [34-18]
     ))
 (define-char
+  '((ideographic-radical . 141)	; ⾌
+    (ideographic-strokes . 2)
+    (total-strokes	 . 8)
+    (=cbeta		. 08839)	; &CB08839;
+    ))
+(define-char
   '((=>ucs		. #x2719C)	; 𧆜
     (ideographic-radical . 141)	; ⾌
     (ideographic-strokes . 3)

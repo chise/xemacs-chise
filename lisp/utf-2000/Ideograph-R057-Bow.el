@@ -747,31 +747,44 @@
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 2276)
     (=ucs		. #x5F25)	; 弥
-    (=jis-x0208		. #x4C6F)	; &I-J90-4C6F; [44-79]
-    (=gb2312		. #x4356)	; &I-G0-4356; [35-54]
-    (=cns11643-3	. #x2870)	; &I-C3-2870; [08-80]
-    (=gt		. 12292)	; &I-GT-12292;
-    (=gt-k		. 03844)	; &I-GT-K03844;
-    (=gt-pj-1		. #x4C6F)	; &I-GT-12292; [44-79]
-    (=daikanwa		. 09753)	; &I-M-09753;
+    (->subsumptive
+     ((shinjigen-2	  . 2276)
+      (=jis-x0208	  . #x4C6F)	; &GT-12292; [44-79]
+      (=cns11643-3	  . #x2870)	; &I-C3-2870; [08-80]
+      (=gt		  . 12292)	; &I-GT-12292;
+      (=gt-k		  . 03844)	; &I-GT-K03844;
+      (=gt-pj-1		  . #x4C6F)	; &I-GT-12292; [44-79]
+      (=daikanwa	  . 09753)	; &I-M-09753;
+      (=ucs@jis		  . #x5F25)	; &GT-12292;
+      )
+     ((=cbeta		  . 07460)	; &CB07460;
+      )
+     ((=gb2312		  . #x4356)	; &HZK03-CAD7; [35-54]
+      (=hanziku-3	  . #xCAD7)	; &I-HZK03-CAD7;
+      (=ucs@unicode	  . #x5F25)	; &HZK03-CAD7;
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (shinjigen-2	. 2273)
     (=ucs		. #x5F26)	; 弦
-    (=jis-x0208		. #x3839)	; &I-J90-3839; [24-25]
-    (=gb2312		. #x4F52)	; &I-G0-4F52; [47-50]
-    (=ks-x1001		. #x7A57)	; &I-K0-7A57; [90-55]
-    (=cns11643-1	. #x4D38)	; &I-C1-4D38; [45-24]
     (=big5		. #xA9B6)	; &I-B-A9B6;
-    (=gt		. 12277)	; &I-GT-12277;
-    (=gt-k		. 03691)	; &I-GT-K03691;
-    (=gt-pj-1		. #x3839)	; &I-GT-12277; [24-25]
-    (=daikanwa		. 09754)	; &I-M-09754;
+    (->subsumptive
+     ((shinjigen-2	  . 2273)
+      (=jis-x0208	  . #x3839)	; &GT-12277; [24-25]
+      (=ks-x1001	  . #x7A57)	; &I-K0-7A57; [90-55]
+      (=gt		  . 12277)	; &I-GT-12277;
+      (=gt-k		  . 03691)	; &I-GT-K03691;
+      (=gt-pj-1		  . #x3839)	; &I-GT-12277; [24-25]
+      (=daikanwa	  . 09754)	; &I-M-09754;
+      (=ucs@jis		  . #x5F26)	; &GT-12277;
+      )
+     ((=gb2312		  . #x4F52)	; &C1-4D38; [47-50]
+      (=cns11643-1	  . #x4D38)	; &I-C1-4D38; [45-24]
+      (=ucs@unicode	  . #x5F26)	; &C1-4D38;
+      ))
     ))
 (define-char
   '((ideographic-radical . 57)	; ⼸

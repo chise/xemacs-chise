@@ -2809,23 +2809,31 @@
     (=daikanwa		. 39497)	; &I-M-39497;
     ))
 (define-char
+  '((ideographic-radical . 163)	; ⾢
+    (=ucs		. #x90FD)	; 都
+    ))
+(define-char
   '((morohashi-daikanwa	39497 1)
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
+    (<-denotational
+     ((=ucs		  . #x90FD)	; 都
+      ))
     (<-simplified@JP/Jouyou
      ((name		  . "CJK COMPATIBILITY IDEOGRAPH-FA26")
       (=ucs		  . #xFA26)	; 都
       (=jis-x0213-1-2000  . #x7C6A)	; &I-JX1-7C6A; [92-74]
       ))
-    (=ucs		. #x90FD)	; 都
-    (=jis-x0208		. #x4554)	; &I-J90-4554; [37-52]
+    (shinjigen-1	. 8455)
+    (=jis-x0208		. #x4554)	; &GT-53115; [37-52]
     (=gb2312		. #x363C)	; &I-G0-363C; [22-28]
     (=cns11643-1	. #x5D67)	; &I-C1-5D67; [61-71]
     (=big5		. #xB3A3)	; &I-B-B3A3;
     (=gt		. 53115)	; &I-GT-53115;
     (=gt-k		. 07844)	; &I-GT-K07844;
     (=gt-pj-1		. #x4554)	; &I-GT-53115; [37-52]
+    (=ucs@unicode	. #x90FD)	; &GT-53115;
     (mojikyo		. 050540)	; &MCS-6000C56C;
     ))
 (define-char
@@ -3008,6 +3016,10 @@
     (ideographic-radical . 163)	; ⾢
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-denotational
+     ((=ucs		  . #x90FD)	; 都
+      ))
+    (shinjigen-1	. 8456)
     (=ucs		. #xFA26)	; 都
     (=ks-x1001		. #x5434)	; &I-K0-5434; [52-20]
     (=jis-x0213-1-2000	. #x7C6A)	; &I-JX1-7C6A; [92-74]
