@@ -1,3 +1,10 @@
+2003-12-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R184-Eat.el (M-44037'): Unify GT-59087; use
+	`->same-ideograph' and `->same-ideograph*sources' instead of
+	`ideograph='.
+	(M-44459'): Unify GT-59896.
+
 2003-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R196-Bird.el (M-46875): Separate U+4CD0 and C3-5746.
