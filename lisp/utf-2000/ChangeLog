@@ -1,3 +1,31 @@
+2004-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Print
+	`ideographic-radical@DOMAIN', `ideographic-strokes@DOMAIN' and
+	`total-strokes@DOMAIN' as `ideographic-radical',
+	`ideographic-strokes' and `total-strokes' even if DOMAIN is not
+	found in `char-db-feature-domains'.
+
+	* Ideograph-R188-Bone.el:
+	- Use `{<-|->}denotational' for some character definitions to
+	  separate GB characters.
+	- Add missing `=ucs@jis' features.
+
+	* ideograph-util.el (update-ideograph-radical-table): Check every
+	absolute features matched to `ideographic-radical@DOMAIN' instead
+	of using `char-db-feature-domains'.
+
+	* Ideograph-R148-Horn.el, Ideograph-R140-Grass.el:
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+	- Add missing `=ucs@jis' features.
+
+	* Ideograph-R118-Bamboo.el, Ideograph-R116-Cave.el: Add missing
+	`=ucs@jis' features.
+
+	* Ideograph-R112-Stone.el (U+791B): Use `->subsumptive'.
+	(JX2-725D): Add missing `=ucs@jis' features.
+
 2004-11-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R194-Ghost.el, Ideograph-R187-Horse.el,
