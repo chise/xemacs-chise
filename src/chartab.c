@@ -4,6 +4,7 @@
    Copyright (C) 1995, 1996 Ben Wing.
    Copyright (C) 1995, 1997, 1999 Electrotechnical Laboratory, JAPAN.
    Licensed to the Free Software Foundation.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -65,6 +66,16 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 
 #ifdef UTF2000
+
+static void
+decode_char_table_range (Lisp_Object range, struct chartab_range *outrange);
+
+int
+map_char_id_table (Lisp_Char_ID_Table *ct,
+		   struct chartab_range *range,
+		   int (*fn) (struct chartab_range *range,
+			      Lisp_Object val, void *arg),
+		   void *arg);
 
 #define BT_UINT8_MIN		0
 #define BT_UINT8_MAX	(UCHAR_MAX - 3)
@@ -859,49 +870,134 @@ make_char_id_table (Lisp_Object initval)
 
 
 Lisp_Object
-get_char_id_table (Emchar ch, Lisp_Object table)
+get_char_id_table (Lisp_Char_ID_Table* cit, Emchar ch)
 {
   unsigned int code = ch;
 
-  return
-    get_byte_table
-    (get_byte_table
-     (get_byte_table
-      (get_byte_table
-       (XCHAR_ID_TABLE (table)->table,
-	(unsigned char)(code >> 24)),
-       (unsigned char) (code >> 16)),
-      (unsigned char)  (code >> 8)),
-     (unsigned char)    code);
+  return get_byte_table (get_byte_table
+			 (get_byte_table
+			  (get_byte_table
+			   (cit->table,
+			    (unsigned char)(code >> 24)),
+			   (unsigned char) (code >> 16)),
+			  (unsigned char)  (code >> 8)),
+			 (unsigned char)    code);
+}
+
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value);
+INLINE_HEADER void
+put_char_id_table_0 (Lisp_Char_ID_Table* cit, Emchar code, Lisp_Object value)
+{
+  Lisp_Object table1, table2, table3, table4;
+	
+  table1 = cit->table;
+  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
+  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
+  table4 = get_byte_table (table3, (unsigned char)(code >>  8));
+
+  table4     = put_byte_table (table4, (unsigned char) code, value);
+  table3     = put_byte_table (table3, (unsigned char)(code >>  8), table4);
+  table2     = put_byte_table (table2, (unsigned char)(code >> 16), table3);
+  cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
 void
-put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
+put_char_id_table (Lisp_Char_ID_Table* cit,
+		   Lisp_Object character, Lisp_Object value)
 {
-  unsigned int code = ch;
-  Lisp_Object table1, table2, table3, table4;
+  struct chartab_range range;
 
-  table1 = XCHAR_ID_TABLE (table)->table;
-  table2 = get_byte_table (table1, (unsigned char)(code >> 24));
-  table3 = get_byte_table (table2, (unsigned char)(code >> 16));
-  table4 = get_byte_table (table3, (unsigned char)(code >> 8));
+  decode_char_table_range (character, &range);
+  switch (range.type)
+    {
+    case CHARTAB_RANGE_ALL:
+      cit->table = value;
+      break;
+    case CHARTAB_RANGE_CHARSET:
+      {
+	Emchar c;
+	Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (range.charset);
 
-  table4 = put_byte_table (table4, (unsigned char)code,         value);
-  table3 = put_byte_table (table3, (unsigned char)(code >> 8),  table4);
-  table2 = put_byte_table (table2, (unsigned char)(code >> 16), table3);
-  XCHAR_ID_TABLE (table)->table
-    = put_byte_table (table1, (unsigned char)(code >> 24), table2);
+	if ( CHAR_ID_TABLE_P (encoding_table) )
+	  {
+	    for (c = 0; c < 1 << 24; c++)
+	      {
+		if ( INTP (get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+					      c)) )
+		  put_char_id_table_0 (cit, c, value);
+	      }
+	  }
+	else
+	  {
+	    for (c = 0; c < 1 << 24; c++)
+	      {
+		if ( charset_code_point (range.charset, c) >= 0 )
+		  put_char_id_table_0 (cit, c, value);
+	      }
+	  }
+      }
+      break;
+    case CHARTAB_RANGE_ROW:
+      {
+	int cell_min, cell_max, i;
+
+	if (XCHARSET_DIMENSION (range.charset) < 2)
+	  signal_simple_error ("Charset in row vector must be multi-byte",
+			       range.charset);
+	else
+	  {
+	    switch (XCHARSET_CHARS (range.charset))
+	      {
+	      case 94:
+		cell_min = 33; cell_max = 126;
+		break;
+	      case 96:
+		cell_min = 32; cell_max = 127;
+		break;
+	      case 128:
+		cell_min = 0; cell_max = 127;
+		break;
+	      case 256:
+		cell_min = 0; cell_max = 255;
+		break;
+	      default:
+		abort ();
+	      }
+	  }
+	if (XCHARSET_DIMENSION (range.charset) == 2)
+	  check_int_range (range.row, cell_min, cell_max);
+	else if (XCHARSET_DIMENSION (range.charset) == 3)
+	  {
+	    check_int_range (range.row >> 8  , cell_min, cell_max);
+	    check_int_range (range.row & 0xFF, cell_min, cell_max);
+	  }
+	else if (XCHARSET_DIMENSION (range.charset) == 4)
+	  {
+	    check_int_range ( range.row >> 16       , cell_min, cell_max);
+	    check_int_range ((range.row >> 8) & 0xFF, cell_min, cell_max);
+	    check_int_range ( range.row       & 0xFF, cell_min, cell_max);
+	  }
+	else
+	  abort ();
+
+	for (i = cell_min; i <= cell_max; i++)
+	  {
+	    Emchar ch = DECODE_CHAR (range.charset, (range.row << 8) | i);
+	    if ( charset_code_point (range.charset, ch) >= 0 )
+	      put_char_id_table_0 (cit, ch, value);
+	  }
+      }
+      break;
+    case CHARTAB_RANGE_CHAR:
+      put_char_id_table_0 (cit, range.ch, value);
+      break;
+    }
 }
 
 /* Map FN (with client data ARG) in char table CT.
    Mapping stops the first time FN returns non-zero, and that value
    becomes the return value of map_char_id_table(). */
-int
-map_char_id_table (Lisp_Char_ID_Table *ct,
-		   struct chartab_range *range,
-		   int (*fn) (struct chartab_range *range,
-			      Lisp_Object val, void *arg),
-		   void *arg);
 int
 map_char_id_table (Lisp_Char_ID_Table *ct,
 		   struct chartab_range *range,
@@ -1149,7 +1245,7 @@ Return character corresponding with list.
       Lisp_Object ret;
       Emchar c = to_char_id (v, "Invalid value for composition", list);
 
-      ret = get_char_id_table (c, table);
+      ret = get_char_id_table (XCHAR_ID_TABLE(table), c);
 
       rest = Fcdr (rest);
       if (NILP (rest))
@@ -1175,8 +1271,9 @@ Return variants of CHARACTER.
        (character))
 {
   CHECK_CHAR (character);
-  return Fcopy_list (get_char_id_table (XCHAR (character),
-					Vcharacter_variant_table));
+  return Fcopy_list (get_char_id_table
+		     (XCHAR_ID_TABLE(Vcharacter_variant_table),
+		      XCHAR (character)));
 }
 
 #endif
@@ -2677,7 +2774,7 @@ add_char_attribute_alist_mapper (Lisp_Object key, Lisp_Object value,
   /* This function can GC */
   struct char_attribute_alist_closure *caacl =
     (struct char_attribute_alist_closure*) char_attribute_alist_closure;
-  Lisp_Object ret = get_char_id_table (caacl->char_id, value);
+  Lisp_Object ret = get_char_id_table (XCHAR_ID_TABLE(caacl->char_id), value);
   if (!UNBOUNDP (ret))
     {
       Lisp_Object *char_attribute_alist = caacl->char_attribute_alist;
@@ -2719,8 +2816,9 @@ Return the alist of attributes of CHARACTER.
 	  Lisp_Object cpos;
 
 	  if ( CHAR_ID_TABLE_P (encoding_table)
-	       && INTP (cpos = get_char_id_table (XCHAR (character),
-						  encoding_table)) )
+	       && INTP (cpos
+			= get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+					     XCHAR (character))) )
 	    {
 	      alist = Fcons (Fcons (ccs, cpos), alist);
 	    }
@@ -2743,7 +2841,8 @@ Return DEFAULT-VALUE if the value is not exist.
       Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
       if (CHAR_ID_TABLE_P (encoding_table))
-	return get_char_id_table (XCHAR (character), encoding_table);
+	return get_char_id_table (XCHAR_ID_TABLE(encoding_table),
+				  XCHAR (character));
     }
   else
     {
@@ -2752,7 +2851,8 @@ Return DEFAULT-VALUE if the value is not exist.
 				    Qunbound);
       if (!UNBOUNDP (table))
 	{
-	  Lisp_Object ret = get_char_id_table (XCHAR (character), table);
+	  Lisp_Object ret = get_char_id_table (XCHAR_ID_TABLE(table),
+					       XCHAR (character));
 	  if (!UNBOUNDP (ret))
 	    return ret;
 	}
@@ -2767,16 +2867,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 {
   Lisp_Object ccs;
 
-  CHECK_CHAR (character);
   ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
+      CHECK_CHAR (character);
       return put_char_ccs_code_point (character, ccs, value);
     }
   else if (EQ (attribute, Q_decomposition))
     {
       Lisp_Object seq;
 
+      CHECK_CHAR (character);
       if (!CONSP (value))
 	signal_simple_error ("Invalid value for ->decomposition",
 			     value);
@@ -2805,16 +2906,18 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      rest = Fcdr (rest);
 	      if (!CONSP (rest))
 		{
-		  put_char_id_table (c, character, table);
+		  put_char_id_table (XCHAR_ID_TABLE(table),
+				     make_char (c), character);
 		  break;
 		}
 	      else
 		{
-		  ntable = get_char_id_table (c, table);
+		  ntable = get_char_id_table (XCHAR_ID_TABLE(table), c);
 		  if (!CHAR_ID_TABLE_P (ntable))
 		    {
 		      ntable = make_char_id_table (Qnil);
-		      put_char_id_table (c, ntable, table);
+		      put_char_id_table (XCHAR_ID_TABLE(table),
+					 make_char (c), ntable);
 		    }
 		  table = ntable;
 		}
@@ -2828,12 +2931,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    {
 	      Emchar c = XINT (v);
 	      Lisp_Object ret
-		= get_char_id_table (c, Vcharacter_variant_table);
+		= get_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+				     c);
 
 	      if (NILP (Fmemq (v, ret)))
 		{
-		  put_char_id_table (c, Fcons (character, ret),
-				     Vcharacter_variant_table);
+		  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+				     make_char (c), Fcons (character, ret));
 		}
 	    }
 	  seq = make_vector (1, v);
@@ -2845,16 +2949,17 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       Lisp_Object ret;
       Emchar c;
 
+      CHECK_CHAR (character);
       if (!INTP (value))
 	signal_simple_error ("Invalid value for ->ucs", value);
 
       c = XINT (value);
 
-      ret = get_char_id_table (c, Vcharacter_variant_table);
+      ret = get_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table), c);
       if (NILP (Fmemq (character, ret)))
 	{
-	  put_char_id_table (c, Fcons (character, ret),
-			     Vcharacter_variant_table);
+	  put_char_id_table (XCHAR_ID_TABLE(Vcharacter_variant_table),
+			     make_char (c), Fcons (character, ret));
 	}
 #if 0
       if (EQ (attribute, Q_ucs))
@@ -2871,7 +2976,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
       }
-    put_char_id_table (XCHAR (character), value, table);
+    put_char_id_table (XCHAR_ID_TABLE(table), character, value);
     return value;
   }
 }
@@ -2896,7 +3001,7 @@ Remove CHARACTER's ATTRIBUTE.
 				    Qunbound);
       if (!UNBOUNDP (table))
 	{
-	  put_char_id_table (XCHAR (character), Qunbound, table);
+	  put_char_id_table (XCHAR_ID_TABLE(table), character, Qunbound);
 	  return Qt;
 	}
     }
