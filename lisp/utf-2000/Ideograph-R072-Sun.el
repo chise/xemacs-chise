@@ -48,6 +48,7 @@
     (=gt-k		. 00911)	; &I-GT-K00911;
     (=gt-pj-1		. #x356C)	; &I-GT-17360; [21-76]
     (=daikanwa		. 13737)	; &I-M-13737;
+    (=hanziku-4		. #xDBA9)	; &I-HZK04-DBA9;
     ))
 (define-char
   '((ideographic-radical . 72)	; ⽇
