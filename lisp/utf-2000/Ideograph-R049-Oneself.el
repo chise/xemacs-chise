@@ -113,6 +113,16 @@
   '((ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
+    (hanyu-dazidian	1 69 27)
+    (ideographic-structure
+     (:cdp-combinator	4
+      )
+     ((ucs		  . #x20086)	; ð ‚†
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      )
+     ((ucs		  . #x5DF4)	; å·´
+      ))
     (shinjigen-2	. 847)
     (japanese-jisx0208-1978	. #x5662)	; ø»ƒŠ·
     (japanese-jisx0208		. #x5662)	; ø»‡ž¿
@@ -120,6 +130,7 @@
     (japanese-jisx0208-1990	. #x5662)	; ø½‹„³
     (ideograph-daikanwa		. 08751)	; ø¸‚ˆ¯
     (ideograph-cbeta		. 01682)	; ø¸ š’
+    (chinese-big5-cdp		. #x8AB8)	; ý¢€ˆª¸
     (ucs			. #x5DF5)	; å·µ
     ))
 (define-char

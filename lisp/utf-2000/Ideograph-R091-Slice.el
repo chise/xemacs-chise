@@ -13,7 +13,7 @@
     (ucs			. #x7247)	; 片
     ))
 (define-char
-  '((->ucs		. #x7247)	; 片
+  '((=>ucs		. #x7247)	; 片
     (morohashi-daikanwa	19813 0 2)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 0)
@@ -60,7 +60,7 @@
     (chinese-cns11643-6 . #x2850)	; �����
     ))
 (define-char
-  '((->ucs		. #x7248)	; 版
+  '((=>ucs		. #x7248)	; 版
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
@@ -72,7 +72,7 @@
     (ideograph-daikanwa		. 19817)	; �����
     ))
 (define-char
-  '((->ucs		. #x7248)	; 版
+  '((=>ucs		. #x7248)	; 版
     (morohashi-daikanwa	19817 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 4)
@@ -135,7 +135,7 @@
     (ucs		. #x3E1D)	; 㸝
     ))
 (define-char
-  '((->ucs		. #x3E1D)	; 㸝
+  '((=>ucs		. #x3E1D)	; 㸝
     (morohashi-daikanwa	19821 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 4)
@@ -150,7 +150,7 @@
     (ucs		. #x3E1E)	; 㸞
     ))
 (define-char
-  '((->ucs		. #x3E1E)	; 㸞
+  '((=>ucs		. #x3E1E)	; 㸞
     (morohashi-daikanwa	19822 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 4)
@@ -215,7 +215,7 @@
     (ideograph-daikanwa . 19828)	; �����
     ))
 (define-char
-  '((->ucs		. #x7249)	; 牉
+  '((=>ucs		. #x7249)	; 牉
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
@@ -237,7 +237,7 @@
     (ucs		. #x724A)	; 牊
     ))
 (define-char
-  '((->ucs		. #x724A)	; 牊
+  '((=>ucs		. #x724A)	; 牊
     (morohashi-daikanwa	19830 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 5)
@@ -271,7 +271,7 @@
     (ucs		. #x3E1F)	; 㸟
     ))
 (define-char
-  '((->ucs		. #x3E1F)	; 㸟
+  '((=>ucs		. #x3E1F)	; 㸟
     (morohashi-daikanwa	19833 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 6)
@@ -286,7 +286,7 @@
     (ucs		. #x3E20)	; 㸠
     ))
 (define-char
-  '((->ucs		. #x3E20)	; 㸠
+  '((=>ucs		. #x3E20)	; 㸠
     (morohashi-daikanwa	19834 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 6)
@@ -353,7 +353,7 @@
     (ucs		. #x3E21)	; 㸡
     ))
 (define-char
-  '((->ucs		. #x3E21)	; 㸡
+  '((=>ucs		. #x3E21)	; 㸡
     (morohashi-daikanwa	19839 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 6)
@@ -475,7 +475,7 @@
     (ucs			. #x724B)	; 牋
     ))
 (define-char
-  '((->ucs		. #x724B)	; 牋
+  '((=>ucs		. #x724B)	; 牋
     (morohashi-daikanwa	19849 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
@@ -547,7 +547,7 @@
     (ucs			. #x724C)	; 牌
     ))
 (define-char
-  '((->ucs		. #x724C)	; 牌
+  '((=>ucs		. #x724C)	; 牌
     (morohashi-daikanwa	19854 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
@@ -555,7 +555,7 @@
     (chinese-cns11643-1 . #x6056)	; �����
     ))
 (define-char
-  '((->ucs		. #x724C)	; 牌
+  '((=>ucs		. #x724C)	; 牌
     (morohashi-daikanwa	19854 0 2)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 8)
@@ -701,7 +701,7 @@
     (ucs		. #x724E)	; 牎
     ))
 (define-char
-  '((->ucs		. #x724E)	; 牎
+  '((=>ucs		. #x724E)	; 牎
     (morohashi-daikanwa	19865 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
@@ -735,7 +735,7 @@
     (chinese-cns11643-5 . #x4036)	; �����
     ))
 (define-char
-  '((->ucs		. #x724F)	; 牏
+  '((=>ucs		. #x724F)	; 牏
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
@@ -759,7 +759,7 @@
     (ucs		. #x7250)	; 牐
     ))
 (define-char
-  '((->ucs		. #x7250)	; 牐
+  '((=>ucs		. #x7250)	; 牐
     (morohashi-daikanwa	19869 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
@@ -774,7 +774,7 @@
     (ucs		. #x7251)	; 牑
     ))
 (define-char
-  '((->ucs		. #x7251)	; 牑
+  '((=>ucs		. #x7251)	; 牑
     (morohashi-daikanwa	19870 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
@@ -796,7 +796,7 @@
     (ucs			. #x7252)	; 牒
     ))
 (define-char
-  '((->ucs		. #x7252)	; 牒
+  '((=>ucs		. #x7252)	; 牒
     (morohashi-daikanwa	19871 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 9)
@@ -857,12 +857,13 @@
     (ucs			. #x7253)	; 牓
     ))
 (define-char
-  '((->ucs		. #x7253)	; 牓
+  '((=>ucs		. #x7253)	; 牓
     (morohashi-daikanwa	19876 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 10)
     (total-strokes	 . 14)
     (chinese-cns11643-2 . #x4B6C)	; �����
+    (china3-jef		. #x58C0)	; �����
     ))
 (define-char
   '((ideographic-radical . 91)	; ⽚
@@ -872,7 +873,7 @@
     (ucs		. #x7254)	; 牔
     ))
 (define-char
-  '((->ucs		. #x7254)	; 牔
+  '((=>ucs		. #x7254)	; 牔
     (morohashi-daikanwa	19877 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 10)
@@ -887,7 +888,7 @@
     (ucs		. #x3E22)	; 㸢
     ))
 (define-char
-  '((->ucs		. #x3E22)	; 㸢
+  '((=>ucs		. #x3E22)	; 㸢
     (morohashi-daikanwa	19878 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 10)
@@ -953,10 +954,11 @@
     (japanese-jisx0212		. #x4A55)	; �����
     (japanese-jisx0213-1	. #x7764)	; �����
     (ideograph-daikanwa		. 19883)	; �����
+    (china3-jef			. #x58C1)	; �����
     (ucs			. #x7255)	; 牕
     ))
 (define-char
-  '((->ucs		. #x7255)	; 牕
+  '((=>ucs		. #x7255)	; 牕
     (morohashi-daikanwa	19883 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
@@ -1042,7 +1044,7 @@
     (chinese-cns11643-7 . #x2522)	; �����
     ))
 (define-char
-  '((->ucs		. #x7256)	; 牖
+  '((=>ucs		. #x7256)	; 牖
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
@@ -1051,7 +1053,7 @@
     (ideograph-daikanwa		. 19890)	; �����
     ))
 (define-char
-  '((->ucs		. #x7256)	; 牖
+  '((=>ucs		. #x7256)	; 牖
     (morohashi-daikanwa	19890 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 11)
@@ -1212,7 +1214,7 @@
     (ucs		. #x3E23)	; 㸣
     ))
 (define-char
-  '((->ucs		. #x3E23)	; 㸣
+  '((=>ucs		. #x3E23)	; 㸣
     (morohashi-daikanwa	19901 0 2)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 13)
@@ -1233,7 +1235,7 @@
     (ucs		. #x3E24)	; 㸤
     ))
 (define-char
-  '((->ucs		. #x3E24)	; 㸤
+  '((=>ucs		. #x3E24)	; 㸤
     (morohashi-daikanwa	19903 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 14)
@@ -1322,7 +1324,7 @@
     (ucs		. #x3E25)	; 㸥
     ))
 (define-char
-  '((->ucs		. #x3E25)	; 㸥
+  '((=>ucs		. #x3E25)	; 㸥
     (morohashi-daikanwa	19908 0 1)
     (ideographic-radical . 91)	; ⽚
     (ideographic-strokes . 17)

@@ -2713,6 +2713,23 @@
     (ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 3)
     (total-strokes	 . 11)
+    (ideographic-structure
+     ((name		  . "IDEOGRAPHIC DESCRIPTION CHARACTER OVERLAID")
+      (ucs		  . #x2FFB)	; â¿»
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((ucs		    . #x20089)	; ð ‚‰
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      )
+     ((japanese-jisx0208-1978	  . #x7032)	; ø»ƒ°“
+      (japanese-jisx0208	  . #x7032)	; ø»ˆ„›
+      (ideograph-daikanwa	  . 41937)	; ø¸Š‘
+      ))
     (ideograph-gt-pj-9	. #x4C4B)	; ý¡€°¬
     (ideograph-gt	. 56364)	; ý¡€°¬
     ))

@@ -2,9 +2,7 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 0)
     (total-strokes	 . 1)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 28)
-    (hanyu-dazidian-char . 3)
+    (hanyu-dazidian	1 28 3)
     (japanese-jisx0208-1978	. #x502D)	; ø»ƒŽ
     (japanese-jisx0208		. #x502D)	; ø»‡•–
     (chinese-isoir165		. #x2F7C)	; ø»„“
@@ -246,9 +244,7 @@
   '((ideographic-radical . 6)	; â¼…
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 324)
-    (hanyu-dazidian-char . 12)
+    (hanyu-dazidian	1 324 12)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±

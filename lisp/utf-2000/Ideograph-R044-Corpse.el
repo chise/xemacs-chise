@@ -554,6 +554,12 @@
     ))
 (define-char
   '((ideographic-radical . 44)	; â¼«
+    (ideographic-strokes . 5)
+    (total-strokes	 . 8)
+    (chinese-big5-cdp	. #x8D70)	; ý¢€ˆµ°
+    ))
+(define-char
+  '((ideographic-radical . 44)	; â¼«
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-cns11643-4 . #x2877)	; ø»—¬

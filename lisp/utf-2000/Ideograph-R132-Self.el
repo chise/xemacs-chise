@@ -42,6 +42,7 @@
     (total-strokes	 . 7)
     (chinese-cns11643-4 . #x2472)	; ø»—¦“
     (ideograph-daikanwa . 30099)	; ø¸‡–“
+    (chinese-big5-cdp	. #x8CC2)	; ý¢€ˆ³‚
     ))
 (define-char
   '((ideographic-radical . 132)	; â¾ƒ
