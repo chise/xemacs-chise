@@ -1,3 +1,18 @@
+2002-02-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_check_elements): Delete prototype.
+	(get_ccs_octet_table): New inline function.
+	(put_ccs_octet_table): Likewise.
+	(decoding_table_put_char): Use `get_ccs_octet_table' and
+	`put_ccs_octet_table'.
+	(decoding_table_remove_char): Use `decoding_table_put_char'.
+	(DECODE_DEFINED_CHAR): Use `get_ccs_octet_table'.
+
+	* mule-charset.c (remove_char_ccs): Store Qunbound instead of Qnil
+	into encoding_table.
+	(make_charset): Use Qunbound instead Qnil as initial value of
+	decoding_table.
+
 2002-02-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (map_over_uint8_byte_table): Set Qunbound if an
