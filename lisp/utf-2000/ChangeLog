@@ -1,3 +1,8 @@
+2003-07-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R032-Earth.el (U+58CC): Separate J0-3E6D.
+	(J0-3E6D): Unify GT-06976.
+
 2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R164-Wine.el, Ideograph-R160-Bitter.el: Add some GT
