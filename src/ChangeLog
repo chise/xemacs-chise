@@ -1,3 +1,21 @@
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (make_charset): Add new argument `ucs_min',
+	`ucs_max' and `code_offset'.
+	(charset_get_byte1): New implementation [delete specific charset
+	depended implementations].
+	(Fmake_charset): Modify for `make_charset'.
+	(Fmake_reverse_direction_charset): Likewise.
+	(complex_vars_of_mule_charset): Likewise.
+
+	* char-ucs.h (struct Lisp_Charset): Add `ucs_min', `ucs_max' and
+	`code_offset'.
+	(CHARSET_UCS_MIN): New macro.
+	(CHARSET_UCS_MAX): New macro.
+	(CHARSET_CODE_OFFSET): New macro.
+	(MAKE_CHAR): Delete charset depended definitions [except
+	katakana-jisx0201].
+
 1999-09-13  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* char-ucs.h (breakup_char_1): Use

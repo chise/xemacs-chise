@@ -1,5 +1,10 @@
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`cyrillic-iso8859-5' and `greek-iso8859-7'.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule/mule-charset.el (default-coded-charset-priority-list):
 	Setup in UTF-2000.
 
