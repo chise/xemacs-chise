@@ -19,9 +19,13 @@
   '((ideographic-radical . 24)	; â¼—
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
+    (hanyu-dazidian-vol	 . 1)
+    (hanyu-dazidian-page . 50)
+    (hanyu-dazidian-char . 3)
     (japanese-jisx0212		. #x3436)	; ø»‹€Ÿ
     (japanese-jisx0213-2	. #x2351)	; ø»¤ ¬
     (ideograph-daikanwa		. 02696)	; ø¸€ªˆ
+    (chinese-big5-cdp		. #x8D45)	; ý¢€ˆµ…
     (ucs			. #x5342)	; å‚
     ))
 (define-char
@@ -106,7 +110,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8B47)	; ä¸¿
+     ((chinese-big5-cdp	  . #x8B47)	; ý¢€ˆ­‡
       (ucs		  . #x4E3F)	; ä¸¿
       )
      ((ucs		  . #x5EFE)	; å»¾
@@ -135,7 +139,7 @@
 		 )
       )
      ((name		  . "cjk radical person for top")
-      (chinese-big5-cdp	  . #x8B4A)	; ý €‘Š„
+      (chinese-big5-cdp	  . #x8B4A)	; ý¢€ˆ­Š
       )
      ((ucs		  . #x5341)	; å
       ))
@@ -490,7 +494,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x89BE)	; ï¼
+     ((chinese-big5-cdp	  . #x89BE)	; ý¢€ˆ¦¾
       )
      ((ucs		  . #x5341)	; å
       ))
@@ -559,9 +563,9 @@
       )
      ((japanese-jisx0208-1978	  . #x5035)	; ø»ƒ–
       (japanese-jisx0208	  . #x5035)	; ø»‡•ž
-      (chinese-big5-cdp		  . #x8B42)	; ø»ƒ–
+      (chinese-big5-cdp		  . #x8B42)	; ý¢€ˆ­‚
       )
-     ((chinese-big5-cdp	  . #x8DF5)	; ïš§
+     ((chinese-big5-cdp	  . #x8DF5)	; ý¢€ˆ·µ
       )
      ((ucs		  . #x4EBA)	; äºº
       )
@@ -589,7 +593,7 @@
       )
      ((ucs		  . #x4EA0)	; äº 
       )
-     ((chinese-big5-cdp	  . #x8DF5)	; ïš§
+     ((chinese-big5-cdp	  . #x8DF5)	; ý¢€ˆ·µ
       )
      ((ucs		  . #x4EBA)	; äºº
       )
@@ -611,7 +615,7 @@
 		 )
       )
      ((name		  . "CJK RADICAL DIVINATION")
-      (chinese-big5-cdp	  . #x8B78)	; âºŠ
+      (chinese-big5-cdp	  . #x8B78)	; ý¢€ˆ­¸
       (ucs		  . #x2E8A)	; âºŠ
       )
      ((ucs		  . #x65E9)	; æ—©
@@ -737,8 +741,7 @@
       )
      ((ucs		  . #x65E9)	; æ—©
       ))
-    (chinese-big5	. #x8C49)	; ý €Ž’¨
-    (chinese-big5-cdp	. #x8C49)	; ý €Ž’¨
+    (chinese-big5-cdp	. #x8C49)	; ý¢€ˆ±‰
     (mojikyo		. 058536)	; ý €Ž’¨
     ))
 (define-char
@@ -753,7 +756,7 @@
       )
      ((ucs		  . #x5341)	; å
       )
-     ((chinese-big5-cdp	  . #x8BDC)	; ï•”
+     ((chinese-big5-cdp	  . #x8BDC)	; ý¢€ˆ¯œ
       ))
     (shinjigen-1	. 828)
     (shinjigen-2	. 828)
