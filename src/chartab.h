@@ -340,6 +340,10 @@ put_char_id_table_0 (Lisp_Char_Table* cit, Emchar code, Lisp_Object value)
   cit->table = put_byte_table (table1, (unsigned char)(code >> 24), table2);
 }
 
+#ifdef HAVE_DATABASE
+Lisp_Object load_char_attribute_maybe (Emchar ch, Lisp_Object attribute);
+#endif
+
 INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
 INLINE_HEADER Lisp_Object
 get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
@@ -352,38 +356,18 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 				      (unsigned char) (ch >> 16)),
 				     (unsigned char)  (ch >> 8)),
 				    (unsigned char)    ch);
+#ifdef HAVE_DATABASE
   if (EQ (val, Qunloaded))
     {
       Lisp_Object attribute = CHAR_TABLE_NAME (cit);
 
       if (!NILP (attribute))
-	{
-	  Lisp_Object db;
-	  Lisp_Object db_dir = Vdata_directory;
-	  Lisp_Object db_file;
-
-	  if (NILP (db_dir))
-	    db_dir = build_string ("../etc");
-	  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-	  db_file = Fexpand_file_name (attribute, db_dir);
-	  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
-	  if (!NILP (db))
-	    {
-	      val = Fget_database (Fprin1_to_string (make_char (ch), Qnil),
-				   db, Qunbound);
-	      if (!UNBOUNDP (val))
-		val = Fread (val);
-	      else
-		val = Qunbound;
-	      Fclose_database (db);
-	    }
-	  else
-	    val = Qunbound;
-	}
+	val = load_char_attribute_maybe (ch, attribute);
       else
 	val = Qunbound;
       put_char_id_table_0 (cit, ch, val);
     }
+#endif
   if (UNBOUNDP (val))
     return cit->default_value;
   else
