@@ -48,11 +48,7 @@ Boston, MA 02111-1307, USA.  */
 #include "windows.h"
 #ifdef MULE
 #include "mule-ccl.h"
-#ifdef CHAR_IS_UCS4
 #include "character.h"
-#else
-#include "mule-charset.h"
-#endif
 #endif
 
 #define MSWINDOWS_EOL_CURSOR_WIDTH	5

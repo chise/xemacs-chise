@@ -41,12 +41,8 @@ Boston, MA 02111-1307, USA.  */
 #include "console-msw.h"
 #include "objects-msw.h"
 
-#ifdef CHAR_IS_UCS4
-#include "character.h"
-#else
 #ifdef MULE
-#include "mule-charset.h"
-#endif
+#include "character.h"
 #endif
 
 #include "buffer.h"

@@ -29,11 +29,7 @@ Boston, MA 02111-1307, USA.  */
 #include "objects-tty.h"
 #ifdef MULE
 #include "device.h"
-#ifdef CHAR_IS_UCS4
 #include "character.h"
-#else
-#include "mule-charset.h"
-#endif
 #endif
 
 /* An alist mapping from color names to a cons of (FG-STRING, BG-STRING). */
