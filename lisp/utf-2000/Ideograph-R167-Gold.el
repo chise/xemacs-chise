@@ -2749,12 +2749,12 @@
     (ucs			. #x9283)	; éŠƒ
     ))
 (define-char
-  '((morohashi-daikanwa	40359 0 1)
+  '((=>ucs		. #x9283)	; éŠƒ
+    (morohashi-daikanwa	40359 0 1)
     (ideographic-radical . 167)	; â¾¦
     (ideographic-strokes . 5)
     (total-strokes	 . 13)
-    (chinese-cns11643-2	. #x483C)	; ø»”†
-    (=>ucs		. #x9283)	; éŠƒ
+    (chinese-cns11643-2 . #x483C)	; ø»”†
     ))
 (define-char
   '((ideographic-radical . 167)	; â¾¦
