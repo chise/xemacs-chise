@@ -1,3 +1,13 @@
+2003-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R167-Gold.el (M-40693): Separate J0-3379, C2-637E and
+	U+938C.
+	(C2-6430): Separate U+938D.
+	(U+938E): Separate C2-6427.
+	(JX2-7B3A): Separate G0-764C, C2-602A and U+938F; fix
+	`total-strokes'.
+	(M-40698): Separate C3-5940 and U+9390.
+
 2003-08-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R184-Eat.el (M-44237): Unify JC3-6DBE.
