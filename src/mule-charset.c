@@ -1084,116 +1084,121 @@ charset_code_point (Lisp_Object charset, Emchar ch)
   else
     {
       Lisp_Object mother = XCHARSET_MOTHER (charset);
+      int min = XCHARSET_MIN_CODE (charset);
+      int max = XCHARSET_MAX_CODE (charset);
+      int code;
 
       if ( CHARSETP (mother) )
+	code = charset_code_point (mother, ch);
+      else
+	code = ch;
+      if ( (min <= code) && (code <= max) )
 	{
-	  int min = XCHARSET_MIN_CODE (charset);
-	  int max = XCHARSET_MAX_CODE (charset);
-	  int code = charset_code_point (mother, ch);
-
-	  if ( (min <= code) && (code <= max) )
+	  if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
 	    {
-	      if ( XCHARSET_CONVERSION (charset) == CONVERSION_94x60 )
-		{
-		  int m = code - min;
-		  int row = m  / 94;
-		  int cell = m % 94 + 33;
+	      int m = code - min;
+	      int row = m  / 94;
+	      int cell = m % 94 + 33;
 
-		  if (row < 30)
-		    row += 16 + 32;
-		  else
-		    row += 18 + 32;
-		  return (row << 8) | cell;
+	      if (row < 30)
+		row += 16 + 32;
+	      else
+		row += 18 + 32;
+	      return (row << 8) | cell;
+	    }
+	  else if (XCHARSET_CHARS (charset) == 94)
+	    {
+	      int d =code - XCHARSET_CODE_OFFSET (charset);
+
+	      if (XCHARSET_DIMENSION (charset) == 1)
+		return d + 33;
+	      else if (XCHARSET_DIMENSION (charset) == 2)
+		return ((d / 94 + 33) << 8) | (d % 94 + 33);
+	      else if (XCHARSET_DIMENSION (charset) == 3)
+		return
+		  (   (d / (94 * 94) + 33) << 16)
+		  |  ((d / 94 % 94   + 33) <<  8)
+		  |   (d % 94        + 33);
+	      else /* if (XCHARSET_DIMENSION (charset) == 4) */
+		return
+		  (  (d / (94 * 94 * 94) + 33) << 24)
+		  | ((d / (94 * 94) % 94 + 33) << 16)
+		  | ((d / 94 % 94        + 33) <<  8)
+		  |  (d % 94             + 33);
+	    }
+	  else if (XCHARSET_CHARS (charset) == 96)
+	    {
+	      int d =code - XCHARSET_CODE_OFFSET (charset);
+
+	      if (XCHARSET_DIMENSION (charset) == 1)
+		return d + 32;
+	      else if (XCHARSET_DIMENSION (charset) == 2)
+		return ((d / 96 + 32) << 8) | (d % 96 + 32);
+	      else if (XCHARSET_DIMENSION (charset) == 3)
+		return
+		  (   (d / (96 * 96) + 32) << 16)
+		  |  ((d / 96 % 96   + 32) <<  8)
+		  |   (d % 96        + 32);
+	      else /* if (XCHARSET_DIMENSION (charset) == 4) */
+		return
+		  (  (d / (96 * 96 * 96) + 32) << 24)
+		  | ((d / (96 * 96) % 96 + 32) << 16)
+		  | ((d / 96 % 96        + 32) <<  8)
+		  |  (d % 96             + 32);
+	    }
+	  else
+	    return code - XCHARSET_CODE_OFFSET (charset);
+	}
+      else if ( (XCHARSET_CODE_OFFSET (charset) == 0) ||
+		(XCHARSET_CODE_OFFSET (charset)
+		 == XCHARSET_MIN_CODE (charset)) )
+	{
+	  int d;
+
+	  if (XCHARSET_DIMENSION (charset) == 1)
+	    {
+	      if (XCHARSET_CHARS (charset) == 94)
+		{
+		  if (((d = ch - (MIN_CHAR_94
+				  + (XCHARSET_FINAL (charset) - '0') * 94))
+		       >= 0)
+		      && (d < 94))
+		    return d + 33;
+		}
+	      else if (XCHARSET_CHARS (charset) == 96)
+		{
+		  if (((d = ch - (MIN_CHAR_96
+				  + (XCHARSET_FINAL (charset) - '0') * 96))
+		       >= 0)
+		      && (d < 96))
+		    return d + 32;
 		}
 	      else
-		return code - XCHARSET_CODE_OFFSET (charset);
+		return -1;
 	    }
-	}
-    }
-  return range_charset_code_point (charset, ch);
-}
-
-int
-range_charset_code_point (Lisp_Object charset, Emchar ch)
-{
-  int d;
-
-  if ((XCHARSET_MIN_CODE (charset) <= ch)
-      && (ch <= XCHARSET_MAX_CODE (charset)))
-    {
-      d = ch - XCHARSET_CODE_OFFSET (charset);
-
-      if (XCHARSET_CHARS (charset) == 256)
-	return d;
-      else if (XCHARSET_DIMENSION (charset) == 1)
-	return d + XCHARSET_BYTE_OFFSET (charset);
-      else if (XCHARSET_DIMENSION (charset) == 2)
-	return
-	  ((d / XCHARSET_CHARS (charset)
-	    + XCHARSET_BYTE_OFFSET (charset)) << 8)
-	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
-      else if (XCHARSET_DIMENSION (charset) == 3)
-	return
-	  ((d / (XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
-	    + XCHARSET_BYTE_OFFSET (charset)) << 16)
-	  | ((d / XCHARSET_CHARS (charset)
-	      % XCHARSET_CHARS (charset)
-	      + XCHARSET_BYTE_OFFSET (charset)) << 8)
-	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
-      else /* if (XCHARSET_DIMENSION (charset) == 4) */
-	return
-	  ((d / (XCHARSET_CHARS (charset)
-		 * XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
-	    + XCHARSET_BYTE_OFFSET (charset)) << 24)
-	  | ((d / (XCHARSET_CHARS (charset) * XCHARSET_CHARS (charset))
-	      % XCHARSET_CHARS (charset)
-	      + XCHARSET_BYTE_OFFSET (charset)) << 16)
-	  | ((d / XCHARSET_CHARS (charset) % XCHARSET_CHARS (charset)
-	      + XCHARSET_BYTE_OFFSET (charset)) << 8)
-	  | (d % XCHARSET_CHARS (charset) + XCHARSET_BYTE_OFFSET (charset));
-    }
-  else if ( (XCHARSET_CODE_OFFSET (charset) == 0) ||
-	    (XCHARSET_CODE_OFFSET (charset) == XCHARSET_MIN_CODE (charset)) )
-    {
-      if (XCHARSET_DIMENSION (charset) == 1)
-	{
-	  if (XCHARSET_CHARS (charset) == 94)
+	  else if (XCHARSET_DIMENSION (charset) == 2)
 	    {
-	      if (((d = ch - (MIN_CHAR_94
-			      + (XCHARSET_FINAL (charset) - '0') * 94)) >= 0)
-		  && (d < 94))
-		return d + 33;
+	      if (XCHARSET_CHARS (charset) == 94)
+		{
+		  if (((d = ch - (MIN_CHAR_94x94
+				  +
+				  (XCHARSET_FINAL (charset) - '0') * 94 * 94))
+		       >= 0)
+		      && (d < 94 * 94))
+		    return (((d / 94) + 33) << 8) | (d % 94 + 33);
+		}
+	      else if (XCHARSET_CHARS (charset) == 96)
+		{
+		  if (((d = ch - (MIN_CHAR_96x96
+				  +
+				  (XCHARSET_FINAL (charset) - '0') * 96 * 96))
+		       >= 0)
+		      && (d < 96 * 96))
+		    return (((d / 96) + 32) << 8) | (d % 96 + 32);
+		}
+	      else
+		return -1;
 	    }
-	  else if (XCHARSET_CHARS (charset) == 96)
-	    {
-	      if (((d = ch - (MIN_CHAR_96
-			      + (XCHARSET_FINAL (charset) - '0') * 96)) >= 0)
-		  && (d < 96))
-		return d + 32;
-	    }
-	  else
-	    return -1;
-	}
-      else if (XCHARSET_DIMENSION (charset) == 2)
-	{
-	  if (XCHARSET_CHARS (charset) == 94)
-	    {
-	      if (((d = ch - (MIN_CHAR_94x94
-			      + (XCHARSET_FINAL (charset) - '0') * 94 * 94))
-		   >= 0)
-		  && (d < 94 * 94))
-		return (((d / 94) + 33) << 8) | (d % 94 + 33);
-	    }
-	  else if (XCHARSET_CHARS (charset) == 96)
-	    {
-	      if (((d = ch - (MIN_CHAR_96x96
-			      + (XCHARSET_FINAL (charset) - '0') * 96 * 96))
-		   >= 0)
-		  && (d < 96 * 96))
-		return (((d / 96) + 32) << 8) | (d % 96 + 32);
-	    }
-	  else
-	    return -1;
 	}
     }
   return -1;
