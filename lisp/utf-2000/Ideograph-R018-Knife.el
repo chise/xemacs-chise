@@ -5866,7 +5866,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 11)
     (total-strokes	 . 13)
-    (->same-ideograph
+    (->identical
      ((ucs		  . #x2F823)	; 剷
       ))
     (ucs		. #x5277)	; 剷
