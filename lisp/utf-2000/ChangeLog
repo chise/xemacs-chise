@@ -1,3 +1,14 @@
+2004-03-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->ideographic-component-forms' when running with non-readable
+	mode.
+
+2004-03-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R138-Stopping.el (J0-4E49): Moved into U+826F.
+	(U+826F): Use `->subsumptive'.
+
 2004-03-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R093-Cow.el (BC-8BA9): Moved into U+725C.
