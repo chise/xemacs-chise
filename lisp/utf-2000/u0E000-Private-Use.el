@@ -26423,9 +26423,7 @@
     (ucs		. #xF4A5)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8ACB)	; 
-    (chinese-big5-cdp	. #x8ACB)	; 
-    (ucs		. #xF4A6)	; 
+  '((ucs		. #xF4A6)	; 
     ))
 (define-char
   '((chinese-big5	. #x8ACC)	; 
@@ -26783,9 +26781,7 @@
   '((ucs		. #xF4F1)	; 
     ))
 (define-char
-  '((chinese-big5	. #x8B58)	; 
-    (chinese-big5-cdp	. #x8B58)	; 
-    (ucs		. #xF4F2)	; 
+  '((ucs		. #xF4F2)	; 
     ))
 (define-char
   '((chinese-big5	. #x8B59)	; 
