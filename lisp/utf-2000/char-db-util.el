@@ -590,7 +590,7 @@
 			      ->ideographic-variants
 			      ->synonyms
 			      ->radical <-radical
-			      ->bopomofo ->ideograph
+			      ->bopomofo <-bopomofo
 			      ->ideographic <-ideographic))
 		 (insert (format "(%-18s%s " name line-breaking))
 		 (setq lbs (concat "\n" (make-string (current-column) ?\ ))
