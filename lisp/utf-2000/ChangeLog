@@ -1,5 +1,26 @@
 2001-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R075-Tree.el (U+6765): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-8A68.
+
+	* Ideograph-R006-Hook.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Merge Big5-CDP code points.
+	(C*-****): Merge CJK Ext-B code points.
+
+	* Ideograph-R047-River.el (U+5DDC): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-8978.
+
+	* Ideograph-R092-Fang.el (U+3E26): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-88DC.
+
+	* Ideograph-R126-And.el (C5-2179): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-87DC and
+	U-000264D0.
+
+2001-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* Ideograph-R003-Dot.el:
 	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
 	  `hanyu-dazidian-char'.
@@ -15,6 +36,13 @@
 	* char-db-util.el (insert-char-attributes): Format
 	`hanyu-dazidian-{vol|page|char}'; format `->identical' as a list
 	of char-refs.
+
+2001-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02F00-Kangxi-Radicals.el (KANGXI RADICAL TONGUE): Delete Big5.
+
+	* u02E00-CJK-Radical-Supplement.el: Delete Big5 code points if
+	Big5-CDP code points are defined.
 
 2001-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
