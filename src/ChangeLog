@@ -1,3 +1,19 @@
+2002-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_flush_er_chars): New inline function.
+	(decode_add_er_char): New function.
+	(decode_coding_utf8): Use `decode_flush_er_chars' and
+	`decode_add_er_char'.
+
+2002-07-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* text-coding.c (decode_coding_utf8): Flush for er_buf must be
+	done before `decode_output_utf8_partial_char'.
+
+	* mule-charset.c (complex_vars_of_mule_charset): Specify
+	`Vcharset_ucs' as the mother of `Vcharset_ucs_cns',
+	`Vcharset_ucs_ks' and `Vcharset_ucs_big5'.
+
 2002-07-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decode_defined_char): New function; search
