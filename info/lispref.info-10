@@ -50,6 +50,89 @@ may be included in a translation approved by the Free Software
 Foundation instead of in the original English.
 
 
+File: lispref.info,  Node: Default Value,  Prev: Creating Buffer-Local,  Up: Buffer-Local Variables
+
+The Default Value of a Buffer-Local Variable
+--------------------------------------------
+
+   The global value of a variable with buffer-local bindings is also
+called the "default" value, because it is the value that is in effect
+except when specifically overridden.
+
+   The functions `default-value' and `setq-default' access and change a
+variable's default value regardless of whether the current buffer has a
+buffer-local binding.  For example, you could use `setq-default' to
+change the default setting of `paragraph-start' for most buffers; and
+this would work even when you are in a C or Lisp mode buffer that has a
+buffer-local value for this variable.
+
+   The special forms `defvar' and `defconst' also set the default value
+(if they set the variable at all), rather than any local value.
+
+ - Function: default-value symbol
+     This function returns SYMBOL's default value.  This is the value
+     that is seen in buffers that do not have their own values for this
+     variable.  If SYMBOL is not buffer-local, this is equivalent to
+     `symbol-value' (*note Accessing Variables::).
+
+ - Function: default-boundp symbol
+     The function `default-boundp' tells you whether SYMBOL's default
+     value is nonvoid.  If `(default-boundp 'foo)' returns `nil', then
+     `(default-value 'foo)' would get an error.
+
+     `default-boundp' is to `default-value' as `boundp' is to
+     `symbol-value'.
+
+ - Special Form: setq-default symbol value
+     This sets the default value of SYMBOL to VALUE.  It does not
+     evaluate SYMBOL, but does evaluate VALUE.  The value of the
+     `setq-default' form is VALUE.
+
+     If a SYMBOL is not buffer-local for the current buffer, and is not
+     marked automatically buffer-local, `setq-default' has the same
+     effect as `setq'.  If SYMBOL is buffer-local for the current
+     buffer, then this changes the value that other buffers will see
+     (as long as they don't have a buffer-local value), but not the
+     value that the current buffer sees.
+
+          ;; In buffer `foo':
+          (make-local-variable 'local)
+               => local
+          (setq local 'value-in-foo)
+               => value-in-foo
+          (setq-default local 'new-default)
+               => new-default
+          local
+               => value-in-foo
+          (default-value 'local)
+               => new-default
+          
+          ;; In (the new) buffer `bar':
+          local
+               => new-default
+          (default-value 'local)
+               => new-default
+          (setq local 'another-default)
+               => another-default
+          (default-value 'local)
+               => another-default
+          
+          ;; Back in buffer `foo':
+          local
+               => value-in-foo
+          (default-value 'local)
+               => another-default
+
+ - Function: set-default symbol value
+     This function is like `setq-default', except that SYMBOL is
+     evaluated.
+
+          (set-default (car '(a b c)) 23)
+               => 23
+          (default-value 'a)
+               => 23
+
+
 File: lispref.info,  Node: Variable Aliases,  Prev: Buffer-Local Variables,  Up: Variables
 
 Variable Aliases
@@ -1159,72 +1242,4 @@ this is unusual.
           
           (macroexpand '(inc2 r s))
                => (progn (inc r) (inc s))  ; `inc' not expanded here.
-
-
-File: lispref.info,  Node: Compiling Macros,  Next: Defining Macros,  Prev: Expansion,  Up: Macros
-
-Macros and Byte Compilation
-===========================
-
-   You might ask why we take the trouble to compute an expansion for a
-macro and then evaluate the expansion.  Why not have the macro body
-produce the desired results directly?  The reason has to do with
-compilation.
-
-   When a macro call appears in a Lisp program being compiled, the Lisp
-compiler calls the macro definition just as the interpreter would, and
-receives an expansion.  But instead of evaluating this expansion, it
-compiles the expansion as if it had appeared directly in the program.
-As a result, the compiled code produces the value and side effects
-intended for the macro, but executes at full compiled speed.  This would
-not work if the macro body computed the value and side effects
-itself--they would be computed at compile time, which is not useful.
-
-   In order for compilation of macro calls to work, the macros must be
-defined in Lisp when the calls to them are compiled.  The compiler has a
-special feature to help you do this: if a file being compiled contains a
-`defmacro' form, the macro is defined temporarily for the rest of the
-compilation of that file.  To use this feature, you must define the
-macro in the same file where it is used and before its first use.
-
-   Byte-compiling a file executes any `require' calls at top-level in
-the file.  This is in case the file needs the required packages for
-proper compilation.  One way to ensure that necessary macro definitions
-are available during compilation is to require the files that define
-them (*note Named Features::).  To avoid loading the macro definition
-files when someone _runs_ the compiled program, write
-`eval-when-compile' around the `require' calls (*note Eval During
-Compile::).
-
-
-File: lispref.info,  Node: Defining Macros,  Next: Backquote,  Prev: Compiling Macros,  Up: Macros
-
-Defining Macros
-===============
-
-   A Lisp macro is a list whose CAR is `macro'.  Its CDR should be a
-function; expansion of the macro works by applying the function (with
-`apply') to the list of unevaluated argument-expressions from the macro
-call.
-
-   It is possible to use an anonymous Lisp macro just like an anonymous
-function, but this is never done, because it does not make sense to pass
-an anonymous macro to functionals such as `mapcar'.  In practice, all
-Lisp macros have names, and they are usually defined with the special
-form `defmacro'.
-
- - Special Form: defmacro name argument-list body-forms...
-     `defmacro' defines the symbol NAME as a macro that looks like this:
-
-          (macro lambda ARGUMENT-LIST . BODY-FORMS)
-
-     This macro object is stored in the function cell of NAME.  The
-     value returned by evaluating the `defmacro' form is NAME, but
-     usually we ignore this value.
-
-     The shape and meaning of ARGUMENT-LIST is the same as in a
-     function, and the keywords `&rest' and `&optional' may be used
-     (*note Argument List::).  Macros may have a documentation string,
-     but any `interactive' declaration is ignored since macros cannot be
-     called interactively.
 

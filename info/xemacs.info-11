@@ -30,6 +30,245 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Matching,  Next: Comments,  Prev: Grinding,  Up: Programs
+
+Automatic Display of Matching Parentheses
+=========================================
+
+   The Emacs parenthesis-matching feature shows you automatically how
+parentheses match in the text.  Whenever a self-inserting character that
+is a closing delimiter is typed, the cursor moves momentarily to the
+location of the matching opening delimiter, provided that is visible on
+the screen.  If it is not on the screen, some text starting with that
+opening delimiter is displayed in the echo area.  Either way, you see
+the grouping you are closing off.
+
+   In Lisp, automatic matching applies only to parentheses.  In C, it
+also applies to braces and brackets.  Emacs knows which characters to
+regard as matching delimiters based on the syntax table set by the major
+mode.  *Note Syntax::.
+
+   If the opening delimiter and closing delimiter are mismatched--as in
+`[x)'--the echo area displays a warning message.  The correct matches
+are specified in the syntax table.
+
+   Two variables control parenthesis matching displays.
+`blink-matching-paren' turns the feature on or off. The default is `t'
+(match display is on); `nil' turns it off.
+`blink-matching-paren-distance' specifies how many characters back
+Emacs searches to find a matching opening delimiter.  If the match is
+not found in the specified region, scanning stops, and nothing is
+displayed.  This prevents wasting lots of time scanning when there is no
+match.  The default is 4000.
+
+
+File: xemacs.info,  Node: Comments,  Next: Balanced Editing,  Prev: Matching,  Up: Programs
+
+Manipulating Comments
+=====================
+
+   The comment commands insert, kill and align comments.
+
+`M-;'
+     Insert or align comment (`indent-for-comment').
+
+`C-x ;'
+     Set comment column (`set-comment-column').
+
+`C-u - C-x ;'
+     Kill comment on current line (`kill-comment').
+
+`M-<LFD>'
+     Like <RET> followed by inserting and aligning a comment
+     (`indent-new-comment-line').
+
+   The command that creates a comment is `Meta-;'
+(`indent-for-comment').  If there is no comment already on the line, a
+new comment is created and aligned at a specific column called the
+"comment column".  Emacs creates the comment by inserting the string at
+the value of `comment-start'; see below.  Point is left after that
+string.  If the text of the line extends past the comment column,
+indentation is done to a suitable boundary (usually, at least one space
+is inserted).  If the major mode has specified a string to terminate
+comments, that string is inserted after point, to keep the syntax valid.
+
+   You can also use `Meta-;' to align an existing comment.  If a line
+already contains the string that starts comments, `M-;' just moves
+point after it and re-indents it to the conventional place.  Exception:
+comments starting in column 0 are not moved.
+
+   Some major modes have special rules for indenting certain kinds of
+comments in certain contexts.  For example, in Lisp code, comments which
+start with two semicolons are indented as if they were lines of code,
+instead of at the comment column.  Comments which start with three
+semicolons are supposed to start at the left margin.  Emacs understands
+these conventions by indenting a double-semicolon comment using <TAB>
+and by not changing the indentation of a triple-semicolon comment at
+all.
+
+     ;; This function is just an example.
+     ;;; Here either two or three semicolons are appropriate.
+     (defun foo (x)
+     ;;; And now, the first part of the function:
+       ;; The following line adds one.
+       (1+ x))           ; This line adds one.
+
+   In C code, a comment preceded on its line by nothing but whitespace
+is indented like a line of code.
+
+   Even when an existing comment is properly aligned, `M-;' is still
+useful for moving directly to the start of the comment.
+
+   `C-u - C-x ;' (`kill-comment') kills the comment on the current
+line, if there is one.  The indentation before the start of the comment
+is killed as well.  If there does not appear to be a comment in the
+line, nothing happens.  To reinsert the comment on another line, move
+to the end of that line, type first `C-y', and then `M-;' to realign
+the comment.  Note that `C-u - C-x ;' is not a distinct key; it is `C-x
+;' (`set-comment-column') with a negative argument.  That command is
+programmed to call `kill-comment' when called with a negative argument.
+However, `kill-comment' is a valid command which you could bind
+directly to a key if you wanted to.
+
+Multiple Lines of Comments
+--------------------------
+
+   If you are typing a comment and want to continue it on another line,
+use the command `Meta-<LFD>' (`indent-new-comment-line'), which
+terminates the comment you are typing, creates a new blank line
+afterward, and begins a new comment indented under the old one.  If
+Auto Fill mode is on and you go past the fill column while typing, the
+comment is continued in just this fashion.  If point is not at the end
+of the line when you type `M-<LFD>', the text on the rest of the line
+becomes part of the new comment line.
+
+Options Controlling Comments
+----------------------------
+
+   The comment column is stored in the variable `comment-column'.  You
+can explicitly set it to a number.  Alternatively, the command `C-x ;'
+(`set-comment-column') sets the comment column to the column point is
+at.  `C-u C-x ;' sets the comment column to match the last comment
+before point in the buffer, and then calls `Meta-;' to align the
+current line's comment under the previous one.  Note that `C-u - C-x ;'
+runs the function `kill-comment' as described above.
+
+   `comment-column' is a per-buffer variable; altering the variable
+affects only the current buffer.  You can also change the default value.
+*Note Locals::.  Many major modes initialize this variable for the
+current buffer.
+
+   The comment commands recognize comments based on the regular
+expression that is the value of the variable `comment-start-skip'.
+This regexp should not match the null string.  It may match more than
+the comment starting delimiter in the strictest sense of the word; for
+example, in C mode the value of the variable is `"/\\*+ *"', which
+matches extra stars and spaces after the `/*' itself.  (Note that `\\'
+is needed in Lisp syntax to include a `\' in the string, which is needed
+to deny the first star its special meaning in regexp syntax.  *Note
+Regexps::.)
+
+   When a comment command makes a new comment, it inserts the value of
+`comment-start' to begin it.  The value of `comment-end' is inserted
+after point and will follow the text you will insert into the comment.
+In C mode, `comment-start' has the value `"/* "' and `comment-end' has
+the value `" */"'.
+
+   `comment-multi-line' controls how `M-<LFD>'
+(`indent-new-comment-line') behaves when used inside a comment.  If
+`comment-multi-line' is `nil', as it normally is, then `M-<LFD>'
+terminates the comment on the starting line and starts a new comment on
+the new following line.  If `comment-multi-line' is not `nil', then
+`M-<LFD>' sets up the new following line as part of the same comment
+that was found on the starting line.  This is done by not inserting a
+terminator on the old line and not inserting a starter on the new line.
+In languages where multi-line comments are legal, the value you choose
+for this variable is a matter of taste.
+
+   The variable `comment-indent-hook' should contain a function that is
+called to compute the indentation for a newly inserted comment or for
+aligning an existing comment.  Major modes set this variable
+differently.  The function is called with no arguments, but with point
+at the beginning of the comment, or at the end of a line if a new
+comment is to be inserted.  The function should return the column in
+which the comment ought to start.  For example, in Lisp mode, the
+indent hook function bases its decision on the number of semicolons
+that begin an existing comment and on the code in the preceding lines.
+
+
+File: xemacs.info,  Node: Balanced Editing,  Next: Lisp Completion,  Prev: Comments,  Up: Programs
+
+Editing Without Unbalanced Parentheses
+======================================
+
+`M-('
+     Put parentheses around next sexp(s) (`insert-parentheses').
+
+`M-)'
+     Move past next close parenthesis and re-indent
+     (`move-over-close-and-reindent').
+
+   The commands `M-(' (`insert-parentheses') and `M-)'
+(`move-over-close-and-reindent') are designed to facilitate a style of
+editing which keeps parentheses balanced at all times.  `M-(' inserts a
+pair of parentheses, either together as in `()', or, if given an
+argument, around the next several sexps, and leaves point after the open
+parenthesis.  Instead of typing `( F O O )', you can type `M-( F O O',
+which has the same effect except for leaving the cursor before the
+close parenthesis.  You can then type `M-)', which moves past the close
+parenthesis, deletes any indentation preceding it (in this example
+there is none), and indents with <LFD> after it.
+
+
+File: xemacs.info,  Node: Lisp Completion,  Next: Documentation,  Prev: Balanced Editing,  Up: Programs
+
+Completion for Lisp Symbols
+===========================
+
+   Completion usually happens in the minibuffer.  An exception is
+completion for Lisp symbol names, which is available in all buffers.
+
+   The command `M-<TAB>' (`lisp-complete-symbol') takes the partial
+Lisp symbol before point to be an abbreviation, and compares it against
+all non-trivial Lisp symbols currently known to Emacs.  Any additional
+characters that they all have in common are inserted at point.
+Non-trivial symbols are those that have function definitions, values, or
+properties.
+
+   If there is an open-parenthesis immediately before the beginning of
+the partial symbol, only symbols with function definitions are
+considered as completions.
+
+   If the partial name in the buffer has more than one possible
+completion and they have no additional characters in common, a list of
+all possible completions is displayed in another window.
+
+
+File: xemacs.info,  Node: Documentation,  Next: Change Log,  Prev: Lisp Completion,  Up: Programs
+
+Documentation Commands
+======================
+
+   As you edit Lisp code to be run in Emacs, you can use the commands
+`C-h f' (`describe-function') and `C-h v' (`describe-variable') to
+print documentation of functions and variables you want to call.  These
+commands use the minibuffer to read the name of a function or variable
+to document, and display the documentation in a window.
+
+   For extra convenience, these commands provide default arguments
+based on the code in the neighborhood of point.  `C-h f' sets the
+default to the function called in the innermost list containing point.
+`C-h v' uses the symbol name around or adjacent to point as its default.
+
+   The `M-x manual-entry' command gives you access to documentation on
+Unix commands, system calls, and libraries.  The command reads a topic
+as an argument, and displays the Unix manual page for that topic.
+`manual-entry' always searches all 8 sections of the manual and
+concatenates all the entries it finds.  For example, the topic
+`termcap' finds the description of the termcap library from section 3,
+followed by the description of the termcap data base from section 5.
+
+
 File: xemacs.info,  Node: Change Log,  Next: Tags,  Prev: Documentation,  Up: Programs
 
 Change Logs
@@ -941,263 +1180,4 @@ the string used for the comments by setting the variable
 command and a variable with the same name; the two uses of the name
 never conflict because in Lisp and in Emacs it is always clear from the
 context which one is referred to.
-
-
-File: xemacs.info,  Node: Fortran Columns,  Next: Fortran Abbrev,  Prev: Fortran Comments,  Up: Fortran
-
-Columns
--------
-
-`C-c C-r'
-     Displays a "column ruler" momentarily above the current line
-     (`fortran-column-ruler').
-
-`C-c C-w'
-     Splits the current window horizontally so that it is 72 columns
-     wide.  This may help you avoid going over that limit
-     (`fortran-window-create').
-
-   The command `C-c C-r' (`fortran-column-ruler') shows a column ruler
-above the current line.  The comment ruler consists of two lines of
-text that show you the locations of columns with special significance
-in Fortran programs.  Square brackets show the limits of the columns for
-line numbers, and curly brackets show the limits of the columns for the
-statement body.  Column numbers appear above them.
-
-   Note that the column numbers count from zero, as always in XEmacs.
-As a result, the numbers may not be those you are familiar with; but the
-actual positions in the line are standard Fortran.
-
-   The text used to display the column ruler is the value of the
-variable `fortran-comment-ruler'.  By changing this variable, you can
-change the display.
-
-   For even more help, use `C-c C-w' (`fortran-window-create'), a
-command which splits the current window horizontally, resulting in a
-window 72 columns wide.  When you edit in this window, you can
-immediately see when a line gets too wide to be correct Fortran.
-
-
-File: xemacs.info,  Node: Fortran Abbrev,  Prev: Fortran Columns,  Up: Fortran
-
-Fortran Keyword Abbrevs
------------------------
-
-   Fortran mode provides many built-in abbrevs for common keywords and
-declarations.  These are the same sort of abbrevs that you can define
-yourself.  To use them, you must turn on Abbrev mode.  *note Abbrevs::.
-
-   The built-in abbrevs are unusual in one way: they all start with a
-semicolon.  You cannot normally use semicolon in an abbrev, but Fortran
-mode makes this possible by changing the syntax of semicolon to "word
-constituent".
-
-   For example, one built-in Fortran abbrev is `;c' for `continue'.  If
-you insert `;c' and then insert a punctuation character such as a space
-or a newline, the `;c' changes automatically to `continue', provided
-Abbrev mode is enabled.
-
-   Type `;?' or `;C-h' to display a list of all built-in Fortran
-abbrevs and what they stand for.
-
-
-File: xemacs.info,  Node: Asm Mode,  Prev: Fortran,  Up: Programs
-
-Asm Mode
-========
-
-   Asm mode is a major mode for editing files of assembler code.  It
-defines these commands:
-
-`<TAB>'
-     `tab-to-tab-stop'.
-
-`<LFD>'
-     Insert a newline and then indent using `tab-to-tab-stop'.
-
-`:'
-     Insert a colon and then remove the indentation from before the
-     label preceding colon.  Then do `tab-to-tab-stop'.
-
-`;'
-     Insert or align a comment.
-
-   The variable `asm-comment-char' specifies which character starts
-comments in assembler syntax.
-
-
-File: xemacs.info,  Node: Running,  Next: Packages,  Prev: Programs,  Up: Top
-
-Compiling and Testing Programs
-******************************
-
-   The previous chapter discusses the Emacs commands that are useful for
-making changes in programs.  This chapter deals with commands that
-assist in the larger process of developing and maintaining programs.
-
-* Menu:
-
-* Compilation::        Compiling programs in languages other than Lisp
-                        (C, Pascal, etc.)
-* Modes: Lisp Modes.   Various modes for editing Lisp programs, with
-                       different facilities for running the Lisp programs.
-* Libraries: Lisp Libraries.      Creating Lisp programs to run in Emacs.
-* Eval: Lisp Eval.     Executing a single Lisp expression in Emacs.
-* Debug: Lisp Debug.   Debugging Lisp programs running in Emacs.
-* Interaction: Lisp Interaction.  Executing Lisp in an Emacs buffer.
-* External Lisp::      Communicating through Emacs with a separate Lisp.
-
-
-File: xemacs.info,  Node: Compilation,  Next: Lisp Modes,  Prev: Running,  Up: Running
-
-Running "make", or Compilers Generally
-======================================
-
-   Emacs can run compilers for non-interactive languages like C and
-Fortran as inferior processes, feeding the error log into an Emacs
-buffer.  It can also parse the error messages and visit the files in
-which errors are found, moving point to the line where the error
-occurred.
-
-`M-x compile'
-     Run a compiler asynchronously under Emacs, with error messages to
-     `*compilation*' buffer.
-
-`M-x grep'
-     Run `grep' asynchronously under Emacs, with matching lines listed
-     in the buffer named `*compilation*'.
-
-`M-x kill-compilation'
-     Kill the process made by the `M-x compile' command.
-
-`M-x kill-grep'
-     Kill the running compilation or `grep' subprocess.
-
-`C-x `'
-     Visit the next compiler error message or `grep' match.
-
-   To run `make' or another compiler, type `M-x compile'.  This command
-reads a shell command line using the minibuffer, then executes the
-specified command line in an inferior shell with output going to the
-buffer named `*compilation*'.  By default, the current buffer's default
-directory is used as the working directory for the execution of the
-command; therefore, the makefile comes from this directory.
-
-   When the shell command line is read, the minibuffer appears
-containing a default command line (the command you used the last time
-you typed `M-x compile').  If you type just <RET>, the same command
-line is used again.  The first `M-x compile' provides `make -k' as the
-default.  The default is taken from the variable `compile-command'; if
-the appropriate compilation command for a file is something other than
-`make -k', it can be useful to have the file specify a local value for
-`compile-command' (*note File Variables::).
-
-   When you start a compilation, the buffer `*compilation*' is
-displayed in another window but not selected.  Its mode line displays
-the word `run' or `exit' in the parentheses to tell you whether
-compilation is finished.  You do not have to keep this buffer visible;
-compilation continues in any case.
-
-   To kill the compilation process, type `M-x-kill-compilation'.  The
-mode line of the `*compilation*' buffer changes to say `signal' instead
-of `run'.  Starting a new compilation also kills any running
-compilation, as only one can occur at any time.  Starting a new
-compilation prompts for confirmation before actually killing a
-compilation that is running.
-
-   To parse the compiler error messages, type `C-x `' (`next-error').
-The character following `C-x' is the grave accent, not the single
-quote.  The command displays the buffer `*compilation*' in one window
-and the buffer in which the next error occurred in another window.
-Point in that buffer is moved to the line where the error was found.
-The corresponding error message is scrolled to the top of the window in
-which `*compilation*' is displayed.
-
-   The first time you use `C-x `' after the start of a compilation, it
-parses all the error messages, visits all the files that have error
-messages, and creates markers pointing at the lines the error messages
-refer to.  It then moves to the first error message location.
-Subsequent uses of `C-x `' advance down the data set up by the first
-use.  When the preparsed error messages are exhausted, the next `C-x `'
-checks for any more error messages that have come in; this is useful if
-you start editing compiler errors while compilation is still going on.
-If no additional error messages have come in, `C-x `' reports an error.
-
-   `C-u C-x `' discards the preparsed error message data and parses the
-`*compilation*' buffer again, then displays the first error.  This way,
-you can process the same set of errors again.
-
-   Instead of running a compiler, you can run `grep' and see the lines
-on which matches were found.  To do this, type `M-x grep' with an
-argument line that contains the same arguments you would give to
-`grep': a `grep'-style regexp (usually in single quotes to quote the
-shell's special characters) followed by filenames, which may use
-wildcard characters.  The output from `grep' goes in the
-`*compilation*' buffer.  You can use `C-x `' to find the lines that
-match as if they were compilation errors.
-
-   Note: a shell is used to run the compile command, but the shell is
-not run in interactive mode.  In particular, this means that the shell
-starts up with no prompt.  If you find your usual shell prompt making an
-unsightly appearance in the `*compilation*' buffer, it means you have
-made a mistake in your shell's initialization file (`.cshrc' or `.shrc'
-or ...) by setting the prompt unconditionally.  The shell
-initialization file should set the prompt only if there already is a
-prompt.  Here's how to do it in `csh':
-
-     if ($?prompt) set prompt = ...
-
-
-File: xemacs.info,  Node: Lisp Modes,  Next: Lisp Libraries,  Prev: Compilation,  Up: Running
-
-Major Modes for Lisp
-====================
-
-   Emacs has four different major modes for Lisp.  They are the same in
-terms of editing commands, but differ in the commands for executing Lisp
-expressions.
-
-Emacs-Lisp mode
-     The mode for editing source files of programs to run in Emacs Lisp.
-     This mode defines `C-M-x' to evaluate the current defun.  *Note
-     Lisp Libraries::.
-
-Lisp Interaction mode
-     The mode for an interactive session with Emacs Lisp.  It defines
-     <LFD> to evaluate the sexp before point and insert its value in the
-     buffer.  *Note Lisp Interaction::.
-
-Lisp mode
-     The mode for editing source files of programs that run in other
-     dialects of Lisp than Emacs Lisp.  This mode defines `C-M-x' to
-     send the current defun to an inferior Lisp process.  *Note
-     External Lisp::.
-
-Inferior Lisp mode
-     The mode for an interactive session with an inferior Lisp process.
-     This mode combines the special features of Lisp mode and Shell mode
-     (*note Shell Mode::).
-
-Scheme mode
-     Like Lisp mode but for Scheme programs.
-
-Inferior Scheme mode
-     The mode for an interactive session with an inferior Scheme
-     process.
-
-
-File: xemacs.info,  Node: Lisp Libraries,  Next: Lisp Eval,  Prev: Lisp Modes,  Up: Running
-
-Libraries of Lisp Code for Emacs
-================================
-
-   Lisp code for Emacs editing commands is stored in files whose names
-conventionally end in `.el'.  This ending tells Emacs to edit them in
-Emacs-Lisp mode (*note Lisp Modes::).
-
-* Menu:
-
-* Loading::		Loading libraries of Lisp code into Emacs for use.
-* Compiling Libraries:: Compiling a library makes it load and run faster.
-* Mocklisp::		Converting Mocklisp to Lisp so XEmacs can run it.
 

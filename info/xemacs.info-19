@@ -761,7 +761,7 @@ Key (Character) Index
 * C-x DEL <2>:                           Kill Errors.
 * C-x DEL:                               Killing.
 * C-x e:                                 Basic Kbd Macro.
-* C-x ESC:                               Repetition.
+* C-x ESC ESC:                           Repetition.
 * C-x f:                                 Fill Commands.
 * C-x h:                                 Marking Objects.
 * C-x k:                                 Kill Buffer.
@@ -771,10 +771,18 @@ Key (Character) Index
 * C-x n w:                               Narrowing.
 * C-x o:                                 Other Window.
 * C-x q:                                 Kbd Macro Query.
+* C-x r +:                               RegNumbers.
+* C-x r b:                               Bookmarks.
 * C-x r g:                               RegText.
+* C-x r i:                               RegText.
 * C-x r j:                               RegPos.
+* C-x r l:                               Bookmarks.
+* C-x r m:                               Bookmarks.
+* C-x r n:                               RegNumbers.
+* C-x r r:                               RegRect.
 * C-x r s:                               RegText.
 * C-x r SPC:                             RegPos.
+* C-x r w:                               RegConfig.
 * C-x RET:                               Mule Intro.
 * C-x RET c:                             Specify Coding.
 * C-x RET C-\:                           Select Input Method.
@@ -893,14 +901,18 @@ Key (Character) Index
 * M-n <1>:                               Nroff Mode.
 * M-n:                                   Repetition.
 * M-n (isearch-mode):                    Incremental Search.
+* M-n (minibuffer history):              Minibuffer History.
 * M-n (Shell mode):                      Shell Mode.
 * M-p <1>:                               Nroff Mode.
 * M-p:                                   Repetition.
 * M-p (isearch-mode):                    Incremental Search.
+* M-p (minibuffer history):              Minibuffer History.
 * M-p (Shell mode):                      Shell Mode.
 * M-q:                                   Fill Commands.
 * M-r:                                   Basic.
+* M-r (minibuffer history):              Minibuffer History.
 * M-s:                                   Fill Commands.
+* M-s (minibuffer history):              Minibuffer History.
 * M-SPC:                                 Killing.
 * M-t <1>:                               Words.
 * M-t:                                   Transpose.
@@ -940,7 +952,7 @@ Key (Character) Index
 * S (Calendar mode):                     Sunrise/Sunset.
 * S-TAB (customization buffer):          Changing an Option.
 * shift key:                             Intro to Keystrokes.
-* SPC:                                   Completion.
+* SPC:                                   Completion Commands.
 * SPC (Calendar mode):                   General Calendar.
 * SPC (query-replace):                   Query Replace.
 * super key <1>:                         Super and Hyper Keys.
@@ -951,7 +963,7 @@ Key (Character) Index
 * TAB <2>:                               Text Mode.
 * TAB <3>:                               Indentation.
 * TAB <4>:                               Major Modes.
-* TAB <5>:                               Completion.
+* TAB <5>:                               Completion Example.
 * TAB:                                   String Key Sequences.
 * TAB (customization buffer):            Changing an Option.
 * TAB (Shell mode):                      Shell Mode.

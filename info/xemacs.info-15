@@ -30,6 +30,179 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Diary Customizing,  Next: Hebrew/Islamic Entries,  Prev: Daylight Savings,  Up: Calendar Customization
+
+Customizing the Diary
+.....................
+
+   Ordinarily, the mode line of the diary buffer window indicates any
+holidays that fall on the date of the diary entries.  The process of
+checking for holidays can take several seconds, so including holiday
+information delays the display of the diary buffer noticeably.  If you'd
+prefer to have a faster display of the diary buffer but without the
+holiday information, set the variable `holidays-in-diary-buffer' to
+`nil'.
+
+   The variable `number-of-diary-entries' controls the number of days
+of diary entries to be displayed at one time.  It affects the initial
+display when `view-diary-entries-initially' is `t', as well as the
+command `M-x diary'.  For example, the default value is 1, which says
+to display only the current day's diary entries.  If the value is 2,
+both the current day's and the next day's entries are displayed.  The
+value can also be a vector of seven elements: for example, if the value
+is `[0 2 2 2 2 4 1]' then no diary entries appear on Sunday, the
+current date's and the next day's diary entries appear Monday through
+Thursday, Friday through Monday's entries appear on Friday, while on
+Saturday only that day's entries appear.
+
+   The variable `print-diary-entries-hook' is a normal hook run after
+preparation of a temporary buffer containing just the diary entries
+currently visible in the diary buffer.  (The other, irrelevant diary
+entries are really absent from the temporary buffer; in the diary
+buffer, they are merely hidden.)  The default value of this hook does
+the printing with the command `lpr-buffer'.  If you want to use a
+different command to do the printing, just change the value of this
+hook.  Other uses might include, for example, rearranging the lines into
+order by day and time.
+
+   You can customize the form of dates in your diary file, if neither
+the standard American nor European styles suits your needs, by setting
+the variable `diary-date-forms'.  This variable is a list of patterns
+for recognizing a date.  Each date pattern is a list whose elements may
+be regular expressions (*note Regexps::) or the symbols `month', `day',
+`year', `monthname', and `dayname'.  All these elements serve as
+patterns that match certain kinds of text in the diary file.  In order
+for the date pattern, as a whole, to match, all of its elements must
+match consecutively.
+
+   A regular expression in a date pattern matches in its usual fashion,
+using the standard syntax table altered so that `*' is a word
+constituent.
+
+   The symbols `month', `day', `year', `monthname', and `dayname' match
+the month number, day number, year number, month name, and day name of
+the date being considered.  The symbols that match numbers allow
+leading zeros; those that match names allow three-letter abbreviations
+and capitalization.  All the symbols can match `*'; since `*' in a
+diary entry means "any day", "any month", and so on, it should match
+regardless of the date being considered.
+
+   The default value of `diary-date-forms' in the American style is
+this:
+
+     ((month "/" day "[^/0-9]")
+      (month "/" day "/" year "[^0-9]")
+      (monthname " *" day "[^,0-9]")
+      (monthname " *" day ", *" year "[^0-9]")
+      (dayname "\\W"))
+
+Emacs matches of the diary entries with the date forms is done with the
+standard syntax table from Fundamental mode (*note Syntax Tables:
+(lispref)Syntax Tables.), but with the `*' changed so that it is a word
+constituent.
+
+   The date patterns in the list must be _mutually exclusive_ and must
+not match any portion of the diary entry itself, just the date and one
+character of whitespace.  If, to be mutually exclusive, the pattern
+must match a portion of the diary entry text--beyond the whitespace
+that ends the date--then the first element of the date pattern _must_
+be `backup'.  This causes the date recognizer to back up to the
+beginning of the current word of the diary entry, after finishing the
+match.  Even if you use `backup', the date pattern must absolutely not
+match more than a portion of the first word of the diary entry.  The
+default value of `diary-date-forms' in the European style is this list:
+
+     ((day "/" month "[^/0-9]")
+      (day "/" month "/" year "[^0-9]")
+      (backup day " *" monthname "\\W+\\<[^*0-9]")
+      (day " *" monthname " *" year "[^0-9]")
+      (dayname "\\W"))
+
+Notice the use of `backup' in the third pattern, because it needs to
+match part of a word beyond the date itself to distinguish it from the
+fourth pattern.
+
+
+File: xemacs.info,  Node: Hebrew/Islamic Entries,  Next: Fancy Diary Display,  Prev: Diary Customizing,  Up: Calendar Customization
+
+Hebrew- and Islamic-Date Diary Entries
+......................................
+
+   Your diary file can have entries based on Hebrew or Islamic dates, as
+well as entries based on the world-standard Gregorian calendar.
+However, because recognition of such entries is time-consuming and most
+people don't use them, you must explicitly enable their use.  If you
+want the diary to recognize Hebrew-date diary entries, for example, you
+must do this:
+
+     (add-hook 'nongregorian-diary-listing-hook 'list-hebrew-diary-entries)
+     (add-hook 'nongregorian-diary-marking-hook 'mark-hebrew-diary-entries)
+
+If you want Islamic-date entries, do this:
+
+     (add-hook 'nongregorian-diary-listing-hook 'list-islamic-diary-entries)
+     (add-hook 'nongregorian-diary-marking-hook 'mark-islamic-diary-entries)
+
+   Hebrew- and Islamic-date diary entries have the same formats as
+Gregorian-date diary entries, except that `H' precedes a Hebrew date
+and `I' precedes an Islamic date.  Moreover, because the Hebrew and
+Islamic month names are not uniquely specified by the first three
+letters, you may not abbreviate them.  For example, a diary entry for
+the Hebrew date Heshvan 25 could look like this:
+
+     HHeshvan 25 Happy Hebrew birthday!
+
+and would appear in the diary for any date that corresponds to Heshvan
+25 on the Hebrew calendar.  And here is  Islamic-date diary entry  that
+matches Dhu al-Qada 25:
+
+     IDhu al-Qada 25 Happy Islamic birthday!
+
+and would appear in the diary for any date that corresponds to Dhu
+al-Qada 25 on the Islamic calendar.
+
+   As with Gregorian-date diary entries, Hebrew- and Islamic-date
+entries are nonmarking if they are preceded with an ampersand (`&').
+
+   Here is a table of commands used in the calendar to create diary
+entries that match the selected date and other dates that are similar
+in the Hebrew or Islamic calendar:
+
+`i h d'
+     Add a diary entry for the Hebrew date corresponding to the
+     selected date (`insert-hebrew-diary-entry').
+
+`i h m'
+     Add a diary entry for the day of the Hebrew month corresponding to
+     the selected date (`insert-monthly-hebrew-diary-entry').  This
+     diary entry matches any date that has the same Hebrew
+     day-within-month as the selected date.
+
+`i h y'
+     Add a diary entry for the day of the Hebrew year corresponding to
+     the selected date (`insert-yearly-hebrew-diary-entry').  This diary
+     entry matches any date which has the same Hebrew month and
+     day-within-month as the selected date.
+
+`i i d'
+     Add a diary entry for the Islamic date corresponding to the
+     selected date (`insert-islamic-diary-entry').
+
+`i i m'
+     Add a diary entry for the day of the Islamic month corresponding
+     to the selected date (`insert-monthly-islamic-diary-entry').
+
+`i i y'
+     Add a diary entry for the day of the Islamic year corresponding to
+     the selected date (`insert-yearly-islamic-diary-entry').
+
+   These commands work much like the corresponding commands for ordinary
+diary entries: they apply to the date that point is on in the calendar
+window, and what they do is insert just the date portion of a diary
+entry at the end of your diary file.  You must then insert the rest of
+the diary entry.
+
+
 File: xemacs.info,  Node: Fancy Diary Display,  Next: Included Diary Files,  Prev: Hebrew/Islamic Entries,  Up: Calendar Customization
 
 Fancy Diary Display
@@ -999,215 +1172,4 @@ File::.
 * Faces::           Changing the fonts and colors of a region of text.
 * X Resources::	    X resources controlling various aspects of the
                      behavior of XEmacs.
-
-
-File: xemacs.info,  Node: Minor Modes,  Next: Variables,  Up: Customization
-
-Minor Modes
-===========
-
-   Minor modes are options which you can use or not.  For example, Auto
-Fill mode is a minor mode in which <SPC> breaks lines between words as
-you type.  All the minor modes are independent of each other and of the
-selected major mode.  Most minor modes inform you in the mode line when
-they are on; for example, `Fill' in the mode line means that Auto Fill
-mode is on.
-
-   Append `-mode' to the name of a minor mode to get the name of a
-command function that turns the mode on or off.  Thus, the command to
-enable or disable Auto Fill mode is called `M-x auto-fill-mode'.  These
-commands are usually invoked with `M-x', but you can bind keys to them
-if you wish.  With no argument, the function turns the mode on if it was
-off and off if it was on.  This is known as "toggling".  A positive
-argument always turns the mode on, and an explicit zero argument or a
-negative argument always turns it off.
-
-   Auto Fill mode allows you to enter filled text without breaking lines
-explicitly.  Emacs inserts newlines as necessary to prevent lines from
-becoming too long.  *Note Filling::.
-
-   Overwrite mode causes ordinary printing characters to replace
-existing text instead of moving it to the right.  For example, if point
-is in front of the `B' in `FOOBAR', and you type a `G' in Overwrite
-mode, it changes to `FOOGAR', instead of `FOOGBAR'.
-
-   Abbrev mode allows you to define abbreviations that automatically
-expand as you type them.  For example, `amd' might expand to `abbrev
-mode'.  *Note Abbrevs::, for full information.
-
-
-File: xemacs.info,  Node: Variables,  Next: Keyboard Macros,  Prev: Minor Modes,  Up: Customization
-
-Variables
-=========
-
-   A "variable" is a Lisp symbol which has a value.  Variable names can
-contain any characters, but by convention they are words separated by
-hyphens.  A variable can also have a documentation string, which
-describes what kind of value it should have and how the value will be
-used.
-
-   Lisp allows any variable to have any kind of value, but most
-variables that Emacs uses require a value of a certain type.  Often the
-value has to be a string or a number.  Sometimes we say that a certain
-feature is turned on if a variable is "non-`nil'," meaning that if the
-variable's value is `nil', the feature is off, but the feature is on
-for any other value.  The conventional value to turn on the
-feature--since you have to pick one particular value when you set the
-variable--is `t'.
-
-   Emacs uses many Lisp variables for internal recordkeeping, as any
-Lisp program must, but the most interesting variables for you are the
-ones that exist for the sake of customization.  Emacs does not
-(usually) change the values of these variables; instead, you set the
-values, and thereby alter and control the behavior of certain Emacs
-commands.  These variables are called "options".  Most options are
-documented in this manual and appear in the Variable Index (*note
-Variable Index::).
-
-   One example of a variable which is an option is `fill-column', which
-specifies the position of the right margin (as a number of characters
-from the left margin) to be used by the fill commands (*note Filling::).
-
-* Menu:
-
-* Examining::           Examining or setting one variable's value.
-* Easy Customization::  Convenient and easy customization of variables.
-* Edit Options::        Examining or editing list of all variables' values.
-* Locals::              Per-buffer values of variables.
-* File Variables::      How files can specify variable values.
-
-
-File: xemacs.info,  Node: Examining,  Next: Easy Customization,  Up: Variables
-
-Examining and Setting Variables
--------------------------------
-
-`C-h v'
-`M-x describe-variable'
-     Print the value and documentation of a variable.
-
-`M-x set-variable'
-     Change the value of a variable.
-
-   To examine the value of a single variable, use `C-h v'
-(`describe-variable'), which reads a variable name using the
-minibuffer, with completion.  It prints both the value and the
-documentation of the variable.
-
-     C-h v fill-column <RET>
-
-prints something like:
-
-     fill-column's value is 75
-     
-     Documentation:
-     *Column beyond which automatic line-wrapping should happen.
-     Automatically becomes local when set in any fashion.
-
-The star at the beginning of the documentation indicates that this
-variable is an option.  `C-h v' is not restricted to options; it allows
-any variable name.
-
-   If you know which option you want to set, you can use `M-x
-set-variable' to set it.  This prompts for the variable name in the
-minibuffer (with completion), and then prompts for a Lisp expression
-for the new value using the minibuffer a second time.  For example,
-
-     M-x set-variable <RET> fill-column <RET> 75 <RET>
-
-sets `fill-column' to 75, as if you had executed the Lisp expression
-`(setq fill-column 75)'.
-
-   Setting variables in this way, like all means of customizing Emacs
-except where explicitly stated, affects only the current Emacs session.
-
-
-File: xemacs.info,  Node: Easy Customization,  Next: Edit Options,  Prev: Examining,  Up: Variables
-
-Easy Customization Interface
-----------------------------
-
-   A convenient way to find the user option variables that you want to
-change, and then change them, is with `M-x customize'.  This command
-creates a "customization buffer" with which you can browse through the
-Emacs user options in a logically organized structure, then edit and
-set their values.  You can also use the customization buffer to save
-settings permanently.  (Not all Emacs user options are included in this
-structure as of yet, but we are adding the rest.)
-
-* Menu:
-
-* Groups: Customization Groups.
-                             How options are classified in a structure.
-* Changing an Option::       How to edit a value and set an option.
-* Face Customization::       How to edit the attributes of a face.
-* Specific Customization::   Making a customization buffer for specific
-                                options, faces, or groups.
-
-
-File: xemacs.info,  Node: Customization Groups,  Next: Changing an Option,  Up: Easy Customization
-
-Customization Groups
-....................
-
-   For customization purposes, user options are organized into "groups"
-to help you find them.  Groups are collected into bigger groups, all
-the way up to a master group called `Emacs'.
-
-   `M-x customize' creates a customization buffer that shows the
-top-level `Emacs' group and the second-level groups immediately under
-it.  It looks like this, in part:
-
-     /- Emacs group: ---------------------------------------------------\
-           [State]: visible group members are all at standard settings.
-        Customization of the One True Editor.
-        See also [Manual].
-     
-      [Open] Editing group
-     Basic text editing facilities.
-     
-      [Open] External group
-     Interfacing to external utilities.
-     
-     MORE SECOND-LEVEL GROUPS
-     
-     \- Emacs group end ------------------------------------------------/
-
-This says that the buffer displays the contents of the `Emacs' group.
-The other groups are listed because they are its contents.  But they
-are listed differently, without indentation and dashes, because _their_
-contents are not included.  Each group has a single-line documentation
-string; the `Emacs' group also has a `[State]' line.
-
-   Most of the text in the customization buffer is read-only, but it
-typically includes some "editable fields" that you can edit.  There are
-also "active fields"; this means a field that does something when you
-"invoke" it.  To invoke an active field, either click on it with
-`Mouse-1', or move point to it and type <RET>.
-
-   For example, the phrase `[Open]' that appears in a second-level
-group is an active field.  Invoking the `[Open]' field for a group
-opens up a new customization buffer, which shows that group and its
-contents.  This field is a kind of hypertext link to another group.
-
-   The `Emacs' group does not include any user options itself, but
-other groups do.  By examining various groups, you will eventually find
-the options and faces that belong to the feature you are interested in
-customizing.  Then you can use the customization buffer to set them.
-
-   You can view the structure of customization groups on a larger scale
-with `M-x customize-browse'.  This command creates a special kind of
-customization buffer which shows only the names of the groups (and
-options and faces), and their structure.
-
-   In this buffer, you can show the contents of a group by invoking
-`[+]'.  When the group contents are visible, this button changes to
-`[-]'; invoking that hides the group contents.
-
-   Each group, option or face name in this buffer has an active field
-which says `[Group]', `[Option]' or `[Face]'.  Invoking that active
-field creates an ordinary customization buffer showing just that group
-and its contents, just that option, or just that face.  This is the way
-to set values in it.
 

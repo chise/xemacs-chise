@@ -80,6 +80,10 @@ debugger, set the variable `debug-on-error' to non-`nil'.
      happen in process filter functions and sentinels.  Therefore, these
      errors also can invoke the debugger.  *Note Processes::.
 
+ - User Option: debug-on-signal
+     This variable is similar to `debug-on-error' but breaks whenever
+     an error is signalled, regardless of whether it would be handled.
+
  - User Option: debug-ignored-errors
      This variable specifies certain kinds of errors that should not
      enter the debugger.  Its value is a list of error condition
@@ -104,10 +108,6 @@ best way to make `.emacs' set `debug-on-error' permanently is with
 
      (add-hook 'after-init-hook
                '(lambda () (setq debug-on-error t)))
-
- - User Option: debug-on-signal
-     This variable is similar to `debug-on-error' but breaks whenever
-     an error is signalled, regardless of whether it would be handled.
 
 
 File: lispref.info,  Node: Infinite Loops,  Next: Function Debugging,  Prev: Error Debugging,  Up: Debugger

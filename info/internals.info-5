@@ -227,7 +227,7 @@ File: internals.info,  Node: mark_object,  Next: gc_sweep,  Prev: garbage_collec
 the object is a real Lisp object `Lisp_Type_Record' or just an integer
 or a character. Integers and characters are the only two types that are
 stored directly - without another level of indirection, and therefore
-they don´t have to be marked and collected.  *Note How Lisp Objects Are
+they don't have to be marked and collected.  *Note How Lisp Objects Are
 Represented in C::.
 
    The second case is the one we have to handle. It is the one when we
@@ -268,7 +268,7 @@ and managed, and consequently different ways to free them from memory.
 objects are allocated and handled using that scheme of `lcrecords'.
 Each object is `malloc'ed separately instead of placing it in one of
 the contiguous frob blocks. All types that are currently stored using
-`lcrecords'´s  `alloc_lcrecord' and `make_lcrecord_list' are the types:
+`lcrecords''s  `alloc_lcrecord' and `make_lcrecord_list' are the types:
 vectors, buffers, char-table, char-table-entry, console, weak-list,
 database, device, ldap, hash-table, command-builder, extent-auxiliary,
 extent-info, face, coding-system, frame, image-instance, glyph,

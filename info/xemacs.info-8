@@ -30,6 +30,374 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Making Snapshots,  Next: Snapshot Caveats,  Prev: Snapshots,  Up: Snapshots
+
+Making and Using Snapshots
+..........................
+
+   There are two basic commands for snapshots; one makes a snapshot
+with a given name, the other retrieves a named snapshot.
+
+`C-x v s NAME <RET>'
+     Define the last saved versions of every registered file in or
+     under the current directory as a snapshot named NAME
+     (`vc-create-snapshot').
+
+`C-x v r NAME <RET>'
+     Check out all registered files at or below the current directory
+     level using whatever versions correspond to the snapshot NAME
+     (`vc-retrieve-snapshot').
+
+     This command reports an error if any files are locked at or below
+     the current directory, without changing anything; this is to avoid
+     overwriting work in progress.
+
+   A snapshot uses a very small amount of resources--just enough to
+record the list of file names and which version belongs to the
+snapshot.  Thus, you need not hesitate to create snapshots whenever
+they are useful.
+
+   You can give a snapshot name as an argument to `C-x v =' or `C-x v
+~' (*note Old Versions::).  Thus, you can use it to compare a snapshot
+against the current files, or two snapshots against each other, or a
+snapshot against a named version.
+
+
+File: xemacs.info,  Node: Snapshot Caveats,  Prev: Making Snapshots,  Up: Snapshots
+
+Snapshot Caveats
+................
+
+   VC's snapshot facilities are modeled on RCS's named-configuration
+support.  They use RCS's native facilities for this, so under VC
+snapshots made using RCS are visible even when you bypass VC.
+
+   For SCCS, VC implements snapshots itself.  The files it uses contain
+name/file/version-number triples.  These snapshots are visible only
+through VC.
+
+   A snapshot is a set of checked-in versions.  So make sure that all
+the files are checked in and not locked when you make a snapshot.
+
+   File renaming and deletion can create some difficulties with
+snapshots.  This is not a VC-specific problem, but a general design
+issue in version control systems that no one has solved very well yet.
+
+   If you rename a registered file, you need to rename its master along
+with it (the command `vc-rename-file' does this automatically).  If you
+are using SCCS, you must also update the records of the snapshot, to
+mention the file by its new name (`vc-rename-file' does this, too).  An
+old snapshot that refers to a master file that no longer exists under
+the recorded name is invalid; VC can no longer retrieve it.  It would
+be beyond the scope of this manual to explain enough about RCS and SCCS
+to explain how to update the snapshots by hand.
+
+   Using `vc-rename-file' makes the snapshot remain valid for
+retrieval, but it does not solve all problems.  For example, some of the
+files in the program probably refer to others by name.  At the very
+least, the makefile probably mentions the file that you renamed.  If you
+retrieve an old snapshot, the renamed file is retrieved under its new
+name, which is not the name that the makefile expects.  So the program
+won't really work as retrieved.
+
+
+File: xemacs.info,  Node: Version Headers,  Prev: Snapshots,  Up: Version Control
+
+Inserting Version Control Headers
+---------------------------------
+
+   Sometimes it is convenient to put version identification strings
+directly into working files.  Certain special strings called "version
+headers" are replaced in each successive version by the number of that
+version.
+
+   You can use the `C-x v h' command (`vc-insert-headers') to insert a
+suitable header string.
+
+`C-x v h'
+     Insert headers in a file for use with your version-control system.
+
+   The default header string is `\$Id\$' for RCS and `\%W\%' for SCCS.
+(The actual strings inserted do not have the backslashes in them.  They
+were placed in the Info source file so that the strings don't get
+interpreted as version-control headers when the Info source files are
+maintained under version control.) You can specify other headers to
+insert by setting the variable `vc-header-alist'.  Its value is a list
+of elements of the form `(PROGRAM . STRING)' where PROGRAM is `RCS' or
+`SCCS' and STRING is the string to use.
+
+   Instead of a single string, you can specify a list of strings; then
+each string in the list is inserted as a separate header on a line of
+its own.
+
+   It is often necessary to use "superfluous" backslashes when writing
+the strings that you put in this variable.  This is to prevent the
+string in the constant from being interpreted as a header itself if the
+Emacs Lisp file containing it is maintained with version control.
+
+   Each header is inserted surrounded by tabs, inside comment
+delimiters, on a new line at the start of the buffer.  Normally the
+ordinary comment start and comment end strings of the current mode are
+used, but for certain modes, there are special comment delimiters for
+this purpose; the variable `vc-comment-alist' specifies them.  Each
+element of this list has the form `(MODE STARTER ENDER)'.
+
+   The variable `vc-static-header-alist' specifies further strings to
+add based on the name of the buffer.  Its value should be a list of
+elements of the form `(REGEXP . FORMAT)'.  Whenever REGEXP matches the
+buffer name, FORMAT is inserted as part of the header.  A header line
+is inserted for each element that matches the buffer name, and for each
+string specified by `vc-header-alist'.  The header line is made by
+processing the string from `vc-header-alist' with the format taken from
+the element.  The default value for `vc-static-header-alist' is:
+
+     (("\\.c$" .
+       "\n#ifndef lint\nstatic char vcid[] = \"\%s\";\n\
+     #endif /* lint */\n"))
+
+which specifies insertion of a string of this form:
+
+
+     #ifndef lint
+     static char vcid[] = "STRING";
+     #endif /* lint */
+
+
+File: xemacs.info,  Node: ListDir,  Next: Comparing Files,  Prev: Version Control,  Up: Files
+
+Listing a File Directory
+========================
+
+   Files are organized by Unix into "directories".  A "directory
+listing" is a list of all the files in a directory.  Emacs provides
+directory listings in brief format (file names only) and verbose format
+(sizes, dates, and authors included).
+
+`C-x C-d DIR-OR-PATTERN'
+     Print a brief directory listing (`list-directory').
+
+`C-u C-x C-d DIR-OR-PATTERN'
+     Print a verbose directory listing.
+
+   To print a directory listing, use `C-x C-d' (`list-directory').
+This command prompts in the minibuffer for a file name which is either
+a  directory to be listed or pattern containing wildcards for the files
+to be listed.  For example,
+
+     C-x C-d /u2/emacs/etc <RET>
+
+lists all the files in directory `/u2/emacs/etc'.  An example of
+specifying a file name pattern is:
+
+     C-x C-d /u2/emacs/src/*.c <RET>
+
+   Normally, `C-x C-d' prints a brief directory listing containing just
+file names.  A numeric argument (regardless of value) tells it to print
+a verbose listing (like `ls -l').
+
+   Emacs obtains the text of a directory listing by running `ls' in an
+inferior process.  Two Emacs variables control the switches passed to
+`ls': `list-directory-brief-switches' is a string giving the switches
+to use in brief listings (`"-CF"' by default).
+`list-directory-verbose-switches' is a string giving the switches to
+use in a verbose listing (`"-l"' by default).
+
+   The variable `directory-abbrev-alist' is an alist of abbreviations
+for file directories.  The list consists of elements of the form `(FROM
+.  TO)', each meaning to replace `FROM' with `TO' when it appears in a
+directory name.  This replacement is done when setting up the default
+directory of a newly visited file.  Every `FROM' string should start
+with ``^''.
+
+   Use this feature when you have directories which you normally refer
+to via absolute symbolic links.  Make `TO' the name of the link, and
+`FROM' the name it is linked to.
+
+
+File: xemacs.info,  Node: Comparing Files,  Next: Dired,  Prev: ListDir,  Up: Files
+
+Comparing Files
+===============
+
+   The command `M-x diff' compares two files, displaying the
+differences in an Emacs buffer named `*Diff*'.  It works by running the
+`diff' program, using options taken from the variable `diff-switches',
+whose value should be a string.
+
+   The buffer `*Diff*' has Compilation mode as its major mode, so you
+can use `C-x `' to visit successive changed locations in the two source
+files.  You can also move to a particular hunk of changes and type `C-c
+C-c' to find the corresponding source location.  You can also use the
+other special commands of Compilation mode: <SPC> and <DEL> for
+scrolling, and `M-p' and `M-n' for cursor motion.  *Note Compilation::.
+
+   The command `M-x diff-backup' compares a specified file with its most
+recent backup.  If you specify the name of a backup file, `diff-backup'
+compares it with the source file that it is a backup of.
+
+   The command `M-x compare-windows' compares the text in the current
+window with that in the next window.  Comparison starts at point in each
+window.  Point moves forward in each window, a character at a time in
+each window, until the next characters in the two windows are
+different.  Then the command is finished.  For more information about
+windows in Emacs, *Note Windows::.
+
+   With a numeric argument, `compare-windows' ignores changes in
+whitespace.  If the variable `compare-ignore-case' is non-`nil', it
+ignores differences in case as well.
+
+
+File: xemacs.info,  Node: Dired,  Next: Misc File Ops,  Prev: Comparing Files,  Up: Files
+
+Dired, the Directory Editor
+===========================
+
+   Dired makes it easy to delete or visit many of the files in a single
+directory at once.  It creates an Emacs buffer containing a listing of
+the directory.  You can use the normal Emacs commands to move around in
+this buffer and special Dired commands to operate on the files.
+
+* Menu:
+
+* Enter: Dired Enter.         How to invoke Dired.
+* Edit: Dired Edit.           Editing the Dired buffer.
+* Deletion: Dired Deletion.   Deleting files with Dired.
+* Immed: Dired Immed.         Other file operations through Dired.
+
+
+File: xemacs.info,  Node: Dired Enter,  Next: Dired Edit,  Prev: Dired,  Up: Dired
+
+Entering Dired
+--------------
+
+   To invoke dired, type `C-x d' or `M-x dired'.  The command reads a
+directory name or wildcard file name pattern as a minibuffer argument
+just like the `list-directory' command, `C-x C-d'.  Where `dired'
+differs from `list-directory' is in naming the buffer after the
+directory name or the wildcard pattern used for the listing, and putting
+the buffer into Dired mode so that the special commands of Dired are
+available in it.  The variable `dired-listing-switches' is a string
+used as an argument to `ls' in making the directory; this string must
+contain `-l'.
+
+   To display the Dired buffer in another window rather than in the
+selected window, use `C-x 4 d' (`dired-other-window)' instead of `C-x
+d'.
+
+
+File: xemacs.info,  Node: Dired Edit,  Next: Dired Deletion,  Prev: Dired Enter,  Up: Dired
+
+Editing in Dired
+----------------
+
+   Once the Dired buffer exists, you can switch freely between it and
+other Emacs buffers.  Whenever the Dired buffer is selected, certain
+special commands are provided that operate on files that are listed.
+The Dired buffer is "read-only", and inserting text in it is not
+useful, so ordinary printing characters such as `d' and `x' are used
+for Dired commands.  Most Dired commands operate on the file described
+by the line that point is on.  Some commands perform operations
+immediately; others "flag" a file to be operated on later.
+
+   Most Dired commands that operate on the current line's file also
+treat a numeric argument as a repeat count, meaning to act on the files
+of the next few lines.  A negative argument means to operate on the
+files of the preceding lines, and leave point on the first of those
+lines.
+
+   All the usual Emacs cursor motion commands are available in Dired
+buffers.  Some special purpose commands are also provided.  The keys
+`C-n' and `C-p' are redefined so that they try to position the cursor
+at the beginning of the filename on the line, rather than at the
+beginning of the line.
+
+   For extra convenience, <SPC> and `n' in Dired are equivalent to
+`C-n'.  `p' is equivalent to `C-p'.  Moving by lines is done so often
+in Dired that it deserves to be easy to type.  <DEL> (move up and
+unflag) is often useful simply for moving up.
+
+   The `g' command in Dired runs `revert-buffer' to reinitialize the
+buffer from the actual disk directory and show any changes made in the
+directory by programs other than Dired.  All deletion flags in the Dired
+buffer are lost when this is done.
+
+
+File: xemacs.info,  Node: Dired Deletion,  Next: Dired Immed,  Prev: Dired Edit,  Up: Dired
+
+Deleting Files With Dired
+-------------------------
+
+   The primary use of Dired is to flag files for deletion and then
+delete them.
+
+`d'
+     Flag this file for deletion.
+
+`u'
+     Remove deletion-flag on this line.
+
+`<DEL>'
+     Remove deletion-flag on previous line, moving point to that line.
+
+`x'
+     Delete the files that are flagged for deletion.
+
+`#'
+     Flag all auto-save files (files whose names start and end with `#')
+     for deletion (*note Auto Save::).
+
+`~'
+     Flag all backup files (files whose names end with `~') for deletion
+     (*note Backup::).
+
+`. (Period)'
+     Flag excess numeric backup files for deletion.  The oldest and
+     newest few backup files of any one file are exempt; the middle
+     ones are flagged.
+
+   You can flag a file for deletion by moving to the line describing the
+file and typing `d' or `C-d'.  The deletion flag is visible as a `D' at
+the beginning of the line.  Point is moved to the beginning of the next
+line, so that repeated `d' commands flag successive files.
+
+   The files are flagged for deletion rather than deleted immediately to
+avoid the danger of deleting a file accidentally.  Until you direct
+Dired to delete the flagged files, you can remove deletion flags using
+the commands `u' and <DEL>.  `u' works just like `d', but removes flags
+rather than making flags.  <DEL> moves upward, removing flags; it is
+like `u' with numeric argument automatically negated.
+
+   To delete the flagged files, type `x'.  This command first displays a
+list of all the file names flagged for deletion, and requests
+confirmation with `yes'.  Once you confirm, all the flagged files are
+deleted, and their lines are deleted from the text of the Dired buffer.
+The shortened Dired buffer remains selected.  If you answer `no' or
+quit with `C-g', you return immediately to Dired, with the deletion
+flags still present and no files actually deleted.
+
+   The `#', `~', and `.' commands flag many files for deletion, based
+on their names.  These commands are useful precisely because they do
+not actually delete any files; you can remove the deletion flags from
+any flagged files that you really wish to keep.
+
+   `#' flags for deletion all files that appear to have been made by
+auto-saving (that is, files whose names begin and end with `#').  `~'
+flags for deletion all files that appear to have been made as backups
+for files that were edited (that is, files whose names end with `~').
+
+   `.' (Period) flags just some of the backup files for deletion: only
+numeric backups that are not among the oldest few nor the newest few
+backups of any one file.  Normally `dired-kept-versions' (not
+`kept-new-versions'; that applies only when saving) specifies the
+number of newest versions of each file to keep, and `kept-old-versions'
+specifies the number of oldest versions to keep.  Period with a
+positive numeric argument, as in `C-u 3 .', specifies the number of
+newest versions to keep, overriding `dired-kept-versions'.  A negative
+numeric argument overrides `kept-old-versions', using minus the value
+of the argument to specify the number of oldest versions of each file
+to keep.
+
+
 File: xemacs.info,  Node: Dired Immed,  Prev: Dired Deletion,  Up: Dired
 
 Immediate File Operations in Dired
@@ -783,286 +1151,4 @@ language environment is useful for, and lists the character sets,
 coding systems, and input methods that go with it.  It also shows some
 sample text to illustrate scripts used in this language environment.
 By default, this command describes the chosen language environment.
-
-
-File: xemacs.info,  Node: Input Methods,  Next: Select Input Method,  Prev: Language Environments,  Up: Mule
-
-Input Methods
-=============
-
-   An "input method" is a kind of character conversion designed
-specifically for interactive input.  In XEmacs, typically each language
-has its own input method; sometimes several languages which use the same
-characters can share one input method.  A few languages support several
-input methods.
-
-   The simplest kind of input method works by mapping ASCII letters into
-another alphabet.  This is how the Greek and Russian input methods work.
-
-   A more powerful technique is composition: converting sequences of
-characters into one letter.  Many European input methods use composition
-to produce a single non-ASCII letter from a sequence that consists of a
-letter followed by accent characters.  For example, some methods convert
-the sequence `'a' into a single accented letter.
-
-   The input methods for syllabic scripts typically use mapping followed
-by composition.  The input methods for Thai and Korean work this way.
-First, letters are mapped into symbols for particular sounds or tone
-marks; then, sequences of these which make up a whole syllable are
-mapped into one syllable sign.
-
-   Chinese and Japanese require more complex methods.  In Chinese input
-methods, first you enter the phonetic spelling of a Chinese word (in
-input method `chinese-py', among others), or a sequence of portions of
-the character (input methods `chinese-4corner' and `chinese-sw', and
-others).  Since one phonetic spelling typically corresponds to many
-different Chinese characters, you must select one of the alternatives
-using special XEmacs commands.  Keys such as `C-f', `C-b', `C-n',
-`C-p', and digits have special definitions in this situation, used for
-selecting among the alternatives.  <TAB> displays a buffer showing all
-the possibilities.
-
-   In Japanese input methods, first you input a whole word using
-phonetic spelling; then, after the word is in the buffer, XEmacs
-converts it into one or more characters using a large dictionary.  One
-phonetic spelling corresponds to many differently written Japanese
-words, so you must select one of them; use `C-n' and `C-p' to cycle
-through the alternatives.
-
-   Sometimes it is useful to cut off input method processing so that the
-characters you have just entered will not combine with subsequent
-characters.  For example, in input method `latin-1-postfix', the
-sequence `e '' combines to form an `e' with an accent.  What if you
-want to enter them as separate characters?
-
-   One way is to type the accent twice; that is a special feature for
-entering the separate letter and accent.  For example, `e ' '' gives
-you the two characters `e''.  Another way is to type another letter
-after the `e'--something that won't combine with that--and immediately
-delete it.  For example, you could type `e e <DEL> '' to get separate
-`e' and `''.
-
-   Another method, more general but not quite as easy to type, is to use
-`C-\ C-\' between two characters to stop them from combining.  This is
-the command `C-\' (`toggle-input-method') used twice.  *Note Select
-Input Method::.
-
-   `C-\ C-\' is especially useful inside an incremental search, because
-stops waiting for more characters to combine, and starts searching for
-what you have already entered.
-
-   The variables `input-method-highlight-flag' and
-`input-method-verbose-flag' control how input methods explain what is
-happening.  If `input-method-highlight-flag' is non-`nil', the partial
-sequence is highlighted in the buffer.  If `input-method-verbose-flag'
-is non-`nil', the list of possible characters to type next is displayed
-in the echo area (but not when you are in the minibuffer).
-
-
-File: xemacs.info,  Node: Select Input Method,  Next: Coding Systems,  Prev: Input Methods,  Up: Mule
-
-Selecting an Input Method
-=========================
-
-`C-\'
-     Enable or disable use of the selected input method.
-
-`C-x <RET> C-\ METHOD <RET>'
-     Select a new input method for the current buffer.
-
-`C-h I METHOD <RET>'
-`C-h C-\ METHOD <RET>'
-     Describe the input method METHOD (`describe-input-method').  By
-     default, it describes the current input method (if any).
-
-`M-x list-input-methods'
-     Display a list of all the supported input methods.
-
-   To choose an input method for the current buffer, use `C-x <RET>
-C-\' (`select-input-method').  This command reads the input method name
-with the minibuffer; the name normally starts with the language
-environment that it is meant to be used with.  The variable
-`current-input-method' records which input method is selected.
-
-   Input methods use various sequences of ASCII characters to stand for
-non-ASCII characters.  Sometimes it is useful to turn off the input
-method temporarily.  To do this, type `C-\' (`toggle-input-method').
-To reenable the input method, type `C-\' again.
-
-   If you type `C-\' and you have not yet selected an input method, it
-prompts for you to specify one.  This has the same effect as using `C-x
-<RET> C-\' to specify an input method.
-
-   Selecting a language environment specifies a default input method for
-use in various buffers.  When you have a default input method, you can
-select it in the current buffer by typing `C-\'.  The variable
-`default-input-method' specifies the default input method (`nil' means
-there is none).
-
-   Some input methods for alphabetic scripts work by (in effect)
-remapping the keyboard to emulate various keyboard layouts commonly used
-for those scripts.  How to do this remapping properly depends on your
-actual keyboard layout.  To specify which layout your keyboard has, use
-the command `M-x quail-set-keyboard-layout'.
-
-   To display a list of all the supported input methods, type `M-x
-list-input-methods'.  The list gives information about each input
-method, including the string that stands for it in the mode line.
-
-
-File: xemacs.info,  Node: Coding Systems,  Next: Recognize Coding,  Prev: Select Input Method,  Up: Mule
-
-Coding Systems
-==============
-
-   Users of various languages have established many more-or-less
-standard coding systems for representing them.  XEmacs does not use
-these coding systems internally; instead, it converts from various
-coding systems to its own system when reading data, and converts the
-internal coding system to other coding systems when writing data.
-Conversion is possible in reading or writing files, in sending or
-receiving from the terminal, and in exchanging data with subprocesses.
-
-   XEmacs assigns a name to each coding system.  Most coding systems are
-used for one language, and the name of the coding system starts with the
-language name.  Some coding systems are used for several languages;
-their names usually start with `iso'.  There are also special coding
-systems `binary' and `no-conversion' which do not convert printing
-characters at all.
-
-   In addition to converting various representations of non-ASCII
-characters, a coding system can perform end-of-line conversion.  XEmacs
-handles three different conventions for how to separate lines in a file:
-newline, carriage-return linefeed, and just carriage-return.
-
-`C-h C CODING <RET>'
-     Describe coding system CODING.
-
-`C-h C <RET>'
-     Describe the coding systems currently in use.
-
-`M-x list-coding-systems'
-     Display a list of all the supported coding systems.
-
-   The command `C-h C' (`describe-coding-system') displays information
-about particular coding systems.  You can specify a coding system name
-as argument; alternatively, with an empty argument, it describes the
-coding systems currently selected for various purposes, both in the
-current buffer and as the defaults, and the priority list for
-recognizing coding systems (*note Recognize Coding::).
-
-   To display a list of all the supported coding systems, type `M-x
-list-coding-systems'.  The list gives information about each coding
-system, including the letter that stands for it in the mode line (*note
-Mode Line::).
-
-   Each of the coding systems that appear in this list--except for
-`binary', which means no conversion of any kind--specifies how and
-whether to convert printing characters, but leaves the choice of
-end-of-line conversion to be decided based on the contents of each file.
-For example, if the file appears to use carriage-return linefeed between
-lines, that end-of-line conversion will be used.
-
-   Each of the listed coding systems has three variants which specify
-exactly what to do for end-of-line conversion:
-
-`...-unix'
-     Don't do any end-of-line conversion; assume the file uses newline
-     to separate lines.  (This is the convention normally used on Unix
-     and GNU systems.)
-
-`...-dos'
-     Assume the file uses carriage-return linefeed to separate lines,
-     and do the appropriate conversion.  (This is the convention
-     normally used on Microsoft systems.)
-
-`...-mac'
-     Assume the file uses carriage-return to separate lines, and do the
-     appropriate conversion.  (This is the convention normally used on
-     the Macintosh system.)
-
-   These variant coding systems are omitted from the
-`list-coding-systems' display for brevity, since they are entirely
-predictable.  For example, the coding system `iso-8859-1' has variants
-`iso-8859-1-unix', `iso-8859-1-dos' and `iso-8859-1-mac'.
-
-   In contrast, the coding system `binary' specifies no character code
-conversion at all--none for non-Latin-1 byte values and none for end of
-line.  This is useful for reading or writing binary files, tar files,
-and other files that must be examined verbatim.
-
-   The easiest way to edit a file with no conversion of any kind is with
-the `M-x find-file-literally' command.  This uses `binary', and also
-suppresses other XEmacs features that might convert the file contents
-before you see them.  *Note Visiting::.
-
-   The coding system `no-conversion' means that the file contains
-non-Latin-1 characters stored with the internal XEmacs encoding.  It
-handles end-of-line conversion based on the data encountered, and has
-the usual three variants to specify the kind of end-of-line conversion.
-
-
-File: xemacs.info,  Node: Recognize Coding,  Next: Specify Coding,  Prev: Coding Systems,  Up: Mule
-
-Recognizing Coding Systems
-==========================
-
-   Most of the time, XEmacs can recognize which coding system to use for
-any given file-once you have specified your preferences.
-
-   Some coding systems can be recognized or distinguished by which byte
-sequences appear in the data.  However, there are coding systems that
-cannot be distinguished, not even potentially.  For example, there is no
-way to distinguish between Latin-1 and Latin-2; they use the same byte
-values with different meanings.
-
-   XEmacs handles this situation by means of a priority list of coding
-systems.  Whenever XEmacs reads a file, if you do not specify the coding
-system to use, XEmacs checks the data against each coding system,
-starting with the first in priority and working down the list, until it
-finds a coding system that fits the data.  Then it converts the file
-contents assuming that they are represented in this coding system.
-
-   The priority list of coding systems depends on the selected language
-environment (*note Language Environments::).  For example, if you use
-French, you probably want XEmacs to prefer Latin-1 to Latin-2; if you
-use Czech, you probably want Latin-2 to be preferred.  This is one of
-the reasons to specify a language environment.
-
-   However, you can alter the priority list in detail with the command
-`M-x prefer-coding-system'.  This command reads the name of a coding
-system from the minibuffer, and adds it to the front of the priority
-list, so that it is preferred to all others.  If you use this command
-several times, each use adds one element to the front of the priority
-list.
-
-   Sometimes a file name indicates which coding system to use for the
-file.  The variable `file-coding-system-alist' specifies this
-correspondence.  There is a special function
-`modify-coding-system-alist' for adding elements to this list.  For
-example, to read and write all `.txt' using the coding system
-`china-iso-8bit', you can execute this Lisp expression:
-
-     (modify-coding-system-alist 'file "\\.txt\\'" 'china-iso-8bit)
-
-The first argument should be `file', the second argument should be a
-regular expression that determines which files this applies to, and the
-third argument says which coding system to use for these files.
-
-   You can specify the coding system for a particular file using the
-`-*-...-*-' construct at the beginning of a file, or a local variables
-list at the end (*note File Variables::).  You do this by defining a
-value for the "variable" named `coding'.  XEmacs does not really have a
-variable `coding'; instead of setting a variable, it uses the specified
-coding system for the file.  For example, `-*-mode: C; coding:
-iso-8859-1;-*-' specifies use of the iso-8859-1 coding system, as well
-as C mode.
-
-   Once XEmacs has chosen a coding system for a buffer, it stores that
-coding system in `buffer-file-coding-system' and uses that coding
-system, by default, for operations that write from this buffer into a
-file.  This includes the commands `save-buffer' and `write-region'.  If
-you want to write files from this buffer using a different coding
-system, you can specify a different coding system for the buffer using
-`set-buffer-file-coding-system' (*note Specify Coding::).
 

@@ -65,6 +65,8 @@ Variable Index
 * bell-volume:                           Audible Bell.
 * blink-matching-paren:                  Matching.
 * blink-matching-paren-distance:         Matching.
+* bookmark-save-flag:                    Bookmarks.
+* bookmark-search-size:                  Bookmarks.
 * buffer-file-coding-system:             Recognize Coding.
 * buffer-file-name:                      Visiting.
 * buffer-file-truename:                  Visiting.
@@ -114,8 +116,8 @@ Variable Index
 * comment-start-skip:                    Comments.
 * compare-ignore-case:                   Comparing Files.
 * compile-command:                       Compilation.
-* completion-auto-help:                  Completion.
-* completion-ignored-extensions:         Completion.
+* completion-auto-help:                  Completion Options.
+* completion-ignored-extensions:         Completion Options.
 * create-frame-hook:                     XEmacs under X.
 * ctl-arrow:                             Display Vars.
 * ctl-x-map:                             Keymaps.
@@ -232,7 +234,8 @@ Variable Index
 * mark-ring:                             Mark Ring.
 * mark-ring-max:                         Mark Ring.
 * meta-flag:                             Meta Key.
-* minibuffer-confirm-incomplete:         Completion.
+* minibuffer-confirm-incomplete <1>:     Completion Options.
+* minibuffer-confirm-incomplete:         Minibuffer Edit.
 * minibuffer-local-completion-map:       Keymaps.
 * minibuffer-local-map:                  Keymaps.
 * minibuffer-local-must-match-map:       Keymaps.
@@ -328,6 +331,7 @@ Concept Index
 * Menu:
 
 * .mailrc file:                          Mail Headers.
+* // in file name:                       Minibuffer File.
 * Abbrev mode:                           Minor Modes.
 * abbrevs:                               Abbrevs.
 * aborting:                              Quitting.
@@ -361,6 +365,7 @@ Concept Index
 * blank lines:                           Blank Lines.
 * body lines (Outline mode):             Outline Format.
 * bold font:                             Face Customization.
+* bookmarks:                             Bookmarks.
 * boredom:                               Amusements.
 * buffer:                                Frame.
 * buffer menu:                           Several Buffers.
@@ -451,6 +456,7 @@ Concept Index
 * disabling menu items:                  Menu Customization.
 * Distribution:                          License.
 * doctor:                                Total Frustration.
+* double slash in file name:             Minibuffer File.
 * drastic changes:                       Reverting.
 * dribble file:                          Bugs.
 * early package hierarchies:             Startup Paths.
@@ -515,6 +521,7 @@ Concept Index
 * Help menu:                             Pull-down Menus.
 * hierarchies:                           Startup Paths.
 * history of commands:                   Repetition.
+* history of minibuffer input:           Minibuffer History.
 * holiday forms:                         Holiday Customizing.
 * holidays:                              Holidays.
 * horizontal scrolling:                  Horizontal Scrolling.
@@ -592,6 +599,7 @@ Concept Index
 * minibuffer <1>:                        Keymaps.
 * minibuffer <2>:                        M-x.
 * minibuffer:                            Minibuffer.
+* minibuffer history:                    Minibuffer History.
 * minor modes:                           Minor Modes.
 * mistakes, correcting <1>:              Fixit.
 * mistakes, correcting:                  Undo.
@@ -716,6 +724,7 @@ Concept Index
 * single-file packages:                  Package Terminology.
 * site-specific directories:             Startup Paths.
 * Size menu item:                        Options Menu.
+* slashes repeated in file name:         Minibuffer File.
 * snapshots and version control:         Snapshots.
 * sorting:                               Sorting.
 * sorting diary entries:                 Fancy Diary Display.

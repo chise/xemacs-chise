@@ -80,6 +80,14 @@ Command and Function Index
 * beginning-of-defun:                    Defuns.
 * beginning-of-fortran-subprogram:       Fortran Motion.
 * beginning-of-line:                     Basic.
+* bookmark-delete:                       Bookmarks.
+* bookmark-insert:                       Bookmarks.
+* bookmark-insert-location:              Bookmarks.
+* bookmark-jump:                         Bookmarks.
+* bookmark-load:                         Bookmarks.
+* bookmark-save:                         Bookmarks.
+* bookmark-set:                          Bookmarks.
+* bookmark-write:                        Bookmarks.
 * buffer-menu:                           Several Buffers.
 * byte-compile-and-load-file:            Compiling Libraries.
 * byte-compile-buffer:                   Compiling Libraries.
@@ -146,6 +154,7 @@ Command and Function Index
 * capitalize-word <1>:                   Case.
 * capitalize-word:                       Fixing Case.
 * center-line:                           Fill Commands.
+* choose-completion:                     Completion Commands.
 * clear-rectangle:                       Rectangles.
 * comint-delchar-or-maybe-eof:           Shell Mode.
 * comint-dynamic-complete:               Shell Mode.
@@ -165,8 +174,8 @@ Command and Function Index
 * conx-save:                             CONX.
 * copy-file:                             Misc File Ops.
 * copy-last-shell-input:                 Shell Mode.
+* copy-rectangle-to-register:            RegRect.
 * copy-region-as-kill:                   Kill Ring.
-* copy-region-to-rectangle:              RegRect.
 * copy-to-buffer:                        Accumulating Text.
 * copy-to-register:                      RegText.
 * count-lines-page:                      Pages.
@@ -329,6 +338,7 @@ Command and Function Index
 * forward-sexp:                          Lists.
 * forward-text-line:                     Nroff Mode.
 * forward-word:                          Words.
+* frame-configuration-to-register:       RegConfig.
 * global-set-key <1>:                    Programmatic Rebinding.
 * global-set-key:                        Interactive Rebinding.
 * goto-char:                             Basic.
@@ -342,6 +352,7 @@ Command and Function Index
 * hide-subtree:                          Outline Visibility.
 * holidays:                              Holidays.
 * include-other-diary-files:             Included Diary Files.
+* increment-register:                    RegNumbers.
 * indent-c-exp:                          Multi-line Indent.
 * indent-for-comment:                    Comments.
 * indent-new-comment-line:               Comments.
@@ -390,7 +401,8 @@ Command and Function Index
 * isearch-ring-retreat:                  Incremental Search.
 * isearch-yank-line:                     Incremental Search.
 * isearch-yank-word:                     Incremental Search.
-* jump-to-register:                      Split Window.
+* jump-to-register <1>:                  Split Window.
+* jump-to-register:                      RegPos.
 * just-one-space:                        Killing.
 * kbd-macro-query:                       Kbd Macro Query.
 * kill-all-abbrevs:                      Defining Abbrevs.
@@ -417,6 +429,7 @@ Command and Function Index
 * lisp-mode:                             External Lisp.
 * lisp-send-defun:                       External Lisp.
 * list-abbrevs:                          Editing Abbrevs.
+* list-bookmarks:                        Bookmarks.
 * list-buffers:                          List Buffers.
 * list-calendar-holidays:                Holidays.
 * list-coding-systems:                   Coding Systems.
@@ -486,9 +499,10 @@ Command and Function Index
 * mark-whole-buffer:                     Marking Objects.
 * mark-word <1>:                         Words.
 * mark-word:                             Marking Objects.
-* minibuffer-complete:                   Completion.
-* minibuffer-complete-word:              Completion.
+* minibuffer-complete:                   Completion Example.
+* minibuffer-complete-word:              Completion Commands.
 * modify-syntax-entry:                   Syntax Change.
+* mouse-choose-completion:               Completion Commands.
 * mouse-del-char:                        Additional Mouse Operations.
 * mouse-delete-window:                   Additional Mouse Operations.
 * mouse-keep-one-window:                 Additional Mouse Operations.
@@ -512,9 +526,13 @@ Command and Function Index
 * newline-and-indent:                    Basic Indent.
 * next-complex-command:                  Repetition.
 * next-error:                            Compilation.
+* next-history-element:                  Minibuffer History.
 * next-line:                             Basic.
+* next-list-mode-item:                   Completion Commands.
+* next-matching-history-element:         Minibuffer History.
 * not-modified:                          Saving.
 * nroff-mode:                            Nroff Mode.
+* number-to-register:                    RegNumbers.
 * occur:                                 Other Repeating Search.
 * open-dribble-file:                     Bugs.
 * open-line:                             Blank Lines.
@@ -562,7 +580,10 @@ Command and Function Index
 * prefer-coding-system:                  Recognize Coding.
 * prepend-to-buffer:                     Accumulating Text.
 * previous-complex-command:              Repetition.
+* previous-history-element:              Minibuffer History.
 * previous-line:                         Basic.
+* previous-list-mode-item:               Completion Commands.
+* previous-matching-history-element:     Minibuffer History.
 * print-buffer:                          Hardcopy.
 * print-diary-entries <1>:               Diary Customizing.
 * print-diary-entries:                   Diary Commands.
@@ -581,7 +602,6 @@ Command and Function Index
 * recenter:                              Basic.
 * recover-file:                          Recover.
 * redraw-calendar:                       General Calendar.
-* register-to-point:                     RegPos.
 * relabel-menu-item:                     Menu Customization.
 * remove-directory:                      File Names.
 * rename-buffer:                         Misc Buffer.
@@ -741,7 +761,8 @@ Command and Function Index
 * widget-backward:                       Changing an Option.
 * widget-complete:                       Changing an Option.
 * widget-forward:                        Changing an Option.
-* window-configuration-to-register:      Split Window.
+* window-configuration-to-register <1>:  Split Window.
+* window-configuration-to-register:      RegConfig.
 * word-search-backward:                  Word Search.
 * word-search-forward:                   Word Search.
 * write-abbrev-file:                     Saving Abbrevs.

@@ -30,6 +30,229 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Disabling,  Prev: Rebinding,  Up: Key Bindings
+
+Disabling Commands
+------------------
+
+   Disabling a command marks it as requiring confirmation before it can
+be executed.  The purpose of disabling a command is to prevent
+beginning users from executing it by accident and being confused.
+
+   The direct mechanism for disabling a command is to have a non-`nil'
+`disabled' property on the Lisp symbol for the command.  These
+properties are normally set by the user's `.emacs' file with Lisp
+expressions such as:
+
+     (put 'delete-region 'disabled t)
+
+   If the value of the `disabled' property is a string, that string is
+included in the message printed when the command is used:
+
+     (put 'delete-region 'disabled
+          "Text deleted this way cannot be yanked back!\n")
+
+   You can disable a command either by editing the `.emacs' file
+directly or with the command `M-x disable-command', which edits the
+`.emacs' file for you.  *Note Init File::.
+
+   When you attempt to invoke a disabled command interactively in Emacs,
+a window is displayed containing the command's name, its documentation,
+and some instructions on what to do next; then Emacs asks for input
+saying whether to execute the command as requested, enable it and
+execute, or cancel it.  If you decide to enable the command, you are
+asked whether to do this permanently or just for the current session.
+Enabling permanently works by automatically editing your `.emacs' file.
+You can use `M-x enable-command' at any time to enable any command
+permanently.
+
+   Whether a command is disabled is independent of what key is used to
+invoke it; it also applies if the command is invoked using `M-x'.
+Disabling a command has no effect on calling it as a function from Lisp
+programs.
+
+
+File: xemacs.info,  Node: Syntax,  Next: Init File,  Prev: Key Bindings,  Up: Customization
+
+The Syntax Table
+================
+
+   All the Emacs commands which parse words or balance parentheses are
+controlled by the "syntax table".  The syntax table specifies which
+characters are opening delimiters, which are parts of words, which are
+string quotes, and so on.  Actually, each major mode has its own syntax
+table (though sometimes related major modes use the same one) which it
+installs in each buffer that uses that major mode.  The syntax table
+installed in the current buffer is the one that all commands use, so we
+call it "the" syntax table.  A syntax table is a Lisp object, a vector
+of length 256 whose elements are numbers.
+
+* Menu:
+
+* Entry: Syntax Entry.    What the syntax table records for each character.
+* Change: Syntax Change.  How to change the information.
+
+
+File: xemacs.info,  Node: Syntax Entry,  Next: Syntax Change,  Up: Syntax
+
+Information About Each Character
+--------------------------------
+
+   The syntax table entry for a character is a number that encodes six
+pieces of information:
+
+   * The syntactic class of the character, represented as a small
+     integer
+
+   * The matching delimiter, for delimiter characters only (the
+     matching delimiter of `(' is `)', and vice versa)
+
+   * A flag saying whether the character is the first character of a
+     two-character comment starting sequence
+
+   * A flag saying whether the character is the second character of a
+     two-character comment starting sequence
+
+   * A flag saying whether the character is the first character of a
+     two-character comment ending sequence
+
+   * A flag saying whether the character is the second character of a
+     two-character comment ending sequence
+
+   The syntactic classes are stored internally as small integers, but
+are usually described to or by the user with characters.  For example,
+`(' is used to specify the syntactic class of opening delimiters.  Here
+is a table of syntactic classes, with the characters that specify them.
+
+` '
+     The class of whitespace characters.
+
+`w'
+     The class of word-constituent characters.
+
+`_'
+     The class of characters that are part of symbol names but not
+     words.  This class is represented by `_' because the character `_'
+     has this class in both C and Lisp.
+
+`.'
+     The class of punctuation characters that do not fit into any other
+     special class.
+
+`('
+     The class of opening delimiters.
+
+`)'
+     The class of closing delimiters.
+
+`''
+     The class of expression-adhering characters.  These characters are
+     part of a symbol if found within or adjacent to one, and are part
+     of a following expression if immediately preceding one, but are
+     like whitespace if surrounded by whitespace.
+
+`"'
+     The class of string-quote characters.  They match each other in
+     pairs, and the characters within the pair all lose their syntactic
+     significance except for the `\' and `/' classes of escape
+     characters, which can be used to include a string-quote inside the
+     string.
+
+`$'
+     The class of self-matching delimiters.  This is intended for TeX's
+     `$', which is used both to enter and leave math mode.  Thus, a
+     pair of matching `$' characters surround each piece of math mode
+     TeX input.  A pair of adjacent `$' characters act like a single
+     one for purposes of matching.
+
+`/'
+     The class of escape characters that always just deny the following
+     character its special syntactic significance.  The character after
+     one of these escapes is always treated as alphabetic.
+
+`\'
+     The class of C-style escape characters.  In practice, these are
+     treated just like `/'-class characters, because the extra
+     possibilities for C escapes (such as being followed by digits)
+     have no effect on where the containing expression ends.
+
+`<'
+     The class of comment-starting characters.  Only single-character
+     comment starters (such as `;' in Lisp mode) are represented this
+     way.
+
+`>'
+     The class of comment-ending characters.  Newline has this syntax in
+     Lisp mode.
+
+   The characters flagged as part of two-character comment delimiters
+can have other syntactic functions most of the time.  For example, `/'
+and `*' in C code, when found separately, have nothing to do with
+comments.  The comment-delimiter significance overrides when the pair of
+characters occur together in the proper order.  Only the list and sexp
+commands use the syntax table to find comments; the commands
+specifically for comments have other variables that tell them where to
+find comments.  Moreover, the list and sexp commands notice comments
+only if `parse-sexp-ignore-comments' is non-`nil'.  This variable is set
+to `nil' in modes where comment-terminator sequences are liable to
+appear where there is no comment, for example, in Lisp mode where the
+comment terminator is a newline but not every newline ends a comment.
+
+
+File: xemacs.info,  Node: Syntax Change,  Prev: Syntax Entry,  Up: Syntax
+
+Altering Syntax Information
+---------------------------
+
+   It is possible to alter a character's syntax table entry by storing
+a new number in the appropriate element of the syntax table, but it
+would be hard to determine what number to use.  Emacs therefore
+provides a command that allows you to specify the syntactic properties
+of a character in a convenient way.
+
+   `M-x modify-syntax-entry' is the command to change a character's
+syntax.  It can be used interactively and is also used by major modes
+to initialize their own syntax tables.  Its first argument is the
+character to change.  The second argument is a string that specifies the
+new syntax.  When called from Lisp code, there is a third, optional
+argument, which specifies the syntax table in which to make the change.
+If not supplied, or if this command is called interactively, the third
+argument defaults to the current buffer's syntax table.
+
+  1. The first character in the string specifies the syntactic class.
+     It is one of the characters in the previous table (*note Syntax
+     Entry::).
+
+  2. The second character is the matching delimiter.  For a character
+     that is not an opening or closing delimiter, this should be a
+     space, and may be omitted if no following characters are needed.
+
+  3. The remaining characters are flags.  The flag characters allowed
+     are:
+
+    `1'
+          Flag this character as the first of a two-character comment
+          starting sequence.
+
+    `2'
+          Flag this character as the second of a two-character comment
+          starting sequence.
+
+    `3'
+          Flag this character as the first of a two-character comment
+          ending sequence.
+
+    `4'
+          Flag this character as the second of a two-character comment
+          ending sequence.
+
+   Use `C-h s' (`describe-syntax') to display a description of the
+contents of the current syntax table.  The description of each
+character includes both the string you have to pass to
+`modify-syntax-entry' to set up that character's current syntax, and
+some English to explain that string if necessary.
+
+
 File: xemacs.info,  Node: Init File,  Next: Audible Bell,  Prev: Syntax,  Up: Customization
 
 The Init File, .emacs
@@ -1059,80 +1282,4 @@ results.
 end of the buffer, check for the word `Narrow' in the mode line.  If it
 appears, the text is still present, but marked off-limits.  To make it
 visible again, type `C-x n w'.  *Note Narrowing::.
-
-
-File: xemacs.info,  Node: Unasked-for Search,  Next: Emergency Escape,  Prev: Text Garbled,  Up: Lossage
-
-Spontaneous Entry to Incremental Search
----------------------------------------
-
-   If Emacs spontaneously displays `I-search:' at the bottom of the
-screen, it means that the terminal is sending `C-s' and `C-q' according
-to the poorly designed xon/xoff "flow control" protocol.  You should
-try to prevent this by putting the terminal in a mode where it will not
-use flow control, or by giving it enough padding that it will never
-send a `C-s'.  If that cannot be done, you must tell Emacs to expect
-flow control to be used, until you can get a properly designed terminal.
-
-   Information on how to do these things can be found in the file
-`INSTALL' in the Emacs distribution.
-
-
-File: xemacs.info,  Node: Emergency Escape,  Next: Total Frustration,  Prev: Unasked-for Search,  Up: Lossage
-
-Emergency Escape
-----------------
-
-   Because at times there have been bugs causing Emacs to loop without
-checking `quit-flag', a special feature causes Emacs to be suspended
-immediately if you type a second `C-g' while the flag is already set,
-so you can always get out of XEmacs.  Normally Emacs recognizes and
-clears `quit-flag' (and quits!) quickly enough to prevent this from
-happening.
-
-   When you resume Emacs after a suspension caused by multiple `C-g', it
-asks two questions before going back to what it had been doing:
-
-     Auto-save? (y or n)
-     Abort (and dump core)? (y or n)
-
-Answer each one with `y' or `n' followed by <RET>.
-
-   Saying `y' to `Auto-save?' causes immediate auto-saving of all
-modified buffers in which auto-saving is enabled.
-
-   Saying `y' to `Abort (and dump core)?' causes an illegal instruction
-to be executed, dumping core.  This is to enable a wizard to figure out
-why Emacs was failing to quit in the first place.  Execution does not
-continue after a core dump.  If you answer `n', execution does
-continue.  With luck, Emacs will ultimately check `quit-flag' and quit
-normally.  If not, and you type another `C-g', it is suspended again.
-
-   If Emacs is not really hung, but is just being slow, you may invoke
-the double `C-g' feature without really meaning to.  In that case,
-simply resume and answer `n' to both questions, and you will arrive at
-your former state.  Presumably the quit you requested will happen soon.
-
-   The double-`C-g' feature may be turned off when Emacs is running
-under a window system, since the window system always enables you to
-kill Emacs or to create another window and run another program.
-
-
-File: xemacs.info,  Node: Total Frustration,  Prev: Emergency Escape,  Up: Lossage
-
-Help for Total Frustration
---------------------------
-
-   If using Emacs (or something else) becomes terribly frustrating and
-none of the techniques described above solve the problem, Emacs can
-still help you.
-
-   First, if the Emacs you are using is not responding to commands, type
-`C-g C-g' to get out of it and then start a new one.
-
-   Second, type `M-x doctor <RET>'.
-
-   The doctor will make you feel better.  Each time you say something to
-the doctor, you must end it by typing <RET> <RET>.  This lets the
-doctor know you are finished.
 

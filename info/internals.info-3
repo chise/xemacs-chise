@@ -382,8 +382,8 @@ out where the cycles are going.  Specific projects:
 Function calls in elisp are especially expensive.  Iterating over a
 long list is going to be 30 times faster implemented in C than in Elisp.
 
-   To get started debugging XEmacs, take a look at the `gdbinit' and
-`dbxrc' files in the `src' directory.  *Note Q2.1.15 - How to Debug an
+   To get started debugging XEmacs, take a look at the `.gdbinit' and
+`.dbxrc' files in the `src' directory.  *Note Q2.1.15 - How to Debug an
 XEmacs problem with a debugger: (xemacs-faq)Q2.1.15 - How to Debug an
 XEmacs problem with a debugger.
 

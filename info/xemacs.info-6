@@ -30,6 +30,363 @@ versions, except that the sections entitled "The GNU Manifesto",
 translation approved by the author instead of in the original English.
 
 
+File: xemacs.info,  Node: Display Vars,  Prev: Selective Display,  Up: Display
+
+Variables Controlling Display
+=============================
+
+   This section contains information for customization only.  Beginning
+users should skip it.
+
+   When you reenter XEmacs after suspending, XEmacs normally clears the
+screen and redraws the entire display.  On some terminals with more than
+one page of memory, it is possible to arrange the termcap entry so that
+the `ti' and `te' strings (output to the terminal when XEmacs is
+entered and exited, respectively) switch between pages of memory so as
+to use one page for XEmacs and another page for other output.  In that
+case, you might want to set the variable `no-redraw-on-reenter' to
+non-`nil' so that XEmacs will assume, when resumed, that the screen
+page it is using still contains what XEmacs last wrote there.
+
+   The variable `echo-keystrokes' controls the echoing of
+multi-character keys; its value is the number of seconds of pause
+required to cause echoing to start, or zero, meaning don't echo at all.
+*Note Echo Area::.
+
+   If the variable `ctl-arrow' is `nil', control characters in the
+buffer are displayed with octal escape sequences, all except newline and
+tab.  If its value is `t', then control characters will be printed with
+an up-arrow, for example `^A'.
+
+   If its value is not `t' and not `nil', then characters whose code is
+greater than 160 (that is, the space character (32) with its high bit
+set) will be assumed to be printable, and will be displayed without
+alteration.  This is the default when running under X Windows, since
+XEmacs assumes an ISO/8859-1 character set (also known as "Latin1").
+The `ctl-arrow' variable may also be set to an integer, in which case
+all characters whose codes are greater than or equal to that value will
+be assumed to be printable.
+
+   Altering the value of `ctl-arrow' makes it local to the current
+buffer; until that time, the default value is in effect.  *Note
+Locals::.
+
+   Normally, a tab character in the buffer is displayed as whitespace
+which extends to the next display tab stop position, and display tab
+stops come at intervals equal to eight spaces.  The number of spaces
+per tab is controlled by the variable `tab-width', which is made local
+by changing it, just like `ctl-arrow'.  Note that how the tab character
+in the buffer is displayed has nothing to do with the definition of
+<TAB> as a command.
+
+   If you set the variable `selective-display-ellipses' to `nil', the
+three dots at the end of a line that precedes invisible lines do not
+appear.  There is no visible indication of the invisible lines.  This
+variable becomes local automatically when set.
+
+
+File: xemacs.info,  Node: Search,  Next: Fixit,  Prev: Display,  Up: Top
+
+Searching and Replacement
+*************************
+
+   Like other editors, Emacs has commands for searching for occurrences
+of a string.  The principal search command is unusual in that it is
+"incremental": it begins to search before you have finished typing the
+search string.  There are also non-incremental search commands more like
+those of other editors.
+
+   Besides the usual `replace-string' command that finds all
+occurrences of one string and replaces them with another, Emacs has a
+fancy replacement command called `query-replace' which asks
+interactively which occurrences to replace.
+
+* Menu:
+
+* Incremental Search::     Search happens as you type the string.
+* Non-Incremental Search:: Specify entire string and then search.
+* Word Search::            Search for sequence of words.
+* Regexp Search::          Search for match for a regexp.
+* Regexps::                Syntax of regular expressions.
+* Search Case::            To ignore case while searching, or not.
+* Replace::                Search, and replace some or all matches.
+* Other Repeating Search:: Operating on all matches for some regexp.
+
+
+File: xemacs.info,  Node: Incremental Search,  Next: Non-Incremental Search,  Prev: Search,  Up: Search
+
+Incremental Search
+==================
+
+   An incremental search begins searching as soon as you type the first
+character of the search string.  As you type in the search string, Emacs
+shows you where the string (as you have typed it so far) is found.
+When you have typed enough characters to identify the place you want,
+you can stop.  Depending on what you do next, you may or may not need to
+terminate the search explicitly with a <RET>.
+
+`C-s'
+     Incremental search forward (`isearch-forward').
+
+`C-r'
+     Incremental search backward (`isearch-backward').
+
+   `C-s' starts an incremental search.  `C-s' reads characters from the
+keyboard and positions the cursor at the first occurrence of the
+characters that you have typed.  If you type `C-s' and then `F', the
+cursor moves right after the first `F'.  Type an `O', and see the
+cursor move to after the first `FO'.  After another `O', the cursor is
+after the first `FOO' after the place where you started the search.
+Meanwhile, the search string `FOO' has been echoed in the echo area.
+
+   The echo area display ends with three dots when actual searching is
+going on.  When search is waiting for more input, the three dots are
+removed.  (On slow terminals, the three dots are not displayed.)
+
+   If you make a mistake in typing the search string, you can erase
+characters with <DEL>.  Each <DEL> cancels the last character of the
+search string.  This does not happen until Emacs is ready to read
+another input character; first it must either find, or fail to find,
+the character you want to erase.  If you do not want to wait for this
+to happen, use `C-g' as described below.
+
+   When you are satisfied with the place you have reached, you can type
+<RET> (or <C-m>), which stops searching, leaving the cursor where the
+search brought it.  Any command not specially meaningful in searches
+also stops the search and is then executed.  Thus, typing `C-a' exits
+the search and then moves to the beginning of the line.  <RET> is
+necessary only if the next command you want to type is a printing
+character, <DEL>, <ESC>, or another control character that is special
+within searches (`C-q', `C-w', `C-r', `C-s', or `C-y').
+
+   Sometimes you search for `FOO' and find it, but were actually
+looking for a different occurance of it.  To move to the next occurrence
+of the search string, type another `C-s'.  Do this as often as
+necessary.  If you overshoot, you can cancel some `C-s' characters with
+<DEL>.
+
+   After you exit a search, you can search for the same string again by
+typing just `C-s C-s': the first `C-s' is the key that invokes
+incremental search, and the second `C-s' means "search again".
+
+   If the specified string is not found at all, the echo area displays
+the text `Failing I-Search'.  The cursor is after the place where Emacs
+found as much of your string as it could.  Thus, if you search for
+`FOOT', and there is no `FOOT', the cursor may be after the `FOO' in
+`FOOL'.  At this point there are several things you can do.  If you
+mistyped the search string, correct it.  If you like the place you have
+found, you can type <RET> or some other Emacs command to "accept what
+the search offered".  Or you can type `C-g', which removes from the
+search string the characters that could not be found (the `T' in
+`FOOT'), leaving those that were found (the `FOO' in `FOOT').  A second
+`C-g' at that point cancels the search entirely, returning point to
+where it was when the search started.
+
+   If a search is failing and you ask to repeat it by typing another
+`C-s', it starts again from the beginning of the buffer.  Repeating a
+failing backward search with `C-r' starts again from the end.  This is
+called "wrapping around".  `Wrapped' appears in the search prompt once
+this has happened.
+
+   The `C-g' "quit" character does special things during searches; just
+what it does depends on the status of the search.  If the search has
+found what you specified and is waiting for input, `C-g' cancels the
+entire search.  The cursor moves back to where you started the search.
+If `C-g' is typed when there are characters in the search string that
+have not been found--because Emacs is still searching for them, or
+because it has failed to find them--then the search string characters
+which have not been found are discarded from the search string.  The
+search is now successful and waiting for more input, so a second `C-g'
+cancels the entire search.
+
+   To search for a control character such as `C-s' or <DEL> or <ESC>,
+you must quote it by typing `C-q' first.  This function of `C-q' is
+analogous to its meaning as an Emacs command: it causes the following
+character to be treated the way a graphic character would normally be
+treated in the same context.
+
+   To search backwards, you can use `C-r' instead of `C-s' to start the
+search; `C-r' is the key that runs the command (`isearch-backward') to
+search backward.  You can also use `C-r' to change from searching
+forward to searching backwards.  Do this if a search fails because the
+place you started was too far down in the file.  Repeated `C-r' keeps
+looking for more occurrences backwards.  `C-s' starts going forward
+again.  You can cancel `C-r' in a search with <DEL>.
+
+   The characters `C-y' and `C-w' can be used in incremental search to
+grab text from the buffer into the search string.  This makes it
+convenient to search for another occurrence of text at point.  `C-w'
+copies the word after point as part of the search string, advancing
+point over that word.  Another `C-s' to repeat the search will then
+search for a string including that word.  `C-y' is similar to `C-w' but
+copies the rest of the current line into the search string.
+
+   The characters `M-p' and `M-n' can be used in an incremental search
+to recall things which you have searched for in the past.  A list of
+the last 16 things you have searched for is retained, and `M-p' and
+`M-n' let you cycle through that ring.
+
+   The character `M-<TAB>' does completion on the elements in the
+search history ring.  For example, if you know that you have recently
+searched for the string `POTATOE', you could type `C-s P O M-<TAB>'.
+If you had searched for other strings beginning with `PO' then you
+would be shown a list of them, and would need to type more to select
+one.
+
+   You can change any of the special characters in incremental search
+via the normal keybinding mechanism: simply add a binding to the
+`isearch-mode-map'.  For example, to make the character `C-b' mean
+"search backwards" while in isearch-mode, do this:
+
+     (define-key isearch-mode-map "\C-b" 'isearch-repeat-backward)
+
+   These are the default bindings of isearch-mode:
+
+`DEL'
+     Delete a character from the incremental search string
+     (`isearch-delete-char').
+
+`RET'
+     Exit incremental search (`isearch-exit').
+
+`C-q'
+     Quote special characters for incremental search
+     (`isearch-quote-char').
+
+`C-s'
+     Repeat incremental search forward (`isearch-repeat-forward').
+
+`C-r'
+     Repeat incremental search backward (`isearch-repeat-backward').
+
+`C-y'
+     Pull rest of line from buffer into search string
+     (`isearch-yank-line').
+
+`C-w'
+     Pull next word from buffer into search string
+     (`isearch-yank-word').
+
+`C-g'
+     Cancels input back to what has been found successfully, or aborts
+     the isearch (`isearch-abort').
+
+`M-p'
+     Recall the previous element in the isearch history ring
+     (`isearch-ring-retreat').
+
+`M-n'
+     Recall the next element in the isearch history ring
+     (`isearch-ring-advance').
+
+`M-<TAB>'
+     Do completion on the elements in the isearch history ring
+     (`isearch-complete').
+
+   Any other character which is normally inserted into a buffer when
+typed is automatically added to the search string in isearch-mode.
+
+Slow Terminal Incremental Search
+--------------------------------
+
+   Incremental search on a slow terminal uses a modified style of
+display that is designed to take less time.  Instead of redisplaying
+the buffer at each place the search gets to, it creates a new
+single-line window and uses that to display the line the search has
+found.  The single-line window appears as soon as point gets outside of
+the text that is already on the screen.
+
+   When the search is terminated, the single-line window is removed.
+Only at this time the window in which the search was done is
+redisplayed to show its new value of point.
+
+   The three dots at the end of the search string, normally used to
+indicate that searching is going on, are not displayed in slow style
+display.
+
+   The slow terminal style of display is used when the terminal baud
+rate is less than or equal to the value of the variable
+`search-slow-speed', initially 1200.
+
+   The number of lines to use in slow terminal search display is
+controlled by the variable `search-slow-window-lines'.  Its normal
+value is 1.
+
+
+File: xemacs.info,  Node: Non-Incremental Search,  Next: Word Search,  Prev: Incremental Search,  Up: Search
+
+Non-Incremental Search
+======================
+
+   Emacs also has conventional non-incremental search commands, which
+require you type the entire search string before searching begins.
+
+`C-s <RET> STRING <RET>'
+     Search for STRING.
+
+`C-r <RET> STRING <RET>'
+     Search backward for STRING.
+
+   To do a non-incremental search, first type `C-s <RET>' (or `C-s
+C-m').  This enters the minibuffer to read the search string.
+Terminate the string with <RET> to start the search.  If the string is
+not found, the search command gets an error.
+
+   By default, `C-s' invokes incremental search, but if you give it an
+empty argument, which would otherwise be useless, it invokes
+non-incremental search.  Therefore, `C-s <RET>' invokes non-incremental
+search.  `C-r <RET>' also works this way.
+
+   Forward and backward non-incremental searches are implemented by the
+commands `search-forward' and `search-backward'.  You can bind these
+commands to keys.  The reason that incremental search is programmed to
+invoke them as well is that `C-s <RET>' is the traditional sequence of
+characters used in Emacs to invoke non-incremental search.
+
+   Non-incremental searches performed using `C-s <RET>' do not call
+`search-forward' right away.  They first check if the next character is
+`C-w', which requests a word search.  *Note Word Search::.
+
+
+File: xemacs.info,  Node: Word Search,  Next: Regexp Search,  Prev: Non-Incremental Search,  Up: Search
+
+Word Search
+===========
+
+   Word search looks for a sequence of words without regard to how the
+words are separated.  More precisely, you type a string of many words,
+using single spaces to separate them, and the string is found even if
+there are multiple spaces, newlines or other punctuation between the
+words.
+
+   Word search is useful in editing documents formatted by text
+formatters.  If you edit while looking at the printed, formatted
+version, you can't tell where the line breaks are in the source file.
+Word search, allows you to search  without having to know the line
+breaks.
+
+`C-s <RET> C-w WORDS <RET>'
+     Search for WORDS, ignoring differences in punctuation.
+
+`C-r <RET> C-w WORDS <RET>'
+     Search backward for WORDS, ignoring differences in punctuation.
+
+   Word search is a special case of non-incremental search.  It is
+invoked with `C-s <RET> C-w' followed by the search string, which must
+always be terminated with another <RET>.  Being non-incremental, this
+search does not start until the argument is terminated.  It works by
+constructing a regular expression and searching for that.  *Note Regexp
+Search::.
+
+   You can do a backward word search with `C-r <RET> C-w'.
+
+   Forward and backward word searches are implemented by the commands
+`word-search-forward' and `word-search-backward'.  You can bind these
+commands to keys.  The reason that incremental search is programmed to
+invoke them as well is that `C-s <RET> C-w' is the traditional Emacs
+sequence of keys for word search.
+
+
 File: xemacs.info,  Node: Regexp Search,  Next: Regexps,  Prev: Word Search,  Up: Search
 
 Regular Expression Search
@@ -814,343 +1171,4 @@ converted to a single `$' at the same time variable substitution is
 performed for single `$'.  The Lisp function that performs the
 substitution is called `substitute-in-file-name'.  The substitution is
 performed only on filenames read as such using the minibuffer.
-
-
-File: xemacs.info,  Node: Visiting,  Next: Saving,  Prev: File Names,  Up: Files
-
-Visiting Files
-==============
-
-`C-x C-f'
-     Visit a file (`find-file').
-
-`C-x C-v'
-     Visit a different file instead of the one visited last
-     (`find-alternate-file').
-
-`C-x 4 C-f'
-     Visit a file, in another window (`find-file-other-window').  Don't
-     change this window.
-
-`C-x 5 C-f'
-     Visit a file, in another frame (`find-file-other-frame').  Don't
-     change this window or frame.
-
-   "Visiting" a file means copying its contents into an Emacs buffer so
-you can edit it.  Emacs creates a new buffer for each file you visit.
-We say that the buffer is visiting the file that it was created to
-hold.  Emacs constructs the buffer name from the file name by throwing
-away the directory and keeping just the file name.  For example, a file
-named `/usr/rms/emacs.tex' is displayed in a buffer named `emacs.tex'.
-If a buffer with that name exists, a unique name is constructed by
-appending `<2>', `<3>',and so on, using the lowest number that makes a
-name that is not already in use.
-
-   Each window's mode line shows the name of the buffer that is being
-displayed in that window, so you can always tell what buffer you are
-editing.
-
-   The changes you make with Emacs are made in the Emacs buffer.  They
-do not take effect in the file that you visit, or any other permanent
-place, until you "save" the buffer.  Saving the buffer means that Emacs
-writes the current contents of the buffer into its visited file.  *Note
-Saving::.
-
-   If a buffer contains changes that have not been saved, the buffer is
-said to be "modified".  This is important because it implies that some
-changes will be lost if the buffer is not saved.  The mode line displays
-two stars near the left margin if the buffer is modified.
-
-   To visit a file, use the command `C-x C-f' (`find-file').  Follow
-the command with the name of the file you wish to visit, terminated by a
-<RET>.  If you are using XEmacs under X, you can also use the Open...
-command from the File menu bar item.
-
-   The file name is read using the minibuffer (*note Minibuffer::), with
-defaulting and completion in the standard manner (*note File Names::).
-While in the minibuffer, you can abort `C-x C-f' by typing `C-g'.
-
-   `C-x C-f' has completed successfully when text appears on the screen
-and a new buffer name appears in the mode line.  If the specified file
-does not exist and could not be created or cannot be read, an error
-results.  The error message is printed in the echo area, and includes
-the name of the file that Emacs was trying to visit.
-
-   If you visit a file that is already in Emacs, `C-x C-f' does not make
-another copy.  It selects the existing buffer containing that file.
-However, before doing so, it checks that the file itself has not changed
-since you visited or saved it last.  If the file has changed, Emacs
-prints a warning message.  *Note Simultaneous Editing: Interlocking.
-
-   You can switch to a specific file called out in the current buffer by
-calling the function `find-this-file'. By providing a prefix argument,
-this function calls `filename-at-point' and switches to a buffer
-visiting the file FILENAME. It creates one if none already exists. You
-can use this function to edit the file mentioned in the buffer you are
-working in or to test if the file exists. You can do that by using the
-minibuffer completion after snatching the all or part of the filename.
-
-   If the variable `find-file-use-truenames''s value is non-`nil', a
-buffer's visited filename will always be traced back to the real file.
-The filename will never be a symbolic link, and there will never be a
-symbolic link anywhere in its directory path. In other words, the
-`buffer-file-name' and `buffer-file-truename' will be equal.
-
-   If the variable `find-file-compare-truenames' value is non-`nil',
-the `find-file' command will check the `buffer-file-truename' of all
-visited files when deciding whether a given file is already in a
-buffer, instead of just `buffer-file-name'.  If you attempt to visit
-another file which is a hard-link or symbolic-link to a file that is
-already in a buffer, the existing buffer will be found instead of a
-newly created one.
-
-   If you want to create a file, just visit it.  Emacs prints `(New
-File)' in the echo area, but in other respects behaves as if you had
-visited an existing empty file.  If you make any changes and save them,
-the file is created.
-
-   If you visit a nonexistent file unintentionally (because you typed
-the wrong file name), use the `C-x C-v' (`find-alternate-file') command
-to visit the file you wanted.  `C-x C-v' is similar to `C-x C-f', but
-it kills the current buffer (after first offering to save it if it is
-modified).  `C-x C-v' is allowed even if the current buffer is not
-visiting a file.
-
-   If the file you specify is actually a directory, Dired is called on
-that directory (*note Dired::).  To inhibit this, set the variable
-`find-file-run-dired' to `nil'; then it is an error to try to visit a
-directory.
-
-   `C-x 4 f' (`find-file-other-window') is like `C-x C-f' except that
-the buffer containing the specified file is selected in another window.
-The window that was selected before `C-x 4 f' continues to show the
-same buffer it was already showing.  If you use this command when only
-one window is being displayed, that window is split in two, with one
-window showing the same buffer as before, and the other one showing the
-newly requested file.  *Note Windows::.
-
-   `C-x 5 C-f' (`find-file-other-frame') is like `C-x C-f' except that
-it creates a new frame in which the file is displayed.
-
-   Use the function `find-this-file-other-window' to edit a file
-mentioned in the buffer you are editing or to test if that file exists.
-To do this, use the minibuffer completion after snatching the part or
-all of the filename. By providing a prefix argument, the function calls
-`filename-at-point' and switches you to a buffer visiting the file
-FILENAME in another window. The function creates a buffer if none
-already exists. This function is similar to `find-file-other-window'.
-
-   There are two hook variables that allow extensions to modify the
-operation of visiting files.  Visiting a file that does not exist runs
-the functions in the list `find-file-not-found-hooks'; the value of this
-variable is expected to be a list of functions which are called one by
-one until one of them returns non-`nil'.  Any visiting of a file,
-whether extant or not, expects `find-file-hooks' to contain list of
-functions and calls them all, one by one.  In both cases the functions
-receive no arguments.  Visiting a nonexistent file runs the
-`find-file-not-found-hooks' first.
-
-
-File: xemacs.info,  Node: Saving,  Next: Reverting,  Prev: Visiting,  Up: Files
-
-Saving Files
-============
-
-   "Saving" a buffer in Emacs means writing its contents back into the
-file that was visited in the buffer.
-
-`C-x C-s'
-     Save the current buffer in its visited file (`save-buffer').
-
-`C-x s'
-     Save any or all buffers in their visited files
-     (`save-some-buffers').
-
-`M-~'
-     Forget that the current buffer has been changed (`not-modified').
-
-`C-x C-w'
-     Save the current buffer in a specified file, and record that file
-     as the one visited in the buffer (`write-file').
-
-`M-x set-visited-file-name'
-     Change file the name under which the current buffer will be saved.
-
-   To save a file and make your changes permanent, type `C-x C-s'
-(`save-buffer').  After saving is finished, `C-x C-s' prints a message
-such as:
-
-     Wrote /u/rms/gnu/gnu.tasks
-
-If the selected buffer is not modified (no changes have been made in it
-since the buffer was created or last saved), Emacs does not save it
-because it would have no effect.  Instead, `C-x C-s' prints a message
-in the echo area saying:
-
-     (No changes need to be saved)
-
-   The command `C-x s' (`save-some-buffers') can save any or all
-modified buffers.  First it asks, for each modified buffer, whether to
-save it.  The questions should be answered with `y' or `n'.  `C-x C-c',
-the key that kills Emacs, invokes `save-some-buffers' and therefore
-asks the same questions.
-
-   If you have changed a buffer and do not want the changes to be saved,
-you should take some action to prevent it.  Otherwise, you are liable to
-save it by mistake each time you use `save-some-buffers' or a related
-command.  One thing you can do is type `M-~' (`not-modified'), which
-removes the indication that the buffer is modified.  If you do this,
-none of the save commands will believe that the buffer needs to be
-saved.  (`~' is often used as a mathematical symbol for `not'; thus
-`Meta-~' is `not', metafied.)  You could also use
-`set-visited-file-name' (see below) to mark the buffer as visiting a
-different file name, not in use for anything important.
-
-   You can also undo all the changes made since the file was visited or
-saved, by reading the text from the file again.  This is called
-"reverting".  *Note Reverting::.  Alternatively, you can undo all the
-changes by repeating the undo command `C-x u'; but this only works if
-you have not made more changes than the undo mechanism can remember.
-
-   `M-x set-visited-file-name' alters the name of the file that the
-current buffer is visiting.  It prompts you for the new file name in the
-minibuffer.  You can also use `set-visited-file-name' on a buffer that
-is not visiting a file.  The buffer's name is changed to correspond to
-the file it is now visiting unless the new name is already used by a
-different buffer; in that case, the buffer name is not changed.
-`set-visited-file-name' does not save the buffer in the newly visited
-file; it just alters the records inside Emacs so that it will save the
-buffer in that file.  It also marks the buffer as "modified" so that
-`C-x C-s' will save.
-
-   If you wish to mark a buffer as visiting a different file and save it
-right away, use `C-x C-w' (`write-file').  It is precisely equivalent
-to `set-visited-file-name' followed by `C-x C-s'.  `C-x C-s' used on a
-buffer that is not visiting  a file has the same effect as `C-x C-w';
-that is, it reads a file name, marks the buffer as visiting that file,
-and saves it there.  The default file name in a buffer that is not
-visiting a file is made by combining the buffer name with the buffer's
-default directory.
-
-   If Emacs is about to save a file and sees that the date of the latest
-version on disk does not match what Emacs last read or wrote, Emacs
-notifies you of this fact, because it probably indicates a problem
-caused by simultaneous editing and requires your immediate attention.
-*Note Simultaneous Editing: Interlocking.
-
-   If the variable `require-final-newline' is non-`nil', Emacs puts a
-newline at the end of any file that doesn't already end in one, every
-time a file is saved or written.
-
-   Use the hook variable `write-file-hooks' to implement other ways to
-write files, and specify things to be done before files are written.
-The value of this variable should be a list of Lisp functions.  When a
-file is to be written, the functions in the list are called, one by
-one, with no arguments.  If one of them returns a non-`nil' value, Emacs
-takes this to mean that the file has been written in some suitable
-fashion; the rest of the functions are not called, and normal writing is
-not done. Use the hook variable `after-save-hook' to list all the
-functions to be called after writing out a buffer to a file.
-
-* Menu:
-
-* Backup::       How Emacs saves the old version of your file.
-* Interlocking:: How Emacs protects against simultaneous editing
-                  of one file by two users.
-
-
-File: xemacs.info,  Node: Backup,  Next: Interlocking,  Prev: Saving,  Up: Saving
-
-Backup Files
-------------
-
-   Because Unix does not provide version numbers in file names,
-rewriting a file in Unix automatically destroys all record of what the
-file used to contain.  Thus, saving a file from Emacs throws away the
-old contents of the file--or it would, except that Emacs carefully
-copies the old contents to another file, called the "backup" file,
-before actually saving.  (Make sure that the variable
-`make-backup-files' is non-`nil'.  Backup files are not written if this
-variable is `nil').
-
-   At your option, Emacs can keep either a single backup file or a
-series of numbered backup files for each file you edit.
-
-   Emacs makes a backup for a file only the first time a file is saved
-from one buffer.  No matter how many times you save a file, its backup
-file continues to contain the contents from before the file was visited.
-Normally this means that the backup file contains the contents from
-before the current editing session; however, if you kill the buffer and
-then visit the file again, a new backup file is made by the next save.
-
-* Menu:
-
-* Names: Backup Names.		How backup files are named;
-				Choosing single or numbered backup files.
-* Deletion: Backup Deletion.	Emacs deletes excess numbered backups.
-* Copying: Backup Copying.	Backups can be made by copying or renaming.
-
-
-File: xemacs.info,  Node: Backup Names,  Next: Backup Deletion,  Prev: Backup,  Up: Backup
-
-Single or Numbered Backups
-..........................
-
-   If you choose to have a single backup file (the default), the backup
-file's name is constructed by appending `~' to the file name being
-edited; thus, the backup file for `eval.c' is `eval.c~'.
-
-   If you choose to have a series of numbered backup files, backup file
-names are made by appending `.~', the number, and another `~' to the
-original file name.  Thus, the backup files of `eval.c' would be called
-`eval.c.~1~', `eval.c.~2~', and so on, through names like
-`eval.c.~259~' and beyond.
-
-   If protection stops you from writing backup files under the usual
-names, the backup file is written as `%backup%~' in your home directory.
-Only one such file can exist, so only the most recently made backup is
-available.
-
-   The choice of single backup or numbered backups is controlled by the
-variable `version-control'.  Its possible values are:
-
-`t'
-     Make numbered backups.
-
-`nil'
-     Make numbered backups for files that have numbered backups already.
-     Otherwise, make single backups.
-
-`never'
-     Never make numbered backups; always make single backups.
-
-`version-control' may be set locally in an individual buffer to control
-the making of backups for that buffer's file.  For example, Rmail mode
-locally sets `version-control' to `never' to make sure that there is
-only one backup for an Rmail file.  *Note Locals::.
-
-
-File: xemacs.info,  Node: Backup Deletion,  Next: Backup Copying,  Prev: Backup Names,  Up: Backup
-
-Automatic Deletion of Backups
-.............................
-
-   To prevent unlimited consumption of disk space, Emacs can delete
-numbered backup versions automatically.  Generally Emacs keeps the
-first few backups and the latest few backups, deleting any in between.
-This happens every time a new backup is made.  The two variables that
-control the deletion are `kept-old-versions' and `kept-new-versions'.
-Their values are, respectively the number of oldest (lowest-numbered)
-backups to keep and the number of newest (highest-numbered) ones to
-keep, each time a new backup is made.  The values are used just after a
-new backup version is made; that newly made backup is included in the
-count in `kept-new-versions'.  By default, both variables are 2.
-
-   If `trim-versions-without-asking' is non-`nil',  excess middle
-versions are deleted without notification.  If it is `nil', the
-default, you are asked whether the excess middle versions should really
-be deleted.
-
-   You can also use Dired's `.' (Period) command to delete old versions.
-*Note Dired::.
 
