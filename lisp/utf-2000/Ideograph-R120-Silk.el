@@ -13677,10 +13677,10 @@
       ))
     (=ucs		. #x2F970)	; 繅
     (->subsumptive
-     ((<-original-ideograph
+     ((<-original
        ((=daikanwa	    . 27854)	; &I-M-27854;
 	))
-      (<-original-ideograph*sources
+      (<-original*sources
        zhengzi-tong daikanwa)
       (=daikanwa	  . 28007)	; &M-28007;
       )
