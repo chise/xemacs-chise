@@ -115,15 +115,22 @@
     (=daikanwa		. 00096)	; ø¸€ 
     ))
 (define-char
-  '((script		Ideograph)
-    (=>ucs		. #x3005)	; ã€…
+  '((name		. "IDEOGRAPHIC ITERATION MARK")
+    (script		Ideograph)
+    (general-category	letter modifier) ; Informative Category
+    (bidi-category	. "L")
+    (mirrored		. nil)
     (ideographic-radical . 3)	; â¼‚
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (=ucs		. #x3005)	; ã€…
+    (=jis-x0208		. #x2139)	; ø½‰¶”
+    (=gb2312		. #x2129)	; ø»„†Œ
     (=gt		. 00135)	; ý¡€€‚‡
     (=gt-k		. 00282)	; ý¡„€„š
     (=gt-pj-2		. #x306C)	; ý¡€€‚‡
     (=daikanwa		. 00097)	; ø¸€¡
+    (=big5-eten		. #xC6E0)	; ý¢€Œ› 
     (=cbeta		. 02728)	; ø¸ ª¨
     ))
 (define-char
