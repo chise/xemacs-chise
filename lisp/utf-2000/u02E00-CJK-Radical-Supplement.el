@@ -24,6 +24,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-radical
+     ((ucs		  . #x4E5A)	; ä¹š
+      ))
+    (chinese-big5	. #xC87B)	; øº »¦
+    (ucs-big5		. #x4E5A)	; âºƒ
     (ucs		. #x2E83)	; âºƒ
     ))
 (define-char
@@ -66,6 +71,11 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (<-radical
+     ((ucs		  . #x5202)	; åˆ‚
+      ))
+    (chinese-big5	. #xC87D)	; øº »¨
+    (ucs-big5		. #x5202)	; âº‰
     (ucs		. #x2E89)	; âº‰
     ))
 (define-char
