@@ -1,3 +1,7 @@
+2003-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el (J0-6459): Unify JU+7C4F.
+
 2003-06-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R016-Table.el (M-01741): Separate C6-2152 and
