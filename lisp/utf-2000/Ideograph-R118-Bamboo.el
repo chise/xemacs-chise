@@ -3727,7 +3727,8 @@
     (ucs		. #x7BBF)	; ç®¿
     ))
 (define-char
-  '((ideographic-radical . 118)	; â½µ
+  '((=>ucs		. #x7BC0)	; ç¯€
+    (ideographic-radical . 118)	; â½µ
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
     (ideograph-daikanwa . 26243)	; ø¸†šƒ
