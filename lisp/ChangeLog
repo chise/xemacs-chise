@@ -1,5 +1,17 @@
 1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule/cyrillic.el:
+	- Register `coding-priority', `input-method' and `features' keys
+	  into language-info-alist.
+	- Specify `iso-8-1' as a category of coding-system `koi8-r'.
+	(cyrillic-alternativnyj-decode-table): New variable.
+	(cyrillic-alternativnyj-encode-table): New variable.
+	- Specify `iso-8-1' as a category of coding-system
+	  `alternativnyj'.
+	- Abolish general Cyrillic environment.
+
+1999-06-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule/chinese.el:
 	- Use `define-coding-system-alias' instead of `copy-coding-system'.
 	- Register `chinese-gb-environment-setup-function' as a
@@ -17,9 +29,9 @@
 
 1998-08-31  Paul Eggert  <eggert@twinsun.com>
 
-	* mule/chinese.el: Add coding: local variable, to avoid
-	bootstrapping problem if you need to recompile all the Lisp files
-	using interpreted code.
+	* mule/chinese.el, mule/cyrillic.el: Add coding: local variable,
+	to avoid bootstrapping problem if you need to recompile all the
+	Lisp files using interpreted code.
 
 1998-01-21  Kenichi Handa  <handa@etl.go.jp>
 
