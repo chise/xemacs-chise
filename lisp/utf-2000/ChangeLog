@@ -1,3 +1,47 @@
+2003-07-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R119-Rice.el (JSP-5334): Separate C4-4574; unify
+	JX2-7378.
+
+	* Ideograph-R116-Cave.el (U+41B1): Separate C4-5222.
+	(U+41B4): New character.
+	(JX2-7333): New character.
+
+	* Ideograph-R115-Grain.el (U-000257B4): Unify JX2-7276.
+	(M-25135): New character.
+	(U-000257A9): Relate to M-25135; unify JX2-7275.
+
+	* Ideograph-R108-Dish.el (U+76C9): Unify JX2-7176.
+	(U+76E8): Unify JX2-7178.
+
+	* Ideograph-R106-White.el (C3-5176): Unify JX2-7170.
+
+	* Ideograph-R104-Sickness.el (U+7617): Add `total-strokes'.
+	(U+7618): Likewise.
+	(JX2-7159): New character.
+
+	* Ideograph-R075-Tree.el (U-000233D2): Unify JX2-2E3D.
+	(JSP-433D): Unify JX2-2E4F.
+	(M-14639): Unify JSP-4343, C4-2D4E, JC3-53BA and U+67E1.
+	(JX2-2E4B): New character.
+	(M-14683): Unify G0-4859, JX2-2E4A, H8-EEF9 and U+8363.
+	(U+3B77): New character.
+	(U+FA13): New character.
+	(M-15089): New character.
+	(U+3B8D): Relate to M-15089; separate C3-4166.
+	(JSP-447D): Unify JX2-2F41.
+	(U+6A31): Add `total-strokes'.
+	(U+6A74): Likewise.
+	(M-15527): Separate all.
+	(U+6A7A): Relate to M-15527; unify JX2-2F55.
+	(U+6A7B): Add `total-strokes'.
+	(U+6AD4): Unify JX2-2F65.
+	(U+6B17): Unify JX2-2F76.
+
+2003-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R018-Knife.el (JX2-233F): New character.
+
 2003-07-03  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R134-Mortar.el (U-00026951): Unify JX2-755A.
