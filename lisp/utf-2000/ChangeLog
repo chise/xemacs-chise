@@ -6,6 +6,10 @@
 
 2003-07-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R162-Walk.el: Add some GT code points.
+
+2003-07-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* Ideograph-R158-Body.el: Add some GT code points.
 
 2003-07-24  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
