@@ -2089,7 +2089,7 @@ Leading-code of private TYPE9N charset of column-width 1.
 #endif
 
 #ifdef UTF2000
-  Vutf_2000_version = build_string("0.9 (Kyūhōji)");
+  Vutf_2000_version = build_string("0.10 (Yao)");
   DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
 Version number of UTF-2000.
 */ );
