@@ -1,3 +1,8 @@
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R042-Small.el (U+5C19): Unify BC-A97C.
+	(GT-K05014): New character.
+
 2003-08-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R152-Pig.el (U-00022494): Use
