@@ -1665,7 +1665,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8A78)	; ï‘µ
+     ((chinese-big5-cdp	  . #x8A78)	; ý €‘Ž’
       )
      ((ucs		  . #x52A9)	; åŠ©
       ))
