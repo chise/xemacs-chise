@@ -1749,6 +1749,7 @@
     (<-simplified-ideograph
      ((ucs		  . #x9830)	; é °
       ))
+    (japanese-jisx0208		. #x4B4B)	; ø»‡Žž
     (japanese-jisx0208-1990	. #x4B4B)	; ø½Š´’
     (ucs			. #x982C)	; é ¬
     ))
@@ -1945,6 +1946,8 @@
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
+    (japanese-jisx0208-1978	. #x7078)	; ø»ƒ±™
+    (japanese-jisx0208		. #x7078)	; ø»ˆ…¡
     (chinese-cns11643-3		. #x535F)	; ø»– ¾
     (japanese-jisx0208-1990	. #x7078)	; ø½‹«•
     (chinese-gb12345		. #x4D47)	; é ½
@@ -3246,6 +3249,7 @@
     (ideographic-radical . 181)	; â¾´
     (ideographic-strokes . 10)
     (total-strokes	 . 19)
+    (japanese-jisx0208		. #x453F)	; ø»‡…ž
     (japanese-jisx0208-1990	. #x453F)	; ø½Š«’
     ))
 (define-char
