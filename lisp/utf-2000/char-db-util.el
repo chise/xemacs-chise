@@ -93,7 +93,10 @@
 		  ((>= (charset-iso-final-char kb) ?0)
 		   (< (charset-iso-final-char ka)
 		      (charset-iso-final-char kb)))
-		  (t)))))
+		  (t)))
+		(t (if (>= (charset-iso-final-char kb) ?0)
+		       nil
+		     (> (charset-id ka)(charset-id kb))))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
