@@ -1,6 +1,18 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Add
+	`chinese-gb2312'.
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02200-Mathematical-Operators.el" and
+	"u02300-Miscellaneous-Technical.el".
+
+	* utf-2000/u02200-Mathematical-Operators.el,
+	utf-2000/u02300-Miscellaneous-Technical.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list): Add
 	`chinese-cns11643-*'.
 
 	* dumped-lisp.el (preloaded-file-list): Add
