@@ -1,3 +1,73 @@
+2001-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R043-Lame.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+
+	* Ideograph-R013-Down-Box.el (U+518B): Unify JC3-43EC.
+	(CB-00155): New character.
+	(GT-02025): Unify JC3-43ED.
+	(U+5195): Unify JC3-43EE.
+
+	* Ideograph-R012-Eight.el (U+5170): Unify JC3-82AB.
+	(U+517B): Unify JC3-82AA.
+
+	* Ideograph-R011-Enter.el (M-01418): Unify JC3-43DE.
+	(M-01424): Unify JC3-43DF.
+
+	* Ideograph-R009-Man.el:
+	- Add some missing `ideographic-structure' properties.
+	- Use U+4EBB instead of <CJK RADICAL PERSON> in
+	  `ideographic-structure' properties.
+	(M-00703): Unify S1-0488.
+
+	* Ideograph-R005-Second.el (U+4E60): Unify JC3-81C9.
+	(U+4E66): Unify JC3-81CD.
+	(U+4E70): Unify JC3-81ED.
+
+	* Ideograph-R002-Line.el (U+4E34): Unify JC3-82AF.
+
+	* Ideograph-R001-One.el (U+4E13): Unify JC3-81D9.
+
+2001-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R187-Horse.el (U+99E6): Unify BC-8DC0.
+
+	* Ideograph-R044-Corpse.el:
+	- Merge Big5 code points.
+	- Add some CBETA numbers.
+	- Add some `ideographic-structure' properties.
+
+	* Ideograph-R042-Small.el, Ideograph-R041-Inch.el: Use `=>ucs'
+	instead of `->ucs'.
+
+	* Ideograph-R018-Knife.el (U+5215): Use U-000206AA instead of
+	M-01862 in `ideographic-structure'.
+
+	* Ideograph-R011-Enter.el (S1-0488): Moved to
+	Ideograph-R009-Man.el and unify with M-00703.
+
+	* Ideograph-R008-Lid.el (M-00289): Separate C3-2147 and U+4EA3;
+	add `ideographic-structure'.
+	(BC-8C5E): Unify JC3-8DCD.
+	(U+4EA7): Add `ideographic-structure'.
+	(U+4EAA): Likewise.
+	(J0-5037): Separate C3-2B25 and U+4EB0; use `<-vulgar-ideograph'
+	instead of `vulgar-char-of-shinjigen-1'; add
+	`ideographic-structure'.
+	(M-00309): Separate C3-2B27 and U+4EB1; add
+	`ideographic-structure'.
+	(JC3-81D2): Use U+6729 instead of U+6728 in
+	`ideographic-structure'.
+	(C3-2B24): Add `ideographic-structure'.
+	(U+4EB2): Likewise.
+	(U+4EB4): Likewise.
+	(U+4EB5): Likewise.
+	(U+4EB7): Likewise.
+	(U+4EB8): Likewise.
+
+	* Ideograph-R004-Slash.el (JX2-212E): Unify JC3-97C6.
+
 2001-11-25  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R012-Eight.el: Unify some CHINA3-JEF code points.
@@ -1016,7 +1086,7 @@
 	(C3-275A): Add `ideographic-structure'.
 
 	* Ideograph-R004-Slash.el (C3-2263): Separate G0-362A and U+4E22;
-	delete `kangxi-radical'; unify C3J-41BA.
+	delete `kangxi-radical'; unify JC3-41BA.
 
 	* Ideograph-R001-One.el (U+4E22): Separated from M-00144 and moved
 	from Ideograph-R004-Slash.el.
@@ -1076,7 +1146,7 @@
 	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el: Merge
 	CHINA3-JEF code points.
 
-	* Ideograph-R003-Dot.el (M-00100): Unify C3J-41B3.
+	* Ideograph-R003-Dot.el (M-00100): Unify JC3-41B3.
 
 	* Ideograph-R002-Line.el: Merge CHINA3-JEF code points.
 
