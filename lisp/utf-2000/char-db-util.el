@@ -200,6 +200,7 @@
 		    (if (and (or (charset-iso-final-char ccs)
 				 (memq ccs
 				       '(ideograph-daikanwa
+					 =daikanwa-rev2
 					 ;; =gt-k
 					 )))
 			     (setq ret (get-char-attribute char ccs)))
@@ -951,8 +952,9 @@
 	       (setq value (get-char-attribute char name)))
 	  (insert
 	   (format
-	    (cond ((memq name '(ideograph-daikanwa-2
-				ideograph-daikanwa
+	    (cond ((memq name '(ideograph-daikanwa
+				=daikanwa-rev1
+				=daikanwa-rev2
 				=gt =gt-k =cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
