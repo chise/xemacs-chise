@@ -1,3 +1,84 @@
+2000-10-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (C6-3930): Add M-17478.
+	(M-17479): New character.
+	(M-17479'): Move K0-7B47 and C6-392D to M-17479; add
+	Mojikyo-50247.
+	(M-17480): New character.
+	(C6-392E): Add relation to M-17480.
+	(U+3CE6): Add M-17481.
+	(C6-3266): Add M-17504.
+	(M-17505): New character.
+	(M-17505'): Move K0-7659 and C1-563F to M-17505; add
+	Mojikyo-50248.
+	(M-17529): New character.
+	(M-17529'): Move K0-613C to M-17529; separate C1-563C; add
+	Mojikyo-50249.
+	(C3-317B): Add relation to M-17545.
+	(M-17572'): Add Mojikyo-50250.
+	(M-17573'): Fix `ideographic-strokes'; add Mojikyo-50251.
+	(U+6DA5): Add Mojikyo-59723.
+	(M-17695): Separate C3-367C.
+	(M-17695'): Add Mojikyo-50252.
+	(M-17749'): Add Mojikyo-50253.
+	(M-17750'): Add Mojikyo-50254.
+	(M-17783'): Add Mojikyo-50255.
+	(M-17919'): Add Mojikyo-50256.
+	(M-17920'): Add Mojikyo-50257.
+	(M-17921'): Add Mojikyo-50258.
+	(M-18067'): Separate U+6EDE; add Mojikyo-50259.
+	(C6-5444): Add M-18068.
+	(M-18068'): Add Mojikyo-50260.
+	(M-18260): Separate U+6F67.
+	(M-18262): Separate C4-4A69.
+	(M-18265): Separate C2-5163.
+	(M-18268): Separate U+6F6B.
+	(M-18271): Separate U+6F6D.
+	(C4-4C6D): Add M-18272.
+	(C7-2450): Add M-18273.
+	(M-18274): New character.
+	(C7-2456): Add relation to M-18274.
+	(C4-4A5C): Add M-18275.
+	(C4-4A59): Add M-18276.
+	(M-18277): New character.
+	(M-18277'): Move C7-244F to M-18277; add Mojikyo-50261.
+	(M-18278): New character.
+	(C7-2457): Add M-18278.
+	(C7-2449): Add M-18279.
+	(M-18350): New character.
+	(C7-2441): Add relation to M-18350.
+	(C7-245E): Add M-18351.
+	(M-18352): New character.
+	(C7-2466): Add relation to M-18352.
+	(M-18353): New character.
+	(C5-4E26): Add relation to M-18353.
+	(M-18354): New character.
+	(C5-4E28): Add relation to M-18354.
+	(M-18357): New character.
+	(C5-4D7C): Add relation to M-18357.
+	(M-18358): New character.
+	(C4-4A5E): Add relation to M-18358.
+	(M-18359): New character.
+	(C7-245F): Add relation to M-18359.
+	(M-18360): New character.
+	(C7-244B): Add relation to M-18360.
+	(C3-514B): Add M-18361.
+	(C7-245D): Add M-18362.
+	(M-18363): New character.
+	(C7-2455): Add relation to M-18363.
+	(C7-2446): Add M-18364.
+	(C3-4C76): Add M-18367.
+	(C7-2460): Add M-18368.
+	(M-18369): New character.
+	(C4-4A63): Add relation to M-18369.
+	(M-18370): New character.
+	(C7-244A): Add relation to M-18370.
+	(M-18371): New character.
+	(C7-2F42): Add relation to M-18371.
+	(C5-5535): Add M-18373.
+	(C5-5534): Add M-18374.
+	(M-18672): Add Mojikyo-50262.
+
 2000-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R089-Double-X.el: Resorted; add missing Morohashi's
