@@ -598,6 +598,7 @@ relock:
 	cd ./lwlib && chmod u+w *.[ch] Makefile.in.in
 
 PRUNE_VC = -name SCCS -prune -o -name RCS -prune -o -name CVS -prune -o
+tagslisp = lisp
 TAGS tags: FRC.tags
 	@echo "If you don't have a copy of etags around, then do 'make lib-src' first."
 	$(RM) ${srcdir}/TAGS
@@ -606,7 +607,7 @@ TAGS tags: FRC.tags
 	PATH=`$(pwd)`/lib-src:$$PATH ; export PATH; cd ${srcdir} && \
 	find src lwlib lib-src ${PRUNE_VC} -name '*.[ch]' -print | \
 	  xargs etags -a -r '/[ 	]*DEF\(VAR\|INE\)_[A-Z_]+[ 	]*([ 	]*"\([^"]+\)"/\2/'; \
-	find lisp ${PRUNE_VC} -name '*.el' -print | \
+	find ${tagslisp} ${PRUNE_VC} -name '*.el' -print | \
 	  xargs etags -a -l none -r "/^(def\\(var\\|un\\|alias\\|const\\|macro\\)[ 	]+'?\\([^ 	]+\\)/\\2/"
 
 ## We have automated tests!
