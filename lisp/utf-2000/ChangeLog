@@ -1,3 +1,11 @@
+2003-06-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* char-db-util.el (insert-char-attributes): Ignore `->ucs-unified'
+	instead of `->ucs-variants' when `readable' is non-nil.
+	(insert-char-data-with-variant): Rename `no-ucs-variant' to
+	`no-ucs-unified'.
+	(insert-char-range-data): Likewise.
+
 2003-06-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R117-Stand.el, Ideograph-R114-Track.el,
