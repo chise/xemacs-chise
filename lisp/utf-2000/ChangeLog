@@ -1,3 +1,14 @@
+2004-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el: Use `->subsumptive' for some
+	character definitions.
+	(M-30076): Map to U-000268E2.
+	(M-30077): Unify U-000268E5 and CB04103.
+	(M-30080): Unify U-000268E6.
+	(M-30081): Unify U-000268E7.
+	(M-30082): Unify U-000268E8.
+	(M-30085): Unify U-000268EF.
+
 2004-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R133-Arrive.el: Use `->subsumptive' for some character
