@@ -584,6 +584,7 @@
   '((ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
+    (shinjigen-1	. 6626)
     (shinjigen-2	. 6626)
     (=ucs		. #x8207)	; èˆ‡
     (=jis-x0208		. #x6750)	; ø½‹Ÿ
