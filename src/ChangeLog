@@ -1,3 +1,60 @@
+2000-07-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharacter_ideographic_radical_table): Deleted.
+	(Vcharacter_ideographic_strokes_table): Deleted.
+	(Vcharacter_total_strokes_table): Deleted.
+	(Vcharacter_morohashi_daikanwa_table): Deleted.
+	(Vcharacter_decomposition_table): Deleted.
+	(Qname): Deleted because it is duplicated.
+	(Qideographic_radical): Deleted.
+	(Qideographic_strokes): Deleted.
+	(Qtotal_strokes): Deleted.
+	(Qmorohashi_daikanwa): Deleted.
+	(Fchar_attribute_alist): Use `Vchar_attribute_hash_table' for
+	`ideographic-radical', `ideographic-strokes', `total-strokes',
+	`morohashi-daikanwa' and `->decomposition'.
+	(Fget_char_attribute): Likewise.
+	(Fput_char_attribute): Likewise; use `make-vector' instead of
+	`make_older_vector' for `->decomposition' value.
+	(Fdefine_char): Comment out code to check `morohashi-daikanwa' and
+	`ideograph-daikanwa'.
+	(syms_of_mule_charset): Delete builtin symbols `name',
+	`ideographic-radical', `ideographic-strokes', `total-strokes' and
+	`morohashi-daikanwa'.
+	(vars_of_mule_charset): Don't setup
+	`Vcharacter_ideographic_radical_table',
+	`Vcharacter_ideographic_strokes_table',
+	`Vcharacter_total_strokes_table',
+	`Vcharacter_morohashi_daikanwa_table' and
+	`Vcharacter_decomposition_table'.
+
+2000-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* alloc.c: Use `HAVE_GGC' instead of `UTF2000' for
+	`make_older_vector', `make_vector_newer_1' and
+	`make_vector_newer'.
+
+	* lisp.h: Use `HAVE_GGC' instead of `UTF2000' for
+	`make_older_vector' and `make_vector_newer'.
+
+	* config.h.in (HAVE_GGC): New macro.
+
+2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (struct char_attribute_list_closure): New
+	structure in UTF-2000.
+	(add_char_attribute_to_list_mapper): New function in UTF-2000.
+	(Fchar_attribute_list): Likewise.
+	(Fset_charset_mapping_table): Use `make_vector_newer'.
+	(Fdecode_builtin_char): New function in UTF-2000.
+	(syms_of_mule_charset): Add new function `char-attribute-list' and
+	`decode-builtin-char' in UTF-2000.
+
+	* lisp.h (make_vector_newer): New prototype.
+
+	* alloc.c (make_vector_newer_1): New function.
+	(make_vector_newer): New function.
+
 2000-06-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (MAX_CHAR_DAIKANWA): Changed to `(MIN_CHAR_MOJIKYO +
