@@ -1,7 +1,7 @@
 /* Random utility Lisp functions.
    Copyright (C) 1985, 86, 87, 93, 94, 95 Free Software Foundation, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
-   Copyright (C) 2002, 2003 MORIOKA Tomohiko
+   Copyright (C) 2002, 2003, 2004 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
