@@ -9262,14 +9262,6 @@
     ))
 (define-char
   '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 6)
-    (total-strokes	 . 8)
-    (ideograph-gt-pj-9	. #x515F)	; ý¡€€‹¿
-    (ideograph-gt	. 00767)	; ý¡€€‹¿
-    (mojikyo		. 050933)	; ý €Œ›µ
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
     (hanyu-dazidian-vol	 . 1)
@@ -15718,7 +15710,6 @@
       )
      ((ideograph-daikanwa . 30808)	; ø¸‡¡˜
       ))
-    (chinese-big5	. #xD463)	; øº¢€¦
     (ideograph-daikanwa . 00827)	; ø¸€Œ»
     (mojikyo		. 000827)	; ý €€Œ»
     ))
@@ -15757,6 +15748,7 @@
       ))
     (japanese-jisx0212		. #x315F)	; ø»Š¼®
     (japanese-jisx0213-1	. #x2E41)	; ø»¢¦¢
+    (chinese-big5		. #xD463)	; øº¢€¦
     (china3-jef			. #x42E7)	; øº„‹§
     (ucs			. #x5040)	; å€
     ))
@@ -16170,9 +16162,6 @@
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (hanyu-dazidian-vol	 . 1)
-    (hanyu-dazidian-page . 171)
-    (hanyu-dazidian-char . 6)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
@@ -16183,12 +16172,11 @@
       (ideograph-daikanwa . 30796)	; ø¸‡¡Œ
       ))
     (chinese-cns11643-1 . #x5877)	; ø»’”¤
-    (chinese-big5	. #xB0B4)	; øº …
     (ideograph-daikanwa . 00840)	; ø¸€ˆ
     (mojikyo		. 000840)	; ý €€ˆ
     ))
 (define-char
-  '((morohashi-daikanwa	840 0 2)
+  '((morohashi-daikanwa	840 0 1)
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 8)
     (total-strokes	 . 10)
@@ -16206,6 +16194,7 @@
     (chinese-gb2312	. #x593C)	; ø»…˜¯
     (japanese-jisx0212	. #x3165)	; ø»Š¼´
     (chinese-isoir165	. #x593C)	; ø»Ž€¿
+    (chinese-big5	. #xB0B4)	; øº …
     (ucs		. #x504C)	; åŒ
     ))
 (define-char
@@ -23232,6 +23221,23 @@
     (ideograph-daikanwa		. 01054)	; ø¸€ž
     (mojikyo			. 001054)	; ý €€ž
     (ucs			. #x50C9)	; åƒ‰
+    ))
+(define-char
+  '((morohashi-daikanwa	1054 0 5)
+    (ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+      )
+     ((chinese-big5-cdp	  . #x89F4)	; ý¢€ˆ§´
+      ))
+    (ideograph-gt-pj-9	. #x515F)	; ý¡€€‹¿
+    (ideograph-gt	. 00767)	; ý¡€€‹¿
+    (mojikyo		. 050933)	; ý €Œ›µ
     ))
 (define-char
   '((=>ucs		. #x50CA)	; åƒŠ
