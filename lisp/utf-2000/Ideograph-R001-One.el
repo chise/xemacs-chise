@@ -874,7 +874,6 @@
     (ideograph-gt-pj-1	. #x4A3A)	; ý¡€€€³
     (chinese-big5	. #xA4FE)	; ý¢€Š“¾
     (ideograph-daikanwa . 00035)	; ø¸€€£
-    (china3-jef		. #x41A2)	; øº„†¢
     (ideograph-gt	. 00051)	; ý¡€€€³
     (ucs		. #x4E19)	; ä¸™
     ))
@@ -886,6 +885,7 @@
     (total-strokes	 . 5)
     (shinjigen-1	. 28)
     (shinjigen-2	. 28)
+    (china3-jef		. #x41A2)	; øº„†¢
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
