@@ -26,6 +26,8 @@
 (define-char
   '((ideographic-radical . 105)	; â½¨
     (ideographic-strokes . 3)
+    (total-strokes	 . 8)
+    (mojikyo		. 059789)	; ý €Ž¦
     (ucs		. #x7677)	; ç™·
     ))
 (define-char
@@ -65,7 +67,7 @@
     (japanese-jisx0208-1978	. #x482F)	; ø»‚µ 
     (japanese-jisx0208		. #x482F)	; ø»‡‰¨
     (japanese-jisx0208-1990	. #x482F)	; ø½Š¯œ
-    (mojikyo			. 050292)	; ø¸Œ‘´
+    (mojikyo			. 050292)	; ý €Œ‘´
     (ucs			. #x767A)	; ç™º
     ))
 (define-char
