@@ -1,3 +1,8 @@
+2003-04-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el: `korean-ksc5601' is renamed to `=ks-x1001'.
+	(korean-ksc5601): New alias for `=ks-x1001'.
+
 2003-04-15  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el: `japanese-jisx0212' is renamed to
