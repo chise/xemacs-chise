@@ -1,3 +1,46 @@
+1999-07-13  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.18 is released
+
+1999-07-13  SL Baur  <steve@miho>
+
+	* lib-complete.el (read-library-name): Revert previous change.
+	(read-library): Ditto.
+
+1999-06-24  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* packages.el (packages-package-list): Capitalize docstring.
+
+	* packages.el (packages-find-package-library-path): Use #'nconc
+	rather than #'append to reduce consing -- #'mapcar uses Flist,
+	which returns a freshly consed list.  #'append would create yet
+	another fresh list, using Fmake_list in concat.
+
+	* packages.el (package-provide): Use setq with remassq like it
+	says in its docstring.
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* lib-complete.el (progn-with-message): Fix typo.
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* mule/mule-misc.el (char-octet): Make function match docstring.
+	From Katsumi Yamaoka <yamaoka@jpl.org>
+	
+1999-06-15  Karl M. Hegbloom  <karlheg@debian.org>
+
+	* wid-edit.el (widget-documentation): corrected spelling error.
+
+1999-06-23  Jonathan Marten <jonathan.marten@uk.sun.com>
+
+	* x-win-sun.el (x-win-init-sun): Don't rebind Find and Sh-find
+	keys if already bound
+
+1999-07-06  SL Baur  <steve@miho.m17n.org>
+
+	* lib-complete.el (progn-with-message): Revert previous changes.
+
 1999-06-24  Bob Weiner  <weiner@beopen.com>
 
 	* lib-complete.el (find-library): 

@@ -55,7 +55,7 @@
 ;;; Package versioning
 
 (defvar packages-package-list nil
-  "database of loaded packages and version numbers")
+  "Database of loaded packages and version numbers")
 
 (defvar packages-hierarchy-depth 1
   "Depth of package hierarchies.")
@@ -123,9 +123,8 @@ the directory to be ignored.")
   (let ((info (if (and attributes (floatp (car attributes)))
 		  (list :version (car attributes))
 		attributes)))
-    (remassq name packages-package-list)
     (setq packages-package-list
-	  (cons (cons name info) packages-package-list))))
+	  (cons (cons name info) (remassq name packages-package-list)))))
 
 (defun package-require (name version)
   (let ((pkg (assq name packages-package-list)))
@@ -453,7 +452,7 @@ PACKAGES is a list of package directories.
 SUFFIXES is a list of names of package subdirectories to look for."
   (let ((directories
 	 (apply
-	  #'append
+	  #'nconc
 	  (mapcar #'(lambda (package)
 		      (mapcar #'(lambda (suffix)
 				  (file-name-as-directory (concat package suffix)))
