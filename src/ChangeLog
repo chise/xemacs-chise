@@ -1,5 +1,10 @@
 2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (decoding_table_put_char): New inline function.
+	(put_char_ccs_code_point): Use `decoding_table_put_char'.
+
+2000-05-31  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* mule-charset.c (CHARSET_BYTE_SIZE): New inline function.
 	(XCHARSET_BYTE_SIZE): New macro.
 	(decoding_table_remove_char): New inline function.
