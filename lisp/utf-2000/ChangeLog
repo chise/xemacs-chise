@@ -92,6 +92,13 @@
 	U+45BA.
 	(M-33143): Separate G0-435B, C1-6A6D and U+871C.
 
+2003-01-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u02E00-CJK-Radical-Supplement.el (CJK RADICAL MEAT): Unify
+	M-29237.
+	(CDP-8958): Relate to M-29237.
+	(CDP-8A73): New character.
+
 2003-01-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R144-Walk-Enclosure.el (M-34046): Add S1-7325.
