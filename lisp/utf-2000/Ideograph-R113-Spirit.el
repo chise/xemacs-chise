@@ -2995,6 +2995,22 @@
   '((ideographic-radical . 113)	; â½°
     (ideographic-strokes . 13)
     (total-strokes	 . 18)
+    (cns-radical?	. 112)
+    (chinese-cns11643-3 . #x5846)	; ø»–§»
+    (ucs		. #x4120)	; ä„ 
+    ))
+(define-char
+  '((ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
+    (cns-radical?	. 112)
+    (chinese-cns11643-3 . #x5847)	; ø»–§¼
+    (ucs		. #x4121)	; ä„¡
+    ))
+(define-char
+  '((ideographic-radical . 113)	; â½°
+    (ideographic-strokes . 13)
+    (total-strokes	 . 18)
     (chinese-cns11643-4 . #x5C33)	; ø»˜·¤
     ))
 (define-char
