@@ -1,3 +1,31 @@
+2001-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R063-Door.el (J0-4C61): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+	(C2-2F32): Use `ideographic-strokes' instead of
+	`japanese-strokes'.
+
+2001-08-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R053-Dotted-Cliff.el (C1-636E): Add
+	`ideographic-strokes'.
+
+	* Ideograph-R032-Earth.el (J83-3E7D): Modify `morohashi-daikanwa'.
+
+	* Ideograph-R031-Enclosure.el (C3-3026): Add
+	`ideographic-strokes'.
+
+	* Ideograph-R030-Mouth.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Unify or relate missing combinations of M-XXXXX and CNS.
+	- Fix some relations between M-XXXXX and CNS.
+	(C5-2161): Unify Big5-8BF7 and Big5-CDP-8BF7.
+	(C6-2651): Moved to Ideograph-R031-Enclosure.el.
+	(C3-276C): Unify Big5-8BCF and Big5-CDP-8BCF.
+	(C3-2772): Add `->same-ideograph' for M-48258; delete `->mojikyo'.
+	(M-03672): Unify JSP-3541, C3-3022, M059186 and U+54F6.
+	(U+5626): Separate C3-4650 and move it to Ideograph-R038-Woman.el.
+
 2001-08-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R102-Field.el (J90-6136): Unify MH-347; use
