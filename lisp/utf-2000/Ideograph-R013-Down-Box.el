@@ -132,17 +132,13 @@
     (ucs		. #x5186)	; å††
     ))
 (define-char
-  '((morohashi-daikanwa	28201 0 0)
-    (ideographic-	(:radical	122 ; â½¹
-			 :strokes	0)
+  '((ideographic-	(:radical	122 ; â½¹
+			 :strokes	0
+			 :sources	(morohashi-daikanwa cns-11643))
 			(:radical	13 ; â¼Œ
-			 :strokes	2))
+			 :strokes	2
+			 :sources	(ucs)))
     (total-strokes	 . 4)
-    (->same-ideograph
-     ((ideographic-radical . 122)	; â½¹
-      (ideograph-daikanwa . 28201)	; ø¸†¸©
-      (ucs		  . #x7F53)	; ç½“
-      ))
     (hanyu-dazidian	1 97 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -155,6 +151,7 @@
     (chinese-gb2312	. #x3854)	; ø»„¨©
     (chinese-isoir165	. #x3854)	; ø»¹
     (chinese-cns11643-4 . #x2152)	; ø»—¡™
+    (ideograph-daikanwa . 28201)	; ø¸†¸©
     (chinese-big5-eten	. #xC8A2)	; ý¢€Œ¢¢
     (chinese-big5-cdp	. #x85BE)	; ý¢€ˆ–¾
     (ucs		. #x5188)	; å†ˆ
