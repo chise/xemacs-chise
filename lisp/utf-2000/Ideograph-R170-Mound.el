@@ -2215,11 +2215,10 @@
     (ideograph-daikanwa . 41749)	; ø¸ŠŒ•
     ))
 (define-char
-  '((morohashi-daikanwa	41749 0 2)
+  '((morohashi-daikanwa	41749 0 5)
     (ideographic-radical . 170)	; â¾©
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
-    (japanese-jisx0212	. #x6664)	; ø»ŒŠ©
     (chinese-gb12345	. #x5A6D)	; éš‰
     (ucs		. #x9689)	; éš‰
     ))
