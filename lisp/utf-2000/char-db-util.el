@@ -909,7 +909,9 @@
 		 )
 		((and (not readable)
 		      (or (eq name '<-identical)
-			  (string-match "^->simplified" (symbol-name name))))
+			  (string-match "^->simplified" (symbol-name name))
+			  (string-match "^->vulgar" (symbol-name name))
+			  ))
 		 )
 		((or (eq name 'ideographic-structure)
 		     (eq name 'ideographic-)
@@ -946,11 +948,8 @@
 			  (setq required-features nil)
 			  (dolist (source sources)
 			    (cond
-			     ((find-charset
-			       (setq ret (intern (format "=%s" source))))
-			      (setq required-features
-				    (cons ret required-features)))
-			     ((memq source '(JP JP/Jouyou))
+			     ((memq source '(JP JP/Jouyou
+						shinjigen-1))
 			      (setq required-features
 				    (union required-features
 					   '(=jis-x0208
@@ -965,7 +964,12 @@
 				    (union required-features
 					   '(=gb2312
 					     =gb12345
-					     =iso-ir165))))
+					     =iso-ir165)))))
+			    (cond
+			     ((find-charset
+			       (setq ret (intern (format "=%s" source))))
+			      (setq required-features
+				    (cons ret required-features)))
 			     (t (setq required-features
 				      (cons source required-features)))))
 			  (cond ((string-match "@JP" (symbol-name name))
