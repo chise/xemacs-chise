@@ -27,7 +27,7 @@
 
 ;;; MULE related key bindings and menus.
 
-(defvar mule-keymap (make-sparse-keymap "MULE")
+(defvar mule-keymap (make-sparse-keymap "Mule")
   "Keymap for Mule (Multilingual environment) specific commands.")
 
 ;; Keep "C-x C-m ..." for mule specific commands.
@@ -74,12 +74,12 @@
   "Return a coding system which differs from CODING-SYSTEM in eol conversion.
 The returned coding system converts end-of-line by EOL-TYPE
 but text as the same way as CODING-SYSTEM.
-EOL-TYPE should be `unix', `lf', `dos', `crlf', `mac', `cr' or nil.
+EOL-TYPE should be `lf', `crlf', `cr' or nil.
 If EOL-TYPE is nil, the returned coding system detects
 how end-of-line is formatted automatically while decoding.
 
-EOL-TYPE can be specified by an integer 0, 1, or 2.
-They means `unix', `dos', and `mac' respectively."
+EOL-TYPE can be specified by an integer `unix', `dos' or `mac'.
+They means `lf', `crlf', and `cr' respectively."
   (if (symbolp eol-type)
       (setq eol-type (cond ((or (eq eol-type 'unix)
 				(eq eol-type 'lf))
