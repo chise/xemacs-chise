@@ -1,10 +1,13 @@
 ;;; package-get.el --- Retrieve XEmacs package
 
 ;; Copyright (C) 1998 by Pete Ware
+;; Copyright (C) 2002 Ben Wing.
+;; Copyright (C) 2003, Steve Youngs
 
 ;; Author: Pete Ware <ware@cis.ohio-state.edu>
 ;; Heavy-Modifications: Greg Klanderman <greg@alphatech.com>
 ;;                      Jan Vroonhof    <vroonhof@math.ethz.ch>
+;;                      Steve Youngs    <youngs@xemacs.org>
 ;; Keywords: internal
 
 ;; This file is part of XEmacs.
@@ -166,80 +169,82 @@ one version of a package available.")
   :type 'directory
   :group 'package-get)
 
+;;;###autoload
+(defcustom package-get-package-index-file-location 
+  (or (getenv "EMACSPACKAGEPATH")
+      user-init-directory)
+  "*The directory where the package-index file can be found."
+  :type 'directory
+  :group 'package-get)
+
+;;;###autoload
+(defcustom package-get-install-to-user-init-directory nil
+  "*If non-nil install packages under `user-init-directory'."
+  :type 'boolean
+  :group 'package-get)
+
 (define-widget 'host-name 'string
   "A Host name."
   :tag "Host")
 
 (defcustom package-get-remote nil
-  "*List of remote sites to contact for downloading packages.
-List format is '(site-name directory-on-site).  Each site is tried in
-order until the package is found.  As a special case, `site-name' can be
-`nil', in which case `directory-on-site' is treated as a local directory."
+  "*The remote site to contact for downloading packages.
+Format is '(site-name directory-on-site).  As a special case, `site-name'
+can be `nil', in which case `directory-on-site' is treated as a local
+directory."
   :tag "Package repository"
-  :type '(repeat (choice (list :tag "Local" (const :tag "Local" nil) directory )
-			 (list :tag "Remote" host-name directory) ))
+  :type '(set (choice (const :tag "None" nil)
+		      (list :tag "Local" (const :tag "Local" nil) directory)
+		      (list :tag "Remote" host-name directory)))
   :group 'package-get)
 
 ;;;###autoload
 (defcustom package-get-download-sites
   '(
-    ;; North America
-    ("Pre-Releases" "ftp.xemacs.org" "pub/xemacs/beta/experimental/packages")
-    ("xemacs.org" "ftp.xemacs.org" "pub/xemacs/packages")
-    ("ca.xemacs.org (Canada)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages")
-    ("crc.ca (Canada)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages")
-    ("us.xemacs.org (United States)" "ftp.us.xemacs.org" "pub/xemacs/packages")
-    ("ibiblio.org (United States)" "ibiblio.org" "pub/packages/editors/xemacs/packages")
-    ("stealth.net (United States)" "ftp.stealth.net" "pub/mirrors/ftp.xemacs.org/pub/xemacs/packages")
-    ;("uiuc.edu (United States)" "uiarchive.uiuc.edu" "pub/packages/xemacs/packages")
-
-    ;; South America
-    ("br.xemacs.org (Brazil)" "ftp.br.xemacs.org" "pub/xemacs/packages")
-
-    ;; Europe
-    ("at.xemacs.org (Austria)" "ftp.at.xemacs.org" "editors/xemacs/packages")
-    ("be.xemacs.org (Belgium)" "ftp.be.xemacs.org" "xemacs/packages")
-    ("cz.xemacs.org (Czech Republic)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages")
-    ("dk.xemacs.org (Denmark)" "ftp.dk.xemacs.org" "pub/emacs/xemacs/packages")
-    ("fi.xemacs.org (Finland)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages")
-    ("fr.xemacs.org (France)" "ftp.fr.xemacs.org" "pub/xemacs/packages")
-    ("pasteur.fr (France)" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
-    ("de.xemacs.org (Germany)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages")
-    ("tu-darmstadt.de (Germany)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages")
-    ;("hu.xemacs.org (Hungary)" "ftp.hu.xemacs.org" "pub/packages/xemacs/packages")
-    ("ie.xemacs.org (Ireland)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
-    ("it.xemacs.org (Italy)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages")
-    ("no.xemacs.org (Norway)" "ftp.no.xemacs.org" "pub/xemacs/packages")
-    ("pl.xemacs.org (Poland)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages")
-    ("ru.xemacs.org (Russia)" "ftp.ru.xemacs.org" "pub/xemacs/packages")
-    ("sk.xemacs.org (Slovakia)" "ftp.sk.xemacs.org" "pub/mirrors/xemacs/packages")
-    ("se.xemacs.org (Sweden)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages")
-    ("ch.xemacs.org (Switzerland)" "ftp.ch.xemacs.org" "mirror/xemacs/packages")
-    ("uk.xemacs.org (United Kingdom)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages")
-
-    ;; Asia
-    ("jp.xemacs.org (Japan)" "ftp.jp.xemacs.org" "pub/GNU/xemacs/packages")
-    ("aist.go.jp (Japan)" "ring.aist.go.jp" "pub/text/xemacs/packages")
-    ("asahi-net.or.jp (Japan)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages")
-    ("dti.ad.jp (Japan)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages")
-    ("jaist.ac.jp (Japan)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages")
-    ("nucba.ac.jp (Japan)" "mirror.nucba.ac.jp" "mirror/xemacs/packages")
-    ("sut.ac.jp (Japan)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages")
-    ("kr.xemacs.org (Korea)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages")
-    ;("tw.xemacs.org (Taiwan)" "ftp.tw.xemacs.org" "Editors/xemacs/packages")
-
-    ;; Africa
-    ("za.xemacs.org (South Africa)" "ftp.za.xemacs.org" "mirrorsites/ftp.xemacs.org/packages")
-
-    ;; Middle East
-    ("sa.xemacs.org (Saudi Arabia)" "ftp.sa.xemacs.org" "pub/mirrors/ftp.xemacs.org/xemacs/packages")
-
-    ;; Australia
-    ("au.xemacs.org (Australia)" "ftp.au.xemacs.org" "pub/xemacs/packages")
-    ("aarnet.edu.au (Australia)" "mirror.aarnet.edu.au" "pub/xemacs/packages")
-
-    ;; Oceania
-    ("nz.xemacs.org (New Zealand)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
+    ;; Main XEmacs Site (ftp.xemacs.org)
+    ("US (Main XEmacs Site)"
+     "ftp.xemacs.org" "pub/xemacs/packages")
+    ;; In alphabetical order of Country, our mirrors...
+    ("Australia (aarnet.edu.au)" "mirror.aarnet.edu.au" "pub/xemacs/packages")
+    ("Australia (au.xemacs.org)" "ftp.au.xemacs.org" "pub/xemacs/packages")
+    ("Austria (at.xemacs.org)" "ftp.at.xemacs.org" "editors/xemacs/packages")
+    ("Belgium (be.xemacs.org)" "ftp.be.xemacs.org" "xemacs/packages")
+    ("Brazil (br.xemacs.org)" "ftp.br.xemacs.org" "pub/xemacs/packages")
+    ("Canada (ca.xemacs.org)" "ftp.ca.xemacs.org" "pub/Mirror/xemacs/packages")
+    ("Canada (crc.ca)" "ftp.crc.ca" "pub/packages/editors/xemacs/packages")
+    ("Canada (ualberta.ca)" "sunsite.ualberta.ca" "pub/Mirror/xemacs/packages")
+    ("Czech Republic (cz.xemacs.org)" "ftp.cz.xemacs.org" "MIRRORS/ftp.xemacs.org/pub/xemacs/packages")
+    ("Denmark (dk.xemacs.org)" "ftp.dk.xemacs.org" "pub/emacs/xemacs/packages")
+    ("Finland (fi.xemacs.org)" "ftp.fi.xemacs.org" "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/packages")
+    ("France (fr.xemacs.org)" "ftp.fr.xemacs.org" "pub/xemacs/packages")
+    ("France (mirror.cict.fr)" "mirror.cict.fr" "xemacs/packages")
+    ("France (pasteur.fr)" "ftp.pasteur.fr" "pub/computing/xemacs/packages")
+    ("Germany (de.xemacs.org)" "ftp.de.xemacs.org" "pub/ftp.xemacs.org/tux/xemacs/packages")
+    ("Germany (tu-darmstadt.de)" "ftp.tu-darmstadt.de" "pub/editors/xemacs/packages")
+    ("Ireland (ie.xemacs.org)" "ftp.ie.xemacs.org" "mirrors/ftp.xemacs.org/pub/xemacs/packages")
+    ("Italy (it.xemacs.org)" "ftp.it.xemacs.org" "unix/packages/XEMACS/packages")
+    ("Japan (aist.go.jp)" "ring.aist.go.jp" "pub/text/xemacs/packages")
+    ("Japan (asahi-net.or.jp)" "ring.asahi-net.or.jp" "pub/text/xemacs/packages")
+    ("Japan (dti.ad.jp)" "ftp.dti.ad.jp" "pub/unix/editor/xemacs/packages")
+    ("Japan (jaist.ac.jp)" "ftp.jaist.ac.jp" "pub/GNU/xemacs/packages")
+    ("Japan (jp.xemacs.org)" "ftp.jp.xemacs.org" "pub/GNU/xemacs/packages")
+    ("Japan (nucba.ac.jp)" "mirror.nucba.ac.jp" "mirror/xemacs/packages")
+    ("Japan (sut.ac.jp)" "sunsite.sut.ac.jp" "pub/archives/packages/xemacs/packages")
+    ("Korea (kr.xemacs.org)" "ftp.kr.xemacs.org" "pub/tools/emacs/xemacs/packages")
+    ("New Zealand (nz.xemacs.org)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
+    ("Norway (no.xemacs.org)" "ftp.no.xemacs.org" "pub/xemacs/packages")
+    ("Poland (pl.xemacs.org)" "ftp.pl.xemacs.org" "pub/unix/editors/xemacs/packages")
+    ("Russia (ru.xemacs.org)" "ftp.ru.xemacs.org" "pub/xemacs/packages")
+    ("Slovakia (sk.xemacs.org)" "ftp.sk.xemacs.org" "pub/mirrors/xemacs/packages")
+    ("South Africa (za.xemacs.org)" "ftp.za.xemacs.org" "mirrorsites/ftp.xemacs.org/packages")
+    ("Sweden (se.xemacs.org)" "ftp.se.xemacs.org" "pub/gnu/xemacs/packages")
+    ("Switzerland (ch.xemacs.org)" "ftp.ch.xemacs.org" "mirror/xemacs/packages")
+    ("UK (uk.xemacs.org)" "ftp.uk.xemacs.org" "sites/ftp.xemacs.org/pub/xemacs/packages")
+    ("US (ibiblio.org)" "ibiblio.org" "pub/packages/editors/xemacs/packages")
+    ("US (stealth.net)" "ftp.stealth.net" "pub/mirrors/ftp.xemacs.org/pub/xemacs/packages")
+    ("US (unc.edu)" "metalab.unc.edu" "pub/packages/editors/xemacs/packages")
+    ("US (us.xemacs.org)" "ftp.us.xemacs.org" "pub/xemacs/packages")
+    ("US (utk.edu)" "ftp.sunsite.utk.edu" "pub/xemacs/packages")
     )
   "*List of remote sites available for downloading packages.
 List format is '(site-description site-name directory-on-site).
@@ -252,6 +257,113 @@ variable actually used to specify package download sites."
   :type '(repeat (list (string :tag "Name") host-name directory))
   :group 'package-get)
 
+;;;###autoload
+(defcustom package-get-pre-release-download-sites
+  '(
+    ;; Main XEmacs Site (ftp.xemacs.org)
+    ("Pre-Releases (Main XEmacs Site)" "ftp.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ;; In alphabetical order of Country, our mirrors...
+    ("Australia Pre-Releases (aarnet.edu.au)" "mirror.aarnet.edu.au"
+     "pub/xemacs/beta/experimental/packages")
+    ("Australia Pre-Releases (au.xemacs.org)" "ftp.au.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ("Austria Pre-Releases (at.xemacs.org)" "ftp.at.xemacs.org"
+     "editors/xemacs/beta/experimentsl/packages")
+    ("Brazil Pre-Releases (br.xemacs.org)" "ftp.br.xemacs.org"
+     "pub/xemacs/xemacs-21.5/experimental/packages")
+    ("Canada Pre-Releases (ca.xemacs.org)" "ftp.ca.xemacs.org"
+     "pub/Mirror/xemacs/beta/experimental/packages")
+    ("Canada Pre-Releases (crc.ca)" "ftp.crc.ca"
+     "pub/packages/editors/xemacs/beta/experimental/packages")
+    ("Canada Pre-Releases (ualberta.ca)" "sunsite.ualberta.ca"
+     "pub/Mirror/xemacs/beta/experimental/packages")
+    ("Czech Republic Pre-Releases (cz.xemacs.org)" "ftp.cz.xemacs.org"
+     "MIRRORS/ftp.xemacs.org/pub/xemacs/xemacs-21.5/experimental/packages")
+    ("Denmark Pre-Releases (dk.xemacs.org)" "ftp.dk.xemacs.org"
+     "pub/emacs/xemacs/beta/experimental/packages")
+    ("Finland Pre-Releases (fi.xemacs.org)" "ftp.fi.xemacs.org"
+     "pub/mirrors/ftp.xemacs.org/pub/tux/xemacs/beta/experimental/packages")
+    ("France Pre-Releases (fr.xemacs.org)" "ftp.fr.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ("France Pre-Releases (mirror.cict.fr)" "mirror.cict.fr"
+     "xemacs/beta/experimental/packages")
+    ("France Pre-Releases (pasteur.fr)" "ftp.pasteur.fr"
+     "pub/computing/xemacs/beta/experimental/packages")
+    ("Germany Pre-Releases (de.xemacs.org)" "ftp.de.xemacs.org"
+     "pub/ftp.xemacs.org/tux/xemacs/beta/experimental/packages")
+    ("Germany Pre-Releases (tu-darmstadt.de)" "ftp.tu-darmstadt.de"
+     "pub/editors/xemacs/beta/experimental/packages")
+    ("Ireland Pre-Releases (ie.xemacs.org)" "ftp.ie.xemacs.org"
+     "mirrors/ftp.xemacs.org/pub/xemacs/beta/experimental/packages")
+    ("Italy Pre-Releases (it.xemacs.org)" "ftp.it.xemacs.org"
+     "unix/packages/XEMACS/beta/experimental/packages")
+    ("Japan Pre-Releases (aist.go.jp)" "ring.aist.go.jp"
+     "pub/text/xemacs/beta/experimental/packages")
+    ("Japan Pre-Releases (asahi-net.or.jp)" "ring.asahi-net.or.jp"
+     "pub/text/xemacs/beta/experimental/packages")
+    ("Japan Pre-Releases (dti.ad.jp)" "ftp.dti.ad.jp"
+     "pub/unix/editor/xemacs/beta/experimental/packages")
+    ("Japan Pre-Releases (jaist.ac.jp)" "ftp.jaist.ac.jp"
+     "pub/GNU/xemacs/beta/experimental/packages")
+    ("Japan Pre-Releases (jp.xemacs.org)" "ftp.jp.xemacs.org"
+     "pub/GNU/xemacs/beta/experimental/packages")
+    ("Japan Pre-Releases (sut.ac.jp)" "sunsite.sut.ac.jp"
+     "pub/archives/packages/xemacs/xemacs-21.5/experimental/packages")
+    ("New Zealand Pre-Releases (nz.xemacs.org)" "ftp.nz.xemacs.org" "mirror/ftp.xemacs.org/packages")
+    ("Norway Pre-Releases (no.xemacs.org)" "ftp.no.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ("Poland Pre-Releases (pl.xemacs.org)" "ftp.pl.xemacs.org"
+     "pub/unix/editors/xemacs/beta/experimental/packages")
+    ("Russia Pre-Releases (ru.xemacs.org)" "ftp.ru.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ("Saudi Arabia Pre-Releases (sa.xemacs.org)" "ftp.sa.xemacs.org"
+     "pub/mirrors/ftp.xemacs.org/xemacs/xemacs-21.5/experimental/packages")
+    ("Slovakia Pre-Releases (sk.xemacs.org)" "ftp.sk.xemacs.org"
+     "pub/mirrors/xemacs/beta/experimental/packages")
+    ("South Africa Pre-Releases (za.xemacs.org)" "ftp.za.xemacs.org"
+     "mirrorsites/ftp.xemacs.org/beta/experimental/packages")
+    ("Sweden Pre-Releases (se.xemacs.org)" "ftp.se.xemacs.org"
+     "pub/gnu/xemacs/beta/experimental/packages")
+    ("Switzerland Pre-Releases (ch.xemacs.org)" "ftp.ch.xemacs.org"
+     "mirror/xemacs/beta/experimental/packages")
+    ("UK Pre-Releases (uk.xemacs.org)" "ftp.uk.xemacs.org"
+     "sites/ftp.xemacs.org/pub/xemacs/beta/experimental/packages")
+    ("US Pre-Releases (ibiblio.org)" "ibiblio.org"
+     "pub/packages/editors/xemacs/beta/experimental/packages")
+    ("US Pre-Releases (stealth.net)" "ftp.stealth.net"
+     "pub/mirrors/ftp.xemacs.org/pub/xemacs/beta/experimental/packages")
+    ("US Pre-Releases (unc.edu)" "metalab.unc.edu"
+     "pub/packages/editors/xemacs/beta/experimental/packages")
+    ("US Pre-Releases (us.xemacs.org)" "ftp.us.xemacs.org"
+     "pub/xemacs/beta/experimental/packages")
+    ("US Pre-Releases (utk.edu)" "ftp.sunsite.utk.edu"
+     "pub/xemacs/beta/experimental/packages"))
+  "*List of remote sites available for downloading \"Pre-Release\" packages.
+List format is '(site-description site-name directory-on-site).
+SITE-DESCRIPTION is a textual description of the site.  SITE-NAME
+is the internet address of the download site.  DIRECTORY-ON-SITE
+is the directory on the site in which packages may be found.
+This variable is used to initialize `package-get-remote', the
+variable actually used to specify package download sites."
+  :tag "Pre-Release Package download sites"
+  :type '(repeat (list (string :tag "Name") host-name directory))
+  :group 'package-get)
+
+;;;###autoload
+(defcustom package-get-site-release-download-sites
+  nil
+  "*List of remote sites available for downloading \"Site Release\" packages.
+List format is '(site-description site-name directory-on-site).
+SITE-DESCRIPTION is a textual description of the site.  SITE-NAME
+is the internet address of the download site.  DIRECTORY-ON-SITE
+is the directory on the site in which packages may be found.
+This variable is used to initialize `package-get-remote', the
+variable actually used to specify package download sites."
+  :tag "Site Release Package download sites"
+  :type '(repeat (list (string :tag "Name") host-name directory))
+  :group 'package-get)
+
 (defcustom package-get-remove-copy t
   "*After copying and installing a package, if this is t, then remove the
 copy.  Otherwise, keep it around."
@@ -261,16 +373,12 @@ copy.  Otherwise, keep it around."
 ;; #### it may make sense for this to be a list of names.
 ;; #### also, should we rename "*base*" to "*index*" or "*db*"?
 ;;      "base" is a pretty poor name.
-(defcustom package-get-base-filename "package-index.LATEST.pgp"
+(defcustom package-get-base-filename "package-index.LATEST.gpg"
   "*Name of the default package-get database file.
 This may either be a relative path, in which case it is interpreted
 with respect to `package-get-remote', or an absolute path."
   :type 'file
   :group 'package-get)
-
-(defvar package-get-user-index-filename
-  (paths-construct-path (list user-init-directory package-get-base-filename))
-  "Name for the user-specific location of the package-get database file.")
 
 (defcustom package-get-always-update nil
   "*If Non-nil always make sure we are using the latest package index (base).
@@ -278,33 +386,55 @@ Otherwise respect the `force-current' argument of `package-get-require-base'."
   :type 'boolean
   :group 'package-get)
 
-(defcustom package-get-require-signed-base-updates nil
-  "*If set to a non-nil value, require explicit user confirmation for updates
-to the package-get database which cannot have their signature verified via PGP.
-When nil, updates which are not PGP signed are allowed without confirmation."
+(defun package-get-pgp-available-p ()
+  "Checks the availability of Mailcrypt and PGP executable.
+
+Returns t if both are found, nil otherwise.  As a side effect, set
+`mc-default-scheme' dependent on the PGP executable found."
+  (let (result)
+    (when (featurep 'mailcrypt-autoloads)
+      (autoload 'mc-setversion "mc-setversion"))
+    (when (fboundp 'mc-setversion)
+      (cond ((locate-file "gpg" exec-path
+			  '("" ".btm" ".bat" ".cmd" ".exe" ".com")
+			  'executable)
+	     (mc-setversion "gpg")
+	     (setq result t))
+	    ((locate-file "pgpe" exec-path
+			  '("" ".btm" ".bat" ".cmd" ".exe" ".com")
+			  'executable)
+	     (mc-setversion "5.0")
+	     (setq result t))
+	    ((locate-file "pgp" exec-path
+			  '("" ".btm" ".bat" ".cmd" ".exe" ".com")
+			  'executable)
+	     (mc-setversion "2.6")
+	     (setq result t))))
+    (if result
+	result
+      nil)))
+
+(defcustom package-get-require-signed-base-updates (package-get-pgp-available-p)
+  "*If non-nil, try to verify the package index database via PGP.
+
+If nil, no PGP verification is done.  If the package index database
+entries are not PGP signed and this variable is non-nil, require user
+confirmation to continue with the package-get procedure.
+
+The default for this variable is the return value of
+`package-get-pgp-available-p', non-nil if both the \"Mailcrypt\"
+package and a suitable PGP executable are available, nil otherwise."
   :type 'boolean
   :group 'package-get)
 
+(defvar package-entries-are-signed nil
+  "Non-nil when the package index file has been PGP signed.")
+
+(defvar package-get-continue-update-base nil
+  "Non-nil update the index even if it hasn't been signed.")
+
 (defvar package-get-was-current nil
   "Non-nil we did our best to fetch a current database.")
-
-
-;Shouldn't this be in package-ui?
-;;;###autoload
-(defun package-get-download-menu ()
-  "Build the `Add Download Site' menu."
-  (mapcar (lambda (site)
-	    (vector (car site)
-		    `(if (member (quote ,(cdr site))
-				 package-get-remote)
-			 (setq package-get-remote
-			       (delete (quote ,(cdr site))
-				       package-get-remote))
-		       (package-ui-add-site (quote ,(cdr site))))
-		    :style 'toggle
-		    :selected `(member (quote ,(cdr site))
-				       package-get-remote)))
-	  package-get-download-sites))
 
 ;;;###autoload
 (defun package-get-require-base (&optional force-current)
@@ -323,7 +453,8 @@ and remote access is likely in the near future."
     (package-get-update-base nil force-current))
   (if (or (not (boundp 'package-get-base))
 	  (not package-get-base))
-      (error "Package-get database not loaded")
+      (error 'void-variable
+	     "Package-get database not loaded")
     (setq package-get-was-current force-current)))
 
 (defconst package-get-pgp-signed-begin-line "^-----BEGIN PGP SIGNED MESSAGE-----"
@@ -339,8 +470,7 @@ and remote access is likely in the near future."
   (let ((existing (assq (car entry) package-get-base)))
     (if existing
         (setcdr existing (cdr entry))
-      (setq package-get-base (cons entry package-get-base))
-      (package-get-custom-add-entry (car entry) (car (cdr entry))))))
+      (setq package-get-base (cons entry package-get-base)))))
 
 (defun package-get-locate-file (file &optional nil-if-not-found no-remote)
   "Locate an existing FILE with respect to `package-get-remote'.
@@ -350,27 +480,48 @@ if FILE can not be located.
 If NO-REMOTE is non-nil never search remote locations."
   (if (file-name-absolute-p file)
       file
-    (let ((entries package-get-remote)
+    (let ((site package-get-remote)
           (expanded nil))
-      (while entries
-	(unless (and no-remote (caar entries))
-	  (let ((expn (package-get-remote-filename (car entries) file)))
+      (when site
+	(unless (and no-remote (caar (list site)))
+	  (let ((expn (package-get-remote-filename (car (list site)) file)))
 	    (if (and expn (file-exists-p expn))
-		(setq entries  nil
-		      expanded expn))))
-        (setq entries (cdr entries)))
+		(setq site nil
+		      expanded expn)))))
       (or expanded
           (and (not nil-if-not-found)
                file)))))
 
 (defun package-get-locate-index-file (no-remote)
-  "Locate the package-get index file.  Do not return remote paths if NO-REMOTE
-is non-nil."
+  "Locate the package-get index file.  
+
+Do not return remote paths if NO-REMOTE is non-nil.  If the index
+file doesn't exist in `package-get-package-index-file-location', ask
+the user if one should be created using the index file in core as a
+template."
   (or (package-get-locate-file package-get-base-filename t no-remote)
-      (if (file-exists-p package-get-user-index-filename)
-	  package-get-user-index-filename)
-      (locate-data-file package-get-base-filename)
-      (error "Can't locate a package index file.")))
+      (if (file-exists-p (expand-file-name package-get-base-filename
+					   package-get-package-index-file-location))
+	  (expand-file-name package-get-base-filename
+			    package-get-package-index-file-location)
+	(if (y-or-n-p (format "No index file, shall I create one in %s? "
+			      package-get-package-index-file-location))
+	    (progn
+	      (save-excursion
+		(set-buffer 
+		 (find-file-noselect (expand-file-name
+				      package-get-base-filename
+				      package-get-package-index-file-location)))
+		(let ((coding-system-for-write 'binary))
+		  (erase-buffer)
+		  (insert-file-contents-literally
+		   (locate-data-file package-get-base-filename))
+		  (save-buffer (current-buffer))
+		  (kill-buffer (current-buffer))))
+	      (expand-file-name package-get-base-filename
+				package-get-package-index-file-location))
+	  (error 'search-failed
+		 "Can't locate a package index file.")))))
 
 (defun package-get-maybe-save-index (filename)
   "Offer to save the current buffer as the local package index file,
@@ -382,12 +533,17 @@ if different."
 			  (with-temp-buffer
 			    (insert-file-contents-literally location)
 			    (md5 (current-buffer)))))
-	(unless (and location (file-writable-p location))
-	  (setq location package-get-user-index-filename))
+	(when (not (file-writable-p location))
+	  (if (y-or-n-p (format "Sorry, %s is read-only, can I use %s? "
+				location user-init-directory))
+	      (setq location (expand-file-name
+			      package-get-base-filename
+			      package-get-package-index-file-location))
+	    (error 'file-error
+		   (format "%s is read-only" location))))
 	(when (y-or-n-p (concat "Update package index in " location "? "))
 	  (let ((coding-system-for-write 'binary))
 	    (write-file location)))))))
-
 
 ;;;###autoload
 (defun package-get-update-base (&optional db-file force-current)
@@ -404,9 +560,11 @@ Unless FORCE-CURRENT is non-nil never try to update the database."
                                       (package-get-locate-index-file
 				         (not force-current)))))
   (if (not (file-exists-p db-file))
-      (error "Package-get database file `%s' does not exist" db-file))
+      (error 'file-error
+	     (format "Package-get database file `%s' does not exist" db-file)))
   (if (not (file-readable-p db-file))
-      (error "Package-get database file `%s' not readable" db-file))
+      (error 'file-error
+	     (format "Package-get database file `%s' not readable" db-file)))
   (let ((buf (get-buffer-create "*package database*")))
     (unwind-protect
         (save-excursion
@@ -425,49 +583,45 @@ BUFFER defaults to the current buffer.  This command can be
 used interactively, for example from a mail or news buffer."
   (interactive)
   (setq buf (or buf (current-buffer)))
-  (let (content-beg content-end beg end)
+  (let (content-beg content-end)
     (save-excursion
       (set-buffer buf)
       (goto-char (point-min))
       (setq content-beg (point))
       (setq content-end (save-excursion (goto-char (point-max)) (point)))
       (when (re-search-forward package-get-pgp-signed-begin-line nil t)
-        (setq beg (match-beginning 0))
         (setq content-beg (match-end 0)))
       (when (re-search-forward package-get-pgp-signature-begin-line nil t)
-        (setq content-end (match-beginning 0)))
-      (when (re-search-forward package-get-pgp-signature-end-line nil t)
-        (setq end (point)))
-      (if (not (and content-beg content-end beg end))
-          (or (not package-get-require-signed-base-updates)
-              (yes-or-no-p "Package-get entries not PGP signed, continue? ")
-              (error "Package-get database not updated")))
-      (if (and content-beg content-end beg end)
-          (if (not (condition-case nil
-                       (or (fboundp 'mc-pgp-verify-region)
-                           (load-library "mc-pgp")
-                           (fboundp 'mc-pgp-verify-region))
-                     (error nil)))
-              (or (not package-get-require-signed-base-updates)
-                  (yes-or-no-p
-                   "No mailcrypt; can't verify package-get DB signature, continue? ")
-                  (error "Package-get database not updated"))))
-      (if (and beg end
-               (fboundp 'mc-pgp-verify-region)
-               (or (not
-                    (condition-case err
-                        (mc-pgp-verify-region beg end)
-                      (file-error
-                       (and (string-match "No such file" (nth 2 err))
-                            (or (not package-get-require-signed-base-updates)
-                                (yes-or-no-p
-                                 (concat "Can't find PGP, continue without "
-                                         "package-get DB verification? ")))))
-                      (t nil)))))
-          (error "Package-get PGP signature failed to verify"))
+        (setq content-end (match-beginning 0))
+	(setq package-entries-are-signed t))
+      (re-search-forward package-get-pgp-signature-end-line nil t)
+      (setq package-get-continue-update-base t)
+      ;; This is a little overkill because the default value of
+      ;; `package-get-require-signed-base-updates' is the return of
+      ;; `package-get-pgp-available-p', but we have to allow for
+      ;; someone explicitly setting
+      ;; `package-get-require-signed-base-updates' to t. --SY
+      (when (and package-get-require-signed-base-updates
+		 (package-get-pgp-available-p))
+	(if package-entries-are-signed
+	    (let (good-sig)
+	      (setq package-get-continue-update-base nil)
+	      (autoload 'mc-verify "mc-toplev")
+	      (when (mc-verify)
+		(setq good-sig t))
+	      (if good-sig
+		  (setq package-get-continue-update-base t)
+		(error 'process-error 
+		       "GnuPG error.  Package database not updated")))
+	  (if (yes-or-no-p
+	       "Package Index is not PGP signed.  Continue anyway? ")
+	      (setq package-get-continue-update-base t)
+	    (setq package-get-continue-update-base nil)
+	    (warn "Package database not updated"))))
       ;; ToDo: We should call package-get-maybe-save-index on the region
-      (package-get-update-base-entries content-beg content-end)
-      (message "Updated package-get database"))))
+      (when package-get-continue-update-base
+	(package-get-update-base-entries content-beg content-end)
+	(message "Updated package database")))))
 
 (defun package-get-update-base-entries (start end)
   "Update the package-get database with the entries found between
@@ -475,7 +629,8 @@ START and END in the current buffer."
   (save-excursion
     (goto-char start)
     (if (not (re-search-forward "^(package-get-update-base-entry" nil t))
-        (error "Buffer does not contain package-get database entries"))
+        (error 'search-failed
+	       "Buffer does not contain package-get database entries"))
     (beginning-of-line)
     (let ((count 0))
       (while (and (< (point) end)
@@ -484,7 +639,8 @@ START and END in the current buffer."
         (let ((entry (read (current-buffer))))
           (if (or (not (consp entry))
                   (not (eq (car entry) 'package-get-update-base-entry)))
-              (error "Invalid package-get database entry found"))
+              (error 'syntax-error
+		     "Invalid package-get database entry found"))
           (package-get-update-base-entry
            (car (cdr (car (cdr entry)))))
           (setq count (1+ count))))
@@ -547,12 +703,10 @@ The return value is suitable for direct passing to `interactive'."
 		   'version))
 	    (while (string=
 		    (setq version (read-string "Version: " default-version))
-		    "")
-	      )
+		    ""))
 	    (if package-symbol
 		(list package-symbol version)
-	      (list package version))
-	    )
+	      (list package version)))
 	(if package-symbol
 	    (list package-symbol)
 	  (list package))))))
@@ -574,8 +728,7 @@ This is just an interactive wrapper for `package-admin-delete-binary-package'."
   (catch 'exit
     (mapcar (lambda (pkg)
 	      (if (not (package-get (car pkg) nil 'never))
-		  (throw 'exit nil)		;; Bail out if error detected
-		  ))
+		  (throw 'exit nil)))		;; Bail out if error detected
 	    packages-package-list))
   (package-net-update-installed-db))
 
@@ -595,8 +748,7 @@ Returns nil upon error."
 						     package))
 	 (this-package (package-get-info-version
 			the-package version))
-	 (this-requires (package-get-info-prop this-package 'requires))
-	 )
+	 (this-requires (package-get-info-prop this-package 'requires)))
     (catch 'exit
       (setq version (package-get-info-prop this-package 'version))
       (unless (package-get-installedp package version)
@@ -619,18 +771,16 @@ Returns nil upon error."
 		   (reqd-version (cadr reqd-package))
 		   (reqd-name (car reqd-package)))
 	      (if (null reqd-name)
-		  (error "Unable to find a provider for %s"
-			 (car this-requires)))
+		  (error 'search-failed
+			 (format "Unable to find a provider for %s"
+				 (car this-requires))))
 	      (if (not (setq fetched-packages
 			     (package-get-all reqd-name reqd-version
 					      fetched-packages
                                               install-dir)))
-		  (throw 'exit nil)))
-	  )
-	(setq this-requires (cdr this-requires)))
-      )
-    fetched-packages
-    ))
+		  (throw 'exit nil))))
+	(setq this-requires (cdr this-requires))))
+    fetched-packages))
 
 ;;;###autoload
 (defun package-get-dependencies (packages)
@@ -654,7 +804,8 @@ required by PACKAGES."
                                   (let* ((reqd-package (package-get-package-provider reqd))
                                          (reqd-name    (car reqd-package)))
                                     (if (null reqd-name)
-                                        (error "Unable to find a provider for %s" reqd))
+                                        (error 'search-failed
+					       (format "Unable to find a provider for %s" reqd)))
                                     reqd-name))
                               this-requires)
                              dependencies))
@@ -692,20 +843,136 @@ Return `t' upon complete success, `nil' if any errors occurred."
 	(progn
 	  ;; Add lispdir to load-path if it doesn't already exist.
 	  ;; NOTE: this does not take symlinks, etc., into account.
-	  (if (let ( (dirs load-path) )
+	  (if (let ((dirs load-path))
 		(catch 'done
 		  (while dirs
 		    (if (string-equal (car dirs) lispdir)
 			(throw 'done nil))
-		    (setq dirs (cdr dirs))
-		    )
+		    (setq dirs (cdr dirs)))
 		  t))
 	      (setq load-path (cons lispdir load-path)))
 	  (if (not (package-get-load-package-file lispdir "auto-autoloads"))
 	      (package-get-load-package-file lispdir "_pkg"))
 	  t)
-      nil)
-    ))
+      nil)))
+
+;;;###autoload
+(defun package-get-info (package information &optional arg remote)
+  "Get information about a package.
+
+Quite similar to `package-get-info-prop', but can retrieve a lot more
+information.
+
+Argument PACKAGE is the name of an XEmacs package (a symbol).  It must
+be a valid package, ie, a member of `package-get-base'.
+
+Argument INFORMATION is a symbol that can be any one of:
+
+   standards-version     Package system version (not used).
+   version               Version of the XEmacs package.
+   author-version        The upstream version of the package.
+   date                  The date the package was last modified.
+   build-date            The date the package was last built.
+   maintainer            The maintainer of the package.
+   distribution          Will always be \"xemacs\" (not used).
+   priority              \"low\", \"medium\", or \"high\" (not used).
+   category              Either \"standard\", \"mule\", or \"unsupported\"..
+   dump                  Is the package dumped (not used).
+   description           A description of the package.
+   filename              The filename of the binary tarball of the package.
+   md5sum                The md5sum of filename.
+   size                  The size in bytes of filename.
+   provides              A list of symbols that this package provides.
+   requires              A list of packages that this package requires.
+   type                  Can be either \"regular\" or \"single-file\".
+
+If optional argument ARG is non-nil insert INFORMATION into current
+buffer at point.  This is very useful for doing things like inserting
+a maintainer's email address into a mail buffer.
+
+If optional argument REMOTE is non-nil use a package list from a
+remote site.  For this to work `package-get-remote' must be non-nil.
+
+If this function is called interactively it will display INFORMATION
+in the minibuffer."
+  (interactive "SPackage: \nSInfo: \nP")
+    (if remote
+	(package-get-require-base t)
+      (package-get-require-base nil))
+    (let ((all-pkgs package-get-base)
+	  info)
+      (loop until (equal package (caar all-pkgs))
+	do (setq all-pkgs (cdr all-pkgs))
+	do (if (not all-pkgs)
+	       (error 'invalid-argument
+		      (format "%s is not a valid package" package))))
+      (setq info (plist-get (cadar all-pkgs) information))
+      (if (interactive-p)
+	  (if arg
+	      (insert (format "%s" info))
+	    (if (package-get-key package :version)
+		(message "%s" info)
+	      (message "%s (Package: %s is not installed)" info package)))
+	(if arg
+	    (insert (format "%s" info))
+	  info))))
+
+;;;###autoload
+(defun package-get-list-packages-where (item field &optional arg)
+  "Return a list of packages that fulfill certain criteria.
+
+Argument ITEM, a symbol, is what you want to check for.  ITEM must be a
+symbol even when it doesn't make sense to be a symbol \(think, searching
+maintainers, descriptions, etc\).  The function will convert the symbol
+to a string if a string is what is needed.  The downside to this is that
+ITEM can only ever be a single word.
+
+Argument FIELD, a symbol, is the field to check in.  You can specify
+any one of:
+
+      Field            Sane or Allowable Content
+    description          any single word
+    category             `standard' or `mule'
+    maintainer           any single word
+    build-date           yyyy-mm-dd
+    date                 yyyy-mm-dd
+    type                 `regular' or `single'
+    requires             any package name
+    provides             any symbol
+    priority             `low', `medium', or `high'
+
+Optional Argument ARG, a prefix arg, insert output at point in the
+current buffer."
+  (interactive "SList packages that have (item): \nSin their (field): \nP")
+  (package-get-require-base nil)
+  (let ((pkgs package-get-base)
+	(strings '(description category maintainer build-date date))
+	(symbols '(type requires provides priority))
+	results)
+    (cond ((memq field strings)
+	   (setq item (symbol-name item))
+	   (while pkgs
+	     (when (string-match item (package-get-info (caar pkgs) field))
+	       (setq results (push (caar pkgs) results)))
+	     (setq pkgs (cdr pkgs))))
+	  ((memq field symbols)
+	   (if (or (eq field 'type)
+		   (eq field 'priority))
+	       (while pkgs
+		 (when (eq item (package-get-info (caar pkgs) field))
+		   (setq results (push (caar pkgs) results)))
+		 (setq pkgs (cdr pkgs)))
+	     (while pkgs
+	       (when (memq item (package-get-info (caar pkgs) field))
+		 (setq results (push (caar pkgs) results)))
+	       (setq pkgs (cdr pkgs)))))
+	  (t 
+	   (error 'wrong-type-argument field)))
+    (if (interactive-p)
+	(if arg
+	    (insert (format "%s" results))
+	  (message "%s" results)))
+    results))
 
 ;;;###autoload
 (defun package-get (package &optional version conflict install-dir)
@@ -720,8 +987,7 @@ fetched packages should be installed.
 
 The value of `package-get-base' is used to determine what files should
 be retrieved.  The value of `package-get-remote' is used to determine
-where a package should be retrieved from.  The sites are tried in
-order so one is better off listing easily reached sites first.
+where a package should be retrieved from.
 
 Once the package is retrieved, its md5 checksum is computed.  If that
 sum does not match that stored in `package-get-base' for this version
@@ -738,23 +1004,27 @@ successfully installed but errors occurred during initialization, or
 					  package) version))
          (latest (package-get-info-prop this-package 'version))
          (installed (package-get-key package :version))
-	 (this-requires (package-get-info-prop this-package 'requires))
 	 (found nil)
-	 (search-dirs package-get-remote)
+	 (search-dir package-get-remote)
 	 (base-filename (package-get-info-prop this-package 'filename))
 	 (package-status t)
 	 filenames full-package-filename)
+    (if (and (equal (package-get-info package 'category) "mule")
+	     (not (featurep 'mule)))
+	(error 'invalid-state 
+	       "Mule packages can't be installed with a non-Mule XEmacs"))
     (if (null this-package)
 	(if package-get-remote
-	    (error "Couldn't find package %s with version %s"
-		   package version)
-	  (error "No download sites or local package locations specified.")))
+	    (error 'search-failed
+		   (format "Couldn't find package %s with version %s"
+			   package version))
+	  (error 'syntax-error
+		 "No download site or local package location specified.")))
     (if (null base-filename)
-	(error "No filename associated with package %s, version %s"
-	       package version))
-    (setq install-dir
-	  (package-admin-get-install-dir package install-dir
-		(or (eq package 'mule-base) (memq 'mule-base this-requires))))
+	(error 'syntax-error
+	       (format "No filename associated with package %s, version %s"
+		       package version)))
+    (setq install-dir (package-admin-get-install-dir package install-dir))
 
     ;; If they asked for the latest using version=nil, don't get an older
     ;; version than we already have.
@@ -767,9 +1037,9 @@ successfully installed but errors occurred during initialization, or
                  latest))
             (if (not (null version))
                 (warn "Installing %s package version %s, you had a newer version %s"
-                      package latest installed)
+		  package latest installed)
               (warn "Skipping %s package, you have a newer version %s"
-                    package installed)
+		package installed)
               (throw 'skip-update t))))
 
     ;; Contrive a list of possible package filenames.
@@ -787,15 +1057,12 @@ successfully installed but errors occurred during initialization, or
       ;; and copy it into the staging directory.  Then validate
       ;; the checksum.  Finally, install the package.
       (catch 'done
-	(let (search-filenames current-dir-entry host dir current-filename
-			       dest-filename)
+	(let (search-filenames host dir current-filename dest-filename)
 	  ;; In each search directory ...
-	  (while search-dirs
-	    (setq current-dir-entry (car search-dirs)
-		  host (car current-dir-entry)
-		  dir (car (cdr current-dir-entry))
-		  search-filenames filenames
-		  )
+	  (when search-dir
+	    (setq host (car search-dir)
+		  dir (car (cdr search-dir))
+		  search-filenames filenames)
 
 	    ;; Look for one of the possible package filenames ...
 	    (while search-filenames
@@ -803,56 +1070,45 @@ successfully installed but errors occurred during initialization, or
 		    dest-filename (package-get-staging-dir current-filename))
 	      (cond
 	       ;; No host means look on the current system.
-	       ( (null host)
-		 (setq full-package-filename
-		       (substitute-in-file-name
-			(expand-file-name current-filename
-					  (file-name-as-directory dir))))
-		 )
+	       ((null host)
+		(setq full-package-filename
+		      (substitute-in-file-name
+		       (expand-file-name current-filename
+					 (file-name-as-directory dir)))))
 
 	       ;; If it's already on the disk locally, and the size is
-	       ;; greater than zero ...
-	       ( (and (file-exists-p dest-filename)
-		      (let (attrs)
-			;; file-attributes could return -1 for LARGE files,
-			;; but, hopefully, packages won't be that large.
-			(and (setq attrs (file-attributes dest-filename))
-			     (> (nth 7 attrs) 0))))
-		 (setq full-package-filename dest-filename)
-		 )
+	       ;; correct
+	       ((and (file-exists-p dest-filename)
+		     (eq (nth 7 (file-attributes dest-filename))
+			 (package-get-info package 'size)))
+		 (setq full-package-filename dest-filename))
 
 	       ;; If the file exists on the remote system ...
-	       ( (file-exists-p (package-get-remote-filename
-				 current-dir-entry current-filename))
-		 ;; Get it
-		 (setq full-package-filename dest-filename)
-		 (message "Retrieving package `%s' ..."
-			  current-filename)
-		 (sit-for 0)
-		 (copy-file (package-get-remote-filename current-dir-entry
-							 current-filename)
-			    full-package-filename t)
-		 )
-	       )
+	       ((file-exists-p (package-get-remote-filename
+				search-dir current-filename))
+		;; Get it
+		(setq full-package-filename dest-filename)
+		(message "Retrieving package `%s' ..."
+			 current-filename)
+		(sit-for 0)
+		(copy-file (package-get-remote-filename search-dir
+							current-filename)
+			   full-package-filename t)))
 
 	      ;; If we found it, we're done.
 	      (if (and full-package-filename
 		       (file-exists-p full-package-filename))
 		  (throw 'done nil))
 	      ;; Didn't find it.  Try the next possible filename.
-	      (setq search-filenames (cdr search-filenames))
-	      )
-	    ;; Try looking in the next possible directory ...
-	    (setq search-dirs (cdr search-dirs))
-	    )
-	  ))
+	      (setq search-filenames (cdr search-filenames))))))
 
       (if (or (not full-package-filename)
 	      (not (file-exists-p full-package-filename)))
 	  (if package-get-remote
-	      (error "Unable to find file %s" base-filename)
-	    (error
-	     "No download sites or local package locations specified.")))
+	      (error 'search-failed
+		     (format "Unable to find file %s" base-filename))
+	    (error 'syntax-error
+		   "No download sites or local package locations specified.")))
       ;; Validate the md5 checksum
       ;; Doing it with XEmacs removes the need for an external md5 program
       (message "Validating checksum for `%s'..." package) (sit-for 0)
@@ -861,7 +1117,11 @@ successfully installed but errors occurred during initialization, or
 	(if (not (string= (md5 (current-buffer))
 			  (package-get-info-prop this-package
 						 'md5sum)))
-	    (error "Package %s does not match md5 checksum" base-filename)))
+	    (progn
+	      (delete-file full-package-filename)
+	      (error 'process-error
+		     (format "Package %s does not match md5 checksum %s has been deleted"
+			     base-filename full-package-filename)))))
 
       (package-admin-delete-binary-package package install-dir)
 
@@ -879,30 +1139,25 @@ successfully installed but errors occurred during initialization, or
 		  (progn
 		    (run-hook-with-args 'package-install-hook package install-dir)
 		    (message "Added package `%s'" package)
-		    (sit-for 0)
-		    )
+		    (sit-for 0))
 		(progn
 		  ;; display message only if there isn't already one.
 		  (if (not (current-message))
 		      (progn
 			(message "Added package `%s' (errors occurred)"
 				 package)
-			(sit-for 0)
-			))
+			(sit-for 0)))
 		  (if package-status
-		      (setq package-status 'errors))
-		  ))
-	      )
+		      (setq package-status 'errors)))))
 	  (message "Installation of package %s failed." base-filename)
 	  (sit-for 0)
 	  (switch-to-buffer package-admin-temp-buffer)
-	  (setq package-status nil)
-	  ))
+	  (delete-file full-package-filename)
+	  (setq package-status nil)))
       (setq found t))
     (if (and found package-get-remove-copy)
 	(delete-file full-package-filename))
-    package-status
-    )))
+    package-status)))
 
 (defun package-get-info-find-package (which name)
   "Look in WHICH for the package called NAME and return all the info
@@ -953,13 +1208,6 @@ md5sum		- computed md5 checksum"
    (package-get-info-version
     (package-get-info-find-package package-list package) version) property))
 
-(defun package-get-set-version-prop (package-list package version
-						  property value)
-  "A utility to make it easier to add a VALUE for a specific PROPERTY
-  in this VERSION of a specific PACKAGE kept in the PACKAGE-LIST.
-Returns the modified PACKAGE-LIST.  Any missing fields are created."
-  )
-
 (defun package-get-staging-dir (filename)
   "Return a good place to stash FILENAME when it is retrieved.
 Use `package-get-dir' for directory to store stuff.
@@ -997,7 +1245,6 @@ If (car search) is nil, (cadr search is interpreted as  a local directory).
 		(concat dir "/"))
 	      filename))))
 
-
 (defun package-get-installedp (package version)
   "Determine if PACKAGE with VERSION has already been installed.
 I'm not sure if I want to do this by searching directories or checking
@@ -1006,7 +1253,9 @@ some built in variables.  For now, use packages-package-list."
   (equal (plist-get
 	  (package-get-info-find-package packages-package-list
 					 package) ':version)
-	 (if (floatp version) version (string-to-number version))))
+	 (if (floatp version)
+	     version
+	   (string-to-number version))))
 
 ;;;###autoload
 (defun package-get-package-provider (sym &optional force-current)
@@ -1044,26 +1293,6 @@ lead to Emacs accessing remote sites."
         (message "No appropriate package found")))
     found))
 
-;;
-;; customize interfaces.
-;; The group is in this file so that custom loads includes this file.
-;;
-(defgroup packages nil
-  "Configure XEmacs packages."
-  :group 'emacs)
-
-;;;###autoload
-(defun package-get-custom ()
-  "Fetch and install the latest versions of all customized packages."
-  (interactive)
-  (package-get-require-base t)
-  (mapcar (lambda (pkg)
-	    (if (eval (intern (concat (symbol-name (car pkg)) "-package")))
-		(package-get (car pkg) nil))
-	    t)
-	  package-get-base)
-  (package-net-update-installed-db))
-
 (defun package-get-ever-installed-p (pkg &optional notused)
   (string-match "-package$" (symbol-name pkg))
   (custom-initialize-set
@@ -1072,27 +1301,6 @@ lead to Emacs accessing remote sites."
 	packages-package-list
 	(intern (substring (symbol-name pkg) 0 (match-beginning 0))))
        t)))
-
-(defvar package-get-custom-groups nil
-  "List of package-get-custom groups")
-
-(defun package-get-custom-add-entry (package props)
-  (let* ((category (plist-get props 'category))
-         (group (intern (concat category "-packages")))
-         (custom-var (intern (concat (symbol-name package) "-package")))
-         (description (plist-get props 'description)))
-    (when (not (memq group package-get-custom-groups))
-      (setq package-get-custom-groups (cons group
-                                            package-get-custom-groups))
-      (eval `(defgroup ,group nil
-               ,(concat category " package group")
-               :group 'packages)))
-    (eval `(defcustom ,custom-var nil
-             ,description
-             :group ',group
-             :initialize 'package-get-ever-installed-p
-             :type 'boolean))))
-
 
 (provide 'package-get)
 ;;; package-get.el ends here

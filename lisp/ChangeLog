@@ -1,3 +1,58 @@
+2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=big5-cdp): Swap DOC-string and long-name.
+	(=gt): Likewise.
+	(=gt-k): Likewise.
+	(=gt-pj-*): Likewise.
+	(=gt-pj-k1): Likewise.
+	(=gt-pj-k2): Likewise.
+	(=daikanwa): Likewise.
+	(=daikanwa-rev1): Likewise.
+	(=daikanwa-rev2): Likewise.
+	(=big5-pua): Likewise.
+	(=big5-eten): Likewise.
+	(chinese-big5-eten-a): Likewise.
+	(chinese-big5-eten-b): Likewise.
+	(=hanziku-*): Likewise.
+	(=cbeta): Likewise.
+	(=jef-china3): Likewise.
+	(=ruimoku-v6): Likewise.
+	(=ucs@iso): Likewise.
+	(=ucs@unicode): Likewise.
+	(=ucs@gb): Likewise.
+	(=ucs@cns): Likewise.
+	(=ucs@jis): Likewise.
+	(=ucs@jis-1990): Likewise.
+	(=ucs@jis-2000): Likewise.
+	(=ucs@jp): Likewise.
+	(=ucs@ks): Likewise.
+	(=ucs@big5): Likewise.
+	(=ucs-radicals): Likewise.
+	(=ucs-radicals@unicode): Likewise.
+	(=ucs-bmp-cjk): Likewise.
+	(=ucs-bmp-cjk@unicode): Likewise.
+	(=ucs-sip-ext-b): Likewise.
+	(=ucs-sip-ext-b@iso): Likewise.
+
+2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for =ucs@{unicode|iso|gb|jis|cns|ks}.
+
+2004-04-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	settings for chinese-gb2312, =iso-ir165, latin-iso8859-{1..4},
+	cyrillic-iso8859-5, greek-iso8859-7, hebrew-iso8859-8,
+	latin-iso8859-9, latin-jisx0201, katakana-jisx0201,
+	latin-tcvn5712, thai-tis620, lao, ethiopic, arabic-{1|2}-column,
+	arabic-digit, ipa and ``&I-B-XXXX;''.
+
+2004-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
+	setting for (I-)HZK{03..12}-XXXX.
+
 2004-02-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
@@ -1145,6 +1200,222 @@
 
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
+
+2004-02-02  Vin Shelton <acs@xemacs.org>
+
+	* XEmacs 21.4.15 is released
+
+2003-12-12  Katsumi Yamaoka  <yamaoka@jpl.org>
+
+	* itimer.el (activate-itimer): Modify the itimer timeout value as
+	if it were begun at the last time when the itimer driver was woken
+	up.
+
+2004-01-27  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* specifier.el (Copyright):
+	Update.
+	(make-specifier-and-init):
+	(map-specifier):
+	(canonicalize-inst-pair):
+	(canonicalize-spec-list):
+	(set-specifier):
+	Synch docstrings to 21.5 where appropriate.
+
+2004-01-25  Steve Youngs  <sryoungs@bigpond.net.au>
+
+	* package-get.el (package-get-list-packages-where): New.  A
+	function that allows searching for groups of packages.  For
+	example, find all packages that require the fsf-compat package.
+
+2004-01-25  Steve Youngs  <youngs@xemacs.org>
+
+	The Great PUI Sync.
+
+	* auto-autoloads.el: Regenerated.
+
+	* custom-load.el: Regenerated.
+
+	* dumped-lisp.el (packages-hardcoded-lisp): New.
+
+	* menubar-items.el (menu-max-items): New.
+	(menu-submenu-max-items): New.
+	(menu-submenu-name-format): New.
+	(menu-split-long-menu): New.
+	(menu-sort-menu): New.
+	(default-menubar): Sync to 21.5 in regard to the PUI menus.
+
+	* obsolete.el (pui-add-install-directory): Renamed to the more
+	logical `pui-set-local-package-get-directory'.
+	(package-get-download-menu): Moved to `package-ui.el' and renamed
+	to `package-ui-add-download-menu'.
+
+	* package-admin.el (package-admin-install-function-mswindows):
+	Whitespace clean up.
+	(package-admin-add-single-file-package): Removed.
+	(package-admin-default-install-function): Whitespace clean up.
+	(package-admin-find-top-directory): New.
+	(package-admin-get-install-dir): Use it.
+	(package-admin-get-manifest-file): 
+	(package-admin-check-manifest): 
+	(package-admin-add-binary-package):
+	(package-admin-get-lispdir):
+	(package-admin-delete-binary-package):
+	(package-admin):
+
+	* package-get.el (package-get-package-index-file-location): New.
+	(package-get-install-to-user-init-directory): New.
+	(package-get-remote):
+	(package-get-download-sites):
+	(package-get-pre-release-download-sites): New.
+	(package-get-site-release-download-sites): New.
+	(package-get-base-filename):
+	(package-get-always-update):
+	(package-get-user-index-filename): Removed.
+	(package-get-pgp-available-p): New.
+	(package-get-require-signed-base-updates):
+	(package-get-was-current):
+	(package-entries-are-signed): New.
+	(package-get-continue-update-base): New.
+	(package-get-download-menu): Removed.
+	(package-get-require-base):
+	(package-get-update-base-entry):
+	(package-get-locate-file):
+	(package-get-locate-index-file):
+	(package-get-maybe-save-index):
+	(package-get-update-base):
+	(package-get-update-base-from-buffer):
+	(package-get-update-base-entries):
+	(package-get-interactive-package-query):
+	(package-get-update-all):
+	(package-get-all):
+	(package-get-dependencies):
+	(package-get-init-package):
+	(package-get-info): New.
+	(package-get):
+	(package-get-staging-dir):
+	(package-get-set-version-prop): Removed.
+	(package-get-installedp):
+	(package-get-ever-installed-p):
+	(packages): Removed.
+	(package-get-custom-groups): Removed.
+	(package-get-custom): Removed.
+	(package-get-custom-add-entry): Removed.
+
+	* package-info.el (batch-update-package-info):
+
+	* package-net.el (package-net-batch-generate-bin-ini):
+	(package-net-update-installed-db):
+
+	* package-ui.el (pui-info-buffer):
+	(pui-directory-exists): Removed.
+	(pui-package-dir-list): Removed.
+	(pui-add-install-directory): Removed.
+	(package-ui-download-menu): New.
+	(package-ui-pre-release-download-menu): New.
+	(package-ui-site-release-download-menu): New.
+	(pui-set-local-package-get-directory): New.
+	(pui-package-symbol-char):
+	(pui-update-package-display):
+	(pui-toggle-package):
+	(pui-toggle-package-key):
+	(pui-toggle-package-delete):
+	(pui-toggle-package-delete-key):
+	(pui-toggle-package-event):
+	(pui-toggle-verbosity-redisplay):
+	(pui-install-selected-packages):
+	(pui-add-required-packages):
+	(pui-help-echo):
+	(pui-display-info):
+	(list-packages-mode):
+	(pui-list-packages):
+
+	* packages.el (packages-compute-package-locations):
+	(package-require):
+	(package-delete-name):
+	(packages-hardcoded-lisp): Removed.
+	(packages-useful-lisp): Removed.
+	(packages-unbytecompiled-lisp): Removed.
+	(packages-find-package-directories):
+
+	Summary:
+
+	Major code clean up of all things PUI.
+
+	Much improved code to determine where packages should be
+	installed.  PUI no longer depends on any packages being
+	pre-installed to compute where packages are to be installed to.
+
+	The user can specify the location of their package-index file.  It
+	isn't necessary to set this because it has sane defaults.  People
+	who "run-in-place" won't accidently overwrite the CVS
+	package-index file.  See
+	`package-get-package-index-file-location'. 
+
+	PUI will now properly clean up after itself in the event of an
+	unsuccessful package install.  This drastically reduces the number
+	of "wrong md5sum" FAQs.
+
+	non-Mule XEmacsen can no longer install Mule packages.
+
+	Package management via the custom interface has been removed.
+
+	The PUI related menubar items have been reorganised.
+
+	The PGP verification code has been fixed and the default for
+	whether or not it is used is automatically computed.
+
+	* update-elc.el ((preloaded-file-list site-load-packages
+	need-to-dump dumped-exe)):
+	Just a couple of small changes to allow for
+	`packages-(hardcoded|useful|unbytecompiled)-lisp' not really
+	existing anymore.
+
+2003-12-10  Hrvoje Niksic  <hniksic@xemacs.org>
+
+	* bytecomp.el (byte-compile-warn-about-unused-variables): Don't
+	apply `format' to the first argument of byte-compile-warn, it
+	already calls format.
+
+2003-12-03  Adrian Aichner  <adrian@xemacs.org>
+
+	* files.el (delete-old-versions): Avoid going interactive during
+	make install when environment variable VERSION_CONTROL is set.
+
+2003-12-04  Vin Shelton  <acs@xemacs.org>
+
+	* menubar-items.el (menu-item-search): Only bring up search dialog
+	box if the feature is available and desired.
+
+2003-11-04  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* about.el (about-personal-info): Fix typo in Tony Rossini's entry.
+
+2003-11-05  Vin Shelton  <acs@xemacs.org>
+
+	* help.el (Help-prin1-face):
+	(Help-princ-face):
+	princ and prin1 are functions and need to be called as such.  The
+	idea for this patch was submitted by Eric Eide <eeide@cs.utah.edu>.
+
+2003-10-22  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* about.el (about-xemacs): Give full version and build date.
+
+2003-09-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* win32-native.el (grep-null-device): This XEmacs has null-device.
+
+2003-09-06  Mike Sperber  <mike@xemacs.org>
+
+	* bytecomp.el (byte-compile-defvar-or-defconst): Actually
+	implement the specified semantics for `defvar.'
+
+2003-09-07  Adrian Aichner  <adrian@xemacs.org>
+
+	* window-xemacs.el (display-buffer): Fix for `shrink-to-fit' by
+	Klaus Berndl, calling `shrink-window-if-larger-than-buffer' when
+	displaying buffer in question.
 
 2003-09-03  Vin Shelton <acs@xemacs.org>
 

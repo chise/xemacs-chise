@@ -49,7 +49,7 @@ prompts you for a file, it uses the default-directory unless you specify
 a directory. You can see what the default directory of the current
 buffer is by using the @b{Describe Variable} option from the @b{Help}
 menu. When Emacs prompts you for the variable name to describe, type
-@var{default-directory}. If you wish to open a file in some other
+@code{default-directory}. If you wish to open a file in some other
 directory, use @key{DEL} or the @key{BackSpace} key to go back and type
 the path name of the new directory.
 
@@ -201,7 +201,7 @@ saved by reading the text from the file again (called
 
 @vindex make-backup-files
    When you save a file in Emacs, it destroys its old contents. However,
-if you set the variable @var{make-backup-files} to non-@code{nil}
+if you set the variable @code{make-backup-files} to non-@code{nil}
 i.e. @samp{t}, Emacs will create a @dfn{backup} file. Select the
 @b{Describe variable} option from the @b{Help} menu and look at the
 documentation for this variable. Its default value should be

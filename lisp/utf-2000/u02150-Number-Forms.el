@@ -1,4 +1,4 @@
-;; -*- coding: utf-8-mcs -*-
+;; -*- coding: utf-8-mcs-er -*-
 (define-char
   '((name		. "VULGAR FRACTION ONE THIRD")
     (general-category	number other) ; Normative Category
@@ -7,8 +7,8 @@
     (numeric-value	. 1/3)
     (->decomposition	fraction #x0031 #x2044 #x0033)
     (=ucs		. #x2153)	; â…“
-    (=ks-x1001		. #x2877)	; ø»ˆ¥´
-    (=jis-x0213-1-2000	. #x2778)	; ø»¢‡
+    (=ks-x1001		. #x2877)	; &I-K0-2877; [08-87]
+    (=jis-x0213-1-2000	. #x2778)	; &I-JX1-2778; [07-88]
     ))
 (define-char
   '((name		. "VULGAR FRACTION TWO THIRDS")
@@ -18,8 +18,8 @@
     (numeric-value	. 2/3)
     (->decomposition	fraction #x0032 #x2044 #x0033)
     (=ucs		. #x2154)	; â…”
-    (=ks-x1001		. #x2878)	; ø»ˆ¥µ
-    (=jis-x0213-1-2000	. #x2779)	; ø»¢ˆ
+    (=ks-x1001		. #x2878)	; &I-K0-2878; [08-88]
+    (=jis-x0213-1-2000	. #x2779)	; &I-JX1-2779; [07-89]
     ))
 (define-char
   '((name		. "VULGAR FRACTION ONE FIFTH")
@@ -29,7 +29,7 @@
     (numeric-value	. 1/5)
     (->decomposition	fraction #x0031 #x2044 #x0035)
     (=ucs		. #x2155)	; â…•
-    (=jis-x0213-1-2000	. #x277A)	; ø»¢‰
+    (=jis-x0213-1-2000	. #x277A)	; &I-JX1-277A; [07-90]
     ))
 (define-char
   '((name		. "VULGAR FRACTION TWO FIFTHS")
@@ -84,7 +84,7 @@
     (numeric-value	. 1/8)
     (->decomposition	fraction #x0031 #x2044 #x0038)
     (=ucs		. #x215B)	; â…›
-    (=ks-x1001		. #x287B)	; ø»ˆ¥¸
+    (=ks-x1001		. #x287B)	; &I-K0-287B; [08-91]
     ))
 (define-char
   '((name		. "VULGAR FRACTION THREE EIGHTHS")
@@ -94,7 +94,7 @@
     (numeric-value	. 3/8)
     (->decomposition	fraction #x0033 #x2044 #x0038)
     (=ucs		. #x215C)	; â…œ
-    (=ks-x1001		. #x287C)	; ø»ˆ¥¹
+    (=ks-x1001		. #x287C)	; &I-K0-287C; [08-92]
     ))
 (define-char
   '((name		. "VULGAR FRACTION FIVE EIGHTHS")
@@ -104,7 +104,7 @@
     (numeric-value	. 5/8)
     (->decomposition	fraction #x0035 #x2044 #x0038)
     (=ucs		. #x215D)	; â…
-    (=ks-x1001		. #x287D)	; ø»ˆ¥º
+    (=ks-x1001		. #x287D)	; &I-K0-287D; [08-93]
     ))
 (define-char
   '((name		. "VULGAR FRACTION SEVEN EIGHTHS")
@@ -114,7 +114,7 @@
     (numeric-value	. 7/8)
     (->decomposition	fraction #x0037 #x2044 #x0038)
     (=ucs		. #x215E)	; â…ž
-    (=ks-x1001		. #x287E)	; ø»ˆ¥»
+    (=ks-x1001		. #x287E)	; &I-K0-287E; [08-94]
     ))
 (define-char
   '((name		. "FRACTION NUMERATOR ONE")
@@ -137,12 +137,12 @@
       (=ucs		  . #x2170)	; â…°
       ))
     (=ucs		. #x2160)	; â… 
-    (=gb2312		. #x2271)	; ø»„ˆ²
-    (=ks-x1001		. #x2530)	; ø»ˆ “
-    (=cns11643-1	. #x242B)	; ø»‘‡€
-    (=jis-x0213-1-2000	. #x2D35)	; ø»¢¤¸
-    (=big5		. #xA2B9)	; ý¢€ŠŠ¹
-    (=jef-china3	. #x77DE)	; øº‡Ÿž
+    (=gb2312		. #x2271)	; &I-G0-2271; [02-81]
+    (=ks-x1001		. #x2530)	; &I-K0-2530; [05-16]
+    (=cns11643-1	. #x242B)	; &I-C1-242B; [04-11]
+    (=jis-x0213-1-2000	. #x2D35)	; &I-JX1-2D35; [13-21]
+    (=big5		. #xA2B9)	; &I-B-A2B9;
+    (=jef-china3	. #x77DE)	; &I-JC3-77DE;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWO")
@@ -156,12 +156,12 @@
       (=ucs		  . #x2171)	; â…±
       ))
     (=ucs		. #x2161)	; â…¡
-    (=gb2312		. #x2272)	; ø»„ˆ³
-    (=ks-x1001		. #x2531)	; ø»ˆ ”
-    (=cns11643-1	. #x242C)	; ø»‘‡
-    (=jis-x0213-1-2000	. #x2D36)	; ø»¢¤¹
-    (=big5		. #xA2BA)	; ý¢€ŠŠº
-    (=jef-china3	. #x77DF)	; øº‡ŸŸ
+    (=gb2312		. #x2272)	; &I-G0-2272; [02-82]
+    (=ks-x1001		. #x2531)	; &I-K0-2531; [05-17]
+    (=cns11643-1	. #x242C)	; &I-C1-242C; [04-12]
+    (=jis-x0213-1-2000	. #x2D36)	; &I-JX1-2D36; [13-22]
+    (=big5		. #xA2BA)	; &I-B-A2BA;
+    (=jef-china3	. #x77DF)	; &I-JC3-77DF;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL THREE")
@@ -175,12 +175,12 @@
       (=ucs		  . #x2172)	; â…²
       ))
     (=ucs		. #x2162)	; â…¢
-    (=gb2312		. #x2273)	; ø»„ˆ´
-    (=ks-x1001		. #x2532)	; ø»ˆ •
-    (=cns11643-1	. #x242D)	; ø»‘‡‚
-    (=jis-x0213-1-2000	. #x2D37)	; ø»¢¤º
-    (=big5		. #xA2BB)	; ý¢€ŠŠ»
-    (=jef-china3	. #x77E0)	; øº‡Ÿ 
+    (=gb2312		. #x2273)	; &I-G0-2273; [02-83]
+    (=ks-x1001		. #x2532)	; &I-K0-2532; [05-18]
+    (=cns11643-1	. #x242D)	; &I-C1-242D; [04-13]
+    (=jis-x0213-1-2000	. #x2D37)	; &I-JX1-2D37; [13-23]
+    (=big5		. #xA2BB)	; &I-B-A2BB;
+    (=jef-china3	. #x77E0)	; &I-JC3-77E0;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FOUR")
@@ -194,12 +194,12 @@
       (=ucs		  . #x2173)	; â…³
       ))
     (=ucs		. #x2163)	; â…£
-    (=gb2312		. #x2274)	; ø»„ˆµ
-    (=ks-x1001		. #x2533)	; ø»ˆ –
-    (=cns11643-1	. #x242E)	; ø»‘‡ƒ
-    (=jis-x0213-1-2000	. #x2D38)	; ø»¢¤»
-    (=big5		. #xA2BC)	; ý¢€ŠŠ¼
-    (=jef-china3	. #x77E1)	; øº‡Ÿ¡
+    (=gb2312		. #x2274)	; &I-G0-2274; [02-84]
+    (=ks-x1001		. #x2533)	; &I-K0-2533; [05-19]
+    (=cns11643-1	. #x242E)	; &I-C1-242E; [04-14]
+    (=jis-x0213-1-2000	. #x2D38)	; &I-JX1-2D38; [13-24]
+    (=big5		. #xA2BC)	; &I-B-A2BC;
+    (=jef-china3	. #x77E1)	; &I-JC3-77E1;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIVE")
@@ -213,12 +213,12 @@
       (=ucs		  . #x2174)	; â…´
       ))
     (=ucs		. #x2164)	; â…¤
-    (=gb2312		. #x2275)	; ø»„ˆ¶
-    (=ks-x1001		. #x2534)	; ø»ˆ —
-    (=cns11643-1	. #x242F)	; ø»‘‡„
-    (=jis-x0213-1-2000	. #x2D39)	; ø»¢¤¼
-    (=big5		. #xA2BD)	; ý¢€ŠŠ½
-    (=jef-china3	. #x77E2)	; øº‡Ÿ¢
+    (=gb2312		. #x2275)	; &I-G0-2275; [02-85]
+    (=ks-x1001		. #x2534)	; &I-K0-2534; [05-20]
+    (=cns11643-1	. #x242F)	; &I-C1-242F; [04-15]
+    (=jis-x0213-1-2000	. #x2D39)	; &I-JX1-2D39; [13-25]
+    (=big5		. #xA2BD)	; &I-B-A2BD;
+    (=jef-china3	. #x77E2)	; &I-JC3-77E2;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SIX")
@@ -232,12 +232,12 @@
       (=ucs		  . #x2175)	; â…µ
       ))
     (=ucs		. #x2165)	; â…¥
-    (=gb2312		. #x2276)	; ø»„ˆ·
-    (=ks-x1001		. #x2535)	; ø»ˆ ˜
-    (=cns11643-1	. #x2430)	; ø»‘‡…
-    (=jis-x0213-1-2000	. #x2D3A)	; ø»¢¤½
-    (=big5		. #xA2BE)	; ý¢€ŠŠ¾
-    (=jef-china3	. #x77E3)	; øº‡Ÿ£
+    (=gb2312		. #x2276)	; &I-G0-2276; [02-86]
+    (=ks-x1001		. #x2535)	; &I-K0-2535; [05-21]
+    (=cns11643-1	. #x2430)	; &I-C1-2430; [04-16]
+    (=jis-x0213-1-2000	. #x2D3A)	; &I-JX1-2D3A; [13-26]
+    (=big5		. #xA2BE)	; &I-B-A2BE;
+    (=jef-china3	. #x77E3)	; &I-JC3-77E3;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL SEVEN")
@@ -251,12 +251,12 @@
       (=ucs		  . #x2176)	; â…¶
       ))
     (=ucs		. #x2166)	; â…¦
-    (=gb2312		. #x2277)	; ø»„ˆ¸
-    (=ks-x1001		. #x2536)	; ø»ˆ ™
-    (=cns11643-1	. #x2431)	; ø»‘‡†
-    (=jis-x0213-1-2000	. #x2D3B)	; ø»¢¤¾
-    (=big5		. #xA2BF)	; ý¢€ŠŠ¿
-    (=jef-china3	. #x77E4)	; øº‡Ÿ¤
+    (=gb2312		. #x2277)	; &I-G0-2277; [02-87]
+    (=ks-x1001		. #x2536)	; &I-K0-2536; [05-22]
+    (=cns11643-1	. #x2431)	; &I-C1-2431; [04-17]
+    (=jis-x0213-1-2000	. #x2D3B)	; &I-JX1-2D3B; [13-27]
+    (=big5		. #xA2BF)	; &I-B-A2BF;
+    (=jef-china3	. #x77E4)	; &I-JC3-77E4;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL EIGHT")
@@ -270,12 +270,12 @@
       (=ucs		  . #x2177)	; â…·
       ))
     (=ucs		. #x2167)	; â…§
-    (=gb2312		. #x2278)	; ø»„ˆ¹
-    (=ks-x1001		. #x2537)	; ø»ˆ š
-    (=cns11643-1	. #x2432)	; ø»‘‡‡
-    (=jis-x0213-1-2000	. #x2D3C)	; ø»¢¤¿
-    (=big5		. #xA2C0)	; ý¢€Š‹€
-    (=jef-china3	. #x77E5)	; øº‡Ÿ¥
+    (=gb2312		. #x2278)	; &I-G0-2278; [02-88]
+    (=ks-x1001		. #x2537)	; &I-K0-2537; [05-23]
+    (=cns11643-1	. #x2432)	; &I-C1-2432; [04-18]
+    (=jis-x0213-1-2000	. #x2D3C)	; &I-JX1-2D3C; [13-28]
+    (=big5		. #xA2C0)	; &I-B-A2C0;
+    (=jef-china3	. #x77E5)	; &I-JC3-77E5;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL NINE")
@@ -289,12 +289,12 @@
       (=ucs		  . #x2178)	; â…¸
       ))
     (=ucs		. #x2168)	; â…¨
-    (=gb2312		. #x2279)	; ø»„ˆº
-    (=ks-x1001		. #x2538)	; ø»ˆ ›
-    (=cns11643-1	. #x2433)	; ø»‘‡ˆ
-    (=jis-x0213-1-2000	. #x2D3D)	; ø»¢¥€
-    (=big5		. #xA2C1)	; ý¢€Š‹
-    (=jef-china3	. #x77E6)	; øº‡Ÿ¦
+    (=gb2312		. #x2279)	; &I-G0-2279; [02-89]
+    (=ks-x1001		. #x2538)	; &I-K0-2538; [05-24]
+    (=cns11643-1	. #x2433)	; &I-C1-2433; [04-19]
+    (=jis-x0213-1-2000	. #x2D3D)	; &I-JX1-2D3D; [13-29]
+    (=big5		. #xA2C1)	; &I-B-A2C1;
+    (=jef-china3	. #x77E6)	; &I-JC3-77E6;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TEN")
@@ -308,12 +308,12 @@
       (=ucs		  . #x2179)	; â…¹
       ))
     (=ucs		. #x2169)	; â…©
-    (=gb2312		. #x227A)	; ø»„ˆ»
-    (=ks-x1001		. #x2539)	; ø»ˆ œ
-    (=cns11643-1	. #x2434)	; ø»‘‡‰
-    (=jis-x0213-1-2000	. #x2D3E)	; ø»¢¥
-    (=big5		. #xA2C2)	; ý¢€Š‹‚
-    (=jef-china3	. #x77E7)	; øº‡Ÿ§
+    (=gb2312		. #x227A)	; &I-G0-227A; [02-90]
+    (=ks-x1001		. #x2539)	; &I-K0-2539; [05-25]
+    (=cns11643-1	. #x2434)	; &I-C1-2434; [04-20]
+    (=jis-x0213-1-2000	. #x2D3E)	; &I-JX1-2D3E; [13-30]
+    (=big5		. #xA2C2)	; &I-B-A2C2;
+    (=jef-china3	. #x77E7)	; &I-JC3-77E7;
     ))
 (define-char
   '((name		. "ROMAN NUMERAL ELEVEN")
@@ -327,8 +327,8 @@
       (=ucs		  . #x217A)	; â…º
       ))
     (=ucs		. #x216A)	; â…ª
-    (=gb2312		. #x227B)	; ø»„ˆ¼
-    (=jis-x0213-1-2000	. #x2D3F)	; ø»¢¥‚
+    (=gb2312		. #x227B)	; &I-G0-227B; [02-91]
+    (=jis-x0213-1-2000	. #x2D3F)	; &I-JX1-2D3F; [13-31]
     ))
 (define-char
   '((name		. "ROMAN NUMERAL TWELVE")
@@ -342,8 +342,8 @@
       (=ucs		  . #x217B)	; â…»
       ))
     (=ucs		. #x216B)	; â…«
-    (=gb2312		. #x227C)	; ø»„ˆ½
-    (=jis-x0213-1-2000	. #x2D57)	; ø»¢¥š
+    (=gb2312		. #x227C)	; &I-G0-227C; [02-92]
+    (=jis-x0213-1-2000	. #x2D57)	; &I-JX1-2D57; [13-55]
     ))
 (define-char
   '((name		. "ROMAN NUMERAL FIFTY")
@@ -409,11 +409,11 @@
       (=ucs		  . #x2160)	; â… 
       ))
     (=ucs		. #x2170)	; â…°
-    (=ks-x1001		. #x2521)	; ø»ˆ „
-    (=cns11643-1	. #x2635)	; ø»‘Š†
-    (=jis-x0213-1-2000	. #x2C35)	; ø»¢£š
-    (=big5-eten		. #xC6B5)	; ý¢€Œšµ
-    (=jef-china3	. #x77EB)	; øº‡Ÿ«
+    (=ks-x1001		. #x2521)	; &I-K0-2521; [05-01]
+    (=cns11643-1	. #x2635)	; &I-C1-2635; [06-21]
+    (=jis-x0213-1-2000	. #x2C35)	; &I-JX1-2C35; [12-21]
+    (=big5-eten		. #xC6B5)	; &B-C6B5;
+    (=jef-china3	. #x77EB)	; &I-JC3-77EB;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWO")
@@ -427,11 +427,11 @@
       (=ucs		  . #x2161)	; â…¡
       ))
     (=ucs		. #x2171)	; â…±
-    (=ks-x1001		. #x2522)	; ø»ˆ …
-    (=cns11643-1	. #x2636)	; ø»‘Š‡
-    (=jis-x0213-1-2000	. #x2C36)	; ø»¢£›
-    (=big5-eten		. #xC6B6)	; ý¢€Œš¶
-    (=jef-china3	. #x77EC)	; øº‡Ÿ¬
+    (=ks-x1001		. #x2522)	; &I-K0-2522; [05-02]
+    (=cns11643-1	. #x2636)	; &I-C1-2636; [06-22]
+    (=jis-x0213-1-2000	. #x2C36)	; &I-JX1-2C36; [12-22]
+    (=big5-eten		. #xC6B6)	; &B-C6B6;
+    (=jef-china3	. #x77EC)	; &I-JC3-77EC;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL THREE")
@@ -445,11 +445,11 @@
       (=ucs		  . #x2162)	; â…¢
       ))
     (=ucs		. #x2172)	; â…²
-    (=ks-x1001		. #x2523)	; ø»ˆ †
-    (=cns11643-1	. #x2637)	; ø»‘Šˆ
-    (=jis-x0213-1-2000	. #x2C37)	; ø»¢£œ
-    (=big5-eten		. #xC6B7)	; ý¢€Œš·
-    (=jef-china3	. #x77ED)	; øº‡Ÿ­
+    (=ks-x1001		. #x2523)	; &I-K0-2523; [05-03]
+    (=cns11643-1	. #x2637)	; &I-C1-2637; [06-23]
+    (=jis-x0213-1-2000	. #x2C37)	; &I-JX1-2C37; [12-23]
+    (=big5-eten		. #xC6B7)	; &B-C6B7;
+    (=jef-china3	. #x77ED)	; &I-JC3-77ED;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FOUR")
@@ -463,11 +463,11 @@
       (=ucs		  . #x2163)	; â…£
       ))
     (=ucs		. #x2173)	; â…³
-    (=ks-x1001		. #x2524)	; ø»ˆ ‡
-    (=cns11643-1	. #x2638)	; ø»‘Š‰
-    (=jis-x0213-1-2000	. #x2C38)	; ø»¢£
-    (=big5-eten		. #xC6B8)	; ý¢€Œš¸
-    (=jef-china3	. #x77EE)	; øº‡Ÿ®
+    (=ks-x1001		. #x2524)	; &I-K0-2524; [05-04]
+    (=cns11643-1	. #x2638)	; &I-C1-2638; [06-24]
+    (=jis-x0213-1-2000	. #x2C38)	; &I-JX1-2C38; [12-24]
+    (=big5-eten		. #xC6B8)	; &B-C6B8;
+    (=jef-china3	. #x77EE)	; &I-JC3-77EE;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIVE")
@@ -481,11 +481,11 @@
       (=ucs		  . #x2164)	; â…¤
       ))
     (=ucs		. #x2174)	; â…´
-    (=ks-x1001		. #x2525)	; ø»ˆ ˆ
-    (=cns11643-1	. #x2639)	; ø»‘ŠŠ
-    (=jis-x0213-1-2000	. #x2C39)	; ø»¢£ž
-    (=big5-eten		. #xC6B9)	; ý¢€Œš¹
-    (=jef-china3	. #x77EF)	; øº‡Ÿ¯
+    (=ks-x1001		. #x2525)	; &I-K0-2525; [05-05]
+    (=cns11643-1	. #x2639)	; &I-C1-2639; [06-25]
+    (=jis-x0213-1-2000	. #x2C39)	; &I-JX1-2C39; [12-25]
+    (=big5-eten		. #xC6B9)	; &B-C6B9;
+    (=jef-china3	. #x77EF)	; &I-JC3-77EF;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SIX")
@@ -499,11 +499,11 @@
       (=ucs		  . #x2165)	; â…¥
       ))
     (=ucs		. #x2175)	; â…µ
-    (=ks-x1001		. #x2526)	; ø»ˆ ‰
-    (=cns11643-1	. #x263A)	; ø»‘Š‹
-    (=jis-x0213-1-2000	. #x2C3A)	; ø»¢£Ÿ
-    (=big5-eten		. #xC6BA)	; ý¢€Œšº
-    (=jef-china3	. #x77F0)	; øº‡Ÿ°
+    (=ks-x1001		. #x2526)	; &I-K0-2526; [05-06]
+    (=cns11643-1	. #x263A)	; &I-C1-263A; [06-26]
+    (=jis-x0213-1-2000	. #x2C3A)	; &I-JX1-2C3A; [12-26]
+    (=big5-eten		. #xC6BA)	; &B-C6BA;
+    (=jef-china3	. #x77F0)	; &I-JC3-77F0;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL SEVEN")
@@ -517,11 +517,11 @@
       (=ucs		  . #x2166)	; â…¦
       ))
     (=ucs		. #x2176)	; â…¶
-    (=ks-x1001		. #x2527)	; ø»ˆ Š
-    (=cns11643-1	. #x263B)	; ø»‘ŠŒ
-    (=jis-x0213-1-2000	. #x2C3B)	; ø»¢£ 
-    (=big5-eten		. #xC6BB)	; ý¢€Œš»
-    (=jef-china3	. #x77F1)	; øº‡Ÿ±
+    (=ks-x1001		. #x2527)	; &I-K0-2527; [05-07]
+    (=cns11643-1	. #x263B)	; &I-C1-263B; [06-27]
+    (=jis-x0213-1-2000	. #x2C3B)	; &I-JX1-2C3B; [12-27]
+    (=big5-eten		. #xC6BB)	; &B-C6BB;
+    (=jef-china3	. #x77F1)	; &I-JC3-77F1;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL EIGHT")
@@ -535,11 +535,11 @@
       (=ucs		  . #x2167)	; â…§
       ))
     (=ucs		. #x2177)	; â…·
-    (=ks-x1001		. #x2528)	; ø»ˆ ‹
-    (=cns11643-1	. #x263C)	; ø»‘Š
-    (=jis-x0213-1-2000	. #x2C3C)	; ø»¢£¡
-    (=big5-eten		. #xC6BC)	; ý¢€Œš¼
-    (=jef-china3	. #x77F2)	; øº‡Ÿ²
+    (=ks-x1001		. #x2528)	; &I-K0-2528; [05-08]
+    (=cns11643-1	. #x263C)	; &I-C1-263C; [06-28]
+    (=jis-x0213-1-2000	. #x2C3C)	; &I-JX1-2C3C; [12-28]
+    (=big5-eten		. #xC6BC)	; &B-C6BC;
+    (=jef-china3	. #x77F2)	; &I-JC3-77F2;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL NINE")
@@ -553,11 +553,11 @@
       (=ucs		  . #x2168)	; â…¨
       ))
     (=ucs		. #x2178)	; â…¸
-    (=ks-x1001		. #x2529)	; ø»ˆ Œ
-    (=cns11643-1	. #x263D)	; ø»‘ŠŽ
-    (=jis-x0213-1-2000	. #x2C3D)	; ø»¢£¢
-    (=big5-eten		. #xC6BD)	; ý¢€Œš½
-    (=jef-china3	. #x77F3)	; øº‡Ÿ³
+    (=ks-x1001		. #x2529)	; &I-K0-2529; [05-09]
+    (=cns11643-1	. #x263D)	; &I-C1-263D; [06-29]
+    (=jis-x0213-1-2000	. #x2C3D)	; &I-JX1-2C3D; [12-29]
+    (=big5-eten		. #xC6BD)	; &B-C6BD;
+    (=jef-china3	. #x77F3)	; &I-JC3-77F3;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TEN")
@@ -571,11 +571,11 @@
       (=ucs		  . #x2169)	; â…©
       ))
     (=ucs		. #x2179)	; â…¹
-    (=ks-x1001		. #x252A)	; ø»ˆ 
-    (=cns11643-1	. #x263E)	; ø»‘Š
-    (=jis-x0213-1-2000	. #x2C3E)	; ø»¢££
-    (=big5-eten		. #xC6BE)	; ý¢€Œš¾
-    (=jef-china3	. #x77F4)	; øº‡Ÿ´
+    (=ks-x1001		. #x252A)	; &I-K0-252A; [05-10]
+    (=cns11643-1	. #x263E)	; &I-C1-263E; [06-30]
+    (=jis-x0213-1-2000	. #x2C3E)	; &I-JX1-2C3E; [12-30]
+    (=big5-eten		. #xC6BE)	; &B-C6BE;
+    (=jef-china3	. #x77F4)	; &I-JC3-77F4;
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL ELEVEN")
@@ -589,7 +589,7 @@
       (=ucs		  . #x216A)	; â…ª
       ))
     (=ucs		. #x217A)	; â…º
-    (=jis-x0213-1-2000	. #x2C3F)	; ø»¢£¤
+    (=jis-x0213-1-2000	. #x2C3F)	; &I-JX1-2C3F; [12-31]
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL TWELVE")
@@ -603,7 +603,7 @@
       (=ucs		  . #x216B)	; â…«
       ))
     (=ucs		. #x217B)	; â…»
-    (=jis-x0213-1-2000	. #x2C40)	; ø»¢£¥
+    (=jis-x0213-1-2000	. #x2C40)	; &I-JX1-2C40; [12-32]
     ))
 (define-char
   '((name		. "SMALL ROMAN NUMERAL FIFTY")

@@ -139,7 +139,8 @@
 				       (char-feature chr '=>ucs)))
 			      ucs)))
 	    (if (or ucs-code (null ucs-ccs))
-		(put-char-attribute chr '=>ucs ucs)
+		(unless (eq (char-feature chr '=>ucs) ucs)
+		  (put-char-attribute chr '=>ucs ucs))
 	      (unless (eq (encode-char chr ucs-ccs 'defined-only)
 			  ucs)
 		(put-char-attribute chr ucs-ccs ucs)))))
@@ -161,8 +162,12 @@
 		(mapcar (lambda (c)
 			  (aref c 0))
 			(split-string tchars " ")))
-	  (unless (equal (char-feature char '<-simplified@JP/Jouyou)
-			 tchars)
+	  (unless (or (equal (char-feature char '<-simplified@JP/Jouyou)
+			     tchars)
+		      (and (equal (char-feature char '<-simplified)
+				  tchars)
+			   (memq 'JP/Jouyou
+				 (char-feature char '<-simplified*sources))))
 	    (put-char-attribute char
 				'<-simplified@JP/Jouyou
 				tchars)))
