@@ -914,15 +914,11 @@ unless the function is autoloaded."
   :type 'boolean
   :group 'help-appearance)
 
-(defun describe-symbol-find-file (function)
-  (let ((files load-history)
-	file)
-    (while files
-      (if (memq function (cdr (car files)))
-	  (setq file (car (car files))
-		files nil))
-      (setq files (cdr files)))
-    file))
+(defun describe-symbol-find-file (symbol)
+  (loop for (file . load-data) in load-history
+    do (when (memq symbol load-data)
+	 (return file))))
+
 (define-obsolete-function-alias
   'describe-function-find-file
   'describe-symbol-find-file)
@@ -1378,10 +1374,6 @@ after the listing is made.)"
 	       (s (process-status p)))
 	  (setq tail (cdr tail))
 	  (princ (format "%-13s" (process-name p)))
-	  ;;(if (and (eq system-type 'vax-vms)
-	  ;;         (eq s 'signal)
-	  ;;        (< (process-exit-status p) NSIG))
-	  ;;    (princ (aref sys_errlist (process-exit-status p))))
 	  (princ s)
 	  (if (and (eq s 'exit) (/= (process-exit-status p) 0))
 	      (princ (format " %d" (process-exit-status p))))
@@ -1415,5 +1407,26 @@ after the listing is made.)"
 		(setq cmd (cdr cmd))
 		(if cmd (princ " ")))))
 	  (terpri))))))
+
+;; Stop gap for 21.0 untill we do help-char etc properly.
+(defun help-keymap-with-help-key (keymap form)
+  "Return a copy of KEYMAP with an help-key binding according to help-char
+ invoking FORM like help-form.  An existing binding is not overridden.
+ If FORM is nil then no binding is made."
+  (let ((map (copy-keymap keymap))
+	(key (if (characterp help-char)
+		 (vector (character-to-event help-char))
+	       help-char)))
+    (when (and form key (not (lookup-key map key)))
+      (define-key map key
+	`(lambda () (interactive) (help-print-help-form ,form))))
+    map))
+
+(defun help-print-help-form (form)
+  (let ((string (eval form)))
+    (if (stringp string)
+	(with-displaying-help-buffer
+	 (insert string)))))
+
 
 ;;; help.el ends here

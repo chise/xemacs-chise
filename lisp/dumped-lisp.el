@@ -2,7 +2,6 @@
       (assemble-list
         "backquote" 		; needed for defsubst etc.
 	"bytecomp-runtime"	; define defsubst
-	"Installation.el"
 	"find-paths"
 	"packages"		; Bootstrap run-time lisp environment
 	"setup-paths"
@@ -126,18 +125,18 @@
 
 	(when-feature mule "arabic")
 	(when-feature mule "chinese")
-	(when-feature mule "mule-base/cyrillic") ; overloaded in leim/quail
+	(when-feature mule "mule/cyrillic") ; overloaded in leim/quail
 	(when-feature mule "english")
-;;	(when-feature mule "ethiopic")
+	(when-feature mule "ethiopic")
 	(when-feature mule "european")
-	(when-feature mule "mule-base/greek") ; overloaded in leim/quail
+	(when-feature mule "mule/greek") ; overloaded in leim/quail
 	(when-feature mule "hebrew")
 	(when-feature mule "japanese")
 	(when-feature mule "korean")
 	(when-feature mule "misc-lang")
-;;	(when-feature mule "thai")
+	(when-feature mule "thai-xtis")
 	(when-feature mule "viet-chars")
-;;	(when-feature mule "vietnamese")
+	(when-feature mule "vietnamese")
 
 	;; Specialized language support
 	(when-feature (and mule CANNA) "canna-leim")

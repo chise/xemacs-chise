@@ -90,15 +90,14 @@ Returns the number of actions taken."
 		       (compiled-function-p list)
 		       (and (consp list)
 			    (eq (car list) 'lambda)))
-		   (function (lambda ()
-			       (setq elt (funcall list))))
-		 (function (lambda ()
-			     (if list
-				 (progn
-				   (setq elt (car list)
-					 list (cdr list))
-				   t)
-			       nil))))))
+		   #'(lambda () (setq elt (funcall list)))
+		 #'(lambda ()
+		     (if list
+			 (progn
+			   (setq elt (car list)
+				 list (cdr list))
+			   t)
+		       nil)))))
     (if (should-use-dialog-box-p)
 	;; Make a list describing a dialog box.
 	(let (;; (object (capitalize (or (nth 0 help) "object")))
@@ -123,19 +122,18 @@ Returns the number of actions taken."
 			("Yes All" . automatic)
 			("No All" . exit)
 			("Cancel" . quit)
-			,@(mapcar (lambda (elt)
-				    (cons (capitalize (nth 2 elt))
-					  (vector (nth 1 elt))))
+			,@(mapcar #'(lambda (elt)
+				      (cons (capitalize (nth 2 elt))
+					    (vector (nth 1 elt))))
 				  action-alist))
 		mouse-event last-command-event))
       (setq user-keys (if action-alist
-			  (concat (mapconcat (function
-					      (lambda (elt)
-						(key-description
-						 (if (characterp (car elt))
-						     ;; XEmacs
-						     (char-to-string (car elt))
-						   (car elt)))))
+			  (concat (mapconcat #'(lambda (elt)
+						 (key-description
+						  (if (characterp (car elt))
+						      ;; XEmacs
+						      (char-to-string (car elt))
+						    (car elt))))
 					     action-alist ", ")
 				  " ")
 			"")
@@ -156,8 +154,8 @@ Returns the number of actions taken."
     (unwind-protect
 	(progn
 	  (if (stringp prompter)
-	      (setq prompter (` (lambda (object)
-				  (format (, prompter) object)))))
+	      (setq prompter `(lambda (object)
+				(format ,prompter object))))
 	  (while (funcall next)
 	    (setq prompt (funcall prompter elt))
 	    (cond ((stringp prompt)
@@ -186,7 +184,7 @@ Returns the number of actions taken."
 			 (single-key-description char))))
 		     (setq def (lookup-key map (vector char))))
 		   (cond ((eq def 'exit)
-			  (setq next (function (lambda () nil))))
+			  (setq next #'(lambda () nil)))
 			 ((eq def 'act)
 			  ;; Act on the object.
 			  (funcall actor elt)
@@ -201,9 +199,9 @@ Returns the number of actions taken."
 				next (function (lambda () nil))))
 			 ((or (eq def 'quit) (eq def 'exit-prefix))
 			  (setq quit-flag t)
-			  (setq next (` (lambda ()
-					  (setq next '(, next))
-					  '(, elt)))))
+			  (setq next `(lambda ()
+					(setq next ',next)
+					  ',elt)))
 			 ((eq def 'automatic)
 			  ;; Act on this and all following objects.
 			  ;; (if (funcall prompter elt) ; Emacs
@@ -244,34 +242,34 @@ the current %s and exit."
 			      (set-buffer standard-output)
 			      (help-mode)))
 
-			  (setq next (` (lambda ()
-					  (setq next '(, next))
-					  '(, elt)))))
+			  (setq next `(lambda ()
+					(setq next ',next)
+					',elt)))
 			 ((vectorp def)
 			  ;; A user-defined key.
 			  (if (funcall (aref def 0) elt) ;Call its function.
 			      ;; The function has eaten this object.
 			      (setq actions (1+ actions))
 			    ;; Regurgitated; try again.
-			    (setq next (` (lambda ()
-					    (setq next '(, next))
-					    '(, elt))))))
+			    (setq next `(lambda ()
+					  (setq next ',next)
+					  ',elt))))
 			 ;((and (consp char) ; Emacs
 			 ;	(eq (car char) 'switch-frame))
 			 ; ;; switch-frame event.  Put it off until we're done.
 			 ; (setq delayed-switch-frame char)
-			 ; (setq next (` (lambda ()
-			 ;		   (setq next '(, next))
-			 ;		   '(, elt)))))
+			 ; (setq next `(lambda ()
+			 ;		 (setq next ',next)
+			 ;		 ',elt)))
 			 (t
 			  ;; Random char.
 			  (message "Type %s for help."
 				   (key-description (vector help-char)))
 			  (beep)
 			  (sit-for 1)
-			  (setq next (` (lambda ()
-					  (setq next '(, next))
-					  '(, elt)))))))
+			  (setq next `(lambda ()
+					(setq next ',next)
+					',elt)))))
 		  ((eval prompt)
 		   (progn
 		     (funcall actor elt)

@@ -318,7 +318,6 @@ The following symbols have predefined meanings:
                     For valid instantiators, see `face-boolean-specifier-p'.
 
  dim                Dim all text covered by this face.
-                    Only used by faces on TTY devices.
                     For valid instantiators, see `face-boolean-specifier-p'.
 
  blinking           Blink all text covered by this face.
@@ -690,12 +689,12 @@ See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
   (set-face-property face 'highlight highlight-p locale tag-set how-to-add))
 
 (defun face-dim-p (face &optional domain default no-fallback)
-  "Return t if FACE is dimmed in DOMAIN (TTY domains only).
+  "Return t if FACE is dimmed in DOMAIN.
 See `face-property-instance' for the semantics of the DOMAIN argument."
   (face-property-instance face 'dim domain default no-fallback))
 
 (defun set-face-dim-p (face dim-p &optional locale tag-set how-to-add)
-  "Change whether FACE is dimmed in LOCALE (TTY locales only).
+  "Change whether FACE is dimmed in LOCALE.
 DIM-P is normally a face-boolean instantiator; see
  `face-boolean-specifier-p'.
 See `set-face-property' for the semantics of the LOCALE, TAG-SET, and
@@ -750,9 +749,10 @@ See `face-property-instance' for the semantics of the DOMAIN argument."
   (if (not (valid-specifier-domain-p domain))
       (error "Invalid specifier domain"))
   (let ((device (dfw-device domain))
-	(common-props '(foreground background font display-table underline))
+	(common-props '(foreground background font display-table underline
+				   dim))
 	(win-props '(background-pixmap strikethru))
-	(tty-props '(highlight dim blinking reverse)))
+	(tty-props '(highlight blinking reverse)))
 
     ;; First check the properties which are used in common between the
     ;; x and tty devices.  Then, check those properties specific to
@@ -1209,6 +1209,8 @@ See `defface' for information about SPEC."
 	(init-face-from-resources face frame))
     (let ((frames (relevant-custom-frames)))
       (reset-face face)
+      (if (and (eq 'default face) (featurep 'x))
+	  (x-init-global-faces))
       (face-display-set face spec)
       (while frames
 	(face-display-set face spec (car frames))
@@ -1249,12 +1251,43 @@ If FRAME is nil, return the default frame properties."
 	     ;; and cache it...
 	     (set-frame-property frame 'custom-properties cache))
 	   cache))
-	;; We avoid this cache, because various frame and device
-	;; properties can change.
-	;;(default-custom-frame-properties)
+	(default-custom-frame-properties)
 	(t
 	 (setq default-custom-frame-properties
 	       (extract-custom-frame-properties (selected-frame))))))
+
+(defun face-spec-update-all-matching (spec display plist)
+  "Update all entries in the face spec that could match display to
+have the entries from the new plist and return the new spec"
+  (mapcar
+   (lambda (e)
+     (let ((entries (car e))
+	   (options (cadr e))
+	   (match t)
+	   dplist
+	   (new-options plist)
+	   )
+       (unless (eq display t)
+	 (mapc (lambda (arg)
+		 (setq dplist (plist-put dplist (car arg) (cadr arg))))
+	       display))
+       (unless (eq entries t)
+	 (mapc (lambda (arg)
+		 (setq match (and match (eq (cadr arg)
+					    (plist-get
+					      dplist (car arg)
+					      (cadr arg))))))
+	       entries))
+       (if (not match)
+	   e
+	 (while new-options
+	   (setq options
+		 (plist-put options (car new-options) (cadr new-options)))
+	   (setq new-options (cddr new-options)))
+	 (list entries options))))
+   (copy-sequence spec)))
+       
+		    
 
 (defun face-spec-set-match-display (display &optional frame)
   "Return non-nil if DISPLAY matches FRAME.
@@ -1542,7 +1575,7 @@ If the optional FRAME argument is provided, change only
 in that frame; otherwise change each frame."
   (while (not (find-face face))
     (setq face (signal 'wrong-type-argument (list 'facep face))))
-  (locate-file pixmap x-bitmap-file-path ".xbm:" 4)
+  (locate-file pixmap x-bitmap-file-path '(".xbm" ""))
   (while (cond ((stringp pixmap)
 		(unless (file-readable-p pixmap)
 		  (setq pixmap `[xbm :file ,pixmap]))

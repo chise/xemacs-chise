@@ -80,7 +80,7 @@ mostlyclean:
 clean: mostlyclean
 	$(RM) *.so *.so.1
 distclean: clean
-	$(RM) Makefile Makefile.in TAGS
+	$(RM) GNUmakefile Makefile Makefile.in TAGS
 realclean: distclean
 extraclean: realclean
 	$(RM) *~ \#*

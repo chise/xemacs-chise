@@ -384,6 +384,7 @@ space does not end a sentence, so don't break a line there."
 	  ;;; 97/3/14 jhod: Kinsoku change
 	  ;; Spacing is not necessary for charcters of no word-separater.
 	  ;; The regexp word-across-newline is used for this check.
+	  (defvar word-across-newline)
 	  (if (not (and (featurep 'mule)
 			(stringp word-across-newline)))
 	      (subst-char-in-region from (point-max) ?\n ?\ )
@@ -782,7 +783,7 @@ If the mark is not active, this applies to the current paragraph."
 
 ;; 97/3/14 jhod: This functions are added for Kinsoku support
 (defun find-space-insertable-point ()
- "Search backward for a permissable point for inserting justification spaces"
+ "Search backward for a permissible point for inserting justification spaces"
  (if (boundp 'space-insertable)
      (if (re-search-backward space-insertable nil t)
 	 (progn (forward-char 1)

@@ -59,7 +59,7 @@ $GS= $ENV{'GS'} || 'gs';
 #$PSTOPPM= $ENV{'PSTOPPM'} ||
 #    'pstoppm.ps';
 
-# Available in the PBMPLUS libary	   
+# Available in the PBMPLUS library	   
 $PNMCROP=$ENV{'PNMCROP'} || 'pnmcrop' ;
 
 # Also in PBMPLUS

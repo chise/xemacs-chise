@@ -24,9 +24,9 @@ Boston, MA 02111-1307, USA.  */
 #include <../src/config.h>
 
 #if defined (BSD) && !defined (BSD4_1) && !defined (USE_FAKEMAIL)
-/* This program isnot used in BSD, so just avoid loader complaints.  */
+/* This program is not used in BSD, so just avoid loader complaints.  */
 int
-main ()
+main (int argc, char *argv[])
 {
   return 0;
 }
@@ -34,7 +34,7 @@ main ()
 #include <stdio.h>
 #include <stdlib.h>
 int
-main ()
+main (int argc, char *argv[])
 {
   /* Linux /bin/mail, if it exists, is NOT the Unix v7 mail that
      fakemail depends on!  This causes garbled mail.  Better to
@@ -48,7 +48,7 @@ main ()
 #else /* not BSD 4.2 (or newer) */
 #ifdef MSDOS
 int
-main ()
+main (int argc, char *argv[])
 {
   return 0;
 }
@@ -100,11 +100,11 @@ struct header_record
   struct header_record *previous;
 };
 typedef struct header_record *header;
-			
+
 struct stream_record
 {
   FILE *handle;
-  int (*action)();
+  int (*action)(FILE *);
   struct stream_record *rest_streams;
 };
 typedef struct stream_record *stream_list;
@@ -191,8 +191,7 @@ fatal (CONST char *s1, CONST char *s2)
 /* Like malloc but get fatal error if memory is exhausted.  */
 
 static char *
-xmalloc (size)
-     size_t size;
+xmalloc (size_t size)
 {
   char *result = malloc (((unsigned) size));
   if (result == ((char *) NULL))
@@ -201,9 +200,7 @@ xmalloc (size)
 }
 
 static char *
-xrealloc (ptr, size)
-     char *ptr;
-     size_t size;
+xrealloc (char *ptr, size_t size)
 {
   char *result = realloc (ptr, ((unsigned) size));
   if (result == ((char *) NULL))
@@ -221,7 +218,7 @@ init_linebuffer (struct linebuffer *linebuffer)
 }
 
 /* Read a line of text from `stream' into `linebuffer'.
- * Return the length of the line.  
+ * Return the length of the line.
  */
 
 static long
@@ -263,14 +260,17 @@ get_keyword (register char *field, char **rest)
 
   ptr = &keyword[0];
   c = *field++;
-  if ((isspace (c)) || (c == ':'))
-    return ((char *) NULL);
-  *ptr++ = ((islower (c)) ? (toupper (c)) : c);
-  while (((c = *field++) != ':') && (!(isspace (c))))
-    *ptr++ = ((islower (c)) ? (toupper (c)) : c);
+  if ((isspace ((int) (unsigned char) c)) || (c == ':'))
+    return (char *) NULL;
+  *ptr++ = ((islower ((int) (unsigned char) c)) ?
+	    (toupper ((int) (unsigned char) c)) : c);
+  while (((c = *field++) != ':') &&
+	 (!(isspace ((int) (unsigned char) c))))
+    *ptr++ = ((islower ((int) (unsigned char) c)) ?
+	      (toupper ((int) (unsigned char) c)) : c);
   *ptr++ = '\0';
-  while (isspace (c)) c = *field++;
-  if (c != ':') return ((char *) NULL);
+  while (isspace ((int) (unsigned char) c)) c = *field++;
+  if (c != ':') return (char *) NULL;
   *rest = field;
   return &keyword[0];
 }
@@ -323,7 +323,11 @@ make_file_preface (void)
   /* the_date has an unwanted newline at the end */
   date_length = strlen (the_date) - 1;
   the_date[date_length] = '\0';
+#ifdef WINDOWSNT
+  temp = "(null)";
+#else
   temp = cuserid ((char *) NULL);
+#endif
   user_length = strlen (temp);
   the_user = alloc_string ((size_t) (user_length + 1));
   strcpy (the_user, temp);
@@ -371,7 +375,7 @@ close_the_streams (void)
 }
 
 static void
-add_a_stream (FILE *the_stream, int (*closing_action)())
+add_a_stream (FILE *the_stream, int (*closing_action)(FILE *))
 {
   stream_list old = the_streams;
   the_streams = new_stream ();
@@ -553,7 +557,7 @@ parse_header (header the_header, register char *where)
   *where = '\0';
   return;
 }
-    
+
 static header
 read_header (void)
 {
@@ -624,9 +628,7 @@ write_header (header the_header)
 }
 
 int
-main (argc, argv)
-     int argc;
-     char **argv;
+main (int argc, char *argv[])
 {
   char *command_line;
   header the_header;
@@ -655,7 +657,7 @@ main (argc, argv)
 					 args_size (the_header)));
   strcpy (command_line, mail_program_name);
   parse_header (the_header, &command_line[name_length]);
-  
+
   the_pipe = popen (command_line, "w");
   if (the_pipe == ((FILE *) NULL))
     fatal ("cannot open pipe to real mailer", (char *) 0);

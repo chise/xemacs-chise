@@ -308,7 +308,13 @@
 ;; contain none or when it has become older than info files in the same
 ;; directory.
 
+;; Modified 1998-09-23 by Didier Verna <verna@inf.enst.fr>
+;;
+;; Use the new macro `with-search-caps-disable-folding'
+
 ;; Code:
+(eval-when-compile
+  (condition-case nil (require 'browse-url) (error nil)))
 
 (defgroup info nil
   "The info package for Emacs."
@@ -456,6 +462,7 @@ heading."
 			    (".info.gz" . "gzip -dc %s")
 			    (".info-z" . "gzip -dc %s")
 			    (".info.Z" . "uncompress -c %s")
+			    (".bz2" . "bzip2 -dc %s")
 			    (".gz" . "gzip -dc %s")
 			    (".Z" . "uncompress -c %s")
 			    (".zip" . "unzip -c %s") )
@@ -800,12 +807,12 @@ actually get any text from."
 	   ;; Verify that none of the files we used has changed
 	   ;; since we used it.
 	   (eval (cons 'and
-		       (mapcar '(lambda (elt)
-				  (let ((curr (file-attributes (car elt))))
-				    ;; Don't compare the access time.
-				    (if curr (setcar (nthcdr 4 curr) 0))
-				    (setcar (nthcdr 4 (cdr elt)) 0)
-				    (equal (cdr elt) curr)))
+		       (mapcar #'(lambda (elt)
+				   (let ((curr (file-attributes (car elt))))
+				     ;; Don't compare the access time.
+				     (if curr (setcar (nthcdr 4 curr) 0))
+				     (setcar (nthcdr 4 (cdr elt)) 0)
+				     (equal (cdr elt) curr)))
 			       Info-dir-file-attributes))))
       (insert Info-dir-contents)
     (let ((dirs (reverse Info-directory-list))
@@ -1018,19 +1025,19 @@ directory has been modified more recently."
 	newer)
     (setq Info-dir-newer-info-files nil)
     (mapcar 
-     '(lambda (f)
-	(prog2
-	    (setq f-mod-time (nth 5 (file-attributes f)))
-	    (setq newer (or (> (car f-mod-time) (car dir-mod-time))
-			    (and (= (car f-mod-time) (car dir-mod-time))
-				 (> (car (cdr f-mod-time)) (car (cdr dir-mod-time))))))
-	  (if (and (file-readable-p f)
-		   newer)
-	      (setq Info-dir-newer-info-files 
-		    (cons f Info-dir-newer-info-files)))))
+     #'(lambda (f)
+	 (prog2
+	     (setq f-mod-time (nth 5 (file-attributes f)))
+	     (setq newer (or (> (car f-mod-time) (car dir-mod-time))
+			     (and (= (car f-mod-time) (car dir-mod-time))
+				  (> (car (cdr f-mod-time)) (car (cdr dir-mod-time))))))
+	   (if (and (file-readable-p f)
+		    newer)
+	       (setq Info-dir-newer-info-files 
+		     (cons f Info-dir-newer-info-files)))))
      (directory-files (file-name-directory file)
 		      'fullname
-		      ".*\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$"
+		      ".*\\.info\\(\\.gz\\|\\.bz2\\|\\.Z\\|-z\\|\\.zip\\)?$"
 		      'nosort
 		      t))
     Info-dir-newer-info-files))
@@ -1084,22 +1091,22 @@ and `END-INFO-DIR-ENTRY'"
   (let ((tab-width 8)
 	(description-col 0)
 	len)
-    (mapcar '(lambda (e)
-	       (setq e (cdr e))		; Drop filename
-	       (setq len (length (concat (car e)
-					 (car (cdr e)))))
-	       (if (> len description-col)
-		   (setq description-col len)))
+    (mapcar #'(lambda (e)
+		(setq e (cdr e))	; Drop filename
+		(setq len (length (concat (car e)
+					  (car (cdr e)))))
+		(if (> len description-col)
+		    (setq description-col len)))
 	    entries)
     (setq description-col (+ 5 description-col)) 
-    (mapcar '(lambda (e)
-	       (setq e (cdr e))		; Drop filename
-	       (insert "* " (car e) ":" (car (cdr e)))
-	       (setq e (car (cdr (cdr e))))
-	       (while e
-		 (indent-to-column description-col)
-		 (insert (car e) "\n")
-		 (setq e (cdr e))))
+    (mapcar #'(lambda (e)
+		(setq e (cdr e))	; Drop filename
+		(insert "* " (car e) ":" (car (cdr e)))
+		(setq e (car (cdr (cdr e))))
+		(while e
+		  (indent-to-column description-col)
+		  (insert (car e) "\n")
+		  (setq e (cdr e))))
 	    entries)
     (insert "\n")))
 
@@ -1130,15 +1137,15 @@ to the value of `Info-save-auto-generated-dir'"
 	      "Info files in " directory ":\n\n")
       (Info-dump-dir-entries 
        (mapcar 
-	'(lambda (f)
-	   (or (Info-extract-dir-entry-from f)
-	       (list 'dummy
-		     (progn 
-		       (string-match "\\(.*\\)\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$" 
-				     (file-name-nondirectory f))
-		       (capitalize (match-string 1 (file-name-nondirectory f))))
-		     ":"
-		     (list Info-no-description-string))))
+	#'(lambda (f)
+	    (or (Info-extract-dir-entry-from f)
+		(list 'dummy
+		      (progn 
+			(string-match "\\(.*\\)\\.info\\(.gz\\|.Z\\|-z\\|.zip\\)?$" 
+				      (file-name-nondirectory f))
+			(capitalize (match-string 1 (file-name-nondirectory f))))
+		      ":"
+		      (list Info-no-description-string))))
 	info-files))
       (if to-temp
 	  (set-buffer-modified-p nil)
@@ -1195,33 +1202,34 @@ the value of `Info-save-auto-generated-dir' "
 	    (narrow-to-region mark next-section)
 	    (setq dir-section-contents (nreverse (Info-parse-dir-entries (point-min)
 									 (point-max))))
-	    (mapcar '(lambda (file)
-		       (setq dir-entry (assoc (downcase
-					       (file-name-sans-extension
-						(file-name-nondirectory file)))
-					      dir-section-contents)
-			     file-dir-entry (Info-extract-dir-entry-from file))
-		       (if dir-entry
-			   (if file-dir-entry
-			       ;; A dir entry in the info file takes precedence over an
-			       ;; existing entry in the dir file
-			       (setcdr dir-entry (cdr file-dir-entry)))
-			 (unless (or not-first-section
-				     (assoc (downcase
+	    (mapcar
+	     #'(lambda (file)
+		 (setq dir-entry (assoc (downcase
 					 (file-name-sans-extension
 					  (file-name-nondirectory file)))
-					dir-full-contents))
-			   (if file-dir-entry
-			       (setq dir-section-contents (cons file-dir-entry
-								dir-section-contents))
-			     (setq dir-section-contents 
-				   (cons (list 'dummy
-					       (capitalize (file-name-sans-extension
-							    (file-name-nondirectory file)))
-					       ":"
-					       (list Info-no-description-string)) 
-					 dir-section-contents))))))
-		    Info-dir-newer-info-files)
+					dir-section-contents)
+		       file-dir-entry (Info-extract-dir-entry-from file))
+		 (if dir-entry
+		     (if file-dir-entry
+			 ;; A dir entry in the info file takes precedence over an
+			 ;; existing entry in the dir file
+			 (setcdr dir-entry (cdr file-dir-entry)))
+		   (unless (or not-first-section
+			       (assoc (downcase
+				       (file-name-sans-extension
+					(file-name-nondirectory file)))
+				      dir-full-contents))
+		     (if file-dir-entry
+			 (setq dir-section-contents (cons file-dir-entry
+							  dir-section-contents))
+		       (setq dir-section-contents 
+			     (cons (list 'dummy
+					 (capitalize (file-name-sans-extension
+						      (file-name-nondirectory file)))
+					 ":"
+					 (list Info-no-description-string)) 
+				   dir-section-contents))))))
+	     Info-dir-newer-info-files)
 	    (delete-region (point-min) (point-max))
 	    (Info-dump-dir-entries (nreverse dir-section-contents))
 	    (widen)
@@ -1368,15 +1376,12 @@ for; usually a downcased version of NAME."
 			   (format (cdr (car suff)) file)
 			 (concat (cdr (car suff)) " < " file))))
 	  (message "%s..." command)
-	  (if (eq system-type 'vax-vms)
-	      (call-process command nil t nil)
-	    (call-process shell-file-name nil t nil "-c" command))
+	  (call-process shell-file-name nil t nil "-c" command)
 	  (message "")
-	  (if visit
-	      (progn
-		(setq buffer-file-name file)
-		(set-buffer-modified-p nil)
-		(clear-visited-file-modtime))))
+	  (when visit
+	    (setq buffer-file-name file)
+	    (set-buffer-modified-p nil)
+	    (clear-visited-file-modtime)))
       (insert-file-contents file visit))))
 
 (defun Info-select-node ()
@@ -1537,6 +1542,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
       (let ((compl (Info-build-annotation-completions)))
 	(save-excursion
 	  (save-restriction
+	    (widen)
 	    (if (marker-buffer Info-tag-table-marker)
 		(progn
 		  (set-buffer (marker-buffer Info-tag-table-marker))
@@ -1546,7 +1552,6 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
 			  (cons (list (buffer-substring (match-beginning 1)
 							(match-end 1)))
 				compl))))
-	      (widen)
 	      (goto-char (point-min))
 	      (while (search-forward "\n\^_" nil t)
 		(forward-line 1)
@@ -1571,7 +1576,7 @@ annotation for any node of any file.  (See `a' and `x' commands.)"
   (if (equal regexp "")
       (setq regexp Info-last-search)
     (setq Info-last-search regexp))
-  (with-caps-disable-folding regexp
+  (with-search-caps-disable-folding regexp t
     (let ((found ())
           (onode Info-current-node)
           (ofile Info-current-file)
@@ -2614,39 +2619,20 @@ At end of the node's text, moves to the next node."
   (if (/= click-count 2)
       ;; Return nil so any other hooks are performed.
       nil
-      (let* ((x (event-x-pixel event))
-	     (y (event-y-pixel event))
-	     (w (window-pixel-width (event-window event)))
-	     (h (window-pixel-height (event-window event)))
-	     (w/3 (/ w 3))
-	     (w/2 (/ w 2))
-	     (h/4 (/ h 4)))
+      (let* ((fw (face-width 'default))
+	     (fh (face-height 'default))
+	     (x (/ (event-x-pixel event) fw))
+	     (y (/ (event-y-pixel event) fw))
+	     (w (/ (window-pixel-width (event-window event)) fw))
+	     (h (/ (window-pixel-height (event-window event)) fh))
+	     (bx 3)
+	     (by 2))
 	(cond
-	  ;; In the top 1/4 and inside the middle 1/3
-	  ((and (<= y h/4)
-		(and (>= x w/3) (<= x (+ w/3 w/3))))
-	   (Info-up)
-	   t)
-	  ;; In the bottom 1/4 and inside the middle 1/3
-	  ((and (>= y (+ h/4 h/4 h/4))
-		(and (>= x w/3) (<= x (+ w/3 w/3))))
-	   (Info-nth-menu-item 1)
-	   t)
-	  ;; In the lower 3/4 and the right 1/2
-	  ;; OR in the upper 1/4 and the right 1/3
-	  ((or (and (>= y h/4) (>= x w/2))
-	       (and (< y h/4) (>= x (+ w/3 w/3))))
-	   (Info-next)
-	   t)
-	  ;; In the lower 3/4 and the left 1/2
-	  ;; OR in the upper 1/4 and the left 1/3
-	  ((or (and (>= y h/4) (< x w/2))
-	       (and (< y h/4) (<= x w/3)))
-	   (Info-prev)
-	   t)
-	  ;; This shouldn't happen.
-	  (t
-	   (error "event out of bounds: %s %s" x y))))))
+	  ((<= y by) (Info-up) t)
+	  ((>= y (- h by)) (Info-nth-menu-item 1) t)
+	  ((<= x bx) (Info-prev) t)
+	  ((>= x (- w bx)) (Info-next) t)
+	  (t nil)))))
 
 (defvar Info-mode-map nil
   "Keymap containing Info commands.")
@@ -2742,9 +2728,15 @@ b	Go to beginning of node.        Meta->    Go to end of node.
 TAB	Go to next cross-reference.     Meta-TAB  Go to previous ref.
 
 Mouse commands:
-Left Button	Set point.
+Left Button	Set point (usual text-mode functionality)
 Middle Button	Click on a highlighted node reference to go to it.
 Right Button	Pop up a menu of applicable Info commands.
+
+Left Button Double Click in window edges:
+ Top edge:    Go up to the parent node, like `u'.
+ Left edge:   Go to the previous node, like `p'.
+ Right edge:  Go to the next node, like `n'.
+ Bottom edge: Follow first menu item, like `1'.
 
 Advanced commands:
 g	Move to node, file, or annotation tag specified by name.
@@ -2788,6 +2780,7 @@ e	Edit the contents of the current node."
   ;; #### The console-on-window-system-p check is to allow this to
   ;; work on tty's.  The real problem here is that featurep really
   ;; needs to have some device/console domain knowledge added to it.
+  (defvar info::toolbar)
   (if (and (featurep 'toolbar)
 	   (console-on-window-system-p)
 	   (not Info-inhibit-toolbar))

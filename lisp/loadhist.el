@@ -34,81 +34,69 @@
 
 ;;; Code:
 
+;; load-history is a list of entries that look like this:
+;; ("outline" outline-regexp ... (require . wid-edit) ... (provide . outline) ...)
+
 (defun symbol-file (sym)
   "Return the input source from which SYM was loaded.
 This is a file name, or nil if the source was a buffer with no associated file."
   (interactive "SFind source file for symbol: ") ; XEmacs
-  (catch 'foundit
-    (mapcar
-     (function (lambda (x) (if (memq sym (cdr x)) (throw 'foundit (car x)))))
-     load-history)
-    nil))
+  (dolist (entry load-history)
+    (when (memq sym (cdr entry))
+      (return (car entry)))))
 
 (defun feature-symbols (feature)
   "Return the file and list of symbols associated with a given FEATURE."
-   (catch 'foundit
-     (mapcar
-      (function (lambda (x) 
-		  (if (member (cons 'provide feature) (cdr x))
-		      (throw 'foundit x))))
-      load-history)
-     nil))
+  (let ((pair `(provide . ,feature)))
+    (dolist (entry load-history)
+      (when (member pair (cdr entry))
+	(return entry)))))
 
 (defun feature-file (feature)
   "Return the file name from which a given FEATURE was loaded.
 Actually, return the load argument, if any; this is sometimes the name of a
 Lisp file without an extension.  If the feature came from an eval-buffer on
 a buffer with no associated file, or an eval-region, return nil."
-  (if (not (featurep feature))
-      (error "%s is not a currently loaded feature" (symbol-name feature))
-    (car (feature-symbols feature))))
+  (unless (featurep feature)
+    (error "%s is not a currently loaded feature" (symbol-name feature)))
+  (car (feature-symbols feature)))
+
+(defun file-symbols (file)
+  "Return the file and list of symbols associated with FILE.
+The file name in the returned list is the string used to load the file,
+and may not be the same string as FILE, but it will be equivalent."
+  (or (assoc file load-history)
+      (assoc (file-name-sans-extension file) load-history)
+      (assoc (concat file ".el") load-history)
+      (assoc (concat file ".elc") load-history)))
 
 (defun file-provides (file)
   "Return the list of features provided by FILE."
-  (let ((symbols (or (cdr (assoc file load-history))
-		     (cdr (assoc (file-name-sans-extension file) load-history))
-		     (cdr (assoc (concat file ".el") load-history))
-		     (cdr (assoc (concat file ".elc") load-history))))
-	(provides nil))
-    (mapcar
-     (function (lambda (x)
-		 (if (and (consp x) (eq (car x) 'provide))
-		     (setq provides (cons (cdr x) provides)))))
-     symbols)
-    provides
-    ))
+  (let ((provides nil))
+    (dolist (x (cdr (file-symbols file)))
+      (when (eq (car-safe x) 'provide)
+	(push (cdr x) provides)))
+    provides))
 
 (defun file-requires (file)
   "Return the list of features required by FILE."
-  (let ((symbols (cdr (assoc file load-history))) (requires nil))
-    (mapcar
-     (function (lambda (x)
-		 (if (and (consp x) (eq (car x) 'require))
-		     (setq requires (cons (cdr x) requires)))))
-     symbols)
-    requires
-    ))
-
-(defun file-set-intersect (p q)
-  ;; Return the set intersection of two lists
-  (let ((ret nil))
-    (mapcar
-     (function (lambda (x) (if (memq x q) (setq ret (cons x ret)))))
-     p)
-    ret
-    ))
+  (let ((requires nil))
+    (dolist (x (cdr (file-symbols file)))
+      (when (eq (car-safe x) 'require)
+	(push (cdr x) requires)))
+    requires))
 
 (defun file-dependents (file)
   "Return the list of loaded libraries that depend on FILE.
 This can include FILE itself."
-  (let ((provides (file-provides file)) (dependents nil))
-    (mapcar
-     (function (lambda (x) 
-		 (if (file-set-intersect provides (file-requires (car x)))
-		     (setq dependents (cons (car x) dependents)))))
-     load-history)
-    dependents
-    ))
+  (let ((provides (file-provides file))
+	(dependents nil))
+    (dolist (entry load-history)
+      (dolist (x (cdr entry))
+	(when (and (eq (car-safe x) 'require)
+		   (memq (cdr-safe x) provides))
+	  (push (car entry) dependents))))
+    dependents))
 
 ;; FSFmacs
 ;(defun read-feature (prompt)
@@ -116,8 +104,8 @@ This can include FILE itself."
 ;prompting with PROMPT and completing from `features', and
 ;return the feature \(symbol\)."
 ;  (intern (completing-read prompt
-;			   (mapcar (function (lambda (feature)
-;					       (list (symbol-name feature))))
+;			   (mapcar #'(lambda (feature)
+;			             (list (symbol-name feature)))
 ;				   features)
 ;			   nil t)))
 
@@ -127,28 +115,27 @@ This can include FILE itself."
 If the feature is required by any other loaded code, and optional FORCE
 is nil, raise an error."
   (interactive "SFeature: ")
-  (if (not (featurep feature))
-      (error "%s is not a currently loaded feature" (symbol-name feature)))
-  (if (not force)
-      (let* ((file (feature-file feature))
-	     (dependents (delete file (copy-sequence (file-dependents file)))))
-	(if dependents
-	    (error "Loaded libraries %s depend on %s"
-		   (prin1-to-string dependents) file)
-	    )))
+  (unless (featurep feature)
+    (error "%s is not a currently loaded feature" (symbol-name feature)))
+  (when (not force)
+    (let* ((file (feature-file feature))
+	   (dependents (delete file (copy-sequence (file-dependents file)))))
+      (when dependents
+	(error "Loaded libraries %s depend on %s"
+	       (prin1-to-string dependents) file))))
   (let* ((flist (feature-symbols feature)) (file (car flist)))
     (mapcar
-     (function (lambda (x) 
-		 (cond ((stringp x) nil)
-		       ((consp x)
-			;; Remove any feature names that this file provided.
-			(if (eq (car x) 'provide)
-			    (setq features (delq (cdr x) features))))
-		       ((boundp x) (makunbound x))
-		       ((fboundp x)
-			(fmakunbound x)
-			(let ((aload (get x 'autoload)))
-			  (if aload (fset x (cons 'autoload aload))))))))
+     #'(lambda (x)
+	 (cond ((stringp x) nil)
+	       ((consp x)
+		;; Remove any feature names that this file provided.
+		(if (eq (car x) 'provide)
+		    (setq features (delq (cdr x) features))))
+	       ((boundp x) (makunbound x))
+	       ((fboundp x)
+		(fmakunbound x)
+		(let ((aload (get x 'autoload)))
+		  (if aload (fset x (cons 'autoload aload)))))))
      (cdr flist))
     ;; Delete the load-history element for this file.
     (let ((elt (assoc file load-history)))

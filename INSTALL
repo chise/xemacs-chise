@@ -80,7 +80,7 @@ system using Mule and Wnn6 from OMRON corporation would be the
 packages `mule-base' and `egg-its'.  By default, packages will be
 searched for in the path
 
-~/.xemacs::$prefix/lib/xemacs-${version}/mule-packages:$prefix/lib/xemacs/mule-packages:$prefix/lib/xemacs-${version}/packages:$prefix/lib/xemacs/packages
+~/.xemacs::$prefix/lib/xemacs-${version}/mule-packages:$prefix/lib/xemacs/mule-packages:$prefix/lib/xemacs-${version}/xemacs-packages:$prefix/lib/xemacs/xemacs-packages
 
 This may be changed by specifying a different value with the
 --package-path configuration option.
@@ -156,11 +156,6 @@ The `--cflags' option specifies the CFLAGS the build process should
 use when compiling XEmacs.  Otherwise the value of the environment
 variable CFLAGS is consulted.  If that is also undefined, CFLAGS
 defaults to "-g -O" for gcc and "-g" for all other compilers.
-
-The `--with-gnu-make' option specifies that Makefiles should be
-written to take advantage of special features of GNU Make.  GNU Make
-works fine on Makefiles even without this option.  This flag just
-allows for simultaneous in-place and --srcdir building.
 
 The `--dynamic' option specifies that configure should try to link
 emacs dynamically rather than statically.
@@ -401,16 +396,12 @@ variable gets by default!  Make sure you know what kind of value the
 variable should have.  If you don't pay attention to what you are
 doing, you'll make a mistake.
 
-Things may malfunction if the variable `directory-abbrev-alist' is not set
-up to translate "temporary" automounter mount points into the canonical
-form.  The default value of this variable contains the translation
-
-	("^/tmp_mnt/" . "/")
-
-meaning translate "/tmp_mnt/net/FOO" into "/net/FOO", which is appropriate
-for the default configuration of the Sun automounter, but which may be
-inappropriate for different vendor's automounters, or if you have customized
-your mount-point names.
+Things may malfunction if the variable `directory-abbrev-alist' is not
+set up to translate "temporary" automounter mount points into the
+canonical form.  XEmacs tries to detect how your automounter is
+configured.  If you have an unusual automounter configuration that
+XEmacs cannot detect, you may need to change the value of
+`directory-abbrev-alist'.
 
 5) Put into `./lisp/site-init.el' or `./lisp/site-load.el' any Emacs
 Lisp code you want XEmacs to load before it is dumped out.  Use
@@ -449,7 +440,7 @@ are installed in the following directories:
 By default, XEmacs installs its files in the following directories:
 
 `/usr/local/bin' holds the executable programs users normally run -
-		`xemacs', `etags', `ctags', `b2m', `emacsclient',
+		`xemacs', `etags', `ctags', `b2m', `emacsclient', `ellcc',
 		`gnuclient', `gnudoit', `gnuattach', and `rcs-checkin'.
 
 `/usr/local/lib/xemacs-VERSION/lisp' holds the Emacs Lisp libraries;
@@ -488,6 +479,17 @@ By default, XEmacs installs its files in the following directories:
 		kinds of machines share the file system XEmacs is
 		installed on.
 
+`/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME/modules' holds the Emacs
+		dynamically loadable modules.  These are special programs
+		typically written in C that can be loaded in much the same
+		way that Lisp packages are.  Not all systems support
+		dynamic modules, so do not be alarmed if this directory
+		does not exist or is empty.
+
+		XEmacs searches for modules in this directory, or any
+		sub-directory of it, and then in
+		`/usr/local/lib/xemacs/site-modules/*'.
+
 `/usr/local/lib/xemacs-VERSION/info' holds the on-line documentation
 		for XEmacs, known as "info files".
 
@@ -499,6 +501,9 @@ install XEmacs's libraries and data files or where XEmacs should search
 for its lisp files by giving values for `make' variables as part of
 the command.  See the section below called `MAKE VARIABLES' for more
 information on this.
+
+Using GNU Make allows for simultaneous builds with and without the
+--srcdir option.
 
 8) If your system uses lock files to interlock access to mailer inbox files,
 then you might need to make the movemail program setuid or setgid
@@ -624,6 +629,15 @@ GNU software; here are some variables specific to XEmacs.
 	while running.  Its default value, based on `libdir' (see
 	above), is `/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME'
 	(where VERSION and CONFIGURATION-NAME are as described above).
+
+`moduledir' indicates where XEmacs installs and expects to find
+	any dynamic modules.  Its default value, based on
+	`archlibdir' (see above) is
+	`/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME/modules'
+	(where VERSION and CONFIGURATION-NAME are as described above).
+	By their very nature, dynamic loadable modules are architecture-
+	dependant, and care should be taken not to set this directory
+	to a system- or architecture-independant directory.
 
 Remember that you must specify any variable values you need each time
 you run `make' in the top directory.  If you run `make' once to build

@@ -34,21 +34,44 @@
 
 ;;; Code:
 
-(if (fboundp 'error)
-    (error "loadup.el already loaded!"))
+(when (fboundp 'error)
+  (error "loadup.el already loaded!"))
 
 (defvar running-xemacs t
   "Non-nil when the current emacs is XEmacs.")
 (defvar preloaded-file-list nil
   "List of files preloaded into the XEmacs binary image.")
 
+(defvar Installation-string nil
+  "Description of XEmacs installation.")
+
+(let ((gc-cons-threshold 30000))
+  
 ;; This is awfully damn early to be getting an error, right?
 (call-with-condition-handler 'really-early-error-handler
     #'(lambda ()
-	;; message not defined yet ...
-	(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
 
+	;; Initializa Installation-string.  We do it before loading
+	;; anything so that dumped code can make use of its value.
+	(setq Installation-string
+	      (save-current-buffer
+		(set-buffer (get-buffer-create (generate-new-buffer-name
+						" *temp*")))
+		;; insert-file-contents-internal bogusly calls
+		;; format-decode without checking if it's defined.
+		(fset 'format-decode #'(lambda (f l &optional v) l))
+		(insert-file-contents-internal "../Installation")
+		(fmakunbound 'format-decode)
+		(prog1 (buffer-substring)
+		  (kill-buffer (current-buffer)))))
+
+	(setq load-path (split-path (getenv "EMACSBOOTSTRAPLOADPATH")))
+	(setq module-load-path (split-path (getenv "EMACSBOOTSTRAPMODULEPATH")))
+
+	;; message not defined yet ...
 	(external-debugging-output (format "\nUsing load-path %s" load-path))
+	(external-debugging-output (format "\nUsing module-load-path %s"
+					   module-load-path))
 
 	;; We don't want to have any undo records in the dumped XEmacs.
 	(buffer-disable-undo (get-buffer "*scratch*"))
@@ -64,7 +87,6 @@
 	;; the package path.
 	;; #### This code is duplicated in two other places.
 	(let ((temp-path (expand-file-name "." (car load-path))))
-	  (setq source-directory temp-path)
 	  (setq load-path (nconc (mapcar
 				  #'(lambda (i) (concat i "/"))
 				  (directory-files temp-path t "^[^-.]"
@@ -80,11 +102,10 @@
 	;; there will be lots of extra space in the data segment filled
 	;; with garbage-collected junk)
 	(defun pureload (file)
-	  (let ((full-path (locate-file file
-					load-path
-					(if load-ignore-elc-files
-					    ".el:"
-					  ".elc:.el:"))))
+	  (let ((full-path
+		 (locate-file file load-path
+			      (if load-ignore-elc-files
+				  '(".el" "") '(".elc" ".el" "")))))
 	    (if full-path
 		(prog1
 		  (load full-path)
@@ -101,16 +122,14 @@
 	(let ((files preloaded-file-list)
 	      file)
 	  (while (setq file (car files))
-	    (or (pureload file)
-	      (progn
-		(external-debugging-output "Fatal error during load, aborting")
-		(kill-emacs 1)))
+	    (unless (pureload file)
+	      (external-debugging-output "Fatal error during load, aborting")
+	      (kill-emacs 1))
 	    (setq files (cdr files)))
-	  (if (not (featurep 'toolbar))
-	      (progn
-		;; else still define a few functions.
-		(defun toolbar-button-p    (obj) "No toolbar support." nil)
-		(defun toolbar-specifier-p (obj) "No toolbar support." nil)))
+	  (when (not (featurep 'toolbar))
+	    ;; else still define a few functions.
+	    (defun toolbar-button-p    (obj) "No toolbar support." nil)
+	    (defun toolbar-specifier-p (obj) "No toolbar support." nil))
 	  (fmakunbound 'pureload))
 
 	(packages-load-package-dumped-lisps late-package-load-path)
@@ -135,8 +154,8 @@
 ;; But you must also cause them to be scanned when the DOC file
 ;; is generated.  For VMS, you must edit ../../vms/makedoc.com.
 ;; For other systems, you must edit ../../src/Makefile.in.in.
-(if (load "site-load" t)
-    (garbage-collect))
+(when (load "site-load" t)
+  (garbage-collect))
 
 ;;FSFmacs randomness
 ;;(if (fboundp 'x-popup-menu)
@@ -144,7 +163,6 @@
 ;;; Turn on recording of which commands get rebound,
 ;;; for the sake of the next call to precompute-menubar-bindings.
 ;(setq define-key-rebound-commands nil)
-
 
 ;; Note: all compiled Lisp files loaded above this point
 ;; must be among the ones parsed by make-docfile
@@ -159,51 +177,49 @@
   (message "Finding pointers to doc strings...")
   (Snarf-documentation "DOC")
   (message "Finding pointers to doc strings...done")
-  (Verify-documentation)
-  )
+  (Verify-documentation))
 
 ;; Note: You can cause additional libraries to be preloaded
 ;; by writing a site-init.el that loads them.
 ;; See also "site-load" above.
-(if (stringp site-start-file)
-    (load "site-init" t))
+(when (stringp site-start-file)
+  (load "site-init" t))
 (setq current-load-list nil)
 (garbage-collect)
 
 ;;; At this point, we're ready to resume undo recording for scratch.
 (buffer-enable-undo "*scratch*")
 
+) ;; frequent garbage collection
+
 ;; Dump into the name `xemacs' (only)
 (when (member "dump" command-line-args)
-    (message "Dumping under the name xemacs")
-    ;; This is handled earlier in the build process.
-    ;; (condition-case () (delete-file "xemacs") (file-error nil))
-    (when (fboundp 'really-free)
-      (really-free))
-    (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
-    (kill-emacs))
-
-(when (member "run-temacs" command-line-args)
-  (message "\nBootstrapping from temacs...")
-  (setq purify-flag nil)
-  (setq inhibit-early-packages t)
-  (setq inhibit-autoloads t)
-  ;; Remove all args up to and including "run-temacs"
-  (apply #'run-emacs-from-temacs (cdr (member "run-temacs" command-line-args)))
-  ;; run-emacs-from-temacs doesn't actually return anyway.
+  (message "Dumping under the name xemacs")
+  ;; This is handled earlier in the build process.
+  ;; (condition-case () (delete-file "xemacs") (file-error nil))
+  (when (fboundp 'really-free)
+    (really-free))
+  (dump-emacs (if (featurep 'infodock) "infodock" "xemacs") "temacs")
   (kill-emacs))
 
 ;; Avoid error if user loads some more libraries now.
 (setq purify-flag nil)
+
+(when (member "run-temacs" command-line-args)
+  (message "\nBootstrapping from temacs...")
+  ;; Remove all args up to and including "run-temacs"
+  (apply #'run-emacs-from-temacs (cdr (member "run-temacs" command-line-args)))
+  ;; run-emacs-from-temacs doesn't actually return anyway.
+  (kill-emacs))
 
 ;; XEmacs change
 ;; If you are using 'recompile', then you should have used -l loadup-el.el
 ;; so that the .el files always get loaded (the .elc files may be out-of-
 ;; date or bad).
 (when (member "recompile" command-line-args)
-  (let ((command-line-args-left (cdr (member "recompile" command-line-args))))
-    (batch-byte-recompile-directory)
-    (kill-emacs)))
+  (setq command-line-args-left (cdr (member "recompile" command-line-args)))
+  (batch-byte-recompile-directory)
+  (kill-emacs))
 
 ;; For machines with CANNOT_DUMP defined in config.h,
 ;; this file must be loaded each time Emacs is run.

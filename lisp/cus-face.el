@@ -67,13 +67,17 @@
 			   :help-echo "\
 Text size (e.g. 9pt or 2mm).")
 	   custom-set-face-font-size custom-face-font-size)
-    (:stipple (editable-field :format "Stipple: %v"
-			      :help-echo "Name of background bitmap file.")
-	      set-face-stipple custom-face-stipple)
     (:family (editable-field :format "Font Family: %v"
 			     :help-echo "\
 Name of font family to use (e.g. times).") 
 	     custom-set-face-font-family custom-face-font-family)
+    (:background-pixmap (editable-field :format "Background pixmap: %v"
+					:help-echo "\
+Name of background pixmap file.")
+	      set-face-background-pixmap custom-face-background-pixmap)
+    (:dim (toggle :format "%[Dim%]: %v\n"
+		  :help-echo "Control whether the text should be dimmed.")
+	  set-face-dim-p face-dim-p)
     (:bold (toggle :format "%[Bold%]: %v\n"
 		   :help-echo "Control whether a bold font should be used.")
 	   custom-set-face-bold custom-face-bold)
@@ -85,7 +89,6 @@ Control whether an italic font should be used.")
 			:help-echo "\
 Control whether the text should be underlined.")
 		set-face-underline-p face-underline-p)
-    ;; #### Should make it work on X
     (:strikethru (toggle :format "%[Strikethru%]: %v\n"
 			 :help-echo "\
 Control whether the text should be strikethru.")
@@ -146,6 +149,14 @@ If FRAME is nil, use the default face."
 	(error nil)))
     result))
 
+(defsubst custom-face-get-spec (symbol)
+  (or (get symbol 'customized-face)
+      (get symbol 'saved-face)
+      (get symbol 'face-defface-spec)
+      ;; Attempt to construct it.
+      (list (list t (face-custom-attributes-get
+		     symbol (selected-frame))))))
+
 (defun custom-set-face-bold (face value &optional frame)
   "Set the bold property of FACE to VALUE."
   (if value
@@ -178,8 +189,8 @@ If FRAME is nil, use the default face."
 	 (fontobj (font-create-object font)))
     (font-italic-p fontobj)))
 
-(defun custom-face-stipple (face &rest args)
-  "Return the name of the stipple file used for FACE."
+(defun custom-face-background-pixmap (face &rest args)
+  "Return the name of the background pixmap file used for FACE."
   (let ((image  (apply 'specifier-instance 
 		       (face-background-pixmap face) args)))
     (and image 
@@ -214,6 +225,15 @@ If FRAME is nil, use the default face."
 	 ;; Gag
 	 (fontobj (font-create-object font)))
     (font-family fontobj)))
+
+;;;###autoload
+(defun custom-set-face-update-spec (face display plist)
+  "Customize the FACE for display types matching DISPLAY, merging
+  in the new items from PLIST"
+  (let ((spec (face-spec-update-all-matching (custom-face-get-spec face)
+					     display plist)))
+    (put face 'customized-face spec)
+    (face-spec-set face spec)))
 
 ;;; Initializing.
 

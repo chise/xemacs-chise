@@ -57,20 +57,14 @@ global environment specification.")
   'buffer-file-coding-system-for-read)
 
 (defvar file-coding-system-alist
-  '(("\\.elc$" . (binary . binary))
-;; This must not be neccessary, slb suggests -kkm
+  `(
+;; This must not be necessary, slb suggests -kkm
 ;;  ("loaddefs.el$" . (binary . binary))
-    ("\\.tar$" . (binary . binary))
-    ("\\.\\(tif\\|tiff\\)$" . (binary . binary))
-    ("\\.png$" . (binary . binary))
-    ("\\.gif$" . (binary . binary))
-    ("\\.\\(jpeg\\|jpg\\)$" . (binary . binary))
-    ("TUTORIAL\\.hr$" . iso-8859-2)
-    ("TUTORIAL\\.pl$" . iso-8859-2)
-    ("TUTORIAL\\.ro$" . iso-8859-2)
+    ,@(mapcar
+       #'(lambda (regexp) (cons regexp 'binary)) binary-file-regexps)
+    ("TUTORIAL\\.\\(?:hr\\|pl\\|ro\\)\\'" . iso-8859-2)
     ;; ("\\.\\(el\\|emacs\\|info\\(-[0-9]+\\)?\\|texi\\)$" . iso-2022-8)
     ;; ("\\(ChangeLog\\|CHANGES-beta\\)$" . iso-2022-8)
-    ("\\.\\(gz\\|Z\\)$" . binary)
     ("/spool/mail/.*$" . convert-mbox-coding-system))
   "Alist to decide a coding system to use for a file I/O operation.
 The format is ((PATTERN . VAL) ...),
@@ -106,7 +100,7 @@ the current value of `buffer-file-coding-system'."
   "Set EOL type of buffer-file-coding-system of the current buffer to
 something other than what it is at the moment."
   (interactive)
-  (let ((eol-type 
+  (let ((eol-type
 	 (coding-system-eol-type buffer-file-coding-system)))
     (setq buffer-file-coding-system
 	  (subsidiary-coding-system
@@ -153,7 +147,7 @@ object (the entry specified a coding system)."
   (let ((alist file-coding-system-alist)
 	(found nil)
 	(codesys nil))
-    (let ((case-fold-search (eq system-type 'vax-vms)))
+    (let ((case-fold-search nil))
       (setq filename (file-name-sans-versions filename))
       (while (and (not found) alist)
 	(if (string-match (car (car alist)) filename)
@@ -179,7 +173,7 @@ object (the entry specified a coding system)."
   (let ((alist file-coding-system-alist)
 	(found nil)
 	(codesys nil))
-    (let ((case-fold-search (eq system-type 'vax-vms)))
+    (let ((case-fold-search nil))
       (setq filename (file-name-sans-versions filename))
       (while (and (not found) alist)
 	(if (string-match (car (car alist)) filename)
@@ -277,7 +271,7 @@ Return t if file exists."
       (if (or (<= (length filename) 0)
 	      (null (setq path
 			  (locate-file filename load-path
-				       (and (not nosuffix) ".elc:.el:")))))
+				       (and (not nosuffix) '(".elc" ".el" ""))))))
 	  (and (null noerror)
 	       (signal 'file-error (list "Cannot open load file" filename)))
 	;; now use the internal load to actually load the file.
@@ -396,7 +390,7 @@ for reading.
 See also `insert-file-contents-access-hook',
 `insert-file-contents-pre-hook', `insert-file-contents-error-hook',
 and `insert-file-contents-post-hook'."
-  (let (return-val coding-system used-codesys conversion-func)
+  (let (return-val coding-system used-codesys)
     ;; OK, first load the file.
     (condition-case err
 	(progn

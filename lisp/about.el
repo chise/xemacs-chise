@@ -50,7 +50,7 @@
 
 ;; People in this list have their individual links from the main page,
 ;; or from the `Legion' page.  If they have an image, it should be
-;; named after the CAR of the list element (baw -> baw.xpm).
+;; named after the CAR of the list element (baw -> baw.png).
 ;;
 ;; If you add to this list, you'll want to update
 ;; `about-maintainer-info' (and maybe `about-hackers'.
@@ -58,13 +58,14 @@
   '((ajc      "Andrew Cosgriff"   "ajc@bing.wattle.id.au")
     (baw      "Barry Warsaw"      "bwarsaw@python.org")
     (bw       "Bob Weiner"        "weiner@altrasoft.com")
+    (chr      "Christian Nybø"    "chr@mediascience.no")
     (cthomp   "Chuck Thompson"    "cthomp@xemacs.org")
     (dmoore   "David Moore"       "dmoore@ucsd.edu")
     (dkindred "Darrell Kindred"	  "dkindred@cmu.edu")
     (dv       "Didier Verna"      "verna@inf.enst.fr")
     (hniksic  "Hrvoje Niksic"     "hniksic@srce.hr")
     (jareth   "Jareth Hein"       "jareth@camelot.co.jp")
-    (jason    "Jason Mastaler"	  "jason@mastaler.com")
+    (jason    "Jason Mastaler"	  "jason@xemacs.org")
     (jens     "Jens Lautenbacher" "jens@lemcbed.lem.uni-karlsruhe.de")
     (jmiller  "Jeff Miller"       "jmiller@smart.net")
     (juhp     "Jens-Ulrik Holger Petersen" "petersen@kurims.kyoto-u.ac.jp")
@@ -79,7 +80,7 @@
     (martin   "Martin Buchholz"   "martin@xemacs.org")
     (ograf    "Oliver Graf"       "ograf@fga.de")
     (pez      "Peter Pezaris"	  "pez@dwwc.com")
-    (piper    "Andy Piper"        "andyp@parallax.co.uk")
+    (piper    "Andy Piper"        "andy@xemacs.org")
     (rickc    "Rick Campbell"     "rickc@lehman.com")
     (rossini  "Anthony Rossini"	  "rossini@stat.sc.edu")
     (vin      "Vin Shelton"	  "acs@acm.org")
@@ -87,7 +88,7 @@
     (slb      "SL Baur"           "steve@xemacs.org")
     (stig     "Jonathan Stigelman" "stig@hackvan.com")
     (stigb    "Stig Bjorlykke"	  "stigb@tihlde.hist.no")
-    (thiessel "Marcus Thiessel"   "thiessel@rhrk.uni-kl.de")
+    (thiessel "Marcus Thiessel"   "marcus@xemacs.org")
     (vladimir "Vladimir Ivanovic" "vladimir@mri.com")
     (wing     "Ben Wing"          "ben@xemacs.org")
     (wmperry  "William Perry"     "wmperry@aventail.com"))
@@ -99,8 +100,11 @@
 (defvar about-url-alist
   '((ajc       . "http://www-personal.monash.edu.au/~ajc/")
     (altrasoft . "http://www.altrasoft.com/")
+    (ben       . "http://www.666.com/ben/")
+    (ben-xemacs . "http://www.666.com/xemacs/")
     (baw       . "http://www.python.org/~bwarsaw/")
     (cc-mode   . "http://www.python.org/ftp/emacs/")
+    (chr       . "http://www.xemacs.org/faq/")
     (dkindred  . "http://www.cs.cmu.edu/People/dkindred/me.html")
     (dmoore    . "http://oj.egbt.org/dmoore/")
     (jason     . "http://www.mastaler.com/")
@@ -112,7 +116,7 @@
     (marcpa    . "http://www.positron911.com/products/power.htm")
     (ograf     . "http://www.fga.de/~ograf/")
     (pez       . "http://www.dwwc.com/")
-    (piper     . "http://www.parallax.co.uk/~andyp")
+    (piper     . "http://www.xemacs.freeserve.co.uk/")
     (vin       . "http://www.upa.org/")
     (stigb     . "http://www.tihlde.hist.no/~stigb/")
     (wget      . "ftp://gnjilux.cc.fer.hr/pub/unix/util/wget/")
@@ -209,7 +213,7 @@
     (let* ((emacs-short-version (format "%d.%d"
 					emacs-major-version
 					emacs-minor-version))
-	   (emacs-about-version (format "version %s; Apr 1998"
+	   (emacs-about-version (format "version %s; Aug 1998"
 					emacs-short-version)))
       (widget-insert (about-center emacs-about-version))
       (widget-create 'link :help-echo "The latest NEWS of XEmacs"
@@ -279,7 +283,7 @@ developers responsible for this release are:\n\n")
 			     :value who)
 	      (widget-insert (format "  <%s>\n" address)))))
       ;; Setup persons responsible for this release.
-      (mapc 'setup-person '(slb hniksic kyle martin))
+      (mapc 'setup-person '(slb hniksic kyle martin piper))
       (widget-insert "\n\t* ")
       (widget-create 'link :help-echo "A legion of XEmacs hackers"
 		     :action 'about-hackers
@@ -529,45 +533,22 @@ contributed to the XEmacs development from late 1994 to early
 			   (if (memq (device-class)
 				     '(color grayscale))
 			       "" "m")
-			   ".xpm")
+			   ".png")
 		   (locate-data-directory "photos")))
 	    (data nil))
-	(unless (file-exists-p file)
-	  ;; Maybe the file is compressed?
-	  (setq file (concat file ".Z"))
-	  (if (file-exists-p file)
-	      ;; Decompress it.
-	      (condition-case nil
-		  (let ((buffer (get-buffer-create " *image*")))
-		    (unwind-protect
-			(save-excursion
-			  (message "Uncompressing image...")
-			  (set-buffer buffer)
-			  (erase-buffer)
-			  (let ((coding-system-for-read 'binary)
-				(coding-system-for-write 'binary))
-			    (insert-file-contents-literally file)
-			    (call-process-region (point-min) (point-max)
-						 "zcat" t t nil)
-			    (setq data
-				  (buffer-substring (point-min) (point-max))))
-			  (message "Uncompressing image... done"))
-		      (kill-buffer buffer)))
-		(error (setq data 'error)))
-	    (setq file nil)))
 	(setq glyph
 	      (cond ((stringp data)
 		     (make-glyph
-		      (if (featurep 'xpm)
-			  `([xpm :data ,data]
+		      (if (featurep 'png)
+			  `([png :data ,data]
 			    [string :data "[Image]"])
 			`([string :data "[Image]"]))))
 		    ((eq data 'error)
 		     (make-glyph [string :data "[Error]"]))
 		    (file
 		     (make-glyph
-		      (if (featurep 'xpm)
-			  `([xpm :file ,file]
+		      (if (featurep 'png)
+			  `([png :file ,file]
 			    [string :data "[Image]"])
 			`([string :data "[Image]"]))))
 		    (t
@@ -583,13 +564,8 @@ contributed to the XEmacs development from late 1994 to early
   (ecase (car entry)
     (slb
      (widget-insert "\
-I took over the maintenance of XEmacs in November of 1996 (it
-seemed like a good idea at the time ...).  In real life I am a
-network administrator and Unix systems programmer for Calag.com,
-Inc. a small, but growing ISP in California.
-
-My main hobby while not maintaining XEmacs or working is ...
-you have got to be kidding ...")
+Peaches Baur, 1986-1999.
+Rest in peace")
      (widget-insert ".\n"))
     (martin
      (widget-insert "\
@@ -607,26 +583,21 @@ Martin is no longer doing XEmacs for a living, and is Just Another
 Volunteer.\n"))
     (hniksic
      (widget-insert "\
-Hrvoje is currently a student at the Faculty of Electrical
-Engineering and Computing in Zagreb, Croatia.  He works part-time
-at SRCE, where he helps run the network machines.  In his free time he
-is helping develop free software (especially XEmacs, as well as GNU
-software) and is writing his own -- he has written a small network
-mirroring utility Wget, see ")
-     (about-url-link 'wget "Download Wget")
-     (widget-insert ".\n"))
+Hrvoje is a student at the Faculty of Electrical Engineering and
+Computing in Zagreb, Croatia, working part-time at system administration
+at SRCE.  His hobby is hacking free software, particularly XEmacs and
+GNU Wget, the latter being his very own creation.
+
+His contribution to XEmacs consists of a multitude of hours spent
+adding new features and bugs, and fixing old ones.  He dreams of
+writing a home page.\n"))
     (wing
      (widget-insert
       "\
-I'm not a thug -- I just play one on video.
-My roommate says I'm a San Francisco \"Mission Critter\".\n\n"
-      (about-with-face "Gory stuff follows:" 'italic)
-      "\n
-In 1992 I left a stuffy East-Coast university, set out into the real
-world, and ended up a co-founder of Pearl Software.  As part of this
-company, I became the principal architect of Win-Emacs, a port of
-Lucid Emacs to Microsoft Windows and Windows NT (for more info, e-mail
-to info@pearlsoft.com).
+I began my Emacs life in 1992 as the co-founder of the now defunct
+Pearl Software.  As part of this company, I became the principal
+architect of Win-Emacs, an early port of Lucid Emacs to Microsoft
+Windows and Windows NT.
 
 Since April 1993, I've worked on XEmacs as a contractor for various
 companies, changing hats faster than Ronald Reagan's hair color (oops,
@@ -637,8 +608,19 @@ widget, improving the documentation (especially the Emacs Lisp
 manual), and being a general nuisance ... er, brainstormer for many of
 the new features of XEmacs.
 
-Recently I took a job at Dimension X, where I'm working on a
-Java-based toolkit for developing VRML applications.\n"))
+Alas, life has not been good to me recently.  This former San Francisco
+\"Mission Critter\" was exiled to \"Stroller Valley\" and, after a brief
+stint developing a Java-based VRML toolkit for the now also defunct
+Dimension X, I developed insidious hand and neck problems, and I was
+forced to quit working.  Since then, I have been learning how to interact
+with the computer by using foot pedals and by dictating text to other
+people.  Recently I completed Architecting XEmacs, a web site about the
+future of XEmacs.\n\n")
+     (widget-insert "Architecting XEmacs: ")
+     (about-url-link 'ben-xemacs "Find the miracles in store for XEmacs")
+     (widget-insert "\nBen's home page:     ")
+     (about-url-link 'ben "Visit Ben's page")
+     (widget-insert "\n"))
     (cthomp
      (widget-insert "\
 Chuck, through being in the wrong place at the right time, has gotten
@@ -781,7 +763,7 @@ I'm part of the team producing POWER 911, a 911 emergency response
 system written in Modula3:\n")
      (about-url-link 'marcpa "Visit POWER 911")
      (widget-insert "\
-Previously, I worked at Softimage Inc., now a Microsoft company
+\n\nPreviously, I worked at Softimage Inc., now a Microsoft company
 \(eeekkk!), as a UNIX system administrator.  This is where I've been
 converted to NT.
 
@@ -830,16 +812,13 @@ He has a page at ")
      (widget-insert ".\n"))
     (thiessel
      (widget-insert "\
-On May 1, 1996 he started working at University of Kaiserslautern in
-the field of computer aided analog circuit design. His
-responsibilities include the development and design of a CAD-Tool for
-analog integrated circuits with special emphasis on distributed
-software concepts.
-
-When all the daily hacking is done he tries to take care of XEmacs
-website at ")
-     (about-url-link 'xemacs "Visit XEmacs web site")
-     (widget-insert ".\n"))
+                      All of the buildings,
+                      all of the cars
+                      were once just a dream
+                      in somebody's head.\n
+                                     P. Gabriel\n\n
+")
+     (widget-insert "\n"))
     (sperber
      (widget-insert "\
 Mike ported EFS to XEmacs 20 and integrated EFS into XEmacs.  He's
@@ -978,8 +957,9 @@ My homepage is ")
      (widget-insert ".\n"))
     (jason
      (widget-insert "\
-Beta tester and manager of the various XEmacs mailing lists.
-Originator and maintainer of the gnus.org domain.
+Beta tester, manager of the various XEmacs mailing lists and
+binary kit manager.  Also, originator and maintainer of the gnus.org
+domain.
 
 Jason resides in Albuquerque, New Mexico where he keeps himself
 busy with studies at the university and consulting work.
@@ -996,6 +976,16 @@ new cool features in either.  When he's not doing that, he enjoys downhill
 skiing, puzzles, and sci-fi.  Jeff is also really interested in classical
 Roman history and enjoys making trips to Italy, where he was born, and
 seeing the sights")
+     (widget-insert ".\n"))
+    (chr
+     (widget-insert "\
+Maintainer of the XEmacs FAQ and proud author of `zap-up-to-char'.
+
+Christian is a student at the Norwegian School of Economics and
+Business Administration in Bergen, Norway.  He used to work for an
+internet startup called New Media Science, doing scripting and
+violation of HTML DTD's.  After graduation, spring 1999, he'll be
+looking for a job involving lisp programming, French and Russian.")
      (widget-insert ".\n"))
 ))
 
@@ -1041,7 +1031,7 @@ seeing the sights")
 		   (format "<%s>\n%s\n" address shortinfo))))
 
 (defun about-hackers (&rest ignore)
-  (unless (about-get-buffer "*About Hackers*")
+  (unless (about-get-buffer "*About Contributors*")
     (let ((title "Other Contributors to XEmacs"))
       (widget-insert
        (about-center title)
@@ -1139,13 +1129,12 @@ XEmacs will speak Scheme.\n")
 Vin helps maintain the older, more mature (read: moldy) versions of
 XEmacs.  Vin has maintained the official XEmacs patch pages.\n")
     (about-show-linked-info 'thiessel "\
-On May 1, 1996 he started working at University of Kaiserslautern in
-the field of computer aided analog circuit design. His
-responsibilities include the development and design of a CAD-Tool for
-analog integrated circuits with special emphasis on distributed
-software concepts.
+Worked at University of Kaiserslautern where he took part in the 
+development and design of a CAD framework for analog integrated
+circuits with special emphasis on distributed software concepts. He 
+has now joined HP as technical consultant.  
 
-When all the daily hacking is done he tries to take care of XEmacs
+For XEmacs he does beta testing and tries to take care of XEmacs
 website at <http://www.xemacs.org>.\n")
     (about-show-linked-info 'ajc "\
 When not helping maintain the XEmacs website, Andrew is a Network
@@ -1206,6 +1195,8 @@ Beta tester and manager of the various XEmacs mailing lists.
 Originator and maintainer of the gnus.org domain.\n")
     (about-show-linked-info 'jmiller "\
 Beta tester and last hacker of calendar.\n")
+    (about-show-linked-info 'chr "\
+Maintainer of the XEmacs FAQ and proud author of `zap-up-to-char'.\n")
     (flet ((print-short (name addr &optional shortinfo)
 	     (concat (about-with-face name 'italic)
 		     (about-tabs name)
@@ -1349,7 +1340,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Michael Guenther" "michaelg@igor.stuttgart.netsurf.de")
        (print-short "Dipankar Gupta" "dg@hplb.hpl.hp.com")
        (print-short "Markus Gutschke" "gutschk@GOEDEL.UNI-MUENSTER.DE")
-       (print-short "Kai Haberzettl" "khaberz@privat.circular.de")
+       (print-short "Kai Haberzettl" "khaberz@synnet.de")
        (print-short "Adam Hammer" "hammer@cs.purdue.edu")
        (print-short "Magnus Hammerin" "magnush@epact.se")
        (print-short "ChangGil Han" "cghan@phys401.phys.pusan.ac.kr")
@@ -1384,15 +1375,16 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Gregor Kennedy" "gregork@dadd.ti.com")
        (print-short "Michael Kifer" "kifer@cs.sunysb.edu")
        (print-short "Yasuhiko Kiuchi" "kiuchi@dsp.ksp.fujixerox.co.jp")
-       (print-short "Greg Klanderman" "greg@alphatech.com")
+       (print-short "Greg Klanderman" "greg.klanderman@alum.mit.edu")
        (print-short "Valdis Kletnieks" "Valdis.Kletnieks@vt.edu")
+       (print-short "Norbert Koch" "n.koch@delta-ii.de")
        (print-short "Rob Kooper" "kooper@cc.gatech.edu")
        (print-short "Peter Skov Knudsen" "knu@dde.dk")
        (print-short "Jens Krinke" "krinke@ips.cs.tu-bs.de")
        (print-short "Maximilien Lincourt" "max@toonboom.com")
        (print-short "Mats Larsson" "Mats.Larsson@uab.ericsson.se")
        (print-short "Simon Leinen" "simon@instrumatic.ch")
-       (print-short "Carsten Leonhardt" "leo@arioch.tng.oche.de")
+       (print-short "Carsten Leonhardt" "leo@arioch.oche.de")
        (print-short "James LewisMoss" "moss@cs.sc.edu")
        (print-short "Mats Lidell" "mats.lidell@contactor.se")
        (print-short "Matt Liggett" "mliggett@seven.ucs.indiana.edu")
@@ -1430,7 +1422,6 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Andy Norman" "ange@hplb.hpl.hp.com")
        (print-short "Joe Nuspl" "nuspl@sequent.com")
        (print-short "Kim Nyberg" "kny@tekla.fi")
-       (print-short "Christian Nybø" "chr@mediascience.no")
        (print-short "Kevin Oberman" "oberman@es.net")
        (print-short "David Ofelt" "ofelt@getalife.Stanford.EDU")
        (print-short "Alexandre Oliva" "oliva@dcc.unicamp.br")
@@ -1446,7 +1437,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Frederic Poncin" "fp@info.ucl.ac.be")
        (print-short "E. Rehmi Post" "rehmi@asylum.sf.ca.us")
        (print-short "Martin Pottendorfer" "Martin.Pottendorfer@aut.alcatel.at")
-       (print-short "Colin Rafferty" "craffert@ml.com")
+       (print-short "Colin Rafferty" "colin@xemacs.org")
        (print-short "Rick Rankin" "Rick_Rankin-P15254@email.mot.com")
        (print-short "Paul M Reilly" "pmr@pajato.com")
        (print-short "Jack Repenning" "jackr@sgi.com")
@@ -1469,6 +1460,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Cotton Seed" "cottons@cybercom.net")
        (print-short "Axel Seibert" "seiberta@informatik.tu-muenchen.de")
        (print-short "Odd-Magne Sekkingstad" "oddms@ii.uib.no")
+       (print-short "Gregory Neil Shapiro" "gshapiro@sendmail.org")
        (print-short "Justin Sheehy" "justin@linus.mitre.org")
        (print-short "John Shen" "zfs60@cas.org")
        (print-short "Murata Shuuichirou" "mrt@mickey.ai.kyutech.ac.jp")
@@ -1496,7 +1488,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Juan E. Villacis" "jvillaci@cs.indiana.edu")
        (print-short "Jan Vroonhof" "vroonhof@math.ethz.ch")
        (print-short "Vladimir Vukicevic" "vladimir@intrepid.com")
-       (print-short "Charles G. Waldman" "cgw@pgt.com")
+       (print-short "Charles G. Waldman" "cgw@fnal.gov")
        (print-short "David Walte" "djw18@cornell.edu")
        (print-short "Peter Ware" "ware@cis.ohio-state.edu")
        (print-short "Christoph Wedler" "wedler@fmi.uni-passau.de")
@@ -1504,6 +1496,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Peter B. West" "p.west@uq.net.au")
        (print-short "Rod Whitby" "rwhitby@asc.corp.mot.com")
        (print-short "Rich Williams" "rdw@hplb.hpl.hp.com")
+       (print-short "Raymond Wiker" "raymond@orion.no")
        (print-short "Peter Windle" "peterw@SDL.UG.EDS.COM")
        (print-short "David C Worenklein" "dcw@gcm.com")
        (print-short "Takeshi Yamada" "yamada@sylvie.kecl.ntt.jp")
@@ -1511,6 +1504,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Jason Yanowitz" "yanowitz@eternity.cs.umass.edu")
        (print-short "La Monte Yarroll" "piggy@hilbert.maths.utas.edu.au")
        (print-short "Blair Zajac" "blair@olympia.gps.caltech.edu")
+       (print-short "Volker Zell" "vzell@de.oracle.com")
        (print-short "Daniel Zivkovic" "daniel@canada.sun.com")
        (print-short "Karel Zuiderveld" "Karel.Zuiderveld@cv.ruu.nl")
        "\n"))

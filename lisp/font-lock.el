@@ -128,8 +128,8 @@
 ;; - Keep the faces distinct from each other as far as possible.
 ;;   i.e., (a) above.
 ;; - Make the face attributes fit the concept as far as possible.
-;;   i.e., function names might be a bold colour such as blue, comments might
-;;   be a bright colour such as red, character strings might be brown, because,
+;;   i.e., function names might be a bold color such as blue, comments might
+;;   be a bright color such as red, character strings might be brown, because,
 ;;   err, strings are brown (that was not the reason, please believe me).
 ;; - Don't use a non-nil OVERRIDE unless you have a good reason.
 ;;   Only use OVERRIDE for special things that are easy to define, such as the
@@ -375,7 +375,7 @@ MATCH-ANCHORED should be of the form:
 Where MATCHER is as for MATCH-HIGHLIGHT with one exception; see below.
 PRE-MATCH-FORM and POST-MATCH-FORM are evaluated before the first, and after
 the last, instance MATCH-ANCHORED's MATCHER is used.  Therefore they can be
-used to initialise before, and cleanup after, MATCHER is used.  Typically,
+used to initialize before, and cleanup after, MATCHER is used.  Typically,
 PRE-MATCH-FORM is used to move to some position relative to the original
 MATCHER, before starting with MATCH-ANCHORED's MATCHER.  POST-MATCH-FORM might
 be used to move, before resuming with MATCH-ANCHORED's parent's MATCHER.
@@ -533,8 +533,7 @@ This is normally set via `font-lock-defaults'.")
   :type 'boolean
   :initialize 'custom-initialize-default
   :require 'font-lock
-  :set '(lambda (var val)
-	  (font-lock-mode (or val 0)))
+  :set #'(lambda (var val) (font-lock-mode (or val 0)))
   )
 
 (defvar font-lock-fontified nil) ; whether we have hacked this buffer
@@ -1073,8 +1072,9 @@ This can take a while for large buffers."
   ;; region as fontified; otherwise, the same error might get signaled
   ;; after every command.
   (unwind-protect
-      ;; buffer may be deleted.
-      (if (buffer-live-p (extent-object font-lock-old-extent))
+      ;; buffer/extent may be deleted.
+      (if (and (extent-live-p font-lock-old-extent)
+	       (buffer-live-p (extent-object font-lock-old-extent)))
 	  (save-excursion
 	    (set-buffer (extent-object font-lock-old-extent))
 	    (font-lock-after-change-function-1
@@ -1536,7 +1536,12 @@ START should be at the beginning of a line."
 
 ;; If the buffer has just been reverted, normally that turns off
 ;; Font Lock mode.  So turn the mode back on if necessary.
-(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
+;; sb 1999-03-03 -- The above comment no longer appears to be operative as
+;; the first call to normal-mode *will* restore the font-lock state and
+;; this call forces a second font-locking to occur when reverting a buffer,
+;; which is wasteful at best.
+;(defalias 'font-lock-revert-cleanup 'turn-on-font-lock)
+(defun font-lock-revert-cleanup ())
 
 
 ;; Various functions.

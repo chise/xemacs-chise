@@ -126,7 +126,7 @@ and
 .B \-eval
 options to specify files to execute and functions to call.
 .TP
-.B \-nw\
+.B \-nw
 Inhibit the use of any window-system-specific display code: use the
 current TTY.
 .TP
@@ -210,6 +210,22 @@ so that you can continue using your original window.
 .PP
 .I XEmacs
 can be started with the following standard X options:
+.TP
+.BI \-visual " <visualname><bitdepth>"
+Select the visual that XEmacs will attempt to use.
+.I <visualname>
+should be one of the strings "StaticColor", "TrueColor", "GrayScale",
+"PseudoColor" or "DirectColor", and
+.I <bitdepth>
+should be the number of bits per pixel (example, "-visual TrueColor24"
+for a 24bit TrueColor visual) See
+.IR X (1)
+for more information.
+.TP
+.B -privateColormap
+Require XEmacs to create and use a private colormap for display.  This will keep
+XEmacs from taking colors from the default colormap and keeping them from other
+clients.
 .TP
 .BI \-geometry " ##x##+##+##"
 Specify the geometry of the initial window.  The ##'s represent a number;
@@ -439,6 +455,16 @@ Sets the color of the window's text cursor.
 .TP
 .B pointerColor (\fPclass\fB Foreground)
 Sets the color of the window's mouse cursor.
+.TP
+.B emacsVisual (\fPclass\fB EmacsVisual)
+Sets the default visual
+.I XEmacs
+will try to use (as described above).
+.TP
+.B privateColormap (\fPclass\fB PrivateColormap)
+If set, 
+.I XEmacs
+will default to using a private colormap.
 .TP
 .B geometry (\fPclass\fB Geometry)
 Sets the geometry of the

@@ -554,7 +554,7 @@ Make it buffer-local in a mode hook.  The function is called with no
  arguments.")
 
 (defvar find-tag-hook nil
-  "Function to call after a tag is found.
+  "*Function to call after a tag is found.
 Make it buffer-local in a mode hook.  The function is called with no
  arguments.")
 
@@ -662,7 +662,7 @@ If it returns non-nil, this file needs processing by evalling
 		    syn-tab exact-syntax-table)
 	    (setq tag-target tagname
 		  syn-tab normal-syntax-table))
-	  (with-caps-disable-folding tag-target
+	  (with-search-caps-disable-folding tag-target t
 	    (while tag-tables
 	      (set-buffer (get-tag-table-buffer (car tag-tables)))
 	      (bury-buffer (current-buffer))
@@ -777,11 +777,11 @@ Variables of note:
     (push-mark)
     (goto-char tag-point)
     (if find-tag-hook
-	(funcall find-tag-hook)
+		(run-hooks 'find-tag-hook)
       (if local-find-tag-hook
-	  (funcall local-find-tag-hook))))
+		  (run-hooks 'local-find-tag-hook))))
   (setq tags-loop-scan (list 'find-tag nil nil)
-	tags-loop-operate nil)
+		tags-loop-operate nil)
   ;; Return t in case used as the tags-loop-scan.
   t)
 
@@ -963,11 +963,11 @@ To continue searching for next match, use command \\[tags-loop-continue].
 See documentation of variable `tag-table-alist'."
   (interactive "sTags search (regexp): ")
   (if (and (equal regexp "")
-           (eq (car tags-loop-scan) 'with-caps-disable-folding)
+           (eq (car tags-loop-scan) 'with-search-caps-disable-folding)
            (null tags-loop-operate))
       ;; Continue last tags-search as if by `M-,'.
       (tags-loop-continue nil)
-    (setq tags-loop-scan `(with-caps-disable-folding ,regexp
+    (setq tags-loop-scan `(with-search-caps-disable-folding ,regexp t
                             (re-search-forward ,regexp nil t))
           tags-loop-operate nil)
     (tags-loop-continue (or file-list-form t))))
@@ -982,7 +982,7 @@ with the command \\[tags-loop-continue].
 See documentation of variable `tag-table-alist'."
   (interactive
    "sTags query replace (regexp): \nsTags query replace %s by: \nP")
-  (setq tags-loop-scan `(with-caps-disable-folding ,from
+  (setq tags-loop-scan `(with-search-caps-disable-folding ,from t
                           (if (re-search-forward ,from nil t)
                               ;; When we find a match, move back
                               ;; to the beginning of it so perform-replace
@@ -1064,7 +1064,7 @@ See documentation of variable `tag-table-alist'."
 
 ;; Sample uses of find-tag-hook and find-tag-default-hook
 
-;; This is wrong.  We should either make this behaviour default and
+;; This is wrong.  We should either make this behavior default and
 ;; back it up, or not use it at all.  For now, I've commented it out.
 ;; --hniksic
 
@@ -1189,6 +1189,7 @@ and `\\[pop-tag-mark]'."
 
 ;;;###autoload (define-key esc-map "*" 'pop-tag-mark)
 
+;;;###autoload
 (defun pop-tag-mark (arg)
   "Go to last tag position.
 `find-tag' maintains a mark-stack seperate from the \\[set-mark-command] mark-stack.
@@ -1203,3 +1204,5 @@ This function pops (and moves to) the tag at the top of this stack."
 
 (provide 'etags)
 (provide 'tags)
+
+;;; etags.el ends here

@@ -62,13 +62,12 @@ from the search."
       (let ((directory (file-name-as-directory
 			(expand-file-name
 			 (car directories)))))
-	(if (file-directory-p directory)
+	(if (paths-file-readable-directory-p directory)
 	    (let ((raw-entries
 		   (if (equal 0 max-depth)
 		       '()
-		       (directory-files directory nil "^[^.-]")))
+		     (directory-files directory nil "^[^.-]")))
 		  (reverse-dirs '()))
-
 	      (while raw-entries
 		(if (null (string-match exclude-regexp (car raw-entries)))
 		    (setq reverse-dirs
@@ -88,6 +87,11 @@ from the search."
       (setq directories (cdr directories)))
     path))
 
+(defun paths-file-readable-directory-p (filename)
+  "Check if filename is a readable directory."
+  (and (file-directory-p filename)
+       (file-readable-p filename)))
+
 (defun paths-find-recursive-load-path (directories &optional max-depth)
   "Construct a recursive load path underneath DIRECTORIES."
   (paths-find-recursive-path directories
@@ -97,13 +101,13 @@ from the search."
   "Check if DIRECTORY is a plausible installation root for XEmacs."
   (or
    ;; installed
-   (file-directory-p (paths-construct-path (list directory
-						 "lib"
-						 emacs-program-name)))
+   (paths-file-readable-directory-p (paths-construct-path (list directory
+								"lib"
+								emacs-program-name)))
    ;; in-place or windows-nt
-   (and 
-    (file-directory-p (paths-construct-path (list directory "lisp")))
-    (file-directory-p (paths-construct-path (list directory "etc"))))))
+   (and
+    (paths-file-readable-directory-p (paths-construct-path (list directory "lisp")))
+    (paths-file-readable-directory-p (paths-construct-path (list directory "etc"))))))
 
 (defun paths-chase-symlink (file-name)
   "Chase a symlink until the bitter end."
@@ -148,7 +152,7 @@ to EXPAND-FILE-NAME."
 (defun paths-construct-emacs-directory (root suffix base)
   "Construct a directory name within the XEmacs hierarchy."
   (file-name-as-directory
-   (expand-file-name 
+   (expand-file-name
     (concat
      (file-name-as-directory root)
      suffix
@@ -168,19 +172,19 @@ the directory."
   (let ((preferred-value (or (and envvar (getenv envvar))
 			     default)))
     (if (and preferred-value
-	     (file-directory-p preferred-value))
+	     (paths-file-readable-directory-p preferred-value))
 	(file-name-as-directory preferred-value)
       (catch 'gotcha
 	(while roots
 	  (let* ((root (car roots))
 		 ;; installed
 		 (path (paths-construct-emacs-directory root suffix base)))
-	    (if (file-directory-p path)
+	    (if (paths-file-readable-directory-p path)
 		(throw 'gotcha path)
 	      ;; in-place
 	      (if (null keep-suffix)
 		  (let ((path (paths-construct-emacs-directory root "" base)))
-		    (if (file-directory-p path)
+		    (if (paths-file-readable-directory-p path)
 			(throw 'gotcha path))))))
 	  (setq roots (cdr roots)))
 	nil))))
@@ -230,8 +234,8 @@ If ENFORCE-VERSION is non-nil, the directory must contain the XEmacs version."
   "Return the directories among DIRECTORIES."
   (let ((reverse-directories '()))
     (while directories
-      (if (file-directory-p (car directories))
-	  (setq reverse-directories 
+      (if (paths-file-readable-directory-p (car directories))
+	  (setq reverse-directories
 		(cons (car directories)
 		      reverse-directories)))
       (setq directories (cdr directories)))

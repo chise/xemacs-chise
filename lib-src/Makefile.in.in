@@ -53,8 +53,12 @@ exec_prefix=@exec_prefix@
 bindir=@bindir@
 libdir=@libdir@
 srcdir=@srcdir@
+top_srcdir=@top_srcdir@
 archlibdir=@archlibdir@
 configuration=@configuration@
+moduledir=@moduledir@
+sitemoduledir=@sitemoduledir@
+
 ## ==================== Utility Programs for the Build =================
 
 INSTALL = @install_pp@ @INSTALL@
@@ -69,28 +73,45 @@ INSTALL_DATA = @INSTALL_DATA@
 
 ## Things that a user might actually run,
 ## which should be installed in bindir.
+#ifdef WINDOWSNT
+INSTALLABLES_BASE = etags ctags b2m ootags
+#else
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
-INSTALLABLE_SCRIPTS = rcs-checkin pstogif install-sid send-pr gnudoit gnuattach
+#endif
+INSTALLABLE_SCRIPTS = rcs-checkin pstogif gnudoit gnuattach
+#ifdef HAVE_SHLIB
 #ifdef HAVE_MS_WINDOWS
-INSTALLABLES = $(INSTALLABLES_BASE) runemacs
+INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient ellcc
+#else
+INSTALLABLES = $(INSTALLABLES_BASE) ellcc
+#endif
+#else
+#ifdef HAVE_MS_WINDOWS
+INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient
 #else
 INSTALLABLES = $(INSTALLABLES_BASE) 
+#endif
 #endif
 
 
 ## Things that Emacs runs internally, or during the build process,
 ## which should not be installed in bindir.
+#ifdef WINDOWSNT
+UTILITIES= make-path wakeup profile make-docfile digest-doc \
+	sorted-doc movemail cvtmail yow hexl \
+	mmencode
+#else
 UTILITIES= make-path wakeup profile make-docfile digest-doc \
 	sorted-doc movemail cvtmail fakemail yow hexl \
 	gnuserv mmencode
+#endif
 ## These need to be conditional on I18N3 make-msgfile make-po
 
 ## Like UTILITIES, but they are not system-dependent, and should not be
 ## deleted by the distclean target.
-GEN_SCRIPTS = rcs2log vcdiff gzip-el.sh install-sid send-pr
-TM_SCRIPTS = tm-au tm-file tm-html tm-image tm-mpeg tm-plain tm-ps tmdecode
+GEN_SCRIPTS = rcs2log vcdiff gzip-el.sh
 PKG_SCRIPTS = add-big-package.sh
-SCRIPTS = $(GEN_SCRIPTS) $(TM_SCRIPTS) $(PKG_SCRIPTS)
+SCRIPTS = $(GEN_SCRIPTS) $(PKG_SCRIPTS)
 
 EXECUTABLES= ${UTILITIES} ${INSTALLABLES} ${SCRIPTS} ${INSTALLABLE_SCRIPTS}
 
@@ -139,7 +160,7 @@ ld_libs_general=@ld_libs_general@
 
 ## We need to #define emacs to get the right versions of some files.
 
-cppflags = -Demacs -I../src $(CPPFLAGS)
+cppflags = -Demacs -I$(top_srcdir)/src -I../src $(CPPFLAGS)
 cflags   = $(CFLAGS) $(cppflags) $(c_switch_general)
 ldflags  = $(LDFLAGS) $(ld_switch_general) $(ld_libs_general)
 
@@ -230,8 +251,8 @@ mostlyclean:
 clean: mostlyclean
 	$(RM) ${INSTALLABLES} ${UTILITIES} *.exe
 distclean: clean
-	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS
-	$(RM) Makefile Makefile.in blessmail config.values
+	$(RM) DOC *.tab.c *.tab.h aixcc.c TAGS ellcc.h
+	$(RM) GNUmakefile Makefile Makefile.in blessmail config.values
 realclean: distclean
 extraclean: distclean
 	$(RM) *~ \#*
@@ -270,15 +291,30 @@ etags_deps   = ${srcdir}/etags.c $(GETOPTDEPS) regex.o ../src/config.h
 etags: ${etags_deps}
 	$(CC) ${etags_args} -o $@
 
-runemacs_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
-	-DVERSION='"${version}"' ${srcdir}/../nt/runemacs.c \
-	$(ldflags) -Wl,--subsystem,windows
-runemacs_deps   = ${srcdir}/../nt/runemacs.c ${srcdir}/../nt/xemacs.ico ../src/config.h
+ellcc_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
+    ${srcdir}/ellcc.c $(ldflags)
+ellcc_deps = ${srcdir}/ellcc.c ellcc.h ../src/config.h
 
-runemacs: ${runemacs_deps}
-	echo "runemacs ICON DISCARDABLE \"../nt/xemacs.ico\"" \
-	| windres -o runemacs_res.o
-	$(CC) runemacs_res.o ${runemacs_args} -o $@
+ellcc: ${ellcc_deps}
+	$(CC) ${ellcc_args} -o $@
+
+run_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
+	-DVERSION='"${version}"' ${srcdir}/run.c \
+	$(ldflags) -Wl,--subsystem,windows -e _mainCRTStartup
+run_deps   = ${srcdir}/run.c ${srcdir}/run.h ${srcdir}/run.rc \
+	${srcdir}/../nt/xemacs.ico ${srcdir}/../nt/file.ico \
+	${srcdir}/../nt/lisp.ico
+
+run: ${run_deps}
+	windres --include-dir ${srcdir}/../nt -i run.rc -o run_res.o
+	$(CC) run_res.o ${run_args} -o $@
+	strip $@.exe
+
+runxemacs: run
+	cp run.exe $@.exe
+
+rungnuclient: run
+	cp run.exe $@.exe
 
 ootags_args = -I. $(cflags) -I${srcdir} -I${srcdir}/../src \
 	-DVERSION='"${version}"' ${srcdir}/ootags.c \
@@ -311,8 +347,10 @@ sorted-doc: ${srcdir}/sorted-doc.c
 b2m: ${srcdir}/b2m.c ../src/config.h
 	$(CC) $(cflags) ${srcdir}/b2m.c $(ldflags) -o $@
 
-movemail: ${srcdir}/movemail.c ${srcdir}/pop.c ${srcdir}/pop.h ../src/config.h
-	$(CC) $(cflags) ${MOVE_FLAGS} ${srcdir}/movemail.c ${srcdir}/pop.c $(ldflags) ${MOVE_LIBS} -o $@
+movemail: ${srcdir}/movemail.c ${srcdir}/pop.c ${srcdir}/pop.h $(GETOPTDEPS) regex.o \
+	../src/config.h
+	$(CC) $(cflags) ${MOVE_FLAGS} ${srcdir}/movemail.c ${srcdir}/pop.c \
+	$(GETOPTOBJS) regex.o $(ldflags) ${MOVE_LIBS} -o $@
 
 cvtmail: ${srcdir}/cvtmail.c
 	$(CC) $(cflags) ${srcdir}/cvtmail.c $(ldflags) -o $@

@@ -375,6 +375,8 @@ This functions refuses to update autoloads files."
 	(let ((find-file-hooks nil))
 	  (set-buffer (or (get-file-buffer generated-autoload-file)
 			  (find-file-noselect generated-autoload-file))))
+	;; Make sure we can scribble in it.
+	(setq buffer-read-only nil)
 	;; First delete all sections for this file.
 	(goto-char (point-min))
 	(while (search-forward generate-autoload-section-header nil t)

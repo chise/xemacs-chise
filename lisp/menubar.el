@@ -171,8 +171,8 @@ See `current-menubar' for a description of the syntax of a menubar."
 			     menuitem)))
 		)))
 	)
-       ;; (t (signal 'error (list "unrecognised menu descriptor" menuitem))))
-       (t (message "unrecognised menu descriptor %s" (prin1-to-string menuitem))))
+       ;; (t (signal 'error (list "unrecognized menu descriptor" menuitem))))
+       (t (message "unrecognized menu descriptor %s" (prin1-to-string menuitem))))
       (setq menu (cdr menu)))))
 
 
@@ -218,7 +218,7 @@ If some menu in the ITEM-PATH-LIST does not exist, an error is signalled."
 				      (car item-path-list)))))
 	(cons result parent)))))
 
-(defun add-menu-item-1 (leaf-p menu-path new-item before)
+(defun add-menu-item-1 (leaf-p menu-path new-item before in-menu)
   ;; This code looks like it could be cleaned up some more
   ;; Do we really need 6 calls to find-menu-item?
   (when before (setq before (normalize-menu-item-name before)))
@@ -226,7 +226,7 @@ If some menu in the ITEM-PATH-LIST does not exist, an error is signalled."
 	  (cond ((vectorp new-item) (aref new-item 0))
 		((consp   new-item) (car  new-item))
 		(t nil)))
-	 (menubar current-menubar)
+	 (menubar (or in-menu current-menubar))
 	 (menu (condition-case ()
 		   (car (find-menu-item menubar menu-path))
 		 (error nil)))
@@ -292,7 +292,7 @@ If some menu in the ITEM-PATH-LIST does not exist, an error is signalled."
     (set-menubar-dirty-flag)
     new-item))
 
-(defun add-menu-button (menu-path menu-leaf &optional before)
+(defun add-menu-button (menu-path menu-leaf &optional before in-menu)
   "Add a menu item to some menu, creating the menu first if necessary.
 If the named item exists already, it is changed.
 MENU-PATH identifies the menu under which the new menu item should be inserted.
@@ -301,12 +301,16 @@ MENU-PATH identifies the menu under which the new menu item should be inserted.
 MENU-LEAF is a menubar leaf node.  See the documentation of `current-menubar'.
 BEFORE, if provided, is the name of a menu item before which this item should
  be added, if this item is not on the menu already.  If the item is already
- present, it will not be moved."
-  (add-menu-item-1 t menu-path menu-leaf before))
+ present, it will not be moved.
+If IN-MENU is present use that instead of `current-menubar' as the menu to
+change.
+"
+  ;; Note easymenu.el uses the fact that menu-leaf can be a submenu.
+  (add-menu-item-1 t menu-path menu-leaf before in-menu))
 
 ;; I actually liked the old name better, but the interface has changed too
 ;; drastically to keep it. --Stig 
-(defun add-submenu (menu-path submenu &optional before)
+(defun add-submenu (menu-path submenu &optional before in-menu)
   "Add a menu to the menubar or one of its submenus.
 If the named menu exists already, it is changed.
 MENU-PATH identifies the menu under which the new menu should be inserted.
@@ -319,7 +323,7 @@ BEFORE, if provided, is the name of a menu before which this menu should
  be added, if this menu is not on its parent already.  If the menu is already
  present, it will not be moved."
   (check-menu-syntax submenu nil)
-  (add-menu-item-1 nil menu-path submenu before))
+  (add-menu-item-1 nil menu-path submenu before in-menu))
 
 (defun purecopy-menubar (x)
   ;; this calls purecopy on the strings, and the contents of the vectors,
@@ -340,11 +344,12 @@ BEFORE, if provided, is the name of a menu before which this menu should
 	(t
 	 (purecopy x))))
 
-(defun delete-menu-item (path)
+(defun delete-menu-item (path &optional from-menu)
   "Remove the named menu item from the menu hierarchy.
 PATH is a list of strings which identify the position of the menu item in 
 the menu hierarchy.  The documentation of `add-submenu' describes menu-paths."
-  (let* ((pair (condition-case nil (find-menu-item current-menubar path)
+  (let* ((pair (condition-case nil (find-menu-item (or from-menu
+						       current-menubar) path)
 		 (error nil)))
 	 (item (car pair))
 	 (parent (or (cdr pair) current-menubar)))

@@ -40,8 +40,8 @@
   "Where the package lisp sources live.")
 
 ;; (makunbound 'caller-table)
-(defconst caller-table (make-hashtable 256 #'equal)
-  "Hashtable keyed on the symbols being required.  Each element will
+(defconst caller-table (make-hash-table :test 'equal)
+  "Hash table keyed on the symbols being required.  Each element will
   be a list of file-names of programs that depend on them.")
 
 ;;./apel/atype.el:(require 'emu)
@@ -91,7 +91,8 @@
 					      (point))
 				    cmd-out))
 	     (lst (gethash key caller-table)))
-	(puthash key (add-to-list 'lst file-name) caller-table))
+	(unless (member file-name lst)
+	  (puthash key (cons file-name lst) caller-table)))
       (forward-line 1)
       (sit-for 0))
     (switch-to-buffer rpt)

@@ -717,8 +717,7 @@ x      start a new itimer
 			 (inhibit-quit nil)
 			 ;; for FSF Emacs timer.el emulation under XEmacs.
 			 ;; eldoc expect this to be done, apparently.
-			 (this-command nil)
-			 itimer itimers time-elapsed)
+			 (this-command nil))
 		    (if (itimer-uses-arguments current-itimer)
 			(apply (itimer-function current-itimer)
 			       (itimer-function-arguments current-itimer))

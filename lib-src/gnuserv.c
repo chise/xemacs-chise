@@ -563,7 +563,7 @@ add_host (u_long host_addr)
 
 
 /*
-  setup_table -- initialise the table of hosts allowed to contact the server,
+  setup_table -- initialize the table of hosts allowed to contact the server,
                  by reading from the file specified by the GNU_SECURE
 		 environment variable
                  Put in the local machine, and, if a security file is specifed,
@@ -832,9 +832,7 @@ handle_unix_request (int ls)
 
 
 int
-main(argc,argv)
-     int argc;
-     char *argv[];
+main (int argc, char *argv[])
 {
   int chan;			/* temporary channel number */
 #ifdef SYSV_IPC
@@ -867,7 +865,7 @@ main(argc,argv)
 #endif /* SYSV_IPC */
 
 #ifdef INTERNET_DOMAIN_SOCKETS
-  ils = internet_init();	/* get a internet domain socket to listen on */
+  ils = internet_init();	/* get an internet domain socket to listen on */
 #endif /* INTERNET_DOMAIN_SOCKETS */
 
 #ifdef UNIX_DOMAIN_SOCKETS

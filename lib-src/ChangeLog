@@ -1,3 +1,197 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-14  SL Baur  <steve@gneiss.etl.go.jp>
+
+	* update-elc.sh (ignore_pattern): Correct ignore_dirs/ignore=dirs
+	european keyboard fuckage.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* update-elc.sh (ignore_pattern): Installation.el is dead.
+
+1999-05-03  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* gnuclient.c: Include <sysfile.h> instead of <../src/sysfile.h>.
+
+	* Makefile.in.in (cppflags): Add -I$(top_srcdir)/src.
+
+1999-04-29  Andy Piper  <andy@xemacs.org>
+	
+	* make-docfile.c: build fixes for mingw32.	
+	* movemail.c: ditto.
+	* run.c: ditto.
+	* yow.c: ditto.
+	* profile.c: ditto.
+	(gettimeofday): new function copied from nt.c.
+	
+	* fakemail.c (make_file_preface): make buildable under windows.
+
+	* Makefile.in.in: fix some build targets for when we are building
+ 	on a windows platform.
+
+1999-03-12  giacomo boffi  <giacomo.boffi@polimi.it>
+
+	* sorted-doc.c: corrected the outdated or plainly wrong
+	texinfo headers. Broken up the mega-@table that crashes (at
+	least RedHat's) TeX with:
+	 "! TeX capacity exceeded, sorry [save size=4000]."
+
+1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.13 is released
+
+1999-03-10  Martin Buchholz  <martin@xemacs.org>
+
+	* fakemail.c (add_a_stream): Always use full ANSI prototypes.
+
+1999-03-06  Martin Buchholz  <martin@xemacs.org>
+
+	* fakemail.c (main): Ansify.
+	(xmalloc): Ansify.
+	(xrealloc): Ansify.
+	(get_keyword): use paranoid casts ((int) (unsigned char) c) for
+	islower, toupper, isspace.
+
+1999-03-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.12 is released
+
+1999-03-01  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.11 is released
+
+1999-02-17  SL Baur  <steve@xemacs.org>
+
+	* update-elc.sh (ignore_dirs): Ignore lisp/mule subdirectory when
+	running latin-1 XEmacs.  Eliminate 20.4 bundled kludges.
+	* update-custom.sh (ignore_dirs): Ditto.
+
+1999-02-15  Martin Buchholz  <martin@xemacs.org>
+
+	* update-elc.sh:
+	* update-autoloads.sh:
+	* update-custom.sh:
+	- improved automounter tmp directory support.
+	- support 4 (!) empirically discovered automounter conventions
+
+1999-02-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.10 is released
+
+1999-02-02  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.9 is released
+
+1999-01-27  Martin Buchholz  <martin@xemacs.org>
+
+	* movemail.c (strerror): Must be NON-static, since it is used by
+	the POP code, which got moved to a separate file.
+
+1999-01-11  Damon Lipparelli  <lipp@primus.com>
+
+	* Makefile.in.in: use ellcc (not ellc) everywhere
+
+1999-01-10  J. Kean Johnston  <jkj@sco.com>
+
+	* Makefile.in.in: Include moduledir and sitemoduledir as defined
+	by configure.
+	- Install ellcc if we're supporting shared objects
+	- Rules and dependancies for ellcc
+
+	* ellcc.c: New file. Front end to the compiler for making modules.
+
+	* ellcc.h.in: New file. Contains path definitions used by ellcc.
+
+	* make-docfile.c (main): Add check for -E argument used by ellcc.
+
+	* make-docfile.c: Changed output format when in -E mode.
+
+1998-12-28  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.8 is released.
+
+1998-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.7 is released.
+
+1998-12-17  Andy Piper  <andy@xemacs.org>
+
+	* pop.c (pop_open): disable use of getpass() which doesn't exist under NT.
+
+	* movemail.c: mess with includes so that it builds under native NT.
+
+	* pop.c: mess with includes so that it builds under native NT.
+	From Fabrice Popineau <popineau@ese-metz.fr>
+	
+1998-12-16  Andy Piper  <andy@xemacs.org>
+
+	* XEmacs 21.2.6 is released
+
+1998-12-05  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.5 is released
+
+1998-11-28  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta4 is released.
+
+1998-10-14  Andy Piper  <andyp@parallax.co.uk>
+
+	* Makefile.in.in (movemail): add getopt.o to objects to link with.
+
+	* movemail.c (main): rewrite to use getopt(). Add options for
+	order reversal, progress output, regexp matching and message
+	deletion.
+	(popmail): add some optional verbose messages. Use pop_search_top
+	for getting messages. Make message deletion optional. Delete all
+	messages at the end rather than on a message my message basis.
+	(pop_search_top): new function. Looks for messages matching regexp.
+	(compile_regex): new function stolen from etags.
+
+1998-10-15  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta3 is released.
+
+1998-10-12  SL Baur  <steve@altair.xemacs.org>
+
+	* lib-src/gnudepend.pl: Use /usr/bin/perl.
+	* Makefile.in.in (INSTALLABLE_SCRIPTS): Remove send-pr, install-sid.
+	(GEN_SCRIPTS): Ditto.
+	Delete TM_SCRIPTS.
+
+1998-10-11  SL Baur  <steve@altair.xemacs.org>
+
+	* tm-au:
+	* tm-file:
+	* tm-html:
+	* tm-image:
+	* tm-mpeg:
+	* tm-plain:
+	* tm-ps:
+	* tmdecode: packaged.
+
+1998-10-10  SL Baur  <steve@altair.xemacs.org>
+
+	* install-sid:
+	* send-pr:  Packaged
+
+1998-10-01  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* gnuclient.c (filename_expand): Don't forget to copy the
+	filename under UNIX.
+
+1998-09-29  SL Baur  <steve@altair.xemacs.org>
+
+	* XEmacs 21.2-beta2 is released.
+
+1998-09-08  Raymond Toy  <toy@rtp.ericsson.se>
+
+	* gnuclient.c (filename_expand): Added better recognition of
+	absolute pathnames for CYGWIN.  Convert absolute pathnames with
+	drive letters to something xemacs can handle.
+
 1998-07-19  SL Baur  <steve@altair.xemacs.org>
 
 	* XEmacs 21.2-beta1 is released.

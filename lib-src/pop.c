@@ -38,7 +38,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <sys/types.h>
 #ifdef WINDOWSNT
-#include "ntlib.h"
 #include <winsock.h>
 #undef SOCKET_ERROR
 #define RECV(s,buf,len,flags) recv(s,buf,len,flags)
@@ -77,7 +76,9 @@ extern struct servent *hes_getservbyname (/* char *, char * */);
 #include <sys/stat.h>
 #include <sys/file.h>
 #include "../src/syswait.h"
+#ifndef WINDOWSNT
 #include "../src/systime.h"
+#endif
 #include <stdlib.h>
 #include <string.h>
 
@@ -183,6 +184,7 @@ pop_open (char *host, char *username, char *password, int flags)
       username = getenv ("USER");
       if (! (username && *username))
 	{
+#ifndef WINDOWSNT
 	  username = getlogin ();
 	  if (! (username && *username))
 	    {
@@ -198,6 +200,10 @@ pop_open (char *host, char *username, char *password, int flags)
 		  return (0);
 		}
 	    }
+#else
+	  strcpy (pop_error, "Could not determine username");
+	  return (0);
+#endif
 	}
     }
 
@@ -247,10 +253,12 @@ pop_open (char *host, char *username, char *password, int flags)
  
   if ((! password) && (! DONT_NEED_PASSWORD))
     {
+#ifndef WINDOWSNT
       if (! (flags & POP_NO_GETPASS))
 	{
 	  password = getpass ("Enter POP password:");
 	}
+#endif
       if (! password)
 	{
 	  strcpy (pop_error, "Could not determine POP password");

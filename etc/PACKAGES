@@ -1,7 +1,7 @@
 * Description of available packages by category
 ===============================================
 
-This data is up-to-date as of 13 January 1998.
+This data is up-to-date as of 10 February 1999.
 
 ** Library Packages (libs)
 ==========================
@@ -12,8 +12,7 @@ when adding new files there as it is required by almost everything.
 
 *** Sun
 
-Support for Sparcworks.  Must be installed prior to XEmacs build to be 
-effective.
+Support for Sparcworks.
 
 *** apel
 
@@ -38,8 +37,7 @@ Fundamental lisp files for providing email support.
 
 *** tooltalk
 
-Support for building with Tooltalk.  Must be installed prior to XEmacs 
-build to be effective.
+Support for building with Tooltalk.
 
 *** xemacs-base
 
@@ -101,7 +99,7 @@ Emacs MIME support.
 
 *** vm
 
-An Emacs mailer.  This package must be installed prior to building XEmacs.
+An Emacs mailer.
 
 *** w3
 
@@ -280,8 +278,7 @@ Support for editing shell scripts.
 
 *** vc
 
-Version Control for Free systems.  This package must be installed
-prior to building XEmacs.
+Version Control for Free systems.
 
 *** vc-cc
 

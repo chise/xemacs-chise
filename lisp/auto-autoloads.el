@@ -12,6 +12,35 @@ Describe the True Editor and its minions." t nil)
 
 ;;;***
 
+;;;### (autoloads (set-modified-alist modify-alist remove-alist set-alist del-alist put-alist) "alist" "lisp/alist.el")
+
+(autoload 'put-alist "alist" "\
+Modify ALIST to set VALUE to ITEM.
+If there is a pair whose car is ITEM, replace its cdr by VALUE.
+If there is not such pair, create new pair (ITEM . VALUE) and
+return new alist whose car is the new pair and cdr is ALIST.
+[tomo's ELIS like function]" nil nil)
+
+(autoload 'del-alist "alist" "\
+If there is a pair whose key is ITEM, delete it from ALIST.
+[tomo's ELIS emulating function]" nil nil)
+
+(autoload 'set-alist "alist" "\
+Modify a alist indicated by SYMBOL to set VALUE to ITEM." nil nil)
+
+(autoload 'remove-alist "alist" "\
+Remove ITEM from the alist indicated by SYMBOL." nil nil)
+
+(autoload 'modify-alist "alist" "\
+Modify alist DEFAULT into alist MODIFIER." nil nil)
+
+(autoload 'set-modified-alist "alist" "\
+Modify a value of a symbol SYM into alist MODIFIER.
+The symbol SYM should be alist. If it is not bound,
+its value regard as nil." nil nil)
+
+;;;***
+
 ;;;### (autoloads (apropos-documentation apropos-value apropos apropos-command) "apropos" "lisp/apropos.el")
 
 (fset 'command-apropos 'apropos-command)
@@ -175,7 +204,7 @@ For example, invoke `xemacs -batch -f batch-byte-recompile-directory .'." nil ni
 
 ;;;***
 
-;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* gentemp gensym cl-compile-time-init) "cl-macs" "lisp/cl-macs.el")
+;;;### (autoloads (compiler-macroexpand define-compiler-macro ignore-file-errors ignore-errors assert check-type typep deftype cl-struct-setf-expander defstruct define-modify-macro callf2 callf letf* letf rotatef shiftf remf cl-do-pop psetf setf get-setf-method defsetf define-setf-method declare the locally multiple-value-setq multiple-value-bind lexical-let* lexical-let symbol-macrolet macrolet labels flet progv psetq do-all-symbols do-symbols dotimes dolist do* do loop return-from return block etypecase typecase ecase case load-time-value eval-when destructuring-bind function* defmacro* defun* gentemp gensym cl-compile-time-init) "cl-macs" "lisp/cl-macs.el")
 
 (autoload 'cl-compile-time-init "cl-macs" nil nil nil)
 
@@ -254,7 +283,7 @@ This is equivalent to `(return-from nil RESULT)'." nil 'macro)
 
 (autoload 'return-from "cl-macs" "\
 (return-from NAME [RESULT]): return from the block named NAME.
-This jump out to the innermost enclosing `(block NAME ...)' form,
+This jumps out to the innermost enclosing `(block NAME ...)' form,
 returning RESULT from that form (or nil if RESULT is omitted).
 This is compatible with Common Lisp, but note that `defun' and
 `defmacro' do not create implicit blocks as they do in Common Lisp." nil 'macro)
@@ -322,7 +351,7 @@ go back to their previous definitions, or lack thereof)." nil 'macro)
 (autoload 'labels "cl-macs" "\
 (labels ((FUNC ARGLIST BODY...) ...) FORM...): make temporary func bindings.
 This is like `flet', except the bindings are lexical instead of dynamic.
-Unlike `flet', this macro is fully complaint with the Common Lisp standard." nil 'macro)
+Unlike `flet', this macro is fully compliant with the Common Lisp standard." nil 'macro)
 
 (autoload 'macrolet "cl-macs" "\
 (macrolet ((NAME ARGLIST BODY...) ...) FORM...): make temporary macro defns.
@@ -486,6 +515,10 @@ omitted, a default message listing FORM itself is used." nil 'macro)
 Execute FORMS; if an error occurs, return nil.
 Otherwise, return result of last FORM." nil 'macro)
 
+(autoload 'ignore-file-errors "cl-macs" "\
+Execute FORMS; if an error of type `file-error' occurs, return nil.
+Otherwise, return result of last FORM." nil 'macro)
+
 (autoload 'define-compiler-macro "cl-macs" "\
 (define-compiler-macro FUNC ARGLIST BODY...): Define a compiler-only macro.
 This is like `defmacro', but macro expansion occurs only if the call to
@@ -511,7 +544,7 @@ and then returning foo." nil 'macro)
 ;;;### (autoloads (config-value config-value-hash-table) "config" "lisp/config.el")
 
 (autoload 'config-value-hash-table "config" "\
-Return hashtable of configuration parameters and their values." nil nil)
+Return hash table of configuration parameters and their values." nil nil)
 
 (autoload 'config-value "config" "\
 Return the value of the configuration parameter CONFIG_SYMBOL." nil nil)
@@ -665,10 +698,14 @@ The format is suitable for use with `easy-menu-define'." nil nil)
 
 ;;;***
 
-;;;### (autoloads (custom-set-faces custom-declare-face) "cus-face" "lisp/cus-face.el")
+;;;### (autoloads (custom-set-faces custom-set-face-update-spec custom-declare-face) "cus-face" "lisp/cus-face.el")
 
 (autoload 'custom-declare-face "cus-face" "\
 Like `defface', but FACE is evaluated as a normal argument." nil nil)
+
+(autoload 'custom-set-face-update-spec "cus-face" "\
+Customize the FACE for display types matching DISPLAY, merging
+  in the new items from PLIST" nil nil)
 
 (autoload 'custom-set-faces "cus-face" "\
 Initialize faces according to user preferences.
@@ -736,7 +773,7 @@ With prefix argument, enable European character display iff arg is positive." t 
 
 ;;;***
 
-;;;### (autoloads (tags-apropos list-tags tags-query-replace tags-search tags-loop-continue next-file tag-complete-symbol find-tag-other-window find-tag visit-tags-table) "etags" "lisp/etags.el")
+;;;### (autoloads (pop-tag-mark tags-apropos list-tags tags-query-replace tags-search tags-loop-continue next-file tag-complete-symbol find-tag-other-window find-tag visit-tags-table) "etags" "lisp/etags.el")
 
 (autoload 'visit-tags-table "etags" "\
 Tell tags commands to use tags table file FILE when all else fails.
@@ -836,6 +873,11 @@ Display list of tags in FILE." t nil)
 Display list of all tags in tag table REGEXP matches." t nil)
 (define-key esc-map "*" 'pop-tag-mark)
 
+(autoload 'pop-tag-mark "etags" "\
+Go to last tag position.
+`find-tag' maintains a mark-stack seperate from the \\[set-mark-command] mark-stack.
+This function pops (and moves to) the tag at the top of this stack." t nil)
+
 ;;;***
 
 ;;;### (autoloads (finder-by-keyword) "finder" "lisp/finder.el")
@@ -921,7 +963,7 @@ MATCH-ANCHORED should be of the form:
 Where MATCHER is as for MATCH-HIGHLIGHT with one exception; see below.
 PRE-MATCH-FORM and POST-MATCH-FORM are evaluated before the first, and after
 the last, instance MATCH-ANCHORED's MATCHER is used.  Therefore they can be
-used to initialise before, and cleanup after, MATCHER is used.  Typically,
+used to initialize before, and cleanup after, MATCHER is used.  Typically,
 PRE-MATCH-FORM is used to move to some position relative to the original
 MATCHER, before starting with MATCH-ANCHORED's MATCHER.  POST-MATCH-FORM might
 be used to move, before resuming with MATCH-ANCHORED's parent's MATCHER.
@@ -956,7 +998,7 @@ the wrong pattern can dramatically slow things down!")
 
 (make-variable-buffer-local 'font-lock-keywords)
 
-(defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set '(lambda (var val) (font-lock-mode (or val 0))))
+(defcustom font-lock-mode nil "Non nil means `font-lock-mode' is on" :group 'font-lock :type 'boolean :initialize 'custom-initialize-default :require 'font-lock :set (function (lambda (var val) (font-lock-mode (or val 0)))))
 
 (defvar font-lock-mode-hook nil "\
 Function or functions to run on entry to font-lock-mode.")
@@ -1058,7 +1100,7 @@ Prefix arg means just kill any existing server communications subprocess." t nil
 
 ;;;***
 
-;;;### (autoloads (hyper-apropos-popup-menu hyper-apropos-set-variable hyper-set-variable hyper-apropos-read-variable-symbol hyper-describe-function hyper-describe-variable hyper-describe-face hyper-describe-key-briefly hyper-describe-key hyper-apropos) "hyper-apropos" "lisp/hyper-apropos.el")
+;;;### (autoloads (hyper-apropos-popup-menu hyper-apropos-set-variable hyper-set-variable hyper-apropos-read-variable-symbol hyper-describe-function hyper-where-is hyper-describe-variable hyper-describe-face hyper-describe-key-briefly hyper-describe-key hyper-apropos) "hyper-apropos" "lisp/hyper-apropos.el")
 
 (autoload 'hyper-apropos "hyper-apropos" "\
 Display lists of functions and variables matching REGEXP
@@ -1077,6 +1119,9 @@ See also `hyper-apropos' and `hyper-describe-function'." t nil)
 (autoload 'hyper-describe-variable "hyper-apropos" "\
 Hypertext drop-in replacement for `describe-variable'.
 See also `hyper-apropos' and `hyper-describe-function'." t nil)
+
+(autoload 'hyper-where-is "hyper-apropos" "\
+Print message listing key sequences that invoke specified command." t nil)
 
 (autoload 'hyper-describe-function "hyper-apropos" "\
 Hypertext replacement for `describe-function'.  Unlike `describe-function'
@@ -1204,7 +1249,88 @@ Install a pre-bytecompiled XEmacs package into package hierarchy." t nil)
 
 ;;;***
 
-;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-all package-get-update-all) "package-get" "lisp/package-get.el")
+;;;### (autoloads (package-get-custom package-get-package-provider package-get package-get-dependencies package-get-all package-get-update-all package-get-delete-package package-get-save-base package-get-update-base-from-buffer package-get-update-base package-get-update-base-entry package-get-require-base package-get-download-menu) "package-get" "lisp/package-get.el")
+
+(defvar package-get-base nil "\
+List of packages that are installed at this site.
+For each element in the alist,  car is the package name and the cdr is
+a plist containing information about the package.   Typical fields
+kept in the plist are:
+
+version		- version of this package
+provides	- list of symbols provided
+requires	- list of symbols that are required.
+		  These in turn are provided by other packages.
+filename	- name of the file.
+size		- size of the file (aka the bundled package)
+md5sum		- computed md5 checksum
+description	- What this package is for.
+type		- Whether this is a 'binary (default) or 'single file package
+
+More fields may be added as needed.  An example:
+
+'(
+ (name
+  (version \"<version 2>\"
+   file \"filename\"
+   description \"what this package is about.\"
+   provides (<list>)
+   requires (<list>)
+   size <integer-bytes>
+   md5sum \"<checksum\"
+   type single
+   )
+  (version \"<version 1>\"
+   file \"filename\"
+   description \"what this package is about.\"
+   provides (<list>)
+   requires (<list>)
+   size <integer-bytes>
+   md5sum \"<checksum\"
+   type single
+   )
+   ...
+   ))
+
+For version information, it is assumed things are listed in most
+recent to least recent -- in other words, the version names don't have to
+be lexically ordered.  It is debatable if it makes sense to have more than
+one version of a package available.")
+
+(autoload 'package-get-download-menu "package-get" "\
+Build the `Add Download Site' menu." nil nil)
+
+(autoload 'package-get-require-base "package-get" "\
+Require that a package-get database has been loaded.
+If the optional FORCE-CURRENT argument or the value of
+`package-get-always-update' is Non-nil, try to update the database
+from a location in `package-get-remote'. Otherwise a local copy is used
+if available and remote access is never done.
+
+Please use FORCE-CURRENT only when the user is explictly dealing with packages
+and remote access is likely in the near future." nil nil)
+
+(autoload 'package-get-update-base-entry "package-get" "\
+Update an entry in `package-get-base'." nil nil)
+
+(autoload 'package-get-update-base "package-get" "\
+Update the package-get database file with entries from DB-FILE.
+Unless FORCE-CURRENT is non-nil never try to update the database." t nil)
+
+(autoload 'package-get-update-base-from-buffer "package-get" "\
+Update the package-get database with entries from BUFFER.
+BUFFER defaults to the current buffer.  This command can be
+used interactively, for example from a mail or news buffer." t nil)
+
+(autoload 'package-get-save-base "package-get" "\
+Write the package-get database to FILE.
+
+Note: This database will be unsigned of course." t nil)
+
+(autoload 'package-get-delete-package "package-get" "\
+Delete an installation of PACKAGE below directory PKG-TOPDIR.
+PACKAGE is a symbol, not a string.
+This is just an interactive wrapper for `package-admin-delete-binary-package'." t nil)
 
 (autoload 'package-get-update-all "package-get" "\
 Fetch and install the latest versions of all currently installed packages." t nil)
@@ -1214,7 +1340,17 @@ Fetch PACKAGE with VERSION and all other required packages.
 Uses `package-get-base' to determine just what is required and what
 package provides that functionality.  If VERSION is nil, retrieves
 latest version.  Optional argument FETCHED-PACKAGES is used to keep
-track of packages already fetched." t nil)
+track of packages already fetched.  Optional argument INSTALL-DIR,
+if non-nil, specifies the package directory where fetched packages
+should be installed.
+
+Returns nil upon error." t nil)
+
+(autoload 'package-get-dependencies "package-get" "\
+Compute dependencies for PACKAGES.
+Uses `package-get-base' to determine just what is required and what
+package provides that functionality.  Returns the list of packages
+required by PACKAGES." nil nil)
 
 (autoload 'package-get "package-get" "\
 Fetch PACKAGE from remote site.
@@ -1223,6 +1359,8 @@ means most recent version.  CONFLICT indicates what happens if the
 package is already installed.  Valid values for CONFLICT are:
 'always	always retrieve the package even if it is already installed
 'never	do not retrieve the package if it is installed.
+INSTALL-DIR, if non-nil, specifies the package directory where
+fetched packages should be installed.
 
 The value of `package-get-base' is used to determine what files should 
 be retrieved.  The value of `package-get-remote' is used to determine
@@ -1231,16 +1369,45 @@ order so one is better off listing easily reached sites first.
 
 Once the package is retrieved, its md5 checksum is computed.  If that
 sum does not match that stored in `package-get-base' for this version
-of the package, an error is signalled." t nil)
+of the package, an error is signalled.
+
+Returns `t' upon success, the symbol `error' if the package was
+successfully installed but errors occurred during initialization, or
+`nil' upon error." t nil)
 
 (autoload 'package-get-package-provider "package-get" "\
 Search for a package that provides SYM and return the name and
   version.  Searches in `package-get-base' for SYM.   If SYM is a
   consp, then it must match a corresponding (provide (SYM VERSION)) from 
-  the package." t nil)
+  the package.
+
+If FORCE-CURRENT is non-nil make sure the database is up to date. This might
+lead to Emacs accessing remote sites." t nil)
 
 (autoload 'package-get-custom "package-get" "\
 Fetch and install the latest versions of all customized packages." t nil)
+
+;;;***
+
+;;;### (autoloads (pui-list-packages pui-add-install-directory package-ui-add-site) "package-ui" "lisp/package-ui.el")
+
+(autoload 'package-ui-add-site "package-ui" "\
+Add site to package-get-remote and possibly offer to update package list." nil nil)
+
+(autoload 'pui-add-install-directory "package-ui" "\
+Add a new package binary directory to the head of `package-get-remote'.
+Note that no provision is made for saving any changes made by this function.
+It exists mainly as a convenience for one-time package installations from
+disk." t nil)
+
+(autoload 'pui-list-packages "package-ui" "\
+List all packages and package information.
+The package name, version, and description are displayed.  From the displayed
+buffer, the user can see which packages are installed, which are not, and
+which are out-of-date (a newer version is available).  The user can then
+select packages for installation via the keyboard or mouse." t nil)
+
+(defalias 'list-packages 'pui-list-packages)
 
 ;;;***
 
@@ -1448,7 +1615,7 @@ The buffer in question is current when this function is called." nil nil)
 
 ;;;***
 
-;;;### (autoloads (auto-view-mode view-major-mode view-mode view-minor-mode view-buffer-other-window view-file-other-window view-buffer view-file) "view-less" "lisp/view-less.el")
+;;;### (autoloads (toggle-truncate-lines auto-view-mode view-major-mode view-mode view-minor-mode view-buffer-other-window view-file-other-window view-buffer view-file) "view-less" "lisp/view-less.el")
 
 (defvar view-minor-mode-map (let ((map (make-keymap))) (set-keymap-name map 'view-minor-mode-map) (suppress-keymap map) (define-key map "-" 'negative-argument) (define-key map " " 'scroll-up) (define-key map "f" 'scroll-up) (define-key map "b" 'scroll-down) (define-key map 'backspace 'scroll-down) (define-key map 'delete 'scroll-down) (define-key map "" 'view-scroll-lines-up) (define-key map "\n" 'view-scroll-lines-up) (define-key map "e" 'view-scroll-lines-up) (define-key map "j" 'view-scroll-lines-up) (define-key map "y" 'view-scroll-lines-down) (define-key map "k" 'view-scroll-lines-down) (define-key map "d" 'view-scroll-some-lines-up) (define-key map "u" 'view-scroll-some-lines-down) (define-key map "r" 'recenter) (define-key map "t" 'toggle-truncate-lines) (define-key map "N" 'view-buffer) (define-key map "E" 'view-file) (define-key map "P" 'view-buffer) (define-key map "!" 'shell-command) (define-key map "|" 'shell-command-on-region) (define-key map "=" 'what-line) (define-key map "?" 'view-search-backward) (define-key map "h" 'view-mode-describe) (define-key map "s" 'view-repeat-search) (define-key map "n" 'view-repeat-search) (define-key map "/" 'view-search-forward) (define-key map "\\" 'view-search-backward) (define-key map "g" 'view-goto-line) (define-key map "G" 'view-last-windowful) (define-key map "%" 'view-goto-percent) (define-key map "p" 'view-goto-percent) (define-key map "m" 'point-to-register) (define-key map "'" 'register-to-point) (define-key map "C" 'view-cleanup-backspaces) (define-key map "" 'view-quit) (define-key map "" 'view-quit-toggle-ro) (define-key map "q" 'view-quit) map))
 
@@ -1514,6 +1681,10 @@ named but is like this for compatibility reasons." t nil)
 If the file of the current buffer is not writable, call view-mode.
 This is meant to be added to `find-file-hooks'." nil nil)
 
+(autoload 'toggle-truncate-lines "view-less" "\
+Toggles the values of truncate-lines.
+Positive prefix arg sets, negative disables." t nil)
+
 ;;;***
 
 ;;;### (autoloads (widget-minor-mode widget-browse-other-window widget-browse widget-browse-at) "wid-browse" "lisp/wid-browse.el")
@@ -1550,9 +1721,9 @@ Delete WIDGET." nil nil)
 
 ;;;### (autoloads (font-menu-weight-constructor font-menu-size-constructor font-menu-family-constructor reset-device-font-menus) "x-font-menu" "lisp/x-font-menu.el")
 
-(defcustom font-menu-ignore-scaled-fonts t "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'x)
+(defcustom font-menu-ignore-scaled-fonts t "*If non-nil, then the font menu will try to show only bitmap fonts." :type 'boolean :group 'font-menu)
 
-(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'x)
+(defcustom font-menu-this-frame-only-p nil "*If non-nil, then changing the default font from the font menu will only\naffect one frame instead of all frames." :type 'boolean :group 'font-menu)
 
 (fset 'install-font-menus 'reset-device-font-menus)
 
@@ -1569,6 +1740,18 @@ or if you change your font path, you can call this to re-initialize the menus." 
 (autoload 'font-menu-size-constructor "x-font-menu" nil nil nil)
 
 (autoload 'font-menu-weight-constructor "x-font-menu" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (x-win-init-sun) "x-win-sun" "lisp/x-win-sun.el")
+
+(autoload 'x-win-init-sun "x-win-sun" nil nil nil)
+
+;;;***
+
+;;;### (autoloads (x-win-init-xfree86) "x-win-xfree86" "lisp/x-win-xfree86.el")
+
+(autoload 'x-win-init-xfree86 "x-win-xfree86" nil nil nil)
 
 ;;;***
 
