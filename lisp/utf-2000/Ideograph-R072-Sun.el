@@ -2844,8 +2844,9 @@
     (shinjigen-2	. 3333)
     (=ks-x1001		. #x7B45)	; ø»Šž¼
     (=jis-x0208		. #x5A6E)	; ø½‹Š·
+    (=gt		. 17613)	; ý¡€„“
     (=gt-k		. 07940)	; ý¡„¼„
-    (=gt-pj-1		. #x5A6E)	; ø»Šž¼
+    (=gt-pj-1		. #x5A6E)	; ý¡€„“
     (=daikanwa		. 13961)	; ø¸ƒš‰
     (=cbeta		. 00152)	; ø¸ ‚˜
     (=ucs@jis		. #x6667)	; ø»Šž¼
