@@ -1,3 +1,9 @@
+2000-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-charset.el (default-coded-charset-priority-list):
+	Prefer `japanese-jisx0208-1990' than `japanese-jisx0212'; prefer
+	`korean-ksc5601' than `japanese-jisx0213-1'; add `mojikyo-2022-1'.
+
 2000-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* list-mode.el: Call `completion-list-mode' to avoid slowness of
