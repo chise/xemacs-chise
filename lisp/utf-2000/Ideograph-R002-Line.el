@@ -91,6 +91,7 @@
     (ideograph-daikanwa . 00072)	; ø¸€ˆ
     (ideograph-gt	. 00106)	; ý¡€€ª
     (mojikyo		. 000072)	; ý €€ˆ
+    (ucs		. #x3404)	; ã„
     ))
 (define-char
   '((ideographic-radical . 2)	; â¼
@@ -410,13 +411,14 @@
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 12)
     (total-strokes	 . 13)
-    (non-morohashi	90 9 0)
     (chinese-cns11643-5 . #x3D55)	; ø»š”¨
     ))
 (define-char
   '((ideographic-radical . 2)	; â¼
     (ideographic-strokes . 15)
     (total-strokes	 . 16)
-    (non-morohashi	90 9 1)
+    (->same-ideograph
+     ((ideograph-daikanwa . 00246)	; ø¸€ƒ¶
+      ))
     (chinese-cns11643-7 . #x2C3C)	; ø»ž™
     ))
