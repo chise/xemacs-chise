@@ -26484,7 +26484,7 @@
 	)
        ((=ucs		    . #x53E3)	; 口
 	)
-       ((=ucs@unicode	    . #x8A79)	; &UU+8A79;
+       ((=gb2312	    . #x5532)	; &G0-5532; [53-18]
 	))
       (=hanziku-2	  . #xE0D5)	; &HZK02-E0D5;
       (=ucs@unicode	  . #x5661)	; &HZK02-E0D5;
