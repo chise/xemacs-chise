@@ -5353,11 +5353,22 @@
     (ucs			. #x691A)	; æ¤š
     ))
 (define-char
-  '((morohashi-daikanwa	15065)
+  '((->ucs		. #x691B)	; æ¤›
+    (morohashi-daikanwa	15065)
     (ideographic-radical . 75)	; â½Š
-    (kangxi-strokes	. 8)
+    (ideographic-strokes . 8)
+    (total-strokes	 . 12)
     (ideograph-daikanwa . 15065)	; ø¸ƒ«™
-    (ucs		. #x691B)	; æ¤›
+    ))
+(define-char
+  '((morohashi-daikanwa	15065 0 2)
+    (ideographic-radical . 75)	; â½Š
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (japanese-jisx0208-1978	. #x3371)	; ø»‚—¬
+    (japanese-jisx0208		. #x3371)	; ø»†«´
+    (japanese-jisx0208-1990	. #x3371)	; æ¤›
+    (ucs			. #x691B)	; æ¤›
     ))
 (define-char
   '((morohashi-daikanwa	15065 1)
