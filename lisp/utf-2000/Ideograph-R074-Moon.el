@@ -885,8 +885,7 @@
   '((ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (chinese-gb12345	. #x7C4A)	; 膶
-    (ucs		. #x81B6)	; 膶
+    (ucs		. #x6725)	; 朥
     ))
 (define-char
   '((ideographic-radical . 74)	; ⽉
