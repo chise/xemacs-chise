@@ -3,6 +3,20 @@
 
 #include "lwlib.h"
 
+#ifdef USE_ASSERTIONS
+/* Highly dubious kludge */
+/*   (thanks, Jamie, I feel better now -- ben) */
+void assert_failed (const char *, int, const char *);
+# define abort() (assert_failed (__FILE__, __LINE__, "abort()"))
+# define assert(x) ((x) ? (void) 0 : assert_failed (__FILE__, __LINE__, #x))
+#else
+# ifdef DEBUG_XEMACS
+#  define assert(x) ((x) ? (void) 0 : (void) abort ())
+# else
+#  define assert(x)
+# endif
+#endif
+
 /* This represents a single widget within a widget tree.  All the
    widgets in a widget tree are chained through the `next' field.
    `info' is a back pointer to the widget tree. */
