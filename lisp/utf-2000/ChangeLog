@@ -1,3 +1,125 @@
+2001-08-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Use `<-bopomofo'
+	instead of `->ideograph'.
+
+	* Ideograph-R112-Stone.el (U+783A): Add `total-strokes'; unify
+	J90-4557.
+
+	* Ideograph-R107-Skin.el (U+76B9): Unify J90-6231.
+
+	* Ideograph-R104-Sickness.el (U+75E9): Add `total-strokes'; unify
+	J90-4169.
+	(U+7604): Add `total-strokes'; unify JSP-4D66.
+
+	* Ideograph-R094-Dog.el (U+731F): Unify J90-4E44.
+	(U+7363): Unify J90-3D43.
+
+	* Ideograph-R086-Fire.el (U+713C): Unify J90-3E46; add
+	`total-strokes'.
+	(U+7199): Unify J90-7426.
+
+	* Ideograph-R082-Fur.el (U+6BEE): Unify JSP-463E.
+
+	* Ideograph-R073-Say.el (U+66FA): Add `total-strokes'; unify
+	JSP-426D.
+
+	* Ideograph-R072-Sun.el (U+663F): Add `total-strokes'; unify
+	J90-5B26.
+
+	* Ideograph-R070-Square.el (U+65D9): Add `total-strokes'; unify
+	J90-5A5A.
+
+	* Ideograph-R064-Hand.el: Merge missing JIS X 0212 and JIS X
+	0208-1990 code points.
+	(U+631C): Fix `ideographic-strokes'; add `total-strokes'.
+	(M-49129): Unify C6-402E; add `->ideographic-variants'.
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-3E32): Relate to U+5E8A.
+
+2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* u02F00-Kangxi-Radicals.el: Use `<-radical' instead of
+	`->decomposition' with sequence `compat' + U+****.
+
+	* u02500-Box-Drawing.el (BOX DRAWINGS VERTICAL SINGLE AND RIGHT
+	DOUBLE): Unify Big5-A2A5 instead of Big5-F9E9.
+	(BOX DRAWINGS VERTICAL SINGLE AND LEFT DOUBLE): Unify Big5-A2A7
+	instead of Big5-F9EB.
+	(BOX DRAWINGS VERTICAL SINGLE AND HORIZONTAL DOUBLE): Unify
+	Big5-A2A6 instead of Big5-F9EA.
+
+	* Ideograph-R023-Hiding-Enclosure.el (J0-523E): Unify U+5338.
+	(C6-212B): Use `->same-ideograph' instead of `morohashi-daikanwa'.
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge Big5 code points.
+
+	* Ideograph-R022-Right-Open-Box.el:
+	- Merge Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R008-Lid.el (G0-596F): Unify U+4EA0.
+
+2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R019-Power.el (M-02334): Use `script' and
+	`<-vulgar-ideograph' instead of `comment'.
+	(M-02354): Likewise; add `->synonyms'.
+	(M-02402): Use `<-ancient-ideograph' instead of
+	`ancient-char-of-shinjigen-1'.
+	(M-2415'): Use `<-vulgar-ideograph' instead of
+	`vulgar-ideograph-of'; add `<-simplified-ideograph'.
+	- Merge KS X 1001, Big5 and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `<-vulgar-ideograph' instead of `vulgar-ideograph-of'.
+	- Use `->same-ideograph' instead of `ideograph='.
+
+	* char-db-util.el (insert-char-attributes): Rename `->synonymous'
+	to `->synonyms'.
+
+	* Ideograph-R020-Wrap.el: - Merge KS X 1001 and Big5 code points.
+	- Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R066-Rap.el (U+657D): Add `total-strokes'; unify
+	JSP-4155.
+
+	* Ideograph-R063-Door.el (U+6244): Unify JSP-3F35; add
+	`total-strokes'.
+
+	* Ideograph-R050-Turban.el (J83-5672): Unify J90-5672.
+
+	* Ideograph-R030-Mouth.el (U+540F): Unify J90-4D79.
+
+	* Ideograph-R018-Knife.el (J83-3D69): Unify K0-7478.
+	(G0-3375): Separate C1-4F4F and move it to
+	Ideograph-R145-Clothes.el; delete `cns-radical' and
+	`cns-total-strokes'.
+	(M-02024): Separate J0-516C; unify C3-2B43; add
+	`<-vulgar-ideograph'.
+	(J0-516C): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	- Merge KS X 1001, Big5 and GB 12345 code points.
+	- Use `=>ucs' instead of `->ucs'.
+	- Use `<-original-ideograph' instead of `original-ideograph-of'.
+	- Use `<-simplified-ideograph' instead of `simplified-ideograph-of'.
+	- Use `<-vulgar-ideograph' instead of `vulgar-ideograph-of'.
+	- Use `->ideographic-variants' instead of `variant-of-shinjigen-1'.
+
+	* Ideograph-R001-One.el (C2-212E): New character; moved from
+	Ideograph-R013-Down-Box.el; unify Big5-C94E.
+
+	* Ideograph-R205-Frog.el (M-48305): Separate J78-7368, J83-7368,
+	K0-5C2F and J90-7368.
+
+	* Ideograph-R198-Deer.el (J83-4E6F): Separate C1-795E, J90-4E6F
+	and U+9E97.
+	(M-47690): Separate J78-4E5B, J83-4E5B, K0-5778 and J90-4E5B; add
+	`->synonymous'.
+
+	* Ideograph-R115-Grain.el (M-25381): New character; unify C3-5E47;
+	add `->same-ideograph' for M-48869; add `<-ancient-ideograph' for
+	M-24940.
+
 2001-08-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Regard `->synonymous'
