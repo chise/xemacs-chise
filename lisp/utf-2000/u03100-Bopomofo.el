@@ -339,14 +339,9 @@
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (morohashi-daikanwa	115)
-    (ideographic-radical . 4)	; â¼ƒ
-    (ideographic-strokes . 1)
-    (total-strokes	 . 2)
-    (comment		. "<ancient character> of M00257.0")
+    (ideograph		#x3405)
     (chinese-gb2312	#x28 #x68)	; ø»„‘
     (chinese-cns11643-1 #x25 #x6A)	; ø»‘‰
-    (ideograph-daikanwa #x00 #x73)	; ø¹³
     ))
 (define-char
   '((name		. "BOPOMOFO LETTER IU")
