@@ -327,8 +327,8 @@ define pobj
   if $imp == &lrecord_opaque
     pstruct Lisp_Opaque
   else
-  if $imp == &lrecord_opaque_list
-    pstruct Lisp_Opaque_List
+  if $imp == &lrecord_opaque_ptr
+    pstruct Lisp_Opaque_Ptr
   else
   if $imp == &lrecord_popup_data
     pstruct popup_data
