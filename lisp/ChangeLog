@@ -1,3 +1,39 @@
+2004-07-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule/mule-conf.el (=big5-cdp): Swap DOC-string and long-name.
+	(=gt): Likewise.
+	(=gt-k): Likewise.
+	(=gt-pj-*): Likewise.
+	(=gt-pj-k1): Likewise.
+	(=gt-pj-k2): Likewise.
+	(=daikanwa): Likewise.
+	(=daikanwa-rev1): Likewise.
+	(=daikanwa-rev2): Likewise.
+	(=big5-pua): Likewise.
+	(=big5-eten): Likewise.
+	(chinese-big5-eten-a): Likewise.
+	(chinese-big5-eten-b): Likewise.
+	(=hanziku-*): Likewise.
+	(=cbeta): Likewise.
+	(=jef-china3): Likewise.
+	(=ruimoku-v6): Likewise.
+	(=ucs@iso): Likewise.
+	(=ucs@unicode): Likewise.
+	(=ucs@gb): Likewise.
+	(=ucs@cns): Likewise.
+	(=ucs@jis): Likewise.
+	(=ucs@jis-1990): Likewise.
+	(=ucs@jis-2000): Likewise.
+	(=ucs@jp): Likewise.
+	(=ucs@ks): Likewise.
+	(=ucs@big5): Likewise.
+	(=ucs-radicals): Likewise.
+	(=ucs-radicals@unicode): Likewise.
+	(=ucs-bmp-cjk): Likewise.
+	(=ucs-bmp-cjk@unicode): Likewise.
+	(=ucs-sip-ext-b): Likewise.
+	(=ucs-sip-ext-b@iso): Likewise.
+
 2004-04-08  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule/mule-coding.el (coded-charset-entity-reference-alist): Add
