@@ -1,3 +1,7 @@
+2003-06-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* GT-RS.txt: Add information about GT-19303 .. GT-33340.
+
 2003-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-49F6): Map to U+5B76 instead of U+5B73.
