@@ -86,7 +86,9 @@ Interactively, the text of the region is used as the selection value."
 	     valid))
       (signal 'error (list "invalid selection" data)))
   (if data
-      (setq mswindows-selection-owned-p data)
+      (progn
+;	(mswindows-set-clipboard data)
+	(setq mswindows-selection-owned-p data))
     (setq mswindows-selection-owned-p nil))
   (setq primary-selection-extent
 	(select-make-extent-for-selection

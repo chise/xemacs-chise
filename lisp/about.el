@@ -564,13 +564,8 @@ contributed to the XEmacs development from late 1994 to early
   (ecase (car entry)
     (slb
      (widget-insert "\
-I took over the maintenance of XEmacs in November of 1996 (it
-seemed like a good idea at the time ...).  In real life I am a
-network administrator and Unix systems programmer for Calag.com,
-Inc. a small, but growing ISP in California.
-
-My main hobby while not maintaining XEmacs or working is ...
-you have got to be kidding ...")
+Peaches Baur, 1986-1999.
+Rest in peace")
      (widget-insert ".\n"))
     (martin
      (widget-insert "\
@@ -962,8 +957,9 @@ My homepage is ")
      (widget-insert ".\n"))
     (jason
      (widget-insert "\
-Beta tester and manager of the various XEmacs mailing lists.
-Originator and maintainer of the gnus.org domain.
+Beta tester, manager of the various XEmacs mailing lists and
+binary kit manager.  Also, originator and maintainer of the gnus.org
+domain.
 
 Jason resides in Albuquerque, New Mexico where he keeps himself
 busy with studies at the university and consulting work.
@@ -1492,7 +1488,7 @@ above.  We couldn't have done it without them.\n\n"
        (print-short "Juan E. Villacis" "jvillaci@cs.indiana.edu")
        (print-short "Jan Vroonhof" "vroonhof@math.ethz.ch")
        (print-short "Vladimir Vukicevic" "vladimir@intrepid.com")
-       (print-short "Charles G. Waldman" "cgw@pgt.com")
+       (print-short "Charles G. Waldman" "cgw@fnal.gov")
        (print-short "David Walte" "djw18@cornell.edu")
        (print-short "Peter Ware" "ware@cis.ohio-state.edu")
        (print-short "Christoph Wedler" "wedler@fmi.uni-passau.de")

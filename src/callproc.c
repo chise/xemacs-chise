@@ -81,6 +81,7 @@ int synch_process_retcode;
 /* Nonzero if this is termination due to exit.  */
 static int call_process_exited;
 
+Lisp_Object Vlisp_EXEC_SUFFIXES;
 
 static Lisp_Object
 call_process_kill (Lisp_Object fdpid)
@@ -193,7 +194,7 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 
   /* Do this before building new_argv because GC in Lisp code
    *  called by various filename-hacking routines might relocate strings */
-  locate_file (Vexec_path, args[0], EXEC_SUFFIXES, &path, X_OK);
+  locate_file (Vexec_path, args[0], Vlisp_EXEC_SUFFIXES, &path, X_OK);
 
   /* Make sure that the child will be able to chdir to the current
      buffer's current directory, or its unhandled equivalent.  We
@@ -722,7 +723,8 @@ child_setup (int in, int out, int err, char **new_argv,
 
 #ifdef WINDOWSNT
   /* Spawn the child.  (See ntproc.c:Spawnve).  */
-  cpid = spawnve (_P_NOWAIT, new_argv[0], new_argv, env);
+  cpid = spawnve (_P_NOWAIT, new_argv[0], (CONST char* CONST*)new_argv,
+		  (CONST char* CONST*)env);
   if (cpid == -1)
     /* An error occurred while trying to spawn the process.  */
     report_file_error ("Spawning child process", Qnil);
@@ -897,4 +899,7 @@ Each element should be a string of the form ENVVARNAME=VALUE.
 The environment which Emacs inherits is placed in this variable
 when Emacs starts.
 */ );
+
+  Vlisp_EXEC_SUFFIXES = build_string (EXEC_SUFFIXES);
+  staticpro (&Vlisp_EXEC_SUFFIXES);
 }

@@ -156,7 +156,7 @@ is deallocated as well.
   CHECK_STRING (name);
   XSETDEVICE (device, decode_device (device));
 
-  c = alloc_lcrecord_type (struct Lisp_Color_Instance, lrecord_color_instance);
+  c = alloc_lcrecord_type (struct Lisp_Color_Instance, &lrecord_color_instance);
   c->name = name;
   c->device = device;
   c->data = 0;
@@ -259,8 +259,9 @@ print_font_instance (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
   print_internal (f->name, printcharfun, 1);
   write_c_string (" on ", printcharfun);
   print_internal (f->device, printcharfun, 0);
-  MAYBE_DEVMETH (XDEVICE (f->device), print_font_instance,
-		 (f, printcharfun, escapeflag));
+  if (!NILP (f->device))
+    MAYBE_DEVMETH (XDEVICE (f->device), print_font_instance,
+		   (f, printcharfun, escapeflag));
   sprintf (buf, " 0x%x>", f->header.uid);
   write_c_string (buf, printcharfun);
 }
@@ -328,7 +329,7 @@ these objects are GCed, the underlying X data is deallocated as well.
 
   XSETDEVICE (device, decode_device (device));
 
-  f = alloc_lcrecord_type (struct Lisp_Font_Instance, lrecord_font_instance);
+  f = alloc_lcrecord_type (struct Lisp_Font_Instance, &lrecord_font_instance);
   f->name = name;
   f->device = device;
 
@@ -417,8 +418,16 @@ font_instance_truename_internal (Lisp_Object font_instance,
 				 Error_behavior errb)
 {
   struct Lisp_Font_Instance *f = XFONT_INSTANCE (font_instance);
-  struct device *d = XDEVICE (f->device);
-  return DEVMETH_OR_GIVEN (d, font_instance_truename, (f, errb), f->name);
+  
+  if (NILP (f->device))
+    {
+      maybe_signal_simple_error ("Couldn't determine font truename",
+				 font_instance, Qfont, errb);
+      return Qnil;
+    }
+  
+  return DEVMETH_OR_GIVEN (XDEVICE (f->device),
+			   font_instance_truename, (f, errb), f->name);
 }
 
 DEFUN ("font-instance-truename", Ffont_instance_truename, 1, 1, 0, /*
@@ -442,6 +451,9 @@ Return the properties (an alist or nil) of FONT-INSTANCE.
 
   CHECK_FONT_INSTANCE (font_instance);
   f = XFONT_INSTANCE (font_instance);
+
+  if (NILP (f->device))
+    return Qnil;
 
   return MAYBE_LISP_DEVMETH (XDEVICE (f->device),
 			     font_instance_properties, (f));
@@ -1063,7 +1075,7 @@ vars_of_objects (void)
   staticpro (&Vthe_null_color_instance);
   {
     struct Lisp_Color_Instance *c =
-      alloc_lcrecord_type (struct Lisp_Color_Instance, lrecord_color_instance);
+      alloc_lcrecord_type (struct Lisp_Color_Instance, &lrecord_color_instance);
     c->name = Qnil;
     c->device = Qnil;
     c->data = 0;
@@ -1074,7 +1086,7 @@ vars_of_objects (void)
   staticpro (&Vthe_null_font_instance);
   {
     struct Lisp_Font_Instance *f =
-      alloc_lcrecord_type (struct Lisp_Font_Instance, lrecord_font_instance);
+      alloc_lcrecord_type (struct Lisp_Font_Instance, &lrecord_font_instance);
     f->name = Qnil;
     f->device = Qnil;
     f->data = 0;

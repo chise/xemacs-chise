@@ -22,7 +22,7 @@
 ;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; Synched up with: not in FSF Emacs.
+;;; Synched up with: Not in FSF.
 
 ;;; Commentary:
 
@@ -52,7 +52,7 @@
 
   (let ((filename (expand-file-name "test-harness" (temp-directory))))
 
-    (dolist (db-type `(dbm berkeley-db))
+    (dolist (db-type '(dbm berkeley-db))
       (when (featurep db-type)
 	(princ "\n")
 	(delete-database-files filename)

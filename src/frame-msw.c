@@ -308,7 +308,7 @@ mswindows_set_frame_position (struct frame *f, int xoff, int yoff)
 static void
 mswindows_make_frame_visible (struct frame *f) 
 {
-  if (f->iconified)
+  if (!FRAME_VISIBLE_P(f))
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_RESTORE);
   else
     ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_SHOW);
@@ -319,8 +319,11 @@ mswindows_make_frame_visible (struct frame *f)
 static void
 mswindows_make_frame_invisible (struct frame *f) 
 {
+  if (!FRAME_VISIBLE_P(f))
+    return;
+
   ShowWindow (FRAME_MSWINDOWS_HANDLE(f), SW_HIDE);
-  f->visible = -1;
+  f->visible = 0;
 }
 
 static int

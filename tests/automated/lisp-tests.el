@@ -22,7 +22,7 @@
 ;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 ;; 02111-1307, USA.
 
-;;; Synched up with: not in FSF Emacs.
+;;; Synched up with: Not in FSF.
 
 ;;; Commentary:
 
@@ -119,7 +119,7 @@
 
 (Check-Error wrong-type-argument (nconc 'foo nil))
 
-(dolist (length `(1 2 3 4 1000 2000))
+(dolist (length '(1 2 3 4 1000 2000))
   (Check-Error circular-list (nconc (make-circular-list length) 'foo))
   (Check-Error circular-list (nconc '(1 . 2) (make-circular-list length) 'foo))
   (Check-Error circular-list (nconc '(1 . 2) '(3 . 4) (make-circular-list length) 'foo)))
@@ -158,7 +158,7 @@
   (Assert (eq (last x 3) (cdr x)))
   (Assert (eq (last x 4) x))
   (Assert (eq (last x 9) x))
-  (Assert (eq (last `(1 . 2) 0) 2))
+  (Assert (eq (last '(1 . 2) 0) 2))
   )
 
 ;;-----------------------------------------------------
@@ -213,7 +213,7 @@
 (Check-Error circular-list (copy-list (make-circular-list 1)))
 (Check-Error circular-list (copy-list (make-circular-list 2000)))
 (Assert (eq '() (copy-list '())))
-(dolist (x `((1) (1 2) (1 2 3) (1 2 . 3)))
+(dolist (x '((1) (1 2) (1 2 3) (1 2 . 3)))
   (let ((y (copy-list x)))
     (Assert (and (equal x y) (not (eq x y))))))
 
@@ -242,7 +242,7 @@
   (Assert (= (- one one) 0))
   (Assert (= (- one one one) -1))
   (Assert (= (+ one 1) 2))
-  (dolist (zero `(0 0.0 ?\0))
+  (dolist (zero '(0 0.0 ?\0))
     (Assert (= (+ 1 zero) 1))
     (Assert (= (+ zero 1) 1))
     (Assert (= (- zero) zero))
@@ -256,7 +256,7 @@
 ;; Test `/'
 
 ;; Test division by zero errors
-(dolist (zero `(0 0.0 ?\0))
+(dolist (zero '(0 0.0 ?\0))
   (Check-Error arith-error (/ zero))
   (dolist (n1 `(42 42.0 ?\042 ,(Int-to-Marker 42)))
     (Check-Error arith-error (/ n1 zero))
@@ -269,14 +269,14 @@
   (Assert (= (/ (setq x 2))   0))
   (Assert (= (/ (setq x 2.0)) 0.5)))
 
-(dolist (six `(6 6.0 ?\06))
-  (dolist (two `(2 2.0 ?\02))
-    (dolist (three `(3 3.0 ?\03))
+(dolist (six '(6 6.0 ?\06))
+  (dolist (two '(2 2.0 ?\02))
+    (dolist (three '(3 3.0 ?\03))
       (Assert (= (/ six two) three)))))
 
-(dolist (three `(3 3.0 ?\03))
+(dolist (three '(3 3.0 ?\03))
   (Assert (= (/ three 2.0) 1.5)))
-(dolist (two `(2 2.0 ?\02))
+(dolist (two '(2 2.0 ?\02))
   (Assert (= (/ 3.0 two) 1.5)))
 
 ;; Test `*'
@@ -285,18 +285,18 @@
 (dolist (one `(1 1.0 ?\01 ,(Int-to-Marker 1)))
   (Assert (= 1 (* one))))
 
-(dolist (two `(2 2.0 ?\02))
+(dolist (two '(2 2.0 ?\02))
   (Assert (= 2 (* two))))
 
-(dolist (six `(6 6.0 ?\06))
-  (dolist (two `(2 2.0 ?\02))
-    (dolist (three `(3 3.0 ?\03))
+(dolist (six '(6 6.0 ?\06))
+  (dolist (two '(2 2.0 ?\02))
+    (dolist (three '(3 3.0 ?\03))
       (Assert (= (* three two) six)))))
 
-(dolist (three `(3 3.0 ?\03))
-  (dolist (two `(2 2.0 ?\02))
+(dolist (three '(3 3.0 ?\03))
+  (dolist (two '(2 2.0 ?\02))
     (Assert (= (* 1.5 two) three))
-    (dolist (five `(5 5.0 ?\05))
+    (dolist (five '(5 5.0 ?\05))
       (Assert (= 30 (* five two three))))))
 
 ;; Test `+'
@@ -305,12 +305,12 @@
 (dolist (one `(1 1.0 ?\01 ,(Int-to-Marker 1)))
   (Assert (= 1 (+ one))))
 
-(dolist (two `(2 2.0 ?\02))
+(dolist (two '(2 2.0 ?\02))
   (Assert (= 2 (+ two))))
 
-(dolist (five `(5 5.0 ?\05))
-  (dolist (two `(2 2.0 ?\02))
-    (dolist (three `(3 3.0 ?\03))
+(dolist (five '(5 5.0 ?\05))
+  (dolist (two '(2 2.0 ?\02))
+    (dolist (three '(3 3.0 ?\03))
       (Assert (= (+ three two) five))
       (Assert (= 10 (+ five two three))))))
 
@@ -341,7 +341,7 @@
 (Check-Error wrong-type-argument (logior 3.0))
 (Check-Error wrong-type-argument (logand 3.0))
 
-(dolist (three `(3 ?\03))
+(dolist (three '(3 ?\03))
   (Assert (eq 3 (logand three)))
   (Assert (eq 3 (logxor three)))
   (Assert (eq 3 (logior three)))
@@ -350,11 +350,11 @@
   (Assert (eq 3 (logior three three))))
 
 (dolist (one `(1 ?\01 ,(Int-to-Marker 1)))
-  (dolist (two `(2 ?\02))
+  (dolist (two '(2 ?\02))
     (Assert (eq 0 (logand one two)))
     (Assert (eq 3 (logior one two)))
     (Assert (eq 3 (logxor one two))))
-  (dolist (three `(3 ?\03))
+  (dolist (three '(3 ?\03))
     (Assert (eq 1 (logand one three)))
     (Assert (eq 3 (logior one three)))
     (Assert (eq 2 (logxor one three)))))
@@ -468,7 +468,7 @@
 
 ;; Meat
 (dolist (one `(1 1.0 ,(Int-to-Marker 1) ?\01))
-  (dolist (two `(2 2.0 ?\02))
+  (dolist (two '(2 2.0 ?\02))
     (Assert (<  one two))
     (Assert (<= one two))
     (Assert (<= two two))
@@ -489,7 +489,7 @@
     ))
 
 (dolist (one `(1 1.0 ,(Int-to-Marker 1) ?\01))
-  (dolist (two `(2 2.0 ?\02))
+  (dolist (two '(2 2.0 ?\02))
     (Assert (<  one two))
     (Assert (<= one two))
     (Assert (<= two two))
@@ -537,7 +537,7 @@
 	 (Check-Error wrong-number-of-arguments (,fun))
 	 (Check-Error wrong-number-of-arguments (,fun nil))
 	 (Check-Error malformed-list (,fun nil 1))
-	 ,@(loop for n in `(1 2 2000)
+	 ,@(loop for n in '(1 2 2000)
 	     collect `(Check-Error circular-list (,fun 1 (make-circular-list ,n))))))
      (test-funs (&rest funs) `(progn ,@(loop for fun in funs collect `(test-fun ,fun)))))
 

@@ -42,10 +42,6 @@ Compilation options:
                         linking is the default.
 --srcdir=DIR            Look for the XEmacs source files in DIR.
                         Works best when using GNU Make.
---use-indexed-lrecord-implementation
---use-minimal-tagbits
---gung-ho               Build with new-style Lisp_Objects.
-                        Equivalent to both of the 2 previous options combined.
 
 
 Installation options:
@@ -210,7 +206,6 @@ Debugging options:
 
 Other options:
 
---puresize=VALUE        Override default amount of space for pure Lisp code.
 --rel-alloc             Use the relocating allocator (default for this option
                         is system-dependent).
 --with-dlmalloc         Control usage of Doug Lea malloc on systems that have

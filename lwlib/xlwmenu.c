@@ -423,10 +423,9 @@ string_width_u (XlwMenuWidget mw,
   int i, j;
 
 #ifdef NEED_MOTIF
+  chars = "";
   if (!XmStringGetLtoR (string, XmFONTLIST_DEFAULT_TAG, &chars))
-    {
-      chars = "";
-    }
+    chars = "";
 #else
   chars = string;
 #endif
@@ -872,7 +871,9 @@ string_draw_u (XlwMenuWidget mw,
   char *chars;
 
 #ifdef NEED_MOTIF
-  XmStringGetLtoR (string, XmFONTLIST_DEFAULT_TAG, &chars);
+  chars = "";
+  if (!XmStringGetLtoR (string, XmFONTLIST_DEFAULT_TAG, &chars))
+    chars = "";
 #else
   chars = string;
 #endif

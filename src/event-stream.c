@@ -432,7 +432,7 @@ allocate_command_builder (Lisp_Object console)
 {
   Lisp_Object builder_obj;
   struct command_builder *builder =
-    alloc_lcrecord_type (struct command_builder, lrecord_command_builder);
+    alloc_lcrecord_type (struct command_builder, &lrecord_command_builder);
 
   builder->console = console;
   reset_command_builder_event_chain (builder);

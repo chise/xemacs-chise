@@ -69,6 +69,7 @@ Lisp_Object Fldap_search_internal (Lisp_Object ldap,
                                    Lisp_Object base,
                                    Lisp_Object scope,
                                    Lisp_Object attrs,
-                                   Lisp_Object attrsonly);
+                                   Lisp_Object attrsonly,
+                                   Lisp_Object withdn);
 
 #endif /* _XEMACS_ELDAP_H_ */

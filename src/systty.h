@@ -337,6 +337,8 @@ Boston, MA 02111-1307, USA.  */
    No big loss -- it just means that ^Z won't work right
    if we're run from sh. */
 #  define EMACS_SET_PROCESS_GROUP(pg)
+#elif defined(__MINGW32__)
+#  define EMACS_SEPARATE_PROCESS_GROUP() 
 #else
 /* Under NeXTstep, a process group of 0 is not the same as specifying
    your own process ID, so we go ahead and specify it explicitly. */

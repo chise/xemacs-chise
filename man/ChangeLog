@@ -1,3 +1,39 @@
+1999-05-14  XEmacs Build Bot <builds@cvs.xemacs.org>
+
+	* XEmacs 21.2.14 is released
+
+1999-05-11  Albert Chin-A-Young <china@thewrittenword.com>
+
+	* man/internals/internals.texi:
+	* man/lispref/lispref.texi:
+	* man/new-users-guide/new-users-guide.texi:
+	* man/xemacs/xemacs.texi:
+	* man/cl.texi:
+	* man/custom.texi:
+	* man/term.texi:
+	* man/termcap.texi:
+	* man/widget.texi:
+	* man/xemacs-faq.texi:
+	* man/external-widget.texi:
+	Added info dir entries so install-info will add them to
+	the common `dir' file.
+
+1999-04-28  Stephen J. Turnbull  <turnbull@sk.tsukuba.ac.jp>
+
+	* man/lispref/mule.texi: Document CCL
+	- add sections: syntax, statements, expressions, and examples.
+	- fix naming and description errors.
+	- update links in neighboring nodes.
+
+1999-04-24  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* lispref/eval.texi (Eval): default for max-lisp-eval-depth is 500.
+
+1999-04-23  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* xemacs-faq.texi (Q3.0.7): refer to correct menu (Option->Frame
+	Appearance)
+
 1999-03-12  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.13 is released

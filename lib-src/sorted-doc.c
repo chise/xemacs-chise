@@ -224,7 +224,8 @@ main (int argc, char *argv[])
     printf ("@unnumbered Command Summary for GNU Emacs\n");
     printf ("@table @asis\n");
     printf ("\n");
-    printf ("@let@ITEM@item\n");
+    printf ("@iftex\n");
+    printf ("@global@let@ITEM=@item\n");
     printf ("@def@item{@filbreak@vskip5pt@ITEM}\n");
     printf ("@font@tensy cmsy10 scaled @magstephalf\n");
     printf ("@font@teni cmmi10 scaled @magstephalf\n");
@@ -237,6 +238,7 @@ main (int argc, char *argv[])
     printf ("@chardef@@64\n");
     printf ("@catcode43=12\n");
     printf ("@tableindent-0.2in\n");
+    printf ("@end iftex\n");
 
     /* print each function from the array */
 
@@ -260,6 +262,7 @@ main (int argc, char *argv[])
 	    putchar ('\n');
 	  }
 	printf("@end display\n");
+	if ( i%200 == 0 && i != 0 ) printf("@end table\n\n@table @asis\n");
       }
 
     printf ("@end table\n");

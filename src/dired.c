@@ -31,6 +31,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysfile.h"
 #include "sysdir.h"
 #include "systime.h"
+#include "sysdep.h"
 #include "syspwd.h"
 
 Lisp_Object Vcompletion_ignored_extensions;
@@ -139,38 +140,15 @@ If FILES-ONLY is the symbol t, then only the "files" in the directory
 	{
 	  if (!NILP (files_only))
 	    {
-	      int dir_p;
 	      struct stat st;
-	      char *cur_statbuf = statbuf;
-	      char *cur_statbuf_tail = statbuf_tail;
+	      int dir_p = 0;
 
-	      /* #### I don't think the code under `if' is necessary
-		 anymore.  The crashes in this function were reported
-		 because MAXNAMLEN was used to remember the *whole*
-		 statbuf, instead of using MAXPATHLEN.  This should be
-		 tested after 21.0 is released.  */
+	      memcpy (statbuf_tail, dp->d_name, len);
+	      statbuf_tail[len] = 0;
 
-	      /* We normally use the buffer created by alloca.
-		 However, if the file name we get too big, we'll use a
-		 malloced buffer, and free it.  It is undefined how
-		 stat() will react to this, but we avoid a buffer
-		 overrun.  */
-	      if (len > MAXNAMLEN)
-		{
-		  cur_statbuf = (char *)xmalloc (directorylen + len + 1);
-		  memcpy (cur_statbuf, statbuf, directorylen);
-		  cur_statbuf_tail = cur_statbuf + directorylen;
-		}
-	      memcpy (cur_statbuf_tail, dp->d_name, len);
-	      cur_statbuf_tail[len] = 0;
-
-	      if (stat (cur_statbuf, &st) < 0)
-		dir_p = 0;
-	      else
-		dir_p = ((st.st_mode & S_IFMT) == S_IFDIR);
-
-	      if (cur_statbuf != statbuf)
-		xfree (cur_statbuf);
+	      if (stat (statbuf, &st) == 0
+		  && (st.st_mode & S_IFMT) == S_IFDIR)
+		dir_p = 1;
 
 	      if (EQ (files_only, Qt) && dir_p)
 		continue;
@@ -579,37 +557,38 @@ These are all user names which begin with USER.
   return user_name_completion (user, 1, NULL);
 }
 
+struct user_cache {
+  char **data;
+  int length;
+  int size;
+  EMACS_TIME last_rebuild_time;
+};
+static struct user_cache user_cache;
+
+static void
+free_user_cache (struct user_cache *cache)
+{
+  int i;
+  for (i = 0; i < cache->length; i++)
+    xfree (cache->data[i]);
+  xfree (cache->data);
+}
+
 static Lisp_Object
 user_name_completion_unwind (Lisp_Object locative)
 {
-  Lisp_Object obj1 = XCAR (locative);
-  Lisp_Object obj2 = XCDR (locative);
-  char **cache;
-  int clen, i;
+  int interrupted = !NILP (XCAR (locative));
 
-
-  if (!NILP (obj1) && !NILP (obj2))
+  if (interrupted)
     {
-      /* clean up if interrupted building cache */
-      cache = *(char ***)get_opaque_ptr (obj1);
-      clen  = *(int *)get_opaque_ptr (obj2);
-      free_opaque_ptr (obj1);
-      free_opaque_ptr (obj2);
-      for (i = 0; i < clen; i++)
-        free (cache[i]);
-      free (cache);
+      endpwent ();
+      speed_up_interrupts ();
+      free_user_cache (&user_cache);
     }
-
   free_cons (XCONS (locative));
-  endpwent ();
 
   return Qnil;
 }
-
-static char **user_cache;
-static int user_cache_len;
-static int user_cache_max;
-static long user_cache_time;
 
 #define  USER_CACHE_REBUILD  (24*60*60)  /* 1 day, in seconds */
 
@@ -617,16 +596,13 @@ static Lisp_Object
 user_name_completion (Lisp_Object user, int all_flag, int *uniq)
 {
   /* This function can GC */
-  struct passwd *pw;
   int matchcount = 0;
   Lisp_Object bestmatch = Qnil;
   Charcount bestmatchsize = 0;
   int speccount = specpdl_depth ();
-  int i, cmax, clen;
-  char **cache;
   Charcount user_name_length;
-  Lisp_Object locative;
   EMACS_TIME t;
+  int i;
   struct gcpro gcpro1, gcpro2;
 
   GCPRO2 (user, bestmatch);
@@ -638,67 +614,48 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
   /* Cache user name lookups because it tends to be quite slow.
    * Rebuild the cache occasionally to catch changes */
   EMACS_GET_TIME (t);
-  if (user_cache  &&
-      EMACS_SECS (t) - user_cache_time > USER_CACHE_REBUILD)
+  if (user_cache.data  &&
+      (EMACS_SECS (t) - EMACS_SECS (user_cache.last_rebuild_time)
+       > USER_CACHE_REBUILD))
     {
-      for (i = 0; i < user_cache_len; i++)
-        free (user_cache[i]);
-      free (user_cache);
-      user_cache = NULL;
-      user_cache_len = 0;
-      user_cache_max = 0;
+      free_user_cache (&user_cache);
+      xzero (user_cache);
     }
 
-  if (user_cache == NULL || user_cache_max <= 0)
+  if (!user_cache.data)
     {
-      cmax  = 200;
-      clen  = 0;
-      cache = (char **) malloc (cmax*sizeof (char *));
-
+      struct passwd *pwd;
+      Lisp_Object locative = noseeum_cons (Qt, Qnil);
+      slow_down_interrupts ();
       setpwent ();
-      locative = noseeum_cons (Qnil, Qnil);
-      XCAR (locative) = make_opaque_ptr ((void *) &cache);
-      XCDR (locative) = make_opaque_ptr ((void *) &clen);
       record_unwind_protect (user_name_completion_unwind, locative);
-      /* #### may need to slow down interrupts around call to getpwent
-       * below.  at least the call to getpwnam in Fuser_full_name
-       * is documented as needing it on irix. */
-      while ((pw = getpwent ()))
+      while ((pwd = getpwent ()))
         {
-          if (clen >= cmax)
-            {
-              cmax *= 2;
-              cache = (char **) realloc (cache, cmax*sizeof (char *));
-            }
-
+	  Bufbyte *pwuser;
           QUIT;
-
-          cache[clen++] = strdup (pw->pw_name);
+	  DO_REALLOC (user_cache.data, user_cache.size,
+		      user_cache.length + 1, char *);
+	  GET_C_CHARPTR_INT_DATA_ALLOCA (pwd->pw_name, FORMAT_OS, pwuser);
+          user_cache.data[user_cache.length++] = xstrdup (pwuser);
         }
-      free_opaque_ptr (XCAR (locative));
-      free_opaque_ptr (XCDR (locative));
+      endpwent ();
+      speed_up_interrupts ();
       XCAR (locative) = Qnil;
-      XCDR (locative) = Qnil;
-
-      unbind_to (speccount, Qnil); /* free locative cons, endpwent() */
-
-      user_cache_max = cmax;
-      user_cache_len = clen;
-      user_cache = cache;
-      user_cache_time = EMACS_SECS (t);
+      unbind_to (speccount, Qnil); /* free locative cons */
+      EMACS_GET_TIME (user_cache.last_rebuild_time);
     }
 
-  for (i = 0; i < user_cache_len; i++)
+  for (i = 0; i < user_cache.length; i++)
     {
-      Bufbyte *d_name = (Bufbyte *) user_cache[i];
-      Bytecount len = strlen ((char *) d_name);
+      Bufbyte *u_name = user_cache.data[i];
+      Bytecount len = strlen ((char *) u_name);
       /* scmp() works in chars, not bytes, so we have to compute this: */
-      Charcount cclen = bytecount_to_charcount (d_name, len);
+      Charcount cclen = bytecount_to_charcount (u_name, len);
 
       QUIT;
 
-      if (cclen < user_name_length   ||
-          0 <= scmp (d_name, XSTRING_DATA (user), user_name_length))
+      if (cclen < user_name_length
+	  || 0 <= scmp_1 (u_name, XSTRING_DATA (user), user_name_length, 0))
         continue;
 
       matchcount++;    /* count matching completions */
@@ -709,7 +666,7 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
           struct gcpro ngcpro1;
           NGCPRO1 (name);
           /* This is a possible completion */
-          name = make_string (d_name, len);
+          name = make_string (u_name, len);
           if (all_flag)
             {
               bestmatch = Fcons (name, bestmatch);
@@ -725,37 +682,11 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
         {
           Charcount compare = min (bestmatchsize, cclen);
           Bufbyte *p1 = XSTRING_DATA (bestmatch);
-          Bufbyte *p2 = d_name;
-          Charcount matchsize = scmp (p1, p2, compare);
+          Bufbyte *p2 = u_name;
+          Charcount matchsize = scmp_1 (p1, p2, compare, 0);
 
           if (matchsize < 0)
             matchsize = compare;
-          if (completion_ignore_case)
-            {
-              /* If this is an exact match except for case,
-                 use it as the best match rather than one that is not
-                 an exact match.  This way, we get the case pattern
-                 of the actual match.  */
-              if ((matchsize == cclen
-                   && matchsize < XSTRING_CHAR_LENGTH (bestmatch))
-                  ||
-                  /* If there is no exact match ignoring case,
-                     prefer a match that does not change the case
-                     of the input.  */
-                  (((matchsize == cclen)
-                    ==
-                    (matchsize == XSTRING_CHAR_LENGTH (bestmatch)))
-                   /* If there is more than one exact match aside from
-                      case, and one of them is exact including case,
-                      prefer that one.  */
-                   && 0 > scmp_1 (p2, XSTRING_DATA (user),
-                                  user_name_length, 0)
-                   && 0 <= scmp_1 (p1, XSTRING_DATA (user),
-                                   user_name_length, 0)))
-                {
-                  bestmatch = make_string (d_name, len);
-                }
-            }
 
           bestmatchsize = matchsize;
         }
@@ -779,11 +710,11 @@ Lisp_Object
 make_directory_hash_table (CONST char *path)
 {
   DIR *d;
-  Lisp_Object hash =
-    make_lisp_hash_table (100, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
   if ((d = opendir (path)))
     {
       DIRENTRY *dp;
+      Lisp_Object hash =
+	make_lisp_hash_table (20, HASH_TABLE_NON_WEAK, HASH_TABLE_EQUAL);
 
       while ((dp = readdir (d)))
 	{
@@ -793,8 +724,10 @@ make_directory_hash_table (CONST char *path)
 	    Fputhash (make_string ((Bufbyte *) dp->d_name, len), Qt, hash);
 	}
       closedir (d);
+      return hash;
     }
-  return hash;
+  else
+    return Qnil;
 }
 
 Lisp_Object
@@ -955,10 +888,4 @@ It is used by the functions `file-name-completion' and
 `file-name-all-completions'.
 */ );
   Vcompletion_ignored_extensions = Qnil;
-
-#ifndef  WINDOWSNT
-  user_cache = NULL;
-  user_cache_len = 0;
-  user_cache_max = 0;
-#endif
 }

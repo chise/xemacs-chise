@@ -33,6 +33,7 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef WINDOWSNT
 #include <direct.h>
+#ifndef __MINGW32__
 /* <process.h> should not conflict with "process.h", as per ANSI definition.
    This is not true though with visual c though. The trick below works with
    VC4.2b and with VC5.0. It assumes that VC is installed in a kind of
@@ -42,6 +43,9 @@ Boston, MA 02111-1307, USA.  */
    which will conflict with the macro defined in lisp.h
 */
 #include <../include/process.h>
+#else
+#include <mingw32/process.h>
+#endif
 #endif /* WINDOWSNT */
 
 #include "lisp.h"
@@ -2261,42 +2265,43 @@ init_system_name (void)
 #  ifndef CANNOT_DUMP
   if (initialized)
 #  endif /* not CANNOT_DUMP */
-    {
-      struct hostent *hp = NULL;
-      int count;
+    if (!strchr (hostname, '.'))
+      {
+	struct hostent *hp = NULL;
+	int count;
 #  ifdef TRY_AGAIN
-      for (count = 0; count < 10; count++)
-	{
-	  h_errno = 0;
+	for (count = 0; count < 10; count++)
+	  {
+	    h_errno = 0;
 #  endif
-	  /* Some systems can't handle SIGALARM/SIGIO in gethostbyname(). */
-	  stop_interrupts ();
-	  hp = gethostbyname (hostname);
-	  start_interrupts ();
+	    /* Some systems can't handle SIGALARM/SIGIO in gethostbyname(). */
+	    stop_interrupts ();
+	    hp = gethostbyname (hostname);
+	    start_interrupts ();
 #  ifdef TRY_AGAIN
-	  if (! (hp == 0 && h_errno == TRY_AGAIN))
-	    break;
-	  Fsleep_for (make_int (1));
-	}
+	    if (! (hp == 0 && h_errno == TRY_AGAIN))
+	      break;
+	    Fsleep_for (make_int (1));
+	  }
 #  endif
-      if (hp)
-	{
-	  CONST char *fqdn = (CONST char *) hp->h_name;
+	if (hp)
+	  {
+	    CONST char *fqdn = (CONST char *) hp->h_name;
 
-	  if (!strchr (fqdn, '.'))
-	    {
-	      /* We still don't have a fully qualified domain name.
-		 Try to find one in the list of alternate names */
-	      char **alias = hp->h_aliases;
-	      while (*alias && !strchr (*alias, '.'))
-		alias++;
-	      if (*alias)
-		fqdn = *alias;
-	    }
-	  hostname = (char *) alloca (strlen (fqdn) + 1);
-	  strcpy (hostname, fqdn);
-	}
-    }
+	    if (!strchr (fqdn, '.'))
+	      {
+		/* We still don't have a fully qualified domain name.
+		   Try to find one in the list of alternate names */
+		char **alias = hp->h_aliases;
+		while (*alias && !strchr (*alias, '.'))
+		  alias++;
+		if (*alias)
+		  fqdn = *alias;
+	      }
+	    hostname = (char *) alloca (strlen (fqdn) + 1);
+	    strcpy (hostname, fqdn);
+	  }
+      }
 # endif /* HAVE_SOCKETS */
   Vsystem_name = build_string (hostname);
 #endif /* HAVE_GETHOSTNAME  */

@@ -205,10 +205,11 @@ mswindows_output_toolbar (struct frame *f, enum toolbar_pos pos)
     {
 
       struct toolbar_button *tb = XTOOLBAR_BUTTON (button);
-      checksum = HASH4 (checksum, 
+      checksum = HASH5 (checksum, 
 			internal_hash (get_toolbar_button_glyph(w, tb), 0),
 			internal_hash (tb->callback, 0),
-			width);
+			width,
+			w->toolbar_buttons_captioned_p);
       button = tb->next;
       nbuttons++;
     }

@@ -106,6 +106,8 @@ struct hash_table *usid_to_process;
 /* List of process objects. */
 Lisp_Object Vprocess_list;
 
+extern Lisp_Object Vlisp_EXEC_SUFFIXES;
+
 
 
 static Lisp_Object
@@ -415,7 +417,7 @@ make_process_internal (Lisp_Object name)
   Lisp_Object val, name1;
   int i;
   struct Lisp_Process *p =
-    alloc_lcrecord_type (struct Lisp_Process, lrecord_process);
+    alloc_lcrecord_type (struct Lisp_Process, &lrecord_process);
 
   /* If name is already in use, modify it until it is unused.  */
   name1 = name;
@@ -591,8 +593,7 @@ INCODE and OUTCODE specify the coding-system objects used in input/output
 
       tem = Qnil;
       NGCPRO1 (tem);
-      locate_file (Vexec_path, program, EXEC_SUFFIXES, &tem,
-		   X_OK);
+      locate_file (Vexec_path, program, Vlisp_EXEC_SUFFIXES, &tem, X_OK);
       if (NILP (tem))
 	report_file_error ("Searching for program", list1 (program));
       program = Fexpand_file_name (tem, Qnil);

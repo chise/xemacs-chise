@@ -271,7 +271,7 @@ Return t if file exists."
       (if (or (<= (length filename) 0)
 	      (null (setq path
 			  (locate-file filename load-path
-				       (and (not nosuffix) ".elc:.el:")))))
+				       (and (not nosuffix) '(".elc" ".el" ""))))))
 	  (and (null noerror)
 	       (signal 'file-error (list "Cannot open load file" filename)))
 	;; now use the internal load to actually load the file.

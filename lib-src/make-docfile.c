@@ -51,8 +51,6 @@ Boston, MA 02111-1307, USA.  */
 #include <ctype.h>
 #endif
 
-#include <sys/param.h>
-
 #if defined(MSDOS) || defined(__CYGWIN32__)
 #include <fcntl.h>
 #endif /* MSDOS */
@@ -62,6 +60,8 @@ Boston, MA 02111-1307, USA.  */
 #include <io.h>
 #include <stdlib.h>
 #endif /* WINDOWSNT */
+
+#include <sys/param.h>
 
 #if defined(DOS_NT) || defined(__CYGWIN32__)
 #define READ_TEXT "rt"

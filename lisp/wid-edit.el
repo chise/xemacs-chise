@@ -674,7 +674,7 @@ automatically."
   :group 'widgets
   :type 'boolean)
 
-(defcustom widget-image-conversion
+(defcustom widget-image-file-name-suffixes
   '((xpm ".xpm") (gif ".gif") (png ".png") (jpeg ".jpg" ".jpeg")
     (xbm ".xbm"))
   "Conversion alist from image formats to file name suffixes."
@@ -723,27 +723,27 @@ It can also be a valid image instantiator, in which case it will be
 	     (let* ((dirlist (cons (or widget-glyph-directory
 				       (locate-data-directory "custom"))
 				   data-directory-list))
-		    (formats widget-image-conversion)
-		    file)
-	       (while (and formats (not file))
-		 ;; This dance is necessary, because XEmacs signals an
-		 ;; error when it encounters an unrecognized image
-		 ;; format.
-		 (when (valid-image-instantiator-format-p (caar formats))
-		   (setq file (locate-file image dirlist
-					   (mapconcat #'identity (cdar formats)
-						      ":"))))
-		 (unless file
-		   (pop formats)))
+		    (all-suffixes
+		     (apply #'append
+			    (mapcar
+			     (lambda (el)
+			       (and (valid-image-instantiator-format-p (car el))
+				    (cdr el)))
+			     widget-image-file-name-suffixes)))
+		    (file (locate-file image dirlist all-suffixes)))
 	       (when file
-		 ;; We create a glyph with the file as the default image
-		 ;; instantiator, and the TAG fallback
-		 (let ((glyph (make-glyph `([,(caar formats) :file ,file]
-					    [string :data ,tag]))))
-		   ;; Cache the glyph
-		   (laxputf widget-glyph-cache image glyph)
-		   ;; ...and return it
-		   glyph)))))
+		 (let* ((extension (concat "." (file-name-extension file)))
+			(format (car (rassoc* extension
+					      widget-image-file-name-suffixes
+					      :test #'member))))
+		   ;; We create a glyph with the file as the default image
+		   ;; instantiator, and the TAG fallback
+		   (let ((glyph (make-glyph `([,format :file ,file]
+					      [string :data ,tag]))))
+		     ;; Cache the glyph
+		     (laxputf widget-glyph-cache image glyph)
+		     ;; ...and return it
+		     glyph))))))
 	((valid-instantiator-p image 'image)
 	 ;; A valid image instantiator (e.g. [gif :file "somefile"] etc.)
 	 (make-glyph `(,image [string :data ,tag])))

@@ -312,6 +312,7 @@ as a modified buffer.  This works even if the buffer is read-only."
     ;; #### - THIS IS PROBABLY A REALLY DANGEROUS THING TO DO IN A MINOR MODE!!
     (set-buffer-modified-p buf-mod)))
 
+;;;###autoload
 (defun toggle-truncate-lines (&optional p)
   "Toggles the values of truncate-lines.
 Positive prefix arg sets, negative disables."

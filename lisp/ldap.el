@@ -5,7 +5,7 @@
 ;; Author: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Maintainer: Oscar Figueiredo <Oscar.Figueiredo@di.epfl.ch>
 ;; Created: Jan 1998
-;; Version: $Revision: 1.7.2.2 $
+;; Version: $Revision: 1.7.2.3 $
 ;; Keywords: help comm
 
 ;; This file is part of XEmacs
@@ -40,7 +40,9 @@
   :group 'comm)
 
 (defcustom ldap-default-host nil
-  "*Default LDAP server."
+  "*Default LDAP server hostname.
+A TCP port number can be appended to that name using a colon as 
+a separator."
   :type '(choice (string :tag "Host name")
 		 (const :tag "Use library default" nil))
   :group 'ldap)
@@ -66,8 +68,10 @@ Acme organization in the United States."
   "*Alist of host-specific options for LDAP transactions.
 The format of each list element is:
 \(HOST PROP1 VAL1 PROP2 VAL2 ...)
-HOST is the name of an LDAP server. PROPn and VALn are property/value 
-pairs describing parameters for the server.  Valid properties include: 
+HOST is the hostname of an LDAP server (with an optional TCP port number
+appended to it  using a colon as a separator). 
+PROPn and VALn are property/value pairs describing parameters for the server.
+Valid properties include:
   `binddn' is the distinguished name of the user to bind as 
     (in RFC 1779 syntax).
   `passwd' is the password to use for simple authentication.
@@ -87,6 +91,11 @@ pairs describing parameters for the server.  Valid properties include:
 		       (checklist :inline t
 				  :greedy t
 				  (list
+				   :tag "Search Base" 
+				   :inline t
+				   (const :tag "Search Base" base)
+				   string)
+				  (list
 				   :tag "Binding DN"
 				   :inline t
 				   (const :tag "Binding DN" binddn)
@@ -105,11 +114,6 @@ pairs describing parameters for the server.  Valid properties include:
 				    (const :menu-tag "Simple" :tag "Simple" simple)
 				    (const :menu-tag "Kerberos 4.1" :tag "Kerberos 4.1" krbv41)
 				    (const :menu-tag "Kerberos 4.2" :tag "Kerberos 4.2" krbv42)))
-				  (list
-				   :tag "Search Base" 
-				   :inline t
-				   (const :tag "Search Base" base)
-				   string)
 				  (list
 				   :tag "Search Scope" 
 				   :inline t
@@ -141,8 +145,12 @@ pairs describing parameters for the server.  Valid properties include:
 				   (integer :tag "(number of records)")))))
 :group 'ldap)
 
-
-(defun ldap-search (filter &optional host attributes attrsonly)
+(defun ldap-get-host-parameter (host parameter)
+  "Get the value of PARAMETER for HOST in `ldap-host-parameters-alist'."
+  (plist-get (cdr (assoc host ldap-host-parameters-alist))
+	     parameter))
+	
+(defun ldap-search (filter &optional host attributes attrsonly withdn)
   "Perform an LDAP search.
 FILTER is the search filter in RFC1558 syntax, i.e. something that
 looks like \"(cn=John Smith)\".
@@ -150,8 +158,13 @@ HOST is the LDAP host on which to perform the search.
 ATTRIBUTES is a list of attributes to retrieve; nil means retrieve all.
 If ATTRSONLY is non nil, the attributes will be retrieved without
 the associated values.
+If WITHDN is non-nil each entry in the result will be prepennded with
+its distinguished name DN.
 Additional search parameters can be specified through 
-`ldap-host-parameters-alist' which see."
+`ldap-host-parameters-alist' which see.
+The function returns a list of matching entries.  Each entry is itself
+an alist of attribute/value pairs optionally preceded by the DN of the
+entry according to the value of WITHDN."
   (interactive "sFilter:")
   (or host
       (setq host ldap-default-host))
@@ -165,7 +178,7 @@ Additional search parameters can be specified through
     (prog1 (ldap-search-internal ldap filter 
 				 (plist-get host-plist 'base)
 				 (plist-get host-plist 'scope)
-				 attributes attrsonly)
+				 attributes attrsonly withdn)
       (ldap-close ldap))))
 
 (provide 'ldap)

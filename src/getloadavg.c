@@ -19,8 +19,6 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-#ifndef __CYGWIN32__
-
 /* Compile-time symbols that this file uses:
 
    FIXUP_KERNEL_SYMBOL_ADDR()	Adjust address in returned struct nlist.
@@ -70,6 +68,9 @@ Boston, MA 02111-1307, USA.  */
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+
+#ifndef WINDOWSNT
+#ifndef __CYGWIN32__
 
 #include <sys/types.h>
 
@@ -1006,4 +1007,4 @@ getloadavg (double loadavg[], int nelem)
 }
 
 #endif /*__GNUWIN32__*/
-
+#endif /* WINDOWSNT */

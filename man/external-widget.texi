@@ -1,6 +1,14 @@
 \input texinfo  @c -*-texinfo-*-
 @setfilename ../info/external-widget.info
 
+@ifinfo
+@dircategory XEmacs Editor
+@direntry
+* External Widget: (external-widget) External Client Widget.
+package.
+@end direntry
+@end ifinfo
+
 @node Top, Using an External Client Widget,, (dir)
 
 An @dfn{external client widget} is a widget that is part of another program

@@ -9,6 +9,14 @@
 @end iftex
 @c %**end of header
 
+@ifinfo
+@dircategory XEmacs Editor
+@direntry
+* Customizations: (custom).	Customization Library.
+package.
+@end direntry
+@end ifinfo
+
 @node Top, Declaring Groups, (dir), (dir)
 @comment  node-name,  next,  previous,  up
 @top The Customization Library

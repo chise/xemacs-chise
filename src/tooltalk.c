@@ -184,7 +184,7 @@ make_tooltalk_message (Tt_message m)
   Lisp_Object val;
   struct Lisp_Tooltalk_Message *msg =
     alloc_lcrecord_type (struct Lisp_Tooltalk_Message,
-			 lrecord_tooltalk_message);
+			 &lrecord_tooltalk_message);
 
   msg->m = m;
   msg->callback = Qnil;
@@ -257,7 +257,7 @@ make_tooltalk_pattern (Tt_pattern p)
 {
   struct Lisp_Tooltalk_Pattern *pat =
     alloc_lcrecord_type (struct Lisp_Tooltalk_Pattern,
-			 lrecord_tooltalk_pattern);
+			 &lrecord_tooltalk_pattern);
   Lisp_Object val;
 
   pat->p = p;

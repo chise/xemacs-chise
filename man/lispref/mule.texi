@@ -1093,49 +1093,356 @@ This function encodes the Big5 character @var{char} to BIG5
 coding-system.  The corresponding character code in Big5 is returned.
 @end defun
 
-@node CCL
+@node CCL, Category Tables, Coding Systems, MULE
 @section CCL
 
-@defun execute-ccl-program ccl-program status
-This function executes @var{ccl-program} with registers initialized by
+CCL (Code Conversion Language) is a simple structured programming
+language designed for character coding conversions.  A CCL program is
+compiled to CCL code (represented by a vector of integers) and executed
+by the CCL interpreter embedded in Emacs.  The CCL interpreter
+implements a virtual machine with 8 registers called @code{r0}, ...,
+@code{r7}, a number of control structures, and some I/O operators.  Take
+care when using registers @code{r0} (used in implicit @dfn{set}
+statements) and especially @code{r7} (used internally by several
+statements and operations, especially for multiple return values and I/O 
+operations).
+
+CCL is used for code conversion during process I/O and file I/O for
+non-ISO2022 coding systems.  (It is the only way for a user to specify a
+code conversion function.)  It is also used for calculating the code
+point of an X11 font from a character code.  However, since CCL is
+designed as a powerful programming language, it can be used for more
+generic calculation where efficiency is demanded.  A combination of
+three or more arithmetic operations can be calculated faster by CCL than
+by Emacs Lisp.
+
+@strong{Warning:}  The code in @file{src/mule-ccl.c} and
+@file{$packages/lisp/mule-base/mule-ccl.el} is the definitive
+description of CCL's semantics.  The previous version of this section
+contained several typos and obsolete names left from earlier versions of
+MULE, and many may remain.  (I am not an experienced CCL programmer; the
+few who know CCL well find writing English painful.)
+
+A CCL program transforms an input data stream into an output data
+stream.  The input stream, held in a buffer of constant bytes, is left
+unchanged.  The buffer may be filled by an external input operation,
+taken from an Emacs buffer, or taken from a Lisp string.  The output
+buffer is a dynamic array of bytes, which can be written by an external
+output operation, inserted into an Emacs buffer, or returned as a Lisp
+string.
+
+A CCL program is a (Lisp) list containing two or three members.  The
+first member is the @dfn{buffer magnification}, which indicates the
+required minimum size of the output buffer as a multiple of the input
+buffer.  It is followed by the @dfn{main block} which executes while
+there is input remaining, and an optional @dfn{EOF block} which is
+executed when the input is exhausted.  Both the main block and the EOF
+block are CCL blocks.
+
+A @dfn{CCL block} is either a CCL statement or list of CCL statements.
+A @dfn{CCL statement} is either a @dfn{set statement} (either an integer 
+or an @dfn{assignment}, which is a list of a register to receive the
+assignment, an assignment operator, and an expression) or a @dfn{control 
+statement} (a list starting with a keyword, whose allowable syntax
+depends on the keyword).
+
+@menu
+* CCL Syntax::          CCL program syntax in BNF notation.
+* CCL Statements::      Semantics of CCL statements.
+* CCL Expressions::     Operators and expressions in CCL.
+* Calling CCL::         Running CCL programs.
+* CCL Examples::        The encoding functions for Big5 and KOI-8.
+@end menu
+
+@node    CCL Syntax, CCL Statements, CCL,       CCL
+@comment Node,       Next,           Previous,  Up
+@subsection CCL Syntax
+
+The full syntax of a CCL program in BNF notation:
+
+@format
+CCL_PROGRAM :=
+        (BUFFER_MAGNIFICATION
+         CCL_MAIN_BLOCK
+         [ CCL_EOF_BLOCK ])
+
+BUFFER_MAGNIFICATION := integer
+CCL_MAIN_BLOCK := CCL_BLOCK
+CCL_EOF_BLOCK := CCL_BLOCK
+
+CCL_BLOCK :=
+        STATEMENT | (STATEMENT [STATEMENT ...])
+STATEMENT :=
+        SET | IF | BRANCH | LOOP | REPEAT | BREAK | READ | WRITE
+        | CALL | END
+
+SET :=
+        (REG = EXPRESSION)
+        | (REG ASSIGNMENT_OPERATOR EXPRESSION)
+        | integer
+
+EXPRESSION := ARG | (EXPRESSION OPERATOR ARG)
+
+IF := (if EXPRESSION CCL_BLOCK [CCL_BLOCK])
+BRANCH := (branch EXPRESSION CCL_BLOCK [CCL_BLOCK ...])
+LOOP := (loop STATEMENT [STATEMENT ...])
+BREAK := (break)
+REPEAT :=
+        (repeat)
+        | (write-repeat [REG | integer | string])
+        | (write-read-repeat REG [integer | ARRAY])
+READ :=
+        (read REG ...)
+        | (read-if (REG OPERATOR ARG) CCL_BLOCK CCL_BLOCK)
+        | (read-branch REG CCL_BLOCK [CCL_BLOCK ...])
+WRITE :=
+        (write REG ...)
+        | (write EXPRESSION)
+        | (write integer) | (write string) | (write REG ARRAY)
+        | string
+CALL := (call ccl-program-name)
+END := (end)
+
+REG := r0 | r1 | r2 | r3 | r4 | r5 | r6 | r7
+ARG := REG | integer
+OPERATOR :=
+        + | - | * | / | % | & | '|' | ^ | << | >> | <8 | >8 | //
+        | < | > | == | <= | >= | != | de-sjis | en-sjis
+ASSIGNMENT_OPERATOR :=
+        += | -= | *= | /= | %= | &= | '|=' | ^= | <<= | >>=
+ARRAY := '[' integer ... ']'
+@end format
+
+@node    CCL Statements, CCL Expressions, CCL Syntax, CCL
+@comment Node,           Next,            Previous,   Up
+@subsection CCL Statements
+
+The Emacs Code Conversion Language provides the following statement
+types: @dfn{set}, @dfn{if}, @dfn{branch}, @dfn{loop}, @dfn{repeat},
+@dfn{break}, @dfn{read}, @dfn{write}, @dfn{call}, and @dfn{end}.
+
+@heading Set statement:
+
+The @dfn{set} statement has three variants with the syntaxes
+@samp{(@var{reg} = @var{expression})},
+@samp{(@var{reg} @var{assignment_operator} @var{expression})}, and
+@samp{@var{integer}}.  The assignment operator variation of the
+@dfn{set} statement works the same way as the corresponding C expression
+statement does.  The assignment operators are @code{+=}, @code{-=},
+@code{*=}, @code{/=}, @code{%=}, @code{&=}, @code{|=}, @code{^=},
+@code{<<=}, and @code{>>=}, and they have the same meanings as in C.  A
+"naked integer" @var{integer} is equivalent to a @var{set} statement of
+the form @code{(r0 = @var{integer})}.
+
+@heading I/O statements:
+
+The @dfn{read} statement takes one or more registers as arguments.  It
+reads one byte (a C char) from the input into each register in turn.  
+
+The @dfn{write} takes several forms.  In the form @samp{(write @var{reg}
+...)} it takes one or more registers as arguments and writes each in
+turn to the output.  The integer in a register (interpreted as an
+Emchar) is encoded to multibyte form (ie, Bufbytes) and written to the
+current output buffer.  If it is less than 256, it is written as is.
+The forms @samp{(write @var{expression})} and @samp{(write
+@var{integer})} are treated analogously.  The form @samp{(write
+@var{string})} writes the constant string to the output.  A
+"naked string" @samp{@var{string}} is equivalent to the statement @samp{(write
+@var{string})}.  The form @samp{(write @var{reg} @var{array})} writes
+the @var{reg}th element of the @var{array} to the output.
+
+@heading Conditional statements:
+
+The @dfn{if} statement takes an @var{expression}, a @var{CCL block}, and
+an optional @var{second CCL block} as arguments.  If the
+@var{expression} evaluates to non-zero, the first @var{CCL block} is
+executed.  Otherwise, if there is a @var{second CCL block}, it is
+executed.
+
+The @dfn{read-if} variant of the @dfn{if} statement takes an
+@var{expression}, a @var{CCL block}, and an optional @var{second CCL
+block} as arguments.  The @var{expression} must have the form
+@code{(@var{reg} @var{operator} @var{operand})} (where @var{operand} is
+a register or an integer).  The @code{read-if} statement first reads
+from the input into the first register operand in the @var{expression},
+then conditionally executes a CCL block just as the @code{if} statement
+does.
+
+The @dfn{branch} statement takes an @var{expression} and one or more CCL
+blocks as arguments.  The CCL blocks are treated as a zero-indexed
+array, and the @code{branch} statement uses the @var{expression} as the
+index of the CCL block to execute.  Null CCL blocks may be used as
+no-ops, continuing execution with the statement following the
+@code{branch} statement in the containing CCL block.  Out-of-range
+values for the @var{EXPRESSION} are also treated as no-ops.
+
+The @dfn{read-branch} variant of the @dfn{branch} statement takes an
+@var{register}, a @var{CCL block}, and an optional @var{second CCL
+block} as arguments.  The @code{read-branch} statement first reads from
+the input into the @var{register}, then conditionally executes a CCL
+block just as the @code{branch} statement does.
+
+@heading Loop control statements:
+
+The @dfn{loop} statement creates a block with an implied jump from the
+end of the block back to its head.  The loop is exited on a @code{break} 
+statement, and continued without executing the tail by a @code{repeat}
+statement.
+
+The @dfn{break} statement, written @samp{(break)}, terminates the
+current loop and continues with the next statement in the current
+block. 
+
+The @dfn{repeat} statement has three variants, @code{repeat},
+@code{write-repeat}, and @code{write-read-repeat}.  Each continues the
+current loop from its head, possibly after performing I/O.
+@code{repeat} takes no arguments and does no I/O before jumping.
+@code{write-repeat} takes a single argument (a register, an 
+integer, or a string), writes it to the output, then jumps.
+@code{write-read-repeat} takes one or two arguments.  The first must
+be a register.  The second may be an integer or an array; if absent, it
+is implicitly set to the first (register) argument.
+@code{write-read-repeat} writes its second argument to the output, then
+reads from the input into the register, and finally jumps.  See the
+@code{write} and @code{read} statements for the semantics of the I/O
+operations for each type of argument.
+
+@heading Other control statements:
+
+The @dfn{call} statement, written @samp{(call @var{ccl-program-name})},
+executes a CCL program as a subroutine.  It does not return a value to
+the caller, but can modify the register status.
+
+The @dfn{end} statement, written @samp{(end)}, terminates the CCL
+program successfully, and returns to caller (which may be a CCL
+program).  It does not alter the status of the registers.
+
+@node    CCL Expressions, Calling CCL, CCL Statements, CCL
+@comment Node,            Next,        Previous,       Up
+@subsection CCL Expressions
+
+CCL, unlike Lisp, uses infix expressions.  The simplest CCL expressions
+consist of a single @var{operand}, either a register (one of @code{r0},
+..., @code{r0}) or an integer.  Complex expressions are lists of the
+form @code{( @var{expression} @var{operator} @var{operand} )}.  Unlike
+C, assignments are not expressions.
+
+In the following table, @var{X} is the target resister for a @dfn{set}.
+In subexpressions, this is implicitly @code{r7}.  This means that
+@code{>8}, @code{//}, @code{de-sjis}, and @code{en-sjis} cannot be used
+freely in subexpressions, since they return parts of their values in
+@code{r7}.  @var{Y} may be an expression, register, or integer, while
+@var{Z} must be a register or an integer.
+
+@multitable @columnfractions .22 .14 .09 .55
+@item Name @tab Operator @tab Code @tab C-like Description
+@item CCL_PLUS @tab @code{+} @tab 0x00 @tab X = Y + Z
+@item CCL_MINUS @tab @code{-} @tab 0x01 @tab X = Y - Z
+@item CCL_MUL @tab @code{*} @tab 0x02 @tab X = Y * Z
+@item CCL_DIV @tab @code{/} @tab 0x03 @tab X = Y / Z
+@item CCL_MOD @tab @code{%} @tab 0x04 @tab X = Y % Z
+@item CCL_AND @tab @code{&} @tab 0x05 @tab X = Y & Z
+@item CCL_OR @tab @code{|} @tab 0x06 @tab X = Y | Z
+@item CCL_XOR @tab @code{^} @tab 0x07 @tab X = Y ^ Z
+@item CCL_LSH @tab @code{<<} @tab 0x08 @tab X = Y << Z
+@item CCL_RSH @tab @code{>>} @tab 0x09 @tab X = Y >> Z
+@item CCL_LSH8 @tab @code{<8} @tab 0x0A @tab X = (Y << 8) | Z
+@item CCL_RSH8 @tab @code{>8} @tab 0x0B @tab X = Y >> 8, r[7] = Y & 0xFF
+@item CCL_DIVMOD @tab @code{//} @tab 0x0C @tab X = Y / Z, r[7] = Y % Z
+@item CCL_LS @tab @code{<} @tab 0x10 @tab X = (X < Y)
+@item CCL_GT @tab @code{>} @tab 0x11 @tab X = (X > Y)
+@item CCL_EQ @tab @code{==} @tab 0x12 @tab X = (X == Y)
+@item CCL_LE @tab @code{<=} @tab 0x13 @tab X = (X <= Y)
+@item CCL_GE @tab @code{>=} @tab 0x14 @tab X = (X >= Y)
+@item CCL_NE @tab @code{!=} @tab 0x15 @tab X = (X != Y)
+@item CCL_ENCODE_SJIS @tab @code{en-sjis} @tab 0x16 @tab X = HIGHER_BYTE (SJIS (Y, Z))
+@item @tab @tab @tab r[7] = LOWER_BYTE (SJIS (Y, Z)
+@item CCL_DECODE_SJIS @tab @code{de-sjis} @tab 0x17 @tab X = HIGHER_BYTE (DE-SJIS (Y, Z))
+@item @tab @tab @tab r[7] = LOWER_BYTE (DE-SJIS (Y, Z))
+@end multitable
+
+The CCL operators are as in C, with the addition of CCL_LSH8, CCL_RSH8,
+CCL_DIVMOD, CCL_ENCODE_SJIS, and CCL_DECODE_SJIS.  The CCL_ENCODE_SJIS
+and CCL_DECODE_SJIS treat their first and second bytes as the high and
+low bytes of a two-byte character code.  (SJIS stands for Shift JIS, an
+encoding of Japanese characters used by Microsoft.  CCL_ENCODE_SJIS is a
+complicated transformation of the Japanese standard JIS encoding to
+Shift JIS.  CCL_DECODE_SJIS is its inverse.)  It is somewhat odd to
+represent the SJIS operations in infix form.
+
+@node    Calling CCL, CCL Examples,  CCL Expressions, CCL
+@comment Node,        Next,          Previous,        Up
+@subsection Calling CCL
+
+CCL programs are called automatically during Emacs buffer I/O when the
+external representation has a coding system type of @code{shift-jis},
+@code{big5}, or @code{ccl}.  The program is specified by the coding
+system (@pxref{Coding Systems}).  You can also call CCL programs from
+other CCL programs, and from Lisp using these functions:
+
+@defun ccl-execute ccl-program status
+Execute @var{ccl-program} with registers initialized by
 @var{status}.  @var{ccl-program} is a vector of compiled CCL code
-created by @code{ccl-compile}.  @var{status} must be a vector of nine
+created by @code{ccl-compile}.  It is an error for the program to try to 
+execute a CCL I/O command.  @var{status} must be a vector of nine
 values, specifying the initial value for the R0, R1 .. R7 registers and
 for the instruction counter IC.  A @code{nil} value for a register
 initializer causes the register to be set to 0.  A @code{nil} value for
 the IC initializer causes execution to start at the beginning of the
 program.  When the program is done, @var{status} is modified (by
 side-effect) to contain the ending values for the corresponding
-registers and IC.
+registers and IC.  
 @end defun
 
-@defun execute-ccl-program-string ccl-program status str
-This function executes @var{ccl-program} with initial @var{status} on
+@defun ccl-execute-on-string ccl-program status str &optional continue
+Execute @var{ccl-program} with initial @var{status} on
 @var{string}.  @var{ccl-program} is a vector of compiled CCL code
 created by @code{ccl-compile}.  @var{status} must be a vector of nine
 values, specifying the initial value for the R0, R1 .. R7 registers and
 for the instruction counter IC.  A @code{nil} value for a register
 initializer causes the register to be set to 0.  A @code{nil} value for
 the IC initializer causes execution to start at the beginning of the
-program.  When the program is done, @var{status} is modified (by
+program.  An optional fourth argument @var{continue}, if non-nil, causes
+the IC to
+remain on the unsatisfied read operation if the program terminates due
+to exhaustion of the input buffer.  Otherwise the IC is set to the end
+of the program.  When the program is done, @var{status} is modified (by 
 side-effect) to contain the ending values for the corresponding
 registers and IC.  Returns the resulting string.
 @end defun
 
-@defun ccl-reset-elapsed-time
-This function resets the internal value which holds the time elapsed by
-CCL interpreter.
+To call a CCL program from another CCL program, it must first be
+registered:
+
+@defun register-ccl-program name ccl-program
+Register @var{name} for CCL program @var{program} in
+@code{ccl-program-table}.  @var{program} should be the compiled form of
+a CCL program, or nil.  Return index number of the registered CCL
+program.
 @end defun
 
+Information about the processor time used by the CCL interpreter can be
+obtained using these functions:
+
 @defun ccl-elapsed-time
-This function returns the time elapsed by CCL interpreter as cons of
-user and system time.  This measures processor time, not real time.
-Both values are floating point numbers measured in seconds.  If only one
+Returns the elapsed processor time of the CCL interpreter as cons of
+user and system time, as
+floating point numbers measured in seconds.  If only one
 overall value can be determined, the return value will be a cons of that
 value and 0.
 @end defun
 
-@node Category Tables
+@defun ccl-reset-elapsed-time
+Resets the CCL interpreter's internal elapsed time registers.
+@end defun
+
+@node    CCL Examples, ,     Calling CCL, CCL
+@comment Node,         Next, Previous,    Up
+@subsection CCL Examples
+
+This section is not yet written.
+
+@node Category Tables, , CCL, MULE
 @section Category Tables
 
   A category table is a type of char table used for keeping track of

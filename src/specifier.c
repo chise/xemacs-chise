@@ -415,7 +415,7 @@ make_specifier_internal (struct specifier_methods *spec_meths,
   Lisp_Object specifier;
   struct Lisp_Specifier *sp = (struct Lisp_Specifier *)
     alloc_lcrecord (sizeof (struct Lisp_Specifier) +
-		    data_size - 1, lrecord_specifier);
+		    data_size - 1, &lrecord_specifier);
 
   sp->methods = spec_meths;
   sp->global_specs = Qnil;

@@ -103,12 +103,8 @@ typedef struct file_data {
 #define RVA_TO_PTR(var,section,filedata) \
 	  ((void *)(RVA_TO_OFFSET(var,section) + (filedata).file_base))
 
-int open_input_file (file_data *p_file, char *name);
-int open_output_file (file_data *p_file, char *name, unsigned long size);
+int open_input_file (file_data *p_file, CONST char *name);
+int open_output_file (file_data *p_file, CONST char *name, unsigned long size);
 void close_file_data (file_data *p_file);
-
-/* Return pointer to section header for section containing the given
-   relative virtual address. */
-IMAGE_SECTION_HEADER * rva_to_section (DWORD rva, IMAGE_NT_HEADERS * nt_header);
 
 #endif /* NTHEAP_H_ */
