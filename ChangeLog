@@ -1,3 +1,8 @@
+2002-11-08  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* etc/char-data/JC3-to-UCS.txt (JC3-52C9): Map to U+812B instead
+	of U+8131.
+
 2002-07-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* etc/char-data/C3-to-UCS.txt: New file.
