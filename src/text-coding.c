@@ -3502,12 +3502,12 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
     {
       unsigned int s1, s2;
 #ifdef UTF2000
-      int code_point = charset_code_point (Vcharset_latin_jisx0201, ch);
+      int code_point = charset_code_point (Vcharset_latin_jisx0201, ch, 0);
 
       if (code_point >= 0)
 	Dynarr_add (dst, code_point);
       else if ((code_point
-		= charset_code_point (Vcharset_japanese_jisx0208_1990, ch))
+		= charset_code_point (Vcharset_japanese_jisx0208_1990, ch, 0))
 	       >= 0)
 	{
 	  ENCODE_SJIS ((code_point >> 8) | 0x80,
@@ -3516,11 +3516,11 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
 	  Dynarr_add (dst, s2);
 	}
       else if ((code_point
-		= charset_code_point (Vcharset_katakana_jisx0201, ch))
+		= charset_code_point (Vcharset_katakana_jisx0201, ch, 0))
 	       >= 0)
 	Dynarr_add (dst, code_point | 0x80);
       else if ((code_point
-		= charset_code_point (Vcharset_japanese_jisx0208, ch))
+		= charset_code_point (Vcharset_japanese_jisx0208, ch, 0))
 	       >= 0)
 	{
 	  ENCODE_SJIS ((code_point >> 8) | 0x80,
@@ -3528,7 +3528,7 @@ char_encode_shift_jis (struct encoding_stream *str, Emchar ch,
 	  Dynarr_add (dst, s1);
 	  Dynarr_add (dst, s2);
 	}
-      else if ((code_point = charset_code_point (Vcharset_ascii, ch))
+      else if ((code_point = charset_code_point (Vcharset_ascii, ch, 0))
 	       >= 0)
 	Dynarr_add (dst, code_point);
       else
@@ -3834,21 +3834,21 @@ char_encode_big5 (struct encoding_stream *str, Emchar ch,
       Lisp_Object ccs
 	= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (str->codesys, 1);
 
-      if ((code_point = charset_code_point (Vcharset_ascii, ch)) >= 0)
+      if ((code_point = charset_code_point (Vcharset_ascii, ch, 0)) >= 0)
 	Dynarr_add (dst, code_point);
-      else if ((code_point = charset_code_point (ccs, ch)) >= 0)
+      else if ((code_point = charset_code_point (ccs, ch, 0)) >= 0)
 	{
 	  Dynarr_add (dst, code_point >> 8);
 	  Dynarr_add (dst, code_point & 0xFF);
 	}
       else if ((code_point
-		= charset_code_point (Vcharset_chinese_big5, ch)) >= 0)
+		= charset_code_point (Vcharset_chinese_big5, ch, 0)) >= 0)
 	{
 	  Dynarr_add (dst, code_point >> 8);
 	  Dynarr_add (dst, code_point & 0xFF);
 	}
       else if ((code_point
-		= charset_code_point (Vcharset_chinese_big5_1, ch)) >= 0)
+		= charset_code_point (Vcharset_chinese_big5_1, ch, 0)) >= 0)
 	{
 	  unsigned int I
 	    = ((code_point >> 8) - 33) * (0xFF - 0xA1)
@@ -3861,7 +3861,7 @@ char_encode_big5 (struct encoding_stream *str, Emchar ch,
 	  Dynarr_add (dst, b2);
 	}
       else if ((code_point
-		= charset_code_point (Vcharset_chinese_big5_2, ch)) >= 0)
+		= charset_code_point (Vcharset_chinese_big5_2, ch, 0)) >= 0)
 	{
 	  unsigned int I
 	    = ((code_point >> 8) - 33) * (0xFF - 0xA1)
@@ -4262,7 +4262,7 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
     }
   else
     {
-      int code_point = charset_code_point (Vcharset_ucs, ch);
+      int code_point = charset_code_point (Vcharset_ucs, ch, 0);
 
       if ( (code_point < 0) || (code_point > 0x10FFFF) )
 	{
@@ -4282,7 +4282,7 @@ char_encode_utf8 (struct encoding_stream *str, Emchar ch,
 		  if (!NILP (ccs = Ffind_charset (ccs)))
 		    {
 		      if ( (code_point
-			    = charset_code_point (ccs, ch)) >= 0 )
+			    = charset_code_point (ccs, ch, 0)) >= 0 )
 			{
 			  cell = Fcdr (cell);
 			  ret = Fcar (cell);
@@ -5653,12 +5653,12 @@ char_encode_iso2022 (struct encoding_stream *str, Emchar ch,
       for (i = 0; i < 4; i++)
 	{
 	  if ((CHARSETP (charset = str->iso2022.charset[i])
-	       && ((code_point = charset_code_point (charset, ch)) >= 0))
+	       && ((code_point = charset_code_point (charset, ch, 0)) >= 0))
 	      ||
 	      (CHARSETP
 	       (charset
 		= CODING_SYSTEM_ISO2022_INITIAL_CHARSET (codesys, i))
-	       && ((code_point = charset_code_point (charset, ch)) >= 0)))
+	       && ((code_point = charset_code_point (charset, ch, 0)) >= 0)))
 	    {
 	      reg = i;
 	      break;
