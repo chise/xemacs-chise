@@ -1,3 +1,11 @@
+2001-03-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R191-Fight.el: Resorted; add missing
+	`ideographic-strokes' attributes; use `ideographic-strokes' if
+	each stroke attribute has same value.
+	(M-45648): Separate JX1-7E3E.
+	(M-45649'): Moved from Ideograph-R169-Gate.el.
+
 2001-03-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R168-Long.el: Resorted; add some missing Morohashi's
