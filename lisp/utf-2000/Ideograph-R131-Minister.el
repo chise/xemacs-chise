@@ -25,7 +25,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 7)
     (chinese-cns11643-4 . #x2471)	; ø»—¦’
-    (chinese-big5-cdp	. #x8DDB)	; ý¢€ˆ·›
+    (=big5-cdp		. #x8DDB)	; ý¢€ˆ·›
     (ucs		. #x268DE)	; ð¦£ž
     ))
 (define-char

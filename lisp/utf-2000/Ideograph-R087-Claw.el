@@ -166,7 +166,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 9)
     (chinese-cns11643-4 . #x2A2A)	; ø»—­¿
-    (chinese-big5-cdp	. #x8CA8)	; ý¢€ˆ²¨
+    (=big5-cdp		. #x8CA8)	; ý¢€ˆ²¨
     (ucs		. #x722F)	; çˆ¯
     ))
 (define-char
@@ -346,7 +346,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 12)
     (chinese-cns11643-4 . #x386A)	; ø»˜ƒ£
-    (chinese-big5-cdp	. #x8C7D)	; ý¢€ˆ±½
+    (=big5-cdp		. #x8C7D)	; ý¢€ˆ±½
     ))
 (define-char
   '((morohashi-daikanwa	19687 0 5)
@@ -622,7 +622,7 @@
     (total-strokes	 . 18)
     (korean-ksc5601	. #x6D49)	; ø»ŠŠœ
     (ideograph-daikanwa . 19711)	; ø¸„³¿
-    (chinese-big5-cdp	. #xC0EF)	; ý¢€Œƒ¯
+    (=big5-cdp		. #xC0EF)	; ý¢€Œƒ¯
     (=jef-china3	. #x58AE)	; øº…¢®
     (ucs-ks		. #x7235)	; ø»ŠŠœ
     (mojikyo		. 019711)	; ý €„³¿

@@ -41,7 +41,7 @@
     (hanyu-dazidian	1 50 6)
     (chinese-cns11643-5 . #x2130)	; ø»™ª»
     (ideograph-daikanwa . 07827)	; ø¸º“
-    (chinese-big5-cdp	. #x88B2)	; ý¢€ˆ¢²
+    (=big5-cdp		. #x88B2)	; ý¢€ˆ¢²
     (ucs		. #x21CFE)	; ð¡³¾
     ))
 (define-char

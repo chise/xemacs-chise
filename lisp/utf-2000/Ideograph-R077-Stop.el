@@ -26,7 +26,7 @@
     (total-strokes	 . 3)
     (hanyu-dazidian	1 28 5)
     (chinese-cns11643-5 . #x2132)	; ø»™ª½
-    (chinese-big5-cdp	. #x8BDB)	; ý¢€ˆ¯›
+    (=big5-cdp		. #x8BDB)	; ý¢€ˆ¯›
     (mojikyo		. 016254)	; ý €ƒ½¾
     (ucs		. #x23942)	; ð£¥‚
     ))
@@ -65,7 +65,7 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x88B1)	; ý¢€ˆ¢±
+     ((=big5-cdp	  . #x88B1)	; ý¢€ˆ¢±
       ))
     (chinese-cns11643-6		. #x232E)	; ø»›·¹
     (ideograph-daikanwa		. 16257)	; ø¸ƒ¾
@@ -212,7 +212,7 @@
       )
      ((ucs		  . #x4E3F)	; ä¸¿
       )
-     ((chinese-big5-cdp	  . #x87D8)	; ý¢€ˆŸ˜
+     ((=big5-cdp	  . #x87D8)	; ý¢€ˆŸ˜
       )
      ((ucs		  . #x4E00)	; ä¸€
       ))

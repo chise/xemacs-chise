@@ -33,7 +33,7 @@
     (ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 0)
     (total-strokes	 . 8)
-    (chinese-big5-cdp	. #x8863)	; ý¢€ˆ¡£
+    (=big5-cdp		. #x8863)	; ý¢€ˆ¡£
     ))
 (define-char
   '((ideographic-radical . 134)	; â¾…
@@ -49,7 +49,7 @@
     (ideographic-radical . 134)	; â¾…
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
-    (chinese-big5-cdp	. #x8CCD)	; ý¢€ˆ³
+    (=big5-cdp		. #x8CCD)	; ý¢€ˆ³
     ))
 (define-char
   '((=>ucs		. #x26954)	; ð¦¥”
@@ -139,7 +139,7 @@
       ))
     (chinese-cns11643-6 . #x3B3B)	; ø»œ›–
     (ideograph-daikanwa . 30182)	; ø¸‡—¦
-    (chinese-big5-cdp	. #x8570)	; ý¢€ˆ•°
+    (=big5-cdp		. #x8570)	; ý¢€ˆ•°
     (ucs		. #x2695B)	; ð¦¥›
     ))
 (define-char
@@ -357,7 +357,7 @@
 		 (ucs		     . #x2FF1)	; â¿±
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BE9)	; ý¢€ˆ¯©
+     ((=big5-cdp	  . #x8BE9)	; ý¢€ˆ¯©
       )
      ((ucs		  . #x81FC)	; è‡¼
       ))
@@ -498,7 +498,7 @@
       )
      ((ucs		  . #x81FC)	; è‡¼
       )
-     ((chinese-big5-cdp	  . #x8C40)	; ý¢€ˆ±€
+     ((=big5-cdp	  . #x8C40)	; ý¢€ˆ±€
       ))
     (chinese-gb2312	. #x742A)	; ø»†€‡
     (chinese-isoir165	. #x742A)	; ø»Ž¨—
@@ -597,9 +597,9 @@
 		 (ucs		     . #x2FF6)	; â¿¶
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BA8)	; ý¢€ˆ®¨
+     ((=big5-cdp	  . #x8BA8)	; ý¢€ˆ®¨
       )
-     ((chinese-big5-cdp	  . #x8BC2)	; ý¢€ˆ¯‚
+     ((=big5-cdp	  . #x8BC2)	; ý¢€ˆ¯‚
       ))
     (chinese-cns11643-1 . #x6A58)	; ø»’®¡
     (chinese-big5	. #xBB50)	; ý¢€‹­
@@ -830,7 +830,7 @@
 		 (ucs		     . #x2FF6)	; â¿¶
 		 )
       )
-     ((chinese-big5-cdp	  . #x8BA8)	; ý¢€ˆ®¨
+     ((=big5-cdp	  . #x8BA8)	; ý¢€ˆ®¨
       )
      ((ucs		  . #x540C)	; åŒ
       ))
@@ -1001,7 +1001,8 @@
       )
      ((ucs		  . #x8207)	; èˆ‡
       )
-     ((chinese-big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+     ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (shinjigen-2	. 2903)
     (=jis-x0208		. #x5A2A)	; ø½‹‰³
@@ -1023,7 +1024,8 @@
       )
      ((chinese-cns11643-1 . #x6A58)	; ø»’®¡
       )
-     ((chinese-big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+     ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+      (mojikyo		  . 070081)	; ý €‘‡
       ))
     (chinese-cns11643-1 . #x7528)	; ø»’½»
     (chinese-big5	. #xC17C)	; ý¢€Œ…¼
@@ -1259,7 +1261,7 @@
     (total-strokes	 . 19)
     (ideographic-structure
      (:cdp-combinator	4)
-     ((chinese-big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
+     ((=big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
       )
      ((ucs		  . #x540C)	; åŒ
       )
@@ -1282,7 +1284,7 @@
     (total-strokes	 . 20)
     (ideographic-structure
      (:cdp-combinator	4)
-     ((chinese-big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
+     ((=big5-cdp	  . #x8B64)	; ý¢€ˆ­¤
       )
      ((ucs		  . #x540C)	; åŒ
       )

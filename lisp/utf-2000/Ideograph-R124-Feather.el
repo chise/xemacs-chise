@@ -402,7 +402,8 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component hood")
-      (chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((korean-ksc5601	  . #x6962)	; ø»Š„½
       (ideograph-daikanwa . 28614)	; ø¸†¿†
@@ -420,11 +421,12 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component hood")
-      (chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x7FBD)	; ç¾½
       ))
-    (chinese-big5-cdp	. #x8ACB)	; ý¢€ˆ«‹
+    (=big5-cdp		. #x8ACB)	; ý¢€ˆ«‹
     (mojikyo		. 074841)	; ý €’‘™
     ))
 (define-char
@@ -2174,13 +2176,13 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
+     ((=big5-cdp	  . #x8B7A)	; ý¢€ˆ­º
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((chinese-big5-cdp   . #x8AF9)	; ý¢€ˆ«¹
+       ((ucs		    . #x6535)	; æ”µ
 	)
        ((korean-ksc5601	    . #x6962)	; ø»Š„½
 	(ideograph-daikanwa . 28614)	; ø¸†¿†

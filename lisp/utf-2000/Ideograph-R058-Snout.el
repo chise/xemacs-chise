@@ -34,7 +34,7 @@
     (=jis-x0208		. #x5740)	; ø½‹…¯
     (chinese-cns11643-3 . #x2141)	; ø»•—„
     (ideograph-daikanwa . 09909)	; ø¸‚šµ
-    (chinese-big5-cdp	. #x8C53)	; ý¢€ˆ±“
+    (=big5-cdp		. #x8C53)	; ý¢€ˆ±“
     (ucs		. #x5F51)	; å½‘
     ))
 (define-char

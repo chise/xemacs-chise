@@ -17,7 +17,7 @@
     (total-strokes	 . 2)
     (hanyu-dazidian	1 306 16)
     (ideograph-daikanwa . 01801)	; ø¸€œ‰
-    (chinese-big5-cdp	. #x8AAF)	; ý¢€ˆª¯
+    (=big5-cdp		. #x8AAF)	; ý¢€ˆª¯
     (ucs		. #x20674)	; ð ™´
     ))
 (define-char
@@ -152,7 +152,7 @@
     (japanese-jisx0212	. #x332F)	; ø»Š¾º
     (chinese-cns11643-4 . #x2160)	; ø»—¡§
     (ideograph-daikanwa . 01807)	; ø¸€œ
-    (chinese-big5-cdp	. #x8DC7)	; ý¢€ˆ·‡
+    (=big5-cdp		. #x8DC7)	; ý¢€ˆ·‡
     (=cbeta		. #x0277)	; ø¸ ‰·
     (ucs		. #x51F7)	; å‡·
     ))
@@ -258,7 +258,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+     ((=big5-cdp	  . #x8BF1)	; ý¢€ˆ¯±
+      (mojikyo		  . 070081)	; ý €‘‡
       )
      ((ucs		  . #x51F5)	; å‡µ
       ))
@@ -298,7 +299,7 @@
     (total-strokes	 . 6)
     (hanyu-dazidian	1 309 2)
     (chinese-cns11643-6 . #x2361)	; ø»›¸¬
-    (chinese-big5-cdp	. #x87B4)	; ý¢€ˆž´
+    (=big5-cdp		. #x87B4)	; ý¢€ˆž´
     (ucs		. #x2067F)	; ð ™¿
     ))
 (define-char
@@ -336,7 +337,7 @@
     (hanyu-dazidian	1 29 6)
     (chinese-cns11643-5 . #x222A)	; ø»™¬“
     (ideograph-daikanwa . 01818)	; ø¸€œš
-    (chinese-big5-cdp	. #x8869)	; ý¢€ˆ¡©
+    (=big5-cdp		. #x8869)	; ý¢€ˆ¡©
     (ucs		. #x20686)	; ð š†
     ))
 (define-char
@@ -558,7 +559,7 @@
     (hanyu-dazidian	1 309 14)
     (chinese-cns11643-6 . #x3548)	; ø»œ’¯
     (ideograph-daikanwa . 01833)	; ø¸€œ©
-    (chinese-big5-cdp	. #x87BF)	; ý¢€ˆž¿
+    (=big5-cdp		. #x87BF)	; ý¢€ˆž¿
     (ucs		. #x20692)	; ð š’
     ))
 (define-char

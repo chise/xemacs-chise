@@ -94,7 +94,7 @@
     (chinese-isoir165	. #x306C)	; ø»…¡
     (chinese-cns11643-3 . #x2153)	; ø»•—–
     (ideograph-daikanwa . 02294)	; ø¸€£¶
-    (chinese-big5-cdp	. #x8A63)	; ý¢€ˆ©£
+    (=big5-cdp		. #x8A63)	; ý¢€ˆ©£
     (ucs		. #x529E)	; åŠž
     ))
 (define-char
@@ -767,7 +767,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((chinese-big5-cdp   . #x89E1)	; ý¢€ˆ§¡
+       ((=big5-cdp	    . #x89E1)	; ý¢€ˆ§¡
 	)
        ((ucs		    . #x571F)	; åœŸ
 	))
@@ -792,7 +792,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((chinese-big5-cdp   . #x89E1)	; ý¢€ˆ§¡
+       ((=big5-cdp	    . #x89E1)	; ý¢€ˆ§¡
 	)
        ((ucs		    . #x5DE5)	; å·¥
 	))
@@ -813,7 +813,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
       )
-     ((chinese-big5-cdp	  . #x8957)	; ý¢€ˆ¥—
+     ((=big5-cdp	  . #x8957)	; ý¢€ˆ¥—
       )
      ((ucs		  . #x5196)	; å†–
       )
@@ -875,12 +875,12 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8BFA)	; ý¢€ˆ¯º
+     ((=big5-cdp	  . #x8BFA)	; ý¢€ˆ¯º
       )
      ((ucs		  . #x529B)	; åŠ›
       ))
     (chinese-cns11643-3 . #x2761)	; ø»• ˜
-    (chinese-big5-cdp	. #x8C75)	; ý¢€ˆ±µ
+    (=big5-cdp		. #x8C75)	; ý¢€ˆ±µ
     (ucs		. #x52B5)	; åŠµ
     ))
 (define-char
@@ -1230,7 +1230,8 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-big5-cdp   . #x8AFA)	; ý¢€ˆ«º
+       ((name		    . "CJK RADICAL HAND")
+	(ucs		    . #x2E98)	; âº˜
 	)
        ((ucs		    . #x4E38)	; ä¸¸
 	))
@@ -1676,7 +1677,7 @@
     (total-strokes	 . 9)
     (chinese-cns11643-6 . #x2F28)	; ø»œ‰›
     (ideograph-daikanwa . 48944)	; ø¸‹¼°
-    (chinese-big5-cdp	. #x85C9)	; ý¢€ˆ—‰
+    (=big5-cdp		. #x85C9)	; ý¢€ˆ—‰
     (ucs		. #x20866)	; ð ¡¦
     ))
 (define-char
@@ -2211,7 +2212,8 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component hood")
-      (chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (mojikyo		  . 070546)	; ý €‘Ž’
       )
      ((ucs		  . #x52A9)	; åŠ©
       ))
@@ -2284,7 +2286,7 @@
       )
      ((ucs		  . #x77DB)	; çŸ›
       )
-     ((chinese-big5-cdp	  . #x8C64)	; ý¢€ˆ±¤
+     ((=big5-cdp	  . #x8C64)	; ý¢€ˆ±¤
       ))
     (shinjigen-1	. 742)
     (shinjigen-2	. 742)
@@ -2583,7 +2585,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8BE3)	; ý¢€ˆ¯£
+     ((=big5-cdp	  . #x8BE3)	; ý¢€ˆ¯£
       )
      ((ucs		  . #x529B)	; åŠ›
       ))

@@ -41,7 +41,7 @@
     (total-strokes	 . 4)
     (hanyu-dazidian	1 13 1)
     (chinese-cns11643-3 . #x216A)	; ø»•—­
-    (chinese-big5-cdp	. #x88DC)	; ý¢€ˆ£œ
+    (=big5-cdp		. #x88DC)	; ý¢€ˆ£œ
     (ucs		. #x3E26)	; ã¸¦
     ))
 (define-char

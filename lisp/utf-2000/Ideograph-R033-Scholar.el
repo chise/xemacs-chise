@@ -72,7 +72,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (ucs		  . #x2FF0)	; â¿°
       )
-     ((chinese-big5-cdp	  . #x89B1)	; ý¢€ˆ¦±
+     ((=big5-cdp	  . #x89B1)	; ý¢€ˆ¦±
       )
      ((ucs		  . #x58EB)	; å£«
       ))
@@ -383,7 +383,7 @@
       )
      ((ucs		  . #x58EB)	; å£«
       )
-     ((chinese-big5-cdp	  . #x8A49)	; ý¢€ˆ©‰
+     ((=big5-cdp	  . #x8A49)	; ý¢€ˆ©‰
       ))
     (shinjigen-2	. 1531)
     (japanese-jisx0208-1978	. #x5464)	; ø»ƒ‡½
@@ -448,7 +448,7 @@
       )
      ((ucs		  . #x58EB)	; å£«
       )
-     ((chinese-big5-cdp	  . #x8DE8)	; ý¢€ˆ·¨
+     ((=big5-cdp	  . #x8DE8)	; ý¢€ˆ·¨
       ))
     (shinjigen-2	. 1531)
     (japanese-jisx0208-1978	. #x445B)	; ø»‚°”
@@ -607,7 +607,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
       )
-     ((chinese-big5-cdp	  . #x8D53)	; ý¢€ˆµ“
+     ((=big5-cdp	  . #x8D53)	; ý¢€ˆµ“
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
@@ -719,7 +719,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8A4E)	; ý¢€ˆ©Ž
+     ((=big5-cdp	  . #x8A4E)	; ý¢€ˆ©Ž
       )
      ((ucs		  . #x540B)	; å‹
       ))
@@ -743,7 +743,7 @@
       )
      ((ucs		  . #x58EB)	; å£«
       )
-     ((chinese-big5-cdp	  . #x8B48)	; ý¢€ˆ­ˆ
+     ((=big5-cdp	  . #x8B48)	; ý¢€ˆ­ˆ
       )
      ((ucs		  . #x56FA)	; å›º
       ))

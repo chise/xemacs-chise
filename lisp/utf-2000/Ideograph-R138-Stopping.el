@@ -39,7 +39,7 @@
     (<-simplified-ideograph
      ((ideograph-daikanwa . 30597)	; ø¸‡ž…
       ))
-    (chinese-big5-cdp	. #x8C42)	; ý¢€ˆ±‚
+    (=big5-cdp		. #x8C42)	; ý¢€ˆ±‚
     (mojikyo		. 075143)	; ý €’–‡
     ))
 (define-char

@@ -913,7 +913,7 @@
     (japanese-jisx0212	. #x392E)	; ø»‹‡­
     (=jis-x0213-2-2000	. #x254B)	; ø»¤£¢
     (ideograph-daikanwa . 06099)	; ø¸Ÿ“
-    (chinese-big5-cdp	. #x8DD2)	; ý¢€ˆ·’
+    (=big5-cdp		. #x8DD2)	; ý¢€ˆ·’
     (=jef-china3	. #x48F0)	; øº„£°
     (ucs		. #x599F)	; å¦Ÿ
     ))

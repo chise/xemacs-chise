@@ -152,7 +152,7 @@
     (shinjigen-1	. 849)
     (chinese-cns11643-3 . #x2629)	; ø»•ž‚
     (ideograph-daikanwa . 11708)	; ø¸‚¶¼
-    (chinese-big5-cdp	. #x89B5)	; ý¢€ˆ¦µ
+    (=big5-cdp		. #x89B5)	; ý¢€ˆ¦µ
     (ucs		. #x623C)	; æˆ¼
     ))
 (define-char

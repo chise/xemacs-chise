@@ -101,7 +101,7 @@
   '((ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
-    (chinese-big5-cdp	. #x8C68)	; ý¢€ˆ±¨
+    (=big5-cdp		. #x8C68)	; ý¢€ˆ±¨
     (=cbeta		. #x1551)	; ø¸¡•‘
     ))
 (define-char

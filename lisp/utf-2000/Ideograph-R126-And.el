@@ -20,7 +20,7 @@
     (hanyu-dazidian-char . 5)
     (chinese-cns11643-5 . #x2179)	; ø»™¬„
     (ideograph-daikanwa . 28872)	; ø¸‡ƒˆ
-    (chinese-big5-cdp	. #x87DC)	; ý¢€ˆŸœ
+    (=big5-cdp		. #x87DC)	; ý¢€ˆŸœ
     (ucs		. #x264D0)	; ð¦“
     ))
 (define-char

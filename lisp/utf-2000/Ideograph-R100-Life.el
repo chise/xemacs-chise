@@ -24,7 +24,7 @@
   '((ideographic-radical . 100)	; â½£
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-big5-cdp	. #x8B77)	; ý¢€ˆ­·
+    (=big5-cdp		. #x8B77)	; ý¢€ˆ­·
     (=jef-china3	. #x72FD)	; øº‡‹½
     (mojikyo		. 073909)	; ý €’‚µ
     ))

@@ -7,7 +7,7 @@
     (chinese-isoir165	. #x616A)	; ø»Ž
     (chinese-cns11643-3 . #x2142)	; ø»•—…
     (ideograph-daikanwa . 09962)	; ø¸‚›ª
-    (chinese-big5-cdp	. #x8B71)	; ý¢€ˆ­±
+    (=big5-cdp		. #x8B71)	; ý¢€ˆ­±
     (=cbeta		. #x179F)	; ø¸¡žŸ
     (ucs		. #x5F61)	; å½¡
     ))
@@ -58,7 +58,11 @@
       (ucs		  . #x2FF1)	; â¿±
       )
      ((name*		  . "ideographic component person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
+      (=jef-china3	  . #x71FA)	; øº‡‡º
+      (mojikyo		  . 050926)	; ý €Œ›®
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -898,7 +902,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-big5-cdp   . #x8B71)	; ý¢€ˆ­±
+       ((ucs		    . #x5F61)	; å½¡
 	)
        ((ucs		    . #x5F99)	; å¾™
 	))
@@ -921,7 +925,7 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-big5-cdp   . #x8B71)	; ý¢€ˆ­±
+       ((ucs		    . #x5F61)	; å½¡
 	)
        ((ucs		    . #x5F99)	; å¾™
 	))

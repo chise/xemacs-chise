@@ -26,7 +26,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
     (chinese-cns11643-4 . #x2129)	; ø»— °
-    (chinese-big5-cdp	. #x8AAE)	; ý¢€ˆª®
+    (=big5-cdp		. #x8AAE)	; ý¢€ˆª®
     (ucs		. #x20627)	; ð ˜§
     ))
 (define-char
@@ -195,7 +195,7 @@
     (shinjigen-2	. 568)
     (=jis-x0208		. #x3D68)	; ø½Š ‹
     (ideograph-daikanwa . 01745)	; ø¸€›‘
-    (chinese-big5-cdp	. #x8BE4)	; ý¢€ˆ¯¤
+    (=big5-cdp		. #x8BE4)	; ý¢€ˆ¯¤
     (ucs		. #x51E6)	; å‡¦
     ))
 (define-char
@@ -395,7 +395,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8964)	; ý¢€ˆ¥¤
+     ((=big5-cdp	  . #x8964)	; ý¢€ˆ¥¤
       )
      ((ucs		  . #x51E0)	; å‡ 
       ))
@@ -897,7 +897,11 @@
       (ucs		  . #x2FF3)	; â¿³
       )
      ((name*		  . "ideographic component person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+      (=big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      (ideograph-gt-k	  . 00057)	; ý¡„€€¹
+      (=jef-china3	  . #x71FA)	; øº‡‡º
+      (mojikyo		  . 050926)	; ý €Œ›®
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")

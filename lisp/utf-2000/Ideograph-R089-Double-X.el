@@ -124,7 +124,7 @@
   '((ideographic-radical . 89)	; â½˜
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (chinese-big5-cdp	. #x87C7)	; ý¢€ˆŸ‡
+    (=big5-cdp		. #x87C7)	; ý¢€ˆŸ‡
     ))
 (define-char
   '((ideographic-radical . 89)	; â½˜
@@ -133,7 +133,7 @@
     (hanyu-dazidian	1 30 12)
     (chinese-cns11643-6 . #x4B23)	; ø»œ²ž
     (ideograph-daikanwa . 19747)	; ø¸„´£
-    (chinese-big5-cdp	. #x85DD)	; ý¢€ˆ—
+    (=big5-cdp		. #x85DD)	; ý¢€ˆ—
     (ucs		. #x24563)	; ð¤•£
     ))
 (define-char
@@ -192,7 +192,20 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
       (ucs		  . #x2FF3)	; â¿³
       )
-     ((chinese-big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+	(ucs		    . #x2FF1)	; â¿±
+	)
+       ((name*		    . "ideographic component person as roof")
+	(ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	(=big5-cdp	    . #x8B5D)	; ý¢€ˆ­
+	(ideograph-gt-k	    . 00057)	; ý¡„€€¹
+	(=jef-china3	    . #x71FA)	; øº‡‡º
+	(mojikyo	    . 050926)	; ý €Œ›®
+	)
+       ((ucs		    . #x4E00)	; ä¸€
+	))
+      (=big5-cdp	  . #x8AFC)	; ý¢€ˆ«¼
       )
      ((ideographic-structure
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
@@ -255,9 +268,14 @@
 	  (ucs		      . #x2FF1)	; â¿±
 	  )
 	 ((name*	      . "ideographic component person as roof")
-	  (chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (ideograph-gt-k     . 00057)	; ý¡„€€¹
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
+	  (mojikyo	      . 050926)	; ý €Œ›®
 	  )
-	 ((chinese-big5-cdp   . #x8B54)	; ý¢€ˆ­”
+	 ((name		      . "CJK RADICAL SMALL ONE")
+	  (ucs		      . #x2E8C)	; âºŒ
 	  ))
 	)
        ((ucs		    . #x5182)	; å†‚
@@ -340,7 +358,11 @@
 	  (ucs		      . #x2FF3)	; â¿³
 	  )
 	 ((name*	      . "ideographic component person as roof")
-	  (chinese-big5-cdp   . #x8B5D)	; ý¢€ˆ­
+	  (ideograph-gt-pj-9  . #x4D4C)	; ý¢€ˆ­
+	  (=big5-cdp	      . #x8B5D)	; ý¢€ˆ­
+	  (ideograph-gt-k     . 00057)	; ý¡„€€¹
+	  (=jef-china3	      . #x71FA)	; øº‡‡º
+	  (mojikyo	      . 050926)	; ý €Œ›®
 	  )
 	 ((ucs		      . #x6B62)	; æ­¢
 	  )

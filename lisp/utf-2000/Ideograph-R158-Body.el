@@ -435,7 +435,7 @@
     (chinese-cns11643-3 . #x497D)	; ø»–’°
     (=jis-x0213-2-2000	. #x7955)	; ø»¦Ÿ„
     (ideograph-daikanwa . 38089)	; ø¸‰“‰
-    (chinese-big5-cdp	. #x8AE0)	; ý¢€ˆ« 
+    (=big5-cdp		. #x8AE0)	; ý¢€ˆ« 
     (ucs-jis		. #x8EB3)	; ø»Œ¡
     ))
 (define-char

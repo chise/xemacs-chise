@@ -3864,7 +3864,7 @@
     (korean-ksc5601	. #x4A68)	; ø»‰—¡
     (=jis-x0213-1-2000	. #x7B6F)	; ø»¤˜–
     (ideograph-daikanwa . 34435)	; ø¸ˆšƒ
-    (chinese-big5-cdp	. #xBDC5)	; ý¢€‹·…
+    (=big5-cdp		. #xBDC5)	; ý¢€‹·…
     (ucs-ks		. #x8910)	; ï© 
     (ucs		. #xFA60)	; ï© 
     ))

@@ -24,7 +24,7 @@
     (total-strokes	 . 5)
     (chinese-gb2312	. #x6E44)	; ø»…·­
     (chinese-isoir165	. #x6E44)	; ø»ŽŸ½
-    (chinese-big5-cdp	. #x895A)	; ý¢€ˆ¥š
+    (=big5-cdp		. #x895A)	; ý¢€ˆ¥š
     (ucs		. #x9485)	; é’…
     ))
 (define-char

@@ -59,7 +59,7 @@
        ((korean-ksc5601	    . #x5821)	; ø»‰ª¾
 	(ideograph-daikanwa . 25721)	; ø¸†‘¹
 	)
-       ((chinese-big5-cdp   . #x8B75)	; ý¢€ˆ­µ
+       ((=big5-cdp	    . #x8B75)	; ý¢€ˆ­µ
 	))
       )
      ((ucs		  . #x4E5A)	; ä¹š
@@ -83,7 +83,7 @@
 	)
        ((ucs		    . #x7ACB)	; ç«‹
 	)
-       ((chinese-big5-cdp   . #x8B75)	; ý¢€ˆ­µ
+       ((=big5-cdp	    . #x8B75)	; ý¢€ˆ­µ
 	))
       )
      ((ucs		  . #x4E5A)	; ä¹š
@@ -105,7 +105,7 @@
 	)
        ((ucs		    . #x7ACB)	; ç«‹
 	)
-       ((chinese-big5-cdp   . #x8B75)	; ý¢€ˆ­µ
+       ((=big5-cdp	    . #x8B75)	; ý¢€ˆ­µ
 	))
       )
      ((ucs		  . #x4E5A)	; ä¹š

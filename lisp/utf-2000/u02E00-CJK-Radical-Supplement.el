@@ -35,7 +35,7 @@
      ((ucs		  . #x4E5A)	; ä¹š
       ))
     (ideograph-cdp	. -21)
-    (chinese-big5-cdp	. #x8C5D)	; ý¢€ˆ±
+    (=big5-cdp		. #x8C5D)	; ý¢€ˆ±
     (ucs		. #x2E83)	; âºƒ
     ))
 (define-char
@@ -45,7 +45,7 @@
     (mirrored		. nil)
     (total-strokes	 . 1)
     (ideograph-cdp	. -13)
-    (chinese-big5-cdp	. #x8D43)	; ý¢€ˆµƒ
+    (=big5-cdp		. #x8D43)	; ý¢€ˆµƒ
     (ucs		. #x2E84)	; âº„
     ))
 (define-char
@@ -58,7 +58,7 @@
      ((ucs		  . #x4EBB)	; äº»
       ))
     (ideograph-cdp	. -64)
-    (chinese-big5-cdp	. #x8AF5)	; ý¢€ˆ«µ
+    (=big5-cdp		. #x8AF5)	; ý¢€ˆ«µ
     (ucs		. #x2E85)	; âº…
     ))
 (define-char
@@ -68,7 +68,7 @@
     (mirrored		. nil)
     (total-strokes	 . 2)
     (ideograph-cdp	. -80)
-    (chinese-big5-cdp	. #x8BF2)	; ý¢€ˆ¯²
+    (=big5-cdp		. #x8BF2)	; ý¢€ˆ¯²
     (ucs		. #x2E86)	; âº†
     ))
 (define-char
@@ -81,7 +81,7 @@
      ((ucs		  . #x51E0)	; å‡ 
       ))
     (ideograph-cdp	. -79)
-    (chinese-big5-cdp	. #x8D66)	; ý¢€ˆµ¦
+    (=big5-cdp		. #x8D66)	; ý¢€ˆµ¦
     (ucs		. #x2E87)	; âº‡
     ))
 (define-char
@@ -110,7 +110,7 @@
     (mirrored		. nil)
     (total-strokes	 . 2)
     (ideograph-cdp	. -51)
-    (chinese-big5-cdp	. #x8B78)	; ý¢€ˆ­¸
+    (=big5-cdp		. #x8B78)	; ý¢€ˆ­¸
     (ucs		. #x2E8A)	; âºŠ
     ))
 (define-char
@@ -129,7 +129,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ideograph-gt-pj-k1 . #x3233)	; âºŒ
-    (chinese-big5-cdp	. #x8B54)	; ý¢€ˆ­”
+    (=big5-cdp		. #x8B54)	; ý¢€ˆ­”
     (ideograph-gt-k	. 00303)	; ý¡„€„¯
     (ucs		. #x2E8C)	; âºŒ
     ))
@@ -236,7 +236,7 @@
      ((ucs		  . #x5FC4)	; å¿„
       ))
     (ideograph-gt-pj-3	. #x4D5F)	; âº–
-    (chinese-big5-cdp	. #x8B51)	; ý¢€ˆ­‘
+    (=big5-cdp		. #x8B51)	; ý¢€ˆ­‘
     (ideograph-gt-k	. 00302)	; ý¡„€„®
     (ucs		. #x2E96)	; âº–
     ))
@@ -258,7 +258,7 @@
     (<-radical
      ((ucs		  . #x624C)	; æ‰Œ
       ))
-    (chinese-big5-cdp	. #x8AFA)	; ý¢€ˆ«º
+    (=big5-cdp		. #x8AFA)	; ý¢€ˆ«º
     (ucs		. #x2E98)	; âº˜
     ))
 (define-char
@@ -287,7 +287,8 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (<-radical
-     ((chinese-big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+     ((=big5-cdp	  . #x8A78)	; ý¢€ˆ©¸
+      (mojikyo		  . 070546)	; ý €‘Ž’
       ))
     (ucs		. #x2E9C)	; âºœ
     ))
@@ -339,7 +340,7 @@
     (<-radical
      ((ucs		  . #x6C35)	; æ°µ
       ))
-    (chinese-big5-cdp	. #x8AF6)	; ý¢€ˆ«¶
+    (=big5-cdp		. #x8AF6)	; ý¢€ˆ«¶
     (ucs		. #x2EA1)	; âº¡
     ))
 (define-char
@@ -350,7 +351,7 @@
     (<-radical
      ((ucs		  . #x6C3A)	; æ°º
       ))
-    (chinese-big5-cdp	. #x8C43)	; ý¢€ˆ±ƒ
+    (=big5-cdp		. #x8C43)	; ý¢€ˆ±ƒ
     (ucs		. #x2EA2)	; âº¢
     ))
 (define-char
@@ -373,7 +374,7 @@
      ((ucs		  . #x722B)	; çˆ«
       ))
     (ideograph-cdp	. -493)
-    (chinese-big5-cdp	. #x8B58)	; ý¢€ˆ­˜
+    (=big5-cdp		. #x8B58)	; ý¢€ˆ­˜
     (ucs		. #x2EA4)	; âº¤
     ))
 (define-char
@@ -395,7 +396,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-cdp	. #x8B66)	; ý¢€ˆ­¦
+    (=big5-cdp		. #x8B66)	; ý¢€ˆ­¦
     (ucs		. #x2EA7)	; âº§
     ))
 (define-char
@@ -450,7 +451,7 @@
     (<-radical
      ((ucs		  . #x793B)	; ç¤»
       ))
-    (chinese-big5-cdp	. #x8B70)	; ý¢€ˆ­°
+    (=big5-cdp		. #x8B70)	; ý¢€ˆ­°
     (ucs		. #x2EAD)	; âº­
     ))
 (define-char
@@ -458,7 +459,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-cdp	. #x8B4C)	; ý¢€ˆ­Œ
+    (=big5-cdp		. #x8B4C)	; ý¢€ˆ­Œ
     (ucs		. #x2EAE)	; âº®
     ))
 (define-char
@@ -530,12 +531,12 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-big5-cdp	. #x8970)	; ý¢€ˆ¥°
+    (=big5-cdp		. #x8970)	; ý¢€ˆ¥°
     (ucs		. #x2EB6)	; âº¶
     ))
 (define-char
   '((=>ucs		. #x2EB6)	; âº¶
-    (chinese-big5-cdp	. #x8CCC)	; ý¢€ˆ³Œ
+    (=big5-cdp		. #x8CCC)	; ý¢€ˆ³Œ
     ))
 (define-char
   '((name		. "CJK RADICAL RAM")
@@ -598,7 +599,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-big5-cdp	. #x8958)	; ý¢€ˆ¥˜
+    (=big5-cdp		. #x8958)	; ý¢€ˆ¥˜
     ))
 (define-char
   '((=>ucs		. #x2EBC)	; âº¼
@@ -606,7 +607,7 @@
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
-    (chinese-big5-cdp	. #x8A73)	; ý¢€ˆ©³
+    (=big5-cdp		. #x8A73)	; ý¢€ˆ©³
     ))
 (define-char
   '((name		. "CJK RADICAL MORTAR")
@@ -640,7 +641,7 @@
     (chinese-cns11643-4 . #x2153)	; ø»—¡š
     (=jis-x0213-2-2000	. #x7575)	; ø»¦™¬
     (ideograph-daikanwa . 30639)	; ø¸‡ž¯
-    (chinese-big5-cdp	. #x8AFE)	; ý¢€ˆ«¾
+    (=big5-cdp		. #x8AFE)	; ý¢€ˆ«¾
     (ucs-cns		. #x8279)	; âº¿
     (ucs		. #x2EBF)	; âº¿
     ))
@@ -672,7 +673,7 @@
      ((ucs		  . #x8864)	; è¡¤
       ))
     (ideograph-cdp	. -849)
-    (chinese-big5-cdp	. #x8BB1)	; ý¢€ˆ®±
+    (=big5-cdp		. #x8BB1)	; ý¢€ˆ®±
     (ucs		. #x2EC2)	; â»‚
     ))
 (define-char
@@ -771,7 +772,7 @@
      ((ucs		  . #x8FB6)	; è¾¶
       ))
     (=jis-x0213-2-2000	. #x7969)	; ø»¦Ÿ˜
-    (chinese-big5-cdp	. #x8966)	; ý¢€ˆ¥¦
+    (=big5-cdp		. #x8966)	; ý¢€ˆ¥¦
     (ucs		. #x2ECC)	; â»Œ
     ))
 (define-char
@@ -800,7 +801,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-cns11643-4 . #x2154)	; ø»—¡›
-    (chinese-big5-cdp	. #x8AF7)	; ý¢€ˆ«·
+    (=big5-cdp		. #x8AF7)	; ý¢€ˆ«·
     (ucs-cns		. #x8FB6)	; â»Ž
     (ucs		. #x2ECE)	; â»Ž
     ))

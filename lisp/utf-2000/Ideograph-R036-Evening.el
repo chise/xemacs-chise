@@ -135,9 +135,9 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x88B3)	; ý¢€ˆ¢³
+     ((=big5-cdp	  . #x88B3)	; ý¢€ˆ¢³
       )
-     ((chinese-big5-cdp	  . #x88B3)	; ý¢€ˆ¢³
+     ((=big5-cdp	  . #x88B3)	; ý¢€ˆ¢³
       ))
     (chinese-cns11643-6		. #x243A)	; ø»›¹£
     (ideograph-daikanwa		. 05758)	; ø¸™¾
@@ -249,9 +249,9 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
 	(ucs		    . #x2FF0)	; â¿°
 	)
-       ((chinese-big5-cdp   . #x8BEA)	; ý¢€ˆ¯ª
+       ((=big5-cdp	    . #x8BEA)	; ý¢€ˆ¯ª
 	)
-       ((chinese-big5-cdp   . #x89F3)	; ý¢€ˆ§³
+       ((=big5-cdp	    . #x89F3)	; ý¢€ˆ§³
 	))
       ))
     (ideograph-hanziku-1	. #xE0D0)	; ý¢€žƒ

@@ -18,7 +18,7 @@
     (ideographic-radical . 49)	; â¼°
     (ideographic-strokes . 0)
     (total-strokes	 . 3)
-    (chinese-big5-cdp	. #x896D)	; ý¢€ˆ¥­
+    (=big5-cdp		. #x896D)	; ý¢€ˆ¥­
     ))
 (define-char
   '((ideographic-radical . 49)	; â¼°
@@ -86,7 +86,7 @@
     (total-strokes	 . 5)
     (hanyu-dazidian	1 29 2)
     (=jis-x0213-2-2000	. #x286F)	; ø»¤¨ 
-    (chinese-big5-cdp	. #x8BAD)	; ý¢€ˆ®­
+    (=big5-cdp		. #x8BAD)	; ý¢€ˆ®­
     (ucs-jis		. #x382F)	; ø»¤¨ 
     ))
 (define-char
@@ -118,7 +118,7 @@
     (=jis-x0208		. #x5662)	; ø½‹„³
     (chinese-cns11643-3 . #x2567)	; ø»•¢
     (ideograph-daikanwa . 08751)	; ø¸‚ˆ¯
-    (chinese-big5-cdp	. #x8AB8)	; ý¢€ˆª¸
+    (=big5-cdp		. #x8AB8)	; ý¢€ˆª¸
     (=cbeta		. #x0692)	; ø¸ š’
     (ucs		. #x5DF5)	; å·µ
     ))

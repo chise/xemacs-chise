@@ -47,7 +47,7 @@
        ((ucs		    . #x4E00)	; ä¸€
 	))
       )
-     ((chinese-big5-cdp	  . #x8BC0)	; ý¢€ˆ¯€
+     ((=big5-cdp	  . #x8BC0)	; ý¢€ˆ¯€
       ))
     (chinese-cns11643-5		. #x2327)	; ø»™­®
     (ideograph-hanziku-1	. #xDFEB)	; ý¢€¿«
