@@ -314,6 +314,10 @@
 
 2001-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u0E000-Private-Use.el: New file.
+
+2001-07-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u03000-CJK-Symbols-and-Punctuation.el (WAVE DASH): Delete
 	C1-2244 and Big5-A1E3.
 	(HANGZHOU NUMERAL TEN): Unify C1-243E.
