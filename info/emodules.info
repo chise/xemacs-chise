@@ -252,7 +252,14 @@ place-holder, not an actual function name.
      `DEFVAR_LISP()', `DEFVAR_BOOL()' etc, and its purpose is to
      declare and initialize all and any variables that your module
      defines.  They syntax for declaring variables is identical to the
-     syntax used for all internal XEmacs source code.
+     syntax used for all internal XEmacs source code.  If the module is
+     intended to be usable statically linked into XEmacs, the actions
+     of this function are severely restricted.  *Note General Coding
+     Rules: (internals)General Coding Rules.  Also see the comments in
+     `src/emacs.c' (`main_1').  Modules which perform initializations
+     not permitted by these rules will probably work, but dual-use
+     (dynamic loading and static linking) modules will require very
+     careful, and possibly fragile, coding.
 
 `modules_of_module'
      This optional function should be used to load in any modules which
@@ -553,7 +560,7 @@ Link Mode
    Once all of your source code files have been compiled (including the
 generated init file) you need to link them all together to create the
 loadable module.  To do this, you invoke `ellcc' in link mode, by
-passing the `--mode-link' option.  You need to specify the final output
+passing the `--mode=link' option.  You need to specify the final output
 file using the `--mod-output=NAME' option, but other than that all
 other arguments are passed on directly to the system compiler or
 linker, along with any other required arguments to create the loadable
@@ -935,18 +942,18 @@ Node: Introduction2883
 Node: Anatomy of a Module7391
 Node: Required Header File8205
 Node: Required Functions10124
-Node: Required Variables12371
-Node: Loading other Modules15057
-Node: Using ellcc17114
-Node: Compile Mode18908
-Node: Initialization Mode20276
-Node: Link Mode25310
-Node: Other ellcc options26455
-Node: Environment Variables29034
-Node: Defining Functions30725
-Node: Using DEFUN32736
-Node: Declaring Functions34447
-Node: Defining Variables35790
-Node: Index38033
+Node: Required Variables12848
+Node: Loading other Modules15534
+Node: Using ellcc17591
+Node: Compile Mode19385
+Node: Initialization Mode20753
+Node: Link Mode25787
+Node: Other ellcc options26932
+Node: Environment Variables29511
+Node: Defining Functions31202
+Node: Using DEFUN33213
+Node: Declaring Functions34924
+Node: Defining Variables36267
+Node: Index38510
 
 End Tag Table
