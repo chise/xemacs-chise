@@ -1,0 +1,150 @@
+This is ../info/standards.info, produced by makeinfo version 4.0 from
+standards.texi.
+
+START-INFO-DIR-ENTRY
+* Standards: (standards).        GNU coding standards.
+END-INFO-DIR-ENTRY
+
+   GNU Coding Standards Copyright (C) 1992, 1993, 1994, 1995, 1996,
+1997, 1998, 1999, 2000 Free Software Foundation, Inc.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that
+the entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+
+
+File: standards.info,  Node: Index,  Prev: References,  Up: Top
+
+Index
+*****
+
+* Menu:
+
+* #endif, commenting:                    Comments.
+* --help option:                         Command-Line Interfaces.
+* --version option:                      Command-Line Interfaces.
+* -Wall compiler option:                 Syntactic Conventions.
+* accepting contributions:               Contributions.
+* address for bug reports:               Command-Line Interfaces.
+* ANSI C standard:                       Standard C.
+* arbitrary limits on data:              Semantics.
+* autoconf:                              System Portability.
+* avoiding proprietary code:             Reading Non-Free Code.
+* behavior, dependent on program's name: User Interfaces.
+* binary packages:                       Install Command Categories.
+* bindir:                                Directory Variables.
+* braces, in C source:                   Formatting.
+* bug reports:                           Command-Line Interfaces.
+* canonical name of a program:           Command-Line Interfaces.
+* casting pointers to integers:          CPU Portability.
+* change logs:                           Change Logs.
+* change logs, conditional changes:      Conditional Changes.
+* change logs, style:                    Style of Change Logs.
+* command-line arguments, decoding:      Semantics.
+* command-line interface:                Command-Line Interfaces.
+* commenting:                            Comments.
+* compatibility with C and POSIX standards: Compatibility.
+* compiler warnings:                     Syntactic Conventions.
+* conditional changes, and change logs:  Conditional Changes.
+* conditionals, comments for:            Comments.
+* configure:                             Configuration.
+* control-L:                             Formatting.
+* conventions for makefiles:             Makefile Conventions.
+* corba:                                 Graphical Interfaces.
+* credits for manuals:                   Manual Credits.
+* data types, and portability:           CPU Portability.
+* declaration for system functions:      System Functions.
+* documentation:                         Documentation.
+* doschk:                                Names.
+* downloading this manual:               Preface.
+* error messages:                        Semantics.
+* error messages, formatting:            Errors.
+* exec_prefix:                           Directory Variables.
+* expressions, splitting:                Formatting.
+* file usage:                            File Usage.
+* file-name limitations:                 Names.
+* formatting error messages:             Errors.
+* formatting source code:                Formatting.
+* formfeed:                              Formatting.
+* function argument, declaring:          Syntactic Conventions.
+* function prototypes:                   Standard C.
+* getopt:                                Command-Line Interfaces.
+* gettext:                               Internationalization.
+* gnome:                                 Graphical Interfaces.
+* graphical user interface:              Graphical Interfaces.
+* gtk:                                   Graphical Interfaces.
+* GUILE:                                 Source Language.
+* implicit int:                          Syntactic Conventions.
+* impossible conditions:                 Semantics.
+* internationalization:                  Internationalization.
+* legal aspects:                         Legal Issues.
+* legal papers:                          Contributions.
+* libexecdir:                            Directory Variables.
+* libraries:                             Libraries.
+* library functions, and portability:    System Functions.
+* license for manuals:                   License for Manuals.
+* lint:                                  Syntactic Conventions.
+* long option names:                     Option Table.
+* long-named options:                    Command-Line Interfaces.
+* makefile, conventions for:             Makefile Conventions.
+* malloc return value:                   Semantics.
+* man pages:                             Man Pages.
+* manual structure:                      Manual Structure Details.
+* memory allocation failure:             Semantics.
+* memory usage:                          Memory Usage.
+* message text, and internationalization: Internationalization.
+* mmap:                                  Mmap.
+* multiple variables in a line:          Syntactic Conventions.
+* names of variables and functions:      Names.
+* NEWS file:                             NEWS File.
+* non-POSIX systems, and portability:    System Portability.
+* non-standard extensions:               Using Extensions.
+* NUL characters:                        Semantics.
+* open brace:                            Formatting.
+* optional features, configure-time:     Configuration.
+* options for compatibility:             Compatibility.
+* output device and program's behavior:  User Interfaces.
+* packaging:                             Releases.
+* portability, and data types:           CPU Portability.
+* portability, and library functions:    System Functions.
+* portability, between system types:     System Portability.
+* POSIX compatibility:                   Compatibility.
+* POSIXLY_CORRECT, environment variable: Compatibility.
+* post-installation commands:            Install Command Categories.
+* pre-installation commands:             Install Command Categories.
+* prefix:                                Directory Variables.
+* program configuration:                 Configuration.
+* program design:                        Design Advice.
+* program name and its behavior:         User Interfaces.
+* program's canonical name:              Command-Line Interfaces.
+* programming languges:                  Source Language.
+* proprietary programs:                  Reading Non-Free Code.
+* README file:                           Releases.
+* references to non-free material:       References.
+* releasing:                             Managing Releases.
+* sbindir:                               Directory Variables.
+* signal handling:                       Semantics.
+* spaces before open-paren:              Formatting.
+* standard command-line options:         Command-Line Interfaces.
+* standards for makefiles:               Makefile Conventions.
+* string library functions:              System Functions.
+* syntactic conventions:                 Syntactic Conventions.
+* table of long options:                 Option Table.
+* temporary files:                       Semantics.
+* temporary variables:                   Syntactic Conventions.
+* texinfo.tex, in a distribution:        Releases.
+* TMPDIR environment variable:           Semantics.
+* trademarks:                            Trademarks.
+* where to obtain standards.texi:        Preface.
+
+
