@@ -21325,6 +21325,14 @@
     (ideograph-gt	. 00767)	; ý¡€€‹¿
     ))
 (define-char
+  '((morohashi-daikanwa	1054 0 6)
+    (ideographic-radical . 9)	; â¼ˆ
+    (ideographic-strokes . 6)
+    (total-strokes	 . 8)
+    (ideograph-gt-pj-k1 . #x3521)	; ý¡„€¾˜
+    (ideograph-gt-k	. 03992)	; ý¡„€¾˜
+    ))
+(define-char
   '((=>ucs		. #x50CA)	; åƒŠ
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 11)
@@ -21912,6 +21920,36 @@
     (ucs			. #x20362)	; ð ¢
     ))
 (define-char
+  '((ideographic-	(:radical	62 ; â¼½
+			 :strokes	9
+			 :sources	(morohashi-daikanwa))
+			(:radical	9 ; â¼ˆ
+			 :strokes	11
+			 :sources	(ucs)))
+    (total-strokes	 . 13)
+    (hanyu-dazidian	1 206 18)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
+	(ucs		    . #x2FF0)	; â¿°
+	)
+       ((ucs		    . #x672A)	; æœª
+	)
+       ((ucs		    . #x6210)	; æˆ
+	))
+      )
+     ((name*		  . "ideographic component person as roof")
+      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
+      ))
+    (chinese-cns11643-5		. #x3F46)	; ø»š—•
+    (ideograph-daikanwa		. 11626)	; ø¸‚µª
+    (ideograph-hanziku-1	. #xD0CF)	; ý¢€ƒ
+    (ucs			. #x203B6)	; ð Ž¶
+    ))
+(define-char
   '((morohashi-daikanwa	49471 0 1)
     (ideographic-	(:radical	120 ; â½·
 			 :strokes	7)
@@ -21933,27 +21971,6 @@
     (chinese-cns11643-6		. #x564E)	; ø»ƒ“
     (ideograph-hanziku-1	. #xD1AF)	; ý¢€†¯
     (ucs			. #x2035E)	; ð ž
-    ))
-(define-char
-  '((ideographic-radical . 9)	; â¼ˆ
-    (ideographic-strokes . 11)
-    (total-strokes	 . 13)
-    (->identical
-     ((chinese-cns11643-5 . #x3F46)	; ø»š—•
-      (ideograph-daikanwa . 11626)	; ø¸‚µª
-      ))
-    (hanyu-dazidian	1 206 18)
-    (ideographic-structure
-     (:cdp-combinator	4)
-     ((ucs		  . #x672A)	; æœª
-      )
-     ((ucs		  . #x6210)	; æˆ
-      )
-     ((name*		  . "ideographic component person as roof")
-      (chinese-big5-cdp	  . #x8B5D)	; ý¢€ˆ­
-      ))
-    (ideograph-hanziku-1	. #xD0CF)	; ý¢€ƒ
-    (ucs			. #x203B6)	; ð Ž¶
     ))
 (define-char
   '((=>ucs		. #x2036E)	; ð ®
