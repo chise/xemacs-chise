@@ -1,3 +1,18 @@
+2004-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R079-Weapon.el, Ideograph-R066-Rap.el,
+	Ideograph-R064-Hand.el:
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R061-Heart.el (M-11027): Map to U-0002279B.
+	- Use `=jis-x0208@{1978|1983|1990}' instead of
+	  `=jis-x0208-{1978|1983|1990}'.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-09-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R060-Step.el (M-10196): Map to U-00022514.
