@@ -1,3 +1,8 @@
+2003-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (Vchise_db_directory): New variable.
+	(vars_of_chartab): Add new built-in variable `chise-db-directory'.
+
 2003-10-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Freset_charset_mapping_table): Use HAVE_LIBCHISE
