@@ -1,3 +1,29 @@
+2004-11-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (K0-7847): Modify
+	`ideographic-structure'.
+
+	* Ideograph-R128-Ear.el (M-29007): Map to U-00026536.
+	(GT-K04926): Use `->subsumptive' to integrate BC-8C5B.
+
+	* Ideograph-R030-Mouth.el (U+35BF): Use `->subsumptive'.
+
+	* Ideograph-R009-Man.el (U+503B): Use `->subsumptive'.
+
+2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R160-Bitter.el (U+8F9F): Use `->subsumptive'.
+	(U+8FA0): Likewise.
+	(U+8FA1): Likewise.
+	(U+8FA2): Likewise.
+
+	* Ideograph-R018-Knife.el (U+5288): Use `->subsumptive'.
+	(U+5289): Likewise.
+
+2004-11-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R030-Mouth.el (U+56A0): Use `->subsumptive'.
+
 2004-11-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R064-Hand.el (U+62FB): Use `->subsumptive'.
