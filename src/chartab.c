@@ -1141,7 +1141,7 @@ Lisp_Object Q_denotational_from;
 Lisp_Object Q_subsumptive;
 Lisp_Object Q_subsumptive_from;
 Lisp_Object Qto_ucs;
-Lisp_Object Q_ucs_unified;
+//Lisp_Object Q_ucs_unified;
 Lisp_Object Qcompat;
 Lisp_Object Qisolated;
 Lisp_Object Qinitial;
@@ -1236,15 +1236,24 @@ Return variants of CHARACTER.
 */
        (character))
 {
+#if 0
   Lisp_Object ret;
-
+#endif
   CHECK_CHAR (character);
+#if 0
   ret = Fchar_feature (character, Q_ucs_unified, Qnil,
 		       Qnil, Qnil);
   if (CONSP (ret))
     return Fcopy_list (ret);
   else
     return Qnil;
+#else
+  return
+    nconc2 (Fcopy_list
+	    (Fget_char_attribute (character, Q_subsumptive, Qnil)),
+	    Fcopy_list
+	    (Fget_char_attribute (character, Q_denotational, Qnil)));
+#endif
 }
 
 #endif
@@ -3406,17 +3415,16 @@ put_char_composition (Lisp_Object character, Lisp_Object value)
 	{
 	  Emchar c = XINT (v);
 	  Lisp_Object ret
-	    = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
-			     Qnil, Qnil);
+	    = Fget_char_attribute (make_char (c), Q_denotational, Qnil);
 
 	  if (!CONSP (ret))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_unified,
-				   Fcons (character, Qnil));
+	      Fput_char_attribute (make_char (c), Q_denotational,
+				   list1 (character));
 	    }
 	  else if (NILP (Fmemq (character, ret)))
 	    {
-	      Fput_char_attribute (make_char (c), Q_ucs_unified,
+	      Fput_char_attribute (make_char (c), Q_denotational,
 				   Fcons (character, ret));
 	    }
 	}
@@ -3452,6 +3460,18 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 
   CHECK_CHAR (character);
 
+  if (EQ (attribute, Qto_ucs))
+    {
+      Emchar c;
+
+      if (!INTP (value))
+	signal_simple_error ("Invalid value for =>ucs", value);
+
+      c = DECODE_CHAR (Vcharset_ucs, XINT (value), 0);
+      attribute = Q_denotational_from;
+      value = list1 (make_char (c));
+    }
+
   if (!NILP (ccs))
     {
       value = put_char_ccs_code_point (character, ccs, value);
@@ -3459,25 +3479,6 @@ Store CHARACTER's ATTRIBUTE with VALUE.
     }
   else if (EQ (attribute, Q_decomposition))
     put_char_composition (character, value);
-  else if (EQ (attribute, Qto_ucs))
-    {
-      Lisp_Object ret;
-      Emchar c;
-
-      if (!INTP (value))
-	signal_simple_error ("Invalid value for =>ucs", value);
-
-      c = XINT (value);
-
-      ret = Fchar_feature (make_char (c), Q_ucs_unified, Qnil,
-			   Qnil, Qnil);
-      if (!CONSP (ret))
-	put_char_attribute (make_char (c), Q_ucs_unified,
-			    list1 (character));
-      else if (NILP (Fmemq (character, ret)))
-	Fput_char_attribute (make_char (c), Q_ucs_unified,
-			     Fcons (character, ret));
-    }
   else if ( EQ (attribute, Q_subsumptive) ||
 	    EQ (attribute, Q_subsumptive_from) ||
 	    EQ (attribute, Q_denotational) ||
@@ -4554,7 +4555,7 @@ syms_of_chartab (void)
 #endif
 
   defsymbol (&Qto_ucs,			"=>ucs");
-  defsymbol (&Q_ucs_unified,		"->ucs-unified");
+  // defsymbol (&Q_ucs_unified,		"->ucs-unified");
   defsymbol (&Q_subsumptive,		"->subsumptive");
   defsymbol (&Q_subsumptive_from,	"<-subsumptive");
   defsymbol (&Q_denotational,		"->denotational");
