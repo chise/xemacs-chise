@@ -975,9 +975,8 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
     (chinese-isoir165	. #x2F7B)	; ø»„’
-    (chinese-big5	. #x8CB9)	; ç²¦
-    (chinese-big5-cdp	. #x8CB9)	; ç²¦
     (ideograph-daikanwa . 26939)	; ø¸†¤»
+    (chinese-big5-cdp	. #x8CB9)	; ý¢€ˆ²¹
     (ucs		. #x7CA6)	; ç²¦
     ))
 (define-char
