@@ -1,3 +1,88 @@
+2001-10-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R037-Big.el: Use `=>ucs' instead of `->ucs'.
+	(JX2-2547): Unify U-00021647.
+	(C4-3678): Add `ideographic-structure'.
+
+	* Ideograph-R017-Open-Box.el (CB-04552): New character.
+	(U+51F7): Add `ideographic-structure'; unify CB-00631.
+	(U+51FE): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'; add `ideographic-structure'; unify
+	CB-00630.
+	(C3-275A): Add `ideographic-structure'.
+
+	* Ideograph-R004-Slash.el (C3-2263): Separate G0-362A and U+4E22;
+	delete `kangxi-radical'; unify C3J-41BA.
+
+	* Ideograph-R001-One.el (U+4E22): Separated from M-00144 and moved
+	from Ideograph-R004-Slash.el.
+
+	* Ideograph-R024-Ten.el (C3-232D): Unify CB-00017.
+	(U+535B): Unify CB-01465.
+
+	* Ideograph-R023-Hiding-Enclosure.el (M-02688): Add
+	`ideographic-structure'.
+	(CB-02506): New character; relate to M-02688.
+	(M-02692): Add `ideographic-structure'; separate U+3538.
+	(U+3538): Unify CB-00632; add `ideographic-structure'.
+
+2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R022-Right-Open-Box.el (U+5332): Use
+	`<-vulgar-ideograph' instead of `vulgar-char-of-shinjigen-1'; add
+	`ideographic-structure'; unify CB-02324.
+	(U+5333): Add `ideographic-structure'; unify CB-00633.
+	(M-02662): Add `ideographic-structure'; unify CB-05235.
+
+	* Ideograph-R018-Knife.el (C4-2141): Add some
+	`ideographic-structure'.
+	- Add some `ideographic-structure' properties.
+	- Merge CBETA numbers.	
+	(U+5226): Use `<-vulgar-ideograph' instead of
+	`vulgar-char-of-shinjigen-1'.
+	(U+5227): Likewise.
+	(U+5259): Likewise.
+
+	* Ideograph-R001-One.el: Merge CHINA3-JEF code points.
+
+	* Ideograph-R019-Power.el:
+	- Merge CBETA numbers.
+	- Add some `ideographic-structure' properties of CBETA characters.
+
+	* Ideograph-R013-Down-Box.el (M-01523): Unify CB-04693.
+	(CB-04393): New character.
+	(CB-02605): New character.
+
+	* Ideograph-R012-Eight.el (U+5173): Unify CB-00659.
+	(M-01494): Unify CB-00042.
+	(M-01505): Unify CB-04138.
+
+2001-10-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el (U+51E3): Unify CB-04891.
+	(M-01751): Unify CB-05169; add `ideographic-structure'.
+	(U+51ED): Unify CB-00285; add `ideographic-structure'.
+	(U+51F4): Unify CB-06316; add `ideographic-structure'.
+
+	* Ideograph-R015-Ice.el, Ideograph-R014-Cover.el: Merge CBETA
+	numbers.
+
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el, Ideograph-R004-Slash.el: Merge
+	CHINA3-JEF code points.
+
+	* Ideograph-R003-Dot.el (M-00100): Unify C3J-41B3.
+
+	* Ideograph-R002-Line.el: Merge CHINA3-JEF code points.
+
+2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el: Merge missing KS X 1001 code points.
+	(M-05344): Separate C3-4056 and U+585C; unify J83-444D, J90-444D
+	and M054239; add ucs-jis for U+585A.
+	(U+58A8): Separate C1-702E; delete `cns-radical'.
+
 2001-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R203-Black.el (C1-702E): Separated from U+58A8 and
