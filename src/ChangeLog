@@ -1,3 +1,13 @@
+2004-12-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-ucs.h (decoding_table_put_char): Moved to mule-charset.c;
+	changed to normal function.
+	(encode_char_2): Likewise.
+
+	* mule-charset.c (decoding_table_put_char): Copied from
+	char-ucs.h; changed to normal function.
+	(encode_char_2): Likewise.
+
 2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h (Vdisplay_coded_charset_priority_use_inheritance):
