@@ -1,3 +1,163 @@
+2001-12-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R189-Tall.el:
+	- Add some Hanziku code points.
+	- Add some `ideographic-structure' properties.
+
+	* Ideograph-R078-Death.el (M-16529): Map to U-00023A3B; add
+	`ideographic-structure'.
+	(U-00023A3B): New character.
+	(C6-5373): Map to U-00023A3B; add `ideographic-structure'.
+
+	* Ideograph-R074-Moon.el (U+6725): New character [moved from
+	Ideograph-R130-Meat.el].
+	(U+81B6): Moved to Ideograph-R130-Meat.el.
+
+2001-12-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R095-Profound.el (M-20819): Map to U-000248E7; add
+	`ideographic-structure'.
+	(C6-4B46): Unify H1-E1F1 and U-000248E7; add
+	`ideographic-structure'.
+	(M-20820): Map to U-000248E8; add `ideographic-structure'.
+	(C6-5E72): Unify H1-E254 and U-000248E8; add
+	`ideographic-structure'.
+
+	* Ideograph-R123-Sheep.el (M-28535): Map to U-000263A7; add
+	`ideographic-structure'.
+	(C7-314F): Unify H1-E275 and U-000263A7; add
+	`ideographic-structure'.
+	(C4-4C48): Add `ideographic-structure'.
+
+	* Ideograph-R101-Use.el (M-21720): Map to U-00024C0E; add
+	`ideographic-structure'.
+	(C7-477D): Unify H1-E2BC and U-00024C0E; add
+	`ideographic-structure'.
+
+	* Ideograph-R086-Fire.el (M-18985): Separate C5-2E4F; map to
+	U-000241EF; add `ideographic-structure'.
+	(U-000241EF): New character.
+	(C5-2E4F): map to U-000241EF; add `ideographic-structure'.
+
+	* Ideograph-R059-Bristle.el (U+5F61): Unify BC-8B71.
+	(M-10028): Separate C5-5447; map to U-000224B2; add
+	`ideographic-structure'.
+	(C5-5447): Unify H1-E27D and U-000224B2; add
+	`ideographic-structure'.
+
+2001-12-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R210-Even.el (M-48580): Add `ideographic-structure';
+	map to U-0002A5D0.
+	(H1-E2C5): New character.
+	(C5-7A22): Add `ideographic-structure'; unify U-0002A5D0.
+
+	* Ideograph-R009-Man.el:
+	- Unify or Map UCS code points with some Hanziku code points.
+	- Add or fix `ideographic-structure' into some Hanziku characters.
+	- Add strokes into some Hanziku characters.
+
+2001-12-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R149-Speech.el (M-35206): Separate C5-2327; Map to
+	U-0002795B.
+	(C5-2327): Add `ideographic-structure'; unify H1-DFEB.
+	(M-35207): Separate C5-2328; Map to U-0002795C.
+	(C5-2328): Add `ideographic-structure'; unify H1-DFEC.
+
+	* Ideograph-R120-Silk.el (M-28068): Map to U-000261E8.
+	(H1-E2C2): New character.
+	(C7-585F): Map to U-000261E8.
+	(U-000261E8): New character.
+
+	* Ideograph-R037-Big.el (M-05989): Add `ideographic-structure'.
+	(U-00021669): Likewise; unify H1-E1F7.
+
+	* Ideograph-R036-Evening.el (H1-E0D0): New character.
+	(CB-03754): Map to U-00020157.
+	(C5-2C66): Separate U-00020157; add `->identical' for U-00020157.
+
+	* Ideograph-R030-Mouth.el (M-03562): Add `ideographic-structure'.
+	(U-00020C57): Likewise; unify H1-E0EE.
+	(M-04326): Add `ideographic-structure'.
+	(C7-2146): Separate U-0002018A; add ~->identical' for U-0002018A;
+	add `ideographic-structure'.
+
+2001-12-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R160-Bitter.el (M-38633): Map to U-00028410; add
+	`ideographic-structure'.
+	(H1-AFC8): New character.
+	(C5-3625): Add `ideographic-structure'; unify U-00028410.
+
+	* Ideograph-R114-Track.el (M-24897): Unify H1-AFE5 and U-00025744;
+	add `ideographic-structure'.
+	(C7-262C): Map to U-00025744.
+
+	* Ideograph-R136-Oppose.el (M-30344): Unify H1-AFE8 and
+	U-000269FF; add `ideographic-structure'.
+
+	* Ideograph-R064-Hand.el (M-12077): Unify H1-AFA9 and U-00022B2B;
+	add `ideographic-structure'.
+
+	* Ideograph-R005-Second.el (U-000200D5): Unify H1-AAFB.
+	(H1-AEEA): Unify U-000200E8.
+	(H1-AEED): Unify U-000200EB.
+	(H1-AF63): Unify U-000200F0.
+	(H1-AF42): Unify U-000200F1.
+	(U-000200F3): Unify H2-D1E5.
+	(H1-AFA5): Unify U-000200F5.
+	(U-000200F9): New character.
+	(H1-AFAA): Map to U-000200F9; fix `ideographic-structure'.
+	(H1-AFAB): Unify U-000200FA; fix `ideographic-structure'.
+	(U-000200FF): New character.
+	(H1-AFC5): Map to U-000200FF; fix `ideographic-structure'.
+	(H1-AFCB): Unify U-00020103.
+	(M-00219): Unify H5-F94F.
+	(U-00020108): Unify H8-E35B.
+	(H1-AFE5): Moved to Ideograph-R114-Track.el.
+	(H1-AFE8): Moved to Ideograph-R136-Oppose.el.
+	(M-00221): Unify H5-F969.
+	(H1-AFC8): Moved to Ideograph-R160-Bitter.el.
+	(H1-AFA9): Moved to Ideograph-R064-Hand.el.
+	(H1-AF61): Moved to Ideograph-R140-Grass.el.
+	(H1-AEE5): Moved to Ideograph-R036-Evening.el.
+	(H1-AEE3): Moved to Ideograph-R028-Private.el.
+	(H1-AEC6): Moved to Ideograph-R057-Bow.el.
+	(H1-AEA7): Moved to Ideograph-R057-Bow.el.
+	(H1-AEA5): Moved to Ideograph-R028-Private.el.
+	(H1-AE61): Moved to Ideograph-R026-Seal.el.
+
+2001-12-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R057-Bow.el (U-00022399): New character.
+	(U-0002239D): Likewise.
+
+	* Ideograph-R007-Two.el (U-00020131): Unify H7-EEEB.
+	(U-00020134): New character.
+	(M-00283): Separate U-00020AFC; add `->identical' for U-00020AFC.
+
+	* Ideograph-R040-Roof.el: Add some CJK Ext-B code points.
+	(M-07074): Separate C6-244A.
+	(U-000219BF): New character.
+	(C6-244A): Map to U-000219BF.
+
+	* Ideograph-R028-Private.el (M-03080): Separate U+53BE and
+	EGB-2C21; delete `kangxi-radical' and `kangxi-strokes'.
+	(U+53BE): Unify H1-AEE3; add `ideographic-structure'.
+	(U-00020AFC): New character.
+
+	* Ideograph-R006-Hook.el (U-00020117): Unify H1-B8A3.
+	(M-00239): Separate U-00020029; add `->identical' for U-00020029.
+	(U-0002011A): Unify H10-D547.
+	(U-0002011B): Unify H2-EC53.
+
+	* Ideograph-R001-One.el (U-00020029): New character.
+
+2001-12-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R004-Slash.el (M-00136): Unify BC-85D2 and U-0002009F.
+
 2001-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (U-00026AF9): New character.
