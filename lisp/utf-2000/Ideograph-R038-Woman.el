@@ -13,7 +13,7 @@
     (ucs			. #x5973)	; 女
     ))
 (define-char
-  '((->ucs		. #x5973)	; 女
+  '((=>ucs		. #x5973)	; 女
     (morohashi-daikanwa	6036 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 0)
@@ -73,7 +73,7 @@
     (ucs			. #x5975)	; 奵
     ))
 (define-char
-  '((->ucs		. #x5975)	; 奵
+  '((=>ucs		. #x5975)	; 奵
     (morohashi-daikanwa	6041 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 2)
@@ -92,7 +92,7 @@
     (ucs			. #x5976)	; 奶
     ))
 (define-char
-  '((->ucs		. #x5976)	; 奶
+  '((=>ucs		. #x5976)	; 奶
     (morohashi-daikanwa	6043 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 2)
@@ -175,7 +175,7 @@
     (ucs			. #x597C)	; 奼
     ))
 (define-char
-  '((->ucs		. #x597C)	; 奼
+  '((=>ucs		. #x597C)	; 奼
     (morohashi-daikanwa	6051 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 3)
@@ -308,7 +308,7 @@
     (ucs			. #x5984)	; 妄
     ))
 (define-char
-  '((->ucs		. #x5984)	; 妄
+  '((=>ucs		. #x5984)	; 妄
     (morohashi-daikanwa	6063 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 3)
@@ -415,7 +415,7 @@
     (ucs			. #x598B)	; 妋
     ))
 (define-char
-  '((->ucs		. #x598B)	; 妋
+  '((=>ucs		. #x598B)	; 妋
     (morohashi-daikanwa	6073 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -496,7 +496,7 @@
     (ucs		. #x5991)	; 妑
     ))
 (define-char
-  '((->ucs		. #x5992)	; 妒
+  '((=>ucs		. #x5992)	; 妒
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -505,7 +505,7 @@
     (ideograph-daikanwa		. 06082)	; �����
     ))
 (define-char
-  '((->ucs		. #x5992)	; 妒
+  '((=>ucs		. #x5992)	; 妒
     (morohashi-daikanwa	6082 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -645,7 +645,7 @@
     (ucs			. #x599B)	; 妛
     ))
 (define-char
-  '((->ucs		. #x599B)	; 妛
+  '((=>ucs		. #x599B)	; 妛
     (morohashi-daikanwa	6094 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -673,7 +673,7 @@
     (ucs			. #x599D)	; 妝
     ))
 (define-char
-  '((->ucs		. #x599D)	; 妝
+  '((=>ucs		. #x599D)	; 妝
     (morohashi-daikanwa	6096 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -690,7 +690,7 @@
     (ucs		. #x5986)	; 妆
     ))
 (define-char
-  '((->ucs		. #x5986)	; 妆
+  '((=>ucs		. #x5986)	; 妆
     (morohashi-daikanwa	6096 0 8)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 3)
@@ -724,7 +724,7 @@
     (ucs			. #x599F)	; 妟
     ))
 (define-char
-  '((->ucs		. #x599F)	; 妟
+  '((=>ucs		. #x599F)	; 妟
     (morohashi-daikanwa	6099 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -788,7 +788,7 @@
     (ucs			. #x59A4)	; 妤
     ))
 (define-char
-  '((->ucs		. #x59A4)	; 妤
+  '((=>ucs		. #x59A4)	; 妤
     (morohashi-daikanwa	6105 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -804,7 +804,7 @@
     (ucs		. #x36AC)	; 㚬
     ))
 (define-char
-  '((->ucs		. #x59A5)	; 妥
+  '((=>ucs		. #x59A5)	; 妥
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
@@ -832,7 +832,7 @@
     (ucs		. #x59A6)	; 妦
     ))
 (define-char
-  '((->ucs		. #x59A6)	; 妦
+  '((=>ucs		. #x59A6)	; 妦
     (morohashi-daikanwa	6108 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 4)
@@ -981,7 +981,7 @@
     (ucs			. #x59AE)	; 妮
     ))
 (define-char
-  '((->ucs		. #x59AE)	; 妮
+  '((=>ucs		. #x59AE)	; 妮
     (morohashi-daikanwa	6123 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1149,7 +1149,7 @@
     (ucs			. #x59BB)	; 妻
     ))
 (define-char
-  '((->ucs		. #x59BB)	; 妻
+  '((=>ucs		. #x59BB)	; 妻
     (morohashi-daikanwa	6140 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1166,7 +1166,7 @@
     (ucs			. #x59BC)	; 妼
     ))
 (define-char
-  '((->ucs		. #x59BC)	; 妼
+  '((=>ucs		. #x59BC)	; 妼
     (morohashi-daikanwa	6141 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1211,7 +1211,7 @@
     (ucs		. #x36B2)	; 㚲
     ))
 (define-char
-  '((->ucs		. #x59BE)	; 妾
+  '((=>ucs		. #x59BE)	; 妾
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -1232,7 +1232,7 @@
     (ucs		. #x59BE)	; 妾
     ))
 (define-char
-  '((->ucs		. #x59BE)	; 妾
+  '((=>ucs		. #x59BE)	; 妾
     (morohashi-daikanwa	6147 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1291,7 +1291,7 @@
     (ucs			. #x59C3)	; 姃
     ))
 (define-char
-  '((->ucs		. #x59C3)	; 姃
+  '((=>ucs		. #x59C3)	; 姃
     (morohashi-daikanwa	6153 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1371,7 +1371,7 @@
     (ucs		. #x36B7)	; 㚷
     ))
 (define-char
-  '((->ucs		. #x59C8)	; 姈
+  '((=>ucs		. #x59C8)	; 姈
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -1380,7 +1380,7 @@
     (ideograph-daikanwa		. 06163)	; �����
     ))
 (define-char
-  '((->ucs		. #x59C8)	; 姈
+  '((=>ucs		. #x59C8)	; 姈
     (morohashi-daikanwa	6163 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1388,7 +1388,7 @@
     (mojikyo		. 006163)	; ������
     ))
 (define-char
-  '((->ucs		. #x59C8)	; 姈
+  '((=>ucs		. #x59C8)	; 姈
     (morohashi-daikanwa	6163 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1431,7 +1431,7 @@
     (ucs			. #x59C9)	; 姉
     ))
 (define-char
-  '((->ucs		. #x59C9)	; 姉
+  '((=>ucs		. #x59C9)	; 姉
     (morohashi-daikanwa	6165 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1441,7 +1441,7 @@
     (mojikyo			. 006165)	; ������
     ))
 (define-char
-  '((->ucs		. #x59C9)	; 姉
+  '((=>ucs		. #x59C9)	; 姉
     (morohashi-daikanwa	6165 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1488,7 +1488,7 @@
     (ucs			. #x59CD)	; 姍
     ))
 (define-char
-  '((->ucs		. #x59CD)	; 姍
+  '((=>ucs		. #x59CD)	; 姍
     (morohashi-daikanwa	6169 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1565,7 +1565,7 @@
     (ideograph-daikanwa . 06176)	; �����
     ))
 (define-char
-  '((->ucs		. #x59D2)	; 姒
+  '((=>ucs		. #x59D2)	; 姒
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -1574,7 +1574,7 @@
     (ideograph-daikanwa		. 06177)	; �����
     ))
 (define-char
-  '((->ucs		. #x59D2)	; 姒
+  '((=>ucs		. #x59D2)	; 姒
     (morohashi-daikanwa	6177 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1637,7 +1637,7 @@
     (ucs			. #x59D4)	; 委
     ))
 (define-char
-  '((->ucs		. #x59D4)	; 委
+  '((=>ucs		. #x59D4)	; 委
     (morohashi-daikanwa	6181 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
@@ -1655,7 +1655,7 @@
     (ucs		. #x36BA)	; 㚺
     ))
 (define-char
-  '((->ucs		. #x59D5)	; 姕
+  '((=>ucs		. #x59D5)	; 姕
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
@@ -1800,7 +1800,7 @@
     (ucs			. #x59D9)	; 姙
     ))
 (define-char
-  '((->ucs		. #x59D9)	; 姙
+  '((=>ucs		. #x59D9)	; 姙
     (morohashi-daikanwa	6200 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -1821,7 +1821,7 @@
     (chinese-cns11643-6 . #x2F75)	; �����
     ))
 (define-char
-  '((->ucs		. #x59DA)	; 姚
+  '((=>ucs		. #x59DA)	; 姚
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1842,7 +1842,7 @@
     (ucs			. #x59DA)	; 姚
     ))
 (define-char
-  '((->ucs		. #x59DA)	; 姚
+  '((=>ucs		. #x59DA)	; 姚
     (morohashi-daikanwa	6202 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -1892,7 +1892,7 @@
     (ucs			. #x59DD)	; 姝
     ))
 (define-char
-  '((->ucs		. #x59DD)	; 姝
+  '((=>ucs		. #x59DD)	; 姝
     (morohashi-daikanwa	6206 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -1910,7 +1910,7 @@
     (ucs			. #x59DE)	; 姞
     ))
 (define-char
-  '((->ucs		. #x59DE)	; 姞
+  '((=>ucs		. #x59DE)	; 姞
     (morohashi-daikanwa	6207 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -1966,7 +1966,7 @@
     (ucs		. #x59E2)	; 姢
     ))
 (define-char
-  '((->ucs		. #x59E3)	; 姣
+  '((=>ucs		. #x59E3)	; 姣
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
@@ -1984,7 +1984,7 @@
     (ucs		. #x59E3)	; 姣
     ))
 (define-char
-  '((->ucs		. #x59E3)	; 姣
+  '((=>ucs		. #x59E3)	; 姣
     (morohashi-daikanwa	6214 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -2001,7 +2001,7 @@
     (ucs			. #x59E4)	; 姤
     ))
 (define-char
-  '((->ucs		. #x59E4)	; 姤
+  '((=>ucs		. #x59E4)	; 姤
     (morohashi-daikanwa	6215 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -2045,7 +2045,7 @@
     (ucs			. #x59E7)	; 姧
     ))
 (define-char
-  '((->ucs		. #x59E7)	; 姧
+  '((=>ucs		. #x59E7)	; 姧
     (morohashi-daikanwa	6218 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -2184,7 +2184,7 @@
     (ucs			. #x59EE)	; 姮
     ))
 (define-char
-  '((->ucs		. #x59EE)	; 姮
+  '((=>ucs		. #x59EE)	; 姮
     (morohashi-daikanwa	6232 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -2235,7 +2235,8 @@
     (ucs		. #x59F3)	; 姳
     ))
 (define-char
-  '((ideographic-radical . 38)	; ⼥
+  '((=>ucs		. #x21706)	; 𡜆
+    (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (chinese-cns11643-6 . #x2F79)	; �����
@@ -2247,6 +2248,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
     (japanese-jisx0213-2	. #x2555)	; �����
+    (ucs			. #x21706)	; 𡜆
     ))
 (define-char
   '((ideographic-radical . 38)	; ⼥
@@ -2665,7 +2667,7 @@
     (ucs		. #x5A0A)	; 娊
     ))
 (define-char
-  '((->ucs		. #x5A0B)	; 娋
+  '((=>ucs		. #x5A0B)	; 娋
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -2679,7 +2681,7 @@
     (ucs		. #x5A0B)	; 娋
     ))
 (define-char
-  '((->ucs		. #x5A0B)	; 娋
+  '((=>ucs		. #x5A0B)	; 娋
     (morohashi-daikanwa	6284 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -2695,7 +2697,7 @@
     (ucs			. #x36CF)	; 㛏
     ))
 (define-char
-  '((->ucs		. #x36CF)	; 㛏
+  '((=>ucs		. #x36CF)	; 㛏
     (morohashi-daikanwa	6285 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -2721,7 +2723,7 @@
     (ucs			. #x5A0C)	; 娌
     ))
 (define-char
-  '((->ucs		. #x5A0C)	; 娌
+  '((=>ucs		. #x5A0C)	; 娌
     (morohashi-daikanwa	6287 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -2738,7 +2740,7 @@
     (ucs			. #x5A0D)	; 娍
     ))
 (define-char
-  '((->ucs		. #x5A0D)	; 娍
+  '((=>ucs		. #x5A0D)	; 娍
     (morohashi-daikanwa	6288 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 6)
@@ -2829,7 +2831,7 @@
     (ucs			. #x5A13)	; 娓
     ))
 (define-char
-  '((->ucs		. #x5A13)	; 娓
+  '((=>ucs		. #x5A13)	; 娓
     (morohashi-daikanwa	6297 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -2885,7 +2887,7 @@
     (ucs			. #x5A17)	; 娗
     ))
 (define-char
-  '((->ucs		. #x5A17)	; 娗
+  '((=>ucs		. #x5A17)	; 娗
     (morohashi-daikanwa	6303 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -2947,7 +2949,7 @@
     (ucs			. #x5A2F)	; 娯
     ))
 (define-char
-  '((->ucs		. #x5A2F)	; 娯
+  '((=>ucs		. #x5A2F)	; 娯
     (morohashi-daikanwa	6307 1 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -3152,7 +3154,7 @@
     (ucs			. #x5A23)	; 娣
     ))
 (define-char
-  '((->ucs		. #x5A23)	; 娣
+  '((=>ucs		. #x5A23)	; 娣
     (morohashi-daikanwa	6329 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -3192,7 +3194,7 @@
     (ucs		. #x5A26)	; 娦
     ))
 (define-char
-  '((->ucs		. #x5A27)	; 娧
+  '((=>ucs		. #x5A27)	; 娧
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
@@ -3201,7 +3203,7 @@
     (ideograph-daikanwa		. 06333)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A27)	; 娧
+  '((=>ucs		. #x5A27)	; 娧
     (morohashi-daikanwa	6333 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -3243,7 +3245,7 @@
     (ucs			. #x5A29)	; 娩
     ))
 (define-char
-  '((->ucs		. #x5A29)	; 娩
+  '((=>ucs		. #x5A29)	; 娩
     (morohashi-daikanwa	6337 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -3252,7 +3254,7 @@
     (mojikyo		. 006337)	; ������
     ))
 (define-char
-  '((->ucs		. #x5A29)	; 娩
+  '((=>ucs		. #x5A29)	; 娩
     (morohashi-daikanwa	6337 0 2)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -3271,7 +3273,7 @@
     (ucs		. #x5A2A)	; 娪
     ))
 (define-char
-  '((->ucs		. #x5A2B)	; 娫
+  '((=>ucs		. #x5A2B)	; 娫
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
     (total-strokes	 . 9)
@@ -3302,7 +3304,7 @@
     (ucs			. #x5A2D)	; 娭
     ))
 (define-char
-  '((->ucs		. #x5A2D)	; 娭
+  '((=>ucs		. #x5A2D)	; 娭
     (morohashi-daikanwa	6341 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 7)
@@ -3478,7 +3480,7 @@
     (ideograph-daikanwa . 06360)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A2C)	; 娬
+  '((=>ucs		. #x5A2C)	; 娬
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -3520,7 +3522,7 @@
     (ucs			. #x5A35)	; 娵
     ))
 (define-char
-  '((->ucs		. #x5A36)	; 娶
+  '((=>ucs		. #x5A36)	; 娶
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -3542,7 +3544,7 @@
     (ucs			. #x5A36)	; 娶
     ))
 (define-char
-  '((->ucs		. #x5A36)	; 娶
+  '((=>ucs		. #x5A36)	; 娶
     (morohashi-daikanwa	6365 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -3570,7 +3572,7 @@
     (ucs		. #x5A37)	; 娷
     ))
 (define-char
-  '((->ucs		. #x5A37)	; 娷
+  '((=>ucs		. #x5A37)	; 娷
     (morohashi-daikanwa	6367 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -3578,7 +3580,7 @@
     (mojikyo		. 006367)	; ������
     ))
 (define-char
-  '((->ucs		. #x5A37)	; 娷
+  '((=>ucs		. #x5A37)	; 娷
     (morohashi-daikanwa	6367 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -3988,7 +3990,7 @@
     (ucs			. #x5A55)	; 婕
     ))
 (define-char
-  '((->ucs		. #x5A55)	; 婕
+  '((=>ucs		. #x5A55)	; 婕
     (morohashi-daikanwa	6412 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4165,7 +4167,7 @@
     (ucs			. #x5A65)	; 婥
     ))
 (define-char
-  '((->ucs		. #x5A65)	; 婥
+  '((=>ucs		. #x5A65)	; 婥
     (morohashi-daikanwa	6431 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4173,7 +4175,7 @@
     (chinese-cns11643-2 . #x345B)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A66)	; 婦
+  '((=>ucs		. #x5A66)	; 婦
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -4181,7 +4183,7 @@
     (ideograph-daikanwa . 06432)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A66)	; 婦
+  '((=>ucs		. #x5A66)	; 婦
     (morohashi-daikanwa	6432 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4200,7 +4202,7 @@
     (ucs			. #x5A66)	; 婦
     ))
 (define-char
-  '((->ucs		. #x5A66)	; 婦
+  '((=>ucs		. #x5A66)	; 婦
     (morohashi-daikanwa	6432 1 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4209,7 +4211,7 @@
     (mojikyo		. 050147)	; ������
     ))
 (define-char
-  '((->ucs		. #x5A67)	; 婧
+  '((=>ucs		. #x5A67)	; 婧
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -4226,7 +4228,7 @@
     (ucs		. #x5A67)	; 婧
     ))
 (define-char
-  '((->ucs		. #x5A67)	; 婧
+  '((=>ucs		. #x5A67)	; 婧
     (morohashi-daikanwa	6433 0 4)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4288,7 +4290,7 @@
     (ucs		. #x36EB)	; 㛫
     ))
 (define-char
-  '((->ucs		. #x5A6C)	; 婬
+  '((=>ucs		. #x5A6C)	; 婬
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
@@ -4305,7 +4307,7 @@
     (ucs		. #x5A6C)	; 婬
     ))
 (define-char
-  '((->ucs		. #x5A6C)	; 婬
+  '((=>ucs		. #x5A6C)	; 婬
     (morohashi-daikanwa	6440 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4323,7 +4325,7 @@
     (ucs			. #x5A6D)	; 婭
     ))
 (define-char
-  '((->ucs		. #x5A6D)	; 婭
+  '((=>ucs		. #x5A6D)	; 婭
     (morohashi-daikanwa	6441 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 8)
@@ -4449,7 +4451,7 @@
     (ucs		. #x5A73)	; 婳
     ))
 (define-char
-  '((->ucs		. #x5A77)	; 婷
+  '((=>ucs		. #x5A77)	; 婷
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -4467,7 +4469,7 @@
     (ucs		. #x5A77)	; 婷
     ))
 (define-char
-  '((->ucs		. #x5A77)	; 婷
+  '((=>ucs		. #x5A77)	; 婷
     (morohashi-daikanwa	6457 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -4509,7 +4511,7 @@
     (ucs			. #x5A7A)	; 婺
     ))
 (define-char
-  '((->ucs		. #x5A7A)	; 婺
+  '((=>ucs		. #x5A7A)	; 婺
     (morohashi-daikanwa	6461 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -4584,7 +4586,7 @@
     (ucs			. #x5A7E)	; 婾
     ))
 (define-char
-  '((->ucs		. #x5A7E)	; 婾
+  '((=>ucs		. #x5A7E)	; 婾
     (morohashi-daikanwa	6469 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -4670,7 +4672,7 @@
     (ucs			. #x5A84)	; 媄
     ))
 (define-char
-  '((->ucs		. #x5A84)	; 媄
+  '((=>ucs		. #x5A84)	; 媄
     (morohashi-daikanwa	6478 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -4751,7 +4753,7 @@
     (ucs			. #x5A8B)	; 媋
     ))
 (define-char
-  '((->ucs		. #x5A8B)	; 媋
+  '((=>ucs		. #x5A8B)	; 媋
     (morohashi-daikanwa	6487 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -4815,7 +4817,7 @@
     (ideograph-daikanwa . 06494)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A90)	; 媐
+  '((=>ucs		. #x5A90)	; 媐
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -5002,7 +5004,7 @@
     (ideograph-daikanwa . 06515)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A9B)	; 媛
+  '((=>ucs		. #x5A9B)	; 媛
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
@@ -5011,7 +5013,7 @@
     (ideograph-daikanwa		. 06516)	; �����
     ))
 (define-char
-  '((->ucs		. #x5A9B)	; 媛
+  '((=>ucs		. #x5A9B)	; 媛
     (morohashi-daikanwa	6516 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5056,7 +5058,7 @@
     (ucs			. #x5A9C)	; 媜
     ))
 (define-char
-  '((->ucs		. #x5A9C)	; 媜
+  '((=>ucs		. #x5A9C)	; 媜
     (morohashi-daikanwa	6519 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5090,7 +5092,7 @@
     (ucs			. #x5A9E)	; 媞
     ))
 (define-char
-  '((->ucs		. #x5A9E)	; 媞
+  '((=>ucs		. #x5A9E)	; 媞
     (morohashi-daikanwa	6522 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5115,7 +5117,7 @@
     (ucs			. #x5A9F)	; 媟
     ))
 (define-char
-  '((->ucs		. #x5A9F)	; 媟
+  '((=>ucs		. #x5A9F)	; 媟
     (morohashi-daikanwa	6524 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5132,7 +5134,7 @@
     (ucs			. #x5AA0)	; 媠
     ))
 (define-char
-  '((->ucs		. #x5AA0)	; 媠
+  '((=>ucs		. #x5AA0)	; 媠
     (morohashi-daikanwa	6525 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5157,7 +5159,7 @@
     (ucs			. #x5AA2)	; 媢
     ))
 (define-char
-  '((->ucs		. #x5AA2)	; 媢
+  '((=>ucs		. #x5AA2)	; 媢
     (morohashi-daikanwa	6527 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5230,7 +5232,7 @@
     (ideograph-daikanwa		. 06533)	; �����
     ))
 (define-char
-  '((->ucs		. #x5AA7)	; 媧
+  '((=>ucs		. #x5AA7)	; 媧
     (morohashi-daikanwa	6533 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 9)
@@ -5525,7 +5527,7 @@
     (ucs			. #x5AB1)	; 媱
     ))
 (define-char
-  '((->ucs		. #x5AB1)	; 媱
+  '((=>ucs		. #x5AB1)	; 媱
     (morohashi-daikanwa	6568 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5579,7 +5581,7 @@
     (ucs			. #x5AB3)	; 媳
     ))
 (define-char
-  '((->ucs		. #x5AB3)	; 媳
+  '((=>ucs		. #x5AB3)	; 媳
     (morohashi-daikanwa	6573 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5595,7 +5597,7 @@
     (ucs		. #x5AB4)	; 媴
     ))
 (define-char
-  '((->ucs		. #x5AB5)	; 媵
+  '((=>ucs		. #x5AB5)	; 媵
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -5613,7 +5615,7 @@
     (ucs		. #x5AB5)	; 媵
     ))
 (define-char
-  '((->ucs		. #x5AB5)	; 媵
+  '((=>ucs		. #x5AB5)	; 媵
     (morohashi-daikanwa	6575 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5680,7 +5682,7 @@
     (ucs			. #x5ABA)	; 媺
     ))
 (define-char
-  '((->ucs		. #x5ABA)	; 媺
+  '((=>ucs		. #x5ABA)	; 媺
     (morohashi-daikanwa	6582 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5817,7 +5819,7 @@
     (ideograph-daikanwa . 06596)	; �����
     ))
 (define-char
-  '((->ucs		. #x5ABE)	; 媾
+  '((=>ucs		. #x5ABE)	; 媾
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -5825,7 +5827,7 @@
     (ideograph-daikanwa		. 06597)	; �����
     ))
 (define-char
-  '((->ucs		. #x5ABE)	; 媾
+  '((=>ucs		. #x5ABE)	; 媾
     (morohashi-daikanwa	6597 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5833,7 +5835,7 @@
     (mojikyo		. 006597)	; ������
     ))
 (define-char
-  '((->ucs		. #x5ABE)	; 媾
+  '((=>ucs		. #x5ABE)	; 媾
     (morohashi-daikanwa	6597 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5841,7 +5843,7 @@
     (japanese-jisx0208	. #x553D)	; �����
     ))
 (define-char
-  '((->ucs		. #x5ABE)	; 媾
+  '((=>ucs		. #x5ABE)	; 媾
     (morohashi-daikanwa	6597 0 1 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5860,7 +5862,7 @@
     (ucs			. #x5ABE)	; 媾
     ))
 (define-char
-  '((->ucs		. #x5ABE)	; 媾
+  '((=>ucs		. #x5ABE)	; 媾
     (morohashi-daikanwa	6597 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5876,7 +5878,7 @@
     (ideograph-daikanwa . 06598)	; �����
     ))
 (define-char
-  '((->ucs		. #x370B)	; 㜋
+  '((=>ucs		. #x370B)	; 㜋
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -5900,7 +5902,7 @@
     (ucs			. #x5ABF)	; 媿
     ))
 (define-char
-  '((->ucs		. #x5ABF)	; 媿
+  '((=>ucs		. #x5ABF)	; 媿
     (morohashi-daikanwa	6600 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5915,7 +5917,7 @@
     (ucs		. #x5AC0)	; 嫀
     ))
 (define-char
-  '((->ucs		. #x5AC0)	; 嫀
+  '((=>ucs		. #x5AC0)	; 嫀
     (morohashi-daikanwa	6601 0 0)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5923,7 +5925,7 @@
     (mojikyo		. 006601)	; ������
     ))
 (define-char
-  '((->ucs		. #x5AC0)	; 嫀
+  '((=>ucs		. #x5AC0)	; 嫀
     (morohashi-daikanwa	6601 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -5931,7 +5933,7 @@
     (chinese-cns11643-2 . #x4247)	; �����
     ))
 (define-char
-  '((->ucs		. #x5AC1)	; 嫁
+  '((=>ucs		. #x5AC1)	; 嫁
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -5969,7 +5971,7 @@
     (ucs			. #x5AC2)	; 嫂
     ))
 (define-char
-  '((->ucs		. #x5AC3)	; 嫃
+  '((=>ucs		. #x5AC3)	; 嫃
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -6002,7 +6004,7 @@
     (ucs			. #x5AC4)	; 嫄
     ))
 (define-char
-  '((->ucs		. #x5AC4)	; 嫄
+  '((=>ucs		. #x5AC4)	; 嫄
     (morohashi-daikanwa	6606 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -6116,7 +6118,7 @@
     (ucs		. #x370E)	; 㜎
     ))
 (define-char
-  '((->ucs		. #x5ACC)	; 嫌
+  '((=>ucs		. #x5ACC)	; 嫌
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
@@ -6136,7 +6138,7 @@
     (ucs			. #x5ACC)	; 嫌
     ))
 (define-char
-  '((->ucs		. #x5ACC)	; 嫌
+  '((=>ucs		. #x5ACC)	; 嫌
     (morohashi-daikanwa	6618 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 10)
@@ -6394,7 +6396,7 @@
     (ideograph-daikanwa . 06643)	; �����
     ))
 (define-char
-  '((->ucs		. #x5ADA)	; 嫚
+  '((=>ucs		. #x5ADA)	; 嫚
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -6403,7 +6405,7 @@
     (ideograph-daikanwa		. 06644)	; �����
     ))
 (define-char
-  '((->ucs		. #x5ADA)	; 嫚
+  '((=>ucs		. #x5ADA)	; 嫚
     (morohashi-daikanwa	6644 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6455,7 +6457,7 @@
     (ucs		. #x3716)	; 㜖
     ))
 (define-char
-  '((->ucs		. #x5ADC)	; 嫜
+  '((=>ucs		. #x5ADC)	; 嫜
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
@@ -6473,7 +6475,7 @@
     (ucs		. #x5ADC)	; 嫜
     ))
 (define-char
-  '((->ucs		. #x5ADC)	; 嫜
+  '((=>ucs		. #x5ADC)	; 嫜
     (morohashi-daikanwa	6649 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6531,7 +6533,7 @@
     (ucs			. #x5AE0)	; 嫠
     ))
 (define-char
-  '((->ucs		. #x5AE0)	; 嫠
+  '((=>ucs		. #x5AE0)	; 嫠
     (morohashi-daikanwa	6655 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6608,7 +6610,7 @@
     (ucs			. #x5AE5)	; 嫥
     ))
 (define-char
-  '((->ucs		. #x5AE5)	; 嫥
+  '((=>ucs		. #x5AE5)	; 嫥
     (morohashi-daikanwa	6662 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6670,7 +6672,7 @@
     (ucs			. #x5AF0)	; 嫰
     ))
 (define-char
-  '((->ucs		. #x5AF0)	; 嫰
+  '((=>ucs		. #x5AF0)	; 嫰
     (morohashi-daikanwa	6667 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6782,7 +6784,7 @@
     (ucs			. #x5AEE)	; 嫮
     ))
 (define-char
-  '((->ucs		. #x5AEE)	; 嫮
+  '((=>ucs		. #x5AEE)	; 嫮
     (morohashi-daikanwa	6680 0 2)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 11)
@@ -6969,7 +6971,7 @@
     (ideograph-daikanwa . 06684)	; �����
     ))
 (define-char
-  '((->ucs		. #x5AF3)	; 嫳
+  '((=>ucs		. #x5AF3)	; 嫳
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -7015,7 +7017,7 @@
     (ucs			. #x5AF5)	; 嫵
     ))
 (define-char
-  '((->ucs		. #x5AF5)	; 嫵
+  '((=>ucs		. #x5AF5)	; 嫵
     (morohashi-daikanwa	6701 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
@@ -7180,7 +7182,7 @@
     (ucs		. #x5AFF)	; 嫿
     ))
 (define-char
-  '((->ucs		. #x5B00)	; 嬀
+  '((=>ucs		. #x5B00)	; 嬀
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
     (total-strokes	 . 15)
@@ -7197,7 +7199,7 @@
     (ucs		. #x5B00)	; 嬀
     ))
 (define-char
-  '((->ucs		. #x5B00)	; 嬀
+  '((=>ucs		. #x5B00)	; 嬀
     (morohashi-daikanwa	6720 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
@@ -7317,7 +7319,7 @@
     (ucs			. #x5B08)	; 嬈
     ))
 (define-char
-  '((->ucs		. #x5B08)	; 嬈
+  '((=>ucs		. #x5B08)	; 嬈
     (morohashi-daikanwa	6734 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 12)
@@ -7674,7 +7676,7 @@
     (ucs			. #x5B16)	; 嬖
     ))
 (define-char
-  '((->ucs		. #x5B17)	; 嬗
+  '((=>ucs		. #x5B17)	; 嬗
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
@@ -7692,7 +7694,7 @@
     (ucs		. #x5B17)	; 嬗
     ))
 (define-char
-  '((->ucs		. #x5B17)	; 嬗
+  '((=>ucs		. #x5B17)	; 嬗
     (morohashi-daikanwa	6771 0 2)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
@@ -7729,7 +7731,7 @@
     (ideograph-daikanwa . 06775)	; �����
     ))
 (define-char
-  '((->ucs		. #x5B34)	; 嬴
+  '((=>ucs		. #x5B34)	; 嬴
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
     (total-strokes	 . 16)
@@ -7738,7 +7740,7 @@
     (ideograph-daikanwa		. 06776)	; �����
     ))
 (define-char
-  '((->ucs		. #x5B34)	; 嬴
+  '((=>ucs		. #x5B34)	; 嬴
     (morohashi-daikanwa	6776 0 2)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
@@ -7765,7 +7767,7 @@
     (ucs			. #x5B19)	; 嬙
     ))
 (define-char
-  '((->ucs		. #x5B19)	; 嬙
+  '((=>ucs		. #x5B19)	; 嬙
     (morohashi-daikanwa	6777 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 13)
@@ -8082,7 +8084,7 @@
     (ideograph-daikanwa . 06812)	; �����
     ))
 (define-char
-  '((->ucs		. #x5B25)	; 嬥
+  '((=>ucs		. #x5B25)	; 嬥
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
@@ -8098,7 +8100,7 @@
     (ucs		. #x5B25)	; 嬥
     ))
 (define-char
-  '((->ucs		. #x5B25)	; 嬥
+  '((=>ucs		. #x5B25)	; 嬥
     (morohashi-daikanwa	6813 0 3)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 14)
@@ -8122,7 +8124,7 @@
     (ucs		. #x5B27)	; 嬧
     ))
 (define-char
-  '((->ucs		. #x5B28)	; 嬨
+  '((=>ucs		. #x5B28)	; 嬨
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 14)
     (total-strokes	 . 17)
@@ -8237,7 +8239,7 @@
     (ucs			. #x5B2D)	; 嬭
     ))
 (define-char
-  '((->ucs		. #x5B2D)	; 嬭
+  '((=>ucs		. #x5B2D)	; 嬭
     (morohashi-daikanwa	6824 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 14)
@@ -8499,7 +8501,7 @@
     (ucs		. #x5B39)	; 嬹
     ))
 (define-char
-  '((->ucs		. #x5B39)	; 嬹
+  '((=>ucs		. #x5B39)	; 嬹
     (morohashi-daikanwa	6852 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
@@ -8642,7 +8644,7 @@
     (ucs		. #x3733)	; 㜳
     ))
 (define-char
-  '((->ucs		. #x5B3E)	; 嬾
+  '((=>ucs		. #x5B3E)	; 嬾
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
     (total-strokes	 . 19)
@@ -8653,7 +8655,7 @@
     (ideograph-daikanwa		. 06872)	; �����
     ))
 (define-char
-  '((->ucs		. #x5B3E)	; 嬾
+  '((=>ucs		. #x5B3E)	; 嬾
     (morohashi-daikanwa	6872 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
@@ -8668,7 +8670,7 @@
     (ucs		. #x5B3E)	; 嬾
     ))
 (define-char
-  '((->ucs		. #x5B3E)	; 嬾
+  '((=>ucs		. #x5B3E)	; 嬾
     (morohashi-daikanwa	6872 0 4)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
@@ -8794,7 +8796,7 @@
     (ucs			. #x5B41)	; 孁
     ))
 (define-char
-  '((->ucs		. #x5B41)	; 孁
+  '((=>ucs		. #x5B41)	; 孁
     (morohashi-daikanwa	6886 0 1)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 17)
@@ -9009,7 +9011,7 @@
     (ucs		. #x5B4B)	; 孋
     ))
 (define-char
-  '((->ucs		. #x5B4C)	; 孌
+  '((=>ucs		. #x5B4C)	; 孌
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 19)
     (total-strokes	 . 22)
@@ -9026,7 +9028,7 @@
     (ucs		. #x5B4C)	; 孌
     ))
 (define-char
-  '((->ucs		. #x5B4C)	; 孌
+  '((=>ucs		. #x5B4C)	; 孌
     (morohashi-daikanwa	6912 0 2)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 19)
