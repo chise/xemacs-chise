@@ -855,11 +855,19 @@
     (ideograph-daikanwa . 28975)	; ø¸‡„¯
     ))
 (define-char
-  '((ideographic-radical . 127)	; â½¾
+  '((=>ucs		. #x802D)	; è€­
+    (ideographic-radical . 127)	; â½¾
     (ideographic-strokes . 12)
     (total-strokes	 . 18)
+    (korean-ksc5601	. #x513E)	; ø»‰¡‰
     (chinese-cns11643-4 . #x5C71)	; ø»˜¸¢
     (ideograph-daikanwa . 28976)	; ø¸‡„°
+    ))
+(define-char
+  '((morohashi-daikanwa	28976 0 1)
+    (ideographic-radical . 127)	; â½¾
+    (ideographic-strokes . 12)
+    (total-strokes	 . 18)
     (ucs		. #x802D)	; è€­
     ))
 (define-char
