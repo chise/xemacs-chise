@@ -1,3 +1,27 @@
+2002-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R123-Sheep.el, Ideograph-R135-Tongue.el,
+	Ideograph-R140-Grass.el, Ideograph-R103-Bolt-Of-Cloth.el,
+	Ideograph-R109-Eye.el, Ideograph-R110-Spear.el,
+	Ideograph-R120-Silk.el, Ideograph-R079-Weapon.el,
+	Ideograph-R081-Compare.el, Ideograph-R096-Jade.el,
+	Ideograph-R101-Use.el, Ideograph-R102-Field.el,
+	Ideograph-R075-Tree.el, Ideograph-R049-Oneself.el,
+	Ideograph-R050-Turban.el, Ideograph-R057-Bow.el,
+	Ideograph-R066-Rap.el, Ideograph-R036-Evening.el,
+	Ideograph-R039-Child.el, Ideograph-R042-Small.el,
+	Ideograph-R046-Mountain.el, Ideograph-R031-Enclosure.el,
+	Ideograph-R014-Cover.el, Ideograph-R022-Right-Open-Box.el,
+	Ideograph-R023-Hiding-Enclosure.el, Ideograph-R026-Seal.el,
+	Ideograph-R027-Cliff.el, Ideograph-R030-Mouth.el,
+	Ideograph-R009-Man.el, Ideograph-R001-One.el,
+	Ideograph-R002-Line.el, Ideograph-R003-Dot.el,
+	Ideograph-R004-Slash.el, Ideograph-R005-Second.el,
+	Ideograph-R007-Two.el, Ideograph-R008-Lid.el: For some characters
+	which have attribute `->identical', each character and the
+	correspondin character specified by the attribute value are
+	unified; use `ideographic-' instead.
+
 2002-07-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R016-Table.el (U+51E1): Unify C1-443B; use
