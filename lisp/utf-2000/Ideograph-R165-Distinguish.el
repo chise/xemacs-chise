@@ -24,13 +24,13 @@
     (ideographic-radical . 165)	; â¾¤
     (ideographic-strokes . 1)
     (total-strokes	 . 8)
-    (chinese-gb2312		. #x3249)	; ø»„Ÿª
-    (japanese-jisx0208		. #x3A53)	; ø»†µ¨
-    (chinese-isoir165		. #x3249)	; ø»‡º
-    (japanese-jisx0208-1990	. #x3A53)	; ø½Š›œ
-    (=gt-pj-1			. #x3A53)	; é‡‡
-    (=gt-k			. 03715)	; ý¡„€ºƒ
-    (ucs			. #x91C7)	; é‡‡
+    (chinese-gb2312	. #x3249)	; ø»„Ÿª
+    (japanese-jisx0208	. #x3A53)	; ø»†µ¨
+    (chinese-isoir165	. #x3249)	; ø»‡º
+    (=jis-x0208-1990	. #x3A53)	; ø½Š›œ
+    (=gt-pj-1		. #x3A53)	; é‡‡
+    (=gt-k		. 03715)	; ý¡„€ºƒ
+    (ucs		. #x91C7)	; é‡‡
     ))
 (define-char
   '((=>ucs		. #x91C7)	; é‡‡

@@ -1172,12 +1172,12 @@
     (total-strokes	 . 13)
     (shinjigen-1	. 6250)
     (shinjigen-2	. 6250)
-    (korean-ksc5601		. #x712A)	; ø»Šµ
-    (chinese-cns11643-1		. #x6576)	; ø»’§©
-    (japanese-jisx0208-1990	. #x3A61)	; ø½Š›ª
-    (=gt-pj-1			. #x3A61)	; ø»Šµ
-    (=gt-k			. 10212)	; ý¡„‚Ÿ¤
-    (ucs-jis			. #x7F6A)	; ø»Šµ
+    (korean-ksc5601	. #x712A)	; ø»Šµ
+    (chinese-cns11643-1 . #x6576)	; ø»’§©
+    (=jis-x0208-1990	. #x3A61)	; ø½Š›ª
+    (=gt-pj-1		. #x3A61)	; ø»Šµ
+    (=gt-k		. 10212)	; ý¡„‚Ÿ¤
+    (ucs-jis		. #x7F6A)	; ø»Šµ
     ))
 (define-char
   '((morohashi-daikanwa	28293 0 1)

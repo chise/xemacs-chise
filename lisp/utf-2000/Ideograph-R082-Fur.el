@@ -2601,10 +2601,10 @@
     (ideographic-radical . 82)	; â½‘
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
-    (japanese-jisx0208-1990	. #x5D61)	; ø½‹„
-    (chinese-big5		. #xC0D6)	; ý¢€Œƒ–
-    (ideograph-daikanwa		. 16982)	; ø¸„‰–
-    (ucs-jis			. #x6C08)	; ø½‹„
+    (=jis-x0208-1990	. #x5D61)	; ø½‹„
+    (chinese-big5	. #xC0D6)	; ý¢€Œƒ–
+    (ideograph-daikanwa . 16982)	; ø¸„‰–
+    (ucs-jis		. #x6C08)	; ø½‹„
     ))
 (define-char
   '((morohashi-daikanwa	16982 0 0)

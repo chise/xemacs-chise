@@ -79,9 +79,9 @@
     (ideographic-radical . 177)	; â¾°
     (ideographic-strokes . 3)
     (total-strokes	 . 12)
-    (japanese-jisx0208		. #x3F59)	; ø»†½„
-    (japanese-jisx0208-1990	. #x3F59)	; ø½Š¢¸
-    (ucs-jis			. #x976D)	; ø»†½„
+    (japanese-jisx0208	. #x3F59)	; ø»†½„
+    (=jis-x0208-1990	. #x3F59)	; ø½Š¢¸
+    (ucs-jis		. #x976D)	; ø»†½„
     ))
 (define-char
   '((ideographic-radical . 177)	; â¾°
@@ -162,8 +162,8 @@
       :char	((ideograph-daikanwa . 27248)	; ø¸†©°
 		 )
       ))
-    (japanese-jisx0208-1990	. #x7057)	; ø½‹ª´
-    (ucs-jis			. #x9771)	; ø½‹ª´
+    (=jis-x0208-1990	. #x7057)	; ø½‹ª´
+    (ucs-jis		. #x9771)	; ø½‹ª´
     ))
 (define-char
   '((morohashi-daikanwa	ho 701 0)
@@ -254,13 +254,13 @@
     (ideographic-radical . 177)	; â¾°
     (ideographic-strokes . 4)
     (total-strokes	 . 13)
-    (japanese-jisx0208		. #x3724)	; ø»†°Ÿ
-    (korean-ksc5601		. #x7C28)	; ø»ŠŸ½
-    (chinese-cns11643-1		. #x675D)	; ø»’ªŒ
-    (japanese-jisx0208-1990	. #x3724)	; ø½Š–“
-    (=gt-pj-1			. #x3724)	; ø»†°Ÿ
-    (=gt-k			. 10201)	; ý¡„‚Ÿ™
-    (ucs-jis			. #x9774)	; ø»†°Ÿ
+    (japanese-jisx0208	. #x3724)	; ø»†°Ÿ
+    (korean-ksc5601	. #x7C28)	; ø»ŠŸ½
+    (chinese-cns11643-1 . #x675D)	; ø»’ªŒ
+    (=jis-x0208-1990	. #x3724)	; ø½Š–“
+    (=gt-pj-1		. #x3724)	; ø»†°Ÿ
+    (=gt-k		. 10201)	; ý¡„‚Ÿ™
+    (ucs-jis		. #x9774)	; ø»†°Ÿ
     ))
 (define-char
   '((ideographic-radical . 177)	; â¾°
@@ -679,9 +679,9 @@
     (ideographic-radical . 177)	; â¾°
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
-    (japanese-jisx0208		. #x3373)	; ø»†«¶
-    (japanese-jisx0208-1990	. #x3373)	; ø½Š‘ª
-    (ucs-jis			. #x9784)	; ø»†«¶
+    (japanese-jisx0208	. #x3373)	; ø»†«¶
+    (=jis-x0208-1990	. #x3373)	; ø½Š‘ª
+    (ucs-jis		. #x9784)	; ø»†«¶
     ))
 (define-char
   '((ideographic-radical . 177)	; â¾°
@@ -1210,11 +1210,11 @@
     (ideographic-radical . 177)	; â¾°
     (ideographic-strokes . 7)
     (total-strokes	 . 16)
-    (chinese-gb2312		. #x474A)	; ø»„¾¡
-    (japanese-jisx0208		. #x3E64)	; ø»†»±
-    (chinese-isoir165		. #x474A)	; ø»¦±
-    (japanese-jisx0208-1990	. #x3E64)	; ø½Š¡¥
-    (ucs			. #x9798)	; éž˜
+    (chinese-gb2312	. #x474A)	; ø»„¾¡
+    (japanese-jisx0208	. #x3E64)	; ø»†»±
+    (chinese-isoir165	. #x474A)	; ø»¦±
+    (=jis-x0208-1990	. #x3E64)	; ø½Š¡¥
+    (ucs		. #x9798)	; éž˜
     ))
 (define-char
   '((=>ucs		. #x9798)	; éž˜

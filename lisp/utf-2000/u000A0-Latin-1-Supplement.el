@@ -626,10 +626,10 @@
      ((name		  . "PILCROW SIGN")
       (ucs		  . #x00B6)	; Â¶
       ))
-    (japanese-jisx0208		. #x2279)	; ø»†’¾
-    (korean-ksc5601		. #x2252)	; ø»ˆœ›
-    (japanese-jisx0208-1990	. #x2279)	; ø½‰¸²
-    (ucs-jis			. #x00B6)	; ø»†’¾
+    (japanese-jisx0208	. #x2279)	; ø»†’¾
+    (korean-ksc5601	. #x2252)	; ø»ˆœ›
+    (=jis-x0208-1990	. #x2279)	; ø½‰¸²
+    (ucs-jis		. #x00B6)	; ø»†’¾
     ))
 (define-char
   '((name		. "MIDDLE DOT")

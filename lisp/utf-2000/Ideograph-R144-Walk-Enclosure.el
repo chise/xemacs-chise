@@ -508,9 +508,9 @@
     (ideographic-radical . 144)	; â¾
     (ideographic-strokes . 10)
     (total-strokes	 . 16)
-    (korean-ksc5601		. #x6A5B)	; ø»Š†”
-    (japanese-jisx0208-1990	. #x3152)	; ø½ŠŽ
-    (ucs-jis			. #x885B)	; ø»Š†”
+    (korean-ksc5601	. #x6A5B)	; ø»Š†”
+    (=jis-x0208-1990	. #x3152)	; ø½ŠŽ
+    (ucs-jis		. #x885B)	; ø»Š†”
     ))
 (define-char
   '((ideographic-radical . 144)	; â¾

@@ -147,7 +147,7 @@
     chinese-isoir165
     katakana-jisx0201
     hebrew-iso8859-8
-    japanese-jisx0208-1990
+    =jis-x0208-1990
     chinese-gb12345
     latin-viscii
     ethiopic-ucs

@@ -184,9 +184,9 @@
   '((ideographic-radical . 210)	; â¿‘
     (ideographic-strokes . 7)
     (total-strokes	 . 21)
-    (japanese-jisx0208-1990	. #x6C5A)	; ø½‹¤¿
-    (ideograph-daikanwa		. 48575)	; ø¸‹¶¿
-    (ucs			. #x9F4E)	; é½Ž
+    (=jis-x0208-1990	. #x6C5A)	; ø½‹¤¿
+    (ideograph-daikanwa . 48575)	; ø¸‹¶¿
+    (ucs		. #x9F4E)	; é½Ž
     ))
 (define-char
   '((=>ucs		. #x9F4E)	; é½Ž

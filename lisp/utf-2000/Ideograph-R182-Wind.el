@@ -2533,8 +2533,8 @@
     (ideographic-radical . 182)	; â¾µ
     (ideographic-strokes . 11)
     (total-strokes	 . 20)
-    (japanese-jisx0208-1990	. #x7129)	; ø½‹«¤
-    (ucs			. #x98C3)	; é£ƒ
+    (=jis-x0208-1990	. #x7129)	; ø½‹«¤
+    (ucs		. #x98C3)	; é£ƒ
     ))
 (define-char
   '((=>ucs		. #x98C3)	; é£ƒ

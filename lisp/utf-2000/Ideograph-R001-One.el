@@ -284,13 +284,13 @@
     (hanyu-dazidian	1 9 2)
     (shinjigen-1	. 9)
     (shinjigen-2	. 9)
-    (chinese-gb2312		. #x5549)	; ø»…“„
-    (chinese-isoir165		. #x5549)	; ø»»”
-    (chinese-cns11643-1		. #x4437)	; ø»‘¶Œ
-    (japanese-jisx0208-1990	. #x3E66)	; ø½Š¡§
-    (=gt-pj-1			. #x3E66)	; ý¡€€€”
-    (=gt			. 00020)	; ý¡€€€”
-    (ucs			. #x4E08)	; ä¸ˆ
+    (chinese-gb2312	. #x5549)	; ø»…“„
+    (chinese-isoir165	. #x5549)	; ø»»”
+    (chinese-cns11643-1 . #x4437)	; ø»‘¶Œ
+    (=jis-x0208-1990	. #x3E66)	; ø½Š¡§
+    (=gt-pj-1		. #x3E66)	; ý¡€€€”
+    (=gt		. 00020)	; ý¡€€€”
+    (ucs		. #x4E08)	; ä¸ˆ
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€
@@ -658,7 +658,7 @@
     (total-strokes	 . 4)
     (<-vulgar-ideograph
      (:char	((shinjigen-1	     . 9)
-		 (japanese-jisx0208-1990     . #x3E66)	; ø½Š¡§
+		 (ucs		     . #x4E08)	; ä¸ˆ
 		 )
       :sources	(shinjigen-1)))
     (hanyu-dazidian	1 12 5)

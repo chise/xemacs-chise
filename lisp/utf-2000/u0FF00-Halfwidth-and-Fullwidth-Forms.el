@@ -2894,11 +2894,11 @@
      ((name		  . "NOT SIGN")
       (ucs		  . #x00AC)	; Â¬
       ))
-    (japanese-jisx0208		. #x224C)	; ø»†’‘
-    (korean-ksc5601		. #x217E)	; ø»ˆ›©
-    (japanese-jisx0208-1990	. #x224C)	; ø½‰¸…
-    (=big5-eten			. #xC8CD)	; ý¢€Œ£
-    (ucs			. #xFFE2)	; ï¿¢
+    (japanese-jisx0208	. #x224C)	; ø»†’‘
+    (korean-ksc5601	. #x217E)	; ø»ˆ›©
+    (=jis-x0208-1990	. #x224C)	; ø½‰¸…
+    (=big5-eten		. #xC8CD)	; ý¢€Œ£
+    (ucs		. #xFFE2)	; ï¿¢
     ))
 (define-char
   '((name		. "FULLWIDTH MACRON")

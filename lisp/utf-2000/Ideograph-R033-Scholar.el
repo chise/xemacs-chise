@@ -399,7 +399,7 @@
     (japanese-jisx0208-1978	. #x5464)	; ø»ƒ‡½
     (japanese-jisx0208		. #x445B)	; ø»‡„œ
     (chinese-cns11643-3		. #x3477)	; ø»•³´
-    (japanese-jisx0208-1990	. #x445B)	; ø½Šª
+    (=jis-x0208-1990		. #x445B)	; ø½Šª
     (=gt-pj-1			. #x445B)	; å£·
     (ideograph-daikanwa		. 05657)	; ø¸˜™
     (=gt-k			. 07837)	; ý¡„º
@@ -469,7 +469,7 @@
     (japanese-jisx0208		. #x5464)	; ø»‡œ…
     (korean-ksc5601		. #x7B3E)	; ø»Šžµ
     (chinese-cns11643-1		. #x5E63)	; ø»’„
-    (japanese-jisx0208-1990	. #x5464)	; ø½‹¹
+    (=jis-x0208-1990		. #x5464)	; ø½‹¹
     (chinese-gb12345		. #x3A78)	; å£º
     (=gt-pj-1			. #x5464)	; å£º
     (chinese-big5		. #xB3FD)	; ý¢€‹½

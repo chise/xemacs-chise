@@ -3,11 +3,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x224F)	; ø»†’”
-    (korean-ksc5601		. #x2223)	; ø»ˆ›¬
-    (japanese-jisx0208-1990	. #x224F)	; ø½‰¸ˆ
-    (=jef-china3		. #x7FDC)	; øº‡¿œ
-    (ucs			. #x2200)	; âˆ€
+    (japanese-jisx0208	. #x224F)	; ø»†’”
+    (korean-ksc5601	. #x2223)	; ø»ˆ›¬
+    (=jis-x0208-1990	. #x224F)	; ø½‰¸ˆ
+    (=jef-china3	. #x7FDC)	; øº‡¿œ
+    (ucs		. #x2200)	; âˆ€
     ))
 (define-char
   '((name		. "COMPLEMENT")
@@ -21,22 +21,22 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x225F)	; ø»†’¤
-    (korean-ksc5601		. #x2153)	; ø»ˆš¾
-    (japanese-jisx0208-1990	. #x225F)	; ø½‰¸˜
-    (=jef-china3		. #x7FE1)	; øº‡¿¡
-    (ucs			. #x2202)	; âˆ‚
+    (japanese-jisx0208	. #x225F)	; ø»†’¤
+    (korean-ksc5601	. #x2153)	; ø»ˆš¾
+    (=jis-x0208-1990	. #x225F)	; ø½‰¸˜
+    (=jef-china3	. #x7FE1)	; øº‡¿¡
+    (ucs		. #x2202)	; âˆ‚
     ))
 (define-char
   '((name		. "THERE EXISTS")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x2250)	; ø»†’•
-    (korean-ksc5601		. #x2224)	; ø»ˆ›­
-    (japanese-jisx0208-1990	. #x2250)	; ø½‰¸‰
-    (=jef-china3		. #x7FDD)	; øº‡¿
-    (ucs			. #x2203)	; âˆƒ
+    (japanese-jisx0208	. #x2250)	; ø»†’•
+    (korean-ksc5601	. #x2224)	; ø»ˆ›­
+    (=jis-x0208-1990	. #x2250)	; ø½‰¸‰
+    (=jef-china3	. #x7FDD)	; øº‡¿
+    (ucs		. #x2203)	; âˆƒ
     ))
 (define-char
   '((name		. "THERE DOES NOT EXIST")
@@ -66,23 +66,23 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (japanese-jisx0208		. #x2260)	; ø»†’¥
-    (korean-ksc5601		. #x2154)	; ø»ˆš¿
-    (japanese-jisx0208-1990	. #x2260)	; ø½‰¸™
-    (=jef-china3		. #x7FE2)	; øº‡¿¢
-    (ucs			. #x2207)	; âˆ‡
+    (japanese-jisx0208	. #x2260)	; ø»†’¥
+    (korean-ksc5601	. #x2154)	; ø»ˆš¿
+    (=jis-x0208-1990	. #x2260)	; ø½‰¸™
+    (=jef-china3	. #x7FE2)	; øº‡¿¢
+    (ucs		. #x2207)	; âˆ‡
     ))
 (define-char
   '((name		. "ELEMENT OF")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x214A)	; ø»„†­
-    (japanese-jisx0208		. #x223A)	; ø»†‘¿
-    (korean-ksc5601		. #x2174)	; ø»ˆ›Ÿ
-    (japanese-jisx0208-1990	. #x223A)	; ø½‰·³
-    (=jef-china3		. #x7FD0)	; øº‡¿
-    (ucs			. #x2208)	; âˆˆ
+    (chinese-gb2312	. #x214A)	; ø»„†­
+    (japanese-jisx0208	. #x223A)	; ø»†‘¿
+    (korean-ksc5601	. #x2174)	; ø»ˆ›Ÿ
+    (=jis-x0208-1990	. #x223A)	; ø½‰·³
+    (=jef-china3	. #x7FD0)	; øº‡¿
+    (ucs		. #x2208)	; âˆˆ
     ))
 (define-char
   '((name		. "NOT AN ELEMENT OF")
@@ -105,11 +105,11 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x223B)	; ø»†’€
-    (korean-ksc5601		. #x2175)	; ø»ˆ› 
-    (japanese-jisx0208-1990	. #x223B)	; ø½‰·´
-    (=jef-china3		. #x7FD1)	; øº‡¿‘
-    (ucs			. #x220B)	; âˆ‹
+    (japanese-jisx0208	. #x223B)	; ø»†’€
+    (korean-ksc5601	. #x2175)	; ø»ˆ› 
+    (=jis-x0208-1990	. #x223B)	; ø½‰·´
+    (=jef-china3	. #x7FD1)	; øº‡¿‘
+    (ucs		. #x220B)	; âˆ‹
     ))
 (define-char
   '((name		. "DOES NOT CONTAIN AS MEMBER")
@@ -223,13 +223,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x214C)	; ø»„†¯
-    (japanese-jisx0208		. #x2265)	; ø»†’ª
-    (korean-ksc5601		. #x216E)	; ø»ˆ›™
-    (chinese-cns11643-1		. #x2235)	; ø»‘„Ž
-    (japanese-jisx0208-1990	. #x2265)	; ø½‰¸ž
-    (chinese-big5		. #xA1D4)	; ý¢€Š‡”
-    (ucs			. #x221A)	; âˆš
+    (chinese-gb2312	. #x214C)	; ø»„†¯
+    (japanese-jisx0208	. #x2265)	; ø»†’ª
+    (korean-ksc5601	. #x216E)	; ø»ˆ›™
+    (chinese-cns11643-1 . #x2235)	; ø»‘„Ž
+    (=jis-x0208-1990	. #x2265)	; ø½‰¸ž
+    (chinese-big5	. #xA1D4)	; ý¢€Š‡”
+    (ucs		. #x221A)	; âˆš
     ))
 (define-char
   '((name		. "CUBE ROOT")
@@ -250,12 +250,12 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x2158)	; ø»„†»
-    (japanese-jisx0208		. #x2267)	; ø»†’¬
-    (korean-ksc5601		. #x2170)	; ø»ˆ››
-    (japanese-jisx0208-1990	. #x2267)	; ø½‰¸ 
-    (=jef-china3		. #x7FE7)	; øº‡¿§
-    (ucs			. #x221D)	; âˆ
+    (chinese-gb2312	. #x2158)	; ø»„†»
+    (japanese-jisx0208	. #x2267)	; ø»†’¬
+    (korean-ksc5601	. #x2170)	; ø»ˆ››
+    (=jis-x0208-1990	. #x2267)	; ø½‰¸ 
+    (=jef-china3	. #x7FE7)	; øº‡¿§
+    (ucs		. #x221D)	; âˆ
     ))
 (define-char
   '((name		. "INFINITY")
@@ -284,14 +284,14 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x214F)	; ø»„†²
-    (japanese-jisx0208		. #x225C)	; ø»†’¡
-    (korean-ksc5601		. #x2150)	; ø»ˆš»
-    (chinese-cns11643-1		. #x2248)	; ø»‘„¡
-    (japanese-jisx0208-1990	. #x225C)	; ø½‰¸•
-    (chinese-big5		. #xA1E7)	; ý¢€Š‡§
-    (=jef-china3		. #x7FDE)	; øº‡¿ž
-    (ucs			. #x2220)	; âˆ 
+    (chinese-gb2312	. #x214F)	; ø»„†²
+    (japanese-jisx0208	. #x225C)	; ø»†’¡
+    (korean-ksc5601	. #x2150)	; ø»ˆš»
+    (chinese-cns11643-1 . #x2248)	; ø»‘„¡
+    (=jis-x0208-1990	. #x225C)	; ø½‰¸•
+    (chinese-big5	. #xA1E7)	; ý¢€Š‡§
+    (=jef-china3	. #x7FDE)	; øº‡¿ž
+    (ucs		. #x2220)	; âˆ 
     ))
 (define-char
   '((name		. "MEASURED ANGLE")
@@ -348,62 +348,62 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x2144)	; ø»„†§
-    (japanese-jisx0208		. #x224A)	; ø»†’
-    (korean-ksc5601		. #x217C)	; ø»ˆ›§
-    (japanese-jisx0208-1990	. #x224A)	; ø½‰¸ƒ
-    (ucs			. #x2227)	; âˆ§
+    (chinese-gb2312	. #x2144)	; ø»„†§
+    (japanese-jisx0208	. #x224A)	; ø»†’
+    (korean-ksc5601	. #x217C)	; ø»ˆ›§
+    (=jis-x0208-1990	. #x224A)	; ø½‰¸ƒ
+    (ucs		. #x2227)	; âˆ§
     ))
 (define-char
   '((name		. "LOGICAL OR")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x2145)	; ø»„†¨
-    (japanese-jisx0208		. #x224B)	; ø»†’
-    (korean-ksc5601		. #x217D)	; ø»ˆ›¨
-    (japanese-jisx0208-1990	. #x224B)	; ø½‰¸„
-    (ucs			. #x2228)	; âˆ¨
+    (chinese-gb2312	. #x2145)	; ø»„†¨
+    (japanese-jisx0208	. #x224B)	; ø»†’
+    (korean-ksc5601	. #x217D)	; ø»ˆ›¨
+    (=jis-x0208-1990	. #x224B)	; ø½‰¸„
+    (ucs		. #x2228)	; âˆ¨
     ))
 (define-char
   '((name		. "INTERSECTION")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x2149)	; ø»„†¬
-    (japanese-jisx0208		. #x2241)	; ø»†’†
-    (korean-ksc5601		. #x217B)	; ø»ˆ›¦
-    (chinese-cns11643-1		. #x2245)	; ø»‘„ž
-    (japanese-jisx0208-1990	. #x2241)	; ø½‰·º
-    (chinese-big5		. #xA1E4)	; ý¢€Š‡¤
-    (ucs			. #x2229)	; âˆ©
+    (chinese-gb2312	. #x2149)	; ø»„†¬
+    (japanese-jisx0208	. #x2241)	; ø»†’†
+    (korean-ksc5601	. #x217B)	; ø»ˆ›¦
+    (chinese-cns11643-1 . #x2245)	; ø»‘„ž
+    (=jis-x0208-1990	. #x2241)	; ø½‰·º
+    (chinese-big5	. #xA1E4)	; ý¢€Š‡¤
+    (ucs		. #x2229)	; âˆ©
     ))
 (define-char
   '((name		. "UNION")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x2148)	; ø»„†«
-    (japanese-jisx0208		. #x2240)	; ø»†’…
-    (korean-ksc5601		. #x217A)	; ø»ˆ›¥
-    (chinese-cns11643-1		. #x2246)	; ø»‘„Ÿ
-    (japanese-jisx0208-1990	. #x2240)	; ø½‰·¹
-    (chinese-big5		. #xA1E5)	; ý¢€Š‡¥
-    (ucs			. #x222A)	; âˆª
+    (chinese-gb2312	. #x2148)	; ø»„†«
+    (japanese-jisx0208	. #x2240)	; ø»†’…
+    (korean-ksc5601	. #x217A)	; ø»ˆ›¥
+    (chinese-cns11643-1 . #x2246)	; ø»‘„Ÿ
+    (=jis-x0208-1990	. #x2240)	; ø½‰·¹
+    (chinese-big5	. #xA1E5)	; ý¢€Š‡¥
+    (ucs		. #x222A)	; âˆª
     ))
 (define-char
   '((name		. "INTEGRAL")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (chinese-gb2312		. #x2152)	; ø»„†µ
-    (japanese-jisx0208		. #x2269)	; ø»†’®
-    (korean-ksc5601		. #x2172)	; ø»ˆ›
-    (chinese-cns11643-1		. #x224D)	; ø»‘„¦
-    (japanese-jisx0208-1990	. #x2269)	; ø½‰¸¢
-    (chinese-big5		. #xA1EC)	; ý¢€Š‡¬
-    (=jef-china3		. #x7FE8)	; øº‡¿¨
-    (ucs			. #x222B)	; âˆ«
+    (chinese-gb2312	. #x2152)	; ø»„†µ
+    (japanese-jisx0208	. #x2269)	; ø»†’®
+    (korean-ksc5601	. #x2172)	; ø»ˆ›
+    (chinese-cns11643-1 . #x224D)	; ø»‘„¦
+    (=jis-x0208-1990	. #x2269)	; ø½‰¸¢
+    (chinese-big5	. #xA1EC)	; ý¢€Š‡¬
+    (=jef-china3	. #x7FE8)	; øº‡¿¨
+    (ucs		. #x222B)	; âˆ«
     ))
 (define-char
   '((name		. "DOUBLE INTEGRAL")
@@ -411,11 +411,11 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	compat #x222B #x222B)
-    (japanese-jisx0208		. #x226A)	; ø»†’¯
-    (korean-ksc5601		. #x2173)	; ø»ˆ›ž
-    (japanese-jisx0208-1990	. #x226A)	; ø½‰¸£
-    (=jef-china3		. #x7FE9)	; øº‡¿©
-    (ucs			. #x222C)	; âˆ¬
+    (japanese-jisx0208	. #x226A)	; ø»†’¯
+    (korean-ksc5601	. #x2173)	; ø»ˆ›ž
+    (=jis-x0208-1990	. #x226A)	; ø½‰¸£
+    (=jef-china3	. #x7FE9)	; øº‡¿©
+    (ucs		. #x222C)	; âˆ¬
     ))
 (define-char
   '((name		. "TRIPLE INTEGRAL")
@@ -491,13 +491,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x215F)	; ø»„‡‚
-    (japanese-jisx0208		. #x2268)	; ø»†’­
-    (korean-ksc5601		. #x2171)	; ø»ˆ›œ
-    (chinese-cns11643-1		. #x224F)	; ø»‘„¨
-    (japanese-jisx0208-1990	. #x2268)	; ø½‰¸¡
-    (chinese-big5		. #xA1EE)	; ý¢€Š‡®
-    (ucs			. #x2235)	; âˆµ
+    (chinese-gb2312	. #x215F)	; ø»„‡‚
+    (japanese-jisx0208	. #x2268)	; ø»†’­
+    (korean-ksc5601	. #x2171)	; ø»ˆ›œ
+    (chinese-cns11643-1 . #x224F)	; ø»‘„¨
+    (=jis-x0208-1990	. #x2268)	; ø½‰¸¡
+    (chinese-big5	. #xA1EE)	; ý¢€Š‡®
+    (ucs		. #x2235)	; âˆµ
     ))
 (define-char
   '((name		. "RATIO")
@@ -560,12 +560,12 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (iso-10646-comment	. "lazy S")
-    (chinese-gb2312		. #x2157)	; ø»„†º
-    (japanese-jisx0208		. #x2266)	; ø»†’«
-    (korean-ksc5601		. #x216F)	; ø»ˆ›š
-    (japanese-jisx0208-1990	. #x2266)	; ø½‰¸Ÿ
-    (=jef-china3		. #x7FE6)	; øº‡¿¦
-    (ucs			. #x223D)	; âˆ½
+    (chinese-gb2312	. #x2157)	; ø»„†º
+    (japanese-jisx0208	. #x2266)	; ø»†’«
+    (korean-ksc5601	. #x216F)	; ø»ˆ›š
+    (=jis-x0208-1990	. #x2266)	; ø½‰¸Ÿ
+    (=jef-china3	. #x7FE6)	; øº‡¿¦
+    (ucs		. #x223D)	; âˆ½
     ))
 (define-char
   '((name		. "INVERTED LAZY S")
@@ -721,12 +721,12 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x2262)	; ø»†’§
-    (korean-ksc5601		. #x2156)	; ø»ˆ›
-    (chinese-cns11643-1		. #x223D)	; ø»‘„–
-    (japanese-jisx0208-1990	. #x2262)	; ø½‰¸›
-    (chinese-big5		. #xA1DC)	; ý¢€Š‡œ
-    (ucs			. #x2252)	; â‰’
+    (japanese-jisx0208	. #x2262)	; ø»†’§
+    (korean-ksc5601	. #x2156)	; ø»ˆ›
+    (chinese-cns11643-1 . #x223D)	; ø»‘„–
+    (=jis-x0208-1990	. #x2262)	; ø½‰¸›
+    (chinese-big5	. #xA1DC)	; ý¢€Š‡œ
+    (ucs		. #x2252)	; â‰’
     ))
 (define-char
   '((name		. "IMAGE OF OR APPROXIMATELY EQUAL TO")
@@ -837,13 +837,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x2154)	; ø»„†·
-    (japanese-jisx0208		. #x2261)	; ø»†’¦
-    (korean-ksc5601		. #x2155)	; ø»ˆ›€
-    (chinese-cns11643-1		. #x223E)	; ø»‘„—
-    (japanese-jisx0208-1990	. #x2261)	; ø½‰¸š
-    (chinese-big5		. #xA1DD)	; ý¢€Š‡
-    (ucs			. #x2261)	; â‰¡
+    (chinese-gb2312	. #x2154)	; ø»„†·
+    (japanese-jisx0208	. #x2261)	; ø»†’¦
+    (korean-ksc5601	. #x2155)	; ø»ˆ›€
+    (chinese-cns11643-1 . #x223E)	; ø»‘„—
+    (=jis-x0208-1990	. #x2261)	; ø½‰¸š
+    (chinese-big5	. #xA1DD)	; ý¢€Š‡
+    (ucs		. #x2261)	; â‰¡
     ))
 (define-char
   '((name		. "NOT IDENTICAL TO")
@@ -918,22 +918,22 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x2263)	; ø»†’¨
-    (korean-ksc5601		. #x216C)	; ø»ˆ›—
-    (japanese-jisx0208-1990	. #x2263)	; ø½‰¸œ
-    (=jef-china3		. #x7FE3)	; øº‡¿£
-    (ucs			. #x226A)	; â‰ª
+    (japanese-jisx0208	. #x2263)	; ø»†’¨
+    (korean-ksc5601	. #x216C)	; ø»ˆ›—
+    (=jis-x0208-1990	. #x2263)	; ø½‰¸œ
+    (=jef-china3	. #x7FE3)	; øº‡¿£
+    (ucs		. #x226A)	; â‰ª
     ))
 (define-char
   '((name		. "MUCH GREATER-THAN")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x2264)	; ø»†’©
-    (korean-ksc5601		. #x216D)	; ø»ˆ›˜
-    (japanese-jisx0208-1990	. #x2264)	; ø½‰¸
-    (=jef-china3		. #x7FE4)	; øº‡¿¤
-    (ucs			. #x226B)	; â‰«
+    (japanese-jisx0208	. #x2264)	; ø»†’©
+    (korean-ksc5601	. #x216D)	; ø»ˆ›˜
+    (=jis-x0208-1990	. #x2264)	; ø½‰¸
+    (=jef-china3	. #x7FE4)	; øº‡¿¤
+    (ucs		. #x226B)	; â‰«
     ))
 (define-char
   '((name		. "BETWEEN")
@@ -1109,22 +1109,22 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x223E)	; ø»†’ƒ
-    (korean-ksc5601		. #x2178)	; ø»ˆ›£
-    (japanese-jisx0208-1990	. #x223E)	; ø½‰··
-    (=jef-china3		. #x7FD4)	; øº‡¿”
-    (ucs			. #x2282)	; âŠ‚
+    (japanese-jisx0208	. #x223E)	; ø»†’ƒ
+    (korean-ksc5601	. #x2178)	; ø»ˆ›£
+    (=jis-x0208-1990	. #x223E)	; ø½‰··
+    (=jef-china3	. #x7FD4)	; øº‡¿”
+    (ucs		. #x2282)	; âŠ‚
     ))
 (define-char
   '((name		. "SUPERSET OF")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x223F)	; ø»†’„
-    (korean-ksc5601		. #x2179)	; ø»ˆ›¤
-    (japanese-jisx0208-1990	. #x223F)	; ø½‰·¸
-    (=jef-china3		. #x7FD5)	; øº‡¿•
-    (ucs			. #x2283)	; âŠƒ
+    (japanese-jisx0208	. #x223F)	; ø»†’„
+    (korean-ksc5601	. #x2179)	; ø»ˆ›¤
+    (=jis-x0208-1990	. #x223F)	; ø½‰·¸
+    (=jef-china3	. #x7FD5)	; øº‡¿•
+    (ucs		. #x2283)	; âŠƒ
     ))
 (define-char
   '((name		. "NOT A SUBSET OF")
@@ -1149,22 +1149,22 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x223C)	; ø»†’
-    (korean-ksc5601		. #x2176)	; ø»ˆ›¡
-    (japanese-jisx0208-1990	. #x223C)	; ø½‰·µ
-    (=jef-china3		. #x7FD2)	; øº‡¿’
-    (ucs			. #x2286)	; âŠ†
+    (japanese-jisx0208	. #x223C)	; ø»†’
+    (korean-ksc5601	. #x2176)	; ø»ˆ›¡
+    (=jis-x0208-1990	. #x223C)	; ø½‰·µ
+    (=jef-china3	. #x7FD2)	; øº‡¿’
+    (ucs		. #x2286)	; âŠ†
     ))
 (define-char
   '((name		. "SUPERSET OF OR EQUAL TO")
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. t)
-    (japanese-jisx0208		. #x223D)	; ø»†’‚
-    (korean-ksc5601		. #x2177)	; ø»ˆ›¢
-    (japanese-jisx0208-1990	. #x223D)	; ø½‰·¶
-    (=jef-china3		. #x7FD3)	; øº‡¿“
-    (ucs			. #x2287)	; âŠ‡
+    (japanese-jisx0208	. #x223D)	; ø»†’‚
+    (korean-ksc5601	. #x2177)	; ø»ˆ›¢
+    (=jis-x0208-1990	. #x223D)	; ø½‰·¶
+    (=jef-china3	. #x7FD3)	; øº‡¿“
+    (ucs		. #x2287)	; âŠ‡
     ))
 (define-char
   '((name		. "NEITHER A SUBSET OF NOR EQUAL TO")
@@ -1387,13 +1387,13 @@
     (general-category	symbol math) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
-    (chinese-gb2312		. #x214D)	; ø»„†°
-    (japanese-jisx0208		. #x225D)	; ø»†’¢
-    (korean-ksc5601		. #x2151)	; ø»ˆš¼
-    (chinese-cns11643-1		. #x2247)	; ø»‘„ 
-    (japanese-jisx0208-1990	. #x225D)	; ø½‰¸–
-    (chinese-big5		. #xA1E6)	; ý¢€Š‡¦
-    (ucs			. #x22A5)	; âŠ¥
+    (chinese-gb2312	. #x214D)	; ø»„†°
+    (japanese-jisx0208	. #x225D)	; ø»†’¢
+    (korean-ksc5601	. #x2151)	; ø»ˆš¼
+    (chinese-cns11643-1 . #x2247)	; ø»‘„ 
+    (=jis-x0208-1990	. #x225D)	; ø½‰¸–
+    (chinese-big5	. #xA1E6)	; ý¢€Š‡¦
+    (ucs		. #x22A5)	; âŠ¥
     ))
 (define-char
   '((name		. "ASSERTION")

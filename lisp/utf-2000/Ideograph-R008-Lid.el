@@ -235,9 +235,9 @@
       ))
     (shinjigen-1	. 96)
     (shinjigen-2	. 96)
-    (japanese-jisx0208-1990	. #x3872)	; ø½Š˜¿
-    (=gt-pj-1			. #x3872)	; ø½Š˜¿
-    (ucs-jis			. #x4EA4)	; ø½Š˜¿
+    (=jis-x0208-1990	. #x3872)	; ø½Š˜¿
+    (=gt-pj-1		. #x3872)	; ø½Š˜¿
+    (ucs-jis		. #x4EA4)	; ø½Š˜¿
     ))
 (define-char
   '((morohashi-daikanwa	291 0 1)

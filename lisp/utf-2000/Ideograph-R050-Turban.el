@@ -960,7 +960,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((japanese-jisx0208-1990	  . #x376A)	; ø½Š—™
+     ((=jis-x0208-1990	  . #x376A)	; ø½Š—™
       )
      ((ucs		  . #x5DFE)	; å·¾
       ))
@@ -2165,10 +2165,10 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
     (shinjigen-2	. 3959)
-    (japanese-jisx0208-1990	. #x3522)	; ø½Š“•
-    (=gt-pj-1			. #x3522)	; ø½Š“•
-    (=gt-k			. 06395)	; ý¡„£»
-    (ucs-jis			. #x5E30)	; ø½Š“•
+    (=jis-x0208-1990	. #x3522)	; ø½Š“•
+    (=gt-pj-1		. #x3522)	; ø½Š“•
+    (=gt-k		. 06395)	; ý¡„£»
+    (ucs-jis		. #x5E30)	; ø½Š“•
     ))
 (define-char
   '((=>ucs		. #x5E30)	; å¸°

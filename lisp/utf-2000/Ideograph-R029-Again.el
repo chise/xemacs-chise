@@ -383,12 +383,12 @@
 	       (ideograph-daikanwa . 13110)	; ø¸ƒŒ¶
 	       ))
       ))
-    (japanese-jisx0208-1990	. #x3C7D)	; ø½ŠŸ‚
-    (=gt-pj-1			. #x3C7D)	; åŽ
-    (ideograph-daikanwa		. 03128)	; ø¸€°¸
-    (=hanziku-1			. #xF6D2)	; ý¢€Ÿ›’
-    (=cbeta			. 01495)	; ø¸ ——
-    (ucs			. #x53CE)	; åŽ
+    (=jis-x0208-1990	. #x3C7D)	; ø½ŠŸ‚
+    (=gt-pj-1		. #x3C7D)	; åŽ
+    (ideograph-daikanwa . 03128)	; ø¸€°¸
+    (=hanziku-1		. #xF6D2)	; ý¢€Ÿ›’
+    (=cbeta		. 01495)	; ø¸ ——
+    (ucs		. #x53CE)	; åŽ
     ))
 (define-char
   '((=>ucs		. #x53CE)	; åŽ
