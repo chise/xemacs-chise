@@ -1,3 +1,20 @@
+2002-01-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (map_over_uint8_byte_table): Add new argument `root';
+	if an element is not loaded, load the corresponding attributes
+	from an external database.
+	(map_over_uint16_byte_table): Likewise.
+	(map_over_byte_table): Likewise.
+	(map_char_table): Modify for `map_over_uint8_byte_table',
+	`map_over_uint16_byte_table' and `map_over_byte_table'; if an
+	element is not loaded, load the corresponding attributes from an
+	external database.
+	(Fput_char_attribute): Change initial values to Qunloaded.
+
+	* chartab.h (get_char_id_table): If a character attribute is not
+	loaded and the attribute value is not found in an external
+	database, store Qunbound as the attribute value.
+
 2002-01-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c (BT_UINT8_unloaded): New macro.
