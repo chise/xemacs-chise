@@ -4359,6 +4359,15 @@
 	(Vcharset_thai_tis620): Likewise.
 	(Vcharset_katakana_jisx0201): Likewise.
 
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.1 "Copyleft" is released.
+
+2001-04-19  Glynn Clements  <glynn.clements@virgin.net>
+
+	* input-method-motif.c (XIM_delete_frame): New callback.
+	(XIM_init_frame): Register it.
+
 2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.0 "Solid Vapor" is released.

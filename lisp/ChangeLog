@@ -707,6 +707,21 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.1 "Copyleft" is released.
+
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* x-compose.el (xlib-input-method-bug-workaround):
+	(alias-colon-to-double-quote):
+	Force sort in map-keymap to work around rehash bug.
+
+2001-04-17  Ben Wing  <ben@xemacs.org>
+
+	* about.el: Finish overhaul, add a few new hackers, update a
+	couple old ones.
+
 2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.0 "Solid Vapor" is released.

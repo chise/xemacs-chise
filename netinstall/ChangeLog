@@ -1,3 +1,11 @@
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.1 "Copyleft" is released.
+
+2001-04-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* reginfo.h: Fixup 21.2 -> 21.4.
+
 2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.0 "Solid Vapor" is released.
@@ -218,3 +226,6 @@
 2000-11-12  Andy Piper  <andy@xemacs.org>
 
 	* all: port from cygwin setup.
+
+%%% $Id: ChangeLog,v 1.2.2.4 2001/04/19 07:31:14 stephent Exp $
+$Revision: 1.2.2.4 $

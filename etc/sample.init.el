@@ -814,7 +814,7 @@ use \\[grep-all-files-in-current-directory-and-below]."
   (grep (construct-grep-all-files-command
 	 "-name . -or -type d -prune -or" command)))
 
-(defun grep-all-files-in-current-directory-and-below ()
+(defun grep-all-files-in-current-directory-and-below (command)
   "Run `grep' in all non-annoying files in the current directory and below.
 `Non-annoying' excludes backup files, autosave files, CVS merge files, etc.
 More specifically, this is controlled by `grep-all-files-omitted-expressions'.

@@ -226,7 +226,7 @@ If you want support for X you will also need:
        INSTALL_DIR="x:\your\installation\directory"
 
     (By default, XEmacs will be installed in directories under the directory
-    "c:\Program Files\XEmacs\XEmacs-21.2".)
+    "c:\Program Files\XEmacs\XEmacs-21.4".)
 
 3.  If you want to build xemacs on the command line, use
     `nmake install -f xemacs.mak', or just `nmake -f xemacs.mak' if you want
@@ -236,7 +236,7 @@ If you want support for X you will also need:
 
     If you chose to install XEmacs, the file that you should run to start
     XEmacs will be installed (by default) as
-        "c:\Program Files\XEmacs\XEmacs-21.2\i586-pc-win32\xemacs.exe".
+        "c:\Program Files\XEmacs\XEmacs-21.4\i586-pc-win32\xemacs.exe".
 
     To run from the build directory, run the file "nt\xemacs.exe" off of the
     root of the build directory.

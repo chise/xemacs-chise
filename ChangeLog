@@ -56,6 +56,43 @@
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
 
+2001-04-19  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.1 "Copyleft" is released.
+
+2001-04-17  Ben Wing  <ben@xemacs.org>
+
+	* etc\NEWS: More changes.
+
+	* etc\sample.init.el (grep-all-files-in-current-directory-and-below):
+	Missing argument.
+
+	* etc\photos\fabrice.png:
+	* etc\photos\fabricem.png:
+	* etc\photos\juhp.png:
+	* etc\photos\juhpm.png:
+	Add photos.
+	* etc\photos\jwz.png:
+	* etc\photos\jwzm.png:
+	Update photos.
+
+2001-04-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* README:
+	* etc/README:
+	* etc/MACHINES:
+	* etc/PACKAGES:
+	* etc/TUTORIAL.ja:
+	Fixup 21.2 -> 21.4.
+
+	* configure: Regenerate.
+
+	* PROBLEMS (Running/Linux): Add entries for ESD interrupts and
+	Debian Athena3d workarounds.
+
+	* PROBLEMS: s/xemacs@xemacs.org/xemacs-beta@xemacs.org/ in
+	requests for developer volunteers.
+
 2001-04-16  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.0 "Solid Vapor" is released.
