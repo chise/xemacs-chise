@@ -1072,6 +1072,15 @@
     (=ucs		. #x76E3)	; ç›£
     ))
 (define-char
+  '((morohashi-daikanwa	23493 0 9)
+    (ideographic-radical@ucs . 108)	; â½«
+    (ideographic-radical@cns . 109)	; â½¬
+    (ideographic-strokes . 9)
+    (total-strokes	 . 14)
+    (=cns11643-6	. #x5F4B)	; ø»ž
+    (=ucs		. #x25085)	; ð¥‚…
+    ))
+(define-char
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 9)
     (total-strokes	 . 14)

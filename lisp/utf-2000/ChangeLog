@@ -2,6 +2,16 @@
 
 	* close-cdb.el: Call `close-char-data-source'.
 
+2003-09-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el (U-00025085): Separated from M-23493 and
+	copied from Ideograph-R109-Eye.el; use `ideographic-radical@cns'
+	instead of `ideographic-radical'; add `ideographic-radical@ucs'
+	for R108-Dish.
+
+	* Ideograph-R109-Eye.el (M-23493): Unify U-00025204 instead of
+	C6-5F4B and U-00025085.
+
 2003-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R167-Gold.el (M-40693): Separate J0-3379, C2-637E and
