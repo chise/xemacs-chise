@@ -20,9 +20,9 @@ along with XEmacs; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.  */
 
-/* Synched up with: FSF 20.3.  Not in FSF. */
-
 /* Rewritten by Ben Wing <ben@xemacs.org>. */
+
+/* Rewritten by MORIOKA Tomohiko <tomo@m17n.org> for XEmacs UTF-2000. */
 
 #include <config.h>
 #ifdef UTF2000
@@ -67,6 +67,7 @@ Lisp_Object Vcharset_chinese_cns11643_2;
 Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_cns;
+Lisp_Object Vcharset_ucs_big5;
 Lisp_Object Vcharset_latin_viscii;
 Lisp_Object Vcharset_latin_tcvn5712;
 Lisp_Object Vcharset_latin_viscii_lower;
@@ -1597,6 +1598,7 @@ Lisp_Object Qascii,
 #ifdef UTF2000
   Qucs_bmp,
   Qucs_cns,
+  Qucs_big5,
   Qlatin_viscii,
   Qlatin_tcvn5712,
   Qlatin_viscii_lower,
@@ -3540,6 +3542,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs,			"ucs");
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_cns,			"ucs-cns");
+  defsymbol (&Qucs_big5,		"ucs-big5");
   defsymbol (&Qlatin_viscii,		"latin-viscii");
   defsymbol (&Qlatin_tcvn5712,		"latin-tcvn5712");
   defsymbol (&Qlatin_viscii_lower,	"latin-viscii-lower");
@@ -3694,6 +3697,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CNS"),
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
+		  build_string (""),
+		  Qnil, 0, 0, 0, 0);
+  staticpro (&Vcharset_ucs_big5);
+  Vcharset_ucs_big5 =
+    make_charset (LEADING_BYTE_UCS_BIG5, Qucs_big5, 256, 3,
+		  1, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS for Big5"),
+		  build_string ("UCS for Big5"),
+		  build_string ("ISO/IEC 10646 for Big5"),
 		  build_string (""),
 		  Qnil, 0, 0, 0, 0);
 #else
