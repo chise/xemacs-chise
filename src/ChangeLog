@@ -1,3 +1,13 @@
+1999-09-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* text-coding.c (encode_coding_sjis): Deleted.
+	(char_encode_shift_jis): New function.
+	(char_finish_shift_jis): New function.
+	(reset_encoding_stream): Set up `encode_char' and `finish' for
+	`CODESYS_UCS4' and `CODESYS_SHIFT_JIS'.
+	(mule_encode): Use generic encoder for `CODESYS_SHIFT_JIS'.
+	(char_encode_utf8): Treat `eol_type'.
+
 1999-09-10  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* file-coding.c (decode_coding_iso2022): Use
