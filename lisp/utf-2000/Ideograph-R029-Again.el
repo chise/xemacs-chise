@@ -387,6 +387,18 @@
     (ideographic-radical . 29)	; â¼œ
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x6536)	; æ”¶
+      (=jis-x0208	  . #x5A40)	; ø½‹Š‰
+      ))
+    (<-vulgar-ideograph
+     ((ideographic-radical . 66)	; â½
+      (shinjigen-1	  . 907)
+      (=daikanwa	  . 13110)	; ø¸ƒŒ¶
+      ))
+    (<-vulgar-ideograph*sources
+     daikanwa shinjigen-1)
+    (=ucs		. #x53CE)	; åŽ
     (->subsumptive
      ((hanyu-dazidian	  1 393 3)
       (ideographic-structure
@@ -420,18 +432,6 @@
 	))
       (=cns11643-3	  . #x2160)	; ø»•—£
       ))
-    (<-simplified@JP/Jouyou
-     ((=ucs		  . #x6536)	; æ”¶
-      (=jis-x0208	  . #x5A40)	; ø½‹Š‰
-      ))
-    (<-vulgar-ideograph
-     ((ideographic-radical . 66)	; â½
-      (shinjigen-1	  . 907)
-      (=daikanwa	  . 13110)	; ø¸ƒŒ¶
-      ))
-    (<-vulgar-ideograph*sources
-     daikanwa shinjigen-1)
-    (=ucs		. #x53CE)	; åŽ
     ))
 (define-char
   '((=>ucs		. #x20B1F)	; ð ¬Ÿ

@@ -1008,6 +1008,7 @@
     (ideographic-radical . 44)	; â¼«
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
+    (=ucs		. #x5C56)	; å±–
     (->subsumptive
      ((=big5		  . #xD16A)	; ý¢€…ª
       (=daikanwa	  . 07716)	; ø¸¸¤
@@ -1015,7 +1016,6 @@
      ((=cns11643-2	  . #x2E6C)	; ø»“ ±
       (=ucs@unicode	  . #x5C56)	; ø»“ ±
       ))
-    (=ucs		. #x5C56)	; å±–
     ))
 (define-char
   '((=>ucs		. #x21C65)	; ð¡±¥

@@ -597,13 +597,13 @@
     (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
+    (=ucs		. #x39B4)	; ã¦´
     (->subsumptive
      ((=cns11643-4	  . #x2D2F)	; ø»—²ž
       (=daikanwa	  . 11583)	; ø¸‚´¿
       )
      ((=ucs@unicode	  . #x39B4)	; ó°€–
       ))
-    (=ucs		. #x39B4)	; ã¦´
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
