@@ -1441,7 +1441,7 @@ do						\
 
 #define POINT_MARKER_P(marker) \
    (XMARKER (marker)->buffer != 0 && \
-    EQ ((marker), XMARKER (marker)->buffer->point_marker))
+    EQ (marker, XMARKER (marker)->buffer->point_marker))
 
 #define BUF_MARKERS(buf) ((buf)->markers)
 

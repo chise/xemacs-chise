@@ -2213,19 +2213,21 @@ After saving the buffer, run `after-save-hook'."
 	      (error "Save not confirmed"))
 	  (save-restriction
 	    (widen)
-	    (and (> (point-max) 1)
-		 (/= (char-after (1- (point-max))) ?\n)
-		 (not (and (eq selective-display t)
-			   (= (char-after (1- (point-max))) ?\r)))
-		 (or (eq require-final-newline t)
-		     (and require-final-newline
-			  (y-or-n-p
-			   (format "Buffer %s does not end in newline.  Add one? "
-				   (buffer-name)))))
-		 (save-excursion
-		   (goto-char (point-max))
-		   (insert ?\n)))
-	    ;;
+
+	    ;; Add final newline if required.  See `require-final-newline'.
+	    (when (and (not (eq (char-before (point-max)) ?\n)) ; common case
+		       (char-before (point-max))                ; empty buffer?
+		       (not (and (eq selective-display t)
+				 (eq (char-before (point-max)) ?\r)))
+		       (or (eq require-final-newline t)
+			   (and require-final-newline
+				(y-or-n-p
+				 (format "Buffer %s does not end in newline.  Add one? "
+					 (buffer-name))))))
+	      (save-excursion
+		(goto-char (point-max))
+		(insert ?\n)))
+
 	    ;; Run the write-file-hooks until one returns non-null.
 	    ;; Bind after-save-hook to nil while running the
 	    ;; write-file-hooks so that if this function is called

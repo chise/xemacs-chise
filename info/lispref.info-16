@@ -181,10 +181,10 @@ of the default directory.
      `default-directory'.
 
      If you specify INITIAL, that is an initial file name to insert in
-     the buffer (after with DIRECTORY, if that is inserted).  In this
-     case, point goes at the beginning of INITIAL.  The default for
-     INITIAL is `nil'--don't insert any file name.  To see what INITIAL
-     does, try the command `C-x C-v'.
+     the buffer (after DIRECTORY, if that is inserted).  In this case,
+     point goes at the beginning of INITIAL.  The default for INITIAL
+     is `nil'--don't insert any file name.  To see what INITIAL does,
+     try the command `C-x C-v'.
 
      Here is an example:
 
@@ -267,8 +267,12 @@ function do all the work.
 
    * `nil' specifies `try-completion'.  The completion function should
      return the completion of the specified string, or `t' if the
-     string is an exact match already, or `nil' if the string matches no
-     possibility.
+     string is a unique and exact match already, or `nil' if the string
+     matches no possibility.
+
+     If the string is an exact match for one possibility, but also
+     matches other longer possibilities, the function should return the
+     string, not `t'.
 
    * `t' specifies `all-completions'.  The completion function should
      return a list of all possible completions of the specified string.
@@ -419,7 +423,7 @@ dialog boxes instead of minibuffer questions.
      dialog box or the minibuffer, as appropriate.
 
 
-File: lispref.info,  Node: Multiple Queries,  Next: Minibuffer Misc,  Prev: Yes-or-No Queries,  Up: Minibuffers
+File: lispref.info,  Node: Multiple Queries,  Next: Reading a Password,  Prev: Yes-or-No Queries,  Up: Minibuffers
 
 Asking Multiple Y-or-N Questions
 ================================
@@ -506,7 +510,40 @@ facilities such as the ability to answer the whole series at once.
      on.
 
 
-File: lispref.info,  Node: Minibuffer Misc,  Prev: Multiple Queries,  Up: Minibuffers
+File: lispref.info,  Node: Reading a Password,  Next: Minibuffer Misc,  Prev: Multiple Queries,  Up: Minibuffers
+
+Reading a Password
+==================
+
+   To read a password to pass to another program, you can use the
+function `read-passwd'.
+
+ - Function: read-passwd prompt &optional confirm default
+     This function reads a password, prompting with PROMPT.  It does
+     not echo the password as the user types it; instead, it echoes `.'
+     for each character in the password.
+
+     The optional argument CONFIRM, if non-`nil', says to read the
+     password twice and insist it must be the same both times.  If it
+     isn't the same, the user has to type it over and over until the
+     last two times match.
+
+     The optional argument DEFAULT specifies the default password to
+     return if the user enters empty input.  It is translated to `.'
+     and inserted in the minibuffer. If DEFAULT is `nil', then
+     `read-passwd' returns the null string in that case.
+
+ - User Option: passwd-invert-frame-when-keyboard-grabbed
+     If non-nil swap the foreground and background colors of all faces
+     while reading a password.  Default values is `t' unless feature
+     `infodock' is provided.
+
+ - User Option: passwd-echo
+     This specifies the character echoed when typing a password.  When
+     nil, nothing is echoed.
+
+
+File: lispref.info,  Node: Minibuffer Misc,  Prev: Reading a Password,  Up: Minibuffers
 
 Minibuffer Miscellany
 =====================
@@ -600,10 +637,10 @@ than one frame.
 
  - User Option: enable-recursive-minibuffers
      If this variable is non-`nil', you can invoke commands (such as
-     `find-file') that use minibuffers even while in the minibuffer
-     window.  Such invocation produces a recursive editing level for a
-     new minibuffer.  The outer-level minibuffer is invisible while you
-     are editing the inner one.
+     `find-file') that use minibuffers even while the minibuffer window
+     is active.  Such invocation produces a recursive editing level for
+     a new minibuffer.  The outer-level minibuffer is invisible while
+     you are editing the inner one.
 
      This variable only affects invoking the minibuffer while the
      minibuffer window is selected.   If you switch windows while in the
@@ -620,8 +657,7 @@ minibuffer.  The minibuffer command `next-matching-history-element'
 want to explicitly set the value of `enable-recursive-minibuffers' in
 this fashion, just use an evaluated interactive spec and bind
 `enable-recursive-minibuffers' while reading from the minibuffer.  See
-the definition of `next-matching-history-element' in
-`lisp/prim/minibuf.el'.
+the definition of `next-matching-history-element' in `lisp/minibuf.el'.
 
 
 File: lispref.info,  Node: Command Loop,  Next: Keymaps,  Prev: Minibuffers,  Up: Top

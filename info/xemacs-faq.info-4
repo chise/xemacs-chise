@@ -956,15 +956,9 @@ File: xemacs-faq.info,  Node: Q4.7.6,  Prev: Q4.7.5,  Up: Subsystems
 Q4.7.5: Is there a MatLab mode?
 -------------------------------
 
-   Is there any way I can get syntax highlighting for MatLab .m files?
-Can I "teach" emacs what words are MatLab commands, comments, etc. ?
-
-   Ulrich Elsner <elsner@mathematik.tu-chemnitz.de> writes:
-     One way to do this (and much more) is by using the matlab mode.
-     (If someone knows where this can be found, please contact the
-     XEmacs FAQ maintainer <faq@xemacs.org>.
-
-     Instructions on how to install this mode are included in this file.
+   Yes, a matlab mode and other items are available at the MathWorks'
+emacs_add_ons ftp directory
+(ftp://ftp.mathworks.com/pub/contrib/emacs_add_ons).
 
 
 File: xemacs-faq.info,  Node: Miscellaneous,  Next: MS Windows,  Prev: Subsystems,  Up: Top

@@ -1,3 +1,72 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-28  Andy Piper  <andy@xemacs.org>
+
+	* wid-edit.el (widget-push-button-value-create): The gui cache
+	does not agree with native widgets which can only be displayed
+	once per window. The reasons for caching are diminished now that
+	we don't hog resources when creating buttons.
+	(widget-push-button-cache) deleted.
+
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-24  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* hyper-apropos.el (hyper-apropos): Toggle
+	hyper-apropos-programming-apropos correctly.
+	Set REGEXP when user accepts default value.
+
+1999-12-22  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (read-from-minibuffer): Bind minibuffer-default.
+	(read-file-name-2): Use DEFAULT argument of read-from-minibuffer.
+
+1999-12-22  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule/mule-category.el (undefined-category-designator):
+	Return char instead of character.  Search for undefined one.
+	(describe-category): Use with-displaying-help-buffer.
+
+1999-12-21  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-plus): 
+	Optimize (+ 1) to 1 instead of (1+ nil).
+
+	* files.el (basic-save-buffer): Rewrite for clarity.  Use (char-before).
+
+	* byte-optimize.el (byte-compile-butlast): Remove.  Use butlast instead.
+
+	* byte-optimize.el (byte-optimize-char-before): New function.
+	Remove performance penalty for using (char-before) instead of (char-after).
+
+1999-12-20  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* mule/mule-category.el (char-category-list): Return character
+	instead of integer.
+
+1999-12-17  Yoshiki Hayashi  <t90553@mail.ecc.u-tokyo.ac.jp>
+
+	* minibuf.el (read-buffer): Check default is buffer object.
+
+1999-11-25  Andy Piper  <andy@xemacs.org>
+
+	* cus-edit.el (custom-buffer-create-buttons): Use native widgets
+	for buttons.
+
+1999-12-16  Andreas Jaeger  <aj@suse.de>
+
+	* package-get.el (package-get-maybe-save-index): Fixed typo.
+	Patch by Jeff Miller <jmiller@smart.net>.
+
+1999-12-13  Charles G Waldman  <cgw@alum.mit.edu>
+
+	* gnuserv.el (gnuserv-process-filter):  don't call 
+	gnuserv-write-to-client when gnuserv-current-client is nil
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.
@@ -28,7 +97,7 @@
 	completing-read returns.
 	(describe-variable): Ditto.
 
-1999-11-16  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-11-16  Adrian Aichner  <adrian@xemacs.org>
 
 	* hyper-apropos.el (hyper-apropos-this-symbol): Handle
 	`hyper-apropos-help-mode' here to find symbol to customize
@@ -199,7 +268,7 @@
 
 	* files.el (recover-file): Don't use ls under windows for revert buffer. 
 
-1999-09-25  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-09-25  Adrian Aichner  <adrian@xemacs.org>
 
 	* package-get.el (package-get-download-menu): Make menu really
  	toggle download sites.
@@ -1935,7 +2004,7 @@
  	Installation.el needs to be loaded before `dump-paths', otherwise
 	the dumping process won't find it.
 
-1999-03-13  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-03-13  Adrian Aichner  <adrian@xemacs.org>
 
 	* dumped-lisp.el (preloaded-file-list): Load Installation.el after
 	subr so that we can use `replace-in-string' in Installation.el to
@@ -2133,7 +2202,7 @@
 	* x-faces.el (x-init-face-from-resources):
 	Only set fonts in the 'x locale.
 
-1999-03-04  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-03-04  Adrian Aichner  <adrian@xemacs.org>
 
 	* package-ui.el (pui-install-selected-packages): Don't throw on
 	`package-admin-delete-binary-package' returning nil since it's
@@ -2208,7 +2277,7 @@
 	* dumped-lisp.el (preloaded-file-list): Core mule files moved out
 	of mule-base into lisp/mule.
 
-1999-02-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-02-10  Adrian Aichner  <adrian@xemacs.org>
 
 	* process.el (exec-to-string): Use `shell-command-switch' in place
 	of hard-wired "-c" (for WindowsNT).
@@ -2264,7 +2333,7 @@
 	* about.el (about-url-alist): Update my entry.
 	(xemacs-hackers): Ditto.
 
-1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-01-14  Adrian Aichner  <adrian@xemacs.org>
 
 	* buffer.el (switch-to-buffer): Fixing documentation.
 	* minibuf.el (minibuffer-completion-table): ditto.
@@ -2653,7 +2722,7 @@
 
 	* subr.el (buffer-substring-no-properties): Comment out.
 
-1998-11-07  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-11-07  Adrian Aichner  <adrian@xemacs.org>
 
 	* msw-faces.el (mswindows-find-smaller-font): Turning font names
 	  into font instances first, like `x-frob-font-size' does.
@@ -3493,7 +3562,7 @@
 	* ldap.el (ldap-host-parameters-alist): New name of
 	`ldap-host-parameters-plist'
 
-1998-06-26  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-26  Adrian Aichner  <adrian@xemacs.org>
 
 	* package-get.el: Using (require 'package-get-base), now that it
 	provides itself.  Consequently removed all instances of (load
@@ -3580,7 +3649,7 @@
 	(font-lock-match-c++-style-declaration-item-and-skip-to-next):
 	Let declaration items contain non-word symbol characters.
 
-1998-06-15  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-15  Adrian Aichner  <adrian@xemacs.org>
 
 	* package-get.el (package-get-package-provider): Added autoload
 	cookie.  Loading "package-get-base.el" in ALL functions that use
@@ -4015,7 +4084,7 @@ Wed May 27, 1998  Darryl Okahata  <darrylo@sr.hp.com>
 
 	* dumped-lisp.el (preloaded-file-list): Added msw-mouse.el
 
-1998-05-17  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-05-17  Adrian Aichner  <adrian@xemacs.org>
 
 	* itimer.el (activate-itimer): Fixed usage of integers
 	as argument to `concat'.

@@ -59,8 +59,5 @@ There are several subdirectories:
 `info' holds the Info documentation tree for XEmacs.
 `man' holds the source code for the XEmacs info documentation tree.
 
-`msdos' holds configuration files for compiling XEmacs under MSDOG.
-    See the file etc/MSDOS for more information.
-
 `nt' holds configuration files for compiling XEmacs under Microsoft Windows
     NT.  The support for NT is very tentative right now.

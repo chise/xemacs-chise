@@ -33,21 +33,21 @@ Boston, MA 02111-1307, USA.  */
 #include <X11/Shell.h>
 
 #ifdef LWLIB_SCROLLBARS_ATHENA
-#include <X11/Xaw/Scrollbar.h>
+#include ATHENA_INCLUDE(Scrollbar.h)
 #endif
 #ifdef LWLIB_DIALOGS_ATHENA
-#include <X11/Xaw/Dialog.h>
-#include <X11/Xaw/Form.h>
-#include <X11/Xaw/Command.h>
-#include <X11/Xaw/Label.h>
+#include ATHENA_INCLUDE(Dialog.h)
+#include ATHENA_INCLUDE(Form.h)
+#include ATHENA_INCLUDE(Command.h)
+#include ATHENA_INCLUDE(Label.h)
 #endif
 #ifdef LWLIB_WIDGETS_ATHENA
-#include <X11/Xaw/Toggle.h>
+#include ATHENA_INCLUDE(Toggle.h)
 #include "xlwradio.h"
 #include "xlwcheckbox.h"
 #include "xlwgauge.h"
 #ifndef NEED_MOTIF
-#include <X11/Xaw/AsciiText.h>
+#include ATHENA_INCLUDE(AsciiText.h)
 #endif
 #endif
 #include <X11/Xatom.h>
@@ -126,8 +126,8 @@ void
 xaw_update_one_widget (widget_instance *instance, Widget widget,
 		       widget_value *val, Boolean deep_p)
 {
-  if (val->nargs)
-    XtSetValues (widget, val->args, val->nargs);
+  if (val->args && val->args->nargs)
+    XtSetValues (widget, val->args->args, val->args->nargs);
 
   if (0)
     ;
@@ -146,7 +146,7 @@ xaw_update_one_widget (widget_instance *instance, Widget widget,
       }
 #endif /* LWLIB_DIALOGS_ATHENA */
 #ifdef LWLIB_WIDGETS_ATHENA
-  else if (XtClass (widget) == labelWidgetClass)
+  else if (XtIsSubclass (widget, labelWidgetClass))
       {
 	Arg al [1];
 	XtSetArg (al [0], XtNlabel, val->value);

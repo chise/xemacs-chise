@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 1997 Adrian Aichner
 
-;; Author: Adrian Aichner, Teradyne GmbH Munich <aichner@ecf.teradyne.com>
-;; Date: Sun., Apr. 20, 1997.
+;; Author: Adrian Aichner <adrian@xemacs.org>
+;; Date: Sun., Apr. 20, 1997, 1998, 1999.
 ;; Version: 1.35
 ;; Keywords: internal
 

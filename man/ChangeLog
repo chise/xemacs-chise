@@ -1,3 +1,33 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-26  Karl M. Hegbloom  <karlheg@inetarena.com>
+
+	* internals/internals.texi (garbage_collect_1): Xemacs -> XEmacs
+
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-21  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/text.texi (Near Point): Document `char-before'.
+
+1999-12-20  Adrian Aichner  <adrian@xemacs.org>
+
+	* widget.texi: Fix typos and possessive singular errors.  Break
+	long sentences for readability.  Remove some redundant commas.
+
+1999-12-18  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/functions.texi (Mapping Functions): 
+	Warn about mapping functions modifying their sequences.
+
+1999-12-15  Sandra Wambold  <wambold@xemacs.org>
+
+	* xemacs-faq.texi: link to matlab.el added; misc. address changes
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.
@@ -116,7 +146,7 @@
 
 	* xemacs-faq.texi (Q5.0.6): Describe `shell-multiple-shells'
 
-1999-08-01  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-08-01  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs/programs.texi (Balanced Editing): Remove broken
 	line-break.
@@ -147,7 +177,7 @@
 
 	* XEmacs 21.2.19 is released
 
-1999-07-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-07-10  Adrian Aichner  <adrian@xemacs.org>
 
 	* emodules.texi: Use @set emacs and @value{emacs} instead of
 	@macro (unsupported by texinfo package).  Remove stray @code.
@@ -258,7 +288,7 @@
 
 	* XEmacs 21.2.9 is released
 
-1999-01-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+1999-01-14  Adrian Aichner  <adrian@xemacs.org>
 
 	* internals\internals.texi (Techniques for XEmacs Developers):
  	Fixing documentation.
@@ -397,7 +427,7 @@
 
 	* lispref/files.texi (User Name Completion): new section.
 
-1998-07-23  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-07-23  Adrian Aichner  <adrian@xemacs.org>
 
 	* xemacs/packages.texi (Packages): Changing @itemize @emph to
 	@itemize @bullet (this is what all other files included in
@@ -446,7 +476,7 @@
 	* standards.texi (Preface): Revert previous change to @node
 	because it doesn't pass makeinfo.
 
-1998-06-27  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-27  Adrian Aichner  <adrian@xemacs.org>
 
 	* cl.texi: See ALL.
 	* info-stnd.texi: Fixed @setfilename.
@@ -485,7 +515,7 @@
 	* xemacs/startup.texi:
 	* xemacs/packages.texi: Created.
 
-1998-06-10  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-10  Adrian Aichner  <adrian@xemacs.org>
 
 	* texinfo.texi: added ../info/ to @setfilename, broke line after
 	@noindent.  Changed @var{arg-not-used-by-@TeX{}} to
@@ -545,7 +575,7 @@
 	* lispref/dragndrop.texi: naming changed to Drag and Drop
 	added some docu about the drop procedure
 
-1998-06-09  Adrian Aichner  <aichner@ecf.teradyne.com>
+1998-06-09  Adrian Aichner  <adrian@xemacs.org>
 
 	* info-stnd.texi: added ../info/ to @setfilename.
 	* info.texi: added ../info/ to @setfilename.
@@ -736,7 +766,7 @@
 
 	* xemacs/custom.texi (Init Syntax): document #b, #o, and #x reader
  	syntax for integers.
-	From Adrian Aichner <aichner@ecf.teradyne.com>
+	From Adrian Aichner <adrian@xemacs.org>
 	* cl.texi (Porting Common Lisp): ' '
 	* lispref/numbers.texi (Numbers): ' '
 

@@ -1106,7 +1106,9 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
     case Lisp_Type_Int_Even:
     case Lisp_Type_Int_Odd:
       {
-	char buf[24];
+	/* ASCII Decimal representation uses 2.4 times as many bits as
+	   machine binary.  */
+	char buf[3 * sizeof (EMACS_INT) + 5];
 	long_to_string (buf, XINT (obj));
 	write_c_string (buf, printcharfun);
 	break;
@@ -1119,36 +1121,61 @@ print_internal (Lisp_Object obj, Lisp_Object printcharfun, int escapeflag)
 	Emchar ch = XCHAR (obj);
 	char *p = buf;
 	*p++ = '?';
-	if (ch == '\n')
-	  *p++ = '\\', *p++ = 'n';
-	else if (ch == '\r')
-	  *p++ = '\\', *p++ = 'r';
-	else if (ch == '\t')
-	  *p++ = '\\', *p++ = 't';
-	else if (ch < 32)
+	if (ch < 32)
 	  {
-	    *p++ = '\\', *p++ = '^';
-	    *p++ = ch + 64;
-	    if ((ch + 64) == '\\')
-	      *p++ = '\\';
+	    *p++ = '\\';
+	    switch (ch)
+	      {
+	      case '\t': *p++ = 't'; break;
+	      case '\n': *p++ = 'n'; break;
+	      case '\r': *p++ = 'r'; break;
+	      default:
+		*p++ = '^';
+		*p++ = ch + 64;
+		if ((ch + 64) == '\\')
+		  *p++ = '\\';
+		break;
+	      }
+	  }
+	else if (ch < 127)
+	  {
+	    /* syntactically special characters should be escaped. */
+	    switch (ch)
+	      {
+	      case ' ':
+	      case '"':
+	      case '#':
+	      case '\'':
+	      case '(':
+	      case ')':
+	      case ',':
+	      case '.':
+	      case ';':
+	      case '?':
+	      case '[':
+	      case '\\':
+	      case ']':
+	      case '`':
+		*p++ = '\\';
+	      }
+	    *p++ = ch;
 	  }
 	else if (ch == 127)
-	  *p++ = '\\', *p++ = '^', *p++ = '?';
-	else if (ch >= 128 && ch < 160)
+	  {
+	    *p++ = '\\', *p++ = '^', *p++ = '?';
+	  }
+	else if (ch < 160)
 	  {
 	    *p++ = '\\', *p++ = '^';
-	    p += set_charptr_emchar ((Bufbyte *)p, ch + 64);
+	    p += set_charptr_emchar ((Bufbyte *) p, ch + 64);
 	  }
-	else if (ch < 127
-		 && !isdigit (ch)
-		 && !isalpha (ch)
-		 && ch != '^') /* must not backslash this or it will
-				  be interpreted as the start of a
-				  control char */
-	  *p++ = '\\', *p++ = ch;
 	else
-	  p += set_charptr_emchar ((Bufbyte *)p, ch);
-	output_string (printcharfun, (Bufbyte *)buf, Qnil, 0, p - buf);
+	  {
+	    p += set_charptr_emchar ((Bufbyte *) p, ch);
+	  }
+	  
+	output_string (printcharfun, (Bufbyte *) buf, Qnil, 0, p - buf);
+
 	break;
       }
 

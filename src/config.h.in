@@ -499,6 +499,16 @@ char *alloca();
 
 #define CONST const
 
+/* Allow the source to use standard types. Include these before the
+ s&m files so that they can use them. */
+#undef ssize_t
+#undef size_t
+#undef pid_t
+#undef mode_t
+#undef off_t
+#undef uid_t
+#undef gid_t
+
 /* If defined, use unions instead of ints.  A few systems (DEC Alpha)
    seem to require this, probably because something with the int
    definitions isn't right with 64-bit systems.  */
@@ -549,15 +559,6 @@ extern "C" {
 #define SIGTYPE RETSIGTYPE
 #define SIGRETURN return
 #endif
-
-/* Allow the source to use standard types */
-#undef ssize_t
-#undef size_t
-#undef pid_t
-#undef mode_t
-#undef off_t
-#undef uid_t
-#undef gid_t
 
 /* Define DYNODUMP if it is necessary to properly dump on this system.
    Currently this is only Solaris 2.x, for x < 6. */

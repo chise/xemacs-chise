@@ -1,3 +1,23 @@
+1999-12-31  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.26 is released.
+
+1999-12-24  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.25 is released.
+
+1999-12-21  Martin Buchholz  <martin@xemacs.org>
+
+	* fakemail.c (cuserid): ((expr)) ==> (expr)
+
+	* fakemail.c (xmalloc): ANSIfy.
+
+1999-12-14  Martin Buchholz  <martin@xemacs.org>
+
+	* config.values.sh: Only update config.values.in if changed.
+	No external dependencies except perl.
+	No temporary files.
+
 1999-12-14  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.24 is released.

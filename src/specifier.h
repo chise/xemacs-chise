@@ -124,6 +124,13 @@ struct specifier_methods
      valid. */
   void (*validate_method) (Lisp_Object instantiator);
 
+
+  /* Copy method: Given an instantiator, copy the bits that we need to
+     for this specifier type.
+
+     If this function is not present, then Fcopy_tree is used. */
+  Lisp_Object (*copy_instantiator_method) (Lisp_Object instantiator);
+
   /* Validate-matchspec method: Given a matchspec, verify that it's
      valid for this specifier type.  If not, signal an error.
 

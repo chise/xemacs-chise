@@ -599,7 +599,49 @@ layout_normalize (Lisp_Object inst, Lisp_Object console_type)
   return inst;
 }
 
-/* Instantiate a layout widget. */
+/* Instantiate a layout widget. Sizing commentary: we have a number of
+   problems that we would like to address. Some consider some of these
+   more important than others. Currently size information is
+   determined at instantiation time and is then fixed forever
+   after. Generally this is not what we want. Users want size to be
+   "big enough" to accommodate whatever they are trying to show and
+   this is dependent on text length, lines, font metrics etc. Of
+   course these attributes can change dynamically and so the size
+   should changed dynamically also. Only in a few limited cases should
+   the size be fixed and remain fixed. Of course this actually means
+   that we don't really want to specifiy the size *at all* for most
+   widgets - we want it to be discovered dynamically. Thus we can
+   envisage the following scenarios:
+   
+   1. A button is sized to accommodate its text, the text changes and the
+   button should change size also.  
+
+   2. A button is given an explicit size. Its size should never change.
+
+   3. Layout is put inside an area. The size of the area changes, the
+   layout should change with it. 
+
+   4. A button grows to accommodate additional text. The whitespace
+   around it should be modified to cope with the new layout
+   requirements. 
+
+   5. A button grows. The area surrounding it should grow also if
+   possible. 
+
+   What metrics are important?
+   1. Actual width and height.
+   
+   2. Whether the width and height are what the widget actually wants, or
+   whether it can grow or shrink. 
+
+   Text glyphs are particularly troublesome since their metrics depend
+   on the context in which they are being viewed. For instance they
+   can appear differently depending on the window face, frame face or
+   glyph face. All other glyphs are essentially fixed in
+   appearance. Perhaps the problem is that text glyphs are cached on a
+   device basis like most other glyphs. Instead they should be cached
+   per-window and then the instance would be fixed and we wouldn't
+   have to mess around with font metrics and the rest. */
 static void
 layout_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 		    Lisp_Object pointer_fg, Lisp_Object pointer_bg,
@@ -795,19 +837,19 @@ void
 image_instantiator_format_create_glyphs_widget (void)
 {
 #define VALID_GUI_KEYWORDS(type) \
-  IIFORMAT_VALID_KEYWORD (type, Q_active, check_valid_anything); \
-  IIFORMAT_VALID_KEYWORD (type, Q_suffix, check_valid_anything); \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_active, check_valid_anything); \
+  IIFORMAT_VALID_KEYWORD (type, Q_suffix, check_valid_anything);		\
   IIFORMAT_VALID_KEYWORD (type, Q_keys, check_valid_string);		\
   IIFORMAT_VALID_KEYWORD (type, Q_style, check_valid_symbol);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_selected, check_valid_anything);	\
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_selected, check_valid_anything); \
   IIFORMAT_VALID_KEYWORD (type, Q_filter, check_valid_anything);		\
   IIFORMAT_VALID_KEYWORD (type, Q_config, check_valid_symbol);		\
   IIFORMAT_VALID_KEYWORD (type, Q_included, check_valid_anything);	\
   IIFORMAT_VALID_KEYWORD (type, Q_key_sequence, check_valid_string);	\
-  IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);	\
+  IIFORMAT_VALID_KEYWORD (type, Q_accelerator, check_valid_string);		\
   IIFORMAT_VALID_KEYWORD (type, Q_label, check_valid_anything);		\
-  IIFORMAT_VALID_KEYWORD (type, Q_callback, check_valid_callback); 		\
-  IIFORMAT_VALID_KEYWORD (type, Q_descriptor, check_valid_string_or_vector)
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_callback, check_valid_callback); \
+  IIFORMAT_VALID_NONCOPY_KEYWORD (type, Q_descriptor, check_valid_string_or_vector)
 
 #define VALID_WIDGET_KEYWORDS(type) \
   IIFORMAT_VALID_KEYWORD (type, Q_width, check_valid_int);		\

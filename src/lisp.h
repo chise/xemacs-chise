@@ -936,7 +936,7 @@ TRUE_LIST_P (Lisp_Object object)
 #define CHECK_TRUE_LIST(list) do {			\
   Lisp_Object CTL_list = (list);			\
   Lisp_Object CTL_hare, CTL_tortoise;			\
-  EMACS_INT CTL_len;						\
+  EMACS_INT CTL_len;					\
 							\
   for (CTL_hare = CTL_tortoise = CTL_list, CTL_len = 0;	\
        CONSP (CTL_hare);				\
@@ -1173,8 +1173,10 @@ DECLARE_LRECORD (subr, Lisp_Subr);
 #define CHECK_SUBR(x) CHECK_RECORD (x, subr)
 #define CONCHECK_SUBR(x) CONCHECK_RECORD (x, subr)
 
-#define subr_function(subr) (subr)->subr_fn
-#define subr_name(subr) (subr)->name
+#define subr_function(subr) ((subr)->subr_fn)
+#define SUBR_FUNCTION(subr,max_args) \
+  ((Lisp_Object (*) (EXFUN_##max_args)) (subr)->subr_fn)
+#define subr_name(subr) ((subr)->name)
 
 /*********** marker ***********/
 
@@ -2195,11 +2197,15 @@ Lisp_Object signal_simple_continuable_error_2 (CONST char *,
 Lisp_Object maybe_signal_simple_continuable_error_2 (CONST char *, Lisp_Object,
 						     Lisp_Object, Lisp_Object,
 						     Error_behavior);
-void signal_malformed_list_error (Lisp_Object);
-void signal_malformed_property_list_error (Lisp_Object);
-void signal_circular_list_error (Lisp_Object);
-void signal_circular_property_list_error (Lisp_Object);
-void signal_void_function_error (Lisp_Object);
+DECLARE_DOESNT_RETURN (signal_malformed_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_malformed_property_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_circular_list_error (Lisp_Object));
+DECLARE_DOESNT_RETURN (signal_circular_property_list_error (Lisp_Object));
+
+Lisp_Object signal_void_function_error (Lisp_Object);
+Lisp_Object signal_invalid_function_error (Lisp_Object);
+Lisp_Object signal_wrong_number_of_arguments_error (Lisp_Object, int);
+
 Lisp_Object run_hook_with_args_in_buffer (struct buffer *, int, Lisp_Object *,
 					  enum run_hooks_condition);
 Lisp_Object run_hook_with_args (int, Lisp_Object *, enum run_hooks_condition);
@@ -2887,7 +2893,8 @@ extern Lisp_Object Vconfigure_site_directory, Vconfigure_site_module_directory;
 extern Lisp_Object Vconsole_list, Vcontrolling_terminal;
 extern Lisp_Object Vcurrent_compiled_function_annotation, Vcurrent_load_list;
 extern Lisp_Object Vcurrent_mouse_event, Vcurrent_prefix_arg, Vdata_directory;
-extern Lisp_Object Vdisabled_command_hook, Vdoc_directory, Vinternal_doc_file_name;
+extern Lisp_Object Vdirectory_sep_char, Vdisabled_command_hook;
+extern Lisp_Object Vdoc_directory, Vinternal_doc_file_name;
 extern Lisp_Object Vecho_area_buffer, Vemacs_major_version;
 extern Lisp_Object Vemacs_minor_version, Vexec_directory, Vexec_path;
 extern Lisp_Object Vexecuting_macro, Vfeatures, Vfile_domain;

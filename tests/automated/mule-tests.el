@@ -29,6 +29,9 @@
 ;; Test some Mule functionality (most of these remain to be written) .
 ;; See test-harness.el for instructions on how to run these tests.
 
+;; This file will be (read)ed by a non-mule XEmacs, so don't use
+;; literal non-Latin1 characters.  Use (make-char) instead.
+
 ;;-----------------------------------------------------------------
 ;; Test whether all legal chars may be safely inserted to a buffer.
 ;;-----------------------------------------------------------------
@@ -73,3 +76,31 @@ the Assert macro checks for correctness."
 ;; time-consuming tests like this one run twice, once interpreted and
 ;; once compiled, for no good reason.
 (test-chars t)
+
+;;-----------------------------------------------------------------
+;; Test string modification functions that modify the length of a char.
+;;-----------------------------------------------------------------
+
+(when (featurep 'mule)
+  ;; Test fillarray
+  (macrolet
+      ((fillarray-test
+	(charset1 charset2)
+	(let ((char1 (make-char charset1 69))
+	      (char2 (make-char charset2 69)))
+	  `(let ((string (make-string 1000 ,char1)))
+	     (fillarray string ,char2)
+	     (Assert (eq (aref string 0) ,char2))
+	     (Assert (eq (aref string (1- (length string))) ,char2))
+	     (Assert (eq (length string) 1000))))))
+    (fillarray-test ascii latin-iso8859-1)
+    (fillarray-test ascii latin-iso8859-2)
+    (fillarray-test latin-iso8859-1 ascii)
+    (fillarray-test latin-iso8859-2 ascii))
+
+  ;; Test aset
+  (let ((string (string (make-char 'ascii 69) (make-char 'latin-iso8859-2 69))))
+    (aset string 0 (make-char 'latin-iso8859-2 42))
+    (Assert (eq (aref string 1) (make-char 'latin-iso8859-2 69))))
+
+  )

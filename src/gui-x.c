@@ -143,7 +143,7 @@ widget_value_unwind (Lisp_Object closure)
   widget_value *wv = (widget_value *) get_opaque_ptr (closure);
   free_opaque_ptr (closure);
   if (wv)
-    free_widget_value (wv);
+    free_widget_value_tree (wv);
   return Qnil;
 }
 
@@ -186,6 +186,7 @@ free_popup_widget_value_tree (widget_value *wv)
   if (! wv) return;
   if (wv->key) xfree (wv->key);
   if (wv->value) xfree (wv->value);
+  if (wv->name) xfree (wv->name);
 
   wv->name = wv->value = wv->key = (char *) 0xDEADBEEF;
 
@@ -469,7 +470,7 @@ gui_items_to_widget_values_1 (Lisp_Object items, widget_value* parent,
 	prev->next = wv;
       if (!button_item_to_widget_value (items, wv, 0, 1))
 	{
-	  free_widget_value (wv);
+	  free_widget_value_tree (wv);
 	  if (parent)
 	    parent->contents = 0;
 	  else 
@@ -546,7 +547,7 @@ gui_items_to_widget_values (Lisp_Object items)
   control = control->contents;
   tmp->next = 0;
   tmp->contents = 0;
-  free_widget_value (tmp);
+  free_widget_value_tree (tmp);
 
   /* No more need to free the half-filled-in structures. */
   set_opaque_ptr (wv_closure, 0);

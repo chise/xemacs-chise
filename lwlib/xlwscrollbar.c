@@ -979,7 +979,7 @@ seg_pixel_sizes (XlwScrollBarWidget w, int *above_return,
   if (ss < SS_MIN)
     {
       /* add a percent amount for integer rounding */
-      float tmp = ((((float) (SS_MIN - ss) * (float) value)) / total) + 0.5;
+      float tmp = (((float) (SS_MIN - ss) * (float) value) / total) + 0.5;
 
       above -= (int) tmp;
       ss = SS_MIN;

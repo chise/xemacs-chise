@@ -518,8 +518,8 @@ Don't call this unless you know what you're doing.
      like the real thing.  This is slightly bogus, but it's in here for
      compatibility with Emacs 18.  It's not even clear what the "right
      thing" is. */
-  if (!(((STRINGP (Vexecuting_macro) || VECTORP (Vexecuting_macro))
-         && XINT (Flength (Vexecuting_macro)) == 1)))
+  if (!((STRINGP (Vexecuting_macro) || VECTORP (Vexecuting_macro))
+	&& XINT (Flength (Vexecuting_macro)) == 1))
     Vlast_command = Qt;
 
 #ifndef LISP_COMMAND_LOOP
@@ -533,7 +533,7 @@ Don't call this unless you know what you're doing.
          focus is selected. */
       if (focus_follows_mouse)
         investigate_frame_change ();
-      
+
       /* Make sure the current window's buffer is selected.  */
       {
 	Lisp_Object selected_window = Fselected_window (Qnil);
