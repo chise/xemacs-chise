@@ -1,5 +1,17 @@
 2004-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R003-Dot.el, Ideograph-R001-One.el (U+4E3D): Use
+	`ideographic-radical@ucs' and `ideographic-radical@ucs*sources'
+	instead of `ideographic-radical@{daikanwa|unicode}' and
+	`ideographic-radical@{daikanwa|unicode}*sources'; omit
+	`ideographic-strokes@{daikanwa|cns|unicode}' and
+	`total-strokes@{daikanwa|cns|unicode}'.
+
+	* Ideograph-R178-Tanned-Leather.el (JX1-7D74): Use `@jis-x0213'
+	instead of `@jisx0213'.
+
+2004-11-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (insert-char-attributes): Print
 	`ideographic-radical@DOMAIN', `ideographic-strokes@DOMAIN' and
 	`total-strokes@DOMAIN' as `ideographic-radical',
