@@ -12,17 +12,31 @@
     (ucs		. #x8089)	; è‚‰
     ))
 (define-char
-  '((ideographic-radical . 130)	; â¾
+  '((name		. "CJK RADICAL MEAT")
+    (general-category	symbol other) ; Informative Category
+    (bidi-category	. "ON")
+    (mirrored		. nil)
+    (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (ideograph-daikanwa . 29237)	; ø¸‡ˆµ
+    (ucs		. #x2EBC)	; âº¼
     ))
 (define-char
-  '((morohashi-daikanwa	29237 0 2)
+  '((=>ucs		. #x2EBC)	; âº¼
+    (morohashi-daikanwa	29237 0 0)
     (ideographic-radical . 130)	; â¾
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-big5-cdp	. #x8A73)	; ý¢€ˆ©³
+    ))
+(define-char
+  '((=>ucs		. #x2EBC)	; âº¼
+    (morohashi-daikanwa	29237 0 1)
+    (ideographic-radical . 130)	; â¾
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (chinese-big5-cdp	. #x8958)	; ý¢€ˆ¥˜
     ))
 (define-char
   '((ideographic-radical . 130)	; â¾
@@ -258,6 +272,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 6)
     (chinese-cns11643-6 . #x2549)	; ø»›»
+    (chinese-big5-cdp	. #x8B6A)	; ý¢€ˆ­ª
     ))
 (define-char
   '((ideographic-radical . 130)	; â¾
