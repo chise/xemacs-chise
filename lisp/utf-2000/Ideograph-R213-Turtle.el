@@ -6,7 +6,7 @@
     (shinjigen-1	. 9918)
     (shinjigen-2	. 9917)
     (=jis-x0208-1983	. #x737D)	; ø»ˆŠ€
-    (korean-ksc5601	. #x4F4F)	; ø»‰žž
+    (=ks-x1001		. #x4F4F)	; ø»‰žž
     (=jis-x0208-1990	. #x737D)	; ø½‹¯´
     (ideograph-daikanwa . 48847)	; ø¸‹»
     (=ucs@jis		. #x9F9C)	; ø»ˆŠ€

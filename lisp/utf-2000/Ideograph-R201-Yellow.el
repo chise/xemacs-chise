@@ -2,7 +2,7 @@
   '((ideographic-radical . 201)	; â¿ˆ
     (ideographic-strokes . 0)
     (total-strokes	 . 12)
-    (korean-ksc5601	. #x7C5C)	; ø»Š ±
+    (=ks-x1001		. #x7C5C)	; ø»Š ±
     (=jis-x0213-1-2000	. #x7E71)	; ø»¤œ²
     (ideograph-daikanwa . 47926)	; ø¸‹¬¶
     (=ucs		. #x9EC3)	; é»ƒ

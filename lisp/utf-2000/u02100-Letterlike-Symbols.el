@@ -30,7 +30,7 @@
     (->decomposition	compat #x00B0 #x0043)
     (chinese-gb2312	. #x2166)	; ø»„‡‰
     (=jis-x0208		. #x216E)	; ø½‰·‰
-    (korean-ksc5601	. #x2149)	; ø»ˆš´
+    (=ks-x1001		. #x2149)	; ø»ˆš´
     (chinese-cns11643-1 . #x226A)	; ø»‘…ƒ
     (chinese-big5	. #xA24A)	; ý¢€Š‰Š
     (=ucs		. #x2103)	; â„ƒ
@@ -81,7 +81,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x00B0 #x0046)
-    (korean-ksc5601	. #x2235)	; ø»ˆ›¾
+    (=ks-x1001		. #x2235)	; ø»ˆ›¾
     (chinese-cns11643-1 . #x226B)	; ø»‘…„
     (chinese-big5	. #xA24B)	; ý¢€Š‰‹
     (=ucs		. #x2109)	; â„‰
@@ -165,7 +165,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	font #x006C)
-    (korean-ksc5601	. #x2724)	; ø»ˆ£ƒ
+    (=ks-x1001		. #x2724)	; ø»ˆ£ƒ
     (=jis-x0213-1-2000	. #x235F)	; ø»¢–¶
     (=ucs		. #x2113)	; â„“
     ))
@@ -191,7 +191,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x004E #x006F)
     (chinese-gb2312	. #x216D)	; ø»„‡
-    (korean-ksc5601	. #x2260)	; ø»ˆœ©
+    (=ks-x1001		. #x2260)	; ø»ˆœ©
     (=jis-x0212		. #x2271)	; ø»Š¦¾
     (=jis-x0213-1-2000	. #x2D62)	; ø»¢¥¥
     (=big5-eten		. #xC8D2)	; ý¢€Œ£’
@@ -288,7 +288,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	compat #x0054 #x0045 #x004C)
-    (korean-ksc5601	. #x2265)	; ø»ˆœ®
+    (=ks-x1001		. #x2265)	; ø»ˆœ®
     (=jis-x0213-1-2000	. #x2D64)	; ø»¢¥§
     (=big5-eten		. #xC8D3)	; ý¢€Œ£“
     (=ucs		. #x2121)	; â„¡
@@ -299,7 +299,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	super #x0054 #x004D)
-    (korean-ksc5601	. #x2262)	; ø»ˆœ«
+    (=ks-x1001		. #x2262)	; ø»ˆœ«
     (=jis-x0212		. #x226F)	; ø»Š¦¼
     (=ucs		. #x2122)	; â„¢
     ))
@@ -331,7 +331,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	#x03A9)
-    (korean-ksc5601	. #x2759)	; ø»ˆ£¸
+    (=ks-x1001		. #x2759)	; ø»ˆ£¸
     (=ucs		. #x2126)	; â„¦
     ))
 (define-char
@@ -372,7 +372,7 @@
     (mirrored		. nil)
     (->decomposition	#x00C5)
     (=jis-x0208-1983	. #x2272)	; ø»†’·
-    (korean-ksc5601	. #x214A)	; ø»ˆšµ
+    (=ks-x1001		. #x214A)	; ø»ˆšµ
     (=jis-x0208-1990	. #x2272)	; ø½‰¸«
     (=ucs		. #x212B)	; â„«
     ))

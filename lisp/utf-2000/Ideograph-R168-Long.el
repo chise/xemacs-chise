@@ -4,7 +4,7 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 8793)
     (=jis-x0208		. #x4439)	; ø½Š©®
-    (korean-ksc5601	. #x6D7E)	; ø»Š‹‘
+    (=ks-x1001		. #x6D7E)	; ø»Š‹‘
     (chinese-cns11643-1 . #x4F5B)	; ø»’†º
     (chinese-gb12345	. #x3324)	; é•·
     (=gt-pj-1		. #x4439)	; é•·

@@ -5,7 +5,7 @@
     (shinjigen-2	. 4018)
     (chinese-gb2312	. #x432B)	; ø»„¸Š
     (=jis-x0208		. #x4C53)	; ø½Šµ¸
-    (korean-ksc5601	. #x593E)	; ø»‰¬¹
+    (=ks-x1001		. #x593E)	; ø»‰¬¹
     (=iso-ir165		. #x432B)	; ø» š
     (=gt-pj-1		. #x4C53)	; æ¯›
     (chinese-big5	. #xA4F2)	; ý¢€Š“²
@@ -336,7 +336,7 @@
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0208	  . #x4E61)	; ø½Š¹‚
-      (korean-ksc5601	  . #x5635)	; ø»‰¨–
+      (=ks-x1001	  . #x5635)	; ø»‰¨–
       (ideograph-daikanwa . 00387)	; ø¸€†ƒ
       )
      ((=ucs		  . #x6BDB)	; æ¯›
@@ -992,7 +992,7 @@
     (total-strokes	 . 11)
     (shinjigen-2	. 4023)
     (=jis-x0208		. #x5D5D)	; ø½‹€
-    (korean-ksc5601	. #x7B46)	; ø»Šž½
+    (=ks-x1001		. #x7B46)	; ø»Šž½
     (=gt-pj-1		. #x5D5D)	; ø½‹€
     (chinese-big5	. #xB240)	; ý¢€‹‰€
     (ideograph-daikanwa . 16831)	; ø¸„†¿
@@ -1018,7 +1018,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x752B)	; ø»Š•®
+     ((=ks-x1001	  . #x752B)	; ø»Š•®
       (ideograph-daikanwa . 29263)	; ø¸‡‰
       )
      ((=ucs		  . #x6BDB)	; æ¯›
@@ -1086,7 +1086,7 @@
     (total-strokes	 . 11)
     (shinjigen-2	. 4022)
     (=jis-x0208		. #x5D5C)	; ø½‹Ž¿
-    (korean-ksc5601	. #x4F33)	; ø»‰ž‚
+    (=ks-x1001		. #x4F33)	; ø»‰ž‚
     (chinese-cns11643-1 . #x5B46)	; ø»’˜
     (chinese-big5	. #xB241)	; ý¢€‹‰
     (ideograph-daikanwa . 16837)	; ø¸„‡…
@@ -1110,7 +1110,7 @@
       (=ucs		  . #x2FF1)	; â¿±
       )
      ((=jis-x0208	  . #x3A3B)	; ø½Š›„
-      (korean-ksc5601	  . #x5E5E)	; ø»‰´¯
+      (=ks-x1001	  . #x5E5E)	; ø»‰´¯
       (ideograph-daikanwa . 17212)	; ø¸„Œ¼
       )
      ((=ucs		  . #x6BDB)	; æ¯›
@@ -2012,7 +2012,7 @@
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0208	  . #x5A55)	; ø½‹Šž
-      (korean-ksc5601	  . #x5B31)	; ø»‰¯¨
+      (=ks-x1001	  . #x5B31)	; ø»‰¯¨
       (ideograph-daikanwa . 13637)	; ø¸ƒ•…
       )
      ((=ucs		  . #x6BDB)	; æ¯›
@@ -2622,7 +2622,7 @@
     (ideographic-strokes . 13)
     (total-strokes	 . 17)
     (shinjigen-2	. 4033)
-    (korean-ksc5601	. #x6E7D)	; ø»ŠŒ®
+    (=ks-x1001		. #x6E7D)	; ø»ŠŒ®
     ))
 (define-char
   '((=>ucs		. #x6C08)	; æ°ˆ

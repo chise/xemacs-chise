@@ -5,7 +5,7 @@
     (shinjigen-2	. 3152)
     (chinese-gb2312	. #x5627)	; ø»…”€
     (=jis-x0208		. #x3B59)	; ø½Š€
-    (korean-ksc5601	. #x7228)	; ø»Š‘‘
+    (=ks-x1001		. #x7228)	; ø»Š‘‘
     (=iso-ir165		. #x5627)	; ø»¼
     (chinese-cns11643-1 . #x4545)	; ø»‘·¸
     (=gt-pj-1		. #x3B59)	; æ”¯

@@ -5,7 +5,7 @@
     (shinjigen-2	. 3210)
     (chinese-gb2312	. #x3637)	; ø»„¥
     (=jis-x0208		. #x454D)	; ø½Š« 
-    (korean-ksc5601	. #x5460)	; ø»‰¦…
+    (=ks-x1001		. #x5460)	; ø»‰¦…
     (=iso-ir165		. #x3637)	; ø» 
     (chinese-cns11643-1 . #x4547)	; ø»‘·º
     (=gt-pj-1		. #x454D)	; æ–—
@@ -98,7 +98,7 @@
     (shinjigen-2	. 3212)
     (chinese-gb2312	. #x414F)	; ø»„µ²
     (=jis-x0208		. #x4E41)	; ø½Š¸¢
-    (korean-ksc5601	. #x5679)	; ø»‰©š
+    (=ks-x1001		. #x5679)	; ø»‰©š
     (=iso-ir165		. #x414F)	; ø»ž‚
     (chinese-cns11643-1 . #x5568)	; ø»’»
     (=gt-pj-1		. #x4E41)	; æ–™
@@ -201,7 +201,7 @@
       (=ucs		  . #x2FF0)	; â¿°
       )
      ((=jis-x0208	  . #x3351)	; ø½Š‘ˆ
-      (korean-ksc5601	  . #x4A47)	; ø»‰—€
+      (=ks-x1001	  . #x4A47)	; ø»‰—€
       (chinese-cns11643-1 . #x4B45)	; ø»’€¬
       (ideograph-daikanwa . 35003)	; ø¸ˆ¢»
       )
@@ -209,7 +209,7 @@
       ))
     (shinjigen-2	. 3213)
     (=jis-x0208		. #x5A4F)	; ø½‹Š˜
-    (korean-ksc5601	. #x4D57)	; ø»‰›ª
+    (=ks-x1001		. #x4D57)	; ø»‰›ª
     (chinese-cns11643-1 . #x5A7C)	; ø»’—¥
     (=gt-pj-1		. #x5A4F)	; ø½‹Š˜
     (chinese-big5	. #xB1D8)	; ý¢€‹‡˜
@@ -241,7 +241,7 @@
     (total-strokes	 . 11)
     (chinese-gb2312	. #x5031)	; ø»…‹–
     (=jis-x0208		. #x3C50)	; ø½Šž•
-    (korean-ksc5601	. #x5E58)	; ø»‰´©
+    (=ks-x1001		. #x5E58)	; ø»‰´©
     (=iso-ir165		. #x5031)	; ø»³¦
     (chinese-cns11643-1 . #x5A7B)	; ø»’—¤
     (=gt-pj-1		. #x3C50)	; æ–œ
@@ -331,7 +331,7 @@
     (shinjigen-2	. 3216)
     (chinese-gb2312	. #x5565)	; ø»…“ 
     (=jis-x0208		. #x5A50)	; ø½‹Š™
-    (korean-ksc5601	. #x7278)	; ø»Š’¡
+    (=ks-x1001		. #x7278)	; ø»Š’¡
     (=iso-ir165		. #x5565)	; ø»»°
     (chinese-cns11643-1 . #x643A)	; ø»’¥
     (=gt-pj-1		. #x5A50)	; æ–Ÿ
@@ -403,7 +403,7 @@
     (shinjigen-2	. 3217)
     (chinese-gb2312	. #x4E53)	; ø»…ˆ¼
     (=jis-x0208		. #x3036)	; ø½ŠŒ“
-    (korean-ksc5601	. #x6456)	; ø»‰½›
+    (=ks-x1001		. #x6456)	; ø»‰½›
     (=iso-ir165		. #x4E53)	; ø»±Œ
     (chinese-cns11643-1 . #x687E)	; ø»’¬‹
     (=gt-pj-1		. #x3036)	; æ–¡

@@ -5,7 +5,7 @@
     (shinjigen-2	. 2149)
     (chinese-gb2312	. #x3849)	; ø»„¨ž
     (=jis-x0208		. #x3433)	; ø½Š’ˆ
-    (korean-ksc5601	. #x4A4E)	; ø»‰—‡
+    (=ks-x1001		. #x4A4E)	; ø»‰—‡
     (=iso-ir165		. #x3849)	; ø»®
     (chinese-cns11643-1 . #x445B)	; ø»‘¶°
     (=gt-pj-1		. #x3433)	; å¹²
@@ -33,7 +33,7 @@
     (ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (korean-ksc5601	. #x7841)	; ø»Ššž
+    (=ks-x1001		. #x7841)	; ø»Ššž
     (chinese-big5	. #xA5AD)	; ý¢€Š–­
     (ideograph-daikanwa . 09167)	; ø¸‚
     (=jef-china3	. #x4CB0)	; øº„²°
@@ -65,7 +65,7 @@
     (shinjigen-2	. 2152)
     (chinese-gb2312	. #x446A)	; ø»„º§
     (=jis-x0208		. #x472F)	; ø½Š­¾
-    (korean-ksc5601	. #x5234)	; ø»‰¢
+    (=ks-x1001		. #x5234)	; ø»‰¢
     (=iso-ir165		. #x446A)	; ø»¢·
     (chinese-cns11643-1 . #x4821)	; ø»‘»®
     (=gt-pj-1		. #x472F)	; å¹´
@@ -126,7 +126,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
       )
-     ((korean-ksc5601	  . #x7841)	; ø»Ššž
+     ((=ks-x1001	  . #x7841)	; ø»Ššž
       (ideograph-daikanwa . 09167)	; ø¸‚
       )
      ((=ucs		  . #x4E01)	; ä¸
@@ -188,7 +188,7 @@
     (ideographic-radical . 51)	; â¼²
     (ideographic-strokes . 5)
     (total-strokes	 . 8)
-    (korean-ksc5601	. #x5C34)	; ø»‰±‰
+    (=ks-x1001		. #x5C34)	; ø»‰±‰
     (ideograph-daikanwa . 09175)	; ø¸‚—
     (=big5-cdp		. #x88EB)	; ý¢€ˆ£«
     (=jef-china3	. #x4CB2)	; øº„²²
@@ -209,7 +209,7 @@
     (shinjigen-2	. 2154)
     (chinese-gb2312	. #x5052)	; ø»…‹·
     (=jis-x0208		. #x392C)	; ø½Š™—
-    (korean-ksc5601	. #x7A39)	; ø»Š’
+    (=ks-x1001		. #x7A39)	; ø»Š’
     (=iso-ir165		. #x5052)	; ø»´‡
     (chinese-cns11643-1 . #x4D31)	; ø»’ƒ”
     (=gt-pj-1		. #x392C)	; å¹¸
@@ -304,7 +304,7 @@
     (total-strokes	 . 13)
     (shinjigen-2	. 2158)
     (=jis-x0208		. #x3434)	; ø½Š’‰
-    (korean-ksc5601	. #x4A4F)	; ø»‰—ˆ
+    (=ks-x1001		. #x4A4F)	; ø»‰—ˆ
     (chinese-cns11643-1 . #x636C)	; ø»’¤£
     (chinese-gb12345	. #x3849)	; å¹¹
     (=gt-pj-1		. #x3434)	; å¹¹

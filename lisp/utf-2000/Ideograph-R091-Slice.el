@@ -5,7 +5,7 @@
     (shinjigen-2	. 4721)
     (chinese-gb2312	. #x462C)	; ø»„¼¥
     (=jis-x0208		. #x4A52)	; ø½Š²»
-    (korean-ksc5601	. #x7838)	; ø»Šš•
+    (=ks-x1001		. #x7838)	; ø»Šš•
     (=iso-ir165		. #x462C)	; ø»¤µ
     (=gt-pj-1		. #x4A52)	; ç‰‡
     (chinese-big5	. #xA4F9)	; ý¢€Š“¹
@@ -73,7 +73,7 @@
     (total-strokes	 . 8)
     (shinjigen-2	. 4723)
     (=jis-x0208		. #x4847)	; ø½Š¯´
-    (korean-ksc5601	. #x777A)	; ø»Š™¹
+    (=ks-x1001		. #x777A)	; ø»Š™¹
     (=gt-pj-1		. #x4847)	; ø½Š¯´
     (chinese-big5	. #xAAA9)	; ý¢€Šª©
     (ideograph-daikanwa . 19817)	; ø¸„µ©
@@ -592,7 +592,7 @@
      ((=ucs		  . #x7247)	; ç‰‡
       )
      ((=jis-x0208	  . #x3675)	; ø½Š–†
-      (korean-ksc5601	  . #x4D76)	; ø»‰œ‰
+      (=ks-x1001	  . #x4D76)	; ø»‰œ‰
       (ideograph-daikanwa . 25415)	; ø¸†‡
       ))
     (ideograph-daikanwa . 19850)	; ø¸„¶Š
@@ -702,7 +702,7 @@
     (shinjigen-2	. 4725)
     (=jis-x0208-1978	. #x4757)	; ø»‚´ª
     (chinese-gb2312	. #x4546)	; ø»„»¡
-    (korean-ksc5601	. #x782B)	; ø»Ššˆ
+    (=ks-x1001		. #x782B)	; ø»Ššˆ
     (=iso-ir165		. #x4546)	; ø»£±
     (chinese-big5	. #xB550)	; ý¢€‹•
     (ideograph-daikanwa . 19854)	; ø¸„¶Ž
@@ -1016,7 +1016,7 @@
     (shinjigen-2	. 4726)
     (chinese-gb2312	. #x6B3A)	; ø»…³‰
     (=jis-x0208		. #x442D)	; ø½Š©¢
-    (korean-ksc5601	. #x7460)	; ø»Š•…
+    (=ks-x1001		. #x7460)	; ø»Š•…
     (=iso-ir165		. #x6B3A)	; ø»Ž›™
     (=gt-pj-1		. #x442D)	; ç‰’
     (chinese-big5	. #xB7DE)	; ý¢€‹Ÿž
@@ -1389,7 +1389,7 @@
      ((=ucs		  . #x7247)	; ç‰‡
       )
      ((=jis-x0208	  . #x5643)	; ø½‹„”
-      (korean-ksc5601	  . #x754B)	; ø»Š–Ž
+      (=ks-x1001	  . #x754B)	; ø»Š–Ž
       (ideograph-daikanwa . 08178)	; ø¸¿²
       ))
     (ideograph-daikanwa . 19891)	; ø¸„¶³
@@ -1474,7 +1474,7 @@
      ((=ucs		  . #x7247)	; ç‰‡
       )
      ((=jis-x0208	  . #x4D47)	; ø½Š·Š
-      (korean-ksc5601	  . #x693C)	; ø»Š„—
+      (=ks-x1001	  . #x693C)	; ø»Š„—
       (ideograph-daikanwa . 09378)	; ø¸‚’¢
       ))
     (=cbeta		. 04523)	; ø¸¡†«
@@ -1718,7 +1718,7 @@
     (ideographic-radical . 91)	; â½š
     (ideographic-strokes . 15)
     (total-strokes	 . 19)
-    (korean-ksc5601	. #x543A)	; ø»‰¥Ÿ
+    (=ks-x1001		. #x543A)	; ø»‰¥Ÿ
     ))
 (define-char
   '((morohashi-daikanwa	19906 0 1)

@@ -5,7 +5,7 @@
     (shinjigen-2	. 3259)
     (chinese-gb2312	. #x4E5E)	; ø»…‰‡
     (=jis-x0208		. #x5A5B)	; ø½‹Š¤
-    (korean-ksc5601	. #x5969)	; ø»‰­¤
+    (=ks-x1001		. #x5969)	; ø»‰­¤
     (=iso-ir165		. #x4E5E)	; ø»±—
     (chinese-cns11643-3 . #x2169)	; ø»•—¬
     (=gt-pj-1		. #x5A5B)	; æ— 
@@ -110,7 +110,7 @@
     (ideographic-radical . 71)	; â½†
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
-    (korean-ksc5601	. #x507E)	; ø»‰ «
+    (=ks-x1001		. #x507E)	; ø»‰ «
     ))
 (define-char
   '((=>ucs*		. #x65E3)	; æ—£

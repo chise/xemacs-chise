@@ -53,7 +53,7 @@
     (total-strokes	 . 4)
     (shinjigen-2	. 1953)
     (=jis-x0208		. #x4656)	; ø½Š­‡
-    (korean-ksc5601	. #x546A)	; ø»‰¦
+    (=ks-x1001		. #x546A)	; ø»‰¦
     (=gt-pj-1		. #x4656)	; ø½Š­‡
     (ideograph-daikanwa . 07828)	; ø¸º”
     (=gt-k		. 00470)	; ý¡„€‡–

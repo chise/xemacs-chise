@@ -1042,7 +1042,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0041)
-    (korean-ksc5601	. #x2749)	; ø»ˆ£¨
+    (=ks-x1001		. #x2749)	; ø»ˆ£¨
     (=ucs		. #x3380)	; ãŽ€
     ))
 (define-char
@@ -1051,7 +1051,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0041)
-    (korean-ksc5601	. #x274A)	; ø»ˆ£©
+    (=ks-x1001		. #x274A)	; ø»ˆ£©
     (=ucs		. #x3381)	; ãŽ
     ))
 (define-char
@@ -1060,7 +1060,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0041)
-    (korean-ksc5601	. #x274B)	; ø»ˆ£ª
+    (=ks-x1001		. #x274B)	; ø»ˆ£ª
     (=ucs		. #x3382)	; ãŽ‚
     ))
 (define-char
@@ -1069,7 +1069,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0041)
-    (korean-ksc5601	. #x274C)	; ø»ˆ£«
+    (=ks-x1001		. #x274C)	; ø»ˆ£«
     (=ucs		. #x3383)	; ãŽƒ
     ))
 (define-char
@@ -1078,7 +1078,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0041)
-    (korean-ksc5601	. #x274D)	; ø»ˆ£¬
+    (=ks-x1001		. #x274D)	; ø»ˆ£¬
     (=ucs		. #x3384)	; ãŽ„
     ))
 (define-char
@@ -1114,7 +1114,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0061 #x006C)
-    (korean-ksc5601	. #x273A)	; ø»ˆ£™
+    (=ks-x1001		. #x273A)	; ø»ˆ£™
     (=ucs		. #x3388)	; ãŽˆ
     ))
 (define-char
@@ -1123,7 +1123,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0063 #x0061 #x006C)
-    (korean-ksc5601	. #x273B)	; ø»ˆ£š
+    (=ks-x1001		. #x273B)	; ø»ˆ£š
     (=ucs		. #x3389)	; ãŽ‰
     ))
 (define-char
@@ -1132,7 +1132,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0046)
-    (korean-ksc5601	. #x275C)	; ø»ˆ£»
+    (=ks-x1001		. #x275C)	; ø»ˆ£»
     (=ucs		. #x338A)	; ãŽŠ
     ))
 (define-char
@@ -1141,7 +1141,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0046)
-    (korean-ksc5601	. #x275D)	; ø»ˆ£¼
+    (=ks-x1001		. #x275D)	; ø»ˆ£¼
     (=ucs		. #x338B)	; ãŽ‹
     ))
 (define-char
@@ -1150,7 +1150,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0046)
-    (korean-ksc5601	. #x275E)	; ø»ˆ£½
+    (=ks-x1001		. #x275E)	; ø»ˆ£½
     (=ucs		. #x338C)	; ãŽŒ
     ))
 (define-char
@@ -1159,7 +1159,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0067)
-    (korean-ksc5601	. #x2736)	; ø»ˆ£•
+    (=ks-x1001		. #x2736)	; ø»ˆ£•
     (=ucs		. #x338D)	; ãŽ
     ))
 (define-char
@@ -1168,7 +1168,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0067)
-    (korean-ksc5601	. #x2737)	; ø»ˆ£–
+    (=ks-x1001		. #x2737)	; ø»ˆ£–
     (chinese-cns11643-1 . #x2275)	; ø»‘…Ž
     (=jis-x0213-1-2000	. #x2D53)	; ø»¢¥–
     (chinese-big5	. #xA255)	; ý¢€Š‰•
@@ -1181,7 +1181,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0067)
-    (korean-ksc5601	. #x2738)	; ø»ˆ£—
+    (=ks-x1001		. #x2738)	; ø»ˆ£—
     (chinese-cns11643-1 . #x2276)	; ø»‘…
     (=jis-x0213-1-2000	. #x2D54)	; ø»¢¥—
     (chinese-big5	. #xA256)	; ý¢€Š‰–
@@ -1194,7 +1194,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0048 #x007A)
-    (korean-ksc5601	. #x2754)	; ø»ˆ£³
+    (=ks-x1001		. #x2754)	; ø»ˆ£³
     (=jef-china3	. #x76D4)	; øº‡›”
     (=ucs		. #x3390)	; ãŽ
     ))
@@ -1204,7 +1204,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0048 #x007A)
-    (korean-ksc5601	. #x2755)	; ø»ˆ£´
+    (=ks-x1001		. #x2755)	; ø»ˆ£´
     (=ucs		. #x3391)	; ãŽ‘
     ))
 (define-char
@@ -1213,7 +1213,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0048 #x007A)
-    (korean-ksc5601	. #x2756)	; ø»ˆ£µ
+    (=ks-x1001		. #x2756)	; ø»ˆ£µ
     (=ucs		. #x3392)	; ãŽ’
     ))
 (define-char
@@ -1222,7 +1222,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0048 #x007A)
-    (korean-ksc5601	. #x2757)	; ø»ˆ£¶
+    (=ks-x1001		. #x2757)	; ø»ˆ£¶
     (=ucs		. #x3393)	; ãŽ“
     ))
 (define-char
@@ -1231,7 +1231,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0054 #x0048 #x007A)
-    (korean-ksc5601	. #x2758)	; ø»ˆ£·
+    (=ks-x1001		. #x2758)	; ø»ˆ£·
     (=ucs		. #x3394)	; ãŽ”
     ))
 (define-char
@@ -1240,7 +1240,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x2113)
-    (korean-ksc5601	. #x2721)	; ø»ˆ£€
+    (=ks-x1001		. #x2721)	; ø»ˆ£€
     (=ucs		. #x3395)	; ãŽ•
     ))
 (define-char
@@ -1249,7 +1249,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2113)
-    (korean-ksc5601	. #x2722)	; ø»ˆ£
+    (=ks-x1001		. #x2722)	; ø»ˆ£
     (=jef-china3	. #x76D7)	; øº‡›—
     (=ucs		. #x3396)	; ãŽ–
     ))
@@ -1259,7 +1259,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0064 #x2113)
-    (korean-ksc5601	. #x2723)	; ø»ˆ£‚
+    (=ks-x1001		. #x2723)	; ø»ˆ£‚
     (=ucs		. #x3397)	; ãŽ—
     ))
 (define-char
@@ -1268,7 +1268,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x2113)
-    (korean-ksc5601	. #x2725)	; ø»ˆ£„
+    (=ks-x1001		. #x2725)	; ø»ˆ£„
     (=ucs		. #x3398)	; ãŽ˜
     ))
 (define-char
@@ -1277,7 +1277,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0066 #x006D)
-    (korean-ksc5601	. #x272B)	; ø»ˆ£Š
+    (=ks-x1001		. #x272B)	; ø»ˆ£Š
     (=ucs		. #x3399)	; ãŽ™
     ))
 (define-char
@@ -1286,7 +1286,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x006D)
-    (korean-ksc5601	. #x272C)	; ø»ˆ£‹
+    (=ks-x1001		. #x272C)	; ø»ˆ£‹
     (=ucs		. #x339A)	; ãŽš
     ))
 (define-char
@@ -1295,7 +1295,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x006D)
-    (korean-ksc5601	. #x272D)	; ø»ˆ£Œ
+    (=ks-x1001		. #x272D)	; ø»ˆ£Œ
     (=ucs		. #x339B)	; ãŽ›
     ))
 (define-char
@@ -1304,7 +1304,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D)
-    (korean-ksc5601	. #x272E)	; ø»ˆ£
+    (=ks-x1001		. #x272E)	; ø»ˆ£
     (chinese-cns11643-1 . #x2270)	; ø»‘…‰
     (=jis-x0213-1-2000	. #x2D50)	; ø»¢¥“
     (chinese-big5	. #xA250)	; ý¢€Š‰
@@ -1317,7 +1317,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D)
-    (korean-ksc5601	. #x272F)	; ø»ˆ£Ž
+    (=ks-x1001		. #x272F)	; ø»ˆ£Ž
     (chinese-cns11643-1 . #x2271)	; ø»‘…Š
     (=jis-x0213-1-2000	. #x2D51)	; ø»¢¥”
     (chinese-big5	. #xA251)	; ý¢€Š‰‘
@@ -1330,7 +1330,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D)
-    (korean-ksc5601	. #x2730)	; ø»ˆ£
+    (=ks-x1001		. #x2730)	; ø»ˆ£
     (chinese-cns11643-1 . #x2272)	; ø»‘…‹
     (=jis-x0213-1-2000	. #x2D52)	; ø»¢¥•
     (chinese-big5	. #xA252)	; ý¢€Š‰’
@@ -1343,7 +1343,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D #x00B2)
-    (korean-ksc5601	. #x2731)	; ø»ˆ£
+    (=ks-x1001		. #x2731)	; ø»ˆ£
     (=ucs		. #x339F)	; ãŽŸ
     ))
 (define-char
@@ -1352,7 +1352,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D #x00B2)
-    (korean-ksc5601	. #x2732)	; ø»ˆ£‘
+    (=ks-x1001		. #x2732)	; ø»ˆ£‘
     (=jef-china3	. #x76BF)	; øº‡š¿
     (=ucs		. #x33A0)	; ãŽ 
     ))
@@ -1362,7 +1362,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x00B2)
-    (korean-ksc5601	. #x2733)	; ø»ˆ£’
+    (=ks-x1001		. #x2733)	; ø»ˆ£’
     (chinese-cns11643-1 . #x2274)	; ø»‘…
     (=jis-x0213-1-2000	. #x2D56)	; ø»¢¥™
     (chinese-big5	. #xA254)	; ý¢€Š‰”
@@ -1375,7 +1375,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D #x00B2)
-    (korean-ksc5601	. #x2734)	; ø»ˆ£“
+    (=ks-x1001		. #x2734)	; ø»ˆ£“
     (=jef-china3	. #x76C1)	; øº‡›
     (=ucs		. #x33A2)	; ãŽ¢
     ))
@@ -1385,7 +1385,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006D #x00B3)
-    (korean-ksc5601	. #x2727)	; ø»ˆ£†
+    (=ks-x1001		. #x2727)	; ø»ˆ£†
     (=ucs		. #x33A3)	; ãŽ£
     ))
 (define-char
@@ -1394,7 +1394,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x006D #x00B3)
-    (korean-ksc5601	. #x2728)	; ø»ˆ£‡
+    (=ks-x1001		. #x2728)	; ø»ˆ£‡
     (=jef-china3	. #x76C2)	; øº‡›‚
     (=ucs		. #x33A4)	; ãŽ¤
     ))
@@ -1404,7 +1404,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x00B3)
-    (korean-ksc5601	. #x2729)	; ø»ˆ£ˆ
+    (=ks-x1001		. #x2729)	; ø»ˆ£ˆ
     (=jef-china3	. #x76C3)	; øº‡›ƒ
     (=ucs		. #x33A5)	; ãŽ¥
     ))
@@ -1414,7 +1414,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x006D #x00B3)
-    (korean-ksc5601	. #x272A)	; ø»ˆ£‰
+    (=ks-x1001		. #x272A)	; ø»ˆ£‰
     (=ucs		. #x33A6)	; ãŽ¦
     ))
 (define-char
@@ -1423,7 +1423,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2215 #x0073)
-    (korean-ksc5601	. #x273D)	; ø»ˆ£œ
+    (=ks-x1001		. #x273D)	; ø»ˆ£œ
     (=ucs		. #x33A7)	; ãŽ§
     ))
 (define-char
@@ -1432,7 +1432,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x2215 #x0073 #x00B2)
-    (korean-ksc5601	. #x273E)	; ø»ˆ£
+    (=ks-x1001		. #x273E)	; ø»ˆ£
     (=ucs		. #x33A8)	; ãŽ¨
     ))
 (define-char
@@ -1441,7 +1441,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0050 #x0061)
-    (korean-ksc5601	. #x2765)	; ø»ˆ¤„
+    (=ks-x1001		. #x2765)	; ø»ˆ¤„
     (=ucs		. #x33A9)	; ãŽ©
     ))
 (define-char
@@ -1450,7 +1450,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0050 #x0061)
-    (korean-ksc5601	. #x2766)	; ø»ˆ¤…
+    (=ks-x1001		. #x2766)	; ø»ˆ¤…
     (=ucs		. #x33AA)	; ãŽª
     ))
 (define-char
@@ -1459,7 +1459,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0050 #x0061)
-    (korean-ksc5601	. #x2767)	; ø»ˆ¤†
+    (=ks-x1001		. #x2767)	; ø»ˆ¤†
     (=ucs		. #x33AB)	; ãŽ«
     ))
 (define-char
@@ -1468,7 +1468,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0050 #x0061)
-    (korean-ksc5601	. #x2768)	; ø»ˆ¤‡
+    (=ks-x1001		. #x2768)	; ø»ˆ¤‡
     (=ucs		. #x33AC)	; ãŽ¬
     ))
 (define-char
@@ -1477,7 +1477,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064)
-    (korean-ksc5601	. #x2761)	; ø»ˆ¤€
+    (=ks-x1001		. #x2761)	; ø»ˆ¤€
     (=ucs		. #x33AD)	; ãŽ­
     ))
 (define-char
@@ -1486,7 +1486,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073)
-    (korean-ksc5601	. #x2762)	; ø»ˆ¤
+    (=ks-x1001		. #x2762)	; ø»ˆ¤
     (=ucs		. #x33AE)	; ãŽ®
     ))
 (define-char
@@ -1495,7 +1495,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0072 #x0061 #x0064 #x2215 #x0073 #x00B2)
-    (korean-ksc5601	. #x2763)	; ø»ˆ¤‚
+    (=ks-x1001		. #x2763)	; ø»ˆ¤‚
     (=ucs		. #x33AF)	; ãŽ¯
     ))
 (define-char
@@ -1504,7 +1504,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0073)
-    (korean-ksc5601	. #x273F)	; ø»ˆ£ž
+    (=ks-x1001		. #x273F)	; ø»ˆ£ž
     (=jef-china3	. #x76CD)	; øº‡›
     (=ucs		. #x33B0)	; ãŽ°
     ))
@@ -1514,7 +1514,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0073)
-    (korean-ksc5601	. #x2740)	; ø»ˆ£Ÿ
+    (=ks-x1001		. #x2740)	; ø»ˆ£Ÿ
     (=jef-china3	. #x76CC)	; øº‡›Œ
     (=ucs		. #x33B1)	; ãŽ±
     ))
@@ -1524,7 +1524,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0073)
-    (korean-ksc5601	. #x2741)	; ø»ˆ£ 
+    (=ks-x1001		. #x2741)	; ø»ˆ£ 
     (=jef-china3	. #x76CB)	; øº‡›‹
     (=ucs		. #x33B2)	; ãŽ²
     ))
@@ -1534,7 +1534,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0073)
-    (korean-ksc5601	. #x2742)	; ø»ˆ£¡
+    (=ks-x1001		. #x2742)	; ø»ˆ£¡
     (=jef-china3	. #x76CA)	; øº‡›Š
     (=ucs		. #x33B3)	; ãŽ³
     ))
@@ -1544,7 +1544,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0056)
-    (korean-ksc5601	. #x2743)	; ø»ˆ£¢
+    (=ks-x1001		. #x2743)	; ø»ˆ£¢
     (=ucs		. #x33B4)	; ãŽ´
     ))
 (define-char
@@ -1553,7 +1553,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0056)
-    (korean-ksc5601	. #x2744)	; ø»ˆ££
+    (=ks-x1001		. #x2744)	; ø»ˆ££
     (=ucs		. #x33B5)	; ãŽµ
     ))
 (define-char
@@ -1562,7 +1562,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0056)
-    (korean-ksc5601	. #x2745)	; ø»ˆ£¤
+    (=ks-x1001		. #x2745)	; ø»ˆ£¤
     (=ucs		. #x33B6)	; ãŽ¶
     ))
 (define-char
@@ -1571,7 +1571,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0056)
-    (korean-ksc5601	. #x2746)	; ø»ˆ£¥
+    (=ks-x1001		. #x2746)	; ø»ˆ£¥
     (=ucs		. #x33B7)	; ãŽ·
     ))
 (define-char
@@ -1580,7 +1580,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0056)
-    (korean-ksc5601	. #x2747)	; ø»ˆ£¦
+    (=ks-x1001		. #x2747)	; ø»ˆ£¦
     (=ucs		. #x33B8)	; ãŽ¸
     ))
 (define-char
@@ -1589,7 +1589,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0056)
-    (korean-ksc5601	. #x2748)	; ø»ˆ£§
+    (=ks-x1001		. #x2748)	; ø»ˆ£§
     (=ucs		. #x33B9)	; ãŽ¹
     ))
 (define-char
@@ -1598,7 +1598,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x0057)
-    (korean-ksc5601	. #x274E)	; ø»ˆ£­
+    (=ks-x1001		. #x274E)	; ø»ˆ£­
     (=ucs		. #x33BA)	; ãŽº
     ))
 (define-char
@@ -1607,7 +1607,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006E #x0057)
-    (korean-ksc5601	. #x274F)	; ø»ˆ£®
+    (=ks-x1001		. #x274F)	; ø»ˆ£®
     (=ucs		. #x33BB)	; ãŽ»
     ))
 (define-char
@@ -1616,7 +1616,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x03BC #x0057)
-    (korean-ksc5601	. #x2750)	; ø»ˆ£¯
+    (=ks-x1001		. #x2750)	; ø»ˆ£¯
     (=ucs		. #x33BC)	; ãŽ¼
     ))
 (define-char
@@ -1625,7 +1625,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x0057)
-    (korean-ksc5601	. #x2751)	; ø»ˆ£°
+    (=ks-x1001		. #x2751)	; ø»ˆ£°
     (=ucs		. #x33BD)	; ãŽ½
     ))
 (define-char
@@ -1634,7 +1634,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0057)
-    (korean-ksc5601	. #x2752)	; ø»ˆ£±
+    (=ks-x1001		. #x2752)	; ø»ˆ£±
     (=ucs		. #x33BE)	; ãŽ¾
     ))
 (define-char
@@ -1643,7 +1643,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x0057)
-    (korean-ksc5601	. #x2753)	; ø»ˆ£²
+    (=ks-x1001		. #x2753)	; ø»ˆ£²
     (=ucs		. #x33BF)	; ãŽ¿
     ))
 (define-char
@@ -1652,7 +1652,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x03A9)
-    (korean-ksc5601	. #x275A)	; ø»ˆ£¹
+    (=ks-x1001		. #x275A)	; ø»ˆ£¹
     (=ucs		. #x33C0)	; ã€
     ))
 (define-char
@@ -1661,7 +1661,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x004D #x03A9)
-    (korean-ksc5601	. #x275B)	; ø»ˆ£º
+    (=ks-x1001		. #x275B)	; ø»ˆ£º
     (=ucs		. #x33C1)	; ã
     ))
 (define-char
@@ -1670,7 +1670,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0061 #x002E #x006D #x002E)
-    (korean-ksc5601	. #x2263)	; ø»ˆœ¬
+    (=ks-x1001		. #x2263)	; ø»ˆœ¬
     (=ucs		. #x33C2)	; ã‚
     ))
 (define-char
@@ -1679,7 +1679,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0042 #x0071)
-    (korean-ksc5601	. #x276C)	; ø»ˆ¤‹
+    (=ks-x1001		. #x276C)	; ø»ˆ¤‹
     (=ucs		. #x33C3)	; ãƒ
     ))
 (define-char
@@ -1688,7 +1688,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0063)
-    (korean-ksc5601	. #x2726)	; ø»ˆ£…
+    (=ks-x1001		. #x2726)	; ø»ˆ£…
     (chinese-cns11643-1 . #x2277)	; ø»‘…
     (=jis-x0213-1-2000	. #x2D55)	; ø»¢¥˜
     (chinese-big5	. #xA257)	; ý¢€Š‰—
@@ -1701,7 +1701,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0063 #x0064)
-    (korean-ksc5601	. #x2760)	; ø»ˆ£¿
+    (=ks-x1001		. #x2760)	; ø»ˆ£¿
     (=ucs		. #x33C5)	; ã…
     ))
 (define-char
@@ -1710,7 +1710,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0043 #x2215 #x006B #x0067)
-    (korean-ksc5601	. #x276F)	; ø»ˆ¤Ž
+    (=ks-x1001		. #x276F)	; ø»ˆ¤Ž
     (=ucs		. #x33C6)	; ã†
     ))
 (define-char
@@ -1719,7 +1719,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0043 #x006F #x002E)
-    (korean-ksc5601	. #x2261)	; ø»ˆœª
+    (=ks-x1001		. #x2261)	; ø»ˆœª
     (=ucs		. #x33C7)	; ã‡
     ))
 (define-char
@@ -1728,7 +1728,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0064 #x0042)
-    (korean-ksc5601	. #x273C)	; ø»ˆ£›
+    (=ks-x1001		. #x273C)	; ø»ˆ£›
     (=ucs		. #x33C8)	; ãˆ
     ))
 (define-char
@@ -1737,7 +1737,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0047 #x0079)
-    (korean-ksc5601	. #x276D)	; ø»ˆ¤Œ
+    (=ks-x1001		. #x276D)	; ø»ˆ¤Œ
     (=ucs		. #x33C9)	; ã‰
     ))
 (define-char
@@ -1746,7 +1746,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0068 #x0061)
-    (korean-ksc5601	. #x2735)	; ø»ˆ£”
+    (=ks-x1001		. #x2735)	; ø»ˆ£”
     (=ucs		. #x33CA)	; ãŠ
     ))
 (define-char
@@ -1793,7 +1793,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006B #x0074)
-    (korean-ksc5601	. #x2739)	; ø»ˆ£˜
+    (=ks-x1001		. #x2739)	; ø»ˆ£˜
     (=ucs		. #x33CF)	; ã
     ))
 (define-char
@@ -1802,7 +1802,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x006D)
-    (korean-ksc5601	. #x276A)	; ø»ˆ¤‰
+    (=ks-x1001		. #x276A)	; ø»ˆ¤‰
     (=ucs		. #x33D0)	; ã
     ))
 (define-char
@@ -1831,7 +1831,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006C #x0078)
-    (korean-ksc5601	. #x276B)	; ø»ˆ¤Š
+    (=ks-x1001		. #x276B)	; ø»ˆ¤Š
     (=ucs		. #x33D3)	; ã“
     ))
 (define-char
@@ -1859,7 +1859,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x006D #x006F #x006C)
-    (korean-ksc5601	. #x275F)	; ø»ˆ£¾
+    (=ks-x1001		. #x275F)	; ø»ˆ£¾
     (=ucs		. #x33D6)	; ã–
     ))
 (define-char
@@ -1876,7 +1876,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0070 #x002E #x006D #x002E)
-    (korean-ksc5601	. #x2264)	; ø»ˆœ­
+    (=ks-x1001		. #x2264)	; ø»ˆœ­
     (=ucs		. #x33D8)	; ã˜
     ))
 (define-char
@@ -1901,7 +1901,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0073 #x0072)
-    (korean-ksc5601	. #x2764)	; ø»ˆ¤ƒ
+    (=ks-x1001		. #x2764)	; ø»ˆ¤ƒ
     (=ucs		. #x33DB)	; ã›
     ))
 (define-char
@@ -1910,7 +1910,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0053 #x0076)
-    (korean-ksc5601	. #x276E)	; ø»ˆ¤
+    (=ks-x1001		. #x276E)	; ø»ˆ¤
     (=ucs		. #x33DC)	; ãœ
     ))
 (define-char
@@ -1919,7 +1919,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	square #x0057 #x0062)
-    (korean-ksc5601	. #x2769)	; ø»ˆ¤ˆ
+    (=ks-x1001		. #x2769)	; ø»ˆ¤ˆ
     (=ucs		. #x33DD)	; ã
     ))
 (define-char

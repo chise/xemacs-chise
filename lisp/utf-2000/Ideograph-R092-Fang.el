@@ -23,7 +23,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (=jis-x0208		. #x3267)	; ø½Š€
-    (korean-ksc5601	. #x6433)	; ø»‰¼¸
+    (=ks-x1001		. #x6433)	; ø»‰¼¸
     (=gt-pj-1		. #x3267)	; ø½Š€
     (=gt-k		. 00900)	; ý¡„€Ž„
     (=jef-china3	. #x58C5)	; øº…£…
