@@ -1,3 +1,15 @@
+2005-02-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R046-Mountain.el (U-00021FB0): Use `->subsumptive'.
+
+	* Ideograph-R037-Big.el (U-00021678): Use `->subsumptive'.
+
+2005-02-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R005-Second.el (U+4E75): Delete `=>daikanwa'.
+	(C4-2530): Use G0-5041 instead of U+8F9B in
+	`ideographic-structure'.
+
 2005-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R057-Bow.el (U-000223F3): Use `->denotational'.
