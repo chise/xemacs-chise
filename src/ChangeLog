@@ -1,5 +1,32 @@
 2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* text-coding.c (COMPOSE_ADD_CHAR): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* mule-charset.c (remove_char_ccs): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+
+	* chartab.h (XCHAR_ID_TABLE): Deleted.
+	(XSETCHAR_ID_TABLE): Deleted.
+	(CHAR_ID_TABLE_P): Deleted.
+
+	* chartab.c (put_char_id_table): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_composite_char): Likewise.
+	(put_char_table): Likewise.
+	(add_char_attribute_alist_mapper): Fixed.
+	(Fchar_attribute_alist): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(Fget_char_attribute): Likewise.
+	(Fget_char_attribute): Likewise.
+	(Fmap_char_attribute): Likewise.
+
+	* char-ucs.h (charset_code_point): Use `CHAR_TABLEP' instead of
+	`CHAR_ID_TABLE_P'.
+	(encode_char_1): Likewise.
+
+2001-09-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (COMPOSE_ADD_CHAR): Use `XCHAR_TABLE' instead of
 	`XCHAR_ID_TABLE'.
 
