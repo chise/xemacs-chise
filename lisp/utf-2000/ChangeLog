@@ -1,4 +1,56 @@
+2004-07-01  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R025-Divination.el (GT-K00061): Use `<-denotational'
+	for U+535C; use `=>daikanwa' instead of `morohashi-daikanwa'.
+	(C6-212C): Unify U-00020061, BC-87B1 and GT-00103 instead of using
+	`->same'; use `->subsumptive' for M-00069 and M-02775.
+	(U-000209EA): Use `<-ancient*sources' and `<-ancient*denied'
+	instead of char-ref in `<-ancient'.
+
+	* Ideograph-R002-Line.el (U-00020061): Move
+	`ideographic-{radical|strokes}@{ucs|cns}' and
+	`ideographic-radical@{ucs|cns}*sources' into M-00069 and M-02775.
+
+	* Ideograph-R030-Mouth.el (U+53F6): Use `<-ancient*sources'
+	instead of char-ref in `<-ancient'.
+	(U+5446): Use `->subsumptive'.
+
+	* Ideograph-R027-Cliff.el (U+3548): Use `->subsumptive'.
+	(U-00020A4A): Likewise; use `<-ancient*sources' instead of
+	char-ref in `<-ancient'.
+	(U-00020A4B): Use `->subsumptive'.
+	(U-00020A4C): Likewise; use `<-ancient*sources' instead of
+	char-ref in `<-ancient'.
+
+2004-06-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R002-Line.el (U-00020061): Unify C6-212C; use
+	`->subsumptive' to integrate M-00069 and M-02775; don't use
+	`->same' for M-02775; use
+	`ideographic-{radical|strokes}@{ucs|cns}'.
+
 2004-06-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (U+5203): Define as an abstract
+	character.
+	(B-A462): Use `->subsumptive'; use `<-denotational' for U+5203.
+	(U+5204): Use `->subsumptive'.
+	(J0-5163): Moved into U+5204; use `<-vulgar@shinjigen' instead of
+	`vulgar-char-of-shinjigen-1'; add `<-simplified@misc' for M-01436
+	and `<-vulgar@zhengzi-tong' for M-01849.
+	(J0-3F4F): Use `<-denotational' for U+5203.
+	(U-000206F8): Use `->subsumptive'.
+	(U-00020706): Likewise.
+	(M-01982): Unify U-00020708.
+	(M-01983): Unify U-00020704.
+	(M-01984): Unify U-00020703.
+	(U+5291): Use `->subsumptive'.
+	(U-000207FC): Likewise.
+	(U+5292): Likewise.
+
+	* Ideograph-R016-Table.el (M-01762): Unify U-00020641 and H1-DF51.
+	(M-01763): Unify U-00020642 and H1-DF55.
+	(U-00020AE8): Use `->subsumptive'.
 
 	* Ideograph-R009-Man.el (M-00395): Use `->subsumptive' to
 	integrate C3-2174; use `<-denotational' for U+36A2; use
