@@ -477,6 +477,12 @@ write_c_args (FILE *out, const char *func, char *buff, int minargs,
 	  in_ident = 0;
 	  just_spaced = 0;
 	}
+      /* If the character is carriage return, escape it for the C compiler. */
+      else if (c == '\n')
+	{
+	  putc('\\', out);
+	  putc('\n', out);
+	}
       else if (c != ' ' || ! just_spaced)
 	{
 	  if (c >= 'a' && c <= 'z')

@@ -1,5 +1,5 @@
 /* Asynchronous subprocess control for XEmacs.
-   Copyright (C) 1985, 1986, 1987, 1988, 1992, 1993, 1994, 1995
+   Copyright (C) 1985, 1986, 1987, 1988, 1992, 1993, 1994, 1995, 2003
    Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995, 1996 Ben Wing.
@@ -564,8 +564,8 @@ BUFFER is the buffer or (buffer-name) to associate with the process.
  with any buffer
 Third arg is program file name.  It is searched for as in the shell.
 Remaining arguments are strings to give program as arguments.
-INCODE and OUTCODE specify the coding-system objects used in input/output
- from/to the process.
+If bound, `coding-system-for-read' and `coding-system-for-write' specify
+ the coding-system objects used in input from and output to the process.
 */
        (int nargs, Lisp_Object *args))
 {

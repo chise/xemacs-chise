@@ -149,26 +149,47 @@ ARGLIST allows full Common Lisp conventions."
 (defvar cl-macro-environment nil)
 (defvar bind-block) (defvar bind-defs) (defvar bind-enquote)
 (defvar bind-inits) (defvar bind-lets) (defvar bind-forms)
+(defvar arglist-visited)
 
 ;; npak@ispras.ru
 (defun cl-upcase-arg (arg)
-  ;; Changes all non-keyword sysmbols in `arg' to symbols
+  ;; Changes all non-keyword symbols in `ARG' to symbols
   ;; with name in upper case.
-  ;; arg is either symbol or list of symbols or lists
-  (cond ((symbolp arg)
-         (if (memq arg lambda-list-keywords)
-             ;; Do not upcase &optional, &key etc.
-             arg
+  ;; ARG is either symbol or list of symbols or lists
+  (cond ;;((null arg) 'NIL)
+        ((symbolp arg)
+         ;; Do not upcase &optional, &key etc.
+         (if (memq arg lambda-list-keywords) arg
            (intern (upcase (symbol-name arg)))))
         ((listp arg)
-         (mapcar 'cl-upcase-arg arg))))
+         (if (memq arg arglist-visited) (error 'circular-list '(arg)))
+         (cl-push arg arglist-visited)
+         (let ((arg (copy-list arg)) junk)
+           ;; Clean the list
+           (let ((p (last arg))) (if (cdr p) (setcdr p (list '&rest (cdr p)))))
+           (if (setq junk (cadr (memq '&cl-defs arg)))
+               (setq arg (delq '&cl-defs (delq junk arg))))
+           (if (memq '&cl-quote arg)
+               (setq arg (delq '&cl-quote arg)))
+           (mapcar 'cl-upcase-arg arg)))
+        (t arg)                         ; May be we are in initializer
+        ))
 
 ;; npak@ispras.ru
-(defun cl-function-arglist (function agrlist)
+(defun cl-function-arglist (name arglist)
   "Returns string with printed representation of arguments list.
 Supports Common Lisp lambda lists."
-  (prin1-to-string
-   (cons function (cl-upcase-arg agrlist))))
+  (if (not (or (listp arglist) (symbolp arglist))) "Not available"
+    (setq arglist-visited nil)
+    (condition-case nil
+        (prin1-to-string
+         (cons (if (eq name 'cl-none) 'lambda name)
+               (cond ((null arglist) nil)
+                     ((listp arglist) (cl-upcase-arg arglist))
+                     ((symbolp arglist)
+                      (cl-upcase-arg (list '&rest arglist)))
+                     (t (wrong-type-argument 'listp arglist)))))
+      (t "Not available"))))
 
 (defun cl-transform-lambda (form bind-block)
   (let* ((args (car form)) (body (cdr form))
@@ -177,12 +198,13 @@ Supports Common Lisp lambda lists."
 	 (header nil) (simple-args nil)
          (doc ""))
     ;; Add CL lambda list to documentation. npak@ispras.ru
-    (if (stringp (car body))
+    (if (and (stringp (car body))
+             (cdr body))
         (setq doc (cl-pop body)))
-    (cl-push (concat "\nCommon Lisp lambda list:\n" 
+    (cl-push (concat doc
+                     "\nCommon Lisp lambda list:\n" 
                      "  " (cl-function-arglist bind-block args) 
-                     "\n\n"
-                     doc)
+                     "\n\n")
              header)
 
     (while (or (stringp (car body)) (eq (car-safe (car body)) 'interactive))

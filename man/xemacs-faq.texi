@@ -7,7 +7,7 @@
 @finalout
 @titlepage
 @title XEmacs FAQ
-@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2002/12/04 14:04:08 $
+@subtitle Frequently asked questions about XEmacs @* Last Modified: $Date: 2003/05/02 06:00:43 $
 @sp 1
 @author Tony Rossini <rossini@@biostat.washington.edu>
 @author Ben Wing <ben@@xemacs.org>
@@ -84,6 +84,7 @@ library directory>/info/}. For example in
 * Miscellaneous::       The Miscellaneous Stuff.
 * MS Windows::          XEmacs on Microsoft Windows.
 * Current Events::      What the Future Holds.
+* Legacy Versions::     New information about old XEmacsen.
 
 @detailmenu
 
@@ -149,8 +150,8 @@ Installation and Trouble Shooting
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
-* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
-* Q2.0.14::     How do I figure out which packages to install? (NEW)
+* Q2.0.13::     I don't need no steenkin' packages.  Do I?
+* Q2.0.14::     How do I figure out which packages to install?
 * Q2.0.15::     EFS fails with "500 AUTH not understood" (NEW)
 * Q2.0.16::     Cygwin XEmacs won't start: cygXpm-noX4.dll was not found (NEW)
 
@@ -178,8 +179,8 @@ Trouble Shooting:
 * Q2.1.21::     [This question intentionally left blank]
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
-* Q2.1.24::     XEmacs won't start without network. (NEW)
-* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
+* Q2.1.24::     XEmacs won't start without network.
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more!
 
 Customization and Options
 
@@ -269,7 +270,7 @@ Text Selections:
 * Q3.10.3::     Can I turn off the highlight during isearch?
 * Q3.10.4::     How do I turn off highlighting after @kbd{C-x C-p} (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
-* Q3.10.6::     Why is killing so slow? (NEW)
+* Q3.10.6::     Why is killing so slow?
 
 Major Subsystems
 
@@ -389,7 +390,7 @@ General Info:
 * Q6.0.5::      I'd like to help out.  What do I do?
 * Q6.0.6::      What are Cygwin and MinGW, and do I need them to run XEmacs?
 * Q6.0.7::      What exactly are all the different ways to build XEmacs under Windows?
- 
+
 Building XEmacs on MS Windows:
 * Q6.1.1::      What compiler/libraries do I need to compile XEmacs?
 * Q6.1.2::      How do I compile the native port?
@@ -405,7 +406,6 @@ Customization and User Interface:
 * Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
 * Q6.2.4::      How do I get Windows Explorer to associate a file type with XEmacs?
 * Q6.2.5::      Is it possible to print from XEmacs?
-  
 
 Miscellaneous:
 * Q6.3.1::      Does XEmacs rename all the @samp{win32-*} symbols to @samp{w32-*}?
@@ -416,14 +416,22 @@ Miscellaneous:
 Troubleshooting:
 * Q6.4.1::      XEmacs won't start on Windows.
 * Q6.4.2::      Why do I get a blank toolbar on Windows 95?
+* Q6.4.3::      XEmacs complains "No such file or directory, diff"
 
-Current Events:
+What the Future Holds
+
 * Q7.0.1::      What new features will be in XEmacs soon?
 * Q7.0.2::      What's new in XEmacs 21.4?
 * Q7.0.3::      What's new in XEmacs 21.1?
 * Q7.0.4::      What's new in XEmacs 20.4?
 * Q7.0.5::      What's new in XEmacs 20.3?
 * Q7.0.6::      What's new in XEmacs 20.2?
+
+New information about old XEmacsen.
+
+XEmacs 21.1:
+* Q8.0.1::      Gnus 5.10 won't display smileys in XEmacs 21.1.
+
 @end detailmenu
 @end menu
 
@@ -794,7 +802,7 @@ developers responsible for recent releases are:
 @end html
 
 
-@item @email{turnbull@@sk.tsukuba.ac.jp, Steven Turnbull}
+@item @email{stephen@@xemacs.org, Stephen Turnbull}
 
 
 @item @email{ben@@xemacs.org, Ben Wing}
@@ -912,10 +920,12 @@ crash some time ago.
 @unnumberedsubsec Q1.3.1: What is the status of internationalization support aka MULE (including Asian language support?
 
 Both the stable and development versions of XEmacs include
-internationalization support (aka MULE).  MULE currently works on UNIX
-and Linux systems; work for supporting MULE on Windows operating systems
-is in progress.  Binaries compiled without MULE support run faster than
-MULE capable XEmacsen.
+internationalization support (aka MULE).  MULE currently (21.4) works on
+UNIX and Linux systems.  It is possible to build with MULE on Windows
+systems, but if you really need MULE on Windows, it is recommended that
+you build and use the development (21.5) version, and deal with the
+instability of the development tree.  Binaries compiled without MULE
+support run faster than MULE capable XEmacsen.
 
 @node Q1.3.2, Q1.3.3, Q1.3.1, Introduction
 @unnumberedsubsec Q1.3.2: How can I help with internationalization?
@@ -925,20 +935,31 @@ If you would like to help, you may want to join the
 people who speak/write languages other than English, who are willing to
 use XEmacs/MULE regularly, and have some experience with Elisp.
 
+Translations of the TUTORIAL and man page are welcome, and XEmacs does
+support multilingual menus, but we have few current translations.
+
 @xref{Q1.1.2}.
 
 @node Q1.3.3, Q1.3.4, Q1.3.2, Introduction
 @unnumberedsubsec Q1.3.3: How do I type non-ASCII characters?
 
-See question 3.5.7 (@pxref{Q3.5.7}) in part 3 of this FAQ.
+See question 3.5.7 (@pxref{Q3.5.7}) in part 3 of this FAQ for some
+simple methods that also work in non-MULE builds of XEmacs (but only for
+one-octet coded character sets, and mostly for ISO 8859/1).  Many of the
+methods available for Cyrillic (@pxref{Q1.3.7}) work without MULE.
+MULE has more general capabilities.  @xref{Q1.3.5}.
+
+@xref{Q3.2.7}, which covers display of non-ASCII characters.
 
 @node Q1.3.4, Q1.3.5, Q1.3.3, Introduction
 @unnumberedsubsec Q1.3.4: Can XEmacs messages come out in a different language?
 
-The message-catalog support has mostly been written but doesn't
-currently work.  The first release of XEmacs 20 will @emph{not} support
-it.  However, menubar localization @emph{does} work.  To
-enable it, add to your @file{Emacs} file entries like this:
+The message-catalog support was written but is badly bit-rotted.  XEmacs
+20 and 21 did @emph{not} support it, and early releases of XEmacs 22
+will not either.
+
+However, menubar localization @emph{does} work.  To enable it, add to
+your @file{Emacs} file entries like this:
 
 @example
 Emacs*XlwMenu.resourceLabels:                   True
@@ -952,30 +973,73 @@ removing punctuation and capitalizing as above.
 @node Q1.3.5, Q1.3.6, Q1.3.4, Introduction
 @unnumberedsubsec Q1.3.5: Please explain the various input methods in MULE/XEmacs
 
-@email{morioka@@jaist.ac.jp, MORIOKA Tomohiko} writes:
+Mule supports a wide variety of input methods.  There are three basic
+classes: Lisp implementations, generic platform support, and library
+interfaces.
 
-@quotation
-Original Mule supports the following input methods: Wnn4, Wnn6, Canna, SJ3
-and XIM. Interfaces for Wnn and SJ3 uses the @code{egg} user
-interface. Interface for Canna does not use @samp{egg}. I don't know
-about XIM. It is to support ATOK, of course, it may work for another
-servers.
+@emph{Lisp implementations} include Quail, which provides table-driven input
+methods for almost all the character sets that Mule supports (including
+all of the ISO 8859 family, the Indic languages, Thai, and so on), and
+SKK, for Japanese.  (SKK also supports an interface to an external
+"dictionary server" process.)  Quail supports both typical "dead-key"
+methods (eg, in the "latin-1-prefix" method, @kbd{" a} produces ä, LATIN
+SMALL LETTER A WITH DIAERESIS), and the complex dictionary-based phonetic
+methods used for Asian ideographic languages like Chinese.
+
+Lisp implementations can be less powerful (but they are not perceptibly
+inefficient), and of course are not portable to non-Emacs applications.
+The incompatibility can be very annoying.  On the other hand, they
+require no special platform support or external libraries, so if you can
+display the characters, Mule can input them for you and you can edit,
+anywhere.
+
+@emph{Generic platform support} is currently limited to the X Input
+Method (XIM) framework, although support for MSIME (for MS Windows) is
+planned, and IIIMF (Sun's Internet-Intranet Input Method Framework)
+support is extremely desirable.  XIM is enabled at build time by use of
+the @samp{--with-xim} flag to @code{configure}.  For use of XIM, see
+your platform documentation.  However, normally the input method you use
+is specified via the @samp{LANG} and @samp{XMODIFIERS} environment
+variables.
+
+Of course, input skills are portable across most applications.  However,
+especially in modern GUI systems the habit of using bucky bits has
+fallen into sad disuse, and many XIM systems are poorly configured for
+use with Emacs.  For example, the kinput2 input manager (a separate
+process providing an interface between Japanese dictionary servers such
+as Canna and Wnn, and the application) tends to gobble up keystrokes
+generating Meta characters.  This means that to edit while using an XIM
+input method, you must toggle the input method off every time you want
+to use @kbd{M-f}.  Your mileage may vary.
+
+@emph{Library interfaces} are most common for Japanese, although Wnn
+supports Chinese (traditional and simplified) and Korean.  There are
+Chinese and Korean input servers available, but we do not know of any
+patches for XEmacs to use them directly.  You can use them via
+IM-enabled terminals, by manipulating the terminal coding systems.  We
+describe only the Japanese-oriented systems here.  The advantage of
+these systems is that they are very powerful, and on platforms where
+they are available there is typically a wide range of applications that
+support them.  Thus your input skills are portable across applications.
+
+Mule provides built-in interfaces to the following input methods: Wnn4,
+Wnn6, Canna, and SJ3.  These can be configured at build time.  There are
+patches available (no URL, sorry) to support the SKK server, as well.
+Wnn and SJ3 use the @code{egg} user interface.  The interface for Canna
+is specialized to Canna.
 
 Wnn supports Japanese, Chinese and Korean. It is made by OMRON and Kyôto
-university. It is a powerful and complex system.  Wnn4 is free and Wnn6
-is not free.
+University. It is a powerful and complex system.  Wnn4 is free and Wnn6
+is not.  Wnn uses grammatical hints and probability of word association,
+so in principle Wnn can be cleverer than other methods.
 
-Canna supports only Japanese. It is made by NEC. It is a simple and
-powerful system. Canna uses only grammar (Wnn uses grammar and
-probability between words), so I think Wnn is cleverer than Canna,
-however Canna users made a good grammar and dictionary.  So for standard
-modern Japanese, Canna seems cleverer than Wnn4. In addition, the UNIX
-version of Canna is free (now there is a Microsoft Windows version).
+Canna, made by NEC, supports only Japanese.  It is a simple and powerful
+system. Canna uses only grammar, but its grammar and dictionary are
+quite sophisticated.  So for standard modern Japanese, Canna seems
+cleverer than Wnn4. In addition, the UNIX version of Canna is free (now
+there is a Microsoft Windows version).
 
-SJ3 supports only Japanese. It is made by Sony.  XIM supports was made
-to use ATOK (a major input method in personal computer world).  XIM is
-the standard for accessing input methods bundled in Japanese versions of
-Solaris.  (XEmacs 20 will support XIM input).
+SJ3, by Sony, supports only Japanese.
 
 Egg consists of following parts:
 
@@ -986,35 +1050,50 @@ It translates ASCII inputs to Kana/PinYin/Hangul characters.
 
 @item
 Kana/PinYin/Hangul to Kanji transfer layer.
-It is interface layer for network Kana-Kanji server (Wnn and Sj3).
+The interface layer to network Kana-Kanji server (Wnn and Sj3).
 @end enumerate
 
-These input methods are modal, namely there are mode, alphabet mode and
-Kana-Kanji transfer mode.  However there are mode-less input methods for
-Egg and Canna.  @samp{Boiled-egg} is a mode-less input method running on
-Egg.  For Canna, @samp{canna.el} has a tiny boiled-egg like command,
-@code{(canna-boil)}, and there are some boiled-egg like utilities.  In
-addition, it was planned to make an abstraction for all transfer type
-input methods.  However authors of input methods are busy, so maybe this
-plan is stopped.  Perhaps after Mule merged GNU Emacs will be released,
-it will be continued.
-@end quotation
+These input methods are modal.  They have a raw (alphabet) mode, a
+phonetic input mode, and Kana-Kanji transfer mode.  However there are
+mode-less input methods for Egg and Canna.  @samp{boiled-egg} is a
+mode-less input method running on Egg.  For Canna, @samp{canna.el} has a
+tiny boiled-egg-like command, @code{(canna-boil)}, and there are some
+boiled-egg-like utilities.
+
+Much of this information was provided by @email{morioka@@jaist.ac.jp,
+MORIOKA Tomohiko}.
 
 @node Q1.3.6, Q1.3.7, Q1.3.5, Introduction
 @unnumberedsubsec Q1.3.6: How do I portably code for MULE/XEmacs?
 
+MULE has evolved rapidly over the last few years, and the original third
+party patch (for GNU Emacs 19), GNU Emacs 20+, and XEmacs 20+ have quite
+different implementations.  The APIs also vary although recent versions
+of XEmacs have tended to converge to the GNU Emacs standard.
+
+MULE implementations are going to continue to evolve.  Both GNU Emacs
+and XEmacs are working hard on Unicode support, which will involve new
+APIs and probably variations on old ones.  For XEmacs 22, the old ISO
+2022-based system for recognizing encodings will be replaced by a much
+more flexible system, which should improve accuracy of automatic coding
+detections, but will also involve new APIs.
+
 @email{morioka@@jaist.ac.jp, MORIOKA Tomohiko} writes:
 
 @quotation
-MULE and XEmacs are quite different. So the application
-implementor must write separate code for these mule variants.
+The application implementor must write separate code for these mule
+variants.  [Please don't hesitate to report these variants to us; they
+are not, strictly speaking, bugs, but they give third-party developers
+the same kind of creepy-crawly feeling.  We'll do what we can. -- Ed.]
 
 MULE and the next version of Emacs are similar but the symbols are very
 different---requiring separate code as well.
 
 Namely we must support 3 kinds of mule variants and 4 or 5 or 6 kinds of
 emacs variants... (;_;) I'm shocked, so I wrote a wrapper package called
-@code{emu} to provide a common interface.
+@code{emu} to provide a common interface.  [There is an XEmacs package
+of APEL which provides much more comprehensive coverage.  Be careful,
+however; APEL has problems of its own. -- Ed.]
 
 I have the following suggestions about dealing with mule variants:
 
@@ -1092,17 +1171,23 @@ XEmacs) is @uref{http://www.ibiblio.org/sergei/Software/Software.html}
 
 Partially, as an external encoding for files, processes, and terminals.
 It does not yet support Unicode fonts @ref{Q1.3.9, Does XEmacs support
-Unicode Fonts?}.
+Unicode Fonts?}
 
 To get Unicode support, you need a Mule-enabled XEmacs.  Install
 Mule-UCS from packages in the usual way.  Put
 
+@example
 (require 'un-define)
 (set-coding-priority-list '(utf-8))
-(set-coding-category-system 'utf-8 utf-8)
+(set-coding-category-system 'utf-8 'utf-8)
+@end example
+
+in your init file to enable the UTF-8 coding system.  You may wish to
+view the documentation of @code{set-coding-priority-list} if you find
+that files that are not UTF-8 are being mis-recognized as UTF-8.
 
 Install standard national fonts (not Unicode fonts) for all
-character sets you use.
+character sets you use.  See @ref{Q1.3.9}.
 
 Mule-UCS also supports 16-bit forms of Unicode (UTF-16).  It does not
 support 31-bit forms of Unicode (UTF-32 or UCS-4).
@@ -1273,8 +1358,8 @@ Installation:
 * Q2.0.10::     After I run configure I find a coredump, is something wrong?
 * Q2.0.11::     XEmacs can't resolve host names.
 * Q2.0.12::     Why can't I strip XEmacs?
-* Q2.0.13::     I don't need no steenkin' packages.  Do I? (NEW)
-* Q2.0.14::     I don't want to install a million .els one at a time! (NEW)
+* Q2.0.13::     I don't need no steenkin' packages.  Do I?
+* Q2.0.14::     I don't want to install a million .els one at a time!
 * Q2.0.15::     EFS fails with "500 AUTH not understood" (NEW)
 * Q2.0.16::     Cygwin XEmacs won't start: cygXpm-noX4.dll was not found (NEW)
 
@@ -1302,8 +1387,8 @@ Trouble Shooting:
 * Q2.1.21::     [This question intentionally left blank]
 * Q2.1.22::     XEmacs seems to take a really long time to do some things.
 * Q2.1.23::     Movemail on Linux does not work for XEmacs 19.15 and later.
-* Q2.1.24::     XEmacs won't start without network. (NEW)
-* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more! (NEW)
+* Q2.1.24::     XEmacs won't start without network.
+* Q2.1.25::     After upgrading, XEmacs won't do `foo' any more!
 @end menu
 
 @node Q2.0.1, Q2.0.2, Installation, Installation
@@ -1337,7 +1422,7 @@ the packages you'll never want to use.  Remove the TexInfo manuals.
 Remove the Info (and use just hardcopy versions of the manual).  Remove
 most of the stuff in etc.  Remove or gzip all the source code.  Gzip or
 remove the C source code.  Configure it so that copies are not made of
-the support lisp.  
+the support lisp.
 
 These are all Emacs Lisp source code and bytecompiled object code.  You
 may safely gzip everything named *.el here.  You may remove any package
@@ -1429,6 +1514,11 @@ There have been a variety of reports of crashes due to compilers with
 buggy optimizers.  Please see the @file{PROBLEMS} file that comes with
 XEmacs to read what it says about your platform.
 
+If you compiled XEmacs using @samp{--use-union-type} (or the option
+@samp{USE_UNION_TYPE} in @file{config.inc} under Windows), try
+recompiling again without it.  The union type has been known to trigger
+compiler errors in a number of cases.
+
 @node Q2.0.7, Q2.0.8, Q2.0.6, Installation
 @unnumberedsubsec Q2.0.7: Libraries in non-standard locations
 
@@ -1508,6 +1598,9 @@ site
 @*
 @end iftex
 @uref{ftp://ftp.xemacs.org/pub/xemacs/aux/}.
+[These tarballs and this FAQ are wa-a-ay out of date.  Sorry, I'm not
+currently network-capable, and I will probably forgot to update this
+before submitting the patch. -- Ed.]
 
 @c Changed June Link above, <URL:ftp://ftp.xemacs.org/pub/aux/> was dead.
 @c This list is a pain in the you-know-what to keep in synch with the
@@ -1642,7 +1735,7 @@ cp lib-src/DOC-19.16-XEmacs
 @end quotation
 
 @node Q2.0.13, Q2.0.14, Q2.0.12, Installation
-@unnumberedsubsec Q2.0.13: I don't need no steenkin' packages.  Do I? (NEW)
+@unnumberedsubsec Q2.0.13: I don't need no steenkin' packages.  Do I?
 
 Strictly speaking, no.  XEmacs will build and install just fine without
 any packages installed.  However, only the most basic editing functions
@@ -1650,7 +1743,7 @@ will be available with no packages installed, so installing packages is
 an essential part of making your installed XEmacs _useful_.
 
 @node Q2.0.14, Q2.0.15, Q2.0.13, Installation
-@unnumberedsubsec Q2.0.14: How do I figure out which packages to install? (NEW)
+@unnumberedsubsec Q2.0.14: How do I figure out which packages to install?
 
 Many people really liked the old way that packages were bundled and do
 not want to mess with packages at all.  You can grab all the packages at
@@ -1728,18 +1821,29 @@ Now, XEmacs is not perfect, and there may occasionally be times, or
 particular sequences of actions, that cause it to crash.  If you can
 come up with a reproducible way of doing this (or even if you have a
 pretty good memory of exactly what you were doing at the time), the
-maintainers would be very interested in knowing about it.  Post a
-message to comp.emacs.xemacs or send mail to @email{crashes@@xemacs.org}.
-Please note that the @samp{crashes} address is exclusively for crash
+maintainers would be very interested in knowing about it.  The best way
+to report a bug is using @kbd{M-x report-emacs-bug} (or by selecting
+@samp{Send Bug Report...} from the Help menu).  If that won't work
+(e.g. you can't get XEmacs working at all), send ordinary mail to
+@email{crashes@@xemacs.org}. @emph{MAKE SURE} to include the output from
+the crash, especially including the Lisp backtrace, as well as the
+XEmacs configuration from @kbd{M-x describe-installation} (or
+equivalently, the file @file{Installation} in the top of the build
+tree).  Please note that the @samp{crashes} address is exclusively for
+crash reports.  The best way to report bugs in general is through the
+@kbd{M-x report-emacs-bug} interface just mentioned, or if necessary by
+emailing @email{xemacs-beta@@xemacs.org}.  Note that the developers do
+@emph{not} usually follow @samp{comp.emacs.xemacs} on a regular basis;
+thus, this is better for general questions about XEmacs than bug
 reports.
 
-If at all possible, include a stack backtrace of the core dump that was
-produced.  This shows where exactly things went wrong, and makes it much
-easier to diagnose problems.  To do this, you need to locate the core
-file (it's called @file{core}, and is usually sitting in the directory
-that you started XEmacs from, or your home directory if that other
-directory was not writable).  Then, go to that directory and execute a
-command like:
+If at all possible, include a C stack backtrace of the core dump that
+was produced.  This shows where exactly things went wrong, and makes it
+much easier to diagnose problems.  To do this under Unix, you need to
+locate the core file (it's called @file{core}, and is usually sitting in
+the directory that you started XEmacs from, or your home directory if
+that other directory was not writable).  Then, go to that directory and
+execute a command like:
 
 @example
 gdb `which xemacs` core
@@ -1754,6 +1858,13 @@ It's possible that a core file didn't get produced, in which case you're
 out of luck.  Go complain to your system administrator and tell him not
 to disable core files by default.  Also see @ref{Q2.1.15}, for tips and
 techniques for dealing with a debugger.
+
+If you're under Microsoft Windows, you're out of luck unless you happen
+to have a debugging aid installed on your system, for example Visual
+C++.  In this case, the crash will result in a message giving you the
+option to enter a debugger (for example, by pressing @samp{Cancel}).  Do
+this and locate the stack-trace window. (If your XEmacs was built
+without debugging information, the stack trace may not be very useful.)
 
 When making a problem report make sure that:
 
@@ -1772,13 +1883,19 @@ What version of XEmacs you are running.
 What build options you are using.
 
 @item
-If the problem is related to graphics, we will also need to know what
-version of the X Window System you are running, and what window manager
-you are using.
+If the problem is related to graphics and you are running Unix, we will
+also need to know what version of the X Window System you are running,
+and what window manager you are using.
 
 @item
-If the problem happened on a tty, please include the terminal type.
+If the problem happened on a TTY, please include the terminal type.
 @end enumerate
+
+Much of the information above is automatically generated by @kbd{M-x
+report-emacs-bug}.  Even more, and often useful, information can be
+generated by redirecting the output of @code{make} and @code{make check}
+to a file (@file{beta.err} is the default used by @code{build-report}),
+and executing @kbd{M-x build-report}.
 
 @node Q2.1.2, Q2.1.3, Q2.1.1, Installation
 @unnumberedsubsec Q2.1.2: Cryptic Minibuffer messages.
@@ -2110,7 +2227,7 @@ it does.
 @end quotation
 
 @node Q2.1.15, Q2.1.16, Q2.1.14, Installation
-@unnumberedsubsec Q2.1.15: How to Debug an XEmacs problem with a debugger
+@unnumberedsubsec Q2.1.15: How to debug an XEmacs problem with a debugger
 
 If XEmacs does crash on you, one of the most productive things you can
 do to help get the bug fixed is to poke around a bit with the debugger.
@@ -2123,18 +2240,22 @@ strongly recompiling your XEmacs with debugging symbols and with no
 optimization (e.g. with GCC use the compiler flags @samp{-g -O0} --
 that's an "oh" followed by a zero), and with the configure options
 @samp{--debug=yes} and @samp{--error-checking=all}.  This will make your
-XEmacs run somewhat slower but make it a lot more likely to catch the
-problem earlier (closer to its source), and a lot easier to determine
-what's going on with a debugger.
+XEmacs run somewhat slower, but you are a lot more likely to catch the
+problem earlier (closer to its source).  It makes it a lot easier to
+determine what's going on with a debugger.
 
 @item
-If you're able to run XEmacs under a debugger and reproduce the crash
-(if it's inconvenient to do this because XEmacs is already running or is
-running in batch mode as part of a bunch of scripts, consider attaching
-to the existing process with your debugger; most debuggers let you do
-this by substituting the process ID for the core file when you invoke
-the debugger from the command line, or by using the @code{attach}
-command or something similar), here are some things you can do:
+If it's not a true crash (@emph{i.e.}, XEmacs is hung, or a zombie
+process), or it's inconvenient to run XEmacs again because XEmacs is
+already running or is running in batch mode as part of a bunch of
+scripts, you may be able to attach to the existing process with your
+debugger.  Most debuggers let you do this by substituting the process ID
+for the core file when you invoke the debugger from the command line, or
+by using the @code{attach} command or something similar.
+
+@item
+If you're able to run XEmacs under a debugger and reproduce the crash,
+here are some things you can do:
 
 @item
 If XEmacs is hitting an assertion failure, put a breakpoint on
@@ -2151,32 +2272,32 @@ If XEmacs is outputting lots of X errors, put a breakpoint on
 
 @item
 Internally, you will probably see lots of variables that hold objects of
-type @code{Lisp_Object}.  These are exactly what they appear to be,
-i.e. references to Lisp objects.  Printing them out with the debugger
-probably won't be too useful---you'll likely just see a number.  To
-decode them, do this:
+type @code{Lisp_Object}.  These are references to Lisp objects.
+Printing them out with the debugger probably won't be too
+useful---you'll likely just see a number.  To decode them, do this:
 
 @example
-call debug_print (OBJECT)
+call dp (OBJECT)
 @end example
 
 where @var{OBJECT} is whatever you want to decode (it can be a variable,
-a function call, etc.).  This will print out a readable representation
-on the TTY from which the xemacs process was invoked.
+a function call, etc.).  This uses the Lisp printing routines to out a
+readable representation on the TTY from which the xemacs process was
+invoked.
 
 @item
 If you want to get a Lisp backtrace showing the Lisp call
 stack, do this:
 
 @example
-call debug_backtrace ()
+call db ()
 @end example
 
 @item
-Using @code{debug_print} and @code{debug_backtrace} has two
-disadvantages - it can only be used with a running xemacs process, and
-it cannot display the internal C structure of a Lisp Object.  Even if
-all you've got is a core dump, all is not lost.
+Using @code{dp} and @code{db} has two disadvantages - they can only be
+used with a running (including hung or zombie) xemacs process, and they
+do not display the internal C structure of a Lisp Object.  Even if all
+you've got is a core dump, all is not lost.
 
 If you're using GDB, there are some macros in the file
 @file{src/.gdbinit} in the XEmacs source distribution that should make
@@ -2196,12 +2317,14 @@ Print the Lisp type of a lisp object.
 @item lbt
 Usage: lbt @*
 Print the current Lisp stack trace.
-Requires a running xemacs process.
+Requires a running xemacs process.  (It works by calling the db
+routine described above.)
 
 @item ldp
 Usage: ldp lisp_object @*
 Print a Lisp Object value using the Lisp printer.
-Requires a running xemacs process.
+Requires a running xemacs process.  (It works by calling the dp
+routine described above.)
 
 @item run-temacs
 Usage: run-temacs @*
@@ -2239,8 +2362,8 @@ fatal signal occurred mangled; if you can obtain a stack trace while
 running the XEmacs process under a debugger, the stack trace should be
 clean.
 
-@email{1CMC3466@@ibm.mtsac.edu, Curtiss} suggests upgrading to ld.so version 1.8
-if dynamic linking and debugging is a problem on Linux.
+@email{1CMC3466@@ibm.mtsac.edu, Curtiss} suggests upgrading to ld.so
+version 1.8 if dynamic linking and debugging is a problem on Linux.
 
 @item
 If you're using a debugger to get a C stack backtrace and you're
@@ -2257,16 +2380,20 @@ space, and makes debugging much much harder.
 Your stack is getting trashed.  Debugging this is hard; you have to do a
 binary-search type of narrowing down where the crash occurs, until you
 figure out exactly which line is causing the problem.  Of course, this
-only works if the bug is highly reproducible.
+only works if the bug is highly reproducible.  Also, in many cases if
+you run XEmacs from the debugger, the debugger can protect the stack
+somewhat.  However, if the stack is being smashed, it is typically the
+case that there is a wild pointer somewhere in the program, often quite
+far from where the crash occurs.
 
 @item
 If your stack trace has exactly one frame in it, with address 0x0, this
 could simply mean that XEmacs attempted to execute code at that address,
 e.g. through jumping to a null function pointer.  Unfortunately, under
 those circumstances, GDB under Linux doesn't know how to get a stack
-trace. (Yes, this is the third Linux-related problem I've mentioned.  I
+trace. (Yes, this is the fourth Linux-related problem I've mentioned.  I
 have no idea why GDB under Linux is so bogus.  Complain to the GDB
-authors, or to comp.os.linux.development.system).  Again, you'll have to
+authors, or to comp.os.linux.development.system.) Again, you'll have to
 use the narrowing-down process described above.
 
 @item
@@ -2284,6 +2411,10 @@ debug information generated by the newer compilers.
 In versions of XEmacs before 21.2.27, @file{src/.gdbinit} was named
 @file{src/gdbinit}.  This had the disadvantage of not being sourced
 automatically by gdb, so you had to set that up yourself.
+
+@item
+If you are running Microsoft Windows, the the file @file{nt/README} for
+further information about debugging XEmacs.
 
 @end itemize
 
@@ -2418,7 +2549,7 @@ and uncomment the line that reads:
 @end quotation
 
 @node Q2.1.24, Q2.1.25, Q2.1.23, Installation
-@unnumberedsubsec Q2.1.24:  XEmacs won't start without network. (NEW)
+@unnumberedsubsec Q2.1.24:  XEmacs won't start without network.
 
 If XEmacs starts when you're on the network, but fails when you're not
 on the network, you may be missing a "localhost" entry in your
@@ -2431,7 +2562,7 @@ on the network, you may be missing a "localhost" entry in your
 Add that line, and XEmacs will be happy.
 
 @node Q2.1.25,  , Q2.1.24, Installation
-@unnumberedsubsec Q2.1.25::  After upgrading, XEmacs won't do `foo' any more! (NEW)
+@unnumberedsubsec Q2.1.25::  After upgrading, XEmacs won't do `foo' any more!
 
 You have been used to doing `foo', but now when you invoke it (or click
 the toolbar button or select the menu item), nothing (or an error)
@@ -2477,6 +2608,7 @@ Textual Fonts & Colors:
 * Q3.2.4::      How can I limit color map usage?
 * Q3.2.5::      My tty supports color, but XEmacs doesn't use them.
 * Q3.2.6::      Can I have pixmap backgrounds in XEmacs?
+* Q3.2.7::      How do I display non-ASCII characters?
 
 The Modeline:
 * Q3.3.1::      How can I make the modeline go away?
@@ -2536,7 +2668,7 @@ Text Selections:
 * Q3.10.3::     Can I turn off the highlight during isearch?
 * Q3.10.4::     How do I turn off highlighting after @kbd{C-x C-p} (mark-page)?
 * Q3.10.5::     The region disappears when I hit the end of buffer while scrolling.
-* Q3.10.6::      Why is killing so slow?
+* Q3.10.6::     Why is killing so slow?
 @end menu
 
 @node Q3.0.1, Q3.0.2, Customization, Customization
@@ -2709,13 +2841,13 @@ Try it out with @kbd{M-x customize-browse}
 Search through the @file{NEWS} file for @samp{X Resources}.  A fairly
 comprehensive list is given after it.
 
-In addition, an @file{app-defaults} file is supplied,
-@file{etc/Emacs.ad} listing the defaults.  The file
-@file{etc/sample.Xdefaults} gives a set of defaults that you might
-consider.  It is essentially the same as @file{etc/Emacs.ad} but some
-entries are slightly altered.  Be careful about installing the contents
-of this file into your @file{.Xdefaults} or @file{.Xresources} file if
-you use GNU Emacs under X11 as well.
+In addition, an @file{app-defaults} file @file{etc/Emacs.ad} is
+supplied, listing the defaults.  The file @file{etc/sample.Xresources}
+gives a different set of defaults that you might consider for
+installation in your @file{~/.Xresources} file.  It is nearly the same
+as @file{etc/Emacs.ad}, but a few entries are altered.  Be careful about
+installing the contents of this file into your @file{.Xresources} (or
+legacy @file{.Xdefaults}) file if you use GNU Emacs under X11 as well.
 
 @node Q3.1.2, Q3.1.3, Q3.1.1, Customization
 @unnumberedsubsec Q3.1.2: How can I detect a color display?
@@ -2842,7 +2974,7 @@ bugs...
 @unnumberedsubsec Q3.2.1: How can I set color options from @file{init.el}/@file{.emacs}?
 
 How can I set the most commonly used color options from my
-@file{init.el}/@file{.emacs} instead of from my @file{.Xdefaults}?
+@file{init.el}/@file{.emacs} instead of from my @file{.Xresources}?
 
 Like this:
 
@@ -2876,7 +3008,7 @@ Like this:
 Note that you should use @samp{Emacs.} and not @samp{Emacs*} when
 setting face values.
 
-In @file{.Xdefaults}:
+In @file{.Xresources}:
 
 @example
 Emacs.default.attributeFont:  -*-*-medium-r-*-*-*-120-*-*-m-*-*-*
@@ -2884,12 +3016,16 @@ Emacs*menubar*font:           fixed
 Emacs.modeline.attributeFont: fixed
 @end example
 
-This is confusing because modeline is a face, and can be found listed
-with all faces in the current mode by using @kbd{M-x set-face-font
-(enter) ?}.  It uses the face specification of @code{attributeFont},
-while menubar is a normal X thing that uses the specification
-@code{font}.  With Motif it may be necessary to use @code{fontList}
-instead of @code{font}.
+This is confusing because @samp{default} and @samp{modeline} are face
+names, and can be found listed with all faces in the current mode by
+using @kbd{M-x set-face-font (enter) ?}.  They use the face-specific
+resource @samp{attributeFont}.
+
+On the other hand, @samp{menubar} is a normal X thing that uses the
+resource @samp{font}.  With Motif it @emph{may be} necessary to use
+@samp{fontList} @emph{instead of} @samp{font}.  In @emph{non-Motif}
+configurations with Mule it @emph{is} necessary to use @samp{fontSet}
+instead of @samp{font}.  (Sorry, there just is no simple recipe here.)
 
 @node Q3.2.3, Q3.2.4, Q3.2.2, Customization
 @unnumberedsubsec Q3.2.3: How can I set the colors when highlighting a region?
@@ -2898,7 +3034,7 @@ How can I set the background/foreground colors when highlighting a
 region?
 
 You can change the face @code{zmacs-region} either in your
-@file{.Xdefaults}:
+@file{.Xresources}:
 
 @example
 Emacs.zmacs-region.attributeForeground: firebrick
@@ -2939,7 +3075,7 @@ Right Thing using this Lisp code:
     (set-device-class nil 'color))
 @end lisp
 
-@node Q3.2.6, Q3.3.1, Q3.2.5, Customization
+@node Q3.2.6, Q3.2.7, Q3.2.5, Customization
 @unnumberedsubsec Q3.2.6: Can I have pixmap backgrounds in XEmacs?
 @c New
 @email{jvillaci@@wahnsinnig.extreme.indiana.edu, Juan Villacis} writes:
@@ -2967,7 +3103,34 @@ and so on.  You can also do this interactively via @kbd{M-x edit-faces}.
 
 @end quotation
 
-@node Q3.3.1, Q3.3.2, Q3.2.6, Customization
+@node Q3.2.7, Q3.3.1, Q3.2.6, Customization
+@unnumberedsubsec Q3.2.7: How do I display non-ASCII characters?
+@c New
+
+If you're using a Mule-enabled XEmacs, then display is automatic.  If
+you're not seeing the characters you expect, either (1) you don't have
+appropriate fonts available or (2) XEmacs did not correctly detect the
+coding system (@pxref{Recognize Coding, , , xemacs}).  In case (1),
+install fonts as is customary for your platform.  In case (2), you
+need to tell XEmacs explicitly what coding systems you're using.
+@ref{Specify Coding, , , xemacs}.
+
+If your XEmacs is not Mule-enabled, and for some reason getting a
+Mule-enabled XEmacs seems like the wrong thing to do, all is not lost.
+You can arrange it by brute force.  In @file{event-Xt.c} (suppress the
+urge to look in this file---play Doom instead, because you'll survive
+longer), it is written:
+
+@quotation
+In a non-Mule world, a user can still have a multi-lingual editor, by
+doing @code{(set-face-font "-*-iso8859-2" (current-buffer))} for all
+their Latin-2 buffers, etc.
+@end quotation
+
+For the related problem of @emph{inputting} non-ASCII characters in a
+non-Mule XEmacs, @xref{Q3.5.7}.
+
+@node Q3.3.1, Q3.3.2, Q3.2.7, Customization
 @unnumberedsec 3.3: The Modeline
 @unnumberedsubsec Q3.3.1: How can I make the modeline go away?
 
@@ -2978,7 +3141,7 @@ and so on.  You can also do this interactively via @kbd{M-x edit-faces}.
 @c Starting with XEmacs 19.14 the modeline responds to mouse clicks, so if
 @c you haven't liked or used the modeline in the past, you might want to
 @c try the new version out.
-@c 
+@c
 @node Q3.3.2, Q3.3.3, Q3.3.1, Customization
 @unnumberedsubsec Q3.3.2: How do you have XEmacs display the line number in the modeline?
 
@@ -3029,19 +3192,19 @@ etc. are given in the modeline.  How can I turn this off?
 It's not AUC TeX, it comes from @code{func-menu} in @file{func-menu.el}.
 
 @c Add this code to your @file{init.el}/@file{.emacs} to turn it off:
-@c 
+@c
 @c @lisp
 @c (setq fume-display-in-modeline-p nil)
 @c @end lisp
-@c 
+@c
 @c Or just add a hook to @code{TeX-mode-hook} to turn it off only for TeX
 @c mode:
-@c 
+@c
 @c @lisp
 @c (add-hook 'TeX-mode-hook
 @c           '(lambda () (setq fume-display-in-modeline-p nil)))
 @c @end lisp
-@c 
+@c
 @email{dhughes@@origin-at.co.uk, David Hughes} writes:
 
 @quotation
@@ -3326,6 +3489,9 @@ etc.
 Running @samp{xmodmap -pk} will list all of the defined keysyms.
 @end quotation
 
+For the related problem of @emph{displaying} non-ASCII characters in a
+non-Mule XEmacs, @xref{Q3.2.7}.
+
 @node Q3.5.8, Q3.5.9, Q3.5.7, Customization
 @unnumberedsubsec Q3.5.8: [This question intentionally left blank]
 
@@ -3575,13 +3741,13 @@ delay for a second if you let it.
 
 @c If you are running XEmacs 19.13 or earlier, add this command to your
 @c @file{init.el}/@file{.emacs}.
-@c 
+@c
 @c @lisp
 @c (set-menubar nil)
 @c @end lisp
-@c 
+@c
 @c Starting with XEmacs 19.14 the preferred method is:
-@c 
+@c
 @lisp
 (set-specifier menubar-visible-p nil)
 @end lisp
@@ -3622,16 +3788,19 @@ type @kbd{M-x customize @key{RET} buffers-menu @key{RET}}.
 I am trying to use a resource like @code{Emacs*menubar*font} to set the
 font of the menubar but it's not working.
 
-If you are using the real Motif menubar, this resource is not
-recognized; you have to say:
+In Motif, the use of @samp{font} resources is obsoleted in order to
+support internationalization.  If you are using the real Motif menubar,
+this resource is not recognized at all; you have to say:
 
 @example
 Emacs*menubar*fontList: FONT
 @end example
 
-If you are using the Lucid menubar, the former resource will be
-recognized only if the latter resource is unset.  This means that the
-resource
+If you are using the Lucid menubar, for backward compatibility with
+existing user configurations, the @samp{font} resource is recognized.
+Since this is not supported by Motif itself, the code is a kludge and
+the @samp{font} resource will be recognized only if the @samp{fontList}
+resource resource is unset.  This means that the resource
 
 @example
 *fontList: FONT
@@ -3644,6 +3813,16 @@ Emacs*menubar*font: FONT
 @end example
 
 even though the latter is more specific.
+
+In non-Motif configurations using @samp{--with-mule} and
+@samp{--with-xfs} it @emph{is} necessary to use the @code{fontSet}
+resource @emph{instead of} the @code{font} resource.  The backward
+compatibility kludge was never implemented for non-Motif builds.
+Example:
+
+@example
+*fontSet: FONT
+@end example
 
 @node Q3.8.5, Q3.9.1, Q3.8.4, Customization
 @unnumberedsubsec Q3.8.5: How can I bind a key to a function to toggle the toolbar?
@@ -3671,7 +3850,7 @@ code.
 @unnumberedsubsec Q3.9.1: How can I disable the scrollbar?
 
 To disable them for all frames, add the following line to
-your @file{.Xdefaults}:
+your @file{.Xresources}:
 
 @example
 Emacs.scrollBarWidth:  0
@@ -3694,9 +3873,9 @@ turn the scrollbars off only in a single buffer:
 @lisp
 (set-specifier scrollbar-width 0 (current-buffer))
 @end lisp
-@c 
+@c
 @c In XEmacs versions prior to 19.14, you had to use the hairier construct:
-@c 
+@c
 @c @lisp
 @c (set-specifier scrollbar-width (cons (selected-frame) 0))
 @c @end lisp
@@ -3793,7 +3972,7 @@ To get this behavior, add the following lines to your @file{init.el}/@file{.emac
   (pending-delete-on t)))
 @end lisp
 
-Note that this will work with both Backspace and Delete.  This code is a 
+Note that this will work with both Backspace and Delete.  This code is a
 tad more complicated than it has to be for XEmacs in order to make it
 more portable.
 
@@ -3905,22 +4084,27 @@ that the situation is not going to improve.
 There are a number of workarounds.  The most effective is to use a
 special command to do selection ownership only when you intend to paste
 to another application.  Useful commands are @code{kill-primary-selection}
-and @code{copy-primary-selection'}.  These work only on text selected
+and @code{copy-primary-selection}.  These work only on text selected
 with the mouse (probably; experiment), and are bound by default to the
-Cut and Copy, respectively, buttons on the toolbar.
+@kbd{Cut} and @kbd{Copy}, respectively, buttons on the toolbar.
+@code{copy-primary-selection} is also bound to @kbd{C-Insert}.  You can
+yank the clipboard contents with @code{yank-primary-selection}, bound to
+the @kbd{Paste} toolbar button and @kbd{Sh-Insert}.
 
 If you are communicating by cut and paste with applications that use the
-primary selection, then you can customize @code{interprogram-cut-function}
-to @code{nil}, restoring the XEmacs version 20 behavior.  How can you
-tell if a program will support this?  Motifly-correct programs require
-the clipboard; you lose.  For others, only by trying it.  You usually
-don't need to customize the complementary @code{interprogram-paste-function}
-to @code{nil}; presumably you're willing to wait for a paste from another
-program if delays only happen when you specifically request a paste.
+primary selection, then you can customize
+@code{interprogram-cut-function} to @code{nil}, restoring the XEmacs
+version 20 behavior.  How can you tell if a program will support this?
+Motifly-correct programs require the clipboard; you lose.  For others,
+only by trying it.  You also need to customize the complementary
+@code{interprogram-paste-function} to @code{nil}.  (Otherwise
+XEmacs-to-XEmacs pastes will not work correctly.)
 
-You can get some relief on Motif by setting
+You may get some relief on Motif by setting
 @code{x-selection-strict-motif-ownership} to nil, but this means you will
 only intermittently be able to paste XEmacs kills to Motif applications.
+
+Thanks to Jeff Mincy and Glynn Clements for corrections.
 
 @node Subsystems, Miscellaneous, Customization, Top
 @unnumbered 4 Major Subsystems
@@ -4924,15 +5108,15 @@ Use the following code in your @file{init.el}/@file{.emacs}:
 
 @c In versions of XEmacs prior to 19.14, you had to use a kludgy solution
 @c like this:
-@c 
+@c
 @c @lisp
 @c (setq c-font-lock-keywords c-font-lock-keywords-2
 @c       c++-font-lock-keywords c++-font-lock-keywords-2
 @c       lisp-font-lock-keywords lisp-font-lock-keywords-2)
 @c @end lisp
-@c 
+@c
 @c It will work for C, C++ and Lisp.
-@c 
+@c
 See also @code{Syntax Highlighting} from the @code{Options} menu.
 Remember to save options.
 
@@ -5644,7 +5828,7 @@ in your @file{init.el}/@file{.emacs}:
 
 @c The sound support in XEmacs 19.14 was greatly improved over previous
 @c versions.
-@c 
+@c
 @node Q5.2.3, Q5.2.4, Q5.2.2, Miscellaneous
 @unnumberedsubsec Q5.2.3: What's NAS, how do I get it?
 
@@ -6033,17 +6217,16 @@ Hrvoje Niksic and others.  This section is devoted to the MS Windows
 port of XEmacs.
 
 @menu
-
-General Info:
+General Info
 * Q6.0.1::      What is the status of the XEmacs port to Windows?
-* Q6.0.2::      What flavors of MS Windows are supported?
-* Q6.0.3::      Where are the XEmacs on MS Windows binaries?
+* Q6.0.2::      What flavors of MS Windows are supported?  The list name implies NT only.
+* Q6.0.3::      Are binaries available?
 * Q6.0.4::      Can I build XEmacs on MS Windows with X support?  Do I need to?
 * Q6.0.5::      I'd like to help out.  What do I do?
 * Q6.0.6::      What are Cygwin and MinGW, and do I need them to run XEmacs?
 * Q6.0.7::      What exactly are all the different ways to build XEmacs under Windows?
-  
-Building XEmacs on MS Windows
+
+Building XEmacs on MS Windows:
 * Q6.1.1::      What compiler/libraries do I need to compile XEmacs?
 * Q6.1.2::      How do I compile the native port?
 * Q6.1.3::      What do I need for Cygwin?
@@ -6051,16 +6234,16 @@ Building XEmacs on MS Windows
 * Q6.1.5::      How do I compile using MinGW (aka @samp{the -mno-cygwin flag to gcc})?
 * Q6.1.6::      I decided to run with X.  Where do I get an X server?
 * Q6.1.7::      How do I compile with X support?
-  
-Customization and User Interface
+
+Customization and User Interface:
 * Q6.2.1::      How does the port cope with differences in the Windows user interface?
 * Q6.2.2::      How do I change fonts in XEmacs on MS Windows?
 * Q6.2.3::      Where do I put my @file{init.el}/@file{.emacs} file?
 * Q6.2.4::      How do I get Windows Explorer to associate a file type with XEmacs?
 * Q6.2.5::      Is it possible to print from XEmacs?
-  
-Miscellaneous
-* Q6.3.1::      Does XEmacs rename all the win32-* symbols to w32-*?
+
+Miscellaneous:
+* Q6.3.1::      Does XEmacs rename all the @samp{win32-*} symbols to @samp{w32-*}?
 * Q6.3.2::      What are the differences between the various MS Windows emacsen?
 * Q6.3.3::      XEmacs 21.1 on Windows used to spawn an ugly console window on every startup.  Has that been fixed?
 * Q6.3.4::      What is the porting team doing at the moment?
@@ -6068,6 +6251,8 @@ Miscellaneous
 Troubleshooting:
 * Q6.4.1::      XEmacs won't start on Windows.
 * Q6.4.2::      Why do I get a blank toolbar on Windows 95?
+* Q6.4.3::      XEmacs complains "No such file or directory, diff"
+
 @end menu
 
 @node Q6.0.1, Q6.0.2, MS Windows, MS Windows
@@ -6380,22 +6565,23 @@ are available somewhere, we don't know of it.
 @unnumberedsec 6.2: Customization and User Interface
 @unnumberedsubsec Q6.2.1: How does the port cope with differences in the Windows user interface?
 
-XEmacs (and Emacs in general) UI is pretty different from what is
-expected of a typical MS Windows program.  How does the MS Windows port
-cope with it?
+The XEmacs (and Emacs in general) user interface is pretty different
+from what is expected of a typical MS Windows program.  How does the MS
+Windows port cope with it?
 
 As a general rule, we follow native MS Windows conventions as much as
-possible.  In cases where there's a clear UI conflict, we currently use
-normal Unix XEmacs behavior by default, but make sure the MS Windows
-"look and feel" (mark via shift-arrow, self-inserting deletes region,
-Alt selects menu items, etc.) is easily configurable (respectively:
-using the variable @code{shifted-motion-keys-select-region} in 21.4 and
-above [it's in fact the default in these versions], or the
-@file{pc-select} package; using the @file{pending-del} package; and
-setting the variable @code{menu-accelerator-enabled} to
-@code{menu-force} in 21.4 and above).  In fact, if you use the sample
-@file{init.el} file as your init file, you will get all these behaviors
-automatically turned on.
+possible.  21.4 is a fairly complete Windows application, supporting
+native printing, system file dialog boxes, tool tips, etc.  In cases
+where there's a clear UI conflict, we currently use normal Unix XEmacs
+behavior by default, but make sure the MS Windows "look and feel" (mark
+via shift-arrow, self-inserting deletes region, Alt selects menu items,
+etc.) is easily configurable (respectively: using the variable
+@code{shifted-motion-keys-select-region} in 21.4 and above [it's in fact
+the default in these versions], or the @file{pc-select} package; using
+the @file{pending-del} package; and setting the variable
+@code{menu-accelerator-enabled} to @code{menu-force} in 21.4 and above).
+In fact, if you use the sample @file{init.el} file as your init file,
+you will get all these behaviors automatically turned on.
 
 In future versions, some of these features might be turned on by
 default in the MS Windows environment.
@@ -6404,8 +6590,8 @@ default in the MS Windows environment.
 @node Q6.2.2, Q6.2.3, Q6.2.1, MS Windows
 @unnumberedsubsec Q6.2.2: How do I change fonts in XEmacs on MS Windows?
 
-In 21.4 and above, use the font menu.  In all versions, you can change
-font manually. For example:
+In 21.4 and above, you can use the "Options" menu to change the font.
+You can also do it in your init file, e.g. like this:
 
 @display
     (set-face-font 'default "Lucida Console:Regular:10")
@@ -6523,6 +6709,7 @@ provide generic interfaces that apply to all window systems.
 @c with our convention, but we provide the GNU Emacs names as
 @c compatibility aliases.
 
+
 @node Q6.3.2, Q6.3.3, Q6.3.1, MS Windows
 @unnumberedsubsec Q6.3.2: What are the differences between the various MS Windows emacsen?
 
@@ -6542,7 +6729,7 @@ XEmacs
 Beginning with XEmacs 19.12, XEmacs' architecture was redesigned
 in such a way to allow clean support of multiple window systems.  At
 this time the TTY support was added, making X and TTY the first two
-"window systems" XEmacs supported.  The 19.12 design is the basis for
+"window systems" supported by XEmacs.  The 19.12 design is the basis for
 the current native MS Windows code.
 
 @item
@@ -6557,34 +6744,9 @@ people have contributed, including Kirill M. Katsnelson (contributed
 support for menubars, subprocesses and network, as well as loads of
 other code), Andy Piper (ported XEmacs to Cygwin environment,
 contributed Windows unexec, Windows-specific glyphs and toolbars code,
-and more), Ben Wing (loads of improvements; currently the most active MS
-Windows developer), Jeff Sparkes (contributed scrollbars support) and
-many others.
-@end itemize
-
-@item
-U Emacs for DOS
-
-@itemize @minus
-
-@item
-GNU Emacs features support for MS-DOS and DJGPP (D. J. Delorie's DOS
-port of GCC).  Such an Emacs is heavily underfeatured, because it does
-not supports long file names, lacks proper subprocesses support, and
-is far too big compared with typical DOS editors.
-@end itemize
-
-@item
-GNU Emacs compiled with Win32
-
-@itemize @minus
-
-@item
-Starting with version 19.30, it has been possible to compile GNU Emacs
-under MS Windows using the DJGPP compiler and X libraries.  The result
-is very similar to GNU Emacs compiled under MS DOS, except that it
-supports longer file names, etc.  This "port" is similar to the "X"
-flavor of XEmacs on MS Windows.
+and more), Ben Wing (loads of improvements; primary MS Windows developer
+since 2000), Jeff Sparkes (contributed scrollbars support) and many
+others.
 @end itemize
 
 @item
@@ -6603,7 +6765,7 @@ found at
 @iftex
 @*
 @end iftex
-@uref{http://www.cs.washington.edu/homes/voelker/ntemacs.html}.
+@uref{http://www.gnu.org/software/emacs/windows/ntemacs.html}.
 @end itemize
 
 @item
@@ -6625,9 +6787,9 @@ GNU Emacs for DOS
 
 @item
 GNU Emacs features support for MS-DOS and DJGPP (D.J. Delorie's DOS
-port of Gcc).  Such an Emacs is heavily underfeatured, because it does
+port of GCC).  Such an Emacs is heavily underfeatured, because it does
 not support long file names, lacks proper subprocesses support, and
-is far too big compared to typical DOS editors.
+is far too big compared with typical DOS editors.
 @end itemize
 
 @item
@@ -6638,9 +6800,9 @@ GNU Emacs compiled with Win32
 @item
 Starting with version 19.30, it has been possible to compile GNU Emacs
 under MS Windows using the DJGPP compiler and X libraries.  The result
-is is very similar to GNU Emacs compiled under MS DOS, only it
-supports longer file names, etc.  This "port" is similar to the "X"
-flavor of XEmacs on MS Windows.
+is very similar to GNU Emacs compiled under MS DOS, only it works
+somewhat better because it runs in 32-bit mode, makes use of all the
+system memory, supports long file names, etc.
 @end itemize
 
 @end itemize
@@ -6709,6 +6871,7 @@ support for dialog boxes, buttons, edit fields, and similar UI
 elements).
 
 
+
 @node Q6.4.1, Q6.4.2, Q6.3.4, MS Windows
 @unnumberedsec 6.3: Troubleshooting
 @unnumberedsubsec Q6.4.1 XEmacs won't start on Windows.
@@ -6730,7 +6893,7 @@ eliminates the problem altogether.  We recommend you use the 21.4
 binaries, but you can use the 21.1 binaries if you are very paranoid
 about stability.  @xref{Q6.0.3}.
 
-@node Q6.4.2, , Q6.4.1, MS Windows
+@node Q6.4.2, Q6.4.3, Q6.4.1, MS Windows
 @unnumberedsubsec Q6.4.2 Why do I get a blank toolbar on Windows 95?
 
 You need at least version 4.71 of the system file @file{comctl32.dll}.
@@ -6739,8 +6902,24 @@ you are avoiding IE you can also download it from the Microsoft web
 site.  Go into support and search for @file{comctl32.dll}.  The download
 is a self-installing executable.
 
+@node Q6.4.3, , Q6.4.2, MS Windows
+@unnumberedsubsec Q6.4.3 XEmacs complains "No such file or directory, diff"
 
-@node Current Events,  , MS Windows, Top
+or "ispell" or other commands that seem related to whatever you just
+tried to do (M-x ediff or M-$, for example).
+
+There are a large number of common (in the sense that "everyone has
+these, they really do") Unix utilities that are not provided with
+XEmacs.  The GNU Project's implementations are available for Windows in
+the the Cygwin distribution (@uref{http://www.cygwin.com/}), which also
+provides a complete Unix emulation environment (and thus makes ports of
+Unix utilities nearly trivial).  Another implementation is that from
+MinGW (@uref{http://www.mingw.org/msys.shtml}).  If you know of others,
+please let us know!
+
+
+
+@node Current Events, Legacy Versions, MS Windows, Top
 @unnumbered 7 What the Future Holds
 
 This is part 7 of the XEmacs Frequently Asked Questions list.  This
@@ -6953,7 +7132,7 @@ searches exact tag matches before inexact ones; function
 @code{user-full-name} with no arguments returns the var
 @code{user-full-name}; a prefix arg to @kbd{M-:} and @kbd{C-h c} inserts
 the result in the current buffer.
- 
+
 @item
 @strong{Other changes}: Under X, new application class @samp{XEmacs};
 byte-compilation of user-specs now works.
@@ -7071,5 +7250,61 @@ considered unstable.
 
 For older news, see the file @file{ONEWS} in the @file{etc} directory of
 the XEmacs distribution.
+
+
+
+@node Legacy Versions, , Current Events, Top
+@unnumbered 8 New information about old XEmacsen
+
+This is part 8 of the XEmacs Frequently Asked Questions list.  It will
+occasionally be updated to reflect new information about versions which
+are no longer being revised by the XEmacs Project.  The primary purpose
+is advice on compatibility of older XEmacsen with new packages and
+updated versions of packages, but bug fixes (which will not be applied
+to released XEmacsen, but users can apply themselves) are also accepted.
+
+
+@menu
+* Q8.0.1::      Gnus 5.10 won't display smileys in XEmacs 21.1.
+@end menu
+
+@node Q8.0.1, , , Legacy Versions
+@unnumberedsubsec Q8.0.1: Gnus 5.10 won't display smileys in XEmacs 21.1.
+
+@email{eeide@@cs.utah.edu, Eric Eide} wrote:
+
+@quotation
+Previously I wrote:
+
+    Eric> Summary: with Gnus 5.10.1 in XEmacs 21.1.14, I don't see
+    Eric> any smileys :-(.
+
+After a bit of sleuthing, I discovered the essence of the problem.
+For me, the form:
+
+@lisp
+    	(with-temp-buffer
+    	  (insert-file-contents "foo.xpm")
+    	  (buffer-string))
+@end lisp
+
+returns the empty string.  This is because something somewhere
+replaces the XPM data with a glyph --- I haven't figured out where
+this occurs.
+@end quotation
+
+@email{kyle_jones@@wonderworks.com, Kyle Jones} replies:
+
+@quotation
+Do this:
+
+@lisp
+    (setq format-alist nil)
+@end lisp
+
+The image-mode stuff is gone from format-alist in the 21.4
+branch, praise be.
+@end quotation
+
 
 @bye
