@@ -104,27 +104,27 @@ backend database server during the establishment of a database
 connection and when the @code{pq-setenv} call is made.
 
 @defvar pg:host
-Initialized from the @var{PGHOST} environment variable.  The default
+Initialized from the @code{PGHOST} environment variable.  The default
 host to connect to.
 @end defvar
 
 @defvar pg:user
-Initialized from the @var{PGUSER} environment variable.  The default
+Initialized from the @code{PGUSER} environment variable.  The default
 database user name.
 @end defvar
 
 @defvar pg:options
-Initialized from the @var{PGOPTIONS} environment variable.  Default
+Initialized from the @code{PGOPTIONS} environment variable.  Default
 additional server options.
 @end defvar
 
 @defvar pg:port
-Initialized from the @var{PGPORT} environment variable.  The default TCP
-port to connect to.
+Initialized from the @code{PGPORT} environment variable.  The default
+TCP port to connect to.
 @end defvar
 
 @defvar pg:tty
-Initialized from the @var{PGTTY} environment variable.  The default
+Initialized from the @code{PGTTY} environment variable.  The default
 debugging TTY.
 
 Compatibility note:  Debugging TTYs are turned off in the XEmacs Lisp
@@ -132,17 +132,17 @@ binding.
 @end defvar
 
 @defvar pg:database
-Initialized from the @var{PGDATABASE} environment variable.  The default
-database to connect to.
+Initialized from the @code{PGDATABASE} environment variable.  The
+default database to connect to.
 @end defvar
 
 @defvar pg:realm
-Initialized from the @var{PGREALM} environment variable.  The default
+Initialized from the @code{PGREALM} environment variable.  The default
 Kerberos realm.
 @end defvar
 
 @defvar pg:client-encoding
-Initialized from the @var{PGCLIENTENCODING} environment variable.  The
+Initialized from the @code{PGCLIENTENCODING} environment variable.  The
 default client encoding.
 
 Compatibility note:  This variable is not present in non-Mule XEmacsen.
@@ -153,35 +153,35 @@ In the current implementation, client encoding is equivalent to the
 
 @c unused
 @defvar pg:authtype
-Initialized from the @var{PGAUTHTYPE} environment variable.  The default
-authentication scheme used.
+Initialized from the @code{PGAUTHTYPE} environment variable.  The
+default authentication scheme used.
 
 Compatibility note:  This variable is unused in versions of libpq after
 6.5.  It is not implemented at all in the XEmacs Lisp binding.
 @end defvar
 
 @defvar pg:geqo
-Initialized from the @var{PGGEQO} environment variable.  Genetic
+Initialized from the @code{PGGEQO} environment variable.  Genetic
 optimizer options.
 @end defvar
 
 @defvar pg:cost-index
-Initialized from the @var{PGCOSTINDEX} environment variable.  Cost index
-options.
+Initialized from the @code{PGCOSTINDEX} environment variable.  Cost
+index options.
 @end defvar
 
 @defvar pg:cost-heap
-Initialized from the @var{PGCOSTHEAP} environment variable.  Cost heap
+Initialized from the @code{PGCOSTHEAP} environment variable.  Cost heap
 options.
 @end defvar
 
 @defvar pg:tz
-Initialized from the @var{PGTZ} environment variable.  Default
+Initialized from the @code{PGTZ} environment variable.  Default
 timezone.
 @end defvar
 
 @defvar pg:date-style
-Initialized from the @var{PGDATESTYLE} environment variable.  Default
+Initialized from the @code{PGDATESTYLE} environment variable.  Default
 date style in returned date objects.
 @end defvar
 
@@ -338,7 +338,7 @@ Copy In data transfer is in progress.
 An unexpected response was received from the backend.
 @item pgres::nonfatal-error
 Undocumented.  This value is returned when the libpq function
-@code{PQresultStatus} is called with a @var{NULL} pointer.
+@code{PQresultStatus} is called with a @code{NULL} pointer.
 @item pgres::fatal-error
 Undocumented.  An error has occurred in processing the query and the
 operation was not completed.
@@ -510,7 +510,7 @@ Return the length of a specific value.
 @end defun
 
 @defun pq-get-is-null result tup-num field-num
-Return t if the specific value is the SQL @var{NULL}.
+Return t if the specific value is the SQL @code{NULL}.
 @var{result} is a PGresult object.
 @var{tup-num} selects which tuple to fetch from.
 @var{field-num} selects which field to fetch from.
@@ -648,24 +648,24 @@ example idiom is:
 The following options are available in the options string:
 @table @code
 @item authtype
-Authentication type.  Same as @var{PGAUTHTYPE}.  This is no longer used.
+Authentication type.  Same as @code{PGAUTHTYPE}.  This is no longer used.
 @item user
-Database user name.  Same as @var{PGUSER}.
+Database user name.  Same as @code{PGUSER}.
 @item password
 Database password.
 @item dbname
-Database name.  Same as @var{PGDATABASE}
+Database name.  Same as @code{PGDATABASE}
 @item host
-Symbolic hostname.  Same as @var{PGHOST}.
+Symbolic hostname.  Same as @code{PGHOST}.
 @item hostaddr
 Host address as four octets (eg. like 192.168.1.1).
 @item port
-TCP port to connect to.  Same as @var{PGPORT}.
+TCP port to connect to.  Same as @code{PGPORT}.
 @item tty
-Debugging TTY.  Same as @var{PGTTY}.  This value is suppressed in the
+Debugging TTY.  Same as @code{PGTTY}.  This value is suppressed in the
 XEmacs Lisp API.
 @item options
-Extra backend database options.  Same as @var{PGOPTIONS}.
+Extra backend database options.  Same as @code{PGOPTIONS}.
 @end table
 A database connection object is returned regardless of whether a
 connection was established or not.
@@ -897,7 +897,8 @@ does not exist in a non-Mule XEmacs.
 @end defun
 
 @defun pq-env-2-encoding
-Return the integer code representing the coding system in @var{PGCLIENTENCODING}.
+Return the integer code representing the coding system in
+@code{PGCLIENTENCODING}.
 
 @example
 (pq-env-2-encoding)
