@@ -1,3 +1,8 @@
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
+	to 0.10 (Yao).
+
 1999-10-25  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (Vcharacter_attribute_table): New variable.
