@@ -1,5 +1,10 @@
 1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* utf-2000/ideograph-util.el (update-ideograph-radical-table): Add
+	`japanese-jisx0213-1' and `japanese-jisx0213-2'.
+
+1999-11-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* utf-2000/Ideograph-R015-Ice.el (M01612.07): Separate U+4ECC and
 	C3-214C to M00360.
 
