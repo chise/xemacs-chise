@@ -1,5 +1,5 @@
 /* Header for UCS-4 character representation.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -566,13 +566,6 @@ INLINE_HEADER void
 decoding_table_put_char (Lisp_Object ccs,
 			 int code_point, Lisp_Object character)
 {
-#if 0
-  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
-
-  if (!CHAR_TABLEP (table))
-    XCHARSET_DECODING_TABLE (ccs) = table = make_char_id_table (Qunbound);
-  put_char_id_table_0 (XCHAR_TABLE(table), code_point, character);
-#else
 #if 1
   Lisp_Object table1 = XCHARSET_DECODING_TABLE (ccs);
   int dim = XCHARSET_DIMENSION (ccs);
@@ -654,7 +647,6 @@ decoding_table_put_char (Lisp_Object ccs,
     }
   XVECTOR_DATA(v)[i] = character;
 #endif
-#endif
 }
 
 INLINE_HEADER void
@@ -662,14 +654,7 @@ decoding_table_remove_char (Lisp_Object ccs, int code_point);
 INLINE_HEADER void
 decoding_table_remove_char (Lisp_Object ccs, int code_point)
 {
-#if 0
-  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
-
-  if (CHAR_TABLEP (table))
-    put_char_id_table_0 (XCHAR_TABLE(table), code_point, Qunbound);
-#else
   decoding_table_put_char (ccs, code_point, Qunbound);
-#endif
 }
 
 INLINE_HEADER Emchar
@@ -677,18 +662,6 @@ DECODE_DEFINED_CHAR (Lisp_Object charset, int code_point);
 INLINE_HEADER Emchar
 DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
 {
-#if 0
-  Lisp_Object table = XCHARSET_DECODING_TABLE (ccs);
-
-  if (CHAR_TABLEP (table))
-    {
-      Lisp_Object ret = get_char_id_table (XCHAR_TABLE(table), code_point);
-
-      if (CHARP (ret))
-	return XCHAR (ret);
-    }
-  return -1;
-#else
   int dim = XCHARSET_DIMENSION (ccs);
   Lisp_Object decoding_table = XCHARSET_DECODING_TABLE (ccs);
 
@@ -703,7 +676,6 @@ DECODE_DEFINED_CHAR (Lisp_Object ccs, int code_point)
     return XCHAR (decoding_table);
   else
     return -1;
-#endif
 }
 
 INLINE_HEADER Emchar DECODE_CHAR (Lisp_Object charset, int code_point);
