@@ -1,7 +1,7 @@
 /* Declarations having to do with Mule char tables.
    Copyright (C) 1992 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
-   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -369,7 +369,7 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 	  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
 	  if (!NILP (db))
 	    {
-	      val = Fget_database (Fchar_to_string (make_char (ch)),
+	      val = Fget_database (Fprin1_to_string (make_char (ch), Qnil),
 				   db, Qunbound);
 	      if (!UNBOUNDP (val))
 		val = Fread (val);
