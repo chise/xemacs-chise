@@ -1,5 +1,7 @@
 2002-11-29  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* Ideograph-R042-Small.el (U+5C17): Unify BC-8CA7.
+
 	* Ideograph-R076-Lack.el (U+6B2E): Unify BC-8AC8.
 
 2002-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
