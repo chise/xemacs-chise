@@ -464,18 +464,20 @@
     (=ks-x1001		. #x5D55)	; ø»‰³ˆ
     ))
 (define-char
-  '((ideographic-	(:radical	1 ; â¼€
-			 :strokes	3
-			 :total-strokes	4
-			 :sources	(ucs cns-11643 morohashi-daikanwa))
-			(:radical	1 ; â¼€
-			 :strokes	2
-			 :total-strokes	3
-			 :sources	(gt)))
+  '((ideographic-radical . 1)	; â¼€
+    (ideographic-strokes@ucs . 3)
+    (total-strokes@ucs	     . 4)
+    (ideographic-strokes@ucs*sources
+     daikanwa ucs)
+    (total-strokes@ucs*sources
+     cns11643)
+    (ideographic-strokes@gt . 2)
+    (total-strokes@gt	    . 3)
     (->synonyms
-     (:char	((=daikanwa	     . 30212)	; ø¸‡˜„
-		 )
-      :sources	(morohashi-daikanwa)))
+     ((=daikanwa	  . 30212)	; ø¸‡˜„
+      ))
+    (->synonyms*sources
+     shuowen guangyun daikanwa)
     (hanyu-dazidian	1 5 3)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
