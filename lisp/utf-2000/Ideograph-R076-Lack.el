@@ -6,7 +6,7 @@
     (=ucs		. #x6B20)	; 欠
     (->subsumptive
      ((<-simplified@JP/Jouyou
-       ((=jis-x0208	    . #x657E)	; &GT-36233; [69-94]
+       ((=jis-x0208	    . #x657E)	; &M-28122; [69-94]
 	(=ks-x1001	    . #x4C40)	; &I-K0-4C40; [44-32]
 	(=daikanwa	    . 28122)	; &I-M-28122;
 	))
