@@ -1,3 +1,8 @@
+1999-11-15  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* data.c (Fstring_to_number): Don't recognize floating point if
+	base is not 10.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.
