@@ -7,10 +7,11 @@
     (=jis-x0208		. #x4A52)	; ø½Š²»
     (=ks-x1001		. #x7838)	; ø»Šš•
     (=iso-ir165		. #x462C)	; ø»¤µ
-    (=gt-pj-1		. #x4A52)	; ç‰‡
+    (=gt-pj-1		. #x4A52)	; ý¡€†¡
     (=big5		. #xA4F9)	; ý¢€Š“¹
     (=daikanwa		. 19813)	; ø¸„µ¥
     (=gt-k		. 00647)	; ý¡„€Š‡
+    (=gt		. 25441)	; ý¡€†¡
     (=ucs		. #x7247)	; ç‰‡
     ))
 (define-char
@@ -74,11 +75,12 @@
     (shinjigen-2	. 4723)
     (=jis-x0208		. #x4847)	; ø½Š¯´
     (=ks-x1001		. #x777A)	; ø»Š™¹
-    (=gt-pj-1		. #x4847)	; ø½Š¯´
+    (=gt-pj-1		. #x4847)	; ý¡€†¬
     (=big5		. #xAAA9)	; ý¢€Šª©
     (=daikanwa		. 19817)	; ø¸„µ©
     (=gt-k		. 03800)	; ý¡„€»˜
     (=ucs@jis		. #x7248)	; ø½Š¯´
+    (=gt		. 25452)	; ý¡€†¬
     ))
 (define-char
   '((=>ucs		. #x7248)	; ç‰ˆ
@@ -566,10 +568,11 @@
     (total-strokes	 . 12)
     (shinjigen-2	. 5825)
     (=jis-x0208		. #x6030)	; ø½‹’­
-    (=gt-pj-1		. #x6030)	; ç‰‹
+    (=gt-pj-1		. #x6030)	; ý¡€†Ž‘
     (=big5		. #xDA66)	; ý¢€©¦
     (=daikanwa		. 19849)	; ø¸„¶‰
     (=gt-k		. 09210)	; ý¡„‚º
+    (=gt		. 25489)	; ý¡€†Ž‘
     (=ucs		. #x724B)	; ç‰‹
     ))
 (define-char
@@ -724,7 +727,9 @@
     (total-strokes	 . 12)
     (=jis-x0208-1983	. #x4757)	; ø»‡ˆ²
     (=jis-x0208-1990	. #x4757)	; ø½Š®¦
+    (=gt-pj-1		. #x4757)	; ý¡€†Ž¤
     (=ucs@jis		. #x724C)	; ø»‡ˆ²
+    (=gt		. 25508)	; ý¡€†Ž¤
     ))
 (define-char
   '((=>ucs		. #x245CB)	; ð¤—‹
@@ -1018,10 +1023,11 @@
     (=jis-x0208		. #x442D)	; ø½Š©¢
     (=ks-x1001		. #x7460)	; ø»Š•…
     (=iso-ir165		. #x6B3A)	; ø»Ž›™
-    (=gt-pj-1		. #x442D)	; ç‰’
+    (=gt-pj-1		. #x442D)	; ý¡€†ŽŸ
     (=big5		. #xB7DE)	; ý¢€‹Ÿž
     (=daikanwa		. 19871)	; ø¸„¶Ÿ
     (=gt-k		. 10248)	; ý¡„‚ ˆ
+    (=gt		. 25503)	; ý¡€†ŽŸ
     (=ucs		. #x7252)	; ç‰’
     ))
 (define-char
@@ -1708,9 +1714,11 @@
     (total-strokes	 . 19)
     (shinjigen-2	. 4729)
     (=jis-x0208		. #x6031)	; ø½‹’®
+    (=gt-pj-1		. #x6031)	; ý¡€†’
     (=big5		. #xC37C)	; ý¢€Œ¼
     (=daikanwa		. 19906)	; ø¸„·‚
     (=ucs@jis		. #x7258)	; ø½‹’®
+    (=gt		. 25554)	; ý¡€†’
     ))
 (define-char
   '((=>ucs		. #x7258)	; ç‰˜
