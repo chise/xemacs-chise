@@ -15204,12 +15204,10 @@
 (define-char
   '((=>ucs		. #x261E5)	; 𦇥
     (morohashi-daikanwa	36111 0 0)
-    (ideographic-radical . 149)	; ⾔
-    (ideographic-strokes . 15)
-    (ideographic-	(:radical	149 ; ⾔
-			 :strokes	15)
-			(:radical	120 ; ⽷
-			 :strokes	16))
+    (ideographic-radical@ucs . 149)	; ⾔
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@daikanwa . 120)	; ⽷
+    (ideographic-strokes@daikanwa . 16)
     (total-strokes	 . 22)
     (hanyu-dazidian	8 37 7)
     (=hanziku-12	. #xEFEB)	; ������
@@ -15217,12 +15215,10 @@
 (define-char
   '((=>ucs		. #x261E5)	; 𦇥
     (morohashi-daikanwa	36111 0 1)
-    (ideographic-radical . 149)	; ⾔
-    (ideographic-strokes . 15)
-    (ideographic-	(:radical	149 ; ⾔
-			 :strokes	15)
-			(:radical	120 ; ⽷
-			 :strokes	16))
+    (ideographic-radical@ucs . 149)	; ⾔
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@daikanwa . 120)	; ⽷
+    (ideographic-strokes@daikanwa . 16)
     (total-strokes	 . 22)
     (=ucs		. #x261E5)	; 𦇥
     (=cns11643-4	. #x694B)	; �����
