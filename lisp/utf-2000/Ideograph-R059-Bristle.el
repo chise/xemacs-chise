@@ -470,7 +470,7 @@
     (=gt-pj-3		. #x4A6E)	; &GT-12606; [42-78]
     (=daikanwa		. 09995)	; &I-M-09995;
     (=jef-china3	. #x4DA7)	; &I-JC3-4DA7;
-    (=ucs@jp		. #x2F89A)	; &GT-12606;
+    (=ucs@JP		. #x2F89A)	; &GT-12606;
     ))
 (define-char
   '((=>ucs*		. #x5F6B)	; 彫
