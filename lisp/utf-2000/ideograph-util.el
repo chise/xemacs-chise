@@ -558,7 +558,8 @@
 
 (defun write-ideograph-radical-char-data (radical file)
   (if (file-directory-p file)
-      (let ((name (get-char-attribute (int-char (+ #x2EFF radical)) 'name)))
+      (let ((name (char-feature (decode-char 'ucs (+ #x2EFF radical))
+				'name)))
 	(if (string-match "KANGXI RADICAL " name)
 	    (setq name (capitalize (substring name (match-end 0)))))
 	(setq name (mapconcat (lambda (char)
@@ -570,11 +571,11 @@
 	       (format "Ideograph-R%03d-%s.el" radical name)
 	       file))))
   (with-temp-buffer
-    (insert ";; -*- coding: utf-8-mcs -*-\n")
+    (insert (format ";; -*- coding: %s -*-\n"
+		    char-db-file-coding-system))
     (insert-ideograph-radical-char-data radical)
-    (let ((coding-system-for-write 'utf-8-mcs))
-      (write-region (point-min)(point-max) file)
-      )))
+    (let ((coding-system-for-write char-db-file-coding-system))
+      (write-region (point-min)(point-max) file))))
 
 (defun ideographic-structure= (char1 char2)
   (if (char-ref-p char1)
