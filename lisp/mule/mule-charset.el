@@ -301,8 +301,19 @@ DESCRIPTION (string) is the description string of the charset."
 	  lao
 	  ethiopic-ucs
 	  ethiopic
-	  mojikyo
 	  ideograph-daikanwa
+	  ideograph-gt-pj-1
+	  ideograph-gt-pj-2
+	  ideograph-gt-pj-3
+	  ideograph-gt-pj-4
+	  ideograph-gt-pj-5
+	  ideograph-gt-pj-6
+	  ideograph-gt-pj-7
+	  ideograph-gt-pj-8
+	  ideograph-gt-pj-9
+	  ideograph-gt-pj-10
+	  ideograph-gt-pj-11
+	  mojikyo
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
 ;;; 	  mojikyo-pj-3
