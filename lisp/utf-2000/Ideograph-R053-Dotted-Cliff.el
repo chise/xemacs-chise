@@ -3789,6 +3789,7 @@
 (define-char
   '((ideographic-radical . 53)	; ⼴
     (ideographic-strokes . 11)
+    (total-strokes	 . 14)
     (=ucs		. #x5ECD)	; 廍
     ))
 (define-char
