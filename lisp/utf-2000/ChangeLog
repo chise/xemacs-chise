@@ -1,3 +1,10 @@
+2002-03-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* u0FE70-Arabic-Presentation-Forms-B.el,
+	u0FE30-CJK-Compatibility-Forms.el,
+	u0FB50-Arabic-Presentation-Forms-A.el, u0AC00-Hangul-Syllables.el:
+	Reformatted.
+
 2002-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-chars.el (system-char-db-source-file-list): Add
