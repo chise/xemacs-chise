@@ -418,6 +418,14 @@
   '((ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((ucs		  . #x4E37)	; ä¸·
+      ))
     (chinese-gb12345	. #x7D6B)	; ä¹Š
     (mojikyo		. 059002)	; ý €Ž™º
     (ucs		. #x4E4A)	; ä¹Š
@@ -543,6 +551,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 34)
     (hanyu-dazidian-char . 10)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
+      (ucs		  . #x2FF9)	; â¿¹
+      )
+     ((chinese-big5-cdp	  . #x89DE)	; ý¢€ˆ§ž
+      )
+     ((ucs		  . #x4E00)	; ä¸€
+      ))
     (chinese-gb2312	. #x4E5A)	; ø»…‰ƒ
     (chinese-isoir165	. #x4E5A)	; ø»±“
     (ucs		. #x4E4C)	; ä¹Œ
@@ -926,6 +942,14 @@
     (ideographic-radical . 4)	; â¼ƒ
     (ideographic-strokes . 5)
     (total-strokes	 . 6)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x4E3F)	; ä¸¿
+      )
+     ((ucs		  . #x53BB)	; åŽ»
+      ))
     (chinese-cns11643-3 . #x2263)	; ø»•™„
     (ideograph-gt-pj-2	. #x3132)	; ý¡€€ƒ
     (ideograph-daikanwa . 00144)	; ø¸€‚
@@ -1012,6 +1036,14 @@
     (->identical
      ((chinese-cns11643-3 . #x2345)	; ø»•š„
       ))
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x592D)	; å¤­
+      )
+     ((chinese-big5-cdp	  . #x89AB)	; ý¢€ˆ¦«
+      ))
     (chinese-gb2312	. #x4747)	; ø»„¾ž
     (chinese-isoir165	. #x4747)	; ø»¦®
     (ucs		. #x4E54)	; ä¹”
@@ -1095,6 +1127,14 @@
     (hanyu-dazidian-vol	 . 1)
     (hanyu-dazidian-page . 69)
     (hanyu-dazidian-char . 23)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+      (ucs		  . #x2FF8)	; â¿¸
+      )
+     ((chinese-big5-cdp	  . #x8BB4)	; ý¢€ˆ®´
+      )
+     ((chinese-big5-cdp	  . #x89ED)	; ý¢€ˆ§­
+      ))
     (japanese-jisx0208-1978	. #x6949)	; ø»ƒ¦˜
     (japanese-jisx0208		. #x6949)	; ø»‡º 
     (japanese-jisx0208-1990	. #x6949)	; ø½‹ ”
