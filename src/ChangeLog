@@ -1,5 +1,11 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c (Qsquare): New variable.
+	(to_char_code): Add `Qsquare'.
+	(syms_of_mule_charset): Add new symbol `square'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (Qcircle): New variable.
 	(to_char_code): Add `Qcircle'.
 	(syms_of_mule_charset): Add new symbol `circle'.

@@ -1,5 +1,22 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u03000-CJK-Symbols-and-Punctuation", "u03040-Hiragana",
+	"u030A0-Katakana", "u03100-Bopomofo",
+	"u03130-Hangul-Compatibility-Jamo", "u03190-Kanbun",
+	"u03200-Enclosed-CJK-Letters-and-Months" and
+	"u03300-CJK-Compatibility".
+
+	* utf-2000/u03000-CJK-Symbols-and-Punctuation.el,
+	utf-2000/u03040-Hiragana.el, utf-2000/u030A0-Katakana.el,
+	utf-2000/u03100-Bopomofo.el,
+	utf-2000/u03130-Hangul-Compatibility-Jamo.el,
+	utf-2000/u03190-Kanbun.el,
+	utf-2000/u03200-Enclosed-CJK-Letters-and-Months.el,
+	utf-2000/u03300-CJK-Compatibility.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add "u02E00-CJK-Radicals",
 	"u02F00-Kangxi-Radicals" and
 	"u02FF0-Ideographic-Description-Characters".
