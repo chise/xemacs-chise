@@ -1097,7 +1097,7 @@ decode_builtin_char (Lisp_Object charset, int code_point)
 }
 
 int
-charset_code_point (Lisp_Object charset, Emchar ch)
+charset_code_point (Lisp_Object charset, Emchar ch, int defined_only)
 {
   Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (charset);
   Lisp_Object ret;
@@ -1114,7 +1114,9 @@ charset_code_point (Lisp_Object charset, Emchar ch)
       int code;
 
       if ( CHARSETP (mother) )
-	code = charset_code_point (mother, ch);
+	code = charset_code_point (mother, ch, defined_only);
+      else if (defined_only)
+	return -1;
       else
 	code = ch;
       if ( ((max == 0) && CHARSETP (mother)) ||
@@ -2475,16 +2477,17 @@ N defaults to 0 if omitted.
 }
 
 #ifdef UTF2000
-DEFUN ("encode-char", Fencode_char, 2, 2, 0, /*
+DEFUN ("encode-char", Fencode_char, 2, 3, 0, /*
 Return code-point of CHARACTER in specified CHARSET.
 */
-       (character, charset))
+       (character, charset, defined_only))
 {
   int code_point;
 
   CHECK_CHAR_COERCE_INT (character);
   charset = Fget_charset (charset);
-  code_point = charset_code_point (charset, XCHAR (character));
+  code_point = charset_code_point (charset, XCHAR (character),
+				   !NILP (defined_only));
   if (code_point >= 0)
     return make_int (code_point);
   else
