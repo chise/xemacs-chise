@@ -1,3 +1,230 @@
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-04-08  Danny Colascione  <qtmstr@optonline.net>
+
+	* glyphs-x.c: Force buffer-tab highlight update when moving the
+	buffer, avoiding an ugly black border, used for keyboard focus
+	indication, on a widget that can never have keyboard focus, the
+	buffer tab.
+
+2001-08-30  Daiki Ueno  <ueno@unixuser.org>
+
+	* process-unix.c (unix_open_multicast_group): Remove too much
+	conversion between host and network byte order.
+
+2001-09-10  Nix  <nix@esperi.demon.co.uk>
+
+	* src/buffer.c (kill_buffer): Undedicate windows showing BUF
+        before replacing them.
+
+        * src/window.c (window_loop): Implement new UNDEDICATE_BUFFER
+        operation.
+
+        * src/window.c (undedicate_windows): Use it.
+        * src/window.h: Add prototype.
+
+2001-09-17  Ben Wing  <ben@xemacs.org>
+
+	* fileio.c (normalize_filename):
+	* fileio.c (Fexpand_file_name):
+	Fix various C++ compile errors in Andy's recent code.
+	
+	* callint.c (Fcall_interactively):
+	* editfns.c (Ftemp_directory):
+	* editfns.c (Fuser_full_name):
+	* emacs.c (argmatch):
+	* lread.c (locate_file_map_suffixes):
+	* redisplay-x.c (x_ring_bell):
+	Fix sign-compare warnings.
+	
+2001-09-08  Andy Piper  <andy@xemacs.org>
+
+	* fileio.c (normalize_filename): copied from nt.c
+	* (Ffile_name_directory): enable win32 paths under cygwin.
+	* (Ffile_name_nondirectory): ditto.
+	* (directory_file_name): ditto.
+	* (Fexpand_file_name): ditto.
+	* (Ffile_truename): ditto.
+	* (Fsubstitute_in_file_name): ditto.
+	* (Ffile_name_absolute_p): ditto.
+	* (Ffile_readable_p): ditto.
+
+2001-09-08  Andy Piper  <andy@xemacs.org>
+
+	* device-msw.c (mswindows_finish_init_device): remove dde
+	initialization.
+	* device-msw.c (mswindows_init_dde): factor out from
+	mswindows_finish_init_device()
+	* device-msw.c (init_mswindows_very_early): new function
+	initialize but don't enable dde.
+	* emacs.c (main_1): call init_mswindows_very_early.
+	* event-msw.c:
+	* event-msw.c (mswindows_dde_callback): only execute when we are
+	ready.
+	* symsinit.h: declare init_mswindows_very_early.
+
+2001-05-02  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	[sjt: This has been in 21.5 for months with no complaints.]
+
+	* console.h (struct console_methods): Added flags member.
+	(CONSOLE_IMPLEMENTATION_FLAGS): Defined.
+	(CONMETH_IMPL_FLAG):
+	(CONSOLE_IMPL_FLAG): Macro to check implememntation flags.
+	Defined XDEVIMPF_DONT_PREEMPT_REDISPLAY.
+
+	* device.c (window_system_pixelated_geometry): Use the above macros.
+
+	* device.h (DEVICE_IMPL_FLAG): Macro to check a device
+	implememntation flag.
+	* device.h (DEVICE_DISPLAY_P): Use it.
+
+	* frame.c (delete_frame_internal): Use the above macro.
+
+	* redisplay.c (redisplay_device): Use it.
+	(redisplay_device): Obey XDEVIMPF_DONT_PREEMPT_REDISPLAY.
+	(redisplay_frame): Ditto.
+
+	* device-msw.c (mswindows_device_implementation_flags): Removed.
+	(msprinter_device_implementation_flags): Removed.
+	(console_type_create_device_mswindows): Removed references to
+	implementation_flags methods, set implementation flags here.
+	(console_type_create_device_mswindows): Added XDEVIMPF_DONT_PREEMPT.
+
+	* device-gtk.c (gtk_device_implementation_flags): Removed method.
+	(console_type_create_device_gtk): Removed method declaration.
+	Added commented out statement which semantically matches the
+	commented out statement in the above removed method.
+
+2001-04-14  Gordon Sadler  <gbsadler1@lcisp.com>
+
+	The attached patch fixes a few warnings. 
+
+	* src/emacs.c: prototype console_type_create_select_gtk for GTK only
+	* src/frame-gtk.c: guard against GNOME calls in GTK only
+	* src/redisplay-gtk.c: include <sys/poll.h> #ifdef HAVE_POLL
+	* src/select-gtk.c: prototype lisp_to_time
+
+2001-06-08  Ben Wing  <ben@xemacs.org>
+
+	------ gc-in-window-procedure fixes ------
+	
+	* alloc.c:
+	* alloc.c (struct post_gc_action):
+	* alloc.c (register_post_gc_action):
+	* alloc.c (run_post_gc_actions):
+	* alloc.c (garbage_collect_1):
+	Create "post-gc actions", to avoid those dreaded "GC during window
+	procedure" problems.
+
+	* event-msw.c:
+	Abort, clean and simple, when GC in window procedure.  We want
+	to flush these puppies out.
+
+	* glyphs-msw.c:
+	* glyphs-msw.c (finalize_destroy_window):
+	* glyphs-msw.c (mswindows_finalize_image_instance):
+	Use a post-gc action when destroying subwindows.
+
+	* lisp.h:
+	Declare register_post_gc_action().
+
+	* scrollbar-msw.c:
+	* scrollbar-msw.c (unshow_that_mofo):
+	Use a post-gc action when unshowing scrollbar windows, if in gc.
+
+	* redisplay.c (mark_redisplay):
+	Add comment about the utter evilness of what's going down here.
+
+	------ cygwin setitimer fixes ------
+	
+	* Makefile.in.in (sheap_objs):
+	* Makefile.in.in (profile_objs):
+	* Makefile.in.in (objs):
+	Compile profile.c only when HAVE_SETITIMER.
+	
+	* nt.c (mswindows_sigset):
+	* nt.c (mswindows_sighold):
+	* nt.c (mswindows_sigrelse):
+	* nt.c (mswindows_sigpause):
+	* nt.c (mswindows_raise):
+	* nt.c (close_file_data):
+	Style fixes.
+	
+	* nt.c:
+	Move setitimer() emulation to win32.c, because Cygwin needs it too.
+	
+	* profile.c:
+	* profile.c (Fstart_profiling):
+	* profile.c (Fstop_profiling):
+	Make sure we don't compile if no setitimer().  Use qxe_setitimer()
+	instead of just plain setitimer().
+	
+	* signal.c:
+	* signal.c (set_one_shot_timer):
+	* signal.c (alarm):
+	Define qxe_setitimer() as an encapsulation around setitimer() --
+	call setitimer() directly unless Cygwin or MS Win, in which case
+	we use our simulated version in win32.c.
+	
+	* systime.h:
+	* systime.h (struct itimerval):
+	* systime.h (ITIMER_REAL):
+	Prototype mswindows_setitimer() and qxe_setitimer().  Long
+	comment about "qxe" and the policy regarding encapsulation.
+
+	* win32.c:
+	* win32.c (setitimer_helper_proc):
+	* win32.c (setitimer_helper_period):
+	* win32.c (setitimer_helper):
+	* win32.c (mswindows_setitimer):
+	Move setitimer() emulation here, so Cygwin can use it.
+	Rename a couple of functions and variables to be longer and more
+	descriptive.  In setitimer_helper_proc(), send the signal
+	using either mswindows_raise() or (on Cygwin) kill().  If for
+	some reason we are still getting lockups, we'll change the kill()
+	to directly invoke the signal handlers.
+
+	------ windows shell fixes ------
+	
+	* callproc.c:
+	* ntproc.c:
+	Comments about how these two files must die.
+
+	* callproc.c (init_callproc):
+	On MS Windows, init shell-file-name from SHELL, then COMSPEC,
+	not just COMSPEC. (more correct and closer to FSF.) Don't
+	force a value for SHELL into the environment. (Comments added
+	to explain why not.)
+	
+	* nt.c (init_user_info):
+	Don't shove a fabricated SHELL into the environment.  See above.
+
+2001-06-01  Ben Wing  <ben@xemacs.org>
+
+	* Makefile.in.in (ldflags):
+	eliminate that pesky "defaulting to 00401000" warning.
+	* nt.h:
+	eliminate warnings.
+
+2001-06-15  Golubev I. N.  <gin@mo.msk.ru>
+
+	* s/sco5.h (FORCE_ALLOCATE_PTY_THE_OLD_FASHIONED_WAY): #define.
+	* process-unix.c (allocate_pty): #ifndef "modern" pty allocation.
+
+2001-04-24  Jerry James <james@xemacs.org>
+
+        * faces.h: pass parameters to Fadd_spec_to_specifier in the
+        correct order.
+
+2001-06-01  Ben Wing  <ben@xemacs.org>
+
+	* event-msw.c (debug_mswin_messages):
+	conditionalize the messages that were causing compile errors.
+	(if only macros could generate #ifdef statements ...)
+
 2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.4 "Artificial Intelligence" is released.

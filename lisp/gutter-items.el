@@ -118,7 +118,7 @@ list in `buffer-list' order (usual most-recently-selected-first)."
   :group 'buffers-tab)
 
 (make-face 'buffers-tab "Face for displaying the buffers tab.")
-(set-face-parent 'buffers-tab 'default)
+(set-face-parent 'buffers-tab 'modeline)
 
 (defcustom buffers-tab-face 'buffers-tab
   "*Face to use for displaying the buffers tab."

@@ -88,9 +88,21 @@ mswindows_free_scrollbar_instance (struct scrollbar_instance *sb)
 }
 
 static void
+unshow_that_mofo (void *handle)
+{
+  ShowScrollBar ((HWND) handle, SB_CTL, 0);
+}
+
+static void
 mswindows_release_scrollbar_instance (struct scrollbar_instance *sb)
 {
-  ShowScrollBar (SCROLLBAR_MSW_HANDLE (sb), SB_CTL, 0);
+  if (gc_in_progress)
+    /* #### way bogus!  need to remove the offending call.
+       see mark_redisplay(). */
+    register_post_gc_action (unshow_that_mofo,
+			     (void *) SCROLLBAR_MSW_HANDLE (sb));
+  else
+    ShowScrollBar (SCROLLBAR_MSW_HANDLE (sb), SB_CTL, 0);
   SCROLLBAR_MSW_SIZE (sb) = 0;
 }
 
@@ -192,6 +204,20 @@ mswindows_handle_scrollbar_event (HWND hwnd, int code, int pos)
 
   sb = (struct scrollbar_instance *)GetWindowLong (hwnd, GWL_USERDATA);
   win = real_window ((sb==NULL) ? GetFocus() : sb->mirror, 1);
+  /* "0 as the second parameter" refers to the call to real_window above.
+     This comment was taken from Ben's 21.5 code that differs somewhat
+     from this, I don't think the 21.4 code ever had a 0 there.
+     #### we're still hitting an abort here with 0 as the second
+     parameter, although only occasionally.  It seems that sometimes we
+     receive events for scrollbars that don't exist anymore.  I assume
+     it must happen like this: The user does something that causes a
+     scrollbar to disappear (e.g. Alt-TAB, causing recomputation of
+     everything in the new frame) and then immediately uses the mouse
+     wheel, generating scrollbar events.  Both events get posted before
+     we have a chance to process them, and in processing the first, the
+     scrollbar mentioned in the second disappears. */
+  if (NILP (win))
+    return;
   frame = XWINDOW (win)->frame;
   f = XFRAME (frame);
 

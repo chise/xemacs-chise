@@ -32,12 +32,14 @@ local needs with safe removal of unnecessary code.
 There are two main flavors of packages.
 
 @itemize @bullet
-@item Regular Packages
+@item
+Regular Packages
 @cindex regular packages
 A regular package is one in which multiple files are involved and one
 may not in general safely remove any of them.
 
-@item Single-File Packages
+@item
+Single-File Packages
 @cindex single-file packages
 A single-file package is an aggregate collection of thematically
 related but otherwise independent lisp files.  These files are bundled 
@@ -247,7 +249,8 @@ where I mention "Options -> Manage Packages", substitute "Tools ->
 Packages".
 
 @enumerate 1
-@item Choose a download site.
+@item
+Choose a download site.
 via menu: Options -> Manages Packages -> Add Download Site 
 via keyb: @code{M-x customize-variable RET package-get-remote RET}
 (put in the details of remote host and directory)
@@ -255,7 +258,8 @@ via keyb: @code{M-x customize-variable RET package-get-remote RET}
 If the package tarballs _AND_ the package-index file are in a
 local directory, you can: @code{M-x pui-add-install-directory RET}
 
-@item Obtain a list of packages and display the list in a buffer named
+@item
+Obtain a list of packages and display the list in a buffer named
 @file{*Packages*}.
 menu: Options -> Manage Packages -> List & Install
 keyb: @code{M-x pui-list-packages RET}
@@ -319,11 +323,13 @@ Moving the mouse over a package will also cause additional information
 about the package to be displayed in the minibuffer.
 
 
-@item Choose the packages you wish to install.
+@item
+Choose the packages you wish to install.
 mouse: Click button 2 on the package name.
  keyb: @kbd{RET} on the package name
 
-@item Make sure you have everything you need.
+@item
+Make sure you have everything you need.
 menu: Packages -> Add Required
 keyb: @kbd{r}
 
@@ -334,7 +340,8 @@ those packages also.
 For novices and gurus alike, this step can save your bacon.
 It's easy to forget to install a critical package.
 
-@item Download and install the packages.
+@item
+Download and install the packages.
 menu: Packages -> Install/Remove Selected
 keyb: @kbd{x}
 @end enumerate

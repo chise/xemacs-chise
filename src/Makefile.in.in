@@ -142,13 +142,17 @@ sheap_objs=sheap.o
 win32_objs=win32.o xemacs_res.o
 #endif
 
+#ifdef HAVE_SETITIMER
+profile_objs=profile.o
+#endif
+
 ## -Demacs is needed to make some files produce the correct version
 ## for use in Emacs.
 
 cppflags = $(CPPFLAGS) -Demacs -I. $(c_switch_all)
 cflags   = $(CFLAGS) $(cppflags)
 #if defined (WIN32_NATIVE) || defined (CYGWIN)
-ldflags  = $(LDFLAGS) -mwindows $(ld_switch_all) $(ld_dynamic_link_flags)
+ldflags  = $(LDFLAGS) -mwindows -e _mainCRTStartup $(ld_switch_all) $(ld_dynamic_link_flags)
 #else
 ldflags  = $(LDFLAGS) $(ld_switch_all) $(ld_dynamic_link_flags)
 #endif
@@ -195,7 +199,7 @@ objs=\
  gui.o gutter.o $(gui_objs) hash.o imgproc.o indent.o insdel.o intl.o\
  keymap.o $(RTC_patch_objs) line-number.o lread.o lstream.o\
  macros.o marker.o md5.o minibuf.o objects.o opaque.o\
- print.o process.o profile.o\
+ print.o process.o $(profile_objs)\
  rangetab.o redisplay.o redisplay-output.o regex.o\
  search.o select.o $(sheap_objs) signal.o sound.o\
  specifier.o strftime.o symbols.o syntax.o sysdep.o\

@@ -214,6 +214,7 @@ void lw_pop_up_all_widgets (LWLIB_ID id);
 void lw_pop_down_all_widgets (LWLIB_ID id);
 void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset);
 void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value);
+XtArgVal lw_get_value_arg (widget_value* wv, String name);
 void lw_copy_widget_value_args (widget_value* copy, widget_value* val);
 widget_value * copy_widget_value_tree (widget_value *val, change_type change);
 

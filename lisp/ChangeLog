@@ -1,3 +1,135 @@
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-04-23  Didier Verna  <didier@xemacs.org>
+
+	* cus-edit.el (custom-variable-pre-save): New.
+	* cus-edit.el (custom-variable-post-save): New.
+	* cus-edit.el (custom-variable-save): use them.
+	* cus-edit.el (custom-face-pre-save): New.
+	* cus-edit.el (custom-face-post-save): New.
+	* cus-edit.el (custom-face-save): use them.
+	* cus-edit.el (custom-group-pre-save): New.
+	* cus-edit.el (custom-group-post-save): New.
+	* cus-edit.el (custom-group-save): use them.
+	* cus-edit.el (Custom-save): use the pre/post functions above,
+	call `custom-save-all' only once.
+	* cus-edit.el (custom-variable-pre-reset-standard): New.
+	* cus-edit.el (custom-variable-post-reset-standard): New.
+	* cus-edit.el (custom-variable-reset-standard): use them.
+	* cus-edit.el (custom-face-pre-reset-standard): New.
+	* cus-edit.el (custom-face-post-reset-standard): New.
+	* cus-edit.el (custom-face-reset-standard): use them.
+	* cus-edit.el (custom-group-pre-reset-standard): New.
+	* cus-edit.el (custom-group-post-reset-standard): New.
+	* cus-edit.el (Custom-reset-standard): use them.
+	* cus-edit.el (custom-face-reset-saved): use the pre/post
+	functions above, call `custom-save-all' only once.
+
+2001-04-08  Danny Colascione  <qtmstr@optonline.net>
+
+	* gutter-items.el (buffers-tab face): Derive from the modeline
+	face by default.  Many people use white-on-black for the default
+	font, and the tabs look hideous with that color combination.  The
+	modeline usually has the correct colors.
+
+2001-09-28  Robert Pluim  <rpluim@bigfoot.com>
+
+	* etags.el (find-tag): Doc fix, point users at pop-tag-mark.
+	(tag-mark-stack-max): Typo fix.
+
+2001-09-28  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el:
+	* font-lock.el (font-lock-after-change-function):
+	fix problem with last patch, reported by Katsumi Yamaoka.
+
+2001-09-17  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el (font-lock-after-change-function):
+	fix problem when you insert a comment on the line before a line of
+	code: if we use the following char, then when you hit backspace,
+	the following line of code turns the comment color.
+
+2001-06-08  Ben Wing  <ben@xemacs.org>
+
+	* process.el: comment about shell-command-switch.
+	* process.el (shell-quote-argument): Need to quote a null
+	argument, too.  From Dan Holmsand.
+	
+	* startup.el (normal-top-level): Delete some unused FSF junk.
+	* startup.el (command-line-early):
+	
+	* startup.el (command-line): Call MS Windows init function.
+	
+	* win32-native.el:
+	* win32-native.el (mswindows-system-shells): New.
+	* win32-native.el (mswindows-system-shell-p): New.
+	* win32-native.el (init-mswindows-at-startup): New.
+	* win32-native.el (mswindows-quote-one-vc-runtime-arg):
+	* win32-native.el (mswindows-quote-one-simple-arg):
+	* win32-native.el (mswindows-quote-one-command-arg):
+	* win32-native.el (mswindows-construct-process-command-line-alist):
+	Correct comments at top.  Correctly handle passing arguments
+	to Cygwin programs and to bash.  Fix quoting of zero-length
+	arguments (from Dan Holmsand).  Set shell-command-switch based
+	on shell-file-name, which in turn comes from env var SHELL.
+
+2001-07-18  Alexey Mahotkin  <alexm@hsys.msk.ru>
+
+	* toolbar.el (toolbar-visible-p, toolbar-captioned-p,
+	default-toolbar-position): Fill docstrings for balloon-help.
+
+2001-03-15  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* faces.el: Reenable specifications over 'gtk domain.
+
+2001-08-08  Didier Verna  <didier@xemacs.org>
+
+	* autoload.el (update-autoload-files): make defdir a file name,
+	not directory name.
+
+2001-08-06  Steve Youngs  <youngs@xemacs.org>
+
+	* menubar-items.el (default-menubar): Use 'report-xemacs-bug'.
+
+	* lisp-mnt.el (lm-report-bug): Use 'report-xemacs-bug-beta-address'.
+
+2001-08-01  Edward M. Lee  <tailbert@yahoo.com>
+
+	* font-menu.el (font-menu-set-font): Default to current font-family.
+	(font-menu-preferred-resolution):
+	(font-menu-size-scaling):
+	Provide gtk defaults, too.
+
+2001-07-29  Mike Alexander  <mta@arbortext.com>
+
+	* cus-face.el (custom-set-face-font-size): Last arg to apply is a
+	list
+	(custom-set-face-font-family): ditto
+
+2001-07-26  Mike Sperber <mike@xemacs.org>
+
+	* files.el (auto-mode-alist): .9 files are man pages, too.
+
+2001-07-23  Edwin Steiner <esteiner@net4you.at>
+
+	* process.el (call-process-internal): bind
+	coding-system-for-write to 'binary when calling
+	start-process-internal, so the process receives 
+	the literal contents of INFILE.
+
+2001-09-15  Edward M. Lee  <tailbert@yahoo.com>
+
+	* files.el (auto-mode-alist): Add configure.ac support.
+
+2001-07-19  Adrian Aichner  <adrian@xemacs.org>
+
+	* buff-menu.el:
+	mouse.el:
+	Adrian's mouse-track patch.  See <y9plq0nc.fsf@ecf.teradyne.com>.
+
 2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.4 "Artificial Intelligence" is released.

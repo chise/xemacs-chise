@@ -47,6 +47,7 @@
  internalWidth	     Width		Dimension	4	*1
  internalHeight	     Height		Dimension	2	*1
  topWidget	     TopWidget		Widget			*2
+ highlightWidget HighlightWidget Widget 4
  callback	     Callback		XtCallbackList	NULL	*3
  popdownCallback     Callback		XtCallbackList	NULL	*4
  selectInsensitive   SelectInsensitive	Boolean		True	*5
@@ -130,6 +131,11 @@
 #ifndef	XtNtopWidget
 #define	XtNtopWidget	"topWidget"
 #define	XtCTopWidget	"TopWidget"
+#endif
+
+#ifndef XtNhighlightWidget
+#define XtNhighlightWidget "highlightWidget"
+#define XtCHighlightWidget "HighlightWidget"
 #endif
 
 #ifndef	XtNhSpace

@@ -1304,9 +1304,8 @@ delete_frame_internal (struct frame *f, int force,
   console = DEVICE_CONSOLE (d);
   con = XCONSOLE (console);
 
-  if (!called_from_delete_device &&
-      !(MAYBE_INT_DEVMETH (d, device_implementation_flags, ())
-	& XDEVIMPF_FRAMELESS_OK))
+  if (!called_from_delete_device
+      && !DEVICE_IMPL_FLAG (d, XDEVIMPF_FRAMELESS_OK))
     {
       /* If we're deleting the only non-minibuffer frame on the
 	 device, delete the device. */

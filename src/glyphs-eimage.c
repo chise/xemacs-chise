@@ -675,7 +675,7 @@ gif_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 
     for (slice = 0; slice < unwind.giffile->ImageCount; slice++)
       {
-	/* We check here that that the current image covers the full "screen" size. */
+	/* We check here that the current image covers the full "screen" size. */
 	if (unwind.giffile->SavedImages[slice].ImageDesc.Height != height
 	    || unwind.giffile->SavedImages[slice].ImageDesc.Width != width
 	    || unwind.giffile->SavedImages[slice].ImageDesc.Left != 0

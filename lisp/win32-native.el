@@ -1,4 +1,4 @@
-;;; win32-native.el --- Lisp routines for MS Windows.
+;;; win32-native.el --- Lisp routines when running on native MS Windows.
 
 ;; Copyright (C) 1994 Free Software Foundation, Inc.
 ;; Copyright (C) 2000 Ben Wing.
@@ -23,23 +23,25 @@
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; Synched up with: Not synched with FSF.  Almost completely divergent.
+;;; Synched up with: Not in FSF.
 ;;; (FSF has stuff in w32-fns.el and term/w32-win.el.)
 
 ;;; Commentary:
 
 ;; This file is dumped with XEmacs for MS Windows (without cygwin).
+;; It is for stuff that is used specifically when `system-type' eq
+;; `windows-nt' (i.e. also applies to MinGW), and has nothing to do
+;; with the `mswindows' device type.  Thus, it probably applies in
+;; non-interactive mode as well, and it DOES NOT APPLY to Cygwin.
 
-;; Based on NT Emacs version by Geoff Voelker (voelker@cs.washington.edu)
+;; Based (originally) on NT Emacs version by Geoff Voelker
+;; (voelker@cs.washington.edu)
 ;; Ported to XEmacs by Marc Paquette <marcpa@cam.org>
 ;; Largely modified by Kirill M. Katsnelson <kkm@kis.ru>
+;; Rewritten from scratch by Ben Wing <ben@xemacs.org>.  No code in common
+;; with FSF.
 
 ;;; Code:
-
-;; The cmd.exe shell uses the "/c" switch instead of the "-c" switch
-;; for executing its command line argument (from simple.el).
-;; #### Oh if we had an alist of shells and their command switches.
-(setq shell-command-switch "/c")
 
 ;; For appending suffixes to directories and files in shell
 ;; completions.  This screws up cygwin users so we leave it out for
@@ -61,6 +63,27 @@
 (setq grep-regexp-alist
   '(("^\\(\\([a-zA-Z]:\\)?[^:( \t\n]+\\)[:( \t]+\\([0-9]+\\)[:) \t]" 1 3)))
 
+(defvar mswindows-system-shells '("cmd" "cmd.exe" "command" "command.com"
+				  "4nt" "4nt.exe" "4dos" "4dos.exe"
+				  "ndos" "ndos.exe")
+  "List of strings recognized as Windows NT/9X system shells.
+These are shells with native semantics, e.g. they use `/c', not '-c',
+to pass a command in.")
+
+(defun mswindows-system-shell-p (shell-name)
+  (member (downcase (file-name-nondirectory shell-name)) 
+	  mswindows-system-shells))
+
+(defun init-mswindows-at-startup ()
+  ;; shell-file-name is initialized in the C code (callproc.c) from
+  ;; SHELL or COMSPEC.
+  ;; #### If only shell-command-switch could be a function.  But there
+  ;; is code littered around that uses it.
+  ;; #### Maybe we should set a symbol-value handler on `shell-file-name'
+  ;; that automatically sets shell-command-switch?
+  (if (mswindows-system-shell-p shell-file-name)
+      (setq shell-command-switch "/c")))
+
 ;;----------------------------------------------------------------------
 ;; Quoting process args
 ;;--------------------
@@ -76,28 +99,32 @@ to the process appear to be getting passed incorrectly.")
   ;; we also include shell metachars if asked.
   ;; note that \ is NOT included!  it's perfectly OK to include an
   ;; arg like c:\ or c:\foo.
-  (if (string-match (if quote-shell "[ \t\n\r\f*?\"<>|&^%]" "[ \t\n\r\f*?\"]")
-		    arg)
-      (progn
-	;; handle nested quotes, possibly preceded by backslashes
-	(setq arg (replace-in-string arg "\\([\\]*\\)\"" "\\1\\1\\\\\""))
-	;; handle trailing backslashes
-	(setq arg (replace-in-string arg "\\([\\]+\\)$" "\\1\\1"))
-	(concat "\"" arg "\""))
-    arg))
+  (cond ((equal arg "") "\"\"")
+	((string-match
+	  (if quote-shell "[ \t\n\r\f*?\"<>|&^%]" "[ \t\n\r\f*?\"]")
+	  arg)
+	 ;; handle nested quotes, possibly preceded by backslashes
+	 (setq arg (replace-in-string arg "\\([\\]*\\)\"" "\\1\\1\\\\\""))
+	 ;; handle trailing backslashes
+	 (setq arg (replace-in-string arg "\\([\\]+\\)$" "\\1\\1"))
+	 (concat "\"" arg "\""))
+	(t arg)))
 
 (defun mswindows-quote-one-simple-arg (arg &optional quote-shell)
   ;; just put double quotes around args with spaces (and maybe shell
   ;; metachars).
-  (if (string-match (if quote-shell "[ \t\n\r\f*?\"<>|&^%]" "[ \t\n\r\f*?]")
-		    arg)
-      (concat "\"" arg "\"")
-    arg))
+  (cond ((equal arg "") "\"\"")
+	((string-match
+	  (if quote-shell "[ \t\n\r\f*?\"<>|&^%]" "[ \t\n\r\f*?]")
+	  arg)
+	 (concat "\"" arg "\""))
+	(t arg)))
 
 (defun mswindows-quote-one-command-arg (arg)
   ;; quote an arg to get it past COMMAND.COM/CMD.EXE: need to quote shell
   ;; metachars with ^.
-  (replace-in-string "[<>|&^%]" "^\\1" arg))
+  (cond ((equal arg "") "\"\"")
+	(t (replace-in-string "[<>|&^%]" "^\\1" arg))))
 
 (defun mswindows-construct-verbatim-command-line (program args)
   (mapconcat #'identity args " "))
@@ -198,7 +225,11 @@ to the process appear to be getting passed incorrectly.")
    args " "))
 
 (defvar mswindows-construct-process-command-line-alist
-  '(("[\\/].?.?sh\\." . mswindows-construct-verbatim-command-line)
+  '(
+    ;; at one point (pre-1.0), this was required for Cygwin bash.
+    ;; evidently, Cygwin changed its arg handling to work just like
+    ;; any standard VC program, so we no longer need it.
+    ;;("[\\/].?.?sh\\." . mswindows-construct-verbatim-command-line)
     ("[\\/]command\\.com$" . mswindows-construct-command-command-line)
     ("[\\/]cmd\\.exe$" . mswindows-construct-command-command-line)
     ("" . mswindows-construct-vc-runtime-command-line))

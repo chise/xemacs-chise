@@ -984,7 +984,7 @@ locate_file_map_suffixes (Lisp_Object filename, Lisp_Object suffixes,
       while (1)
 	{
 	  char *esuffix = (char *) strchr (nsuffix, ':');
-	  int lsuffix = esuffix ? esuffix - nsuffix : strlen (nsuffix);
+	  int lsuffix = esuffix ? esuffix - nsuffix : (int) strlen (nsuffix);
 
 	  /* Concatenate path element/specified name with the suffix.  */
 	  strncpy (fn + fn_len, nsuffix, lsuffix);

@@ -63,11 +63,34 @@ enum device_metrics
 extern const struct struct_description cted_description;
 extern const struct struct_description console_methods_description;
 
+
+/*
+ * Constants returned by device_implementation_flags_method
+ */
+
+/* Set when device uses pixel-based geometry */
+#define XDEVIMPF_PIXEL_GEOMETRY		0x00000001L
+
+/* Indicates that the device is a printer */
+#define XDEVIMPF_IS_A_PRINTER		0x00000002L
+
+/* Do not automatically redisplay this device */
+#define XDEVIMPF_NO_AUTO_REDISPLAY	0x00000004L
+
+/* Do not delete the device when last frame's gone */
+#define XDEVIMPF_FRAMELESS_OK		0x00000008L
+
+/* Do not preempt resiaply of frame or device once it starts */
+#define XDEVIMPF_DONT_PREEMPT_REDISPLAY 0x00000010L
+
 struct console_methods
 {
   const char *name;	/* Used by print_console, print_device, print_frame */
   Lisp_Object symbol;
   Lisp_Object predicate_symbol;
+  unsigned int flags;	/* Read-only implementation flags, set once upon
+			   console type creation. INITIALIZE_CONSOLE_TYPE sets
+			   this member to 0. */
 
   /* console methods */
   void (*init_console_method) (struct console *, Lisp_Object props);
@@ -93,7 +116,6 @@ struct console_methods
   void (*asynch_device_change_method) (void);
   Lisp_Object (*device_system_metrics_method) (struct device *,
                                                enum device_metrics);
-  unsigned int (*device_implementation_flags_method) (void);
   Lisp_Object (*own_selection_method)(Lisp_Object selection_name,
                                       Lisp_Object selection_value,
                                       Lisp_Object how_to_add,
@@ -303,26 +325,12 @@ struct console_methods
 #endif
 };
 
-/*
- * Constants returned by device_implementation_flags_method
- */
-
-/* Set when device uses pixel-based geometry */
-#define XDEVIMPF_PIXEL_GEOMETRY	    0x00000001L
-
-/* Indicates that the device is a printer */
-#define XDEVIMPF_IS_A_PRINTER	    0x00000002L
-
-/* Do not automatically redisplay this device */
-#define XDEVIMPF_NO_AUTO_REDISPLAY  0x00000004L
-
-/* Do not delete the device when last frame's gone */
-#define XDEVIMPF_FRAMELESS_OK	    0x00000008L
-
+#define CONMETH_TYPE(meths) ((meths)->symbol)
+#define CONMETH_IMPL_FLAG(meths, f) ((meths)->flags & (f))
 
 #define CONSOLE_TYPE_NAME(c) ((c)->conmeths->name)
 #define CONSOLE_TYPE(c) ((c)->conmeths->symbol)
-#define CONMETH_TYPE(meths) ((meths)->symbol)
+#define CONSOLE_IMPL_FLAG(c, f) CONMETH_IMPL_FLAG ((c)->conmeths, (f))
 
 /******** Accessing / calling a console method *********/
 
@@ -406,6 +414,10 @@ struct console_methods * type##_console_methods
    implementation from console-type FROMTYPE */
 #define CONSOLE_INHERITS_METHOD(type, fromtype, m) \
   (type##_console_methods->m##_method = fromtype##_##m)
+
+/* Define console type implementation flags */
+#define CONSOLE_IMPLEMENTATION_FLAGS(type, flg) \
+  (type##_console_methods->flags = flg)
 
 struct console
 {

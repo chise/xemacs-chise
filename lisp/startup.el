@@ -463,23 +463,9 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
 
     (if load-user-init-file-p
 	(maybe-migrate-user-init-file))
-    ;;####FSFmacs junk
-    ;;      (or menubar-bindings-done
-    ;;	  (precompute-menubar-bindings))
+    ;; FSF calls precompute-menubar-bindings.  We don't mix menubars
+    ;; and keymaps.
     ))
-
-;;####FSFmacs junk
-;;; Precompute the keyboard equivalents in the menu bar items.
-;;(defun precompute-menubar-bindings ()
-;;  (if (eq window-system 'x)
-;;      (let ((submap (lookup-key global-map [menu-bar])))
-;;	(while submap
-;;	  (and (consp (car submap))
-;;	       (symbolp (car (car submap)))
-;;	       (stringp (car-safe (cdr (car submap))))
-;;	       (keymapp (cdr (cdr (car submap))))
-;;	       (x-popup-menu nil (cdr (cdr (car submap)))))
-;;	  (setq submap (cdr submap))))))
 
 (defun command-line-early (args)
   ;; This processes those switches which need to be processed before
@@ -590,6 +576,9 @@ If this is nil, no message will be displayed.")
       ;; the X connection, and maybe someday things like -nw can be
       ;; handled here instead of down in C.
       (setq command-line-args-left (command-line-early command-line-args-left))
+
+      (when (eq system-type 'windows-nt)
+	(init-mswindows-at-startup))
 
       ;; Setup the toolbar icon directory
       (when (featurep 'toolbar)

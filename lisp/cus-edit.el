@@ -562,14 +562,24 @@ groups after non-groups, if nil do not order groups at all."
 	  children)))
 
 (defun Custom-save ()
-  "Set all modified group members and save them."
+  "Set all modified options and save them."
   (interactive)
-  (let ((children custom-options))
+  (let ((all-children custom-options)
+        children)
     (mapc (lambda (child)
 	    (when (memq (widget-get child :custom-state) '(modified set))
-	      (widget-apply child :custom-save)))
-	  children))
-  (custom-save-all))
+              (push child children)))
+          all-children)
+    (let ((the-children children)
+          child)
+      (while (setq child (pop the-children))
+        (widget-apply child :custom-pre-save)))
+    (custom-save-all)
+    (let ((the-children children)
+          child)
+      (while (setq child (pop the-children))
+        (widget-apply child :custom-post-save)))
+    ))
 
 (defvar custom-reset-menu
   '(("Current" . Custom-reset-current)
@@ -610,11 +620,23 @@ when the action is chosen.")
 (defun Custom-reset-standard (&rest ignore)
   "Reset all modified, set, or saved group members to their standard settings."
   (interactive)
-  (let ((children custom-options))
+  (let ((all-children custom-options)
+        children must-save)
     (mapc (lambda (child)
 	    (when (memq (widget-get child :custom-state) '(modified set saved))
-	      (widget-apply child :custom-reset-standard)))
-	  children)))
+              (push child children)))
+          all-children)
+    (let ((the-children children)
+          child)
+      (while (setq child (pop the-children))
+        (and (widget-apply child :custom-pre-reset-standard)
+             (setq must-save t))))
+    (and must-save (custom-save-all))
+    (let ((the-children children)
+          child)
+      (while (setq child (pop the-children))
+        (widget-apply child :custom-post-reset-standard)))
+    ))
 
 
 ;;; The Customize Commands
@@ -1848,10 +1870,14 @@ If INITIAL-STRING is non-nil, use that rather than \"Parent groups:\"."
   :value-create 'custom-variable-value-create
   :action 'custom-variable-action
   :custom-set 'custom-variable-set
+  :custom-pre-save 'custom-variable-pre-save
   :custom-save 'custom-variable-save
+  :custom-post-save 'custom-variable-post-save
   :custom-reset-current 'custom-redraw
   :custom-reset-saved 'custom-variable-reset-saved
-  :custom-reset-standard 'custom-variable-reset-standard)
+  :custom-pre-reset-standard 'custom-variable-pre-reset-standard
+  :custom-reset-standard 'custom-variable-reset-standard
+  :custom-post-reset-standard 'custom-variable-post-reset-standard)
 
 (defun custom-variable-type (symbol)
   "Return a widget suitable for editing the value of SYMBOL.
@@ -2175,8 +2201,8 @@ Optional EVENT is the location for the menu."
     (custom-variable-state-set widget)
     (custom-redraw-magic widget)))
 
-(defun custom-variable-save (widget)
-  "Set and save the value for the variable being edited by WIDGET."
+(defun custom-variable-pre-save (widget)
+  "Prepare for saving the value for the variable being edited by WIDGET."
   (let* ((form (widget-get widget :custom-form))
 	 (state (widget-get widget :custom-state))
 	 (child (car (widget-get widget :children)))
@@ -2219,9 +2245,18 @@ Optional EVENT is the location for the menu."
 	   (put symbol 'saved-variable-comment comment)))
     (put symbol 'customized-value nil)
     (put symbol 'customized-variable-comment nil)
-    (custom-save-all)
-    (custom-variable-state-set widget)
-    (custom-redraw-magic widget)))
+    ))
+
+(defun custom-variable-post-save (widget)
+  "Finish saving the variable being edited by WIDGET."
+  (custom-variable-state-set widget)
+  (custom-redraw-magic widget))
+
+(defun custom-variable-save (widget)
+  "Set and save the value for the variable being edited by WIDGET."
+  (custom-variable-pre-save widget)
+  (custom-save-all)
+  (custom-variable-post-save widget))
 
 (defun custom-variable-reset-saved (widget)
   "Restore the saved value for the variable being edited by WIDGET."
@@ -2242,8 +2277,10 @@ Optional EVENT is the location for the menu."
     ;; This call will possibly make the comment invisible
     (custom-redraw widget)))
 
-(defun custom-variable-reset-standard (widget)
-  "Restore the standard setting for the variable being edited by WIDGET."
+;; This function returns non nil if we need to re-save the options --dv.
+(defun custom-variable-pre-reset-standard (widget)
+  "Prepare for restoring the variable being edited by WIDGET to its
+standard setting."
   (let* ((symbol (widget-value widget))
 	 (set (or (get symbol 'custom-set) 'set-default)))
     (if (get symbol 'standard-value)
@@ -2260,10 +2297,21 @@ Optional EVENT is the location for the menu."
       (if (null (cdr (get symbol 'theme-value)))
 	  (put symbol 'theme-value nil))
       (put symbol 'saved-variable-comment nil)
-      (custom-save-all))
-    (widget-put widget :custom-state 'unknown)
-    ;; This call will possibly make the comment invisible
-    (custom-redraw widget)))
+      widget)
+    ))
+
+(defun custom-variable-post-reset-standard (widget)
+  "Finish resetting the variable being edited by WIDGET to its standard
+value."
+  (widget-put widget :custom-state 'unknown)
+  ;; This call will possibly make the comment invisible
+  (custom-redraw widget))
+
+(defun custom-variable-reset-standard (widget)
+  "Restore the standard setting for the variable being edited by WIDGET."
+  (when (custom-variable-pre-reset-standard widget)
+    (custom-save-all))
+  (custom-variable-post-reset-standard widget))
 
 ;;; The `custom-face-edit' Widget.
 
@@ -2394,10 +2442,14 @@ Match frames with dark backgrounds")
   :custom-category 'face
   :custom-form nil ; defaults to value of `custom-face-default-form'
   :custom-set 'custom-face-set
+  :custom-pre-save 'custom-face-pre-save
   :custom-save 'custom-face-save
+  :custom-post-save 'custom-face-post-save
   :custom-reset-current 'custom-redraw
   :custom-reset-saved 'custom-face-reset-saved
+  :custom-pre-reset-standard 'custom-face-pre-reset-standard
   :custom-reset-standard 'custom-face-reset-standard
+  :custom-post-reset-standard 'custom-face-post-reset-standard
   :custom-menu 'custom-face-menu-create)
 
 (define-widget 'custom-face-all 'editable-list
@@ -2640,8 +2692,8 @@ Optional EVENT is the location for the menu."
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
 
-(defun custom-face-save (widget)
-  "Make the face attributes in WIDGET default."
+(defun custom-face-pre-save (widget)
+  "Prepare for saving the face being edited by WIDGET."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
 	 (value (widget-value child))
@@ -2659,12 +2711,21 @@ Optional EVENT is the location for the menu."
     (put symbol 'face-comment comment)
     (put symbol 'customized-face-comment nil)
     (put symbol 'saved-face-comment comment)
-    (custom-save-all)
-    (custom-face-state-set widget)
-    (custom-redraw-magic widget)))
+    ))
+
+(defun custom-face-post-save (widget)
+  "Finish saving the face being edited by WIDGET."
+  (custom-face-state-set widget)
+  (custom-redraw-magic widget))
+
+(defun custom-face-save (widget)
+  "Save the face being edited by WIDGET."
+  (custom-face-pre-save widget)
+  (custom-save-all)
+  (custom-face-post-save widget))
 
 (defun custom-face-reset-saved (widget)
-  "Restore WIDGET to the face's default attributes."
+  "Reset the face being edited by WIDGET to its saved value."
   (let* ((symbol (widget-value widget))
 	 (child (car (widget-get widget :children)))
 	 (value (get symbol 'saved-face))
@@ -2682,12 +2743,12 @@ Optional EVENT is the location for the menu."
     (custom-face-state-set widget)
     (custom-redraw-magic widget)))
 
-(defun custom-face-reset-standard (widget)
-  "Restore WIDGET to the face's standard settings."
+;; This function returns non nil if we need to re-save the options --dv.
+(defun custom-face-pre-reset-standard (widget)
+  "Prepare for restoring the face edited by WIDGET to its standard
+settings."
   (let* ((symbol (widget-value widget))
-	 (child (car (widget-get widget :children)))
-	 (value (get symbol 'face-defface-spec))
-	 (comment-widget (widget-get widget :comment-widget)))
+	 (value (get symbol 'face-defface-spec)))
     (unless value
       (signal 'error (list "No standard setting for this face" symbol)))
     (put symbol 'customized-face nil)
@@ -2699,14 +2760,30 @@ Optional EVENT is the location for the menu."
       (if (null (cdr (get symbol 'theme-face)))
 	  (put symbol  'theme-face nil))
       (put symbol 'saved-face-comment nil)
-      (custom-save-all))
+      widget)
+    ))
+
+(defun custom-face-post-reset-standard (widget)
+  "Finish restoring the face edited by WIDGET to its standard settings."
+  (let* ((symbol (widget-value widget))
+         (child (car (widget-get widget :children)))
+         (value (get symbol 'face-defface-spec))
+         (comment-widget (widget-get widget :comment-widget)))
     (face-spec-set symbol value nil '(custom))
     (put symbol 'face-comment nil)
     (widget-value-set child value)
     ;; This call manages the comment visibility
     (widget-value-set comment-widget "")
     (custom-face-state-set widget)
-    (custom-redraw-magic widget)))
+    (custom-redraw-magic widget)
+    ))
+
+(defun custom-face-reset-standard (widget)
+  "Restore the face edited by WIDGET to its standard settings."
+  (when (custom-face-pre-reset-standard widget)
+    (custom-save-all))
+  (custom-face-post-reset-standard widget))
+
 
 ;;; The `face' Widget.
 
@@ -2879,10 +2956,14 @@ and so forth.  The remaining group tags are shown with
   :action 'custom-group-action
   :custom-category 'group
   :custom-set 'custom-group-set
+  :custom-pre-save 'custom-group-pre-save
   :custom-save 'custom-group-save
+  :custom-post-save 'custom-group-post-save
   :custom-reset-current 'custom-group-reset-current
   :custom-reset-saved 'custom-group-reset-saved
+  :custom-pre-reset-standard 'custom-group-pre-reset-standard
   :custom-reset-standard 'custom-group-reset-standard
+  :custom-post-reset-standard 'custom-group-post-reset-standard
   :custom-menu 'custom-group-menu-create)
 
 (defun custom-group-sample-face-get (widget)
@@ -3191,13 +3272,27 @@ Optional EVENT is the location for the menu."
 	      (widget-apply child :custom-set)))
 	  children)))
 
-(defun custom-group-save (widget)
+(defun custom-group-pre-save (widget)
+  "Prepare for saving all modified group members."
+  (let ((children (widget-get widget :children)))
+    (mapc (lambda (child)
+            (when (memq (widget-get child :custom-state) '(modified set))
+              (widget-apply child :custom-pre-save)))
+          children)))
+
+(defun custom-group-post-save (widget)
   "Save all modified group members."
   (let ((children (widget-get widget :children)))
     (mapc (lambda (child)
 	    (when (memq (widget-get child :custom-state) '(modified set))
-	      (widget-apply child :custom-save)))
+	      (widget-apply child :custom-post-save)))
 	  children)))
+
+(defun custom-group-save (widget)
+  "Save all modified group members."
+  (custom-group-pre-save widget)
+  (custom-save-all)
+  (custom-group-post-save widget))
 
 (defun custom-group-reset-current (widget)
   "Reset all modified group members."
@@ -3215,14 +3310,34 @@ Optional EVENT is the location for the menu."
 	      (widget-apply child :custom-reset-saved)))
 	  children)))
 
-(defun custom-group-reset-standard (widget)
-  "Reset all modified, set, or saved group members."
+;; This function returns non nil when we need to re-save the options --dv.
+(defun custom-group-pre-reset-standard (widget)
+  "Prepare for resetting all modified, set, or saved group members."
+  (let ((children (widget-get widget :children))
+        must-save)
+    (mapc (lambda (child)
+            (when (memq (widget-get child :custom-state)
+                        '(modified set saved))
+              (and (widget-apply child :custom-pre-reset-standard)
+                   (setq must-save t))))
+          children)
+    must-save
+    ))
+
+(defun custom-group-post-reset-standard (widget)
+  "Finish resetting all modified, set, or saved group members."
   (let ((children (widget-get widget :children)))
     (mapc (lambda (child)
 	    (when (memq (widget-get child :custom-state)
 			'(modified set saved))
-	      (widget-apply child :custom-reset-standard)))
+	      (widget-apply child :custom-post-reset-standard)))
 	  children)))
+
+(defun custom-group-reset-standard (widget)
+  "Reset all modified, set, or saved group members."
+  (when (custom-group-pre-reset-standard widget)
+    (custom-save-all))
+  (custom-group-post-reset-standard widget))
 
 (defun custom-group-state-update (widget)
   "Update magic."

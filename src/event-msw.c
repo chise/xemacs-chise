@@ -1610,6 +1610,8 @@ mswindows_wm_timer_callback (HWND hwnd, UINT umsg, UINT id_timer, DWORD dwtime)
  * depends on dnd support.
  */
 #ifdef HAVE_DRAGNDROP
+extern int mswindows_dde_enable;
+
 HDDEDATA CALLBACK
 mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 			HSZ hszTopic, HSZ hszItem, HDDEDATA hdata,
@@ -1636,6 +1638,9 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
       return (HDDEDATA)NULL;
 
     case XTYP_EXECUTE:
+      if (!mswindows_dde_enable)
+	return (HDDEDATA) DDE_FBUSY;
+
       if (!DdeCmpStringHandles (hszTopic, mswindows_dde_topic_system))
 	{
 	  DWORD len = DdeGetData (hdata, NULL, 0, 0);
@@ -1643,7 +1648,7 @@ mswindows_dde_callback (UINT uType, UINT uFmt, HCONV hconv,
 	  char *end;
 	  char *filename;
 	  struct gcpro gcpro1, gcpro2;
-          Lisp_Object l_dndlist = Qnil;
+	  Lisp_Object l_dndlist = Qnil;
 	  Lisp_Object emacs_event = Fmake_event (Qnil, Qnil);
 	  Lisp_Object frmcons, devcons, concons;
 	  Lisp_Event *event = XEVENT (emacs_event);
@@ -2064,17 +2069,9 @@ mswindows_wnd_proc (HWND hwnd, UINT message_, WPARAM wParam, LPARAM lParam)
   struct frame *frame;
   struct mswindows_frame* msframe;
 
-  /* Not perfect but avoids crashes. There is potential for wierd
-     behavior here. */
-  if (gc_in_progress)
-    {
-      mswindows_output_console_string ("Window procedure called during GC???????\n", 41);
-      /* Yes, this assert always triggers in a --debug XEmacs.  But
-	 --debug=no is default in the stable branches.
-         #### How about patch in <200106081225.IAA31075@gwyn.tux.org>? */
-      assert (!gc_in_progress);
-      goto defproc;
-    }
+  /* If you hit this, rewrite the offending API call to occur after GC,
+     using register_post_gc_action(). */
+  assert (!gc_in_progress);
 
 #ifdef DEBUG_XEMACS
   if (debug_mswindows_events)
@@ -3781,7 +3778,9 @@ FROB (WM_NCHITTEST)
 FROB (WM_NCPAINT)
 FROB (WM_NCACTIVATE)
 FROB (WM_GETDLGCODE)
+#ifdef WM_SYNCPAINT /* not in VC 5 */
 FROB (WM_SYNCPAINT)
+#endif /* WM_SYNCPAINT */
 FROB (WM_NCMOUSEMOVE)
 FROB (WM_NCLBUTTONDOWN)
 FROB (WM_NCLBUTTONUP)
@@ -3804,12 +3803,12 @@ FROB (WM_SYSCHAR)
 FROB (WM_SYSDEADCHAR)
 FROB (WM_KEYLAST)
 
-#if(WINVER >= 0x0400) && !defined(CYGWIN)
+#if(WINVER >= 0x0400) && defined (WM_IME_STARTCOMPOSITION)
 FROB (WM_IME_STARTCOMPOSITION)
 FROB (WM_IME_ENDCOMPOSITION)
 FROB (WM_IME_COMPOSITION)
 FROB (WM_IME_KEYLAST)
-#endif /* WINVER >= 0x0400 */
+#endif /* WINVER >= 0x0400 && defined (WM_IME_STARTCOMPOSITION) */
 
 FROB (WM_INITDIALOG)
 FROB (WM_COMMAND)
@@ -3893,6 +3892,7 @@ FROB (WM_EXITSIZEMOVE)
 FROB (WM_DROPFILES)
 FROB (WM_MDIREFRESHMENU)
 
+#ifdef WM_IME_SETCONTEXT /* not in Cygwin? */
 
 #if(WINVER >= 0x0400) && !defined(CYGWIN)
 FROB (WM_IME_SETCONTEXT)
@@ -3910,6 +3910,7 @@ FROB (WM_IME_KEYDOWN)
 FROB (WM_IME_KEYUP)
 #endif /* WINVER >= 0x0400 */
 
+#endif /* WM_IME_SETCONTEXT */
 
 #if(_WIN32_WINNT >= 0x0400)
 FROB (WM_MOUSEHOVER)

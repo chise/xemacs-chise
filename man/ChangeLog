@@ -1,3 +1,37 @@
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-10-17  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* xemacs/text.texi (Outline Visibility):  hide-subtree is bound to
+	C-c C-d, not C-c C-h.  Thanks: Keith Browne <kbrowne@legato.com>.
+
+2001-07-25  Jim Horning  <jim.horning@lmco.com>
+
+	* xemacs/packages.texi (Package Terminology):
+	* xemacs/packages.texi (Automatically):
+	In itemize and enumerate lists @item should be on its own line.
+
+2001-09-16  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q4.0.7): Fix link to VM FAQ thanks to word I
+	got from Gregory Neil Shapiro.
+	* xemacs-faq.texi (Q1.3.7): Update moved link.
+	* xemacs-faq.texi (Q7.0.2): Comment out empty list of bullets to
+	avoid HTML error in texi2html translation.
+
+2001-09-15  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q4.6.1): Infodock is now hosted on SourceForge,
+	infodock.com is no more.
+	* xemacs-faq.texi (Q4.7.1): Take auc out of http://sunsite.auc.dk.
+
+2001-09-09  Adrian Aichner  <adrian@xemacs.org>
+
+	* xemacs-faq.texi (Q1.0.9): Correct link to snapshots as suggested
+	by Robin S. Socha.
+
 2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.4 "Artificial Intelligence" is released.

@@ -1,4 +1,4 @@
-/* Synchronous subprocess invocation for XEmacs.
+/* Old synchronous subprocess invocation for XEmacs.
    Copyright (C) 1985, 86, 87, 88, 93, 94, 95 Free Software Foundation, Inc.
 
 This file is part of XEmacs.
@@ -20,6 +20,16 @@ Boston, MA 02111-1307, USA.  */
 
 /* Synched up with: Mule 2.0, FSF 19.30. */
 /* Partly sync'ed with 19.36.4 */
+
+
+/* #### This ENTIRE file is only used in batch mode.
+
+   We only need two things to get rid of both this and ntproc.c:
+
+   -- my `stderr-proc' ws, which adds support for a separate stderr
+      in asynch. subprocesses. (it's a feature in `old-call-process-internal'.)
+   -- a noninteractive event loop that supports processes.
+*/
 
 #include <config.h>
 #include "lisp.h"
@@ -893,12 +903,39 @@ init_callproc (void)
   {
     /* Initialize shell-file-name from environment variables or best guess. */
 #ifdef WIN32_NATIVE
-    const char *shell = egetenv ("COMSPEC");
-    if (!shell) shell = "\\WINNT\\system32\\cmd.exe";
+    const char *shell = egetenv ("SHELL");
+    if (!shell) shell = egetenv ("COMSPEC");
+    /* Should never happen! */
+    if (!shell) shell = (GetVersion () & 0x80000000 ? "command" : "cmd");
 #else /* not WIN32_NATIVE */
     const char *shell = egetenv ("SHELL");
     if (!shell) shell = "/bin/sh";
 #endif
+
+#if 0 /* defined (WIN32_NATIVE) */
+    /* BAD BAD BAD.  We do not wanting to be passing an XEmacs-created
+       SHELL var down to some inferior Cygwin process, which might get
+       screwed up.
+	 
+       There are a few broken apps (eterm/term.el, eterm/tshell.el,
+       os-utils/terminal.el, texinfo/tex-mode.el) where this will
+       cause problems.  Those broken apps don't look at
+       shell-file-name, instead just at explicit-shell-file-name,
+       ESHELL and SHELL.  They are apparently attempting to borrow
+       what `M-x shell' uses, but that latter also looks at
+       shell-file-name.  What we want is for all of these apps to look
+       at shell-file-name, so that the user can change the value of
+       shell-file-name and everything will work out hunky-dorey.
+       */
+    
+    if (!egetenv ("SHELL"))
+      {
+	CBufbyte *faux_var = alloca_array (CBufbyte, 7 + strlen (shell));
+	sprintf (faux_var, "SHELL=%s", shell);
+	Vprocess_environment = Fcons (build_string (faux_var),
+				      Vprocess_environment);
+      }
+#endif /* 0 */
 
     Vshell_file_name = build_string (shell);
   }

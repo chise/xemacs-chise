@@ -1,3 +1,48 @@
+2001-10-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.4.5 "Civil Service" is released.
+
+2001-10-05  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.in: Document that autoconf 2.5x is unsupported.
+
+2001-10-02  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* PROBLEMS:  configure doesn't support --with-{ld,as}, use environment
+	variables.  Suggested by Goran Koruga <goran.koruga@hermes.si>.
+
+2001-09-17  Ben Wing  <ben@xemacs.org>
+
+	* configure.in (TAB):
+	* configure.in (XE_COMPUTE_RUNPATH):
+	Don't use -Wshadow when compiling with g++ or you get buried in
+	silly warnings.  This patch was already applied but somehow got
+	unapplied.  Stephen?
+
+2001-08-19  Charles Wilson  <cwilson@ece.gatech.edu>
+
+	* configure.in (for graphics libraries): Detect Cygwin xpm-nox.
+
+2001-08-02  Peter Brown  <rendhalver@users.sourceforge.net>
+
+	Synch options documentation with those in configure.in:
+
+	* configure.usage (--with-dialogs): added lucid to list of options
+	* configure.usage (--with-widgets): added lucid to list of options
+	* configure.usage (--with-dragndrop): added GTK to list of protocols
+	* configure.usage (--mail-locking): added `locking' or `mmdf'. to list
+	of options
+	
+	
+2001-09-25  Didier Verna  <didier@xemacs.org>
+
+	* configure.ac: new. Autoconf 2.5x guard.
+
+2001-08-29  Jered Floyd  <jered@MIT.EDU>
+
+	* configure.in (moduledir,sitemoduledir,archlibdir):
+        Place arch-specific files under ${libdir}, not under ${datadir}.
+
 2001-07-28  Stephen J. Turnbull  <stephen@xemacs.org>
 
 	* XEmacs 21.4.4 "Artificial Intelligence" is released.

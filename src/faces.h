@@ -341,9 +341,9 @@ Lisp_Object face_property_matching_instance (Lisp_Object face,
 #define FACE_PROPERTY_SPEC_LIST(face, property, locale)			\
   Fspecifier_spec_list (FACE_PROPERTY_SPECIFIER (face, property),	\
 			locale, Qnil, Qnil)
-#define SET_FACE_PROPERTY(face, property, locale, value, tag, how_to_add) \
+#define SET_FACE_PROPERTY(face, property, value, locale, tag, how_to_add) \
   Fadd_spec_to_specifier (FACE_PROPERTY_SPECIFIER (face, property),	\
-			  locale, value, tag, how_to_add)
+			  value, locale, tag, how_to_add)
 
 #define FACE_FOREGROUND(face, domain)					\
   FACE_PROPERTY_INSTANCE (face, Qforeground, domain, 0, Qzero)

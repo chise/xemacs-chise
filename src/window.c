@@ -2534,6 +2534,7 @@ enum window_loop
   GET_LRU_WINDOW,		/* Arg is t for full-width windows only */
   DELETE_OTHER_WINDOWS,		/* Arg is window not to delete */
   DELETE_BUFFER_WINDOWS,	/* Arg is buffer */
+  UNDEDICATE_BUFFER,            /* Arg is buffer */
   GET_LARGEST_WINDOW,
   GET_BUFFER_WINDOW_COUNT,	/* Arg is buffer */
   GET_BUFFER_MRU_WINDOW		/* Arg is buffer */
@@ -2686,6 +2687,13 @@ window_loop (enum window_loop type,
 		  break;
 		}
 
+              case UNDEDICATE_BUFFER:
+                {
+                  if ((XBUFFER (p->buffer) == XBUFFER (obj)) && (p->dedicated))
+                    p->dedicated = Qnil;
+                  break;
+                }
+
 	      case DELETE_OTHER_WINDOWS:
 		{
 		  /* Don't delete the last window on a frame; this can
@@ -2811,6 +2819,12 @@ buffer_window_mru (struct window *w)
 }
 
 #endif
+
+void
+undedicate_windows (Lisp_Object buffer, Lisp_Object frame)
+{
+    window_loop (UNDEDICATE_BUFFER, buffer, 0, frame, 1, Qnil);
+}
 
 
 DEFUN ("get-lru-window", Fget_lru_window, 0, 2, 0, /*

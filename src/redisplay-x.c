@@ -2065,8 +2065,8 @@ x_ring_bell (struct device *d, int volume, int pitch, int duration)
       /* #### grab server? */
       XGetKeyboardControl (display, &state);
 
-      ctl.bell_pitch    = (pitch    >= 0 ? pitch    : state.bell_pitch);
-      ctl.bell_duration = (duration >= 0 ? duration : state.bell_duration);
+      ctl.bell_pitch    = (pitch    >= 0 ? pitch    : (int) state.bell_pitch);
+      ctl.bell_duration = (duration >= 0 ? duration : (int) state.bell_duration);
       XChangeKeyboardControl (display, KBBellPitch|KBBellDuration, &ctl);
 
       XBell (display, (volume * 2) - 100);

@@ -1389,6 +1389,22 @@ void lw_add_value_args_to_args (widget_value* wv, ArgList addto, int* offset)
     }
 }
 
+XtArgVal lw_get_value_arg (widget_value* wv, String name)
+{
+  int i;
+  if (wv->args)
+    {
+      for (i = 0; i < wv->args->nargs; i++)
+	{
+	  if (!strcmp (wv->args->args[i].name, name))
+	    {
+	      return wv->args->args[i].value;
+	    }
+	}
+    }
+  return (XtArgVal)0;
+}
+
 void lw_add_widget_value_arg (widget_value* wv, String name, XtArgVal value)
 {
   int i = 0;
