@@ -8,7 +8,7 @@
 2003-12-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R112-Stone.el (JSP-4F63): Add JU+7852.
-	(U+7881): Add BE-F9D6 instead of B-F9D6.
+	(U+7881): Unify BE-F9D6 instead of B-F9D6.
 	(JSP-4F7D): Add JU+78B2.
 	(JSP-4F7E): Add JU+78B3.
 	(JSP-5021): Add JU+78BB.
