@@ -1757,7 +1757,10 @@ With argument, insert value in current buffer after the form."
 	  ;; mrb- There must be a better way than skip-chars-forward
 	  (skip-chars-forward (concat (char-to-string 0) "-"
 				      (char-to-string 255)))
-	  (eq (point) (point-max)))
+	  (and (eq (point) (point-max))
+	       (not
+		(re-search-backward
+		 "\\u[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]" nil t))))
 	(setq buffer-file-coding-system 'raw-text)
       (cond ((featurep 'utf-2000)
 	     (insert "(require 'mule)\n;;;###coding system: utf-8\n")
