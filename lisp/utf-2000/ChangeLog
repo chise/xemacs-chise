@@ -1,3 +1,24 @@
+2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U+88D7): Define as an abstract
+	character; unify B-DBC4.  (C2-402A): Use `<-denotational' for
+	U+88D7; use `<-original*sources' instead of char-ref in
+	`<-original'; use `->subsumptive'; separate B-DBC4.
+	(M-34310): Use `<-denotational' for U+88D7; use `->subsumptive'.
+
+	* Ideograph-R003-Dot.el (U+4E38): Define as an abstract character;
+	unify B-A459.
+	(J0-345D): Use `<-denotational' for U+4E38.
+	(C1-443A): Likewise; separate B-A459.
+
+	* Ideograph-R064-Hand.el (U-00022A65): Delete `=>daikanwa'.
+
+2004-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->original' when running with non-readable mode and it does not
+	have `->original*sources'.
+
 2004-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (U+6700):
