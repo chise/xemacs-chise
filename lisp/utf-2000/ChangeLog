@@ -1,3 +1,14 @@
+2002-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R093-Cow.el (BC-8C68): New character.
+
+2002-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R152-Pig.el (JSP-5E72): Separate C4-354D and U+8C59;
+	unify BC-8AD1.
+
+	* Ideograph-R009-Man.el (U+4ED2): Unify BC-8BAC.
+
 2002-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R137-Boat.el: Add some missing mappings for CJK Ext-B
