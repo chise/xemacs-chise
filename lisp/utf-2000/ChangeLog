@@ -1,3 +1,26 @@
+2001-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Support
+	`ideographic-variants' property.
+
+2001-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R027-Cliff.el (M-03048'): Use `script' and
+	`simplified-ideograph-of' instead of `comment'.
+
+	* Ideograph-R029-Again.el (U+53D1): Delete `non-morohashi'.
+	(U+355D): Likewise.
+	(U+53D2): Likewise.
+	(C6-2F49): Likewise.
+	(C6-3D67): Likewise.
+	(C6-3D69): Likewise.
+	(C6-4728): Likewise.
+
+	* Ideograph-R024-Ten.el (U+534E): Delete `non-morohashi'.
+	(U+534F): Likewise.
+	(U+5356): Likewise.
+	(C7-606A): Likewise.
+
 2001-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-db-util.el (insert-char-attributes): Regard
