@@ -73,6 +73,12 @@
 	`<-original-ideograph*sources' instead of char-ref in
 	`<-original-ideograph'.
 
+2003-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R004-Slash.el (J0-4737): Use `ideographic-radical',
+	`{ideographic|total}-strokes@{daikanwa|gt}' and
+	`ideographic-strokes@daikanwa*sources' instead of `ideographic-'.
+
 2003-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* u0AC00-Hangul-Syllables.el (U+C5EC): Unify JC3-94B6.
