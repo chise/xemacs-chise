@@ -1,3 +1,9 @@
+2000-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Fmake_coding_system): Use
+	`EXTERNAL_PROPERTY_LIST_LOOP_3' instead of
+	`EXTERNAL_PROPERTY_LIST_LOOP'.
+
 2000-11-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (decode_output_utf8_partial_char): New function.
