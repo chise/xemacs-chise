@@ -21743,6 +21743,7 @@
      ((ucs		  . #x4EBB)	; äº»
       )
      ((korean-ksc5601	  . #x582B)	; ø»‰«ˆ
+      (ideograph-daikanwa . 47887)	; ø¸‹¬
       ))
     (ideograph-daikanwa . 01065)	; ø¸€©
     ))
