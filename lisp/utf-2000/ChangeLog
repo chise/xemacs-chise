@@ -1,3 +1,39 @@
+2002-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R210-Even.el, ideograph-util.el,
+	Ideograph-R189-Tall.el, Ideograph-R170-Mound.el,
+	Ideograph-R160-Bitter.el, Ideograph-R149-Speech.el,
+	Ideograph-R140-Grass.el, Ideograph-R136-Oppose.el,
+	Ideograph-R130-Meat.el, Ideograph-R123-Sheep.el,
+	Ideograph-R120-Silk.el, Ideograph-R114-Track.el,
+	Ideograph-R113-Spirit.el, Ideograph-R110-Spear.el,
+	Ideograph-R108-Dish.el, Ideograph-R101-Use.el,
+	Ideograph-R102-Field.el, Ideograph-R095-Profound.el,
+	Ideograph-R087-Claw.el, Ideograph-R086-Fire.el,
+	Ideograph-R085-Water.el, Ideograph-R078-Death.el,
+	Ideograph-R077-Stop.el, Ideograph-R072-Sun.el,
+	Ideograph-R066-Rap.el, Ideograph-R064-Hand.el,
+	Ideograph-R062-Halberd.el, Ideograph-R061-Heart.el,
+	Ideograph-R059-Bristle.el, Ideograph-R057-Bow.el,
+	Ideograph-R047-River.el, Ideograph-R050-Turban.el,
+	Ideograph-R042-Small.el, Ideograph-R037-Big.el,
+	Ideograph-R036-Evening.el, Ideograph-R032-Earth.el,
+	Ideograph-R031-Enclosure.el, Ideograph-R028-Private.el,
+	Ideograph-R030-Mouth.el, Ideograph-R024-Ten.el,
+	Ideograph-R018-Knife.el, Ideograph-R017-Open-Box.el,
+	Ideograph-R016-Table.el, Ideograph-R015-Ice.el,
+	Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el,
+	Ideograph-R012-Eight.el, Ideograph-R011-Enter.el,
+	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
+	Ideograph-R008-Lid.el, Ideograph-R006-Hook.el,
+	Ideograph-R007-Two.el, Ideograph-R005-Second.el,
+	Ideograph-R004-Slash.el, Ideograph-R003-Dot.el,
+	Ideograph-R002-Line.el, Ideograph-R001-One.el:
+	- Use `hanyu-dazidian' instead of `hanyu-dazidian-vol',
+	  `hanyu-dazidian-page' and `hanyu-dazidian-char'.
+	- Add some mappings for Hanziku code points.
+	- Use `=>ucs' instead of `->ucs'.
+
 2002-04-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R175-Wrong.el, Ideograph-R162-Walk.el,
