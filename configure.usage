@@ -9,34 +9,40 @@ The option `--without-FEATURE' is a synonym for `--with-FEATURE=no'.
 
 Options marked with a (*) are auto-detected.
 
+Many features require external packages to be installed first.
+Get them from ftp://ftp.xemacs.org/pub/xemacs/aux.
+
 Use colons (or quoted spaces) to separate directory names in option
 values which are PATHs (i.e. lists of directories).
+
+The results of configure tests are saved in config.log, which is useful
+for diagnosing problems.
+
 
 General options:
 
 --help                  Issue this usage message.
---verbose               Display the results of configure tests.
---extra-verbose         Display even more information, useful for debugging.
+--verbose               Accepted but ignored.
+--extra-verbose         Display more information, useful for debugging.
 
 
 Compilation options:
 
---compiler=prog         C compiler to use.
+--compiler=PROG         C compiler to use
 --with-gcc (*)          Use GCC to compile XEmacs.
---without-gcc           Don't use GCC to compile XEmacs.
 --cflags=FLAGS          Compiler flags (such as -O)
---cpp=prog              C preprocessor to use (e.g. /usr/ccs/lib/cpp or cc -E)
+--cpp=PROG              C preprocessor to use (e.g. /usr/ccs/lib/cpp or cc -E)
 --cppflags=FLAGS        C preprocessor flags (e.g. -I/foo or -Dfoo=bar)
 --libs=LIBS             Additional libraries (e.g. -lfoo)
 --ldflags=FLAGS         Additional linker flags (e.g. -L/foo)
---site-includes=PATH    List of directories to search first for header files.
---site-libraries=PATH   List of directories to search first for libraries.
+--site-includes=PATH    List of directories to search first for header files
+--site-libraries=PATH   List of directories to search first for libraries
 --site-prefixes=PATH    List of directories to search for include/ and lib/
                         subdirectories, just after 'site-includes' and
-                        'site-libraries'.
+                        'site-libraries'
 --site-runtime-libraries=PATH
                         List of ALL directories to search for dynamically
-                        linked libraries at run time.
+                        linked libraries at run time
 --dynamic=yes           Link dynamically if supported by system.
 --dynamic=no            Force static linking on systems where dynamic
                         linking is the default.
@@ -47,19 +53,19 @@ Compilation options:
 Installation options:
 
 --prefix=DIR            Install files below DIR.  Defaults to `/usr/local'.
---with-prefix		Compile the value of --prefix into the executable.
-                        Defaults to `yes'.
---without-prefix        Don't compile the value of --prefix into the executable.
+--with-prefix=no        Don't compile the value of --prefix into the
+                        executable.
 
 
 Window-system options:
 
 --with-x11 (*)          Support the X Window System.
---without-x11           Don't support X.
 --x-includes=DIR        Search for X header files in DIR.
 --x-libraries=DIR       Search for X libraries in DIR.
---without-toolbars      Don't compile with any toolbar support.
---without-wmcommand     Compile without realized leader window which will
+--with-msw (*)          Support MS Windows as a window system (only under
+                        Cygwin and MinGW).
+--with-toolbars=no      Don't compile with any toolbar support.
+--with-wmcommand=no     Compile without realized leader window which will
                         keep the WM_COMMAND property.
 --with-athena=TYPE      Use TYPE Athena widgets
                         (xaw, 3d, next, 95, or xpm)
@@ -74,59 +80,59 @@ Window-system options:
 --with-widgets=TYPE     Use TYPE widgets (motif, athena, or no).
                         Motif widgets will be used if Motif can be found.
                         Other widget types are currently unsupported.
---with-dragndrop (*)    Compile in the generic drag and drop API. This is
+--with-dragndrop        Compile in the generic drag and drop API. This is
                         automatically added if one of the drag and drop
                         protocols is found (currently CDE, OffiX, MSWindows).
                         *WARNING*  The Drag'n'drop support is under development
                                    and is considered experimental.
---with-cde (*)          Compile in support for CDE drag and drop.
---with-offix (*)        Compile in support for OffiX drag and drop.
+--with-cde              Compile in support for CDE drag and drop.
+--with-offix            Compile in support for OffiX drag and drop.
                         *WARNING*  If you compile in OffiX, you may not be
                                    able to use multiple X displays success-
                                    fully.  If the two servers are from
                                    different vendors, the results may be
                                    unpredictable.
---without-xmu (*)       For those unfortunates whose vendors don't ship Xmu.
+--with-xmu=no (*)       For those unfortunates whose vendors don't ship Xmu.
 --external-widget       Compile with external widget support.
 
 
-TTY options:
+TTY (character terminal) options:
 
---without-tty           Don't support TTY-s.
+--with-tty=no           Don't support ttys.
 --with-ncurses (*)      Use the ncurses library for tty support.
---with-gpm (*)          Compile in support for General Purpose Mouse.
+--with-gpm (*)          Compile in GPM mouse support for ttys.
 
 
 Image options:
 
---with-xpm (*)          Compile with support for XPM files.
-                        It is highly recommended that you obtain XPM
-                        (version 3.4h or better) if you don't already
-                        have it.  Get it from the XEmacs FTP site.
---with-xface (*)        Compile with support for X-Face mail header
-                        conversion.  Requires the compface library.
-                        Get it from the XEmacs FTP site.
---without-gif           Compile without the built-in support for GIF image
-                        conversion.
---with-jpeg (*)         Compile with support for JPEG image conversion.
-                        Requires libjpeg from the Independent JPEG Group.
-                        Get it from the XEmacs FTP site.
---with-png (*)          Compile with support for PNG image conversion.
-                        Requires libpng.  Get it from the XEmacs FTP site.
---with-tiff (*)         Compile with support for TIFF image conversion.
-                        Requires Sam Lefflier's libtiff library.
-                        Get if from the XEmacs FTP site.
+--with-xpm (*)          Compile with support for XPM images.  PRACTICALLY
+                        REQUIRED.  Although this library is nonstandard and
+                        a real hassle to build, many basic things (e.g.
+                        toolbars) depend on it, and you will run into
+                        many problems without it.
+--with-png (*)          Compile with support for PNG images.  Recommended
+                        because the images on the About page are not viewable
+                        without it.
+--with-jpeg (*)         Compile with support for JPEG images.  Useful if
+                        you are using a mail, news reader, or web browser
+                        in XEmacs, so that JPEG images can be displayed.
+--with-tiff (*)         Compile with support for TIFF images.  Possibly
+                        useful, for the same reason as JPEG images.
+--with-xface (*)        Compile with support for X-Face mail headers.
+                        Requires the compface package.  Of doubtful
+                        usefulness.
+--with-gif=no           Compile without the (builtin) support for GIF images.
 
 
 Sound options:
 
 --with-sound=TYPE,[TYPE],... Compile with native sound support.
-			Valid types are `native', `nas' and `esd'.
-			Prefix a type with 'no' to disable.
-			The first option can be `none' or `all'.
-			`none' is a synonym for `nonative,nonas,noesd'.
-			`all' is a synonym for native,nas,esd or `all'.
-			The default is to autodetect all sound support.
+                        Valid types are `native', `nas' and `esd'.
+                        Prefix a type with 'no' to disable.
+                        The first option can be `none' or `all'.
+                        `none' is a synonym for `nonative,nonas,noesd'.
+                        `all' is a synonym for native,nas,esd or `all'.
+                        The default is to autodetect all sound support.
 --native-sound-lib=LIB  Native sound support library.  Needed on Suns
                         with --with-sound=both because both sound libraries
                         are called libaudio.
@@ -137,10 +143,8 @@ Database options:
 --with-database=TYPE (*) Compile with database support.  Valid types are
                         `no' or a comma-separated list of one or more
                         of `berkdb' and either `dbm' or `gnudbm'.
---with-ldap (*)         Compile with support for the LDAP protocol (requires
-                        installed LDAP libraries on the system).
---with-postgresql (*)	Compile with support for the PostgreSQL RDBMS (requires
-			installed PostreSQL libraries on the system).
+--with-ldap (*)         Compile with support for the LDAP protocol.
+--with-postgresql (*)   Compile with support for the PostgreSQL RDBMS.
 
 
 Mail options:
@@ -148,9 +152,9 @@ Mail options:
 --mail-locking=TYPE (*) Specify the locking to be used by movemail to prevent
                         concurrent updates of mail spool files. Valid types
                         are `lockf', `flock', and `dot'.
---with-pop              support POP for mail retrieval
---with-kerberos         support Kerberos-authenticated POP
---with-hesiod           support Hesiod to get the POP server host
+--with-pop              Support POP for mail retrieval.
+--with-kerberos         Support Kerberos-authenticated POP.
+--with-hesiod           Support Hesiod to get the POP server host.
 
 
 Additional features:
@@ -160,8 +164,8 @@ Additional features:
                         development environment.
 --with-socks            Compile with support for SOCKS (an Internet proxy).
 --with-dnet (*)         Compile with support for DECnet.
---with-modules		Compile in experimental support for dynamically
-			loaded libraries (Dynamic Shared Objects).
+--with-modules          Compile in experimental support for dynamically
+                        loaded libraries (Dynamic Shared Objects).
 --with-site-lisp=yes    Allow for a site-lisp directory in the XEmacs hierarchy
                         searched before the installation packages.
 --with-site-modules=no  Disable site-modules directory in the XEmacs hierarchy,
@@ -183,9 +187,9 @@ Additional features:
                         and localdir files in case run-time searching
                         for them fails.
 --moduledir=DIR         Directory to install dynamic modules in.
---pdump			New, experimental, non-working, don't-sue-me-if-
-			your-house-collapses-and-your-wife-goes-away,
-			portable dumper.
+--pdump                 New, experimental, non-working, don't-sue-me-if-
+                        your-house-collapses-and-your-wife-leaves-you,
+                        portable dumper.
 
 Internationalization options:
 
@@ -204,8 +208,7 @@ Internationalization options:
                         used in conjunction with Mule support).
 --with-wnn (*)          Compile with support for WNN (a multi-language input
                         method used in conjunction with Mule support).
---with-wnn6 (*)         Compile with support for the comercial package WNN
-                        version 6
+--with-wnn6 (*)         Compile with support for the commercial package WNN6.
 --with-i18n3            Compile with I18N level 3 (support for message
                         translation).  This doesn't currently work.
 --with-xfs              Compile with XFontSet support for bilingual menubar.
@@ -263,17 +266,18 @@ If successful, configure leaves its status in config.status.  If
 unsuccessful after disturbing the status quo, it removes config.status.
 
 The configure script also recognizes some environment variables, each
-of which is equivalent to a corresponding configure flag.  A specified
-configure flag always overrides the environment variable.
+of which is equivalent to a corresponding configure flag.  Configure
+flags take precedence over environment variables, if both are specified.
 
-envvar      configure flag
------       --------------
-CC          --compiler
-CPP         --cpp
-CFLAGS      --cflags
-CPPFLAGS    --cppflags
-LDFLAGS     --ldflags
-LIBS        --libs
-LD_RUN_PATH --site-runtime-libraries
+environment   corresponding
+variable      configure flag
+-----------   --------------
+CC            --compiler
+CPP           --cpp
+CFLAGS        --cflags
+CPPFLAGS      --cppflags
+LDFLAGS       --ldflags
+LIBS          --libs
+LD_RUN_PATH   --site-runtime-libraries
 
 For more details on the install process, consult the INSTALL file.

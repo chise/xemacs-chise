@@ -23,19 +23,22 @@ relational database access from Emacs Lisp code.
 @comment  node-name,  next,  previous,  up
 @section Building XEmacs with PostgreSQL support
 
-XEmacs PostgreSQL support requires linking to the PostgreSQL libpq.so
+XEmacs PostgreSQL support requires linking to the PostgreSQL libpq
 library.  Describing how to build and install PostgreSQL is beyond the
-scope of this document, see the PostgreSQL manual for details.
+scope of this document.  See the PostgreSQL manual for details.
 
 If you have installed XEmacs from one of the binary kits on
 (@url{ftp://ftp.xemacs.org/}), or are using an XEmacs binary from a CD
-ROM, you should have XEmacs PostgreSQL support by default.  If you are
-building XEmacs from source on a Linux system with PostgreSQL installed
-into the default location, it should be autodetected when you run
-configure.  If you have installed PostgreSQL into its non-Linux default
-location, @file{/usr/local/pgsql}, you must specify
+ROM, you may have XEmacs PostgreSQL support by default.  @code{M-x
+describe-installation} will tell you if you do.
+
+If you are building XEmacs from source, you need to install PostgreSQL
+first.  On some systems, PostgreSQL will come pre-installed in /usr.  In
+this case, it should be autodetected when you run configure.  If
+PostgreSQL is installed into its default location,
+@file{/usr/local/pgsql}, you must specify
 @code{--site-prefixes=/usr/local/pgsql} when you run configure.  If
-you installed PostgreSQL into another location, use that instead of
+PostgreSQL is installed into another location, use that instead of
 @file{/usr/local/pgsql} when specifying @code{--site-prefixes}.
 
 As of XEmacs 21.2, PostgreSQL versions 6.5.3 and 7.0 are supported.
@@ -46,9 +49,9 @@ V6.5.  In particular, asynchronous queries are supported.
 @comment  node-name,  next,  previous,  up
 @section XEmacs PostgreSQL libpq API
 
-XEmacs PostgreSQL API is intended to be a policy-free, low-level binding
-to libpq.  The intent is to provide all the basic functionality and then
-let high level Lisp code decide its own policies.
+The XEmacs PostgreSQL API is intended to be a policy-free, low-level
+binding to libpq.  The intent is to provide all the basic functionality
+and then let high level Lisp code decide its own policies.
 
 This documentation assumes that the reader has knowledge of SQL, but
 requires no prior knowledge of libpq.
@@ -806,7 +809,7 @@ Compatibility note: this function is only available with libpq-7.0.
 @end defun
 
 @defun PQsetenvPoll conn
-Check an asynchronous enviroment variables transfer for completion.
+Check an asynchronous environment variables transfer for completion.
 @var{conn} A database connection object.
 
 Compatibility note: this function is only available with libpq-7.0.

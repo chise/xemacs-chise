@@ -228,7 +228,7 @@ case of a system crash.
 @item line-number-mode
 @cindex line-number-mode
 After you enable this mode, the line number at which your cursor is
-present will be displayed continously in the mode line. 
+present will be displayed continuously in the mode line. 
 
 @item blink-paren
 @cindex blink-paren

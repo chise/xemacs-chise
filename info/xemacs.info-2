@@ -323,7 +323,7 @@ sequence must make up a "prefix key sequence".
    Emacs represents a key sequence as a vector of keystrokes.  Thus, the
 schematic representation of a complete key sequence is as follows:
 
-       [(modifier .. modifer keysym) ... (modifier .. modifier keysym)]
+       [(modifier .. modifier keysym) ... (modifier .. modifier keysym)]
 
    Here are some examples of complete key sequences:
 
@@ -928,19 +928,20 @@ Teach Extended Commands
      alternate binding before the command executes.
 
 Syntax Highlighting
-     You can customize your `.emacs' file to include the font-lock mode
-     so that when you select this item, the comments will be displayed
-     in one face, strings in another, reserved words in another, and so
-     on. When Fonts is selected, different parts of the program will
-     appear in different Fonts. When Colors is selected, then the
-     program will be displayed in different colors. Selecting None
-     causes the program to appear in just one Font and Color. Selecting
-     Less resets the Fonts and Colors to a fast, minimal set of
-     decorations. Selecting More resets the Fonts and Colors to a larger
-     set of decorations. For example, if Less is selected (which is the
-     default setting) then you might have all comments in green color.
-     Whereas, if More is selected then a function name in the comments
-     themselves might appear in a different Color or Font.
+     You can customize your init file to include the font-lock mode so
+     that when you select this item, the comments will be displayed in
+     one face, strings in another, reserved words in another, and so
+     on. *Note Init File::.  When Fonts is selected, different parts of
+     the program will appear in different Fonts. When Colors is
+     selected, then the program will be displayed in different colors.
+     Selecting None causes the program to appear in just one Font and
+     Color. Selecting Less resets the Fonts and Colors to a fast,
+     minimal set of decorations. Selecting More resets the Fonts and
+     Colors to a larger set of decorations. For example, if Less is
+     selected (which is the default setting) then you might have all
+     comments in green color.  Whereas, if More is selected then a
+     function name in the comments themselves might appear in a
+     different Color or Font.
 
 Paren Highlighting
      After selecting Blink from this item, if you place the cursor on a
@@ -973,7 +974,7 @@ Buffers Sub-Menus
 
 Save Options
      Selecting this item will save the current settings of your Options
-     menu to your `.emacs' file.
+     menu to your init file.  *Note Init File::.
 
 
 File: xemacs.info,  Node: Buffers Menu,  Next: Tools Menu,  Prev: Options Menu,  Up: Pull-down Menus

@@ -81,6 +81,21 @@ Lisp_Object Vmswindows_frame_being_created;
 /*-----                    DISPLAY FRAME                          -----*/
 /*---------------------------------------------------------------------*/
 
+HWND
+mswindows_get_selected_frame_hwnd (void)
+{
+  Lisp_Object frame, device;
+
+  device = Ffind_device (Qnil, Qmswindows);
+  if (NILP (device))
+    return NULL;
+  frame = DEVICE_SELECTED_FRAME (XDEVICE (device));
+  if (NILP (frame))
+    return NULL;
+
+  return FRAME_MSWINDOWS_HANDLE (XFRAME (frame));
+}
+
 static void
 mswindows_init_frame_1 (struct frame *f, Lisp_Object props)
 {
@@ -638,7 +653,7 @@ void mswindows_size_frame_internal (struct frame* f, XEMACS_RECT_WH* dest)
   not restrictive since this will happen later anyway in WM_SIZE.  We
   have to do this after adjusting the rect to account for menubar
   etc. */
-  msw_get_workspace_coords (&ws_rect);
+  mswindows_get_workspace_coords (&ws_rect);
   pixel_width = rect.right - rect.left;
   pixel_height = rect.bottom - rect.top;
   if (pixel_width > ws_rect.right - ws_rect.left)
@@ -718,6 +733,20 @@ mswindows_frame_size_fixed_p (struct frame *f)
 /*-----                    PRINTER FRAME                          -----*/
 /*---------------------------------------------------------------------*/
 
+/*
+ * With some drvier/os combination (I discovered this with HP drviers
+ * under W2K), DC geometry is reset upon StartDoc and EndPage
+ * calls. This is called every time one of these calls is made.
+ */
+static void
+apply_dc_geometry (struct frame* f)
+{
+  HDC hdc = DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f)));
+  SetTextAlign (hdc, TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
+  SetViewportOrgEx (hdc, FRAME_MSPRINTER_PIXLEFT(f),
+		    FRAME_MSPRINTER_PIXTOP(f), NULL);
+}
+
 void
 msprinter_start_page (struct frame *f)
 {
@@ -725,6 +754,7 @@ msprinter_start_page (struct frame *f)
     {
       FRAME_MSPRINTER_PAGE_STARTED (f) = 1;
       StartPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+      apply_dc_geometry (f);
     }
 }
 
@@ -764,10 +794,6 @@ msprinter_init_frame_1 (struct frame *f, Lisp_Object props)
   /* Negative for "uinspecified" */
   FRAME_MSPRINTER_CHARWIDTH(f) = -1;
   FRAME_MSPRINTER_CHARHEIGHT(f) = -1;
-
-  /* nil is for "system default" for these properties. */
-  FRAME_MSPRINTER_ORIENTATION(f) = Qnil;
-  FRAME_MSPRINTER_DUPLEX(f) = Qnil;
 }
 
 static void
@@ -777,39 +803,6 @@ msprinter_init_frame_3 (struct frame *f)
   struct device *device = XDEVICE (FRAME_DEVICE (f));
   HDC hdc;
   int frame_left, frame_top, frame_width, frame_height;
-
-  /* Change printer parameters */
-  {
-    DEVMODE* devmode = msprinter_get_devmode_copy (device);
-    devmode->dmFields = 0;
-
-    if (!NILP (FRAME_MSPRINTER_ORIENTATION(f)))
-      {
-	devmode->dmFields = DM_ORIENTATION;
-	if (EQ (FRAME_MSPRINTER_ORIENTATION(f), Qportrait))
-	  devmode->dmOrientation = DMORIENT_PORTRAIT;
-	else if (EQ (FRAME_MSPRINTER_ORIENTATION(f), Qlandscape))
-	  devmode->dmOrientation = DMORIENT_LANDSCAPE;
-	else
-	  abort();
-      }
-
-    if (!NILP (FRAME_MSPRINTER_DUPLEX(f)))
-      {
-	devmode->dmFields = DM_DUPLEX;
-	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qnone))
-	  devmode->dmDuplex = DMDUP_SIMPLEX;
-	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qvertical))
-	  devmode->dmDuplex = DMDUP_VERTICAL;
-	if (EQ (FRAME_MSPRINTER_DUPLEX(f), Qhorizontal))
-	  devmode->dmDuplex = DMDUP_HORIZONTAL;
-	else
-	  abort();
-      }
-
-    assert (!FRAME_MSPRINTER_PAGE_STARTED (f));
-    msprinter_apply_devmode (device, devmode);
-  }
 
   /* DC might be recreated in msprinter_apply_devmode,
      so do not initialize until now */
@@ -874,10 +867,8 @@ msprinter_init_frame_3 (struct frame *f)
     change_frame_size (f, rows, columns, 0);
   }
 
-  /* Apply DC geometry */
-  SetTextAlign (hdc, TA_BASELINE | TA_LEFT | TA_NOUPDATECP);
-  SetViewportOrgEx (hdc, frame_left, frame_top, NULL);
-  SetWindowOrgEx (hdc, 0, 0, NULL);
+  FRAME_MSPRINTER_PIXLEFT(f) = frame_left;
+  FRAME_MSPRINTER_PIXTOP(f) = frame_top;
 
   /* Start print job */
   di.cbSize = sizeof (di);
@@ -891,6 +882,8 @@ msprinter_init_frame_3 (struct frame *f)
   if (StartDoc (hdc, &di) <= 0)
     error ("Cannot start print job");
 
+  apply_dc_geometry (f);
+
   /* Finish frame setup */
   FRAME_MSPRINTER_JOB_STARTED (f) = 1;
   FRAME_VISIBLE_P(f) = 0;
@@ -899,12 +892,6 @@ msprinter_init_frame_3 (struct frame *f)
 static void
 msprinter_mark_frame (struct frame *f)
 {
-  /* NOTE: These need not be marked as long as we allow only c-defined
-     symbols for their values.  Although, marking these is safer than
-     expensive.  [I know a proof to the theorem postulating that a
-     gator is longer than greener. Ask me. -- kkm] */
-  mark_object (FRAME_MSPRINTER_ORIENTATION (f));
-  mark_object (FRAME_MSPRINTER_DUPLEX (f));
 }
 
 static void
@@ -934,10 +921,6 @@ msprinter_frame_property (struct frame *f, Lisp_Object property)
     return make_int (FRAME_MSPRINTER_RIGHT_MARGIN(f));
   else if (EQ (Qbottom_margin, property))
     return make_int (FRAME_MSPRINTER_BOTTOM_MARGIN(f));
-  else if (EQ (Qorientation, property))
-    return FRAME_MSPRINTER_ORIENTATION(f);
-  else if (EQ (Qduplex, property))
-    return FRAME_MSPRINTER_DUPLEX(f);
   else
     return Qunbound;
 }
@@ -946,16 +929,13 @@ static int
 msprinter_internal_frame_property_p (struct frame *f, Lisp_Object property)
 {
   return (EQ (Qleft_margin, property) || EQ (Qtop_margin, property) ||
-	  EQ (Qright_margin, property) || EQ (Qbottom_margin, property) ||
-	  EQ (Qorientation, property) || EQ (Qduplex, property));
+	  EQ (Qright_margin, property) || EQ (Qbottom_margin, property));
 }
 
 static Lisp_Object
 msprinter_frame_properties (struct frame *f)
 {
   Lisp_Object props = Qnil;
-  props = cons3 (Qorientation, FRAME_MSPRINTER_ORIENTATION(f), props);
-  props = cons3 (Qduplex, FRAME_MSPRINTER_DUPLEX(f), props);
   props = cons3 (Qbottom_margin,
 		 make_int (FRAME_MSPRINTER_BOTTOM_MARGIN(f)), props);
   props = cons3 (Qright_margin,
@@ -1022,29 +1002,6 @@ msprinter_set_frame_properties (struct frame *f, Lisp_Object plist)
 	      CHECK_NATNUM (val);
 	      FRAME_MSPRINTER_BOTTOM_MARGIN(f) = XINT (val);
 	    }
-	  else if (EQ (prop, Qorientation))
-	    {
-	      maybe_error_if_job_active (f);
-	      CHECK_SYMBOL (val);
-	      if (!NILP(val) &&
-		  !EQ (val, Qportrait) &&
-		  !EQ (val, Qlandscape))
-		signal_simple_error ("Page orientation can only be "
-				     "'portrait or 'landscape", val);
-	      FRAME_MSPRINTER_ORIENTATION(f) = val;
-	    }
-	  else if (EQ (prop, Qduplex))
-	    {
-	      maybe_error_if_job_active (f);
-	      CHECK_SYMBOL (val);
-	      if (!NILP(val) &&
-		  !EQ (val, Qnone) &&
-		  !EQ (val, Qvertical) &&
-		  !EQ (val, Qhorizontal))
-		signal_simple_error ("Duplex can only be 'none, "
-				     "'vertical or 'horizontal", val);
-	      FRAME_MSPRINTER_DUPLEX(f) = val;
-	    }
 	}
     }
 }
@@ -1064,6 +1021,7 @@ msprinter_eject_page (struct frame *f)
     {
       FRAME_MSPRINTER_PAGE_STARTED (f) = 0;
       EndPage (DEVICE_MSPRINTER_HDC (XDEVICE (FRAME_DEVICE (f))));
+      apply_dc_geometry (f);
     }
 }
 
@@ -1211,17 +1169,6 @@ set at any time, except as otherwise noted):
 
 	  (setq default-frame-plist '(height 55 'width 80)
 		default-msprinter-frame-plist '(height nil 'width nil))
-
-
-  orientation                   Printer page orientation. Can be 'nil,
-				indicating system default, 'portrait
-				or 'landscape.
-
-  duplex			Duplex printing mode, subject to printer
-				support. Can be 'nil for the device default,
-				'none for simplex printing, 'vertical or
-				'horizontal for duplex page bound along
-				the corresponding page direction.
 
 See also `default-frame-plist', which specifies properties which apply
 to all frames, not just mswindows frames.

@@ -257,7 +257,7 @@ order in which they appear in this table.
 
 `-no-init-file'
 `-q'
-     Do not load your Emacs init file `~/.emacs'.
+     Do not load your Emacs init file.  *Note Init File::.
 
 `-no-site-file'
      Do not load the site-specific init file `lisp/site-start.el'.
@@ -274,7 +274,8 @@ order in which they appear in this table.
      This is equivalent to `-q -no-site-file -no-early-packages'.
 
 `-user-init-file FILE'
-     Load FILE as your Emacs init file instead of `~/.emacs'.
+     Load FILE as your Emacs init file instead of
+     `~/.xemacs/init.el'/`~/.emacs'.
 
 `-user-init-directory DIRECTORY'
      Use DIRECTORY as the location of your early package hierarchies
@@ -282,8 +283,10 @@ order in which they appear in this table.
 
 `-user USER'
 `-u USER'
-     Equivalent to `-user-init-file ~USER/.emacs -user-init-directory
-     ~USER/.xemacs'.
+     Equivalent to `-user-init-file ~USER/.xemacs/init.el
+     -user-init-directory ~USER/.xemacs', or `-user-init-file
+     ~USER/.emacs -user-init-directory ~USER/.xemacs'.  whichever init
+     file comes first.  *Note Init File::.
 
    Note that the init file can get access to the command line argument
 values as the elements of a list in the variable `command-line-args'.
@@ -445,8 +448,8 @@ XEmacs paths.  Early package hierarchies are at the very front, late
 ones somewhere in the middle, and last hierarchies are (you guessed it)
 last.
 
-   By default, XEmacs expects an early package hierarchy in the a
-subdirectory `.xemacs' of the user's home directory.
+   By default, XEmacs expects an early package hierarchy in the
+subdirectory `.xemacs/xemacs-packages' of the user's home directory.
 
    Moreover, XEmacs expects late hierarchies in the subdirectories
 `site-packages', `mule-packages', and `xemacs-packages' (in that order)
@@ -459,7 +462,7 @@ prefer directories found there.
    By default, XEmacs does not have a pre-configured last package
 hierarchy.  Last hierarchies are primarily for using package hierarchies
 of outdated versions of XEmacs as a fallback option.  For example, it is
-possible to run XEmacs 21.0 with the 20.4 package hierarchy as a last
+possible to run XEmacs 21 with the 20.4 package hierarchy as a last
 hierarchy.
 
    It is possible to specify at configure-time the location of the
@@ -565,7 +568,7 @@ use the tutorial, run Emacs and type `Control-h t'
 menu.
 
    XEmacs comes with many translations of tutorial.  If your XEmacs is
-with MULE and you set up language environment correctly, XEmacs choses
+with MULE and you set up language environment correctly, XEmacs chooses
 right tutorial when available (*note Language Environments::).  If you
 want specific translation, give `C-h t' a prefix argument, like `C-u
 C-h t'.

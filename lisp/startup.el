@@ -107,16 +107,29 @@ the user's init file.")
 (defvar user-init-directory-base ".xemacs"
   "Base of directory where user-installed init files may go.")
 
-(defvar user-init-file-base-list (append
-				  '(".emacs.elc" ".emacs.el" ".emacs")
-				  (and (eq system-type 'windows-nt)
-				       '("_emacs.elc" "_emacs.el" "_emacs")))
-  "List of allowed init files.  The first one found takes precedence.")
-
 (defvar user-init-directory
   (file-name-as-directory
    (paths-construct-path (list "~" user-init-directory-base)))
   "Directory where user-installed init files may go.")
+
+(defvar user-init-file-base "init.el"
+  "Default name of the user init file if uncompiled.
+This should be used for migration purposes only.")
+
+(defvar user-init-file-base-list '("init.elc" "init.el")
+  "List of allowed init files in the user's init directory.
+The first one found takes precedence.")
+
+(defvar user-home-init-file-base-list
+  (append '(".emacs.elc" ".emacs.el" ".emacs")
+	  (and (eq system-type 'windows-nt)
+	       '("_emacs.elc" "_emacs.el" "_emacs")))
+  "List of allowed init files in the user's home directory.
+The first one found takes precedence.")
+
+(defvar load-home-init-file nil
+  "Non-nil if XEmacs should load the init file from the home directory.
+Otherwise, XEmacs will offer migration to the init directory.")
 
 (defvar load-user-init-file-p t
   "Non-nil if XEmacs should load the user's init file.")
@@ -447,6 +460,9 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
       (when window-setup-hook
 	(run-hooks 'window-setup-hook))
       (setq window-setup-hook nil))
+
+    (if load-user-init-file-p
+	(maybe-migrate-user-init-file))
     ;;####FSFmacs junk
     ;;      (or menubar-bindings-done
     ;;	  (precompute-menubar-bindings))
@@ -530,10 +546,13 @@ Type ^H^H^H (Control-h Control-h Control-h) to get more help options.\n")
  	    (string= arg "-user"))
 	(let* ((user (pop args))
 	       (home-user (concat "~" user)))
-	  (setq user-init-file (find-user-init-file home-user)
-		user-init-directory (file-name-as-directory
+	  (setq user-init-directory (file-name-as-directory
 				     (paths-construct-path
-				      (list home-user user-init-directory-base))))))
+				      (list home-user user-init-directory-base))))
+	  (setq user-init-file
+		(find-user-init-file user-init-directory home-user))
+	  (setq custom-file
+		(make-custom-file-name user-init-file))))
        ((string= arg "-debug-init")
 	(setq init-file-debug t))
        ((string= arg "-unmapped")
@@ -637,20 +656,88 @@ If this is nil, no message will be displayed.")
 	    (setq term (substring term 0 hyphend))
 	  (setq term nil))))))
 
-(defun find-user-init-file (&optional directory)
+(defun find-user-init-directory-init-file (&optional init-directory)
+  "Determine the user's init file if in the init directory."
+  (let ((init-directory (or init-directory user-init-directory)))
+    (catch 'found
+      (dolist (file user-init-file-base-list)
+	(let ((expanded (expand-file-name file init-directory)))
+	  (when (file-exists-p expanded)
+	    (throw 'found expanded)))))))
+
+(defun find-user-home-directory-init-file (&optional home-directory)
+  "Determine the user's init file if in the home directory."
+  (let ((home-directory (or home-directory "~")))
+    (catch 'found
+      (dolist (file user-home-init-file-base-list)
+	(let ((expanded (expand-file-name file home-directory)))
+	  (when (file-exists-p expanded)
+	    (throw 'found expanded))))
+      nil)))
+
+(defun find-user-init-file (&optional init-directory home-directory)
   "Determine the user's init file."
-  (unless directory
-    (setq directory "~"))
-  (dolist (file user-init-file-base-list)
-    (let ((expanded (paths-construct-path (list directory file))))
-      (when (file-exists-p expanded)
-	(return expanded)))))
+  (if load-home-init-file
+      (find-user-home-directory-init-file home-directory)
+    (or (find-user-init-directory-init-file init-directory)
+	(find-user-home-directory-init-file home-directory))))
+
+(defun maybe-migrate-user-init-file ()
+  "Ask user if she wants to migrate the init file(s) to new location."
+  (if (and (not load-home-init-file)
+	   (not (find-user-init-directory-init-file user-init-directory))
+	   (file-exists-p user-init-file))
+      (if (with-output-to-temp-buffer (help-buffer-name nil)
+	    (progn
+	      (princ "XEmacs recommends that the initialization code in
+")
+	      (princ user-init-file)
+	      (princ "
+be migrated to the ")
+	      (princ user-init-directory)
+	      (princ " directory.  XEmacs can
+perform the migration automatically.
+
+After the migration, init.el/init.elc holds user-written
+initialization code.  Moreover the customize settings will be in
+custom.el.
+
+If you choose not to do this now, XEmacs will not ask you this
+question in the future.  However, you can still make XEmacs
+perform the migration at any time with M-x migrate-user-init-file.")
+	      (show-temp-buffer-in-current-frame standard-output)
+	      (yes-or-no-p-minibuf (concat "Migrate init file to "
+					   user-init-directory
+					   "? "))))
+	  (migrate-user-init-file)
+	(customize-save-variable 'load-home-init-file t))))
+
+(defun migrate-user-init-file ()
+  "Migrate the init file from the home directory."
+  (interactive)
+  (if (not (file-exists-p user-init-directory))
+      (progn
+	(message "Creating %s directory..." user-init-directory)
+	(make-directory user-init-directory)))
+  (message "Migrating custom file...")
+  (custom-migrate-custom-file (make-custom-file-name user-init-file
+						     'force-new))
+  (message "Moving init file...")
+  (rename-file user-init-file
+	       (expand-file-name user-init-file-base
+				 user-init-directory))
+  (message "Migration done."))
 
 (defun load-user-init-file ()
-  "This function actually reads the init file, .emacs."
+  "This function actually reads the init file."
   (if (or user-init-file
-          (setq user-init-file (find-user-init-file)))
+          (setq user-init-file (find-user-init-file user-init-directory)))
       (load user-init-file t t t))
+  (if (not custom-file)
+      (setq custom-file (make-custom-file-name user-init-file)))
+  (if (and (not (string= custom-file user-init-file))
+	   (file-exists-p custom-file))
+      (load custom-file t t t))
   (unless inhibit-default-init
     (let ((inhibit-startup-message nil))
       ;; Users are supposed to be told their rights.
@@ -678,8 +765,9 @@ If this is nil, no message will be displayed.")
 	 (if (eq init-file-debug t) 'startup init-file-debug)))
     (let ((debug-on-error debug-on-error-initial))
       (if (and load-user-init-file-p init-file-debug)
-	  ;; Do this without a condition-case if the user wants to debug.
-	  (load-user-init-file)
+	  (progn
+	    ;; Do this without a condition-case if the user wants to debug.
+	    (load-user-init-file))
 	(condition-case error
 	    (progn
 	      (if load-user-init-file-p

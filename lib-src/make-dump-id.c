@@ -23,7 +23,7 @@ Boston, MA 02111-1307, USA.  */
 #include <stdlib.h>
 #include "../src/systime.h"
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include <sys/timeb.h>
 
 /* Emulate gettimeofday (Ulrich Leodolter, 1/11/95).  */

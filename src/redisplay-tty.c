@@ -53,17 +53,12 @@ Boston, MA 02111-1307, USA.  */
    invoking them correctly. */
 /* # include <curses.h> */
 /* # include <term.h> */
-#ifdef __cplusplus
-extern "C" {
-#endif
-extern int tgetent (const char *, const char *);
-extern int tgetflag (const char *);
-extern int tgetnum (const char *);
-extern char *tgetstr (const char *, char **);
-extern void tputs (const char *, int, void (*)(int));
-#ifdef __cplusplus
-}
-#endif
+EXTERN_C int tgetent (const char *, const char *);
+EXTERN_C int tgetflag (const char *);
+EXTERN_C int tgetnum (const char *);
+EXTERN_C char *tgetstr (const char *, char **);
+EXTERN_C void tputs (const char *, int, void (*)(int));
+
 #define FORCE_CURSOR_UPDATE(c) send_string_to_tty_console (c, 0, 0)
 #define OUTPUTN(c, a, n)			\
   do {						\
@@ -1059,12 +1054,12 @@ init_tty_for_redisplay (struct device *d, char *terminal_type)
   CONSOLE_TTY_DATA (c)->term_entry_buffer = (char *) xmalloc (2044);
   bufptr = CONSOLE_TTY_DATA (c)->term_entry_buffer;
 
-#if !defined(WIN32)
+#ifdef SIGTTOU
   /* SIGTT* don't exist under win32 */
   EMACS_BLOCK_SIGNAL (SIGTTOU);
 #endif
   status = tgetent (entry_buffer, terminal_type);
-#if !defined(WIN32)
+#ifdef SIGTTOU
   EMACS_UNBLOCK_SIGNAL (SIGTTOU);
 #endif
 #if 0

@@ -389,7 +389,7 @@ mswindows_popup_dialog_box (struct frame* f, Lisp_Object desc)
 
 	  memcpy (trans, XSTRING_DATA (ctext), XSTRING_LENGTH (ctext) + 1);
 	  translen =
-	    msw_translate_menu_or_dialog_item (trans,
+	    mswindows_translate_menu_or_dialog_item (trans,
 					       XSTRING_LENGTH (ctext),
 					       2 * XSTRING_LENGTH (ctext) + 3,
 					       &accel_unused,

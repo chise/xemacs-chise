@@ -24,7 +24,6 @@ Boston, MA 02111-1307, USA.  */
 /* Synched up with: Not in FSF. */
 
 #include <config.h>
-#include <limits.h>
 #include "lisp.h"
 
 #include "console-msw.h"

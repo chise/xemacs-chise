@@ -40,7 +40,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#include <limits.h>
 
 #include "buffer.h"
 #include "commands.h"
@@ -64,11 +63,10 @@ Boston, MA 02111-1307, USA.  */
 #include "file-coding.h"
 #endif
 
+#include "sysfile.h"
+
 #ifdef HAVE_TTY
 #include "console-tty.h"
-#ifdef HAVE_UNISTD_H
-#include <unistd.h> /* for isatty() */
-#endif
 #endif /* HAVE_TTY */
 
 /* Note: We have to be careful throughout this code to properly handle

@@ -212,7 +212,7 @@ signal_handler_t sys_do_signal (int signal_number, signal_handler_t action);
 #ifdef BSD
 #define EMACS_KILLPG(gid, signo) killpg (gid, signo)
 #else
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #define EMACS_KILLPG(gid, signo) kill (gid, signo)
 #else
 #define EMACS_KILLPG(gid, signo) kill (-(gid), signo)
@@ -234,14 +234,14 @@ extern const char *sys_siglist[];
 SIGTYPE memory_warning_signal (int sig);
 #endif
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 /* Prototypes for signal functions, see nt.c */
-typedef void (__cdecl *msw_sighandler) (int);
-msw_sighandler msw_sigset (int sig, msw_sighandler handler);
-int msw_sighold (int nsig);
-int msw_sigrelse (int nsig);
-int msw_sigpause (int nsig);
-int msw_raise (int nsig);
-#endif /* _WIN32 */
+typedef void (__cdecl *mswindows_sighandler) (int);
+mswindows_sighandler mswindows_sigset (int sig, mswindows_sighandler handler);
+int mswindows_sighold (int nsig);
+int mswindows_sigrelse (int nsig);
+int mswindows_sigpause (int nsig);
+int mswindows_raise (int nsig);
+#endif /* WIN32_NATIVE */
 
 #endif /* INCLUDED_syssignal_h_ */

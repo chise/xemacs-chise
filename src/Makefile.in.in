@@ -138,6 +138,10 @@ X11_libs = $(LIBI18N)
 sheap_obj=sheap.o
 #endif
 
+#if defined(MINGW) || defined(CYGWIN)
+res_obj=xemacs_res.o
+#endif
+
 ## -Demacs is needed to make some files produce the correct version
 ## for use in Emacs.
 
@@ -191,7 +195,7 @@ objs=\
  rangetab.o redisplay.o redisplay-output.o regex.o\
  search.o select.o $(sheap_obj) signal.o sound.o\
  specifier.o strftime.o symbols.o syntax.o sysdep.o\
- undo.o $(x_objs) widget.o window.o
+ undo.o $(x_objs) widget.o window.o $(res_obj)
 
 obj_rtl = $(objs:.o=.c.rtl)
 
@@ -342,6 +346,7 @@ ${DUMP_TARGET}: ${EXE_TARGET} ${libsrc}DOC $(mo_file) ${other_files} update-elc.
 		./${PROGNAME} -batch -vanilla -f list-load-path-shadows; fi; \
 		$(RM) SATISFIED; exit 0; fi; \
 	if test -f SATISFIED; then $(RM) SATISFIED; exit 1; fi; \
+	@$(RM) $@; \
 	$(RECURSIVE_MAKE) $@;
 #else
 	@$(RM) $@
@@ -688,6 +693,9 @@ sunplay.o: ${srcdir}/sunplay.c
 hpplay.o: ${srcdir}/hpplay.c
 	$(CC) -c -Demacs $(sound_cflags) $(cflags) ${srcdir}/hpplay.c
 #endif /* HAVE_NATIVE_SOUND */
+
+xemacs_res.o: ${srcdir}/../nt/xemacs.rc
+	windres --include-dir ${srcdir}/../nt -i ${srcdir}/../nt/xemacs.rc -o $@
 
 ## System-specific programs to be made.
 ## ${other_files}, $(objects_system) and $(objects_machine)

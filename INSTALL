@@ -292,7 +292,7 @@ The `--rel-alloc' option can be used to either enable or disable use
 of the relocating allocator.  Turning on --rel-alloc will allow XEmacs
 to return unused memory to the operating system, thereby reducing its
 memory footprint.  However, it may make XEmacs runs more slowly,
-especially if your system's `mmap' implemntation is missing or
+especially if your system's `mmap' implementation is missing or
 inefficient.  Generally, it's best to go with the default
 configuration for your system.  You can tweak this based on how you
 use XEmacs, and the memory and cpu resources available on your system.
@@ -320,7 +320,7 @@ determining configure failures is the file `config.log', which
 contains the results of the compile and link tests used by configure.
 
 The `--with-mule' option enables (MUlti-Lingual Emacs) support, needed
-to suport non-Latin-1 (including Asian) languages.  The Mule support
+to support non-Latin-1 (including Asian) languages.  The Mule support
 is not yet as stable or efficient as the `Latin1' support.   Enabling
 Mule support requires the mule-base package installed prior to
 building XEmacs.  The following options require Mule support:
@@ -639,8 +639,8 @@ GNU software; here are some variables specific to XEmacs.
 	`/usr/local/lib/xemacs-VERSION/CONFIGURATION-NAME/modules'
 	(where VERSION and CONFIGURATION-NAME are as described above).
 	By their very nature, dynamic loadable modules are architecture-
-	dependant, and care should be taken not to set this directory
-	to a system- or architecture-independant directory.
+	dependent, and care should be taken not to set this directory
+	to a system- or architecture-independent directory.
 
 Remember that you must specify any variable values you need each time
 you run `make' in the top directory.  If you run `make' once to build

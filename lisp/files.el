@@ -1206,7 +1206,7 @@ run `normal-mode' explicitly."
     ("\\.m4\\'" . autoconf-mode)
     ("configure\\.in\\'" . autoconf-mode)
     ("\\.ml\\'" . lisp-mode)
-    ("\\.ma?k\\'" . makefile-mode)
+    ("\\.ma?ke?\\'" . makefile-mode)
     ("[Mm]akefile\\(\\.\\|\\'\\)" . makefile-mode)
     ("\\.X\\(defaults\\|environment\\|resources\\|modmap\\)\\'" . xrdb-mode)
     ;; #### The following three are Unix-specific (but do we care?)
@@ -2083,9 +2083,8 @@ If the value is nil, don't make a backup."
   "Convert FILENAME to be relative to DIRECTORY (default: default-directory).
 This function returns a relative file name which is equivalent to FILENAME
 when used with that default directory as the default.
-If this is impossible (which can happen on MSDOS and Windows
-when the file name and directory use different drive names)
-then it returns FILENAME."
+If this is impossible (which can happen on MS Windows when the file name
+and directory use different drive names) then it returns FILENAME."
   (save-match-data
     (let ((fname (expand-file-name filename)))
       (setq directory (file-name-as-directory

@@ -1,3 +1,27 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* xlwcheckbox.c:
+	* xlwgauge.h:
+	* xlwgaugeP.h:
+	* xlwradio.h:
+	* xlwradioP.h:
+	* xlwgauge.c:
+	* config.h.in:
+	* xlwradio.c:
+	* lwlib-Xaw.c:
+	Replace SMART_INCLUDE with a dumber, but more reliable method.
+
+	* xlwmenu.c (parameterize_string): Fix C++ compilation warnings.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* lwlib-Xaw.c (xaw_create_label): add sanity check on arg limit.
+	(xaw_update_one_value): fix crash due to incorrect arg count.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

@@ -88,36 +88,6 @@ be the text between those markers)."
 ;(setq x-sent-selection-hooks 'x-notice-selection-failures)
 
 
-;;; Selections in killed buffers
-;;; this function is called by kill-buffer as if it were on the
-;;; kill-buffer-hook (though it isn't really).
-
-(defun xselect-kill-buffer-hook ()
-  ;; Probably the right thing is to write a C function to return a list
-  ;; of the selections which emacs owns, since it could conceivably own
-  ;; a user-defined selection type that we've never heard of.
-  (xselect-kill-buffer-hook-1 'PRIMARY)
-  (xselect-kill-buffer-hook-1 'SECONDARY)
-  (xselect-kill-buffer-hook-1 'CLIPBOARD))
-
-(defun xselect-kill-buffer-hook-1 (selection)
-  (let (value)
-    (if (and (selection-owner-p selection)
-	     (setq value (get-selection-internal selection '_EMACS_INTERNAL))
-	     ;; The _EMACS_INTERNAL selection type has a converter registered
-	     ;; for it that does no translation.  This only works if emacs is
-	     ;; requesting the selection from itself.  We could have done this
-	     ;; by writing a C function to return the raw selection data, and
-	     ;; that might be the right way to do this, but this was easy.
-	     (or (and (consp value)
-		      (markerp (car value))
-		      (eq (current-buffer) (marker-buffer (car value))))
-		 (and (extent-live-p value)
-		      (eq (current-buffer) (extent-object value)))
-                 (and (extentp value) (not (extent-live-p value)))))
-	(disown-selection-internal selection))))
-
-
 ;;; Cut Buffer support
 
 ;;; FSF name x-get-cut-buffer

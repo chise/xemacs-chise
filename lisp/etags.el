@@ -505,6 +505,7 @@ this buffer uses."
 			    ((string-match "\\.scm\\'" filename)
 			     'scheme-mode)
 			    (t nil)))
+      (defvar c-mode-syntax-table)
       (set-syntax-table (cond ((and (eq file-type 'c-mode)
 				    c-mode-syntax-table)
 			       c-mode-syntax-table)

@@ -273,12 +273,10 @@ and point is at the lower right corner."
 
 
 (defun open-rectangle-line (startcol endcol fill)
-  (let (spaces)
-    (when (= (move-to-column startcol (or fill 'coerce)) startcol)
-      (unless (and (not fill)
-		   (= (point) (point-at-eol)))
-	(indent-to endcol)))
-    ))
+  (when (= (move-to-column startcol (or fill 'coerce)) startcol)
+    (unless (and (not fill)
+		 (= (point) (point-at-eol)))
+      (indent-to endcol))))
 
 ;;;###autoload
 (defun open-rectangle (start end &optional fill)
@@ -308,6 +306,7 @@ Otherwise this command does not delete or overwrite any existing text.
 
 When called from a program, the rectangle's corners are START and END."
   (interactive "*r\nsString rectangle: ")
+  (defvar pending-delete-mode)
   (apply-on-rectangle 'string-rectangle-line start end string
                       (and (boundp 'pending-delete-mode) pending-delete-mode)))
 

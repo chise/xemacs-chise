@@ -133,7 +133,7 @@ otherwise it is an integer representing a ShowWindow flag:
       TO_EXTERNAL_FORMAT (LISP_STRING, current_dir,
 			  C_STRING_ALLOCA, f,
 			  Qfile_name);
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
       CYGWIN_WIN32_PATH (f, path);
 #else
       path = f;
@@ -145,7 +145,7 @@ otherwise it is an integer representing a ShowWindow flag:
       TO_EXTERNAL_FORMAT (LISP_STRING, document,
 			  C_STRING_ALLOCA, f,
 			  Qfile_name);
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
       CYGWIN_WIN32_PATH (f, doc);
 #else
       doc = f;

@@ -68,7 +68,13 @@ global environment specification.")
     ("TUTORIAL\\.\\(?:hr\\|pl\\|ro\\)\\'" . iso-8859-2)
     ;; ("\\.\\(el\\|emacs\\|info\\(-[0-9]+\\)?\\|texi\\)$" . iso-2022-8)
     ;; ("\\(ChangeLog\\|CHANGES-beta\\)$" . iso-2022-8)
-    ("/spool/mail/.*$" . convert-mbox-coding-system))
+
+    ;; This idea is totally broken, and the code didn't work anyway.
+    ;; Mailboxes should be decoded by mail clients, who actually know
+    ;; how to deal with them.  Otherwise, their contents should be
+    ;; treated as `binary'.
+    ;("/spool/mail/.*$" . convert-mbox-coding-system)
+    )
   "Alist to decide a coding system to use for a file I/O operation.
 The format is ((PATTERN . VAL) ...),
 where PATTERN is a regular expression matching a file name,
@@ -191,22 +197,12 @@ object (the entry specified a coding system)."
 	    ((find-coding-system codesys))
 	    ))))
 
-(defun convert-mbox-coding-system (filename visit start end)
-  "Decoding function for Unix mailboxes.
-Does separate detection and decoding on each message, since each
-message might be in a different encoding."
-  (let ((buffer-read-only nil))
-    (save-restriction
-      (narrow-to-region start end)
-      (goto-char (point-min))
-      (while (not (eobp))
-	(let ((start (point))
-	      end)
-	  (forward-char 1)
-	  (if (re-search-forward "^From" nil 'move)
-	      (beginning-of-line))
-	  (setq end (point))
-	  (decode-coding-region start end 'undecided))))))
+;; This is completely broken, not only in implementation (does not
+;; understand MIME), but in concept -- such high-level decoding should
+;; be done by mail readers, not by IO code!
+
+;(defun convert-mbox-coding-system (filename visit start end)
+;...
 
 (defun find-coding-system-magic-cookie ()
   "Look for the coding-system magic cookie in the current buffer.\n"

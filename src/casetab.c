@@ -189,7 +189,8 @@ static Lisp_Object
 set_case_table (Lisp_Object table, int standard)
 {
   Lisp_Object down, up, canon, eqv, tail = table;
-  struct buffer *buf = current_buffer;
+  struct buffer *buf =
+    standard ? XBUFFER(Vbuffer_defaults) : current_buffer;
 
   check_case_table (table);
 
@@ -242,19 +243,17 @@ set_case_table (Lisp_Object table, int standard)
       Vmirror_ascii_eqv_table = make_mirror_trt_table (eqv);
 #endif
     }
-  else
-    {
-      buf->downcase_table = down;
-      buf->upcase_table = up;
-      buf->case_canon_table = canon;
-      buf->case_eqv_table = eqv;
+  buf->downcase_table = down;
+  buf->upcase_table = up;
+  buf->case_canon_table = canon;
+  buf->case_eqv_table = eqv;
 #ifdef MULE
-      buf->mirror_downcase_table = make_mirror_trt_table (down);
-      buf->mirror_upcase_table = make_mirror_trt_table (up);
-      buf->mirror_case_canon_table = make_mirror_trt_table (canon);
-      buf->mirror_case_eqv_table = make_mirror_trt_table (eqv);
+  buf->mirror_downcase_table = make_mirror_trt_table (down);
+  buf->mirror_upcase_table = make_mirror_trt_table (up);
+  buf->mirror_case_canon_table = make_mirror_trt_table (canon);
+  buf->mirror_case_eqv_table = make_mirror_trt_table (eqv);
 #endif
-    }
+
   return table;
 }
 

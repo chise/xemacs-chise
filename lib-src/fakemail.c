@@ -46,14 +46,6 @@ main (int argc, char *argv[])
   return 1;
 }
 #else /* not BSD 4.2 (or newer) */
-#ifdef MSDOS
-int
-main (int argc, char *argv[])
-{
-  return 0;
-}
-#else /* not MSDOS */
-/* This conditional contains all the rest of the file.  */
 
 /* These are defined in config in some versions. */
 
@@ -322,7 +314,7 @@ make_file_preface (void)
   /* the_date has an unwanted newline at the end */
   date_length = strlen (the_date) - 1;
   the_date[date_length] = '\0';
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   temp = "(null)";
 #else
   temp = cuserid ((char *) NULL);
@@ -673,5 +665,4 @@ main (int argc, char *argv[])
   return close_the_streams ();
 }
 
-#endif /* not MSDOS */
 #endif /* not BSD 4.2 (or newer) */

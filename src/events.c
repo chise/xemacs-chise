@@ -1009,7 +1009,7 @@ character_to_event (Emchar c, Lisp_Event *event, struct console *con,
 	      k = QKbackspace;
 	      m &= ~XEMACS_MOD_CONTROL;
 	    }
-#endif /* defined(HAVE_TTY) && !defined(__CYGWIN32__) */
+#endif /* defined(HAVE_TTY) && !defined(CYGWIN) */
 	  break;
 	}
       if (c >= 'A' && c <= 'Z') c -= 'A'-'a';
@@ -1018,7 +1018,7 @@ character_to_event (Emchar c, Lisp_Event *event, struct console *con,
   else if (do_backspace_mapping &&
 	   CHARP (con->tty_erase_char) && c == XCHAR (con->tty_erase_char))
     k = QKbackspace;
-#endif /* defined(HAVE_TTY) && !defined(__CYGWIN32__) */
+#endif /* defined(HAVE_TTY) && !defined(CYGWIN) */
   else if (c == 127)
     k = QKdelete;
   else if (c == ' ')

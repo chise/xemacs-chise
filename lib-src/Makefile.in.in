@@ -75,33 +75,25 @@ INSTALL_DATA = @INSTALL_DATA@
 
 ## Things that a user might actually run,
 ## which should be installed in bindir.
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 INSTALLABLES_BASE = etags ctags b2m ootags
 #else
 INSTALLABLES_BASE = etags ctags b2m gnuclient ootags
 #endif
 INSTALLABLE_SCRIPTS = rcs-checkin gnudoit gnuattach
 #ifdef HAVE_SHLIB
-#ifdef HAVE_MS_WINDOWS
-INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient ellcc
-#else
 INSTALLABLES = $(INSTALLABLES_BASE) ellcc
-#endif
-#else
-#ifdef HAVE_MS_WINDOWS
-INSTALLABLES = $(INSTALLABLES_BASE) runxemacs rungnuclient
 #else
 INSTALLABLES = $(INSTALLABLES_BASE)
-#endif
 #endif
 
 
 ## Things that Emacs runs internally, or during the build process,
 ## which should not be installed in bindir.
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 UTILITIES= make-path wakeup profile make-docfile digest-doc \
-	sorted-doc movemail cvtmail yow hexl \
-	mmencode
+	sorted-doc movemail cvtmail yow i hexl \
+	mmencode minitar
 #else
 UTILITIES= make-path wakeup profile make-docfile digest-doc \
 	sorted-doc movemail cvtmail fakemail yow hexl \
@@ -290,7 +282,7 @@ alloca.o: ${top_srcdir}/src/alloca.c
 
 regex.o: ${srcdir}/../src/regex.c ${top_srcdir}/src/regex.h
 	$(CC) -c `echo $(cflags) | sed 's/-Demacs/ /'` \
-		-DINHIBIT_STRING_HEADER ${top_srcdir}/src/regex.c
+	-DINHIBIT_STRING_HEADER ${top_srcdir}/src/regex.c
 
 etags_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/etags.c \
 	$(GETOPTOBJS) regex.o $(ldflags)
@@ -304,23 +296,6 @@ ellcc_deps = ${srcdir}/ellcc.c ellcc.h ../src/config.h
 
 ellcc: ${ellcc_deps}
 	$(CC) ${ellcc_args} -o $@
-
-run_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/run.c \
-	$(ldflags) -Wl,--subsystem,windows -e _mainCRTStartup
-run_deps = ${srcdir}/run.c ${srcdir}/run.h ${srcdir}/run.rc \
-	${srcdir}/../nt/xemacs.ico ${srcdir}/../nt/file.ico \
-	${srcdir}/../nt/lisp.ico
-
-run: ${run_deps}
-	windres --include-dir ${srcdir}/../nt -i run.rc -o run_res.o
-	$(CC) run_res.o ${run_args} -o $@
-	strip $@.exe
-
-runxemacs: run
-	cp run.exe $@.exe
-
-rungnuclient: run
-	cp run.exe $@.exe
 
 ootags_args = $(cflags) -DVERSION='"${version}"' ${srcdir}/ootags.c \
 	$(GETOPTOBJS) regex.o $(ldflags)
@@ -365,6 +340,12 @@ fakemail: ${srcdir}/fakemail.c ../src/config.h
 
 yow: ${srcdir}/yow.c ../src/paths.h
 	$(CC) $(cflags) ${srcdir}/yow.c $(ldflags) -o $@
+
+i: ${srcdir}/i.c
+	$(CC) $(cflags) ${srcdir}/i.c $(ldflags) -o $@
+
+minitar: ${srcdir}/../nt/minitar.c
+	$(CC) $(cflags) ${srcdir}/../nt/minitar.c $(ldflags) -lz -o $@
 
 hexl: ${srcdir}/hexl.c
 	$(CC) $(cflags) ${srcdir}/hexl.c $(ldflags) -o $@

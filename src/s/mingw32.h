@@ -20,25 +20,19 @@ Boston, MA 02111-1307, USA.  */
 
 /* based on cygwin32.h by Andy Piper <andy@xemacs.org> */
 
-#ifndef WINDOWSNT
-#define WINDOWSNT
+/* Identify ourselves */
+#ifndef WIN32_NATIVE
+#define WIN32_NATIVE
 #endif
 
-#ifndef DOS_NT
-#define DOS_NT 	/* MSDOS or WINDOWSNT */
-#endif
-
-#ifdef HAVE_MS_WINDOWS
-#define HAVE_NTGUI
-#define HAVE_FACES
-#endif
+#define MINGW
 
 #ifndef ORDINARY_LINK
 #define ORDINARY_LINK
 #endif
 
-#define C_SWITCH_SYSTEM "-mno-cygwin -Wno-sign-compare -fno-caller-saves -Int/inc -I../nt/inc -DWINDOWSNT"
-#define LIBS_SYSTEM "-mno-cygwin -lwinmm -lwsock32"
+#define C_SWITCH_SYSTEM "-mno-cygwin -Wno-sign-compare -fno-caller-saves -DWIN32_NATIVE"
+#define LIBS_SYSTEM "-mno-cygwin -mwindows -lwinmm -lwsock32"
 #define WIN32_LEAN_AND_MEAN
 
 #define TEXT_START -1
@@ -62,10 +56,8 @@ Boston, MA 02111-1307, USA.  */
 #define HAVE_SOCKETS
 /* #endif */
 #define OBJECTS_SYSTEM	ntplay.o nt.o ntheap.o ntproc.o dired-msw.o
-#define HAVE_NATIVE_SOUND
 
 #undef MAIL_USE_SYSTEM_LOCK
-#define MAIL_USE_POP
 #define HAVE_MSW_C_DIRED
 
 /* Define NO_ARG_ARRAY if you cannot take the address of the first of a
@@ -78,6 +70,8 @@ Boston, MA 02111-1307, USA.  */
 #define ENCAPSULATE_OPEN
 #define ENCAPSULATE_FOPEN
 #define ENCAPSULATE_MKDIR
+#define ENCAPSULATE_STAT
+#define ENCAPSULATE_FSTAT
 
 /* Data type of load average, as read out of kmem.  */
 
@@ -134,7 +128,7 @@ Boston, MA 02111-1307, USA.  */
 /* Define this to be the separator between devices and paths */
 #define DEVICE_SEP ':'
 
-#define DIRECTORY_SEP '\\'
+#define DIRECTORY_SEP ((char)XCHAR(Vdirectory_sep_char))
 
 /* The null device on Windows NT. */
 #define NULL_DEVICE     "NUL:"
@@ -217,6 +211,10 @@ gid_t getegid (void);
 #define HAVE_SETITIMER
 #define HAVE_GETTIMEOFDAY
 #define HAVE_SELECT
+/* systime.h includes winsock.h which defines timeval */
+#define HAVE_TIMEVAL
+#define HAVE_GETPAGESIZE
+#define getpagesize() 4096
 /*#define HAVE_STRUCT_UTIMBUF*/
 #ifndef HAVE_H_ERRNO
 #define HAVE_H_ERRNO
@@ -233,10 +231,10 @@ gid_t getegid (void);
 
 /* We now have emulation for some signals */
 #define HAVE_SIGHOLD
-#define sigset(s,h) msw_sigset(s,h)
-#define sighold(s) msw_sighold(s)
-#define sigrelse(s) msw_sigrelse(s)
-#define sigpause(s) msw_sigpause(s)
+#define sigset(s,h) mswindows_sigset(s,h)
+#define sighold(s) mswindows_sighold(s)
+#define sigrelse(s) mswindows_sigrelse(s)
+#define sigpause(s) mswindows_sigpause(s)
 #define signal sigset
 
 /* Defines that we need that aren't in the standard signal.h  */
@@ -249,11 +247,7 @@ gid_t getegid (void);
 #ifndef MAXPATHLEN
 #define MAXPATHLEN      _MAX_PATH
 #endif
-
-/* For integration with MSDOS support.  */
-#define getdisk()               (_getdrive () - 1)
-#define getdefdir(_drv, _buf)   _getdcwd (_drv, _buf, MAXPATHLEN)
-#endif
+#endif /* !NOT_C_CODE */
 
 /* Define for those source files that do not include enough NT 
    system files.  */
@@ -268,5 +262,7 @@ gid_t getegid (void);
 /* Define process implementation */
 #define HAVE_WIN32_PROCESSES
 
-/* ============================================================ */
-
+#define CORRECT_DIR_SEPS(s) \
+  do { if ('/' == DIRECTORY_SEP) dostounix_filename (s); \
+       else unixtodos_filename (s); \
+  } while (0)

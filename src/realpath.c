@@ -38,7 +38,7 @@ Boston, MA 02111-1307, USA.  */
 #include <sys/param.h>
 #endif
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include <direct.h>
 #endif
 
@@ -78,7 +78,7 @@ xrealpath (const char *path, char resolved_path [])
   strcpy (copy_path, path);
   path = copy_path;
   max_path = copy_path + PATH_MAX - 2;
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /*
   ** In NT we have two different cases:  (1) the path name begins
   ** with a drive letter, e.g., "C:"; and (2) the path name begins

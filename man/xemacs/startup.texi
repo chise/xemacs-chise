@@ -63,8 +63,9 @@ up in the various XEmacs paths.  Early package hierarchies are at the
 very front, late ones somewhere in the middle, and last hierarchies are
 (you guessed it) last.
 
-By default, XEmacs expects an early package hierarchy in the a
-subdirectory @file{.xemacs} of the user's home directory.
+By default, XEmacs expects an early package hierarchy in the
+subdirectory @file{.xemacs/xemacs-packages} of the user's home
+directory.
 
 Moreover, XEmacs expects late hierarchies in the subdirectories
 @file{site-packages}, @file{mule-packages}, and @file{xemacs-packages}
@@ -77,7 +78,7 @@ subdirectory and prefer directories found there.
 By default, XEmacs does not have a pre-configured last package
 hierarchy.  Last hierarchies are primarily for using package hierarchies
 of outdated versions of XEmacs as a fallback option.  For example, it is
-possible to run XEmacs 21.0 with the 20.4 package hierarchy as a last
+possible to run XEmacs 21 with the 20.4 package hierarchy as a last
 hierarchy.
 
 It is possible to specify at configure-time the location of the various

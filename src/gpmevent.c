@@ -309,7 +309,7 @@ tty_get_foreign_selection (Lisp_Object selection_symbol, Lisp_Object target_type
 }
 
 static Lisp_Object
-tty_selection_exists_p (Lisp_Object selection)
+tty_selection_exists_p (Lisp_Object selection, Lisp_Object selection_type)
 {
 	return (Qt);
 }
@@ -317,7 +317,8 @@ tty_selection_exists_p (Lisp_Object selection)
 
 #if 0
 static Lisp_Object
-tty_own_selection (Lisp_Object selection_name, Lisp_Object selection_value)
+tty_own_selection (Lisp_Object selection_name, Lisp_Object selection_value,
+		   Lisp_Object how_to_add, Lisp_Object selection_type)
 {
 	/* There is no way to do this cleanly - the GPM selection
 	** 'protocol' (actually the TIOCLINUX ioctl) requires a start and

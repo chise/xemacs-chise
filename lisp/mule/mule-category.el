@@ -35,7 +35,7 @@
 
 ;;; Code:
 
-(defvar defined-category-hashtable (make-hashtable 50))
+(defvar defined-category-hashtable (make-hash-table :size 50))
 
 (defun define-category (designator doc-string)
   "Make a new category whose designator is DESIGNATOR.

@@ -724,10 +724,8 @@ instantiate_image_instantiator (Lisp_Object governing_domain,
   IMAGE_INSTANCE_LAYOUT_CHANGED (p) = 0;
   IMAGE_INSTANCE_DIRTYP (p) = 0;
 
-  assert ( XIMAGE_INSTANCE_HEIGHT (ii) 
-	      != IMAGE_UNSPECIFIED_GEOMETRY
-	      && XIMAGE_INSTANCE_WIDTH (ii) 
-	      != IMAGE_UNSPECIFIED_GEOMETRY);
+  assert ( XIMAGE_INSTANCE_HEIGHT (ii) >= 0 
+	   && XIMAGE_INSTANCE_WIDTH (ii) >= 0 );
 
   ERROR_CHECK_IMAGE_INSTANCE (ii);
 
@@ -1895,7 +1893,7 @@ instance is a mono pixmap; otherwise, the same image instance is returned.
    special function then just return the width and / or height. */
 void
 image_instance_query_geometry (Lisp_Object image_instance,
-			       unsigned int* width, unsigned int* height,
+			       int* width, int* height,
 			       enum image_instance_geometry disp,
 			       Lisp_Object domain)
 {
@@ -1930,8 +1928,7 @@ image_instance_query_geometry (Lisp_Object image_instance,
    want to specifiy something (layout widgets). */
 void
 image_instance_layout (Lisp_Object image_instance,
-		       unsigned int width, unsigned int height,
-		       Lisp_Object domain)
+		       int width, int height, Lisp_Object domain)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (image_instance);
   Lisp_Object type;
@@ -1951,8 +1948,8 @@ image_instance_layout (Lisp_Object image_instance,
       ||
       height == IMAGE_UNSPECIFIED_GEOMETRY)
     {
-      unsigned int dwidth = IMAGE_UNSPECIFIED_GEOMETRY,
-	  dheight = IMAGE_UNSPECIFIED_GEOMETRY;
+      int dwidth = IMAGE_UNSPECIFIED_GEOMETRY;
+      int dheight = IMAGE_UNSPECIFIED_GEOMETRY;
 
       /* Get the desired geometry. */
       if (meths && HAS_IIFORMAT_METH_P (meths, query_geometry))
@@ -2161,8 +2158,7 @@ string_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
    helper that is used elsewhere for calculating text geometry. */
 void
 query_string_geometry (Lisp_Object string, Lisp_Object face,
-		       unsigned int* width, unsigned int* height,
-		       unsigned int* descent, Lisp_Object domain)
+		       int* width, int* height, int* descent, Lisp_Object domain)
 {
   struct font_metric_info fm;
   unsigned char charsets[NUM_LEADING_BYTES];
@@ -2250,11 +2246,11 @@ query_string_font (Lisp_Object string, Lisp_Object face, Lisp_Object domain)
 
 static void
 text_query_geometry (Lisp_Object image_instance,
-		     unsigned int* width, unsigned int* height,
+		     int* width, int* height,
 		     enum image_instance_geometry disp, Lisp_Object domain)
 {
   Lisp_Image_Instance *ii = XIMAGE_INSTANCE (image_instance);
-  unsigned int descent = 0;
+  int descent = 0;
 
   query_string_geometry (IMAGE_INSTANCE_TEXT_STRING (ii),
 			 IMAGE_INSTANCE_FACE (ii),
@@ -3015,13 +3011,16 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
     }
   else
     {
-      Lisp_Object instance;
-      Lisp_Object subtable;
+      Lisp_Object instance = Qnil;
+      Lisp_Object subtable = Qnil;
       Lisp_Object ls3 = Qnil;
       Lisp_Object pointer_fg = Qnil;
       Lisp_Object pointer_bg = Qnil;
       Lisp_Object governing_domain =
 	get_image_instantiator_governing_domain (instantiator, domain);
+      struct gcpro gcpro1;
+      
+      GCPRO1 (instance);
 
       /* We have to put subwindow, widget and text image instances in
 	 a per-window cache so that we can see the same glyph in
@@ -3146,7 +3145,7 @@ image_instantiate (Lisp_Object specifier, Lisp_Object matchspec,
 		    DOMAIN_FRAME (domain)));
 #endif
       ERROR_CHECK_IMAGE_INSTANCE (instance);
-      return instance;
+      RETURN_UNGCPRO (instance);
     }
 
   abort ();
@@ -4150,8 +4149,7 @@ static void
 cache_subwindow_instance_in_frame_maybe (Lisp_Object instance)
 {
   Lisp_Image_Instance* ii = XIMAGE_INSTANCE (instance);
-  if (image_instance_type_to_mask (IMAGE_INSTANCE_TYPE (ii))
-      & (IMAGE_WIDGET_MASK | IMAGE_SUBWINDOW_MASK))
+  if (!NILP (DOMAIN_FRAME (IMAGE_INSTANCE_DOMAIN (ii))))
     {
       struct frame* f = DOMAIN_XFRAME (IMAGE_INSTANCE_DOMAIN (ii));
       XWEAK_LIST_LIST (FRAME_SUBWINDOW_CACHE (f))
@@ -4531,8 +4529,8 @@ subwindow_instantiate (Lisp_Object image_instance, Lisp_Object instantiator,
 /* This is just a backup in case no-one has assigned a suitable geometry. 
    #### It should really query the enclose window for geometry. */
 static void
-subwindow_query_geometry (Lisp_Object image_instance, unsigned int* width,
-			  unsigned int* height, enum image_instance_geometry disp,
+subwindow_query_geometry (Lisp_Object image_instance, int* width,
+			  int* height, enum image_instance_geometry disp,
 			  Lisp_Object domain)
 {
   if (width)	*width = 20;

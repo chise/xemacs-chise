@@ -29,9 +29,35 @@ Boston, MA 02111-1307, USA.  */
 #ifndef INCLUDED_syswindows_h_
 #define INCLUDED_syswindows_h_
 
+/* Note that there are currently FOUR different general
+   Windows-related include files in src!
+
+   Uses are approximately:
+
+   syswindows.h: Mostly a wrapper around <windows.h>, including missing
+   defines as necessary.  Also includes stuff needed on both Cygwin and
+   native Windows, regardless of window system chosen.
+
+   console-msw.h: Used on both Cygwin and native Windows, but only when
+   native window system (as opposed to X) chosen.
+
+   nt.h: [will be renamed to win32.h] Used only on native Windows, and
+   regardless of window system chosen -- but used on both purely native
+   Windows (s/windowsnt.h) and MinGW (s/mingw32.h).
+
+   ntheap.h: Used only on native Windows and only when standard dumping
+   mechanism (unexnt.c) used.
+
+   All of the last three files include the first.
+*/
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
 #include <windows.h>
 
-#if (defined (__CYGWIN32__) || defined(__MINGW32__)) && \
+#if (defined (CYGWIN) || defined(MINGW)) && \
 	CYGWIN_VERSION_DLL_MAJOR < 21
 extern BOOL WINAPI DdeFreeStringHandle(DWORD,HSZ);
 extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
@@ -74,7 +100,7 @@ extern BOOL WINAPI PlaySound(LPCSTR,HMODULE,DWORD);
 #endif
 
 /* windows.h defines. */
-#if defined (__CYGWIN32__) && (CYGWIN_VERSION_DLL_MAJOR < 20)
+#if defined (CYGWIN) && (CYGWIN_VERSION_DLL_MAJOR < 20)
 typedef NMHDR *LPNMHDR;
 #endif
 

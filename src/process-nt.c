@@ -36,9 +36,7 @@ Boston, MA 02111-1307, USA.  */
 #include "sysdep.h"
 
 #include <shellapi.h>
-#ifdef __MINGW32__
 #include <errno.h>
-#endif
 #include <signal.h>
 #ifdef HAVE_SOCKETS
 #include <winsock.h>
@@ -53,7 +51,6 @@ struct nt_process_data
   HANDLE h_process;
   DWORD dwProcessId;
   HWND hwnd; /* console window */
-  int need_enable_child_signals;
 };
 
 /* Control how args are quoted to ensure correct parsing by child
@@ -422,7 +419,7 @@ find_child_console (HWND hwnd, struct nt_process_data *cp)
 
       GetClassName (hwnd, window_class, sizeof (window_class));
       if (strcmp (window_class,
-		  msw_windows9x_p ()
+		  mswindows_windows9x_p ()
 		  ? "tty"
 		  : "ConsoleWindowClass") == 0)
 	{
@@ -543,7 +540,7 @@ send_signal_the_95_way (struct nt_process_data *cp, int pid, int signo)
       if (NILP (Vmswindows_start_process_share_console) && cp && cp->hwnd)
 	{
 #if 1
-	  if (msw_windows9x_p ())
+	  if (mswindows_windows9x_p ())
 	    {
 /*
    Another possibility is to try terminating the VDM out-right by
@@ -681,8 +678,8 @@ signal_cannot_launch (Lisp_Object image_file, DWORD err)
 static void
 ensure_console_window_exists (void)
 {
-  if (msw_windows9x_p ())
-    msw_hide_console ();
+  if (mswindows_windows9x_p ())
+    mswindows_hide_console ();
 }
 
 int
@@ -770,7 +767,7 @@ nt_create_process (Lisp_Process *p,
 
       /* Duplicate the stdout handle for use as stderr */
       DuplicateHandle(GetCurrentProcess(), hprocout, GetCurrentProcess(),
-		      &hprocerr, 0, TRUE, DUPLICATE_SAME_ACCESS);
+                      &hprocerr, 0, TRUE, DUPLICATE_SAME_ACCESS);
 
       /* Stupid Win32 allows to create a pipe with *both* ends either
 	 inheritable or not. We need process ends inheritable, and local
@@ -790,6 +787,7 @@ nt_create_process (Lisp_Process *p,
     int i;
     Bufbyte **quoted_args;
     int is_dos_app, is_cygnus_app;
+    int is_command_shell;
     int do_quoting = 0;
     char escape_char = 0;
 
@@ -804,6 +802,30 @@ nt_create_process (Lisp_Process *p,
     mswindows_executable_type (XSTRING_DATA (program),
 			       &is_dos_app, &is_cygnus_app);
 
+    {
+      /* #### Bleeeeeeeeeeeeeeeeech!!!!  The command shells appear to
+	 use '^' as a quote character, at least under NT.  #### I haven't
+	 tested 95.  If it allows no quoting conventions at all, set
+	 escape_char to 0 and the code below will work. (e.g. NT tolerates
+         no quoting -- this command
+
+         cmd /c "ls "/Program Files""
+
+         actually works.) */
+	 
+      struct gcpro gcpro1, gcpro2;
+      Lisp_Object progname = Qnil;
+
+      GCPRO2 (program, progname);
+      progname = Ffile_name_nondirectory (program);
+      progname = Fdowncase (progname, Qnil);
+
+      is_command_shell =
+	internal_equal (progname, build_string ("command.com"), 0)
+	|| internal_equal (progname, build_string ("cmd.exe"), 0);
+      UNGCPRO;
+    }
+	
 #if 0
     /* #### we need to port this. */
     /* On Windows 95, if cmdname is a DOS app, we invoke a helper
@@ -860,7 +882,7 @@ nt_create_process (Lisp_Process *p,
 	if (INTP (Vmswindows_quote_process_args))
 	  escape_char = (char) XINT (Vmswindows_quote_process_args);
 	else
-	  escape_char = is_cygnus_app ? '"' : '\\';
+	  escape_char = is_command_shell ? '^' : is_cygnus_app ? '"' : '\\';
       }
   
     /* do argv...  */
@@ -879,7 +901,8 @@ nt_create_process (Lisp_Process *p,
 	    if (*p == '"')
 	      {
 		/* allow for embedded quotes to be escaped */
-		arglen++;
+		if (escape_char)
+		  arglen++;
 		need_quotes = 1;
 		/* handle the case where the embedded quote is already escaped */
 		if (escape_char_run > 0)
@@ -895,7 +918,7 @@ nt_create_process (Lisp_Process *p,
 		need_quotes = 1;
 	      }
 
-	    if (*p == escape_char && escape_char != '"')
+	    if (escape_char && *p == escape_char && escape_char != '"')
 	      escape_char_run++;
 	    else
 	      escape_char_run = 0;
@@ -955,7 +978,7 @@ nt_create_process (Lisp_Process *p,
 #else
 	    for ( ; *p; p++)
 	      {
-		if (*p == '"')
+		if (escape_char && *p == '"')
 		  {
 		    /* double preceding escape chars if any */
 		    while (escape_char_run > 0)
@@ -968,7 +991,7 @@ nt_create_process (Lisp_Process *p,
 		  }
 		*parg++ = *p;
 
-		if (*p == escape_char && escape_char != '"')
+		if (escape_char && *p == escape_char && escape_char != '"')
 		  escape_char_run++;
 		else
 		  escape_char_run = 0;
@@ -1120,7 +1143,7 @@ nt_create_process (Lisp_Process *p,
       }
 
     flags = CREATE_SUSPENDED;
-    if (msw_windows9x_p ())
+    if (mswindows_windows9x_p ())
       flags |= (!NILP (Vmswindows_start_process_share_console)
 		? CREATE_NEW_PROCESS_GROUP
 		: CREATE_NEW_CONSOLE);
@@ -1168,17 +1191,11 @@ nt_create_process (Lisp_Process *p,
 	CloseHandle (pi.hProcess);
       }
 
+    if (!windowed)
+      enable_child_signals (pi.hProcess);
+
     ResumeThread (pi.hThread);
     CloseHandle (pi.hThread);
-
-    /* Remember to enable child signals later if this is not a windowed
-       app.  Can't do it right now because that screws up the MKS Toolkit
-       shell. */
-    if (!windowed)
-      {
-	NT_DATA(p)->need_enable_child_signals = 10;
-	kick_status_notify ();
-      }
 
     return ((int)pi.dwProcessId);
   }
@@ -1196,18 +1213,6 @@ static void
 nt_update_status_if_terminated (Lisp_Process* p)
 {
   DWORD exit_code;
-
-  if (NT_DATA(p)->need_enable_child_signals > 1)
-    {
-      NT_DATA(p)->need_enable_child_signals -= 1;
-      kick_status_notify ();
-    }
-  else if (NT_DATA(p)->need_enable_child_signals == 1)
-    {
-      enable_child_signals(NT_DATA(p)->h_process);
-      NT_DATA(p)->need_enable_child_signals = 0;
-    }
-
   if (GetExitCodeProcess (NT_DATA(p)->h_process, &exit_code)
       && exit_code != STILL_ACTIVE)
     {
@@ -1309,14 +1314,6 @@ nt_kill_child_process (Lisp_Object proc, int signo,
 		       int current_group, int nomsg)
 {
   Lisp_Process *p = XPROCESS (proc);
-
-  /* Enable child signals if necessary.  This may lose the first
-     but it's better than nothing. */
-  if (NT_DATA (p)->need_enable_child_signals > 0)
-    {
-      enable_child_signals (NT_DATA(p)->h_process);
-      NT_DATA (p)->need_enable_child_signals = 0;
-    }
 
   /* Signal error if SIGNO cannot be sent */
   validate_signal_number (signo);

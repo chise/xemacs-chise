@@ -1,3 +1,281 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-18 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.el (selection-coercible-types): Initialise.
+
+2000-07-18 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.el (own-clipboard): Bug fix.
+
+2000-07-17  Mike Sperber  <mike@xemacs.org>
+
+	* cus-edit.el (custom-migrate-custom-file): Save init file before
+	continuing.
+
+2000-07-16  Mike Sperber  <mike@xemacs.org>
+
+	* startup.el (load-init-file): Remove silly call to
+	`load-user-custom-file`.
+	(maybe-migrate-user-init-file): Minor fixes.
+
+2000-07-16  Martin Buchholz  <martin@xemacs.org>
+
+	* apropos.el (apropos-documentation-check-doc-file): 
+	`doc' variable should be let-bound, as was presumably intended.
+
+	* cus-edit.el (custom-variable-reset-saved): 
+	(custom-variable-reset-standard): 
+	Remove unused variable comment-widget.  Twice.
+
+	* toolbar.el (toolbar-blank-press-function): 
+	Add a real defvar with initial value nil and proper docstring.
+	(press-toolbar-button): No need to check for boundp-ness anymore.
+
+	* rect.el (open-rectangle-line): Remove useless (let) form.
+	Add defvar for pending-delete-mode.
+
+	* info.el (Info-find-node): This function needs an autoload cookie.
+
+	* mule/mule-x-init.el (x-use-halfwidth-roman-font): 
+	Use let* since the second form referred to the first.
+
+2000-07-16  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* msw-select.el (mswindows-paste-clipboard): Use `get-clipboard'
+	instead of removed `mswindows-get-clipboard'.
+
+
+2000-07-15 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.el (select-convert-from-text): New.
+	* select.el (select-convert-from-length): New.
+	* select.el (select-convert-from-integer): New.
+	* select.el (select-convert-from-identity): New.
+	* select.el (select-convert-from-filename): New.
+	* select.el (selection-converter-in-alist): Use them.
+	New converter functions for X.
+
+	* select.el (get-selection): Removed comment.
+
+	* select.el (own-selection): Removed append code - I thought
+	I'd already done this, but apparently not...
+
+	* select.el: Changed comment about TIMESTAMP.
+
+	* select.el (select-convert-in): New.
+	* select.el (select-convert-out): New.
+	New functions that get used by select.c.
+
+	* select.el (select-buffer-killed-default): New.
+	* select.el (select-buffer-killed-text): New.
+	* select.el (selection-buffer-killed-alist): New.
+	New list and functions that get called if a relevant selection
+	exists and a buffer gets killed.
+
+	* select.el (select-convert-to-targets):
+	* select.el (select-convert-to-identity): Removed.
+	* select.el (select-convert-from-identity): Removed.
+	* select.el (select-converter-out-alist):
+	Removed _EMACS_INTERNAL selection type.
+
+	* x-select.el (xselect-kill-buffer-hook): Removed.
+	* x-select.el (xselect-kill-buffer-hook-1): Removed.
+	Removed this X-specific nonesense. Use the generic support
+	in select.el instead.
+
+2000-07-15  Martin Buchholz  <martin@xemacs.org>
+
+	* mule/mule-category.el (defined-category-hashtable): 
+	Use make-hash-table instead of make-hashtable
+
+	* buff-menu.el: Byte-compiler warning fix.
+
+	* isearch-mode.el (isearch-highlight-all-cleanup): 
+	Remove unused variable `isearch-highlight-all-start'.
+
+	* etags.el (add-to-tag-completion-table): Byte-compiler warning fix.
+
+	* itimer.el (itimer-edit-mode): Byte-compiler warning fixes.
+
+	* cus-dep.el (Custom-make-dependencies): 
+	Add autoload cookie for custom-add-loads to generated custom-load.el.
+
+	* autoload.el (autoload-package-name): Warning suppression.
+	Move defvar prior to first use.
+
+	* custom.el: Add autoload for custom-declare-face.
+	Allow `xemacs -no-autoloads -l bytecomp -f batch-byte-compile ...'
+	* cl.el (cl-hack-byte-compiler): 
+	Allow `xemacs -no-autoloads -l bytecomp -f batch-byte-compile ...'
+	to work properly.
+
+2000-07-08  Mike Sperber  <mike@xemacs.org>
+
+	* startup.el (load-home-init-file): Added variable.
+	(maybe-migrate-user-init-file): Added.
+	(load-user-init-file): Load custom file if different from init
+	file.
+
+	* dumped-lisp.el (preloaded-file-list): Added "cus-file" before
+	"startup."
+
+	* cus-edit.el (custom-migrate-custom-file): Added for migration.
+	Moved `custom-file'-related code to cus-file.el.
+
+	* cus-file.el: New file.
+
+2000-04-01  Mike Sperber  <mike@xemacs.org>
+
+	* packages.el (packages-find-package-directories): Added support
+	for external package hierarchies with in-place installations.
+
+	* find-paths.el (paths-root-in-place-p): Added.
+	(paths-find-emacs-directory): Added support for external
+	directories with in-place installations.
+	(paths-find-site-directory): Ditto.
+
+	* startup.el (find-user-init-file): Also look for
+	~/.xemacs/init.elc? in preference to ~/.emacs.
+
+2000-07-12 Alastair J. Houghton <ajhoughton@lineone.net>
+
+	* select.el (own-selection):
+	* select.el (own-clipboard): Changed `append' parameter to
+	`how-to-use' parameter.
+	* select.el (own-selection): Removed icky append code.
+	* select.el (own-selection, get-selection): Removed extra type
+	checking.
+	* select.el (selection-appender-alist):
+	* select.el (selection-converter-{in|out}-alist): Initialise.
+	* select.el (select-append-to-*): New.
+	* select.el (select-convert-from-*): New.  New functions to append
+	data and convert data from external type.
+
+2000-07-12  Stef Epardaud  <stef@lunatech.com>
+
+	* font-lock.el: Javadoc enhancements.
+
+2000-07-06  Kirill 'Big K' Katsnelson  <kkm@dtmx.com>
+
+	* printer.el (generic-print-region): Compose job name from buffer
+	name.
+
+2000-07-06  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* font-lock.el (font-lock-fontify-pending-extents): Call
+	font-lock-fontify-region instead of font-lock-fontify-buffer
+	to avoid unnecessary progress gauges.
+
+2000-07-06  Craig Lanning  <lanning@scra.org>
+
+	* custom-load.el (faces):
+
+        * finder.el (finder-compile-keywords): from Dan Holmsand, make sure
+        dir is a regex.
+
+        * process.el (call-process-internal): from Dan Holmsand, use binary
+        coding systems so that jka-compr works.
+
+2000-07-07  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el: Undo previous change.  Unfortunately, some
+	files actually use the variables directly in their init code
+	without quoting them.
+
+2000-07-07  Ben Wing  <ben@xemacs.org>
+
+	* font-lock.el (defvar font-lock-*-face): Removed.
+
+	* font-lock.el (font-lock-apply-highlight): Bind these face vars
+	only when necessary.
+
+2000-06-30  Charles G Waldman  <cgw@alum.mit.edu>
+	
+	* cl-macs.el: fix cl-transform-function-property kludge
+	so that it does not require a random feature.
+
+2000-06-09  Karl M. Hegbloom  <karlheg@bittersweet.inetarena.com>
+
+	* files.el (auto-mode-alist): allow .make extension for Makefiles,
+	as in Linux kernel "Rules.make".
+
+2000-06-29  Gunnar Evermann  <ge204@eng.cam.ac.uk>
+
+	* build-report.el (build-report): Add autoload cookie.
+
+2000-06-21  Charles G Waldman  <cgw@alum.mit.edu>
+
+	* package-ui.el (defgroup pui):  Correct a misspelling
+	(pui-toggle-package-delete):  Change `seleted' to `selected'
+	
+2000-06-12  Jan Vroonhof  <vroonhof@math.ethz.ch>
+
+	* package-get.el (package-get-update-base):	
+	(package-get): Use insert-file-contents-literally always.
+	(package-get-maybe-save-index):
+	Force coding system for writing to binary.
+
+2000-06-08  Mike Alexander  <mta@arbortext.com>
+
+	* code-process.el (call-process-region): If there is no coding
+	system for the process on process-coding-system-alist use the
+	coding system of the buffer containing the region.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* cmdloop.el (command-error):
+	If debug-on-error and noninteractive, output backtrace.
+
+	* files.el (file-relative-name):
+	Remove MSDOS references.
+
+	* simple.el (line-number): New function, due to non-obvious
+	behavior/usage of count-lines.
+
+	* simple.el (count-lines): document non-obvious usage to get
+	line number.
+
+2000-06-11  Ben Wing  <ben@xemacs.org>
+
+	* faces.el ((featurep 'xpm)):
+	* x-faces.el (x-init-face-from-resources):
+	* x-faces.el (x-init-frame-faces):
+	* x-misc.el (x-init-specifier-from-resources):
+	* x-misc.el (x-get-resource-and-bogosity-check):
+	* x-misc.el (x-get-resource-and-maybe-bogosity-check):
+	* x-mouse.el (x-init-pointer-shape):
+	* x-scrollbar.el (x-init-scrollbar-from-resources):
+	Add sixth argument to x-get-resource calls so as to issue warnings
+	rather than errors on bogus arguments.
+
+2000-06-05  Ben Wing  <ben@xemacs.org>
+
+	* compat.el: new file.  provides a clean, non-intrusive way to
+	define compatibility functions.
+
+	* process.el (shell-quote-argument): temporary fix for lack
+	of nt-quote-process-args.  #### I need to put back the overall
+	structure of that mechanism but redo the guts of it using the
+	extra intelligence in the C code.
+
+2000-05-28  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* package-info.el (pi-md5sum): Calculate MD5 sum just like
+	`package-get' does in package-get.el, instead of using external
+	"md5sum" program.
+
+	* package-get.el (package-get): Insert package file literally to
+	make checksum calculation work.
+
+2000-04-18  Hrvoje Niksic  <hniksic@iskon.hr>
+
+	* code-files.el (convert-mbox-coding-system): Deleted.
+	(file-coding-system-alist): Removed reference to
+	convert-mbox-coding-system.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.
@@ -226,7 +504,7 @@
 	* gutter-items.el (make-search-dialog):
 	Change to new callback-ex api.
 
-2000-04-26  Björn Torkelsson  <torkel@hpc2n.umu.se>
+2000-04-26  Bjrn Torkelsson  <torkel@hpc2n.umu.se>
 
 	* help.el: (describe-installation): decode-coding-string is not
 	defined in a non MULE environment.

@@ -91,13 +91,22 @@ struct console_methods
   void (*delete_device_method) (struct device *);
   void (*mark_device_method) (struct device *);
   void (*asynch_device_change_method) (void);
-  Lisp_Object (*device_system_metrics_method) (struct device *, enum device_metrics);
+  Lisp_Object (*device_system_metrics_method) (struct device *,
+                                               enum device_metrics);
   unsigned int (*device_implementation_flags_method) (void);
-  Lisp_Object (*own_selection_method)(Lisp_Object selection_name, Lisp_Object selection_value);
-  void (*disown_selection_method)(Lisp_Object selection_name, Lisp_Object timeval);
-    Lisp_Object (*get_foreign_selection_method) (Lisp_Object selection_symbol,
-						 Lisp_Object target_type);
-  Lisp_Object (*selection_exists_p_method)(Lisp_Object selection_name);
+  Lisp_Object (*own_selection_method)(Lisp_Object selection_name,
+                                      Lisp_Object selection_value,
+                                      Lisp_Object how_to_add,
+                                      Lisp_Object selection_type);
+  void (*disown_selection_method)(Lisp_Object selection_name,
+                                  Lisp_Object timeval);
+  Lisp_Object (*get_foreign_selection_method) (Lisp_Object selection_symbol,
+                                               Lisp_Object target_type);
+  Lisp_Object (*selection_exists_p_method)(Lisp_Object selection_name,
+                                           Lisp_Object selection_type);
+  Lisp_Object (*available_selection_types_method)(Lisp_Object selection_name);
+  Lisp_Object (*register_selection_data_type_method)(Lisp_Object type_name);
+  Lisp_Object (*selection_data_type_name_method)(Lisp_Object type);
 
   /* frame methods */
   Lisp_Object *device_specific_frame_props;

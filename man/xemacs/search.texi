@@ -77,7 +77,7 @@ only if the next command you want to type is a printing character,
 within searches (@kbd{C-q}, @kbd{C-w}, @kbd{C-r}, @kbd{C-s}, or @kbd{C-y}).
 
   Sometimes you search for @samp{FOO} and find it, but were actually
-looking for a different occurance of it.  To move to the next occurrence
+looking for a different occurence of it.  To move to the next occurrence
 of the search string, type another @kbd{C-s}.  Do this as often as
 necessary.  If you overshoot, you can cancel some @kbd{C-s}
 characters with @key{DEL}.

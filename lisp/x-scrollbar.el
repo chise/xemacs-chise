@@ -80,7 +80,7 @@
   ;; Now do ScrollBarPlacement.scrollBarPlacement
   (let ((case-fold-search t)
 	(resval (x-get-resource "ScrollBarPlacement" "scrollBarPlacement"
-				'string locale)))
+				'string locale nil 'warn)))
     (cond
      ((null resval))
      ((string-match "^top[_-]left$" resval)

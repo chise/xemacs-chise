@@ -105,8 +105,10 @@ If you quit, the process is killed with SIGINT, or SIGKILL if you
 	      (setq infile (expand-file-name infile))
 	      (setq inbuf (generate-new-buffer "*call-process*"))
 	      (with-current-buffer inbuf
-		(insert-file-contents-internal infile nil nil nil nil
-					       coding-system-for-read)))
+               ;; Make sure this works with jka-compr
+               (let ((file-name-handler-alist nil))
+                 (insert-file-contents-internal infile nil nil nil nil
+                                                'binary))))
 	    (let ((stderr (if (consp buffer) (second buffer) t)))
 	      (if (consp buffer) (setq buffer (car buffer)))
 	      (setq buffer
@@ -429,8 +431,14 @@ lost packets."
 
 (defun shell-quote-argument (argument)
   "Quote an argument for passing as argument to an inferior shell."
-  (if (eq system-type 'windows-nt)
-      (nt-quote-process-args (list shell-file-name argument))
+  (if (and (eq system-type 'windows-nt)
+	   ;; #### this is a temporary hack.  a better solution needs
+	   ;; futzing with the c code.  i'll do this shortly.
+	   (let ((progname (downcase (file-name-nondirectory
+				      shell-file-name))))
+	     (or (equal progname "command.com")
+		 (equal progname "cmd.exe"))))
+      argument
     ;; Quote everything except POSIX filename characters.
     ;; This should be safe enough even for really weird shells.
     (let ((result "") (start 0) end)

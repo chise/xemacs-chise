@@ -205,22 +205,42 @@ environment's mail spool locking conventions.  When you're using a
 binary kit, set the `mail-lock-method' variable at startup, or the
 EMACSLOCKMETHOD environment variable.
 
+** Init file will move to ~/.xemacs/init.el.
+
+If `~/.xemacs/init.el' exists, XEmacs will prefer it over `~/.emacs'
+as an init file.  The file may be byte-compiled as
+`~/.xemacs/init.elc'.
+
+Future versions of XEmacs will stop supporting `~/.emacs' as an init
+file.  XEmacs offers automatic migration upon startup.
+
+** Custom file will move to ~/.xemacs/custom.el.
+
+Whereas customize settings were formerly stored in the regular init
+file, XEmacs now prefers them to be in a separate file
+`~/.xemacs/custom.el', completely under automatic control.  This
+change goes with the migration of the init file, and XEmacs offers
+automatic migration upon startup.
+
+** Init file may be called .emacs.el.
+
+For the time being, like in GNU Emacs 20.4 and on, you can now name
+the XEmacs init file `.emacs.el'.  Formerly the name had to be
+`.emacs'.  If you use the name `.emacs.el', you can byte-compile the
+file in the usual way.
+
+If both `.emacs' and `.emacs.el' exist, the latter file is the one
+that is used.
+
 ** New command-line switches -user-init-file and -user-init-directory.
 These can be used to specify alternate locations for what is normally
 ~/.emacs and ~/.xemacs.
 
 Moreover, -user <user> (which used to only work in unpredictable ways)
-is now equivalent to
--user-init-file ~<user>/.emacs -user-init-directory ~<user>/.xemacs.
-
-** Init file may be called .emacs.el.
-
-Like in GNU Emacs 20.4 and on, you can now name the XEmacs init file
-`.emacs.el'.  Formerly the name had to be `.emacs'.  If you use the
-name `.emacs.el', you can byte-compile the file in the usual way.
-
-If both `.emacs' and `.emacs.el' exist, the latter file is the one
-that is used.
+is now equivalent to -user-init-file ~<user>/.xemacs/init.el
+-user-init-directory ~<user>/.xemacs.  or -user-init-file
+~<user>/.emacs -user-init-directory ~<user>/.xemacs, whichever init
+file comes first.
 
 ** New variable `mswindows-meta-activates-menu'.
 If you set this variable to nil then pressing and releasing the Alt

@@ -42,7 +42,7 @@ Boston, MA 02111-1307, USA.  */
  *
  ***********************************************************************/
 
-#include ATHENA_INCLUDE(Label.h)
+#include ATHENA_Label_h_
 
 /* Resources:
 

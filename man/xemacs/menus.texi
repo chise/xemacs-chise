@@ -345,19 +345,19 @@ After you  select this item, any time you execute a command with
 alternate binding before the command executes.
 
 @item Syntax Highlighting
-You can customize your @code{.emacs} file to include the font-lock 
-mode so that when you select this item, the comments will be 
-displayed in one face, strings in another, reserved words in another, 
-and so on. When @b{Fonts} is selected, different parts of the program 
-will appear in different Fonts. When @b{Colors} is selected, then the 
-program will be displayed in different colors. Selecting @b{None} 
-causes the program to appear in just one Font and Color. Selecting 
-@b{Less} resets the Fonts and Colors to a fast, minimal set of 
-decorations. Selecting @b{More} resets the Fonts and Colors to a larger 
-set of decorations. For example, if @b{Less} is selected (which is the 
-default setting) then you might have all comments in green color. 
-Whereas, if @b{More} is selected then a function name in the comments 
-themselves might appear in a different Color or Font.@refill
+You can customize your init file to include the font-lock mode so that
+when you select this item, the comments will be displayed in one face,
+strings in another, reserved words in another, and so on. @xref{Init
+File}.  When @b{Fonts} is selected, different parts of the program will
+appear in different Fonts. When @b{Colors} is selected, then the program
+will be displayed in different colors. Selecting @b{None} causes the
+program to appear in just one Font and Color. Selecting @b{Less} resets
+the Fonts and Colors to a fast, minimal set of decorations. Selecting
+@b{More} resets the Fonts and Colors to a larger set of decorations. For
+example, if @b{Less} is selected (which is the default setting) then you
+might have all comments in green color.  Whereas, if @b{More} is
+selected then a function name in the comments themselves might appear in
+a different Color or Font.@refill
 
 @item Paren Highlighting
 After selecting @b{Blink} from this item, if you place the cursor 
@@ -390,7 +390,7 @@ available will be selecting that buffer.
 
 @item Save Options
 Selecting this item will save the current settings of your Options 
-menu to your @code{.emacs} file.
+menu to your init file.  @xref{Init File}.
 @end table
 
 @node Buffers Menu

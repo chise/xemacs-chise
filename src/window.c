@@ -282,7 +282,7 @@ allocate_window (void)
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->line_start_cache = Dynarr_new (line_start_cache);
   p->subwindow_instance_cache = make_lisp_hash_table (30,
-						      HASH_TABLE_KEY_WEAK,
+						      HASH_TABLE_KEY_VALUE_WEAK,
 						      HASH_TABLE_EQUAL);
   p->line_cache_last_updated = Qzero;
   INIT_DISP_VARIABLE (last_point_x, 0);
@@ -3519,7 +3519,7 @@ make_dummy_parent (Lisp_Object window)
   p->glyph_cachels    = Dynarr_new (glyph_cachel);
   p->subwindow_instance_cache = 
     make_lisp_hash_table (30,
-			  HASH_TABLE_KEY_WEAK,
+			  HASH_TABLE_KEY_VALUE_WEAK,
 			  HASH_TABLE_EQUAL);
 
   /* Put new into window structure in place of window */
@@ -5369,7 +5369,7 @@ by `current-window-configuration' (which see).
 	     it up as needed. */
 	  w->subwindow_instance_cache =
 	    make_lisp_hash_table (30,
-				  HASH_TABLE_KEY_WEAK,
+				  HASH_TABLE_KEY_VALUE_WEAK,
 				  HASH_TABLE_EQUAL);
 	  SET_LAST_MODIFIED (w, 1);
 	  SET_LAST_FACECHANGE (w);

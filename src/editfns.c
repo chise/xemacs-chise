@@ -28,9 +28,6 @@ Boston, MA 02111-1307, USA.  */
 
 #include <config.h>
 #include "lisp.h"
-#ifdef HAVE_UNISTD_H
-#include <unistd.h>
-#endif
 
 #include "buffer.h"
 #include "commands.h"
@@ -606,20 +603,20 @@ If BUFFER is nil, the current buffer is assumed.
 
 DEFUN ("temp-directory", Ftemp_directory, 0, 0, 0, /*
 Return the pathname to the directory to use for temporary files.
-On NT/MSDOS, this is obtained from the TEMP or TMP environment variables,
+On MS Windows, this is obtained from the TEMP or TMP environment variables,
 defaulting to / if they are both undefined.
 On Unix it is obtained from TMPDIR, with /tmp as the default
 */
        ())
 {
   char *tmpdir;
-#if defined(WINDOWSNT) || defined(MSDOS)
+#if defined(WIN32_NATIVE)
   tmpdir = getenv ("TEMP");
   if (!tmpdir)
     tmpdir = getenv ("TMP");
   if (!tmpdir)
     tmpdir = "/";
-#else /* WINDOWSNT || MSDOS */
+#else /* WIN32_NATIVE */
  tmpdir = getenv ("TMPDIR");
  if (!tmpdir)
    tmpdir = "/tmp";
@@ -681,7 +678,7 @@ user_login_name (uid_t *uid)
       char *user_name = getenv ("LOGNAME");
       if (!user_name)
 	user_name = getenv (
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 			    "USERNAME" /* it's USERNAME on NT */
 #else
 			    "USER"
@@ -692,7 +689,7 @@ user_login_name (uid_t *uid)
       else
 	{
 	  struct passwd *pw = getpwuid (geteuid ());
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
 	  /* Since the Cygwin environment may not have an /etc/passwd,
 	     return "unknown" instead of the null if the username
 	     cannot be determined.
@@ -716,14 +713,7 @@ This ignores the environment variables LOGNAME and USER, so it differs from
   struct passwd *pw = getpwuid (getuid ());
   /* #### - I believe this should return nil instead of "unknown" when pw==0 */
 
-#ifdef MSDOS
-  /* We let the real user name default to "root" because that's quite
-     accurate on MSDOG and because it lets Emacs find the init file.
-     (The DVX libraries override the Djgpp libraries here.)  */
-  Lisp_Object tem = build_string (pw ? pw->pw_name : "root");/* no gettext */
-#else
   Lisp_Object tem = build_string (pw ? pw->pw_name : "unknown");/* no gettext */
-#endif
   return tem;
 }
 
@@ -840,7 +830,7 @@ get_home_directory (void)
     {
       if ((cached_home_directory = (Extbyte *) getenv("HOME")) == NULL)
 	{
-#if defined(WINDOWSNT) && !defined(__CYGWIN32__)
+#if defined(WIN32_NATIVE)
 	  char *homedrive, *homepath;
 
 	  if ((homedrive = getenv("HOMEDRIVE")) != NULL &&
@@ -880,7 +870,7 @@ get_home_directory (void)
 	      output_home_warning = 1;
 # endif
 	    }
-#else	/* !WINDOWSNT */
+#else	/* !WIN32_NATIVE */
 	  /*
 	   * Unix, typically.
 	   * Using "/" isn't quite right, but what should we do?
@@ -889,7 +879,7 @@ get_home_directory (void)
 	   */
 	  cached_home_directory = (Extbyte *) "/";
 	  output_home_warning = 1;
-#endif	/* !WINDOWSNT */
+#endif	/* !WIN32_NATIVE */
 	}
       if (initialized && output_home_warning)
 	{

@@ -719,9 +719,18 @@ BUFFER defaults to the current buffer."
 		 (message "Line %d" buffer-line)))))))
   (setq zmacs-region-stays t))
 
-;;; Bob Weiner, Altrasoft, 02/12/1998
-;;; Added the 3rd arg in `count-lines' to conditionalize the counting of
-;;; collapsed lines.
+;; new in XEmacs 21.2 (not in FSF).
+(defun line-number (&optional pos respect-narrowing)
+  "Return the line number of POS (defaults to point).
+If RESPECT-NARROWING is non-nil, then the narrowed line number is returned;
+otherwise, the absolute line number is returned.  The returned line can always
+be given to `goto-line' to get back to the current line."
+  (if (and pos (/= pos (point)))
+      (save-excursion
+	(goto-char pos)
+	(line-number nil respect-narrowing))
+    (1+ (count-lines (if respect-narrowing (point-min) 1) (point-at-bol)))))
+
 (defun count-lines (start end &optional ignore-invisible-lines-flag)
   "Return number of lines between START and END.
 This is usually the number of newlines between them,
@@ -729,7 +738,13 @@ but can be one more if START is not equal to END
 and the greater of them is not at the start of a line.
 
 With optional IGNORE-INVISIBLE-LINES-FLAG non-nil, lines collapsed with
-selective-display are excluded from the line count."
+selective-display are excluded from the line count.
+
+NOTE: The expression to return the current line number is not obvious:
+
+(1+ (count-lines 1 (point-at-bol)))
+
+See also `line-number'."
   (save-excursion
     (save-restriction
       (narrow-to-region start end)

@@ -46,7 +46,7 @@ internals.info-4: 143504
 internals.info-5: 193454
 internals.info-6: 243017
 internals.info-7: 286634
-internals.info-8: 335500
+internals.info-8: 335501
 
 Tag Table:
 (Indirect)
@@ -156,34 +156,34 @@ Node: Internal Mule Encodings309491
 Node: Internal String Encoding311321
 Node: Internal Character Encoding313466
 Node: CCL315190
-Node: The Lisp Reader and Compiler321942
-Node: Lstreams322155
-Node: Creating an Lstream323186
-Node: Lstream Types324413
-Node: Lstream Functions324665
-Node: Lstream Methods328231
-Node: Consoles; Devices; Frames; Windows331373
-Node: Introduction to Consoles; Devices; Frames; Windows331688
-Node: Point334221
-Node: Window Hierarchy335500
-Node: The Window Object339948
-Node: The Redisplay Mechanism343385
-Node: Critical Redisplay Sections344177
-Node: Line Start Cache345164
-Node: Redisplay Piece by Piece348400
-Node: Extents350437
-Node: Introduction to Extents350971
-Node: Extent Ordering352113
-Node: Format of the Extent Info353354
-Node: Zero-Length Extents355241
-Node: Mathematics of Extent Ordering356639
-Node: Extent Fragments361396
-Node: Faces362482
-Node: Glyphs362598
-Node: Specifiers365615
-Node: Menus365744
-Node: Subprocesses368002
-Node: Interface to X Windows369978
-Node: Index370149
+Node: The Lisp Reader and Compiler321943
+Node: Lstreams322156
+Node: Creating an Lstream323187
+Node: Lstream Types324414
+Node: Lstream Functions324666
+Node: Lstream Methods328232
+Node: Consoles; Devices; Frames; Windows331374
+Node: Introduction to Consoles; Devices; Frames; Windows331689
+Node: Point334222
+Node: Window Hierarchy335501
+Node: The Window Object339949
+Node: The Redisplay Mechanism343386
+Node: Critical Redisplay Sections344178
+Node: Line Start Cache345165
+Node: Redisplay Piece by Piece348401
+Node: Extents350438
+Node: Introduction to Extents350972
+Node: Extent Ordering352114
+Node: Format of the Extent Info353355
+Node: Zero-Length Extents355242
+Node: Mathematics of Extent Ordering356640
+Node: Extent Fragments361397
+Node: Faces362483
+Node: Glyphs362599
+Node: Specifiers365616
+Node: Menus365745
+Node: Subprocesses368003
+Node: Interface to X Windows369979
+Node: Index370150
 
 End Tag Table

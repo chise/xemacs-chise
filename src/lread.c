@@ -1029,7 +1029,7 @@ locate_file_in_directory_mapper (char *fn, void *arg)
 	  if (closure->storeptr)
 	    *closure->storeptr = build_string (fn);
 
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 	  /* If we actually opened the file, set close-on-exec flag
 	     on the new descriptor so that subprocesses can't whack
 	     at it.  */

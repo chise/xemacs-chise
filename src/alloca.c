@@ -86,7 +86,7 @@ void xfree (pointer);
 # endif
 #endif
 
-#ifndef WINDOWSNT
+#ifndef NULL
 #define	NULL	0
 #endif
 
@@ -103,7 +103,7 @@ void xfree (pointer);
 #ifndef emacs
 #define malloc xmalloc
 #endif
-#ifndef WINDOWSNT
+#ifndef WIN32_NATIVE
 extern pointer malloc ();
 #else
 extern void *malloc();

@@ -1,3 +1,63 @@
+2000-07-19  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.35 is released.
+
+2000-07-10  Martin Buchholz  <martin@xemacs.org>
+
+	* Makefile: rm -f ==> $(RM)
+
+2000-07-09  Martin Buchholz  <martin@xemacs.org>
+
+	* lispref/postgresql.texi: 
+	- Don't mention ".so" extension.
+	- Make installation instructions more generic.
+	- Mention M-x describe-installation.
+
+2000-07-08  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Q6.4.1): Update the perennial nonstart under
+	Windows problem with binary locs and latest info.
+
+2000-06-17  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* lispref/glyphs.texi: Fix trivial typos.
+	* lispref/gutter.texi: Ditto.
+	* lispref/loading.texi: Ditto.
+	* lispref/postgresql.texi: Ditto.
+
+2000-06-14  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* internals/internals.texi (Markers and Extents): Fix trivial typo.
+
+2000-06-11  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* make-stds.texi: Fix trivial typos.
+	* xemacs-faq.texi: Ditto.
+	* internals/internals.texi: Ditto.
+	* new-users-guide/edit.texi: Ditto.
+	* new-users-guide/modes.texi: Ditto.
+	* new-users-guide/region.texi: Ditto.
+
+2000-06-10  Ben Wing  <ben@xemacs.org>
+
+	* xemacs-faq.texi (Q6.1.2):
+	* xemacs-faq.texi (Q6.1.5):
+	* xemacs-faq.texi (Q6.1.6):
+	Corrections for Cygwin, MinGW.
+
+2000-06-07  Adrian Aichner  <aichner@ecf.teradyne.com>
+
+	* xemacs/basic.texi: Fix trivial typos.
+	* xemacs/buffers.texi: Fix trivial typos.
+	* xemacs/building.texi: Ditto.
+	* xemacs/glossary.texi: Ditto.
+	* xemacs/gnu.texi: Ditto.
+	* xemacs/help.texi: Ditto.
+	* xemacs/keystrokes.texi: Ditto.
+	* xemacs/programs.texi: Ditto.
+	* xemacs/search.texi: Ditto.
+	* xemacs/sending.texi: Ditto.
+
 2000-05-28  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.34 is released.

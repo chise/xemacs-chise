@@ -303,11 +303,11 @@ file_name_completion (Lisp_Object file, Lisp_Object directory, int all_flag,
 
   CHECK_STRING (file);
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
   /* Filename completion on Windows ignores case, since Windows
      filesystems do.  */
   specbind (Qcompletion_ignore_case, Qt);
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
 #ifdef FILE_SYSTEM_CASE
   file = FILE_SYSTEM_CASE (file);
@@ -508,7 +508,7 @@ file_name_completion (Lisp_Object file, Lisp_Object directory, int all_flag,
 
 
 /* The *pwent() functions do not exist on NT */
-#ifndef  WINDOWSNT
+#ifndef  WIN32_NATIVE
 
 static Lisp_Object user_name_completion (Lisp_Object user,
                                          int all_flag,
@@ -707,7 +707,7 @@ user_name_completion (Lisp_Object user, int all_flag, int *uniq)
     return Qt;
   return Fsubstring (bestmatch, Qzero, make_int (bestmatchsize));
 }
-#endif   /* ! defined WINDOWSNT */
+#endif   /* ! defined WIN32_NATIVE */
 
 
 Lisp_Object
@@ -796,7 +796,7 @@ If file does not exist, returns nil.
   directory = Ffile_name_directory (filename);
 #endif
 
-#ifdef MSDOS
+#if 0 /* #### shouldn't this apply to WIN32_NATIVE and maybe CYGWIN? */
   {
     char *tmpnam = (char *) XSTRING_DATA (Ffile_name_nondirectory (filename));
     int l = strlen (tmpnam);
@@ -810,7 +810,7 @@ If file does not exist, returns nil.
 	s.st_mode |= S_IEXEC;
       }
   }
-#endif /* MSDOS */
+#endif
 
   switch (s.st_mode & S_IFMT)
     {
@@ -873,7 +873,7 @@ syms_of_dired (void)
   DEFSUBR (Fdirectory_files);
   DEFSUBR (Ffile_name_completion);
   DEFSUBR (Ffile_name_all_completions);
-#ifndef  WINDOWSNT
+#ifndef  WIN32_NATIVE
   DEFSUBR (Fuser_name_completion);
   DEFSUBR (Fuser_name_completion_1);
   DEFSUBR (Fuser_name_all_completions);

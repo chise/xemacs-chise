@@ -19,8 +19,8 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.*/
 
 #include <config.h>
-#include <stdio.h>
 #include "lisp.h"
+
 #include <unistd.h>
 #include <sheap-adjust.h>
 
@@ -40,6 +40,7 @@ unsigned long	static_heap_size=STATIC_HEAP_SIZE;
 int 	static_heap_initialized=0;
 int 	static_heap_dumped=0;
 
+void* more_static_core ( ptrdiff_t increment );
 void* more_static_core ( ptrdiff_t increment )
 {
   int size = (int) increment;
@@ -58,7 +59,7 @@ void* more_static_core ( ptrdiff_t increment )
       static_heap_ptr=static_heap_base;
       static_heap_size=STATIC_HEAP_SIZE -
 	(static_heap_base-static_heap_buffer);
-#ifdef __CYGWIN32__
+#ifdef CYGWIN
       sbrk(BLOCKSIZE);		/* force space for fork to work */
 #endif
       static_heap_initialized=1;
@@ -119,6 +120,7 @@ sheap_adjust_h ()
   fclose (stream);
 }
 
+void report_sheap_usage (int die_if_pure_storage_exceeded);
 void
 report_sheap_usage (int die_if_pure_storage_exceeded)
 {

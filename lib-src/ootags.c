@@ -64,31 +64,18 @@ char pot_etags_version[] = "@(#) pot revision number is 12.28";
 # define DEBUG FALSE
 #endif
 
-#ifdef MSDOS
-# include <fcntl.h>
-# include <sys/param.h>
-# include <io.h>
-# ifndef HAVE_CONFIG_H
-#   define DOS_NT
-#   include <sys/config.h>
-# endif
-#endif /* MSDOS */
-
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 # include <stdlib.h>
 # include <fcntl.h>
 # include <string.h>
 # include <io.h>
 # define MAXPATHLEN _MAX_PATH
-# ifdef HAVE_CONFIG_H
-#   undef HAVE_NTGUI
-# else
-#   define DOS_NT
+# ifndef HAVE_CONFIG_H
 #   define HAVE_GETCWD
 # endif /* not HAVE_CONFIG_H */
-#endif /* WINDOWSNT */
+#endif /* WIN32_NATIVE */
 
-#if !defined (WINDOWSNT) && defined (STDC_HEADERS)
+#if !defined (WIN32_NATIVE) && defined (STDC_HEADERS)
 #include <stdlib.h>
 #include <string.h>
 #endif
@@ -870,9 +857,9 @@ main (int argc, char *argv[])
   bool got_err;
 #endif
 
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   _fmode = O_BINARY;   /* all of files are treated as binary files */
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 
   progname = argv[0];
   nincluded_files = 0;
@@ -1064,12 +1051,12 @@ main (int argc, char *argv[])
       if (streq (tagfile, "-"))
 	{
 	  tagf = stdout;
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	  /* Switch redirected `stdout' to binary mode (setting `_fmode'
 	     doesn't take effect until after `stdout' is already open). */
 	  if (!isatty (fileno (stdout)))
 	    setmode (fileno (stdout), O_BINARY);
-#endif /* DOS_NT */
+#endif /* WIN32_NATIVE */
 	}
       else
 	tagf = fopen (tagfile, append_to_tagfile ? "a" : "w");
@@ -4960,7 +4947,7 @@ readline_internal (lbp, stream)
 	  if (p > buffer && p[-1] == '\r')
 	    {
 	      p -= 1;
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	     /* Assume CRLF->LF translation will be performed by Emacs
 		when loading this file, so CRs won't appear in the buffer.
 		It would be cleaner to compensate within Emacs;
@@ -5216,19 +5203,6 @@ etags_getcwd ()
   return path;
 
 #else /* not HAVE_GETCWD */
-#ifdef MSDOS
-  char *p, path[MAXPATHLEN + 1]; /* Fixed size is safe on MSDOS.  */
-
-  getwd (path);
-
-  for (p = path; *p != '\0'; p++)
-    if (*p == '\\')
-      *p = '/';
-    else
-      *p = lowcase (*p);
-
-  return strdup (path);
-#else /* not MSDOS */
   linebuffer path;
   FILE *pipe;
 
@@ -5239,7 +5213,6 @@ etags_getcwd ()
   pclose (pipe);
 
   return path.buffer;
-#endif /* not MSDOS */
 #endif /* not HAVE_GETCWD */
 }
 
@@ -5289,7 +5262,7 @@ absolute_filename (file, dir)
 
   if (filename_is_absolute (file))
     res = savestr (file);
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   /* We don't support non-absolute file names with a drive
      letter, like `d:NAME' (it's too much hassle).  */
   else if (file[1] == ':')
@@ -5313,8 +5286,8 @@ absolute_filename (file, dir)
 	      while (cp >= res && !filename_is_absolute (cp));
 	      if (cp < res)
 		cp = slashp;	/* the absolute name begins with "/.." */
-#ifdef DOS_NT
-	      /* Under MSDOS and NT we get `d:/NAME' as absolute
+#ifdef WIN32_NATIVE
+	      /* Under Windows we get `d:/NAME' as absolute
 		 file name, so the luser could say `d:/../NAME'.
 		 We silently treat this as `d:/NAME'.  */
 	      else if (cp[0] != '/')
@@ -5369,7 +5342,7 @@ filename_is_absolute (fn)
      char *fn;
 {
   return (fn[0] == '/'
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
 	  || (isalpha(fn[0]) && fn[1] == ':' && fn[2] == '/')
 #endif
 	  );
@@ -5380,7 +5353,7 @@ void
 canonicalize_filename (fn)
      register char *fn;
 {
-#ifdef DOS_NT
+#ifdef WIN32_NATIVE
   for (; *fn != '\0'; fn++)
     if (*fn == '\\')
       *fn = '/';

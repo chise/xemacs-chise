@@ -14,7 +14,7 @@ use the tutorial, run Emacs and type @kbd{Control-h t}
 the @b{Help} menu.
 
 XEmacs comes with many translations of tutorial.  If your XEmacs is with
-MULE and you set up language environment correctly, XEmacs choses right
+MULE and you set up language environment correctly, XEmacs chooses right
 tutorial when available (@pxref{Language Environments}).  If you want
 specific translation, give @kbd{C-h t} a prefix argument, like @kbd{C-u
 C-h t}.

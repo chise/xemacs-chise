@@ -37,8 +37,7 @@ Boston, MA 02111-1307, USA.  */
 #  define _NMAXLDBL THIS_FILENAME ## _nmaxldbl
 # endif
 
-#if defined(MSDOS) || (defined(LINUX) && \
-		       !(defined (__GLIBC__) && (__GLIBC__ >= 2)))
+#if defined(LINUX) && !(defined (__GLIBC__) && (__GLIBC__ >= 2))
 /* These are redefined (correctly, but differently) in values.h.  */
 #undef INTBITS
 #undef LONGBITS
@@ -47,7 +46,7 @@ Boston, MA 02111-1307, USA.  */
 
 #include <math.h>
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 /* A quirky way to obtain logb prototype */
 #include <float.h>
 #define logb _logb

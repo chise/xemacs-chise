@@ -299,19 +299,19 @@ autoloads: lisp/auto-autoloads.el lisp/custom-load.el
 
 FRC.lisp.auto.autoloads.el:
 lisp/auto-autoloads.el:	FRC.lisp.auto.autoloads.el
-	rm -f lisp/auto-autoloads.el
+	$(RM) lisp/auto-autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l autoload -f batch-update-directory lisp
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/auto-autoloads.el
-	@rm -f lisp/auto-autoloads.el~
+	@$(RM) lisp/auto-autoloads.el~
 #ifdef MULE
-	rm -f lisp/mule/auto-autoloads.el
+	$(RM) lisp/mule/auto-autoloads.el
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-l autoload -f batch-update-directory lisp/mule
 	${blddir}/src/${PROGNAME} -batch -vanilla \
 		-f batch-byte-compile lisp/mule/auto-autoloads.el
-	@rm -f lisp/mule/auto-autoloads.el~
+	@$(RM) lisp/mule/auto-autoloads.el~
 #endif
 
 FRC.lisp.custom.load.el:
@@ -439,18 +439,18 @@ install-arch-dep: mkdir
 #ifdef PDUMP
 	${INSTALL_DATA} src/${PROGNAME}.dmp ${bindir}/${PROGNAME}-${version}-`src/${PROGNAME} -sd`.dmp
 #endif
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}
 	-chmod 0755 ${bindir}/${PROGNAME}
 #else
 	${INSTALL_PROGRAM} src/${PROGNAME} ${bindir}/${PROGNAME}-${version}
 	-chmod 0755 ${bindir}/${PROGNAME}-${version}
-# ifdef __CYGWIN32__
+# ifdef CYGWIN
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version}.exe ./${PROGNAME}
 # else
 	cd ${bindir} && $(RM) ./${PROGNAME} && ${LN_S} ${PROGNAME}-${version} ./${PROGNAME}
-# endif /* __CYGWIN32__ */
-#endif /* WINDOWSNT */
+# endif /* CYGWIN */
+#endif /* WIN32_NATIVE */
 	if test "${prefix}" != "${exec_prefix}"; then \
 	  $(MAKEPATH) ${exec_prefix}/lib/${instvardir}; \
 	  for dir in \

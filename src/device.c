@@ -1200,12 +1200,12 @@ handle_asynch_device_change (void)
   /* reset the flag to 0 unless another notification occurred while
      we were processing this one.  Block SIGWINCH during this
      check to prevent a possible race condition. */
-#ifndef WINDOWSNT
+#ifdef SIGWINCH
   EMACS_BLOCK_SIGNAL (SIGWINCH);
 #endif
   if (old_asynch_device_change_pending == asynch_device_change_pending)
     asynch_device_change_pending = 0;
-#ifndef WINDOWSNT
+#ifdef SIGWINCH
   EMACS_UNBLOCK_SIGNAL (SIGWINCH);
 #endif
 }

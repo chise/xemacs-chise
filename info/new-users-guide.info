@@ -20,7 +20,7 @@ preserved on all copies.
 Indirect:
 new-users-guide.info-1: 635
 new-users-guide.info-2: 50468
-new-users-guide.info-3: 100027
+new-users-guide.info-3: 100029
 
 Tag Table:
 (Indirect)
@@ -54,23 +54,23 @@ Node: The Help Menu51156
 Node: Modes56122
 Node: Major Modes57038
 Node: Minor Modes60987
-Node: Files65081
-Node: File Names65803
-Node: Visiting67606
-Node: Saving Files69730
-Node: Other Customizations73107
-Node: Setting Variables75583
-Node: Init File78792
-Node: Select and Move84262
-Node: Selecting Text85216
-Node: Mouse86729
-Node: Region Operation88054
-Node: Moving Text89314
-Node: Accumulating text90554
-Node: Search and Replace92874
-Node: Key Index96738
-Node: Command Index100027
-Node: Variable Index104129
-Node: Concept Index104706
+Node: Files65082
+Node: File Names65804
+Node: Visiting67607
+Node: Saving Files69731
+Node: Other Customizations73108
+Node: Setting Variables75584
+Node: Init File78793
+Node: Select and Move84263
+Node: Selecting Text85217
+Node: Mouse86730
+Node: Region Operation88055
+Node: Moving Text89315
+Node: Accumulating text90555
+Node: Search and Replace92876
+Node: Key Index96740
+Node: Command Index100029
+Node: Variable Index104131
+Node: Concept Index104708
 
 End Tag Table

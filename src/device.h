@@ -335,6 +335,7 @@ error_check_device_type (struct device *d, Lisp_Object sym)
 
 EXFUN (Fdevice_console, 1);
 EXFUN (Fdevice_name, 1);
+EXFUN (Ffind_device, 2);
 EXFUN (Fmake_device, 3);
 EXFUN (Fselected_device, 1);
 

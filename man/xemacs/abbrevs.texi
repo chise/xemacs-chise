@@ -257,9 +257,10 @@ specified file.  The text stored in the file looks like the output of
 minibuffer and reads the specified file, defining abbrevs according to
 its contents.  @kbd{M-x quietly-read-abbrev-file} is the same but does
 not display a message in the echo area; it is actually useful primarily
-in the @file{.emacs} file.  If you give an empty argument to either of
-these functions, the file name Emacs uses is the value of the variable
-@code{abbrev-file-name}, which is by default @code{"~/.abbrev_defs"}.
+in the init file.  @xref{Init File}. If you give an empty argument to
+either of these functions, the file name Emacs uses is the value of the
+variable @code{abbrev-file-name}, which is by default
+@code{"~/.abbrev_defs"}.
 
 @vindex save-abbrevs
   Emacs offers to save abbrevs automatically if you have changed any of

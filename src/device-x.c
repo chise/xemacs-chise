@@ -1362,7 +1362,7 @@ The fifth arg is the device to search for the resources on. (The resource
 The sixth arg NOERROR, if non-nil, means do not signal an error if a
   bogus resource specification was retrieved (e.g. if a non-integer was
   given when an integer was requested).  In this case, a warning is issued
-  instead.
+  instead, unless NOERROR is t, in which case no warning is issued.
 
 The resource names passed to this function are looked up relative to the
 locale.

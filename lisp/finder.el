@@ -150,7 +150,9 @@ arguments compiles from `load-path'."
     (let ((processed nil)
 	  (directory-abbrev-alist
 	   (append
-	    (mapcar (function (lambda (dir) (cons dir "")))
+           (mapcar (function (lambda (dir)
+                               (cons (concat "^" (regexp-quote dir))
+                                     "")))
 		    finder-abbreviate-directory-list)
 	    directory-abbrev-alist))
 	  (using-load-path))

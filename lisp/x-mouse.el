@@ -100,41 +100,48 @@ to the cut buffer"
   (if x-pointers-initialized  ; only do it when the first device is created
       nil
     (set-glyph-image text-pointer-glyph
-	  (or (x-get-resource "textPointer" "Cursor" 'string device)
+	  (or (x-get-resource "textPointer" "Cursor" 'string device nil 'warn)
 	      "xterm"))
     (set-glyph-image selection-pointer-glyph
-	  (or (x-get-resource "selectionPointer" "Cursor" 'string device)
+	  (or (x-get-resource "selectionPointer" "Cursor" 'string device
+			      nil 'warn)
 	      "top_left_arrow"))
     (set-glyph-image nontext-pointer-glyph
-	  (or (x-get-resource "spacePointer" "Cursor" 'string device)
+	  (or (x-get-resource "spacePointer" "Cursor" 'string device nil 'warn)
 	      "xterm")) ; was "crosshair"
     (set-glyph-image modeline-pointer-glyph
-	  (or (x-get-resource "modeLinePointer" "Cursor" 'string device)
+	  (or (x-get-resource "modeLinePointer" "Cursor" 'string device
+			      nil 'warn)
 ;;	      "fleur"))
 	      "sb_v_double_arrow"))
     (set-glyph-image gc-pointer-glyph
-	  (or (x-get-resource "gcPointer" "Cursor" 'string device)
+	  (or (x-get-resource "gcPointer" "Cursor" 'string device nil 'warn)
 	      "watch"))
     (when (featurep 'scrollbar)
       (set-glyph-image
        scrollbar-pointer-glyph
-       (or (x-get-resource "scrollbarPointer" "Cursor" 'string device)
+       (or (x-get-resource "scrollbarPointer" "Cursor" 'string device
+			   nil 'warn)
 	   "top_left_arrow")))
     (set-glyph-image busy-pointer-glyph
-	  (or (x-get-resource "busyPointer" "Cursor" 'string device)
+	  (or (x-get-resource "busyPointer" "Cursor" 'string device nil 'warn)
 	      "watch"))
     (set-glyph-image toolbar-pointer-glyph
-	  (or (x-get-resource "toolBarPointer" "Cursor" 'string device)
+	  (or (x-get-resource "toolBarPointer" "Cursor" 'string device
+			      nil 'warn)
 	      "left_ptr"))
     (set-glyph-image divider-pointer-glyph
-	  (or (x-get-resource "dividerPointer" "Cursor" 'string device)
+	  (or (x-get-resource "dividerPointer" "Cursor" 'string device
+			      nil 'warn)
 	      "sb_h_double_arrow"))
     (let ((fg
-	   (x-get-resource "pointerColor" "Foreground" 'string device)))
+	   (x-get-resource "pointerColor" "Foreground" 'string device
+			   nil 'warn)))
       (and fg
 	   (set-face-foreground 'pointer fg)))
     (let ((bg
-	   (x-get-resource "pointerBackground" "Background" 'string device)))
+	   (x-get-resource "pointerBackground" "Background" 'string device
+			   nil 'warn)))
       (and bg
 	   (set-face-background 'pointer bg)))
     (setq x-pointers-initialized t))

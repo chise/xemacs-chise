@@ -41,7 +41,7 @@ static struct timeval TV1, TV2;
 static int watch_not_started = 1; /* flag */
 static char time_string[30];
 
-#ifdef WINDOWSNT
+#ifdef WIN32_NATIVE
 #include <sys/timeb.h>
 /* Emulate gettimeofday (Ulrich Leodolter, 1/11/95).  */
 void 

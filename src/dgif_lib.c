@@ -11,23 +11,10 @@
 * 19 Feb 98 - Version 1.2 by Jareth Hein (Support for user specified I/O)     *
 ******************************************************************************/
 
-#ifdef __MSDOS__
-#include <io.h>
-#include <alloc.h>
-#include <stdlib.h>
-#include <sys\stat.h>
-#else
-#include <sys/types.h>
-#include <sys/stat.h>
-#endif /* __MSDOS__ */
+#include <config.h>
+#include "lisp.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-#ifdef HAVE_FCNTL_H
-#include <fcntl.h>
-#endif
+#include "sysfile.h"
 
 #include "gifrlib.h"
 
@@ -52,11 +39,11 @@ void DGifOpenFileName(GifFileType *GifFile, const char *FileName)
     FILE *f;
 
     if ((f = fopen(FileName, 
-#ifdef __MSDOS__
+#ifdef WIN32_NATIVE
 			     "rb"
 #else
 		             "r"
-#endif /* __MSDOS__ */
+#endif /* WIN32_NATIVE */
 			                     )) == NULL)
 	GifInternError(GifFile, D_GIF_ERR_OPEN_FAILED);
 
@@ -73,13 +60,13 @@ void DGifOpenFileHandle(GifFileType *GifFile, int FileHandle)
 {
     FILE *f;
 
-#ifdef __MSDOS__
+#ifdef WIN32_NATIVE
     setmode(FileHandle, O_BINARY);	  /* Make sure it is in binary mode. */
     f = fdopen(FileHandle, "rb");		   /* Make it into a stream: */
     setvbuf(f, NULL, _IOFBF, GIF_FILE_BUFFER_SIZE);/* And inc. stream buffer.*/
 #else
     f = fdopen(FileHandle, "r");		   /* Make it into a stream: */
-#endif /* __MSDOS__ */
+#endif /* WIN32_NATIVE */
 
     GifStdIOInit(GifFile, f, -1);
     DGifInitRead(GifFile);
@@ -277,11 +264,11 @@ void DGifGetLine(GifFileType *GifFile, GifPixelType *Line, int LineLen)
 
     if (!LineLen) LineLen = GifFile->Image.Width;
 
-#if defined(__MSDOS__) || defined(__GNUC__)
+#if defined(WIN32_NATIVE) || defined(__GNUC__)
     if ((Private->PixelCount -= LineLen) > 0xffff0000UL)
 #else
     if ((Private->PixelCount -= LineLen) > 0xffff0000)
-#endif /* __MSDOS__ */
+#endif /* WIN32_NATIVE */
     {    
 	GifInternError(GifFile, D_GIF_ERR_DATA_TOO_BIG);
     }
@@ -310,11 +297,11 @@ void DGifGetPixel(GifFileType *GifFile, GifPixelType Pixel)
 	GifInternError(GifFile, D_GIF_ERR_NOT_READABLE);
     }
 
-#if defined(__MSDOS__) || defined(__GNUC__)
+#if defined(WIN32_NATIVE) || defined(__GNUC__)
     if (--Private->PixelCount > 0xffff0000UL)
 #else
     if (--Private->PixelCount > 0xffff0000)
-#endif /* __MSDOS__ */
+#endif /* WIN32_NATIVE */
     {
 	GifInternError(GifFile, D_GIF_ERR_DATA_TOO_BIG);
     }

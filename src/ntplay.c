@@ -19,10 +19,10 @@ Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.*/
 
 #include <config.h>
-#include <stdio.h>
-#include "sysfile.h"
-#include "syswindows.h"
 #include "lisp.h"
+
+#include "sysfile.h"
+#include "nt.h"
 #include "nativesound.h"
 
 static int play_sound_data_1 (unsigned char *data, int length,

@@ -55,6 +55,7 @@
 
 (require 'cus-load)
 (require 'cus-start)
+(require 'cus-file)
 
 ;; Huh?  This looks dirty!
 (put 'custom-define-hook 'custom-type 'hook)
@@ -2225,7 +2226,6 @@ Optional EVENT is the location for the menu."
   "Restore the saved value for the variable being edited by WIDGET."
   (let* ((symbol (widget-value widget))
 	 (set (or (get symbol 'custom-set) 'set-default))
-	 (comment-widget (widget-get widget :comment-widget))
 	 (value (get symbol 'saved-value))
 	 (comment (get symbol 'saved-variable-comment)))
     (cond ((or value comment)
@@ -2244,8 +2244,7 @@ Optional EVENT is the location for the menu."
 (defun custom-variable-reset-standard (widget)
   "Restore the standard setting for the variable being edited by WIDGET."
   (let* ((symbol (widget-value widget))
-	 (set (or (get symbol 'custom-set) 'set-default))
-	 (comment-widget (widget-get widget :comment-widget)))
+	 (set (or (get symbol 'custom-set) 'set-default)))
     (if (get symbol 'standard-value)
 	(funcall set symbol (eval (car (get symbol 'standard-value))))
       (signal 'error (list "No standard setting known for variable" symbol)))
@@ -3239,15 +3238,6 @@ Optional EVENT is the location for the menu."
       (widget-put widget :custom-state found)))
   (custom-magic-reset widget))
 
-;;; The `custom-save-all' Function.
-;;;###autoload
-(defcustom custom-file "~/.emacs"
-  "File used for storing customization information.
-If you change this from the default \"~/.emacs\" you need to
-explicitly load that file for the settings to take effect."
-  :type 'file
-  :group 'customize)
-
 (defun custom-save-delete (symbol)
   "Delete the call to SYMBOL form in `custom-file'.
 Leave point at the location of the call, or after the last expression."
@@ -3593,6 +3583,19 @@ if that value is non-nil."
   (add-hook 'widget-edit-functions 'custom-state-buffer-message nil t)
   (run-hooks 'custom-mode-hook))
 
+
+;;;###autoload
+(defun custom-migrate-custom-file (new-custom-file-name)
+  "Migrate custom file from home directory."
+  (mapc 'custom-save-delete
+	'(custom-load-themes custom-reset-variables
+			     custom-set-variables
+			     custom-set-faces
+			     custom-reset-faces))
+  (with-current-buffer (find-file-noselect custom-file)
+    (save-buffer))
+  (setq custom-file new-custom-file-name)
+  (custom-save-all))
 
 ;;; The End.
 
