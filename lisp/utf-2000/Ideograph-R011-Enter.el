@@ -1,30 +1,27 @@
 ;; -*- coding: utf-8-mcs-er -*-
 (define-char
-  '((=>ucs		. #x5165)	; 入
-    (ideographic-radical . 11)	; ⼊
+  '((ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 0)
     (total-strokes	 . 2)
-    (shinjigen-1	. 480)
-    (shinjigen-2	. 480)
-    (=jis-x0208		. #x467E)	; &GT-01850; [38-94]
-    (=ks-x1001		. #x6C7D)	; &I-K0-6C7D; [76-93]
-    (=big5		. #xA44A)	; &I-B-A44A;
-    (=gt		. 01850)	; &I-GT-01850;
-    (=gt-k		. 00050)	; &I-GT-K00050;
-    (=gt-pj-1		. #x467E)	; &I-GT-01850; [38-94]
-    (=daikanwa		. 01415)	; &I-M-01415;
-    (=ucs@jis		. #x5165)	; &GT-01850;
-    (=ucs@big5		. #x5165)	; &GT-01850;
-    ))
-(define-char
-  '((morohashi-daikanwa	1415 0 0)
-    (ideographic-radical . 11)	; ⼊
-    (ideographic-strokes . 0)
-    (total-strokes	 . 2)
-    (hanyu-dazidian	1 102 1)
     (=ucs		. #x5165)	; 入
-    (=gb2312		. #x486B)	; &I-G0-486B; [40-75]
-    (=cns11643-1	. #x442B)	; &I-C1-442B; [36-11]
+    (->subsumptive
+     ((shinjigen-1	  . 480)
+      (shinjigen-2	  . 480)
+      (=jis-x0208	  . #x467E)	; &GT-01850; [38-94]
+      (=ks-x1001	  . #x6C7D)	; &I-K0-6C7D; [76-93]
+      (=big5		  . #xA44A)	; &I-B-A44A;
+      (=gt		  . 01850)	; &I-GT-01850;
+      (=gt-k		  . 00050)	; &I-GT-K00050;
+      (=gt-pj-1		  . #x467E)	; &I-GT-01850; [38-94]
+      (=daikanwa	  . 01415)	; &I-M-01415;
+      (=ucs@jis		  . #x5165)	; &GT-01850;
+      (=ucs@big5	  . #x5165)	; &GT-01850;
+      )
+     ((hanyu-dazidian	  1 102 1)
+      (=gb2312		  . #x486B)	; &C1-442B; [40-75]
+      (=cns11643-1	  . #x442B)	; &I-C1-442B; [36-11]
+      (=ucs@unicode	  . #x5165)	; &C1-442B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 11)	; ⼊
@@ -1213,7 +1210,7 @@
 	(=ks-x1001	    . #x6C7D)	; &I-K0-6C7D; [76-93]
 	(=daikanwa	    . 01415)	; &I-M-01415;
 	)
-       ((=ucs@unicode	    . #x8F29)	; &UU+8F29;
+       ((=gb12345	    . #x3132)	; &UU+8F29; [17-18]
 	))
       (=hanziku-1	  . #xD5F8)	; &HZK01-D5F8;
       )
@@ -1221,9 +1218,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(=ucs		    . #x2FF1)	; ⿱
 	)
-       ((=ucs@unicode	    . #x5165)	; &UU+5165;
+       ((=gb2312	    . #x486B)	; &C1-442B; [40-75]
+	(=cns11643-1	    . #x442B)	; &I-C1-442B; [36-11]
 	)
-       ((=ucs@unicode	    . #x8F29)	; &UU+8F29;
+       ((=gb12345	    . #x3132)	; &UU+8F29; [17-18]
 	))
       (=cns11643-5	  . #x5A72)	; &C5-5A72; [58-82]
       ))
