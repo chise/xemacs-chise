@@ -400,6 +400,7 @@
     (korean-ksc5601		. #x2521)	; ø»ˆ „
     (chinese-cns11643-1		. #x2635)	; ø»‘Š†
     (japanese-jisx0213-1	. #x2C35)	; ø»¢£š
+    (chinese-big5		. #xC6B5)	; øº ·„
     (ucs			. #x2170)	; â…°
     ))
 (define-char
@@ -416,6 +417,7 @@
     (korean-ksc5601		. #x2522)	; ø»ˆ …
     (chinese-cns11643-1		. #x2636)	; ø»‘Š‡
     (japanese-jisx0213-1	. #x2C36)	; ø»¢£›
+    (chinese-big5		. #xC6B6)	; øº ·…
     (ucs			. #x2171)	; â…±
     ))
 (define-char
@@ -432,6 +434,7 @@
     (korean-ksc5601		. #x2523)	; ø»ˆ †
     (chinese-cns11643-1		. #x2637)	; ø»‘Šˆ
     (japanese-jisx0213-1	. #x2C37)	; ø»¢£œ
+    (chinese-big5		. #xC6B7)	; øº ·†
     (ucs			. #x2172)	; â…²
     ))
 (define-char
@@ -448,6 +451,7 @@
     (korean-ksc5601		. #x2524)	; ø»ˆ ‡
     (chinese-cns11643-1		. #x2638)	; ø»‘Š‰
     (japanese-jisx0213-1	. #x2C38)	; ø»¢£
+    (chinese-big5		. #xC6B8)	; øº ·‡
     (ucs			. #x2173)	; â…³
     ))
 (define-char
@@ -464,6 +468,7 @@
     (korean-ksc5601		. #x2525)	; ø»ˆ ˆ
     (chinese-cns11643-1		. #x2639)	; ø»‘ŠŠ
     (japanese-jisx0213-1	. #x2C39)	; ø»¢£ž
+    (chinese-big5		. #xC6B9)	; øº ·ˆ
     (ucs			. #x2174)	; â…´
     ))
 (define-char
@@ -480,6 +485,7 @@
     (korean-ksc5601		. #x2526)	; ø»ˆ ‰
     (chinese-cns11643-1		. #x263A)	; ø»‘Š‹
     (japanese-jisx0213-1	. #x2C3A)	; ø»¢£Ÿ
+    (chinese-big5		. #xC6BA)	; øº ·‰
     (ucs			. #x2175)	; â…µ
     ))
 (define-char
@@ -496,6 +502,7 @@
     (korean-ksc5601		. #x2527)	; ø»ˆ Š
     (chinese-cns11643-1		. #x263B)	; ø»‘ŠŒ
     (japanese-jisx0213-1	. #x2C3B)	; ø»¢£ 
+    (chinese-big5		. #xC6BB)	; øº ·Š
     (ucs			. #x2176)	; â…¶
     ))
 (define-char
@@ -512,6 +519,7 @@
     (korean-ksc5601		. #x2528)	; ø»ˆ ‹
     (chinese-cns11643-1		. #x263C)	; ø»‘Š
     (japanese-jisx0213-1	. #x2C3C)	; ø»¢£¡
+    (chinese-big5		. #xC6BC)	; øº ·‹
     (ucs			. #x2177)	; â…·
     ))
 (define-char
@@ -528,6 +536,7 @@
     (korean-ksc5601		. #x2529)	; ø»ˆ Œ
     (chinese-cns11643-1		. #x263D)	; ø»‘ŠŽ
     (japanese-jisx0213-1	. #x2C3D)	; ø»¢£¢
+    (chinese-big5		. #xC6BD)	; øº ·Œ
     (ucs			. #x2178)	; â…¸
     ))
 (define-char
@@ -544,6 +553,7 @@
     (korean-ksc5601		. #x252A)	; ø»ˆ 
     (chinese-cns11643-1		. #x263E)	; ø»‘Š
     (japanese-jisx0213-1	. #x2C3E)	; ø»¢££
+    (chinese-big5		. #xC6BE)	; øº ·
     (ucs			. #x2179)	; â…¹
     ))
 (define-char

@@ -333,6 +333,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5	. #xC877)	; øº »¢
     (ucs		. #x21B8)	; â†¸
     ))
 (define-char
@@ -340,6 +341,7 @@
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "ON")
     (mirrored		. nil)
+    (chinese-big5	. #xC878)	; øº »£
     (ucs		. #x21B9)	; â†¹
     ))
 (define-char
@@ -674,6 +676,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (japanese-jisx0213-1	. #x232C)	; ø»¢–ƒ
+    (chinese-big5		. #xC876)	; øº »¡
     (ucs			. #x21E7)	; â‡§
     ))
 (define-char
