@@ -1,9 +1,14 @@
 2004-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R094-Dog.el:
+	* Ideograph-R098-Tile.el, Ideograph-R097-Melon.el,
+	Ideograph-R094-Dog.el:
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
+
+	* Ideograph-R009-Man.el (U+4F10): Use `->subsumptive'.
+	(U+4F5E): Likewise; compact `ideographic-structure'.
+	(U-0002046F): Delete incomplete `ideographic-structure'.
 
 	* Ideograph-R091-Slice.el (M-19828): Map to U-000245B4; unify
 	H5-F4F6 and IU-000245B4.
