@@ -1,5 +1,5 @@
 CHISE character database format (S-expression version)
-+
+
 * Relations between Characters
 
 Property-name `->foo' or `<-foo' mean relations between characters.
@@ -55,7 +55,7 @@ list describes meaning of keys:
 		kangxi					康煕字典
 		guangyun (kouin)			広韻
 		daikanwa (morohashi-daikanwa)		大漢和辞典
-		ruishuu-meigishou			類聚名義抄
+		ruijumyougishou (ruishuu-meigishou)	類聚名義抄
 		zhengyun (seiin)			正韻
 		zhengzi-tong (seiji-tsuu)		正字通
 		shuowen-tongxun-dingsheng
@@ -65,6 +65,8 @@ list describes meaning of keys:
 			(sougen-irai-zokujifu)		宋元以来俗字譜
 		yuquan					玉泉
 		chuanpian (senhen)			川篇
+		kanjo					漢書
+		ronkou					論衡
 
 ** Properties
 
