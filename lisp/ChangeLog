@@ -1,6 +1,7 @@
 2003-04-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
-	* mule-conf.el: `chinese-cns11643-2' is renamed to `=cns11643-2'.
+	* mule/mule-conf.el: `chinese-cns11643-2' is renamed to
+	`=cns11643-2'.
 	(chinese-cns11643-2): New alias for `=cns11643-2'.
 
 2003-04-27  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
