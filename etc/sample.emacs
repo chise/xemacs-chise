@@ -173,9 +173,9 @@
 	      (set-glyph-image modeline-pointer-glyph "leftbutton")
 
 	      ;; Change the continuation glyph face so it stands out more
-	      (and (fboundp 'set-glyph-property)
+	      (and (fboundp 'make-face-bold)
 		   (boundp 'continuation-glyph)
-		   (set-glyph-property continuation-glyph 'face 'bold))
+		   (make-face-bold (glyph-face continuation-glyph)))
 
 	      ;; Change the pointer used during garbage collection.
 	      ;;
