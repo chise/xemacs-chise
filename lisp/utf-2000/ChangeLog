@@ -1,5 +1,17 @@
 2002-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* u0FF00-Halfwidth-and-Fullwidth-Forms.el,
+	u03000-CJK-Symbols-and-Punctuation.el, u03040-Hiragana.el,
+	u030A0-Katakana.el, u02000-General-Punctuation.el,
+	u02100-Letterlike-Symbols.el, u02190-Arrows.el,
+	u02200-Mathematical-Operators.el, u025A0-Geometric-Shapes.el,
+	u02600-Miscellaneous-Symbols.el, u00370-Greek.el,
+	u00400-Cyrillic.el, u000A0-Latin-1-Supplement.el: Use `=jis-x0208'
+	if `japanese-jisx0208-1978', `japanese-jisx0208' and
+	`japanese-jisx0208-1990' have the same value.
+
+2002-10-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* u00000-C0.el, u00020-Basic-Latin.el: Reformatted.
 
 2002-10-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
