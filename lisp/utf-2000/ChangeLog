@@ -1,5 +1,35 @@
 2004-04-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R024-Ten.el (U+5346): Use `<-vulgar*sources' and
+	`<-wrong-ideograph*sources' instead of char-refs in `<-vulgar' and
+	`<-wrong-ideograph'.
+	(U-00020991): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'.
+	(U+5351): Define as an abstract character.
+	(U+FA35): Use `<-denotational' for U+5351.
+	(J0-485C): Likewise.
+	(U-000209A4): Use `<-vulgar*sources' instead of char-ref in
+	`<-vulgar'; add `<-simplified@misc' for U+55AE.
+
+	* Ideograph-R019-Power.el (J0-387A): Moved into U+52B9.
+	(U+52B9): Use `->subsumptive'.
+	(G0-5342): Separate U+52C7; use `<-denotational' for U+52C7; use
+	`->subsumptive'.
+	(C1-502D): Integrate with G0-5342.
+	(U+52C7): Separate all CCS features.
+	(J0-4D26): Use `<-denotational' for U+52C7.
+	(U+52D6): Use `->subsumptive'.
+	(JC3-44EC): Moved into U+52D6.
+	(M-02392): Moved into U+52D7.
+	(U+52D7): Use `->subsumptive'.
+	(K0-632D): Moved into U+52DD; modify `ideographic-structure'.
+	(U+52DD): Use `->subsumptive'.
+	(U-0002F827): Add `<-denotational' for U+52E4.
+	(U+52E4): Define as an abstract character.
+	(U+FA34): Add `<-denotational' for U+52E4.
+	(J0-342B): Moved into U+52E7.
+	(U+52E7): Use `->subsumptive'.
+
 	* Ideograph-R028-Private.el (U+53C5): Use `<-vulgar*sources'
 	instead of char-ref in `<-vulgar'.
 
@@ -14,6 +44,16 @@
 	`<-vulgar'.
 
 2004-04-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R050-Turban.el (J0-3B54): Moved into U+5E02.
+	(U+5E02): Use `->subsumptive'.
+
+	* Ideograph-R038-Woman.el (U+5973): Use `->subsumptive'.
+	(C1-444C): Moved into U+5973.
+	(U+59C9): Use `->subsumptive'; use `<-vulgar*sources' instead of
+	char-ref in `<-vulgar'.
+	(K0-6D2B): Moved into U+59C9.
+	(C3-283F): Likewise.
 
 	* Ideograph-R030-Mouth.el (U+5451): Use `<-vulgar*sources' instead
 	of char-ref in `<-vulgar'.
