@@ -7251,10 +7251,7 @@
       (=daikanwa	  . 11094)	; &I-M-11094;
       ))
     (<-vulgar
-     ((ideographic-radical . 61)	; ⼼
-      (ideographic-strokes . 11)
-      (total-strokes	   . 14)
-      (shinjigen-2	  . 2544)
+     ((=jis-x0208	  . #x584E)	; &GT-13968;
       (=daikanwa	  . 11094)	; &I-M-11094;
       ))
     (<-vulgar*sources
