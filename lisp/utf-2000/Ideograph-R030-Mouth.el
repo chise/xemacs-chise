@@ -31717,9 +31717,7 @@
       )
      ((ucs		  . #x53E3)	; å£
       )
-     ((korean-ksc5601		  . #x5171)	; ø»‰¡¼
-      (japanese-jisx0213-1	  . #x7D63)	; ø»¤›†
-      (ideograph-daikanwa	  . 42145)	; ø¸Š’¡
+     ((ucs		  . #xFA68)	; ï©¨
       ))
     (ideograph-cbeta	. 03326)	; ø¸ ³¾
     ))

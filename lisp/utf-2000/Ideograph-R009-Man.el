@@ -28572,10 +28572,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((japanese-jisx0208-1978	  . #x4951)	; ø»‚· 
-      (korean-ksc5601		  . #x5E3A)	; ø»‰´‹
-      (japanese-jisx0213-1	  . #x7D7B)	; ø»¤›ž
-      (ideograph-daikanwa	  . 43519)	; ø¸Š§¿
+     ((ucs		  . #xFA6A)	; ï©ª
       ))
     (ideograph-daikanwa . 01287)	; ø¸€”‡
     ))
@@ -29582,9 +29579,7 @@
       )
      ((ucs		  . #x4EBB)	; äº»
       )
-     ((korean-ksc5601		  . #x5171)	; ø»‰¡¼
-      (japanese-jisx0213-1	  . #x7D63)	; ø»¤›†
-      (ideograph-daikanwa	  . 42145)	; ø¸Š’¡
+     ((ucs		  . #xFA68)	; ï©¨
       ))
     (shinjigen-1	. 439)
     (shinjigen-2	. 439)
