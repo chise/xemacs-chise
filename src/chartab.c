@@ -1235,15 +1235,16 @@ Return variants of CHARACTER.
 */
        (character))
 {
-  Lisp_Object ret;
-
   CHECK_CHAR (character);
-  ret = Fchar_feature (character, Q_ucs_unified, Qnil,
-		       Qnil, Qnil);
-  if (CONSP (ret))
-    return Fcopy_list (ret);
-  else
-    return Qnil;
+  return
+    nconc2
+    (Fcopy_list (Fget_char_attribute (character, Q_subsumptive, Qnil)),
+     (nconc2
+      (Fcopy_list (Fget_char_attribute (character, Q_denotational, Qnil)),
+       (nconc2
+	(Fcopy_list (Fget_char_attribute (character, Q_identical, Qnil)),
+	 Fcopy_list (Fchar_feature (character, Q_ucs_unified, Qnil,
+				    Qnil, Qnil)))))));
 }
 
 #endif
