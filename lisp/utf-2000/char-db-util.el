@@ -125,7 +125,7 @@
 		       t)))
 		 (if (charset-iso-final-char kb)
 		     nil
-		   (> (charset-id ka)(charset-id kb)))))
+		   (< (charset-id ka)(charset-id kb)))))
 	      ((<= (charset-chars ka)(charset-chars kb)))))
        (t
 	(< (charset-dimension ka)
@@ -514,6 +514,13 @@
 		      line-breaking))
       (setq attributes (delq 'morohashi-daikanwa attributes))
       )
+    ;; (when (and (memq 'hanyu-dazidian attributes)
+    ;;            (setq value (get-char-attribute char 'hanyu-dazidian)))
+    ;;   (insert (format "(hanyu-dazidian     %s)%s"
+    ;;                   (mapconcat #'number-to-string value " ")
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq 'hanyu-dazidian attributes))
+    ;;   )
     (setq radical nil
 	  strokes nil)
     (when (and (memq 'ideographic-radical attributes)
