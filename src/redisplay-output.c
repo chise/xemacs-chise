@@ -1445,7 +1445,7 @@ redisplay_output_layout (struct window *w,
 			struct display_line dl;	/* this is fake */
 			Lisp_Object string =
 			  IMAGE_INSTANCE_TEXT_STRING (childii);
-			unsigned char charsets[NUM_LEADING_BYTES];
+			Charset_ID charsets[NUM_LEADING_BYTES];
 			struct face_cachel *cachel = WINDOW_FACE_CACHEL (w, findex);
 
 			find_charsets_in_bufbyte_string (charsets,
