@@ -1,8 +1,5 @@
 1999-08-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
-	* mule-charset.h, mule-charset.c, faces.h: Sync up with
-	r21-2-19-tomo-4.
-
 	* mule-charset.h (charset_by_leading_byte): Use
 	`NUM_LEADING_BYTES' instead of 128.
 	(CHARSET_BY_LEADING_BYTE): Use `MIN_LEADING_BYTE' instead of 128.
