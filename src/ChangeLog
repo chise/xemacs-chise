@@ -1,3 +1,13 @@
+2003-08-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* chartab.c (char_table_open_db_maybe): New function.
+	(char_table_close_db_maybe): New function.
+	(Fclose_char_attribute_table): Use `char_table_close_db_maybe'.
+	(Freset_char_attribute_table): Likewise.
+	(load_char_attribute_maybe): Use `char_table_open_db_maybe' and
+	`char_table_close_db_maybe'.
+	(Fload_char_attribute_table): Likewise.
+
 2003-08-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* chartab.c: Don't include <chise.h> because it is included in
