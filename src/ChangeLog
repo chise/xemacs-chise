@@ -1,3 +1,25 @@
+2000-10-05  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (char_encode_shift_jis): New implementation in
+	UTF-2000.
+	(decode_coding_big5): Use `DECODE_CHAR (Vcharset_chinese_big5,
+	...)'.
+
+	* mule-charset.c (Vcharset_chinese_big5): New variable in
+	UTF-2000.
+	(Qchinese_big5): New variable in UTF-2000.
+	(BIG5_SAME_ROW): New macro in UTF-2000.
+	(make_builtin_char): Use builtin characters of
+	`Vcharset_chinese_big5_1' and `Vcharset_chinese_big5_2' as builtin
+	characters of `Vcharset_chinese_big5'.
+	(syms_of_mule_charset): Add new symbol `chinese-big5' in UTF-2000.
+	(complex_vars_of_mule_charset): Add new coded-charset
+	`chinese-big5' in UTF-2000.
+
+	* char-ucs.h (LEADING_BYTE_CHINESE_BIG5): New macro.
+	(Vcharset_chinese_big5): New external variable declaration.
+	(Vcharset_japanese_jisx0208_1990): Likewise.
+
 2000-07-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (expand_uint8_byte_table_to_uint16): New
