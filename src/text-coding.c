@@ -3295,6 +3295,7 @@ decode_add_er_char (struct decoding_stream *str, Emchar c,
 	    pat = ret;
 	  else
 	    continue;
+	  pat = Fregexp_quote (pat);
 
 	  cell = Fcdr (cell);
 	  cell = Fcdr (cell);
