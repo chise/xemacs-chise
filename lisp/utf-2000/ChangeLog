@@ -1,3 +1,27 @@
+2002-11-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R148-Horn.el (CB00976): Unify J0-5A4F; moved to
+	Ideograph-R068-Dipper.el.
+
+	* Ideograph-R140-Grass.el: Add mappings to CHINA3-JEF code points.
+
+	* Ideograph-R086-Fire.el (U-0002446B): Moved from
+	Ideograph-R075-Tree.el
+	(CB02412): Likewise.
+	(M063498): Likewise.
+
+	* Ideograph-R075-Tree.el (CB02485): Add `ideographic-structure'.
+	(U-0002446B): Moved to Ideograph-R086-Fire.el.
+	(CB02412): Likewise.
+	(M063498): Likewise.
+
+	* Ideograph-R068-Dipper.el (J0-5A4F): Unify CB00976; add
+	`ideographic-structure'.
+	(U+659B): Add `ideographic-structure'.
+
+	* Ideograph-R085-Water.el, Ideograph-R079-Weapon.el: Add mappings
+	to CBETA numbers.
+
 2002-11-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R093-Cow.el (CB01492): New character; unify M-20124;
