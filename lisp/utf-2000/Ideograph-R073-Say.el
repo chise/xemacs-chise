@@ -8,11 +8,21 @@
     (japanese-jisx0208		. #x5B29)	; ø»‡¥œ
     (korean-ksc5601		. #x6858)	; ø»Šƒ•
     (chinese-isoir165		. #x543B)	; ø»¹¨
-    (chinese-cns11643-1		. #x454B)	; ø»‘·¾
     (japanese-jisx0208-1990	. #x5B29)	; ø½‹‹
     (chinese-big5		. #xA4EA)	; ý¢€Š“ª
     (ideograph-daikanwa		. 14278)	; ø¸ƒŸ†
     (ucs			. #x66F0)	; æ›°
+    ))
+(define-char
+  '((=>ucs		. #x66F0)	; æ›°
+    (morohashi-daikanwa	14278 0 0)
+    (ideographic-radical . 73)	; â½ˆ
+    (ideographic-strokes . 0)
+    (total-strokes	 . 4)
+    (->confusing
+     ((ucs		  . #x65E5)	; æ—¥
+      ))
+    (chinese-cns11643-1 . #x454B)	; ø»‘·¾
     ))
 (define-char
   '((ideographic-radical . 73)	; â½ˆ
@@ -30,6 +40,7 @@
     (chinese-gb2312	. #x3567)	; ø»„¤¢
     (chinese-isoir165	. #x3567)	; ø»Œ²
     (china3-jef		. #x81E2)	; øºˆ‡¢
+    (ideograph-cbeta	. 02169)	; ø¸ ¡¹
     (ucs		. #x7535)	; ç”µ
     ))
 (define-char
@@ -71,6 +82,12 @@
     (chinese-big5		. #xA6B2)	; ý¢€Šš²
     (ideograph-daikanwa		. 14282)	; ø¸ƒŸŠ
     (ucs			. #x66F3)	; æ›³
+    ))
+(define-char
+  '((ideographic-radical . 73)	; â½ˆ
+    (ideographic-strokes . 2)
+    (total-strokes	 . 6)
+    (ideograph-cbeta	. 04456)	; ø¸¡…¨
     ))
 (define-char
   '((=>ucs		. #x66F4)	; æ›´
@@ -530,11 +547,35 @@
     (chinese-cns11643-7 . #x2363)	; ø»ž‚²
     ))
 (define-char
-  '((ideographic-radical . 73)	; â½ˆ
+  '((=>ucs		. #x3B31)	; ã¬±
+    (ideographic-radical . 73)	; â½ˆ
     (ideographic-strokes . 12)
     (total-strokes	 . 16)
-    (chinese-cns11643-4 . #x5056)	; ø»˜¦Ÿ
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x515F)	; å…Ÿ
+      )
+     ((ucs		  . #x66F0)	; æ›°
+      ))
     (ideograph-daikanwa . 14316)	; ø¸ƒŸ¬
+    ))
+(define-char
+  '((morohashi-daikanwa	14316 0 0)
+    (ideographic-radical . 73)	; â½ˆ
+    (ideographic-strokes . 12)
+    (total-strokes	 . 16)
+    (ideographic-structure
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
+      )
+     ((ucs		  . #x515F)	; å…Ÿ
+      )
+     ((chinese-cns11643-1 . #x454B)	; ø»‘·¾
+      ))
+    (chinese-cns11643-4 . #x5056)	; ø»˜¦Ÿ
+    (ideograph-cbeta	. 06796)	; ø¸¡ªŒ
     (ucs		. #x3B31)	; ã¬±
     ))
 (define-char
