@@ -1,6 +1,7 @@
 /* Header for code conversion stuff
    Copyright (C) 1991, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
+   Copyright (C) 1999,2000,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -44,6 +45,9 @@ enum coding_system_type
   CODESYS_BIG5,		/* BIG5 (used for Taiwanese). */
   CODESYS_UCS4,		/* ISO 10646 UCS-4 */
   CODESYS_UTF8,		/* ISO 10646 UTF-8 */
+#ifdef UTF2000
+  CODESYS_UTF16,	/* ISO 10646 UTF-16 */
+#endif
   CODESYS_CCL,		/* Converter written in CCL. */
 #endif
   CODESYS_NO_CONVERSION	/* "No conversion"; used for binary files.
@@ -138,6 +142,11 @@ struct Lisp_Coding_System
     Lisp_Object encode;
   } ccl;
 #endif
+#ifdef UTF2000
+  unsigned int disable_composition	:1;
+  unsigned int use_entity_reference	:1;
+  Lisp_Object ccs_priority_list;
+#endif
 };
 typedef struct Lisp_Coding_System Lisp_Coding_System;
 
@@ -181,6 +190,14 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #define CODING_SYSTEM_CCL_DECODE(codesys) ((codesys)->ccl.decode)
 #define CODING_SYSTEM_CCL_ENCODE(codesys) ((codesys)->ccl.encode)
 #endif /* MULE */
+#ifdef UTF2000
+#define CODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  ((codesys)->disable_composition)
+#define CODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
+  ((codesys)->use_entity_reference)
+#define CODING_SYSTEM_CCS_PRIORITY_LIST(codesys) \
+  ((codesys)->ccs_priority_list)
+#endif
 
 #define XCODING_SYSTEM_NAME(codesys) \
   CODING_SYSTEM_NAME (XCODING_SYSTEM (codesys))
@@ -227,6 +244,12 @@ DECLARE_LRECORD (coding_system, Lisp_Coding_System);
 #define XCODING_SYSTEM_CCL_ENCODE(codesys) \
   CODING_SYSTEM_CCL_ENCODE (XCODING_SYSTEM (codesys))
 #endif /* MULE */
+#ifdef UTF2000
+#define XCODING_SYSTEM_DISABLE_COMPOSITION(codesys) \
+  CODING_SYSTEM_DISABLE_COMPOSITION (XCODING_SYSTEM (codesys))
+#define XCODING_SYSTEM_USE_ENTITY_REFERENCE(codesys) \
+  CODING_SYSTEM_USE_ENTITY_REFERENCE (XCODING_SYSTEM (codesys))
+#endif
 
 EXFUN (Fcoding_category_list, 0);
 EXFUN (Fcoding_category_system, 1);
@@ -445,6 +468,7 @@ enum coding_category_type
   CODING_CATEGORY_ISO_LOCK_SHIFT, /* ISO2022 system using locking shift */
   CODING_CATEGORY_SHIFT_JIS,
   CODING_CATEGORY_BIG5,
+  CODING_CATEGORY_UTF16,
   CODING_CATEGORY_UCS4,
 #else /* not MULE */
   CODING_CATEGORY_NO_CONVERSION,
@@ -469,6 +493,8 @@ enum coding_category_type
   (1 << CODING_CATEGORY_BIG5)
 #define CODING_CATEGORY_UCS4_MASK \
   (1 << CODING_CATEGORY_UCS4)
+#define CODING_CATEGORY_UTF16_MASK \
+  (1 << CODING_CATEGORY_UTF16)
 #define CODING_CATEGORY_UTF8_MASK \
   (1 << CODING_CATEGORY_UTF8)
 #endif

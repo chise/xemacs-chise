@@ -1,5 +1,6 @@
 /* Declarations having to do with XEmacs syntax tables.
    Copyright (C) 1985, 1992, 1993 Free Software Foundation, Inc.
+   Copyright (C) 2001,2003 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -45,6 +46,10 @@ integers.  We can do this successfully because syntax tables are
 now an abstract type, where we control all access.
 */
 
+/* The standard syntax table is stored where it will automatically
+   be used in all new buffers.  */
+extern Lisp_Object Vstandard_syntax_table;
+
 enum syntaxcode
 {
   Swhitespace,	/* whitespace character */
@@ -73,8 +78,34 @@ enum syntaxcode charset_syntax (struct buffer *buf, Lisp_Object charset,
 
 /* Return the syntax code for a particular character and mirror table. */
 
+#ifdef UTF2000
+INLINE_HEADER enum syntaxcode
+SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c);
+INLINE_HEADER enum syntaxcode
+SYNTAX_CODE_UNSAFE (Lisp_Char_Table *table, Emchar c)
+{
+  int code = CHAR_TABLE_VALUE_UNSAFE (table, c);
+  int ret = Spunct;
+
+  if (CONSP (code))
+    code = XCAR (code);
+  ret = XINT (code);
+
+  if (ret == Sinherit)
+    {
+      code = CHAR_TABLE_VALUE_UNSAFE (XCHAR_TABLE
+				      (Vstandard_syntax_table), c);
+      if (CONSP (code))
+	code = XCAR (code);
+      return XINT (code);
+    }
+  else
+    return ret;
+}
+#else
 #define SYNTAX_CODE_UNSAFE(table, c) \
    ((enum syntaxcode) XINT (CHAR_TABLE_VALUE_UNSAFE (table, c)))
+#endif
 
 INLINE_HEADER enum syntaxcode SYNTAX_CODE (Lisp_Char_Table *table, Emchar c);
 INLINE_HEADER enum syntaxcode
@@ -257,10 +288,6 @@ determine that no second character is needed to terminate the comment.
 EXFUN (Fchar_syntax, 2);
 EXFUN (Fforward_word, 2);
 
-/* The standard syntax table is stored where it will automatically
-   be used in all new buffers.  */
-extern Lisp_Object Vstandard_syntax_table;
-
 /* This array, indexed by a character, contains the syntax code which
    that character signifies (as a char).
    For example, (enum syntaxcode) syntax_spec_code['w'] is Sword. */
@@ -285,7 +312,9 @@ extern struct buffer *regex_emacs_buffer;
 /* Target text (string or buffer), used for syntax-table properties. */
 extern Lisp_Object regex_match_object;
 
+#ifndef UTF2000
 void update_syntax_table (Lisp_Char_Table *ct);
+#endif
 
 /* The syntax table cache */
 
@@ -488,6 +517,42 @@ void update_syntax_cache (int pos, int count);
 #define SETUP_SYNTAX_CACHE_FOR_BUFFER(BUFFER, FROM, COUNT)	\
   SETUP_SYNTAX_CACHE_FOR_OBJECT (Qnil, (BUFFER), (FROM), (COUNT))
 
+#ifdef UTF2000
+#define SETUP_SYNTAX_CACHE_FOR_OBJECT(OBJECT, BUFFER, FROM, COUNT)	\
+  do {									\
+    syntax_cache.buffer = (BUFFER);					\
+    syntax_cache.object = (OBJECT);					\
+    if (NILP (syntax_cache.object))					\
+      {									\
+        XSETBUFFER (syntax_cache.object, syntax_cache.buffer);		\
+      }									\
+    else if (EQ (syntax_cache.object, Qt))				\
+      {									\
+        XSETBUFFER (syntax_cache.object, syntax_cache.buffer);		\
+      }									\
+    else if (STRINGP (syntax_cache.object))				\
+      {									\
+        /* do nothing */;						\
+      }									\
+    else if (BUFFERP (syntax_cache.object))				\
+      {									\
+        syntax_cache.buffer = XBUFFER (syntax_cache.object);		\
+      }									\
+    else								\
+      {									\
+        /* OBJECT must be buffer/string/t/nil */			\
+        assert(0);							\
+      }									\
+    syntax_cache.current_syntax_table					\
+      = syntax_cache.buffer->syntax_table;				\
+    syntax_cache.use_code = 0;						\
+    if (lookup_syntax_properties)					\
+      {									\
+	SYNTAX_CACHE_STATISTICS_COUNT_INIT;				\
+	update_syntax_cache ((FROM) + ((COUNT) > 0 ? 0 : -1), (COUNT));	\
+      }									\
+  } while (0)
+#else
 #define SETUP_SYNTAX_CACHE_FOR_OBJECT(OBJECT, BUFFER, FROM, COUNT)	\
   do {									\
     syntax_cache.buffer = (BUFFER);					\
@@ -522,6 +587,7 @@ void update_syntax_cache (int pos, int count);
 	update_syntax_cache ((FROM) + ((COUNT) > 0 ? 0 : -1), (COUNT));	\
       }									\
   } while (0)
+#endif
 
 #define SYNTAX_CODE_PREFIX(c) \
   ((c >> 7) & 1)
