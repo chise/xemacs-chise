@@ -1,3 +1,23 @@
+2002-10-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el: Add some missing mappings for Daikanwa
+	numbers.
+
+	* Ideograph-R006-Hook.el (M-00246): Unify U-0002011D.
+
+	* Ideograph-R002-Line.el (U-0002011D): Unify M-00246; use
+	`ideographic-' instead of `->same-ideograph'.
+
+2002-10-10  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R029-Again.el (M-03201): Unify U-00020B75.
+
+	* Ideograph-R014-Cover.el (M-01597): Unify C1-5E32.
+
+	* Ideograph-R013-Down-Box.el (C1-5E32): Unify M-01597; use
+	`ideographic-' instead of `->same-ideograph'; add
+	`<-original-ideograph' for M-14301.
+
 2002-10-09  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el, Ideograph-R064-Hand.el,
