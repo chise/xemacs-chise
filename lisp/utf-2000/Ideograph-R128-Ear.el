@@ -760,12 +760,14 @@
     (total-strokes	 . 13)
     (chinese-cns11643-1 . #x657B)	; ø»’§®
     (ideograph-daikanwa . 29074)	; ø¸‡†’
+    (mojikyo		. 029074)	; ý €‡†’
     ))
 (define-char
   '((morohashi-daikanwa	29074 1)
     (ideographic-radical . 128)	; â½¿
     (ideographic-strokes . 7)
-    (mojikyo		. 050366)	; ø¸Œ’¾
+    (total-strokes	 . 13)
+    (mojikyo		. 050366)	; ý €Œ’¾
     (ucs		. #x8056)	; è–
     ))
 (define-char
