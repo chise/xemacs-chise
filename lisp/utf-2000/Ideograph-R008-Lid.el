@@ -2193,7 +2193,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=daikanwa	  . 00300)	; ø¸€„¬
+     ((=big5-cdp	  . #x8BE5)	; ý¢€ˆ¯¥
+      (=daikanwa	  . 00300)	; ø¸€„¬
       )
      ((=ucs		  . #x65E6)	; æ—¦
       ))
@@ -2236,7 +2237,8 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (=ucs		  . #x2FF1)	; â¿±
       )
-     ((=daikanwa	  . 00300)	; ø¸€„¬
+     ((=big5-cdp	  . #x8BE5)	; ý¢€ˆ¯¥
+      (=daikanwa	  . 00300)	; ø¸€„¬
       )
      ((=ucs		  . #x4E14)	; ä¸”
       ))
