@@ -1,5 +1,29 @@
 1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* dumped-lisp.el (preloaded-file-list): Load "uXXXXX-*" instead of
+	"uXXXXX-*.el" in UTF-2000.
+
+	* bytecomp.el (byte-compile-insert-header): Delete comments if
+	non-ASCII characters are found; allow `byte-compile-dynamic' and
+	`byte-compile-dynamic-docstrings' if *.elc will be encoded by
+	`raw-text'.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* dumped-lisp.el (preloaded-file-list): Add
+	"u02500-Box-Drawing.el", "u02580-Block-Elements.el" and
+	"u025A0-Geometric-Shapes.el".
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02580-Block-Elements.el,
+	utf-2000/u025A0-Geometric-Shapes.el: New file.
+
+	* utf-2000/u02500-Box-Drawing.el,
+	utf-2000/u02580-Block-Elements.el,
+	utf-2000/u025A0-Geometric-Shapes.el: New files.
+
+1999-11-14  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* dumped-lisp.el (preloaded-file-list): Add
 	"u02400-Control-Pictures.el", "u02440-OCR.el" and
 	"u02460-Enclosed-Alphanumerics.el".
