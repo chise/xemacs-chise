@@ -2274,6 +2274,116 @@ decode_flush_er_chars (struct decoding_stream *str, unsigned_char_dynarr* dst)
     }
 }
 
+void decode_add_er_char(struct decoding_stream *str, Emchar character,
+			unsigned_char_dynarr* dst);
+void
+decode_add_er_char(struct decoding_stream *str, Emchar c,
+		   unsigned_char_dynarr* dst)
+{
+  if (str->er_counter == 0)
+    {
+      if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys)
+	  && (c == '&') )
+	{
+	  str->er_buf[0] = '&';
+	  str->er_counter++;
+	}
+      else
+	DECODE_ADD_UCS_CHAR (c, dst);
+    }
+  else if (c == ';')
+    {
+      Lisp_Object string = make_string (str->er_buf,
+					str->er_counter);
+      Lisp_Object rest = Vcoded_charset_entity_reference_alist;
+      Lisp_Object cell;
+      Lisp_Object ret;
+      Lisp_Object pat;
+      Lisp_Object ccs;
+      int base;
+
+      while (!NILP (rest))
+	{		      
+	  cell = Fcar (rest);
+	  ccs = Fcar (cell);
+	  if (NILP (ccs = Ffind_charset (ccs)))
+	    continue;
+
+	  cell = Fcdr (cell);
+	  ret = Fcar (cell);
+	  if (STRINGP (ret))
+	    pat = ret;
+	  else
+	    continue;
+
+	  cell = Fcdr (cell);
+	  cell = Fcdr (cell);
+	  ret = Fcar (cell);
+	  if (EQ (ret, Qd))
+	    {
+	      pat = concat3 (build_string ("^&"),
+			     pat, build_string ("\\([0-9]+\\)$"));
+	      base = 10;
+	    }
+	  else if (EQ (ret, Qx))
+	    {
+	      pat = concat3 (build_string ("^&"),
+			     pat, build_string ("\\([0-9a-f]+\\)$"));
+	      base = 16;
+	    }
+	  else if (EQ (ret, QX))
+	    {
+	      pat = concat3 (build_string ("^&"),
+			     pat, build_string ("\\([0-9A-F]+\\)$"));
+	      base = 16;
+	    }
+	  else
+	    continue;
+
+	  if (!NILP (Fstring_match (pat, string, Qnil, Qnil)))
+	    {
+	      int code
+		= XINT (Fstring_to_number
+			(Fsubstring (string,
+				     Fmatch_beginning (make_int (1)),
+				     Fmatch_end (make_int (1))),
+			 make_int (base)));
+
+	      DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code), dst);
+	      goto decoded;
+	    }
+	  rest = Fcdr (rest);
+	}
+      if (!NILP (Fstring_match (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
+				string, Qnil, Qnil)))
+	{
+	  int code
+	    = XINT (Fstring_to_number
+		    (Fsubstring (string,
+				 Fmatch_beginning (make_int (1)),
+				 Fmatch_end (make_int (1))),
+		     make_int (16)));
+
+	  DECODE_ADD_UCS_CHAR (code, dst);
+	}
+      else
+	{
+	  Dynarr_add_many (dst, str->er_buf, str->er_counter);
+	  Dynarr_add (dst, ';');
+	}
+    decoded:
+      str->er_counter = 0;
+    }
+  else if ( (str->er_counter >= 16) || (c >= 0x7F) )
+    {
+      Dynarr_add_many (dst, str->er_buf, str->er_counter);
+      str->er_counter = 0;
+      DECODE_ADD_UCS_CHAR (c, dst);
+    }
+  else
+    str->er_buf[str->er_counter++] = c;
+}
+
 INLINE_HEADER void
 COMPOSE_FLUSH_CHARS (struct decoding_stream *str, unsigned_char_dynarr* dst);
 INLINE_HEADER void
@@ -4059,119 +4169,10 @@ decode_coding_utf8 (Lstream *decoding, const Extbyte *src,
 	      DECODE_ADD_UCS_CHAR (c, dst);
 	    }
 	  else if ( c < 0xC0 )
-	    {
-	      if (str->er_counter == 0)
-		{
-		  if (CODING_SYSTEM_USE_ENTITY_REFERENCE (str->codesys)
-		      && (c == '&') )
-		    {
-		      str->er_buf[0] = '&';
-		      str->er_counter++;
-		    }
-		  else
-		    DECODE_ADD_UCS_CHAR (c, dst);
-		}
-	      else if (c == ';')
-		{
-		  Lisp_Object string = make_string (str->er_buf,
-						    str->er_counter);
-		  Lisp_Object rest = Vcoded_charset_entity_reference_alist;
-		  Lisp_Object cell;
-		  Lisp_Object ret;
-		  Lisp_Object pat;
-		  Lisp_Object ccs;
-		  int base;
-
-		  while (!NILP (rest))
-		    {		      
-		      cell = Fcar (rest);
-		      ccs = Fcar (cell);
-		      if (NILP (ccs = Ffind_charset (ccs)))
-			continue;
-
-		      cell = Fcdr (cell);
-		      ret = Fcar (cell);
-		      if (STRINGP (ret))
-			pat = ret;
-		      else
-			continue;
-
-		      cell = Fcdr (cell);
-		      cell = Fcdr (cell);
-		      ret = Fcar (cell);
-		      if (EQ (ret, Qd))
-			{
-			  pat = concat3 (build_string ("^&"),
-					 pat, build_string ("\\([0-9]+\\)$"));
-			  base = 10;
-			}
-		      else if (EQ (ret, Qx))
-			{
-			  pat = concat3 (build_string ("^&"),
-					 pat,
-					 build_string ("\\([0-9a-f]+\\)$"));
-			  base = 16;
-			}
-		      else if (EQ (ret, QX))
-			{
-			  pat = concat3 (build_string ("^&"),
-					 pat,
-					 build_string ("\\([0-9A-F]+\\)$"));
-			  base = 16;
-			}
-		      else
-			continue;
-
-		      if (!NILP (Fstring_match (pat, string, Qnil, Qnil)))
-			{
-			  int code
-			    = XINT (Fstring_to_number
-				    (Fsubstring (string,
-						 Fmatch_beginning
-						 (make_int (1)),
-						 Fmatch_end (make_int (1))),
-				     make_int (base)));
-
-			  DECODE_ADD_UCS_CHAR (DECODE_CHAR (ccs, code), dst);
-			  goto decoded;
-			}
-		      rest = Fcdr (rest);
-		    }
-		  if (!NILP (Fstring_match
-			     (build_string ("^&MCS-\\([0-9A-F]+\\)$"),
-			      string, Qnil, Qnil)))
-		    {
-		      int code
-			= XINT (Fstring_to_number
-				(Fsubstring (string,
-					     Fmatch_beginning
-					     (make_int (1)),
-					     Fmatch_end (make_int (1))),
-				 make_int (16)));
-
-		      DECODE_ADD_UCS_CHAR (code, dst);
-		    }
-		  else
-		    {
-		      Dynarr_add_many (dst, str->er_buf, str->er_counter);
-		      Dynarr_add (dst, ';');
-		    }
-		decoded:
-		  str->er_counter = 0;
-		}
-	      else if ( (str->er_counter >= 16) || (c >= 0x7F) )
-		{
-		  Dynarr_add_many (dst, str->er_buf, str->er_counter);
-		  str->er_counter = 0;
-		  DECODE_ADD_UCS_CHAR (c, dst);
-		}
-	      else
-		str->er_buf[str->er_counter++] = c;
-	    }
+	    decode_add_er_char (str, c, dst);
 	  else
 	    {
-	      Dynarr_add_many (dst, str->er_buf, str->er_counter);
-	      str->er_counter = 0;
+	      decode_flush_er_chars (str, dst);
 	      if ( c < 0xE0 )
 		{
 		  cpos = c & 0x1f;
