@@ -2525,6 +2525,7 @@
     (->subsumptive
      ((=jis-x0212	  . #x6074)	; &M-38397; [64-84]
       (=daikanwa	  . 38397)	; &I-M-38397;
+      (=ucs@jis		  . #x8F28)	; &M-38397;
       )
      ((=cns11643-4	  . #x4E2B)	; &C4-4E2B; [46-11]
       (=ucs@unicode	  . #x8F28)	; &C4-4E2B;
