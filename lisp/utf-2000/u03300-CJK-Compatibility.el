@@ -823,7 +823,7 @@
     (ucs		. #x3364)	; ㍤
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR THIRTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR THIRTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -831,7 +831,7 @@
     (ucs		. #x3365)	; ㍥
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FOURTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FOURTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -839,7 +839,7 @@
     (ucs		. #x3366)	; ㍦
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FIFTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR FIFTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -847,7 +847,7 @@
     (ucs		. #x3367)	; ㍧
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SIXTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SIXTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -855,7 +855,7 @@
     (ucs		. #x3368)	; ㍨
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SEVENTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR SEVENTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -863,7 +863,7 @@
     (ucs		. #x3369)	; ㍩
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR EIGHTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR EIGHTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -871,7 +871,7 @@
     (ucs		. #x336A)	; ㍪
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR NINETEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR HOUR NINETEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1970,7 +1970,7 @@
     (ucs		. #x33EB)	; ㏫
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -1978,7 +1978,7 @@
     (ucs		. #x33EC)	; ㏬
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FOURTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY FOURTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2002,7 +2002,7 @@
     (ucs		. #x33EF)	; ㏯
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SEVENTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY SEVENTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2010,7 +2010,7 @@
     (ucs		. #x33F0)	; ㏰
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY EIGHTEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY EIGHTEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2018,7 +2018,7 @@
     (ucs		. #x33F1)	; ㏱
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY NINETEEN")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY NINETEEN")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2034,7 +2034,7 @@
     (ucs		. #x33F3)	; ㏳
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-ONE")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2042,7 +2042,7 @@
     (ucs		. #x33F4)	; ㏴
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-TWO")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-TWO")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2074,7 +2074,7 @@
     (ucs		. #x33F8)	; ㏸
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-SIX")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY TWENTY-SIX")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
@@ -2114,7 +2114,7 @@
     (ucs		. #x33FD)	; ㏽
     ))
 (define-char
-  '((name		. "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY-ONE")
+  '((name . "IDEOGRAPHIC TELEGRAPH SYMBOL FOR DAY THIRTY-ONE")
     (general-category	symbol other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
