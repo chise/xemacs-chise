@@ -1,3 +1,28 @@
+2004-12-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R071-Not.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R035-Go-Slowly.el (U+5910): Use `->subsumptive'; add
+	`<-denotational' for B-E5C0.
+	(B-E5C0): New abstract character; copied from
+	Ideograph-R066-Rap.el.
+
+	* Ideograph-R066-Rap.el (M-13355): Map to U-00022FCC instead of
+	U+657B; add `<-original' for M-05731.
+	(U+657B): Use `<-denotational' for B-E5C0.
+	(B-E5C0): Changed to abstract character; add J97-546B.
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
+	* Ideograph-R070-Square.el (U-0002311A): Add M-13695.
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
+
 2004-12-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R067-Script.el (M-13451): Add `<-vulgar' for M-48560;
