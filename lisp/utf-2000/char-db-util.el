@@ -75,7 +75,7 @@
   '(ucs daikanwa cns gt jis jis/alt jis/a jis/b
 	jis-x0212 jis-x0213 cdp shinjigen misc unknown))
 
-(defvar char-db-ignored-attributes nil)
+(defvar char-db-ignored-attributes '(ideographic-products))
 
 (defun char-attribute-name< (ka kb)
   (cond
