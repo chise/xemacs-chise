@@ -3772,7 +3772,7 @@ ids_format_unit (Lisp_Object ids_char)
   if (CHARP (ids_char))
     return Fchar_to_string (ids_char);
   else if (INTP (ids_char))
-    return Fchar_to_string (Fdecode_char (Qucs, ids_char, Qnil));
+    return Fchar_to_string (Fdecode_char (Qmap_ucs, ids_char, Qnil));
   else
     {
       Lisp_Object ret = Ffind_char (ids_char);

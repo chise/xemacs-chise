@@ -46,7 +46,7 @@ extern Lisp_Object Vcharset_japanese_jisx0212;
 
 EXFUN (Fget_charset, 1);
 
-extern Lisp_Object Qucs;
+extern Lisp_Object Qmap_ucs, Qucs;
 
 Lisp_Object put_char_ccs_code_point (Lisp_Object character,
 				     Lisp_Object ccs, Lisp_Object value);

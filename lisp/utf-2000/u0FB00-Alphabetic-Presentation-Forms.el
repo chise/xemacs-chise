@@ -4,7 +4,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0066 #x0066)
-    (ucs		. #xFB00)	; ﬀ
+    (=ucs		. #xFB00)	; ﬀ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE FI")
@@ -12,7 +12,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0066 #x0069)
-    (ucs		. #xFB01)	; ﬁ
+    (=ucs		. #xFB01)	; ﬁ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE FL")
@@ -20,7 +20,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0066 #x006C)
-    (ucs		. #xFB02)	; ﬂ
+    (=ucs		. #xFB02)	; ﬂ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE FFI")
@@ -28,7 +28,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0066 #x0066 #x0069)
-    (ucs		. #xFB03)	; ﬃ
+    (=ucs		. #xFB03)	; ﬃ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE FFL")
@@ -36,7 +36,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0066 #x0066 #x006C)
-    (ucs		. #xFB04)	; ﬄ
+    (=ucs		. #xFB04)	; ﬄ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE LONG S T")
@@ -44,7 +44,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x017F #x0074)
-    (ucs		. #xFB05)	; ﬅ
+    (=ucs		. #xFB05)	; ﬅ
     ))
 (define-char
   '((name		. "LATIN SMALL LIGATURE ST")
@@ -52,7 +52,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0073 #x0074)
-    (ucs		. #xFB06)	; ﬆ
+    (=ucs		. #xFB06)	; ﬆ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE MEN NOW")
@@ -60,7 +60,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0574 #x0576)
-    (ucs		. #xFB13)	; ﬓ
+    (=ucs		. #xFB13)	; ﬓ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE MEN ECH")
@@ -68,7 +68,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0574 #x0565)
-    (ucs		. #xFB14)	; ﬔ
+    (=ucs		. #xFB14)	; ﬔ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE MEN INI")
@@ -76,7 +76,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0574 #x056B)
-    (ucs		. #xFB15)	; ﬕ
+    (=ucs		. #xFB15)	; ﬕ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE VEW NOW")
@@ -84,7 +84,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x057E #x0576)
-    (ucs		. #xFB16)	; ﬖ
+    (=ucs		. #xFB16)	; ﬖ
     ))
 (define-char
   '((name		. "ARMENIAN SMALL LIGATURE MEN XEH")
@@ -92,7 +92,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0574 #x056D)
-    (ucs		. #xFB17)	; ﬗ
+    (=ucs		. #xFB17)	; ﬗ
     ))
 (define-char
   '((name		. "HEBREW LETTER YOD WITH HIRIQ")
@@ -100,14 +100,14 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D9 #x05B4)
-    (ucs		. #xFB1D)	; יִ
+    (=ucs		. #xFB1D)	; יִ
     ))
 (define-char
   '((name		. "HEBREW POINT JUDEO-SPANISH VARIKA")
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (ucs		. #xFB1E)	; ﬞ
+    (=ucs		. #xFB1E)	; ﬞ
     ))
 (define-char
   '((name		. "HEBREW LIGATURE YIDDISH YOD YOD PATAH")
@@ -115,7 +115,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05F2 #x05B7)
-    (ucs		. #xFB1F)	; ײַ
+    (=ucs		. #xFB1F)	; ײַ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALTERNATIVE AYIN")
@@ -123,7 +123,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05E2)
-    (ucs		. #xFB20)	; ﬠ
+    (=ucs		. #xFB20)	; ﬠ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE ALEF")
@@ -131,7 +131,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05D0)
-    (ucs		. #xFB21)	; ﬡ
+    (=ucs		. #xFB21)	; ﬡ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE DALET")
@@ -139,7 +139,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05D3)
-    (ucs		. #xFB22)	; ﬢ
+    (=ucs		. #xFB22)	; ﬢ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE HE")
@@ -147,7 +147,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05D4)
-    (ucs		. #xFB23)	; ﬣ
+    (=ucs		. #xFB23)	; ﬣ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE KAF")
@@ -155,7 +155,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05DB)
-    (ucs		. #xFB24)	; ﬤ
+    (=ucs		. #xFB24)	; ﬤ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE LAMED")
@@ -163,7 +163,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05DC)
-    (ucs		. #xFB25)	; ﬥ
+    (=ucs		. #xFB25)	; ﬥ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE FINAL MEM")
@@ -171,7 +171,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05DD)
-    (ucs		. #xFB26)	; ﬦ
+    (=ucs		. #xFB26)	; ﬦ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE RESH")
@@ -179,7 +179,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05E8)
-    (ucs		. #xFB27)	; ﬧ
+    (=ucs		. #xFB27)	; ﬧ
     ))
 (define-char
   '((name		. "HEBREW LETTER WIDE TAV")
@@ -187,7 +187,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	font #x05EA)
-    (ucs		. #xFB28)	; ﬨ
+    (=ucs		. #xFB28)	; ﬨ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALTERNATIVE PLUS SIGN")
@@ -195,7 +195,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	font #x002B)
-    (ucs		. #xFB29)	; ﬩
+    (=ucs		. #xFB29)	; ﬩
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH SHIN DOT")
@@ -203,7 +203,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E9 #x05C1)
-    (ucs		. #xFB2A)	; שׁ
+    (=ucs		. #xFB2A)	; שׁ
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH SIN DOT")
@@ -211,7 +211,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E9 #x05C2)
-    (ucs		. #xFB2B)	; שׂ
+    (=ucs		. #xFB2B)	; שׂ
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH DAGESH AND SHIN DOT")
@@ -219,7 +219,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#xFB49 #x05C1)
-    (ucs		. #xFB2C)	; שּׁ
+    (=ucs		. #xFB2C)	; שּׁ
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH DAGESH AND SIN DOT")
@@ -227,7 +227,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#xFB49 #x05C2)
-    (ucs		. #xFB2D)	; שּׂ
+    (=ucs		. #xFB2D)	; שּׂ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALEF WITH PATAH")
@@ -235,7 +235,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D0 #x05B7)
-    (ucs		. #xFB2E)	; אַ
+    (=ucs		. #xFB2E)	; אַ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALEF WITH QAMATS")
@@ -243,7 +243,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D0 #x05B8)
-    (ucs		. #xFB2F)	; אָ
+    (=ucs		. #xFB2F)	; אָ
     ))
 (define-char
   '((name		. "HEBREW LETTER ALEF WITH MAPIQ")
@@ -251,7 +251,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D0 #x05BC)
-    (ucs		. #xFB30)	; אּ
+    (=ucs		. #xFB30)	; אּ
     ))
 (define-char
   '((name		. "HEBREW LETTER BET WITH DAGESH")
@@ -259,7 +259,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D1 #x05BC)
-    (ucs		. #xFB31)	; בּ
+    (=ucs		. #xFB31)	; בּ
     ))
 (define-char
   '((name		. "HEBREW LETTER GIMEL WITH DAGESH")
@@ -267,7 +267,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D2 #x05BC)
-    (ucs		. #xFB32)	; גּ
+    (=ucs		. #xFB32)	; גּ
     ))
 (define-char
   '((name		. "HEBREW LETTER DALET WITH DAGESH")
@@ -275,7 +275,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D3 #x05BC)
-    (ucs		. #xFB33)	; דּ
+    (=ucs		. #xFB33)	; דּ
     ))
 (define-char
   '((name		. "HEBREW LETTER HE WITH MAPIQ")
@@ -283,7 +283,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D4 #x05BC)
-    (ucs		. #xFB34)	; הּ
+    (=ucs		. #xFB34)	; הּ
     ))
 (define-char
   '((name		. "HEBREW LETTER VAV WITH DAGESH")
@@ -291,7 +291,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D5 #x05BC)
-    (ucs		. #xFB35)	; וּ
+    (=ucs		. #xFB35)	; וּ
     ))
 (define-char
   '((name		. "HEBREW LETTER ZAYIN WITH DAGESH")
@@ -299,7 +299,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D6 #x05BC)
-    (ucs		. #xFB36)	; זּ
+    (=ucs		. #xFB36)	; זּ
     ))
 (define-char
   '((name		. "HEBREW LETTER TET WITH DAGESH")
@@ -307,7 +307,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D8 #x05BC)
-    (ucs		. #xFB38)	; טּ
+    (=ucs		. #xFB38)	; טּ
     ))
 (define-char
   '((name		. "HEBREW LETTER YOD WITH DAGESH")
@@ -315,7 +315,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D9 #x05BC)
-    (ucs		. #xFB39)	; יּ
+    (=ucs		. #xFB39)	; יּ
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL KAF WITH DAGESH")
@@ -323,7 +323,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05DA #x05BC)
-    (ucs		. #xFB3A)	; ךּ
+    (=ucs		. #xFB3A)	; ךּ
     ))
 (define-char
   '((name		. "HEBREW LETTER KAF WITH DAGESH")
@@ -331,7 +331,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05DB #x05BC)
-    (ucs		. #xFB3B)	; כּ
+    (=ucs		. #xFB3B)	; כּ
     ))
 (define-char
   '((name		. "HEBREW LETTER LAMED WITH DAGESH")
@@ -339,7 +339,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05DC #x05BC)
-    (ucs		. #xFB3C)	; לּ
+    (=ucs		. #xFB3C)	; לּ
     ))
 (define-char
   '((name		. "HEBREW LETTER MEM WITH DAGESH")
@@ -347,7 +347,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05DE #x05BC)
-    (ucs		. #xFB3E)	; מּ
+    (=ucs		. #xFB3E)	; מּ
     ))
 (define-char
   '((name		. "HEBREW LETTER NUN WITH DAGESH")
@@ -355,7 +355,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E0 #x05BC)
-    (ucs		. #xFB40)	; נּ
+    (=ucs		. #xFB40)	; נּ
     ))
 (define-char
   '((name		. "HEBREW LETTER SAMEKH WITH DAGESH")
@@ -363,7 +363,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E1 #x05BC)
-    (ucs		. #xFB41)	; סּ
+    (=ucs		. #xFB41)	; סּ
     ))
 (define-char
   '((name		. "HEBREW LETTER FINAL PE WITH DAGESH")
@@ -371,7 +371,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E3 #x05BC)
-    (ucs		. #xFB43)	; ףּ
+    (=ucs		. #xFB43)	; ףּ
     ))
 (define-char
   '((name		. "HEBREW LETTER PE WITH DAGESH")
@@ -379,7 +379,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E4 #x05BC)
-    (ucs		. #xFB44)	; פּ
+    (=ucs		. #xFB44)	; פּ
     ))
 (define-char
   '((name		. "HEBREW LETTER TSADI WITH DAGESH")
@@ -387,7 +387,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E6 #x05BC)
-    (ucs		. #xFB46)	; צּ
+    (=ucs		. #xFB46)	; צּ
     ))
 (define-char
   '((name		. "HEBREW LETTER QOF WITH DAGESH")
@@ -395,7 +395,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E7 #x05BC)
-    (ucs		. #xFB47)	; קּ
+    (=ucs		. #xFB47)	; קּ
     ))
 (define-char
   '((name		. "HEBREW LETTER RESH WITH DAGESH")
@@ -403,7 +403,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E8 #x05BC)
-    (ucs		. #xFB48)	; רּ
+    (=ucs		. #xFB48)	; רּ
     ))
 (define-char
   '((name		. "HEBREW LETTER SHIN WITH DAGESH")
@@ -411,7 +411,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E9 #x05BC)
-    (ucs		. #xFB49)	; שּ
+    (=ucs		. #xFB49)	; שּ
     ))
 (define-char
   '((name		. "HEBREW LETTER TAV WITH DAGESH")
@@ -419,7 +419,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05EA #x05BC)
-    (ucs		. #xFB4A)	; תּ
+    (=ucs		. #xFB4A)	; תּ
     ))
 (define-char
   '((name		. "HEBREW LETTER VAV WITH HOLAM")
@@ -427,7 +427,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D5 #x05B9)
-    (ucs		. #xFB4B)	; וֹ
+    (=ucs		. #xFB4B)	; וֹ
     ))
 (define-char
   '((name		. "HEBREW LETTER BET WITH RAFE")
@@ -435,7 +435,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05D1 #x05BF)
-    (ucs		. #xFB4C)	; בֿ
+    (=ucs		. #xFB4C)	; בֿ
     ))
 (define-char
   '((name		. "HEBREW LETTER KAF WITH RAFE")
@@ -443,7 +443,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05DB #x05BF)
-    (ucs		. #xFB4D)	; כֿ
+    (=ucs		. #xFB4D)	; כֿ
     ))
 (define-char
   '((name		. "HEBREW LETTER PE WITH RAFE")
@@ -451,7 +451,7 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	#x05E4 #x05BF)
-    (ucs		. #xFB4E)	; פֿ
+    (=ucs		. #xFB4E)	; פֿ
     ))
 (define-char
   '((name		. "HEBREW LIGATURE ALEF LAMED")
@@ -459,5 +459,5 @@
     (bidi-category	. "R")
     (mirrored		. nil)
     (->decomposition	compat #x05D0 #x05DC)
-    (ucs		. #xFB4F)	; ﭏ
+    (=ucs		. #xFB4F)	; ﭏ
     ))

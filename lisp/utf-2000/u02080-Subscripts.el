@@ -7,7 +7,7 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (->decomposition	sub #x0030)
-    (ucs		. #x2080)	; â‚€
+    (=ucs		. #x2080)	; â‚€
     ))
 (define-char
   '((name		. "SUBSCRIPT ONE")
@@ -22,7 +22,7 @@
      ((name		  . "FULLWIDTH SUBSCRIPT ONE")
       (korean-ksc5601	  . #x297B)	; ø»ˆ§–
       ))
-    (ucs		. #x2081)	; â‚
+    (=ucs		. #x2081)	; â‚
     ))
 (define-char
   '((name		. "FULLWIDTH SUBSCRIPT ONE")
@@ -36,7 +36,7 @@
     (->decomposition	wide #x2081)
     (<-fullwidth
      ((name		  . "SUBSCRIPT ONE")
-      (ucs		  . #x2081)	; â‚
+      (=ucs		  . #x2081)	; â‚
       ))
     (korean-ksc5601	. #x297B)	; ø»ˆ§–
     ))
@@ -53,7 +53,7 @@
      ((name		  . "FULLWIDTH SUBSCRIPT TWO")
       (korean-ksc5601	  . #x297C)	; ø»ˆ§—
       ))
-    (ucs		. #x2082)	; â‚‚
+    (=ucs		. #x2082)	; â‚‚
     ))
 (define-char
   '((name		. "FULLWIDTH SUBSCRIPT TWO")
@@ -67,7 +67,7 @@
     (->decomposition	wide #x2082)
     (<-fullwidth
      ((name		  . "SUBSCRIPT TWO")
-      (ucs		  . #x2082)	; â‚‚
+      (=ucs		  . #x2082)	; â‚‚
       ))
     (korean-ksc5601	. #x297C)	; ø»ˆ§—
     ))
@@ -84,7 +84,7 @@
      ((name		  . "FULLWIDTH SUBSCRIPT THREE")
       (korean-ksc5601	  . #x297D)	; ø»ˆ§˜
       ))
-    (ucs		. #x2083)	; â‚ƒ
+    (=ucs		. #x2083)	; â‚ƒ
     ))
 (define-char
   '((name		. "FULLWIDTH SUBSCRIPT THREE")
@@ -98,7 +98,7 @@
     (->decomposition	wide #x2083)
     (<-fullwidth
      ((name		  . "SUBSCRIPT THREE")
-      (ucs		  . #x2083)	; â‚ƒ
+      (=ucs		  . #x2083)	; â‚ƒ
       ))
     (korean-ksc5601	. #x297D)	; ø»ˆ§˜
     ))
@@ -115,7 +115,7 @@
      ((name		  . "FULLWIDTH SUBSCRIPT FOUR")
       (korean-ksc5601	  . #x297E)	; ø»ˆ§™
       ))
-    (ucs		. #x2084)	; â‚„
+    (=ucs		. #x2084)	; â‚„
     ))
 (define-char
   '((name		. "FULLWIDTH SUBSCRIPT FOUR")
@@ -129,7 +129,7 @@
     (->decomposition	wide #x2084)
     (<-fullwidth
      ((name		  . "SUBSCRIPT FOUR")
-      (ucs		  . #x2084)	; â‚„
+      (=ucs		  . #x2084)	; â‚„
       ))
     (korean-ksc5601	. #x297E)	; ø»ˆ§™
     ))
@@ -142,7 +142,7 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (->decomposition	sub #x0035)
-    (ucs		. #x2085)	; â‚…
+    (=ucs		. #x2085)	; â‚…
     ))
 (define-char
   '((name		. "SUBSCRIPT SIX")
@@ -153,7 +153,7 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (->decomposition	sub #x0036)
-    (ucs		. #x2086)	; â‚†
+    (=ucs		. #x2086)	; â‚†
     ))
 (define-char
   '((name		. "SUBSCRIPT SEVEN")
@@ -164,7 +164,7 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (->decomposition	sub #x0037)
-    (ucs		. #x2087)	; â‚‡
+    (=ucs		. #x2087)	; â‚‡
     ))
 (define-char
   '((name		. "SUBSCRIPT EIGHT")
@@ -175,7 +175,7 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (->decomposition	sub #x0038)
-    (ucs		. #x2088)	; â‚ˆ
+    (=ucs		. #x2088)	; â‚ˆ
     ))
 (define-char
   '((name		. "SUBSCRIPT NINE")
@@ -186,7 +186,7 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (->decomposition	sub #x0039)
-    (ucs		. #x2089)	; â‚‰
+    (=ucs		. #x2089)	; â‚‰
     ))
 (define-char
   '((name		. "SUBSCRIPT PLUS SIGN")
@@ -194,7 +194,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	sub #x002B)
-    (ucs		. #x208A)	; â‚Š
+    (=ucs		. #x208A)	; â‚Š
     ))
 (define-char
   '((name		. "SUBSCRIPT MINUS")
@@ -202,7 +202,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (->decomposition	sub #x2212)
-    (ucs		. #x208B)	; â‚‹
+    (=ucs		. #x208B)	; â‚‹
     ))
 (define-char
   '((name		. "SUBSCRIPT EQUALS SIGN")
@@ -210,7 +210,7 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (->decomposition	sub #x003D)
-    (ucs		. #x208C)	; â‚Œ
+    (=ucs		. #x208C)	; â‚Œ
     ))
 (define-char
   '((name		. "SUBSCRIPT LEFT PARENTHESIS")
@@ -218,7 +218,7 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	sub #x0028)
-    (ucs		. #x208D)	; â‚
+    (=ucs		. #x208D)	; â‚
     ))
 (define-char
   '((name		. "SUBSCRIPT RIGHT PARENTHESIS")
@@ -226,5 +226,5 @@
     (bidi-category	. "ON")
     (mirrored		. t)
     (->decomposition	sub #x0029)
-    (ucs		. #x208E)	; â‚Ž
+    (=ucs		. #x208E)	; â‚Ž
     ))

@@ -1,7 +1,7 @@
 (define-char
   '((name		. "KATAKANA-HIRAGANA DOUBLE HYPHEN")
     (=jis-x0213-1-2000	. #x237B)	; ø»¢—’
-    (ucs		. #x30A0)	; ã‚ 
+    (=ucs		. #x30A0)	; ã‚ 
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL A")
@@ -14,7 +14,7 @@
     (=big5-eten		. #xC77B)	; ý¢€Œ»
     (=jef-china3	. #x7DCF)	; øº‡·
     (mojikyo		. 062401)	; ý €
-    (ucs		. #x30A1)	; ã‚¡
+    (=ucs		. #x30A1)	; ã‚¡
     ))
 (define-char
   '((name		. "KATAKANA LETTER A")
@@ -26,7 +26,7 @@
     (korean-ksc5601	. #x2B22)	; ø»ˆ¨¹
     (=big5-eten		. #xC77C)	; ý¢€Œ¼
     (mojikyo		. 062402)	; ý €‚
-    (ucs		. #x30A2)	; ã‚¢
+    (=ucs		. #x30A2)	; ã‚¢
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL I")
@@ -39,7 +39,7 @@
     (=big5-eten		. #xC77D)	; ý¢€Œ½
     (=jef-china3	. #x7DD0)	; øº‡·
     (mojikyo		. 062403)	; ý €ƒ
-    (ucs		. #x30A3)	; ã‚£
+    (=ucs		. #x30A3)	; ã‚£
     ))
 (define-char
   '((name		. "KATAKANA LETTER I")
@@ -51,7 +51,7 @@
     (korean-ksc5601	. #x2B24)	; ø»ˆ¨»
     (=big5-eten		. #xC77E)	; ý¢€Œ¾
     (mojikyo		. 062404)	; ý €„
-    (ucs		. #x30A4)	; ã‚¤
+    (=ucs		. #x30A4)	; ã‚¤
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL U")
@@ -64,7 +64,7 @@
     (=big5-eten		. #xC7A1)	; ý¢€Œž¡
     (=jef-china3	. #x7DD1)	; øº‡·‘
     (mojikyo		. 062405)	; ý €…
-    (ucs		. #x30A5)	; ã‚¥
+    (=ucs		. #x30A5)	; ã‚¥
     ))
 (define-char
   '((name		. "KATAKANA LETTER U")
@@ -76,7 +76,7 @@
     (korean-ksc5601	. #x2B26)	; ø»ˆ¨½
     (=big5-eten		. #xC7A2)	; ý¢€Œž¢
     (mojikyo		. 062406)	; ý €†
-    (ucs		. #x30A6)	; ã‚¦
+    (=ucs		. #x30A6)	; ã‚¦
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL E")
@@ -89,7 +89,7 @@
     (=big5-eten		. #xC7A3)	; ý¢€Œž£
     (=jef-china3	. #x7DD2)	; øº‡·’
     (mojikyo		. 062407)	; ý €‡
-    (ucs		. #x30A7)	; ã‚§
+    (=ucs		. #x30A7)	; ã‚§
     ))
 (define-char
   '((name		. "KATAKANA LETTER E")
@@ -101,7 +101,7 @@
     (korean-ksc5601	. #x2B28)	; ø»ˆ¨¿
     (=big5-eten		. #xC7A4)	; ý¢€Œž¤
     (mojikyo		. 062408)	; ý €ˆ
-    (ucs		. #x30A8)	; ã‚¨
+    (=ucs		. #x30A8)	; ã‚¨
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL O")
@@ -114,7 +114,7 @@
     (=big5-eten		. #xC7A5)	; ý¢€Œž¥
     (=jef-china3	. #x7DD3)	; øº‡·“
     (mojikyo		. 062409)	; ý €‰
-    (ucs		. #x30A9)	; ã‚©
+    (=ucs		. #x30A9)	; ã‚©
     ))
 (define-char
   '((name		. "KATAKANA LETTER O")
@@ -126,7 +126,7 @@
     (korean-ksc5601	. #x2B2A)	; ø»ˆ©
     (=big5-eten		. #xC7A6)	; ý¢€Œž¦
     (mojikyo		. 062410)	; ý €Š
-    (ucs		. #x30AA)	; ã‚ª
+    (=ucs		. #x30AA)	; ã‚ª
     ))
 (define-char
   '((name		. "KATAKANA LETTER KA")
@@ -138,7 +138,7 @@
     (korean-ksc5601	. #x2B2B)	; ø»ˆ©‚
     (=big5-eten		. #xC7A7)	; ý¢€Œž§
     (mojikyo		. 062411)	; ý €‹
-    (ucs		. #x30AB)	; ã‚«
+    (=ucs		. #x30AB)	; ã‚«
     ))
 (define-char
   '((name		. "KATAKANA LETTER GA")
@@ -151,7 +151,7 @@
     (korean-ksc5601	. #x2B2C)	; ø»ˆ©ƒ
     (=big5-eten		. #xC7A8)	; ý¢€Œž¨
     (mojikyo		. 062412)	; ý €Œ
-    (ucs		. #x30AC)	; ã‚¬
+    (=ucs		. #x30AC)	; ã‚¬
     ))
 (define-char
   '((name		. "KATAKANA LETTER KI")
@@ -163,7 +163,7 @@
     (korean-ksc5601	. #x2B2D)	; ø»ˆ©„
     (=big5-eten		. #xC7A9)	; ý¢€Œž©
     (mojikyo		. 062413)	; ý €
-    (ucs		. #x30AD)	; ã‚­
+    (=ucs		. #x30AD)	; ã‚­
     ))
 (define-char
   '((name		. "KATAKANA LETTER GI")
@@ -176,7 +176,7 @@
     (korean-ksc5601	. #x2B2E)	; ø»ˆ©…
     (=big5-eten		. #xC7AA)	; ý¢€Œžª
     (mojikyo		. 062414)	; ý €Ž
-    (ucs		. #x30AE)	; ã‚®
+    (=ucs		. #x30AE)	; ã‚®
     ))
 (define-char
   '((name		. "KATAKANA LETTER KU")
@@ -188,7 +188,7 @@
     (korean-ksc5601	. #x2B2F)	; ø»ˆ©†
     (=big5-eten		. #xC7AB)	; ý¢€Œž«
     (mojikyo		. 062415)	; ý €
-    (ucs		. #x30AF)	; ã‚¯
+    (=ucs		. #x30AF)	; ã‚¯
     ))
 (define-char
   '((name		. "KATAKANA LETTER GU")
@@ -201,7 +201,7 @@
     (korean-ksc5601	. #x2B30)	; ø»ˆ©‡
     (=big5-eten		. #xC7AC)	; ý¢€Œž¬
     (mojikyo		. 062416)	; ý €
-    (ucs		. #x30B0)	; ã‚°
+    (=ucs		. #x30B0)	; ã‚°
     ))
 (define-char
   '((name		. "KATAKANA LETTER KE")
@@ -213,7 +213,7 @@
     (korean-ksc5601	. #x2B31)	; ø»ˆ©ˆ
     (=big5-eten		. #xC7AD)	; ý¢€Œž­
     (mojikyo		. 062417)	; ý €‘
-    (ucs		. #x30B1)	; ã‚±
+    (=ucs		. #x30B1)	; ã‚±
     ))
 (define-char
   '((name		. "KATAKANA LETTER GE")
@@ -226,7 +226,7 @@
     (korean-ksc5601	. #x2B32)	; ø»ˆ©‰
     (=big5-eten		. #xC7AE)	; ý¢€Œž®
     (mojikyo		. 062418)	; ý €’
-    (ucs		. #x30B2)	; ã‚²
+    (=ucs		. #x30B2)	; ã‚²
     ))
 (define-char
   '((name		. "KATAKANA LETTER KO")
@@ -238,7 +238,7 @@
     (korean-ksc5601	. #x2B33)	; ø»ˆ©Š
     (=big5-eten		. #xC7AF)	; ý¢€Œž¯
     (mojikyo		. 062419)	; ý €“
-    (ucs		. #x30B3)	; ã‚³
+    (=ucs		. #x30B3)	; ã‚³
     ))
 (define-char
   '((name		. "KATAKANA LETTER GO")
@@ -251,7 +251,7 @@
     (korean-ksc5601	. #x2B34)	; ø»ˆ©‹
     (=big5-eten		. #xC7B0)	; ý¢€Œž°
     (mojikyo		. 062420)	; ý €”
-    (ucs		. #x30B4)	; ã‚´
+    (=ucs		. #x30B4)	; ã‚´
     ))
 (define-char
   '((name		. "KATAKANA LETTER SA")
@@ -263,7 +263,7 @@
     (korean-ksc5601	. #x2B35)	; ø»ˆ©Œ
     (=big5-eten		. #xC7B1)	; ý¢€Œž±
     (mojikyo		. 062421)	; ý €•
-    (ucs		. #x30B5)	; ã‚µ
+    (=ucs		. #x30B5)	; ã‚µ
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZA")
@@ -276,7 +276,7 @@
     (korean-ksc5601	. #x2B36)	; ø»ˆ©
     (=big5-eten		. #xC7B2)	; ý¢€Œž²
     (mojikyo		. 062422)	; ý €–
-    (ucs		. #x30B6)	; ã‚¶
+    (=ucs		. #x30B6)	; ã‚¶
     ))
 (define-char
   '((name		. "KATAKANA LETTER SI")
@@ -288,7 +288,7 @@
     (korean-ksc5601	. #x2B37)	; ø»ˆ©Ž
     (=big5-eten		. #xC7B3)	; ý¢€Œž³
     (mojikyo		. 062423)	; ý €—
-    (ucs		. #x30B7)	; ã‚·
+    (=ucs		. #x30B7)	; ã‚·
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZI")
@@ -301,7 +301,7 @@
     (korean-ksc5601	. #x2B38)	; ø»ˆ©
     (=big5-eten		. #xC7B4)	; ý¢€Œž´
     (mojikyo		. 062424)	; ý €˜
-    (ucs		. #x30B8)	; ã‚¸
+    (=ucs		. #x30B8)	; ã‚¸
     ))
 (define-char
   '((name		. "KATAKANA LETTER SU")
@@ -313,7 +313,7 @@
     (korean-ksc5601	. #x2B39)	; ø»ˆ©
     (=big5-eten		. #xC7B5)	; ý¢€Œžµ
     (mojikyo		. 062425)	; ý €™
-    (ucs		. #x30B9)	; ã‚¹
+    (=ucs		. #x30B9)	; ã‚¹
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZU")
@@ -326,7 +326,7 @@
     (korean-ksc5601	. #x2B3A)	; ø»ˆ©‘
     (=big5-eten		. #xC7B6)	; ý¢€Œž¶
     (mojikyo		. 062426)	; ý €š
-    (ucs		. #x30BA)	; ã‚º
+    (=ucs		. #x30BA)	; ã‚º
     ))
 (define-char
   '((name		. "KATAKANA LETTER SE")
@@ -338,7 +338,7 @@
     (korean-ksc5601	. #x2B3B)	; ø»ˆ©’
     (=big5-eten		. #xC7B7)	; ý¢€Œž·
     (mojikyo		. 062427)	; ý €›
-    (ucs		. #x30BB)	; ã‚»
+    (=ucs		. #x30BB)	; ã‚»
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZE")
@@ -351,7 +351,7 @@
     (korean-ksc5601	. #x2B3C)	; ø»ˆ©“
     (=big5-eten		. #xC7B8)	; ý¢€Œž¸
     (mojikyo		. 062428)	; ý €œ
-    (ucs		. #x30BC)	; ã‚¼
+    (=ucs		. #x30BC)	; ã‚¼
     ))
 (define-char
   '((name		. "KATAKANA LETTER SO")
@@ -363,7 +363,7 @@
     (korean-ksc5601	. #x2B3D)	; ø»ˆ©”
     (=big5-eten		. #xC7B9)	; ý¢€Œž¹
     (mojikyo		. 062429)	; ý €
-    (ucs		. #x30BD)	; ã‚½
+    (=ucs		. #x30BD)	; ã‚½
     ))
 (define-char
   '((name		. "KATAKANA LETTER ZO")
@@ -376,7 +376,7 @@
     (korean-ksc5601	. #x2B3E)	; ø»ˆ©•
     (=big5-eten		. #xC7BA)	; ý¢€Œžº
     (mojikyo		. 062430)	; ý €ž
-    (ucs		. #x30BE)	; ã‚¾
+    (=ucs		. #x30BE)	; ã‚¾
     ))
 (define-char
   '((name		. "KATAKANA LETTER TA")
@@ -388,7 +388,7 @@
     (korean-ksc5601	. #x2B3F)	; ø»ˆ©–
     (=big5-eten		. #xC7BB)	; ý¢€Œž»
     (mojikyo		. 062431)	; ý €Ÿ
-    (ucs		. #x30BF)	; ã‚¿
+    (=ucs		. #x30BF)	; ã‚¿
     ))
 (define-char
   '((name		. "KATAKANA LETTER DA")
@@ -401,7 +401,7 @@
     (korean-ksc5601	. #x2B40)	; ø»ˆ©—
     (=big5-eten		. #xC7BC)	; ý¢€Œž¼
     (mojikyo		. 062432)	; ý € 
-    (ucs		. #x30C0)	; ãƒ€
+    (=ucs		. #x30C0)	; ãƒ€
     ))
 (define-char
   '((name		. "KATAKANA LETTER TI")
@@ -413,7 +413,7 @@
     (korean-ksc5601	. #x2B41)	; ø»ˆ©˜
     (=big5-eten		. #xC7BD)	; ý¢€Œž½
     (mojikyo		. 062433)	; ý €¡
-    (ucs		. #x30C1)	; ãƒ
+    (=ucs		. #x30C1)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER DI")
@@ -426,7 +426,7 @@
     (korean-ksc5601	. #x2B42)	; ø»ˆ©™
     (=big5-eten		. #xC7BE)	; ý¢€Œž¾
     (mojikyo		. 062434)	; ý €¢
-    (ucs		. #x30C2)	; ãƒ‚
+    (=ucs		. #x30C2)	; ãƒ‚
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL TU")
@@ -439,7 +439,7 @@
     (=big5-eten		. #xC7BF)	; ý¢€Œž¿
     (=jef-china3	. #x7DD4)	; øº‡·”
     (mojikyo		. 062435)	; ý €£
-    (ucs		. #x30C3)	; ãƒƒ
+    (=ucs		. #x30C3)	; ãƒƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER TU")
@@ -451,7 +451,7 @@
     (korean-ksc5601	. #x2B44)	; ø»ˆ©›
     (=big5-eten		. #xC7C0)	; ý¢€ŒŸ€
     (mojikyo		. 062436)	; ý €¤
-    (ucs		. #x30C4)	; ãƒ„
+    (=ucs		. #x30C4)	; ãƒ„
     ))
 (define-char
   '((name		. "KATAKANA LETTER DU")
@@ -464,7 +464,7 @@
     (korean-ksc5601	. #x2B45)	; ø»ˆ©œ
     (=big5-eten		. #xC7C1)	; ý¢€ŒŸ
     (mojikyo		. 062437)	; ý €¥
-    (ucs		. #x30C5)	; ãƒ…
+    (=ucs		. #x30C5)	; ãƒ…
     ))
 (define-char
   '((name		. "KATAKANA LETTER TE")
@@ -476,7 +476,7 @@
     (korean-ksc5601	. #x2B46)	; ø»ˆ©
     (=big5-eten		. #xC7C2)	; ý¢€ŒŸ‚
     (mojikyo		. 062438)	; ý €¦
-    (ucs		. #x30C6)	; ãƒ†
+    (=ucs		. #x30C6)	; ãƒ†
     ))
 (define-char
   '((name		. "KATAKANA LETTER DE")
@@ -489,7 +489,7 @@
     (korean-ksc5601	. #x2B47)	; ø»ˆ©ž
     (=big5-eten		. #xC7C3)	; ý¢€ŒŸƒ
     (mojikyo		. 062439)	; ý €§
-    (ucs		. #x30C7)	; ãƒ‡
+    (=ucs		. #x30C7)	; ãƒ‡
     ))
 (define-char
   '((name		. "KATAKANA LETTER TO")
@@ -501,7 +501,7 @@
     (korean-ksc5601	. #x2B48)	; ø»ˆ©Ÿ
     (=big5-eten		. #xC7C4)	; ý¢€ŒŸ„
     (mojikyo		. 062440)	; ý €¨
-    (ucs		. #x30C8)	; ãƒˆ
+    (=ucs		. #x30C8)	; ãƒˆ
     ))
 (define-char
   '((name		. "KATAKANA LETTER DO")
@@ -514,7 +514,7 @@
     (korean-ksc5601	. #x2B49)	; ø»ˆ© 
     (=big5-eten		. #xC7C5)	; ý¢€ŒŸ…
     (mojikyo		. 062441)	; ý €©
-    (ucs		. #x30C9)	; ãƒ‰
+    (=ucs		. #x30C9)	; ãƒ‰
     ))
 (define-char
   '((name		. "KATAKANA LETTER NA")
@@ -526,7 +526,7 @@
     (korean-ksc5601	. #x2B4A)	; ø»ˆ©¡
     (=big5-eten		. #xC7C6)	; ý¢€ŒŸ†
     (mojikyo		. 062442)	; ý €ª
-    (ucs		. #x30CA)	; ãƒŠ
+    (=ucs		. #x30CA)	; ãƒŠ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NI")
@@ -538,7 +538,7 @@
     (korean-ksc5601	. #x2B4B)	; ø»ˆ©¢
     (=big5-eten		. #xC7C7)	; ý¢€ŒŸ‡
     (mojikyo		. 062443)	; ý €«
-    (ucs		. #x30CB)	; ãƒ‹
+    (=ucs		. #x30CB)	; ãƒ‹
     ))
 (define-char
   '((name		. "KATAKANA LETTER NU")
@@ -550,7 +550,7 @@
     (korean-ksc5601	. #x2B4C)	; ø»ˆ©£
     (=big5-eten		. #xC7C8)	; ý¢€ŒŸˆ
     (mojikyo		. 062444)	; ý €¬
-    (ucs		. #x30CC)	; ãƒŒ
+    (=ucs		. #x30CC)	; ãƒŒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NE")
@@ -562,7 +562,7 @@
     (korean-ksc5601	. #x2B4D)	; ø»ˆ©¤
     (=big5-eten		. #xC7C9)	; ý¢€ŒŸ‰
     (mojikyo		. 062445)	; ý €­
-    (ucs		. #x30CD)	; ãƒ
+    (=ucs		. #x30CD)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER NO")
@@ -574,7 +574,7 @@
     (korean-ksc5601	. #x2B4E)	; ø»ˆ©¥
     (=big5-eten		. #xC7CA)	; ý¢€ŒŸŠ
     (mojikyo		. 062446)	; ý €®
-    (ucs		. #x30CE)	; ãƒŽ
+    (=ucs		. #x30CE)	; ãƒŽ
     ))
 (define-char
   '((name		. "KATAKANA LETTER HA")
@@ -586,7 +586,7 @@
     (korean-ksc5601	. #x2B4F)	; ø»ˆ©¦
     (=big5-eten		. #xC7CB)	; ý¢€ŒŸ‹
     (mojikyo		. 062447)	; ý €¯
-    (ucs		. #x30CF)	; ãƒ
+    (=ucs		. #x30CF)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER BA")
@@ -599,7 +599,7 @@
     (korean-ksc5601	. #x2B50)	; ø»ˆ©§
     (=big5-eten		. #xC7CC)	; ý¢€ŒŸŒ
     (mojikyo		. 062448)	; ý €°
-    (ucs		. #x30D0)	; ãƒ
+    (=ucs		. #x30D0)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER PA")
@@ -612,7 +612,7 @@
     (korean-ksc5601	. #x2B51)	; ø»ˆ©¨
     (=big5-eten		. #xC7CD)	; ý¢€ŒŸ
     (mojikyo		. 062449)	; ý €±
-    (ucs		. #x30D1)	; ãƒ‘
+    (=ucs		. #x30D1)	; ãƒ‘
     ))
 (define-char
   '((name		. "KATAKANA LETTER HI")
@@ -624,7 +624,7 @@
     (korean-ksc5601	. #x2B52)	; ø»ˆ©©
     (=big5-eten		. #xC7CE)	; ý¢€ŒŸŽ
     (mojikyo		. 062450)	; ý €²
-    (ucs		. #x30D2)	; ãƒ’
+    (=ucs		. #x30D2)	; ãƒ’
     ))
 (define-char
   '((name		. "KATAKANA LETTER BI")
@@ -637,7 +637,7 @@
     (korean-ksc5601	. #x2B53)	; ø»ˆ©ª
     (=big5-eten		. #xC7CF)	; ý¢€ŒŸ
     (mojikyo		. 062451)	; ý €³
-    (ucs		. #x30D3)	; ãƒ“
+    (=ucs		. #x30D3)	; ãƒ“
     ))
 (define-char
   '((name		. "KATAKANA LETTER PI")
@@ -650,7 +650,7 @@
     (korean-ksc5601	. #x2B54)	; ø»ˆ©«
     (=big5-eten		. #xC7D0)	; ý¢€ŒŸ
     (mojikyo		. 062452)	; ý €´
-    (ucs		. #x30D4)	; ãƒ”
+    (=ucs		. #x30D4)	; ãƒ”
     ))
 (define-char
   '((name		. "KATAKANA LETTER HU")
@@ -662,7 +662,7 @@
     (korean-ksc5601	. #x2B55)	; ø»ˆ©¬
     (=big5-eten		. #xC7D1)	; ý¢€ŒŸ‘
     (mojikyo		. 062453)	; ý €µ
-    (ucs		. #x30D5)	; ãƒ•
+    (=ucs		. #x30D5)	; ãƒ•
     ))
 (define-char
   '((name		. "KATAKANA LETTER BU")
@@ -675,7 +675,7 @@
     (korean-ksc5601	. #x2B56)	; ø»ˆ©­
     (=big5-eten		. #xC7D2)	; ý¢€ŒŸ’
     (mojikyo		. 062454)	; ý €¶
-    (ucs		. #x30D6)	; ãƒ–
+    (=ucs		. #x30D6)	; ãƒ–
     ))
 (define-char
   '((name		. "KATAKANA LETTER PU")
@@ -688,7 +688,7 @@
     (korean-ksc5601	. #x2B57)	; ø»ˆ©®
     (=big5-eten		. #xC7D3)	; ý¢€ŒŸ“
     (mojikyo		. 062455)	; ý €·
-    (ucs		. #x30D7)	; ãƒ—
+    (=ucs		. #x30D7)	; ãƒ—
     ))
 (define-char
   '((name		. "KATAKANA LETTER HE")
@@ -700,7 +700,7 @@
     (korean-ksc5601	. #x2B58)	; ø»ˆ©¯
     (=big5-eten		. #xC7D4)	; ý¢€ŒŸ”
     (mojikyo		. 062456)	; ý €¸
-    (ucs		. #x30D8)	; ãƒ˜
+    (=ucs		. #x30D8)	; ãƒ˜
     ))
 (define-char
   '((name		. "KATAKANA LETTER BE")
@@ -713,7 +713,7 @@
     (korean-ksc5601	. #x2B59)	; ø»ˆ©°
     (=big5-eten		. #xC7D5)	; ý¢€ŒŸ•
     (mojikyo		. 062457)	; ý €¹
-    (ucs		. #x30D9)	; ãƒ™
+    (=ucs		. #x30D9)	; ãƒ™
     ))
 (define-char
   '((name		. "KATAKANA LETTER PE")
@@ -726,7 +726,7 @@
     (korean-ksc5601	. #x2B5A)	; ø»ˆ©±
     (=big5-eten		. #xC7D6)	; ý¢€ŒŸ–
     (mojikyo		. 062458)	; ý €º
-    (ucs		. #x30DA)	; ãƒš
+    (=ucs		. #x30DA)	; ãƒš
     ))
 (define-char
   '((name		. "KATAKANA LETTER HO")
@@ -738,7 +738,7 @@
     (korean-ksc5601	. #x2B5B)	; ø»ˆ©²
     (=big5-eten		. #xC7D7)	; ý¢€ŒŸ—
     (mojikyo		. 062459)	; ý €»
-    (ucs		. #x30DB)	; ãƒ›
+    (=ucs		. #x30DB)	; ãƒ›
     ))
 (define-char
   '((name		. "KATAKANA LETTER BO")
@@ -751,7 +751,7 @@
     (korean-ksc5601	. #x2B5C)	; ø»ˆ©³
     (=big5-eten		. #xC7D8)	; ý¢€ŒŸ˜
     (mojikyo		. 062460)	; ý €¼
-    (ucs		. #x30DC)	; ãƒœ
+    (=ucs		. #x30DC)	; ãƒœ
     ))
 (define-char
   '((name		. "KATAKANA LETTER PO")
@@ -764,7 +764,7 @@
     (korean-ksc5601	. #x2B5D)	; ø»ˆ©´
     (=big5-eten		. #xC7D9)	; ý¢€ŒŸ™
     (mojikyo		. 062461)	; ý €½
-    (ucs		. #x30DD)	; ãƒ
+    (=ucs		. #x30DD)	; ãƒ
     ))
 (define-char
   '((name		. "KATAKANA LETTER MA")
@@ -776,7 +776,7 @@
     (korean-ksc5601	. #x2B5E)	; ø»ˆ©µ
     (=big5-eten		. #xC7DA)	; ý¢€ŒŸš
     (mojikyo		. 062462)	; ý €¾
-    (ucs		. #x30DE)	; ãƒž
+    (=ucs		. #x30DE)	; ãƒž
     ))
 (define-char
   '((name		. "KATAKANA LETTER MI")
@@ -788,7 +788,7 @@
     (korean-ksc5601	. #x2B5F)	; ø»ˆ©¶
     (=big5-eten		. #xC7DB)	; ý¢€ŒŸ›
     (mojikyo		. 062463)	; ý €¿
-    (ucs		. #x30DF)	; ãƒŸ
+    (=ucs		. #x30DF)	; ãƒŸ
     ))
 (define-char
   '((name		. "KATAKANA LETTER MU")
@@ -800,7 +800,7 @@
     (korean-ksc5601	. #x2B60)	; ø»ˆ©·
     (=big5-eten		. #xC7DC)	; ý¢€ŒŸœ
     (mojikyo		. 062464)	; ý €€
-    (ucs		. #x30E0)	; ãƒ 
+    (=ucs		. #x30E0)	; ãƒ 
     ))
 (define-char
   '((name		. "KATAKANA LETTER ME")
@@ -812,7 +812,7 @@
     (korean-ksc5601	. #x2B61)	; ø»ˆ©¸
     (=big5-eten		. #xC7DD)	; ý¢€ŒŸ
     (mojikyo		. 062465)	; ý €
-    (ucs		. #x30E1)	; ãƒ¡
+    (=ucs		. #x30E1)	; ãƒ¡
     ))
 (define-char
   '((name		. "KATAKANA LETTER MO")
@@ -824,7 +824,7 @@
     (korean-ksc5601	. #x2B62)	; ø»ˆ©¹
     (=big5-eten		. #xC7DE)	; ý¢€ŒŸž
     (mojikyo		. 062466)	; ý €‚
-    (ucs		. #x30E2)	; ãƒ¢
+    (=ucs		. #x30E2)	; ãƒ¢
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YA")
@@ -837,7 +837,7 @@
     (=big5-eten		. #xC7DF)	; ý¢€ŒŸŸ
     (=jef-china3	. #x7DD5)	; øº‡·•
     (mojikyo		. 062467)	; ý €ƒ
-    (ucs		. #x30E3)	; ãƒ£
+    (=ucs		. #x30E3)	; ãƒ£
     ))
 (define-char
   '((name		. "KATAKANA LETTER YA")
@@ -849,7 +849,7 @@
     (korean-ksc5601	. #x2B64)	; ø»ˆ©»
     (=big5-eten		. #xC7E0)	; ý¢€ŒŸ 
     (mojikyo		. 062468)	; ý €„
-    (ucs		. #x30E4)	; ãƒ¤
+    (=ucs		. #x30E4)	; ãƒ¤
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YU")
@@ -862,7 +862,7 @@
     (=big5-eten		. #xC7E1)	; ý¢€ŒŸ¡
     (=jef-china3	. #x7DD6)	; øº‡·–
     (mojikyo		. 062469)	; ý €…
-    (ucs		. #x30E5)	; ãƒ¥
+    (=ucs		. #x30E5)	; ãƒ¥
     ))
 (define-char
   '((name		. "KATAKANA LETTER YU")
@@ -874,7 +874,7 @@
     (korean-ksc5601	. #x2B66)	; ø»ˆ©½
     (=big5-eten		. #xC7E2)	; ý¢€ŒŸ¢
     (mojikyo		. 062470)	; ý €†
-    (ucs		. #x30E6)	; ãƒ¦
+    (=ucs		. #x30E6)	; ãƒ¦
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL YO")
@@ -887,7 +887,7 @@
     (=big5-eten		. #xC7E3)	; ý¢€ŒŸ£
     (=jef-china3	. #x7DD7)	; øº‡·—
     (mojikyo		. 062471)	; ý €‡
-    (ucs		. #x30E7)	; ãƒ§
+    (=ucs		. #x30E7)	; ãƒ§
     ))
 (define-char
   '((name		. "KATAKANA LETTER YO")
@@ -899,7 +899,7 @@
     (korean-ksc5601	. #x2B68)	; ø»ˆ©¿
     (=big5-eten		. #xC7E4)	; ý¢€ŒŸ¤
     (mojikyo		. 062472)	; ý €ˆ
-    (ucs		. #x30E8)	; ãƒ¨
+    (=ucs		. #x30E8)	; ãƒ¨
     ))
 (define-char
   '((name		. "KATAKANA LETTER RA")
@@ -911,7 +911,7 @@
     (korean-ksc5601	. #x2B69)	; ø»ˆª€
     (=big5-eten		. #xC7E5)	; ý¢€ŒŸ¥
     (mojikyo		. 062473)	; ý €‰
-    (ucs		. #x30E9)	; ãƒ©
+    (=ucs		. #x30E9)	; ãƒ©
     ))
 (define-char
   '((name		. "KATAKANA LETTER RI")
@@ -923,7 +923,7 @@
     (korean-ksc5601	. #x2B6A)	; ø»ˆª
     (=big5-eten		. #xC7E6)	; ý¢€ŒŸ¦
     (mojikyo		. 062474)	; ý €Š
-    (ucs		. #x30EA)	; ãƒª
+    (=ucs		. #x30EA)	; ãƒª
     ))
 (define-char
   '((name		. "KATAKANA LETTER RU")
@@ -935,7 +935,7 @@
     (korean-ksc5601	. #x2B6B)	; ø»ˆª‚
     (=big5-eten		. #xC7E7)	; ý¢€ŒŸ§
     (mojikyo		. 062475)	; ý €‹
-    (ucs		. #x30EB)	; ãƒ«
+    (=ucs		. #x30EB)	; ãƒ«
     ))
 (define-char
   '((name		. "KATAKANA LETTER RE")
@@ -947,7 +947,7 @@
     (korean-ksc5601	. #x2B6C)	; ø»ˆªƒ
     (=big5-eten		. #xC7E8)	; ý¢€ŒŸ¨
     (mojikyo		. 062476)	; ý €Œ
-    (ucs		. #x30EC)	; ãƒ¬
+    (=ucs		. #x30EC)	; ãƒ¬
     ))
 (define-char
   '((name		. "KATAKANA LETTER RO")
@@ -959,7 +959,7 @@
     (korean-ksc5601	. #x2B6D)	; ø»ˆª„
     (=big5-eten		. #xC7E9)	; ý¢€ŒŸ©
     (mojikyo		. 062477)	; ý €
-    (ucs		. #x30ED)	; ãƒ­
+    (=ucs		. #x30ED)	; ãƒ­
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL WA")
@@ -972,7 +972,7 @@
     (=big5-eten		. #xC7EA)	; ý¢€ŒŸª
     (=jef-china3	. #x7DD8)	; øº‡·˜
     (mojikyo		. 062478)	; ý €Ž
-    (ucs		. #x30EE)	; ãƒ®
+    (=ucs		. #x30EE)	; ãƒ®
     ))
 (define-char
   '((name		. "KATAKANA LETTER WA")
@@ -984,7 +984,7 @@
     (korean-ksc5601	. #x2B6F)	; ø»ˆª†
     (=big5-eten		. #xC7EB)	; ý¢€ŒŸ«
     (mojikyo		. 062479)	; ý €
-    (ucs		. #x30EF)	; ãƒ¯
+    (=ucs		. #x30EF)	; ãƒ¯
     ))
 (define-char
   '((name		. "KATAKANA LETTER WI")
@@ -996,7 +996,7 @@
     (korean-ksc5601	. #x2B70)	; ø»ˆª‡
     (=big5-eten		. #xC7EC)	; ý¢€ŒŸ¬
     (mojikyo		. 062480)	; ý €
-    (ucs		. #x30F0)	; ãƒ°
+    (=ucs		. #x30F0)	; ãƒ°
     ))
 (define-char
   '((name		. "KATAKANA LETTER WE")
@@ -1008,7 +1008,7 @@
     (korean-ksc5601	. #x2B71)	; ø»ˆªˆ
     (=big5-eten		. #xC7ED)	; ý¢€ŒŸ­
     (mojikyo		. 062481)	; ý €‘
-    (ucs		. #x30F1)	; ãƒ±
+    (=ucs		. #x30F1)	; ãƒ±
     ))
 (define-char
   '((name		. "KATAKANA LETTER WO")
@@ -1020,7 +1020,7 @@
     (korean-ksc5601	. #x2B72)	; ø»ˆª‰
     (=big5-eten		. #xC7EE)	; ý¢€ŒŸ®
     (mojikyo		. 062482)	; ý €’
-    (ucs		. #x30F2)	; ãƒ²
+    (=ucs		. #x30F2)	; ãƒ²
     ))
 (define-char
   '((name		. "KATAKANA LETTER N")
@@ -1032,7 +1032,7 @@
     (korean-ksc5601	. #x2B73)	; ø»ˆªŠ
     (=big5-eten		. #xC7EF)	; ý¢€ŒŸ¯
     (mojikyo		. 062483)	; ý €“
-    (ucs		. #x30F3)	; ãƒ³
+    (=ucs		. #x30F3)	; ãƒ³
     ))
 (define-char
   '((name		. "KATAKANA LETTER VU")
@@ -1045,7 +1045,7 @@
     (korean-ksc5601	. #x2B74)	; ø»ˆª‹
     (=big5-eten		. #xC7F0)	; ý¢€ŒŸ°
     (mojikyo		. 062484)	; ý €”
-    (ucs		. #x30F4)	; ãƒ´
+    (=ucs		. #x30F4)	; ãƒ´
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL KA")
@@ -1058,7 +1058,7 @@
     (=big5-eten		. #xC7F1)	; ý¢€ŒŸ±
     (=jef-china3	. #x7DD9)	; øº‡·™
     (mojikyo		. 062485)	; ý €•
-    (ucs		. #x30F5)	; ãƒµ
+    (=ucs		. #x30F5)	; ãƒµ
     ))
 (define-char
   '((name		. "KATAKANA LETTER SMALL KE")
@@ -1071,7 +1071,7 @@
     (=big5-eten		. #xC7F2)	; ý¢€ŒŸ²
     (=jef-china3	. #x7DDA)	; øº‡·š
     (mojikyo		. 062486)	; ý €–
-    (ucs		. #x30F6)	; ãƒ¶
+    (=ucs		. #x30F6)	; ãƒ¶
     ))
 (define-char
   '((name		. "KATAKANA LETTER VA")
@@ -1080,7 +1080,7 @@
     (mirrored		. nil)
     (->decomposition	#x30EF #x3099)
     (=jis-x0213-1-2000	. #x2772)	; ø»¢
-    (ucs		. #x30F7)	; ãƒ·
+    (=ucs		. #x30F7)	; ãƒ·
     ))
 (define-char
   '((name		. "KATAKANA LETTER VI")
@@ -1089,7 +1089,7 @@
     (mirrored		. nil)
     (->decomposition	#x30F0 #x3099)
     (=jis-x0213-1-2000	. #x2773)	; ø»¢‚
-    (ucs		. #x30F8)	; ãƒ¸
+    (=ucs		. #x30F8)	; ãƒ¸
     ))
 (define-char
   '((name		. "KATAKANA LETTER VE")
@@ -1098,7 +1098,7 @@
     (mirrored		. nil)
     (->decomposition	#x30F1 #x3099)
     (=jis-x0213-1-2000	. #x2774)	; ø»¢ƒ
-    (ucs		. #x30F9)	; ãƒ¹
+    (=ucs		. #x30F9)	; ãƒ¹
     ))
 (define-char
   '((name		. "KATAKANA LETTER VO")
@@ -1107,7 +1107,7 @@
     (mirrored		. nil)
     (->decomposition	#x30F2 #x3099)
     (=jis-x0213-1-2000	. #x2775)	; ø»¢„
-    (ucs		. #x30FA)	; ãƒº
+    (=ucs		. #x30FA)	; ãƒº
     ))
 (define-char
   '((name		. "KATAKANA MIDDLE DOT")
@@ -1116,7 +1116,7 @@
     (mirrored		. nil)
     (chinese-gb2312	. #x2124)	; ø»„†‡
     (=jis-x0208		. #x2126)	; ø½‰¶
-    (ucs		. #x30FB)	; ãƒ»
+    (=ucs		. #x30FB)	; ãƒ»
     ))
 (define-char
   '((name		. "KATAKANA-HIRAGANA PROLONGED SOUND MARK")
@@ -1125,7 +1125,7 @@
     (mirrored		. nil)
     (=jis-x0208		. #x213C)	; ø½‰¶—
     (=big5-eten		. #xC6E3)	; ý¢€Œ›£
-    (ucs		. #x30FC)	; ãƒ¼
+    (=ucs		. #x30FC)	; ãƒ¼
     ))
 (define-char
   '((name		. "KATAKANA ITERATION MARK")
@@ -1134,7 +1134,7 @@
     (mirrored		. nil)
     (=jis-x0208		. #x2133)	; ø½‰¶Ž
     (=big5-eten		. #xC6DA)	; ý¢€Œ›š
-    (ucs		. #x30FD)	; ãƒ½
+    (=ucs		. #x30FD)	; ãƒ½
     ))
 (define-char
   '((name		. "KATAKANA VOICED ITERATION MARK")
@@ -1144,10 +1144,10 @@
     (->decomposition	#x30FD #x3099)
     (=jis-x0208		. #x2134)	; ø½‰¶
     (=big5-eten		. #xC6DB)	; ý¢€Œ››
-    (ucs		. #x30FE)	; ãƒ¾
+    (=ucs		. #x30FE)	; ãƒ¾
     ))
 (define-char
   '((name		. "KATAKANA DIGRAPH KOTO")
     (=jis-x0213-1-2000	. #x2238)	; ø»¢”±
-    (ucs		. #x30FF)	; ãƒ¿
+    (=ucs		. #x30FF)	; ãƒ¿
     ))

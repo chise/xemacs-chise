@@ -9,7 +9,7 @@
     (=big5-eten		. #xC6E7)	; ý¢€Œ›§
     (=jef-china3	. #x7DC5)	; øº‡·…
     (mojikyo		. 062301)	; ý €
-    (ucs		. #x3041)	; ã
+    (=ucs		. #x3041)	; ã
     ))
 (define-char
   '((name		. "HIRAGANA LETTER A")
@@ -21,7 +21,7 @@
     (korean-ksc5601	. #x2A22)	; ø»ˆ§›
     (=big5-eten		. #xC6E8)	; ý¢€Œ›¨
     (mojikyo		. 062302)	; ý €ž
-    (ucs		. #x3042)	; ã‚
+    (=ucs		. #x3042)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL I")
@@ -34,7 +34,7 @@
     (=big5-eten		. #xC6E9)	; ý¢€Œ›©
     (=jef-china3	. #x7DC6)	; øº‡·†
     (mojikyo		. 062303)	; ý €Ÿ
-    (ucs		. #x3043)	; ãƒ
+    (=ucs		. #x3043)	; ãƒ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER I")
@@ -46,7 +46,7 @@
     (korean-ksc5601	. #x2A24)	; ø»ˆ§
     (=big5-eten		. #xC6EA)	; ý¢€Œ›ª
     (mojikyo		. 062304)	; ý € 
-    (ucs		. #x3044)	; ã„
+    (=ucs		. #x3044)	; ã„
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL U")
@@ -59,7 +59,7 @@
     (=big5-eten		. #xC6EB)	; ý¢€Œ›«
     (=jef-china3	. #x7DC7)	; øº‡·‡
     (mojikyo		. 062305)	; ý €¡
-    (ucs		. #x3045)	; ã…
+    (=ucs		. #x3045)	; ã…
     ))
 (define-char
   '((name		. "HIRAGANA LETTER U")
@@ -71,7 +71,7 @@
     (korean-ksc5601	. #x2A26)	; ø»ˆ§Ÿ
     (=big5-eten		. #xC6EC)	; ý¢€Œ›¬
     (mojikyo		. 062306)	; ý €¢
-    (ucs		. #x3046)	; ã†
+    (=ucs		. #x3046)	; ã†
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL E")
@@ -84,7 +84,7 @@
     (=big5-eten		. #xC6ED)	; ý¢€Œ›­
     (=jef-china3	. #x7DC8)	; øº‡·ˆ
     (mojikyo		. 062307)	; ý €£
-    (ucs		. #x3047)	; ã‡
+    (=ucs		. #x3047)	; ã‡
     ))
 (define-char
   '((name		. "HIRAGANA LETTER E")
@@ -96,7 +96,7 @@
     (korean-ksc5601	. #x2A28)	; ø»ˆ§¡
     (=big5-eten		. #xC6EE)	; ý¢€Œ›®
     (mojikyo		. 062308)	; ý €¤
-    (ucs		. #x3048)	; ãˆ
+    (=ucs		. #x3048)	; ãˆ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL O")
@@ -109,7 +109,7 @@
     (=big5-eten		. #xC6EF)	; ý¢€Œ›¯
     (=jef-china3	. #x7DC9)	; øº‡·‰
     (mojikyo		. 062309)	; ý €¥
-    (ucs		. #x3049)	; ã‰
+    (=ucs		. #x3049)	; ã‰
     ))
 (define-char
   '((name		. "HIRAGANA LETTER O")
@@ -121,7 +121,7 @@
     (korean-ksc5601	. #x2A2A)	; ø»ˆ§£
     (=big5-eten		. #xC6F0)	; ý¢€Œ›°
     (mojikyo		. 062310)	; ý €¦
-    (ucs		. #x304A)	; ãŠ
+    (=ucs		. #x304A)	; ãŠ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER KA")
@@ -133,7 +133,7 @@
     (korean-ksc5601	. #x2A2B)	; ø»ˆ§¤
     (=big5-eten		. #xC6F1)	; ý¢€Œ›±
     (mojikyo		. 062311)	; ý €§
-    (ucs		. #x304B)	; ã‹
+    (=ucs		. #x304B)	; ã‹
     ))
 (define-char
   '((name		. "HIRAGANA LETTER GA")
@@ -146,7 +146,7 @@
     (korean-ksc5601	. #x2A2C)	; ø»ˆ§¥
     (=big5-eten		. #xC6F2)	; ý¢€Œ›²
     (mojikyo		. 062312)	; ý €¨
-    (ucs		. #x304C)	; ãŒ
+    (=ucs		. #x304C)	; ãŒ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER KI")
@@ -158,7 +158,7 @@
     (korean-ksc5601	. #x2A2D)	; ø»ˆ§¦
     (=big5-eten		. #xC6F3)	; ý¢€Œ›³
     (mojikyo		. 062313)	; ý €©
-    (ucs		. #x304D)	; ã
+    (=ucs		. #x304D)	; ã
     ))
 (define-char
   '((name		. "HIRAGANA LETTER GI")
@@ -171,7 +171,7 @@
     (korean-ksc5601	. #x2A2E)	; ø»ˆ§§
     (=big5-eten		. #xC6F4)	; ý¢€Œ›´
     (mojikyo		. 062314)	; ý €ª
-    (ucs		. #x304E)	; ãŽ
+    (=ucs		. #x304E)	; ãŽ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER KU")
@@ -183,7 +183,7 @@
     (korean-ksc5601	. #x2A2F)	; ø»ˆ§¨
     (=big5-eten		. #xC6F5)	; ý¢€Œ›µ
     (mojikyo		. 062315)	; ý €«
-    (ucs		. #x304F)	; ã
+    (=ucs		. #x304F)	; ã
     ))
 (define-char
   '((name		. "HIRAGANA LETTER GU")
@@ -196,7 +196,7 @@
     (korean-ksc5601	. #x2A30)	; ø»ˆ§©
     (=big5-eten		. #xC6F6)	; ý¢€Œ›¶
     (mojikyo		. 062316)	; ý €¬
-    (ucs		. #x3050)	; ã
+    (=ucs		. #x3050)	; ã
     ))
 (define-char
   '((name		. "HIRAGANA LETTER KE")
@@ -208,7 +208,7 @@
     (korean-ksc5601	. #x2A31)	; ø»ˆ§ª
     (=big5-eten		. #xC6F7)	; ý¢€Œ›·
     (mojikyo		. 062317)	; ý €­
-    (ucs		. #x3051)	; ã‘
+    (=ucs		. #x3051)	; ã‘
     ))
 (define-char
   '((name		. "HIRAGANA LETTER GE")
@@ -221,7 +221,7 @@
     (korean-ksc5601	. #x2A32)	; ø»ˆ§«
     (=big5-eten		. #xC6F8)	; ý¢€Œ›¸
     (mojikyo		. 062318)	; ý €®
-    (ucs		. #x3052)	; ã’
+    (=ucs		. #x3052)	; ã’
     ))
 (define-char
   '((name		. "HIRAGANA LETTER KO")
@@ -233,7 +233,7 @@
     (korean-ksc5601	. #x2A33)	; ø»ˆ§¬
     (=big5-eten		. #xC6F9)	; ý¢€Œ›¹
     (mojikyo		. 062319)	; ý €¯
-    (ucs		. #x3053)	; ã“
+    (=ucs		. #x3053)	; ã“
     ))
 (define-char
   '((name		. "HIRAGANA LETTER GO")
@@ -246,7 +246,7 @@
     (korean-ksc5601	. #x2A34)	; ø»ˆ§­
     (=big5-eten		. #xC6FA)	; ý¢€Œ›º
     (mojikyo		. 062320)	; ý €°
-    (ucs		. #x3054)	; ã”
+    (=ucs		. #x3054)	; ã”
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SA")
@@ -258,7 +258,7 @@
     (korean-ksc5601	. #x2A35)	; ø»ˆ§®
     (=big5-eten		. #xC6FB)	; ý¢€Œ›»
     (mojikyo		. 062321)	; ý €±
-    (ucs		. #x3055)	; ã•
+    (=ucs		. #x3055)	; ã•
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ZA")
@@ -271,7 +271,7 @@
     (korean-ksc5601	. #x2A36)	; ø»ˆ§¯
     (=big5-eten		. #xC6FC)	; ý¢€Œ›¼
     (mojikyo		. 062322)	; ý €²
-    (ucs		. #x3056)	; ã–
+    (=ucs		. #x3056)	; ã–
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SI")
@@ -283,7 +283,7 @@
     (korean-ksc5601	. #x2A37)	; ø»ˆ§°
     (=big5-eten		. #xC6FD)	; ý¢€Œ›½
     (mojikyo		. 062323)	; ý €³
-    (ucs		. #x3057)	; ã—
+    (=ucs		. #x3057)	; ã—
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ZI")
@@ -296,7 +296,7 @@
     (korean-ksc5601	. #x2A38)	; ø»ˆ§±
     (=big5-eten		. #xC6FE)	; ý¢€Œ›¾
     (mojikyo		. 062324)	; ý €´
-    (ucs		. #x3058)	; ã˜
+    (=ucs		. #x3058)	; ã˜
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SU")
@@ -308,7 +308,7 @@
     (korean-ksc5601	. #x2A39)	; ø»ˆ§²
     (=big5-eten		. #xC740)	; ý¢€Œ€
     (mojikyo		. 062325)	; ý €µ
-    (ucs		. #x3059)	; ã™
+    (=ucs		. #x3059)	; ã™
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ZU")
@@ -321,7 +321,7 @@
     (korean-ksc5601	. #x2A3A)	; ø»ˆ§³
     (=big5-eten		. #xC741)	; ý¢€Œ
     (mojikyo		. 062326)	; ý €¶
-    (ucs		. #x305A)	; ãš
+    (=ucs		. #x305A)	; ãš
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SE")
@@ -333,7 +333,7 @@
     (korean-ksc5601	. #x2A3B)	; ø»ˆ§´
     (=big5-eten		. #xC742)	; ý¢€Œ‚
     (mojikyo		. 062327)	; ý €·
-    (ucs		. #x305B)	; ã›
+    (=ucs		. #x305B)	; ã›
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ZE")
@@ -346,7 +346,7 @@
     (korean-ksc5601	. #x2A3C)	; ø»ˆ§µ
     (=big5-eten		. #xC743)	; ý¢€Œƒ
     (mojikyo		. 062328)	; ý €¸
-    (ucs		. #x305C)	; ãœ
+    (=ucs		. #x305C)	; ãœ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SO")
@@ -358,7 +358,7 @@
     (korean-ksc5601	. #x2A3D)	; ø»ˆ§¶
     (=big5-eten		. #xC744)	; ý¢€Œ„
     (mojikyo		. 062329)	; ý €¹
-    (ucs		. #x305D)	; ã
+    (=ucs		. #x305D)	; ã
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ZO")
@@ -371,7 +371,7 @@
     (korean-ksc5601	. #x2A3E)	; ø»ˆ§·
     (=big5-eten		. #xC745)	; ý¢€Œ…
     (mojikyo		. 062330)	; ý €º
-    (ucs		. #x305E)	; ãž
+    (=ucs		. #x305E)	; ãž
     ))
 (define-char
   '((name		. "HIRAGANA LETTER TA")
@@ -383,7 +383,7 @@
     (korean-ksc5601	. #x2A3F)	; ø»ˆ§¸
     (=big5-eten		. #xC746)	; ý¢€Œ†
     (mojikyo		. 062331)	; ý €»
-    (ucs		. #x305F)	; ãŸ
+    (=ucs		. #x305F)	; ãŸ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER DA")
@@ -396,7 +396,7 @@
     (korean-ksc5601	. #x2A40)	; ø»ˆ§¹
     (=big5-eten		. #xC747)	; ý¢€Œ‡
     (mojikyo		. 062332)	; ý €¼
-    (ucs		. #x3060)	; ã 
+    (=ucs		. #x3060)	; ã 
     ))
 (define-char
   '((name		. "HIRAGANA LETTER TI")
@@ -408,7 +408,7 @@
     (korean-ksc5601	. #x2A41)	; ø»ˆ§º
     (=big5-eten		. #xC748)	; ý¢€Œˆ
     (mojikyo		. 062333)	; ý €½
-    (ucs		. #x3061)	; ã¡
+    (=ucs		. #x3061)	; ã¡
     ))
 (define-char
   '((name		. "HIRAGANA LETTER DI")
@@ -421,7 +421,7 @@
     (korean-ksc5601	. #x2A42)	; ø»ˆ§»
     (=big5-eten		. #xC749)	; ý¢€Œ‰
     (mojikyo		. 062334)	; ý €¾
-    (ucs		. #x3062)	; ã¢
+    (=ucs		. #x3062)	; ã¢
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL TU")
@@ -434,7 +434,7 @@
     (=big5-eten		. #xC74A)	; ý¢€ŒŠ
     (=jef-china3	. #x7DCA)	; øº‡·Š
     (mojikyo		. 062335)	; ý €¿
-    (ucs		. #x3063)	; ã£
+    (=ucs		. #x3063)	; ã£
     ))
 (define-char
   '((name		. "HIRAGANA LETTER TU")
@@ -446,7 +446,7 @@
     (korean-ksc5601	. #x2A44)	; ø»ˆ§½
     (=big5-eten		. #xC74B)	; ý¢€Œ‹
     (mojikyo		. 062336)	; ý €Ž€
-    (ucs		. #x3064)	; ã¤
+    (=ucs		. #x3064)	; ã¤
     ))
 (define-char
   '((name		. "HIRAGANA LETTER DU")
@@ -459,7 +459,7 @@
     (korean-ksc5601	. #x2A45)	; ø»ˆ§¾
     (=big5-eten		. #xC74C)	; ý¢€ŒŒ
     (mojikyo		. 062337)	; ý €Ž
-    (ucs		. #x3065)	; ã¥
+    (=ucs		. #x3065)	; ã¥
     ))
 (define-char
   '((name		. "HIRAGANA LETTER TE")
@@ -471,7 +471,7 @@
     (korean-ksc5601	. #x2A46)	; ø»ˆ§¿
     (=big5-eten		. #xC74D)	; ý¢€Œ
     (mojikyo		. 062338)	; ý €Ž‚
-    (ucs		. #x3066)	; ã¦
+    (=ucs		. #x3066)	; ã¦
     ))
 (define-char
   '((name		. "HIRAGANA LETTER DE")
@@ -484,7 +484,7 @@
     (korean-ksc5601	. #x2A47)	; ø»ˆ¨€
     (=big5-eten		. #xC74E)	; ý¢€ŒŽ
     (mojikyo		. 062339)	; ý €Žƒ
-    (ucs		. #x3067)	; ã§
+    (=ucs		. #x3067)	; ã§
     ))
 (define-char
   '((name		. "HIRAGANA LETTER TO")
@@ -496,7 +496,7 @@
     (korean-ksc5601	. #x2A48)	; ø»ˆ¨
     (=big5-eten		. #xC74F)	; ý¢€Œ
     (mojikyo		. 062340)	; ý €Ž„
-    (ucs		. #x3068)	; ã¨
+    (=ucs		. #x3068)	; ã¨
     ))
 (define-char
   '((name		. "HIRAGANA LETTER DO")
@@ -509,7 +509,7 @@
     (korean-ksc5601	. #x2A49)	; ø»ˆ¨‚
     (=big5-eten		. #xC750)	; ý¢€Œ
     (mojikyo		. 062341)	; ý €Ž…
-    (ucs		. #x3069)	; ã©
+    (=ucs		. #x3069)	; ã©
     ))
 (define-char
   '((name		. "HIRAGANA LETTER NA")
@@ -521,7 +521,7 @@
     (korean-ksc5601	. #x2A4A)	; ø»ˆ¨ƒ
     (=big5-eten		. #xC751)	; ý¢€Œ‘
     (mojikyo		. 062342)	; ý €Ž†
-    (ucs		. #x306A)	; ãª
+    (=ucs		. #x306A)	; ãª
     ))
 (define-char
   '((name		. "HIRAGANA LETTER NI")
@@ -533,7 +533,7 @@
     (korean-ksc5601	. #x2A4B)	; ø»ˆ¨„
     (=big5-eten		. #xC752)	; ý¢€Œ’
     (mojikyo		. 062343)	; ý €Ž‡
-    (ucs		. #x306B)	; ã«
+    (=ucs		. #x306B)	; ã«
     ))
 (define-char
   '((name		. "HIRAGANA LETTER NU")
@@ -545,7 +545,7 @@
     (korean-ksc5601	. #x2A4C)	; ø»ˆ¨…
     (=big5-eten		. #xC753)	; ý¢€Œ“
     (mojikyo		. 062344)	; ý €Žˆ
-    (ucs		. #x306C)	; ã¬
+    (=ucs		. #x306C)	; ã¬
     ))
 (define-char
   '((name		. "HIRAGANA LETTER NE")
@@ -557,7 +557,7 @@
     (korean-ksc5601	. #x2A4D)	; ø»ˆ¨†
     (=big5-eten		. #xC754)	; ý¢€Œ”
     (mojikyo		. 062345)	; ý €Ž‰
-    (ucs		. #x306D)	; ã­
+    (=ucs		. #x306D)	; ã­
     ))
 (define-char
   '((name		. "HIRAGANA LETTER NO")
@@ -569,7 +569,7 @@
     (korean-ksc5601	. #x2A4E)	; ø»ˆ¨‡
     (=big5-eten		. #xC755)	; ý¢€Œ•
     (mojikyo		. 062346)	; ý €ŽŠ
-    (ucs		. #x306E)	; ã®
+    (=ucs		. #x306E)	; ã®
     ))
 (define-char
   '((name		. "HIRAGANA LETTER HA")
@@ -581,7 +581,7 @@
     (korean-ksc5601	. #x2A4F)	; ø»ˆ¨ˆ
     (=big5-eten		. #xC756)	; ý¢€Œ–
     (mojikyo		. 062347)	; ý €Ž‹
-    (ucs		. #x306F)	; ã¯
+    (=ucs		. #x306F)	; ã¯
     ))
 (define-char
   '((name		. "HIRAGANA LETTER BA")
@@ -594,7 +594,7 @@
     (korean-ksc5601	. #x2A50)	; ø»ˆ¨‰
     (=big5-eten		. #xC757)	; ý¢€Œ—
     (mojikyo		. 062348)	; ý €ŽŒ
-    (ucs		. #x3070)	; ã°
+    (=ucs		. #x3070)	; ã°
     ))
 (define-char
   '((name		. "HIRAGANA LETTER PA")
@@ -607,7 +607,7 @@
     (korean-ksc5601	. #x2A51)	; ø»ˆ¨Š
     (=big5-eten		. #xC758)	; ý¢€Œ˜
     (mojikyo		. 062349)	; ý €Ž
-    (ucs		. #x3071)	; ã±
+    (=ucs		. #x3071)	; ã±
     ))
 (define-char
   '((name		. "HIRAGANA LETTER HI")
@@ -619,7 +619,7 @@
     (korean-ksc5601	. #x2A52)	; ø»ˆ¨‹
     (=big5-eten		. #xC759)	; ý¢€Œ™
     (mojikyo		. 062350)	; ý €ŽŽ
-    (ucs		. #x3072)	; ã²
+    (=ucs		. #x3072)	; ã²
     ))
 (define-char
   '((name		. "HIRAGANA LETTER BI")
@@ -632,7 +632,7 @@
     (korean-ksc5601	. #x2A53)	; ø»ˆ¨Œ
     (=big5-eten		. #xC75A)	; ý¢€Œš
     (mojikyo		. 062351)	; ý €Ž
-    (ucs		. #x3073)	; ã³
+    (=ucs		. #x3073)	; ã³
     ))
 (define-char
   '((name		. "HIRAGANA LETTER PI")
@@ -645,7 +645,7 @@
     (korean-ksc5601	. #x2A54)	; ø»ˆ¨
     (=big5-eten		. #xC75B)	; ý¢€Œ›
     (mojikyo		. 062352)	; ý €Ž
-    (ucs		. #x3074)	; ã´
+    (=ucs		. #x3074)	; ã´
     ))
 (define-char
   '((name		. "HIRAGANA LETTER HU")
@@ -657,7 +657,7 @@
     (korean-ksc5601	. #x2A55)	; ø»ˆ¨Ž
     (=big5-eten		. #xC75C)	; ý¢€Œœ
     (mojikyo		. 062353)	; ý €Ž‘
-    (ucs		. #x3075)	; ãµ
+    (=ucs		. #x3075)	; ãµ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER BU")
@@ -670,7 +670,7 @@
     (korean-ksc5601	. #x2A56)	; ø»ˆ¨
     (=big5-eten		. #xC75D)	; ý¢€Œ
     (mojikyo		. 062354)	; ý €Ž’
-    (ucs		. #x3076)	; ã¶
+    (=ucs		. #x3076)	; ã¶
     ))
 (define-char
   '((name		. "HIRAGANA LETTER PU")
@@ -683,7 +683,7 @@
     (korean-ksc5601	. #x2A57)	; ø»ˆ¨
     (=big5-eten		. #xC75E)	; ý¢€Œž
     (mojikyo		. 062355)	; ý €Ž“
-    (ucs		. #x3077)	; ã·
+    (=ucs		. #x3077)	; ã·
     ))
 (define-char
   '((name		. "HIRAGANA LETTER HE")
@@ -695,7 +695,7 @@
     (korean-ksc5601	. #x2A58)	; ø»ˆ¨‘
     (=big5-eten		. #xC75F)	; ý¢€ŒŸ
     (mojikyo		. 062356)	; ý €Ž”
-    (ucs		. #x3078)	; ã¸
+    (=ucs		. #x3078)	; ã¸
     ))
 (define-char
   '((name		. "HIRAGANA LETTER BE")
@@ -708,7 +708,7 @@
     (korean-ksc5601	. #x2A59)	; ø»ˆ¨’
     (=big5-eten		. #xC760)	; ý¢€Œ 
     (mojikyo		. 062357)	; ý €Ž•
-    (ucs		. #x3079)	; ã¹
+    (=ucs		. #x3079)	; ã¹
     ))
 (define-char
   '((name		. "HIRAGANA LETTER PE")
@@ -721,7 +721,7 @@
     (korean-ksc5601	. #x2A5A)	; ø»ˆ¨“
     (=big5-eten		. #xC761)	; ý¢€Œ¡
     (mojikyo		. 062358)	; ý €Ž–
-    (ucs		. #x307A)	; ãº
+    (=ucs		. #x307A)	; ãº
     ))
 (define-char
   '((name		. "HIRAGANA LETTER HO")
@@ -733,7 +733,7 @@
     (korean-ksc5601	. #x2A5B)	; ø»ˆ¨”
     (=big5-eten		. #xC762)	; ý¢€Œ¢
     (mojikyo		. 062359)	; ý €Ž—
-    (ucs		. #x307B)	; ã»
+    (=ucs		. #x307B)	; ã»
     ))
 (define-char
   '((name		. "HIRAGANA LETTER BO")
@@ -746,7 +746,7 @@
     (korean-ksc5601	. #x2A5C)	; ø»ˆ¨•
     (=big5-eten		. #xC763)	; ý¢€Œ£
     (mojikyo		. 062360)	; ý €Ž˜
-    (ucs		. #x307C)	; ã¼
+    (=ucs		. #x307C)	; ã¼
     ))
 (define-char
   '((name		. "HIRAGANA LETTER PO")
@@ -759,7 +759,7 @@
     (korean-ksc5601	. #x2A5D)	; ø»ˆ¨–
     (=big5-eten		. #xC764)	; ý¢€Œ¤
     (mojikyo		. 062361)	; ý €Ž™
-    (ucs		. #x307D)	; ã½
+    (=ucs		. #x307D)	; ã½
     ))
 (define-char
   '((name		. "HIRAGANA LETTER MA")
@@ -771,7 +771,7 @@
     (korean-ksc5601	. #x2A5E)	; ø»ˆ¨—
     (=big5-eten		. #xC765)	; ý¢€Œ¥
     (mojikyo		. 062362)	; ý €Žš
-    (ucs		. #x307E)	; ã¾
+    (=ucs		. #x307E)	; ã¾
     ))
 (define-char
   '((name		. "HIRAGANA LETTER MI")
@@ -783,7 +783,7 @@
     (korean-ksc5601	. #x2A5F)	; ø»ˆ¨˜
     (=big5-eten		. #xC766)	; ý¢€Œ¦
     (mojikyo		. 062363)	; ý €Ž›
-    (ucs		. #x307F)	; ã¿
+    (=ucs		. #x307F)	; ã¿
     ))
 (define-char
   '((name		. "HIRAGANA LETTER MU")
@@ -795,7 +795,7 @@
     (korean-ksc5601	. #x2A60)	; ø»ˆ¨™
     (=big5-eten		. #xC767)	; ý¢€Œ§
     (mojikyo		. 062364)	; ý €Žœ
-    (ucs		. #x3080)	; ã‚€
+    (=ucs		. #x3080)	; ã‚€
     ))
 (define-char
   '((name		. "HIRAGANA LETTER ME")
@@ -807,7 +807,7 @@
     (korean-ksc5601	. #x2A61)	; ø»ˆ¨š
     (=big5-eten		. #xC768)	; ý¢€Œ¨
     (mojikyo		. 062365)	; ý €Ž
-    (ucs		. #x3081)	; ã‚
+    (=ucs		. #x3081)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER MO")
@@ -819,7 +819,7 @@
     (korean-ksc5601	. #x2A62)	; ø»ˆ¨›
     (=big5-eten		. #xC769)	; ý¢€Œ©
     (mojikyo		. 062366)	; ý €Žž
-    (ucs		. #x3082)	; ã‚‚
+    (=ucs		. #x3082)	; ã‚‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL YA")
@@ -832,7 +832,7 @@
     (=big5-eten		. #xC76A)	; ý¢€Œª
     (=jef-china3	. #x7DCB)	; øº‡·‹
     (mojikyo		. 062367)	; ý €ŽŸ
-    (ucs		. #x3083)	; ã‚ƒ
+    (=ucs		. #x3083)	; ã‚ƒ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER YA")
@@ -844,7 +844,7 @@
     (korean-ksc5601	. #x2A64)	; ø»ˆ¨
     (=big5-eten		. #xC76B)	; ý¢€Œ«
     (mojikyo		. 062368)	; ý €Ž 
-    (ucs		. #x3084)	; ã‚„
+    (=ucs		. #x3084)	; ã‚„
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL YU")
@@ -857,7 +857,7 @@
     (=big5-eten		. #xC76C)	; ý¢€Œ¬
     (=jef-china3	. #x7DCC)	; øº‡·Œ
     (mojikyo		. 062369)	; ý €Ž¡
-    (ucs		. #x3085)	; ã‚…
+    (=ucs		. #x3085)	; ã‚…
     ))
 (define-char
   '((name		. "HIRAGANA LETTER YU")
@@ -869,7 +869,7 @@
     (korean-ksc5601	. #x2A66)	; ø»ˆ¨Ÿ
     (=big5-eten		. #xC76D)	; ý¢€Œ­
     (mojikyo		. 062370)	; ý €Ž¢
-    (ucs		. #x3086)	; ã‚†
+    (=ucs		. #x3086)	; ã‚†
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL YO")
@@ -882,7 +882,7 @@
     (=big5-eten		. #xC76E)	; ý¢€Œ®
     (=jef-china3	. #x7DCD)	; øº‡·
     (mojikyo		. 062371)	; ý €Ž£
-    (ucs		. #x3087)	; ã‚‡
+    (=ucs		. #x3087)	; ã‚‡
     ))
 (define-char
   '((name		. "HIRAGANA LETTER YO")
@@ -894,7 +894,7 @@
     (korean-ksc5601	. #x2A68)	; ø»ˆ¨¡
     (=big5-eten		. #xC76F)	; ý¢€Œ¯
     (mojikyo		. 062372)	; ý €Ž¤
-    (ucs		. #x3088)	; ã‚ˆ
+    (=ucs		. #x3088)	; ã‚ˆ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER RA")
@@ -906,7 +906,7 @@
     (korean-ksc5601	. #x2A69)	; ø»ˆ¨¢
     (=big5-eten		. #xC770)	; ý¢€Œ°
     (mojikyo		. 062373)	; ý €Ž¥
-    (ucs		. #x3089)	; ã‚‰
+    (=ucs		. #x3089)	; ã‚‰
     ))
 (define-char
   '((name		. "HIRAGANA LETTER RI")
@@ -918,7 +918,7 @@
     (korean-ksc5601	. #x2A6A)	; ø»ˆ¨£
     (=big5-eten		. #xC771)	; ý¢€Œ±
     (mojikyo		. 062374)	; ý €Ž¦
-    (ucs		. #x308A)	; ã‚Š
+    (=ucs		. #x308A)	; ã‚Š
     ))
 (define-char
   '((name		. "HIRAGANA LETTER RU")
@@ -930,7 +930,7 @@
     (korean-ksc5601	. #x2A6B)	; ø»ˆ¨¤
     (=big5-eten		. #xC772)	; ý¢€Œ²
     (mojikyo		. 062375)	; ý €Ž§
-    (ucs		. #x308B)	; ã‚‹
+    (=ucs		. #x308B)	; ã‚‹
     ))
 (define-char
   '((name		. "HIRAGANA LETTER RE")
@@ -942,7 +942,7 @@
     (korean-ksc5601	. #x2A6C)	; ø»ˆ¨¥
     (=big5-eten		. #xC773)	; ý¢€Œ³
     (mojikyo		. 062376)	; ý €Ž¨
-    (ucs		. #x308C)	; ã‚Œ
+    (=ucs		. #x308C)	; ã‚Œ
     ))
 (define-char
   '((name		. "HIRAGANA LETTER RO")
@@ -954,7 +954,7 @@
     (korean-ksc5601	. #x2A6D)	; ø»ˆ¨¦
     (=big5-eten		. #xC774)	; ý¢€Œ´
     (mojikyo		. 062377)	; ý €Ž©
-    (ucs		. #x308D)	; ã‚
+    (=ucs		. #x308D)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL WA")
@@ -967,7 +967,7 @@
     (=big5-eten		. #xC775)	; ý¢€Œµ
     (=jef-china3	. #x7DCE)	; øº‡·Ž
     (mojikyo		. 062378)	; ý €Žª
-    (ucs		. #x308E)	; ã‚Ž
+    (=ucs		. #x308E)	; ã‚Ž
     ))
 (define-char
   '((name		. "HIRAGANA LETTER WA")
@@ -979,7 +979,7 @@
     (korean-ksc5601	. #x2A6F)	; ø»ˆ¨¨
     (=big5-eten		. #xC776)	; ý¢€Œ¶
     (mojikyo		. 062379)	; ý €Ž«
-    (ucs		. #x308F)	; ã‚
+    (=ucs		. #x308F)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER WI")
@@ -991,7 +991,7 @@
     (korean-ksc5601	. #x2A70)	; ø»ˆ¨©
     (=big5-eten		. #xC777)	; ý¢€Œ·
     (mojikyo		. 062380)	; ý €Ž¬
-    (ucs		. #x3090)	; ã‚
+    (=ucs		. #x3090)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA LETTER WE")
@@ -1003,7 +1003,7 @@
     (korean-ksc5601	. #x2A71)	; ø»ˆ¨ª
     (=big5-eten		. #xC778)	; ý¢€Œ¸
     (mojikyo		. 062381)	; ý €Ž­
-    (ucs		. #x3091)	; ã‚‘
+    (=ucs		. #x3091)	; ã‚‘
     ))
 (define-char
   '((name		. "HIRAGANA LETTER WO")
@@ -1015,7 +1015,7 @@
     (korean-ksc5601	. #x2A72)	; ø»ˆ¨«
     (=big5-eten		. #xC779)	; ý¢€Œ¹
     (mojikyo		. 062382)	; ý €Ž®
-    (ucs		. #x3092)	; ã‚’
+    (=ucs		. #x3092)	; ã‚’
     ))
 (define-char
   '((name		. "HIRAGANA LETTER N")
@@ -1027,7 +1027,7 @@
     (korean-ksc5601	. #x2A73)	; ø»ˆ¨¬
     (=big5-eten		. #xC77A)	; ý¢€Œº
     (mojikyo		. 062383)	; ý €Ž¯
-    (ucs		. #x3093)	; ã‚“
+    (=ucs		. #x3093)	; ã‚“
     ))
 (define-char
   '((name		. "HIRAGANA LETTER VU")
@@ -1037,31 +1037,31 @@
     (->decomposition	#x3046 #x3099)
     (=jis-x0213-1-2000	. #x2474)	; ø»¢˜©
     (=jef-china3	. #x78C5)	; øº‡£…
-    (ucs		. #x3094)	; ã‚”
+    (=ucs		. #x3094)	; ã‚”
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL KA")
     (=jis-x0213-1-2000	. #x2475)	; ø»¢˜ª
-    (ucs		. #x3095)	; ã‚•
+    (=ucs		. #x3095)	; ã‚•
     ))
 (define-char
   '((name		. "HIRAGANA LETTER SMALL KE")
     (=jis-x0213-1-2000	. #x2476)	; ø»¢˜«
-    (ucs		. #x3096)	; ã‚–
+    (=ucs		. #x3096)	; ã‚–
     ))
 (define-char
   '((name . "COMBINING KATAKANA-HIRAGANA VOICED SOUND MARK")
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (ucs		. #x3099)	; ã‚™
+    (=ucs		. #x3099)	; ã‚™
     ))
 (define-char
   '((name . "COMBINING KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (ucs		. #x309A)	; ã‚š
+    (=ucs		. #x309A)	; ã‚š
     ))
 (define-char
   '((name		. "KATAKANA-HIRAGANA VOICED SOUND MARK")
@@ -1070,7 +1070,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x3099)
     (=jis-x0208		. #x212B)	; ø½‰¶†
-    (ucs		. #x309B)	; ã‚›
+    (=ucs		. #x309B)	; ã‚›
     ))
 (define-char
   '((name		. "KATAKANA-HIRAGANA SEMI-VOICED SOUND MARK")
@@ -1079,7 +1079,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0020 #x309A)
     (=jis-x0208		. #x212C)	; ø½‰¶‡
-    (ucs		. #x309C)	; ã‚œ
+    (=ucs		. #x309C)	; ã‚œ
     ))
 (define-char
   '((name		. "HIRAGANA ITERATION MARK")
@@ -1088,7 +1088,7 @@
     (mirrored		. nil)
     (=jis-x0208		. #x2135)	; ø½‰¶
     (=big5-eten		. #xC6DC)	; ý¢€Œ›œ
-    (ucs		. #x309D)	; ã‚
+    (=ucs		. #x309D)	; ã‚
     ))
 (define-char
   '((name		. "HIRAGANA VOICED ITERATION MARK")
@@ -1098,10 +1098,10 @@
     (->decomposition	#x309D #x3099)
     (=jis-x0208		. #x2136)	; ø½‰¶‘
     (=big5-eten		. #xC6DD)	; ý¢€Œ›
-    (ucs		. #x309E)	; ã‚ž
+    (=ucs		. #x309E)	; ã‚ž
     ))
 (define-char
   '((name		. "HIRAGANA DIGRAPH YORI")
     (=jis-x0213-1-2000	. #x2239)	; ø»¢”²
-    (ucs		. #x309F)	; ã‚Ÿ
+    (=ucs		. #x309F)	; ã‚Ÿ
     ))

@@ -4,7 +4,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA1)	; øº“¡
-    (ucs		. #x0E01)	; à¸
+    (=ucs		. #x0E01)	; à¸
     ))
 (define-char
   '((name		. "THAI CHARACTER KHO KHAI")
@@ -12,7 +12,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA2)	; øº“¢
-    (ucs		. #x0E02)	; à¸‚
+    (=ucs		. #x0E02)	; à¸‚
     ))
 (define-char
   '((name		. "THAI CHARACTER KHO KHUAT")
@@ -20,7 +20,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA3)	; øº“£
-    (ucs		. #x0E03)	; à¸ƒ
+    (=ucs		. #x0E03)	; à¸ƒ
     ))
 (define-char
   '((name		. "THAI CHARACTER KHO KHWAI")
@@ -28,7 +28,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA4)	; øº“¤
-    (ucs		. #x0E04)	; à¸„
+    (=ucs		. #x0E04)	; à¸„
     ))
 (define-char
   '((name		. "THAI CHARACTER KHO KHON")
@@ -36,7 +36,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA5)	; øº“¥
-    (ucs		. #x0E05)	; à¸…
+    (=ucs		. #x0E05)	; à¸…
     ))
 (define-char
   '((name		. "THAI CHARACTER KHO RAKHANG")
@@ -44,7 +44,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA6)	; øº“¦
-    (ucs		. #x0E06)	; à¸†
+    (=ucs		. #x0E06)	; à¸†
     ))
 (define-char
   '((name		. "THAI CHARACTER NGO NGU")
@@ -52,7 +52,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA7)	; øº“§
-    (ucs		. #x0E07)	; à¸‡
+    (=ucs		. #x0E07)	; à¸‡
     ))
 (define-char
   '((name		. "THAI CHARACTER CHO CHAN")
@@ -60,7 +60,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA8)	; øº“¨
-    (ucs		. #x0E08)	; à¸ˆ
+    (=ucs		. #x0E08)	; à¸ˆ
     ))
 (define-char
   '((name		. "THAI CHARACTER CHO CHING")
@@ -68,7 +68,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xA9)	; øº“©
-    (ucs		. #x0E09)	; à¸‰
+    (=ucs		. #x0E09)	; à¸‰
     ))
 (define-char
   '((name		. "THAI CHARACTER CHO CHANG")
@@ -76,7 +76,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAA)	; øº“ª
-    (ucs		. #x0E0A)	; à¸Š
+    (=ucs		. #x0E0A)	; à¸Š
     ))
 (define-char
   '((name		. "THAI CHARACTER SO SO")
@@ -84,7 +84,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAB)	; øº“«
-    (ucs		. #x0E0B)	; à¸‹
+    (=ucs		. #x0E0B)	; à¸‹
     ))
 (define-char
   '((name		. "THAI CHARACTER CHO CHOE")
@@ -92,7 +92,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAC)	; øº“¬
-    (ucs		. #x0E0C)	; à¸Œ
+    (=ucs		. #x0E0C)	; à¸Œ
     ))
 (define-char
   '((name		. "THAI CHARACTER YO YING")
@@ -100,7 +100,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAD)	; øº“­
-    (ucs		. #x0E0D)	; à¸
+    (=ucs		. #x0E0D)	; à¸
     ))
 (define-char
   '((name		. "THAI CHARACTER DO CHADA")
@@ -108,7 +108,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAE)	; øº“®
-    (ucs		. #x0E0E)	; à¸Ž
+    (=ucs		. #x0E0E)	; à¸Ž
     ))
 (define-char
   '((name		. "THAI CHARACTER TO PATAK")
@@ -116,7 +116,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xAF)	; øº“¯
-    (ucs		. #x0E0F)	; à¸
+    (=ucs		. #x0E0F)	; à¸
     ))
 (define-char
   '((name		. "THAI CHARACTER THO THAN")
@@ -124,7 +124,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB0)	; øº“°
-    (ucs		. #x0E10)	; à¸
+    (=ucs		. #x0E10)	; à¸
     ))
 (define-char
   '((name		. "THAI CHARACTER THO NANGMONTHO")
@@ -132,7 +132,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB1)	; øº“±
-    (ucs		. #x0E11)	; à¸‘
+    (=ucs		. #x0E11)	; à¸‘
     ))
 (define-char
   '((name		. "THAI CHARACTER THO PHUTHAO")
@@ -140,7 +140,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB2)	; øº“²
-    (ucs		. #x0E12)	; à¸’
+    (=ucs		. #x0E12)	; à¸’
     ))
 (define-char
   '((name		. "THAI CHARACTER NO NEN")
@@ -148,7 +148,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB3)	; øº“³
-    (ucs		. #x0E13)	; à¸“
+    (=ucs		. #x0E13)	; à¸“
     ))
 (define-char
   '((name		. "THAI CHARACTER DO DEK")
@@ -156,7 +156,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB4)	; øº“´
-    (ucs		. #x0E14)	; à¸”
+    (=ucs		. #x0E14)	; à¸”
     ))
 (define-char
   '((name		. "THAI CHARACTER TO TAO")
@@ -164,7 +164,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB5)	; øº“µ
-    (ucs		. #x0E15)	; à¸•
+    (=ucs		. #x0E15)	; à¸•
     ))
 (define-char
   '((name		. "THAI CHARACTER THO THUNG")
@@ -172,7 +172,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB6)	; øº“¶
-    (ucs		. #x0E16)	; à¸–
+    (=ucs		. #x0E16)	; à¸–
     ))
 (define-char
   '((name		. "THAI CHARACTER THO THAHAN")
@@ -180,7 +180,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB7)	; øº“·
-    (ucs		. #x0E17)	; à¸—
+    (=ucs		. #x0E17)	; à¸—
     ))
 (define-char
   '((name		. "THAI CHARACTER THO THONG")
@@ -188,7 +188,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB8)	; øº“¸
-    (ucs		. #x0E18)	; à¸˜
+    (=ucs		. #x0E18)	; à¸˜
     ))
 (define-char
   '((name		. "THAI CHARACTER NO NU")
@@ -196,7 +196,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xB9)	; øº“¹
-    (ucs		. #x0E19)	; à¸™
+    (=ucs		. #x0E19)	; à¸™
     ))
 (define-char
   '((name		. "THAI CHARACTER BO BAIMAI")
@@ -204,7 +204,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBA)	; øº“º
-    (ucs		. #x0E1A)	; à¸š
+    (=ucs		. #x0E1A)	; à¸š
     ))
 (define-char
   '((name		. "THAI CHARACTER PO PLA")
@@ -212,7 +212,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBB)	; øº“»
-    (ucs		. #x0E1B)	; à¸›
+    (=ucs		. #x0E1B)	; à¸›
     ))
 (define-char
   '((name		. "THAI CHARACTER PHO PHUNG")
@@ -220,7 +220,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBC)	; øº“¼
-    (ucs		. #x0E1C)	; à¸œ
+    (=ucs		. #x0E1C)	; à¸œ
     ))
 (define-char
   '((name		. "THAI CHARACTER FO FA")
@@ -228,7 +228,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBD)	; øº“½
-    (ucs		. #x0E1D)	; à¸
+    (=ucs		. #x0E1D)	; à¸
     ))
 (define-char
   '((name		. "THAI CHARACTER PHO PHAN")
@@ -236,7 +236,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBE)	; øº“¾
-    (ucs		. #x0E1E)	; à¸ž
+    (=ucs		. #x0E1E)	; à¸ž
     ))
 (define-char
   '((name		. "THAI CHARACTER FO FAN")
@@ -244,7 +244,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xBF)	; øº“¿
-    (ucs		. #x0E1F)	; à¸Ÿ
+    (=ucs		. #x0E1F)	; à¸Ÿ
     ))
 (define-char
   '((name		. "THAI CHARACTER PHO SAMPHAO")
@@ -252,7 +252,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC0)	; øº“‘€
-    (ucs		. #x0E20)	; à¸ 
+    (=ucs		. #x0E20)	; à¸ 
     ))
 (define-char
   '((name		. "THAI CHARACTER MO MA")
@@ -260,7 +260,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC1)	; øº“‘
-    (ucs		. #x0E21)	; à¸¡
+    (=ucs		. #x0E21)	; à¸¡
     ))
 (define-char
   '((name		. "THAI CHARACTER YO YAK")
@@ -268,7 +268,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC2)	; øº“‘‚
-    (ucs		. #x0E22)	; à¸¢
+    (=ucs		. #x0E22)	; à¸¢
     ))
 (define-char
   '((name		. "THAI CHARACTER RO RUA")
@@ -276,7 +276,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC3)	; øº“‘ƒ
-    (ucs		. #x0E23)	; à¸£
+    (=ucs		. #x0E23)	; à¸£
     ))
 (define-char
   '((name		. "THAI CHARACTER RU")
@@ -284,7 +284,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC4)	; øº“‘„
-    (ucs		. #x0E24)	; à¸¤
+    (=ucs		. #x0E24)	; à¸¤
     ))
 (define-char
   '((name		. "THAI CHARACTER LO LING")
@@ -292,7 +292,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC5)	; øº“‘…
-    (ucs		. #x0E25)	; à¸¥
+    (=ucs		. #x0E25)	; à¸¥
     ))
 (define-char
   '((name		. "THAI CHARACTER LU")
@@ -300,7 +300,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC6)	; øº“‘†
-    (ucs		. #x0E26)	; à¸¦
+    (=ucs		. #x0E26)	; à¸¦
     ))
 (define-char
   '((name		. "THAI CHARACTER WO WAEN")
@@ -308,7 +308,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC7)	; øº“‘‡
-    (ucs		. #x0E27)	; à¸§
+    (=ucs		. #x0E27)	; à¸§
     ))
 (define-char
   '((name		. "THAI CHARACTER SO SALA")
@@ -316,7 +316,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC8)	; øº“‘ˆ
-    (ucs		. #x0E28)	; à¸¨
+    (=ucs		. #x0E28)	; à¸¨
     ))
 (define-char
   '((name		. "THAI CHARACTER SO RUSI")
@@ -324,7 +324,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xC9)	; øº“‘‰
-    (ucs		. #x0E29)	; à¸©
+    (=ucs		. #x0E29)	; à¸©
     ))
 (define-char
   '((name		. "THAI CHARACTER SO SUA")
@@ -332,7 +332,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xCA)	; øº“‘Š
-    (ucs		. #x0E2A)	; à¸ª
+    (=ucs		. #x0E2A)	; à¸ª
     ))
 (define-char
   '((name		. "THAI CHARACTER HO HIP")
@@ -340,7 +340,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xCB)	; øº“‘‹
-    (ucs		. #x0E2B)	; à¸«
+    (=ucs		. #x0E2B)	; à¸«
     ))
 (define-char
   '((name		. "THAI CHARACTER LO CHULA")
@@ -348,7 +348,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xCC)	; øº“‘Œ
-    (ucs		. #x0E2C)	; à¸¬
+    (=ucs		. #x0E2C)	; à¸¬
     ))
 (define-char
   '((name		. "THAI CHARACTER O ANG")
@@ -356,7 +356,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xCD)	; øº“‘
-    (ucs		. #x0E2D)	; à¸­
+    (=ucs		. #x0E2D)	; à¸­
     ))
 (define-char
   '((name		. "THAI CHARACTER HO NOKHUK")
@@ -364,7 +364,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xCE)	; øº“‘Ž
-    (ucs		. #x0E2E)	; à¸®
+    (=ucs		. #x0E2E)	; à¸®
     ))
 (define-char
   '((name		. "THAI CHARACTER PAIYANNOI")
@@ -373,7 +373,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "paiyan noi")
     (thai-tis620	. #xCF)	; øº“‘
-    (ucs		. #x0E2F)	; à¸¯
+    (=ucs		. #x0E2F)	; à¸¯
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA A")
@@ -381,7 +381,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xD0)	; øº“‘
-    (ucs		. #x0E30)	; à¸°
+    (=ucs		. #x0E30)	; à¸°
     ))
 (define-char
   '((name		. "THAI CHARACTER MAI HAN-AKAT")
@@ -389,7 +389,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD1)	; øº“‘‘
-    (ucs		. #x0E31)	; à¸±
+    (=ucs		. #x0E31)	; à¸±
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA AA")
@@ -397,7 +397,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xD2)	; øº“‘’
-    (ucs		. #x0E32)	; à¸²
+    (=ucs		. #x0E32)	; à¸²
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA AM")
@@ -406,7 +406,7 @@
     (mirrored		. nil)
     (->decomposition	compat #x0E4D #x0E32)
     (thai-tis620	. #xD3)	; øº“‘“
-    (ucs		. #x0E33)	; à¸³
+    (=ucs		. #x0E33)	; à¸³
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA I")
@@ -414,7 +414,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD4)	; øº“‘”
-    (ucs		. #x0E34)	; à¸´
+    (=ucs		. #x0E34)	; à¸´
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA II")
@@ -422,7 +422,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD5)	; øº“‘•
-    (ucs		. #x0E35)	; à¸µ
+    (=ucs		. #x0E35)	; à¸µ
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA UE")
@@ -430,7 +430,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD6)	; øº“‘–
-    (ucs		. #x0E36)	; à¸¶
+    (=ucs		. #x0E36)	; à¸¶
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA UEE")
@@ -439,7 +439,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "sara uue")
     (thai-tis620	. #xD7)	; øº“‘—
-    (ucs		. #x0E37)	; à¸·
+    (=ucs		. #x0E37)	; à¸·
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA U")
@@ -447,7 +447,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD8)	; øº“‘˜
-    (ucs		. #x0E38)	; à¸¸
+    (=ucs		. #x0E38)	; à¸¸
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA UU")
@@ -455,7 +455,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xD9)	; øº“‘™
-    (ucs		. #x0E39)	; à¸¹
+    (=ucs		. #x0E39)	; à¸¹
     ))
 (define-char
   '((name		. "THAI CHARACTER PHINTHU")
@@ -463,7 +463,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xDA)	; øº“‘š
-    (ucs		. #x0E3A)	; à¸º
+    (=ucs		. #x0E3A)	; à¸º
     ))
 (define-char
   '((name		. "THAI CURRENCY SYMBOL BAHT")
@@ -471,7 +471,7 @@
     (bidi-category	. "ET")
     (mirrored		. nil)
     (thai-tis620	. #xDF)	; øº“‘Ÿ
-    (ucs		. #x0E3F)	; à¸¿
+    (=ucs		. #x0E3F)	; à¸¿
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA E")
@@ -479,7 +479,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xE0)	; øº“‘ 
-    (ucs		. #x0E40)	; à¹€
+    (=ucs		. #x0E40)	; à¹€
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA AE")
@@ -487,7 +487,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xE1)	; øº“‘¡
-    (ucs		. #x0E41)	; à¹
+    (=ucs		. #x0E41)	; à¹
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA O")
@@ -495,7 +495,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xE2)	; øº“‘¢
-    (ucs		. #x0E42)	; à¹‚
+    (=ucs		. #x0E42)	; à¹‚
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA AI MAIMUAN")
@@ -504,7 +504,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "sara ai mai muan")
     (thai-tis620	. #xE3)	; øº“‘£
-    (ucs		. #x0E43)	; à¹ƒ
+    (=ucs		. #x0E43)	; à¹ƒ
     ))
 (define-char
   '((name		. "THAI CHARACTER SARA AI MAIMALAI")
@@ -513,7 +513,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "sara ai mai malai")
     (thai-tis620	. #xE4)	; øº“‘¤
-    (ucs		. #x0E44)	; à¹„
+    (=ucs		. #x0E44)	; à¹„
     ))
 (define-char
   '((name		. "THAI CHARACTER LAKKHANGYAO")
@@ -522,7 +522,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "lakkhang yao")
     (thai-tis620	. #xE5)	; øº“‘¥
-    (ucs		. #x0E45)	; à¹…
+    (=ucs		. #x0E45)	; à¹…
     ))
 (define-char
   '((name		. "THAI CHARACTER MAIYAMOK")
@@ -531,7 +531,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "mai yamok")
     (thai-tis620	. #xE6)	; øº“‘¦
-    (ucs		. #x0E46)	; à¹†
+    (=ucs		. #x0E46)	; à¹†
     ))
 (define-char
   '((name		. "THAI CHARACTER MAITAIKHU")
@@ -540,7 +540,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "mai taikhu")
     (thai-tis620	. #xE7)	; øº“‘§
-    (ucs		. #x0E47)	; à¹‡
+    (=ucs		. #x0E47)	; à¹‡
     ))
 (define-char
   '((name		. "THAI CHARACTER MAI EK")
@@ -548,7 +548,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xE8)	; øº“‘¨
-    (ucs		. #x0E48)	; à¹ˆ
+    (=ucs		. #x0E48)	; à¹ˆ
     ))
 (define-char
   '((name		. "THAI CHARACTER MAI THO")
@@ -556,7 +556,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xE9)	; øº“‘©
-    (ucs		. #x0E49)	; à¹‰
+    (=ucs		. #x0E49)	; à¹‰
     ))
 (define-char
   '((name		. "THAI CHARACTER MAI TRI")
@@ -564,7 +564,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xEA)	; øº“‘ª
-    (ucs		. #x0E4A)	; à¹Š
+    (=ucs		. #x0E4A)	; à¹Š
     ))
 (define-char
   '((name		. "THAI CHARACTER MAI CHATTAWA")
@@ -572,7 +572,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xEB)	; øº“‘«
-    (ucs		. #x0E4B)	; à¹‹
+    (=ucs		. #x0E4B)	; à¹‹
     ))
 (define-char
   '((name		. "THAI CHARACTER THANTHAKHAT")
@@ -580,7 +580,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xEC)	; øº“‘¬
-    (ucs		. #x0E4C)	; à¹Œ
+    (=ucs		. #x0E4C)	; à¹Œ
     ))
 (define-char
   '((name		. "THAI CHARACTER NIKHAHIT")
@@ -589,7 +589,7 @@
     (mirrored		. nil)
     (iso-10646-comment	. "nikkhahit")
     (thai-tis620	. #xED)	; øº“‘­
-    (ucs		. #x0E4D)	; à¹
+    (=ucs		. #x0E4D)	; à¹
     ))
 (define-char
   '((name		. "THAI CHARACTER YAMAKKAN")
@@ -597,7 +597,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (thai-tis620	. #xEE)	; øº“‘®
-    (ucs		. #x0E4E)	; à¹Ž
+    (=ucs		. #x0E4E)	; à¹Ž
     ))
 (define-char
   '((name		. "THAI CHARACTER FONGMAN")
@@ -605,7 +605,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xEF)	; øº“‘¯
-    (ucs		. #x0E4F)	; à¹
+    (=ucs		. #x0E4F)	; à¹
     ))
 (define-char
   '((name		. "THAI DIGIT ZERO")
@@ -616,7 +616,7 @@
     (digit-value	 . 0)
     (numeric-value	 . 0)
     (thai-tis620	. #xF0)	; øº“‘°
-    (ucs		. #x0E50)	; à¹
+    (=ucs		. #x0E50)	; à¹
     ))
 (define-char
   '((name		. "THAI DIGIT ONE")
@@ -627,7 +627,7 @@
     (digit-value	 . 1)
     (numeric-value	 . 1)
     (thai-tis620	. #xF1)	; øº“‘±
-    (ucs		. #x0E51)	; à¹‘
+    (=ucs		. #x0E51)	; à¹‘
     ))
 (define-char
   '((name		. "THAI DIGIT TWO")
@@ -638,7 +638,7 @@
     (digit-value	 . 2)
     (numeric-value	 . 2)
     (thai-tis620	. #xF2)	; øº“‘²
-    (ucs		. #x0E52)	; à¹’
+    (=ucs		. #x0E52)	; à¹’
     ))
 (define-char
   '((name		. "THAI DIGIT THREE")
@@ -649,7 +649,7 @@
     (digit-value	 . 3)
     (numeric-value	 . 3)
     (thai-tis620	. #xF3)	; øº“‘³
-    (ucs		. #x0E53)	; à¹“
+    (=ucs		. #x0E53)	; à¹“
     ))
 (define-char
   '((name		. "THAI DIGIT FOUR")
@@ -660,7 +660,7 @@
     (digit-value	 . 4)
     (numeric-value	 . 4)
     (thai-tis620	. #xF4)	; øº“‘´
-    (ucs		. #x0E54)	; à¹”
+    (=ucs		. #x0E54)	; à¹”
     ))
 (define-char
   '((name		. "THAI DIGIT FIVE")
@@ -671,7 +671,7 @@
     (digit-value	 . 5)
     (numeric-value	 . 5)
     (thai-tis620	. #xF5)	; øº“‘µ
-    (ucs		. #x0E55)	; à¹•
+    (=ucs		. #x0E55)	; à¹•
     ))
 (define-char
   '((name		. "THAI DIGIT SIX")
@@ -682,7 +682,7 @@
     (digit-value	 . 6)
     (numeric-value	 . 6)
     (thai-tis620	. #xF6)	; øº“‘¶
-    (ucs		. #x0E56)	; à¹–
+    (=ucs		. #x0E56)	; à¹–
     ))
 (define-char
   '((name		. "THAI DIGIT SEVEN")
@@ -693,7 +693,7 @@
     (digit-value	 . 7)
     (numeric-value	 . 7)
     (thai-tis620	. #xF7)	; øº“‘·
-    (ucs		. #x0E57)	; à¹—
+    (=ucs		. #x0E57)	; à¹—
     ))
 (define-char
   '((name		. "THAI DIGIT EIGHT")
@@ -704,7 +704,7 @@
     (digit-value	 . 8)
     (numeric-value	 . 8)
     (thai-tis620	. #xF8)	; øº“‘¸
-    (ucs		. #x0E58)	; à¹˜
+    (=ucs		. #x0E58)	; à¹˜
     ))
 (define-char
   '((name		. "THAI DIGIT NINE")
@@ -715,7 +715,7 @@
     (digit-value	 . 9)
     (numeric-value	 . 9)
     (thai-tis620	. #xF9)	; øº“‘¹
-    (ucs		. #x0E59)	; à¹™
+    (=ucs		. #x0E59)	; à¹™
     ))
 (define-char
   '((name		. "THAI CHARACTER ANGKHANKHU")
@@ -723,7 +723,7 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xFA)	; øº“‘º
-    (ucs		. #x0E5A)	; à¹š
+    (=ucs		. #x0E5A)	; à¹š
     ))
 (define-char
   '((name		. "THAI CHARACTER KHOMUT")
@@ -731,5 +731,5 @@
     (bidi-category	. "L")
     (mirrored		. nil)
     (thai-tis620	. #xFB)	; øº“‘»
-    (ucs		. #x0E5B)	; à¹›
+    (=ucs		. #x0E5B)	; à¹›
     ))
