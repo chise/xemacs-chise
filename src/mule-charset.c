@@ -2503,17 +2503,20 @@ DEFUN ("set-charset-mapping-table", Fset_charset_mapping_table, 2, 2, 0, /*
 Set mapping-table of CHARSET to TABLE.
 */
        (charset, table))
-{
+{ /* [tomo] Current implementation does not have complete error
+     handling mechanism.  It seems better to recover encoding/decoding
+     tables when TABLE is broken. */
   struct Lisp_Charset *cs;
-  Lisp_Object old_table;
+  /* Lisp_Object old_table; */
   size_t i;
+  int byte_offset;
 
   charset = Fget_charset (charset);
   cs = XCHARSET (charset);
 
-  if (EQ (table, Qnil))
+  if (NILP (table))
     {
-      CHARSET_DECODING_TABLE(cs) = table;
+      CHARSET_DECODING_TABLE(cs) = Qnil;
       return table;
     }
   else if (VECTORP (table))
@@ -2522,8 +2525,9 @@ Set mapping-table of CHARSET to TABLE.
 
       if (XVECTOR_LENGTH (table) > ccs_len)
 	args_out_of_range (table, make_int (CHARSET_CHARS (cs)));
-      old_table = CHARSET_DECODING_TABLE(cs);
-      CHARSET_DECODING_TABLE(cs) = table;
+      /* old_table = CHARSET_DECODING_TABLE(cs); */
+      /* CHARSET_DECODING_TABLE(cs) = table; */
+      CHARSET_DECODING_TABLE(cs) = Qnil;
     }
   else
     signal_error (Qwrong_type_argument,
@@ -2531,6 +2535,7 @@ Set mapping-table of CHARSET to TABLE.
 			 table));
   /* signal_simple_error ("Wrong type argument: vector-or-nil-p", table); */
 
+  byte_offset = CHARSET_BYTE_OFFSET (cs);
   switch (CHARSET_DIMENSION (cs))
     {
     case 1:
@@ -2539,9 +2544,8 @@ Set mapping-table of CHARSET to TABLE.
 	  Lisp_Object c = XVECTOR_DATA(table)[i];
 
 	  if (CHARP (c))
-	    put_char_attribute
-	      (c, charset,
-	       make_int (i + CHARSET_BYTE_OFFSET (cs)));
+	    put_char_ccs_code_point (c, charset,
+				     make_int (i + byte_offset));
 	}
       break;
     case 2:
@@ -2555,7 +2559,7 @@ Set mapping-table of CHARSET to TABLE.
 
 	      if (XVECTOR_LENGTH (v) > CHARSET_CHARS (cs))
 		{
-		  CHARSET_DECODING_TABLE(cs) = old_table;
+		  /* CHARSET_DECODING_TABLE(cs) = old_table; */
 		  args_out_of_range (v, make_int (CHARSET_CHARS (cs)));
 		}
 	      for (j = 0; j < XVECTOR_LENGTH (v); j++)
@@ -2563,15 +2567,16 @@ Set mapping-table of CHARSET to TABLE.
 		  Lisp_Object c = XVECTOR_DATA(v)[j];
 
 		  if (CHARP (c))
-		    put_char_attribute
+		    put_char_ccs_code_point
 		      (c, charset,
-		       make_int ( ((i + CHARSET_BYTE_OFFSET (cs)) << 8)
-				  | (j + CHARSET_BYTE_OFFSET (cs)) ));
+		       make_int ( ( (i + byte_offset) << 8 )
+				  | (j + byte_offset)
+				  ) );
 		}
 	    }
 	  else if (CHARP (v))
-	    put_char_attribute (v, charset,
-				make_int (i + CHARSET_BYTE_OFFSET (cs)));
+	    put_char_ccs_code_point (v, charset,
+				     make_int (i + byte_offset));
 	}
       break;
     }
