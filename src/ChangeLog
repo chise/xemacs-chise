@@ -1,5 +1,17 @@
 2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* mule-charset.c (decode_builtin_char): New function; renamed from
+	`make_builtin_char'; return -1 instead of signal.
+	(Fdecode_builtin_char): Use `decode_builtin_char'.
+
+	* char-ucs.h (decode_builtin_char): New prototype; renamed from
+	`make_builtin_char'.
+	(DECODE_CHAR): Use `decode_builtin_char' instead of
+	`make_builtin_char'; use mapping table of `chinese-big5' for
+	`chinese-big5-{1,2}'.
+
+2001-07-11  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* text-coding.c (char_encode_big5): New function.
 	(char_finish_big5): Likewise.
 	(reset_encoding_stream): Use `char_encode_big5' and
