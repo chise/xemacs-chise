@@ -804,21 +804,12 @@
     (ideographic-strokes . 12)
     (total-strokes	 . 14)
     (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO MIDDLE AND BELOW")
-      (ucs		  . #x2FF3)	; â¿³
+     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
+      (ucs		  . #x2FF1)	; â¿±
       )
      ((ucs		  . #x5196)	; å†–
       )
-     ((ucs		  . #x81FC)	; è‡¼
-      )
-     ((ideographic-structure
-       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM ABOVE")
-	(ucs		    . #x2FF5)	; â¿µ
-	)
-       ((ucs		    . #x52F9)	; å‹¹
-	)
-       ((ucs		    . #x706C)	; ç¬
-	))
+     ((ucs		  . #x8204)	; èˆ„
       ))
     (japanese-jisx0208-1978	. #x5150)	; ø»ƒƒ
     (japanese-jisx0208		. #x5150)	; ø»‡——
