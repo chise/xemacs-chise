@@ -2506,6 +2506,14 @@
     (chinese-cns11643-7 . #x3D44)	; ø»ž¨Ÿ
     ))
 (define-char
+  '((->ucs		. #x5DC2)	; å·‚
+    (morohashi-daikanwa	8595 0 1 0)
+    (ideographic-radical . 172)	; â¾«
+    (ideographic-strokes . 10)
+    (total-strokes	 . 18)
+    (chinese-cns11643-2 . #x643E)	; ø»”¯—
+    ))
+(define-char
   '((ideographic-radical . 172)	; â¾«
     (ideographic-strokes . 10)
     (total-strokes	 . 18)
