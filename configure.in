@@ -2983,7 +2983,7 @@ if test "$with_mule" = "yes" ; then
   AC_CHECKING(for Mule-related features)
   AC_DEFINE(MULE)
   AC_DEFINE(FILE_CODING)
-  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o mule-coding.o file-coding.o)
+  XE_ADD_OBJS(mule.o mule-ccl.o mule-charset.o file-coding.o)
 
   dnl Use -lintl to get internationalized strerror for Mule
   AC_CHECK_HEADERS(libintl.h)
