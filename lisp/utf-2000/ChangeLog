@@ -1,3 +1,8 @@
+2001-12-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R102-Field.el (U-00024CCF): New character [moved from
+	Ideograph-R001-One.el].
+
 2001-12-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R028-Private.el (U-00020AD5): Add
