@@ -1760,7 +1760,7 @@ With argument, insert value in current buffer after the form."
 	  (and (eq (point) (point-max))
 	       (not
 		(re-search-backward
-		 "\\u[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]" nil t))))
+		 "\\\\u[0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f][0-9A-Fa-f]" nil t))))
 	(setq buffer-file-coding-system 'raw-text)
       (cond ((featurep 'utf-2000)
 	     (insert "(require 'mule)\n;;;###coding system: utf-8\n")
