@@ -1,5 +1,14 @@
 2002-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* casetab.c (complex_vars_of_casetab): If uppercase/lowercase is
+	not defined for a character, don't put the identical conversion
+	into the uppercase/lowercase table in UTF-2000.
+
+	* buffer.h (SET_TRT_TABLE_CHAR_1): Set a list instead of a
+	character in a char-attribute in UTF-2000.
+
+2002-08-23  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
 	* chartab.h: Add an EXFUN for Fmount_char_attribute_table.
 
 	* casetab.c (Q_lowercase): New variable in UTF-2000.
