@@ -20,6 +20,10 @@
 
 	* Ideograph-R170-Mound.el (C5-232E): Unify U-00028E16.
 
+2002-02-13  MORIOKA Tomohiko  <tomo@mousai.kanji.zinbun.kyoto-u.ac.jp>
+
+	* u01000-Myanmar.el: Reformatted.
+
 2002-02-06  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* u00F00-Tibetan.el: Reformatted.
