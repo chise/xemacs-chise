@@ -1,5 +1,14 @@
 1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
+	* mule-charset.c (Fmake_charset): Delete unused local variable
+	`code_offset'.
+
+	* char-ucs.h (Vcharacter_attribute_table): New extern variable.
+	(breakup_char_1): Find a charset and code-point in
+	`Vcharacter_attribute_table'.
+
+1999-10-27  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
 	to 0.10 (Yao).
 
