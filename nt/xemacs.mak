@@ -129,6 +129,9 @@ USE_MINIMAL_TAGBITS=0
 !if !defined(USE_INDEXED_LRECORD_IMPLEMENTATION)
 USE_INDEXED_LRECORD_IMPLEMENTATION=0
 !endif
+!if !defined(GUNG_HO)
+GUNG_HO=0
+!endif
 
 #
 # System configuration
@@ -233,7 +236,7 @@ USE_INDEXED_LRECORD_IMPLEMENTATION=$(GUNG_HO)
 !endif
 
 #
-# Compiler command echo control. Define VERBOSECC=1 to get vebose compilation.
+# Compiler command echo control. Define VERBOSECC=1 to get verbose compilation.
 #
 !if !defined(VERBOSECC)
 VERBOSECC=0
@@ -912,7 +915,7 @@ update-elc:
 	$(TEMACS) -batch -l $(TEMACS_DIR)\..\lisp\update-elc.el
 
 # This rule dumps xemacs and then possibly spawns sub-make if PURESPACE
-# requirements has changed.
+# requirements have changed.
 dump-xemacs: $(TEMACS)
 	@echo >$(TEMACS_DIR)\SATISFIED
 	cd $(TEMACS_DIR)
@@ -924,7 +927,7 @@ dump-xemacs: $(TEMACS)
 #------------------------------------------------------------------------------
 
 # use this rule to build the complete system
-all:	Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
+all:	$(XEMACS)\Installation $(OUTDIR)\nul $(LASTFILE) $(LWLIB) $(LIB_SRC_TOOLS) $(RUNEMACS) \
 	$(TEMACS) update-elc $(DOC) dump-xemacs
 
 temacs: $(TEMACS)
@@ -958,7 +961,7 @@ distclean:
 	del *.orig
 	del *.rej
 	del *.tmp
-	del Installation
+	del $(XEMACS)\Installation
 	cd $(OUTDIR)
 	del *.lib
 	del *.obj
@@ -992,8 +995,8 @@ distclean:
 depend:
 	mkdepend -f xemacs.mak -p$(OUTDIR)\ -o.obj -w9999 -- $(TEMACS_CPP_FLAGS) --  $(DOC_SRC1) $(DOC_SRC2) $(DOC_SRC3) $(DOC_SRC4) $(DOC_SRC5) $(DOC_SRC6) $(DOC_SRC7) $(DOC_SRC8) $(DOC_SRC9) $(LASTFILE_SRC)\lastfile.c $(LIB_SRC)\make-docfile.c $(LIB_SRC)\run.c
 
-Installation:
-	@type > Installation <<
+$(XEMACS)\Installation:
+	@type > $(XEMACS)\Installation <<
 !if defined(OS)
 OS: $(OS)
 !endif
@@ -1082,7 +1085,7 @@ XEmacs $(XEMACS_VERSION_STRING) $(xemacs_codename:"=\") configured for `$(EMACS_
 !endif
 <<NOKEEP
 	@echo --------------------------------------------------------------------
-	@type Installation
+	@type $(XEMACS)\Installation
 	@echo --------------------------------------------------------------------
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.

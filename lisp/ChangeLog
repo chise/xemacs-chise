@@ -1,3 +1,29 @@
+1999-06-04  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* code-files.el (buffer-file-coding-system): Use `raw-text' as
+	default value.
+	(load): Use `raw-text' instead of `no-conversion'.
+	(insert-file-contents): Likewise.
+
+	* bytecomp.el (byte-compile-insert-header): Use `raw-text' instead
+	of `no-conversion'.
+
+1999-06-03  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* coding.el: Don't copy `no-conversion' to `raw-text'.
+
+1999-06-07  Hrvoje Niksic  <hniksic@srce.hr>
+
+	* subr.el (make-char): Define it if Mule is not around.
+
+1999-06-07  SL Baur  <steve@steve1.m17n.org>
+
+	* mule/mule-help.el: Add trailing newline.  Use mule keyword.
+
+	* x-select.el (x-disown-selection-internal): Restore symbol as an
+	obsolete alias.
+	(xselect-kill-buffer-hook-1): Use disown-selection-internal.
+
 1999-06-04  XEmacs Build Bot <builds@cvs.xemacs.org>
 
 	* XEmacs 21.2.15 is released

@@ -1893,6 +1893,7 @@ COLON_TO_SPACE(site_prefixes)
 if test -n "$site_prefixes"; then
   for dir in $site_prefixes; do
     lib_dir="${dir}/lib"
+    inc_dir="${dir}/include"
     if test ! -d "$dir"; then
       XE_DIE("Invalid site prefix \`$dir': no such directory")
     elif test ! -d "$lib_dir"; then
