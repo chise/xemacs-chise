@@ -1,0 +1,1251 @@
+This is ../info/lispref.info, produced by makeinfo version 4.0 from
+lispref/lispref.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Lispref: (lispref).		XEmacs Lisp Reference Manual.
+END-INFO-DIR-ENTRY
+
+   Edition History:
+
+   GNU Emacs Lisp Reference Manual Second Edition (v2.01), May 1993 GNU
+Emacs Lisp Reference Manual Further Revised (v2.02), August 1993 Lucid
+Emacs Lisp Reference Manual (for 19.10) First Edition, March 1994
+XEmacs Lisp Programmer's Manual (for 19.12) Second Edition, April 1995
+GNU Emacs Lisp Reference Manual v2.4, June 1995 XEmacs Lisp
+Programmer's Manual (for 19.13) Third Edition, July 1995 XEmacs Lisp
+Reference Manual (for 19.14 and 20.0) v3.1, March 1996 XEmacs Lisp
+Reference Manual (for 19.15 and 20.1, 20.2, 20.3) v3.2, April, May,
+November 1997 XEmacs Lisp Reference Manual (for 21.0) v3.3, April 1998
+
+   Copyright (C) 1990, 1991, 1992, 1993, 1994, 1995 Free Software
+Foundation, Inc.  Copyright (C) 1994, 1995 Sun Microsystems, Inc.
+Copyright (C) 1995, 1996 Ben Wing.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: lispref.info,  Node: Elisp Interface for Sending Messages,  Prev: Example of Sending Messages,  Up: Sending Messages
+
+Elisp Interface for Sending Messages
+------------------------------------
+
+ - Function: make-tooltalk-message attributes
+     Create a ToolTalk message and initialize its attributes.  The
+     value of ATTRIBUTES must be a list of alternating keyword/values,
+     where keywords are symbols that name valid message attributes.
+     For example:
+
+            (make-tooltalk-message
+              '(class TT_NOTICE
+                scope TT_SESSION
+                address TT_PROCEDURE
+                op "do-something"
+                args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
+
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants.  Attribute names are the same as those
+     supported by `set-tooltalk-message-attribute', plus `args'.
+
+     The value of `args' should be a list of message arguments where
+     each message argument has the following form:
+
+             `(mode [value [type]])' or just `value'
+
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk message arguments in chapter 4 of
+     the `ToolTalk Programmer's Guide'.
+
+
+ - Function: send-tooltalk-message msg
+     Send the message on its way.  Once the message has been sent it's
+     almost always a good idea to get rid of it with
+     `destroy-tooltalk-message'.
+
+
+ - Function: return-tooltalk-message msg &optional mode
+     Send a reply to this message.  The second argument can be `reply',
+     `reject' or `fail'; the default is `reply'.  Before sending a
+     reply, all message arguments whose mode is `TT_INOUT' or `TT_OUT'
+     should have been filled in--see `set-tooltalk-message-attribute'.
+
+
+ - Function: get-tooltalk-message-attribute msg attribute &optional argn
+     Returns the indicated ToolTalk message attribute.  Attributes are
+     identified by symbols with the same name (underscores and all) as
+     the suffix of the ToolTalk `tt_message_<attribute>' function that
+     extracts the value.  String attribute values are copied and
+     enumerated type values (except disposition) are converted to
+     symbols; e.g. `TT_HANDLER' is `'TT_HANDLER', `uid' and `gid' are
+     represented by fixnums (small integers), `opnum' is converted to a
+     string, and `disposition' is converted to a fixnum.  We convert
+     `opnum' (a C int) to a string (e.g. `123' => `"123"') because
+     there's no guarantee that opnums will fit within the range of
+     XEmacs Lisp integers.
+
+     [TBD] Use the `plist' attribute instead of C API `user' attribute
+     for user-defined message data.  To retrieve the value of a message
+     property, specify the indicator for ARGN.  For example, to get the
+     value of a property called `rflag', use
+
+             (get-tooltalk-message-attribute msg 'plist 'rflag)
+
+     To get the value of a message argument use one of the `arg_val'
+     (strings), `arg_ival' (integers), or `arg_bval' (strings with
+     embedded nulls), attributes.  For example, to get the integer
+     value of the third argument:
+
+             (get-tooltalk-message-attribute msg 'arg_ival 2)
+
+     As you can see, argument numbers are zero-based.  The type of each
+     arguments can be retrieved with the `arg_type' attribute; however
+     ToolTalk doesn't define any semantics for the string value of
+     `arg_type'.  Conventionally `string' is used for strings and `int'
+     for 32 bit integers.  Note that XEmacs Lisp stores the lengths of
+     strings explicitly (unlike C) so treating the value returned by
+     `arg_bval' like a string is fine.
+
+
+ - Function: set-tooltalk-message-attribute value msg attribute
+          &optional argn
+     Initialize one ToolTalk message attribute.
+
+     Attribute names and values are the same as for
+     `get-tooltalk-message-attribute'.  A property list is provided for
+     user data (instead of the `user' message attribute); see
+     `get-tooltalk-message-attribute'.
+
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the state of the message
+     changes.  This is usually used to notice when the message's state
+     has changed to `TT_HANDLED' (or `TT_FAILED'), so that reply
+     argument values can be used.
+
+     If one of the argument attributes is specified as `arg_val',
+     `arg_ival', or `arg_bval', then ARGN must be the number of an
+     already created argument.  Arguments can be added to a message
+     with `add-tooltalk-message-arg'.
+
+
+ - Function: add-tooltalk-message-arg msg mode type &optional value
+     Append one new argument to the message.  MODE must be one of
+     `TT_IN', `TT_INOUT', or `TT_OUT', TYPE must be a string, and VALUE
+     can be a string or an integer.  ToolTalk doesn't define any
+     semantics for TYPE, so only the participants in the protocol
+     you're using need to agree what types mean (if anything).
+     Conventionally `string' is used for strings and `int' for 32 bit
+     integers.  Arguments can initialized by providing a value or with
+     `set-tooltalk-message-attribute'; the latter is necessary if you
+     want to initialize the argument with a string that can contain
+     embedded nulls (use `arg_bval').
+
+
+ - Function: create-tooltalk-message
+     Create a new ToolTalk message.  The message's session attribute is
+     initialized to the default session.  Other attributes can be
+     initialized with `set-tooltalk-message-attribute'.
+     `make-tooltalk-message' is the preferred way to create and
+     initialize a message.
+
+
+ - Function: destroy-tooltalk-message msg
+     Apply `tt_message_destroy' to the message.  It's not necessary to
+     destroy messages after they've been processed by a message or
+     pattern callback, the Lisp/ToolTalk callback machinery does this
+     for you.
+
+
+File: lispref.info,  Node: Receiving Messages,  Prev: Sending Messages,  Up: ToolTalk Support
+
+Receiving Messages
+==================
+
+* Menu:
+
+* Example of Receiving Messages::
+* Elisp Interface for Receiving Messages::
+
+
+File: lispref.info,  Node: Example of Receiving Messages,  Next: Elisp Interface for Receiving Messages,  Up: Receiving Messages
+
+Example of Receiving Messages
+-----------------------------
+
+   Here's a simple example of a handler for a message that tells XEmacs
+to display a string in the mini-buffer area.  The message operation is
+called `emacs-display-string'.  Its first (0th) argument is the string
+to display.
+
+     (defun tooltalk-display-string-handler (msg)
+       (message (get-tooltalk-message-attribute msg 'arg_val 0)))
+     
+     (defvar display-string-pattern
+       '(category TT_HANDLE
+            scope TT_SESSION
+               op "emacs-display-string"
+         callback tooltalk-display-string-handler))
+     
+     (let ((p (make-tooltalk-pattern display-string-pattern)))
+       (register-tooltalk-pattern p))
+
+
+File: lispref.info,  Node: Elisp Interface for Receiving Messages,  Prev: Example of Receiving Messages,  Up: Receiving Messages
+
+Elisp Interface for Receiving Messages
+--------------------------------------
+
+ - Function: make-tooltalk-pattern attributes
+     Create a ToolTalk pattern and initialize its attributes.  The
+     value of attributes must be a list of alternating keyword/values,
+     where keywords are symbols that name valid pattern attributes or
+     lists of valid attributes.  For example:
+
+            (make-tooltalk-pattern
+              '(category TT_OBSERVE
+                   scope TT_SESSION
+                      op ("operation1" "operation2")
+                    args ("arg1" 12345 (TT_INOUT "arg3" "string"))))
+
+     Attribute names are the same as those supported by
+     `add-tooltalk-pattern-attribute', plus `'args'.
+
+     Values must always be strings, integers, or symbols that represent
+     ToolTalk constants or lists of same.  When a list of values is
+     provided all of the list elements are added to the attribute.  In
+     the example above, messages whose `op' attribute is `"operation1"'
+     or `"operation2"' would match the pattern.
+
+     The value of ARGS should be a list of pattern arguments where each
+     pattern argument has the following form:
+
+             `(mode [value [type]])' or just `value'
+
+     Where MODE is one of `TT_IN', `TT_OUT', or `TT_INOUT' and TYPE is
+     a string.  If TYPE isn't specified then `int' is used if VALUE is
+     a number; otherwise `string' is used.  If TYPE is `string' then
+     VALUE is converted to a string (if it isn't a string already) with
+     `prin1-to-string'.  If only a value is specified then MODE
+     defaults to `TT_IN'.  If MODE is `TT_OUT' then VALUE and TYPE
+     don't need to be specified.  You can find out more about the
+     semantics and uses of ToolTalk pattern arguments in chapter 3 of
+     the `ToolTalk Programmer's Guide'.
+
+
+ - Function: register-tooltalk-pattern pat
+     XEmacs will begin receiving messages that match this pattern.
+
+ - Function: unregister-tooltalk-pattern pat
+     XEmacs will stop receiving messages that match this pattern.
+
+ - Function: add-tooltalk-pattern-attribute value pat indicator
+     Add one value to the indicated pattern attribute. The names of
+     attributes are the same as the ToolTalk accessors used to set them
+     less the `tooltalk_pattern_' prefix and the `_add' suffix.  For
+     example, the name of the attribute for the
+     `tt_pattern_disposition_add' attribute is `disposition'.  The
+     `category' attribute is handled specially, since a pattern can only
+     be a member of one category (`TT_OBSERVE' or `TT_HANDLE').
+
+     Callbacks are handled slightly differently than in the C ToolTalk
+     API.  The value of CALLBACK should be the name of a function of one
+     argument.  It will be called each time the pattern matches an
+     incoming message.
+
+ - Function: add-tooltalk-pattern-arg pat mode type value
+     Add one fully-specified argument to a ToolTalk pattern.  MODE must
+     be one of `TT_IN', `TT_INOUT', or `TT_OUT'.  TYPE must be a
+     string.  VALUE can be an integer, string or `nil'.  If VALUE is an
+     integer then an integer argument (`tt_pattern_iarg_add') is added;
+     otherwise a string argument is added.  At present there's no way
+     to add a binary data argument.
+
+
+ - Function: create-tooltalk-pattern
+     Create a new ToolTalk pattern and initialize its session attribute
+     to be the default session.
+
+ - Function: destroy-tooltalk-pattern pat
+     Apply `tt_pattern_destroy' to the pattern.  This effectively
+     unregisters the pattern.
+
+ - Function: describe-tooltalk-message msg &optional stream
+     Print the message's attributes and arguments to STREAM.  This is
+     often useful for debugging.
+
+
+File: lispref.info,  Node: LDAP Support,  Next: PostgreSQL Support,  Prev: ToolTalk Support,  Up: Top
+
+LDAP Support
+************
+
+   XEmacs can be linked with a LDAP client library to provide Elisp
+primitives to access directory servers using the Lightweight Directory
+Access Protocol.
+
+* Menu:
+
+* Building XEmacs with LDAP support::  How to add LDAP support to XEmacs
+* XEmacs LDAP API::             Lisp access to LDAP functions
+* Syntax of Search Filters::    A brief summary of RFC 1558
+
+
+File: lispref.info,  Node: Building XEmacs with LDAP support,  Next: XEmacs LDAP API,  Prev: LDAP Support,  Up: LDAP Support
+
+Building XEmacs with LDAP support
+=================================
+
+   LDAP support must be added to XEmacs at build time since it requires
+linking to an external LDAP client library.  As of 21.2, XEmacs has been
+successfully built and tested with
+
+   * OpenLDAP 1.0.3 (<http://www.openldap.org/>)
+
+   * University of Michigan's LDAP 3.3
+     (<http://www.umich.edu/~dirsvcs/ldap/>)
+
+   * LDAP SDK 1.0 from Netscape Corp. (<http://developer.netscape.com/>)
+
+   Other libraries conforming to RFC 1823 will probably work also but
+may require some minor tweaking at C level.
+
+   The standard XEmacs configure script autodetects an installed LDAP
+library provided the library itself and the corresponding header files
+can be found in the library and include paths.  A successful detection
+will be signalled in the final output of the configure script.
+
+
+File: lispref.info,  Node: XEmacs LDAP API,  Next: Syntax of Search Filters,  Prev: Building XEmacs with LDAP support,  Up: LDAP Support
+
+XEmacs LDAP API
+===============
+
+   XEmacs LDAP API consists of two layers:  a low-level layer which
+tries to stay as close as possible to the C API (where practical) and a
+higher-level layer which provides more convenient primitives to
+effectively use LDAP.
+
+   As of XEmacs 21.0, only interfaces to basic LDAP search functions are
+provided, broader support is planned in future versions.
+
+* Menu:
+
+* LDAP Variables::              Lisp variables related to LDAP
+* The High-Level LDAP API::     High-level LDAP lisp functions
+* The Low-Level LDAP API::      Low-level LDAP lisp primitives
+
+
+File: lispref.info,  Node: LDAP Variables,  Next: The High-Level LDAP API,  Prev: XEmacs LDAP API,  Up: XEmacs LDAP API
+
+LDAP Variables
+--------------
+
+ - Variable: ldap-default-host
+     The default LDAP server hostname.  A TCP port number can be
+     appended to that name using a colon as a separator.
+
+ - Variable: ldap-default-port
+     Default TCP port for LDAP connections.  Initialized from the LDAP
+     library. Default value is 389.
+
+ - Variable: ldap-default-base
+     Default base for LDAP searches.  This is a string using the syntax
+     of RFC 1779.  For instance, "o¬ME, cÿ" limits the search to the
+     Acme organization in the United States.
+
+ - Variable: ldap-host-parameters-alist
+     An alist of per host options for LDAP transactions.  The list
+     elements look like `(HOST PROP1 VAL1 PROP2 VAL2 ...)' HOST is the
+     name of an LDAP server. A TCP port number can be appended to that
+     name using a colon as a separator.  PROPN and VALN are
+     property/value pairs describing parameters for the server.  Valid
+     properties:
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `cÿ, o¬me, cnÿnny Bugs', see RFC 1779 for details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `base'
+          The base for the search. This may look like `cÿ, o¬me', see
+          RFC 1779 for syntax details.
+
+    `scope'
+          One of the symbols `base', `onelevel' or `subtree' indicating
+          the scope of the search limited to a base object, to a single
+          level or to the whole subtree.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+
+File: lispref.info,  Node: The High-Level LDAP API,  Next: The Low-Level LDAP API,  Prev: LDAP Variables,  Up: XEmacs LDAP API
+
+The High-Level LDAP API
+-----------------------
+
+   As of this writing the high-level Lisp LDAP API only provides for
+LDAP searches.  Further support is planned in the future.
+
+   The `ldap-search' function provides the most convenient interface to
+perform LDAP searches.  It opens a connection to a host, performs the
+query and cleanly closes the connection thus insulating the user from
+all the details of the low-level interface such as LDAP Lisp objects
+*note The Low-Level LDAP API::
+
+ - Function: ldap-search filter &optional host attributes attrsonly
+     Perform an LDAP search.  FILTER is the search filter *note Syntax
+     of Search Filters:: HOST is the LDAP host on which to perform the
+     search ATTRIBUTES is the specific attributes to retrieve, `nil'
+     means retrieve all ATTRSONLY if non-`nil' retrieves the attributes
+     only without their associated values.  Additional search
+     parameters can be specified through `ldap-host-parameters-alist'.
+
+
+File: lispref.info,  Node: The Low-Level LDAP API,  Prev: The High-Level LDAP API,  Up: XEmacs LDAP API
+
+The Low-Level LDAP API
+----------------------
+
+* Menu:
+
+* The LDAP Lisp Object::
+* Opening and Closing a LDAP Connection::
+* Searching on a LDAP Server (Low-level)::
+
+
+File: lispref.info,  Node: The LDAP Lisp Object,  Next: Opening and Closing a LDAP Connection,  Prev: The Low-Level LDAP API,  Up: The Low-Level LDAP API
+
+The LDAP Lisp Object
+....................
+
+   An internal built-in `ldap' lisp object represents a LDAP connection.
+
+ - Function: ldapp object
+     This function returns non-`nil' if OBJECT is a `ldap' object.
+
+ - Function: ldap-host ldap
+     Return the server host of the connection represented by LDAP
+
+ - Function: ldap-live-p ldap
+     Return non-`nil' if LDAP is an active LDAP connection
+
+
+File: lispref.info,  Node: Opening and Closing a LDAP Connection,  Next: Searching on a LDAP Server (Low-level),  Prev: The LDAP Lisp Object,  Up: The Low-Level LDAP API
+
+Opening and Closing a LDAP Connection
+.....................................
+
+ - Function: ldap-open host &optional plist
+     Open a LDAP connection to HOST.  PLIST is a property list
+     containing additional parameters for the connection.  Valid keys
+     in that list are:
+    `port'
+          The TCP port to use for the connection if different from
+          `ldap-default-port' or the library builtin value
+
+    `auth'
+          The authentication method to use, possible values depend on
+          the LDAP library XEmacs was compiled with, they may include
+          `simple', `krbv41' and `krbv42'.
+
+    `binddn'
+          The distinguished name of the user to bind as.  This may look
+          like `cÿ, o¬me, cnÿnny Bugs', see RFC 1779 for details.
+
+    `passwd'
+          The password to use for authentication.
+
+    `deref'
+          The dereference policy is one of the symbols `never',
+          `always', `search' or `find' and defines how aliases are
+          dereferenced.
+         `never'
+               Aliases are never dereferenced
+
+         `always'
+               Aliases are always dereferenced
+
+         `search'
+               Aliases are dereferenced when searching
+
+         `find'
+               Aliases are dereferenced when locating the base object
+               for the search The default is `never'.
+
+    `timelimit'
+          The timeout limit for the connection in seconds.
+
+    `sizelimit'
+          The maximum number of matches to return for searches
+          performed on this connection.
+
+ - Function: ldap-close ldap
+     Close the connection represented by LDAP
+
+
+File: lispref.info,  Node: Searching on a LDAP Server (Low-level),  Prev: Opening and Closing a LDAP Connection,  Up: The Low-Level LDAP API
+
+Searching on a LDAP Server (Low-level)
+......................................
+
+   `ldap-search-internal' is the low-level primitive to perform a
+search on a LDAP server.  It works directly on an open LDAP connection
+thus requiring a preliminary call to `ldap-open'.  Multiple searches
+can be made on the same connection, then the session must be closed
+with `ldap-close'.
+
+ - Function: ldap-search-internal ldap filter base scope attrs attrsonly
+     Perform a search on an open connection LDAP created with
+     `ldap-open'.  FILTER is a filter string for the search *note
+     Syntax of Search Filters:: BASE is the distinguished name at which
+     to start the search.  SCOPE is one of the symbols `base',
+     `onelevel' or `subtree' indicating the scope of the search limited
+     to a base object, to a single level or to the whole subtree.  The
+     default is `subtree'.  `attrs' is a list of strings indicating
+     which attributes to retrieve for each matching entry. If `nil' all
+     available attributes are returned.  If `attrsonly' is non-`nil'
+     then only the attributes are retrieved, not their associated values
+     The function returns a list of matching entries.  Each entry being
+     itself an alist of attribute/values.
+
+
+File: lispref.info,  Node: Syntax of Search Filters,  Prev: XEmacs LDAP API,  Up: LDAP Support
+
+Syntax of Search Filters
+========================
+
+   LDAP search functions use RFC1558 syntax to describe the search
+filter.  In that syntax simple filters have the form:
+
+     (<attr> <filtertype> <value>)
+
+   `<attr>' is an attribute name such as `cn' for Common Name, `o' for
+Organization, etc...
+
+   `<value>' is the corresponding value.  This is generally an exact
+string but may also contain `*' characters as wildcards
+
+   `filtertype' is one `=' `~=', `<=', `>=' which respectively describe
+equality, approximate equality, inferiority and superiority.
+
+   Thus `(cn=John Smith)' matches all records having a canonical name
+equal to John Smith.
+
+   A special case is the presence filter `(<attr>=*' which matches
+records containing a particular attribute.  For instance `(mail=*)'
+matches all records containing a `mail' attribute.
+
+   Simple filters can be connected together with the logical operators
+`&', `|' and `!' which stand for the usual and, or and not operators.
+
+   `(&(objectClass=Person)(mail=*)(|(sn=Smith)(givenname=John)))'
+matches records of class `Person' containing a `mail' attribute and
+corresponding to people whose last name is `Smith' or whose first name
+is `John'.
+
+
+File: lispref.info,  Node: PostgreSQL Support,  Next: Internationalization,  Prev: LDAP Support,  Up: Top
+
+PostgreSQL Support
+******************
+
+   XEmacs can be linked with PostgreSQL libpq run-time support to
+provide relational database access from Emacs Lisp code.
+
+* Menu:
+
+* Building XEmacs with PostgreSQL support::
+* XEmacs PostgreSQL libpq API::
+* XEmacs PostgreSQL libpq Examples::
+
+
+File: lispref.info,  Node: Building XEmacs with PostgreSQL support,  Next: XEmacs PostgreSQL libpq API,  Up: PostgreSQL Support
+
+Building XEmacs with PostgreSQL support
+=======================================
+
+   XEmacs PostgreSQL support requires linking to the PostgreSQL libpq.so
+library.  Describing how to build and install PostgreSQL is beyond the
+scope of this document, see the PostgreSQL manual for details.
+
+   If you have installed XEmacs from one of the binary kits on
+(<ftp://ftp.xemacs.org/>), or are using an XEmacs binary from a CD ROM,
+you should have XEmacs PostgreSQL support by default.  If you are
+building XEmacs from source on a Linux system with PostgreSQL installed
+into the default location, it should be autodetected when you run
+configure.  If you have installed PostgreSQL into its non-Linux default
+location, `/usr/local/pgsql', you must specify
+`--site-prefixes=/usr/local/pgsql' when you run configure.  If you
+installed PostgreSQL into another location, use that instead of
+`/usr/local/pgsql' when specifying `--site-prefixes'.
+
+   As of XEmacs 21.2, PostgreSQL versions 6.5.3 and 7.0 are supported.
+XEmacs Lisp support for V7.0 is somewhat more extensive than support for
+V6.5.  In particular, asynchronous queries are supported.
+
+
+File: lispref.info,  Node: XEmacs PostgreSQL libpq API,  Next: XEmacs PostgreSQL libpq Examples,  Prev: Building XEmacs with PostgreSQL support,  Up: PostgreSQL Support
+
+XEmacs PostgreSQL libpq API
+===========================
+
+   XEmacs PostgreSQL API is intended to be a policy-free, low-level
+binding to libpq.  The intent is to provide all the basic functionality
+and then let high level Lisp code decide its own policies.
+
+   This documentation assumes that the reader has knowledge of SQL, but
+requires no prior knowledge of libpq.
+
+   There are many examples in this manual and some setup will be
+required.  In order to run most of the following examples, the
+following code needs to be executed.  In addition to the data is in
+this table, nearly all of the examples will assume that the free
+variable `P' refers to this database connection.  The examples in the
+original edition of this manual were run against Postgres 7.0beta1.
+
+     (progn
+       (setq P (pq-connectdb ""))
+       ;; id is the primary key, shikona is a Japanese word that
+       ;; means `the professional name of a Sumo wrestler', and
+       ;; rank is the Sumo rank name.
+       (pq-exec P (concat "CREATE TABLE xemacs_test"
+                          " (id int, shikona text, rank text);"))
+       (pq-exec P "COPY xemacs_test FROM stdin;")
+       (pq-put-line P "1\tMusashimaru\tYokuzuna\n")
+       (pq-put-line P "2\tDejima\tOozeki\n")
+       (pq-put-line P "3\tMusoyama\tSekiwake\n")
+       (pq-put-line P "4\tMiyabiyama\tSekiwake\n")
+       (pq-put-line P "5\tWakanoyama\tMaegashira\n")
+       (pq-put-line P "\\.\n")
+       (pq-end-copy P))
+          => nil
+
+* Menu:
+
+* libpq Lisp Variables::
+* libpq Lisp Symbols and DataTypes::
+* Synchronous Interface Functions::
+* Asynchronous Interface Functions::
+* Large Object Support::
+* Other libpq Functions::
+* Unimplemented libpq Functions::
+
+
+File: lispref.info,  Node: libpq Lisp Variables,  Next: libpq Lisp Symbols and DataTypes,  Prev: XEmacs PostgreSQL libpq API,  Up: XEmacs PostgreSQL libpq API
+
+libpq Lisp Variables
+--------------------
+
+   Various Unix environment variables are used by libpq to provide
+defaults to the many different parameters.  In the XEmacs Lisp API,
+these environment variables are bound to Lisp variables to provide more
+convenient access to Lisp Code.  These variables are passed to the
+backend database server during the establishment of a database
+connection and when the `pq-setenv' call is made.
+
+ - Variable: pg:host
+     Initialized from the PGHOST environment variable.  The default
+     host to connect to.
+
+ - Variable: pg:user
+     Initialized from the PGUSER environment variable.  The default
+     database user name.
+
+ - Variable: pg:options
+     Initialized from the PGOPTIONS environment variable.  Default
+     additional server options.
+
+ - Variable: pg:port
+     Initialized from the PGPORT environment variable.  The default TCP
+     port to connect to.
+
+ - Variable: pg:tty
+     Initialized from the PGTTY environment variable.  The default
+     debugging TTY.
+
+     Compatibility note:  Debugging TTYs are turned off in the XEmacs
+     Lisp binding.
+
+ - Variable: pg:database
+     Initialized from the PGDATABASE environment variable.  The default
+     database to connect to.
+
+ - Variable: pg:realm
+     Initialized from the PGREALM environment variable.  The default
+     Kerberos realm.
+
+ - Variable: pg:client-encoding
+     Initialized from the PGCLIENTENCODING environment variable.  The
+     default client encoding.
+
+     Compatibility note:  This variable is not present in non-Mule
+     XEmacsen.  This variable is not present in versions of libpq prior
+     to 7.0.  In the current implementation, client encoding is
+     equivalent to the `file-name-coding-system' format.
+
+ - Variable: pg:authtype
+     Initialized from the PGAUTHTYPE environment variable.  The default
+     authentication scheme used.
+
+     Compatibility note:  This variable is unused in versions of libpq
+     after 6.5.  It is not implemented at all in the XEmacs Lisp
+     binding.
+
+ - Variable: pg:geqo
+     Initialized from the PGGEQO environment variable.  Genetic
+     optimizer options.
+
+ - Variable: pg:cost-index
+     Initialized from the PGCOSTINDEX environment variable.  Cost index
+     options.
+
+ - Variable: pg:cost-heap
+     Initialized from the PGCOSTHEAP environment variable.  Cost heap
+     options.
+
+ - Variable: pg:tz
+     Initialized from the PGTZ environment variable.  Default timezone.
+
+ - Variable: pg:date-style
+     Initialized from the PGDATESTYLE environment variable.  Default
+     date style in returned date objects.
+
+ - Variable: pg-coding-system
+     This is a variable controlling which coding system is used to
+     encode non-ASCII strings sent to the database.
+
+     Compatibility Note: This variable is not present in InfoDock.
+
+
+File: lispref.info,  Node: libpq Lisp Symbols and DataTypes,  Next: Synchronous Interface Functions,  Prev: libpq Lisp Variables,  Up: XEmacs PostgreSQL libpq API
+
+libpq Lisp Symbols and Datatypes
+--------------------------------
+
+   The following set of symbols are used to represent the intermediate
+states involved in the asynchronous interface.
+
+ - Symbol: pgres::polling-failed
+     Undocumented.  A fatal error has occurred during processing of an
+     asynchronous operation.
+
+ - Symbol: pgres::polling-reading
+     An intermediate status return during an asynchronous operation.  It
+     indicates that one may use `select' before polling again.
+
+ - Symbol: pgres::polling-writing
+     An intermediate status return during an asynchronous operation.  It
+     indicates that one may use `select' before polling again.
+
+ - Symbol: pgres::polling-ok
+     An asynchronous operation has successfully completed.
+
+ - Symbol: pgres::polling-active
+     An intermediate status return during an asynchronous operation.
+     One can call the poll function again immediately.
+
+ - Function: pq-pgconn conn field
+     CONN A database connection object.  FIELD A symbol indicating
+     which field of PGconn to fetch.  Possible values are shown in the
+     following table.
+    `pq::db'
+          Database name
+
+    `pq::user'
+          Database user name
+
+    `pq::pass'
+          Database user's password
+
+    `pq::host'
+          Hostname database server is running on
+
+    `pq::port'
+          TCP port number used in the connection
+
+    `pq::tty'
+          Debugging TTY
+
+          Compatibility note:  Debugging TTYs are not used in the
+          XEmacs Lisp API.
+
+    `pq::options'
+          Additional server options
+
+    `pq::status'
+          Connection status.  Possible return values are shown in the
+          following table.
+         `pg::connection-ok'
+               The normal, connected status.
+
+         `pg::connection-bad'
+               The connection is not open and the PGconn object needs
+               to be deleted by `pq-finish'.
+
+         `pg::connection-started'
+               An asynchronous connection has been started, but is not
+               yet complete.
+
+         `pg::connection-made'
+               An asynchronous connect has been made, and there is data
+               waiting to be sent.
+
+         `pg::connection-awaiting-response'
+               Awaiting data from the backend during an asynchronous
+               connection.
+
+         `pg::connection-auth-ok'
+               Received authentication, waiting for the backend to
+               start up.
+
+         `pg::connection-setenv'
+               Negotiating environment during an asynchronous
+               connection.
+
+    `pq::error-message'
+          The last error message that was delivered to this connection.
+
+    `pq::backend-pid'
+          The process ID of the backend database server.
+
+   The `PGresult' object is used by libpq to encapsulate the results of
+queries.  The printed representation takes on four forms.  When the
+PGresult object contains tuples from an SQL `SELECT' it will look like:
+
+     (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+          => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+
+   The number in brackets indicates how many rows of data are available.
+When the PGresult object is the result of a command query that doesn't
+return anything, it will look like:
+
+     (pq-exec P "CREATE TABLE a_new_table (i int);")
+          => #<PGresult PGRES_COMMAND_OK - CREATE>
+
+   When either the query is a command-type query that can affect a
+number of different rows, but doesn't return any of them it will look
+like:
+
+     (progn
+       (pq-exec P "INSERT INTO a_new_table VALUES (1);")
+       (pq-exec P "INSERT INTO a_new_table VALUES (2);")
+       (pq-exec P "INSERT INTO a_new_table VALUES (3);")
+       (setq R (pq-exec P "DELETE FROM a_new_table;")))
+          => #<PGresult PGRES_COMMAND_OK[3] - DELETE 3>
+
+   Lastly, when the underlying PGresult object has been deallocated
+directly by `pq-clear' the printed representation will look like:
+
+     (progn
+       (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+       (pq-clear R)
+       R)
+          => #<PGresult DEAD>
+
+   The following set of functions are accessors to various data in the
+PGresult object.
+
+ - Function: pq-result-status result
+     Return status of a query result.  RESULT is a PGresult object.
+     The return value is one of the symbols in the following table.
+    `pgres::empty-query'
+          A query contained no text.  This is usually the result of a
+          recoverable error, or a minor programming error.
+
+    `pgres::command-ok'
+          A query command that doesn't return anything was executed
+          properly by the backend.
+
+    `pgres::tuples-ok'
+          A query command that returns tuples was executed properly by
+          the backend.
+
+    `pgres::copy-out'
+          Copy Out data transfer is in progress.
+
+    `pgres::copy-in'
+          Copy In data transfer is in progress.
+
+    `pgres::bad-response'
+          An unexpected response was received from the backend.
+
+    `pgres::nonfatal-error'
+          Undocumented.  This value is returned when the libpq function
+          `PQresultStatus' is called with a NULL pointer.
+
+    `pgres::fatal-error'
+          Undocumented.  An error has occurred in processing the query
+          and the operation was not completed.
+
+ - Function: pq-res-status result
+     Return the query result status as a string, not a symbol.  RESULT
+     is a PGresult object.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-res-status R)
+               => "PGRES_TUPLES_OK"
+
+ - Function: pq-result-error-message result
+     Return an error message generated by the query, if any.  RESULT is
+     a PGresult object.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs-test;"))
+               => <A fatal error is signaled in the echo area>
+          (pq-result-error-message R)
+               => "ERROR:  parser: parse error at or near \"-\"
+          "
+
+ - Function: pq-ntuples result
+     Return the number of tuples in the query result.  RESULT is a
+     PGresult object.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-ntuples R)
+               => 5
+
+ - Function: pq-nfields result
+     Return the number of fields in each tuple of the query result.
+     RESULT is a PGresult object.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-nfields R)
+               => 3
+
+ - Function: pq-binary-tuples result
+     Returns t if binary tuples are present in the results, nil
+     otherwise.  RESULT is a PGresult object.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-binary-tuples R)
+               => nil
+
+ - Function: pq-fname result field-index
+     Returns the name of a specific field.  RESULT is a PGresult object.
+     FIELD-INDEX is the number of the column to select from.  The first
+     column is number zero.
+
+          (let (i l)
+            (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+            (setq i (pq-nfields R))
+            (while (>= (decf i) 0)
+              (push (pq-fname R i) l))
+            l)
+               => ("id" "shikona" "rank")
+
+ - Function: pq-fnumber result field-name
+     Return the field number corresponding to the given field name.  -1
+     is returned on a bad field name.  RESULT is a PGresult object.
+     FIELD-NAME is a string representing the field name to find.
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-fnumber R "id")
+               => 0
+          (pq-fnumber R "Not a field")
+               => -1
+
+ - Function: pq-ftype result field-num
+     Return an integer code representing the data type of the specified
+     column.  RESULT is a PGresult object.  FIELD-NUM is the field
+     number.
+
+     The return value of this function is the Object ID (Oid) in the
+     database of the type.  Further queries need to be made to various
+     system tables in order to convert this value into something useful.
+
+ - Function: pq-fmod result field-num
+     Return the type modifier code associated with a field.  Field
+     numbers start at zero.  RESULT is a PGresult object.  FIELD-INDEX
+     selects which field to use.
+
+ - Function: pq-fsize result field-index
+     Return size of the given field.  RESULT is a PGresult object.
+     FIELD-INDEX selects which field to use.
+
+          (let (i l)
+            (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+            (setq i (pq-nfields R))
+            (while (>= (decf i) 0)
+              (push (list (pq-ftype R i) (pq-fsize R i)) l))
+            l)
+               => ((23 23) (25 25) (25 25))
+
+ - Function: pq-get-value result tup-num field-num
+     Retrieve a return value.  RESULT is a PGresult object.  TUP-NUM
+     selects which tuple to fetch from.  FIELD-NUM selects which field
+     to fetch from.
+
+     Both tuples and fields are numbered from zero.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-get-value R 0 1)
+               => "Musashimaru"
+          (pq-get-value R 1 1)
+               => "Dejima"
+          (pq-get-value R 2 1)
+               => "Musoyama"
+
+ - Function: pq-get-length result tup-num field-num
+     Return the length of a specific value.  RESULT is a PGresult
+     object.  TUP-NUM selects which tuple to fetch from.  FIELD-NUM
+     selects which field to fetch from.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[5] - SELECT>
+          (pq-get-length R 0 1)
+               => 11
+          (pq-get-length R 1 1)
+               => 6
+          (pq-get-length R 2 1)
+               => 8
+
+ - Function: pq-get-is-null result tup-num field-num
+     Return t if the specific value is the SQL NULL.  RESULT is a
+     PGresult object.  TUP-NUM selects which tuple to fetch from.
+     FIELD-NUM selects which field to fetch from.
+
+ - Function: pq-cmd-status result
+     Return a summary string from the query.  RESULT is a PGresult
+     object.
+          (pq-exec P "INSERT INTO xemacs_test
+                      VALUES (6, 'Wakanohana', 'Yokozuna');")
+               => #<PGresult PGRES_COMMAND_OK[1] - INSERT 542086 1>
+          (pq-cmd-status R)
+               => "INSERT 542086 1"
+          (setq R (pq-exec P "UPDATE xemacs_test SET rank='retired'
+                              WHERE shikona='Wakanohana';"))
+               => #<PGresult PGRES_COMMAND_OK[1] - UPDATE 1>
+          (pq-cmd-status R)
+               => "UPDATE 1"
+
+     Note that the first number returned from an insertion, like in the
+     example, is an object ID number and will almost certainly vary from
+     system to system since object ID numbers in Postgres must be unique
+     across all databases.
+
+ - Function: pq-cmd-tuples result
+     Return the number of tuples if the last command was an
+     INSERT/UPDATE/DELETE.  If the last command was something else, the
+     empty string is returned.  RESULT is a PGresult object.
+
+          (setq R (pq-exec P "INSERT INTO xemacs_test VALUES
+                              (7, 'Takanohana', 'Yokuzuna');"))
+               => #<PGresult PGRES_COMMAND_OK[1] - INSERT 38688 1>
+          (pq-cmd-tuples R)
+               => "1"
+          (setq R (pq-exec P "SELECT * from xemacs_test;"))
+               => #<PGresult PGRES_TUPLES_OK[7] - SELECT>
+          (pq-cmd-tuples R)
+               => ""
+          (setq R (pq-exec P "DELETE FROM xemacs_test
+                              WHERE shikona LIKE '%hana';"))
+               => #<PGresult PGRES_COMMAND_OK[2] - DELETE 2>
+          (pq-cmd-tuples R)
+               => "2"
+
+ - Function: pq-oid-value result
+     Return the object id of the insertion if the last command was an
+     INSERT.  0 is returned if the last command was not an insertion.
+     RESULT is a PGresult object.
+
+     In the first example, the numbers you will see on your local
+     system will almost certainly be different, however the second
+     number from the right in the unprintable PGresult object and the
+     number returned by `pq-oid-value' should match.
+          (setq R (pq-exec P "INSERT INTO xemacs_test VALUES
+                              (8, 'Terao', 'Maegashira');"))
+               => #<PGresult PGRES_COMMAND_OK[1] - INSERT 542089 1>
+          (pq-oid-value R)
+               => 542089
+          (setq R (pq-exec P "SELECT shikona FROM xemacs_test
+                              WHERE rank='Maegashira';"))
+               => #<PGresult PGRES_TUPLES_OK[2] - SELECT>
+          (pq-oid-value R)
+               => 0
+
+ - Function: pq-make-empty-pgresult conn status
+     Create an empty pgresult with the given status.  CONN a database
+     connection object STATUS a value that can be returned by
+     `pq-result-status'.
+
+     The caller is responsible for making sure the return value gets
+     properly freed.
+
+
+File: lispref.info,  Node: Synchronous Interface Functions,  Next: Asynchronous Interface Functions,  Prev: libpq Lisp Symbols and DataTypes,  Up: XEmacs PostgreSQL libpq API
+
+Synchronous Interface Functions
+-------------------------------
+
+ - Function: pq-connectdb conninfo
+     Establish a (synchronous) database connection.  CONNINFO A string
+     of blank separated options.  Options are of the form "OPTION =
+     VALUE".  If VALUE contains blanks, it must be single quoted.
+     Blanks around the equal sign are optional.  Multiple option
+     assignments are blank separated.
+          (pq-connectdb "dbname=japanese port = 25432")
+               => #<PGconn localhost:25432 steve/japanese>
+     The printed representation of a database connection object has four
+     fields.  The first field is the hostname where the database server
+     is running (in this case localhost), the second field is the port
+     number, the third field is the database user name, and the fourth
+     field is the name of the database.
+
+     Database connection objects which have been disconnected and will
+     generate an immediate error if they are used look like:
+            #<PGconn BAD>
+     Bad connections can be reestablished with `pq-reset', or deleted
+     entirely with `pq-finish'.
+
+     A database connection object that has been deleted looks like:
+          (let ((P1 (pq-connectdb "")))
+            (pq-finish P1)
+            P1)
+               => #<PGconn DEAD>
+
+     Note that database connection objects are the most heavy weight
+     objects in XEmacs Lisp at this writing, usually representing as
+     much as several megabytes of virtual memory on the machine the
+     database server is running on.  It is wisest to explicitly delete
+     them when you are finished with them, rather than letting garbage
+     collection do it.  An example idiom is:
+
+          (let ((P (pq-connectiondb "")))
+            (unwind-protect
+                (progn
+          	(...)) ; access database here
+              (pq-finish P)))
+
+     The following options are available in the options string:
+    `authtype'
+          Authentication type.  Same as PGAUTHTYPE.  This is no longer
+          used.
+
+    `user'
+          Database user name.  Same as PGUSER.
+
+    `password'
+          Database password.
+
+    `dbname'
+          Database name.  Same as PGDATABASE
+
+    `host'
+          Symbolic hostname.  Same as PGHOST.
+
+    `hostaddr'
+          Host address as four octets (eg. like 192.168.1.1).
+
+    `port'
+          TCP port to connect to.  Same as PGPORT.
+
+    `tty'
+          Debugging TTY.  Same as PGTTY.  This value is suppressed in
+          the XEmacs Lisp API.
+
+    `options'
+          Extra backend database options.  Same as PGOPTIONS.  A
+     database connection object is returned regardless of whether a
+     connection was established or not.
+
+ - Function: pq-reset conn
+     Reestablish database connection.  CONN A database connection
+     object.
+
+     This function reestablishes a database connection using the
+     original connection parameters.  This is useful if something has
+     happened to the TCP link and it has become broken.
+
+ - Function: pq-exec conn query
+     Make a synchronous database query.  CONN A database connection
+     object.  QUERY A string containing an SQL query.  A PGresult
+     object is returned, which in turn may be queried by its many
+     accessor functions to retrieve state out of it.  If the query
+     string contains multiple SQL commands, only results from the final
+     command are returned.
+
+          (setq R (pq-exec P "SELECT * FROM xemacs_test;
+          DELETE FROM xemacs_test WHERE id=8;"))
+               => #<PGresult PGRES_COMMAND_OK[1] - DELETE 1>
+
+ - Function: pq-notifies conn
+     Return the latest async notification that has not yet been handled.
+     CONN A database connection object.  If there has been a
+     notification, then a list of two elements will be returned.  The
+     first element contains the relation name being notified, the second
+     element contains the backend process ID number.  nil is returned
+     if there aren't any notifications to process.
+
+ - Function: PQsetenv conn
+     Synchronous transfer of environment variables to a backend CONN A
+     database connection object.
+
+     Environment variable transfer is done as a normal part of database
+     connection.
+
+     Compatibility note: This function was present but not documented
+     in versions of libpq prior to 7.0.
+

@@ -1,0 +1,919 @@
+This is ../info/internals.info, produced by makeinfo version 4.0 from
+internals/internals.texi.
+
+INFO-DIR-SECTION XEmacs Editor
+START-INFO-DIR-ENTRY
+* Internals: (internals).       XEmacs Internals Manual.
+END-INFO-DIR-ENTRY
+
+   Copyright (C) 1992 - 1996 Ben Wing.  Copyright (C) 1996, 1997 Sun
+Microsystems.  Copyright (C) 1994 - 1998 Free Software Foundation.
+Copyright (C) 1994, 1995 Board of Trustees, University of Illinois.
+
+   Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Foundation.
+
+   Permission is granted to copy and distribute modified versions of
+this manual under the conditions for verbatim copying, provided also
+that the section entitled "GNU General Public License" is included
+exactly as in the original, and provided that the entire resulting
+derived work is distributed under the terms of a permission notice
+identical to this one.
+
+   Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that the section entitled "GNU General Public License"
+may be included in a translation approved by the Free Software
+Foundation instead of in the original English.
+
+
+File: internals.info,  Node: Introduction to Events,  Next: Main Loop,  Prev: Events and the Event Loop,  Up: Events and the Event Loop
+
+Introduction to Events
+======================
+
+   An event is an object that encapsulates information about an
+interesting occurrence in the operating system.  Events are generated
+either by user action, direct (e.g. typing on the keyboard or moving
+the mouse) or indirect (moving another window, thereby generating an
+expose event on an Emacs frame), or as a result of some other typically
+asynchronous action happening, such as output from a subprocess being
+ready or a timer expiring.  Events come into the system in an
+asynchronous fashion (typically through a callback being called) and
+are converted into a synchronous event queue (first-in, first-out) in a
+process that we will call "collection".
+
+   Note that each application has its own event queue. (It is
+immaterial whether the collection process directly puts the events in
+the proper application's queue, or puts them into a single system
+queue, which is later split up.)
+
+   The most basic level of event collection is done by the operating
+system or window system.  Typically, XEmacs does its own event
+collection as well.  Often there are multiple layers of collection in
+XEmacs, with events from various sources being collected into a queue,
+which is then combined with other sources to go into another queue
+(i.e. a second level of collection), with perhaps another level on top
+of this, etc.
+
+   XEmacs has its own types of events (called "Emacs events"), which
+provides an abstract layer on top of the system-dependent nature of the
+most basic events that are received.  Part of the complex nature of the
+XEmacs event collection process involves converting from the
+operating-system events into the proper Emacs events--there may not be
+a one-to-one correspondence.
+
+   Emacs events are documented in `events.h'; I'll discuss them later.
+
+
+File: internals.info,  Node: Main Loop,  Next: Specifics of the Event Gathering Mechanism,  Prev: Introduction to Events,  Up: Events and the Event Loop
+
+Main Loop
+=========
+
+   The "command loop" is the top-level loop that the editor is always
+running.  It loops endlessly, calling `next-event' to retrieve an event
+and `dispatch-event' to execute it. `dispatch-event' does the
+appropriate thing with non-user events (process, timeout, magic, eval,
+mouse motion); this involves calling a Lisp handler function, redrawing
+a newly-exposed part of a frame, reading subprocess output, etc.  For
+user events, `dispatch-event' looks up the event in relevant keymaps or
+menubars; when a full key sequence or menubar selection is reached, the
+appropriate function is executed. `dispatch-event' may have to keep
+state across calls; this is done in the "command-builder" structure
+associated with each console (remember, there's usually only one
+console), and the engine that looks up keystrokes and constructs full
+key sequences is called the "command builder".  This is documented
+elsewhere.
+
+   The guts of the command loop are in `command_loop_1()'.  This
+function doesn't catch errors, though--that's the job of
+`command_loop_2()', which is a condition-case (i.e. error-trapping)
+wrapper around `command_loop_1()'.  `command_loop_1()' never returns,
+but may get thrown out of.
+
+   When an error occurs, `cmd_error()' is called, which usually invokes
+the Lisp error handler in `command-error'; however, a default error
+handler is provided if `command-error' is `nil' (e.g. during startup).
+The purpose of the error handler is simply to display the error message
+and do associated cleanup; it does not need to throw anywhere.  When
+the error handler finishes, the condition-case in `command_loop_2()'
+will finish and `command_loop_2()' will reinvoke `command_loop_1()'.
+
+   `command_loop_2()' is invoked from three places: from
+`initial_command_loop()' (called from `main()' at the end of internal
+initialization), from the Lisp function `recursive-edit', and from
+`call_command_loop()'.
+
+   `call_command_loop()' is called when a macro is started and when the
+minibuffer is entered; normal termination of the macro or minibuffer
+causes a throw out of the recursive command loop. (To
+`execute-kbd-macro' for macros and `exit' for minibuffers.  Note also
+that the low-level minibuffer-entering function,
+`read-minibuffer-internal', provides its own error handling and does
+not need `command_loop_2()''s error encapsulation; so it tells
+`call_command_loop()' to invoke `command_loop_1()' directly.)
+
+   Note that both read-minibuffer-internal and recursive-edit set up a
+catch for `exit'; this is why `abort-recursive-edit', which throws to
+this catch, exits out of either one.
+
+   `initial_command_loop()', called from `main()', sets up a catch for
+`top-level' when invoking `command_loop_2()', allowing functions to
+throw all the way to the top level if they really need to.  Before
+invoking `command_loop_2()', `initial_command_loop()' calls
+`top_level_1()', which handles all of the startup stuff (creating the
+initial frame, handling the command-line options, loading the user's
+`.emacs' file, etc.).  The function that actually does this is in Lisp
+and is pointed to by the variable `top-level'; normally this function is
+`normal-top-level'.  `top_level_1()' is just an error-handling wrapper
+similar to `command_loop_2()'.  Note also that `initial_command_loop()'
+sets up a catch for `top-level' when invoking `top_level_1()', just
+like when it invokes `command_loop_2()'.
+
+
+File: internals.info,  Node: Specifics of the Event Gathering Mechanism,  Next: Specifics About the Emacs Event,  Prev: Main Loop,  Up: Events and the Event Loop
+
+Specifics of the Event Gathering Mechanism
+==========================================
+
+   Here is an approximate diagram of the collection processes at work
+in XEmacs, under TTY's (TTY's are simpler than X so we'll look at this
+first):
+
+      asynch.      asynch.    asynch.   asynch.             [Collectors in
+     kbd events  kbd events   process   process                the OS]
+           |         |         output    output
+           |         |           |         |
+           |         |           |         |      SIGINT,   [signal handlers
+           |         |           |         |      SIGQUIT,     in XEmacs]
+           V         V           V         V      SIGWINCH,
+          file      file        file      file    SIGALRM
+          desc.     desc.       desc.     desc.     |
+          (TTY)     (TTY)       (pipe)    (pipe)    |
+           |          |          |         |      fake    timeouts
+           |          |          |         |      file        |
+           |          |          |         |      desc.       |
+           |          |          |         |      (pipe)      |
+           |          |          |         |        |         |
+           |          |          |         |        |         |
+           |          |          |         |        |         |
+           V          V          V         V        V         V
+           ------>-----------<----------------<----------------
+                       |
+                       |
+                       | [collected using select() in emacs_tty_next_event()
+                       |  and converted to the appropriate Emacs event]
+                       |
+                       |
+                       V          (above this line is TTY-specific)
+                     Emacs -----------------------------------------------
+                     event (below this line is the generic event mechanism)
+                       |
+                       |
+     was there     if not, call
+     a SIGINT?  emacs_tty_next_event()
+         |             |
+         |             |
+         |             |
+         V             V
+         --->------<----
+                |
+                |     [collected in event_stream_next_event();
+                |      SIGINT is converted using maybe_read_quit_event()]
+                V
+              Emacs
+              event
+                |
+                \---->------>----- maybe_kbd_translate() ---->---\
+                                                                 |
+                                                                 |
+                                                                 |
+          command event queue                                    |
+                                                    if not from command
+       (contains events that were                   event queue, call
+       read earlier but not processed,              event_stream_next_event()
+       typically when waiting in a                               |
+       sit-for, sleep-for, etc. for                              |
+      a particular event to be received)                         |
+                    |                                            |
+                    |                                            |
+                    V                                            V
+                    ---->------------------------------------<----
+                                                    |
+                                                    | [collected in
+                                                    |  next_event_internal()]
+                                                    |
+      unread-     unread-       event from          |
+      command-    command-       keyboard       else, call
+      events      event           macro      next_event_internal()
+        |           |               |               |
+        |           |               |               |
+        |           |               |               |
+        V           V               V               V
+        --------->----------------------<------------
+                          |
+                          |      [collected in `next-event', which may loop
+                          |       more than once if the event it gets is on
+                          |       a dead frame, device, etc.]
+                          |
+                          |
+                          V
+                 feed into top-level event loop,
+                 which repeatedly calls `next-event'
+                 and then dispatches the event
+                 using `dispatch-event'
+
+   Notice the separation between TTY-specific and generic event
+mechanism.  When using the Xt-based event loop, the TTY-specific stuff
+is replaced but the rest stays the same.
+
+   It's also important to realize that only one different kind of
+system-specific event loop can be operating at a time, and must be able
+to receive all kinds of events simultaneously.  For the two existing
+event loops (implemented in `event-tty.c' and `event-Xt.c',
+respectively), the TTY event loop _only_ handles TTY consoles, while
+the Xt event loop handles _both_ TTY and X consoles.  This situation is
+different from all of the output handlers, where you simply have one
+per console type.
+
+   Here's the Xt Event Loop Diagram (notice that below a certain point,
+it's the same as the above diagram):
+
+     asynch. asynch. asynch. asynch.                 [Collectors in
+      kbd     kbd    process process                    the OS]
+     events  events  output  output
+       |       |       |       |
+       |       |       |       |     asynch. asynch. [Collectors in the
+       |       |       |       |       X        X     OS and X Window System]
+       |       |       |       |     events  events
+       |       |       |       |       |        |
+       |       |       |       |       |        |
+       |       |       |       |       |        |    SIGINT, [signal handlers
+       |       |       |       |       |        |    SIGQUIT,   in XEmacs]
+       |       |       |       |       |        |    SIGWINCH,
+       |       |       |       |       |        |    SIGALRM
+       |       |       |       |       |        |       |
+       |       |       |       |       |        |       |
+       |       |       |       |       |        |       |      timeouts
+       |       |       |       |       |        |       |          |
+       |       |       |       |       |        |       |          |
+       |       |       |       |       |        |       V          |
+       V       V       V       V       V        V      fake        |
+      file    file    file    file    file     file    file        |
+      desc.   desc.   desc.   desc.   desc.    desc.   desc.       |
+      (TTY)   (TTY)   (pipe)  (pipe) (socket) (socket) (pipe)      |
+       |       |       |       |       |        |       |          |
+       |       |       |       |       |        |       |          |
+       |       |       |       |       |        |       |          |
+       V       V       V       V       V        V       V          V
+       --->----------------------------------------<---------<------
+            |              |               |
+            |              |               |[collected using select() in
+            |              |               | _XtWaitForSomething(), called
+            |              |               | from XtAppProcessEvent(), called
+            |              |               | in emacs_Xt_next_event();
+            |              |               | dispatched to various callbacks]
+            |              |               |
+            |              |               |
+       emacs_Xt_        p_s_callback(),    | [popup_selection_callback]
+       event_handler()  x_u_v_s_callback(),| [x_update_vertical_scrollbar_
+            |           x_u_h_s_callback(),|  callback]
+            |           search_callback()  | [x_update_horizontal_scrollbar_
+            |              |               |  callback]
+            |              |               |
+            |              |               |
+       enqueue_Xt_       signal_special_   |
+       dispatch_event()  Xt_user_event()   |
+       [maybe multiple     |               |
+        times, maybe 0     |               |
+        times]             |               |
+            |            enqueue_Xt_       |
+            |            dispatch_event()  |
+            |              |               |
+            |              |               |
+            V              V               |
+            -->----------<--               |
+                   |                       |
+                   |                       |
+                dispatch             Xt_what_callback()
+                event                  sets flags
+                queue                      |
+                   |                       |
+                   |                       |
+                   |                       |
+                   |                       |
+                   ---->-----------<--------
+                        |
+                        |
+                        |     [collected and converted as appropriate in
+                        |            emacs_Xt_next_event()]
+                        |
+                        |
+                        V          (above this line is Xt-specific)
+                      Emacs ------------------------------------------------
+                      event (below this line is the generic event mechanism)
+                        |
+                        |
+     was there      if not, call
+     a SIGINT?   emacs_Xt_next_event()
+         |              |
+         |              |
+         |              |
+         V              V
+         --->-------<----
+                |
+                |        [collected in event_stream_next_event();
+                |         SIGINT is converted using maybe_read_quit_event()]
+                V
+              Emacs
+              event
+                |
+                \---->------>----- maybe_kbd_translate() -->-----\
+                                                                 |
+                                                                 |
+                                                                 |
+          command event queue                                    |
+                                                   if not from command
+       (contains events that were                  event queue, call
+       read earlier but not processed,             event_stream_next_event()
+       typically when waiting in a                               |
+       sit-for, sleep-for, etc. for                              |
+      a particular event to be received)                         |
+                    |                                            |
+                    |                                            |
+                    V                                            V
+                    ---->----------------------------------<------
+                                                    |
+                                                    | [collected in
+                                                    |  next_event_internal()]
+                                                    |
+      unread-     unread-       event from          |
+      command-    command-       keyboard       else, call
+      events      event           macro      next_event_internal()
+        |           |               |               |
+        |           |               |               |
+        |           |               |               |
+        V           V               V               V
+        --------->----------------------<------------
+                          |
+                          |      [collected in `next-event', which may loop
+                          |       more than once if the event it gets is on
+                          |       a dead frame, device, etc.]
+                          |
+                          |
+                          V
+                 feed into top-level event loop,
+                 which repeatedly calls `next-event'
+                 and then dispatches the event
+                 using `dispatch-event'
+
+
+File: internals.info,  Node: Specifics About the Emacs Event,  Next: The Event Stream Callback Routines,  Prev: Specifics of the Event Gathering Mechanism,  Up: Events and the Event Loop
+
+Specifics About the Emacs Event
+===============================
+
+
+File: internals.info,  Node: The Event Stream Callback Routines,  Next: Other Event Loop Functions,  Prev: Specifics About the Emacs Event,  Up: Events and the Event Loop
+
+The Event Stream Callback Routines
+==================================
+
+
+File: internals.info,  Node: Other Event Loop Functions,  Next: Converting Events,  Prev: The Event Stream Callback Routines,  Up: Events and the Event Loop
+
+Other Event Loop Functions
+==========================
+
+   `detect_input_pending()' and `input-pending-p' look for input by
+calling `event_stream->event_pending_p' and looking in
+`[V]unread-command-event' and the `command_event_queue' (they do not
+check for an executing keyboard macro, though).
+
+   `discard-input' cancels any command events pending (and any keyboard
+macros currently executing), and puts the others onto the
+`command_event_queue'.  There is a comment about a "race condition",
+which is not a good sign.
+
+   `next-command-event' and `read-char' are higher-level interfaces to
+`next-event'.  `next-command-event' gets the next "command" event (i.e.
+keypress, mouse event, menu selection, or scrollbar action), calling
+`dispatch-event' on any others.  `read-char' calls `next-command-event'
+and uses `event_to_character()' to return the character equivalent.
+With the right kind of input method support, it is possible for
+(read-char) to return a Kanji character.
+
+
+File: internals.info,  Node: Converting Events,  Next: Dispatching Events; The Command Builder,  Prev: Other Event Loop Functions,  Up: Events and the Event Loop
+
+Converting Events
+=================
+
+   `character_to_event()', `event_to_character()',
+`event-to-character', and `character-to-event' convert between
+characters and keypress events corresponding to the characters.  If the
+event was not a keypress, `event_to_character()' returns -1 and
+`event-to-character' returns `nil'.  These functions convert between
+character representation and the split-up event representation (keysym
+plus mod keys).
+
+
+File: internals.info,  Node: Dispatching Events; The Command Builder,  Prev: Converting Events,  Up: Events and the Event Loop
+
+Dispatching Events; The Command Builder
+=======================================
+
+   Not yet documented.
+
+
+File: internals.info,  Node: Evaluation; Stack Frames; Bindings,  Next: Symbols and Variables,  Prev: Events and the Event Loop,  Up: Top
+
+Evaluation; Stack Frames; Bindings
+**********************************
+
+* Menu:
+
+* Evaluation::
+* Dynamic Binding; The specbinding Stack; Unwind-Protects::
+* Simple Special Forms::
+* Catch and Throw::
+
+
+File: internals.info,  Node: Evaluation,  Next: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Prev: Evaluation; Stack Frames; Bindings,  Up: Evaluation; Stack Frames; Bindings
+
+Evaluation
+==========
+
+   `Feval()' evaluates the form (a Lisp object) that is passed to it.
+Note that evaluation is only non-trivial for two types of objects:
+symbols and conses.  A symbol is evaluated simply by calling
+`symbol-value' on it and returning the value.
+
+   Evaluating a cons means calling a function.  First, `eval' checks to
+see if garbage-collection is necessary, and calls `garbage_collect_1()'
+if so.  It then increases the evaluation depth by 1 (`lisp_eval_depth',
+which is always less than `max_lisp_eval_depth') and adds an element to
+the linked list of `struct backtrace''s (`backtrace_list').  Each such
+structure contains a pointer to the function being called plus a list
+of the function's arguments.  Originally these values are stored
+unevalled, and as they are evaluated, the backtrace structure is
+updated.  Garbage collection pays attention to the objects pointed to
+in the backtrace structures (garbage collection might happen while a
+function is being called or while an argument is being evaluated, and
+there could easily be no other references to the arguments in the
+argument list; once an argument is evaluated, however, the unevalled
+version is not needed by eval, and so the backtrace structure is
+changed).
+
+   At this point, the function to be called is determined by looking at
+the car of the cons (if this is a symbol, its function definition is
+retrieved and the process repeated).  The function should then consist
+of either a `Lisp_Subr' (built-in function written in C), a
+`Lisp_Compiled_Function' object, or a cons whose car is one of the
+symbols `autoload', `macro' or `lambda'.
+
+   If the function is a `Lisp_Subr', the lisp object points to a
+`struct Lisp_Subr' (created by `DEFUN()'), which contains a pointer to
+the C function, a minimum and maximum number of arguments (or possibly
+the special constants `MANY' or `UNEVALLED'), a pointer to the symbol
+referring to that subr, and a couple of other things.  If the subr
+wants its arguments `UNEVALLED', they are passed raw as a list.
+Otherwise, an array of evaluated arguments is created and put into the
+backtrace structure, and either passed whole (`MANY') or each argument
+is passed as a C argument.
+
+   If the function is a `Lisp_Compiled_Function',
+`funcall_compiled_function()' is called.  If the function is a lambda
+list, `funcall_lambda()' is called.  If the function is a macro, [.....
+fill in] is done.  If the function is an autoload, `do_autoload()' is
+called to load the definition and then eval starts over [explain this
+more].
+
+   When `Feval()' exits, the evaluation depth is reduced by one, the
+debugger is called if appropriate, and the current backtrace structure
+is removed from the list.
+
+   Both `funcall_compiled_function()' and `funcall_lambda()' need to go
+through the list of formal parameters to the function and bind them to
+the actual arguments, checking for `&rest' and `&optional' symbols in
+the formal parameters and making sure the number of actual arguments is
+correct.  `funcall_compiled_function()' can do this a little more
+efficiently, since the formal parameter list can be checked for sanity
+when the compiled function object is created.
+
+   `funcall_lambda()' simply calls `Fprogn' to execute the code in the
+lambda list.
+
+   `funcall_compiled_function()' calls the real byte-code interpreter
+`execute_optimized_program()' on the byte-code instructions, which are
+converted into an internal form for faster execution.
+
+   When a compiled function is executed for the first time by
+`funcall_compiled_function()', or during the dump phase of building
+XEmacs, the byte-code instructions are converted from a `Lisp_String'
+(which is inefficient to access, especially in the presence of MULE)
+into a `Lisp_Opaque' object containing an array of unsigned char, which
+can be directly executed by the byte-code interpreter.  At this time
+the byte code is also analyzed for validity and transformed into a more
+optimized form, so that `execute_optimized_program()' can really fly.
+
+   Here are some of the optimizations performed by the internal
+byte-code transformer:
+  1. References to the `constants' array are checked for out-of-range
+     indices, so that the byte interpreter doesn't have to.
+
+  2. References to the `constants' array that will be used as a Lisp
+     variable are checked for being correct non-constant (i.e. not `t',
+     `nil', or `keywordp') symbols, so that the byte interpreter
+     doesn't have to.
+
+  3. The maximum number of variable bindings in the byte-code is
+     pre-computed, so that space on the `specpdl' stack can be
+     pre-reserved once for the whole function execution.
+
+  4. All byte-code jumps are relative to the current program counter
+     instead of the start of the program, thereby saving a register.
+
+  5. One-byte relative jumps are converted from the byte-code form of
+     unsigned chars offset by 127 to machine-friendly signed chars.
+
+   Of course, this transformation of the `instructions' should not be
+visible to the user, so `Fcompiled_function_instructions()' needs to
+know how to convert the optimized opaque object back into a Lisp string
+that is identical to the original string from the `.elc' file.
+(Actually, the resulting string may (rarely) contain slightly
+different, yet equivalent, byte code.)
+
+   `Ffuncall()' implements Lisp `funcall'.  `(funcall fun x1 x2 x3
+...)' is equivalent to `(eval (list fun (quote x1) (quote x2) (quote
+x3) ...))'.  `Ffuncall()' contains its own code to do the evaluation,
+however, and is very similar to `Feval()'.
+
+   From the performance point of view, it is worth knowing that most of
+the time in Lisp evaluation is spent executing `Lisp_Subr' and
+`Lisp_Compiled_Function' objects via `Ffuncall()' (not `Feval()').
+
+   `Fapply()' implements Lisp `apply', which is very similar to
+`funcall' except that if the last argument is a list, the result is the
+same as if each of the arguments in the list had been passed separately.
+`Fapply()' does some business to expand the last argument if it's a
+list, then calls `Ffuncall()' to do the work.
+
+   `apply1()', `call0()', `call1()', `call2()', and `call3()' call a
+function, passing it the argument(s) given (the arguments are given as
+separate C arguments rather than being passed as an array).  `apply1()'
+uses `Fapply()' while the others use `Ffuncall()' to do the real work.
+
+
+File: internals.info,  Node: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Next: Simple Special Forms,  Prev: Evaluation,  Up: Evaluation; Stack Frames; Bindings
+
+Dynamic Binding; The specbinding Stack; Unwind-Protects
+=======================================================
+
+     struct specbinding
+     {
+       Lisp_Object symbol;
+       Lisp_Object old_value;
+       Lisp_Object (*func) (Lisp_Object); /* for unwind-protect */
+     };
+
+   `struct specbinding' is used for local-variable bindings and
+unwind-protects.  `specpdl' holds an array of `struct specbinding''s,
+`specpdl_ptr' points to the beginning of the free bindings in the
+array, `specpdl_size' specifies the total number of binding slots in
+the array, and `max_specpdl_size' specifies the maximum number of
+bindings the array can be expanded to hold.  `grow_specpdl()' increases
+the size of the `specpdl' array, multiplying its size by 2 but never
+exceeding `max_specpdl_size' (except that if this number is less than
+400, it is first set to 400).
+
+   `specbind()' binds a symbol to a value and is used for local
+variables and `let' forms.  The symbol and its old value (which might
+be `Qunbound', indicating no prior value) are recorded in the specpdl
+array, and `specpdl_size' is increased by 1.
+
+   `record_unwind_protect()' implements an "unwind-protect", which,
+when placed around a section of code, ensures that some specified
+cleanup routine will be executed even if the code exits abnormally
+(e.g. through a `throw' or quit).  `record_unwind_protect()' simply
+adds a new specbinding to the `specpdl' array and stores the
+appropriate information in it.  The cleanup routine can either be a C
+function, which is stored in the `func' field, or a `progn' form, which
+is stored in the `old_value' field.
+
+   `unbind_to()' removes specbindings from the `specpdl' array until
+the specified position is reached.  Each specbinding can be one of
+three types:
+
+  1. an unwind-protect with a C cleanup function (`func' is not 0, and
+     `old_value' holds an argument to be passed to the function);
+
+  2. an unwind-protect with a Lisp form (`func' is 0, `symbol' is
+     `nil', and `old_value' holds the form to be executed with
+     `Fprogn()'); or
+
+  3. a local-variable binding (`func' is 0, `symbol' is not `nil', and
+     `old_value' holds the old value, which is stored as the symbol's
+     value).
+
+
+File: internals.info,  Node: Simple Special Forms,  Next: Catch and Throw,  Prev: Dynamic Binding; The specbinding Stack; Unwind-Protects,  Up: Evaluation; Stack Frames; Bindings
+
+Simple Special Forms
+====================
+
+   `or', `and', `if', `cond', `progn', `prog1', `prog2', `setq',
+`quote', `function', `let*', `let', `while'
+
+   All of these are very simple and work as expected, calling `Feval()'
+or `Fprogn()' as necessary and (in the case of `let' and `let*') using
+`specbind()' to create bindings and `unbind_to()' to undo the bindings
+when finished.
+
+   Note that, with the exception of `Fprogn', these functions are
+typically called in real life only in interpreted code, since the byte
+compiler knows how to convert calls to these functions directly into
+byte code.
+
+
+File: internals.info,  Node: Catch and Throw,  Prev: Simple Special Forms,  Up: Evaluation; Stack Frames; Bindings
+
+Catch and Throw
+===============
+
+     struct catchtag
+     {
+       Lisp_Object tag;
+       Lisp_Object val;
+       struct catchtag *next;
+       struct gcpro *gcpro;
+       jmp_buf jmp;
+       struct backtrace *backlist;
+       int lisp_eval_depth;
+       int pdlcount;
+     };
+
+   `catch' is a Lisp function that places a catch around a body of
+code.  A catch is a means of non-local exit from the code.  When a catch
+is created, a tag is specified, and executing a `throw' to this tag
+will exit from the body of code caught with this tag, and its value will
+be the value given in the call to `throw'.  If there is no such call,
+the code will be executed normally.
+
+   Information pertaining to a catch is held in a `struct catchtag',
+which is placed at the head of a linked list pointed to by `catchlist'.
+`internal_catch()' is passed a C function to call (`Fprogn()' when
+Lisp `catch' is called) and arguments to give it, and places a catch
+around the function.  Each `struct catchtag' is held in the stack frame
+of the `internal_catch()' instance that created the catch.
+
+   `internal_catch()' is fairly straightforward.  It stores into the
+`struct catchtag' the tag name and the current values of
+`backtrace_list', `lisp_eval_depth', `gcprolist', and the offset into
+the `specpdl' array, sets a jump point with `_setjmp()' (storing the
+jump point into the `struct catchtag'), and calls the function.
+Control will return to `internal_catch()' either when the function
+exits normally or through a `_longjmp()' to this jump point.  In the
+latter case, `throw' will store the value to be returned into the
+`struct catchtag' before jumping.  When it's done, `internal_catch()'
+removes the `struct catchtag' from the catchlist and returns the proper
+value.
+
+   `Fthrow()' goes up through the catchlist until it finds one with a
+matching tag.  It then calls `unbind_catch()' to restore everything to
+what it was when the appropriate catch was set, stores the return value
+in the `struct catchtag', and jumps (with `_longjmp()') to its jump
+point.
+
+   `unbind_catch()' removes all catches from the catchlist until it
+finds the correct one.  Some of the catches might have been placed for
+error-trapping, and if so, the appropriate entries on the handlerlist
+must be removed (see "errors").  `unbind_catch()' also restores the
+values of `gcprolist', `backtrace_list', and `lisp_eval', and calls
+`unbind_to()' to undo any specbindings created since the catch.
+
+
+File: internals.info,  Node: Symbols and Variables,  Next: Buffers and Textual Representation,  Prev: Evaluation; Stack Frames; Bindings,  Up: Top
+
+Symbols and Variables
+*********************
+
+* Menu:
+
+* Introduction to Symbols::
+* Obarrays::
+* Symbol Values::
+
+
+File: internals.info,  Node: Introduction to Symbols,  Next: Obarrays,  Prev: Symbols and Variables,  Up: Symbols and Variables
+
+Introduction to Symbols
+=======================
+
+   A symbol is basically just an object with four fields: a name (a
+string), a value (some Lisp object), a function (some Lisp object), and
+a property list (usually a list of alternating keyword/value pairs).
+What makes symbols special is that there is usually only one symbol with
+a given name, and the symbol is referred to by name.  This makes a
+symbol a convenient way of calling up data by name, i.e. of implementing
+variables. (The variable's value is stored in the "value slot".)
+Similarly, functions are referenced by name, and the definition of the
+function is stored in a symbol's "function slot".  This means that
+there can be a distinct function and variable with the same name.  The
+property list is used as a more general mechanism of associating
+additional values with particular names, and once again the namespace is
+independent of the function and variable namespaces.
+
+
+File: internals.info,  Node: Obarrays,  Next: Symbol Values,  Prev: Introduction to Symbols,  Up: Symbols and Variables
+
+Obarrays
+========
+
+   The identity of symbols with their names is accomplished through a
+structure called an obarray, which is just a poorly-implemented hash
+table mapping from strings to symbols whose name is that string. (I say
+"poorly implemented" because an obarray appears in Lisp as a vector
+with some hidden fields rather than as its own opaque type.  This is an
+Emacs Lisp artifact that should be fixed.)
+
+   Obarrays are implemented as a vector of some fixed size (which should
+be a prime for best results), where each "bucket" of the vector
+contains one or more symbols, threaded through a hidden `next' field in
+the symbol.  Lookup of a symbol in an obarray, and adding a symbol to
+an obarray, is accomplished through standard hash-table techniques.
+
+   The standard Lisp function for working with symbols and obarrays is
+`intern'.  This looks up a symbol in an obarray given its name; if it's
+not found, a new symbol is automatically created with the specified
+name, added to the obarray, and returned.  This is what happens when the
+Lisp reader encounters a symbol (or more precisely, encounters the name
+of a symbol) in some text that it is reading.  There is a standard
+obarray called `obarray' that is used for this purpose, although the
+Lisp programmer is free to create his own obarrays and `intern' symbols
+in them.
+
+   Note that, once a symbol is in an obarray, it stays there until
+something is done about it, and the standard obarray `obarray' always
+stays around, so once you use any particular variable name, a
+corresponding symbol will stay around in `obarray' until you exit
+XEmacs.
+
+   Note that `obarray' itself is a variable, and as such there is a
+symbol in `obarray' whose name is `"obarray"' and which contains
+`obarray' as its value.
+
+   Note also that this call to `intern' occurs only when in the Lisp
+reader, not when the code is executed (at which point the symbol is
+already around, stored as such in the definition of the function).
+
+   You can create your own obarray using `make-vector' (this is
+horrible but is an artifact) and intern symbols into that obarray.
+Doing that will result in two or more symbols with the same name.
+However, at most one of these symbols is in the standard `obarray': You
+cannot have two symbols of the same name in any particular obarray.
+Note that you cannot add a symbol to an obarray in any fashion other
+than using `intern': i.e. you can't take an existing symbol and put it
+in an existing obarray.  Nor can you change the name of an existing
+symbol. (Since obarrays are vectors, you can violate the consistency of
+things by storing directly into the vector, but let's ignore that
+possibility.)
+
+   Usually symbols are created by `intern', but if you really want, you
+can explicitly create a symbol using `make-symbol', giving it some
+name.  The resulting symbol is not in any obarray (i.e. it is
+"uninterned"), and you can't add it to any obarray.  Therefore its
+primary purpose is as a symbol to use in macros to avoid namespace
+pollution.  It can also be used as a carrier of information, but cons
+cells could probably be used just as well.
+
+   You can also use `intern-soft' to look up a symbol but not create a
+new one, and `unintern' to remove a symbol from an obarray.  This
+returns the removed symbol. (Remember: You can't put the symbol back
+into any obarray.) Finally, `mapatoms' maps over all of the symbols in
+an obarray.
+
+
+File: internals.info,  Node: Symbol Values,  Prev: Obarrays,  Up: Symbols and Variables
+
+Symbol Values
+=============
+
+   The value field of a symbol normally contains a Lisp object.
+However, a symbol can be "unbound", meaning that it logically has no
+value.  This is internally indicated by storing a special Lisp object,
+called "the unbound marker" and stored in the global variable
+`Qunbound'.  The unbound marker is of a special Lisp object type called
+"symbol-value-magic".  It is impossible for the Lisp programmer to
+directly create or access any object of this type.
+
+   *You must not let any "symbol-value-magic" object escape to the Lisp
+level.*  Printing any of these objects will cause the message `INTERNAL
+EMACS BUG' to appear as part of the print representation.  (You may see
+this normally when you call `debug_print()' from the debugger on a Lisp
+object.) If you let one of these objects escape to the Lisp level, you
+will violate a number of assumptions contained in the C code and make
+the unbound marker not function right.
+
+   When a symbol is created, its value field (and function field) are
+set to `Qunbound'.  The Lisp programmer can restore these conditions
+later using `makunbound' or `fmakunbound', and can query to see whether
+the value of function fields are "bound" (i.e. have a value other than
+`Qunbound') using `boundp' and `fboundp'.  The fields are set to a
+normal Lisp object using `set' (or `setq') and `fset'.
+
+   Other symbol-value-magic objects are used as special markers to
+indicate variables that have non-normal properties.  This includes any
+variables that are tied into C variables (setting the variable magically
+sets some global variable in the C code, and likewise for retrieving the
+variable's value), variables that magically tie into slots in the
+current buffer, variables that are buffer-local, etc.  The
+symbol-value-magic object is stored in the value cell in place of a
+normal object, and the code to retrieve a symbol's value (i.e.
+`symbol-value') knows how to do special things with them.  This means
+that you should not just fetch the value cell directly if you want a
+symbol's value.
+
+   The exact workings of this are rather complex and involved and are
+well-documented in comments in `buffer.c', `symbols.c', and `lisp.h'.
+
+
+File: internals.info,  Node: Buffers and Textual Representation,  Next: MULE Character Sets and Encodings,  Prev: Symbols and Variables,  Up: Top
+
+Buffers and Textual Representation
+**********************************
+
+* Menu:
+
+* Introduction to Buffers::     A buffer holds a block of text such as a file.
+* The Text in a Buffer::        Representation of the text in a buffer.
+* Buffer Lists::                Keeping track of all buffers.
+* Markers and Extents::         Tagging locations within a buffer.
+* Bufbytes and Emchars::        Representation of individual characters.
+* The Buffer Object::           The Lisp object corresponding to a buffer.
+
+
+File: internals.info,  Node: Introduction to Buffers,  Next: The Text in a Buffer,  Prev: Buffers and Textual Representation,  Up: Buffers and Textual Representation
+
+Introduction to Buffers
+=======================
+
+   A buffer is logically just a Lisp object that holds some text.  In
+this, it is like a string, but a buffer is optimized for frequent
+insertion and deletion, while a string is not.  Furthermore:
+
+  1. Buffers are "permanent" objects, i.e. once you create them, they
+     remain around, and need to be explicitly deleted before they go
+     away.
+
+  2. Each buffer has a unique name, which is a string.  Buffers are
+     normally referred to by name.  In this respect, they are like
+     symbols.
+
+  3. Buffers have a default insertion position, called "point".
+     Inserting text (unless you explicitly give a position) goes at
+     point, and moves point forward past the text.  This is what is
+     going on when you type text into Emacs.
+
+  4. Buffers have lots of extra properties associated with them.
+
+  5. Buffers can be "displayed".  What this means is that there exist a
+     number of "windows", which are objects that correspond to some
+     visible section of your display, and each window has an associated
+     buffer, and the current contents of the buffer are shown in that
+     section of the display.  The redisplay mechanism (which takes care
+     of doing this) knows how to look at the text of a buffer and come
+     up with some reasonable way of displaying this.  Many of the
+     properties of a buffer control how the buffer's text is displayed.
+
+  6. One buffer is distinguished and called the "current buffer".  It is
+     stored in the variable `current_buffer'.  Buffer operations operate
+     on this buffer by default.  When you are typing text into a
+     buffer, the buffer you are typing into is always `current_buffer'.
+     Switching to a different window changes the current buffer.  Note
+     that Lisp code can temporarily change the current buffer using
+     `set-buffer' (often enclosed in a `save-excursion' so that the
+     former current buffer gets restored when the code is finished).
+     However, calling `set-buffer' will NOT cause a permanent change in
+     the current buffer.  The reason for this is that the top-level
+     event loop sets `current_buffer' to the buffer of the selected
+     window, each time it finishes executing a user command.
+
+   Make sure you understand the distinction between "current buffer"
+and "buffer of the selected window", and the distinction between
+"point" of the current buffer and "window-point" of the selected
+window. (This latter distinction is explained in detail in the section
+on windows.)
+
