@@ -1,3 +1,25 @@
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R030-Mouth.el (U+5411): Separate CB-05156; delete
+	`ideographic-structure'.
+	(U+54CD): Add `ideographic-structure'; unify CB-05156.
+	(M-04531): Separate C7-3F2E.
+	(C7-3F2E): Separate U-000210A2.
+
+	* Ideograph-R029-Again.el (M-03155): Separate C6-2A32.
+	(C6-2A32): Separate U-00020B3B.
+
+	* Ideograph-R040-Roof.el (U-00021AA3): Separate C4-4948.
+
+	* Ideograph-R035-Go-Slowly.el (U-00021576): Separate C5-4C50.
+
+	* Ideograph-R028-Private.el (U-0002128F): Separate C6-2641.
+
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R005-Second.el (U-000200D5): Add
+	`ideographic-structure'.
+
 2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* make-cdbs.el: Load dumped-chars.el and refer
@@ -295,7 +317,7 @@
 	* Ideograph-R030-Mouth.el (M-03562): Add `ideographic-structure'.
 	(U-00020C57): Likewise; unify H1-E0EE.
 	(M-04326): Add `ideographic-structure'.
-	(C7-2146): Separate U-0002018A; add ~->identical' for U-0002018A;
+	(C7-2146): Separate U-0002018A; add `->identical' for U-0002018A;
 	add `ideographic-structure'.
 
 2001-12-21  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
