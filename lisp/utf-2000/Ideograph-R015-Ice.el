@@ -21,6 +21,7 @@
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
     (ideograph-daikanwa . 01608)	; ø¸€™ˆ
+    (ucs		. #x205AC)	; ð –¬
     ))
 (define-char
   '((ideographic-radical . 15)	; â¼Ž
