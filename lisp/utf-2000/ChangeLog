@@ -1,3 +1,25 @@
+2001-06-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R109-Eye.el (M-23221): Separate U+7714.
+	(M-49364): Unify U+7714; add `original-ideograph-of' property for
+	M-23221.
+	(C2-5868): Unify U+77A3.
+	(C2-5D69): Unify U+77B7.
+	(C2-6241): Unify U+77C2.
+
+	* Ideograph-R107-Skin.el (C4-4531): Relate to M-22889.
+	(C4-4533): Relate to M-22890.
+	(C6-5F3E): Relate to M-22891.
+	(C4-4530): Unify M-22892.
+	(C6-5F3F): Relate to M-22893.
+	(C6-5F3B): Relate to M-22894.
+	(C3-482E): Unify U+76B9.
+	(C7-2563): Relate to M-22895.
+	(C5-4E5A): Relate to M-22896.
+	(C3-4D43): Relate to M-22897.
+	(C4-4B3D): Relate to M-22898.
+	(C5-4E5B): Relate to M-22900.
+
 2001-06-03  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R094-Dog.el (M-20337): Cancel relation to C6-2C7E and
