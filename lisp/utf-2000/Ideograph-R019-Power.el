@@ -1936,7 +1936,9 @@
       )
      ((ucs		  . #x6708)	; æœˆ
       )
-     ((ideograph-daikanwa . 02330)	; ø¸€¤š
+     ((japanese-jisx0208-1978	  . #x5225)	; ø»ƒ„‚
+      (japanese-jisx0208	  . #x5225)	; ø»‡˜Š
+      (ideograph-daikanwa	  . 02330)	; ø¸€¤š
       ))
     (shinjigen-1	. 746)
     (shinjigen-2	. 746)
@@ -3009,7 +3011,9 @@
 		 (ucs		     . #x2FF0)	; â¿°
 		 )
       )
-     ((ideograph-daikanwa . 42120)	; ø¸Š’ˆ
+     ((japanese-jisx0212	  . #x6676)	; ø»ŒŠ»
+      (japanese-jisx0213-2	  . #x7B73)	; ø»¦¢ž
+      (ideograph-daikanwa	  . 42120)	; ø¸Š’ˆ
       )
      ((ucs		  . #x529B)	; åŠ›
       ))

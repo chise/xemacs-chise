@@ -456,8 +456,10 @@
 		 )
       )
      ((chinese-big5-cdp	  . #x8B57)	; å‹¹
+      (ucs		  . #x52F9)	; å‹¹
       )
-     ((ideograph-daikanwa . 09167)	; ø¸‚
+     ((korean-ksc5601	  . #x7841)	; ø»Ššž
+      (ideograph-daikanwa . 09167)	; ø¸‚
       ))
     (ideograph-daikanwa . 02515)	; ø¸€§“
     ))
