@@ -382,10 +382,11 @@
       (=daikanwa	  . 00059)	; ø¸€€»
       ))
     (<-ancient-ideograph
-     (:char	((ideographic-radical . 198)	; â¿…
-		 (=daikanwa	     . 47663)	; ø¸‹¨¯
-		 )
-      :sources	(morohashi-daikanwa)))
+     ((ideographic-radical . 198)	; â¿…
+      (=daikanwa	  . 47663)	; ø¸‹¨¯
+      ))
+    (<-ancient-ideograph*sources
+     daikanwa)
     (hanyu-dazidian	1 24 5)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
