@@ -1,5 +1,11 @@
 2003-07-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R213-Turtle.el (J90-6354): Unify GT-32753; don't use
+	char-ref format in `<-ancient-ideograph'; use
+	`<-ancient-ideograph*sources' instead.
+
+	* Ideograph-R116-Cave.el: Add some GT code points.
+
 	* Ideograph-R181-Leaf.el (U+9834): Unify GT-31942.
 
 	* Ideograph-R115-Grain.el, Ideograph-R113-Spirit.el,
