@@ -1,5 +1,30 @@
 2004-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R109-Eye.el (U-0002032A): Use
+	`ideographic-{radical|strokes}@{ucs|cns}',
+	`total-strokes@{ucs|cns}' and `ideographic-radical@cns*sources'
+	instead of `ideographic-'; use `->subsumptive'.
+	(U-00025186): Use `->subsumptive'.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5E82): Use `->subsumptive'.
+	(U+5E83): Likewise.
+	(U+386F): Likewise.
+	(U-000221D7): Likewise.
+	(U-000221D8): Likewise.
+	(U-000221D9): Likewise.
+	(U+3870): Likewise.
+	(U-000221DA): Likewise.
+	(U+3871): Likewise.
+	(U-000221DB): Likewise.
+
+2004-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U-0002032A): Use
+	`ideographic-{radical|strokes}@{ucs|cns}',
+	`total-strokes@{ucs|cns}' and `ideographic-radical@cns*sources'
+	instead of `ideographic-'; use `->subsumptive'.
+	(U-00020309): Use `->subsumptive'.
+
 	* Ideograph-R162-Walk.el (U+5DE1): Copied from
 	Ideograph-R047-River.el.
 	(C1-4B56): Use `<-denotational' for U+5DE1.
