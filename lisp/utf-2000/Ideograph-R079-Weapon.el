@@ -512,6 +512,21 @@
   '((ideographic-radical . 79)	; â½Ž
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
+    (=ucs		. #x23A98)	; ð£ª˜
+    ))
+(define-char
+  '((=>ucs		. #x23A98)	; ð£ª˜
+    (ideographic-radical . 79)	; â½Ž
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
+    (=jis-x0213-2-2000	. #x6E23)	; ø»¦Žˆ
+    (=jef-china3	. #x93C9)	; øº‰‰
+    (=ucs@jis		. #x23A98)	; ø»¦Žˆ
+    ))
+(define-char
+  '((ideographic-radical . 79)	; â½Ž
+    (ideographic-strokes . 7)
+    (total-strokes	 . 11)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER LEFT TO RIGHT")
       (=ucs		  . #x2FF0)	; â¿°
