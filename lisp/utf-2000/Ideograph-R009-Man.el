@@ -20357,7 +20357,7 @@
     (=daikanwa		. 48922)	; ø¸‹¼š
     ))
 (define-char
-  '((=>daikanwa		ho 21)	; ã‘º
+  '((=>daikanwa		ho 21)	; ø¸ œ²
     (ideographic-radical . 9)	; â¼ˆ
     (ideographic-strokes . 10)
     (total-strokes	 . 12)
