@@ -12,6 +12,10 @@
 	* Ideograph-R005-Second.el (U-000200D5): Add
 	`ideographic-structure'.
 
+2002-02-19  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R028-Private.el (U-0002128F): Separate C6-2641.
+
 2002-02-18  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R001-One.el (U-00023944): Moved to
