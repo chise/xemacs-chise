@@ -383,9 +383,11 @@
   '((ideographic-radical . 43)	; â¼ª
     (ideographic-strokes . 6)
     (total-strokes	 . 9)
-    (chinese-cns11643-3 . #x2C35)	; ø»•§‚
-    (ideograph-daikanwa . 07574)	; ø¸¶–
-    (ucs		. #x5C2F)	; å°¯
+    (hanyu-dazidian	1 554 9)
+    (chinese-cns11643-3		. #x2C35)	; ø»•§‚
+    (ideograph-daikanwa		. 07574)	; ø¸¶–
+    (ideograph-hanziku-2	. #xC1E4)	; ý¢€¬‡¤
+    (ucs			. #x5C2F)	; å°¯
     ))
 (define-char
   '((=>ucs		. #x21BE3)	; ð¡¯£
