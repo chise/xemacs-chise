@@ -533,7 +533,6 @@
     (korean-ksc5601		. #x222C)	; ø»ˆ›µ
     (japanese-jisx0212		. #x2231)	; ø»Š¥¾
     (japanese-jisx0213-1	. #x292F)	; ø»¢žº
-    (chinese-big5		. #xA14D)	; øºŸ›
     ))
 (define-char
   '((name		. "SUPERSCRIPT ONE")
