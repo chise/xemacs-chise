@@ -1,3 +1,7 @@
+2001-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (range_charset_code_point): Fixed.
+
 2001-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (decode_builtin_char): Change semantics of
@@ -149,7 +153,7 @@
 	MAX_CHAR_{SMP|SIP} as `ucs-{smp|sip}'.
 	(syms_of_mule_charset): Add new symbols `ucs-smp' and `ucs-sip'.
 	(complex_vars_of_mule_charset): Modify middle-DOC and registry of
-	`ucs-bmp'; addn new coded-charset `ucs-smp' and `ucs-sip'; change
+	`ucs-bmp'; add new coded-charset `ucs-smp' and `ucs-sip'; change
 	charset width of `ucs-cns', `ucs-jis', `ucs-ks' and `ucs-big5'.
 
 	* char-ucs.h (LEADING_BYTE_UCS_SMP): New macro.
