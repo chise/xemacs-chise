@@ -834,7 +834,6 @@ Lisp_Object Qascii,
   Qchinese_cns11643_1,
   Qchinese_cns11643_2,
 #ifdef UTF2000
-  Qucs,
   Qucs_bmp,
   Qlatin_viscii,
   Qlatin_viscii_lower,
