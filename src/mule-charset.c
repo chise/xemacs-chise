@@ -571,9 +571,11 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	  Lisp_Object ei = Fcar (rest);
 	  
 	  if (!INTP (ei))
-	    signal_simple_error ("Invalid value for coded-charset",
-				 value);
-	  i = XINT (ei) - XCHARSET_BYTE_OFFSET (ccs);
+	    signal_simple_error ("Invalid value for coded-charset", value);
+	  i = XINT (ei);
+	  if ((i < 0) || (255 < i))
+	    signal_simple_error ("Invalid value for coded-charset", value);
+	  i -= XCHARSET_BYTE_OFFSET (ccs);
 	  nv = XVECTOR_DATA(v)[i];
 	  rest = Fcdr (rest);
 	  if (CONSP (rest))
