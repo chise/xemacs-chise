@@ -1,3 +1,7 @@
+2001-11-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* bytecomp.el (byte-compile-insert-header): Fixed.
+
 2001-10-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Dump `ad-hoc-cdp' in
