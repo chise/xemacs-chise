@@ -65,6 +65,9 @@ Lisp_Object Vword_combining_categories, Vword_separating_categories;
 
 #ifdef UTF2000
 
+EXFUN (Fchar_refs_simplify_char_specs, 1);
+extern Lisp_Object Qideographic_structure;
+
 EXFUN (Fmap_char_attribute, 3);
 
 #if defined(HAVE_CHISE_CLIENT)
@@ -3153,6 +3156,70 @@ Return DEFAULT-VALUE if the value is not exist.
   return default_value;
 }
 
+void put_char_composition (Lisp_Object character, Lisp_Object value);
+void
+put_char_composition (Lisp_Object character, Lisp_Object value)
+{
+  if (!CONSP (value))
+    signal_simple_error ("Invalid value for ->decomposition",
+			 value);
+
+  if (CONSP (Fcdr (value)))
+    {
+      if (NILP (Fcdr (Fcdr (value))))
+	{
+	  Lisp_Object base = Fcar (value);
+	  Lisp_Object modifier = Fcar (Fcdr (value));
+
+	  if (INTP (base))
+	    {
+	      base = make_char (XINT (base));
+	      Fsetcar (value, base);
+	    }
+	  if (INTP (modifier))
+	    {
+	      modifier = make_char (XINT (modifier));
+	      Fsetcar (Fcdr (value), modifier);
+	    }
+	  if (CHARP (base))
+	    {
+	      Lisp_Object alist
+		= Fget_char_attribute (base, Qcomposition, Qnil);
+	      Lisp_Object ret = Fassq (modifier, alist);
+
+	      if (NILP (ret))
+		Fput_char_attribute (base, Qcomposition,
+				     Fcons (Fcons (modifier, character),
+					    alist));
+	      else
+		Fsetcdr (ret, character);
+	    }
+	}
+    }
+  else
+    {
+      Lisp_Object v = Fcar (value);
+
+      if (INTP (v))
+	{
+	  Emchar c = XINT (v);
+	  Lisp_Object ret
+	    = Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
+
+	  if (!CONSP (ret))
+	    {
+	      Fput_char_attribute (make_char (c), Q_ucs_variants,
+				   Fcons (character, Qnil));
+	    }
+	  else if (NILP (Fmemq (character, ret)))
+	    {
+	      Fput_char_attribute (make_char (c), Q_ucs_variants,
+				   Fcons (character, ret));
+	    }
+	}
+    }
+}
+
 DEFUN ("put-char-attribute", Fput_char_attribute, 3, 3, 0, /*
 Store CHARACTER's ATTRIBUTE with VALUE.
 */
@@ -3160,79 +3227,19 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 {
   Lisp_Object ccs = Ffind_charset (attribute);
 
+  CHECK_CHAR (character);
+
   if (!NILP (ccs))
-    {
-      CHECK_CHAR (character);
-      value = put_char_ccs_code_point (character, ccs, value);
-    }
+    value = put_char_ccs_code_point (character, ccs, value);
   else if (EQ (attribute, Q_decomposition))
-    {
-      CHECK_CHAR (character);
-      if (!CONSP (value))
-	signal_simple_error ("Invalid value for ->decomposition",
-			     value);
-
-      if (CONSP (Fcdr (value)))
-	{
-	  if (NILP (Fcdr (Fcdr (value))))
-	    {
-	      Lisp_Object base = Fcar (value);
-	      Lisp_Object modifier = Fcar (Fcdr (value));
-
-	      if (INTP (base))
-		{
-		  base = make_char (XINT (base));
-		  Fsetcar (value, base);
-		}
-	      if (INTP (modifier))
-		{
-		  modifier = make_char (XINT (modifier));
-		  Fsetcar (Fcdr (value), modifier);
-		}
-	      if (CHARP (base))
-		{
-		  Lisp_Object alist = Fget_char_attribute (base, Qcomposition, Qnil);
-		  Lisp_Object ret = Fassq (modifier, alist);
-
-		  if (NILP (ret))
-		    Fput_char_attribute (base, Qcomposition,
-					 Fcons (Fcons (modifier, character), alist));
-		  else
-		    Fsetcdr (ret, character);
-		}
-	    }
-	}
-      else
-	{
-	  Lisp_Object v = Fcar (value);
-
-	  if (INTP (v))
-	    {
-	      Emchar c = XINT (v);
-	      Lisp_Object ret
-		= Fget_char_attribute (make_char (c), Q_ucs_variants, Qnil);
-
-	      if (!CONSP (ret))
-		{
-		  Fput_char_attribute (make_char (c), Q_ucs_variants,
-				       Fcons (character, Qnil));
-		}
-	      else if (NILP (Fmemq (character, ret)))
-		{
-		  Fput_char_attribute (make_char (c), Q_ucs_variants,
-				       Fcons (character, ret));
-		}
-	    }
-	}
-    }
+    put_char_composition (character, value);
   else if (EQ (attribute, Qto_ucs) || EQ (attribute, Q_ucs))
     {
       Lisp_Object ret;
       Emchar c;
 
-      CHECK_CHAR (character);
       if (!INTP (value))
-	signal_simple_error ("Invalid value for ->ucs", value);
+	signal_simple_error ("Invalid value for =>ucs", value);
 
       c = XINT (value);
 
@@ -3252,6 +3259,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	attribute = Qto_ucs;
 #endif
     }
+  else if (EQ (attribute, Qideographic_structure))
+    value = Fcopy_sequence (Fchar_refs_simplify_char_specs (value));
   {
     Lisp_Object table = Fgethash (attribute,
 				  Vchar_attribute_hash_table,
