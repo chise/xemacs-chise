@@ -4555,7 +4555,7 @@
   '((ideographic-radical . 118)	; ⽵
     (ideographic-strokes . 9)
     (total-strokes	 . 15)
-    (<-wrong-ideograph
+    (<-wrong
      (:sources	(kangxi morohashi-daikanwa)
       :char	((=daikanwa	     . 26564)	; &M-26564;
 		 )

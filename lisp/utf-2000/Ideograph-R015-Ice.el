@@ -218,7 +218,7 @@
   '((ideographic-radical . 15)	; ⼎
     (ideographic-strokes . 4)
     (total-strokes	 . 6)
-    (<-wrong-ideograph
+    (<-wrong
      (:sources	(morohashi-daikanwa shinjigen-1)
       :char	((shinjigen-1	     . 542)
 		 (=daikanwa	     . 01613)	; &I-M-01613;

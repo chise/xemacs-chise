@@ -157,10 +157,10 @@
       ))
     (<-vulgar*sources
      shinjigen-1)
-    (<-wrong-ideograph
+    (<-wrong
      ((=daikanwa	  . 02740)	; &I-M-02740;
       ))
-    (<-wrong-ideograph*sources
+    (<-wrong*sources
      pianhai daikanwa)
     (hanyu-dazidian	1 59 4)
     (ideographic-structure

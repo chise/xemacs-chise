@@ -143,7 +143,7 @@
   '((ideographic-radical . 134)	; ⾅
     (ideographic-strokes . 3)
     (total-strokes	 . 10)
-    (<-wrong-ideograph
+    (<-wrong
      (:sources	(chuuka-daijiten morohashi-daikanwa)
       :char	((=daikanwa	     . 30180)	; &I-M-30180;
 		 )

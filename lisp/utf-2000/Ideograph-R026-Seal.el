@@ -616,7 +616,7 @@
   '((ideographic-radical . 26)	; ⼙
     (ideographic-strokes . 6)
     (total-strokes	 . 8)
-    (<-wrong-ideograph
+    (<-wrong
      (:char	((shinjigen-1	     . 855)
 		 (=daikanwa	     . 02856)	; &I-M-02856;
 		 )

@@ -433,7 +433,7 @@
     (ideographic-radical . 79)	; ⽎
     (ideographic-strokes . 7)
     (total-strokes	 . 11)
-    (<-wrong-ideograph
+    (<-wrong
      (:char	((=daikanwa	     . 04033)	; &I-M-04033;
 		 )
       :sources	(morohashi-daikanwa)))

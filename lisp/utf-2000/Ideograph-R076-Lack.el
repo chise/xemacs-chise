@@ -2134,11 +2134,11 @@
     (ideographic-radical . 76)	; ⽋
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (<-wrong-ideograph
+    (<-wrong
      ((shinjigen-1	  . 3943)
       (=daikanwa	  . 16198)	; &I-M-16198;
       ))
-    (<-wrong-ideograph*sources
+    (<-wrong*sources
      shinjigen-1)
     (shinjigen-1	. 3944)
     (=ucs		. #x6B54)	; 歔

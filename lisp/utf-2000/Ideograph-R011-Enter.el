@@ -31,7 +31,7 @@
     (ideographic-radical . 11)	; ⼊
     (ideographic-strokes . 1)
     (total-strokes	 . 3)
-    (<-wrong-ideograph
+    (<-wrong
      (:char	((=daikanwa	     . 00345)	; &I-M-00345;
 		 )
       :sources	(seiji-tsuu morohashi-daikanwa)))

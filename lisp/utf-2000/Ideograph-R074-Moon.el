@@ -1038,7 +1038,7 @@
     (ideographic-radical . 74)	; ⽉
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
-    (<-wrong-ideograph
+    (<-wrong
      (:char	((=daikanwa	     . 29821)	; &M-29821;
 		 )
       :sources	(morohashi-daikanwa)))

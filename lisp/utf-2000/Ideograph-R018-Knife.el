@@ -338,7 +338,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 3)
     (total-strokes	 . 5)
-    (<-wrong-ideograph
+    (<-wrong
      (:sources	(shinjigen-1)
       :char	((shinjigen-1	     . 596)
 		 (=daikanwa	     . 01858)	; &I-M-01858;
@@ -5251,7 +5251,7 @@
     (ideographic-radical . 18)	; ⼑
     (ideographic-strokes . 9)
     (total-strokes	 . 11)
-    (<-wrong-ideograph
+    (<-wrong
      (:sources	(jiiho morohashi-daikanwa)
       :char	((=daikanwa	     . 02144)	; &I-M-02144;
 		 )
