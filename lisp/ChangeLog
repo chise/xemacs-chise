@@ -1,3 +1,8 @@
+2003-11-09  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-coding.el (utf-8-mcs): New alias for utf-8 when
+	`utf-2000' is defined.
+
 2003-08-04  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-conf.el (=iso-ir165): Define to inherit from `=gb2312'
