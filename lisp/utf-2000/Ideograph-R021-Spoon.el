@@ -122,6 +122,7 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 4)
     (=gt-pj-9		. #x3375)	; ý¡€€³£
+    (=jef-china3	. #x45AC)	; øº„–¬
     (=gt		. 03299)	; ý¡€€³£
     (mojikyo		. 074823)	; ý €’‘‡
     ))
