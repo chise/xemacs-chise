@@ -46,6 +46,4 @@ BUFBYTE_FIRST_BYTE_P(Bufbyte c)
 
 #define CHAR_MULTIBYTE_P(c) ((c) >= 0x80)
 
-#define CHAR_ASCII_P(c) (!CHAR_MULTIBYTE_P (c))
-
 #endif /* _XEMACS_MB_UTF_8_H */
