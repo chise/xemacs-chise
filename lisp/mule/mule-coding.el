@@ -4,7 +4,7 @@
 ;; Licensed to the Free Software Foundation.
 ;; Copyright (C) 1995 Amdahl Corporation.
 ;; Copyright (C) 1995 Sun Microsystems.
-;; Copyright (C) 1997,1999,2002 MORIOKA Tomohiko
+;; Copyright (C) 1997,1999,2002,2003 MORIOKA Tomohiko
 
 ;; This file is part of XEmacs.
 
@@ -172,6 +172,8 @@
    ))
 
 (when (featurep 'utf-2000)
+  (define-coding-system-alias 'utf-8-mcs 'utf-8)
+
   (make-coding-system
    'utf-8-er 'utf-8
    "Coding-system of ISO/IEC 10646 UTF-8 with entity-reference."
