@@ -1,3 +1,31 @@
+2004-01-01  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R002-Line.el (U-00020077): Use
+	`ideographic-{radical|strokes}@{ucs|cns}' instead of
+	`ideographic-'.
+
+2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R111-Arrow.el (U+77EB): Add `total-strokes'.
+
+	* Ideograph-R082-Fur.el (U-00023B7D): Separate C6-4124; unify
+	M-16855.
+	(C6-4124): Map to M-16855.
+	(U+3C9B): Separate C5-395B; unify M-16857.
+	(C5-395B): Map to M-16857.
+	(U+3C9C): Separate C3-3C4C; unify M-16859.
+	(C3-3C4C): Map to M-16859.
+
+	* Ideograph-R094-Dog.el: Add some `total-strokes' features.
+
+	* Ideograph-R093-Cow.el: Add some `total-strokes' features.
+	(U+726C): Use `ideographic-radical',
+	`{ideographic|total}-strokes@{daikanwa|cns}' instead of
+	`ideographic-'.
+	(M-20061): New character.
+	(C4-3873): Separate U+3E43; map to M-20061.
+	(U+3E43): Likewise.
+
 2003-12-31  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* ideograph-util.el (char-ideographic-strokes-from-domains): Add
