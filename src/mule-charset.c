@@ -298,7 +298,7 @@ Lisp_Object Qascii,
   Qcyrillic_iso8859_5,
   Qlatin_iso8859_9,
   Qmap_jis_x0208_1978,
-  Qchinese_gb2312,
+  Qmap_gb2312,
   Qchinese_gb12345,
   Qmap_jis_x0208_1983,
   Qmap_ks_x1001,
@@ -2712,7 +2712,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qcyrillic_iso8859_5, 	"cyrillic-iso8859-5");
   defsymbol (&Qlatin_iso8859_9,		"latin-iso8859-9");
   defsymbol (&Qmap_jis_x0208_1978,	"=jis-x0208-1978");
-  defsymbol (&Qchinese_gb2312,		"chinese-gb2312");
+  defsymbol (&Qmap_gb2312,		"=gb2312");
   defsymbol (&Qchinese_gb12345,		"chinese-gb12345");
   defsymbol (&Qmap_jis_x0208_1983, 	"=jis-x0208-1983");
   defsymbol (&Qmap_ks_x1001,		"=ks-x1001");
@@ -3015,7 +3015,7 @@ complex_vars_of_mule_charset (void)
 		  CONVERSION_IDENTICAL);
   staticpro (&Vcharset_chinese_gb2312);
   Vcharset_chinese_gb2312 =
-    make_charset (LEADING_BYTE_CHINESE_GB2312, Qchinese_gb2312, 94, 2,
+    make_charset (LEADING_BYTE_CHINESE_GB2312, Qmap_gb2312, 94, 2,
 		  2, 0, 'A', CHARSET_LEFT_TO_RIGHT,
 		  build_string ("GB2312"),
 		  build_string ("GB2312)"),
