@@ -4,6 +4,7 @@
     (bidi-category	. "WS")
     (mirrored		. nil)
     (ascii		. #x20)	; øº¿›
+    (arabic-1-column	. #x21)	; øº©š
     (ipa		. #xFF)	; øº’›¿
     (latin-viscii	. #x20)	;
     (ucs		. #x0020)	;
@@ -19,6 +20,7 @@
       ))
     (ascii		. #x21)	; øº¿œ
     (latin-jisx0201	. #x21)	; øº‘‹Œ
+    (arabic-1-column	. #x22)	; øº©›
     (latin-viscii	. #x21)	; !
     (ucs		. #x0021)	; !
     ))
@@ -117,6 +119,7 @@
       ))
     (ascii		. #x28)	; øº¿£
     (latin-jisx0201	. #x28)	; øº‘‹“
+    (arabic-1-column	. #x24)	; øº©
     (latin-viscii	. #x28)	; (
     (ucs		. #x0028)	; (
     ))
@@ -131,6 +134,7 @@
       ))
     (ascii		. #x29)	; øº¿¤
     (latin-jisx0201	. #x29)	; øº‘‹”
+    (arabic-1-column	. #x23)	; øº©œ
     (latin-viscii	. #x29)	; )
     (ucs		. #x0029)	; )
     ))
@@ -201,6 +205,7 @@
       ))
     (ascii		. #x2E)	; øº¿©
     (latin-jisx0201	. #x2E)	; øº‘‹™
+    (arabic-1-column	. #x26)	; øº©Ÿ
     (latin-viscii	. #x2E)	; .
     (ucs		. #x002E)	; .
     ))
@@ -399,6 +404,7 @@
       ))
     (ascii		. #x3A)	; øº¿µ
     (latin-jisx0201	. #x3A)	; øº‘‹¥
+    (arabic-1-column	. #x27)	; øº© 
     (latin-viscii	. #x3A)	; :
     (ucs		. #x003A)	; :
     ))

@@ -303,6 +303,7 @@
      ((name . "fullwidth left-pointing double angle quotation mark")
       (japanese-jisx0213-1	  . #x2928)	; ø»¢ž³
       ))
+    (arabic-1-column	. #x2A)	; øº©£
     (latin-iso8859-1	. #xAB)	; øº’´‹
     (greek-iso8859-7	. #xAB)	; øº’»«
     (hebrew-iso8859-8	. #xAB)	; øº’¾«
@@ -781,6 +782,7 @@
      ((name . "fullwidth right-pointing double angle quotation mark")
       (japanese-jisx0213-1	  . #x2932)	; ø»¢ž½
       ))
+    (arabic-1-column	. #x2B)	; øº©¤
     (latin-iso8859-1	. #xBB)	; øº’´›
     (greek-iso8859-7	. #xBB)	; øº’»»
     (hebrew-iso8859-8	. #xBB)	; øº’¾»
