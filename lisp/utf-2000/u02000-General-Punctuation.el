@@ -639,6 +639,11 @@
     (ucs		. #x2046)	; â†
     ))
 (define-char
+  '((name		. "DOUBLE QUESTION MARK")
+    (japanese-jisx0213-1	. #x286C)	; ø»¢ž™
+    (ucs			. #x2047)	; â‡
+    ))
+(define-char
   '((name		. "QUESTION EXCLAMATION MARK")
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "ON")
@@ -683,6 +688,11 @@
     (bidi-category	. "ON")
     (mirrored		. nil)
     (ucs		. #x204D)	; â
+    ))
+(define-char
+  '((name		. "TWO ASTERISKS ALIGNED VERTICALLY")
+    (japanese-jisx0213-1	. #x2C7D)	; ø»¢¤¢
+    (ucs			. #x2051)	; â‘
     ))
 (define-char
   '((name		. "INHIBIT SYMMETRIC SWAPPING")
