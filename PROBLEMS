@@ -119,6 +119,10 @@ libz.a in the X11 binary directory.
 ** AIX
 *** On AIX 4.3, you must specify --with-dialogs=athena with configure
 
+*** The libXt shipped with AIX 4.3 is broken.  This causes xemacs -nw
+    to fail in various ways.  The solution is to build against stock
+    X11R6.
+
 *** On AIX, you get this compiler error message:
 
     Processing include file ./XMenuInt.h
@@ -463,6 +467,61 @@ to take advantage of the keyboard map in emacskeys.sco.
 Note: Much of the above entry is probably not valid for XEmacs 21.0
 and later.
 
+** Cygwin
+*** In general use etc/check_cygwin_setup.sh to trap environment problems.
+
+The script etc/check_cygwin_setup.sh will attempt to detect whether
+you have a suitable environment for building. This script may not work
+correctly if you are using ash instead of bash (see below).
+
+*** X11 not detected.
+
+This is usually because xmkmf is not in your path or because you are
+using the default cygwin shell. The default cygwin shell (/bin/sh.exe)
+is ash which appears to work in most circumstances but has some wierd
+failure modes. I recommend replacing sh.exe with bash.exe, this will
+mean configure is slower but more reliable.
+
+*** Subprocesses do not work.
+
+You do not have "tty" in your CYGWIN32 (for b19) or CYGWIN (for b20)
+environment variable. This must be set in your autoexec.bat (win95) or
+the system properties (winnt) as it must be read before the cygwin dll
+initializes.
+
+*** ^G does not work on hung subprocesses.
+
+This is a known problem. It can be remedied with cygwin b20 or greater
+by defining BROKEN_SIGIO in src/s/cygwin32.h, however this currently
+leads to instability in XEmacs.
+
+*** The XEmacs executable crashes at startup.
+
+This can be caused by many things.  
+
+If you are running with X11 you need to have cygwin b19 or cygwin
+b20.1 or greater, cygwin b20 will not work.
+
+If you are running with cygwin b19 make sure you are using egcs 1.0.2
+rather than vanilla gcc. XEmacs builds by default with -O3 which does
+not work with the gcc that ships with b19. Alternatively use -O2.
+
+*** The info files will not build.
+
+makeinfo that ships with cygwin (all versions) is a noop. You need to
+obtain makeinfo from somewhere or build it yourself.
+
+*** I have no graphics.
+
+You need to obtain the various graphics libraries. Pre-built versions
+of these and the X libraries are located on the XEmacs website in
+ftp://ftp.xemacs.org/pub/aux/cygwin*.
+
+*** There are no images in the toolbar buttons.
+
+You need version 4.71 of commctrl.dll which does not ship with windows
+95. You can get this by installing IE 4.0 or downloading it from the
+microsoft website.
 
 
 * Problems with running XEmacs

@@ -74,16 +74,16 @@ The Sumo Tarball
 
 Those with little time, cheap connections and plenty of disk space can
 install all packages at once using the sumo tarballs.
-Download the files
+Download the file
 
-xemacs-sumo-<date>.tar.gz if you have a latin-1 XEmacs.
+xemacs-sumo-<date>.tar.gz 
 
-or
+For an XEmacs compiled with Mule you also need
 
-xemacs-mule-sumo-<date>.tar.gz if you have a MULE XEmacs.
+xemacs-mule-sumo-<date>.tar.gz
 
-N.B. There are called 'Sumo Tarballs' for good reason. They are
-currently 15MB and 23MB (gzipped) respectively.
+N.B. They are called 'Sumo Tarballs' for good reason. They are
+currently about 15MB and 2.3MB (gzipped) respectively.
 
 Install them by
 
@@ -120,7 +120,7 @@ XEmacs comes with some tools to make the periodic updating and
 installing easier. It will notice if new packages or versions are
 available and will fetch them from the ftp site.
 
-Unfortunately this requires that a few packages are alreadyin place. 
+Unfortunately this requires that a few packages are already in place. 
 You will have to install them by hand as above or use a SUMO tarball. 
 This requirement will hopefully go away in the future. The packages
 you need are:

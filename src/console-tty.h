@@ -293,5 +293,6 @@ Lisp_Object tty_semi_canonicalize_device_connection (Lisp_Object connection,
 						     Error_behavior errb);
 Lisp_Object tty_canonicalize_device_connection (Lisp_Object connection,
 						Error_behavior errb);
+struct console * tty_find_console_from_fd (int fd);
 
 #endif /* _XEMACS_CONSOLE_TTY_H_ */

@@ -1189,6 +1189,7 @@ and `\\[pop-tag-mark]'."
 
 ;;;###autoload (define-key esc-map "*" 'pop-tag-mark)
 
+;;;###autoload
 (defun pop-tag-mark (arg)
   "Go to last tag position.
 `find-tag' maintains a mark-stack seperate from the \\[set-mark-command] mark-stack.
@@ -1203,3 +1204,5 @@ This function pops (and moves to) the tag at the top of this stack."
 
 (provide 'etags)
 (provide 'tags)
+
+;;; etags.el ends here

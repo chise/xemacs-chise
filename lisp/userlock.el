@@ -154,6 +154,9 @@ to get the latest version of the file, then make the change again.")
 		 (throw 'aual-done t))
 		((and (misc-user-event-p event) (eq (event-object event) 'yield))
 		 (signal 'file-locked (list "File is locked" fn opponent)))
+		((and (misc-user-event-p event)
+		      (eq (event-object event) 'menu-no-selection-hook))
+		 (signal 'quit nil))
 		((button-release-event-p event) ;; don't beep twice
 		 nil)
 		(t
@@ -189,6 +192,9 @@ Do you really want to edit the buffer? " fn)
 		 (revert-buffer nil t)
 		 (signal 'file-supersession
 			 (list fn "(reverted)")))
+		((and (misc-user-event-p event)
+		      (eq (event-object event) 'menu-no-selection-hook))
+		 (signal 'quit nil))
 		((button-release-event-p event) ;; don't beep twice
 		 nil)
 		(t

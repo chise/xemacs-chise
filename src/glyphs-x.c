@@ -124,7 +124,7 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
   Colormap cmap;
   Visual *vis;
   XImage *outimg;
-  int depth, bitmap_pad, byte_cnt, i, j;
+  int depth, bitmap_pad, bits_per_pixel, byte_cnt, i, j;
   int rd,gr,bl,q;
   unsigned char *data, *ip, *dp;
   quant_table *qtable = 0;
@@ -149,12 +149,14 @@ convert_EImage_to_XImage (Lisp_Object device, int width, int height,
   bitmap_pad = ((depth > 16) ? 32 :
 		(depth >  8) ? 16 :
 		8);
-  byte_cnt = bitmap_pad >> 3;
 
   outimg = XCreateImage (dpy, vis,
 			 depth, ZPixmap, 0, 0, width, height,
 			 bitmap_pad, 0);
   if (!outimg) return NULL;
+
+  bits_per_pixel = outimg->bits_per_pixel;
+  byte_cnt = bits_per_pixel >> 3;
 
   data = (unsigned char *) xmalloc (outimg->bytes_per_line * height);
   if (!data)

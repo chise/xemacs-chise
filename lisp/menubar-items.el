@@ -176,8 +176,6 @@
        :active (fboundp 'gnus)]
       ["Browse the Web" w3
        :active (fboundp 'w3)]
-      ["Gopher" gopher
-       :active (fboundp 'gopher)]
       "----"
       ["Spell-Check Buffer" ispell-buffer
        :active (fboundp 'ispell-buffer)]

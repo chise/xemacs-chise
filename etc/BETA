@@ -224,6 +224,10 @@ Patches to XEmacs should be mailed to <xemacs-patches@xemacs.org>.
 Each patch will be reviewed by the patches review board, and will be
 acked and added to the distribution, or rejected with an explanation.
 
+Patches to XEmacs Lisp packages should be sent to the maintainer of
+the package.  If the maintainer is listed as `XEmacs Development Team'
+patches should be sent to <xemacs-patches@xemacs.org>.
+
 Emailed patches should preferably be sent in MIME format and quoted
 printable encoding (if necessary).
 

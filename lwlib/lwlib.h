@@ -1,7 +1,16 @@
 #ifndef LWLIB_H
 #define LWLIB_H
 
+#undef CONST
+
 #include <X11/Intrinsic.h>
+
+/* To eliminate use of `const' in the lwlib sources, define CONST_IS_LOSING. */
+#ifdef CONST_IS_LOSING
+# define CONST
+#else
+# define CONST const
+#endif
 
 #if defined (LWLIB_MENUBARS_LUCID) || defined (LWLIB_MENUBARS_MOTIF) || defined (LWLIB_MENUBARS_ATHENA)
 #define NEED_MENUBARS

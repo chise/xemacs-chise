@@ -94,8 +94,8 @@ emacs_tty_event_pending_p (int user_p)
 			     non_fake_input_wait_mask);
 }
 
-static struct console *
-find_console_from_fd (int fd)
+struct console *
+tty_find_console_from_fd (int fd)
 {
   Lisp_Object concons;
 
@@ -142,7 +142,7 @@ emacs_tty_next_event (struct Lisp_Event *emacs_event)
 		 user events ahead of process events. */
 	      if (FD_ISSET (i, &temp_mask) && FD_ISSET (i, &tty_only_mask))
 		{
-		  struct console *c = find_console_from_fd (i);
+		  struct console *c = tty_find_console_from_fd (i);
 
 		  assert (c);
 		  if (read_event_from_tty_or_stream_desc (emacs_event, c, i))

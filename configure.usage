@@ -204,6 +204,8 @@ Debugging options:
                         int, for the fundamental Lisp_Object type; this
                         provides stricter type-checking.  Only works with
                         some systems and compilers.
+--with-quantify         Add support for performance debugging using Quantify.
+--with-purify           Add support for memory debugging using Purify.
 
 
 Other options:
@@ -214,15 +216,13 @@ Other options:
 --with-dlmalloc         Control usage of Doug Lea malloc on systems that have
                         it in the standard C library (default is to use it if
                         it is available).
+--with-system-malloc    Force use of the system malloc, rather than GNU malloc.
+--with-debug-malloc     Use the debugging malloc package.
 --with-clash-detection  Use lock files to detect multiple edits of the same
                         file.  The default is to not do clash detection.
 --lockdir=DIR           The directory to put clash detection files in, such as
                         `/var/lock/emacs'.
                         Defaults to `${statedir}/xemacs/lock'.
---with-system-malloc    Force use of the system malloc, rather than GNU malloc.
---with-debug-malloc     Use the debugging malloc package.
---with-quantify         Add support for performance debugging using Quantify.
---with-purify           Add support for memory debugging using Purify.
 
 You may also specify any of the `path' variables found in Makefile.in,
 including --bindir, --libdir, --lispdir, --sitelispdir, --datadir,

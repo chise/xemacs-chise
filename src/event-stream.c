@@ -5374,8 +5374,7 @@ init_event_stream (void)
   if (initialized)
     {
 #ifdef HAVE_UNIXOID_EVENT_LOOP
-      /*      if (strcmp (display_use, "mswindows") != 0)*/
-	init_event_unixoid ();
+      init_event_unixoid ();
 #endif
 #ifdef HAVE_X_WINDOWS
       if (!strcmp (display_use, "x"))
@@ -5390,12 +5389,13 @@ init_event_stream (void)
 	  {
 	    /* For TTY's, use the Xt event loop if we can; it allows
 	       us to later open an X connection. */
-#if defined (HAVE_X_WINDOWS) && !defined (DEBUG_TTY_EVENT_STREAM)
+#if defined (HAVE_MS_WINDOWS) && defined (HAVE_MSG_SELECT) \
+	    && !defined (DEBUG_TTY_EVENT_STREAM)
+	    init_event_mswindows_late ();
+#elif defined (HAVE_X_WINDOWS) && !defined (DEBUG_TTY_EVENT_STREAM)
 	    init_event_Xt_late ();
 #elif defined (HAVE_TTY)
 	    init_event_tty_late ();
-#elif defined (HAVE_MS_WINDOWS)
-	    init_event_mswindows_late ();
 #endif
 	  }
       init_interrupts_late ();

@@ -177,7 +177,9 @@ or return a location appropriate for the package otherwise."
 	;; Ok we need to guess
 	(if mule-related
 	    (package-admin-get-install-dir 'mule-base nil nil)
-	  (car (last late-packages)))))))
+	  (if (eq package 'xemacs-base)
+	      (car (last late-packages))
+	    (package-admin-get-install-dir 'xemacs-base nil nil)))))))
 	  
 
 
