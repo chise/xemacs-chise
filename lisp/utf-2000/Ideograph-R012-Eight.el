@@ -916,7 +916,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
+     ((ucs		  . #x4491)	; ä’‘
       )
      ((chinese-big5-cdp	  . #x8CDE)	; ý¢€ˆ³ž
       ))
