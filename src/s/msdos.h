@@ -169,7 +169,7 @@ You lose; /* Emacs for DOS must be compiled with DJGPP */
 #define FLOAT_CHECK_DOMAIN
 
 /* When $TERM is "internal" then this is substituted:  */
-#define INTERNAL_TERMINAL "pc|bios|IBM PC with colour display:\
+#define INTERNAL_TERMINAL "pc|bios|IBM PC with color display:\
 :co#80:li#25:km:ms:cm=<CM>:cl=<CL>:ce=<CE>:"
 
 /* Define this to a function (Fdowncase, Fupcase) if your file system

@@ -76,7 +76,7 @@ before calling this function.  You can redefine this for customization.
 See also `auto-save-file-name-p'."
   (let ((name (original-make-auto-save-file-name))
 	(start 0))
-    ;; destructively replace occurences of * or ? with $
+    ;; destructively replace occurrences of * or ? with $
     (while (string-match "[?*]" name start)
       (aset name (match-beginning 0) ?$)
       (setq start (1+ (match-end 0))))
@@ -88,7 +88,7 @@ See also `auto-save-file-name-p'."
 
 (defun nt-quote-args-verbatim (args)
   "Copy ARG list verbatim, separating each arg with space."
-  (mapconcat 'identity args " "))
+  (mapconcat #'identity args " "))
 
 (defun nt-quote-args-prefix-quote (prefix args)
   (mapconcat (lambda (str)

@@ -221,12 +221,12 @@ define pobj
   else
   if $type == dbg_Lisp_Type_Symbol || $imp == lrecord_symbol
     pstruct Lisp_Symbol
-    printf "Symbol name: %s\n", $xstruct->name->_data
+    printf "Symbol name: %s\n", $xstruct->name->data
   else
   if $type == dbg_Lisp_Type_Vector || $imp == lrecord_vector
     pstruct Lisp_Vector
     printf "Vector of length %d\n", $xstruct->size
-    #print *($xstruct->_data) @ $xstruct->size
+    #print *($xstruct->data) @ $xstruct->size
   else
   if $imp == lrecord_bit_vector
     pstruct Lisp_Bit_Vector
@@ -259,7 +259,7 @@ define pobj
     pstruct console
   else
   if $imp == lrecord_database
-    pstruct database
+    pstruct Lisp_Database
   else
   if $imp == lrecord_device
     pstruct device
@@ -291,14 +291,14 @@ define pobj
   if $imp == lrecord_glyph
     pstruct Lisp_Glyph
   else
-  if $imp == lrecord_hashtable
-    pstruct hashtable
+  if $imp == lrecord_hash_table
+    pstruct Lisp_Hash_Table
   else
   if $imp == lrecord_image_instance
     pstruct Lisp_Image_Instance
   else
   if $imp == lrecord_keymap
-    pstruct keymap
+    pstruct Lisp_Keymap
   else
   if $imp == lrecord_lcrecord_list
     pstruct lcrecord_list
@@ -378,6 +378,7 @@ define pobj
   end
   end
   end
+  # Repeat after me... gdb sux, gdb sux, gdb sux...
   end
   end
   end
@@ -396,6 +397,7 @@ define pobj
   end
   end
   end
+  # Are we having fun yet??
   end
   end
   end

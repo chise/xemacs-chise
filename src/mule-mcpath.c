@@ -217,7 +217,7 @@ mc_getcwd (unsigned char *null, size_t size)
   path = (unsigned char *) getcwd ((char *)buffer, MAXPATHLEN);
   if (path)
     {
-      /* here, shoule be (path == buffer). */
+      /* here, should be (path == buffer). */
       path = (unsigned char *) xmalloc (MC_MAXPATHLEN);	/* MSDOS */
       if (path)
 	{

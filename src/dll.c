@@ -43,7 +43,6 @@ Boston, MA 02111-1307, USA.  */
 #include "lisp.h"
 #include "buffer.h"
 #include "sysdll.h"
-#include <errno.h>
 
 DEFUN ("dll-open", Fdll_open, 1, 1, "FShared object: ", /*
 Load LIBRARY as a shared object file.

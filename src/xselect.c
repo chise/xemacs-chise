@@ -688,7 +688,6 @@ x_handle_selection_request (XSelectionRequestEvent *event)
 {
   /* This function can GC */
   struct gcpro gcpro1, gcpro2, gcpro3;
-  XSelectionEvent reply;
   Lisp_Object local_selection_data = Qnil;
   Lisp_Object selection_symbol;
   Lisp_Object target_symbol = Qnil;
@@ -700,37 +699,24 @@ x_handle_selection_request (XSelectionRequestEvent *event)
 
   GCPRO3 (local_selection_data, converted_selection, target_symbol);
 
-  reply.type      = SelectionNotify;		/* Construct the reply event */
-  reply.display   = event->display;
-  reply.requestor = event->requestor;
-  reply.selection = event->selection;
-  reply.time      = event->time;
-  reply.target    = event->target;
-  reply.property  = (event->property == None ? event->target : event->property);
-
   selection_symbol = x_atom_to_symbol (d, event->selection);
 
   local_selection_data = assq_no_quit (selection_symbol, Vselection_alist);
 
 #if 0
-# define CDR(x) (XCDR (x))
-# define CAR(x) (XCAR (x))
   /* This list isn't user-visible, so it can't "go bad." */
-  if (!CONSP (local_selection_data)) abort ();
-  if (!CONSP (CDR (local_selection_data))) abort ();
-  if (!CONSP (CDR (CDR (local_selection_data)))) abort ();
-  if (!NILP (CDR (CDR (CDR (local_selection_data))))) abort ();
-  if (!CONSP (CAR (CDR (CDR (local_selection_data))))) abort ();
-  if (!INTP (CAR (CAR (CDR (CDR (local_selection_data)))))) abort ();
-  if (!INTP (CDR (CAR (CDR (CDR (local_selection_data)))))) abort ();
-# undef CAR
-# undef CDR
+  assert (CONSP (local_selection_data));
+  assert (CONSP (XCDR (local_selection_data)));
+  assert (CONSP (XCDR (XCDR (local_selection_data))));
+  assert (NILP  (XCDR (XCDR (XCDR (local_selection_data)))));
+  assert (CONSP (XCAR (XCDR (XCDR (local_selection_data)))));
+  assert (INTP  (XCAR (XCAR (XCDR (XCDR (local_selection_data))))));
+  assert (INTP  (XCDR (XCAR (XCDR (XCDR (local_selection_data))))));
 #endif
 
   if (NILP (local_selection_data))
     {
-      /* Someone asked for the selection, but we don't have it any more.
-       */
+      /* Someone asked for the selection, but we don't have it any more. */
       x_decline_selection_request (event);
       goto DONE_LABEL;
     }
@@ -742,8 +728,7 @@ x_handle_selection_request (XSelectionRequestEvent *event)
       local_selection_time > event->time)
     {
       /* Someone asked for the selection, and we have one, but not the one
-	 they're looking for.
-       */
+	 they're looking for. */
       x_decline_selection_request (event);
       goto DONE_LABEL;
     }
@@ -1152,7 +1137,7 @@ x_get_window_property (Display *display, Window window, Atom property,
   total_size = bytes_remaining + 1;
   *data_ret = (unsigned char *) xmalloc (total_size);
 
-  /* Now read, until weve gotten it all. */
+  /* Now read, until we've gotten it all. */
   while (bytes_remaining)
     {
 #if 0
@@ -1215,7 +1200,7 @@ receive_incremental_selection (Display *display, Window window, Atom property,
       int tmp_size_bytes;
       wait_for_property_change (prop_id);
       /* expect it again immediately, because x_get_window_property may
-	 .. no it wont, I dont get it.
+	 .. no it won't, I don't get it.
 	 .. Ok, I get it now, the Xt code that implements INCR is broken.
        */
       prop_id = expect_property_change (display, window, property,

@@ -23,7 +23,7 @@
 # You can use this file to debug XEmacs using Sun WorkShop's dbx.
 # Add the contents of this file to $HOME/.dbxrc or
 # Source the contents of this file with something like:
-# test -r ./dbxrc && . ./dbxrc
+# if test -r ./dbxrc; then . ./dbxrc; fi
 
 # Some functions defined here require a running process, but most
 # don't.  Considerable effort has been expended to this end.
@@ -76,9 +76,17 @@ end
 
 # Various dbx bugs cause ugliness in following code
 function decode_object {
-  test -z "$xemacs_initted" && XEmacsInit
-  obj=$[*(void**)(&$1)]
-  test "$obj" = "(nil)" && obj="0x0"
+  if test -z "$xemacs_initted"; then XEmacsInit; fi;
+  if test $dbg_USE_UNION_TYPE = 1; then
+    # Repeat after me... dbx sux, dbx sux, dbx sux...
+    # Allow both `pobj Qnil' and `pobj 0x82746834' to work
+    case $(whatis $1) in
+      *Lisp_Object*) obj="$[(unsigned long)(($1).i)]";;
+      *) obj="$[(unsigned long)($1)]";;
+    esac
+  else
+    obj="$[(unsigned long)($1)]";
+  fi
   if test $dbg_USE_MINIMAL_TAGBITS = 1; then
     if test $[(int)($obj & 1)] = 1; then
       # It's an int
@@ -91,13 +99,22 @@ function decode_object {
       else
         # It's a record pointer
         val=$[(void*)$obj]
+        if test "$val" = "(nil)"; then type=null_pointer; fi
       fi
     fi
   else
     # not dbg_USE_MINIMAL_TAGBITS
-    val=$[(void*)($obj & $dbg_valmask)]
-    test "$val" = "(nil)" && val="0x0"
     type=$[(int)(((unsigned long long)($obj & $dbg_typemask)) >> ($dbg_valbits + 1))]
+    if test "$[$type == Lisp_Type_Int]" = 1; then
+      val=$[(int)($obj & $dbg_valmask)]
+    elif test "$[$type == Lisp_Type_Char]" = 1; then
+      val=$[(int)($obj & $dbg_valmask)]
+    else
+      val=$[(void*)($obj & $dbg_valmask)]
+      if test "$val" = "(nil)"; then type=null_pointer; fi
+    fi
+    #val=$[(void*)($obj & $dbg_valmask)]
+    #printvar val type obj
   fi
 
   if test $type = $dbg_Lisp_Type_Record; then
@@ -126,6 +143,7 @@ function xtype {
   elif test $type = $dbg_Lisp_Type_String; then echo "string"
   elif test $type = $dbg_Lisp_Type_Vector; then echo "vector"
   elif test $type = $dbg_Lisp_Type_Cons;   then echo "cons"
+  elif test $type = null_pointer;          then echo "$type"
   else
     echo "record type with name: $[((struct lrecord_implementation *)$imp)->name]"
   fi
@@ -227,7 +245,7 @@ function pobj {
   elif lrecord_type_p console; then
     pstruct console
   elif lrecord_type_p database; then
-    pstruct database
+    pstruct Lisp_Database
   elif lrecord_type_p device; then
     pstruct device
   elif lrecord_type_p event; then
@@ -248,12 +266,12 @@ function pobj {
     pstruct frame
   elif lrecord_type_p glyph; then
     pstruct Lisp_Glyph
-  elif lrecord_type_p hashtable; then
-    pstruct hashtable
+  elif lrecord_type_p hash_table; then
+    pstruct Lisp_Hash_Table
   elif lrecord_type_p image_instance; then
     pstruct Lisp_Image_Instance
   elif lrecord_type_p keymap; then
-    pstruct keymap
+    pstruct Lisp_Keymap
   elif lrecord_type_p lcrecord_list; then
     pstruct lcrecord_list
   elif lrecord_type_p lstream; then
@@ -294,6 +312,8 @@ function pobj {
     pstruct window
   elif lrecord_type_p window_configuration; then
     pstruct window_config
+  elif test "$type" = "null_pointer"; then
+    echo "Lisp Object is a null pointer!!"
   else
     echo "Unknown Lisp Object type"
     print $1
@@ -307,6 +327,7 @@ function pproc {
 }
 
 dbxenv suppress_startup_message 4.0
+dbxenv mt_watchpoints on
 
 function dp_core {
   print ((struct x_frame *)(((struct frame*)(Fselected_frame(Qnil)&0x00FFFFFF))->frame_data))->widget->core

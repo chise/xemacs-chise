@@ -163,7 +163,10 @@ Boston, MA 02111-1307, USA.  */
 
 #endif /* !RAW_PURESIZE */
 
-size_t get_PURESIZE (void);
+# include <puresize-adjust.h>
+#define PURESIZE ((RAW_PURESIZE) + (PURESIZE_ADJUSTMENT))
+#define get_PURESIZE() PURESIZE
+
 extern EMACS_INT pure[];
 
 #endif /* PURESIZE_H */
