@@ -1,3 +1,8 @@
+1999-06-28  TAKAHASHI Naoto  <ntakahas@etl.go.jp>
+
+	* mule/thai-xtis.el: ccl-decode-thai-xtis and subroutines
+	rewritten to use write-multibyte-character.
+
 1999-06-28  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	mule/mule-cmds.el (view-hello-file): Use `iso-2022-7bit' instead
