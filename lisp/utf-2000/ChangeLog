@@ -1,3 +1,19 @@
+2001-05-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R118-Bamboo.el: Add some missing mappings between
+	C*-**** and M-*****.
+	(C7-3079): Don't relate to M-49249.
+	(C7-3077): Fix `morohashi-daikanwa' property; relate to M-49430.
+	(C7-3A2A): Fix `morohashi-daikanwa' property.
+	(C7-3A2D): Fix `morohashi-daikanwa' property.
+
+2001-05-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R173-Rain.el: Add some missing mappings between
+	M-***** and C*-*****.
+	(M-*****): Separate C*-****.
+	(C5-745B): Delete `morohashi-daikanwa' property.
+
 2001-05-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R167-Gold.el (M-40733): Fix strokes; separate C2-6761.
