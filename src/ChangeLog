@@ -1,5 +1,11 @@
 1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
 
+	* mule-charset.c, char-ucs.h (latin_a_char_to_charset): Deleted.
+	(latin_a_char_to_byte1): Deleted.
+	(latin_a_char_to_byte2): Deleted.
+
+1999-09-13  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
 	* mule-charset.c (make_charset): Add new argument `ucs_min',
 	`ucs_max' and `code_offset'.
 	(charset_get_byte1): New implementation [delete specific charset
