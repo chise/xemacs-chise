@@ -1461,9 +1461,9 @@ the output also will be logged to this file.
       if (DEVICE_TTY_P (XDEVICE (device)))
 	file = 0;
       else if (!NILP (stdout_p))
-	file = CONSOLE_STREAM_DATA (con)->out;
+	file = CONSOLE_STREAM_DATA (con)->outfd;
       else
-	file = CONSOLE_STREAM_DATA (con)->err;
+	file = CONSOLE_STREAM_DATA (con)->errfd;
     }
 
   if (STRINGP (char_or_string))

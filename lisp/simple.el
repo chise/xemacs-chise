@@ -433,7 +433,7 @@ and KILLP is t if a prefix arg was specified."
   (and overwrite-mode (not (eolp))
        (save-excursion (insert-char ?\  arg))))
 
-(defcustom delete-key-deletes-forward nil
+(defcustom delete-key-deletes-forward t
   "*If non-nil, the DEL key will erase one character forwards.
 If nil, the DEL key will erase one character backwards."
   :type 'boolean

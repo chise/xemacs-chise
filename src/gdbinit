@@ -53,10 +53,10 @@ define decode_object
     if $obj & 1
     # It's an int
       set $val = $obj >> 1
-      set $type = Lisp_Type_Int
+      set $type = dbg_Lisp_Type_Int
     else
       set $type = $obj & dbg_typemask
-      if $type == Lisp_Type_Char
+      if $type == dbg_Lisp_Type_Char
         set $val = ($obj & dbg_valmask) >> dbg_gctypebits
       else
         # It's a record pointer
@@ -69,7 +69,7 @@ define decode_object
     set $type = ($obj & dbg_typemask) >> (dbg_valbits + 1)
   end
 
-  if $type == Lisp_Type_Record
+  if $type == dbg_Lisp_Type_Record
     set $lheader = (struct lrecord_header *) $val
     if dbg_USE_INDEXED_LRECORD_IMPLEMENTATION
       set $imp = lrecord_implementations_table[$lheader->type]
@@ -94,22 +94,22 @@ end
 
 define xtype
   decode_object $arg0
-  if $type == Lisp_Type_Int
+  if $type == dbg_Lisp_Type_Int
     echo int\n
   else
-  if $type == Lisp_Type_Char
+  if $type == dbg_Lisp_Type_Char
     echo char\n
   else
-  if $type == Lisp_Type_Symbol
+  if $type == dbg_Lisp_Type_Symbol
     echo symbol\n
   else
-  if $type == Lisp_Type_String
+  if $type == dbg_Lisp_Type_String
     echo string\n
   else
-  if $type == Lisp_Type_Vector
+  if $type == dbg_Lisp_Type_Vector
     echo vector\n
   else
-  if $type == Lisp_Type_Cons
+  if $type == dbg_Lisp_Type_Cons
     echo cons\n
   else
     printf "record type: %s\n", $imp->name
@@ -133,8 +133,8 @@ end
 
 define environment-to-run-temacs
   unset env EMACSLOADPATH
-  set env EMACSBOOTSTRAPLOADPATH=../lisp/:..
-  set env EMACSBOOTSTRAPMODULEPATH=../modules/:..
+  set env EMACSBOOTSTRAPLOADPATH   = ../lisp/:..
+  set env EMACSBOOTSTRAPMODULEPATH = ../lisp/
 end
 
 define run-temacs
@@ -197,22 +197,6 @@ Print the current Lisp stack trace.
 Requires a running xemacs process.
 end
 
-
-define leval
-ldp Feval(Fcar(Fread_from_string(build_string($arg0),Qnil,Qnil)))
-end
-
-document leval
-Usage: leval "SEXP"
-Eval a lisp expression.
-Requires a running xemacs process.
-
-Example:
-(gdb) leval "(+ 1 2)"
-Lisp ==> 3
-end
-
-
 define wtype
 print $arg0->core.widget_class->core_class.class_name
 end
@@ -231,27 +215,27 @@ end
 
 define pobj
   decode_object $arg0
-  if $type == Lisp_Type_Int
+  if $type == dbg_Lisp_Type_Int
     printf "Integer: %d\n", $val
   else
-  if $type == Lisp_Type_Char
-    if $val > 32 && $val < 128
+  if $type == dbg_Lisp_Type_Char
+    if $val < 128
       printf "Char: %c\n", $val
     else
       printf "Char: %d\n", $val
     end
   else
-  if $type == Lisp_Type_String || $imp == lrecord_string
+  if $type == dbg_Lisp_Type_String || $imp == lrecord_string
     pstruct Lisp_String
   else
-  if $type == Lisp_Type_Cons   || $imp == lrecord_cons
+  if $type == dbg_Lisp_Type_Cons   || $imp == lrecord_cons
     pstruct Lisp_Cons
   else
-  if $type == Lisp_Type_Symbol || $imp == lrecord_symbol
+  if $type == dbg_Lisp_Type_Symbol || $imp == lrecord_symbol
     pstruct Lisp_Symbol
     printf "Symbol name: %s\n", $xstruct->name->data
   else
-  if $type == Lisp_Type_Vector || $imp == lrecord_vector
+  if $type == dbg_Lisp_Type_Vector || $imp == lrecord_vector
     pstruct Lisp_Vector
     printf "Vector of length %d\n", $xstruct->size
     #print *($xstruct->data) @ $xstruct->size
@@ -449,42 +433,3 @@ document pobj
 Usage: pobj lisp_object
 Print the internal C structure of a underlying Lisp Object.
 end
-
-# -------------------------------------------------------------
-# functions to test the debugging support itself.
-# If you change this file, make sure the following still work...
-# -------------------------------------------------------------
-define test_xtype
-  printf "Vemacs_major_version: "
-  xtype Vemacs_major_version
-  printf "Vhelp_char: "
-  xtype Vhelp_char
-  printf "Qnil: "
-  xtype Qnil
-  printf "Qunbound: "
-  xtype Qunbound
-  printf "Vobarray: "
-  xtype Vobarray
-  printf "Vall_weak_lists: "
-  xtype Vall_weak_lists
-  printf "Vxemacs_codename: "
-  xtype Vxemacs_codename
-end
-
-define test_pobj
-  printf "Vemacs_major_version: "
-  pobj Vemacs_major_version
-  printf "Vhelp_char: "
-  pobj Vhelp_char
-  printf "Qnil: "
-  pobj Qnil
-  printf "Qunbound: "
-  pobj Qunbound
-  printf "Vobarray: "
-  pobj Vobarray
-  printf "Vall_weak_lists: "
-  pobj Vall_weak_lists
-  printf "Vxemacs_codename: "
-  pobj Vxemacs_codename
-end
-

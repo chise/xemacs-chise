@@ -418,8 +418,7 @@ void *(*__realloc_hook)(void *, size_t) = check_realloc;
 /* Note: There is no more input blocking in XEmacs */
 typedef enum {
   block_type, unblock_type, totally_type,
-  gcpro1_type, gcpro2_type, gcpro3_type, gcpro4_type, gcpro5_type,
-  ungcpro_type
+  gcpro1_type, gcpro2_type, gcpro3_type, gcpro4_type, ungcpro_type
 } blocktype;
 
 struct block_input_history_struct
@@ -432,7 +431,7 @@ struct block_input_history_struct
 
 typedef struct block_input_history_struct block_input_history;
 
-#endif /* DEBUG_INPUT_BLOCKING || DEBUG_GCPRO */
+#endif
 
 #ifdef DEBUG_INPUT_BLOCKING
 
@@ -470,7 +469,7 @@ note_block (char *file, int line, blocktype type)
     blhistptr = 0;
 }
 
-#endif /* DEBUG_INPUT_BLOCKING */
+#endif
 
 
 #ifdef DEBUG_GCPRO
@@ -482,6 +481,8 @@ block_input_history gcprohist[GCPROHISTLIMIT];
 static void
 log_gcpro (char *file, int line, struct gcpro *value, blocktype type)
 {
+  FRAME start_frame;
+
   if (type == ungcpro_type)
     {
       if (value == gcprolist) goto OK;
@@ -568,9 +569,6 @@ debug_ungcpro (char *file, int line, struct gcpro *gcpro1)
   gcprolist = gcpro1->next;
 }
 
-
-/* To be called from the debugger */
-void show_gcprohist (void);
 void
 show_gcprohist (void)
 {
@@ -593,4 +591,4 @@ show_gcprohist (void)
   fflush (stdout);
 }
 
-#endif /* DEBUG_GCPRO */
+#endif

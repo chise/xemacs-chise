@@ -58,7 +58,6 @@ RECURSIVE_MAKE=@RECURSIVE_MAKE@
 
 SHELL = /bin/sh
 LANG = C
-LC_ALL = C
 RM = rm -f
 pwd = /bin/pwd
 

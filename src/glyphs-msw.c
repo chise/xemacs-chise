@@ -686,7 +686,6 @@ extract_xpm_color_names (Lisp_Object device,
 	COLOR_INSTANCE_MSWINDOWS_COLOR (XCOLOR_INSTANCE (XCDR (cons)));
 
       GET_C_STRING_OS_DATA_ALLOCA (XCAR (cons), colortbl[j].name);
-      colortbl[j].name = xstrdup (colortbl[j].name); /* mustn't lose this when we return */
       free_cons (XCONS (cons));
       cons = results;
       results = XCDR (results);
@@ -885,13 +884,7 @@ mswindows_xpm_instantiate (Lisp_Object image_instance,
     }
   
   if (color_symbols)
-    {
-      while (nsymbols--)
-	{
-	  xfree (color_symbols[nsymbols].name);
-	}
-      xfree(color_symbols);
-    }
+    xfree(color_symbols);
   
   /* build a bitmap from the eimage */
   if (!(bmp_info=convert_EImage_to_DIBitmap (device, width, height, eimage,

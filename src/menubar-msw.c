@@ -143,7 +143,7 @@ displayable_menu_item (struct gui_item* pgui_item, int bar_p)
       if (ll+2 >= MAX_MENUITEM_LENGTH)
 	signal_simple_error ("Menu item produces too long displayable string",
 			     pgui_item->name);
-      memmove (ptr+1, ptr, (ll-(ptr-buf))+1);
+      memmove (ptr+1, ptr, ll-(ptr-buf));
       ll++;
       ptr+=2;
     }

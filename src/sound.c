@@ -69,7 +69,7 @@ DEFUN ("play-sound-file", Fplay_sound_file, 1, 3, "fSound file name: ", /*
 Play the named sound file on DEVICE's speaker at the specified volume
 \(0-100, default specified by the `bell-volume' variable).
 On Unix machines the sound file must be in the Sun/NeXT U-LAW format
-except under Linux where WAV files are also supported.  On Microsoft
+except under Linux where WAV files are also supported.  On Microsoft 
 Windows the sound file must be in WAV format.
   DEVICE defaults to the selected device.
 */
@@ -326,12 +326,14 @@ Return t if DEVICE is able to play sound.  Defaults to selected device.
 */
        (device))
 {
+  struct device *d = decode_device(device);
+
 #ifdef HAVE_NAS_SOUND
-  if (DEVICE_CONNECTED_TO_NAS_P (decode_device (device)))
+  if (DEVICE_CONNECTED_TO_NAS_P (d))
     return Qt;
 #endif
 #ifdef HAVE_NATIVE_SOUND
-  if (DEVICE_ON_CONSOLE_P (decode_device (device)))
+  if (DEVICE_ON_CONSOLE_P (d))
     return Qt;
 #endif
   return Qnil;

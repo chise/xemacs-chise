@@ -173,7 +173,7 @@ Batch usage: xemacs -batch -l cus-dep.el -f Custom-make-dependencies DIRS"
 			   (if found
 			       (insert " ")
 			     (insert "(custom-add-loads '"
-				     (prin1-to-string sym) " '("))
+				     (symbol-name sym) " '("))
 			   (prin1 where (current-buffer))
 			   (push where found)))
 		       (when found

@@ -46,33 +46,41 @@ Lisp_Object Vterminal_frame;
 Lisp_Object Vstdio_str;
 
 static void
+allocate_stream_console_struct (struct console *con)
+{
+  if (!CONSOLE_STREAM_DATA (con))
+    CONSOLE_STREAM_DATA (con) = xnew_and_zero (struct stream_console);
+  else
+    xzero (*CONSOLE_STREAM_DATA (con));
+}
+
+static void
 stream_init_console (struct console *con, Lisp_Object params)
 {
   Lisp_Object tty = CONSOLE_CONNECTION (con);
-  struct stream_console *stream_con;
-
-  if (CONSOLE_STREAM_DATA (con) == NULL)
-    CONSOLE_STREAM_DATA (con) = xnew (struct stream_console);
-
-  stream_con = CONSOLE_STREAM_DATA (con);
-
-  stream_con->needs_newline = 0;
+  FILE *infd, *outfd, *errfd;
 
   /* Open the specified console */
+
   if (NILP (tty) || internal_equal (tty, Vstdio_str, 0))
     {
-      stream_con->in  = stdin;
-      stream_con->out = stdout;
-      stream_con->err = stderr;
+      infd  = stdin;
+      outfd = stdout;
+      errfd = stderr;
     }
   else
     {
       CHECK_STRING (tty);
-      stream_con->in = stream_con->out = stream_con->err =
+      infd = outfd = errfd =
 	fopen ((char *) XSTRING_DATA (tty), "r+");
-      if (!stream_con->in)
+      if (!infd)
 	error ("Unable to open tty %s", XSTRING_DATA (tty));
     }
+
+  allocate_stream_console_struct (con);
+  CONSOLE_STREAM_DATA (con)->infd  = infd;
+  CONSOLE_STREAM_DATA (con)->outfd = outfd;
+  CONSOLE_STREAM_DATA (con)->errfd = errfd;
 }
 
 static void
@@ -80,8 +88,8 @@ stream_init_device (struct device *d, Lisp_Object params)
 {
   struct console *con = XCONSOLE (DEVICE_CONSOLE (d));
 
-  DEVICE_INFD  (d) = fileno (CONSOLE_STREAM_DATA (con)->in);
-  DEVICE_OUTFD (d) = fileno (CONSOLE_STREAM_DATA (con)->out);
+  DEVICE_INFD  (d) = fileno (CONSOLE_STREAM_DATA (con)->infd);
+  DEVICE_OUTFD (d) = fileno (CONSOLE_STREAM_DATA (con)->outfd);
   init_baud_rate (d);
   init_one_device (d);
 }
@@ -92,26 +100,30 @@ stream_initially_selected_for_input (struct console *con)
   return noninteractive && initialized;
 }
 
+static void
+free_stream_console_struct (struct console *con)
+{
+  if (CONSOLE_STREAM_DATA (con))
+    {
+      xfree (CONSOLE_STREAM_DATA (con));
+      CONSOLE_STREAM_DATA (con) = NULL;
+    }
+}
+
 extern int stdout_needs_newline;
 
 static void
 stream_delete_console (struct console *con)
 {
-  struct stream_console *stream_con = CONSOLE_STREAM_DATA (con);
-  if (stream_con)
+  if (/* CONSOLE_STREAM_DATA (con)->needs_newline */
+      stdout_needs_newline) /* #### clean this up */
     {
-      if (/* stream_con->needs_newline */
-	  stdout_needs_newline) /* #### clean this up */
-	{
-	  fputc ('\n', stream_con->out);
-	  fflush (stream_con->out);
-	}
-      if (stream_con->in != stdin)
-	fclose (stream_con->in);
-
-      xfree (stream_con);
-      CONSOLE_STREAM_DATA (con) = NULL;
+      fputc ('\n', CONSOLE_STREAM_DATA (con)->outfd);
+      fflush (CONSOLE_STREAM_DATA (con)->outfd);
     }
+  if (CONSOLE_STREAM_DATA (con)->infd != stdin)
+    fclose (CONSOLE_STREAM_DATA (con)->infd);
+  free_stream_console_struct (con);
 }
 
 Lisp_Object
@@ -231,7 +243,7 @@ stream_clear_to_window_end (struct window *w, int ypos1, int ypos2)
 static void
 stream_clear_region (Lisp_Object window, struct device* d, struct frame * f,
 		  face_index findex, int x, int y,
-		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor,
+		  int width, int height, Lisp_Object fcolor, Lisp_Object bcolor, 
 		  Lisp_Object background_pixmap)
 {
 }
@@ -251,8 +263,8 @@ static void
 stream_ring_bell (struct device *d, int volume, int pitch, int duration)
 {
   struct console *c = XCONSOLE (DEVICE_CONSOLE (d));
-  fputc (07, CONSOLE_STREAM_DATA (c)->out);
-  fflush (CONSOLE_STREAM_DATA (c)->out);
+  fputc (07, CONSOLE_STREAM_DATA (c)->outfd);
+  fflush (CONSOLE_STREAM_DATA (c)->outfd);
 }
 
 

@@ -127,23 +127,23 @@ struct image_instantiator_methods
 
 /***** Calling an image-instantiator method *****/
 
-#define HAS_IIFORMAT_METH_P(mstruc, m) (((mstruc)->m##_method) != 0)
+#define HAS_IIFORMAT_METH_P(mstruc, m) ((mstruc)->m##_method)
 #define IIFORMAT_METH(mstruc, m, args) (((mstruc)->m##_method) args)
 
 /* Call a void-returning specifier method, if it exists */
-#define MAYBE_IIFORMAT_METH(mstruc, m, args)			\
-do {								\
-  struct image_instantiator_methods *MIM_mstruc = (mstruc);	\
-  if (MIM_mstruc && HAS_IIFORMAT_METH_P (MIM_mstruc, m))	\
-    IIFORMAT_METH (MIM_mstruc, m, args);			\
+#define MAYBE_IIFORMAT_METH(mstruc, m, args)				     \
+if (mstruc)							\
+do {									     \
+  struct image_instantiator_methods *maybe_iiformat_meth_mstruc = (mstruc); \
+  if (HAS_IIFORMAT_METH_P (maybe_iiformat_meth_mstruc, m))		     \
+    IIFORMAT_METH (maybe_iiformat_meth_mstruc, m, args);		     \
 } while (0)
 
-#define MAYBE_IIFORMAT_DEVMETH(device, mstruc, m, args)	\
-do {							\
-  struct image_instantiator_methods *MID_mstruc =	\
-    decode_ii_device (device, mstruc);			\
-  if (MID_mstruc)					\
-    MAYBE_IIFORMAT_METH(MID_mstruc, m, args);		\
+#define MAYBE_IIFORMAT_DEVMETH(device, mstruc, m, args)				\
+do {											\
+  struct image_instantiator_methods *_mstruc = decode_ii_device (device, mstruc);	\
+  if (_mstruc)										\
+    MAYBE_IIFORMAT_METH(_mstruc, m, args);						\
 } while (0)
 
 

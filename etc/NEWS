@@ -255,13 +255,6 @@ commands attached to them.  To use it, add the following to `.emacs':
 It has been greatly enhanced with respect to the one once included
 with the ilisp package and should work well under XEmacs 21.0.
 
-** Gnuserv changes
-
-*** Like the old 'gnudoit' program. Gnuclient -batch now can read from stdin.
-
-*** Again like the old 'gnudoit' program, gnuclient now can return multiple
-lines.
-
 ** C mode changes
 
 *** Multiline macros are now handled, both as they affect indentation,

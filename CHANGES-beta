@@ -1,16 +1,8 @@
 							-*- indented-text -*-
-to 21.2.13 "Demeter"
--- Build fixes from Martin Buchholz
--- experimental splash screen rewrite from Didier Verna
--- Various patches from Jan Vroonhof and Andy Piper
--- alist.el synched up with APEL 9.13 from MORIOKA Tomohiko
--- MS Window build fixes from Jonathan Harris
--- UCS-4/UTF-8 support from MORIOKA Tomohiko
-
 to 21.2.12 "Clio"
 -- event-stream unification for MS Windows from Andy Piper
 -- Determine best visual to use to avoid flashing from IENAGA Kazuyuki
--- Fix for new Berkeley DB library from Paul Keusemann/Gregory Neil Shapiro
+-- Fix for new Berkeley DB library from Paul Keusemann/Gregory Neal Shapiro
 -- Various package-ui fixes from Jan Vroonhof
 -- Fix for doubled font-locking during buffer reversion
 -- KFM browsing support from Neal Becker

@@ -237,16 +237,10 @@
                   (package-get-download-menu)))
        ["Update Package Index" package-get-update-base]
        ["List & Install" pui-list-packages]
-       ["Update Installed Packages" package-get-update-all]
-       ;; hack-o-matic, we can't force a laod of package-base here
-       ;; since it triggers dialog box interactions which we can't
-       ;; deal while using a menu
-       ("Using Custom" 
-	:filter (lambda (&rest junk)
-		  (if package-get-base
-		      (cdr (custom-menu-create 'packages))
-		    '(["Please load Package Index" (lamda (&rest junk) ()) nil]))))
-       
+       ("Using Custom"
+	("Select" :filter (lambda (&rest junk)
+			  (cdr (custom-menu-create 'packages))))
+	["Update" package-get-custom])
        ["Help" (Info-goto-node "(xemacs)Packages")])
 
       "---"
@@ -1497,18 +1491,10 @@ The menu is computed by combining `global-popup-menu' and `mode-popup-menu'."
 (defun xemacs-splash-buffer ()
   "Redisplay XEmacs splash screen in a buffer."
   (interactive)
-  (let ((buffer (get-buffer-create "*Splash*"))
-	tmout)
+  (let ((buffer (get-buffer-create "*Splash*")))
     (set-buffer buffer)
-    (setq buffer-read-only t)
     (erase-buffer buffer)
-    (setq tmout (display-splash-frame))
-    (when tmout
-      (make-local-hook 'kill-buffer-hook)
-      (add-hook 'kill-buffer-hook
-		`(lambda ()
-		   (disable-timeout ,tmout))
-		nil t))
+    (startup-splash-frame)
     (pop-to-buffer buffer)
     (delete-other-windows)))
 

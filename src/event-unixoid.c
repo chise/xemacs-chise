@@ -147,7 +147,7 @@ event_stream_unixoid_select_console (struct console *con)
   int infd;
 
   if (CONSOLE_STREAM_P (con))
-    infd = fileno (CONSOLE_STREAM_DATA (con)->in);
+    infd = fileno (CONSOLE_STREAM_DATA (con)->infd);
   else
     {
       assert (CONSOLE_TTY_P (con));
@@ -168,7 +168,7 @@ event_stream_unixoid_unselect_console (struct console *con)
   int infd;
 
   if (CONSOLE_STREAM_P (con))
-    infd = fileno (CONSOLE_STREAM_DATA (con)->in);
+    infd = fileno (CONSOLE_STREAM_DATA (con)->infd);
   else
     {
       assert (CONSOLE_TTY_P (con));
