@@ -908,6 +908,10 @@
 				 line-breaking))
 		 )
 		((and (not readable)
+		      (null (get-char-attribute
+			     char
+			     (intern (format "%s*sources" name))))
+		      (not (string-match "\\*sources$" (symbol-name name)))
 		      (or (eq name '<-identical)
 			  (string-match "^->simplified" (symbol-name name))
 			  (string-match "^->vulgar" (symbol-name name))
