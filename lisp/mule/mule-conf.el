@@ -171,7 +171,7 @@
 		  direction	l2r
 		  mother	=ucs))
   (define-charset-alias 'ucs-jis '=ucs@jis)
-  (make-charset '=ucs-jis-1990
+  (make-charset '=ucs@jis-1990
 		"UCS for JIS:1990"
 		`(long-name	"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		  chars		256
@@ -180,6 +180,7 @@
 		  graphic	2
 		  direction	l2r
 		  mother	ucs-jis))
+  (define-charset-alias '=ucs-jis-1990 '=ucs@jis-1990)
   (make-charset '=ucs-jis-2000
 		"UCS for JIS:2000"
 		`(long-name	"ISO/IEC 10646 for JIS X 0213:2000"
