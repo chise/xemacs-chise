@@ -5,22 +5,22 @@
 ;; Author: MORIOKA Tomohiko <tomo@kanji.zinbun.kyoto-u.ac.jp>
 ;; Keywords: UTF-2000, ISO/IEC 10646, Unicode, UCS-4, MULE.
 
-;; This file is part of UTF-2000.
+;; This file is part of XEmacs UTF-2000.
 
-;; UTF-2000 is free software; you can redistribute it and/or modify it
-;; under the terms of the GNU General Public License as published by
-;; the Free Software Foundation; either version 2, or (at your option)
-;; any later version.
+;; XEmacs UTF-2000 is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License as
+;; published by the Free Software Foundation; either version 2, or (at
+;; your option) any later version.
 
-;; UTF-2000 is distributed in the hope that it will be useful, but
-;; WITHOUT ANY WARRANTY; without even the implied warranty of
+;; XEmacs UTF-2000 is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the Free
-;; Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
-;; 02111-1307, USA.
+;; along with XEmacs UTF-2000; see the file COPYING.  If not, write to
+;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+;; Boston, MA 02111-1307, USA.
 
 ;;; Code:
 
@@ -269,78 +269,27 @@
 		    (if a-u
 			(if b-u
 			    (< a-u b-u)
-			  (setq b-u (get-char-attribute b '->ucs))
+			  (setq b-u (or (get-char-attribute b '=>ucs)
+					(get-char-attribute b '->ucs)))
 			  (if b-u
 			      (<= a-u b-u)
 			    t))
-		      (setq a-u (get-char-attribute a '->ucs))
+		      (setq a-u (or (get-char-attribute a '=>ucs)
+				    (get-char-attribute a '->ucs)))
 		      (if a-u
 			  (if b-u
 			      (< a-u b-u)
-			    (setq b-u (get-char-attribute b '->ucs))
+			    (setq b-u (or (get-char-attribute b '=>ucs)
+					  (get-char-attribute b '->ucs)))
 			    (if b-u
 				(< a-u b-u)
 			      t))
-			(if (or b-u (get-char-attribute b '->ucs))
+			(if (or b-u (or (get-char-attribute b '=>ucs)
+					(get-char-attribute b '->ucs)))
 			    nil
 			  (< (char-int a)(char-int b)))))))
 	      (< a-s b-s))
 	  t))))
-
-;; (defun ideograph-char< (a b)
-;;   (let (ra rb mma mmb msa msb)
-;;     (cond
-;;      ((progn
-;;         (if (setq ra (or (get-char-attribute a 'non-morohashi)
-;;                          (get-char-attribute a 'morohashi-daikanwa)))
-;;             (setq msa (cdr ra)
-;;                   mma (car ra))
-;;           (setq mma (get-char-attribute a 'ideograph-daikanwa))))
-;;       (cond
-;;        ((progn
-;;           (if (setq rb (or (get-char-attribute b 'non-morohashi)
-;;                            (get-char-attribute b 'morohashi-daikanwa)))
-;;               (setq msb (cdr rb)
-;;                     mmb (car rb))
-;;             (setq mmb (get-char-attribute b 'ideograph-daikanwa))))
-;;         (cond
-;;          ((= mma mmb)
-;;           (cond ((eq (car msa)(car msb))
-;;                  (cond ((< (length msa)(length msb)))
-;;                        ((= (length msa)(length msb))
-;;                         (cond ((integerp (nth 1 msa))
-;;                                (cond ((integerp (nth 1 msb))
-;;                                       (< (nth 1 msa)(nth 1 msb)))
-;;                                      (t nil)))
-;;                               (t
-;;                                (cond ((setq ra (get-char-attribute a 'ucs))
-;;                                       (cond
-;;                                        ((setq rb (get-char-attribute b 'ucs))
-;;                                         (< ra rb))
-;;                                        (t))))))))
-;;                  )
-;;                 ((null (car msa)))
-;;                 ((null (car msb))
-;;                  nil)
-;;                 (t (< (car msa)(car msb)))))
-;;          (t (< mma mmb))))
-;;        (t)))
-;;      ((or (get-char-attribute b 'non-morohashi)
-;;           (get-char-attribute b 'morohashi-daikanwa)
-;;           (get-char-attribute b 'ideograph-daikanwa))
-;;       nil)
-;;      ((setq ra (get-char-attribute a 'ucs))
-;;       (cond
-;;        ((setq rb (get-char-attribute b 'ucs))
-;;         (< ra rb))))
-;;      (t
-;;       (cond
-;;        ((setq ra (char-ideographic-strokes a))
-;;         (cond ((setq rb (char-ideographic-strokes b))
-;;                (cond ((= ra rb)
-;;                       (not (char-ideographic-strokes b)))
-;;                      ((< ra rb))))))
-;;        )))))
 
 (defun insert-ideograph-radical-char-data (radical)
   (let ((chars
