@@ -1,3 +1,9 @@
+1999-06-16  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* file-coding.c (decode_coding_iso2022): Code-point arguments of
+	`MAKE_CHAR' must be smaller than 0x80 in UTF2000.
+	(encode_coding_iso2022): New implementation for UTF2000.
+
 1999-06-15  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-canna.c (c2mu): New implementation for UTF2000.
