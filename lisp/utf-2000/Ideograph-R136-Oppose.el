@@ -108,6 +108,7 @@
     (shinjigen-1	. 6639)
     (japanese-jisx0208-1978	. #x4971)	; ø»‚¸€
     (japanese-jisx0208		. #x4971)	; ø»‡Œˆ
+    (korean-ksc5601		. #x5971)	; ø»‰­¬
     (japanese-jisx0208-1990	. #x4971)	; ø½Š±¼
     (mojikyo			. 050385)	; ý €Œ“‘
     ))
