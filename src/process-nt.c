@@ -621,14 +621,14 @@ nt_send_process (Lisp_Object proc, struct lstream* lstream)
   /* use a reasonable-sized buffer (somewhere around the size of the
      stream buffer) so as to avoid inundating the stream with blocked
      data. */
-  Bufbyte chunkbuf[512];
+  Bufbyte chunkbuf[128];
   Bytecount chunklen;
 
   while (1)
     {
       int writeret;
 
-      chunklen = Lstream_read (lstream, chunkbuf, 512);
+      chunklen = Lstream_read (lstream, chunkbuf, 128);
       if (chunklen <= 0)
 	break; /* perhaps should abort() if < 0?
 		  This should never happen. */
