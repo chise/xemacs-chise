@@ -1,3 +1,118 @@
+2001-10-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R195-Fish.el (U+9C47): Unify K0-4B3E.
+
+	* Ideograph-R181-Leaf.el (U+9839): Unify K0-775D.
+
+	* Ideograph-R180-Sound.el (K0-7B61): New character.
+
+	* Ideograph-R172-Short-Tailed-Bird.el, Ideograph-R167-Gold.el:
+	Merge KS X 1001 code points.
+
+	* Ideograph-R140-Grass.el (U+83D0): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; add
+	`ideographic-structure'; unify BC-8D48; separate C5-3B6F.
+
+	* Ideograph-R051-Dry.el (C4-2178): Unify U-00022189.
+	(M-09173): Separate C4-2426; add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-8A48 and
+	U-0002218D.
+
+	* Ideograph-R049-Oneself.el (M-08747): Separate JX2-286F.
+	(JX2-286F): Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; unify BC-8BAD.
+
+	* Ideograph-R024-Ten.el (JX2-2351): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-8D45.
+	(BC-8C49): Delete Big5.
+
+	* Ideograph-R013-Down-Box.el:
+	- Delete Big5 code points if Big5-CDP code points are defined.
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	(C*-****): Merge CJK Ext-B code points.
+
+	* Ideograph-R008-Lid.el (J0-5035): Delete Big5.
+	(C*-****): Merge CJK Ext-B code points.
+
+	* u0E000-Private-Use.el:
+	- Delete BIG5-CDP code points.
+	- Add missing Big5 code points.
+
+	* Ideograph-R174-Blue.el (U+9751): Unify K0-746C.
+
+	* Ideograph-R162-Walk.el (M-38812): Unify K0-4C26.
+
+	* Ideograph-R134-Mortar.el (C6-3B3B): Delete Big5.
+
+	* Ideograph-R124-Feather.el (BC-8ACB): Delete Big5.
+
+	* Ideograph-R119-Rice.el (U+7CA6): Delete Big5.
+
+	* Ideograph-R102-Field.el (U+7550): Delete Big5.
+
+	* Ideograph-R087-Claw.el (C4-386A): Delete Big5.
+
+	* Ideograph-R065-Branch.el (U+652F): Unify M-13061 and K0-7228.
+
+	* Ideograph-R063-Door.el: Merge KS X 1001 code points.
+	(C3-2629): Add `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; use `<-original-ideograph' instead of
+	`original-ideograph-of'; unify BC-89B5.
+
+	* Ideograph-R061-Heart.el: Merge KS X 1001 code points.
+
+	* Ideograph-R057-Bow.el (M-09706): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; use
+	`<-original-ideograph' instead of `original-ideograph-of'; unify
+	BC-87DB and U-000223A3.
+
+	* Ideograph-R053-Dotted-Cliff.el (J0-5678): Delete Big5.
+
+	* Ideograph-R050-Turban.el (U+5E00): Delete Big5.
+
+	* Ideograph-R044-Corpse.el (C6-244F): Delete Big5.
+
+	* Ideograph-R037-Big.el (C3-2345): Relate to U+4E54 and M-05860.
+	(U+5939): Delete `kangxi-radical' and `kangxi-strokes'; add
+	`hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	`hanyu-dazidian-char'; unify BC-8A69.
+	(C4-3127): Unify BC-856E.
+
+	* Ideograph-R030-Mouth.el (C5-2161): Delete Big5.
+	(U+5485): Likewise.
+
+	* Ideograph-R028-Private.el (U+53B6): Delete Big5.
+
+	* Ideograph-R026-Seal.el (U+353F): Add `hanyu-dazidian-vol',
+	`hanyu-dazidian-page' and `hanyu-dazidian-char'; unify BC-8772.
+
+	* Ideograph-R019-Power.el (U+52B5): Delete Big5.
+
+	* Ideograph-R018-Knife.el (U+5202): Delete Big5.
+
+	* Ideograph-R015-Ice.el (U+51AB): Delete Big5.
+
+	* Ideograph-R014-Cover.el (U+5196): Delete Big5.
+
+	* Ideograph-R004-Slash.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.	
+	- Delete Big5 code points if Big5-CDP code points are defined.
+	- Merge Big5-CDP code points.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	(C*-****): Merge CJK Ext-B code points.
+
+	* Ideograph-R002-Line.el:
+	- Merge `hanyu-dazidian-vol', `hanyu-dazidian-page' and
+	  `hanyu-dazidian-char'.
+	- Delete Big5 code points if Big5-CDP code points are defined.
+	- Use char-spec instead of char-ref as operators in
+	  `ideographic-structure' properties.
+	- Merge Big5-CDP code points.
+	- Add `ideographic-structure' properties for some characters.
+
 2001-10-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R075-Tree.el (U+6765): Add `hanyu-dazidian-vol',
