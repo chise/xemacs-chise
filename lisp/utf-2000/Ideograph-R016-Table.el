@@ -235,19 +235,35 @@
 (define-char
   '((ideographic-radical@ucs . 16)	; ⼏
     (ideographic-strokes@ucs . 2)
-    (ideographic-radical@daikanwa . 28)	; ⼛
-    (ideographic-strokes@daikanwa . 2)
+    (ideographic-radical@cns . 28)	; ⼛
+    (ideographic-strokes@cns . 2)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 4)
     (=ucs		. #x2062F)	; 𠘯
-    (=daikanwa		. 03067)	; &I-M-03067;
+    (->subsumptive
+     ((=daikanwa	  . 03067)	; &M-03067;
+      (=ucs@iso		  . #x2062F)	; &M-03067;
+      )
+     ((=cns11643-6	  . #x215C)	; &CDP-87B8; [01-60]
+      (=big5-cdp	  . #x87B8)	; &I-CDP-87B8;
+      ))
     ))
 (define-char
   '((morohashi-daikanwa	ho 45)
-    (ideographic-radical . 16)	; ⼏
-    (ideographic-strokes . 2)
+    (ideographic-radical@ucs . 28)	; ⼛
+    (ideographic-strokes@ucs . 2)
+    (ideographic-radical@daikanwa . 16)	; ⼏
+    (ideographic-strokes@daikanwa . 2)
     (total-strokes	 . 4)
+    (<-denotational
+     ((=ucs		  . #x20AD7)	; 𠫗
+      ))
+    (hanyu-dazidian	1 276 8)
     (=gt		. 02288)	; &GT-02288;
     (=gt-pj-11		. #x432A)	; &GT-02288; [35-10]
+    (=hanziku-1		. #xDEEF)	; &I-HZK01-DEEF;
+    (=ucs@iso		. #x20AD7)	; &GT-02288;
     (mojikyo		. 085200)	; &MCS-60014CD0;
     ))
 (define-char

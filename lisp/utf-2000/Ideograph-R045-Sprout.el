@@ -296,10 +296,12 @@
     ))
 (define-char
   '((total-strokes	 . 10)
-    (<-original-ideograph
-     ((=daikanwa	  . 09176)	; &I-M-09176;
+    (<-original
+     ((=jis-x0208	  . #x392C)	; &GT-11561; [25-12]
+      (=ks-x1001	  . #x7A39)	; &I-K0-7A39; [90-25]
+      (=daikanwa	  . 09176)	; &I-M-09176;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      zhengzi-tong zhonghua-dazidian daikanwa)
     (hanyu-dazidian	2 1022 17)
     (=ucs		. #x21D18)	; 𡴘

@@ -145,11 +145,18 @@
       ))
     (->same*sources
      shuowen kanjo ronkou jiyun daikanwa)
-    (<-original-ideograph
-     ((shinjigen-1	  . 4051)
+    (->vulgar
+     ((=ucs		  . #x6C37)	; 氷
       (=daikanwa	  . 17087)	; &I-M-17087;
       ))
-    (<-original-ideograph*sources
+    (->vulgar*sources
+     zhengzi-tong daikanwa)
+    (<-original
+     ((shinjigen-1	  . 4051)
+      (=ucs		  . #x6C37)	; 氷
+      (=jis-x0208	  . #x4939)	; &I-J90-4939; [41-25]
+      ))
+    (<-original*sources
      shinjigen-1)
     (hanyu-dazidian	1 295 9)
     (ideographic-structure

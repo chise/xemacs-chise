@@ -74,12 +74,12 @@
     (=daikanwa		. 11771)	; &I-M-11771;
     ))
 (define-char
-  '((=>daikanwa		. 11772)	; &GT-14896;
-    (ideographic-radical . 64)	; ⼿
+  '((ideographic-radical . 64)	; ⼿
     (ideographic-strokes . 1)
     (total-strokes	 . 5)
     (<-original
-     ((=daikanwa	  . 05844)	; &I-M-05844;
+     ((=ucs		  . #x5931)	; 失
+      (=daikanwa	  . 05844)	; &I-M-05844;
       ))
     (<-original*sources
      zhengzi-tong daikanwa)

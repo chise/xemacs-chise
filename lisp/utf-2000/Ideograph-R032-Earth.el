@@ -5561,12 +5561,19 @@
     (=daikanwa		. 05233)	; &I-M-05233;
     ))
 (define-char
-  '((ideographic-radical . 32)	; ⼟
+  '((=>ucs*		. #x578B)	; 型
+    (ideographic-radical . 32)	; ⼟
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (<-original-ideograph
-     ((=daikanwa	  . 05030)	; &I-M-05030;
+    (<-denotational
+     ((=ucs		  . #x578B)	; 型
       ))
+    (<-original
+     ((=ucs		  . #x578B)	; 型
+      (=daikanwa	  . 05030)	; &I-M-05030;
+      ))
+    (<-original*sources
+     zhengzi-tong daikanwa)
     (=ucs		. #x2F855)	; 型
     (=cns11643-3	. #x3470)	; &I-C3-3470; [20-80]
     (=daikanwa		. 05234)	; &I-M-05234;

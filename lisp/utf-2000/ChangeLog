@@ -1,3 +1,193 @@
+2004-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+8293): Use `->subsumptive'.
+	(JSP-5738): Add `->same' for U-0002F82C; put `daikanwa' into
+	`<-original*sources'.
+	(U+8295): Use `->subsumptive'.
+
+2004-06-23  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (M-14132): Add `->same' for U+6635; add
+	`->synonyms' for M-00279.
+
+2004-06-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R085-Water.el (U+6C37): Add `<-vulgar' for U+51B0.
+
+	* Ideograph-R063-Door.el (U+39BE): Use `->subsumptive'; include
+	M-11705.
+	(U+623B): Use `->subsumptive'.
+	(U+623C): Add `zhengzi-tong' and `daikanwa' into
+	`<-original*sources'.
+	(U+623D): Use `->subsumptive'.
+
+	* Ideograph-R051-Dry.el (U+5E78): Use `->subsumptive'.
+
+	* Ideograph-R032-Earth.el (U-0002F855): Use `<-denotational' for
+	U+578B.
+
+	* Ideograph-R015-Ice.el (U+51B0): Add `->vulgar' for U+6C37.
+
+2004-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (U+4FA2): Use `->subsumptive'.
+	(U+4FAE): Define as an abstract character.
+	(U-0002F805): Use `<-denotational' for U+4FAE.
+	(U+FA30): Likewise.
+	(U+3457): Use `->subsumptive'.
+	(U-0002022D): Likewise.
+	(U+4FAF): Likewise.
+
+2004-06-21  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R158-Body.el (U+8EAB): Use `->subsumptive'.
+
+	* Ideograph-R028-Private.el (C6-215D): Use `<-denotational' for
+	U-00020AD7; use `->subsumptive'.
+	(U-0002062F): Use `->subsumptive'; integrate C6-215C; use
+	`ideographic-{radical|strokes}@cns' instead of
+	`ideographic-{radical|strokes}@daikanwa' and add
+	`ideographic-radical@cns*sources'.
+	(M-03068): Unify U-00020AD8 and H1-F4EC.
+	(U-00020AD7): Define as an abstract character.
+	(H1-DEEF): Use `<-denotational' for U-00020AD7; map to MH-0045
+	instead of M-03066; unify GT-02288; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+	* Ideograph-R093-Cow.el (U+7262): Use `->subsumptive'.
+	(U+7263): Likewise.
+
+2004-06-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R016-Table.el (U-0002062F): Use `->subsumptive';
+	integrate C6-215C; use `ideographic-{radical|strokes}@cns' instead
+	of `ideographic-{radical|strokes}@daikanwa' and add
+	`ideographic-radical@cns*sources'.
+	(GT-02288): Add `<-denotational' for U-00020AD7; unify H1-DEEF;
+	use `ideographic-{radical|strokes}@{ucs|daikanwa}'.
+
+2004-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R145-Clothes.el (U+88D7): Define as an abstract
+	character; unify B-DBC4.  (C2-402A): Use `<-denotational' for
+	U+88D7; use `<-original*sources' instead of char-ref in
+	`<-original'; use `->subsumptive'; separate B-DBC4.
+	(M-34310): Use `<-denotational' for U+88D7; use `->subsumptive'.
+
+	* Ideograph-R003-Dot.el (U+4E38): Define as an abstract character;
+	unify B-A459.
+	(J0-345D): Use `<-denotational' for U+4E38.
+	(C1-443A): Likewise; separate B-A459.
+
+	* Ideograph-R064-Hand.el (U-00022A65): Delete `=>daikanwa'.
+
+2004-06-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (insert-char-attributes): Don't display
+	`->original' when running with non-readable mode and it does not
+	have `->original*sources'.
+
+2004-06-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R014-Cover.el, Ideograph-R013-Down-Box.el (U+6700):
+	Copied from Ideograph-R073-Say.el.
+	(M-01597): Use `<-denotational' for U+6700; separate B-B3CC; add
+	S1-926.
+	(U-0002F8D4): New character.
+
+	* Ideograph-R073-Say.el (U+6700): Define as an abstract character;
+	unify B-B3CC.
+	(M-01597): Copied from Ideograph-R014-Cover.el.
+	(U-0002F8D4): New character.
+	(J0-3A47): Moved into U-0002F8D4.
+	(G0-576E): Moved into U-0002F8D4.
+
+	* Ideograph-R029-Again.el (U+6700): Copied from
+	Ideograph-R073-Say.el.
+	(M-01597): Copied from Ideograph-R014-Cover.el.
+	(U-0002F8D4): New character.
+
+2004-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R140-Grass.el (U+8294): Rename `<-original-ideograph'
+	to `<-original'; use `->subsumptive'.
+
+	* Ideograph-R135-Tongue.el (U+820C): Use `->subsumptive'; use
+	`<-original' and `<-original*sources' instead of
+	`<-original-ideograph' with char-ref.
+
+	* char-db-util.el (char-db-feature-domains): Add `shinjigen'.
+
+	* Ideograph-R213-Turtle.el (U+9F9C): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R145-Clothes.el: Rename `<-original-ideograph' to
+	`<-original'.
+	(U+461A): Use `->subsumptive'; use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R111-Arrow.el (U+77E6): Use `->subsumptive'.
+
+	* Ideograph-R109-Eye.el: Rename `<-original-ideograph' to
+	`<-original'.
+	(U+7714): Use `->subsumptive'.
+
+2004-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R072-Sun.el (U+66B1): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+2004-06-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R156-Run.el, Ideograph-R120-Silk.el: Rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R077-Stop.el (U+3C55): Use `->subsumptive'; rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R061-Heart.el (U+39A4): Use `->same' and
+	`->same*sources' instead of `->synonyms' with char-ref for
+	M-11501; use `<-original' and `<-original*sources' instead of
+	`<-original-ideograph' with char-ref.
+
+	* Ideograph-R063-Door.el: Rename `<-original-ideograph' to
+	`<-original'.
+
+	* Ideograph-R057-Bow.el (U-000223A3): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
+
+	* Ideograph-R040-Roof.el (U+5B90): Use `->subsumptive'.
+	(JSP-3A4C): Moved into U+5B90; rename `<-original-ideograph' to
+	`<-original'.
+	(C4-225B): Add `<-denotational' for U+5B90.
+
+	* Ideograph-R045-Sprout.el, Ideograph-R032-Earth.el: Rename
+	`<-original-ideograph' to `<-original'.
+
+	* Ideograph-R030-Mouth.el (U+5412): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R028-Private.el (U+53BA): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R024-Ten.el (U-00020983): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R018-Knife.el (U-000206F0): Use `<-original' and
+	`<-original*sources' instead of `<-original-ideograph' with
+	char-ref.
+
+	* Ideograph-R009-Man.el, Ideograph-R003-Dot.el,
+	Ideograph-R015-Ice.el, Ideograph-R007-Two.el,
+	Ideograph-R004-Slash.el: Rename `<-original-ideograph' to
+	`<-original'.
+
 2004-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R010-Legs.el (U+514D): Unify B-A74B.

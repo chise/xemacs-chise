@@ -117,50 +117,58 @@
     (=daikanwa		. 11704)	; &I-M-11704;
     ))
 (define-char
-  '((=>ucs		. #x623B)	; 戻
-    (ideographic-radical . 63)	; ⼾
+  '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (=cns11643-3	. #x2628)	; &M-11707; [06-08]
-    (=daikanwa		. 11707)	; &I-M-11707;
-    ))
-(define-char
-  '((=>ucs		. #x623B)	; 戻
-    (morohashi-daikanwa	11707 0 2)
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (<-simplified@JP/Jouyou
-     ((=ks-x1001	  . #x5568)	; &M-11712; [53-72]
-      (=cns11643-1	  . #x4D53)	; &I-C1-4D53; [45-51]
-      (=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
-      (=daikanwa	  . 11712)	; &I-M-11712;
+    (=ucs		. #x39BE)	; 㦾
+    (->subsumptive
+     ((->subsumptive
+       ((=daikanwa	    . 11705)	; &M-11705;
+	)
+       ((=cns11643-6	    . #x276E)	; &C6-276E; [07-78]
+	))
+      )
+     ((=ucs@unicode	  . #x39BE)	; &UU+39BE;
       ))
-    (=jis-x0208		. #x4C61)	; &GT-14766; [44-65]
-    (=gt		. 14766)	; &I-GT-14766;
-    (=gt-k		. 02658)	; &I-GT-K02658;
-    (=gt-pj-1		. #x4C61)	; &I-GT-14766; [44-65]
-    (=ucs@jis		. #x623B)	; &GT-14766;
-    ))
-(define-char
-  '((morohashi-daikanwa	11707 0 4)
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (hanyu-dazidian	3 2257 9)
-    (=ucs		. #x623B)	; 戻
-    (=hanziku-6		. #xD2FB)	; &I-HZK06-D2FB;
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
-    (<-original-ideograph
+    (=ucs		. #x623B)	; 戻
+    (->subsumptive
+     ((=cns11643-3	  . #x2628)	; &M-11707; [06-08]
+      (=daikanwa	  . 11707)	; &I-M-11707;
+      )
+     ((<-simplified@JP/Jouyou
+       ((=ks-x1001	    . #x5568)	; &M-11712; [53-72]
+	(=cns11643-1	    . #x4D53)	; &I-C1-4D53; [45-51]
+	(=jis-x0213-1-2000  . #x7463)	; &I-JX1-7463; [84-67]
+	(=daikanwa	    . 11712)	; &I-M-11712;
+	))
+      (=jis-x0208	  . #x4C61)	; &GT-14766; [44-65]
+      (=gt		  . 14766)	; &I-GT-14766;
+      (=gt-k		  . 02658)	; &I-GT-K02658;
+      (=gt-pj-1		  . #x4C61)	; &I-GT-14766; [44-65]
+      (=ucs@jis		  . #x623B)	; &GT-14766;
+      )
+     ((hanyu-dazidian	  3 2257 9)
+      (=hanziku-6	  . #xD2FB)	; &HZK06-D2FB;
+      (=ucs@iso		  . #x623B)	; &HZK06-D2FB;
+      ))
+    ))
+(define-char
+  '((ideographic-radical . 63)	; ⼾
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
+    (<-original
      ((shinjigen-1	  . 848)
+      (=ucs		  . #x536F)	; 卯
+      (=jis-x0208	  . #x312C)	; &I-J90-312C; [17-12]
       (=daikanwa	  . 02847)	; &I-M-02847;
       ))
-    (<-original-ideograph*sources
-     shinjigen-1)
+    (<-original*sources
+     zhengzi-tong daikanwa shinjigen-1)
     (hanyu-dazidian	1 53 15)
     (shinjigen-1	. 849)
     (=ucs		. #x623C)	; 戼
@@ -170,30 +178,23 @@
     ))
 (define-char
   '((ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 3)
-    (total-strokes	 . 7)
-    (=ucs		. #x39BE)	; 㦾
-    (=cns11643-6	. #x276E)	; &I-C6-276E; [07-78]
-    ))
-(define-char
-  '((=>ucs		. #x623D)	; 戽
-    (ideographic-radical . 63)	; ⼾
-    (ideographic-strokes . 4)
-    (total-strokes	 . 8)
-    (=jis-x0212		. #x3F32)	; &M-11711; [31-18]
-    (=cns11643-2	. #x2671)	; &I-C2-2671; [06-81]
-    (=big5		. #xCCB2)	; &I-B-CCB2;
-    (=daikanwa		. 11711)	; &I-M-11711;
-    (=ucs@jis		. #x623D)	; &M-11711;
-    (=ucs@big5		. #x623D)	; &M-11711;
-    ))
-(define-char
-  '((morohashi-daikanwa	11711 0 4)
-    (ideographic-radical . 63)	; ⼾
     (ideographic-strokes . 4)
     (total-strokes	 . 8)
     (=ucs		. #x623D)	; 戽
-    (=gb2312		. #x6C66)	; &I-G0-6C66; [76-70]
+    (->subsumptive
+     ((->subsumptive
+       ((=jis-x0212	    . #x3F32)	; &M-11711; [31-18]
+	(=big5		    . #xCCB2)	; &I-B-CCB2;
+	(=daikanwa	    . 11711)	; &I-M-11711;
+	(=ucs@jis	    . #x623D)	; &M-11711;
+	(=ucs@big5	    . #x623D)	; &M-11711;
+	)
+       ((=cns11643-2	    . #x2671)	; &C2-2671; [06-81]
+	))
+      )
+     ((=gb2312		  . #x6C66)	; &G0-6C66; [76-70]
+      (=ucs@unicode	  . #x623D)	; &G0-6C66;
+      ))
     ))
 (define-char
   '((=>ucs		. #x623E)	; 戾

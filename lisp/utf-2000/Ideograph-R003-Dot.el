@@ -81,12 +81,21 @@
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (shinjigen-1	. 39)
-    (shinjigen-2	. 39)
     (sound@ja/kun	"maru" "maru+i")
     (sound@ja/on/go	"gan")
     (=ucs		. #x4E38)	; 丸
-    (=jis-x0208		. #x345D)	; &I-J90-345D; [20-61]
+    (=big5		. #xA459)	; &I-B-A459;
+    ))
+(define-char
+  '((ideographic-radical . 3)	; ⼂
+    (ideographic-strokes . 2)
+    (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x4E38)	; 丸
+      ))
+    (shinjigen-1	. 39)
+    (shinjigen-2	. 39)
+    (=jis-x0208		. #x345D)	; &GT-00131; [20-61]
     (=gb2312		. #x4D68)	; &I-G0-4D68; [45-72]
     (=ks-x1001		. #x7C2F)	; &I-K0-7C2F; [92-15]
     (=cns11643-6	. #x2131)	; &I-C6-2131; [01-17]
@@ -94,33 +103,39 @@
     (=gt-k		. 00161)	; &I-GT-K00161;
     (=gt-pj-1		. #x345D)	; &I-GT-00131; [20-61]
     (=daikanwa		. 00094)	; &I-M-00094;
+    (=ucs@unicode	. #x4E38)	; &GT-00131;
     (mojikyo		. 000094)	; &MCS-6000005E;
     ))
 (define-char
-  '((=>ucs		. #x4E38)	; 丸
-    (ideographic-radical . 3)	; ⼂
+  '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
+    (<-denotational
+     ((=ucs		  . #x4E38)	; 丸
+      ))
     (hanyu-dazidian	1 42 11)
     (=cns11643-1	. #x443A)	; &GT-00132; [36-26]
-    (=big5		. #xA459)	; &I-B-A459;
     (=gt		. 00132)	; &I-GT-00132;
     (=gt-k		. 00162)	; &I-GT-K00162;
     (=gt-pj-2		. #x306A)	; &I-GT-00132; [16-74]
     (=daikanwa		. 00095)	; &I-M-00095;
     (=ucs@cns		. #x4E38)	; &GT-00132;
-    (=ucs@big5		. #x4E38)	; &GT-00132;
     (mojikyo		. 000095)	; &MCS-6000005F;
     ))
 (define-char
   '((ideographic-radical . 3)	; ⼂
     (ideographic-strokes . 2)
     (total-strokes	 . 3)
-    (<-original-ideograph
-     (:char	((shinjigen-1	     . 39)
-		 (=daikanwa	     . 00094)	; &I-M-00094;
-		 )
-      :sources	(chuuka-daijiten morohashi-daikanwa shinjigen-1)))
+    (<-original
+     ((shinjigen-1	  . 39)
+      (=jis-x0208	  . #x345D)	; &GT-00131; [20-61]
+      (=gb2312		  . #x4D68)	; &I-G0-4D68; [45-72]
+      (=ks-x1001	  . #x7C2F)	; &I-K0-7C2F; [92-15]
+      (=cns11643-6	  . #x2131)	; &I-C6-2131; [01-17]
+      (=daikanwa	  . 00094)	; &I-M-00094;
+      ))
+    (<-original*sources
+     zhonghua-dazidian daikanwa shinjigen-1)
     (hanyu-dazidian	1 276 4)
     (shinjigen-1	. 40)
     (=ucs		. #x2007D)	; 𠁽

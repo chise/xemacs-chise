@@ -1320,10 +1320,11 @@
     (ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
-    (<-original-ideograph
-     ((=daikanwa	  . 01473)	; &I-M-01473;
+    (<-original
+     ((=ucs		  . #x2F811)	; 具
+      (=daikanwa	  . 01473)	; &I-M-01473;
       ))
-    (<-original-ideograph*sources
+    (<-original*sources
      daikanwa)
     (=ucs		. #x2F942)	; 𥃲
     (=cns11643-6	. #x333D)	; &I-C6-333D; [19-29]
@@ -2209,26 +2210,19 @@
   '((ideographic-radical . 109)	; ⽬
     (ideographic-strokes . 5)
     (total-strokes	 . 10)
-    (<-original-ideograph
-     ((=daikanwa	  . 23221)	; &I-M-23221;
-      ))
-    (<-original-ideograph*sources
-     daikanwa)
     (=ucs		. #x7714)	; 眔
-    (=daikanwa		. 49364)	; &I-M-49364;
-    ))
-(define-char
-  '((=>ucs		. #x7714)	; 眔
-    (morohashi-daikanwa	49364 0 0)
-    (ideographic-radical . 109)	; ⽬
-    (ideographic-strokes . 5)
-    (total-strokes	 . 10)
-    (<-original-ideograph
-     ((=daikanwa	  . 23221)	; &I-M-23221;
+    (->subsumptive
+     ((<-original
+       ((=jis-x0212	    . #x4E5F)	; &M-23221; [46-63]
+	(=daikanwa	    . 23221)	; &I-M-23221;
+	))
+      (<-original*sources
+       daikanwa)
+      (=daikanwa	  . 49364)	; &M-49364;
+      (=ucs@unicode	  . #x7714)	; &M-49364;
+      )
+     ((=cns11643-4	  . #x2E55)	; &C4-2E55; [14-53]
       ))
-    (<-original-ideograph*sources
-     daikanwa)
-    (=cns11643-4	. #x2E55)	; &C4-2E55; [14-53]
     ))
 (define-char
   '((ideographic-radical . 109)	; ⽬
