@@ -1,5 +1,8 @@
 2004-09-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* maps-conf.el: Don't add `=gt-pj-1' for
+	J90-{507C|417C|5371|3766|3E7D}.
+
 	* Ideograph-R031-Enclosure.el: Use `=jis-x0208@{1978|1983|1990}'
 	instead of `=jis-x0208-{1978|1983|1990}'.
 	(U+570D): Use `->subsumptive'.
@@ -64,6 +67,13 @@
 	(U+51A4): Changed to an abstract character.
 	(U-0002F818): Use `<-denotational' for U+51A4.
 	(G0-5429): Likewise; use `->subsumptive' to integrate JC3-43F0.
+
+2004-09-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Add
+	`=jis-x0208@1997'.
+	(insert-char-attributes): Use `=jis-x0208@{1990|1983|1978}'
+	instead of `=jis-x0208-{1990|1983|1978}'.
 
 2004-09-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
