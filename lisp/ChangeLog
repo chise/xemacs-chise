@@ -1,3 +1,8 @@
+2003-02-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* mule/mule-conf.el (=jef-china3): Renamed from `china3-jef'.
+	(china3-jef): Changed to an alias for `=jef-china3'.
+
 2003-02-10  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* mule/mule-charset.el (default-coded-charset-priority-list): Use
