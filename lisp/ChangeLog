@@ -1,3 +1,102 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-04-02  Jan Vroonhof  <jan.vroonhof@ntlworld.com>
+
+	* dialog.el (make-dialog-box): Disable dialog box titles until
+	we get them working.
+
+2001-03-30  Ben Wing  <ben@xemacs.org>
+
+	* help.el:
+	* help.el (Help-princ-face):
+	* help.el (Help-prin1-face):
+	* help.el (frob-help-extents):
+	* help.el (describe-function-1):
+	* help.el (describe-variable):
+	Avoid using font-lock faces, which may not be defined.
+	Instead, use hyper-apropos faces, and make sure they're
+	defined as necessary by using `require'. (It's not so safe
+	to do this for font-lock.) In any case, we will eventually
+	be merging this functionality into hyper-apropos.
+
+	* loaddefs.el (completion-ignored-extensions):
+	Fix documentation.
+	
+	* menubar-items.el (menu-truncate-list): Removed.
+	* menubar-items.el (Menubar-items-truncate-list): New.
+	* menubar-items.el (default-menubar):
+	Fix errors if grep or compile command is too long.  Rename helper
+	function to be less visible.
+
+2001-03-23  Martin Buchholz  <martin@xemacs.org>
+
+	* byte-optimize.el (byte-optimize-minus):
+	Fix mis-byte-compilation of (- 0 x) --> (- (- x))
+
+2001-03-26  Hrvoje Niksic  <hniksic@arsdigita.com>
+
+	* dumped-lisp.el (preloaded-file-list): Load mule/latin.el when
+	Mule is available.
+
+	* mule/latin.el: New file.
+
+2001-03-11  Ben Wing  <ben@xemacs.org>
+
+	* auto-save.el:
+	* auto-save.el (auto-save-directory):
+	* auto-save.el (make-auto-save-file-name):
+	* auto-save.el (auto-save-file-name-p): New.
+
+	Merge in improvements from other definition of
+	make-auto-save-file-name in files.el.
+	
+	* auto-save.el (auto-save-original-name):
+	* auto-save.el (auto-save-name-in-fixed-directory):
+	* auto-save.el (auto-save-unslashify-name): Removed.
+	* auto-save.el (auto-save-slashify-name): Removed.
+	* auto-save.el (auto-save-reserved-chars): New.
+	* auto-save.el (auto-save-escape-name): New.
+	* auto-save.el (auto-save-unhex): New.
+	* auto-save.el (auto-save-unescape-name): New.
+
+	Change algorithm for encoding filenames in auto-save names to be
+	entirely safe with all filesystems and all possible characters in
+	a filename, and 100% reversible. (Essentially, uses
+	quoted-printable as the encoding.)
+	
+	* auto-save.el (recover-all-files):
+
+	Use insert-directory rather than calling ls directly -- fixes
+	things under Windows.
+
+	* files.el:
+	* files.el (convert-standard-filename): Substitute FSF's
+	definition for this (we had nothing here before).
+	
+	* files.el (backup-buffer): Warning fix.
+	
+	* files.el (make-backup-file-name):
+	* files.el (find-backup-file-name):
+	Fix error in calling sequence to auto-save-file-name-p.
+	
+	* files.el (recover-file):
+	Use insert-directory rather than calling ls directly -- fixes
+	things under Windows.
+
+	* files.el (make-auto-save-file-name): Removed.
+	* files.el (auto-save-file-name-p): Removed.
+	auto-save is always dumped so no sense in having a definition
+	that will always be overwritten with another.
+	
+	* files.el (insert-directory):
+	* win32-native.el:
+	* win32-native.el (debug-mswindows-process-command-lines):
+	* win32-native.el (original-make-auto-save-file-name): Removed.
+	* win32-native.el (make-auto-save-file-name): Removed.
+
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

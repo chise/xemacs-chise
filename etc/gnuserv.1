@@ -171,9 +171,11 @@ the server is restarted.
 A Unix-domain socket is used to communicate between \fIgnuclient\fP
 and \fIgnuserv\fP if the symbol UNIX_DOMAIN_SOCKETS is defined at the
 top of gnuserv.h.  A file called /tmp/gsrvdir????/gsrv is created for
-communication and if deleted will cause communication between server
-and client to fail.  Only the user running gnuserv will be able to
-connect to the socket.
+communication.  If the symbol USE_TMPDIR is set at the top of gnuserv.h,
+$TMPDIR, when set, is used instead of /tmp.  If that file is deleted,
+or TMPDIR has different values for the server and the client, communication
+between server and client will fail.  Only the user running gnuserv will be
+able to connect to the socket.
 .SH INTERNET-DOMAIN SOCKETS
 Internet-domain sockets are used to communicate between
 \fIgnuclient\fP and \fIgnuserv\fP if the symbol

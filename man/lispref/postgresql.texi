@@ -521,8 +521,8 @@ Return a summary string from the query.
 @var{result} is a PGresult object.
 @example
 @comment This example was written on day 3 of the 2000 Haru Basho.
-(pq-exec P "INSERT INTO xemacs_test
-            VALUES (6, 'Wakanohana', 'Yokozuna');")
+(setq R (pq-exec P "INSERT INTO xemacs_test
+                   VALUES (6, 'Wakanohana', 'Yokozuna');"))
      @result{} #<PGresult PGRES_COMMAND_OK[1] - INSERT 542086 1>
 (pq-cmd-status R)
      @result{} "INSERT 542086 1"

@@ -1,3 +1,60 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-03-26  Paul Stodghill  <stodghil@cs.cornell.edu>
+
+	* configure.in: Don't #define __STDC__ in confdefs.h
+
+2001-03-30  Ben Wing  <ben@xemacs.org>
+
+	* etc\sample.init.el:
+	* etc\sample.init.el (Init-kill-entire-line):
+	* etc\sample.init.el (describe-foo-at-point):
+	* etc\sample.init.el (kill-current-buffer):
+	* etc\sample.init.el (kill-current-buffer-and-window):
+	* etc\sample.init.el (grep-c-files): Removed.
+	* etc\sample.init.el (grep-all-files-history): New.
+	* etc\sample.init.el (grep-all-files-omitted-expressions): New.
+	* etc\sample.init.el (grep-all-files-omitted-directories): New.
+	* etc\sample.init.el (construct-grep-all-files-command): New.
+	* etc\sample.init.el (grep-all-files-in-current-directory): New.
+	* etc\sample.init.el (grep-lisp-files): Removed.
+	* etc\sample.init.el (grep-all-files-in-current-directory-and-below): New.
+	* etc\sample.init.el (clear-select):
+	* etc\sample.init.el ((control kp-add)):
+	* etc\sample.init.el (pause):
+	* etc\sample.init.el ((eq system-type 'windows-nt)):
+
+	Add documentation for defined functions.  Change grep functions to
+	be more generally useful.  Document more specifically what the
+	`menu-force' setting actually does -- what commands are overridden
+	and how to access them.
+
+2001-03-30  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* configure.usage:  Document --with-file-coding.
+
+	* etc/OXYMORONS: Add 2 oxymorons, clean up numbering, close RFC.
+
+	* etc/NEWS: Fix typo.
+	
+	* configure.in:
+	* configure:
+	Fix typo, add -Wsign-compare if GCC, run autoconf.
+
+2001-03-23  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* etc/gnuserv.1 (UNIX_DOMAIN_SOCKETS: 
+	* PROBLEMS (Problems with running XEmacs):
+	Document TMPDIR lossage in gnuserv/gnuclient.
+
+2001-03-06  Ben Wing  <ben@xemacs.org>
+
+	* etc\sample.init.el:
+	* etc\sample.init.el (Init-kill-entire-line): New.
+	Fix to take into account the removed kill-whole-line changes.
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

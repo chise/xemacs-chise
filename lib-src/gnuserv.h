@@ -32,6 +32,9 @@
 
 #define GNUSERV_VERSION "3.12"
 
+/* Note: this setting can cause client-server connection failure if the
+ * value of TMPDIR is not shared by client and server at run-time.
+ */
 #define USE_TMPDIR
 
 #define PATCHLEVEL 2

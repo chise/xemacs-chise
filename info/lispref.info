@@ -94,11 +94,11 @@ lispref.info-40: 1879259
 lispref.info-41: 1925812
 lispref.info-42: 1974507
 lispref.info-43: 2018882
-lispref.info-44: 2063251
-lispref.info-45: 2109745
-lispref.info-46: 2150587
-lispref.info-47: 2199805
-lispref.info-48: 2213674
+lispref.info-44: 2063267
+lispref.info-45: 2109761
+lispref.info-46: 2150603
+lispref.info-47: 2199821
+lispref.info-48: 2213690
 
 Tag Table:
 (Indirect)
@@ -858,62 +858,62 @@ Node: Building XEmacs with PostgreSQL support2012692
 Node: XEmacs PostgreSQL libpq API2014039
 Node: libpq Lisp Variables2015918
 Node: libpq Lisp Symbols and DataTypes2018882
-Node: Synchronous Interface Functions2032122
-Node: Asynchronous Interface Functions2036613
-Node: Large Object Support2040118
-Node: Other libpq Functions2040745
-Node: Unimplemented libpq Functions2043780
-Node: XEmacs PostgreSQL libpq Examples2049099
-Node: Internationalization2055190
-Node: I18N Levels 1 and 22055533
-Node: I18N Level 32056239
-Node: Level 3 Basics2056520
-Node: Level 3 Primitives2057353
-Node: Dynamic Messaging2058959
-Node: Domain Specification2059422
-Node: Documentation String Extraction2061092
-Node: I18N Level 42062010
-Node: MULE2062202
-Node: Internationalization Terminology2063251
-Node: Charsets2075450
-Node: Charset Properties2076146
-Node: Basic Charset Functions2080861
-Node: Charset Property Functions2083042
-Node: Predefined Charsets2085112
-Node: MULE Characters2088032
-Node: Composite Characters2088907
-Node: Coding Systems2090174
-Node: Coding System Types2092314
-Node: ISO 20222096298
-Node: EOL Conversion2108573
-Node: Coding System Properties2109745
-Node: Basic Coding System Functions2114068
-Node: Coding System Property Functions2116102
-Node: Encoding and Decoding Text2116660
-Node: Detection of Textual Encoding2117796
-Node: Big5 and Shift-JIS Functions2119332
-Node: Predefined Coding Systems2120484
-Node: CCL2132578
-Node: CCL Syntax2135682
-Node: CCL Statements2137258
-Node: CCL Expressions2141906
-Node: Calling CCL2144445
-Node: CCL Examples2147450
-Node: Category Tables2147587
-Node: Tips2149946
-Node: Style Tips2150587
-Node: Compilation Tips2160106
-Node: Documentation Tips2162020
-Node: Comment Tips2167529
-Node: Library Headers2170532
-Node: Building XEmacs and Object Allocation2174504
-Node: Building XEmacs2175387
-Node: Pure Storage2181965
-Node: Garbage Collection2184753
-Node: Standard Errors2195596
-Node: Standard Buffer-Local Variables2199805
-Node: Standard Keymaps2202440
-Node: Standard Hooks2206174
-Node: Index2213674
+Node: Synchronous Interface Functions2032138
+Node: Asynchronous Interface Functions2036629
+Node: Large Object Support2040134
+Node: Other libpq Functions2040761
+Node: Unimplemented libpq Functions2043796
+Node: XEmacs PostgreSQL libpq Examples2049115
+Node: Internationalization2055206
+Node: I18N Levels 1 and 22055549
+Node: I18N Level 32056255
+Node: Level 3 Basics2056536
+Node: Level 3 Primitives2057369
+Node: Dynamic Messaging2058975
+Node: Domain Specification2059438
+Node: Documentation String Extraction2061108
+Node: I18N Level 42062026
+Node: MULE2062218
+Node: Internationalization Terminology2063267
+Node: Charsets2075466
+Node: Charset Properties2076162
+Node: Basic Charset Functions2080877
+Node: Charset Property Functions2083058
+Node: Predefined Charsets2085128
+Node: MULE Characters2088048
+Node: Composite Characters2088923
+Node: Coding Systems2090190
+Node: Coding System Types2092330
+Node: ISO 20222096314
+Node: EOL Conversion2108589
+Node: Coding System Properties2109761
+Node: Basic Coding System Functions2114084
+Node: Coding System Property Functions2116118
+Node: Encoding and Decoding Text2116676
+Node: Detection of Textual Encoding2117812
+Node: Big5 and Shift-JIS Functions2119348
+Node: Predefined Coding Systems2120500
+Node: CCL2132594
+Node: CCL Syntax2135698
+Node: CCL Statements2137274
+Node: CCL Expressions2141922
+Node: Calling CCL2144461
+Node: CCL Examples2147466
+Node: Category Tables2147603
+Node: Tips2149962
+Node: Style Tips2150603
+Node: Compilation Tips2160122
+Node: Documentation Tips2162036
+Node: Comment Tips2167545
+Node: Library Headers2170548
+Node: Building XEmacs and Object Allocation2174520
+Node: Building XEmacs2175403
+Node: Pure Storage2181981
+Node: Garbage Collection2184769
+Node: Standard Errors2195612
+Node: Standard Buffer-Local Variables2199821
+Node: Standard Keymaps2202456
+Node: Standard Hooks2206190
+Node: Index2213690
 
 End Tag Table

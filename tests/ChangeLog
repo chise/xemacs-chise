@@ -1,3 +1,12 @@
+2001-04-14  Stephen J. Turnbull  <stephen@xemacs.org>
+
+	* XEmacs 21.2.47 "Zephir" is released.
+
+2001-03-23  Martin Buchholz  <martin@xemacs.org>
+
+	* automated/lisp-tests.el:
+	Add test for mis-byte-compilation of (- 0 x).
+
 2001-03-21  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.46 "Urania" is released.

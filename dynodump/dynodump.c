@@ -73,7 +73,7 @@
  * N.B. The above commentary is not quite correct in the flags have been hardwired
  *      to RTLD_SAVREL.
  */
-#pragma ident	"@(#) $Id: dynodump.c,v 1.6.2.2 2000/09/20 02:39:17 martinb Exp $ - SMI"
+#pragma ident	"@(#) $Id: dynodump.c,v 1.8 2001/04/12 18:20:43 michaels Exp $ - SMI"
 
 #define __EXTENSIONS__ 1
 

@@ -54,10 +54,12 @@
 
 ;;; Code:
 
-(defun menu-truncate-list (list n)
-  (if (<= (length list) n)
-      list
-    (butlast list (- (length list) n))))
+(defun Menubar-items-truncate-list (list n)
+  (mapcar #'(lambda (x)
+	      (if (<= (length x) 50) x (concat "..." (substring x -50))))
+	  (if (<= (length list) n)
+	      list
+	    (butlast list (- (length list) n)))))
 
 (defun submenu-generate-accelerator-spec (list &optional omit-chars-list)
   "Add auto-generated accelerator specifications to a submenu.
@@ -432,7 +434,7 @@ which will not be used as accelerators."
 		   (mapcar #'(lambda (string)
 			       (vector string
 				       (list 'grep string)))
-			   (menu-truncate-list grep-history 10)))))
+			   (Menubar-items-truncate-list grep-history 10)))))
 	     (append menu '("---") items))))
        ["%_Grep..." grep :active (fboundp 'grep)]
        ["%_Kill Grep" kill-compilation
@@ -540,7 +542,7 @@ which will not be used as accelerators."
 		   (mapcar #'(lambda (string)
 			       (vector string
 				       (list 'compile string)))
-			   (menu-truncate-list compile-history 10)))))
+			   (Menubar-items-truncate-list compile-history 10)))))
 	     (append menu '("---") items))))
        ["%_Compile..." compile :active (fboundp 'compile)]
        ["%_Repeat Compilation" recompile :active (fboundp 'recompile)]

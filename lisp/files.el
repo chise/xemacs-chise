@@ -371,11 +371,22 @@ and ignores this variable."
 ;      (apply op args))
 
 (defun convert-standard-filename (filename)
-  "Convert a standard file's name to something suitable for the current OS.
-This function's standard definition is trivial; it just returns the argument.
-However, on some systems, the function is redefined
-with a definition that really does change some file names."
-  filename)
+  "Convert a standard file's name to something suitable for the current OS."
+  (if (eq system-type 'windows-nt)
+      (let ((name (copy-sequence filename))
+	    (start 0))
+	;; leave ':' if part of drive specifier
+	(if (eq (aref name 1) ?:)
+	    (setq start 2))
+	;; destructively replace invalid filename characters with !
+	(while (string-match "[?*:<>|\"\000-\037]" name start)
+	  (aset name (match-beginning 0) ?!)
+	  (setq start (match-end 0)))
+	;; FSF: [convert directory separators to Windows format ...]
+	;; unneeded in XEmacs.
+	name)
+    filename))
+
 
 (defun pwd ()
   "Show the current default directory."
@@ -1927,7 +1938,9 @@ of the new file to agree with the old modes."
 				(setq setmodes (file-modes backupname)))
 			    (file-error
 			     ;; If trouble writing the backup, write it in ~.
-			     (setq backupname (expand-file-name "~/%backup%~"))
+			     (setq backupname
+				   (expand-file-name
+				    (convert-standard-filename "~/%backup%~")))
 			     (message "Cannot write backup file; backing up in ~/%%backup%%~")
 			     (sleep-for 1)
 			     (condition-case ()
@@ -2013,6 +2026,7 @@ the value is \"\"."
 (defun make-backup-file-name (file)
   "Create the non-numeric backup file name for FILE.
 This is a separate function so you can redefine it for customization."
+  ;; FSF has code here for MS-DOS short filenames, not supported in XEmacs.
     (concat file "~"))
 
 (defun backup-file-name-p (file)
@@ -2040,6 +2054,7 @@ the index in the name where the version number begins."
 Value is a list whose car is the name for the backup file
  and whose cdr is a list of old versions to consider deleting now.
 If the value is nil, don't make a backup."
+  (declare (special bv-length))
   (let ((handler (find-file-name-handler fn 'find-backup-file-name)))
     ;; Run a handler for this function so that ange-ftp can refuse to do it.
     (if handler
@@ -2761,7 +2776,7 @@ non-nil, it is called instead of rereading visited file contents."
 		     'recover-file))))
     (if handler
 	(funcall handler 'recover-file file)
-      (if (auto-save-file-name-p file)
+      (if (auto-save-file-name-p (file-name-nondirectory file))
 	  (error "%s is an auto-save file" file))
       (let ((file-name (let ((buffer-file-name file))
 			 (make-auto-save-file-name))))
@@ -2770,12 +2785,17 @@ non-nil, it is called instead of rereading visited file contents."
 		 (not (file-exists-p file-name)))
 	       (error "Auto-save file %s not current" file-name))
 	      ((save-window-excursion
-		 (if (not (eq system-type 'windows-nt))
-		     (with-output-to-temp-buffer "*Directory*"
-		       (buffer-disable-undo standard-output)
-		       (call-process "ls" nil standard-output nil
-				     (if (file-symlink-p file) "-lL" "-l")
-				     file file-name)))
+		 ;; XEmacs change: use insert-directory instead of
+		 ;; calling ls directly.
+		 (with-output-to-temp-buffer "*Directory*"
+		   (buffer-disable-undo standard-output)
+		   (save-excursion
+		     (set-buffer "*Directory*")
+		     (setq default-directory (file-name-directory file))
+		     (insert-directory file
+				       (if (file-symlink-p file) "-lL" "-l"))
+		     (setq default-directory (file-name-directory file-name))
+		     (insert-directory file-name "-l")))
 		 (yes-or-no-p (format "Recover auto save file %s? " file-name)))
 	       (switch-to-buffer (find-file-noselect file t))
 	       (let ((buffer-read-only nil))
@@ -2941,72 +2961,9 @@ Also rename any existing auto save file, if it was made in this session."
 	     (recent-auto-save-p))
 	(rename-file osave buffer-auto-save-file-name t))))
 
-;; see also ../packages/auto-save.el
-(defun make-auto-save-file-name (&optional filename)
-  "Return file name to use for auto-saves of current buffer.
-Does not consider `auto-save-visited-file-name' as that variable is checked
-before calling this function.  You can redefine this for customization.
-See also `auto-save-file-name-p'."
-  (let ((fname (or filename buffer-file-name))
-	name)
-    (setq name
-	  (if fname
-	      (concat (file-name-directory fname)
-		      "#"
-		      (file-name-nondirectory fname)
-		      "#")
+;; make-auto-save-file-name and auto-save-file-name-p are now only in
+;; auto-save.el.
 
-	    ;; Deal with buffers that don't have any associated files.  (Mail
-	    ;; mode tends to create a good number of these.)
-
-	    (let ((buffer-name (buffer-name))
-		  (limit 0))
-	      ;; Use technique from Sebastian Kremer's auto-save
-	      ;; package to turn slashes into \\!.  This ensures that
-	      ;; the auto-save buffer name is unique.
-
-	      ;; #### - yuck!  yuck!  yuck!  move this functionality
-	      ;; somewhere else and make the name translation customizable.
-	      ;; Using "\!" as part of a filename on a UNIX filesystem is nearly
-	      ;; IMPOSSIBLE to get past a shell parser.  -stig
-
-	      (while (string-match "[/\\]" buffer-name limit)
-		(setq buffer-name
-		      (concat (substring buffer-name 0 (match-beginning 0))
-			      (if (string= (substring buffer-name
-						      (match-beginning 0)
-						      (match-end 0))
-					   "/")
-				  "\\!"
-				"\\\\")
-			      (substring buffer-name (match-end 0))))
-		(setq limit (1+ (match-end 0))))
-
-	      ;;    (expand-file-name (format "#%s#%s#" (buffer-name) (make-temp-name "")))
-
-	      ;; jwz: putting the emacs PID in the auto-save file name
-	      ;; is bad news, because that defeats auto-save-recovery of
-	      ;; *mail* buffers -- the (sensible) code in sendmail.el
-	      ;; calls (make-auto-save-file-name) to determine whether
-	      ;; there is unsent, auto-saved mail to recover.  If that
-	      ;; mail came from a previous emacs process (far and away
-	      ;; the most likely case) then this can never succeed as
-	      ;; the pid differs.
-
-	      (expand-file-name (format "#%s#" buffer-name)))
-	    ))
-    ;; don't try to write auto-save files in unwritable places.  Unless
-    ;; there's already an autosave file here, put ours somewhere safe. --Stig
-    (if (or (file-writable-p name)
-	    (file-exists-p name))
-	name
-      (expand-file-name (concat "~/" (file-name-nondirectory name))))))
-
-(defun auto-save-file-name-p (filename)
-  "Return non-nil if FILENAME can be yielded by `make-auto-save-file-name'.
-FILENAME should lack slashes.
-You can redefine this for customization."
-  (string-match "\\`#.*#\\'" filename))
 
 (defun wildcard-to-regexp (wildcard)
   "Given a shell file name pattern WILDCARD, return an equivalent regexp.
@@ -3150,8 +3107,9 @@ If WILDCARD, it also runs the shell specified by `shell-file-name'."
 	(funcall handler 'insert-directory file switches
 		 wildcard full-directory-p)
       (cond
-       ;; #### mswindows-insert-directory should be called
-       ;; nt-insert-directory - kkm.
+       ;; [mswindows-insert-directory should be called
+       ;; nt-insert-directory - kkm].  not true any more according to
+       ;; my new naming scheme. --ben
        ((and (fboundp 'mswindows-insert-directory)
 	     (eq system-type 'windows-nt))
 	(mswindows-insert-directory file switches wildcard full-directory-p))
