@@ -76,7 +76,7 @@
       (=daikanwa	  . 30177)	; ø¸‡—¡
       (=ucs@jis		  . #x81FD)	; ø»‹³
       )
-     ((=ucs@unicode	  . #x81FD)	; ó°€™
+     ((=ucs@unicode	  . #x81FD)	; ó°€š
       ))
     (=ucs		. #x81FD)	; è‡½
     ))
