@@ -166,6 +166,8 @@ struct Lisp_Char_Table
   Lisp_Object table;
   Lisp_Object default_value;
   Lisp_Object name;
+  Lisp_Object db_file;
+  Lisp_Object db;
   unsigned char unloaded;
 #else
   Lisp_Object ascii[NUM_ASCII_CHARS];
@@ -351,7 +353,7 @@ Lisp_Object
 char_attribute_system_db_file (Lisp_Object key_type, Lisp_Object attribute,
 			       int writing_mode);
 
-Lisp_Object load_char_attribute_maybe (Emchar ch, Lisp_Object attribute);
+Lisp_Object load_char_attribute_maybe (Lisp_Char_Table* cit, Emchar ch);
 #endif
 
 INLINE_HEADER Lisp_Object get_char_id_table (Lisp_Char_Table* cit, Emchar ch);
@@ -369,12 +371,7 @@ get_char_id_table (Lisp_Char_Table* cit, Emchar ch)
 #ifdef HAVE_DATABASE
   if (EQ (val, Qunloaded))
     {
-      Lisp_Object attribute = CHAR_TABLE_NAME (cit);
-
-      if (!NILP (attribute))
-	val = load_char_attribute_maybe (ch, attribute);
-      else
-	val = Qunbound;
+      val = load_char_attribute_maybe (cit, ch);
       put_char_id_table_0 (cit, ch, val);
     }
 #endif
