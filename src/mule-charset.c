@@ -206,7 +206,7 @@ byte_table_hash (Lisp_Object obj, int depth)
 }
 
 static const struct lrecord_description byte_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(Lisp_Byte_Table, property), 256 },
+  { XD_LISP_OBJECT_ARRAY, offsetof(Lisp_Byte_Table, property), 256 },
   { XD_END }
 };
 
@@ -282,7 +282,7 @@ char_id_table_hash (Lisp_Object obj, int depth)
 }
 
 static const struct lrecord_description char_id_table_description[] = {
-  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table), 1 },
+  { XD_LISP_OBJECT, offsetof(Lisp_Char_ID_Table, table) },
   { XD_END }
 };
 
@@ -532,18 +532,28 @@ Return the value of CHARACTER's ATTRIBUTE.
 */
        (character, attribute))
 {
-  Lisp_Object ret;
   Lisp_Object ccs;
 
   CHECK_CHAR (character);
-  ret = get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
-  if (EQ (ret, Qnil))
-    return Qnil;
-
   if (!NILP (ccs = Ffind_charset (attribute)))
-    attribute = ccs;
+    {
+      Lisp_Object encoding_table = XCHARSET_ENCODING_TABLE (ccs);
 
-  return Fcdr (Fassq (attribute, ret));
+      if (CHAR_ID_TABLE_P (encoding_table))
+	return get_char_id_table (XCHAR (character), encoding_table);
+      else
+	return Qnil;
+    }
+  else
+    {
+      Lisp_Object ret
+	= get_char_id_table (XCHAR (character), Vcharacter_attribute_table);
+
+      if (EQ (ret, Qnil))
+	return Qnil;
+      else
+	return Fcdr (Fassq (attribute, ret));
+    }
 }
 
 Lisp_Object put_char_attribute (Lisp_Object character,
@@ -615,6 +625,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
   ccs = Ffind_charset (attribute);
   if (!NILP (ccs))
     {
+      Lisp_Object encoding_table;
+
       if (!EQ (XCHARSET_NAME (ccs), Qucs)
 	  || (XCHAR (character) != XINT (value)))
 	{
@@ -695,7 +707,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	    }
 	  else
 	    {
-	      XCHARSET_DECODING_TABLE (ccs) = v = make_vector (ccs_len, Qnil);
+	      XCHARSET_DECODING_TABLE (ccs) = v
+		= make_older_vector (ccs_len, Qnil);
 	    }
 
 	  dim = XCHARSET_DIMENSION (ccs);
@@ -710,7 +723,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	      if (dim > 0)
 		{
 		  if (!VECTORP (nv))
-		    nv = (XVECTOR_DATA(v)[i] = make_vector (ccs_len, Qnil));
+		    nv = (XVECTOR_DATA(v)[i]
+			  = make_older_vector (ccs_len, Qnil));
 		  v = nv;
 		}
 	      else
@@ -720,6 +734,13 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 	}
       else
 	attribute = ccs;
+      if (NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
+	{
+	  XCHARSET_ENCODING_TABLE (ccs) = encoding_table
+	    = make_char_id_table (Qnil);
+	}
+      put_char_id_table (XCHAR (character), value, encoding_table);
+      return Qt;
     }
   else if (EQ (attribute, Q_decomposition))
     {
@@ -813,7 +834,8 @@ Remove CHARACTER's ATTRIBUTE.
       int ccs_len;
       int dim;
       int code_point;
-	      
+      Lisp_Object encoding_table;
+
       /* ad-hoc method for `ascii' */
       if ((XCHARSET_CHARS (ccs) == 94) &&
 	  (XCHARSET_BYTE_OFFSET (ccs) != 33))
@@ -844,6 +866,11 @@ Remove CHARACTER's ATTRIBUTE.
 	      v = XCHARSET_DECODING_TABLE (ccs);
 	    }
 	}
+      if (!NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
+	{
+	  put_char_id_table (XCHAR (character), Qnil, encoding_table);
+	}
+      return Qt;
     }
   return remove_char_attribute (character, attribute);
 }
@@ -1358,7 +1385,8 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->registry);
   mark_object (cs->ccl_program);
 #ifdef UTF2000
-  mark_object (cs->decoding_table);
+  mark_object (cs->encoding_table);
+  /* mark_object (cs->decoding_table); */
 #endif
   return cs->name;
 }
@@ -1405,6 +1433,7 @@ static const struct lrecord_description charset_description[] = {
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, ccl_program) },
 #ifdef UTF2000
   { XD_LISP_OBJECT, offsetof (Lisp_Charset, decoding_table) },
+  { XD_LISP_OBJECT, offsetof (Lisp_Charset, encoding_table) },
 #endif
   { XD_END }
 };
@@ -1450,6 +1479,7 @@ make_charset (Charset_ID id, Lisp_Object name,
   CHARSET_REVERSE_DIRECTION_CHARSET (cs) = Qnil;
 #ifdef UTF2000
   CHARSET_DECODING_TABLE(cs) = Qnil;
+  CHARSET_ENCODING_TABLE(cs) = Qnil;
   CHARSET_UCS_MIN(cs) = ucs_min;
   CHARSET_UCS_MAX(cs) = ucs_max;
   CHARSET_CODE_OFFSET(cs) = code_offset;
