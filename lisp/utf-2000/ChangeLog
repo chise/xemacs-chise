@@ -1,5 +1,24 @@
 2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R059-Bristle.el: Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R058-Snout.el: Use `=>ucs' instead of `->ucs'.
+	(U+5F5B): Unify CB-01820.
+
+	* Ideograph-R057-Bow.el: Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R056-Shoot.el (C1-636F): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R022-Right-Open-Box.el: Merge some CJK Ext-B code
+	points.
+	(M-02596): Unify BC-87D4 and U-0002092C.
+
+	* Ideograph-R005-Second.el (BC-87D4): Moved to
+	Ideograph-R022-Right-Open-Box.el.
+
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
 	* char-db-util.el (insert-char-attributes): Add setting to format
 	`=>ucs-jis'.
 
