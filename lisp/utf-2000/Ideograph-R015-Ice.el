@@ -414,6 +414,22 @@
     (=gt-pj-1		. #x5157)	; &I-GT-02141; [49-55]
     (=daikanwa		. 01620)	; &I-M-01620;
     (=hanziku-1		. #xE2E4)	; &I-HZK01-E2E4;
+    ))
+(define-char
+  '((=>ucs*		. #x51B5)	; 况
+    (=>daikanwa		. 01620)	; 况
+    (ideographic-radical . 15)	; ⼎
+    (ideographic-strokes . 5)
+    (total-strokes	 . 7)
+    (<-same
+     ((=ucs		  . #x51B5)	; 况
+      )
+     ((=ucs		  . #x2F81B)	; 况
+      ))
+    (<-vulgar
+     ((=ucs		  . #x6CC1)	; 況
+      ))
+    (=ucs		. #xFA71)	; 况
     (=cbeta		. 00288)	; &I-CB00288;
     ))
 (define-char
