@@ -1,3 +1,16 @@
+2001-09-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R149-Speech.el: Merge GB 12345 code points.
+
+2001-09-17  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R137-Boat.el: Merge GB 12345 code points.
+
+2001-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R142-Insect.el, Ideograph-R128-Ear.el: Merge GB 12345
+	code points.
+
 2001-09-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R154-Shell.el: Merge GB 12345 code points.
