@@ -1,3 +1,16 @@
+2002-03-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R065-Branch.el, Ideograph-R067-Script.el: Merge
+	mapping to CHINA3-JEF code points.
+
+	* Ideograph-R066-Rap.el, Ideograph-R070-Square.el:
+	- Use `=>ucs' instead of `->ucs'.
+	- Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R069-Axe.el: Merge mapping to CHINA3-JEF code points.
+
+	* Ideograph-R068-Dipper.el (U+659D): Unify JC3-50DD.
+
 2002-03-28  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R064-Hand.el (M-12235): Separate G0-3560, C2-354D and
