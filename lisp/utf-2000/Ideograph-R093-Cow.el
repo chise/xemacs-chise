@@ -20,6 +20,10 @@
     (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x725B)	; ç‰›
+      ))
+    (=big5-cdp		. #x8BA9)	; ý¢€ˆ®©
     (=daikanwa		. 19923)	; ø¸„·“
     ))
 (define-char
@@ -27,6 +31,9 @@
     (ideographic-radical . 93)	; â½œ
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
+    (<-ideographic-component-forms
+     ((=ucs		  . #x725B)	; ç‰›
+      ))
     (=ucs		. #x725C)	; ç‰œ
     (=jis-x0212		. #x4A58)	; ø»‹¡•
     ))
