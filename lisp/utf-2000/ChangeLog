@@ -1,3 +1,8 @@
+2003-07-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R148-Horn.el, Ideograph-R146-West.el,
+	Ideograph-R145-Clothes.el: Add some GT code points.
+
 2003-07-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R143-Blood.el: Add some GT code points.
