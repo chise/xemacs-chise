@@ -1,3 +1,12 @@
+2002-11-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_gb): New variable.
+	(Qucs_gb): New variable.
+	(syms_of_mule_charset): Add new symbol `ucs-gb'.
+	(complex_vars_of_mule_charset): Add new coded-charset `ucs-gb'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_GB): New macro.
+
 2002-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (charset_code_point): if a coded-charset has a
