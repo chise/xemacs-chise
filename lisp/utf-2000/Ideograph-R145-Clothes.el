@@ -65,27 +65,24 @@
     (=cns11643-5	. #x2766)	; &I-C5-2766; [07-70]
     ))
 (define-char
-  '((=>ucs		. #x461A)	; 䘚
-    (ideographic-radical . 145)	; ⾐
-    (ideographic-strokes . 2)
-    (total-strokes	 . 8)
-    (<-original-ideograph
-     (:sources	(seiji-tsuu morohashi-daikanwa shinjigen-1)
-      :char	((ideographic-radical . 24)	; ⼗
-		 (shinjigen-1	     . 823)
-		 (=daikanwa	     . 02740)	; &I-M-02740;
-		 )
-      ))
-    (shinjigen-1	. 823)
-    (=daikanwa		. 34094)	; &M-34094;
-    ))
-(define-char
-  '((morohashi-daikanwa	34094 0 0)
-    (ideographic-radical . 145)	; ⾐
+  '((ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 2)
     (total-strokes	 . 8)
     (=ucs		. #x461A)	; 䘚
-    (=cns11643-3	. #x2A6E)	; &I-C3-2A6E; [10-78]
+    (->subsumptive
+     ((<-original
+       ((ideographic-radical . 24)	; ⼗
+	(shinjigen-1	    . 823)
+	(=daikanwa	    . 02740)	; &I-M-02740;
+	))
+      (<-original*sources
+       zhengzi-tong daikanwa shinjigen-1)
+      (shinjigen-1	  . 823)
+      (=daikanwa	  . 34094)	; &M-34094;
+      )
+     ((=cns11643-3	  . #x2A6E)	; &C3-2A6E; [10-78]
+      (=ucs@unicode	  . #x461A)	; &C3-2A6E;
+      ))
     ))
 (define-char
   '((ideographic-radical . 145)	; ⾐
@@ -2568,7 +2565,7 @@
     (ideographic-radical . 145)	; ⾐
     (ideographic-strokes . 6)
     (total-strokes	 . 12)
-    (<-original-ideograph
+    (<-original
      (:sources	(seiji-tsuu morohashi-daikanwa)
       :char	((=daikanwa	     . 34310)	; &I-M-34310;
 		 )
