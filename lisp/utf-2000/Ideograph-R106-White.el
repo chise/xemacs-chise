@@ -330,6 +330,7 @@
     (total-strokes	 . 9)
     (<-vulgar
      ((shinjigen-1	  . 3961)
+      (=cns11643-3	  . #x3C48)	; &M-16308;
       (=daikanwa	  . 16308)	; &I-M-16308;
       ))
     (<-vulgar*sources
