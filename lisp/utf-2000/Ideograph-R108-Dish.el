@@ -754,6 +754,10 @@
   '((ideographic-radical . 108)	; â½«
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
+    (<-simplified@JP/Jouyou
+     ((=ucs		  . #x76DC)	; ç›œ
+      (=jis-x0208	  . #x5D39)	; ø½‹Žœ
+      ))
     (shinjigen-2	. 3915)
     (=ucs		. #x76D7)	; ç›—
     (=jis-x0208		. #x4570)	; ø½Š¬ƒ
@@ -795,7 +799,7 @@
     (=gt-pj-1		. #x4039)	; ý¡€‡Œ™
     ))
 (define-char
-  '((script		C-Simplified Ideograph)
+  '((script		CN Simplified Ideograph)
     (ideographic-radical . 108)	; â½«
     (ideographic-strokes . 6)
     (total-strokes	 . 11)
