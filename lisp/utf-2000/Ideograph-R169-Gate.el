@@ -382,26 +382,23 @@
       ))
     ))
 (define-char
-  '((=>ucs		. #x958B)	; 開
-    (ideographic-radical . 169)	; ⾨
+  '((ideographic-radical . 169)	; ⾨
     (ideographic-strokes . 4)
     (total-strokes	 . 12)
-    (=daikanwa		. 41233)	; &M-41233;
-    ))
-(define-char
-  '((morohashi-daikanwa	41233 0 0)
-    (ideographic-radical . 169)	; ⾨
-    (ideographic-strokes . 4)
-    (total-strokes	 . 12)
-    (shinjigen-2	. 8801)
     (=ucs		. #x958B)	; 開
-    (=jis-x0208		. #x332B)	; &I-J90-332B;
-    (=ks-x1001		. #x4B52)	; &I-K0-4B52;
-    (=cns11643-1	. #x6264)	; &I-C1-6264;
-    (=gb12345		. #x3F2A)	; 開
-    (=gt		. 55450)	; &I-GT-55450;
-    (=gt-k		. 09007)	; &I-GT-K09007;
-    (=gt-pj-1		. #x332B)	; &I-GT-55450;
+    (->subsumptive
+     ((=daikanwa	  . 41233)	; &M-41233;
+      )
+     ((shinjigen-2	  . 8801)
+      (=jis-x0208	  . #x332B)	; &GT-55450;
+      (=ks-x1001	  . #x4B52)	; &I-K0-4B52;
+      (=cns11643-1	  . #x6264)	; &I-C1-6264;
+      (=gb12345		  . #x3F2A)	; &GT-55450;
+      (=gt		  . 55450)	; &I-GT-55450;
+      (=gt-k		  . 09007)	; &I-GT-K09007;
+      (=gt-pj-1		  . #x332B)	; &I-GT-55450;
+      (=ucs@unicode	  . #x958B)	; &GT-55450;
+      ))
     ))
 (define-char
   '((ideographic-radical . 169)	; ⾨
