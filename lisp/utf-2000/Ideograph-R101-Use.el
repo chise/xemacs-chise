@@ -6,7 +6,7 @@
     (chinese-gb2312	. #x5343)	; ø»…‚
     (=jis-x0208		. #x4D51)	; ø½Š·”
     (korean-ksc5601	. #x6944)	; ø»Š„Ÿ
-    (chinese-isoir165	. #x5343)	; ø»¸’
+    (=iso-ir165		. #x5343)	; ø»¸’
     (chinese-cns11643-1 . #x466E)	; ø»‘¹¿
     (=gt-pj-1		. #x4D51)	; ç”¨
     (chinese-big5	. #xA5CE)	; ý¢€Š—Ž
@@ -29,7 +29,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 5)
     (chinese-gb2312	. #x4B26)	; ø»…ƒµ
-    (chinese-isoir165	. #x4B26)	; ø»¬…
+    (=iso-ir165		. #x4B26)	; ø»¬…
     (chinese-cns11643-1 . #x466F)	; ø»‘º€
     (chinese-big5	. #xA5CF)	; ý¢€Š—
     (=ucs		. #x7529)	; ç”©
@@ -49,7 +49,7 @@
     (ideographic-radical . 101)	; â½¤
     (ideographic-strokes . 1)
     (total-strokes	 . 6)
-    (chinese-isoir165	. #x7A24)	; ø»Ž±…
+    (=iso-ir165		. #x7A24)	; ø»Ž±…
     (chinese-cns11643-2 . #x2266)	; ø»“ƒ
     (chinese-big5	. #xCA46)	; ý¢€Œ©†
     (=ucs		. #x752A)	; ç”ª
@@ -70,7 +70,7 @@
     (chinese-gb2312	. #x3826)	; ø»„§»
     (=jis-x0208		. #x4A63)	; ø½Š³Œ
     (korean-ksc5601	. #x5C4B)	; ø»‰± 
-    (chinese-isoir165	. #x3826)	; ø»‹
+    (=iso-ir165		. #x3826)	; ø»‹
     (chinese-cns11643-1 . #x4B2D)	; ø»’€”
     (=gt-pj-1		. #x4A63)	; ç”«
     (chinese-big5	. #xA86A)	; ý¢€Š¡ª
@@ -86,7 +86,7 @@
     (chinese-gb2312	. #x702E)	; ø»…º“
     (=jis-x0208		. #x6135)	; ø½‹”
     (korean-ksc5601	. #x6945)	; ø»Š„ 
-    (chinese-isoir165	. #x702E)	; ø»Ž¢£
+    (=iso-ir165		. #x702E)	; ø»Ž¢£
     (chinese-cns11643-1 . #x4B2C)	; ø»’€“
     (=gt-pj-1		. #x6135)	; ç”¬
     (chinese-big5	. #xA869)	; ý¢€Š¡©
@@ -220,7 +220,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 9)
     (chinese-gb2312	. #x3142)	; ø»„ž…
-    (chinese-isoir165	. #x3142)	; ø»†•
+    (=iso-ir165		. #x3142)	; ø»†•
     (chinese-cns11643-1 . #x524A)	; ø»’‹ƒ
     (chinese-big5	. #xACC7)	; ý¢€Š³‡
     (ideograph-daikanwa . 21713)	; ø¸…“‘
@@ -299,7 +299,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 12)
     (chinese-gb2312	. #x6538)	; ø»…ª“
-    (chinese-isoir165	. #x6538)	; ø»Ž’£
+    (=iso-ir165		. #x6538)	; ø»Ž’£
     (=ucs		. #x752F)	; ç”¯
     ))
 (define-char

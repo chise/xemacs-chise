@@ -6,7 +6,7 @@
     (chinese-gb2312	. #x5041)	; ø»…‹¦
     (=jis-x0208		. #x3F49)	; ø½Š¢¨
     (korean-ksc5601	. #x6374)	; ø»‰¼›
-    (chinese-isoir165	. #x5041)	; ø»³¶
+    (=iso-ir165		. #x5041)	; ø»³¶
     (chinese-cns11643-1 . #x4B50)	; ø»’€·
     (=gt-pj-1		. #x3F49)	; è¾›
     (ideograph-daikanwa . 38630)	; ø¸‰›¦
@@ -161,7 +161,7 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 12)
     (chinese-gb2312	. #x393C)	; ø»„©¯
-    (chinese-isoir165	. #x393C)	; ø»‘¿
+    (=iso-ir165		. #x393C)	; ø»‘¿
     (chinese-cns11643-1 . #x624B)	; ø»’¢¤
     (=ucs		. #x8F9C)	; è¾œ
     ))
@@ -190,7 +190,7 @@
     (shinjigen-2	. 8199)
     (chinese-gb2312	. #x3447)	; ø»„¢¤
     (=jis-x0208		. #x3C2D)	; ø½Š²
-    (chinese-isoir165	. #x3447)	; ø»Š´
+    (=iso-ir165		. #x3447)	; ø»Š´
     (chinese-cns11643-3 . #x4477)	; ø»–‹”
     (ideograph-daikanwa . 38638)	; ø¸‰›®
     (=ucs		. #x8F9E)	; è¾ž
@@ -250,7 +250,7 @@
     (ideographic-strokes . 6)
     (total-strokes	 . 13)
     (chinese-gb2312	. #x3159)	; ø»„žœ
-    (chinese-isoir165	. #x3159)	; ø»†¬
+    (=iso-ir165		. #x3159)	; ø»†¬
     (chinese-cns11643-1 . #x6728)	; ø»’©—
     (=ucs		. #x8F9F)	; è¾Ÿ
     ))
@@ -305,7 +305,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 14)
     (chinese-gb2312	. #x4031)	; ø»„³¶
-    (chinese-isoir165	. #x4031)	; ø»œ†
+    (=iso-ir165		. #x4031)	; ø»œ†
     (chinese-cns11643-1 . #x6B3E)	; ø»’¯¥
     (=ucs		. #x8FA3)	; è¾£
     ))
@@ -457,7 +457,7 @@
     (ideographic-strokes . 9)
     (total-strokes	 . 16)
     (chinese-gb2312	. #x3166)	; ø»„ž©
-    (chinese-isoir165	. #x3166)	; ø»†¹
+    (=iso-ir165		. #x3166)	; ø»†¹
     (=ucs		. #x8FA8)	; è¾¨
     ))
 (define-char
@@ -531,7 +531,7 @@
   '((ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 9)
     (chinese-gb2312	. #x3167)	; ø»„žª
-    (chinese-isoir165	. #x3167)	; ø»†º
+    (=iso-ir165		. #x3167)	; ø»†º
     (=ucs		. #x8FA9)	; è¾©
     ))
 (define-char
@@ -565,7 +565,7 @@
   '((ideographic-radical . 160)	; â¾Ÿ
     (ideographic-strokes . 10)
     (chinese-gb2312	. #x3168)	; ø»„ž«
-    (chinese-isoir165	. #x3168)	; ø»†»
+    (=iso-ir165		. #x3168)	; ø»†»
     (=ucs		. #x8FAB)	; è¾«
     ))
 (define-char

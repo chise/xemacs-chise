@@ -41,7 +41,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 4)
     (chinese-gb2312	. #x3324)	; ø»„ £
-    (chinese-isoir165	. #x3324)	; ø»ˆ³
+    (=iso-ir165		. #x3324)	; ø»ˆ³
     (=big5-cdp		. #x89A5)	; ý¢€ˆ¦¥
     (=ucs		. #x957F)	; é•¿
     ))

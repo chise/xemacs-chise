@@ -3,7 +3,7 @@
     (ideographic-strokes . 0)
     (total-strokes	 . 10)
     (=jis-x0208		. #x7228)	; ø½‹­
-    (chinese-isoir165	. #x2F79)	; ø»„
+    (=iso-ir165		. #x2F79)	; ø»„
     (chinese-cns11643-1 . #x586E)	; ø»’”›
     (chinese-gb12345	. #x3637)	; é¬¥
     (=gt-pj-1		. #x7228)	; é¬¥

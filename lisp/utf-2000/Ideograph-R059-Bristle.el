@@ -4,7 +4,7 @@
     (total-strokes	 . 3)
     (chinese-gb2312	. #x616A)	; ø»…¥
     (=jis-x0208		. #x5744)	; ø½‹…³
-    (chinese-isoir165	. #x616A)	; ø»Ž
+    (=iso-ir165		. #x616A)	; ø»Ž
     (chinese-cns11643-3 . #x2142)	; ø»•—…
     (=gt-pj-1		. #x5744)	; å½¡
     (ideograph-daikanwa . 09962)	; ø¸‚›ª
@@ -90,7 +90,7 @@
     (chinese-gb2312	. #x504E)	; ø»…‹³
     (=jis-x0208		. #x3741)	; ø½Š–°
     (korean-ksc5601	. #x7B21)	; ø»Šž˜
-    (chinese-isoir165	. #x504E)	; ø»´ƒ
+    (=iso-ir165		. #x504E)	; ø»´ƒ
     (chinese-cns11643-1 . #x4A30)	; ø»‘¾¹
     (=gt-pj-1		. #x3741)	; å½¢
     (chinese-big5	. #xA7CE)	; ý¢€ŠŸŽ
@@ -146,7 +146,7 @@
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
     (chinese-gb2312	. #x4D2E)	; ø»…†¹
-    (chinese-isoir165	. #x4D2E)	; ø»¯‰
+    (=iso-ir165		. #x4D2E)	; ø»¯‰
     (=ucs		. #x5F64)	; å½¤
     ))
 (define-char
@@ -241,7 +241,7 @@
     (chinese-gb2312	. #x5165)	; ø»…¨
     (=jis-x0208		. #x4927)	; ø½Š°²
     (korean-ksc5601	. #x6569)	; ø»‰¿Œ
-    (chinese-isoir165	. #x5165)	; ø»µ¸
+    (=iso-ir165		. #x5165)	; ø»µ¸
     (chinese-cns11643-3 . #x2C50)	; ø»•§
     (=gt-pj-1		. #x4927)	; å½¦
     (ideograph-daikanwa . 09981)	; ø¸‚›½
@@ -267,7 +267,7 @@
   '((ideographic-radical . 59)	; â¼º
     (ideographic-strokes . 6)
     (chinese-gb2312	. #x506B)	; ø»…Œ
-    (chinese-isoir165	. #x506B)	; ø»´ 
+    (=iso-ir165		. #x506B)	; ø»´ 
     (=ucs		. #x987B)	; é¡»
     ))
 (define-char
@@ -277,7 +277,7 @@
     (shinjigen-1	. 2314)
     (korean-ksc5601	. #x696E)	; ø»Š…‰
     (japanese-jisx0212	. #x3C7E)	; ø»‹—
-    (chinese-isoir165	. #x7C32)	; ø»Ž´
+    (=iso-ir165		. #x7C32)	; ø»Ž´
     (chinese-cns11643-2 . #x2E7D)	; ø»“¡‚
     (=jis-x0213-1-2000	. #x743E)	; ø»¤“
     (chinese-big5	. #xD17B)	; ý¢€…»
@@ -359,7 +359,7 @@
     (ideographic-strokes . 7)
     (kangxi-strokes	 . 19)
     (total-strokes	 . 10)
-    (chinese-isoir165	. #x2E3C)	; ø»µ
+    (=iso-ir165		. #x2E3C)	; ø»µ
     (=ucs		. #x5F68)	; å½¨
     ))
 (define-char
@@ -404,7 +404,7 @@
     (chinese-gb2312	. #x324A)	; ø»„Ÿ«
     (=jis-x0208		. #x3A4C)	; ø½Š›•
     (korean-ksc5601	. #x7374)	; ø»Š“»
-    (chinese-isoir165	. #x324A)	; ø»‡»
+    (=iso-ir165		. #x324A)	; ø»‡»
     (chinese-cns11643-1 . #x5A33)	; ø»’–œ
     (=gt-pj-1		. #x3A4C)	; å½©
     (=ucs		. #x5F69)	; å½©
@@ -429,7 +429,7 @@
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
     (chinese-gb2312	. #x316B)	; ø»„ž®
-    (chinese-isoir165	. #x316B)	; ø»†¾
+    (=iso-ir165		. #x316B)	; ø»†¾
     (=ucs		. #x5F6A)	; å½ª
     ))
 (define-char
@@ -500,7 +500,7 @@
     (chinese-gb2312	. #x3172)	; ø»„žµ
     (=jis-x0208		. #x494B)	; ø½Š±–
     (korean-ksc5601	. #x5E2F)	; ø»‰´€
-    (chinese-isoir165	. #x3172)	; ø»‡…
+    (=iso-ir165		. #x3172)	; ø»‡…
     (chinese-cns11643-1 . #x5A32)	; ø»’–›
     (=gt-pj-1		. #x494B)	; å½¬
     (chinese-big5	. #xB16C)	; ý¢€‹…¬
@@ -576,7 +576,7 @@
     (chinese-gb2312	. #x456D)	; ø»„¼ˆ
     (=jis-x0208		. #x5745)	; ø½‹…´
     (korean-ksc5601	. #x7830)	; ø»Šš
-    (chinese-isoir165	. #x456D)	; ø»¤˜
+    (=iso-ir165		. #x456D)	; ø»¤˜
     (chinese-cns11643-1 . #x5F25)	; ø»’¤
     (=gt-pj-1		. #x5745)	; å½­
     (chinese-big5	. #xB45E)	; ý¢€‹‘ž
@@ -721,7 +721,7 @@
     (shinjigen-2	. 2323)
     (=jis-x0208		. #x3E34)	; ø½Š µ
     (korean-ksc5601	. #x7360)	; ø»Š“§
-    (chinese-isoir165	. #x5543)	; ø»»Ž
+    (=iso-ir165		. #x5543)	; ø»»Ž
     (=gt-pj-1		. #x3E34)	; ø½Š µ
     (chinese-big5	. #xB9FC)	; ý¢€‹§¼
     (ideograph-daikanwa . 10015)	; ø¸‚œŸ
@@ -734,7 +734,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
     (chinese-gb2312	. #x5543)	; ø»…’¾
-    (chinese-isoir165	. #x5543)	; ø»»Ž
+    (=iso-ir165		. #x5543)	; ø»»Ž
     (chinese-cns11643-1 . #x6864)	; ø»’«±
     (=ucs		. #x5F70)	; å½°
     ))
@@ -774,7 +774,7 @@
     (chinese-gb2312	. #x5330)	; ø»…¯
     (=jis-x0208		. #x3146)	; ø½ŠŽ
     (korean-ksc5601	. #x672F)	; ø»ŠŽ
-    (chinese-isoir165	. #x5330)	; ø»·¿
+    (=iso-ir165		. #x5330)	; ø»·¿
     (chinese-cns11643-1 . #x6C60)	; ø»’±¥
     (=gt-pj-1		. #x3146)	; å½±
     (chinese-big5	. #xBC76)	; ý¢€‹±¶
