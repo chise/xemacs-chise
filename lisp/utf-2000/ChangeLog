@@ -1,3 +1,17 @@
+2003-06-02  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R016-Table.el (M-01741): Separate C6-2152 and
+	U-00020629.
+	(M-01742): Unify H1-DEEC and U-0002062A.
+	(U+51E4): Separate C3-2151.
+	(U-0002062F): Unify M-03067; don't use `->identical'; use
+	`ideographic-{radical|strokes}@{ucs|daikanwa}' instead of
+	`ideographic-{radical|strokes}'.
+	(MH-00045): New character.
+	(U-00020643): Unify MH-0046 and M085212; add strokes.
+	(MH-0047): New character; unify U+9F21 and M054751; copied from
+	Ideograph-R208-Rat.el.
+
 2003-06-02  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R208-Rat.el (U+9F21): Unify MH-0047 and M054751; use
