@@ -246,7 +246,8 @@
     (->identical
      ((ideograph-gt	  . 00008)	; ý¡€€€ˆ
       ))
-    (ucs		. #x20089)	; ð ‚‰
+    (japanese-jisx0213-2	. #x2121)	; ø»¤€
+    (ucs			. #x20089)	; ð ‚‰
     ))
 (define-char
   '((ideographic-radical . 4)	; â¼ƒ
