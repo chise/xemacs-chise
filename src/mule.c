@@ -1,5 +1,5 @@
 /* Copyright (C) 1995 Free Software Foundation.
-   Copyright (C) 1999,2000,2001,2002,2003 MORIOKA Tomohiko
+   Copyright (C) 1999,2000,2001,2002 MORIOKA Tomohiko
 
 This file is part of XEmacs.
 
@@ -95,7 +95,7 @@ accept a pattern compiled by 'regexp-compile' with word-option t.
 #endif /* MULE_REGEXP */
 
 #ifdef UTF2000
-Lisp_Object Vxemacs_chise_version;
+Lisp_Object Vutf_2000_version;
 #endif
 
 
@@ -122,16 +122,13 @@ vars_of_mule (void)
 #ifdef UTF2000
   Fprovide (intern ("utf-2000"));
 
-  Vxemacs_chise_version = build_string("0.21 (Narayama)");
-  DEFVAR_LISP ("xemacs-chise-version", &Vxemacs_chise_version /*
-Version number of XEmacs CHISE.
-*/ );
-  DEFVAR_LISP ("utf-2000-version", &Vxemacs_chise_version /*
-Version number of XEmacs CHISE.
+  Vutf_2000_version = build_string("0.20 (Nara)");
+  DEFVAR_LISP ("utf-2000-version", &Vutf_2000_version /*
+Version number of XEmacs UTF-2000.
 */ );
 #endif
 
-#if defined(CHISE)||defined(HAVE_CHISE_CLIENT)
+#ifdef HAVE_CHISE_CLIENT
   Fprovide (intern ("chise"));
 #endif
 

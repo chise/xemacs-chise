@@ -99,7 +99,7 @@ to the system configuration; look at `system-configuration' instead."
 	    (cond ((or (and (fboundp 'featurep)
 			    (featurep 'utf-2000))
 		       (memq 'utf-2000 features))
-		   (concat "  CHISE v" xemacs-chise-version))
+		   (concat "  UTF-2000 v" utf-2000-version))
 		  (t ""))
 	    (substring emacs-build-time 0
 		       (string-match " *[0-9]*:" emacs-build-time))

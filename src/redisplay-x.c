@@ -982,8 +982,8 @@ x_output_string (struct window *w, struct display_line *dl,
       /* We draw underlines in the same color as the text. */
       if (cachel->underline)
 	{
-	  unsigned long upos;
-	  unsigned long uthick;
+	  long upos;
+	  long uthick;
 	  XFontStruct *xfont;
 
 	  xfont = FONT_INSTANCE_X_FONT (XFONT_INSTANCE (font));

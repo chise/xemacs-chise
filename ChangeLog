@@ -1,13 +1,3 @@
-2003-03-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
-
-	* configure.in:
-	- Add new option `--with-chise'.
-	- define `CHISE' if --with-chise is specified and/or chise.h is
-	  found.
-	- Disable Wnn support if UTF2000 is enables.
-	- Display "Multiscriptization / Multilingualization /
-	  Internationalization:" instead of "Internationalization:".
-
 2002-03-11  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Makefile.in.in (COPYDIR): Add ${srcdir}/lib-src/char-db if
@@ -55,19 +45,6 @@
 
 	* configure.in: Add new option `--with-utf-2000'; define `UTF2000'
 	if it is specified.
-
-2003-01-15  Stephen J. Turnbull  <stephen@xemacs.org>
-
-	* XEmacs 21.4.12 "Portable Code" is released.
-
-2003-01-13  Ilya Golubev  <golubev@xemacs.org>
-
-	* etc/photos/golubev.png, etc/photos/golubevm.png: New.
-
-2003-01-05  Rick Rankin  <rick_rankin@yahoo.com>
-
-        * configure.in: Add -lkernel32 to the list of system libraries 
-        linked under Cygwin. Needed for IsBadReadPtr().
 
 2003-01-03  Stephen J. Turnbull  <stephen@xemacs.org>
 
