@@ -2803,15 +2803,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CNS 11643"),
 		  build_string ("ISO/IEC 10646 for CNS 11643"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0,
-		  Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_jis);
   Vcharset_ucs_jis =
     make_charset (LEADING_BYTE_UCS_JIS, Qucs_jis, 256, 3,
 		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
 		  build_string ("UCS for JIS"),
 		  build_string ("UCS for JIS X 0208, 0212 and 0213"),
-		  build_string ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
+		  build_string
+		  ("ISO/IEC 10646 for JIS X 0208, 0212 and 0213"),
 		  build_string (""),
 		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_ks);
@@ -2822,7 +2822,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for CCS defined by KS"),
 		  build_string ("ISO/IEC 10646 for Korean Standards"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_big5);
   Vcharset_ucs_big5 =
     make_charset (LEADING_BYTE_UCS_BIG5, Qucs_big5, 256, 3,
@@ -2831,7 +2831,7 @@ complex_vars_of_mule_charset (void)
 		  build_string ("UCS for Big5"),
 		  build_string ("ISO/IEC 10646 for Big5"),
 		  build_string (""),
-		  Qnil, 0, 0, 0, 0, Qnil, CONVERSION_IDENTICAL);
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
 #else
 # define MIN_CHAR_THAI 0
 # define MAX_CHAR_THAI 0
