@@ -426,7 +426,15 @@
     (ideographic-radical . 137)	; â¾ˆ
     (ideographic-strokes . 4)
     (total-strokes	 . 10)
+    (japanese-jisx0208		. #x6764)	; ø»‡·¿
     (japanese-jisx0208-1990	. #x6764)	; ø½‹³
+    ))
+(define-char
+  '((=>ucs		. #x822E)	; èˆ®
+    (ideographic-radical . 137)	; â¾ˆ
+    (ideographic-strokes . 4)
+    (total-strokes	 . 10)
+    (japanese-jisx0208-1978	. #x6764)	; ø»ƒ£·
     ))
 (define-char
   '((ideographic-radical . 137)	; â¾ˆ
