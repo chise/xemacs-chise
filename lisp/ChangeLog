@@ -1,3 +1,8 @@
+1999-11-20  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/char-db-util.el (char-db-update-comment): Don't use
+	mapping-table for `ideograph-daikanwa'.
+
 1999-11-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* dumped-lisp.el (preloaded-file-list): Add "Ideograph-R012-Eight",
