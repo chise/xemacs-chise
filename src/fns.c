@@ -3834,7 +3834,11 @@ simplify_char_spec (Lisp_Object char_spec)
     return Fdecode_char (Qmap_ucs, char_spec, Qnil, Qnil);
   else
     {
+#if 0
       Lisp_Object ret = Ffind_char (char_spec);
+#else
+      Lisp_Object ret = Fdefine_char (char_spec);
+#endif
 
       if (CHARP (ret))
 	return ret;
