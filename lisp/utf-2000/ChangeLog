@@ -1,5 +1,9 @@
 2003-07-05  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
+	* u00180-Latin-Extended-B.el (LATIN CAPITAL LETTER N WITH GRAVE):
+	Add `->fullwidth' for JX1-2874.
+	(JC3-85BC): Unify JX1-2874.
+
 	* Ideograph-R184-Eat.el (GT-K04996): Unify JX2-7C4B.
 	(C6-6440): Separate U+4B3B.
 	(JX2-7C55): New character.
