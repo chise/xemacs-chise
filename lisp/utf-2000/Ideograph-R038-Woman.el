@@ -11214,6 +11214,7 @@
     (=gt-pj-1		. #x554A)	; ý¡€‚…¢
     (=big5		. #xE958)	; ý¢€Ž¥˜
     (=daikanwa		. 06770)	; ø¸©²
+    (=ucs@jis		. #x5B16)	; ø½‹‚½
     (=gt		. 08546)	; ý¡€‚…¢
     ))
 (define-char
