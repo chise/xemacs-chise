@@ -1,3 +1,7 @@
+2003-12-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R009-Man.el (C2-415F): Revert to unify M001020 again.
+
 2003-12-22  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R112-Stone.el: Add mappings for Big5 code points.
