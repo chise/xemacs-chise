@@ -325,7 +325,11 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
+#ifdef CHISE
+		       CHISE_Feature feature,
+#else
 		       Lisp_Object db,
+#endif
 		       Emchar ofs, int place,
 		       Lisp_Object (*filter)(Lisp_Object value))
 {
@@ -348,10 +352,18 @@ save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
+#ifdef CHISE
+	      chise_char_set_feature_value
+		(c, feature,
+		 XSTRING_DATA
+		 (Fprin1_to_string (UINT8_DECODE (ct->property[i]),
+				    Qnil)));
+#else
 	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
 			     Fprin1_to_string (UINT8_DECODE (ct->property[i]),
 					       Qnil),
 			     db, Qt);
+#endif
 	    }
 	}
       else
@@ -637,7 +649,11 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
+#ifdef CHISE
+			CHISE_Feature feature,
+#else
 			Lisp_Object db,
+#endif
 			Emchar ofs, int place,
 			Lisp_Object (*filter)(Lisp_Object value))
 {
@@ -660,10 +676,18 @@ save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
+#ifdef CHISE
+	      chise_char_set_feature_value
+		(c, feature,
+		 XSTRING_DATA
+		 (Fprin1_to_string (UINT16_DECODE (ct->property[i]),
+				    Qnil)));
+#else
 	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
 			     Fprin1_to_string (UINT16_DECODE (ct->property[i]),
 					       Qnil),
 			     db, Qt);
+#endif
 	    }
 	}
       else
@@ -898,7 +922,11 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 #ifdef HAVE_CHISE_CLIENT
 static void
 save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
+#ifdef CHISE
+		 CHISE_Feature feature,
+#else
 		 Lisp_Object db,
+#endif
 		 Emchar ofs, int place,
 		 Lisp_Object (*filter)(Lisp_Object value))
 {
@@ -912,19 +940,34 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
       v = ct->property[i];
       if (UINT8_BYTE_TABLE_P (v))
 	{
-	  save_uint8_byte_table (XUINT8_BYTE_TABLE(v), root, db,
+	  save_uint8_byte_table (XUINT8_BYTE_TABLE(v), root,
+#ifdef CHISE
+				 feature,
+#else
+				 db,
+#endif
 				 c, place - 1, filter);
 	  c += unit;
 	}
       else if (UINT16_BYTE_TABLE_P (v))
 	{
-	  save_uint16_byte_table (XUINT16_BYTE_TABLE(v), root, db,
+	  save_uint16_byte_table (XUINT16_BYTE_TABLE(v), root,
+#ifdef CHISE
+				  feature,
+#else
+				  db,
+#endif
 				  c, place - 1, filter);
 	  c += unit;
 	}
       else if (BYTE_TABLE_P (v))
 	{
-	  save_byte_table (XBYTE_TABLE(v), root, db,
+	  save_byte_table (XBYTE_TABLE(v), root,
+#ifdef CHISE
+			   feature,
+#else
+			   db,
+#endif
 			   c, place - 1, filter);
 	  c += unit;
 	}
@@ -944,9 +987,14 @@ save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 
 	  for (; c < c1 && retval == 0; c++)
 	    {
+#ifdef CHISE
+	      chise_char_set_feature_value
+		(c, feature, XSTRING_DATA (Fprin1_to_string (v, Qnil)));
+#else
 	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
 			     Fprin1_to_string (v, Qnil),
 			     db, Qt);
+#endif
 	    }
 	}
       else
@@ -3427,12 +3475,10 @@ char_table_get_db (Lisp_Char_Table* cit, Emchar ch)
 #ifdef CHISE
   CHISE_Value value;
   int status
-    = chise_char_load_feature_value (ch,
-				     chise_ds_get_feature
-				     (default_chise_data_source,
-				      XSTRING_DATA
-				      (Fsymbol_name
-				       (cit->name))), &value);
+    = chise_ds_load_char_feature_value (default_chise_data_source, ch,
+					XSTRING_DATA(Fsymbol_name
+						     (cit->name)),
+					&value);
 
   if (!status)
     {
@@ -3513,17 +3559,36 @@ Save values of ATTRIBUTE into database file.
   Lisp_Object table = Fgethash (attribute,
 				Vchar_attribute_hash_table, Qunbound);
   Lisp_Char_Table *ct;
+#ifdef CHISE
+  CHISE_Feature feature;
+#else
   Lisp_Object db_file;
   Lisp_Object db;
+#endif
 
   if (CHAR_TABLEP (table))
     ct = XCHAR_TABLE (table);
   else
     return Qnil;
 
+#ifdef CHISE
+  char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
+  if ( open_chise_data_source_maybe () )
+    return -1;
+  feature
+    = chise_ds_get_feature (default_chise_data_source,
+			    XSTRING_DATA (Fsymbol_name (attribute)));
+#else
   db_file = char_attribute_system_db_file (Qsystem_char_id, attribute, 1);
   db = Fopen_database (db_file, Qnil, Qnil, build_string ("w+"), Qnil);
-  if (!NILP (db))
+#endif
+  if (
+#ifdef CHISE
+      feature != NULL
+#else
+      !NILP (db)
+#endif
+      )
     {
       Lisp_Object (*filter)(Lisp_Object value);
 
@@ -3533,14 +3598,34 @@ Save values of ATTRIBUTE into database file.
 	filter = NULL;
 
       if (UINT8_BYTE_TABLE_P (ct->table))
-	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db,
+	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct,
+#ifdef CHISE
+			       feature,
+#else
+			       db,
+#endif
 			       0, 3, filter);
       else if (UINT16_BYTE_TABLE_P (ct->table))
-	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db,
+	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct,
+#ifdef CHISE
+				feature,
+#else
+				db,
+#endif
 				0, 3, filter);
       else if (BYTE_TABLE_P (ct->table))
-	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3, filter);
+	save_byte_table (XBYTE_TABLE(ct->table), ct,
+#ifdef CHISE
+			 feature,
+#else
+			 db,
+#endif
+			 0, 3, filter);
+#ifdef CHISE
+      chise_feature_sync (feature);
+#else
       Fclose_database (db);
+#endif
       return Qt;
     }
   else
