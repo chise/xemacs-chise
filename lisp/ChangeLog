@@ -1,3 +1,7 @@
+1999-11-29  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* utf-2000/u03100-Bopomofo.el (U+3128): Separate M00115.
+
 1999-12-22  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* utf-2000/Ideograph-R213-Turtle.el,
