@@ -1,3 +1,7 @@
+2004-02-06  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* jp-jouyou.txt (J0-482F): Fix map.
+
 2004-01-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* JC3-to-UCS.txt (JC3-5CA7): Map to U-2F94E instead of U+784E.
