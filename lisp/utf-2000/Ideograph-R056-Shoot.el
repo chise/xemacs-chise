@@ -281,7 +281,7 @@
     (ucs		. #x5F12)	; 弒
     ))
 (define-char
-  '((->ucs		. #x5F12)	; 弒
+  '((=>ucs		. #x5F12)	; 弒
     (morohashi-daikanwa	9685 0 0)
     (ideographic-radical . 56)	; ⼷
     (ideographic-strokes . 10)
