@@ -1328,8 +1328,8 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 7)
     (total-strokes	 . 10)
-    (comment		. "<variant> of R027:S1-0879")
     (shinjigen-1	. 880)
+    (variant-of-shinjigen-1 . 879)
     (japanese-jisx0212		. #x3C4A)	; ø»‹Œ£
     (japanese-jisx0213-2	. #x2C25)	; ø»¤­Ž
     (ideograph-daikanwa		. 09333)	; ø¸‚‘µ
@@ -2716,8 +2716,8 @@
     (ideographic-radical . 53)	; â¼´
     (ideographic-strokes . 11)
     (total-strokes	 . 14)
-    (comment		. "<vulgar character> of S1-2207")
     (shinjigen-1	. 2209)
+    (vulgar-char-of-shinjigen-1 . 2207)
     (japanese-jisx0208-1978	. #x567D)	; ø»ƒ‹’
     (japanese-jisx0208		. #x567D)	; ø»‡Ÿš
     (japanese-jisx0208-1990	. #x567D)	; ø½‹…Ž
