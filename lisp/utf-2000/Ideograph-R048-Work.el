@@ -195,6 +195,13 @@
     (ideograph-daikanwa . 08729)	; ø¸‚ˆ™
     ))
 (define-char
+  '((morohashi-daikanwa	8729 0 1)
+    (ideographic-radical . 48)	; â¼¯
+    (ideographic-strokes . 4)
+    (total-strokes	 . 7)
+    (ideograph-hanziku-1	. #xA875)	; ý¢€š¡µ
+    ))
+(define-char
   '((ideographic-radical . 48)	; â¼¯
     (ideographic-strokes . 4)
     (total-strokes	 . 7)
