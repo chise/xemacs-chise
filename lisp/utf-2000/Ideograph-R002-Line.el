@@ -641,13 +641,12 @@
     (mojikyo		. 000090)	; ý €€š
     ))
 (define-char
-  '((=>ucs		. #x23244)	; ð£‰„
-    (ideographic-radical . 2)	; â¼
-    (ideographic-strokes . 12)
+  '((ideographic-radical@ucs . 72)	; â½‡
+    (ideographic-strokes@ucs . 9)
+    (ideographic-radical@cns . 2)	; â¼
+    (ideographic-strokes@cns . 12)
     (total-strokes	 . 13)
-    (->identical
-     ((=ucs		  . #x23244)	; ð£‰„
-      ))
+    (=ucs		. #x23244)	; ð£‰„
     (=cns11643-5	. #x3D55)	; ø»š”¨
     ))
 (define-char

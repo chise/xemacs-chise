@@ -1981,18 +1981,23 @@
     (mojikyo		. 000059)	; ý €€€»
     ))
 (define-char
-  '((=>ucs		. #x2233D)	; ð¢Œ½
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 7)
-    (total-strokes	 . 8)
-    (->identical
-     ((=daikanwa	  . 09608)	; ø¸‚–ˆ
+  '((total-strokes	 . 8)
+    (=ucs		. #x2233D)	; ð¢Œ½
+    (->subsumptive
+     ((ideographic-radical . 1)	; â¼€
+      (ideographic-strokes . 7)
+      (=gt		  . 00083)	; ý¡€€“
+      (=gt-pj-2		  . #x304C)	; ý¡€€“
+      (=daikanwa	  . 00060)	; ø¸€€¼
+      (=jef-china3	  . #x8EF3)	; øºˆ»³
+      (mojikyo		  . 000060)	; ý €€€¼
+      )
+     ((ideographic-radical . 55)	; â¼¶
+      (ideographic-strokes . 5)
+      (=cns11643-5	  . #x262E)	; ø»™²
+      (=daikanwa	  . 09608)	; ø¸‚–ˆ
+      (=ucs@iso		  . #x2233D)	; ø»™²
       ))
-    (=gt		. 00083)	; ý¡€€“
-    (=gt-pj-2		. #x304C)	; ý¡€€“
-    (=daikanwa		. 00060)	; ø¸€€¼
-    (=jef-china3	. #x8EF3)	; øºˆ»³
-    (mojikyo		. 000060)	; ý €€€¼
     ))
 (define-char
   '((=>ucs		. #x4E3D)	; ä¸½
@@ -2003,7 +2008,7 @@
     (ideographic-radical@cns . 1)	; â¼€
     (ideographic-strokes@cns . 7)
     (ideographic-radical@cns*sources
-     cns-11643)
+     cns11643)
     (total-strokes	 . 8)
     (->same-ideograph
      ((ideographic-radical . 1)	; â¼€
@@ -2536,26 +2541,33 @@
     (=gt-pj-9		. #x507B)	; ý¡€€Ÿ
     ))
 (define-char
-  '((=>ucs		. #x24CCF)	; ð¤³
-    (ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 15)
+  '((ideographic-radical@ucs . 102)	; â½¥
+    (ideographic-strokes@ucs . 11)
+    (ideographic-radical@cns . 1)	; â¼€
+    (ideographic-strokes@cns . 15)
+    (ideographic-radical@cns*sources
+     daikanwa cns11643)
     (total-strokes	 . 16)
-    (->identical
-     ((=ucs		  . #x24CCF)	; ð¤³
-      ))
+    (hanyu-dazidian	4 2552 4)
+    (=ucs		. #x24CCF)	; ð¤³
     (=cns11643-7	. #x2C3B)	; ø»ž˜
     (=gt		. 00098)	; ý¡€€¢
     (=gt-pj-2		. #x3051)	; ý¡€€¢
     (=daikanwa		. 00065)	; ø¸€
+    (=hanziku-7		. #xB974)	; ý¢»¥´
     (mojikyo		. 000065)	; ý €€
     ))
 (define-char
-  '((ideographic-radical . 1)	; â¼€
-    (ideographic-strokes . 15)
+  '((ideographic-radical@ucs . 1)	; â¼€
+    (ideographic-strokes@ucs . 15)
+    (ideographic-radical@cns . 37)	; â¼¤
+    (ideographic-strokes@cns . 13)
     (total-strokes	 . 16)
     (hanyu-dazidian	1 27 3)
     (=ucs		. #x20057)	; ð —
+    (=cns11643-4	. #x4F7C)	; ø»˜¥§
     (=big5-cdp		. #x85A3)	; ý¢€ˆ–£
+    (=daikanwa		. 49012)	; ø¸‹½´
     ))
 (define-char
   '((ideographic-radical . 1)	; â¼€

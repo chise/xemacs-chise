@@ -373,15 +373,23 @@
     (=daikanwa		. 09607)	; ø¸‚–‡
     ))
 (define-char
-  '((ideographic-radical . 55)	; â¼¶
-    (ideographic-strokes . 5)
-    (total-strokes	 . 8)
-    (->identical
-     ((=daikanwa	  . 00060)	; ø¸€€¼
-      ))
+  '((total-strokes	 . 8)
     (=ucs		. #x2233D)	; ð¢Œ½
-    (=cns11643-5	. #x262E)	; ø»™²
-    (=daikanwa		. 09608)	; ø¸‚–ˆ
+    (->subsumptive
+     ((ideographic-radical . 1)	; â¼€
+      (ideographic-strokes . 7)
+      (=gt		  . 00083)	; ý¡€€“
+      (=gt-pj-2		  . #x304C)	; ý¡€€“
+      (=daikanwa	  . 00060)	; ø¸€€¼
+      (=jef-china3	  . #x8EF3)	; øºˆ»³
+      (mojikyo		  . 000060)	; ý €€€¼
+      )
+     ((ideographic-radical . 55)	; â¼¶
+      (ideographic-strokes . 5)
+      (=cns11643-5	  . #x262E)	; ø»™²
+      (=daikanwa	  . 09608)	; ø¸‚–ˆ
+      (=ucs@iso		  . #x2233D)	; ø»™²
+      ))
     ))
 (define-char
   '((ideographic-radical . 55)	; â¼¶

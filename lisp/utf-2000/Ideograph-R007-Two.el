@@ -817,15 +817,16 @@
     (mojikyo		. 000282)	; ý €€„š
     ))
 (define-char
-  '((=>ucs		. #x20AFC)	; ð «¼
-    (ideographic-radical . 7)	; â¼†
-    (ideographic-strokes . 8)
+  '((ideographic-radical@ucs . 28)	; â¼›
+    (ideographic-strokes@ucs . 8)
+    (ideographic-radical@cns . 7)	; â¼†
+    (ideographic-strokes@cns . 8)
     (total-strokes	 . 10)
-    (->identical
-     ((=ucs		  . #x20AFC)	; ð «¼
-      ))
+    (hanyu-dazidian	1 387 18)
+    (=ucs		. #x20AFC)	; ð «¼
     (=cns11643-6	. #x352E)	; ø»œ’•
     (=daikanwa		. 00283)	; ø¸€„›
+    (=hanziku-1		. #xF5BE)	; ý¢€Ÿ–¾
     (mojikyo		. 000283)	; ý €€„›
     ))
 (define-char
