@@ -7355,14 +7355,30 @@
     (ucs			. #x71FE)	; ç‡¾
     ))
 (define-char
-  '((ideographic-radical . 86)	; â½•
+  '((=>ucs		. #x71FF)	; ç‡¿
+    (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 14)
     (total-strokes	 . 18)
-    (chinese-isoir165		. #x2D6C)	; ø»‡
-    (chinese-cns11643-2		. #x6228)	; ø»”¬…
-    (japanese-jisx0208-1990	. #x6022)	; ø½‹’Ÿ
+    (japanese-jisx0208-1978	. #x6022)	; ø»ƒ˜£
+    (japanese-jisx0208		. #x6022)	; ø»‡¬«
     (ideograph-daikanwa		. 19520)	; ø¸„±€
-    (ucs			. #x71FF)	; ç‡¿
+    ))
+(define-char
+  '((=>ucs		. #x71FF)	; ç‡¿
+    (morohashi-daikanwa	19520 0 1)
+    (ideographic-radical . 86)	; â½•
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (japanese-jisx0208-1990	. #x6022)	; ø½‹’Ÿ
+    ))
+(define-char
+  '((morohashi-daikanwa	19520 0 2)
+    (ideographic-radical . 86)	; â½•
+    (ideographic-strokes . 14)
+    (total-strokes	 . 18)
+    (chinese-isoir165	. #x2D6C)	; ø»‡
+    (chinese-cns11643-2 . #x6228)	; ø»”¬…
+    (ucs		. #x71FF)	; ç‡¿
     ))
 (define-char
   '((ideographic-radical . 86)	; â½•
