@@ -8219,6 +8219,7 @@
     (shinjigen-2	. 344)
     (japanese-jisx0208-1978	. #x5079)	; ø»ƒ‚š
     (japanese-jisx0208		. #x5079)	; ø»‡–¢
+    (korean-ksc5601		. #x775E)	; ø»Š™
     (japanese-jisx0208-1990	. #x5079)	; ø½Š¼–
     (ideograph-daikanwa		. 00901)	; ø¸€Ž…
     (mojikyo			. 000901)	; ý €€Ž…
