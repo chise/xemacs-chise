@@ -1678,7 +1678,7 @@ complex_vars_of_mule_charset (void)
 		  build_string
 		  ("CNS 11643 Plane 2 Chinese traditional"),
 		  build_string (CHINESE_CNS_PLANE_RE("2")));
-#if 0 /*def UTF2000 */
+#ifdef UTF2000
   staticpro (&Vcharset_chinese_cns11643_3);
   Vcharset_chinese_cns11643_3 =
     make_charset (LEADING_BYTE_CHINESE_CNS11643_3, Qchinese_cns11643_3, 3,
