@@ -1086,7 +1086,9 @@ The default status is as follows:
   (set-coding-category-system 'no-conversion	'raw-text)
   (set-coding-category-system 'shift-jis	'shift_jis)
   (set-coding-category-system 'big5		'big5)
-
+  (set-coding-category-system 'ucs-4		'binary)
+  (set-coding-category-system 'utf-8		'raw-text)
+    
   (set-coding-priority-list
    '(iso-8-1
      iso-8-2
