@@ -219,12 +219,16 @@ DEFINE_LRECORD_IMPLEMENTATION ("byte-table", byte_table,
 			       Lisp_Byte_Table);
 
 static Lisp_Object
-make_byte_table (Lisp_Object initval)
+make_byte_table (Lisp_Object initval, int older)
 {
   Lisp_Object obj;
   int i;
-  Lisp_Byte_Table *cte
-    = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
+  Lisp_Byte_Table *cte;
+
+  if (older)
+    cte = alloc_older_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
+  else
+    cte = alloc_lcrecord_type (Lisp_Byte_Table, &lrecord_byte_table);
 
   for (i = 0; i < 256; i++)
     cte->property[i] = initval;
@@ -295,18 +299,25 @@ DEFINE_LRECORD_IMPLEMENTATION ("char-id-table", char_id_table,
 			       Lisp_Char_ID_Table);
 
 static Lisp_Object
-make_char_id_table (Lisp_Object initval)
+make_char_id_table (Lisp_Object initval, int older)
 {
   Lisp_Object obj;
-  Lisp_Char_ID_Table *cte
-    = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
+  Lisp_Char_ID_Table *cte;
 
-  cte->table = make_byte_table (initval);
+  if (older)
+    cte = alloc_older_lcrecord_type (Lisp_Char_ID_Table,
+				     &lrecord_char_id_table);
+  else
+    cte = alloc_lcrecord_type (Lisp_Char_ID_Table, &lrecord_char_id_table);
+
+  cte->table = make_byte_table (initval, older);
 
   XSETCHAR_ID_TABLE (obj, cte);
   return obj;
 }
 
+/* not used */
+#if 0
 static Lisp_Object
 copy_char_id_table (Lisp_Object entry)
 {
@@ -319,6 +330,7 @@ copy_char_id_table (Lisp_Object entry)
   XSETCHAR_ID_TABLE (obj, ctenew);
   return obj;
 }
+#endif
 
 
 Lisp_Object
@@ -375,17 +387,19 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
 	    }
 	  else if (!EQ (ret, value))
 	    {
-	      Lisp_Object cpt4 = make_byte_table (ret);
-	      
+	      Lisp_Object cpt4
+		= make_byte_table (ret, OLDER_RECORD_P (table));
+
 	      XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
 	      cpt3->property[(unsigned char)(code >> 8)] = cpt4;
 	    }
 	}
       else if (!EQ (ret, value))
 	{
-	  Lisp_Object cpt3 = make_byte_table (ret);
-	  Lisp_Object cpt4 = make_byte_table (ret);
-	  
+	  int older = OLDER_RECORD_P (table);
+	  Lisp_Object cpt3 = make_byte_table (ret, older);
+	  Lisp_Object cpt4 = make_byte_table (ret, older);
+
 	  XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
 	  XBYTE_TABLE(cpt3)->property[(unsigned char)(code >> 8)]
 	    = cpt4;
@@ -394,10 +408,11 @@ put_char_id_table (Emchar ch, Lisp_Object value, Lisp_Object table)
     }
   else if (!EQ (ret, value))
     {
-      Lisp_Object cpt2 = make_byte_table (ret);
-      Lisp_Object cpt3 = make_byte_table (ret);
-      Lisp_Object cpt4 = make_byte_table (ret);
-      
+      int older = OLDER_RECORD_P (table);
+      Lisp_Object cpt2 = make_byte_table (ret, older);
+      Lisp_Object cpt3 = make_byte_table (ret, older);
+      Lisp_Object cpt4 = make_byte_table (ret, older);
+
       XBYTE_TABLE(cpt4)->property[(unsigned char)code] = value;
       XBYTE_TABLE(cpt3)->property[(unsigned char)(code >>  8)] = cpt4;
       XBYTE_TABLE(cpt2)->property[(unsigned char)(code >> 16)] = cpt3;
@@ -737,7 +752,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       if (NILP (encoding_table = XCHARSET_ENCODING_TABLE (ccs)))
 	{
 	  XCHARSET_ENCODING_TABLE (ccs) = encoding_table
-	    = make_char_id_table (Qnil);
+	    = make_char_id_table (Qnil, -1);
 	}
       put_char_id_table (XCHAR (character), value, encoding_table);
       return Qt;
@@ -771,7 +786,8 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 		  ntable = get_char_id_table (c, table);
 		  if (!CHAR_ID_TABLE_P (ntable))
 		    {
-		      ntable = make_char_id_table (Qnil);
+		      ntable
+			= make_char_id_table (Qnil, OLDER_RECORD_P (table));
 		      put_char_id_table (c, ntable, table);
 		    }
 		  table = ntable;
@@ -1385,7 +1401,7 @@ mark_charset (Lisp_Object obj)
   mark_object (cs->registry);
   mark_object (cs->ccl_program);
 #ifdef UTF2000
-  mark_object (cs->encoding_table);
+  /* mark_object (cs->encoding_table); */
   /* mark_object (cs->decoding_table); */
 #endif
   return cs->name;
@@ -2971,13 +2987,13 @@ Version number of UTF-2000.
 */ );
 
   staticpro (&Vcharacter_attribute_table);
-  Vcharacter_attribute_table = make_char_id_table (Qnil);
+  Vcharacter_attribute_table = make_char_id_table (Qnil, 0);
 
-  staticpro (&Vcharacter_composition_table);
-  Vcharacter_composition_table = make_char_id_table (Qnil);
+  /* staticpro (&Vcharacter_composition_table); */
+  Vcharacter_composition_table = make_char_id_table (Qnil, -1);
 
   staticpro (&Vcharacter_variant_table);
-  Vcharacter_variant_table = make_char_id_table (Qnil);
+  Vcharacter_variant_table = make_char_id_table (Qnil, 0);
 
   Vdefault_coded_charset_priority_list = Qnil;
   DEFVAR_LISP ("default-coded-charset-priority-list",
