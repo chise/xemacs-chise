@@ -49,14 +49,14 @@
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^JX1-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'japanese-jisx0213-1
+	       (setq ccs '=jis-x0213-1-2000
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
 		     ucs-ccs '=ucs-jis-2000)
 	       (goto-char (match-end 0))
 	       )
 	      ((looking-at "^JX2-\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)")
-	       (setq ccs 'japanese-jisx0213-2
+	       (setq ccs '=jis-x0213-2-2000
 		     code (string-to-int (match-string 1) 16)
 		     ucs-pat "\tJU[+-]\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]+\\)"
 		     ucs-ccs 'ucs-jis)
