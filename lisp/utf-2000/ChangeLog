@@ -1,3 +1,37 @@
+2003-06-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R032-Earth.el (U+57AC): Unify MH-0082 and M050007.
+	(U+FA0F): Unify MH-0085 and M054900.
+	(U-00021356): New character.
+	(U-0002134E): New character.
+	(M085284): Unify MH-0088.
+	(U-00021355): Relate to MH-0088.
+	(C6-3E29): Likewise.
+	(U-00021336): New character.
+	(U-0002138C): New character.
+	(U+3657): New character.
+	(J90-4536): Unify MH-0093, GT-06762 and M054248.
+	(U+586B): Relate to MH-0093 instead of M-05355.
+	(U-000213D9): New character.
+	(U+586F): Unify MH-0095.
+	(M085405): Separate all; unify MH-0097 and GT-06793.
+	(U-00021414): Separate M085405; relate to MH-0097.
+	(U-0002140F): New character.
+	(U+58AD): Unify MH-0099 and M005474.
+	(U+58A3): Unify GT-06932.
+	(MH-0101): New character.
+	(U-00021485): New character.
+	(U+58CB): Unify MH-0103.
+	(U-0002147F): New character.
+	(MH-0105): New character.
+	(U-00021480): New character.
+	(MH-0107): New character.
+	(MH-0108): New character.
+	(MH-0109): New character.
+	(U-0002150C): New character.
+	(MH-0110): New character.
+	(U-00021505): New character.
+
 2003-06-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R031-Enclosure.el (MH-0077): New character.
