@@ -2677,6 +2677,13 @@
   '((ideographic-radical . 31)	; ⼞
     (ideographic-strokes . 9)
     (total-strokes	 . 12)
+    (<-vulgar
+     ((shinjigen-1	  . 1332)
+      (=ucs		  . #x5713)	; 圓
+      (=jis-x0208	  . #x5424)	; &I-J90-5424; [52-04]
+      ))
+    (<-vulgar*sources
+     shinjigen-1)
     (hanyu-dazidian	1 723 1)
     (ideographic-structure
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER FULL SURROUND")
@@ -2693,6 +2700,7 @@
        ((=ucs		    . #x8C9D)	; 貝
 	))
       ))
+    (shinjigen-1	. 1333)
     (=ucs		. #x570E)	; 圎
     (=cns11643-3	. #x3A44)	; &I-C3-3A44; [26-36]
     (=daikanwa		. 04813)	; &I-M-04813;
@@ -2844,6 +2852,7 @@
       )
      ((=ucs		  . #x54E1)	; 員
       ))
+    (shinjigen-1	. 1332)
     (shinjigen-2	. 1332)
     (=ucs		. #x5713)	; 圓
     (=jis-x0208		. #x5424)	; &I-J90-5424; [52-04]
