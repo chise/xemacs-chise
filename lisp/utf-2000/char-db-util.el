@@ -397,19 +397,22 @@
 		 (insert
 		  (format
 		   (if has-long-ccs-name
-		       "(%-26s %s)
+		       "(%-26s . %X)
     "
-		     "(%-18s %s)
+		     "(%-18s . %X)
     "
 		     )
 		   (charset-name ret)
-		   (mapconcat
-		    (lambda (b)
-		      (format "#x%02X"
-			      (if (= (charset-iso-graphic-plane ret) 1)
-				  (logior b 128)
-				b)))
-		    (cdr cell) " "))))
+		   (if (= (charset-iso-graphic-plane ret) 1)
+		       (logior (cdr cell)
+			       (cond ((= (charset-dimension ret) 1)
+				      #x80)
+				     ((= (charset-dimension ret) 2)
+				      #x8080)
+				     ((= (charset-dimension ret) 3)
+				      #x808080)
+				     (t 0)))
+		     (cdr cell)))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
