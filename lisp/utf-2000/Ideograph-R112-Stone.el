@@ -7118,21 +7118,19 @@
     (=jis-x0212		. #x503F)	; &I-JSP-503F; [48-31]
     ))
 (define-char
-  '((=>ucs		. #x791B)	; 礛
-    (ideographic-radical . 112)	; ⽯
-    (ideographic-strokes . 14)
-    (total-strokes	 . 19)
-    (=cns11643-2	. #x662A)	; &M-24544; [70-10]
-    (=jis-x0213-2-2000	. #x725D)	; &I-JX2-725D; [82-61]
-    (=big5		. #xF27E)	; &I-B-F27E;
-    (=daikanwa		. 24544)	; &I-M-24544;
-    ))
-(define-char
-  '((morohashi-daikanwa	24544 0 1)
-    (ideographic-radical . 112)	; ⽯
+  '((ideographic-radical . 112)	; ⽯
     (ideographic-strokes . 14)
     (total-strokes	 . 19)
     (=ucs		. #x791B)	; 礛
+    (=big5		. #xF27E)	; &I-B-F27E;
+    (->subsumptive
+     ((=cns11643-2	  . #x662A)	; &M-24544; [70-10]
+      (=jis-x0213-2-2000  . #x725D)	; &I-JX2-725D; [82-61]
+      (=daikanwa	  . 24544)	; &I-M-24544;
+      (=ucs@jis		  . #x791B)	; &M-24544;
+      )
+     ((=ucs@unicode	  . #x791B)	; &UU+791B;
+      ))
     ))
 (define-char
   '((ideographic-radical . 112)	; ⽯
