@@ -2259,13 +2259,21 @@
     (total-strokes	 . 9)
     (=gb2312		. #x6C42)	; ø»…´¯
     (=iso-ir165		. #x6C42)	; ø»Žœ¿
-    (=cns11643-3	. #x2D5D)	; ø»•©ˆ
+    (=jis-x0213-2-2000	. #x6F60)	; ø»¦£
     (=jef-china3	. #x70E1)	; øº‡ƒ¡
     (=ucs		. #x70BB)	; ç‚»
     ))
 (define-char
+  '((=>ucs		. #x70BB)	; ç‚»
+    (ideographic-radical . 86)	; â½•
+    (ideographic-strokes . 5)
+    (total-strokes	 . 9)
+    (=cns11643-3	. #x2D5D)	; ø»•©ˆ
+    ))
+(define-char
   '((ideographic-radical . 86)	; â½•
     (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=gb2312		. #x4136)	; ø»„µ™
     (=iso-ir165		. #x4136)	; ø»©
     (=ucs		. #x70BC)	; ç‚¼
@@ -2273,6 +2281,7 @@
 (define-char
   '((ideographic-radical . 86)	; â½•
     (ideographic-strokes . 5)
+    (total-strokes	 . 9)
     (=gb2312		. #x3363)	; ø»„¡¢
     (=iso-ir165		. #x3363)	; ø»‰²
     (=ucs		. #x70BD)	; ç‚½
@@ -3222,6 +3231,7 @@
     (total-strokes	 . 10)
     (=gb2312		. #x3D7D)	; ø»„°¨
     (=iso-ir165		. #x3D7D)	; ø»˜¸
+    (=jis-x0213-2-2000	. #x6F65)	; ø»¦¨
     (=ucs		. #x70EC)	; çƒ¬
     ))
 (define-char
@@ -6686,6 +6696,7 @@
     (ideographic-radical . 86)	; â½•
     (ideographic-strokes . 9)
     (total-strokes	 . 13)
+    (=jis-x0213-2-2000	. #x6F77)	; ø»¦º
     (=ucs		. #x3DD4)	; ã·”
     ))
 (define-char
@@ -8244,7 +8255,11 @@
      ((=jis-x0212	  . #x566D)	; ø»‹³’
       (=daikanwa	  . 30184)	; ø¸‡—¨
       ))
+    (shinjigen-1	. 4602)
+    (shinjigen-2	. 4603)
+    (=jis-x0213-2-2000	. #x6F78)	; ø»¦»
     (=cbeta		. 04059)	; ø¸ ¿›
+    (=ucs@jis		. #x7196)	; ø»¦»
     ))
 (define-char
   '((ideographic-radical . 86)	; â½•
@@ -9341,7 +9356,7 @@
     (ideographic-strokes . 11)
     (total-strokes	 . 15)
     (=jis-x0212		. #x4A2F)	; ø»‹ ¬
-    (=ucs@jis		. #x71B3)	; ø»‹ ¬
+    (=ucs@jis-1990	. #x71B3)	; ø»‹ ¬
     ))
 (define-char
   '((=>ucs		. #x71B3)	; ç†³
@@ -9358,6 +9373,7 @@
     (total-strokes	 . 15)
     (=gb2312		. #x6C57)	; ø»…µ„
     (=iso-ir165		. #x6C57)	; ø»Ž”
+    (=jis-x0213-2-2000	. #x7021)	; ø»¦‘‚
     (=big5		. #xE672)	; ý¢€Ž™²
     (=jef-china3	. #x57F8)	; øº…Ÿ¸
     (=ucs		. #x71B3)	; ç†³
