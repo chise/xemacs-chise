@@ -266,6 +266,8 @@
     (total-strokes	 . 4)
     (<-vulgar
      ((shinjigen-1	  . 491)
+      (=jis-x0208	  . #x5142)	; &GT-01891;
+      (=ks-x1001	  . #x7B31)	; &I-K0-7B31;
       (=daikanwa	  . 01455)	; &I-M-01455;
       ))
     (<-vulgar*sources
