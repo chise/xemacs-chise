@@ -72,6 +72,7 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
+    (shinjigen-1	. 1921)
     (shinjigen-2	. 1921)
     (=ucs		. #x5C3B)	; 尻
     (=jis-x0208		. #x3F2C)	; &I-J90-3F2C; [31-12]
@@ -88,17 +89,22 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
-    (shinjigen-2	. 1922)
     (=ucs		. #x5C3C)	; 尼
-    (=jis-x0208		. #x4674)	; &I-J90-4674; [38-84]
-    (=gb2312		. #x4461)	; &I-G0-4461; [36-65]
-    (=ks-x1001		. #x5279)	; &I-K0-5279; [50-89]
-    (=cns11643-1	. #x4647)	; &I-C1-4647; [38-39]
-    (=big5		. #xA5A7)	; &I-B-A5A7;
-    (=gt		. 09625)	; &I-GT-09625;
-    (=gt-k		. 00984)	; &I-GT-K00984;
-    (=gt-pj-1		. #x4674)	; &I-GT-09625; [38-84]
-    (=daikanwa		. 07635)	; &I-M-07635;
+    (->subsumptive
+     ((shinjigen-1	  . 1922)
+      (shinjigen-2	  . 1922)
+      (=jis-x0208	  . #x4674)	; &GT-09625; [38-84]
+      (=gb2312		  . #x4461)	; &I-G0-4461; [36-65]
+      (=ks-x1001	  . #x5279)	; &I-K0-5279; [50-89]
+      (=big5		  . #xA5A7)	; &I-B-A5A7;
+      (=gt		  . 09625)	; &I-GT-09625;
+      (=gt-k		  . 00984)	; &I-GT-K00984;
+      (=gt-pj-1		  . #x4674)	; &I-GT-09625; [38-84]
+      (=daikanwa	  . 07635)	; &I-M-07635;
+      (=ucs@unicode	  . #x5C3C)	; &GT-09625;
+      )
+     ((=cns11643-1	  . #x4647)	; &C1-4647; [38-39]
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -113,8 +119,12 @@
     (ideographic-strokes . 2)
     (total-strokes	 . 5)
     (=ucs		. #x378B)	; 㞋
-    (=cns11643-3	. #x2240)	; &I-C3-2240; [02-32]
-    (=daikanwa		. 07637)	; &I-M-07637;
+    (->subsumptive
+     ((=daikanwa	  . 07637)	; &M-07637;
+      )
+     ((=cns11643-3	  . #x2240)	; &C3-2240; [02-32]
+      (=ucs@unicode	  . #x378B)	; &C3-2240;
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -1244,18 +1254,39 @@
   '((ideographic-radical . 44)	; ⼫
     (ideographic-strokes . 8)
     (total-strokes	 . 11)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
-      (=ucs		  . #x2FF8)	; ⿸
-      )
-     ((=ucs		  . #x5C38)	; 尸
-      )
-     ((=ucs		  . #x8C56)	; 豖
-      ))
     (=ucs		. #x3798)	; 㞘
-    (=cns11643-6	. #x3E6B)	; &I-C6-3E6B; [30-75]
-    (=daikanwa		. 07732)	; &I-M-07732;
-    (=cbeta		. 05465)	; &I-CB05465;
+    (->subsumptive
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5C38)	; 尸
+	)
+       ((=daikanwa	    . 36338)	; &M-36338;
+	))
+      (=daikanwa	  . 07732)	; &M-07732;
+      (=cbeta		  . 05465)	; &I-CB05465;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5C38)	; 尸
+	)
+       ((=ucs@unicode	    . #x8C56)	; &UU+8C56;
+	))
+      (=ucs@unicode	  . #x3798)	; &UU+3798;
+      )
+     ((ideographic-structure
+       ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER LEFT")
+	(=ucs		    . #x2FF8)	; ⿸
+	)
+       ((=ucs		    . #x5C38)	; 尸
+	)
+       ((=cns11643-2	    . #x286B)	; &C2-286B; [08-75]
+	))
+      (=cns11643-6	  . #x3E6B)	; &C6-3E6B; [30-75]
+      ))
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
@@ -1843,12 +1874,25 @@
     (ideographic-strokes . 10)
     (total-strokes	 . 13)
     (=ucs		. #x21CBE)	; 𡲾
-    (->subsumptive
-     ((=daikanwa	  . 07786)	; &M-07786;
-      )
-     ((=cns11643-6	  . #x5228)	; &C6-5228; [50-08]
-      (=ucs@iso		  . #x21CBE)	; &C6-5228;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x21CBE)	; 𡲾
       ))
+    (=daikanwa		. 07786)	; &M-07786;
+    ))
+(define-char
+  '((ideographic-radical . 44)	; ⼫
+    (ideographic-strokes . 10)
+    (total-strokes	 . 13)
+    (<-denotational
+     ((=ucs		  . #x21CBE)	; 𡲾
+      ))
+    (=cns11643-6	. #x5228)	; &C6-5228; [50-08]
+    (=ucs@iso		. #x21CBE)	; &C6-5228;
     ))
 (define-char
   '((ideographic-radical . 44)	; ⼫
