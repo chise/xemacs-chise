@@ -535,6 +535,7 @@
 (define-char
   '((morohashi-daikanwa	41260 0 9)
     (ideographic-radical . 169)	; â¾¨
+    (ideographic-strokes . 4)
     (total-strokes	 . 12)
     (chinese-cns11643-6 . #x4F7D)	; ø»œ¹°
     ))
@@ -2335,6 +2336,7 @@
 (define-char
   '((morohashi-daikanwa	41448 0 9)
     (ideographic-radical . 169)	; â¾¨
+    (ideographic-strokes . 10)
     (total-strokes	 . 18)
     (chinese-cns11643-7 . #x4444)	; ø»ž²±
     ))
