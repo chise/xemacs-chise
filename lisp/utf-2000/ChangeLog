@@ -1,5 +1,10 @@
 2003-01-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R112-Stone.el (U+7891): Unify JU+FA4B.
+	(U+FA4B): New character.
+
+	* Ideograph-R109-Eye.el (C5-3421): Modify `ideographic-structure'.
+
 	* Ideograph-R111-Arrow.el (U+77E3): Separate C1-4B32.
 
 	* Ideograph-R106-White.el (U+7686): Separate C1-5255.
