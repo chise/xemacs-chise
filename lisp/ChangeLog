@@ -541,6 +541,11 @@
 	* files.el (insert-file-contents-literally): Treat file as binary;
 	call file-name-handlers. [sync with Emacs 20.3.10]
 
+1999-06-30  SL Baur  <steve@miho.m17n.org>
+
+	* subr.el (with-current-buffer): DOC string fix.
+	Suggested by Bob Weiner <weiner@altrasoft.com>
+
 1999-06-25  Charles G Waldman <cgw@fnal.gov>
 
         * cus-face.el (custom-face-italic): insert missing args
