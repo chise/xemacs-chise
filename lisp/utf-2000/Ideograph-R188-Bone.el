@@ -122,6 +122,7 @@
   '((->ucs		. #x9AAB)	; éª«
     (morohashi-daikanwa	45106 0 0)
     (ideographic-radical . 188)	; â¾»
+    (ideographic-strokes . 3)
     (total-strokes	 . 13)
     (chinese-cns11643-2 . #x486F)	; ø»”‡€
     ))
