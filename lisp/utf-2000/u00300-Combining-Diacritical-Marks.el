@@ -5,6 +5,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Varia")
+    (japanese-jisx0213-1	#x2B #x5C)	; ̀
     ))
 (define-char
   '((name		. "COMBINING ACUTE ACCENT")
@@ -13,6 +14,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Oxia")
+    (japanese-jisx0213-1	#x2B #x5A)	; ́
     ))
 (define-char
   '((name		. "COMBINING CIRCUMFLEX ACCENT")
@@ -20,6 +22,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x5F)	; ̂
     ))
 (define-char
   '((name		. "COMBINING TILDE")
@@ -27,6 +30,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x7D)	; ̃
     ))
 (define-char
   '((name		. "COMBINING MACRON")
@@ -34,6 +38,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x5B)	; ̄
     ))
 (define-char
   '((name		. "COMBINING OVERLINE")
@@ -49,6 +54,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Vrachy")
+    (japanese-jisx0213-1	#x2B #x57)	; ̆
     ))
 (define-char
   '((name		. "COMBINING DOT ABOVE")
@@ -64,6 +70,7 @@
     (bidi-category	. "NSM")
     (mirrored		. nil)
     (iso-10646-comment	. "Dialytika")
+    (japanese-jisx0213-1	#x2B #x6D)	; ̈
     ))
 (define-char
   '((name		. "COMBINING HOOK ABOVE")
@@ -85,6 +92,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x59)	; ̋
     ))
 (define-char
   '((name		. "COMBINING CARON")
@@ -92,6 +100,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x5E)	; ̌
     ))
 (define-char
   '((name		. "COMBINING VERTICAL LINE ABOVE")
@@ -114,6 +123,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x5D)	; ̏
     ))
 (define-char
   '((name		. "COMBINING CANDRABINDU")
@@ -179,6 +189,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x78)	; ̘
     ))
 (define-char
   '((name		. "COMBINING RIGHT TACK BELOW")
@@ -186,6 +197,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x79)	; ̙
     ))
 (define-char
   '((name		. "COMBINING LEFT ANGLE ABOVE")
@@ -193,6 +205,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x7E)	; ̚
     ))
 (define-char
   '((name		. "COMBINING HORN")
@@ -207,6 +220,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x6A)	; ̜
     ))
 (define-char
   '((name		. "COMBINING UP TACK BELOW")
@@ -214,6 +228,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x76)	; ̝
     ))
 (define-char
   '((name		. "COMBINING DOWN TACK BELOW")
@@ -221,6 +236,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x77)	; ̞
     ))
 (define-char
   '((name		. "COMBINING PLUS SIGN BELOW")
@@ -228,6 +244,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x6B)	; ̟
     ))
 (define-char
   '((name		. "COMBINING MINUS SIGN BELOW")
@@ -235,6 +252,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x6C)	; ̠
     ))
 (define-char
   '((name		. "COMBINING PALATALIZED HOOK BELOW")
@@ -263,6 +281,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x72)	; ̤
     ))
 (define-char
   '((name		. "COMBINING RING BELOW")
@@ -270,6 +289,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x67)	; ̥
     ))
 (define-char
   '((name		. "COMBINING COMMA BELOW")
@@ -298,6 +318,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x6F)	; ̩
     ))
 (define-char
   '((name		. "COMBINING BRIDGE BELOW")
@@ -305,6 +326,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x7A)	; ̪
     ))
 (define-char
   '((name		. "COMBINING INVERTED DOUBLE ARCH BELOW")
@@ -319,6 +341,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x68)	; ̬
     ))
 (define-char
   '((name		. "COMBINING CIRCUMFLEX ACCENT BELOW")
@@ -340,6 +363,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x70)	; ̯
     ))
 (define-char
   '((name		. "COMBINING TILDE BELOW")
@@ -347,6 +371,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x73)	; ̰
     ))
 (define-char
   '((name		. "COMBINING MACRON BELOW")
@@ -375,6 +400,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x75)	; ̴
     ))
 (define-char
   '((name		. "COMBINING SHORT STROKE OVERLAY")
@@ -410,6 +436,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x69)	; ̹
     ))
 (define-char
   '((name		. "COMBINING INVERTED BRIDGE BELOW")
@@ -417,6 +444,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x7B)	; ̺
     ))
 (define-char
   '((name		. "COMBINING SQUARE BELOW")
@@ -424,6 +452,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x7C)	; ̻
     ))
 (define-char
   '((name		. "COMBINING SEAGULL BELOW")
@@ -431,6 +460,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x74)	; ̼
     ))
 (define-char
   '((name		. "COMBINING X ABOVE")
@@ -438,6 +468,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x6E)	; ̽
     ))
 (define-char
   '((name		. "COMBINING VERTICAL TILDE")
@@ -579,6 +610,7 @@
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
+    (japanese-jisx0213-1	#x2B #x52)	; ͡
     ))
 (define-char
   '((name		. "COMBINING DOUBLE RIGHTWARDS ARROW BELOW")
