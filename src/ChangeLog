@@ -1,3 +1,16 @@
+2003-10-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* chartab.c (char_attribute_list_reset_map_func): New function
+	when HAVE_LIBCHISE is defined.
+	(Fchar_attribute_list): Add new optional argument `rehash' when
+	HAVE_LIBCHISE is defined.
+	(open_chise_data_source_maybe): Use "chise-db" instead of
+	"char-db".
+	(char_attribute_system_db_file): Likewise.
+	(Fload_char_attribute_table): Use
+	`chise_feature_foreach_char_with_value' instead of
+	`chise_char_feature_value_iterate'.
+
 2003-10-07  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* chartab.c (Vchise_db_directory): New variable.
