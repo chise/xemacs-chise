@@ -1,3 +1,7 @@
+2003-10-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R162-Walk.el: Add mappings for Big5 code points.
+
 2003-10-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R140-Grass.el (JC3-62F6): New character.
