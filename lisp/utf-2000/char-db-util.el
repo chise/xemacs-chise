@@ -1008,9 +1008,15 @@
 						 readable
 						 al cal)
 			 (setq separator lbs))
+		     (setq ret (prin1-to-string cell))
 		     (if separator
-			 (insert separator))
-		     (insert (prin1-to-string cell))
+			 (if (< (+ (current-column)
+				   (length ret)
+				   (length separator))
+				76)
+			     (insert separator)
+			   (insert lbs)))
+		     (insert ret)
 		     (setq separator " "))
 		   (setq value (cdr value)))
 		 (insert ")")
