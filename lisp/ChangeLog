@@ -1,3 +1,14 @@
+2000-06-19  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* utf-2000/Ideograph-R009-Man.el (ISO-IR-165-2C7A): Fix
+	`morohashi-daikanwa'.
+
+	* utf-2000/Ideograph-R008-Lid.el, utf-2000/Ideograph-R007-Two.el,
+	utf-2000/Ideograph-R001-One.el, utf-2000/Ideograph-R006-Hook.el,
+	utf-2000/Ideograph-R005-Second.el,
+	utf-2000/Ideograph-R004-Slash.el, utf-2000/Ideograph-R003-Dot.el,
+	utf-2000/Ideograph-R002-Line.el: Reformatted.
+
 2000-06-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* utf-2000/Ideograph-R145-Clothes.el:
