@@ -1,3 +1,9 @@
+2003-11-30  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (decode_ccs_conversion): New function.
+	(decode_defined_char): Use `decode_ccs_conversion'.
+	(decode_builtin_char): Likewise.
+
 2003-11-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* char-ucs.h: Change some charset-ids of private coded-charsets.
