@@ -1,7 +1,8 @@
 2004-12-28  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
-	* Ideograph-R098-Tile.el, Ideograph-R097-Melon.el,
-	Ideograph-R094-Dog.el:
+	* Ideograph-R102-Field.el, Ideograph-R096-Jade.el,
+	Ideograph-R086-Fire.el, Ideograph-R098-Tile.el,
+	Ideograph-R097-Melon.el, Ideograph-R094-Dog.el:	
 	- Add some `=ucs@cns' features.
 	- Use `->subsumptive' or `{<-|->}denotational' for some character
 	  definitions.
@@ -30,11 +31,18 @@
 
 2004-12-27  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R105-Dotted-Tent.el (U+7679): Use `->subsumptive'.
+
 	* Ideograph-R075-Tree.el (U+6983): Use `->subsumptive' to add
 	C2-452C.
 	(U+6A1B): Changed to abstract character.
 
 2004-12-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R108-Dish.el:
+	- Add some `=ucs@cns' features.
+	- Use `->subsumptive' or `{<-|->}denotational' for some character
+	  definitions.
 
 	* Ideograph-R106-White.el: Add some `=ucs@cns' features.
 
@@ -50,6 +58,10 @@
 	* Ideograph-R075-Tree.el (C2-5767): Add CU+6A4E.
 
 2004-12-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R131-Minister.el (U-000268DD): Unify BC-89E6.
+
+	* Ideograph-R115-Grain.el (U-00025762): Unify BC-8DC8 and M-24936.
 
 	* Ideograph-R085-Water.el, Ideograph-R064-Hand.el:
 	- Add some `=ucs@cns' features.
@@ -134,6 +146,14 @@
 	(U+5713): Add S1-1332.
 
 	* Ideograph-R027-Cliff.el (U+3553): New character.
+
+	* char-db-util.el (char-db-coded-charset-priority-list): Use
+	`=jis-x0208@{1978|1983|1990}' instead of `japanese-jisx0208-1978',
+	`japanese-jisx0208' and `=jis-x0208-1990'.
+	(char-db-make-char-spec): Use coded-charset not found in
+	`char-db-coded-charset-priority-list' if a character can not be
+	represented by any coded-charset in
+	`char-db-coded-charset-priority-list' nor `=daikanwa'.
 
 2004-12-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
