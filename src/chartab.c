@@ -277,6 +277,7 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
     {
       if (ct->property[i] == BT_UINT8_unloaded)
 	{
+#if 0
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
@@ -288,6 +289,10 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
 		  retval = (fn) (&rainj, ret, arg);
 		}
 	    }
+#else
+	  ct->property[i] = BT_UINT8_unbound;
+	  c += unit;
+#endif
 	}
       else if (ct->property[i] != BT_UINT8_unbound)
 	{
@@ -303,6 +308,44 @@ map_over_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
     }
   return retval;
 }
+
+#ifdef HAVE_DATABASE
+static void
+save_uint8_byte_table (Lisp_Uint8_Byte_Table *ct, Lisp_Char_Table* root,
+		       Lisp_Object db,
+		       Emchar ofs, int place)
+{
+  struct chartab_range rainj;
+  int i, retval;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+  Emchar c1;
+
+  rainj.type = CHARTAB_RANGE_CHAR;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      if (ct->property[i] == BT_UINT8_unloaded)
+	{
+	  c1 = c + unit;
+	}
+      else if (ct->property[i] != BT_UINT8_unbound)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
+			     Fprin1_to_string (UINT8_DECODE (ct->property[i]),
+					       Qnil),
+			     db, Qt);
+	      put_char_id_table (root, make_char (c), Qunloaded);
+	    }
+	}
+      else
+	c += unit;
+    }
+}
+#endif
 
 #define BT_UINT16_MIN		0
 #define BT_UINT16_MAX	 	(USHRT_MAX - 4)
@@ -546,6 +589,7 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
     {
       if (ct->property[i] == BT_UINT16_unloaded)
 	{
+#if 0
 	  c1 = c + unit;
 	  for (; c < c1 && retval == 0; c++)
 	    {
@@ -557,6 +601,10 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
 		  retval = (fn) (&rainj, ret, arg);
 		}
 	    }
+#else
+	  ct->property[i] = BT_UINT16_unbound;
+	  c += unit;
+#endif
 	}
       else if (ct->property[i] != BT_UINT16_unbound)
 	{
@@ -572,6 +620,44 @@ map_over_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
     }
   return retval;
 }
+
+#ifdef HAVE_DATABASE
+static void
+save_uint16_byte_table (Lisp_Uint16_Byte_Table *ct, Lisp_Char_Table* root,
+			Lisp_Object db,
+			Emchar ofs, int place)
+{
+  struct chartab_range rainj;
+  int i, retval;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+  Emchar c1;
+
+  rainj.type = CHARTAB_RANGE_CHAR;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      if (ct->property[i] == BT_UINT16_unloaded)
+	{
+	  c1 = c + unit;
+	}
+      else if (ct->property[i] != BT_UINT16_unbound)
+	{
+	  c1 = c + unit;
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
+			     Fprin1_to_string (UINT16_DECODE (ct->property[i]),
+					       Qnil),
+			     db, Qt);
+	      put_char_id_table (root, make_char (c), Qunloaded);
+	    }
+	}
+      else
+	c += unit;
+    }
+}
+#endif
 
 
 static Lisp_Object
@@ -756,6 +842,7 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 	}
       else if (EQ (v, Qunloaded))
 	{
+#if 0
 	  struct chartab_range rainj;
 	  Emchar c1 = c + unit;
 
@@ -771,6 +858,10 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
 		  retval = (fn) (&rainj, ret, arg);
 		}
 	    }
+#else
+	  ct->property[i] = Qunbound;
+	  c += unit;
+#endif
 	}
       else if (!UNBOUNDP (v))
 	{
@@ -791,6 +882,62 @@ map_over_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
   return retval;
 }
 
+#ifdef HAVE_DATABASE
+static void
+save_byte_table (Lisp_Byte_Table *ct, Lisp_Char_Table* root,
+		 Lisp_Object db,
+		 Emchar ofs, int place)
+{
+  int i, retval;
+  Lisp_Object v;
+  int unit = 1 << (8 * place);
+  Emchar c = ofs;
+
+  for (i = 0, retval = 0; i < 256 && retval == 0; i++)
+    {
+      v = ct->property[i];
+      if (UINT8_BYTE_TABLE_P (v))
+	{
+	  save_uint8_byte_table (XUINT8_BYTE_TABLE(v), root, db,
+				 c, place - 1);
+	  c += unit;
+	}
+      else if (UINT16_BYTE_TABLE_P (v))
+	{
+	  save_uint16_byte_table (XUINT16_BYTE_TABLE(v), root, db,
+				  c, place - 1);
+	  c += unit;
+	}
+      else if (BYTE_TABLE_P (v))
+	{
+	  save_byte_table (XBYTE_TABLE(v), root, db,
+			   c, place - 1);
+	  c += unit;
+	}
+      else if (EQ (v, Qunloaded))
+	{
+	  c += unit;
+	}
+      else if (!UNBOUNDP (v))
+	{
+	  struct chartab_range rainj;
+	  Emchar c1 = c + unit;
+
+	  rainj.type = CHARTAB_RANGE_CHAR;
+
+	  for (; c < c1 && retval == 0; c++)
+	    {
+	      Fput_database (Fprin1_to_string (make_char (c), Qnil),
+			     Fprin1_to_string (v, Qnil),
+			     db, Qt);
+	      put_char_id_table (root, make_char (c), Qunloaded);
+	    }
+	}
+      else
+	c += unit;
+    }
+}
+#endif
 
 Lisp_Object
 get_byte_table (Lisp_Object table, unsigned char idx)
@@ -2568,6 +2715,11 @@ map_char_table_for_charset_fun (struct chartab_range *range,
 
   return 0;
 }
+
+#if defined(HAVE_DATABASE)
+EXFUN (Fload_char_attribute_table, 1);
+#endif
+
 #endif
 
 /* Map FN (with client data ARG) over range RANGE in char table CT.
@@ -2606,6 +2758,7 @@ map_char_table (Lisp_Char_Table *ct,
 				    0, 3, fn, arg);
       else if (EQ (ct->table, Qunloaded))
 	{
+#if 0
 	  struct chartab_range rainj;
 	  int unit = 1 << 30;
 	  Emchar c = 0;
@@ -2625,6 +2778,9 @@ map_char_table (Lisp_Char_Table *ct,
 		}
 	    }
 	  return retval;
+#else
+	  ct->table = Qunbound;
+#endif
 	}
       else if (!UNBOUNDP (ct->table))
         return (fn) (range, ct->table, arg);
@@ -2674,6 +2830,10 @@ map_char_table (Lisp_Char_Table *ct,
 	    struct chartab_range rainj;
 	    struct map_char_table_for_charset_arg mcarg;
 
+#ifdef HAVE_DATABASE
+	    if (XCHAR_TABLE_UNLOADED(encoding_table))
+	      Fload_char_attribute_table (XCHAR_TABLE_NAME (encoding_table));
+#endif
 	    mcarg.fn = fn;
 	    mcarg.ct = ct;
 	    mcarg.arg = arg;
@@ -3091,7 +3251,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
 				  Vchar_attribute_hash_table,
 				  Qnil);
 
-#ifdef HAVE_DATABASE
+#if defined(HAVE_DATABASE) && 0
     {
       Lisp_Object db;
       Lisp_Object db_dir = Vdata_directory;
@@ -3108,8 +3268,7 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       if (NILP (db_dir))
 	db_dir = build_string ("../etc");
       db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
-      db_file = Fexpand_file_name (Fsymbol_name
-				   (XCHAR_TABLE_NAME (table)), db_dir);
+      db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
       db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
       if (!NILP (db))
 	{
@@ -3129,6 +3288,9 @@ Store CHARACTER's ATTRIBUTE with VALUE.
       {
 	table = make_char_id_table (Qunbound);
 	Fputhash (attribute, table, Vchar_attribute_hash_table);
+#ifdef HAVE_DATABASE
+	XCHAR_TABLE_NAME (table) = attribute;
+#endif
       }
     put_char_id_table (XCHAR_TABLE(table), character, value);
 #endif
@@ -3161,6 +3323,56 @@ Remove CHARACTER's ATTRIBUTE.
 	}
     }
   return Qnil;
+}
+
+DEFUN ("save-char-attribute-table", Fsave_char_attribute_table, 1, 1, 0, /*
+Save values of ATTRIBUTE into database file.
+*/
+       (attribute))
+{
+#ifdef HAVE_DATABASE
+  Lisp_Object table = Fgethash (attribute,
+				Vchar_attribute_hash_table, Qunbound);
+  Lisp_Char_Table *ct;
+  Lisp_Object db;
+  Lisp_Object db_dir = Vdata_directory;
+  Lisp_Object db_file;
+
+  if (CHAR_TABLEP (table))
+    ct = XCHAR_TABLE (table);
+  else
+    return Qnil;
+  
+  if (NILP (db_dir))
+    db_dir = build_string ("../etc");
+  db_dir = Fexpand_file_name (build_string ("system-char-id"), db_dir);
+  db_file = Fexpand_file_name (Fsymbol_name (attribute), db_dir);
+  if (!NILP (Ffile_exists_p (db_file)))
+    {
+      ct->table = Qunloaded;
+      XCHAR_TABLE_UNLOADED(table) = 1;
+      return Qt;
+    }
+
+  db = Fopen_database (db_file, Qnil, Qnil, Qnil, Qnil);
+  if (!NILP (db))
+    {
+      if (UINT8_BYTE_TABLE_P (ct->table))
+	save_uint8_byte_table (XUINT8_BYTE_TABLE(ct->table), ct, db, 0, 3);
+      else if (UINT16_BYTE_TABLE_P (ct->table))
+	save_uint16_byte_table (XUINT16_BYTE_TABLE(ct->table), ct, db, 0, 3);
+      else if (BYTE_TABLE_P (ct->table))
+	save_byte_table (XBYTE_TABLE(ct->table), ct, db, 0, 3);
+      Fclose_database (db);
+      ct->table = Qunloaded;
+      XCHAR_TABLE_UNLOADED(table) = 1;
+      return Qt;
+    }
+  else
+    return Qnil;
+#else
+  return Qnil;
+#endif
 }
 
 #ifdef HAVE_DATABASE
@@ -3771,6 +3983,7 @@ syms_of_chartab (void)
   DEFSUBR (Ffind_char_attribute_table);
   defsymbol (&Qput_char_table_map_function, "put-char-table-map-function");
   DEFSUBR (Fput_char_table_map_function);
+  DEFSUBR (Fsave_char_attribute_table);
 #ifdef HAVE_DATABASE
   defsymbol (&Qload_char_attribute_table_map_function,
 	     "load-char-attribute-table-map-function");
