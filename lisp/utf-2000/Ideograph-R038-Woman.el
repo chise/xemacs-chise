@@ -8157,6 +8157,7 @@
     (=big5		. #xDCF8)	; ý¢€³¸
     (=daikanwa		. 06568)	; ø¸¦¨
     (=jef-china3	. #x49D5)	; øº„§•
+    (=ucs@jis		. #x5AB1)	; ø»‹ˆ¶
     ))
 (define-char
   '((=>ucs		. #x5AB1)	; åª±
