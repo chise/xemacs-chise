@@ -1,3143 +1,3143 @@
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HA")
-    (ucs		. #x1200)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x21)	; $(3!!(B
-    (ethiopic-ucs	#x12 #x00)	; $(3!!(B
+    (ethiopic		. #x2121)	; ¯∫•πå
+    (ethiopic-ucs	. #x1200)	; ·àÄ
+    (ucs		. #x1200)	; ·àÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HU")
-    (ucs		. #x1201)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x22)	; $(3!"(B
-    (ethiopic-ucs	#x12 #x01)	; $(3!"(B
+    (ethiopic		. #x2122)	; ¯∫•πç
+    (ethiopic-ucs	. #x1201)	; ·àÅ
+    (ucs		. #x1201)	; ·àÅ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HI")
-    (ucs		. #x1202)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x23)	; $(3!#(B
-    (ethiopic-ucs	#x12 #x02)	; $(3!#(B
+    (ethiopic		. #x2123)	; ¯∫•πé
+    (ethiopic-ucs	. #x1202)	; ·àÇ
+    (ucs		. #x1202)	; ·àÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HAA")
-    (ucs		. #x1203)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x24)	; $(3!$(B
-    (ethiopic-ucs	#x12 #x03)	; $(3!$(B
+    (ethiopic		. #x2124)	; ¯∫•πè
+    (ethiopic-ucs	. #x1203)	; ·àÉ
+    (ucs		. #x1203)	; ·àÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HEE")
-    (ucs		. #x1204)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x25)	; $(3!%(B
-    (ethiopic-ucs	#x12 #x04)	; $(3!%(B
+    (ethiopic		. #x2125)	; ¯∫•πê
+    (ethiopic-ucs	. #x1204)	; ·àÑ
+    (ucs		. #x1204)	; ·àÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HE")
-    (ucs		. #x1205)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x26)	; $(3!&(B
-    (ethiopic-ucs	#x12 #x05)	; $(3!&(B
+    (ethiopic		. #x2126)	; ¯∫•πë
+    (ethiopic-ucs	. #x1205)	; ·àÖ
+    (ucs		. #x1205)	; ·àÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HO")
-    (ucs		. #x1206)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x27)	; $(3!'(B
-    (ethiopic-ucs	#x12 #x06)	; $(3!'(B
+    (ethiopic		. #x2127)	; ¯∫•πí
+    (ethiopic-ucs	. #x1206)	; ·àÜ
+    (ucs		. #x1206)	; ·àÜ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LA")
-    (ucs		. #x1208)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x29)	; $(3!)(B
-    (ethiopic-ucs	#x12 #x08)	; $(3!)(B
+    (ethiopic		. #x2129)	; ¯∫•πî
+    (ethiopic-ucs	. #x1208)	; ·àà
+    (ucs		. #x1208)	; ·àà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LU")
-    (ucs		. #x1209)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2A)	; $(3!*(B
-    (ethiopic-ucs	#x12 #x09)	; $(3!*(B
+    (ethiopic		. #x212A)	; ¯∫•πï
+    (ethiopic-ucs	. #x1209)	; ·àâ
+    (ucs		. #x1209)	; ·àâ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LI")
-    (ucs		. #x120A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2B)	; $(3!+(B
-    (ethiopic-ucs	#x12 #x0A)	; $(3!+(B
+    (ethiopic		. #x212B)	; ¯∫•πñ
+    (ethiopic-ucs	. #x120A)	; ·àä
+    (ucs		. #x120A)	; ·àä
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LAA")
-    (ucs		. #x120B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2C)	; $(3!,(B
-    (ethiopic-ucs	#x12 #x0B)	; $(3!,(B
+    (ethiopic		. #x212C)	; ¯∫•πó
+    (ethiopic-ucs	. #x120B)	; ·àã
+    (ucs		. #x120B)	; ·àã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LEE")
-    (ucs		. #x120C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2D)	; $(3!-(B
-    (ethiopic-ucs	#x12 #x0C)	; $(3!-(B
+    (ethiopic		. #x212D)	; ¯∫•πò
+    (ethiopic-ucs	. #x120C)	; ·àå
+    (ucs		. #x120C)	; ·àå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LE")
-    (ucs		. #x120D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2E)	; $(3!.(B
-    (ethiopic-ucs	#x12 #x0D)	; $(3!.(B
+    (ethiopic		. #x212E)	; ¯∫•πô
+    (ethiopic-ucs	. #x120D)	; ·àç
+    (ucs		. #x120D)	; ·àç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LO")
-    (ucs		. #x120E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x2F)	; $(3!/(B
-    (ethiopic-ucs	#x12 #x0E)	; $(3!/(B
+    (ethiopic		. #x212F)	; ¯∫•πö
+    (ethiopic-ucs	. #x120E)	; ·àé
+    (ucs		. #x120E)	; ·àé
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE LWA")
-    (ucs		. #x120F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x30)	; $(3!0(B
-    (ethiopic-ucs	#x12 #x0F)	; $(3!0(B
+    (ethiopic		. #x2130)	; ¯∫•πõ
+    (ethiopic-ucs	. #x120F)	; ·àè
+    (ucs		. #x120F)	; ·àè
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHA")
-    (ucs		. #x1210)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x31)	; $(3!1(B
-    (ethiopic-ucs	#x12 #x10)	; $(3!1(B
+    (ethiopic		. #x2131)	; ¯∫•πú
+    (ethiopic-ucs	. #x1210)	; ·àê
+    (ucs		. #x1210)	; ·àê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHU")
-    (ucs		. #x1211)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x32)	; $(3!2(B
-    (ethiopic-ucs	#x12 #x11)	; $(3!2(B
+    (ethiopic		. #x2132)	; ¯∫•πù
+    (ethiopic-ucs	. #x1211)	; ·àë
+    (ucs		. #x1211)	; ·àë
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHI")
-    (ucs		. #x1212)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x33)	; $(3!3(B
-    (ethiopic-ucs	#x12 #x12)	; $(3!3(B
+    (ethiopic		. #x2133)	; ¯∫•πû
+    (ethiopic-ucs	. #x1212)	; ·àí
+    (ucs		. #x1212)	; ·àí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHAA")
-    (ucs		. #x1213)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x34)	; $(3!4(B
-    (ethiopic-ucs	#x12 #x13)	; $(3!4(B
+    (ethiopic		. #x2134)	; ¯∫•πü
+    (ethiopic-ucs	. #x1213)	; ·àì
+    (ucs		. #x1213)	; ·àì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHEE")
-    (ucs		. #x1214)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x35)	; $(3!5(B
-    (ethiopic-ucs	#x12 #x14)	; $(3!5(B
+    (ethiopic		. #x2135)	; ¯∫•π†
+    (ethiopic-ucs	. #x1214)	; ·àî
+    (ucs		. #x1214)	; ·àî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHE")
-    (ucs		. #x1215)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x36)	; $(3!6(B
-    (ethiopic-ucs	#x12 #x15)	; $(3!6(B
+    (ethiopic		. #x2136)	; ¯∫•π°
+    (ethiopic-ucs	. #x1215)	; ·àï
+    (ucs		. #x1215)	; ·àï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHO")
-    (ucs		. #x1216)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x37)	; $(3!7(B
-    (ethiopic-ucs	#x12 #x16)	; $(3!7(B
+    (ethiopic		. #x2137)	; ¯∫•π¢
+    (ethiopic-ucs	. #x1216)	; ·àñ
+    (ucs		. #x1216)	; ·àñ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE HHWA")
-    (ucs		. #x1217)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x38)	; $(3!8(B
-    (ethiopic-ucs	#x12 #x17)	; $(3!8(B
+    (ethiopic		. #x2138)	; ¯∫•π£
+    (ethiopic-ucs	. #x1217)	; ·àó
+    (ucs		. #x1217)	; ·àó
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MA")
-    (ucs		. #x1218)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x39)	; $(3!9(B
-    (ethiopic-ucs	#x12 #x18)	; $(3!9(B
+    (ethiopic		. #x2139)	; ¯∫•π§
+    (ethiopic-ucs	. #x1218)	; ·àò
+    (ucs		. #x1218)	; ·àò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MU")
-    (ucs		. #x1219)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3A)	; $(3!:(B
-    (ethiopic-ucs	#x12 #x19)	; $(3!:(B
+    (ethiopic		. #x213A)	; ¯∫•π•
+    (ethiopic-ucs	. #x1219)	; ·àô
+    (ucs		. #x1219)	; ·àô
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MI")
-    (ucs		. #x121A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3B)	; $(3!;(B
-    (ethiopic-ucs	#x12 #x1A)	; $(3!;(B
+    (ethiopic		. #x213B)	; ¯∫•π¶
+    (ethiopic-ucs	. #x121A)	; ·àö
+    (ucs		. #x121A)	; ·àö
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MAA")
-    (ucs		. #x121B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3C)	; $(3!<(B
-    (ethiopic-ucs	#x12 #x1B)	; $(3!<(B
+    (ethiopic		. #x213C)	; ¯∫•πß
+    (ethiopic-ucs	. #x121B)	; ·àõ
+    (ucs		. #x121B)	; ·àõ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MEE")
-    (ucs		. #x121C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3D)	; $(3!=(B
-    (ethiopic-ucs	#x12 #x1C)	; $(3!=(B
+    (ethiopic		. #x213D)	; ¯∫•π®
+    (ethiopic-ucs	. #x121C)	; ·àú
+    (ucs		. #x121C)	; ·àú
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ME")
-    (ucs		. #x121D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3E)	; $(3!>(B
-    (ethiopic-ucs	#x12 #x1D)	; $(3!>(B
+    (ethiopic		. #x213E)	; ¯∫•π©
+    (ethiopic-ucs	. #x121D)	; ·àù
+    (ucs		. #x121D)	; ·àù
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MO")
-    (ucs		. #x121E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x3F)	; $(3!?(B
-    (ethiopic-ucs	#x12 #x1E)	; $(3!?(B
+    (ethiopic		. #x213F)	; ¯∫•π™
+    (ethiopic-ucs	. #x121E)	; ·àû
+    (ucs		. #x121E)	; ·àû
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MWA")
-    (ucs		. #x121F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x40)	; $(3!@(B
-    (ethiopic-ucs	#x12 #x1F)	; $(3!@(B
+    (ethiopic		. #x2140)	; ¯∫•π´
+    (ethiopic-ucs	. #x121F)	; ·àü
+    (ucs		. #x121F)	; ·àü
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZA")
-    (ucs		. #x1220)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x41)	; $(3!A(B
-    (ethiopic-ucs	#x12 #x20)	; $(3!A(B
+    (ethiopic		. #x2141)	; ¯∫•π¨
+    (ethiopic-ucs	. #x1220)	; ·à†
+    (ucs		. #x1220)	; ·à†
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZU")
-    (ucs		. #x1221)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x42)	; $(3!B(B
-    (ethiopic-ucs	#x12 #x21)	; $(3!B(B
+    (ethiopic		. #x2142)	; ¯∫•π≠
+    (ethiopic-ucs	. #x1221)	; ·à°
+    (ucs		. #x1221)	; ·à°
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZI")
-    (ucs		. #x1222)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x43)	; $(3!C(B
-    (ethiopic-ucs	#x12 #x22)	; $(3!C(B
+    (ethiopic		. #x2143)	; ¯∫•πÆ
+    (ethiopic-ucs	. #x1222)	; ·à¢
+    (ucs		. #x1222)	; ·à¢
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZAA")
-    (ucs		. #x1223)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x44)	; $(3!D(B
-    (ethiopic-ucs	#x12 #x23)	; $(3!D(B
+    (ethiopic		. #x2144)	; ¯∫•πØ
+    (ethiopic-ucs	. #x1223)	; ·à£
+    (ucs		. #x1223)	; ·à£
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZEE")
-    (ucs		. #x1224)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x45)	; $(3!E(B
-    (ethiopic-ucs	#x12 #x24)	; $(3!E(B
+    (ethiopic		. #x2145)	; ¯∫•π∞
+    (ethiopic-ucs	. #x1224)	; ·à§
+    (ucs		. #x1224)	; ·à§
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZE")
-    (ucs		. #x1225)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x46)	; $(3!F(B
-    (ethiopic-ucs	#x12 #x25)	; $(3!F(B
+    (ethiopic		. #x2146)	; ¯∫•π±
+    (ethiopic-ucs	. #x1225)	; ·à•
+    (ucs		. #x1225)	; ·à•
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZO")
-    (ucs		. #x1226)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x47)	; $(3!G(B
-    (ethiopic-ucs	#x12 #x26)	; $(3!G(B
+    (ethiopic		. #x2147)	; ¯∫•π≤
+    (ethiopic-ucs	. #x1226)	; ·à¶
+    (ucs		. #x1226)	; ·à¶
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SZWA")
-    (ucs		. #x1227)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x48)	; $(3!H(B
-    (ethiopic-ucs	#x12 #x27)	; $(3!H(B
+    (ethiopic		. #x2148)	; ¯∫•π≥
+    (ethiopic-ucs	. #x1227)	; ·àß
+    (ucs		. #x1227)	; ·àß
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RA")
-    (ucs		. #x1228)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x49)	; $(3!I(B
-    (ethiopic-ucs	#x12 #x28)	; $(3!I(B
+    (ethiopic		. #x2149)	; ¯∫•π¥
+    (ethiopic-ucs	. #x1228)	; ·à®
+    (ucs		. #x1228)	; ·à®
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RU")
-    (ucs		. #x1229)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4A)	; $(3!J(B
-    (ethiopic-ucs	#x12 #x29)	; $(3!J(B
+    (ethiopic		. #x214A)	; ¯∫•πµ
+    (ethiopic-ucs	. #x1229)	; ·à©
+    (ucs		. #x1229)	; ·à©
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RI")
-    (ucs		. #x122A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4B)	; $(3!K(B
-    (ethiopic-ucs	#x12 #x2A)	; $(3!K(B
+    (ethiopic		. #x214B)	; ¯∫•π∂
+    (ethiopic-ucs	. #x122A)	; ·à™
+    (ucs		. #x122A)	; ·à™
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RAA")
-    (ucs		. #x122B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4C)	; $(3!L(B
-    (ethiopic-ucs	#x12 #x2B)	; $(3!L(B
+    (ethiopic		. #x214C)	; ¯∫•π∑
+    (ethiopic-ucs	. #x122B)	; ·à´
+    (ucs		. #x122B)	; ·à´
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE REE")
-    (ucs		. #x122C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4D)	; $(3!M(B
-    (ethiopic-ucs	#x12 #x2C)	; $(3!M(B
+    (ethiopic		. #x214D)	; ¯∫•π∏
+    (ethiopic-ucs	. #x122C)	; ·à¨
+    (ucs		. #x122C)	; ·à¨
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RE")
-    (ucs		. #x122D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4E)	; $(3!N(B
-    (ethiopic-ucs	#x12 #x2D)	; $(3!N(B
+    (ethiopic		. #x214E)	; ¯∫•ππ
+    (ethiopic-ucs	. #x122D)	; ·à≠
+    (ucs		. #x122D)	; ·à≠
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RO")
-    (ucs		. #x122E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x4F)	; $(3!O(B
-    (ethiopic-ucs	#x12 #x2E)	; $(3!O(B
+    (ethiopic		. #x214F)	; ¯∫•π∫
+    (ethiopic-ucs	. #x122E)	; ·àÆ
+    (ucs		. #x122E)	; ·àÆ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RWA")
-    (ucs		. #x122F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x50)	; $(3!P(B
-    (ethiopic-ucs	#x12 #x2F)	; $(3!P(B
+    (ethiopic		. #x2150)	; ¯∫•πª
+    (ethiopic-ucs	. #x122F)	; ·àØ
+    (ucs		. #x122F)	; ·àØ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SA")
-    (ucs		. #x1230)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x51)	; $(3!Q(B
-    (ethiopic-ucs	#x12 #x30)	; $(3!Q(B
+    (ethiopic		. #x2151)	; ¯∫•πº
+    (ethiopic-ucs	. #x1230)	; ·à∞
+    (ucs		. #x1230)	; ·à∞
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SU")
-    (ucs		. #x1231)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x52)	; $(3!R(B
-    (ethiopic-ucs	#x12 #x31)	; $(3!R(B
+    (ethiopic		. #x2152)	; ¯∫•πΩ
+    (ethiopic-ucs	. #x1231)	; ·à±
+    (ucs		. #x1231)	; ·à±
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SI")
-    (ucs		. #x1232)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x53)	; $(3!S(B
-    (ethiopic-ucs	#x12 #x32)	; $(3!S(B
+    (ethiopic		. #x2153)	; ¯∫•πæ
+    (ethiopic-ucs	. #x1232)	; ·à≤
+    (ucs		. #x1232)	; ·à≤
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SAA")
-    (ucs		. #x1233)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x54)	; $(3!T(B
-    (ethiopic-ucs	#x12 #x33)	; $(3!T(B
+    (ethiopic		. #x2154)	; ¯∫•πø
+    (ethiopic-ucs	. #x1233)	; ·à≥
+    (ucs		. #x1233)	; ·à≥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SEE")
-    (ucs		. #x1234)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x55)	; $(3!U(B
-    (ethiopic-ucs	#x12 #x34)	; $(3!U(B
+    (ethiopic		. #x2155)	; ¯∫•∫Ä
+    (ethiopic-ucs	. #x1234)	; ·à¥
+    (ucs		. #x1234)	; ·à¥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SE")
-    (ucs		. #x1235)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x56)	; $(3!V(B
-    (ethiopic-ucs	#x12 #x35)	; $(3!V(B
+    (ethiopic		. #x2156)	; ¯∫•∫Å
+    (ethiopic-ucs	. #x1235)	; ·àµ
+    (ucs		. #x1235)	; ·àµ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SO")
-    (ucs		. #x1236)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x57)	; $(3!W(B
-    (ethiopic-ucs	#x12 #x36)	; $(3!W(B
+    (ethiopic		. #x2157)	; ¯∫•∫Ç
+    (ethiopic-ucs	. #x1236)	; ·à∂
+    (ucs		. #x1236)	; ·à∂
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SWA")
-    (ucs		. #x1237)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x58)	; $(3!X(B
-    (ethiopic-ucs	#x12 #x37)	; $(3!X(B
+    (ethiopic		. #x2158)	; ¯∫•∫É
+    (ethiopic-ucs	. #x1237)	; ·à∑
+    (ucs		. #x1237)	; ·à∑
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHA")
-    (ucs		. #x1238)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x59)	; $(3!Y(B
-    (ethiopic-ucs	#x12 #x38)	; $(3!Y(B
+    (ethiopic		. #x2159)	; ¯∫•∫Ñ
+    (ethiopic-ucs	. #x1238)	; ·à∏
+    (ucs		. #x1238)	; ·à∏
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHU")
-    (ucs		. #x1239)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5A)	; $(3!Z(B
-    (ethiopic-ucs	#x12 #x39)	; $(3!Z(B
+    (ethiopic		. #x215A)	; ¯∫•∫Ö
+    (ethiopic-ucs	. #x1239)	; ·àπ
+    (ucs		. #x1239)	; ·àπ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHI")
-    (ucs		. #x123A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5B)	; $(3![(B
-    (ethiopic-ucs	#x12 #x3A)	; $(3![(B
+    (ethiopic		. #x215B)	; ¯∫•∫Ü
+    (ethiopic-ucs	. #x123A)	; ·à∫
+    (ucs		. #x123A)	; ·à∫
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHAA")
-    (ucs		. #x123B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5C)	; $(3!\(B
-    (ethiopic-ucs	#x12 #x3B)	; $(3!\(B
+    (ethiopic		. #x215C)	; ¯∫•∫á
+    (ethiopic-ucs	. #x123B)	; ·àª
+    (ucs		. #x123B)	; ·àª
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHEE")
-    (ucs		. #x123C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5D)	; $(3!](B
-    (ethiopic-ucs	#x12 #x3C)	; $(3!](B
+    (ethiopic		. #x215D)	; ¯∫•∫à
+    (ethiopic-ucs	. #x123C)	; ·àº
+    (ucs		. #x123C)	; ·àº
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHE")
-    (ucs		. #x123D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5E)	; $(3!^(B
-    (ethiopic-ucs	#x12 #x3D)	; $(3!^(B
+    (ethiopic		. #x215E)	; ¯∫•∫â
+    (ethiopic-ucs	. #x123D)	; ·àΩ
+    (ucs		. #x123D)	; ·àΩ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHO")
-    (ucs		. #x123E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x5F)	; $(3!_(B
-    (ethiopic-ucs	#x12 #x3E)	; $(3!_(B
+    (ethiopic		. #x215F)	; ¯∫•∫ä
+    (ethiopic-ucs	. #x123E)	; ·àæ
+    (ucs		. #x123E)	; ·àæ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE SHWA")
-    (ucs		. #x123F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x60)	; $(3!`(B
-    (ethiopic-ucs	#x12 #x3F)	; $(3!`(B
+    (ethiopic		. #x2160)	; ¯∫•∫ã
+    (ethiopic-ucs	. #x123F)	; ·àø
+    (ucs		. #x123F)	; ·àø
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QA")
-    (ucs		. #x1240)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x61)	; $(3!a(B
-    (ethiopic-ucs	#x12 #x40)	; $(3!a(B
+    (ethiopic		. #x2161)	; ¯∫•∫å
+    (ethiopic-ucs	. #x1240)	; ·âÄ
+    (ucs		. #x1240)	; ·âÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QU")
-    (ucs		. #x1241)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x62)	; $(3!b(B
-    (ethiopic-ucs	#x12 #x41)	; $(3!b(B
+    (ethiopic		. #x2162)	; ¯∫•∫ç
+    (ethiopic-ucs	. #x1241)	; ·âÅ
+    (ucs		. #x1241)	; ·âÅ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QI")
-    (ucs		. #x1242)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x63)	; $(3!c(B
-    (ethiopic-ucs	#x12 #x42)	; $(3!c(B
+    (ethiopic		. #x2163)	; ¯∫•∫é
+    (ethiopic-ucs	. #x1242)	; ·âÇ
+    (ucs		. #x1242)	; ·âÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QAA")
-    (ucs		. #x1243)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x64)	; $(3!d(B
-    (ethiopic-ucs	#x12 #x43)	; $(3!d(B
+    (ethiopic		. #x2164)	; ¯∫•∫è
+    (ethiopic-ucs	. #x1243)	; ·âÉ
+    (ucs		. #x1243)	; ·âÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QEE")
-    (ucs		. #x1244)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x65)	; $(3!e(B
-    (ethiopic-ucs	#x12 #x44)	; $(3!e(B
+    (ethiopic		. #x2165)	; ¯∫•∫ê
+    (ethiopic-ucs	. #x1244)	; ·âÑ
+    (ucs		. #x1244)	; ·âÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QE")
-    (ucs		. #x1245)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x66)	; $(3!f(B
-    (ethiopic-ucs	#x12 #x45)	; $(3!f(B
+    (ethiopic		. #x2166)	; ¯∫•∫ë
+    (ethiopic-ucs	. #x1245)	; ·âÖ
+    (ucs		. #x1245)	; ·âÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QO")
-    (ucs		. #x1246)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x67)	; $(3!g(B
-    (ethiopic-ucs	#x12 #x46)	; $(3!g(B
+    (ethiopic		. #x2167)	; ¯∫•∫í
+    (ethiopic-ucs	. #x1246)	; ·âÜ
+    (ucs		. #x1246)	; ·âÜ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWA")
-    (ucs		. #x1248)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x69)	; $(3!i(B
-    (ethiopic-ucs	#x12 #x48)	; $(3!i(B
+    (ethiopic		. #x2169)	; ¯∫•∫î
+    (ethiopic-ucs	. #x1248)	; ·âà
+    (ucs		. #x1248)	; ·âà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWI")
-    (ucs		. #x124A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x6B)	; $(3!k(B
-    (ethiopic-ucs	#x12 #x4A)	; $(3!k(B
+    (ethiopic		. #x216B)	; ¯∫•∫ñ
+    (ethiopic-ucs	. #x124A)	; ·âä
+    (ucs		. #x124A)	; ·âä
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWAA")
-    (ucs		. #x124B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x6C)	; $(3!l(B
-    (ethiopic-ucs	#x12 #x4B)	; $(3!l(B
+    (ethiopic		. #x216C)	; ¯∫•∫ó
+    (ethiopic-ucs	. #x124B)	; ·âã
+    (ucs		. #x124B)	; ·âã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWEE")
-    (ucs		. #x124C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x6D)	; $(3!m(B
-    (ethiopic-ucs	#x12 #x4C)	; $(3!m(B
+    (ethiopic		. #x216D)	; ¯∫•∫ò
+    (ethiopic-ucs	. #x124C)	; ·âå
+    (ucs		. #x124C)	; ·âå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QWE")
-    (ucs		. #x124D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x6E)	; $(3!n(B
-    (ethiopic-ucs	#x12 #x4D)	; $(3!n(B
+    (ethiopic		. #x216E)	; ¯∫•∫ô
+    (ethiopic-ucs	. #x124D)	; ·âç
+    (ucs		. #x124D)	; ·âç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHA")
-    (ucs		. #x1250)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x71)	; $(3!q(B
-    (ethiopic-ucs	#x12 #x50)	; $(3!q(B
+    (ethiopic		. #x2171)	; ¯∫•∫ú
+    (ethiopic-ucs	. #x1250)	; ·âê
+    (ucs		. #x1250)	; ·âê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHU")
-    (ucs		. #x1251)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x72)	; $(3!r(B
-    (ethiopic-ucs	#x12 #x51)	; $(3!r(B
+    (ethiopic		. #x2172)	; ¯∫•∫ù
+    (ethiopic-ucs	. #x1251)	; ·âë
+    (ucs		. #x1251)	; ·âë
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHI")
-    (ucs		. #x1252)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x73)	; $(3!s(B
-    (ethiopic-ucs	#x12 #x52)	; $(3!s(B
+    (ethiopic		. #x2173)	; ¯∫•∫û
+    (ethiopic-ucs	. #x1252)	; ·âí
+    (ucs		. #x1252)	; ·âí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHAA")
-    (ucs		. #x1253)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x74)	; $(3!t(B
-    (ethiopic-ucs	#x12 #x53)	; $(3!t(B
+    (ethiopic		. #x2174)	; ¯∫•∫ü
+    (ethiopic-ucs	. #x1253)	; ·âì
+    (ucs		. #x1253)	; ·âì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHEE")
-    (ucs		. #x1254)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x75)	; $(3!u(B
-    (ethiopic-ucs	#x12 #x54)	; $(3!u(B
+    (ethiopic		. #x2175)	; ¯∫•∫†
+    (ethiopic-ucs	. #x1254)	; ·âî
+    (ucs		. #x1254)	; ·âî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHE")
-    (ucs		. #x1255)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x76)	; $(3!v(B
-    (ethiopic-ucs	#x12 #x55)	; $(3!v(B
+    (ethiopic		. #x2176)	; ¯∫•∫°
+    (ethiopic-ucs	. #x1255)	; ·âï
+    (ucs		. #x1255)	; ·âï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHO")
-    (ucs		. #x1256)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x77)	; $(3!w(B
-    (ethiopic-ucs	#x12 #x56)	; $(3!w(B
+    (ethiopic		. #x2177)	; ¯∫•∫¢
+    (ethiopic-ucs	. #x1256)	; ·âñ
+    (ucs		. #x1256)	; ·âñ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWA")
-    (ucs		. #x1258)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x79)	; $(3!y(B
-    (ethiopic-ucs	#x12 #x58)	; $(3!y(B
+    (ethiopic		. #x2179)	; ¯∫•∫§
+    (ethiopic-ucs	. #x1258)	; ·âò
+    (ucs		. #x1258)	; ·âò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWI")
-    (ucs		. #x125A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x7B)	; $(3!{(B
-    (ethiopic-ucs	#x12 #x5A)	; $(3!{(B
+    (ethiopic		. #x217B)	; ¯∫•∫¶
+    (ethiopic-ucs	. #x125A)	; ·âö
+    (ucs		. #x125A)	; ·âö
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWAA")
-    (ucs		. #x125B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x7C)	; $(3!|(B
-    (ethiopic-ucs	#x12 #x5B)	; $(3!|(B
+    (ethiopic		. #x217C)	; ¯∫•∫ß
+    (ethiopic-ucs	. #x125B)	; ·âõ
+    (ucs		. #x125B)	; ·âõ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWEE")
-    (ucs		. #x125C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x7D)	; $(3!}(B
-    (ethiopic-ucs	#x12 #x5C)	; $(3!}(B
+    (ethiopic		. #x217D)	; ¯∫•∫®
+    (ethiopic-ucs	. #x125C)	; ·âú
+    (ucs		. #x125C)	; ·âú
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE QHWE")
-    (ucs		. #x125D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x21 #x7E)	; $(3!~(B
-    (ethiopic-ucs	#x12 #x5D)	; $(3!~(B
+    (ethiopic		. #x217E)	; ¯∫•∫©
+    (ethiopic-ucs	. #x125D)	; ·âù
+    (ucs		. #x125D)	; ·âù
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BA")
-    (ucs		. #x1260)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x23)	; $(3"#(B
-    (ethiopic-ucs	#x12 #x60)	; $(3"#(B
+    (ethiopic		. #x2223)	; ¯∫•∫¨
+    (ethiopic-ucs	. #x1260)	; ·â†
+    (ucs		. #x1260)	; ·â†
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BU")
-    (ucs		. #x1261)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x24)	; $(3"$(B
-    (ethiopic-ucs	#x12 #x61)	; $(3"$(B
+    (ethiopic		. #x2224)	; ¯∫•∫≠
+    (ethiopic-ucs	. #x1261)	; ·â°
+    (ucs		. #x1261)	; ·â°
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BI")
-    (ucs		. #x1262)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x25)	; $(3"%(B
-    (ethiopic-ucs	#x12 #x62)	; $(3"%(B
+    (ethiopic		. #x2225)	; ¯∫•∫Æ
+    (ethiopic-ucs	. #x1262)	; ·â¢
+    (ucs		. #x1262)	; ·â¢
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BAA")
-    (ucs		. #x1263)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x26)	; $(3"&(B
-    (ethiopic-ucs	#x12 #x63)	; $(3"&(B
+    (ethiopic		. #x2226)	; ¯∫•∫Ø
+    (ethiopic-ucs	. #x1263)	; ·â£
+    (ucs		. #x1263)	; ·â£
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BEE")
-    (ucs		. #x1264)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x27)	; $(3"'(B
-    (ethiopic-ucs	#x12 #x64)	; $(3"'(B
+    (ethiopic		. #x2227)	; ¯∫•∫∞
+    (ethiopic-ucs	. #x1264)	; ·â§
+    (ucs		. #x1264)	; ·â§
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BE")
-    (ucs		. #x1265)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x28)	; $(3"((B
-    (ethiopic-ucs	#x12 #x65)	; $(3"((B
+    (ethiopic		. #x2228)	; ¯∫•∫±
+    (ethiopic-ucs	. #x1265)	; ·â•
+    (ucs		. #x1265)	; ·â•
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BO")
-    (ucs		. #x1266)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x29)	; $(3")(B
-    (ethiopic-ucs	#x12 #x66)	; $(3")(B
+    (ethiopic		. #x2229)	; ¯∫•∫≤
+    (ethiopic-ucs	. #x1266)	; ·â¶
+    (ucs		. #x1266)	; ·â¶
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE BWA")
-    (ucs		. #x1267)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2A)	; $(3"*(B
-    (ethiopic-ucs	#x12 #x67)	; $(3"*(B
+    (ethiopic		. #x222A)	; ¯∫•∫≥
+    (ethiopic-ucs	. #x1267)	; ·âß
+    (ucs		. #x1267)	; ·âß
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VA")
-    (ucs		. #x1268)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2B)	; $(3"+(B
-    (ethiopic-ucs	#x12 #x68)	; $(3"+(B
+    (ethiopic		. #x222B)	; ¯∫•∫¥
+    (ethiopic-ucs	. #x1268)	; ·â®
+    (ucs		. #x1268)	; ·â®
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VU")
-    (ucs		. #x1269)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2C)	; $(3",(B
-    (ethiopic-ucs	#x12 #x69)	; $(3",(B
+    (ethiopic		. #x222C)	; ¯∫•∫µ
+    (ethiopic-ucs	. #x1269)	; ·â©
+    (ucs		. #x1269)	; ·â©
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VI")
-    (ucs		. #x126A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2D)	; $(3"-(B
-    (ethiopic-ucs	#x12 #x6A)	; $(3"-(B
+    (ethiopic		. #x222D)	; ¯∫•∫∂
+    (ethiopic-ucs	. #x126A)	; ·â™
+    (ucs		. #x126A)	; ·â™
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VAA")
-    (ucs		. #x126B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2E)	; $(3".(B
-    (ethiopic-ucs	#x12 #x6B)	; $(3".(B
+    (ethiopic		. #x222E)	; ¯∫•∫∑
+    (ethiopic-ucs	. #x126B)	; ·â´
+    (ucs		. #x126B)	; ·â´
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VEE")
-    (ucs		. #x126C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x2F)	; $(3"/(B
-    (ethiopic-ucs	#x12 #x6C)	; $(3"/(B
+    (ethiopic		. #x222F)	; ¯∫•∫∏
+    (ethiopic-ucs	. #x126C)	; ·â¨
+    (ucs		. #x126C)	; ·â¨
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VE")
-    (ucs		. #x126D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x30)	; $(3"0(B
-    (ethiopic-ucs	#x12 #x6D)	; $(3"0(B
+    (ethiopic		. #x2230)	; ¯∫•∫π
+    (ethiopic-ucs	. #x126D)	; ·â≠
+    (ucs		. #x126D)	; ·â≠
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VO")
-    (ucs		. #x126E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x31)	; $(3"1(B
-    (ethiopic-ucs	#x12 #x6E)	; $(3"1(B
+    (ethiopic		. #x2231)	; ¯∫•∫∫
+    (ethiopic-ucs	. #x126E)	; ·âÆ
+    (ucs		. #x126E)	; ·âÆ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE VWA")
-    (ucs		. #x126F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x32)	; $(3"2(B
-    (ethiopic-ucs	#x12 #x6F)	; $(3"2(B
+    (ethiopic		. #x2232)	; ¯∫•∫ª
+    (ethiopic-ucs	. #x126F)	; ·âØ
+    (ucs		. #x126F)	; ·âØ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TA")
-    (ucs		. #x1270)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x33)	; $(3"3(B
-    (ethiopic-ucs	#x12 #x70)	; $(3"3(B
+    (ethiopic		. #x2233)	; ¯∫•∫º
+    (ethiopic-ucs	. #x1270)	; ·â∞
+    (ucs		. #x1270)	; ·â∞
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TU")
-    (ucs		. #x1271)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x34)	; $(3"4(B
-    (ethiopic-ucs	#x12 #x71)	; $(3"4(B
+    (ethiopic		. #x2234)	; ¯∫•∫Ω
+    (ethiopic-ucs	. #x1271)	; ·â±
+    (ucs		. #x1271)	; ·â±
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TI")
-    (ucs		. #x1272)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x35)	; $(3"5(B
-    (ethiopic-ucs	#x12 #x72)	; $(3"5(B
+    (ethiopic		. #x2235)	; ¯∫•∫æ
+    (ethiopic-ucs	. #x1272)	; ·â≤
+    (ucs		. #x1272)	; ·â≤
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TAA")
-    (ucs		. #x1273)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x36)	; $(3"6(B
-    (ethiopic-ucs	#x12 #x73)	; $(3"6(B
+    (ethiopic		. #x2236)	; ¯∫•∫ø
+    (ethiopic-ucs	. #x1273)	; ·â≥
+    (ucs		. #x1273)	; ·â≥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TEE")
-    (ucs		. #x1274)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x37)	; $(3"7(B
-    (ethiopic-ucs	#x12 #x74)	; $(3"7(B
+    (ethiopic		. #x2237)	; ¯∫•ªÄ
+    (ethiopic-ucs	. #x1274)	; ·â¥
+    (ucs		. #x1274)	; ·â¥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TE")
-    (ucs		. #x1275)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x38)	; $(3"8(B
-    (ethiopic-ucs	#x12 #x75)	; $(3"8(B
+    (ethiopic		. #x2238)	; ¯∫•ªÅ
+    (ethiopic-ucs	. #x1275)	; ·âµ
+    (ucs		. #x1275)	; ·âµ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TO")
-    (ucs		. #x1276)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x39)	; $(3"9(B
-    (ethiopic-ucs	#x12 #x76)	; $(3"9(B
+    (ethiopic		. #x2239)	; ¯∫•ªÇ
+    (ethiopic-ucs	. #x1276)	; ·â∂
+    (ucs		. #x1276)	; ·â∂
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TWA")
-    (ucs		. #x1277)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3A)	; $(3":(B
-    (ethiopic-ucs	#x12 #x77)	; $(3":(B
+    (ethiopic		. #x223A)	; ¯∫•ªÉ
+    (ethiopic-ucs	. #x1277)	; ·â∑
+    (ucs		. #x1277)	; ·â∑
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CA")
-    (ucs		. #x1278)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3B)	; $(3";(B
-    (ethiopic-ucs	#x12 #x78)	; $(3";(B
+    (ethiopic		. #x223B)	; ¯∫•ªÑ
+    (ethiopic-ucs	. #x1278)	; ·â∏
+    (ucs		. #x1278)	; ·â∏
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CU")
-    (ucs		. #x1279)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3C)	; $(3"<(B
-    (ethiopic-ucs	#x12 #x79)	; $(3"<(B
+    (ethiopic		. #x223C)	; ¯∫•ªÖ
+    (ethiopic-ucs	. #x1279)	; ·âπ
+    (ucs		. #x1279)	; ·âπ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CI")
-    (ucs		. #x127A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3D)	; $(3"=(B
-    (ethiopic-ucs	#x12 #x7A)	; $(3"=(B
+    (ethiopic		. #x223D)	; ¯∫•ªÜ
+    (ethiopic-ucs	. #x127A)	; ·â∫
+    (ucs		. #x127A)	; ·â∫
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CAA")
-    (ucs		. #x127B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3E)	; $(3">(B
-    (ethiopic-ucs	#x12 #x7B)	; $(3">(B
+    (ethiopic		. #x223E)	; ¯∫•ªá
+    (ethiopic-ucs	. #x127B)	; ·âª
+    (ucs		. #x127B)	; ·âª
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CEE")
-    (ucs		. #x127C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x3F)	; $(3"?(B
-    (ethiopic-ucs	#x12 #x7C)	; $(3"?(B
+    (ethiopic		. #x223F)	; ¯∫•ªà
+    (ethiopic-ucs	. #x127C)	; ·âº
+    (ucs		. #x127C)	; ·âº
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CE")
-    (ucs		. #x127D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x40)	; $(3"@(B
-    (ethiopic-ucs	#x12 #x7D)	; $(3"@(B
+    (ethiopic		. #x2240)	; ¯∫•ªâ
+    (ethiopic-ucs	. #x127D)	; ·âΩ
+    (ucs		. #x127D)	; ·âΩ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CO")
-    (ucs		. #x127E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x41)	; $(3"A(B
-    (ethiopic-ucs	#x12 #x7E)	; $(3"A(B
+    (ethiopic		. #x2241)	; ¯∫•ªä
+    (ethiopic-ucs	. #x127E)	; ·âæ
+    (ucs		. #x127E)	; ·âæ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CWA")
-    (ucs		. #x127F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x42)	; $(3"B(B
-    (ethiopic-ucs	#x12 #x7F)	; $(3"B(B
+    (ethiopic		. #x2242)	; ¯∫•ªã
+    (ethiopic-ucs	. #x127F)	; ·âø
+    (ucs		. #x127F)	; ·âø
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XA")
-    (ucs		. #x1280)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x43)	; $(3"C(B
-    (ethiopic-ucs	#x12 #x80)	; $(3"C(B
+    (ethiopic		. #x2243)	; ¯∫•ªå
+    (ethiopic-ucs	. #x1280)	; ·äÄ
+    (ucs		. #x1280)	; ·äÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XU")
-    (ucs		. #x1281)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x44)	; $(3"D(B
-    (ethiopic-ucs	#x12 #x81)	; $(3"D(B
+    (ethiopic		. #x2244)	; ¯∫•ªç
+    (ethiopic-ucs	. #x1281)	; ·äÅ
+    (ucs		. #x1281)	; ·äÅ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XI")
-    (ucs		. #x1282)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x45)	; $(3"E(B
-    (ethiopic-ucs	#x12 #x82)	; $(3"E(B
+    (ethiopic		. #x2245)	; ¯∫•ªé
+    (ethiopic-ucs	. #x1282)	; ·äÇ
+    (ucs		. #x1282)	; ·äÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XAA")
-    (ucs		. #x1283)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x46)	; $(3"F(B
-    (ethiopic-ucs	#x12 #x83)	; $(3"F(B
+    (ethiopic		. #x2246)	; ¯∫•ªè
+    (ethiopic-ucs	. #x1283)	; ·äÉ
+    (ucs		. #x1283)	; ·äÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XEE")
-    (ucs		. #x1284)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x47)	; $(3"G(B
-    (ethiopic-ucs	#x12 #x84)	; $(3"G(B
+    (ethiopic		. #x2247)	; ¯∫•ªê
+    (ethiopic-ucs	. #x1284)	; ·äÑ
+    (ucs		. #x1284)	; ·äÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XE")
-    (ucs		. #x1285)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x48)	; $(3"H(B
-    (ethiopic-ucs	#x12 #x85)	; $(3"H(B
+    (ethiopic		. #x2248)	; ¯∫•ªë
+    (ethiopic-ucs	. #x1285)	; ·äÖ
+    (ucs		. #x1285)	; ·äÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XO")
-    (ucs		. #x1286)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x49)	; $(3"I(B
-    (ethiopic-ucs	#x12 #x86)	; $(3"I(B
+    (ethiopic		. #x2249)	; ¯∫•ªí
+    (ethiopic-ucs	. #x1286)	; ·äÜ
+    (ucs		. #x1286)	; ·äÜ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWA")
-    (ucs		. #x1288)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x4B)	; $(3"K(B
-    (ethiopic-ucs	#x12 #x88)	; $(3"K(B
+    (ethiopic		. #x224B)	; ¯∫•ªî
+    (ethiopic-ucs	. #x1288)	; ·äà
+    (ucs		. #x1288)	; ·äà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWI")
-    (ucs		. #x128A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x4D)	; $(3"M(B
-    (ethiopic-ucs	#x12 #x8A)	; $(3"M(B
+    (ethiopic		. #x224D)	; ¯∫•ªñ
+    (ethiopic-ucs	. #x128A)	; ·ää
+    (ucs		. #x128A)	; ·ää
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWAA")
-    (ucs		. #x128B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x4E)	; $(3"N(B
-    (ethiopic-ucs	#x12 #x8B)	; $(3"N(B
+    (ethiopic		. #x224E)	; ¯∫•ªó
+    (ethiopic-ucs	. #x128B)	; ·äã
+    (ucs		. #x128B)	; ·äã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWEE")
-    (ucs		. #x128C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x4F)	; $(3"O(B
-    (ethiopic-ucs	#x12 #x8C)	; $(3"O(B
+    (ethiopic		. #x224F)	; ¯∫•ªò
+    (ethiopic-ucs	. #x128C)	; ·äå
+    (ucs		. #x128C)	; ·äå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE XWE")
-    (ucs		. #x128D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x50)	; $(3"P(B
-    (ethiopic-ucs	#x12 #x8D)	; $(3"P(B
+    (ethiopic		. #x2250)	; ¯∫•ªô
+    (ethiopic-ucs	. #x128D)	; ·äç
+    (ucs		. #x128D)	; ·äç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NA")
-    (ucs		. #x1290)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x53)	; $(3"S(B
-    (ethiopic-ucs	#x12 #x90)	; $(3"S(B
+    (ethiopic		. #x2253)	; ¯∫•ªú
+    (ethiopic-ucs	. #x1290)	; ·äê
+    (ucs		. #x1290)	; ·äê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NU")
-    (ucs		. #x1291)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x54)	; $(3"T(B
-    (ethiopic-ucs	#x12 #x91)	; $(3"T(B
+    (ethiopic		. #x2254)	; ¯∫•ªù
+    (ethiopic-ucs	. #x1291)	; ·äë
+    (ucs		. #x1291)	; ·äë
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NI")
-    (ucs		. #x1292)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x55)	; $(3"U(B
-    (ethiopic-ucs	#x12 #x92)	; $(3"U(B
+    (ethiopic		. #x2255)	; ¯∫•ªû
+    (ethiopic-ucs	. #x1292)	; ·äí
+    (ucs		. #x1292)	; ·äí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NAA")
-    (ucs		. #x1293)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x56)	; $(3"V(B
-    (ethiopic-ucs	#x12 #x93)	; $(3"V(B
+    (ethiopic		. #x2256)	; ¯∫•ªü
+    (ethiopic-ucs	. #x1293)	; ·äì
+    (ucs		. #x1293)	; ·äì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NEE")
-    (ucs		. #x1294)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x57)	; $(3"W(B
-    (ethiopic-ucs	#x12 #x94)	; $(3"W(B
+    (ethiopic		. #x2257)	; ¯∫•ª†
+    (ethiopic-ucs	. #x1294)	; ·äî
+    (ucs		. #x1294)	; ·äî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NE")
-    (ucs		. #x1295)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x58)	; $(3"X(B
-    (ethiopic-ucs	#x12 #x95)	; $(3"X(B
+    (ethiopic		. #x2258)	; ¯∫•ª°
+    (ethiopic-ucs	. #x1295)	; ·äï
+    (ucs		. #x1295)	; ·äï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NO")
-    (ucs		. #x1296)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x59)	; $(3"Y(B
-    (ethiopic-ucs	#x12 #x96)	; $(3"Y(B
+    (ethiopic		. #x2259)	; ¯∫•ª¢
+    (ethiopic-ucs	. #x1296)	; ·äñ
+    (ucs		. #x1296)	; ·äñ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NWA")
-    (ucs		. #x1297)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5A)	; $(3"Z(B
-    (ethiopic-ucs	#x12 #x97)	; $(3"Z(B
+    (ethiopic		. #x225A)	; ¯∫•ª£
+    (ethiopic-ucs	. #x1297)	; ·äó
+    (ucs		. #x1297)	; ·äó
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYA")
-    (ucs		. #x1298)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5B)	; $(3"[(B
-    (ethiopic-ucs	#x12 #x98)	; $(3"[(B
+    (ethiopic		. #x225B)	; ¯∫•ª§
+    (ethiopic-ucs	. #x1298)	; ·äò
+    (ucs		. #x1298)	; ·äò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYU")
-    (ucs		. #x1299)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5C)	; $(3"\(B
-    (ethiopic-ucs	#x12 #x99)	; $(3"\(B
+    (ethiopic		. #x225C)	; ¯∫•ª•
+    (ethiopic-ucs	. #x1299)	; ·äô
+    (ucs		. #x1299)	; ·äô
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYI")
-    (ucs		. #x129A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5D)	; $(3"](B
-    (ethiopic-ucs	#x12 #x9A)	; $(3"](B
+    (ethiopic		. #x225D)	; ¯∫•ª¶
+    (ethiopic-ucs	. #x129A)	; ·äö
+    (ucs		. #x129A)	; ·äö
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYAA")
-    (ucs		. #x129B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5E)	; $(3"^(B
-    (ethiopic-ucs	#x12 #x9B)	; $(3"^(B
+    (ethiopic		. #x225E)	; ¯∫•ªß
+    (ethiopic-ucs	. #x129B)	; ·äõ
+    (ucs		. #x129B)	; ·äõ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYEE")
-    (ucs		. #x129C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x5F)	; $(3"_(B
-    (ethiopic-ucs	#x12 #x9C)	; $(3"_(B
+    (ethiopic		. #x225F)	; ¯∫•ª®
+    (ethiopic-ucs	. #x129C)	; ·äú
+    (ucs		. #x129C)	; ·äú
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYE")
-    (ucs		. #x129D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x60)	; $(3"`(B
-    (ethiopic-ucs	#x12 #x9D)	; $(3"`(B
+    (ethiopic		. #x2260)	; ¯∫•ª©
+    (ethiopic-ucs	. #x129D)	; ·äù
+    (ucs		. #x129D)	; ·äù
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYO")
-    (ucs		. #x129E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x61)	; $(3"a(B
-    (ethiopic-ucs	#x12 #x9E)	; $(3"a(B
+    (ethiopic		. #x2261)	; ¯∫•ª™
+    (ethiopic-ucs	. #x129E)	; ·äû
+    (ucs		. #x129E)	; ·äû
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE NYWA")
-    (ucs		. #x129F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x62)	; $(3"b(B
-    (ethiopic-ucs	#x12 #x9F)	; $(3"b(B
+    (ethiopic		. #x2262)	; ¯∫•ª´
+    (ethiopic-ucs	. #x129F)	; ·äü
+    (ucs		. #x129F)	; ·äü
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL A")
-    (ucs		. #x12A0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x63)	; $(3"c(B
-    (ethiopic-ucs	#x12 #xA0)	; $(3"c(B
+    (ethiopic		. #x2263)	; ¯∫•ª¨
+    (ethiopic-ucs	. #x12A0)	; ·ä†
+    (ucs		. #x12A0)	; ·ä†
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL U")
-    (ucs		. #x12A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x64)	; $(3"d(B
-    (ethiopic-ucs	#x12 #xA1)	; $(3"d(B
+    (ethiopic		. #x2264)	; ¯∫•ª≠
+    (ethiopic-ucs	. #x12A1)	; ·ä°
+    (ucs		. #x12A1)	; ·ä°
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL I")
-    (ucs		. #x12A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x65)	; $(3"e(B
-    (ethiopic-ucs	#x12 #xA2)	; $(3"e(B
+    (ethiopic		. #x2265)	; ¯∫•ªÆ
+    (ethiopic-ucs	. #x12A2)	; ·ä¢
+    (ucs		. #x12A2)	; ·ä¢
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL AA")
-    (ucs		. #x12A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x66)	; $(3"f(B
-    (ethiopic-ucs	#x12 #xA3)	; $(3"f(B
+    (ethiopic		. #x2266)	; ¯∫•ªØ
+    (ethiopic-ucs	. #x12A3)	; ·ä£
+    (ucs		. #x12A3)	; ·ä£
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL EE")
-    (ucs		. #x12A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x67)	; $(3"g(B
-    (ethiopic-ucs	#x12 #xA4)	; $(3"g(B
+    (ethiopic		. #x2267)	; ¯∫•ª∞
+    (ethiopic-ucs	. #x12A4)	; ·ä§
+    (ucs		. #x12A4)	; ·ä§
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL E")
-    (ucs		. #x12A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x68)	; $(3"h(B
-    (ethiopic-ucs	#x12 #xA5)	; $(3"h(B
+    (ethiopic		. #x2268)	; ¯∫•ª±
+    (ethiopic-ucs	. #x12A5)	; ·ä•
+    (ucs		. #x12A5)	; ·ä•
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL O")
-    (ucs		. #x12A6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x69)	; $(3"i(B
-    (ethiopic-ucs	#x12 #xA6)	; $(3"i(B
+    (ethiopic		. #x2269)	; ¯∫•ª≤
+    (ethiopic-ucs	. #x12A6)	; ·ä¶
+    (ucs		. #x12A6)	; ·ä¶
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GLOTTAL WA")
-    (ucs		. #x12A7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6A)	; $(3"j(B
-    (ethiopic-ucs	#x12 #xA7)	; $(3"j(B
+    (ethiopic		. #x226A)	; ¯∫•ª≥
+    (ethiopic-ucs	. #x12A7)	; ·äß
+    (ucs		. #x12A7)	; ·äß
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KA")
-    (ucs		. #x12A8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6B)	; $(3"k(B
-    (ethiopic-ucs	#x12 #xA8)	; $(3"k(B
+    (ethiopic		. #x226B)	; ¯∫•ª¥
+    (ethiopic-ucs	. #x12A8)	; ·ä®
+    (ucs		. #x12A8)	; ·ä®
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KU")
-    (ucs		. #x12A9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6C)	; $(3"l(B
-    (ethiopic-ucs	#x12 #xA9)	; $(3"l(B
+    (ethiopic		. #x226C)	; ¯∫•ªµ
+    (ethiopic-ucs	. #x12A9)	; ·ä©
+    (ucs		. #x12A9)	; ·ä©
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KI")
-    (ucs		. #x12AA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6D)	; $(3"m(B
-    (ethiopic-ucs	#x12 #xAA)	; $(3"m(B
+    (ethiopic		. #x226D)	; ¯∫•ª∂
+    (ethiopic-ucs	. #x12AA)	; ·ä™
+    (ucs		. #x12AA)	; ·ä™
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KAA")
-    (ucs		. #x12AB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6E)	; $(3"n(B
-    (ethiopic-ucs	#x12 #xAB)	; $(3"n(B
+    (ethiopic		. #x226E)	; ¯∫•ª∑
+    (ethiopic-ucs	. #x12AB)	; ·ä´
+    (ucs		. #x12AB)	; ·ä´
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KEE")
-    (ucs		. #x12AC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x6F)	; $(3"o(B
-    (ethiopic-ucs	#x12 #xAC)	; $(3"o(B
+    (ethiopic		. #x226F)	; ¯∫•ª∏
+    (ethiopic-ucs	. #x12AC)	; ·ä¨
+    (ucs		. #x12AC)	; ·ä¨
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KE")
-    (ucs		. #x12AD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x70)	; $(3"p(B
-    (ethiopic-ucs	#x12 #xAD)	; $(3"p(B
+    (ethiopic		. #x2270)	; ¯∫•ªπ
+    (ethiopic-ucs	. #x12AD)	; ·ä≠
+    (ucs		. #x12AD)	; ·ä≠
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KO")
-    (ucs		. #x12AE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x71)	; $(3"q(B
-    (ethiopic-ucs	#x12 #xAE)	; $(3"q(B
+    (ethiopic		. #x2271)	; ¯∫•ª∫
+    (ethiopic-ucs	. #x12AE)	; ·äÆ
+    (ucs		. #x12AE)	; ·äÆ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWA")
-    (ucs		. #x12B0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x73)	; $(3"s(B
-    (ethiopic-ucs	#x12 #xB0)	; $(3"s(B
+    (ethiopic		. #x2273)	; ¯∫•ªº
+    (ethiopic-ucs	. #x12B0)	; ·ä∞
+    (ucs		. #x12B0)	; ·ä∞
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWI")
-    (ucs		. #x12B2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x75)	; $(3"u(B
-    (ethiopic-ucs	#x12 #xB2)	; $(3"u(B
+    (ethiopic		. #x2275)	; ¯∫•ªæ
+    (ethiopic-ucs	. #x12B2)	; ·ä≤
+    (ucs		. #x12B2)	; ·ä≤
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWAA")
-    (ucs		. #x12B3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x76)	; $(3"v(B
-    (ethiopic-ucs	#x12 #xB3)	; $(3"v(B
+    (ethiopic		. #x2276)	; ¯∫•ªø
+    (ethiopic-ucs	. #x12B3)	; ·ä≥
+    (ucs		. #x12B3)	; ·ä≥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWEE")
-    (ucs		. #x12B4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x77)	; $(3"w(B
-    (ethiopic-ucs	#x12 #xB4)	; $(3"w(B
+    (ethiopic		. #x2277)	; ¯∫•ºÄ
+    (ethiopic-ucs	. #x12B4)	; ·ä¥
+    (ucs		. #x12B4)	; ·ä¥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KWE")
-    (ucs		. #x12B5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x78)	; $(3"x(B
-    (ethiopic-ucs	#x12 #xB5)	; $(3"x(B
+    (ethiopic		. #x2278)	; ¯∫•ºÅ
+    (ethiopic-ucs	. #x12B5)	; ·äµ
+    (ucs		. #x12B5)	; ·äµ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXA")
-    (ucs		. #x12B8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x7B)	; $(3"{(B
-    (ethiopic-ucs	#x12 #xB8)	; $(3"{(B
+    (ethiopic		. #x227B)	; ¯∫•ºÑ
+    (ethiopic-ucs	. #x12B8)	; ·ä∏
+    (ucs		. #x12B8)	; ·ä∏
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXU")
-    (ucs		. #x12B9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x7C)	; $(3"|(B
-    (ethiopic-ucs	#x12 #xB9)	; $(3"|(B
+    (ethiopic		. #x227C)	; ¯∫•ºÖ
+    (ethiopic-ucs	. #x12B9)	; ·äπ
+    (ucs		. #x12B9)	; ·äπ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXI")
-    (ucs		. #x12BA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x7D)	; $(3"}(B
-    (ethiopic-ucs	#x12 #xBA)	; $(3"}(B
+    (ethiopic		. #x227D)	; ¯∫•ºÜ
+    (ethiopic-ucs	. #x12BA)	; ·ä∫
+    (ucs		. #x12BA)	; ·ä∫
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXAA")
-    (ucs		. #x12BB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x22 #x7E)	; $(3"~(B
-    (ethiopic-ucs	#x12 #xBB)	; $(3"~(B
+    (ethiopic		. #x227E)	; ¯∫•ºá
+    (ethiopic-ucs	. #x12BB)	; ·äª
+    (ucs		. #x12BB)	; ·äª
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXEE")
-    (ucs		. #x12BC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x21)	; $(3#!(B
-    (ethiopic-ucs	#x12 #xBC)	; $(3#!(B
+    (ethiopic		. #x2321)	; ¯∫•ºà
+    (ethiopic-ucs	. #x12BC)	; ·äº
+    (ucs		. #x12BC)	; ·äº
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXE")
-    (ucs		. #x12BD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x22)	; $(3#"(B
-    (ethiopic-ucs	#x12 #xBD)	; $(3#"(B
+    (ethiopic		. #x2322)	; ¯∫•ºâ
+    (ethiopic-ucs	. #x12BD)	; ·äΩ
+    (ucs		. #x12BD)	; ·äΩ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXO")
-    (ucs		. #x12BE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x23)	; $(3##(B
-    (ethiopic-ucs	#x12 #xBE)	; $(3##(B
+    (ethiopic		. #x2323)	; ¯∫•ºä
+    (ethiopic-ucs	. #x12BE)	; ·äæ
+    (ucs		. #x12BE)	; ·äæ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWA")
-    (ucs		. #x12C0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x25)	; $(3#%(B
-    (ethiopic-ucs	#x12 #xC0)	; $(3#%(B
+    (ethiopic		. #x2325)	; ¯∫•ºå
+    (ethiopic-ucs	. #x12C0)	; ·ãÄ
+    (ucs		. #x12C0)	; ·ãÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWI")
-    (ucs		. #x12C2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x27)	; $(3#'(B
-    (ethiopic-ucs	#x12 #xC2)	; $(3#'(B
+    (ethiopic		. #x2327)	; ¯∫•ºé
+    (ethiopic-ucs	. #x12C2)	; ·ãÇ
+    (ucs		. #x12C2)	; ·ãÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWAA")
-    (ucs		. #x12C3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x28)	; $(3#((B
-    (ethiopic-ucs	#x12 #xC3)	; $(3#((B
+    (ethiopic		. #x2328)	; ¯∫•ºè
+    (ethiopic-ucs	. #x12C3)	; ·ãÉ
+    (ucs		. #x12C3)	; ·ãÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWEE")
-    (ucs		. #x12C4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x29)	; $(3#)(B
-    (ethiopic-ucs	#x12 #xC4)	; $(3#)(B
+    (ethiopic		. #x2329)	; ¯∫•ºê
+    (ethiopic-ucs	. #x12C4)	; ·ãÑ
+    (ucs		. #x12C4)	; ·ãÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE KXWE")
-    (ucs		. #x12C5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x2A)	; $(3#*(B
-    (ethiopic-ucs	#x12 #xC5)	; $(3#*(B
+    (ethiopic		. #x232A)	; ¯∫•ºë
+    (ethiopic-ucs	. #x12C5)	; ·ãÖ
+    (ucs		. #x12C5)	; ·ãÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WA")
-    (ucs		. #x12C8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x2D)	; $(3#-(B
-    (ethiopic-ucs	#x12 #xC8)	; $(3#-(B
+    (ethiopic		. #x232D)	; ¯∫•ºî
+    (ethiopic-ucs	. #x12C8)	; ·ãà
+    (ucs		. #x12C8)	; ·ãà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WU")
-    (ucs		. #x12C9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x2E)	; $(3#.(B
-    (ethiopic-ucs	#x12 #xC9)	; $(3#.(B
+    (ethiopic		. #x232E)	; ¯∫•ºï
+    (ethiopic-ucs	. #x12C9)	; ·ãâ
+    (ucs		. #x12C9)	; ·ãâ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WI")
-    (ucs		. #x12CA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x2F)	; $(3#/(B
-    (ethiopic-ucs	#x12 #xCA)	; $(3#/(B
+    (ethiopic		. #x232F)	; ¯∫•ºñ
+    (ethiopic-ucs	. #x12CA)	; ·ãä
+    (ucs		. #x12CA)	; ·ãä
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WAA")
-    (ucs		. #x12CB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x30)	; $(3#0(B
-    (ethiopic-ucs	#x12 #xCB)	; $(3#0(B
+    (ethiopic		. #x2330)	; ¯∫•ºó
+    (ethiopic-ucs	. #x12CB)	; ·ãã
+    (ucs		. #x12CB)	; ·ãã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WEE")
-    (ucs		. #x12CC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x31)	; $(3#1(B
-    (ethiopic-ucs	#x12 #xCC)	; $(3#1(B
+    (ethiopic		. #x2331)	; ¯∫•ºò
+    (ethiopic-ucs	. #x12CC)	; ·ãå
+    (ucs		. #x12CC)	; ·ãå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WE")
-    (ucs		. #x12CD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x32)	; $(3#2(B
-    (ethiopic-ucs	#x12 #xCD)	; $(3#2(B
+    (ethiopic		. #x2332)	; ¯∫•ºô
+    (ethiopic-ucs	. #x12CD)	; ·ãç
+    (ucs		. #x12CD)	; ·ãç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE WO")
-    (ucs		. #x12CE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x33)	; $(3#3(B
-    (ethiopic-ucs	#x12 #xCE)	; $(3#3(B
+    (ethiopic		. #x2333)	; ¯∫•ºö
+    (ethiopic-ucs	. #x12CE)	; ·ãé
+    (ucs		. #x12CE)	; ·ãé
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL A")
-    (ucs		. #x12D0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x35)	; $(3#5(B
-    (ethiopic-ucs	#x12 #xD0)	; $(3#5(B
+    (ethiopic		. #x2335)	; ¯∫•ºú
+    (ethiopic-ucs	. #x12D0)	; ·ãê
+    (ucs		. #x12D0)	; ·ãê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL U")
-    (ucs		. #x12D1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x36)	; $(3#6(B
-    (ethiopic-ucs	#x12 #xD1)	; $(3#6(B
+    (ethiopic		. #x2336)	; ¯∫•ºù
+    (ethiopic-ucs	. #x12D1)	; ·ãë
+    (ucs		. #x12D1)	; ·ãë
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL I")
-    (ucs		. #x12D2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x37)	; $(3#7(B
-    (ethiopic-ucs	#x12 #xD2)	; $(3#7(B
+    (ethiopic		. #x2337)	; ¯∫•ºû
+    (ethiopic-ucs	. #x12D2)	; ·ãí
+    (ucs		. #x12D2)	; ·ãí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL AA")
-    (ucs		. #x12D3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x38)	; $(3#8(B
-    (ethiopic-ucs	#x12 #xD3)	; $(3#8(B
+    (ethiopic		. #x2338)	; ¯∫•ºü
+    (ethiopic-ucs	. #x12D3)	; ·ãì
+    (ucs		. #x12D3)	; ·ãì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL EE")
-    (ucs		. #x12D4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x39)	; $(3#9(B
-    (ethiopic-ucs	#x12 #xD4)	; $(3#9(B
+    (ethiopic		. #x2339)	; ¯∫•º†
+    (ethiopic-ucs	. #x12D4)	; ·ãî
+    (ucs		. #x12D4)	; ·ãî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL E")
-    (ucs		. #x12D5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x3A)	; $(3#:(B
-    (ethiopic-ucs	#x12 #xD5)	; $(3#:(B
+    (ethiopic		. #x233A)	; ¯∫•º°
+    (ethiopic-ucs	. #x12D5)	; ·ãï
+    (ucs		. #x12D5)	; ·ãï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHARYNGEAL O")
-    (ucs		. #x12D6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x3B)	; $(3#;(B
-    (ethiopic-ucs	#x12 #xD6)	; $(3#;(B
+    (ethiopic		. #x233B)	; ¯∫•º¢
+    (ethiopic-ucs	. #x12D6)	; ·ãñ
+    (ucs		. #x12D6)	; ·ãñ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZA")
-    (ucs		. #x12D8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x3D)	; $(3#=(B
-    (ethiopic-ucs	#x12 #xD8)	; $(3#=(B
+    (ethiopic		. #x233D)	; ¯∫•º§
+    (ethiopic-ucs	. #x12D8)	; ·ãò
+    (ucs		. #x12D8)	; ·ãò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZU")
-    (ucs		. #x12D9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x3E)	; $(3#>(B
-    (ethiopic-ucs	#x12 #xD9)	; $(3#>(B
+    (ethiopic		. #x233E)	; ¯∫•º•
+    (ethiopic-ucs	. #x12D9)	; ·ãô
+    (ucs		. #x12D9)	; ·ãô
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZI")
-    (ucs		. #x12DA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x3F)	; $(3#?(B
-    (ethiopic-ucs	#x12 #xDA)	; $(3#?(B
+    (ethiopic		. #x233F)	; ¯∫•º¶
+    (ethiopic-ucs	. #x12DA)	; ·ãö
+    (ucs		. #x12DA)	; ·ãö
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZAA")
-    (ucs		. #x12DB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x40)	; $(3#@(B
-    (ethiopic-ucs	#x12 #xDB)	; $(3#@(B
+    (ethiopic		. #x2340)	; ¯∫•ºß
+    (ethiopic-ucs	. #x12DB)	; ·ãõ
+    (ucs		. #x12DB)	; ·ãõ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZEE")
-    (ucs		. #x12DC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x41)	; $(3#A(B
-    (ethiopic-ucs	#x12 #xDC)	; $(3#A(B
+    (ethiopic		. #x2341)	; ¯∫•º®
+    (ethiopic-ucs	. #x12DC)	; ·ãú
+    (ucs		. #x12DC)	; ·ãú
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZE")
-    (ucs		. #x12DD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x42)	; $(3#B(B
-    (ethiopic-ucs	#x12 #xDD)	; $(3#B(B
+    (ethiopic		. #x2342)	; ¯∫•º©
+    (ethiopic-ucs	. #x12DD)	; ·ãù
+    (ucs		. #x12DD)	; ·ãù
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZO")
-    (ucs		. #x12DE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x43)	; $(3#C(B
-    (ethiopic-ucs	#x12 #xDE)	; $(3#C(B
+    (ethiopic		. #x2343)	; ¯∫•º™
+    (ethiopic-ucs	. #x12DE)	; ·ãû
+    (ucs		. #x12DE)	; ·ãû
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZWA")
-    (ucs		. #x12DF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x44)	; $(3#D(B
-    (ethiopic-ucs	#x12 #xDF)	; $(3#D(B
+    (ethiopic		. #x2344)	; ¯∫•º´
+    (ethiopic-ucs	. #x12DF)	; ·ãü
+    (ucs		. #x12DF)	; ·ãü
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHA")
-    (ucs		. #x12E0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x45)	; $(3#E(B
-    (ethiopic-ucs	#x12 #xE0)	; $(3#E(B
+    (ethiopic		. #x2345)	; ¯∫•º¨
+    (ethiopic-ucs	. #x12E0)	; ·ã†
+    (ucs		. #x12E0)	; ·ã†
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHU")
-    (ucs		. #x12E1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x46)	; $(3#F(B
-    (ethiopic-ucs	#x12 #xE1)	; $(3#F(B
+    (ethiopic		. #x2346)	; ¯∫•º≠
+    (ethiopic-ucs	. #x12E1)	; ·ã°
+    (ucs		. #x12E1)	; ·ã°
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHI")
-    (ucs		. #x12E2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x47)	; $(3#G(B
-    (ethiopic-ucs	#x12 #xE2)	; $(3#G(B
+    (ethiopic		. #x2347)	; ¯∫•ºÆ
+    (ethiopic-ucs	. #x12E2)	; ·ã¢
+    (ucs		. #x12E2)	; ·ã¢
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHAA")
-    (ucs		. #x12E3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x48)	; $(3#H(B
-    (ethiopic-ucs	#x12 #xE3)	; $(3#H(B
+    (ethiopic		. #x2348)	; ¯∫•ºØ
+    (ethiopic-ucs	. #x12E3)	; ·ã£
+    (ucs		. #x12E3)	; ·ã£
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHEE")
-    (ucs		. #x12E4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x49)	; $(3#I(B
-    (ethiopic-ucs	#x12 #xE4)	; $(3#I(B
+    (ethiopic		. #x2349)	; ¯∫•º∞
+    (ethiopic-ucs	. #x12E4)	; ·ã§
+    (ucs		. #x12E4)	; ·ã§
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHE")
-    (ucs		. #x12E5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4A)	; $(3#J(B
-    (ethiopic-ucs	#x12 #xE5)	; $(3#J(B
+    (ethiopic		. #x234A)	; ¯∫•º±
+    (ethiopic-ucs	. #x12E5)	; ·ã•
+    (ucs		. #x12E5)	; ·ã•
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHO")
-    (ucs		. #x12E6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4B)	; $(3#K(B
-    (ethiopic-ucs	#x12 #xE6)	; $(3#K(B
+    (ethiopic		. #x234B)	; ¯∫•º≤
+    (ethiopic-ucs	. #x12E6)	; ·ã¶
+    (ucs		. #x12E6)	; ·ã¶
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE ZHWA")
-    (ucs		. #x12E7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4C)	; $(3#L(B
-    (ethiopic-ucs	#x12 #xE7)	; $(3#L(B
+    (ethiopic		. #x234C)	; ¯∫•º≥
+    (ethiopic-ucs	. #x12E7)	; ·ãß
+    (ucs		. #x12E7)	; ·ãß
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YA")
-    (ucs		. #x12E8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4D)	; $(3#M(B
-    (ethiopic-ucs	#x12 #xE8)	; $(3#M(B
+    (ethiopic		. #x234D)	; ¯∫•º¥
+    (ethiopic-ucs	. #x12E8)	; ·ã®
+    (ucs		. #x12E8)	; ·ã®
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YU")
-    (ucs		. #x12E9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4E)	; $(3#N(B
-    (ethiopic-ucs	#x12 #xE9)	; $(3#N(B
+    (ethiopic		. #x234E)	; ¯∫•ºµ
+    (ethiopic-ucs	. #x12E9)	; ·ã©
+    (ucs		. #x12E9)	; ·ã©
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YI")
-    (ucs		. #x12EA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x4F)	; $(3#O(B
-    (ethiopic-ucs	#x12 #xEA)	; $(3#O(B
+    (ethiopic		. #x234F)	; ¯∫•º∂
+    (ethiopic-ucs	. #x12EA)	; ·ã™
+    (ucs		. #x12EA)	; ·ã™
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YAA")
-    (ucs		. #x12EB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x50)	; $(3#P(B
-    (ethiopic-ucs	#x12 #xEB)	; $(3#P(B
+    (ethiopic		. #x2350)	; ¯∫•º∑
+    (ethiopic-ucs	. #x12EB)	; ·ã´
+    (ucs		. #x12EB)	; ·ã´
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YEE")
-    (ucs		. #x12EC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x51)	; $(3#Q(B
-    (ethiopic-ucs	#x12 #xEC)	; $(3#Q(B
+    (ethiopic		. #x2351)	; ¯∫•º∏
+    (ethiopic-ucs	. #x12EC)	; ·ã¨
+    (ucs		. #x12EC)	; ·ã¨
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YE")
-    (ucs		. #x12ED)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x52)	; $(3#R(B
-    (ethiopic-ucs	#x12 #xED)	; $(3#R(B
+    (ethiopic		. #x2352)	; ¯∫•ºπ
+    (ethiopic-ucs	. #x12ED)	; ·ã≠
+    (ucs		. #x12ED)	; ·ã≠
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE YO")
-    (ucs		. #x12EE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x53)	; $(3#S(B
-    (ethiopic-ucs	#x12 #xEE)	; $(3#S(B
+    (ethiopic		. #x2353)	; ¯∫•º∫
+    (ethiopic-ucs	. #x12EE)	; ·ãÆ
+    (ucs		. #x12EE)	; ·ãÆ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DA")
-    (ucs		. #x12F0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x55)	; $(3#U(B
-    (ethiopic-ucs	#x12 #xF0)	; $(3#U(B
+    (ethiopic		. #x2355)	; ¯∫•ºº
+    (ethiopic-ucs	. #x12F0)	; ·ã∞
+    (ucs		. #x12F0)	; ·ã∞
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DU")
-    (ucs		. #x12F1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x56)	; $(3#V(B
-    (ethiopic-ucs	#x12 #xF1)	; $(3#V(B
+    (ethiopic		. #x2356)	; ¯∫•ºΩ
+    (ethiopic-ucs	. #x12F1)	; ·ã±
+    (ucs		. #x12F1)	; ·ã±
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DI")
-    (ucs		. #x12F2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x57)	; $(3#W(B
-    (ethiopic-ucs	#x12 #xF2)	; $(3#W(B
+    (ethiopic		. #x2357)	; ¯∫•ºæ
+    (ethiopic-ucs	. #x12F2)	; ·ã≤
+    (ucs		. #x12F2)	; ·ã≤
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DAA")
-    (ucs		. #x12F3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x58)	; $(3#X(B
-    (ethiopic-ucs	#x12 #xF3)	; $(3#X(B
+    (ethiopic		. #x2358)	; ¯∫•ºø
+    (ethiopic-ucs	. #x12F3)	; ·ã≥
+    (ucs		. #x12F3)	; ·ã≥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DEE")
-    (ucs		. #x12F4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x59)	; $(3#Y(B
-    (ethiopic-ucs	#x12 #xF4)	; $(3#Y(B
+    (ethiopic		. #x2359)	; ¯∫•ΩÄ
+    (ethiopic-ucs	. #x12F4)	; ·ã¥
+    (ucs		. #x12F4)	; ·ã¥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DE")
-    (ucs		. #x12F5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5A)	; $(3#Z(B
-    (ethiopic-ucs	#x12 #xF5)	; $(3#Z(B
+    (ethiopic		. #x235A)	; ¯∫•ΩÅ
+    (ethiopic-ucs	. #x12F5)	; ·ãµ
+    (ucs		. #x12F5)	; ·ãµ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DO")
-    (ucs		. #x12F6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5B)	; $(3#[(B
-    (ethiopic-ucs	#x12 #xF6)	; $(3#[(B
+    (ethiopic		. #x235B)	; ¯∫•ΩÇ
+    (ethiopic-ucs	. #x12F6)	; ·ã∂
+    (ucs		. #x12F6)	; ·ã∂
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DWA")
-    (ucs		. #x12F7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5C)	; $(3#\(B
-    (ethiopic-ucs	#x12 #xF7)	; $(3#\(B
+    (ethiopic		. #x235C)	; ¯∫•ΩÉ
+    (ethiopic-ucs	. #x12F7)	; ·ã∑
+    (ucs		. #x12F7)	; ·ã∑
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDA")
-    (ucs		. #x12F8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5D)	; $(3#](B
-    (ethiopic-ucs	#x12 #xF8)	; $(3#](B
+    (ethiopic		. #x235D)	; ¯∫•ΩÑ
+    (ethiopic-ucs	. #x12F8)	; ·ã∏
+    (ucs		. #x12F8)	; ·ã∏
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDU")
-    (ucs		. #x12F9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5E)	; $(3#^(B
-    (ethiopic-ucs	#x12 #xF9)	; $(3#^(B
+    (ethiopic		. #x235E)	; ¯∫•ΩÖ
+    (ethiopic-ucs	. #x12F9)	; ·ãπ
+    (ucs		. #x12F9)	; ·ãπ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDI")
-    (ucs		. #x12FA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x5F)	; $(3#_(B
-    (ethiopic-ucs	#x12 #xFA)	; $(3#_(B
+    (ethiopic		. #x235F)	; ¯∫•ΩÜ
+    (ethiopic-ucs	. #x12FA)	; ·ã∫
+    (ucs		. #x12FA)	; ·ã∫
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDAA")
-    (ucs		. #x12FB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x60)	; $(3#`(B
-    (ethiopic-ucs	#x12 #xFB)	; $(3#`(B
+    (ethiopic		. #x2360)	; ¯∫•Ωá
+    (ethiopic-ucs	. #x12FB)	; ·ãª
+    (ucs		. #x12FB)	; ·ãª
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDEE")
-    (ucs		. #x12FC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x61)	; $(3#a(B
-    (ethiopic-ucs	#x12 #xFC)	; $(3#a(B
+    (ethiopic		. #x2361)	; ¯∫•Ωà
+    (ethiopic-ucs	. #x12FC)	; ·ãº
+    (ucs		. #x12FC)	; ·ãº
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDE")
-    (ucs		. #x12FD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x62)	; $(3#b(B
-    (ethiopic-ucs	#x12 #xFD)	; $(3#b(B
+    (ethiopic		. #x2362)	; ¯∫•Ωâ
+    (ethiopic-ucs	. #x12FD)	; ·ãΩ
+    (ucs		. #x12FD)	; ·ãΩ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDO")
-    (ucs		. #x12FE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x63)	; $(3#c(B
-    (ethiopic-ucs	#x12 #xFE)	; $(3#c(B
+    (ethiopic		. #x2363)	; ¯∫•Ωä
+    (ethiopic-ucs	. #x12FE)	; ·ãæ
+    (ucs		. #x12FE)	; ·ãæ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE DDWA")
-    (ucs		. #x12FF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x64)	; $(3#d(B
-    (ethiopic-ucs	#x12 #xFF)	; $(3#d(B
+    (ethiopic		. #x2364)	; ¯∫•Ωã
+    (ethiopic-ucs	. #x12FF)	; ·ãø
+    (ucs		. #x12FF)	; ·ãø
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JA")
-    (ucs		. #x1300)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x65)	; $(3#e(B
-    (ethiopic-ucs	#x13 #x00)	; $(3#e(B
+    (ethiopic		. #x2365)	; ¯∫•Ωå
+    (ethiopic-ucs	. #x1300)	; ·åÄ
+    (ucs		. #x1300)	; ·åÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JU")
-    (ucs		. #x1301)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x66)	; $(3#f(B
-    (ethiopic-ucs	#x13 #x01)	; $(3#f(B
+    (ethiopic		. #x2366)	; ¯∫•Ωç
+    (ethiopic-ucs	. #x1301)	; ·åÅ
+    (ucs		. #x1301)	; ·åÅ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JI")
-    (ucs		. #x1302)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x67)	; $(3#g(B
-    (ethiopic-ucs	#x13 #x02)	; $(3#g(B
+    (ethiopic		. #x2367)	; ¯∫•Ωé
+    (ethiopic-ucs	. #x1302)	; ·åÇ
+    (ucs		. #x1302)	; ·åÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JAA")
-    (ucs		. #x1303)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x68)	; $(3#h(B
-    (ethiopic-ucs	#x13 #x03)	; $(3#h(B
+    (ethiopic		. #x2368)	; ¯∫•Ωè
+    (ethiopic-ucs	. #x1303)	; ·åÉ
+    (ucs		. #x1303)	; ·åÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JEE")
-    (ucs		. #x1304)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x69)	; $(3#i(B
-    (ethiopic-ucs	#x13 #x04)	; $(3#i(B
+    (ethiopic		. #x2369)	; ¯∫•Ωê
+    (ethiopic-ucs	. #x1304)	; ·åÑ
+    (ucs		. #x1304)	; ·åÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JE")
-    (ucs		. #x1305)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6A)	; $(3#j(B
-    (ethiopic-ucs	#x13 #x05)	; $(3#j(B
+    (ethiopic		. #x236A)	; ¯∫•Ωë
+    (ethiopic-ucs	. #x1305)	; ·åÖ
+    (ucs		. #x1305)	; ·åÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JO")
-    (ucs		. #x1306)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6B)	; $(3#k(B
-    (ethiopic-ucs	#x13 #x06)	; $(3#k(B
+    (ethiopic		. #x236B)	; ¯∫•Ωí
+    (ethiopic-ucs	. #x1306)	; ·åÜ
+    (ucs		. #x1306)	; ·åÜ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE JWA")
-    (ucs		. #x1307)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6C)	; $(3#l(B
-    (ethiopic-ucs	#x13 #x07)	; $(3#l(B
+    (ethiopic		. #x236C)	; ¯∫•Ωì
+    (ethiopic-ucs	. #x1307)	; ·åá
+    (ucs		. #x1307)	; ·åá
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GA")
-    (ucs		. #x1308)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6D)	; $(3#m(B
-    (ethiopic-ucs	#x13 #x08)	; $(3#m(B
+    (ethiopic		. #x236D)	; ¯∫•Ωî
+    (ethiopic-ucs	. #x1308)	; ·åà
+    (ucs		. #x1308)	; ·åà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GU")
-    (ucs		. #x1309)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6E)	; $(3#n(B
-    (ethiopic-ucs	#x13 #x09)	; $(3#n(B
+    (ethiopic		. #x236E)	; ¯∫•Ωï
+    (ethiopic-ucs	. #x1309)	; ·åâ
+    (ucs		. #x1309)	; ·åâ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GI")
-    (ucs		. #x130A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x6F)	; $(3#o(B
-    (ethiopic-ucs	#x13 #x0A)	; $(3#o(B
+    (ethiopic		. #x236F)	; ¯∫•Ωñ
+    (ethiopic-ucs	. #x130A)	; ·åä
+    (ucs		. #x130A)	; ·åä
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GAA")
-    (ucs		. #x130B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x70)	; $(3#p(B
-    (ethiopic-ucs	#x13 #x0B)	; $(3#p(B
+    (ethiopic		. #x2370)	; ¯∫•Ωó
+    (ethiopic-ucs	. #x130B)	; ·åã
+    (ucs		. #x130B)	; ·åã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GEE")
-    (ucs		. #x130C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x71)	; $(3#q(B
-    (ethiopic-ucs	#x13 #x0C)	; $(3#q(B
+    (ethiopic		. #x2371)	; ¯∫•Ωò
+    (ethiopic-ucs	. #x130C)	; ·åå
+    (ucs		. #x130C)	; ·åå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GE")
-    (ucs		. #x130D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x72)	; $(3#r(B
-    (ethiopic-ucs	#x13 #x0D)	; $(3#r(B
+    (ethiopic		. #x2372)	; ¯∫•Ωô
+    (ethiopic-ucs	. #x130D)	; ·åç
+    (ucs		. #x130D)	; ·åç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GO")
-    (ucs		. #x130E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x73)	; $(3#s(B
-    (ethiopic-ucs	#x13 #x0E)	; $(3#s(B
+    (ethiopic		. #x2373)	; ¯∫•Ωö
+    (ethiopic-ucs	. #x130E)	; ·åé
+    (ucs		. #x130E)	; ·åé
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWA")
-    (ucs		. #x1310)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x75)	; $(3#u(B
-    (ethiopic-ucs	#x13 #x10)	; $(3#u(B
+    (ethiopic		. #x2375)	; ¯∫•Ωú
+    (ethiopic-ucs	. #x1310)	; ·åê
+    (ucs		. #x1310)	; ·åê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWI")
-    (ucs		. #x1312)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x77)	; $(3#w(B
-    (ethiopic-ucs	#x13 #x12)	; $(3#w(B
+    (ethiopic		. #x2377)	; ¯∫•Ωû
+    (ethiopic-ucs	. #x1312)	; ·åí
+    (ucs		. #x1312)	; ·åí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWAA")
-    (ucs		. #x1313)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x78)	; $(3#x(B
-    (ethiopic-ucs	#x13 #x13)	; $(3#x(B
+    (ethiopic		. #x2378)	; ¯∫•Ωü
+    (ethiopic-ucs	. #x1313)	; ·åì
+    (ucs		. #x1313)	; ·åì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWEE")
-    (ucs		. #x1314)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x79)	; $(3#y(B
-    (ethiopic-ucs	#x13 #x14)	; $(3#y(B
+    (ethiopic		. #x2379)	; ¯∫•Ω†
+    (ethiopic-ucs	. #x1314)	; ·åî
+    (ucs		. #x1314)	; ·åî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GWE")
-    (ucs		. #x1315)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x7A)	; $(3#z(B
-    (ethiopic-ucs	#x13 #x15)	; $(3#z(B
+    (ethiopic		. #x237A)	; ¯∫•Ω°
+    (ethiopic-ucs	. #x1315)	; ·åï
+    (ucs		. #x1315)	; ·åï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGA")
-    (ucs		. #x1318)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x7D)	; $(3#}(B
-    (ethiopic-ucs	#x13 #x18)	; $(3#}(B
+    (ethiopic		. #x237D)	; ¯∫•Ω§
+    (ethiopic-ucs	. #x1318)	; ·åò
+    (ucs		. #x1318)	; ·åò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGU")
-    (ucs		. #x1319)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x23 #x7E)	; $(3#~(B
-    (ethiopic-ucs	#x13 #x19)	; $(3#~(B
+    (ethiopic		. #x237E)	; ¯∫•Ω•
+    (ethiopic-ucs	. #x1319)	; ·åô
+    (ucs		. #x1319)	; ·åô
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGI")
-    (ucs		. #x131A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x21)	; $(3$!(B
-    (ethiopic-ucs	#x13 #x1A)	; $(3$!(B
+    (ethiopic		. #x2421)	; ¯∫•Ω¶
+    (ethiopic-ucs	. #x131A)	; ·åö
+    (ucs		. #x131A)	; ·åö
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGAA")
-    (ucs		. #x131B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x22)	; $(3$"(B
-    (ethiopic-ucs	#x13 #x1B)	; $(3$"(B
+    (ethiopic		. #x2422)	; ¯∫•Ωß
+    (ethiopic-ucs	. #x131B)	; ·åõ
+    (ucs		. #x131B)	; ·åõ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGEE")
-    (ucs		. #x131C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x23)	; $(3$#(B
-    (ethiopic-ucs	#x13 #x1C)	; $(3$#(B
+    (ethiopic		. #x2423)	; ¯∫•Ω®
+    (ethiopic-ucs	. #x131C)	; ·åú
+    (ucs		. #x131C)	; ·åú
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGE")
-    (ucs		. #x131D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x24)	; $(3$$(B
-    (ethiopic-ucs	#x13 #x1D)	; $(3$$(B
+    (ethiopic		. #x2424)	; ¯∫•Ω©
+    (ethiopic-ucs	. #x131D)	; ·åù
+    (ucs		. #x131D)	; ·åù
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE GGO")
-    (ucs		. #x131E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x25)	; $(3$%(B
-    (ethiopic-ucs	#x13 #x1E)	; $(3$%(B
+    (ethiopic		. #x2425)	; ¯∫•Ω™
+    (ethiopic-ucs	. #x131E)	; ·åû
+    (ucs		. #x131E)	; ·åû
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THA")
-    (ucs		. #x1320)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x27)	; $(3$'(B
-    (ethiopic-ucs	#x13 #x20)	; $(3$'(B
+    (ethiopic		. #x2427)	; ¯∫•Ω¨
+    (ethiopic-ucs	. #x1320)	; ·å†
+    (ucs		. #x1320)	; ·å†
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THU")
-    (ucs		. #x1321)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x28)	; $(3$((B
-    (ethiopic-ucs	#x13 #x21)	; $(3$((B
+    (ethiopic		. #x2428)	; ¯∫•Ω≠
+    (ethiopic-ucs	. #x1321)	; ·å°
+    (ucs		. #x1321)	; ·å°
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THI")
-    (ucs		. #x1322)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x29)	; $(3$)(B
-    (ethiopic-ucs	#x13 #x22)	; $(3$)(B
+    (ethiopic		. #x2429)	; ¯∫•ΩÆ
+    (ethiopic-ucs	. #x1322)	; ·å¢
+    (ucs		. #x1322)	; ·å¢
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THAA")
-    (ucs		. #x1323)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2A)	; $(3$*(B
-    (ethiopic-ucs	#x13 #x23)	; $(3$*(B
+    (ethiopic		. #x242A)	; ¯∫•ΩØ
+    (ethiopic-ucs	. #x1323)	; ·å£
+    (ucs		. #x1323)	; ·å£
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THEE")
-    (ucs		. #x1324)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2B)	; $(3$+(B
-    (ethiopic-ucs	#x13 #x24)	; $(3$+(B
+    (ethiopic		. #x242B)	; ¯∫•Ω∞
+    (ethiopic-ucs	. #x1324)	; ·å§
+    (ucs		. #x1324)	; ·å§
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THE")
-    (ucs		. #x1325)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2C)	; $(3$,(B
-    (ethiopic-ucs	#x13 #x25)	; $(3$,(B
+    (ethiopic		. #x242C)	; ¯∫•Ω±
+    (ethiopic-ucs	. #x1325)	; ·å•
+    (ucs		. #x1325)	; ·å•
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THO")
-    (ucs		. #x1326)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2D)	; $(3$-(B
-    (ethiopic-ucs	#x13 #x26)	; $(3$-(B
+    (ethiopic		. #x242D)	; ¯∫•Ω≤
+    (ethiopic-ucs	. #x1326)	; ·å¶
+    (ucs		. #x1326)	; ·å¶
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE THWA")
-    (ucs		. #x1327)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2E)	; $(3$.(B
-    (ethiopic-ucs	#x13 #x27)	; $(3$.(B
+    (ethiopic		. #x242E)	; ¯∫•Ω≥
+    (ethiopic-ucs	. #x1327)	; ·åß
+    (ucs		. #x1327)	; ·åß
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHA")
-    (ucs		. #x1328)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x2F)	; $(3$/(B
-    (ethiopic-ucs	#x13 #x28)	; $(3$/(B
+    (ethiopic		. #x242F)	; ¯∫•Ω¥
+    (ethiopic-ucs	. #x1328)	; ·å®
+    (ucs		. #x1328)	; ·å®
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHU")
-    (ucs		. #x1329)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x30)	; $(3$0(B
-    (ethiopic-ucs	#x13 #x29)	; $(3$0(B
+    (ethiopic		. #x2430)	; ¯∫•Ωµ
+    (ethiopic-ucs	. #x1329)	; ·å©
+    (ucs		. #x1329)	; ·å©
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHI")
-    (ucs		. #x132A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x31)	; $(3$1(B
-    (ethiopic-ucs	#x13 #x2A)	; $(3$1(B
+    (ethiopic		. #x2431)	; ¯∫•Ω∂
+    (ethiopic-ucs	. #x132A)	; ·å™
+    (ucs		. #x132A)	; ·å™
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHAA")
-    (ucs		. #x132B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x32)	; $(3$2(B
-    (ethiopic-ucs	#x13 #x2B)	; $(3$2(B
+    (ethiopic		. #x2432)	; ¯∫•Ω∑
+    (ethiopic-ucs	. #x132B)	; ·å´
+    (ucs		. #x132B)	; ·å´
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHEE")
-    (ucs		. #x132C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x33)	; $(3$3(B
-    (ethiopic-ucs	#x13 #x2C)	; $(3$3(B
+    (ethiopic		. #x2433)	; ¯∫•Ω∏
+    (ethiopic-ucs	. #x132C)	; ·å¨
+    (ucs		. #x132C)	; ·å¨
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHE")
-    (ucs		. #x132D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x34)	; $(3$4(B
-    (ethiopic-ucs	#x13 #x2D)	; $(3$4(B
+    (ethiopic		. #x2434)	; ¯∫•Ωπ
+    (ethiopic-ucs	. #x132D)	; ·å≠
+    (ucs		. #x132D)	; ·å≠
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHO")
-    (ucs		. #x132E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x35)	; $(3$5(B
-    (ethiopic-ucs	#x13 #x2E)	; $(3$5(B
+    (ethiopic		. #x2435)	; ¯∫•Ω∫
+    (ethiopic-ucs	. #x132E)	; ·åÆ
+    (ucs		. #x132E)	; ·åÆ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE CHWA")
-    (ucs		. #x132F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x36)	; $(3$6(B
-    (ethiopic-ucs	#x13 #x2F)	; $(3$6(B
+    (ethiopic		. #x2436)	; ¯∫•Ωª
+    (ethiopic-ucs	. #x132F)	; ·åØ
+    (ucs		. #x132F)	; ·åØ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHA")
-    (ucs		. #x1330)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x37)	; $(3$7(B
-    (ethiopic-ucs	#x13 #x30)	; $(3$7(B
+    (ethiopic		. #x2437)	; ¯∫•Ωº
+    (ethiopic-ucs	. #x1330)	; ·å∞
+    (ucs		. #x1330)	; ·å∞
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHU")
-    (ucs		. #x1331)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x38)	; $(3$8(B
-    (ethiopic-ucs	#x13 #x31)	; $(3$8(B
+    (ethiopic		. #x2438)	; ¯∫•ΩΩ
+    (ethiopic-ucs	. #x1331)	; ·å±
+    (ucs		. #x1331)	; ·å±
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHI")
-    (ucs		. #x1332)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x39)	; $(3$9(B
-    (ethiopic-ucs	#x13 #x32)	; $(3$9(B
+    (ethiopic		. #x2439)	; ¯∫•Ωæ
+    (ethiopic-ucs	. #x1332)	; ·å≤
+    (ucs		. #x1332)	; ·å≤
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHAA")
-    (ucs		. #x1333)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3A)	; $(3$:(B
-    (ethiopic-ucs	#x13 #x33)	; $(3$:(B
+    (ethiopic		. #x243A)	; ¯∫•Ωø
+    (ethiopic-ucs	. #x1333)	; ·å≥
+    (ucs		. #x1333)	; ·å≥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHEE")
-    (ucs		. #x1334)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3B)	; $(3$;(B
-    (ethiopic-ucs	#x13 #x34)	; $(3$;(B
+    (ethiopic		. #x243B)	; ¯∫•æÄ
+    (ethiopic-ucs	. #x1334)	; ·å¥
+    (ucs		. #x1334)	; ·å¥
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHE")
-    (ucs		. #x1335)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3C)	; $(3$<(B
-    (ethiopic-ucs	#x13 #x35)	; $(3$<(B
+    (ethiopic		. #x243C)	; ¯∫•æÅ
+    (ethiopic-ucs	. #x1335)	; ·åµ
+    (ucs		. #x1335)	; ·åµ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHO")
-    (ucs		. #x1336)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3D)	; $(3$=(B
-    (ethiopic-ucs	#x13 #x36)	; $(3$=(B
+    (ethiopic		. #x243D)	; ¯∫•æÇ
+    (ethiopic-ucs	. #x1336)	; ·å∂
+    (ucs		. #x1336)	; ·å∂
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PHWA")
-    (ucs		. #x1337)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3E)	; $(3$>(B
-    (ethiopic-ucs	#x13 #x37)	; $(3$>(B
+    (ethiopic		. #x243E)	; ¯∫•æÉ
+    (ethiopic-ucs	. #x1337)	; ·å∑
+    (ucs		. #x1337)	; ·å∑
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSA")
-    (ucs		. #x1338)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x3F)	; $(3$?(B
-    (ethiopic-ucs	#x13 #x38)	; $(3$?(B
+    (ethiopic		. #x243F)	; ¯∫•æÑ
+    (ethiopic-ucs	. #x1338)	; ·å∏
+    (ucs		. #x1338)	; ·å∏
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSU")
-    (ucs		. #x1339)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x40)	; $(3$@(B
-    (ethiopic-ucs	#x13 #x39)	; $(3$@(B
+    (ethiopic		. #x2440)	; ¯∫•æÖ
+    (ethiopic-ucs	. #x1339)	; ·åπ
+    (ucs		. #x1339)	; ·åπ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSI")
-    (ucs		. #x133A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x41)	; $(3$A(B
-    (ethiopic-ucs	#x13 #x3A)	; $(3$A(B
+    (ethiopic		. #x2441)	; ¯∫•æÜ
+    (ethiopic-ucs	. #x133A)	; ·å∫
+    (ucs		. #x133A)	; ·å∫
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSAA")
-    (ucs		. #x133B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x42)	; $(3$B(B
-    (ethiopic-ucs	#x13 #x3B)	; $(3$B(B
+    (ethiopic		. #x2442)	; ¯∫•æá
+    (ethiopic-ucs	. #x133B)	; ·åª
+    (ucs		. #x133B)	; ·åª
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSEE")
-    (ucs		. #x133C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x43)	; $(3$C(B
-    (ethiopic-ucs	#x13 #x3C)	; $(3$C(B
+    (ethiopic		. #x2443)	; ¯∫•æà
+    (ethiopic-ucs	. #x133C)	; ·åº
+    (ucs		. #x133C)	; ·åº
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSE")
-    (ucs		. #x133D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x44)	; $(3$D(B
-    (ethiopic-ucs	#x13 #x3D)	; $(3$D(B
+    (ethiopic		. #x2444)	; ¯∫•æâ
+    (ethiopic-ucs	. #x133D)	; ·åΩ
+    (ucs		. #x133D)	; ·åΩ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSO")
-    (ucs		. #x133E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x45)	; $(3$E(B
-    (ethiopic-ucs	#x13 #x3E)	; $(3$E(B
+    (ethiopic		. #x2445)	; ¯∫•æä
+    (ethiopic-ucs	. #x133E)	; ·åæ
+    (ucs		. #x133E)	; ·åæ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TSWA")
-    (ucs		. #x133F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x46)	; $(3$F(B
-    (ethiopic-ucs	#x13 #x3F)	; $(3$F(B
+    (ethiopic		. #x2446)	; ¯∫•æã
+    (ethiopic-ucs	. #x133F)	; ·åø
+    (ucs		. #x133F)	; ·åø
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZA")
-    (ucs		. #x1340)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x47)	; $(3$G(B
-    (ethiopic-ucs	#x13 #x40)	; $(3$G(B
+    (ethiopic		. #x2447)	; ¯∫•æå
+    (ethiopic-ucs	. #x1340)	; ·çÄ
+    (ucs		. #x1340)	; ·çÄ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZU")
-    (ucs		. #x1341)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x48)	; $(3$H(B
-    (ethiopic-ucs	#x13 #x41)	; $(3$H(B
+    (ethiopic		. #x2448)	; ¯∫•æç
+    (ethiopic-ucs	. #x1341)	; ·çÅ
+    (ucs		. #x1341)	; ·çÅ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZI")
-    (ucs		. #x1342)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x49)	; $(3$I(B
-    (ethiopic-ucs	#x13 #x42)	; $(3$I(B
+    (ethiopic		. #x2449)	; ¯∫•æé
+    (ethiopic-ucs	. #x1342)	; ·çÇ
+    (ucs		. #x1342)	; ·çÇ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZAA")
-    (ucs		. #x1343)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x4A)	; $(3$J(B
-    (ethiopic-ucs	#x13 #x43)	; $(3$J(B
+    (ethiopic		. #x244A)	; ¯∫•æè
+    (ethiopic-ucs	. #x1343)	; ·çÉ
+    (ucs		. #x1343)	; ·çÉ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZEE")
-    (ucs		. #x1344)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x4B)	; $(3$K(B
-    (ethiopic-ucs	#x13 #x44)	; $(3$K(B
+    (ethiopic		. #x244B)	; ¯∫•æê
+    (ethiopic-ucs	. #x1344)	; ·çÑ
+    (ucs		. #x1344)	; ·çÑ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZE")
-    (ucs		. #x1345)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x4C)	; $(3$L(B
-    (ethiopic-ucs	#x13 #x45)	; $(3$L(B
+    (ethiopic		. #x244C)	; ¯∫•æë
+    (ethiopic-ucs	. #x1345)	; ·çÖ
+    (ucs		. #x1345)	; ·çÖ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE TZO")
-    (ucs		. #x1346)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x4D)	; $(3$M(B
-    (ethiopic-ucs	#x13 #x46)	; $(3$M(B
+    (ethiopic		. #x244D)	; ¯∫•æí
+    (ethiopic-ucs	. #x1346)	; ·çÜ
+    (ucs		. #x1346)	; ·çÜ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FA")
-    (ucs		. #x1348)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x4F)	; $(3$O(B
-    (ethiopic-ucs	#x13 #x48)	; $(3$O(B
+    (ethiopic		. #x244F)	; ¯∫•æî
+    (ethiopic-ucs	. #x1348)	; ·çà
+    (ucs		. #x1348)	; ·çà
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FU")
-    (ucs		. #x1349)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x50)	; $(3$P(B
-    (ethiopic-ucs	#x13 #x49)	; $(3$P(B
+    (ethiopic		. #x2450)	; ¯∫•æï
+    (ethiopic-ucs	. #x1349)	; ·çâ
+    (ucs		. #x1349)	; ·çâ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FI")
-    (ucs		. #x134A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x51)	; $(3$Q(B
-    (ethiopic-ucs	#x13 #x4A)	; $(3$Q(B
+    (ethiopic		. #x2451)	; ¯∫•æñ
+    (ethiopic-ucs	. #x134A)	; ·çä
+    (ucs		. #x134A)	; ·çä
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FAA")
-    (ucs		. #x134B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x52)	; $(3$R(B
-    (ethiopic-ucs	#x13 #x4B)	; $(3$R(B
+    (ethiopic		. #x2452)	; ¯∫•æó
+    (ethiopic-ucs	. #x134B)	; ·çã
+    (ucs		. #x134B)	; ·çã
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FEE")
-    (ucs		. #x134C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x53)	; $(3$S(B
-    (ethiopic-ucs	#x13 #x4C)	; $(3$S(B
+    (ethiopic		. #x2453)	; ¯∫•æò
+    (ethiopic-ucs	. #x134C)	; ·çå
+    (ucs		. #x134C)	; ·çå
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FE")
-    (ucs		. #x134D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x54)	; $(3$T(B
-    (ethiopic-ucs	#x13 #x4D)	; $(3$T(B
+    (ethiopic		. #x2454)	; ¯∫•æô
+    (ethiopic-ucs	. #x134D)	; ·çç
+    (ucs		. #x134D)	; ·çç
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FO")
-    (ucs		. #x134E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x55)	; $(3$U(B
-    (ethiopic-ucs	#x13 #x4E)	; $(3$U(B
+    (ethiopic		. #x2455)	; ¯∫•æö
+    (ethiopic-ucs	. #x134E)	; ·çé
+    (ucs		. #x134E)	; ·çé
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FWA")
-    (ucs		. #x134F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x56)	; $(3$V(B
-    (ethiopic-ucs	#x13 #x4F)	; $(3$V(B
+    (ethiopic		. #x2456)	; ¯∫•æõ
+    (ethiopic-ucs	. #x134F)	; ·çè
+    (ucs		. #x134F)	; ·çè
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PA")
-    (ucs		. #x1350)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x57)	; $(3$W(B
-    (ethiopic-ucs	#x13 #x50)	; $(3$W(B
+    (ethiopic		. #x2457)	; ¯∫•æú
+    (ethiopic-ucs	. #x1350)	; ·çê
+    (ucs		. #x1350)	; ·çê
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PU")
-    (ucs		. #x1351)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x58)	; $(3$X(B
-    (ethiopic-ucs	#x13 #x51)	; $(3$X(B
+    (ethiopic		. #x2458)	; ¯∫•æù
+    (ethiopic-ucs	. #x1351)	; ·çë
+    (ucs		. #x1351)	; ·çë
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PI")
-    (ucs		. #x1352)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x59)	; $(3$Y(B
-    (ethiopic-ucs	#x13 #x52)	; $(3$Y(B
+    (ethiopic		. #x2459)	; ¯∫•æû
+    (ethiopic-ucs	. #x1352)	; ·çí
+    (ucs		. #x1352)	; ·çí
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PAA")
-    (ucs		. #x1353)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5A)	; $(3$Z(B
-    (ethiopic-ucs	#x13 #x53)	; $(3$Z(B
+    (ethiopic		. #x245A)	; ¯∫•æü
+    (ethiopic-ucs	. #x1353)	; ·çì
+    (ucs		. #x1353)	; ·çì
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PEE")
-    (ucs		. #x1354)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5B)	; $(3$[(B
-    (ethiopic-ucs	#x13 #x54)	; $(3$[(B
+    (ethiopic		. #x245B)	; ¯∫•æ†
+    (ethiopic-ucs	. #x1354)	; ·çî
+    (ucs		. #x1354)	; ·çî
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PE")
-    (ucs		. #x1355)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5C)	; $(3$\(B
-    (ethiopic-ucs	#x13 #x55)	; $(3$\(B
+    (ethiopic		. #x245C)	; ¯∫•æ°
+    (ethiopic-ucs	. #x1355)	; ·çï
+    (ucs		. #x1355)	; ·çï
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PO")
-    (ucs		. #x1356)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5D)	; $(3$](B
-    (ethiopic-ucs	#x13 #x56)	; $(3$](B
+    (ethiopic		. #x245D)	; ¯∫•æ¢
+    (ethiopic-ucs	. #x1356)	; ·çñ
+    (ucs		. #x1356)	; ·çñ
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE PWA")
-    (ucs		. #x1357)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5E)	; $(3$^(B
-    (ethiopic-ucs	#x13 #x57)	; $(3$^(B
+    (ethiopic		. #x245E)	; ¯∫•æ£
+    (ethiopic-ucs	. #x1357)	; ·çó
+    (ucs		. #x1357)	; ·çó
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE RYA")
-    (ucs		. #x1358)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x5F)	; $(3$_(B
-    (ethiopic-ucs	#x13 #x58)	; $(3$_(B
+    (ethiopic		. #x245F)	; ¯∫•æ§
+    (ethiopic-ucs	. #x1358)	; ·çò
+    (ucs		. #x1358)	; ·çò
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE MYA")
-    (ucs		. #x1359)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x60)	; $(3$`(B
-    (ethiopic-ucs	#x13 #x59)	; $(3$`(B
+    (ethiopic		. #x2460)	; ¯∫•æ•
+    (ethiopic-ucs	. #x1359)	; ·çô
+    (ucs		. #x1359)	; ·çô
     ))
 (define-char
   '((name		. "ETHIOPIC SYLLABLE FYA")
-    (ucs		. #x135A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x61)	; $(3$a(B
-    (ethiopic-ucs	#x13 #x5A)	; $(3$a(B
+    (ethiopic		. #x2461)	; ¯∫•æ¶
+    (ethiopic-ucs	. #x135A)	; ·çö
+    (ucs		. #x135A)	; ·çö
     ))
 (define-char
   '((name		. "ETHIOPIC WORDSPACE")
-    (ucs		. #x1361)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x68)	; $(3$h(B
-    (ethiopic-ucs	#x13 #x61)	; $(3$h(B
+    (ethiopic		. #x2468)	; ¯∫•æ≠
+    (ethiopic-ucs	. #x1361)	; ·ç°
+    (ucs		. #x1361)	; ·ç°
     ))
 (define-char
   '((name		. "ETHIOPIC FULL STOP")
-    (ucs		. #x1362)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x69)	; $(3$i(B
-    (ethiopic-ucs	#x13 #x62)	; $(3$i(B
+    (ethiopic		. #x2469)	; ¯∫•æÆ
+    (ethiopic-ucs	. #x1362)	; ·ç¢
+    (ucs		. #x1362)	; ·ç¢
     ))
 (define-char
   '((name		. "ETHIOPIC COMMA")
-    (ucs		. #x1363)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6A)	; $(3$j(B
-    (ethiopic-ucs	#x13 #x63)	; $(3$j(B
+    (ethiopic		. #x246A)	; ¯∫•æØ
+    (ethiopic-ucs	. #x1363)	; ·ç£
+    (ucs		. #x1363)	; ·ç£
     ))
 (define-char
   '((name		. "ETHIOPIC SEMICOLON")
-    (ucs		. #x1364)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6B)	; $(3$k(B
-    (ethiopic-ucs	#x13 #x64)	; $(3$k(B
+    (ethiopic		. #x246B)	; ¯∫•æ∞
+    (ethiopic-ucs	. #x1364)	; ·ç§
+    (ucs		. #x1364)	; ·ç§
     ))
 (define-char
   '((name		. "ETHIOPIC COLON")
-    (ucs		. #x1365)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6C)	; $(3$l(B
-    (ethiopic-ucs	#x13 #x65)	; $(3$l(B
+    (ethiopic		. #x246C)	; ¯∫•æ±
+    (ethiopic-ucs	. #x1365)	; ·ç•
+    (ucs		. #x1365)	; ·ç•
     ))
 (define-char
   '((name		. "ETHIOPIC PREFACE COLON")
-    (ucs		. #x1366)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6D)	; $(3$m(B
-    (ethiopic-ucs	#x13 #x66)	; $(3$m(B
+    (ethiopic		. #x246D)	; ¯∫•æ≤
+    (ethiopic-ucs	. #x1366)	; ·ç¶
+    (ucs		. #x1366)	; ·ç¶
     ))
 (define-char
   '((name		. "ETHIOPIC QUESTION MARK")
-    (ucs		. #x1367)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6E)	; $(3$n(B
-    (ethiopic-ucs	#x13 #x67)	; $(3$n(B
+    (ethiopic		. #x246E)	; ¯∫•æ≥
+    (ethiopic-ucs	. #x1367)	; ·çß
+    (ucs		. #x1367)	; ·çß
     ))
 (define-char
   '((name		. "ETHIOPIC PARAGRAPH SEPARATOR")
-    (ucs		. #x1368)
     (general-category	punctuation other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (ethiopic		#x24 #x6F)	; $(3$o(B
-    (ethiopic-ucs	#x13 #x68)	; $(3$o(B
+    (ethiopic		. #x246F)	; ¯∫•æ¥
+    (ethiopic-ucs	. #x1368)	; ·ç®
+    (ucs		. #x1368)	; ·ç®
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT ONE")
-    (ucs		. #x1369)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
-    (ethiopic		#x24 #x70)	; $(3$p(B
-    (ethiopic-ucs	#x13 #x69)	; $(3$p(B
+    (ethiopic		. #x2470)	; ¯∫•æµ
+    (ethiopic-ucs	. #x1369)	; ·ç©
+    (ucs		. #x1369)	; ·ç©
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT TWO")
-    (ucs		. #x136A)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
-    (ethiopic		#x24 #x71)	; $(3$q(B
-    (ethiopic-ucs	#x13 #x6A)	; $(3$q(B
+    (ethiopic		. #x2471)	; ¯∫•æ∂
+    (ethiopic-ucs	. #x136A)	; ·ç™
+    (ucs		. #x136A)	; ·ç™
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT THREE")
-    (ucs		. #x136B)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
-    (ethiopic		#x24 #x72)	; $(3$r(B
-    (ethiopic-ucs	#x13 #x6B)	; $(3$r(B
+    (ethiopic		. #x2472)	; ¯∫•æ∑
+    (ethiopic-ucs	. #x136B)	; ·ç´
+    (ucs		. #x136B)	; ·ç´
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT FOUR")
-    (ucs		. #x136C)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 4)
     (digit-value	 . 4)
     (numeric-value	 . 4)
-    (ethiopic		#x24 #x73)	; $(3$s(B
-    (ethiopic-ucs	#x13 #x6C)	; $(3$s(B
+    (ethiopic		. #x2473)	; ¯∫•æ∏
+    (ethiopic-ucs	. #x136C)	; ·ç¨
+    (ucs		. #x136C)	; ·ç¨
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT FIVE")
-    (ucs		. #x136D)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 5)
     (digit-value	 . 5)
     (numeric-value	 . 5)
-    (ethiopic		#x24 #x74)	; $(3$t(B
-    (ethiopic-ucs	#x13 #x6D)	; $(3$t(B
+    (ethiopic		. #x2474)	; ¯∫•æπ
+    (ethiopic-ucs	. #x136D)	; ·ç≠
+    (ucs		. #x136D)	; ·ç≠
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT SIX")
-    (ucs		. #x136E)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 6)
     (digit-value	 . 6)
     (numeric-value	 . 6)
-    (ethiopic		#x24 #x75)	; $(3$u(B
-    (ethiopic-ucs	#x13 #x6E)	; $(3$u(B
+    (ethiopic		. #x2475)	; ¯∫•æ∫
+    (ethiopic-ucs	. #x136E)	; ·çÆ
+    (ucs		. #x136E)	; ·çÆ
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT SEVEN")
-    (ucs		. #x136F)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 7)
     (digit-value	 . 7)
     (numeric-value	 . 7)
-    (ethiopic		#x24 #x76)	; $(3$v(B
-    (ethiopic-ucs	#x13 #x6F)	; $(3$v(B
+    (ethiopic		. #x2476)	; ¯∫•æª
+    (ethiopic-ucs	. #x136F)	; ·çØ
+    (ucs		. #x136F)	; ·çØ
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT EIGHT")
-    (ucs		. #x1370)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 8)
     (digit-value	 . 8)
     (numeric-value	 . 8)
-    (ethiopic		#x24 #x77)	; $(3$w(B
-    (ethiopic-ucs	#x13 #x70)	; $(3$w(B
+    (ethiopic		. #x2477)	; ¯∫•æº
+    (ethiopic-ucs	. #x1370)	; ·ç∞
+    (ucs		. #x1370)	; ·ç∞
     ))
 (define-char
   '((name		. "ETHIOPIC DIGIT NINE")
-    (ucs		. #x1371)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 9)
     (digit-value	 . 9)
     (numeric-value	 . 9)
-    (ethiopic		#x24 #x78)	; $(3$x(B
-    (ethiopic-ucs	#x13 #x71)	; $(3$x(B
+    (ethiopic		. #x2478)	; ¯∫•æΩ
+    (ethiopic-ucs	. #x1371)	; ·ç±
+    (ucs		. #x1371)	; ·ç±
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TEN")
-    (ucs		. #x1372)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10)
-    (ethiopic		#x24 #x79)	; $(3$y(B
-    (ethiopic-ucs	#x13 #x72)	; $(3$y(B
+    (ethiopic		. #x2479)	; ¯∫•ææ
+    (ethiopic-ucs	. #x1372)	; ·ç≤
+    (ucs		. #x1372)	; ·ç≤
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TWENTY")
-    (ucs		. #x1373)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 20)
-    (ethiopic		#x24 #x7A)	; $(3$z(B
-    (ethiopic-ucs	#x13 #x73)	; $(3$z(B
+    (ethiopic		. #x247A)	; ¯∫•æø
+    (ethiopic-ucs	. #x1373)	; ·ç≥
+    (ucs		. #x1373)	; ·ç≥
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER THIRTY")
-    (ucs		. #x1374)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 30)
-    (ethiopic		#x24 #x7B)	; $(3${(B
-    (ethiopic-ucs	#x13 #x74)	; $(3${(B
+    (ethiopic		. #x247B)	; ¯∫•øÄ
+    (ethiopic-ucs	. #x1374)	; ·ç¥
+    (ucs		. #x1374)	; ·ç¥
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER FORTY")
-    (ucs		. #x1375)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 40)
-    (ethiopic		#x24 #x7C)	; $(3$|(B
-    (ethiopic-ucs	#x13 #x75)	; $(3$|(B
+    (ethiopic		. #x247C)	; ¯∫•øÅ
+    (ethiopic-ucs	. #x1375)	; ·çµ
+    (ucs		. #x1375)	; ·çµ
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER FIFTY")
-    (ucs		. #x1376)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 50)
-    (ethiopic		#x24 #x7D)	; $(3$}(B
-    (ethiopic-ucs	#x13 #x76)	; $(3$}(B
+    (ethiopic		. #x247D)	; ¯∫•øÇ
+    (ethiopic-ucs	. #x1376)	; ·ç∂
+    (ucs		. #x1376)	; ·ç∂
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER SIXTY")
-    (ucs		. #x1377)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 60)
-    (ethiopic		#x24 #x7E)	; $(3$~(B
-    (ethiopic-ucs	#x13 #x77)	; $(3$~(B
+    (ethiopic		. #x247E)	; ¯∫•øÉ
+    (ethiopic-ucs	. #x1377)	; ·ç∑
+    (ucs		. #x1377)	; ·ç∑
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER SEVENTY")
-    (ucs		. #x1378)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 70)
-    (ethiopic		#x25 #x21)	; $(3%!(B
-    (ethiopic-ucs	#x13 #x78)	; $(3%!(B
+    (ethiopic		. #x2521)	; ¯∫•øÑ
+    (ethiopic-ucs	. #x1378)	; ·ç∏
+    (ucs		. #x1378)	; ·ç∏
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER EIGHTY")
-    (ucs		. #x1379)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 80)
-    (ethiopic		#x25 #x22)	; $(3%"(B
-    (ethiopic-ucs	#x13 #x79)	; $(3%"(B
+    (ethiopic		. #x2522)	; ¯∫•øÖ
+    (ethiopic-ucs	. #x1379)	; ·çπ
+    (ucs		. #x1379)	; ·çπ
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER NINETY")
-    (ucs		. #x137A)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 90)
-    (ethiopic		#x25 #x23)	; $(3%#(B
-    (ethiopic-ucs	#x13 #x7A)	; $(3%#(B
+    (ethiopic		. #x2523)	; ¯∫•øÜ
+    (ethiopic-ucs	. #x137A)	; ·ç∫
+    (ucs		. #x137A)	; ·ç∫
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER HUNDRED")
-    (ucs		. #x137B)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 100)
-    (ethiopic		#x25 #x24)	; $(3%$(B
-    (ethiopic-ucs	#x13 #x7B)	; $(3%$(B
+    (ethiopic		. #x2524)	; ¯∫•øá
+    (ethiopic-ucs	. #x137B)	; ·çª
+    (ucs		. #x137B)	; ·çª
     ))
 (define-char
   '((name		. "ETHIOPIC NUMBER TEN THOUSAND")
-    (ucs		. #x137C)
     (general-category	number other) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (numeric-value	. 10000)
-    (ethiopic		#x25 #x25)	; $(3%%(B
-    (ethiopic-ucs	#x13 #x7C)	; $(3%%(B
+    (ethiopic		. #x2525)	; ¯∫•øà
+    (ethiopic-ucs	. #x137C)	; ·çº
+    (ucs		. #x137C)	; ·çº
     ))

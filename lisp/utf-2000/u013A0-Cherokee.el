@@ -1,595 +1,595 @@
 (define-char
   '((name		. "CHEROKEE LETTER A")
-    (ucs		. #x13A0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A0)	; Ꭰ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER E")
-    (ucs		. #x13A1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A1)	; Ꭱ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER I")
-    (ucs		. #x13A2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A2)	; Ꭲ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER O")
-    (ucs		. #x13A3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A3)	; Ꭳ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER U")
-    (ucs		. #x13A4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A4)	; Ꭴ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER V")
-    (ucs		. #x13A5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A5)	; Ꭵ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GA")
-    (ucs		. #x13A6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A6)	; Ꭶ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER KA")
-    (ucs		. #x13A7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A7)	; Ꭷ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GE")
-    (ucs		. #x13A8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A8)	; Ꭸ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GI")
-    (ucs		. #x13A9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13A9)	; Ꭹ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GO")
-    (ucs		. #x13AA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AA)	; Ꭺ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GU")
-    (ucs		. #x13AB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AB)	; Ꭻ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER GV")
-    (ucs		. #x13AC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AC)	; Ꭼ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HA")
-    (ucs		. #x13AD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AD)	; Ꭽ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HE")
-    (ucs		. #x13AE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AE)	; Ꭾ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HI")
-    (ucs		. #x13AF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13AF)	; Ꭿ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HO")
-    (ucs		. #x13B0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B0)	; Ꮀ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HU")
-    (ucs		. #x13B1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B1)	; Ꮁ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HV")
-    (ucs		. #x13B2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B2)	; Ꮂ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LA")
-    (ucs		. #x13B3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B3)	; Ꮃ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LE")
-    (ucs		. #x13B4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B4)	; Ꮄ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LI")
-    (ucs		. #x13B5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B5)	; Ꮅ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LO")
-    (ucs		. #x13B6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B6)	; Ꮆ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LU")
-    (ucs		. #x13B7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B7)	; Ꮇ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER LV")
-    (ucs		. #x13B8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B8)	; Ꮈ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER MA")
-    (ucs		. #x13B9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13B9)	; Ꮉ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER ME")
-    (ucs		. #x13BA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BA)	; Ꮊ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER MI")
-    (ucs		. #x13BB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BB)	; Ꮋ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER MO")
-    (ucs		. #x13BC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BC)	; Ꮌ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER MU")
-    (ucs		. #x13BD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BD)	; Ꮍ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NA")
-    (ucs		. #x13BE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BE)	; Ꮎ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER HNA")
-    (ucs		. #x13BF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13BF)	; Ꮏ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NAH")
-    (ucs		. #x13C0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C0)	; Ꮐ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NE")
-    (ucs		. #x13C1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C1)	; Ꮑ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NI")
-    (ucs		. #x13C2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C2)	; Ꮒ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NO")
-    (ucs		. #x13C3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C3)	; Ꮓ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NU")
-    (ucs		. #x13C4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C4)	; Ꮔ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER NV")
-    (ucs		. #x13C5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C5)	; Ꮕ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUA")
-    (ucs		. #x13C6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C6)	; Ꮖ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUE")
-    (ucs		. #x13C7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C7)	; Ꮗ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUI")
-    (ucs		. #x13C8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C8)	; Ꮘ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUO")
-    (ucs		. #x13C9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13C9)	; Ꮙ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUU")
-    (ucs		. #x13CA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CA)	; Ꮚ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER QUV")
-    (ucs		. #x13CB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CB)	; Ꮛ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SA")
-    (ucs		. #x13CC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CC)	; Ꮜ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER S")
-    (ucs		. #x13CD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CD)	; Ꮝ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SE")
-    (ucs		. #x13CE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CE)	; Ꮞ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SI")
-    (ucs		. #x13CF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13CF)	; Ꮟ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SO")
-    (ucs		. #x13D0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D0)	; Ꮠ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SU")
-    (ucs		. #x13D1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D1)	; Ꮡ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER SV")
-    (ucs		. #x13D2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D2)	; Ꮢ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DA")
-    (ucs		. #x13D3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D3)	; Ꮣ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TA")
-    (ucs		. #x13D4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D4)	; Ꮤ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DE")
-    (ucs		. #x13D5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D5)	; Ꮥ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TE")
-    (ucs		. #x13D6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D6)	; Ꮦ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DI")
-    (ucs		. #x13D7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D7)	; Ꮧ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TI")
-    (ucs		. #x13D8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D8)	; Ꮨ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DO")
-    (ucs		. #x13D9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13D9)	; Ꮩ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DU")
-    (ucs		. #x13DA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DA)	; Ꮪ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DV")
-    (ucs		. #x13DB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DB)	; Ꮫ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER DLA")
-    (ucs		. #x13DC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DC)	; Ꮬ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLA")
-    (ucs		. #x13DD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DD)	; Ꮭ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLE")
-    (ucs		. #x13DE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DE)	; Ꮮ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLI")
-    (ucs		. #x13DF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13DF)	; Ꮯ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLO")
-    (ucs		. #x13E0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E0)	; Ꮰ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLU")
-    (ucs		. #x13E1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E1)	; Ꮱ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TLV")
-    (ucs		. #x13E2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E2)	; Ꮲ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSA")
-    (ucs		. #x13E3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E3)	; Ꮳ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSE")
-    (ucs		. #x13E4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E4)	; Ꮴ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSI")
-    (ucs		. #x13E5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E5)	; Ꮵ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSO")
-    (ucs		. #x13E6)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E6)	; Ꮶ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSU")
-    (ucs		. #x13E7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E7)	; Ꮷ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER TSV")
-    (ucs		. #x13E8)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E8)	; Ꮸ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WA")
-    (ucs		. #x13E9)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13E9)	; Ꮹ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WE")
-    (ucs		. #x13EA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13EA)	; Ꮺ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WI")
-    (ucs		. #x13EB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13EB)	; Ꮻ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WO")
-    (ucs		. #x13EC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13EC)	; Ꮼ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WU")
-    (ucs		. #x13ED)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13ED)	; Ꮽ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER WV")
-    (ucs		. #x13EE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13EE)	; Ꮾ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YA")
-    (ucs		. #x13EF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13EF)	; Ꮿ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YE")
-    (ucs		. #x13F0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13F0)	; Ᏸ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YI")
-    (ucs		. #x13F1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13F1)	; Ᏹ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YO")
-    (ucs		. #x13F2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13F2)	; Ᏺ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YU")
-    (ucs		. #x13F3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13F3)	; Ᏻ
     ))
 (define-char
   '((name		. "CHEROKEE LETTER YV")
-    (ucs		. #x13F4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
+    (ucs		. #x13F4)	; Ᏼ
     ))

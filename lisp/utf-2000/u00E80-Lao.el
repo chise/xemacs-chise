@@ -1,553 +1,553 @@
 (define-char
   '((name		. "LAO LETTER KO")
-    (ucs		. #x0E81)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x21)	; )1ก-A
+    (lao		. #xA1)	; ๘บฆ
+    (ucs		. #x0E81)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER KHO SUNG")
-    (ucs		. #x0E82)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x22)	; )1ข-A
+    (lao		. #xA2)	; ๘บฆ
+    (ucs		. #x0E82)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER KHO TAM")
-    (ucs		. #x0E84)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x24)	; )1ค-A
+    (lao		. #xA4)	; ๘บฆก
+    (ucs		. #x0E84)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER NGO")
-    (ucs		. #x0E87)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x27)	; )1ง-A
+    (lao		. #xA7)	; ๘บฆค
+    (ucs		. #x0E87)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER CO")
-    (ucs		. #x0E88)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x28)	; )1จ-A
+    (lao		. #xA8)	; ๘บฆฅ
+    (ucs		. #x0E88)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER SO TAM")
-    (ucs		. #x0E8A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x2A)	; )1ช-A
+    (lao		. #xAA)	; ๘บฆง
+    (ucs		. #x0E8A)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER NYO")
-    (ucs		. #x0E8D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x2D)	; )1ญ-A
+    (lao		. #xAD)	; ๘บฆช
+    (ucs		. #x0E8D)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER DO")
-    (ucs		. #x0E94)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x34)	; )1ด-A
+    (lao		. #xB4)	; ๘บฆฑ
+    (ucs		. #x0E94)	; เบ”
     ))
 (define-char
   '((name		. "LAO LETTER TO")
-    (ucs		. #x0E95)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x35)	; )1ต-A
+    (lao		. #xB5)	; ๘บฆฒ
+    (ucs		. #x0E95)	; เบ•
     ))
 (define-char
   '((name		. "LAO LETTER THO SUNG")
-    (ucs		. #x0E96)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x36)	; )1ถ-A
+    (lao		. #xB6)	; ๘บฆณ
+    (ucs		. #x0E96)	; เบ–
     ))
 (define-char
   '((name		. "LAO LETTER THO TAM")
-    (ucs		. #x0E97)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x37)	; )1ท-A
+    (lao		. #xB7)	; ๘บฆด
+    (ucs		. #x0E97)	; เบ—
     ))
 (define-char
   '((name		. "LAO LETTER NO")
-    (ucs		. #x0E99)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x39)	; )1น-A
+    (lao		. #xB9)	; ๘บฆถ
+    (ucs		. #x0E99)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER BO")
-    (ucs		. #x0E9A)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3A)	; )1บ-A
+    (lao		. #xBA)	; ๘บฆท
+    (ucs		. #x0E9A)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER PO")
-    (ucs		. #x0E9B)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3B)	; )1ป-A
+    (lao		. #xBB)	; ๘บฆธ
+    (ucs		. #x0E9B)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER PHO SUNG")
-    (ucs		. #x0E9C)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3C)	; )1ผ-A
+    (lao		. #xBC)	; ๘บฆน
+    (ucs		. #x0E9C)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER FO TAM")
-    (ucs		. #x0E9D)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3D)	; )1ฝ-A
+    (lao		. #xBD)	; ๘บฆบ
+    (ucs		. #x0E9D)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER PHO TAM")
-    (ucs		. #x0E9E)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3E)	; )1พ-A
+    (lao		. #xBE)	; ๘บฆป
+    (ucs		. #x0E9E)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER FO SUNG")
-    (ucs		. #x0E9F)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x3F)	; )1ฟ-A
+    (lao		. #xBF)	; ๘บฆผ
+    (ucs		. #x0E9F)	; เบ
     ))
 (define-char
   '((name		. "LAO LETTER MO")
-    (ucs		. #x0EA1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x41)	; )1ม-A
+    (lao		. #xC1)	; ๘บฆพ
+    (ucs		. #x0EA1)	; เบก
     ))
 (define-char
   '((name		. "LAO LETTER YO")
-    (ucs		. #x0EA2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x42)	; )1ย-A
+    (lao		. #xC2)	; ๘บฆฟ
+    (ucs		. #x0EA2)	; เบข
     ))
 (define-char
   '((name		. "LAO LETTER LO LING")
-    (ucs		. #x0EA3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x43)	; )1ร-A
+    (lao		. #xC3)	; ๘บง€
+    (ucs		. #x0EA3)	; เบฃ
     ))
 (define-char
   '((name		. "LAO LETTER LO LOOT")
-    (ucs		. #x0EA5)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x45)	; )1ล-A
+    (lao		. #xC5)	; ๘บง
+    (ucs		. #x0EA5)	; เบฅ
     ))
 (define-char
   '((name		. "LAO LETTER WO")
-    (ucs		. #x0EA7)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x47)	; )1ว-A
+    (lao		. #xC7)	; ๘บง
+    (ucs		. #x0EA7)	; เบง
     ))
 (define-char
   '((name		. "LAO LETTER SO SUNG")
-    (ucs		. #x0EAA)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x4A)	; )1ส-A
+    (lao		. #xCA)	; ๘บง
+    (ucs		. #x0EAA)	; เบช
     ))
 (define-char
   '((name		. "LAO LETTER HO SUNG")
-    (ucs		. #x0EAB)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x4B)	; )1ห-A
+    (lao		. #xCB)	; ๘บง
+    (ucs		. #x0EAB)	; เบซ
     ))
 (define-char
   '((name		. "LAO LETTER O")
-    (ucs		. #x0EAD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x4D)	; )1อ-A
+    (lao		. #xCD)	; ๘บง
+    (ucs		. #x0EAD)	; เบญ
     ))
 (define-char
   '((name		. "LAO LETTER HO TAM")
-    (ucs		. #x0EAE)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x4E)	; )1ฮ-A
+    (lao		. #xCE)	; ๘บง
+    (ucs		. #x0EAE)	; เบฎ
     ))
 (define-char
   '((name		. "LAO ELLIPSIS")
-    (ucs		. #x0EAF)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x4F)	; )1ฯ-A
+    (lao		. #xCF)	; ๘บง
+    (ucs		. #x0EAF)	; เบฏ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN A")
-    (ucs		. #x0EB0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x50)	; )1ะ-A
+    (lao		. #xD0)	; ๘บง
+    (ucs		. #x0EB0)	; เบฐ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN MAI KAN")
-    (ucs		. #x0EB1)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x51)	; )1ั-A
+    (lao		. #xD1)	; ๘บง
+    (ucs		. #x0EB1)	; เบฑ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AA")
-    (ucs		. #x0EB2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x52)	; )1า-A
+    (lao		. #xD2)	; ๘บง
+    (ucs		. #x0EB2)	; เบฒ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AM")
-    (ucs		. #x0EB3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0ECD #x0EB2)
-    (lao		#x53)	; )1ำ-A
+    (lao		. #xD3)	; ๘บง
+    (ucs		. #x0EB3)	; เบณ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN I")
-    (ucs		. #x0EB4)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x54)	; )1ิ-A
+    (lao		. #xD4)	; ๘บง‘
+    (ucs		. #x0EB4)	; เบด
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN II")
-    (ucs		. #x0EB5)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x55)	; )1ี-A
+    (lao		. #xD5)	; ๘บง’
+    (ucs		. #x0EB5)	; เบต
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN Y")
-    (ucs		. #x0EB6)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x56)	; )1ึ-A
+    (lao		. #xD6)	; ๘บง“
+    (ucs		. #x0EB6)	; เบถ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN YY")
-    (ucs		. #x0EB7)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x57)	; )1ื-A
+    (lao		. #xD7)	; ๘บง”
+    (ucs		. #x0EB7)	; เบท
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN U")
-    (ucs		. #x0EB8)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x58)	; )1ุ-A
+    (lao		. #xD8)	; ๘บง•
+    (ucs		. #x0EB8)	; เบธ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN UU")
-    (ucs		. #x0EB9)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x59)	; )1ู-A
+    (lao		. #xD9)	; ๘บง–
+    (ucs		. #x0EB9)	; เบน
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN MAI KON")
-    (ucs		. #x0EBB)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x5B)	; )1Û-A
+    (lao		. #xDB)	; ๘บง
+    (ucs		. #x0EBB)	; เบป
     ))
 (define-char
   '((name		. "LAO SEMIVOWEL SIGN LO")
-    (ucs		. #x0EBC)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x5C)	; )1Ü-A
+    (lao		. #xDC)	; ๘บง
+    (ucs		. #x0EBC)	; เบผ
     ))
 (define-char
   '((name		. "LAO SEMIVOWEL SIGN NYO")
-    (ucs		. #x0EBD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x5D)	; )1Ý-A
+    (lao		. #xDD)	; ๘บง
+    (ucs		. #x0EBD)	; เบฝ
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN E")
-    (ucs		. #x0EC0)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x60)	; )1เ-A
+    (lao		. #xE0)	; ๘บง
+    (ucs		. #x0EC0)	; เป€
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN EI")
-    (ucs		. #x0EC1)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x61)	; )1แ-A
+    (lao		. #xE1)	; ๘บง
+    (ucs		. #x0EC1)	; เป
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN O")
-    (ucs		. #x0EC2)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x62)	; )1โ-A
+    (lao		. #xE2)	; ๘บง
+    (ucs		. #x0EC2)	; เป
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AY")
-    (ucs		. #x0EC3)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x63)	; )1ใ-A
+    (lao		. #xE3)	; ๘บง 
+    (ucs		. #x0EC3)	; เป
     ))
 (define-char
   '((name		. "LAO VOWEL SIGN AI")
-    (ucs		. #x0EC4)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x64)	; )1ไ-A
+    (lao		. #xE4)	; ๘บงก
+    (ucs		. #x0EC4)	; เป
     ))
 (define-char
   '((name		. "LAO KO LA")
-    (ucs		. #x0EC6)
     (general-category	letter modifier) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
-    (lao		#x66)	; )1ๆ-A
+    (lao		. #xE6)	; ๘บงฃ
+    (ucs		. #x0EC6)	; เป
     ))
 (define-char
   '((name		. "LAO TONE MAI EK")
-    (ucs		. #x0EC8)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x68)	; )1่-A
+    (lao		. #xE8)	; ๘บงฅ
+    (ucs		. #x0EC8)	; เป
     ))
 (define-char
   '((name		. "LAO TONE MAI THO")
-    (ucs		. #x0EC9)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x69)	; )1้-A
+    (lao		. #xE9)	; ๘บงฆ
+    (ucs		. #x0EC9)	; เป
     ))
 (define-char
   '((name		. "LAO TONE MAI TI")
-    (ucs		. #x0ECA)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x6A)	; )1๊-A
+    (lao		. #xEA)	; ๘บงง
+    (ucs		. #x0ECA)	; เป
     ))
 (define-char
   '((name		. "LAO TONE MAI CATAWA")
-    (ucs		. #x0ECB)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x6B)	; )1๋-A
+    (lao		. #xEB)	; ๘บงจ
+    (ucs		. #x0ECB)	; เป
     ))
 (define-char
   '((name		. "LAO CANCELLATION MARK")
-    (ucs		. #x0ECC)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x6C)	; )1์-A
+    (lao		. #xEC)	; ๘บงฉ
+    (ucs		. #x0ECC)	; เป
     ))
 (define-char
   '((name		. "LAO NIGGAHITA")
-    (ucs		. #x0ECD)
     (general-category	mark non-spacing) ; Normative Category
     (bidi-category	. "NSM")
     (mirrored		. nil)
-    (lao		#x6D)	; )1ํ-A
+    (lao		. #xED)	; ๘บงช
+    (ucs		. #x0ECD)	; เป
     ))
 (define-char
   '((name		. "LAO DIGIT ZERO")
-    (ucs		. #x0ED0)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 0)
     (digit-value	 . 0)
     (numeric-value	 . 0)
-    (lao		#x70)	; )1๐-A
+    (lao		. #xF0)	; ๘บงญ
+    (ucs		. #x0ED0)	; เป
     ))
 (define-char
   '((name		. "LAO DIGIT ONE")
-    (ucs		. #x0ED1)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 1)
     (digit-value	 . 1)
     (numeric-value	 . 1)
-    (lao		#x71)	; )1๑-A
+    (lao		. #xF1)	; ๘บงฎ
+    (ucs		. #x0ED1)	; เป‘
     ))
 (define-char
   '((name		. "LAO DIGIT TWO")
-    (ucs		. #x0ED2)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 2)
     (digit-value	 . 2)
     (numeric-value	 . 2)
-    (lao		#x72)	; )1๒-A
+    (lao		. #xF2)	; ๘บงฏ
+    (ucs		. #x0ED2)	; เป’
     ))
 (define-char
   '((name		. "LAO DIGIT THREE")
-    (ucs		. #x0ED3)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 3)
     (digit-value	 . 3)
     (numeric-value	 . 3)
-    (lao		#x73)	; )1๓-A
+    (lao		. #xF3)	; ๘บงฐ
+    (ucs		. #x0ED3)	; เป“
     ))
 (define-char
   '((name		. "LAO DIGIT FOUR")
-    (ucs		. #x0ED4)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 4)
     (digit-value	 . 4)
     (numeric-value	 . 4)
-    (lao		#x74)	; )1๔-A
+    (lao		. #xF4)	; ๘บงฑ
+    (ucs		. #x0ED4)	; เป”
     ))
 (define-char
   '((name		. "LAO DIGIT FIVE")
-    (ucs		. #x0ED5)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 5)
     (digit-value	 . 5)
     (numeric-value	 . 5)
-    (lao		#x75)	; )1๕-A
+    (lao		. #xF5)	; ๘บงฒ
+    (ucs		. #x0ED5)	; เป•
     ))
 (define-char
   '((name		. "LAO DIGIT SIX")
-    (ucs		. #x0ED6)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 6)
     (digit-value	 . 6)
     (numeric-value	 . 6)
-    (lao		#x76)	; )1๖-A
+    (lao		. #xF6)	; ๘บงณ
+    (ucs		. #x0ED6)	; เป–
     ))
 (define-char
   '((name		. "LAO DIGIT SEVEN")
-    (ucs		. #x0ED7)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 7)
     (digit-value	 . 7)
     (numeric-value	 . 7)
-    (lao		#x77)	; )1๗-A
+    (lao		. #xF7)	; ๘บงด
+    (ucs		. #x0ED7)	; เป—
     ))
 (define-char
   '((name		. "LAO DIGIT EIGHT")
-    (ucs		. #x0ED8)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 8)
     (digit-value	 . 8)
     (numeric-value	 . 8)
-    (lao		#x78)	; )1๘-A
+    (lao		. #xF8)	; ๘บงต
+    (ucs		. #x0ED8)	; เป
     ))
 (define-char
   '((name		. "LAO DIGIT NINE")
-    (ucs		. #x0ED9)
     (general-category	number decimal-digit) ; Normative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (decimal-digit-value . 9)
     (digit-value	 . 9)
     (numeric-value	 . 9)
-    (lao		#x79)	; )1๙-A
+    (lao		. #xF9)	; ๘บงถ
+    (ucs		. #x0ED9)	; เป
     ))
 (define-char
   '((name		. "LAO HO NO")
-    (ucs		. #x0EDC)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0EAB #x0E99)
-    (lao		#x7C)	; )1ü-A
+    (lao		. #xFC)	; ๘บงน
+    (ucs		. #x0EDC)	; เป
     ))
 (define-char
   '((name		. "LAO HO MO")
-    (ucs		. #x0EDD)
     (general-category	letter other) ; Informative Category
     (bidi-category	. "L")
     (mirrored		. nil)
     (->decomposition	compat #x0EAB #x0EA1)
-    (lao		#x7D)	; )1ý-A
+    (lao		. #xFD)	; ๘บงบ
+    (ucs		. #x0EDD)	; เป
     ))
