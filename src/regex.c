@@ -6,6 +6,7 @@
    Copyright (C) 1993, 1994, 1995 Free Software Foundation, Inc.
    Copyright (C) 1995 Sun Microsystems, Inc.
    Copyright (C) 1995 Ben Wing.
+   Copyright (C) 1999,2000,2001 MORIOKA Tomohiko
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -3625,12 +3626,21 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	  k = *p++;
 	  matchsyntax:
 #ifdef MULE
+#ifdef UTF2000
+	  for (j = 0; j < 0x80; j++)
+	    if (SYNTAX_UNSAFE
+		(XCHAR_TABLE
+		 (regex_emacs_buffer->syntax_table), j) ==
+		(enum syntaxcode) k)
+	      fastmap[j] = 1;
+#else
 	  for (j = 0; j < 0x80; j++)
 	    if (SYNTAX_UNSAFE
 		(XCHAR_TABLE
 		 (regex_emacs_buffer->mirror_syntax_table), j) ==
 		(enum syntaxcode) k)
 	      fastmap[j] = 1;
+#endif
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
 #ifndef UTF2000
@@ -3670,12 +3680,21 @@ re_compile_fastmap (struct re_pattern_buffer *bufp)
 	  k = *p++;
 	  matchnotsyntax:
 #ifdef MULE
+#ifdef UTF2000
+	  for (j = 0; j < 0x80; j++)
+	    if (SYNTAX_UNSAFE
+		(XCHAR_TABLE
+		 (regex_emacs_buffer->syntax_table), j) !=
+		(enum syntaxcode) k)
+	      fastmap[j] = 1;
+#else
 	  for (j = 0; j < 0x80; j++)
 	    if (SYNTAX_UNSAFE
 		(XCHAR_TABLE
 		 (regex_emacs_buffer->mirror_syntax_table), j) !=
 		(enum syntaxcode) k)
 	      fastmap[j] = 1;
+#endif
 	  for (j = 0x80; j < 0xA0; j++)
 	    {
 #ifndef UTF2000
@@ -4194,9 +4213,15 @@ re_search_2 (struct re_pattern_buffer *bufp, const char *str1,
 #define POS_AFTER_GAP_UNSAFE(d) ((d) == end1 ? string2 : (d))
 
 /* Test if CH is a word-constituent character. (XEmacs change) */
+#ifdef UTF2000
+#define WORDCHAR_P_UNSAFE(ch)					   \
+  (SYNTAX_UNSAFE (XCHAR_TABLE (regex_emacs_buffer->syntax_table),  \
+                               ch) == Sword)
+#else
 #define WORDCHAR_P_UNSAFE(ch)						   \
   (SYNTAX_UNSAFE (XCHAR_TABLE (regex_emacs_buffer->mirror_syntax_table),   \
                                ch) == Sword)
+#endif
 
 /* Free everything we malloc.  */
 #ifdef MATCH_MAY_ALLOCATE
@@ -5608,9 +5633,15 @@ re_match_2_internal (struct re_pattern_buffer *bufp, re_char *string1,
 
 	    REGEX_PREFETCH ();
 	    emch = charptr_emchar ((const Bufbyte *) d);
+#ifdef UTF2000
+	    matches = (SYNTAX_UNSAFE
+		       (XCHAR_TABLE (regex_emacs_buffer->syntax_table),
+			emch) == (enum syntaxcode) mcnt);
+#else
 	    matches = (SYNTAX_UNSAFE
 		       (XCHAR_TABLE (regex_emacs_buffer->mirror_syntax_table),
 			emch) == (enum syntaxcode) mcnt);
+#endif
 	    INC_CHARPTR (d);
 	    if (matches != should_succeed)
 	      goto fail;
