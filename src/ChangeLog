@@ -1,3 +1,16 @@
+2000-04-26  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* text-coding.c (Qcomposite): New variable.
+	(Fmake_coding_system): Add new property `composite'.
+	(struct decoding_stream): Add `combined_char_count',
+	`combined_chars' and `combining_table' in UTF-2000.
+	(COMPOSE_FLUSH_CHARS): New macro.
+	(COMPOSE_ADD_CHAR): New macro.
+	(reset_decoding_stream): Reset `str->combined_char_count' and
+	`str->combining_table' in UTF-2000.
+	(decode_coding_iso2022): Modify for character-decomposition.
+	(syms_of_file_coding): Add new symbol `composite'.
+
 2000-04-25  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (Vcharset_latin_tcvn5712): New variable.
