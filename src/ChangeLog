@@ -1,3 +1,64 @@
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* regex.c (compile_extended_range): Use `CHAR_CHARSET_ID' instead
+	of `CHAR_LEADING_BYTE' in UTF-2000.
+
+	* insdel.c (find_charsets_in_bufbyte_string): Use
+	`CHAR_CHARSET_ID' instead of `CHAR_LEADING_BYTE' in UTF-2000.
+	(find_charsets_in_emchar_string): Likewise.
+
+	* chartab.h (CHAR_TABLE_NON_ASCII_VALUE_UNSAFE): Use
+	`CHAR_CHARSET_ID' instead of `CHAR_LEADING_BYTE' in UTF-2000.
+
+	* char-ucs.h (CHAR_LEADING_BYTE): Deleted.
+	(CHAR_CHARSET_ID): New macro.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* chartab.c (get_char_table): Don't use type `Charset_ID' for
+	charset-id - MIN_LEADING_BYTE.
+	(put_char_table): Likewise.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* char-ucs.h (MIN_LEADING_BYTE): Changed to `-0x40'.
+	(NUM_LEADING_BYTES): Changed to (80 * 3 - MIN_LEADING_BYTE).
+	(CHARSET_LEADING_BYTE): Don't cast by `Bufbyte'.
+	(CHARSET_ID_OFFSET): New macro.
+	(LEADING_BYTE_CONTROL_1): Changed to (CHARSET_ID_OFFSET - 1).
+	(LEADING_BYTE_UCS_BMP): Changed to (CHARSET_ID_OFFSET - 2).
+	(LEADING_BYTE_LATIN_VISCII): Changed to (CHARSET_ID_OFFSET - 3).
+	(LEADING_BYTE_HIRAGANA_JISX0208): Changed to (CHARSET_ID_OFFSET -
+	4).
+	(LEADING_BYTE_KATAKANA_JISX0208): Changed to (CHARSET_ID_OFFSET -
+	5).
+	(MIN_LEADING_BYTE_PRIVATE): Changed to `MIN_LEADING_BYTE'.
+	(MAX_LEADING_BYTE_PRIVATE): Changed to (CHARSET_ID_OFFSET - 6).
+	(CHARSET_ID_OFFSET_94): Changed to (CHARSET_ID_OFFSET - '0').
+	(CHARSET_ID_OFFSET_96): Changed to (CHARSET_ID_OFFSET_94 + 80).
+	(CHARSET_ID_OFFSET_94x94): Changed to (CHARSET_ID_OFFSET_96 + 80).
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (next_allocated_leading_byte): New variable in
+	UTF-2000.
+	(next_allocated_1_byte_leading_byte): Don't define in UTF-2000.
+	(next_allocated_2_byte_leading_byte): Don't define in UTF-2000.
+	(get_unallocated_leading_byte): Simply use
+	`next_allocated_leading_byte' [ignore dimension] in UTF-2000.
+	(vars_of_mule_charset): Setup `next_allocated_leading_byte' in
+	UTF-2000.
+
+	* char-ucs.h (MIN_LEADING_BYTE_PRIVATE): New macro.
+	(MAX_LEADING_BYTE_PRIVATE): New macro.
+	(MIN_LEADING_BYTE_OFFICIAL_2): Deleted.
+	(MAX_LEADING_BYTE_OFFICIAL_2): Deleted.
+
+1999-10-11  MORIOKA Tomohiko  <tomo@urania.m17n.org>
+
+	* mule-charset.c (Fmake_charset): Allocate final-byte based
+	charset-id for 94-set, 96-set and 94x94-set.
+
 1999-10-11  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (char_byte_table_equal): Fill braces to avoid
