@@ -394,33 +394,35 @@
 	(while data
 	  (setq cell (car data))
 	  (cond ((setq ret (find-charset (car cell)))
-		 (insert
-		  (format
-		   (if has-long-ccs-name
-		       (if (eq ret (find-charset 'ideograph-daikanwa))
-			   "(%-26s . %05d)\t; %c
+		 (or (string-match "^mojikyo-pj-"
+				   (symbol-name (charset-name ret)))
+		     (insert
+		      (format
+		       (if has-long-ccs-name
+			   (if (eq ret (find-charset 'ideograph-daikanwa))
+			       "(%-26s . %05d)\t; %c
     "
-			 "(%-26s . #x%X)\t; %c
+			     "(%-26s . #x%X)\t; %c
     "
-			 )
-		     (if (eq ret (find-charset 'ideograph-daikanwa))
-			 "(%-18s . %05d)\t; %c
+			     )
+			 (if (eq ret (find-charset 'ideograph-daikanwa))
+			     "(%-18s . %05d)\t; %c
     "
-		       "(%-18s . #x%X)\t; %c
+			   "(%-18s . #x%X)\t; %c
     "
-		       ))
-		   (charset-name ret)
-		   (if (= (charset-iso-graphic-plane ret) 1)
-		       (logior (cdr cell)
-			       (cond ((= (charset-dimension ret) 1)
-				      #x80)
-				     ((= (charset-dimension ret) 2)
-				      #x8080)
-				     ((= (charset-dimension ret) 3)
-				      #x808080)
-				     (t 0)))
-		     (cdr cell))
-		   (decode-builtin-char ret (cdr cell)))))
+			   ))
+		       (charset-name ret)
+		       (if (= (charset-iso-graphic-plane ret) 1)
+			   (logior (cdr cell)
+				   (cond ((= (charset-dimension ret) 1)
+					  #x80)
+					 ((= (charset-dimension ret) 2)
+					  #x8080)
+					 ((= (charset-dimension ret) 3)
+					  #x808080)
+					 (t 0)))
+			 (cdr cell))
+		       (decode-builtin-char ret (cdr cell))))))
 		((string-match "^->" (symbol-name (car cell)))
 		 (insert
 		  (format "(%-18s %s)
