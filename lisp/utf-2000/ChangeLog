@@ -1,5 +1,7 @@
 2003-06-24  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R044-Corpse.el (U-00021C5D): Unify MH-0141.
+
 	* Ideograph-R040-Roof.el (MH-0130): New character.
 	(MH-0131): New character.
 	(U-00021A33): New character.
