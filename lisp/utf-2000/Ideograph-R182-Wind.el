@@ -764,17 +764,23 @@
     (ideographic-strokes . 5)
     (total-strokes	 . 14)
     (=ucs		. #x98B0)	; 颰
-    (=jis-x0212		. #x683D)	; &I-JSP-683D;
-    (=jis-x0213-2-2000	. #x7C41)	; &I-JX2-7C41;
-    (=daikanwa		. 43812)	; &I-M-43812;
-    ))
-(define-char
-  '((=>ucs		. #x98B0)	; 颰
-    (morohashi-daikanwa	43812 0 1)
-    (ideographic-radical . 182)	; ⾵
-    (ideographic-strokes . 5)
-    (total-strokes	 . 14)
-    (=cns11643-4	. #x4857)	; &C4-4857;
+    (->subsumptive
+     ((->subsumptive
+       ((=jis-x0212	    . #x683D)	; &M-43812;
+	(=jis-x0213-2-2000  . #x7C41)	; &I-JX2-7C41;
+	(=daikanwa	    . 43812)	; &I-M-43812;
+	(=cbeta		    . 00584)	; &I-CB00584;
+	(=ucs@jis	    . #x98B0)	; &M-43812;
+	)
+       ((=cns11643-4	    . #x4857)	; &C4-4857;
+	))
+      )
+     ((->subsumptive
+       ((=cbeta		    . 02664)	; &CB02664;
+	)
+       ((=ucs@unicode	    . #x98B0)	; &UU+98B0;
+	))
+      ))
     ))
 (define-char
   '((ideographic-radical . 182)	; ⾵
