@@ -297,24 +297,6 @@ CHARSET_BY_LEADING_BYTE (Charset_ID lb)
 #define CHARSET_BY_ATTRIBUTES(type, final, dir) \
   (charset_by_attributes[type][final])
 
-INLINE int REP_BYTES_BY_FIRST_BYTE (int fb);
-INLINE int
-REP_BYTES_BY_FIRST_BYTE (int fb)
-{
-  if ( fb < 0xc0 )
-    return 1;
-  else if ( fb < 0xe0 )
-    return 2;
-  else if ( fb < 0xf0 )
-    return 3;
-  else if ( fb < 0xf8 )
-    return 4;
-  else if ( fb < 0xfc )
-    return 5;
-  else
-    return 6;
-}
-
 
 /************************************************************************/
 /*                        Dealing with characters                       */
