@@ -1,3 +1,8 @@
+2001-11-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* ioslated-char.el: Disable undo in temporary buffer.
+	Otherwise, pdump will complain about buffer being undumpable object.
+
 2001-11-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R131-Minister.el (C3-2A5C): Separated from U+5367 and

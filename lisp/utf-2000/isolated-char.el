@@ -171,8 +171,9 @@
 
 ;; GT 2000
 
-(let ((buf (find-file-noselect "../etc/GT-RS.txt")))
-  (with-current-buffer buf
+(with-temp-buffer
+  (buffer-disable-undo)
+  (insert-file-contents "../etc/GT-RS.txt")
     (goto-char (point-min))
     (let (gt-code radical strokes plane code)
       (while (re-search-forward "\\([0-9]+\\),\\([0-9]+\\),\\([0-9]+\\),GT\\([0-9]+\\),....,\\([0-9A-F][0-9A-F][0-9A-F][0-9A-F]\\)" nil t)
@@ -183,7 +184,6 @@
 			    (intern (format "ideograph-gt-pj-%d" plane))
 			    code)
 	)))
-  (kill-buffer buf))
 
 (define-char
   '((ideograph-gt-pj-1	. #x3F6B)

@@ -1,3 +1,8 @@
+2001-11-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* dumper.c (PDUMP_HASH_SIZE): Increase the size of hash table when
+	utf-2000.
+
 2001-11-20  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* mule-charset.c (put_char_ccs_code_point): Return canonicalized
