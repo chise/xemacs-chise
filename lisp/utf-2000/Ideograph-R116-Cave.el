@@ -2082,7 +2082,8 @@
     (ucs		. #x7AB1)	; 窱
     ))
 (define-char
-  '((morohashi-daikanwa	25597 0 0)
+  '((->ucs		. #x7AB1)	; 窱
+    (morohashi-daikanwa	25597 0 1)
     (ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 11)
     (total-strokes	 . 16)
@@ -2694,13 +2695,9 @@
 (define-char
   '((ideographic-radical . 116)	; ⽳
     (ideographic-strokes . 11)
-    (ucs		. #x7ABD)	; 窽
-    ))
-(define-char
-  '((ideographic-radical . 116)	; ⽳
-    (ideographic-strokes . 11)
     (total-strokes	 . 16)
     (chinese-cns11643-3 . #x522E)	; �����
+    (ucs		. #x7ABD)	; 窽
     ))
 (define-char
   '((ideographic-radical . 116)	; ⽳
