@@ -498,24 +498,37 @@
 		      line-breaking))
       (setq attributes (delq 'script attributes))
       )
-    (when (and (memq '=>ucs attributes)
-	       (setq value (get-char-attribute char '=>ucs)))
-      (insert (format "(=>ucs\t\t. #x%04X)\t; %c%s"
-		      value (decode-char '=ucs value)
-		      line-breaking))
-      (setq attributes (delq '=>ucs attributes))
-      )
-    (when (and (memq '=>ucs* attributes)
-	       (setq value (get-char-attribute char '=>ucs*)))
-      (insert (format "(=>ucs*\t\t. #x%04X)\t; %c%s"
-		      value (decode-char '=ucs value)
-		      line-breaking))
-      (setq attributes (delq '=>ucs* attributes))
-      )
+    (dolist (name '(=>ucs =>ucs*))
+      (when (and (memq name attributes)
+		 (setq value (get-char-attribute char name)))
+	(insert (format "(%-18s . #x%04X)\t; %c%s"
+			name value (decode-char '=ucs value)
+			line-breaking))
+	(setq attributes (delq name attributes))))
+    ;; (when (and (memq '=>ucs* attributes)
+    ;;            (setq value (get-char-attribute char '=>ucs*)))
+    ;;   (insert (format "(=>ucs*\t\t. #x%04X)\t; %c%s"
+    ;;                   value (decode-char '=ucs value)
+    ;;                   line-breaking))
+    ;;   (setq attributes (delq '=>ucs* attributes))
+    ;;   )
+    (dolist (name '(=>ucs@gb))
+      (when (and (memq name attributes)
+		 (setq value (get-char-attribute char name)))
+	(insert (format "(%-18s . #x%04X)\t; %c%s"
+			name value
+			(decode-char (intern
+				      (concat "="
+					      (substring
+					       (symbol-name name) 2)))
+				     value)
+			line-breaking))
+	(setq attributes (delq name attributes))
+	))
     (when (and (memq '=>ucs-gb attributes)
 	       (setq value (get-char-attribute char '=>ucs-gb)))
-      (insert (format "(=>ucs-gb\t\t. #x%04X)\t; %c%s"
-		      value (decode-char '=ucs value)
+      (insert (format "(=>ucs@gb\t\t. #x%04X)\t; %c%s"
+		      value (decode-char '=ucs@gb value)
 		      line-breaking))
       (setq attributes (delq '=>ucs-gb attributes))
       )
@@ -845,7 +858,12 @@
     (while attributes
       (setq name (car attributes))
       (if (setq value (get-char-attribute char name))
-	  (cond ((eq name 'jisx0208-1978/4X)
+	  (cond ((string-match "^=>ucs@" (symbol-name name))
+		 (insert (format "(%-18s . #x%04X)\t; %c%s"
+				 name value (decode-char '=ucs value)
+				 line-breaking))
+		 )
+		((eq name 'jisx0208-1978/4X)
 		 (insert (format "(%-18s . #x%04X)%s"
 				 name value
 				 line-breaking)))

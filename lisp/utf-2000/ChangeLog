@@ -1,3 +1,20 @@
+2003-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R009-Man.el: Reformatted.
+
+	* char-db-util.el (insert-char-attributes): Convert `=>ucs-gb' to
+	`=>ucs@gb'.
+
+2003-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R181-Leaf.el, Ideograph-R172-Short-Tailed-Bird.el,
+	Ideograph-R154-Shell.el, Ideograph-R141-Tiger.el,
+	Ideograph-R149-Speech.el, Ideograph-R120-Silk.el,
+	Ideograph-R119-Rice.el, Ideograph-R116-Cave.el,
+	Ideograph-R085-Water.el, Ideograph-R079-Weapon.el,
+	Ideograph-R061-Heart.el, Ideograph-R038-Woman.el,
+	Ideograph-R032-Earth.el: Rename `=>ucs-gb' to `=>ucs@gb'.
+
 2003-03-20  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
 	* Ideograph-R186-Fragrant.el, Ideograph-R196-Bird.el,

@@ -523,7 +523,7 @@
     ))
 (define-char
   '((=>ucs*		. #x865C)	; 虜
-    (=>ucs-gb		. #x865C)	; 虜
+    (=>ucs@gb		. #x865C)	; 虜
     (=>ucs-jis		. #x865C)	; 虜
     (morohashi-daikanwa	32720 1 0)
     (ideographic-radical . 141)	; ⾌

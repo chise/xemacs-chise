@@ -12684,7 +12684,7 @@
     ))
 (define-char
   '((=>ucs*		. #x5B3E)	; 嬾
-    (=>ucs-gb		. #x5B3E)	; 嬾
+    (=>ucs@gb		. #x5B3E)	; 嬾
     (morohashi-daikanwa	6872 0 4)
     (ideographic-radical . 38)	; ⼥
     (ideographic-strokes . 16)
