@@ -990,7 +990,7 @@
       )
      ((ucs		  . #x4E00)	; ä¸€
       )
-     ((chinese-big5-cdp	  . #x8C57)	; ý¢€ˆ±—
+     ((ucs		  . #x5185)	; å†…
       ))
     (shinjigen-1	. 27)
     (shinjigen-2	. 27)
@@ -1931,7 +1931,7 @@
      ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
       (ucs		  . #x2FF1)	; â¿±
       )
-     ((chinese-big5-cdp	  . #x8B4B)	; ý¢€ˆ­‹
+     ((ucs		  . #x4491)	; ä’‘
       )
      ((ucs		  . #x4E1A)	; ä¸š
       ))
