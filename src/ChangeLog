@@ -1,3 +1,8 @@
+2001-11-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Fcharset_property): Return Qnil if CHARSET_FINAL
+	(cs) == 0.
+
 2001-11-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* text-coding.c (char_encode_big5): Prefer charset-g1 than
