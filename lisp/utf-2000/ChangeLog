@@ -1,4 +1,36 @@
+2003-12-30  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R091-Slice.el (U+724D): Add `total-strokes'.
+
+	* Ideograph-R087-Claw.el (U+7231): Add `total-strokes'.
+
+	* Ideograph-R084-Steam.el, Ideograph-R081-Compare.el: Add some
+	`total-strokes' features.
+
+	* Ideograph-R079-Weapon.el (U+6BC2): Add `total-strokes'.
+
+	* Ideograph-R078-Death.el: Add some `total-strokes' features.
+
+	* Ideograph-R076-Lack.el (U+6B5A): Add `total-strokes'.
+
+	* Ideograph-R073-Say.el (U+6702): Add `total-strokes'.
+
+	* Ideograph-R070-Square.el, Ideograph-R069-Axe.el,
+	Ideograph-R064-Hand.el: Add some `total-strokes' features.
+
+	* Ideograph-R046-Mountain.el (U+5D8E): Add `total-strokes'.
+
 2003-12-29  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R067-Script.el (U+6593): Add `total-strokes'.
+
+	* Ideograph-R062-Halberd.el: Add some `total-strokes' features.
+
+	* Ideograph-R053-Dotted-Cliff.el (U+5ECD): Add `total-strokes'.
+
+	* Ideograph-R032-Earth.el (U+580F): Add `total-strokes'.
+
+	* Ideograph-R018-Knife.el (U+528F): Add `total-strokes'.
 
 	* Ideograph-R061-Heart.el: Add some `total-strokes'.
 
