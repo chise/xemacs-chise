@@ -49,7 +49,7 @@
 	Ideograph-R010-Legs.el, Ideograph-R009-Man.el,
 	Ideograph-R003-Dot.el, Ideograph-R004-Slash.el,
 	Ideograph-R005-Second.el, Ideograph-R002-Line.el,
-	Ideograph-R001-One.el: Rename `=>ucs-cns' to `=>ucs@cns'.
+	Ideograph-R001-One.el: Rename `=ucs-cns' to `=ucs@cns'.
 
 2003-03-22  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
 
