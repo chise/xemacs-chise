@@ -471,6 +471,15 @@
 		  direction	l2r
 		  mother	=ucs@unicode))
   (define-charset-alias 'ucs-jis '=ucs@jis)
+  (make-charset '=ucs@jis/fw
+		"ISO/IEC 10646 for JIS X0208/0212/0213 with fullwidth"
+		'(long-name	"UCS for JIS-fullwidth"
+		  chars		256
+		  dimension	3
+		  columns	2
+		  graphic	2
+		  direction	l2r
+		  mother	=ucs@jis))
   (make-charset '=ucs@jis/1990
 		"ISO/IEC 10646 for JIS X 0208/0212:1990"
 		'(long-name	"UCS for JIS:1990"
