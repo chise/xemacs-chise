@@ -1,4 +1,58 @@
+2002-02-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R130-Meat.el (U+81A4): Use J0-6733 instead of M054669
+	as the link of `->same-ideograph'.
+
+2002-02-17  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R170-Mound.el (C5-232E): Unify U-00028E16.
+
+	* Ideograph-R109-Eye.el (C6-333D): Use `=>ucs*' instead of
+	`ideograph='; use `<-original-ideograph' instead of
+	`original-ideograph-of'.
+	(M023210): Use `=>ucs' instead of `->ucs'; add `=>ucs*' for
+	U-000250F2.
+
+	* Ideograph-R084-Steam.el (M050246): Use `=>ucs' instead of
+	`->ucs'; unify GT-21862.
+	(U+6C30): Delete `->mojikyo'.
+	(C2-3D2B): Likewise.
+
+	* Ideograph-R077-Stop.el (C6-232E): Don't unify U-00028E16; unify
+	H1-A6EA and U-00023944; add `ideographic-structure'.
+	(M016257): Map to U-00023944 instead of U-00028E16.
+
 2002-02-14  MORIOKA Tomohiko  <tomo@mousai.as.wakwak.ne.jp>
+
+	* Ideograph-R191-Fight.el (M050601): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R187-Horse.el (M068356): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R184-Eat.el (M044064): Use `=>ucs' instead of `->ucs'.
+
+	* Ideograph-R167-Gold.el (M059972): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R159-Cart.el (M086337): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R157-Foot.el (M057421): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R149-Speech.el (M050036): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R146-West.el (M034789): Use `=>ucs' instead of
+	`->ucs'.
+
+	* Ideograph-R144-Walk-Enclosure.el (M053307): Use `=>ucs' instead
+	of `->ucs'.
+
+	* Ideograph-R135-Tongue.el (C1-485F): Use U+820C instead of
+	M030277 as the link of `<-original-ideograph'.
+	(U+820D): Don't use char-ref in the `ideographic-structure'.
 
 	* Ideograph-R128-Ear.el (M029074): Use `=>ucs' instead of `->ucs'.
 
