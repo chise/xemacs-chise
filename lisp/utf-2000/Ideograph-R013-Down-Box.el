@@ -757,6 +757,7 @@
     (shinjigen-2	. 522)
     (ideograph-gt-pj-9	. #x3372)	; ý¡€€Ÿ©
     (chinese-big5	. #xD0E0)	; ý¢€ƒ 
+    (ideograph-gt-k	. 06707)	; ý¡„¨³
     (china3-jef		. #x43ED)	; øº„­
     (ideograph-gt	. 02025)	; ý¡€€Ÿ©
     ))
