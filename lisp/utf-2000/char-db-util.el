@@ -917,6 +917,7 @@
 	    (cond ((memq name '(ideograph-daikanwa-2
 				ideograph-daikanwa
 				ideograph-gt
+				ideograph-gt-k
 				ideograph-cbeta))
 		   (if has-long-ccs-name
 		       "(%-26s . %05d)\t; %c%s"
