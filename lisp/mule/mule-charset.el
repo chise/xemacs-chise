@@ -276,7 +276,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  cyrillic-iso8859-5
 	  greek-iso8859-7
 	  thai-tis620
-	  chinese-big5-cdp
 	  japanese-jisx0208
 	  japanese-jisx0208-1990
 	  japanese-jisx0212
@@ -285,6 +284,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  japanese-jisx0213-2
 	  japanese-jisx0208-1978
 	  chinese-gb2312
+	  chinese-big5-cdp
 	  chinese-cns11643-1
 	  chinese-cns11643-2
 	  chinese-cns11643-3
@@ -293,7 +293,7 @@ DESCRIPTION (string) is the description string of the charset."
 	  chinese-cns11643-6
 	  chinese-cns11643-7
 	  chinese-big5
-	  chinese-gb12345
+          ;; chinese-gb12345
 	  chinese-isoir165
 	  katakana-jisx0201
 	  hebrew-iso8859-8
@@ -305,17 +305,6 @@ DESCRIPTION (string) is the description string of the charset."
 	  ethiopic-ucs
 	  ethiopic
 	  ideograph-daikanwa
-	  ideograph-gt-pj-1
-	  ideograph-gt-pj-2
-	  ideograph-gt-pj-3
-	  ideograph-gt-pj-4
-	  ideograph-gt-pj-5
-	  ideograph-gt-pj-6
-	  ideograph-gt-pj-7
-	  ideograph-gt-pj-8
-	  ideograph-gt-pj-9
-	  ideograph-gt-pj-10
-	  ideograph-gt-pj-11
 	  ideograph-hanziku-1
 	  ideograph-hanziku-2
 	  ideograph-hanziku-3
@@ -331,9 +320,20 @@ DESCRIPTION (string) is the description string of the charset."
 	  arabic-digit
 	  arabic-1-column
 	  arabic-2-column
+	  ideograph-gt-pj-1
+	  ideograph-gt-pj-2
+	  ideograph-gt-pj-3
+	  ideograph-gt-pj-4
+	  ideograph-gt-pj-5
+	  ideograph-gt-pj-6
+	  ideograph-gt-pj-7
+	  ideograph-gt-pj-8
+	  ideograph-gt-pj-9
+	  ideograph-gt-pj-10
+	  ideograph-gt-pj-11
+	  ideograph-cbeta
 	  mojikyo
 	  china3-jef
-	  ideograph-cbeta
 ;;; 	  mojikyo-pj-1
 ;;; 	  mojikyo-pj-2
 ;;; 	  mojikyo-pj-3
