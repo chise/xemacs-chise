@@ -3360,9 +3360,8 @@ open_chise_data_source_maybe ()
       db_dir = Fexpand_file_name (build_string ("char-db"), db_dir);
 
       default_chise_data_source
-	= chise_open_data_source (CHISE_DS_Berkeley_DB,
-				  XSTRING_DATA (db_dir),
-				  DB_HASH, modemask);
+	= CHISE_DS_open (CHISE_DS_Berkeley_DB, XSTRING_DATA (db_dir),
+			 DB_HASH, modemask);
       if (default_chise_data_source == NULL)
 	return -1;
     }
@@ -3375,7 +3374,7 @@ Close data-source of CHISE.
        ())
 {
 #ifdef CHISE
-  int status = chise_ds_close (default_chise_data_source);
+  int status = CHISE_DS_close (default_chise_data_source);
 
   default_chise_data_source = NULL;
   if (status)
