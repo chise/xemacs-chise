@@ -363,12 +363,10 @@
 (define-char
   '((ideographic-radical . 17)	; â¼
     (ideographic-strokes . 4)
-    (kangxi-radical	 . 85)	; â½”
-    (kangxi-strokes	 . 2)
     (total-strokes	 . 6)
-    (non-morohashi	1822 9)
     (chinese-gb2312	. #x5B4A)	; ø»…›¹
     (chinese-isoir165	. #x5B4A)	; ø»Ž„‰
+    (china3-jef		. #x80AC)	; øºˆ‚¬
     (ucs		. #x51FC)	; å‡¼
     ))
 (define-char
@@ -632,6 +630,7 @@
     (total-strokes	 . 17)
     (chinese-cns11643-5 . #x5A75)	; ø»š¿®
     (ideograph-daikanwa . 01841)	; ø¸€œ±
+    (mojikyo		. 023906)	; ý €…µ¢
     (ucs		. #x25390)	; ð¥Ž
     ))
 (define-char
