@@ -1,3 +1,10 @@
+2000-01-27  MORIOKA Tomohiko  <tomo@m17n.org>
+
+	* mule-charset.c (charset_code_point): Moved to char-ucs.h.
+
+	* char-ucs.h (charset_code_point): Moved from mule-charset.c.
+	(ENCODE_CHAR): New macro.
+
 2000-01-26  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* mule-charset.c (vars_of_mule_charset): Update `utf-2000-version'
