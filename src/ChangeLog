@@ -1,3 +1,11 @@
+1999-10-19  MORIOKA Tomohiko  <tomo@etl.go.jp>
+
+	* mule-charset.c (Fmake_charset): Just use
+	`get_unallocated_leading_byte'.
+
+	* char-ucs.h (LEADING_BYTE_*): Use ISO-IR numbers for official
+	sets; don't use final-byte based number for private sets.
+
 1999-10-12  MORIOKA Tomohiko  <tomo@etl.go.jp>
 
 	* doprnt.c (emacs_doprnt_1): Fix problem with %0XXd for a negative
