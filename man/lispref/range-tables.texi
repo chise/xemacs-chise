@@ -36,37 +36,38 @@ Return non-@code{nil} if @var{object} is a range table.
 Make a new, empty range table.
 @end defun
 
-@defun copy-range-table old-table
-Make a new range table which contains the same values for the same
-ranges as the given table.  The values will not themselves be copied.
+@defun copy-range-table range-table
+This function returns a new range table which contains the same values
+for the same ranges as @var{range-table}.  The values will not
+themselves be copied.
 @end defun
 
 @node Working With Range Tables
 @section Working With Range Tables
 
-@defun get-range-table pos table &optional default
-This function finds value for position @var{pos} in @var{table}.  If
-there is no corresponding value, return @var{default} (defaults to
+@defun get-range-table pos range-table &optional default
+This function finds value for position @var{pos} in @var{range-table}.
+If there is no corresponding value, return @var{default} (defaults to
 @code{nil}).
 @end defun
 
-@defun put-range-table start end val table
+@defun put-range-table start end value range-table
 This function sets the value for range (@var{start}, @var{end}) to be
-@var{val} in @var{table}.
+@var{value} in @var{range-table}.
 @end defun
 
-@defun remove-range-table start end table
+@defun remove-range-table start end range-table
 This function removes the value for range (@var{start}, @var{end}) in
-@var{table}.
+@var{range-table}.
 @end defun
 
-@defun clear-range-table table
-This function flushes @var{table}.
+@defun clear-range-table range-table
+This function flushes @var{range-table}.
 @end defun
 
-@defun map-range-table function table
-This function maps @var{function} over entries in @var{table}, calling
-it with three args, the beginning and end of the range and the
+@defun map-range-table function range-table
+This function maps @var{function} over entries in @var{range-table},
+calling it with three args, the beginning and end of the range and the
 corresponding value.
 @end defun
 

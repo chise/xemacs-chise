@@ -226,7 +226,7 @@ Set the current horizontal position as a goal for C-n and C-p.
 @group
 Those commands will move to this position in the line moved to
 rather than trying to keep the same horizontal position.
-With a non-nil argument, clears out the goal column
+With a non-@code{nil} argument, clears out the goal column
 so that C-n and C-p resume vertical motion.
 The goal column is stored in the variable `goal-column'.
 @end group
@@ -359,14 +359,14 @@ C-g             abort-recursive-edit
 @group
 (substitute-command-keys
   "Substrings of the form \\=\\@{MAPVAR@} are replaced by summaries
-\(made by describe-bindings) of the value of MAPVAR, taken as a keymap.
+\(made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
 Substrings of the form \\=\\<MAPVAR> specify to use the value of MAPVAR
 as the keymap for future \\=\\[COMMAND] substrings.
 \\=\\= quotes the following character and is discarded;
 thus, \\=\\=\\=\\= puts \\=\\= into the output,
 and \\=\\=\\=\\[ puts \\=\\[ into the output.")
 @result{} "Substrings of the form \@{MAPVAR@} are replaced by summaries
-(made by describe-bindings) of the value of MAPVAR, taken as a keymap.
+(made by `describe-bindings') of the value of MAPVAR, taken as a keymap.
 Substrings of the form \<MAPVAR> specify to use the value of MAPVAR
 as the keymap for future \[COMMAND] substrings.
 \= quotes the following character and is discarded;
@@ -606,12 +606,12 @@ help character, and the help character has no binding after that prefix.
 The variable's default value is @code{describe-prefix-bindings}.
 @end defvar
 
-@defun describe-prefix-bindings
+@deffn Command describe-prefix-bindings
 This function calls @code{describe-bindings} to display a list of all
 the subcommands of the prefix key of the most recent key sequence.  The
 prefix described consists of all but the last event of that key
 sequence.  (The last event is, presumably, the help character.)
-@end defun
+@end deffn
 
   The following two functions are found in the library @file{helper}.
 They are for modes that want to provide help without relinquishing
@@ -676,7 +676,7 @@ users of that function should be told to use the newer one instead.
 XEmacs Lisp lets you mark a function or variable as @dfn{obsolete},
 and indicate what should be used instead.
 
-@defun make-obsolete function new
+@deffn Command make-obsolete function new
 This function indicates that @var{function} is an obsolete function,
 and the function @var{new} should be used instead.  The byte compiler
 will issue a warning to this effect when it encounters a usage of the
@@ -685,11 +685,11 @@ documentation.  @var{new} can also be a string (if there is not a single
 function with the same functionality any more), and should be a descriptive
 statement, such as "use @var{foo} or @var{bar} instead" or "this function is
 unnecessary".
-@end defun
+@end deffn
 
-@defun make-obsolete-variable variable new
+@deffn Command make-obsolete-variable variable new
 This is like @code{make-obsolete} but is for variables instead of functions.
-@end defun
+@end deffn
 
 @defun define-obsolete-function-alias oldfun newfun
 This function combines @code{make-obsolete} and @code{define-function},

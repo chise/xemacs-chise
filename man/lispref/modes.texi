@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/modes.info
 @node Modes, Documentation, Drag and Drop, Top
@@ -79,7 +79,7 @@ Fundamental mode.  Rmail mode is a complicated and specialized mode.
 * Example Major Modes::     Text mode and Lisp modes.
 * Auto Major Mode::         How XEmacs chooses the major mode automatically.
 * Mode Help::               Finding out how to use a mode.
-* Derived Modes::           Defining a new major mode based on another major 
+* Derived Modes::           Defining a new major mode based on another major
                               mode.
 @end menu
 
@@ -249,7 +249,7 @@ the conventions listed above:
 @smallexample
 @group
 ;; @r{Create mode-specific tables.}
-(defvar text-mode-syntax-table nil 
+(defvar text-mode-syntax-table nil
   "Syntax table used while in text mode.")
 @end group
 
@@ -285,7 +285,7 @@ the conventions listed above:
 @smallexample
 @group
 (defun text-mode ()
-  "Major mode for editing text intended for humans to read. 
+  "Major mode for editing text intended for humans to read.
  Special commands: \\@{text-mode-map@}
 @end group
 @group
@@ -315,7 +315,7 @@ correspondingly more complicated.  Here are excerpts from
 @smallexample
 @group
 ;; @r{Create mode-specific table variables.}
-(defvar lisp-mode-syntax-table nil "")  
+(defvar lisp-mode-syntax-table nil "")
 (defvar emacs-lisp-mode-syntax-table nil "")
 (defvar lisp-mode-abbrev-table nil "")
 @end group
@@ -331,7 +331,7 @@ correspondingly more complicated.  Here are excerpts from
       ;; @r{Set syntax of chars up to 0 to class of chars that are}
       ;;   @r{part of symbol names but not words.}
       ;;   @r{(The number 0 is @code{48} in the @sc{ascii} character set.)}
-      (while (< i ?0) 
+      (while (< i ?0)
         (modify-syntax-entry i "_   " emacs-lisp-mode-syntax-table)
         (setq i (1+ i)))
       @dots{}
@@ -432,7 +432,7 @@ set up.  This lets the user customize the keymap.
 
 @smallexample
 @group
-(defvar emacs-lisp-mode-map () "") 
+(defvar emacs-lisp-mode-map () "")
 (if emacs-lisp-mode-map
     ()
   (setq emacs-lisp-mode-map (make-sparse-keymap))
@@ -442,7 +442,7 @@ set up.  This lets the user customize the keymap.
 @end smallexample
 
   Finally, here is the complete major mode function definition for
-Emacs Lisp mode.  
+Emacs Lisp mode.
 
 @smallexample
 @group
@@ -545,7 +545,7 @@ the @samp{mode:} local variable near the end of a file; the
 How Major Modes are Chosen, emacs, The XEmacs Reference Manual}.
 @end defun
 
-@defopt default-major-mode 
+@defopt default-major-mode
   This variable holds the default major mode for new buffers.  The
 standard value is @code{fundamental-mode}.
 
@@ -593,7 +593,7 @@ For example,
 @end group
 @group
  ("\\.el\\'" . emacs-lisp-mode)
- ("\\.c\\'" . c-mode) 
+ ("\\.c\\'" . c-mode)
  ("\\.h\\'" . c-mode)
  @dots{})
 @end group
@@ -621,11 +621,11 @@ Here is an example of how to prepend several pattern pairs to
 @smallexample
 @group
 (setq auto-mode-alist
-  (append 
+  (append
    ;; @r{File name starts with a dot.}
-   '(("/\\.[^/]*\\'" . fundamental-mode)  
+   '(("/\\.[^/]*\\'" . fundamental-mode)
      ;; @r{File name has no dot.}
-     ("[^\\./]*\\'" . fundamental-mode)   
+     ("[^\\./]*\\'" . fundamental-mode)
      ;; @r{File name ends in @samp{.C}.}
      ("\\.C\\'" . c++-mode))
    auto-mode-alist))
@@ -697,7 +697,7 @@ This construct defines @var{variant} as a major mode command, using
 The new command @var{variant} is defined to call the function
 @var{parent}, then override certain aspects of that parent mode:
 
-@itemize @bullet 
+@itemize @bullet
 @item
 The new mode has its own keymap, named @code{@var{variant}-map}.
 @code{define-derived-mode} initializes this map to inherit from
@@ -706,25 +706,25 @@ The new mode has its own keymap, named @code{@var{variant}-map}.
 @item
 The new mode has its own syntax table, kept in the variable
 @code{@var{variant}-syntax-table}.
-@code{define-derived-mode} initializes this variable by copying 
+@code{define-derived-mode} initializes this variable by copying
 @code{@var{parent}-syntax-table}, if it is not already set.
 
 @item
 The new mode has its own abbrev table, kept in the variable
 @code{@var{variant}-abbrev-table}.
-@code{define-derived-mode} initializes this variable by copying 
+@code{define-derived-mode} initializes this variable by copying
 @code{@var{parent}-abbrev-table}, if it is not already set.
 
 @item
 The new mode has its own mode hook, @code{@var{variant}-hook},
 which it runs in standard fashion as the very last thing that it does.
-(The new mode also runs the mode hook of @var{parent} as part 
+(The new mode also runs the mode hook of @var{parent} as part
 of calling @var{parent}.)
 @end itemize
 
 In addition, you can specify how to override other aspects of
 @var{parent} with @var{body}.  The command @var{variant}
-evaluates the forms in @var{body} after setting up all its usual 
+evaluates the forms in @var{body} after setting up all its usual
 overrides, just before running @code{@var{variant}-hook}.
 
 The argument @var{docstring} specifies the documentation string for the
@@ -1028,18 +1028,18 @@ directory.
 (setq modeline-format
   (list ""
    'modeline-modified
-   "%b--" 
+   "%b--"
 @end group
    (getenv "HOST")      ; @r{One element is not constant.}
-   ":" 
+   ":"
    'default-directory
    "   "
    'global-mode-string
    "   %[("
-   'mode-name 
-   'modeline-process  
-   'minor-mode-alist 
-   "%n" 
+   'mode-name
+   'modeline-process
+   'minor-mode-alist
+   "%n"
    ")%]----"
 @group
    '(line-number-mode "L%l--")
@@ -1120,9 +1120,9 @@ The default value of @code{minor-mode-alist} is:
 @group
 minor-mode-alist
 @result{} ((vc-mode vc-mode)
-    (abbrev-mode " Abbrev") 
-    (overwrite-mode overwrite-mode) 
-    (auto-fill-function " Fill")         
+    (abbrev-mode " Abbrev")
+    (overwrite-mode overwrite-mode)
+    (auto-fill-function " Fill")
     (defining-kbd-macro " Def")
     (isearch-mode isearch-mode))
 @end group
@@ -1158,12 +1158,12 @@ The default value of @code{default-modeline-format} is:
  "   "
  global-mode-string
  "   %[("
- mode-name 
+ mode-name
 @end group
 @group
  modeline-process
- minor-mode-alist 
- "%n" 
+ minor-mode-alist
+ "%n"
  ")%]----"
  (line-number-mode "L%l--")
  (-3 . "%p")
@@ -1294,7 +1294,7 @@ up in the @file{.emacs} file, but Lisp programs can set them also.
   Most of the hooks in XEmacs are @dfn{normal hooks}.  These variables
 contain lists of functions to be called with no arguments.  The reason
 most hooks are normal hooks is so that you can use them in a uniform
-way.  You can usually tell when a hook is a normal hook, because its 
+way.  You can usually tell when a hook is a normal hook, because its
 name ends in @samp{-hook}.
 
   The recommended way to add a hook function to a normal hook is by
@@ -1333,7 +1333,7 @@ expression.
 @cindex lambda expression in hook
 @example
 @group
-(add-hook 'c-mode-hook 
+(add-hook 'c-mode-hook
   (function (lambda ()
               (setq c-indent-level 4
                     c-argdecl-indent 0
@@ -1358,17 +1358,17 @@ modified for a particular class of buffers only.
               (setq modeline-format
                     '(modeline-modified
                       "Emacs: %14b"
-                      "  "  
+                      "  "
 @end group
 @group
                       default-directory
                       " "
                       global-mode-string
-                      "%[(" 
-                      mode-name 
-                      minor-mode-alist 
-                      "%n" 
-                      modeline-process  
+                      "%[("
+                      mode-name
+                      minor-mode-alist
+                      "%n"
+                      modeline-process
                       ") %]---"
                       (-3 . "%p")
                       "-%-")))))
@@ -1440,7 +1440,7 @@ difference.
 @end defun
 
 @defun make-local-hook hook
-This function makes the hook variable @code{hook} local to the current
+This function makes the hook variable @var{hook} local to the current
 buffer.  When a hook variable is local, it can have local and global
 hook functions, and @code{run-hooks} runs all of them.
 

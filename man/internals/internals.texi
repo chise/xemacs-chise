@@ -1813,7 +1813,7 @@ Lisp lists are popular data structures in the C code as well as in
 Elisp.  There are two sets of macros that iterate over lists.
 @code{EXTERNAL_LIST_LOOP_@var{n}} should be used when the list has been
 supplied by the user, and cannot be trusted to be acyclic and
-nil-terminated.  A @code{malformed-list} or @code{circular-list} error
+@code{nil}-terminated.  A @code{malformed-list} or @code{circular-list} error
 will be generated if the list being iterated over is not entirely
 kosher.  @code{LIST_LOOP_@var{n}}, on the other hand, is faster and less
 safe, and can be used only on trusted lists.
@@ -4810,7 +4810,7 @@ for example @code{or}, @code{and}, @code{if}, @code{cond}, @code{while},
 @code{setq}, etc., miscellaneous @code{gui_item_...} functions,
 everything related to @code{eval} (@code{Feval_buffer}, @code{call0},
 ...) and inside @code{Fsignal}. The latter is used to handle signals, as
-for example the ones raised by every @code{QUITE}-macro triggered after
+for example the ones raised by every @code{QUIT}-macro triggered after
 pressing Ctrl-g.
 
 @node garbage_collect_1, mark_object, Invocation, Garbage Collection - Step by Step
@@ -5390,7 +5390,7 @@ A @dfn{mark} method.  This is called during the marking stage and passed
 a function pointer (usually the @code{mark_object()} function), which is
 used to mark an object.  All Lisp objects that are contained within the
 object need to be marked by applying this function to them.  The mark
-method should also return a Lisp object, which should be either nil or
+method should also return a Lisp object, which should be either @code{nil} or
 an object to mark. (This can be used in lieu of calling
 @code{mark_object()} on the object, to reduce the recursion depth, and
 consequently should be the most heavily nested sub-object, such as a
@@ -8113,7 +8113,7 @@ All windows have three fields governing their contents:
 these are @dfn{hchild} (a list of horizontally-arrayed children),
 @dfn{vchild} (a list of vertically-arrayed children), and @dfn{buffer}
 (the buffer contained in a leaf window).  Exactly one of
-these will be non-nil.  Remember that @dfn{horizontally-arrayed}
+these will be non-@code{nil}.  Remember that @dfn{horizontally-arrayed}
 means ``side-by-side'' and @dfn{vertically-arrayed} means
 @dfn{one above the other}.
 
@@ -8121,7 +8121,7 @@ means ``side-by-side'' and @dfn{vertically-arrayed} means
 Leaf windows also have markers in their @code{start} (the
 first buffer position displayed in the window) and @code{pointm}
 (the window's stashed value of @code{point}---see above) fields,
-while combination windows have nil in these fields.
+while combination windows have @code{nil} in these fields.
 
 @item
 The list of children for a window is threaded through the
@@ -8531,7 +8531,7 @@ generalized to handle integers and linked list equally well).
 @section Zero-Length Extents
 
   Extents can be zero-length, and will end up that way if their endpoints
-are explicitly set that way or if their detachable property is nil
+are explicitly set that way or if their detachable property is @code{nil}
 and all the text in the extent is deleted. (The exception is open-open
 zero-length extents, which are barred from existing because there is
 no sensible way to define their properties.  Deletion of the text in

@@ -51,11 +51,11 @@ If WINDOW is nil, the selected window is used."
   (when (null n)
     (redraw-frame (window-frame window) t)))
 
-(defun backward-other-window (arg &optional all-frames device)
-  "Select the ARG'th different window on this frame, going backwards.
-This is just like calling `other-window' with the arg negated."
+(defun backward-other-window (count &optional which-frames which-devices)
+  "Select the COUNT'th different window on this frame, going backwards.
+This is just like calling `other-window' with COUNT negated."
   (interactive "p")
-  (other-window (- arg) all-frames device))
+  (other-window (- count) which-frames which-devices))
 
 (defalias 'windows-of-buffer 'get-buffer-window-list)
 

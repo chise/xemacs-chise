@@ -104,7 +104,7 @@ typedef struct _widget_args
   ArgList args;
   int	nargs;
   /* Copying args is impossible so we make the caller give us heap allocated
-     args and free them when on-one wants them any more. */
+     args and free them when no one wants them any more. */
   int	ref_count;
 } widget_args;
 
@@ -115,7 +115,7 @@ typedef struct _widget_value
 
   /* name of widget */
   char*		name;
-  /* value (meaning BOGUSLY depend on widget type) */
+  /* value (meaning BOGUSLY depends on widget type) */
   char*		value;
   /* keyboard equivalent. no implications for XtTranslations */
   char*		key;
@@ -134,11 +134,11 @@ typedef struct _widget_value
   Boolean	edited;
   /* true if has changed (maintained by lw library) */
   change_type	change;
-  /* Contents of the sub-widgets, also selected slot for checkbox */
+  /* Contents of sub-widgets, also selected slot for checkbox */
   struct _widget_value*	contents;
   /* data passed to callback */
   XtPointer	call_data;
-  /* next one in the list */
+  /* next in the list of siblings */
   struct _widget_value*	next;
   /* slot for the toolkit dependent part.  Always initialize to NULL. */
   void* toolkit_data;

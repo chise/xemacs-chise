@@ -1085,12 +1085,13 @@ Deletes lines which match PATTERN."
 	       nil
 	     (forward-char 3)
 	     (read (point-marker))))
-	  ((and
-	    (eq major-mode 'hyper-apropos-help-mode)
-	    (> (point) (point-min)))
-	   (save-excursion
-	     (goto-char (point-min))
-	     (hyper-apropos-this-symbol)))
+	  ;; What's this?  This ends up in the same symbol already described.
+;;	  ((and
+;;	    (eq major-mode 'hyper-apropos-help-mode)
+;;	    (> (point) (point-min)))
+;;	   (save-excursion
+;;	     (goto-char (point-min))
+;;	     (hyper-apropos-this-symbol)))
 	  (t
 	   (let* ((st (progn
 			(skip-syntax-backward "w_")

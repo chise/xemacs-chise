@@ -409,7 +409,7 @@ update_scrollbar_instance (struct window *w, int vertical,
   int new_minimum = -1, new_maximum = -1;
   int new_slider_size = -1, new_slider_position = -1;
   int new_width = -1, new_height = -1, new_x = -1, new_y = -1;
-  struct window *new_window = 0;	/* kludge city */
+  struct window *new_window = 0; /* #### currently unused */
 
   end_pos = BUF_Z (b) - w->window_end_pos[CURRENT_DISP];
   sb_pos = scrollbar_point (w, 0);
@@ -953,7 +953,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, scrollbar_width),
 			 vertical_scrollbar_changed_in_window,
 			 offsetof (struct frame, scrollbar_width),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 
   DEFVAR_SPECIFIER ("scrollbar-height", &Vscrollbar_height /*
 *Height of horizontal scrollbars.
@@ -967,7 +967,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, scrollbar_height),
 			 some_window_value_changed,
 			 offsetof (struct frame, scrollbar_height),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 
   DEFVAR_SPECIFIER ("horizontal-scrollbar-visible-p", &Vhorizontal_scrollbar_visible_p /*
 *Whether the horizontal scrollbar is visible.
@@ -982,7 +982,7 @@ This is a specifier; use `set-specifier' to change it.
 			 some_window_value_changed,
 			 offsetof (struct frame,
 				   horizontal_scrollbar_visible_p),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 
   DEFVAR_SPECIFIER ("vertical-scrollbar-visible-p", &Vvertical_scrollbar_visible_p /*
 *Whether the vertical scrollbar is visible.
@@ -997,7 +997,7 @@ This is a specifier; use `set-specifier' to change it.
 			 vertical_scrollbar_changed_in_window,
 			 offsetof (struct frame,
 				   vertical_scrollbar_visible_p),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 
   DEFVAR_SPECIFIER ("scrollbar-on-left-p", &Vscrollbar_on_left_p /*
 *Whether the vertical scrollbar is on the left side of window or frame.
@@ -1023,7 +1023,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, scrollbar_on_left_p),
 			 vertical_scrollbar_changed_in_window,
 			 offsetof (struct frame, scrollbar_on_left_p),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 
   DEFVAR_SPECIFIER ("scrollbar-on-top-p", &Vscrollbar_on_top_p /*
 *Whether the horizontal scrollbar is on the top side of window or frame.
@@ -1036,7 +1036,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, scrollbar_on_top_p),
 			 some_window_value_changed,
 			 offsetof (struct frame, scrollbar_on_top_p),
-			 frame_size_slipped);
+			 frame_size_slipped, 0);
 }
 
 void
@@ -1047,5 +1047,5 @@ complex_vars_of_scrollbar (void)
   set_specifier_caching (XGLYPH (Vscrollbar_pointer_glyph)->image,
 			 offsetof (struct window, scrollbar_pointer),
 			 scrollbar_pointer_changed_in_window,
-			 0, 0);
+			 0, 0, 0);
 }

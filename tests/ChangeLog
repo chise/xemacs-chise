@@ -1,3 +1,39 @@
+2000-11-14  Martin Buchholz <martin@xemacs.org>
+
+	* XEmacs 21.2.37 is released.
+
+2000-11-09  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/lisp-test.el: More format tests.
+
+2000-11-10  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/ccl-tests.el (ccl-test-simple-read-and-write):
+	(ccl-test-read-write-multibyte-character): Use make-char
+	for non MULE XEmacs.
+
+2000-10-15  MIYASHITA Hisashi <himi@m17n.org>
+
+	* automated/ccl-tests.el: New file.
+
+2000-10-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/lisp-test.el: Add test for format.
+
+2000-10-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/byte-compiler-test.el: Add optimization test for
+	byte-after-unbind-ops.
+
+2000-10-13  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/hash-table-test.el: Make new cons cell for
+	equal and not eq object.
+
+2000-10-03  Yoshiki Hayashi  <yoshiki@xemacs.org>
+
+	* automated/lisp-test.el: Add replace-match test.
+
 2000-10-04  Martin Buchholz <martin@xemacs.org>
 
 	* XEmacs 21.2.36 is released.

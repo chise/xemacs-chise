@@ -45,7 +45,7 @@
 
 (defun open-multicast-group (name buffer address)
   "Open a multicast connection on the specified address.
-Returns a subprocess-object to represent the connection.
+Returns a process object to represent the connection.
 Input and output work as for subprocesses; `delete-process' closes it.
 Args are NAME BUFFER ADDRESS.
 NAME is a name for the process. It is modified if necessary to make it unique.

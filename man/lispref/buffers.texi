@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/buffers.info
 @node Buffers, Windows, Backups and Auto-Saving, Top
@@ -13,7 +13,7 @@ also be buffers that are not visiting files.  While several buffers may
 exist at one time, exactly one buffer is designated the @dfn{current
 buffer} at any time.  Most editing commands act on the contents of the
 current buffer.  Each buffer, including the current buffer, may or may
-not be displayed in any windows.
+not be displayed in any window.
 
 @menu
 * Buffer Basics::       What is a buffer?
@@ -134,7 +134,7 @@ original buffer.  Next, @code{set-buffer} makes another buffer current.
 Finally, @code{insert-buffer-substring} copies the string from the
 original current buffer to the new current buffer.
 
-  If the buffer appended to happens to be displayed in some window, 
+  If the buffer appended to happens to be displayed in some window,
 the next redisplay will show how its text has changed.  Otherwise, you
 will not see the change immediately on the screen.  The buffer becomes
 current temporarily during the execution of the command, but this does
@@ -194,9 +194,9 @@ not display the buffer in the currently selected window or in any other
 window, so the user cannot necessarily see the buffer.  But Lisp
 programs can in any case work on it.
 
-This function returns the buffer identified by @var{buffer-or-name}.
-An error is signaled if @var{buffer-or-name} does not identify an
-existing buffer.
+@var{buffer-or-name} must be a buffer or the name of an existing
+buffer--else an error is signaled.  This function returns the buffer
+identified by @var{buffer-or-name}.
 @end defun
 
 @node Buffer Names
@@ -265,11 +265,11 @@ buffer under the name @samp{*shell*}.
 @end deffn
 
 @defun get-buffer buffer-or-name
-This function returns the buffer specified by @var{buffer-or-name}.
-If @var{buffer-or-name} is a string and there is no buffer with that
-name, the value is @code{nil}.  If @var{buffer-or-name} is a buffer, it
-is returned as given.  (That is not very useful, so the argument is usually 
-a name.)  For example:
+This function returns the buffer named @var{buffer-or-name}.  If
+@var{buffer-or-name} is a string and there is no buffer with that name,
+the value is @code{nil}.  If @var{buffer-or-name} is actually a buffer,
+it is returned as given.  (That is not very useful, so the argument is
+usually a name.)  For example:
 
 @example
 @group
@@ -289,8 +289,6 @@ a name.)  For example:
 See also the function @code{get-buffer-create} in @ref{Creating Buffers}.
 @end defun
 
-@c Emacs 19 feature
-@c IGNORE is only in XEmacs
 @defun generate-new-buffer-name starting-name &optional ignore
 This function returns a name that would be unique for a new buffer---but
 does not create the buffer.  It starts with @var{starting-name}, and
@@ -443,9 +441,10 @@ otherwise.  If @var{buffer} is not supplied, the current buffer
 is tested.
 @end defun
 
-@defun set-buffer-modified-p flag
-This function marks the current buffer as modified if @var{flag} is
+@defun set-buffer-modified-p flag &optional buffer
+This function marks @var{buffer} as modified if @var{flag} is
 non-@code{nil}, or as unmodified if the flag is @code{nil}.
+@var{buffer} defaults to the current buffer.
 
 Another effect of calling this function is to cause unconditional
 redisplay of the modeline for the current buffer.  In fact, the
@@ -477,7 +476,7 @@ counter that increments every time the buffer is modified.  If
 @node Modification Time
 @section Comparison of Modification Time
 @cindex comparison of modification time
-@cindex modification time, comparison of 
+@cindex modification time, comparison of
 
   Suppose that you visit a file and make changes in its buffer, and
 meanwhile the file itself is changed on disk.  At this point, saving the
@@ -545,7 +544,7 @@ some other program has probably altered the file.
 Depending on the user's answer, the function may return normally, in
 which case the modification of the buffer proceeds, or it may signal a
 @code{file-supersession} error with data @code{(@var{filename})}, in which
-case the proposed buffer modification is not allowed.  
+case the proposed buffer modification is not allowed.
 
 This function is called automatically by XEmacs on the proper
 occasions.  It exists so you can customize XEmacs by redefining it.
@@ -560,7 +559,7 @@ See also the file locking mechanism in @ref{File Locks}.
 @cindex buffer, read-only
 
   If a buffer is @dfn{read-only}, then you cannot change its contents,
-although you may change your view of the contents by scrolling and 
+although you may change your view of the contents by scrolling and
 narrowing.
 
   Read-only buffers are used in two kinds of situations:
@@ -601,18 +600,35 @@ properties have no effect.  If @code{inhibit-read-only} is a list, then
 of the list (comparison is done with @code{eq}).
 @end defvar
 
-@deffn Command toggle-read-only
-This command changes whether the current buffer is read-only.  It is
-intended for interactive use; don't use it in programs.  At any given
-point in a program, you should know whether you want the read-only flag
-on or off; so you can set @code{buffer-read-only} explicitly to the
-proper value, @code{t} or @code{nil}.
+@deffn Command toggle-read-only &optional arg
+This command changes whether the current buffer is read-only.
+Interactively, if a prefix arg @var{arg} is supplied, set the current
+buffer read only if and only if @var{arg} is positive.
+
+This command is intended for interactive use only; don't use it in
+programs.  At any given point in a program, you should know whether you
+want the read-only flag on or off; so you can set
+@code{buffer-read-only} explicitly to the proper value, @code{t} or
+@code{nil}.
 @end deffn
 
-@defun barf-if-buffer-read-only
-This function signals a @code{buffer-read-only} error if the current
-buffer is read-only.  @xref{Interactive Call}, for another way to
-signal an error if the current buffer is read-only.
+@defun barf-if-buffer-read-only &optional buffer start end
+This function signals a @code{buffer-read-only} error if @var{buffer} is
+read-only.  @var{buffer} defaults to the current buffer.
+@xref{Interactive Call}, for another way to signal an error if the
+current buffer is read-only.
+
+If optional argument @var{start} is non-@code{nil}, all extents in the
+buffer which overlap that part of the buffer are checked to ensure none
+has a @code{read-only} property. (Extents that lie completely within the
+range, however, are not checked.)  @var{end} defaults to the value of
+@var{start}.
+
+If @var{start} and @var{end} are equal, the range checked is
+[@var{start}, @var{end}] (i.e.  closed on both ends); otherwise, the
+range checked is (@var{start}, @var{end}) \(open on both ends), except
+that extents that lie completely within [@var{start}, @var{end}] are not
+checked.  See @code{extent-in-region-p} for a fuller discussion.
 @end defun
 
 @node The Buffer List
@@ -656,7 +672,7 @@ global, non-frame ordering is returned instead.
 ;; @r{Note that the name of the minibuffer}
 ;;   @r{begins with a space!}
 (mapcar (function buffer-name) (buffer-list))
-    @result{} ("buffers.texi" " *Minibuf-1*" 
+    @result{} ("buffers.texi" " *Minibuf-1*"
         "buffer.c" "*Help*" "TAGS")
 @end group
 @end example
@@ -698,7 +714,6 @@ If no suitable buffer exists, the buffer @samp{*scratch*} is returned
 
 Note that in FSF Emacs 19, there is no @var{frame} argument, and
 @var{visible-ok} is the second argument instead of the third.
-FSF Emacs 19.
 @end defun
 
 @deffn Command list-buffers &optional files-only
@@ -709,7 +724,7 @@ intended for interactive use, and is described fully in @cite{The XEmacs
 Reference Manual}.  It returns @code{nil}.
 @end deffn
 
-@deffn Command bury-buffer &optional buffer-or-name
+@deffn Command bury-buffer &optional buffer-or-name before
 This function puts @var{buffer-or-name} at the end of the buffer list
 without changing the order of any of the other buffers on the list.
 This buffer therefore becomes the least desirable candidate for
@@ -821,16 +836,17 @@ buffers, the indirect buffers are automatically killed as well.
 whether a buffer has been killed, you can either use this feature
 or the function @code{buffer-live-p}.
 
-@defun buffer-live-p buffer
-This function returns @code{nil} if @var{buffer} is deleted, and
-@code{t} otherwise.
+@defun buffer-live-p object
+This function returns @code{t} if @var{object} is an editor buffer that
+has not been deleted, @code{nil} otherwise.
 @end defun
 
 @deffn Command kill-buffer buffer-or-name
 This function kills the buffer @var{buffer-or-name}, freeing all its
 memory for use as space for other buffers.  (Emacs version 18 and older
 was unable to return the memory to the operating system.)  It returns
-@code{nil}.
+@code{nil}.  The argument @var{buffer-or-name} may be a buffer or the
+name of one.
 
 Any processes that have this buffer as the @code{process-buffer} are
 sent the @code{SIGHUP} signal, which normally causes them to terminate.
@@ -917,7 +933,7 @@ the base buffer kills all its indirect children.
 This creates an indirect buffer named @var{name} whose base buffer
 is @var{base-buffer}.  The argument @var{base-buffer} may be a buffer
 or a string.
- 
+
 If @var{base-buffer} is an indirect buffer, its base buffer is used as
 the base for the new buffer.
 
@@ -946,7 +962,7 @@ not supplied, it defaults to the current buffer.
 @defun buffer-indirect-children &optional buffer
 This function returns a list of all indirect buffers whose base buffer
 is @var{buffer}.  If @var{buffer} is indirect, the return value will
-always be nil; see @code{make-indirect-buffer}.  If @var{buffer} is not
+always be @code{nil}; see @code{make-indirect-buffer}.  If @var{buffer} is not
 supplied, it defaults to the current buffer.
 
 @example

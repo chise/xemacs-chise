@@ -38,17 +38,16 @@
   "Registry and encoding to use with font menu fonts.")
 
 (defvar x-fonts-menu-junk-families
-  (purecopy
-   (mapconcat
-    #'identity
-    '("cursor" "glyph" "symbol"	; Obvious losers.
-      "\\`Ax...\\'"		; FrameMaker fonts - there are just way too
+  (mapconcat
+   #'identity
+   '("cursor" "glyph" "symbol"	; Obvious losers.
+     "\\`Ax...\\'"		; FrameMaker fonts - there are just way too
 				;  many of these, and there is a different
 				;  font family for each font face!  Losers.
 				;  "Axcor" -> "Applix Courier Roman",
 				;  "Axcob" -> "Applix Courier Bold", etc.
-      )
-    "\\|"))
+     )
+   "\\|")
   "A regexp matching font families which are uninteresting (e.g. cursor fonts).")
 
 (defun hack-font-truename (fn)

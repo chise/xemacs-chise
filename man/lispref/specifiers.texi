@@ -478,7 +478,7 @@ In many circumstances, the higher-level function @code{set-specifier} is
 more convenient and should be used instead.
 @end defun
 
-@deffn Macro let-specifier specifier-list &rest body
+@defspec let-specifier specifier-list &rest body
 This special form temporarily adds specifications to specifiers,
 evaluates forms in @var{body} and restores the specifiers to their
 previous states.  The specifiers and their temporary specifications are
@@ -516,9 +516,9 @@ selected window for the duration of a second:
 (let-specifier ((modeline-shadow-thickness 0 (selected-window)))
   (sit-for 1))
 @end example
-@end deffn
+@end defspec
 
-@defun set-specifier specifier value &optional how-to-add
+@defun set-specifier specifier value &optional locale tag-set how-to-add
 This function adds some specifications to @var{specifier}.  @var{value}
 can be a single instantiator or tagged instantiator (added as a global
 specification), a list of tagged and/or untagged instantiators (added as
@@ -527,7 +527,8 @@ and instantiator list, a list of such conses, or nearly any other
 reasonable form.  More specifically, @var{value} can be anything
 accepted by @code{canonicalize-spec-list}.
 
-@var{how-to-add} is the same as in @code{add-spec-to-specifier}.
+@var{locale}, @var{tag-set}, and @var{how-to-add} are the same as in
+@code{add-spec-to-specifier}.
 
 Note that @code{set-specifier} is exactly complementary to
 @code{specifier-specs} except in the case where @var{specifier} has no
@@ -626,7 +627,7 @@ If @var{locale} is a particular locale (a window, buffer, frame, device,
 or the symbol @code{global}), a spec-list consisting of the
 specification for that locale will be returned.
 
-If @var{locale} is a locale type (i.e. a symbol @code{window},
+If @var{locale} is a locale type (i.e. one of the symbols @code{window},
 @code{buffer}, @code{frame}, or @code{device}), a spec-list of the
 specifications for all locales of that type will be returned.
 
@@ -639,7 +640,7 @@ on each element of the list and the results concatenated together.
 
 Only instantiators where @var{tag-set} (a list of zero or more tags) is
 a subset of (or possibly equal to) the instantiator's tag set are
-returned.  (The default value of@code{ nil} is a subset of all tag sets,
+returned.  (The default value of @code{nil} is a subset of all tag sets,
 so in this case no instantiators will be screened out.) If @var{exact-p}
 is non-@code{nil}, however, @var{tag-set} must be equal to an
 instantiator's tag set for the instantiator to be returned.
@@ -922,8 +923,8 @@ whose value can be per-buffer, per-window, per-frame, or per-device,
 and can further be restricted to a particular device-type or device-class.
 Specifiers are used, for example, for the various built-in properties of a
 face; this allows a face to have different values in different frames,
-buffers, etc.  For more information, see `specifier-instance',
-`specifier-specs', and `add-spec-to-specifier'; or, for a detailed
+buffers, etc.  For more information, see @code{specifier-instance},
+@code{specifier-specs}, and @code{add-spec-to-specifier}; or, for a detailed
 description of specifiers, including how they are instantiated over a
 particular domain (i.e. how their value in that domain is determined),
 see the chapter on specifiers in the XEmacs Lisp Reference Manual.
@@ -1024,7 +1025,7 @@ buffer, and @code{global}.  (@code{nil} is not valid.)
 @end defun
 
 @defun valid-specifier-locale-type-p locale-type
-Given a specifier @var{locale-type}, this function returns non-nil if it
+Given a specifier @var{locale-type}, this function returns non-@code{nil} if it
 is valid.  Valid locale types are the symbols @code{global},
 @code{device}, @code{frame}, @code{window}, and @code{buffer}. (Note,
 however, that in functions that accept either a locale or a locale type,
@@ -1101,7 +1102,7 @@ is non-@code{nil}, however, @var{tag-set} must be equal to an
 instantiator's tag set for the instantiator to be copied.
 
 Optional argument @var{how-to-add} specifies what to do with existing
-specifications in @var{dest}.  If nil, then whichever locales or locale
+specifications in @var{dest}.  If @code{nil}, then whichever locales or locale
 types are copied will first be completely erased in @var{dest}.
 Otherwise, it is the same as in @code{add-spec-to-specifier}.
 @end defun

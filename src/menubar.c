@@ -232,7 +232,7 @@ See also 'find-menu-item'.
 }
 
 DEFUN ("popup-menu", Fpopup_menu, 1, 2, 0, /*
-Pop up the given menu.
+Pop up the menu described by MENU-DESCRIPTION.
 A menu description is a list of menu items, strings, and submenus.
 
 The first element of a menu must be a string, which is the name of the menu.
@@ -312,10 +312,10 @@ For example:
 
 See menubar.el for many more examples.
 */
-       (menu_desc, event))
+       (menu_description, event))
 {
-  struct frame *f = decode_frame(Qnil);
-  MAYBE_FRAMEMETH (f, popup_menu, (menu_desc,event));
+  struct frame *f = decode_frame (Qnil);
+  MAYBE_FRAMEMETH (f, popup_menu, (menu_description, event));
   return Qnil;
 }
 
@@ -739,7 +739,7 @@ This is a specifier; use `set-specifier' to change it.
 			 offsetof (struct window, menubar_visible_p),
 			 menubar_visible_p_changed,
 			 offsetof (struct frame, menubar_visible_p),
-			 menubar_visible_p_changed_in_frame);
+			 menubar_visible_p_changed_in_frame, 0);
 }
 
 void

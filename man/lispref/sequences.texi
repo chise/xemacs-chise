@@ -603,9 +603,9 @@ This function returns @code{t} if @var{object} is a bit vector.
 This function returns @code{t} if @var{object} is either 0 or 1.
 @end defun
 
-@defun bit-vector &rest objects
+@defun bit-vector &rest bits
 This function creates and returns a bit vector whose elements are the
-arguments @var{objects}.  The elements must be either of the two
+arguments @var{bits}.  Each argument must be a bit, i.e. one of the two
 integers 0 or 1.
 
 @example
@@ -618,9 +618,10 @@ integers 0 or 1.
 @end example
 @end defun
 
-@defun make-bit-vector length object
+@defun make-bit-vector length bit
 This function creates and returns a bit vector consisting of
-@var{length} elements, each initialized to @var{object}.
+@var{length} elements, each initialized to @var{bit}, which must be
+one of the two integers 0 or 1.
 
 @example
 @group

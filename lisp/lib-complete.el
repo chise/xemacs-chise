@@ -128,8 +128,8 @@ Display MESSAGE and evaluate FORMS, returning value of the last one."
 ;;=== Completion caching ==================================================
 
 (defconst lib-complete:cache nil
-  "Used within read-library and read-library-internal to prevent 
-costly repeated calls to library-all-completions.
+  "Used within `read-library' and `read-library-internal' to prevent 
+costly repeated calls to `library-all-completions'.
 Format is a list of lists of the form
 
     ([<path> <subdir>] <cache-record> <cache-record> ...)

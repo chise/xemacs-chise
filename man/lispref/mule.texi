@@ -47,7 +47,7 @@ hugely variant shapes as the "same" character.  Sometimes, especially
 where characters are extremely complicated to write, completely
 different shapes may be defined as the "same" character in national
 standards.  The Taiwanese variant of Hanzi is generally the most
-complicated; over the centuries, the Japanese, Koreans, and the People's 
+complicated; over the centuries, the Japanese, Koreans, and the People's
 Republic of China have adopted simplifications of the shape, but the
 line of descent from the original shape is recorded, and the meanings
 and pronunciation of different forms of the same character are
@@ -399,8 +399,8 @@ properties of a charset.
 This function returns the name of @var{charset}.  This will be a symbol.
 @end defun
 
-@defun charset-doc-string charset
-This function returns the doc string of @var{charset}.
+@defun charset-description charset
+This function returns the documentation string of @var{charset}.
 @end defun
 
 @defun charset-registry charset
@@ -416,7 +416,7 @@ This function returns the number of characters per dimension of
 @var{charset}.
 @end defun
 
-@defun charset-columns charset
+@defun charset-width charset
 This function returns the number of display columns per character (in
 TTY mode) of @var{charset}.
 @end defun
@@ -426,12 +426,12 @@ This function returns the display direction of @var{charset}---either
 @code{l2r} or @code{r2l}.
 @end defun
 
-@defun charset-final charset
+@defun charset-iso-final-char charset
 This function returns the final byte of the ISO 2022 escape sequence
 designating @var{charset}.
 @end defun
 
-@defun charset-graphic charset
+@defun charset-iso-graphic-plane charset
 This function returns either 0 or 1, depending on whether the position
 codes of characters in @var{charset} map to the left or right half
 of their font, respectively.
@@ -520,13 +520,13 @@ This function makes a multi-byte character from @var{charset} and octets
 @var{arg1} and @var{arg2}.
 @end defun
 
-@defun char-charset ch
-This function returns the character set of char @var{ch}.
+@defun char-charset character
+This function returns the character set of char @var{character}.
 @end defun
 
-@defun char-octet ch &optional n
+@defun char-octet character &optional n
 This function returns the octet (i.e. position code) numbered @var{n}
-(should be 0 or 1) of char @var{ch}.  @var{n} defaults to 0 if omitted.
+(should be 0 or 1) of char @var{character}.  @var{n} defaults to 0 if omitted.
 @end defun
 
 @defun find-charset-region start end &optional buffer
@@ -550,7 +550,7 @@ character is the result of overstriking all the characters in the
 string.
 @end defun
 
-@defun composite-char-string ch
+@defun composite-char-string character
 This function returns a string of the characters comprising a composite
 character.
 @end defun
@@ -702,7 +702,7 @@ character set and UTF-8, for example).
   ISO 2022 provides for switching between character sets via escape
 sequences.  This switching is somewhat complicated, because ISO 2022
 provides for both legacy applications like Internet mail that accept
-only 7 significant bits in some contexts (RFC 822 headers, for example), 
+only 7 significant bits in some contexts (RFC 822 headers, for example),
 and more modern "8-bit clean" applications.  It also provides for
 compact and transparent representation of languages like Japanese which
 mix ASCII and a national script (even outside of computer programs).
@@ -719,7 +719,7 @@ the control character "ASCII DEL" respectively.
 C1 (0x80-0x9F), and GR (0xA0-0xFF).  GL and GR stand for "graphic left"
 and "graphic right", respectively, because of the standard method of
 displaying graphic character sets in tables with the high byte indexing
-columns and the low byte indexing rows.  I don't find it very intuitive, 
+columns and the low byte indexing rows.  I don't find it very intuitive,
 but these are called "registers".
 
   An ISO 2022-conformant encoding for a graphic character set must use a
@@ -890,7 +890,7 @@ bit environments.
 
 (#### Ben says: I think the above is slightly incorrect.  It appears that
 SS2 invokes G2 into GR and SS3 invokes G3 into GR, whereas ESC N and
-ESC O behave as indicated.  The above definitions will not parse 
+ESC O behave as indicated.  The above definitions will not parse
 EUC-encoded text correctly, and it looks like the code in mule-coding.c
 has similar problems.)
 
@@ -1021,25 +1021,25 @@ End-of-line conversion to be used.  It should be one of the types
 listed in @ref{EOL Conversion}.
 
 @item eol-lf
-The coding system which is the same as this one, except that it uses the 
+The coding system which is the same as this one, except that it uses the
 Unix line-breaking convention.
 
 @item eol-crlf
-The coding system which is the same as this one, except that it uses the 
+The coding system which is the same as this one, except that it uses the
 DOS line-breaking convention.
 
 @item eol-cr
-The coding system which is the same as this one, except that it uses the 
+The coding system which is the same as this one, except that it uses the
 Macintosh line-breaking convention.
 
 @item post-read-conversion
 Function called after a file has been read in, to perform the decoding.
-Called with two arguments, @var{beg} and @var{end}, denoting a region of
+Called with two arguments, @var{start} and @var{end}, denoting a region of
 the current buffer to be decoded.
 
 @item pre-write-conversion
 Function called before a file is written out, to perform the encoding.
-Called with two arguments, @var{beg} and @var{end}, denoting a region of
+Called with two arguments, @var{start} and @var{end}, denoting a region of
 the current buffer to be encoded.
 @end table
 
@@ -1098,7 +1098,7 @@ designation by escape sequence.
 If non-@code{nil}, don't use ISO6429's direction specification.
 
 @item escape-quoted
-If non-nil, literal control characters that are the same as the
+If non-@code{nil}, literal control characters that are the same as the
 beginning of a recognized ISO 2022 or ISO 6429 escape sequence (in
 particular, ESC (0x1B), SO (0x0E), SI (0x0F), SS2 (0x8E), SS3 (0x8F),
 and CSI (0x9B)) are ``quoted'' with an escape character so that they can
@@ -1274,10 +1274,10 @@ This function decodes a JIS X 0208 character of Shift-JIS coding-system.
 The corresponding character is returned.
 @end defun
 
-@defun encode-shift-jis-char ch
-This function encodes a JIS X 0208 character @var{ch} to SHIFT-JIS
-coding-system.  The corresponding character code in SHIFT-JIS is
-returned as a cons of two bytes.
+@defun encode-shift-jis-char character
+This function encodes a JIS X 0208 character @var{character} to
+SHIFT-JIS coding-system.  The corresponding character code in SHIFT-JIS
+is returned as a cons of two bytes.
 @end defun
 
 @defun decode-big5-char code
@@ -1286,8 +1286,8 @@ This function decodes a Big5 character @var{code} of BIG5 coding-system.
 is returned.
 @end defun
 
-@defun encode-big5-char ch
-This function encodes the Big5 character @var{char} to BIG5
+@defun encode-big5-char character
+This function encodes the Big5 character @var{character} to BIG5
 coding-system.  The corresponding character code in Big5 is returned.
 @end defun
 
@@ -1297,16 +1297,16 @@ coding-system.  The corresponding character code in Big5 is returned.
   MULE initializes most of the commonly used coding systems at XEmacs's
 startup.  A few others are initialized only when the relevant language
 environment is selected and support libraries are loaded.  (NB: The
-following list is based on XEmacs 21.2.19, the development branch at the 
+following list is based on XEmacs 21.2.19, the development branch at the
 time of writing.  The list may be somewhat different for other
 versions.  Recent versions of GNU Emacs 20 implement a few more rare
 coding systems; work is being done to port these to XEmacs.)
 
-  Unfortunately, there is not a consistent naming convention for character 
-sets, and for practical purposes coding systems often take their name 
+  Unfortunately, there is not a consistent naming convention for character
+sets, and for practical purposes coding systems often take their name
 from their principal character sets (ASCII, KOI8-R, Shift JIS).  Others
-take their names from the coding system (ISO-2022-JP, EUC-KR), and a few 
-from their non-text usages (internal, binary).  To provide for this, and 
+take their names from the coding system (ISO-2022-JP, EUC-KR), and a few
+from their non-text usages (internal, binary).  To provide for this, and
 for the fact that many coding systems have several common names, an
 aliasing system is provided.  Finally, some effort has been made to use
 names that are registered as MIME charsets (this is why the name
@@ -1337,7 +1337,7 @@ table of coding systems.)
 need language usage for the ISO-8859 family.
 
   Note that although true coding system aliases have been implemented for
-XEmacs 21.2, the coding system initialization has not yet been converted 
+XEmacs 21.2, the coding system initialization has not yet been converted
 as of 21.2.19.  So coding systems described as aliases have the same
 properties as the aliased coding system, but will not be equal as Lisp
 objects.
@@ -1671,7 +1671,7 @@ implements a virtual machine with 8 registers called @code{r0}, ...,
 @code{r7}, a number of control structures, and some I/O operators.  Take
 care when using registers @code{r0} (used in implicit @dfn{set}
 statements) and especially @code{r7} (used internally by several
-statements and operations, especially for multiple return values and I/O 
+statements and operations, especially for multiple return values and I/O
 operations).
 
   CCL is used for code conversion during process I/O and file I/O for
@@ -1707,9 +1707,9 @@ executed when the input is exhausted.  Both the main block and the EOF
 block are CCL blocks.
 
   A @dfn{CCL block} is either a CCL statement or list of CCL statements.
-A @dfn{CCL statement} is either a @dfn{set statement} (either an integer 
+A @dfn{CCL statement} is either a @dfn{set statement} (either an integer
 or an @dfn{assignment}, which is a list of a register to receive the
-assignment, an assignment operator, and an expression) or a @dfn{control 
+assignment, an assignment operator, and an expression) or a @dfn{control
 statement} (a list starting with a keyword, whose allowable syntax
 depends on the keyword).
 
@@ -1804,7 +1804,7 @@ the form @code{(r0 = @var{integer})}.
 @heading I/O statements:
 
   The @dfn{read} statement takes one or more registers as arguments.  It
-reads one byte (a C char) from the input into each register in turn.  
+reads one byte (a C char) from the input into each register in turn.
 
   The @dfn{write} takes several forms.  In the form @samp{(write @var{reg}
 ...)} it takes one or more registers as arguments and writes each in
@@ -1841,7 +1841,7 @@ array, and the @code{branch} statement uses the @var{expression} as the
 index of the CCL block to execute.  Null CCL blocks may be used as
 no-ops, continuing execution with the statement following the
 @code{branch} statement in the containing CCL block.  Out-of-range
-values for the @var{EXPRESSION} are also treated as no-ops.
+values for the @var{expression} are also treated as no-ops.
 
   The @dfn{read-branch} variant of the @dfn{branch} statement takes an
 @var{register}, a @var{CCL block}, and an optional @var{second CCL
@@ -1852,19 +1852,19 @@ block just as the @code{branch} statement does.
 @heading Loop control statements:
 
   The @dfn{loop} statement creates a block with an implied jump from the
-end of the block back to its head.  The loop is exited on a @code{break} 
+end of the block back to its head.  The loop is exited on a @code{break}
 statement, and continued without executing the tail by a @code{repeat}
 statement.
 
   The @dfn{break} statement, written @samp{(break)}, terminates the
 current loop and continues with the next statement in the current
-block. 
+block.
 
   The @dfn{repeat} statement has three variants, @code{repeat},
 @code{write-repeat}, and @code{write-read-repeat}.  Each continues the
 current loop from its head, possibly after performing I/O.
 @code{repeat} takes no arguments and does no I/O before jumping.
-@code{write-repeat} takes a single argument (a register, an 
+@code{write-repeat} takes a single argument (a register, an
 integer, or a string), writes it to the output, then jumps.
 @code{write-read-repeat} takes one or two arguments.  The first must
 be a register.  The second may be an integer or an array; if absent, it
@@ -1950,7 +1950,7 @@ other CCL programs, and from Lisp using these functions:
 @defun ccl-execute ccl-program status
 Execute @var{ccl-program} with registers initialized by
 @var{status}.  @var{ccl-program} is a vector of compiled CCL code
-created by @code{ccl-compile}.  It is an error for the program to try to 
+created by @code{ccl-compile}.  It is an error for the program to try to
 execute a CCL I/O command.  @var{status} must be a vector of nine
 values, specifying the initial value for the R0, R1 .. R7 registers and
 for the instruction counter IC.  A @code{nil} value for a register
@@ -1958,10 +1958,10 @@ initializer causes the register to be set to 0.  A @code{nil} value for
 the IC initializer causes execution to start at the beginning of the
 program.  When the program is done, @var{status} is modified (by
 side-effect) to contain the ending values for the corresponding
-registers and IC.  
+registers and IC.
 @end defun
 
-@defun ccl-execute-on-string ccl-program status str &optional continue
+@defun ccl-execute-on-string ccl-program status string &optional continue
 Execute @var{ccl-program} with initial @var{status} on
 @var{string}.  @var{ccl-program} is a vector of compiled CCL code
 created by @code{ccl-compile}.  @var{status} must be a vector of nine
@@ -1969,11 +1969,11 @@ values, specifying the initial value for the R0, R1 .. R7 registers and
 for the instruction counter IC.  A @code{nil} value for a register
 initializer causes the register to be set to 0.  A @code{nil} value for
 the IC initializer causes execution to start at the beginning of the
-program.  An optional fourth argument @var{continue}, if non-nil, causes
+program.  An optional fourth argument @var{continue}, if non-@code{nil}, causes
 the IC to
 remain on the unsatisfied read operation if the program terminates due
 to exhaustion of the input buffer.  Otherwise the IC is set to the end
-of the program.  When the program is done, @var{status} is modified (by 
+of the program.  When the program is done, @var{status} is modified (by
 side-effect) to contain the ending values for the corresponding
 registers and IC.  Returns the resulting string.
 @end defun
@@ -1982,9 +1982,9 @@ registers and IC.  Returns the resulting string.
 registered:
 
 @defun register-ccl-program name ccl-program
-Register @var{name} for CCL program @var{program} in
-@code{ccl-program-table}.  @var{program} should be the compiled form of
-a CCL program, or nil.  Return index number of the registered CCL
+Register @var{name} for CCL program @var{ccl-program} in
+@code{ccl-program-table}.  @var{ccl-program} should be the compiled form of
+a CCL program, or @code{nil}.  Return index number of the registered CCL
 program.
 @end defun
 
@@ -2034,8 +2034,8 @@ whether the character is in that category.
   Special Lisp functions are provided that abstract this, so you do not
 have to directly manipulate bit vectors.
 
-@defun category-table-p obj
-This function returns @code{t} if @var{arg} is a category table.
+@defun category-table-p object
+This function returns @code{t} if @var{object} is a category table.
 @end defun
 
 @defun category-table &optional buffer
@@ -2049,24 +2049,23 @@ This function returns the standard category table.  This is the one used
 for new buffers.
 @end defun
 
-@defun copy-category-table &optional table
-This function constructs a new category table and return it.  It is a
-copy of the @var{table}, which defaults to the standard category table.
+@defun copy-category-table &optional category-table
+This function returns a new category table which is a copy of
+@var{category-table}, which defaults to the standard category table.
 @end defun
 
-@defun set-category-table table &optional buffer
-This function selects a new category table for @var{buffer}.  One
-argument, a category table.  @var{buffer} defaults to the current buffer
-if omitted.
+@defun set-category-table category-table &optional buffer
+This function selects @var{category-table} as the new category table for
+@var{buffer}.  @var{buffer} defaults to the current buffer if omitted.
 @end defun
 
-@defun category-designator-p obj
-This function returns @code{t} if @var{arg} is a category designator (a
+@defun category-designator-p object
+This function returns @code{t} if @var{object} is a category designator (a
 char in the range @samp{' '} to @samp{'~'}).
 @end defun
 
-@defun category-table-value-p obj
-This function returns @code{t} if @var{arg} is a category table value.
+@defun category-table-value-p object
+This function returns @code{t} if @var{object} is a category table value.
 Valid values are @code{nil} or a bit vector of size 95.
 @end defun
 

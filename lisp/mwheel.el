@@ -100,6 +100,7 @@ This can be slightly disconcerting, but some people may prefer it."
 ;;;###autoload
 (defun mwheel-install ()
   "Enable mouse wheel support."
+  (interactive)
   (let ((keys '([(mouse-4)] [(shift mouse-4)] [(mouse-5)] [(shift mouse-5)])))
     ;; This condition-case is here because Emacs 19 will throw an error
     ;; if you try to define a key that it does not know about.  I for one

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/minibuf.info
 @node Minibuffers, Command Loop, Read and Print, Top
@@ -95,7 +95,7 @@ string; however, if @var{read} is non-@code{nil}, then it uses
 @code{read} to convert the text into a Lisp object (@pxref{Input
 Functions}).
 
-The first thing this function does is to activate a minibuffer and 
+The first thing this function does is to activate a minibuffer and
 display it with @var{prompt-string} as the prompt.  This value must be a
 string.
 
@@ -156,9 +156,9 @@ arguments @var{prompt} and @var{initial} are used as in
 @code{read-from-minibuffer}.  The keymap used is
 @code{minibuffer-local-map}.
 
-The optional argument @var{history}, if non-nil, specifies a history
+The optional argument @var{history}, if non-@code{nil}, specifies a history
 list and optionally the initial position in the list.  The optional
-argument @var{default} specifies a default value to return if the user
+argument @var{default-value} specifies a default value to return if the user
 enters null input; it should be a string.
 
 This function is a simplified interface to the
@@ -213,7 +213,7 @@ This function reads a Lisp object using the minibuffer, and returns it
 without evaluating it.  The arguments @var{prompt} and @var{initial} are
 used as in @code{read-from-minibuffer}.
 
-The optional argument @var{history}, if non-nil, specifies a history
+The optional argument @var{history}, if non-@code{nil}, specifies a history
 list and optionally the initial position in the list.  The optional
 argument @var{default-value} specifies a default value to return if the
 user enters null input; it should be a string.
@@ -264,7 +264,7 @@ This function reads a Lisp expression using the minibuffer, evaluates
 it, then returns the result.  The arguments @var{prompt} and
 @var{initial} are used as in @code{read-from-minibuffer}.
 
-The optional argument @var{history}, if non-nil, specifies a history
+The optional argument @var{history}, if non-@code{nil}, specifies a history
 list and optionally the initial position in the list.  The optional
 argument @var{default-value} specifies a default value to return if the
 user enters null input; it should be a string.
@@ -281,10 +281,10 @@ This function simply evaluates the result of a call to
 @end smallexample
 @end defun
 
-@defun edit-and-eval-command prompt command &optional history
+@defun edit-and-eval-command prompt form &optional history
 This function reads a Lisp expression in the minibuffer, and then
 evaluates it.  The difference between this command and
-@code{eval-minibuffer} is that here the initial @var{command} is not
+@code{eval-minibuffer} is that here the initial @var{form} is not
 optional and it is treated as a Lisp object to be converted to printed
 representation rather than as a string of text.  It is printed with
 @code{prin1}, so if it is a string, double-quote characters (@samp{"})
@@ -304,7 +304,7 @@ text which is a valid form already:
 @group
 (edit-and-eval-command "Please edit: " '(forward-word 1))
 
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following appears in the minibuffer:}
 @end group
 
@@ -456,7 +456,7 @@ this chapter so as to keep them near the higher-level completion
 features that do use the minibuffer.
 
 @defun try-completion string collection &optional predicate
-This function returns the longest common substring of all possible
+This function returns the longest common prefix of all possible
 completions of @var{string} in @var{collection}.  The value of
 @var{collection} must be an alist, an obarray, or a function that
 implements a virtual set of strings (see below).
@@ -506,7 +506,7 @@ is @code{t}.
 
 @smallexample
 @group
-(try-completion 
+(try-completion
  "foo"
  '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4)))
      @result{} "fooba"
@@ -536,44 +536,40 @@ too short).  Both of those begin with the string @samp{foobar}.
 
 @smallexample
 @group
-(defun test (s) 
+(defun test (s)
   (> (length (car s)) 6))
      @result{} test
 @end group
 @group
-(try-completion 
+(try-completion
  "foo"
- '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4)) 
+ '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4))
  'test)
      @result{} "foobar"
 @end group
 @end smallexample
 @end defun
 
-@defun all-completions string collection &optional predicate nospace
-This function returns a list of all possible completions of
-@var{string}.  The arguments to this function are the same as those of
-@code{try-completion}.
+@defun all-completions string collection &optional predicate
+This function returns a list of all possible completions of @var{string}.
+The arguments to this function are the same as those of @code{try-completion}.
 
 If @var{collection} is a function, it is called with three arguments:
 @var{string}, @var{predicate} and @code{t}; then @code{all-completions}
 returns whatever the function returns.  @xref{Programmed Completion}.
-
-If @var{nospace} is non-@code{nil}, completions that start with a space
-are ignored unless @var{string} also starts with a space.
 
 Here is an example, using the function @code{test} shown in the
 example for @code{try-completion}:
 
 @smallexample
 @group
-(defun test (s) 
+(defun test (s)
   (> (length (car s)) 6))
      @result{} test
 @end group
 
 @group
-(all-completions  
+(all-completions
  "foo"
  '(("foobar1" 1) ("barfoo" 2) ("foobaz" 3) ("foobar2" 4))
  'test)
@@ -583,7 +579,7 @@ example for @code{try-completion}:
 @end defun
 
 @defvar completion-ignore-case
-If the value of this variable is 
+If the value of this variable is
 non-@code{nil}, XEmacs does not consider case significant in completion.
 @end defvar
 
@@ -649,7 +645,7 @@ Here's an example of using @code{completing-read}:
 @end group
 
 @group
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following appears in the minibuffer:}
 
 ---------- Buffer: Minibuffer ----------
@@ -834,7 +830,7 @@ only buffer name starting with the given input is
 @example
 (read-buffer "Buffer name? " "foo" t)
 @group
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following prompt appears,}
 ;;   @r{with an empty minibuffer:}
 @end group
@@ -869,13 +865,13 @@ enters null input, the return value is @code{nil}.
 (read-command "Command name? ")
 
 @group
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following prompt appears with an empty minibuffer:}
 @end group
 
 @group
----------- Buffer: Minibuffer ---------- 
-Command name?  
+---------- Buffer: Minibuffer ----------
+Command name?
 ---------- Buffer: Minibuffer ----------
 @end group
 @end example
@@ -894,7 +890,7 @@ as to complete in the set of extant Lisp symbols, and it uses the
 @group
 (read-command @var{prompt})
 @equiv{}
-(intern (completing-read @var{prompt} obarray 
+(intern (completing-read @var{prompt} obarray
                          'commandp t nil))
 @end group
 @end example
@@ -906,7 +902,7 @@ symbol.
 
 The argument @var{default-value} specifies what to return if the user
 enters null input.  It can be a symbol or a string; if it is a string,
-@code{read-variable} interns it before returning it.  If @var{default}
+@code{read-variable} interns it before returning it.  If @var{default-value}
 is @code{nil}, that means no default has been specified; then if the
 user enters null input, the return value is @code{nil}.
 
@@ -914,8 +910,8 @@ user enters null input, the return value is @code{nil}.
 @group
 (read-variable "Variable name? ")
 
-;; @r{After evaluation of the preceding expression,} 
-;;   @r{the following prompt appears,} 
+;; @r{After evaluation of the preceding expression,}
+;;   @r{the following prompt appears,}
 ;;   @r{with an empty minibuffer:}
 @end group
 
@@ -980,13 +976,13 @@ case, point goes at the beginning of @var{initial}.  The default for
 @var{initial} is @code{nil}---don't insert any file name.  To see what
 @var{initial} does, try the command @kbd{C-x C-v}.
 
-Here is an example: 
+Here is an example:
 
 @example
 @group
 (read-file-name "The file is ")
 
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following appears in the minibuffer:}
 @end group
 
@@ -1172,13 +1168,13 @@ invalid.  At the next prompt the user types @kbd{y}.
 @group
 (y-or-n-p "Do you need a lift? ")
 
-;; @r{After evaluation of the preceding expression,} 
+;; @r{After evaluation of the preceding expression,}
 ;;   @r{the following prompt appears in the echo area:}
 @end group
 
 @group
 ---------- Echo area ----------
-Do you need a lift? (y or n) 
+Do you need a lift? (y or n)
 ---------- Echo area ----------
 @end group
 
@@ -1186,7 +1182,7 @@ Do you need a lift? (y or n)
 
 @group
 ---------- Echo area ----------
-Please answer y or n.  Do you need a lift? (y or n) 
+Please answer y or n.  Do you need a lift? (y or n)
 ---------- Echo area ----------
 @end group
 
@@ -1225,14 +1221,14 @@ Here is an example:
 @group
 (yes-or-no-p "Do you really want to remove everything? ")
 
-;; @r{After evaluation of the preceding expression,} 
-;;   @r{the following prompt appears,} 
+;; @r{After evaluation of the preceding expression,}
+;;   @r{the following prompt appears,}
 ;;   @r{with an empty minibuffer:}
 @end group
 
 @group
 ---------- Buffer: minibuffer ----------
-Do you really want to remove everything? (yes or no) 
+Do you really want to remove everything? (yes or no)
 ---------- Buffer: minibuffer ----------
 @end group
 @end smallexample
@@ -1390,13 +1386,13 @@ and inserted in the minibuffer. If @var{default} is @code{nil}, then
 @end defun
 
 @defopt passwd-invert-frame-when-keyboard-grabbed
-If non-nil swap the foreground and background colors of all faces while
-reading a password.  Default values is @code{t} unless feature
+If non-@code{nil}, swap the foreground and background colors of all faces while
+reading a password.  Default values is @code{t}, unless feature
 @code{infodock} is provided.
 @end defopt
 
 @defopt passwd-echo
-This specifies the character echoed when typing a password.  When nil,
+This specifies the character echoed when typing a password.  When @code{nil},
 nothing is echoed.
 @end defopt
 
@@ -1478,7 +1474,7 @@ other frame's minibuffer window.
 @end defun
 
 @c Emacs 19 feature
-@defun window-minibuffer-p window
+@defun window-minibuffer-p &optional window
 This function returns non-@code{nil} if @var{window} is a minibuffer window.
 @end defun
 
@@ -1515,7 +1511,7 @@ minibuffer.  The outer-level minibuffer is invisible while you are
 editing the inner one.
 
 This variable only affects invoking the minibuffer while the
-minibuffer window is selected.   If you switch windows while in the 
+minibuffer window is selected.   If you switch windows while in the
 minibuffer, you can always invoke minibuffer commands while some other
 window is selected.
 @end defopt

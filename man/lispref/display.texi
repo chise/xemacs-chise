@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994, 1998 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994, 1998 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/display.info
 @node Display, Hash Tables, Annotations, Top
@@ -30,9 +30,14 @@ that XEmacs presents to the user.
 The function @code{redraw-frame} redisplays the entire contents of a
 given frame.  @xref{Frames}.
 
-@c Emacs 19 feature
-@defun redraw-frame frame
+@defun redraw-frame &optional frame no-preempt
 This function clears and redisplays frame @var{frame}.
+
+@var{frame} defaults to the selected frame if omitted.
+
+Normally, redisplay is preempted as normal if input arrives.  However,
+if optional second arg @var{no-preempt} is non-@code{nil}, redisplay
+will not stop for input and is guaranteed to proceed to completion.
 @end defun
 
 Even more powerful is @code{redraw-display}:
@@ -72,9 +77,9 @@ redrawn from scratch.  Normally this occurs the next time that
 @code{next-event} or @code{sit-for} is called; however, a display update
 will not occur if there is input pending.  @xref{Command Loop}.
 
-@defun force-cursor-redisplay
-This function causes an immediate update of the cursor on the selected
-frame.  (This function does not exist in FSF Emacs.)
+@defun force-cursor-redisplay &optional frame
+This function causes an immediate update of the cursor on @var{frame},
+which defaults to the selected frame.
 @end defun
 
 @node Truncation
@@ -216,16 +221,16 @@ function;
 @item @code{progress}---progress indicators like
 @samp{Converting... 45%} (not logged by default);
 
-@item @code{prompt}---prompt-like messages like @samp{Isearch: foo} (not 
+@item @code{prompt}---prompt-like messages like @samp{Isearch: foo} (not
 logged by default);
 
-@item @code{command}---helper command messages like @samp{Mark set} (not 
+@item @code{command}---helper command messages like @samp{Mark set} (not
 logged by default);
 
 @item @code{no-log}---messages that should never be logged
 @end itemize
 
-Several messages may be stacked in the echo area at once.  Lisp programs 
+Several messages may be stacked in the echo area at once.  Lisp programs
 may access these messages, or remove them as appropriate, via the
 message stack.
 
@@ -273,7 +278,7 @@ displayed there.
 If a message remains at the head of the message-stack and
 @var{no-restore} is @code{nil}, it will be displayed.  The string which
 remains in the echo area will be returned, or @code{nil} if the
-message-stack is now empty.  If @var{label} is nil, the entire
+message-stack is now empty.  If @var{label} is @code{nil}, the entire
 message-stack is cleared.
 
 @example
@@ -554,7 +559,7 @@ effect is seen only within XEmacs.
 
 @defvar selective-display
 This buffer-local variable enables selective display.  This means that
-lines, or portions of lines, may be made invisible.  
+lines, or portions of lines, may be made invisible.
 
 @itemize @bullet
 @item
@@ -823,7 +828,7 @@ at the matching parenthesis.  A fraction of a second often gives
 good results, but the default is 1, which works on all systems.
 @end defvar
 
-@defun blink-matching-open
+@deffn Command blink-matching-open
 This function is the default value of @code{blink-paren-function}.  It
 assumes that point follows a character with close parenthesis syntax and
 moves the cursor momentarily to the matching opening character.  If that
@@ -836,9 +841,6 @@ Here is an example of calling this function explicitly.
 @smallexample
 @group
 (defun interactive-blink-matching-open ()
-@c Do not break this line! -- rms.
-@c The first line of a doc string
-@c must stand alone.
   "Indicate momentarily the start of sexp before point."
   (interactive)
 @end group
@@ -849,7 +851,7 @@ Here is an example of calling this function explicitly.
     (blink-matching-open)))
 @end group
 @end smallexample
-@end defun
+@end deffn
 
 @node Usual Display
 @section Usual Display Conventions

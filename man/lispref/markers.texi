@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/markers.info
 @node Markers, Text, Positions, Top
@@ -258,7 +258,7 @@ chapter.
 @end example
 @end defun
 
-@defun copy-marker marker-or-integer
+@defun copy-marker marker-or-integer &optional marker-type
 If passed a marker as its argument, @code{copy-marker} returns a
 new marker that points to the same place and the same buffer as does
 @var{marker-or-integer}.  If passed an integer as its argument,
@@ -271,8 +271,11 @@ passed an integer argument greater than the length of the buffer,
 @code{copy-marker} returns a new marker that points to the end of the
 buffer.
 
-An error is signaled if @var{marker} is neither a marker nor an
-integer.
+An error is signaled if @var{marker-or-integer} is neither a marker nor
+an integer.
+
+Optional second argument @var{marker-type} specifies the insertion type
+of the new marker; see @code{marker-insertion-type}.
 
 @example
 @group
@@ -399,11 +402,14 @@ This function moves @var{marker} to @var{position}
 in @var{buffer}.  If @var{buffer} is not provided, it defaults to
 the current buffer.
 
-If @var{position} is less than 1, @code{set-marker} moves @var{marker}
-to the beginning of the buffer.  If @var{position} is greater than the
-size of the buffer, @code{set-marker} moves marker to the end of the
-buffer.  If @var{position} is @code{nil} or a marker that points
-nowhere, then @var{marker} is set to point nowhere.
+@var{position} can be a marker, an integer or @code{nil}.  If
+@var{position} is an integer, @code{set-marker} moves @var{marker} to
+point before the @var{position}th character in @var{buffer}.  If
+@var{position} is @code{nil}, @var{marker} is made to point nowhere.
+Then it no longer slows down editing in any buffer.  If @var{position}
+is less than 1, @var{marker} is moved to the beginning of @var{buffer}.
+If @var{position} is greater than the size of @var{buffer}, @var{marker}
+is moved to the end of @var{buffer}.
 
 The value returned is @var{marker}.
 
@@ -510,7 +516,7 @@ If you are using this in an editing command, you are most likely making
 a mistake; see the documentation of @code{set-mark} below.
 @end defun
 
-@defun mark-marker inactive-p buffer
+@defun mark-marker &optional force buffer
 This function returns @var{buffer}'s mark.  @var{buffer} defaults to the
 current buffer if omitted.  This is the very marker that records the
 mark location inside XEmacs, not a copy.  Therefore, changing this
@@ -576,9 +582,9 @@ example:
 
 @example
 @group
-(let ((beg (point)))
+(let ((start (point)))
   (forward-line 1)
-  (delete-region beg (point))).
+  (delete-region start (point))).
 @end group
 @end example
 @end defun
@@ -621,7 +627,7 @@ marks of the current buffer, most recent first.
 @example
 @group
 mark-ring
-@result{} (#<marker at 11050 in markers.texi> 
+@result{} (#<marker at 11050 in markers.texi>
     #<marker at 10832 in markers.texi>
     @dots{})
 @end group

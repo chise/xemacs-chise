@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/tips.info
 @node Tips, Building XEmacs and Object Allocation, MULE, Top
@@ -160,7 +160,7 @@ standard names instead.
 
 @item
 Redefining an Emacs primitive is an even worse idea.
-It may do the right thing for a particular program, but 
+It may do the right thing for a particular program, but
 there is no telling what other programs might break as a result.
 
 @item
@@ -284,7 +284,7 @@ may be worth rearranging a data structure so that one of these primitive
 search functions can be used.
 
 @item
-Certain built-in functions are handled specially in byte-compiled code, 
+Certain built-in functions are handled specially in byte-compiled code,
 avoiding the need for an ordinary function call.  It is a good idea to
 use these functions rather than alternatives.  To see whether a function
 is handled specially by the compiler, examine its @code{byte-compile}
@@ -369,13 +369,13 @@ Do not start or end a documentation string with whitespace.
 @item
 Format the documentation string so that it fits in an Emacs window on an
 80-column screen.  It is a good idea for most lines to be no wider than
-60 characters.  The first line can be wider if necessary to fit the 
+60 characters.  The first line can be wider if necessary to fit the
 information that ought to be there.
 
 However, rather than simply filling the entire documentation string, you
 can make it much more readable by choosing line breaks with care.
 Use blank lines between topics if the documentation string is long.
- 
+
 @item
 @strong{Do not} indent subsequent lines of a documentation string so
 that the text is lined up in the source code with the text of the first

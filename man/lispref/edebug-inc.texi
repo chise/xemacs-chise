@@ -22,10 +22,10 @@ each breakpoint.
 
 @item
 Display expression results and evaluate expressions as if outside of
-Edebug.  Interface with the custom printing package 
+Edebug.  Interface with the custom printing package
 for printing circular structures.
 
-@item 
+@item
 Automatically reevaluate a list of expressions and
 display their results each time Edebug updates the display.
 
@@ -108,7 +108,7 @@ open-parenthesis before @code{if}.
 @cindex stop points
 The places within a function where Edebug can stop execution are called
 @dfn{stop points}.  These occur both before and after each subexpression
-that is a list, and also after each variable reference.  
+that is a list, and also after each variable reference.
 Here we show with periods the stop points found in the function
 @code{fac}:
 
@@ -134,7 +134,7 @@ the display you will see:
 @end example
 
 When Edebug stops execution after an expression, it displays the
-expression's value in the echo area. 
+expression's value in the echo area.
 
 Other frequently used commands are @kbd{b} to set a breakpoint at a stop
 point, @kbd{g} to execute until a breakpoint is reached, and @kbd{q} to
@@ -190,7 +190,7 @@ package you are using but only when you also use Edebug.  For example,
 @file{my-package.el}.
 
 @example
-(add-hook 'edebug-setup-hook 
+(add-hook 'edebug-setup-hook
   (function (lambda () (require 'my-specs))))
 @end example
 
@@ -288,7 +288,7 @@ program more slowly or stop sooner.
 When you enter a new Edebug level, the initial execution mode comes from
 the value of the variable @code{edebug-initial-mode}.  By default, this
 specifies @code{step} mode.  Note that you may reenter the same Edebug
-level several times if, for example, an instrumented function is called 
+level several times if, for example, an instrumented function is called
 several times from one command.
 
 While executing or tracing, you can interrupt the execution by typing
@@ -342,7 +342,7 @@ point, type @kbd{w} first, to move point there.
 
 @item o
 Continue ``out of'' an expression (@code{edebug-step-out}).  It places a
-temporary breakpoint at the end of the sexp containing point.  
+temporary breakpoint at the end of the sexp containing point.
 
 If the containing sexp is a function definition itself, it continues
 until just before the last sexp in the definition.  If that is where you
@@ -410,7 +410,7 @@ execution.
 From the Edebug recursive edit, you may invoke commands that activate
 Edebug again recursively.  Any time Edebug is active, you can quit to
 the top level with @kbd{q} or abort one recursive edit level with
-@kbd{C-]}.  You can display a backtrace of all the 
+@kbd{C-]}.  You can display a backtrace of all the
 pending evaluations with @kbd{d}.
 
 
@@ -479,7 +479,7 @@ to the first breakpoint if there are no following breakpoints.  This
 command does not continue execution---it just moves point in the buffer.
 
 @menu
-* Global Break Condition::	Breaking on an event. 
+* Global Break Condition::	Breaking on an event.
 * Embedded Breakpoints::	Embedding breakpoints in code.
 @end menu
 
@@ -495,7 +495,7 @@ break condition} is a condition that is repeatedly evaluated at every
 stop point.  If it evaluates to a non-@code{nil} value, then execution
 is stopped or paused depending on the execution mode, just like a
 breakpoint.  Any errors that might occur as a result of evaluating the
-condition are ignored, as if the result were @code{nil}.  
+condition are ignored, as if the result were @code{nil}.
 
 @findex edebug-set-global-break-condition
 @vindex edebug-global-break-condition
@@ -831,7 +831,7 @@ produce a traditional trace listing of execution in a separate buffer,
 
 @findex edebug-print-trace-before
 @findex edebug-print-trace-after
-If the variable @code{edebug-trace} is non-nil, each function entry and
+If the variable @code{edebug-trace} is non-@code{nil}, each function entry and
 exit adds lines to the trace buffer.  On function entry, Edebug prints
 @samp{::::@{} followed by the function name and argument values.  On
 function exit, Edebug prints @samp{::::@}} followed by the function name
@@ -903,13 +903,13 @@ the breakpoint is reached, the frequency data is looks like this:
 @example
 (defun fac (n)
   (if (= n 0) (edebug))
-;#6           1      0 =5 
+;#6           1      0 =5
   (if (< 0 n)
-;#5         = 
+;#5         =
       (* n (fac (1- n)))
-;#    5               0  
+;#    5               0
     1))
-;#   0 
+;#   0
 @end example
 
 The comment lines show that @code{fac} has been called 6 times.  The
@@ -945,12 +945,12 @@ Whenever Edebug is entered just to think about whether to take some
 action, it needs to save and restore certain data.
 
 @itemize @bullet
-@item 
+@item
 @code{max-lisp-eval-depth} and @code{max-specpdl-size} are both
 incremented one time to reduce Edebug's impact on the stack.
 You could, however, still run out of stack space when using Edebug.
 
-@item 
+@item
 The state of keyboard macro execution is saved and restored.  While
 Edebug is active, @code{executing-macro} is bound to
 @code{edebug-continue-kbd-macro}.
@@ -978,19 +978,19 @@ following data, but some of these are deliberately not restored if an
 error or quit signal occurs.
 
 @itemize @bullet
-@item 
+@item
 @cindex current buffer point and mark (Edebug)
 Which buffer is current, and where point and mark are in the current
 buffer are saved and restored.
 
-@item 
+@item
 @cindex window configuration (Edebug)
 @findex save-excursion (Edebug)
 @vindex edebug-save-windows
 The Edebug Display Update, is saved and restored if
 @code{edebug-save-windows} is non-@code{nil}.  It is not restored on
 error or quit, but the outside selected window @emph{is} reselected even
-on error or quit in case a @code{save-excursion} is active.  
+on error or quit in case a @code{save-excursion} is active.
 If the value of @code{edebug-save-windows} is a list, only the listed
 windows are saved and restored.
 
@@ -1007,7 +1007,7 @@ The variables @code{overlay-arrow-position} and
 @code{overlay-arrow-string} are saved and restored.  So you can safely
 invoke Edebug from the recursive edit elsewhere in the same buffer.
 
-@item 
+@item
 @code{cursor-in-echo-area} is locally bound to @code{nil} so that
 the cursor shows up in the window.
 
@@ -1055,7 +1055,7 @@ evaluation list window.
 by the @code{recursive-edit}, but Edebug temporarily restores them during
 evaluations.
 
-@item 
+@item
 The state of keyboard macro definition is saved and restored.  While
 Edebug is active, @code{defining-kbd-macro} is bound to
 @code{edebug-continue-kbd-macro}.
@@ -1074,7 +1074,7 @@ resulting expansion is evaluated, or any time later.)  You must explain
 the format of macro call arguments by using @code{def-edebug-spec} to
 define an @dfn{Edebug specification} for each macro.
 
-@deffn Macro def-edebug-spec macro specification
+@defmac def-edebug-spec macro specification
 Specify which expressions of a call to macro @var{macro} are forms to be
 evaluated.  For simple macros, the @var{specification} often looks very
 similar to the formal argument list of the macro definition, but
@@ -1086,7 +1086,7 @@ name.
 Unless you are using Emacs 19 or XEmacs, this macro is only defined
 in Edebug, so you may want to use the following which is equivalent:
 @code{(put '@var{macro} 'edebug-form-spec '@var{specification})}
-@end deffn
+@end defmac
 
 Here is a simple example that defines the specification for the
 @code{for} macro described in the XEmacs Lisp Reference Manual, followed
@@ -1194,7 +1194,7 @@ An unquoted anonymous lambda expression.
 @item &optional
 @cindex &optional (Edebug)
 All following elements in the specification list are optional; as soon
-as one does not match, Edebug stops matching at this level.  
+as one does not match, Edebug stops matching at this level.
 
 To make just a few elements optional followed by non-optional elements,
 use @code{[&optional @var{specs}@dots{}]}.  To specify that several
@@ -1229,7 +1229,7 @@ Each of the following elements is matched as alternatives as if by using
 of them match, nothing is matched, but the @code{&not} specification
 succeeds.
 
-@item &define 
+@item &define
 @cindex &define (Edebug)
 Indicates that the specification is for a defining form.  The defining
 form itself is not instrumented (i.e. Edebug does not stop before and
@@ -1243,7 +1243,7 @@ described here.  See the @code{defun} example below.
 @table @code
 
 @item name
-The argument, a symbol, is the name of the defining form. 
+The argument, a symbol, is the name of the defining form.
 But a defining form need not be named at all, in which
 case a unique name will be created for it.
 
@@ -1442,7 +1442,7 @@ specification for the macro as follows: the specifications for those
 arguments must use @code{def-form} instead of @code{form}.  (This is to
 reestablish the Edebugging context for those external forms.)
 
-For example, the @code{for} macro 
+For example, the @code{for} macro
 @c (@pxref{Problems with Macros}) @c in XEmacs Lisp Reference Manual
 (@pxref{Problems with Macros,,,, XEmacs Lisp Reference Manual}) @c Edebug Doc
 is shown here but with @code{edebug-`}
@@ -1517,8 +1517,8 @@ function body.
 
 @example
 (def-edebug-spec defmacro defun)      ; @r{Indirect ref to @code{defun} spec}
-(def-edebug-spec defun 
-  (&define name lambda-list 
+(def-edebug-spec defun
+  (&define name lambda-list
            [&optional stringp]        ; @r{Match the doc string, if present.}
            [&optional ("interactive" interactive)]
            def-body))
@@ -1594,7 +1594,7 @@ what happens to data about windows, you may want to set this variable to
 @code{nil}.
 
 If the value is a list, only the listed windows are saved and
-restored.  
+restored.
 
 @kbd{M-x edebug-toggle-save-windows} may be used to change this variable.
 This command is bound to @kbd{W} in source code buffers.
@@ -1621,7 +1621,7 @@ mode for Edebug when it is first activated.  Possible values are
 @code{step}, @code{next}, @code{go}, @code{Go-nonstop}, @code{trace},
 @code{Trace-fast}, @code{continue}, and @code{Continue-fast}.
 
-The default value is @code{step}.  
+The default value is @code{step}.
 See @ref{Edebug Execution Modes}.
 @end defopt
 
@@ -1630,15 +1630,15 @@ See @ref{Edebug Execution Modes}.
 @findex edebug-print-trace-after
 Non-@code{nil} means display a trace of function entry and exit.
 Tracing output is displayed in a buffer named @samp{*edebug-trace*}, one
-function entry or exit per line, indented by the recursion level.  
+function entry or exit per line, indented by the recursion level.
 
-The default value is @code{nil}.  
+The default value is @code{nil}.
 
 Also see @code{edebug-tracing}.
 See @ref{Tracing}.
 @end defopt
 
-@defopt edebug-test-coverage 
+@defopt edebug-test-coverage
 If non-@code{nil}, Edebug tests coverage of all expressions debugged.
 This is done by comparing the result of each expression
 with the previous result. Coverage is considered OK if two different
@@ -1651,7 +1651,7 @@ and coverage information for a definition.
 See @ref{Coverage Testing}.
 @end defopt
 
-@defopt edebug-continue-kbd-macro 
+@defopt edebug-continue-kbd-macro
 If non-@code{nil}, continue defining or executing any keyboard macro
 that is executing outside of Edebug.   Use this with caution since it is not
 debugged.
@@ -1664,12 +1664,12 @@ results in Edebug.  The default value is @code{50}.
 See @ref{Printing in Edebug}.
 @end defopt
 
-@defopt edebug-print-level 
+@defopt edebug-print-level
   If non-@code{nil}, bind @code{print-level} to this while printing
 results in Edebug.  The default value is @code{50}.
 @end defopt
 
-@defopt edebug-print-circle 
+@defopt edebug-print-circle
   If non-@code{nil}, bind @code{print-circle} to this while printing
 results in Edebug.  The default value is @code{nil}.
 @end defopt
@@ -1694,6 +1694,6 @@ See @ref{Debugging Backquote}.
 
 @defopt edebug-global-break-condition
   If non-@code{nil}, an expression to test for at every stop point.
-If the result is non-nil, then break.  Errors are ignored.
+If the result is non-@code{nil}, then break.  Errors are ignored.
 See @ref{Global Break Condition}.
 @end defopt

@@ -832,6 +832,15 @@
 (Assert (equal (split-string ",foo,,bar," ",+") '("" "foo" "bar" "")))
 
 (Assert (not (string-match "\\(\\.\\=\\)" ".")))
+(Assert (string= "" (let ((str "test string"))  
+		      (if (string-match "^.*$" str)
+			  (replace-match "\\U" t nil str)))))
+(with-temp-buffer
+  (erase-buffer)
+  (insert "test string")
+  (re-search-backward "^.*$")
+  (replace-match "\\U" t)
+  (Assert (and (bobp) (eobp))))
 
 ;;-----------------------------------------------------
 ;; Test near-text buffer functions.
@@ -945,3 +954,72 @@
 ;; Time-related tests
 ;;-----------------------------------------------------
 (Assert (= (length (current-time-string)) 24))
+
+;;-----------------------------------------------------
+;; format test
+;;-----------------------------------------------------
+(Assert (string= (format "%d" 10) "10"))
+(Assert (string= (format "%o" 8) "10"))
+(Assert (string= (format "%x" 31) "1f"))
+(Assert (string= (format "%X" 31) "1F"))
+(Assert (string= (format "%e" 100) "1.000000e+02"))
+(Assert (string= (format "%E" 100) "1.000000E+02"))
+(Assert (string= (format "%f" 100) "100.000000"))
+(Assert (string= (format "%g" 100.0) "100"))
+(Assert (string= (format "%g" 0.000001) "1e-06"))
+(Assert (string= (format "%g" 0.0001) "0.0001"))
+(Assert (string= (format "%G" 100.0) "100"))
+(Assert (string= (format "%G" 0.000001) "1E-06"))
+(Assert (string= (format "%G" 0.0001) "0.0001"))
+
+(Assert (string= (format "%2$d%1$d" 10 20) "2010"))
+(Assert (string= (format "%-d" 10) "10"))
+(Assert (string= (format "%-4d" 10) "10  "))
+(Assert (string= (format "%+d" 10) "+10"))
+(Assert (string= (format "%+d" -10) "-10"))
+(Assert (string= (format "%+4d" 10) " +10"))
+(Assert (string= (format "%+4d" -10) " -10"))
+(Assert (string= (format "% d" 10) " 10"))
+(Assert (string= (format "% d" -10) "-10"))
+(Assert (string= (format "% 4d" 10) "  10"))
+(Assert (string= (format "% 4d" -10) " -10"))
+(Assert (string= (format "%0d" 10) "10"))
+(Assert (string= (format "%0d" -10) "-10"))
+(Assert (string= (format "%04d" 10) "0010"))
+(Assert (string= (format "%04d" -10) "-010"))
+(Assert (string= (format "%*d" 4 10) "  10"))
+(Assert (string= (format "%*d" 4 -10) " -10"))
+(Assert (string= (format "%*d" -4 10) "10  "))
+(Assert (string= (format "%*d" -4 -10) "-10 "))
+(Assert (string= (format "%#d" 10) "10"))
+(Assert (string= (format "%#o" 8) "010"))
+(Assert (string= (format "%#x" 16) "0x10"))
+(Assert (string= (format "%#e" 100) "1.000000e+02"))
+(Assert (string= (format "%#E" 100) "1.000000E+02"))
+(Assert (string= (format "%#f" 100) "100.000000"))
+(Assert (string= (format "%#g" 100.0) "100.000"))
+(Assert (string= (format "%#g" 0.000001) "1.00000e-06"))
+(Assert (string= (format "%#g" 0.0001) "0.000100000"))
+(Assert (string= (format "%#G" 100.0) "100.000"))
+(Assert (string= (format "%#G" 0.000001) "1.00000E-06"))
+(Assert (string= (format "%#G" 0.0001) "0.000100000"))
+(Assert (string= (format "%.1d" 10) "10"))
+(Assert (string= (format "%.4d" 10) "0010"))
+;; Combination of `-', `+', ` ', `0', `#', `.', `*'
+(Assert (string= (format "%-04d" 10) "0010"))
+(Assert (string= (format "%-*d" 4 10) "10  "))
+;; #### Correctness of this behavior is questionable.
+;; It might be better to signal error.
+(Assert (string= (format "%-*d" -4 10) "10  "))
+;; These behavior is not specified.
+;; (format "%-+d" 10)
+;; (format "%- d" 10)
+;; (format "%-01d" 10)
+;; (format "%-#4x" 10)
+;; (format "%-.1d" 10)
+
+(Assert (string= (format "%01.1d" 10) "10"))
+(Assert (string= (format "%03.1d" 10) "010"))
+(Assert (string= (format "%01.3d" 10) "10"))
+(Assert (string= (format "%1.3d" 10) "10"))
+(Assert (string= (format "%3.1d" 10) " 10"))

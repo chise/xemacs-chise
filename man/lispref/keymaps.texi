@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c Copyright (C) 1996 Ben Wing.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/keymaps.info
@@ -131,7 +131,7 @@ This function constructs and returns a new keymap object.  All entries
 in it are @code{nil}, meaning ``command undefined''.  The only
 difference between this function and @code{make-keymap} is that this
 function returns a ``smaller'' keymap (one that is expected to contain
-fewer entries).  As keymaps dynamically resize, the distinction is not
+fewer entries).  As keymaps dynamically resize, this distinction is not
 great.
 
 Optional argument @var{name} specifies a name to assign to the keymap,
@@ -282,7 +282,7 @@ That is, the @kbd{A} keystroke is represented by all of these forms:
         A       ?A      65      (A)     (?A)    (65)
         [A]     [?A]    [65]    [(A)]   [(?A)]  [(65)]
 @end example
-           
+
 the @kbd{control-a} keystroke is represented by these forms:
 
 @example
@@ -602,11 +602,13 @@ other.
 @end example
 @end defun
 
-@defun current-local-map
-This function returns the current buffer's local keymap, or @code{nil}
-if it has none.  In the following example, the keymap for the
-@samp{*scratch*} buffer (using Lisp Interaction mode) has a number
-of entries, including one prefix key, @kbd{C-x}.
+@defun current-local-map &optional buffer
+This function returns @var{buffer}'s local keymap, or @code{nil}
+if it has none.  @var{buffer} defaults to the current buffer.
+
+In the following example, the keymap for the @samp{*scratch*} buffer
+(using Lisp Interaction mode) has a number of entries, including one
+prefix key, @kbd{C-x}.
 
 @example
 @group
@@ -931,8 +933,8 @@ bindings, as in @code{lookup-key} (above).
 @end example
 @end defun
 
-@defun local-key-binding key &optional accept-defaults
-This function returns the binding for @var{key} in the current
+@defun local-key-binding keys &optional accept-defaults
+This function returns the binding for @var{keys} in the current
 local keymap, or @code{nil} if it is undefined there.
 
 @c Emacs 19 feature
@@ -940,8 +942,8 @@ The argument @var{accept-defaults} controls checking for default bindings,
 as in @code{lookup-key} (above).
 @end defun
 
-@defun global-key-binding key &optional accept-defaults
-This function returns the binding for command @var{key} in the
+@defun global-key-binding keys &optional accept-defaults
+This function returns the binding for command @var{keys} in the
 current global keymap, or @code{nil} if it is undefined there.
 
 @c Emacs 19 feature
@@ -1002,7 +1004,7 @@ meta-prefix-char                    ; @r{The default value.}
 @end group
 @group
 (setq meta-prefix-char 24)
-     @result{} 24      
+     @result{} 24
 @end group
 @group
 (key-binding "\C-xb")
@@ -1149,26 +1151,28 @@ changing an entry in @code{ctl-x-map}, and this has the effect of
 changing the bindings of both @kbd{C-p C-f} and @kbd{C-x C-f} in the
 default global map.
 
-@defun substitute-key-definition olddef newdef keymap &optional oldmap
+@defun substitute-key-definition olddef newdef keymap &optional oldmap prefix
 @cindex replace bindings
 This function replaces @var{olddef} with @var{newdef} for any keys in
 @var{keymap} that were bound to @var{olddef}.  In other words,
-@var{olddef} is replaced with @var{newdef} wherever it appears.  The
-function returns @code{nil}.
+@var{olddef} is replaced with @var{newdef} wherever it appears.  Prefix
+keymaps are checked recursively.
+
+The function returns @code{nil}.
 
 For example, this redefines @kbd{C-x C-f}, if you do it in an XEmacs with
 standard bindings:
 
 @smallexample
 @group
-(substitute-key-definition 
+(substitute-key-definition
  'find-file 'find-file-read-only (current-global-map))
 @end group
 @end smallexample
 
 @c Emacs 19 feature
 If @var{oldmap} is non-@code{nil}, then its bindings determine which
-keys to rebind.  The rebindings still happen in @var{newmap}, not in
+keys to rebind.  The rebindings still happen in @var{keymap}, not in
 @var{oldmap}.  Thus, you can change one map under the control of the
 bindings in another.  For example,
 
@@ -1182,6 +1186,11 @@ bindings in another.  For example,
 puts the special deletion command in @code{my-map} for whichever keys
 are globally bound to the standard deletion command.
 
+If argument @var{prefix} is non-@code{nil}, then only those occurrences
+of @var{olddef} found in keymaps accessible through the keymap bound to
+@var{prefix} in @var{keymap} are redefined.  See also
+@code{accessible-keymaps}.
+
 @ignore
 @c Emacs 18 only
 Prefix keymaps that appear within @var{keymap} are not checked
@@ -1194,9 +1203,9 @@ Here is an example showing a keymap before and after substitution:
 
 @smallexample
 @group
-(setq map '(keymap 
-            (?1 . olddef-1) 
-            (?2 . olddef-2) 
+(setq map '(keymap
+            (?1 . olddef-1)
+            (?2 . olddef-2)
             (?3 . olddef-1)))
 @result{} (keymap (49 . olddef-1) (50 . olddef-2) (51 . olddef-1))
 @end group
@@ -1225,8 +1234,8 @@ digits to run @code{digit-argument}, and @kbd{-} to run
 @code{negative-argument}.  Otherwise it makes them undefined like the
 rest of the printing characters.
 
-@cindex yank suppression 
-@cindex @code{quoted-insert} suppression 
+@cindex yank suppression
+@cindex @code{quoted-insert} suppression
 The @code{suppress-keymap} function does not make it impossible to
 modify a buffer, as it does not suppress commands such as @code{yank}
 and @code{quoted-insert}.  To prevent any modification of a buffer, make
@@ -1404,7 +1413,7 @@ sequences beginning with @kbd{C-x}.)
 
 @smallexample
 @group
-(current-local-map) 
+(current-local-map)
 @result{} #<keymap lisp-interaction-mode-map 5 entries 0x558>
 (accessible-keymaps (current-local-map))
 @result{}(([] . #<keymap lisp-interaction-mode-map 5 entries 0x558>)
@@ -1452,7 +1461,7 @@ indicating their relationship to their enclosing keymap.
 @end defun
 
 @defun map-keymap function keymap &optional sort-first
-This function applies @var{function} to each element of @code{KEYMAP}.
+This function applies @var{function} to each element of @var{keymap}.
 @var{function} will be called with two arguments: a key-description
 list, and the binding.  The order in which the elements of the keymap
 are passed to the function is unspecified.  If the function inserts new
@@ -1482,14 +1491,14 @@ bound to @var{definition} in a set of keymaps.
 The argument @var{definition} can be any object; it is compared with all
 keymap entries using @code{eq}.
 
-KEYMAPS can be either a keymap (meaning search in that keymap and the
+@var{keymaps} can be either a keymap (meaning search in that keymap and the
 current global keymap) or a list of keymaps (meaning search in exactly
-those keymaps and no others).  If KEYMAPS is nil, search in the currently
-applicable maps for EVENT-OR-KEYS.
+those keymaps and no others).  If @var{keymaps} is nil, search in the currently
+applicable maps for @var{event-or-keys}.
 
-If @var{keymap} is a keymap, then the maps searched are @var{keymap} and
-the global keymap.  If @var{keymap} is a list of keymaps, then the maps
-searched are exactly those keymaps, and no others.  If @var{keymap} is
+If @var{keymaps} is a keymap, then the maps searched are @var{keymaps} and
+the global keymap.  If @var{keymaps} is a list of keymaps, then the maps
+searched are exactly those keymaps, and no others.  If @var{keymaps} is
 @code{nil}, then the maps used are the current active keymaps for
 @var{event-or-keys} (this is equivalent to specifying
 @code{(current-keymaps @var{event-or-keys})} as the argument to
@@ -1538,13 +1547,14 @@ for mouse clicks.
   @code{describe-bindings-internal} is used to implement the
 help command @code{describe-bindings}.
 
-@deffn Command describe-bindings prefix mouse-only-p
+@deffn Command describe-bindings &optional prefix mouse-only-p
 This function creates a listing of all defined keys and their
 definitions.  It writes the listing in a buffer named @samp{*Help*} and
 displays it in a window.
 
-If @var{prefix} is non-@code{nil}, it should be a prefix key; then the
-listing includes only keys that start with @var{prefix}.
+If optional argument @var{prefix} is non-@code{nil}, it should be a
+prefix key; then the listing includes only keys that start with
+@var{prefix}.
 
 When several characters with consecutive @sc{ascii} codes have the
 same definition, they are shown together, as
@@ -1556,8 +1566,9 @@ For example, in the default global map, the characters @samp{@key{SPC}
 the normal printing characters, (e.g., letters, digits, punctuation,
 etc.@:); all these characters are bound to @code{self-insert-command}.
 
-If the second argument (prefix arg, interactively) is non-@code{nil}
-then only the mouse bindings are displayed.
+If the second optional argument @var{mouse-only-p} (prefix arg,
+interactively) is non-@code{nil} then only the mouse bindings are
+displayed.
 @end deffn
 
 @node Other Keymap Functions

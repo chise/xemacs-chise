@@ -1,7 +1,7 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
 @c Copyright (C) 1998 Oliver Graf <ograf@fga.de>
-@c Original reference is (c) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Original reference is (c) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/dragndrop.texi
 @node Drag and Drop, Modes, Scrollbars, Top
@@ -57,10 +57,10 @@ OffiX is supported if 'offix is member of the variable dragdrop-protocols, or
 the feature 'offix is defined.
 
 Unfortunately it uses it's own data types. Examples are: File, Files,
-Exe, Link, URL, MIME. The API tries to choose the right type for the data that 
+Exe, Link, URL, MIME. The API tries to choose the right type for the data that
 is dragged from XEmacs (well, not yet...).
 
-XEmacs supports both MIME and URL drags and drops using this API. No application 
+XEmacs supports both MIME and URL drags and drops using this API. No application
 interaction is possible while dragging is in progress.
 
 For information about the OffiX project have a look at http://leb.net/~offix/
@@ -107,7 +107,7 @@ misc-user-event.
 This misc-user-event has its function argument set to
 @code{dragdrop-drop-dispatch} and the object contains the data of the drop
 (converted to URL/MIME specific data). This function will search the variable
-@code{experimental-dragdrop-drop-functions} for a function that can handle the 
+@code{experimental-dragdrop-drop-functions} for a function that can handle the
 dropped data.
 
 To modify the drop behavior, the user can modify the variable
@@ -118,7 +118,7 @@ extent-property with the same name. Extents are checked prior to the
 variable.
 
 The customization group @code{drag-n-drop} shows all variables of user
-interest. 
+interest.
 
 @node Drag Interface
 @section Drag Interface

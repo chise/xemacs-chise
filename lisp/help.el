@@ -51,7 +51,7 @@
 (defvar help-map (let ((map (make-sparse-keymap)))
                    (set-keymap-name map 'help-map)
                    (set-keymap-prompt
-                     map (purecopy (gettext "(Type ? for further options)")))
+		    map (gettext "(Type ? for further options)"))
                    map)
   "Keymap for characters following the Help key.")
 
@@ -304,7 +304,7 @@ otherwise it is killed."
 Like `key-binding', but handles menu events and toolbar presses correctly.
 KEY is any value returned by `next-command-event'.
 MENU-FLAG is a symbol that should be set to t if KEY is a menu event,
- or nil otherwise"
+ or nil otherwise."
   (let (defn)
     (and menu-flag (set menu-flag nil))
     ;; If the key typed was really a menu selection, grab the form out
@@ -663,10 +663,10 @@ describes the minor mode."
 (defun describe-bindings (&optional prefix mouse-only-p)
   "Show a list of all defined keys, and their definitions.
 The list is put in a buffer, which is displayed.
-If the optional argument PREFIX is supplied, only commands which
-start with that sequence of keys are described.
-If the second argument (prefix arg, interactively) is non-null
-then only the mouse bindings are displayed."
+If optional first argument PREFIX is supplied, only commands
+which start with that sequence of keys are described.
+If optional second argument MOUSE-ONLY-P (prefix arg, interactively)
+is non-nil then only the mouse bindings are displayed."
   (interactive (list nil current-prefix-arg))
   (with-displaying-help-buffer
    (lambda ()
@@ -883,7 +883,7 @@ The number of messages shown is controlled by `view-lossage-message-count'."
   help-map)
 
 (defmacro with-syntax-table (syntab &rest body)
-  "Evaluate BODY with the syntax-table SYNTAB"
+  "Evaluate BODY with the SYNTAB as the current syntax table."
   `(let ((stab (syntax-table)))
      (unwind-protect
 	 (progn
@@ -1164,7 +1164,7 @@ part of the documentation of internal subroutines."
 
 (defvar help-symbol-function-and-variable-context-menu
   '("---"
-    ["View Function %_Documentation" (help-symbol-run-function 
+    ["View Function %_Documentation" (help-symbol-run-function
 				      'describe-function)]
     ["View Variable D%_ocumentation" (help-symbol-run-function
 				      'describe-variable)]

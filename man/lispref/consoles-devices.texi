@@ -90,12 +90,14 @@ frame.  This function is useful because devices and frames are similar
 in many respects and many functions can operate on either one.
 @end defun
 
-@defun device-frame-list device
+@defun device-frame-list &optional device
 This function returns a list of all frames on @var{device}.
+@var{device} defaults to the currently selected device.
 @end defun
 
-@defun frame-device frame
+@defun frame-device &optional frame
 This function returns the device that @var{frame} is on.
+@var{frame} defaults to the currently selected frame.
 @end defun
 
 @node Console Types and Device Classes
@@ -136,16 +138,17 @@ but no color).
 A device that can only display two colors (e.g. black and white).
 @end table
 
-@defun device-type device
+@defun device-type &optional device
 This function returns the type of @var{device}.  This is a symbol whose
-name is one of the device types mentioned above.
+name is one of the device types mentioned above.  @var{device} defaults
+to the selected device.
 @end defun
 
 @defun device-or-frame-type device-or-frame
 This function returns the type of @var{device-or-frame}.
 @end defun
 
-@defun device-class device
+@defun device-class &optional device
 This function returns the class (color behavior) of @var{device}.  This
 is a symbol whose name is one of the device classes mentioned above.
 @end defun
@@ -168,14 +171,14 @@ represents XEmacs's stdout.
 @node Connecting to a Console or Device
 @section Connecting to a Console or Device
 
-@defun make-device &optional type device-data
+@defun make-device type connection &optional props
 This function creates a new device.
 @end defun
 
 The following two functions create devices of specific types and are
 written in terms of @code{make-device}.
 
-@defun make-tty-device &optional tty terminal-type 
+@defun make-tty-device &optional tty terminal-type
 This function creates a new tty device on @var{tty}.  This also creates
 the tty's first frame.  @var{tty} should be a string giving the name of
 a tty device file (e.g. @samp{/dev/ttyp3} under SunOS et al.), as
@@ -193,7 +196,7 @@ argument @var{argv-list} is a list of strings describing command line
 options.
 @end defun
 
-@defun delete-device device
+@defun delete-device device &optional force
 This function deletes @var{device}, permanently eliminating it from use.
 This disconnects XEmacs's connection to the device.
 @end defun

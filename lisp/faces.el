@@ -842,12 +842,12 @@ the function to be called on it."
       ;;     happen if that locale has no instantiators.  So signal
       ;;     an error to indicate this.
 
-      
+
       (setq temp-sp (copy-specifier sp))
       (if (and (or (eq locale 'global) (eq locale 'all) (not locale))
 	       (not (face-property face property 'global)))
 	  (copy-specifier (face-property 'default property)
-			  temp-sp 'global))	    
+			  temp-sp 'global))
       (if (and (valid-specifier-locale-p locale)
 	       (not (specifier-specs temp-sp locale)))
 	  (error "Property must have a specification in locale %S" locale))
@@ -1298,7 +1298,7 @@ If FRAME is nil, return the default frame properties."
 
 (defun face-spec-update-all-matching (spec display plist)
   "Update all entries in the face spec that could match display to
-have the entries from the new plist and return the new spec"
+have the entries from the new plist and return the new spec."
   (mapcar
    (lambda (e)
      (let ((entries (car e))
@@ -1326,8 +1326,8 @@ have the entries from the new plist and return the new spec"
 	   (setq new-options (cddr new-options)))
 	 (list entries options))))
    (copy-sequence spec)))
-       
-		    
+
+
 
 (defun face-spec-set-match-display (display &optional frame)
   "Return non-nil if DISPLAY matches FRAME.
@@ -1781,25 +1781,25 @@ in that frame; otherwise change each frame."
 (if (featurep 'xpm)
     (setq xpm-color-symbols
 	  (list
-	   (purecopy '("foreground" (face-foreground 'default)))
-	   (purecopy '("background" (face-background 'default)))
-	   (purecopy '("backgroundToolBarColor"
-		       (or
-			(and 
-			 (featurep 'x)
-			 (x-get-resource "backgroundToolBarColor"
-					 "BackgroundToolBarColor" 'string
-					 nil nil 'warn))
+	   '("foreground" (face-foreground 'default))
+	   '("background" (face-background 'default))
+	   '("backgroundToolBarColor"
+	     (or
+	      (and
+	       (featurep 'x)
+	       (x-get-resource "backgroundToolBarColor"
+			       "BackgroundToolBarColor" 'string
+			       nil nil 'warn))
 
-			(face-background 'toolbar))))
-	   (purecopy '("foregroundToolBarColor"
-		       (or
-			(and 
-			 (featurep 'x)
-			 (x-get-resource "foregroundToolBarColor"
-					 "ForegroundToolBarColor" 'string
-					 nil nil 'warn))
-			(face-foreground 'toolbar))))
+	      (face-background 'toolbar)))
+	   '("foregroundToolBarColor"
+	     (or
+	      (and
+	       (featurep 'x)
+	       (x-get-resource "foregroundToolBarColor"
+			       "ForegroundToolBarColor" 'string
+			       nil nil 'warn))
+	      (face-foreground 'toolbar)))
 	   )))
 
 (when (featurep 'tty)

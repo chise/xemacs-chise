@@ -212,8 +212,10 @@ non-@code{nil}, the @code{find-file} command will check the
 @code{buffer-file-truename} of all visited files when deciding whether a
 given file is already in a buffer, instead of just
 @code{buffer-file-name}.  If you attempt to visit another file which is
-a hard-link or symbolic-link to a file that is already in a buffer, the
-existing buffer will be found instead of a newly created one.
+a symbolic link to a file that is already in a buffer, the existing
+buffer will be found instead of a newly created one.  This works if any
+component of the pathname (including a non-terminal component) is a
+symbolic link as well, but doesn't work with hard links (nothing does).
 
 @cindex creating files
    If you want to create a file, just visit it.  Emacs prints

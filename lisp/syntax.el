@@ -16,7 +16,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -147,11 +147,11 @@ If STRING is invalid, signal an error."
 	(setq code (cons code (aref string 1))))
     code))
 
-(defun modify-syntax-entry (char-range spec &optional table)
+(defun modify-syntax-entry (char-range spec &optional syntax-table)
   "Set syntax for the characters CHAR-RANGE according to string SPEC.
 CHAR-RANGE is a single character or a range of characters,
  as per `put-char-table'.
-The syntax is changed only for table TABLE, which defaults to
+The syntax is changed only for SYNTAX-TABLE, which defaults to
  the current buffer's syntax table.
 The first character of SPEC should be one of the following:
   Space    whitespace syntax.    w   word constituent.
@@ -181,26 +181,27 @@ Defined flags are the characters 1, 2, 3, 4, 5, 6, 7, 8, p, a, and b.
    between expressions.
  a means C is comment starter or comment ender for comment style a (default)
  b means C is comment starter or comment ender for comment style b."
-  (interactive 
+  (interactive
    ;; I really don't know why this is interactive
    ;; help-form should at least be made useful while reading the second arg
    "cSet syntax for character: \nsSet syntax for %c to: ")
-  (cond ((syntax-table-p table))
-        ((not table)
-         (setq table (syntax-table)))
-        (t
-         (setq table
-	       (wrong-type-argument 'syntax-table-p table))))
-  (let ((code (syntax-string-to-code spec)))
-    (simple-set-syntax-entry char-range code table))
+  (simple-set-syntax-entry
+   char-range
+   (syntax-string-to-code spec)
+   (cond ((syntax-table-p syntax-table)
+	  syntax-table)
+	 ((null syntax-table)
+	  (syntax-table))
+	 (t
+	  (wrong-type-argument 'syntax-table-p syntax-table))))
   nil)
 
-(defun map-syntax-table (__function __table &optional __range)
-  "Map FUNCTION over entries in syntax table TABLE, collapsing inheritance.
+(defun map-syntax-table (__function __syntax_table &optional __range)
+  "Map FUNCTION over entries in SYNTAX-TABLE, collapsing inheritance.
 This is similar to `map-char-table', but works only on syntax tables, and
  collapses any entries that call for inheritance by invisibly substituting
  the inherited values from the standard syntax table."
-  (check-argument-type 'syntax-table-p __table)
+  (check-argument-type 'syntax-table-p __syntax_table)
   (map-char-table #'(lambda (__key __value)
 		      (if (eq ?@ (char-syntax-from-code __value))
 			  (map-char-table #'(lambda (__key __value)
@@ -209,7 +210,7 @@ This is similar to `map-char-table', but works only on syntax tables, and
 					  (standard-syntax-table)
 					  __key)
 			(funcall __function __key __value)))
-		  __table __range))
+		  __syntax_table __range))
 
 ;(defun test-xm ()
 ;  (let ((o (copy-syntax-table))

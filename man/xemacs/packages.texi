@@ -1,4 +1,7 @@
-@node Packages, Abbrevs, Running, Top
+@c This is part of the XEmacs manual.
+@c Copyright (C) 1985, 86, 87, 93, 94, 95, 1997 Free Software Foundation, Inc.
+@c See file xemacs.texi for copying conditions.
+@node Packages, Basic, Startup Paths, Top
 @comment  node-name,  next,  previous,  up
 
 @section Packages
@@ -16,6 +19,7 @@ local needs with safe removal of unnecessary code.
 * Package Terminology:: Understanding different kinds of packages.
 * Using Packages::      How to install and use packages.
 * Building Packages::   Building packages from sources.
+* Available Packages::  A brief, out-of-date, directory of packaged LISP.
 @end menu
 
 @node Package Terminology, Using Packages, , Packages
@@ -335,7 +339,7 @@ changed packages.
 
 @end enumerate
 
-@node Building Packages, , Using Packages, Packages
+@node Building Packages, Available Packages, Using Packages, Packages
 @comment  node-name,  next,  previous,  up
 
 Source packages are available from the @file{packages/source-packages}
@@ -397,3 +401,272 @@ Runs the rules @code{srckit} followed by @code{binkit}.  This is
 primarily of use by XEmacs maintainers producing files for distribution.
 
 @end table
+
+@node Available Packages,  , Building Packages, Packages
+@comment  node-name,  next,  previous,  up
+
+This section is surely out-of-date.  If you're sure that XEmacs is
+able to do something, but your installed XEmacs won't do it for you,
+it's probably in a package.  If you can't find it in this section,
+that's a bug---please report it.  It is very hard to keep this section
+up-to-date; your reports, comments, and questions will help a lot.
+
+This data is up-to-date as of 10 February 1999.  (Ouch!  I told you!)
+
+@subsection Library Packages (libs)
+
+These packages are required to build and support most of the rest of
+XEmacs.  By design, xemacs-base is a `regular' package.  Use restraint 
+when adding new files there as it is required by almost everything.
+
+@table @file
+@item Sun
+Support for Sparcworks.
+
+@item apel
+A Portable Emacs Library.  Used by XEmacs MIME support.
+
+@item edebug
+A Lisp debugger.
+
+@item dired
+The DIRectory EDitor is for manipulating, and running commands on
+files in a directory.
+
+@item efs
+Treat files on remote systems the same as local files.
+
+@item mail-lib
+Fundamental lisp files for providing email support.
+
+@item tooltalk
+Support for building with Tooltalk.
+
+@item xemacs-base
+Fundamental XEmacs support.  Install this unless you wish a totally
+naked XEmacs.
+
+@item xemacs-devel
+XEmacs Lisp developer support.  This package contains utilities for
+supporting Lisp development.  It is a single-file package so it may be 
+tailored.
+@end table
+
+@subsection Communications Packages (comm)
+
+These packages provide support for various communications, primarily
+email and usenet.
+
+@table @file
+@item footnote
+Footnoting in mail message editing modes.
+
+@item gnats
+XEmacs bug reports.
+
+@item gnus
+The Gnus Newsreader and Mailreader.
+
+@item mailcrypt
+Support for messaging encryption with PGP.
+
+@item mh-e
+Front end support for MH.
+
+@item net-utils
+Miscellaneous Networking Utilities.  This is a single-file package and 
+files may be deleted at will.
+
+@item ph
+Emacs implementation of the ph client to CCSO/qi directory servers.
+
+@item rmail
+An obsolete Emacs mailer.  If you do not already use it don't start.
+
+@item supercite
+An Emacs citation tool.  Useful with all Emacs Mailers and Newsreaders.
+
+@item tm
+Emacs MIME support.
+
+@item vm
+An Emacs mailer.
+
+@item w3
+A Web browser.
+@end table
+
+@subsection Games and Amusements (games)
+
+@table @file
+@item cookie
+Spook and Yow (Zippy quotes).
+
+@item games
+Tetris, Sokoban, and Snake.
+
+@item mine
+Minehunt.
+
+@item misc-games
+Other amusements and diversions.
+@end table
+
+@subsection Mule Support (mule)
+
+@table @file
+@item egg-its
+Wnn (4.2 and 6) support.  SJ3 support.  Must be installed prior to
+XEmacs build.
+
+@item leim
+Quail.  Used for everything other than English and Japanese.
+
+@item locale
+Used for localized menubars (French and Japanese) and localized splash
+screens (Japanese).
+
+@item mule-base
+Basic Mule support.  Must be installed prior to building with Mule.
+
+@item skk
+Another Japanese Language Input Method.  Can be used without a
+separate process running as a dictionary server.
+@end table
+
+@subsection Productivity Packages (oa)
+
+@table @file
+@item calendar
+Calendar and diary support.
+
+@item edit-utils
+Single file lisp packages for various XEmacs goodies.  Load this and
+weed out the junk you don't want.
+
+@item forms
+Forms editing support (obsolete, use the builtin Widget instead).
+
+@item frame-icon
+Provide a WM icon based on major mode.
+
+@item hm--html-menus
+HTML editing.
+
+@item ispell
+Spell-checking with ispell.
+
+@item pc
+PC style interface emulation.
+
+@item psgml
+Validated HTML/SGML editing.
+
+@item sgml
+SGML/Linuxdoc-SGML editing.
+
+@item slider
+User interface tool.
+
+@item speedbar
+??? Document me.
+
+@item strokes
+Mouse enhancement utility.
+
+@item text-modes
+Various single file lisp packages for editing text files.
+
+@item time
+Display time & date on the modeline.
+@end table
+
+@subsection Operating System Utilities (os)
+
+@table @file
+@item eterm
+Terminal emulator.
+
+@item igrep
+Enhanced front-end for Grep.
+
+@item ilisp
+Front-end for Inferior Lisp.
+
+@item os-utils
+Miscellaneous single-file O/S utilities, for printing, archiving,
+compression, remote shells, etc.
+
+@item view-process
+A Unix process browsing tool.
+@end table
+
+@subsection Program Editing Support (prog)
+
+@table @file
+@item ada
+Ada language support.
+
+@item c-support
+Basic single-file add-ons for editing C code.
+
+@item cc-mode
+C, C++ and Java language support.
+
+@item debug
+GUD, gdb, dbx debugging support.
+
+@item ediff
+Interface over patch.
+
+@item emerge
+Another interface over patch.
+
+@item pcl-cvs
+CVS frontend.
+
+@item prog-modes
+Miscellaneous single-file lisp files for various programming languages.
+
+@item scheme
+Front-end support for Inferior Scheme.
+
+@item sh-script
+Support for editing shell scripts.
+
+@item vc
+Version Control for Free systems.
+
+@item vc-cc
+Version Control for ClearCase.  This package must be installed prior
+to building XEmacs [broken as of XEmacs 20.5-beta19].
+
+@item vhdl
+Support for VHDL.
+@end table
+
+@subsection Word Processing (wp)
+
+@table @file
+@item auctex
+Basic TeX/LaTeX support.
+
+@item crisp
+Crisp/Brief emulation.
+
+@item edt
+DEC EDIT/EDT emulation.
+
+@item texinfo
+XEmacs TeXinfo support.
+
+@item textools
+Single-file TeX support.
+
+@item tpu
+DEC EDIT/TPU support.
+
+@item viper
+VI emulation support.
+@end table
+

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/debugging.info
 @node Debugging, Read and Print, Byte Compilation, Top
@@ -232,7 +232,7 @@ Entering:
 @end example
 @end deffn
 
-@deffn Command cancel-debug-on-entry function-name
+@deffn Command cancel-debug-on-entry &optional function-name
 This function undoes the effect of @code{debug-on-entry} on
 @var{function-name}.  When called interactively, it prompts for
 @var{function-name} in the minibuffer.  If @var{function-name} is

@@ -776,7 +776,7 @@ all frames that were visible, and iconify all frames that were not."
     (setq iconification-data (cdr iconification-data))))
 
 (defun suspend-or-iconify-emacs ()
-  "Call iconify-emacs if using a window system, otherwise call suspend-emacs."
+  "Call iconify-emacs if using a window system, otherwise suspend Emacs."
   (interactive)
   (cond ((device-on-window-system-p)
 	 (iconify-emacs))
@@ -1055,8 +1055,8 @@ prepended to the `default-frame-plist' when creating a frame for the
 first time.
 
 This function may be used as the value of `pre-display-buffer-function',
-to cause the display-buffer function and its callers to exhibit the above
-behavior."
+to cause the `display-buffer' function and its callers to exhibit the
+above behavior."
   (let ((frame (get-frame-for-buffer-noselect
 		buffer not-this-window-p on-frame)))
     (if (not (eq frame (selected-frame)))
@@ -1104,7 +1104,7 @@ is first in the list.  VISIBLE-ONLY will only list non-iconified frames."
   :group 'frames)
 
 (defun show-temp-buffer-in-current-frame (buffer)
-  "For use as the value of temp-buffer-show-function:
+  "For use as the value of `temp-buffer-show-function':
 always displays the buffer in the selected frame, regardless of the behavior
 that would otherwise be introduced by the `pre-display-buffer-function', which
 is normally set to `get-frame-for-buffer' (which see)."

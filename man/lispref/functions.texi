@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/functions.info
 @node Functions, Macros, Variables, Top
@@ -17,7 +17,7 @@ define them.
 * Defining Functions::    Lisp expressions for defining functions.
 * Calling Functions::     How to use an existing function.
 * Mapping Functions::     Applying a function to each element of a list, etc.
-* Anonymous Functions::   Lambda expressions are functions with no names.    
+* Anonymous Functions::   Lambda expressions are functions with no names.
 * Function Cells::        Accessing or setting the function definition
                             of a symbol.
 * Inline Functions::	  Defining functions that the compiler will open code.
@@ -671,9 +671,9 @@ function:
 This function returns @var{arg} and has no side effects.
 @end defun
 
-@defun ignore &rest args
+@deffn Command ignore &rest args
 This function ignores any arguments and returns @code{nil}.
-@end defun
+@end deffn
 
 @node Mapping Functions
 @section Mapping Functions
@@ -718,10 +718,10 @@ The length of the result is the same as the length of @var{sequence}.
   "Apply FUNCTION to successive cars of all ARGS.
 Return the list of results."
   ;; @r{If no list is exhausted,}
-  (if (not (memq 'nil args))              
+  (if (not (memq 'nil args))
       ;; @r{apply function to @sc{car}s.}
-      (cons (apply f (mapcar 'car args))  
-            (apply 'mapcar* f             
+      (cons (apply f (mapcar 'car args))
+            (apply 'mapcar* f
                    ;; @r{Recurse for rest of elements.}
                    (mapcar 'cdr args)))))
 @end group
@@ -743,7 +743,7 @@ other suitable punctuation.
 The argument @var{function} must be a function that can take one
 argument and return a string.  The argument @var{sequence} can be any
 kind of sequence; that is, a list, a vector, a bit vector, or a string.
-  
+
 @smallexample
 @group
 (mapconcat 'symbol-name
@@ -931,7 +931,7 @@ and can be stored into a function cell just as any other object can be
 can make it void once more using @code{fmakunbound}.
 
 @defun fboundp symbol
-This function returns @code{t} if the symbol has an object in its
+This function returns @code{t} if @var{symbol} has an object in its
 function cell, @code{nil} otherwise.  It does not check that the object
 is a legitimate function.
 @end defun
@@ -976,9 +976,9 @@ making an alternate name for a function.)
 @item
 Giving a symbol a function definition that is not a list and therefore
 cannot be made with @code{defun}.  For example, you can use @code{fset}
-to give a symbol @code{s1} a function definition which is another symbol
-@code{s2}; then @code{s1} serves as an alias for whatever definition
-@code{s2} presently has.
+to give a symbol @var{symbol1} a function definition which is another symbol
+@var{symbol2}; then @var{symbol1} serves as an alias for whatever definition
+@var{symbol2} presently has.
 
 @item
 In constructs for defining or altering functions.  If @code{defun}

@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c Copyright (C) 1996 Ben Wing.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/extents.info
@@ -108,16 +108,16 @@ commands.  @xref{Duplicable Extents}.
 @node Creating and Modifying Extents
 @section Creating and Modifying Extents
 
-@defun make-extent from to &optional object
+@defun make-extent from to &optional buffer-or-string
 This function makes an extent for the range [@var{from}, @var{to}) in
-@var{object} (a buffer or string).  @var{object} defaults to the current
-buffer.  Insertions at point @var{to} will be outside of the extent;
-insertions at @var{from} will be inside the extent, causing the extent
-to grow (@pxref{Extent Endpoints}).  This is the same way that markers
-behave.  The extent is initially detached if both @var{from} and
-@var{to} are @code{nil}, and in this case @var{object} defaults to
-@code{nil}, meaning the extent is in no buffer or string
-(@pxref{Detached Extents}).
+@var{buffer-or-string} (a buffer or string).  @var{buffer-or-string}
+defaults to the current buffer.  Insertions at point @var{to} will be
+outside of the extent; insertions at @var{from} will be inside the
+extent, causing the extent to grow (@pxref{Extent Endpoints}).  This is
+the same way that markers behave.  The extent is initially detached if
+both @var{from} and @var{to} are @code{nil}, and in this case
+@var{buffer-or-string} defaults to @code{nil}, meaning the extent is in
+no buffer or string (@pxref{Detached Extents}).
 @end defun
 
 @defun delete-extent extent
@@ -135,9 +135,9 @@ however, a detached extent will not necessarily return a value of
 @code{nil}.
 @end defun
 
-@defun extent-live-p extent
-This function returns @code{nil} if @var{extent} is deleted, and
-@code{t} otherwise.
+@defun extent-live-p object
+This function returns @code{t} if @var{object} is an extent that has not
+been deleted, and @code{nil} otherwise.
 @end defun
 
 @node Extent Endpoints
@@ -231,7 +231,7 @@ are also provided (@pxref{Mapping Over Extents}).  When reading through
 this section, keep in mind the way that extents are ordered
 (@pxref{Extent Endpoints}).
 
-@defun extent-list &optional buffer-or-string from to flags
+@defun extent-list &optional buffer-or-string from to flags property value
 This function returns a list of the extents in @var{buffer-or-string}.
 @var{buffer-or-string} defaults to the current buffer if omitted.
 @var{from} and @var{to} can be used to limit the range over which
@@ -245,10 +245,19 @@ to the beginning and end of @var{buffer-or-string}, respectively.
 
   @var{flags} controls how end cases are treated.  For a discussion of
 this, and exactly what ``overlap'' means, see @code{map-extents}.
+
+The optional arguments @var{property} and @var{value} can be used to
+further restrict which extents are returned.  They have the same meaning
+as for @code{map-extents}.
+
+If you want to map a function over the extents in a buffer or string,
+consider using @code{map-extents} or @code{mapcar-extents} instead.
+
+See also the function @code{extents-at}.
 @end defun
 
   Functions that create extents must be prepared for the possibility
-that there are other extents in the same area, created by other 
+that there are other extents in the same area, created by other
 functions.  To deal with this, functions typically mark their own
 extents by setting a particular property on them.  The following
 function makes it easier to locate those extents.
@@ -326,8 +335,8 @@ the end of the region is open), but this can be changed with the
   @var{function} is called with the arguments (extent, @var{maparg}).
 The arguments @var{object}, @var{from}, @var{to}, @var{maparg}, and
 @var{flags} are all optional and default to the current buffer, the
-beginning of @var{object}, the end of @var{object}, @var{nil}, and
-@var{nil}, respectively.  @code{map-extents} returns the first
+beginning of @var{object}, the end of @var{object}, @code{nil}, and
+@code{nil}, respectively.  @code{map-extents} returns the first
 non-@code{nil} result produced by @var{function}, and no more calls to
 @var{function} are made after it returns non-@code{nil}.
 
@@ -436,7 +445,7 @@ Thus, this function may be used to walk a tree of extents in a buffer:
 @end defun
 
 @defun extent-in-region-p extent &optional from to flags
-This function returns @var{t} if @code{map-extents} would visit
+This function returns @code{t} if @code{map-extents} would visit
 @var{extent} if called with the given arguments.
 @end defun
 
@@ -463,9 +472,9 @@ from that parent (or from the root ancestor if the parent in turn
 has a parent), and setting a property of the extent actually sets
 that property on the parent.  @xref{Extent Parents}.
 
-@defun extent-property extent property
-This function returns the value of @var{property} in @var{extent}.  If
-@var{property} is undefined, @code{nil} is returned.
+@defun extent-property extent property &optional default
+This function returns @var{extent}'s value for @var{property}, or
+@var{default} if no such property exists.
 @end defun
 
 @defun extent-properties extent
@@ -669,9 +678,9 @@ there is none, @code{nil} is returned.
 The following convenience functions are provided for setting particular
 properties of an extent.
 
-@defun set-extent-priority extent pri
+@defun set-extent-priority extent priority
 This function sets the @code{priority} property of @var{extent} to
-@var{pri}.
+@var{priority}.
 @end defun
 
 @defun set-extent-face extent face
@@ -713,7 +722,7 @@ respectively. (@var{layout} defaults to @code{text} if not specified.)
 @end defun
 
 @defun set-extent-initial-redisplay-function extent function
-This function sets the @code{initial-redisplay-function} property of the 
+This function sets the @code{initial-redisplay-function} property of the
 extent to @var{function}.
 @end defun
 

@@ -79,7 +79,7 @@ XEmacs, and then reload those new or changed modules that are required.
 Messages informing you of the progress of the load are displayed unless
 the variable `load-modules-quietly' is non-NIL.
 */
-       (file,name,version))
+       (file, name, version))
 {
   char *mod, *mname, *mver;
   int speccount = specpdl_depth();
@@ -118,7 +118,7 @@ referring to variables inside the module code.  However, once you have
 requested a module to be unloaded, it will be unloaded from memory as
 soon as the last reference to symbols within the module is destroyed.
 */
-       (file,name,version))
+       (file, name, version))
 {
   int x;
   char *mod, *mname, *mver;

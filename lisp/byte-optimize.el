@@ -23,7 +23,7 @@
 ;; Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
-;;; Synched up with: FSF 19.30.
+;;; Synched up with: FSF 20.7.
 
 ;;; Commentary:
 
@@ -177,13 +177,13 @@
 ;;(disassemble #'(lambda (x) (eq (if (point) 'a 'b) 'c)))
 ;;(disassemble #'(lambda (x) (if (point) (eq 'a 'c) (eq 'b 'c))))
 
-;; (car (cons A B)) -> (progn B A)
+;; (car (cons A B)) -> (prog1 A B)
 ;;(disassemble #'(lambda (x) (car (cons (foo) 42))))
 
 ;; (cdr (cons A B)) -> (progn A B)
 ;;(disassemble #'(lambda (x) (cdr (cons 42 (foo)))))
 
-;; (car (list A B ...)) -> (progn B ... A)
+;; (car (list A B ...)) -> (prog1 A ... B)
 ;;(disassemble #'(lambda (x) (car (list (foo) 42 (bar)))))
 
 ;; (cdr (list A B ...)) -> (progn A (list B ...))
@@ -861,6 +861,44 @@
 		       (if (= 1 (length (cdr form))) "" "s"))
     form))
 
+(defun byte-optimize-car (form)
+  (let ((arg (cadr form)))
+    (cond
+     ((and (byte-compile-trueconstp arg)
+	   (not (and (consp arg)
+		     (eq (car arg) 'quote)
+		     (listp (cadr arg)))))
+      (byte-compile-warn
+       "taking car of a constant: %s" arg)
+      form)
+     ((and (eq (car-safe arg) 'cons)
+	   (eq (length arg) 3))
+      `(prog1 ,(nth 1 arg) ,(nth 2 arg)))
+     ((eq (car-safe arg) 'list)
+      `(prog1 ,@(cdr arg)))
+     (t
+      (byte-optimize-predicate form)))))
+
+(defun byte-optimize-cdr (form)
+  (let ((arg (cadr form)))
+    (cond
+     ((and (byte-compile-trueconstp arg)
+	   (not (and (consp arg)
+		     (eq (car arg) 'quote)
+		     (listp (cadr arg)))))
+      (byte-compile-warn
+       "taking cdr of a constant: %s" arg)
+      form)
+     ((and (eq (car-safe arg) 'cons)
+	    (eq (length arg) 3))
+       `(progn ,(nth 1 arg) ,(nth 2 arg)))
+      ((eq (car-safe arg) 'list)
+       (if (> (length arg) 2)
+	   `(progn ,(cadr arg) (list ,@(cddr arg)))
+	 (cadr arg)))
+      (t
+       (byte-optimize-predicate form)))))
+
 (put 'identity 'byte-optimizer 'byte-optimize-identity)
 
 (put '+   'byte-optimizer 'byte-optimize-plus)
@@ -899,8 +937,8 @@
 (put 'logxor 'byte-optimizer 'byte-optimize-logmumble)
 (put 'lognot 'byte-optimizer 'byte-optimize-predicate)
 
-(put 'car 'byte-optimizer 'byte-optimize-predicate)
-(put 'cdr 'byte-optimizer 'byte-optimize-predicate)
+(put 'car 'byte-optimizer 'byte-optimize-car)
+(put 'cdr 'byte-optimizer 'byte-optimize-cdr)
 (put 'car-safe 'byte-optimizer 'byte-optimize-predicate)
 (put 'cdr-safe 'byte-optimizer 'byte-optimize-predicate)
 
@@ -1111,6 +1149,18 @@
       (while (>= (setq count (1- count)) 0)
 	(setq form (list 'cdr form)))
       form)))
+
+(put 'concat 'byte-optimizer 'byte-optimize-concat)
+(defun byte-optimize-concat (form)
+  (let ((args (cdr form))
+	(constant t))
+    (while (and args constant)
+      (or (byte-compile-constp (car args))
+	  (setq constant nil))
+      (setq args (cdr args)))
+    (if constant
+	(eval form)
+      form)))
 
 ;;; enumerating those functions which need not be called if the returned
 ;;; value is not used.  That is, something like
@@ -1181,8 +1231,7 @@
 	 hash-table-p
 	 identity ignore integerp integer-or-marker-p interactive-p
 	 invocation-directory invocation-name
-	 ;; keymapp may autoload in XEmacs, so not on this list!
-	 list listp
+	 keymapp list listp
 	 make-marker mark mark-marker markerp memory-limit minibuffer-window
 	 ;; mouse-movement-p not in XEmacs
 	 natnump nlistp not null number-or-marker-p numberp
@@ -1372,11 +1421,14 @@
 (defconst byte-after-unbind-ops
    '(byte-constant byte-dup
      byte-symbolp byte-consp byte-stringp byte-listp byte-numberp byte-integerp
-     byte-eq byte-equal byte-not
+     byte-eq byte-not
      byte-cons byte-list1 byte-list2	; byte-list3 byte-list4
      byte-interactive-p)
    ;; How about other side-effect-free-ops?  Is it safe to move an
    ;; error invocation (such as from nth) out of an unwind-protect?
+   ;; No, it is not, because the unwind-protect forms can alter
+   ;; the inside of the object to which nth would apply.
+   ;; For the same reason, byte-equal was deleted from this list.
    "Byte-codes that can be moved past an unbind.")
 
 (defconst byte-compile-side-effect-and-error-free-ops

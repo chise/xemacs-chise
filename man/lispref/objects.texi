@@ -1081,11 +1081,11 @@ where @var{property-data} consists of zero or more elements, in groups
 of three as follows:
 
 @example
-@var{beg} @var{end} @var{plist}
+@var{start} @var{end} @var{plist}
 @end example
 
 @noindent
-The elements @var{beg} and @var{end} are integers, and together specify
+The elements @var{start} and @var{end} are integers, and together specify
 a range of indices in the string; @var{plist} is the property list for
 that range.
 @end ignore
@@ -2255,7 +2255,7 @@ to @code{old-eq} when executed under XEmacs 20.
 
 @end defun
 
-@defun old-eq obj1 obj2
+@defun old-eq object1 object2
 This function exists under XEmacs 20 and is exactly like @code{eq}
 except that it suffers from the char-int confoundance disease.
 In other words, it returns @code{t} if given a character and the

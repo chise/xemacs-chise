@@ -275,7 +275,7 @@ Emacs will stop receiving messages that match this pattern.
 Add one value to the indicated pattern attribute. The names of attributes
 are the same as the Tooltalk accessors used to set them less the
 "tooltalk_pattern_" prefix and the "_add" suffix).  For example
-the name of the attribute for tt_pattern_dispostion_add attribute
+the name of the attribute for tt_pattern_disposition_add attribute
 is 'disposition.  The 'category attribute is handled specially,
 since a pattern can only be a member of one category (TT_OBSERVE
 or TT_HANDLE.

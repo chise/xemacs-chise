@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/maps.info
 @node Standard Keymaps, Standard Hooks, Standard Buffer-Local Variables, Top
@@ -163,7 +163,7 @@ The minibuffer keymap used for reading Lisp expressions.
 
 @item read-shell-command-map
 @vindex read-shell-command-map
-The minibuffer keymap used by shell-command and related commands.
+The minibuffer keymap used by @code{shell-command} and related commands.
 
 @item shared-lisp-mode-map
 @vindex shared-lisp-mode-map

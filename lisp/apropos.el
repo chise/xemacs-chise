@@ -377,7 +377,7 @@ Returns list of symbols and documentation found."
 ;; Finds all documentation related to APROPOS-REGEXP in internal-doc-file-name.
 
 (defun apropos-documentation-check-doc-file ()
-  (let (type symbol (sepa 2) sepb beg end doc)
+  (let (type symbol (sepa 2) sepb start end doc)
     (insert ?\^_)
     (backward-char)
     (insert-file-contents (concat doc-directory internal-doc-file-name))
@@ -390,14 +390,14 @@ Returns list of symbols and documentation found."
 	    (narrow-to-region (point) (1- sepb))
 	    (re-search-forward apropos-regexp nil t))
 	  (progn
-	    (setq beg (match-beginning 0)
+	    (setq start (match-beginning 0)
 		  end (point))
 	    (goto-char (1+ sepa))
 	    (or (setq type (if (eq ?F (preceding-char))
 			       1	; function documentation
 			     2)		; variable documentation
 		      symbol (read)
-		      beg (- beg (point) 1)
+		      start (- start (point) 1)
 		      end (- end (point) 1)
 		      doc (buffer-substring (1+ (point)) (1- sepb))
 		      apropos-item (assq symbol apropos-accumulator))
@@ -405,32 +405,32 @@ Returns list of symbols and documentation found."
 		      apropos-accumulator (cons apropos-item
 						apropos-accumulator)))
 	    (if apropos-match-face
-		(put-text-property beg end 'face apropos-match-face doc))
+		(put-text-property start end 'face apropos-match-face doc))
 	    (setcar (nthcdr type apropos-item) doc)))
       (setq sepa (goto-char sepb)))))
 
 (defun apropos-documentation-check-elc-file (file)
   (if (member file apropos-files-scanned)
       nil
-    (let (symbol doc beg end this-is-a-variable)
+    (let (symbol doc start end this-is-a-variable)
       (setq apropos-files-scanned (cons file apropos-files-scanned))
       (erase-buffer)
       (insert-file-contents file)
       (while (search-forward "\n#@" nil t)
 	;; Read the comment length, and advance over it.
 	(setq end (read)
-	      beg (1+ (point))
+	      start (1+ (point))
 	      end (+ (point) end -1))
 	(forward-char)
 	(if (save-restriction
 	      ;; match ^ and $ relative to doc string
-	      (narrow-to-region beg end)
+	      (narrow-to-region start end)
 	      (re-search-forward apropos-regexp nil t))
 	    (progn
 	      (goto-char (+ end 2))
-	      (setq doc (buffer-substring beg end)
-		    end (- (match-end 0) beg)
-		    beg (- (match-beginning 0) beg)
+	      (setq doc (buffer-substring start end)
+		    end (- (match-end 0) start)
+		    start (- (match-beginning 0) start)
 		    this-is-a-variable (looking-at "(def\\(var\\|const\\) ")
 		    symbol (progn
 			     (skip-chars-forward "(a-z")
@@ -448,7 +448,7 @@ Returns list of symbols and documentation found."
 			      apropos-accumulator (cons apropos-item
 							apropos-accumulator)))
 		    (if apropos-match-face
-			(put-text-property beg end 'face apropos-match-face
+			(put-text-property start end 'face apropos-match-face
 					   doc))
 		    (setcar (nthcdr (if this-is-a-variable 2 1)
 				    apropos-item)

@@ -32,6 +32,7 @@ Boston, MA 02111-1307, USA.  */
 
 Lisp_Object Qask_user_about_supersession_threat;
 Lisp_Object Qask_user_about_lock;
+int inhibit_clash_detection;
 
 #ifdef CLASH_DETECTION
 
@@ -311,10 +312,15 @@ lock_file (Lisp_Object fn)
   register Lisp_Object attack, orig_fn;
   register char *lfname, *locker;
   lock_info_type lock_info;
-  struct gcpro gcpro1,gcpro2;
+  struct gcpro gcpro1, gcpro2, gcpro3;
+  Lisp_Object old_current_buffer;
   Lisp_Object subject_buf;
 
-  GCPRO2 (fn, subject_buf);
+  if (inhibit_clash_detection)
+    return;
+
+  XSETBUFFER (old_current_buffer, current_buffer);
+  GCPRO3 (fn, subject_buf, old_current_buffer);
   orig_fn = fn;
   fn = Fexpand_file_name (fn, Qnil);
 
@@ -333,8 +339,10 @@ lock_file (Lisp_Object fn)
   }
 
   /* Try to lock the lock. */
-  if (lock_if_free (&lock_info, lfname) <= 0)
-    /* Return now if we have locked it, or if lock creation failed */
+  if (current_buffer != XBUFFER (old_current_buffer)
+      || lock_if_free (&lock_info, lfname) <= 0)
+    /* Return now if we have locked it, or if lock creation failed
+     or current buffer is killed. */
     goto done;
 
   /* Else consider breaking the lock */
@@ -347,7 +355,7 @@ lock_file (Lisp_Object fn)
   attack = call2_in_buffer (BUFFERP (subject_buf) ? XBUFFER (subject_buf) :
 			    current_buffer, Qask_user_about_lock , fn,
 			    build_string (locker));
-  if (!NILP (attack))
+  if (!NILP (attack) && current_buffer == XBUFFER (old_current_buffer))
     /* User says take the lock */
     {
       lock_file_1 (lfname, 1);
@@ -488,5 +496,13 @@ syms_of_filelock (void)
   defsymbol (&Qask_user_about_lock, "ask-user-about-lock");
 }
 
+void
+vars_of_filelock (void)
+{
+  DEFVAR_BOOL ("inhibit-clash-detection", &inhibit_clash_detection /*
+Non-nil inhibits creation of lock file to detect clash.
+*/);
+  inhibit_clash_detection = 0;
+}
 
 #endif /* CLASH_DETECTION */

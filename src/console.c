@@ -196,7 +196,7 @@ valid_console_type_p (Lisp_Object type)
 }
 
 DEFUN ("valid-console-type-p", Fvalid_console_type_p, 1, 1, 0, /*
-Given a CONSOLE-TYPE, return t if it is valid.
+Return t if CONSOLE-TYPE is a valid console type.
 Valid types are 'x, 'tty, and 'stream.
 */
        (console_type))
@@ -216,9 +216,9 @@ DEFUN ("cdfw-console", Fcdfw_console, 1, 1, 0, /*
 Given a console, device, frame, or window, return the associated console.
 Return nil otherwise.
 */
-       (obj))
+       (object))
 {
-  return CDFW_CONSOLE (obj);
+  return CDFW_CONSOLE (object);
 }
 
 
@@ -307,7 +307,7 @@ Return non-nil if OBJECT is a console that has not been deleted.
 }
 
 DEFUN ("console-type", Fconsole_type, 0, 1, 0, /*
-Return the type of the specified console (e.g. `x' or `tty').
+Return the console type (e.g. `x' or `tty') of CONSOLE.
 Value is `tty' for a tty console (a character-only terminal),
 `x' for a console that is an X display,
 `mswindows' for a console that is a Windows NT/95/97 connection,
@@ -327,7 +327,7 @@ Value is `tty' for a tty console (a character-only terminal),
 }
 
 DEFUN ("console-name", Fconsole_name, 0, 1, 0, /*
-Return the name of the specified console.
+Return the name of CONSOLE.
 */
        (console))
 {
@@ -750,7 +750,7 @@ Return a list of all consoles.
 
 DEFUN ("console-device-list", Fconsole_device_list, 0, 1, 0, /*
 Return a list of all devices on CONSOLE.
-If CONSOLE is nil, the selected console will be used.
+If CONSOLE is nil, the selected console is used.
 */
        (console))
 {
@@ -780,7 +780,8 @@ Disable input on console CONSOLE.
 }
 
 DEFUN ("console-on-window-system-p", Fconsole_on_window_system_p, 0, 1, 0, /*
-Return non-nil if this console is on a window system.
+Return t if CONSOLE is on a window system.
+If CONSOLE is nil, the selected console is used.
 This generally means that there is support for the mouse, the menubar,
 the toolbar, glyphs, etc.
 */
@@ -1023,6 +1024,7 @@ See also `current-input-mode'.
       TTY_FLAGS (con).flow_control = !NILP (flow);
       TTY_FLAGS (con).meta_key = meta_key;
       init_one_console (con);
+      MARK_FRAME_CHANGED (XFRAME (CONSOLE_SELECTED_FRAME (con)));
     }
 #endif
 

@@ -70,8 +70,8 @@ but optional second arg NODIGITS non-nil treats them like other chars."
 In other words, OLDDEF is replaced with NEWDEF wherever it appears.
 Prefix keymaps are checked recursively.  If optional fourth argument OLDMAP
 is specified, we redefine in KEYMAP as NEWDEF those chars which are defined
-as OLDDEF in OLDMAP, unless that keybinding is already present in keymap.
-If optional fifth argument PREFIX is defined, then only those occurrences of
+as OLDDEF in OLDMAP, unless that keybinding is already present in KEYMAP.
+If optional fifth argument PREFIX is non-nil, then only those occurrences of
 OLDDEF found in keymaps accessible through the keymap bound to PREFIX in
 KEYMAP are redefined.  See also `accessible-keymaps'."
   (let ((maps (accessible-keymaps (or oldmap keymap) prefix))
@@ -103,8 +103,6 @@ KEYMAP are redefined.  See also `accessible-keymaps'."
       )))
 
 
-;; From Bill Dubuque <wgd@martigny.ai.mit.edu>
-
 ;; This used to wrap forms into an interactive lambda.  It is unclear
 ;; to me why this is needed in this function.  Anyway,
 ;; `key-or-menu-binding' doesn't do it, so this function no longer
@@ -119,7 +117,6 @@ KEYMAP are redefined.  See also `accessible-keymaps'."
           (setq defn (key-binding defn))) ;; a keyboard macro
       (insert (format "%s" defn)))))
 
-;; From Bill Dubuque <wgd@martigny.ai.mit.edu>
 (defun read-command-or-command-sexp (prompt)
   "Read a command symbol or command sexp.
 A command sexp is wrapped in an interactive lambda if needed.
@@ -136,7 +133,7 @@ Prompts with PROMPT."
 	   ,result)
       result)))
 
-(defun local-key-binding (keys)
+(defun local-key-binding (keys &optional accept-defaults)
   "Return the binding for command KEYS in current local keymap only.
 KEYS is a string, a vector of events, or a vector of key-description lists
 as described in the documentation for the `define-key' function.
@@ -144,17 +141,16 @@ The binding is probably a symbol with a function definition; see
 the documentation for `lookup-key' for more information."
   (let ((map (current-local-map)))
     (if map
-        (lookup-key map keys)
+        (lookup-key map keys accept-defaults)
         nil)))
 
-(defun global-key-binding (keys)
+(defun global-key-binding (keys &optional accept-defaults)
   "Return the binding for command KEYS in current global keymap only.
 KEYS is a string or vector of events, a sequence of keystrokes.
 The binding is probably a symbol with a function definition; see
 the documentation for `lookup-key' for more information."
-  (lookup-key (current-global-map) keys))
+  (lookup-key (current-global-map) keys accept-defaults))
 
-;; from Bill Dubuque <wgd@martigny.ai.mit.edu>
 (defun global-set-key (key command)
   "Give KEY a global binding as COMMAND.
 COMMAND is a symbol naming an interactively-callable function.
@@ -172,7 +168,6 @@ that local binding will continue to shadow any global binding."
   (define-key (current-global-map) key command)
   nil)
 
-;; from Bill Dubuque <wgd@martigny.ai.mit.edu>
 (defun local-set-key (key command)
   "Give KEY a local binding as COMMAND.
 COMMAND is a symbol naming an interactively-callable function.

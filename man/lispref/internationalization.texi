@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/internationalization.info
 @node Internationalization, MULE, PostgreSQL Support, top
@@ -160,12 +160,8 @@ Example:
 @end example
 @end defspec
 
-Autoloaded functions which are specified in @file{loaddefs.el} do not need
-to have a domain specification, because their documentation strings are
-extracted into the main message base.  However, for autoloaded functions
-which are specified in a separate package, use following syntax:
-
-@defun autoload symbol filename &optional docstring interactive macro domain
+@defun autoload function filename &optional docstring interactive type
+This function defines @var{function} to autoload from @var{filename}
 Example:
 @example
 (autoload 'explore "jungle" "Explore the jungle." nil nil "emacs-gorilla")

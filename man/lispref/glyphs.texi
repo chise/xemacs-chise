@@ -82,7 +82,7 @@ a toolbar, or as a mouse pointer or an icon, for example.
 
 Creating a glyph using @code{make-glyph} does not specify @emph{where}
 the glyph will be used, but it does specify @emph{what} the glyph will
-look like.  In particular, SPEC-LIST is used to specify this, and it's
+look like.  In particular, @var{spec-list} is used to specify this, and it's
 used to initialize the glyph's @code{image} property, which is an image
 specifier. (Note that @dfn{image} as used in the context of a glyph's
 @code{image} property or in the terms @dfn{image specifier}, @dfn{image
@@ -90,7 +90,7 @@ instantiator}, or @dfn{image instance} does not refer to what people
 normally think of as an image (which in XEmacs is called a
 @dfn{pixmap}), but to any graphical element---a pixmap, a widget, or
 even a block of text, when used in the places that call for a glyph.)
-The format of the SPEC-LIST is typically an image instantiator (a string
+The format of the @var{spec-list} is typically an image instantiator (a string
 or a vector; @ref{Image Specifiers}), but can also be a list of such
 instantiators (each one in turn is tried until an image is successfully
 produced), a cons of a locale (frame, buffer, etc.)  and an
@@ -235,7 +235,7 @@ filled in with the corresponding colors from the face.
 @end itemize
 
 It is extremely rare that you will ever have to specify a value for
-TYPE, which should be one of @code{buffer} (used for glyphs in an
+@var{type}, which should be one of @code{buffer} (used for glyphs in an
 extent, the modeline, the toolbar, or elsewhere in a buffer),
 @code{pointer} (used for the mouse-pointer), or @code{icon} (used for a
 frame's icon), and defaults to @code{buffer}.  The only cases where it
@@ -880,10 +880,15 @@ the file must exist when the instantiator is added to the image, but
 does not need to exist at any other time (e.g. it may safely be a
 temporary file).
 
-@defun valid-image-instantiator-format-p format
+@defun valid-image-instantiator-format-p format &optional locale
 This function returns non-@code{nil} if @var{format} is a valid image
-instantiator format.  Note that the return value for many formats listed
-above depends on whether XEmacs was compiled with support for that format.
+instantiator format.
+
+If @var{locale} is non-@code{nil} then the format is checked in that locale.
+If @var{locale} is @code{nil} the current console is used.
+
+Note that the return value for many formats listed above depends on
+whether XEmacs was compiled with support for that format.
 @end defun
 
 @defun image-instantiator-format-list
@@ -906,7 +911,7 @@ The default value of this variable defines the logical color names
 @end defvar
 
 @defvar x-bitmap-file-path
-A list of the directories in which X bitmap files may be found.  If nil,
+A list of the directories in which X bitmap files may be found.  If @code{nil},
 this is initialized from the @samp{"*bitmapFilePath"} resource.  This is
 used by the @code{make-image-instance} function (however, note that if
 the environment variable @samp{XBMLANGPATH} is set, it is consulted
@@ -1047,13 +1052,13 @@ instance of type @code{nothing}.
 @end defun
 
 @defun widget-image-instance-p object
-Return t if @var{object} is an image instance of type @code{widget}.
+Return @code{t} if @var{object} is an image instance of type @code{widget}.
 @end defun
 
 @node Image Instance Functions
 @subsubsection Image Instance Functions
 
-@defun make-image-instance data &optional domain dest-types no-error
+@defun make-image-instance data &optional domain dest-types noerror
 This function creates a new image-instance object.
 
 @var{data} is an image instantiator, which describes the image
@@ -1110,10 +1115,10 @@ fix this.)
 n
 If omitted, @var{domain} defaults to the selected window.
 
-@var{no-error} controls what happens when the image cannot be generated.
-If @var{nil}, an error message is generated.  If @var{t}, no messages
-are generated and this function returns @var{nil}.  If anything else, a
-warning message is generated and this function returns @var{nil}.
+@var{noerror} controls what happens when the image cannot be generated.
+If @code{nil}, an error message is generated.  If @code{t}, no messages
+are generated and this function returns @code{nil}.  If anything else, a
+warning message is generated and this function returns @code{nil}.
 @end defun
 
 @defun colorize-image-instance image-instance foreground background

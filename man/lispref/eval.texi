@@ -1,6 +1,6 @@
 @c -*-texinfo-*-
 @c This is part of the XEmacs Lisp Reference Manual.
-@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc. 
+@c Copyright (C) 1990, 1991, 1992, 1993, 1994 Free Software Foundation, Inc.
 @c See the file lispref.texi for copying conditions.
 @setfilename ../../info/eval.info
 @node Evaluation, Control Structures, Symbols, Top
@@ -30,7 +30,7 @@ function @code{eval}.
 @section Introduction to Evaluation
 
   The Lisp interpreter, or evaluator, is the program that computes
-the value of an expression that is given to it.  When a function 
+the value of an expression that is given to it.  When a function
 written in Lisp is called, the evaluator computes the value of the
 function by evaluating the expressions in the function body.  Thus,
 running any Lisp program really means running the Lisp interpreter.
@@ -433,7 +433,7 @@ function, not a symbol.
 @smallexample
 @group
 ((lambda (arg) (erste arg))
- '(1 2 3)) 
+ '(1 2 3))
      @result{} 1
 @end group
 @end smallexample
@@ -445,12 +445,11 @@ symbol function indirection when calling @code{erste}.
   The built-in function @code{indirect-function} provides an easy way to
 perform symbol function indirection explicitly.
 
-@c Emacs 19 feature
-@defun indirect-function function
-This function returns the meaning of @var{function} as a function.  If
-@var{function} is a symbol, then it finds @var{function}'s function
-definition and starts over with that value.  If @var{function} is not a
-symbol, then it returns @var{function} itself.
+@defun indirect-function object
+This function returns the meaning of @var{object} as a function.  If
+@var{object} is a symbol, then it finds @var{object}'s function
+definition and starts over with that value.  If @var{object} is not a
+symbol, then it returns @var{object} itself.
 
 Here is how you could define @code{indirect-function} in Lisp:
 

@@ -20,7 +20,7 @@
 ;; General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with XEmacs; see the file COPYING.  If not, write to the 
+;; along with XEmacs; see the file COPYING.  If not, write to the
 ;; Free Software Foundation, 59 Temple Place - Suite 330,
 ;; Boston, MA 02111-1307, USA.
 
@@ -96,7 +96,7 @@ See `current-menubar' for a description of the syntax of a menubar."
        ((stringp menuitem)
 	(and (string-match "^\\(-+\\|=+\\):\\(.*\\)" menuitem)
 	     (setq item (match-string 2 menuitem))
-	     (or (member item '(;; Motif-compatible 
+	     (or (member item '(;; Motif-compatible
 				"singleLine"
 				"doubleLine"
 				"singleDashedLine"
@@ -289,14 +289,13 @@ MENU-LEAF is a menubar leaf node.  See the documentation of `current-menubar'.
 BEFORE, if provided, is the name of a menu item before which this item should
  be added, if this item is not on the menu already.  If the item is already
  present, it will not be moved.
-If IN-MENU is present use that instead of `current-menubar' as the menu to
-change.
-"
+IN-MENU, if provided, means use that instead of `current-menubar' as the
+ menu to change."
   ;; Note easymenu.el uses the fact that menu-leaf can be a submenu.
   (add-menu-item-1 t menu-path menu-leaf before in-menu))
 
 ;; I actually liked the old name better, but the interface has changed too
-;; drastically to keep it. --Stig 
+;; drastically to keep it. --Stig
 (defun add-submenu (menu-path submenu &optional before in-menu)
   "Add a menu to the menubar or one of its submenus.
 If the named menu exists already, it is changed.
@@ -308,33 +307,38 @@ SUBMENU is the new menu to add.
  See the documentation of `current-menubar' for the syntax.
 BEFORE, if provided, is the name of a menu before which this menu should
  be added, if this menu is not on its parent already.  If the menu is already
- present, it will not be moved."
+ present, it will not be moved.
+IN-MENU, if provided, means use that instead of `current-menubar' as the
+ menu to change."
   (check-menu-syntax submenu nil)
   (add-menu-item-1 nil menu-path submenu before in-menu))
-
-(defun purecopy-menubar (x)
-  ;; this calls purecopy on the strings, and the contents of the vectors,
-  ;; but not on the vectors themselves, or the conses - those must be
-  ;; writable.
-  (cond ((vectorp x)
-	 (let ((i (length x)))
-	   (while (> i 0)
-	     (aset x (1- i) (purecopy (aref x (1- i))))
-	     (setq i (1- i))))
-	 x)
-	((consp x)
-	 (let ((rest x))
-	   (while rest
-	     (setcar rest (purecopy-menubar (car rest)))
-	     (setq rest (cdr rest))))
-	 x)
-	(t
-	 (purecopy x))))
+;; purespace is no more, so this function is unnecessary
+;(defun purecopy-menubar (x)
+;  ;; this calls purecopy on the strings, and the contents of the vectors,
+;  ;; but not on the vectors themselves, or the conses - those must be
+;  ;; writable.
+;  (cond ((vectorp x)
+;	 (let ((i (length x)))
+;	   (while (> i 0)
+;	     (aset x (1- i) (purecopy (aref x (1- i))))
+;	     (setq i (1- i))))
+;	 x)
+;	((consp x)
+;	 (let ((rest x))
+;	   (while rest
+;	     (setcar rest (purecopy-menubar (car rest)))
+;	     (setq rest (cdr rest))))
+;	 x)
+;	(t
+;	 (purecopy x))))
 
 (defun delete-menu-item (path &optional from-menu)
   "Remove the named menu item from the menu hierarchy.
-PATH is a list of strings which identify the position of the menu item in 
-the menu hierarchy.  The documentation of `add-submenu' describes menu-paths."
+PATH is a list of strings which identify the position of the menu item
+in the menu hierarchy.  The documentation of `add-submenu' describes
+menu paths.
+FROM-MENU, if provided, means use that instead of `current-menubar'
+as the menu to change."
   (let* ((pair (condition-case nil (find-menu-item (or from-menu
 						       current-menubar) path)
 		 (error nil)))
@@ -352,13 +356,13 @@ the menu hierarchy.  The documentation of `add-submenu' describes menu-paths."
 
 (defun relabel-menu-item (path new-name)
   "Change the string of the specified menu item.
-PATH is a list of strings which identify the position of the menu item in 
+PATH is a list of strings which identify the position of the menu item in
 the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
-under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the 
+under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\".
 NEW-NAME is the string that the menu item will be printed as from now on."
   (or (stringp new-name)
-      (setq new-name (signal 'wrong-type-argument (list 'stringp new-name))))
+      (setq new-name (wrong-type-argument 'stringp new-name)))
   (let* ((menubar current-menubar)
          (pair (find-menu-item menubar path))
          (item (car pair))
@@ -380,7 +384,7 @@ NEW-NAME is the string that the menu item will be printed as from now on."
 ;; into the menubar if we didn't want people to use 'em?
 ;; x-font-menu.el is the only known offender right now and that ought to be
 ;; rehashed a bit.
-;; 
+;;
 
 (defun enable-menu-item-1 (path toggle-p on-p)
   (let (menu item)
@@ -430,33 +434,33 @@ NEW-NAME is the string that the menu item will be printed as from now on."
 
 (defun enable-menu-item (path)
   "Make the named menu item be selectable.
-PATH is a list of strings which identify the position of the menu item in 
+PATH is a list of strings which identify the position of the menu item in
 the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
-under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the 
+under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\"."
   (enable-menu-item-1 path nil t))
 
 (defun disable-menu-item (path)
   "Make the named menu item be unselectable.
-PATH is a list of strings which identify the position of the menu item in 
+PATH is a list of strings which identify the position of the menu item in
 the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
-under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the 
+under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\"."
   (enable-menu-item-1 path nil nil))
 
 (defun select-toggle-menu-item (path)
   "Make the named toggle- or radio-style menu item be in the `selected' state.
-PATH is a list of strings which identify the position of the menu item in 
+PATH is a list of strings which identify the position of the menu item in
 the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
-under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the 
+under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\"."
   (enable-menu-item-1 path t t))
 
 (defun deselect-toggle-menu-item (path)
  "Make the named toggle- or radio-style menu item be in the `unselected' state.
-PATH is a list of strings which identify the position of the menu item in 
+PATH is a list of strings which identify the position of the menu item in
 the menu hierarchy.  (\"File\" \"Save\") means the menu item called \"Save\"
-under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the 
+under the toplevel \"File\" menu.  (\"Menu\" \"Foo\" \"Item\") means the
 menu item called \"Item\" under the \"Foo\" submenu of \"Menu\"."
   (enable-menu-item-1 path t nil))
 
@@ -554,7 +558,7 @@ button was clicked."
       (dispatch-event (next-event)))
 
     ))
-  
+
 (defun popup-buffer-menu (event)
   "Pop up a copy of the Buffers menu (from the menubar) where the mouse is clicked."
   (interactive "e")

@@ -549,9 +549,13 @@ Don't call this unless you know what you're doing.
 	  }
       }
 
+#if 0 /* What's wrong with going through ordinary procedure of quit?
+         quitting here leaves overriding-terminal-local-map
+         when you type C-u C-u C-g. */
       /* If ^G was typed before we got here (that is, before emacs was
 	 idle and waiting for input) then we treat that as an interrupt. */
       QUIT;
+#endif
 
       /* If minibuffer on and echo area in use, wait 2 sec and redraw
 	 minibuffer.  Treat a ^G here as a command, not an interrupt.

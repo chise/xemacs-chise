@@ -588,14 +588,14 @@ parentheses on the modeline."
 		     "button2 cycles to the next buffer")
 
 (defconst modeline-buffer-identification
-  (list (cons modeline-buffer-id-left-extent (purecopy "XEmacs%N:"))
+  (list (cons modeline-buffer-id-left-extent "XEmacs%N:")
 					; this used to be "XEmacs:"
-	(cons modeline-buffer-id-right-extent (purecopy " %17b")))
+	(cons modeline-buffer-id-right-extent " %17b"))
   "Modeline control for identifying the buffer being displayed.
 Its default value is
 
-  (list (cons modeline-buffer-id-left-extent (purecopy \"XEmacs%N:\"))
-	(cons modeline-buffer-id-right-extent (purecopy \" %17b\")))
+  (list (cons modeline-buffer-id-left-extent \"XEmacs%N:\")
+	(cons modeline-buffer-id-right-extent \" %17b\")))
 
 Major modes that edit things other than ordinary files may change this
 (e.g. Info, Dired,...).")
@@ -626,7 +626,7 @@ Normally nil in most modes, since there is no process to display.")
 (set-extent-property modeline-modified-extent 'help-echo
 		     "button2 toggles the buffer's read-only status")
 
-(defconst modeline-modified (purecopy '("--%1*%1+-"))
+(defconst modeline-modified '("--%1*%1+-")
   "Modeline control for displaying whether current buffer is modified.")
 (make-variable-buffer-local 'modeline-modified)
 
@@ -645,21 +645,21 @@ Normally nil in most modes, since there is no process to display.")
 (setq-default
  modeline-format
  (list
-  (purecopy "")
+  ""
   (cons modeline-modified-extent 'modeline-modified)
   (cons modeline-buffer-id-extent 'modeline-buffer-identification)
-  (purecopy "   ")
+  "   "
   'global-mode-string
-  (purecopy "   %[(")
+  "   %[("
   (cons modeline-minor-mode-extent
-	(list (purecopy "") 'mode-name 'minor-mode-alist))
-  (cons modeline-narrowed-extent (purecopy "%n"))
+	(list "" 'mode-name 'minor-mode-alist))
+  (cons modeline-narrowed-extent "%n")
   'modeline-process
-  (purecopy ")%]----")
-  (list 'line-number-mode (purecopy "L%l--"))
-  (list 'column-number-mode (purecopy "C%c--"))
-  (cons -3 (purecopy "%p"))
-  (purecopy "-%-")))
+  ")%]----"
+  (list 'line-number-mode "L%l--")
+  (list 'column-number-mode "C%c--")
+  (cons -3 "%p")
+  "-%-"))
 
 ;;; Added for XEmacs 20.3.  Provide wrapper for vc since it may not always be
 ;;; present, and its symbols are not visible this early in the dump if it

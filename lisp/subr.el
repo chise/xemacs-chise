@@ -359,7 +359,7 @@ function allows you to set the local value.
 NOTE: At some point, this will be moved into C and will be very fast."
   (with-current-buffer buffer
     (set sym val)))
-      
+
 ;;;; String functions.
 
 ;; XEmacs
@@ -446,13 +446,13 @@ See also `with-temp-buffer'."
     (set-buffer ,buffer)
     ,@body))
 
-(defmacro with-temp-file (file &rest forms)
-  "Create a new buffer, evaluate FORMS there, and write the buffer to FILE.
+(defmacro with-temp-file (filename &rest forms)
+  "Create a new buffer, evaluate FORMS there, and write the buffer to FILENAME.
 The value of the last form in FORMS is returned, like `progn'.
 See also `with-temp-buffer'."
   (let ((temp-file (make-symbol "temp-file"))
 	(temp-buffer (make-symbol "temp-buffer")))
-    `(let ((,temp-file ,file)
+    `(let ((,temp-file ,filename)
 	   (,temp-buffer
 	    (get-buffer-create (generate-new-buffer-name " *temp file*"))))
        (unwind-protect
@@ -571,20 +571,20 @@ The original alist is not modified.  See also `destructive-alist-to-plist'."
 
 ;; getf, remf in cl*.el.
 
-(defmacro putf (plist prop val)
-  "Add property PROP to plist PLIST with value VAL.
-Analogous to (setq PLIST (plist-put PLIST PROP VAL))."
-  `(setq ,plist (plist-put ,plist ,prop ,val)))
+(defmacro putf (plist property value)
+  "Add property PROPERTY to plist PLIST with value VALUE.
+Analogous to (setq PLIST (plist-put PLIST PROPERTY VALUE))."
+  `(setq ,plist (plist-put ,plist ,property ,value)))
 
-(defmacro laxputf (lax-plist prop val)
-  "Add property PROP to lax plist LAX-PLIST with value VAL.
-Analogous to (setq LAX-PLIST (lax-plist-put LAX-PLIST PROP VAL))."
-  `(setq ,lax-plist (lax-plist-put ,lax-plist ,prop ,val)))
+(defmacro laxputf (lax-plist property value)
+  "Add property PROPERTY to lax plist LAX-PLIST with value VALUE.
+Analogous to (setq LAX-PLIST (lax-plist-put LAX-PLIST PROPERTY VALUE))."
+  `(setq ,lax-plist (lax-plist-put ,lax-plist ,property ,value)))
 
-(defmacro laxremf (lax-plist prop)
-  "Remove property PROP from lax plist LAX-PLIST.
-Analogous to (setq LAX-PLIST (lax-plist-remprop LAX-PLIST PROP))."
-  `(setq ,lax-plist (lax-plist-remprop ,lax-plist ,prop)))
+(defmacro laxremf (lax-plist property)
+  "Remove property PROPERTY from lax plist LAX-PLIST.
+Analogous to (setq LAX-PLIST (lax-plist-remprop LAX-PLIST PROPERTY))."
+  `(setq ,lax-plist (lax-plist-remprop ,lax-plist ,property)))
 
 ;;; Error functions
 
@@ -746,9 +746,9 @@ yourself.]"
 ;;;; Miscellanea.
 
 ;; This is now in C.
-;(defun buffer-substring-no-properties (beg end)
-;  "Return the text from BEG to END, without text properties, as a string."
-;  (let ((string (buffer-substring beg end)))
+;(defun buffer-substring-no-properties (start end)
+;  "Return the text from START to END, without text properties, as a string."
+;  (let ((string (buffer-substring start end)))
 ;    (set-text-properties 0 (length string) nil string)
 ;    string))
 
