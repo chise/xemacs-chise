@@ -1103,6 +1103,19 @@
   '((ideographic-radical . 75)	; ⽊
     (ideographic-strokes . 3)
     (total-strokes	 . 7)
+    (<-denotational
+     ((=ucs		  . #x675F)	; 束
+      ))
+    (<-ideographic-component-forms
+     ((=ucs		  . #x675F)	; 束
+      ))
+    (=gt-k		. 02598)	; &GT-K02598;
+    (=gt-pj-k1		. #x3472)	; &GT-K02598; [20-82]
+    ))
+(define-char
+  '((ideographic-radical . 75)	; ⽊
+    (ideographic-strokes . 3)
+    (total-strokes	 . 7)
     (shinjigen-2	. 3754)
     (=ucs		. #x6760)	; 杠
     (=jis-x0208		. #x5B3A)	; &I-J90-5B3A; [59-26]
