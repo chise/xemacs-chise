@@ -1,3 +1,18 @@
+2004-03-15  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R023-Hiding-Enclosure.el (C6-212B): Moved into
+	U-0002092C.
+	(JSP-3433): Moved into U+533C.
+	(U+533C): Use `->subsumptive'.
+
+	* Ideograph-R022-Right-Open-Box.el (U-0002092C): Use
+	`->subsumptive'; include C6-212B.
+
+2004-03-14  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* Ideograph-R018-Knife.el (J0-3D69): Moved into U+521D.
+	(U+521D): Use `->subsumptive'; include C1-4F4F.
+
 2004-03-13  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* Ideograph-R115-Grain.el (U+4188): Use `->subsumptive'.
