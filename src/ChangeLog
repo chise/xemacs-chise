@@ -1,3 +1,23 @@
+2001-12-04  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
+
+	* mule-charset.c (Vcharset_ucs_smp): New variable.
+	(Vcharset_ucs_sip): New variable.
+	(Qucs_smp): New variable.
+	(Qucs_sip): New variable.
+	(encode_builtin_char_1): Treat MIN_CHAR_{SMP|SIP} to
+	MAX_CHAR_{SMP|SIP} as `ucs-{smp|sip}'.
+	(syms_of_mule_charset): Add new symbols `ucs-smp' and `ucs-sip'.
+	(complex_vars_of_mule_charset): Modify middle-DOC and registry of
+	`ucs-bmp'; addn new coded-charset `ucs-smp' and `ucs-sip'; change
+	charset width of `ucs-cns', `ucs-jis', `ucs-ks' and `ucs-big5'.
+
+	* char-ucs.h (LEADING_BYTE_UCS_SMP): New macro.
+	(LEADING_BYTE_UCS_SIP): New macro.
+	(MIN_CHAR_SMP): New macro.
+	(MAX_CHAR_SMP): New macro.
+	(MIN_CHAR_SIP): New macro.
+	(MAX_CHAR_SIP): New macro.
+
 2001-11-30  Yoshiki Hayashi  <yoshiki@xemacs.org>
 
 	* dumper.c (PDUMP_HASH_SIZE): Increase the size of hash table when
