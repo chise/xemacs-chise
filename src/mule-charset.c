@@ -68,6 +68,7 @@ Lisp_Object Vcharset_ucs;
 Lisp_Object Vcharset_ucs_bmp;
 Lisp_Object Vcharset_ucs_smp;
 Lisp_Object Vcharset_ucs_sip;
+Lisp_Object Vcharset_ucs_gb;
 Lisp_Object Vcharset_ucs_cns;
 Lisp_Object Vcharset_ucs_jis;
 Lisp_Object Vcharset_ucs_ks;
@@ -340,6 +341,7 @@ Lisp_Object Qascii,
   Qucs_bmp,
   Qucs_smp,
   Qucs_sip,
+  Qucs_gb,
   Qucs_cns,
   Qucs_jis,
   Qucs_ks,
@@ -2728,6 +2730,7 @@ syms_of_mule_charset (void)
   defsymbol (&Qucs_bmp,			"ucs-bmp");
   defsymbol (&Qucs_smp,			"ucs-smp");
   defsymbol (&Qucs_sip,			"ucs-sip");
+  defsymbol (&Qucs_gb,			"ucs-gb");
   defsymbol (&Qucs_cns,			"ucs-cns");
   defsymbol (&Qucs_jis,			"ucs-jis");
   defsymbol (&Qucs_ks,			"ucs-ks");
@@ -2879,6 +2882,15 @@ complex_vars_of_mule_charset (void)
 		  build_string ("\\(ISO10646.*-2\\|UCS00-2\\)"),
 		  Qnil, MIN_CHAR_SIP, MAX_CHAR_SIP,
 		  MIN_CHAR_SIP, 0, Qnil, CONVERSION_IDENTICAL);
+  staticpro (&Vcharset_ucs_gb);
+  Vcharset_ucs_gb =
+    make_charset (LEADING_BYTE_UCS_GB, Qucs_gb, 256, 3,
+		  2, 2, 0, CHARSET_LEFT_TO_RIGHT,
+		  build_string ("UCS for GB"),
+		  build_string ("UCS for GB"),
+		  build_string ("ISO/IEC 10646 for GB"),
+		  build_string (""),
+		  Qnil, 0, 0, 0, 0, Vcharset_ucs, CONVERSION_IDENTICAL);
   staticpro (&Vcharset_ucs_cns);
   Vcharset_ucs_cns =
     make_charset (LEADING_BYTE_UCS_CNS, Qucs_cns, 256, 3,
