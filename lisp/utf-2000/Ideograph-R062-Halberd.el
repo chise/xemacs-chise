@@ -579,31 +579,11 @@
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½
-    (ideographic-strokes . 5)
-    (total-strokes	 . 9)
-    (ideographic-structure
-     ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER SURROUND FROM UPPER RIGHT")
-      (=ucs		  . #x2FF9)	; â¿¹
-      )
-     ((=ucs		  . #x6208)	; æˆˆ
-      )
-     ((=ucs		  . #x51AC)	; å†¬
-      ))
-    (sources		bos=A016481-00008)
-    (=ruimoku-v6	. #xE005)	; øº€…
-    ))
-(define-char
-  '((=>daikanwa		. 11583)	; ø»—²ž
-    (ideographic-radical . 62)	; â¼½
     (ideographic-strokes . 6)
     (total-strokes	 . 10)
     (=ucs		. #x39B4)	; ã¦´
-    (->subsumptive
-     ((=cns11643-4	  . #x2D2F)	; ø»—²ž
-      (=daikanwa	  . 11583)	; ø¸‚´¿
-      )
-     ((=ucs@unicode	  . #x39B4)	; ó°€–
-      ))
+    (=cns11643-4	. #x2D2F)	; ø»—²ž
+    (=daikanwa		. 11583)	; ø¸‚´¿
     ))
 (define-char
   '((ideographic-radical . 62)	; â¼½

@@ -420,7 +420,7 @@
     (ideographic-strokes . 7)
     (total-strokes	 . 8)
     (<-simplified
-     ((=ucs		  . #x23D92)	; ð£¶’
+     ((=daikanwa	  . 00084)	; ø¸€”
       ))
     (=big5-cdp		. #x89CD)	; ý¢€ˆ§
     ))
