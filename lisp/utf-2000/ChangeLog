@@ -1,3 +1,51 @@
+2001-08-14  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R118-Bamboo.el (C7-484D): Delete M-49439.
+
+2001-08-13  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R120-Silk.el (C2-6B75): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+
+	* Ideograph-R113-Spirit.el (JX2-726C): Use `ideographic-strokes'
+	instead of `japanese-strokes'.
+
+2001-08-13  MORIOKA Tomohiko  <tomo@calliope.mousai.mahoroba.ne.jp>
+
+	* Ideograph-R109-Eye.el (C3-2E35): Add `ideographic-strokes'.
+	(C5-2A5F): Likewise.
+	(C6-3A2D): Likewise.
+	(C6-4242): Likewise.
+	(J0-4365): Use `ideographic-strokes' instead of
+	`japanese-strokes'.
+	(C6-4B7B): Add `ideographic-strokes'.
+	(C5-3A4E): Likewise.
+	(C6-5559): Likewise.
+	(C6-555D): Likewise.
+	(C4-4539): Likewise.
+	(C4-4541): Likewise.
+	(C3-4837): Likewise.
+	(C4-4B42): Likewise.
+	(C4-4B49): Likewise.
+	(C5-4E61): Likewise.
+	(C5-5621): Likewise.
+	(C4-5160): Likewise.
+	(C5-5C48): Likewise.
+	(C7-3959): Likewise.
+	(C4-6370): Likewise.
+
+	* Ideograph-R104-Sickness.el (JSP-4D78): Use `ideographic-strokes'
+	instead of `japanese-strokes'.
+
+	* Ideograph-R086-Fire.el (JX2-6F5C): Use `ideographic-strokes'
+	instead of `japanese-strokes'.
+	(J0-4F27): Use `ideographic-strokes' instead of `kangxi-strokes'.
+	(C2-4B69): Likewise.
+	(JX2-7028): Use `ideographic-strokes' instead of `kangxi-strokes'.
+
+	* Ideograph-R094-Dog.el (C3-3D2A): Use `ideographic-strokes'
+	instead of `kangxi-strokes'.
+
 2001-08-12  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
 	* ideograph-util.el (morohashi-daikanwa<): Accept integer.
