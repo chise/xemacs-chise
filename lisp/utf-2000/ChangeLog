@@ -1,5 +1,9 @@
 2004-04-18  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
+	* Ideograph-R020-Wrap.el (JSP-337B): Moved into U+5300; use
+	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
+	(U+5300): Use `->subsumptive'.
+
 	* Ideograph-R022-Right-Open-Box.el (U+531D): Use
 	`<-vulgar*sources' instead of char-ref in `<-vulgar'.
 
@@ -11,6 +15,12 @@
 	(U-00020159): Use `->subsumptive'.
 
 	* Ideograph-R001-One.el (G0-3373): Add `<-vulgar*sources'.
+
+	* Ideograph-R003-Dot.el (U+51E1): Moved to
+	Ideograph-R016-Table.el.
+	(U-0002007E): Use `ideographic-{radical|strokes}@{ucs|daikanwa}'
+	instead of `ideographic-'; use `hanyu-dazidian' instead of
+	`hanyu-dazidian-{vol|page|char}'.
 
 2004-04-16  MORIOKA Tomohiko  <tomo@kanji.zinbun.kyoto-u.ac.jp>
 
