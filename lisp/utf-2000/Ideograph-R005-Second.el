@@ -1779,7 +1779,10 @@
        ((name . "IDEOGRAPHIC DESCRIPTION CHARACTER ABOVE TO BELOW")
 	(ucs		    . #x2FF1)	; â¿±
 	)
-       ((ucs		    . #x722B)	; çˆ«
+       ((japanese-jisx0212	    . #x4A48)	; ø»‹¡…
+	(chinese-cns11643-4	    . #x2151)	; ø»—¡˜
+	(japanese-jisx0213-2	    . #x702A)	; ø»¦‘‹
+	(ideograph-daikanwa	    . 19655)	; ø¸„³‡
 	)
        ((japanese-jisx0208-1978	    . #x3B65)	; ø»‚£
 	(japanese-jisx0208	    . #x3B65)	; ø»†·˜
