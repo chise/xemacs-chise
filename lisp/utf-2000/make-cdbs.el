@@ -34,8 +34,27 @@
   (dolist (ccs (charset-list))
     (save-charset-mapping-table ccs)))
 
+(defun file-name-char-attribute-name (filename)
+  (let ((i 0)
+	(base 0)
+	(len (length filename))
+	chr dest)
+    (while (< i len)
+      (if (eq (setq chr (aref filename i)) ?%)
+	  (setq dest (concat dest
+			     (substring filename base i)
+			     (char-to-string
+			      (int-char
+			       (string-to-int
+				(substring filename (1+ i) (+ i 3)) 16))))
+		i (+ i 3)
+		base i)
+	(setq i (1+ i))))
+    (concat dest (substring filename base len))))
+
 (mapcar (lambda (file)
-	  (reset-char-attribute-table (intern file)))
+	  (reset-char-attribute-table
+	   (intern (file-name-char-attribute-name file))))
 	(directory-files
 	 (expand-file-name "system-char-id"
 			   system-char-database-directory)
